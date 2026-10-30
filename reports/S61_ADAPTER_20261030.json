@@ -1,0 +1,147 @@
+{
+  "id": "S61_ADAPTER_20261030",
+  "timestamp_utc": "2026-10-30T08:41:49.475375+00:00",
+  "all_passed": true,
+  "check_groups": 24,
+  "checks": [
+    {
+      "name": "all_150_basis_entries_equal_archived_ordering",
+      "passed": true,
+      "entries": 150
+    },
+    {
+      "name": "all_150_coefficients_roundtrip",
+      "passed": true,
+      "entries": 150
+    },
+    {
+      "name": "six_parameter_toric_frame_congruence",
+      "passed": true,
+      "field": "QQ(a,b,c,d,e,f)",
+      "open_condition": "a*(a*f-b*e+c*d) != 0"
+    },
+    {
+      "name": "six_parameter_frame_determinant",
+      "passed": true
+    },
+    {
+      "name": "six_parameter_value_normalized_at_e0",
+      "passed": true
+    },
+    {
+      "name": "rational_toric_point_reconstruction_and_equations",
+      "passed": true,
+      "input_parameters": [
+        2,
+        3,
+        5,
+        7,
+        11,
+        13
+      ],
+      "reconstruction_coefficients": 150,
+      "reduced_equations": 134,
+      "projective_jacobi": true
+    },
+    {
+      "name": "normalization_idempotent",
+      "passed": true
+    },
+    {
+      "name": "generic_E_wedge_EndV_gauge_invariance",
+      "passed": true,
+      "gauge_parameters": 25
+    },
+    {
+      "name": "finite_perspective_orbit_normalization",
+      "passed": true,
+      "perspective": [
+        2,
+        -3,
+        5,
+        -7
+      ]
+    },
+    {
+      "name": "pushforward_composition_order",
+      "passed": true
+    },
+    {
+      "name": "pushforward_inverse",
+      "passed": true
+    },
+    {
+      "name": "reject_wrong_evaluation",
+      "passed": true,
+      "exception": "ValueError"
+    },
+    {
+      "name": "reject_toric_zero_first_pivot",
+      "passed": true,
+      "exception": "ValueError"
+    },
+    {
+      "name": "reject_toric_zero_pfaffian",
+      "passed": true,
+      "exception": "ValueError"
+    },
+    {
+      "name": "reject_wrong_parameter_count",
+      "passed": true,
+      "exception": "ValueError"
+    },
+    {
+      "name": "reject_cubic_contamination",
+      "passed": true,
+      "exception": "ValueError"
+    },
+    {
+      "name": "reject_constant_contamination",
+      "passed": true,
+      "exception": "ValueError"
+    },
+    {
+      "name": "reject_non_skew_matrix",
+      "passed": true,
+      "exception": "ValueError"
+    },
+    {
+      "name": "reject_wrong_matrix_size",
+      "passed": true,
+      "exception": "ValueError"
+    },
+    {
+      "name": "negative_control_has_nonzero_projective_jacobi",
+      "passed": true
+    },
+    {
+      "name": "reject_nonpoisson_point_verification",
+      "passed": true,
+      "exception": "AssertionError"
+    },
+    {
+      "name": "optimized_symbolic_rank_one_equations",
+      "passed": true,
+      "parameter": "u34=t/(1+t), all other ui=0",
+      "field": "QQ(t)",
+      "open_condition": "t != -1",
+      "equations_compared": 134
+    },
+    {
+      "name": "scalar_symbolic_negative_control_nonzero",
+      "passed": true,
+      "nonzero_equations_zero_based": [
+        60
+      ]
+    },
+    {
+      "name": "optimized_symbolic_negative_control_rejected",
+      "passed": true,
+      "exception": "AssertionError"
+    }
+  ],
+  "implementation_sha256": "347fd285c5342d6e6444bf6d049a49342650a22b29857f87bbd5f4b689400fc1",
+  "verifier_sha256": "003d8a929e9a0ad2022cb56c317821063aca96cf68e887cec8ba1ffe4c538001",
+  "scope": "Exact coordinate and finite group-action regression checks; no prime decomposition, family dominance, or global exhaustion claim.",
+  "reproduction_command": "PYTHONDONTWRITEBYTECODE=1 .venv/bin/python code/verify_s61_adapter.py"
+}

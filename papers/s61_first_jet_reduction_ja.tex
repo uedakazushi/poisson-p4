@@ -1,0 +1,487 @@
+\documentclass[11pt,a4paper]{ltjsarticle}
+\usepackage[margin=24mm]{geometry}
+\usepackage[haranoaji]{luatexja-preset}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs,longtable,array}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue!45!black,urlcolor=blue!45!black,
+  pdftitle={射影四空間のPoisson構造の一次ジェット還元},
+  pdfauthor={Poisson P4 research project}}
+\setlength{\emergencystretch}{3em}
+\newcommand{\CC}{\mathbf C}
+\newcommand{\QQ}{\mathbf Q}
+\newcommand{\PP}{\mathbf P}
+\newcommand{\AA}{\mathbf A}
+\newcommand{\GG}{\mathbf G}
+\newcommand{\cP}{\mathcal P_4}
+\newcommand{\dd}{\mathrm d}
+\DeclareMathOperator{\Sp}{Sp}
+\DeclareMathOperator{\CSp}{CSp}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\PGL}{PGL}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\Stab}{Stab}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\grad}{grad}
+\newtheorem{theorem}{定理}[section]
+\newtheorem{proposition}[theorem]{命題}
+\newtheorem{lemma}[theorem]{補題}
+\newtheorem{corollary}[theorem]{系}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{注意}
+\renewcommand{\proofname}{証明}
+\title{射影四空間の Poisson 構造の一次ジェット還元\\
+\large $S_{61}$ の primitive gauge、toric 成分の優越性と階数一の層}
+\author{Poisson P4 研究プロジェクト・内部研究草稿}
+\date{2026年10月30日}
+\begin{document}
+\maketitle
+\begin{abstract}
+射影四空間の一般階数四 Poisson 構造を捉える既存の61変数模型について、
+4方向の perspective 作用を有限の多項式公式で除く。
+一次項の symplectic trace を零にする正規化は一意であり、残る16方向は
+閉じた primitive な一次係数2形式として自然に表される。
+係数写像の階数一の非零部分は5次元の単一 $\Sp_4$ 軌道であり、
+その上の全解の研究を45変数・134二次式の一つの fibre に帰着する。
+この fibre の成分分解は未解決である。
+さらに既知 toric 成分から16次元の一次ジェット空間への射影が優越的であることを、
+明示した非零小行列式により示す。従ってある非空開部分の全一次ジェットは延長可能であるが、
+同じ一次項を持つ全解の分類や延長の一意性は導かない。
+本稿は新規性の文献監査前の内部草稿であり、全成分の尽くしや成分数の更新を主張しない。
+\end{abstract}
+
+\section{対象、既存模型、主張の範囲}
+基礎体を $\CC$ とし、対象を
+\[
+ \cP=\{[\pi]\in\PP H^0(\PP^4,\wedge^2T_{\PP^4}):[\pi,\pi]=0\}
+\]
+とする。これは非零スカラー倍を除いた Jacobi スキームであり、$\PGL_5$ 商は取らない。
+研究全体の既知の成分数の下界は57であるが、上界は未確定である。
+
+既存の第2版\cite{v2}は、一般階数四の全既約成分に対応する正の重み付き模型
+\[
+ S_{61}=\Spec\CC[u_1,\ldots,u_{61}]/I_{61}
+\]
+を構成する。重みは $1^{16},2^{45}$、保存された定義式は重み4の70式と重み5の64式である。
+一次項を零にする45変数断面の分類を、$S_{61}$ 全体の分類と同一視しない。
+本稿はこの模型の重み1部分を層別するための構造を整理する。
+
+\subsection{成分対応に必要な幾何}
+固定点 $p=[1:0:0:0:0]$ で評価が非退化な開部分を $\mathcal U\subset\cP$ とする。
+一般階数四の各既約成分は $\mathcal U$ と交わる。
+実際、連結群 $\PGL_5$ は既約成分を保ち、任意の非退化点を $p$ に移せる。
+従って $\mathcal U$ の既約成分は、全空間の一般階数四成分と一対一に対応する。
+
+評価の射影値の空間は $\GL_4/\CSp_4$、次元は5である。
+その安定化群 $\CSp_4$ は連結なので、associated bundle の fibre の成分を置換しない。
+定数項を
+\[
+ J=\partial_1\wedge\partial_2+\partial_3\wedge\partial_4
+\]
+に固定した fibre に移り、4次元の perspective 群を除く。
+第2版の55変数の三角消去と20個の Bianchi 恒等式による ideal の同一性を用いると、
+対応する成分 $C,C_{61}$ の次元は
+\[
+ \dim C=5+4+\dim C_{61}=9+\dim C_{61}
+\]
+を満たす。三角消去の分母は非零の有理定数のみであり、形式近傍に限定した主張ではない。
+この成分対応の使用は、保存された exact elimination の成立を入力とする。
+本稿の一次ジェットの議論だけで、134式の全構築や全既約分解を置換するものではない。
+
+\section{Perspective 作用の有限公式}
+$U=\CC^4$、affine 座標 $y=(y_1,\ldots,y_4)^t$、Euler 場 $E=y$ とする。
+以下では同じ記号を反対称係数行列にも用い、$v\wedge w=vw^t-wv^t$ と約束する。
+特に
+\[
+ J=\begin{pmatrix}0&1&0&0\\-1&0&0&0\\0&0&0&1\\0&0&-1&0\end{pmatrix}.
+\]
+射影空間上の bivector の $x_0=1$ chart への制限を
+\begin{equation}\label{eq:decomposition}
+ P=J+L+Q+C
+\end{equation}
+と書く。係数次数はそれぞれ0,1,2,3であり、射影延長条件により
+$C=E\wedge B$、$B$ は二次係数ベクトル場である。
+これは、斉次二次 bivector を affine 座標に射影した際、三次項が
+$\partial_0$ を含む部分から生じることによる。
+
+$a\in U^*$ を係数列で表し、射影変換
+\[
+ x'_0=x_0+a^t x,\qquad x'_i=x_i\ (1\le i\le4)
+\]
+から生じる $g_a(y)=y/(1+a^t y)$ を考える。
+以下の公式は actual pushforward に対するものであり、Lie derivative の規約とは
+無限小で符号が逆になる。
+
+\begin{proposition}[有限の perspective 公式]\label{prop:perspective}
+$f=a^t y$、$h=1-f$ と置くと、\eqref{eq:decomposition} に対して
+\begin{align}
+ (g_a)_*P={}&h^2(J+E\wedge Ja)
+       +h(L+E\wedge La)+Q+E\wedge Qa+C.\label{eq:finite}
+\end{align}
+特に係数次数ごとの変換は
+\begin{align}
+ L'&=L-2fJ+E\wedge Ja,\label{eq:Ltransform}\\
+ Q'&=Q-fL+E\wedge La+f^2J-2fE\wedge Ja,\label{eq:Qtransform}\\
+ C'&=C+E\wedge Qa-fE\wedge La+f^2E\wedge Ja.\label{eq:Ctransform}
+\end{align}
+すべての係数は元の係数と $a$ の多項式である。
+\end{proposition}
+\begin{proof}
+$g_a^{-1}(y)=y/h$ における微分は $h(I-ya^t)$ である。
+任意の反対称行列 $M$ について
+\[
+ (I-ya^t)M(I-ay^t)=M+E\wedge Ma
+\]
+が成立する。$M=C=E\wedge B$ なら右辺は $hC$ である。
+$P(y/h)=J+h^{-1}L+h^{-2}Q+h^{-3}C$ に左右の微分を掛けると
+三次項の分母も相殺し、\eqref{eq:finite}を得る。次数別に整理すれば残りも従う。
+\end{proof}
+
+$g_ag_b=g_{a+b}$、$g_a^{-1}=g_{-a}$ である。
+$a$ の重みを1とすれば、$L,Q,C$ の重み1,2,3を保つ多項式作用である。
+公式は affine chart の有理式から導いたが、両辺が射影大域切断に由来するので
+chart の稠密開集合での一致から大域的にも一致する。
+
+\section{Primitive gauge と16次元の残存表現}
+一次 bivector に対して、一次形式
+\[
+ \tau(L)=L_{12}+L_{34}=\tfrac12\tr(J^{-1}L)
+\]
+を定める。
+\begin{theorem}[一意な primitive 正規化]\label{thm:primitive}
+定数項が $J$ である射影 bivector の各 perspective 軌道は、$\tau(L)=0$ の断面と
+ただ一度交わる。その正規化 parameter は
+\[
+ a=\tfrac15\grad\tau(L)
+\]
+である。軌道座標 $a$ と正規化後の係数を組にした写像は、
+$\AA^4$ とこの断面との直積への多項式同型である。
+\end{theorem}
+\begin{proof}
+$(E\wedge Ja)_{12}+(E\wedge Ja)_{34}=-a^t y$ なので、
+\eqref{eq:Ltransform}から
+\[
+ \tau(L')=\tau(L)-5a^t y
+\]
+を得る。これが存在と一意性を同時に示す。有限公式と逆作用 $g_{-a}$ が多項式性を与える。
+\end{proof}
+
+$[J,L]=0$ を満たす一次 bivector の空間を $Z_1$ とする。
+この条件は24係数に対する独立な4線形条件なので、$\dim Z_1=20$。
+独立性は $[J,-]$ を定数三重ベクトルの4係数で表す行列の階数4、または
+下記の微分形式による解釈から確認できる。
+
+\begin{corollary}\label{cor:split}
+$T_a=-2(a^t y)J+E\wedge Ja$ と置くと
+\[
+ Z_1=\{L:[J,L]=0,\ \tau(L)=0\}\oplus\{T_a:a\in U^*\}.
+\]
+第一項は16次元であり、その射影は
+$L\mapsto L+T_{\grad\tau(L)/5}$ である。
+\end{corollary}
+\begin{proof}
+$T_a$ は Poisson bivector $J$ の座標変換の一次変分なので $[J,T_a]=0$。
+また $\tau(T_a)=-5a^t y$ である。これにより第二項の次元は4で、
+$Z_1$ 上の $\tau$ は全射となり、直和分解が従う。
+\end{proof}
+
+\subsection{2形式による記述}
+symplectic lowering を行列表記で
+\[
+ \beta=-JLJ,\qquad L=-J\beta J
+\]
+と定める。$[J,L]=0$ は $\dd\beta=0$ と同値であり、
+$\Lambda\beta:=\beta_{12}+\beta_{34}$ は $\tau(L)$ に等しい。
+従って残る16次元空間は
+\begin{equation}\label{eq:W}
+ W=\{\beta\in U^*\otimes\wedge^2_0U^*: \dd\beta=0\}
+\end{equation}
+である。ここで $\wedge^2_0U^*$ は $\Lambda$ の核、次元5の空間である。
+
+$AJA^t=\lambda J$ を満たす $A\in\CSp_4$ の作用を
+\[
+ P(y)\longmapsto\lambda^{-1}AP(A^{-1}y)A^t
+\]
+と正規化すると、$\tau(L)$ は $\tau(L)(A^{-1}y)$ に移る。
+従って primitive gauge は $\CSp_4$ で保たれ、$W$ 上の作用は線形である。
+$\Sp_4$ に限れば、2形式に対して通常の逆 pullback になる。
+下記の計算証明書では pullback 作用を用いるが、逆元を取るだけなので軌道とその次元は同じである。
+
+\begin{remark}
+第2版の保存座標は、選んだ4係数を零にする別の gauge を使う。
+両 gauge は上の perspective 公式で多項式的に同型となる。
+しかし\eqref{eq:Qtransform}には一次項の二次式が現れるので、
+保存された134式の一次変数だけを取り替える操作は正しくない。
+以下では primitive gauge に移した模型を $\widetilde S_{61}$ と書く。
+\end{remark}
+
+\section{係数階数一の錐と固定 fibre}
+$\beta=\sum_{i=1}^4y_i\theta_i\in W$ を線形写像
+\[
+ B_\beta:U\longrightarrow\wedge^2_0U^*,\qquad B_\beta(e_i)=\theta_i
+\]
+とみなす。係数階数 $\rank B_\beta$ は $\Sp_4$ 不変であり、0から4までを取る。
+これは元の Poisson bivector の一般階数とは別の概念である。
+以下の錐は被約な閉集合として扱い、determinantal ideal の根基性は主張しない。
+
+\begin{theorem}[係数階数一の層]\label{thm:rankone}
+非零 $\beta\in W$ について $\rank B_\beta=1$ であることと、
+独立な一次形式 $\ell,m$ を用いて
+\[
+ \beta=\ell(y)\,\dd\ell\wedge\dd m,
+ \qquad\langle\ell,m\rangle_J=0
+\]
+と書けることは同値である。この locus は5次元の単一 $\Sp_4$ 軌道である。
+その射影化は、Lagrangian 二平面とその内部の直線からなる等方旗多様体
+$F(1,2;4)$ に同型であり、次元は4である。
+\end{theorem}
+\begin{proof}
+階数一なら $\beta=\ell\theta$ と書け、閉性は $\dd\ell\wedge\theta=0$ となる。
+$\dd\ell$ を基底の最初に取れば、この核は $\dd\ell\wedge U^*$ なので
+$\theta=\dd\ell\wedge\dd m$ と書ける。primitive 性は
+$\langle\ell,m\rangle_J=0$ と同値である。逆向きは直接確認できる。
+
+$[\beta]$ は $\langle\ell\rangle\subset\langle\ell,m\rangle$ を一意に定める。
+逆に旗は $[\ell\otimes(\dd\ell\wedge\dd m)]$ を定め、これらは互いに逆の代数的写像である。
+Lagrangian Grassmannian は3次元で、その上の直線の選択は $\PP^1$ だから、
+旗多様体は既約4次元、対応する affine 錐は既約5次元である。
+$\Sp_4$ はこの旗多様体に推移的に作用する。
+代表 $\beta_0=y_1\dd y_1\wedge\dd y_3$ を保つ旗の対角群は、
+その線上に指標 $(t_1,t_2)\mapsto t_1^2t_2$ で作用する。
+この指標は $\CC^*$ に全射なので、非零 affine 錐自体も一軌道である。
+\end{proof}
+
+\begin{proposition}[階数一の一次項の実際の延長]\label{prop:extension}
+定理\ref{thm:rankone}の各 $\beta$ に対応する $L$ について $J+L$ は Poisson であり、
+その affine Pfaffian は1である。従って階数一層の全点は実際の射影 Poisson 構造へ延長する。
+\end{proposition}
+\begin{proof}
+$X_\ell=J\grad\ell$、$X_m=J\grad m$ と置くと
+$L=\ell X_\ell\wedge X_m$。
+両ベクトル場は定数で可換であり、両者とも $\ell$ を消す。
+従って $[L,L]=0$。閉性から $[J,L]=0$ でもある。
+$L\wedge L=0$ と primitive 性から $J\wedge L=0$ なので
+$(J+L)^2=J^2$、従って Pfaffian は1となる。
+斉次持ち上げ $x_0^2J+x_0\ell(x)X_\ell\wedge X_m$ は射影大域切断である。
+\end{proof}
+
+具体的な代表は
+\[
+ L_0=y_1\partial_2\wedge\partial_4,\qquad
+ \Pi_0=x_0^2(\partial_{12}+\partial_{34})+x_0x_1\partial_{24}.
+\]
+この延長は、同じ一次項を持つ全 Poisson 構造の分類を与えない。
+
+\subsection{階数一層の全解を一つの fibre へ移す}
+$H=\Stab_{\Sp_4}(\beta_0)$ とする。$H$ は旗の Borel 安定化群の中で、
+原始指標 $t_1^2t_2$ の核である。Borel 群の unipotent radical は連結、
+この指標の torus 上の核も連結なので、$H$ は連結5次元である。
+
+\begin{corollary}[階数一層の残余問題]\label{cor:fiber}
+$F$ を $\widetilde S_{61}$ において一次項が $L_0$ に等しい fibre とする。
+係数階数一の層の全逆像は
+\[
+ \widetilde S_{61}|_{\rank B=1}\simeq\Sp_4\times^H F
+\]
+と表される。従ってこの層の既約成分は $F$ の既約成分と一対一に対応し、次元差は5である。
+\end{corollary}
+\begin{proof}
+$\widetilde S_{61}\to W$ は同変写像であり、$\rank B=1$ は等質空間 $\Sp_4/H$。
+同変写像の一軌道上の逆像を、その点の fibre から associated bundle として復元する。
+連結な $H$ は fibre の既約成分を置換しないので、最後の主張も従う。
+\end{proof}
+
+$L_0$ は保存 gauge と primitive gauge の両方に属する。
+両者を結ぶ perspective parameter は一次項だけで決まるため、この固定 fibre 全体で零である。
+保存座標では $u_{34}=1$、他の15個の重み1変数を零にする。
+45個の重み2変数を残して134式へ代入すると、通常次数2の134式を得る。
+有理数体上の定数係数行簡約により、次を厳密に確認した\cite{fiber-certificate}。
+\begin{enumerate}
+\item 134式は定数係数線形独立である。
+\item その線形包に非零の一次以下の多項式は存在しない。
+\item 重み2変数がすべて零の既知点では Jacobian の階数は7であり、
+      固定 fibre の Zariski 接空間次元は $45-7=38$ である。
+\end{enumerate}
+式には一次項もある。項目2は一次化の消滅を意味しない。
+項目3の階数7の小行列式は $-24/25$ で、元の行列と行・列番号は証明書に保存した。
+38を fibre 自身の次元や全 $S_{61}$ の接空間次元と呼ばない。
+また、この層の閉包が全空間の成分を与えるかは別に判定する必要がある。
+
+\section{Toric 成分からの一次ジェット射影の優越性}
+六変数 $a,b,c,d,e,f$ に対し
+\[
+ K=\begin{pmatrix}
+ 0&a&b&c\\-a&0&d&e\\-b&-d&0&f\\-c&-e&-f&0
+ \end{pmatrix},\qquad \Delta=af-be+cd
+\]
+と置く。開集合 $D=\{a\Delta\ne0\}\subset\AA^6$ 上で
+\[
+ R=\begin{pmatrix}
+ 1&0&0&0\\0&1/a&0&0\\d/a&-b/a&1&0\\
+ e/\Delta&-c/\Delta&0&a/\Delta
+ \end{pmatrix}
+\]
+と置けば、直接計算により $RK R^t=J$、$\det R=1/\Delta$ である。
+
+\begin{theorem}[一般一次ジェットの toric 延長]\label{thm:toric-dominance}
+既知 toric 成分 $T01$ の primitive 一次ジェット射影は $W$ 上へ優越的である。
+より具体的には、明示した写像
+\[
+ D\times\Sp_4\longrightarrow W
+\]
+は優越的かつ一般に有限であり、その全点は $T01$ に属する実際の Poisson 構造から得られる。
+従って $W$ のある非空 Zariski 開部分の全点は射影 Poisson 構造へ延長できる。
+\end{theorem}
+\begin{proof}
+$u$ 座標で
+\[
+ P_K(u)_{ij}=K_{ij}(1+u_i)(1+u_j)
+\]
+を考える。これは相互可換なベクトル場 $(1+u_i)\partial_{u_i}$ の定係数外積からなる
+Poisson bivector であり、斉次化の係数は $(x_0+x_i)(x_0+x_j)$ なので $\PP^4$ へ延長する。
+この一般 toric 族は既知の $T01$ に含まれる。
+$y=Ru$ として定数項を $J$ に移すと、$w=R^{-1}y$ を用いた一次項は
+\[
+ L(y)=R\bigl(\operatorname{diag}(w)K+
+                 K\operatorname{diag}(w)\bigr)R^t.
+\]
+定理\ref{thm:primitive}を適用し、$\alpha=\frac15\grad\tau(L)$ と置いて
+\[
+ L_0=L-2(\alpha^t y)J+E\wedge J\alpha,\qquad\beta=-JL_0J
+\]
+とする。これらは $D$ 上の正則関数であり、全 parameter に対して
+$\dd\beta=\Lambda\beta=0$ を満たす。有限の perspective 公式により、この一次項は実際の射影座標変換から得られる。
+さらに $\Sp_4$ を作用させ、上の写像を得る。
+
+有理点 $(a,b,c,d,e,f)=(2,3,5,7,11,13)$、$\Delta=28$ において、
+六つの parameter 微分と十の $\mathfrak{sp}_4$ 作用を列に持つ24行16列行列を作る。
+その16次小行列式は厳密に
+\[
+ \frac{258241}{10504375}\ne0
+\]
+である。元の小行列、行・列番号、全 parameter での写像と制約の確認を
+\cite{toric-certificate}に保存した。
+像は16次元の $W$ に含まれ、その点で微分が全射なので像の閉包は $W$ である。
+定義域と値域はともに既約16次元だから写像は一般に有限。
+構成可能像の定理により、像は非空 Zariski 開部分を含む。
+\end{proof}
+
+\begin{remark}
+既存の成分対応と $\dim T01=25$ を併用すると、対応する16次元の $S_{61}$ 成分自身も
+$W$ に優越的かつ一般に有限に写る。
+しかし一般次数、分岐、像に含まれる開部分の具体的な方程式は未計算である。
+任意の一次ジェットの延長、延長の一意性、他成分由来の延長の不存在は主張しない。
+特に「一般の一次項は toric 成分で実現する」ことから、
+「全 Poisson 構造が toric 成分に属する」とは従わない。
+\end{remark}
+
+\section{一般一次ジェットの軌道と計算証拠}
+\subsection{一般一次ジェットでは有限個の軌道に還元できない}
+$W$ の係数を、添字対 $(12),(13),(14),(23),(24),(34)$ の順に、
+各対の中では $y_1,y_2,y_3,y_4$ の順に並べる。
+次の一点 $\beta_*$ は $W$ に属する。
+\[
+\begin{split}
+ (-13,-14,-15,-16;&\ 1,-9,2,-9;\ 3,-7,4,5;\\
+ &6,7,8,-3;\ 9,10,11,12;\ 13,14,15,16).
+\end{split}
+\]
+\begin{proposition}\label{prop:generic-orbit}
+$W$ の稠密開集合上で $\Sp_4$ 軌道の次元は10である。
+さらにスカラー作用を加えると一般軌道の次元は11である。
+従って一般軌道の余次元はそれぞれ6、5である。
+\end{proposition}
+\begin{proof}
+$\mathfrak{sp}_4$ の10個の基底として、対称行列の標準基底 $S$ に対する $JS$ を用いる。
+一次2形式 $\beta=\sum y_i\beta_i$ の pullback の無限小作用は
+\[
+ (A\cdot\beta)_k=A^t\beta_k+\beta_k A+\sum_i A_{ik}\beta_i.
+\]
+$\beta_*$ における24行10列の作用行列の10次小行列式として
+$-1500934987656\ne0$ を得る。
+スカラー方向 $\beta_*$ を追加した行列の11次小行列式は
+$-33302699006080\ne0$。
+群の次元がそれぞれ10、11なので、この階数は上限に達している。
+行列式の非消滅は稠密開条件であり、主張が従う。
+元の行列・添字・有理数体上の計算は\cite{weight1-certificate}に記録した。
+\end{proof}
+
+\begin{remark}[延長可能性の限定]
+$\beta_*$ の係数写像の階数は4で、その4次小行列式は $-1260$ である。
+この特定の $\beta_*$ が実際の Poisson 構造へ延長するかは、上の計算だけでは判定していない。
+一方、定理\ref{thm:toric-dominance}により実際の一次ジェット像は非空開部分を含むので、
+命題\ref{prop:generic-orbit}の一般軌道次元は延長可能な一次ジェットの稠密部分でも実現する。
+実際に同定理の toric 有理点でも、係数階数4、$\Sp_4$ 作用階数10、スカラー込みの階数11を
+確認した。これらを全 Poisson 構造自身の軌道次元やモジュライ次元として引用してはいけない。
+ここでの余次元は $W$ と軌道の次元差であり、具体的な商や不変式環の構成ではない。
+\end{remark}
+
+\subsection{検証器と再現範囲}
+\begin{longtable}{@{}p{58mm}p{98mm}@{}}
+\toprule
+検証器 & 検証する内容\\\midrule\endhead
+\nolinkurl{code/s61_weight1_audit.py} &
+旧実装を import しない17項目の有理数体上の確認。
+perspective の有限行列恒等式、radial 三次項の相殺、trace 変換、
+閉性と primitive 条件の階数、冪等射影を扱う。\\
+\nolinkurl{code/weight1_structure.py} &
+閉 primitive 一次2形式の16次元核、Lie 作用の不変性、
+上記の一般軌道の小行列式、階数一代表の Jacobi と Pfaffian を扱う。\\
+\nolinkurl{code/weight1_rank_one_fiber.py} &
+保存された S61 の全134式を固定一次項へ特殊化し、
+定数係数線形包と固定 fibre の接空間を exact に計算する。\\
+\nolinkurl{code/toric_weight1_dominance.py} &
+六変数 toric 族の Jacobi、線形 frame、primitive 一次項を恒等的に確認し、
+16次小行列式から優越性を証明する。\\
+\nolinkurl{code/verify_s61_families.py} &
+一般 toric 係数族と almost-abelian 族の S61 座標写像を有理関数恒等式として確認する。
+これらの族の像を成分全体の定義イデアルと同一視しない。\\
+\bottomrule
+\end{longtable}
+
+独立検証は $\QQ$ 上、SymPy 1.14.0を用いる。
+有限体の標本や浮動小数の階数を、標数零の既約分解の代わりには使っていない。
+再現時は保存済み証明書を上書きせず、新しい出力名を指定する。
+\begin{verbatim}
+.venv/bin/python code/s61_weight1_audit.py \
+  --output reports/new-run/perspective.json
+.venv/bin/python code/weight1_structure.py \
+  --output reports/new-run/weight1.json
+.venv/bin/python code/weight1_rank_one_fiber.py \
+  --output reports/new-run/rank-one-fiber.json
+\end{verbatim}
+
+\section{残る問題}
+得られた帰着は、係数階数一の全解を一つの有限な fibre へ移すものである。
+$F$ の極小素イデアル分解、成分次元、既知の全 Poisson 成分との対応は未決である。
+次の有限目標として、階数7の minor が非零の近傍で7変数を除く局所模型を作るか、
+$H$ の作用を使って45変数問題を小さくすることが考えられる。
+また、係数階数2,3,4の層の全解の還元は未実施である。
+Toric 優越性は一般一次項の延長可能性を示すが、一般 fibre における他成分の点、
+延長の個数、例外的な閉部分の挙動は未決である。
+
+全分類の第一段階には、すべての $S_{61}$ の極小成分の尽くしと全空間での成分性、
+相互識別が必要である。本稿の単一層の帰着は、その完了ではない。
+特殊軌道・成分交叉・冪零構造は、さらに別の未解決目標として維持する。
+
+\begin{thebibliography}{9}
+\bibitem{v2} Poisson P4 研究資料、第2版、
+\nolinkurl{legacy/v02/p4_poisson_completeness_v2.tex}, 第3節。
+61変数模型、三角消去、Bianchi 恒等式の原資料。
+\bibitem{perspective-note} 同プロジェクト、
+\nolinkurl{research/notes/S61_MODEL_AUDIT_20261030.md}、
+および\nolinkurl{reports/20261030-s61-weight1/finite_identity_certificate.json}。
+\bibitem{weight1-certificate} 同プロジェクト、
+\nolinkurl{research/notes/S61_WEIGHT1_20261030.md}、
+および\nolinkurl{reports/weight1_structure_20261030.json}。
+\bibitem{fiber-certificate} 同プロジェクト、
+\nolinkurl{reports/weight1_rank_one_fiber_20261030_final.json}。
+入力ファイルの SHA-256、45変数の式、行列と小行列式を含む。
+\bibitem{toric-certificate} 同プロジェクト、
+\nolinkurl{research/notes/TORIC_WEIGHT1_DOMINANCE_20261030.md}、
+\nolinkurl{reports/TORIC_WEIGHT1_DOMINANCE_20261030.json}、
+\nolinkurl{code/toric_weight1_dominance.py}。
+\end{thebibliography}
+\end{document}

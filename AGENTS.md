@@ -1,6 +1,13 @@
 # Poisson structures on P4 — Codex instructions
 
-Version: v25-setup · 2026-10-30 (Asia/Tokyo).
+Version: v26-s61 · 2026-10-30 (Asia/Tokyo).
+
+Current continuation: T01 has dominant, generically finite primitive first-jet
+projection to the full 16-dimensional first-jet space. This is not global
+exhaustion. Read the updated STATE/NEXT_TASKS and current code/S61_README.md.
+Rank-one first jets reduce to a preserved 45-variable, 134-quadratic fiber.
+Do not reopen generic first-jet realizability as unknown; all extensions and
+exceptional fibers remain open.
 
 ## Read first
 

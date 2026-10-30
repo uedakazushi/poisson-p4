@@ -42,6 +42,10 @@ def main() -> int:
     required = {"AGENTS.md", "RESEARCH_POLICY.md", "research/STATE.md", "research/NEXT_TASKS.md", "research/CLAIMS.json", "research/COMPONENTS.json", "papers/README.md", "sources/manifest.json", "scripts/setup.sh", "scripts/bootstrap_sources.py", "scripts/doctor.py", "scripts/verify.py", "requirements.txt"}
     files = []
     for name in candidates:
+        # The manifest is generated below for this exact snapshot; importing a
+        # previous bundle's manifest would create a duplicate ZIP entry.
+        if name == "BUNDLE_MANIFEST.json":
+            continue
         path = ROOT / name
         if path.resolve() == output.resolve() or not path.is_file():
             continue

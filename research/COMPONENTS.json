@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checkpoint": "v25-setup",
+  "checkpoint": "v26-s61",
   "date": "2026-10-30",
   "base_mathematical_checkpoint": "v24",
   "new_components_added_in_this_setup": 0,
@@ -51,13 +51,24 @@
           "path": "legacy/v02/baseline/toric_components_table.tex"
         }
       ],
-      "expansion_status_ja": "旧カタログは保存されているが、このセットアップで各ID・文献図式・S61座標を全部照合していない。",
+      "expansion_status_ja": "T01のS61一般族と一次部分への優越性を記録。残り39個の個別座標・全図式一次照合は未完。block40を追加加算しない。",
       "required_next_step_ja": "各内部IDの相互区別と一次文献の図式を照合したうえで個別レコードへ展開する。block40と個別40を二重加算しない。",
       "review_status": {
         "proof": "published_theorem",
         "primary_statement_checked": true,
         "complete_individual_mapping_checked_in_this_setup": false
-      }
+      },
+      "s61_family_maps": [
+        {
+          "id": "T01",
+          "counted_again": false,
+          "family_map": "reports/S61_FAMILIES_20261030/toric_T01_map.json",
+          "proof_note": "research/notes/TORIC_WEIGHT1_DOMINANCE_20261030.md",
+          "generic_primitive_first_jet_image": "dominant onto A16; generically finite projection of the 16-dimensional S61 component",
+          "general_degree": null,
+          "status_ja": "既存内部IDT01のトーリック族。MPS40全図式の一次文献照合は依然として未完。"
+        }
+      ]
     }
   ],
   "components": [
@@ -931,5 +942,6 @@
     "実際の退化因子の重複度と、各既約因子の次数を別々に保持する。",
     "MPS40 blockを展開したらblockによる加算を止め、二重計上しない。",
     "文献上の新規性は内部成分証明とは別に確認する。"
-  ]
+  ],
+  "new_components_added_in_this_checkpoint": 0
 }

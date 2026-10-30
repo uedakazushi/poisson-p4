@@ -1,0 +1,130 @@
+{
+  "id": "S61_REBUILD_20261030",
+  "timestamp_utc": "2026-10-30T08:31:45.568173+00:00",
+  "all_passed": true,
+  "scope": "Exact regeneration of v02 S61 equations and reconstruction; no irreducible decomposition, global exhaustiveness proof or novelty claim.",
+  "environment": {
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "sympy": "1.14.0",
+    "mpmath": "1.3.0"
+  },
+  "scratch_output": "/workspace/work/s61-rebuild-20261030",
+  "source_scripts": [
+    {
+      "path": "legacy/v02/code/build_symplectic_slice.py",
+      "sha256": "5b65a17b75c8734cb5af9ae0757001d0119bb49afd4132763213c3ef79c2fc6e"
+    },
+    {
+      "path": "legacy/v02/code/build_universal_slice.py",
+      "sha256": "3aab2e1e464e7283bddedf7c946ac317377976a7c985bbdc8f790e271a0ebe7d"
+    },
+    {
+      "path": "legacy/v02/code/reduce_symplectic_bianchi.py",
+      "sha256": "48ad114fe746da8e3deec66d9c0c3830dba9c5101b3839783ff0eb32074c17db"
+    },
+    {
+      "path": "legacy/v02/code/audit_reconstruction.py",
+      "sha256": "024ca02c831159fbf644f0a4f400676bff113cbfc1212c77378f93973091d228"
+    },
+    {
+      "path": "legacy/v02/code/poisson_p4_components_check.py",
+      "sha256": "08ca6a3d9938dec9df734a7a95d7d3eedb1b7c95d11213d8ada59feed625203f"
+    },
+    {
+      "path": "legacy/v02/code/verify_rank2_components.py",
+      "sha256": "203d0e5ea715ea5e5e01cdb954b4c4c4f1caf58d8dc2b9ed2e3726f87c5a3f3a"
+    },
+    {
+      "path": "legacy/v02/code/lpb_family.py",
+      "sha256": "d868d1452222cfe37a305d7d1b38ba50041891dba2ea26f969f12147ed049fff"
+    }
+  ],
+  "comparison_summary": {
+    "json_files_compared": 5,
+    "json_files_equal_ignoring_runtime_seconds": 5,
+    "singular_files_compared": 1,
+    "singular_files_byte_equal": 1,
+    "independent_audit_matches_archived_ignoring_seconds": true
+  },
+  "file_comparisons": [
+    {
+      "file": "symplectic_slice_certificate.json",
+      "exact_json_equal_except_listed_fields": true,
+      "ignored_fields": [
+        "runtime_seconds"
+      ],
+      "archived_sha256": "f9b1841de278d3fb663caaf6d3d64196fde60f8bc1831bf2bf1baa28812013a5",
+      "rebuilt_sha256": "4f393da3c0fece824622a47586190e1380892f4354b01214f6be8940089dac8b"
+    },
+    {
+      "file": "symplectic_slice_equations.json",
+      "exact_json_equal_except_listed_fields": true,
+      "ignored_fields": [],
+      "archived_sha256": "f66156dbbeb1e6c56bef852dd99fae0d534a2b631363d140b372a1773deeeabb",
+      "rebuilt_sha256": "f66156dbbeb1e6c56bef852dd99fae0d534a2b631363d140b372a1773deeeabb"
+    },
+    {
+      "file": "symplectic_bianchi_certificate.json",
+      "exact_json_equal_except_listed_fields": true,
+      "ignored_fields": [
+        "runtime_seconds"
+      ],
+      "archived_sha256": "8f8f420c8350938c035915df7facf4bf157cc33f9ab7196c6dcfd9bfe98c69f0",
+      "rebuilt_sha256": "9ba362e63ba32e65e251f8ca787ead2605a36269dade12aa5fc38f975c687623"
+    },
+    {
+      "file": "symplectic_bianchi_identities.json",
+      "exact_json_equal_except_listed_fields": true,
+      "ignored_fields": [],
+      "archived_sha256": "1aebbf38e289c846fb0d383041b78940314480beb62ac1451318b0ffcd217437",
+      "rebuilt_sha256": "1aebbf38e289c846fb0d383041b78940314480beb62ac1451318b0ffcd217437"
+    },
+    {
+      "file": "symplectic_slice_reduced_equations.json",
+      "exact_json_equal_except_listed_fields": true,
+      "ignored_fields": [],
+      "archived_sha256": "e8e38d8c63f2e6c4db2a905420b6bdebd283f5acdc5814a04bf346283f4f3df5",
+      "rebuilt_sha256": "e8e38d8c63f2e6c4db2a905420b6bdebd283f5acdc5814a04bf346283f4f3df5"
+    },
+    {
+      "file": "symplectic_slice_reduced.sing",
+      "exact_bytes_equal": true,
+      "archived_sha256": "aa351856a4c69af001813792cd3e554135f17efaeec80836e015292399505508",
+      "rebuilt_sha256": "aa351856a4c69af001813792cd3e554135f17efaeec80836e015292399505508"
+    }
+  ],
+  "exact_reconstruction_audit": {
+    "system": "symplectic_slice",
+    "parameters": 61,
+    "checked_generator_rows": 154,
+    "checked_eliminated_rows": 55,
+    "all_coefficient_comparisons_exact_over_Q": true,
+    "method": "Reconstruct all coefficient polynomials; independently expand Schouten; compare exact coefficient dictionaries.",
+    "equation_json_sha256": "f66156dbbeb1e6c56bef852dd99fae0d534a2b631363d140b372a1773deeeabb",
+    "seconds": 7.265
+  },
+  "model_counts": {
+    "parameters": 61,
+    "free_weight_counts": {
+      "1": 16,
+      "2": 45
+    },
+    "linear_jacobi_rank_exact": 55,
+    "initial_generator_count": 154,
+    "reduced_generator_count": 134,
+    "reduced_weight_counts": {
+      "4": 70,
+      "5": 64
+    },
+    "Bianchi_identities_verified_over_Q": 20,
+    "generator_redundancy_identities_verified_over_Q": 20
+  },
+  "reproduction_commands": [
+    "mkdir -p /workspace/work/s61-rebuild-20261030",
+    "PYTHONDONTWRITEBYTECODE=1 .venv/bin/python legacy/v02/code/build_symplectic_slice.py /workspace/work/s61-rebuild-20261030",
+    "PYTHONDONTWRITEBYTECODE=1 .venv/bin/python legacy/v02/code/reduce_symplectic_bianchi.py /workspace/work/s61-rebuild-20261030",
+    "PYTHONDONTWRITEBYTECODE=1 .venv/bin/python - <<'PY_AUDIT'\nimport sys\nsys.path.insert(0,'legacy/v02/code')\nfrom audit_reconstruction import audit\naudit('/workspace/work/s61-rebuild-20261030','symplectic_slice',{(1,2):1,(3,4):1},'remaining_equation_rows')\nPY_AUDIT"
+  ],
+  "immutable_source_policy": "All regenerated files were written outside legacy/. Only this report is added to the repository; equal large regenerated files are not duplicated."
+}

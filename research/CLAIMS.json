@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checkpoint": "v25-setup",
+  "checkpoint": "v26-s61",
   "date": "2026-10-30",
   "base_mathematical_checkpoint": "v24",
   "new_mathematical_progress_in_this_setup": false,
@@ -70,6 +70,27 @@
       "result": "PASS",
       "checks": 1298,
       "scope_ja": "v24が指定した恒等式・階数・証明書。旧版全体の再検証ではない。"
+    },
+    {
+      "id": "V26_BASELINE",
+      "record": "reports/20261030T082908.762913Z-all/verification_summary.json",
+      "date": "2026-10-30",
+      "result": "PASS",
+      "scope_ja": "integrity、v24の1298項目、v14の10群を再現。"
+    },
+    {
+      "id": "V26_S61_REBUILD",
+      "record": "reports/S61_REBUILD_20261030.json",
+      "date": "2026-10-30",
+      "result": "PASS",
+      "scope_ja": "5 JSONのruntime以外一致、Singular一致、復元後154式と55消去行を独立比較。"
+    },
+    {
+      "id": "V26_S61_FAMILIES",
+      "record": "reports/S61_FAMILIES_20261030/verification.json",
+      "date": "2026-10-30",
+      "result": "PASS",
+      "scope_ja": "2族について一般パラメータで150復元係数、134式、projective Jacobiを恒等式として検証。"
     }
   ],
   "claims": [
@@ -142,7 +163,7 @@
       "status": {
         "proof": "bundled_complete_proof_claim",
         "independent_review": "selected_proof_read_not_full_independent_audit",
-        "certificates": "archived_not_all_rerun_in_2026_10_30_review",
+        "certificates": "full_S61_rebuilt_and_independent_reconstruction_reproduced_2026_10_30",
         "novelty": "not_independently_established"
       },
       "dependencies": {
@@ -166,10 +187,10 @@
       ],
       "verification_records": [
         "audits/2026-10-30/global_audit.txt",
-        "audits/2026-10-30/geometry_strategy.txt"
+        "audits/2026-10-30/geometry_strategy.txt",
+        "reports/S61_REBUILD_20261030.json"
       ],
       "limitations_ja": [
-        "全還元スクリプトを今回再実行したわけではない。",
         "S61の全極小素分解は未完。",
         "定義式が有限という事実は、計算資源や終了時刻の上界を与えない。"
       ]
@@ -768,8 +789,146 @@
       "verification_records": [],
       "limitations_ja": [
         "既知下界から上界を推測しない。",
-        "補助Qの22成分、Q端点の局所解析、正規因子部分の分類を全体と読み替えない。"
+        "補助Qの22成分、Q端点の局所解析、正規因子部分の分類を全体と読み替えない。",
+        "T01の一次部分への優越性は全S61の一般fibreの尽くしではない。"
+      ]
+    },
+    {
+      "id": "S61_PRIMITIVE_GAUGE",
+      "title_ja": "重み1の自然な16次元模型",
+      "statement_ja": "P=J+L+Q+Cに対しperspective有限変換でtau(L)=L12+L34を一意に零にできる。a=grad(tau)/5。閉一次項はprimitive16次元とperspective4次元に分解し、primitive gaugeはCSp4不変。",
+      "scope": "Specified S61 chart / first-jet representation; not global exhaustion.",
+      "status": {
+        "proof": "proof_with_exact_rational_certificate",
+        "independent_review": "independent_agent_proof_and_code_review_not_external_peer_review",
+        "certificates": "reproduced_2026_10_30",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "MODEL_S61"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_MODEL_AUDIT_20261030.md"
+        },
+        {
+          "path": "papers/s61_first_jet_reduction_ja.tex"
+        }
+      ],
+      "verification_records": [
+        "reports/20261030-s61-weight1/finite_identity_certificate.json"
+      ],
+      "limitations_ja": [
+        "旧S61 gaugeへ戻すには重み2の補正も必要。一次変数だけの変更ではない。"
+      ]
+    },
+    {
+      "id": "S61_TORIC_FIRST_JET_DOMINANCE",
+      "title_ja": "T01の一次部分への優越性",
+      "statement_ja": "既知トーリック成分T01からprimitive一次部分W≅A16への射影は優越的。ある非空Zariski開集合の全一次部分は実際のT01構造へ延長する。T01のS61成分の次元16を用いると一般に有限。非零16×16小行列式は258241/10504375。",
+      "scope": "Specified S61 chart / first-jet representation; not global exhaustion.",
+      "status": {
+        "proof": "proof_with_exact_rational_certificate",
+        "independent_review": "independent_agent_proof_and_code_review_not_external_peer_review",
+        "certificates": "reproduced_2026_10_30",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "MODEL_S61",
+          "MPS40",
+          "S61_PRIMITIVE_GAUGE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/TORIC_WEIGHT1_DOMINANCE_20261030.md"
+        },
+        {
+          "path": "papers/s61_first_jet_reduction_ja.tex"
+        }
+      ],
+      "verification_records": [
+        "reports/TORIC_WEIGHT1_DOMINANCE_20261030.json",
+        "reports/S61_FAMILIES_20261030/verification.json"
+      ],
+      "limitations_ja": [
+        "一般次数、分岐、具体的な開像は未計算。",
+        "全一次部分の延長や延長の一意性、他成分の不存在は従わない。"
+      ]
+    },
+    {
+      "id": "S61_WEIGHT1_RANK_ONE",
+      "title_ja": "階数1一次部分の単一軌道と固定fibre",
+      "statement_ja": "閉primitive一次2形式の係数写像の階数1被約部分は5次元の単一Sp4軌道。射影化はisotropic flag variety F(1,2;4)。全rank1層の解はL0=y1 partial2 wedge partial4の固定fibreへ帰着する。旧gaugeではu34=1、残る重み1は零。fibreは45変数・134二次式で、既知点のJacobian階数7・接空間38。",
+      "scope": "Specified S61 chart / first-jet representation; not global exhaustion.",
+      "status": {
+        "proof": "proof_with_exact_rational_certificate",
+        "independent_review": "independent_agent_proof_and_code_review_not_external_peer_review",
+        "certificates": "reproduced_2026_10_30",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "MODEL_S61",
+          "S61_PRIMITIVE_GAUGE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_WEIGHT1_20261030.md"
+        },
+        {
+          "path": "papers/s61_first_jet_reduction_ja.tex"
+        }
+      ],
+      "verification_records": [
+        "reports/weight1_structure_20261030.json",
+        "reports/weight1_rank_one_fiber_20261030_final.json"
+      ],
+      "limitations_ja": [
+        "rank1決定式イデアル自体の根基性は主張しない。",
+        "134式に定数係数線形関係はなく、定数係数結合に非零一次式もないが、イデアル全体に一次式がないとは主張しない。",
+        "接空間38はfibre次元ではない。fibreの素分解・被約性は未決。"
+      ]
+    },
+    {
+      "id": "S61_EXPLICIT_FAMILY_MAPS",
+      "title_ja": "既知2族の一般パラメータS61座標",
+      "statement_ja": "トーリック6変数族のa(af-be+cd)≠0上、およびalmost-abelian2変数族全体をS61へ写す61座標を保存し、全134式と復元を有理関数恒等式で検証した。",
+      "scope": "Specified S61 chart / first-jet representation; not global exhaustion.",
+      "status": {
+        "proof": "proof_with_exact_rational_certificate",
+        "independent_review": "independent_agent_proof_and_code_review_not_external_peer_review",
+        "certificates": "reproduced_2026_10_30",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "MODEL_S61"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_COORDINATE_MAPS_20261030.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_FAMILIES_20261030/verification.json"
+      ],
+      "limitations_ja": [
+        "6変数写像単独を16次元T01成分全体の表示とはしない。残存群作用が必要。",
+        "almost-abelian族のMPS40内個別IDは未同定。",
+        "全51成分の座標カタログを完成したわけではない。"
       ]
     }
-  ]
+  ],
+  "setup_checkpoint": "v25-setup",
+  "current_checkpoint_includes_new_research": true
 }
