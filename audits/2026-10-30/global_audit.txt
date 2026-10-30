@@ -1,0 +1,122 @@
+P4 Poisson v24 大域監査メモ（2026-10-30）
+
+監査範囲
+========
+担当: global_frontier。添付を展開した v24 と保存旧版について、v14 の安定 rank2 証明・全8成分証明・監査記録を読み、v3,5,6,7,8 の追加 rank4 成分定理を追跡した。v2 の S61/S78 還元も本文を確認した。v14 の再現用10件をすべて別出力先で実行し、保存 JSON との一致を確認した。一方、旧版 v3〜v8 の全大規模証明書を今回すべて再実行したわけではない。本文に明白な論理欠陥は見つからなかったが、この一回の監査を完全な独立査読・形式検証とは呼べない。
+
+1. 分類対象と到達点
+===================
+P = projectivized nonzero Jacobi scheme inside P H0(P4,wedge² T)=P125。
+スカラー倍を除くが PGL5 商は取らない。成分数は被約台の極小成分数。
+
+v14 は reduced rank<=2 locus の厳密な8成分被覆を主張し、詳細な証明を収録。
+Rat113 36, Rat122 28, Log1112 28, LPB 39, Aff5 22, Aff41 22,
+toric rank2 Log11111 24, Aff32 22。
+最初6個が全Poisson空間の generic-rank2 成分。最後2個はgeneric-rank4成分の境界。
+全rank2 locusの全点は8族の閉包で被覆されるが、全PGL同型類・交叉・冪零構造を分類したことにはならない。
+
+証拠: v14 sections/rank2_global_eight.tex thm:rank2-eight;
+v14 sections/stable_rank2.tex thm:stable-rank-two-actual-rational。
+
+2. rank2 尽くしの論理構造
+=========================
+A. 因子的零点なし・飽和接層 F が安定な場合:
+正準divergence-free lift Pのrankは2で、β=i_P Ωは閉じた原始的な二次係数3形式。
+F(1)=Eは余次元1で生成する元の5切断Wを持つ。
+一般切断から 0→O→E→I_Z(2)→0、Zはunmixed、2<=deg Z<=4。
+c2(F)=deg Z-1=1,2,3。
+・c2=3: Z=(2,2)CI、h0E=3、2個の線形Casimir、実際のJac(L1,L2,G3)。
+・c2=2: (2,2)CIのresidualは平面。初期CM仮定なしのdouble-annihilator linkageからHilbert–Burch、Steiner表示、h0E=4。閉な2個の一次係数1形式を安定性で個別に閉としJac(L,Q1,Q2)。
+・c2=1: 評価rank0の曲面は二変数PlückerモデルとP1上の分裂により排除。Bertini+unmixedから一般Zは被約。非退化degree2曲面は一点で交わる2平面。Ext1=C²で反射性は両成分非零を強制。完全5切断のモデルはOGr(2,5)=P3の2-Veronese。元の切断像rankを分け、spinorモデルのdivergence系rank20,16,12で5次元像/非等方4次元像を排除、等方4次元像は8パラメータすべてに普遍的なJac(L,Q1,Q2)表示。
+原稿は非局所自由反射層、非CMな二平面の交点、元の切断と全切断空間の違いを明示的に扱っている。これらが以前の潜在的な穴を塞ぐ核である。
+
+B. 非安定・因子的零点なし:
+Correa–Muniz v5 BODY Theorem 4.1で strictly semistable の rational/log/affine Lie と unstable のLPBに帰着。
+Affine Lie の分割5,41,32が成分。311,221はLog1112、2111は零因子あり、1^5は非可換作用でない。
+
+C. 因子的零点あり:
+零因子次数e、foliation次数dでd=2-e、(e,d)=(2,0),(1,1)。degree0およびdegree1 rational112の乗数付き構造は特殊residueのLog1112。degree1 LPBのH ∂e∧v_Aは既約(H,A)族の稠密開を対角化してtoric rank2閉包に入る。変形をrank<=2内で取る点が必要。
+
+D. 8族から6個の全空間成分へ:
+6族には全Jacobi接空間の上界と実際の族微分の下界の一致証明がある。
+Toric decomposable wedgeは一般のΛ²tへ変形できる。
+Aff32はβ,tの普遍Poisson多項式族で一般rank4へ変形し、βとPGLを動かして全一般族を覆う。
+
+3. 文献との位置
+================
+https://arxiv.org/html/2207.12880v5 を一次本文で確認。
+BODY Theorem4.1はstable branchを『代数的可積分でuniruled leaves』まで述べる。
+CorollaryDはrank2 locusに『少なくとも7成分』。
+導入TheoremAと本文の記述には不整合があり、一般指数には印刷上のずれもある。
+v14の独自stable sheaf proofをCMの既刊定理と混同しないこと。
+したがって8/6の尽くしは、論文Aとして単独で完結させる価値のある主要成果候補である。引用の核心は本文4.1、2.3、Remark2.3、degree1分類である。
+Web refs（rootで引用する前にopen/findが必要）:
+turn0view0, turn4view1, turn4view2。
+
+4. 下界57の内訳と11追加成分
+===========================
+MPS40 + generic-rank2 6 + additional generic-rank4 11 = at least57。
+従ってgeneric-rank4成分は少なくとも51。未知成分があればgeneric rank4。
+57を正確な総数とする根拠はない。
+
+11成分の一覧（次元はすべて射影化後・PGL商前）:
+(1) v3 smooth-double-quadric: dim22, D=H+2Q_smooth, 開PGL軌道、全Poisson一般正則。
+(2) v5 triple-hyperplane: dim22, D=3H+Q_rank4, 開PGL軌道、全Poisson一般正則。
+(3) v6 CA: dim28, D=3H+H1+H2、一般orbit22、商6、一般正則。
+(4) v6 CB: dim28, D=H+2H1+2H2、一般orbit22、商6、一般正則。
+(5) v6 nil22-open: dim23, D=H+F4（F4は本質5変数の既約四次）、開orbit23、一般正則。
+(6) v6 zero-log: dim23, D=5H、一般orbit22、商1、一般横断C[e]/e³。
+(7) v7 M: dim23, D=H+F4（三変数の既約四次錐、単一特異平面で一般三次重複）、開orbit23、横断e³。
+(8) v7 A0: dim23, D=H+F4（単一特異平面、法線三次型2+1）、開orbit23、横断e³。
+(9) v7 D±: dim23, D=H+F4（3特異平面・一般A2 cusp）、開orbit23、横断e³。
+(10) v8 C+: dim24, D=H Q1 Q2（本質変数<=3）、一般orbit22、商2、一般横断C[e]/e²。
+(11) v8 C−: dim23, D=t(t²+x²)(t²+x²−2z²)（3超平面+rank3 quadric）、一般orbit21、商2、横断C[u,v]/(uv,v²,u³)、length4。
+
+出典:
+v3 本文の smooth double quadric component theorem;
+v5 triple_hyperplane.tex;
+v6 ambient_families.tex thm:AB, nilpotent22.tex subsec:quarticcomponent, zero_log_component.tex thm:zero_log;
+v7 minimal_thickness.tex thm:minimal-full, nil22_v7.tex のA0, dplus_fullp4.tex thm:dplus-full;
+v8 sections/cplus_component.tex, sections/cminus_component.tex, sections/count_and_frontier.tex。
+
+40個との区別は単に『一般点の因子がSNCでない』では不十分だが、原稿は因子重複、平面に沿う高次消滅、essential変数数などのPGL不変closed incidence条件を用い、閉包全体がSNC locusを避けることを証明している。一般非被約成分は接次元差だけで数えず、実際の普遍jetと高次obstructionから全完成局所環を決めている。
+
+MPS Theorem1.4を一次PDFで再確認: https://arxiv.org/pdf/2010.08692
+40は『SNC log symplectic locusと交わる成分』であり全体の上界ではない。
+同PDF p7（PDF index6）の定理直後は、全log symplectic構造が40成分のどれかに属するか／toric degenerationを持つかを問う。
+上記追加11のうち(5),(7),(8),(9),(10),(11)の6個は被約な退化因子を持つ。標準のreduced degeneracyの意味でlog symplecticなので、証明の独立検証と現在文献の新規性確認を終えれば、この問いへの否定例として明確な公表の核になる。『57以上』という数字以上に分かりやすい動機である。
+Web refs: turn4view0, turn7view0（rootは要open/find）。
+
+5. S61/S78 の意味と継続方針
+===========================
+v2本文:
+全成分はπ*=t²∂3∧∂4を含み、その係数chartはA8×S78。
+S78は78変数、182式、正重み、通常次数<=6。
+全generic-rank4成分はπsp=t²(∂12+∂34)を含む。
+評価をJに固定したfiberはGL4/CSp4によるassociated bundleで底5次元。
+4つのperspective方向を除き、Jacobi線形部分55pivotを正重みで多項式消去するとS61。
+S61は16個の重み1変数+45個の重み2変数、weight4の70式+weight5の64式。
+成分対応は一対一、dimP-component=9+dimS61-component。
+45変数補助空間Qは重み1の16変数を零にした断面。
+v7でQの被約22成分を尽くしても、S61の全成分の尽くしにはならない。
+
+提言:
+・最終目標の第一段階を『被約既約成分の網羅と一般点の幾何』に明文化。全特殊軌道と全局所環は第二段階に分離する。
+・rank2 8/6は証明の公表整理に移し、低次数Casimir探索を再開しない。
+・57下界と非SNC成分の成果を統一カタログと一つの本文に移す。再帰旧版を読み渡る必要をなくす。特に40との差と一般冪零構造の概念的意義を前面に。
+・大域尽くしにはS61の16個の重み1方向を復元する課題を主軸として維持。純Q断面の成分やQ=v24端点の局所枝のみで大域を結論しない。
+・すべてのrank4成分がπspを通ることは既存定理。v24の端点Qを全成分が通るとは未証明。Q局所研究は有限の明確な目標（CA∩CB次元26か27、3既知成分以外の局所枝の有無）を設定して行う。
+・他の担当の正規退化因子尽くしの結果も統合し、残りをreduced nonnormalとnonreducedに分ける。退化因子写像のfiberを分類するには因子の次数分割だけでは足りない。
+・どの計算も『補助fixed fiber』『全空間成分』『原像の微分』『全Zariski接空間』『二次cone』『完成局所環』を表で明確に区別する。
+
+6. 今回の再計算結果
+====================
+PYTHONPATH=/workspace/scratch/44cb1b64f901/review_work/python_deps を使いv14 runnerを実行。
+出力: review_work/v14_recheck/verification_summary.json。
+10/10 PASS、各保存JSONと完全一致。
+内訳: two_plane_extension; spinor_geometry; all_rank_four_projections;
+independent_projection_check; independent_extension_and_projection_audit;
+normal_quintic_symbolic; normal_quintic_independent_integer;
+six_full_rank_two_components; two_boundary_rank_two_components;
+aff32_universal_rank_four_deformation。
+最初のSymPy未導入による失敗は環境だけのもので、再実行後は全成功。

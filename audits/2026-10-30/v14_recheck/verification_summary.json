@@ -1,0 +1,98 @@
+{
+  "all_passed": true,
+  "number_of_checks": 10,
+  "python_version": "3.12.14",
+  "checks": [
+    {
+      "name": "two_plane_extension",
+      "script": "stable/verify_c2_one_model.py",
+      "exit_code": 0,
+      "seconds": 0.401,
+      "passed": true,
+      "exact_json_equal": true,
+      "source_sha256": "bc84950204e4932ba7e10b1dc4758dfa7ae5704748eab325686cbbf514c632a5"
+    },
+    {
+      "name": "spinor_geometry",
+      "script": "stable/construct_spinor.py",
+      "exit_code": 0,
+      "seconds": 1.48,
+      "passed": true,
+      "exact_json_equal": true,
+      "source_sha256": "fb8297422d2ac7ff27783c26040e951097c3e2ab29a857479ea0141490dac57f"
+    },
+    {
+      "name": "all_rank_four_projections",
+      "script": "stable/rank4_projection.py",
+      "exit_code": 0,
+      "seconds": 0.539,
+      "passed": true,
+      "exact_json_equal": true,
+      "source_sha256": "0fba9473a95ac8f7a8b04793aacf2d1ef9a7f0bf38e42bbc4303fbb19387b1ad"
+    },
+    {
+      "name": "independent_projection_check",
+      "script": "stable/verify_spinor_projection_independent.py",
+      "exit_code": 0,
+      "seconds": 0.44,
+      "passed": true,
+      "exact_json_equal": true,
+      "source_sha256": "3dcbd6636e126e9d0110a0a75f569b6967b0fda7c4c9f06361810067d145ee15"
+    },
+    {
+      "name": "independent_extension_and_projection_audit",
+      "script": "stable/audit_c2_one.py",
+      "exit_code": 0,
+      "seconds": 0.747,
+      "passed": true,
+      "exact_json_equal": true,
+      "source_sha256": "c48fb2994c3287068ba374b179932c254b17960a0b434cc79ed5ca2651b85b6e"
+    },
+    {
+      "name": "normal_quintic_symbolic",
+      "script": "normal/verify_normal_quintic.py",
+      "exit_code": 0,
+      "seconds": 2.91,
+      "passed": true,
+      "exact_json_equal": true,
+      "source_sha256": "f823f5069d9d1ca9948ec0f1ddffee190d134e5b726afea9e7faf71f1e9f4119"
+    },
+    {
+      "name": "normal_quintic_independent_integer",
+      "script": "normal/independent_normal_certificate.py",
+      "exit_code": 0,
+      "seconds": 0.068,
+      "passed": true,
+      "exact_json_equal": true,
+      "source_sha256": "6a75e3e8be647a29eaf02e8a8e9cafa55e09628a44c15708d27380c3fb2c15d0"
+    },
+    {
+      "name": "six_full_rank_two_components",
+      "script": "rank2_lower_bounds/verify_rank2_components.py",
+      "exit_code": 0,
+      "seconds": 0.535,
+      "passed": true,
+      "exact_json_equal": true,
+      "source_sha256": "203d0e5ea715ea5e5e01cdb954b4c4c4f1caf58d8dc2b9ed2e3726f87c5a3f3a"
+    },
+    {
+      "name": "two_boundary_rank_two_components",
+      "script": "rank2_lower_bounds/verify_boundary_points.py",
+      "exit_code": 0,
+      "seconds": 0.368,
+      "passed": true,
+      "exact_json_equal": true,
+      "source_sha256": "a42d44f394e4fa4922991e0f459991b6988a8dae24ed0b4db678827018464933"
+    },
+    {
+      "name": "aff32_universal_rank_four_deformation",
+      "script": "rank2_lower_bounds/verify_aff32_deformation.py",
+      "exit_code": 0,
+      "seconds": 0.215,
+      "passed": true,
+      "exact_json_equal": true,
+      "source_sha256": "7fc571c379252581d1f2d6fba009ff262e3bb7c122028f5f15b413a98c9002d2"
+    }
+  ],
+  "scope": "Exact polynomial identities and witness ranks; theoretical exhaustiveness is proved in the manuscript."
+}

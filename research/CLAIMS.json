@@ -1,0 +1,775 @@
+{
+  "schema_version": 1,
+  "checkpoint": "v25-setup",
+  "date": "2026-10-30",
+  "base_mathematical_checkpoint": "v24",
+  "new_mathematical_progress_in_this_setup": false,
+  "purpose_ja": "収録原稿の主張、依存、今回の監査・再現範囲、未確認点を区別する研究用台帳。",
+  "conventions": {
+    "field": "C",
+    "space": "projectivized full Jacobi scheme of nonzero Poisson structures on P4, before PGL5 quotient",
+    "component_count": "minimal irreducible components of reduced support",
+    "dimensions": "projective, before PGL5 quotient unless explicitly specified",
+    "source_paths": "legacy/vNN paths exist after repository setup; original editions are immutable"
+  },
+  "external_inputs": {
+    "CM_V5_BODY": {
+      "url": "https://arxiv.org/html/2207.12880v5",
+      "anchors": [
+        "Theorem 4.1",
+        "Theorem 2.3",
+        "Remark 2.3"
+      ],
+      "caution_ja": "本文を使う。導入と本文の範囲の差、一般次数添字のずれに注意。"
+    },
+    "DEGREE_ONE_FOLIATIONS": {
+      "url": "https://arxiv.org/abs/1112.3871",
+      "anchors": [
+        "Theorem 6.2",
+        "Corollary 6.3"
+      ]
+    },
+    "FOLIATION_COMPONENT_THEOREMS": {
+      "references": [
+        "Cukierman–Pereira–Vainsencher, Stability of foliations induced by rational maps, Theorem 1.2",
+        "Cerveau–Lins Neto, Logarithmic foliations, Theorem 1.17",
+        "Cukierman–Pereira, Stability of holomorphic foliations with split tangent sheaf, Corollary 5.1"
+      ]
+    },
+    "BUCHSBAUM_EISENBUD": {
+      "url": "https://doi.org/10.2307/2373926",
+      "scope": "Grade-three Gorenstein ideals and alternating resolutions"
+    },
+    "PYM_PURELY_ELLIPTIC": {
+      "url": "https://arxiv.org/abs/1507.05668",
+      "caution_ja": "既刊分類のpurely elliptic仮定を正規性だけに置換しない。"
+    },
+    "MPS_QUANTUM": {
+      "url": "https://arxiv.org/abs/2411.10425",
+      "anchors": [
+        "Example 5.6",
+        "Theorem 7.5"
+      ],
+      "caution_ja": "T37は本研究内部ID。"
+    }
+  },
+  "verification_runs": [
+    {
+      "id": "REVIEW_V14",
+      "record": "audits/2026-10-30/v14_recheck/verification_summary.json",
+      "date": "2026-10-30",
+      "result": "PASS",
+      "groups": 10,
+      "archived_json_equal": true,
+      "scope_ja": "有限多項式恒等式、モデル、witness rank。理論的尽くし全体の自動証明ではない。"
+    },
+    {
+      "id": "REVIEW_V24",
+      "record": "audits/2026-10-30/v24_recheck.json",
+      "date": "2026-10-30",
+      "result": "PASS",
+      "checks": 1298,
+      "scope_ja": "v24が指定した恒等式・階数・証明書。旧版全体の再検証ではない。"
+    }
+  ],
+  "claims": [
+    {
+      "id": "MPS40",
+      "title_ja": "SNC locus と交わる40成分",
+      "statement_ja": "全Poisson空間にはSNC log symplectic locusと交わる相異なる40成分がある。40は全成分の上界ではない。",
+      "scope": "Published theorem; complex projective four-space; component count unaffected by projectivization of the nonzero cone.",
+      "status": {
+        "proof": "published_theorem",
+        "independent_review": "primary_statement_checked",
+        "certificates": "not_a_reproduction_of_the_entire_external_proof",
+        "novelty": "published_result"
+      },
+      "dependencies": {
+        "claims": [],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "url": "https://arxiv.org/pdf/2010.08692",
+          "anchor": "Theorem 1.4 and Example 6.24"
+        }
+      ],
+      "verification_records": [
+        "audits/2026-10-30/global_audit.txt"
+      ],
+      "limitations_ja": [
+        "このセットアップのCOMPONENTS.jsonでは40個をblockとして保持し、各IDの照合は未実施。"
+      ]
+    },
+    {
+      "id": "MODEL_S78",
+      "title_ja": "全成分を捉える78変数モデル",
+      "statement_ja": "全成分に共通のrank2点 pi_*=x0^2 partial3 wedge partial4 があり、係数chartはA^8×S78。S78は78変数・182式で全成分と一対一に対応する。",
+      "scope": "Full projectivized Jacobi scheme, before PGL5 quotient.",
+      "status": {
+        "proof": "bundled_complete_proof_claim",
+        "independent_review": "selected_proof_read_not_full_independent_audit",
+        "certificates": "archived_not_all_rerun_in_2026_10_30_review",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "legacy/v02/p4_poisson_completeness_v2.tex",
+          "anchor": "§2 共通退化点・全体の78変数表示"
+        },
+        {
+          "path": "legacy/v02/data/universal_slice_certificate.json"
+        }
+      ],
+      "verification_records": [
+        "audits/2026-10-30/global_audit.txt",
+        "audits/2026-10-30/geometry_strategy.txt"
+      ],
+      "limitations_ja": [
+        "S78の極小素分解は未完。",
+        "Borel共通点の今回再検算はv2に対する新しい数学的成果ではない。"
+      ]
+    },
+    {
+      "id": "MODEL_S61",
+      "title_ja": "全一般階数四成分を捉える61変数モデル",
+      "statement_ja": "pi_sp=x0^2(partial1 wedge partial2+partial3 wedge partial4) は全一般階数4成分に属する。S61は重み1^16,2^45の61変数、重み4の70式と重み5の64式からなり、成分は全一般階数4成分と一対一に対応する。次元差は9。pi_spで射影接70、軌道9、横断61。",
+      "scope": "Algebraic model, not a finite-order deformation approximation.",
+      "status": {
+        "proof": "bundled_complete_proof_claim",
+        "independent_review": "selected_proof_read_not_full_independent_audit",
+        "certificates": "archived_not_all_rerun_in_2026_10_30_review",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "legacy/v02/p4_poisson_completeness_v2.tex",
+          "anchor": "§3, Rank 4 の有限代数的モデル"
+        },
+        {
+          "path": "legacy/v02/data/symplectic_slice_certificate.json"
+        },
+        {
+          "path": "legacy/v02/data/symplectic_slice_reduced_equations.json"
+        },
+        {
+          "path": "legacy/v02/data/symplectic_bianchi_certificate.json"
+        }
+      ],
+      "verification_records": [
+        "audits/2026-10-30/global_audit.txt",
+        "audits/2026-10-30/geometry_strategy.txt"
+      ],
+      "limitations_ja": [
+        "全還元スクリプトを今回再実行したわけではない。",
+        "S61の全極小素分解は未完。",
+        "定義式が有限という事実は、計算資源や終了時刻の上界を与えない。"
+      ]
+    },
+    {
+      "id": "Q45_22",
+      "title_ja": "45変数補助空間の被約22成分",
+      "statement_ja": "固定symplectic bivector Jにcompatibleなhomogeneous quadratic Poisson bivectorの45変数空間Qは、被約成分が22個。",
+      "scope": "Only the section of S61 obtained by setting its 16 weight-one variables to zero.",
+      "status": {
+        "proof": "bundled_complete_proof_claim",
+        "independent_review": "selected_proof_read_not_full_independent_audit",
+        "certificates": "archived_not_all_rerun_in_2026_10_30_review",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "MODEL_S61"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "legacy/v07/quadratic_classification.tex",
+          "anchor": "thm:Q22"
+        },
+        {
+          "path": "legacy/v07/nil22_v7.tex"
+        },
+        {
+          "path": "legacy/v07/zero_boundary_section.tex"
+        }
+      ],
+      "verification_records": [],
+      "limitations_ja": [
+        "22を全P4の成分数に加算しない。",
+        "通常のCYBEへの置換は同値ではない。",
+        "原スキームの全非被約構造の分類とは異なる。"
+      ]
+    },
+    {
+      "id": "R2_STABLE",
+      "title_ja": "安定・零因子なしの場合の実際のJacobian表示",
+      "statement_ja": "rank2、因子的零点なし、飽和接層が傾き安定なら、canonical liftはJac(L1,L2,G3)またはJac(L,Q1,Q2)と実際に書ける。",
+      "scope": "Complex closed points with all three hypotheses; no polynomial-center finiteness assumption.",
+      "status": {
+        "proof": "bundled_complete_proof_claim",
+        "independent_review": "selected_proof_read_not_full_independent_audit",
+        "certificates": "reproduced_relevant_v14_checks_and_exact_archived_json",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "legacy/v14/sections/stable_rank2.tex",
+          "anchor": "thm:stable-rank-two-actual-rational"
+        },
+        {
+          "path": "legacy/v14/proofs/stable_exhaustion_audit.txt"
+        },
+        {
+          "path": "legacy/v14/proofs/c2_one_final_exhaustion_audit.txt"
+        }
+      ],
+      "verification_records": [
+        "audits/2026-10-30/v14_recheck/verification_summary.json",
+        "audits/2026-10-30/global_audit.txt"
+      ],
+      "limitations_ja": [
+        "反射層を局所自由と仮定しない。",
+        "一般切断の零スキームを最初から局所CMと仮定しない。",
+        "元の五切断の像と全H0を区別する。",
+        "全依存理論の独立形式検証ではない。"
+      ]
+    },
+    {
+      "id": "R2_EIGHT",
+      "title_ja": "被約rank<=2 locusの8成分",
+      "statement_ja": "被約な非零rank<=2 locusはRat113,Rat122,Log1112,LPB,Aff5,Aff41,toric-rank2-Log11111,Aff32の8成分で尽くされる。因子的零点を持つ場合も含む。",
+      "scope": "Reduced projective locus, before PGL5 quotient.",
+      "status": {
+        "proof": "bundled_complete_proof_claim",
+        "independent_review": "selected_proof_read_not_full_independent_audit",
+        "certificates": "reproduced_v14_ten_check_groups_and_exact_archived_json",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "R2_STABLE"
+        ],
+        "external": [
+          "CM_V5_BODY",
+          "DEGREE_ONE_FOLIATIONS",
+          "FOLIATION_COMPONENT_THEOREMS"
+        ]
+      },
+      "proof_sources": [
+        {
+          "path": "legacy/v14/sections/rank2_global_eight.tex",
+          "anchor": "thm:rank2-eight"
+        }
+      ],
+      "verification_records": [
+        "audits/2026-10-30/v14_recheck/verification_summary.json",
+        "audits/2026-10-30/global_audit.txt"
+      ],
+      "limitations_ja": [
+        "全特殊軌道、全境界交叉、埋込み成分、冪零構造の分類ではない。",
+        "CM導入の表現と本文を混同しない。"
+      ]
+    },
+    {
+      "id": "R2_FULL_SIX",
+      "title_ja": "一般階数二の全Poisson成分は6個",
+      "statement_ja": "上記8族のうち最初6族だけが全Poisson空間のgeneric-rank2成分。toric rank2とAff32はrank4へ変形し、全空間の追加成分ではない。",
+      "scope": "Irreducible components of the full Jacobi scheme, counted on reduced support.",
+      "status": {
+        "proof": "bundled_complete_proof_claim",
+        "independent_review": "selected_proof_read_not_full_independent_audit",
+        "certificates": "reproduced_six_component_witnesses_two_boundary_witnesses_and_universal_Aff32_deformation",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "R2_EIGHT"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "legacy/v14/sections/rank2_global_eight.tex",
+          "anchor": "全 Poisson 空間では六成分が残る"
+        },
+        {
+          "path": "legacy/v14/data/six_rank2_components.json"
+        },
+        {
+          "path": "legacy/v14/data/rank2_boundary_certificate.json"
+        },
+        {
+          "path": "legacy/v14/data/aff32_deformation_certificate.json"
+        }
+      ],
+      "verification_records": [
+        "audits/2026-10-30/v14_recheck/verification_summary.json",
+        "audits/2026-10-30/global_audit.txt"
+      ],
+      "limitations_ja": [
+        "rank2 locusの成分と全Poisson空間の成分を区別する。"
+      ]
+    },
+    {
+      "id": "R4_ADDITIONAL_ELEVEN",
+      "title_ja": "SNC40と異なる11個の階数四全成分",
+      "statement_ja": "v3,v5,v6,v7,v8の族は、MPS40および相互に異なる11個のgeneric-rank4全成分を与える。詳細はCOMPONENTS.jsonの11個のindividual records。",
+      "scope": "Additional relative to the specified MPS40, not a claim of literature novelty.",
+      "status": {
+        "proof": "bundled_complete_proof_claim",
+        "independent_review": "selected_proof_read_not_full_independent_audit",
+        "certificates": "archived_not_all_rerun_in_2026_10_30_review",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "MPS40"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "legacy/v03/p4_poisson_completeness_v3.tex",
+          "anchor": "sec:new, prop:tangent"
+        },
+        {
+          "path": "legacy/v05/triple_hyperplane.tex",
+          "anchor": "sec:new"
+        },
+        {
+          "path": "legacy/v06/ambient_families.tex",
+          "anchor": "thm:AB"
+        },
+        {
+          "path": "legacy/v06/nilpotent22.tex",
+          "anchor": "subsec:quarticcomponent"
+        },
+        {
+          "path": "legacy/v06/zero_log_component.tex",
+          "anchor": "thm:zero_log"
+        },
+        {
+          "path": "legacy/v07/minimal_thickness.tex",
+          "anchor": "thm:minimal-full"
+        },
+        {
+          "path": "legacy/v07/nil22_v7.tex",
+          "anchor": "A0から得られる全P4の新成分"
+        },
+        {
+          "path": "legacy/v07/dplus_fullp4.tex",
+          "anchor": "thm:dplus-full"
+        },
+        {
+          "path": "legacy/v08/sections/cplus_component.tex",
+          "anchor": "thm:cplus-family"
+        },
+        {
+          "path": "legacy/v08/sections/cminus_component.tex",
+          "anchor": "thm:cminusmag"
+        }
+      ],
+      "verification_records": [
+        "audits/2026-10-30/global_audit.txt"
+      ],
+      "limitations_ja": [
+        "今回の監査では全旧版の大規模証明書を再実行していない。",
+        "補助Qの成分性だけでは全P4の成分性にならない。",
+        "generic non-SNCだけでなく閉包を制約する閉条件でMPS40と区別する。"
+      ]
+    },
+    {
+      "id": "COUNT_AT_LEAST_57",
+      "title_ja": "全成分数の下界57",
+      "statement_ja": "少なくとも57=40+6+11成分。そのうち少なくとも51がgeneric rank4。未知成分があればgeneric rank4。",
+      "scope": "Lower bound only; total number unknown.",
+      "status": {
+        "proof": "bundled_complete_proof_claim",
+        "independent_review": "selected_proof_read_not_full_independent_audit",
+        "certificates": "archived_not_all_rerun_in_2026_10_30_review",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "MPS40",
+          "R2_FULL_SIX",
+          "R4_ADDITIONAL_ELEVEN"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "legacy/v14/sections/frontier.tex"
+        },
+        {
+          "path": "legacy/v24/sections/frontier.tex"
+        }
+      ],
+      "verification_records": [
+        "audits/2026-10-30/global_audit.txt"
+      ],
+      "limitations_ja": [
+        "57をexact total、上界、完成予想としない。",
+        "SS/NN、T37、v24の交点を追加加算しない。"
+      ]
+    },
+    {
+      "id": "NORMAL_RECOGNITION",
+      "title_ja": "正規五次式の認識・一意復元と全スキーム表示",
+      "statement_ja": "正規な実際の退化五次式は、高さ3・五独立生成のGorenstein Jacobian idealによって認識・一意復元される。BE resolutionは0→S(-10)→S(-6)^5→S(-4)^5→S。該当開部分はkernel条件の決定式スキームと同型。Jacobian曲線スキームのdegree40、pa101。",
+      "scope": "Normal actual divisors; five independent partial derivatives are essential. Scheme recognition is separate from point classification.",
+      "status": {
+        "proof": "bundled_complete_proof_claim",
+        "independent_review": "selected_proof_read_not_full_independent_audit",
+        "certificates": "reproduced_v14_normal_symbolic_and_independent_integer_witnesses",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [],
+        "external": [
+          "BUCHSBAUM_EISENBUD"
+        ]
+      },
+      "proof_sources": [
+        {
+          "path": "legacy/v14/sections/normal_quintics.tex",
+          "anchor": "thm:normal, thm:normal-scheme"
+        },
+        {
+          "path": "legacy/v14/proofs/normal_quintic_full_scheme_audit.txt"
+        }
+      ],
+      "verification_records": [
+        "audits/2026-10-30/v14_recheck/verification_summary.json",
+        "audits/2026-10-30/geometry_strategy.txt"
+      ],
+      "limitations_ja": [
+        "同じHilbert関数の任意のGorenstein曲線がgradientとして生じるとは限らない。",
+        "標本計算の成功は全相対スキーム論証の独立証明ではない。"
+      ]
+    },
+    {
+      "id": "NORMAL_CLASSIFICATION",
+      "title_ja": "正規な実際の退化因子ならq_{5,1}",
+      "statement_ja": "実際の退化因子Dが正規なら、Sing(D)_redは滑らかな楕円正規五次曲線C、D=Sec(C)、Poisson構造はPGL5とscalarを除いてq_{5,1}型。",
+      "scope": "Complex closed-point classification; normality of D itself, not merely D_red.",
+      "status": {
+        "proof": "bundled_complete_proof_claim",
+        "independent_review": "selected_central_proofs_read_long_dependency_chain_not_fully_independently_audited",
+        "certificates": "archived_not_all_rerun_in_2026_10_30_review",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "NORMAL_RECOGNITION"
+        ],
+        "external": [
+          "PYM_PURELY_ELLIPTIC"
+        ],
+        "archived_reductions": [
+          "v16-v19 smooth inactive components including lines",
+          "v20 singular inactive components and secant geometry",
+          "v20 degree/length dichotomy E6 or E8",
+          "v21 eight degree-four support types",
+          "v22 exclusion of all eight types"
+        ]
+      },
+      "proof_sources": [
+        {
+          "path": "legacy/v22/sections/setup.tex",
+          "anchor": "thm:normal"
+        },
+        {
+          "path": "legacy/v17/sections/nilpotent_isotropy.tex"
+        },
+        {
+          "path": "legacy/v19/sections/setup.tex"
+        },
+        {
+          "path": "legacy/v20/sections/inactive.tex"
+        },
+        {
+          "path": "legacy/v20/sections/e6.tex"
+        },
+        {
+          "path": "legacy/v20/sections/secant.tex"
+        },
+        {
+          "path": "legacy/v20/sections/e8.tex"
+        },
+        {
+          "path": "legacy/v21/sections/space_geometry.tex"
+        }
+      ],
+      "verification_records": [
+        "audits/2026-10-30/geometry_strategy.txt"
+      ],
+      "limitations_ja": [
+        "v14-v22の全証明書・全還元は今回再検証していない。",
+        "Pym既刊定理のpurely elliptic仮定をnormalityだけに置き換えて引用しない。",
+        "5Hは対象外。",
+        "閉点分類から全モジュライのscheme同型を追加推論しない。"
+      ]
+    },
+    {
+      "id": "T37_IDENTIFICATION",
+      "title_ja": "SS/NNの同一既知成分への帰属",
+      "statement_ja": "v23のSSとNNは同じ既知24次元成分T37へ入る。T37は内部カタログIDであり文献の定理番号ではない。",
+      "scope": "Named member of the MPS40 block; not an additional component.",
+      "status": {
+        "proof": "bundled_complete_proof_claim",
+        "independent_review": "selected_proof_read_not_full_independent_audit",
+        "certificates": "archived_not_all_rerun_in_2026_10_30_review",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "MPS40"
+        ],
+        "external": [
+          "MPS_QUANTUM"
+        ]
+      },
+      "proof_sources": [
+        {
+          "path": "legacy/v23/sections/ss_literature.tex"
+        },
+        {
+          "path": "legacy/v23/sections/nn.tex"
+        },
+        {
+          "path": "legacy/v23/proofs/literature/t37_catalog_reference.json"
+        }
+      ],
+      "verification_records": [],
+      "limitations_ja": [
+        "旧版の族名だけで別成分と数えない。"
+      ]
+    },
+    {
+      "id": "Q_THREE_COMPONENTS",
+      "title_ja": "v24端点Qは少なくとも三成分の交点",
+      "statement_ja": "QはT37(24), CA(28), CB(28)の三つの相異なる全成分に属する。",
+      "scope": "Incidence of actual Poisson families at a specified point.",
+      "status": {
+        "proof": "bundled_complete_proof_claim",
+        "independent_review": "selected_proof_read_not_full_independent_audit",
+        "certificates": "v24_1298_checks_reproduced",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "R4_ADDITIONAL_ELEVEN",
+          "T37_IDENTIFICATION"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "legacy/v24/sections/incidence.tex"
+        },
+        {
+          "path": "legacy/v24/proofs/components/incidence_proof_note.md"
+        }
+      ],
+      "verification_records": [
+        "audits/2026-10-30/v24_recheck.json",
+        "audits/2026-10-30/local_audit.txt"
+      ],
+      "limitations_ja": [
+        "Qを通る全成分の尽くしではない。",
+        "全未知rank4成分がQを通るとは示されていない。",
+        "v24の1298検証はv6の全成分証明やv23全体を再実行しない。"
+      ]
+    },
+    {
+      "id": "Q_COMMON_26",
+      "title_ja": "CA,CBに共通の26次元磁気族",
+      "statement_ja": "共通磁気族のPGL5飽和閉包Mは既約でdim26。Q∈M⊂CA∩CBで26≤dim_Q(CA∩CB)≤27。",
+      "scope": "Dimension and containment only.",
+      "status": {
+        "proof": "bundled_complete_proof_claim",
+        "independent_review": "selected_proof_read_not_full_independent_audit",
+        "certificates": "v24_incidence_checks_reproduced",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "Q_THREE_COMPONENTS"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "legacy/v24/sections/incidence.tex"
+        },
+        {
+          "path": "legacy/v24/proofs/components/ambient_incidence.json"
+        }
+      ],
+      "verification_records": [
+        "audits/2026-10-30/v24_recheck.json",
+        "audits/2026-10-30/local_audit.txt"
+      ],
+      "limitations_ja": [
+        "MのQでの滑らかさは未証明。",
+        "Mが交差の一成分か、交差全体が26次元かは未決。",
+        "表示族の微分像と成分自身の全接空間を同一視しない。"
+      ]
+    },
+    {
+      "id": "Q_OBSTRUCTIONS",
+      "title_ja": "Qの全接空間と全二次障害",
+      "statement_ja": "Qの全射影接空間50、軌道16、横断34。全二次障害の独立な係数は53本。最低重みの6式は3変数の全二次単項式で、明示した一次方向には二次延長障害がある。",
+      "scope": "Full 150-coefficient correction space; second-order obstruction map.",
+      "status": {
+        "proof": "bundled_complete_proof_claim",
+        "independent_review": "selected_proof_read_not_full_independent_audit",
+        "certificates": "v24_obstruction_and_independent_linear_checks_reproduced",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "legacy/v24/sections/obstructions.tex"
+        },
+        {
+          "path": "legacy/v24/proofs/obstructions/quadratic_obstructions.json"
+        },
+        {
+          "path": "legacy/v24/code/audit_short_certificates.py"
+        }
+      ],
+      "verification_records": [
+        "audits/2026-10-30/v24_recheck.json",
+        "audits/2026-10-30/local_audit.txt"
+      ],
+      "limitations_ja": [
+        "53は二次式の線形包の次元で、余次元ではない。",
+        "二次障害のconeを全tangent coneと同一視しない。",
+        "三変数を元のcompleted ringで零にできるとは限らない。",
+        "A/Bの法線微分像の和12次元で二次障害が消えても、12次元の実際のPoisson族とは限らない。",
+        "全完成局所環・被約性・全枝は未決。"
+      ]
+    },
+    {
+      "id": "Q_GEOMETRY",
+      "title_ja": "端点の安定化群・零点スキーム",
+      "statement_ja": "Qの全射影安定化群は連結Gm⋉U7、軌道16。零点スキームはdegree4のprimary平面とsquare-zeroの埋込み直線を持ち、intrinsic flagを与える。",
+      "scope": "The specified endpoint Q; U7 is connected unipotent, not asserted isomorphic to Ga^7 as a group.",
+      "status": {
+        "proof": "bundled_complete_proof_claim",
+        "independent_review": "selected_proof_read_not_full_independent_audit",
+        "certificates": "v24_geometry_checks_reproduced",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "legacy/v24/sections/geometry.tex"
+        },
+        {
+          "path": "legacy/v24/proofs/geometry/endpoint_geometry_certificate.json"
+        }
+      ],
+      "verification_records": [
+        "audits/2026-10-30/v24_recheck.json",
+        "audits/2026-10-30/geometry_strategy.txt",
+        "audits/2026-10-30/local_audit.txt"
+      ],
+      "limitations_ja": [
+        "射影零点イデアルはEuler∧Qの係数から作る。",
+        "零点スキームの冪零構造とPoisson moduliの冪零構造を区別する。"
+      ]
+    },
+    {
+      "id": "Q_FIVE_COEFFICIENT_FAMILY",
+      "title_ja": "非零五係数族の全PGL軌道分類と二つの例外値",
+      "statement_ja": "ABCDE≠0の五係数族ではκ=AE/(CD)∈C*が全PGL同型の完全不変量。飽和族は17次元。κ=1/4で全射影接空間50→51、κ=-1で零点スキームがdegree5のCM primary平面となる。",
+      "scope": "Only the specified five-coefficient family; its saturation is contained in the common 26-fold M.",
+      "status": {
+        "proof": "bundled_complete_proof_claim",
+        "independent_review": "selected_proof_read_not_full_independent_audit",
+        "certificates": "v24_family_geometry_and_all_parameter_rank_certificates_reproduced",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "legacy/v24/sections/geometry.tex"
+        },
+        {
+          "path": "legacy/v24/proofs/geometry/family_zero_scheme_certificate.json"
+        },
+        {
+          "path": "legacy/v24/proofs/obstructions/parameter_rank.json"
+        }
+      ],
+      "verification_records": [
+        "audits/2026-10-30/v24_recheck.json",
+        "audits/2026-10-30/geometry_strategy.txt"
+      ],
+      "limitations_ja": [
+        "全5H locusの分類ではない。",
+        "κ=-1とκ=1/4は異なる現象。",
+        "接空間跳躍だけで新成分・非被約性を結論しない。"
+      ]
+    },
+    {
+      "id": "OPEN_GLOBAL_EXHAUSTION",
+      "title_ja": "全一般階数四成分の尽くし",
+      "statement_ja": "S61の全幾何学的極小成分の分類、既知成分による全被覆、未知成分の不存在は未証明。",
+      "scope": "Primary active mathematical goal.",
+      "status": {
+        "proof": "open_problem",
+        "independent_review": "not_proved",
+        "certificates": "no_exhaustion_certificate",
+        "novelty": "not_applicable"
+      },
+      "dependencies": {
+        "claims": [
+          "MODEL_S61",
+          "COUNT_AT_LEAST_57"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "legacy/v24/sections/frontier.tex"
+        },
+        {
+          "path": "research/NEXT_TASKS.md",
+          "anchor": "優先1・優先2"
+        }
+      ],
+      "verification_records": [],
+      "limitations_ja": [
+        "既知下界から上界を推測しない。",
+        "補助Qの22成分、Q端点の局所解析、正規因子部分の分類を全体と読み替えない。"
+      ]
+    }
+  ]
+}

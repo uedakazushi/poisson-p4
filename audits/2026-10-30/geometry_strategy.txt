@@ -1,0 +1,50 @@
+P4 Poisson v24 — geometry / strategy audit, 2026-10-30
+
+1. Normal actual divisor theorem: scope and proof dependencies
+
+v22 sections/setup.tex, Theorem thm:normal states the following for complex closed points: if the actual degeneracy divisor D=V(pi∧pi) is normal, then C=Sing(D)_red is a smooth elliptic normal quintic, D=Sec(C), and pi is q_{5,1}, up to PGL5 and nonzero scalar. Normality is imposed on D, not only D_red. Thus nonreduced D=5H is outside the theorem. This theorem is stronger than Pym's published purely elliptic classification, which assumes the appropriate nonvanishing/transversality of modular residue everywhere on the singular locus. The bundle explicitly acknowledges that distinction.
+
+v22's theorem is not standalone: its five stated inputs come from v14–v21. The main dependency chain is:
+- v14 sections/normal_quintics.tex: normal D implies the canonical lift P has Pfaffians ∇F and a height-three Buchsbaum–Eisenbud resolution 0→S(-10)→S(-6)^5→S(-4)^5→S. Consequently the full Jacobian scheme Y is pure one-dimensional arithmetically Gorenstein, deg 40, pa 101. There is a converse recognition theorem in terms of Gorenstein Jacobian ideal + five independent quartic partials; and a scheme-theoretic determinantal description via ker[P↦P∇F]. These are independently valuable conceptual results.
+- v16 sections/smooth_curves.tex, v17 sections/nilpotent_isotropy.tex, v19 sections/setup.tex and exclusion sections: exclude all smooth inactive components, with inactive lines being the technically hard final case. v17 proves local nilpotence of isotropy using formal semisimple decomposition, vanishing to order three and a maximal-weight-axis contradiction to normality. v19 carefully says it does not use assertions limited to C=L when excluding a line inside a reducible C.
+- v20 sections/inactive.tex: excludes singular inactive components by secant geometry. Thus modular residue is nonzero generically on every component; B=V(P_ij) is finite, length≤16. Generic transverse types E6/E7/E8 have Jacobian lengths 8/9/10, so 8a6+9a7+10a8=40 forces either all E6 with reduced degree5 or all E8 with reduced degree4.
+- v20 sections/e6.tex completes the all-E6 case, including reducible supports. sections/secant.tex proves that a singular nondegenerate directrix forces the secant hypersurface to be singular along a surface. sections/e8.tex reduces the other case to rational degree-four curves.
+- v21 excludes supports lying in P3 and leaves exactly eight reduced rational degree-four trees spanning P4 (no continuous projective moduli of support). v22 excludes all eight via jet constraints, Jacobi and explicit certificates.
+
+I read these central statements and several key proofs (v14 reconstruction; v17 nilpotence; v20 secant, E6, inactive; v21 space geometry; v22 inputs) and found no immediate contradiction. I did not rerun or audit every certificate and every reduction from v14–v22. The honest status is 'the bundle contains a full claimed proof with a long dependency chain', not 'all arguments independently certified in this review'. For publication, this is a higher-value package than another isolated calculation at the v24 endpoint. It deserves a consolidated self-contained manuscript plus independent check of the difficult inactive-line and eight-support exhaustion arguments.
+
+2. v24 five-coefficient orbit family
+
+sections/geometry.tex considers {u,z}=A, {v,w}=B, {v,z}=Cu, {w,z}=Dv+Eu², ABCDE≠0. All brackets are Poisson and have actual divisor 5H. The invariant κ=AE/(CD) is a full PGL invariant within this family, not merely a diagonal-gauge invariant. Any conjugacy preserves H, hence is affine; its highest quadratic tensor forces u'=au+α and v'=bu+cv+β, and {u',w'}=0 forces the remaining triangular shape. Five leading coefficient comparisons then force equality of κ. An explicit diagonal transformation proves sufficiency. This proof remains valid at κ=-1, even though a flag obtained from the zero scheme ceases to exist, because the argument uses the highest quadratic term instead.
+
+The canonical normal form is (A,B,C,D,E)=(8κ/9,-2/9,4/3,2/3,1). All nonzero κ have projective orbit dimension16 and stabilizer dimension8. Therefore the saturation of this one-parameter family has dimension17, much smaller than the common magnetic 26-fold M and far from a classification of the whole 5H locus.
+
+All magnetic structures on A4 admit a polynomial Darboux transformation. Thus κ records a projective symplectic compactification/boundary invariant, not the algebraic symplectomorphism class of the open symplectic leaf. This is a useful geometric explanation of the result.
+
+At κ=-1 the Poisson zero scheme becomes primary of degree5, finite flat over P2 and everywhere Cohen–Macaulay, whereas elsewhere it has a degree4 primary plane plus an embedded square-zero line. The finite-flat assertion follows from the explicit B=C[v,w,z]-module presentation: at every projective point one relation coefficient is invertible, so the rank5 module is locally free. At κ=1/4 the full projective Jacobi tangent dimension jumps from50 to51, with orbit16 unchanged. These are distinct exceptional values and answer distinct questions. A boundary zero-scheme jump by itself does not diagnose a new deformation branch or a nonreduced Poisson moduli structure.
+
+3. Strategic priority
+
+The most important structural issue is that v24's next-step list has become dominated by one singular point Q. That point is known to lie on at least T37, CA and CB, but there is no theorem that every unknown rank4 component meets Q. Complete local analysis at Q would be valuable deformation theory and intersection geometry, not automatically a proof of global exhaustion.
+
+The earlier v2 has a better global starting point: every generic-rank4 component contains pi_sp=x0²(∂1∧∂2+∂3∧∂4). It gives an actual algebraic slice S61, not a truncated Kuranishi approximation: 61 variables, weights1^16+2^45, 134 defining equations (weights4^70+5^64), and projective component dimension=slice dimension+9. Its geometric components correspond to all rank4 components. The 45-variable quadratic r-matrix section is obtained by setting16 variables to0 and cannot stand in for S61 without a theorem that every component meets that section appropriately. Ordinary CYBE is only sufficient, not the full equation.
+
+Recommended organization:
+A. Consolidate a current master theorem/dependency/component table. Preserve the archive, but stop making readers traverse v2→v24 to find the global model. Lift S61, the rank2 theorem, the 51 known rank4 components and the normal-D theorem into a single current entry point.
+B. Independently audit and write up the normal-D theorem and recognition theorem as a coherent publishable unit. A strong theorem already claimed in v22 should not disappear behind newer local computations.
+C. Resume global rank4 exhaustion on S61. Use the degeneracy map to stratify by normal, reduced nonnormal, and nonreduced actual divisors. Within the last two, record irreducible factor degrees and multiplicities, not merely a partition of5. Identify the ideals/parametrizations of all51 known rank4 components in this common model. Work toward √I61=intersection of their prime ideals, or an explicit additional component.
+D. Treat Q as a bounded subsidiary project. Natural finite milestones: determine dim_Q(CA∩CB)=26 or27 and whether M is a component; extract and test the κ=1/4 extra direction; determine zero-log incidence. A complete34-variable formal ring should become first priority only if the computation reveals a reusable global normal form, a new full component, or a conceptual theorem with independent value.
+E. Do not treat a quadratic obstruction-cone decomposition as a tangent-cone decomposition, and do not count formal branches as global components without checking how they algebraize/merge.
+
+Practical stopping rule for the local project: after one clear theorem (e.g. intersection dimension or resonance mechanism) has been extracted, return to S61 unless there is an explicit argument explaining how the remaining local calculation controls residual global components. Merely raising the order of obstruction calculations is not a global progress metric.
+
+4. Independent recheck of v2 universal highest-weight point
+
+I independently rediscovered and checked the common Borel point x4²∂0∧∂1, which is coordinate-conjugate to v2's x0²∂3∧∂4. This is not a new result relative to the bundle. The 150-variable raw lift has divergence rank24. The joint kernel of divergence and all positive-root infinitesimal actions has dimension1 (rank149). The full linearized divergence/Jacobi matrix has rank63: affine tangent87, projective86, projective orbit8, transverse78. These numbers were obtained in two separate implementations: a new standard-library Fraction calculation and the existing SymPy full-tangent builder. Files: review_work/check_borel.py, borel_audit.json, borel_full_tangent.json.
+
+Borel fixed-point theorem then gives the global common-point property for every projective component; v2 in fact proves a stronger explicit one-parameter degeneration and polynomial product chart A8×S78. This universal point is a backup for all ranks. S61 is the smaller and better primary model now that rank2 exhaustion is closed.
+
+5. Primary literature checked
+
+Pym, Elliptic singularities on log symplectic manifolds and Feigin–Odesskii Poisson brackets, Compositio Math.153(2017),717–744, arXiv:1507.05668, DOI10.1112/S0010437X16008174. Abstract/classification scope explicitly says 'all singular points elliptic'. Web refs: turn2search0, turn2academia17.
+Pym, Constructions and classifications of projective Poisson varieties, arXiv:1701.08852, published LMP108(2018),573–632. Theorem5.12 states codimension3 singular locus plus nonvanishing modular residue on zero locus; it does not replace these by normality alone. Accessible primary full text https://pmc.ncbi.nlm.nih.gov/articles/PMC5818673/ , ref turn2search1. Root must open any cited web source itself.

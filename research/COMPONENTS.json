@@ -1,0 +1,935 @@
+{
+  "schema_version": 1,
+  "checkpoint": "v25-setup",
+  "date": "2026-10-30",
+  "base_mathematical_checkpoint": "v24",
+  "new_components_added_in_this_setup": 0,
+  "conventions": {
+    "field": "C",
+    "space": "full projectivized Jacobi scheme before PGL5 quotient",
+    "dimensions": "projective before PGL5 quotient",
+    "counts": "minimal irreducible components of reduced support",
+    "repository_ids": "administrative identifiers for this catalogue; not literature numbering",
+    "generic_transverse_algebra": "over K, the function field of the reduced component, as specified by the archived proof",
+    "null_values": "not catalogued or not applicable; never a claim of zero"
+  },
+  "coverage": {
+    "global_lower_bound": 57,
+    "generic_rank_two_full_components": 6,
+    "generic_rank_four_lower_bound": 51,
+    "upper_bound": null,
+    "global_exhaustion_proved": false,
+    "individually_catalogued_count": 17,
+    "unexpanded_block_count": 40,
+    "all_51_rank_four_ideals_in_S61_constructed": false,
+    "note_ja": "既刊MPS40を未展開blockとして保持。6+11のみを個別記入しており、全51個のS61イデアルを作成したわけではない。"
+  },
+  "blocks": [
+    {
+      "id": "MPS40_BLOCK",
+      "name": "MPS SNC-meeting components",
+      "counted_in_global_lower_bound": true,
+      "count": 40,
+      "generic_rank": 4,
+      "expanded": false,
+      "member_records": [],
+      "claims": [
+        "MPS40"
+      ],
+      "literature_source": {
+        "url": "https://arxiv.org/pdf/2010.08692",
+        "anchor": "Theorem 1.4, Table 2, Example 6.24"
+      },
+      "archived_catalogue_sources": [
+        {
+          "path": "legacy/v02/baseline/data/p4_toric_components_40.csv"
+        },
+        {
+          "path": "legacy/v02/baseline/data/p4_toric_smoothing_diagrams.json"
+        },
+        {
+          "path": "legacy/v02/baseline/toric_components_table.tex"
+        }
+      ],
+      "expansion_status_ja": "旧カタログは保存されているが、このセットアップで各ID・文献図式・S61座標を全部照合していない。",
+      "required_next_step_ja": "各内部IDの相互区別と一次文献の図式を照合したうえで個別レコードへ展開する。block40と個別40を二重加算しない。",
+      "review_status": {
+        "proof": "published_theorem",
+        "primary_statement_checked": true,
+        "complete_individual_mapping_checked_in_this_setup": false
+      }
+    }
+  ],
+  "components": [
+    {
+      "id": "R2_RAT113",
+      "name": "Rat(1,1,3)",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "generic_rank_two_full_component",
+      "generic_rank": 2,
+      "projective_dimension": 36,
+      "generic_pgl5_orbit_dimension": null,
+      "generic_pgl5_orbit_dimension_status": "not_catalogued_in_this_setup",
+      "construction_ja": "三次式と二つの一次式のJacobian",
+      "generic_actual_degeneracy_divisor": null,
+      "degeneracy_note_ja": "pi wedge piが恒等的に零なので、generic-rank4の五次退化因子はここでは定義しない。",
+      "generic_scheme_status": "generically_smooth_as_full_Jacobi_scheme_in_bundled_witness_proof",
+      "generic_transverse_algebra": "K",
+      "claims": [
+        "R2_FULL_SIX",
+        "R2_EIGHT"
+      ],
+      "proof_sources": [
+        {
+          "path": "legacy/v14/sections/rank2_global_eight.tex",
+          "anchor": "thm:rank2-eight and full-space component subsection"
+        },
+        {
+          "path": "legacy/v14/data/six_rank2_components.json"
+        }
+      ],
+      "review_status": {
+        "proof": "bundled_complete_proof_claim",
+        "certificate_reproduction": "relevant_v14_witnesses_reproduced_2026_10_30",
+        "full_independent_peer_review": false,
+        "novelty": "not_independently_established"
+      },
+      "verification_records": [
+        "audits/2026-10-30/v14_recheck/verification_summary.json",
+        "audits/2026-10-30/global_audit.txt"
+      ]
+    },
+    {
+      "id": "R2_RAT122",
+      "name": "Rat(1,2,2)",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "generic_rank_two_full_component",
+      "generic_rank": 2,
+      "projective_dimension": 28,
+      "generic_pgl5_orbit_dimension": null,
+      "generic_pgl5_orbit_dimension_status": "not_catalogued_in_this_setup",
+      "construction_ja": "二つの二次式と一次式のJacobian",
+      "generic_actual_degeneracy_divisor": null,
+      "degeneracy_note_ja": "pi wedge piが恒等的に零なので、generic-rank4の五次退化因子はここでは定義しない。",
+      "generic_scheme_status": "generically_smooth_as_full_Jacobi_scheme_in_bundled_witness_proof",
+      "generic_transverse_algebra": "K",
+      "claims": [
+        "R2_FULL_SIX",
+        "R2_EIGHT"
+      ],
+      "proof_sources": [
+        {
+          "path": "legacy/v14/sections/rank2_global_eight.tex",
+          "anchor": "thm:rank2-eight and full-space component subsection"
+        },
+        {
+          "path": "legacy/v14/data/six_rank2_components.json"
+        }
+      ],
+      "review_status": {
+        "proof": "bundled_complete_proof_claim",
+        "certificate_reproduction": "relevant_v14_witnesses_reproduced_2026_10_30",
+        "full_independent_peer_review": false,
+        "novelty": "not_independently_established"
+      },
+      "verification_records": [
+        "audits/2026-10-30/v14_recheck/verification_summary.json",
+        "audits/2026-10-30/global_audit.txt"
+      ]
+    },
+    {
+      "id": "R2_LOG1112",
+      "name": "Log(1,1,1,2)",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "generic_rank_two_full_component",
+      "generic_rank": 2,
+      "projective_dimension": 28,
+      "generic_pgl5_orbit_dimension": null,
+      "generic_pgl5_orbit_dimension_status": "not_catalogued_in_this_setup",
+      "construction_ja": "三超平面と二次超曲面に対する対数型",
+      "generic_actual_degeneracy_divisor": null,
+      "degeneracy_note_ja": "pi wedge piが恒等的に零なので、generic-rank4の五次退化因子はここでは定義しない。",
+      "generic_scheme_status": "generically_smooth_as_full_Jacobi_scheme_in_bundled_witness_proof",
+      "generic_transverse_algebra": "K",
+      "claims": [
+        "R2_FULL_SIX",
+        "R2_EIGHT"
+      ],
+      "proof_sources": [
+        {
+          "path": "legacy/v14/sections/rank2_global_eight.tex",
+          "anchor": "thm:rank2-eight and full-space component subsection"
+        },
+        {
+          "path": "legacy/v14/data/six_rank2_components.json"
+        }
+      ],
+      "review_status": {
+        "proof": "bundled_complete_proof_claim",
+        "certificate_reproduction": "relevant_v14_witnesses_reproduced_2026_10_30",
+        "full_independent_peer_review": false,
+        "novelty": "not_independently_established"
+      },
+      "verification_records": [
+        "audits/2026-10-30/v14_recheck/verification_summary.json",
+        "audits/2026-10-30/global_audit.txt"
+      ]
+    },
+    {
+      "id": "R2_LPB",
+      "name": "LPB",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "generic_rank_two_full_component",
+      "generic_rank": 2,
+      "projective_dimension": 39,
+      "generic_pgl5_orbit_dimension": null,
+      "generic_pgl5_orbit_dimension_status": "not_catalogued_in_this_setup",
+      "construction_ja": "P3上の次数2の曲線foliationの線形引戻し",
+      "generic_actual_degeneracy_divisor": null,
+      "degeneracy_note_ja": "pi wedge piが恒等的に零なので、generic-rank4の五次退化因子はここでは定義しない。",
+      "generic_scheme_status": "generically_smooth_as_full_Jacobi_scheme_in_bundled_witness_proof",
+      "generic_transverse_algebra": "K",
+      "claims": [
+        "R2_FULL_SIX",
+        "R2_EIGHT"
+      ],
+      "proof_sources": [
+        {
+          "path": "legacy/v14/sections/rank2_global_eight.tex",
+          "anchor": "thm:rank2-eight and full-space component subsection"
+        },
+        {
+          "path": "legacy/v14/data/six_rank2_components.json"
+        }
+      ],
+      "review_status": {
+        "proof": "bundled_complete_proof_claim",
+        "certificate_reproduction": "relevant_v14_witnesses_reproduced_2026_10_30",
+        "full_independent_peer_review": false,
+        "novelty": "not_independently_established"
+      },
+      "verification_records": [
+        "audits/2026-10-30/v14_recheck/verification_summary.json",
+        "audits/2026-10-30/global_audit.txt"
+      ]
+    },
+    {
+      "id": "R2_AFF5",
+      "name": "Aff(5)",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "generic_rank_two_full_component",
+      "generic_rank": 2,
+      "projective_dimension": 22,
+      "generic_pgl5_orbit_dimension": null,
+      "generic_pgl5_orbit_dimension_status": "not_catalogued_in_this_setup",
+      "construction_ja": "nilpotent generatorのJordan型(5)のaffine Lie作用",
+      "generic_actual_degeneracy_divisor": null,
+      "degeneracy_note_ja": "pi wedge piが恒等的に零なので、generic-rank4の五次退化因子はここでは定義しない。",
+      "generic_scheme_status": "generically_smooth_as_full_Jacobi_scheme_in_bundled_witness_proof",
+      "generic_transverse_algebra": "K",
+      "claims": [
+        "R2_FULL_SIX",
+        "R2_EIGHT"
+      ],
+      "proof_sources": [
+        {
+          "path": "legacy/v14/sections/rank2_global_eight.tex",
+          "anchor": "thm:rank2-eight and full-space component subsection"
+        },
+        {
+          "path": "legacy/v14/data/six_rank2_components.json"
+        }
+      ],
+      "review_status": {
+        "proof": "bundled_complete_proof_claim",
+        "certificate_reproduction": "relevant_v14_witnesses_reproduced_2026_10_30",
+        "full_independent_peer_review": false,
+        "novelty": "not_independently_established"
+      },
+      "verification_records": [
+        "audits/2026-10-30/v14_recheck/verification_summary.json",
+        "audits/2026-10-30/global_audit.txt"
+      ]
+    },
+    {
+      "id": "R2_AFF41",
+      "name": "Aff(4,1)",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "generic_rank_two_full_component",
+      "generic_rank": 2,
+      "projective_dimension": 22,
+      "generic_pgl5_orbit_dimension": null,
+      "generic_pgl5_orbit_dimension_status": "not_catalogued_in_this_setup",
+      "construction_ja": "nilpotent generatorのJordan型(4,1)のaffine Lie作用",
+      "generic_actual_degeneracy_divisor": null,
+      "degeneracy_note_ja": "pi wedge piが恒等的に零なので、generic-rank4の五次退化因子はここでは定義しない。",
+      "generic_scheme_status": "generically_smooth_as_full_Jacobi_scheme_in_bundled_witness_proof",
+      "generic_transverse_algebra": "K",
+      "claims": [
+        "R2_FULL_SIX",
+        "R2_EIGHT"
+      ],
+      "proof_sources": [
+        {
+          "path": "legacy/v14/sections/rank2_global_eight.tex",
+          "anchor": "thm:rank2-eight and full-space component subsection"
+        },
+        {
+          "path": "legacy/v14/data/six_rank2_components.json"
+        }
+      ],
+      "review_status": {
+        "proof": "bundled_complete_proof_claim",
+        "certificate_reproduction": "relevant_v14_witnesses_reproduced_2026_10_30",
+        "full_independent_peer_review": false,
+        "novelty": "not_independently_established"
+      },
+      "verification_records": [
+        "audits/2026-10-30/v14_recheck/verification_summary.json",
+        "audits/2026-10-30/global_audit.txt"
+      ]
+    },
+    {
+      "id": "R4_DOUBLE_SMOOTH_QUADRIC",
+      "name": "H+2Q_smooth",
+      "source_checkpoint": "v03",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "additional_generic_rank_four_full_component_outside_MPS40",
+      "generic_rank": 4,
+      "projective_dimension": 22,
+      "generic_pgl5_orbit_dimension": 22,
+      "generic_reduced_rosenlicht_quotient_dimension": 0,
+      "generic_actual_degeneracy_divisor": {
+        "description": "H+2Q; Q smooth and H tangent to Q",
+        "irreducible_factor_degrees": [
+          1,
+          2
+        ],
+        "corresponding_multiplicities": [
+          1,
+          2
+        ],
+        "reduced": false
+      },
+      "generic_transverse_algebra": "K",
+      "generic_transverse_note_ja": "Kはこの被約成分の関数体。指定開集合での主張で、境界の全完成局所環を意味しない。",
+      "meets_SNC_log_symplectic_locus": false,
+      "claims": [
+        "R4_ADDITIONAL_ELEVEN"
+      ],
+      "proof_sources": [
+        {
+          "path": "legacy/v03/p4_poisson_completeness_v3.tex",
+          "anchor": "sec:new, prop:tangent, thm:quadric"
+        }
+      ],
+      "review_status": {
+        "proof": "bundled_complete_proof_claim",
+        "certificate_reproduction": "archived_certificates_not_all_rerun_in_2026_10_30_review",
+        "full_independent_peer_review": false,
+        "novelty": "additional_relative_to_MPS40_only_literature_novelty_unchecked"
+      },
+      "verification_records": [
+        "audits/2026-10-30/global_audit.txt"
+      ],
+      "notes_ja": [
+        "開PGL軌道。全成分性は全150係数からの接空間上界と軌道次元の一致による。",
+        "固定した滑らかな二次超曲面上の一般Aff構造の二つのambient extensionsは、別のR2_AFF5とこの成分へ対応する。"
+      ]
+    },
+    {
+      "id": "R4_TRIPLE_HYPERPLANE_QUADRIC",
+      "name": "3H+Q_rank4",
+      "source_checkpoint": "v05",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "additional_generic_rank_four_full_component_outside_MPS40",
+      "generic_rank": 4,
+      "projective_dimension": 22,
+      "generic_pgl5_orbit_dimension": 22,
+      "generic_reduced_rosenlicht_quotient_dimension": 0,
+      "generic_actual_degeneracy_divisor": {
+        "description": "3H+Q; Q has rank 4",
+        "irreducible_factor_degrees": [
+          1,
+          2
+        ],
+        "corresponding_multiplicities": [
+          3,
+          1
+        ],
+        "reduced": false
+      },
+      "generic_transverse_algebra": "K",
+      "generic_transverse_note_ja": "Kはこの被約成分の関数体。指定開集合での主張で、境界の全完成局所環を意味しない。",
+      "meets_SNC_log_symplectic_locus": false,
+      "claims": [
+        "R4_ADDITIONAL_ELEVEN"
+      ],
+      "proof_sources": [
+        {
+          "path": "legacy/v05/triple_hyperplane.tex",
+          "anchor": "sec:new and eq:rankcert"
+        }
+      ],
+      "review_status": {
+        "proof": "bundled_complete_proof_claim",
+        "certificate_reproduction": "archived_certificates_not_all_rerun_in_2026_10_30_review",
+        "full_independent_peer_review": false,
+        "novelty": "additional_relative_to_MPS40_only_literature_novelty_unchecked"
+      },
+      "verification_records": [
+        "audits/2026-10-30/global_audit.txt"
+      ],
+      "notes_ja": [
+        "開PGL軌道。因子L^3qという閉条件と全接空間計算を使う。"
+      ]
+    },
+    {
+      "id": "R4_CA",
+      "name": "C_A",
+      "source_checkpoint": "v06",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "additional_generic_rank_four_full_component_outside_MPS40",
+      "generic_rank": 4,
+      "projective_dimension": 28,
+      "generic_pgl5_orbit_dimension": 22,
+      "generic_reduced_rosenlicht_quotient_dimension": 6,
+      "generic_actual_degeneracy_divisor": {
+        "description": "3H+H1+H2; three distinct hyperplanes in one pencil",
+        "irreducible_factor_degrees": [
+          1,
+          1,
+          1
+        ],
+        "corresponding_multiplicities": [
+          3,
+          1,
+          1
+        ],
+        "reduced": false
+      },
+      "generic_transverse_algebra": "K",
+      "generic_transverse_note_ja": "Kはこの被約成分の関数体。指定開集合での主張で、境界の全完成局所環を意味しない。",
+      "meets_SNC_log_symplectic_locus": false,
+      "claims": [
+        "R4_ADDITIONAL_ELEVEN"
+      ],
+      "proof_sources": [
+        {
+          "path": "legacy/v06/ambient_families.tex",
+          "anchor": "thm:AB"
+        }
+      ],
+      "review_status": {
+        "proof": "bundled_complete_proof_claim",
+        "certificate_reproduction": "archived_certificates_not_all_rerun_in_2026_10_30_review",
+        "full_independent_peer_review": false,
+        "novelty": "additional_relative_to_MPS40_only_literature_novelty_unchecked"
+      },
+      "verification_records": [
+        "audits/2026-10-30/global_audit.txt"
+      ],
+      "notes_ja": [
+        "19パラメータ族A_mu(f,h)のPGL飽和閉包。",
+        "v24のQと共通26次元族Mを含む。v24の表示写像微分の次元を成分の全接空間次元と同一視しない。"
+      ]
+    },
+    {
+      "id": "R4_CB",
+      "name": "C_B",
+      "source_checkpoint": "v06",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "additional_generic_rank_four_full_component_outside_MPS40",
+      "generic_rank": 4,
+      "projective_dimension": 28,
+      "generic_pgl5_orbit_dimension": 22,
+      "generic_reduced_rosenlicht_quotient_dimension": 6,
+      "generic_actual_degeneracy_divisor": {
+        "description": "H+2H1+2H2; three distinct hyperplanes in one pencil",
+        "irreducible_factor_degrees": [
+          1,
+          1,
+          1
+        ],
+        "corresponding_multiplicities": [
+          1,
+          2,
+          2
+        ],
+        "reduced": false
+      },
+      "generic_transverse_algebra": "K",
+      "generic_transverse_note_ja": "Kはこの被約成分の関数体。指定開集合での主張で、境界の全完成局所環を意味しない。",
+      "meets_SNC_log_symplectic_locus": false,
+      "claims": [
+        "R4_ADDITIONAL_ELEVEN"
+      ],
+      "proof_sources": [
+        {
+          "path": "legacy/v06/ambient_families.tex",
+          "anchor": "thm:AB"
+        }
+      ],
+      "review_status": {
+        "proof": "bundled_complete_proof_claim",
+        "certificate_reproduction": "archived_certificates_not_all_rerun_in_2026_10_30_review",
+        "full_independent_peer_review": false,
+        "novelty": "additional_relative_to_MPS40_only_literature_novelty_unchecked"
+      },
+      "verification_records": [
+        "audits/2026-10-30/global_audit.txt"
+      ],
+      "notes_ja": [
+        "19パラメータ族B_mu(f,h)のPGL飽和閉包。",
+        "v24のQと共通26次元族Mを含む。CAと異なる全成分。"
+      ]
+    },
+    {
+      "id": "R4_H_QUARTIC_ESSENTIAL5",
+      "name": "nil22-open H+F4",
+      "source_checkpoint": "v06",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "additional_generic_rank_four_full_component_outside_MPS40",
+      "generic_rank": 4,
+      "projective_dimension": 23,
+      "generic_pgl5_orbit_dimension": 23,
+      "generic_reduced_rosenlicht_quotient_dimension": 0,
+      "generic_actual_degeneracy_divisor": {
+        "description": "H+F4; irreducible quartic with five essential variables",
+        "irreducible_factor_degrees": [
+          1,
+          4
+        ],
+        "corresponding_multiplicities": [
+          1,
+          1
+        ],
+        "reduced": true
+      },
+      "generic_transverse_algebra": "K",
+      "generic_transverse_note_ja": "Kはこの被約成分の関数体。指定開集合での主張で、境界の全完成局所環を意味しない。",
+      "meets_SNC_log_symplectic_locus": false,
+      "claims": [
+        "R4_ADDITIONAL_ELEVEN"
+      ],
+      "proof_sources": [
+        {
+          "path": "legacy/v06/nilpotent22.tex",
+          "anchor": "subsec:quarticcomponent"
+        }
+      ],
+      "review_status": {
+        "proof": "bundled_complete_proof_claim",
+        "certificate_reproduction": "archived_certificates_not_all_rerun_in_2026_10_30_review",
+        "full_independent_peer_review": false,
+        "novelty": "additional_relative_to_MPS40_only_literature_novelty_unchecked"
+      },
+      "verification_records": [
+        "audits/2026-10-30/global_audit.txt"
+      ],
+      "notes_ja": [
+        "開PGL軌道。退化五次式がある平面に沿って三次以上に消える閉incidence条件によりSNC40と区別。"
+      ]
+    },
+    {
+      "id": "R4_ZERO_LOG_5H",
+      "name": "zero-log C_5H",
+      "source_checkpoint": "v06",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "additional_generic_rank_four_full_component_outside_MPS40",
+      "generic_rank": 4,
+      "projective_dimension": 23,
+      "generic_pgl5_orbit_dimension": 22,
+      "generic_reduced_rosenlicht_quotient_dimension": 1,
+      "generic_actual_degeneracy_divisor": {
+        "description": "5H",
+        "irreducible_factor_degrees": [
+          1
+        ],
+        "corresponding_multiplicities": [
+          5
+        ],
+        "reduced": false
+      },
+      "generic_transverse_algebra": "K[e]/(e^3)",
+      "generic_transverse_note_ja": "Kはこの被約成分の関数体。指定開集合での主張で、境界の全完成局所環を意味しない。",
+      "meets_SNC_log_symplectic_locus": false,
+      "claims": [
+        "R4_ADDITIONAL_ELEVEN"
+      ],
+      "proof_sources": [
+        {
+          "path": "legacy/v06/zero_log_component.tex",
+          "anchor": "thm:zero_log"
+        }
+      ],
+      "review_status": {
+        "proof": "bundled_complete_proof_claim",
+        "certificate_reproduction": "archived_certificates_not_all_rerun_in_2026_10_30_review",
+        "full_independent_peer_review": false,
+        "novelty": "additional_relative_to_MPS40_only_literature_novelty_unchecked"
+      },
+      "verification_records": [
+        "audits/2026-10-30/global_audit.txt"
+      ],
+      "notes_ja": [
+        "一般横断長3を普遍二次jetと三次障害から証明。",
+        "v24端点Qがこの成分にも属するかは未決。"
+      ]
+    },
+    {
+      "id": "R4_MINIMAL_M",
+      "name": "M (minimal-nilpotent extension)",
+      "source_checkpoint": "v07",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "additional_generic_rank_four_full_component_outside_MPS40",
+      "generic_rank": 4,
+      "projective_dimension": 23,
+      "generic_pgl5_orbit_dimension": 23,
+      "generic_reduced_rosenlicht_quotient_dimension": 0,
+      "generic_actual_degeneracy_divisor": {
+        "description": "H+F4; irreducible quartic cone with one singular plane, transverse cubic triple line",
+        "irreducible_factor_degrees": [
+          1,
+          4
+        ],
+        "corresponding_multiplicities": [
+          1,
+          1
+        ],
+        "reduced": true
+      },
+      "generic_transverse_algebra": "K[e]/(e^3)",
+      "generic_transverse_note_ja": "Kはこの被約成分の関数体。指定開集合での主張で、境界の全完成局所環を意味しない。",
+      "meets_SNC_log_symplectic_locus": false,
+      "claims": [
+        "R4_ADDITIONAL_ELEVEN"
+      ],
+      "proof_sources": [
+        {
+          "path": "legacy/v07/minimal_thickness.tex",
+          "anchor": "thm:minimal-full"
+        }
+      ],
+      "review_status": {
+        "proof": "bundled_complete_proof_claim",
+        "certificate_reproduction": "archived_certificates_not_all_rerun_in_2026_10_30_review",
+        "full_independent_peer_review": false,
+        "novelty": "additional_relative_to_MPS40_only_literature_novelty_unchecked"
+      },
+      "verification_records": [
+        "audits/2026-10-30/global_audit.txt"
+      ],
+      "notes_ja": [
+        "開PGL軌道。v24の共通26次元磁気族Mと記号が衝突するため、本カタログではR4_MINIMAL_Mと識別する。",
+        "法線三次型および平面に沿う高次消滅で他のH+F4成分と区別。"
+      ]
+    },
+    {
+      "id": "R4_A0",
+      "name": "A0/B0 extension",
+      "source_checkpoint": "v07",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "additional_generic_rank_four_full_component_outside_MPS40",
+      "generic_rank": 4,
+      "projective_dimension": 23,
+      "generic_pgl5_orbit_dimension": 23,
+      "generic_reduced_rosenlicht_quotient_dimension": 0,
+      "generic_actual_degeneracy_divisor": {
+        "description": "H+F4; irreducible quartic cone with one singular plane, transverse cubic type (2,1)",
+        "irreducible_factor_degrees": [
+          1,
+          4
+        ],
+        "corresponding_multiplicities": [
+          1,
+          1
+        ],
+        "reduced": true
+      },
+      "generic_transverse_algebra": "K[e]/(e^3)",
+      "generic_transverse_note_ja": "Kはこの被約成分の関数体。指定開集合での主張で、境界の全完成局所環を意味しない。",
+      "meets_SNC_log_symplectic_locus": false,
+      "claims": [
+        "R4_ADDITIONAL_ELEVEN"
+      ],
+      "proof_sources": [
+        {
+          "path": "legacy/v07/nil22_v7.tex",
+          "anchor": "A0から得られる全P4の新成分"
+        }
+      ],
+      "review_status": {
+        "proof": "bundled_complete_proof_claim",
+        "certificate_reproduction": "archived_certificates_not_all_rerun_in_2026_10_30_review",
+        "full_independent_peer_review": false,
+        "novelty": "additional_relative_to_MPS40_only_literature_novelty_unchecked"
+      },
+      "verification_records": [
+        "audits/2026-10-30/global_audit.txt"
+      ],
+      "notes_ja": [
+        "開PGL軌道。F4=t^4+t^2*x*z-z^4/4という代表を持つ。"
+      ]
+    },
+    {
+      "id": "R4_DPM",
+      "name": "D_plus/D_minus extension",
+      "source_checkpoint": "v07",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "additional_generic_rank_four_full_component_outside_MPS40",
+      "generic_rank": 4,
+      "projective_dimension": 23,
+      "generic_pgl5_orbit_dimension": 23,
+      "generic_reduced_rosenlicht_quotient_dimension": 0,
+      "generic_actual_degeneracy_divisor": {
+        "description": "H+F4; irreducible quartic cone with three singular planes, generic A2 transverse cusps",
+        "irreducible_factor_degrees": [
+          1,
+          4
+        ],
+        "corresponding_multiplicities": [
+          1,
+          1
+        ],
+        "reduced": true
+      },
+      "generic_transverse_algebra": "K[e]/(e^3)",
+      "generic_transverse_note_ja": "Kはこの被約成分の関数体。指定開集合での主張で、境界の全完成局所環を意味しない。",
+      "meets_SNC_log_symplectic_locus": false,
+      "claims": [
+        "R4_ADDITIONAL_ELEVEN"
+      ],
+      "proof_sources": [
+        {
+          "path": "legacy/v07/dplus_fullp4.tex",
+          "anchor": "thm:dplus-full"
+        }
+      ],
+      "review_status": {
+        "proof": "bundled_complete_proof_claim",
+        "certificate_reproduction": "archived_certificates_not_all_rerun_in_2026_10_30_review",
+        "full_independent_peer_review": false,
+        "novelty": "additional_relative_to_MPS40_only_literature_novelty_unchecked"
+      },
+      "verification_records": [
+        "audits/2026-10-30/global_audit.txt"
+      ],
+      "notes_ja": [
+        "D_plus,D_minusの記号を別々の全成分として加算しない。",
+        "開PGL軌道。全係数での三次障害計算を持つ。"
+      ]
+    },
+    {
+      "id": "R4_CPLUS_EXT",
+      "name": "C_plus_ext",
+      "source_checkpoint": "v08",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "additional_generic_rank_four_full_component_outside_MPS40",
+      "generic_rank": 4,
+      "projective_dimension": 24,
+      "generic_pgl5_orbit_dimension": 22,
+      "generic_reduced_rosenlicht_quotient_dimension": 2,
+      "generic_actual_degeneracy_divisor": {
+        "description": "H+Q1+Q2; distinct irreducible quadrics and at most three essential variables in the quintic",
+        "irreducible_factor_degrees": [
+          1,
+          2,
+          2
+        ],
+        "corresponding_multiplicities": [
+          1,
+          1,
+          1
+        ],
+        "reduced": true
+      },
+      "generic_transverse_algebra": "K[e]/(e^2)",
+      "generic_transverse_note_ja": "Kはこの被約成分の関数体。指定開集合での主張で、境界の全完成局所環を意味しない。",
+      "meets_SNC_log_symplectic_locus": false,
+      "claims": [
+        "R4_ADDITIONAL_ELEVEN"
+      ],
+      "proof_sources": [
+        {
+          "path": "legacy/v08/sections/cplus_component.tex",
+          "anchor": "thm:cplus-family"
+        }
+      ],
+      "review_status": {
+        "proof": "bundled_complete_proof_claim",
+        "certificate_reproduction": "archived_certificates_not_all_rerun_in_2026_10_30_review",
+        "full_independent_peer_review": false,
+        "novelty": "additional_relative_to_MPS40_only_literature_novelty_unchecked"
+      },
+      "verification_records": [
+        "audits/2026-10-30/global_audit.txt"
+      ],
+      "notes_ja": [
+        "補助QのC_plusの一般横断長4と、全P4のこの成分の一般横断長2を区別する。",
+        "元の特殊斉次化点を通る全成分はこの定理だけでは尽くされない。"
+      ]
+    },
+    {
+      "id": "R4_CMINUS_MAG",
+      "name": "C_minus_mag",
+      "source_checkpoint": "v08",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "additional_generic_rank_four_full_component_outside_MPS40",
+      "generic_rank": 4,
+      "projective_dimension": 23,
+      "generic_pgl5_orbit_dimension": 21,
+      "generic_reduced_rosenlicht_quotient_dimension": 2,
+      "generic_actual_degeneracy_divisor": {
+        "description": "t*(t^2+x^2)*(t^2+x^2-2*z^2); three distinct hyperplanes and one rank-three quadric over C",
+        "irreducible_factor_degrees": [
+          1,
+          1,
+          1,
+          2
+        ],
+        "corresponding_multiplicities": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "reduced": true
+      },
+      "generic_transverse_algebra": "K[u,v]/(u*v,v^2,u^3)",
+      "generic_transverse_note_ja": "Kはこの被約成分の関数体。指定開集合での主張で、境界の全完成局所環を意味しない。",
+      "meets_SNC_log_symplectic_locus": false,
+      "claims": [
+        "R4_ADDITIONAL_ELEVEN"
+      ],
+      "proof_sources": [
+        {
+          "path": "legacy/v08/sections/cminus_component.tex",
+          "anchor": "thm:cminusmag"
+        }
+      ],
+      "review_status": {
+        "proof": "bundled_complete_proof_claim",
+        "certificate_reproduction": "archived_certificates_not_all_rerun_in_2026_10_30_review",
+        "full_independent_peer_review": false,
+        "novelty": "additional_relative_to_MPS40_only_literature_novelty_unchecked"
+      },
+      "verification_records": [
+        "audits/2026-10-30/global_audit.txt"
+      ],
+      "notes_ja": [
+        "一般横断長4、Hilbert関数(1,2,1)。",
+        "3個の相異なる超平面を、重複した3Hと書き違えない。",
+        "元の二変数磁気族の特殊点を通る全成分は未決。"
+      ]
+    }
+  ],
+  "named_block_member_annotations": [
+    {
+      "alias": "T37",
+      "parent_block": "MPS40_BLOCK",
+      "counted_separately": false,
+      "projective_dimension": 24,
+      "meaning_ja": "本研究内部カタログのID。v23のSS/NNは同じこの成分に属し、v24端点Qも含む。",
+      "claims": [
+        "T37_IDENTIFICATION",
+        "Q_THREE_COMPONENTS"
+      ],
+      "proof_sources": [
+        {
+          "path": "legacy/v23/proofs/literature/t37_catalog_reference.json"
+        },
+        {
+          "path": "legacy/v23/sections/ss_literature.tex"
+        }
+      ],
+      "full_catalogue_expansion_status": "pending_crosswalk_to_all_MPS40_records"
+    }
+  ],
+  "non_component_or_boundary_records": [
+    {
+      "id": "R2_TORIC_BOUNDARY",
+      "name": "rank-two Log(1^5)",
+      "generic_rank": 2,
+      "projective_dimension": 24,
+      "is_component_of_reduced_rank_at_most_two_locus": true,
+      "is_component_of_full_Jacobi_scheme": false,
+      "counted_in_global_lower_bound": false,
+      "reason_ja": "decomposable Cartan bivectorは同じtoric族内でrank4へ変形する。",
+      "claims": [
+        "R2_EIGHT",
+        "R2_FULL_SIX"
+      ]
+    },
+    {
+      "id": "R2_AFF32_BOUNDARY",
+      "name": "Aff(3,2)",
+      "generic_rank": 2,
+      "projective_dimension": 22,
+      "is_component_of_reduced_rank_at_most_two_locus": true,
+      "is_component_of_full_Jacobi_scheme": false,
+      "counted_in_global_lower_bound": false,
+      "reason_ja": "一般族全体を含む普遍Poisson変形でrank4へ移る。",
+      "claims": [
+        "R2_EIGHT",
+        "R2_FULL_SIX"
+      ]
+    },
+    {
+      "id": "Q_COMMON_MAGNETIC_26",
+      "name": "v24 common magnetic M",
+      "generic_rank": 4,
+      "projective_dimension": 26,
+      "is_component_of_full_Jacobi_scheme": false,
+      "counted_in_global_lower_bound": false,
+      "contained_in_components": [
+        "R4_CA",
+        "R4_CB"
+      ],
+      "intersection_component_status": "open",
+      "reason_ja": "二つの28次元成分の共通部分。交差の成分かどうかは未決。v7のR4_MINIMAL_Mとは別対象。",
+      "claims": [
+        "Q_COMMON_26"
+      ]
+    },
+    {
+      "id": "Q_FIVE_COEFFICIENT_17",
+      "name": "five-coefficient orbit family saturation",
+      "generic_rank": 4,
+      "projective_dimension": 17,
+      "is_component_of_full_Jacobi_scheme": false,
+      "counted_in_global_lower_bound": false,
+      "contained_in_locus": "Q_COMMON_MAGNETIC_26",
+      "reason_ja": "κで分類される限定族の飽和。全5H locusではない。",
+      "claims": [
+        "Q_FIVE_COEFFICIENT_FAMILY"
+      ]
+    }
+  ],
+  "integrity_rules_ja": [
+    "COUNT_AT_LEAST_57を更新するには、全空間の成分性と既知成分との相互区別の両方の証拠を追加する。",
+    "族・固定fiber・補助Q・形式的枝を、そのまま全Poisson成分に加算しない。",
+    "T37とSS/NN、D_plus/D_minusなど既知の同一視を維持する。",
+    "非被約な厚さは成分数へ加算しない。",
+    "実際の退化因子の重複度と、各既約因子の次数を別々に保持する。",
+    "MPS40 blockを展開したらblockによる加算を止め、二重計上しない。",
+    "文献上の新規性は内部成分証明とは別に確認する。"
+  ]
+}

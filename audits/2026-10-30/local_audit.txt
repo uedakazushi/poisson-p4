@@ -1,0 +1,110 @@
+v24 局所変形・成分交差の独立監査（2026-10-30）
+対象: /workspace/scratch/44cb1b64f901/review_source/p4_poisson_completeness_v24
+
+1. 再現結果
+
+code/verify_bundle.py は PASS。
+current_manifest_entries=1884、previous_v23_files_preserved=1834。
+code/run_checks.py は scratch に導入した SymPy 1.14.0 を使い、19.106秒で全1298項目 PASS。
+詳細は review_work/v24_recheck.json。
+内訳: incidence 32, endpoint geometry119, family zero scheme50, obstructions674,
+independent stdlib linear244, short certificates175, cross-package4。
+全検証は作者のスクリプトが作る一時コピー上で実行し、配布データ・旧版を変更していない。
+これは全既往証明の独立形式検証ではなく、v24が明示する有理数計算・多項式恒等式・階数証明書の再現である。
+成分CA,CBの成分性はv6入力、T37への所属はv23入力であり、v24の1298チェックがそれらの歴史的証明全体まで再実行するわけではない。
+
+2. 本文を読んだ範囲での評価
+
+sections/incidence.tex と sections/obstructions.tex、関連 proofs/components/incidence_proof_note.md、
+independent_audit.md、obstruction builder/projection の論理は整合的。
+以下に致命的な数学的誤りは見つけていない。
+
+(a) CA,CBへの実際の所属。
+19パラメータ族 A_mu(f,h), B_mu(f,h) は raw Jacobi の唯一残りうる係数
+-f g_u-g div(Y) の相殺により全パラメータでPoisson。
+canonical補正後の全Jacobiも検算済み。
+f=t²,h=4tuw/3-tv²/3-u²v,mu=-2/9 が正確にQを与える。
+従って単に接ベクトルを見ただけでなく、二つの実際の族への所属がある。
+既証のv6成分性とv23 T37所属を入力すれば、少なくとも三つの全成分を通るとの結論は正しい。
+
+(b) 共通26次元族M。
+f=t²を固定した16パラメータ磁気族のPGL飽和閉包は既約。
+Qでfamily+orbitの射影微分階数26により次元下界26。
+14次元のaffine群が族をprojectively保ち、PGL5×A16のfiber内に第一因子への自由な右作用を持つため
+上界24+16-14=26。上下界が一致し、dim M=26 は厳密。
+異なる28次元成分の真の閉部分集合であるため、26≤dim_Q(CA∩CB)≤27。
+ただしMが交差の全成分か、MがQで滑らかか、交差が26次元かは未証明。
+
+(c) 接空間とパラメータ像。
+全接空間はprojective50、PGL軌道16、横断34。
+A/Bの表示写像のprojective微分像は各27、和28、交わり26。
+軌道を除くと各11、和12、交わり10。
+CA,CBは28次元なので、その全Zariski接空間を27次元と呼ぶことはできない。
+本文はこの区別を正確に守っている。
+
+(d) 全二次障害。
+150変数・25divergence+350JacobiのMのrank99を基に、B-M[:,K]A^{-1}B[I,:]は
+全補正Sの存在を正確に判定するcoker代表。
+rank53は二次式の線形包の次元であり、幾何学的余次元ではない。
+lowest-weight6式=(z19,z30,z33)^2 により、C値の二次へ延長可能な方向では三変数が0。
+このことから元の局所環のnilpotentsもreducednessも結論できない。
+R33の明示的な非延長証明は、補正を150次元すべて許した線形汎関数の消滅を使っており強い。
+A/B微分像の和12次元全体で二次障害が消えるが、これは12次元のPoisson線形族や高次可積分性ではない。
+
+3. 今回の評価からの継続方針の改善案：重みによる有限なKuranishiモデル
+
+この点では、無制限に高次障害を順次計算するより、トーラス同変の有限なモデルを先に定式化する方がよい。
+以下はv24が既に証明した主張ではなく、v24データから導ける補題・実装方針。
+
+T=diag(1,s,s²,s³,s⁴)はQにs^5で作用。
+横断接空間のprojective重みは-6,-5,-4,-3,-2,-1,0で、0重みはちょうど1個。
+保存データを直接確認すると、その基底R0は正確にx0² partial14。
+従ってQ+tau R0=Q_{1+tau}は既知の実際のPoisson pencil。
+
+まずPGL軌道の16方向を除くT同変な線形横断面を取る。
+これは全安定化群が非還元でも、Tが還元的であるため選べる。
+PGLのLie代数のT安定補空間から形式指数写像を取り、作用写像に形式逆関数定理を適用すれば、
+全Poisson germは形式的に16次元の滑らかな軌道因子と、この横断面上のgermの積になる。
+ここではLunaの定理も粗moduliの存在も主張しない。
+
+canonical bivector空間は126次元、projectivization125次元。
+軌道16を除いたambient sliceは109次元、横断接空間34次元なので、
+線形Jacobi像を消す補助変数は75個。
+この75次元補空間WとJacobi像・cokerへの射影をT同変に選ぶ。
+Jのraw targetは10個のtrivector×35個の三次単項式で、その生の重みは-9..9。
+Qの重み5で正規化したtarget重みは-19..-1。
+線形化L_Qは、projective domain重みとこのtarget重みを保存する。
+従ってWの全重みは負。ambient bivector重みから、その範囲は-12..-1に入る。
+
+残る接変数をtau（weight0）とx1,...,x33（weights -1..-6）とする。
+補助変数yの重みを符号反転して正に数える。
+線形像方程式をweight順に解くと、weight d のブロックは
+A_d(tau)y_d + P_d(tau,x,y_{<d})=0
+の形で、A_d(0)は可逆、A_d(tau)はtauの高々一次の行列。
+同じweightのyが他の正weight変数と乗算されるとweightが上がるため、この三角形性は厳密。
+よって全yは有限計算で、xに関するweighted polynomialとして求まり、係数は
+C[tau,Delta(tau)^{-1}]に置ける。Delta(0)≠0は有限個のdet A_dの積。
+
+残余Jacobi式も同じ係数環上のweighted polynomialであり、各式のweighted degreeは1..19。
+したがって固定tau近傍の全形式変形環を決める計算は、負重み変数についてweighted degree19までで終わる。
+C[[tau]]係数で言えば、x変数の通常次数も高々19。tau方向の冪に一律の次数上界がある、とは言わない。
+Q_{1+tau}がPoisson pencilであるため、weight0の補正を解く必要もない。
+完成局所環自体の決定は未実行だが、「高次を際限なく続ける」必要がないことは計画上大きい。
+
+実装順序:
+(1) orbit除去・canonical空間・T同変補空間を明示。
+(2) weighted blockごとのA_d(tau)を作り、逆行列の分母Deltaを記録。
+(3) 重み順の厳密消去で残余多項式を生成、元のJacobiへの代入恒等式で検証。
+(4) tau=0および一般tauのideal decomposition、既知A/B/T37パラメータの写像を照合。
+(5) Delta零点、とくにkappa=1/4（a=2/9）は別sliceを作り直す。
+
+注意: weighted bound19はこの全raw targetを使った安全側の上界で、最小上界だとは主張しない。
+またこの局所モデルを完成しても、全P4のrank4成分の大域的尽くしは別問題として残る。
+
+4. 追加の軽量幾何的観察（未解決方針）
+
+CAの一般因子はL³q、CBの一般因子はLq²で、各族ではqは二変数二次式。
+両閉包に共通に現れ得る因子重複度には、5Hだけでなく(4,1),(3,2)もある。
+従ってCA∩CB全体を磁気型5H locusだけから尽くすことは早計。
+交差次元26/27を決める際は、これらの共通multiplicity strataがQへ入る実際のPoisson族を持つかを調べる。
+これは条件の共通部分の観察であり、(4,1),(3,2)の実際の共通Poisson枝の存在証明ではない。

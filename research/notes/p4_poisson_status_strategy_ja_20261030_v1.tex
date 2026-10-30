@@ -1,0 +1,602 @@
+\documentclass[11pt,a4paper]{ltjsarticle}
+\usepackage[margin=23mm]{geometry}
+\usepackage[haranoaji]{luatexja-preset}
+\usepackage{amsmath,amssymb,amsthm,mathtools,mathrsfs}
+\usepackage{booktabs,longtable,array,enumitem,xcolor,needspace}
+\usepackage{hyperref,fancyhdr}
+\hypersetup{colorlinks=true,linkcolor=blue!40!black,citecolor=blue!40!black,urlcolor=blue!40!black,
+ pdftitle={射影4空間のPoisson構造：v24の現状評価と継続方針},pdfauthor={研究評価メモ}}
+\pagestyle{fancy}\fancyhf{}
+\lhead{射影4空間の Poisson 構造：現状評価と継続方針}
+\rhead{2026年10月30日}\cfoot{\thepage}
+\setlength{\headheight}{18pt}
+\setlength{\emergencystretch}{3em}
+\setlist{itemsep=3pt,topsep=5pt}
+\newcommand{\PP}{\mathbf P}\newcommand{\CC}{\mathbf C}\newcommand{\QQ}{\mathbf Q}
+\newcommand{\cP}{\mathscr P_4}\newcommand{\OO}{\mathcal O}
+\DeclareMathOperator{\PGL}{PGL}\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\Sp}{Sp}\DeclareMathOperator{\CSp}{CSp}
+\DeclareMathOperator{\rank}{rank}\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Rat}{Rat}\DeclareMathOperator{\Aff}{Aff}
+\DeclareMathOperator{\Log}{Log}\DeclareMathOperator{\Sec}{Sec}
+\DeclareMathOperator{\diag}{diag}\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Irr}{Irr}
+\newtheorem{proposition}{命題}[section]
+\newtheorem{lemma}[proposition]{補題}
+\theoremstyle{remark}\newtheorem{remark}[proposition]{注意}
+\renewcommand{\proofname}{証明}
+\begin{document}
+\title{射影4空間の Poisson 構造\\\large 第24版の現状評価と継続方針}
+\author{植田一石氏の研究 bundle に対する評価メモ}
+\date{2026年10月30日・評価第1版}
+\maketitle
+\begin{abstract}
+\texttt{p4\_poisson\_completeness\_v24.zip} とその保存旧版を読み、
+大域的成果、境界点の局所解析、完全分類の残余問題を分けて評価する。
+研究の現時点の核は、階数二以下の被約 locus の8成分への尽くし、
+全 Poisson スキームの成分数の下界57、および正規な実際の退化因子の分類である。
+第24版は、五重超平面を退化因子とする特定点での成分交差・軌道分類・全二次障害を進めた。
+完全分類は未達である。継続の主軸には、第2版で構成済みの全一般階数四成分を捉える
+61変数・134方程式のモデルを戻すことを提案する。
+局所解析には明確な完了条件を設け、重みを使った有限な消去へ組み直す。
+今回の読解・再検証の範囲と、独立査読が必要な範囲を区別して記録する。
+\end{abstract}
+\tableofcontents
+
+\section{評価の結論}
+
+\textbf{研究は、完全分類に向けた相当量の確定成果と、実行可能な大域モデルを既に持っている。
+しかし、最新版の局所解析をそのまま続けるだけでは、大域的な尽くしに到達する保証はない。}
+
+最も重要な方針修正は、第24版の点 $Q$ の解析を限定された副課題に位置づけ、
+全一般階数四成分を捉える $S_{61}$ を研究の中心に戻すことである。
+一方、階数二の尽くし、SNC locus に会わない成分、正規退化因子の分類は、
+完全分類の終了を待たずに独立した論文として整える価値がある。
+
+評価を次の四段階に分ける。
+\begin{enumerate}
+\item \textbf{文献で確認した結果。} MPS の40成分は SNC log symplectic locus と交わる成分の分類であり、
+全 Poisson スキームの成分数の上界ではない\cite[Theorem 1.4]{MPS}。
+\item \textbf{bundle が証明付きで主張している結果。} 階数二の8/6定理、追加11成分、
+正規退化因子の $q_{5,1}$ 分類、$S_{61}$ 還元などである。
+それぞれの適用範囲と証明依存を確認した。
+\item \textbf{今回再計算した範囲。} 第24版の1298項目、第14版の10検証群、
+bundle の整合性検査がすべて成功した。全旧版の全証明を独立に形式検証したという意味ではない。
+\item \textbf{今後の提案。} $S_{61}$ 上の成分カタログ、残余の根基比較、
+重み付き局所消去、交差の26/27次元問題などである。未実行の計算を完成済みの成果に数えない。
+\end{enumerate}
+
+\section{何を分類しているのか}
+
+対象は、スカラー倍を除き、射影座標変換で割る前のスキーム
+\[
+ \cP=\{[\pi]\in\PP H^0(\PP^4,\wedge^2T_{\PP^4})\mid[\pi,\pi]=0\}
+ \subset\PP^{125}
+\]
+である。零テンソルは射影化により含めない。以下の次元は、特記しなければこの空間内の次元である。
+
+「完全分類」には異なる強さがある。
+\begin{center}
+\begin{tabular}{@{}p{38mm}p{112mm}@{}}\toprule
+目標 & 内容と現状\\\midrule
+既約成分の尽くし & 被約台の全既約成分と各一般点の幾何を決定する。現在の大域的主目標。\\
+全軌道の分類 & 特殊点も含めた $\PGL_5$ 同型類を決定する。階数二の8成分の尽くしからは従わない。\\
+スキームの決定 & 成分の交差、埋込み成分、冪零構造、完成局所環を決定する。一部の成分では実施済みだが全体は未決。\\\bottomrule
+\end{tabular}
+\end{center}
+
+当面の完成目標は第一行とし、各成分に明示的な一般形・次元・一般安定化群・退化因子を付すのが適切である。
+第二・第三行は、完全分類を意味する言葉の範囲を広げず、別の研究課題として維持する。
+
+\section{大域的な到達点}
+
+\subsection{階数二以下の被約 locus：8成分、そのうち全空間の成分は6個}
+
+第14版の \texttt{stable\_rank2.tex} と \texttt{rank2\_global\_eight.tex} は、
+次の尽くしを証明する構成になっている。
+\begin{center}
+\begin{tabular}{@{}lrl@{}}\toprule
+成分 & 次元 & 全 Poisson スキームとの関係\\\midrule
+$\Rat(1,1,3)$ &36& 一般階数二の全成分\\
+$\Rat(1,2,2)$ &28& 同上\\
+$\Log(1,1,1,2)$ &28& 同上\\
+LPB &39& 同上\\
+$\Aff(5)$ &22& 同上\\
+$\Aff(4,1)$ &22& 同上\\
+toric rank2 $\Log(1,1,1,1,1)$ &24& 階数四成分の境界\\
+$\Aff(3,2)$ &22& 階数四成分の境界\\\bottomrule
+\end{tabular}
+\end{center}
+
+安定な飽和接層 $\mathcal F$ の分岐では、$\mathcal F(1)$ の五切断から
+$c_2(\mathcal F)\in\{1,2,3\}$ に帰着し、完全交叉、linkage、反射層、spinor モデルの発散零条件を使う。
+最終的には実際の Jacobian 表示
+\[
+ \operatorname{Jac}(L_1,L_2,G_3),\qquad
+ \operatorname{Jac}(L,Q_1,Q_2)
+\]
+を得る。非安定分岐と因子的零点を持つ分岐を合わせて8成分を尽くす。
+後二者については階数四への実際の変形を構成している。
+
+これは既存の文献を言い換えただけではない。
+Corrêa--Muniz の最新版の本文は非安定分岐の重要な入力であり、
+Corollary D は階数二 locus の成分数を「少なくとも7」としている\cite{CM}。
+従って8/6定理の独自の安定層の議論は、公表原稿の主要部分になる。
+今回の読解で明白な破綻は認めず、第14版の10検証群もすべて再現したが、
+これは全ての幾何学的帰着の独立査読を完了したという意味ではない。
+
+\textbf{継続上の帰結は、未知の全既約成分があるなら、その一般点は階数四であるということである。}
+階数二の被約成分尽くしを再び未解決課題として立て直す必要はない。
+特殊軌道・交差・冪零構造は別途残っている。
+
+\subsection{全成分数の下界57と、その意味}
+
+bundle 内の累積成果は
+\[
+ \#\Irr(\cP)\ge 40+6+11=57.
+\]
+すなわち、一般階数四の成分は少なくとも51個、一般階数二の成分は6個である。
+57を正確な総数とする証明はない。第24版で扱う $T_{37},\mathcal C_A,\mathcal C_B$ は既にこの計数に含まれ、
+共通26次元部分も新しい全成分ではない。
+
+追加11成分を追跡すると、次のようになる。名称は bundle 内の名称であり、最終論文では整理すべきである。
+\begin{center}\small
+\begin{tabular}{@{}p{29mm}rp{44mm}p{64mm}@{}}\toprule
+版・名称 & 次元 & 一般退化因子 & 一般点での主な情報\\\midrule
+v3 double quadric &22& $H+2Q_{\mathrm{smooth}}$ & 開軌道、全空間で一般正則\\
+v5 triple hyperplane &22& $3H+Q_{\rank4}$ & 開軌道、一般正則\\
+v6 $\mathcal C_A$ &28& $3H+H_1+H_2$ & 一般軌道22次元、一般正則\\
+v6 $\mathcal C_B$ &28& $H+2H_1+2H_2$ & 一般軌道22次元、一般正則\\
+v6 nil22-open &23& $H+F_4$ & 本質5変数の四次、開軌道、一般正則\\
+v6 zero-log &23& $5H$ & 一般横断環 $\CC[e]/(e^3)$\\
+v7 $M$ &23& $H+F_4$ & 開軌道、一般横断環 $\CC[e]/(e^3)$\\
+v7 $A_0$ &23& $H+F_4$ & 同上、異なる境界幾何\\
+v7 $D_{\pm}$ &23& $H+F_4$ & 同上、一般 $A_2$ 型の特異平面\\
+v8 $C_+$ &24& $HQ_1Q_2$ & 一般横断環 $\CC[e]/(e^2)$\\
+v8 $C_-$ &23& 3超平面と二次因子 & 一般横断環 $\CC[u,v]/(uv,v^2,u^3)$\\\bottomrule
+\end{tabular}
+\end{center}
+
+ここで一般横断環とは、一般点での滑らかな被約方向を除いた Artin 環を意味する。
+一般点ですでに非被約な成分の存在は、成分数だけでは見えない重要な情報である。
+この表の証明は主に第3--8版に分散しており、今回すべての大規模証明書を再実行したわけではない。
+
+\subsection{公表の動機として特に重要な点}
+
+追加11成分中、v6 の $H+F_4$、v7 の三成分、v8 の二成分の計6個は、
+\textbf{被約な退化因子を持ちながら SNC locus と交わらない成分}である。
+単に一般点の因子が SNC でないだけでは40成分との差は証明できないが、
+原稿は高次消滅や本質変数数などの閉条件を使い、閉包全体の非交差を論じている。
+
+MPS は Theorem 1.4 の直後に、全 log symplectic 構造が40成分のいずれかに属するか、
+すなわち toric degeneration を持つかという問いを記している\cite[p.~7]{MPS}。
+上の6成分の証明・文献上の新規性を集中的に再確認すれば、
+この問いへの否定例という明瞭な主題で論文を構成できる。
+ここで排除するのは SNC log symplectic 構造への退化である。
+後述の非被約因子を持つ $\pi_{\mathrm{sp}}$ への退化とは異なり、両者は両立する。
+
+\subsection{正規な実際の退化因子：第22版の主要定理}
+
+第22版が、明示した第20・21版等の入力を用いて主張している定理は
+\[
+ D=V(\pi\wedge\pi)\text{ 自体が正規}
+ \quad\Longrightarrow\quad
+ \pi\text{ は }q_{5,1}\text{ 型}
+\]
+である。より具体的には、$\operatorname{Sing}(D)_{\rm red}$ は滑らかな楕円正規五次曲線 $C$、
+$D=\Sec(C)$ となる。これは複素閉点を、射影変換と非零スカラー倍を除いて分類する定理である。
+正規性を $D_{\rm red}$ だけに課してよいという主張ではない。
+
+Pym の公表済み定理は purely elliptic な場合を扱う\cite{PymElliptic}。
+一般の正規因子からそこへ帰着する部分は bundle 固有の強化である。
+主な依存は次の通りである。
+\begin{enumerate}
+\item 第14版：canonical 二次反対称行列の Pfaffian と $F$ の偏微分の関係。
+Jacobian スキームは純一次元で、Buchsbaum--Eisenbud 分解から次数40を得る。
+\item 第16--20版：modular residue が恒等的に零となる成分を排除する。
+inactive な直線と、可約支持の中の直線の扱いが特に難しい。
+\item 第20版：横断 Jacobian 長8,9,10と総次数40を使い、全 $\widetilde E_6$ 型の五次支持または
+全 $\widetilde E_8$ 型の四次支持へ帰着する。前者を完結する。
+\item 第21版：後者の支持を、$\PP^4$ を張る8種類の有理四次曲線の木に帰着する。
+\item 第22版：その8配置を、必要 first-jet 条件と全 Jacobi 条件によって排除する。
+\end{enumerate}
+
+今回読んだ主要論証に直ちに破綻する箇所は見つからなかった。
+しかし、これは長い依存鎖を持つ強い定理であり、
+\textbf{inactive 直線の排除と、支持配置の網羅性を独立査読の最優先対象にすべきである。}
+計算恒等式の再現は、それらの幾何学的網羅性を代替しない。
+この定理を統合して書き直す価値は、境界点での個別計算を一つ増やす価値より高いと評価する。
+
+\section{第24版で進んだ局所解析}
+
+\subsection{点、三成分への所属、26次元共通部分}
+
+座標を $(t,u,v,w,z)$ とし、
+\[
+ Q=t^2\partial_u\wedge\partial_z
+ -\frac29t^2\partial_v\wedge\partial_w
+ +\frac43tu\partial_v\wedge\partial_z
+ +\left(\frac23tv+u^2\right)\partial_w\wedge\partial_z
+\]
+を考える。$F_Q=-2t^5/45$、従って実際の退化因子は $5H$ である。
+第23版はこの点が既知の24次元成分 $T_{37}$ の境界にあることを示し、
+SS/NN を同一の既知成分と同定した。MPS の明示模型との照合も行っている\cite{MPSquantum}。
+
+第24版では、実際の19パラメータ族への代入により
+\[
+ [Q]\in T_{37}\cap\mathcal C_A\cap\mathcal C_B,
+ \qquad \dim\mathcal C_A=\dim\mathcal C_B=28
+\]
+を示す。これは接ベクトルだけからの推測ではない。
+さらに16パラメータの磁気型族の $\PGL_5$ 飽和閉包 $\mathcal M$ について
+\[
+ \dim\mathcal M=26,\qquad
+ [Q]\in\mathcal M\subset\mathcal C_A\cap\mathcal C_B,
+ \qquad26\leq\dim_{[Q]}(\mathcal C_A\cap\mathcal C_B)\leq27
+\]
+を証明している。下界は実際の微分階数、上界は14次元の表示の対称群による。
+交差の正確な次元、$\mathcal M$ の交差成分としての位置、局所枝の尽くしは未決である。
+
+\subsection{全二次障害の決定}
+
+全 Jacobi 線形化から
+\[
+ \dim T_{[Q]}\cP=50,\qquad
+ \dim(\PGL_5[Q])=16,
+ \qquad \dim T_{\rm transverse}=34
+\]
+を得る。軌道に横断的な34方向に対する全二次障害は、
+線形独立な53本の二次式で記述される。
+53は二次式の線形包の次元であり、余次元ではない。
+
+最低重みの3変数 $z_{19},z_{30},z_{33}$ に対しては
+\[
+ (z_{19},z_{30},z_{33})^2
+\]
+の6単項式が障害に含まれる。従って複素数値の一次方向が二次まで延長可能なら、その3係数は零である。
+元の局所環でこの3変数を零と置くことや、元の環の非被約性を結論することはできない。
+
+A/B の表示写像の横断微分像は各11次元、交わり10次元、和12次元である。
+全53式はその12次元の和で消える。従って両者を二次障害だけで分離することはできない。
+一方、各成分は28次元であるのに表示写像の射影微分像は27次元なので、
+それを成分自身の全 Zariski 接空間と同一視できない。
+
+\subsection{五係数族の全射影軌道分類と二つの特殊値}
+
+非零五係数の族
+\[
+ \{u,z\}=A,\quad\{v,w\}=B,\quad
+ \{v,z\}=Cu,\quad\{w,z\}=Dv+Eu^2,
+ \qquad ABCDE\ne0
+\]
+では、全 $\PGL_5$ 共役の完全不変量が
+\[
+ \kappa=\frac{AE}{CD}\in\CC^*
+\]
+である。これは対角変換だけの分類ではない。
+退化因子による無限遠超平面の保存と、最高次項が強制する三角形の変換形を使って必要性を証明している。
+正規形は
+\[
+ (A,B,C,D,E)=\left(\frac{8\kappa}{9},-\frac29,\frac43,\frac23,1\right).
+\]
+全ての非零 $\kappa$ で射影軌道は16次元であり、五係数族の飽和は17次元である。
+26次元の $\mathcal M$ や全 $5H$ locus を分類したことにはならない。
+元の点 $Q$ は $\kappa=9/8$ に対応し、この一変数族の接次元跳躍点ではない。
+
+\begin{center}\small
+\begin{tabular}{@{}cp{85mm}r@{}}\toprule
+$\kappa$ & Poisson テンソルの零点スキーム & 全射影接次元\\\midrule
+$\notin\{-1,1/4\}$ & 四重 primary 平面と平方零の埋込み直線 &50\\
+$-1$ & 平面上 finite flat degree 5 の CM な primary 厚化 &50\\
+$1/4$ & 四重 primary 平面と埋込み直線 &51\\\bottomrule
+\end{tabular}
+\end{center}
+
+この族の開シンプレクティック葉は多項式 Darboux 変換により標準 $\mathbf A^4$ になる。
+従って $\kappa$ は、開葉の代数的シンプレクティック同型類よりも、
+$\PP^4$ へのコンパクト化と境界の違いを記録している。
+零点スキームの跳躍と変形接空間の跳躍が異なる点に現れることは、幾何学的にも意味のある限定的な成果である。
+上の finite flat は平面への射影についての主張であり、$\kappa$ を底とする零点スキーム族の平坦性ではない。
+
+\section{完全分類までの距離と、現在のボトルネック}
+
+現状を「完全分類の何割まで進んだ」と数値化する根拠はない。
+残る成分数の上界がなく、階数四の非正規・非被約因子は豊富な変形を持つからである。
+ただし、残余問題は次のように明確になっている。
+\begin{enumerate}
+\item 一般階数四、実際の退化因子が被約だが非正規である場合。
+既約非正規五次因子も、可約因子も含む。
+\item 一般階数四、実際の退化因子が非被約である場合。
+その台の次数、重複度、各成分上のテンソルの階数を合わせて扱う必要がある。
+\item これらに対応する全成分の尽くし。既知の51個以外がないことは未証明。
+\end{enumerate}
+
+退化因子の次数の分割が有限だからといって、Poisson 構造の尽くしが直ちに有限な模型の検査になるわけではない。
+同じ因子型の中に連続モジュライと異なるスキーム構造がある。
+第24版の $Q$ を通る局所枝を全て決めても、未知の全成分がその点を通るという定理がなければ、
+大域的な尽くしは結論できない。
+
+また、版を重ねる過程で全体の見通しが弱くなっている。
+第22版末尾には「一般階数二が残る」という、第14版の尽くしを反映しない記述がある。
+第24版の継続課題は $Q$ の局所問題が中心で、第2版の全成分モデルが前面から消えている。
+次版では、過去の成果を取り消すのではなく、現在有効な定理・依存・未解決事項を一つの入口へ集約すべきである。
+
+\section{大域的な主軸：既存の61変数モデルへ戻す}
+
+\subsection{全一般階数四成分を捉えることが証明されている}
+
+第2版第3節は、
+\[
+ \pi_{\mathrm{sp}}=x_0^2
+ (\partial_1\wedge\partial_2+\partial_3\wedge\partial_4)
+\]
+を全一般階数四成分に共通する点として用いる。
+実際、階数四の点を $[1:0:0:0:0]$ へ移し、その接空間上で定数項を標準 symplectic 形へ直し、
+affine dilation で正次数項を消せばこの点へ退化する。
+群が連結なので各成分はこの退化で保たれる。
+
+非退化な評価の底は $\GL_4/\CSp_4$ で5次元、4つの perspective 方向を除き、
+Jacobi 線形部分の55変数を正重みで多項式的に消去する。その結果が
+\[
+ S_{61}=\Spec\CC[a_1,\dots,a_{16},b_1,\dots,b_{45}]/I_{61}
+\]
+である。
+\begin{center}
+\begin{tabular}{@{}lr@{}}\toprule
+データ & 数値\\\midrule
+重み1変数 &16\\
+重み2変数 &45\\
+重み4方程式 &70\\
+重み5方程式 &64\\
+方程式の通常次数上限 &5\\
+全一般階数四成分の次元と slice 次元の差 &9\\\bottomrule
+\end{tabular}
+\end{center}
+一般階数四の全成分と $S_{61}$ の幾何学的既約成分は一対一に対応する。
+これは二次障害による近似でなく、実際の代数的モデルである。
+原点での全射影接次元70、軌道次元9、横断接次元61とも整合する。
+
+全階数を扱う第2版の $\mathbf A^8\times S_{78}$ も保持されている。
+今回、共通最高ウェイト点の線形計算を独立に再確認したが、これは新成果ではなく既存結果の再確認である。
+階数二の尽くしが終わった現在は、より小さい $S_{61}$ が適切な主対象である。
+
+\subsection{45変数の二次断面だけでは足りない}
+
+$a_1=\cdots=a_{16}=0$ とすると、45変数70本の二次方程式に特殊化する。
+この断面についての22成分分類を、全 $S_{61}$ の成分分類へそのまま移してはならない。
+残る16方向を含めて、各成分の持ち上がり、合流、追加成分を判定する必要がある。
+
+二次断面の記述は
+\[
+ \rho_2:\wedge^2\mathfrak{sp}_4\xrightarrow{\sim}
+ \{Q:[\pi_{\mathrm{sp}},Q]=0\},\qquad
+ \rho_3([r,r])=0
+\]
+であり、$[r,r]=0$ という通常の CYBE は十分条件にすぎない。
+この置き換えで対象を狭める方針は避ける。
+
+\subsection{次の具体的な作業}
+
+\begin{enumerate}
+\item \textbf{既知51成分を同じ座標系に載せる。}
+各成分について、$S_{61}$ 内の一般点または稠密なパラメータ表示、
+次元、一般安定化群、退化因子、他成分との区別、証明書を同じ表に置く。
+これを欠いたまま成分数を増やす探索を続けると、既知成分の再発見を判定しにくい。
+\item \textbf{16個の重み1変数を戻す。}
+$\Sp_4$ 作用と first-jet の不変量で層別し、重み4・5の方程式を相対的に解く。
+群の軌道が有限個だとは仮定しない。一般層と例外層の両方を台帳に残す。
+\item \textbf{幾何学的層別と照合する。}
+正規因子の範囲を既存定理で処理し、残る被約非正規・非被約の因子を
+次数だけでなく重複度、特異支持、テンソルの階数で分ける。
+\item \textbf{完成条件を根基の比較として固定する。}
+既知成分に対応する素イデアルを $\mathfrak p_i$ とすると、目標は
+\[
+ \sqrt{I_{61}\CC[a,b]}=\bigcap_{i=1}^{N}\mathfrak p_i
+\]
+である。現時点で $N=51$ と決めつけず、未知成分が出れば加える。
+各既知成分の式を消去・飽和で求める段階と、和集合が全体を覆う段階を区別する。
+有限体探索は候補発見に使えるが、複素数上の尽くしには標数零の証明書が必要である。
+\end{enumerate}
+
+61変数の一括 Gröbner 分解が容易だと主張しているのではない。
+このモデルの利点は、計算の困難さがあっても、解いたとき何が完成するかが明確なことである。
+
+\section{局所解析の改良：重み付きの有限問題にする}
+
+\subsection{際限のない高次計算を避ける有限化}
+
+以下は第24版の既存定理そのものではなく、保存された重みデータから本評価で導いた構造的な帰結である。
+全残余方程式の生成・分解は今回実行していない。
+
+\begin{proposition}[重み付き局所モデルの有限化]\label{prop:finite}
+第24版の点 $Q$ の全 Poisson germ は、16次元の滑らかな因子を除くと、
+重み0の変数 $\tau$ と、正の重み $1,\dots,6$ を持つ33変数 $x$ によるモデルを持つ。
+適当な $\Delta(\tau)\in\CC[\tau]$、$\Delta(0)\ne0$ を選べば、その残余方程式は
+\[
+ \CC[\tau,\Delta(\tau)^{-1}][x_1,\dots,x_{33}]
+\]
+の多項式に取れ、各式の $x$ に関する重み付き次数は高々19である。
+これは $\tau$ を含む通常総次数の上界ではない。
+\end{proposition}
+
+\begin{proof}
+トーラス $\diag(1,s,s^2,s^3,s^4)$ は $Q$ に重み5で作用する。
+射影化後の横断接空間の重みは
+\[
+ (-6)^{\oplus3},\ (-5)^{\oplus7},\ (-4)^{\oplus8},\
+ (-3)^{\oplus7},\ (-2)^{\oplus6},\ (-1)^{\oplus2},\ 0.
+\]
+最後の基底は保存データで $R_0=x_0^2\partial_{14}$ と確認でき、
+$Q+\tau R_0=Q_{1+\tau}$ は実際の Poisson pencil である。
+
+射影 bivector 空間の次元は125である。トーラス同変に軌道の16方向を除いた
+109次元の線形横断面を選び、その中で横断接空間34次元と補助変数75個を分ける。
+トーラスの有限次元表現は完全可約なので、これらの補空間は重みを保って選べる。
+群作用の微分の補空間と形式逆関数定理を使えば、全 germ は形式的に滑らかな16方向との直積になる。
+全安定化群は非還元だが、ここで Luna の定理を使う必要はない。
+
+raw Jacobi target は $x^\alpha\partial_i\wedge\partial_j\wedge\partial_k$、$|\alpha|=3$ であり、
+その重みは $-9$ から $9$ である。$Q$ に合わせて二度重み5を引くと $-19$ から $-1$ になる。
+線形化はこの正規化重みを保存するので、75個の補助変数の重みは全て負である。
+
+以下、負重みの符号を反転して次数を数える。
+重み $d$ の線形像方程式は
+\[
+ A_d(\tau)y_d+P_d(\tau,x,y_{<d})=0,
+ \qquad A_d(0)\text{ 可逆}
+\]
+の形になる。同じ重みの $y_d$ に正重みの変数を掛けると次数が上がるため、
+同じブロックの係数に現れるのは $\tau$ だけである。
+元の方程式が二次なので $A_d(\tau)$ は $\tau$ の高々一次の行列である。
+従って $\prod_d\det A_d(\tau)$ を可逆にして小さい重みから解けば、
+全補助変数は $x$ の有限多項式として消去できる。
+残余式は元の target の重みを保つため、重み付き次数は高々19となる。
+\end{proof}
+
+この命題の意義は、二次障害錐を最終解とすることなく、
+全高次を有限個の明示多項式へまとめる道があることである。
+最初の実装目標は、同変な補空間、各 $A_d(\tau)$、分母 $\Delta$、
+消去後の全残余式と元の Jacobi 式への代入証明書を出すことである。
+$\Delta=0$ の点、とくに $\kappa=1/4$ の接次元跳躍点では別の slice を用意する必要がある。
+
+\subsection{局所問題の優先順位}
+
+第一候補は $\dim_Q(\mathcal C_A\cap\mathcal C_B)=26$ か27かを決定し、
+$\mathcal M$ がその成分かを判定することである。
+ここには幾何学的な絞り込みも使える。
+退化因子の像はそれぞれ $L^3q$ と $Lq^2$ なので、共通に現れ得る重複度は
+\[
+ (5),\qquad(4,1),\qquad(3,2)
+\]
+である。従って $5H$ の磁気族だけを調べて交差全体を尽くしたとすることはできない。
+残る二型から $Q$ へ特殊化する実際の共通 Poisson 族が存在するかを調べるとよい。
+ここで述べたのは因子像の必要条件であり、それらの共通枝の存在を証明したわけではない。
+
+第二候補は $\kappa=1/4$ で増える第35横断方向の意味の決定である。
+新成分、既知成分の特異化、高次で障害される方向のどれかを判定する。
+第三候補は、旧23次元 zero-log 成分が $Q$ を通るかの判定である。
+
+\textbf{局所研究の一区切りは、交差次元または共鳴機構について一つの明確な定理を得た時点とする。}
+その後さらに局所環全体を追うなら、未知の大域成分の捕捉に結びつく根拠、
+再利用できる一般的変形理論、または独立した論文としての価値を明示する。
+障害の計算次数を上げること自体を、大域完全性の進捗指標にはしない。
+
+\section{公表と研究資料の再構成}
+
+\subsection{論文の主題候補}
+
+内容の独立性と読みやすさから、当面は次の三つを主題として考える。
+\begin{enumerate}
+\item \textbf{階数二 Poisson 構造の成分分類。}
+8成分の尽くしと全空間における6成分、安定反射層の Jacobian 表示、残る二成分の階数四への変形をまとめる。
+\item \textbf{SNC locus 外の階数四成分と非被約な Poisson スキーム。}
+追加11成分、特に被約因子を持つ6成分と MPS の問いとの関係を核にする。
+第23・24版の境界解析は、まずこの論文との関係を整理し、交差や共鳴の定理がまとまった段階で独立化を検討する。
+\item \textbf{正規な退化五次因子の分類と復元。}
+Pfaffian--Jacobian の構造、$q_{5,1}$ への帰着、必要な局所排除を一つの自立した原稿にまとめる。
+inactive 成分と支持の網羅性を先に独立査読する。
+\end{enumerate}
+
+最終的な大域尽くしは、これらを入力とする別の主定理になる。
+完全分類がまだ得られていないことを理由に、既にまとまった成果の公表準備を止める必要はない。
+他方、今回の評価は新規性を網羅的に確定した投稿前文献調査を代替しない。
+
+\subsection{現在の入口に置くべき文書}
+
+再帰的に保存された旧版は履歴として保持しつつ、作業用の入口には以下を集める。
+\begin{itemize}
+\item 現在有効な定理一覧と証明依存図。
+\item 57成分のカタログ、うち51個の階数四成分の $S_{61}$ での表示。
+\item $S_{61}$ の全方程式、復元・検証コード、および45変数断面との関係。
+\item 正規、被約非正規、非被約因子の各分岐について、処理済み範囲と未処理範囲の表。
+\item 局所研究 $Q$ の達成目標と終了条件。
+\end{itemize}
+
+これにより「次版を読むと前の重要定理が見えなくなる」という状態を解消できる。
+既存証明のある問題を探索段階へ戻す必要もなくなる。
+
+\section{次の研究サイクルの具体的な完了条件}
+
+\begin{center}\small
+\begin{tabular}{@{}p{20mm}p{62mm}p{72mm}@{}}\toprule
+優先度 & 課題 & 完了とみなす成果物・判定\\\midrule
+最優先 & 大域カタログと $S_{61}$ の統合 & 既知51成分の一般表示、次元、区別、全方程式との照合が一箇所で読める。\\
+並行して高 & 正規因子定理の独立監査 & inactive 直線と8支持の尽くしの仮定・例外・証明依存が完結している。\\
+大域本線 & 16個の重み1方向を含む残余分類 & 少なくとも一つの非自明な first-jet 層について尽くし定理または新成分証明を得る。\\
+限定副課題 & $Q$ の重み付き完全局所模型 & 命題\ref{prop:finite}の全残余式を生成し、元の全 Jacobi 式と同値なことを証明書で確認する。\\
+局所の最初の定理 & 26/27次元問題または共鳴方向 & 交差の次元・成分性、または増加方向の可積分性を明確に判定する。\\
+公表準備 & 階数二の8/6定理と非SNC成分 & 旧版へ遡らずに読める証明、Introduction、文献との比較を持つ原稿にする。\\\bottomrule
+\end{tabular}
+\end{center}
+
+この優先順位なら、既存の強い結果を失わずに、今後の計算を「全分類にどの範囲で寄与するか」で評価できる。
+特に、$Q$ の局所環を完全に求めることと、$S_{61}$ の全成分を尽くすことを、同じ作業と見なさないことが重要である。
+
+\appendix
+\section{今回の検証範囲と参照箇所}
+
+\subsection{再現結果}
+
+第24版の \texttt{code/run\_checks.py} を一時コピー上で再実行し、1298項目の成功を確認した。
+内訳は成分所属32、端点幾何119、族の零点スキーム50、障害674、
+独立線形監査244、短い証明書175、相互照合4である。
+\texttt{code/verify\_bundle.py} は現行1884項目と第23版1834ファイルの保存を確認した。
+
+第14版は10検証群を別出力先で再実行し、すべて成功、保存済み JSON との一致を確認した。
+また共通最高ウェイト点の射影接次元86、軌道8、横断78を別実装で再確認した。
+これらは数式・階数・多項式恒等式の再現であり、幾何学的な場合分けを形式検証したものではない。
+第3--8版の全成分証明書、第14--22版の正規因子定理の全証明書は、今回すべてを再実行してはいない。
+
+\subsection{主要主張の所在}
+
+以下の版は添付 bundle の保存旧版に含まれる。
+\begin{center}\small
+\begin{tabular}{@{}p{39mm}p{116mm}@{}}\toprule
+主張 & 参照箇所\\\midrule
+全体の $S_{78}$、階数四の $S_{61}$ & v2 本文第2・3節、\texttt{symplectic\_slice\_certificate.json}\\
+階数二の8/6定理 & v14 \texttt{sections/stable\_rank2.tex}, \texttt{sections/rank2\_global\_eight.tex}\\
+追加11成分 & v3、v5、v6 \texttt{ambient\_families.tex}, \texttt{nilpotent22.tex}, \texttt{zero\_log\_component.tex}；v7、v8の各成分節\\
+正規な実際の因子 & v22 \texttt{sections/setup.tex}, 定理 \texttt{thm:normal} と同節の5入力\\
+$T_{37}$ の同定 & v23 \texttt{sections/ss\_literature.tex} と \texttt{proofs/literature/}\\
+三成分交点と26次元族 & v24 \texttt{sections/incidence.tex}\\
+全安定化群、零スキーム、$\kappa$ & v24 \texttt{sections/geometry.tex}\\
+全二次障害と接次元跳躍 & v24 \texttt{sections/obstructions.tex}\\\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{thebibliography}{9}
+\bibitem{MPS}
+M.~Matviichuk, B.~Pym and T.~Schedler,
+\emph{A local Torelli theorem for log symplectic manifolds},
+arXiv:2010.08692v2 (2021).
+\url{https://arxiv.org/abs/2010.08692}.
+Theorem 1.4、p.~7 の問い、Example 6.24。
+\bibitem{CM}
+M.~Corrêa and A.~Muniz,
+\emph{Holomorphic foliations of degree two and arbitrary dimension},
+arXiv:2207.12880v5 (2026).
+\url{https://arxiv.org/html/2207.12880v5}.
+本文 Theorem 4.1、Corollary D。引用時には導入と本文の適用範囲を照合する。
+\bibitem{PymElliptic}
+B.~Pym,
+\emph{Elliptic singularities on log symplectic manifolds and Feigin--Odesskii Poisson brackets},
+Compositio Math. \textbf{153} (2017), 717--744.
+\url{https://arxiv.org/abs/1507.05668}.
+\bibitem{PymSurvey}
+B.~Pym,
+\emph{Constructions and classifications of projective Poisson varieties},
+Lett. Math. Phys. \textbf{108} (2018), 573--632.
+\url{https://arxiv.org/abs/1701.08852}.
+\bibitem{MPSquantum}
+M.~Matviichuk, B.~Pym and T.~Schedler,
+\emph{Creating quantum projective spaces by deforming $q$-symmetric algebras},
+arXiv:2411.10425v1 (2024).
+\url{https://arxiv.org/html/2411.10425v1}.
+Example 5.6、Theorem 7.5。
+\bibitem{Bundle}
+植田一石氏との研究継続ノート、
+\emph{射影4空間の Poisson 構造：研究継続第24版}、2026年10月29日。
+添付 \texttt{p4\_poisson\_completeness\_v24.zip}。
+本評価では同梱の保存旧版を含めて参照した。
+\end{thebibliography}
+\end{document}
