@@ -40,16 +40,27 @@
 
 既存bundle生成コードに旧BUNDLE_MANIFEST.jsonの重複格納があったため、今回のmanifest
 だけを生成するよう修正した。bundleはCRC・重複エントリ・全ファイルハッシュを確認する。
-mainへ通常のcommit/pushで保存し、継続ZIPをユーザー向け出力へ作る。
+mainへ通常のcommit/pushで保存済み（db4290e）。継続ZIPはリポジトリ内のignoredな
+`bundles/`に生成・検証した。指定されたユーザー向けoutputパスは、このcloud実行機では
+`/codex`自体が存在せずread-only filesystemのため作れなかった。実際の保存receiptは
+`reports/SAVE_RECEIPT_20261030_v26.json`。
 独立したLibraryアップロード機能はこの実行環境になく、Libraryへの保存は未実施。
 Pagesのファイル添付は10MiB上限で、この原資料込みbundleの代替にはならない。
 成功した保存先とcommitは最終応答およびGit履歴で確認できる。
+
+## 保存後の継続成果
+
+CA/CBのprimitive一次部分の像を共通の閉既約9次元集合Zと決定した。
+P3上の階数6ベクトル束のincidenceを用いた上界と、係数階数3による核直線の一意性が
+次元9を与える。別に非零9次小行列式も検証した。一般fibre次元は10。
+全族・任意rank4点の正規化とPGL飽和・閉包を含めた証明をノートと日本語原稿へ追加。
+`reports/AMBIENT_WEIGHT1_IMAGE_20261030.json` を参照。
 
 ## 次の実行可能な課題
 
 `research/NEXT_TASKS.md` を入口にする。T01の優越性を前提に、一般一次部分上の
 全延長、他成分の一次部分の像、または階数1固定fibreの分解へ進む。
-まず追加成分CAまたはCBの一般族を現行adapterへ写し、primitive一次部分への
-写像の微分階数を求める。rank1fibreを選ぶ場合は、保存45変数134式から安定化群や
+CA/CBの一次部分の像は上の追補で決定した。次はT39(q5,1)またはT40(q5,2)の
+一次部分への射影を調べる。rank1fibreを選ぶ場合は、保存45変数134式から安定化群や
 局所化を使う削減を明示する。大規模primary decompositionを理由なく再実行しない。
 全51成分の個別S61カタログ、全体の根基分解、特殊軌道・交叉・冪零構造は残る。

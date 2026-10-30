@@ -6,6 +6,10 @@ Current continuation: T01 has dominant, generically finite primitive first-jet
 projection to the full 16-dimensional first-jet space. This is not global
 exhaustion. Read the updated STATE/NEXT_TASKS and current code/S61_README.md.
 Rank-one first jets reduce to a preserved 45-variable, 134-quadratic fiber.
+The CA and CB slice components have the same closed nine-dimensional first-jet
+image, so they do not dominate the 16-dimensional first-jet space. Among the
+known components, only T01, T39, and T40 can dominate; the latter two and all
+potential unknown components remain to be assessed.
 Do not reopen generic first-jet realizability as unknown; all extensions and
 exceptional fibers remain open.
 

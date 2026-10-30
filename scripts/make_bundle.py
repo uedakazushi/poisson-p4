@@ -24,7 +24,7 @@ def git(*arguments: str) -> str:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--version", default="v25-setup", help="Version label (letters, digits, dot, underscore, hyphen).")
+    parser.add_argument("--version", default="v26-s61", help="Version label (letters, digits, dot, underscore, hyphen).")
     parser.add_argument("--output", type=Path, help="ZIP path. Default: ignored bundles/ directory.")
     args = parser.parse_args()
     if not re.fullmatch(r"[A-Za-z0-9._-]+", args.version):

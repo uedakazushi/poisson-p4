@@ -37,6 +37,15 @@ setup後、新しい出力先を指定して実行する。
 各CLIは出力上書きを避ける。S61の再生成コマンド、原本との比較、ハッシュは
 `reports/S61_REBUILD_20261030.json` を参照。
 
+追加の再現：
+
+```sh
+.venv/bin/python code/ambient_weight1_image.py --output reports/new-ambient-image.json
+```
+
+CA/CBの全一次部分の共通6次元線形族、任意の非退化定数項の正規化、
+P3上の階数6 incidence、像の次元9を厳密に検証する。
+
 ## 一般パラメータ族
 
 トーリック族は6個のlog Poisson係数 `a,b,c,d,e,f` をすべて残す。

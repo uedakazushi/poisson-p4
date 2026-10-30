@@ -49,6 +49,8 @@
 さらに既知 toric 成分から16次元の一次ジェット空間への射影が優越的であることを、
 明示した非零小行列式により示す。従ってある非空開部分の全一次ジェットは延長可能であるが、
 同じ一次項を持つ全解の分類や延長の一意性は導かない。
+二つの既知28次元成分については、共通の一次像を閉既約9次元集合として決定する。
+既存カタログの次元を入力とすれば、一般一次項上の既知成分の候補は toric 成分と二つの楕円成分へ絞られる。
 本稿は新規性の文献監査前の内部草稿であり、全成分の尽くしや成分数の更新を主張しない。
 \end{abstract}
 
@@ -453,6 +455,191 @@ perspective の有限行列恒等式、radial 三次項の相殺、trace 変換�
   --output reports/new-run/rank-one-fiber.json
 \end{verbatim}
 
+\section{二つの既知28次元成分の共通一次像}\label{sec:ambient}
+この節では、第6版\cite{ambient-source}における既知の全成分
+$\mathcal C_A,\mathcal C_B$ を扱う。成分性、相異性、射影次元28は既存の証明を入力とする。
+新たに決定するのは、対応する $S_{61}$ 成分の primitive 一次ジェット像である。
+
+\subsection{原族と共通の六次元線形部分空間}
+斉次座標を $(x_0,x,y,z,w)$ とする。
+$f=f(x_0,x)$ は二次、$h=h(x_0,x,z,w)$ は三次斉次式とし、
+$X_h=-h_w\partial_z+h_z\partial_w$、$E_{zw}=z\partial_z+w\partial_w$ と置く。
+原族は
+\begin{align}
+ P_A&=f\partial_x\wedge\partial_y+x_0^2\partial_z\wedge\partial_w
+                  +\partial_y\wedge X_h,\label{eq:CA}\\
+ P_B&=f(\partial_x\wedge\partial_y+\partial_z\wedge\partial_w)
+           +\partial_y\wedge\left(-\tfrac12f_xE_{zw}+X_h\right).\label{eq:CB}
+\end{align}
+両者の Jacobi 恒等式は、$\operatorname{div}_{zw}X_h=0$ と
+$\operatorname{div}_{zw}(-f_xE_{zw}/2)=-f_x$ から直接従う。
+その実際の退化五次式はそれぞれ $x_0^3f$、$x_0f^2$ である。
+
+$x_0=1$、$f=1+px+O(x^2)$ とし、$h$ の一次微分が原点で零となる場合をまず考える。
+一次ジェットに寄与する二次部分を
+\[
+ h_2=A xz+B xw+Cz^2+Dzw+Fw^2
+\]
+とする。$x^2$ 項は $X_h$ に寄与しない。
+primitive 正規化後の一次項は両族とも
+\begin{equation}\label{eq:common-plane}
+ L_0=tx(\partial_{xy}-\partial_{zw})
+       +\partial_y\wedge\left(X_{h_2}+\tfrac t2E_{zw}\right)
+\end{equation}
+の形になる。$A$ 族では $p=5t/2$、$B$ 族では $p=-5t$ である。
+これは第3節の有限公式を代入した全 parameter の恒等式である。
+
+$\beta=-JL_0J$ の六次元線形空間を $S\subset W$ とする。
+その成分は
+\begin{gather}
+ \beta_{12}=tx,\quad \beta_{34}=-tx,\quad
+ \beta_{23}=\beta_{24}=0,\label{eq:S-form}\\
+ \beta_{13}=(h_2)_z+\tfrac t2w,\qquad
+ \beta_{14}=(h_2)_w-\tfrac t2z.\nonumber
+\end{gather}
+各 $t,h_2$ は、原族で $f=x_0^2+px_0x$、$h=x_0h_2$ とすれば実現する。
+原点での値は常に $J$ であり、rank4 の開条件を失わない。
+
+\subsection{任意の rank4 点における正規化}
+原族の rank4 点では必ず $x_0\ne0$ である。
+affine translation でその点を原点へ移しても、$A$ 族の形は保たれる。
+$B$ 族では $E_{zw}$ の平行移動により生じる定数ベクトル項を $X_h$ に吸収できる。
+具体的には $z,w$ の定数移動による項は $f_x(x)$ 倍の定数ベクトルであり、
+$x$ に一次以下、$z,w$ に一次の Hamiltonian を加えればよい。
+従って $h$ の三次以下という許容範囲を保つ。
+
+原点での値を
+\[
+ K=\begin{pmatrix}
+ 0&a&0&0\\-a&0&d&e\\0&-d&0&g\\0&-e&-g&0
+ \end{pmatrix},\qquad ag\ne0
+\]
+とする。$A$ 族では $g=1$、$B$ 族では $g=a$。
+定数交差項 $d,e$ を零と仮定せず、
+\[
+ R=\begin{pmatrix}
+ 1&0&0&0\\0&1/a&0&0\\d/a&0&1&0\\e/(ag)&0&0&1/g
+ \end{pmatrix}
+\]
+で正規化すると $RKR^t=J$ を得る。
+この変換は $x$ と $y$ への非依存性を保つので、その後の一次項は
+\[
+ L_{12}=sx,\quad L_{34}=rx,\quad L_{13}=L_{14}=0,
+ \quad(L_{23},L_{24})=Y(x,z,w)
+\]
+と書ける。Jacobi の定数項は $\operatorname{div}_{zw}Y=-r$ を与える。
+$\tau=(s+r)x$ による primitive 正規化を行うと
+\[
+ t=\frac{2s-3r}{5},\qquad
+ (L_0)_{12}=tx,\quad(L_0)_{34}=-tx,\qquad
+ \operatorname{div}_{zw}Y_0=t.
+\]
+従って $Y_0-tE_{zw}/2$ は divergence-free な線形場であり、
+二次式 $h_2$ の $X_{h_2}$ として表される。
+これで任意の rank4 点からも\eqref{eq:common-plane}に到達する。
+一般の $a,d,e,g$ に対するこの計算は\cite{ambient-certificate}で記号的に確認した。
+
+同じ点を $p$ に移して定数項を $J$ にする二つの射影座標系の差は、
+$p$ の安定化群に属する。perspective 部分は primitive gauge で一意に除かれ、
+残る作用は $\CSp_4$ である。
+$S$ は線形部分空間でスカラー倍を許すため、その $\Sp_4$ 飽和と $\CSp_4$ 飽和は一致する。
+
+\subsection{閉 incidence と正確な像}
+定数2形式を $\omega=\dd x\wedge\dd y+\dd z\wedge\dd w$ とする。
+$v\in U\setminus\{0\}$ に対し $\ell_v=\iota_v\omega$ と置き、
+\[
+ S_{[v]}=\{\beta\in W:B_\beta(v)=0,\quad
+      \iota_v\beta(y)\in\CC\,\ell_v(y)\ell_v\}
+\]
+を定める。第二条件は、$y$ に関して線形な1形式の空間の中で表示した直線に入る、
+という条件である。$v$ の非零スカラー倍によって条件は変わらない。
+
+$v=\partial_y$ の場合、これらの条件と閉性・primitive 性は
+\begin{align*}
+ \beta={}&t x\dd x\wedge\dd y
+ +(b x+c z+d w)\dd x\wedge\dd z\\
+ &+(e x+f z+g w)\dd x\wedge\dd w-tx\dd z\wedge\dd w,
+ \qquad d-f=t
+\end{align*}
+を与える。従って $S_{[\partial_y]}=S$、次元は6である。
+$\Sp_4$ は $\PP(U)=\PP^3$ に推移的であり、定義は同変なので
+\[
+ \mathcal I=\{([v],\beta):\beta\in S_{[v]}\}
+                  \subset\PP^3\times W
+\]
+は階数6のベクトル束の全空間である。
+条件は $\beta$ に線形で、$\ell_v\ne0$、その相対階数は一定である。
+第二条件を二つのテンソルの比例性の小行列式で書けば、$\mathcal I$ はこの積内の閉部分集合となる。
+
+\begin{theorem}[二成分の共通一次像]\label{thm:ambient-image}
+$Z=\operatorname{pr}_2(\mathcal I)$ は $W$ の閉既約9次元部分集合であり、
+$\rank B_\beta\le3$ に含まれる。
+$\mathcal C_A,\mathcal C_B$ に対応する primitive gauge の $S_{61}$ 成分の
+一次ジェット像は、複素点の集合としてともに正確に $Z$ である。
+\end{theorem}
+\begin{proof}
+$\mathcal I$ は既約9次元であり、射影 $\PP^3\times W\to W$ は proper なので、
+$Z$ は閉既約、$\dim Z\le9$ である。
+$B_\beta(v)=0$ より係数階数は3以下。
+次の明示的な点を考える。
+\[
+ \beta_*=x\dd x\wedge\dd y+(z+w)\dd x\wedge\dd z
+            +w\dd x\wedge\dd w-x\dd z\wedge\dd w.
+\]
+これは $S$ に属し、係数行列の行 $(12),(13),(14)$、列 $x,z,w$ の小行列は
+\[
+ \begin{pmatrix}1&0&0\\0&1&1\\0&0&1\end{pmatrix}
+\]
+である。従って係数階数は3、核は $\CC\partial_y$。
+階数3の非空開部分では $[v]=\PP\ker B_\beta$ が一意かつ代数的に復元されるので、
+incidence 射影はその部分で同型となり、$\dim Z=9$ を得る。
+独立な確認として、六 parameter と $\Sp_4$ 作用を合わせた微分にも
+9次非零小行列式 $-2016$ がある\cite{ambient-certificate}。
+
+推移性から $Z=\Sp_4\cdot S$。
+$S$ の全点を両原族で実現したので、$Z$ の全点は両成分から実現する。
+逆の包含は閉包の点にも確認する必要がある。
+非退化評価開部分 $\mathcal U$ 上で、交代行列を $J$ にする線形 frame は
+非零 minor を局所化した Zariski 開集合ごとに正則に選べる。
+続く primitive 正規化も多項式である。
+$Z$ は $\CSp_4$ 不変かつ閉なので、正規化された一次項が $Z$ に属するという条件は
+frame の選択によらず、$\mathcal U$ 上の閉条件となる。
+上の任意の基点の計算により、原族の $\PGL_5$ 飽和の $\mathcal U$ との交わりはこの閉条件を満たす。
+その閉包である $\mathcal C_A\cap\mathcal U$、$\mathcal C_B\cap\mathcal U$ でも条件は保たれる。
+定数項を $J$ に固定して perspective を除いた slice に制限すれば、逆包含を得る。
+これは複素点の像の主張であり、scheme-theoretic image や定義イデアルの根基性を追加しない。
+\end{proof}
+
+\begin{corollary}
+既存の成分次元28と $S_{61}$ の次元差9を用いると、
+両者に対応する19次元成分の $Z$ 上の一般 fibre の次元は10である。
+\end{corollary}
+\begin{proof}
+どちらも既約19次元から既約9次元への優越写像なので、一般 fibre の次元定理を用いる。
+\end{proof}
+
+この結果は二成分の交叉次元、fibre の既約性・同型類、同じ一次項を持つ構造の同一性を決めない。
+二成分の相異性は既存の退化因子の重複度によって保たれ、その違いは一次項より高い係数に残る。
+
+\subsection{既知成分のうち一般一次項上に残る候補}
+\begin{corollary}[既存カタログの次元を入力とする帰結]\label{cor:known-dominant}
+既存の51個の一般階数四成分の同定と次元を前提とすると、そのうち $W$ へ優越し得るものは
+$T01,T39,T40$ の三つだけである。$T01$ の優越性は定理\ref{thm:toric-dominance}で証明した。
+$T39=q_{5,1}$、$T40=q_{5,2}$ の優越性は本稿では未決である。
+\end{corollary}
+\begin{proof}
+保存カタログ\cite{component-catalog}の MPS40 のうち、射影次元25なのはこの三つであり、
+残る37個は射影次元24以下である。従って残る37個の $S_{61}$ 成分は次元15以下で、
+16次元の $W$ に優越しない。
+追加11成分のうち $\mathcal C_A,\mathcal C_B$ を除く9個も射影次元24以下である。
+残る二つは19次元の slice 成分だが、その像は定理\ref{thm:ambient-image}の9次元の $Z$ である。
+\end{proof}
+
+この系は未知成分を排除しない。既知の残る48成分の像の閉包を除いた非空開部分では、
+既知成分に限れば三つの候補のみが残るという意味である。
+成分カタログの名称と次元を、この節で一次文献から新たに証明したとはしない。
+次の有限課題は $q_{5,1}$ または $q_{5,2}$ の primitive 一次像を求めることである。
+
 \section{残る問題}
 得られた帰着は、係数階数一の全解を一つの有限な fibre へ移すものである。
 $F$ の極小素イデアル分解、成分次元、既知の全 Poisson 成分との対応は未決である。
@@ -461,6 +648,8 @@ $H$ の作用を使って45変数問題を小さくすることが考えられ�
 また、係数階数2,3,4の層の全解の還元は未実施である。
 Toric 優越性は一般一次項の延長可能性を示すが、一般 fibre における他成分の点、
 延長の個数、例外的な閉部分の挙動は未決である。
+$\mathcal C_A,\mathcal C_B$ は一般一次項上には現れず、共通の閉集合 $Z$ 上に10次元の一般 fibre を持つ。
+既知の優越候補 $q_{5,1},q_{5,2}$ の一次像は、次に解決すべき具体的な問題として残る。
 
 全分類の第一段階には、すべての $S_{61}$ の極小成分の尽くしと全空間での成分性、
 相互識別が必要である。本稿の単一層の帰着は、その完了ではない。
@@ -483,5 +672,14 @@ Toric 優越性は一般一次項の延長可能性を示すが、一般 fibre �
 \nolinkurl{research/notes/TORIC_WEIGHT1_DOMINANCE_20261030.md}、
 \nolinkurl{reports/TORIC_WEIGHT1_DOMINANCE_20261030.json}、
 \nolinkurl{code/toric_weight1_dominance.py}。
+\bibitem{ambient-source} 同プロジェクト、第6版、
+\nolinkurl{legacy/v06/ambient_families.tex}、二つの28次元成分の構成と証明。
+\bibitem{ambient-certificate} 同プロジェクト、
+\nolinkurl{research/notes/AMBIENT_WEIGHT1_IMAGE_20261030.md}、
+\nolinkurl{reports/AMBIENT_WEIGHT1_IMAGE_20261030.json}、
+\nolinkurl{code/ambient_weight1_image.py}。
+\bibitem{component-catalog} 同プロジェクト、
+\nolinkurl{legacy/v02/baseline/data/p4_toric_components_40.csv}、
+\nolinkurl{research/COMPONENTS.json}。既存成分の同定・次元の台帳。
 \end{thebibliography}
 \end{document}

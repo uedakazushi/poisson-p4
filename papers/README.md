@@ -3,7 +3,8 @@
 **状態：v26-s61、2026-10-30。以下の新しい研究草稿を追加。**
 
 [一次部分の正規化とトーリック成分の優越性](s61_first_jet_reduction_ja.tex)は、
-有限perspective公式、16次元primitive一次部分、T01の優越性、階数1固定fibreを扱う。
+有限perspective公式、16次元primitive一次部分、T01の優越性、階数1固定fibre、
+CA/CBの共通9次元像と既知の一般一次部分候補T01/T39/T40を扱う。
 内部研究草稿であり、新規性調査と投稿準備は未完。日本語TeXの必要packageが未導入のため
 今回のPDFは未生成。計算証明書・再現手順は [現行コード](../code/S61_README.md)。
 
