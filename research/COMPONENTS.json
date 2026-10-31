@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "checkpoint": "v26-s61",
-  "date": "2026-10-30",
+  "checkpoint": "v27-s61",
+  "date": "2026-10-31",
   "base_mathematical_checkpoint": "v24",
   "new_components_added_in_this_setup": 0,
   "conventions": {
@@ -19,20 +19,61 @@
     "generic_rank_four_lower_bound": 51,
     "upper_bound": null,
     "global_exhaustion_proved": false,
-    "individually_catalogued_count": 17,
-    "unexpanded_block_count": 40,
+    "individually_catalogued_count": 57,
+    "unexpanded_block_count": 0,
     "all_51_rank_four_ideals_in_S61_constructed": false,
-    "note_ja": "既刊MPS40を未展開blockとして保持。6+11のみを個別記入しており、全51個のS61イデアルを作成したわけではない。"
+    "note_ja": "MPS40の全図式を一次資料Table 2と照合し、40件へ展開した。既知57成分を個別記載するが、全51階数四成分のS61定義イデアルは未構築であり、大域尽くしも未証明。"
   },
   "blocks": [
     {
       "id": "MPS40_BLOCK",
       "name": "MPS SNC-meeting components",
-      "counted_in_global_lower_bound": true,
+      "counted_in_global_lower_bound": false,
       "count": 40,
       "generic_rank": 4,
-      "expanded": false,
-      "member_records": [],
+      "expanded": true,
+      "member_records": [
+        "T01",
+        "T02",
+        "T03",
+        "T04",
+        "T05",
+        "T06",
+        "T07",
+        "T08",
+        "T09",
+        "T10",
+        "T11",
+        "T12",
+        "T13",
+        "T14",
+        "T15",
+        "T16",
+        "T17",
+        "T18",
+        "T19",
+        "T20",
+        "T21",
+        "T22",
+        "T23",
+        "T24",
+        "T25",
+        "T26",
+        "T27",
+        "T28",
+        "T29",
+        "T30",
+        "T31",
+        "T32",
+        "T33",
+        "T34",
+        "T35",
+        "T36",
+        "T37",
+        "T38",
+        "T39",
+        "T40"
+      ],
       "claims": [
         "MPS40"
       ],
@@ -51,12 +92,12 @@
           "path": "legacy/v02/baseline/toric_components_table.tex"
         }
       ],
-      "expansion_status_ja": "T01のS61一般族と一次部分への優越性を記録。残り39個の個別座標・全図式一次照合は未完。block40を追加加算しない。",
-      "required_next_step_ja": "各内部IDの相互区別と一次文献の図式を照合したうえで個別レコードへ展開する。block40と個別40を二重加算しない。",
+      "expansion_status_ja": "全40図式の一次資料照合を完了し、個別40件へ展開。blockは集約参照のみで加算しない。",
+      "required_next_step_ja": "未構築の一般族・S61座標表示を順次確立する。",
       "review_status": {
         "proof": "published_theorem",
         "primary_statement_checked": true,
-        "complete_individual_mapping_checked_in_this_setup": false
+        "complete_individual_mapping_checked_in_this_setup": true
       },
       "s61_family_maps": [
         {
@@ -66,12 +107,4623 @@
           "proof_note": "research/notes/TORIC_WEIGHT1_DOMINANCE_20261030.md",
           "generic_primitive_first_jet_image": "dominant onto A16; generically finite projection of the 16-dimensional S61 component",
           "general_degree": null,
-          "status_ja": "既存内部IDT01のトーリック族。MPS40全図式の一次文献照合は依然として未完。"
+          "status_ja": "T01の一般族・一次部分優越性・16変数coframe復元を記録。MPS40全図式は一次資料照合済み。"
         }
       ]
     }
   ],
   "components": [
+    {
+      "id": "T01",
+      "name": "toric Log(1,1,1,1,1)",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "MPS_SNC_meeting_generic_rank_four_full_component",
+      "generic_rank": 4,
+      "projective_dimension": 25,
+      "s61_dimension": 16,
+      "smoothing_diagram": {
+        "graph_type": "P1+P1+P1+P1+P1",
+        "edges": [],
+        "forced_zero_entries": []
+      },
+      "period_dimension": 6,
+      "smoothing_parameter_count": 0,
+      "toric_biresidue_example": [
+        [
+          0,
+          7,
+          23,
+          22,
+          -52
+        ],
+        [
+          -7,
+          0,
+          1,
+          2,
+          4
+        ],
+        [
+          -23,
+          -1,
+          0,
+          8,
+          16
+        ],
+        [
+          -22,
+          -2,
+          -8,
+          0,
+          32
+        ],
+        [
+          52,
+          -4,
+          -16,
+          -32,
+          0
+        ]
+      ],
+      "toric_biresidue_example_scope": "SNC boundary point, not a generic smoothed member",
+      "meets_SNC_log_symplectic_locus": true,
+      "claims": [
+        "MPS40",
+        "MPS40_CROSSWALK",
+        "S61_KNOWN_DOMINANT_FIBER_ETALE",
+        "S61_TORIC_FIRST_JET_DOMINANCE",
+        "S61_TORIC_COFRAME_FIBER"
+      ],
+      "proof_sources": [
+        {
+          "url": "https://arxiv.org/html/2010.08692v2#S5.T2",
+          "anchor": "S5.T2.pic40"
+        },
+        {
+          "path": "research/notes/MPS40_CROSSWALK_20261031.md"
+        }
+      ],
+      "verification_records": [
+        "reports/MPS40_CROSSWALK_20261031.json",
+        "reports/S61_KNOWN_FIBER_AUDIT_20261031.json",
+        "reports/TORIC_COFRAME_FIBER_20261031.json"
+      ],
+      "s61_coordinate_map_status": "six-parameter rational S61 map plus residual Sp4; full toric open locus via GL4/S5 coframes",
+      "review_status": {
+        "proof": "published_theorem",
+        "primary_diagram_crosswalk": "exact_S5_match",
+        "full_independent_external_proof_review": false
+      },
+      "notes_ja": [
+        "内部IDは文献の番号ではない。MPS40_BLOCKとの二重加算をしない。",
+        "個別図式・次元の台帳であり、全成分のS61定義イデアルを構築したわけではない。"
+      ],
+      "generic_primitive_first_jet_image": "dominant onto W16; generically finite and generically etale",
+      "general_degree": null,
+      "family_map": "reports/S61_FAMILIES_20261030/toric_T01_map.json"
+    },
+    {
+      "id": "T02",
+      "name": "MPS smoothing diagram T02",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "MPS_SNC_meeting_generic_rank_four_full_component",
+      "generic_rank": 4,
+      "projective_dimension": 24,
+      "s61_dimension": 15,
+      "smoothing_diagram": {
+        "graph_type": "P2+P1+P1+P1",
+        "edges": [
+          {
+            "edge": [
+              0,
+              1
+            ],
+            "orders": {
+              "2": 0,
+              "3": 0,
+              "4": 2
+            }
+          }
+        ],
+        "forced_zero_entries": []
+      },
+      "period_dimension": 4,
+      "smoothing_parameter_count": 1,
+      "toric_biresidue_example": [
+        [
+          0,
+          19,
+          6,
+          12,
+          -37
+        ],
+        [
+          -19,
+          0,
+          6,
+          12,
+          1
+        ],
+        [
+          -6,
+          -6,
+          0,
+          3,
+          9
+        ],
+        [
+          -12,
+          -12,
+          -3,
+          0,
+          27
+        ],
+        [
+          37,
+          -1,
+          -9,
+          -27,
+          0
+        ]
+      ],
+      "toric_biresidue_example_scope": "SNC boundary point, not a generic smoothed member",
+      "meets_SNC_log_symplectic_locus": true,
+      "claims": [
+        "MPS40",
+        "MPS40_CROSSWALK"
+      ],
+      "proof_sources": [
+        {
+          "url": "https://arxiv.org/html/2010.08692v2#S5.T2",
+          "anchor": "S5.T2.pic38"
+        },
+        {
+          "path": "research/notes/MPS40_CROSSWALK_20261031.md"
+        }
+      ],
+      "verification_records": [
+        "reports/MPS40_CROSSWALK_20261031.json"
+      ],
+      "s61_coordinate_map_status": "not_constructed_by_this_audit",
+      "review_status": {
+        "proof": "published_theorem",
+        "primary_diagram_crosswalk": "exact_S5_match",
+        "full_independent_external_proof_review": false
+      },
+      "notes_ja": [
+        "内部IDは文献の番号ではない。MPS40_BLOCKとの二重加算をしない。",
+        "個別図式・次元の台帳であり、全成分のS61定義イデアルを構築したわけではない。"
+      ],
+      "generic_primitive_first_jet_image": "not dominant: S61 component dimension below 16"
+    },
+    {
+      "id": "T03",
+      "name": "MPS smoothing diagram T03",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "MPS_SNC_meeting_generic_rank_four_full_component",
+      "generic_rank": 4,
+      "projective_dimension": 24,
+      "s61_dimension": 15,
+      "smoothing_diagram": {
+        "graph_type": "P2+P1+P1+P1",
+        "edges": [
+          {
+            "edge": [
+              0,
+              1
+            ],
+            "orders": {
+              "2": 0,
+              "3": 1,
+              "4": 1
+            }
+          }
+        ],
+        "forced_zero_entries": []
+      },
+      "period_dimension": 4,
+      "smoothing_parameter_count": 1,
+      "toric_biresidue_example": [
+        [
+          0,
+          14,
+          3,
+          -4,
+          -13
+        ],
+        [
+          -14,
+          0,
+          3,
+          10,
+          1
+        ],
+        [
+          -3,
+          -3,
+          0,
+          2,
+          4
+        ],
+        [
+          4,
+          -10,
+          -2,
+          0,
+          8
+        ],
+        [
+          13,
+          -1,
+          -4,
+          -8,
+          0
+        ]
+      ],
+      "toric_biresidue_example_scope": "SNC boundary point, not a generic smoothed member",
+      "meets_SNC_log_symplectic_locus": true,
+      "claims": [
+        "MPS40",
+        "MPS40_CROSSWALK"
+      ],
+      "proof_sources": [
+        {
+          "url": "https://arxiv.org/html/2010.08692v2#S5.T2",
+          "anchor": "S5.T2.pic39"
+        },
+        {
+          "path": "research/notes/MPS40_CROSSWALK_20261031.md"
+        }
+      ],
+      "verification_records": [
+        "reports/MPS40_CROSSWALK_20261031.json"
+      ],
+      "s61_coordinate_map_status": "not_constructed_by_this_audit",
+      "review_status": {
+        "proof": "published_theorem",
+        "primary_diagram_crosswalk": "exact_S5_match",
+        "full_independent_external_proof_review": false
+      },
+      "notes_ja": [
+        "内部IDは文献の番号ではない。MPS40_BLOCKとの二重加算をしない。",
+        "個別図式・次元の台帳であり、全成分のS61定義イデアルを構築したわけではない。"
+      ],
+      "generic_primitive_first_jet_image": "not dominant: S61 component dimension below 16"
+    },
+    {
+      "id": "T04",
+      "name": "MPS smoothing diagram T04",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "MPS_SNC_meeting_generic_rank_four_full_component",
+      "generic_rank": 4,
+      "projective_dimension": 23,
+      "s61_dimension": 14,
+      "smoothing_diagram": {
+        "graph_type": "P3+P1+P1",
+        "edges": [
+          {
+            "edge": [
+              0,
+              1
+            ],
+            "orders": {
+              "2": 0,
+              "3": 0,
+              "4": 2
+            }
+          },
+          {
+            "edge": [
+              0,
+              2
+            ],
+            "orders": {
+              "1": 0,
+              "3": 0,
+              "4": 2
+            }
+          }
+        ],
+        "forced_zero_entries": []
+      },
+      "period_dimension": 2,
+      "smoothing_parameter_count": 2,
+      "toric_biresidue_example": [
+        [
+          0,
+          -5,
+          5,
+          4,
+          -4
+        ],
+        [
+          5,
+          0,
+          5,
+          4,
+          -14
+        ],
+        [
+          -5,
+          -5,
+          0,
+          4,
+          6
+        ],
+        [
+          -4,
+          -4,
+          -4,
+          0,
+          12
+        ],
+        [
+          4,
+          14,
+          -6,
+          -12,
+          0
+        ]
+      ],
+      "toric_biresidue_example_scope": "SNC boundary point, not a generic smoothed member",
+      "meets_SNC_log_symplectic_locus": true,
+      "claims": [
+        "MPS40",
+        "MPS40_CROSSWALK"
+      ],
+      "proof_sources": [
+        {
+          "url": "https://arxiv.org/html/2010.08692v2#S5.T2",
+          "anchor": "S5.T2.pic25"
+        },
+        {
+          "path": "research/notes/MPS40_CROSSWALK_20261031.md"
+        }
+      ],
+      "verification_records": [
+        "reports/MPS40_CROSSWALK_20261031.json"
+      ],
+      "s61_coordinate_map_status": "not_constructed_by_this_audit",
+      "review_status": {
+        "proof": "published_theorem",
+        "primary_diagram_crosswalk": "exact_S5_match",
+        "full_independent_external_proof_review": false
+      },
+      "notes_ja": [
+        "内部IDは文献の番号ではない。MPS40_BLOCKとの二重加算をしない。",
+        "個別図式・次元の台帳であり、全成分のS61定義イデアルを構築したわけではない。"
+      ],
+      "generic_primitive_first_jet_image": "not dominant: S61 component dimension below 16"
+    },
+    {
+      "id": "T05",
+      "name": "MPS smoothing diagram T05",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "MPS_SNC_meeting_generic_rank_four_full_component",
+      "generic_rank": 4,
+      "projective_dimension": 23,
+      "s61_dimension": 14,
+      "smoothing_diagram": {
+        "graph_type": "P3+P1+P1",
+        "edges": [
+          {
+            "edge": [
+              0,
+              1
+            ],
+            "orders": {
+              "2": 0,
+              "3": 0,
+              "4": 2
+            }
+          },
+          {
+            "edge": [
+              0,
+              2
+            ],
+            "orders": {
+              "1": 0,
+              "3": 1,
+              "4": 1
+            }
+          }
+        ],
+        "forced_zero_entries": []
+      },
+      "period_dimension": 2,
+      "smoothing_parameter_count": 2,
+      "toric_biresidue_example": [
+        [
+          0,
+          -5,
+          5,
+          1,
+          -1
+        ],
+        [
+          5,
+          0,
+          5,
+          1,
+          -11
+        ],
+        [
+          -5,
+          -5,
+          0,
+          6,
+          4
+        ],
+        [
+          -1,
+          -1,
+          -6,
+          0,
+          8
+        ],
+        [
+          1,
+          11,
+          -4,
+          -8,
+          0
+        ]
+      ],
+      "toric_biresidue_example_scope": "SNC boundary point, not a generic smoothed member",
+      "meets_SNC_log_symplectic_locus": true,
+      "claims": [
+        "MPS40",
+        "MPS40_CROSSWALK"
+      ],
+      "proof_sources": [
+        {
+          "url": "https://arxiv.org/html/2010.08692v2#S5.T2",
+          "anchor": "S5.T2.pic24"
+        },
+        {
+          "path": "research/notes/MPS40_CROSSWALK_20261031.md"
+        }
+      ],
+      "verification_records": [
+        "reports/MPS40_CROSSWALK_20261031.json"
+      ],
+      "s61_coordinate_map_status": "not_constructed_by_this_audit",
+      "review_status": {
+        "proof": "published_theorem",
+        "primary_diagram_crosswalk": "exact_S5_match",
+        "full_independent_external_proof_review": false
+      },
+      "notes_ja": [
+        "内部IDは文献の番号ではない。MPS40_BLOCKとの二重加算をしない。",
+        "個別図式・次元の台帳であり、全成分のS61定義イデアルを構築したわけではない。"
+      ],
+      "generic_primitive_first_jet_image": "not dominant: S61 component dimension below 16"
+    },
+    {
+      "id": "T06",
+      "name": "MPS smoothing diagram T06",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "MPS_SNC_meeting_generic_rank_four_full_component",
+      "generic_rank": 4,
+      "projective_dimension": 23,
+      "s61_dimension": 14,
+      "smoothing_diagram": {
+        "graph_type": "P3+P1+P1",
+        "edges": [
+          {
+            "edge": [
+              0,
+              1
+            ],
+            "orders": {
+              "2": 0,
+              "3": 0,
+              "4": 2
+            }
+          },
+          {
+            "edge": [
+              0,
+              2
+            ],
+            "orders": {
+              "1": 0,
+              "3": 2,
+              "4": 0
+            }
+          }
+        ],
+        "forced_zero_entries": []
+      },
+      "period_dimension": 2,
+      "smoothing_parameter_count": 2,
+      "toric_biresidue_example": [
+        [
+          0,
+          -5,
+          5,
+          -2,
+          2
+        ],
+        [
+          5,
+          0,
+          5,
+          -2,
+          -8
+        ],
+        [
+          -5,
+          -5,
+          0,
+          8,
+          2
+        ],
+        [
+          2,
+          2,
+          -8,
+          0,
+          4
+        ],
+        [
+          -2,
+          8,
+          -2,
+          -4,
+          0
+        ]
+      ],
+      "toric_biresidue_example_scope": "SNC boundary point, not a generic smoothed member",
+      "meets_SNC_log_symplectic_locus": true,
+      "claims": [
+        "MPS40",
+        "MPS40_CROSSWALK"
+      ],
+      "proof_sources": [
+        {
+          "url": "https://arxiv.org/html/2010.08692v2#S5.T2",
+          "anchor": "S5.T2.pic23"
+        },
+        {
+          "path": "research/notes/MPS40_CROSSWALK_20261031.md"
+        }
+      ],
+      "verification_records": [
+        "reports/MPS40_CROSSWALK_20261031.json"
+      ],
+      "s61_coordinate_map_status": "not_constructed_by_this_audit",
+      "review_status": {
+        "proof": "published_theorem",
+        "primary_diagram_crosswalk": "exact_S5_match",
+        "full_independent_external_proof_review": false
+      },
+      "notes_ja": [
+        "内部IDは文献の番号ではない。MPS40_BLOCKとの二重加算をしない。",
+        "個別図式・次元の台帳であり、全成分のS61定義イデアルを構築したわけではない。"
+      ],
+      "generic_primitive_first_jet_image": "not dominant: S61 component dimension below 16"
+    },
+    {
+      "id": "T07",
+      "name": "MPS smoothing diagram T07",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "MPS_SNC_meeting_generic_rank_four_full_component",
+      "generic_rank": 4,
+      "projective_dimension": 23,
+      "s61_dimension": 14,
+      "smoothing_diagram": {
+        "graph_type": "P3+P1+P1",
+        "edges": [
+          {
+            "edge": [
+              0,
+              1
+            ],
+            "orders": {
+              "2": 0,
+              "3": 0,
+              "4": 2
+            }
+          },
+          {
+            "edge": [
+              0,
+              2
+            ],
+            "orders": {
+              "1": 1,
+              "3": 0,
+              "4": 1
+            }
+          }
+        ],
+        "forced_zero_entries": []
+      },
+      "period_dimension": 2,
+      "smoothing_parameter_count": 2,
+      "toric_biresidue_example": [
+        [
+          0,
+          -10,
+          5,
+          4,
+          1
+        ],
+        [
+          10,
+          0,
+          5,
+          4,
+          -19
+        ],
+        [
+          -5,
+          -5,
+          0,
+          4,
+          6
+        ],
+        [
+          -4,
+          -4,
+          -4,
+          0,
+          12
+        ],
+        [
+          -1,
+          19,
+          -6,
+          -12,
+          0
+        ]
+      ],
+      "toric_biresidue_example_scope": "SNC boundary point, not a generic smoothed member",
+      "meets_SNC_log_symplectic_locus": true,
+      "claims": [
+        "MPS40",
+        "MPS40_CROSSWALK"
+      ],
+      "proof_sources": [
+        {
+          "url": "https://arxiv.org/html/2010.08692v2#S5.T2",
+          "anchor": "S5.T2.pic26"
+        },
+        {
+          "path": "research/notes/MPS40_CROSSWALK_20261031.md"
+        }
+      ],
+      "verification_records": [
+        "reports/MPS40_CROSSWALK_20261031.json"
+      ],
+      "s61_coordinate_map_status": "not_constructed_by_this_audit",
+      "review_status": {
+        "proof": "published_theorem",
+        "primary_diagram_crosswalk": "exact_S5_match",
+        "full_independent_external_proof_review": false
+      },
+      "notes_ja": [
+        "内部IDは文献の番号ではない。MPS40_BLOCKとの二重加算をしない。",
+        "個別図式・次元の台帳であり、全成分のS61定義イデアルを構築したわけではない。"
+      ],
+      "generic_primitive_first_jet_image": "not dominant: S61 component dimension below 16"
+    },
+    {
+      "id": "T08",
+      "name": "MPS smoothing diagram T08",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "MPS_SNC_meeting_generic_rank_four_full_component",
+      "generic_rank": 4,
+      "projective_dimension": 23,
+      "s61_dimension": 14,
+      "smoothing_diagram": {
+        "graph_type": "P3+P1+P1",
+        "edges": [
+          {
+            "edge": [
+              0,
+              1
+            ],
+            "orders": {
+              "2": 0,
+              "3": 0,
+              "4": 2
+            }
+          },
+          {
+            "edge": [
+              0,
+              2
+            ],
+            "orders": {
+              "1": 1,
+              "3": 1,
+              "4": 0
+            }
+          }
+        ],
+        "forced_zero_entries": []
+      },
+      "period_dimension": 2,
+      "smoothing_parameter_count": 2,
+      "toric_biresidue_example": [
+        [
+          0,
+          -10,
+          5,
+          1,
+          4
+        ],
+        [
+          10,
+          0,
+          5,
+          1,
+          -16
+        ],
+        [
+          -5,
+          -5,
+          0,
+          6,
+          4
+        ],
+        [
+          -1,
+          -1,
+          -6,
+          0,
+          8
+        ],
+        [
+          -4,
+          16,
+          -4,
+          -8,
+          0
+        ]
+      ],
+      "toric_biresidue_example_scope": "SNC boundary point, not a generic smoothed member",
+      "meets_SNC_log_symplectic_locus": true,
+      "claims": [
+        "MPS40",
+        "MPS40_CROSSWALK"
+      ],
+      "proof_sources": [
+        {
+          "url": "https://arxiv.org/html/2010.08692v2#S5.T2",
+          "anchor": "S5.T2.pic27"
+        },
+        {
+          "path": "research/notes/MPS40_CROSSWALK_20261031.md"
+        }
+      ],
+      "verification_records": [
+        "reports/MPS40_CROSSWALK_20261031.json"
+      ],
+      "s61_coordinate_map_status": "not_constructed_by_this_audit",
+      "review_status": {
+        "proof": "published_theorem",
+        "primary_diagram_crosswalk": "exact_S5_match",
+        "full_independent_external_proof_review": false
+      },
+      "notes_ja": [
+        "内部IDは文献の番号ではない。MPS40_BLOCKとの二重加算をしない。",
+        "個別図式・次元の台帳であり、全成分のS61定義イデアルを構築したわけではない。"
+      ],
+      "generic_primitive_first_jet_image": "not dominant: S61 component dimension below 16"
+    },
+    {
+      "id": "T09",
+      "name": "MPS smoothing diagram T09",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "MPS_SNC_meeting_generic_rank_four_full_component",
+      "generic_rank": 4,
+      "projective_dimension": 23,
+      "s61_dimension": 14,
+      "smoothing_diagram": {
+        "graph_type": "P3+P1+P1",
+        "edges": [
+          {
+            "edge": [
+              0,
+              1
+            ],
+            "orders": {
+              "2": 0,
+              "3": 0,
+              "4": 2
+            }
+          },
+          {
+            "edge": [
+              0,
+              2
+            ],
+            "orders": {
+              "1": 2,
+              "3": 0,
+              "4": 0
+            }
+          }
+        ],
+        "forced_zero_entries": []
+      },
+      "period_dimension": 2,
+      "smoothing_parameter_count": 2,
+      "toric_biresidue_example": [
+        [
+          0,
+          -15,
+          5,
+          4,
+          6
+        ],
+        [
+          15,
+          0,
+          5,
+          4,
+          -24
+        ],
+        [
+          -5,
+          -5,
+          0,
+          4,
+          6
+        ],
+        [
+          -4,
+          -4,
+          -4,
+          0,
+          12
+        ],
+        [
+          -6,
+          24,
+          -6,
+          -12,
+          0
+        ]
+      ],
+      "toric_biresidue_example_scope": "SNC boundary point, not a generic smoothed member",
+      "meets_SNC_log_symplectic_locus": true,
+      "claims": [
+        "MPS40",
+        "MPS40_CROSSWALK"
+      ],
+      "proof_sources": [
+        {
+          "url": "https://arxiv.org/html/2010.08692v2#S5.T2",
+          "anchor": "S5.T2.pic32"
+        },
+        {
+          "path": "research/notes/MPS40_CROSSWALK_20261031.md"
+        }
+      ],
+      "verification_records": [
+        "reports/MPS40_CROSSWALK_20261031.json"
+      ],
+      "s61_coordinate_map_status": "not_constructed_by_this_audit",
+      "review_status": {
+        "proof": "published_theorem",
+        "primary_diagram_crosswalk": "exact_S5_match",
+        "full_independent_external_proof_review": false
+      },
+      "notes_ja": [
+        "内部IDは文献の番号ではない。MPS40_BLOCKとの二重加算をしない。",
+        "個別図式・次元の台帳であり、全成分のS61定義イデアルを構築したわけではない。"
+      ],
+      "generic_primitive_first_jet_image": "not dominant: S61 component dimension below 16"
+    },
+    {
+      "id": "T10",
+      "name": "MPS smoothing diagram T10",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "MPS_SNC_meeting_generic_rank_four_full_component",
+      "generic_rank": 4,
+      "projective_dimension": 23,
+      "s61_dimension": 14,
+      "smoothing_diagram": {
+        "graph_type": "P3+P1+P1",
+        "edges": [
+          {
+            "edge": [
+              0,
+              1
+            ],
+            "orders": {
+              "2": 0,
+              "3": 1,
+              "4": 1
+            }
+          },
+          {
+            "edge": [
+              0,
+              2
+            ],
+            "orders": {
+              "1": 0,
+              "3": 1,
+              "4": 1
+            }
+          }
+        ],
+        "forced_zero_entries": []
+      },
+      "period_dimension": 2,
+      "smoothing_parameter_count": 2,
+      "toric_biresidue_example": [
+        [
+          0,
+          -4,
+          4,
+          1,
+          -1
+        ],
+        [
+          4,
+          0,
+          4,
+          -3,
+          -5
+        ],
+        [
+          -4,
+          -4,
+          0,
+          5,
+          3
+        ],
+        [
+          -1,
+          3,
+          -5,
+          0,
+          3
+        ],
+        [
+          1,
+          5,
+          -3,
+          -3,
+          0
+        ]
+      ],
+      "toric_biresidue_example_scope": "SNC boundary point, not a generic smoothed member",
+      "meets_SNC_log_symplectic_locus": true,
+      "claims": [
+        "MPS40",
+        "MPS40_CROSSWALK"
+      ],
+      "proof_sources": [
+        {
+          "url": "https://arxiv.org/html/2010.08692v2#S5.T2",
+          "anchor": "S5.T2.pic21"
+        },
+        {
+          "path": "research/notes/MPS40_CROSSWALK_20261031.md"
+        }
+      ],
+      "verification_records": [
+        "reports/MPS40_CROSSWALK_20261031.json"
+      ],
+      "s61_coordinate_map_status": "not_constructed_by_this_audit",
+      "review_status": {
+        "proof": "published_theorem",
+        "primary_diagram_crosswalk": "exact_S5_match",
+        "full_independent_external_proof_review": false
+      },
+      "notes_ja": [
+        "内部IDは文献の番号ではない。MPS40_BLOCKとの二重加算をしない。",
+        "個別図式・次元の台帳であり、全成分のS61定義イデアルを構築したわけではない。"
+      ],
+      "generic_primitive_first_jet_image": "not dominant: S61 component dimension below 16"
+    },
+    {
+      "id": "T11",
+      "name": "MPS smoothing diagram T11",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "MPS_SNC_meeting_generic_rank_four_full_component",
+      "generic_rank": 4,
+      "projective_dimension": 23,
+      "s61_dimension": 14,
+      "smoothing_diagram": {
+        "graph_type": "P3+P1+P1",
+        "edges": [
+          {
+            "edge": [
+              0,
+              1
+            ],
+            "orders": {
+              "2": 0,
+              "3": 1,
+              "4": 1
+            }
+          },
+          {
+            "edge": [
+              0,
+              2
+            ],
+            "orders": {
+              "1": 1,
+              "3": 0,
+              "4": 1
+            }
+          }
+        ],
+        "forced_zero_entries": []
+      },
+      "period_dimension": 2,
+      "smoothing_parameter_count": 2,
+      "toric_biresidue_example": [
+        [
+          0,
+          -10,
+          5,
+          6,
+          -1
+        ],
+        [
+          10,
+          0,
+          5,
+          -4,
+          -11
+        ],
+        [
+          -5,
+          -5,
+          0,
+          6,
+          4
+        ],
+        [
+          -6,
+          4,
+          -6,
+          0,
+          8
+        ],
+        [
+          1,
+          11,
+          -4,
+          -8,
+          0
+        ]
+      ],
+      "toric_biresidue_example_scope": "SNC boundary point, not a generic smoothed member",
+      "meets_SNC_log_symplectic_locus": true,
+      "claims": [
+        "MPS40",
+        "MPS40_CROSSWALK"
+      ],
+      "proof_sources": [
+        {
+          "url": "https://arxiv.org/html/2010.08692v2#S5.T2",
+          "anchor": "S5.T2.pic28"
+        },
+        {
+          "path": "research/notes/MPS40_CROSSWALK_20261031.md"
+        }
+      ],
+      "verification_records": [
+        "reports/MPS40_CROSSWALK_20261031.json"
+      ],
+      "s61_coordinate_map_status": "not_constructed_by_this_audit",
+      "review_status": {
+        "proof": "published_theorem",
+        "primary_diagram_crosswalk": "exact_S5_match",
+        "full_independent_external_proof_review": false
+      },
+      "notes_ja": [
+        "内部IDは文献の番号ではない。MPS40_BLOCKとの二重加算をしない。",
+        "個別図式・次元の台帳であり、全成分のS61定義イデアルを構築したわけではない。"
+      ],
+      "generic_primitive_first_jet_image": "not dominant: S61 component dimension below 16"
+    },
+    {
+      "id": "T12",
+      "name": "MPS smoothing diagram T12",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "MPS_SNC_meeting_generic_rank_four_full_component",
+      "generic_rank": 4,
+      "projective_dimension": 23,
+      "s61_dimension": 14,
+      "smoothing_diagram": {
+        "graph_type": "P3+P1+P1",
+        "edges": [
+          {
+            "edge": [
+              0,
+              1
+            ],
+            "orders": {
+              "2": 0,
+              "3": 1,
+              "4": 1
+            }
+          },
+          {
+            "edge": [
+              0,
+              2
+            ],
+            "orders": {
+              "1": 2,
+              "3": 0,
+              "4": 0
+            }
+          }
+        ],
+        "forced_zero_entries": []
+      },
+      "period_dimension": 2,
+      "smoothing_parameter_count": 2,
+      "toric_biresidue_example": [
+        [
+          0,
+          -12,
+          4,
+          5,
+          3
+        ],
+        [
+          12,
+          0,
+          4,
+          -7,
+          -9
+        ],
+        [
+          -4,
+          -4,
+          0,
+          5,
+          3
+        ],
+        [
+          -5,
+          7,
+          -5,
+          0,
+          3
+        ],
+        [
+          -3,
+          9,
+          -3,
+          -3,
+          0
+        ]
+      ],
+      "toric_biresidue_example_scope": "SNC boundary point, not a generic smoothed member",
+      "meets_SNC_log_symplectic_locus": true,
+      "claims": [
+        "MPS40",
+        "MPS40_CROSSWALK"
+      ],
+      "proof_sources": [
+        {
+          "url": "https://arxiv.org/html/2010.08692v2#S5.T2",
+          "anchor": "S5.T2.pic22"
+        },
+        {
+          "path": "research/notes/MPS40_CROSSWALK_20261031.md"
+        }
+      ],
+      "verification_records": [
+        "reports/MPS40_CROSSWALK_20261031.json"
+      ],
+      "s61_coordinate_map_status": "not_constructed_by_this_audit",
+      "review_status": {
+        "proof": "published_theorem",
+        "primary_diagram_crosswalk": "exact_S5_match",
+        "full_independent_external_proof_review": false
+      },
+      "notes_ja": [
+        "内部IDは文献の番号ではない。MPS40_BLOCKとの二重加算をしない。",
+        "個別図式・次元の台帳であり、全成分のS61定義イデアルを構築したわけではない。"
+      ],
+      "generic_primitive_first_jet_image": "not dominant: S61 component dimension below 16"
+    },
+    {
+      "id": "T13",
+      "name": "MPS smoothing diagram T13",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "MPS_SNC_meeting_generic_rank_four_full_component",
+      "generic_rank": 4,
+      "projective_dimension": 23,
+      "s61_dimension": 14,
+      "smoothing_diagram": {
+        "graph_type": "P3+P1+P1",
+        "edges": [
+          {
+            "edge": [
+              0,
+              1
+            ],
+            "orders": {
+              "2": 1,
+              "3": 0,
+              "4": 1
+            }
+          },
+          {
+            "edge": [
+              0,
+              2
+            ],
+            "orders": {
+              "1": 1,
+              "3": 0,
+              "4": 1
+            }
+          }
+        ],
+        "forced_zero_entries": [
+          [
+            1,
+            2
+          ]
+        ]
+      },
+      "period_dimension": 2,
+      "smoothing_parameter_count": 2,
+      "toric_biresidue_example": [
+        [
+          0,
+          -4,
+          4,
+          1,
+          -1
+        ],
+        [
+          4,
+          0,
+          0,
+          1,
+          -5
+        ],
+        [
+          -4,
+          0,
+          0,
+          1,
+          3
+        ],
+        [
+          -1,
+          -1,
+          -1,
+          0,
+          3
+        ],
+        [
+          1,
+          5,
+          -3,
+          -3,
+          0
+        ]
+      ],
+      "toric_biresidue_example_scope": "SNC boundary point, not a generic smoothed member",
+      "meets_SNC_log_symplectic_locus": true,
+      "claims": [
+        "MPS40",
+        "MPS40_CROSSWALK"
+      ],
+      "proof_sources": [
+        {
+          "url": "https://arxiv.org/html/2010.08692v2#S5.T2",
+          "anchor": "S5.T2.pic29"
+        },
+        {
+          "path": "research/notes/MPS40_CROSSWALK_20261031.md"
+        }
+      ],
+      "verification_records": [
+        "reports/MPS40_CROSSWALK_20261031.json"
+      ],
+      "s61_coordinate_map_status": "not_constructed_by_this_audit",
+      "review_status": {
+        "proof": "published_theorem",
+        "primary_diagram_crosswalk": "exact_S5_match",
+        "full_independent_external_proof_review": false
+      },
+      "notes_ja": [
+        "内部IDは文献の番号ではない。MPS40_BLOCKとの二重加算をしない。",
+        "個別図式・次元の台帳であり、全成分のS61定義イデアルを構築したわけではない。"
+      ],
+      "generic_primitive_first_jet_image": "not dominant: S61 component dimension below 16"
+    },
+    {
+      "id": "T14",
+      "name": "MPS smoothing diagram T14",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "MPS_SNC_meeting_generic_rank_four_full_component",
+      "generic_rank": 4,
+      "projective_dimension": 23,
+      "s61_dimension": 14,
+      "smoothing_diagram": {
+        "graph_type": "P3+P1+P1",
+        "edges": [
+          {
+            "edge": [
+              0,
+              1
+            ],
+            "orders": {
+              "2": 1,
+              "3": 0,
+              "4": 1
+            }
+          },
+          {
+            "edge": [
+              0,
+              2
+            ],
+            "orders": {
+              "1": 1,
+              "3": 1,
+              "4": 0
+            }
+          }
+        ],
+        "forced_zero_entries": [
+          [
+            1,
+            2
+          ]
+        ]
+      },
+      "period_dimension": 2,
+      "smoothing_parameter_count": 2,
+      "toric_biresidue_example": [
+        [
+          0,
+          -4,
+          4,
+          -1,
+          1
+        ],
+        [
+          4,
+          0,
+          0,
+          -1,
+          -3
+        ],
+        [
+          -4,
+          0,
+          0,
+          3,
+          1
+        ],
+        [
+          1,
+          1,
+          -3,
+          0,
+          1
+        ],
+        [
+          -1,
+          3,
+          -1,
+          -1,
+          0
+        ]
+      ],
+      "toric_biresidue_example_scope": "SNC boundary point, not a generic smoothed member",
+      "meets_SNC_log_symplectic_locus": true,
+      "claims": [
+        "MPS40",
+        "MPS40_CROSSWALK"
+      ],
+      "proof_sources": [
+        {
+          "url": "https://arxiv.org/html/2010.08692v2#S5.T2",
+          "anchor": "S5.T2.pic30"
+        },
+        {
+          "path": "research/notes/MPS40_CROSSWALK_20261031.md"
+        }
+      ],
+      "verification_records": [
+        "reports/MPS40_CROSSWALK_20261031.json"
+      ],
+      "s61_coordinate_map_status": "not_constructed_by_this_audit",
+      "review_status": {
+        "proof": "published_theorem",
+        "primary_diagram_crosswalk": "exact_S5_match",
+        "full_independent_external_proof_review": false
+      },
+      "notes_ja": [
+        "内部IDは文献の番号ではない。MPS40_BLOCKとの二重加算をしない。",
+        "個別図式・次元の台帳であり、全成分のS61定義イデアルを構築したわけではない。"
+      ],
+      "generic_primitive_first_jet_image": "not dominant: S61 component dimension below 16"
+    },
+    {
+      "id": "T15",
+      "name": "MPS smoothing diagram T15",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "MPS_SNC_meeting_generic_rank_four_full_component",
+      "generic_rank": 4,
+      "projective_dimension": 23,
+      "s61_dimension": 14,
+      "smoothing_diagram": {
+        "graph_type": "P3+P1+P1",
+        "edges": [
+          {
+            "edge": [
+              0,
+              1
+            ],
+            "orders": {
+              "2": 1,
+              "3": 0,
+              "4": 1
+            }
+          },
+          {
+            "edge": [
+              0,
+              2
+            ],
+            "orders": {
+              "1": 2,
+              "3": 0,
+              "4": 0
+            }
+          }
+        ],
+        "forced_zero_entries": []
+      },
+      "period_dimension": 2,
+      "smoothing_parameter_count": 2,
+      "toric_biresidue_example": [
+        [
+          0,
+          -12,
+          8,
+          1,
+          3
+        ],
+        [
+          12,
+          0,
+          -4,
+          1,
+          -9
+        ],
+        [
+          -8,
+          4,
+          0,
+          1,
+          3
+        ],
+        [
+          -1,
+          -1,
+          -1,
+          0,
+          3
+        ],
+        [
+          -3,
+          9,
+          -3,
+          -3,
+          0
+        ]
+      ],
+      "toric_biresidue_example_scope": "SNC boundary point, not a generic smoothed member",
+      "meets_SNC_log_symplectic_locus": true,
+      "claims": [
+        "MPS40",
+        "MPS40_CROSSWALK"
+      ],
+      "proof_sources": [
+        {
+          "url": "https://arxiv.org/html/2010.08692v2#S5.T2",
+          "anchor": "S5.T2.pic31"
+        },
+        {
+          "path": "research/notes/MPS40_CROSSWALK_20261031.md"
+        }
+      ],
+      "verification_records": [
+        "reports/MPS40_CROSSWALK_20261031.json"
+      ],
+      "s61_coordinate_map_status": "not_constructed_by_this_audit",
+      "review_status": {
+        "proof": "published_theorem",
+        "primary_diagram_crosswalk": "exact_S5_match",
+        "full_independent_external_proof_review": false
+      },
+      "notes_ja": [
+        "内部IDは文献の番号ではない。MPS40_BLOCKとの二重加算をしない。",
+        "個別図式・次元の台帳であり、全成分のS61定義イデアルを構築したわけではない。"
+      ],
+      "generic_primitive_first_jet_image": "not dominant: S61 component dimension below 16"
+    },
+    {
+      "id": "T16",
+      "name": "MPS smoothing diagram T16",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "MPS_SNC_meeting_generic_rank_four_full_component",
+      "generic_rank": 4,
+      "projective_dimension": 24,
+      "s61_dimension": 15,
+      "smoothing_diagram": {
+        "graph_type": "P2+P2+P1",
+        "edges": [
+          {
+            "edge": [
+              0,
+              1
+            ],
+            "orders": {
+              "2": 0,
+              "3": 0,
+              "4": 2
+            }
+          },
+          {
+            "edge": [
+              2,
+              3
+            ],
+            "orders": {
+              "0": 0,
+              "1": 0,
+              "4": 2
+            }
+          }
+        ],
+        "forced_zero_entries": []
+      },
+      "period_dimension": 3,
+      "smoothing_parameter_count": 2,
+      "toric_biresidue_example": [
+        [
+          0,
+          8,
+          3,
+          3,
+          -14
+        ],
+        [
+          -8,
+          0,
+          3,
+          3,
+          2
+        ],
+        [
+          -3,
+          -3,
+          0,
+          2,
+          4
+        ],
+        [
+          -3,
+          -3,
+          -2,
+          0,
+          8
+        ],
+        [
+          14,
+          -2,
+          -4,
+          -8,
+          0
+        ]
+      ],
+      "toric_biresidue_example_scope": "SNC boundary point, not a generic smoothed member",
+      "meets_SNC_log_symplectic_locus": true,
+      "claims": [
+        "MPS40",
+        "MPS40_CROSSWALK"
+      ],
+      "proof_sources": [
+        {
+          "url": "https://arxiv.org/html/2010.08692v2#S5.T2",
+          "anchor": "S5.T2.pic33"
+        },
+        {
+          "path": "research/notes/MPS40_CROSSWALK_20261031.md"
+        }
+      ],
+      "verification_records": [
+        "reports/MPS40_CROSSWALK_20261031.json"
+      ],
+      "s61_coordinate_map_status": "not_constructed_by_this_audit",
+      "review_status": {
+        "proof": "published_theorem",
+        "primary_diagram_crosswalk": "exact_S5_match",
+        "full_independent_external_proof_review": false
+      },
+      "notes_ja": [
+        "内部IDは文献の番号ではない。MPS40_BLOCKとの二重加算をしない。",
+        "個別図式・次元の台帳であり、全成分のS61定義イデアルを構築したわけではない。"
+      ],
+      "generic_primitive_first_jet_image": "not dominant: S61 component dimension below 16"
+    },
+    {
+      "id": "T17",
+      "name": "MPS smoothing diagram T17",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "MPS_SNC_meeting_generic_rank_four_full_component",
+      "generic_rank": 4,
+      "projective_dimension": 24,
+      "s61_dimension": 15,
+      "smoothing_diagram": {
+        "graph_type": "P2+P2+P1",
+        "edges": [
+          {
+            "edge": [
+              0,
+              1
+            ],
+            "orders": {
+              "2": 0,
+              "3": 0,
+              "4": 2
+            }
+          },
+          {
+            "edge": [
+              2,
+              3
+            ],
+            "orders": {
+              "0": 1,
+              "1": 1,
+              "4": 0
+            }
+          }
+        ],
+        "forced_zero_entries": []
+      },
+      "period_dimension": 3,
+      "smoothing_parameter_count": 2,
+      "toric_biresidue_example": [
+        [
+          0,
+          5,
+          3,
+          1,
+          -9
+        ],
+        [
+          -5,
+          0,
+          3,
+          1,
+          1
+        ],
+        [
+          -3,
+          -3,
+          0,
+          2,
+          4
+        ],
+        [
+          -1,
+          -1,
+          -2,
+          0,
+          4
+        ],
+        [
+          9,
+          -1,
+          -4,
+          -4,
+          0
+        ]
+      ],
+      "toric_biresidue_example_scope": "SNC boundary point, not a generic smoothed member",
+      "meets_SNC_log_symplectic_locus": true,
+      "claims": [
+        "MPS40",
+        "MPS40_CROSSWALK"
+      ],
+      "proof_sources": [
+        {
+          "url": "https://arxiv.org/html/2010.08692v2#S5.T2",
+          "anchor": "S5.T2.pic34"
+        },
+        {
+          "path": "research/notes/MPS40_CROSSWALK_20261031.md"
+        }
+      ],
+      "verification_records": [
+        "reports/MPS40_CROSSWALK_20261031.json"
+      ],
+      "s61_coordinate_map_status": "not_constructed_by_this_audit",
+      "review_status": {
+        "proof": "published_theorem",
+        "primary_diagram_crosswalk": "exact_S5_match",
+        "full_independent_external_proof_review": false
+      },
+      "notes_ja": [
+        "内部IDは文献の番号ではない。MPS40_BLOCKとの二重加算をしない。",
+        "個別図式・次元の台帳であり、全成分のS61定義イデアルを構築したわけではない。"
+      ],
+      "generic_primitive_first_jet_image": "not dominant: S61 component dimension below 16"
+    },
+    {
+      "id": "T18",
+      "name": "MPS smoothing diagram T18",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "MPS_SNC_meeting_generic_rank_four_full_component",
+      "generic_rank": 4,
+      "projective_dimension": 23,
+      "s61_dimension": 14,
+      "smoothing_diagram": {
+        "graph_type": "P2+P2+P1",
+        "edges": [
+          {
+            "edge": [
+              0,
+              1
+            ],
+            "orders": {
+              "2": 0,
+              "3": 1,
+              "4": 1
+            }
+          },
+          {
+            "edge": [
+              2,
+              3
+            ],
+            "orders": {
+              "0": 0,
+              "1": 1,
+              "4": 1
+            }
+          }
+        ],
+        "forced_zero_entries": []
+      },
+      "period_dimension": 2,
+      "smoothing_parameter_count": 2,
+      "toric_biresidue_example": [
+        [
+          0,
+          -4,
+          3,
+          3,
+          -2
+        ],
+        [
+          4,
+          0,
+          3,
+          -1,
+          -6
+        ],
+        [
+          -3,
+          -3,
+          0,
+          4,
+          2
+        ],
+        [
+          -3,
+          1,
+          -4,
+          0,
+          6
+        ],
+        [
+          2,
+          6,
+          -2,
+          -6,
+          0
+        ]
+      ],
+      "toric_biresidue_example_scope": "SNC boundary point, not a generic smoothed member",
+      "meets_SNC_log_symplectic_locus": true,
+      "claims": [
+        "MPS40",
+        "MPS40_CROSSWALK"
+      ],
+      "proof_sources": [
+        {
+          "url": "https://arxiv.org/html/2010.08692v2#S5.T2",
+          "anchor": "S5.T2.pic35"
+        },
+        {
+          "path": "research/notes/MPS40_CROSSWALK_20261031.md"
+        }
+      ],
+      "verification_records": [
+        "reports/MPS40_CROSSWALK_20261031.json"
+      ],
+      "s61_coordinate_map_status": "not_constructed_by_this_audit",
+      "review_status": {
+        "proof": "published_theorem",
+        "primary_diagram_crosswalk": "exact_S5_match",
+        "full_independent_external_proof_review": false
+      },
+      "notes_ja": [
+        "内部IDは文献の番号ではない。MPS40_BLOCKとの二重加算をしない。",
+        "個別図式・次元の台帳であり、全成分のS61定義イデアルを構築したわけではない。"
+      ],
+      "generic_primitive_first_jet_image": "not dominant: S61 component dimension below 16"
+    },
+    {
+      "id": "T19",
+      "name": "MPS smoothing diagram T19",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "MPS_SNC_meeting_generic_rank_four_full_component",
+      "generic_rank": 4,
+      "projective_dimension": 23,
+      "s61_dimension": 14,
+      "smoothing_diagram": {
+        "graph_type": "P2+P2+P1",
+        "edges": [
+          {
+            "edge": [
+              0,
+              1
+            ],
+            "orders": {
+              "2": 0,
+              "3": 1,
+              "4": 1
+            }
+          },
+          {
+            "edge": [
+              2,
+              3
+            ],
+            "orders": {
+              "0": 0,
+              "1": 2,
+              "4": 0
+            }
+          }
+        ],
+        "forced_zero_entries": []
+      },
+      "period_dimension": 2,
+      "smoothing_parameter_count": 2,
+      "toric_biresidue_example": [
+        [
+          0,
+          -4,
+          3,
+          3,
+          -2
+        ],
+        [
+          4,
+          0,
+          3,
+          -1,
+          -6
+        ],
+        [
+          -3,
+          -3,
+          0,
+          2,
+          4
+        ],
+        [
+          -3,
+          1,
+          -2,
+          0,
+          4
+        ],
+        [
+          2,
+          6,
+          -4,
+          -4,
+          0
+        ]
+      ],
+      "toric_biresidue_example_scope": "SNC boundary point, not a generic smoothed member",
+      "meets_SNC_log_symplectic_locus": true,
+      "claims": [
+        "MPS40",
+        "MPS40_CROSSWALK"
+      ],
+      "proof_sources": [
+        {
+          "url": "https://arxiv.org/html/2010.08692v2#S5.T2",
+          "anchor": "S5.T2.pic36"
+        },
+        {
+          "path": "research/notes/MPS40_CROSSWALK_20261031.md"
+        }
+      ],
+      "verification_records": [
+        "reports/MPS40_CROSSWALK_20261031.json"
+      ],
+      "s61_coordinate_map_status": "not_constructed_by_this_audit",
+      "review_status": {
+        "proof": "published_theorem",
+        "primary_diagram_crosswalk": "exact_S5_match",
+        "full_independent_external_proof_review": false
+      },
+      "notes_ja": [
+        "内部IDは文献の番号ではない。MPS40_BLOCKとの二重加算をしない。",
+        "個別図式・次元の台帳であり、全成分のS61定義イデアルを構築したわけではない。"
+      ],
+      "generic_primitive_first_jet_image": "not dominant: S61 component dimension below 16"
+    },
+    {
+      "id": "T20",
+      "name": "MPS smoothing diagram T20",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "MPS_SNC_meeting_generic_rank_four_full_component",
+      "generic_rank": 4,
+      "projective_dimension": 23,
+      "s61_dimension": 14,
+      "smoothing_diagram": {
+        "graph_type": "P2+P2+P1",
+        "edges": [
+          {
+            "edge": [
+              0,
+              1
+            ],
+            "orders": {
+              "2": 0,
+              "3": 2,
+              "4": 0
+            }
+          },
+          {
+            "edge": [
+              2,
+              3
+            ],
+            "orders": {
+              "0": 0,
+              "1": 2,
+              "4": 0
+            }
+          }
+        ],
+        "forced_zero_entries": []
+      },
+      "period_dimension": 2,
+      "smoothing_parameter_count": 2,
+      "toric_biresidue_example": [
+        [
+          0,
+          -2,
+          3,
+          3,
+          -4
+        ],
+        [
+          2,
+          0,
+          3,
+          -1,
+          -4
+        ],
+        [
+          -3,
+          -3,
+          0,
+          2,
+          4
+        ],
+        [
+          -3,
+          1,
+          -2,
+          0,
+          4
+        ],
+        [
+          4,
+          4,
+          -4,
+          -4,
+          0
+        ]
+      ],
+      "toric_biresidue_example_scope": "SNC boundary point, not a generic smoothed member",
+      "meets_SNC_log_symplectic_locus": true,
+      "claims": [
+        "MPS40",
+        "MPS40_CROSSWALK"
+      ],
+      "proof_sources": [
+        {
+          "url": "https://arxiv.org/html/2010.08692v2#S5.T2",
+          "anchor": "S5.T2.pic37"
+        },
+        {
+          "path": "research/notes/MPS40_CROSSWALK_20261031.md"
+        }
+      ],
+      "verification_records": [
+        "reports/MPS40_CROSSWALK_20261031.json"
+      ],
+      "s61_coordinate_map_status": "not_constructed_by_this_audit",
+      "review_status": {
+        "proof": "published_theorem",
+        "primary_diagram_crosswalk": "exact_S5_match",
+        "full_independent_external_proof_review": false
+      },
+      "notes_ja": [
+        "内部IDは文献の番号ではない。MPS40_BLOCKとの二重加算をしない。",
+        "個別図式・次元の台帳であり、全成分のS61定義イデアルを構築したわけではない。"
+      ],
+      "generic_primitive_first_jet_image": "not dominant: S61 component dimension below 16"
+    },
+    {
+      "id": "T21",
+      "name": "MPS smoothing diagram T21",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "MPS_SNC_meeting_generic_rank_four_full_component",
+      "generic_rank": 4,
+      "projective_dimension": 24,
+      "s61_dimension": 15,
+      "smoothing_diagram": {
+        "graph_type": "C3+P1+P1",
+        "edges": [
+          {
+            "edge": [
+              0,
+              1
+            ],
+            "orders": {
+              "2": 2,
+              "3": 0,
+              "4": 0
+            }
+          },
+          {
+            "edge": [
+              0,
+              2
+            ],
+            "orders": {
+              "1": 2,
+              "3": 0,
+              "4": 0
+            }
+          },
+          {
+            "edge": [
+              1,
+              2
+            ],
+            "orders": {
+              "0": 2,
+              "3": 0,
+              "4": 0
+            }
+          }
+        ],
+        "forced_zero_entries": []
+      },
+      "period_dimension": 2,
+      "smoothing_parameter_count": 3,
+      "toric_biresidue_example": [
+        [
+          0,
+          3,
+          -3,
+          1,
+          -1
+        ],
+        [
+          -3,
+          0,
+          3,
+          1,
+          -1
+        ],
+        [
+          3,
+          -3,
+          0,
+          1,
+          -1
+        ],
+        [
+          -1,
+          -1,
+          -1,
+          0,
+          3
+        ],
+        [
+          1,
+          1,
+          1,
+          -3,
+          0
+        ]
+      ],
+      "toric_biresidue_example_scope": "SNC boundary point, not a generic smoothed member",
+      "meets_SNC_log_symplectic_locus": true,
+      "claims": [
+        "MPS40",
+        "MPS40_CROSSWALK"
+      ],
+      "proof_sources": [
+        {
+          "url": "https://arxiv.org/html/2010.08692v2#S5.T2",
+          "anchor": "S5.T2.pic20"
+        },
+        {
+          "path": "research/notes/MPS40_CROSSWALK_20261031.md"
+        }
+      ],
+      "verification_records": [
+        "reports/MPS40_CROSSWALK_20261031.json"
+      ],
+      "s61_coordinate_map_status": "not_constructed_by_this_audit",
+      "review_status": {
+        "proof": "published_theorem",
+        "primary_diagram_crosswalk": "exact_S5_match",
+        "full_independent_external_proof_review": false
+      },
+      "notes_ja": [
+        "内部IDは文献の番号ではない。MPS40_BLOCKとの二重加算をしない。",
+        "個別図式・次元の台帳であり、全成分のS61定義イデアルを構築したわけではない。"
+      ],
+      "generic_primitive_first_jet_image": "not dominant: S61 component dimension below 16"
+    },
+    {
+      "id": "T22",
+      "name": "MPS smoothing diagram T22",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "MPS_SNC_meeting_generic_rank_four_full_component",
+      "generic_rank": 4,
+      "projective_dimension": 23,
+      "s61_dimension": 14,
+      "smoothing_diagram": {
+        "graph_type": "P4+P1",
+        "edges": [
+          {
+            "edge": [
+              0,
+              1
+            ],
+            "orders": {
+              "2": 0,
+              "3": 0,
+              "4": 2
+            }
+          },
+          {
+            "edge": [
+              0,
+              2
+            ],
+            "orders": {
+              "1": 0,
+              "3": 0,
+              "4": 2
+            }
+          },
+          {
+            "edge": [
+              1,
+              3
+            ],
+            "orders": {
+              "0": 0,
+              "2": 0,
+              "4": 2
+            }
+          }
+        ],
+        "forced_zero_entries": []
+      },
+      "period_dimension": 1,
+      "smoothing_parameter_count": 3,
+      "toric_biresidue_example": [
+        [
+          0,
+          1,
+          -1,
+          1,
+          -1
+        ],
+        [
+          -1,
+          0,
+          -1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          0,
+          1,
+          -3
+        ],
+        [
+          -1,
+          -1,
+          -1,
+          0,
+          3
+        ],
+        [
+          1,
+          -1,
+          3,
+          -3,
+          0
+        ]
+      ],
+      "toric_biresidue_example_scope": "SNC boundary point, not a generic smoothed member",
+      "meets_SNC_log_symplectic_locus": true,
+      "claims": [
+        "MPS40",
+        "MPS40_CROSSWALK"
+      ],
+      "proof_sources": [
+        {
+          "url": "https://arxiv.org/html/2010.08692v2#S5.T2",
+          "anchor": "S5.T2.pic6"
+        },
+        {
+          "path": "research/notes/MPS40_CROSSWALK_20261031.md"
+        }
+      ],
+      "verification_records": [
+        "reports/MPS40_CROSSWALK_20261031.json"
+      ],
+      "s61_coordinate_map_status": "not_constructed_by_this_audit",
+      "review_status": {
+        "proof": "published_theorem",
+        "primary_diagram_crosswalk": "exact_S5_match",
+        "full_independent_external_proof_review": false
+      },
+      "notes_ja": [
+        "内部IDは文献の番号ではない。MPS40_BLOCKとの二重加算をしない。",
+        "個別図式・次元の台帳であり、全成分のS61定義イデアルを構築したわけではない。"
+      ],
+      "generic_primitive_first_jet_image": "not dominant: S61 component dimension below 16"
+    },
+    {
+      "id": "T23",
+      "name": "MPS smoothing diagram T23",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "MPS_SNC_meeting_generic_rank_four_full_component",
+      "generic_rank": 4,
+      "projective_dimension": 23,
+      "s61_dimension": 14,
+      "smoothing_diagram": {
+        "graph_type": "P4+P1",
+        "edges": [
+          {
+            "edge": [
+              0,
+              1
+            ],
+            "orders": {
+              "2": 0,
+              "3": 0,
+              "4": 2
+            }
+          },
+          {
+            "edge": [
+              0,
+              2
+            ],
+            "orders": {
+              "1": 0,
+              "3": 0,
+              "4": 2
+            }
+          },
+          {
+            "edge": [
+              1,
+              3
+            ],
+            "orders": {
+              "0": 1,
+              "2": 1,
+              "4": 0
+            }
+          }
+        ],
+        "forced_zero_entries": []
+      },
+      "period_dimension": 1,
+      "smoothing_parameter_count": 3,
+      "toric_biresidue_example": [
+        [
+          0,
+          2,
+          -2,
+          1,
+          -1
+        ],
+        [
+          -2,
+          0,
+          -2,
+          1,
+          3
+        ],
+        [
+          2,
+          2,
+          0,
+          1,
+          -5
+        ],
+        [
+          -1,
+          -1,
+          -1,
+          0,
+          3
+        ],
+        [
+          1,
+          -3,
+          5,
+          -3,
+          0
+        ]
+      ],
+      "toric_biresidue_example_scope": "SNC boundary point, not a generic smoothed member",
+      "meets_SNC_log_symplectic_locus": true,
+      "claims": [
+        "MPS40",
+        "MPS40_CROSSWALK"
+      ],
+      "proof_sources": [
+        {
+          "url": "https://arxiv.org/html/2010.08692v2#S5.T2",
+          "anchor": "S5.T2.pic11"
+        },
+        {
+          "path": "research/notes/MPS40_CROSSWALK_20261031.md"
+        }
+      ],
+      "verification_records": [
+        "reports/MPS40_CROSSWALK_20261031.json"
+      ],
+      "s61_coordinate_map_status": "not_constructed_by_this_audit",
+      "review_status": {
+        "proof": "published_theorem",
+        "primary_diagram_crosswalk": "exact_S5_match",
+        "full_independent_external_proof_review": false
+      },
+      "notes_ja": [
+        "内部IDは文献の番号ではない。MPS40_BLOCKとの二重加算をしない。",
+        "個別図式・次元の台帳であり、全成分のS61定義イデアルを構築したわけではない。"
+      ],
+      "generic_primitive_first_jet_image": "not dominant: S61 component dimension below 16"
+    },
+    {
+      "id": "T24",
+      "name": "MPS smoothing diagram T24",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "MPS_SNC_meeting_generic_rank_four_full_component",
+      "generic_rank": 4,
+      "projective_dimension": 23,
+      "s61_dimension": 14,
+      "smoothing_diagram": {
+        "graph_type": "P4+P1",
+        "edges": [
+          {
+            "edge": [
+              0,
+              1
+            ],
+            "orders": {
+              "2": 0,
+              "3": 0,
+              "4": 2
+            }
+          },
+          {
+            "edge": [
+              0,
+              2
+            ],
+            "orders": {
+              "1": 1,
+              "3": 0,
+              "4": 1
+            }
+          },
+          {
+            "edge": [
+              1,
+              3
+            ],
+            "orders": {
+              "0": 1,
+              "2": 0,
+              "4": 1
+            }
+          }
+        ],
+        "forced_zero_entries": []
+      },
+      "period_dimension": 1,
+      "smoothing_parameter_count": 3,
+      "toric_biresidue_example": [
+        [
+          0,
+          2,
+          -1,
+          1,
+          -2
+        ],
+        [
+          -2,
+          0,
+          -1,
+          1,
+          2
+        ],
+        [
+          1,
+          1,
+          0,
+          1,
+          -3
+        ],
+        [
+          -1,
+          -1,
+          -1,
+          0,
+          3
+        ],
+        [
+          2,
+          -2,
+          3,
+          -3,
+          0
+        ]
+      ],
+      "toric_biresidue_example_scope": "SNC boundary point, not a generic smoothed member",
+      "meets_SNC_log_symplectic_locus": true,
+      "claims": [
+        "MPS40",
+        "MPS40_CROSSWALK"
+      ],
+      "proof_sources": [
+        {
+          "url": "https://arxiv.org/html/2010.08692v2#S5.T2",
+          "anchor": "S5.T2.pic8"
+        },
+        {
+          "path": "research/notes/MPS40_CROSSWALK_20261031.md"
+        }
+      ],
+      "verification_records": [
+        "reports/MPS40_CROSSWALK_20261031.json"
+      ],
+      "s61_coordinate_map_status": "not_constructed_by_this_audit",
+      "review_status": {
+        "proof": "published_theorem",
+        "primary_diagram_crosswalk": "exact_S5_match",
+        "full_independent_external_proof_review": false
+      },
+      "notes_ja": [
+        "内部IDは文献の番号ではない。MPS40_BLOCKとの二重加算をしない。",
+        "個別図式・次元の台帳であり、全成分のS61定義イデアルを構築したわけではない。"
+      ],
+      "generic_primitive_first_jet_image": "not dominant: S61 component dimension below 16"
+    },
+    {
+      "id": "T25",
+      "name": "MPS smoothing diagram T25",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "MPS_SNC_meeting_generic_rank_four_full_component",
+      "generic_rank": 4,
+      "projective_dimension": 23,
+      "s61_dimension": 14,
+      "smoothing_diagram": {
+        "graph_type": "P4+P1",
+        "edges": [
+          {
+            "edge": [
+              0,
+              1
+            ],
+            "orders": {
+              "2": 0,
+              "3": 0,
+              "4": 2
+            }
+          },
+          {
+            "edge": [
+              0,
+              2
+            ],
+            "orders": {
+              "1": 2,
+              "3": 0,
+              "4": 0
+            }
+          },
+          {
+            "edge": [
+              1,
+              3
+            ],
+            "orders": {
+              "0": 2,
+              "2": 0,
+              "4": 0
+            }
+          }
+        ],
+        "forced_zero_entries": []
+      },
+      "period_dimension": 1,
+      "smoothing_parameter_count": 3,
+      "toric_biresidue_example": [
+        [
+          0,
+          3,
+          -1,
+          1,
+          -3
+        ],
+        [
+          -3,
+          0,
+          -1,
+          1,
+          3
+        ],
+        [
+          1,
+          1,
+          0,
+          1,
+          -3
+        ],
+        [
+          -1,
+          -1,
+          -1,
+          0,
+          3
+        ],
+        [
+          3,
+          -3,
+          3,
+          -3,
+          0
+        ]
+      ],
+      "toric_biresidue_example_scope": "SNC boundary point, not a generic smoothed member",
+      "meets_SNC_log_symplectic_locus": true,
+      "claims": [
+        "MPS40",
+        "MPS40_CROSSWALK"
+      ],
+      "proof_sources": [
+        {
+          "url": "https://arxiv.org/html/2010.08692v2#S5.T2",
+          "anchor": "S5.T2.pic9"
+        },
+        {
+          "path": "research/notes/MPS40_CROSSWALK_20261031.md"
+        }
+      ],
+      "verification_records": [
+        "reports/MPS40_CROSSWALK_20261031.json"
+      ],
+      "s61_coordinate_map_status": "not_constructed_by_this_audit",
+      "review_status": {
+        "proof": "published_theorem",
+        "primary_diagram_crosswalk": "exact_S5_match",
+        "full_independent_external_proof_review": false
+      },
+      "notes_ja": [
+        "内部IDは文献の番号ではない。MPS40_BLOCKとの二重加算をしない。",
+        "個別図式・次元の台帳であり、全成分のS61定義イデアルを構築したわけではない。"
+      ],
+      "generic_primitive_first_jet_image": "not dominant: S61 component dimension below 16"
+    },
+    {
+      "id": "T26",
+      "name": "MPS smoothing diagram T26",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "MPS_SNC_meeting_generic_rank_four_full_component",
+      "generic_rank": 4,
+      "projective_dimension": 23,
+      "s61_dimension": 14,
+      "smoothing_diagram": {
+        "graph_type": "P4+P1",
+        "edges": [
+          {
+            "edge": [
+              0,
+              1
+            ],
+            "orders": {
+              "2": 0,
+              "3": 1,
+              "4": 1
+            }
+          },
+          {
+            "edge": [
+              0,
+              2
+            ],
+            "orders": {
+              "1": 0,
+              "3": 0,
+              "4": 2
+            }
+          },
+          {
+            "edge": [
+              1,
+              3
+            ],
+            "orders": {
+              "0": 0,
+              "2": 0,
+              "4": 2
+            }
+          }
+        ],
+        "forced_zero_entries": [
+          [
+            1,
+            4
+          ]
+        ]
+      },
+      "period_dimension": 1,
+      "smoothing_parameter_count": 3,
+      "toric_biresidue_example": [
+        [
+          0,
+          1,
+          -1,
+          1,
+          -1
+        ],
+        [
+          -1,
+          0,
+          -1,
+          2,
+          0
+        ],
+        [
+          1,
+          1,
+          0,
+          1,
+          -3
+        ],
+        [
+          -1,
+          -2,
+          -1,
+          0,
+          4
+        ],
+        [
+          1,
+          0,
+          3,
+          -4,
+          0
+        ]
+      ],
+      "toric_biresidue_example_scope": "SNC boundary point, not a generic smoothed member",
+      "meets_SNC_log_symplectic_locus": true,
+      "claims": [
+        "MPS40",
+        "MPS40_CROSSWALK"
+      ],
+      "proof_sources": [
+        {
+          "url": "https://arxiv.org/html/2010.08692v2#S5.T2",
+          "anchor": "S5.T2.pic12"
+        },
+        {
+          "path": "research/notes/MPS40_CROSSWALK_20261031.md"
+        }
+      ],
+      "verification_records": [
+        "reports/MPS40_CROSSWALK_20261031.json"
+      ],
+      "s61_coordinate_map_status": "not_constructed_by_this_audit",
+      "review_status": {
+        "proof": "published_theorem",
+        "primary_diagram_crosswalk": "exact_S5_match",
+        "full_independent_external_proof_review": false
+      },
+      "notes_ja": [
+        "内部IDは文献の番号ではない。MPS40_BLOCKとの二重加算をしない。",
+        "個別図式・次元の台帳であり、全成分のS61定義イデアルを構築したわけではない。"
+      ],
+      "generic_primitive_first_jet_image": "not dominant: S61 component dimension below 16"
+    },
+    {
+      "id": "T27",
+      "name": "MPS smoothing diagram T27",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "MPS_SNC_meeting_generic_rank_four_full_component",
+      "generic_rank": 4,
+      "projective_dimension": 23,
+      "s61_dimension": 14,
+      "smoothing_diagram": {
+        "graph_type": "P4+P1",
+        "edges": [
+          {
+            "edge": [
+              0,
+              1
+            ],
+            "orders": {
+              "2": 0,
+              "3": 1,
+              "4": 1
+            }
+          },
+          {
+            "edge": [
+              0,
+              2
+            ],
+            "orders": {
+              "1": 1,
+              "3": 1,
+              "4": 0
+            }
+          },
+          {
+            "edge": [
+              1,
+              3
+            ],
+            "orders": {
+              "0": 0,
+              "2": 0,
+              "4": 2
+            }
+          }
+        ],
+        "forced_zero_entries": []
+      },
+      "period_dimension": 1,
+      "smoothing_parameter_count": 3,
+      "toric_biresidue_example": [
+        [
+          0,
+          2,
+          -1,
+          2,
+          -3
+        ],
+        [
+          -2,
+          0,
+          -1,
+          4,
+          -1
+        ],
+        [
+          1,
+          1,
+          0,
+          1,
+          -3
+        ],
+        [
+          -2,
+          -4,
+          -1,
+          0,
+          7
+        ],
+        [
+          3,
+          1,
+          3,
+          -7,
+          0
+        ]
+      ],
+      "toric_biresidue_example_scope": "SNC boundary point, not a generic smoothed member",
+      "meets_SNC_log_symplectic_locus": true,
+      "claims": [
+        "MPS40",
+        "MPS40_CROSSWALK"
+      ],
+      "proof_sources": [
+        {
+          "url": "https://arxiv.org/html/2010.08692v2#S5.T2",
+          "anchor": "S5.T2.pic13"
+        },
+        {
+          "path": "research/notes/MPS40_CROSSWALK_20261031.md"
+        }
+      ],
+      "verification_records": [
+        "reports/MPS40_CROSSWALK_20261031.json"
+      ],
+      "s61_coordinate_map_status": "not_constructed_by_this_audit",
+      "review_status": {
+        "proof": "published_theorem",
+        "primary_diagram_crosswalk": "exact_S5_match",
+        "full_independent_external_proof_review": false
+      },
+      "notes_ja": [
+        "内部IDは文献の番号ではない。MPS40_BLOCKとの二重加算をしない。",
+        "個別図式・次元の台帳であり、全成分のS61定義イデアルを構築したわけではない。"
+      ],
+      "generic_primitive_first_jet_image": "not dominant: S61 component dimension below 16"
+    },
+    {
+      "id": "T28",
+      "name": "MPS smoothing diagram T28",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "MPS_SNC_meeting_generic_rank_four_full_component",
+      "generic_rank": 4,
+      "projective_dimension": 23,
+      "s61_dimension": 14,
+      "smoothing_diagram": {
+        "graph_type": "P4+P1",
+        "edges": [
+          {
+            "edge": [
+              0,
+              1
+            ],
+            "orders": {
+              "2": 0,
+              "3": 2,
+              "4": 0
+            }
+          },
+          {
+            "edge": [
+              0,
+              2
+            ],
+            "orders": {
+              "1": 1,
+              "3": 1,
+              "4": 0
+            }
+          },
+          {
+            "edge": [
+              1,
+              3
+            ],
+            "orders": {
+              "0": 0,
+              "2": 0,
+              "4": 2
+            }
+          }
+        ],
+        "forced_zero_entries": []
+      },
+      "period_dimension": 1,
+      "smoothing_parameter_count": 3,
+      "toric_biresidue_example": [
+        [
+          0,
+          2,
+          -1,
+          2,
+          -3
+        ],
+        [
+          -2,
+          0,
+          -1,
+          6,
+          -3
+        ],
+        [
+          1,
+          1,
+          0,
+          1,
+          -3
+        ],
+        [
+          -2,
+          -6,
+          -1,
+          0,
+          9
+        ],
+        [
+          3,
+          3,
+          3,
+          -9,
+          0
+        ]
+      ],
+      "toric_biresidue_example_scope": "SNC boundary point, not a generic smoothed member",
+      "meets_SNC_log_symplectic_locus": true,
+      "claims": [
+        "MPS40",
+        "MPS40_CROSSWALK"
+      ],
+      "proof_sources": [
+        {
+          "url": "https://arxiv.org/html/2010.08692v2#S5.T2",
+          "anchor": "S5.T2.pic14"
+        },
+        {
+          "path": "research/notes/MPS40_CROSSWALK_20261031.md"
+        }
+      ],
+      "verification_records": [
+        "reports/MPS40_CROSSWALK_20261031.json"
+      ],
+      "s61_coordinate_map_status": "not_constructed_by_this_audit",
+      "review_status": {
+        "proof": "published_theorem",
+        "primary_diagram_crosswalk": "exact_S5_match",
+        "full_independent_external_proof_review": false
+      },
+      "notes_ja": [
+        "内部IDは文献の番号ではない。MPS40_BLOCKとの二重加算をしない。",
+        "個別図式・次元の台帳であり、全成分のS61定義イデアルを構築したわけではない。"
+      ],
+      "generic_primitive_first_jet_image": "not dominant: S61 component dimension below 16"
+    },
+    {
+      "id": "T29",
+      "name": "MPS smoothing diagram T29",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "MPS_SNC_meeting_generic_rank_four_full_component",
+      "generic_rank": 4,
+      "projective_dimension": 23,
+      "s61_dimension": 14,
+      "smoothing_diagram": {
+        "graph_type": "P4+P1",
+        "edges": [
+          {
+            "edge": [
+              0,
+              1
+            ],
+            "orders": {
+              "2": 1,
+              "3": 1,
+              "4": 0
+            }
+          },
+          {
+            "edge": [
+              0,
+              2
+            ],
+            "orders": {
+              "1": 0,
+              "3": 0,
+              "4": 2
+            }
+          },
+          {
+            "edge": [
+              1,
+              3
+            ],
+            "orders": {
+              "0": 0,
+              "2": 0,
+              "4": 2
+            }
+          }
+        ],
+        "forced_zero_entries": [
+          [
+            0,
+            4
+          ],
+          [
+            1,
+            4
+          ]
+        ]
+      },
+      "period_dimension": 1,
+      "smoothing_parameter_count": 3,
+      "toric_biresidue_example": [
+        [
+          0,
+          1,
+          -2,
+          1,
+          0
+        ],
+        [
+          -1,
+          0,
+          -1,
+          2,
+          0
+        ],
+        [
+          2,
+          1,
+          0,
+          1,
+          -4
+        ],
+        [
+          -1,
+          -2,
+          -1,
+          0,
+          4
+        ],
+        [
+          0,
+          0,
+          4,
+          -4,
+          0
+        ]
+      ],
+      "toric_biresidue_example_scope": "SNC boundary point, not a generic smoothed member",
+      "meets_SNC_log_symplectic_locus": true,
+      "claims": [
+        "MPS40",
+        "MPS40_CROSSWALK"
+      ],
+      "proof_sources": [
+        {
+          "url": "https://arxiv.org/html/2010.08692v2#S5.T2",
+          "anchor": "S5.T2.pic7"
+        },
+        {
+          "path": "research/notes/MPS40_CROSSWALK_20261031.md"
+        }
+      ],
+      "verification_records": [
+        "reports/MPS40_CROSSWALK_20261031.json"
+      ],
+      "s61_coordinate_map_status": "not_constructed_by_this_audit",
+      "review_status": {
+        "proof": "published_theorem",
+        "primary_diagram_crosswalk": "exact_S5_match",
+        "full_independent_external_proof_review": false
+      },
+      "notes_ja": [
+        "内部IDは文献の番号ではない。MPS40_BLOCKとの二重加算をしない。",
+        "個別図式・次元の台帳であり、全成分のS61定義イデアルを構築したわけではない。"
+      ],
+      "generic_primitive_first_jet_image": "not dominant: S61 component dimension below 16"
+    },
+    {
+      "id": "T30",
+      "name": "MPS smoothing diagram T30",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "MPS_SNC_meeting_generic_rank_four_full_component",
+      "generic_rank": 4,
+      "projective_dimension": 23,
+      "s61_dimension": 14,
+      "smoothing_diagram": {
+        "graph_type": "P4+P1",
+        "edges": [
+          {
+            "edge": [
+              0,
+              1
+            ],
+            "orders": {
+              "2": 1,
+              "3": 1,
+              "4": 0
+            }
+          },
+          {
+            "edge": [
+              0,
+              2
+            ],
+            "orders": {
+              "1": 0,
+              "3": 0,
+              "4": 2
+            }
+          },
+          {
+            "edge": [
+              1,
+              3
+            ],
+            "orders": {
+              "0": 1,
+              "2": 1,
+              "4": 0
+            }
+          }
+        ],
+        "forced_zero_entries": [
+          [
+            0,
+            3
+          ],
+          [
+            2,
+            3
+          ]
+        ]
+      },
+      "period_dimension": 1,
+      "smoothing_parameter_count": 3,
+      "toric_biresidue_example": [
+        [
+          0,
+          1,
+          -2,
+          0,
+          1
+        ],
+        [
+          -1,
+          0,
+          -1,
+          1,
+          1
+        ],
+        [
+          2,
+          1,
+          0,
+          0,
+          -3
+        ],
+        [
+          0,
+          -1,
+          0,
+          0,
+          1
+        ],
+        [
+          -1,
+          -1,
+          3,
+          -1,
+          0
+        ]
+      ],
+      "toric_biresidue_example_scope": "SNC boundary point, not a generic smoothed member",
+      "meets_SNC_log_symplectic_locus": true,
+      "claims": [
+        "MPS40",
+        "MPS40_CROSSWALK"
+      ],
+      "proof_sources": [
+        {
+          "url": "https://arxiv.org/html/2010.08692v2#S5.T2",
+          "anchor": "S5.T2.pic15"
+        },
+        {
+          "path": "research/notes/MPS40_CROSSWALK_20261031.md"
+        }
+      ],
+      "verification_records": [
+        "reports/MPS40_CROSSWALK_20261031.json"
+      ],
+      "s61_coordinate_map_status": "not_constructed_by_this_audit",
+      "review_status": {
+        "proof": "published_theorem",
+        "primary_diagram_crosswalk": "exact_S5_match",
+        "full_independent_external_proof_review": false
+      },
+      "notes_ja": [
+        "内部IDは文献の番号ではない。MPS40_BLOCKとの二重加算をしない。",
+        "個別図式・次元の台帳であり、全成分のS61定義イデアルを構築したわけではない。"
+      ],
+      "generic_primitive_first_jet_image": "not dominant: S61 component dimension below 16"
+    },
+    {
+      "id": "T31",
+      "name": "MPS smoothing diagram T31",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "MPS_SNC_meeting_generic_rank_four_full_component",
+      "generic_rank": 4,
+      "projective_dimension": 23,
+      "s61_dimension": 14,
+      "smoothing_diagram": {
+        "graph_type": "P4+P1",
+        "edges": [
+          {
+            "edge": [
+              0,
+              1
+            ],
+            "orders": {
+              "2": 1,
+              "3": 1,
+              "4": 0
+            }
+          },
+          {
+            "edge": [
+              0,
+              2
+            ],
+            "orders": {
+              "1": 0,
+              "3": 1,
+              "4": 1
+            }
+          },
+          {
+            "edge": [
+              1,
+              3
+            ],
+            "orders": {
+              "0": 0,
+              "2": 1,
+              "4": 1
+            }
+          }
+        ],
+        "forced_zero_entries": [
+          [
+            0,
+            4
+          ],
+          [
+            1,
+            4
+          ]
+        ]
+      },
+      "period_dimension": 1,
+      "smoothing_parameter_count": 3,
+      "toric_biresidue_example": [
+        [
+          0,
+          1,
+          -2,
+          1,
+          0
+        ],
+        [
+          -1,
+          0,
+          -1,
+          2,
+          0
+        ],
+        [
+          2,
+          1,
+          0,
+          -1,
+          -2
+        ],
+        [
+          -1,
+          -2,
+          1,
+          0,
+          2
+        ],
+        [
+          0,
+          0,
+          2,
+          -2,
+          0
+        ]
+      ],
+      "toric_biresidue_example_scope": "SNC boundary point, not a generic smoothed member",
+      "meets_SNC_log_symplectic_locus": true,
+      "claims": [
+        "MPS40",
+        "MPS40_CROSSWALK"
+      ],
+      "proof_sources": [
+        {
+          "url": "https://arxiv.org/html/2010.08692v2#S5.T2",
+          "anchor": "S5.T2.pic10"
+        },
+        {
+          "path": "research/notes/MPS40_CROSSWALK_20261031.md"
+        }
+      ],
+      "verification_records": [
+        "reports/MPS40_CROSSWALK_20261031.json"
+      ],
+      "s61_coordinate_map_status": "not_constructed_by_this_audit",
+      "review_status": {
+        "proof": "published_theorem",
+        "primary_diagram_crosswalk": "exact_S5_match",
+        "full_independent_external_proof_review": false
+      },
+      "notes_ja": [
+        "内部IDは文献の番号ではない。MPS40_BLOCKとの二重加算をしない。",
+        "個別図式・次元の台帳であり、全成分のS61定義イデアルを構築したわけではない。"
+      ],
+      "generic_primitive_first_jet_image": "not dominant: S61 component dimension below 16"
+    },
+    {
+      "id": "T32",
+      "name": "MPS smoothing diagram T32",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "MPS_SNC_meeting_generic_rank_four_full_component",
+      "generic_rank": 4,
+      "projective_dimension": 23,
+      "s61_dimension": 14,
+      "smoothing_diagram": {
+        "graph_type": "P3+P2",
+        "edges": [
+          {
+            "edge": [
+              0,
+              1
+            ],
+            "orders": {
+              "2": 0,
+              "3": 0,
+              "4": 2
+            }
+          },
+          {
+            "edge": [
+              0,
+              2
+            ],
+            "orders": {
+              "1": 0,
+              "3": 2,
+              "4": 0
+            }
+          },
+          {
+            "edge": [
+              3,
+              4
+            ],
+            "orders": {
+              "0": 0,
+              "1": 1,
+              "2": 1
+            }
+          }
+        ],
+        "forced_zero_entries": [
+          [
+            0,
+            3
+          ],
+          [
+            0,
+            4
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            4
+          ]
+        ]
+      },
+      "period_dimension": 1,
+      "smoothing_parameter_count": 3,
+      "toric_biresidue_example": [
+        [
+          0,
+          -1,
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          1,
+          0,
+          -2
+        ],
+        [
+          -1,
+          -1,
+          0,
+          2,
+          0
+        ],
+        [
+          0,
+          0,
+          -2,
+          0,
+          2
+        ],
+        [
+          0,
+          2,
+          0,
+          -2,
+          0
+        ]
+      ],
+      "toric_biresidue_example_scope": "SNC boundary point, not a generic smoothed member",
+      "meets_SNC_log_symplectic_locus": true,
+      "claims": [
+        "MPS40",
+        "MPS40_CROSSWALK"
+      ],
+      "proof_sources": [
+        {
+          "url": "https://arxiv.org/html/2010.08692v2#S5.T2",
+          "anchor": "S5.T2.pic16"
+        },
+        {
+          "path": "research/notes/MPS40_CROSSWALK_20261031.md"
+        }
+      ],
+      "verification_records": [
+        "reports/MPS40_CROSSWALK_20261031.json"
+      ],
+      "s61_coordinate_map_status": "not_constructed_by_this_audit",
+      "review_status": {
+        "proof": "published_theorem",
+        "primary_diagram_crosswalk": "exact_S5_match",
+        "full_independent_external_proof_review": false
+      },
+      "notes_ja": [
+        "内部IDは文献の番号ではない。MPS40_BLOCKとの二重加算をしない。",
+        "個別図式・次元の台帳であり、全成分のS61定義イデアルを構築したわけではない。"
+      ],
+      "generic_primitive_first_jet_image": "not dominant: S61 component dimension below 16"
+    },
+    {
+      "id": "T33",
+      "name": "MPS smoothing diagram T33",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "MPS_SNC_meeting_generic_rank_four_full_component",
+      "generic_rank": 4,
+      "projective_dimension": 23,
+      "s61_dimension": 14,
+      "smoothing_diagram": {
+        "graph_type": "P3+P2",
+        "edges": [
+          {
+            "edge": [
+              0,
+              1
+            ],
+            "orders": {
+              "2": 0,
+              "3": 0,
+              "4": 2
+            }
+          },
+          {
+            "edge": [
+              0,
+              2
+            ],
+            "orders": {
+              "1": 2,
+              "3": 0,
+              "4": 0
+            }
+          },
+          {
+            "edge": [
+              3,
+              4
+            ],
+            "orders": {
+              "0": 1,
+              "1": 0,
+              "2": 1
+            }
+          }
+        ],
+        "forced_zero_entries": []
+      },
+      "period_dimension": 1,
+      "smoothing_parameter_count": 3,
+      "toric_biresidue_example": [
+        [
+          0,
+          3,
+          -1,
+          2,
+          -4
+        ],
+        [
+          -3,
+          0,
+          -1,
+          2,
+          2
+        ],
+        [
+          1,
+          1,
+          0,
+          2,
+          -4
+        ],
+        [
+          -2,
+          -2,
+          -2,
+          0,
+          6
+        ],
+        [
+          4,
+          -2,
+          4,
+          -6,
+          0
+        ]
+      ],
+      "toric_biresidue_example_scope": "SNC boundary point, not a generic smoothed member",
+      "meets_SNC_log_symplectic_locus": true,
+      "claims": [
+        "MPS40",
+        "MPS40_CROSSWALK"
+      ],
+      "proof_sources": [
+        {
+          "url": "https://arxiv.org/html/2010.08692v2#S5.T2",
+          "anchor": "S5.T2.pic17"
+        },
+        {
+          "path": "research/notes/MPS40_CROSSWALK_20261031.md"
+        }
+      ],
+      "verification_records": [
+        "reports/MPS40_CROSSWALK_20261031.json"
+      ],
+      "s61_coordinate_map_status": "not_constructed_by_this_audit",
+      "review_status": {
+        "proof": "published_theorem",
+        "primary_diagram_crosswalk": "exact_S5_match",
+        "full_independent_external_proof_review": false
+      },
+      "notes_ja": [
+        "内部IDは文献の番号ではない。MPS40_BLOCKとの二重加算をしない。",
+        "個別図式・次元の台帳であり、全成分のS61定義イデアルを構築したわけではない。"
+      ],
+      "generic_primitive_first_jet_image": "not dominant: S61 component dimension below 16"
+    },
+    {
+      "id": "T34",
+      "name": "MPS smoothing diagram T34",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "MPS_SNC_meeting_generic_rank_four_full_component",
+      "generic_rank": 4,
+      "projective_dimension": 23,
+      "s61_dimension": 14,
+      "smoothing_diagram": {
+        "graph_type": "P3+P2",
+        "edges": [
+          {
+            "edge": [
+              0,
+              1
+            ],
+            "orders": {
+              "2": 0,
+              "3": 1,
+              "4": 1
+            }
+          },
+          {
+            "edge": [
+              0,
+              2
+            ],
+            "orders": {
+              "1": 1,
+              "3": 0,
+              "4": 1
+            }
+          },
+          {
+            "edge": [
+              3,
+              4
+            ],
+            "orders": {
+              "0": 0,
+              "1": 0,
+              "2": 2
+            }
+          }
+        ],
+        "forced_zero_entries": []
+      },
+      "period_dimension": 1,
+      "smoothing_parameter_count": 3,
+      "toric_biresidue_example": [
+        [
+          0,
+          4,
+          -2,
+          -1,
+          -1
+        ],
+        [
+          -4,
+          0,
+          -2,
+          3,
+          3
+        ],
+        [
+          2,
+          2,
+          0,
+          -1,
+          -3
+        ],
+        [
+          1,
+          -3,
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          -3,
+          3,
+          -1,
+          0
+        ]
+      ],
+      "toric_biresidue_example_scope": "SNC boundary point, not a generic smoothed member",
+      "meets_SNC_log_symplectic_locus": true,
+      "claims": [
+        "MPS40",
+        "MPS40_CROSSWALK"
+      ],
+      "proof_sources": [
+        {
+          "url": "https://arxiv.org/html/2010.08692v2#S5.T2",
+          "anchor": "S5.T2.pic18"
+        },
+        {
+          "path": "research/notes/MPS40_CROSSWALK_20261031.md"
+        }
+      ],
+      "verification_records": [
+        "reports/MPS40_CROSSWALK_20261031.json"
+      ],
+      "s61_coordinate_map_status": "not_constructed_by_this_audit",
+      "review_status": {
+        "proof": "published_theorem",
+        "primary_diagram_crosswalk": "exact_S5_match",
+        "full_independent_external_proof_review": false
+      },
+      "notes_ja": [
+        "内部IDは文献の番号ではない。MPS40_BLOCKとの二重加算をしない。",
+        "個別図式・次元の台帳であり、全成分のS61定義イデアルを構築したわけではない。"
+      ],
+      "generic_primitive_first_jet_image": "not dominant: S61 component dimension below 16"
+    },
+    {
+      "id": "T35",
+      "name": "MPS smoothing diagram T35",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "MPS_SNC_meeting_generic_rank_four_full_component",
+      "generic_rank": 4,
+      "projective_dimension": 23,
+      "s61_dimension": 14,
+      "smoothing_diagram": {
+        "graph_type": "P3+P2",
+        "edges": [
+          {
+            "edge": [
+              0,
+              1
+            ],
+            "orders": {
+              "2": 1,
+              "3": 0,
+              "4": 1
+            }
+          },
+          {
+            "edge": [
+              0,
+              2
+            ],
+            "orders": {
+              "1": 2,
+              "3": 0,
+              "4": 0
+            }
+          },
+          {
+            "edge": [
+              3,
+              4
+            ],
+            "orders": {
+              "0": 0,
+              "1": 2,
+              "2": 0
+            }
+          }
+        ],
+        "forced_zero_entries": []
+      },
+      "period_dimension": 1,
+      "smoothing_parameter_count": 3,
+      "toric_biresidue_example": [
+        [
+          0,
+          -6,
+          4,
+          1,
+          1
+        ],
+        [
+          6,
+          0,
+          -2,
+          1,
+          -5
+        ],
+        [
+          -4,
+          2,
+          0,
+          1,
+          1
+        ],
+        [
+          -1,
+          -1,
+          -1,
+          0,
+          3
+        ],
+        [
+          -1,
+          5,
+          -1,
+          -3,
+          0
+        ]
+      ],
+      "toric_biresidue_example_scope": "SNC boundary point, not a generic smoothed member",
+      "meets_SNC_log_symplectic_locus": true,
+      "claims": [
+        "MPS40",
+        "MPS40_CROSSWALK"
+      ],
+      "proof_sources": [
+        {
+          "url": "https://arxiv.org/html/2010.08692v2#S5.T2",
+          "anchor": "S5.T2.pic19"
+        },
+        {
+          "path": "research/notes/MPS40_CROSSWALK_20261031.md"
+        }
+      ],
+      "verification_records": [
+        "reports/MPS40_CROSSWALK_20261031.json"
+      ],
+      "s61_coordinate_map_status": "not_constructed_by_this_audit",
+      "review_status": {
+        "proof": "published_theorem",
+        "primary_diagram_crosswalk": "exact_S5_match",
+        "full_independent_external_proof_review": false
+      },
+      "notes_ja": [
+        "内部IDは文献の番号ではない。MPS40_BLOCKとの二重加算をしない。",
+        "個別図式・次元の台帳であり、全成分のS61定義イデアルを構築したわけではない。"
+      ],
+      "generic_primitive_first_jet_image": "not dominant: S61 component dimension below 16"
+    },
+    {
+      "id": "T36",
+      "name": "MPS smoothing diagram T36",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "MPS_SNC_meeting_generic_rank_four_full_component",
+      "generic_rank": 4,
+      "projective_dimension": 24,
+      "s61_dimension": 15,
+      "smoothing_diagram": {
+        "graph_type": "P5",
+        "edges": [
+          {
+            "edge": [
+              0,
+              1
+            ],
+            "orders": {
+              "2": 0,
+              "3": 2,
+              "4": 0
+            }
+          },
+          {
+            "edge": [
+              0,
+              2
+            ],
+            "orders": {
+              "1": 0,
+              "3": 0,
+              "4": 2
+            }
+          },
+          {
+            "edge": [
+              1,
+              3
+            ],
+            "orders": {
+              "0": 0,
+              "2": 0,
+              "4": 2
+            }
+          },
+          {
+            "edge": [
+              2,
+              4
+            ],
+            "orders": {
+              "0": 0,
+              "1": 0,
+              "3": 2
+            }
+          }
+        ],
+        "forced_zero_entries": []
+      },
+      "period_dimension": 1,
+      "smoothing_parameter_count": 4,
+      "toric_biresidue_example": [
+        [
+          0,
+          1,
+          -1,
+          1,
+          -1
+        ],
+        [
+          -1,
+          0,
+          -1,
+          3,
+          -1
+        ],
+        [
+          1,
+          1,
+          0,
+          1,
+          -3
+        ],
+        [
+          -1,
+          -3,
+          -1,
+          0,
+          5
+        ],
+        [
+          1,
+          1,
+          3,
+          -5,
+          0
+        ]
+      ],
+      "toric_biresidue_example_scope": "SNC boundary point, not a generic smoothed member",
+      "meets_SNC_log_symplectic_locus": true,
+      "claims": [
+        "MPS40",
+        "MPS40_CROSSWALK"
+      ],
+      "proof_sources": [
+        {
+          "url": "https://arxiv.org/html/2010.08692v2#S5.T2",
+          "anchor": "S5.T2.pic4"
+        },
+        {
+          "path": "research/notes/MPS40_CROSSWALK_20261031.md"
+        }
+      ],
+      "verification_records": [
+        "reports/MPS40_CROSSWALK_20261031.json"
+      ],
+      "s61_coordinate_map_status": "not_constructed_by_this_audit",
+      "review_status": {
+        "proof": "published_theorem",
+        "primary_diagram_crosswalk": "exact_S5_match",
+        "full_independent_external_proof_review": false
+      },
+      "notes_ja": [
+        "内部IDは文献の番号ではない。MPS40_BLOCKとの二重加算をしない。",
+        "個別図式・次元の台帳であり、全成分のS61定義イデアルを構築したわけではない。"
+      ],
+      "generic_primitive_first_jet_image": "not dominant: S61 component dimension below 16"
+    },
+    {
+      "id": "T37",
+      "name": "MPS smoothing diagram T37",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "MPS_SNC_meeting_generic_rank_four_full_component",
+      "generic_rank": 4,
+      "projective_dimension": 24,
+      "s61_dimension": 15,
+      "smoothing_diagram": {
+        "graph_type": "P5",
+        "edges": [
+          {
+            "edge": [
+              0,
+              1
+            ],
+            "orders": {
+              "2": 0,
+              "3": 2,
+              "4": 0
+            }
+          },
+          {
+            "edge": [
+              0,
+              2
+            ],
+            "orders": {
+              "1": 0,
+              "3": 0,
+              "4": 2
+            }
+          },
+          {
+            "edge": [
+              1,
+              3
+            ],
+            "orders": {
+              "0": 1,
+              "2": 1,
+              "4": 0
+            }
+          },
+          {
+            "edge": [
+              2,
+              4
+            ],
+            "orders": {
+              "0": 1,
+              "1": 1,
+              "3": 0
+            }
+          }
+        ],
+        "forced_zero_entries": []
+      },
+      "period_dimension": 1,
+      "smoothing_parameter_count": 4,
+      "toric_biresidue_example": [
+        [
+          0,
+          2,
+          -2,
+          -1,
+          1
+        ],
+        [
+          -2,
+          0,
+          -2,
+          3,
+          1
+        ],
+        [
+          2,
+          2,
+          0,
+          -1,
+          -3
+        ],
+        [
+          1,
+          -3,
+          1,
+          0,
+          1
+        ],
+        [
+          -1,
+          -1,
+          3,
+          -1,
+          0
+        ]
+      ],
+      "toric_biresidue_example_scope": "SNC boundary point, not a generic smoothed member",
+      "meets_SNC_log_symplectic_locus": true,
+      "claims": [
+        "MPS40",
+        "MPS40_CROSSWALK",
+        "T37_IDENTIFICATION",
+        "Q_THREE_COMPONENTS"
+      ],
+      "proof_sources": [
+        {
+          "url": "https://arxiv.org/html/2010.08692v2#S5.T2",
+          "anchor": "S5.T2.pic5"
+        },
+        {
+          "path": "research/notes/MPS40_CROSSWALK_20261031.md"
+        },
+        {
+          "path": "legacy/v23/proofs/literature/t37_catalog_reference.json"
+        },
+        {
+          "path": "legacy/v23/sections/ss_literature.tex"
+        }
+      ],
+      "verification_records": [
+        "reports/MPS40_CROSSWALK_20261031.json"
+      ],
+      "s61_coordinate_map_status": "not_constructed_by_this_audit",
+      "review_status": {
+        "proof": "published_theorem",
+        "primary_diagram_crosswalk": "exact_S5_match",
+        "full_independent_external_proof_review": false
+      },
+      "notes_ja": [
+        "内部IDは文献の番号ではない。MPS40_BLOCKとの二重加算をしない。",
+        "個別図式・次元の台帳であり、全成分のS61定義イデアルを構築したわけではない。",
+        "本研究内部カタログのID。v23のSS/NNは同じこの成分に属し、v24端点Qも含む。"
+      ],
+      "generic_primitive_first_jet_image": "not dominant: S61 component dimension below 16"
+    },
+    {
+      "id": "T38",
+      "name": "MPS smoothing diagram T38",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "MPS_SNC_meeting_generic_rank_four_full_component",
+      "generic_rank": 4,
+      "projective_dimension": 24,
+      "s61_dimension": 15,
+      "smoothing_diagram": {
+        "graph_type": "P5",
+        "edges": [
+          {
+            "edge": [
+              0,
+              1
+            ],
+            "orders": {
+              "2": 1,
+              "3": 0,
+              "4": 1
+            }
+          },
+          {
+            "edge": [
+              0,
+              2
+            ],
+            "orders": {
+              "1": 1,
+              "3": 1,
+              "4": 0
+            }
+          },
+          {
+            "edge": [
+              1,
+              3
+            ],
+            "orders": {
+              "0": 0,
+              "2": 0,
+              "4": 2
+            }
+          },
+          {
+            "edge": [
+              2,
+              4
+            ],
+            "orders": {
+              "0": 0,
+              "1": 0,
+              "3": 2
+            }
+          }
+        ],
+        "forced_zero_entries": [
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            2,
+            3
+          ]
+        ]
+      },
+      "period_dimension": 1,
+      "smoothing_parameter_count": 4,
+      "toric_biresidue_example": [
+        [
+          0,
+          1,
+          -1,
+          1,
+          -1
+        ],
+        [
+          -1,
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          0,
+          -1
+        ],
+        [
+          -1,
+          -1,
+          0,
+          0,
+          2
+        ],
+        [
+          1,
+          0,
+          1,
+          -2,
+          0
+        ]
+      ],
+      "toric_biresidue_example_scope": "SNC boundary point, not a generic smoothed member",
+      "meets_SNC_log_symplectic_locus": true,
+      "claims": [
+        "MPS40",
+        "MPS40_CROSSWALK"
+      ],
+      "proof_sources": [
+        {
+          "url": "https://arxiv.org/html/2010.08692v2#S5.T2",
+          "anchor": "S5.T2.pic3"
+        },
+        {
+          "path": "research/notes/MPS40_CROSSWALK_20261031.md"
+        }
+      ],
+      "verification_records": [
+        "reports/MPS40_CROSSWALK_20261031.json"
+      ],
+      "s61_coordinate_map_status": "not_constructed_by_this_audit",
+      "review_status": {
+        "proof": "published_theorem",
+        "primary_diagram_crosswalk": "exact_S5_match",
+        "full_independent_external_proof_review": false
+      },
+      "notes_ja": [
+        "内部IDは文献の番号ではない。MPS40_BLOCKとの二重加算をしない。",
+        "個別図式・次元の台帳であり、全成分のS61定義イデアルを構築したわけではない。"
+      ],
+      "generic_primitive_first_jet_image": "not dominant: S61 component dimension below 16"
+    },
+    {
+      "id": "T39",
+      "name": "q_5,1",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "MPS_SNC_meeting_generic_rank_four_full_component",
+      "generic_rank": 4,
+      "projective_dimension": 25,
+      "s61_dimension": 16,
+      "smoothing_diagram": {
+        "graph_type": "C5",
+        "edges": [
+          {
+            "edge": [
+              0,
+              1
+            ],
+            "orders": {
+              "2": 0,
+              "3": 0,
+              "4": 2
+            }
+          },
+          {
+            "edge": [
+              0,
+              2
+            ],
+            "orders": {
+              "1": 0,
+              "3": 2,
+              "4": 0
+            }
+          },
+          {
+            "edge": [
+              1,
+              3
+            ],
+            "orders": {
+              "0": 0,
+              "2": 2,
+              "4": 0
+            }
+          },
+          {
+            "edge": [
+              2,
+              4
+            ],
+            "orders": {
+              "0": 0,
+              "1": 2,
+              "3": 0
+            }
+          },
+          {
+            "edge": [
+              3,
+              4
+            ],
+            "orders": {
+              "0": 2,
+              "1": 0,
+              "2": 0
+            }
+          }
+        ],
+        "forced_zero_entries": []
+      },
+      "period_dimension": 1,
+      "smoothing_parameter_count": 5,
+      "toric_biresidue_example": [
+        [
+          0,
+          1,
+          -1,
+          1,
+          -1
+        ],
+        [
+          -1,
+          0,
+          -1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          0,
+          -1,
+          -1
+        ],
+        [
+          -1,
+          -1,
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          -1,
+          1,
+          -1,
+          0
+        ]
+      ],
+      "toric_biresidue_example_scope": "SNC boundary point, not a generic smoothed member",
+      "meets_SNC_log_symplectic_locus": true,
+      "claims": [
+        "MPS40",
+        "MPS40_CROSSWALK",
+        "S61_KNOWN_DOMINANT_FIBER_ETALE",
+        "S61_ELLIPTIC_FIRST_JET_DOMINANCE"
+      ],
+      "proof_sources": [
+        {
+          "url": "https://arxiv.org/html/2010.08692v2#S5.T2",
+          "anchor": "S5.T2.pic1"
+        },
+        {
+          "path": "research/notes/MPS40_CROSSWALK_20261031.md"
+        }
+      ],
+      "verification_records": [
+        "reports/MPS40_CROSSWALK_20261031.json",
+        "reports/S61_KNOWN_FIBER_AUDIT_20261031.json",
+        "reports/ELLIPTIC_WEIGHT1_DOMINANCE_20261031.json"
+      ],
+      "s61_coordinate_map_status": "general homogeneous rational family, point/frame/primitive normalization proved; S61 sample verified, all-parameter 61-coordinate export not yet saved",
+      "review_status": {
+        "proof": "published_theorem",
+        "primary_diagram_crosswalk": "exact_S5_match",
+        "full_independent_external_proof_review": false
+      },
+      "notes_ja": [
+        "内部IDは文献の番号ではない。MPS40_BLOCKとの二重加算をしない。",
+        "個別図式・次元の台帳であり、全成分のS61定義イデアルを構築したわけではない。"
+      ],
+      "generic_primitive_first_jet_image": "dominant onto W16; generically finite and generically etale",
+      "general_degree": null
+    },
+    {
+      "id": "T40",
+      "name": "q_5,2",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "MPS_SNC_meeting_generic_rank_four_full_component",
+      "generic_rank": 4,
+      "projective_dimension": 25,
+      "s61_dimension": 16,
+      "smoothing_diagram": {
+        "graph_type": "C5",
+        "edges": [
+          {
+            "edge": [
+              0,
+              1
+            ],
+            "orders": {
+              "2": 1,
+              "3": 1,
+              "4": 0
+            }
+          },
+          {
+            "edge": [
+              0,
+              2
+            ],
+            "orders": {
+              "1": 1,
+              "3": 0,
+              "4": 1
+            }
+          },
+          {
+            "edge": [
+              1,
+              3
+            ],
+            "orders": {
+              "0": 1,
+              "2": 0,
+              "4": 1
+            }
+          },
+          {
+            "edge": [
+              2,
+              4
+            ],
+            "orders": {
+              "0": 1,
+              "1": 0,
+              "3": 1
+            }
+          },
+          {
+            "edge": [
+              3,
+              4
+            ],
+            "orders": {
+              "0": 0,
+              "1": 1,
+              "2": 1
+            }
+          }
+        ],
+        "forced_zero_entries": [
+          [
+            0,
+            3
+          ],
+          [
+            0,
+            4
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            2,
+            3
+          ]
+        ]
+      },
+      "period_dimension": 1,
+      "smoothing_parameter_count": 5,
+      "toric_biresidue_example": [
+        [
+          0,
+          1,
+          -1,
+          0,
+          0
+        ],
+        [
+          -1,
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          0,
+          -1
+        ],
+        [
+          0,
+          -1,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          -1,
+          0
+        ]
+      ],
+      "toric_biresidue_example_scope": "SNC boundary point, not a generic smoothed member",
+      "meets_SNC_log_symplectic_locus": true,
+      "claims": [
+        "MPS40",
+        "MPS40_CROSSWALK",
+        "S61_KNOWN_DOMINANT_FIBER_ETALE",
+        "S61_ELLIPTIC_FIRST_JET_DOMINANCE"
+      ],
+      "proof_sources": [
+        {
+          "url": "https://arxiv.org/html/2010.08692v2#S5.T2",
+          "anchor": "S5.T2.pic2"
+        },
+        {
+          "path": "research/notes/MPS40_CROSSWALK_20261031.md"
+        }
+      ],
+      "verification_records": [
+        "reports/MPS40_CROSSWALK_20261031.json",
+        "reports/S61_KNOWN_FIBER_AUDIT_20261031.json",
+        "reports/ELLIPTIC_WEIGHT1_DOMINANCE_20261031.json"
+      ],
+      "s61_coordinate_map_status": "general homogeneous rational family, point/frame/primitive normalization proved; S61 sample verified, all-parameter 61-coordinate export not yet saved",
+      "review_status": {
+        "proof": "published_theorem",
+        "primary_diagram_crosswalk": "exact_S5_match",
+        "full_independent_external_proof_review": false
+      },
+      "notes_ja": [
+        "内部IDは文献の番号ではない。MPS40_BLOCKとの二重加算をしない。",
+        "個別図式・次元の台帳であり、全成分のS61定義イデアルを構築したわけではない。"
+      ],
+      "generic_primitive_first_jet_image": "dominant onto W16; generically finite and generically etale",
+      "general_degree": null
+    },
     {
       "id": "R2_RAT113",
       "name": "Rat(1,1,3)",
@@ -887,7 +5539,8 @@
           "path": "legacy/v23/sections/ss_literature.tex"
         }
       ],
-      "full_catalogue_expansion_status": "pending_crosswalk_to_all_MPS40_records"
+      "full_catalogue_expansion_status": "expanded_as_individual_T37_record",
+      "member_record": "T37"
     }
   ],
   "non_component_or_boundary_records": [

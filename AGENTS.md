@@ -1,17 +1,17 @@
 # Poisson structures on P4 — Codex instructions
 
-Version: v26-s61 · 2026-10-30 (Asia/Tokyo).
+Version: v27-s61 · 2026-10-31 (Asia/Tokyo).
 
-Current continuation: T01 has dominant, generically finite primitive first-jet
-projection to the full 16-dimensional first-jet space. This is not global
-exhaustion. Read the updated STATE/NEXT_TASKS and current code/S61_README.md.
-Rank-one first jets reduce to a preserved 45-variable, 134-quadratic fiber.
-The CA and CB slice components have the same closed nine-dimensional first-jet
-image, so they do not dominate the 16-dimensional first-jet space. Among the
-known components, only T01, T39, and T40 can dominate; the latter two and all
-potential unknown components remain to be assessed.
-Do not reopen generic first-jet realizability as unknown; all extensions and
-exceptional fibers remain open.
+Current continuation: T01, T39=q(5,1), and T40=q(5,2) all have dominant,
+generically finite primitive first-jet projection to W16. Exact full-S61
+Jacobians give smooth etale points on each. A sufficiently general jet has at
+least three distinct isolated reduced lifts, but the full generic fiber and
+unknown components remain unclassified. MPS40 is now individually crosswalked
+to the primary Table 2; the lower bound remains 57. The toric open fiber has a
+16-variable coframe model modulo free S5; its degree remains unknown.
+Read the v27 STATE/NEXT_TASKS and code/S61_README.md. Do not reopen these proved
+finite results as unknown. CA/CB share a closed nine-dimensional first-jet
+image. Rank-one fibers and all exceptional strata remain open.
 
 ## Read first
 

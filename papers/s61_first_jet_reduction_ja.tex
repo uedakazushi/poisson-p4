@@ -12,7 +12,7 @@
 \newcommand{\CC}{\mathbf C}
 \newcommand{\QQ}{\mathbf Q}
 \newcommand{\PP}{\mathbf P}
-\newcommand{\AA}{\mathbf A}
+\renewcommand{\AA}{\mathbf A}
 \newcommand{\GG}{\mathbf G}
 \newcommand{\cP}{\mathcal P_4}
 \newcommand{\dd}{\mathrm d}
@@ -33,25 +33,27 @@
 \newtheorem{remark}[theorem]{注意}
 \renewcommand{\proofname}{証明}
 \title{射影四空間の Poisson 構造の一次ジェット還元\\
-\large $S_{61}$ の primitive gauge、toric 成分の優越性と階数一の層}
+\large 三つの優越成分、一般延長の相異性と toric fibre の有限方程式}
 \author{Poisson P4 研究プロジェクト・内部研究草稿}
-\date{2026年10月30日}
+\date{2026年10月31日・v27-s61}
 \begin{document}
 \maketitle
 \begin{abstract}
-射影四空間の一般階数四 Poisson 構造を捉える既存の61変数模型について、
-4方向の perspective 作用を有限の多項式公式で除く。
-一次項の symplectic trace を零にする正規化は一意であり、残る16方向は
-閉じた primitive な一次係数2形式として自然に表される。
-係数写像の階数一の非零部分は5次元の単一 $\Sp_4$ 軌道であり、
-その上の全解の研究を45変数・134二次式の一つの fibre に帰着する。
-この fibre の成分分解は未解決である。
-さらに既知 toric 成分から16次元の一次ジェット空間への射影が優越的であることを、
-明示した非零小行列式により示す。従ってある非空開部分の全一次ジェットは延長可能であるが、
-同じ一次項を持つ全解の分類や延長の一意性は導かない。
-二つの既知28次元成分については、共通の一次像を閉既約9次元集合として決定する。
-既存カタログの次元を入力とすれば、一般一次項上の既知成分の候補は toric 成分と二つの楕円成分へ絞られる。
-本稿は新規性の文献監査前の内部草稿であり、全成分の尽くしや成分数の更新を主張しない。
+射影四空間の一般階数四 Poisson 構造を捉える既存の61変数模型に対し、
+primitive な一次ジェットの16次元空間への射影を調べる。
+既知の toric 成分 $T01$ と楕円型成分 $T39=q_{5,1}$、$T40=q_{5,2}$ は、
+いずれもこの射影で優越的かつ一般に有限である。
+全134式の Jacobian を用いて各成分に滑らかな非分岐点を与え、十分一般の同じ一次項には
+少なくとも三つの相異なる、孤立した被約な延長が存在することを示す。
+さらに、五超平面が射影標構をなす toric 開部分の全延長を、
+16変数の明示方程式の解の $S_5$ 軌道として表す。その一般次数の値は未計算である。
+基礎となる perspective 正規化は有限の多項式公式で与えられ、一意である。
+特殊層では、係数階数一の5次元軌道上の全解を45変数・134二次式の固定 fibre へ帰着し、
+二つの既知28次元成分の共通一次像を閉既約9次元集合として決定する。
+MPSの全40図式を一次資料に照合すると、既知51個の一般階数四成分のうち
+一般一次項上に残る成分は上述の三つに限られる。
+未知成分、全体の一般 fibre の尽くし、特殊 fibre は未解決であり、成分数の下界57は変更しない。
+本稿は公表上の新規性の調査を完了していない内部研究草稿である。
 \end{abstract}
 
 \section{対象、既存模型、主張の範囲}
@@ -68,7 +70,9 @@
 \]
 を構成する。重みは $1^{16},2^{45}$、保存された定義式は重み4の70式と重み5の64式である。
 一次項を零にする45変数断面の分類を、$S_{61}$ 全体の分類と同一視しない。
-本稿はこの模型の重み1部分を層別するための構造を整理する。
+本稿はこの模型の重み1部分への射影と、その一般 fibre および特定の特殊層を扱う。
+以下で成分の射影を論じるときはまず被約成分を対象とし、全134式のスキーム構造を
+用いる箇所は明記する。
 
 \subsection{成分対応に必要な幾何}
 固定点 $p=[1:0:0:0:0]$ で評価が非退化な開部分を $\mathcal U\subset\cP$ とする。
@@ -379,7 +383,251 @@ $W$ に優越的かつ一般に有限に写る。
 「全 Poisson 構造が toric 成分に属する」とは従わない。
 \end{remark}
 
-\section{一般一次ジェットの軌道と計算証拠}
+\section{Toric 開部分の16変数 fibre}\label{sec:coframe}
+一次部分 $\beta\in W$ を固定する。この節で扱うのは、実際の退化因子が
+射影標構をなす五つの超平面の和であり、基点0を避ける構造である。
+$T01$ のこの稠密開部分に対象を限り、全 $S_{61}$ の45変数 fibre を同じ問題へ
+帰着したとは主張しない。
+
+\subsection{中心化した五超平面と全双ベクトルの復元}
+各超平面の方程式を一意に $h_i=1+\ell_i(y)$、$0\le i\le4$ と規格化する。
+$P(0)=J$ の場合、その affine Pfaffian は $\prod_i h_i$ である。
+一次項を比較すると primitive 条件は $\sum_i\ell_i=0$ と同値となる。
+$A$ の第$i$行を $a_i=\ell_i-\ell_0$、$1\le i\le4$ とする。
+射影標構の条件は $\det A\ne0$ であり、逆に $A\in\GL_4$ から
+\begin{equation}\label{eq:coframe-h}
+ z=Ay,\qquad h_0=1-\frac15\sum_{i=1}^4z_i,\qquad h_i=h_0+z_i
+\end{equation}
+によって中心化した五超平面を復元できる。
+
+$\mathbf1^t=(1,1,1,1)$ と置く。
+\begin{proposition}[toric 開部分の復元]\label{prop:coframe}
+各 $A\in\GL_4$ に対して
+\begin{align}
+ F_A(y)&=A^{-1}\left(I-\frac15z\mathbf1^t\right)
+          \operatorname{diag}(h_1,\ldots,h_4)A,\nonumber\\
+ P_A(y)&=F_A(y)J F_A(y)^t\label{eq:coframe-P}
+\end{align}
+は射影 Poisson 構造を与え、定数項は $J$、一次項は primitive、
+実際の退化因子は $\prod_i h_i=0$ である。
+逆にこの五超平面配置と定数項 $J$ を持つ Poisson 構造は一意であり、
+\eqref{eq:coframe-P}に等しい。
+\end{proposition}
+\begin{proof}
+標準 toric 座標を $t_i=h_i/h_0$ とする。
+$\Lambda_A=AJA^t$ として $\{t_i,t_j\}=(\Lambda_A)_{ij}t_it_j$ と置くと、
+相互可換な $t_i\partial_{t_i}$ により Jacobi 恒等式を満たす。
+$u_i=t_i-1=z_i/h_0$ の微分を使って $y$ 座標へ戻すと\eqref{eq:coframe-P}を得る。
+これは射影座標変換であるから大域に延長する。
+$F_A$ の二次部分は階数一の外積であり、$P_A$ の四次部分は零、従って次数は高々3である。
+行列式補題により
+\[
+ \det F_A=h_0\prod_{i=1}^4h_i,\qquad
+ \operatorname{Pf}(P_A)=\det(F_A)\operatorname{Pf}(J)=\prod_{i=0}^4h_i.
+\]
+各因子は相異なり、一次項の和は零である。
+
+逆に Hamiltonian 場は $P$ と $P\wedge P$ を保存するので、
+その退化因子の各既約成分を保存する。
+従って被約な五超平面配置に対して $P$ は対数的な双ベクトルである。
+標準 toric 境界の対数接束は $t_i\partial_{t_i}$ によって自明化されるので、
+大域対数双ベクトルはこれらの定係数外積の和である。
+基点での値 $J$ が六つの係数を $\Lambda_A=AJA^t$ と一意に決める。
+\end{proof}
+
+\subsection{固定一次項の方程式とラベルの除去}
+\[
+ H(z)=\operatorname{diag}(z)-\frac15(\mathbf1^tz)I
+                         -\frac15z\mathbf1^t,\qquad C_A(y)=A^{-1}H(Ay)A
+\]
+と置くと、\eqref{eq:coframe-P}の一次項は $C_AJ+JC_A^t$、対応する2形式は
+\begin{equation}\label{eq:coframe-beta}
+ \beta_A=JC_A+C_A^tJ
+\end{equation}
+である。$\operatorname{tr}H=0$ と Jacobi 恒等式から $\beta_A\in W$ となる。
+従って固定した $\beta$ の coframe fibre は
+\begin{equation}\label{eq:coframe-fiber}
+ J\operatorname{adj}(A)H(Ay)A+
+   \bigl(\operatorname{adj}(A)H(Ay)A\bigr)^tJ
+       -\det(A)\beta(y)=0,\qquad \det A\ne0
+\end{equation}
+で与えられる。六つの行列成分の四つの一次係数を比較した24式には、
+閉性と primitive 性の8本の固定線形関係がある。
+$W$ の線形座標を選べば16式となり、未知数は $A$ の16成分、通常次数は5次と4次である。
+$\det A$ による局所化を保持し、特異行列の解を延長と数えない。
+
+\begin{theorem}[toric fibre と有限対称群]\label{thm:coframe-fiber}
+\eqref{eq:coframe-fiber}の解集合の自由な $S_5$ 作用による軌道は、
+対象とした toric 開部分の、一次項 $\beta$ を持つ延長と一対一に対応する。
+$\GL_4\to W$、$A\mapsto\beta_A$ は優越的かつ一般に有限である。
+その一般次数を $d$ とすると、$T01$ の一次部分射影の一般次数は $d/120$ である。
+\end{theorem}
+\begin{proof}
+$a_0=0$ とすると、五超平面の再ラベル $\sigma$ は
+$a'_i=a_{\sigma(i)}-a_{\sigma(0)}$、すなわち $A'=M_\sigma A$ と表される。
+$M_\sigma$ は標準4次元表現の整数行列で、この規約では右作用となる。
+$A$ が可逆なので非自明な置換は固定点を持たない。
+同じ五超平面と定数項 $J$ からの復元は一意であるから、この作用は全 $P_A$ を保つ。
+逆に同じ $P_A$ を与える二つの表示は、実際の退化因子の相異なる既約因子から
+五超平面を復元すると、再ラベルだけ異なる。これで全単射を得る。
+
+定理\ref{thm:toric-dominance}の有理点における Darboux frame の逆行列を $A$ とすると、
+\eqref{eq:coframe-beta}を16個の行列成分で微分した行列の16次小行列式は
+\[
+ \frac{258241}{294122500}\ne0
+\]
+となる\cite{coframe-certificate}。従って写像は優越的かつ一般に有限である。
+標数零で一般 fibre は被約であり、自由な再ラベルの軌道は各120点を持つ。
+$T01$ の toric 開部分の補集合は次元15以下で、一般一次項上から除けるので、
+次数の関係も従う。
+\end{proof}
+
+一般の $\Lambda_A$ に対する Jacobi と Pfaffian の恒等式、上の小行列式、
+隣接交換による全 $P_A$ の不変性の有理点での別検算を\cite{coframe-certificate}に保存した。
+一般次数 $d$ の値は未計算である。120個のラベル違いを120個の異なる延長と数えない。
+
+\section{二つの楕円型成分の優越性}\label{sec:elliptic}
+$T39$ と $T40$ は内部カタログの名前であり、それぞれ $q_{5,1}$、$q_{5,2}$ の成分を表す。
+使用する斉次係数族は Ortenzi--Rubtsov--Tagne Pelap\cite{ortp}の(16)、(18)、(19)による。
+添字を $\mathbb Z/5\mathbb Z$ とし、反対称行列 $B$ を
+\begin{align}
+ B_{i,i+1}&=a_1x_ix_{i+1}+a_2x_{i+2}x_{i+4}+a_3x_{i+3}^2,\nonumber\\
+ B_{i,i+2}&=b_1x_ix_{i+2}+b_2x_{i+3}x_{i+4}+b_3x_{i+1}^2\label{eq:elliptic-family}
+\end{align}
+と定める。$\lambda\ne0$ に対し係数は次表で与えられる。
+\begin{center}
+\small
+\begin{tabular}{@{}c*{6}{c}@{}}
+\toprule
+族 & $a_1$ & $a_2$ & $a_3$ & $b_1$ & $b_2$ & $b_3$\\\midrule
+$q_{5,1}$ & $-\frac35\lambda^2+\frac1{5\lambda^3}$ & $-2/\lambda$ & $1/\lambda^2$
+& $-\frac15\lambda^2-\frac3{5\lambda^3}$ & $2$ & $\lambda$\\[2mm]
+$q_{5,2}$ & $\frac25\lambda^2+\frac1{5\lambda^3}$ & $\lambda$ & $-1/\lambda$
+& $-\frac15\lambda^2+\frac2{5\lambda^3}$ & $-1/\lambda^2$ & $1$\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{remark}[一次資料の符号]
+\cite{ortp}の(18)では $q_{5,1}$ の $b_3$ は $+\lambda$ であるが、
+後の展開式(21)では $-\lambda$ と印刷されている。本稿は(18)を採用し、
+10個の斉次 Jacobi 式を $\QQ(\lambda)[x_0,\ldots,x_4]$ 上で恒等的に検証した。
+$-\lambda$ へ替えると $(0,1,2)$ 成分は
+\[
+ -4(\lambda x_0^2x_3-\lambda x_2^2x_4+x_0x_4^2-x_2x_3^2)
+\]
+となり非零である。この検算と符号の比較も\cite{elliptic-certificate}に含む。
+\end{remark}
+
+$x_0=1$ の座標を $z_i=x_i/x_0$ とすると、降下した双ベクトルは
+\[
+ P_{ij}(z)=B_{ij}(1,z)-z_iB_{0j}(1,z)+z_jB_{0i}(1,z)
+ \quad(1\le i,j\le4)
+\]
+であり、四つの affine Jacobi 式も一般 $\lambda$ で検証できる。
+基点 $p\in\AA^4$、非零スカラー $c$ を動かし、$K=cP(p)$ が非退化な開部分で
+$FKF^t=J$ を満たす有理 frame を選ぶ。
+具体的には座標順を $(1,4,2,3)$ に替える置換行列 $R_0$ を用い、
+$R_0KR_0^t$ の上三角を $(a,b,c',d,e,f)$、$\Delta=af-be+c'd$ と書けば
+\[
+ F=\begin{pmatrix}
+ 1&0&0&0\\0&1/a&0&0\\d/a&-b/a&1&0\\
+ e/\Delta&-c'/\Delta&0&a/\Delta
+ \end{pmatrix}R_0
+\]
+が $a\Delta\ne0$ 上で使える。$y=F(z-p)$ における一次項の係数行列は
+\[
+ L_j=F\left(\sum_h(F^{-1})_{hj}\,c\,\partial_hP(p)\right)F^t.
+\]
+これを定理\ref{thm:primitive}で正規化し、$\beta=-JL_{\rm prim}J$ とする。
+残存 $\Sp_4$ 作用を加えると、非空開集合
+\[
+ \mathcal V\subset\GG_{m,\lambda}\times\AA^4_p\times\GG_{m,c}\times\Sp_4
+ \longrightarrow W
+\]
+への正則写像を得る。$c$ は新しい楕円曲線のモジュライではなく、
+正規化後の座標拡大を動かすパラメータである。
+全操作が実際の Poisson 構造の射影座標変換と正規化なので、
+その像は対応する既知成分の一次像に含まれる。
+
+\begin{theorem}[楕円型成分の一般有限な一次射影]\label{thm:elliptic-dominance}
+$T39,T40$ に対応する16次元の $\widetilde S_{61}$ 成分は、ともに $W$ に優越的かつ
+一般に有限に写る。
+\end{theorem}
+\begin{proof}
+両族とも $\lambda=2$、$p=0$、$c=1$ を用いる。
+この点では $K_{14}=-b_3$、$K_{23}=a_3$、他の上三角成分は零であり、
+$K$ は非退化で上の frame の開条件を満たす。
+六つのパラメータ $(\lambda,p_1,p_2,p_3,p_4,c)$ の微分と
+十個の $\mathfrak{sp}_4$ 作用を列に持つ24行16列行列を作る。
+二形式の対を辞書順、その中で一次変数を $y_1,\ldots,y_4$ 順に並べ、
+零始まりの行番号
+\[
+ (0,1,2,3,4,5,6,7,8,9,11,13,14,15,17,19)
+\]
+を選ぶと、小行列式はそれぞれ
+\[
+ T39:\quad\frac{142978515625}{512},\qquad
+ T40:\quad-\frac{142978515625}{33554432}
+\]
+である\cite{elliptic-certificate}。どちらも非零なので微分は $W$ へ全射であり、
+像は稠密である。既知の射影成分次元25と次元差9により、各 slice 成分の次元は16。
+従って優越写像は一般に有限である。
+\end{proof}
+
+frame 微分も証明書の一部である。$H=(\delta F)F^{-1}$ に対し
+$H_0=\frac12F(\delta K)F^tJ$ を使うと
+\[
+ H_0J+JH_0^t+F(\delta K)F^t=0,\qquad H-H_0\in\mathfrak{sp}_4
+\]
+となる。$H$ と $H_0$ による一次部分微分の差が、既に含めた $\Sp_4$ 作用列の
+線形結合になることを直接検算し、両方法の16次小行列式の一致も確認した。
+
+\section{全 $S_{61}$ スキーム内の滑らかな非分岐点}\label{sec:etale}
+ここでは族のパラメータ微分に加え、保存された全134式を61変数で微分する。
+$T01$ の係数 $(2,3,5,7,11,13)$ と、前節の $T39,T40$ の $\lambda=2$、$p=0$ の点を、
+それぞれ定数項 $J$ に正規化して旧 S61 gauge へ移す。
+
+\begin{theorem}[全スキームでの正則性と一次射影]\label{thm:etale}
+上記の三点は全 $S_{61}$ の滑らかな点で、一次部分への射影は各点で \'etale である。
+従ってその fibre における各点は孤立した被約点である。
+この性質は各既知成分の非空開部分で成り立つ。
+\end{theorem}
+\begin{proof}
+全134式の61変数 Jacobian は各点で階数45である。
+重み2の45列だけに制限しても階数45となる。
+この後者の45次小行列式は、保存した行順序に対して次の値である。
+\begingroup\small
+\begin{align*}
+ T01:&\quad-\frac{4696557768725188309033758541443977502605228011369260075725936199}
+                       {7444176447590624000000},\\
+ T39:&\quad-\frac{14489624420239116609310651127244682356831617653369903564453125}
+                       {75557863725914323419136},\\
+ T40:&\quad-\frac{142207129520970493638041972637771701965903048403561115264892578125}
+                       {1329227995784915872903807060280344576}.
+\end{align*}
+\endgroup
+有理数体上の全行列、行・列番号、各点の61座標は\cite{known-fiber-certificate}にある。
+同じ証明書は134式の消滅、55復元式による150係数の一致、
+独立な projective Jacobi の消滅も確認している。
+
+従って全スキームの接空間次元は $61-45=16$ である。
+他方、各点は既知の16次元 slice 成分に属するので、局所次元は16以上。
+局所次元と埋込み次元がともに16となり、その局所環は正則である。
+$\CC$ 上の有限型スキームなので、各点は滑らかであり、
+別の成分や非被約構造はその点を通らない。
+
+旧 gauge の16個の重み1係数と primitive 一次部分は線形同型で結ばれる。
+重み2の45列の階数45は、一次部分を固定した fibre の接空間が零であることを表す。
+従って16次元の滑らかな始域と $W$ の間の微分は同型であり、射影は \'etale となる。
+滑らかさと \'etale 性は開条件であるから、最後の主張も従う。
+\end{proof}
+
+この証明は局所次元の下界として既知成分への所属を用いる。
+接空間計算だけから成分性を導いたものではない。
+また、一点の fibre 接空間が零でも、同じ fibre の他の点や未知成分上の正次元部分は除外されない。
+
+\section{一般一次ジェットの残存群軌道}
 \subsection{一般一次ジェットでは有限個の軌道に還元できない}
 $W$ の係数を、添字対 $(12),(13),(14),(23),(24),(34)$ の順に、
 各対の中では $y_1,y_2,y_3,y_4$ の順に並べる。
@@ -419,41 +667,6 @@ $\beta_*$ の係数写像の階数は4で、その4次小行列式は $-1260$ �
 確認した。これらを全 Poisson 構造自身の軌道次元やモジュライ次元として引用してはいけない。
 ここでの余次元は $W$ と軌道の次元差であり、具体的な商や不変式環の構成ではない。
 \end{remark}
-
-\subsection{検証器と再現範囲}
-\begin{longtable}{@{}p{58mm}p{98mm}@{}}
-\toprule
-検証器 & 検証する内容\\\midrule\endhead
-\nolinkurl{code/s61_weight1_audit.py} &
-旧実装を import しない17項目の有理数体上の確認。
-perspective の有限行列恒等式、radial 三次項の相殺、trace 変換、
-閉性と primitive 条件の階数、冪等射影を扱う。\\
-\nolinkurl{code/weight1_structure.py} &
-閉 primitive 一次2形式の16次元核、Lie 作用の不変性、
-上記の一般軌道の小行列式、階数一代表の Jacobi と Pfaffian を扱う。\\
-\nolinkurl{code/weight1_rank_one_fiber.py} &
-保存された S61 の全134式を固定一次項へ特殊化し、
-定数係数線形包と固定 fibre の接空間を exact に計算する。\\
-\nolinkurl{code/toric_weight1_dominance.py} &
-六変数 toric 族の Jacobi、線形 frame、primitive 一次項を恒等的に確認し、
-16次小行列式から優越性を証明する。\\
-\nolinkurl{code/verify_s61_families.py} &
-一般 toric 係数族と almost-abelian 族の S61 座標写像を有理関数恒等式として確認する。
-これらの族の像を成分全体の定義イデアルと同一視しない。\\
-\bottomrule
-\end{longtable}
-
-独立検証は $\QQ$ 上、SymPy 1.14.0を用いる。
-有限体の標本や浮動小数の階数を、標数零の既約分解の代わりには使っていない。
-再現時は保存済み証明書を上書きせず、新しい出力名を指定する。
-\begin{verbatim}
-.venv/bin/python code/s61_weight1_audit.py \
-  --output reports/new-run/perspective.json
-.venv/bin/python code/weight1_structure.py \
-  --output reports/new-run/weight1.json
-.venv/bin/python code/weight1_rank_one_fiber.py \
-  --output reports/new-run/rank-one-fiber.json
-\end{verbatim}
 
 \section{二つの既知28次元成分の共通一次像}\label{sec:ambient}
 この節では、第6版\cite{ambient-source}における既知の全成分
@@ -621,41 +834,148 @@ frame の選択によらず、$\mathcal U$ 上の閉条件となる。
 この結果は二成分の交叉次元、fibre の既約性・同型類、同じ一次項を持つ構造の同一性を決めない。
 二成分の相異性は既存の退化因子の重複度によって保たれ、その違いは一次項より高い係数に残る。
 
-\subsection{既知成分のうち一般一次項上に残る候補}
-\begin{corollary}[既存カタログの次元を入力とする帰結]\label{cor:known-dominant}
-既存の51個の一般階数四成分の同定と次元を前提とすると、そのうち $W$ へ優越し得るものは
-$T01,T39,T40$ の三つだけである。$T01$ の優越性は定理\ref{thm:toric-dominance}で証明した。
-$T39=q_{5,1}$、$T40=q_{5,2}$ の優越性は本稿では未決である。
+\section{一次資料照合と一般一次項の三つの延長}\label{sec:three-lifts}
+\subsection{MPS40の個別図式の照合}
+MPS\cite{mps}の定理1.4、Table 2、例6.24は、SNC locus と交わる40成分と
+その装飾 smoothing diagram の対応を与える。
+内部ID T01--T40を一次資料の全40図式に照合し、辺、対頂点の次数、零 biresidue の辺を
+$S_5$ の全120置換で比較した\cite{mps-crosswalk}。
+全40個の同型類は相異なり、原本カタログの集合と一致する。
+この照合は既刊定理全体の独立再証明ではない。
+
+次数の規約は、行和零の反対称行列 $B$ に対して
+\[
+ \theta_{ijk}=\frac{b_{jk}+b_{ki}}{b_{ij}}
+\]
+であり、各辺の三つの次数の和は2となる。
+これは Matviichuk\cite{matviichuk}の第2節と一致する。
+MPS v2の式(5.11)の印刷された分子は逆符号で、行和零と併用すると和が $-2$ になる。
+今回の照合ではこの不一致を明記し、2023年資料の規約と実際の40図式に直接比較した。
+
+period stratum の次元を $s$、smoothable 辺数を $e$ とすると、
+MPSの非障害局所模型とトーリック点の $\PGL_5$ 軌道次元20から、
+射影成分次元は $19+s+e$ となる。各 period 条件の核を $\QQ$ 上で求め、
+原本の基底、CSV、一次図式に表示された次元と照合した。
+次元23が29個、24が8個、25が3個である。
+25次元の三つは $T01,T39,T40$、Table 2のHTMLでそれぞれ
+\texttt{pic40}, \texttt{pic1}, \texttt{pic2}に当たる。
+
+楕円型の名称も\cite{matviichuk}の命題4.2と定理4.3で確認した。
+T39の biresidue 例は頂点置換により $\mathcal C_{5,2}$、T40は $\mathcal C_{5,1}$ に等しい。
+$k=((1+\widetilde k)^{-1}-1)\bmod5$ により、それぞれ $q_{5,1}$、$q_{5,2}$ を得る。
+個別40件の台帳を得ても、それぞれの一般族の S61 座標や定義イデアルの構築は別に必要である。
+
+\begin{corollary}[既知の一般階数四成分の一次像]\label{cor:known-dominant}
+既存の51個の一般階数四成分のうち、$W$ へ優越するものはちょうど
+$T01,T39,T40$ の三つである。
 \end{corollary}
 \begin{proof}
-保存カタログ\cite{component-catalog}の MPS40 のうち、射影次元25なのはこの三つであり、
-残る37個は射影次元24以下である。従って残る37個の $S_{61}$ 成分は次元15以下で、
-16次元の $W$ に優越しない。
-追加11成分のうち $\mathcal C_A,\mathcal C_B$ を除く9個も射影次元24以下である。
-残る二つは19次元の slice 成分だが、その像は定理\ref{thm:ambient-image}の9次元の $Z$ である。
+この三つの優越性は定理\ref{thm:toric-dominance}、\ref{thm:elliptic-dominance}による。
+残るMPS37個は射影次元24以下であり、S61成分次元は15以下だから $W$ に優越しない。
+追加11成分のうち $\mathcal C_A,\mathcal C_B$ 以外の9個も射影次元24以下である。
+残る二つの19次元 slice 成分の像は、定理\ref{thm:ambient-image}の9次元集合 $Z$ である。
 \end{proof}
 
-この系は未知成分を排除しない。既知の残る48成分の像の閉包を除いた非空開部分では、
-既知成分に限れば三つの候補のみが残るという意味である。
-成分カタログの名称と次元を、この節で一次文献から新たに証明したとはしない。
-次の有限課題は $q_{5,1}$ または $q_{5,2}$ の primitive 一次像を求めることである。
+\begin{theorem}[一般一次項の少なくとも三つの延長]\label{thm:three-lifts}
+$W$ のある非空 Zariski 開部分 $W^\circ$ の任意の点について、
+全 $\widetilde S_{61}$ の fibre は少なくとも三つの相異なる、孤立した被約点を持つ。
+各点は $T01,T39,T40$ に対応する成分から一つずつ取れる。
+\end{theorem}
+\begin{proof}
+対応する被約成分を $C_1,C_2,C_3$ とする。
+各 $C_i\to W$ は16次元既約空間の間の優越写像だから一般に有限であり、
+像は非空開部分を含む。
+定理\ref{thm:etale}により、全スキームが滑らかで射影が \'etale となる
+非空開部分 $C_i^{\rm et}\subset C_i$ がある。
+補集合の次元は高々15であるから、その像の閉包を $W$ から除くことができる。
+三つの優越像に含まれる開部分を取り、これらの閉集合をすべて除く。
+
+さらに $i\ne j$ なら相異なる16次元既約成分の交叉 $C_i\cap C_j$ は次元15以下である。
+その一次部分像の閉包もすべて除けば、なお非空開部分 $W^\circ$ が残る。
+各 $\beta\in W^\circ$ には三成分それぞれの $C_i^{\rm et}$ に逆像があり、
+交叉を避けるので三点は相異なる。
+全スキームの射影がその点で \'etale であるから、各点は fibre の孤立した被約点となる。
+\end{proof}
+
+三点は、同じ正規化座標と一次項を持つ相異なる射影 Poisson 双ベクトルを意味する。
+$\PGL_5$ 同型類の個数を数えたものではない。
+また三成分それぞれの一般次数が1とは限らず、未知成分が $W$ を支配する可能性も残る。
+特に全 fibre が有限、またはちょうど三点であるという結論は得られない。
+
+\section{検証器と再現範囲}
+\begin{longtable}{@{}p{58mm}p{98mm}@{}}
+\toprule
+検証器 & 検証する内容\\\midrule\endhead
+\nolinkurl{code/s61_weight1_audit.py} &
+旧実装を import しない17項目の有理数体上の確認。
+perspective の有限行列恒等式、radial 三次項の相殺、trace 変換、
+閉性と primitive 条件の階数、冪等射影を扱う。\\
+\nolinkurl{code/weight1_structure.py} &
+閉 primitive 一次2形式の16次元核、Lie 作用の不変性、
+上記の一般軌道の小行列式、階数一代表の Jacobi と Pfaffian を扱う。\\
+\nolinkurl{code/weight1_rank_one_fiber.py} &
+保存された S61 の全134式を固定一次項へ特殊化し、
+定数係数線形包と固定 fibre の接空間を exact に計算する。\\
+\nolinkurl{code/toric_weight1_dominance.py} &
+六変数 toric 族の Jacobi、線形 frame、primitive 一次項を恒等的に確認し、
+16次小行列式から優越性を証明する。\\
+\nolinkurl{code/verify_s61_families.py} &
+一般 toric 係数族と almost-abelian 族の S61 座標写像を有理関数恒等式として確認する。
+これらの族の像を成分全体の定義イデアルと同一視しない。\\
+\nolinkurl{code/elliptic_weight1_dominance.py} &
+二つの楕円族の一般 Jacobi、符号比較、frame 微分、一次射影の16次小行列式。\\
+\nolinkurl{code/s61_known_fiber_audit.py} &
+三点の全134式、復元、独立 Jacobi、全61列と重み2の45列の Jacobian。\\
+\nolinkurl{code/toric_coframe_fiber.py} &
+coframe 復元の一般 Jacobi・Pfaffian、一次式、16次小行列式、再ラベルの点検。\\
+\nolinkurl{code/mps_catalog_audit.py} &
+一次資料の40図式と内部IDの全単射、零辺・period 条件・次元・楕円型名称の照合。\\
+\bottomrule
+\end{longtable}
+
+独立検証は $\QQ$ 上、SymPy 1.14.0を用いる。
+有限体の標本や浮動小数の階数を、標数零の既約分解の代わりには使っていない。
+再現時は保存済み証明書を上書きせず、新しい出力名を指定する。
+\begin{verbatim}
+.venv/bin/python code/s61_weight1_audit.py \
+  --output reports/new-run/perspective.json
+.venv/bin/python code/weight1_structure.py \
+  --output reports/new-run/weight1.json
+.venv/bin/python code/weight1_rank_one_fiber.py \
+  --output reports/new-run/rank-one-fiber.json
+\end{verbatim}
 
 \section{残る問題}
-得られた帰着は、係数階数一の全解を一つの有限な fibre へ移すものである。
-$F$ の極小素イデアル分解、成分次元、既知の全 Poisson 成分との対応は未決である。
-次の有限目標として、階数7の minor が非零の近傍で7変数を除く局所模型を作るか、
-$H$ の作用を使って45変数問題を小さくすることが考えられる。
-また、係数階数2,3,4の層の全解の還元は未実施である。
-Toric 優越性は一般一次項の延長可能性を示すが、一般 fibre における他成分の点、
-延長の個数、例外的な閉部分の挙動は未決である。
-$\mathcal C_A,\mathcal C_B$ は一般一次項上には現れず、共通の閉集合 $Z$ 上に10次元の一般 fibre を持つ。
-既知の優越候補 $q_{5,1},q_{5,2}$ の一次像は、次に解決すべき具体的な問題として残る。
+一般一次項の延長可能性と、既知三成分からの相異なる延長は証明した。
+次の課題は、三つの一般次数と分岐の計算、および未知成分からの延長を排除できるかである。
+toric 開部分では\eqref{eq:coframe-fiber}が具体的な入力となり、
+$S_5$ 不変量による消去や一般解数の計算へ進める。
+楕円型成分についても一般 fibre の明示的な表示と次数は未決である。
 
-全分類の第一段階には、すべての $S_{61}$ の極小成分の尽くしと全空間での成分性、
-相互識別が必要である。本稿の単一層の帰着は、その完了ではない。
+特殊層では、係数階数一の固定 fibre $F$ の極小素イデアル分解、成分次元、
+既知の全 Poisson 成分との対応が未決である。
+階数7の minor が非零の近傍での局所消去や、連結安定化群 $H$ の作用が次の削減候補となる。
+$\mathcal C_A,\mathcal C_B$ は共通の閉集合 $Z$ 上に10次元の一般 fibre を持つが、
+その既約性・同型類や二成分の交叉は決定していない。
+係数階数2,3,4の全層と、toric 境界の全解の分類も残る。
+
+全分類の第一段階には、$S_{61}$ のすべての極小成分を尽くす証明が必要である。
+本稿はその上界を与えず、下界57を正確な総数へ変更しない。
 特殊軌道・成分交叉・冪零構造は、さらに別の未解決目標として維持する。
 
-\begin{thebibliography}{9}
+\begin{thebibliography}{99}
+\bibitem{mps} M. Matviichuk, B. Pym, T. Schedler,
+\textit{A local Torelli theorem for log symplectic manifolds},
+arXiv:2010.08692v2 (2021), Theorem 1.4, Table 2, Example 6.24.
+\url{https://arxiv.org/abs/2010.08692v2}.
+\bibitem{matviichuk} M. Matviichuk,
+\textit{Elliptic log symplectic brackets on projective bundles},
+arXiv:2310.05284v1 (2023), Section 2, Proposition 4.2, Theorem 4.3.
+\url{https://arxiv.org/abs/2310.05284v1}.
+\bibitem{ortp} G. Ortenzi, V. Rubtsov, S. R. Tagne Pelap,
+\textit{On the Heisenberg invariance and the Elliptic Poisson tensors},
+arXiv:1001.4422v2 (2010), equations (16), (18), (19), (21).
+\url{https://arxiv.org/abs/1001.4422v2}.
 \bibitem{v2} Poisson P4 研究資料、第2版、
 \nolinkurl{legacy/v02/p4_poisson_completeness_v2.tex}, 第3節。
 61変数模型、三角消去、Bianchi 恒等式の原資料。
@@ -681,5 +1001,21 @@ $\mathcal C_A,\mathcal C_B$ は一般一次項上には現れず、共通の閉�
 \bibitem{component-catalog} 同プロジェクト、
 \nolinkurl{legacy/v02/baseline/data/p4_toric_components_40.csv}、
 \nolinkurl{research/COMPONENTS.json}。既存成分の同定・次元の台帳。
+\bibitem{elliptic-certificate} Poisson P4 研究プロジェクト、
+\nolinkurl{research/notes/ELLIPTIC_WEIGHT1_20261031.md}、
+\nolinkurl{reports/ELLIPTIC_WEIGHT1_DOMINANCE_20261031.json}、
+\nolinkurl{code/elliptic_weight1_dominance.py}。
+\bibitem{known-fiber-certificate} 同プロジェクト、
+\nolinkurl{research/notes/S61_KNOWN_FIBER_AUDIT_20261031.md}、
+\nolinkurl{reports/S61_KNOWN_FIBER_AUDIT_20261031.json}、
+\nolinkurl{code/s61_known_fiber_audit.py}。
+\bibitem{coframe-certificate} 同プロジェクト、
+\nolinkurl{research/notes/TORIC_COFRAME_FIBER_20261031.md}、
+\nolinkurl{reports/TORIC_COFRAME_FIBER_20261031.json}、
+\nolinkurl{code/toric_coframe_fiber.py}。
+\bibitem{mps-crosswalk} 同プロジェクト、
+\nolinkurl{research/notes/MPS40_CROSSWALK_20261031.md}、
+\nolinkurl{reports/MPS40_CROSSWALK_20261031.json}、
+\nolinkurl{code/mps_catalog_audit.py}。
 \end{thebibliography}
 \end{document}

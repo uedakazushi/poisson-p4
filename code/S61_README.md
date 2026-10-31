@@ -67,3 +67,29 @@ P3上の階数6 incidence、像の次元9を厳密に検証する。
 6パラメータ微分とSp4作用を合わせた階数16の厳密証明書を作る。
 `weight1_rank_one_fiber.py` は既存61変数から階数1の固定fibreを取り出す。
 fibreの接空間次元38は実際の次元・成分数・被約性を意味しない。
+
+## v27：既知三成分・全S61局所検証・一次図式照合
+
+2026-10-31。T39/T40もW16へ優越的で、一般に有限であることを証明した。
+既知三成分の指定点は全S61内で滑らかで、一次射影はétale。
+十分一般の一次部分には少なくとも三つの相異なる孤立被約な延長がある。
+全一般ファイバーの尽くしや有限性、次数は未証明。
+
+```sh
+.venv/bin/python code/elliptic_weight1_dominance.py --output reports/new-elliptic.json
+.venv/bin/python code/s61_known_fiber_audit.py --output reports/new-known-fiber.json
+.venv/bin/python code/verify_s61_fiber_certificate.py --output reports/new-fiber-independent.json
+.venv/bin/python code/toric_coframe_fiber.py --output reports/new-coframe.json
+.venv/bin/python code/verify_toric_coframe_independent.py --output reports/new-coframe-independent.json
+.venv/bin/python code/mps_catalog_audit.py --output reports/new-mps-crosswalk.json
+```
+
+- `elliptic_weight1_dominance.py`：一次資料のq(5,1)/q(5,2)一般有理族、Jacobi恒等式、枠の正規化、16×16微分小行列式。原文(21)の誤った負号を使わず(18)とJacobiで確認した正号を用いる。
+- `s61_known_fiber_audit.py`：元の134式を直接微分。T01/T39/T40の61座標、復元、Jacobi、全階数45、固定ファイバー階数45を確認。
+- `verify_s61_fiber_certificate.py`：解析的な微分コードを使わず、重み2で二次以下という事実と厳密な中心差分で6,075個の保存行列成分を検証。
+- `toric_coframe_fiber.py`：中心化した五超平面をR∈GL4で復元。16変数方程式と自由S5商でトーリック開部分のファイバーを記述。境界・他成分は含めない。
+- `verify_toric_coframe_independent.py`：逆射影変換の直接微分と一般六パラメータで全双ベクトルを比較し、S5生成元を検証。
+- `mps_catalog_audit.py`：Table 2の全40図式をS5同値込みで一次資料照合。`--source-html`で元HTMLからの再抽出も検証する。オフライン用の事実抽出は `mps_table2_diagrams.json`。
+
+全51階数四成分のS61座標表示が完成したという意味ではない。
+楕円型の全一般パラメータ61座標の保存と、三射影の一般次数は残る。

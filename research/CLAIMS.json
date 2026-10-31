@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "checkpoint": "v26-s61",
-  "date": "2026-10-30",
+  "checkpoint": "v27-s61",
+  "date": "2026-10-31",
   "base_mathematical_checkpoint": "v24",
   "new_mathematical_progress_in_this_setup": false,
   "purpose_ja": "収録原稿の主張、依存、今回の監査・再現範囲、未確認点を区別する研究用台帳。",
@@ -91,6 +91,13 @@
       "date": "2026-10-30",
       "result": "PASS",
       "scope_ja": "2族について一般パラメータで150復元係数、134式、projective Jacobiを恒等式として検証。"
+    },
+    {
+      "id": "V27_BASELINE",
+      "record": "reports/20261031-baseline/verification_summary.json",
+      "date": "2026-10-31",
+      "result": "PASS",
+      "scope_ja": "Python3.14.10と固定依存でsource integrity、v24全1298項目、v14全10群を再現。"
     }
   ],
   "claims": [
@@ -116,10 +123,11 @@
         }
       ],
       "verification_records": [
-        "audits/2026-10-30/global_audit.txt"
+        "audits/2026-10-30/global_audit.txt",
+        "reports/MPS40_CROSSWALK_20261031.json"
       ],
       "limitations_ja": [
-        "このセットアップのCOMPONENTS.jsonでは40個をblockとして保持し、各IDの照合は未実施。"
+        "全40図式の一次資料照合は完了。全外部証明の独立再証明、全40成分のS61座標構築は未完。"
       ]
     },
     {
@@ -790,7 +798,8 @@
       "limitations_ja": [
         "既知下界から上界を推測しない。",
         "補助Qの22成分、Q端点の局所解析、正規因子部分の分類を全体と読み替えない。",
-        "T01の一次部分への優越性は全S61の一般fibreの尽くしではない。"
+        "T01の一次部分への優越性は全S61の一般fibreの尽くしではない。",
+        "T01/T39/T40の優越性・一般有限性・一般étale性から、全S61の一般ファイバーの有限性や既知三成分による尽くしは従わない。"
       ]
     },
     {
@@ -971,7 +980,148 @@
       "limitations_ja": [
         "同じ一次部分を持つことからCA=CBや交叉次元を結論しない。",
         "Z上の一般fibreの既約性・全枝・同型類は未判定。",
-        "T39/T40の優越性は未判定。未知成分の不存在は従わない。"
+        "T39/T40の優越性はv27で証明済み。未知成分の不存在は従わない。"
+      ]
+    },
+    {
+      "id": "MPS40_CROSSWALK",
+      "title_ja": "MPS40の全図式と内部IDの照合",
+      "statement_ja": "一次資料Table 2の40個の装飾図式を全頂点置換で内部T01–T40と一対一照合。射影次元は23が29個、24が8個、25が3個。T39=q(5,1)、T40=q(5,2)を一次資料で独立確認。",
+      "scope": "Complex S61 model / explicitly specified known components; no global exhaustion.",
+      "status": {
+        "proof": "primary_diagram_crosswalk_with_exact_rational_checks",
+        "independent_review": "internal_exact_checks_and_agent_review_not_external_peer_review",
+        "certificates": "reproduced_2026_10_31",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "MPS40"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/MPS40_CROSSWALK_20261031.md"
+        },
+        {
+          "path": "papers/s61_first_jet_reduction_ja.tex"
+        }
+      ],
+      "verification_records": [
+        "reports/MPS40_CROSSWALK_20261031.json"
+      ],
+      "limitations_ja": [
+        "既刊定理の全証明の独立再証明ではない。",
+        "一般族の全S61座標・定義イデアルは未構築。"
+      ]
+    },
+    {
+      "id": "S61_ELLIPTIC_FIRST_JET_DOMINANCE",
+      "title_ja": "T39・T40の一次部分への優越性",
+      "statement_ja": "q(5,1)、q(5,2)の一般有理族からprimitive一次部分W16への射影は優越的で一般に有限。lambda=2,p=0,c=1で16×16小行列式は142978515625/512と-142978515625/33554432。T01と合わせ一般一次部分は少なくとも三つの相異なる延長を持つ。",
+      "scope": "Complex S61 model / explicitly specified known components; no global exhaustion.",
+      "status": {
+        "proof": "proof_with_exact_rational_certificate",
+        "independent_review": "internal_exact_checks_and_agent_review_not_external_peer_review",
+        "certificates": "reproduced_2026_10_31",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "MODEL_S61",
+          "MPS40",
+          "MPS40_CROSSWALK",
+          "S61_PRIMITIVE_GAUGE",
+          "S61_TORIC_FIRST_JET_DOMINANCE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/ELLIPTIC_WEIGHT1_20261031.md"
+        },
+        {
+          "path": "papers/s61_first_jet_reduction_ja.tex"
+        }
+      ],
+      "verification_records": [
+        "reports/ELLIPTIC_WEIGHT1_DOMINANCE_20261031.json"
+      ],
+      "limitations_ja": [
+        "次数・分岐・例外ファイバーは未決。",
+        "全S61の一般ファイバーの有限性、未知成分の不存在は未証明。"
+      ]
+    },
+    {
+      "id": "S61_TORIC_COFRAME_FIBER",
+      "title_ja": "トーリック開部分の16変数復元",
+      "statement_ja": "primitive gaugeの横断的五超平面トーリック開部分はGL4の自由S5作用による商で表示される。固定一次部分のトーリック延長はdet R≠0上の16変数・16独立係数方程式（分母を払うと次数4/5）のS5商へ帰着。写像は優越的で一般に有限。",
+      "scope": "Complex S61 model / explicitly specified known components; no global exhaustion.",
+      "status": {
+        "proof": "proof_with_exact_rational_certificate",
+        "independent_review": "internal_exact_checks_and_agent_review_not_external_peer_review",
+        "certificates": "reproduced_2026_10_31",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_PRIMITIVE_GAUGE",
+          "S61_TORIC_FIRST_JET_DOMINANCE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/TORIC_COFRAME_FIBER_20261031.md"
+        },
+        {
+          "path": "papers/s61_first_jet_reduction_ja.tex"
+        }
+      ],
+      "verification_records": [
+        "reports/TORIC_COFRAME_FIBER_20261031.json"
+      ],
+      "limitations_ja": [
+        "coframe写像の次数d、およびトーリック射影の次数d/120は未計算。",
+        "トーリック境界、他成分、全S61ファイバーの尽くしを含まない。"
+      ]
+    },
+    {
+      "id": "S61_KNOWN_DOMINANT_FIBER_ETALE",
+      "title_ja": "既知三成分の全S61内の滑らかさとétale点",
+      "statement_ja": "T01,T39,T40の指定有理点で全134式のJacobianは階数45。重み2の45列だけでも階数45。既存16次元成分の所属と併用して全S61は各点で滑らか、一次部分への射影はétale。十分一般の一次部分には少なくとも三つの相異なる孤立被約な延長がある。",
+      "scope": "Complex S61 model / explicitly specified known components; no global exhaustion.",
+      "status": {
+        "proof": "proof_with_exact_rational_certificate",
+        "independent_review": "internal_exact_checks_and_agent_review_not_external_peer_review",
+        "certificates": "reproduced_2026_10_31",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "MODEL_S61",
+          "MPS40",
+          "S61_PRIMITIVE_GAUGE",
+          "S61_ELLIPTIC_FIRST_JET_DOMINANCE",
+          "S61_TORIC_FIRST_JET_DOMINANCE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_KNOWN_FIBER_AUDIT_20261031.md"
+        },
+        {
+          "path": "papers/s61_first_jet_reduction_ja.tex"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_KNOWN_FIBER_AUDIT_20261031.json"
+      ],
+      "limitations_ja": [
+        "同じファイバーの他の点や未知成分は制御しない。",
+        "全一般ファイバーの次元・次数は未決。"
       ]
     }
   ],

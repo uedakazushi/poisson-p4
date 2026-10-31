@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-31",
+  "checkpoint": "v27-s61",
+  "all_passed": true,
+  "python": "3.14.10",
+  "baseline": "reports/20261031-baseline/verification_summary.json",
+  "independent_checks": [
+    "reports/S61_FIBER_INDEPENDENT_REVIEW_20261031.json",
+    "reports/TORIC_COFRAME_INDEPENDENT_20261031.json"
+  ],
+  "primary_MPS_HTML_reextracted": true,
+  "registry_component_records": 57,
+  "registry_counted_lower_bound": 57,
+  "global_exhaustion_proved": false,
+  "manuscript": {
+    "path": "papers/s61_first_jet_reduction_ja.pdf",
+    "pages": 17,
+    "build": "TEXMFVAR=$PWD/work/tex-cache latexmk -lualatex -interaction=nonstopmode -halt-on-error -outdir=build/papers papers/s61_first_jet_reduction_ja.tex",
+    "visual_QA": "17-page contact sheet plus full views of formula/table pages 8,10,15 inspected; no clipping, overlap or unresolved references",
+    "overfull_boxes": 0,
+    "source_correction": "Existing AA macro conflicted with LaTeX built-in; changed newcommand to renewcommand.",
+    "sha256": "ffcea83922286a4855fbaf22274a777ebafbd9de66b721d036a9c3f3b1dc11eb"
+  },
+  "library_save": {
+    "performed": false,
+    "reason": "No general continuation-ZIP Library upload capability available; Page-bound file upload is capped at 10 MiB and no target Page is selected. GitHub checkpoint and local continuation bundle are the available destinations."
+  }
+}

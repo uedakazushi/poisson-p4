@@ -88,3 +88,19 @@ T01の名称・次元は既存MPSカタログを入力とし、今回の非零�
 2. arXiv の版を固定して定理の仮定と結論を記録し、出版版で番号が異なる場合は対応を付ける。
 3. rank2 の8/6尽くし、追加11成分、正規因子分類についてそれぞれ新規性を調べる。現状の参考文献表だけで完了扱いにしない。
 4. 新規性の評価と数学的正しさの監査を分ける。既知結果と分かっても証明が誤りになるわけではなく、証明書が再現しても新規性が保証されるわけではない。
+
+
+## 2026-10-31の追加一次資料監査
+
+- G. Ortenzi, V. Rubtsov, S. R. Tagne Pelap, *On the Heisenberg invariance and the Elliptic Poisson tensors*,
+  [arXiv:1001.4422v2](https://arxiv.org/pdf/1001.4422v2), p.10, (16), (18), (19)。
+  q(5,1)/q(5,2)の係数を本文から採用し、一般パラメータでJacobi恒等式を検証。
+  q(5,1)の(18)はb3=+lambda、(21)は-lambdaと食い違う。前者がJacobiを満たし、
+  後者では非零のJacobi成分が残ることを記録した。文献の係数・族を入力とするもので、
+  今回の一次部分への優越性の新規性まではこの監査から結論しない。
+- M. Matviichuk, *Elliptic log symplectic brackets on projective bundles*,
+  [arXiv:2310.05284v1](https://arxiv.org/html/2310.05284v1), §2、命題4.2、定理4.3。
+  smoothable-edgeの符号規約、C(5,2)→q(5,1)、C(5,1)→q(5,2)の同定に使用。
+- MPS v2のTable 2全40 SVG、定理1.4、§5.3、例6.24を照合した。
+  [全対応と符号注記](notes/MPS40_CROSSWALK_20261031.md)を参照。
+  以前未完だった個別図式照合は完了したが、外部証明全体の独立再証明ではない。

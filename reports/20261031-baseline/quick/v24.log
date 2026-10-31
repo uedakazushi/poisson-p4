@@ -1,0 +1,44 @@
+PASS verify_family_zero_scheme.py
+PASS verify_endpoint_geometry.py
+PASS ambient_incidence.py
+PASS verify_obstructions.py
+PASS audit_short_certificates.py
+{
+  "all_passed": true,
+  "groups": [
+    {
+      "script": "ambient_incidence.py",
+      "all_passed": true,
+      "checks": 32,
+      "additional_stdlib_linear_checks": 0
+    },
+    {
+      "script": "verify_endpoint_geometry.py",
+      "all_passed": true,
+      "checks": 119,
+      "additional_stdlib_linear_checks": 0
+    },
+    {
+      "script": "verify_family_zero_scheme.py",
+      "all_passed": true,
+      "checks": 50,
+      "additional_stdlib_linear_checks": 0
+    },
+    {
+      "script": "verify_obstructions.py",
+      "all_passed": true,
+      "checks": 674,
+      "additional_stdlib_linear_checks": 244
+    },
+    {
+      "script": "audit_short_certificates.py",
+      "all_passed": true,
+      "checks": 175,
+      "additional_stdlib_linear_checks": 0
+    }
+  ],
+  "cross_package_checks": 4,
+  "total_checks": 1298,
+  "seconds": 10.472,
+  "method": "All validators run on temporary copies; no published source or previous edition is mutated."
+}
