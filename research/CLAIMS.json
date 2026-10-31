@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checkpoint": "v27-s61",
+  "checkpoint": "v28-s61",
   "date": "2026-10-31",
   "base_mathematical_checkpoint": "v24",
   "new_mathematical_progress_in_this_setup": false,
@@ -98,6 +98,27 @@
       "date": "2026-10-31",
       "result": "PASS",
       "scope_ja": "Python3.14.10と固定依存でsource integrity、v24全1298項目、v14全10群を再現。"
+    },
+    {
+      "id": "V28_TORIC_ALGEBRA",
+      "record": "reports/TORIC_ALGEBRA_FIBER_REVIEW_20261031.json",
+      "date": "2026-10-31",
+      "result": "PASS",
+      "scope_ja": "対応する証明書の有限恒等式・消去・階数。全分類の完了ではない。"
+    },
+    {
+      "id": "V28_TORIC_DEGREE",
+      "record": "reports/TORIC_DEGREE_REVIEW_20261031.json",
+      "date": "2026-10-31",
+      "result": "PASS",
+      "scope_ja": "対応する証明書の有限恒等式・消去・階数。全分類の完了ではない。"
+    },
+    {
+      "id": "V28_INFINITY_FLAGS",
+      "record": "reports/S61_INFINITY_FLAGS_20261031_final.json",
+      "date": "2026-10-31",
+      "result": "PASS",
+      "scope_ja": "対応する証明書の有限恒等式・消去・階数。全分類の完了ではない。"
     }
   ],
   "claims": [
@@ -866,7 +887,7 @@
         "reports/S61_FAMILIES_20261030/verification.json"
       ],
       "limitations_ja": [
-        "一般次数、分岐、具体的な開像は未計算。",
+        "一般次数は後続のS61_TORIC_GENERIC_DEGREE_THREEで3と決定。分岐・明示的な開像は未計算。",
         "全一次部分の延長や延長の一意性、他成分の不存在は従わない。"
       ]
     },
@@ -1083,7 +1104,7 @@
         "reports/TORIC_COFRAME_FIBER_20261031.json"
       ],
       "limitations_ja": [
-        "coframe写像の次数d、およびトーリック射影の次数d/120は未計算。",
+        "coframe次数360、トーリック次数3は後続のS61_TORIC_GENERIC_DEGREE_THREEを参照。",
         "トーリック境界、他成分、全S61ファイバーの尽くしを含まない。"
       ]
     },
@@ -1122,6 +1143,156 @@
       "limitations_ja": [
         "同じファイバーの他の点や未知成分は制御しない。",
         "全一般ファイバーの次元・次数は未決。"
+      ]
+    },
+    {
+      "id": "S61_TORIC_ALGEBRA_FIBER",
+      "title_ja": "トーリック開部分の20変数96二次式模型",
+      "statement_ja": "固定primitive一次部分βに対しtrace-free可換積mの空間は20次元affine空間。q_ij=tr(m_i m_j)/3とし、96式[m_i,m_j]+e_i q_j-e_j q_i=0は単位付き5次元代数の結合性をスキーム論的に課す。det q≠0部分はGL4/S5と同じ局所スキームで、Poisson構造P=(I+m_y-yq_y)J(I+m_y-yq_y)^tを一意に復元する。",
+      "scope": "Complex S61 first-jet model; explicitly delimited open locus or unsaturated compactification, not global exhaustion.",
+      "status": {
+        "proof": "proof_with_exact_rational_certificate",
+        "independent_review": "independent_agent_proof_and_code_review_not_external_peer_review",
+        "certificates": "reproduced_2026_10_31",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_PRIMITIVE_GAUGE",
+          "S61_TORIC_COFRAME_FIBER"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/TORIC_ALGEBRA_FIBER_20261031.md"
+        },
+        {
+          "path": "research/notes/TORIC_ALGEBRA_FIBER_REVIEW_20261031.md"
+        },
+        {
+          "path": "papers/s61_first_jet_reduction_ja.tex"
+        }
+      ],
+      "verification_records": [
+        "reports/TORIC_ALGEBRA_FIBER_20261031.json",
+        "reports/TORIC_ALGEBRA_FIBER_REVIEW_20261031.json"
+      ],
+      "limitations_ja": [
+        "det q=0の境界分類、非トーリック延長の尽くしは含まない。"
+      ]
+    },
+    {
+      "id": "S61_TORIC_GENERIC_DEGREE_THREE",
+      "title_ja": "T01の一般一次部分射影の次数3",
+      "statement_ja": "96式のβに依存しない二次先頭部を消す18本の普遍的一次帰結と二変数残余の可逆な先頭行列により、基礎の非空開集合で全解代数が有限となる。指定点の全イデアルは(x-13y^2/3430+y/7+14/3,y^3-24010y/13)で、三点は被約かつdet q≠0。有限étale近傍へ縮小してT01の一般次数3、順序付きcoframe次数360を得る。",
+      "scope": "Complex S61 first-jet model; explicitly delimited open locus or unsaturated compactification, not global exhaustion.",
+      "status": {
+        "proof": "proof_with_exact_rational_certificate",
+        "independent_review": "independent_agent_proof_and_code_review_not_external_peer_review",
+        "certificates": "reproduced_2026_10_31",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_TORIC_ALGEBRA_FIBER",
+          "S61_TORIC_FIRST_JET_DOMINANCE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/TORIC_GENERIC_DEGREE_20261031.md"
+        },
+        {
+          "path": "research/notes/TORIC_GENERIC_DEGREE_REVIEW_20261031.md"
+        },
+        {
+          "path": "papers/s61_first_jet_reduction_ja.tex"
+        }
+      ],
+      "verification_records": [
+        "reports/TORIC_ALGEBRA_DEGREE_20261031.json",
+        "reports/TORIC_DEGREE_REVIEW_20261031.json"
+      ],
+      "limitations_ja": [
+        "分岐因子、全例外層、T39/T40の一般次数は未決。",
+        "全S61の一般ファイバーの次数・尽くしではない。"
+      ]
+    },
+    {
+      "id": "S61_GENERIC_FIBER_AT_LEAST_FIVE",
+      "title_ja": "一般一次部分の少なくとも五つの孤立被約延長",
+      "statement_ja": "十分一般のprimitive一次部分には、T01から三つ、T39・T40から少なくとも一つずつ、全S61内で相異なる孤立被約な延長がある。成分交叉および非étale部分の像を除いた共通非空開集合上の主張。",
+      "scope": "Complex S61 first-jet model; explicitly delimited open locus or unsaturated compactification, not global exhaustion.",
+      "status": {
+        "proof": "proof_with_exact_rational_certificate",
+        "independent_review": "independent_agent_proof_and_code_review_not_external_peer_review",
+        "certificates": "reproduced_2026_10_31",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_TORIC_GENERIC_DEGREE_THREE",
+          "S61_ELLIPTIC_FIRST_JET_DOMINANCE",
+          "S61_KNOWN_DOMINANT_FIBER_ETALE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/TORIC_GENERIC_DEGREE_20261031.md"
+        },
+        {
+          "path": "papers/s61_first_jet_reduction_ja.tex"
+        }
+      ],
+      "verification_records": [
+        "reports/TORIC_ALGEBRA_DEGREE_20261031.json",
+        "reports/TORIC_DEGREE_REVIEW_20261031.json",
+        "reports/S61_KNOWN_FIBER_AUDIT_20261031.json"
+      ],
+      "limitations_ja": [
+        "全延長が五つという主張ではない。未知成分・高次元部分の排除は未完。"
+      ]
+    },
+    {
+      "id": "S61_UNSATURATED_INFINITY_FLAGS",
+      "title_ja": "未飽和二次斉次化の無限遠の旗incidence",
+      "statement_ja": "134式を重み2変数について二次斉次化した未飽和模型の無限遠には、Q=ell_v^2 v wedge w、omega(v,w)=0、beta(v)(v,w)=0で与えられる閉じた旗incidenceが含まれる。非零primitive βでは純3次元、β=0では4次元旗全体。従ってこの未飽和模型の特殊化を零次元にする方法は使えない。",
+      "scope": "Complex S61 first-jet model; explicitly delimited open locus or unsaturated compactification, not global exhaustion.",
+      "status": {
+        "proof": "proof_with_exact_rational_certificate",
+        "independent_review": "independent_agent_proof_and_code_review_not_external_peer_review",
+        "certificates": "reproduced_2026_10_31",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "MODEL_S61",
+          "S61_PRIMITIVE_GAUGE",
+          "S61_WEIGHT1_RANK_ONE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_INFINITY_FLAGS_20261031.md"
+        },
+        {
+          "path": "papers/s61_first_jet_reduction_ja.tex"
+        },
+        {
+          "path": "research/notes/S61_INFINITY_FLAGS_REVIEW_20261031.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_INFINITY_FLAGS_20261031_final.json",
+        "reports/S61_INFINITY_FLAGS_REVIEW_20261031.json"
+      ],
+      "limitations_ja": [
+        "斉次化変数で飽和した真の射影閉包ではこれらの点が消える可能性がある。",
+        "アフィンファイバーの正次元性や全一般ファイバーの上界を主張しない。"
       ]
     }
   ],

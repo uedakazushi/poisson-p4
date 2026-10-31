@@ -1,17 +1,20 @@
 # Poisson structures on P4 — Codex instructions
 
-Version: v27-s61 · 2026-10-31 (Asia/Tokyo).
+Version: v28-s61 · 2026-10-31 (Asia/Tokyo).
 
 Current continuation: T01, T39=q(5,1), and T40=q(5,2) all have dominant,
 generically finite primitive first-jet projection to W16. Exact full-S61
-Jacobians give smooth etale points on each. A sufficiently general jet has at
-least three distinct isolated reduced lifts, but the full generic fiber and
-unknown components remain unclassified. MPS40 is now individually crosswalked
-to the primary Table 2; the lower bound remains 57. The toric open fiber has a
-16-variable coframe model modulo free S5; its degree remains unknown.
-Read the v27 STATE/NEXT_TASKS and code/S61_README.md. Do not reopen these proved
-finite results as unknown. CA/CB share a closed nine-dimensional first-jet
-image. Rank-one fibers and all exceptional strata remain open.
+Jacobians give smooth etale points on each. T01 has generic degree THREE
+(ordered coframe degree 360), proved using a 20-variable, 96-quadratic algebra
+model, universal 18-variable linear elimination and a finite etale neighborhood.
+A sufficiently general jet has at least FIVE distinct isolated reduced lifts.
+The full generic fiber and unknown components remain unclassified. MPS40 is
+individually crosswalked to primary Table 2; the component lower bound remains 57.
+The unsaturated quadratic homogenization always has a positive-dimensional
+isotropic-flag locus at infinity; do not confuse it with the saturated closure
+or infer positive-dimensional affine fibers. Read the v28 STATE/NEXT_TASKS and
+code/S61_README.md. Do not reopen proved finite results as unknown. CA/CB share
+a closed nine-dimensional first-jet image. Rank-one and exceptional strata remain open.
 
 ## Read first
 

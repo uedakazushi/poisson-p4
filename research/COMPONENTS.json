@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checkpoint": "v27-s61",
+  "checkpoint": "v28-s61",
   "date": "2026-10-31",
   "base_mathematical_checkpoint": "v24",
   "new_components_added_in_this_setup": 0,
@@ -22,7 +22,9 @@
     "individually_catalogued_count": 57,
     "unexpanded_block_count": 0,
     "all_51_rank_four_ideals_in_S61_constructed": false,
-    "note_ja": "MPS40の全図式を一次資料Table 2と照合し、40件へ展開した。既知57成分を個別記載するが、全51階数四成分のS61定義イデアルは未構築であり、大域尽くしも未証明。"
+    "note_ja": "MPS40の全図式を一次資料Table 2と照合し、40件へ展開した。既知57成分を個別記載するが、全51階数四成分のS61定義イデアルは未構築であり、大域尽くしも未証明。",
+    "generic_primitive_first_jet_known_lifts_lower_bound": 5,
+    "full_generic_fiber_exhaustion_proved": false
   },
   "blocks": [
     {
@@ -173,7 +175,9 @@
         "MPS40_CROSSWALK",
         "S61_KNOWN_DOMINANT_FIBER_ETALE",
         "S61_TORIC_FIRST_JET_DOMINANCE",
-        "S61_TORIC_COFRAME_FIBER"
+        "S61_TORIC_COFRAME_FIBER",
+        "S61_TORIC_ALGEBRA_FIBER",
+        "S61_TORIC_GENERIC_DEGREE_THREE"
       ],
       "proof_sources": [
         {
@@ -182,12 +186,17 @@
         },
         {
           "path": "research/notes/MPS40_CROSSWALK_20261031.md"
+        },
+        {
+          "path": "research/notes/TORIC_GENERIC_DEGREE_20261031.md"
         }
       ],
       "verification_records": [
         "reports/MPS40_CROSSWALK_20261031.json",
         "reports/S61_KNOWN_FIBER_AUDIT_20261031.json",
-        "reports/TORIC_COFRAME_FIBER_20261031.json"
+        "reports/TORIC_COFRAME_FIBER_20261031.json",
+        "reports/TORIC_ALGEBRA_DEGREE_20261031.json",
+        "reports/TORIC_DEGREE_REVIEW_20261031.json"
       ],
       "s61_coordinate_map_status": "six-parameter rational S61 map plus residual Sp4; full toric open locus via GL4/S5 coframes",
       "review_status": {
@@ -200,8 +209,9 @@
         "個別図式・次元の台帳であり、全成分のS61定義イデアルを構築したわけではない。"
       ],
       "generic_primitive_first_jet_image": "dominant onto W16; generically finite and generically etale",
-      "general_degree": null,
-      "family_map": "reports/S61_FAMILIES_20261030/toric_T01_map.json"
+      "general_degree": 3,
+      "family_map": "reports/S61_FAMILIES_20261030/toric_T01_map.json",
+      "ordered_coframe_general_degree": 360
     },
     {
       "id": "T02",

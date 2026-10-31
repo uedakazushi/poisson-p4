@@ -33,9 +33,9 @@
 \newtheorem{remark}[theorem]{注意}
 \renewcommand{\proofname}{証明}
 \title{射影四空間の Poisson 構造の一次ジェット還元\\
-\large 三つの優越成分、一般延長の相異性と toric fibre の有限方程式}
+\large Toric 射影の次数三、五つの一般延長と無限遠の障害}
 \author{Poisson P4 研究プロジェクト・内部研究草稿}
-\date{2026年10月31日・v27-s61}
+\date{2026年10月31日・v28-s61}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -44,9 +44,11 @@ primitive な一次ジェットの16次元空間への射影を調べる。
 既知の toric 成分 $T01$ と楕円型成分 $T39=q_{5,1}$、$T40=q_{5,2}$ は、
 いずれもこの射影で優越的かつ一般に有限である。
 全134式の Jacobian を用いて各成分に滑らかな非分岐点を与え、十分一般の同じ一次項には
-少なくとも三つの相異なる、孤立した被約な延長が存在することを示す。
+少なくとも五つの相異なる、孤立した被約な延長が存在することを示す。
 さらに、五超平面が射影標構をなす toric 開部分の全延長を、
-16変数の明示方程式の解の $S_5$ 軌道として表す。その一般次数の値は未計算である。
+16変数の明示方程式の解の $S_5$ 軌道として表し、さらにラベルを除いた20変数・96二次式へ還元する。
+普遍的一次消去と有限な近傍の構成により、toric成分の一般次数が3、順序付きcoframeの次数が360であることを証明する。
+全S61の未飽和斉次化には、非零一次項ごとに3次元の旗の無限遠部分が必ず現れることも示す。
 基礎となる perspective 正規化は有限の多項式公式で与えられ、一意である。
 特殊層では、係数階数一の5次元軌道上の全解を45変数・134二次式の固定 fibre へ帰着し、
 二つの既知28次元成分の共通一次像を閉既約9次元集合として決定する。
@@ -377,7 +379,8 @@ $\dd\beta=\Lambda\beta=0$ を満たす。有限の perspective 公式により�
 \begin{remark}
 既存の成分対応と $\dim T01=25$ を併用すると、対応する16次元の $S_{61}$ 成分自身も
 $W$ に優越的かつ一般に有限に写る。
-しかし一般次数、分岐、像に含まれる開部分の具体的な方程式は未計算である。
+一般次数は後の定理\ref{thm:toric-degree}で3と決定する。
+分岐と、像に含まれる開部分の具体的な方程式は未計算である。
 任意の一次ジェットの延長、延長の一意性、他成分由来の延長の不存在は主張しない。
 特に「一般の一次項は toric 成分で実現する」ことから、
 「全 Poisson 構造が toric 成分に属する」とは従わない。
@@ -484,7 +487,235 @@ $T01$ の toric 開部分の補集合は次元15以下で、一般一次項上�
 
 一般の $\Lambda_A$ に対する Jacobi と Pfaffian の恒等式、上の小行列式、
 隣接交換による全 $P_A$ の不変性の有理点での別検算を\cite{coframe-certificate}に保存した。
-一般次数 $d$ の値は未計算である。120個のラベル違いを120個の異なる延長と数えない。
+一般次数は定理\ref{thm:toric-degree}により $d=360$ となる。
+120個のラベル違いを120個の異なる延長と数えない。
+
+\section{ラベルを持たない20変数の結合代数模型}\label{sec:algebra}
+前節のcoframeを、五超平面を順序付けない可換代数の積へ置き換える。
+この変更により、固定一次部分のtoric延長は20変数・96二次式の開部分で表される。
+以下は\cite{algebra-certificate,algebra-review}の構成と独立点検を統合したものである。
+
+\subsection{一次写像の右逆と対称三階テンソル}
+$V=\CC^4$ とし、可換双線形写像 $m:\operatorname{Sym}^2V\to V$ に対して
+$m_u(v)=m(u,v)$、$m_i=m_{e_i}$ と書く。
+$\tr m_u=0$ の四条件は独立であり、この空間の次元は36である。
+実際、一次形式 $a$ に対して $m(u,v)=(a(u)v+a(v)u)/5$ とすれば $\tr m_u=a(u)$ となる。
+
+\begin{lemma}\label{lem:algebra-lift}
+写像 $m\mapsto\beta_m$ を
+\[
+ \beta_m(y)=Jm_y+m_y^tJ
+\]
+で定めると、trace-freeな可換積の空間から $W$ への全射となり、
+核は $\operatorname{Sym}^3V^*$、次元20である。
+$\beta_{jk,i}$ を $\beta_{jk}(y)$ の $y_i$ 係数とすれば、全持ち上げは
+\begin{align}
+ T_{ijk}&=\frac{\beta_{jk,i}+\beta_{ik,j}}3+c_{ijk},\qquad
+ c_{ijk}=c_{\sigma(i)\sigma(j)\sigma(k)},\label{eq:algebra-lift}\\
+ m(e_i,e_j)&=J(T_{ij1},\ldots,T_{ij4})^t\nonumber
+\end{align}
+で与えられる。
+\end{lemma}
+\begin{proof}
+$T_{ijk}=m(e_i,e_j)^tJe_k$ と置くと、可換性は $T_{ijk}=T_{jik}$、
+$\beta_{jk,i}=T_{ijk}-T_{ikj}$ である。
+この式の巡回和は零なので $\dd\beta=0$ であり、成分を比較すると
+$\beta_{12,i}+\beta_{34,i}=\tr m_i$ を得る。
+閉性を使えば\eqref{eq:algebra-lift}の $c=0$ 部分が右逆となる。
+核では $T$ が第一・第二添字と第二・第三添字の交換に不変だから、完全対称である。
+独立係数の個数は $\binom63=20$。primitive条件からtrace-free性も従う。
+\end{proof}
+
+\subsection{結合性を表す96二次式}
+固定した $\beta$ について、\eqref{eq:algebra-lift}の20係数 $c_{ijk}$ を変数とする。
+\begin{equation}\label{eq:algebra-quadrics}
+ q_{ij}=\tfrac13\tr(m_i m_j),\qquad
+ C_{ij}=[m_i,m_j]+e_iq_j-e_jq_i=0\quad(i<j)
+\end{equation}
+と置く。$q_j$ は対称行列 $q$ の第$j$行である。
+六つの4次行列の全成分を取るため96本の二次式であり、96本の独立性は主張しない。
+
+\begin{proposition}\label{prop:associative}
+\eqref{eq:algebra-quadrics}は、$B=\CC1\oplus V$ 上の可換単位付き積
+\begin{equation}\label{eq:algebra-product}
+ (a,u)(b,v)=(ab+q(u,v),\ av+bu+m(u,v))
+\end{equation}
+の結合性と同値である。省略した結合性条件も、96式の生成イデアルに属する。
+\end{proposition}
+\begin{proof}
+$e_i$ による左乗法の行列を
+\[
+ L_i=\begin{pmatrix}0&q_i\\ e_i&m_i\end{pmatrix}
+\]
+とする。$[L_i,L_j]$ の左上と左下はqの対称性、mの可換性により零で、
+右下は $C_{ij}$、右上は $D_{ij}=q_i m_j-q_jm_i$ である。
+一般の可換mと対称qに対して、行列Jacobi恒等式と $m_i e_j=m_j e_i$ から
+\[
+ e_iD_{jk}+e_jD_{ki}+e_kD_{ij}
+ =-\bigl([m_i,C_{jk}]+[m_j,C_{ki}]+[m_k,C_{ij}]\bigr)
+\]
+を得る。相異なる $i,j,k$ の第$i$行を取れば、$D_{jk}$ の各成分は $C$ の成分の
+生成イデアルに属する。従って全 $L_i$ は可換となる。
+可換積では左乗法の可換性から $x(yz)=y(xz)=(xy)z$ が従い、結合的である。
+
+逆に結合的なら $C_{ij}=0$。
+trace-free性から正則表現のトレースは $\operatorname{Tr}L_{(a,u)}=5a$ であり、
+結合性を用いると $\operatorname{Tr}(L_iL_j)=5q_{ij}$。
+ブロックを掛けて計算した値は $2q_{ij}+\tr(m_i m_j)$ だから、qの式も必然的に成立する。
+\end{proof}
+
+\begin{theorem}[toric延長の20変数模型]\label{thm:algebra-model}
+\eqref{eq:algebra-quadrics}の $\det q\ne0$ の開部分は、固定一次部分 $\beta$ を持つ
+前節のtoric延長のスキームを与える。120通りの再ラベルは既に除かれている。
+全双ベクトルは文字の計算を使わず
+\begin{equation}\label{eq:algebra-P}
+ F_m(y)=I+m_y-yq_y,\qquad P_m(y)=F_m(y)JF_m(y)^t
+\end{equation}
+で復元でき、そのPfaffianは $\operatorname{Norm}_B(1+y)$ である。
+\end{theorem}
+\begin{proof}
+正則表現のトレースペアリングは $(1,V)$ の基底で $\operatorname{diag}(5,5q)$ となる。
+$\det q\ne0$ なら非退化。冪零元 $n$ に対し、任意の $b$ の $nb$ も冪零で
+$\operatorname{Tr}L_{nb}=0$ だから、非退化性により非零冪零元は存在しない。
+従って $B\simeq\CC^5$。
+五つの文字を $\chi_i$、そのVへの制限を $\ell_i$ とすれば
+$\sum_i\ell_i=0$ で、Vは $\CC^5$ のトレース零部分へ同型に写る。
+$h_i=1+\ell_i$ として五超平面を回復し、行 $\ell_i-\ell_0$ によるcoframe Aは可逆となる。
+逆にcoframeから $\CC^5$ の成分ごとの積を移せば、同じmを回復する。
+文字の順序を変えてもmは変わらない。
+
+判別式条件は
+\[
+ q=A^t\frac{5I-\mathbf1\mathbf1^t}{25}A,\qquad
+ \det q=\frac{(\det A)^2}{5^5}
+\]
+となり、前節の開条件に一致する。
+$L_i$ が $\PP(B)$ のchart $[1:y]$ に誘導する射影ベクトル場は
+$e_i+m_i y-yq_i(y)$。これらは可換で、その列行列が $F_m$ なので
+\eqref{eq:algebra-P}は射影Poisson構造である。
+Schur補元により
+\[
+ \det F_m=\det\begin{pmatrix}1&q_y\\y&I+m_y\end{pmatrix}
+           =\operatorname{Norm}_B(1+y)=\prod_i(1+\ell_i(y)).
+\]
+この実際の退化因子から文字の無順序集合を復元でき、mも一意に決まる。
+
+点の全単射だけではスキームとしての主張は足りないので、微小変形も確認する。
+剰余体 $\CC$ の局所Artin代数R上で $\det q$ が単元である解を考える。
+特殊ファイバーの五つの原始冪等元は、$e^2-e$ の導関数 $2e-1$ が単元なので
+一意に持ち上がり、直交性と和1を保つ。各直和因子はR上自由階数1であり、
+持ち上げた冪等元を基底に取ると代数全体は $R^5$ となる。
+正則トレースの核は $V\otimes R$ であり、文字から可逆coframeを回復できる。
+逆の構成も自然で、順序だけが自由な $S_5$ 作用に対応する。
+従って半単純開部分の変形関手と完成局所環はcoframe商に一致し、
+一次部分写像も一致する。特に、βを動かしたこの開模型は滑らかな16次元空間である。
+\end{proof}
+
+\begin{remark}
+\eqref{eq:algebra-P}は $\det q=0$ の結合代数からも射影Poisson構造を作るが、
+その部分の全成分、toric境界への所属、全S61を尽くすかは別問題である。
+非零判別式上のスキーム同定を、判別式零の全模型へ無条件に延長しない。
+\end{remark}
+
+\section{Toric成分の一般次数は三}\label{sec:toric-degree}
+20変数模型の次数を、特殊ファイバーの全イデアルと、その近傍での有限性から決定する。
+一つの特殊ファイバーの点数だけでは、無限遠へ逸走する解を除外できない。
+以下ではその点を含む開集合上で\emph{全解スキーム}が有限となることを先に示す。
+
+\begin{theorem}[toric一次射影の一般次数]\label{thm:toric-degree}
+$T01$ に対応する成分から $W$ への一次部分射影の一般次数は3である。
+従って十分一般の一次部分は、ちょうど三つの相異なるtoric延長を持つ。
+順序付きcoframe写像 $\GL_4\to W$ の一般次数は360である。
+\end{theorem}
+\begin{proof}
+\textbf{普遍的な一次消去。}
+\eqref{eq:algebra-lift}の20係数を辞書順に $c_0,\ldots,c_{19}$ と並べる。
+各乗法行列は $m_i=m_i^0(\beta)+m_i^1(c)$ と線形に分かれるので、96式のcに関する
+二次斉次部分はβに依存しない。
+旧toric係数 $(2,3,5,7,11,13)$ に対応する一次部分を $\beta_*$ とする。
+この点で96式の定数係数線形包の階数は63、二次斉次部分の階数は45であり、
+18本の独立な一次帰結を得る。各帰結を96式の有理定数係数線形結合として表した
+18組の係数を\cite{degree-certificate}に保存した。
+
+二次部分のβ非依存性により、\emph{同じ}18組の線形結合は全βで二次項を消す。
+従って普遍的一次帰結 $M(\beta)c+b(\beta)=0$ を与える。
+$M$ の成分はβの一次式、bの成分は二次式である。
+$c_0,\ldots,c_{17}$ の18次小行列式を $\delta(\beta)$ とすると、保存した行順で
+$\delta(\beta_*)=-1$ である。$\delta\ne0$ に局所化し、これら18変数を
+$x=c_{18},y=c_{19}$ のアフィン一次式として消去する。
+この消去は元のイデアルの帰結を用い、残る全96式も保持するので、解を落とさない。
+
+\textbf{全解スキームの有限性。}
+消去後の96式はx,yの高々二次式で、係数はβの正則有理関数である。
+$\beta_*$ において、その最初の三式の $(x^2,xy,y^2)$ の係数行列は
+\[
+ N_*=
+ \begin{pmatrix}
+ 73/8232&43/43218&5717/2420208\\
+ -131/4116&164/21609&-1763/1210104\\
+ 109/8232&-1/1764&47/2420208
+ \end{pmatrix},\qquad
+ \det N_*=-\frac{41639}{189823367328}\ne0.
+\]
+同じ三式の係数行列 $N(\beta)$ の行列式 $\epsilon$ も非零となる開集合へ縮める。
+すると $x^2,xy,y^2$ は $1,x,y$ の線形結合として表される。
+次数に関する帰納法から、全96式による商代数は基礎の局所化座標環上で
+$1,x,y$ により生成される有限加群となる。
+よって $\beta_*$ を含む開集合上の二次模型の全解スキームは有限である。
+未知の追加の一次帰結が存在しても、この有限性を妨げない。
+
+\textbf{特殊ファイバーの全解。}
+$\beta_*$ で上の三式を正規化すると
+\begin{align*}
+ x^2&=\tfrac{119}{39}x-\tfrac3{13}y+\tfrac{4214}{117},\\
+ xy&=-\tfrac{490}{13}x-\tfrac{119}{39}y-\tfrac{6860}{39},\\
+ y^2&=\tfrac{3430}{13}x+\tfrac{490}{13}y+\tfrac{48020}{39}
+\end{align*}
+となる。全96残余式がこの三式の定数係数線形結合であることを検算し、
+得られたx,yの乗法行列の可換性も確認した。双方のイデアル包含により、全残余イデアルは
+\begin{equation}\label{eq:toric-sample-ideal}
+ \left(x-\frac{13}{3430}y^2+\frac17y+\frac{14}3,
+       \quad y^3-\frac{24010}{13}y\right)
+\end{equation}
+に等しい。商代数の基底は $1,x,y$ で、yは巡回元である。
+三次式 $g(y)=y^3-24010y/13$ の判別式は
+\[
+ \operatorname{disc}(g)=\frac{55365148804000}{2197}\ne0.
+\]
+従って全特殊ファイバーは三つの相異なる被約複素点からなる。
+既知点は $(x,y)=(-14/3,0)$、他の二点は $y=\pm\sqrt{24010/13}$ と
+\eqref{eq:toric-sample-ideal}で与えられる。
+
+さらに $\det q$ のgによる剰余は
+\[
+ r(y)=\frac{11713280438427y^2-513182409985385y+21694099123200}
+                {86472015000000}.
+\]
+有理係数B\'ezout恒等式によって $\gcd(r,g)=1$ を検算した。
+従って三点の全てが $\det q\ne0$ の半単純部分に属し、特殊ファイバーに捨てる点はない。
+
+\textbf{有限\'etaleな近傍への移行。}
+上の有限射を $X\to B$ とし、Bは $W$ の $\beta_*$ を含む非空開集合とする。
+$V(\det q)\subset X$ の像は有限射のため閉であり、$\beta_*$ を含まないのでBから除ける。
+残る始域は、定理\ref{thm:algebra-model}によりcoframe商と同じ局所スキーム構造を持つ
+滑らかな16次元スキームである。
+$\beta_*$ 上の三点では、被約な零次元ファイバーの接空間は零である。
+始域と終域がともに滑らかな16次元なので、射の微分は同型で、各点で\'etaleとなる。
+非\'etale部分も閉であり、その有限像は $\beta_*$ を避けるので除ける。
+こうして $\beta_*$ を含む開集合上で射は有限\'etaleとなる。
+
+非空のW開集合は既約・連結であるから、この有限\'etale射の次数は一定であり、
+$\beta_*$ 上の三点からその値は3となる。
+toric開部分はT01で稠密で、その補集合は一般一次部分上から除けるので、
+これはT01成分自身の一次射影の一般次数である。
+自由な $S_5$ 被覆を戻すと、順序付きcoframeの次数は $120\cdot3=360$ となる。
+\end{proof}
+
+定数行操作を追跡した証明書\cite{degree-certificate}に加えて、
+別の実装\cite{degree-review}では二次斉次係数行列の左核から一次帰結を構成し、
+同じ18変数消去、全残余イデアル、三次式の分離性、$\det q$ との互いに素性を確認した。
+この結果はtoricの一般次数を決めるが、分岐因子、例外ファイバー、
+二つの楕円型成分の次数、全S61ファイバーの尽くしは決めない。
 
 \section{二つの楕円型成分の優越性}\label{sec:elliptic}
 $T39$ と $T40$ は内部カタログの名前であり、それぞれ $q_{5,1}$、$q_{5,2}$ の成分を表す。
@@ -834,7 +1065,7 @@ frame の選択によらず、$\mathcal U$ 上の閉条件となる。
 この結果は二成分の交叉次元、fibre の既約性・同型類、同じ一次項を持つ構造の同一性を決めない。
 二成分の相異性は既存の退化因子の重複度によって保たれ、その違いは一次項より高い係数に残る。
 
-\section{一次資料照合と一般一次項の三つの延長}\label{sec:three-lifts}
+\section{一次資料照合と一般一次項の五つの延長}\label{sec:five-lifts}
 \subsection{MPS40の個別図式の照合}
 MPS\cite{mps}の定理1.4、Table 2、例6.24は、SNC locus と交わる40成分と
 その装飾 smoothing diagram の対応を与える。
@@ -876,10 +1107,10 @@ $T01,T39,T40$ の三つである。
 残る二つの19次元 slice 成分の像は、定理\ref{thm:ambient-image}の9次元集合 $Z$ である。
 \end{proof}
 
-\begin{theorem}[一般一次項の少なくとも三つの延長]\label{thm:three-lifts}
+\begin{theorem}[一般一次項の少なくとも五つの延長]\label{thm:five-lifts}
 $W$ のある非空 Zariski 開部分 $W^\circ$ の任意の点について、
-全 $\widetilde S_{61}$ の fibre は少なくとも三つの相異なる、孤立した被約点を持つ。
-各点は $T01,T39,T40$ に対応する成分から一つずつ取れる。
+全 $\widetilde S_{61}$ の fibre は少なくとも五つの相異なる、孤立した被約点を持つ。
+三点は $T01$、少なくとも一点ずつは $T39,T40$ に対応する成分から取れる。
 \end{theorem}
 \begin{proof}
 対応する被約成分を $C_1,C_2,C_3$ とする。
@@ -892,15 +1123,101 @@ $W$ のある非空 Zariski 開部分 $W^\circ$ の任意の点について、
 
 さらに $i\ne j$ なら相異なる16次元既約成分の交叉 $C_i\cap C_j$ は次元15以下である。
 その一次部分像の閉包もすべて除けば、なお非空開部分 $W^\circ$ が残る。
-各 $\beta\in W^\circ$ には三成分それぞれの $C_i^{\rm et}$ に逆像があり、
-交叉を避けるので三点は相異なる。
+さらに定理\ref{thm:toric-degree}の有限\'etaleな開集合へ縮めると、
+各 $\beta\in W^\circ$ にはT01から三つの相異なる逆像がある。
+T39とT40からもそれぞれ少なくとも一つの逆像があり、
+交叉を避けるので合わせて少なくとも五点は相異なる。
 全スキームの射影がその点で \'etale であるから、各点は fibre の孤立した被約点となる。
 \end{proof}
 
-三点は、同じ正規化座標と一次項を持つ相異なる射影 Poisson 双ベクトルを意味する。
+五点は、同じ正規化座標と一次項を持つ相異なる射影 Poisson 双ベクトルを意味する。
 $\PGL_5$ 同型類の個数を数えたものではない。
-また三成分それぞれの一般次数が1とは限らず、未知成分が $W$ を支配する可能性も残る。
-特に全 fibre が有限、またはちょうど三点であるという結論は得られない。
+T01の一般次数は3であるが、T39・T40の一般次数は未決であり、未知成分が $W$ を支配する可能性も残る。
+特に全 fibre が有限、またはちょうど五点であるという結論は得られない。
+
+\section{未飽和斉次化の無限遠に現れる旗}\label{sec:infinity}
+固定一次部分 $\beta\in W$ の全S61ファイバーは45個の重み2座標qに関する134二次式
+$F_i(q)=0$ で与えられる。各式を個別に二次斉次化して
+\[
+ X_\beta^h=V(F_1^h,\ldots,F_{134}^h)\subset\PP^{45}_{[q:t]}
+\]
+と置く。これは、斉次化変数tで飽和した真の射影閉包とは区別する。
+この節は\cite{infinity-certificate}の障害を示し、アフィンファイバーの正次元性は主張しない。
+
+\begin{theorem}[旗による無限遠の閉部分]\label{thm:infinity}
+$\Omega(v,w)=v^tJw$ とする。独立なv,wで $\Omega(v,w)=0$ を満たすものに対し
+\[
+ Q_{v,w}(y)=\ell(y)^2v\wedge w,\qquad\ell=-Jv
+\]
+と置く。isotropic flag $\langle v\rangle\subset\langle v,w\rangle$ から射影方向
+$[Q_{v,w}]$ への写像は閉埋め込みであり、
+\begin{equation}\label{eq:infinity-incidence}
+ [Q_{v,w}]\in X_\beta^h\cap\{t=0\}
+ \quad\Longleftrightarrow\quad T_\beta(v,w):=\beta_v(v,w)=0.
+\end{equation}
+βが非零ならこの旗の部分は純3次元であり、βが零なら4次元旗多様体全体である。
+\end{theorem}
+\begin{proof}
+$\ell(v)=\ell(w)=0$ と $J\ell=v$ から $[J,Q]=[Q,Q]=0$。
+従ってQは45次元二次方向空間の非零点を与える。
+旗の写像は二次Veronese写像と平面のPl\"ucker埋め込みのSegre積の制限であり、閉埋め込みである。
+Qの共通二次因子 $\ell^2$ と定数双ベクトルから、線と平面も直接回復できる。
+旗多様体 $\mathcal F=F_{\rm iso}(1,2;4)$ は滑らかな既約4次元多様体である。
+
+代表 $v=-e_2,w=-e_4$ では $Q=y_1^2\partial_2\wedge\partial_4$。
+旧S61座標では $u_{38}=1$、他の重み2座標は零となる。
+16個の重み1座標を自由のまま、134式のqに関する最高二次部分へ代入すると、
+非零なのは0始まりの第84式だけで、その値は $2u_4$ となる。
+同じ座標で $T_\beta(-e_2,-e_4)=-u_4$ だから、代表では\eqref{eq:infinity-incidence}を得る。
+
+この代表の計算を群作用で移す根拠を明示する。
+固定LでS61の低次Jacobi条件を解く再構成は、45個の二次座標に関してアフィン線形である。
+実際、保存された55消去式の重み2変数に関する次数は高々1である。
+有限perspective公式\eqref{eq:Qtransform}はQをLに依存する項だけ平行移動するので、
+二次方向そのものを変えず、三次方向を\eqref{eq:Ctransform}に従って移す。
+原点固定の局所同型はJacobiの原点での消滅次数を保つため、低次Jacobiを解いた空間は
+同じ再構成空間へ移る。再構成を $P_0+sB$ と書けば最高二次条件は $[B,B]=0$ であり、
+pushforwardで保たれる。154式から134式へのBianchi除去の20恒等式は、係数に定数または
+重み1変数しか使わないため、固定Lで最高二次部分を取っても同値性を保つ。
+以上の性質は保存証明書でも検算した。
+
+さらにperspective変換による一次項の変化は
+\[
+ T_{\beta'}(v,w)-T_\beta(v,w)=-3a(v)\Omega(v,w)
+\]
+であり、isotropic pair上では零となる。
+従って古いgaugeからprimitive gaugeへ移しても条件は同じである。
+$\Sp_4$ は $\mathcal F$ に推移的に作用するので、代表の必要十分条件は全旗へ移る。
+
+線 $\CC v$ を固定すると、wの選択は $\PP(v^\perp/\CC v)\simeq\PP^1$ であり、
+Tの条件は二次元ベクトル空間上の一つの線形条件である。従って各線上に必ず解がある。
+非零βについて、Tが旗全体で零にならないことを示す。
+$\alpha=\iota_E\beta$ と置くと、係数次数1と閉性からCartan公式は $\dd\alpha=3\beta$ を与える。
+Tがすべてのisotropic pairで零なら、既約な双線形式 $\Omega(v,w)$ による可除性と
+双次数 $(2,1)$ から、ある一次形式fについて
+\[
+ \alpha=f\iota_E\Omega,\qquad
+ \beta=\tfrac13(\dd f\wedge\iota_E\Omega+2f\Omega)
+\]
+となる。primitive contractionを取ると右辺は $(f+4f)/3=5f/3$ なのでf=0、従ってβ=0。
+これは仮定に反する。よってβが非零ならTの零点は $\mathcal F$ 上の非零な有効Cartier因子であり、
+純3次元となる。β=0なら全旗が入る。
+\end{proof}
+
+切断の単射性は、primitive閉一次2形式の16基底から作るTと
+$\Omega(v,w)v_i$ の4多項式の計20個の係数行列でも点検した。
+20次小行列式は625である。別の有理旗でも全16一次変数を残し、
+134個の最高二次残余の線形包がTの張る一次元空間と一致することを確認した。
+これらの追加検算を、上のgauge・群作用の証明の代わりには用いない。
+
+\begin{remark}[一般有限性への障害の範囲]
+定理\ref{thm:infinity}により、未飽和の $X_\beta^h$ はどの一次部分でも零次元ではない。
+従って、この模型の零次元特殊化を用いて全S61ファイバーの一般有限性を示す方法は使えない。
+真の射影閉包では $\bigl(F_i^h\bigr):t^\infty$ を取る必要があり、
+上記の旗の部分はその操作で消え得る。
+この結果はアフィンファイバーの正次元部分の存在や、未知成分の存在を証明しない。
+次の手段は、飽和を制御するsyzygy、または明示した開条件でのアフィン消去である。
+\end{remark}
 
 \section{検証器と再現範囲}
 \begin{longtable}{@{}p{58mm}p{98mm}@{}}
@@ -928,6 +1245,16 @@ perspective の有限行列恒等式、radial 三次項の相殺、trace 変換�
 三点の全134式、復元、独立 Jacobi、全61列と重み2の45列の Jacobian。\\
 \nolinkurl{code/toric_coframe_fiber.py} &
 coframe 復元の一般 Jacobi・Pfaffian、一次式、16次小行列式、再ラベルの点検。\\
+\nolinkurl{code/toric_algebra_fiber.py} &
+20変数・96二次式、一次写像の右逆と核、判別式、全双ベクトルとノルムの復元。\\
+\nolinkurl{code/toric_algebra_fiber_review.py} &
+一般40係数からの独立導出、結合性の省略ブロックの生成イデアル所属、文字からの復元。\\
+\nolinkurl{code/toric_algebra_degree.py} &
+普遍的18一次帰結、有限近傍のleading行列、全特殊ファイバーの三点、判別式とB\'ezout証明書。\\
+\nolinkurl{code/toric_degree_review.py} &
+二次係数行列の左核からの独立消去、全残余イデアルと三次式、半単純性、元証明書との照合。\\
+\nolinkurl{code/s61_infinity_flags.py} &
+代表旗の全一次変数を残す最高二次残余、gaugeとBianchiの次数、切断の単射性、別の旗の検算。\\
 \nolinkurl{code/mps_catalog_audit.py} &
 一次資料の40図式と内部IDの全単射、零辺・period 条件・次元・楕円型名称の照合。\\
 \bottomrule
@@ -946,11 +1273,12 @@ coframe 復元の一般 Jacobi・Pfaffian、一次式、16次小行列式、再�
 \end{verbatim}
 
 \section{残る問題}
-一般一次項の延長可能性と、既知三成分からの相異なる延長は証明した。
-次の課題は、三つの一般次数と分岐の計算、および未知成分からの延長を排除できるかである。
-toric 開部分では\eqref{eq:coframe-fiber}が具体的な入力となり、
-$S_5$ 不変量による消去や一般解数の計算へ進める。
-楕円型成分についても一般 fibre の明示的な表示と次数は未決である。
+一般一次項の延長可能性、T01の一般次数3、既知三成分からの少なくとも五つの相異なる延長は証明した。
+次の課題はT01の分岐・例外層、三次被覆のモノドロミー、T39・T40の一般次数、
+および未知成分からの延長を排除できるかである。
+楕円型成分については一般 fibre の明示的な表示も未決である。
+全S61の未飽和斉次化には定理\ref{thm:infinity}の旗の部分が必ず現れるため、
+斉次化変数による飽和の制御、またはアフィンでの局所化と消去が必要となる。
 
 特殊層では、係数階数一の固定 fibre $F$ の極小素イデアル分解、成分次元、
 既知の全 Poisson 成分との対応が未決である。
@@ -963,6 +1291,7 @@ $\mathcal C_A,\mathcal C_B$ は共通の閉集合 $Z$ 上に10次元の一般 fi
 本稿はその上界を与えず、下界57を正確な総数へ変更しない。
 特殊軌道・成分交叉・冪零構造は、さらに別の未解決目標として維持する。
 
+\begingroup\small
 \begin{thebibliography}{99}
 \bibitem{mps} M. Matviichuk, B. Pym, T. Schedler,
 \textit{A local Torelli theorem for log symplectic manifolds},
@@ -1013,9 +1342,30 @@ arXiv:1001.4422v2 (2010), equations (16), (18), (19), (21).
 \nolinkurl{research/notes/TORIC_COFRAME_FIBER_20261031.md}、
 \nolinkurl{reports/TORIC_COFRAME_FIBER_20261031.json}、
 \nolinkurl{code/toric_coframe_fiber.py}。
+\bibitem{algebra-certificate} 同プロジェクト、
+\nolinkurl{research/notes/TORIC_ALGEBRA_FIBER_20261031.md}、
+\nolinkurl{reports/TORIC_ALGEBRA_FIBER_20261031.json}、
+\nolinkurl{code/toric_algebra_fiber.py}。
+\bibitem{algebra-review} 同プロジェクト、
+\nolinkurl{research/notes/TORIC_ALGEBRA_FIBER_REVIEW_20261031.md}、
+\nolinkurl{reports/TORIC_ALGEBRA_FIBER_REVIEW_20261031.json}、
+\nolinkurl{code/toric_algebra_fiber_review.py}。
+\bibitem{infinity-certificate} 同プロジェクト、
+\nolinkurl{research/notes/S61_INFINITY_FLAGS_20261031.md}、
+\nolinkurl{reports/S61_INFINITY_FLAGS_20261031_final.json}、
+\nolinkurl{code/s61_infinity_flags.py}。
+\bibitem{degree-certificate} 同プロジェクト、
+\nolinkurl{research/notes/TORIC_GENERIC_DEGREE_20261031.md}、
+\nolinkurl{reports/TORIC_ALGEBRA_DEGREE_20261031.json}、
+\nolinkurl{code/toric_algebra_degree.py}。
+\bibitem{degree-review} 同プロジェクト、
+\nolinkurl{research/notes/TORIC_GENERIC_DEGREE_REVIEW_20261031.md}、
+\nolinkurl{reports/TORIC_DEGREE_REVIEW_20261031.json}、
+\nolinkurl{code/toric_degree_review.py}。
 \bibitem{mps-crosswalk} 同プロジェクト、
 \nolinkurl{research/notes/MPS40_CROSSWALK_20261031.md}、
 \nolinkurl{reports/MPS40_CROSSWALK_20261031.json}、
 \nolinkurl{code/mps_catalog_audit.py}。
 \end{thebibliography}
+\endgroup
 \end{document}

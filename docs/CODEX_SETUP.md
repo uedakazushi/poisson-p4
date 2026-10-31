@@ -30,6 +30,9 @@ bash scripts/setup.sh
 ```
 
 Pythonが別名の場合は、例えば `PYTHON=python3.12 bash scripts/setup.sh` とする。
+2026-10-31はPython3.14.10でも全基準検証を再現した。この環境の既定Python3.15では
+固定NumPy2.3.5を導入できなかったため、`PYTHON=python3.14`を明示した。
+依存を勝手に更新せず、既存の不完全なvenvは確認してから別名へ退避する。
 setupはリポジトリ内の`.venv`だけへ固定依存を入れ、版別原資料を`legacy/`へ展開する。
 sudo、OSの変更、利用者のCodexの全体設定の変更は行わない。
 以後はこのフォルダをCodexの主作業フォルダとして開く。

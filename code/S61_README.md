@@ -1,6 +1,6 @@
 # S61 の現行座標・一次部分・既知族
 
-2026-10-30 / v26-s61。原本は `legacy/v02/` に置いたまま、以下の独立実装と
+2026-10-31 / v28-s61。原本は `legacy/v02/` に置いたまま、以下の独立実装と
 証明書から研究を再開する。完全分類・素分解・新しい成分を主張する実装ではない。
 
 ## 座標規約
@@ -73,7 +73,7 @@ fibreの接空間次元38は実際の次元・成分数・被約性を意味し�
 2026-10-31。T39/T40もW16へ優越的で、一般に有限であることを証明した。
 既知三成分の指定点は全S61内で滑らかで、一次射影はétale。
 十分一般の一次部分には少なくとも三つの相異なる孤立被約な延長がある。
-全一般ファイバーの尽くしや有限性、次数は未証明。
+全一般ファイバーの尽くしや有限性、次数は未証明。v28では下記の通りT01の次数を3と決定した。
 
 ```sh
 .venv/bin/python code/elliptic_weight1_dominance.py --output reports/new-elliptic.json
@@ -92,4 +92,27 @@ fibreの接空間次元38は実際の次元・成分数・被約性を意味し�
 - `mps_catalog_audit.py`：Table 2の全40図式をS5同値込みで一次資料照合。`--source-html`で元HTMLからの再抽出も検証する。オフライン用の事実抽出は `mps_table2_diagrams.json`。
 
 全51階数四成分のS61座標表示が完成したという意味ではない。
-楕円型の全一般パラメータ61座標の保存と、三射影の一般次数は残る。
+楕円型の全一般パラメータ61座標の保存と、二つの楕円射影の一般次数は残る。
+
+## v28：トーリック次数3と全模型の無限遠
+
+```sh
+.venv/bin/python code/toric_algebra_fiber.py --output reports/new-toric-algebra.json
+.venv/bin/python code/toric_algebra_fiber_review.py --output reports/new-algebra-review.json
+.venv/bin/python code/toric_algebra_degree.py --output reports/new-toric-degree.json
+.venv/bin/python code/toric_degree_review.py --output reports/new-degree-review.json
+.venv/bin/python code/s61_infinity_flags.py --output reports/new-infinity-flags.json
+.venv/bin/python code/s61_infinity_flags_review.py --output reports/new-infinity-review.json
+```
+
+- `toric_algebra_fiber.py`：固定一次部分をもつtrace-free可換積を20個の対称三階テンソルで表示。96二次式で結合性を課し、非零トレース判別式上でGL4/S5と同定する。Poisson双ベクトルとノルム因子を復元。
+- `toric_algebra_fiber_review.py`：一般40係数から線形写像を再構成し、上ブロックを含む64恒等式、トレース形式と文字による復元を独立に確認。
+- `toric_algebra_degree.py`：96式から普遍的一次帰結18本を保存。二変数化した全イデアルの商が指定点で長さ3の被約代数となり、三点とも半単純であることを確認。二次先頭係数の可逆性が開集合上の有限性を保証し、有限étale近傍により一般次数3を証明。
+- `toric_degree_review.py`：別の密行列核計算から96式全体を消去し、全証明書の行操作・商代数・Bézout恒等式も検算。
+- `s61_infinity_flags.py`：未飽和二次斉次化の旗incidence、55復元式の重み2線形性、Bianchi20関係の係数次数を確認。最終証明書は `S61_INFINITY_FLAGS_20261031_final.json`。これを真の射影閉包やアフィン正次元性の証明としない。
+
+`s61_infinity_flags_review.py`は元のモデル実装をimportせず、20個のBianchi恒等式、
+55復元式、方向双ベクトルの直接Schouten計算、全134先頭式を独立確認する。
+
+全一般S61には少なくとも五つの孤立被約な延長がある。一般次数3はT01の射影に限り、
+楕円二成分・未知成分・例外層の尽くしを含まない。
