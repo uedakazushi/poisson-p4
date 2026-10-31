@@ -1,6 +1,6 @@
 # Poisson structures on P4 — Codex instructions
 
-Version: v28-s61 · 2026-10-31 (Asia/Tokyo).
+Version: v29-s61 · 2026-10-31 (Asia/Tokyo).
 
 Current continuation: T01, T39=q(5,1), and T40=q(5,2) all have dominant,
 generically finite primitive first-jet projection to W16. Exact full-S61
@@ -8,11 +8,20 @@ Jacobians give smooth etale points on each. T01 has generic degree THREE
 (ordered coframe degree 360), proved using a 20-variable, 96-quadratic algebra
 model, universal 18-variable linear elimination and a finite etale neighborhood.
 A sufficiently general jet has at least FIVE distinct isolated reduced lifts.
-The full generic fiber and unknown components remain unclassified. MPS40 is
+T39/T40 fixed-jet parameter fibers now have an exact five-variable model:
+30 rational invariant equations; a covariant frame recovers Sp4 and a rational
+degree-two invariant recovers the scalar. There is a generic order-50 parameter
+redundancy subgroup, not a proved complete redundancy. Both elliptic degrees
+and the full generic fiber remain unclassified. The 70 weight-4 leading quadrics
+have 36 linear syzygies, 35 canonical Bianchi ones. The extra syzygy yields a
+universal weight-6 consequence G6 of q-degree 2; the augmented 135 leading quadrics
+are independent on a nonempty first-jet open. Use this augmented input for
+further elimination. The old flag incidence survives after adjoining G6
+(review note section 6); affine finiteness is unproved. MPS40 is
 individually crosswalked to primary Table 2; the component lower bound remains 57.
 The unsaturated quadratic homogenization always has a positive-dimensional
 isotropic-flag locus at infinity; do not confuse it with the saturated closure
-or infer positive-dimensional affine fibers. Read the v28 STATE/NEXT_TASKS and
+or infer positive-dimensional affine fibers. Read the v29 STATE/NEXT_TASKS and
 code/S61_README.md. Do not reopen proved finite results as unknown. CA/CB share
 a closed nine-dimensional first-jet image. Rank-one and exceptional strata remain open.
 

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checkpoint": "v28-s61",
+  "checkpoint": "v29-s61",
   "date": "2026-10-31",
   "base_mathematical_checkpoint": "v24",
   "new_components_added_in_this_setup": 0,
@@ -4540,7 +4540,8 @@
         "MPS40",
         "MPS40_CROSSWALK",
         "S61_KNOWN_DOMINANT_FIBER_ETALE",
-        "S61_ELLIPTIC_FIRST_JET_DOMINANCE"
+        "S61_ELLIPTIC_FIRST_JET_DOMINANCE",
+        "S61_ELLIPTIC_FIVE_VARIABLE_FIBER"
       ],
       "proof_sources": [
         {
@@ -4549,12 +4550,17 @@
         },
         {
           "path": "research/notes/MPS40_CROSSWALK_20261031.md"
+        },
+        {
+          "path": "research/notes/ELLIPTIC_SIX_VARIABLE_FIBER_20261031.md"
         }
       ],
       "verification_records": [
         "reports/MPS40_CROSSWALK_20261031.json",
         "reports/S61_KNOWN_FIBER_AUDIT_20261031.json",
-        "reports/ELLIPTIC_WEIGHT1_DOMINANCE_20261031.json"
+        "reports/ELLIPTIC_WEIGHT1_DOMINANCE_20261031.json",
+        "reports/ELLIPTIC_SIX_VARIABLE_FIBER_20261031.json",
+        "reports/ELLIPTIC_FIVE_VARIABLE_REVIEW_20261031.json"
       ],
       "s61_coordinate_map_status": "general homogeneous rational family, point/frame/primitive normalization proved; S61 sample verified, all-parameter 61-coordinate export not yet saved",
       "review_status": {
@@ -4567,7 +4573,14 @@
         "個別図式・次元の台帳であり、全成分のS61定義イデアルを構築したわけではない。"
       ],
       "generic_primitive_first_jet_image": "dominant onto W16; generically finite and generically etale",
-      "general_degree": null
+      "general_degree": null,
+      "fixed_first_jet_parameter_model": {
+        "variables": 5,
+        "rational_equations": 30,
+        "code": "code/elliptic_six_variable_fiber.py",
+        "parameter_redundancy_divisor": 50,
+        "full_parameter_redundancy": null
+      }
     },
     {
       "id": "T40",
@@ -4705,7 +4718,8 @@
         "MPS40",
         "MPS40_CROSSWALK",
         "S61_KNOWN_DOMINANT_FIBER_ETALE",
-        "S61_ELLIPTIC_FIRST_JET_DOMINANCE"
+        "S61_ELLIPTIC_FIRST_JET_DOMINANCE",
+        "S61_ELLIPTIC_FIVE_VARIABLE_FIBER"
       ],
       "proof_sources": [
         {
@@ -4714,12 +4728,17 @@
         },
         {
           "path": "research/notes/MPS40_CROSSWALK_20261031.md"
+        },
+        {
+          "path": "research/notes/ELLIPTIC_SIX_VARIABLE_FIBER_20261031.md"
         }
       ],
       "verification_records": [
         "reports/MPS40_CROSSWALK_20261031.json",
         "reports/S61_KNOWN_FIBER_AUDIT_20261031.json",
-        "reports/ELLIPTIC_WEIGHT1_DOMINANCE_20261031.json"
+        "reports/ELLIPTIC_WEIGHT1_DOMINANCE_20261031.json",
+        "reports/ELLIPTIC_SIX_VARIABLE_FIBER_20261031.json",
+        "reports/ELLIPTIC_FIVE_VARIABLE_REVIEW_20261031.json"
       ],
       "s61_coordinate_map_status": "general homogeneous rational family, point/frame/primitive normalization proved; S61 sample verified, all-parameter 61-coordinate export not yet saved",
       "review_status": {
@@ -4732,7 +4751,14 @@
         "個別図式・次元の台帳であり、全成分のS61定義イデアルを構築したわけではない。"
       ],
       "generic_primitive_first_jet_image": "dominant onto W16; generically finite and generically etale",
-      "general_degree": null
+      "general_degree": null,
+      "fixed_first_jet_parameter_model": {
+        "variables": 5,
+        "rational_equations": 30,
+        "code": "code/elliptic_six_variable_fiber.py",
+        "parameter_redundancy_divisor": 50,
+        "full_parameter_redundancy": null
+      }
     },
     {
       "id": "R2_RAT113",

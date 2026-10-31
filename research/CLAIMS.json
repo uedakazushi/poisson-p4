@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checkpoint": "v28-s61",
+  "checkpoint": "v29-s61",
   "date": "2026-10-31",
   "base_mathematical_checkpoint": "v24",
   "new_mathematical_progress_in_this_setup": false,
@@ -119,6 +119,34 @@
       "date": "2026-10-31",
       "result": "PASS",
       "scope_ja": "対応する証明書の有限恒等式・消去・階数。全分類の完了ではない。"
+    },
+    {
+      "id": "V29_ELLIPTIC_FIVE",
+      "record": "reports/ELLIPTIC_FIVE_VARIABLE_REVIEW_20261031.json",
+      "date": "2026-10-31",
+      "result": "PASS",
+      "scope_ja": "有理証明点、共変性、倍率・位数50対称性を独立確認。全次数未決。"
+    },
+    {
+      "id": "V29_QUADRATIC_SPAN",
+      "record": "reports/S61_FIBER_QUADRATIC_SPAN_20261031.json",
+      "date": "2026-10-31",
+      "result": "PASS",
+      "scope_ja": "QQ上の134次小行列式と一般非零開集合。"
+    },
+    {
+      "id": "V29_MACAULAY_DEGREE3",
+      "record": "reports/S61_MACAULAY_DEGREE3_COMPLETE_20261031.json",
+      "date": "2026-10-31",
+      "result": "PASS",
+      "scope_ja": "F32003の全行列階数。標数零への持ち上げではない。"
+    },
+    {
+      "id": "V29_UNIVERSAL_WEIGHT6",
+      "record": "reports/S61_UNIVERSAL_WEIGHT6_REVIEW_20261031.json",
+      "date": "2026-10-31",
+      "result": "PASS",
+      "scope_ja": "QQ核36次元と35 Bianchi関係、9257項の普遍G6、135次非零小行列式の独立点検。"
     }
   ],
   "claims": [
@@ -1293,6 +1321,115 @@
       "limitations_ja": [
         "斉次化変数で飽和した真の射影閉包ではこれらの点が消える可能性がある。",
         "アフィンファイバーの正次元性や全一般ファイバーの上界を主張しない。"
+      ]
+    },
+    {
+      "scope": "Complex first-jet model on explicitly localized dense open sets; not global exhaustion.",
+      "status": {
+        "proof": "proof_with_exact_rational_certificate",
+        "independent_review": "independent_agent_review_not_external_peer_review",
+        "certificates": "reproduced_2026_10_31",
+        "novelty": "not_independently_established"
+      },
+      "id": "S61_ELLIPTIC_FIVE_VARIABLE_FIBER",
+      "title_ja": "楕円二成分の固定一次部分の五変数模型",
+      "statement_ja": "primitive一次部分から次数3,5,7,9の共変frame Rを作り、det R≠0上でSp4作用は自由。6個のGram成分と24個のテンソル成分で軌道をスキーム論的に分離しSp4行列を一意復元する。h=I14/I4^3を用いて倍率も一意に消去し、楕円二族の固定一次部分の表示ファイバーをλ,p1,...,p4の五変数・30有理等式へ帰着する。位数50の自由な表示対称性により一般長さN_k=50 e_k d_k、e_k,d_kは未決。",
+      "dependencies": {
+        "claims": [
+          "S61_PRIMITIVE_GAUGE",
+          "S61_ELLIPTIC_FIRST_JET_DOMINANCE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/ELLIPTIC_SIX_VARIABLE_FIBER_20261031.md"
+        },
+        {
+          "path": "research/notes/ELLIPTIC_FIVE_VARIABLE_REVIEW_20261031.md"
+        },
+        {
+          "path": "papers/s61_first_jet_reduction_ja.tex"
+        }
+      ],
+      "verification_records": [
+        "reports/ELLIPTIC_SIX_VARIABLE_FIBER_20261031.json",
+        "reports/ELLIPTIC_FIVE_VARIABLE_REVIEW_20261031.json"
+      ],
+      "limitations_ja": [
+        "d I4 I14=0と正規化分母零の特殊層を含まない。",
+        "全表示重複、五変数模型の一般長さ、楕円成分の一般次数は未計算。",
+        "30式を任意の五式へ置き換えず、全S61の尽くしを主張しない。"
+      ]
+    },
+    {
+      "scope": "Complex first-jet model on explicitly localized dense open sets; not global exhaustion.",
+      "status": {
+        "proof": "proof_with_exact_rational_certificate",
+        "independent_review": "parent_proof_review_and_exact_rerun_not_external_peer_review",
+        "certificates": "reproduced_2026_10_31",
+        "novelty": "not_independently_established"
+      },
+      "id": "S61_GENERIC_QUADRATIC_SPAN_FULL",
+      "title_ja": "一般固定一次部分の二次先頭式134本の独立性",
+      "statement_ja": "全134式のq二次先頭係数行列に、指定toric一次部分で非零となる134次小行列式がある。これは一次部分の高々64次多項式であり、その非零開集合上では元134式の非零な定数係数線形結合からアフィン一次式を得られない。",
+      "dependencies": {
+        "claims": [
+          "MODEL_S61",
+          "S61_EXPLICIT_FAMILY_MAPS"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_AFFINE_FIBER_REDUCTION_20261031.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_FIBER_QUADRATIC_SPAN_20261031.json"
+      ],
+      "limitations_ja": [
+        "多項式乗数や根基イデアル内の一次帰結を排除しない。",
+        "有限体の追加二次方向は、後続のS61_UNIVERSAL_WEIGHT6_CONSEQUENCEで普遍的帰結G6として持ち上げた。いずれも一般有限性や全次数を示さない。"
+      ]
+    },
+    {
+      "id": "S61_UNIVERSAL_WEIGHT6_CONSEQUENCE",
+      "title_ja": "全S61の普遍的な重み6帰結と135本目の二次式",
+      "statement_ja": "70重み4式のq二次先頭部の一次係数関係空間は36次元、Schouten--Bianchi部分は35次元。残る関係からG6=sum c_ij q_j F_iを構成すると全16一次方向についてq三次が相殺され、重み6・q次数高々2のイデアル帰結となる。指定toric一次部分で追加後135式の二次先頭部が独立で、その小行列式の非零開集合上でも独立。元のイデアルは変わらない。 独立点検ノート§6の同変性の議論により、G6を二次斉次化して追加しても既存の無限遠flag incidence全体が残る。",
+      "scope": "Universal polynomial ideal consequence in full S61, and a nonempty first-jet open rank statement; no exhaustion.",
+      "status": {
+        "proof": "proof_with_exact_rational_certificate",
+        "independent_review": "independent_agent_proof_and_certificate_review_not_external_peer_review",
+        "certificates": "reproduced_2026_10_31",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "MODEL_S61",
+          "S61_GENERIC_QUADRATIC_SPAN_FULL"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_UNIVERSAL_WEIGHT6_20261031.md"
+        },
+        {
+          "path": "research/notes/S61_UNIVERSAL_WEIGHT6_REVIEW_20261031.md"
+        },
+        {
+          "path": "papers/s61_first_jet_reduction_ja.tex"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_UNIVERSAL_WEIGHT6_20261031.json",
+        "reports/S61_UNIVERSAL_WEIGHT6_REVIEW_20261031.json"
+      ],
+      "limitations_ja": [
+        "一般ファイバーの有限性・次数・成分の尽くしを与えない。",
+        "追加後の未飽和模型でも旧flag incidenceは残るが、斉次化変数で飽和した真の閉包やアフィン次元の結論ではない。",
+        "新しいPoisson条件を追加したものではなく、既存イデアルの帰結である。"
       ]
     }
   ],

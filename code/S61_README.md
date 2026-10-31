@@ -1,6 +1,6 @@
 # S61 の現行座標・一次部分・既知族
 
-2026-10-31 / v28-s61。原本は `legacy/v02/` に置いたまま、以下の独立実装と
+2026-10-31 / v29-s61。原本は `legacy/v02/` に置いたまま、以下の独立実装と
 証明書から研究を再開する。完全分類・素分解・新しい成分を主張する実装ではない。
 
 ## 座標規約
@@ -116,3 +116,41 @@ fibreの接空間次元38は実際の次元・成分数・被約性を意味し�
 
 全一般S61には少なくとも五つの孤立被約な延長がある。一般次数3はT01の射影に限り、
 楕円二成分・未知成分・例外層の尽くしを含まない。
+
+## v29：楕円型五変数模型と全ファイバーの消去
+
+```sh
+.venv/bin/python code/elliptic_six_variable_fiber.py --output reports/new-elliptic-five.json
+.venv/bin/python code/elliptic_five_variable_review.py --output reports/new-elliptic-five-review.json
+.venv/bin/python code/s61_fiber_quadratic_span.py --output reports/new-quadratic-span.json
+.venv/bin/python code/verify_s61_macaulay_degree3.py --seconds 150 --entry-limit 50000000 --output reports/new-macaulay3.json
+```
+
+楕円型のコード名は中間の六変数還元に由来する。最終関数
+`fixed_jet_five_variable_equations` はλ,p1,…,p4の五変数について30等式を返す。
+共変frameの行列式とI4,I14・正規化分母を可逆化し、Sp4行列と倍率を一意に復元する。
+分子を巨大な多項式に展開せず、有限個の加減乗除からなる処方を保存する。
+一般解数N_kは未計算で、成分の一般次数d_kとの関係はN_k=50 e_k d_k、e_kも未決である。
+
+全ファイバーについては134個の二次先頭部の非零小行列式をQQで保存した。
+三次Macaulayの完全計算はF32003に限られ、6164×17296行列の階数6073、
+追加二次式一つ、一次帰結なしを確認。C++コンパイラが必要で、一時フォルダへビルドする。
+時間・成分数上限に達した実行は部分結果として記録する。
+標数零での追加式、一般次数、全尽くしの証明に読み替えない。
+
+全Macaulayの観測から普遍的帰結への持ち上げは、次の証明書で完了した。
+
+```sh
+.venv/bin/python code/s61_weight4_syzygies.py --output reports/new-universal-weight6.json
+.venv/bin/python code/s61_weight6_review.py --output reports/new-weight6-review.json
+.venv/bin/python code/elliptic_fiber_line_probe.py --output reports/new-elliptic-line.json
+```
+
+70本の重み4先頭式の一次関係は36次元で、35次元のSchouten--Bianchi部分の外の
+関係からG6を作る。全61変数で9257項、重み6、q次数は高々2。元の134式の
+多項式係数結合なのでイデアルを変えず、指定点で二次先頭階数135を持つ。
+独立点検は有理核の上界と有限体階数の下界を組み合わせてQQの階数を証明し、
+全G6と135次小行列式を確認する。指定flag代表上の先頭制限は恒等的に零である。
+
+楕円型の直線制限はλ=2,p=(t,2,3,4)のみを扱う。QQ(t)上の二つの必要式のgcdが
+t−1となり、この制限上のファイバーは一つの被約点である。五変数全体の解数は未計算。

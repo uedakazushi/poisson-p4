@@ -1,0 +1,88 @@
+{
+  "id": "ELLIPTIC_FIVE_VARIABLE_REVIEW_20261031",
+  "all_passed": true,
+  "field": "QQ",
+  "universal_tensor_variables": 24,
+  "infinitesimal_covariance_generators": 10,
+  "covariance": "M -> S^-T M S^-1, A -> S A S^-1, v -> S v, R -> S R",
+  "families": [
+    {
+      "component_id": "T39",
+      "det_R": "-22424316787704798313221875000/129140163",
+      "I4": "-207550/9",
+      "I14": "-1364884028921875/13122",
+      "independent_Gram_Schmidt_normalization_agrees": true,
+      "generic_lambda_shift_phase_reflection_identities": true,
+      "actual_shift_reflection_parameter_signature_checks": true,
+      "scalar_recovery_and_all30_weighted_signatures_checked_at": [
+        "-2",
+        "3"
+      ]
+    },
+    {
+      "component_id": "T40",
+      "det_R": "-22874904216621589416199115134751991796875/7736897450643967348366687611387904",
+      "I4": "-34396225/444728",
+      "I14": "-12824353234395624109375/2814708331152523264",
+      "independent_Gram_Schmidt_normalization_agrees": true,
+      "generic_lambda_shift_phase_reflection_identities": true,
+      "actual_shift_reflection_parameter_signature_checks": true,
+      "scalar_recovery_and_all30_weighted_signatures_checked_at": [
+        "-2",
+        "3"
+      ]
+    }
+  ],
+  "scheme_equivalence_on_localized_domain": true,
+  "parameter_variables": 5,
+  "signature_equations": 30,
+  "signature_homogeneous_degrees": [
+    8,
+    10,
+    12,
+    12,
+    14,
+    16,
+    12,
+    14,
+    16,
+    18,
+    14,
+    16,
+    18,
+    20,
+    16,
+    18,
+    20,
+    22,
+    16,
+    18,
+    20,
+    22,
+    18,
+    20,
+    22,
+    24,
+    20,
+    22,
+    24,
+    26
+  ],
+  "open_conditions": "lambda*a*Delta*det(R_source_at_c1)*det(R_target)*I4(source_at_c1)*I14(source_at_c1)*I4(target)*I14(target) != 0",
+  "recovered_symplectic_element": "R_target R_source^-1",
+  "recovered_scalar": "h(target)/h(source_at_c1), h=I14/I4^3",
+  "verified_redundancy_subgroup_order": 50,
+  "limitations": [
+    "The det(R)=0 locus and normalization-chart complements are excluded.",
+    "Thirty signature equalities are a redundant system, not a claim of thirty independent equations.",
+    "The order50 subgroup is not a determination of all parameter redundancies.",
+    "Neither elliptic component degree nor a full S61 generic-fiber count is computed."
+  ],
+  "proof_note": "research/notes/ELLIPTIC_FIVE_VARIABLE_REVIEW_20261031.md",
+  "input_sha256": {
+    "reports/ELLIPTIC_WEIGHT1_DOMINANCE_20261031.json": "04e347c651dfb32f46b38f99b923aa615194fbc8221856b9c6c9f8db083bbf32",
+    "reports/ELLIPTIC_SIX_VARIABLE_FIBER_20261031.json": "51684a324dbe95b62c51131c79189396631a5820abdb9be929a7a6ebb42a5cfd",
+    "code/elliptic_six_variable_fiber.py": "303997092cb62afb5e3943c3df5a93ce39d04cd51726cd2b91b721199607e2f3",
+    "code/elliptic_five_variable_review.py": "88704eb07e91d308d0684744dfd21f701befc25a4c5b0787d84c08e57c6774b7"
+  }
+}

@@ -35,7 +35,7 @@
 \title{射影四空間の Poisson 構造の一次ジェット還元\\
 \large Toric 射影の次数三、五つの一般延長と無限遠の障害}
 \author{Poisson P4 研究プロジェクト・内部研究草稿}
-\date{2026年10月31日・v28-s61}
+\date{2026年10月31日・v29-s61}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -48,6 +48,8 @@ primitive な一次ジェットの16次元空間への射影を調べる。
 さらに、五超平面が射影標構をなす toric 開部分の全延長を、
 16変数の明示方程式の解の $S_5$ 軌道として表し、さらにラベルを除いた20変数・96二次式へ還元する。
 普遍的一次消去と有限な近傍の構成により、toric成分の一般次数が3、順序付きcoframeの次数が360であることを証明する。
+楕円二族では共変 frame とスカラー不変量により、一般の固定一次部分を五変数・30本の有理等式へ還元する。
+位数50の表示重複を証明するが、楕円型の一般次数は決定しない。
 全S61の未飽和斉次化には、非零一次項ごとに3次元の旗の無限遠部分が必ず現れることも示す。
 基礎となる perspective 正規化は有限の多項式公式で与えられ、一意である。
 特殊層では、係数階数一の5次元軌道上の全解を45変数・134二次式の固定 fibre へ帰着し、
@@ -814,9 +816,199 @@ $H_0=\frac12F(\delta K)F^tJ$ を使うと
 となる。$H$ と $H_0$ による一次部分微分の差が、既に含めた $\Sp_4$ 作用列の
 線形結合になることを直接検算し、両方法の16次小行列式の一致も確認した。
 
+\section{楕円型の固定一次部分を五変数へ還元する}\label{sec:elliptic-five}
+前節の優越性は楕円二成分の一般次数を決めない。
+ここでは一般の固定一次部分に対し、$\Sp_4$ の十変数とスカラーを消去した
+明示的な有理方程式を与える。表示の有限重複を残した模型であり、
+その解数と成分の次数を区別する。
+
+\subsection{一次部分からの共変 frame}
+$\beta_{bc}(y)=\sum_aT_{abc}y_a$ と書き、添字は $1,\ldots,4$ を動くとする。
+$T$ の後二添字は反対称である。$S\in\Sp_4$ の pushforward では
+\[
+ T'_{abc}=\sum_{i,j,k}(S^{-1})_{ia}(S^{-1})_{jb}(S^{-1})_{kc}T_{ijk}.
+\]
+以下の縮約を定義する。
+\begin{align}
+ M_{ia}&=\sum_{j,k,b,c}T_{ijk}T_{abc}J_{jb}J_{kc},& A&=JM,\nonumber\\
+ H&=JMJ^t,&u_i&=\sum_{a,b}T_{abi}H_{ab},\label{eq:covariant-frame}\\
+ v&=Ju,&R(\beta)&=[\,v\mid Av\mid A^2v\mid A^3v\,],\qquad
+ d(\beta)=\det R(\beta).\nonumber
+\end{align}
+$M$ は対称であり、$AJ+JA^t=0$ である。二つの $T$ を交換すると
+$J$ の反対称性から二回符号が変わることが対称性を与える。
+添字の縮約から普遍的に
+\[
+ M'=S^{-t}MS^{-1},\quad A'=SAS^{-1},\quad u'=S^{-t}u,
+ \quad v'=Sv,\quad R(\beta')=SR(\beta)
+\]
+が従う。$R$ の列の次数は $3,5,7,9$ で、$d$ は次数24の不変量である。
+従って $W^\circ=\{d\ne0\}$ 上の $\Sp_4$ 安定化群はスキームとして自明である。
+実際、$S\beta=\beta$ なら $SR=R$ であり、$R$ の可逆性から $S=I$ となる。
+
+$R$ の列を $R_i$ とし、次の30個の多項式不変量を $\mathcal I(\beta)$ とまとめる。
+\begin{equation}\label{eq:elliptic-signature}
+ G_{ij}=R_i^tJR_j\quad(i<j),\qquad
+ U_{aij}=T(R_a,R_i,R_j)\quad(i<j,\ 1\le a\le4).
+\end{equation}
+六つの $G$ と24個の $U$ には従属があるが、全て保持する。
+
+\begin{lemma}[開集合上の軌道分離]\label{lem:elliptic-separation}
+$b,\beta\in W^\circ$ に対し、$\mathcal I(b)=\mathcal I(\beta)$ と
+$S\cdot b=\beta$ を満たす $S\in\Sp_4$ の存在は同値である。
+その $S$ は一意で、$S=R(\beta)R(b)^{-1}$ である。
+この対応は $d(b)d(\beta)$ を可逆にした係数環上でスキームの同型を与える。
+\end{lemma}
+\begin{proof}
+必要性と一意性は共変性から従う。逆に $G$ の一致を用いると
+$S=R(\beta)R(b)^{-1}$ は $S^tJS=J$ を満たす。
+$U$ の一致と二つの $R$ の可逆性から、三添字全てに関する
+$T_\beta=(S^{-1})^{\otimes3}T_b$ が従う。
+後二添字の反対称性により24成分で十分である。
+これらの操作は可逆な行列の積と逆行列だけであり、任意の係数環で成立する。
+従って閉点の全単射だけでなく、局所化した等式スキームの同型である。
+\end{proof}
+
+これは不変式環全体の生成系を主張するものではなく、$d=0$ 上の軌道も扱わない。
+
+\subsection{六変数模型とスカラーの一意復元}
+第\ref{sec:elliptic}節の一般族と有理 frame により得られる primitive 一次部分を
+\[
+ b_k(\lambda,p,c)\in W\qquad(k=1,2)
+\]
+と書く。ここで $\lambda c a\Delta\ne0$ を要求する。
+固定 $\beta\in W^\circ$ に対し
+\begin{equation}\label{eq:elliptic-six}
+ \mathcal I(b_k(\lambda,p,c))=\mathcal I(\beta),\qquad
+ \lambda c a\Delta d(b_k(\lambda,p,c))\ne0
+\end{equation}
+は六変数・30本の有理等式である。補題\ref{lem:elliptic-separation}により、
+これは元の16変数の固定一次部分模型
+\[
+ \{(S,\lambda,p,c):S\in\Sp_4,\ S\cdot b_k(\lambda,p,c)=\beta\}
+\]
+とスキームとして同型である。全ての解で $S=R(\beta)R(b_k)^{-1}$ が復元される。
+分母を払う際は、指定した非消失条件による局所化を保つ必要がある。
+
+さらに次数4と14の多項式不変量、および次数2の有理不変量
+\begin{equation}\label{eq:elliptic-scalar-invariants}
+ I_4(\beta)=\operatorname{tr}(A^2),\qquad
+ I_{14}(\beta)=T(Av,v,Av),\qquad
+ h(\beta)=\frac{I_{14}(\beta)}{I_4(\beta)^3}
+\end{equation}
+を用いる。
+
+\begin{lemma}[スカラーの復元]\label{lem:elliptic-scalar}
+$I_4I_{14}\ne0$ の開集合上で
+\[
+ h(b_k(\lambda,p,c))=c\,h(b_k(\lambda,p,1)).
+\]
+従って固定一次部分 $\beta$ に対するスカラーは
+\begin{equation}\label{eq:elliptic-recovered-c}
+ c(\lambda,p;\beta)=\frac{h(\beta)}{h(b_k(\lambda,p,1))}
+\end{equation}
+により一意に復元される。
+\end{lemma}
+\begin{proof}
+$c=1$ で定数項を正規化する frame を $F$ とする。
+正規化前の双ベクトルを $c$ 倍したとき、$F/\sqrt c$ を用いれば定数項は $J$、
+一次項は $\sqrt cL$ になる。primitive 射影は線形であるから、
+正規化後の一次部分も $\Sp_4$ 作用を除いて $\sqrt c$ 倍となる。
+従って $I_4,I_{14}$ はそれぞれ $c^2,c^7$ 倍され、$h$ は $c$ 倍される。
+この恒等式は $c$ が単元である係数環の忠実平坦な平方根付加上で証明され、
+両辺は元の環の有理関数なので降下する。解に平方根の選択を追加しない。
+また補題\ref{lem:elliptic-separation}により、\eqref{eq:elliptic-six}の等式スキーム上で
+全ての不変量が一致する。$h(b_k(\lambda,p,1))$ が単元なので、
+$c\,h(b_k(\lambda,p,1))=h(\beta)$ から $c$ を消去できる。
+\end{proof}
+
+\begin{theorem}[楕円型の五変数模型]\label{thm:elliptic-five}
+非空開集合 $W^{\circ\circ}=\{dI_4I_{14}\ne0\}\subset W$ 上で、
+楕円二族の固定一次部分のパラメータ fibre は、五変数 $(\lambda,p_1,p_2,p_3,p_4)$ と
+30本の明示的な有理等式を持つ模型に帰着する。
+指定した開条件上でこの帰着はスキームの同型であり、$\Sp_4$ frame とスカラーは一意に復元される。
+この模型は一般の一次部分に対して零次元である。
+\end{theorem}
+\begin{proof}
+$b_0=b_k(\lambda,p,1)$ と置き、\eqref{eq:elliptic-recovered-c}を
+\eqref{eq:elliptic-six}の全30等式に代入する。
+各成分 $\mathcal I_j$ の偶数次数を $w_j$ とすると、等式は直接
+\begin{equation}\label{eq:elliptic-five-equations}
+ c(\lambda,p;\beta)^{w_j/2}\mathcal I_j(b_0)-\mathcal I_j(\beta)=0
+ \qquad(1\le j\le30)
+\end{equation}
+と書ける。$R_i$ の次数を $e_i=2i+1$ とすると、$G_{ij}$ の次数は $e_i+e_j$、
+$U_{aij}$ の次数は $1+e_a+e_i+e_j$ であり、全て偶数である。
+必要な開条件は $\lambda a\Delta d(b_0)I_4(b_0)I_{14}(b_0)\ne0$ と
+target の $dI_4I_{14}\ne0$ である。
+二つの補題からスキームの同型と一意復元が従う。
+
+非空性は $\lambda=2,p=(1,2,3,4),c=1$ での厳密有理計算による。
+長い分数を省くため、次表には分母が可逆な法101での値を記す。
+元の有理数と全共変量は\cite{elliptic-five-certificate}に保存されている。
+共変性、別の frame による正規化、スカラー作用と群生成元は\cite{elliptic-five-review}でも独立に確認した。
+\begin{center}
+\begin{tabular}{@{}cccc@{}}
+\toprule
+族 & $d\bmod101$ & $I_4\bmod101$ & $I_{14}\bmod101$\\\midrule
+$q_{5,1}$ & 76 & 23 & 66\\
+$q_{5,2}$ & 42 & 74 & 50\\\bottomrule
+\end{tabular}
+\end{center}
+これは有理数体上の非零性の証拠であり、有限体の解数を一般次数として使うものではない。
+最後に、定理\ref{thm:elliptic-dominance}の優越性と同じ16次元のパラメータ空間を用いるので、
+一般 fibre は零次元である。除いたパラメータの真の閉部分の像は次元高々15であり、
+一般次数を変えない。ただし特殊な target に対する完全性は主張しない。
+\end{proof}
+
+\subsection{位数50の表示重複と次数の区別}
+$\zeta$ を原始五乗根とし、添字を $\mathbb Z/5\mathbb Z$ とする。
+\[
+ C:(x_i)\mapsto(x_{i+1}),\quad
+ D:(x_i)\mapsto(\zeta^ix_i),\quad
+ H:(x_i)\mapsto(x_{-i})
+\]
+は、両族の一般 $\lambda$ に対し
+\[
+ C_*B_k=B_k,\qquad D_*B_k=B_k,\qquad H_*B_k=-B_k
+\]
+を満たす。$C,H$ は\eqref{eq:elliptic-family}への代入で確認でき、$D$ は各単項式の
+添字重みが $i+j\pmod5$ であることによる。
+$C,D$ は projectively 可換な位数5の独立な元であり、$H$ は両者を逆元に共役する。
+従って $G=(\mathbb Z/5)^2\rtimes\{\pm1\}$ は位数50である。
+50元の区別は10種類の置換 $i\mapsto\pm i+a$ と、各置換に対する5種類の対角位相から従う。
+
+$g_*B_k=\chi(g)B_k$ と書けば、表示に対する変換は
+\[
+ \lambda'=\lambda,\qquad p'=g(p),\qquad c'=\chi(g)c
+\]
+である。$p'$ は projective 座標変換後に $x_0=1$ へ戻して取る。
+$K=cP(p)$ に対して $Dg_p K(Dg_p)^t=c'P(p')$ なので、
+旧 frame $F$ を $F(Dg_p)^{-1}$ に替えれば定数項の正規化が一致する。
+原点と微分が一致する二つの projective 座標変換の差は perspective であり、
+primitive gauge の一意性により最終的な正規化済み双ベクトルも一致する。
+反転 $H$ では $c\mapsto-c$ が必要である。
+
+各非自明な projective 線形変換の固定 locus は真の閉部分である。
+それらと必要な有限個の chart の補集合を除くと、$G$ は自由に作用し、
+全50表示が五変数模型に残る。従って一つの一般の正規化済み双ベクトルには
+少なくとも50個の異なるパラメータ表示がある。
+$\Sp_4$ の中心 $-I$ は一意な frame 復元に含まれており、別の係数2として加算しない。
+
+成分自身の一般次数を $d_k$、パラメータ表示の一般次数を $\rho_k$、
+五変数模型の一般長さを $N_k$ と書くと、関数体拡大の次数乗法性と上の自由作用により
+\begin{equation}\label{eq:elliptic-degree-redundancy}
+ N_k=\rho_kd_k=50e_kd_k,\qquad e_k\in\mathbb Z_{>0}.
+\end{equation}
+$50$ が全表示重複であるとは証明していない。
+異なる $\lambda$ 間の projective 同型を含む $\rho_k$ の決定と、
+五変数方程式の全解の長さ $N_k$ の計算は別の課題である。
+\eqref{eq:elliptic-five-equations}は展開前の有限個の加減乗除による明示式だが、
+そのGr\"obner基底や明示的な有限\'etale近傍は未計算である。
+
 \section{全 $S_{61}$ スキーム内の滑らかな非分岐点}\label{sec:etale}
 ここでは族のパラメータ微分に加え、保存された全134式を61変数で微分する。
-$T01$ の係数 $(2,3,5,7,11,13)$ と、前節の $T39,T40$ の $\lambda=2$、$p=0$ の点を、
+$T01$ の係数 $(2,3,5,7,11,13)$ と、第\ref{sec:elliptic}節の $T39,T40$ の $\lambda=2$、$p=0$ の点を、
 それぞれ定数項 $J$ に正規化して旧 S61 gauge へ移す。
 
 \begin{theorem}[全スキームでの正則性と一次射影]\label{thm:etale}
@@ -1219,6 +1411,50 @@ $\Omega(v,w)v_i$ の4多項式の計20個の係数行列でも点検した。
 次の手段は、飽和を制御するsyzygy、または明示した開条件でのアフィン消去である。
 \end{remark}
 
+\section{全ファイバーの普遍的な追加二次式}\label{sec:universal-weight6}
+重み1座標を $\beta$、45個の重み2座標を $q$ と書く。
+最初の70本の重み4生成式を $F_i(\beta,q)$、そのq二次斉次部分を $H_i(q)$ とする。
+重みのため $H_i$ は $\beta$ に依存しない。
+
+\begin{proposition}\label{prop:weight6}
+$H_1,\ldots,H_{70}$ のq一次係数による関係の空間は36次元であり、
+そのうち35次元は Schouten--Bianchi 恒等式から生じる。
+残る関係を一つ選ぶと、定数 $c_{ij}\in\QQ$ により
+\[
+ G_6(\beta,q)=\sum_{i=1}^{70}\sum_{j=1}^{45}c_{ij}q_jF_i(\beta,q)
+\]
+と表される重み6の普遍的なイデアル帰結が得られ、qに関する次数は高々2である。
+ある非空な一次部分の開集合上で、元の134式に $G_6$ を加えた135式のq二次先頭部は
+線形独立である。定義イデアル自体は変わらない。
+\end{proposition}
+\begin{proof}
+3150個の三次式 $q_jH_i$ の係数行列を有理数体上で消去すると、階数は3114となる。
+独立な36本の関係は、全係数とともに\cite{weight6-certificate}に保存した。
+$\beta=0$ で復元される双ベクトルを $J+Q(q)$ とすると、
+$[Q,[Q,Q]]=0$ のアフィン座標四次係数35個が一次係数の関係を与える。
+その35本の階数も35である。生の Jacobi 係数80個と保存された70式の対応を恒等的に
+検算した上で、これらの張る空間に属さない関係を選んだ。
+
+選んだ関係には125個の非零 $c_{ij}$ がある。
+$\sum c_{ij}q_jH_i=0$ なので、同じ係数を任意の $\beta$ に適用しても
+q三次部分は恒等的に相殺される。展開された $G_6$ は9257項で、
+全項の重みは6、q次数は1または2である。式は元の生成式の多項式係数結合として
+与えたので、$G_6\in I_{61}$ も同時に保証される。
+
+既存のtoric係数 $(2,3,5,7,11,13)$ の一次部分で、135式の二次係数行列に
+非零の135次小行列式がある。列番号と有理行列式を同じ証明書に保持した。
+この小行列式は、70行が $\beta$ に定数、64行が一次、最後の一行が二次なので、
+$\beta$ の高々66次多項式である。従ってその非零開集合上で独立性が成り立つ。
+\end{proof}
+
+この帰結を追加しても、一般ファイバーの有限性や次数はまだ決まらない。
+135式の非零な定数係数結合から一次式を得ることもできない。
+また、無限遠の代表方向 $u_{38}=1$ における $G_6$ のq二次先頭部は、
+全16個の一次変数について恒等的に零である。
+従ってこの代表では、追加式だけで無限遠の障害を除去できない。
+有限体で観測した次数低下を標数零の普遍恒等式へ戻せたことと、
+全アフィンファイバーを尽くしたことは区別する。
+
 \section{検証器と再現範囲}
 \begin{longtable}{@{}p{58mm}p{98mm}@{}}
 \toprule
@@ -1241,6 +1477,10 @@ perspective の有限行列恒等式、radial 三次項の相殺、trace 変換�
 これらの族の像を成分全体の定義イデアルと同一視しない。\\
 \nolinkurl{code/elliptic_weight1_dominance.py} &
 二つの楕円族の一般 Jacobi、符号比較、frame 微分、一次射影の16次小行列式。\\
+\nolinkurl{code/elliptic_six_variable_fiber.py} &
+共変 frame、五変数模型、スカラーの一意復元、位数50の部分群と非空開条件の厳密証明点。\\
+\nolinkurl{code/elliptic_five_variable_review.py} &
+共変量と作用の独立確認、五変数還元の等式、一般パラメータの群生成元の点検。\\
 \nolinkurl{code/s61_known_fiber_audit.py} &
 三点の全134式、復元、独立 Jacobi、全61列と重み2の45列の Jacobian。\\
 \nolinkurl{code/toric_coframe_fiber.py} &
@@ -1255,6 +1495,10 @@ coframe 復元の一般 Jacobi・Pfaffian、一次式、16次小行列式、再�
 二次係数行列の左核からの独立消去、全残余イデアルと三次式、半単純性、元証明書との照合。\\
 \nolinkurl{code/s61_infinity_flags.py} &
 代表旗の全一次変数を残す最高二次残余、gaugeとBianchiの次数、切断の単射性、別の旗の検算。\\
+\nolinkurl{code/s61_weight4_syzygies.py} &
+36次元の一次関係、35次元のBianchi部分、普遍的な重み6帰結と135次小行列式。\\
+\nolinkurl{code/s61_weight6_review.py} &
+有理係数関係、全9257項の恒等式、追加後の階数と指定した無限遠方向の独立点検。\\
 \nolinkurl{code/mps_catalog_audit.py} &
 一次資料の40図式と内部IDの全単射、零辺・period 条件・次元・楕円型名称の照合。\\
 \bottomrule
@@ -1276,7 +1520,9 @@ coframe 復元の一般 Jacobi・Pfaffian、一次式、16次小行列式、再�
 一般一次項の延長可能性、T01の一般次数3、既知三成分からの少なくとも五つの相異なる延長は証明した。
 次の課題はT01の分岐・例外層、三次被覆のモノドロミー、T39・T40の一般次数、
 および未知成分からの延長を排除できるかである。
-楕円型成分については一般 fibre の明示的な表示も未決である。
+楕円型では定理\ref{thm:elliptic-five}の五変数模型を得たが、その全解の長さ $N_k$ と
+全表示重複 $\rho_k$ は未決であり、式\eqref{eq:elliptic-degree-redundancy}を区別して計算する。
+特殊値での解数を一般次数にするには、局所化と有限な近傍の制御も必要である。
 全S61の未飽和斉次化には定理\ref{thm:infinity}の旗の部分が必ず現れるため、
 斉次化変数による飽和の制御、またはアフィンでの局所化と消去が必要となる。
 
@@ -1291,8 +1537,10 @@ $\mathcal C_A,\mathcal C_B$ は共通の閉集合 $Z$ 上に10次元の一般 fi
 本稿はその上界を与えず、下界57を正確な総数へ変更しない。
 特殊軌道・成分交叉・冪零構造は、さらに別の未解決目標として維持する。
 
-\begingroup\small
+\clearpage
+\begingroup\footnotesize
 \begin{thebibliography}{99}
+\setlength{\itemsep}{0pt}
 \bibitem{mps} M. Matviichuk, B. Pym, T. Schedler,
 \textit{A local Torelli theorem for log symplectic manifolds},
 arXiv:2010.08692v2 (2021), Theorem 1.4, Table 2, Example 6.24.
@@ -1362,6 +1610,20 @@ arXiv:1001.4422v2 (2010), equations (16), (18), (19), (21).
 \nolinkurl{research/notes/TORIC_GENERIC_DEGREE_REVIEW_20261031.md}、
 \nolinkurl{reports/TORIC_DEGREE_REVIEW_20261031.json}、
 \nolinkurl{code/toric_degree_review.py}。
+\bibitem{elliptic-five-certificate} 同プロジェクト、
+\nolinkurl{research/notes/ELLIPTIC_SIX_VARIABLE_FIBER_20261031.md}、
+\nolinkurl{reports/ELLIPTIC_SIX_VARIABLE_FIBER_20261031.json}、
+\nolinkurl{code/elliptic_six_variable_fiber.py}。
+\bibitem{elliptic-five-review} 同プロジェクト、
+\nolinkurl{research/notes/ELLIPTIC_FIVE_VARIABLE_REVIEW_20261031.md}、
+\nolinkurl{reports/ELLIPTIC_FIVE_VARIABLE_REVIEW_20261031.json}、
+\nolinkurl{code/elliptic_five_variable_review.py}。
+\bibitem{weight6-certificate} 同プロジェクト、
+\nolinkurl{research/notes/S61_UNIVERSAL_WEIGHT6_20261031.md}、
+\nolinkurl{reports/S61_UNIVERSAL_WEIGHT6_20261031.json}、
+\nolinkurl{code/s61_weight4_syzygies.py}。
+独立点検は\nolinkurl{reports/S61_UNIVERSAL_WEIGHT6_REVIEW_20261031.json}、
+\nolinkurl{code/s61_weight6_review.py}。
 \bibitem{mps-crosswalk} 同プロジェクト、
 \nolinkurl{research/notes/MPS40_CROSSWALK_20261031.md}、
 \nolinkurl{reports/MPS40_CROSSWALK_20261031.json}、

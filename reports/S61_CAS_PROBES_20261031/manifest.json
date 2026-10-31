@@ -1,0 +1,70 @@
+{
+  "id": "S61_CAS_PROBES_20261031",
+  "CAS": "Macaulay2",
+  "version": "1.26.05",
+  "field": "F_32003",
+  "variables": 45,
+  "centered_input": "Saved T01 point with log Poisson parameters (2,3,5,7,11,13)",
+  "attempts": [
+    {
+      "id": "original134_default",
+      "script": "reports/S61_CAS_PROBES_20261031/original134_default.m2",
+      "log": "reports/S61_CAS_PROBES_20261031/original134_default.log",
+      "script_sha256": "b9543e8b39e9919d356e9ca7d85da09b66407ffa39c1066ced46b146d41efc4e",
+      "outcome": {
+        "status": "time_limit",
+        "returncode": -9,
+        "seconds_limit": 120,
+        "elapsed_seconds": 120.07143841695506
+      },
+      "completed_Groebner_basis": false,
+      "dimension_result": null,
+      "degree_result": null
+    },
+    {
+      "id": "original134_degree3",
+      "script": "reports/S61_CAS_PROBES_20261031/original134_degree3.m2",
+      "log": "reports/S61_CAS_PROBES_20261031/original134_degree3.log",
+      "script_sha256": "0e752e7f17bee8626e4b5ec85dfba1dc83d2c632c6761f27efda0cd2a60d972c",
+      "outcome": {
+        "status": "time_limit",
+        "returncode": -9,
+        "seconds_limit": 120,
+        "elapsed_seconds": 120.05844220810104
+      },
+      "completed_Groebner_basis": false,
+      "dimension_result": null,
+      "degree_result": null
+    },
+    {
+      "id": "augmented135_F4",
+      "script": "reports/S61_CAS_PROBES_20261031/augmented135_F4.m2",
+      "log": "reports/S61_CAS_PROBES_20261031/augmented135_F4.log",
+      "script_sha256": "aee8d67f7ea68876ec05bc80b8405299be4e88886c4f067964266e950dde6d65",
+      "outcome": {
+        "status": "time_limit",
+        "returncode": -9,
+        "seconds_limit": 180,
+        "elapsed_seconds": 181.41250595799647
+      },
+      "completed_Groebner_basis": false,
+      "dimension_result": null,
+      "degree_result": null
+    }
+  ],
+  "working_standard_install_command": "M2 --script <saved-script.m2>",
+  "actual_executable": "/opt/homebrew/Cellar/macaulay2/1.26.05/bin/M2-binary",
+  "actual_DYLD_LIBRARY_PATH": "<repository>/work/m2-runtime/lib:/opt/homebrew/lib:/opt/homebrew/opt/givaro/lib",
+  "runtime_recovery": "Missing dynamic libraries were extracted from official Homebrew bottles into ignored work/m2-runtime only. No OS installation or system-library changes; binaries are not included in this evidence directory.",
+  "sanity_check": "The local F4 engine computed the two-variable ideal (x-y^2,y^3-2y), with dimension0 and degree3 before the large probe.",
+  "limitations": [
+    "All three large probes were terminated at their explicit wall-clock limits.",
+    "No completed basis, affine dimension, affine degree, or characteristic-zero consequence follows.",
+    "Do not repeat these unchanged inputs and bounds expecting new evidence."
+  ],
+  "input_sources_sha256": {
+    "legacy/v02/data/symplectic_slice_reduced_equations.json": "e8e38d8c63f2e6c4db2a905420b6bdebd283f5acdc5814a04bf346283f4f3df5",
+    "reports/S61_KNOWN_FIBER_AUDIT_20261031.json": "82c0e01a0cbfaeba0661dda75c2685eec6064d6ade97adec1876ca6041a6fe11",
+    "reports/S61_UNIVERSAL_WEIGHT6_20261031.json": "7c833a55b0ff8046b0898cc400ac9ea3793f18e92e7de7a97070b13a9ecfcd1f"
+  }
+}

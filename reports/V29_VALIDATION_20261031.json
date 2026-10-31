@@ -1,0 +1,83 @@
+{
+  "date": "2026-10-31",
+  "checkpoint": "v29-s61",
+  "all_certificate_and_registry_checks_passed": true,
+  "baseline": "reports/20261031-baseline/verification_summary.json",
+  "parent_reruns": [
+    {
+      "certificate": "reports/ELLIPTIC_SIX_VARIABLE_FIBER_20261031.json",
+      "equal_to_parent_rerun": true,
+      "ignored_metadata_keys": [
+        "generated_utc",
+        "timings_seconds"
+      ]
+    },
+    {
+      "certificate": "reports/ELLIPTIC_FIVE_VARIABLE_REVIEW_20261031.json",
+      "equal_to_parent_rerun": true,
+      "ignored_metadata_keys": [
+        "generated_utc",
+        "timings_seconds"
+      ]
+    },
+    {
+      "certificate": "reports/ELLIPTIC_FIBER_LINE_PROBE_20261031.json",
+      "equal_to_parent_rerun": true,
+      "ignored_metadata_keys": [
+        "generated_utc",
+        "timings_seconds"
+      ]
+    },
+    {
+      "certificate": "reports/S61_FIBER_QUADRATIC_SPAN_20261031.json",
+      "equal_to_parent_rerun": true,
+      "ignored_metadata_keys": []
+    },
+    {
+      "certificate": "reports/S61_UNIVERSAL_WEIGHT6_20261031.json",
+      "equal_to_parent_rerun": true,
+      "ignored_metadata_keys": []
+    },
+    {
+      "certificate": "reports/S61_UNIVERSAL_WEIGHT6_REVIEW_20261031.json",
+      "equal_to_parent_rerun": true,
+      "ignored_metadata_keys": []
+    }
+  ],
+  "checked_input_hashes": 37,
+  "registry_claim_count": 34,
+  "registry_component_records": 57,
+  "registry_counted_lower_bound": 57,
+  "new_component_count": 0,
+  "global_exhaustion_proved": false,
+  "full_generic_fiber_finiteness_proved": false,
+  "elliptic_generic_degrees_determined": false,
+  "completed_modular_Macaulay_evidence": {
+    "report": "reports/S61_MACAULAY_DEGREE3_COMPLETE_20261031.json",
+    "independent_review": "research/notes/S61_UNIVERSAL_WEIGHT6_REVIEW_20261031.md",
+    "scope": "Complete matrix over F_32003; no characteristic-zero degree or finiteness inferred."
+  },
+  "bounded_CAS_attempts": {
+    "manifest": "reports/S61_CAS_PROBES_20261031/manifest.json",
+    "completed_bases": 0,
+    "dimension_results": 0,
+    "degree_results": 0
+  },
+  "manuscript": {
+    "path": "papers/s61_first_jet_reduction_ja.pdf",
+    "pages": 26,
+    "build": "TEXMFVAR=$PWD/work/tex-cache latexmk -lualatex -interaction=nonstopmode -halt-on-error -outdir=build/papers papers/s61_first_jet_reduction_ja.tex",
+    "visual_QA": "All pages of the initial v29 layout inspected in contact sheets; new five-variable proof pages14-16 enlarged and inspected. Final weight6 pages23-24 and revised verifier/bibliography pages25-26 inspected at full readable size. No clipping, overlap, unresolved references or overfull boxes. Nonfatal font-substitution and PDF-bookmark warnings remain.",
+    "sha256": "2ad56b1fd421b2a0f71f17d4516ffed8b48dfa0106596e755878ba08afbb7c11"
+  },
+  "library_save": {
+    "performed": false,
+    "reason": "No general continuation-ZIP Library upload capability available; GitHub checkpoint and local bundle used."
+  },
+  "geometric_all_flag_extension": {
+    "proof": "research/notes/S61_UNIVERSAL_WEIGHT6_REVIEW_20261031.md section6",
+    "review": "Independent conceptual review by two agents and integration writer; separate from the finite code certificate.",
+    "scope": "The old flag incidence persists in the augmented unsaturated quadratic homogenization; no saturated-closure or affine-finiteness conclusion.",
+    "manuscript_scope": "The current 26-page manuscript states the directly computed representative result; the stronger geometric proof is preserved in the note and registry."
+  }
+}

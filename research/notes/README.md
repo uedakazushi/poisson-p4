@@ -1,8 +1,13 @@
 # 研究ノートと評価資料の入口
 
-**v28-s61、2026-10-31。トーリック一般次数3、一般延長数の下界5、未飽和無限遠の障害。**
+**v29-s61、2026-10-31。楕円型五変数模型、トーリック一般次数3、一般延長数の下界5。**
 
 ## 今回の研究成果
+
+- [楕円型の五変数模型](ELLIPTIC_SIX_VARIABLE_FIBER_20261031.md)、[独立点検](ELLIPTIC_FIVE_VARIABLE_REVIEW_20261031.md)：Sp4と倍率の一意復元、位数50の表示重複。次数は未決。
+- [全45変数模型の消去](S61_AFFINE_FIBER_REDUCTION_20261031.md)：134次の非零小行列式と、有限体上の完全な三次Macaulay計算。
+- [普遍的な重み6帰結G6](S61_UNIVERSAL_WEIGHT6_20261031.md)、[独立点検](S61_UNIVERSAL_WEIGHT6_REVIEW_20261031.md)：36関係から非Bianchi関係を抽出し、同じイデアルを135二次式で扱う。独立点検§6で全flag incidenceの残存も証明。
+- [楕円型の直線制限](ELLIPTIC_FIBER_LINE_PROBE_20261031.md)：QQ(t)計算とgcdによる一つの被約点。五変数全体の次数ではない。
 
 - [T01の一般次数3](TORIC_GENERIC_DEGREE_20261031.md)、[独立点検](TORIC_GENERIC_DEGREE_REVIEW_20261031.md)：全特殊イデアルと有限étale近傍による証明。全S61の一般延長は少なくとも五つ。
 - [20変数96二次式の代数模型](TORIC_ALGEBRA_FIBER_20261031.md)、[独立点検](TORIC_ALGEBRA_FIBER_REVIEW_20261031.md)：半単純部分のスキーム同定と復元。
