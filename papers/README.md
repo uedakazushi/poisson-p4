@@ -1,6 +1,6 @@
 # 公表用原稿の構成案と証明資料
 
-**状態：v40-s61、2026-11-01。零一次部分の被約台AB、ABのincidenceと特異点集合、最小型無限遠の完成局所環、二平面型の横断Artin代数を統合。**
+**状態：v41-s61、2026-11-01。零一次部分の被約台AB、ABのincidenceと特異点集合、最小型無限遠の完成局所環、二平面型の横断Artin代数を統合。**
 
 [一次ジェット還元の日本語原稿](s61_first_jet_reduction_ja.tex)（[PDF・41ページ](s61_first_jet_reduction_ja.pdf)）は、
 primitive gauge、T01/T39/T40の優越性と全S61のétale点、楕円型五変数模型、T01の一般次数3、
@@ -199,3 +199,14 @@ v35では一般被約無限遠の全型帰着、ABの原点外の正規性、二
 - 四つの最小混合尾の全有限部分と射影端点の除去: `S61_MINIMAL_MIXED_TAILS_REMOVAL_20261101`。証明・係数証明書・独立レビューの範囲を参照。
 - `S61_BINARY_MIXED_RELATIVE_DOUBLE_LINE_20261101` は全H9の相対二重直線を与える補助結果で、相対全環のt²0はこの補題単独では主張しない。
 - 二平面・混合16D層の全一般β除去: `S61_BINARY_MIXED_STRATUM_REMOVAL_20261101`。相対tf特殊化とambient忠実平坦降下を別に証明。
+
+## v41: 主曲線全有限部分・二平面境界・旗接続自由70
+
+- M0主曲線c=±1のJordan軌道を全一般βで除去: `S61_MINIMAL_MAIN_JORDAN_REMOVAL_20261101`。レビュー範囲と未解決部分を各ノートに明記。
+- 最小M0/M1主曲線の全有限部分を除去: `S61_MINIMAL_MAIN_REMOVAL_20261101`。レビュー範囲と未解決部分を各ノートに明記。
+- K=0上のB階数六以下を一般βから除外: `S61_BINARY_DEEPER_RANK_SIX_EXCLUSION_20261101`。レビュー範囲と未解決部分を各ノートに明記。
+- K=0二平面族の残余線形階数を二場合へ還元: `S61_BINARY_HYPERSURFACE_LOWER_RANK_REDUCTION_20261101`。レビュー範囲と未解決部分を各ノートに明記。
+- 深い二平面chartのf=0全境界二層を除去: `S61_BINARY_DEEPER_BOUNDARY_REMOVAL_20261101`。レビュー範囲と未解決部分を各ノートに明記。
+- 深い二平面の二つのpivot因子を除去: `S61_BINARY_DEEPER_PIVOT_DIVISORS_20261101`。レビュー範囲と未解決部分を各ノートに明記。
+- 実際の有限体截断環から標数零形式長への上界移送: `ADIC_MODULAR_LENGTH_BOUND_20261101`。レビュー範囲と未解決部分を各ノートに明記。
+- 旗・binary接続点の自由70と非零平方零t: `S61_FLAG_BINARY_CONNECTION_FORMAL_20261101`。レビュー範囲と未解決部分を各ノートに明記。

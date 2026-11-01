@@ -1,0 +1,42 @@
+{
+  "id": "S61_BINARY_HYPERSURFACE_LOWER_RANK_REVIEW_20261101",
+  "all_passed": true,
+  "accepted": true,
+  "field": "QQ",
+  "independent_A_ideal_script": "R=QQ[a,b,c,d,e];\nM=matrix{{-3*c/5,-3*d/10,0,0,d/10,0,3*b/2 - 3*e/5,0,0,7*c/5,-d/10,0},{3*b/5 - 9*e/10,29*c/5,-4*d/5,0,7*c/5,d/5,3*a/2,2*b - e,0,13*b/5 + e/2,13*c/5,-2*d/5},{2*a/5,4*b/5 + 7*e/5,37*c/10,-3*d/2,-b/10 + 4*e/5,17*c/10,0,a,3*b/2 - 6*e/5,2*a/5,11*b/10 + e/5,13*c/5},{0,-a/5,4*b/5 + e/20,c,-a/10,4*b/5 + e/20,0,0,a/2,0,a/10,2*b/5 + e/10}};\nI=minors(4,M);\nP=ideal(c,d,5*b-2*e);\nQ=ideal(5*b-e,5*a*d-6*c*e,20*c^2+3*d*e,50*a*c+9*e^2);\nJ=intersect(P,Q);\nassert (numgens J==6);\nassert (dim(R/I)==2 and dim(R/J)==2);\nassert isSubset(I,J);\nassert all(flatten entries gens J,x->(x^2)%I==0);\nprint(\"REVIEW_PASS: dimension2; six square containments; ideal containment\");\n",
+  "independent_A_ideal_output": "REVIEW_PASS: dimension2; six square containments; ideal containment\n",
+  "C_two_minor_identities_rechecked": true,
+  "t_compatibility_L_squared_rechecked": true,
+  "stabilizer_weights_rechecked": true,
+  "remaining_general_beta_cases": [
+    {
+      "condition": "Qstar != 0",
+      "A_rank": 4,
+      "B_rank": 8,
+      "C_linear_rank": 5,
+      "leading_rank": 33,
+      "full_rank": 34
+    },
+    {
+      "condition": "Qstar = 0",
+      "A_rank": 4,
+      "B_rank": 7,
+      "C_linear_rank": 5,
+      "leading_rank": 32,
+      "full_rank": 33
+    }
+  ],
+  "limitations": [
+    "Reuses the previously reviewed triangular block decomposition and primitive stabilizer representation.",
+    "Classifies remaining linear ranks only; higher obstructions are not exhausted."
+  ],
+  "input_sha256": {
+    "code/s61_binary_hypersurface_lower_rank_review_20261101.py": "b394848e1674ed41ee65a17b61f1761ccd44dc0bce5ca7ff3b9b46ca1fe47a97",
+    "reports/S61_BINARY_HYPERSURFACE_LOWER_RANK_REDUCTION_20261101.json": "f046e42b7c0cba106bcf6a244fca3aa6d61dd845fdbd0343aeb15dfc2aad60c6",
+    "reports/S61_BINARY_RANK_DROP_COVER_20261101.json": "7c7b61f7b687ddd666a8847c15d1f2420169be5fccd257b033b45d34bd6462d1",
+    "reports/S61_BINARY_DEEPER_RANK_SIX_EXCLUSION_REVIEW_20261101.json": "65776631fb4f8b04b4311fad39c62930194b205e39539204cacd8d40d1b7e997",
+    "reports/S61_BINARY_MIXED_STRATUM_REMOVAL_REVIEW_20261101.json": "0672b45723ef1b4dd4cbae237bd3e0efd1df4e25edb52321adee950280cac6cb",
+    "research/notes/S61_BINARY_HYPERSURFACE_LOWER_RANK_REVIEW_20261101.md": "dc592a7f5cfb2514a2cf944ff9da09364665010e54a95b5ba4a545f76af4f423"
+  },
+  "seconds": 0.5938160419464111
+}

@@ -1,8 +1,26 @@
 # Poisson structures on P4 — Codex instructions
 
-Version: v40-s61 · 2026-11-01 (Asia/Tokyo).
+Version: v41-s61 · 2026-11-01 (Asia/Tokyo).
 
-Current v40 additions: the ENTIRE T7 mixed-surface orbit is removed over
+Current v41 additions: ALL finite M0/M1 main-curve points are removed over
+sufficiently general beta. Exact universal quadratics and all18 factors per
+type include kernel jumps, Jordan, coefficient-zero and quadratic-field
+exceptions. The non-invariant M0 polynomial P is handled through the intrinsic
+saturated support lying in P=D(P)=0, not by claiming P=0 has proper beta image.
+Together with all18 tails and4 baselines, only projective flag/binary endpoints
+remain for the minimal type. On binary K=0, all lower outer/B ranks are excluded
+or already removed: remaining full ranks are34 offQstar and33 onQstar.
+The two f=0 boundaries and two pivot divisors (5b-11e,R) are entirely removed
+over general beta. The5b-3e T2 connection and higher-obstruction complement remain.
+At the specified flag/binary b0=0 junction, actual modp truncations have length70.
+An integral-model length bound plus two same-beta branches of lower lengths5+65
+proves free70 overR3,0!=t,t^2=0. The relative theorem gives a nonempty ambient
+open on this18D boundary, NOT its whole general-beta fiber.
+T5, remaining binary/flag loci, projective endpoints, affine five-point
+exhaustion and total component upper bound remain unresolved. Lower bound57.
+Continue after checkpoints.
+
+Previous v40 additions: the ENTIRE T7 mixed-surface orbit is removed over
 sufficiently general beta. Its universal normal quartic is a constant times
 P^4/(b8^3*b9^8); all bad images have dimensions14/15/15. Every orbit point
 has R2[e]/e^4 and t=0. T5 remains; its transverse23 proves local fiberdim2,

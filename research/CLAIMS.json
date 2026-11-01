@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checkpoint": "v40-s61",
+  "checkpoint": "v41-s61",
   "date": "2026-11-01",
   "base_mathematical_checkpoint": "v24",
   "new_mathematical_progress_in_this_setup": false,
@@ -4879,6 +4879,275 @@
       ],
       "limitations_ja": [
         "ambient t²0は指定開で成立。全特殊点や全S自由65/67、他の二平面層は含まない。"
+      ]
+    },
+    {
+      "id": "S61_MINIMAL_MAIN_JORDAN_REMOVAL",
+      "title_ja": "M0主曲線c=±1のJordan軌道を全一般βで除去",
+      "statement_ja": "有限正常形の零係数proper像と非零Jordan軌道を尽くす。実在主枝の一般下界3と三次初期上界3、有限長torsionからt冪零。",
+      "scope": "Precisely the stated finite loci, proper-image subsets, or specified local/open results.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_MINIMAL_MAIN_VERTEX_FORMULA",
+          "S61_MINIMAL_INFINITY_FORMAL_RINGS"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_MINIMAL_MAIN_JORDAN_REMOVAL_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_MINIMAL_MAIN_JORDAN_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_MINIMAL_MAIN_JORDAN_REMOVAL_20261101.json",
+        "reports/S61_MINIMAL_MAIN_JORDAN_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "全環t²0・平坦性を主張しない。他のcは別定理。"
+      ]
+    },
+    {
+      "id": "S61_MINIMAL_MAIN_REMOVAL",
+      "title_ja": "最小M0/M1主曲線の全有限部分を除去",
+      "statement_ja": "普遍normal二次式、各18因子の全被覆、核跳躍、数体7c²=1、Jordanと係数零層を処理。M0の35項因子は内在的支持のP=D(P)=0とcodim2で除外。",
+      "scope": "Precisely the stated finite loci, proper-image subsets, or specified local/open results.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_MINIMAL_MAIN_JORDAN_REMOVAL",
+          "S61_MINIMAL_M0_BASELINE_REMOVAL",
+          "S61_MINIMAL_M1_BASELINE_REMOVAL",
+          "S61_MINIMAL_SEMISIMPLE_TAILS_REMOVAL",
+          "S61_MINIMAL_TRIPLE_TAILS_REMOVAL",
+          "S61_MINIMAL_PURE_CUBIC_TAILS_REMOVAL"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_MINIMAL_MAIN_REMOVAL_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_MINIMAL_MAIN_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_MINIMAL_MAIN_REMOVAL_20261101.json",
+        "reports/S61_MINIMAL_MAIN_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "射影分母極の旗・binary端点は別。rankoneは既存定理を併用する。全無限遠・アフィン五点尽くしではない。"
+      ]
+    },
+    {
+      "id": "S61_BINARY_DEEPER_RANK_SIX_EXCLUSION",
+      "title_ja": "K=0上のB階数六以下を一般βから除外",
+      "statement_ja": "全余次元一候補の七次minorと五安定化方向の不変性により、残るcore次元は2以下、Sp4飽和のβ像は15以下。",
+      "scope": "Precisely the stated finite loci, proper-image subsets, or specified local/open results.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_BINARY_DEEPER_REDUCTION"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_BINARY_DEEPER_RANK_SIX_EXCLUSION_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_DEEPER_RANK_SIX_EXCLUSION_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_BINARY_DEEPER_RANK_SIX_EXCLUSION_20261101.json",
+        "reports/S61_BINARY_DEEPER_RANK_SIX_EXCLUSION_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "B階数七の残余はこの命題では除去しない。"
+      ]
+    },
+    {
+      "id": "S61_BINARY_HYPERSURFACE_LOWER_RANK_REDUCTION",
+      "title_ja": "K=0二平面族の残余線形階数を二場合へ還元",
+      "statement_ja": "A欠損はcore次元2のproperβ像。C線形欠損はL非零でa=25b−14e=0、除去済みC3に一致。残る全階数はQ*非零34、Q*零33。",
+      "scope": "Precisely the stated finite loci, proper-image subsets, or specified local/open results.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_BINARY_DEEPER_RANK_SIX_EXCLUSION",
+          "S61_BINARY_MIXED_STRATUM_REMOVAL"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_BINARY_HYPERSURFACE_LOWER_RANK_REDUCTION_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_HYPERSURFACE_LOWER_RANK_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_BINARY_HYPERSURFACE_LOWER_RANK_REDUCTION_20261101.json",
+        "reports/S61_BINARY_HYPERSURFACE_LOWER_RANK_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "同じ線形階数内の高次障害退化を尽くしたとはしない。"
+      ]
+    },
+    {
+      "id": "S61_BINARY_DEEPER_BOUNDARY_REMOVAL",
+      "title_ja": "深い二平面chartのf=0全境界二層を除去",
+      "statement_ja": "二つの既約16D境界に同じ実在binary台の下界65と特殊横断上界65を与え、相対自由65とsmooth降下から全一般βファイバーを除去。",
+      "scope": "Precisely the stated finite loci, proper-image subsets, or specified local/open results.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_BINARY_DEEPER_FORMAL",
+          "S61_BINARY_DEEPER_RANK_SIX_EXCLUSION"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_BINARY_DEEPER_BOUNDARY_REMOVAL_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_DEEPER_BOUNDARY_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_BINARY_DEEPER_BOUNDARY_REMOVAL_20261101.json",
+        "reports/S61_BINARY_DEEPER_BOUNDARY_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "概念レビューは数値独立再実装ではない。f非零の深部は別。"
+      ]
+    },
+    {
+      "id": "S61_BINARY_DEEPER_PIVOT_DIVISORS",
+      "title_ja": "深い二平面の二つのpivot因子を除去",
+      "statement_ja": "f非零の5b−11eとR=0は既約16D層。各指定横断自由65、相対自由性とambient降下により全一般βファイバーを除去。",
+      "scope": "Precisely the stated finite loci, proper-image subsets, or specified local/open results.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_BINARY_DEEPER_BOUNDARY_REMOVAL",
+          "S61_BINARY_DEEPER_RANK_SIX_EXCLUSION"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_BINARY_DEEPER_PIVOT_DIVISORS_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_DEEPER_PIVOT_DIVISORS_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_BINARY_DEEPER_PIVOT_DIVISORS_20261101.json",
+        "reports/S61_BINARY_DEEPER_PIVOT_DIVISORS_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "5b−3eのT2接続と残る深い開は未解決。数値レビューはproducer再実行。"
+      ]
+    },
+    {
+      "id": "ADIC_MODULAR_LENGTH_BOUND",
+      "title_ja": "実際の有限体截断環から標数零形式長への上界移送",
+      "statement_ja": "p整な全形式残余の連続二截断が同長ellなら、modp局所環は有限長ell。位相的Nakayamaと整性により原点の標数零形式長はell以下。",
+      "scope": "Precisely the stated finite loci, proper-image subsets, or specified local/open results.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/ADIC_MODULAR_LENGTH_BOUND_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/ADIC_MODULAR_LENGTH_BOUND_20261101.json"
+      ],
+      "limitations_ja": [
+        "特殊長と原点一般長の等号、平坦性、個別の数値証明は補題単独では結論しない。"
+      ]
+    },
+    {
+      "id": "S61_FLAG_BINARY_CONNECTION_FORMAL",
+      "title_ja": "旗・binary接続点の自由70と非零平方零t",
+      "statement_ja": "実在する旗・binary三次元台へ共通に横断な切断のmodp実際長は70。p進上界と一般下界5+65からR3自由70、0≠t,t²0。相対自由70で非空ambient開へ延長。",
+      "scope": "Precisely the stated finite loci, proper-image subsets, or specified local/open results.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "ADIC_MODULAR_LENGTH_BOUND",
+          "S61_FLAG_UNIFORM_OPEN",
+          "S61_BINARY_FORMAL_RING"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_FLAG_BINARY_CONNECTION_FORMAL_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_FLAG_BINARY_CONNECTION_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_FLAG_BINARY_CONNECTION_FORMAL_20261101.json",
+        "reports/S61_FLAG_BINARY_CONNECTION_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "指定点と18D旗境界b0=0内の非空ambient開のみ。全b0=0またはb1=0境界の除去ではない。"
       ]
     }
   ],

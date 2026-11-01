@@ -1,6 +1,6 @@
 # 研究ノートと評価資料の入口
 
-**v40-s61、2026-11-01。楕円型の全域二次切断、既知五延長の三平面。**
+**v41-s61、2026-11-01。楕円型の全域二次切断、既知五延長の三平面。**
 
 ## v31 の新しい入口
 
@@ -209,3 +209,15 @@
 - 四つの最小混合尾の全有限部分と射影端点の除去: `S61_MINIMAL_MIXED_TAILS_REMOVAL_20261101`。証明・係数証明書・独立レビューの範囲を参照。
 - `S61_BINARY_MIXED_RELATIVE_DOUBLE_LINE_20261101` は全H9の相対二重直線を与える補助結果で、相対全環のt²0はこの補題単独では主張しない。
 - 二平面・混合16D層の全一般β除去: `S61_BINARY_MIXED_STRATUM_REMOVAL_20261101`。相対tf特殊化とambient忠実平坦降下を別に証明。
+
+## v41: 主曲線全有限部分・二平面境界・旗接続自由70
+
+- M0主曲線c=±1のJordan軌道を全一般βで除去: `S61_MINIMAL_MAIN_JORDAN_REMOVAL_20261101`。レビュー範囲と未解決部分を各ノートに明記。
+- 最小M0/M1主曲線の全有限部分を除去: `S61_MINIMAL_MAIN_REMOVAL_20261101`。レビュー範囲と未解決部分を各ノートに明記。
+- K=0上のB階数六以下を一般βから除外: `S61_BINARY_DEEPER_RANK_SIX_EXCLUSION_20261101`。レビュー範囲と未解決部分を各ノートに明記。
+- K=0二平面族の残余線形階数を二場合へ還元: `S61_BINARY_HYPERSURFACE_LOWER_RANK_REDUCTION_20261101`。レビュー範囲と未解決部分を各ノートに明記。
+- 深い二平面chartのf=0全境界二層を除去: `S61_BINARY_DEEPER_BOUNDARY_REMOVAL_20261101`。レビュー範囲と未解決部分を各ノートに明記。
+- 深い二平面の二つのpivot因子を除去: `S61_BINARY_DEEPER_PIVOT_DIVISORS_20261101`。レビュー範囲と未解決部分を各ノートに明記。
+- 実際の有限体截断環から標数零形式長への上界移送: `ADIC_MODULAR_LENGTH_BOUND_20261101`。レビュー範囲と未解決部分を各ノートに明記。
+- 旗・binary接続点の自由70と非零平方零t: `S61_FLAG_BINARY_CONNECTION_FORMAL_20261101`。レビュー範囲と未解決部分を各ノートに明記。
+- 未完の旗高次探索は `reports/S61_FLAG_BOUNDARY_HIGHER_EXPLORATION_20261101.tar.gz` に22ファイルを保存。b1横断49を自由49とは主張しない。

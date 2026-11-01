@@ -35,7 +35,7 @@
 \title{射影四空間の Poisson 構造の一次ジェット還元\\
 \large 普遍的楕円切断、Jacobian の二捩れと Toric 成分の境界}
 \author{Poisson P4 研究プロジェクト・内部研究草稿}
-\date{2026年11月1日・v40-s61}
+\date{2026年11月1日・v41-s61}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -3631,7 +3631,166 @@ $\Sp_4\times H_9\to W$には非零minor$-1133614671336/625$がある。
 既証明の全軌道除去を適用する\cite{minimal-mixed-v40}。
 \end{proof}
 六半単純尾・二三重尾・六純三次尾・四混合尾の和が十八であり、大域成分数を数えているのではない。
-最小主曲線全体と、他の族の旗・二平面型射影端点は残る。
+最小主曲線の有限部分は次節で処理する。他の族の旗・二平面型射影端点は別に残る。
+
+\section{最小主曲線の全有限部分}
+\begin{theorem}
+最小型M0/M1の主曲線の全有限部分は、十分一般の$\beta$上で$t$飽和により除去される。
+射影分母極に現れる旗・二平面型の端点はこの定理に含めない。
+\end{theorem}
+\begin{proof}
+M0では$G=ax^2z+bx^2w+cxzw$を、$c\ne\pm1$で有限symplectic変換により$cxzw$へ移す。
+$c=\pm1$では零係数の一次像は次元15以下であり、非零係数は$G=xzw+x^2w$というJordan軌道になる。
+後者の指定点の全階数は42、三次初期idealによる一般長さ上界は3である。
+同じ$\beta$の実在主枝の下界3と合わせ、$t^2$が有限長torsionとなることから$t$冪零を得る。
+十六次元層の真の閉部分を除けばこの議論が成立するため、全一般$\beta$ファイバーが除かれる\cite{main-jordan-v41}。
+
+通常開では、$c$と九つの一次係数を保持した普遍全Jacobianの階数はM0で42、M1で43である。
+M1の$c$を従来の二倍代表の規約で取ると、唯一の法線二次障害は
+\[
+ -\frac{4b_7(c-1)(c+1)(3c+1)}{(5c+3)^2}.
+\]
+M0では二法線の三つの二次積を張るminorが、明示的な単項式・$c$因子と35項の多項式$P$との積になる。
+全一次消去minor、全核・余核の分母、法線minorの全因子を、各型18因子の有限表と照合する。
+核次元が跳ぶ値では九次元の通常核に制限せず、既証明の全十次元の基線・半単純尾・三重尾の定理を適用する。
+係数零の新しい十六次元層、固定$c$のartifact層、およびM1の$7c^2=1$は、実在主枝と三次初期idealで処理する。
+最後の二値は$\mathbb Q[a]/(7a^2-1)$上で確認するため、両複素埋込みを含む。
+
+$P$は一係数にprimitive-linearである。固定$Q$の安定化微分$D$について
+\[
+ \gcd(P,D(P))=1
+\]
+を厳密に確認する。$P=0$自体の一次像がproperとは主張しない。
+既処理因子を除いた不変開上で、飽和後にも残る内在的支持の逆像は$P=0$に入り、
+安定化不変性によって$D(P)=0$にも入る。
+十変数底で余次元は少なくとも2、三次元安定化を考慮した像次元は
+$10+8-3=15$以下なので、一般$\beta$には現れない。
+
+通常主枝の滑らかさは、非対角MAIN\_VERTEX公式と滑らかな頂点曲線から従う。
+単なる一標本の微分を全点へ延長しているのではない。
+全非零条件の上で、横断上界3/2と同じ主枝の普遍下界が一致し、M0は平方零自由3、M1は二重曲線自由2となる。
+例外の十六次元層では有限長torsionによる冪零性を用い、平坦性までは主張しない。
+これで有限正常形の全因子と正規化失敗を尽くす\cite{main-all-v41}。
+\end{proof}
+十八有理尾・四自由基線・主曲線の有限部分の除去が揃った。
+最小型の射影端点の多くは、旗・二平面型の未処理接続へ入るため別に解析する。
+
+\section{二平面型の残余線形階数と深い境界}
+$(a,b,c,d,e,f)=(u_4,u_{14},u_{35},u_{36},u_{49},u_{50})$と置き、
+\[
+ K=5c+f,\qquad L=5b-e,\qquad Q_*=600b^2-255be-63e^2+100af
+\]
+を使う。
+\begin{proposition}
+十分一般の$\beta$上で、$K=0$の未処理部分の最高/全135階数は、
+$Q_*\ne0$では$33/34$、$Q_*=0$では$32/33$の二場合に限られる。
+\end{proposition}
+\begin{proof}
+中央ブロック$B$の階数六以下をまず除く。
+$f\ne0$では$a,c$を消去でき、ある七次minorは非零定数倍の
+\[
+ (5b-11e)(5b-3e)L^2R,\quad
+ R=d(100b^2-505be+187e^2)-40f^2(2b-e)
+\]
+である。$L=0$は既証明のproper一次像である。
+他の三因子と$f=0$境界の二既約成分には、それぞれ別の非零七次minorが存在する。
+従って階数六以下の残余はcore次元2以下となる。
+五次元安定化群の三方向はcoreへ零作用し、二方向は$B$の行・列重みに分離するので、この集合は不変である。
+八つの自由一次係数を加えて群飽和しても像次元は$10+(2+8)-5=15$以下となる\cite{binary-rank6-v41}。
+
+外側$A$ブロックの四次minor idealも、二つのidealの交叉への包含と六生成元の平方所属によりcore次元2と確定する。
+一方$C_{\rm lin}$には、$K=0$上で
+\[
+ \frac{aL^4}{625},\qquad \frac{(25b-14e)L^4}{3125}
+\]
+という二つの五次minorがある。$a=25b-14e=0$で列が零になる逆向きも成り立つ。
+従って$L\ne0$での$C$欠損は除去済みC3接続層に一致する。
+$A$が全行階数、$C$が全列階数なら三角表示の非対角成分を消せる。
+最初70行の$t$互換式には$L^2$が含まれるため$t$列は最高列の張る空間の外にある。
+既知の$B$階数表と合わせて主張の等号を得る\cite{binary-linear-v41}。
+\end{proof}
+
+\begin{proposition}
+$K=Q_*=0$の$f=0$全境界と、$f\ne0$での$5b-11e=0$、$R=0$は、
+十分一般の$\beta$上で全て$t$飽和により除去される。
+\end{proposition}
+\begin{proof}
+$f=0$では$c=0$かつ$Q_*=3(5b-3e)(40b+7e)$であり、二つの十一変数線形sourceとなる。
+$f\ne0$の二因子も幾何学的既約な十一変数sourceを与える。
+$R$は$d$についてprimitiveな一次式なので、$d$を解く表示の境界も同じ既約閉包に入る。
+各sourceは五次元安定化群に不変で、一次法線微分に非零五次minorがあり、群飽和閉包は十六次元である。
+
+四指定点では、同じ実在binary三次元台を切った九変数横断商の長さ上界が65である。
+QQ二次階数と実際の有限体関係minorを元135式から再計算し、同じ台の普遍下界65と合わせる。
+相対完成環は十四変数底上自由65となり、一般部分の$t^2=0$が全相対環へ降りる。
+同変smooth base changeと忠実平坦性を経てambient開を得る。
+各十六次元閉包の開補集合は高々15次元なので、全一般$\beta$ファイバーが除かれる
+\cite{binary-deep-boundary-v41,binary-pivot-v41}。
+\end{proof}
+残る$5b-3e$のT2接続や、二つの一定階数chart内の高次障害の全退化は未解決である。
+
+\section{有限体局所長の移送と旗・二平面接続}
+\begin{lemma}
+$B=\mathbb Z_p[[v]]/(f)$とし、実際の特殊完成局所環$A_p=B/pB$について
+\[
+ \dim_{\mathbb F_p}A_p/\mathfrak m^N
+ =\dim_{\mathbb F_p}A_p/\mathfrak m^{N+1}=\ell
+\]
+が成り立つとする。このとき原点の$\mathbb Q_p[[v]]/(f)$の長さは高々$\ell$である。
+\end{lemma}
+\begin{proof}
+Nakayamaにより$\mathfrak m^N=0$なので、$(v)^NB\subset pB$である。
+$(p,v)$進と$p$進位相が同値となり、特殊ファイバーの基底を持ち上げる位相的Nakayamaから
+$\mathbb Z_p^\ell\twoheadrightarrow B$を得る。
+各$v_i$は有限$\mathbb Z_p$代数$B$上で整である。
+そのモニック関係を$T^{r_i}H_i(T)$、$H_i(0)\ne0$と書けば、原点の$\mathbb Q_p$形式環では$H_i(v_i)$が単元であり$v_i^{r_i}=0$となる。
+従って同形式環は$B[1/p]$の商で、長さは高々$\ell$である。
+有理係数の場合は有限jet行列の階数が体拡大で変わらないので、QQの原点完成環にも上界が降りる。
+一般長と特殊長の等号や平坦性は、この補題だけでは主張しない\cite{adic-length-v41}。
+\end{proof}
+
+\newpage
+\begin{theorem}
+旗$Q=-x^2\partial_y\wedge\partial_w$の核基底係数を$(0,3,4,\ldots,16)$とした指定点で、
+全135式の完成局所環は三変数底上自由階数70であり、$0\ne t$、$t^2=0$を満たす。
+さらに十八次元旗境界$b_0=0$内の非空ambient開が$t$飽和で除去される。
+\end{theorem}
+\begin{proof}
+同じ固定$\beta$上で、滑らかな旗三次元台$C_F$と滑らかな二平面三次元台$C_B$がこの点を通る。
+旗側は同一ファイバーで$b_0$が変化するため、その一般長さは既知の5である。
+二平面側は頂点Jacobian
+\[
+ \begin{pmatrix}-14&23&-3\\-8&9&4\end{pmatrix}
+\]
+でsmooth性を確認し、同じ頂点の非平方二次形式から一般長さ下界65を得る。
+二つの台は、一般二次形式が平方か非平方かによって異なる。
+
+全接座標$v_0,\ldots,v_{10}$に対して共通底座標を
+$(u_0,u_1,u_2)=(v_0,v_1+v_5,v_2)$とする。
+両台への射影minorは$-46/7$と1である。
+八変数横断商の実際の有限体Macaulay空間は、$p=32003$で
+\[
+ \begin{array}{c|c|c|c}
+ D&\text{二次から}D\text{次の単項式数}&\text{関係階数}&\text{截断長}\\\hline
+ 5&1278&1217&70\\
+ 6&2994&2933&70
+ \end{array}
+\]
+となる。消去minorは$p$単元なので、上の補題から標数零の横断長も高々70である。
+全完成環$S$は$R_3=\mathbb Q[[u_0,u_1,u_2]]$上高々70生成であり、二つの一般局所因子の下界$5+65$が一致する。
+従って$S$は自由70で、一般因子はこの二つに尽くされる。
+binary因子では長さ下界65の等号から$I^4=0$、普遍二次消去から$t\in I^2$となる。
+旗因子では$t=0$であり、torsion-freenessにより全$S$で$t^2=0$となる。
+
+非零性は、長さ70の等号によって横断$\mathbb Z_p$代数も自由70となった後で、
+実際の特殊Artin環の$t$追加minorが非零であることから得る。
+単に有限体の追加minorだけからQQの元関係階数が不変とは仮定しない。
+二つの相対三次元台と同じ70生成・階数の議論を$H_{14}=\{u_4=u_5=0\}$上で行い、
+十七変数底上の相対自由70を得る。
+$\Sp_4\times H_{14}\to W$のsmooth性と同変性からambientへ降下する\cite{flag-binary-v41}。
+\end{proof}
+この十八次元境界の開補集合は十七次元まであり、一般一次項を優越し得る。
+従って旗境界全体の除去や、別の$b_1=0$境界については結論を増やさない。
 
 \section{残る問題}
 全一次項の延長可能性、楕円二成分の全域graphと一般次数1、表示重複3000、
@@ -3862,6 +4021,14 @@ arXiv:1406.6953v1 (2014), Theorems 2.1 and 2.3.
 \bibitem{minimal-pure-v40} 同プロジェクト、\nolinkurl{research/notes/S61_MINIMAL_PURE_CUBIC_TAILS_REMOVAL_20261101.md}、係数証明書と独立レビューの範囲を参照。
 \bibitem{minimal-mixed-v40} 同プロジェクト、\nolinkurl{research/notes/S61_MINIMAL_MIXED_TAILS_REMOVAL_20261101.md}、係数証明書と独立レビューの範囲を参照。
 \bibitem{binary-mixed-stratum-v40} 同プロジェクト、\nolinkurl{research/notes/S61_BINARY_MIXED_STRATUM_REMOVAL_20261101.md}、相対加群と忠実平坦降下の証明・親監査。
+\bibitem{main-jordan-v41} 同プロジェクト、\nolinkurl{research/notes/S61_MINIMAL_MAIN_JORDAN_REMOVAL_20261101.md}、証明・係数証明書と独立レビューの範囲を参照。
+\bibitem{main-all-v41} 同プロジェクト、\nolinkurl{research/notes/S61_MINIMAL_MAIN_REMOVAL_20261101.md}、証明・係数証明書と独立レビューの範囲を参照。
+\bibitem{binary-rank6-v41} 同プロジェクト、\nolinkurl{research/notes/S61_BINARY_DEEPER_RANK_SIX_EXCLUSION_20261101.md}、証明・係数証明書と独立レビューの範囲を参照。
+\bibitem{binary-linear-v41} 同プロジェクト、\nolinkurl{research/notes/S61_BINARY_HYPERSURFACE_LOWER_RANK_REDUCTION_20261101.md}、証明・係数証明書と独立レビューの範囲を参照。
+\bibitem{binary-deep-boundary-v41} 同プロジェクト、\nolinkurl{research/notes/S61_BINARY_DEEPER_BOUNDARY_REMOVAL_20261101.md}、証明・係数証明書と独立レビューの範囲を参照。
+\bibitem{binary-pivot-v41} 同プロジェクト、\nolinkurl{research/notes/S61_BINARY_DEEPER_PIVOT_DIVISORS_20261101.md}、証明・係数証明書と独立レビューの範囲を参照。
+\bibitem{adic-length-v41} 同プロジェクト、\nolinkurl{research/notes/ADIC_MODULAR_LENGTH_BOUND_20261101.md}、証明・係数証明書と独立レビューの範囲を参照。
+\bibitem{flag-binary-v41} 同プロジェクト、\nolinkurl{research/notes/S61_FLAG_BINARY_CONNECTION_FORMAL_20261101.md}、証明・係数証明書と独立レビューの範囲を参照。
 \end{thebibliography}
 \endgroup
 \end{document}
