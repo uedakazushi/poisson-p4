@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checkpoint": "v45-s61",
+  "checkpoint": "v46-s61",
   "date": "2026-11-01",
   "base_mathematical_checkpoint": "v24",
   "new_mathematical_progress_in_this_setup": false,
@@ -5808,6 +5808,276 @@
       ],
       "limitations_ja": [
         "線形rankと有限被覆の結果である。高次障害、局所環、t飽和除去は別。b0=b1=0は含めない。"
+      ]
+    },
+    {
+      "id": "S61_MINIMAL_FLAG_ENDPOINT_TABLE",
+      "title_ja": "残る十二旗端点表示を四つの優越十六次元層へ整理",
+      "statement_ja": "四自由基線・四主極・四純三次端点の全sourceを有限Sp4変換で標準旗へ移し、三つの比率層と一つの不変四次層へ同定する。",
+      "scope": "Only the stated sufficiently-general-beta, fixed-beta formal or finite-chart conclusions.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_MINIMAL_VERTEX_EXHAUSTION"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_MINIMAL_FLAG_ENDPOINT_TABLE_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_MINIMAL_FLAG_ENDPOINT_INVARIANTS_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_MINIMAL_FLAG_ENDPOINT_TABLE_20261101.json",
+        "reports/S61_MINIMAL_FLAG_ENDPOINT_INVARIANTS_20261101.json"
+      ],
+      "limitations_ja": [
+        "被覆と像次元の定理で、四層のt冪零性・飽和除去ではない。概念確認済み、独立数値レビュー未完。"
+      ]
+    },
+    {
+      "id": "S61_BINARY_DEEPER_CUBIC_NUISANCE",
+      "title_ja": "深部binaryの二つの真三次制約が二core変数へ降りる",
+      "statement_ja": "元135式の追跡syzygyとFLINT正確QQ収縮により、二次一次倍rank129と、独立三次二類の五nuisance依存消滅を証明。既知初期部分のHFは(1,9,21,34)。",
+      "scope": "Only the stated sufficiently-general-beta, fixed-beta formal or finite-chart conclusions.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_BINARY_DEEPER_SEVEN_SLICE",
+          "S61_BINARY_DEEPER_TRIANGULAR_CHART"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_BINARY_DEEPER_CUBIC_NUISANCE_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_BINARY_DEEPER_CUBIC_NUISANCE_20261101.json"
+      ],
+      "limitations_ja": [
+        "関数体または宣言した有理開上。全三次初期idealの尽くし、四次上界65、全深部除去は未証明。"
+      ]
+    },
+    {
+      "id": "S61_FLAG_BOUNDARY_EIGHT_CUBIC",
+      "title_ja": "八変数旗chartの全真三次を二パラメータへ簡約",
+      "statement_ja": "元135式から二次rank9と全二次行関係由来の真三次rank3を確認。三次類はv8²倍の三一次式で係数はb2,b8だけ、関数体上HF(1,9,36,97)。",
+      "scope": "Only the stated sufficiently-general-beta, fixed-beta formal or finite-chart conclusions.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_FLAG_BOUNDARY_NORMAL_FORMS"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_FLAG_BOUNDARY_EIGHT_CUBIC_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_FLAG_BOUNDARY_EIGHT_CUBIC_20261101.json"
+      ],
+      "limitations_ja": [
+        "全閉点の低次rank一様性ではない。乗法rank1 coreと四線形例外、四次以降、t飽和は別。"
+      ]
+    },
+    {
+      "id": "S61_FLAG_BOUNDARY_QUADRATIC_COVER",
+      "title_ja": "旗八変数chartの二次rank9を線形枠開全体で被覆",
+      "statement_ja": "選択9×10行列の十最大minorのgcdを計算し、四線形因子の補集合全域で二次rank9。二次商の乗法rankが1となる唯一のcore r=−91/400を同定。",
+      "scope": "Only the stated sufficiently-general-beta, fixed-beta formal or finite-chart conclusions.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_FLAG_BOUNDARY_EIGHT_CUBIC",
+          "S61_FLAG_BOUNDARY_NORMAL_FORMS"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_FLAG_BOUNDARY_QUADRATIC_COVER_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_FLAG_BOUNDARY_QUADRATIC_COVER_20261101.json"
+      ],
+      "limitations_ja": [
+        "四線形例外を含めず、特殊coreで通常三次投影を使わない。高次・飽和は未証明。"
+      ]
+    },
+    {
+      "id": "S61_FLAG_ZERO12_LOW_JETS",
+      "title_ja": "b12=0旗七変数chartの二次・三次を全域で確定",
+      "statement_ja": "元135式の七変数恒等式と三minor被覆により、全域の二次rank8・真三次rank7・t∈m4を証明。八変数側のb2=2,b8=0はβ像≤15。",
+      "scope": "Only the stated sufficiently-general-beta, fixed-beta formal or finite-chart conclusions.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_FLAG_BOUNDARY_NORMAL_FORMS"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_FLAG_ZERO12_LOW_JETS_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_FLAG_ZERO12_LOW_JETS_20261101.json"
+      ],
+      "limitations_ja": [
+        "四次以降、t冪零性、全旗境界除去は別。"
+      ]
+    },
+    {
+      "id": "S61_FLAG_BOUNDARY_RELATIVE_REMOVED_OPEN",
+      "title_ja": "b1=0十八次元旗境界の非空ambient除去開",
+      "statement_ja": "指定固定βの同じ旗族下界と初期次数からrank5を得て、H15相対Nakayamaとtorsion支持次元を比較。相対境界16<17とsmooth降下から十八次元旗境界に非空ambient除去開を得る。",
+      "scope": "Only the stated sufficiently-general-beta, fixed-beta formal or finite-chart conclusions.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_FLAG_BOUNDARY_RATIONAL_INITIAL",
+          "S61_FLAG_BOUNDARY_ORBIT_SPLIT_FORMAL",
+          "S61_FLAG_UNIFORM_OPEN"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_FLAG_BOUNDARY_RELATIVE_REMOVED_OPEN_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_FLAG_BOUNDARY_RELATIVE_REMOVED_OPEN_20261101.json"
+      ],
+      "limitations_ja": [
+        "開が指定点を含むとはしない。残余は次元17以下でβ優越し得るため、全一般β境界の除去ではない。独立概念レビュー済み。"
+      ]
+    },
+    {
+      "id": "S61_FLAG_RANKONE_SOCLE_CUBIC",
+      "title_ja": "r=−91/400旗層の真三次と異なるHilbert関数",
+      "statement_ja": "全七nuisance変数で元135raw三次を再構成。二次一次倍rank64、追加三次rank2、HF(1,9,36,99)、関数体上t∈m4を証明。",
+      "scope": "Only the stated sufficiently-general-beta, fixed-beta formal or finite-chart conclusions.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_FLAG_BOUNDARY_QUADRATIC_COVER"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_FLAG_RANKONE_SOCLE_CUBIC_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_FLAG_RANKONE_SOCLE_CUBIC_20261101.json"
+      ],
+      "limitations_ja": [
+        "通常coreの投影を特殊化した結果ではない。全閉点一様性、四次以降、t冪零性、T7接続の除去は別。"
+      ]
+    },
+    {
+      "id": "S61_MINIMAL_FREE_FLAG_FLAT4_PROBE",
+      "title_ja": "自由M0旗端点の実在平方零法線三方向を持つ平坦商",
+      "statement_ja": "同じ実在基線上の全135 Jacobian核をQQ(s)で求め、端点でrank4の埋込みに正則化。実在商はQQ[[s,e1,e2,e3]]/(ei ej)で、商内0≠t,t²=0。",
+      "scope": "Only the stated sufficiently-general-beta, fixed-beta formal or finite-chart conclusions.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_MINIMAL_FLAG_ENDPOINT_TABLE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_MINIMAL_FREE_FLAG_FLAT4_PROBE_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_MINIMAL_FREE_FLAG_FLAT4_PROBE_20261101.json"
+      ],
+      "limitations_ja": [
+        "一つの固定βの商の結果。ambient平方零・相対除去・全局所環同定ではない。独立レビュー未実施。"
+      ]
+    },
+    {
+      "id": "S61_FLAG_T7_BOUNDARY",
+      "title_ja": "乗法rank1 core全点に固定βの実在T7曲線を構成",
+      "statement_ja": "全H11でβ補正なしのQε曲線が元135最高式を満たす。有限旗安定化wordがb0b12≠0のr=−91/400全点をH11へ送り、同じβのT7接続を与える。",
+      "scope": "All points of the stated open core have an actual same-beta T7 curve.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "not_independently_reimplemented",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_FLAG_BOUNDARY_NORMAL_FORMS",
+          "S61_R0_MIXED_SURFACE_T7_EXHAUSTION"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_FLAG_T7_BOUNDARY_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_FLAG_T7_BOUNDARY_20261101.json"
+      ],
+      "limitations_ja": [
+        "実在曲線とcore全域被覆の定理。端点のflat4厚化・全局所環・t冪零性・飽和除去は未証明。"
       ]
     }
   ],

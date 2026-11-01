@@ -35,7 +35,7 @@
 \title{射影四空間の Poisson 構造の一次ジェット還元\\
 \large 普遍的楕円切断、Jacobian の二捩れと Toric 成分の境界}
 \author{Poisson P4 研究プロジェクト・内部研究草稿}
-\date{2026年11月1日・v45-s61}
+\date{2026年11月1日・v46-s61}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -4279,6 +4279,138 @@ $b_0=b_2=1$、$b_1=b_3=b_5=b_6=b_{12}=b_{13}=0$とできる。
 これは有限正常化と線形rankの結果であり、高次障害・局所環・$t$飽和の証明とは区別する。
 $b_0=b_1=0$の交わりも別に残る。
 
+\section{残る最小型旗端点の四層}
+最小型の残る十二旗端点表示は、標準旗$Q_f=-x^2\partial_y\wedge\partial_w$に対する次の四層へ入る。
+\[
+\begin{array}{c|l}
+\text{自由M0}&u_4=u_5=u_{12}=u_{13}=0,\quad u_{14}=-u_{49}\\
+\text{自由M1}&u_4=u_5=u_{12}=u_{13}=0,\quad u_{14}=-4u_{49}\\
+\text{主極}&u_4=u_5=u_{12}=u_{13}=0,\quad5u_{14}=7u_{49}\\
+\text{純三次}&u_4=u_5=u_{25}=u_{27}=0,\quad5u_{14}=4u_{49},\quad u_{51}=3u_{26}
+\end{array}
+\]
+四自由基線、四主極、四純三次表示の全sourceについて、有限symplectic変換と全primitive係数のpullbackを確認する。
+主極の残差分子が零となる場合も、有限sourceの局所環で極を持ち得る係数が一本だけであることから、
+負付値を持つ射影方向は同じ旗へ入る。source自体の全compactificationの境界をこの議論だけで尽くすとはしない。
+
+最初の三つは$H_{11}$で、旗安定化群の法線作用rankは1、最後は$H_{10}$でrankは2である。
+旗軌道次元4を加えると全てjoint次元16となり、$\beta$微分のrank16 minorにより優越する。
+前者三層では$b_0=b_1=0$上の比率$b_3/b_{12}$が不変で、値は$-1,-4,7/5$である。
+後者は$b_0=0,5b_3=4b_{12}$上の不変四次式
+\begin{align*}
+ F={}&125b_1^2b_6^2-150b_1b_{12}(b_{14}+b_5)b_6
+       +2000b_1b_{14}b_5^2-6000b_1b_5^3\\
+ &+108b_{12}^3b_6+45b_{12}^2b_{14}^2
+       -630b_{12}^2b_{14}b_5+1485b_{12}^2b_5^2
+\end{align*}
+の層へ同定される。有限wordとresultantにより、単なる必要条件でなく同じ既約像閉包であることを確認する
+\cite{flag-table-v46,flag-invariants-v46}。
+これらの像次元・被覆の結論から、四層の飽和除去はまだ従わない。
+
+自由M0の指定旗点では、同じ実在基線$q(s)=q_f+s\delta$上の全135 Jacobian核を$\QQ(s)$で求め、
+端点で独立な四方向へ正則化できる。基線接方向を除く三列を$N_j(s)$とすれば
+\[
+ D=\QQ[[s,e_1,e_2,e_3]]/(e_i e_j:1\le i\le j\le3),\qquad
+ (q,t)=(q(s),0)+\sum e_jN_j(s)
+\]
+は実在する閉形式商で、$\QQ[[s]]$上自由4である。
+定数項は基線上で零、一次項は全Jacobian核、二次項は$e_i e_j=0$で消える。
+$t$の像は$s^3$と単元と$e_3$の積であり、この商内で$0\ne t,t^2=0$となる
+\cite{free-flat4-v46}。ambient全環の冪零性は、この商への全射からは結論しない。
+
+\section{深部二平面の三次類の二変数化}
+深部七変数chartを$(e,d,p,q,r,h,k)$、九法線変数を$z$とする。
+宣言済みの有理法線枠で$K=\QQ(e,d)$、$K'=K(p,q,r,h,k)$と置く。
+二次初期空間$I_2$は$K$上の次元24空間である。
+
+\begin{proposition}
+$\dim_K(K[z]_1I_2)=129$である。
+元135式の追跡可能な二つの定数二次行関係から得る真三次類は、
+$(K[z]_3/K[z]_1I_2)\otimes_KK'$の中で$K$上へ降り、互いに独立である。
+\end{proposition}
+\begin{proof}
+元135式を$F(y)=Jy+H(y,y)$と書き、線形消去の右逆$U$と接写像$T$から
+$w_2=-UH_E(Tz,Tz)$を作る。
+二次行の24行RREFと全53非零行とのspan恒等式を全七変数で確認する。
+さらに指定二行92,134の二次行関係を全成分で検査し、同じ関係を三次尾へ適用する。
+$w_2$を二次idealで簡約しても、三次類は$K[z]_1I_2$を法として変わらない。
+
+分母を払った二候補を正確QQ多項式として収縮すると、各候補は
+$C_0(e,d;z)+qC_q+hC_h+kC_k$の形となる。
+二次24式の一次倍216行を$K$上で厳密に前進消去するとrankは129である。
+最初の114 pivot係数は有理定数であり、その114行だけで$C_q,C_h,C_k$が全て零へ簡約される。
+この恒等式は補助変数の有限個の標本から推定したものではない。
+元式側の正確な特殊化で二類を加えたrank131を確認して独立性を得る\cite{deep-cubic-v46}。
+\end{proof}
+従ってこの既知初期部分のHFは$(1,9,21,34)$である。
+全三次初期idealの尽くし、次数四以降の消滅、全長65、使用開の補集合の除去はまだ証明していない。
+
+\section{旗の普遍三次と二次乗法の例外}
+八変数旗chartの関数体では、全135二次行のrankは9であり、active変数は$v_4,v_5,v_7,v_8$である。
+残り$v_0,v_1,v_2,v_3,v_6$をradical方向と呼ぶ。
+二次商のactive部分は一次元で、乗法形式のrankが2以上なら結合則により全active三次は零となる。
+二次を割った三次空間は$35+60+5=100$次元となる。
+全二次行関係を三次尾へ適用すると、新しい三次類は正確に三本であり、
+一つのRREF開では
+\[
+ v_8^2\left(v_1+\frac{r-2}{b_8}v_6\right),\qquad
+ v_8^2(v_2+4v_6),\qquad v_8^2(v_3+2v_6)
+\]
+となる。全135行のspan恒等式を確認しており、関数体上のHFは$(1,9,36,97)$である\cite{flag-eight-v46}。
+
+四線形因子の積$D=(r+6)(5r+12)(20r+119)(25r+4)$を置く。
+選択9二次行を行contentで割った$9\times10$行列の全最大minorのgcdは、非零定数倍の$(20r+119)^{13}$である。
+行contentの支持も$D$に含まれるため、$D\ne0$の\emph{全点}で二次rank9となる。
+一方、primitive核ベクトルから得る二次乗法の対称行列の全二次minorのgcdは$16(400r+91)$である。
+従って$r=-91/400$では乗法rankが1となり、通常の三次射影は使えない\cite{flag-quad-cover-v46}。
+
+このcoreで全七変数を残して元raw三次を再構成すると、二次一次倍rankは64、真三次の追加rankは2となる。
+従ってHFは$(1,9,36,99)$である。二類の係数に残るのは$b_8,b_{13}$だけであり、
+$t$の三次liftは低次idealに入るため関数体上で$t\in\mathfrak m^4$となる\cite{flag-socle-v46}。
+これは$t$冪零性の証明ではない。
+
+$b_{12}=0$の七変数chartでは、二次rank8、二次一次倍rank60、真三次の追加rank7となる。
+三つのrank7 minorは順に$b_8^4$の非零定数倍、$b_8=0$上で$b_{11}$の非零定数倍、
+$b_8=b_{11}=0$上で非零定数となる。よって全七変数点を覆う。
+$t$の三次liftも真三次七行の定数結合に入り、全域で$t\in\mathfrak m^4$となる。
+また八変数側の候補$r=2,b_8=0$は、元sourceの四法線行列の二行が恒等的に一致し、$\beta$像次元15以下である
+\cite{flag-zero12-v46}。四次以降の一様性はまだ別に残る。
+
+\section{十八次元旗境界の非空除去開とT7接続}
+\begin{proposition}
+$b_0\ne0,b_1=0$の十八次元旗境界$Z$はambientの$t$飽和境界に含まれない。
+従って$Z$と交わる非空ambient除去開がある。
+\end{proposition}
+\begin{proof}
+疎な指定固定$\beta$点のQQ初期部分$J$は次元3・次数5で、$u=(v_0,v_1,v_2)$は一次Noether正常化である。
+同じ実在旗三次元族への$u$のminorは8、$db_1=-dv_2/2$なので、同じ族の一般長さは5である。
+初期次数の上界と合わせ、固定$\beta$全環$S_0$は$R_0=\QQ[[u]]$有限階数5となる。
+
+$H_{15}$の完成底$A=\QQ[[a_1,\ldots,a_{15}]]$で相対化すると、$S$は$R=A[[u]]$有限である。
+素ideal$(a_1,\ldots,a_{15})$での局所化の剰余体は$\operatorname{Frac}(R_0)$なので、
+Nakayamaから$\operatorname{rank}_R S\le5$となる。同じ相対旗族の下界で等号を得る。
+一般部分で$t=0$だから$tS$は$R$-torsionであり、$t$可逆部分の閉包は次元17以下、
+その$t=0$境界は次元16以下である。
+
+実在旗族の相対$b_1=0$境界は$ db_1\ne0$により次元17なので、上記境界に含まれない。
+Sp4を加えると次元27対26以下となる。
+Sp4$\times H_{15}\to W_{16}$は相対次元9のsmooth写像で、全135同変性とflat基底変換における飽和の可換性を使って降下する。
+ambientの$Z$は次元18、残る飽和境界は次元17以下となる\cite{flag-relative-open-v46}。
+\end{proof}
+この開が指定点を含むとはしない。残余次元17以下は$\beta$を優越し得るので、全一般$\beta$境界の除去ではない。
+
+乗法rank1 coreには次の実在接続がある。
+\[
+ Q_\varepsilon=3\varepsilon w^2\partial_y\wedge\partial_z-x^2\partial_y\wedge\partial_w,
+ \quad H_{11}=\{u_4=u_{12}=u_{13}=0,\ 20u_{14}=7u_{49},\ 5u_{35}+u_{50}=0\}.
+\]
+一次制約のRREF自体が$\varepsilon$に依存せず、全$H_{11}$と$\varepsilon$で元135最高式が零となる。
+$\varepsilon\ne0$ではT7軌道、$\varepsilon=0$では旗であり、$\beta$は動かさない。
+通常coreの任意の点に、旗安定化の列4で$b_3=7b_{12}/20$を課すとcore式から$b_2=0$となる。
+続いて列2を$-4(b_{13}+5b_8)/(3b_{12})$で作用させると$H_{11}$へ入る。
+逆wordは$\varepsilon$に依存しないので、core全点に同じ固定$\beta$の実在T7曲線を与える\cite{flag-t7-v46}。
+端点のflat4厚化、全局所環の分解、$t$飽和除去はなお別に証明する必要がある。
+
 \section{残る問題}
 全一次項の延長可能性、楕円二成分の全域graphと一般次数1、表示重複3000、
 T01の一般次数3と$S_3$モノドロミー、および既知五延長の三平面断面の積代数は証明した。
@@ -4534,6 +4666,16 @@ arXiv:1406.6953v1 (2014), Theorems 2.1 and 2.3.
 \bibitem{rankone-end-v45} 同プロジェクト、\nolinkurl{research/notes/S61_MINIMAL_RANKONE_ENDPOINT_20261101.md}、証明書と監査範囲を参照。
 \bibitem{flag-split-v45} 同プロジェクト、\nolinkurl{research/notes/S61_FLAG_BOUNDARY_ORBIT_SPLIT_FORMAL_20261101.md}、証明書と監査範囲を参照。
 \bibitem{flag-normal-v45} 同プロジェクト、\nolinkurl{research/notes/S61_FLAG_BOUNDARY_NORMAL_FORMS_20261101.md}、証明書と監査範囲を参照。
+\bibitem{flag-table-v46} 同プロジェクト、\nolinkurl{research/notes/S61_MINIMAL_FLAG_ENDPOINT_TABLE_20261101.md}、証明書と適用範囲を参照。
+\bibitem{flag-invariants-v46} 同プロジェクト、\nolinkurl{research/notes/S61_MINIMAL_FLAG_ENDPOINT_INVARIANTS_20261101.md}、証明書と適用範囲を参照。
+\bibitem{free-flat4-v46} 同プロジェクト、\nolinkurl{research/notes/S61_MINIMAL_FREE_FLAG_FLAT4_PROBE_20261101.md}、証明書と適用範囲を参照。
+\bibitem{deep-cubic-v46} 同プロジェクト、\nolinkurl{research/notes/S61_BINARY_DEEPER_CUBIC_NUISANCE_20261101.md}、証明書と適用範囲を参照。
+\bibitem{flag-eight-v46} 同プロジェクト、\nolinkurl{research/notes/S61_FLAG_BOUNDARY_EIGHT_CUBIC_20261101.md}、証明書と適用範囲を参照。
+\bibitem{flag-quad-cover-v46} 同プロジェクト、\nolinkurl{research/notes/S61_FLAG_BOUNDARY_QUADRATIC_COVER_20261101.md}、証明書と適用範囲を参照。
+\bibitem{flag-socle-v46} 同プロジェクト、\nolinkurl{research/notes/S61_FLAG_RANKONE_SOCLE_CUBIC_20261101.md}、証明書と適用範囲を参照。
+\bibitem{flag-zero12-v46} 同プロジェクト、\nolinkurl{research/notes/S61_FLAG_ZERO12_LOW_JETS_20261101.md}、証明書と適用範囲を参照。
+\bibitem{flag-relative-open-v46} 同プロジェクト、\nolinkurl{research/notes/S61_FLAG_BOUNDARY_RELATIVE_REMOVED_OPEN_20261101.md}、証明書と適用範囲を参照。
+\bibitem{flag-t7-v46} 同プロジェクト、\nolinkurl{research/notes/S61_FLAG_T7_BOUNDARY_20261101.md}、証明書と適用範囲を参照。
 \end{thebibliography}
 \endgroup
 \end{document}

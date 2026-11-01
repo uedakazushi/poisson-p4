@@ -1,0 +1,123 @@
+{
+  "id": "S61_MINIMAL_FLAG_ENDPOINT_INVARIANTS_20261101",
+  "all_passed": true,
+  "finite_beta_flows": {
+    "3": [
+      "b0",
+      "b1",
+      "b2",
+      "-4*b1*t/3 + b3",
+      "-b10*t - 2*b11*t - b13*t**2 + b2*t**3 + b4 - b8*t**2",
+      "b1*t**2/2 - b12*t + b3*t/2 + b5",
+      "-b1*t**3 + b12*t**2 - b14*t + b3*t**2 - b5*t + b6",
+      "b7 + b9*t",
+      "-b2*t/2 + b8",
+      "b9",
+      "b10 + b2*t**2/3 - 4*b8*t/3",
+      "b11 + b13*t - 5*b2*t**2/3 + 5*b8*t/3",
+      "-5*b1*t/3 + b12",
+      "b13 - 5*b2*t/2",
+      "5*b1*t**2/2 - b12*t + b14 - 5*b3*t/2"
+    ],
+    "4": [
+      "b0",
+      "b1",
+      "-b0*t**2 + b12*t + b2 - 2*b3*t",
+      "b0*t + b3",
+      "b4",
+      "b5",
+      "b6",
+      "b4*t + b7",
+      "b5*t + b8",
+      "-2*b10*t - b11*t - b6*t**2 + b9",
+      "b10 + b6*t",
+      "b11",
+      "b12",
+      "b13 - b14*t",
+      "b14"
+    ]
+  },
+  "double_boundary_ratio_cases": [
+    {
+      "ratio": "-1",
+      "derivatives": [
+        [
+          "0",
+          "-b12 - b3",
+          "0",
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "normalization_parameter": "-b2/(b12 - 2*b3)",
+      "normalization_open": "b12 !=0",
+      "normalization_coefficient": "3"
+    },
+    {
+      "ratio": "-4",
+      "derivatives": [
+        [
+          "0",
+          "-4*b12 - b3",
+          "0",
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "normalization_parameter": "-b2/(b12 - 2*b3)",
+      "normalization_open": "b12 !=0",
+      "normalization_coefficient": "9"
+    },
+    {
+      "ratio": "7/5",
+      "derivatives": [
+        [
+          "0",
+          "7*b12/5 - b3",
+          "0",
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "normalization_parameter": "-b2/(b12 - 2*b3)",
+      "normalization_open": "b12 !=0",
+      "normalization_coefficient": "-9/5"
+    }
+  ],
+  "pure_cubic": {
+    "delta": "-4*b12 + 5*b3",
+    "P": "b1*t**2 - 6*b12*t/5 + b14 - 3*b5",
+    "Q": "-b1*t**3 + 9*b12*t**2/5 + b6 - t*(b14 + b5)",
+    "quartic": "125*b1**2*b6**2 - 150*b1*b12*b14*b6 - 150*b1*b12*b5*b6 + 2000*b1*b14*b5**2 - 6000*b1*b5**3 + 108*b12**3*b6 + 45*b12**2*b14**2 - 630*b12**2*b14*b5 + 1485*b12**2*b5**2",
+    "weights": [
+      "0",
+      "-2",
+      "0",
+      "0",
+      "0",
+      "-2"
+    ],
+    "discriminant_in_b6": "16*(50*b1*b5 - 9*b12**2)**2*(-25*b1*b14 + 75*b1*b5 + 9*b12**2)",
+    "primitive_content": "1",
+    "absolute_irreducibility_reason": "Primitive quadratic in b6 with nonsquare linear factor in b14 in its discriminant.",
+    "source_containment": true
+  },
+  "conclusion": "The three double-boundary strata are b0=b1=0,b3=r*b12; the pure-cubic stratum is b0=delta=F=0.",
+  "scope": [
+    "Intrinsic exact equations for the four flag endpoint closures; no saturation-removal assertion.",
+    "Uses connectedness of the projective flag stabilizer and the already-certified16D source images."
+  ],
+  "proof_note": "research/notes/S61_MINIMAL_FLAG_ENDPOINT_INVARIANTS_20261101.md",
+  "input_sha256": {
+    "code/s61_minimal_flag_endpoint_invariants_20261101.py": "e8b3d3b6a971393f3fcf75704536748a37d2fc9ccf1d184bcdaa5e9106e9223a",
+    "reports/S61_FLAG_UNIFORM_OPEN_20261101.json": "e1dd218c0d80e9472f8269ee8e81d9908cb23155ec47bcb6f0e84a5febd9f776",
+    "reports/S61_MINIMAL_FLAG_ENDPOINT_TABLE_20261101.json": "26023592fc8ad8868f8c8366501cb0ab6ef1539a3430fb8a1581211904dc66e6",
+    "code/s61_model.py": "347fd285c5342d6e6444bf6d049a49342650a22b29857f87bbd5f4b689400fc1",
+    "code/primitive_jet_elliptic_curve_20261101.py": "6b6dc88eed89ef3f92944d3dd71843e453a790d06a7a92ca2554dfddf7c736fe",
+    "code/weight1_structure.py": "204578a6299862e22494586e94cf7e69633ec2f9812a82e595457a6e75d8c22b"
+  },
+  "seconds": 0.48380494117736816
+}

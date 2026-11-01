@@ -1,8 +1,30 @@
 # Poisson structures on P4 — Codex instructions
 
-Version: v45-s61 · 2026-11-01 (Asia/Tokyo).
+Version: v46-s61 · 2026-11-01 (Asia/Tokyo).
 
-Current v45 additions: the entire dominant16D triple-tail binary endpoint
+Current v46 additions: twelve remaining minimal flag endpoint presentations
+are covered by four dominant16D strata: three invariant ratios on b0=b1=0 and
+one quartic invariant on b0=0. Their saturation removal remains unresolved.
+The free-M0 flag point has an actual flat4 square-zero-normal quotient with
+nonzero square-zero t; this is a quotient assertion, not ambient nilpotence.
+Deeper binary has quadratic-product rank129 and two tracked genuine cubic
+classes whose five nuisance dependencies vanish exactly over QQ(e,d).
+All cubic initial relations and fourth-order upper65 remain unproved.
+The eight-variable flag chart has function-field quadratic/new-cubic ranks9/3,
+HF(1,9,36,97), and cubic coefficients only b2,b8. Ten maximal minors cover
+quadratic rank9 on the whole four-factor linear open. Its quadratic multiplication
+form drops to rank1 at r=-91/400; separate raw cubics there give rank2 and
+HF(1,9,36,99), with t in m^4 over the seven-parameter function field.
+Every point of the ordinary r=-91/400 core has an actual same-beta T7 curve,
+by a finite stabilizer word; endpoint flat4 or saturation is not proved.
+The b12=0 seven-variable chart has uniform quadratic/new-cubic ranks8/7 and
+t in m^4; a three-minor cover includes all nuisance values.
+Relative rank5 and a dimension bound give a nonempty ambient removed open
+meeting the18D b1=0 flag boundary, not necessarily the specified point.
+Its remaining closed subset can still dominate beta. Entire flags/deeper binary,
+affine exhaustion and component upper bound remain open. Lower57. Continue.
+
+Previous v45 additions: the entire dominant16D triple-tail binary endpoint
 and rank-one A1 projective endpoint are removed over sufficiently general beta.
 Universal flat triple/double lines satisfy all405/270 raw135 identities.
 True initial degree7/6 ideals equal B65 intersect the actual line schemes.

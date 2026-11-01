@@ -1,6 +1,6 @@
 # 公表用原稿の構成案と証明資料
 
-**状態：v45-s61、2026-11-01。零一次部分の被約台AB、ABのincidenceと特異点集合、最小型無限遠の完成局所環、二平面型の横断Artin代数を統合。**
+**状態：v46-s61、2026-11-01。零一次部分の被約台AB、ABのincidenceと特異点集合、最小型無限遠の完成局所環、二平面型の横断Artin代数を統合。**
 
 [一次ジェット還元の日本語原稿](s61_first_jet_reduction_ja.tex)（[PDF・41ページ](s61_first_jet_reduction_ja.pdf)）は、
 primitive gauge、T01/T39/T40の優越性と全S61のétale点、楕円型五変数模型、T01の一般次数3、
@@ -242,3 +242,15 @@ v35では一般被約無限遠の全型帰着、ABの原点外の正規性、二
 - rank-one A1族の全射影端点を一般βで除去: `S61_MINIMAL_RANKONE_ENDPOINT_20261101`。適用範囲と未解決部分を各ノートに明記。
 - 旗境界の疎な固定β点で非零平方零t: `S61_FLAG_BOUNDARY_ORBIT_SPLIT_FORMAL_20261101`。適用範囲と未解決部分を各ノートに明記。
 - 旗b1=0境界の有限正常化と線形例外の全域判定: `S61_FLAG_BOUNDARY_NORMAL_FORMS_20261101`。適用範囲と未解決部分を各ノートに明記。
+
+## v46: 旗境界の低次・端点表・深部三次
+
+- 残る十二旗端点表示を四つの優越十六次元層へ整理: `S61_MINIMAL_FLAG_ENDPOINT_TABLE_20261101`。適用範囲と未解決部分を各ノートに明記。
+- 深部binaryの二つの真三次制約が二core変数へ降りる: `S61_BINARY_DEEPER_CUBIC_NUISANCE_20261101`。適用範囲と未解決部分を各ノートに明記。
+- 八変数旗chartの全真三次を二パラメータへ簡約: `S61_FLAG_BOUNDARY_EIGHT_CUBIC_20261101`。適用範囲と未解決部分を各ノートに明記。
+- 旗八変数chartの二次rank9を線形枠開全体で被覆: `S61_FLAG_BOUNDARY_QUADRATIC_COVER_20261101`。適用範囲と未解決部分を各ノートに明記。
+- b12=0旗七変数chartの二次・三次を全域で確定: `S61_FLAG_ZERO12_LOW_JETS_20261101`。適用範囲と未解決部分を各ノートに明記。
+- b1=0十八次元旗境界の非空ambient除去開: `S61_FLAG_BOUNDARY_RELATIVE_REMOVED_OPEN_20261101`。適用範囲と未解決部分を各ノートに明記。
+- r=−91/400旗層の真三次と異なるHilbert関数: `S61_FLAG_RANKONE_SOCLE_CUBIC_20261101`。適用範囲と未解決部分を各ノートに明記。
+- 自由M0旗端点の実在平方零法線三方向を持つ平坦商: `S61_MINIMAL_FREE_FLAG_FLAT4_PROBE_20261101`。適用範囲と未解決部分を各ノートに明記。
+- 乗法rank1 core全点に固定βの実在T7曲線を構成: `S61_FLAG_T7_BOUNDARY_20261101`。厚化・飽和は未主張。
