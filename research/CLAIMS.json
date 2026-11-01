@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checkpoint": "v52-s61",
+  "checkpoint": "v53-s61",
   "date": "2026-11-02",
   "base_mathematical_checkpoint": "v24",
   "new_mathematical_progress_in_this_setup": false,
@@ -7333,6 +7333,142 @@
       ],
       "limitations_ja": [
         "nuisance零で二つのheavy変数を除いた七変数二次idealの同型。特殊coreでのrank一定性、残る四次例外の除去、全横断長65を主張しない。"
+      ]
+    },
+    {
+      "id": "S61_AB_RATIONAL_SINGULARITIES_HILBERT",
+      "title_ja": "ABの有理特異点と全Hilbert級数",
+      "statement_ja": "内在的特異集合のblowupでABの有理解消を構成。局所Torの全shift≤40からHilbert分子次数≤5を証明し、h=(1,35,356,986,715,91)、次数2184、reg5、a=-5、定義idealの生成次数≤6を得る。",
+      "scope": "Exactly the pointwise, generic-open, all-degree or finite-model scope stated in each proof note.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_02",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_AB_ORIGIN_NORMALITY",
+          "S61_AB_PROPER_INCIDENCE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AB_RATIONAL_SINGULARITIES_HILBERT_20261102.md"
+        },
+        {
+          "path": "research/notes/AB_RATIONAL_SINGULARITIES_HILBERT_REVIEW_20261102.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AB_RATIONAL_SINGULARITIES_HILBERT_20261102.json",
+        "reports/AB_RATIONAL_SINGULARITIES_HILBERT_REVIEW_20261102.json"
+      ],
+      "limitations_ja": [
+        "被約ABのみ。明示的な全定義idealや、T01零fiberの全点での非被約構造を求めたとはしない。"
+      ]
+    },
+    {
+      "id": "S61_TORIC_ZERO_FIBER_GENERIC_REDUCED",
+      "title_ja": "実際のT01零fiberの一般被約性",
+      "statement_ja": "元134式の二次下側idealのtop multiplicity1から指定AB点でT01の正則16次元性を証明。β微分rank6により零fiberは滑らか10次元となり、ABの一般点の厚みは1。",
+      "scope": "Exactly the pointwise, generic-open, all-degree or finite-model scope stated in each proof note.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_02",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_TORIC_ZERO_JET_EXHAUSTION",
+          "S61_AB_PROPER_INCIDENCE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/TORIC_ZERO_FIBER_GENERIC_REDUCED_20261102.md"
+        },
+        {
+          "path": "research/notes/TORIC_ZERO_FIBER_GENERIC_REDUCED_REVIEW_20261102.md"
+        }
+      ],
+      "verification_records": [
+        "reports/TORIC_ZERO_FIBER_GENERIC_REDUCED_20261102.json",
+        "reports/TORIC_ZERO_FIBER_GENERIC_REDUCED_REVIEW_20261102.json"
+      ],
+      "limitations_ja": [
+        "指定点とABの稠密開部分。全AB上のfiber被約性、全S61の滑らかさ・embedded構造・成分尽くしは主張しない。"
+      ]
+    },
+    {
+      "id": "S61_FLAG_ZERO12_BASE_ADIC_BOUNDS",
+      "title_ja": "zero12の全基底次数に対する有限打切り",
+      "statement_ja": "QQ初期下側idealの基底零商の最高次数5から、全r≥1でm^(r+5)S⊂a^rSを証明。実際のR-adic商は通常次数r+4までで決まり、t²∈a³M。",
+      "scope": "Exactly the pointwise, generic-open, all-degree or finite-model scope stated in each proof note.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_02",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_FLAG_ZERO12_RATIONAL_INITIAL",
+          "S61_FLAG_BOUNDARY_SQUAREZERO_QUOTIENT"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_FLAG_ZERO12_BASE_ADIC_BOUNDS_20261102.md"
+        },
+        {
+          "path": "research/notes/S61_FLAG_ZERO12_BASE_ADIC_BOUNDS_REVIEW_20261102.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_FLAG_ZERO12_BASE_ADIC_BOUNDS_20261102.json",
+        "reports/S61_FLAG_ZERO12_BASE_ADIC_BOUNDS_REVIEW_20261102.json"
+      ],
+      "limitations_ja": [
+        "指定固定β点のみ。初期商の長さを実際の商長と混同せず、全Sのt冪零性やambient除去を主張しない。"
+      ]
+    },
+    {
+      "id": "S61_BINARY_DEEPER_WEIGHTED_FINITE_MODEL",
+      "title_ja": "深部binaryの厳密有限weighted模型",
+      "statement_ja": "正の重みと元135式の恒等式によりnuisance零断面のimplicit解が通常四次で厳密に終わる。横断長の判定をweight2/3/4の有限行列へ帰着し、最後は390×269となる。",
+      "scope": "Exactly the pointwise, generic-open, all-degree or finite-model scope stated in each proof note.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_02",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_BINARY_DEEPER_TRIANGULAR_CHART",
+          "S61_BINARY_DEEPER_CORE_ARTIFACTS"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_BINARY_DEEPER_WEIGHTED_FINITE_MODEL_20261102.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_DEEPER_WEIGHTED_FINITE_MODEL_REVIEW_20261102.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_BINARY_DEEPER_WEIGHTED_FINITE_MODEL_20261102.json",
+        "reports/S61_BINARY_DEEPER_WEIGHTED_FINITE_MODEL_REVIEW_20261102.json"
+      ],
+      "limitations_ja": [
+        "全coreのrank被覆は未証明。7/64/269は指定標本minorとその非空開の証拠であり、新しい層の除去やambient t冪零性を主張しない。"
       ]
     }
   ],

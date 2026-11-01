@@ -35,7 +35,7 @@
 \title{射影四空間の Poisson 構造の一次ジェット還元\\
 \large 普遍的楕円切断、Jacobian の二捩れと Toric 成分の境界}
 \author{Poisson P4 研究プロジェクト・内部研究草稿}
-\date{2026年11月2日・v52-s61}
+\date{2026年11月2日・v53-s61}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -56,7 +56,7 @@ Toric三次被覆を標準曲線のJacobianの非零二捩れと同定し、判�
 トーリック成分全体の飽和イデアル表示を得る。実際の成分は全域では有限でなく、零一次部分上に
 従来の代数模型が覆わない既約十次元の零一次部分ファイバーを持つ。
 既知五延長の三平面断面も決定する。さらに無限遠の双対楕円曲線を同定し、指定した旗型・非二元型の完成局所環と飽和による除去を証明する。零一次部分の被約台はABだけであると決定し、そのproper incidenceと特異点集合を記述する。最小冪零型の二つの無限遠曲線では指定開部分の平方零完成局所環を決定し、二平面型では横断Artin代数の長さ65と非零の斉次化変数を示す。滑らかな全領域での既知五延長の分離も証明する。
-一般一次項上の未飽和無限遠の被約点を全モジュラー型で尽くし、零モジュラー型R0と最小冪零型M0/M1へ帰着する。二つの非二元共鳴交点の局所環、二平面型の自由階数65、ABの原点を含む全域正規性も証明する。さらに非平坦な三枝交点での飽和除去と、一般一次項にも残る二平面型階数降下曲線を与える。
+一般一次項上の未飽和無限遠の被約点を全モジュラー型で尽くし、零モジュラー型R0と最小冪零型M0/M1へ帰着する。二つの非二元共鳴交点の局所環、二平面型の自由階数65、ABの原点を含む全域正規性・有理特異点も証明する。実際のT01零一次項ファイバーはABの一般点で被約である。さらに非平坦な三枝交点での飽和除去と、一般一次項にも残る二平面型階数降下曲線を与える。
 純二重根非二元軌道の全一般一次項上での飽和除去、非平方二平面型の全Jacobian階数降下表、最小型の階数一有限A1全体の除去も証明する。
 全S61の未飽和斉次化には、非零一次項ごとに3次元の旗の無限遠部分が必ず現れることも示す。
 基礎となる perspective 正規化は有限の多項式公式で与えられ、一意である。
@@ -5054,6 +5054,152 @@ $(x_0,\ldots,x_6)=(v_0,v_2,v_4,v_5,v_6,L,N)$への座標変換も行列式$\pm1$
 これは残る高次例外を調べるための正確なideal縮約であり、全coreの横断長65や
 ambientの$t$冪零性を追加で主張するものではない。
 
+\section{ABの有理特異点と実際の零ファイバーの一般被約性（v53）}
+\label{sec:v53}
+\subsection{全Hilbert級数と有理解消}
+\begin{theorem}
+被約$\overline{AB}$は有理特異点を持ち、Cohen--Macaulayである。
+テンソル係数を次数一とする座標環$B$のHilbert級数は
+\[
+ H_B(z)=\frac{1+35z+356z^2+986z^3+715z^4+91z^5}{(1-z)^{10}}
+\]
+である。原点のHilbert--Samuel multiplicityと$\operatorname{Proj}B$の次数は2184、
+$\operatorname{reg}B=5$、$a(B)=-5$であり、斉次定義idealは次数6以下で生成される。
+\end{theorem}
+\begin{proof}
+incidence $X$の被約特異集合は局所模型$Y\times\AA^6$で$\{0\}\times\AA^6$に対応する。
+$Y$の射影化は滑らかなincidence
+\[
+ F=\{([u],[v])\in\PP^2\times(\PP^2)^*:v(u)=0\}
+\]
+であるから、$Y$の原点blowupは$\mathcal O_F(-1,-1)$の全空間である。
+従って内在的な特異集合で$X$をblowupして、滑らかな$g:\widehat X\to X$を得る。
+$n\ge0$で
+\[
+ 0\to\mathcal O(n-1,n-1)\to\mathcal O(n,n)\to\mathcal O_F(n,n)\to0
+\]
+を用いると$H^{i>0}(F,\mathcal O_F(n,n))=0$となる。
+$n=0$の左辺$\mathcal O(-1,-1)$もacyclicなので例外はない。
+line bundle全空間のaffine射影により$Rg_*\mathcal O_{\widehat X}=\mathcal O_X$。
+前節の$Rf_*\mathcal O_X=\mathcal O_{AB}$と合成して、有理特異点とCM性を得る
+\cite{ab-rational-v53,smith-rational-v53}。
+
+局所Torの全shiftは$(0,2,3,4,6)$と34個の一次Koszul因子の畳み込みであり、内部次数は40以下。
+前節のspectral sequenceは内部次数を保つから、$B$の全最小分解のshiftも40以下となる。
+従って$H_B=Q(z)/(1-z)^{45}$では$\deg Q\le40$。
+$\dim B=10$より$Q$は$(1-z)^{35}$で割り切れ、約分した分子の次数は5以下である。
+この上界はCM性を使わない。
+全正cohomology消滅とLevi--BottのEuler計算により、次数0から5の寸法は
+\[
+ 1,45,761,6691,38570,166818
+\]
+となり、表示した全級数を決定する。
+独立のCauchy/trace characterと符号付きWeyl多項式でも再計算した
+\cite{ab-rational-review-v53}。
+さらにhomological degree $p$に寄与する局所Torは$i=p+j$, $j\le3$で、
+内部次数と$i$の差は2以下である。従ってshiftは$p+5$以下、特にidealの生成次数は6以下である。
+残る数値はCM環のHilbert級数から従う。
+\end{proof}
+
+\subsection{T01自体の滑らかさと零ファイバー}
+\begin{theorem}
+実際の被約成分$T01$のスキーム論的零一次項ファイバーは、$AB$の稠密開部分で被約である。
+具体的に
+\[
+ P_*=(1-r^2)\partial_r\wedge\partial_u+(1-z^2)\partial_z\wedge\partial_v
+       +(r^2+2rz+3z^2)\partial_u\wedge\partial_v
+\]
+に対応する点で$T01$は滑らか16次元、零ファイバーは滑らか10次元となる。
+従ってこのファイバーの$AB$一般点での長さは1である。
+\end{theorem}
+\begin{proof}
+この点の$T01$への帰属は既存の対数型退化による。
+元134式の全Jacobianは階数43、$\beta$列は10、$q$列は33である。
+43次minorで陰関数消去した18接変数の真正二次行空間は階数7であり、
+全Hessianの共通kernelは12次元である。
+残る六変数には有理線形座標$(u,v,a,b,c,d)$を取り、二次下側idealを
+\[
+ J_2=(u,v)^2+(ua,ub,vc,vd)
+\]
+と書ける。元134式の別Taylor実装・別pivot順でもこの七行空間が一致した。
+
+活性部分は加群として
+$\CC[a,b,c,d]\oplus u\CC[c,d]\oplus v\CC[a,b]$であり、12自由変数を戻すと
+\[
+ H_{\CC[18]/J_2}(z)=\frac{1+2z-4z^2+2z^3}{(1-z)^{16}}.
+\]
+従って次元16、multiplicity1である。
+既知の被約既約16次元成分$T01$の局所環のassociated gradedはこの環の商であるから、
+$e(\mathcal O_{T01,P_*})=1$となる。
+これはexcellent local domainであり、そのcompletionは被約・等次元である。
+従ってmultiplicity1判定法により$T01$はここで正則となる
+\cite{toric-zero-reduced-v53,huneke-swanson-v53}。
+全周囲$S_{61}$の局所環にこの判定法を適用しているのではない。
+
+正則な$T01$の接錐は18変数内の線形primeであり、$J_2$を含む同じheight2のprimeなので
+$\sqrt{J_2}=(u,v)$と一致する。
+従ってその接空間上で$\beta$微分を計算でき、厳密階数は6となる。
+六つの独立な$\beta$で切ると滑らかな10次元の形式schemeを得る。
+一方、平行移動核二次元・非零coreのincidence chartから$AB$自身もこの点で滑らか10次元であり、
+全$\beta$を零にするのでこのschemeに閉包含する。
+同次元の正則局所整域への閉包含は等号となるため、残る$\beta$も零となる。
+全零ファイバーはその滑らかな10次元schemeに等しい。
+開条件と$AB$の既約性から一般点での主張を得る
+\cite{toric-zero-reduced-review-v53}。
+\end{proof}
+旧全$Q_{45}$の$AB$横断環$K[u,v]/(u,v)^2$の長さ3は、実際の$T01$零ファイバーへは移らない。
+$AB$の残る閉部分での厚み、周囲$S_{61}$のembedded構造や別枝は引き続き区別する。
+上の$J_2$を全初期idealと同定する必要もない。
+
+\subsection{旗zero12で全基底次数を有限計算へ戻す}
+\begin{proposition}
+指定zero12点の全完成局所環$S$において、同じ実在旗三次元部分の基底を
+$R=\QQ[[v_0,v_1,v_3]]$、$\mathfrak a=(v_0,v_1,v_3)S$とする。
+全$r\ge1$について
+\[
+ \mathfrak m^{r+5}S\subset\mathfrak a^rS
+\]
+が成り立つ。従って$S/\mathfrak a^rS$は通常次数$r+4$までの元残差から厳密に決まる。
+実在free5商の核$M$について$t^2\in\mathfrak a^3M$である。
+\end{proposition}
+\begin{proof}
+既証明の64個の有理数初期関係が作る下側idealを$J_6$とする。
+$G=\QQ[v_0,\ldots,v_8]/J_6$を基底三変数で割ったHilbert関数は
+$(1,6,13,15,10,6)$で、次数6以上は零となる。
+M2と、基底を先に零にした六変数のSymPy QQ計算で独立に確認した。
+gradedな次数帰納により、$G$は基底多項式環上で次数5以下の元により生成される。
+従って$G/\mathfrak a^rG$の次数$r+5$以上は零である。
+$J_6+\mathfrak a^r\subset\operatorname{in}(I_S+\mathfrak a^r)$から、
+実商$S/\mathfrak a^rS$では$\mathfrak m^{r+5}/\mathfrak m^{r+6}=0$となる。
+Noether局所環の有限idealへのNakayamaで$\mathfrak m^{r+5}=0$を得る。
+既知$t\in\mathfrak m^4$と$r=3$から$t^2\in\mathfrak a^3S$。
+自由5商の$R$加群分裂により$M\cap\mathfrak a^3S=\mathfrak a^3M$なので結論となる
+\cite{zero12-adic-v53,zero12-adic-review-v53}。
+\end{proof}
+初期商の長さ51を実横断長49と混同しない。
+この包含から全$S$における$t^2=0$や$t$冪零性も結論しない。
+自由M0の別の有限体点では実基底次数商の長さ141,542,1303と初期層141,401,761を保存したが、
+候補加群の関数体rankは108であり、全局所環の認識は未完了である。
+その資材・失敗条件をWIPに保存し、有限体商の$t^2\in\mathfrak a^3S$を
+標数零や相対ambientへ移してはいない\cite{free-adic-wip-v53}。
+
+\subsection{正の重みで終わる深部binaryのimplicit解}
+深部binaryの七変数core chartで五つのnuisanceを零とし、既処理十三因子の積を$D_0$とする。
+$\QQ[e,d,D_0^{-1}]$上で九法線変数の重みは$(1,1,1,1,1,2,1,2,1)$となる。
+元135式、線形枠、選択33式と全implicit係数がこの重みを保ち、
+局所座標の重みは高々4、二つの重み0座標は横断切断で零である。
+従って一意なimplicit解は正の重みから通常次数4の多項式で厳密に終わる。
+これは四次切断から全次数を推測する議論ではない。
+
+低重み残余はweight2/3/4でそれぞれ7/21/33本となる。
+weight2式の30単項式倍とweight3式の七軽変数倍、weight4式を合わせると390行269列となる。
+weight4単項式は軽い四次210、軽い二次と重い一次56、重い二次3で尽くされる。
+この全空間が消えれば、全ての高重み単項式もこれらのいずれかで割れるため零となる。
+ただし横断長65には低次数も合わせたrank7/64/269の確認が必要である。
+その三階数の標本minorは保存したが、全coreでの階数被覆は未完了である。
+固定断面から相対ambientへの移行には、同じ実在$C_3$下界とsmooth降下を別に適用する必要がある
+\cite{binary-weighted-v53}。
+
 \begingroup\footnotesize
 \begin{thebibliography}{99}
 \setlength{\itemsep}{0pt}
@@ -5345,6 +5491,21 @@ arXiv:1406.6953v1 (2014), Theorems 2.1 and 2.3.
 \href{https://stacks.math.columbia.edu/tag/01E6}{01E6}.
 proper高次像、perfect複体、単位成分消去、projection formula。
 2026年11月2日本文確認。
+\bibitem{ab-rational-v53} 同プロジェクト、\nolinkurl{research/notes/AB_RATIONAL_SINGULARITIES_HILBERT_20261102.md}、証明書・依存と独立点検の範囲を参照。
+\bibitem{ab-rational-review-v53} 同プロジェクト、\nolinkurl{research/notes/AB_RATIONAL_SINGULARITIES_HILBERT_REVIEW_20261102.md}、証明書・依存と独立点検の範囲を参照。
+\bibitem{toric-zero-reduced-v53} 同プロジェクト、\nolinkurl{research/notes/TORIC_ZERO_FIBER_GENERIC_REDUCED_20261102.md}、証明書・依存と独立点検の範囲を参照。
+\bibitem{toric-zero-reduced-review-v53} 同プロジェクト、\nolinkurl{research/notes/TORIC_ZERO_FIBER_GENERIC_REDUCED_REVIEW_20261102.md}、証明書・依存と独立点検の範囲を参照。
+\bibitem{zero12-adic-v53} 同プロジェクト、\nolinkurl{research/notes/S61_FLAG_ZERO12_BASE_ADIC_BOUNDS_20261102.md}、証明書・依存と独立点検の範囲を参照。
+\bibitem{zero12-adic-review-v53} 同プロジェクト、\nolinkurl{research/notes/S61_FLAG_ZERO12_BASE_ADIC_BOUNDS_REVIEW_20261102.md}、証明書・依存と独立点検の範囲を参照。
+\bibitem{free-adic-wip-v53} 同プロジェクト、\nolinkurl{research/notes/S61_MINIMAL_FREE_FLAG_R_ADIC_PREPARATION_20261102.md}、証明書・依存と独立点検の範囲を参照。
+\bibitem{binary-weighted-v53} 同プロジェクト、\nolinkurl{research/notes/S61_BINARY_DEEPER_WEIGHTED_FINITE_MODEL_20261102.md}、証明書・依存と独立点検の範囲を参照。
+\bibitem{smith-rational-v53} K. E. Smith, \textit{F-rational rings have rational singularities},
+Amer. J. Math. 119 (1997), 159--180, Section 1, Definition 1.6直後。
+\url{https://sites.lsa.umich.edu/kesmith/wp-content/uploads/sites/1309/2024/07/finalration.pdf}.
+\bibitem{huneke-swanson-v53} C. Huneke and I. Swanson,
+\textit{Integral Closure of Ideals, Rings, and Modules}, LMS Lecture Note Series 336,
+Section 11.1, Example 11.1.11 and Exercise 11.8.
+\url{https://www.math.purdue.edu/~iswanso/book/SwansonHuneke.pdf}.
 \end{thebibliography}
 \endgroup
 \end{document}

@@ -240,3 +240,12 @@ FREE_FLAG_EIGHTH_UPPER_BOUND：主61.414秒、proof/sourceレビュー0.027秒PA
 両レビューは有限行列・整数範囲・source監査で、raw七／八次の独立再実装ではない。
 機械的な九次以降への延長ではなく、実際のtorsion支持や多項式恒等式を通じた
 相対ambient tnilへの有限な橋が残件である。全初期idealや初期埋込加群の構造だけでは足りない。
+
+FREE_FLAG_R_ADIC_PREPARATION_20261102：追加 native 計算を止め、438KB の WIP archive に保存した。
+旧指定有限体点の共通 R3 射影で、実際の S/a、S/a²、S/a³ の長さは141、542、1303、
+m8、m9、m10が零。保存 NF 行列を再検算し、R-adic 層141/401/761、一次22関係、
+二次85関係（一次倍60を除く新25）を確認した。snapshot validator は0.357秒。
+候補加群の記録上の rank は125→108で、既知枝総 rank70の認識には届いていない。
+t² は S/a³ で零という有限体記録のみであり、全 S/QQ/relative の冪零性を主張しない。
+S/a⁴ の元順序240秒・parameter先行180秒、Artin Mora90秒の未完条件も保存し、同条件を反復しない。
+次は141生成加群上の有限表示・実際の torsion 認識を進める必要がある。

@@ -1,8 +1,24 @@
 # Poisson structures on P4 — Codex instructions
 
-Version: v52-s61 · 2026-11-02 (Asia/Tokyo).
+Version: v53-s61 · 2026-11-02 (Asia/Tokyo).
 
-Current v52 additions: reduced AB is normal INCLUDING THE ORIGIN.
+Current v53 additions: reduced AB has rational singularities and is CM.
+Its exact Hilbert numerator is(1,35,356,986,715,91), dimension10, degree2184,
+regularity5, a-invariant-5; its homogeneous ideal is generated in degrees<=6.
+The global numerator bound follows from all local Tor shifts<=40, not extrapolation.
+At the stated AB point, T01 itself is smooth16 and its actual zero-first-jet
+fiber is smooth10. Hence that fiber has generic length1 along AB. The old
+full-Q45 generic thickness3 does not transfer to T01. The remaining AB closed
+subset and the surrounding S61 embedded structure are still separate.
+At the specified zero12 flag point, ALL r>=1 satisfy m^(r+5)S subset a^rS.
+Ordinary degree r+4 suffices to compute the exact base-adic quotient; t^2 lies
+in a^3M, not proved zero in S. The finite-field free-M0 R-adic work is WIP.
+Deeper binary nuisance-zero implicit solutions are exact degree<=4 polynomials;
+the weighted finite matrices include390x269, but all-core rank coverage is pending.
+Whole flags, remaining binary core, affine exhaustion and component upper
+bound remain unresolved. Lower57. Continue after checkpoints.
+
+Previous v52 additions: reduced AB is normal INCLUDING THE ORIGIN.
 B4=D4 has dimension38570, by249 weight evaluation minors and independent
 cohomology and manual determinant reviews. The local Tor shifts of the proper
 incidence bound normalization-module generators by degree4; hence B=D in all

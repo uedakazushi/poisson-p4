@@ -1,6 +1,6 @@
 # S61 の現行座標・一次部分・既知族
 
-2026-11-02 / v52-s61。原本は `legacy/v02/` に置いたまま、以下の独立実装と
+2026-11-02 / v53-s61。原本は `legacy/v02/` に置いたまま、以下の独立実装と
 証明書から研究を再開する。完全分類・素分解・新しい成分を主張する実装ではない。
 
 ## 座標規約
@@ -402,3 +402,10 @@ t−1となり、この制限上のファイバーは一つの被約点である
 - ABの原点を含む全域正規性: `AB_ORIGIN_NORMALITY_20261102`。適用範囲と未解決部分を各ノートに明記。
 - 全b0非零旗境界の実在閉平方零厚化: `S61_FLAG_BOUNDARY_SQUAREZERO_QUOTIENT_20261101`。適用範囲と未解決部分を各ノートに明記。
 - 深部binary七二次idealの積正規形: `S61_BINARY_DEEPER_PRODUCT_PAIR_20261102`。適用範囲と未解決部分を各ノートに明記。
+
+## v53: AB有理特異点・T01零fiberの一般被約性・有限模型
+
+- ABの有理特異点と全Hilbert級数: `AB_RATIONAL_SINGULARITIES_HILBERT_20261102`。適用範囲と未解決部分を各ノートに明記。
+- 実際のT01零fiberの一般被約性: `TORIC_ZERO_FIBER_GENERIC_REDUCED_20261102`。適用範囲と未解決部分を各ノートに明記。
+- zero12の全基底次数に対する有限打切り: `S61_FLAG_ZERO12_BASE_ADIC_BOUNDS_20261102`。適用範囲と未解決部分を各ノートに明記。
+- 深部binaryの厳密有限weighted模型: `S61_BINARY_DEEPER_WEIGHTED_FINITE_MODEL_20261102`。適用範囲と未解決部分を各ノートに明記。

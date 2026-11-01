@@ -1,6 +1,6 @@
 # 公表用原稿の構成案と証明資料
 
-**状態：v52-s61、2026-11-02。零一次部分の被約台AB、ABのincidenceと特異点集合、最小型無限遠の完成局所環、二平面型の横断Artin代数を統合。**
+**状態：v53-s61、2026-11-02。零一次部分の被約台AB、ABのincidenceと特異点集合、最小型無限遠の完成局所環、二平面型の横断Artin代数を統合。**
 
 [一次ジェット還元の日本語原稿](s61_first_jet_reduction_ja.tex)（[PDF・41ページ](s61_first_jet_reduction_ja.pdf)）は、
 primitive gauge、T01/T39/T40の優越性と全S61のétale点、楕円型五変数模型、T01の一般次数3、
@@ -311,3 +311,10 @@ v35では一般被約無限遠の全型帰着、ABの原点外の正規性、二
 - ABの原点を含む全域正規性: `AB_ORIGIN_NORMALITY_20261102`。適用範囲と未解決部分を各ノートに明記。
 - 全b0非零旗境界の実在閉平方零厚化: `S61_FLAG_BOUNDARY_SQUAREZERO_QUOTIENT_20261101`。適用範囲と未解決部分を各ノートに明記。
 - 深部binary七二次idealの積正規形: `S61_BINARY_DEEPER_PRODUCT_PAIR_20261102`。適用範囲と未解決部分を各ノートに明記。
+
+## v53: AB有理特異点・T01零fiberの一般被約性・有限模型
+
+- ABの有理特異点と全Hilbert級数: `AB_RATIONAL_SINGULARITIES_HILBERT_20261102`。適用範囲と未解決部分を各ノートに明記。
+- 実際のT01零fiberの一般被約性: `TORIC_ZERO_FIBER_GENERIC_REDUCED_20261102`。適用範囲と未解決部分を各ノートに明記。
+- zero12の全基底次数に対する有限打切り: `S61_FLAG_ZERO12_BASE_ADIC_BOUNDS_20261102`。適用範囲と未解決部分を各ノートに明記。
+- 深部binaryの厳密有限weighted模型: `S61_BINARY_DEEPER_WEIGHTED_FINITE_MODEL_20261102`。適用範囲と未解決部分を各ノートに明記。
