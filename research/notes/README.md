@@ -1,6 +1,12 @@
 # 研究ノートと評価資料の入口
 
-**v30-s61、2026-11-01。楕円型の全域二次切断、既知五延長の三平面。**
+**v31-s61、2026-11-01。楕円型の全域二次切断、既知五延長の三平面。**
+
+## v31 の新しい入口
+
+- [トーリック三次被覆と二捩れ](TORIC_JACOBIAN_TWO_TORSION_20261101.md)、[逆座標の独立点検](TORIC_E2_SCALAR_INVERSE_20261101.md)。
+- [既約被約24次判別式](PRIMITIVE_CURVE_DISCRIMINANT_20261101.md)、[C9全域多項式性](TORIC_C9_POLYNOMIAL_20261101.md)、[多項式X](TORIC_POLYNOMIAL_E2_COORDINATE_20261101.md)。
+- [正規有限被覆と実際の境界](TORIC_NORMALIZATION_BOUNDARY_20261101.md)、[代数境界のファイバー](TORIC_ALGEBRA_BOUNDARY_FIBERS_20261101.md)、[成分交叉](TORIC_BOUNDARY_INTERSECTIONS_20261101.md)。
 
 ## v30 の新しい入口
 
@@ -86,3 +92,5 @@
 ## 今後のノート
 
 新しいノートには、日付、扱う問題、入力と仮定、得た結果、証明または証明書、残る問題を記す。確立した結果と探索中の案を分け、終了時には現在の研究方針へ反映する。日本語のまとまった数学原稿は LuaLaTeX を使う。定期的な履歴は版管理に任せ、旧版全体を新しいノートへ再帰的に複製しない。
+
+[T01全体の明示的な飽和素イデアル](TORIC_AFFINE_MODIFICATION_20261101.md)と多項式根座標の独立点検を追補した。全S61の尽くしとは区別する。

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checkpoint": "v30-s61",
+  "checkpoint": "v31-s61",
   "date": "2026-11-01",
   "base_mathematical_checkpoint": "v24",
   "new_components_added_in_this_setup": 0,
@@ -179,7 +179,13 @@
         "S61_TORIC_ALGEBRA_FIBER",
         "S61_TORIC_GENERIC_DEGREE_THREE",
         "S61_TORIC_MONODROMY_S3",
-        "S61_KNOWN_FIVE_THREE_PLANE"
+        "S61_KNOWN_FIVE_THREE_PLANE",
+        "S61_TORIC_JACOBIAN_TWO_TORSION",
+        "S61_TORIC_C9_GLOBAL_POLYNOMIAL",
+        "S61_TORIC_OVER_SMOOTH_CURVE_BASE",
+        "S61_TORIC_NORMALIZATION_AND_BOUNDARY_GAP",
+        "S61_TORIC_ALGEBRA_BOUNDARY_IMAGES",
+        "S61_TORIC_GLOBAL_REDUCED_IDEAL"
       ],
       "proof_sources": [
         {
@@ -191,6 +197,21 @@
         },
         {
           "path": "research/notes/TORIC_GENERIC_DEGREE_20261031.md"
+        },
+        {
+          "path": "research/notes/TORIC_JACOBIAN_TWO_TORSION_20261101.md"
+        },
+        {
+          "path": "research/notes/TORIC_POLYNOMIAL_E2_COORDINATE_20261101.md"
+        },
+        {
+          "path": "research/notes/TORIC_C9_POLYNOMIAL_20261101.md"
+        },
+        {
+          "path": "research/notes/TORIC_NORMALIZATION_BOUNDARY_20261101.md"
+        },
+        {
+          "path": "research/notes/TORIC_AFFINE_MODIFICATION_20261101.md"
         }
       ],
       "verification_records": [
@@ -200,7 +221,7 @@
         "reports/TORIC_ALGEBRA_DEGREE_20261031.json",
         "reports/TORIC_DEGREE_REVIEW_20261031.json"
       ],
-      "s61_coordinate_map_status": "six-parameter rational S61 map plus residual Sp4; full toric open locus via GL4/S5 coframes",
+      "s61_coordinate_map_status": "global reduced component via the affine modification of the normal Jacobian two-torsion cubic; polynomial scalar X and global C9",
       "review_status": {
         "proof": "published_theorem",
         "primary_diagram_crosswalk": "exact_S5_match",
@@ -210,11 +231,14 @@
         "内部IDは文献の番号ではない。MPS40_BLOCKとの二重加算をしない。",
         "個別図式・次元の台帳であり、全成分のS61定義イデアルを構築したわけではない。"
       ],
-      "generic_primitive_first_jet_image": "dominant onto W16; generically finite and generically etale",
+      "generic_primitive_first_jet_image": "dominant; actual reduced component is finite etale of degree3 over canonical Delta!=0",
       "general_degree": 3,
       "family_map": "reports/S61_FAMILIES_20261030/toric_T01_map.json",
       "ordered_coframe_general_degree": 360,
-      "geometric_monodromy": "S3"
+      "geometric_monodromy": "S3",
+      "zero_first_jet_fiber_dimension_lower_bound": 8,
+      "finite_algebra_model_covers_full_boundary": false,
+      "reduced_s61_ideal": "Eliminate X from (f(X), Delta_hat*(q_i-qbar_i)-F_i : i=1,...,45) : Delta_hat^infinity; X=lambda(beta)*(q-qbar)"
     },
     {
       "id": "T02",

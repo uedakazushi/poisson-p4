@@ -33,9 +33,9 @@
 \newtheorem{remark}[theorem]{注意}
 \renewcommand{\proofname}{証明}
 \title{射影四空間の Poisson 構造の一次ジェット還元\\
-\large 二つの普遍的楕円切断、Toric 三次被覆と五点の三平面}
+\large 普遍的楕円切断、Jacobian の二捩れと Toric 成分の境界}
 \author{Poisson P4 研究プロジェクト・内部研究草稿}
-\date{2026年11月1日・v30-s61}
+\date{2026年11月1日・v31-s61}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -52,7 +52,10 @@ primitive な一次ジェットの16次元空間への射影を調べる。
 さらに二つの楕円成分の被約閉包を全一次空間上の斉次二次多項式graphとして構成し、
 両一般次数を1、表示重複を3000と決定する。二graphの交叉は五次元の旗円錐で、
 原点に長さ10の冪零部分を持つ。Toric三次被覆の幾何学的モノドロミーは$S_3$である。
-既知五延長を含む有理的アフィン三平面を構成し、その平面断面の全代数を決定する。
+Toric三次被覆を標準曲線のJacobianの非零二捩れと同定し、判別式非零上の全域同型と、
+トーリック成分全体の飽和イデアル表示を得る。実際の成分は全域では有限でなく、零一次部分上に
+従来の代数模型が覆わない8次元以上の境界を持つ。
+既知五延長の三平面断面も決定する。
 全S61の未飽和斉次化には、非零一次項ごとに3次元の旗の無限遠部分が必ず現れることも示す。
 基礎となる perspective 正規化は有限の多項式公式で与えられ、一意である。
 特殊層では、係数階数一の5次元軌道上の全解を45変数・134二次式の固定 fibre へ帰着し、
@@ -1660,6 +1663,220 @@ B\'ezout恒等式で確認した\cite{toric-monodromy-new}。
 分母の零点はこの表示の有限開集合の外にあり、アフィン分岐点と断定しない。
 \end{proof}
 
+
+\section{二捩れによるトーリック成分の全体記述}\label{sec:toric-global}
+この節で $T$ は $S_{61}$ 内の $T01$ の被約閉包、$R=\CC[W]$、$B=\mathcal O(T)$ とする。
+$T$ の記述を全 $S_{61}$ の尽くしと混同しない。
+$C_\beta$ は一般に原点を選んでいない種数1曲線なので、二捩れはそのJacobianについて取る。
+
+\begin{theorem}[一般三次被覆の同定]\label{thm:toric-e2}
+$K=\CC(W)$、$f(X)=X^3-27c_4X-54c_6$ とする。
+一般トーリック一次部分被覆は $\operatorname{Jac}(C_\beta)[2]\setminus\{0\}$ と同型である。
+対称三次テンソル座標を $c$ とすると、相互逆写像は
+\[
+ c=\frac{UX+V}{f'(X)},\qquad X=\langle D_3,c\rangle
+\]
+である。$U$ は次数5、$D_3$ は次数3の多項式共変量、$V$ は当初は次数9の有理共変量として構成する。
+また $\operatorname{Tr}(c)=0$、従って三つのトーリック延長について
+\[
+ \sum q=3\bar q=2Q_{51}+Q_{52}
+\]
+が普遍的に成立する。
+\end{theorem}
+\begin{proof}
+96結合則を $E=H(c,c)+B_\beta(c)+C_\beta$ と分ける。
+次数5の共変写像の空間を最高重み計算で6次元へ減らし、その中で $L(\beta)U=0$ を課すと
+1次元となる。非零生成元を以下の規約に正規化する。
+全51式と全10Lie生成元に関する共変性は16変数上の多項式恒等式として確認した。
+$B_\beta$ の一般階数は20であり、
+\[
+ B_\beta(V)=-H(U,U)/3-27c_4C_\beta
+\]
+の解を選ぶ。後述の断面で解が存在し、単射性により一意な有理共変量を与える。
+
+計算を有限標本にせず、重み座標 $b$ の六次元線形断面
+\[
+ b=s_0(1,2,\ldots,16)+s_1e_{11}+s_2e_{12}+s_3e_{13}+s_4e_{14}+s_5e_{15}
+\]
+を用いる。添字は0始まりである。基点 $s=(1,0,\ldots,0)$ で $\Sp_4$ の10作用方向と
+断面の6方向を合わせた行列式は $8428695240$ なので、その群飽和は優越的である。
+この全6変数を残して、次の恒等式を $\QQ[s_0,\ldots,s_5]$ 上で確認した。
+\begin{align*}
+ H(U,U)+3B(V)+81c_4C&=0,\\
+ 2H(U,V)+54c_4B(U)+486c_6C&=0,\\
+ H(V,V)+162c_6B(U)-27c_4B(V)+729c_4^2C&=0.
+\end{align*}
+第二・第三式は45独立行で計算したが、残る51行への定数持上げ関係も全て確認している。
+これらは $f'^2 E((UX+V)/f')$ を $f$ で割った三係数である。
+自然なテンソル構成の共変性と断面の優越性から、全一般 $W$ 上で成立する。
+
+独立に構成した $D_3$ について
+\[
+ \langle D_3,U\rangle=54c_4,\qquad \langle D_3,V\rangle=162c_6
+\]
+も全6変数で確認した。$Xf'\equiv54c_4X+162c_6\pmod f$ により逆写像を得る。
+全96式の一般商が3次元である既存の定理を用いると、得られた全射は同型となる。
+$f$ がJacobianの二捩れを与える規約は\cite[Theorem 2.1]{fisher-sadek-new}による。
+全係数・一意復元・独立点検は\cite{toric-e2-new}に記録した。
+
+最後に、モニック三次式の根にわたる和は
+$\operatorname{Tr}(1/f')=\operatorname{Tr}(X/f')=0$ である。
+これは補間公式、または
+\[
+ (f')^{-1}\equiv
+ \frac{c_4X^2-3c_6X-18c_4^2}{486(c_4^3-c_6^2)}\pmod f
+\]
+とNewton和から直接従う。よって $\operatorname{Tr}(c)=0$ となる。
+\end{proof}
+
+\begin{theorem}[既約被約な判別式]\label{thm:curve-discriminant}
+$\Delta=(c_4^3-c_6^2)/1728$ は $W$ 上の幾何学的に既約かつ被約な24次斉次多項式である。
+\end{theorem}
+\begin{proof}
+$Q=\operatorname{LG}(2,4)$、$E=\mathcal U^*(1)$ と置く。
+$\Pi=\langle(1,a,0,c),(0,c,1,d)\rangle$ の座標で切断を二成分に書くと、
+その値と一次微分の8係数は $W$ の16座標からの階数8の線形写像になる。
+非零小行列式を保存し、別実装の小行列式 $-25$ でも確認した。
+群の推移性から $W\otimes\mathcal O_Q\to J^1E$ は全射である。
+
+臨界零点のincidence
+\[
+ Z=\{(\beta,\Pi):s_\beta(\Pi)=0,\ \rank(\dd s_\beta|_\Pi)\leq1\}
+\]
+のファイバーは局所的に $\AA^8$ と $2\times3$ 行列の階数1以下の既約4次元多様体の積である。
+従って $Z$ は既約15次元であり、$Q$ の射影性によりその像は閉かつ既約である。
+臨界零点がなければ正則切断の零点は滑らかな曲線で、既存のKoszul計算は
+全ての正則切断について連結性、種数1、線形正規性を与える。
+$c_2(E)\ne0$ だから零点は空ではない。
+逆もJacobian判定による。Pfaffian模型との同一性および
+\cite[Theorem 2.1(ii)]{fisher-sadek-new}から、この像は $V(\Delta)$ に等しい。
+
+上の六次元断面で
+$s(t)=(1,2,3,4,5,6)+t(2,-1,3,5,7,11)$ と置くと、
+$\Delta(t)$ は次数24で導関数と互いに素である。
+有理係数の計算と、法32003および独立な法65521のB\'ezout証明書を保存した。
+既約な零集合を持つ $\Delta=aF^m$ のこの非定数制限が平方自由なので $m=1$。
+複素数体上の既約性はincidenceからの結論であり、有限体の因数分解から推測していない\cite{discriminant-new}。
+\end{proof}
+
+\begin{lemma}[共変量 $V$ の全域多項式性]\label{lem:c9-global}
+定理\ref{thm:toric-e2}の $V$ は全 $W$ 上の斉次次数9の多項式共変量である。
+\end{lemma}
+\begin{proof}
+$B_\beta$ は $\beta$ に線形な $96\times20$ 行列である。
+$b_0=(1,\ldots,16)$、$(b_1)_i=(-1)^i(i^2+3i+5)$ とする射影直線上で、
+二つの20次小行列式はともに次数20で、$\QQ[t]$ 上のB\'ezout恒等式を持つ。
+最高係数も非零なので無限遠を含めて階数20である。
+斉次な階数低下集合に因子があれば、その射影超曲面はこの直線と交わるはずであり、矛盾する。
+従って階数低下集合は余次元2以上である。
+
+$B_\beta(V)=-H(U,U)/3-27c_4C$ の右辺は多項式なので、高さ1の各点で可逆小行列式を使えば
+$V$ はそこで正則となる。正規多項式環 $R$ はその全高さ1局所環の共通部分に等しいから、
+$V$ の全成分は $R$ に属する。一意性から次数9と共変性も従う。
+独立検算は結合則の解析的微分から3840係数を再構成して確認した\cite{c9-new}。
+\end{proof}
+
+\begin{lemma}[根座標の多項式復元]\label{lem:xpol}
+$X$ は $B$ の重み4の元として表される。
+\end{lemma}
+\begin{proof}
+$\delta q=q-\bar q$ の二次双ベクトルを $\delta P_2$ とし、$\eta_\delta=-J\delta P_2J$ と置く。
+二次形式の係数を $\eta_{ij}(y)=\sum_{a,b}\eta_{ij,ab}y_ay_b$ と書き、
+$a\ne b$ のテンソル成分は通常の単項式係数の半分とする。
+全順序付き添字の縮約
+\[
+ \langle\eta,\theta\rangle_K=
+ \sum_{i,j,a,b,k,l,c,d}\eta_{ij,ab}\theta_{kl,cd}J_{ik}J_{jl}J_{ac}J_{bd}
+\]
+を用い、式\eqref{eq:universal-q51}の $\eta_1,\eta_2$ から
+\[
+ X_{\rm pol}=-18\langle\eta_1,\eta_\delta\rangle_K
+              -9\langle\eta_2,\eta_\delta\rangle_K
+             =\lambda(\beta)(q-\bar q)
+\]
+と定める。$\lambda$ の45係数は二次多項式である。
+普遍再構成 $q=\bar q+Nc$ を代入し、
+$r=\lambda N-\langle D_3,-\rangle$ と置くと、六次元断面の全記号計算で $rU=rV=0$ となる。
+よって一般被覆で $X_{\rm pol}=X$。テンソル縮約の不変性と優越性により全一般 $W$ で成立する。
+同じ一次部分を持つ二点の二次差分はprimitiveへのperspectiveでも変わらないので、旧gaugeでも正当である。
+既約被約な $T$ の一般点での等式は正則関数の等式へ延びる\cite{xpol-new}。
+\end{proof}
+
+\begin{theorem}[実際の $T01$ と三次被覆、全体の素イデアル]\label{thm:toric-affine-modification}
+$\widehat\Delta=c_4^3-c_6^2$、$A=R[X]/(f)$ と置く。このとき $A$ は正規で、
+$W$ の $\CC(T)$ 内での正規化である。
+\[
+ B[\Delta^{-1}]=A[\Delta^{-1}].
+\]
+従って実際の $T\to W$ は $\Delta\ne0$ 上で有限エタール、次数3である。
+さらに $A$ の元を
+\[
+ F_i=\frac1{486}\bigl(N(UX+V)\bigr)_i
+               (c_4X^2-3c_6X-18c_4^2)\quad(1\leq i\leq45)
+\]
+と定めると、全域の座標環は
+\[
+ B=A[F_1/\widehat\Delta,\ldots,F_{45}/\widehat\Delta]\subset A[\widehat\Delta^{-1}].
+\]
+従って $R[X,q]$ 内の素イデアルは
+\[
+ (f,\ \widehat\Delta(q_i-\bar q_i)-F_i\ (1\leq i\leq45)):
+       \widehat\Delta^{\infty}
+\]
+であり、$X$ を消去すると $T$ の被約定義イデアルとなる。
+\end{theorem}
+\begin{proof}
+$A$ は自由 $R$ 加群で基底 $1,X,X^2$ を持ち、一般代数が $\CC(T)$ なので整域である。
+$\operatorname{disc}(f)=78732\widehat\Delta$ は平方自由。
+高さ1の点では、判別式の外でエタール、判別式の一般点で一つの単根と一つの単純に分岐する
+二次因子となる。実際 $c_4$ は次数8なので24次既約因子に沿って単元で、三重根はない。
+二次因子の判別式は一様化元の単元倍となり、その局所環も正規である。
+従って $A$ は $R_1$ を満たし、超曲面の $S_2$ 性と合わせて正規となる。
+分岐因子は $\Delta=0$ で、一般慣性は互換である。
+
+補題\ref{lem:c9-global}より $U,V$ は全域多項式、$\Delta\ne0$ 上で $f'$ は単元だから、
+普遍再構成は $B[\Delta^{-1}]\subset A[\Delta^{-1}]$ を与える。
+逆に補題\ref{lem:xpol}より $X\in B$ であり、$A\subset B$ となる。
+独立検算と全域の環の包含は\cite{affine-modification-new}でも点検した。
+両包含から局所化後の等式を得る。
+
+表示した $f'$ の逆元を代入すれば $q_i=\bar q_i+F_i/\widehat\Delta$。
+$B$ は $R$ と45個の $q_i$ で生成され、既に $A\subset B$ だから全域の部分環表示も従う。
+局所化後のgraphのイデアルを元の多項式環へ縮約すると表示した飽和イデアルになり、整域への核なので素である。
+$X=\lambda(\beta)(q-\bar q)$ のため、$X$ の消去はこの成分上の同型を失わない。
+$V$ の全16変数展開を列挙しなくても、唯一の線形系の解と正則性の証明が係数の厳密な構成を与える。
+\end{proof}
+
+\subsection{全域の非有限性と代数模型が覆わない境界}
+上の $Y=\operatorname{Spec}A$ は基底の関数体内での正規化であり、$T$ 自身の正規化と同一視しない。
+もし $T\to W$ が全域で有限なら $B\subset A$。
+重みは $\deg\beta=1,\deg q=2,\deg X=4$ で、$A_2=R_2$ である。
+従って全ての $q_i$ が $R$ に入り $B=R$ となって、一般次数3に矛盾する。
+
+欠落境界は具体的にも見える。斉次双ベクトルの非零上三角成分を
+\[
+ B_{12}=(x_0+ax_1)(x_0-ax_1+tx_2),\qquad
+ B_{34}=(x_0+bx_3)(x_0-bx_3+tx_4)
+\]
+とし、他を零とする。Jacobi式は恒等的に成立する。
+$abt\ne0$ なら五座標 $x_0$ と上の四線形因子は標構をなし、行列式は $abt^2$。
+この変換後は $B'_{12}=at z_1z_2$、$B'_{34}=bt z_3z_4$ のトーリック構造である。
+$t=0$ では
+\[
+ P_0=(1-a^2y_1^2)\partial_{12}+(1-b^2y_3^2)\partial_{34}
+\]
+となり、$\beta=0$ だが $q\ne0$。
+$a=b=1$ の $\Sp_4$ 軌道は8次元で、独立検算した8次小行列式は64である。
+従って $T$ の零一次部分ファイバーは次元8以上を持つ\cite{toric-boundary-new}。
+
+一方、有限なtrace-zero可換代数模型の全点は $q=\bar q(\beta)+N(\beta)c$ を満たすから、
+$\beta=0$ では必ず $q=0$ となる。
+従って20代数型を全て含めても、この模型は実際の $T$ の境界を覆わない。
+その模型内では、従来未定だった三つの像次元も6、5、8と決まり、
+局所Hilbert関数 $(1,3,1)$ の階数2・3型の像閉包は一致する。
+$\CC\times A_{4,\mathrm{sq}}$ の6次元像は $T01\cap T40$ に入るが、$T39$ に含まれない。
+これらを新たな全Poisson成分と数えない。
+
 \section{既知五点を含む普遍的三平面}\label{sec:five-plane}
 トーリック模型の20変数を $c\in\operatorname{Sym}^3V^*$ と書く。
 全96結合則式を $E=H(c,c)+B(\beta,c)+C(\beta,\beta)$ と分ける。
@@ -1725,8 +1942,8 @@ $T02$ の一次像は微分階数15と既知次元15から既約超曲面とな�
 全一次項の延長可能性、楕円二成分の全域graphと一般次数1、表示重複3000、
 T01の一般次数3と$S_3$モノドロミー、および既知五延長の三平面断面の積代数は証明した。
 次の主課題は全ファイバーの三平面への包含、特殊層、未知成分の排除である。
-標準楕円曲線の非零二捩れとトーリック三次被覆の同定には標本上の厳密な同型があるが、
-本checkpointでは普遍的証明とはしていない。
+標準曲線のJacobianの非零二捩れとの同定、$\Delta\ne0$上の実際のトーリック成分の有限エタール性、
+およびT01の被約閉包全体の飽和イデアル表示も証明した。
 全S61の未飽和斉次化には定理\ref{thm:infinity}の旗の部分が必ず現れるため、
 斉次化変数による飽和の制御、またはアフィンでの局所化と消去が必要となる。
 
@@ -1853,6 +2070,28 @@ FisherおよびMarkarian--Polishchukの使用箇所・仮定は当該ノート�
 \nolinkurl{research/notes/CURVE_INVARIANT_SMOOTH_COUNTEREXAMPLE_20261101.md}、同名review、
 \nolinkurl{research/notes/MPS_T02_FIRST_JET_20261101.md}。
 
+
+\bibitem{fisher-sadek-new} T. Fisher and M. Sadek,
+\textit{On genus one curves of degree 5 with square-free discriminant},
+arXiv:1406.6953v1 (2014), Theorems 2.1 and 2.3.
+\url{https://arxiv.org/abs/1406.6953v1}.
+\bibitem{toric-e2-new} 同プロジェクト、
+\nolinkurl{research/notes/TORIC_JACOBIAN_TWO_TORSION_20261101.md}、
+\nolinkurl{research/notes/TORIC_E2_SCALAR_INVERSE_20261101.md}、各JSON証明書。
+\bibitem{discriminant-new} 同プロジェクト、
+\nolinkurl{research/notes/PRIMITIVE_CURVE_DISCRIMINANT_20261101.md}、同名review・証明書。
+\bibitem{c9-new} 同プロジェクト、
+\nolinkurl{research/notes/TORIC_C9_POLYNOMIAL_20261101.md}、同名review・証明書。
+\bibitem{xpol-new} 同プロジェクト、
+\nolinkurl{research/notes/TORIC_POLYNOMIAL_E2_COORDINATE_20261101.md}、同名証明書。
+\bibitem{toric-boundary-new} 同プロジェクト、
+\nolinkurl{research/notes/TORIC_NORMALIZATION_BOUNDARY_20261101.md}、
+\nolinkurl{research/notes/TORIC_BOUNDARY_INTERSECTIONS_20261101.md}、
+\nolinkurl{reports/TORIC_MISSING_BOUNDARY_20261101.json}。
+
+\bibitem{affine-modification-new} 同プロジェクト、
+\nolinkurl{research/notes/TORIC_AFFINE_MODIFICATION_20261101.md}、
+\nolinkurl{reports/TORIC_POLYNOMIAL_E2_REVIEW_20261101.json}。
 \end{thebibliography}
 \endgroup
 \end{document}

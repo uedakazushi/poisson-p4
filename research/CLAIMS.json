@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checkpoint": "v30-s61",
+  "checkpoint": "v31-s61",
   "date": "2026-11-01",
   "base_mathematical_checkpoint": "v24",
   "new_mathematical_progress_in_this_setup": false,
@@ -51,6 +51,14 @@
         "Theorem 7.5"
       ],
       "caution_ja": "T37は本研究内部ID。"
+    },
+    "FISHER_SADEK_INVARIANTS": {
+      "url": "https://arxiv.org/html/1406.6953v1#S2",
+      "anchors": [
+        "Theorem 2.1(ii),(iii)",
+        "Theorem 2.3"
+      ],
+      "scope": "Non-singularity/discriminant equivalence, Jacobian and invariant formulas; the new W16 discriminant irreducibility is proved separately."
     }
   },
   "verification_runs": [
@@ -1754,6 +1762,254 @@
       ],
       "limitations_ja": [
         "接錐の非被約性から局所環の非被約性は結論しない。アフィン有限性とは別。"
+      ]
+    },
+    {
+      "id": "S61_TORIC_JACOBIAN_TWO_TORSION",
+      "title_ja": "T01三次被覆とJacobianの非零二捩れ",
+      "statement_ja": "一般トーリック代数は K[X]/(X³−27c4X−54c6) と同型。c=(C5X+C9)/f′、X=<D3,c> が相互逆となり、Tr(c)=0とsum(toric q)=2Q51+Q52も普遍的に成立。",
+      "scope": "Reduced T01 and its canonical curve; not fullS61 exhaustion.",
+      "status": {
+        "proof": "proof_with_exact_rational_certificate",
+        "independent_review": "independent_agent_proof_and_code_review_not_external_peer_review",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_CANONICAL_ELLIPTIC_CURVE",
+          "S61_TORIC_GENERIC_DEGREE_THREE"
+        ],
+        "external": [
+          "FISHER_SADEK_INVARIANTS"
+        ]
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/TORIC_JACOBIAN_TWO_TORSION_20261101.md"
+        },
+        {
+          "path": "research/notes/TORIC_E2_SCALAR_INVERSE_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/TORIC_JACOBIAN_TWO_TORSION_20261101.json",
+        "reports/TORIC_E2_SCALAR_INVERSE_20261101.json"
+      ],
+      "limitations_ja": [
+        "全S61一般ファイバーの尽くしではない。"
+      ]
+    },
+    {
+      "id": "S61_CANONICAL_DISCRIMINANT_IRREDUCIBLE",
+      "title_ja": "標準曲線の既約被約24次判別式",
+      "statement_ja": "W→J¹(U*(1)) は全射。臨界零点incidenceは既約15次元で、その閉像がV(Δ)。次数24の平方自由な直線制限と合わせ、ΔはC上で既約かつ被約。",
+      "scope": "Reduced T01 and its canonical curve; not fullS61 exhaustion.",
+      "status": {
+        "proof": "proof_with_exact_rational_certificate",
+        "independent_review": "independent_agent_proof_and_code_review_not_external_peer_review",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_CANONICAL_ELLIPTIC_CURVE"
+        ],
+        "external": [
+          "FISHER_SADEK_INVARIANTS"
+        ]
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/PRIMITIVE_CURVE_DISCRIMINANT_20261101.md"
+        },
+        {
+          "path": "research/notes/PRIMITIVE_CURVE_DISCRIMINANT_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/PRIMITIVE_CURVE_DISCRIMINANT_20261101.json",
+        "reports/PRIMITIVE_CURVE_DISCRIMINANT_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "実際の全S61の非固有集合の分類ではない。"
+      ]
+    },
+    {
+      "id": "S61_TORIC_C9_GLOBAL_POLYNOMIAL",
+      "title_ja": "C9の全域多項式性",
+      "statement_ja": "Bβの階数低下集合を避ける射影直線を二つの20次小行列式のBézout恒等式で構成する。余次元1の極がないことと正規性からC9は全W上の斉次9次多項式に延びる。",
+      "scope": "Reduced T01 and its canonical curve; not fullS61 exhaustion.",
+      "status": {
+        "proof": "proof_with_exact_rational_certificate",
+        "independent_review": "independent_agent_proof_and_code_review_not_external_peer_review",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_TORIC_JACOBIAN_TWO_TORSION"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/TORIC_C9_POLYNOMIAL_20261101.md"
+        },
+        {
+          "path": "research/notes/TORIC_C9_POLYNOMIAL_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/TORIC_C9_POLYNOMIAL_20261101.json",
+        "reports/TORIC_C9_POLYNOMIAL_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "全16変数の巨大な展開は生成していない。固有性を全Wへ延長しない。"
+      ]
+    },
+    {
+      "id": "S61_TORIC_OVER_SMOOTH_CURVE_BASE",
+      "title_ja": "Δ非零上の実際のT01は有限エタール三次被覆",
+      "statement_ja": "多項式X=λ(β)(q−qbar)とC9全域多項式性により、O(T01)[Δ⁻¹]=C[W,Δ⁻¹,X]/(X³−27c4X−54c6)。したがって全Δ非零一次部分上のT01ファイバーは相異なる三点。",
+      "scope": "Reduced T01 and its canonical curve; not fullS61 exhaustion.",
+      "status": {
+        "proof": "proof_with_exact_rational_certificate",
+        "independent_review": "independent_agent_proof_and_code_review_not_external_peer_review",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_TORIC_C9_GLOBAL_POLYNOMIAL",
+          "S61_TORIC_JACOBIAN_TWO_TORSION"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/TORIC_POLYNOMIAL_E2_COORDINATE_20261101.md"
+        },
+        {
+          "path": "research/notes/TORIC_C9_POLYNOMIAL_20261101.md"
+        },
+        {
+          "path": "research/notes/TORIC_NORMALIZATION_BOUNDARY_20261101.md"
+        },
+        {
+          "path": "research/notes/TORIC_AFFINE_MODIFICATION_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/TORIC_POLYNOMIAL_E2_COORDINATE_20261101.json",
+        "reports/TORIC_C9_POLYNOMIAL_20261101.json",
+        "reports/TORIC_NORMALIZATION_BOUNDARY_20261101.json",
+        "reports/TORIC_POLYNOMIAL_E2_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "全S61ファイバーが三点または五点とは結論しない。"
+      ]
+    },
+    {
+      "id": "S61_TORIC_NORMALIZATION_AND_BOUNDARY_GAP",
+      "title_ja": "正規有限三次被覆と実際のトーリック境界の欠落",
+      "statement_ja": "Y=Spec R[X]/f はWのT01関数体内での正規化。分岐因子はΔで一般慣性は互換。実際のT01→Wは全域では非有限、零一次部分ファイバーは次元8以上。有限可換代数模型はβ=0上でq=0のみを与え、全境界を覆わない。",
+      "scope": "Reduced T01 and its canonical curve; not fullS61 exhaustion.",
+      "status": {
+        "proof": "proof_with_exact_rational_certificate",
+        "independent_review": "independent_agent_proof_and_code_review_not_external_peer_review",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_TORIC_JACOBIAN_TWO_TORSION",
+          "S61_CANONICAL_DISCRIMINANT_IRREDUCIBLE",
+          "S61_KNOWN_FIVE_THREE_PLANE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/TORIC_NORMALIZATION_BOUNDARY_20261101.md"
+        },
+        {
+          "path": "research/notes/TORIC_BOUNDARY_INTERSECTIONS_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/TORIC_NORMALIZATION_BOUNDARY_20261101.json",
+        "reports/TORIC_MISSING_BOUNDARY_20261101.json",
+        "reports/TORIC_BOUNDARY_INTERSECTIONS_20261101.json"
+      ],
+      "limitations_ja": [
+        "YをT01自身の正規化と同一視しない。欠落点全体の分類と零ファイバーの正確な次元は未決。"
+      ]
+    },
+    {
+      "id": "S61_TORIC_ALGEBRA_BOUNDARY_IMAGES",
+      "title_ja": "可換代数境界の三つの像次元と交叉",
+      "statement_ja": "A1×A4平方零型の像は6次元でT01∩T40に含まれる。局所(1,3,1)の階数1は5次元旗円錐、階数2・3は同じ8次元像閉包を持つ。前二型の非零像上のファイバーはアフィン直線。",
+      "scope": "Reduced T01 and its canonical curve; not fullS61 exhaustion.",
+      "status": {
+        "proof": "proof_with_exact_rational_certificate",
+        "independent_review": "independent_agent_proof_and_code_review_not_external_peer_review",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_ELLIPTIC_UNIVERSAL_GRAPHS"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/TORIC_ALGEBRA_BOUNDARY_FIBERS_20261101.md"
+        },
+        {
+          "path": "research/notes/TORIC_BOUNDARY_INTERSECTIONS_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/TORIC_ALGEBRA_BOUNDARY_FIBERS_20261101.json",
+        "reports/TORIC_BOUNDARY_INTERSECTIONS_20261101.json"
+      ],
+      "limitations_ja": [
+        "20代数型を20個のPoisson成分と数えない。全境界を覆わない。"
+      ]
+    },
+    {
+      "id": "S61_TORIC_GLOBAL_REDUCED_IDEAL",
+      "title_ja": "T01全体の明示的な飽和素イデアル",
+      "statement_ja": "Δhat=c4³−c6²、A=R[X]/f、G=c4X²−3c6X−18c4²、Fi=N_i(C5X+C9)G/486としてO(T01)=A[Fi/Δhat]。素イデアルは(f,Δhat(q_i−qbar_i)−Fi):Δhat^∞で、Xの消去は同型を保つ。",
+      "scope": "Entire reduced T01 component in S61, not all Poisson components.",
+      "status": {
+        "proof": "proof_with_exact_rational_certificate",
+        "independent_review": "independent_agent_proof_and_code_review_not_external_peer_review",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_TORIC_OVER_SMOOTH_CURVE_BASE",
+          "S61_TORIC_C9_GLOBAL_POLYNOMIAL"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/TORIC_AFFINE_MODIFICATION_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/TORIC_POLYNOMIAL_E2_COORDINATE_20261101.json",
+        "reports/TORIC_POLYNOMIAL_E2_REVIEW_20261101.json",
+        "reports/TORIC_C9_POLYNOMIAL_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "飽和後の巨大なGröbner基底は展開していない。",
+        "全S61の根基との一致は未証明。"
       ]
     }
   ],

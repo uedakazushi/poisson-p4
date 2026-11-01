@@ -1,6 +1,6 @@
 # Poisson structures on P4 — Codex instructions
 
-Version: v30-s61 · 2026-11-01 (Asia/Tokyo).
+Version: v31-s61 · 2026-11-01 (Asia/Tokyo).
 
 Current continuation: T39=q(5,1) and T40=q(5,2) reduced S61 closures are
 explicit homogeneous quadratic graphs over ALL W16, hence both have degree ONE.
@@ -11,9 +11,18 @@ monodromy S3. A canonical rational affine THREE-PLANE contains all five known
 generic lifts; its intersection with the full 134 equations is reduced length
 five with algebra A_T x K x K. CONTAINMENT OF THE FULL FIBER IN THIS PLANE IS
 UNPROVED. The next exhaustion problem is to derive its 42 affine linear
-conditions in the radical of the generic full ideal. The toric three-cover's
-identification with nonzero two-torsion of the canonical elliptic curve is only
-sample evidence at this checkpoint; follow ongoing covariant work separately.
+conditions in the radical of the generic full ideal. The toric three-cover is now proved isomorphic to Jac(C_beta)[2] minus zero.
+The canonical discriminant is geometrically irreducible, reduced, degree24.
+C9 is globally polynomial: a projective pencil avoiding rank drop proves
+codimension>=2, then normality extends the rational solution. A polynomial
+weight-four X in beta,q gives the inverse coordinate. Therefore the ACTUAL
+reduced T01 over Delta!=0 equals the finite etale monic cubic cover, degree3.
+Globally T01 is the explicit affine modification described in the v31 notes,
+not the finite normalization of the base. Its beta=0 fiber has dimension>=8;
+the finite algebra model misses every nonzero point of that fiber. Do not
+continue treating the algebra-model boundary as potentially exhaustive.
+These statements do not exhaust full S61. The plane-adapted135-equation F4
+probe hit600seconds without a completed basis; do not repeat it unchanged.
 Do NOT add curve-invariant transport equations to full S61: an exact T02
 counterexample has smooth canonical curves with varying j, even on the usual
 frame/invariant open. T02 first-jet image is an irreducible hypersurface.

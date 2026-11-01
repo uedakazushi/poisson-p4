@@ -1,6 +1,6 @@
 # S61 の現行座標・一次部分・既知族
 
-2026-11-01 / v30-s61。原本は `legacy/v02/` に置いたまま、以下の独立実装と
+2026-11-01 / v31-s61。原本は `legacy/v02/` に置いたまま、以下の独立実装と
 証明書から研究を再開する。完全分類・素分解・新しい成分を主張する実装ではない。
 
 ## 座標規約
@@ -164,3 +164,13 @@ t−1となり、この制限上のファイバーは一つの被約点である
 **三平面への全ファイバー包含は未証明。** `curve_invariant_smooth_counterexample_20261101.py` は誤った輸送保存則への反例であり、追加方程式として使用しない。
 全スクリプトには `--output work/新しい名前.json` を指定し、保存済み証明書を上書きしない。
 詳しい適用範囲と独立点検は `research/notes/README.md` と各JSONの入力ハッシュを参照。
+
+## v31: 二捩れによるトーリック成分の記述
+
+`toric_jacobian_two_torsion_20261101.py` は優越的六次元断面上の全結合則恒等式を確認する。
+`toric_e2_scalar_inverse_20261101.py` は相互逆座標とtraceを独立に検証。
+`primitive_curve_discriminant_20261101.py` は8次jet行列と24次平方自由直線制限を、
+`toric_c9_polynomial_20261101.py` は階数低下を避ける射影直線のBézout証明書を保存する。
+`toric_polynomial_e2_coordinate_20261101.py` はXをβ,qの多項式で復元し、実際のT01のΔ非零上の全域同型を与える。
+`toric_missing_boundary_20261101.py` と `toric_boundary_intersections_20261101.py` は欠落する8次元軌道と境界交叉を確認する。
+このT01の記述を全S61の尽くしと混同しない。
