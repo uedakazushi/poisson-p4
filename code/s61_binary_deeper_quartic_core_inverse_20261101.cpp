@@ -1,0 +1,5 @@
+// Exact quartic certificate: core inverse.
+#include "s61_binary_deeper_quartic_field_20261101.hpp"
+int main(int argc,char**argv){fmpq_mpoly_ctx_init(ctx,2,ORD_LEX);flint_set_num_threads(2);{ifstream in(argv[1]);int nr,nc;in>>nr>>nc;assert(nr==nc);vector<Row>A(nr);for(int i=0;i<nr;i++){int n;in>>n;for(int j=0;j<n;j++){int k;in>>k;Rat c;readpoly(in,c.n);readpoly(in,c.d);c.reduce();A[i].emplace(k,std::move(c));}Rat one;fmpq_mpoly_one(one.n,ctx);A[i].emplace(nc+i,std::move(one));}
+for(int p=0;p<nr;p++){assert(A[p].count(p));Rat c=A[p][p];for(auto&[j,v]:A[p])v=divi(v,c);for(int i=0;i<nr;i++){if(i==p)continue;auto it=A[i].find(p);if(it==A[i].end())continue;Rat h=it->second;for(auto&[j,v]:A[p]){Rat z=sub(A[i][j],mul(h,v));if(z.zero())A[i].erase(j);else A[i][j]=std::move(z);}}cerr<<"PIVOT "<<p<<"\n";}
+ofstream out(argv[2]);assert(out);out<<nr<<' '<<nc<<'\n';for(int i=0;i<nr;i++){assert(A[i].count(i));A[i].erase(i);out<<A[i].size()<<'\n';for(auto&[j,c]:A[i]){assert(j>=nc);out<<j-nc<<'\n';writepoly(out,c.n);writepoly(out,c.d);}}}fmpq_mpoly_ctx_clear(ctx);flint_cleanup();}

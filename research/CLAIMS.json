@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checkpoint": "v46-s61",
+  "checkpoint": "v47-s61",
   "date": "2026-11-01",
   "base_mathematical_checkpoint": "v24",
   "new_mathematical_progress_in_this_setup": false,
@@ -5817,7 +5817,7 @@
       "scope": "Only the stated sufficiently-general-beta, fixed-beta formal or finite-chart conclusions.",
       "status": {
         "proof": "proof_with_exact_certificates_and_explicit_dependencies",
-        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "independent_review": "independent_affine60_action_finite_transform_invariants_and_scope_review_2026_11_01",
         "certificates": "reproduced_2026_11_01",
         "novelty": "not_independently_established"
       },
@@ -5833,14 +5833,18 @@
         },
         {
           "path": "research/notes/S61_MINIMAL_FLAG_ENDPOINT_INVARIANTS_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_MINIMAL_FLAG_ENDPOINT_REVIEW_20261101.md"
         }
       ],
       "verification_records": [
         "reports/S61_MINIMAL_FLAG_ENDPOINT_TABLE_20261101.json",
-        "reports/S61_MINIMAL_FLAG_ENDPOINT_INVARIANTS_20261101.json"
+        "reports/S61_MINIMAL_FLAG_ENDPOINT_INVARIANTS_20261101.json",
+        "reports/S61_MINIMAL_FLAG_ENDPOINT_REVIEW_20261101.json"
       ],
       "limitations_ja": [
-        "被覆と像次元の定理で、四層のt冪零性・飽和除去ではない。概念確認済み、独立数値レビュー未完。"
+        "有限sourceの被覆と像次元の定理で、四層のt冪零性・飽和除去ではない。独立レビュー済み。"
       ]
     },
     {
@@ -6078,6 +6082,251 @@
       ],
       "limitations_ja": [
         "実在曲線とcore全域被覆の定理。端点のflat4厚化・全局所環・t冪零性・飽和除去は未証明。"
+      ]
+    },
+    {
+      "id": "S61_FLAG_ZERO12_QUARTIC",
+      "title_ja": "b12=0旗七変数chart全域の真四次とtの位数",
+      "statement_ja": "三つの閉点chartを有限minor被覆し、全七変数でHF(1,9,37,98,202)、ord(t)=4を証明。整合するraw4と全低次syzygyを追跡する。",
+      "scope": "Only the stated sufficiently-general-beta, fixed-beta formal or finite-chart conclusions.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_FLAG_ZERO12_LOW_JETS"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_FLAG_ZERO12_QUARTIC_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_FLAG_ZERO12_QUARTIC_BOUNDARY_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_FLAG_ZERO12_QUARTIC_20261101.json",
+        "reports/S61_FLAG_ZERO12_QUARTIC_BOUNDARY_20261101.json"
+      ],
+      "limitations_ja": [
+        "全初期ideal、t冪零性、全旗境界の飽和除去は未証明。"
+      ]
+    },
+    {
+      "id": "S61_FLAG_RANKONE_SOCLE_QUARTIC",
+      "title_ja": "T7接続coreのb8開全域で真四次を確定",
+      "statement_ja": "r=-91/400で元135式の全七変数raw4を再生成。全b8非零点で四次rank275+14、HF(1,9,36,99,206)、ord(t)=4。",
+      "scope": "Only the stated sufficiently-general-beta, fixed-beta formal or finite-chart conclusions.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_FLAG_RANKONE_SOCLE_CUBIC",
+          "S61_FLAG_BOUNDARY_QUADRATIC_COVER"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_FLAG_RANKONE_SOCLE_QUARTIC_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_FLAG_RANKONE_SOCLE_QUARTIC_20261101.json"
+      ],
+      "limitations_ja": [
+        "b8=0、全初期ideal、全局所環、t冪零性と飽和除去は別。独立raw4比較はv46 WIPの範囲。"
+      ]
+    },
+    {
+      "id": "S61_FLAG_T7_FLAT4",
+      "title_ja": "T7曲面を旗端点まで延ばす実在平坦四重商",
+      "statement_ja": "H11の明示的主開上、Laurent三次jetの全135恒等式と正則な座標代数を構成。逆β補償shearで同じβの二次元基底上自由4の閉商を得て、その商でt=0。",
+      "scope": "Only the stated sufficiently-general-beta, fixed-beta formal or finite-chart conclusions.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_FLAG_T7_BOUNDARY",
+          "S61_R0_MIXED_SURFACE_T7_EXHAUSTION"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_FLAG_T7_FLAT4_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_FLAG_T7_FLAT4_20261101.json"
+      ],
+      "limitations_ja": [
+        "閉商とambient局所環を区別する。主開補集合、ambient t冪零、飽和除去は未証明。独立概念レビュー済み、係数別実装未実施。"
+      ]
+    },
+    {
+      "id": "S61_BINARY_DEEPER_QUARTIC_NUISANCE",
+      "title_ja": "深部binaryの共通core開上で横断長65上界",
+      "statement_ja": "二次一次syzygy由来の28真四次式について五補助変数依存を正確QQで消去し、coreのみの非零495minorを証明。共通非空core開上、全五補助変数で横断colength≤65。",
+      "scope": "Only the stated sufficiently-general-beta, fixed-beta formal or finite-chart conclusions.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "proof_only_independent_review_and_input_hash_audit_no_coefficient_reimplementation",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_BINARY_DEEPER_CUBIC_NUISANCE",
+          "S61_BINARY_DEEPER_TRIANGULAR_CHART"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_BINARY_DEEPER_QUARTIC_NUISANCE_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_DEEPER_QUARTIC_NUISANCE_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_BINARY_DEEPER_QUARTIC_NUISANCE_20261101.json",
+        "reports/S61_BINARY_DEEPER_QUARTIC_NUISANCE_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "core例外の全処理、同じ滑らかな実在族下界との結合、全深部飽和除去は別。標本のlower4 rankを関数体の上界に用いない。"
+      ]
+    },
+    {
+      "id": "S61_MINIMAL_FREE_FLAG_INITIAL_PROBE",
+      "title_ja": "自由M0旗端点の有限体十次初期idealを再現",
+      "statement_ja": "新しい有限切断standard basisと旧六次Macaulay全rowspace比較を実施。十次初期idealはdim3 degree70、旗5・binary65・実在基線4、交差との差はdim2 degree31。",
+      "scope": "Only the stated sufficiently-general-beta, fixed-beta formal or finite-chart conclusions.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_MINIMAL_FREE_FLAG_FLAT4_PROBE",
+          "S61_MINIMAL_FLAG_ENDPOINT_TABLE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_MINIMAL_FREE_FLAG_INITIAL_PROBE_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_MINIMAL_FREE_FLAG_INITIAL_PROBE_20261101.json"
+      ],
+      "limitations_ja": [
+        "GF32003の有限jet計算。全gr一致、標数零t冪零性、相対飽和除去は未証明。"
+      ]
+    },
+    {
+      "id": "S61_MINIMAL_FLAG_ENDPOINT_REVIEW",
+      "title_ja": "四つの最小型旗端点層の独立監査",
+      "statement_ja": "独立アフィン60係数のSp4作用から軌道・安定化・四層の優越性を再計算。十二有限変換と不変四次式を再検証し、有限source被覆と16D閉包一致を受理。",
+      "scope": "Only the stated sufficiently-general-beta, fixed-beta formal or finite-chart conclusions.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_MINIMAL_FLAG_ENDPOINT_TABLE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_MINIMAL_FLAG_ENDPOINT_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_MINIMAL_FLAG_ENDPOINT_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "旧正常形分類全体、局所環、t冪零性と飽和除去の独立監査ではない。"
+      ]
+    },
+    {
+      "id": "S61_FLAG_ZERO12_RANK_FIVE",
+      "title_ja": "b12=0旗chartの実在C3と指定点の有限rank5",
+      "statement_ja": "全七変数で同じ固定β旗C3のsmooth性とdb1非零を証明。指定点でmodp六次初期ideal・実横断49・混合標数Nakayama・同じCの下界からQQ全完成環は有限R3 rank5、tはR3-torsion。",
+      "scope": "All seven variables for C3 geometry; specified rational point for finite rank5.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "mixed_characteristic_argument_independently_conceptually_reviewed",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_FLAG_ZERO12_LOW_JETS",
+          "S61_FLAG_UNIFORM_OPEN"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_FLAG_ZERO12_RANK_FIVE_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_FLAG_ZERO12_RANK_FIVE_20261101.json"
+      ],
+      "limitations_ja": [
+        "全七変数のrank5、QQ初期ideal一致、横断QQ長49、t冪零性・ambient飽和除去は主張しない。混合標数移送の独立概念レビュー済み。"
+      ]
+    },
+    {
+      "id": "S61_MINIMAL_FREE_FLAG_NORMAL_FORM",
+      "title_ja": "自由M0旗端点の全一般βを覆う五変数正常形",
+      "statement_ja": "三有限unipotentとSp4対角作用・重み付き作用で五変数へ正規化。三つの悪い源のβ像は各15次元、正常形の優越minorは−1944で、当該端点の全一般β点を覆う。",
+      "scope": "Every point of the stated free-M0 flag stratum over sufficiently general beta.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "independent_review_pending",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_MINIMAL_FLAG_ENDPOINT_TABLE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_MINIMAL_FREE_FLAG_NORMAL_FORM_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_MINIMAL_FREE_FLAG_NORMAL_FORM_20261101.json"
+      ],
+      "limitations_ja": [
+        "有限正常形であり、四次以降の局所環やt飽和除去を与えない。他三つの端点層は別。"
       ]
     }
   ],

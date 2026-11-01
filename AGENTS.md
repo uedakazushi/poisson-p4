@@ -1,8 +1,31 @@
 # Poisson structures on P4 — Codex instructions
 
-Version: v46-s61 · 2026-11-01 (Asia/Tokyo).
+Version: v47-s61 · 2026-11-01 (Asia/Tokyo).
 
-Current v46 additions: twelve remaining minimal flag endpoint presentations
+Current v47 additions: the ENTIRE seven-variable b12=0 flag chart has true
+fourth initial HF(1,9,37,98,202) and ord(t)=4, by a three-chart minor cover.
+On r=-91/400, all b8!=0 points have HF(1,9,36,99,206), ord(t)=4.
+These are finite-order statements, not ambient t-nilpotence or saturation.
+The T7 flag connection has a closed flat4 surface quotient with t=0 on the
+explicit H11 principal open a0*a8*a9*P*Q!=0. Its Laurent jets are regularized
+as a coordinate algebra. The quotient does not identify the ambient ring.
+Deeper binary has28 true quartic syzygy conditions whose five nuisance
+coefficients vanish exactly modulo I2*S2. A nonzero495 minor gives transverse
+colength<=65 on a common nonempty core open, for every nuisance value.
+Core exceptions and the geometric free65 extension remain separate.
+The free-M0 flag point has a verified mod32003 ten-jet initial ideal dim3 degree70,
+with primary parts flag5, binary65, actual baseline4. Their intersection modulo
+J has dim2 degree31; full gr equality, QQ tnil and relative removal are unresolved.
+The four minimal flag endpoint strata now have an independent exact review.
+The b12=0 chart has a universal smooth actual C3 entering the free5 open;
+at the specified rational point, good reduction proves finite R3-rank5 and
+t is R3-torsion. This does not prove ambient t-nilpotence.
+A five-variable free-M0 flag normal form covers every point over sufficiently
+general beta; all three bad sources have beta image dimension15.
+Entire flags, deeper core exceptions, affine exhaustion and the component upper
+bound remain open. Lower57. Continue after checkpoints.
+
+Previous v46 additions: twelve remaining minimal flag endpoint presentations
 are covered by four dominant16D strata: three invariant ratios on b0=b1=0 and
 one quartic invariant on b0=0. Their saturation removal remains unresolved.
 The free-M0 flag point has an actual flat4 square-zero-normal quotient with

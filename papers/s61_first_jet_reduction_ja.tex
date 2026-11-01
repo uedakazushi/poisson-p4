@@ -35,7 +35,7 @@
 \title{射影四空間の Poisson 構造の一次ジェット還元\\
 \large 普遍的楕円切断、Jacobian の二捩れと Toric 成分の境界}
 \author{Poisson P4 研究プロジェクト・内部研究草稿}
-\date{2026年11月1日・v46-s61}
+\date{2026年11月1日・v47-s61}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -4432,6 +4432,113 @@ $\mathcal C_A,\mathcal C_B$ は共通の閉集合 $Z$ 上に10次元の一般 fi
 本稿はその上界を与えず、下界57を正確な総数へ変更しない。
 特殊軌道・成分交叉・冪零構造は、さらに別の未解決目標として維持する。
 
+\section{旗境界の真四次と T7 の平坦商（v47）}
+
+\begin{theorem}[二つの旗 chart の四次初期関係]
+$b_{12}=0$ の標準七変数旗 chart では全点で
+\[
+ \operatorname{HF}(0,\ldots,4)=(1,9,37,98,202),\qquad
+ t\in\mathfrak m^4\setminus\mathfrak m^5.
+\]
+$r=-91/400$ の七変数 chart では、$b_8\ne0$ の全点で
+\[
+ \operatorname{HF}(0,\ldots,4)=(1,9,36,99,206),\qquad
+ t\in\mathfrak m^4\setminus\mathfrak m^5.
+\]
+いずれも真の四次初期空間の主張であり、全初期イデアルや $t$ の冪零性を含めない。
+\end{theorem}
+
+\begin{proof}
+元135式から同じ implicit lift の四次までを再生成する。
+二次基底を $F_2$、全二次行の表現を $C_2$ とすると、
+$H_3=A_3-C_2F_3$、$H_4=A_4-C_2F_4$ が対応する尾である。
+三次先頭行 $L_3=(v_jF_2,H_3)$ と四次尾 $T_4=(v_jF_3,H_4)$ を作り、
+$L_3=C_3B_3$ に対して $T_4-C_3T_{4,\mathrm{basis}}$ を計算する。
+この手順は二次の一次 syzygy も全て含む。
+
+第一の chart の四次低次倍空間は次元284、追加四次は9。
+$b_8\ne0$、$b_8=0,b_{11}\ne0$、$b_8=b_{11}=0$ の三つで
+非零 minor と全行操作の分母を監査し、全域を覆った。
+第二の chart は低次倍275、追加14である。
+三次基底・四次低次倍・追加四次の選択 minor は、それぞれ
+非零有理定数と $b_8,b_8^5,b_8^{25}$ の積になる。
+全行操作の非定数分母も $b_8$ の冪だけなので、開の全点へ特殊化できる。
+
+観測量には $t_3=c_tB_3$ を使った補正 $t_4-c_tT_{4,\mathrm{basis}}$ を施す。
+真の四次空間で割った剰余に非零有理定数の係数が残るため、位数は正確に4である。
+元係数と選択行は \cite{flag-zero12-four-v47,flag-socle-four-v47} に保存した。
+\end{proof}
+
+\begin{theorem}[T7 旗端点の平坦四重曲面商]
+H11 の自由座標を $a_0,\ldots,a_{10}$ とし、
+\[
+\begin{split}
+ P={}&19800a_0a_5a_8+4480a_0a_9^2-1144a_{10}a_8a_9\\
+ &-1000a_2a_8a_9-5940a_6a_8^2-2079a_7a_8^2,\\
+ Q={}&P+16a_0a_9^2+108a_2a_8a_9
+\end{split}
+\]
+と置く。$a_0a_8a_9PQ\ne0$ 上で、同じ $\beta$ の T7 曲面は旗端点を含む
+二次元形式基底上の自由階数4の閉商に延び、その商で $t=0$ となる。
+\end{theorem}
+
+\begin{proof}
+実在曲線は $Q_\epsilon=3\epsilon w^2\partial_y\wedge\partial_z
+-x^2\partial_y\wedge\partial_w$ である。
+既存 T7 三次 jet をトーラス変換して得る Laurent jet について、
+元135式の $\nu$ 次数0から3の全540恒等式を確認した。
+残る $\epsilon$ の極を持つ表示そのものは端点の平坦商ではない。
+実際の三座標 $q_9,q_0,q_1$ の nil 部分を基底 $\xi_1,\xi_2,\xi_3$ として取り、
+全座標と六対称積の係数を厳密に計算すると、共通分母の正則部分の定数項は
+非零有理定数と $a_0^2a_8^{10}a_9^3P^3Q$ の積になる。
+従って主開上で $1,\xi_1,\xi_2,\xi_3$ を基底とする自由4代数が存在する。
+結合律と135恒等式は、$\epsilon$ 反転後の等式から自由性で降下する。
+
+選択三座標が $\xi$ を与え、$q_{24}=3\epsilon$ なので閉商となる。
+H11 を保存する shear $z\mapsto z+uw$ に対して逆 $\beta$ 作用で補償すると、
+$\beta$ を固定したまま第二の実在方向を加えられる。
+$dq_{19}/du=1$ と nil 接空間の生成から形式的 Nakayama を適用する。
+商内 $t=0$ は全構成で保たれる。\cite{flag-t7-flat4-v47}
+\end{proof}
+
+この定理は ambient 局所環の同定や $t$ の冪零性を与えない。
+主開の補集合と、同じ旗三次元族との scheme 的な接続は残る。
+
+さらに $b_{12}=0$ chart の全点で同じ固定 $\beta$ の旗三次元族は滑らかであり、
+その一般点は既知の free5 開へ入る。指定有理点では、有限体六次初期イデアルの次数5と
+実際の横断長49から $\mathbf Z_p[[u_1,u_2,u_3]]$ 上の有限生成を得る。
+高さ一素イデアル $(p)$ における Nakayama と原点因子の選択により、
+標数零の全完成環は有限 $R_3$-rank5 となる。同じ族の下界と上界が一致し、
+$t$ は $R_3$-torsion である。これは有限長 torsion や $t$ 冪零性を意味しない。
+\cite{flag-zero12-rank5-v47}
+
+\section{深部四次上界と最小型端点の高次計算（v47）}
+
+深部 binary の二十四二次式の一次 syzygy から二十八真四次式を構成した。
+これらは実際の三次尾の一次結合なので、この構成に raw 四次尾は必要ない。
+五補助変数の全非定数係数は $I_2S_2$ の有理定数 pivot だけで零へ還元される。
+残る二 core 変数のみの行列には非零495 minor があり、ある共通非空 core 開集合上で
+全補助変数に一様な横断長上界65を得る。\cite{deep-four-v47}
+core 例外の尽くし、同じ滑らかな実在族の下界との結合は別に残る。
+標本で得た四次低次倍の階数を、関数体の階数上界として用いてはいない。
+
+自由 M0 の旗端点では、元135式から作った有限体十次初期イデアルの次元は3、次数は70となった。
+旗 primary 部分の次数5、binary 部分65、実在基線部分4を確認し、最後は既存の平坦四重商と一致する。
+ただし三部分の交差と初期イデアルとの差には次元2・次数31が残る。
+全 associated graded ring との一致や標数零の $t$ 冪零性は未証明である。
+新しい有限切断 standard basis の六次出力は、従来の Macaulay 法の全行空間と独立比較した。
+\cite{free-initial-v47}
+
+また自由 M0 端点は、三つの有限 unipotent と対角・重み付き作用によって
+五変数正常形へ移る。正規化から外れる三つの源の $\beta$ 像はそれぞれ次元15であり、
+十分一般の $\beta$ 上の当該端点を全て覆う。正常形と群作用の優越 minor は $-1944$ である。
+これは高次消去の変数削減であり、飽和除去そのものではない。\cite{free-normal-v47}
+
+四つの最小型旗端点層については、十二有限変換、Sp4 軌道と安定化、
+不変式と閉包の一致を独立に再検証した。\cite{flag-table-review-v47}
+これを飽和除去の監査と読み替えない。成分下界57と、上界が未証明である点は変わらない。
+
+
 \begingroup\footnotesize
 \begin{thebibliography}{99}
 \setlength{\itemsep}{0pt}
@@ -4676,6 +4783,14 @@ arXiv:1406.6953v1 (2014), Theorems 2.1 and 2.3.
 \bibitem{flag-zero12-v46} 同プロジェクト、\nolinkurl{research/notes/S61_FLAG_ZERO12_LOW_JETS_20261101.md}、証明書と適用範囲を参照。
 \bibitem{flag-relative-open-v46} 同プロジェクト、\nolinkurl{research/notes/S61_FLAG_BOUNDARY_RELATIVE_REMOVED_OPEN_20261101.md}、証明書と適用範囲を参照。
 \bibitem{flag-t7-v46} 同プロジェクト、\nolinkurl{research/notes/S61_FLAG_T7_BOUNDARY_20261101.md}、証明書と適用範囲を参照。
+\bibitem{flag-zero12-four-v47} 同プロジェクト、\nolinkurl{research/notes/S61_FLAG_ZERO12_QUARTIC_BOUNDARY_20261101.md}、証明書と適用範囲を参照。
+\bibitem{flag-socle-four-v47} 同プロジェクト、\nolinkurl{research/notes/S61_FLAG_RANKONE_SOCLE_QUARTIC_20261101.md}、証明書と適用範囲を参照。
+\bibitem{flag-t7-flat4-v47} 同プロジェクト、\nolinkurl{research/notes/S61_FLAG_T7_FLAT4_20261101.md}、証明書と適用範囲を参照。
+\bibitem{deep-four-v47} 同プロジェクト、\nolinkurl{research/notes/S61_BINARY_DEEPER_QUARTIC_NUISANCE_20261101.md}、証明書と適用範囲を参照。
+\bibitem{free-initial-v47} 同プロジェクト、\nolinkurl{research/notes/S61_MINIMAL_FREE_FLAG_INITIAL_PROBE_20261101.md}、証明書と適用範囲を参照。
+\bibitem{flag-table-review-v47} 同プロジェクト、\nolinkurl{research/notes/S61_MINIMAL_FLAG_ENDPOINT_REVIEW_20261101.md}、証明書と適用範囲を参照。
+\bibitem{flag-zero12-rank5-v47} 同プロジェクト、\nolinkurl{research/notes/S61_FLAG_ZERO12_RANK_FIVE_20261101.md}、証明書と適用範囲を参照。
+\bibitem{free-normal-v47} 同プロジェクト、\nolinkurl{research/notes/S61_MINIMAL_FREE_FLAG_NORMAL_FORM_20261101.md}、証明書と適用範囲を参照。
 \end{thebibliography}
 \endgroup
 \end{document}

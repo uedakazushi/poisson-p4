@@ -171,9 +171,20 @@ q=q0+sδ+εn(s), ε²=0,t=0のflat二重直線を構成した。元135式の全2
 未処理旗層への包含または既処理開への包含を有限表で確定する。
 
 
-FLAG_ENDPOINT_TABLE：主37.27秒PASS、独立監査待ち。残る四free基線、四main-pole表示、四pure-cubic旗表示を、
+FLAG_ENDPOINT_TABLE：主37.27秒PASS、独立レビュー1.164秒PASS。残る四free基線、四main-pole表示、四pure-cubic旗表示を、
 標準Qf=-x²dy∧dw上の四優越16D層へ有限変換した。
 free M0/M1とmain poleは u4=u5=u12=u13=0、比率u14/u49=-1,-4,7/5のH11から生じる。
 pure-cubicはu4=u5=u25=u27=0、5u14=4u49、u51=3u26のH10から生じる。
 前三層は二旗境界の交叉、後者はb0=0側であり、b0!=0,b1=0のr chartには入らない。
 この表は被覆と次元を確定するのみで、これら四層の飽和除去は未証明である。
+
+FLAG_ENDPOINT_INVARIANTS：三つの比率層とpure-cubicの絶対既約quarticを内在的に同定し、
+TABLEと併せて独立レビュー済み。四層を除去したという主張ではない。
+
+FREE_FLAG_INITIAL_PROBE：free-M0旗端点の全135式からGF32003十次を再構成し、
+新しい有限切断標準基底法と六次の独立Macaulay行空間比較を含め506.91秒PASS。
+得た初期ideal J10はdim3/degree70、旗primary5、binary primary65、実在baseline primary4。
+後者は別途厳密に構成したflat4商の初期idealと一致する。
+ただし三部分の交差とJ10との差はdim2/degree31で、有限長ではない。
+全初期idealとの一致、標数零への移行、相対tnil・飽和除去は未証明。
+この2次元部分の支持・高次変形の制御が次の課題である。
