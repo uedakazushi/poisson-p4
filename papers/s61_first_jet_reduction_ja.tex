@@ -35,7 +35,7 @@
 \title{射影四空間の Poisson 構造の一次ジェット還元\\
 \large 普遍的楕円切断、Jacobian の二捩れと Toric 成分の境界}
 \author{Poisson P4 研究プロジェクト・内部研究草稿}
-\date{2026年11月1日・v50-s61}
+\date{2026年11月1日・v51-s61}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -4789,6 +4789,129 @@ Macaulay階数9808、商長2568を確認した。非零minorの標数零への�
 \cite{free-six-exact-v50}。
 全局所環・全旗層の飽和除去、アフィン五点の尽くし、成分数の上界は未解決である。
 
+\section{旗の線形例外と真の階数降下の全域四次（v51）}
+\label{sec:v51}
+
+\subsection{三つの線形基底例外}
+通常旗の正常形$b_0=b_{12}=1$における四線形因子のうち、
+$r=-6,-12/5,-119/20$はJacobian frameの基底例外である。
+各coreで非零定数の36次minorを選び直し、全七補助変数で多項式frameを作る。
+定数二次基底は9次元、二次一次倍は65次元、真正三次は3次元である。
+全原四次と低次tailを保持した計算で、旧四次部分282に新四次12が加わる。
+
+$h=b_8\ne0$では八つずつの12次・13次minorの一変数最大公約数が
+それぞれ$h^4,h^5$、または$h^6,h^7$の定数倍である。
+従って全補助変数で階数12、補正$t$を加えた階数13が成立する。
+$h=0$でも指定有理点の同じ二つのminorが非零であり、
+六パラメータと$\mathrm{Sp}_4$からなる16次元sourceの真閉例外は
+$\beta$像次元15以下になる。よって各coreの全ての十分一般$\beta$点で
+\[
+ \operatorname{HF}_{\le4}=(1,9,36,97,201),\qquad \operatorname{ord}(t)=4
+\]
+である。基底の分母を反転して未知の例外曲線を残す主張ではない。
+ただし$t$の冪零性や飽和除去は別である
+\cite{flag-linear-cover-v51}。
+
+\subsection{真のcoreの二次・三次を全七変数で制御する}
+残る$r=-4/25$では全Jacobianの階数が35に落ち、接変数は10個になる。
+原135式の二次行列の15次minorをパラメータ全零で選ぶと、
+その行列式は七変数上でも非零有理数になる。
+従って二次基底$Q$は多項式で、全域で二次階数15、$\operatorname{HF}_2=40$である。
+活性四変数に含まれる六定数二次式は三次を全て生成する。
+その部分代数のHilbert関数$(1,4,4)$、長さ9は、元環の横断長や自由階数ではない
+\cite{flag-true-quad-v51}。
+
+$Q$の中の13定数二次式の一次倍は100次元である。
+残る120次元商で全二次一次倍を射影すると、14次の非零定数minorを持つ。
+全行の多項式恒等式を検査して、二次一次倍は全七変数で114次元と分かる。
+全raw三次から二次基底の実際のtailを差し引いた135行には、
+さらに5次の非零定数minorがある。全行はその五行で生成される。
+この基底の11個の非零係数は$b_8$だけに依存し、次数は2以下である。
+
+このcoreではraw $t_2$が非零であるため、観測量にも
+$T_3-t_{2,P}F_3$という補正が必要になる。
+補正した三次は上の119次元空間に入り、全七変数で
+\[
+ \operatorname{HF}_{\le3}=(1,10,40,101),\qquad t\in\mathfrak m^4
+\]
+を得る。辞書式基底に出現する$h$や線形因子の分母は、
+この定数minor基底では不要である
+\cite{flag-true-cubic-v51}。
+
+\subsection{有限多項式逆と真正四次}
+既知15二次式の二次倍と5三次式の一次倍を全て作る。
+まず13定数二次式の二次倍から440次元を除き、275次元商に射影する。
+非零195行から選んだ64次行列$M$について、定数項$M_0$は可逆であり、
+\[
+ M_0^{-1}M=I+N,\qquad N^4=0
+\]
+という七変数上の厳密恒等式を得る。
+従って$(I-N+N^2-N^3)M_0^{-1}$が多項式逆である。
+全195行の表示を検査して、旧四次部分の次元は全域で$440+64=504$となる。
+
+原四次を211次元の自由商へ射影する際も、三次積150行の114行基底に対する
+36個のsyzygyの四次tailを保持する。
+さらに原135残余の三次基底による消去tailを保持した、計285候補を作る。
+選択6行のminorは非零有理数で、全285行がその多項式基底で生成される。
+従って全七変数で
+\[
+ \operatorname{HF}_{\le4}=(1,10,40,101,205).
+\]
+観測量から$t_2$の二次表示、補正$t_3$の三次表示に対応する四次tailを
+全て差し引くと、最後の剰余に非零有理定数成分が残る。
+よって同じ全域で$\operatorname{ord}(t)=4$である
+\cite{flag-true-four-v51}。
+独立レビューでは下位504空間と多項式逆を別に再構成し、
+原四次と全tailの別係数実装による再構成とは範囲を分ける。
+
+\subsection{指定点の有限rankと残るtorsion}
+真coreの指定点
+$(b_4,b_7,b_8,b_9,b_{10},b_{11},b_{13})=(1,2,3,5,7,11,13)$では、
+同じ固定$\beta$の実在する滑らかな旗三次元部分$C$の接方向が
+\[
+ -2e_1,\quad -4e_2-2e_3+e_6,\quad e_0
+\]
+となる。従って$v_0,v_1,v_6$は$C$の形式パラメータである。
+補償された$db_1=-3\,dv_1+(54/25)\,dv_6$は非零なので、
+同じ$C$の一般点は既証明の自由階数5の旗開へ入る。
+
+良い還元$p=32003$で元135の六次閉包を検査すると、
+\[
+ \operatorname{HF}_{\le6}=(1,10,40,101,205,332,474)
+\]
+となる。実際の横断切断の長さ列は$1,8,21,35,43,49,49$である。
+Nakayamaにより整係数完成環は三変数底上有限で49生成以下となる。
+六次初期下位idealの三次元部分の次数5から、DVRの生成数比較によりrank上界5を得る。
+一方、同じ実在$C$の一般部分が下界5を与える。
+$\mathbb Z_p[[u]][1/p]$と$\mathbb Q_p[[u]]$を同一視せず、
+原点での基底変換・完成因子の選択を行って標数零へ降ろすと、
+指定点の全環は$\mathbb Q[[v_0,v_1,v_6]]$上有限rank5で、$t$は底torsionである。
+
+有限体の六次初期下位idealの飽和との差加群は二変数自由rank111で、
+生成次数1から6の個数は$(3,16,26,38,18,10)$である。
+これは標数零の全初期環や実際の埋込加群の同定ではなく、
+底torsionから$t$の冪零性も結論しない
+\cite{flag-true-rank-v51}。
+
+\subsection{自由M0の高次上界の限定範囲}
+自由M0では元135の七次切断を二つの有限体閉包で検査し、
+有限行列の非零minorを標数零へ移して
+\[
+ \operatorname{HF}_7\le1767,\qquad
+ \operatorname{length}(S/\mathfrak m^8)\le4335
+\]
+を得る。既知六次idealの七次商1797と比べ、新方向は少なくとも30ある。
+八次では元切断idealに属する標準基底行とその先頭倍68837方向の独立性から
+\[
+ \operatorname{length}(S/\mathfrak m^9)\le6745,\qquad
+ \operatorname{HF}_7+\operatorname{HF}_8\le4177
+\]
+を得る。七次の下界がないため、ここから一般$\operatorname{HF}_8\le2410$とはしない。
+八次の全閉包の二方式一致、普遍七・八次の等号、全局所環も主張しない
+\cite{free-seven-v51,free-eight-v51}。
+実際の有限恒等式とtorsion支持の制御、残るbinary core、全無限遠の飽和除去、
+アフィン五点の尽くし、成分数上界を継続課題とする。既知下界57は変わらない。
+
 \begingroup\footnotesize
 \begin{thebibliography}{99}
 \setlength{\itemsep}{0pt}
@@ -5059,6 +5182,13 @@ arXiv:1406.6953v1 (2014), Theorems 2.1 and 2.3.
 \bibitem{initial-nil-obstruction-v50} 同プロジェクト、\nolinkurl{research/notes/FILTERED_INITIAL_NILPOTENCE_OBSTRUCTION_20261101.md}、証明書と監査範囲を参照。
 \bibitem{free-six-upper-v50} 同プロジェクト、\nolinkurl{research/notes/S61_MINIMAL_FREE_FLAG_SIXTH_UPPER_BOUND_20261101.md}、証明書と監査範囲を参照。
 \bibitem{free-six-exact-v50} 同プロジェクト、\nolinkurl{research/notes/S61_MINIMAL_FREE_FLAG_UNIVERSAL_SEXTIC_20261101.md}、証明書と監査範囲を参照。
+\bibitem{flag-linear-cover-v51} 同プロジェクト、\nolinkurl{research/notes/S61_FLAG_LINEAR_ARTIFACTS_QUARTIC_20261101.md}、証明書と監査範囲を参照。
+\bibitem{flag-true-quad-v51} 同プロジェクト、\nolinkurl{research/notes/S61_FLAG_TRUE_CORE_QUADRATIC_20261101.md}、証明書と監査範囲を参照。
+\bibitem{flag-true-cubic-v51} 同プロジェクト、\nolinkurl{research/notes/S61_FLAG_TRUE_CORE_CUBIC_20261101.md}、証明書と監査範囲を参照。
+\bibitem{flag-true-four-v51} 同プロジェクト、\nolinkurl{research/notes/S61_FLAG_TRUE_CORE_QUARTIC_20261101.md}、証明書と監査範囲を参照。
+\bibitem{flag-true-rank-v51} 同プロジェクト、\nolinkurl{research/notes/S61_FLAG_TRUE_CORE_RANK_FIVE_20261101.md}、証明書と監査範囲を参照。
+\bibitem{free-seven-v51} 同プロジェクト、\nolinkurl{research/notes/S61_MINIMAL_FREE_FLAG_SEVENTH_UPPER_BOUND_20261101.md}、証明書と監査範囲を参照。
+\bibitem{free-eight-v51} 同プロジェクト、\nolinkurl{research/notes/S61_MINIMAL_FREE_FLAG_EIGHTH_UPPER_BOUND_20261101.md}、証明書と監査範囲を参照。
 \end{thebibliography}
 \endgroup
 \end{document}

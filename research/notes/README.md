@@ -1,6 +1,6 @@
 # 研究ノートと評価資料の入口
 
-**v50-s61、2026-11-01。楕円型の全域二次切断、既知五延長の三平面。**
+**v51-s61、2026-11-01。楕円型の全域二次切断、既知五延長の三平面。**
 
 ## v31 の新しい入口
 
@@ -305,3 +305,13 @@
 - 全初期代数と埋込自由性だけでは冪零性は従わない: `FILTERED_INITIAL_NILPOTENCE_OBSTRUCTION_20261101`。適用範囲と未解決部分を各ノートに明記。
 - 自由M0の真正六次に有限切断上界: `S61_MINIMAL_FREE_FLAG_SIXTH_UPPER_BOUND_20261101`。適用範囲と未解決部分を各ノートに明記。
 - 自由M0の真正六次を普遍的に確定: `S61_MINIMAL_FREE_FLAG_UNIVERSAL_SEXTIC_20261101`。適用範囲と未解決部分を各ノートに明記。
+
+## v51: 旗三線形例外・真rank降下の普遍三次と有限rank
+
+- 旗の三線形基底例外を四次まで補完: `S61_FLAG_LINEAR_ARTIFACTS_QUARTIC_20261101`。適用範囲と未解決部分を各ノートに明記。
+- 真の旗rank降下で全七変数二次を確定: `S61_FLAG_TRUE_CORE_QUADRATIC_20261101`。適用範囲と未解決部分を各ノートに明記。
+- 真の旗coreの全七変数真正三次: `S61_FLAG_TRUE_CORE_CUBIC_20261101`。適用範囲と未解決部分を各ノートに明記。
+- 真の旗core指定点の有限基底rank5: `S61_FLAG_TRUE_CORE_RANK_FIVE_20261101`。適用範囲と未解決部分を各ノートに明記。
+- 自由M0の七次有限上界: `S61_MINIMAL_FREE_FLAG_SEVENTH_UPPER_BOUND_20261101`。適用範囲と未解決部分を各ノートに明記。
+- 自由M0の八次までの累積上界: `S61_MINIMAL_FREE_FLAG_EIGHTH_UPPER_BOUND_20261101`。適用範囲と未解決部分を各ノートに明記。
+- 真の旗coreの全七変数真正四次: `S61_FLAG_TRUE_CORE_QUARTIC_20261101`。適用範囲と未解決部分を各ノートに明記。

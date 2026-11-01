@@ -1,8 +1,24 @@
 # Poisson structures on P4 — Codex instructions
 
-Version: v50-s61 · 2026-11-01 (Asia/Tokyo).
+Version: v51-s61 · 2026-11-01 (Asia/Tokyo).
 
-Current v50 additions: ordinary flag fourth jets now hold with no higher-degree
+Current v51 additions: three ordinary flag linear frame artifacts r=-6,-12/5,
+-119/20 are covered through true order4 at every sufficiently-general-beta point:
+HF(1,9,36,97,201), ord(t)=4. The true core r=-4/25 has constant-minor
+polynomial quadratic and cubic bases on ALL seven parameter values:
+HF(1,10,40,101,205), ord(t)=4. A polynomial inverse with N^4=0
+and all285 filtered fourth tails give the uniform quartic result.
+These are finite-order assertions only.
+At one specified rational true-core point the full completed ring is finite
+R3-rank5 with at most49 generators; t is R3-torsion, not proved nilpotent.
+Its mod32003 sixth initial lower ideal has the C3 degree5 part and an R2-free111
+embedded difference. No QQ full initial equality is inferred.
+Free-M0 has generic HF7<=1767 and HF7+HF8<=4177 from finite matrix upper bounds;
+neither universal higher equality nor tnil follows. Seek actual finite certificates.
+Whole flags, remaining higher binary factors, affine exhaustion and the component
+upper bound remain unresolved. Lower57. Continue after checkpoints.
+
+Previous v50 additions: ordinary flag fourth jets now hold with no higher-degree
 core basis exceptions. Constant socle and degree-two polynomial inverses give
 HF(1,9,36,97,201), ord(t)=4 on hD*rho!=0 for ALL nuisance values.
 The h=0 chart is covered when (r-2)D*rho!=0; r=2,h=0 has beta image<=15.

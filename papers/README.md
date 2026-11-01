@@ -1,6 +1,6 @@
 # 公表用原稿の構成案と証明資料
 
-**状態：v50-s61、2026-11-01。零一次部分の被約台AB、ABのincidenceと特異点集合、最小型無限遠の完成局所環、二平面型の横断Artin代数を統合。**
+**状態：v51-s61、2026-11-01。零一次部分の被約台AB、ABのincidenceと特異点集合、最小型無限遠の完成局所環、二平面型の横断Artin代数を統合。**
 
 [一次ジェット還元の日本語原稿](s61_first_jet_reduction_ja.tex)（[PDF・41ページ](s61_first_jet_reduction_ja.pdf)）は、
 primitive gauge、T01/T39/T40の優越性と全S61のétale点、楕円型五変数模型、T01の一般次数3、
@@ -294,3 +294,13 @@ v35では一般被約無限遠の全型帰着、ABの原点外の正規性、二
 - 全初期代数と埋込自由性だけでは冪零性は従わない: `FILTERED_INITIAL_NILPOTENCE_OBSTRUCTION_20261101`。適用範囲と未解決部分を各ノートに明記。
 - 自由M0の真正六次に有限切断上界: `S61_MINIMAL_FREE_FLAG_SIXTH_UPPER_BOUND_20261101`。適用範囲と未解決部分を各ノートに明記。
 - 自由M0の真正六次を普遍的に確定: `S61_MINIMAL_FREE_FLAG_UNIVERSAL_SEXTIC_20261101`。適用範囲と未解決部分を各ノートに明記。
+
+## v51: 旗三線形例外・真rank降下の普遍三次と有限rank
+
+- 旗の三線形基底例外を四次まで補完: `S61_FLAG_LINEAR_ARTIFACTS_QUARTIC_20261101`。適用範囲と未解決部分を各ノートに明記。
+- 真の旗rank降下で全七変数二次を確定: `S61_FLAG_TRUE_CORE_QUADRATIC_20261101`。適用範囲と未解決部分を各ノートに明記。
+- 真の旗coreの全七変数真正三次: `S61_FLAG_TRUE_CORE_CUBIC_20261101`。適用範囲と未解決部分を各ノートに明記。
+- 真の旗core指定点の有限基底rank5: `S61_FLAG_TRUE_CORE_RANK_FIVE_20261101`。適用範囲と未解決部分を各ノートに明記。
+- 自由M0の七次有限上界: `S61_MINIMAL_FREE_FLAG_SEVENTH_UPPER_BOUND_20261101`。適用範囲と未解決部分を各ノートに明記。
+- 自由M0の八次までの累積上界: `S61_MINIMAL_FREE_FLAG_EIGHTH_UPPER_BOUND_20261101`。適用範囲と未解決部分を各ノートに明記。
+- 真の旗coreの全七変数真正四次: `S61_FLAG_TRUE_CORE_QUARTIC_20261101`。適用範囲と未解決部分を各ノートに明記。

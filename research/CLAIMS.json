@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checkpoint": "v50-s61",
+  "checkpoint": "v51-s61",
   "date": "2026-11-01",
   "base_mathematical_checkpoint": "v24",
   "new_mathematical_progress_in_this_setup": false,
@@ -6964,6 +6964,235 @@
       ],
       "limitations_ja": [
         "全初期ideal、完成環の自由性・t冪零性・旗層の飽和除去は未証明。"
+      ]
+    },
+    {
+      "id": "S61_FLAG_LINEAR_ARTIFACTS_QUARTIC",
+      "title_ja": "旗の三線形基底例外を四次まで補完",
+      "statement_ja": "r=−6,−12/5,−119/20 の全一般β点で真正HF(1,9,36,97,201)、ord(t)=4。h非零は全補助変数、h零は16D sourceと非空開により被覆。",
+      "scope": "Only the stated sufficiently-general-beta, fixed-beta formal or finite-chart conclusions.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_FLAG_BOUNDARY_GLOBAL_QUARTIC_COVER",
+          "S61_FLAG_BOUNDARY_NORMAL_FORMS"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_FLAG_LINEAR_ARTIFACTS_QUARTIC_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_FLAG_LINEAR_ARTIFACTS_QUARTIC_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_FLAG_LINEAR_ARTIFACTS_QUARTIC_20261101.json",
+        "reports/S61_FLAG_LINEAR_ARTIFACTS_QUARTIC_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "四次有限切断のみ。真rank降下coreとambient t冪零性は別。"
+      ]
+    },
+    {
+      "id": "S61_FLAG_TRUE_CORE_QUADRATIC",
+      "title_ja": "真の旗rank降下で全七変数二次を確定",
+      "statement_ja": "r=−4/25 の全七パラメータで全J rank35、接変数10、二次rank15。定数minorにより多項式基底を持ち、非零raw t2も二次idealに属する。",
+      "scope": "Only the stated sufficiently-general-beta, fixed-beta formal or finite-chart conclusions.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_FLAG_BOUNDARY_NORMAL_FORMS"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_FLAG_TRUE_CORE_QUADRATIC_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_FLAG_TRUE_CORE_QUADRATIC_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_FLAG_TRUE_CORE_QUADRATIC_20261101.json",
+        "reports/S61_FLAG_TRUE_CORE_QUADRATIC_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "HF(1,10,40)とt∈m3の有限次数主張。活性四変数の部分代数長9を実際の横断長と混同しない。"
+      ]
+    },
+    {
+      "id": "S61_FLAG_TRUE_CORE_CUBIC",
+      "title_ja": "真の旗coreの全七変数真正三次",
+      "statement_ja": "定数minorと全行多項式恒等式により二次一次倍114・新三次5を全七変数で確定。非零t2のtailを補正してHF(1,10,40,101)、t∈m4。",
+      "scope": "Only the stated sufficiently-general-beta, fixed-beta formal or finite-chart conclusions.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_FLAG_TRUE_CORE_QUADRATIC"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_FLAG_TRUE_CORE_CUBIC_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_FLAG_TRUE_CORE_CUBIC_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_FLAG_TRUE_CORE_CUBIC_20261101.json",
+        "reports/S61_FLAG_TRUE_CORE_CUBIC_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "全初期ideal、正確なtの位数、ambient t冪零性、飽和除去は主張しない。"
+      ]
+    },
+    {
+      "id": "S61_FLAG_TRUE_CORE_RANK_FIVE",
+      "title_ja": "真の旗core指定点の有限基底rank5",
+      "statement_ja": "元135の良い還元と同じ実在C3の一般free5下界により、指定QQ点の全完成環はR3上有限rank5、49生成以下でtはR3-torsion。",
+      "scope": "Only the stated sufficiently-general-beta, fixed-beta formal or finite-chart conclusions.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_FLAG_UNIFORM_OPEN",
+          "S61_FLAG_ZERO12_RANK_FIVE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_FLAG_TRUE_CORE_RANK_FIVE_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_FLAG_TRUE_CORE_RANK_FIVE_20261101.json"
+      ],
+      "limitations_ja": [
+        "有限体六次idealとE111の構造は標数0の全初期idealではない。QQ横断長49、QQord4、ambient t冪零性は主張しない。"
+      ]
+    },
+    {
+      "id": "S61_MINIMAL_FREE_FLAG_SEVENTH_UPPER_BOUND",
+      "title_ja": "自由M0の七次有限上界",
+      "statement_ja": "元135の二つの有限体閉包と非零有限行列minorにより関数体上HF7≤1767、m8商≤4335、新七次方向≥30。",
+      "scope": "Only the stated sufficiently-general-beta, fixed-beta formal or finite-chart conclusions.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_MINIMAL_FREE_FLAG_UNIVERSAL_SEXTIC"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_MINIMAL_FREE_FLAG_SEVENTH_UPPER_BOUND_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_MINIMAL_FREE_FLAG_SEVENTH_UPPER_BOUND_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_MINIMAL_FREE_FLAG_SEVENTH_UPPER_BOUND_20261101.json",
+        "reports/S61_MINIMAL_FREE_FLAG_SEVENTH_UPPER_BOUND_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "普遍七次の等号や全初期ideal・t冪零性ではない。レビューは証明・入力監査でraw7第二実装ではない。"
+      ]
+    },
+    {
+      "id": "S61_MINIMAL_FREE_FLAG_EIGHTH_UPPER_BOUND",
+      "title_ja": "自由M0の八次までの累積上界",
+      "statement_ja": "元135 raw8から得た68837独立先頭倍により関数体上m9商≤6745、HF7+HF8≤4177。",
+      "scope": "Only the stated sufficiently-general-beta, fixed-beta formal or finite-chart conclusions.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_MINIMAL_FREE_FLAG_UNIVERSAL_SEXTIC"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_MINIMAL_FREE_FLAG_EIGHTH_UPPER_BOUND_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_MINIMAL_FREE_FLAG_EIGHTH_UPPER_BOUND_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_MINIMAL_FREE_FLAG_EIGHTH_UPPER_BOUND_20261101.json",
+        "reports/S61_MINIMAL_FREE_FLAG_EIGHTH_UPPER_BOUND_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "一般HF8≤2410、八次の二方式完全閉包、普遍等号・全局所環を主張しない。"
+      ]
+    },
+    {
+      "id": "S61_FLAG_TRUE_CORE_QUARTIC",
+      "title_ja": "真の旗coreの全七変数真正四次",
+      "statement_ja": "低次504空間の多項式逆と全285tail候補の定数minorにより、新四次6を全七変数で確定。HF(1,10,40,101,205)、ord(t)=4。",
+      "scope": "Only the stated sufficiently-general-beta, fixed-beta formal or finite-chart conclusions.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_FLAG_TRUE_CORE_CUBIC"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_FLAG_TRUE_CORE_QUARTIC_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_FLAG_TRUE_CORE_QUARTIC_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_FLAG_TRUE_CORE_QUARTIC_20261101.json",
+        "reports/S61_FLAG_TRUE_CORE_QUARTIC_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "四次有限切断のみ。全初期ideal・全完成環・t冪零性・飽和除去は未証明。"
       ]
     }
   ],
