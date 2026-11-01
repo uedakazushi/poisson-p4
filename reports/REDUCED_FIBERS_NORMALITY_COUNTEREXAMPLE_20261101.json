@@ -1,0 +1,48 @@
+{
+  "id": "REDUCED_FIBERS_NORMALITY_COUNTEREXAMPLE_20261101",
+  "all_passed": true,
+  "field": "QQ",
+  "normal_ring": "A=C[x,y,z]/(xy-z^2)",
+  "nonnormal_ring": "B=C[x,y,xz,yz] subset A",
+  "B_relations_in_r_q_x_y": [
+    "r**2 - x**3*y",
+    "q*r - x**2*y**2",
+    "-q*x + r*y",
+    "q**2 - x*y**3"
+  ],
+  "normalization_fiber": "A/m_B A = C[z]/(z^2)",
+  "resolution": "Tot(O_P1(-2)) -> Spec(A) -> Spec(B), projective and birational",
+  "chart0": {
+    "x": "u",
+    "y": "u*v**2",
+    "z": "u*v"
+  },
+  "chart1": {
+    "x": "up*vp**2",
+    "y": "up",
+    "z": "up*vp"
+  },
+  "transition": {
+    "up": "u*v**2",
+    "vp": "1/v"
+  },
+  "pullback_origin_ideal_chart0": [
+    "u",
+    "u*v**2",
+    "u**2*v",
+    "u**2*v**3"
+  ],
+  "pullback_origin_ideal_chart1": [
+    "up*vp**2",
+    "up",
+    "up**2*vp**3",
+    "up**2*vp"
+  ],
+  "reduced_origin_fiber": "P1; chart ideals (u) and (up)",
+  "other_fibers": "Reduced points; B=A after localizing x or y.",
+  "scope": "Counterexample to deducing AB normality from the reduced connected fibers of its normal proper birational incidence.",
+  "proof_note": "research/notes/REDUCED_FIBERS_NORMALITY_COUNTEREXAMPLE_20261101.md",
+  "source_sha256": {
+    "code/reduced_fibers_normality_counterexample_20261101.py": "43f4b03fd7b956b843dda0bb4a40e45c98650574782213e06bea3bf145edd0a8"
+  }
+}

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checkpoint": "v34-s61",
+  "checkpoint": "v35-s61",
   "date": "2026-11-01",
   "base_mathematical_checkpoint": "v24",
   "new_mathematical_progress_in_this_setup": false,
@@ -2752,8 +2752,9 @@
         "reports/AB_INCIDENCE_GEOMETRY_REVIEW_20261101.json"
       ],
       "limitations_ja": [
-        "正の次元のファイバーがあるため正規化射ではない。AB自体の正規性は未決。"
-      ]
+        "正規化射ではない。ABの原点外の正規性はv35で証明したが、原点は未決。"
+      ],
+      "strengthened_by": "S61_AB_NORMAL_AWAY_ORIGIN"
     },
     {
       "id": "S61_AB_SINGULAR_LOCUS",
@@ -2915,6 +2916,389 @@
       ],
       "limitations_ja": [
         "指定点と証明した開部分のみ。共鳴層、他の無限遠、全アフィンファイバーを尽くさない。"
+      ]
+    },
+    {
+      "id": "S61_AB_NORMAL_AWAY_ORIGIN",
+      "title_ja": "ABの原点外の正規性と二つの接錐",
+      "statement_ja": "非零の一変数型の二軌道で実際の座標による完成環生成を証明し、既存の核二次元の局所模型と合わせABの原点外の正規性を得る。非零トレース軌道は埋込み次元16・重複度7、零トレース軌道は18・10。",
+      "scope": "Explicit reduced infinity, local formal rings or AB local geometry; stated opens and dependencies apply.",
+      "status": {
+        "proof": "proof_with_exact_rational_certificate_and_explicit_dependencies",
+        "independent_review": "independent_agent_or_parent_review_not_external_peer_review",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_AB_PROPER_INCIDENCE",
+          "S61_AB_SINGULAR_LOCUS"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AB_ONE_VARIABLE_LOCAL_20261101.md"
+        },
+        {
+          "path": "research/notes/AB_ONE_VARIABLE_LOCAL_REVIEW_20261101.md"
+        },
+        {
+          "path": "research/notes/AB_ZERO_TRACE_LOCAL_20261101.md"
+        },
+        {
+          "path": "research/notes/AB_ZERO_TRACE_LOCAL_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AB_ONE_VARIABLE_LOCAL_20261101.json",
+        "reports/AB_ONE_VARIABLE_LOCAL_REVIEW_20261101.json",
+        "reports/AB_ZERO_TRACE_LOCAL_20261101.json",
+        "reports/AB_ZERO_TRACE_LOCAL_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "原点の正規性、スキーム論的T01零ファイバーは未決。完成局所環と接錐の同型は主張しない。"
+      ]
+    },
+    {
+      "id": "S61_REDUCED_FIBERS_NORMALITY_SHORTCUT_FALSE",
+      "title_ja": "被約連結ファイバーだけから正規性は従わない",
+      "statement_ja": "A=C[x,y,z]/(xy-z²)と非正規部分環B=C[x,y,xz,yz]により、滑らかな源からのproper birational射の全ファイバーが被約連結でも像が非正規となる反例。",
+      "scope": "Explicit reduced infinity, local formal rings or AB local geometry; stated opens and dependencies apply.",
+      "status": {
+        "proof": "proof_with_exact_rational_certificate_and_explicit_dependencies",
+        "independent_review": "independent_agent_or_parent_review_not_external_peer_review",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/REDUCED_FIBERS_NORMALITY_COUNTEREXAMPLE_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/REDUCED_FIBERS_NORMALITY_COUNTEREXAMPLE_20261101.json"
+      ],
+      "limitations_ja": [
+        "ABの正規性には実際の座標による全次数生成を別に証明する。"
+      ]
+    },
+    {
+      "id": "S61_NIL22_GENERIC_INFINITY_EXCLUSION",
+      "title_ja": "冪零(2,2)型の一般無限遠からの除外",
+      "statement_ja": "全固定トレース正常形と一様な階数評価により、Jordan(2,2)型無限遠のβ像は次元15以下。",
+      "scope": "Explicit reduced infinity, local formal rings or AB local geometry; stated opens and dependencies apply.",
+      "status": {
+        "proof": "proof_with_exact_rational_certificate_and_explicit_dependencies",
+        "independent_review": "independent_agent_or_parent_review_not_external_peer_review",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "MODEL_S61"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_NIL22_INFINITY_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_NIL22_INFINITY_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_NIL22_INFINITY_20261101.json",
+        "reports/S61_NIL22_INFINITY_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "旧Q45分類に依存。Δ≠0全域からの除外ではない。"
+      ]
+    },
+    {
+      "id": "S61_OTHER_NILPOTENT_GENERIC_INFINITY_EXCLUSION",
+      "title_ja": "正則冪零型と最小型開層の除外",
+      "statement_ja": "正則冪零型のβ像は次元14以下、最小型の六次元固定トレース開層のβ像は13以下。",
+      "scope": "Explicit reduced infinity, local formal rings or AB local geometry; stated opens and dependencies apply.",
+      "status": {
+        "proof": "proof_with_exact_rational_certificate_and_explicit_dependencies",
+        "independent_review": "independent_agent_or_parent_review_not_external_peer_review",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "MODEL_S61"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_OTHER_NILPOTENT_INFINITY_EXCLUSION_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_SMALL_NILPOTENT_INFINITY_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_OTHER_NILPOTENT_INFINITY_EXCLUSION_20261101.json",
+        "reports/S61_SMALL_NILPOTENT_INFINITY_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "最小型のM0・M1九平面は残り、別に分類する。"
+      ]
+    },
+    {
+      "id": "S61_NONNILPOTENT_GENERIC_INFINITY_EXCLUSION",
+      "title_ja": "全非冪零モジュラー型の除外",
+      "statement_ja": "半単純・混合型の全正常形でβ像の次元15以下を証明。正常化のA=0境界も含む。",
+      "scope": "Explicit reduced infinity, local formal rings or AB local geometry; stated opens and dependencies apply.",
+      "status": {
+        "proof": "proof_with_exact_rational_certificate_and_explicit_dependencies",
+        "independent_review": "independent_agent_or_parent_review_not_external_peer_review",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "MODEL_S61"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_NONNILPOTENT_INFINITY_EXCLUSION_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_NONNILPOTENT_INFINITY_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_NONNILPOTENT_INFINITY_EXCLUSION_20261101.json",
+        "reports/S61_NONNILPOTENT_INFINITY_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "有限の係数例ではなく全正常形の階数層を評価。旧Q45分類に依存。"
+      ]
+    },
+    {
+      "id": "S61_MINIMAL_INFINITY_VERTEX_NECESSITY",
+      "title_ja": "最小型無限遠の全点に対する頂点条件",
+      "statement_ja": "任意のβとM0/M1無限遠点で、モジュラー像の直線vはtauβ(v)=0を満たす。元134式の恒等式から矛盾を導く。",
+      "scope": "Explicit reduced infinity, local formal rings or AB local geometry; stated opens and dependencies apply.",
+      "status": {
+        "proof": "proof_with_exact_rational_certificate_and_explicit_dependencies",
+        "independent_review": "independent_agent_or_parent_review_not_external_peer_review",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "MODEL_S61"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_MINIMAL_INFINITY_VERTEX_NECESSITY_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_SMALL_NILPOTENT_INFINITY_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_MINIMAL_INFINITY_VERTEX_NECESSITY_20261101.json",
+        "reports/S61_SMALL_NILPOTENT_INFINITY_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "全βの必要条件であり、十分条件ではない。"
+      ]
+    },
+    {
+      "id": "S61_MINIMAL_VERTEX_EXHAUSTION",
+      "title_ja": "一般β上の最小型被約無限遠の尽くし",
+      "statement_ja": "M0・M1の全九係数について、一般曲線・18有理グラフ・四つの追加baseline直線・孤立axis・階数一の全場合を有限chartで尽くす。",
+      "scope": "Explicit reduced infinity, local formal rings or AB local geometry; stated opens and dependencies apply.",
+      "status": {
+        "proof": "proof_with_exact_rational_certificate_and_explicit_dependencies",
+        "independent_review": "independent_agent_or_parent_review_not_external_peer_review",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_MINIMAL_INFINITY_VERTEX_NECESSITY",
+          "S61_OTHER_NILPOTENT_GENERIC_INFINITY_EXCLUSION"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_MINIMAL_VERTEX_EXHAUSTION_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_MINIMAL_VERTEX_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_MINIMAL_VERTEX_EXHAUSTION_20261101.json",
+        "reports/S61_MINIMAL_VERTEX_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "四直線を落としていた初稿を訂正。全点被覆は十分一般のβ上。chart数は成分数ではない。飽和は別問題。"
+      ]
+    },
+    {
+      "id": "S61_GENERIC_REDUCED_INFINITY_EXHAUSTION",
+      "title_ja": "一般一次項上の被約無限遠を全型で尽くす",
+      "statement_ja": "全135二次斉次化の未飽和無限遠は、ある非空なβ開集合上でR0および最小型M0/M1の明示有限chartに尽くされる。",
+      "scope": "Explicit reduced infinity, local formal rings or AB local geometry; stated opens and dependencies apply.",
+      "status": {
+        "proof": "proof_with_exact_rational_certificate_and_explicit_dependencies",
+        "independent_review": "independent_agent_or_parent_review_not_external_peer_review",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_NIL22_GENERIC_INFINITY_EXCLUSION",
+          "S61_OTHER_NILPOTENT_GENERIC_INFINITY_EXCLUSION",
+          "S61_NONNILPOTENT_GENERIC_INFINITY_EXCLUSION",
+          "S61_MINIMAL_VERTEX_EXHAUSTION"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_GENERIC_REDUCED_INFINITY_EXHAUSTION_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_GENERIC_REDUCED_INFINITY_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_GENERIC_REDUCED_INFINITY_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "旧Q45と既証明のR0/C0/L0分析に依存。全無限遠の飽和除去・アフィン有限性・五点による尽くしは未証明。"
+      ]
+    },
+    {
+      "id": "S61_MINIMAL_AXIS_INFINITY_COMPONENT",
+      "title_ja": "最小型M0のaxis成分の一般ファイバーの除去",
+      "statement_ja": "H=0のM0 axis族は既約十六次元、βを優越し一般に有限。指定点で全斉次化階数45、局所環C。補集合の像次元評価により同成分の全一般βファイバーを飽和で除く。",
+      "scope": "Explicit reduced infinity, local formal rings or AB local geometry; stated opens and dependencies apply.",
+      "status": {
+        "proof": "proof_with_exact_rational_certificate_and_explicit_dependencies",
+        "independent_review": "independent_agent_or_parent_review_not_external_peer_review",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_MINIMAL_VERTEX_EXHAUSTION"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_MINIMAL_AXIS_INFINITY_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_MINIMAL_AXIS_LOCAL_POINT_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_MINIMAL_AXIS_INFINITY_20261101.json",
+        "reports/S61_MINIMAL_AXIS_LOCAL_POINT_20261101.json"
+      ],
+      "limitations_ja": [
+        "この成分とそのsymplectic像に限る。他の正次元曲線族には一般点だけの議論を適用しない。"
+      ]
+    },
+    {
+      "id": "S61_BINARY_UNIFORM_OBSTRUCTION_BOUNDS",
+      "title_ja": "二平面型の一様な二次・三次障害と長さ下界65",
+      "statement_ja": "dominant九次元断面で全斉次化Jacobian階数35、二次障害階数5、法線三次初期関係の階数50以下。全Bianchi恒等式から六つの独立関係を得てHilbert関数(1,7,23,≥34)と長さ下界65を証明。",
+      "scope": "Explicit reduced infinity, local formal rings or AB local geometry; stated opens and dependencies apply.",
+      "status": {
+        "proof": "proof_with_exact_rational_certificate_and_explicit_dependencies",
+        "independent_review": "independent_agent_or_parent_review_not_external_peer_review",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_HOMOGENIZED_EQUIVARIANCE",
+          "S61_BINARY_TRANSVERSE_ARTIN_ALGEBRA"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_BINARY_UNIFORM_RANK_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_UNIFORM_QUADRATIC_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_UNIFORM_CUBIC_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_UNIFORM_CUBIC_REVIEW_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_UNIFORM_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_BINARY_UNIFORM_RANK_20261101.json",
+        "reports/S61_BINARY_UNIFORM_RANK_REVIEW_20261101.json",
+        "reports/S61_BINARY_UNIFORM_QUADRATIC_20261101.json",
+        "reports/S61_BINARY_UNIFORM_QUADRATIC_REVIEW_20261101.json",
+        "reports/S61_BINARY_UNIFORM_CUBIC_20261101.json",
+        "reports/S61_BINARY_UNIFORM_CUBIC_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "同じ一定階数・滑らかな二平面型部分に沿う主張。全β・全例外点へ無条件に外挿しない。"
+      ]
+    },
+    {
+      "id": "S61_NONBINARY_RESONANCE_NODES",
+      "title_ja": "非二元型の二つの共鳴交点と飽和除去",
+      "statement_ja": "指定二点で135式完成局所環はC[[u]]上自由階数4、完全交叉、t=0。被約台は通常二重点、冪零部分は平方零。対応する二つの十六次元stratumの全一般βファイバーも除去。",
+      "scope": "Explicit reduced infinity, local formal rings or AB local geometry; stated opens and dependencies apply.",
+      "status": {
+        "proof": "proof_with_exact_rational_certificate_and_explicit_dependencies",
+        "independent_review": "independent_agent_or_parent_review_not_external_peer_review",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_HOMOGENIZED_EQUIVARIANCE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_NONBINARY_RESONANCE_NODES_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_NONBINARY_RESONANCE_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_NONBINARY_RESONANCE_NODES_20261101.json",
+        "reports/S61_NONBINARY_RESONANCE_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "周囲の十七次元曲線族の全ファイバーや全無限遠の除去ではない。"
       ]
     }
   ],

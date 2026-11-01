@@ -1,28 +1,29 @@
 # Poisson structures on P4 — Codex instructions
 
-Version: v34-s61 · 2026-11-01 (Asia/Tokyo).
+Version: v35-s61 · 2026-11-01 (Asia/Tokyo).
 
-Current v34 additions: the actual reduced T01 zero-first-jet fiber is EXACTLY
-closed AB: irreducible dimension10, with no additional lower-dimensional components.
-The proof uses the historical Q45 reduced classification and all-point strict
-stabilizer arguments. A proper normal birational incidence over LG describes AB.
-Its fibers are reduced point, P1, or LG; its singular support is exactly two
-irreducible6D loci meeting in an irreducible5D locus. The incidence is NOT the
-normalization map. AB normality and the scheme-theoretic T01 zero fiber remain open.
-For two minimal-nilpotent infinity curves, the specified completed local rings
-are finite free square-zero extensions of C[[u]]. In M0-134/M0-135/M1-134,
-t is nonzero with t^2=0; in M1-135 t=0. These points and the justified open parts
-are removed by saturation. Resonance strata and other points remain to examine.
-The full135 quadratic homogenization is Sp4-equivariant, including affine q shifts.
-At the specified nonsquare binary-plane point, the three-parameter transverse
-Artin quotient has EXACT length65, nonzero cubic socle element t, t^2=0, and
-quotient by t of length64. Thus t is nonzero in the full completed local ring.
-Its nilpotence in that full ring, generic multiplicity and flatness remain open.
-Over ALL Delta!=0 the known reduced union T01 U T39 U T40 is disjoint finite
-etale degree5; this does not exhaust full S61. General zero-modular infinity
-has been reduced to the fully classified R0 locus, conditional on old Q45.
-A Delta!=0 nil22 infinity counterexample prevents excluding all nonzero modular
-points just from smoothness. T02's invariant equation has degree>=26.
+Current v35 additions: generic reduced UNSATURATED infinity of the full135
+homogenization is exhausted by R0 and minimal M0/M1 normal forms, conditional
+on the historical Q45 all-point classification. Non-nilpotent, regular nilpotent,
+nil22 and the other minimal open stratum have beta images of dimension<=15.
+The corrected minimal list includes FOUR baseline lines missed by cancellation
+of generic solution denominators. All case splits have independent review.
+This does NOT remove all infinity by saturation or prove affine finiteness/five points.
+Two nonbinary resonance nodes have full135 completed local rings free rank4
+over C[[u]], complete intersections with reduced ordinary node, square-zero
+nilradical and t=0. Their16D strata and the M0 isolated-axis16D component have
+their entire generic-beta fibers removed. Other curve endpoints remain open.
+Binary infinity has universal full Jacobian rank35, quadratic obstruction rank5,
+and cubic relation rank<=50 via six full-Bianchi relations, giving normal length>=65.
+Use the SAME smooth3D binary locus and constant-rank hypotheses when combining
+this with the specified transverse quotient of length65. Do not extrapolate to all points.
+The actual reduced T01 zero-first-jet fiber is closed AB, irreducible dimension10.
+AB is normal AWAY FROM THE ORIGIN. Its two nonzero one-variable orbits have
+embedding dimension/multiplicity16/7 and18/10. Origin normality and scheme fiber
+remain open. Reduced connected fibers alone do not prove normality; a counterexample
+is recorded. Prior minimal-curve square-zero formal rings and full135 equivariance
+remain valid on their stated opens. Known reduced T01 U T39 U T40 is finite etale
+degree5 over ALL Delta!=0, but full S61 is not exhausted. Global lower bound57 unchanged.
 
 Current continuation: T39=q(5,1) and T40=q(5,2) reduced S61 closures are
 explicit homogeneous quadratic graphs over ALL W16, hence both have degree ONE.
