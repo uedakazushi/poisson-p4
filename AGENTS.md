@@ -1,8 +1,23 @@
 # Poisson structures on P4 — Codex instructions
 
-Version: v49-s61 · 2026-11-01 (Asia/Tokyo).
+Version: v50-s61 · 2026-11-01 (Asia/Tokyo).
 
-Current v49 additions: all eight remaining irreducible quadratic-minor core
+Current v50 additions: ordinary flag fourth jets now hold with no higher-degree
+core basis exceptions. Constant socle and degree-two polynomial inverses give
+HF(1,9,36,97,201), ord(t)=4 on hD*rho!=0 for ALL nuisance values.
+The h=0 chart is covered when (r-2)D*rho!=0; r=2,h=0 has beta image<=15.
+Thus all ordinary D*rho!=0 sufficiently-general-beta flag points are covered
+through degree4 only. Four linear D exceptions and ambient tnil remain separate.
+At the specified b12=0 point, QQ seven-jets add no new initial relations:
+HF7=618 and length modulo m^8=1765, with all closure tails checked.
+A general counterexample shows even full initial equality and a free embedded
+module do not imply tnil. Actual finite polynomial certificates remain needed.
+Free-M0 true six-jets have HF6=1203 and exactly34 new constant QQ directions;
+all3263 candidates are checked over the five-parameter function field.
+Whole flags, remaining binary core exceptions, affine exhaustion and upper bound
+remain unresolved. Lower57. Continue after checkpoints.
+
+Previous v49 additions: all eight remaining irreducible quadratic-minor core
 artifact strata of deeper binary are removed at EVERY sufficiently-general-beta
 point. Together with the previous five, all thirteen quadratic-minor factors
 are treated. Separate unknown fourth-minor factors remain.

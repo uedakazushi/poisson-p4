@@ -35,7 +35,7 @@
 \title{射影四空間の Poisson 構造の一次ジェット還元\\
 \large 普遍的楕円切断、Jacobian の二捩れと Toric 成分の境界}
 \author{Poisson P4 研究プロジェクト・内部研究草稿}
-\date{2026年11月1日・v49-s61}
+\date{2026年11月1日・v50-s61}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -4681,6 +4681,114 @@ $h=-3v_1+v_3/2$について
 \cite{free-five-v49,free-four-review-v49}。
 全成分数の下界57は維持されるが、上界および全アフィン解の尽くしは未証明である。
 
+\section{通常旗の全core基底被覆と高次切断の限界（v50）}
+\label{sec:v50}
+\subsection{高次core例外を反転しない四次計算}
+通常八変数旗の正常形で$r=b_2$、$h=b_8$、
+\[
+ D=(r+6)(5r+12)(20r+119)(25r+4),\qquad \rho=r+91/400
+\]
+と置く。前節の次数$7,9,16,27$の四基底因子を全て除去し、
+$hD\rho\ne0$の\emph{全八変数値}で
+\[
+ \operatorname{HF}_{\le4}=(1,9,36,97,201),\qquad
+ \operatorname{ord}(t)=4
+\]
+を得た。他の六変数を一般値に限定しない。
+
+二次のprimitive行列$A$と乗法列$\mu$に対して、定数行$z$と行列$K$を求め、
+\[
+ A\mu=0,\quad z\mu=1,\quad AK=I_9,\quad KA=I_{10}-\mu z
+\]
+を確認した。$K$の分母は$(20r+119)^2$の定数倍だけであり、
+二次商のsocleを定数二次式$z$で選べる。
+$A$のactive一次倍を並べた$36\times20$行列$B$には、次数2の行列$X$があり、
+\[
+ XB=(r+119/20)^2\rho I_{20}.
+\]
+真正三次にも次数2の多項式左逆を作り、戻した分母は$hD\rho$の因子だけとなった。
+この基底で全81本の二次一次倍と135本の残余の四次tailを保持する。
+
+真正四次候補の関数体階数は12で、補正した$t_4$を加えると13である。
+20本のcore行と$t_4$について$h$の行・列重みを除くと一変数行列となる。
+八つずつの12次・13次minorの厳密gcdは、それぞれ
+\[
+ (r+119/20)^2\rho^{10}(r+4/25)^{26}(r+6)^{29},
+\]
+\[
+ (r+119/20)^3\rho^{11}(r+4/25)^{29}(r+6)^{35}
+\]
+である。全構成分母・contentと合わせても$hD\rho$以外の例外はない。
+関数体上界と、この各点でのminor下界によって結論する。
+保存低次行列の恒等式とactive三次liftには別実装のQQ監査を行ったが、
+元135式の全四次係数や全minorを独立に再生成した監査とは区別する
+\cite{flag-global-cover-v50}。
+
+\subsection{h零側と一般一次項上の被覆}
+$h=0$では真正三次を$zv_2,zv_3,zv_6$に取り直す。
+四次商の最後の三基底も$zv_0^2,zv_0v_1,zv_1^2$へ変更し、射影乗数を$(r-2)^2$とする。
+元方程式を高次陰関数展開の前に$h=0$へ特殊化し、全tailを再生成した。
+追加四次の階数は同じく12、$t_4$追加階数は13となる。
+19本のcore行による八minorずつのgcdは
+\[
+ (r+119/20)^3(r-2)^{10}\rho^{10}(r+4/25)^{26}(r+6)^{29},
+\]
+\[
+ (r+119/20)^3(r-2)^{11}\rho^{11}(r+4/25)^{29}(r+6)^{32}.
+\]
+従って$(r-2)D\rho\ne0$の全七変数値を覆う。
+残る$r=2,h=0$の全sourceは既存の計算で$\beta$像次元15以下である。
+二chartを合わせ、十分一般$\beta$上の通常正常形の$D\rho\ne0$点は全て
+同じ真四次Hilbert関数と$t$の位数4を持つ。
+四線形$D$例外、$\rho$零点の別Hilbert関数、ambientの$t$冪零性は別の問題である
+\cite{flag-zero8-cover-v50}。
+
+\subsection{b12零指定点の七次と、完成環への不足}
+元135式のQQ七次を新たに構成し、六次の3858節点から成るfiltered traceへ七次tailを運ぶ。
+34857件の変数倍閉包を全て確認した結果、新七次関係はなく、
+\[
+ \operatorname{HF}_{\le7}=(1,9,37,98,202,329,471,618),\qquad
+ \operatorname{length}(S/\mathfrak m^8)=1765
+\]
+となった。独立した九変数QQイデアル計算でも、この有限Hilbert関数を照合した。
+全初期idealの等号や、元の環での$t$冪零性にはまだ進まない
+\cite{flag-zero12-seven-v50}。
+
+この区別は必要である。任意の$N\ge2$に対し
+\[
+ S_N=k[[u,v,h,z]]/(hz,z^2-u^Nz)
+\]
+は$k[[u,v,h]]\oplus k[[u,v]]z$と表せ、全次数で
+\[
+ \operatorname{gr}S_N=k[u,v,h,z]/(hz,z^2)
+\]
+を持つ。普通成分との差は二変数上自由階数1である。
+しかし$t=u^3z$は位数4で、$t^2=u^{N+6}z\ne0$、さらに非冪零である。
+$h=0,z=u^N$という二次元枝上で$t$は非零になる。
+$N$を大きくすれば、平方零の模型との差を任意に高い有限切断まで隠せる。
+従って、全初期代数と埋込差の自由性を知っても、実際のtorsion作用や追加の多項式恒等式なしに
+冪零性を結論できない。これはS61の反例ではなく、使用できない一般推論の反例である
+\cite{initial-nil-obstruction-v50}。
+
+\subsection{最小型自由旗の六次}
+五変数正常形の元135式を良い素数32003で六次まで生成し、異なる二つの有限閉包で
+Macaulay階数9808、商長2568を確認した。非零minorの標数零への移行から
+関数体上でも六次Hilbert関数は高々1203、新六次方向は少なくとも34である。
+これは有限行列の階数による結論であり、非properな特殊ファイバーから一般ファイバーの有限性を推論していない
+\cite{free-six-upper-v50}。
+さらに全五変数上で、2083本の第五積syzygyと1180本の旧残余の六次tailを検査した。
+全3263候補は34行の定数有理rrefの張る空間に入り、逆に選択34行のminorが非零である。
+従って新六次は正確に34次元、rrefの非零係数は179個で、
+\[
+ \operatorname{HF}_{\le6}=(1,11,54,168,391,740,1203),\qquad
+ \operatorname{length}(S/\mathfrak m^7)=2568
+\]
+となる。最高次数だけを既知idealで射影し、五次以下のtailを全て保持する。
+全第五tailを消去した係数が先行五次証明書と一致することも恒等的に確認する。
+四次の一係数の$a_1$依存は残る
+\cite{free-six-exact-v50}。
+全局所環・全旗層の飽和除去、アフィン五点の尽くし、成分数の上界は未解決である。
+
 \begingroup\footnotesize
 \begin{thebibliography}{99}
 \setlength{\itemsep}{0pt}
@@ -4945,6 +5053,12 @@ arXiv:1406.6953v1 (2014), Theorems 2.1 and 2.3.
 \bibitem{zero12-rational-v49} 同プロジェクト、\nolinkurl{research/notes/S61_FLAG_ZERO12_RATIONAL_INITIAL_20261101.md}、証明書と監査範囲を参照。
 \bibitem{free-five-v49} 同プロジェクト、\nolinkurl{research/notes/S61_MINIMAL_FREE_FLAG_UNIVERSAL_QUINTIC_20261101.md}、証明書と監査範囲を参照。
 \bibitem{free-four-review-v49} 同プロジェクト、\nolinkurl{research/notes/S61_MINIMAL_FREE_FLAG_QUARTIC_REVIEW_20261101.md}、証明書と監査範囲を参照。
+\bibitem{flag-global-cover-v50} 同プロジェクト、\nolinkurl{research/notes/S61_FLAG_BOUNDARY_GLOBAL_QUARTIC_COVER_20261101.md}、証明書と監査範囲を参照。
+\bibitem{flag-zero8-cover-v50} 同プロジェクト、\nolinkurl{research/notes/S61_FLAG_BOUNDARY_ZERO8_QUARTIC_COVER_20261101.md}、証明書と監査範囲を参照。
+\bibitem{flag-zero12-seven-v50} 同プロジェクト、\nolinkurl{research/notes/S61_FLAG_ZERO12_SEVENTH_INITIAL_20261101.md}、証明書と監査範囲を参照。
+\bibitem{initial-nil-obstruction-v50} 同プロジェクト、\nolinkurl{research/notes/FILTERED_INITIAL_NILPOTENCE_OBSTRUCTION_20261101.md}、証明書と監査範囲を参照。
+\bibitem{free-six-upper-v50} 同プロジェクト、\nolinkurl{research/notes/S61_MINIMAL_FREE_FLAG_SIXTH_UPPER_BOUND_20261101.md}、証明書と監査範囲を参照。
+\bibitem{free-six-exact-v50} 同プロジェクト、\nolinkurl{research/notes/S61_MINIMAL_FREE_FLAG_UNIVERSAL_SEXTIC_20261101.md}、証明書と監査範囲を参照。
 \end{thebibliography}
 \endgroup
 \end{document}

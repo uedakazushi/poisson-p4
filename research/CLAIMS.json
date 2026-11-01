@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checkpoint": "v49-s61",
+  "checkpoint": "v50-s61",
   "date": "2026-11-01",
   "base_mathematical_checkpoint": "v24",
   "new_mathematical_progress_in_this_setup": false,
@@ -6770,6 +6770,200 @@
       ],
       "limitations_ja": [
         "二次minor十三因子は全処理済みだが、四次minorの別の未知因子は未処理。全core除去ではない。"
+      ]
+    },
+    {
+      "id": "S61_FLAG_BOUNDARY_GLOBAL_QUARTIC_COVER",
+      "title_ja": "通常旗四次の全高次基底例外を解消",
+      "statement_ja": "primitive二次基底と次数2の多項式逆により高次四因子を全て除去。hDρ非零の全八変数値で真正HF(1,9,36,97,201)、ord(t)=4を元135から再構成。",
+      "scope": "Only the stated sufficiently-general-beta, fixed-beta formal or finite-chart conclusions.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_FLAG_BOUNDARY_EIGHT_QUARTIC_COVER",
+          "S61_FLAG_BOUNDARY_QUADRATIC_COVER"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_FLAG_BOUNDARY_GLOBAL_QUARTIC_COVER_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_FLAG_BOUNDARY_GLOBAL_QUARTIC_COVER_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_FLAG_BOUNDARY_GLOBAL_QUARTIC_COVER_20261101.json",
+        "reports/S61_FLAG_BOUNDARY_GLOBAL_QUARTIC_COVER_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "全局所環、t冪零性、飽和除去は別。h=0、D=0、ρ=0は本証明書単独では未被覆。"
+      ]
+    },
+    {
+      "id": "S61_FLAG_BOUNDARY_ZERO8_QUARTIC_COVER",
+      "title_ja": "通常旗h=0の四次を補完",
+      "statement_ja": "h=0、(r−2)Dρ非零の全七変数値で、別の三次基底と正則射影を使い真正HF(1,9,36,97,201)、ord(t)=4。r=2,h=0のβ像15を除くとDρ非零の全一般β点を被覆。",
+      "scope": "Only the stated sufficiently-general-beta, fixed-beta formal or finite-chart conclusions.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_FLAG_BOUNDARY_GLOBAL_QUARTIC_COVER",
+          "S61_FLAG_ZERO12_LOW_JETS"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_FLAG_BOUNDARY_ZERO8_QUARTIC_COVER_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_FLAG_BOUNDARY_ZERO8_QUARTIC_COVER_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_FLAG_BOUNDARY_ZERO8_QUARTIC_COVER_20261101.json",
+        "reports/S61_FLAG_BOUNDARY_ZERO8_QUARTIC_COVER_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "四次有限切断のみ。四線形D例外、ρ coreの別計算、ambient冪零性・飽和除去を区別する。"
+      ]
+    },
+    {
+      "id": "S61_FLAG_ZERO12_SEVENTH_INITIAL",
+      "title_ja": "b12零指定点の真正七次閉包",
+      "statement_ja": "元135のQQ七次を再構成し、六次trace3858節点へ七次tailを運ぶ。34857閉包を全検査して新七次なし。HF(1,9,37,98,202,329,471,618)、m8商1765。",
+      "scope": "Only the stated sufficiently-general-beta, fixed-beta formal or finite-chart conclusions.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_FLAG_ZERO12_RATIONAL_INITIAL"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_FLAG_ZERO12_SEVENTH_INITIAL_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_FLAG_ZERO12_SEVENTH_INITIAL_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_FLAG_ZERO12_SEVENTH_INITIAL_20261101.json",
+        "reports/S61_FLAG_ZERO12_SEVENTH_INITIAL_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "全初期idealやt冪零性ではない。レビューは独立QQ idealのHilbert計算と概念監査、元raw7の別係数実装はない。"
+      ]
+    },
+    {
+      "id": "FILTERED_INITIAL_NILPOTENCE_OBSTRUCTION",
+      "title_ja": "全初期代数と埋込自由性だけでは冪零性は従わない",
+      "statement_ja": "全N≥2に対しS=k[[u,v,h,z]]/(hz,z²−u^N z)は同じ全初期代数と二変数自由埋込差を持つが、ord(t)=4のt=u³zは非冪零。有限次数の一致を完成環へ移す一般推論の不足を示す。",
+      "scope": "Only the stated sufficiently-general-beta, fixed-beta formal or finite-chart conclusions.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/FILTERED_INITIAL_NILPOTENCE_OBSTRUCTION_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/FILTERED_INITIAL_NILPOTENCE_OBSTRUCTION_20261101.json"
+      ],
+      "limitations_ja": [
+        "S61の反例ではない。S61固有の有限恒等式や実際のtorsion作用の証明が必要。"
+      ]
+    },
+    {
+      "id": "S61_MINIMAL_FREE_FLAG_SIXTH_UPPER_BOUND",
+      "title_ja": "自由M0の真正六次に有限切断上界",
+      "statement_ja": "元135の良いmod32003六次を二つの独立有限閉包で確認。有限Macaulay minorの標数零非零性から関数体上HF6≤1203、新六次rank≥34。",
+      "scope": "Only the stated sufficiently-general-beta, fixed-beta formal or finite-chart conclusions.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_MINIMAL_FREE_FLAG_UNIVERSAL_QUINTIC"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_MINIMAL_FREE_FLAG_SIXTH_UPPER_BOUND_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_MINIMAL_FREE_FLAG_SIXTH_UPPER_BOUND_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_MINIMAL_FREE_FLAG_SIXTH_UPPER_BOUND_20261101.json",
+        "reports/S61_MINIMAL_FREE_FLAG_SIXTH_UPPER_BOUND_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "本上界証明単独では等号・普遍34式・全初期ideal・t冪零性は主張しない。"
+      ]
+    },
+    {
+      "id": "S61_MINIMAL_FREE_FLAG_UNIVERSAL_SEXTIC",
+      "title_ja": "自由M0の真正六次を普遍的に確定",
+      "statement_ja": "全3263候補の五変数QQ恒等式と34次非零minorにより新六次は定数有理34次元、179非零係数。真正HF(1,11,54,168,391,740,1203)、m7商2568。",
+      "scope": "Only the stated sufficiently-general-beta, fixed-beta formal or finite-chart conclusions.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_MINIMAL_FREE_FLAG_UNIVERSAL_QUINTIC"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_MINIMAL_FREE_FLAG_UNIVERSAL_SEXTIC_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_MINIMAL_FREE_FLAG_SEXTIC_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_MINIMAL_FREE_FLAG_UNIVERSAL_SEXTIC_20261101.json",
+        "reports/S61_MINIMAL_FREE_FLAG_SEXTIC_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "全初期ideal、完成環の自由性・t冪零性・旗層の飽和除去は未証明。"
       ]
     }
   ],
