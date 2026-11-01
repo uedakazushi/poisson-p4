@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checkpoint": "v35-s61",
+  "checkpoint": "v36-s61",
   "date": "2026-11-01",
   "base_mathematical_checkpoint": "v24",
   "new_mathematical_progress_in_this_setup": false,
@@ -2824,7 +2824,8 @@
       ],
       "limitations_ja": [
         "全Sでのt冪零性・平坦性・一般重複度・飽和の決定ではない。"
-      ]
+      ],
+      "strengthened_by": "S61_BINARY_FORMAL_RING"
     },
     {
       "id": "S61_HOMOGENIZED_EQUIVARIANCE",
@@ -3266,7 +3267,8 @@
       ],
       "limitations_ja": [
         "同じ一定階数・滑らかな二平面型部分に沿う主張。全β・全例外点へ無条件に外挿しない。"
-      ]
+      ],
+      "strengthened_by": "S61_BINARY_FORMAL_RING"
     },
     {
       "id": "S61_NONBINARY_RESONANCE_NODES",
@@ -3299,6 +3301,277 @@
       ],
       "limitations_ja": [
         "周囲の十七次元曲線族の全ファイバーや全無限遠の除去ではない。"
+      ]
+    },
+    {
+      "id": "S61_BINARY_FORMAL_RING",
+      "title_ja": "二平面型の自由階数65と非零平方零のt",
+      "statement_ja": "指定点の135式完成環SはR=C[[v0,v1,v3]]上自由階数65、Sred=R。冪零根基IはI4=0、各次数自由階数(1,7,23,34)。0≠t∈I3、It=0、S/(t)は自由階数64。",
+      "scope": "Stated local opens, explicit rank-drop incidences and bounded graded generation.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "independent_agent_or_parent_review_not_external_peer_review",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_BINARY_UNIFORM_OBSTRUCTION_BOUNDS",
+          "S61_BINARY_TRANSVERSE_ARTIN_ALGEBRA"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_BINARY_FORMAL_RING_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_FORMAL_RING_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_BINARY_FORMAL_RING_20261101.json",
+        "reports/S61_BINARY_FORMAL_RING_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "指定点と条件を保つ開部分。全乗法表や全二平面型の例外層を決定しない。"
+      ]
+    },
+    {
+      "id": "S61_MINIMAL_CUBIC_TAIL",
+      "title_ja": "最小型M1の三乗零の尾",
+      "statement_ja": "指定したM1共鳴尾の点で完成135環はC[[u,e]]/(e³)、t=0。全十変数β核上の二次障害消滅と非零三次横断項を用いる。",
+      "scope": "Stated local opens, explicit rank-drop incidences and bounded graded generation.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "independent_agent_or_parent_review_not_external_peer_review",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_MINIMAL_VERTEX_EXHAUSTION",
+          "S61_HOMOGENIZED_EQUIVARIANCE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_MINIMAL_CUBIC_TAIL_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_MINIMAL_CUBIC_TAIL_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_MINIMAL_CUBIC_TAIL_20261101.json",
+        "reports/S61_MINIMAL_CUBIC_TAIL_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "同じ尾の証明した開部分のみ。端点・交点は別に扱う。"
+      ]
+    },
+    {
+      "id": "S61_MINIMAL_BASELINE_THICKENINGS",
+      "title_ja": "四追加直線の平方零完成局所環",
+      "statement_ja": "修正版で追加した四baseline直線の指定開部分では、M0はR⊕R³平方零でt≠0,t²=0、M1はR⊕R²平方零でt=0。全十変数核と有限symplectic変換を検証。",
+      "scope": "Stated local opens, explicit rank-drop incidences and bounded graded generation.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "independent_agent_or_parent_review_not_external_peer_review",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_MINIMAL_VERTEX_EXHAUSTION",
+          "S61_HOMOGENIZED_EQUIVARIANCE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_MINIMAL_BASELINE_THICKENINGS_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_MINIMAL_BASELINE_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_MINIMAL_BASELINE_THICKENINGS_20261101.json",
+        "reports/S61_MINIMAL_BASELINE_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "一般曲線との交点や端点を含めない。"
+      ]
+    },
+    {
+      "id": "S61_MINIMAL_ZERO49_BRANCHES",
+      "title_ja": "非二元u49=0点を通る二つの最小型枝",
+      "statement_ja": "M0/M1のB倍したQ表示をB=0へ正則に延長し、同じ固定βに二つの滑らかな枝を構成。Bの一次微分は非零、普遍全Jacobian階数から一般長さ下界3・2。",
+      "scope": "Stated local opens, explicit rank-drop incidences and bounded graded generation.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "independent_agent_or_parent_review_not_external_peer_review",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_MINIMAL_INFINITY_FORMAL_RINGS",
+          "S61_HOMOGENIZED_EQUIVARIANCE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_MINIMAL_ZERO49_BRANCHES_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_NONBINARY_ZERO49_ENDPOINT_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_MINIMAL_ZERO49_BRANCHES_20261101.json",
+        "reports/S61_NONBINARY_ZERO49_ENDPOINT_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "枝の構成単独では全枝を尽くさない。後続の端点証明で上界7と合わせる。"
+      ]
+    },
+    {
+      "id": "S61_NONBINARY_ZERO49_ENDPOINT",
+      "title_ja": "非平坦な三枝合流点の一般長さ7と飽和除去",
+      "statement_ja": "135式指定完成環はR=C[[u]]上有限階数7、横断長さ12。R0/M0/M1の一般長さ2+3+2で全因子を尽くし、tは冪零。有限長torsionの最小生成元数5、非Cohen–Macaulay。有限jet特殊化から十六次元交点stratumの全一般βファイバーも除去。",
+      "scope": "Stated local opens, explicit rank-drop incidences and bounded graded generation.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "independent_agent_or_parent_review_not_external_peer_review",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_MINIMAL_ZERO49_BRANCHES",
+          "S61_NONBINARY_RESONANCE_NODES"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_NONBINARY_ZERO49_ENDPOINT_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_NONBINARY_ZERO49_ENDPOINT_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_NONBINARY_ZERO49_ENDPOINT_20261101.json",
+        "reports/S61_NONBINARY_ZERO49_ENDPOINT_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "全環でt²=0とは主張しない。torsion長さ、全乗法表、他の曲線端点は未決。"
+      ]
+    },
+    {
+      "id": "S61_AB_ORIGIN_DEGREE_TWO",
+      "title_ja": "AB正規化の次数二に新生成元はない",
+      "statement_ja": "B=C[AB]と正規化DについてD1=B1は45次元、D2=B2は761次元。parabolic拡大の非零接続により見掛け上の84次元余分を除く。",
+      "scope": "Stated local opens, explicit rank-drop incidences and bounded graded generation.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "independent_agent_or_parent_review_not_external_peer_review",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_AB_NORMAL_AWAY_ORIGIN",
+          "S61_AB_PROPER_INCIDENCE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AB_ORIGIN_DEGREE_TWO_20261101.md"
+        },
+        {
+          "path": "research/notes/AB_ORIGIN_DEGREE_TWO_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AB_ORIGIN_DEGREE_TWO_20261101.json",
+        "reports/AB_ORIGIN_DEGREE_TWO_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "次数三以上や原点正規性の証明ではない。有限体minorはQQ階数下界にのみ使う。"
+      ]
+    },
+    {
+      "id": "S61_BINARY_RANK_DROP_FAMILY",
+      "title_ja": "一般βにも残る二平面型の階数降下曲線",
+      "statement_ja": "Q=xw∂y∧∂z、H={u12=u13=u35=u50=0}のSp4飽和は既約十七次元でW16を優越する。一般最高/全階数は33/34で、一般β上に曲線が残る。",
+      "scope": "Stated local opens, explicit rank-drop incidences and bounded graded generation.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "independent_agent_or_parent_review_not_external_peer_review",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_HOMOGENIZED_EQUIVARIANCE",
+          "S61_BINARY_FORMAL_RING"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_BINARY_RANK_DROP_FAMILY_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_RANK_DROP_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_BINARY_RANK_DROP_FAMILY_20261101.json",
+        "reports/S61_BINARY_RANK_DROP_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "全階数降下locusの分類や飽和結論ではない。自由階数65の定理を全一般βの全点へ広げられない。"
+      ]
+    },
+    {
+      "id": "S61_BINARY_RANK_DROP_SMOOTH_CURVE",
+      "title_ja": "滑らかな標準曲線でも二平面型階数は下がる",
+      "statement_ja": "Δ=3182443776≠0の厳密有理例で最高/全階数32/33を確認。Δ≠0だけで一定階数35を保証できない。",
+      "scope": "Stated local opens, explicit rank-drop incidences and bounded graded generation.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "independent_agent_or_parent_review_not_external_peer_review",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_BINARY_FORMAL_RING"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_BINARY_RANK_DROP_SMOOTH_CURVE_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_RANK_DROP_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_BINARY_RANK_DROP_SMOOTH_CURVE_20261101.json",
+        "reports/S61_BINARY_RANK_DROP_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "この一点の局所環・飽和は未決。別の優越族は前項で証明。"
       ]
     }
   ],

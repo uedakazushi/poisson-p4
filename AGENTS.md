@@ -1,8 +1,23 @@
 # Poisson structures on P4 — Codex instructions
 
-Version: v35-s61 · 2026-11-01 (Asia/Tokyo).
+Version: v36-s61 · 2026-11-01 (Asia/Tokyo).
 
-Current v35 additions: generic reduced UNSATURATED infinity of the full135
+Current v36 additions: on the specified binary open, the completed full135
+ring is finite free rank65 over C[[v0,v1,v3]], with reduced ring that base,
+nilradical I^4=0, nonzero t in I^3, I*t=0 and quotient(t) free rank64.
+The rank65 result does NOT cover all generic binary points: a dominant17D
+binary rank-drop family has leading/full ranks33/34, hence gives a curve over
+generic beta. A separate Delta!=0 example even has ranks32/33.
+The nonbinary u49=0 endpoint is nonflat: rank7 over C[[u]], transverse length12,
+three generic branch lengths2,3,2, finite-length torsion with5 minimal generators.
+t is nilpotent; full t^2=0 is not asserted. Finite-jet specialization extends
+saturation removal to the entire generic-beta fiber of its16D stratum.
+The four corrected minimal baseline lines have square-zero local opens;
+an M1 resonant tail has C[[u,e]]/(e^3), t=0. Junctions/endpoints are separate.
+AB normalization has no extra degree2 generators: D2=B2 dimension761.
+Origin normality and all-degree generation remain open.
+
+Previous v35 results: generic reduced UNSATURATED infinity of the full135
 homogenization is exhausted by R0 and minimal M0/M1 normal forms, conditional
 on the historical Q45 all-point classification. Non-nilpotent, regular nilpotent,
 nil22 and the other minimal open stratum have beta images of dimension<=15.
