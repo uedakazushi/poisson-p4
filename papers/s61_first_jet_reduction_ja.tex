@@ -35,7 +35,7 @@
 \title{射影四空間の Poisson 構造の一次ジェット還元\\
 \large 普遍的楕円切断、Jacobian の二捩れと Toric 成分の境界}
 \author{Poisson P4 研究プロジェクト・内部研究草稿}
-\date{2026年11月1日・v47-s61}
+\date{2026年11月1日・v48-s61}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -4539,6 +4539,78 @@ core 例外の尽くし、同じ滑らかな実在族の下界との結合は別
 これを飽和除去の監査と読み替えない。成分下界57と、上界が未証明である点は変わらない。
 
 
+
+\section{v48: 共通core開の除去と旗の全パラメータ計算}
+\label{sec:v48}
+本節では深部binaryの共通core開における飽和除去を完成する。
+旗の各有限次数計算は、その範囲を越えて飽和除去へ外挿しない。
+
+\subsection{深部binaryの共通core開}
+前節の横断長上界65は、二つのcore変数のある非空開集合と、五つのnuisance変数の全域で成立する。
+この源を$H$とする。同じ実在する相対$C_3$の一般点で長さの下界65を得るため、
+固定$\beta$の二元形式を
+\[
+ Q(H_1,K_1)=(xw+H_1x^2+K_1w^2)\,\partial_y\wedge\partial_z
+\]
+と変える。全135式の恒等式、実際の$C_3$の接空間、および$n=65$の既知一般位置を確認する。
+相対完成環への$R^{65}$からの全射と一般階数65を合わせると、その核は零であり、
+相対完成環は$R$上自由階数65となる。ここで$R$は源の七変数と$C_3$の三変数を持つ。
+一般点のHilbert関数$(1,7,23,34)$が全階数を使い切るため、
+既知の恒等式$I^4=It=t^2=0$が自由性によって全sectionへ延長する。
+固定$\beta$への底変換後も同じ自由性が成立する。
+源から$W_{16}$への微分の16次小行列式
+$-332667299869/78125000$を確認し、一般的滑らかさと忠実平坦降下を適用すると、
+十分一般の$\beta$上で、この共通core開の\emph{全点}が飽和から除かれる。
+core開の補集合にある曲線・点は、依然として別の未処理部分である
+\cite{deep-core-v48}。
+
+\subsection{T7接続coreの被覆と四重曲面商}
+$r=-91/400$の七変数旗chartにおいて、前節の$b_8\ne0$に加え、
+$b_8=0$かつ
+\[
+ L=-200b_{10}-91b_{11}+200b_9\ne0
+\]
+の全域を別に計算した。真四次部分は既知275次元と新しい14次元からなり、
+\[
+ \operatorname{HF}_{\le4}=(1,9,36,99,206),\qquad
+ t\in\mathfrak m^4\setminus\mathfrak m^5.
+\]
+残る$b_8=L=0$の源は五次元であり、$\operatorname{Sp}_4$を加えても像の次元は15以下である。
+従って有限正常形被覆と合わせ、十分一般$\beta$のordinary core全域で結論が成立する。
+またT7のLaurent jetが作る実座標代数の基底を$q_9,q_0,q_{10}$へ変えると、
+以前の人工分母$Q$が消え、必要な正則化小行列式は
+\[
+ 3100909122761275736064000\,a_0^2a_8^{12}a_9^4P^3
+\]
+となる。$a_9=0$と$P=0$の悪い像は既に15次元以下である。
+従って同じ$\beta$を保つ閉じた平坦四重曲面商がordinary coreの全一般$\beta$点で存在する。
+この商内では$t=0$であるが、元の完成環をこの商と同定してはいない
+\cite{socle-cover-v48,t7-cover-v48}。
+
+\subsection{旗の横断49と自由M0端点の四次}
+$b_{12}=0$の七変数chartでは、元135式のnormal六次jetを全パラメータで再構成した。
+次数$2,3,4,5,6$の初期関係の階数はそれぞれ$8,41,118,246,462$である。
+先頭空間の定数化と、多項式逆行列・定数非零小行列式による全行操作を確認したので、
+実際の横断族は全七変数環$A$上で自由49、
+\[
+ \operatorname{HF}=(1,6,13,15,8,6),\qquad\mathfrak m^6=0
+\]
+となる。これは横断商であり、元の完成環が自由49であるという主張ではない。
+$C_3$方向への移動はこの七変数源の外へ出るため、横断商の$t^2=0$を元の環へ移さない
+\cite{zero12-49-v48}。
+自由M0旗端点の五変数正常形では、元のfull Jacobianの階数34、接変数11個、
+真二次12式を確認した。二つの線形変更により、二次と真三次の初期idealは定数係数となる。
+二次の一次倍は107次元、新三次は11次元で、$\operatorname{ord}(t)=3$である。
+全低次syzygyの四次tailを保持すると、既知四次595次元と新四次15次元が得られ、
+\[
+ \operatorname{HF}_{\le4}=(1,11,54,168,391).
+\]
+新四次のrrefでは、ただ一つの係数が$a_1$に一次で依存する。
+正常形と二次には独立係数監査、三次には主計算の再実行があるが、四次の独立数値監査は未実施である。
+全局所環、埋め込み成分、$t$の冪零性、残り三つの最小型旗層は引き続き別問題である
+\cite{free-low-v48,free-four-v48}。
+全成分数は依然として下界57であり、アフィン五点による尽くしと成分数の上界は証明していない。
+
 \begingroup\footnotesize
 \begin{thebibliography}{99}
 \setlength{\itemsep}{0pt}
@@ -4791,6 +4863,12 @@ arXiv:1406.6953v1 (2014), Theorems 2.1 and 2.3.
 \bibitem{flag-table-review-v47} 同プロジェクト、\nolinkurl{research/notes/S61_MINIMAL_FLAG_ENDPOINT_REVIEW_20261101.md}、証明書と適用範囲を参照。
 \bibitem{flag-zero12-rank5-v47} 同プロジェクト、\nolinkurl{research/notes/S61_FLAG_ZERO12_RANK_FIVE_20261101.md}、証明書と適用範囲を参照。
 \bibitem{free-normal-v47} 同プロジェクト、\nolinkurl{research/notes/S61_MINIMAL_FREE_FLAG_NORMAL_FORM_20261101.md}、証明書と適用範囲を参照。
+\bibitem{deep-core-v48} 同プロジェクト、\nolinkurl{research/notes/S61_BINARY_DEEPER_CORE_OPEN_FORMAL_20261101.md}、証明書と監査範囲を参照。
+\bibitem{socle-cover-v48} 同プロジェクト、\nolinkurl{research/notes/S61_FLAG_RANKONE_SOCLE_ZERO8_QUARTIC_20261101.md}、証明書と監査範囲を参照。
+\bibitem{t7-cover-v48} 同プロジェクト、\nolinkurl{research/notes/S61_FLAG_T7_FLAT4_COVER_20261101.md}、証明書と監査範囲を参照。
+\bibitem{zero12-49-v48} 同プロジェクト、\nolinkurl{research/notes/S61_FLAG_ZERO12_TRANSVERSE49_20261101.md}、証明書と監査範囲を参照。
+\bibitem{free-low-v48} 同プロジェクト、\nolinkurl{research/notes/S61_MINIMAL_FREE_FLAG_LOW_REVIEW_20261101.md}、証明書と監査範囲を参照。
+\bibitem{free-four-v48} 同プロジェクト、\nolinkurl{research/notes/S61_MINIMAL_FREE_FLAG_UNIVERSAL_QUARTIC_20261101.md}、証明書と監査範囲を参照。
 \end{thebibliography}
 \endgroup
 \end{document}

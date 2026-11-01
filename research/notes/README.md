@@ -1,6 +1,6 @@
 # 研究ノートと評価資料の入口
 
-**v47-s61、2026-11-01。楕円型の全域二次切断、既知五延長の三平面。**
+**v48-s61、2026-11-01。楕円型の全域二次切断、既知五延長の三平面。**
 
 ## v31 の新しい入口
 
@@ -276,3 +276,14 @@
 - 四つの最小型旗端点層の独立監査: `S61_MINIMAL_FLAG_ENDPOINT_REVIEW_20261101`。適用範囲と未解決部分を各ノートに明記。
 - b12=0旗chartの実在C3と指定点の有限rank5: `S61_FLAG_ZERO12_RANK_FIVE_20261101`。指定点のrankと全域のsupport幾何を区別。
 - 自由M0旗端点の全一般βを覆う五変数正常形: `S61_MINIMAL_FREE_FLAG_NORMAL_FORM_20261101`。三つの悪い像も処理した有限正常形。
+
+## v48: 深部core開の除去・旗横断49・T7全core被覆
+
+- T7接続coreの全一般β点に真四次を拡張: `S61_FLAG_RANKONE_SOCLE_ZERO8_QUARTIC_20261101`。適用範囲と未解決部分を各ノートに明記。
+- T7旗端点の平坦四重商を全ordinary coreへ拡張: `S61_FLAG_T7_FLAT4_COVER_20261101`。適用範囲と未解決部分を各ノートに明記。
+- 深部binary共通core開の全一般β点を飽和除去: `S61_BINARY_DEEPER_CORE_OPEN_FORMAL_20261101`。適用範囲と未解決部分を各ノートに明記。
+- 自由M0旗端点の五変数普遍二次: `S61_MINIMAL_FREE_FLAG_UNIVERSAL_QUADRATIC_20261101`。適用範囲と未解決部分を各ノートに明記。
+- 自由M0旗端点の真三次を定数化: `S61_MINIMAL_FREE_FLAG_UNIVERSAL_CUBIC_20261101`。適用範囲と未解決部分を各ノートに明記。
+- b12=0旗chart全域で実横断族は自由49: `S61_FLAG_ZERO12_TRANSVERSE49_20261101`。適用範囲と未解決部分を各ノートに明記。
+- 自由M0五変数正常形と低次の独立監査: `S61_MINIMAL_FREE_FLAG_LOW_REVIEW_20261101`。適用範囲と未解決部分を各ノートに明記。
+- 自由M0五変数の真正四次を確定: `S61_MINIMAL_FREE_FLAG_UNIVERSAL_QUARTIC_20261101`。有限四次の定理であり独立四次監査は未実施。

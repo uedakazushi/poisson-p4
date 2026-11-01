@@ -1,6 +1,6 @@
 # 公表用原稿の構成案と証明資料
 
-**状態：v47-s61、2026-11-01。零一次部分の被約台AB、ABのincidenceと特異点集合、最小型無限遠の完成局所環、二平面型の横断Artin代数を統合。**
+**状態：v48-s61、2026-11-01。零一次部分の被約台AB、ABのincidenceと特異点集合、最小型無限遠の完成局所環、二平面型の横断Artin代数を統合。**
 
 [一次ジェット還元の日本語原稿](s61_first_jet_reduction_ja.tex)（[PDF・41ページ](s61_first_jet_reduction_ja.pdf)）は、
 primitive gauge、T01/T39/T40の優越性と全S61のétale点、楕円型五変数模型、T01の一般次数3、
@@ -265,3 +265,14 @@ v35では一般被約無限遠の全型帰着、ABの原点外の正規性、二
 - 四つの最小型旗端点層の独立監査: `S61_MINIMAL_FLAG_ENDPOINT_REVIEW_20261101`。適用範囲と未解決部分を各ノートに明記。
 - b12=0旗chartの実在C3と指定点の有限rank5: `S61_FLAG_ZERO12_RANK_FIVE_20261101`。指定点のrankと全域のsupport幾何を区別。
 - 自由M0旗端点の全一般βを覆う五変数正常形: `S61_MINIMAL_FREE_FLAG_NORMAL_FORM_20261101`。三つの悪い像も処理した有限正常形。
+
+## v48: 深部core開の除去・旗横断49・T7全core被覆
+
+- T7接続coreの全一般β点に真四次を拡張: `S61_FLAG_RANKONE_SOCLE_ZERO8_QUARTIC_20261101`。適用範囲と未解決部分を各ノートに明記。
+- T7旗端点の平坦四重商を全ordinary coreへ拡張: `S61_FLAG_T7_FLAT4_COVER_20261101`。適用範囲と未解決部分を各ノートに明記。
+- 深部binary共通core開の全一般β点を飽和除去: `S61_BINARY_DEEPER_CORE_OPEN_FORMAL_20261101`。適用範囲と未解決部分を各ノートに明記。
+- 自由M0旗端点の五変数普遍二次: `S61_MINIMAL_FREE_FLAG_UNIVERSAL_QUADRATIC_20261101`。適用範囲と未解決部分を各ノートに明記。
+- 自由M0旗端点の真三次を定数化: `S61_MINIMAL_FREE_FLAG_UNIVERSAL_CUBIC_20261101`。適用範囲と未解決部分を各ノートに明記。
+- b12=0旗chart全域で実横断族は自由49: `S61_FLAG_ZERO12_TRANSVERSE49_20261101`。適用範囲と未解決部分を各ノートに明記。
+- 自由M0五変数正常形と低次の独立監査: `S61_MINIMAL_FREE_FLAG_LOW_REVIEW_20261101`。適用範囲と未解決部分を各ノートに明記。
+- 自由M0五変数の真正四次を確定: `S61_MINIMAL_FREE_FLAG_UNIVERSAL_QUARTIC_20261101`。有限四次の定理であり独立四次監査は未実施。

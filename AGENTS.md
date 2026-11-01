@@ -1,8 +1,28 @@
 # Poisson structures on P4 — Codex instructions
 
-Version: v47-s61 · 2026-11-01 (Asia/Tokyo).
+Version: v48-s61 · 2026-11-01 (Asia/Tokyo).
 
-Current v47 additions: the ENTIRE seven-variable b12=0 flag chart has true
+Current v48 additions: the common nonempty deeper-binary core open is removed
+at EVERY point over sufficiently general beta. The actual relative C3 lower65
+and uniform transverse upper65 give full relative free65, I^4=I*t=t^2=0;
+fixed-beta specialization and smooth source descent give ambient removal.
+The core complement is still unresolved.
+Every ordinary r=-91/400 flag-core point over general beta has fourth initial
+HF(1,9,36,99,206), ord(t)=4. The b8=L=0 bad source has beta image<=15.
+Changing the T7 nil-coordinate basis removes artificial Q; the entire ordinary
+core over general beta has an actual closed flat4 surface quotient with t=0.
+This quotient does NOT identify the ambient local ring or prove ambient tnil.
+The ENTIRE b12=0 seven-variable chart has an actual transverse family free49,
+HF(1,6,13,15,8,6), m^6=0. It is a transverse quotient, not ambient free49.
+The free-M0 five-variable chart has constant quadratic/cubic initial ideals
+after linear changes, HF(1,11,54,168), ord(t)=3. Normal-form/quadratic independent
+checks and the distinct cubic primary replay are recorded in the review.
+Genuine quartics have595 old plus15 new directions, HF(1,11,54,168,391);
+only one coefficient depends linearly on a1. Independent quartic review pending.
+Whole flags, core exceptions, affine exhaustion and component upper bound remain
+open. Lower57. Continue after checkpoints.
+
+Previous v47 additions: the ENTIRE seven-variable b12=0 flag chart has true
 fourth initial HF(1,9,37,98,202) and ord(t)=4, by a three-chart minor cover.
 On r=-91/400, all b8!=0 points have HF(1,9,36,99,206), ord(t)=4.
 These are finite-order statements, not ambient t-nilpotence or saturation.
