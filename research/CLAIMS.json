@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checkpoint": "v36-s61",
+  "checkpoint": "v37-s61",
   "date": "2026-11-01",
   "base_mathematical_checkpoint": "v24",
   "new_mathematical_progress_in_this_setup": false,
@@ -2147,7 +2147,8 @@
       ],
       "limitations_ja": [
         "全R0または全ファイバーの尽くしではない。"
-      ]
+      ],
+      "strengthened_by": "S61_NONBINARY_CANONICAL_EXHAUSTION"
     },
     {
       "id": "S61_FLAG_INFINITY_FORMAL_RING",
@@ -3505,7 +3506,8 @@
       ],
       "limitations_ja": [
         "次数三以上や原点正規性の証明ではない。有限体minorはQQ階数下界にのみ使う。"
-      ]
+      ],
+      "strengthened_by": "S61_AB_ORIGIN_DEGREE_THREE"
     },
     {
       "id": "S61_BINARY_RANK_DROP_FAMILY",
@@ -3572,6 +3574,322 @@
       ],
       "limitations_ja": [
         "この一点の局所環・飽和は未決。別の優越族は前項で証明。"
+      ]
+    },
+    {
+      "id": "S61_BINARY_RANK_DROP_FORMAL_RING",
+      "title_ja": "二平面型の階数降下を越える自由階数65",
+      "statement_ja": "指定階数33/34点でも完成135環は三変数冪級数環上自由階数65。I4=0、0≠t、It=t²=0、t商は自由64。横断Hilbert関数(1,8,22,34)。",
+      "scope": "Specified formal rings, generic-beta removal of explicit strata/orbit, bounded graded generation.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "independent_agent_or_parent_review_not_external_peer_review",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_BINARY_FORMAL_RING",
+          "S61_BINARY_RANK_DROP_FAMILY"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_BINARY_RANK_DROP_LOCAL_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_RANK_DROP_FORMAL_RING_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_RANK_DROP_FORMAL_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_BINARY_RANK_DROP_LOCAL_20261101.json",
+        "reports/S61_BINARY_RANK_DROP_FORMAL_RING_20261101.json",
+        "reports/S61_BINARY_RANK_DROP_FORMAL_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "指定点と証明した開部分のみ。各graded pieceの自由性や全17D族の除去ではない。"
+      ]
+    },
+    {
+      "id": "S61_BINARY_ENDPOINTS",
+      "title_ja": "二平面型の二つの端点層を全一般βで除去",
+      "statement_ja": "rank-drop族のu14=0、u49=0の16D層はβを優越し、全一般βファイバーが飽和で除かれる。指定点と相対開部分で自由65、非零平方零t、t商自由64。",
+      "scope": "Specified formal rings, generic-beta removal of explicit strata/orbit, bounded graded generation.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "independent_agent_or_parent_review_not_external_peer_review",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_BINARY_RANK_DROP_FORMAL_RING",
+          "S61_HOMOGENIZED_EQUIVARIANCE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_BINARY_ENDPOINTS_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_ENDPOINTS_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_BINARY_ENDPOINTS_20261101.json",
+        "reports/S61_BINARY_ENDPOINTS_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "二つの16D層。元の17D族の全端点を尽くさない。"
+      ]
+    },
+    {
+      "id": "S61_MINIMAL_JUNCTION_SATURATION",
+      "title_ja": "最小型八接続点の一般階数とtの冪零性",
+      "statement_ja": "八指定点の完成環は一次元で、一般階数4,4,4,8,3,4,5,6。実在枝の一般長さ和が初期ideal上界を使い切り、tは冪零。",
+      "scope": "Specified formal rings, generic-beta removal of explicit strata/orbit, bounded graded generation.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "independent_agent_or_parent_review_not_external_peer_review",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_MINIMAL_VERTEX_EXHAUSTION",
+          "S61_MINIMAL_CUBIC_TAIL",
+          "S61_MINIMAL_BASELINE_THICKENINGS"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_MINIMAL_JUNCTION_BRANCHES_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_MINIMAL_JUNCTION_SATURATION_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_MINIMAL_JUNCTION_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_MINIMAL_JUNCTION_BRANCHES_20261101.json",
+        "reports/S61_MINIMAL_JUNCTION_SATURATION_20261101.json",
+        "reports/S61_MINIMAL_JUNCTION_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "平坦性、最小冪零指数、torsion長、全乗法表は未決。"
+      ]
+    },
+    {
+      "id": "S61_MINIMAL_JUNCTION_GENERIC_STRATA",
+      "title_ja": "最小型八接続層の全一般βファイバーを除去",
+      "statement_ja": "内在的頂点条件(25/9)alpha²−sigma²disc(q_v)=0が既約16D層を定める。有限jet特殊化と同じ枝の下界により、八主接続層の全一般βファイバーを飽和除去。",
+      "scope": "Specified formal rings, generic-beta removal of explicit strata/orbit, bounded graded generation.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "independent_agent_or_parent_review_not_external_peer_review",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_MINIMAL_JUNCTION_SATURATION",
+          "S61_NONBINARY_ZERO49_ENDPOINT"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_MINIMAL_JUNCTION_GENERIC_STRATA_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_MINIMAL_JUNCTION_GENERIC_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_MINIMAL_JUNCTION_GENERIC_STRATA_20261101.json",
+        "reports/S61_MINIMAL_JUNCTION_GENERIC_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "17D主曲線・tail・自由基線全体の除去へ外挿しない。"
+      ]
+    },
+    {
+      "id": "S61_AB_ORIGIN_DEGREE_THREE",
+      "title_ja": "AB正規化の次数三にも新生成元はない",
+      "statement_ja": "D3=B3は6691次元、H1(E3)=0。parabolic循環評価でW(9,1)を除きSym8の重複数を1に抑え、6691次非零minorで座標三次積の下界を合わせる。",
+      "scope": "Specified formal rings, generic-beta removal of explicit strata/orbit, bounded graded generation.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "independent_agent_or_parent_review_not_external_peer_review",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_AB_ORIGIN_DEGREE_TWO",
+          "S61_AB_NORMAL_AWAY_ORIGIN"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AB_ORIGIN_DEGREE_THREE_20261101.md"
+        },
+        {
+          "path": "research/notes/AB_ORIGIN_DEGREE_THREE_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AB_ORIGIN_DEGREE_THREE_20261101.json",
+        "reports/AB_ORIGIN_DEGREE_THREE_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "次数四以上・全次数生成・原点正規性は未決。"
+      ]
+    },
+    {
+      "id": "S61_NONBINARY_RESONANCE_EXCLUSIONS",
+      "title_ja": "非二元三共鳴層の一次像を除外",
+      "statement_ja": "QcanのH10にA=B/5,4B/5,B/2を課した全線形層のSp4像は15,15,14次元。十分一般βには現れない。",
+      "scope": "Specified formal rings, generic-beta removal of explicit strata/orbit, bounded graded generation.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "independent_agent_or_parent_review_not_external_peer_review",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_HOMOGENIZED_EQUIVARIANCE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_NONBINARY_RESONANCE_EXCLUSIONS_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_NONBINARY_RESONANCE_EXCLUSIONS_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_NONBINARY_RESONANCE_EXCLUSIONS_20261101.json",
+        "reports/S61_NONBINARY_RESONANCE_EXCLUSIONS_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "全Delta非零点からの除外ではない。"
+      ]
+    },
+    {
+      "id": "S61_NONBINARY_CANONICAL_EXHAUSTION",
+      "title_ja": "非二元xzw軌道の全一般β無限遠を除去",
+      "statement_ja": "Qcan=xzwの普遍43次minorと単一平方二次障害を計算。五artifact divisorの16D層と既存交点・除外層で全minor因子を覆い、この軌道の全一般β点を飽和除去。",
+      "scope": "Specified formal rings, generic-beta removal of explicit strata/orbit, bounded graded generation.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "independent_agent_or_parent_review_not_external_peer_review",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_NONBINARY_INFINITY_FORMAL_RING",
+          "S61_NONBINARY_RESONANCE_EXCLUSIONS",
+          "S61_NONBINARY_RESONANCE_NODES",
+          "S61_NONBINARY_ZERO49_ENDPOINT"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_NONBINARY_CANONICAL_EXHAUSTION_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_NONBINARY_CANONICAL_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_NONBINARY_CANONICAL_EXHAUSTION_20261101.json",
+        "reports/S61_NONBINARY_CANONICAL_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "R0のz²w/zw²や特殊混合型、全無限遠・アフィン尽くしは未決。"
+      ]
+    },
+    {
+      "id": "S61_BINARY_U4_ENDPOINT",
+      "title_ja": "三つ目の二平面型端点と非一般の交差",
+      "statement_ja": "u4=0の16D階数降下層を全一般βで飽和除去。非共鳴点で自由65を証明し、古い標本の実在横断R0直線は追加条件5u14−2u49=0、joint像次元15以下と区別。",
+      "scope": "Specified formal rings, generic-beta removal of explicit strata/orbit, bounded graded generation.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "independent_agent_or_parent_review_not_external_peer_review",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_BINARY_RANK_DROP_FORMAL_RING",
+          "S61_BINARY_ENDPOINTS"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_BINARY_U4_ENDPOINT_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_U4_ENDPOINT_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_BINARY_U4_ENDPOINT_20261101.json",
+        "reports/S61_BINARY_U4_ENDPOINT_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "例外交差自体の飽和と全局所環、全rank-drop locusの尽くしは未決。"
+      ]
+    },
+    {
+      "id": "S61_MINIMAL_ALL_AXIS_REMOVAL",
+      "title_ja": "最小型M0/M1の全四孤立軸表示を除去",
+      "statement_ja": "g6/g7のM0/M1四表示を元式へ普遍代入し、各指定点のβ微分16、元134式の全Jacobian45を検証。各既約16D像の全一般βファイバーを飽和除去。",
+      "scope": "Specified formal rings, generic-beta removal of explicit strata/orbit, bounded graded generation.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "independent_agent_or_parent_review_not_external_peer_review",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_MINIMAL_VERTEX_EXHAUSTION",
+          "S61_MINIMAL_AXIS_INFINITY_COMPONENT"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_MINIMAL_ALL_AXIS_REMOVAL_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_MINIMAL_ALL_AXIS_REMOVAL_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_MINIMAL_ALL_AXIS_REMOVAL_20261101.json",
+        "reports/S61_MINIMAL_ALL_AXIS_REMOVAL_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "四つの別成分や被覆次数を主張しない。17D主曲線・tailは別対象。"
       ]
     }
   ],

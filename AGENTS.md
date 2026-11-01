@@ -1,8 +1,24 @@
 # Poisson structures on P4 — Codex instructions
 
-Version: v36-s61 · 2026-11-01 (Asia/Tokyo).
+Version: v37-s61 · 2026-11-01 (Asia/Tokyo).
 
-Current v36 additions: on the specified binary open, the completed full135
+Current v37 additions: the entire canonical nonbinary xzw orbit is removed
+by t-saturation over sufficiently general beta. A universal43-minor and one
+square obstruction cover its open; five16D artifact divisors plus the earlier
+nodes/zero49/proper-image exclusions cover all factors. Other R0 types z^2*w,
+z*w^2 and mixed tails are separate. Binary rank-drop points admit free rank65,
+I^4=0, nonzero t with I*t=t^2=0 and quotient64; transverse Hilbert function is
+(1,8,22,34), with NO graded-piece freeness claim. Three16D endpoint strata u4=0, u14=0,
+u49=0 are removed over general beta; not the whole17D rank-drop curve.
+All four isolated M0/M1 g6/g7 axis presentations are removed over general beta,
+using original134 full Jacobian rank45. Eight minimal junctions have generic ranks4,4,4,8,3,4,5,6 and nilpotent t;
+finite-jet comparison removes their16D strata over general beta. Positive-
+dimensional tails and other endpoints are not thereby covered.
+AB normalization has D3=B3 dimension6691 and H1(E3)=0; all-degree generation
+and origin normality remain open. Full affine finiteness/five-point exhaustion
+and global component upper bound remain unproved; lower bound57 unchanged.
+
+Previous v36 results: on the specified binary open, the completed full135
 ring is finite free rank65 over C[[v0,v1,v3]], with reduced ring that base,
 nilradical I^4=0, nonzero t in I^3, I*t=0 and quotient(t) free rank64.
 The rank65 result does NOT cover all generic binary points: a dominant17D

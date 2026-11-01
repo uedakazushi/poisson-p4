@@ -35,7 +35,7 @@
 \title{射影四空間の Poisson 構造の一次ジェット還元\\
 \large 普遍的楕円切断、Jacobian の二捩れと Toric 成分の境界}
 \author{Poisson P4 研究プロジェクト・内部研究草稿}
-\date{2026年11月1日・v36-s61}
+\date{2026年11月1日・v37-s61}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -2955,7 +2955,159 @@ shear $w\mapsto w+uz$ は前者を固定し、後者を $12u h_0^2$ だけ変え
 実際の二次座標積には、有限体上で非零の761次minorがあるので、$\QQ$ 上の像次元も761以上。
 従って $B_2=D_2$。重み・shear・minorと独立点検は\cite{ab-degree2-v36}を参照。
 \end{proof}
-これは次数三以上の生成性や、ABの原点の正規性を証明したものではない。
+この命題単独では次数三以上の生成性や原点正規性を主張しない。次数三は後節で扱う。
+
+\section{階数降下を越える二平面型の自由性}
+
+\begin{proposition}\label{prop:binary-drop-v37}
+$Q=xw\partial_y\wedge\partial_z$、$u_{12}=u_{13}=u_{35}=u_{50}=0$の
+指定有理点では、全135式の完成局所環$S$は$R=\CC[[v_0,v_1,v_3]]$上自由階数65である。
+$S\to R$の核$I$について
+\[
+ S_{\mathrm{red}}=R,\quad I^4=0,\quad 0\ne t,\quad It=t^2=0,
+ \quad S/(t)\simeq R^{64}\quad\text{（加群として）}
+\]
+となる。横断Hilbert関数は$(1,8,22,34)$である。
+同じ表示の$u_4=0$、$u_{14}=0$、$u_{49}=0$の三つの十六次元層は、
+それぞれの全一般$\beta$ファイバーが飽和で除かれる。
+\end{proposition}
+\begin{proof}
+接空間は11次元で、実在する二平面型三次元部分の三つの独立パラメータを除くと八変数となる。
+二次障害のQQ階数は14。三次初期関係とその倍の792次非零minorから横断商の$\mathfrak m^5=0$を得る。
+したがって四次までの\emph{非斉次の和}$A_2+A_3+A_4$を保った全関係行列で実際の商を計算できる。
+二次から四次の486単項式に対する関係には430次非零minorがあり、長さは高々65となる。
+同じ固定$\beta$、同じ支持平面で$Q_1=(xw+x^2+w^2)\partial_y\wedge\partial_z$を取ると、
+全階数35、二次障害5、共通Hessian核3となる。同じ局所既約三次元部分の一般点に普遍下界65が適用できる。
+全射$R^{65}\to S$の核は階数零のtorsion-free加群なので零となる。
+一般点の$I^4=It=t^2=0$は、自由な$S$の部分加群への降下で全域に成り立つ。
+tを追加した431次minorは、関係階数が特性零で正確に430と決まった後で、その非零性を与える。
+特殊ファイバーでも非零なので$Rt$は直和因子となる。
+
+三端点では、それぞれ同じ有限証明書を再構成した。
+十一変数の一次項部分空間上の二平面型部分は滑らかな十四次元であり、
+同じ相対有限加群の議論が使える。Sp4を加えた一次項写像の微分は階数16である。
+全135同変性と滑らかなbase changeの忠実平坦性により、$t^2=0$が周囲の全局所環へ降りる。
+各像の閉包は安定化群による次元計算で十六次元であるから、残る閉部分の像は次元高々15となる。
+証明書と点検は\cite{binary-drop-formal-v37,binary-endpoints-v37,binary-u4-v37}。
+\end{proof}
+
+$u_4=0$では非共鳴の標本を用いた。元の標本は$5u_{14}-2u_{49}=0$を満たし、
+$Q_a=xw\partial_y\wedge\partial_z-a x^2\partial_y\wedge\partial_w$という実在の横断R0直線を持つ。
+その横断商は正次元であり、有限切断の長さ69を実際の長さとはしない。
+この追加共鳴のjoint像は次元高々15なので、一般$\beta$からは除ける。
+
+各$I^j/I^{j+1}$の自由性はここでは主張しない。埋込み次元は前の一般点から跳んでいる。
+十七次元の元の階数降下族について、一つの開部分の除去だけから全一般ファイバーの除去は従わない。
+
+\section{最小型の接続点と十六次元層}
+
+\begin{proposition}\label{prop:minimal-junction-v37}
+次表の八指定点の完成局所環では$t$は冪零であり、一般線形reductionに関する一般階数は表の値となる。
+対応する主枝接続層の全一般$\beta$ファイバーも飽和で除かれる。
+\end{proposition}
+\begin{center}
+\begin{tabular}{ccc}\toprule
+型&$k$&一般階数\\\midrule
+M0&$1/6,-11/12,-1,-2/3$&$4,4,4,8$\\
+M1&$-11/12,-1,-4/9,-1/3$&$3,4,5,6$\\\bottomrule
+\end{tabular}
+\end{center}
+\begin{proof}
+二次・三次、および最後の例で四次までの実際の残余式から初期関係を得る。
+パラメータ$u=0$で有限長、$u=1$で表の長さとなることを厳密なGr\"obner計算で確認する。
+従って$u$はreductionで、一般階数の上界が表の値となる。
+同じ固定$\beta$の主枝・尾・自由基線を構成し、接方向の独立性と$u$上の非零一次項を確認する。
+普遍階数上界または同じ曲線上の既証明局所環による長さ下界の和が、上界と一致する。
+t=0にある枝が一般ファイバーを使い切り、有限長torsionも$t$の十分高い冪で消える。
+平坦性や横断長さと一般階数の等置は使わない\cite{minimal-junction-v37}。
+
+頂点incidence上で$\beta_v(v,-)=\alpha\omega(v,-)$とし、$q_v$を$v^\perp/v$上の二次形式とする。
+固定$k_0$の条件は内在的に
+\[
+ \frac{25}{9}\alpha^2-(2k_0+1)^2\operatorname{disc}(q_v)=0
+\]
+と書ける。四評価への全射と非退化四変数二次式により、この頂点層は既約十六次元である。
+主解からモジュラー像$[v]$を回復できるため、そのgraphの像も十六次元。
+保存された一次項微分minorから$W_{16}$を優越する。
+任意の有限jet行列の一般階数は指定点以上なので、関数体上のHilbert--Samuel関数は指定点以下である。
+同じ実在枝の下界と合わせて一般点でも表の乗数を得て、$t$の冪零性が従う。
+有限分離な基底関数体拡大と忠実平坦性で像の一般点へ降ろし、有限個の分母を除く。
+残る部分は次元高々15であり、全一般$\beta$ファイバーを除ける\cite{minimal-junction-generic-v37}。
+\end{proof}
+
+十七次元の主曲線・尾・自由基線の全一般ファイバーへ、この十六次元層の議論を外挿しない。
+
+\begin{proposition}
+最小型M0/M1の孤立軸$g_6,g_7$の四表示は、それぞれの全一般$\beta$ファイバーが飽和で除かれる。
+\end{proposition}
+\begin{proof}
+修正済み正常形表の四つの有理族を元式へ普遍代入し、全最高式の消滅を確認する。
+各指定有理点でsourceの一次項微分は階数16、最高Jacobianは44、
+元134式の全chart Jacobianは45である。従って相対全体の局所環は正則で次元16となる。
+同じ次元の無限遠像を含むため近傍の唯一の成分はこの像であり、$t=0$となる。
+その既約閉包は十六次元で$W_{16}$を優越し、残る閉部分は次元高々15である。
+ゆえに全一般ファイバーを除ける\cite{minimal-axis-all-v37}。
+四表示を四つの異なる大域成分として数えず、被覆次数も主張しない。
+\end{proof}
+
+\section{非二元標準型の全一般ファイバーの除去}
+
+\begin{theorem}\label{thm:nonbinary-canonical-v37}
+十分一般の$\beta$について、$Q_{\rm can}=\partial_y\wedge(xz\partial_z-xw\partial_w)$の
+Sp4軌道に属する全無限遠点は、全135式の$t$飽和で除かれる。
+\end{theorem}
+\begin{proof}
+最高式の一次項核は十次元で、$u_4=u_5=u_{12}=u_{13}=0$、$u_{50}=-5u_{35}$、$u_{51}=5u_{26}$。
+$A=u_{14},B=u_{49},U=u_{26},V=u_{35}$と置く。
+全Jacobianの43次minorは、非零定数倍を除いて
+\begin{align*}
+D={}&UV B^7(A-2B)(A+B)(2A-B)^2\\
+ &\cdot(5A-4B)^2(5A-3B)(5A-2B)(5A-B)^3(10A+B)
+\end{align*}
+である。全十変数で左右の核を計算すると、接空間上の$t$は零で、
+左核へ射影した二次項の非零行は$-4v_0^2$、$-2Bv_0^2$のみとなる。
+核の分母は$D$の因子だけから成り、$D\ne0$の全域で有効である。
+一般$\beta$の滑らかな$E_\tau$上で、非退化$q_v$の根を順序付け、既存の非共鳴平行移動で$K,L$を除く。
+$G=xZW$は正則な主graphを与え、$Q$から一意の頂点を回復できるので像は滑らかな曲線である。
+横断上界2と同じ曲線の普遍無限遠下界2から、完成環は$\CC[[u,e]]/(e^2)$、$t=0$となる。
+
+五条件$U=0,V=0,A+B=0,A-2B=0,10A+B=0$は各々九次元の一次項部分空間を定める。
+射影$Q$の三次元安定化群がこれらを保ち、七次元軌道と合わせた像は既約十六次元となる。
+各指定点で一次項微分階数16、全Jacobian階数43、二次障害1、Hessian階数1を検証した。
+滑らかな固定一次項曲線と普遍下界から、その点の環も$\CC[[u,e]]/(e^2)$となる。
+命題\ref{prop:minimal-junction-v37}の有限jet比較と同じ論法により、五層の全一般ファイバーを除ける。
+
+残る因子$B=0$は三枝合流点、$5A-3B=0$、$5A-2B=0$はそれぞれ既証明の共鳴交点である。
+最後の三層$A=B/5,4B/5,B/2$のSp4飽和の一次項像は、普遍微分計算で次元15、15、14となり、一般$\beta$には現れない。
+これで$D$の全因子を覆う\cite{nonbinary-exclusions-v37,nonbinary-canonical-v37}。
+\end{proof}
+
+この定理は$G=z^2w,zw^2$や特殊混合型を含む全R0の定理ではない。
+全無限遠の除去、アフィン一般有限性、既知五点の尽くしは未決である。
+
+\section{AB正規化の三次生成性}
+
+\begin{proposition}
+$B=\CC[AB]$、$D$をその正規化、$D_n=H^0(LG,E_n)$とすると、
+$D_3=B_3$は6691次元であり、$H^1(LG,E_3)=0$である。
+\end{proposition}
+\begin{proof}
+垂直座標の次数による四段階filtrationのassociated gradedは
+$Y_3\oplus(Y_2\otimes V_1)\oplus(Y_1\otimes V_2)\oplus V_3$である。
+Bott計算で$h^0=7285$、$H^1=W_{(9,1)}\oplus W_{(8,0)}$、両次元は429と165となる。
+対応する$H^0$の重複数は1と2である。
+
+放物型評価の写像はlowest vectorの像で決まる。
+$W_{(9,1)}$の像候補は$h_0g_0^2$のみだが、$w\mapsto w+sz$の二階微分が
+$288h_0^3\ne0$となり、元のlowest vectorの二階微分零と両立しない。
+$\operatorname{Sym}^8V$の三つの候補には二つの独立な必要条件があり、
+像は$h_0^2g_1-\frac12h_0h_1g_0+\frac1{24}h_0s_0g_0$の高々一次元となる。
+したがって実際の$H^0$重複数は0と高々1であり、Euler差から$H^1(E_3)=0$、$h^0=6691$を得る。
+実際の45座標の三次積には6691次非零minorがあり、$B_3\subset D_3$と合わせて等号となる
+\cite{ab-degree3-v37}。
+\end{proof}
+
+次数三までの生成性だけから、全次数生成性や原点の正規性を結論しない。
 
 \section{残る問題}
 全一次項の延長可能性、楕円二成分の全域graphと一般次数1、表示重複3000、
@@ -3149,6 +3301,15 @@ arXiv:1406.6953v1 (2014), Theorems 2.1 and 2.3.
 \bibitem{minimal-cubic-v36} 同プロジェクト、\nolinkurl{research/notes/S61_MINIMAL_CUBIC_TAIL_20261101.md}、明記した依存ノート・係数証明書・独立点検。
 \bibitem{zero49-v36} 同プロジェクト、\nolinkurl{research/notes/S61_NONBINARY_ZERO49_ENDPOINT_20261101.md}、明記した依存ノート・係数証明書・独立点検。
 \bibitem{ab-degree2-v36} 同プロジェクト、\nolinkurl{research/notes/AB_ORIGIN_DEGREE_TWO_20261101.md}、明記した依存ノート・係数証明書・独立点検。
+\bibitem{binary-drop-formal-v37} 同プロジェクト、\nolinkurl{research/notes/S61_BINARY_RANK_DROP_FORMAL_RING_20261101.md}、明記した依存ノート・係数証明書・独立点検。
+\bibitem{binary-endpoints-v37} 同プロジェクト、\nolinkurl{research/notes/S61_BINARY_ENDPOINTS_20261101.md}、明記した依存ノート・係数証明書・独立点検。
+\bibitem{minimal-junction-v37} 同プロジェクト、\nolinkurl{research/notes/S61_MINIMAL_JUNCTION_SATURATION_20261101.md}、明記した依存ノート・係数証明書・独立点検。
+\bibitem{minimal-junction-generic-v37} 同プロジェクト、\nolinkurl{research/notes/S61_MINIMAL_JUNCTION_GENERIC_STRATA_20261101.md}、明記した依存ノート・係数証明書・独立点検。
+\bibitem{nonbinary-exclusions-v37} 同プロジェクト、\nolinkurl{research/notes/S61_NONBINARY_RESONANCE_EXCLUSIONS_20261101.md}、明記した依存ノート・係数証明書・独立点検。
+\bibitem{nonbinary-canonical-v37} 同プロジェクト、\nolinkurl{research/notes/S61_NONBINARY_CANONICAL_EXHAUSTION_20261101.md}、明記した依存ノート・係数証明書・独立点検。
+\bibitem{ab-degree3-v37} 同プロジェクト、\nolinkurl{research/notes/AB_ORIGIN_DEGREE_THREE_20261101.md}、明記した依存ノート・係数証明書・独立点検。
+\bibitem{binary-u4-v37} 同プロジェクト、\nolinkurl{research/notes/S61_BINARY_U4_ENDPOINT_20261101.md}、係数証明書・親担当点検。
+\bibitem{minimal-axis-all-v37} 同プロジェクト、\nolinkurl{research/notes/S61_MINIMAL_ALL_AXIS_REMOVAL_20261101.md}、係数証明書・独立点検。
 \end{thebibliography}
 \endgroup
 \end{document}
