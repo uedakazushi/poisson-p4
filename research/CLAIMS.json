@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "checkpoint": "v29-s61",
-  "date": "2026-10-31",
+  "checkpoint": "v30-s61",
+  "date": "2026-11-01",
   "base_mathematical_checkpoint": "v24",
   "new_mathematical_progress_in_this_setup": false,
   "purpose_ja": "収録原稿の主張、依存、今回の監査・再現範囲、未確認点を区別する研究用台帳。",
@@ -1333,7 +1333,7 @@
       },
       "id": "S61_ELLIPTIC_FIVE_VARIABLE_FIBER",
       "title_ja": "楕円二成分の固定一次部分の五変数模型",
-      "statement_ja": "primitive一次部分から次数3,5,7,9の共変frame Rを作り、det R≠0上でSp4作用は自由。6個のGram成分と24個のテンソル成分で軌道をスキーム論的に分離しSp4行列を一意復元する。h=I14/I4^3を用いて倍率も一意に消去し、楕円二族の固定一次部分の表示ファイバーをλ,p1,...,p4の五変数・30有理等式へ帰着する。位数50の自由な表示対称性により一般長さN_k=50 e_k d_k、e_k,d_kは未決。",
+      "statement_ja": "primitive一次部分から次数3,5,7,9の共変frame Rを作り、det R≠0上でSp4作用は自由。6個のGram成分と24個のテンソル成分で軌道をスキーム論的に分離しSp4行列を一意復元する。h=I14/I4^3を用いて倍率も一意に消去し、楕円二族の固定一次部分の表示ファイバーをλ,p1,...,p4の五変数・30有理等式へ帰着する。位数50の自由な表示対称性により一般長さN_k=50 e_k d_k、後続のv30で e_k=60,d_k=1 と決定。",
       "dependencies": {
         "claims": [
           "S61_PRIMITIVE_GAUGE",
@@ -1358,7 +1358,7 @@
       ],
       "limitations_ja": [
         "d I4 I14=0と正規化分母零の特殊層を含まない。",
-        "全表示重複、五変数模型の一般長さ、楕円成分の一般次数は未計算。",
+        "全表示重複3000、五変数模型の一般長さ3000、楕円成分の一般次数1はv30で解決。",
         "30式を任意の五式へ置き換えず、全S61の尽くしを主張しない。"
       ]
     },
@@ -1430,6 +1430,330 @@
         "一般ファイバーの有限性・次数・成分の尽くしを与えない。",
         "追加後の未飽和模型でも旧flag incidenceは残るが、斉次化変数で飽和した真の閉包やアフィン次元の結論ではない。",
         "新しいPoisson条件を追加したものではなく、既存イデアルの帰結である。"
+      ]
+    },
+    {
+      "id": "S61_ELLIPTIC_UNIVERSAL_GRAPHS",
+      "title_ja": "二つの普遍的楕円型多項式切断",
+      "statement_ja": "T39・T40 の被約 S61 閉包は斉次二次多項式 Q51,Q52 の graph であり、全 W=A16 と同型。全一次部分は一般階数4の射影Poisson構造へ延長する。graded Sp4同変多項式切断はこの二つに限る。",
+      "scope": "Complex S61; scope and localization as stated; not global exhaustion.",
+      "status": {
+        "proof": "proof_with_exact_rational_certificate",
+        "independent_review": "independent_agent_or_parent_review_not_external_peer_review",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "MODEL_S61",
+          "S61_KNOWN_DOMINANT_FIBER_ETALE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/Q51_UNIVERSAL_SECTION_20261101.md"
+        },
+        {
+          "path": "research/notes/Q52_UNIVERSAL_SECTION_20261101.md"
+        },
+        {
+          "path": "research/notes/Q51_UNIVERSAL_SECTION_REVIEW_20261101.md"
+        },
+        {
+          "path": "research/notes/Q52_UNIVERSAL_SECTION_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/Q51_UNIVERSAL_SECTION_20261101.json",
+        "reports/Q52_UNIVERSAL_SECTION_20261101.json",
+        "reports/Q51_UNIVERSAL_SECTION_REVIEW_20261101.json",
+        "reports/Q52_UNIVERSAL_SECTION_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "未知成分・全ファイバーの有限性は証明しない。"
+      ]
+    },
+    {
+      "id": "S61_ELLIPTIC_GENERIC_DEGREES",
+      "title_ja": "楕円型の一般次数1と表示重複3000",
+      "statement_ja": "両楕円型成分の一般次数は1、全パラメータ表示の一般重複度は3000。五変数模型の一般長さも3000。Cremona対応は同じ primitive 一次部分上の二つの有理パラメータ被覆を結ぶ。",
+      "scope": "Complex S61; scope and localization as stated; not global exhaustion.",
+      "status": {
+        "proof": "proof_with_exact_rational_certificate",
+        "independent_review": "independent_agent_or_parent_review_not_external_peer_review",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_ELLIPTIC_UNIVERSAL_GRAPHS",
+          "S61_ELLIPTIC_FIVE_VARIABLE_FIBER"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/ELLIPTIC_PARAMETER_REDUNDANCY_20261101.md"
+        },
+        {
+          "path": "research/notes/ELLIPTIC_GENERIC_DEGREES_20261101.md"
+        },
+        {
+          "path": "research/notes/ELLIPTIC_CREMONA_REVIEW_20261101.md"
+        },
+        {
+          "path": "research/notes/ELLIPTIC_Q52_RECONSTRUCTION_REVIEW_20261101.md"
+        },
+        {
+          "path": "research/notes/HESSE_QUADRO_CUBIC_INVERSE_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/ELLIPTIC_PARAMETER_REDUNDANCY_20261101.json",
+        "reports/ELLIPTIC_CREMONA_REVIEW_20261101.json",
+        "reports/ELLIPTIC_Q52_RECONSTRUCTION_REVIEW_20261101.json",
+        "reports/HESSE_QUADRO_CUBIC_INVERSE_20261101.json"
+      ],
+      "limitations_ja": [
+        "特殊パラメータの安定化群と特殊ファイバーの全体は別問題。"
+      ]
+    },
+    {
+      "id": "S61_ELLIPTIC_GRAPH_INTERSECTION",
+      "title_ja": "楕円二成分の交叉の旗円錐と冪零部分",
+      "statement_ja": "I=(Q51−Q52)、J=primitive係数行列の全2次小行列式として sqrt(I)=J、Jは次元5次数24の旗円錐の素イデアル、J/I=k(-2)^10。冪零部分は原点に支持され平方零。",
+      "scope": "Complex S61; scope and localization as stated; not global exhaustion.",
+      "status": {
+        "proof": "proof_with_exact_rational_certificate",
+        "independent_review": "independent_agent_or_parent_review_not_external_peer_review",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_ELLIPTIC_UNIVERSAL_GRAPHS"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/ELLIPTIC_SECTION_INTERSECTION_20261101.md"
+        },
+        {
+          "path": "research/notes/ELLIPTIC_SECTION_INTERSECTION_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/ELLIPTIC_SECTION_INTERSECTION_20261101.json",
+        "reports/ELLIPTIC_SECTION_INTERSECTION_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "全S61の局所環・他成分との交叉を決定したものではない。"
+      ]
+    },
+    {
+      "id": "S61_CANONICAL_ELLIPTIC_CURVE",
+      "title_ja": "primitive一次部分の標準楕円五次曲線",
+      "statement_ja": "一般βに対しLG(2,4)上でβ|Π³=0の零点は滑らかな連結楕円正規五次曲線。反対称5行列のPfaffian表示を構成し、QQ上の恒等式で確認。",
+      "scope": "Complex S61; scope and localization as stated; not global exhaustion.",
+      "status": {
+        "proof": "proof_with_exact_rational_certificate",
+        "independent_review": "independent_agent_or_parent_review_not_external_peer_review",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_PRIMITIVE_GAUGE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/PRIMITIVE_JET_ELLIPTIC_CURVE_20261101.md"
+        },
+        {
+          "path": "research/notes/PRIMITIVE_JET_CURVE_LOCAL_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/PRIMITIVE_JET_ELLIPTIC_CURVE_20261101.json",
+        "reports/PRIMITIVE_JET_CURVE_LOCAL_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "特殊βの全曲線型やPoisson延長の尽くしは含まない。"
+      ]
+    },
+    {
+      "id": "S61_TORIC_MONODROMY_S3",
+      "title_ja": "T01三次被覆の幾何学的モノドロミーS3",
+      "statement_ja": "T01の既約三次被覆の判別式は複素関数体で平方ではなく、幾何学的モノドロミーはS3。直線制限の平方自由因子とBézout恒等式で非平方性を証明。",
+      "scope": "Complex S61; scope and localization as stated; not global exhaustion.",
+      "status": {
+        "proof": "proof_with_exact_rational_certificate",
+        "independent_review": "independent_agent_or_parent_review_not_external_peer_review",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_TORIC_GENERIC_DEGREE_THREE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/TORIC_MONODROMY_20261101.md"
+        },
+        {
+          "path": "research/notes/TORIC_MONODROMY_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/TORIC_MONODROMY_20261101.json",
+        "reports/TORIC_MONODROMY_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "分母の零点をアフィン分岐因子と同一視しない。"
+      ]
+    },
+    {
+      "id": "S61_KNOWN_FIVE_THREE_PLANE",
+      "title_ja": "既知五延長の普遍的三平面と積代数",
+      "statement_ja": "一般一次部分上に3qbar=2Q51+Q52を満たす有理的アフィン三平面があり、全134式との交叉は被約長さ5、代数はA_T×K×K。",
+      "scope": "Complex S61; scope and localization as stated; not global exhaustion.",
+      "status": {
+        "proof": "proof_with_exact_rational_certificate",
+        "independent_review": "independent_agent_or_parent_review_not_external_peer_review",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_TORIC_GENERIC_DEGREE_THREE",
+          "S61_ELLIPTIC_UNIVERSAL_GRAPHS"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/TORIC_UNIVERSAL_THREE_PLANE_20261101.md"
+        },
+        {
+          "path": "research/notes/TORIC_UNIVERSAL_THREE_PLANE_REVIEW_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_FIVE_COVER_PRODUCT_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_KNOWN_FIVE_POINT_SECTION_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/TORIC_UNIVERSAL_THREE_PLANE_20261101.json",
+        "reports/TORIC_UNIVERSAL_THREE_PLANE_REVIEW_20261101.json",
+        "reports/S61_FIVE_COVER_PRODUCT_20261101.json",
+        "reports/S61_KNOWN_FIVE_POINT_SECTION_20261101.json"
+      ],
+      "limitations_ja": [
+        "全ファイバーの三平面への包含は未証明。"
+      ]
+    },
+    {
+      "id": "S61_CURVE_TRANSPORT_COUNTEREXAMPLE",
+      "title_ja": "滑らかな標準曲線でも不変量輸送保存は偽",
+      "statement_ja": "全S61を満たすT02の明示族の二基点でΔ≠0かつjが異なる。標準frame行列式およびI4,I14も非零なので、これらの局所化を加えても全体の保存則は成立しない。",
+      "scope": "Complex S61; scope and localization as stated; not global exhaustion.",
+      "status": {
+        "proof": "proof_with_exact_rational_certificate",
+        "independent_review": "independent_agent_or_parent_review_not_external_peer_review",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "MODEL_S61",
+          "S61_CANONICAL_ELLIPTIC_CURVE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/CURVE_INVARIANT_SMOOTH_COUNTEREXAMPLE_20261101.md"
+        },
+        {
+          "path": "research/notes/CURVE_INVARIANT_SMOOTH_COUNTEREXAMPLE_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CURVE_INVARIANT_SMOOTH_COUNTEREXAMPLE_20261101.json",
+        "reports/CURVE_INVARIANT_SMOOTH_COUNTEREXAMPLE_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "既知三支配成分上の保存を否定するものではない。"
+      ]
+    },
+    {
+      "id": "S61_T02_FIRST_JET_HYPERSURFACE",
+      "title_ja": "T02の一次像は既約超曲面",
+      "statement_ja": "T02の5パラメータ族と基点・Sp4作用から一次射影の微分階数15を証明。T02のS61次元15を合わせると像の閉包は既約15次元超曲面。",
+      "scope": "Complex S61; scope and localization as stated; not global exhaustion.",
+      "status": {
+        "proof": "proof_with_exact_rational_certificate",
+        "independent_review": "independent_agent_or_parent_review_not_external_peer_review",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "MPS40_CROSSWALK"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/MPS_T02_FIRST_JET_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/MPS_T02_FIRST_JET_20261101.json"
+      ],
+      "limitations_ja": [
+        "その超曲面の全方程式や全ファイバーは未決。"
+      ]
+    },
+    {
+      "id": "S61_INFINITY_LOCAL_DIMENSION_THREE",
+      "title_ja": "無限遠の指定点の局所次元3",
+      "statement_ja": "135式の未飽和斉次模型の指定旗点でJacobian階数38、消去後の二次障害は4つの法線方向の全二次式を張る。滑らかな旗incidenceの包含と合わせ局所次元3。",
+      "scope": "Complex S61; scope and localization as stated; not global exhaustion.",
+      "status": {
+        "proof": "proof_with_exact_rational_certificate",
+        "independent_review": "independent_agent_or_parent_review_not_external_peer_review",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_UNSATURATED_INFINITY_FLAGS",
+          "S61_UNIVERSAL_WEIGHT6_CONSEQUENCE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_LOCAL_ELIMINATION_20261101.md"
+        },
+        {
+          "path": "research/notes/PRIMITIVE_JET_CURVE_LOCAL_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/PRIMITIVE_JET_CURVE_LOCAL_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "接錐の非被約性から局所環の非被約性は結論しない。アフィン有限性とは別。"
       ]
     }
   ],

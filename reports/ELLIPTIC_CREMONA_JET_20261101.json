@@ -1,0 +1,122 @@
+{
+  "id": "ELLIPTIC_CREMONA_JET_20261101",
+  "generated_utc": "2026-11-01T00:12:04.640078+00:00",
+  "proof_note": "research/notes/ELLIPTIC_GENERIC_DEGREES_20261101.md",
+  "all_passed": true,
+  "universal_checks": {
+    "field": "QQ",
+    "projective_Poisson_identity_components": 10,
+    "homogeneous_family_rescaling": "Bbar_k=lambda^3 B_k; Qbar=lambda Q",
+    "Jacobian_determinant_identity": "det Jac(Qbar)=2 Pf(Pbar_1)",
+    "inverse_form_adjugate_entries": 16,
+    "Jacobian_adjugate_entries": 25,
+    "universal_primitive_tensor_entries": 64,
+    "raw_primitive_tensor_identity": "f^* beta_2 = beta_1/2",
+    "all_polynomial_identities_zero": true,
+    "elapsed_seconds": 0.12383612501434982
+  },
+  "frame_tests": [
+    {
+      "lambda": 2,
+      "point": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "scalar": "1",
+      "image_point": [
+        "-1/6",
+        "4/3",
+        "49/12",
+        "7/2"
+      ],
+      "target_scalar": "-4",
+      "frame_relation": "S0=-2 F2 Df F1^-1; F2 normalizes -4c P2",
+      "S0": [
+        [
+          "1067/436",
+          "187/9",
+          "-7/12",
+          "-4719/1744"
+        ],
+        [
+          "-876/1199",
+          "-206/33",
+          "76/363",
+          "-99/109"
+        ],
+        [
+          "-792/109",
+          "-495/8",
+          "1/6",
+          "0"
+        ],
+        [
+          "620/1199",
+          "421/99",
+          "0",
+          "-63/109"
+        ]
+      ],
+      "symplectic_and_jet_identities": true
+    },
+    {
+      "lambda": 3,
+      "point": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "scalar": "5",
+      "image_point": [
+        "19/81",
+        "94/81",
+        "181/81",
+        "35/27"
+      ],
+      "target_scalar": "-20",
+      "frame_relation": "S0=-2 F2 Df F1^-1; F2 normalizes -4c P2",
+      "S0": [
+        [
+          "1994632/3275397",
+          "6549710/59049",
+          "-1610/6561",
+          "-11061238000/88435719"
+        ],
+        [
+          "-681930657/214216130750",
+          "-3211407/9535550",
+          "31347/47677750",
+          "-14094/4493"
+        ],
+        [
+          "-887632/363933",
+          "-300440/729",
+          "-38/243",
+          "0"
+        ],
+        [
+          "521614809/214216130750",
+          "296217/4767775",
+          "0",
+          "-8505/8986"
+        ]
+      ],
+      "symplectic_and_jet_identities": true
+    }
+  ],
+  "parameter_transfer": "(lambda,p,c,S) -> (lambda,f(p),-4c,S*S0^-1)",
+  "dependencies_for_degree_conclusion": [
+    "research/notes/ELLIPTIC_Q52_RECONSTRUCTION_REVIEW_20261101.md",
+    "reports/HESSE_QUADRO_CUBIC_INVERSE_20261101.json",
+    "research/notes/ELLIPTIC_PARAMETER_REDUNDANCY_20261101.md"
+  ],
+  "scope": "The universal identities identify the two rational first-jet parameter covers. Degree one of T40 and the equal3000-fold redundancies then give degree one of T39. No fullS61 exhaustion or finiteness assertion.",
+  "input_sha256": {
+    "code/elliptic_cremona_jet_20261101.py": "de321c2b61cb859a18303f1ef5efcfb13b3533b38438b9e921cc4c0e98eeb419",
+    "code/elliptic_weight1_dominance.py": "02a364c3998fba86df6b704f2c4e9e7660ff9674329e6ae770c8cbf2b3342d2e",
+    "code/elliptic_six_variable_fiber.py": "303997092cb62afb5e3943c3df5a93ce39d04cd51726cd2b91b721199607e2f3"
+  }
+}

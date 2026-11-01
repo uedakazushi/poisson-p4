@@ -1,10 +1,21 @@
 # 研究ノートと評価資料の入口
 
-**v29-s61、2026-10-31。楕円型五変数模型、トーリック一般次数3、一般延長数の下界5。**
+**v30-s61、2026-11-01。楕円型の全域二次切断、既知五延長の三平面。**
 
-## 今回の研究成果
+## v30 の新しい入口
 
-- [楕円型の五変数模型](ELLIPTIC_SIX_VARIABLE_FIBER_20261031.md)、[独立点検](ELLIPTIC_FIVE_VARIABLE_REVIEW_20261031.md)：Sp4と倍率の一意復元、位数50の表示重複。次数は未決。
+- [楕円二次切断 Q51](Q51_UNIVERSAL_SECTION_20261101.md)、[Q52](Q52_UNIVERSAL_SECTION_20261101.md)、[交叉](ELLIPTIC_SECTION_INTERSECTION_20261101.md)。
+- [表示重複3000](ELLIPTIC_PARAMETER_REDUNDANCY_20261101.md)、[一般次数1とCremona対応](ELLIPTIC_GENERIC_DEGREES_20261101.md)。
+- [標準楕円曲線](PRIMITIVE_JET_ELLIPTIC_CURVE_20261101.md)、[トーリックS3被覆](TORIC_MONODROMY_20261101.md)。
+- [普遍的三平面](TORIC_UNIVERSAL_THREE_PLANE_20261101.md)、[五点積代数](S61_FIVE_COVER_PRODUCT_20261101.md)。
+- [輸送保存則への反例](CURVE_INVARIANT_SMOOTH_COUNTEREXAMPLE_20261101.md)、[T02一次像](MPS_T02_FIRST_JET_20261101.md)、[無限遠局所消去](S61_LOCAL_ELIMINATION_20261101.md)。
+- [可換代数境界](TORIC_ALGEBRA_BOUNDARY_20261101.md)、[二捩れ同定の標本](TORIC_TWO_TORSION_SAMPLES_20261101.md)：後者は普遍的証明ではない。
+
+
+
+## v29から維持する研究成果
+
+- [楕円型の五変数模型](ELLIPTIC_SIX_VARIABLE_FIBER_20261031.md)、[独立点検](ELLIPTIC_FIVE_VARIABLE_REVIEW_20261031.md)：Sp4と倍率の一意復元、位数50の表示重複。次数は後続v30で両方1と決定。
 - [全45変数模型の消去](S61_AFFINE_FIBER_REDUCTION_20261031.md)：134次の非零小行列式と、有限体上の完全な三次Macaulay計算。
 - [普遍的な重み6帰結G6](S61_UNIVERSAL_WEIGHT6_20261031.md)、[独立点検](S61_UNIVERSAL_WEIGHT6_REVIEW_20261031.md)：36関係から非Bianchi関係を抽出し、同じイデアルを135二次式で扱う。独立点検§6で全flag incidenceの残存も証明。
 - [楕円型の直線制限](ELLIPTIC_FIBER_LINE_PROBE_20261031.md)：QQ(t)計算とgcdによる一つの被約点。五変数全体の次数ではない。

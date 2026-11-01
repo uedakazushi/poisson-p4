@@ -33,9 +33,9 @@
 \newtheorem{remark}[theorem]{注意}
 \renewcommand{\proofname}{証明}
 \title{射影四空間の Poisson 構造の一次ジェット還元\\
-\large Toric 射影の次数三、五つの一般延長と無限遠の障害}
+\large 二つの普遍的楕円切断、Toric 三次被覆と五点の三平面}
 \author{Poisson P4 研究プロジェクト・内部研究草稿}
-\date{2026年10月31日・v29-s61}
+\date{2026年11月1日・v30-s61}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -49,7 +49,10 @@ primitive な一次ジェットの16次元空間への射影を調べる。
 16変数の明示方程式の解の $S_5$ 軌道として表し、さらにラベルを除いた20変数・96二次式へ還元する。
 普遍的一次消去と有限な近傍の構成により、toric成分の一般次数が3、順序付きcoframeの次数が360であることを証明する。
 楕円二族では共変 frame とスカラー不変量により、一般の固定一次部分を五変数・30本の有理等式へ還元する。
-位数50の表示重複を証明するが、楕円型の一般次数は決定しない。
+さらに二つの楕円成分の被約閉包を全一次空間上の斉次二次多項式graphとして構成し、
+両一般次数を1、表示重複を3000と決定する。二graphの交叉は五次元の旗円錐で、
+原点に長さ10の冪零部分を持つ。Toric三次被覆の幾何学的モノドロミーは$S_3$である。
+既知五延長を含む有理的アフィン三平面を構成し、その平面断面の全代数を決定する。
 全S61の未飽和斉次化には、非零一次項ごとに3次元の旗の無限遠部分が必ず現れることも示す。
 基礎となる perspective 正規化は有限の多項式公式で与えられ、一意である。
 特殊層では、係数階数一の5次元軌道上の全解を45変数・134二次式の固定 fibre へ帰着し、
@@ -1000,9 +1003,8 @@ $\Sp_4$ の中心 $-I$ は一意な frame 復元に含まれており、別の�
 \begin{equation}\label{eq:elliptic-degree-redundancy}
  N_k=\rho_kd_k=50e_kd_k,\qquad e_k\in\mathbb Z_{>0}.
 \end{equation}
-$50$ が全表示重複であるとは証明していない。
-異なる $\lambda$ 間の projective 同型を含む $\rho_k$ の決定と、
-五変数方程式の全解の長さ $N_k$ の計算は別の課題である。
+この位数50の部分群だけでは全表示重複を決定できない。
+後述の普遍切断と正常化群の計算により、$d_k=1$、$\rho_k=N_k=3000$、$e_k=60$を得る。
 \eqref{eq:elliptic-five-equations}は展開前の有限個の加減乗除による明示式だが、
 そのGr\"obner基底や明示的な有限\'etale近傍は未計算である。
 
@@ -1324,7 +1326,7 @@ T39とT40からもそれぞれ少なくとも一つの逆像があり、
 
 五点は、同じ正規化座標と一次項を持つ相異なる射影 Poisson 双ベクトルを意味する。
 $\PGL_5$ 同型類の個数を数えたものではない。
-T01の一般次数は3であるが、T39・T40の一般次数は未決であり、未知成分が $W$ を支配する可能性も残る。
+T01の一般次数は3、T39・T40の一般次数は後述の普遍切断により1である。未知成分が $W$ を支配する可能性は残る。
 特に全 fibre が有限、またはちょうど五点であるという結論は得られない。
 
 \section{未飽和斉次化の無限遠に現れる旗}\label{sec:infinity}
@@ -1516,13 +1518,215 @@ coframe 復元の一般 Jacobi・Pfaffian、一次式、16次小行列式、再�
   --output reports/new-run/rank-one-fiber.json
 \end{verbatim}
 
+
+\section{二つの普遍的楕円切断とその交叉}\label{sec:universal-sections}
+ここで重み1座標を $\beta\in W$、重み2座標を $q\in\AA^{45}$ と略記する。
+「二次」は $\beta$ に関する次数であり、復元するアフィン双ベクトルの三次尾部を捨てる意味ではない。
+
+\begin{theorem}[全域の多項式 graph]
+有理係数の斉次二次写像 $Q_{51},Q_{52}:W\to\AA^{45}$ が存在し、
+$\Gamma_k=\{q=Q_k(\beta)\}$ はそれぞれ $T39,T40$ の被約 $S_{61}$ 閉包に等しい。
+従って両成分の一次射影は全域で $W\simeq\AA^{16}$ への同型であり、任意の一次部分は延長する。
+\end{theorem}
+\begin{proof}
+まず $Q_{52}$ を構成する。旧gaugeの一次項を $L$、$\beta_{\rm old}=-JLJ$ とする。
+primitive bivector $Z$ の五次元空間上で
+\[
+ \ell_\beta(Z)_a=\sum_{i<j}(\beta_{\rm old})_{ij,a}Z_{ij},\qquad
+ w(Z)=-J\ell_\beta(Z)
+\]
+と置く。既知 $q_{5,2}$ の五次元定数核は
+$\left(\begin{smallmatrix}Z&w\\-w^t&0\end{smallmatrix}\right)$ のgraphとして一次部分から復元される。
+その点 $y$ での射影は $Z+yw^t-wy^t$ であり、$P$ のPfaffian随伴 $N(P)$ について
+\begin{equation}\label{eq:graph-annihilation}
+ \langle N(P(y)),Z+yw^t-wy^t\rangle=0
+\end{equation}
+が必要である。この $y$ 次数2の係数を取り、$Z$ の五係数を分離すると
+$Aq=b(\beta)$ を得る。$A$ は定数 $50\times45$ 行列で、保存した最大小行列式は $-4$。
+従って唯一の二次候補 $Q_{52}$ が全域で定まる。
+その45式の非零単項式は計186個であり、全134式への代入、三次尾部を含む
+\eqref{eq:graph-annihilation}、直接Jacobi恒等式を $\QQ[\beta]$ 上で確認した。
+これは標本の補間ではなく、保存した全多項式の恒等式である\cite{universal-sections}。
+既知 $T40$ の稠密開部分で上の一意性が成立するので、閉既約16次元graphはその被約閉包である。
+
+$Q_{51}$ の構成にはprimitive形式を用いる。$X=-J\beta(y)y$、$f=\operatorname{Pf}(\beta(y))$、
+\[
+ g(y)=\sum_{a,b,i,j,k,l}\beta_{ai,j}\beta_{bk,l}J_{ik}J_{jl}y_ay_b
+\]
+とし、閉な二次二形式を
+\[
+ \eta_1=(DX)^tJ(DX),\quad
+ \eta_2=\dd(f\,\iota_E\Omega),\quad
+ \eta_3=\dd(g\,\iota_E\Omega)
+\]
+と定める。閉形式 $\eta$ を $-J\eta J$ へ上げて重み2差分座標へ移す定数線形写像を $R$ とすると
+\begin{equation}\label{eq:universal-q51}
+ Q_{51}=Q_{52}-\frac58R(\eta_1)-\frac34R(\eta_2)-\frac3{32}R(\eta_3).
+\end{equation}
+同じ一次部分を持つ二つの双ベクトルの二次差分は、接線写像が恒等のperspectiveで変わらない。
+従ってこのprimitive計算を旧座標へ戻せる。
+45式には計189個の二次単項式があり、全134式と直接Jacobi恒等式を全16変数で検証した。
+既存の $T39$ の全 $S_{61}$ 滑らかな点と一致するので、そこを通る唯一の成分と
+閉既約16次元graphが一致する。独立実装は一般二次双ベクトルの60係数から復元して両式を確認する。
+\end{proof}
+
+\begin{proposition}[graded同変切断の限定的一意性]
+重みを保つ $\Sp_4$ 同変な多項式切断は $Q_{51},Q_{52}$ の二つに限る。
+\end{proposition}
+\begin{proof}
+閉二次形式の45次元表現を $K$ とすると、最高重みのDynkin座標で
+\[
+ \operatorname{Sym}^2W=V(2,2)\oplus V(2,1)\oplus2V(2,0),\qquad
+ K=V(2,1)\oplus V(2,0).
+\]
+従って同変二次写像の空間は3次元であり、上の三共変量は独立な基底を与える。
+任意の候補は $Q_{52}+aR(\eta_1)+bR(\eta_2)+cR(\eta_3)$ と書ける。
+旧一次座標を順に $1,\ldots,16$ とした一点で、全134式の代入イデアルのGr\"obner基底は
+\[
+ a-20c/3,\quad b-8c,\quad c^2+3c/32
+\]
+である。従って定数組は二つに限られ、両候補の普遍的成立は既に証明した。
+この議論は有理切断や多価延長、未知成分を排除しない。
+\end{proof}
+
+\begin{proposition}[表示の一般重複]
+二族とも $\rho_k=N_k=3000$ である。
+\end{proposition}
+\begin{proof}
+Heisenberg群 $H_{25}$ の射影正常化群は $H_{25}\rtimes\operatorname{SL}_2(\mathbb F_5)$、位数3000である。
+Fourier変換と位相変換の生成元で両族の全係数の変換を確認すると、$\lambda$ 上の作用の像は位数60、
+核は既述の位数50の群になる。族の $\lambda$ 表示は有理正規五次曲線として単射である。
+$q_{5,1}$ の零曲線、および $q_{5,2}$ の零楕円scrollから復元する基底曲線の $E[5]$ は内在的なので、
+一般のパラメータ間の射影同型もこの群を正常化する。scrollの場合、安定束の自己同型がスカラーであるため
+基底への作用の核は新たな射影同型を加えない。これにより全重複度の上界も3000となる。
+一般の標識点は非自明な群元の固定集合を避けるので3000表示が相異なる。
+原資料の定理・全生成元計算・開条件は\cite{elliptic-redundancy-new}に記録した。
+一般次数1と次数乗法則から $N_k=3000$ が従う。
+\end{proof}
+
+\begin{theorem}[二graphのスキーム論的交叉]
+$R_0=\QQ[\beta_1,\ldots,\beta_{16}]$、$\mathfrak m=(\beta_1,\ldots,\beta_{16})$ とし、
+$I=(Q_{51}-Q_{52})$、$J_1$ をprimitive係数行列 $V\to\wedge^2_0V^*$ の全二次小行列式のイデアルとする。
+このとき $J_1$ は次元5、次数24の旗円錐の素イデアルで、
+\[
+ \sqrt I=J_1,\qquad J_1/I\simeq(R_0/\mathfrak m)(-2)^{\oplus10}.
+\]
+\end{theorem}
+\begin{proof}
+全係数の有理行計算により $I\subset J_1$、$\mathfrak mJ_1\subset I$ を示す。
+次数2の階数は45と55、次数3の共通階数は560である。
+従って商 $J_1/I$ は次数2の10次元だけで、$\mathfrak m$ に殺される。
+階数1のprimitive閉形式は既述の単一 $\Sp_4$ 軌道であり、その閉包は最高重み $(1,1)$ の旗円錐。
+その素イデアルに $J_1$ は含まれる。55個の二次式のGr\"obner基底と全Hilbert級数の独立計算は
+次数 $n$ の次元が $(n+1)^4$ であることを与える。これは旗円錐と一致するのでイデアルも一致する。
+従って $J_1$ は素で、有限長商の平方は零、根基の等式も従う\cite{elliptic-intersection-new}。
+これは二つの被約成分の交叉であり、周囲の全 $S_{61}$ の局所環の記述ではない。
+\end{proof}
+
+\section{標準楕円曲線とトーリック三次被覆}\label{sec:canonical-curve}
+$\operatorname{LG}(2,4)\simeq Q^3\subset\PP^4$ 上で
+$\beta|_{\Pi^3}=0$ とする零点を $C_\beta$ と書く。
+これは $\mathcal U^*(1)$ の切断で、切断空間は $W$ と同型である。
+
+\begin{proposition}
+一般 $\beta$ に対し $C_\beta$ は滑らかな連結楕円正規五次曲線である。
+\end{proposition}
+\begin{proof}
+評価の全射性は一つの二平面での階数2と $\Sp_4$ の推移性から従う。
+よって一般切断の零点は滑らかである。
+$c_1(\mathcal U^*(1))=3H$、$c_2=5[\text{直線}]$ から次数5、随伴公式から標準束は自明。
+Koszul列と $0\to\mathcal U\to\mathcal O^4\to\mathcal U^*\to0$ のコホモロジー計算で
+連結性と線形正規性が従う。計算の各群は\cite{canonical-curve-new}に記録した。
+具体的にはprimitive Pl\"ucker行列 $P$ と $A_k=\sum_{i<j}\beta_{ij,k}P_{ij}$ を用い、
+$C_\beta$ はquadric $q=0$ と $PA=0$ で定義される。
+$PD=-qI$ を満たすPfaffian随伴 $D$ を取れば
+$\left(\begin{smallmatrix}D&A\\-A^t&0\end{smallmatrix}\right)$ の五Pfaffianがこの五二次式を与える。
+\end{proof}
+
+\begin{theorem}[幾何学的モノドロミー]
+$T01\to W$ の三次被覆の幾何学的モノドロミーは $S_3$ である。
+\end{theorem}
+\begin{proof}
+既約な $\GL_4/S_5$ からの表示により被覆は既約で、モノドロミーは推移的である。
+保存した直線 $\beta(t)$ 上の有限な三次代数のtrace判別式を厳密に求めると
+\[
+ 7474295088540\, Q_{12}(t)^2/D_{10}(t)^3
+\]
+となる。$D_{10}$ は次数10の平方自由多項式で、$Q_{12}$ と互いに素であることを
+B\'ezout恒等式で確認した\cite{toric-monodromy-new}。
+従ってこれは $\CC(t)$ で平方でない。
+もし全体の判別式が平方なら、正規な有限エタール開集合上の平方根は正則な単元となり、
+直線制限も平方になるので矛盾する。推移的な三次群で $A_3$ に入らないものは $S_3$ である。
+分母の零点はこの表示の有限開集合の外にあり、アフィン分岐点と断定しない。
+\end{proof}
+
+\section{既知五点を含む普遍的三平面}\label{sec:five-plane}
+トーリック模型の20変数を $c\in\operatorname{Sym}^3V^*$ と書く。
+全96結合則式を $E=H(c,c)+B(\beta,c)+C(\beta,\beta)$ と分ける。
+$H$ の係数行列の階数は45、定数左核は51次元である。
+
+\begin{theorem}
+$\beta$ に線形な行列 $L(\beta)$、$N(\beta)$ と二次写像 $\bar q(\beta)$ があり、
+トーリック解は $Lc=0$、$q=\bar q+Nc$ を満たす。また普遍的に
+\[
+ 3\bar q=2Q_{51}+Q_{52}.
+\]
+一般 $\beta$ では $\ker L$ は2次元で、
+\[
+ \mathcal L_\beta=\bar q+N\ker L+
+ \CC(Q_{52}-\bar q)
+\]
+は既知五延長を含むアフィン三平面である。その三平面との全 $S_{61,\beta}$ の交叉は
+被約な長さ5で、関数体 $K=\CC(W)$ 上の代数は $A_T\times K\times K$ となる。
+\end{theorem}
+\begin{proof}
+トーリック復元 $P=FJF^t$、$F=I+m_y-y(y^tq_{\rm tr})$ の二次jetの $c^2$ 係数は、
+$H$ と同じ45次元行空間を張る。従って選んだ45本の $E$ を定数行変換で引くと $c^2$ が消える。
+全51左核に対する $\beta^2$ 項も恒等的に零なので $Lc=0$ を得る。
+perspective復元後の定数項が $\bar q$、線形項が $Nc$ である。
+全36変数上の係数恒等式でこの消去と $3\bar q=2Q_{51}+Q_{52}$ を確認した。
+既存の有限三次模型と階数18小行列式により一般の $\ker L$ は2次元。
+$N$ の核上の単射性と三平面の次元は非零小行列式で確認した\cite{universal-plane-new}。
+
+平面座標を $q=\bar q+NT(x,y)^t+(Q_{52}-\bar q)\sigma$ とする。
+三トーリック点は $\sigma=0$、楕円二点は $(0,0,-1/2),(0,0,1)$ にある。
+$A_T=K[x,y]/(R_1,R_2,R_3)$ と書き、二次最高部分を $x^2,xy,y^2$ の基底に選ぶ。
+$k_i=R_i(0,0)$ の少なくとも一つが非零となる開集合で、五点のイデアルは
+\[
+ (\sigma x,\sigma y,R_i+k_i(\sigma-2\sigma^2)\ (1\leq i\leq3)).
+\]
+最後の三式に $\sigma$ を掛けると $\sigma(\sigma-1)(\sigma+1/2)=0$ となり、
+Chinese remainderにより $A_T\times K\times K$ を得る。
+全134式の平面制限は五点に消える二次式なので行空間の次元は高々5。
+指定標本で非零5次小行列式があるため一般に階数5であり、この五生成式と同じ空間を張る。
+よって全制限イデアルも一致する。独立検算は三次単項式の還元小行列式4による相対有限性も確認した。
+\end{proof}
+
+この定理は全ファイバーが $\mathcal L_\beta$ に含まれることを証明しない。
+残る核心は、その42本のアフィン一次条件を全134式の根基から導くことである。
+
+\subsection{全体へ追加できない不変量条件}
+曲線 $C_\beta$ の不変量 $c_4,c_6,j$ は三つの既知支配成分では基点移動に対して保存されるが、
+全 $S_{61}$ では保存されない。斉次双ベクトル
+$B_{01}=-2x_2^2$、$B_{0j}=0$ ($j>1$)、
+$B_{ij}=a_{ij}x_ix_j$ ($1\leq i<j\leq4$)、
+$(a_{12},a_{13},a_{14},a_{23},a_{24},a_{34})=(2,8,12,3,5,7)$ を取る。
+これは既知 $T02$ に属し、全Jacobi式を満たす。
+二基点 $(2,1,1,1)$ と $(3,1,1,1)$ の正規化後の不変量は
+\[
+ (c_4,c_6)=(6371584,15372597248),\quad
+ (3347089,5894745263)
+\]
+となり、両判別式は非零だが $j$ は異なる。frame行列式と $I_4,I_{14}$ も両点で非零である。
+従ってこれらを局所化しても保存則を全S61の追加方程式にできない\cite{transport-counterexample-new}。
+$T02$ の一次像は微分階数15と既知次元15から既約超曲面となり、一般 $W$ への支配成分ではない。
+
 \section{残る問題}
-一般一次項の延長可能性、T01の一般次数3、既知三成分からの少なくとも五つの相異なる延長は証明した。
-次の課題はT01の分岐・例外層、三次被覆のモノドロミー、T39・T40の一般次数、
-および未知成分からの延長を排除できるかである。
-楕円型では定理\ref{thm:elliptic-five}の五変数模型を得たが、その全解の長さ $N_k$ と
-全表示重複 $\rho_k$ は未決であり、式\eqref{eq:elliptic-degree-redundancy}を区別して計算する。
-特殊値での解数を一般次数にするには、局所化と有限な近傍の制御も必要である。
+全一次項の延長可能性、楕円二成分の全域graphと一般次数1、表示重複3000、
+T01の一般次数3と$S_3$モノドロミー、および既知五延長の三平面断面の積代数は証明した。
+次の主課題は全ファイバーの三平面への包含、特殊層、未知成分の排除である。
+標準楕円曲線の非零二捩れとトーリック三次被覆の同定には標本上の厳密な同型があるが、
+本checkpointでは普遍的証明とはしていない。
 全S61の未飽和斉次化には定理\ref{thm:infinity}の旗の部分が必ず現れるため、
 斉次化変数による飽和の制御、またはアフィンでの局所化と消去が必要となる。
 
@@ -1537,7 +1741,6 @@ $\mathcal C_A,\mathcal C_B$ は共通の閉集合 $Z$ 上に10次元の一般 fi
 本稿はその上界を与えず、下界57を正確な総数へ変更しない。
 特殊軌道・成分交叉・冪零構造は、さらに別の未解決目標として維持する。
 
-\clearpage
 \begingroup\footnotesize
 \begin{thebibliography}{99}
 \setlength{\itemsep}{0pt}
@@ -1628,6 +1831,28 @@ arXiv:1001.4422v2 (2010), equations (16), (18), (19), (21).
 \nolinkurl{research/notes/MPS40_CROSSWALK_20261031.md}、
 \nolinkurl{reports/MPS40_CROSSWALK_20261031.json}、
 \nolinkurl{code/mps_catalog_audit.py}。
+
+\bibitem{universal-sections} 同プロジェクト、2026-11-01、
+\nolinkurl{research/notes/Q51_UNIVERSAL_SECTION_20261101.md}、
+\nolinkurl{research/notes/Q52_UNIVERSAL_SECTION_20261101.md}、同名独立reviewとJSON証明書。
+\bibitem{elliptic-redundancy-new} 同プロジェクト、
+\nolinkurl{research/notes/ELLIPTIC_PARAMETER_REDUNDANCY_20261101.md}、
+\nolinkurl{research/notes/ELLIPTIC_GENERIC_DEGREES_20261101.md}。
+FisherおよびMarkarian--Polishchukの使用箇所・仮定は当該ノートに記録。
+\bibitem{elliptic-intersection-new} 同プロジェクト、
+\nolinkurl{research/notes/ELLIPTIC_SECTION_INTERSECTION_20261101.md}、同名review・証明書。
+\bibitem{canonical-curve-new} 同プロジェクト、
+\nolinkurl{research/notes/PRIMITIVE_JET_ELLIPTIC_CURVE_20261101.md}、
+\nolinkurl{research/notes/PRIMITIVE_JET_CURVE_LOCAL_REVIEW_20261101.md}。
+\bibitem{toric-monodromy-new} 同プロジェクト、
+\nolinkurl{research/notes/TORIC_MONODROMY_20261101.md}、同名review・証明書。
+\bibitem{universal-plane-new} 同プロジェクト、
+\nolinkurl{research/notes/TORIC_UNIVERSAL_THREE_PLANE_20261101.md}、同名review、
+\nolinkurl{research/notes/S61_FIVE_COVER_PRODUCT_20261101.md}。
+\bibitem{transport-counterexample-new} 同プロジェクト、
+\nolinkurl{research/notes/CURVE_INVARIANT_SMOOTH_COUNTEREXAMPLE_20261101.md}、同名review、
+\nolinkurl{research/notes/MPS_T02_FIRST_JET_20261101.md}。
+
 \end{thebibliography}
 \endgroup
 \end{document}

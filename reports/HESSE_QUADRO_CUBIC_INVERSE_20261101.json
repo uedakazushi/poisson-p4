@@ -1,0 +1,107 @@
+{
+  "id": "HESSE_QUADRO_CUBIC_INVERSE_20261101",
+  "field": "QQ(lam)",
+  "all_passed": true,
+  "quadratic_map": [
+    "lam*x1*x4 + x0**2 - x2*x3/lam",
+    "lam*x0*x2 + x1**2 - x3*x4/lam",
+    "lam*x1*x3 + x2**2 - x0*x4/lam",
+    "lam*x2*x4 + x3**2 - x0*x1/lam",
+    "lam*x0*x3 + x4**2 - x1*x2/lam"
+  ],
+  "syzygy_matrix": [
+    [
+      "0",
+      "-lam*x3",
+      "x1",
+      "-x4",
+      "lam*x2"
+    ],
+    [
+      "lam*x3",
+      "0",
+      "-lam*x4",
+      "x2",
+      "-x0"
+    ],
+    [
+      "-x1",
+      "lam*x4",
+      "0",
+      "-lam*x0",
+      "x3"
+    ],
+    [
+      "x4",
+      "-x2",
+      "lam*x0",
+      "0",
+      "-lam*x1"
+    ],
+    [
+      "-lam*x2",
+      "x0",
+      "-x3",
+      "lam*x1",
+      "0"
+    ]
+  ],
+  "inverse_kernel_matrix": [
+    [
+      "0",
+      "y2",
+      "lam*y4",
+      "-lam*y1",
+      "-y3"
+    ],
+    [
+      "-y4",
+      "0",
+      "y3",
+      "lam*y0",
+      "-lam*y2"
+    ],
+    [
+      "-lam*y3",
+      "-y0",
+      "0",
+      "y4",
+      "lam*y1"
+    ],
+    [
+      "lam*y2",
+      "-lam*y4",
+      "-y1",
+      "0",
+      "y0"
+    ],
+    [
+      "y1",
+      "lam*y3",
+      "-lam*y0",
+      "-y2",
+      "0"
+    ]
+  ],
+  "cubic_inverse": [
+    "-lam**4*y0*y1*y4 - lam**3*y1**2*y3 - lam**3*y2*y4**2 + lam**2*y0**3 + lam*y1*y2**2 + lam*y3**2*y4 - y0*y2*y3",
+    "-lam**4*y0*y1*y2 - lam**3*y0**2*y3 - lam**3*y2**2*y4 + lam**2*y1**3 + lam*y0*y4**2 + lam*y2*y3**2 - y1*y3*y4",
+    "-lam**4*y1*y2*y3 - lam**3*y0*y3**2 - lam**3*y1**2*y4 + lam**2*y2**3 + lam*y0**2*y1 + lam*y3*y4**2 - y0*y2*y4",
+    "-lam**4*y2*y3*y4 - lam**3*y0*y2**2 - lam**3*y1*y4**2 + lam**2*y3**3 + lam*y0**2*y4 + lam*y1**2*y2 - y0*y1*y3",
+    "-lam**4*y0*y3*y4 - lam**3*y0**2*y2 - lam**3*y1*y3**2 + lam**2*y4**3 + lam*y0*y1**2 + lam*y2**2*y3 - y1*y2*y4"
+  ],
+  "composition_factor_x": "(-lam**10*x0*x1*x2*x3*x4 - lam**9*x0**3*x2*x3 - lam**9*x0*x1*x3**3 - lam**9*x0*x2**3*x4 - lam**9*x1**3*x3*x4 - lam**9*x1*x2*x4**3 - lam**8*x0**2*x1**2*x3 - lam**8*x0**2*x2*x4**2 - lam**8*x0*x2**2*x3**2 - lam**8*x1**2*x2**2*x4 - lam**8*x1*x3**2*x4**2 + 2*lam**7*x0**2*x1*x2**2 + 2*lam**7*x0**2*x3**2*x4 + 2*lam**7*x0*x1**2*x4**2 + 2*lam**7*x1**2*x2*x3**2 + 2*lam**7*x2**2*x3*x4**2 + 3*lam**6*x0**3*x1*x4 + 3*lam**6*x0*x1**3*x2 + 3*lam**6*x0*x3*x4**3 + 3*lam**6*x1*x2**3*x3 + 3*lam**6*x2*x3**3*x4 + lam**5*x0**5 - 16*lam**5*x0*x1*x2*x3*x4 + lam**5*x1**5 + lam**5*x2**5 + lam**5*x3**5 + lam**5*x4**5 - 3*lam**4*x0**3*x2*x3 - 3*lam**4*x0*x1*x3**3 - 3*lam**4*x0*x2**3*x4 - 3*lam**4*x1**3*x3*x4 - 3*lam**4*x1*x2*x4**3 + 2*lam**3*x0**2*x1**2*x3 + 2*lam**3*x0**2*x2*x4**2 + 2*lam**3*x0*x2**2*x3**2 + 2*lam**3*x1**2*x2**2*x4 + 2*lam**3*x1*x3**2*x4**2 + lam**2*x0**2*x1*x2**2 + lam**2*x0**2*x3**2*x4 + lam**2*x0*x1**2*x4**2 + lam**2*x1**2*x2*x3**2 + lam**2*x2**2*x3*x4**2 - lam*x0**3*x1*x4 - lam*x0*x1**3*x2 - lam*x0*x3*x4**3 - lam*x1*x2**3*x3 - lam*x2*x3**3*x4 + x0*x1*x2*x3*x4)/lam**3",
+  "composition_factor_y": "(lam**10*y0*y1*y2*y3*y4 + lam**9*y0**2*y1*y2**2 + lam**9*y0**2*y3**2*y4 + lam**9*y0*y1**2*y4**2 + lam**9*y1**2*y2*y3**2 + lam**9*y2**2*y3*y4**2 + lam**8*y0**3*y2*y3 + lam**8*y0*y1*y3**3 + lam**8*y0*y2**3*y4 + lam**8*y1**3*y3*y4 + lam**8*y1*y2*y4**3 - 2*lam**7*y0**3*y1*y4 - 2*lam**7*y0*y1**3*y2 - 2*lam**7*y0*y3*y4**3 - 2*lam**7*y1*y2**3*y3 - 2*lam**7*y2*y3**3*y4 - 3*lam**6*y0**2*y1**2*y3 - 3*lam**6*y0**2*y2*y4**2 - 3*lam**6*y0*y2**2*y3**2 - 3*lam**6*y1**2*y2**2*y4 - 3*lam**6*y1*y3**2*y4**2 + lam**5*y0**5 + 6*lam**5*y0*y1*y2*y3*y4 + lam**5*y1**5 + lam**5*y2**5 + lam**5*y3**5 + lam**5*y4**5 + 3*lam**4*y0**2*y1*y2**2 + 3*lam**4*y0**2*y3**2*y4 + 3*lam**4*y0*y1**2*y4**2 + 3*lam**4*y1**2*y2*y3**2 + 3*lam**4*y2**2*y3*y4**2 - 2*lam**3*y0**3*y2*y3 - 2*lam**3*y0*y1*y3**3 - 2*lam**3*y0*y2**3*y4 - 2*lam**3*y1**3*y3*y4 - 2*lam**3*y1*y2*y4**3 - lam**2*y0**3*y1*y4 - lam**2*y0*y1**3*y2 - lam**2*y0*y3*y4**3 - lam**2*y1*y2**3*y3 - lam**2*y2*y3**3*y4 + lam*y0**2*y1**2*y3 + lam*y0**2*y2*y4**2 + lam*y0*y2**2*y3**2 + lam*y1**2*y2**2*y4 + lam*y1*y3**2*y4**2 - y0*y1*y2*y3*y4)/lam",
+  "rank4_minor_at_e0": "-lam**2",
+  "identities": [
+    "Phi(x)*Q(x)=0",
+    "Phi(x)*y=A(y)*x",
+    "y^T*A(y)=0",
+    "A(y)*R(y)=0",
+    "R(Q(x))=factor_x*x",
+    "Q(R(y))=factor_y*y"
+  ],
+  "open_sets": "lambda !=0; source factor_x !=0 and target factor_y !=0; both nonempty since factors at e0 are lambda\u00b2,lambda\u2074.",
+  "scope": "The quadratic map is birational with the displayed cubic inverse. No assertion that it preserves normalized primitive jets is included.",
+  "source_sha256": "db4b750dd754f717e37c26d909b6541ca5fd03cd1eabae9251f5b9daa48e5ccb"
+}

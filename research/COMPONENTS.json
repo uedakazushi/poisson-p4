@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "checkpoint": "v29-s61",
-  "date": "2026-10-31",
+  "checkpoint": "v30-s61",
+  "date": "2026-11-01",
   "base_mathematical_checkpoint": "v24",
   "new_components_added_in_this_setup": 0,
   "conventions": {
@@ -177,7 +177,9 @@
         "S61_TORIC_FIRST_JET_DOMINANCE",
         "S61_TORIC_COFRAME_FIBER",
         "S61_TORIC_ALGEBRA_FIBER",
-        "S61_TORIC_GENERIC_DEGREE_THREE"
+        "S61_TORIC_GENERIC_DEGREE_THREE",
+        "S61_TORIC_MONODROMY_S3",
+        "S61_KNOWN_FIVE_THREE_PLANE"
       ],
       "proof_sources": [
         {
@@ -211,7 +213,8 @@
       "generic_primitive_first_jet_image": "dominant onto W16; generically finite and generically etale",
       "general_degree": 3,
       "family_map": "reports/S61_FAMILIES_20261030/toric_T01_map.json",
-      "ordered_coframe_general_degree": 360
+      "ordered_coframe_general_degree": 360,
+      "geometric_monodromy": "S3"
     },
     {
       "id": "T02",
@@ -282,7 +285,9 @@
       "meets_SNC_log_symplectic_locus": true,
       "claims": [
         "MPS40",
-        "MPS40_CROSSWALK"
+        "MPS40_CROSSWALK",
+        "S61_T02_FIRST_JET_HYPERSURFACE",
+        "S61_CURVE_TRANSPORT_COUNTEREXAMPLE"
       ],
       "proof_sources": [
         {
@@ -296,7 +301,7 @@
       "verification_records": [
         "reports/MPS40_CROSSWALK_20261031.json"
       ],
-      "s61_coordinate_map_status": "not_constructed_by_this_audit",
+      "s61_coordinate_map_status": "explicit five-parameter family with point/frame normalization; defining ideal not constructed",
       "review_status": {
         "proof": "published_theorem",
         "primary_diagram_crosswalk": "exact_S5_match",
@@ -306,7 +311,7 @@
         "内部IDは文献の番号ではない。MPS40_BLOCKとの二重加算をしない。",
         "個別図式・次元の台帳であり、全成分のS61定義イデアルを構築したわけではない。"
       ],
-      "generic_primitive_first_jet_image": "not dominant: S61 component dimension below 16"
+      "generic_primitive_first_jet_image": "irreducible hypersurface of dimension 15"
     },
     {
       "id": "T03",
@@ -4541,7 +4546,10 @@
         "MPS40_CROSSWALK",
         "S61_KNOWN_DOMINANT_FIBER_ETALE",
         "S61_ELLIPTIC_FIRST_JET_DOMINANCE",
-        "S61_ELLIPTIC_FIVE_VARIABLE_FIBER"
+        "S61_ELLIPTIC_FIVE_VARIABLE_FIBER",
+        "S61_ELLIPTIC_UNIVERSAL_GRAPHS",
+        "S61_ELLIPTIC_GENERIC_DEGREES",
+        "S61_ELLIPTIC_GRAPH_INTERSECTION"
       ],
       "proof_sources": [
         {
@@ -4553,6 +4561,9 @@
         },
         {
           "path": "research/notes/ELLIPTIC_SIX_VARIABLE_FIBER_20261031.md"
+        },
+        {
+          "path": "research/notes/Q51_UNIVERSAL_SECTION_20261101.md"
         }
       ],
       "verification_records": [
@@ -4562,7 +4573,7 @@
         "reports/ELLIPTIC_SIX_VARIABLE_FIBER_20261031.json",
         "reports/ELLIPTIC_FIVE_VARIABLE_REVIEW_20261031.json"
       ],
-      "s61_coordinate_map_status": "general homogeneous rational family, point/frame/primitive normalization proved; S61 sample verified, all-parameter 61-coordinate export not yet saved",
+      "s61_coordinate_map_status": "explicit homogeneous quadratic polynomial graph q=Q51 over all W16",
       "review_status": {
         "proof": "published_theorem",
         "primary_diagram_crosswalk": "exact_S5_match",
@@ -4572,15 +4583,19 @@
         "内部IDは文献の番号ではない。MPS40_BLOCKとの二重加算をしない。",
         "個別図式・次元の台帳であり、全成分のS61定義イデアルを構築したわけではない。"
       ],
-      "generic_primitive_first_jet_image": "dominant onto W16; generically finite and generically etale",
-      "general_degree": null,
+      "generic_primitive_first_jet_image": "all W16; reduced component projection is an isomorphism",
+      "general_degree": 1,
       "fixed_first_jet_parameter_model": {
         "variables": 5,
         "rational_equations": 30,
         "code": "code/elliptic_six_variable_fiber.py",
         "parameter_redundancy_divisor": 50,
-        "full_parameter_redundancy": null
-      }
+        "full_parameter_redundancy": 3000,
+        "general_length": 3000
+      },
+      "generic_parameter_redundancy": 3000,
+      "five_variable_parameter_fiber_general_length": 3000,
+      "reduced_s61_ideal": "(q_i - Q51_i(beta): i=1,...,45)"
     },
     {
       "id": "T40",
@@ -4719,7 +4734,10 @@
         "MPS40_CROSSWALK",
         "S61_KNOWN_DOMINANT_FIBER_ETALE",
         "S61_ELLIPTIC_FIRST_JET_DOMINANCE",
-        "S61_ELLIPTIC_FIVE_VARIABLE_FIBER"
+        "S61_ELLIPTIC_FIVE_VARIABLE_FIBER",
+        "S61_ELLIPTIC_UNIVERSAL_GRAPHS",
+        "S61_ELLIPTIC_GENERIC_DEGREES",
+        "S61_ELLIPTIC_GRAPH_INTERSECTION"
       ],
       "proof_sources": [
         {
@@ -4731,6 +4749,9 @@
         },
         {
           "path": "research/notes/ELLIPTIC_SIX_VARIABLE_FIBER_20261031.md"
+        },
+        {
+          "path": "research/notes/Q52_UNIVERSAL_SECTION_20261101.md"
         }
       ],
       "verification_records": [
@@ -4740,7 +4761,7 @@
         "reports/ELLIPTIC_SIX_VARIABLE_FIBER_20261031.json",
         "reports/ELLIPTIC_FIVE_VARIABLE_REVIEW_20261031.json"
       ],
-      "s61_coordinate_map_status": "general homogeneous rational family, point/frame/primitive normalization proved; S61 sample verified, all-parameter 61-coordinate export not yet saved",
+      "s61_coordinate_map_status": "explicit homogeneous quadratic polynomial graph q=Q52 over all W16",
       "review_status": {
         "proof": "published_theorem",
         "primary_diagram_crosswalk": "exact_S5_match",
@@ -4750,15 +4771,19 @@
         "内部IDは文献の番号ではない。MPS40_BLOCKとの二重加算をしない。",
         "個別図式・次元の台帳であり、全成分のS61定義イデアルを構築したわけではない。"
       ],
-      "generic_primitive_first_jet_image": "dominant onto W16; generically finite and generically etale",
-      "general_degree": null,
+      "generic_primitive_first_jet_image": "all W16; reduced component projection is an isomorphism",
+      "general_degree": 1,
       "fixed_first_jet_parameter_model": {
         "variables": 5,
         "rational_equations": 30,
         "code": "code/elliptic_six_variable_fiber.py",
         "parameter_redundancy_divisor": 50,
-        "full_parameter_redundancy": null
-      }
+        "full_parameter_redundancy": 3000,
+        "general_length": 3000
+      },
+      "generic_parameter_redundancy": 3000,
+      "five_variable_parameter_fiber_general_length": 3000,
+      "reduced_s61_ideal": "(q_i - Q52_i(beta): i=1,...,45)"
     },
     {
       "id": "R2_RAT113",
