@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checkpoint": "v31-s61",
+  "checkpoint": "v32-s61",
   "date": "2026-11-01",
   "base_mathematical_checkpoint": "v24",
   "new_components_added_in_this_setup": 0,
@@ -185,7 +185,8 @@
         "S61_TORIC_OVER_SMOOTH_CURVE_BASE",
         "S61_TORIC_NORMALIZATION_AND_BOUNDARY_GAP",
         "S61_TORIC_ALGEBRA_BOUNDARY_IMAGES",
-        "S61_TORIC_GLOBAL_REDUCED_IDEAL"
+        "S61_TORIC_GLOBAL_REDUCED_IDEAL",
+        "S61_TORIC_ZERO_JET_DIMENSION_BOUNDS"
       ],
       "proof_sources": [
         {
@@ -236,9 +237,14 @@
       "family_map": "reports/S61_FAMILIES_20261030/toric_T01_map.json",
       "ordered_coframe_general_degree": 360,
       "geometric_monodromy": "S3",
-      "zero_first_jet_fiber_dimension_lower_bound": 8,
+      "zero_first_jet_fiber_dimension_lower_bound": 10,
       "finite_algebra_model_covers_full_boundary": false,
-      "reduced_s61_ideal": "Eliminate X from (f(X), Delta_hat*(q_i-qbar_i)-F_i : i=1,...,45) : Delta_hat^infinity; X=lambda(beta)*(q-qbar)"
+      "reduced_s61_ideal": "Eliminate X from (f(X), Delta_hat*(q_i-qbar_i)-F_i : i=1,...,45) : Delta_hat^infinity; X=lambda(beta)*(q-qbar)",
+      "zero_first_jet_fiber_dimension_upper_bound": 12,
+      "zero_first_jet_upper_bound_dependencies": [
+        "v06 ambient smoothness",
+        "v07 Q45 reduced classification"
+      ]
     },
     {
       "id": "T02",
@@ -311,7 +317,8 @@
         "MPS40",
         "MPS40_CROSSWALK",
         "S61_T02_FIRST_JET_HYPERSURFACE",
-        "S61_CURVE_TRANSPORT_COUNTEREXAMPLE"
+        "S61_CURVE_TRANSPORT_COUNTEREXAMPLE",
+        "S61_T02_INVARIANT_EQUATION_LOWER_BOUND"
       ],
       "proof_sources": [
         {
@@ -335,7 +342,8 @@
         "内部IDは文献の番号ではない。MPS40_BLOCKとの二重加算をしない。",
         "個別図式・次元の台帳であり、全成分のS61定義イデアルを構築したわけではない。"
       ],
-      "generic_primitive_first_jet_image": "irreducible hypersurface of dimension 15"
+      "generic_primitive_first_jet_image": "irreducible hypersurface of dimension 15",
+      "first_jet_hypersurface_equation_degree_lower_bound": 26
     },
     {
       "id": "T03",

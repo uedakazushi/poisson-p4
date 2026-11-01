@@ -1,6 +1,19 @@
 # Poisson structures on P4 — Codex instructions
 
-Version: v31-s61 · 2026-11-01 (Asia/Tokyo).
+Version: v32-s61 · 2026-11-01 (Asia/Tokyo).
+
+Current v32 additions: R0 infinity contains a P2-bundle over C_beta and
+nonbinary solutions indexed by E_beta=Pic^3(C_beta), proved by orthogonal
+Grassmannian duality. The generic fixed-v vertex radical is two P2s, one P1,
+and three points; exceptional parameters add strata and remain under study.
+At the recorded flag and nonbinary points, universal leading Jacobian ranks
+plus tangent-cone length bounds determine square-zero completed local rings;
+t=0 in these rings, so these points are removed by saturation. This upgrades
+the previous local-dimension-only limitations, not the entire infinity locus.
+The actual T01 zero-jet fiber contains all of the historical nil22 AB component;
+10<=dimension<=12, with the upper bound depending on v06/v07 classification.
+T02's invariant hypersurface equation has degree>=26. Do not repeat low-degree
+invariant fitting through24 or infer its equation from curve discriminants.
 
 Current continuation: T39=q(5,1) and T40=q(5,2) reduced S61 closures are
 explicit homogeneous quadratic graphs over ALL W16, hence both have degree ONE.
@@ -18,7 +31,7 @@ codimension>=2, then normality extends the rational solution. A polynomial
 weight-four X in beta,q gives the inverse coordinate. Therefore the ACTUAL
 reduced T01 over Delta!=0 equals the finite etale monic cubic cover, degree3.
 Globally T01 is the explicit affine modification described in the v31 notes,
-not the finite normalization of the base. Its beta=0 fiber has dimension>=8;
+not the finite normalization of the base. Its beta=0 fiber now has dimension between10 and12;
 the finite algebra model misses every nonzero point of that fiber. Do not
 continue treating the algebra-model boundary as potentially exhaustive.
 These statements do not exhaust full S61. The plane-adapted135-equation F4

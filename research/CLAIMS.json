@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checkpoint": "v31-s61",
+  "checkpoint": "v32-s61",
   "date": "2026-11-01",
   "base_mathematical_checkpoint": "v24",
   "new_mathematical_progress_in_this_setup": false,
@@ -59,6 +59,13 @@
         "Theorem 2.3"
       ],
       "scope": "Non-singularity/discriminant equivalence, Jacobian and invariant formulas; the new W16 discriminant irreducibility is proved separately."
+    },
+    "SHINDER_ZHANG_DUALITY": {
+      "url": "https://londmathsoc.onlinelibrary.wiley.com/doi/full/10.1112/blms.12339",
+      "anchors": [
+        "Proposition2.8"
+      ],
+      "scope": "Smooth orthogonal elliptic quintics are Picard torsors; universal orthogonality is proved separately."
     }
   },
   "verification_runs": [
@@ -2010,6 +2017,230 @@
       "limitations_ja": [
         "飽和後の巨大なGröbner基底は展開していない。",
         "全S61の根基との一致は未証明。"
+      ]
+    },
+    {
+      "id": "S61_R0_INFINITY_GEOMETRY",
+      "title_ja": "R0無限遠の二平面型と非二元型",
+      "statement_ja": "標準曲線上のP²束、旗のblow-up表示、非二元定因子のN(2)零曲線への局在、一般βへの優越性を証明。",
+      "scope": "Specific reduced loci or explicitly specified local homogenizations; no global exhaustion.",
+      "status": {
+        "proof": "proof_with_exact_rational_certificate",
+        "independent_review": "independent_agent_or_parent_review_not_external_peer_review",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "MODEL_S61",
+          "S61_UNIVERSAL_WEIGHT6_CONSEQUENCE",
+          "S61_CANONICAL_ELLIPTIC_CURVE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_R0_INFINITY_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_R0_INFINITY_20261101.json"
+      ],
+      "limitations_ja": [
+        "全無限遠の尽くしではない。"
+      ]
+    },
+    {
+      "id": "S61_NULL_CORRELATION_DUALITY",
+      "title_ja": "二つの楕円五次曲線の直交双対性",
+      "statement_ja": "EβはN(2)の零曲線であり、明示的Pfaffian持上げがCβの直交Grassmannian切断となる。滑らかな範囲でEβ≅Pic³(Cβ)、Jacobianは一致。",
+      "scope": "Specific reduced loci or explicitly specified local homogenizations; no global exhaustion.",
+      "status": {
+        "proof": "proof_with_exact_rational_certificate",
+        "independent_review": "independent_agent_or_parent_review_not_external_peer_review",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_CANONICAL_ELLIPTIC_CURVE"
+        ],
+        "external": [
+          "SHINDER_ZHANG_DUALITY"
+        ]
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/NULL_CORRELATION_DUALITY_20261101.md"
+        },
+        {
+          "path": "research/notes/NULL_CORRELATION_DUALITY_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/NULL_CORRELATION_DUALITY_20261101.json",
+        "reports/NULL_CORRELATION_DUALITY_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "一般関数体上のtorsorをCβと同一視しない。"
+      ]
+    },
+    {
+      "id": "S61_R0_GENERIC_VERTEX_RADICAL",
+      "title_ja": "一般固定因子頂点ファイバーの根基",
+      "statement_ja": "QQ(k)上の根基は29個の平方自由二次単項式で、射影化は二つのP²、一つのP¹、三点の和。全65式の行空間同一性と各根基生成元の冪の包含を検証。",
+      "scope": "Specific reduced loci or explicitly specified local homogenizations; no global exhaustion.",
+      "status": {
+        "proof": "proof_with_exact_rational_certificate",
+        "independent_review": "independent_agent_or_parent_review_not_external_peer_review",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_R0_INFINITY_GEOMETRY"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_R0_VERTEX_RADICAL_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_R0_VERTEX_RADICAL_20261101.json"
+      ],
+      "limitations_ja": [
+        "特別なk・退化二次形式・大域分解を含まない。"
+      ]
+    },
+    {
+      "id": "S61_NONBINARY_INFINITY_FORMAL_RING",
+      "title_ja": "非二元無限遠点の完成局所環",
+      "statement_ja": "指定点の134/135斉次化の完成局所環はC[[u]]上の平方零自由加群の拡大、冪零階数2/1。t=0でありアフィン閉包から除かれる。",
+      "scope": "Specific reduced loci or explicitly specified local homogenizations; no global exhaustion.",
+      "status": {
+        "proof": "proof_with_exact_rational_certificate",
+        "independent_review": "independent_agent_or_parent_review_not_external_peer_review",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_R0_INFINITY_GEOMETRY",
+          "S61_UNIVERSAL_WEIGHT6_CONSEQUENCE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_NONBINARY_FORMAL_RING_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_NONBINARY_FORMAL_RING_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_NONBINARY_FORMAL_RING_20261101.json",
+        "reports/S61_NONBINARY_FORMAL_RING_REVIEW_20261101.json",
+        "reports/S61_NONBINARY_LOCAL_DIMENSION_20261101.json"
+      ],
+      "limitations_ja": [
+        "全R0または全ファイバーの尽くしではない。"
+      ]
+    },
+    {
+      "id": "S61_FLAG_INFINITY_FORMAL_RING",
+      "title_ja": "旗型無限遠点の完成局所環",
+      "statement_ja": "指定旗点の134/135斉次化の完成局所環はC[[u1,u2,u3]]上の平方零自由加群の拡大、冪零階数5/4。t=0でありアフィン閉包から除かれる。",
+      "scope": "Specific reduced loci or explicitly specified local homogenizations; no global exhaustion.",
+      "status": {
+        "proof": "proof_with_exact_rational_certificate",
+        "independent_review": "independent_agent_or_parent_review_not_external_peer_review",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_INFINITY_LOCAL_DIMENSION_THREE",
+          "S61_UNIVERSAL_WEIGHT6_CONSEQUENCE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_FLAG_FORMAL_RING_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_FLAG_FORMAL_RING_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_FLAG_FORMAL_RING_20261101.json",
+        "reports/S61_FLAG_FORMAL_RING_REVIEW_20261101.json",
+        "reports/S61_FLAG_FORMAL_RING_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "例外的な旗点・他の無限遠部分には未適用。"
+      ]
+    },
+    {
+      "id": "S61_TORIC_ZERO_JET_DIMENSION_BOUNDS",
+      "title_ja": "実際のT01零一次部分の次元10〜12",
+      "statement_ja": "対数型退化により旧nil22 AB被約成分全体がT01零ファイバーに入る。完全分解からモジュラー行列の二乗零が必要。旧分類と滑らかなCA/CB証拠点により10≤dimF0≤12。",
+      "scope": "Specific reduced loci or explicitly specified local homogenizations; no global exhaustion.",
+      "status": {
+        "proof": "proof_with_exact_rational_certificate",
+        "independent_review": "independent_agent_or_parent_review_not_external_peer_review",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_TORIC_NORMALIZATION_AND_BOUNDARY_GAP"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/TORIC_ZERO_JET_FIBER_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/TORIC_ZERO_JET_FIBER_20261101.json"
+      ],
+      "limitations_ja": [
+        "上界はv06/v07の既存分類へ依存し、今回それ全体を再証明していない。"
+      ]
+    },
+    {
+      "id": "S61_T02_INVARIANT_EQUATION_LOWER_BOUND",
+      "title_ja": "T02一次像の定義式次数は26以上",
+      "statement_ja": "次数24以下の全Sp4不変空間のT02への制限は単射。Weyl指標次元と有理評価の非零有限体小行列式、独立なNewton指標計算により定義式次数26以上。",
+      "scope": "Specific reduced loci or explicitly specified local homogenizations; no global exhaustion.",
+      "status": {
+        "proof": "proof_with_exact_rational_certificate",
+        "independent_review": "independent_agent_or_parent_review_not_external_peer_review",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_T02_FIRST_JET_HYPERSURFACE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/MPS_T02_INVARIANT_OBSTRUCTION_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/MPS_T02_INVARIANT_OBSTRUCTION_20261101.json",
+        "reports/MPS_T02_INVARIANT_OBSTRUCTION_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "定義式そのものと射影次数は未決。"
       ]
     }
   ],

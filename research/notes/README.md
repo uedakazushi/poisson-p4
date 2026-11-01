@@ -1,6 +1,6 @@
 # 研究ノートと評価資料の入口
 
-**v31-s61、2026-11-01。楕円型の全域二次切断、既知五延長の三平面。**
+**v32-s61、2026-11-01。楕円型の全域二次切断、既知五延長の三平面。**
 
 ## v31 の新しい入口
 
@@ -94,3 +94,13 @@
 新しいノートには、日付、扱う問題、入力と仮定、得た結果、証明または証明書、残る問題を記す。確立した結果と探索中の案を分け、終了時には現在の研究方針へ反映する。日本語のまとまった数学原稿は LuaLaTeX を使う。定期的な履歴は版管理に任せ、旧版全体を新しいノートへ再帰的に複製しない。
 
 [T01全体の明示的な飽和素イデアル](TORIC_AFFINE_MODIFICATION_20261101.md)と多項式根座標の独立点検を追補した。全S61の尽くしとは区別する。
+
+## v32 の新しい入口
+
+- R0無限遠の二平面型と非二元型: `S61_R0_INFINITY_20261101`。対応する code / reports / research/notes に再現資料を保存。
+- 二つの楕円五次曲線の直交双対性: `NULL_CORRELATION_DUALITY_20261101`。対応する code / reports / research/notes に再現資料を保存。
+- 一般固定因子頂点ファイバーの根基: `S61_R0_VERTEX_RADICAL_20261101`。対応する code / reports / research/notes に再現資料を保存。
+- 非二元無限遠点の完成局所環: `S61_NONBINARY_FORMAL_RING_20261101`。対応する code / reports / research/notes に再現資料を保存。
+- 旗型無限遠点の完成局所環: `S61_FLAG_FORMAL_RING_20261101`。対応する code / reports / research/notes に再現資料を保存。
+- 実際のT01零一次部分の次元10〜12: `TORIC_ZERO_JET_FIBER_20261101`。対応する code / reports / research/notes に再現資料を保存。
+- T02一次像の定義式次数は26以上: `MPS_T02_INVARIANT_OBSTRUCTION_20261101`。対応する code / reports / research/notes に再現資料を保存。

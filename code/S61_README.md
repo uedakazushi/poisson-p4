@@ -1,6 +1,6 @@
 # S61 の現行座標・一次部分・既知族
 
-2026-11-01 / v31-s61。原本は `legacy/v02/` に置いたまま、以下の独立実装と
+2026-11-01 / v32-s61。原本は `legacy/v02/` に置いたまま、以下の独立実装と
 証明書から研究を再開する。完全分類・素分解・新しい成分を主張する実装ではない。
 
 ## 座標規約
@@ -174,3 +174,13 @@ t−1となり、この制限上のファイバーは一つの被約点である
 `toric_polynomial_e2_coordinate_20261101.py` はXをβ,qの多項式で復元し、実際のT01のΔ非零上の全域同型を与える。
 `toric_missing_boundary_20261101.py` と `toric_boundary_intersections_20261101.py` は欠落する8次元軌道と境界交叉を確認する。
 このT01の記述を全S61の尽くしと混同しない。
+
+## v32: 無限遠と特殊ファイバー
+
+- R0無限遠の二平面型と非二元型: `S61_R0_INFINITY_20261101`。対応する code / reports / research/notes に再現資料を保存。
+- 二つの楕円五次曲線の直交双対性: `NULL_CORRELATION_DUALITY_20261101`。対応する code / reports / research/notes に再現資料を保存。
+- 一般固定因子頂点ファイバーの根基: `S61_R0_VERTEX_RADICAL_20261101`。対応する code / reports / research/notes に再現資料を保存。
+- 非二元無限遠点の完成局所環: `S61_NONBINARY_FORMAL_RING_20261101`。対応する code / reports / research/notes に再現資料を保存。
+- 旗型無限遠点の完成局所環: `S61_FLAG_FORMAL_RING_20261101`。対応する code / reports / research/notes に再現資料を保存。
+- 実際のT01零一次部分の次元10〜12: `TORIC_ZERO_JET_FIBER_20261101`。対応する code / reports / research/notes に再現資料を保存。
+- T02一次像の定義式次数は26以上: `MPS_T02_INVARIANT_OBSTRUCTION_20261101`。対応する code / reports / research/notes に再現資料を保存。

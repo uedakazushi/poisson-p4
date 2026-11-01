@@ -35,7 +35,7 @@
 \title{射影四空間の Poisson 構造の一次ジェット還元\\
 \large 普遍的楕円切断、Jacobian の二捩れと Toric 成分の境界}
 \author{Poisson P4 研究プロジェクト・内部研究草稿}
-\date{2026年11月1日・v31-s61}
+\date{2026年11月1日・v32-s61}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -54,8 +54,8 @@ primitive な一次ジェットの16次元空間への射影を調べる。
 原点に長さ10の冪零部分を持つ。Toric三次被覆の幾何学的モノドロミーは$S_3$である。
 Toric三次被覆を標準曲線のJacobianの非零二捩れと同定し、判別式非零上の全域同型と、
 トーリック成分全体の飽和イデアル表示を得る。実際の成分は全域では有限でなく、零一次部分上に
-従来の代数模型が覆わない8次元以上の境界を持つ。
-既知五延長の三平面断面も決定する。
+従来の代数模型が覆わない10次元以上の境界を持つ。
+既知五延長の三平面断面も決定する。さらに無限遠の双対楕円曲線を同定し、指定した旗型・非二元型の完成局所環と飽和による除去を証明する。零一次部分のトーリック境界は10〜12次元である。
 全S61の未飽和斉次化には、非零一次項ごとに3次元の旗の無限遠部分が必ず現れることも示す。
 基礎となる perspective 正規化は有限の多項式公式で与えられ、一意である。
 特殊層では、係数階数一の5次元軌道上の全解を45変数・134二次式の固定 fibre へ帰着し、
@@ -1938,6 +1938,219 @@ $(a_{12},a_{13},a_{14},a_{23},a_{24},a_{34})=(2,8,12,3,5,7)$ を取る。
 従ってこれらを局所化しても保存則を全S61の追加方程式にできない\cite{transport-counterexample-new}。
 $T02$ の一次像は微分階数15と既知次元15から既約超曲面となり、一般 $W$ への支配成分ではない。
 
+\section{無限遠の楕円曲線と局所環}\label{sec:infinity-v32}
+本節では、固定した $\beta$ に対する134式の $q$ に関する通常の二次斉次化を扱う。
+普遍帰結 $G_6$ を加えた135式の斉次化も併記する。
+両者はアフィン部分で同じイデアルを与えるが、未飽和の無限遠の冪零構造は異なり得る。
+
+\subsection{定因子を持つ無限遠と双対楕円曲線}
+座標を $(x,y,z,w)$ とし、定因子 $v=\partial_y$ を持つ零モジュラー型を
+\[
+ Q=\partial_y\wedge(G_w\partial_z-G_z\partial_w),\qquad
+ G\in\operatorname{Sym}^3\langle x,z,w\rangle/\langle x^3\rangle
+\]
+と表示する。元の70本の最高式は恒等的に零となり、残る64式と $G_6$ を九つの係数へ制限する。
+
+\begin{theorem}[二平面型と定因子の局在]
+一般の $\beta$ に対し、無限遠は $C_\beta$ 上の $\PP^2$ 束
+\[
+ \{(\Pi,[F]):\Pi\in C_\beta,\quad
+ Q=F(\operatorname{ann}\Pi)\,\wedge^2\Pi\}
+\]
+を含む。旗型の三次元族は $\operatorname{Bl}_{C_\beta}\operatorname{LG}(2,4)$ であり、
+この束との交叉は $C_\beta$ 上の Veronese $\PP^1$ 束である。
+一方、二平面型でない $R0$ 解の一意な定因子線 $[v]$ は
+\[
+ E_\beta=\{[v]\in\PP(V):\beta_v(v,-)|_{v^\perp/v}=0\}
+\]
+に属する。
+\end{theorem}
+\begin{proof}
+$\Pi=\langle\partial_y,\partial_z\rangle$、
+$Q=(Ax^2+Bxw+Cw^2)\partial_y\wedge\partial_z$ と置く。
+$r=u_{12},s=u_{13}$、$h_1=2Ar-Bs,h_2=Br-2Cs$ とすると、非零制限式は
+$-Ah_1,-Ch_2,-Bh_1-Ah_2,-Ch_1-Bh_2$ の四式である。
+非零 $(A,B,C)$ に対して $h_1=h_2=0$ と同値となる。
+非退化な $F$ では $r=s=0$、平方の場合は旗条件となる。
+$G_6$ の制限は恒等的に零である。旗の incidence は正則階数2切断の零点の
+局所式 $a\xi+b\eta=0$ なので、零曲線の blow-up となる。
+
+定因子 $v=\partial_y$ において $(u_4,u_{12})\ne(0,0)$ なら、放物型群で
+$(u_4,u_{12})=(1,0)$ とできる。この場合、64式の九つの明示的な線形結合と
+係数の零・非零による場合分けから、$G_z,G_w$ の係数行列の階数は1以下となる。
+全場合分けと結合係数を\cite{r0-v32}に記録した。
+従って二平面型でない解では $u_4=u_{12}=0$、すなわち表示した零点条件が必要である。
+\end{proof}
+
+\begin{theorem}[直交する二つの楕円五次曲線]
+$\PP^3$ 上の null-correlation 束を $\mathcal N$ とすると、
+$W\simeq H^0(\mathcal N(2))$ であり、$E_\beta$ は対応する零曲線である。
+$\Delta\ne0$ では $E_\beta$ は滑らかな連結な楕円五次曲線で、
+\[
+ E_\beta\simeq\operatorname{Pic}^3(C_\beta).
+\]
+特にJacobianは同型である。一般関数体上の二つの torsor 自体の同型は主張しない。
+\end{theorem}
+\begin{proof}
+列 $0\to\mathcal O(1)\to\Omega^1(3)\to\mathcal N(2)\to0$ に対し、
+$\alpha=\iota_E\beta$ の類を取る。Cartan公式とprimitive条件は単射性を与え、
+$h^0(\mathcal N(2))=20-4=16$ から同型となる。
+大域生成性、$c_1=4H,c_2=5H^2$、随伴公式とKoszul列により一般零曲線は滑らか・連結・種数1である。
+
+第五座標 $t$ を加えた交代行列
+\[
+ \Phi_E(y,t)=\begin{pmatrix}\beta(y)+tJ&Jy\\-(Jy)^T&0\end{pmatrix}
+\]
+のPfaffian式は $-J(\beta-tJ)y$ と $t^2+\operatorname{Pf}\beta$ である。
+射影中心は含まれず、$t=(\beta y)_i/(Jy)_i$ が各chartで逆写像を与えるので、
+このPfaffian模型は $E_\beta$ とスキームとして同型となる。
+その五次元係数空間は、既存の $C_\beta$ の Grassmannian graph 空間の厳密な直交補空間である。
+全16変数の行列恒等式と独立点検を\cite{null-duality-v32}に保存した。
+滑らかな直交五次切断に関する\cite[Proposition 2.8]{shinder-zhang-v32}を適用すると、
+$\Delta\ne0$ 全域での滑らかさと表示したPicard同定を得る。
+\end{proof}
+
+固定 $v$ の一般頂点条件では、二次形式を正規化し、適当な $A,B$ に対し
+$Z=z+Bx,W=w+Ax$ と移す。$G$ の係数を
+\[
+ G=h_0x^2Z+h_1x^2W+h_2xZ^2+h_3xZW+h_4xW^2+
+ h_5Z^3+h_6Z^2W+h_7ZW^2+h_8W^3
+\]
+と書くと、一般パラメータの関数体上で根基は次の六つの座標部分空間の和を与える。
+\[
+ \{h_0,h_2,h_5\},\quad\{h_1,h_4,h_8\},\quad\{h_0,h_1\},\quad
+ \{h_3\},\quad\{h_6\},\quad\{h_7\}.
+\]
+各集合の外の座標を零とする意味であり、射影化は二つの $\PP^2$、一つの $\PP^1$、三点である。
+どの集合にも同時に含まれない添字対の29個の平方自由二次単項式が根基を生成する。
+全65式の行空間の厳密同一性と、29生成元の1--3乗のイデアル包含が証明書である\cite{r0-vertex-v32}。
+特別なパラメータでは追加部分が現れるので、この表を全 $R0$ の尽くしや大域成分数としない。
+
+\subsection{平方零な完成局所環とアフィン枝の排除}
+\begin{theorem}[指定した二種の無限遠点の完成局所環]
+旗点については、重み1座標を保存順に $(2,3,\ldots,17)$ として $u_4=0$ に置き換え、
+$q$ は $u_{38}=1$ のみ非零とする。この点で $R=\CC[[a_1,a_2,a_3]]$ と置くと、
+134式と135式の完成局所環はそれぞれ
+\[
+ R[e_1,\ldots,e_5]/(e_1,\ldots,e_5)^2,\qquad
+ R[e_1,\ldots,e_4]/(e_1,\ldots,e_4)^2
+\]
+に同型である。
+
+非二元点では、一次座標を
+$(u_{14},u_{49},u_{26},u_{35},u_{50},u_{51})=(1,3,2,3,4,5)$、他を零とし、
+二次座標を $(u_{28},u_{38},u_{41})=(-5/7,19/2,-1)$、他を零とする。
+この点で $R=\CC[[a]]$ と置くと、二つの完成局所環はそれぞれ
+\[
+ R[e_1,e_2]/(e_1,e_2)^2,\qquad R[e]/(e^2)
+\]
+に同型である。全ての環で斉次化変数 $t$ は零である。
+従って、これらの点を通るアフィン解の枝は存在しない。
+\end{theorem}
+\begin{proof}
+各点で含まれる滑らかな無限遠部分 $C$ の次元は3、1である。
+旗では incidence の一変数微分が非零である。
+非二元型では、滑らかな表示空間から $\beta$ への微分階数16、$(\beta,[v])$ への階数17を
+小行列式48、20で確認する。一意な定因子線は $Q$ から正則に復元できるため、
+固定 $\beta$ の滑らかな形式曲線を得る。
+
+接空間と二次障害の計算をまとめると次の通りである。
+\begin{center}
+\begin{tabular}{lrrrr}
+\toprule
+型・式数&接次元&$\dim C$&独立二次障害&一般最高Jacobian階数\\
+\midrule
+旗・134&8&3&15&36\\
+旗・135&7&3&10&37\\
+非二元・134&3&1&3&41\\
+非二元・135&2&1&1&42\\
+\bottomrule
+\end{tabular}
+\end{center}
+二次障害は各場合とも全ての法線二次積を張る。
+最後の階数は標本値だけではない。旗代表では $u_4=0$ の全15変数を残し、
+非二元代表 $Q=\partial_y\wedge(xz\partial_z-xw\partial_w)$ では
+\[
+ u_4=u_5=u_{12}=u_{13}=0,\quad u_{50}=-5u_{35},\quad u_{51}=5u_{26}
+\]
+の全10変数を残す。最初の70行の定数核へ制限した行列の有理核と非零小行列式により、
+表の階数上界は同じ $C$ 全体に沿って成立し、一般点で等号となる。
+全係数と独立点検は\cite{formal-rings-v32}に記録した。
+
+完成局所環を $S$、$C$ の形式座標環を $R$、法線接次元を $r$ とする。
+全二次積の障害より、$C$ の座標で $S$ を割った長さは高々 $r+1$。
+従って $S$ は $R$ 上高々 $r+1$ 元で生成される有限加群である。
+一方、普遍階数から $S/(t)$ の $C$ の一般点での埋込み次元は $r$、
+長さは少なくとも $r+1$ である。よって両加群の一般階数は $r+1$。
+全射 $R^{r+1}\to S$ の核は階数零の自由加群の部分加群なので零となり、$S$ は自由である。
+さらに $(t)\subset S$ も階数零なので零となる。
+
+$C$ への制限は分裂し、$S=R\oplus I$ で $I$ は階数 $r$ の自由加群となる。
+一般点で長さ $r+1$、埋込み次元 $r$ だから $I^2$ は一般点で零。
+$S$ のtorsion-free性により $I^2=0$ が全域で従う。これが表示した環である。
+完備化の忠実平坦性から $t$ は元の局所環でも零で、飽和後の閉包は指定点を含まない。
+\end{proof}
+
+この定理は一般の旗型・非二元型の開部分を除く手段となるが、
+二平面型との交叉や特別な一次係数における例外部分は別途調べる必要がある。
+
+\section{零一次部分のトーリック境界と特殊像の次数}
+\begin{theorem}[零一次部分の次元範囲]
+実際の被約 $T01$ の零一次部分ファイバー $F_0$ は、旧 nil22 AB 成分全体を含み、
+\[
+ 10\leq\dim F_0\leq12
+\]
+である。上界は旧v06/v07の被約分類と全空間の滑らかな証拠点に依存する。
+\end{theorem}
+\begin{proof}
+任意の二変数二次式 $g$ に対し
+\[
+ P_g=(1-r^2)\partial_r\wedge\partial_u+(1-z^2)\partial_z\wedge\partial_v
+       +g(r,z)\partial_u\wedge\partial_v
+\]
+は実際のトーリック退化である。
+$\ell_{1,2}=1\pm r+tu$、$\ell_{3,4}=1\pm z+tv$ とし、
+$\theta_r=(\dd\log\ell_1-\dd\log\ell_2)/2$、
+$\psi_r=(\dd\log\ell_1+\dd\log\ell_2)/2$ 等を用いる。
+対数二形式
+\[
+ -\frac{\dd\log\ell_1\wedge\dd\log\ell_2+
+             \dd\log\ell_3\wedge\dd\log\ell_4}{2t}
+ -a\theta_r\wedge\theta_z-b\psi_r\wedge\psi_z
+\]
+の逆は $t=0$ で正則であり、交差係数 $-(a+brz)$ を持つ極限になる。
+$r'=r,u'=u+(a+c)z,z'=z,v'=v+cr$ と正規化すると
+$g=cr^2-brz-(a+c)z^2$ となり、任意の $g$ を得る。
+作用方向と三係数の微分階数10、および旧 AB 正規形との正確な座標変換を保存した。
+従って旧10次元被約成分全体が $F_0$ に入る\cite{zero-jet-v32}。
+
+上界には、トーリック退化五次式の完全分解が閉条件であることを用いる。
+$P=J+Q$、$s=Q_{12}+Q_{34},p_4=\operatorname{Pf}Q$ とすると
+\[
+ x_0(x_0^4+sx_0^2+p_4)=x_0(x_0^2-a^2)(x_0^2-b^2)
+\]
+となる一次式 $a,b$ が存在する。
+互換条件とモジュラー場の不変性は $\{s,p_4\}_J=0$ を与え、
+$-4\{a,b\}_Jab(a^2-b^2)=0$ より $\{a,b\}_J=0$。
+従って $s$ のHamilton行列は二乗零である。
+旧分類の許される層は、最大の二層 $M_0,M_1$ が13次元で、他は全て12次元以下である。
+しかし両13次元層には、全Poisson空間で滑らかで唯一の成分が $\mathcal C_A,\mathcal C_B$ となる
+旧証拠点がある。これらは $T01$ に属さないので、$F_0$ との交叉は真の閉部分となり次元12以下である。
+旧証明への正確な依存を\cite{zero-jet-v32}に記した。今回その旧分類全体を再証明したという意味ではない。
+\end{proof}
+
+最後に、$T02$ の一次像は既約な円錐超曲面であるため、その定義式は斉次な $\Sp_4$ 不変式である。
+次数 $4,8,12,14,16,18,20,22,24$ の全不変空間の次元はそれぞれ
+\[
+ 1,5,9,3,20,9,36,21,67
+\]
+で、正の24次以下の他の次数では零となる。
+各空間に対し、完全テンソル縮約から得た同数の式の $T02$ 上の評価に非零有理小行列式を構成した。
+非零性は分母が可逆な素数での還元により厳密に証明できる。
+指標次元は独立にNewton公式でも点検したので、制限写像は全空間上で単射である。
+中心 $-I$ が奇数次数を排除することも合わせ、$T02$ の既約定義式は\textbf{次数26以上}となる
+\cite{t02-degree-v32}。定義式そのものや射影次数はまだ求めていない。
+
 \section{残る問題}
 全一次項の延長可能性、楕円二成分の全域graphと一般次数1、表示重複3000、
 T01の一般次数3と$S_3$モノドロミー、および既知五延長の三平面断面の積代数は証明した。
@@ -2092,6 +2305,15 @@ arXiv:1406.6953v1 (2014), Theorems 2.1 and 2.3.
 \bibitem{affine-modification-new} 同プロジェクト、
 \nolinkurl{research/notes/TORIC_AFFINE_MODIFICATION_20261101.md}、
 \nolinkurl{reports/TORIC_POLYNOMIAL_E2_REVIEW_20261101.json}。
+
+\bibitem{r0-v32} 同プロジェクト、\nolinkurl{research/notes/S61_R0_INFINITY_20261101.md}、同名証明書。
+\bibitem{null-duality-v32} 同プロジェクト、\nolinkurl{research/notes/NULL_CORRELATION_DUALITY_20261101.md}、同名review・証明書。
+\bibitem{shinder-zhang-v32} E. Shinder and Z. Zhang, \textit{L-equivalence for degree five elliptic curves, elliptic fibrations and K3 surfaces}, Bull. London Math. Soc. 52 (2020), 395--409, Proposition 2.8. \url{https://doi.org/10.1112/blms.12339}.
+\bibitem{r0-vertex-v32} 同プロジェクト、\nolinkurl{research/notes/S61_R0_VERTEX_RADICAL_20261101.md}、同名証明書。
+\bibitem{formal-rings-v32} 同プロジェクト、\nolinkurl{research/notes/S61_NONBINARY_FORMAL_RING_20261101.md}、\nolinkurl{research/notes/S61_FLAG_FORMAL_RING_20261101.md}、各review・証明書。
+\bibitem{zero-jet-v32} 同プロジェクト、\nolinkurl{research/notes/TORIC_ZERO_JET_FIBER_20261101.md}、同名証明書。旧分類と滑らかさの依存先は同ノートに明記。
+\bibitem{t02-degree-v32} 同プロジェクト、\nolinkurl{research/notes/MPS_T02_INVARIANT_OBSTRUCTION_20261101.md}、同名review証明書。
+
 \end{thebibliography}
 \endgroup
 \end{document}
