@@ -35,7 +35,7 @@
 \title{射影四空間の Poisson 構造の一次ジェット還元\\
 \large 普遍的楕円切断、Jacobian の二捩れと Toric 成分の境界}
 \author{Poisson P4 研究プロジェクト・内部研究草稿}
-\date{2026年11月1日・v39-s61}
+\date{2026年11月1日・v40-s61}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -3450,6 +3450,189 @@ $C$ブロックには別の優越層$K=a=25b-14e=0$がある。
 その混合尾への接続は横断上界67まで得ているが、全局所環の自由67や$t$の冪零性はこの上界のみから結論しない。
 この接続、二平面型の残余境界、旗型を引き続き処理する。
 
+\section{混合曲面T7の全軌道除去とT5の次元による開部分}
+$T7$の一次核基底を$b_0,\ldots,b_{10}$とする。普遍42次minorは非零定数倍を除き
+$b_8^{14}b_9^2$であり、接核と二次・三次補正の全分母は$b_8,b_9$のみを含む。
+\begin{theorem}
+十分一般の$\beta$について、$T7$軌道の全点で
+\[
+ S\simeq\CC[[u_0,u_1,e]]/(e^4),\qquad t=0
+\]
+である。従ってこの軌道全体が$t$飽和で除去される。
+\end{theorem}
+\begin{proof}
+普遍二次・三次補正を用い、法線$v_2$の四次残余を元135式の第103行の左余核へ射影すると
+\[
+ -\frac{3709319}{44470277627904}\frac{P^4}{b_8^3b_9^8}
+\]
+を得る。ここで
+\begin{align*}
+P={}&19800b_0b_5b_8+4480b_0b_9^2-1144b_{10}b_8b_9\\
+&-1000b_2b_8b_9-5940b_6b_8^2-2079b_7b_8^2.
+\end{align*}
+群作用の一次核法方向への五次minorは$27b_8^2P/112000$。
+従って$b_8P\ne0$では実在する固定$\beta$曲面が滑らかで、その接平面は一様に$v_2=0$となる。
+$b_8b_9P\ne0$の全点で、横断四次上界4と同じ曲面一般点の三次までの消滅による下界4が一致する。
+有限加群の議論から自由階数4と$t=0$が得られる。
+
+全例外因子$b_8,b_9,P$について、$\Sp_4$を含む一次像次元はそれぞれ14,15,15である。
+$P$は$b_6$に関しprimitiveな一次式であり、内容1のため幾何学的に既約。
+有限個の真の一次像を避ける一般$\beta$では、軌道の全点が上の開に属する。
+四次係数は共通分母を払った$\QQ[b]$の恒等式で確認し、別の縮約順序でも独立に再構成した\cite{mixed-t7-exhaust-v40}。
+\end{proof}
+
+\subsection{T5では指定点の全環と一般点付近を区別する}
+$T5$の指定点の固定$\beta$ファイバーには実在する滑らかな二次元部分がある。
+二パラメータで切った三法線の商について、真の初期関係を六次まで計算すると
+Hilbert関数は$(1,3,5,6,5,3)$、長さ23となり、その商で$t=0$である。
+五次までの長さ上界24は、六次の関係で23へ下がる。
+
+\begin{proposition}
+$T5$の十八次元核束$Z$の閉包は全相対斉次化$X_{\mathrm{red}}$の既約成分であり、
+$Z$の非空ambient開部分が$t$飽和で除去される。
+\end{proposition}
+\begin{proof}
+固定$\beta$の全局所環を二元で割った商が有限なので、局所次元は高々2。
+実在曲面から正確に2となる。相対全完成環を十六個の底パラメータとこの二元で割っても同じ有限商を得るため、
+完備Nakayama補題により全局所次元は高々18となる。
+既約十八次元$Z$がこの点を通るので等号であり、$Z$を真に含むより大きな既約成分は存在しない。
+従って$\overline Z$は成分である。その一般点の局所環はArtin環で、$t$は冪零。
+分母を一つ払えば、$Z$の非空ambient開上でこの冪零性が成立する\cite{mixed-t5-open-v40}。
+\end{proof}
+この開が指定点を含むとは限らない。指定点の全局所環の$t$冪零性や自由階数23、
+全一般$\beta$曲面の除去を、この次元論から結論しない。
+
+\section{旗型の普遍開を二つの不変因子まで拡張する}
+旗代表$G=x^2z$の一次核は$u_4=0$の十五次元空間。
+その保存基底では$b_0=u_5,b_1=u_{12},b_3=u_{14},b_{12}=u_{49}$である。
+\begin{proposition}
+$b_0b_1\ne0$を満たす全旗点において、全完成局所環は
+\[
+ S\simeq\CC[[u_0,u_1,u_2,e_0,e_1,e_2,e_3]]/(e_0,e_1,e_2,e_3)^2,
+ \qquad t=0
+\]
+となる。残る旗は$b_0=0$または$b_1=0$の二つの不変因子に含まれる。
+\end{proposition}
+\begin{proof}
+普遍38次minorと四法線の全二次単項式に対する十次minorは
+\begin{align*}
+D={}&\frac{1959552}{3125}b_0^{11}b_1^9(5b_3-16b_{12})(5b_3-4b_{12})^4,\\
+c={}&-\frac{76817956864000}{151263}
+\frac{b_0^6b_1^2(5b_3-13b_{12})}{(5b_3-16b_{12})(5b_3-4b_{12})^3}.
+\end{align*}
+$Dc\ne0$では三パラメータで切った長さ上界5が得られる。
+十九次元旗核束の固定$\beta$ファイバーには少なくとも三次元の被約部分があり、
+普遍最高階数37からその一般$t$商の長さは少なくとも5。
+上下一致により三変数底上自由5、$t=0$、平方零法線構造が得られる。
+
+旗安定化群のunipotent $w\mapsto w-sz$は$b_0,b_1,b_{12}$を固定し、
+$b_3\mapsto b_3+sb_0$と作用する。
+$b_0b_1\ne0$なら$s$の三つ以下の値を避けることで、見掛けの三因子を同時に非零にできる。
+全135式の同変性により元の点にも結論が戻る\cite{flag-open-v40}。
+\end{proof}
+二つの残余因子は十八次元で一次像を優越し、別の処理が必要である。
+その二次・三次接錐の次数を、次元を確認せずに全三次元局所環の重複度と解釈しない。
+
+\section{二平面・混合尾接続点の随伴次数環と非零平方零変数}
+本節は固定$\beta$の指定点についての定理であり、相対環への延長とは区別する。
+十二接変数の環$A=\CC[v_0,\ldots,v_{11}]$において、元135式から真の二次・三次初期式と、
+全低次係数を消す19本の四次初期式を構成する。
+\begin{proposition}
+指定接続点の全完成局所環$S$について
+\[
+ \operatorname{gr}_{\mathfrak m}S\simeq A/J,\qquad
+ \operatorname{Hilb}(A/J,z)=
+ \frac{1+9z+21z^2+35z^3-2z^4+z^5}{(1-z)^3},
+ \qquad 0\ne t\in\mathfrak m^3\setminus\mathfrak m^4,\quad t^2=0
+\]
+が成立する。$S$全体が三変数底上自由65であるとは主張しない。
+\end{proposition}
+\begin{proof}
+$\QQ$上で$J=B\cap\mathfrak p_D$を証明する。
+$B$は実在binary三次元部分の接平面$C$に対応するprimary idealで長さ65、
+$\mathfrak p_D$は実在する閉二重直線のidealで長さ2である。
+$B$のprimary性は、底二変数上の法線Groebner基底をmonicにする三先頭係数の積で
+飽和してもidealが変わらないことにより確認する。
+
+自然な全射$A/J\to\operatorname{gr}S$の核$K$は、実在二重直線へのstrictな全射により
+$\mathfrak p_D/J\subset A/B$へ入る。同じ実在binary部分の一般長さ下界65と
+$A/J$の次数65の一致から$K_C=0$。primary性により$K=0$である。
+
+$R_3=\CC[[v_0,v_1,v_3]]$、$N=\ker(S\to D)$とする。
+$\operatorname{gr}N=\mathfrak p_D/J$は底多項式環上有限かつtorsion-freeなので、
+$N$も$R_3$有限かつtorsion-free。good filtrationのHilbert先頭係数は一般階数65を与える。
+$D$は$R_3$上torsionなので、全環の一般部分は同じbinary部分の下界65で尽くされる。
+そこで$I^4=0$、$t\in I^2$なので$t^2=0$。また$D$上$t=0$であり$t^2\in N$。
+$N$のtorsion-free性から全$S$で$t^2=0$となる。
+QQ低次関係階数226と、$t$追加の有限体非零227次minorにより、$t\notin\mathfrak m^4$も確認する\cite{binary-mixed-formal-v40}。
+\end{proof}
+\subsection{等階数torsion-free特殊化と十六次元層の全除去}
+\begin{lemma}
+$A=k[[b_1,\ldots,b_d]]$、$R=A[[u_1,\ldots,u_m]]$、$M$を有限$R$加群とする。
+$M/(b)M$が$k[[u]]$上torsion-free階数$r$で、$\rank_R M=r$ならば、$M$は$R$上torsion-freeである。
+\end{lemma}
+\begin{proof}
+$d=1$では$T=\operatorname{tors}_R M$、$Q=M/T$と置く。
+$b$は$Q$の非零因子なので
+\[
+ 0\longrightarrow T/bT\longrightarrow M/bM\longrightarrow Q/bQ\longrightarrow0
+\]
+が正確である。$R_{(b)}$はDVRで$Q_{(b)}$は自由階数$r$。
+従って$T/bT$はtorsion-free加群$M/bM$の階数零部分加群となり零である。
+Nakayama補題で$T=0$。一般の$d$では、提示行列のminorにより各中間特殊化の階数も$r$と分かり、帰納法を適用する。
+\end{proof}
+
+\begin{theorem}
+$Q_0=xw\partial_y\wedge\partial_z$と
+\[
+ H_{11}=\{u_{12}=u_{13}=u_4=0,\quad5u_{35}+u_{50}=0,
+                  \quad25u_{14}-14u_{49}=0\}
+\]
+の群飽和の十六次元閉包$Z$について、十分一般$\beta$上の全ファイバーが$t$飽和で除去される。
+\end{theorem}
+\begin{proof}
+固定Darboux変換により、指定点を九次元線形切断$H_9$へ移す。
+全$H_9$上で実在する平坦二重直線$D\simeq A[[s,e]]/(e^2)$があり、$t|_D=0$。
+同じ相対binary三次元部分は$A$上smoothで、旧三座標を用いて$R=A[[u_0,u_1,u_3]]$と同定できる。
+頂点Jacobianのminorは$6244/5$、旧底座標のminorは$99/3122$である。
+
+相対全完成環$S$の核$N=\ker(S\to D)$は、$D$の$A$-flatnessによって既証明の$N_0$へ正確に特殊化する。
+特殊横断有限長により$N,S$は$R$有限。特殊階数65から一般階数は高々65、
+同じ相対binary部分の普遍下界から少なくとも65であり、等号となる。
+上の補題により$N$は$R$上torsion-free。
+一般binary部分での$t^2=0$と$D$上の$t=0$から、相対全環で$t^2=0$が従う。
+
+$\Sp_4\times H_9\to W$には非零minor$-1133614671336/625$がある。
+全135式の同変性によるsmoothで忠実平坦なbase changeを通じて、$t^2=0$は指定点のambient局所環へ降下する。
+これが成り立つ$Z$の非空開の補集合は次元15以下なので、その一次像を避ける一般$\beta$の全ファイバーが除かれる\cite{binary-mixed-stratum-v40}。
+\end{proof}
+全特殊点における$t^2=0$や、$S,N$の自由65・67をこの定理は主張しない。
+
+
+
+\section{最小型の全十八有理尾の有限部分}
+\begin{proposition}
+最小型の十八有理尾表示の全有限パラメータ部分は、十分一般の$\beta$上で$t$飽和により除去される。
+四つの混合$g_6/g_7$尾については、射影無限大の端点も除去される。
+\end{proposition}
+\begin{proof}
+先の六半単純尾に加え、二三重尾、六純三次尾、四混合尾を扱う。
+三重尾は、標準形への変換が零になる別軌道を含めて場合分けを尽くす。
+その軌道では一般階数3、横断長さ4であり、有限長torsionから$t$の冪零性を得る。
+全$t=0$や平坦性は主張しない\cite{minimal-triple-v40}。
+
+純三次尾では三標準表示の全有限正規化と零パラメータの主接続を処理する。
+全minor因子は九つのproper一次像と三つの十六次元artifact層で尽くされ、
+各artifact点は全階数44を持つ\cite{minimal-pure-v40}。
+
+混合尾には有限modulusが残るが、見掛けの極を吸収した全有限modulus上の階数七の多項式一次核を構成できる。
+普遍全階数44のminorの全例外と正規化零を処理する。
+射影端点は全パラメータで有限symplectic変換により純R0二重根$z^2w/zw^2$へ移るので、
+既証明の全軌道除去を適用する\cite{minimal-mixed-v40}。
+\end{proof}
+六半単純尾・二三重尾・六純三次尾・四混合尾の和が十八であり、大域成分数を数えているのではない。
+最小主曲線全体と、他の族の旗・二平面型射影端点は残る。
+
 \section{残る問題}
 全一次項の延長可能性、楕円二成分の全域graphと一般次数1、表示重複3000、
 T01の一般次数3と$S_3$モノドロミー、および既知五延長の三平面断面の積代数は証明した。
@@ -3671,6 +3854,14 @@ arXiv:1406.6953v1 (2014), Theorems 2.1 and 2.3.
 \bibitem{minimal-semisimple-v39} 同プロジェクト、\nolinkurl{research/notes/S61_MINIMAL_SEMISIMPLE_TAILS_REMOVAL_20261101.md}、係数証明書と独立レビューの範囲を参照。
 \bibitem{binary-deeper-reduction-v39} 同プロジェクト、\nolinkurl{research/notes/S61_BINARY_DEEPER_REDUCTION_20261101.md}、係数証明書と独立レビューの範囲を参照。
 \bibitem{binary-deeper-v39} 同プロジェクト、\nolinkurl{research/notes/S61_BINARY_DEEPER_FORMAL_20261101.md}、係数証明書と独立レビューの範囲を参照。
+\bibitem{mixed-t7-exhaust-v40} 同プロジェクト、\nolinkurl{research/notes/S61_R0_MIXED_SURFACE_T7_EXHAUSTION_20261101.md}、係数証明書と独立レビューの範囲を参照。
+\bibitem{mixed-t5-open-v40} 同プロジェクト、\nolinkurl{research/notes/S61_R0_MIXED_SURFACE_T5_OPEN_20261101.md}、係数証明書と独立レビューの範囲を参照。
+\bibitem{flag-open-v40} 同プロジェクト、\nolinkurl{research/notes/S61_FLAG_UNIFORM_OPEN_20261101.md}、係数証明書と独立レビューの範囲を参照。
+\bibitem{binary-mixed-formal-v40} 同プロジェクト、\nolinkurl{research/notes/S61_BINARY_MIXED_FORMAL_20261101.md}、係数証明書と独立レビューの範囲を参照。
+\bibitem{minimal-triple-v40} 同プロジェクト、\nolinkurl{research/notes/S61_MINIMAL_TRIPLE_TAILS_REMOVAL_20261101.md}、係数証明書と独立レビューの範囲を参照。
+\bibitem{minimal-pure-v40} 同プロジェクト、\nolinkurl{research/notes/S61_MINIMAL_PURE_CUBIC_TAILS_REMOVAL_20261101.md}、係数証明書と独立レビューの範囲を参照。
+\bibitem{minimal-mixed-v40} 同プロジェクト、\nolinkurl{research/notes/S61_MINIMAL_MIXED_TAILS_REMOVAL_20261101.md}、係数証明書と独立レビューの範囲を参照。
+\bibitem{binary-mixed-stratum-v40} 同プロジェクト、\nolinkurl{research/notes/S61_BINARY_MIXED_STRATUM_REMOVAL_20261101.md}、相対加群と忠実平坦降下の証明・親監査。
 \end{thebibliography}
 \endgroup
 \end{document}

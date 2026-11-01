@@ -1,8 +1,29 @@
 # Poisson structures on P4 — Codex instructions
 
-Version: v39-s61 · 2026-11-01 (Asia/Tokyo).
+Version: v40-s61 · 2026-11-01 (Asia/Tokyo).
 
-Current v39 additions: the four entire mixed R0 curve orbits T1,T2,T4,T6
+Current v40 additions: the ENTIRE T7 mixed-surface orbit is removed over
+sufficiently general beta. Its universal normal quartic is a constant times
+P^4/(b8^3*b9^8); all bad images have dimensions14/15/15. Every orbit point
+has R2[e]/e^4 and t=0. T5 remains; its transverse23 proves local fiberdim2,
+totaldim18 and a nonempty ambient open removed by dimension comparison.
+That T5 open need NOT contain the specified point; full local tnil at that
+point and free23 are NOT proved.
+All flag points with b0=u5 and b1=u12 nonzero have square-zero free5 overR3,
+t=0. Two invariant18D divisors remain. At the specified binary/mixed C3
+point, grS is the intersection of C-primary multiplicity65 and an actual
+double line. A finite torsion-free kernel proves 0!=t in m^3\m^4,t^2=0.
+A separate relative theorem now uses a flat double line and equal-rank
+torsion-free specialization to prove ambient t^2=0 near the specified point.
+The entire sufficiently general-beta fiber of this16D C3 stratum is removed.
+This does not assert t^2=0 at every special point.
+All18 rational minimal-tail presentations and all4 free baselines have
+full finite-parameter removal. Four mixed-tail endpoints are pure R0 double
+roots and removed; other flag/binary endpoints and main curves remain.
+Affine finiteness/five points and component upper bound unresolved; lower57.
+Continue after checkpoints.
+
+Previous v39 additions: the four entire mixed R0 curve orbits T1,T2,T4,T6
 are removed over sufficiently general beta. Universal rank43 and a square
 quadratic plus all11 proper-image factors prove dual-number curves and t=0
 at EVERY orbit point. The finite seven-orbit cover leaves T5/T7 surfaces plus
