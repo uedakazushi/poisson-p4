@@ -35,7 +35,7 @@
 \title{射影四空間の Poisson 構造の一次ジェット還元\\
 \large 普遍的楕円切断、Jacobian の二捩れと Toric 成分の境界}
 \author{Poisson P4 研究プロジェクト・内部研究草稿}
-\date{2026年11月1日・v33-s61}
+\date{2026年11月1日・v34-s61}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -54,8 +54,8 @@ primitive な一次ジェットの16次元空間への射影を調べる。
 原点に長さ10の冪零部分を持つ。Toric三次被覆の幾何学的モノドロミーは$S_3$である。
 Toric三次被覆を標準曲線のJacobianの非零二捩れと同定し、判別式非零上の全域同型と、
 トーリック成分全体の飽和イデアル表示を得る。実際の成分は全域では有限でなく、零一次部分上に
-従来の代数模型が覆わない10次元以上の境界を持つ。
-既知五延長の三平面断面も決定する。さらに無限遠の双対楕円曲線を同定し、指定した旗型・非二元型の完成局所環と飽和による除去を証明する。零一次部分のトーリック境界は正確に10次元で、唯一の最大次元成分を決定する。滑らかな全領域での既知五延長の分離も証明する。
+従来の代数模型が覆わない既約十次元の零一次部分ファイバーを持つ。
+既知五延長の三平面断面も決定する。さらに無限遠の双対楕円曲線を同定し、指定した旗型・非二元型の完成局所環と飽和による除去を証明する。零一次部分の被約台はABだけであると決定し、そのproper incidenceと特異点集合を記述する。最小冪零型の二つの無限遠曲線では指定開部分の平方零完成局所環を決定し、二平面型では横断Artin代数の長さ65と非零の斉次化変数を示す。滑らかな全領域での既知五延長の分離も証明する。
 全S61の未飽和斉次化には、非零一次項ごとに3次元の旗の無限遠部分が必ず現れることも示す。
 基礎となる perspective 正規化は有限の多項式公式で与えられ、一意である。
 特殊層では、係数階数一の5次元軌道上の全解を45変数・134二次式の固定 fibre へ帰着し、
@@ -2289,13 +2289,13 @@ $J_0$ の35次可逆小行列の行を $R$、逆を適切な列へ埋めた行�
 全行列と、元の135式から独立に再構成した点検を\cite{binary-local-v33}に保存した。
 \end{proof}
 
-長さ65は上界であり、実際の重複度や完成局所環の同定ではない。
+この段階の長さ65は上界である。後で指定横断商の長さは65と証明するが、一般重複度や全完成局所環の同定は別問題である。
 $t$ の二次項は二次障害の包に入るが、その事実と局所次元3だけでは $t=0$ や冪零性は従わない。
 
 \section{零一次部分の正確な次元と唯一の最大次元成分}
 \begin{theorem}\label{thm:zero-jet-exact-v33}
 旧Q45被約分類を用いると、実際の $T01$ の零一次部分ファイバー $F_0$ は正確に10次元である。
-その唯一の10次元既約成分はABである。9次元以下の追加成分はこの定理では排除しない。
+その唯一の10次元既約成分はABである。この次元評価だけでは9次元以下の追加成分を排除しないが、後の定理\ref{thm:zero-jet-exhaustion-v34}で全点を尽くす。
 \end{theorem}
 \begin{proof}
 ABによる下界10は前節で証明した。完全分解からモジュラー行列は平方零であり、
@@ -2351,6 +2351,229 @@ $T01$ から除外される\cite{strict-stabilizer-v33}。
 核は曲線を点ごとに固定するが、曲線は射影四空間を張るので射影変換は恒等となる。
 $\Sp_4\to\operatorname{PGL}(\wedge^2_0\CC^4)$ の核も有限である。
 これは全 $\Delta\ne0$ 上の幾何学的補題であり、前述の非零モジュラー反例と矛盾しない。
+
+\section{零一次部分の被約な尽くし}
+前節の次元評価を強め、低次元の追加成分も除外する。
+以下で $F_0$ は実際の $T01$ の $\beta=0$ ファイバーの被約台を表す。
+\begin{theorem}\label{thm:zero-jet-exhaustion-v34}
+旧Q45被約分類を用いると
+\[
+ F_0=\overline{AB}
+\]
+である。従って $F_0$ は既約十次元である。
+\end{theorem}
+\begin{proof}
+逆包含は既述の任意係数を保った対数型退化による。
+順包含には、退化五次式の完全分解と、四次元可換 strict Lie 部分代数の存在という必要条件を使う。
+後者は有限次元 Grassmannian 上の閉 incidence によって極限へ延びる。
+Cartan 部分代数の外積の像への所属が閉条件であるとは仮定しない。
+
+非零トレースでは、完全分解条件からモジュラー行列の平方が零になる。
+階数一の場合、旧v05の全固定トレース表示の三つの冪零係数は被約台で零となり、
+Pfaffian の係数比較により全点が $M_0,M_1$ のいずれかへ戻る。
+その全九係数表示で strict 作用を調べると、平行移動核が小さい場合は
+strict 次元が三以下、または四次元でも非可換となる。
+残る平行移動対称な場合は、任意の磁気二次式を保持した明示的な symplectic 一径数族で AB に入る。
+階数二の場合は旧v06の全表示を使い、Pfaffian の $x^3y,z^3w$ 係数から二係数を零とする。
+残る九関係と完全分解条件は、正確に AB 正常形を強制する。
+これらの判定は一般点だけの次元比較ではなく、全係数を保った恒等式である\cite{zero-jet-all-v34}。
+
+零トレースでは旧分類が $Q_0=R0\cup C0\cup L0$ を与える。
+R0 の二元三次式を三相異根、二重根、三重根、零に分ける。
+全 strict 作用行列の小行列と可換性を用いると、余分な平行移動対称性を持つ場合だけが残る。
+その場合も明示的退化で AB に入る。
+三次式 $z^2w$ の境界では strict 次元四であるだけでは足りず、
+その Lie 代数が非可換であることを使う\cite{zero-jet-all-v34}。
+
+最後に C0 と L0 の R0 外を除く。両者では $\operatorname{Pf}(Q)=0$ なので
+$J+Q$ の退化因子は $x_0^5$ である。
+strict 自己同型はこの超平面を保ち、次数ごとの比較から
+\[
+ \dim\mathfrak{aut}_{\mathrm{strict}}(J+Q)
+ =10-\rank(\mathfrak{sp}_4\longrightarrow Q_{45})
+       +\dim K(Q),\qquad K(Q)=\{v:\partial_vQ=0\}.
+\]
+L0 の proper incidence は全境界を保持する。
+平方零行列が階数一なら R0 に入り、階数二では二つの正常形に帰着する。
+一方の正常形は任意の二次式 $F(x,z)$ と $a\ne0$ を使って
+\[
+\begin{aligned}
+Q^{xy}&=-xz,&Q^{xz}&=0,&Q^{xw}&=-a x^2,\\
+Q^{yz}&=-z^2/a,&Q^{zw}&=xz,&
+Q^{yw}&=(2a-1)xy+(2/a-1)zw+F
+\end{aligned}
+\]
+と書ける。作用行列の三ブロックは $F$ に依存しない小行列を持つ。
+その階数和は $a\ne-1$ で八以上、$a=-1$ で七以上。
+平行移動核は $a=1/2,2$ の場合だけ高々一次元で、それ以外は零である。
+従って strict 次元は常に三以下となる。
+もう一方の例外正常形では作用階数九以上、平行移動核零で、strict 次元は一以下である。
+C0 の全境界も proper incidence で保持され、R0 外では Cartan 型と Jordan 型の二軌道だけになる。
+前者の strict 次元は二、後者は上の $a=1,F=0$ の場合である。
+以上により残る全点が除外される。全行列と独立点検は\cite{zero-jet-all-v34}に保存した。
+\end{proof}
+この定理は被約ファイバーの完全決定である。スキーム論的ファイバーの厚みは決めていない。
+
+\section{AB の proper incidence と特異点集合}
+$B=\overline{AB}$ と置く。固定した Lagrangian 平行移動平面
+$L=\langle\partial_y,\partial_w\rangle$ に対し、位置を $q=(x,z)$、運動量を $(y,w)$ とする。
+$L$ 不変な compatible 二次テンソルの全十八係数には七独立線形条件があり、全解は
+\[
+ Q=\sum_{i,j}(DF)_{ij}\partial_{q_i}\wedge\partial_{p_j}
+       +g(x,z)\partial_y\wedge\partial_w
+\]
+である。$F$ は二成分の三次式、$g$ は任意の二次式。
+$s=\operatorname{div}F$ とおくと一意に
+$F=qs/4+J_2\grad H$ と書ける。
+$s=s_0x^2+s_1xz+s_2z^2$, $H=\sum_{i=0}^4h_i x^{4-i}z^i$ に対し
+\[
+ N=\begin{pmatrix}h_2/6&-h_1/4&h_0\\h_3/2&-h_2/3&h_1/2\\h_4&-h_3/4&h_2/6\end{pmatrix}
+ +\frac1{96}\begin{pmatrix}2s_1&-2s_0&0\\4s_2&0&-4s_0\\0&2s_2&-2s_1\end{pmatrix}
+\]
+は八次元空間から $\mathfrak{sl}_3$ への線形同型である。
+位置変換 $T\in\GL_2$ に対し、二次式上の代入表現を $\rho$ とすると
+$N\mapsto(\det T)\rho(T)N\rho(T)^{-1}$。
+補 Lagrangian の変更は磁気項 $g$ だけを変えるため、$\rank N\le1$ は大域的な条件になる。
+
+\begin{theorem}\label{thm:ab-incidence-v34}
+$Y=\{N\in\mathfrak{sl}_3:\rank N\le1\}$ とすると、固定 $L$ での AB 閉包は $Y\times\AA^3$ である。
+incidence
+\[
+ \widetilde B=\{(L,Q):L\in LG(2,4),\ L\subset K(Q),\ \rank N_L(Q)\le1\}
+\]
+は正規・既約・十次元で、射影 $f:\widetilde B\to B$ は projective birational である。
+全幾何学的ファイバーは、$\dim K=2$ で被約な一点、$\dim K=3$ で被約な $\PP^1$、
+$Q=0$ で被約な $LG(2,4)$ となる。
+\end{theorem}
+\begin{proof}
+対角代表 $F=(x^3,z^3)/3$ に対応する $N$ は階数一で、$\GL_2$ 軌道次元は四。
+$Y$ は $N=u\otimes v$, $v(u)=0$ の表示による既約四次元錐なので、この軌道は稠密である。
+その座標環は
+\[
+ \left(\CC[u_1,u_2,u_3,v_1,v_2,v_3]/(\textstyle\sum u_iv_i)\right)^{\GG_m}
+\]
+である。括弧内は正規な五次元二次超曲面であり、不変部分環も正規となる。
+$Y$ は原点だけが特異である。
+incidence は局所的に $Y\times\AA^6$ と同型で、projective な射影の像は稠密な AB 族の閉包に一致する。
+$\dim K=2$ の開部分では核を取る操作が正則な逆写像を与える。
+
+$\dim K=3$ なら $K=\ker\ell$、斉次性と compatibility から
+$Q=\ell^2(J^\sharp\ell\wedge w)$ となる。
+$K$ に含まれる Lagrangian 二平面はその symplectic radical $\CC J^\sharp\ell$ を含み、$\PP^1$ をなす。
+全てのそのような平面で $N$ の小行列式は恒等的に零になる。
+スキームとしても $Gr(2,K)=\PP^2$ に isotropic 条件が被約な直線を切り、
+追加の rank 条件はその直線上で零なので被約である。
+他の二場合も同じ核条件から直ちに従う。係数の全恒等式と幾何学的点検は\cite{ab-incidence-v34}にある。
+\end{proof}
+
+\begin{theorem}
+$B$ の特異点集合の被約台は正確に
+\[
+\begin{split}
+ \Sigma_{\mathrm{plane}}&=\{g\,u\wedge v:\langle u,v\rangle=L\text{ は Lagrangian},\quad g\in\operatorname{Sym}^2(V/L)^*\},\\
+ \Sigma_{\mathrm{one}}&=\{\ell^2(J^\sharp\ell\wedge w)\}
+\end{split}
+\]
+の和である。両者は既約六次元で、交叉は $\ell(w)=0$ により与えられる既約五次元集合である。
+\end{theorem}
+\begin{proof}
+$\dim K=2$ の同型領域では、局所模型 $Y\times\AA^6$ の特異点は $N=0$、すなわち平面因子型である。
+一変数型のトレース非零点の近傍では $\widetilde B$ は滑らかで、
+正次元ファイバーの逆像は次元七、余次元三となる。
+仮に像もその点で滑らかなら、滑らかな十次元空間間の birational 射の $\det(df)$ は
+非零の直線束切断で、$\PP^1$ の接方向を殺すので零点を持つ。
+しかしその零集合は余次元三の非同型 locus に限られ、非零切断の零点が因子を持つことと矛盾する。
+特異集合の閉性から一変数型全体が特異である。
+残りの点は $\dim K=2,N\ne0$ で滑らか。
+二つの集合はそれぞれ $LG$ と $\PP(V^*)$ 上の階数三束の proper な像なので既約六次元であり、
+交叉では $\ell(w)=0$ が階数を一つ落とし既約五次元となる。
+\end{proof}
+$f$ は正次元ファイバーを持つので正規化射ではない。$B$ 自身の正規性はこの定理からは結論しない。
+
+\section{二平面型の横断 Artin 代数}
+命題\ref{prop:binary-local-v33}の指定点の完成局所環を $S$ とし、
+35式の形式的陰関数消去後の変数を保存順に $v_0,\ldots,v_9$ とする。
+\begin{proposition}
+指定横断商 $A=S/(v_0,v_1,v_3)$ は長さ65で、その最大 ideal $\mathfrak m$ は $\mathfrak m^4=0$ を満たす。
+また
+\[
+ 0\ne t\in\mathfrak m^3\subset\operatorname{Soc}(A),\qquad
+ t^2=0,\qquad\operatorname{length}A/(t)=64.
+\]
+特に元の $S$ でも $t\ne0$ である。
+\end{proposition}
+\begin{proof}
+既存の四次初期式の全階数証明から $\mathfrak m^4=\mathfrak m^5$。
+Nakayama の補題で $\mathfrak m^4=0$ となる。
+元の式を $F(z)=Jz+H(z,z)$ と書き、接核基底を $T$、選択した35行の右逆を $U$ とする。
+形式的消去は
+\[
+ w_2=-UH_R(Tv,Tv),\quad w_3=-U(2H(Tv,w_2))_R,
+\]
+残余式は三次まで
+$A_2=(I-JU)H(Tv,Tv)$、$A_3=(I-JU)2H(Tv,w_2)$ となる。
+七法線変数の二次28単項式と三次84単項式について、
+全 $A_2+A_3$ と $A_2$ の各変数倍の係数行列は $\QQ$ 上で階数55。
+従って長さは $1+7+28+84-55=65$ である。
+$t$ の係数行を加えると階数56となり非零性が従う。
+二次部分は二次関係で消えるため、$t$ は純三次の非零類となる。
+証明書と独立な再構成は\cite{binary-artin-v34}にある。
+\end{proof}
+ここでは非斉次な $A_2+A_3$ を保持する必要がある。
+長さ65は指定横断商の長さであり、一般重複度や平坦性はまだ意味しない。
+例えば $\CC[[u]][e]/(e(e-u))$ では $u=0$ の商で $e^2=0$ でも、全環で $e$ は冪零でない。
+従って $S$ での $t$ の冪零性と飽和は引き続き別問題である。
+
+\section{最小冪零型の無限遠曲線の完成局所環}
+全135式を同じ $q$ 次数二で斉次化した ideal は $\Sp_4$ 同変である。
+実際、affine 変換 $q\mapsto M_gq+b_g(\beta)$ は
+$[q:t]\mapsto[M_gq+b_g(\beta)t:t]$ へ延びる。
+重み六帰結の変換差は、$q$ に依存しない係数による重み四・五式の結合であるため、
+同次数斉次化後も ideal の包含を与える。$g^{-1}$ で逆包含も従う\cite{homog-equiv-v34}。
+
+$M_0,M_1$ の二つの無限遠族は、モジュラー行列の像 $[v]$ を動かすと、
+一般 $\beta$ 上にも曲線を与える。
+全135最高式の普遍恒等式に加え、$\beta$ への微分階数16、$(\beta,[v])$ への階数17の
+厳密な小行列を確認した\cite{minimal-formal-v34}。
+固定 $\beta$ の形式的ファイバーに滑らかな曲線があり、$[v]$ は $Q$ から復元できるので像にも埋め込まれる。
+
+\begin{theorem}
+指定点と証明書の開条件を満たす曲線上の点で、$R=\CC[[u]]$ とすると完成局所環は次の通りである。
+\begin{center}
+\begin{tabular}{llll}
+\toprule
+型&式数&完成局所環&$t$\\\midrule
+$M_0$&134&$R[e_1,e_2,e_3]/(e_1,e_2,e_3)^2$&$t\ne0,\ t^2=0$\\
+$M_0$&135&$R[e_1,e_2]/(e_1,e_2)^2$&$t\ne0,\ t^2=0$\\
+$M_1$&134&$R[e_1,e_2]/(e_1,e_2)^2$&$t\ne0,\ t^2=0$\\
+$M_1$&135&$R[e_1]/(e_1^2)$&$t=0$\\\bottomrule
+\end{tabular}
+\end{center}
+従ってこれらの点は $t$ による飽和で除かれる。
+\end{theorem}
+\begin{proof}
+指定点の接次元は順に $4,3,3,2$。
+全二次障害の共通 Hessian 核は曲線の接線である一次元で、
+残る $r=3,2,2,1$ 方向の全二次積が障害となる。
+従って曲線パラメータ $u$ を除いた商の長さは高々 $r+1$ である。
+
+この一点での上界だけでは足りないので、同じ曲線全体に沿う普遍 Jacobian を計算する。
+symplectic shear により三次式を $G=cxzw$ とし、全 $\beta$ 線形核の九自由係数を保持する。
+$\QQ(c,b_0,\ldots,b_8)$ 上で残余行列の独立な有理核を構成し、全行列積が零であることを確認した。
+この普遍階数上界から、曲線の一般点における局所因子の埋込み次元は少なくとも $r$ である。
+$M_1$ では元の表示を二倍し $c_{\mathrm{can}}=2c_{\mathrm{source}}+1$ とする代表変更を先に行う。
+
+完成局所環 $S$ は $R$ 上高々 $r+1$ 個で生成される有限加群。
+曲線の一般点の因子の長さは埋込み次元から少なくとも $r+1$ だから、$S$ の $R$ 階数は正確に $r+1$。
+全射 $R^{r+1}\to S$ の核は階数零の自由加群の部分加群なので零、従って $S$ は自由である。
+曲線への制限の核 $I$ は階数 $r$ で、一般点での最小長さから $I_K^2=0$。
+torsion-free 性により $I^2=0$ が全環で従う。
+$t\in I$ なので $t^2=0$。最初の三場合は接空間上で $t$ が非零である。
+最後は普遍的に $t$ を加えた Jacobian 階数が一つ増え、一般点で $t\in I_K^2=0$、従って $t=0$ となる。
+完備化の忠実平坦性で元の局所環にも恒等式が降り、飽和による除去を得る。
+全元方程式からの独立再計算と有限加群論の点検を\cite{minimal-formal-v34}に記録した。
+\end{proof}
+この定理は共鳴値の全点、他の無限遠層、全アフィンファイバーの尽くしを含まない。
 
 \section{残る問題}
 全一次項の延長可能性、楕円二成分の全域graphと一般次数1、表示重複3000、
@@ -2523,6 +2746,11 @@ arXiv:1406.6953v1 (2014), Theorems 2.1 and 2.3.
 \bibitem{zero-jet-exact-v33} 同プロジェクト、\nolinkurl{research/notes/TORIC_ZERO_JET_DIMENSION_20261101.md}、対応する証明書・独立点検。
 \bibitem{strict-stabilizer-v33} 同プロジェクト、\nolinkurl{research/notes/TORIC_STRICT_STABILIZER_20261101.md}、対応する証明書・独立点検。
 \bibitem{zero-jet-top-v33} 同プロジェクト、\nolinkurl{research/notes/TORIC_ZERO_JET_TOP_COMPONENT_20261101.md}、同名review・証明書。
+\bibitem{zero-jet-all-v34} 同プロジェクト、\nolinkurl{research/notes/TORIC_ZERO_JET_EXHAUSTION_20261101.md}、明記した依存ノート・係数証明書・独立点検。
+\bibitem{ab-incidence-v34} 同プロジェクト、\nolinkurl{research/notes/AB_INCIDENCE_20261101.md}、明記した依存ノート・係数証明書・独立点検。
+\bibitem{binary-artin-v34} 同プロジェクト、\nolinkurl{research/notes/S61_BINARY_TRANSVERSE_ALGEBRA_20261101.md}、明記した依存ノート・係数証明書・独立点検。
+\bibitem{homog-equiv-v34} 同プロジェクト、\nolinkurl{research/notes/S61_HOMOGENIZED_EQUIVARIANCE_20261101.md}、明記した依存ノート・係数証明書・独立点検。
+\bibitem{minimal-formal-v34} 同プロジェクト、\nolinkurl{research/notes/S61_MINIMAL_INFINITY_FORMAL_RINGS_20261101.md}、明記した依存ノート・係数証明書・独立点検。
 \end{thebibliography}
 \endgroup
 \end{document}

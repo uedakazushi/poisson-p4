@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checkpoint": "v33-s61",
+  "checkpoint": "v34-s61",
   "date": "2026-11-01",
   "base_mathematical_checkpoint": "v24",
   "new_mathematical_progress_in_this_setup": false,
@@ -2414,7 +2414,8 @@
       ],
       "limitations_ja": [
         "135式の指定点のみ。65を実際の重複度とせず、t消滅・冪零性は未決。"
-      ]
+      ],
+      "strengthened_by": "S61_BINARY_TRANSVERSE_ARTIN_ALGEBRA"
     },
     {
       "id": "S61_TORIC_ZERO_JET_DIMENSION_EXACT",
@@ -2447,7 +2448,8 @@
       ],
       "limitations_ja": [
         "旧Q45分類に依存する。ファイバー全体の既約性は別問題。"
-      ]
+      ],
+      "strengthened_by": "S61_TORIC_ZERO_JET_EXHAUSTION"
     },
     {
       "id": "S61_MODULAR_INFINITY_SMOOTH_COUNTEREXAMPLE",
@@ -2510,7 +2512,8 @@
       ],
       "limitations_ja": [
         "9次元以下の追加成分を排除したとは主張しない。"
-      ]
+      ],
+      "strengthened_by": "S61_TORIC_ZERO_JET_EXHAUSTION"
     },
     {
       "id": "S61_TORIC_STRICT_STABILIZER_OBSTRUCTION",
@@ -2576,6 +2579,342 @@
       ],
       "limitations_ja": [
         "任意の無限遠qのモジュラー行列がβを安定化するとは主張しない。"
+      ]
+    },
+    {
+      "id": "S61_TORIC_ZERO_JET_R0_CONTAINMENT",
+      "title_ja": "零一次部分のR0全点はABに入る",
+      "statement_ja": "四次元可換strict部分代数という必要条件と二元三次式の全根型を用い、F0∩R0⊂ABを証明。",
+      "scope": "Explicit reduced fiber or specified local homogenizations.",
+      "status": {
+        "proof": "proof_with_exact_rational_certificate",
+        "independent_review": "independent_agent_or_parent_review_not_external_peer_review",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_TORIC_STRICT_STABILIZER_OBSTRUCTION"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/TORIC_ZERO_JET_R0_20261101.md"
+        },
+        {
+          "path": "research/notes/TORIC_ZERO_JET_R0_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/TORIC_ZERO_JET_R0_20261101.json",
+        "reports/TORIC_ZERO_JET_R0_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "Cartan極限の外積像への所属が閉条件であるとは仮定しない。"
+      ]
+    },
+    {
+      "id": "S61_TORIC_ZERO_JET_MINIMAL_CONTAINMENT",
+      "title_ja": "最小型の全零一次部分をABへ帰着",
+      "statement_ja": "全M0・M1正常形でstrict作用階数・可換性を判定し、残る平行移動対称な場合を明示的symplectic退化でABへ含める。",
+      "scope": "Explicit reduced fiber or specified local homogenizations.",
+      "status": {
+        "proof": "proof_with_exact_rational_certificate",
+        "independent_review": "independent_agent_or_parent_review_not_external_peer_review",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_TORIC_STRICT_STABILIZER_OBSTRUCTION"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/TORIC_ZERO_JET_MINIMAL_20261101.md"
+        },
+        {
+          "path": "research/notes/TORIC_ZERO_JET_MINIMAL_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/TORIC_ZERO_JET_MINIMAL_20261101.json",
+        "reports/TORIC_ZERO_JET_MINIMAL_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "アフィンの零一次部分についての全点判定。"
+      ]
+    },
+    {
+      "id": "S61_TORIC_ZERO_JET_NONZERO_TRACE_CONTAINMENT",
+      "title_ja": "非零トレースの全点をABへ帰着",
+      "statement_ja": "退化五次式の完全分解と全固定トレース正常形のPfaffian比較により、非零トレースのF0全点がABに入る。",
+      "scope": "Explicit reduced fiber or specified local homogenizations.",
+      "status": {
+        "proof": "proof_with_exact_rational_certificate",
+        "independent_review": "independent_agent_or_parent_review_not_external_peer_review",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_TORIC_ZERO_JET_MINIMAL_CONTAINMENT"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/TORIC_ZERO_JET_NONZERO_TRACE_20261101.md"
+        },
+        {
+          "path": "research/notes/TORIC_ZERO_JET_NONZERO_TRACE_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/TORIC_ZERO_JET_NONZERO_TRACE_20261101.json",
+        "reports/TORIC_ZERO_JET_NONZERO_TRACE_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "旧v05/v06の全点正常形を依存として用いる。"
+      ]
+    },
+    {
+      "id": "S61_TORIC_ZERO_JET_EXHAUSTION",
+      "title_ja": "実際のT01零一次部分の被約台はAB",
+      "statement_ja": "(T01∩{β=0})red=closed AB。既約十次元で、低次元の追加成分も存在しない。C0/L0のR0外を全境界で一様に除外。",
+      "scope": "Explicit reduced fiber or specified local homogenizations.",
+      "status": {
+        "proof": "proof_with_exact_rational_certificate",
+        "independent_review": "independent_agent_or_parent_review_not_external_peer_review",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_TORIC_ZERO_JET_R0_CONTAINMENT",
+          "S61_TORIC_ZERO_JET_NONZERO_TRACE_CONTAINMENT"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/TORIC_ZERO_JET_EXHAUSTION_20261101.md"
+        },
+        {
+          "path": "research/notes/TORIC_ZERO_JET_EXHAUSTION_REVIEW_20261101.md"
+        },
+        {
+          "path": "research/notes/TORIC_ZERO_JET_EXHAUSTION_GEOMETRY_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/TORIC_ZERO_JET_EXHAUSTION_20261101.json",
+        "reports/TORIC_ZERO_JET_EXHAUSTION_REVIEW_20261101.json",
+        "reports/TORIC_ZERO_JET_EXHAUSTION_GEOMETRY_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "旧Q45被約分類に依存。スキーム論的ファイバーの冪零構造と全S61尽くしを決定しない。"
+      ]
+    },
+    {
+      "id": "S61_AB_PROPER_INCIDENCE",
+      "title_ja": "ABの正規proper incidenceと全ファイバー",
+      "statement_ja": "LG上で局所模型Y×A6を持つ正規十次元incidenceからABへのprojective birational射を構成。全ファイバーは被約な一点・P1・LG。Yはsl3の最小冪零錐。",
+      "scope": "Explicit reduced fiber or specified local homogenizations.",
+      "status": {
+        "proof": "proof_with_exact_rational_certificate",
+        "independent_review": "independent_agent_or_parent_review_not_external_peer_review",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_TORIC_ZERO_JET_EXHAUSTION"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AB_INCIDENCE_20261101.md"
+        },
+        {
+          "path": "research/notes/AB_INCIDENCE_REVIEW_20261101.md"
+        },
+        {
+          "path": "research/notes/AB_INCIDENCE_GEOMETRY_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AB_INCIDENCE_20261101.json",
+        "reports/AB_INCIDENCE_REVIEW_20261101.json",
+        "reports/AB_INCIDENCE_GEOMETRY_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "正の次元のファイバーがあるため正規化射ではない。AB自体の正規性は未決。"
+      ]
+    },
+    {
+      "id": "S61_AB_SINGULAR_LOCUS",
+      "title_ja": "ABの特異点集合を完全決定",
+      "statement_ja": "被約特異点集合は平面因子型と一変数型の二つの既約六次元集合の和で、交叉は既約五次元。",
+      "scope": "Explicit reduced fiber or specified local homogenizations.",
+      "status": {
+        "proof": "proof_with_exact_rational_certificate",
+        "independent_review": "independent_agent_or_parent_review_not_external_peer_review",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_AB_PROPER_INCIDENCE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AB_INCIDENCE_20261101.md"
+        },
+        {
+          "path": "research/notes/AB_INCIDENCE_REVIEW_20261101.md"
+        },
+        {
+          "path": "research/notes/AB_INCIDENCE_GEOMETRY_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AB_INCIDENCE_20261101.json",
+        "reports/AB_INCIDENCE_REVIEW_20261101.json",
+        "reports/AB_INCIDENCE_GEOMETRY_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "被約な特異点集合の決定であり、特異スキームの定義idealは未決。"
+      ]
+    },
+    {
+      "id": "S61_BINARY_TRANSVERSE_ARTIN_ALGEBRA",
+      "title_ja": "二平面型の横断長さ65と非零の斉次化変数",
+      "statement_ja": "指定点の135式完成局所環Sの三パラメータ商Aは長さ65、m4=0。0≠t∈m3⊂Soc(A)、t2=0、length A/(t)=64。従ってSでもt≠0。",
+      "scope": "Explicit reduced fiber or specified local homogenizations.",
+      "status": {
+        "proof": "proof_with_exact_rational_certificate",
+        "independent_review": "independent_agent_or_parent_review_not_external_peer_review",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_BINARY_INFINITY_LOCAL_DIMENSION"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_BINARY_TRANSVERSE_ALGEBRA_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_TRANSVERSE_ALGEBRA_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_BINARY_TRANSVERSE_ALGEBRA_20261101.json",
+        "reports/S61_BINARY_TRANSVERSE_ALGEBRA_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "全Sでのt冪零性・平坦性・一般重複度・飽和の決定ではない。"
+      ]
+    },
+    {
+      "id": "S61_HOMOGENIZED_EQUIVARIANCE",
+      "title_ja": "全135二次斉次化のSp4同変性",
+      "statement_ja": "アフィンq変換q→Mg q+bg(β)を[q:t]→[Mg q+bg t:t]へ延長し、全135式の同次数斉次化idealの同変性を証明。",
+      "scope": "Explicit reduced fiber or specified local homogenizations.",
+      "status": {
+        "proof": "proof_with_explicit_dependencies",
+        "independent_review": "independent_agent_or_parent_review_not_external_peer_review",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_UNIVERSAL_WEIGHT6_CONSEQUENCE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_HOMOGENIZED_EQUIVARIANCE_20261101.md"
+        }
+      ],
+      "verification_records": [],
+      "limitations_ja": [
+        "全式をq次数2で斉次化したideal。最高式だけの同変性とは区別する。"
+      ]
+    },
+    {
+      "id": "S61_MINIMAL_INFINITY_CURVES",
+      "title_ja": "一般βに残る二つの最小冪零型無限遠曲線",
+      "statement_ja": "M0・M1の有理表示で全135最高式を満たし、βへの階数16、(β,v)への階数17を確認。一般βの無限遠に二曲線が存在する。",
+      "scope": "Explicit reduced fiber or specified local homogenizations.",
+      "status": {
+        "proof": "proof_with_explicit_dependencies",
+        "independent_review": "independent_agent_or_parent_review_not_external_peer_review",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "MODEL_S61",
+          "S61_NULL_CORRELATION_DUALITY"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_MINIMAL_NILPOTENT_INFINITY_FAMILY_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_MINIMAL_NILPOTENT_INFINITY_FAMILY_20261101.json"
+      ],
+      "limitations_ja": [
+        "未飽和無限遠の曲線。全無限遠を尽くす主張ではない。"
+      ]
+    },
+    {
+      "id": "S61_MINIMAL_INFINITY_FORMAL_RINGS",
+      "title_ja": "最小型の平方零完成局所環と飽和による除去",
+      "statement_ja": "指定点でR=C[[u]]上の平方零自由拡大、冪零方向数はM0-134で3、M0-135とM1-134で2、M1-135で1。前三者t≠0,t2=0、最後t=0。",
+      "scope": "Explicit reduced fiber or specified local homogenizations.",
+      "status": {
+        "proof": "proof_with_exact_rational_certificate",
+        "independent_review": "independent_agent_or_parent_review_not_external_peer_review",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_MINIMAL_INFINITY_CURVES",
+          "S61_HOMOGENIZED_EQUIVARIANCE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_MINIMAL_INFINITY_FORMAL_RINGS_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_MINIMAL_FORMAL_RINGS_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_MINIMAL_INFINITY_LOCAL_DATA_20261101.json",
+        "reports/S61_MINIMAL_INFINITY_FORMAL_RANKS_20261101.json",
+        "reports/S61_MINIMAL_FORMAL_RINGS_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "指定点と証明した開部分のみ。共鳴層、他の無限遠、全アフィンファイバーを尽くさない。"
       ]
     }
   ],

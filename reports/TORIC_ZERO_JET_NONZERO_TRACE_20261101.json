@@ -1,0 +1,62 @@
+{
+  "id": "TORIC_ZERO_JET_NONZERO_TRACE_20261101",
+  "all_passed": true,
+  "field": "QQ",
+  "minimal": {
+    "jacobi_generators": [
+      "-2*a*t2 - 12*b*c - 2*b*t6 + b",
+      "5*a*b - 2*a*t9 + b*t8",
+      "a*t3 + 3*b**2 + b*t9",
+      "-8*a*c + 2*a*t6 + a - 2*b*t5",
+      "5*a**2 - a*t8 + 2*b*t7",
+      "4*a*t1 + 4*b*t4 + 12*c**2 - 3*c"
+    ],
+    "pfaffian": "-5*a**2*x**2*z**2/6 - 5*a*b*w*x**2*z/3 - 4*a*c*x**3*z/3 - a*t1*x**4/3 - a*t2*w*x**3/3 - a*t3*w**2*x**2/3 + a*t6*x**3*z/3 + a*t8*x**2*z**2/6 + 2*a*t9*w*x**2*z/3 + a*x**3*z/2 - b**2*w**2*x**2 - 2*b*c*w*x**3 - b*t4*x**4/3 - b*t5*x**3*z/3 - b*t6*w*x**3/3 - b*t7*x**2*z**2/3 - b*t8*w*x**2*z/3 - b*t9*w**2*x**2/3 + b*w*x**3/2 - c**2*x**4 + c*x**4/2",
+    "reduced_pfaffian": "c*x**4/4 + x**3*(a*z + b*w)/3",
+    "exact_ideal_correction": "-w**2*x**2*(a*t3 + 3*b**2 + b*t9)/3 + w*x**3*(-2*a*t2 - 12*b*c - 2*b*t6 + b)/6 - w*x**2*z*(5*a*b - 2*a*t9 + b*t8)/3 + x**4*(-4*a*t1 - 4*b*t4 - 12*c**2 + 3*c)/12 + x**3*z*(-8*a*c + 2*a*t6 + a - 2*b*t5)/6 - x**2*z**2*(5*a**2 - a*t8 + 2*b*t7)/6"
+  },
+  "nil22": {
+    "outside_support_coefficients": [
+      "A*c/2 - 5*A*d/2 + 2*A - 3*B*b",
+      "-3*A*a - B*c/2 - 3*B*d/2"
+    ],
+    "support_corrections": [
+      "-A*c + 5*A*d - 2*A + 6*B*b",
+      "6*A*a + B*c + 3*B*d - 2*B"
+    ],
+    "core_generators": [
+      "2*b*u + v*(c - 2*d + 1)",
+      "-4*a*b - 56*u*v + (c - d)*(c - d + 1)",
+      "2*a*v - c*u",
+      "a*(-2*c - 2*d + 1) - 4*u**2",
+      "b*(2*c - 6*d + 3) - 4*v**2"
+    ],
+    "reduced_pfaffian": "-a*z**4/4 + b*x**4/4 + u*x*z**3 - v*x**3*z + x**2*z**2*(-c + d)/4",
+    "exact_ideal_correction": "x**4*(b*(2*c - 6*d + 3) - 4*v**2)/4 - x**3*z*(4*b*u + 2*v*(c - 2*d + 1)) - x**2*z**2*(-4*a*b - 56*u*v + (c - d)*(c - d + 1))/4 - x*z**3*(4*a*v - 2*c*u) + z**4*(a*(-2*c - 2*d + 1) - 4*u**2)/4",
+    "square_form_determinants": [
+      "4*r*s1 - s0**2 - s0 - 1/4",
+      "4*r*s1 - s0**2 + s0 - 1/4"
+    ],
+    "final_AB_bivector": {
+      "12": "x*z/2",
+      "13": "0",
+      "14": "(4*a*z**2 + x**2)/4",
+      "23": "-(4*a*z**2 + x**2)/(16*a)",
+      "24": "p3*x**2 + p4*x*z + p5*z**2",
+      "34": "x*z/2"
+    }
+  },
+  "conclusion": "Every point of the reduced actual T01 zero-first-jet fiber with nonzero trace belongs to closed AB.",
+  "limitations": [
+    "Uses the historical exhaustive reduced fixed-trace normal forms, not only generic orbit representatives.",
+    "Zero-trace C0/L0 boundary points remain separate; no full zero-fiber exhaustion."
+  ],
+  "proof_note": "research/notes/TORIC_ZERO_JET_NONZERO_TRACE_20261101.md",
+  "source_sha256": {
+    "code/toric_zero_jet_nonzero_trace_20261101.py": "a2a68edaab9574a537262b0c411190895df6bb181c0ee1e6f18102729042c4f0",
+    "legacy/v06/data/nilpotent22_certificate.json": "10d1ac17dac1f4831e491204d28b7122f83d12d99aa1811d3fa8f4626cf7f646",
+    "legacy/v05/proofs/minimal_nilpotent_theorem.txt": "79fc1da738786ad2553f176db5ca85b9113982a24497b4dcc05d3ebb7c93611a",
+    "research/notes/TORIC_ZERO_JET_MINIMAL_20261101.md": "68fe9dcf3a4865999aa53865d8aa71baad182c8e46892f4751f3c4c6629ea964",
+    "research/notes/TORIC_ZERO_JET_FIBER_20261101.md": "62d97c769cdcfd768146a65abc60231b4f083c22d5a3f339a6f6ec9a3dccf241"
+  }
+}

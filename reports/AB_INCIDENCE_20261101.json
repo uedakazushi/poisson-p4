@@ -1,0 +1,280 @@
+{
+  "id": "AB_INCIDENCE_20261101",
+  "all_passed": true,
+  "field": "QQ",
+  "fixed_L_compatibility_rank": 7,
+  "fixed_L_compatible_dimension": 11,
+  "cubic_vector": [
+    [
+      "h1*x**3 + 2*h2*x**2*z + 3*h3*x*z**2 + 4*h4*z**3 + x*(s0*x**2 + s1*x*z + s2*z**2)/4"
+    ],
+    [
+      "-4*h0*x**3 - 3*h1*x**2*z - 2*h2*x*z**2 - h3*z**3 + z*(s0*x**2 + s1*x*z + s2*z**2)/4"
+    ]
+  ],
+  "mixed_block": [
+    [
+      "3*h1*x**2 + 4*h2*x*z + 3*h3*z**2 + s0*x**2/4 + s1*x*z/4 + s2*z**2/4 + x*(2*s0*x + s1*z)/4",
+      "2*h2*x**2 + 6*h3*x*z + 12*h4*z**2 + x*(s1*x + 2*s2*z)/4"
+    ],
+    [
+      "-12*h0*x**2 - 6*h1*x*z - 2*h2*z**2 + z*(2*s0*x + s1*z)/4",
+      "-3*h1*x**2 - 4*h2*x*z - 3*h3*z**2 + s0*x**2/4 + s1*x*z/4 + s2*z**2/4 + z*(s1*x + 2*s2*z)/4"
+    ]
+  ],
+  "sl3_linear_identification": [
+    [
+      "h2/6 + s1/48",
+      "-h1/4 - s0/48",
+      "h0"
+    ],
+    [
+      "h3/2 + s2/24",
+      "-h2/3",
+      "h1/2 - s0/24"
+    ],
+    [
+      "h4",
+      "-h3/4 + s2/48",
+      "h2/6 - s1/48"
+    ]
+  ],
+  "gl2_covariance_generators": [
+    {
+      "gl2_generator": [
+        [
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ],
+      "quadratic_representation": [
+        [
+          "2",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ]
+      ]
+    },
+    {
+      "gl2_generator": [
+        [
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ],
+      "quadratic_representation": [
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "2",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1",
+          "0"
+        ]
+      ]
+    },
+    {
+      "gl2_generator": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "1",
+          "0"
+        ]
+      ],
+      "quadratic_representation": [
+        [
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "2"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ]
+      ]
+    },
+    {
+      "gl2_generator": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1"
+        ]
+      ],
+      "quadratic_representation": [
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "2"
+        ]
+      ]
+    }
+  ],
+  "base_rank_one_matrix": [
+    [
+      "0",
+      "-1/24",
+      "0"
+    ],
+    [
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "0",
+      "1/24",
+      "0"
+    ]
+  ],
+  "base_GL2_orbit_witness": {
+    "rank": 4,
+    "rows": [
+      0,
+      1,
+      2,
+      7
+    ],
+    "columns": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "determinant": "1/20736",
+    "matrix": [
+      [
+        "0",
+        "1/12",
+        "0",
+        "0"
+      ],
+      [
+        "-1/12",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "1/12",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "1/12"
+      ]
+    ]
+  },
+  "rank_one_minors": [
+    "h1*h3/8 + h1*s2/96 - h2**2/18 - h2*s1/144 + h3*s0/96 + s0*s2/1152",
+    "-h0*h3/2 - h0*s2/24 + h1*h2/12 + h1*s1/96 - h2*s0/144 - s0*s1/1152",
+    "h0*h2/3 - h1**2/8 + s0**2/1152",
+    "h1*h4/4 - h2*h3/24 + h2*s2/288 - h3*s1/192 + h4*s0/48 + s1*s2/2304",
+    "-h0*h4 + h2**2/36 - s1**2/2304",
+    "h0*h3/4 - h0*s2/48 - h1*h2/24 + h1*s1/192 - h2*s0/288 + s0*s1/2304",
+    "h2*h4/3 - h3**2/8 + s2**2/1152",
+    "-h1*h4/2 + h2*h3/12 + h2*s2/144 - h3*s1/96 + h4*s0/24 - s1*s2/1152",
+    "h1*h3/8 - h1*s2/96 - h2**2/18 + h2*s1/144 - h3*s0/96 + s0*s2/1152"
+  ],
+  "rank_one_groebner_basis": [
+    "-8*h0*h2*s1/3 + 4*h0*h3*s0 + h1**2*s1 - 2*h1*h2*s0/3",
+    "-6*h0*h3*s1 + 24*h0*h4*s0 + h1*h2*s1 - 2*h2**2*s0/3",
+    "-9*h1*h3*s1/4 + 9*h1*h4*s0 + h2**2*s1 - 3*h2*h3*s0/2",
+    "-36*h0*h2*h4 + 27*h0*h3**2/2 + 27*h1**2*h4/2 - 9*h1*h2*h3/2 + h2**3",
+    "384*h0*h2 - 144*h1**2 + s0**2",
+    "576*h0*h3 - 96*h1*h2 + s0*s1",
+    "2304*h0*h4 - 64*h2**2 + s1**2",
+    "144*h1*h3 - 64*h2**2 + s0*s2",
+    "576*h1*h4 - 96*h2*h3 + s1*s2",
+    "384*h2*h4 - 144*h3**2 + s2**2",
+    "h0*s2 - h1*s1/4 + h2*s0/6",
+    "h1*s2 - 2*h2*s1/3 + h3*s0",
+    "h2*s2 - 3*h3*s1/2 + 6*h4*s0"
+  ],
+  "Jacobi_coefficients_reduce_to_zero": true,
+  "K_three_core": [
+    [
+      "0",
+      "a/24",
+      "c/12"
+    ],
+    [
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "0",
+      "0",
+      "0"
+    ]
+  ],
+  "proper_model": "Over LG(2,4), the fiber is the normal four-dimensional minimal nilpotent sl3 cone times affine3.",
+  "geometric_fibers": {
+    "translation_kernel_dimension_2": "one reduced point",
+    "translation_kernel_dimension_3": "P1, reduced",
+    "Q_zero": "LG(2,4), reduced"
+  },
+  "singular_locus": "Two irreducible six-dimensional loci B0 (constant Lagrangian plane factor) and B1 (one-variable tensor); intersection irreducible dimension five.",
+  "limitations": [
+    "The proper incidence is not the normalization map: it has positive-dimensional fibers.",
+    "No global normality of AB or scheme structure of the actual T01 zero-jet fiber is asserted."
+  ],
+  "proof_note": "research/notes/AB_INCIDENCE_20261101.md",
+  "source_sha256": {
+    "code/ab_incidence_20261101.py": "0b27eb1cf8a1119f75edd8fcdbfde1796aee64a36d8d47f2cf75d3fd7a2f3035",
+    "research/notes/TORIC_ZERO_JET_FIBER_20261101.md": "62d97c769cdcfd768146a65abc60231b4f083c22d5a3f339a6f6ec9a3dccf241",
+    "research/notes/TORIC_ZERO_JET_EXHAUSTION_20261101.md": "43c92fde9932b5d2bcc13d2db0615ee5f8e8d4cb6604df6baf4198d98a479e9a"
+  }
+}

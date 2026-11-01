@@ -1,6 +1,6 @@
 # 研究ノートと評価資料の入口
 
-**v33-s61、2026-11-01。楕円型の全域二次切断、既知五延長の三平面。**
+**v34-s61、2026-11-01。楕円型の全域二次切断、既知五延長の三平面。**
 
 ## v31 の新しい入口
 
@@ -118,3 +118,16 @@
 - ABは零一次部分の唯一の最大次元成分: `TORIC_ZERO_JET_TOP_COMPONENT_20261101`、独立点検 `TORIC_ZERO_JET_TOP_COMPONENT_REVIEW_20261101`。
 - トーリック境界のstrict安定化群障害: `TORIC_STRICT_STABILIZER_20261101`、独立点検 `STABILIZER_OBSTRUCTIONS_REVIEW_20261101`。
 - 滑らかな全領域の有限安定化群: `SMOOTH_CURVE_FINITE_STABILIZER_20261101`、独立点検 `STABILIZER_OBSTRUCTIONS_REVIEW_20261101`。
+
+## v34 の新しい入口
+
+- 零一次部分のR0全点はABに入る: `TORIC_ZERO_JET_R0_20261101`。対応する証明・コード・証明書と独立点検を参照。
+- 最小型の全零一次部分をABへ帰着: `TORIC_ZERO_JET_MINIMAL_20261101`。対応する証明・コード・証明書と独立点検を参照。
+- 非零トレースの全点をABへ帰着: `TORIC_ZERO_JET_NONZERO_TRACE_20261101`。対応する証明・コード・証明書と独立点検を参照。
+- 実際のT01零一次部分の被約台はAB: `TORIC_ZERO_JET_EXHAUSTION_20261101`。対応する証明・コード・証明書と独立点検を参照。
+- ABの正規proper incidenceと全ファイバー: `AB_INCIDENCE_20261101`。対応する証明・コード・証明書と独立点検を参照。
+- ABの特異点集合を完全決定: `AB_INCIDENCE_20261101`。対応する証明・コード・証明書と独立点検を参照。
+- 二平面型の横断長さ65と非零の斉次化変数: `S61_BINARY_TRANSVERSE_ALGEBRA_20261101`。対応する証明・コード・証明書と独立点検を参照。
+- 全135二次斉次化のSp4同変性: `S61_HOMOGENIZED_EQUIVARIANCE_20261101`。対応する証明・コード・証明書と独立点検を参照。
+- 一般βに残る二つの最小冪零型無限遠曲線: `S61_MINIMAL_NILPOTENT_INFINITY_FAMILY_20261101`。対応する証明・コード・証明書と独立点検を参照。
+- 最小型の平方零完成局所環と飽和による除去: `S61_MINIMAL_INFINITY_FORMAL_RINGS_20261101`。対応する証明・コード・証明書と独立点検を参照。
