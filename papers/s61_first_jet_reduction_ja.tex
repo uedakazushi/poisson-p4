@@ -35,7 +35,7 @@
 \title{射影四空間の Poisson 構造の一次ジェット還元\\
 \large 普遍的楕円切断、Jacobian の二捩れと Toric 成分の境界}
 \author{Poisson P4 研究プロジェクト・内部研究草稿}
-\date{2026年11月1日・v41-s61}
+\date{2026年11月1日・v42-s61}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -3792,6 +3792,107 @@ $\Sp_4\times H_{14}\to W$のsmooth性と同変性からambientへ降下する\ci
 この十八次元境界の開補集合は十七次元まであり、一般一次項を優越し得る。
 従って旗境界全体の除去や、別の$b_1=0$境界については結論を増やさない。
 
+\section{有限底torsionとT2接続層の除去}
+\begin{lemma}
+$A=k[[b_1,\ldots,b_d]]$、$R=A[[u_1,\ldots,u_m]]$、$M$を有限$R$加群とする。
+$M$と$M/(b)M$の階数が同じ$r$で、後者の$k[[u]]$-torsionが有限長なら、
+$M$の$R$-torsion部分$T$は$A$上有限である。
+\end{lemma}
+\begin{proof}
+$Q=M/T$はtorsion-freeなので、$b_1$による特殊化で
+$T/b_1T\hookrightarrow M/b_1M$となる。
+有限表示のminorにより中間特殊化の階数も$r$である。
+高さ一DVRで$Q$は自由$r$なので、$T/b_1T$は特殊化後のtorsionに含まれる。
+残る底変数について帰納し、$T/(b)T$が有限長と分かる。
+完備性と位相的Nakayamaから$A$有限性が従う\cite{finite-base-v42}。
+\end{proof}
+
+$S$を有限$R$代数、$T$を$A$有限な$S$のidealとし、$t^hS\subset T$とする。
+作用写像によって$S/\operatorname{ann}(T)\hookrightarrow\operatorname{End}_A(T)$なので、
+torsionの支持は$A$有限で次元$d$以下である。
+$t$可逆部分の閉包はこの支持に含まれ、各成分で$t$は恒等的に零でない。
+従ってその$t=0$境界は次元$d-1$以下で、実在する$d$次元sectionを全て覆えない。
+ここでは$T[1/t]$自体の$A$有限性を使っていない。
+
+\begin{proposition}
+二平面標準代表$Q_0=xw\partial_y\wedge\partial_z$と
+\[
+ H_{11}=\{u_{12}=u_{13}=u_4=0,\ 5u_{35}+u_{50}=0,\ 5u_{14}-3u_{49}=0\}
+\]
+の群飽和閉包は既約十六次元で$W_{16}$を優越し、十分一般の$\beta$上では全て$t$飽和で除かれる。
+\end{proposition}
+\begin{proof}
+指定固定点の全135式からQQ上で真の二次・三次関係と八つの四次関係を作る。
+候補初期ideal $J$の$C$-primary部分は次数65で、実在閉二重線のidealを$P_D$とすると
+\[
+ (B\cap P_D)/J\simeq k(-3),\qquad
+ \operatorname{Hilb}(k[v]/J,z)=
+ \frac{1+9z+25z^2+31z^3-4z^4+4z^5-z^6}{(1-z)^3}.
+\]
+同じ実在binary三次元族の一般下界65により、真の初期idealとの差はこのsocleに含まれる。
+三次までの関係は全て含まれるので差は零である。
+実在二重線への核のtorsionは有限長高々一で、filtration次数は三次に限られる。
+一般部での$t^2=0$と$t\in\mathfrak m^3$から、全固定点環でも$0\ne t,t^2=0$を得る。
+
+相対九変数切断では、実在二重線は$A[[s,\epsilon]]/(\epsilon^2)$で$A$-flatである。
+その核は相対一般階数も特殊階数も65なので、補題によりtorsionが$A$有限となる。
+$t^2$はこのtorsionに入る。飽和境界の次元は8以下で、九次元sectionを覆えない。
+群との積の$\beta$法線minorは$-2248/25$で非零であり、smooth同変基底変換と完成は飽和と可換である。
+従ってambientの飽和支持はこの既約十六次元層全体を含まない。
+交叉の次元は15以下となり、十分一般の$\beta$で全点が除かれる\cite{t2-v42}。
+\end{proof}
+相対指定点のambient環で$t^2=0$とまでは、この有限底torsionの議論から主張しない。
+
+\section{深い二平面族の七変数有理切断}
+$a=u_4,b=u_{14},c=u_{35},d=u_{36},e=u_{49},f=u_{50}$、
+$K=5c+f,L=5b-e,Q^*=600b^2-255be-63e^2+100af$とする。
+既処理層を除いた$K=Q^*=0$では$cL\ne0$としてよい。
+固定$Q_0$の三つの可換unipotent作用で$(u_5,u_{34},u_{51})$を零にする行列式は
+$cL(20b-37e)/50$である。二つのtorus方向で$c=L=1$とすると、残りは
+\[
+ (e,d,u_{25},u_{26},u_{27},u_{37},u_{48}),\qquad
+ a=\frac{3(1-2e)(15e+8)}{500},\quad b=\frac{e+1}{5},\quad f=-5
+\]
+の七変数となる。対角正規化は$\operatorname{diag}(L,L^{-1},c^{-1},c)$であり、根の選択を伴わない。
+全135式の三角消去による33次minorは非零定数倍を除いて
+\[
+ (2e-1)^4(10e-1)(15e+8)^3
+ (90de^2-93de+4d+600e-400)
+\]
+である。核と選択右逆の積を普遍的に検算し、同じ実在binary族への接射影minor
+$2(24e-7)/125$も得る。
+新たな三因子$4-33e,15e+8,24e-7$は各既約十六次元の優越層を定める。
+各指定点の相対自由65とsmooth降下から、その全一般$\beta$ファイバーを除去した。
+他の分母は前節までの処理済み層である\cite{deeper-chart-v42}。
+従って残る深部を一つの九法線chartで覆えるが、その全点で高次横断長65になることは未証明である。
+
+\newpage
+\section{T5の普遍法線下界と指定点の自由階数23}
+\begin{proposition}
+既存T5指定点の全完成局所環は$\CC[[u_1,u_2]]$上自由階数23で、被約台は同じ滑らかな
+実在T5曲面、$t^{23}=0$である。この点を含むambientの非空開は$t$飽和で除かれる。
+\end{proposition}
+\begin{proof}
+十二次元$\beta$核の固定安定化群を有限変換として用い、八変数sliceへ移す。
+全135式の40次線形枠と右逆を恒等的に検証し、三法線変数を$(\nu,\xi,\eta)$とする。
+五次までの全初期関係の階数は、次数2,3,4,5でそれぞれ$1,4,10,18$である。
+二次は$\nu^2$、三次の追加は$\nu Q_2(\xi,\eta)$、四次の追加二式とその倍で
+$\nu\operatorname{Sym}^3(\xi,\eta)$を張る。
+低次数syzygy $\nu g-Q_2f$の五次純binary部分が零であることも検証する。
+残る二元五次六列は階数三で、全行のCramer恒等式が成立する。
+従って五次截断のHilbert関数は$(1,3,5,6,5,3)$、長さ23である。
+元の有限jet行列の階数上界から特殊化へ長さ下界を移すので、計算中に除いた因子の
+特殊点での非消滅を仮定しない。
+
+同じ実在曲面$C$の二座標を底$R$に取り、既存の実際の横断上界23から$R^{23}\twoheadrightarrow S$を得る。
+同じ$C$の一般点の下界23により階数も23で、全射の核は零である。
+一般ファイバーの唯一のArtin因子の長さ23から$t^{23}=0$となり、自由性で全$S$へ降下する。
+相対十四変数底でも生成上界と一般下界を別々に比較して自由23を得る。
+群とのsmooth同変基底変換からambientの指定点へ降下する\cite{t5-free-v42}。
+\end{proof}
+これは自由加群としての記述であり、乗法表や$t=0$を主張しない。
+十八次元T5層の補集合は依然$W_{16}$を優越し得るため、全一般$\beta$のT5除去は残る。
+
 \section{残る問題}
 全一次項の延長可能性、楕円二成分の全域graphと一般次数1、表示重複3000、
 T01の一般次数3と$S_3$モノドロミー、および既知五延長の三平面断面の積代数は証明した。
@@ -4029,6 +4130,10 @@ arXiv:1406.6953v1 (2014), Theorems 2.1 and 2.3.
 \bibitem{binary-pivot-v41} 同プロジェクト、\nolinkurl{research/notes/S61_BINARY_DEEPER_PIVOT_DIVISORS_20261101.md}、証明・係数証明書と独立レビューの範囲を参照。
 \bibitem{adic-length-v41} 同プロジェクト、\nolinkurl{research/notes/ADIC_MODULAR_LENGTH_BOUND_20261101.md}、証明・係数証明書と独立レビューの範囲を参照。
 \bibitem{flag-binary-v41} 同プロジェクト、\nolinkurl{research/notes/S61_FLAG_BINARY_CONNECTION_FORMAL_20261101.md}、証明・係数証明書と独立レビューの範囲を参照。
+\bibitem{finite-base-v42} 同プロジェクト、\nolinkurl{research/notes/FINITE_BASE_TORSION_SPECIALIZATION_20261101.md}、明記した証明書・レビュー範囲を参照。
+\bibitem{t2-v42} 同プロジェクト、\nolinkurl{research/notes/S61_BINARY_T2_STRATUM_REMOVAL_20261101.md}、明記した証明書・レビュー範囲を参照。
+\bibitem{deeper-chart-v42} 同プロジェクト、\nolinkurl{research/notes/S61_BINARY_DEEPER_TRIANGULAR_CHART_20261101.md}、明記した証明書・レビュー範囲を参照。
+\bibitem{t5-free-v42} 同プロジェクト、\nolinkurl{research/notes/S61_R0_T5_FORMAL_RANK23_20261101.md}、明記した証明書・レビュー範囲を参照。
 \end{thebibliography}
 \endgroup
 \end{document}

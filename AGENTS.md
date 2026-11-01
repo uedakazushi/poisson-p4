@@ -1,8 +1,27 @@
 # Poisson structures on P4 — Codex instructions
 
-Version: v41-s61 · 2026-11-01 (Asia/Tokyo).
+Version: v42-s61 · 2026-11-01 (Asia/Tokyo).
 
-Current v41 additions: ALL finite M0/M1 main-curve points are removed over
+Current v42 additions: the ENTIRE16D binary/T2 connection is removed over
+sufficiently general beta. QQ grS has a C-primary degree65 part, an actual
+double line, and one cubic socle. At the fixed-beta point0!=t,t^2=0.
+Relative finite-base torsion gives boundary dimension8<section dimension9;
+smooth equivariant descent removes the whole16D stratum. Do NOT assert
+ambient t^2=0 at the specified point from this relative argument.
+The deeper binary K=Qstar=0 locus is covered by a rational seven-variable
+slice. Three new16D coordinate-artifact divisors are removed; exact triangular
+rank33 elimination and a smooth binary3fold leave nine normal variables.
+Universal higher-order length65 on the remaining chart is NOT yet proved.
+T5 has universal normal length lower23 through degree5. The old transverse
+upper23 now proves the specified full ring free23 overR2,t^23=0, and a
+containing ambient removed open. EntireT5 removal and t=0 remain unproved.
+Flag b1=0 GF32003 initial6 has dim3 degree5 and a2D embedded quotient;
+degree7 adds no relations. QQ lift and local t-nilpotence remain WIP.
+Remaining flags, T5, binary higher obstructions, minimal projective endpoints,
+affine five-point exhaustion and component upper bound remain. Lower57.
+Continue after checkpoints.
+
+Previous v41 additions: ALL finite M0/M1 main-curve points are removed over
 sufficiently general beta. Exact universal quadratics and all18 factors per
 type include kernel jumps, Jordan, coefficient-zero and quadratic-field
 exceptions. The non-invariant M0 polynomial P is handled through the intrinsic

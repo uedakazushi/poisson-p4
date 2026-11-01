@@ -1,6 +1,6 @@
 # 公表用原稿の構成案と証明資料
 
-**状態：v41-s61、2026-11-01。零一次部分の被約台AB、ABのincidenceと特異点集合、最小型無限遠の完成局所環、二平面型の横断Artin代数を統合。**
+**状態：v42-s61、2026-11-01。零一次部分の被約台AB、ABのincidenceと特異点集合、最小型無限遠の完成局所環、二平面型の横断Artin代数を統合。**
 
 [一次ジェット還元の日本語原稿](s61_first_jet_reduction_ja.tex)（[PDF・41ページ](s61_first_jet_reduction_ja.pdf)）は、
 primitive gauge、T01/T39/T40の優越性と全S61のétale点、楕円型五変数模型、T01の一般次数3、
@@ -210,3 +210,12 @@ v35では一般被約無限遠の全型帰着、ABの原点外の正規性、二
 - 深い二平面の二つのpivot因子を除去: `S61_BINARY_DEEPER_PIVOT_DIVISORS_20261101`。レビュー範囲と未解決部分を各ノートに明記。
 - 実際の有限体截断環から標数零形式長への上界移送: `ADIC_MODULAR_LENGTH_BOUND_20261101`。レビュー範囲と未解決部分を各ノートに明記。
 - 旗・binary接続点の自由70と非零平方零t: `S61_FLAG_BINARY_CONNECTION_FORMAL_20261101`。レビュー範囲と未解決部分を各ノートに明記。
+
+## v42: T2全層除去・深部有理chart・T5自由23
+
+- 等階数特殊化での有限底torsionと飽和境界: `FINITE_BASE_TORSION_SPECIALIZATION_20261101`。適用範囲と未解決部分を各ノートに明記。
+- T2接続指定点の随伴次数環と平方零t: `S61_BINARY_T2_CONNECTION_20261101`。適用範囲と未解決部分を各ノートに明記。
+- T2接続16次元層を全一般βで除去: `S61_BINARY_T2_RELATIVE_DOUBLE_LINE_20261101`。適用範囲と未解決部分を各ノートに明記。
+- 深部二平面族を七変数有理切断へ還元: `S61_BINARY_DEEPER_SEVEN_SLICE_20261101`。適用範囲と未解決部分を各ノートに明記。
+- 深部の普遍三角消去と追加二座標例外の除去: `S61_BINARY_DEEPER_TRIANGULAR_CHART_20261101`。適用範囲と未解決部分を各ノートに明記。
+- T5普遍法線長23下界と指定点の自由23: `S61_R0_T5_FORMAL_RANK23_20261101`。適用範囲と未解決部分を各ノートに明記。

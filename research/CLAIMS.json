@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checkpoint": "v41-s61",
+  "checkpoint": "v42-s61",
   "date": "2026-11-01",
   "base_mathematical_checkpoint": "v24",
   "new_mathematical_progress_in_this_setup": false,
@@ -5148,6 +5148,208 @@
       ],
       "limitations_ja": [
         "指定点と18D旗境界b0=0内の非空ambient開のみ。全b0=0またはb1=0境界の除去ではない。"
+      ]
+    },
+    {
+      "id": "FINITE_BASE_TORSION_SPECIALIZATION",
+      "title_ja": "等階数特殊化での有限底torsionと飽和境界",
+      "statement_ja": "特殊torsionが有限長なら相対torsionは形式底A上有限。tの冪がこのidealに入れば、annihilator商の有限性によりt=0境界の次元はdim A−1以下。",
+      "scope": "Only the stated local, relative, coordinate and sufficiently-general-beta conclusions.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/FINITE_BASE_TORSION_SPECIALIZATION_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/FINITE_BASE_TORSION_SPECIALIZATION_20261101.json"
+      ],
+      "limitations_ja": [
+        "相対torsionの零性・flatnessや指定点でのt冪零性は結論しない。"
+      ]
+    },
+    {
+      "id": "S61_BINARY_T2_FORMAL",
+      "title_ja": "T2接続指定点の随伴次数環と平方零t",
+      "statement_ja": "QQでC-primary次数65、実在二重線、三次の長さ一socleを分離し、真の初期idealを同定。核の有限長torsionとtの三次項から0≠t,t²=0。",
+      "scope": "Only the stated local, relative, coordinate and sufficiently-general-beta conclusions.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_BINARY_UNIFORM_OBSTRUCTION_BOUNDS"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_BINARY_T2_CONNECTION_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_T2_FORMAL_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_T2_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_BINARY_T2_CONNECTION_20261101.json",
+        "reports/S61_BINARY_T2_FORMAL_20261101.json",
+        "reports/S61_BINARY_T2_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "固定β指定点の命題。実際のtorsionの非零性や核の自由性は主張しない。"
+      ]
+    },
+    {
+      "id": "S61_BINARY_T2_STRATUM_REMOVAL",
+      "title_ja": "T2接続16次元層を全一般βで除去",
+      "statement_ja": "全九変数のflatな実在二重線と有限底torsion補題により、飽和境界次元8<section次元9を得る。smooth同変降下と層の次元16から全一般β除去。",
+      "scope": "Only the stated local, relative, coordinate and sufficiently-general-beta conclusions.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "FINITE_BASE_TORSION_SPECIALIZATION",
+          "S61_BINARY_T2_FORMAL"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_BINARY_T2_RELATIVE_DOUBLE_LINE_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_T2_STRATUM_REMOVAL_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_T2_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_BINARY_T2_RELATIVE_DOUBLE_LINE_20261101.json",
+        "reports/S61_BINARY_T2_STRATUM_REMOVAL_20261101.json",
+        "reports/S61_BINARY_T2_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "ambient指定点のt²=0は主張しない。全深部binaryや旗は別。"
+      ]
+    },
+    {
+      "id": "S61_BINARY_DEEPER_SEVEN_SLICE",
+      "title_ja": "深部二平面族を七変数有理切断へ還元",
+      "statement_ja": "三unipotentと二torusでc=L=1,u5=u34=u51=0へ有理的に移す。漏れる20b−37eの16D層は相対自由65により全一般β除去。",
+      "scope": "Only the stated local, relative, coordinate and sufficiently-general-beta conclusions.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_BINARY_T2_STRATUM_REMOVAL",
+          "S61_BINARY_DEEPER_PIVOT_DIVISORS"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_BINARY_DEEPER_SEVEN_SLICE_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_DEEPER_COORDINATE_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_BINARY_DEEPER_SEVEN_SLICE_20261101.json",
+        "reports/S61_BINARY_DEEPER_COORDINATE_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "切断の全点での高次横断長65は未証明。"
+      ]
+    },
+    {
+      "id": "S61_BINARY_DEEPER_TRIANGULAR_CHART",
+      "title_ja": "深部の普遍三角消去と追加二座標例外の除去",
+      "statement_ja": "元135式の33次minor・核・右逆と実在binary三次元接空間を検証。15e+8と24e−7の16D層を除去し、線形chartの全分母を処理。",
+      "scope": "Only the stated local, relative, coordinate and sufficiently-general-beta conclusions.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_BINARY_DEEPER_SEVEN_SLICE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_BINARY_DEEPER_TRIANGULAR_CHART_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_DEEPER_COORDINATE_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_BINARY_DEEPER_TRIANGULAR_CHART_20261101.json",
+        "reports/S61_BINARY_DEEPER_COORDINATE_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "九法線の普遍高次障害と残る例外は別課題。"
+      ]
+    },
+    {
+      "id": "S61_R0_T5_FORMAL_RANK23",
+      "title_ja": "T5普遍法線長23下界と指定点の自由23",
+      "statement_ja": "八変数slice上の五次までの全初期関係からHF(1,3,5,6,5,3)を得る。同じ実在曲面の下界と特殊横断上界から自由23,t²³=0。相対版で指定点を含むambient除去開。",
+      "scope": "Only the stated local, relative, coordinate and sufficiently-general-beta conclusions.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_R0_MIXED_SURFACE_T5_OPEN"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_R0_T5_FORMAL_RANK23_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_R0_T5_FORMAL_RANK23_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_R0_T5_FORMAL_RANK23_20261101.json",
+        "reports/S61_R0_T5_FORMAL_RANK23_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "全T5軌道除去・全環t=0・乗法表を主張しない。レビューは論証と実装の監査で、数値独立再実装ではない。"
       ]
     }
   ],
