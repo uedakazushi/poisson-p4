@@ -1,8 +1,25 @@
 # Poisson structures on P4 — Codex instructions
 
-Version: v48-s61 · 2026-11-01 (Asia/Tokyo).
+Version: v49-s61 · 2026-11-01 (Asia/Tokyo).
 
-Current v48 additions: the common nonempty deeper-binary core open is removed
+Current v49 additions: all eight remaining irreducible quadratic-minor core
+artifact strata of deeper binary are removed at EVERY sufficiently-general-beta
+point. Together with the previous five, all thirteen quadratic-minor factors
+are treated. Separate unknown fourth-minor factors remain.
+The ordinary eight-variable flag chart has true HF(1,9,36,97,201), ord(t)=4;
+all lower syzygy tails are retained. A univariate minor cover removes numerous
+pivot artifacts, on its explicitly stated core open only.
+At the specified b12=0 point, the QQ six-initial lower ideal J has dim3/degree5.
+Its saturation is the C3 free5 part; E=(J:h^infinity)/J is R2-free111, using a
+rank7 active-algebra module presentation. Full initial equality and actual
+ambient t-nilpotence do NOT follow.
+The free-M0 universal five-jet HF is(1,11,54,168,391,740). The23 new fifth
+rows are QQ constant; the fourth a1 coefficient remains. Independent raw135
+mod32003 fifth comparison and the separate fourth lower-space review passed.
+Whole flags, higher core exceptions, affine exhaustion and upper bound remain
+open. Lower57. Continue after checkpoints.
+
+Previous v48 additions: the common nonempty deeper-binary core open is removed
 at EVERY point over sufficiently general beta. The actual relative C3 lower65
 and uniform transverse upper65 give full relative free65, I^4=I*t=t^2=0;
 fixed-beta specialization and smooth source descent give ambient removal.

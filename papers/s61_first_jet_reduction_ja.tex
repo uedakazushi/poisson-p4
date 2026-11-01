@@ -35,7 +35,7 @@
 \title{射影四空間の Poisson 構造の一次ジェット還元\\
 \large 普遍的楕円切断、Jacobian の二捩れと Toric 成分の境界}
 \author{Poisson P4 研究プロジェクト・内部研究草稿}
-\date{2026年11月1日・v48-s61}
+\date{2026年11月1日・v49-s61}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -4611,6 +4611,76 @@ $C_3$方向への移動はこの七変数源の外へ出るため、横断商の
 \cite{free-low-v48,free-four-v48}。
 全成分数は依然として下界57であり、アフィン五点による尽くしと成分数の上界は証明していない。
 
+\section{v49: 二次core例外の除去と旗の真正高次}
+\label{sec:v49}
+\subsection{深部binaryの八因子層}
+既存の二次24次小行列式に現れる十三因子のうち、残っていた八つの
+$\mathbf Q$既約因子を処理した。その次数は$1,3,4,3,7,6,13,24$である。
+各因子上の$\mathbf F_{32003}$滑らかな点で、元135式を再構成し、
+二次・三次・四次の初期関係の階数$24,131,495$を確認した。
+同じ固定$\beta$の二元形式平面内に、一般法線長65を持つordinary点も確認した。
+滑らかなHensel持上げ、既存の整数モデル上界、同じ実在相対$C_3$の下界から、
+相対完成環の自由階数65と非空開上のambient $t^2=0$を得る。
+源から$W_{16}$への微分階数16も各点で確認した。
+除去開は$\mathbf Q$上で定義されるため、幾何的成分へのGalois推移性を用いると、
+各成分で除去開が非空となる。各層の像は16次元であり、残る閉部分の像は15次元以下である。
+従って八因子層の\emph{全ての十分一般$\beta$点}が飽和から除かれる。
+既処理の五因子と合わせ、二次小行列式の十三因子は全て処理済みである。
+四次小行列式に由来する別の未知因子をこれで処理したとは述べない
+\cite{deep-artifacts-v49}。
+
+\subsection{通常旗の真正四次とcore小行列式被覆}
+通常八変数旗chartで、元135式の一貫した四次jetから全低次関係を追跡した。
+二次基底の81本の一次倍の関係と、元135残余の三次関係の両方について、
+引いた係数が生む四次tailを保持する。既知四次282次元の商213次元上で、
+216行の全真正四次候補の階数は12となる。従って
+\[
+ \operatorname{HF}_{\le4}=(1,9,36,97,201).
+\]
+$t$の三次を消す表現にも同じtail補正を施すと、その四次を加えた階数は13となり、
+$\operatorname{ord}(t)=4$を得る。
+行のcontentを割る操作も含め、反転したcore因子を全て記録している。
+非零の18行と補正$t$はcoreの二変数だけで書ける。
+$b_8$の行・列ごとの単項式因子を除くと、一変数多項式行列となり、
+複数の最大小行列式の厳密な最大公約数で多数の人工pivot因子を除ける。
+これは証明書に明記したcore開上の全nuisance値についての有限四次定理である。
+$b_8=0$、線形frameの例外、残る基底例外およびambient $t$冪零性は別問題である
+\cite{eight-four-v49,eight-cover-v49}。
+
+\subsection{b12零旗点の有理初期idealと埋め込み加群}
+$b_{12}=0$の指定有理点について、元135式から整数六次jetを再構成し、
+$\mathbf Q$上で全12069個の閉包検査を通した。得た64初期生成元のideal $J$は
+次元3・次数5である。四つのactive変数の二次商は基底7個を持つので、
+残る変数上の有限生成加群へ移すことで有理係数の計算が小さくなる。
+$h=-3v_1+v_3/2$について
+\[
+ B=J:h^\infty=(v_4,v_7)+(v_2,v_3+2v_6,v_5,v_8)^2
+\]
+であり、旗$C_3$の自由階数5の部分を与える。
+差加群$E=B/J$は$\mathbf Q[v_0,v_1]$上自由111で、基底の次数分布は
+\[
+ 2T+15T^2+28T^3+38T^4+18T^5+10T^6
+\]
+となる。$J$は実際の初期idealに含まれるが、等号は証明していない。
+既存の実際の階数5から追加初期核は$E$に入るものの、
+この計算を実際のtorsionの自由性や$t$の冪零性と同一視しない
+\cite{zero12-rational-v49}。
+
+\subsection{自由M0旗端点の真正五次}
+全五変数正常形上で、既知五次2240次元に真正新五次23次元が加わり、
+\[
+ \operatorname{HF}_{\le5}=(1,11,54,168,391,740)
+\]
+となる。新五次23行のrrefは全て有理定数である。
+ただし、既存四次の一係数の$a_1$依存は残っている。
+最高次数の双線形収縮だけを既知初期idealで縮約し、三次・四次のtailは保持した。
+元135式から未縮約の五次を独立に再構成する有限体比較でも、全135差が既知idealに入ることを確認した。
+四次についても、独立に作った低次商の階数595と保存15基底を監査した。
+これは有理関数体上の全五次係数を別実装で再構成した監査とは区別する。
+六次以後、全局所環および残る旗端点の飽和除去は引き続き未完了である
+\cite{free-five-v49,free-four-review-v49}。
+全成分数の下界57は維持されるが、上界および全アフィン解の尽くしは未証明である。
+
 \begingroup\footnotesize
 \begin{thebibliography}{99}
 \setlength{\itemsep}{0pt}
@@ -4869,6 +4939,12 @@ arXiv:1406.6953v1 (2014), Theorems 2.1 and 2.3.
 \bibitem{zero12-49-v48} 同プロジェクト、\nolinkurl{research/notes/S61_FLAG_ZERO12_TRANSVERSE49_20261101.md}、証明書と監査範囲を参照。
 \bibitem{free-low-v48} 同プロジェクト、\nolinkurl{research/notes/S61_MINIMAL_FREE_FLAG_LOW_REVIEW_20261101.md}、証明書と監査範囲を参照。
 \bibitem{free-four-v48} 同プロジェクト、\nolinkurl{research/notes/S61_MINIMAL_FREE_FLAG_UNIVERSAL_QUARTIC_20261101.md}、証明書と監査範囲を参照。
+\bibitem{deep-artifacts-v49} 同プロジェクト、\nolinkurl{research/notes/S61_BINARY_DEEPER_CORE_ARTIFACTS_20261101.md}、証明書と監査範囲を参照。
+\bibitem{eight-four-v49} 同プロジェクト、\nolinkurl{research/notes/S61_FLAG_BOUNDARY_EIGHT_QUARTIC_20261101.md}、証明書と監査範囲を参照。
+\bibitem{eight-cover-v49} 同プロジェクト、\nolinkurl{research/notes/S61_FLAG_BOUNDARY_EIGHT_QUARTIC_COVER_20261101.md}、証明書と監査範囲を参照。
+\bibitem{zero12-rational-v49} 同プロジェクト、\nolinkurl{research/notes/S61_FLAG_ZERO12_RATIONAL_INITIAL_20261101.md}、証明書と監査範囲を参照。
+\bibitem{free-five-v49} 同プロジェクト、\nolinkurl{research/notes/S61_MINIMAL_FREE_FLAG_UNIVERSAL_QUINTIC_20261101.md}、証明書と監査範囲を参照。
+\bibitem{free-four-review-v49} 同プロジェクト、\nolinkurl{research/notes/S61_MINIMAL_FREE_FLAG_QUARTIC_REVIEW_20261101.md}、証明書と監査範囲を参照。
 \end{thebibliography}
 \endgroup
 \end{document}

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checkpoint": "v48-s61",
+  "checkpoint": "v49-s61",
   "date": "2026-11-01",
   "base_mathematical_checkpoint": "v24",
   "new_mathematical_progress_in_this_setup": false,
@@ -6578,6 +6578,198 @@
       ],
       "limitations_ja": [
         "五変数関数体上の有限四次の定理。独立四次係数監査、全初期ideal、ambient t冪零性は未完了。"
+      ]
+    },
+    {
+      "id": "S61_FLAG_BOUNDARY_EIGHT_QUARTIC",
+      "title_ja": "通常八変数旗の真正四次とt次数",
+      "statement_ja": "全135式の一貫した生四次と全filtered関係を再構成し、既知四次282＋新四次12、HF(1,9,36,97,201)、ord(t)=4。記録した31 core因子の非零開上で全六nuisanceに一様。",
+      "scope": "Only the stated sufficiently-general-beta, fixed-beta formal or finite-chart conclusions.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_FLAG_BOUNDARY_EIGHT_CUBIC"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_FLAG_BOUNDARY_EIGHT_QUARTIC_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_FLAG_BOUNDARY_EIGHT_QUARTIC_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_FLAG_BOUNDARY_EIGHT_QUARTIC_20261101.json",
+        "reports/S61_FLAG_BOUNDARY_EIGHT_QUARTIC_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "全core、全初期ideal、完成環の自由性やt冪零性は未証明。独立概念レビュー、別係数実装なし。"
+      ]
+    },
+    {
+      "id": "S61_FLAG_BOUNDARY_EIGHT_QUARTIC_COVER",
+      "title_ja": "通常旗四次の一変数小行列式被覆",
+      "statement_ja": "真正新四次の18行と補正t4はcore二変数のみに依存し、b8の行列重みを除くと一変数多項式行列になる。複数の12/13次小行列式の厳密gcdで人工pivot因子を除く。",
+      "scope": "Only the stated sufficiently-general-beta, fixed-beta formal or finite-chart conclusions.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_FLAG_BOUNDARY_EIGHT_QUARTIC"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_FLAG_BOUNDARY_EIGHT_QUARTIC_COVER_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_FLAG_BOUNDARY_EIGHT_QUARTIC_COVER_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_FLAG_BOUNDARY_EIGHT_QUARTIC_COVER_20261101.json",
+        "reports/S61_FLAG_BOUNDARY_EIGHT_QUARTIC_COVER_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "証明書の明示core非零開のみ。b8=0、四線形例外、残る基底例外は別。",
+        "独立概念レビュー済み。係数・行列式の別実装なし。"
+      ]
+    },
+    {
+      "id": "S61_FLAG_ZERO12_RATIONAL_INITIAL",
+      "title_ja": "b12=0指定点のQQ六次初期idealと埋込111",
+      "statement_ja": "元135からQQ全六次閉包を再構成。64初期生成元のJはdim3/degree5、J:h∞は旗C3の自由5部分。定数active二次商の基底7上で計算し、E=(J:h∞)/JはQQ[v0,v1]自由111。",
+      "scope": "Only the stated sufficiently-general-beta, fixed-beta formal or finite-chart conclusions.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_FLAG_ZERO12_RANK_FIVE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_FLAG_ZERO12_RATIONAL_INITIAL_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_FLAG_ZERO12_RATIONAL_INITIAL_20261101.json"
+      ],
+      "limitations_ja": [
+        "Jは実際の初期idealに含まれるだけ。追加初期核KはEに含まれるがK=0、actual torsionの自由性、t冪零性は未証明。"
+      ]
+    },
+    {
+      "id": "S61_MINIMAL_FREE_FLAG_UNIVERSAL_QUINTIC",
+      "title_ja": "自由M0五変数の真正五次を確定",
+      "statement_ja": "全低次tailを保持し、既知五次2240＋新五次23、HF(1,11,54,168,391,740)。新五次rrefは全てQQ定数。独立mod32003全135 raw5比較で最高次数のみの縮約を監査。",
+      "scope": "Only the stated sufficiently-general-beta, fixed-beta formal or finite-chart conclusions.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_MINIMAL_FREE_FLAG_UNIVERSAL_QUARTIC"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_MINIMAL_FREE_FLAG_UNIVERSAL_QUINTIC_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_MINIMAL_FREE_FLAG_QUINTIC_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_MINIMAL_FREE_FLAG_UNIVERSAL_QUINTIC_20261101.json",
+        "reports/S61_MINIMAL_FREE_FLAG_QUINTIC_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "四次のa1依存は残る。全六次以後・全局所環・t冪零性は未証明。QQ全五変数の別実装ではない。"
+      ]
+    },
+    {
+      "id": "S61_MINIMAL_FREE_FLAG_QUARTIC_REVIEW",
+      "title_ja": "自由M0四次の独立低次商監査",
+      "statement_ja": "独立M2で二次三次から四次下位空間595を再構成し、保存追加15基底・pivot・minor・唯一a1係数を点検。全267 filtered tailの被覆を概念受理。",
+      "scope": "Only the stated sufficiently-general-beta, fixed-beta formal or finite-chart conclusions.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_MINIMAL_FREE_FLAG_UNIVERSAL_QUARTIC"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_MINIMAL_FREE_FLAG_QUARTIC_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_MINIMAL_FREE_FLAG_QUARTIC_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "元135 raw4の別実装や主producer再実行を含まない。"
+      ]
+    },
+    {
+      "id": "S61_BINARY_DEEPER_CORE_ARTIFACTS",
+      "title_ja": "深部binaryの残る二次minor八因子層を除去",
+      "statement_ja": "次数1,3,4,3,7,6,13,24の八QQ既約因子の16D層は全一般β点で飽和除去。元135の滑らかなHensel点で24/131/495、同じ相対C3下界とsourceβrank16を確認し、相対free65・Galois共役・次元15の補集合を用いる。",
+      "scope": "Only the stated sufficiently-general-beta, fixed-beta formal or finite-chart conclusions.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_BINARY_DEEPER_CORE_OPEN_FORMAL",
+          "S61_BINARY_DEEPER_UNIFORM_QUADRATIC"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_BINARY_DEEPER_CORE_ARTIFACTS_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_DEEPER_CORE_ARTIFACTS_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_BINARY_DEEPER_CORE_ARTIFACTS_20261101.json",
+        "reports/S61_BINARY_DEEPER_CORE_ARTIFACTS_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "二次minor十三因子は全処理済みだが、四次minorの別の未知因子は未処理。全core除去ではない。"
       ]
     }
   ],

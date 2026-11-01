@@ -1,6 +1,6 @@
 # 公表用原稿の構成案と証明資料
 
-**状態：v48-s61、2026-11-01。零一次部分の被約台AB、ABのincidenceと特異点集合、最小型無限遠の完成局所環、二平面型の横断Artin代数を統合。**
+**状態：v49-s61、2026-11-01。零一次部分の被約台AB、ABのincidenceと特異点集合、最小型無限遠の完成局所環、二平面型の横断Artin代数を統合。**
 
 [一次ジェット還元の日本語原稿](s61_first_jet_reduction_ja.tex)（[PDF・41ページ](s61_first_jet_reduction_ja.pdf)）は、
 primitive gauge、T01/T39/T40の優越性と全S61のétale点、楕円型五変数模型、T01の一般次数3、
@@ -276,3 +276,12 @@ v35では一般被約無限遠の全型帰着、ABの原点外の正規性、二
 - b12=0旗chart全域で実横断族は自由49: `S61_FLAG_ZERO12_TRANSVERSE49_20261101`。適用範囲と未解決部分を各ノートに明記。
 - 自由M0五変数正常形と低次の独立監査: `S61_MINIMAL_FREE_FLAG_LOW_REVIEW_20261101`。適用範囲と未解決部分を各ノートに明記。
 - 自由M0五変数の真正四次を確定: `S61_MINIMAL_FREE_FLAG_UNIVERSAL_QUARTIC_20261101`。有限四次の定理であり独立四次監査は未実施。
+
+## v49: 二次core例外の除去・旗真四次・最小型真五次
+
+- 通常八変数旗の真正四次とt次数: `S61_FLAG_BOUNDARY_EIGHT_QUARTIC_20261101`。適用範囲と未解決部分を各ノートに明記。
+- 通常旗四次の一変数小行列式被覆: `S61_FLAG_BOUNDARY_EIGHT_QUARTIC_COVER_20261101`。適用範囲と未解決部分を各ノートに明記。
+- b12=0指定点のQQ六次初期idealと埋込111: `S61_FLAG_ZERO12_RATIONAL_INITIAL_20261101`。適用範囲と未解決部分を各ノートに明記。
+- 自由M0五変数の真正五次を確定: `S61_MINIMAL_FREE_FLAG_UNIVERSAL_QUINTIC_20261101`。適用範囲と未解決部分を各ノートに明記。
+- 自由M0四次の独立低次商監査: `S61_MINIMAL_FREE_FLAG_QUARTIC_REVIEW_20261101`。適用範囲と未解決部分を各ノートに明記。
+- 深部binaryの残る二次minor八因子層を除去: `S61_BINARY_DEEPER_CORE_ARTIFACTS_20261101`。適用範囲と未解決部分を各ノートに明記。
