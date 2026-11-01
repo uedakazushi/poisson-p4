@@ -1,8 +1,24 @@
 # Poisson structures on P4 — Codex instructions
 
-Version: v37-s61 · 2026-11-01 (Asia/Tokyo).
+Version: v38-s61 · 2026-11-01 (Asia/Tokyo).
 
-Current v37 additions: the entire canonical nonbinary xzw orbit is removed
+Current v38 additions: the entire pure double-root z^2*w/z*w^2 orbit is
+removed over sufficiently general beta. All13 universal-minor factors are
+covered. The A=2B triple endpoint has rank5/transverse6; four divisors have
+rank3/transverse4 and nilpotent t. B=0 and5A=3B mixed junctions are free rank5,
+reduced ordinary nodes, square-zero nilradical, t=0. Mixed tails remain separate.
+The entire nonsquare binary full-rank<=34 locus is the union of five explicit
+prime zero sets, three symmetry orbit families (18D,17D,17D). Each has a
+specified free65 ambient open; their complements can dominate beta. The linear
+17D transverse Hilbert function is (1,8,23,33), not (1,8,22,34).
+A non-diagonal14-variable minimal-main formula covers rank-one vertices.
+M1 rank-one point and M0 main/A1 junction are removed; all finite M0 rank-one
+A1 parameters are removed. The R0 endpoint at infinity is separate.
+AB degree4 has exact lower bound38320, not equality or origin normality.
+Affine finiteness/five points, all special strata and total component upper
+bound remain unproved. Lower bound57 unchanged. Continue after checkpoints.
+
+Previous v37 additions: the entire canonical nonbinary xzw orbit is removed
 by t-saturation over sufficiently general beta. A universal43-minor and one
 square obstruction cover its open; five16D artifact divisors plus the earlier
 nodes/zero49/proper-image exclusions cover all factors. Other R0 types z^2*w,

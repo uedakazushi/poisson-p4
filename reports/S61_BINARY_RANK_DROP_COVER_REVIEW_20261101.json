@@ -1,0 +1,23 @@
+{
+  "id": "S61_BINARY_RANK_DROP_COVER_REVIEW_20261101",
+  "all_passed": true,
+  "raw_blocks_reconstructed": true,
+  "independent_m2_script": "R=QQ[u4,u14,u35,u36,u49,u50];\nA=matrix{{2*u35/5 + u50/5,-3*u36/10,0,0,u36/10,0,3*u14/2 - 3*u49/5,0,0,-8*u35/5 - 3*u50/5,-u36/10,0},{3*u14/5 - 9*u49/10,-7*u35/10 - 13*u50/10,-4*u36/5,0,-11*u35/10 - u50/2,u36/5,3*u4/2,2*u14 - u49,u35 + u50/5,13*u14/5 + u49/2,u35/10 - u50/2,-2*u36/5},{2*u4/5,4*u14/5 + 7*u49/5,7*u35/10 - 3*u50/5,-3*u36/2,-u14/10 + 4*u49/5,-13*u35/10 - 3*u50/5,0,u4,3*u14/2 - 6*u49/5,2*u4/5,11*u14/10 + u49/5,3*u35/5 - 2*u50/5},{0,-u4/5,4*u14/5 + u49/20,3*u35/2 + u50/10,-u4/10,4*u14/5 + u49/20,0,0,u4/2,0,u4/10,2*u14/5 + u49/10}};B=matrix{{0,-3*u36,3*u4/2,7*u35/5 + 16*u50/5,3*u14 - 9*u49/5,3*u35 + 6*u50/5,9*u14/2,-u36/2,-3*u35/5 + 6*u50/5},{u36,0,0,-53*u14/10 - u49/2,u4,0,0,3*u35 + u50,-9*u14/5 - 3*u49/5},{-u14/2 + u49/10,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,-u14/2 + u49/10,0},{0,0,u35/2 + u50/10,0,0,0,0,0,0},{0,0,-2*u14 + u49,-7*u36/5,0,u36,4*u50/5,0,-7*u36/5},{0,-u36,u4/2,-u35/5 - 6*u50/5,-3*u14/2 + 9*u49/10,u35 + 2*u50/5,3*u14/2,3*u36/2,4*u35/5 - u50/5},{u36/2,0,0,-19*u14/10 - 2*u49/5,u4/2,0,0,3*u35/2 + u50/2,-7*u14/5 - u49/5},{0,0,0,0,0,0,u35/2 + u50/10,0,0},{0,u36,-u4/2,-9*u35/10 - 3*u50/10,0,-u35/2 - 3*u50/10,-3*u14/2,-u36/2,-9*u35/10 - 3*u50/10},{-u36/2,3*u35 - u50/5,0,19*u14/5 + u49/2,-u4/2,-u14 - u49,u4,-3*u35 - 2*u50/5,14*u14/5 + 2*u49/5},{-2*u35,0,0,-3*u4/5,0,0,0,-6*u49/5,2*u4/5}};C=matrix{{-u14 + u49/5,0,0,0,0},{0,0,-2*u14 + 2*u49/5,0,0},{0,0,0,-u14/2 + u49/10,0},{0,0,0,0,-u35 - u50/5},{0,u35 + u50/5,0,0,0},{0,u4,2*u36,u35 + 4*u50/5,4*u14 - 4*u49/5},{0,-5*u14 + 14*u49/5,0,3*u36/2,u35 + 13*u50/5},{u36,0,4*u35 + 4*u50/5,u14 + 7*u49/10,-2*u4},{0,u4,2*u36,3*u35/2 + 9*u50/10,3*u14 - 3*u49/5},{0,0,0,u35/2 + u50/10,0},{-u36,0,-3*u35 - 3*u50/5,-3*u14/2 - 3*u49/5,2*u4},{-5*u35 + u50/5,0,-u14 - 17*u49/5,3*u4/2,0}};\nIB=minors(9,B);IA=minors(4,A);IC=minors(5,C);\nJ0=ideal(5*u35 + u50);\nJ1=ideal(5*u14 - u49);\nJ2=ideal(u36,15*u35 - u50);\nJ3=ideal(5*u14 - 3*u49,u4);\nJ4=ideal(25*u14*u36 + 600*u35^2 + 230*u35*u50 - 155*u36*u49 - 18*u50^2,600*u14^2 - 255*u14*u49 - 25*u35*u4 + 95*u4*u50 - 63*u49^2);\nJ=intersect{J4,J3,J2,J1,J0}; G=groebnerBasis IB;\nassert all(flatten entries gens IB,g->((g%J)==0));\nassert all(flatten entries gens J,g->(((g^2)%G)==0));\nkl=(5*u14 - u49)*(5*u35 + u50);assert (((kl^2)%IA)==0);assert (((kl^3)%IC)==0);\nprint(\"INDEPENDENT_MEMBERSHIPS_PASS\");\n",
+  "independent_m2_output": "INDEPENDENT_MEMBERSHIPS_PASS\n",
+  "geometric_CI_primality_audited": true,
+  "first70_t_radical_verified": true,
+  "accepted_conclusion": "All nonsquare binary full rank<=34 points lie in exactly the displayed five prime loci, with three symmetry orbit families.",
+  "limitations": [
+    "No saturation exhaustion follows merely from the rank-drop cover.",
+    "Beta normal action entries use the primary report; their nonzero minors are recomputed."
+  ],
+  "input_sha256": {
+    "code/s61_binary_rank_drop_cover_review_20261101.py": "aada2a3ddcd5ed37d845d0d521bf63bd5bce895e5c5096e33c5434db09121456",
+    "reports/S61_BINARY_RANK_DROP_COVER_20261101.json": "7c7b61f7b687ddd666a8847c15d1f2420169be5fccd257b033b45d34bd6462d1",
+    "reports/S61_BINARY_HYPERSURFACE_REVIEW_20261101.json": "9e351047a19fe6a579e9155b2a275e3962351bfe2a7ecba2d29f4d476090fb21",
+    "code/s61_model.py": "347fd285c5342d6e6444bf6d049a49342650a22b29857f87bbd5f4b689400fc1",
+    "code/s61_flag_transverse_obstruction_20261101.py": "d2d4d168a6b5b48edec97c0b7c1b2c46a21e96f8e078dec861484e8c7f978543",
+    "research/notes/S61_BINARY_RANK_DROP_COVER_20261101.md": "c37f637d5bf74c71b9dfa09d4eecd28829d79252b050e8442befbb06a98f10d6"
+  },
+  "seconds": 86.60199928283691
+}

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checkpoint": "v37-s61",
+  "checkpoint": "v38-s61",
   "date": "2026-11-01",
   "base_mathematical_checkpoint": "v24",
   "new_mathematical_progress_in_this_setup": false,
@@ -3890,6 +3890,419 @@
       ],
       "limitations_ja": [
         "四つの別成分や被覆次数を主張しない。17D主曲線・tailは別対象。"
+      ]
+    },
+    {
+      "id": "S61_BINARY_HYPERSURFACE_RANK_DROP",
+      "title_ja": "二平面型の十八次元階数降下族",
+      "statement_ja": "H+={u12=u13=0,5u35+u50=0}はβを優越する18D族。普遍full rank≤34、指定点は自由65・非零平方零t・t商自由64。",
+      "scope": "Explicit formal rings, finite rank-drop cover, and generic-beta removal of stated strata/orbits.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "agent_or_parent_review_scope_recorded_in_separate_notes",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_BINARY_RANK_DROP_FORMAL_RING",
+          "S61_HOMOGENIZED_EQUIVARIANCE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_BINARY_HYPERSURFACE_RANK_DROP_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_HYPERSURFACE_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_BINARY_HYPERSURFACE_RANK_DROP_20261101.json",
+        "reports/S61_BINARY_HYPERSURFACE_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "非空ambient開部分。全一般β曲面の除去ではない。"
+      ]
+    },
+    {
+      "id": "S61_BINARY_RANK_DROP_COVER",
+      "title_ja": "非平方二平面型の全階数降下表",
+      "statement_ja": "全H14でfull rank≤34 locusの根基は明示五素idealの共通部分。有限対称性後は18D一族と17D二族で全点を覆う。",
+      "scope": "Explicit formal rings, finite rank-drop cover, and generic-beta removal of stated strata/orbits.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "agent_or_parent_review_scope_recorded_in_separate_notes",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_BINARY_HYPERSURFACE_RANK_DROP"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_BINARY_RANK_DROP_COVER_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_RANK_DROP_COVER_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_BINARY_RANK_DROP_COVER_20261101.json",
+        "reports/S61_BINARY_RANK_DROP_COVER_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "階数降下の全被約表。飽和除去や平方二平面軌道の分類ではない。"
+      ]
+    },
+    {
+      "id": "S61_BINARY_CODIM_TWO_FORMAL",
+      "title_ja": "二つの十七次元二平面型層の自由階数65",
+      "statement_ja": "線形層と二次CI層の指定点で自由65、I4=It=t²=0、0≠t、t商自由64。横断Hilbert関数は(1,8,23,33)と(1,8,22,34)。",
+      "scope": "Explicit formal rings, finite rank-drop cover, and generic-beta removal of stated strata/orbits.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "agent_or_parent_review_scope_recorded_in_separate_notes",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_BINARY_RANK_DROP_COVER",
+          "S61_BINARY_FORMAL_RING"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_BINARY_CODIM_TWO_FORMAL_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_CODIM_TWO_FORMAL_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_BINARY_CODIM_TWO_FORMAL_20261101.json",
+        "reports/S61_BINARY_CODIM_TWO_FORMAL_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "各層の非空ambient開。全一般β曲線は未除去。"
+      ]
+    },
+    {
+      "id": "S61_MINIMAL_MAIN_VERTEX_FORMULA",
+      "title_ja": "非対角主曲線公式とM1階数一頂点の除去",
+      "statement_ja": "14頂点変数の主曲線を判別式で割らず記述。M1階数一頂点は局所二重曲線t0で、その16D層の全一般βファイバーを除去。",
+      "scope": "Explicit formal rings, finite rank-drop cover, and generic-beta removal of stated strata/orbits.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "agent_or_parent_review_scope_recorded_in_separate_notes",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_MINIMAL_VERTEX_EXHAUSTION",
+          "S61_HOMOGENIZED_EQUIVARIANCE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_MINIMAL_MAIN_VERTEX_FORMULA_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_MINIMAL_MAIN_VERTEX_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_MINIMAL_MAIN_VERTEX_FORMULA_20261101.json",
+        "reports/S61_MINIMAL_MAIN_VERTEX_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "公式の分母BE以外の全解一意性を主張しない。M0階数一は別。"
+      ]
+    },
+    {
+      "id": "S61_MINIMAL_RANKONE_JUNCTION",
+      "title_ja": "M0階数一主曲線とA1の接続点",
+      "statement_ja": "三次初期一般長上界5を同じ固定βのmain全長3とA1全長2で尽くす。t冪零、16D接続層の全一般βファイバーを除去。",
+      "scope": "Explicit formal rings, finite rank-drop cover, and generic-beta removal of stated strata/orbits.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "agent_or_parent_review_scope_recorded_in_separate_notes",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_MINIMAL_MAIN_VERTEX_FORMULA",
+          "S61_MINIMAL_JUNCTION_GENERIC_STRATA"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_MINIMAL_RANKONE_JUNCTION_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_MINIMAL_RANKONE_JUNCTION_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_MINIMAL_RANKONE_JUNCTION_20261101.json",
+        "reports/S61_MINIMAL_RANKONE_JUNCTION_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "mainの3は全Sの長さでありt商は2。自由性・全t0は主張しない。"
+      ]
+    },
+    {
+      "id": "S61_MINIMAL_RANKONE_A1_REMOVAL",
+      "title_ja": "M0階数一A1の全有限部分を除去",
+      "statement_ja": "h0接続、hd0非零の普遍二重曲線、d0零の16D層で有限hを被覆。全minor例外のβ像次元を15以下へ除き、全一般βの有限A1を飽和除去。",
+      "scope": "Explicit formal rings, finite rank-drop cover, and generic-beta removal of stated strata/orbits.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "agent_or_parent_review_scope_recorded_in_separate_notes",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_MINIMAL_RANKONE_JUNCTION",
+          "S61_HOMOGENIZED_EQUIVARIANCE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_MINIMAL_RANKONE_A1_REMOVAL_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_MINIMAL_RANKONE_A1_REMOVAL_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_MINIMAL_RANKONE_A1_REMOVAL_20261101.json",
+        "reports/S61_MINIMAL_RANKONE_A1_REMOVAL_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "h無限大のR0二平面端点は別。"
+      ]
+    },
+    {
+      "id": "S61_NONBINARY_DOUBLE_ROOT_OPEN",
+      "title_ja": "純二重根型の普遍平方零局所環",
+      "statement_ja": "G=z²wの普遍42次minor非零開で、完成環は一変数底上自由3、法線ideal平方零、t0。実在曲線はEτ上の二根順序付けで構成。",
+      "scope": "Explicit formal rings, finite rank-drop cover, and generic-beta removal of stated strata/orbits.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "agent_or_parent_review_scope_recorded_in_separate_notes",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_HOMOGENIZED_EQUIVARIANCE",
+          "S61_NONBINARY_INFINITY_FORMAL_RING"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_NONBINARY_DOUBLE_ROOT_OPEN_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_NONBINARY_DOUBLE_ROOT_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_NONBINARY_DOUBLE_ROOT_OPEN_20261101.json",
+        "reports/S61_NONBINARY_DOUBLE_ROOT_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "明示minor開のみ。零因子は別に処理する。"
+      ]
+    },
+    {
+      "id": "S61_NONBINARY_DOUBLE_ROOT_ARTIFACTS",
+      "title_ja": "純二重根型の見掛け三因子を除去",
+      "statement_ja": "A+B、二次P2、三次P3の全六複素根層を厳密数体で検証。指定点自由3/t0と16D層の全一般β除去。",
+      "scope": "Explicit formal rings, finite rank-drop cover, and generic-beta removal of stated strata/orbits.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "agent_or_parent_review_scope_recorded_in_separate_notes",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_NONBINARY_DOUBLE_ROOT_OPEN"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_NONBINARY_DOUBLE_ROOT_ARTIFACTS_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_NONBINARY_DOUBLE_ROOT_ARTIFACTS_GEOMETRY_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_NONBINARY_DOUBLE_ROOT_ARTIFACTS_20261101.json",
+        "reports/S61_NONBINARY_DOUBLE_ROOT_ARTIFACTS_GEOMETRY_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "概念レビューは数体の全係数再計算ではない。"
+      ]
+    },
+    {
+      "id": "S61_NONBINARY_DOUBLE_ROOT_ENDPOINT",
+      "title_ja": "二重根と二最小尾の一般階数五接続",
+      "statement_ja": "A=2Bの指定完成環はR有限階数5、横断6、有限長torsion最小生成元1。実在三枝3+1+1で尽くしt冪零、16D層の全一般β除去。",
+      "scope": "Explicit formal rings, finite rank-drop cover, and generic-beta removal of stated strata/orbits.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "agent_or_parent_review_scope_recorded_in_separate_notes",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_NONBINARY_DOUBLE_ROOT_OPEN",
+          "S61_MINIMAL_VERTEX_EXHAUSTION"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_NONBINARY_DOUBLE_ROOT_ENDPOINT_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_MINIMAL_DOUBLE_ROOT_ENDPOINT_BRANCHES_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_NONBINARY_DOUBLE_ROOT_ENDPOINT_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_NONBINARY_DOUBLE_ROOT_ENDPOINT_20261101.json",
+        "reports/S61_MINIMAL_DOUBLE_ROOT_ENDPOINT_BRANCHES_20261101.json",
+        "reports/S61_NONBINARY_DOUBLE_ROOT_ENDPOINT_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "非平坦・非CM。全t0や最小冪零指数、torsion長は未決。"
+      ]
+    },
+    {
+      "id": "S61_NONBINARY_DOUBLE_ROOT_TORSION_DIVISORS",
+      "title_ja": "二重根型の四非平坦層の除去",
+      "statement_ja": "A=B、5A=7B、U0、V0で一般階数3・横断4、torsion最小生成元1。t冪零と16D像の全一般β除去。",
+      "scope": "Explicit formal rings, finite rank-drop cover, and generic-beta removal of stated strata/orbits.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "agent_or_parent_review_scope_recorded_in_separate_notes",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_NONBINARY_DOUBLE_ROOT_OPEN"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_NONBINARY_DOUBLE_ROOT_TORSION_DIVISORS_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_NONBINARY_DOUBLE_ROOT_TORSION_DIVISORS_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_NONBINARY_DOUBLE_ROOT_TORSION_DIVISORS_20261101.json",
+        "reports/S61_NONBINARY_DOUBLE_ROOT_TORSION_DIVISORS_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "全t0・t²0・torsion長は主張しない。"
+      ]
+    },
+    {
+      "id": "S61_NONBINARY_DOUBLE_ROOT_MIXED_JUNCTIONS",
+      "title_ja": "二重根と混合尾の自由階数五の接続",
+      "statement_ja": "B0と5A=3Bで四次初期上界5を主枝3+混合枝2で尽くす。完成環R自由5、t0、被約通常node、冪零ideal平方零。16D層の全一般β除去。",
+      "scope": "Explicit formal rings, finite rank-drop cover, and generic-beta removal of stated strata/orbits.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "agent_or_parent_review_scope_recorded_in_separate_notes",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_NONBINARY_DOUBLE_ROOT_OPEN",
+          "S61_HOMOGENIZED_EQUIVARIANCE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_NONBINARY_DOUBLE_ROOT_MIXED_JUNCTIONS_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_NONBINARY_DOUBLE_ROOT_MIXED_JUNCTIONS_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_NONBINARY_DOUBLE_ROOT_MIXED_JUNCTIONS_20261101.json",
+        "reports/S61_NONBINARY_DOUBLE_ROOT_MIXED_JUNCTIONS_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "混合尾全体や乗法表の決定ではない。"
+      ]
+    },
+    {
+      "id": "S61_NONBINARY_DOUBLE_ROOT_EXHAUSTION",
+      "title_ja": "純二重根二表示の全一般β無限遠を除去",
+      "statement_ja": "普遍minorの全13因子を明示開・properβ像・16D閉層で覆い、G=z²w/zw²軌道の全一般β点をt飽和から除去。",
+      "scope": "Explicit formal rings, finite rank-drop cover, and generic-beta removal of stated strata/orbits.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "agent_or_parent_review_scope_recorded_in_separate_notes",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_NONBINARY_DOUBLE_ROOT_OPEN",
+          "S61_NONBINARY_DOUBLE_ROOT_ARTIFACTS",
+          "S61_NONBINARY_DOUBLE_ROOT_ENDPOINT",
+          "S61_NONBINARY_DOUBLE_ROOT_TORSION_DIVISORS",
+          "S61_NONBINARY_DOUBLE_ROOT_MIXED_JUNCTIONS",
+          "S61_NONBINARY_RESONANCE_EXCLUSIONS"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_NONBINARY_DOUBLE_ROOT_EXHAUSTION_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_NONBINARY_DOUBLE_ROOT_MIXED_JUNCTIONS_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_NONBINARY_DOUBLE_ROOT_EXHAUSTION_20261101.json",
+        "reports/S61_NONBINARY_DOUBLE_ROOT_MIXED_JUNCTIONS_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "他の混合型・旗・二平面型・最小型残余、全アフィン有限性と五点尽くしは未決。"
       ]
     }
   ],

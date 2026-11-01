@@ -35,7 +35,7 @@
 \title{射影四空間の Poisson 構造の一次ジェット還元\\
 \large 普遍的楕円切断、Jacobian の二捩れと Toric 成分の境界}
 \author{Poisson P4 研究プロジェクト・内部研究草稿}
-\date{2026年11月1日・v37-s61}
+\date{2026年11月1日・v38-s61}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -57,6 +57,7 @@ Toric三次被覆を標準曲線のJacobianの非零二捩れと同定し、判�
 従来の代数模型が覆わない既約十次元の零一次部分ファイバーを持つ。
 既知五延長の三平面断面も決定する。さらに無限遠の双対楕円曲線を同定し、指定した旗型・非二元型の完成局所環と飽和による除去を証明する。零一次部分の被約台はABだけであると決定し、そのproper incidenceと特異点集合を記述する。最小冪零型の二つの無限遠曲線では指定開部分の平方零完成局所環を決定し、二平面型では横断Artin代数の長さ65と非零の斉次化変数を示す。滑らかな全領域での既知五延長の分離も証明する。
 一般一次項上の未飽和無限遠の被約点を全モジュラー型で尽くし、零モジュラー型R0と最小冪零型M0/M1へ帰着する。二つの非二元共鳴交点の局所環、二平面型の自由階数65、ABの原点外の正規性も証明する。さらに非平坦な三枝交点での飽和除去と、一般一次項にも残る二平面型階数降下曲線を与える。
+純二重根非二元軌道の全一般一次項上での飽和除去、非平方二平面型の全Jacobian階数降下表、最小型の階数一有限A1全体の除去も証明する。
 全S61の未飽和斉次化には、非零一次項ごとに3次元の旗の無限遠部分が必ず現れることも示す。
 基礎となる perspective 正規化は有限の多項式公式で与えられ、一意である。
 特殊層では、係数階数一の5次元軌道上の全解を45変数・134二次式の固定 fibre へ帰着し、
@@ -3109,6 +3110,203 @@ $\operatorname{Sym}^8V$の三つの候補には二つの独立な必要条件が
 
 次数三までの生成性だけから、全次数生成性や原点の正規性を結論しない。
 
+\section{純二重根非二元軌道の全一般一次項上での除去}
+この節では零モジュラー型の正常形
+\[
+ Q=\partial_y\wedge(z^2\partial_z-2zw\partial_w)
+\]
+を扱う。一次項核は十次元で、$u_4=u_5=u_{12}=u_{13}=0$、
+$u_{50}=-5u_{35}$、$u_{51}=5u_{26}$である。
+$A=u_{14},B=u_{49},U=u_{26},V=u_{35}$と置く。
+\begin{proposition}
+普遍的な全135式の42次minorは、非零有理定数倍を除いて
+\begin{align*}
+ D={}&UV^2B(A-2B)(A-B)(A+B)(2A-B)^4\\
+ &\quad\cdot(5A-7B)(5A-4B)(5A-3B)(5A-B)P_2P_3,\\
+ P_2={}&20A^2-59AB+65B^2,\\
+ P_3={}&11A^3-39A^2B+51AB^2-7B^3
+\end{align*}
+となる。$D\ne0$と十分一般の$\beta$のもとで、全完成局所環は
+\[
+ S\simeq\CC[[u,e_1,e_2]]/(e_1,e_2)^2,\qquad t=0
+\]
+である。
+\end{proposition}
+\begin{proof}
+元の135式の全Jacobian、接核、左核を、一次項核の十変数を全て保って計算する。
+全階数は42、最高$q$階数は高々41であり、接核上の$t$は零。
+接変数を$v_0,v_1,v_2$とすると、二次障害は
+\[
+ e_0=v_0+\frac{5Au_{25}-10Bu_{25}+12Uu_{48}}{2U(5A-4B)}v_2,
+ \qquad e_1=v_1
+\]
+の全二次積を張る。係数の三次minorは
+\[
+ \frac{UV(A-2B)^2(5A-4B)^2}{4B(2A-B)^3}\ne0.
+\]
+実在する固定$\beta$曲線は、滑らかな$E_\tau$上で頂点二次式の二根を順序付けて得る。
+$D\ne0$では二根は異なり、対応する二重被覆はエタールである。
+主曲線上の最高階数41は$t$商の一般長さを3以上とする。
+二次障害の横断上界3と比較し、自由階数3および$t=0$を得る。
+全行列と分母の監査は\cite{double-open-v38}による。
+\end{proof}
+
+\subsection{非平坦な接続層と自由階数五の接続層}
+$D=0$の全因子を処理するため、有限長torsionを持つ場合を分ける。
+以下の$R=\CC[[u]]$は指定点の実在枝に沿ったパラメータ環であり、
+一般階数と横断商$S/uS$の長さを区別する。
+\begin{center}
+\begin{tabular}{llll}
+\toprule
+条件 & $R$一般階数 & 横断長さ & 結論\\
+\midrule
+$A=2B$ & $5=3+1+1$ & 6 & $t$冪零、非平坦\\
+$A=B,\ 5A=7B$ & 3 & 4 & $t$冪零、非平坦\\
+$U=0,\ V=0$ & 3 & 4 & $t$冪零、非平坦\\
+$B=0,\ 5A=3B$ & $5=3+2$ & 5 & $R$自由、$t=0$\\
+\bottomrule
+\end{tabular}
+\end{center}
+最初の三行の有限長$R$-torsionは非零で最小生成元数一を持つ。
+その長さを一と断定せず、全環の$t^2=0$もこの議論からは主張しない。
+
+$A=2B$では二次・三次初期関係による一般長上界5を、
+同じ固定$\beta$上のR0主枝と二つの最小型尾の長さ$3+1+1$で尽くす。
+四例外層では同様に上界3を主枝の$t$商の下界3で尽くす。
+一般局所環の$t$が消えるので、$t$は有限長torsionに入り冪零となる。
+実際の非斉次残余を用いて横断長さも検算した
+\cite{double-endpoint-v38,double-torsion-v38}。
+
+\begin{proposition}
+$B=0$および$5A=3B$の指定接続点では、$S$は$R$自由階数5、$t=0$である。
+被約環は通常二重点で、冪零ideal $I$は$I^2=0$、$R$階数3を持つ。
+\end{proposition}
+\begin{proof}
+二次式間のsyzygyによる四次初期式まで含めて消去する。
+$u=\sum v_i$による初期横断商は、それぞれHilbert関数
+$(1,2,1,1)$、$(1,3,1)$を持ち、共に長さ5である。
+$u=1$の初期商も長さ5なので、$S$の生成元数・一般階数は共に高々5となる。
+主枝に加え、同じ$\beta$で次の実在混合枝を持つ。
+\[
+ G=z^2w+\tau x^2z\quad(B=0),\qquad
+ G=z^2w+\tau xw^2\quad(5A=3B).
+\]
+$Q(G)=\partial_y\wedge(G_w\partial_z-G_z\partial_w)$を元135最高式へ直接代入する。
+混合枝の一般最高階数は高々42であり、対応する全九変数一次項核上で検証した。
+主枝の$t$商長さ3と混合枝の長さ2が上界5を使い切る。
+二接線は独立で$u$は両枝の一様化変数なので、$R^5\twoheadrightarrow S$の核は零。
+一般二因子で$t=0$だから、$R$自由性により全$S$でも$t=0$となる。
+二つの滑らかな被約枝は横断的に交わり、通常二重点を与える。
+一般の各因子の冪零部分は平方零であり、再び$R$-torsion freenessから$I^2=0$を得る
+\cite{double-mixed-v38}。
+\end{proof}
+
+\subsection{全13因子の被覆}
+$A+B,P_2,P_3$については厳密な数体演算で、全共役根に対応する六つの層の
+指定点で自由階数3、$t=0$を証明した\cite{double-artifacts-v38}。
+$2A-B,5A-4B,5A-B$の層は以前の普遍群微分計算により、$\beta$像の次元が16未満である。
+残る因子は前小節の全ての行で覆われる。
+
+各九次元一次項層は$Q$の三次元射影安定化Lie代数に保存され、
+像閉包は十六次元で$W_{16}$を優越する。
+有限jetの特殊化で一般点の重複度上界を比較し、同じ実在枝の普遍長さ下界を合わせる。
+体拡大と完備化の忠実平坦性で$t$の冪零性が周囲へ降り、層の非空開部分で成立する。
+残余の次元は高々15なので、そのproper像を避ける一般$\beta$では層の全ファイバーが除かれる。
+層の閉包を扱うため、因子の交点を未処理のまま残していない。
+\begin{theorem}
+十分一般の$\beta$について、純二重根型$G=z^2w$および$G=zw^2$の全射影軌道の
+無限遠点は、全135式の$t$飽和から除去される。
+\end{theorem}
+\begin{proof}
+$D\ne0$の全点と、上記の全13因子が一次項核全体を覆う。
+有限個の基底開の共通部分を取り、全135式の同変性で軌道全体へ移す。
+変換$(x,y,z,w)\mapsto(x,y,-w,z)$が二表示を交換する。
+因子と分母の全被覆の機械的監査は\cite{double-exhaust-v38}に保存した。
+\end{proof}
+この定理は混合型尾全体、旗・二平面型、最小型の全残余を除くものではない。
+
+\section{非平方二平面型の全Jacobian階数降下表}
+$Q=xw\partial_y\wedge\partial_z$、$H=\{u_{12}=u_{13}=0\}$とする。
+六つのcore座標を$(a,b,c,d,e,f)=(u_4,u_{14},u_{35},u_{36},u_{49},u_{50})$と置き、
+\begin{align*}
+ K&=5c+f,&L&=5b-e,\\
+ P&=600c^2+25bd-155de+230cf-18f^2,\\
+ Q_2&=600b^2-25ac-255be-63e^2+95af
+\end{align*}
+と書く。
+\begin{theorem}
+全$H$上の全135式chart Jacobian階数が34以下となる被約locusは、
+次の五つの素idealの零点集合の合併と一致する。
+\[
+ (K),\quad(L),\quad(d,15c-f),\quad(a,5b-3e),\quad(P,Q_2).
+\]
+有限symplectic対称性を除くと、$\beta$を優越する十八次元一族と十七次元二族で覆われる。
+\end{theorem}
+\begin{proof}
+最初70行の定数階数16を消去すると、残余は上三角三ブロック
+$A_{4\times12},B_{12\times9},C_{17\times5}$を持つ。
+対応するmaximal-minor idealを$I_A,I_B,I_C$、表示五idealの交叉を$J$とする。
+六変数の厳密ideal計算で
+\[
+ I_B\subset J,\qquad g^2\in I_B\ (g\text{ は保存した }J\text{ の全生成元}),
+ \qquad(KL)^2\in I_A,\quad(KL)^3\in I_C
+\]
+を確認した。最後のcomplete intersectionは二変数を解ける稠密開を持ち、
+境界は次元高々3なので幾何学的に素である。
+従って残余階数が17以下となることと$B$の階数が8以下となることは同値である。
+最初70行の$t$列のcompatibility idealは根基$(K,L)$を持つ。
+$B$がfull rankなら$t$は独立な一列を与え、全階数35となる。
+これで最高$q$階数と全階数を区別した被覆が得られる\cite{binary-cover-v38}。
+\end{proof}
+
+十八次元族の指定点と、二つの十七次元族の指定点では、同じ滑らかな三次元二平面型支持を使って
+完成局所環の自由階数65を証明した。$I^4=It=t^2=0$、$t\ne0$、$t$商は自由階数64となる。
+十七次元線形族の横断Hilbert関数は$(1,8,23,33)$、二次族と十八次元指定点では$(1,8,22,34)$である。
+相対二平面型部分の滑らかさと群作用の$\beta$微分全射により、各像の非空ambient開へ$t^2=0$を降下できる
+\cite{binary-hyper-v38,binary-codim-v38}。
+しかし補集合は十七・十六次元になり得る。全一般$\beta$ファイバーを除く結論へは外挿しない。
+
+\section{最小型の階数一頂点と有限A1全体}
+頂点二次式を対角化せず、$P=u_5,R_0=u_{13},A=u_{14},B=u_{49}$に対し
+\[
+ q_v=R_0z^2+(2A-B)zw-Pw^2,\quad
+ d=(2A-B)^2+4PR_0,\quad E=(25d-81B^2)/4
+\]
+と置く。主曲線の$G=ax^2z+bx^2w+xH$は$BE\ne0$で有理に書け、
+\[
+ H_{M0}=\frac{2q_v}{3B},\qquad
+ H_{M1}=-\frac{q_v}{6B}-\frac{zw}{2}
+\]
+となる。$a,b$の全十四変数公式を元135最高式へ代入して検証した。
+この公式は$d$で割らず、階数一頂点まで延びる\cite{minimal-main-v38}。
+M1の階数一指定点は$\CC[[u,e]]/(e^2)$、$t=0$であり、対応する十六次元層を全一般$\beta$で除去できる。
+M0では主曲線とA1が合流し、三次初期上界5を同じ枝の全長さ$3+2$で尽くす。
+主枝の3は全$S$の長さであり、その$t$商の長さ2とは区別する。
+一般因子で$t^2=0$となり、残る有限長torsionを通じて全局所環の$t$冪零性を得る
+\cite{minimal-rankone-v38}。
+
+\begin{proposition}
+M0の階数一A1族の有限パラメータ部分は、十分一般の$\beta$上で全て$t$飽和から除去される。
+\end{proposition}
+\begin{proof}
+$G=ax^2z+bx^2w+dxw^2+hw^3$と書く。
+有限Darboux shearで$a,b$を消し、$d_0=d-3ha$を得る。
+有限$h$を$h=0$、$hd_0\ne0$、$h\ne0,d_0=0$の三場合で覆う。
+最初は既証明の接続点である。第二の場合はトーラス変換で$d=h=1$へ正規化できる。
+全九変数一次項核で全43次minorと一つの平方二次障害を計算し、局所二重曲線$t=0$を得る。
+全minor例外の一次像次元は15以下と確認した。
+第三の場合は$pure\ w^3$表示の十六次元層となり、指定二重曲線から全一般ファイバーを除く。
+これで有限パラメータの全例外を覆う\cite{minimal-a1-v38}。
+\end{proof}
+$h=\infty$の射影端点はR0二平面型であり、この命題には含めない。
+
+\subsection*{AB次数四の探索状況}
+AB正規化の次数四では、座標四次積の厳密下界38320を得た。
+候補上界38570との差250は未解決である。
+この差を追加生成元や非正規性の証拠と解釈しない。
+再実行可能な有限計算と未監査の表現論的上界を分け、探索資料に保存した。
+
+
 \section{残る問題}
 全一次項の延長可能性、楕円二成分の全域graphと一般次数1、表示重複3000、
 T01の一般次数3と$S_3$モノドロミー、および既知五延長の三平面断面の積代数は証明した。
@@ -3310,6 +3508,18 @@ arXiv:1406.6953v1 (2014), Theorems 2.1 and 2.3.
 \bibitem{ab-degree3-v37} 同プロジェクト、\nolinkurl{research/notes/AB_ORIGIN_DEGREE_THREE_20261101.md}、明記した依存ノート・係数証明書・独立点検。
 \bibitem{binary-u4-v37} 同プロジェクト、\nolinkurl{research/notes/S61_BINARY_U4_ENDPOINT_20261101.md}、係数証明書・親担当点検。
 \bibitem{minimal-axis-all-v37} 同プロジェクト、\nolinkurl{research/notes/S61_MINIMAL_ALL_AXIS_REMOVAL_20261101.md}、係数証明書・独立点検。
+\bibitem{double-open-v38} 同プロジェクト、\nolinkurl{research/notes/S61_NONBINARY_DOUBLE_ROOT_OPEN_20261101.md}、明記した依存・係数証明書・独立点検。
+\bibitem{double-endpoint-v38} 同プロジェクト、\nolinkurl{research/notes/S61_NONBINARY_DOUBLE_ROOT_ENDPOINT_20261101.md}、明記した依存・係数証明書・独立点検。
+\bibitem{double-torsion-v38} 同プロジェクト、\nolinkurl{research/notes/S61_NONBINARY_DOUBLE_ROOT_TORSION_DIVISORS_20261101.md}、明記した依存・係数証明書・独立点検。
+\bibitem{double-mixed-v38} 同プロジェクト、\nolinkurl{research/notes/S61_NONBINARY_DOUBLE_ROOT_MIXED_JUNCTIONS_20261101.md}、明記した依存・係数証明書・独立点検。
+\bibitem{double-artifacts-v38} 同プロジェクト、\nolinkurl{research/notes/S61_NONBINARY_DOUBLE_ROOT_ARTIFACTS_20261101.md}、明記した依存・係数証明書・独立点検。
+\bibitem{double-exhaust-v38} 同プロジェクト、\nolinkurl{research/notes/S61_NONBINARY_DOUBLE_ROOT_EXHAUSTION_20261101.md}、明記した依存・係数証明書・独立点検。
+\bibitem{binary-cover-v38} 同プロジェクト、\nolinkurl{research/notes/S61_BINARY_RANK_DROP_COVER_20261101.md}、明記した依存・係数証明書・独立点検。
+\bibitem{binary-hyper-v38} 同プロジェクト、\nolinkurl{research/notes/S61_BINARY_HYPERSURFACE_RANK_DROP_20261101.md}、明記した依存・係数証明書・独立点検。
+\bibitem{binary-codim-v38} 同プロジェクト、\nolinkurl{research/notes/S61_BINARY_CODIM_TWO_FORMAL_20261101.md}、明記した依存・係数証明書・独立点検。
+\bibitem{minimal-main-v38} 同プロジェクト、\nolinkurl{research/notes/S61_MINIMAL_MAIN_VERTEX_FORMULA_20261101.md}、明記した依存・係数証明書・独立点検。
+\bibitem{minimal-rankone-v38} 同プロジェクト、\nolinkurl{research/notes/S61_MINIMAL_RANKONE_JUNCTION_20261101.md}、明記した依存・係数証明書・独立点検。
+\bibitem{minimal-a1-v38} 同プロジェクト、\nolinkurl{research/notes/S61_MINIMAL_RANKONE_A1_REMOVAL_20261101.md}、明記した依存・係数証明書・独立点検。
 \end{thebibliography}
 \endgroup
 \end{document}
