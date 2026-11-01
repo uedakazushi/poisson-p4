@@ -1,8 +1,26 @@
 # Poisson structures on P4 — Codex instructions
 
-Version: v42-s61 · 2026-11-01 (Asia/Tokyo).
+Version: v43-s61 · 2026-11-01 (Asia/Tokyo).
 
-Current v42 additions: the ENTIRE16D binary/T2 connection is removed over
+Current v43 additions: the ENTIRE dominant16D semisimple minimal-tail
+binary endpoint B stratum is removed over sufficiently general beta. Actual
+mod32003 grS is the intersection of C-primary degree65 and an actual reduced
+line. Explicit good reduction of the universal binary lower65, DVR equal-rank
+torsion-free specialization, QQ origin descent and H10 relative descent prove
+ambient t^2=0 at the specified point. M0 g2 k=1/6 and Weyl g4 k=-7/6
+projective endpoints are included. Endpoint A remains separate.
+The deeper seven-variable binary chart has universal quadratic rank24.
+All13 minor factors are covered:5 removed,8 exact nondivisibility witnesses.
+Rank drop has slice codim>=2 and beta image<=15; all remaining general-beta
+points have initial HF(1,9,21). Cubic/higher length65 remains open.
+Flag b1=0 exact QQ six-jets now compute with a GMP integer engine. All674325
+modular coefficients and95175 independent M2 QQ four-jet coefficients match.
+This does NOT identify the full initial ideal or prove local t-nilpotence.
+T5 whole orbit, A, flags, remaining binary higher obstructions, affine
+five-point exhaustion and component upper bound remain. Lower bound57.
+Continue after checkpoints.
+
+Previous v42 additions: the ENTIRE16D binary/T2 connection is removed over
 sufficiently general beta. QQ grS has a C-primary degree65 part, an actual
 double line, and one cubic socle. At the fixed-beta point0!=t,t^2=0.
 Relative finite-base torsion gives boundary dimension8<section dimension9;

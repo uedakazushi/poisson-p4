@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checkpoint": "v42-s61",
+  "checkpoint": "v43-s61",
   "date": "2026-11-01",
   "base_mathematical_checkpoint": "v24",
   "new_mathematical_progress_in_this_setup": false,
@@ -5350,6 +5350,134 @@
       ],
       "limitations_ja": [
         "全T5軌道除去・全環t=0・乗法表を主張しない。レビューは論証と実装の監査で、数値独立再実装ではない。"
+      ]
+    },
+    {
+      "id": "S61_BINARY_PRIME_SPREADING",
+      "title_ja": "二平面普遍法線下界65の標数32003での良い還元",
+      "statement_ja": "元135式、279種類の有理関数、選択minorとBianchi支持をp整にspreadし、一定階数・smooth3の同じ領域で法線長下界65を標数32003にも移す。",
+      "scope": "Only the stated arithmetic, local, sufficiently-general-beta or exact finite-jet conclusions.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_BINARY_UNIFORM_OBSTRUCTION_BOUNDS"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_BINARY_PRIME_SPREADING_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_MINIMAL_SEMI_B_ENDPOINT_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_BINARY_PRIME_SPREADING_20261101.json",
+        "reports/S61_MINIMAL_SEMI_B_ENDPOINT_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "任意の階数落ち特殊点への無条件な外挿ではない。"
+      ]
+    },
+    {
+      "id": "S61_MINIMAL_SEMI_B_ENDPOINT",
+      "title_ja": "半単純尾の二平面端点Bを全一般βで除去",
+      "statement_ja": "modpで次数65のprimary部分と実在直線の初期ideal交叉を同定。良い還元とDVR等階数torsion-free特殊化によりQQ核を制御し、相対H10からambient t²=0と優越16D層の全一般β除去を得る。",
+      "scope": "Only the stated arithmetic, local, sufficiently-general-beta or exact finite-jet conclusions.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_BINARY_PRIME_SPREADING",
+          "S61_MINIMAL_SEMISIMPLE_TAILS_REMOVAL",
+          "S61_BINARY_MIXED_STRATUM_REMOVAL"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_MINIMAL_SEMI_B_ENDPOINT_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_MINIMAL_SEMI_B_ENDPOINT_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_MINIMAL_SEMI_B_ENDPOINT_20261101.json",
+        "reports/S61_MINIMAL_SEMI_B_ENDPOINT_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "全環自由65/66、別の端点A、他の旗/binary境界は含まない。"
+      ]
+    },
+    {
+      "id": "S61_BINARY_DEEPER_UNIFORM_QUADRATIC",
+      "title_ja": "深部二平面族の全一般β点で二次階数24",
+      "statement_ja": "七変数上の正確な二次行列の全行消去でrank上界24。元24minorの全13因子を五既処理因子と八非整除証拠で覆い、rank落ちの群飽和像を15次元以下へ抑える。",
+      "scope": "Only the stated arithmetic, local, sufficiently-general-beta or exact finite-jet conclusions.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_BINARY_DEEPER_TRIANGULAR_CHART"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_BINARY_DEEPER_UNIFORM_QUADRATIC_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_DEEPER_UNIFORM_QUADRATIC_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_BINARY_DEEPER_UNIFORM_QUADRATIC_20261101.json",
+        "reports/S61_BINARY_DEEPER_UNIFORM_QUADRATIC_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "Hilbert関数(1,9,21)まで。三次以降・長さ65・全層飽和除去は未決。"
+      ]
+    },
+    {
+      "id": "S61_FLAG_BOUNDARY_EXACT_JETS",
+      "title_ja": "旗b1=0指定点の全135式の正確六次jet",
+      "statement_ja": "整数化したimplicit再帰をGMPで実装し、六次まで674325係数を既存modp計算と照合。別のMacaulay2実装による四次まで95175個のQQ係数と完全一致。",
+      "scope": "Only the stated arithmetic, local, sufficiently-general-beta or exact finite-jet conclusions.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_FLAG_BOUNDARY_EXACT_JETS_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_FLAG_BOUNDARY_EXACT_JETS_20261101.json"
+      ],
+      "limitations_ja": [
+        "正確な元方程式jetの計算証明書であり、全初期ideal同定や局所t冪零性ではない。"
       ]
     }
   ],

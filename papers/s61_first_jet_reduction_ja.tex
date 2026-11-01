@@ -35,7 +35,7 @@
 \title{射影四空間の Poisson 構造の一次ジェット還元\\
 \large 普遍的楕円切断、Jacobian の二捩れと Toric 成分の境界}
 \author{Poisson P4 研究プロジェクト・内部研究草稿}
-\date{2026年11月1日・v42-s61}
+\date{2026年11月1日・v43-s61}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -3893,6 +3893,75 @@ $\nu\operatorname{Sym}^3(\xi,\eta)$を張る。
 これは自由加群としての記述であり、乗法表や$t=0$を主張しない。
 十八次元T5層の補集合は依然$W_{16}$を優越し得るため、全一般$\beta$のT5除去は残る。
 
+\section{良い還元と半単純最小型の端点B}
+普遍二平面型の法線長下界65は、一定階数と実在族のsmooth性を保つ領域で、標数32003でも成立する。
+元135式の分母、射影・接枠・二次補正・Bianchi乗数の279種類の有理関数を$p$整にspreadし、
+分母の非零性と必要な全minorを確認した。支持Jacobianの階数19と消去行列の階数16も元式から再計算する。
+従って次数三までの法線Hilbert関数下界$(1,7,23,34)$の証明が同じ標数で保たれる\cite{binary-prime-v43}。
+
+\begin{proposition}
+$Q_0=xw\partial_y\wedge\partial_z$と
+\[
+ H_{10}=\{u_4=u_5=u_{12}=u_{13}=0,\ 8u_{14}=7u_{49},\ 47u_{50}=77u_{35}\}
+\]
+の群飽和像の閉包$Z_B$は既約十六次元で$W_{16}$を優越し、十分一般の$\beta$で全て$t$飽和により除かれる。
+指定有理点を含むambient開では$t^2=0$である。
+\end{proposition}
+\begin{proof}
+$H_{10}$上に、全135式を恒等的に満たす相対閉直線$q=q_0+s\delta,t=0$を構成する。
+$e=u_{49},U=u_{26},V=u_{35},W=u_{51}$として、保存45座標順の非零成分は
+\[
+ \delta_0=1,\quad \delta_{19}=-\frac{4(17U-W)}{51e},\quad
+ \delta_{25}=-\frac{48V}{47e},\quad \delta_{28}=\frac12.
+\]
+固定$Q_0$の軌道次元は5、$H_{10}$の法線への安定化作用階数は普遍に1である。
+従ってjoint像次元は高々16で、指定点の$\beta$・joint minorから等号となる。
+
+$p=32003$で全十接変数の五次までの非斉次idealを計算すると、真の初期ideal候補$J$は
+次数65の$C$-primary ideal $B$と実在直線の接ideal $P_D$の交わりとなる。
+$k[v]/B$の底三変数上のtorsion-freenessは、block Groebner基底の定数leading coefficientで確認する。
+$J$を同じ三変数で切った長さは66である。
+追加初期関係は$P_D/J\subset k[v]/B$へ入り、同じbinary族の一般下界65と候補次数65から
+底上階数零となる。torsion-freenessにより追加関係は零である。
+従って全mod $p$局所環の実在直線への核$N_0$は、三変数底上torsion-free階数65である。
+
+$R=\mathbb Z_p[[u_0,u_1,u_3]]$上の全形式model $S$と実在商$D=\mathbb Z_p[[s]]$を取る。
+$D$の$p$-flatnessから$N=\ker(S\to D)$は$N/pN=N_0$を満たす。
+特殊化上界と同じ特性零binary族の下界により$\rank_R N=65$である。
+$T$を$N$の$R$-torsionとすると、$N/T$に$p$-torsionがないため$T/pT\hookrightarrow N_0$となる。
+高さ一DVRでの階数比較から左辺の階数は零で、$N_0$のtorsion-freenessとNakayamaにより$T=0$を得る。
+
+一般部ではbinary因子が長さ65を尽くし、$I^4=0$と$t\in I^2$から$t^2=0$である。
+$D$でも$t=0$なので$t^2\in N$となり、$N$のtorsion-freenessで全$S$へ降下する。
+$\mathbb Z_p[[u]][1/p]$を$\mathbb Q_p[[u]]$と同一視せず、完成への写像で恒等式を移した後、
+忠実平坦性によりQQ原点へ降下する。
+全$H_{10}$上の相対核も等階数torsion-free特殊化で制御し、群とのsmooth同変基底変換から
+指定ambient点で$t^2=0$を得る。$Z_B$の次元が16なので、残余像次元は15以下である\cite{semi-b-v43}。
+\end{proof}
+有限Darboux変換により、M0の$g_2,k=1/6$とWeyl対$g_4,k=-7/6$の射影端点はこの層へ移る。
+全環が自由65または自由66とは主張しない。二本の尾が接続する別の端点Aは未処理である。
+
+\section{深部二平面族の普遍二次階数}
+\begin{proposition}
+七変数有理chartの残る深部では、十分一般の$\beta$の全点で二次障害階数は24である。
+従って九法線変数のHilbert関数は次数二まで$(1,9,21)$となる。
+\end{proposition}
+\begin{proof}
+元135式と三角線形枠から二次残差を作り、$\QQ(e,d)[p,q,r,h,k]$上で全行を消去する。
+24個のpivotは$\QQ(e,d)$に入り、残り全行は恒等的に零となる。
+行contentを戻した元24次minorの全既約因子は13個である。
+五因子は既処理のchart例外で、残る八因子の次数は$1,3,3,4,6,7,13,24$となる。
+各因子$F$について、mod32003の$F=0$点で別の元24次minorが非零となる証拠を保存した。
+Gauss補題と$p$整性から、これはQQ上で$F$がそのminorを割らないことを証明する。
+従って残余rank落ち集合は七変数slice内で余次元二以上、群飽和の次元は$5+10=15$以下である。
+このQQ上の次元評価は複素数体への基底拡大で保たれる\cite{binary-quad-v43}。
+\end{proof}
+三次以降の初期関係、全横断長65、および残る層全体の飽和除去は、この命題だけからは従わない。
+
+旗$b_1=0$指定点では、全135式の六次jetを整数畳込によりQQ上で構成できた。
+674325個のmod $p$係数比較、および独立のMacaulay2実装による95175個のQQ四次係数比較が一致した。
+これは元方程式jetの計算証明であり、全初期idealの同定や局所$t$冪零性ではない\cite{flag-exact-jets-v43}。
+
 \section{残る問題}
 全一次項の延長可能性、楕円二成分の全域graphと一般次数1、表示重複3000、
 T01の一般次数3と$S_3$モノドロミー、および既知五延長の三平面断面の積代数は証明した。
@@ -4134,6 +4203,10 @@ arXiv:1406.6953v1 (2014), Theorems 2.1 and 2.3.
 \bibitem{t2-v42} 同プロジェクト、\nolinkurl{research/notes/S61_BINARY_T2_STRATUM_REMOVAL_20261101.md}、明記した証明書・レビュー範囲を参照。
 \bibitem{deeper-chart-v42} 同プロジェクト、\nolinkurl{research/notes/S61_BINARY_DEEPER_TRIANGULAR_CHART_20261101.md}、明記した証明書・レビュー範囲を参照。
 \bibitem{t5-free-v42} 同プロジェクト、\nolinkurl{research/notes/S61_R0_T5_FORMAL_RANK23_20261101.md}、明記した証明書・レビュー範囲を参照。
+\bibitem{binary-prime-v43} 同プロジェクト、\nolinkurl{research/notes/S61_BINARY_PRIME_SPREADING_20261101.md}、証明書と独立レビューの範囲を参照。
+\bibitem{semi-b-v43} 同プロジェクト、\nolinkurl{research/notes/S61_MINIMAL_SEMI_B_ENDPOINT_20261101.md}、証明書と独立レビューの範囲を参照。
+\bibitem{binary-quad-v43} 同プロジェクト、\nolinkurl{research/notes/S61_BINARY_DEEPER_UNIFORM_QUADRATIC_20261101.md}、証明書と独立レビューの範囲を参照。
+\bibitem{flag-exact-jets-v43} 同プロジェクト、\nolinkurl{research/notes/S61_FLAG_BOUNDARY_EXACT_JETS_20261101.md}、証明書と独立レビューの範囲を参照。
 \end{thebibliography}
 \endgroup
 \end{document}
