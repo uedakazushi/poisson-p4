@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checkpoint": "v38-s61",
+  "checkpoint": "v39-s61",
   "date": "2026-11-01",
   "base_mathematical_checkpoint": "v24",
   "new_mathematical_progress_in_this_setup": false,
@@ -4303,6 +4303,308 @@
       ],
       "limitations_ja": [
         "他の混合型・旗・二平面型・最小型残余、全アフィン有限性と五点尽くしは未決。"
+      ]
+    },
+    {
+      "id": "S61_R0_MIXED_ORBIT_REDUCTION",
+      "title_ja": "R0特殊混合型の有限七軌道被覆",
+      "statement_ja": "全16特殊面をせん断・有限交換・トーラスで七表示へ還元。T3はβ像15、残る四曲線型と二曲面型を明示。",
+      "scope": "Explicit orbit cover, stated generic-beta whole-orbit removals, or specified formal opens as distinguished.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_HOMOGENIZED_EQUIVARIANCE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_R0_MIXED_ORBIT_REDUCTION_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_R0_MIXED_ORBIT_REDUCTION_REVIEW_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_R0_MIXED_ORBIT_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_R0_MIXED_ORBIT_REDUCTION_20261101.json",
+        "reports/S61_R0_MIXED_ORBIT_REDUCTION_REVIEW_20261101.json",
+        "reports/S61_R0_MIXED_ORBIT_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "軌道表示の有限被覆であり、新成分の数ではない。旗・二平面端点を保持。"
+      ]
+    },
+    {
+      "id": "S61_R0_MIXED_CURVE_UNIFORM_RANK",
+      "title_ja": "四つの混合曲線型の普遍最高階数上界",
+      "statement_ja": "全H9で最高135×45 q-Jacobianの階数≤42。全43次minorは分母零点も含め恒等的に零。",
+      "scope": "Explicit orbit cover, stated generic-beta whole-orbit removals, or specified formal opens as distinguished.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_R0_MIXED_ORBIT_REDUCTION"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_R0_MIXED_CURVE_UNIFORM_RANK_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_R0_MIXED_CURVE_UNIFORM_RANK_20261101.json"
+      ],
+      "limitations_ja": [
+        "単独では全局所環や飽和除去の主張ではない。"
+      ]
+    },
+    {
+      "id": "S61_R0_MIXED_CURVE_EXHAUSTION",
+      "title_ja": "四つの混合曲線軌道の全一般β除去",
+      "statement_ja": "T1,T2,T4,T6の全一般β軌道点で完成環k[[u,e]]/(e²)、t0。普遍43minorと平方障害の全11例外因子のβ像は11/15で真。",
+      "scope": "Explicit orbit cover, stated generic-beta whole-orbit removals, or specified formal opens as distinguished.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_R0_MIXED_ORBIT_REDUCTION",
+          "S61_R0_MIXED_CURVE_UNIFORM_RANK"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_R0_MIXED_CURVE_EXHAUSTION_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_R0_MIXED_CURVE_EXHAUSTION_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_R0_MIXED_CURVE_EXHAUSTION_20261101.json",
+        "reports/S61_R0_MIXED_CURVE_EXHAUSTION_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "二つの混合曲面T5/T7、旗・二平面端点、アフィン有限性は別。"
+      ]
+    },
+    {
+      "id": "S61_R0_MIXED_SURFACE_T7_FORMAL",
+      "title_ja": "混合曲面T7の四重構造をもつ局所開",
+      "statement_ja": "G=x²z+w³の指定点はk[[u0,u1,e]]/(e⁴)、t0。普遍二次三次障害零と横断四次非零から自由4を証明し、18D族の非空ambient開へ降下。",
+      "scope": "Explicit orbit cover, stated generic-beta whole-orbit removals, or specified formal opens as distinguished.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_R0_MIXED_ORBIT_REDUCTION",
+          "S61_HOMOGENIZED_EQUIVARIANCE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_R0_MIXED_SURFACE_T7_FORMAL_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_R0_MIXED_SURFACE_T7_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_R0_MIXED_SURFACE_T7_FORMAL_20261101.json",
+        "reports/S61_R0_MIXED_SURFACE_T7_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "17D補集合もβを優越し得る。全一般β曲面の除去ではない。"
+      ]
+    },
+    {
+      "id": "S61_MINIMAL_M1_BASELINE_REMOVAL",
+      "title_ja": "M1二基線の全有限部分の除去",
+      "statement_ja": "普遍平方零自由3開と全例外因子を処理し、M1二基線の全有限部分を一般β上で飽和除去。",
+      "scope": "Explicit orbit cover, stated generic-beta whole-orbit removals, or specified formal opens as distinguished.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_MINIMAL_MAIN_VERTEX_FORMULA"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_MINIMAL_M1_BASELINE_REMOVAL_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_MINIMAL_M1_BASELINE_REMOVAL_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_MINIMAL_M1_BASELINE_REMOVAL_20261101.json",
+        "reports/S61_MINIMAL_M1_BASELINE_REMOVAL_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "射影無限大のR0端点は別。"
+      ]
+    },
+    {
+      "id": "S61_MINIMAL_M0_BASELINE_REMOVAL",
+      "title_ja": "M0二基線の全有限部分の除去",
+      "statement_ja": "普遍自由4・非零平方零t開と全例外因子を処理。比3の四次初期上界、二次数体の両共役を含め全有限部分を一般β上で除去。",
+      "scope": "Explicit orbit cover, stated generic-beta whole-orbit removals, or specified formal opens as distinguished.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_MINIMAL_MAIN_VERTEX_FORMULA"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_MINIMAL_M0_BASELINE_REMOVAL_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_MINIMAL_M0_BASELINE_REMOVAL_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_MINIMAL_M0_BASELINE_REMOVAL_20261101.json",
+        "reports/S61_MINIMAL_M0_BASELINE_REMOVAL_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "下界4は全Sの長さ。射影端点は別。"
+      ]
+    },
+    {
+      "id": "S61_MINIMAL_SEMISIMPLE_TAILS_REMOVAL",
+      "title_ja": "六つの半単純最小型尾の全有限部分の除去",
+      "statement_ja": "三標準表示と有限交換で六つのg2/g4尾を覆い、普遍全階数44開、properβ因子、主接続、三artifact層で全有限部分を除去。",
+      "scope": "Explicit orbit cover, stated generic-beta whole-orbit removals, or specified formal opens as distinguished.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_MINIMAL_MAIN_VERTEX_FORMULA",
+          "S61_HOMOGENIZED_EQUIVARIANCE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_MINIMAL_SEMISIMPLE_TAILS_REMOVAL_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_MINIMAL_SEMISIMPLE_TAILS_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_MINIMAL_SEMISIMPLE_TAILS_REMOVAL_20261101.json",
+        "reports/S61_MINIMAL_SEMISIMPLE_TAILS_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "二平面型の射影端点と他の最小型尾は別。"
+      ]
+    },
+    {
+      "id": "S61_BINARY_DEEPER_FORMAL",
+      "title_ja": "二平面型の深い十七次元階数降下層の自由65開",
+      "statement_ja": "K=Q*=0の17D優越層は普遍最高/全階数≤32/33。指定点とambient開で自由65、I⁴=It=t²=0、0≠t、t商自由64、横断Hilbert(1,9,21,34)。",
+      "scope": "Explicit orbit cover, stated generic-beta whole-orbit removals, or specified formal opens as distinguished.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_BINARY_RANK_DROP_COVER",
+          "S61_BINARY_FORMAL_RING"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_BINARY_DEEPER_FORMAL_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_DEEPER_FORMAL_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_BINARY_DEEPER_FORMAL_20261101.json",
+        "reports/S61_BINARY_DEEPER_FORMAL_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "全一般β曲線を除去したものではない。"
+      ]
+    },
+    {
+      "id": "S61_BINARY_DEEPER_REDUCTION",
+      "title_ja": "K0上のB階数七以下の全四素層",
+      "statement_ja": "B階数≤7の根基は四素idealの交叉。三層のβ像は≤15、一般βで残るのはK=Q*=0。",
+      "scope": "Explicit orbit cover, stated generic-beta whole-orbit removals, or specified formal opens as distinguished.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_BINARY_RANK_DROP_COVER",
+          "S61_BINARY_DEEPER_FORMAL"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_BINARY_DEEPER_REDUCTION_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_DEEPER_REDUCTION_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_BINARY_DEEPER_REDUCTION_20261101.json",
+        "reports/S61_BINARY_DEEPER_REDUCTION_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "Cブロック由来のK=a=25b−14e=0層は別。全二平面型の飽和除去ではない。"
       ]
     }
   ],

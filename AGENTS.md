@@ -1,8 +1,24 @@
 # Poisson structures on P4 — Codex instructions
 
-Version: v38-s61 · 2026-11-01 (Asia/Tokyo).
+Version: v39-s61 · 2026-11-01 (Asia/Tokyo).
 
-Current v38 additions: the entire pure double-root z^2*w/z*w^2 orbit is
+Current v39 additions: the four entire mixed R0 curve orbits T1,T2,T4,T6
+are removed over sufficiently general beta. Universal rank43 and a square
+quadratic plus all11 proper-image factors prove dual-number curves and t=0
+at EVERY orbit point. The finite seven-orbit cover leaves T5/T7 surfaces plus
+binary/flag endpoints. T7 has a specified free4 ambient open, e^4=0,t=0;
+its entire generic-beta surface is NOT removed.
+All four minimal M0/M1 finite baselines and all six semisimple finite tails are
+removed, with independent reviews. Their projective endpoints remain separate.
+The deeper binary17D K=Qstar=0 stratum has a specified free65 ambient open,
+HF(1,9,21,34), I^4=I*t=t^2=0, t!=0. On K=0, B-rank<=7 has four prime
+components; three have beta image<=15. The separate C-block mixed connection
+has only a transverse upper bound67 so far, not a proved full local ring.
+Entire binary/flag infinity, remaining minimal tails, affine finiteness/five
+points and total component upper bound remain unresolved. Lower bound57.
+Continue after checkpoints.
+
+Previous v38 additions: the entire pure double-root z^2*w/z*w^2 orbit is
 removed over sufficiently general beta. All13 universal-minor factors are
 covered. The A=2B triple endpoint has rank5/transverse6; four divisors have
 rank3/transverse4 and nilpotent t. B=0 and5A=3B mixed junctions are free rank5,
