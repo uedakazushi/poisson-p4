@@ -1,6 +1,6 @@
 # 公表用原稿の構成案と証明資料
 
-**状態：v44-s61、2026-11-01。零一次部分の被約台AB、ABのincidenceと特異点集合、最小型無限遠の完成局所環、二平面型の横断Artin代数を統合。**
+**状態：v45-s61、2026-11-01。零一次部分の被約台AB、ABのincidenceと特異点集合、最小型無限遠の完成局所環、二平面型の横断Artin代数を統合。**
 
 [一次ジェット還元の日本語原稿](s61_first_jet_reduction_ja.tex)（[PDF・41ページ](s61_first_jet_reduction_ja.pdf)）は、
 primitive gauge、T01/T39/T40の優越性と全S61のétale点、楕円型五変数模型、T01の一般次数3、
@@ -235,3 +235,10 @@ v35では一般被約無限遠の全型帰着、ABの原点外の正規性、二
 - T5の二次pivot例外二層を全て除去: `S61_R0_T5_QUADRATIC_ARTIFACTS_20261101`。適用範囲と未解決部分を各ノートに明記。
 - 旗境界のQQ全六次截断idealと初期部分の構造: `S61_FLAG_BOUNDARY_RATIONAL_INITIAL_20261101`。適用範囲と未解決部分を各ノートに明記。
 - T5の全一般β軌道を飽和除去: `S61_R0_T5_ZERO_L_EXHAUSTION_20261101`。固定βの同じ曲面と相対smooth降下、四場合の全被覆を確認。
+
+## v45: 三重尾・rank-one端点・旗固定点と有限正常化
+
+- 三重尾の二平面端点を全一般βで除去: `S61_MINIMAL_TRIPLE_ENDPOINT_20261101`。適用範囲と未解決部分を各ノートに明記。
+- rank-one A1族の全射影端点を一般βで除去: `S61_MINIMAL_RANKONE_ENDPOINT_20261101`。適用範囲と未解決部分を各ノートに明記。
+- 旗境界の疎な固定β点で非零平方零t: `S61_FLAG_BOUNDARY_ORBIT_SPLIT_FORMAL_20261101`。適用範囲と未解決部分を各ノートに明記。
+- 旗b1=0境界の有限正常化と線形例外の全域判定: `S61_FLAG_BOUNDARY_NORMAL_FORMS_20261101`。適用範囲と未解決部分を各ノートに明記。

@@ -1,8 +1,25 @@
 # Poisson structures on P4 — Codex instructions
 
-Version: v44-s61 · 2026-11-01 (Asia/Tokyo).
+Version: v45-s61 · 2026-11-01 (Asia/Tokyo).
 
-Current v44 additions: semisimple endpoint A and the two Weyl-related
+Current v45 additions: the entire dominant16D triple-tail binary endpoint
+and rank-one A1 projective endpoint are removed over sufficiently general beta.
+Universal flat triple/double lines satisfy all405/270 raw135 identities.
+True initial degree7/6 ideals equal B65 intersect the actual line schemes.
+Good reduction, DVR equal-rank torsion-free specialization and relative descent
+prove ambient t^2 at the specified points. Transverse lengths66 are not free ranks.
+Both have independent raw135 reviews. Remaining minimal flag endpoints are separate.
+At the sparse flag b1=0 point, the FIXED-BETA full completed ring has nonzero
+t in m^4\m^5 and t^2=0. An exact Ga x Gm action splits two orbit directions;
+the residual embedded torsion has length111 and degree<=6. No relative ambient
+assertion or whole18D flag-boundary removal follows from this special symmetry.
+Flag b0!=0,b1=0 has finite eight- and seven-variable normal charts. Four core
+values are beta dominant: three linear pivot artifacts, one true universal
+rank drop r=-4/25. In the b12=0 chart only I0=0 has beta image<=15.
+Universal higher jets, remaining flags/deeper binary, affine exhaustion and
+component upper bound remain unresolved. Lower57. Continue after checkpoints.
+
+Previous v44 additions: semisimple endpoint A and the two Weyl-related
 pure-cubic nonsquare binary endpoints are removed over sufficiently general
 beta. A retains a quintic socle and uses finite-base torsion, not an ambient
 t^2 assertion. The pure-cubic endpoint has a C-primary65 part and an actual

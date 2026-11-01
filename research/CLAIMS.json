@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checkpoint": "v44-s61",
+  "checkpoint": "v45-s61",
   "date": "2026-11-01",
   "base_mathematical_checkpoint": "v24",
   "new_mathematical_progress_in_this_setup": false,
@@ -5674,6 +5674,140 @@
       ],
       "limitations_ja": [
         "元135式を全再構成し独立概念レビュー受理。独立数値再実装は未完了。T5軌道閉包の旗/binaryは別。t=0やアフィン尽くしは含めない。"
+      ]
+    },
+    {
+      "id": "S61_MINIMAL_TRIPLE_ENDPOINT",
+      "title_ja": "三重尾の二平面端点を全一般βで除去",
+      "statement_ja": "全H10を覆う平坦三重直線を元135式の全405恒等式で構成。真の七次初期idealはprimary65と実在三重線の交叉に一致し、DVRと相対化から指定ambient t²=0、優越16D層の全一般β除去を得る。",
+      "scope": "Only the stated sufficiently-general-beta, fixed-beta formal or finite-chart conclusions.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_MINIMAL_CUBIC_TAIL",
+          "S61_BINARY_PRIME_SPREADING",
+          "S61_MINIMAL_SEMI_B_ENDPOINT"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_MINIMAL_TRIPLE_ENDPOINT_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_MINIMAL_TRIPLE_ENDPOINT_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_MINIMAL_TRIPLE_ENDPOINT_20261101.json",
+        "reports/S61_MINIMAL_TRIPLE_ENDPOINT_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "横断長66を自由階数としない。他の旗・二平面層や全アフィン尽くしは別。"
+      ]
+    },
+    {
+      "id": "S61_MINIMAL_RANKONE_ENDPOINT",
+      "title_ja": "rank-one A1族の全射影端点を一般βで除去",
+      "statement_ja": "有限A1曲線の全射影端点をH9非平方二平面族へ移す。普遍平坦二重線の全270恒等式と真の六次初期ideal B65∩D2により、指定ambient t²と優越16D層の全一般β除去を証明。",
+      "scope": "Only the stated sufficiently-general-beta, fixed-beta formal or finite-chart conclusions.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_MINIMAL_RANKONE_A1_REMOVAL",
+          "S61_MINIMAL_RANKONE_JUNCTION",
+          "S61_BINARY_PRIME_SPREADING",
+          "S61_MINIMAL_SEMI_B_ENDPOINT"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_MINIMAL_RANKONE_ENDPOINT_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_MINIMAL_RANKONE_ENDPOINT_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_MINIMAL_RANKONE_ENDPOINT_20261101.json",
+        "reports/S61_MINIMAL_RANKONE_ENDPOINT_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "横断長66は自由階数ではない。他の旗端点、全旗境界、全アフィン尽くしを含めない。"
+      ]
+    },
+    {
+      "id": "S61_FLAG_BOUNDARY_ORBIT_SPLIT_FORMAL",
+      "title_ja": "旗境界の疎な固定β点で非零平方零t",
+      "statement_ja": "正確な二次元固定β群により二変数を形式分離。切断の初期埋込差は有限長111で次数≤6、同じ実在旗曲線の一般下界5でtorsionを制御し、元135四次jetの0≠t∈m⁴/m⁵からt²=0を得る。",
+      "scope": "Only the stated sufficiently-general-beta, fixed-beta formal or finite-chart conclusions.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_FLAG_BOUNDARY_RATIONAL_INITIAL",
+          "S61_FLAG_UNIFORM_OPEN"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_FLAG_BOUNDARY_ORBIT_SPLIT_FORMAL_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_FLAG_BOUNDARY_ORBIT_SPLIT_FORMAL_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_FLAG_BOUNDARY_ORBIT_SPLIT_FORMAL_20261101.json",
+        "reports/S61_FLAG_BOUNDARY_ORBIT_SPLIT_FORMAL_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "固定βの指定点のみ。相対ambient t²、全18D旗境界の除去、全初期idealの一致は主張しない。"
+      ]
+    },
+    {
+      "id": "S61_FLAG_BOUNDARY_NORMAL_FORMS",
+      "title_ja": "旗b1=0境界の有限正常化と線形例外の全域判定",
+      "statement_ja": "b0b12≠0を有限二重被覆の八変数chartへ移し、core r=(b0b2−b3b12+b3²)/b12²の不変性と四例外の普遍rankを証明。b12=0はproperβ像I0=0を除き有限四重被覆の七変数chartで尽くす。",
+      "scope": "Only the stated sufficiently-general-beta, fixed-beta formal or finite-chart conclusions.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_FLAG_UNIFORM_OPEN"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_FLAG_BOUNDARY_NORMAL_FORMS_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_FLAG_BOUNDARY_NORMAL_FORMS_20261101.json"
+      ],
+      "limitations_ja": [
+        "線形rankと有限被覆の結果である。高次障害、局所環、t飽和除去は別。b0=b1=0は含めない。"
       ]
     }
   ],

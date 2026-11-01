@@ -35,7 +35,7 @@
 \title{射影四空間の Poisson 構造の一次ジェット還元\\
 \large 普遍的楕円切断、Jacobian の二捩れと Toric 成分の境界}
 \author{Poisson P4 研究プロジェクト・内部研究草稿}
-\date{2026年11月1日・v44-s61}
+\date{2026年11月1日・v45-s61}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -4142,7 +4142,142 @@ $\beta$微分はrank16で、実在旗三次元族の接idealは
 であり、$\sqrt{\operatorname{ann}(B/J)}=(v_2,v_3,v_4,v_5,v_6,v_7,v_8)$となる。
 実際の非斉次形式環を$v_0=v_1=v_2=0$で切った長さは49である\cite{flag-rational-v44}。
 これは自由階数49を意味しない。六次までの初期関係は尽くしたが、七次以降に追加関係がないこと、
-全初期idealの同定、$t$冪零性、および全旗境界の除去は未証明である。
+全初期idealの同定、および全旗境界の除去は未証明である。指定点の$t$冪零性は以下で別に証明する。
+
+\section{三重尾とrank-one曲線の射影端点}
+次の二つの端点を扱う。第一は
+\[
+ Q_0=xw\partial_y\wedge\partial_z,\quad
+ H_{10}=\{u_4=u_5=u_{12}=u_{13}=0,\ u_{14}=2u_{49},\ 3u_{50}+u_{35}=0\},
+\]
+第二は
+\begin{gather*}
+ Q_0=(w^2+15x^2)\partial_y\wedge\partial_z,\\
+ H_9=\{u_4=u_{12}=u_{13}=0,\ u_{26}=3u_5/2-12u_{14},\
+ u_{35}=9u_{14}/2,\ u_{49}=2u_{14},\ u_{50}=45u_{14}/2\}.
+\end{gather*}
+前者はM1の三重尾二表示、後者はM0のrank-one A1曲線の射影端点を覆う。
+全sourceを残した有限symplectic変換による被覆式を証明書に保存する。
+それぞれ射影軌道次元5、法線安定化作用階数1と2であり、群飽和閉包は既約十六次元で$W_{16}$を優越する。
+
+\begin{proposition}
+上記二つの端点層は十分一般の$\beta$上で全て飽和除去される。
+指定点を含むそれぞれのambient開で$t^2=0$が成立する。
+\end{proposition}
+\begin{proof}
+三重尾では既存の有限尾の二次liftを有限群作用で端点chartへ移し、冪零座標を$s\varepsilon$で置換する。
+全$H_{10}$を覆うsource上で
+\[
+ q=q_0+s\delta+\varepsilon n(s)+\varepsilon^2w(s),\qquad
+ t=0,\quad\varepsilon^3=0
+\]
+を得る。分母は$80(-23L+10Vs)$および$19200V(-23L+10Vs)^3$である。
+$LV\ne0$では$s=0$で正則で、二接方向のminorは$-31L/920\ne0$である。
+元135式の$\varepsilon^0,\varepsilon^1,\varepsilon^2$係数405個は全て恒等零となる。
+従って$D_A=A[[s,\varepsilon]]/(\varepsilon^3)$は相対閉部分で底上flatである。
+
+A1では既存有限曲線の非被約接方向を同様に運ぶ。
+途中の平方根$\lambda^2=1/d$には偶数Laurent冪しか残らず、最終45係数は有理式となる。
+元135式の$\varepsilon^0,\varepsilon^1$係数270個を全九変数で確認して
+$D_A=A[[s,\varepsilon]]/(\varepsilon^2)$を得る。
+指定点の二接方向minorも非零で、これは単なる接ベクトルでなく実在する平坦二重直線である。
+
+$p=32003$における全接変数の截断ideal閉包から、三重尾では
+5二次、15三次、2五次、1七次、A1では5二次、15三次、2五次、1六次の真正初期関係を取る。
+それぞれのideal $J$は
+\[
+ J=B\cap D_{\mathrm{lin}},\qquad
+ \dim k[v]/B=3,\quad\deg k[v]/B=65
+\]
+を満たす。$D_{\mathrm{lin}}$は構成した実在三重線・二重線の随伴次数idealに正確に一致する。
+$B$は同じ滑らかな二平面三次元族の接平面にprimaryであり、底三変数上torsion-freeである。
+両方とも底三変数で切った長さは66である。線の次数を65へ単純加算しない。
+
+同じ二平面族の普遍下界65と良い還元により、追加初期核は零となり、
+実在線商への核$N_0$は底上torsion-free階数65となる。
+flat商を保つ$\mathbb Z_p$モデルに対し、DVR等階数特殊化で核$N$もtorsion-free階数65となる。
+一般二平面因子では$ I^4=0,t\in I^2$、線商では$t=0$なので、$t^2\in N$は一般部分で零となり、全環で零となる。
+$p$反転後、底原点で完成し、元$q,t$原点に対応する局所因子を選んで完成する。
+忠実平坦降下によりQQ原点の同じ結論を得る。
+
+全$H_{10}$または$H_9$上でも商$D_A$はflatであるため、同じ等階数議論で相対$t^2=0$を得る。
+群作用を加えたsourceの$\beta$微分は指定点でrank16であり、smooth同変base changeからambientへ降下する。
+十六次元層の補集合は次元15以下となるので、十分一般$\beta$で層全体が除去される
+\cite{triple-end-v45,rankone-end-v45}。
+\end{proof}
+横断長66を全環の自由階数とはしない。残る最小型の旗端点は別である。
+
+\section{旗境界の固定点における非零平方零$t$}
+前節以前の疎な旗点$b_0=b_{12}=1$、他の$H_{15}$座標零を固定する。
+この$\beta$を保存する実際の群は
+\[
+ g(a,\lambda)=
+ \begin{pmatrix}1&a&0&0\\0&1&0&0\\0&0&\lambda&\lambda-\lambda^{-1}\\0&0&0&\lambda^{-1}\end{pmatrix}
+ \quad(\lambda\ne0)
+\]
+であり、全係数で$g^{\mathsf T}\beta(gx)g=\beta$を満たす。
+九接座標の$v_0,v_1$への二群方向のminorは4である。
+従って切断$Z=\{v_0=v_1=0\}$との群作用写像はétaleであり、固定$\beta$全完成環は
+$S\simeq S'[[a,\lambda-1]]$と分離する。$t$は切断上の$t$の単元倍に移る。
+
+\begin{proposition}
+この固定$\beta$の指定旗点では$0\ne t\in\mathfrak m^4\setminus\mathfrak m^5$かつ$t^2=0$である。
+\end{proposition}
+\begin{proof}
+既存のQQ真正六次初期部分を$J$とし、$J_1=J+(v_0,v_1)$とする。
+$B_1=J_1:(v_2)^\infty$は$\QQ[v_2]$上自由階数5であり、$E=B_1/J_1$は
+\[
+ \operatorname{Hilb}(E)=2z+14z^2+29z^3+38z^4+18z^5+10z^6
+\]
+を持つ有限長111の加群である。
+同じ固定$\beta$の実在旗三次元族は$Z$と横断して滑らかな曲線$C'$を与える。
+$b_1$の微分は$-v_2/2$なので、その一般点は既知の自由5・$t=0$領域に入る。
+$v_2$は最大idealのreductionであるから、上界5と同じ曲線の下界5より
+$S'$は$R=\QQ[[v_2]]$有限階数5である。
+
+追加初期核$K=\operatorname{in}(I')/J_1$は階数零で、$K\subset E$となる。
+$T=\operatorname{Tor}_R S'$に誘導最大ideal filtrationを入れると
+$\operatorname{gr}T\subset E/K$である。実際、$v_2$の非零級数で殺される元の初期形は、
+その級数の最低次項で殺される。従って$T\cap\mathfrak m^7=0$となる。
+
+元135式の正確QQ四次jetで、線形行$t$を方程式でなくobservableとして読み出し、
+$t\in\mathfrak m^4\setminus\mathfrak m^5$を確認する。
+一般曲線上で$t=0$だから$t^2\in T\cap\mathfrak m^8=0$である。
+étale群分解を通して元の固定$\beta$環へ戻す\cite{flag-split-v45}。
+\end{proof}
+全初期idealの一致は必要としない。この特殊$\beta$の群が一般$\beta$でも残るとは仮定せず、
+相対ambientの$t^2$や十八次元旗境界全体の除去はまだ結論しない。
+
+\section{旗境界の有限正常化と四線形例外}
+旗代表$Q=-x^2\partial_y\wedge\partial_w$の$H_{15}$座標を用い、$b_0\ne0,b_1=0$とする。
+$b_{12}\ne0$では四つの有限unipotent変換で$b_3=b_5=b_6=b_{14}=0$とできる。
+続いて$\operatorname{diag}(a,a^{-1},c,c^{-1})$に
+$a=b_{12},c^2=b_0/b_{12}$を用いる有限エタール二重被覆により$b_0=b_{12}=1$とする。
+残る八変数は$b_2,b_4,b_7,b_8,b_9,b_{10},b_{11},b_{13}$である。
+このとき
+\[
+ r=\frac{b_0b_2-b_3b_{12}+b_3^2}{b_{12}^2}
+\]
+は固定旗の安定化群の不変量で、正常化後の$b_2$に一致する。
+元135式の全nuisance変数を保持するrank計算と非零定数minorにより
+\[
+\begin{array}{c|rrrr}
+ r&-6&-12/5&-119/20&-4/25\\\hline
+ \text{最高rank}&35&35&35&34\\
+ \text{全rank}&36&36&36&35
+\end{array}
+\]
+を得る。四層は全てjoint次元17で$\beta$を優越する。
+従って最初の三値は別線形pivotで扱えるが、最後は全域で真のrank降下である。
+群作用によってこれらのcore値を避けることはできない。
+
+$b_{12}=0$では$I_0=b_0b_2+b_3^2$とする。$I_0=0$のsourceの四法線へ投影した
+全Sp4微分はrank3以下なので、その$\beta$像は次元15以下である。
+$I_0\ne0$では有限unipotent変換と$a^2=I_0,c^2=b_0/a$の有限エタール四重被覆により
+$b_0=b_2=1$、$b_1=b_3=b_5=b_6=b_{12}=b_{13}=0$とできる。
+残る七変数は$b_4,b_7,b_8,b_9,b_{10},b_{11},b_{14}$である\cite{flag-normal-v45}。
+これは有限正常化と線形rankの結果であり、高次障害・局所環・$t$飽和の証明とは区別する。
+$b_0=b_1=0$の交わりも別に残る。
 
 \section{残る問題}
 全一次項の延長可能性、楕円二成分の全域graphと一般次数1、表示重複3000、
@@ -4395,6 +4530,10 @@ arXiv:1406.6953v1 (2014), Theorems 2.1 and 2.3.
 \bibitem{t5-aq-v44} 同プロジェクト、\nolinkurl{research/notes/S61_R0_T5_QUADRATIC_ARTIFACTS_20261101.md}、証明書・依存と監査範囲を参照。
 \bibitem{flag-rational-v44} 同プロジェクト、\nolinkurl{research/notes/S61_FLAG_BOUNDARY_RATIONAL_INITIAL_20261101.md}、証明書・依存と監査範囲を参照。
 \bibitem{t5-full-v44} 同プロジェクト、\nolinkurl{research/notes/S61_R0_T5_ZERO_L_EXHAUSTION_20261101.md}、元135式の証明書と概念レビューの範囲を参照。
+\bibitem{triple-end-v45} 同プロジェクト、\nolinkurl{research/notes/S61_MINIMAL_TRIPLE_ENDPOINT_20261101.md}、証明書と監査範囲を参照。
+\bibitem{rankone-end-v45} 同プロジェクト、\nolinkurl{research/notes/S61_MINIMAL_RANKONE_ENDPOINT_20261101.md}、証明書と監査範囲を参照。
+\bibitem{flag-split-v45} 同プロジェクト、\nolinkurl{research/notes/S61_FLAG_BOUNDARY_ORBIT_SPLIT_FORMAL_20261101.md}、証明書と監査範囲を参照。
+\bibitem{flag-normal-v45} 同プロジェクト、\nolinkurl{research/notes/S61_FLAG_BOUNDARY_NORMAL_FORMS_20261101.md}、証明書と監査範囲を参照。
 \end{thebibliography}
 \endgroup
 \end{document}
