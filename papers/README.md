@@ -1,6 +1,6 @@
 # 公表用原稿の構成案と証明資料
 
-**状態：v51-s61、2026-11-01。零一次部分の被約台AB、ABのincidenceと特異点集合、最小型無限遠の完成局所環、二平面型の横断Artin代数を統合。**
+**状態：v52-s61、2026-11-02。零一次部分の被約台AB、ABのincidenceと特異点集合、最小型無限遠の完成局所環、二平面型の横断Artin代数を統合。**
 
 [一次ジェット還元の日本語原稿](s61_first_jet_reduction_ja.tex)（[PDF・41ページ](s61_first_jet_reduction_ja.pdf)）は、
 primitive gauge、T01/T39/T40の優越性と全S61のétale点、楕円型五変数模型、T01の一般次数3、
@@ -304,3 +304,10 @@ v35では一般被約無限遠の全型帰着、ABの原点外の正規性、二
 - 自由M0の七次有限上界: `S61_MINIMAL_FREE_FLAG_SEVENTH_UPPER_BOUND_20261101`。適用範囲と未解決部分を各ノートに明記。
 - 自由M0の八次までの累積上界: `S61_MINIMAL_FREE_FLAG_EIGHTH_UPPER_BOUND_20261101`。適用範囲と未解決部分を各ノートに明記。
 - 真の旗coreの全七変数真正四次: `S61_FLAG_TRUE_CORE_QUARTIC_20261101`。適用範囲と未解決部分を各ノートに明記。
+
+## v52: AB全域正規性と実在の旗平方零商
+
+- AB正規化の四次を完全確定: `AB_ORIGIN_DEGREE_FOUR_20261101`。適用範囲と未解決部分を各ノートに明記。
+- ABの原点を含む全域正規性: `AB_ORIGIN_NORMALITY_20261102`。適用範囲と未解決部分を各ノートに明記。
+- 全b0非零旗境界の実在閉平方零厚化: `S61_FLAG_BOUNDARY_SQUAREZERO_QUOTIENT_20261101`。適用範囲と未解決部分を各ノートに明記。
+- 深部binary七二次idealの積正規形: `S61_BINARY_DEEPER_PRODUCT_PAIR_20261102`。適用範囲と未解決部分を各ノートに明記。

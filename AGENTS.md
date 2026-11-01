@@ -1,8 +1,24 @@
 # Poisson structures on P4 — Codex instructions
 
-Version: v51-s61 · 2026-11-01 (Asia/Tokyo).
+Version: v52-s61 · 2026-11-02 (Asia/Tokyo).
 
-Current v51 additions: three ordinary flag linear frame artifacts r=-6,-12/5,
+Current v52 additions: reduced AB is normal INCLUDING THE ORIGIN.
+B4=D4 has dimension38570, by249 weight evaluation minors and independent
+cohomology and manual determinant reviews. The local Tor shifts of the proper
+incidence bound normalization-module generators by degree4; hence B=D in all
+degrees and all positive higher direct images vanish. An independent review
+also gives a finite low-cohomology proof without all-degree Bott.
+This does not identify the nonreduced T01 zero fiber or exhaust S61.
+For ALL b0!=0 flag points there is an actual closed C3-free5 square-zero quotient.
+At specified zero12/trueD points S=D plus a finite R3-torsion kernel M with
+at most44 generators and t in M. Its actual action, not initial E111, is next.
+Deeper binary's seven-quadratic ideal has an exact product-pair normal form
+on the known thirteen-factor open, without introducing a new denominator factor.
+This is an algebra reduction, not a new core-removal theorem.
+Whole flags, remaining higher binary factors, affine exhaustion and the component
+upper bound remain unresolved. Lower57. Continue after checkpoints.
+
+Previous v51 additions: three ordinary flag linear frame artifacts r=-6,-12/5,
 -119/20 are covered through true order4 at every sufficiently-general-beta point:
 HF(1,9,36,97,201), ord(t)=4. The true core r=-4/25 has constant-minor
 polynomial quadratic and cubic bases on ALL seven parameter values:

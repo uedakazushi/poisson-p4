@@ -65,7 +65,7 @@ no further pivot after the original 55. The canonical quadratic presentation
 gives 104 such pivots in degree four, but its remaining block is unresolved.
 At \(e=2\) modulo 32003, every row and column content of the earlier residual
 matrix is constant, so a simple common-content division cannot remove the
-large annihilator powers. A degree-36 coefficient Ansatz contains all target
+large multiplicities in the determinant support. A degree-36 coefficient Ansatz contains all target
 columns for the known-factor annihilator at this finite-field slice; degree
 28 does not. No QQ(e)[d] left-inverse identity has been certified.
 
@@ -77,3 +77,17 @@ are the frozen triangular-chart, uniform-quadratic and cubic certificates,
 plus the v50 archived native reconstruction inputs. The new aggregate route
 has not received independent review. The remaining unknown fourth-minor core
 curves, and all subsequent global exhaustion steps, remain open.
+
+## v52 correction: degrees, not factor exponents
+
+The logged values \((0,1,1,1,2,4,9)\) record the degrees removed from the
+one-variable annihilator, not powers of the seven factors. Those seven known
+factors have respective d-degrees \((1,1,1,1,2,4,9)\). Thus the degree-18
+annihilator at e=2 modulo 32003 contains six factors, each to the first power.
+In particular, the degree-nine entry does not mean a ninth power of the
+linear factor R. The determinant-support contribution315 instead concerns
+35 copies of the known degree-nine factor. The earlier references here and
+in the WIP note included in the frozen v51 archive to large annihilator powers
+were ambiguous
+and should be read with this correction. The frozen v51 archive is retained
+unchanged. No numerical evidence or producer output has changed.

@@ -1,0 +1,17 @@
+R=QQ[n_0..n_7];
+N=matrix{{n_0,n_1,n_2},{n_3,n_4,n_5},{n_6,n_7,-n_0-n_4}};
+I=minors(2,N);
+F=res coker gens I;
+print betti F;
+scan(0..length F, i -> print(i,degrees F_i));
+assert(dim(R/I)==4);
+assert(rank F_0==1 and rank F_1==9 and rank F_2==16 and rank F_3==9 and rank F_4==1);
+assert(degrees F_0=={{0}});
+assert(all(degrees F_1,d->d=={2}));
+assert(all(degrees F_2,d->d=={3}));
+assert(all(degrees F_3,d->d=={4}));
+assert(degrees F_4=={{6}});
+assert(length F==4);
+assert(all(1..4,i->HH_i F==0));
+assert(all(1..4,i->all(flatten entries F.dd_i, f->degree f > {0} or f==0)));
+print "AB_Y_BETTI_EXACT_QQ_PASS";

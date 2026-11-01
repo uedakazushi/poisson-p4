@@ -35,7 +35,7 @@
 \title{射影四空間の Poisson 構造の一次ジェット還元\\
 \large 普遍的楕円切断、Jacobian の二捩れと Toric 成分の境界}
 \author{Poisson P4 研究プロジェクト・内部研究草稿}
-\date{2026年11月1日・v51-s61}
+\date{2026年11月2日・v52-s61}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -56,7 +56,7 @@ Toric三次被覆を標準曲線のJacobianの非零二捩れと同定し、判�
 トーリック成分全体の飽和イデアル表示を得る。実際の成分は全域では有限でなく、零一次部分上に
 従来の代数模型が覆わない既約十次元の零一次部分ファイバーを持つ。
 既知五延長の三平面断面も決定する。さらに無限遠の双対楕円曲線を同定し、指定した旗型・非二元型の完成局所環と飽和による除去を証明する。零一次部分の被約台はABだけであると決定し、そのproper incidenceと特異点集合を記述する。最小冪零型の二つの無限遠曲線では指定開部分の平方零完成局所環を決定し、二平面型では横断Artin代数の長さ65と非零の斉次化変数を示す。滑らかな全領域での既知五延長の分離も証明する。
-一般一次項上の未飽和無限遠の被約点を全モジュラー型で尽くし、零モジュラー型R0と最小冪零型M0/M1へ帰着する。二つの非二元共鳴交点の局所環、二平面型の自由階数65、ABの原点外の正規性も証明する。さらに非平坦な三枝交点での飽和除去と、一般一次項にも残る二平面型階数降下曲線を与える。
+一般一次項上の未飽和無限遠の被約点を全モジュラー型で尽くし、零モジュラー型R0と最小冪零型M0/M1へ帰着する。二つの非二元共鳴交点の局所環、二平面型の自由階数65、ABの原点を含む全域正規性も証明する。さらに非平坦な三枝交点での飽和除去と、一般一次項にも残る二平面型階数降下曲線を与える。
 純二重根非二元軌道の全一般一次項上での飽和除去、非平方二平面型の全Jacobian階数降下表、最小型の階数一有限A1全体の除去も証明する。
 全S61の未飽和斉次化には、非零一次項ごとに3次元の旗の無限遠部分が必ず現れることも示す。
 基礎となる perspective 正規化は有限の多項式公式で与えられ、一意である。
@@ -3302,7 +3302,7 @@ $h=\infty$の射影端点はR0二平面型であり、この命題には含め�
 
 \subsection*{AB次数四の探索状況}
 AB正規化の次数四では、座標四次積の厳密下界38320を得た。
-候補上界38570との差250は未解決である。
+この時点では候補上界38570との差250が残っていたが、後の第\ref{sec:v52}節で四次の等号と全域正規性を証明する。
 この差を追加生成元や非正規性の証拠と解釈しない。
 再実行可能な有限計算と未監査の表現論的上界を分け、探索資料に保存した。
 
@@ -4912,6 +4912,148 @@ $\mathbb Z_p[[u]][1/p]$と$\mathbb Q_p[[u]]$を同一視せず、
 実際の有限恒等式とtorsion支持の制御、残るbinary core、全無限遠の飽和除去、
 アフィン五点の尽くし、成分数上界を継続課題とする。既知下界57は変わらない。
 
+\section{ABの全域正規性と旗の実在平方零商（v52）}
+\label{sec:v52}
+\subsection{四次の等号を確定する}
+$B=\CC[\overline{AB}]$、$D=H^0(X,\mathcal O_X)$とし、
+既存のproper birational incidence $f:X\to\overline{AB}$および
+$\pi:X\to Z=LG(2,4)$を用いる。$\pi_*\mathcal O_X=\bigoplus_{n\ge0}E_n$と書く。
+\begin{proposition}
+\[
+ B_4=D_4,\qquad \dim D_4=38570,\qquad H^1(Z,E_4)=0.
+\]
+\end{proposition}
+\begin{proof}
+垂直次数のfiltrationのassociated gradedについて、
+$h^0=41621$、$h^1=3051$、$\chi=38570$である。
+一次cohomologyに現れる最高weightは
+$(12,2),(11,1),(10,0),(12,0)$で、重複度は$(1,1,2,1)$となる。
+対応する$H^0$重複度は$(1,2,4,1)$である。
+最低weightのcyclic vectorを用い、Levi上三角方向とradical方向の必要条件を課すと、
+候補空間の次元$(1,3,7,1)$に対する制約階数は$(1,2,5,1)$となる。
+従って実際の$H^0$重複度の上界は$(0,1,2,0)$となり、Euler特性の下界と一致する。
+これにより$h^0(E_4)=38570$と$H^1(E_4)=0$を得る。
+
+一方、rank一trace零行列の稠密chart
+$N=(1,a,b)^{\mathsf T}(-ad-be,d,e)$を使い、45個の一次テンソル係数を
+十変数の多項式として表す。二次元torusの249個の異なるweightごとに四次積を分け、
+法32003の726評価点上で独立列を選ぶ。
+簡約前の評価行列から取った249個の正方minorが全て非零で、その階数の和は38570である。
+従って$\dim_\QQ B_4\ge38570$であり、$B_4\subset D_4$から等号を得る。
+別実装で全45係数と全評価積から15,561,408個の行列成分を再構成し、
+手書きGaussian消去で249個の行列式を再確認した。
+cohomology側も別のCauchy指標とparabolic作用から再構成した
+\cite{ab-four-v52,ab-four-minors-v52,ab-four-cohom-v52}。
+\end{proof}
+
+\subsection{局所Torによる有限生成次数の上界}
+\begin{theorem}\label{thm:ab-normal-v52}
+被約多様体$\overline{AB}$は原点を含め全域で正規である。
+さらに$R^if_*\mathcal O_X=0$が全ての$i>0$について成り立つ。
+\end{theorem}
+\begin{proof}
+$S=\operatorname{Sym}(W_{45}^*)$と置き、テンソル係数に次数一を与える。
+既存のincidenceは$Z$の各chart $U$上で
+$U\times Y\times\AA^3$にgraded同型である。ただし
+$Y=\{N\in\mathfrak{sl}_3:\rank N\le1\}$であり、$N,g$の全座標は次数一である。
+補Lagrangianの変更は$g$へ$N$の線形式を加えるためgradingを保つ。
+45個の一次係数からfiberの11個の一次座標への写像は全射であり、
+局所自由なkernel34を局所的に分裂させられる。
+
+$Y$の八変数環上の最小分解は、homological degree $0,1,2,3,4$に対し
+rank $(1,9,16,9,1)$、内部次数$(0,2,3,4,6)$を持つ。
+一般trace零行列の二次minorから$\QQ$上で分解を作り、exactnessと最小性を検査した。
+これを34個の一次Koszul因子とtensorすると、
+$T_i=\operatorname{Tor}_i^S(\mathcal O_X,S/S_+)$はscheme論的零fiber $Z$上の
+局所自由層となり、内部次数の上限は
+\[
+ i=0,1,2,3\quad\text{に対し}\quad0,2,3,4
+\]
+である。大域的なparabolic splittingは必要ない。
+
+proper性と$S$のregular性により$K=R\Gamma(X,\mathcal O_X)$は
+有界な有限graded自由複体で表せる。同次数の単位成分を消し、最小複体$F$を取る。
+すると$F^q\otimes_S k=H^q(K\otimes_S^{\mathbf L}k)$である。
+$k$が$S$-perfectなのでprojection formulaとhypercohomologyから
+\[
+ H^j(Z,T_i)\ \Longrightarrow\ H^{j-i}(K\otimes_S^{\mathbf L}k)
+\]
+を得る。$j\le3$であり、全写像が内部次数を保つため、$F^q$の生成次数上限は
+\[
+ \begin{array}{c|rrrr}
+ q&0&1&2&3\\\hline
+ \text{内部次数上限}&4&3&2&0
+ \end{array}
+\]
+となり、$q>3$では零である。spectral sequenceの退化は仮定していない。
+
+ここで有限個の既存cohomologyを使って正次数項を順に消す。
+$H^3(K)=\operatorname{coker}(F^2\to F^3)$は内部次数0で生成されるが、
+$H^3(Z,E_0)=0$なので零である。最小性とgraded Nakayamaから$F^3=0$。
+同様に$H^2(K)$は次数2以下で生成され、既知の$H^2(Z,E_n)=0$ $(0\le n\le2)$と
+負次数の消滅により零となる。従って$F^2=0$。
+最後に$H^1(K)$は次数3以下で生成され、$H^1(Z,E_n)=0$ $(0\le n\le3)$から
+$H^1(K)=0$、$F^1=0$を得る。
+非零の最上項へ全射する最小微分は$S_+$で割ると零になるため、これらの消去は正当である。
+
+従って$D=H^0(K)=\operatorname{coker}(F^{-1}\to F^0)$は$S$加群として次数4以下で生成される。
+既証明の$B_n=D_n$ $(0\le n\le4)$により全生成元を$B$内に選べる。
+$B$は$S$の像なので$S\cdot B\subset B$であり、$D=B$となる。
+$X$の正規性とproper birational性から$D$は$B$の正規化であり、結論を得る。
+同時に正のcohomologyは全て消え、affine底上の正の高次順像も消える
+\cite{ab-normal-v52,ab-normal-review-v52,stacks-derived-v52}。
+\end{proof}
+主ノートには全次数のBott計算による別経路も記録した。
+最高weight $(a,b)$は$a+b\ge0$を満たし、$\rho=(2,1)$を加えた
+$u=a+2,v=b+1$について$u>|v|$となるため、Weyl長は0または1に限られる。
+従って$H^{\ge2}(E_n)=0$が全次数で従い、同じ有限生成論証へ接続する。
+実際の$T01$零fiberの非被約構造は本定理の対象ではない。
+
+\subsection{全$b_0\ne0$旗境界の閉平方零商}
+\begin{proposition}
+$b_0=u_5\ne0$の全旗点で、同じ固定$\beta$の実在する滑らかな三次元部分$C$上に
+閉じた自由階数5の平方零厚化がある。全完成局所環を$A$と書けば
+\[
+ A\twoheadrightarrow D_C=\CC[[z_0,z_1,z_2]][\epsilon_0,\ldots,\epsilon_3]/(\epsilon)^2,
+ \qquad t\longmapsto0.
+\]
+指定zero12点とtrue-core点では、同じ$R=\CC[[z_0,z_1,z_2]]$上で
+$A\simeq D_C\oplus M$が加群として成り立ち、$M$は44生成以下の有限torsion加群、$t\in M$である。
+\end{proposition}
+\begin{proof}
+最高二次方程式のJacobianに対し、分母が$u_5$の冪だけである$45\times8$核行列$K$を構成した。
+元135式から$JK=0$の全1080式を検証し、八次minorは$80u_5^4/21$である。
+一列はradial方向、三方向は実際の固定$\beta$の$C$の接方向であり、
+残る四列$N$との分裂行列式は$-4/u_5$である。
+固定$\beta$の$C$が滑らかなことは、旗核束の$\beta$法線微分に単元$-u_5$が現れることから従う。
+
+標準旗で$q=-e_{25}+\sum\epsilon_jN_j$、$t=0$と置くと、$(\epsilon)^2=0$のため
+元方程式は定数項と一次項だけになり、全て正確に零となる。
+$C$上の形式的な$\Sp_4$局所断面でこれを運び、同じ固定$\beta$の族を得る。
+七方向の独立性により余接写像は全射で、完備局所環のNakayamaから環写像も全射となる。
+指定二点では既知の有限$R$-rank5・49生成上界と組み合わせ、
+自由5商の核がtorsionで44生成以下となる。$D_C$上で$t=0$なので$t\in M$である
+\cite{flag-squarezero-v52}。
+\end{proof}
+これは実際の核$M$を与えるが、$M$を初期加群$E_{111}$と同一視するものではない。
+また、$M$上の$t$作用の冪零性と全旗層の飽和除去は引き続き別に証明する必要がある。
+
+\subsection{深部binaryの小さい積関係への縮約}
+既処理十三因子の積を$D_0$とし、$\QQ[e,d,D_0^{-1}]$上でnuisance零の七変数二次idealを考える。
+元七式$q_0,\ldots,q_6$に対し、$L=3v_0-v_1+v_5$、$N=(q_6-q_5)/L$は線形式であり、
+$N$の$v_3$係数は$-1$である。保存したsyzygyを直接検査すると
+\[
+ \sum a_iq_i=-v_3N,\qquad a_1=1
+\]
+となる。従って$q_0,q_2,q_3,q_4,q_5,LN,v_3N$への基底変換も、
+$(x_0,\ldots,x_6)=(v_0,v_2,v_4,v_5,v_6,L,N)$への座標変換も行列式$\pm1$である。
+同じidealは五つの二次式と$x_5x_6$, $x_6^2-x_6H_0(x_0,\ldots,x_4)$で生成される。
+全係数の分母は既知十三因子のみで、新しいcore因子を逆にしない。
+一般の一次倍階数48はsyzygyによる上界と非零48次minorによる下界で確定した
+\cite{binary-pair-v52}。
+これは残る高次例外を調べるための正確なideal縮約であり、全coreの横断長65や
+ambientの$t$冪零性を追加で主張するものではない。
+
 \begingroup\footnotesize
 \begin{thebibliography}{99}
 \setlength{\itemsep}{0pt}
@@ -5189,6 +5331,20 @@ arXiv:1406.6953v1 (2014), Theorems 2.1 and 2.3.
 \bibitem{flag-true-rank-v51} 同プロジェクト、\nolinkurl{research/notes/S61_FLAG_TRUE_CORE_RANK_FIVE_20261101.md}、証明書と監査範囲を参照。
 \bibitem{free-seven-v51} 同プロジェクト、\nolinkurl{research/notes/S61_MINIMAL_FREE_FLAG_SEVENTH_UPPER_BOUND_20261101.md}、証明書と監査範囲を参照。
 \bibitem{free-eight-v51} 同プロジェクト、\nolinkurl{research/notes/S61_MINIMAL_FREE_FLAG_EIGHTH_UPPER_BOUND_20261101.md}、証明書と監査範囲を参照。
+\bibitem{ab-four-v52} 同プロジェクト、\nolinkurl{research/notes/AB_ORIGIN_DEGREE_FOUR_20261101.md}、証明書と独立点検範囲を参照。
+\bibitem{ab-four-minors-v52} 同プロジェクト、\nolinkurl{research/notes/AB_ORIGIN_DEGREE_FOUR_MINORS_REVIEW_20261101.md}、証明書と独立点検範囲を参照。
+\bibitem{ab-four-cohom-v52} 同プロジェクト、\nolinkurl{research/notes/AB_ORIGIN_DEGREE_FOUR_COHOMOLOGY_REVIEW_20261101.md}、証明書と独立点検範囲を参照。
+\bibitem{ab-normal-v52} 同プロジェクト、\nolinkurl{research/notes/AB_ORIGIN_NORMALITY_20261102.md}、証明書と独立点検範囲を参照。
+\bibitem{ab-normal-review-v52} 同プロジェクト、\nolinkurl{research/notes/AB_ORIGIN_NORMALITY_REVIEW_20261102.md}、証明書と独立点検範囲を参照。
+\bibitem{flag-squarezero-v52} 同プロジェクト、\nolinkurl{research/notes/S61_FLAG_BOUNDARY_SQUAREZERO_QUOTIENT_20261101.md}、証明書と独立点検範囲を参照。
+\bibitem{binary-pair-v52} 同プロジェクト、\nolinkurl{research/notes/S61_BINARY_DEEPER_PRODUCT_PAIR_20261102.md}、証明書と独立点検範囲を参照。
+\bibitem{stacks-derived-v52} The Stacks Project, Tags
+\href{https://stacks.math.columbia.edu/tag/02O3}{02O3},
+\href{https://stacks.math.columbia.edu/tag/066Z}{066Z},
+\href{https://stacks.math.columbia.edu/tag/00MR}{00MR},
+\href{https://stacks.math.columbia.edu/tag/01E6}{01E6}.
+proper高次像、perfect複体、単位成分消去、projection formula。
+2026年11月2日本文確認。
 \end{thebibliography}
 \endgroup
 \end{document}

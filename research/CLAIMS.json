@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "checkpoint": "v51-s61",
-  "date": "2026-11-01",
+  "checkpoint": "v52-s61",
+  "date": "2026-11-02",
   "base_mathematical_checkpoint": "v24",
   "new_mathematical_progress_in_this_setup": false,
   "purpose_ja": "収録原稿の主張、依存、今回の監査・再現範囲、未確認点を区別する研究用台帳。",
@@ -7193,6 +7193,146 @@
       ],
       "limitations_ja": [
         "四次有限切断のみ。全初期ideal・全完成環・t冪零性・飽和除去は未証明。"
+      ]
+    },
+    {
+      "id": "S61_AB_ORIGIN_DEGREE_FOUR",
+      "title_ja": "AB正規化の四次を完全確定",
+      "statement_ja": "独立した249重みminorの検算とparabolic cohomology計算によりB4=D4、dim=38570、H1(E4)=0を証明。",
+      "scope": "Degree four of the reduced AB normalization.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_02",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_AB_ORIGIN_DEGREE_THREE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AB_ORIGIN_DEGREE_FOUR_20261101.md"
+        },
+        {
+          "path": "research/notes/AB_ORIGIN_DEGREE_FOUR_MINORS_REVIEW_20261101.md"
+        },
+        {
+          "path": "research/notes/AB_ORIGIN_DEGREE_FOUR_COHOMOLOGY_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AB_ORIGIN_DEGREE_FOUR_20261101.json",
+        "reports/AB_ORIGIN_DEGREE_FOUR_MINORS_REVIEW_20261101.json",
+        "reports/AB_ORIGIN_DEGREE_FOUR_COHOMOLOGY_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "この四次の等号単独では全次数正規性を主張しない。minorレビューとcohomologyレビューの独立再構成範囲を区別する。"
+      ]
+    },
+    {
+      "id": "S61_AB_ORIGIN_NORMALITY",
+      "title_ja": "ABの原点を含む全域正規性",
+      "statement_ja": "局所Torの次数から正規化DのS加群生成次数≤4を証明し、B0..4=D0..4からB=Dを得る。proper incidenceの正の高次順像も全て零。",
+      "scope": "All points, including the origin, of reduced AB; higher direct images of its stated incidence.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_02",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_AB_PROPER_INCIDENCE",
+          "S61_AB_ORIGIN_DEGREE_TWO",
+          "S61_AB_ORIGIN_DEGREE_THREE",
+          "S61_AB_ORIGIN_DEGREE_FOUR"
+        ],
+        "external": [
+          "Stacks Project Tags 02O3, 066Z, 00MR, 01E6; text checked 2026-11-02."
+        ]
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AB_ORIGIN_NORMALITY_20261102.md"
+        },
+        {
+          "path": "research/notes/AB_ORIGIN_NORMALITY_REVIEW_20261102.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AB_ORIGIN_NORMALITY_20261102.json",
+        "reports/AB_ORIGIN_NORMALITY_REVIEW_20261102.json"
+      ],
+      "limitations_ja": [
+        "被約ABについての主張。実際のT01零fiberの非被約構造、全S61の尽くしや成分上界とは別。"
+      ]
+    },
+    {
+      "id": "S61_FLAG_BOUNDARY_SQUAREZERO_QUOTIENT",
+      "title_ja": "全b0非零旗境界の実在閉平方零厚化",
+      "statement_ja": "全b0非零域の同じ固定β C3上でfree5平方零商S→Dを元135式から構成。指定zero12/trueD点ではS=D⊕M、Mは有限R3-torsion、44生成以下、t∈M。",
+      "scope": "Every fixed-beta flag point with b0 nonzero; finite-kernel conclusions at the two specified points.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_02",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_FLAG_UNIFORM_OPEN",
+          "S61_FLAG_ZERO12_RANK_FIVE",
+          "S61_FLAG_TRUE_CORE_RANK_FIVE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_FLAG_BOUNDARY_SQUAREZERO_QUOTIENT_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_FLAG_BOUNDARY_SQUAREZERO_QUOTIENT_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_FLAG_BOUNDARY_SQUAREZERO_QUOTIENT_20261101.json",
+        "reports/S61_FLAG_BOUNDARY_SQUAREZERO_QUOTIENT_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "SとDの同型、Mと初期E111の同一視、ambient t冪零性は主張しない。レビューは概念・入力監査。"
+      ]
+    },
+    {
+      "id": "S61_BINARY_DEEPER_PRODUCT_PAIR",
+      "title_ja": "深部binary七二次idealの積正規形",
+      "statement_ja": "既処理十三因子の開上で行列式±1の基底・座標変換により七二次式を五式とx5x6、x6²−x6H0へ正確に変換。一般一次倍rank48も確認。",
+      "scope": "The seven-variable quadratic ideal at nuisance zero on the known thirteen-factor core open.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_02",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_BINARY_DEEPER_CUBIC_NUISANCE",
+          "S61_BINARY_DEEPER_CORE_ARTIFACTS"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_BINARY_DEEPER_PRODUCT_PAIR_20261102.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_BINARY_DEEPER_PRODUCT_PAIR_20261102.json"
+      ],
+      "limitations_ja": [
+        "nuisance零で二つのheavy変数を除いた七変数二次idealの同型。特殊coreでのrank一定性、残る四次例外の除去、全横断長65を主張しない。"
       ]
     }
   ],
