@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checkpoint": "v43-s61",
+  "checkpoint": "v44-s61",
   "date": "2026-11-01",
   "base_mathematical_checkpoint": "v24",
   "new_mathematical_progress_in_this_setup": false,
@@ -5478,6 +5478,202 @@
       ],
       "limitations_ja": [
         "正確な元方程式jetの計算証明書であり、全初期ideal同定や局所t冪零性ではない。"
+      ]
+    },
+    {
+      "id": "S61_MINIMAL_SEMI_A_ENDPOINT",
+      "title_ja": "半単純尾の二平面端点Aを全一般βで除去",
+      "statement_ja": "実在二直線の核はmodpでrank65と有限長torsionを持つ。DVR有限底torsionと元原点因子への完成によりQQへ降下し、相対境界次元9<10から優越16D層の全一般βを除去する。",
+      "scope": "Only the stated arithmetic, local, sufficiently-general-beta or exact finite-jet conclusions.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_BINARY_PRIME_SPREADING",
+          "FINITE_BASE_TORSION_SPECIALIZATION",
+          "S61_MINIMAL_SEMI_B_ENDPOINT"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_MINIMAL_SEMI_A_ENDPOINT_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_MINIMAL_SEMI_A_ENDPOINT_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_MINIMAL_SEMI_A_ENDPOINT_20261101.json",
+        "reports/S61_MINIMAL_SEMI_A_ENDPOINT_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "相対ambient t²=0、全環自由67、QQ全初期idealの同定は主張しない。"
+      ]
+    },
+    {
+      "id": "S61_MINIMAL_PURE_BINARY_ENDPOINT",
+      "title_ja": "純三次尾の非平方二平面端点二表示を全一般βで除去",
+      "statement_ja": "M1 g5,k=0とWeyl対g8,k=−1をH9非平方binary族へ有限正規化。modp primary65と実在直線の交叉、良い還元・DVR・相対化からambient t²と優越16D全層除去。旗退化は同じ閉包内の真閉部分としてβ像≤15。",
+      "scope": "Only the stated arithmetic, local, sufficiently-general-beta or exact finite-jet conclusions.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_BINARY_PRIME_SPREADING",
+          "S61_MINIMAL_SEMI_B_ENDPOINT",
+          "S61_MINIMAL_PURE_CUBIC_TAILS_REMOVAL"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_MINIMAL_PURE_BINARY_ENDPOINT_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_MINIMAL_PURE_BINARY_ENDPOINT_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_MINIMAL_PURE_BINARY_ENDPOINT_20261101.json",
+        "reports/S61_MINIMAL_PURE_BINARY_ENDPOINT_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "他の純三次旗端点、三重尾、自由基線、主枝極の端点は別。全環自由65/66とはしない。"
+      ]
+    },
+    {
+      "id": "S61_R0_T5_OPEN_RANK23",
+      "title_ja": "T5の明示的開全点で自由階数23",
+      "statement_ja": "八変数sliceの全係数で五次三関係と二六次syzygyを構成し、二元変換・双対・Bezoutでb9 L P Aq非零の全点に横断上界23。普遍下界と合わせ自由23・t²³=0、相対smooth降下によるambient除去を得る。",
+      "scope": "Only the stated arithmetic, local, sufficiently-general-beta or exact finite-jet conclusions.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_R0_T5_FORMAL_RANK23"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_R0_T5_OPEN_RANK23_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_R0_T5_OPEN_RANK23_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_R0_T5_OPEN_RANK23_20261101.json",
+        "reports/S61_R0_T5_OPEN_RANK23_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "この証明書単独ではL=0とAq二根を含めない。t=0、全軌道除去、アフィン尽くしではない。"
+      ]
+    },
+    {
+      "id": "S61_R0_T5_QUADRATIC_ARTIFACTS",
+      "title_ja": "T5の二次pivot例外二層を全て除去",
+      "statement_ja": "重み付き拡大とtorusでb9=L=1へ有限エタール帰着。Aqの二根を二次数体で同時に扱い、六変数を保つ別法線基底と二つの六次行列式のgcd p^18で全層の自由23・ambient t²³を得る。",
+      "scope": "Only the stated arithmetic, local, sufficiently-general-beta or exact finite-jet conclusions.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_R0_T5_OPEN_RANK23"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_R0_T5_QUADRATIC_ARTIFACTS_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_R0_T5_QUADRATIC_ARTIFACTS_PROOF_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_R0_T5_QUADRATIC_ARTIFACTS_20261101.json",
+        "reports/S61_R0_T5_QUADRATIC_ARTIFACTS_PROOF_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "元135式再生成と厳密数体証明書、独立概念レビュー。独立数値再実装は未完了。L=0は残る。"
+      ]
+    },
+    {
+      "id": "S61_FLAG_BOUNDARY_RATIONAL_INITIAL",
+      "title_ja": "旗境界のQQ全六次截断idealと初期部分の構造",
+      "statement_ja": "疎な指定点でGMP正確jetと適応消去を使い、全3863行・12105閉包検査をQQで確認。次数2〜6の61初期関係が作るJはdim3degree5、二次元埋込差degree111、実際横断長49。",
+      "scope": "Only the stated arithmetic, local, sufficiently-general-beta or exact finite-jet conclusions.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_FLAG_BOUNDARY_EXACT_JETS",
+          "S61_FLAG_UNIFORM_OPEN"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_FLAG_BOUNDARY_RATIONAL_INITIAL_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_FLAG_BOUNDARY_RATIONAL_INITIAL_20261101.json"
+      ],
+      "limitations_ja": [
+        "六次までの初期関係を尽くすが、全初期idealとの一致、t冪零性、全旗境界除去は未証明。横断49は自由階数ではない。"
+      ]
+    },
+    {
+      "id": "S61_R0_T5_ZERO_L_EXHAUSTION",
+      "title_ja": "T5の全一般β軌道を飽和除去",
+      "statement_ja": "L=0を定数40minorの六変数chartへ有限正規化し、全点の横断上界23を証明。同じ固定β曲面上のdL=136b9/5非零から一般下界23を得る。L非零全開・二proper像除外と合わせ全T5一般β軌道が自由23・ambient t²³=0。",
+      "scope": "Entire T5 projective infinity orbit over sufficiently general beta; other orbit-closure strata excluded.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "conceptual_review_by_elliptic_jets_2026_11_01_no_independent_numerical_reimplementation",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_R0_T5_OPEN_RANK23",
+          "S61_R0_T5_QUADRATIC_ARTIFACTS"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_R0_T5_ZERO_L_EXHAUSTION_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_R0_T5_ZERO_L_EXHAUSTION_20261101.json"
+      ],
+      "limitations_ja": [
+        "元135式を全再構成し独立概念レビュー受理。独立数値再実装は未完了。T5軌道閉包の旗/binaryは別。t=0やアフィン尽くしは含めない。"
       ]
     }
   ],

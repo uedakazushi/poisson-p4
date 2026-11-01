@@ -1,0 +1,15 @@
+#include <algorithm>
+#include <fstream>
+#include <functional>
+#include <iostream>
+#include <vector>
+#include <gmpxx.h>
+using namespace std;using Q=mpq_class;using Row=vector<pair<int,Q>>;
+struct Trace{int pivot,kind,source,var;vector<int>red;};
+int main(int argc,char**argv){ifstream in(argv[1]);int p,n,N,F;in>>p>>n>>N>>F;vector<int>deg(N);vector<vector<int>>shift(n,vector<int>(N));for(int&i:deg)in>>i;for(auto&r:shift)for(int&i:r)in>>i;int offset=0;while(deg[offset]<2)offset++;ifstream cf(argv[2]);vector<Row>init(F);for(int j=0;j<F;j++)for(int k=offset;k<N;k++){Q a;cf>>a;if(a!=0)init[j].emplace_back(k,std::move(a));}if(!cf){cerr<<"bad coefficients\n";return 2;}ifstream tr(argv[3]);vector<Trace>trace;vector<int>bid(N,-1);int id;while(tr>>id){Trace t;int c;tr>>t.pivot>>t.kind>>t.source>>t.var>>c;t.red.resize(c);for(int&i:t.red)tr>>i;bid[t.pivot]=id;trace.push_back(std::move(t));}ifstream ns(argv[4]);int nn;ns>>nn;vector<int>need(nn);for(int&i:need)ns>>i;int nt;ns>>nt;vector<int>targets(nt);for(int&i:targets)ns>>i;vector<Row>B(trace.size());vector<int>state(trace.size());int done=0;long long reductions=0;
+function<void(int)> replay=[&](int id){if(state[id]==2)return;if(state[id]){cerr<<"cycle "<<id<<"\n";exit(5);}state[id]=1;auto&t=trace[id];vector<Q>r(N);if(t.kind==0)for(auto&[k,c]:init[t.source])r[k]=c;else{replay(t.source);for(auto&[k,c]:B[t.source])if(shift[t.var][k]>=0)r[shift[t.var][k]]=c;}Q product;for(int k=0;k<N;k++)if(r[k]!=0&&bid[k]>=0&&bid[k]<id){int j=bid[k];replay(j);Q a=r[k];for(auto&[l,c]:B[j]){mpq_mul(product.get_mpq_t(),a.get_mpq_t(),c.get_mpq_t());mpq_sub(r[l].get_mpq_t(),r[l].get_mpq_t(),product.get_mpq_t());}reductions++;}int first=0;while(first<N&&r[first]==0)first++;if(first!=t.pivot){cerr<<"pivot mismatch "<<id<<" expected "<<t.pivot<<" actual "<<first<<"\n";exit(3);}Q a=r[t.pivot];for(int k=first;k<N;k++)if(r[k]!=0)B[id].emplace_back(k,r[k]/a);state[id]=2;done++;if(done%100==0)cerr<<"replayed "<<done<<" node "<<id<<" terms "<<B[id].size()<<" reductions "<<reductions<<"\n";};
+for(int id:targets)replay(id);
+if(argc>6){for(int i=0;i<(int)trace.size();i++)replay(i);long long checks=0;
+auto check=[&](const Row& src){vector<Q>r(N);for(auto&[k,c]:src)r[k]=c;Q product;for(int k=0;k<N;k++)if(r[k]!=0){if(bid[k]<0){cerr<<"nonzero closure residue "<<checks<<" "<<k<<"\n";exit(6);}Q a=r[k];for(auto&[l,c]:B[bid[k]]){mpq_mul(product.get_mpq_t(),a.get_mpq_t(),c.get_mpq_t());mpq_sub(r[l].get_mpq_t(),r[l].get_mpq_t(),product.get_mpq_t());}}checks++;};
+for(auto&r:init)check(r);for(int i=0;i<(int)B.size();i++)for(int j=0;j<n;j++){Row r;for(auto&[k,c]:B[i])if(shift[j][k]>=0)r.emplace_back(shift[j][k],c);if(!r.empty())check(r);}cerr<<"EXACT CLOSURE PASS "<<checks<<" rank "<<B.size()<<"\n";}
+ofstream out(argv[5]);out<<nt<<"\n";for(int id:targets){auto&t=trace[id];Row r;for(auto&[k,c]:B[id]){if(deg[k]<deg[t.pivot]){cerr<<"unexpected low term "<<id<<" "<<k<<"\n";return 4;}if(deg[k]==deg[t.pivot])r.emplace_back(k,c);}out<<r.size();for(auto&[k,c]:r)out<<" "<<k<<" "<<c;out<<"\n";}cerr<<"EXACT ADAPTIVE REPLAY PASS "<<nt<<" nodes "<<done<<" reductions "<<reductions<<"\n";}

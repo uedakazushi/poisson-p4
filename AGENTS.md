@@ -1,8 +1,29 @@
 # Poisson structures on P4 — Codex instructions
 
-Version: v43-s61 · 2026-11-01 (Asia/Tokyo).
+Version: v44-s61 · 2026-11-01 (Asia/Tokyo).
 
-Current v43 additions: the ENTIRE dominant16D semisimple minimal-tail
+Current v44 additions: semisimple endpoint A and the two Weyl-related
+pure-cubic nonsquare binary endpoints are removed over sufficiently general
+beta. A retains a quintic socle and uses finite-base torsion, not an ambient
+t^2 assertion. The pure-cubic endpoint has a C-primary65 part and an actual
+line, with DVR/relative ambient t^2. Both have independent raw135 reviews.
+All six semisimple-tail projective endpoints are now covered.
+The ENTIRE T5 orbit over sufficiently general beta is free23 with ambient t^23=0.
+Universal sextic syzygies cover the regular pivot open; an exact quadratic
+field calculation covers both Aq roots. The regular-open algebraic certificate
+has independent review; Aq has conceptual review but no independent numerical replay. b9P=0 has beta image
+at most15; N=0 also does. A constant linear frame covers all L=0, with
+dL=136b9/5 on the same actual surface supplying lower23. Conceptual review
+is accepted; no independent numerical reimplementation. No assertion t=0,
+and other flag/binary strata of the T5 orbit closure remain separate.
+Flag b1=0 has an exact QQ full six-jet ideal:3863 basis rows,12105 closure
+checks. The61 initial generators give J dim3 degree5 and embedded dim2 degree111;
+the actual transverse length is49, NOT a free rank. Full initial ideal equality
+and t-nilpotence remain unproved. Triple/other projective endpoints, deeper
+binary higher obstructions, entire flags, affine exhaustion and component upper
+bound remain. Lower57. Continue after checkpoints.
+
+Previous v43 additions: the ENTIRE dominant16D semisimple minimal-tail
 binary endpoint B stratum is removed over sufficiently general beta. Actual
 mod32003 grS is the intersection of C-primary degree65 and an actual reduced
 line. Explicit good reduction of the universal binary lower65, DVR equal-rank
