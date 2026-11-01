@@ -1,6 +1,6 @@
 # S61 の現行座標・一次部分・既知族
 
-2026-11-01 / v32-s61。原本は `legacy/v02/` に置いたまま、以下の独立実装と
+2026-11-01 / v33-s61。原本は `legacy/v02/` に置いたまま、以下の独立実装と
 証明書から研究を再開する。完全分類・素分解・新しい成分を主張する実装ではない。
 
 ## 座標規約
@@ -184,3 +184,17 @@ t−1となり、この制限上のファイバーは一つの被約点である
 - 旗型無限遠点の完成局所環: `S61_FLAG_FORMAL_RING_20261101`。対応する code / reports / research/notes に再現資料を保存。
 - 実際のT01零一次部分の次元10〜12: `TORIC_ZERO_JET_FIBER_20261101`。対応する code / reports / research/notes に再現資料を保存。
 - T02一次像の定義式次数は26以上: `MPS_T02_INVARIANT_OBSTRUCTION_20261101`。対応する code / reports / research/notes に再現資料を保存。
+
+## v33: 零一次部分の正確な次元と一般無限遠の帰着
+
+- 滑らかな全領域での既知五延長の分離: `KNOWN_FIVE_SMOOTH_LOCUS_20261101`。対応する code / reports / research/notes に証明・再現資料を保存。
+- 全頂点パラメータの一様な根基: `S61_R0_UNIFORM_VERTEX_20261101`。対応する code / reports / research/notes に証明・再現資料を保存。
+- 一般一次部分のR0被約無限遠の尽くし: `S61_R0_GENERIC_EXHAUSTION_20261101`。対応する code / reports / research/notes に証明・再現資料を保存。
+- 一般βの零モジュラー無限遠をR0へ帰着: `S61_C0_INFINITY_20261101`。対応する code / reports / research/notes に証明・再現資料を保存。
+- 非平方二平面型の局所次元3: `S61_BINARY_LOCAL_DIMENSION_20261101`。対応する code / reports / research/notes に証明・再現資料を保存。
+- 実際のT01零一次部分の次元は10: `TORIC_ZERO_JET_DIMENSION_20261101`。対応する code / reports / research/notes に証明・再現資料を保存。
+- 滑らかな標準曲線を持つ非零モジュラー無限遠の反例: `S61_MODULAR_INFINITY_COUNTEREXAMPLE_20261101`。対応する code / reports / research/notes に証明・再現資料を保存。
+
+- ABは零一次部分の唯一の最大次元成分: `TORIC_ZERO_JET_TOP_COMPONENT_20261101`、独立点検 `TORIC_ZERO_JET_TOP_COMPONENT_REVIEW_20261101`。
+- トーリック境界のstrict安定化群障害: `TORIC_STRICT_STABILIZER_20261101`、独立点検 `STABILIZER_OBSTRUCTIONS_REVIEW_20261101`。
+- 滑らかな全領域の有限安定化群: `SMOOTH_CURVE_FINITE_STABILIZER_20261101`、独立点検 `STABILIZER_OBSTRUCTIONS_REVIEW_20261101`。

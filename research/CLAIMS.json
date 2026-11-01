@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checkpoint": "v32-s61",
+  "checkpoint": "v33-s61",
   "date": "2026-11-01",
   "base_mathematical_checkpoint": "v24",
   "new_mathematical_progress_in_this_setup": false,
@@ -2211,7 +2211,8 @@
       ],
       "limitations_ja": [
         "上界はv06/v07の既存分類へ依存し、今回それ全体を再証明していない。"
-      ]
+      ],
+      "superseded_by": "S61_TORIC_ZERO_JET_DIMENSION_EXACT"
     },
     {
       "id": "S61_T02_INVARIANT_EQUATION_LOWER_BOUND",
@@ -2241,6 +2242,340 @@
       ],
       "limitations_ja": [
         "定義式そのものと射影次数は未決。"
+      ]
+    },
+    {
+      "id": "S61_KNOWN_FIVE_OVER_SMOOTH_BASE",
+      "title_ja": "滑らかな全領域での既知五延長の分離",
+      "statement_ja": "Δ≠0上でT01・T39・T40の被約閉包は互いに交わらず、合併の代数は三次被覆代数×RΔ×RΔ、有限エタール次数5。",
+      "scope": "Specified reduced loci or explicitly specified local homogenizations; no full S61 exhaustion.",
+      "status": {
+        "proof": "proof_with_exact_rational_certificate",
+        "independent_review": "independent_agent_or_parent_review_not_external_peer_review",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_TORIC_OVER_SMOOTH_CURVE_BASE",
+          "S61_NULL_CORRELATION_DUALITY"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/KNOWN_FIVE_SMOOTH_LOCUS_20261101.md"
+        },
+        {
+          "path": "research/notes/KNOWN_FIVE_SMOOTH_LOCUS_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/KNOWN_FIVE_SMOOTH_LOCUS_20261101.json",
+        "reports/KNOWN_FIVE_SMOOTH_LOCUS_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "全S61ファイバーの尽くしや周囲の局所環の被約性を全Δ上で主張しない。"
+      ]
+    },
+    {
+      "id": "S61_R0_UNIFORM_VERTEX_RADICAL",
+      "title_ja": "全頂点パラメータの一様な根基",
+      "statement_ja": "QQ[k,h]上の29生成元の根基と22座標素イデアルの交叉を決定。九つの例外値で追加座標面を保持する。",
+      "scope": "Specified reduced loci or explicitly specified local homogenizations; no full S61 exhaustion.",
+      "status": {
+        "proof": "proof_with_exact_rational_certificate",
+        "independent_review": "independent_agent_or_parent_review_not_external_peer_review",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_R0_GENERIC_VERTEX_RADICAL"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_R0_UNIFORM_VERTEX_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_R0_EXHAUSTION_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_R0_UNIFORM_VERTEX_20261101.json",
+        "reports/S61_R0_EXHAUSTION_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "22片をPoisson成分や全無限遠の成分数と数えない。"
+      ]
+    },
+    {
+      "id": "S61_R0_GENERIC_INFINITY_EXHAUSTION",
+      "title_ja": "一般一次部分のR0被約無限遠の尽くし",
+      "statement_ja": "τの非零・零、二次形式の階数2・1、共鳴値の全正常形の根基を決定し、十分一般βのR0内の全被約点を尽くす。",
+      "scope": "Specified reduced loci or explicitly specified local homogenizations; no full S61 exhaustion.",
+      "status": {
+        "proof": "proof_with_exact_rational_certificate",
+        "independent_review": "independent_agent_or_parent_review_not_external_peer_review",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_R0_UNIFORM_VERTEX_RADICAL",
+          "S61_R0_INFINITY_GEOMETRY"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_R0_GENERIC_EXHAUSTION_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_R0_EXHAUSTION_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_R0_GENERIC_EXHAUSTION_20261101.json",
+        "reports/S61_R0_EXHAUSTION_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "非零モジュラー型、全無限遠の飽和、アフィン尽くしを含まない。"
+      ]
+    },
+    {
+      "id": "S61_ZERO_MODULAR_INFINITY_REDUCTION",
+      "title_ja": "一般βの零モジュラー無限遠をR0へ帰着",
+      "statement_ja": "可換二平面と平方零接ベクトルのproper incidenceによりC0・L0の全閉包を保持し、R0外のβ像の次元を14以下と証明。旧三成分分類から零モジュラー全体をR0へ帰着。",
+      "scope": "Specified reduced loci or explicitly specified local homogenizations; no full S61 exhaustion.",
+      "status": {
+        "proof": "proof_with_exact_rational_certificate",
+        "independent_review": "independent_agent_or_parent_review_not_external_peer_review",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_R0_GENERIC_INFINITY_EXHAUSTION"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_C0_INFINITY_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_L0_INFINITY_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_ZERO_MODULAR_INFINITY_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_C0_INFINITY_20261101.json",
+        "reports/S61_L0_INFINITY_20261101.json",
+        "reports/S61_ZERO_MODULAR_INFINITY_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "v07の零モジュラー分類を既存の依存とする。非零モジュラー型を含まない。"
+      ]
+    },
+    {
+      "id": "S61_BINARY_INFINITY_LOCAL_DIMENSION",
+      "title_ja": "非平方二平面型の局所次元3",
+      "statement_ja": "指定有理点でQQ上の二次障害階数5と正当な三次初期関係を構成。三パラメータを除いた四次係数行列の210次非零小行列により横断長さ上界65、滑らかなP²束と合わせ局所次元3。",
+      "scope": "Specified reduced loci or explicitly specified local homogenizations; no full S61 exhaustion.",
+      "status": {
+        "proof": "proof_with_exact_rational_certificate",
+        "independent_review": "independent_agent_or_parent_review_not_external_peer_review",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_R0_INFINITY_GEOMETRY"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_BINARY_LOCAL_DIMENSION_20261101.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_LOCAL_DIMENSION_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_BINARY_LOCAL_DIMENSION_20261101.json",
+        "reports/S61_BINARY_LOCAL_DIMENSION_REVIEW_20261101.json",
+        "reports/S61_BINARY_QUADRATIC_OBSTRUCTION_20261101.json"
+      ],
+      "limitations_ja": [
+        "135式の指定点のみ。65を実際の重複度とせず、t消滅・冪零性は未決。"
+      ]
+    },
+    {
+      "id": "S61_TORIC_ZERO_JET_DIMENSION_EXACT",
+      "title_ja": "実際のT01零一次部分の次元は10",
+      "statement_ja": "ABの次元10下界と、退化五次式の完全分解、安定化群次元4以上、全Q45候補に対する二項三次形式の根型別作用階数を用いた上界10が一致。",
+      "scope": "Specified reduced loci or explicitly specified local homogenizations; no full S61 exhaustion.",
+      "status": {
+        "proof": "proof_with_exact_rational_certificate",
+        "independent_review": "independent_agent_or_parent_review_not_external_peer_review",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_TORIC_ZERO_JET_DIMENSION_BOUNDS"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/TORIC_ZERO_JET_DIMENSION_20261101.md"
+        },
+        {
+          "path": "research/notes/TORIC_ZERO_JET_DIMENSION_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/TORIC_ZERO_JET_DIMENSION_20261101.json",
+        "reports/TORIC_ZERO_JET_DIMENSION_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "旧Q45分類に依存する。ファイバー全体の既約性は別問題。"
+      ]
+    },
+    {
+      "id": "S61_MODULAR_INFINITY_SMOOTH_COUNTEREXAMPLE",
+      "title_ja": "滑らかな標準曲線を持つ非零モジュラー無限遠の反例",
+      "statement_ja": "nil22 U1の明示的なq,βは全135最高式を満たし、Δ非零、モジュラー行列階数2、Aβ非零、βのLie安定化群零である。",
+      "scope": "Specified reduced loci or explicitly specified local homogenizations; no full S61 exhaustion.",
+      "status": {
+        "proof": "proof_with_exact_rational_certificate",
+        "independent_review": "independent_agent_or_parent_review_not_external_peer_review",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "MODEL_S61",
+          "S61_UNIVERSAL_WEIGHT6_CONSEQUENCE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_MODULAR_INFINITY_COUNTEREXAMPLE_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_MODULAR_INFINITY_COUNTEREXAMPLE_20261101.json"
+      ],
+      "limitations_ja": [
+        "未飽和の最高式への反例。一般Wへの優越性や飽和後の存在を意味しない。"
+      ]
+    },
+    {
+      "id": "S61_TORIC_ZERO_JET_UNIQUE_TOP_COMPONENT",
+      "title_ja": "ABは零一次部分の唯一の最大次元成分",
+      "statement_ja": "旧Q45分類の全候補についてAB以外との交叉は9次元以下と証明し、唯一の10次元成分がABと決定。",
+      "scope": "Specified reduced components and stabilizer loci; no global exhaustion.",
+      "status": {
+        "proof": "geometric_proof_with_exact_certificates_where_applicable",
+        "independent_review": "independent_agent_review_not_external_peer_review",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_TORIC_ZERO_JET_DIMENSION_EXACT"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/TORIC_ZERO_JET_TOP_COMPONENT_20261101.md"
+        },
+        {
+          "path": "research/notes/TORIC_ZERO_JET_TOP_COMPONENT_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/TORIC_ZERO_JET_TOP_COMPONENT_20261101.json",
+        "reports/TORIC_ZERO_JET_TOP_COMPONENT_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "9次元以下の追加成分を排除したとは主張しない。"
+      ]
+    },
+    {
+      "id": "S61_TORIC_STRICT_STABILIZER_OBSTRUCTION",
+      "title_ja": "トーリック境界のstrict安定化群障害",
+      "statement_ja": "全T01点はtensor自体を保つ四次元以上のLie代数と、その中に四次元可換Cartan極限を持つ。G=xzwのR0点はstrict次元3なので除外される。",
+      "scope": "Specified reduced components and stabilizer loci; no global exhaustion.",
+      "status": {
+        "proof": "geometric_proof_with_exact_certificates_where_applicable",
+        "independent_review": "independent_agent_review_not_external_peer_review",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "MODEL_S61"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/TORIC_STRICT_STABILIZER_20261101.md"
+        },
+        {
+          "path": "research/notes/STABILIZER_OBSTRUCTIONS_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/TORIC_STRICT_STABILIZER_20261101.json",
+        "reports/STABILIZER_OBSTRUCTIONS_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "極限Cartanの外積評価像にtensorが属するという未証明の閉性は使用しない。"
+      ]
+    },
+    {
+      "id": "S61_SMOOTH_CURVE_FINITE_STABILIZER",
+      "title_ja": "滑らかな全領域の有限安定化群",
+      "statement_ja": "Δ非零なら偏極された標準楕円正規五次曲線の自己同型群と線形正規性から、βおよび[β]のSp4安定化群は有限。",
+      "scope": "Specified reduced components and stabilizer loci; no global exhaustion.",
+      "status": {
+        "proof": "geometric_proof_with_exact_certificates_where_applicable",
+        "independent_review": "independent_agent_review_not_external_peer_review",
+        "certificates": "reproduced_2026_11_01",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_CANONICAL_ELLIPTIC_CURVE",
+          "S61_CANONICAL_DISCRIMINANT_IRREDUCIBLE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/SMOOTH_CURVE_FINITE_STABILIZER_20261101.md"
+        },
+        {
+          "path": "research/notes/STABILIZER_OBSTRUCTIONS_REVIEW_20261101.md"
+        }
+      ],
+      "verification_records": [
+        "reports/STABILIZER_OBSTRUCTIONS_REVIEW_20261101.json"
+      ],
+      "limitations_ja": [
+        "任意の無限遠qのモジュラー行列がβを安定化するとは主張しない。"
       ]
     }
   ],
