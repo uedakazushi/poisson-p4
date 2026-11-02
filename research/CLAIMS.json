@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checkpoint": "v59-s61",
+  "checkpoint": "v60-s61",
   "date": "2026-11-02",
   "base_mathematical_checkpoint": "v24",
   "new_mathematical_progress_in_this_setup": false,
@@ -9101,6 +9101,251 @@
       ],
       "limitations_ja": [
         "行列式の零点および全20法線上の支持を未確定として保持する。"
+      ]
+    },
+    {
+      "id": "S61_BINARY_ZERO_PAIR_STRATUM_REMOVAL_REVIEW",
+      "title_ja": "非平方零対の独立再現",
+      "statement_ja": "混合標数上の固有性と全群方向を戻す証明を独立点検し、零対層の元式計算を再実行した。",
+      "scope": "Exactly the pointwise, generic-open, all-degree or finite-model scope stated in each proof note.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_02",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_BINARY_ZERO_PAIR_STRATUM_REMOVAL"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_BINARY_ZERO_PAIR_STRATUM_REMOVAL_REVIEW_20261102.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_BINARY_ZERO_PAIR_STRATUM_REMOVAL_REVIEW_20261102.json"
+      ],
+      "limitations_ja": [
+        "非零cは別の層である。"
+      ]
+    },
+    {
+      "id": "S61_AFFINE_ANCHOR_RESIDUE_DEGREE",
+      "title_ja": "真の境界が会う有限点の剰余次数",
+      "statement_ja": "固定平面の六係数へのSL2作用から各残留点の剰余次数は10以上。未知曲面なら交叉数c≥20となるので、有限局所商の長さの和19以下で全曲面を排除できる。",
+      "scope": "Exactly the pointwise, generic-open, all-degree or finite-model scope stated in each proof note.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_02",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_AFFINE_ANCHOR_LENGTH_BOUND",
+          "S61_BINARY_ZERO_PAIR_STRATUM_REMOVAL",
+          "S61_MARKED_SIGMA_PROJECTIVE_CORE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_AFFINE_ANCHOR_RESIDUE_DEGREE_20261102.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_AFFINE_ANCHOR_RESIDUE_DEGREE_20261102.json"
+      ],
+      "limitations_ja": [
+        "この数値上界の成立は未証明。"
+      ]
+    },
+    {
+      "id": "S61_MARKED_SIGMA_PURE_ENDPOINT_REMOVAL",
+      "title_ja": "指定平方旗の純三次端点因子の除去",
+      "statement_ja": "指定線形切断の正重み中央環と二つの追加軌道での全周囲正則性を用い、純三次端点の十六次元像全体を一般β上で除去。",
+      "scope": "Exactly the pointwise, generic-open, all-degree or finite-model scope stated in each proof note.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_02",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_MARKED_SIGMA_PROJECTIVE_CORE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_MARKED_SIGMA_PURE_ENDPOINT_REMOVAL_20261102.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_MARKED_SIGMA_PURE_ENDPOINT_REMOVAL_20261102.json"
+      ],
+      "limitations_ja": [
+        "十分一般の一次ジェット上の主張。"
+      ]
+    },
+    {
+      "id": "S61_MARKED_SIGMA_ZERO_H_REMOVAL",
+      "title_ja": "指定平方旗の剰余次数15候補の全除去",
+      "statement_ja": "正規化coreのh=0因子を一般β上で全て除去した。これにより指定平方旗に残り得る剰余次数は10の倍数となる。",
+      "scope": "Exactly the pointwise, generic-open, all-degree or finite-model scope stated in each proof note.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_02",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_MARKED_SIGMA_PROJECTIVE_CORE",
+          "S61_AFFINE_ANCHOR_RESIDUE_DEGREE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_MARKED_SIGMA_ZERO_H_REMOVAL_20261102.md"
+        },
+        {
+          "path": "research/notes/S61_MARKED_SIGMA_ENDPOINTS_PROOF_REVIEW_20261102.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_MARKED_SIGMA_ZERO_H_REMOVAL_20261102.json",
+        "reports/S61_MARKED_SIGMA_ENDPOINTS_PROOF_REVIEW_20261102.json"
+      ],
+      "limitations_ja": [
+        "特殊βでのアフィン直線は存続する。"
+      ]
+    },
+    {
+      "id": "S61_MARKED_SIGMA_PENCIL_MODEL",
+      "title_ja": "指定平方旗の試験直線全域の方程式",
+      "statement_ja": "c=2aの有限chart全hで元135式を多項式Smith基底で14変数に還元した。無限遠端点[0:0:1]では全周囲の冪零性を別に証明した。",
+      "scope": "Exactly the pointwise, generic-open, all-degree or finite-model scope stated in each proof note.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_02",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_MARKED_SIGMA_PROJECTIVE_CORE",
+          "S61_MARKED_SIGMA_ZERO_H_REMOVAL"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_MARKED_SIGMA_PENCIL_MODEL_20261102.md"
+        },
+        {
+          "path": "research/notes/S61_MARKED_SIGMA_PENCIL_INFINITY_20261102.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_MARKED_SIGMA_PENCIL_MODEL_20261102.json",
+        "reports/S61_MARKED_SIGMA_PENCIL_INFINITY_20261102.json"
+      ],
+      "limitations_ja": [
+        "有限hの全点で必要な階数被覆は未証明。"
+      ]
+    },
+    {
+      "id": "S61_PROJECTIVE_TOP_CYCLE",
+      "title_ja": "元135式の三次元基本サイクル",
+      "statement_ja": "元135式の一般射影ファイバーの三次元サイクルは65[B]+5[F]。次数は30と70、全体2300、t=0商2270。一般三切断のt作用も決定した。",
+      "scope": "Exactly the pointwise, generic-open, all-degree or finite-model scope stated in each proof note.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_02",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_AFFINE_SURFACE_BOUND"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_PROJECTIVE_TOP_CYCLE_20261102.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_PROJECTIVE_TOP_CYCLE_20261102.json"
+      ],
+      "limitations_ja": [
+        "アフィン部分の長さを数えない。"
+      ]
+    },
+    {
+      "id": "S61_FIXED_PAIR_SINGLE_COLON",
+      "title_ja": "座標二つを固定した有限な射影候補",
+      "statement_ja": "一般βで(u6,u42)の任意の固定値に対し、二乗t²による一度のコロンで元135射影式の全曲線が消え、零次元以下になる。",
+      "scope": "Exactly the pointwise, generic-open, all-degree or finite-model scope stated in each proof note.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_02",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_PROJECTIVE_TOP_CYCLE",
+          "S61_AFFINE_TWO_COORDINATE_PROJECTION"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_FIXED_PAIR_SINGLE_COLON_20261102.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_FIXED_PAIR_SINGLE_COLON_20261102.json"
+      ],
+      "limitations_ja": [
+        "有限候補の長さと残存する無限遠点は未確定。"
+      ]
+    },
+    {
+      "id": "S61_AFFINE_HOMOGENIZER_FINITE_ACTION",
+      "title_ja": "全20法線方向での斉次化変数の有限作用",
+      "statement_ja": "191生成表示の作用の交換関係を課し、指定開の各方向においてtの191乗の階数からアフィン部分の長さを正確に回収する。",
+      "scope": "Exactly the pointwise, generic-open, all-degree or finite-model scope stated in each proof note.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_02",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_AFFINE_FIXED_PAIR_UNIVARIATE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_AFFINE_HOMOGENIZER_FINITE_ACTION_20261102.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_AFFINE_HOMOGENIZER_FINITE_ACTION_20261102.json"
+      ],
+      "limitations_ja": [
+        "全方向にわたる解の総数は未確定。"
       ]
     }
   ],

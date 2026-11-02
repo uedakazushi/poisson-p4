@@ -1,8 +1,8 @@
 # 公表用原稿の構成案と証明資料
 
-**状態：v59-s61、2026-11-02。零一次部分の被約台AB、ABのincidenceと特異点集合、最小型無限遠の完成局所環、二平面型の横断Artin代数を統合。**
+**原稿・PDFの版は v59-s61。研究台帳は v60-s61、2026-11-02。零一次部分の被約台AB、ABのincidenceと特異点集合、最小型無限遠の完成局所環、二平面型の横断Artin代数を統合。**
 
-[一次ジェット還元の日本語原稿](s61_first_jet_reduction_ja.tex)（[PDF・41ページ](s61_first_jet_reduction_ja.pdf)）は、
+[一次ジェット還元の日本語原稿](s61_first_jet_reduction_ja.tex)（[PDF・104ページ](s61_first_jet_reduction_ja.pdf)）は、
 primitive gauge、T01/T39/T40の優越性と全S61のétale点、楕円型五変数模型、T01の一般次数3、
 少なくとも五つの一般延長、トーリック代数模型と無限遠の旗、階数1固定fibre、
 CA/CBの共通像、全模型の普遍的な重み6帰結を扱う。MPS40の全図式と内部IDも一次資料へ照合済み。
@@ -380,3 +380,14 @@ v35では一般被約無限遠の全型帰着、ABの原点外の正規性、二
 - 指定平方旗のb1=0交叉の全除去: `S61_MARKED_SIGMA_INTERSECTION_REMOVAL_20261102`。適用範囲と未解決部分を各ノートに明記。
 - 指定平方旗の射影coreと実アフィン直線: `S61_MARKED_SIGMA_PROJECTIVE_CORE_20261102`。適用範囲と未解決部分を各ノートに明記。
 - 166生成表示の一変数表示: `S61_AFFINE_FIXED_PAIR_UNIVARIATE_20261102`。適用範囲と未解決部分を各ノートに明記。
+
+## v60: 有限射影候補、境界の剰余次数と平方旗因子
+
+- 非平方零対の独立再現: `S61_BINARY_ZERO_PAIR_STRATUM_REMOVAL_REVIEW_20261102`。適用範囲と未解決部分を各ノートに明記。
+- 真の境界が会う有限点の剰余次数: `S61_AFFINE_ANCHOR_RESIDUE_DEGREE_20261102`。適用範囲と未解決部分を各ノートに明記。
+- 指定平方旗の純三次端点因子の除去: `S61_MARKED_SIGMA_PURE_ENDPOINT_REMOVAL_20261102`。適用範囲と未解決部分を各ノートに明記。
+- 指定平方旗の剰余次数15候補の全除去: `S61_MARKED_SIGMA_ZERO_H_REMOVAL_20261102`。適用範囲と未解決部分を各ノートに明記。
+- 指定平方旗の試験直線全域の方程式: `S61_MARKED_SIGMA_PENCIL_MODEL_20261102`。適用範囲と未解決部分を各ノートに明記。
+- 元135式の三次元基本サイクル: `S61_PROJECTIVE_TOP_CYCLE_20261102`。適用範囲と未解決部分を各ノートに明記。
+- 座標二つを固定した有限な射影候補: `S61_FIXED_PAIR_SINGLE_COLON_20261102`。適用範囲と未解決部分を各ノートに明記。
+- 全20法線方向での斉次化変数の有限作用: `S61_AFFINE_HOMOGENIZER_FINITE_ACTION_20261102`。適用範囲と未解決部分を各ノートに明記。

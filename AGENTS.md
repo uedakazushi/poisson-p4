@@ -1,8 +1,18 @@
 # Poisson structures on P4 — Codex instructions
 
-Version: v59-s61 · 2026-11-02 (Asia/Tokyo).
+Version: v60-s61 · 2026-11-02 (Asia/Tokyo).
 
-Current v59 additions: the ENTIRE c=f=0 nonsquare marked binary stratum is
+Current v60 additions: after fixing (u6,u42) arbitrarily over general beta,
+one colon by t^2 leaves a projective scheme of dimension <=0. Some finite
+infinity points can remain. The original three-cycle is 65[B]+5[F] with
+degrees 30 and 70, total 2300. Every actual finite anchor has residue degree
+at least 10; any hypothetical surface gives marked intersection >=20. The
+pure-cubic and h=0 divisors of marked square cores are removed over general
+beta. The c=2a pencil is explicit over all finite h; its point at infinity
+is removed. Residual affine length and generic five-point exhaustion remain
+open. Lower57. Continue after checkpoints.
+
+Previous v59 additions: the ENTIRE c=f=0 nonsquare marked binary stratum is
 removed over sufficiently general beta. The full five-orbit transversal
 retains two positive beta coordinates. Fiber finiteness suffices for
 nilpotence, even when the transverse length is 72. The P(1,1,3) core test
