@@ -35,7 +35,7 @@
 \title{射影四空間の Poisson 構造の一次ジェット還元\\
 \large 普遍的楕円切断、Jacobian の二捩れと Toric 成分の境界}
 \author{Poisson P4 研究プロジェクト・内部研究草稿}
-\date{2026年11月2日・v53-s61}
+\date{2026年11月2日・v54-s61}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -64,6 +64,7 @@ Toric三次被覆を標準曲線のJacobianの非零二捩れと同定し、判�
 二つの既知28次元成分の共通一次像を閉既約9次元集合として決定する。
 MPSの全40図式を一次資料に照合すると、既知51個の一般階数四成分のうち
 一般一次項上に残る成分は上述の三つに限られる。
+深部二平面型とzero12旗境界の一般一次項上の全点を除去し、通常旗境界の未処理値を三つに絞る。
 未知成分、全体の一般 fibre の尽くし、特殊 fibre は未解決であり、成分数の下界57は変更しない。
 本稿は公表上の新規性の調査を完了していない内部研究草稿である。
 \end{abstract}
@@ -5200,6 +5201,137 @@ weight4単項式は軽い四次210、軽い二次と重い一次56、重い二�
 固定断面から相対ambientへの移行には、同じ実在$C_3$下界とsmooth降下を別に適用する必要がある
 \cite{binary-weighted-v53}。
 
+\section{無限遠の深部二平面型と旗境界の除去}
+\label{sec:v54-boundary}
+十分一般の一次部分 $\beta$ を固定する。本節で「除去」とは、斉次化変数 $t$ による
+飽和の台にその点が属さないことをいう。周囲の局所環で $t^2=0$ が分かれば除去できる。
+一方、$\beta$ を固定した横断商での消滅だけでは、この結論は得られない。
+以下では、同じ実在する部分族を使って、横断計算から相対局所環へ戻す。
+
+\subsection{二平面型の二変数部分}
+標準点を $Q_0=xw\partial_y\wedge\partial_z$ とし、
+$(a,b,c,d,e,f)=(u_4,u_{14},u_{35},u_{36},u_{49},u_{50})$、
+$K=5c+f$、$Q_*=600b^2-255be-63e^2+100af$ と置く。
+
+\begin{theorem}
+$u_{12}=u_{13}=K=Q_*=0$ に属する深部二平面型の全点は、十分一般の $\beta$ 上で除去される。
+\end{theorem}
+\begin{proof}
+既知の十三曲線を既に処理した正規化切断を使う。残る底は二つの変数 $(e,d)$ の開集合と
+五つの補助変数の積である。補助変数零での正の重み付き横断表示は、形式近似でなく
+厳密な多項式表示である。重み二・三の階数を $7,64$ とするための例外十七曲線は、
+各曲線の滑らかな点での小行列式と同じ実在部分の下界を用いて別に処理した。
+残る問題は重み四の $390\times269$ 行列の全射性である。
+
+この行列の欠損支持に水平曲線はない。実際、選んだ行列式の $d$ 次数は331であり、
+最高係数は指定した良い還元で消えない。既知因子の整除と特殊化での正確な次数を確かめ、
+モニック行列式で余核を係数局所環上有限にする。中国剰余定理で既知因子と残余を
+分離すると、残余部分の特殊ファイバーは零であり、有限加群の中山の補題が適用できる。
+初めに既知因子を逆にした無限加群へ中山の補題を適用するのではない。
+$d=3$ の縦方向でも同じ方法で行列式の $e$ 次数1241と五つの因子の重複度
+$70,113,176,197,92$ を検証した。$d=4$ の検査で動く二次因子を排除すると、
+未知の縦曲線もない。従って残りの四次欠損支持は有限である。有限集合が空である必要はない。
+
+既に全補助変数を処理した非空開を除くと、残る各曲線 $C$ に対する底は
+$\mathrm{Sp}_4\times C\times\mathbb A^5$ で次元16である。$\beta$ 像が優越しなければ
+一般点には現れない。優越するとき、この底から一次部分の空間への射は一般にエタールである。
+一般 $\beta$ の実在する二平面型三次元族は、標準楕円曲線上の $\mathbb P^2$ 束の開で
+幾何学的に既約である。そのため、ここで切ったのと同じ成分で一般長さの下界65を使える。
+一方、曲線の一般点で重み二・三・四の検査から横断長さは65以下となり、この上界は
+有限個の小行列式の非消滅によって底の開部分にも成立する。
+
+同じ滑らかな族の完備局所環を $R$ とすれば、相対全環 $S$ には $R^{65}\twoheadrightarrow S$
+がある。一般階数の下界65は、この核が自由加群内の階数零の部分加群であることを意味する。
+従って $S$ は自由であり、一般点の $t^2=0$ は $S$ と周囲の局所環に降りる。
+得られた非空開の補集合の像は次元15以下。孤立したcore点についても底の次元は
+$10+5=15$ 以下である。十分一般の $\beta$ はこれらを全て避ける
+\cite{deep-full-v54,deep-horiz-v54,deep-vert-v54}。
+\end{proof}
+
+隣接する超平面層の正規化 $H_8$ には三つのcore変数と五つの補助変数がある。
+$\mathbb Q(a,e)[d]$ 上で $B$ を分母に持たない枠を構成すると、全ての $d$ で
+重み付き横断代数は自由階数65、Hilbert関数は $(1,7,23,34)$ となる。
+三つの変数を全て動かすときには単一の切断では足りない。実在三方向への接行列式が
+消える $C=0$ 上で別の切断に替え、旧切断に対する階数低下を幾何的障害と取り違えない。
+この方法で、適切な横断長上界65を欠くcoreは高々一次元と分かる。
+正重みを持つ補助変数の収縮を使うと、その補集合の全補助変数で相対 $t^2=0$ が成立する。
+残る像の次元は $1+5+10=16$ 以下であり、この正規化切断から来る未処理点は
+一般 $\beta$ ごとに高々有限である。有限個の点が存在しないと証明したのではない
+\cite{hyper-codim-v54,hyper-horiz-v54}。
+
+\subsection{相対核を用いた旗境界の判定}
+\begin{lemma}
+$A$ を非正整数重みを持つパラメータの形式冪級数環とする。$A$ 上の完備局所環の
+同変全射 $S\twoheadrightarrow D$ において $D$ は $A$ 上平坦とし、核を $M$ とする。
+特殊ファイバーの核が有限長で重み $[l,h]$ に限られるとする。
+重み $w>0$ の元 $t\in M$ が $w+l>h$ を満たせば、$tM=0$、特に $t^2=0$ である。
+\end{lemma}
+\begin{proof}
+平坦性から特殊ファイバーの核は $M/\mathfrak m_A M$ に等しい。
+有限長性により、ある $N$ について $\mathfrak m_S^N M\subset\mathfrak m_A M$。
+従って二つの位相は同値であり、完備性から特殊ファイバーの斉次基底の持ち上げが
+$A$ 上 $M$ を生成する。各有限商で重み成分を取れば、持ち上げも同じ重みで選べる。
+底の係数の重みは非正なので、$h$ より大きい斉次成分はない。各生成元に $t$ を掛けると
+重みが $h$ を超える。
+\end{proof}
+
+まず $b_0\ne0,\ b_1=b_{12}=0$ の旗境界を考える。二つの実際の群方向を除き、
+補助変数を零にした七変数商は、正重みにより六次以下の厳密な多項式代入で記述できる。
+同じ滑らかな旗族上の閉平方零商 $D$ を使うと、二つのHilbert級数の差は
+\[
+ 5z^2+17z^3+35z^4+44z^5+10z^6.
+\]
+これは特殊ファイバーの\emph{実際の核}の級数である。$D$ は普通の旗開の
+スキーム論的閉包として同変であり、切断後も底上平坦である。相対底は非正重み、
+$t$ は重み5なので、補題を $l=2,h=6$ に適用できる。二つの群方向を補償する
+接小行列式は単元であり、切断を戻しても相対全環で $t^2=0$ となる。
+七補助変数の重みは $(3,3,1,2,2,2,1)$ で正であるから、$t^2\mathcal O$ の台を
+切断へ引き戻した閉不変集合は、零を含まなければ空である。これが全補助変数への
+拡張であり、最後に十分一般の $\beta$ で滑らかな底変換を降下する
+\cite{flag-zero-relative-v54}。
+
+次に $b_0b_{12}\ne0,\ b_1=0$ の通常旗境界を考える。正規化された不変量を $r$ とする。
+実際の平方零商への核は重み4以下で生成される。七変数の重みが1または2なので、
+重み7,8の核が零なら全ての重み7以上が消える。重み7の $532\times280$ 行列で275次小行列式を
+調べ、$r$ 次数2543を正確に求め、七つの既知根での重複度を単に特殊化することなく証明した。
+残余次数267の因子に対応する余核は有限局所環上の分離によって零になる。
+重み8はlight変数のKoszul関係と、heavy変数のみの二次部分から得られる。
+三つの枠例外と真の階数降下 $r=-4/25$ は別の正確な表示で扱う。
+後者では重み3の変数が一つ増えるため、7,8に加えて9の核も検査する。
+従って、十分一般の $\beta$ では
+\[
+ r\notin\{2,-6/25,-91/400\}\quad\Longrightarrow\quad t^2=0
+\]
+がこの境界の全該当点の周囲の局所環で成立する\cite{flag-ordinary-v54,flag-true-v54}。
+
+三つの残値の指定固定点では、全て $0\ne t$, $t^2=0$ が成り立つ。
+しかし二つの群方向を除いたHilbert関数の定常値はそれぞれ49,12,6で、実際の自由5商への
+核は有限長でない。従ってこの三点の計算を上の補題で相対全層へ拡張することはできない
+\cite{flag-three-v54}。
+
+\subsection{有限商の作用とABの明示関係}
+旗の一指定点では $R=\mathbb Q[[v_0,v_1,v_3]]$、$\mathfrak a=\mathfrak m_R$、
+$A=R/\mathfrak a^2$ として、元135式から長さ187の実代数を構成した。
+2123本の独立な関係が上界を与え、九つの可換乗法と全2310単項式の検査が逆の全射を与える。
+$h=v_3-6v_1$ とすると、加群としては $A^{40}\oplus(A/(h))^9$ である。
+別の底 $\mathbb Q[[v_0,v_1]]$ 上で実核を最小111元で生成し、その極大イデアル
+$\mathfrak b$ を法とした $h$ 作用のJordan型を
+$1^9,2^{17},3^7,4^8,5^3$ と求めた。$M/\mathfrak b^2 M$ は長333で、$tM\subset\mathfrak b^2 M$。
+これらの有限作用と、上の相対核による全環の判定とは区別される\cite{flag-first-v54,flag-linear-v54}。
+
+自由M0の指定した有限体の点では、元135式を保つ89本の書換えにより
+$S/\mathfrak a^4$ を実際に同定した。長さ2526、141生成元、最小関係は50本である。
+この有限商では $t^2=0$、$t$ の像は長76で最小12生成だが、標数零の全完成環の
+冪零性はここから従わない\cite{free-third-v54}。
+
+最後に、被約ABの斉次イデアル $I$ を実際の45座標で調べた。稠密incidence切断の
+十変数上で、1035個の二次積の係数行列を重み別に作る。その核から274本の明示二次式を得る。
+これらの座標倍の階数は有限体で9524である。一方、既知のHilbert級数から
+$\dim I_3=\binom{47}{3}-6691=9524$ なので、$I_3=P_1 I_2$ である。
+従って新たな三次生成元はなく、未決定なのは四次から六次の生成元である
+\cite{ab-quadrics-v54}。以上の無限遠除去・有限作用・ABの関係式は、全 $S_{61}$ の
+一般アフィンファイバーが既知五点だけであるという証明ではない。
+
 \begingroup\footnotesize
 \begin{thebibliography}{99}
 \setlength{\itemsep}{0pt}
@@ -5506,6 +5638,19 @@ Amer. J. Math. 119 (1997), 159--180, Section 1, Definition 1.6直後。
 \textit{Integral Closure of Ideals, Rings, and Modules}, LMS Lecture Note Series 336,
 Section 11.1, Example 11.1.11 and Exercise 11.8.
 \url{https://www.math.purdue.edu/~iswanso/book/SwansonHuneke.pdf}.
+\bibitem{deep-full-v54} 同プロジェクト、\nolinkurl{research/notes/S61_BINARY_DEEPER_FULL_CORE_REMOVAL_20261102.md}。
+\bibitem{deep-horiz-v54} 同プロジェクト、\nolinkurl{research/notes/S61_BINARY_WEIGHTED_HORIZONTAL_SUPPORT_20261102.md}。
+\bibitem{deep-vert-v54} 同プロジェクト、\nolinkurl{research/notes/S61_BINARY_WEIGHTED_VERTICAL_SUPPORT_20261102.md}。
+\bibitem{hyper-codim-v54} 同プロジェクト、\nolinkurl{research/notes/S61_BINARY_HYPERPLANE_TRANSVERSE_CODIMENSION_20261102.md}。
+\bibitem{hyper-horiz-v54} 同プロジェクト、\nolinkurl{research/notes/S61_BINARY_HYPERPLANE_BFREE_HORIZONTAL_20261102.md}。
+\bibitem{flag-zero-relative-v54} 同プロジェクト、\nolinkurl{research/notes/S61_FLAG_ZERO12_RELATIVE_WEIGHT_REMOVAL_20261102.md}。
+\bibitem{flag-ordinary-v54} 同プロジェクト、\nolinkurl{research/notes/S61_FLAG_ORDINARY_CORE_SUPPORT_20261102.md}。
+\bibitem{flag-true-v54} 同プロジェクト、\nolinkurl{research/notes/S61_FLAG_TRUE_CORE_WEIGHTED_REMOVAL_20261102.md}。
+\bibitem{flag-three-v54} 同プロジェクト、\nolinkurl{research/notes/S61_FLAG_REMAINING_CORE_WEIGHTED_POINTS_20261102.md}。
+\bibitem{flag-first-v54} 同プロジェクト、\nolinkurl{research/notes/S61_FLAG_ZERO12_FIRST_BASE_QUOTIENT_20261102.md}。
+\bibitem{flag-linear-v54} 同プロジェクト、\nolinkurl{research/notes/S61_FLAG_ZERO12_FIRST_LINEAR_T_ACTION_20261102.md}。
+\bibitem{free-third-v54} 同プロジェクト、\nolinkurl{research/notes/S61_MINIMAL_FREE_FLAG_THIRD_BASE_QUOTIENT_20261102.md}。
+\bibitem{ab-quadrics-v54} 同プロジェクト、\nolinkurl{research/notes/AB_EXPLICIT_QUADRICS_CUBIC_GENERATION_20261102.md}。
 \end{thebibliography}
 \endgroup
 \end{document}

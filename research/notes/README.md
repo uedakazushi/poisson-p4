@@ -1,6 +1,6 @@
 # 研究ノートと評価資料の入口
 
-**v53-s61、2026-11-02。楕円型の全域二次切断、既知五延長の三平面。**
+**v54-s61、2026-11-02。楕円型の全域二次切断、既知五延長の三平面。**
 
 ## v31 の新しい入口
 
@@ -329,3 +329,21 @@
 - 実際のT01零fiberの一般被約性: `TORIC_ZERO_FIBER_GENERIC_REDUCED_20261102`。適用範囲と未解決部分を各ノートに明記。
 - zero12の全基底次数に対する有限打切り: `S61_FLAG_ZERO12_BASE_ADIC_BOUNDS_20261102`。適用範囲と未解決部分を各ノートに明記。
 - 深部binaryの厳密有限weighted模型: `S61_BINARY_DEEPER_WEIGHTED_FINITE_MODEL_20261102`。適用範囲と未解決部分を各ノートに明記。
+
+## v54: 深部二平面型・旗境界の除去と残る三core
+
+- 深部二平面型の三次階数と十七曲線: `S61_BINARY_WEIGHTED_CUBIC_COVER_20261102`。適用範囲と未解決部分を各ノートに明記。
+- 深部二平面型での四次階数欠損の有限性: `S61_BINARY_WEIGHTED_HORIZONTAL_SUPPORT_20261102`。適用範囲と未解決部分を各ノートに明記。
+- 深部二平面型全層の一般β上の除去: `S61_BINARY_DEEPER_FULL_CORE_REMOVAL_20261102`。適用範囲と未解決部分を各ノートに明記。
+- 相対冪零性の正重み収縮: `S61_BINARY_NUISANCE_CONTRACTION_20261102`。適用範囲と未解決部分を各ノートに明記。
+- 隣接超平面層の八法線有限表示: `S61_BINARY_HYPERPLANE_WEIGHTED_CHART_20261102`。適用範囲と未解決部分を各ノートに明記。
+- 三core超平面層での全三次階数欠損: `S61_BINARY_HYPERPLANE_CUBIC_CODIMENSION_20261102`。適用範囲と未解決部分を各ノートに明記。
+- 二変数関数体上の全dにわたる自由65: `S61_BINARY_HYPERPLANE_BFREE_HORIZONTAL_20261102`。適用範囲と未解決部分を各ノートに明記。
+- 正規化H8の一般β上の残点の有限性: `S61_BINARY_HYPERPLANE_TRANSVERSE_CODIMENSION_20261102`。適用範囲と未解決部分を各ノートに明記。
+- 指定zero12の第一底商: `S61_FLAG_ZERO12_FIRST_BASE_QUOTIENT_20261102`。適用範囲と未解決部分を各ノートに明記。
+- 実際の二変数有限核と低次作用: `S61_FLAG_ZERO12_FIRST_LINEAR_T_ACTION_20261102`。適用範囲と未解決部分を各ノートに明記。
+- zero12旗境界全点の一般β除去: `S61_FLAG_ZERO12_RELATIVE_WEIGHT_REMOVAL_20261102`。適用範囲と未解決部分を各ノートに明記。
+- 三値を除く通常旗境界全域の一般β除去: `S61_FLAG_ORDINARY_CORE_SUPPORT_20261102`。適用範囲と未解決部分を各ノートに明記。
+- 残る三coreの固定β環: `S61_FLAG_REMAINING_CORE_WEIGHTED_POINTS_20261102`。適用範囲と未解決部分を各ノートに明記。
+- 自由M0指定有限体点の底三次までの実商: `S61_MINIMAL_FREE_FLAG_THIRD_BASE_QUOTIENT_20261102`。適用範囲と未解決部分を各ノートに明記。
+- ABの明示二次基底と三次関係の尽くし: `AB_EXPLICIT_QUADRICS_CUBIC_GENERATION_20261102`。適用範囲と未解決部分を各ノートに明記。

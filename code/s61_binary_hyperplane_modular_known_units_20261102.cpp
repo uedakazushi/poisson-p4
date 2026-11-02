@@ -1,0 +1,4 @@
+#define main old_main
+#include "s61_binary_hyperplane_modular_determinants_20261102.cpp"
+#undef main
+int main(int argc,char**argv){assert(argc==3);ifstream in(argv[1]);ofstream out(argv[2]);assert(in&&out);prime=32003;nmod_mpoly_ctx_init(ctx,3,ORD_LEX,prime);{string s;int mi,n;in>>s>>mi>>s>>n;const char*vars[]={"a","e","d"};const char*known[]={"a","500*a+90*e^2+3*e-24","50*a*d+18*d*e^2-9*d*e-2*d+60*e-40","100*a+18*e^2-9*e-2"};vector<Poly>u(4);for(int j=0;j<4;j++)assert(!nmod_mpoly_set_str_pretty(u[j].p,known[j],vars,ctx));long total[4]={};for(int i=0;i<n;i++){int m;in>>s>>m;Poly p,q;read(in,p);out<<"FACTOR "<<i<<" EXP "<<m<<" ORD";for(int j=0;j<4;j++){int ord=0;while(!nmod_mpoly_is_ui(p.p,ctx)&&nmod_mpoly_divides(q.p,p.p,u[j].p,ctx)){p=q;ord++;}out<<' '<<ord;total[j]+=ord*m;}out<<" REM ";write(out,p);}out<<"TOTAL";for(int j=0;j<4;j++)out<<' '<<total[j];out<<'\n';out.flush();assert(out.good());}nmod_mpoly_ctx_clear(ctx);flint_cleanup();}

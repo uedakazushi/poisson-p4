@@ -1,0 +1,19 @@
+#include <flint/nmod_poly.h>
+#include <flint/nmod_poly_mat.h>
+#include <flint/nmod_poly_factor.h>
+#include <flint/ulong_extras.h>
+#include <fstream>
+#include <iostream>
+#include <vector>
+#include <cassert>
+#include <chrono>
+using namespace std;ulong prime=32003;
+struct Poly{nmod_poly_t p;Poly(){nmod_poly_init(p,prime);}Poly(const Poly&a):Poly(){nmod_poly_set(p,a.p);}Poly(Poly&&a):Poly(){nmod_poly_swap(p,a.p);}Poly&operator=(Poly a){nmod_poly_swap(p,a.p);return *this;}~Poly(){nmod_poly_clear(p);}};
+using Row=vector<Poly>;
+pair<int,int> leading(const Row&r){int degree=-1,pos=-1;for(int j=0;j<(int)r.size();j++){int d=nmod_poly_degree(r[j].p);if(d>=0&&(d>degree||(d==degree&&j>pos))){degree=d;pos=j;}}return {degree,pos};}
+Row read(istream&in,int n){Row r(n);int count;in>>count;for(int z=0;z<count;z++){int j,len;in>>j>>len;for(int k=0;k<len;k++){ulong c;in>>c;nmod_poly_set_coeff_ui(r[j].p,k,c);}}assert(in);return r;}
+int main(int argc,char**argv){assert(argc==3);ifstream in(argv[1]);ofstream out(argv[2]);assert(in&&out);int nr,n,k;in>>prime>>nr>>n>>k;assert(prime==32003);ulong b0,b1;in>>b0>>b1;auto start=chrono::steady_clock::now();vector<Row>basis(n);vector<int>degrees(n,-1);long steps=0;int rank=0;Poly tmp,shift;
+for(int i=0;i<nr;i++){Row r=read(in,n);while(true){auto[deg,pos]=leading(r);if(pos<0)break;if(basis[pos].empty()){basis[pos]=std::move(r);degrees[pos]=deg;rank++;break;}if(deg<degrees[pos]){swap(r,basis[pos]);swap(deg,degrees[pos]);}ulong c=nmod_poly_get_coeff_ui(r[pos].p,deg)*n_invmod(nmod_poly_get_coeff_ui(basis[pos][pos].p,degrees[pos]),prime)%prime;for(int j=0;j<n;j++){nmod_poly_scalar_mul_nmod(tmp.p,basis[pos][j].p,c);nmod_poly_shift_left(shift.p,tmp.p,deg-degrees[pos]);nmod_poly_sub(r[j].p,r[j].p,shift.p);}steps++;assert(chrono::duration<double>(chrono::steady_clock::now()-start).count()<25);}if(i%40==0)cerr<<"ROW "<<i<<" RANK "<<rank<<" STEPS "<<steps<<" SEC "<<chrono::duration<double>(chrono::steady_clock::now()-start).count()<<'\n';}
+assert(rank==n);long degree=0;for(int v:degrees)degree+=v;out<<"ROWMODULE "<<rank<<" DEGREE "<<degree<<" STEPS "<<steps<<'\n';cerr<<"ROWMODULE "<<rank<<" DEGREE "<<degree<<" STEPS "<<steps<<" SEC "<<chrono::duration<double>(chrono::steady_clock::now()-start).count()<<'\n';
+vector<int> positive,constant;for(int i=0;i<n;i++)(degrees[i]>0?positive:constant).push_back(i);vector<Row> residual;for(int i:positive)residual.push_back(basis[i]);for(auto it=constant.rbegin();it!=constant.rend();it++){int c=*it;ulong inv=n_invmod(nmod_poly_get_coeff_ui(basis[c][c].p,0),prime);for(auto&r:residual){Poly multiplier;nmod_poly_scalar_mul_nmod(multiplier.p,r[c].p,inv);for(int j=0;j<n;j++)if(nmod_poly_get_coeff_ui(basis[c][j].p,0)){nmod_poly_scalar_mul_nmod(tmp.p,multiplier.p,nmod_poly_get_coeff_ui(basis[c][j].p,0));nmod_poly_sub(r[j].p,r[j].p,tmp.p);}assert(nmod_poly_is_zero(r[c].p));}}int sz=positive.size();nmod_poly_mat_t PM;nmod_poly_mat_init(PM,sz,sz,prime);for(int i=0;i<sz;i++)for(int j=0;j<sz;j++)nmod_poly_set(nmod_poly_mat_entry(PM,i,j),residual[i][positive[j]].p);Poly determinant;nmod_poly_mat_det_interpolate(determinant.p,PM);assert(nmod_poly_degree(determinant.p)==degree);nmod_poly_factor_t fac;nmod_poly_factor_init(fac);nmod_poly_factor(fac,determinant.p);out<<"DETERMINANT_COEFFICIENTS "<<nmod_poly_length(determinant.p);for(int z=0;z<nmod_poly_length(determinant.p);z++)out<<' '<<nmod_poly_get_coeff_ui(determinant.p,z);out<<'\n';out<<"RESIDUAL_SIZE "<<sz<<" FACTORS "<<fac->num<<'\n';for(int i=0;i<fac->num;i++){out<<"FACTOR "<<fac->exp[i]<<' '<<nmod_poly_length(fac->p+i);for(int j=0;j<nmod_poly_length(fac->p+i);j++)out<<' '<<nmod_poly_get_coeff_ui(fac->p+i,j);out<<'\n';}out.flush();nmod_poly_factor_clear(fac);nmod_poly_mat_clear(PM);cerr<<"FACTOR_DONE SIZE "<<sz<<" SEC "<<chrono::duration<double>(chrono::steady_clock::now()-start).count()<<'\n';
+assert(k==0); string extra; assert(!(in>>extra)); out.flush(); assert(out.good());}

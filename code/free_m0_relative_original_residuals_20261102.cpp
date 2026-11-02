@@ -1,0 +1,18 @@
+#include <algorithm>
+#include <chrono>
+#include <cstdint>
+#include <fstream>
+#include <iostream>
+#include <unordered_map>
+#include <vector>
+using namespace std;using Row=vector<pair<int,int>>;
+int main(int argc,char**argv){if(argc!=4)return 1;auto st=chrono::steady_clock::now();ifstream in(argv[1]);ofstream out(argv[3]);if(!in||!out)return 2;int p,nb,nr,Nb;in>>p>>nb>>nr>>Nb;if(p!=32003||nb!=20||nr!=89||Nb!=141)return 3;vector<int>B(141),lead(89);for(int&i:B)in>>i;for(int&i:lead)in>>i;vector<uint64_t>nk,bk;vector<int>nd,bd;auto gen=[&](auto&&self,int left,int first,uint64_t key,int vars,vector<uint64_t>&out)->void{if(!left){out.push_back(key);return;}for(int j=first;j<vars;j++)self(self,left-1,j,key+(1ULL<<(4*j)),vars,out);};for(int d=0;d<=10;d++){gen(gen,d,0,0,8,nk);nd.resize(nk.size(),d);}for(int d=0;d<=3;d++){gen(gen,d,0,0,3,bk);bd.resize(bk.size(),d);}unordered_map<uint64_t,int>ni,bi;unordered_map<int,int>bindex;for(int j=0;j<141;j++)bindex[B[j]]=j;for(int i=0;i<(int)nk.size();i++)ni[nk[i]]=i;for(int i=0;i<20;i++)bi[bk[i]]=i;vector<vector<Row>>H(20,vector<Row>(89));vector<int>size(20);for(int a=0;a<20;a++){size[a]=upper_bound(nd.begin(),nd.end(),10-bd[a])-nd.begin();for(int j=0;j<89;j++)for(int k=0;k<141;k++){int c;in>>c;if(c){if(a==0&&B[k]<=lead[j])return 4;H[a][j].emplace_back(B[k],c);}}}vector<int>reducer(nk.size(),-1);auto divides=[](uint64_t a,uint64_t b){for(int j=0;j<8;j++)if(((a>>(4*j))&15)>((b>>(4*j))&15))return false;return true;};for(int k=0;k<(int)nk.size();k++)for(int j=0;j<89;j++)if(divides(nk[lead[j]],nk[k])){reducer[k]=j;break;}for(int k=0;k<(int)nk.size();k++)if((reducer[k]<0)!=bool(bindex.count(k)))return 5;vector<vector<int>>ub(20,vector<int>(20,-1));for(int a=0;a<20;a++)for(int b=0;b<20;b++)if(bd[a]+bd[b]<=3)ub[a][b]=bi.at(bk[a]+bk[b]);
+
+ifstream raw(argv[2]);if(!raw)return 7;int rp,rn,rN,rF;raw>>rp>>rn>>rN>>rF;if(rp!=32003||rn!=11||rF!=150)return 8;int discard;for(int i=0;i<rN*(rn+1);i++)raw>>discard;vector<uint64_t>all;for(int d=0;d<=10;d++)gen(gen,d,0,0,11,all);if(all.size()!=size_t(rN))return 9;const int C=136;vector<vector<uint64_t>>v(20);for(int a=0;a<20;a++)v[a].resize(size[a]*C);
+for(int c=0;c<rF;c++){int len;raw>>len;for(int k=0;k<len;k++){int i,z;raw>>i>>z;if(c>=135)continue;uint64_t u=all[i]>>32,x=all[i]&0xffffffffULL;v[bi.at(u)][ni.at(x)*C+c]=z;}}
+for(int i=0;i<rN;i++){int z;raw>>z;if(z){uint64_t u=all[i]>>32,x=all[i]&0xffffffffULL;v[bi.at(u)][ni.at(x)*C+135]=z;}}if(!raw)return 10;long long terms=0;long reductions=0;
+for(int a=0;a<20;a++){for(int k=0;k<size[a];k++){uint64_t*src=v[a].data()+k*C;bool any=false;for(int c=0;c<C;c++){src[c]%=32003;any|=src[c]!=0;}if(!any||reducer[k]<0)continue;int j=reducer[k];uint64_t mul=nk[k]-nk[lead[j]];int md=nd[k]-nd[lead[j]];uint64_t coef[C];for(int c=0;c<C;c++){coef[c]=src[c];src[c]=0;}
+for(int b=0;b<20;b++){int ab=ub[a][b];if(ab<0)continue;for(auto[l,z]:H[b][j]){if(nd[l]+md+bd[ab]>10)break;int target=ni.at(nk[l]+mul);uint64_t*dest=v[ab].data()+target*C;for(int c=0;c<C;c++)dest[c]+=uint64_t(z)*coef[c];terms++;}}reductions++;}
+int non=0;for(auto z:v[a])if(z%32003)non++;cerr<<"BLOCK "<<a<<" reduced "<<reductions<<" terms "<<terms<<" remaining "<<non<<" sec "<<chrono::duration<double>(chrono::steady_clock::now()-st).count()<<"\n";}
+out<<32003<<" "<<20<<" "<<141<<" "<<136<<"\n";for(int c=0;c<C;c++){Row r;for(int a=0;a<20;a++)for(int j=0;j<141;j++){int z=v[a][B[j]*C+c]%32003;if(z)r.emplace_back(a*141+j,z);}out<<r.size();for(auto[i,z]:r)out<<" "<<i<<" "<<z;out<<"\n";}out.flush();if(!out)return 11;cerr<<"ALL ORIGINAL RESIDUALS AND OBSERVABLE PASS "<<chrono::duration<double>(chrono::steady_clock::now()-st).count()<<"\n";
+}

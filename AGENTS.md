@@ -1,8 +1,22 @@
 # Poisson structures on P4 — Codex instructions
 
-Version: v53-s61 · 2026-11-02 (Asia/Tokyo).
+Version: v54-s61 · 2026-11-02 (Asia/Tokyo).
 
-Current v53 additions: reduced AB has rational singularities and is CM.
+Current v54 additions: over sufficiently general beta, the ENTIRE deeper
+binary stratum u12=u13=K=Q*=0 and the ENTIRE zero12 flag stratum
+b0!=0,b1=b12=0 are removed. The ordinary flag boundary b0*b12!=0,b1=0
+has ambient t^2=0 except r=2,-6/25,-91/400. This includes the true rank drop
+-4/25 and all three frame artifacts. At the three remaining cores t is nonzero
+with t^2=0 at specified fixed-beta zero-nuisance points only; relative removal
+is NOT proved. Use the actual finite-kernel weight lemma; never infer relative
+nilpotence just from a fixed fiber. In the normalized adjacent H8 hyperplane
+source the bad three-core locus has dimension <=1; the remaining points over
+general beta are at most finite, not proved empty. Free M0 at a specified
+F32003 point has actual quotient lengths 141,542,1303,2526 and t^2=0 only in
+these quotients. Affine exhaustion and global upper bound remain open. Lower57.
+Continue after checkpoints. Do not reopen the resolved deeper or zero12 strata.
+
+Previous v53 additions: reduced AB has rational singularities and is CM.
 Its exact Hilbert numerator is(1,35,356,986,715,91), dimension10, degree2184,
 regularity5, a-invariant-5; its homogeneous ideal is generated in degrees<=6.
 The global numerator bound follows from all local Tor shifts<=40, not extrapolation.

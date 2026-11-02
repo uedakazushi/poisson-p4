@@ -1,0 +1,19 @@
+#include "s61_binary_univariate_field_20261102.hpp"
+#include <flint/fmpz_poly.h>
+#include <flint/fmpz_mat.h>
+#include <flint/fmpq_mat.h>
+#include <random>
+#include <chrono>
+struct IP{fmpz_poly_struct p[1];IP(){fmpz_poly_init(p);}IP(const IP&a):IP(){fmpz_poly_set(p,a.p);}IP(IP&&a):IP(){fmpz_poly_swap(p,a.p);}IP&operator=(IP a){fmpz_poly_swap(p,a.p);return *this;}~IP(){fmpz_poly_clear(p);}};
+int main(int argc,char**argv){assert(argc==5);ifstream in(argv[1]),meta(argv[2]);int nr,n;in>>nr>>n;int N=stoi(argv[3]);string prefix=argv[4];vector<map<int,IP>>A(nr);fmpz_t den,scale,g;for(auto p:{den,scale,g})fmpz_init(p);for(int i=0;i<nr;i++){int nn;in>>nn;URow r;fmpz_one(den);for(int k=0;k<nn;k++){int j;URat q;in>>j;uread(in,q.n);fmpz_lcm(den,den,fmpq_poly_denref(q.n));r.emplace(j,std::move(q));}fmpz_zero(g);for(auto&[j,q]:r){IP p;fmpq_poly_get_numerator(p.p,q.n);fmpz_divexact(scale,den,fmpq_poly_denref(q.n));fmpz_poly_scalar_mul_fmpz(p.p,p.p,scale);for(int k=0;k<fmpz_poly_length(p.p);k++)fmpz_gcd(g,g,p.p->coeffs+k);A[i].emplace(j,std::move(p));}for(auto&[j,p]:A[i])fmpz_poly_scalar_divexact_fmpz(p.p,p.p,g);}for(auto p:{den,scale,g})fmpz_clear(p);
+ int prime,mr,mc,rank,point;meta>>prime>>mr>>mc>>rank>>point;assert(mr==nr&&mc==n);auto readlist=[&](){int k;meta>>k;vector<int>v(k);for(int&x:v)meta>>x;return v;};vector<int>rows=readlist(),cols=readlist(),free=readlist();int nf=free.size();assert(int(rows.size())==rank&&int(cols.size())==rank&&rank+nf<=n);vector<ofstream>out;for(int k=0;k<nf;k++){out.emplace_back(prefix+".k"+to_string(k));out.back()<<n<<' '<<N<<' '<<free[k]<<'\n';}ofstream func(prefix+".functionals");func<<N<<" 3\n";mt19937 rng(20261102);vector<vector<ulong>>weight(3,vector<ulong>(n*nf));for(auto&r:weight)for(auto&x:r)x=rng()%32003;
+ fmpz_mat_t Eval,E,B,IK,Check;fmpq_mat_t X;fmpz_mat_init(Eval,nr,n);fmpz_mat_init(E,rank,rank);fmpz_mat_init(B,rank,nf);fmpq_mat_init(X,rank,nf);fmpz_mat_init(IK,n,nf);fmpz_mat_init(Check,nr,nf);fmpz_t e,common,v,acc;for(auto p:{e,common,v,acc})fmpz_init(p);fmpq_t q;fmpq_init(q);int done=0;auto start=chrono::steady_clock::now();
+ for(long ev=2;done<N;ev++){
+  fmpz_set_si(e,ev);fmpz_mat_zero(Eval);for(int i=0;i<nr;i++)for(auto&[j,p]:A[i])fmpz_poly_evaluate_fmpz(fmpz_mat_entry(Eval,i,j),p.p,e);
+  for(int i=0;i<rank;i++){for(int j=0;j<rank;j++)fmpz_set(fmpz_mat_entry(E,i,j),fmpz_mat_entry(Eval,rows[i],cols[j]));for(int a=0;a<nf;a++)fmpz_neg(fmpz_mat_entry(B,i,a),fmpz_mat_entry(Eval,rows[i],free[a]));}
+  if(!fmpq_mat_solve_fmpz_mat_dixon(X,E,B))continue;fmpz_one(common);for(int j=0;j<rank;j++)for(int a=0;a<nf;a++)fmpz_lcm(common,common,fmpq_denref(fmpq_mat_entry(X,j,a)));
+  fmpz_mat_zero(IK);for(int a=0;a<nf;a++)fmpz_set(fmpz_mat_entry(IK,free[a],a),common);for(int j=0;j<rank;j++)for(int a=0;a<nf;a++){auto q=fmpq_mat_entry(X,j,a);fmpz_divexact(v,common,fmpq_denref(q));fmpz_mul(fmpz_mat_entry(IK,cols[j],a),v,fmpq_numref(q));}
+  fmpz_mat_mul(Check,Eval,IK);assert(fmpz_mat_is_zero(Check));char*dd=fmpz_get_str(nullptr,10,common);for(int a=0;a<nf;a++){out[a]<<ev<<' '<<dd;for(int j=0;j<n;j++){char*s=fmpz_get_str(nullptr,10,fmpz_mat_entry(IK,j,a));out[a]<<' '<<s;flint_free(s);}out[a]<<'\n';out[a].flush();}flint_free(dd);func<<ev;
+  for(int k=0;k<3;k++){fmpz_zero(acc);for(int i=0;i<n;i++)for(int a=0;a<nf;a++)fmpz_addmul_ui(acc,fmpz_mat_entry(IK,i,a),weight[k][i*nf+a]);fmpz_set(fmpq_numref(q),acc);fmpz_set(fmpq_denref(q),common);fmpq_canonicalise(q);char*s=fmpq_get_str(nullptr,10,q);func<<' '<<s;flint_free(s);}func<<'\n';func.flush();done++;if(done%5==0||done==1)cerr<<"MULTISAMPLE "<<done<<" E "<<ev<<" BITS "<<fmpz_bits(common)<<" SEC "<<chrono::duration<double>(chrono::steady_clock::now()-start).count()<<'\n';assert(ev<1000);
+ }
+ fmpq_clear(q);for(auto p:{e,common,v,acc})fmpz_clear(p);for(auto p:{Eval,E,B,IK,Check})fmpz_mat_clear(p);fmpq_mat_clear(X);flint_cleanup();}

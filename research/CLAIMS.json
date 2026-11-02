@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checkpoint": "v53-s61",
+  "checkpoint": "v54-s61",
   "date": "2026-11-02",
   "base_mathematical_checkpoint": "v24",
   "new_mathematical_progress_in_this_setup": false,
@@ -7469,6 +7469,713 @@
       ],
       "limitations_ja": [
         "全coreのrank被覆は未証明。7/64/269は指定標本minorとその非空開の証拠であり、新しい層の除去やambient t冪零性を主張しない。"
+      ]
+    },
+    {
+      "id": "S61_BINARY_DEEPER_CUBIC_COVER",
+      "title_ja": "深部二平面型の三次階数と十七曲線",
+      "statement_ja": "D開の重み二の階数7を確定し、DF開の三次は64。十七曲線は十分一般のβで除去。全nuisanceの通常三次初期部分の階数131、Hilbert関数(1,9,21,34)。",
+      "scope": "Exactly the pointwise, generic-open, all-degree or finite-model scope stated in each proof note.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_02",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_BINARY_DEEPER_WEIGHTED_FINITE_MODEL"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_BINARY_WEIGHTED_CUBIC_COVER_20261102.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_WEIGHTED_CUBIC_COVER_REVIEW_20261102.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_DEEPER_WEIGHTED_LOW_BLOCKS_20261102.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_WEIGHTED_SEVENTEEN_CURVES_20261102.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_WEIGHTED_SEVENTEEN_CURVES_REVIEW_20261102.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_CUBIC_NUISANCE_LOCALIZATION_20261102.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_ALL_CUBIC_INITIAL_20261102.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_ALL_CUBIC_INITIAL_REVIEW_20261102.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_BINARY_WEIGHTED_CUBIC_COVER_20261102.json",
+        "reports/S61_BINARY_WEIGHTED_CUBIC_COVER_REVIEW_20261102.json",
+        "reports/S61_BINARY_DEEPER_WEIGHTED_LOW_BLOCKS_20261102.json",
+        "reports/S61_BINARY_WEIGHTED_SEVENTEEN_CURVES_20261102.json",
+        "reports/S61_BINARY_WEIGHTED_SEVENTEEN_CURVES_REVIEW_20261102.json",
+        "reports/S61_BINARY_CUBIC_NUISANCE_LOCALIZATION_20261102.json",
+        "reports/S61_BINARY_ALL_CUBIC_INITIAL_20261102.json",
+        "reports/S61_BINARY_ALL_CUBIC_INITIAL_REVIEW_20261102.json"
+      ],
+      "limitations_ja": [
+        "重み付き三次の階数下界と通常の全nuisanceの結論の適用開を区別する。"
+      ]
+    },
+    {
+      "id": "S61_BINARY_DEEPER_QUARTIC_SUPPORT",
+      "title_ja": "深部二平面型での四次階数欠損の有限性",
+      "statement_ja": "同一390×269行列の水平・垂直方向を、厳密な小行列式次数と有限局所環のCRT/Nakayamaで処理。D開の階数欠損支持は高々零次元。",
+      "scope": "Exactly the pointwise, generic-open, all-degree or finite-model scope stated in each proof note.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_02",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_BINARY_DEEPER_WEIGHTED_FINITE_MODEL"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_BINARY_WEIGHTED_HORIZONTAL_SUPPORT_20261102.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_WEIGHTED_HORIZONTAL_SUPPORT_REVIEW_20261102.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_WEIGHTED_VERTICAL_SUPPORT_20261102.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_WEIGHTED_VERTICAL_SUPPORT_REVIEW_20261102.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_BINARY_WEIGHTED_HORIZONTAL_SUPPORT_20261102.json",
+        "reports/S61_BINARY_WEIGHTED_HORIZONTAL_SUPPORT_REVIEW_20261102.json",
+        "reports/S61_BINARY_WEIGHTED_VERTICAL_SUPPORT_20261102.json",
+        "reports/S61_BINARY_WEIGHTED_VERTICAL_SUPPORT_REVIEW_20261102.json"
+      ],
+      "limitations_ja": [
+        "nuisance零の有限行列での主張。有限集合が空であることは要求しない。"
+      ]
+    },
+    {
+      "id": "S61_BINARY_DEEPER_FULL_CORE_REMOVAL",
+      "title_ja": "深部二平面型全層の一般β上の除去",
+      "statement_ja": "u12=u13=K=Q*=0の深部層は十分一般のβで全点がt飽和で除かれる。同じ実在binary三次元族の下界65を使って相対自由性を示し、曲線層からの降下と次元上界を合わせる。",
+      "scope": "Exactly the pointwise, generic-open, all-degree or finite-model scope stated in each proof note.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_02",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_BINARY_DEEPER_CUBIC_COVER",
+          "S61_BINARY_DEEPER_QUARTIC_SUPPORT"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_BINARY_DEEPER_FULL_CORE_REMOVAL_20261102.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_DEEPER_FULL_CORE_REMOVAL_REVIEW_20261102.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_BINARY_DEEPER_FULL_CORE_REMOVAL_20261102.json",
+        "reports/S61_BINARY_DEEPER_FULL_CORE_REMOVAL_REVIEW_20261102.json"
+      ],
+      "limitations_ja": [
+        "他のbinary、旗、特殊βの全局所環、アフィンの尽くしには広げない。"
+      ]
+    },
+    {
+      "id": "S61_BINARY_NUISANCE_CONTRACTION",
+      "title_ja": "相対冪零性の正重み収縮",
+      "statement_ja": "元135式の同変性と五つの正nuisance重みを検証。全相対局所環で零nuisanceに成立する除去は同じcoreの全nuisanceに伝播する。",
+      "scope": "Exactly the pointwise, generic-open, all-degree or finite-model scope stated in each proof note.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_02",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_BINARY_DEEPER_WEIGHTED_FINITE_MODEL"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_BINARY_NUISANCE_CONTRACTION_20261102.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_NUISANCE_CONTRACTION_REVIEW_20261102.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_BINARY_NUISANCE_CONTRACTION_20261102.json",
+        "reports/S61_BINARY_NUISANCE_CONTRACTION_REVIEW_20261102.json"
+      ],
+      "limitations_ja": [
+        "固定βの横断商だけでの消滅は前提を満たさない。"
+      ]
+    },
+    {
+      "id": "S61_BINARY_HYPERPLANE_EXACT_FRAMES",
+      "title_ja": "隣接超平面層の八法線有限表示",
+      "statement_ja": "aFBC開とaFD0C開で同じ切断を表示する正重み座標を構成。暗黙解は厳密四次以下、一般階数は6/57/239。二つの枠の共通欠損曲線のβ像は次元15。",
+      "scope": "Exactly the pointwise, generic-open, all-degree or finite-model scope stated in each proof note.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_02",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_BINARY_DEEPER_WEIGHTED_FINITE_MODEL"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_BINARY_HYPERPLANE_WEIGHTED_CHART_20261102.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_HYPERPLANE_WEIGHTED_CHART_REVIEW_20261102.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_HYPERPLANE_GENERIC_RANKS_20261102.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_HYPERPLANE_GENERIC_RANKS_REVIEW_20261102.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_HYPERPLANE_LINEAR_LIGHT_FRAME_20261102.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_HYPERPLANE_LINEAR_LIGHT_FRAME_REVIEW_20261102.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_HYPERPLANE_BFREE_FRAME_20261102.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_HYPERPLANE_BFREE_FRAME_REVIEW_20261102.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_HYPERPLANE_FRAME_COVER_20261102.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_HYPERPLANE_FRAME_COVER_REVIEW_20261102.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_BINARY_HYPERPLANE_WEIGHTED_CHART_20261102.json",
+        "reports/S61_BINARY_HYPERPLANE_WEIGHTED_CHART_REVIEW_20261102.json",
+        "reports/S61_BINARY_HYPERPLANE_GENERIC_RANKS_20261102.json",
+        "reports/S61_BINARY_HYPERPLANE_GENERIC_RANKS_REVIEW_20261102.json",
+        "reports/S61_BINARY_HYPERPLANE_LINEAR_LIGHT_FRAME_20261102.json",
+        "reports/S61_BINARY_HYPERPLANE_LINEAR_LIGHT_FRAME_REVIEW_20261102.json",
+        "reports/S61_BINARY_HYPERPLANE_BFREE_FRAME_20261102.json",
+        "reports/S61_BINARY_HYPERPLANE_BFREE_FRAME_REVIEW_20261102.json",
+        "reports/S61_BINARY_HYPERPLANE_FRAME_COVER_20261102.json",
+        "reports/S61_BINARY_HYPERPLANE_FRAME_COVER_REVIEW_20261102.json"
+      ],
+      "limitations_ja": [
+        "全点に単一の枠が通るとはしない。横断表示だけからambient除去は従わない。"
+      ]
+    },
+    {
+      "id": "S61_BINARY_HYPERPLANE_CUBIC_CODIMENSION",
+      "title_ja": "三core超平面層での全三次階数欠損",
+      "statement_ja": "二次6、二次の一次倍41、heavy列7、完全三次57の階数欠損は指定aFBC開で次元1以下。全63×91行列の主小行列を二段の良い還元で検証した。",
+      "scope": "Exactly the pointwise, generic-open, all-degree or finite-model scope stated in each proof note.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_02",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_BINARY_HYPERPLANE_EXACT_FRAMES"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_BINARY_HYPERPLANE_CUBIC_CODIMENSION_20261102.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_HYPERPLANE_CUBIC_CODIMENSION_REVIEW_20261102.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_HYPERPLANE_CUBIC_MODULAR_20261102.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_HYPERPLANE_CUBIC_HORIZONTAL_20261102.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_HYPERPLANE_CUBIC_VERTICAL_20261102.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_HYPERPLANE_QUADRATIC_CODIMENSION_20261102.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_HYPERPLANE_QUADRATIC_CODIMENSION_REVIEW_20261102.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_HYPERPLANE_QUADRATIC_PAIR_20261102.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_HYPERPLANE_QUADRATIC_PAIR_REVIEW_20261102.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_HYPERPLANE_PRODUCTS_CODIMENSION_20261102.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_HYPERPLANE_PRODUCTS_CODIMENSION_REVIEW_20261102.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_HYPERPLANE_HEAVY_CUBIC_CODIMENSION_20261102.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_HYPERPLANE_HEAVY_CUBIC_CODIMENSION_REVIEW_20261102.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_HYPERPLANE_HEAVY_SQUARE_PIVOT_20261102.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_HYPERPLANE_HEAVY_SQUARE_PIVOT_REVIEW_20261102.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_BINARY_HYPERPLANE_CUBIC_CODIMENSION_20261102.json",
+        "reports/S61_BINARY_HYPERPLANE_CUBIC_CODIMENSION_REVIEW_20261102.json",
+        "reports/S61_BINARY_HYPERPLANE_CUBIC_MODULAR_20261102.json",
+        "reports/S61_BINARY_HYPERPLANE_CUBIC_HORIZONTAL_20261102.json",
+        "reports/S61_BINARY_HYPERPLANE_CUBIC_VERTICAL_20261102.json",
+        "reports/S61_BINARY_HYPERPLANE_QUADRATIC_CODIMENSION_20261102.json",
+        "reports/S61_BINARY_HYPERPLANE_QUADRATIC_CODIMENSION_REVIEW_20261102.json",
+        "reports/S61_BINARY_HYPERPLANE_QUADRATIC_PAIR_20261102.json",
+        "reports/S61_BINARY_HYPERPLANE_QUADRATIC_PAIR_REVIEW_20261102.json",
+        "reports/S61_BINARY_HYPERPLANE_PRODUCTS_CODIMENSION_20261102.json",
+        "reports/S61_BINARY_HYPERPLANE_PRODUCTS_CODIMENSION_REVIEW_20261102.json",
+        "reports/S61_BINARY_HYPERPLANE_HEAVY_CUBIC_CODIMENSION_20261102.json",
+        "reports/S61_BINARY_HYPERPLANE_HEAVY_CUBIC_CODIMENSION_REVIEW_20261102.json",
+        "reports/S61_BINARY_HYPERPLANE_HEAVY_SQUARE_PIVOT_20261102.json",
+        "reports/S61_BINARY_HYPERPLANE_HEAVY_SQUARE_PIVOT_REVIEW_20261102.json"
+      ],
+      "limitations_ja": [
+        "nuisance零の明示開。全coreでの階数57や四次充足は含めない。"
+      ]
+    },
+    {
+      "id": "S61_BINARY_HYPERPLANE_BFREE_HORIZONTAL",
+      "title_ja": "二変数関数体上の全dにわたる自由65",
+      "statement_ja": "K=QQ(a,e)として正確なB-free横断代数はK[d]上自由65、重みHilbert関数(1,7,23,34)、t²=0。三段の有理関数核と小行列式次数259を検査。",
+      "scope": "Exactly the pointwise, generic-open, all-degree or finite-model scope stated in each proof note.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_02",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_BINARY_HYPERPLANE_CUBIC_CODIMENSION"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_BINARY_HYPERPLANE_BFREE_HORIZONTAL_20261102.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_HYPERPLANE_BFREE_HORIZONTAL_REVIEW_20261102.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_HYPERPLANE_BFREE_MODULAR_CERTIFICATE_20261102.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_HYPERPLANE_BFREE_HEAVY_SQUARE_20261102.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_HYPERPLANE_INFINITY_QUADRATIC_NORMAL_FORM_20261102.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_HYPERPLANE_INFINITY_QUADRATIC_NORMAL_FORM_REVIEW_20261102.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_BINARY_HYPERPLANE_BFREE_HORIZONTAL_20261102.json",
+        "reports/S61_BINARY_HYPERPLANE_BFREE_HORIZONTAL_REVIEW_20261102.json",
+        "reports/S61_BINARY_HYPERPLANE_BFREE_MODULAR_CERTIFICATE_20261102.json",
+        "reports/S61_BINARY_HYPERPLANE_BFREE_HEAVY_SQUARE_20261102.json",
+        "reports/S61_BINARY_HYPERPLANE_INFINITY_QUADRATIC_NORMAL_FORM_20261102.json",
+        "reports/S61_BINARY_HYPERPLANE_INFINITY_QUADRATIC_NORMAL_FORM_REVIEW_20261102.json"
+      ],
+      "limitations_ja": [
+        "係数体がQQ(a,e)であることが必要。各(a,e)への一律の特殊化はしない。"
+      ]
+    },
+    {
+      "id": "S61_BINARY_HYPERPLANE_TRANSVERSE_CODIMENSION",
+      "title_ja": "正規化H8の一般β上の残点の有限性",
+      "statement_ja": "三coreで横断長上界65を与える許容切断がない部分は次元1以下。適格なcoreの全五nuisanceで相対t²=0、一般βでのH8像の残点は高々有限。",
+      "scope": "Exactly the pointwise, generic-open, all-degree or finite-model scope stated in each proof note.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_02",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_BINARY_HYPERPLANE_BFREE_HORIZONTAL",
+          "S61_BINARY_NUISANCE_CONTRACTION"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_BINARY_HYPERPLANE_TRANSVERSE_CODIMENSION_20261102.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_HYPERPLANE_AXES_TRANSVERSE_LENGTH_20261102.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_HYPERPLANE_C_TRANSVERSE_LENGTH_20261102.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_HYPERPLANE_E_ONLY_SUPPORT_20261102.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_HYPERPLANE_ORIGINAL_ROOT_QUARTICS_20261102.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_HYPERPLANE_VERTICAL_SLICE_CERTIFICATE_20261102.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_HYPERPLANE_TRANSVERSE_CODIMENSION_REVIEW_20261102.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_BINARY_HYPERPLANE_TRANSVERSE_CODIMENSION_20261102.json",
+        "reports/S61_BINARY_HYPERPLANE_AXES_TRANSVERSE_LENGTH_20261102.json",
+        "reports/S61_BINARY_HYPERPLANE_C_TRANSVERSE_LENGTH_20261102.json",
+        "reports/S61_BINARY_HYPERPLANE_E_ONLY_SUPPORT_20261102.json",
+        "reports/S61_BINARY_HYPERPLANE_ORIGINAL_ROOT_QUARTICS_20261102.json",
+        "reports/S61_BINARY_HYPERPLANE_VERTICAL_SLICE_CERTIFICATE_20261102.json",
+        "reports/S61_BINARY_HYPERPLANE_TRANSVERSE_CODIMENSION_REVIEW_20261102.json"
+      ],
+      "limitations_ja": [
+        "H8のみ。有限個の残点を全て除いたとはしない。異なる切断の行空間を同一視しない。"
+      ]
+    },
+    {
+      "id": "S61_FLAG_ZERO12_FIRST_BASE_QUOTIENT",
+      "title_ja": "指定zero12の第一底商",
+      "statement_ja": "S/a²の長さ187。A=R/a²,h=v3−6v1として加群はA^40⊕(A/(h))^9、t作用階数3。元135式から実有限代数を両方向に検証。",
+      "scope": "Exactly the pointwise, generic-open, all-degree or finite-model scope stated in each proof note.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_02",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_FLAG_ZERO12_BASE_ADIC_BOUNDS"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_FLAG_ZERO12_FIRST_BASE_QUOTIENT_20261102.md"
+        },
+        {
+          "path": "research/notes/S61_FLAG_ZERO12_FIRST_BASE_QUOTIENT_REVIEW_20261102.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_FLAG_ZERO12_FIRST_BASE_QUOTIENT_20261102.json",
+        "reports/S61_FLAG_ZERO12_FIRST_BASE_QUOTIENT_REVIEW_20261102.json"
+      ],
+      "limitations_ja": [
+        "指定固定β点の有限商。全完成環の代数分解ではない。"
+      ]
+    },
+    {
+      "id": "S61_FLAG_ZERO12_ACTUAL_KERNEL_ACTIONS",
+      "title_ja": "実際の二変数有限核と低次作用",
+      "statement_ja": "指定点の実核MはQQ[[v0,v1]]上最小111生成。b=(v0,v1)を法とするhのJordan型は1^9,2^17,3^7,4^8,5^3。M/b²Mは自由111・長333でtM⊂b²M。",
+      "scope": "Exactly the pointwise, generic-open, all-degree or finite-model scope stated in each proof note.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_02",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_FLAG_ZERO12_FIRST_BASE_QUOTIENT"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_FLAG_ZERO12_FIRST_LINEAR_T_ACTION_20261102.md"
+        },
+        {
+          "path": "research/notes/S61_FLAG_ZERO12_FIRST_LINEAR_T_ACTION_PROOF_REVIEW_20261102.md"
+        },
+        {
+          "path": "research/notes/S61_FLAG_ZERO12_ACTUAL_KERNEL_FINITE_20261102.md"
+        },
+        {
+          "path": "research/notes/S61_FLAG_ZERO12_KERNEL_GENERATORS_20261102.md"
+        },
+        {
+          "path": "research/notes/S61_FLAG_ZERO12_KERNEL_FIRST_ORDER_20261102.md"
+        },
+        {
+          "path": "research/notes/S61_FLAG_ZERO12_RESIDUE_ACTIONS_20261102.md"
+        },
+        {
+          "path": "research/notes/S61_FLAG_ZERO12_RESIDUE_ACTIONS_PROOF_REVIEW_20261102.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_FLAG_ZERO12_FIRST_LINEAR_T_ACTION_20261102.json",
+        "reports/S61_FLAG_ZERO12_FIRST_LINEAR_T_ACTION_PROOF_REVIEW_20261102.json",
+        "reports/S61_FLAG_ZERO12_ACTUAL_KERNEL_FINITE_20261102.json",
+        "reports/S61_FLAG_ZERO12_KERNEL_GENERATORS_20261102.json",
+        "reports/S61_FLAG_ZERO12_KERNEL_FIRST_ORDER_20261102.json",
+        "reports/S61_FLAG_ZERO12_RESIDUE_ACTIONS_20261102.json",
+        "reports/S61_FLAG_ZERO12_RESIDUE_ACTIONS_PROOF_REVIEW_20261102.json"
+      ],
+      "limitations_ja": [
+        "有限切断から全Mの自由性・冪零性を推論しない。"
+      ]
+    },
+    {
+      "id": "S61_FLAG_ZERO12_RELATIVE_WEIGHT_REMOVAL",
+      "title_ja": "zero12旗境界全点の一般β除去",
+      "statement_ja": "二群方向を除いた零nuisanceの正確な実核は重み2..6、長111。相対底の重みは非正、tは重み5なので相対tM=0。収縮と滑らかな降下からb0≠0,b1=b12=0の全一般β点で周囲t²=0。",
+      "scope": "Exactly the pointwise, generic-open, all-degree or finite-model scope stated in each proof note.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_02",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_FLAG_BOUNDARY_SQUAREZERO_QUOTIENT",
+          "S61_FLAG_ZERO12_ACTUAL_KERNEL_ACTIONS"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_FLAG_ZERO12_RELATIVE_WEIGHT_REMOVAL_20261102.md"
+        },
+        {
+          "path": "research/notes/S61_FLAG_ZERO12_RELATIVE_WEIGHT_REMOVAL_PROOF_REVIEW_20261102.md"
+        },
+        {
+          "path": "research/notes/S61_FLAG_ZERO12_ZERO_NUISANCE_FORMAL_20261102.md"
+        },
+        {
+          "path": "research/notes/S61_FLAG_ZERO12_ZERO_NUISANCE_FORMAL_PROOF_REVIEW_20261102.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_FLAG_ZERO12_RELATIVE_WEIGHT_REMOVAL_20261102.json",
+        "reports/S61_FLAG_ZERO12_RELATIVE_WEIGHT_REMOVAL_PROOF_REVIEW_20261102.json",
+        "reports/S61_FLAG_ZERO12_ZERO_NUISANCE_FORMAL_20261102.json",
+        "reports/S61_FLAG_ZERO12_ZERO_NUISANCE_FORMAL_PROOF_REVIEW_20261102.json"
+      ],
+      "limitations_ja": [
+        "b0=0や他の旗境界は別。特殊点のみのt²を持ち上げたものではない。"
+      ]
+    },
+    {
+      "id": "S61_FLAG_ORDINARY_WEIGHTED_REMOVAL",
+      "title_ja": "三値を除く通常旗境界全域の一般β除去",
+      "statement_ja": "b0b12≠0,b1=0でr∉{2,−6/25,−91/400}なら全nuisance・十分一般のβで周囲t²=0。関数体での有限核、七根の支持、三つの枠例外、真の階数降下−4/25を個別に証明。",
+      "scope": "Exactly the pointwise, generic-open, all-degree or finite-model scope stated in each proof note.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_02",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_FLAG_ZERO12_RELATIVE_WEIGHT_REMOVAL"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_FLAG_ORDINARY_CORE_SUPPORT_20261102.md"
+        },
+        {
+          "path": "research/notes/S61_FLAG_ORDINARY_WEIGHTED_FINITE_KERNEL_20261102.md"
+        },
+        {
+          "path": "research/notes/S61_FLAG_ORDINARY_WEIGHTED_FINITE_KERNEL_PROOF_REVIEW_20261102.md"
+        },
+        {
+          "path": "research/notes/S61_FLAG_LINEAR_ARTIFACT_WEIGHTED_REMOVAL_20261102.md"
+        },
+        {
+          "path": "research/notes/S61_FLAG_TRUE_CORE_WEIGHTED_REMOVAL_20261102.md"
+        },
+        {
+          "path": "research/notes/S61_FLAG_TRUE_CORE_WEIGHTED_REMOVAL_PROOF_REVIEW_20261102.md"
+        },
+        {
+          "path": "research/notes/S61_FLAG_ORDINARY_CORE_REMOVAL_PROOF_REVIEW_20261102.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_FLAG_ORDINARY_CORE_SUPPORT_20261102.json",
+        "reports/S61_FLAG_ORDINARY_WEIGHTED_FINITE_KERNEL_20261102.json",
+        "reports/S61_FLAG_ORDINARY_WEIGHTED_FINITE_KERNEL_PROOF_REVIEW_20261102.json",
+        "reports/S61_FLAG_LINEAR_ARTIFACT_WEIGHTED_REMOVAL_20261102.json",
+        "reports/S61_FLAG_TRUE_CORE_WEIGHTED_REMOVAL_20261102.json",
+        "reports/S61_FLAG_TRUE_CORE_WEIGHTED_REMOVAL_PROOF_REVIEW_20261102.json",
+        "reports/S61_FLAG_ORDINARY_CORE_REMOVAL_PROOF_REVIEW_20261102.json"
+      ],
+      "limitations_ja": [
+        "三つの残値とb0=0の旗層は除いていない。"
+      ]
+    },
+    {
+      "id": "S61_FLAG_REMAINING_CORE_WEIGHTED_POINTS",
+      "title_ja": "残る三coreの固定β環",
+      "statement_ja": "r=2,−6/25,−91/400の指定零nuisance点の全固定β環は全て次元3で0≠t,t²=0。二切断後のHilbert関数の定常値は49,12,6で、いずれも自由5商への核は有限長でない。",
+      "scope": "Exactly the pointwise, generic-open, all-degree or finite-model scope stated in each proof note.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_02",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_FLAG_ORDINARY_WEIGHTED_REMOVAL"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_FLAG_REMAINING_CORE_WEIGHTED_POINTS_20261102.md"
+        },
+        {
+          "path": "research/notes/S61_FLAG_REMAINING_CORE_WEIGHTED_POINTS_PROOF_REVIEW_20261102.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_FLAG_REMAINING_CORE_WEIGHTED_POINTS_20261102.json",
+        "reports/S61_FLAG_REMAINING_CORE_WEIGHTED_POINTS_PROOF_REVIEW_20261102.json"
+      ],
+      "limitations_ja": [
+        "三coreの相対全層除去は未証明。固定βの等式と区別する。"
+      ]
+    },
+    {
+      "id": "S61_MINIMAL_FREE_FLAG_R_ADIC_MODULES",
+      "title_ja": "自由M0指定有限体点の底三次までの実商",
+      "statement_ja": "F32003の指定点でm^(r+7)⊂a^r。元式を保つ39式・89置換によりS/a^4を同定、長2526・141生成・50関係。t像は長76・最小12生成、t²=0。",
+      "scope": "Exactly the pointwise, generic-open, all-degree or finite-model scope stated in each proof note.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_02",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_MINIMAL_FREE_FLAG_INITIAL_PROBE",
+          "S61_MINIMAL_FREE_FLAG_UNIVERSAL_SEXTIC"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_MINIMAL_FREE_FLAG_THIRD_BASE_QUOTIENT_20261102.md"
+        },
+        {
+          "path": "research/notes/S61_MINIMAL_FREE_FLAG_TRANSVERSE_SOURCES_20261102.md"
+        },
+        {
+          "path": "research/notes/S61_MINIMAL_FREE_FLAG_R_ADIC_ACTIONS_20261102.md"
+        },
+        {
+          "path": "research/notes/S61_MINIMAL_FREE_FLAG_R_ADIC_CUTOFF_20261102.md"
+        },
+        {
+          "path": "research/notes/S61_MINIMAL_FREE_FLAG_T_IMAGE_20261102.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_MINIMAL_FREE_FLAG_THIRD_BASE_QUOTIENT_20261102.json",
+        "reports/S61_MINIMAL_FREE_FLAG_TRANSVERSE_SOURCES_20261102.json",
+        "reports/S61_MINIMAL_FREE_FLAG_R_ADIC_ACTIONS_20261102.json",
+        "reports/S61_MINIMAL_FREE_FLAG_R_ADIC_CUTOFF_20261102.json",
+        "reports/S61_MINIMAL_FREE_FLAG_T_IMAGE_20261102.json"
+      ],
+      "limitations_ja": [
+        "自由M0独自の初期・原135式を用いた指定有限体点の有限商。全S、QQ、相対除去の結論ではない。"
+      ]
+    },
+    {
+      "id": "S61_AB_EXPLICIT_QUADRICS_CUBIC_GENERATION",
+      "title_ja": "ABの明示二次基底と三次関係の尽くし",
+      "statement_ja": "実S61座標で274本の独立二次式を構成。座標倍の有限体階数9524と既知Hilbert級数の上界が一致し、新しい三次生成元はない。",
+      "scope": "Exactly the pointwise, generic-open, all-degree or finite-model scope stated in each proof note.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_02",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_AB_RATIONAL_SINGULARITIES_HILBERT"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AB_EXPLICIT_QUADRICS_CUBIC_GENERATION_20261102.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AB_EXPLICIT_QUADRICS_CUBIC_GENERATION_20261102.json"
+      ],
+      "limitations_ja": [
+        "四次から六次の新生成元を排除していない。実T01零fiber全体の被約性は別。"
       ]
     }
   ],
