@@ -1,6 +1,6 @@
 # 公表用原稿の構成案と証明資料
 
-**状態：v54-s61、2026-11-02。零一次部分の被約台AB、ABのincidenceと特異点集合、最小型無限遠の完成局所環、二平面型の横断Artin代数を統合。**
+**状態：v55-s61、2026-11-02。零一次部分の被約台AB、ABのincidenceと特異点集合、最小型無限遠の完成局所環、二平面型の横断Artin代数を統合。**
 
 [一次ジェット還元の日本語原稿](s61_first_jet_reduction_ja.tex)（[PDF・41ページ](s61_first_jet_reduction_ja.pdf)）は、
 primitive gauge、T01/T39/T40の優越性と全S61のétale点、楕円型五変数模型、T01の一般次数3、
@@ -336,3 +336,11 @@ v35では一般被約無限遠の全型帰着、ABの原点外の正規性、二
 - 残る三coreの固定β環: `S61_FLAG_REMAINING_CORE_WEIGHTED_POINTS_20261102`。適用範囲と未解決部分を各ノートに明記。
 - 自由M0指定有限体点の底三次までの実商: `S61_MINIMAL_FREE_FLAG_THIRD_BASE_QUOTIENT_20261102`。適用範囲と未解決部分を各ノートに明記。
 - ABの明示二次基底と三次関係の尽くし: `AB_EXPLICIT_QUADRICS_CUBIC_GENERATION_20261102`。適用範囲と未解決部分を各ノートに明記。
+
+## v55: ABの二次生成・一般P25五点断面と旗の局所構造
+
+- ABの素イデアルの明示二次生成: `AB_QUADRICS_QUARTIC_MULTIPLICATION_20261102`。適用範囲と未解決部分を各ノートに明記。
+- 平面外の全射影解の法線方向からの復元: `S61_AFFINE_NORMAL_PROJECTION_20261102`。適用範囲と未解決部分を各ノートに明記。
+- 一般P25切断でのスキーム論的五点の尽くし: `S61_AFFINE_TWENTYFIVE_PLANE_20261102`。適用範囲と未解決部分を各ノートに明記。
+- 全非平方二平面型の階数34以下での残余有限性: `S61_BINARY_H11_RANK_DROP_RESIDUAL_FINITE_20261102`。適用範囲と未解決部分を各ノートに明記。
+- 指定T7横断環の一次分解: `S61_FLAG_T7_WEIGHTED_PRIMARY_20261102`。適用範囲と未解決部分を各ノートに明記。

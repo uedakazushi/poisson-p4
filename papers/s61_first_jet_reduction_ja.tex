@@ -35,7 +35,7 @@
 \title{射影四空間の Poisson 構造の一次ジェット還元\\
 \large 普遍的楕円切断、Jacobian の二捩れと Toric 成分の境界}
 \author{Poisson P4 研究プロジェクト・内部研究草稿}
-\date{2026年11月2日・v54-s61}
+\date{2026年11月2日・v55-s61}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -5332,6 +5332,66 @@ $\dim I_3=\binom{47}{3}-6691=9524$ なので、$I_3=P_1 I_2$ である。
 \cite{ab-quadrics-v54}。以上の無限遠除去・有限作用・ABの関係式は、全 $S_{61}$ の
 一般アフィンファイバーが既知五点だけであるという証明ではない。
 
+\section{ABの二次生成と一般一次ジェットの射影切断（v55）}
+\paragraph{被約ABの素イデアル。}
+実座標の多項式環 $P=\mathbf Q[q_0,\ldots,q_{44}]$ で $I=I_{AB}$ とする。
+前節で構成した $I_2$ の274元は $I$ を全次数で生成する。
+三次での等式 $I_3=P_1 I_2$ に続き、四次では二次単項式1035個による
+全283590個の積を二次元トーラスの249重みに分ける。良い素数32003で
+各行列の階数下界を加えると156010となる。一方 $\dim(P/I)_4=38570$ より
+$\dim I_4=194580-38570=156010$。よって $P_2 I_2=I_4$ である
+\cite{ab-four-v55}。
+
+高次の排除はこの有限行列からの外挿ではない。Lagrangian Grassmann多様体上の
+局所Torから全体のTorへのスペクトル系列で、生成元を測る全次数では
+$i=j+1\le4$ である。内部次数5,6には $H^3(\mathcal T_{4,*})$ だけが残る。
+核 $K$（次元34）のKoszul因子数による放物型群不変filtrationを用いる。
+内部次数5で調べる三つの因子は
+$\bigwedge^3 K\otimes R_1,\bigwedge^2 K\otimes R_2,K\otimes R_3$、
+内部次数6は $R_4=\det^6$ である。$R_j$ は線形切断した階数一行列錐の局所Torを表す。
+Serre双対後の最大中心重みは順に $2,-4,-10,-18$ で、最後の三因子に
+大域切断はない。最初ではLevi重みだけでは24次元分が残る。
+対称shearの作用 $N$ は $W_4\to W_2\to W_0$ で各々単射（階数3,12）である。
+双対側の中心0では $N$ の $(4,4,0)$ 成分が単射、中心2では $N^3$ の
+$(2,2,2)$ 成分が単射である。最高ベクトルからの基点評価はそれぞれこの単射に
+反するので、24次元分の候補はすべて消える\cite{ab-five-v55}。
+全次数の生成性は被約ABについてのもので、実際のT01零ファイバーに同じ生成式が
+成立するかは、一次ジェットを含む関係への持ち上げを必要とする。
+
+\paragraph{平面外の解と射影25平面。}
+既知三平面の四座標を $z$、42個の法線を $n$ とする。平面上で独立な五式を
+残すと他の129式は $B_r(z,n)+Q_r(n)=0$ となる。双線形部分の $z$ 倍と
+$n$ 倍の像は、それぞれ $z^2 n$ の空間（次元420）と $zn^2$ の空間（次元3612）
+を尽くす。指定標本で実際の小行列式が非零であり、一般底でも全射である。
+前者により射影三平面上では局所法線イデアルがその自乗に等しく、従って零となる。
+後者により $z_k n_i n_j=G_{k,ij}(n)$ を満たす三次式を得るので、$n_i\ne0$ 上で
+$z$ は一意に復元できる。異なる添字での整合式と元式の分母を払った式を合わせると、
+平面外の全射影スキームは $\mathbf P^{41}$ の三次・四次の閉スキームとなる
+\cite{affine-norm-v55}。
+
+法線22方向を選んだ $\mathbf P^{25}$ では、元134式の全ての一次倍の行列は
+$3484\times3276$。五点の三次評価の階数は5で、残る3271列の実小行列式は
+非零である。従って三次で五点の斉次イデアルに一致し、各射影座標を逆にすると
+両イデアルは一致する\cite{affine-p25-v55}。従って一般のこの切断は被約五点
+そのものである。これは全射影残余のアフィン部分が空であることを意味しない。
+相対閉包を取る前の特殊化では、一般解が無限遠に逃げる可能性が残る。
+
+\paragraph{二平面型と旗の二重直線。}
+非平方型の正規化 $H_{11}$ 上では三coreのほかに八nuisance全てを残す。
+適格coreの零sectionで横断上界65と同じ実成分での下界65を比べて相対自由性を
+得る。八座標の正重み収縮で開全域へ伝播する。不適格coreは次元1以下であり、
+三次元自由群軌道で割る前の表示からjoint像は次元 $10+1+8-3=16$ 以下となる。
+残る十七次元の各像には周囲の $t^2=0$ の非空開がある。このため十分一般の
+$\beta$ における全非平方型の階数34以下の未除去点は高々有限である
+\cite{binary-h11-v55}。通常階数35と残点の空性は未決である。
+
+通常旗 $r=-91/400$ の指定固定底切断では、既知の長5部分とT7の二重直線との
+スキーム論的交叉は長2である。両者の和集合への商で落ちる有限核の重み級数は
+$4z^2+16z^3+34z^4+43z^5+9z^6$、従って長106である。原点で支持される一次成分を
+戻せば指定環の一次分解が得られる\cite{t7-primary-v55}。
+特殊切断の二重直線が一般底へ平坦に持ち上がることはこの計算からは従わない。
+成分下界は57であり、一般アフィン部分の尽くし、全体の成分上界とその後の分類は未解決である。
+
 \begingroup\footnotesize
 \begin{thebibliography}{99}
 \setlength{\itemsep}{0pt}
@@ -5651,6 +5711,12 @@ Section 11.1, Example 11.1.11 and Exercise 11.8.
 \bibitem{flag-linear-v54} 同プロジェクト、\nolinkurl{research/notes/S61_FLAG_ZERO12_FIRST_LINEAR_T_ACTION_20261102.md}。
 \bibitem{free-third-v54} 同プロジェクト、\nolinkurl{research/notes/S61_MINIMAL_FREE_FLAG_THIRD_BASE_QUOTIENT_20261102.md}。
 \bibitem{ab-quadrics-v54} 同プロジェクト、\nolinkurl{research/notes/AB_EXPLICIT_QUADRICS_CUBIC_GENERATION_20261102.md}。
+\bibitem{ab-four-v55} 同プロジェクト、\nolinkurl{research/notes/AB_QUADRICS_QUARTIC_MULTIPLICATION_20261102.md}。
+\bibitem{ab-five-v55} 同プロジェクト、\nolinkurl{research/notes/AB_IDEAL_HIGH_GENERATOR_VANISHING_20261102.md}。
+\bibitem{affine-norm-v55} 同プロジェクト、\nolinkurl{research/notes/S61_AFFINE_NORMAL_PROJECTION_20261102.md}。
+\bibitem{affine-p25-v55} 同プロジェクト、\nolinkurl{research/notes/S61_AFFINE_TWENTYFIVE_PLANE_20261102.md}。
+\bibitem{binary-h11-v55} 同プロジェクト、\nolinkurl{research/notes/S61_BINARY_H11_RANK_DROP_RESIDUAL_FINITE_20261102.md}。
+\bibitem{t7-primary-v55} 同プロジェクト、\nolinkurl{research/notes/S61_FLAG_T7_WEIGHTED_PRIMARY_20261102.md}。
 \end{thebibliography}
 \endgroup
 \end{document}

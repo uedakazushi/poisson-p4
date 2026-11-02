@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checkpoint": "v54-s61",
+  "checkpoint": "v55-s61",
   "date": "2026-11-02",
   "base_mathematical_checkpoint": "v24",
   "new_mathematical_progress_in_this_setup": false,
@@ -8176,6 +8176,157 @@
       ],
       "limitations_ja": [
         "四次から六次の新生成元を排除していない。実T01零fiber全体の被約性は別。"
+      ]
+    },
+    {
+      "id": "S61_AB_QUADRATIC_PRIME_PRESENTATION",
+      "title_ja": "ABの素イデアルの明示二次生成",
+      "statement_ja": "実q45の274二次式が被約ABの斉次素イデアルを全次数で生成する。四次倍の次元156010。局所Tor4の五・六次のH³を消して全高次の最小生成を排除した。",
+      "scope": "Exactly the pointwise, generic-open, all-degree or finite-model scope stated in each proof note.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_02",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_AB_EXPLICIT_QUADRICS_CUBIC_GENERATION",
+          "S61_AB_RATIONAL_SINGULARITIES_HILBERT"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AB_QUADRICS_QUARTIC_MULTIPLICATION_20261102.md"
+        },
+        {
+          "path": "research/notes/AB_IDEAL_HIGH_GENERATOR_VANISHING_20261102.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AB_QUADRICS_QUARTIC_MULTIPLICATION_20261102.json",
+        "reports/AB_IDEAL_HIGH_GENERATOR_VANISHING_20261102.json"
+      ],
+      "limitations_ja": [
+        "実際のT01零fiberが被約ABと全域で一致することは別命題。"
+      ]
+    },
+    {
+      "id": "S61_AFFINE_NORMAL_PROJECTION",
+      "title_ja": "平面外の全射影解の法線方向からの復元",
+      "statement_ja": "129式の偏極に対する二種類の全射により既知の五点が開閉部分になり、平面外はP41で三次・四次だけの閉スキームと同型。指定P15切断は被約五点。",
+      "scope": "Exactly the pointwise, generic-open, all-degree or finite-model scope stated in each proof note.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_02",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_KNOWN_FIVE_THREE_PLANE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_AFFINE_NORMAL_PROJECTION_20261102.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_AFFINE_NORMAL_PROJECTION_20261102.json"
+      ],
+      "limitations_ja": [
+        "P41の全残余は空ではなく無限遠も含む。アフィン部分の空性を示したものではない。"
+      ]
+    },
+    {
+      "id": "S61_AFFINE_TWENTYFIVE_PLANE",
+      "title_ja": "一般P25切断でのスキーム論的五点の尽くし",
+      "statement_ja": "既知三平面を含む射影25平面への元134式の制限の三次倍は階数3271。五点の三次イデアルと一致し、射影断面は被約五点である。十分一般のβと対応Grassmannianの非空開で成立。",
+      "scope": "Exactly the pointwise, generic-open, all-degree or finite-model scope stated in each proof note.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_02",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_AFFINE_NORMAL_PROJECTION"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_AFFINE_TWENTYFIVE_PLANE_20261102.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_AFFINE_TWENTYFIVE_PLANE_20261102.json"
+      ],
+      "limitations_ja": [
+        "P45全体での尽くしとはしない。"
+      ]
+    },
+    {
+      "id": "S61_BINARY_H11_RANK_DROP_RESIDUAL_FINITE",
+      "title_ja": "全非平方二平面型の階数34以下での残余有限性",
+      "statement_ja": "H11の八nuisanceの正重み収縮と三次元群軌道、他の十七次元表示の開除去により、一般βの全非平方二平面型で階数34以下の未除去点は高々有限。",
+      "scope": "Exactly the pointwise, generic-open, all-degree or finite-model scope stated in each proof note.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_02",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_BINARY_HYPERPLANE_TRANSVERSE_CODIMENSION",
+          "S61_BINARY_NUISANCE_CONTRACTION"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_BINARY_H11_RANK_DROP_RESIDUAL_FINITE_20261102.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_BINARY_H11_RANK_DROP_RESIDUAL_FINITE_20261102.json"
+      ],
+      "limitations_ja": [
+        "残余空性・個数、通常階数35、平方の場合には及ばない。"
+      ]
+    },
+    {
+      "id": "S61_FLAG_T7_WEIGHTED_PRIMARY",
+      "title_ja": "指定T7横断環の一次分解",
+      "statement_ja": "指定固定β点の二切断で既知D5と実T7の二重直線が現れ、交叉長2、和集合への有限核は長106。原点成分も含む重み付きイデアルの一次分解を与えた。",
+      "scope": "Exactly the pointwise, generic-open, all-degree or finite-model scope stated in each proof note.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_02",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_FLAG_T7_FLAT4_COVER"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_FLAG_T7_WEIGHTED_PRIMARY_20261102.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_FLAG_T7_WEIGHTED_PRIMARY_20261102.json"
+      ],
+      "limitations_ja": [
+        "固定β・指定二切断での一次分解。実相対flat2商や全T7の周囲t冪零性を含まない。"
       ]
     }
   ],

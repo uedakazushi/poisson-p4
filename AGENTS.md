@@ -1,8 +1,18 @@
 # Poisson structures on P4 — Codex instructions
 
-Version: v54-s61 · 2026-11-02 (Asia/Tokyo).
+Version: v55-s61 · 2026-11-02 (Asia/Tokyo).
 
-Current v54 additions: over sufficiently general beta, the ENTIRE deeper
+Current v55 additions: the 274 explicit quadratic relations generate the
+entire homogeneous prime ideal of reduced AB. This does not yet prove global
+reducedness of the actual T01 zero fiber. Off the known plane, the projective
+S61 fiber admits a closed cubic/quartic normal-coordinate model in P41. A
+general P25 through the known P3 meets the full original equations in exactly
+the reduced five points. Full affine exhaustion is open. Over general beta,
+unremoved nonsquare binary rank<=34 points are at most finite, including H11.
+A fixed T7 section has a double-line primary component and a length106 finite
+kernel, not a relative flatness statement. Lower57; no upper bound.
+
+Previous v54 additions: over sufficiently general beta, the ENTIRE deeper
 binary stratum u12=u13=K=Q*=0 and the ENTIRE zero12 flag stratum
 b0!=0,b1=b12=0 are removed. The ordinary flag boundary b0*b12!=0,b1=0
 has ambient t^2=0 except r=2,-6/25,-91/400. This includes the true rank drop
