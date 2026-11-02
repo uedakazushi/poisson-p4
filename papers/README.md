@@ -1,6 +1,6 @@
 # 公表用原稿の構成案と証明資料
 
-**状態：v56-s61、2026-11-02。零一次部分の被約台AB、ABのincidenceと特異点集合、最小型無限遠の完成局所環、二平面型の横断Artin代数を統合。**
+**状態：v57-s61、2026-11-02。零一次部分の被約台AB、ABのincidenceと特異点集合、最小型無限遠の完成局所環、二平面型の横断Artin代数を統合。**
 
 [一次ジェット還元の日本語原稿](s61_first_jet_reduction_ja.tex)（[PDF・41ページ](s61_first_jet_reduction_ja.pdf)）は、
 primitive gauge、T01/T39/T40の優越性と全S61のétale点、楕円型五変数模型、T01の一般次数3、
@@ -352,3 +352,12 @@ v35では一般被約無限遠の全型帰着、ABの原点外の正規性、二
 - 法線20変数上の有限表示と射影26平面: `S61_AFFINE_FINITE_NORMAL_MODULE_20261102`。適用範囲と未解決部分を各ノートに明記。
 - 未知アフィン部分を消す具体的な行列式: `S61_AFFINE_RESIDUAL_ANNIHILATOR_20261102`。適用範囲と未解決部分を各ノートに明記。
 - T7二切断の実相対torsion: `S61_FLAG_T7_TRANSVERSE_BASE_TORSION_20261102`。適用範囲と未解決部分を各ノートに明記。
+
+## v57: 一般アフィン次元の上界・T7境界と判別因子の五平面
+
+- 全型での真の無限遠境界の次元評価: `S61_AFFINE_BOUNDARY_DIMENSION_20261102`。適用範囲と未解決部分を各ノートに明記。
+- 全一般アフィンファイバーの次元上界2: `S61_AFFINE_SURFACE_BOUND_20261102`。適用範囲と未解決部分を各ノートに明記。
+- 元の二座標u6,u42への有限射: `S61_AFFINE_TWO_COORDINATE_PROJECTION_20261102`。適用範囲と未解決部分を各ノートに明記。
+- 射影零ファイバーと次数18の極方向写像: `TORIC_PROJECTIVE_ZERO_FIBER_POLAR_IMAGE_20261102`。適用範囲と未解決部分を各ノートに明記。
+- 判別因子の線形五平面と極方向の逆算: `TORIC_DISCRIMINANT_LINEAR_RULING_20261102`。適用範囲と未解決部分を各ノートに明記。
+- T7旗core全層の一般β上の飽和除去: `S61_T7_CRITICAL_AMBIENT_TRANSVERSE_20261102`。適用範囲と未解決部分を各ノートに明記。

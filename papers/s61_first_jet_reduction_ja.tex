@@ -35,7 +35,7 @@
 \title{射影四空間の Poisson 構造の一次ジェット還元\\
 \large 普遍的楕円切断、Jacobian の二捩れと Toric 成分の境界}
 \author{Poisson P4 研究プロジェクト・内部研究草稿}
-\date{2026年11月2日・v56-s61}
+\date{2026年11月2日・v57-s61}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -5454,6 +5454,78 @@ $\eta$ で割り、その後の底イデアルの三次先頭は $a_9^3$ 一つ�
 上界が尽き、全底のイデアルを確定できる\cite{t7-nine-v56,t7-dvr-v56}。
 全成分の尽くしには一般アフィン残余の空性と他の特殊層の処理が残る。
 
+\section{一般アフィン次元の上界と判別因子の五平面（v57）}
+\paragraph{無限遠からの次元評価。}
+一般の一次ジェット $\beta$ を固定する。未飽和の無限遠の被約台は
+三次元である。元の全型被覆に各層での飽和除去を合わせると、実際のアフィン閉包に
+つながる境界の二次元候補は、通常階数35の非平方二平面型だけに限られる
+\cite{bound-three-v57}。この候補も、標準楕円正規五次曲線 $C=C_\beta$ 上の
+二次形式の射影束を使って除くことができる。
+
+支持平面の消滅線形式の束を $V=U|_C$ と同一視し、
+$B=\mathbf P_C(\operatorname{Sym}^2V)$ とする。$\deg V=-5$ であり、
+二つの階数降下因子を与える汎関数 $\alpha:V\to\mathcal O_C$ が至る所全射である。
+その核は $L=\det V$ である。因子 $L$ を持つ全二次形式がなす
+$D=\mathbf P_C(L\otimes V)$ は $\mathcal O_B(1)$ の切断で切れる。
+この上では非平方型の未除去点は高々有限で、平方部は切断
+$\Sigma=\mathbf P_C(L^2)$ である\cite{bound-two-v57,bound-review-v57}。
+
+もし非平方型に境界曲面 $S$ があれば、あるファイバー全体に一致する場合は
+$D$ 上の無限個の非平方点を含むので除かれる。他の場合には $S$ は底を優越し、
+その相対次数を $m>0$ とすると $S|_D=m\Sigma$ である。射影束の Picard 群から
+$\mathcal O_B(S)=\mathcal O_B(m)\otimes(\det V)^m$ を得る。
+$s$ をこの切断、$\delta$ を二元二次形式の判別式の切断とすると、$D$ に制限して
+$s^2=c\delta^m$ である。差を $D$ の式で割った切断は
+$\operatorname{Sym}^{2m-1}(\operatorname{Sym}^2V^*)\otimes(\det V)^{2m}$
+に属する。この束に大域切断はない。実際 $V\subset\mathcal O_C^4$ に
+次数 $-2$ 以上の線部分束があれば、四次元空間で全支持平面が固定二平面と
+交わり、楕円正規五次曲線が Plücker 超平面に入ってしまう。よって $V$ は安定である。
+$[2]$ による有限エタール引戻し後には半安定性と楕円曲線の Riemann--Roch から
+二つの同次数の線商の filtration を取れ、対象束の各線商の次数は $-20$ となる。
+従って $B$ 上でも $s^2=c\delta^m$。これは $S$ の一般点が非平方であることに反する。
+
+以上から真の境界は高々一次元で、アフィンファイバーの各成分の次元は2以下である。
+さらに二平面・旗の両軌道上で $Q_{xz}(e_x)=Q_{yw}(e_y)=0$ の同時零は余次元2以上。
+$Sp_4$ で一般の一次ジェットへ移せば、この中心は真の境界を避ける。
+二汎関数は元の $u_6,u_{42}$ なので、全アフィンファイバーから
+$(u_6,u_{42})$ への射は有限となる\cite{two-coord-v57}。
+
+\paragraph{旗のT7値。}
+$r=-91/400$ の非零 T7 点では、全61変数の周囲で滑らかな18次元 incidence
+を横断する真の長さが4である。既知の一般長4と照合すると全 ambient 環は
+18変数の正則環上の四重厚化で $t=0$。旗端点での相対 $tS$ は、固定底の
+二つの極小素の一般点で消える。その特殊加群の有限長性と非正の底重みから
+全相対環で $t^N=0$ を得る。二群方向を戻して正重みの収縮を適用し、
+T7値の全nuisanceを除去できる\cite{t7-point-v57,t7-end-v57}。
+
+\paragraph{判別因子の極方向。}
+実 T01 の274本の持ち上げ式を $q$ について斉次化すると、全無限遠切断は
+$W_{16}\times\mathbf P(AB)$ にスキームとして含まれる。$\beta=0$ では
+実アフィン $AB$ の閉包も含むため、射影ファイバーはその被約射影錐である。
+一般判別点の極方向は $\Gamma=N(c_4V-3c_6U)$ の45個の18次座標で表される。
+判別式直線の単根を標数零へ持ち上げ、群方向と断面方向の微分を併せると、
+射影像は9次元の $\mathbf P(AB)$ に優越する\cite{polar-image-v57}。
+
+$Q$ を一般の $AB$ 点とすると、実 T01 の $\beta$ 微分像 $H_Q$ は六次元である。
+重根の一様化元 $u$ に対して $u=s^2$ とし、重み作用で
+$(s\beta(s^2),s^2q(s^2))$ を考える。この弧の微分は $(\beta(0),0)$ なので
+$\beta(0)\in H_Q$。射影判別因子の極写像のグラフは、
+$\mathbf P(AB)$ の稠密開上の五平面束 $\mathbf P(H)$ と同じ14次元を持ち、
+その中に入るため双有理に一致する\cite{linear-ruling-v57}。
+したがって判別因子には明示的な線形五平面の族があり、この表示から有理性も従う。
+
+節点の適合 Darboux 枠では $Q_{xy}=-Ax^2,Q_{zw}=-Bz^2,
+Q_{yw}=Cx^2+Dxz+Ez^2$ と書ける。元134式の一次部分への微分の階数は10。
+固定された六条件を除いた四式を五係数について解けば、その射影比が
+\[
+\left[-\frac{3u_{14}}{2u_{13}}:\frac{u_{51}}{2u_{25}}:
+-\frac{u_{35}}{u_{13}}:1:-\frac{2u_{37}+u_{48}}{2u_{25}}\right]
+\]
+となる。一般の臨界平面はこの極方向の平行移動核として一意である。
+標準曲線の残る二変数 Hessian は一般に非退化で、唯一の特異点は通常二重点。
+連結性と自明な双対化層から一般の判別曲線は既約有理五次曲線となる。
+一般の滑らかな一次ジェットでの全アフィン五点の尽くしは引き続き未解決である。
+
 \begingroup\footnotesize
 \begin{thebibliography}{99}
 \setlength{\itemsep}{0pt}
@@ -5788,6 +5860,14 @@ Section 11.1, Example 11.1.11 and Exercise 11.8.
 \bibitem{affine-ann-v56} 同プロジェクト、\nolinkurl{research/notes/S61_AFFINE_RESIDUAL_ANNIHILATOR_20261102.md}。
 \bibitem{t7-nine-v56} 同プロジェクト、\nolinkurl{research/notes/S61_FLAG_T7_RELATIVE_TORSION_FULL_BASE_20261102.md}。
 \bibitem{t7-dvr-v56} 同プロジェクト、\nolinkurl{research/notes/S61_FLAG_T7_TRANSVERSE_BASE_TORSION_20261102.md}。
+\bibitem{bound-three-v57} 同プロジェクト、\nolinkurl{research/notes/S61_AFFINE_BOUNDARY_DIMENSION_20261102.md}。
+\bibitem{bound-two-v57} 同プロジェクト、\nolinkurl{research/notes/S61_AFFINE_SURFACE_BOUND_20261102.md}。
+\bibitem{bound-review-v57} 同プロジェクト、\nolinkurl{research/notes/S61_AFFINE_SURFACE_BOUND_REVIEW_20261102.md}。
+\bibitem{two-coord-v57} 同プロジェクト、\nolinkurl{research/notes/S61_AFFINE_TWO_COORDINATE_PROJECTION_20261102.md}。
+\bibitem{t7-point-v57} 同プロジェクト、\nolinkurl{research/notes/S61_T7_CRITICAL_AMBIENT_TRANSVERSE_20261102.md}。
+\bibitem{t7-end-v57} 同プロジェクト、\nolinkurl{research/notes/S61_FLAG_T7_CORE_REMOVAL_20261102.md}。
+\bibitem{polar-image-v57} 同プロジェクト、\nolinkurl{research/notes/TORIC_PROJECTIVE_ZERO_FIBER_POLAR_IMAGE_20261102.md}。
+\bibitem{linear-ruling-v57} 同プロジェクト、\nolinkurl{research/notes/TORIC_DISCRIMINANT_LINEAR_RULING_20261102.md}。
 \end{thebibliography}
 \endgroup
 \end{document}

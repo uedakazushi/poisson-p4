@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checkpoint": "v56-s61",
+  "checkpoint": "v57-s61",
   "date": "2026-11-02",
   "base_mathematical_checkpoint": "v24",
   "new_mathematical_progress_in_this_setup": false,
@@ -8496,6 +8496,197 @@
       ],
       "limitations_ja": [
         "ε非零の指定切断。旗原点で切断を戻した全ambientの消滅は別。"
+      ]
+    },
+    {
+      "id": "S61_AFFINE_BOUNDARY_DIMENSION",
+      "title_ja": "全型での真の無限遠境界の次元評価",
+      "statement_ja": "未飽和135式の一般β無限遠は正確に三次元。真のアフィン境界は高々二次元で、二次元候補は通常階数35の非平方binaryに限られる。",
+      "scope": "Exactly the pointwise, generic-open, all-degree or finite-model scope stated in each proof note.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_02",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_BINARY_H11_RANK_DROP_RESIDUAL_FINITE",
+          "S61_AFFINE_NORMAL_PROJECTION"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_AFFINE_BOUNDARY_DIMENSION_20261102.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_AFFINE_BOUNDARY_DIMENSION_20261102.json"
+      ],
+      "limitations_ja": [
+        "旧compatible quadratic分類の全点被覆を明示的に入力する。"
+      ]
+    },
+    {
+      "id": "S61_AFFINE_SURFACE_BOUND",
+      "title_ja": "全一般アフィンファイバーの次元上界2",
+      "statement_ja": "楕円五次曲線上の二元二次形式の射影束で、指定一因子のrank-drop直線束との交叉を制限し、判別式の線束の切断を用いて境界曲面を排除。真の境界は高々曲線、一般アフィンは高々曲面。",
+      "scope": "Exactly the pointwise, generic-open, all-degree or finite-model scope stated in each proof note.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_02",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_AFFINE_BOUNDARY_DIMENSION",
+          "S61_BINARY_H11_RANK_DROP_RESIDUAL_FINITE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_AFFINE_SURFACE_BOUND_20261102.md"
+        },
+        {
+          "path": "research/notes/S61_AFFINE_SURFACE_BOUND_REVIEW_20261102.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_AFFINE_SURFACE_BOUND_20261102.json",
+        "reports/S61_AFFINE_SURFACE_BOUND_REVIEW_20261102.json"
+      ],
+      "limitations_ja": [
+        "真の境界曲線とアフィン曲面の存在・不存在はまだ確定しない。"
+      ]
+    },
+    {
+      "id": "S61_AFFINE_TWO_COORDINATE_PROJECTION",
+      "title_ja": "元の二座標u6,u42への有限射",
+      "statement_ja": "Qxz(ex), Qyw(ey)の共通零点の余次元とSp4作用を評価し、十分一般のβで全アフィンファイバーから(u6,u42)への射が有限であることを証明した。",
+      "scope": "Exactly the pointwise, generic-open, all-degree or finite-model scope stated in each proof note.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_02",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_AFFINE_SURFACE_BOUND"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_AFFINE_TWO_COORDINATE_PROJECTION_20261102.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_AFFINE_TWO_COORDINATE_PROJECTION_20261102.json"
+      ],
+      "limitations_ja": [
+        "二変数環上の有限性であり、定数体上の有限性や次数五とは区別する。"
+      ]
+    },
+    {
+      "id": "S61_TORIC_PROJECTIVE_ZERO_POLAR_IMAGE",
+      "title_ja": "射影零ファイバーと次数18の極方向写像",
+      "statement_ja": "実T01の射影零ファイバーはABの被約射影錐。全無限遠境界はW16×P(AB)にスキームとして含まれ、一般判別因子の極方向はP(AB)に優越する。",
+      "scope": "Exactly the pointwise, generic-open, all-degree or finite-model scope stated in each proof note.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_02",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_TORIC_ZERO_FIBER_REDUCED_GLOBALLY",
+          "S61_TORIC_GENERIC_DISCRIMINANT_FIBER"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/TORIC_PROJECTIVE_ZERO_FIBER_POLAR_IMAGE_20261102.md"
+        }
+      ],
+      "verification_records": [
+        "reports/TORIC_PROJECTIVE_ZERO_FIBER_POLAR_IMAGE_20261102.json"
+      ],
+      "limitations_ja": [
+        "射影閉包は実T01をq座標で閉じたもの。"
+      ]
+    },
+    {
+      "id": "S61_TORIC_DISCRIMINANT_LINEAR_RULING",
+      "title_ja": "判別因子の線形五平面と極方向の逆算",
+      "statement_ja": "射影判別因子はP(AB)上の五平面束と双有理。一般の標準曲線はただ一つの通常二重点を持つ既約有理五次曲線。節点で枠を合わせれば極方向は4×5線形系の一意の射影核。",
+      "scope": "Exactly the pointwise, generic-open, all-degree or finite-model scope stated in each proof note.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_02",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_TORIC_PROJECTIVE_ZERO_POLAR_IMAGE",
+          "S61_TORIC_ZERO_FIBER_GENERIC_REDUCED"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/TORIC_DISCRIMINANT_LINEAR_RULING_20261102.md"
+        }
+      ],
+      "verification_records": [
+        "reports/TORIC_DISCRIMINANT_LINEAR_RULING_20261102.json"
+      ],
+      "limitations_ja": [
+        "判別因子上の一般点、ABの稠密な対角枠。全特異ファイバーの同定ではない。"
+      ]
+    },
+    {
+      "id": "S61_FLAG_T7_CORE_REMOVAL",
+      "title_ja": "T7旗core全層の一般β上の飽和除去",
+      "statement_ja": "非零T7点の全ambient完成環は正則18変数上の長さ4の厚化でt=0。旗端点の相対tSの支持を制限し、群方向を戻し、r=−91/400の全nuisanceでt冪零を証明。",
+      "scope": "Exactly the pointwise, generic-open, all-degree or finite-model scope stated in each proof note.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_02",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_FLAG_T7_TRANSVERSE_BASE_TORSION",
+          "S61_FLAG_T7_WEIGHTED_PRIMARY"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_T7_CRITICAL_AMBIENT_TRANSVERSE_20261102.md"
+        },
+        {
+          "path": "research/notes/S61_FLAG_T7_CORE_REMOVAL_20261102.md"
+        },
+        {
+          "path": "research/notes/S61_FLAG_T7_GLOBAL_REMOVAL_PROOF_REVIEW_20261102.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_T7_CRITICAL_AMBIENT_TRANSVERSE_20261102.json",
+        "reports/S61_FLAG_T7_CORE_REMOVAL_20261102.json",
+        "reports/S61_FLAG_T7_GLOBAL_REMOVAL_PROOF_REVIEW_20261102.json"
+      ],
+      "limitations_ja": [
+        "旗core全域の一様な冪零指数の数値は未確定。"
       ]
     }
   ],

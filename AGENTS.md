@@ -1,8 +1,20 @@
 # Poisson structures on P4 — Codex instructions
 
-Version: v56-s61 · 2026-11-02 (Asia/Tokyo).
+Version: v57-s61 · 2026-11-02 (Asia/Tokyo).
 
-Current v56 additions: the actual scheme-theoretic zero first-jet fiber of
+Current v57 additions: over general beta the full affine S61 fiber has
+dimension at most TWO. Its actual projective boundary has dimension at most
+one, while the unsaturated infinity has dimension three. The two actual
+coordinates (u6,u42) give a finite morphism to A2. Generic finiteness over
+the beta base and exhaustion by five points remain open. The T7 flag core
+r=-91/400 is removed at all general-beta points. T01's projective zero fiber
+is the reduced projective cone over P(AB). The degree18 polar direction map
+from the discriminant dominates P(AB) and its general projective fiber closure
+is a linear P5. In an adapted frame a four-by-five matrix reconstructs the
+pole from the unique node of the general canonical discriminant quintic.
+Continue removing residual curves and surfaces. Lower57; no upper bound.
+
+Previous v56 additions: the actual scheme-theoretic zero first-jet fiber of
 reduced T01 equals reduced AB, including its origin. Two independent exact
 proofs lift all 274 quadratic generators. At the general discriminant point
 the actual affine T01 fiber is one reduced point. Its relative projective
