@@ -1,8 +1,19 @@
 # Poisson structures on P4 — Codex instructions
 
-Version: v57-s61 · 2026-11-02 (Asia/Tokyo).
+Version: v58-s61 · 2026-11-02 (Asia/Tokyo).
 
-Current v57 additions: over general beta the full affine S61 fiber has
+Current v58 additions: both remaining ordinary flag cores r=2 and -6/25
+are removed over general beta. ALL b0!=0 flag points are now removed.
+At r=2 a positive base coordinate rho is retained, with a length111 torsion
+kernel and a three-cut orbit determinant 8; ambient t^2=0. T5 uses a
+length23 ambient transverse ring and an unspecified nilpotence exponent
+at the endpoint. The marked square section has at most finitely many
+unremoved points over general beta. Over K=C(W16) any hypothetical affine
+surface has degree divisible by 5 and at least 15. The 782-by-166 matrix
+after fixing u6,u42 is not a global degree upper bound. Continue reducing
+the actual affine fiber and classifying its remaining supports. Lower57.
+
+Previous v57 additions: over general beta the full affine S61 fiber has
 dimension at most TWO. Its actual projective boundary has dimension at most
 one, while the unsaturated infinity has dimension three. The two actual
 coordinates (u6,u42) give a finite morphism to A2. Generic finiteness over

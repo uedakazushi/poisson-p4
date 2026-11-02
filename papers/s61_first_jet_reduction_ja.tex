@@ -35,7 +35,7 @@
 \title{射影四空間の Poisson 構造の一次ジェット還元\\
 \large 普遍的楕円切断、Jacobian の二捩れと Toric 成分の境界}
 \author{Poisson P4 研究プロジェクト・内部研究草稿}
-\date{2026年11月2日・v57-s61}
+\date{2026年11月2日・v58-s61}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -5526,6 +5526,70 @@ Q_{yw}=Cx^2+Dxz+Ez^2$ と書ける。元134式の一次部分への微分の階�
 連結性と自明な双対化層から一般の判別曲線は既約有理五次曲線となる。
 一般の滑らかな一次ジェットでの全アフィン五点の尽くしは引き続き未解決である。
 
+\section{通常旗の全域除去と未知アフィン曲面の次数（v58）}
+\paragraph{最後の二つの通常旗。}
+$b_0\ne0$ の旗のうち残っていた $r=-6/25,2$ を処理する。
+T5値 $-6/25$ では、指定した二切断の旗枝とT5枝の一般長は5,7、交叉長は6である。
+和集合と元の環の差は原点に支持され長さ78。T5枝の非零点で元の全61変数の
+うち実 incidence の18パラメータを切ると、真の横断 Hilbert 関数は
+$(1,3,5,6,5,3)$ となる。長さ23は同じ実成分の一般長と一致し、周囲の完成環で
+$t^{23}=0$ を与える。このため旗端点の二切断で $M=t^{23}S$ の特殊加群は、
+両極小素の一般点で消え、有限長である。底の非正重みと群方向を戻す議論により
+この値の全nuisanceで $t$ は冪零となる\cite{t5-v58,t5-review-v58}。
+
+$r=2$ では従来の補償行列の行列式 $2-r$ が零なので、底 $H_{15}=\{u_4=0\}$ に
+正重み1の $\rho=u_{12}$ を残し、$q_{19}=q_{26}=q_{27}=0$ を切る。
+他の14底変数の中心からの差はすべて非正重みである。それらを零とした中央環で、
+六つの自由変数と $\rho$ を残して元135式を正確な重み付き多項式へ消去した。
+$\rho=0$ での長さは49、$\rho\ne0$ での環は長さ5の平方零環であり、
+$\rho$-torsion の重み級数は
+\[
+5z^2+17z^3+35z^4+44z^5+10z^6.
+\]
+実旗三方向の新しい切断への微分行列式は8である。これで実在する四法線の
+切断成分を除き、全相対環の、底上自由5の閉商を得る。平坦性によりその実核
+$M$ の特殊加群がちょうど上記の長111の torsion である。従って $M$ は非正14底上、
+重み2から6の元で生成され、重み5の $t$ は $M$ を殺す。$t\in M$ より $t^2=0$。
+底の法線 $u_4$ と三つの切断法線に対する $Sp_4$ の四次小行列式は8であり、
+切断前の全周囲へこの結論を戻せる\cite{r2-v58,r2-review-v58}。
+正重み収縮で全nuisanceに移すと、十分一般の $\beta$ に対する
+$b_0\ne0$ の旗の除去が完了する。
+
+指定因子を重ねた平方旗 $\Sigma$ では、元135式の正重みの底を残した別の横断を使う。
+指定中心で重み0の底と非正底を固定すると、正の底変数の零点で長70、
+その飽和後は、一般に長さ4で射影旗のsectionを支持とする。非零底での周囲の
+除去と有限重みの議論により17次元の既約表示の非空開が除去され、
+$\Sigma$ 上の未処理点は一般 $\beta$ ごとに高々有限となる\cite{sigma-v58}。
+
+\paragraph{一般関数体での次数。}
+$K=\mathbf C(W_{16})$ とする。標準楕円五次曲線 $C/K$ の指数は5である。
+普遍零点 incidence は $LG(2,4)$ 上の階数14ベクトル束であり、その大セルの
+逆像はアフィン空間、補集合は一つの既約な Schubert 因子の逆像である。
+一般曲線の零サイクルの閉包を取ると、その次数は超平面の次数5の倍数となる。
+一方、超平面が実際に次数5を与える。真の無限遠点の剰余体 $L$ 上では
+支持平面から $C(L)$ の点、または一意な頂点から $\operatorname{Pic}^3(C)(L)$ の
+点を得る。後者でもその二倍から $\mathcal O_C(1)$ の類を引けば
+$\operatorname{Pic}^1(C)\simeq C$ の点である。従って $5\mid[L:K]$。
+正次元の $K$-サイクルを無限遠と一般超平面で切ることにより、その射影次数も
+5の倍数となる\cite{index-v58}。
+
+実際には $K$ 上整なアフィン曲面の次数は少なくとも15でなければならない。
+境界に一次で横断するには二次式70行の $t$ 列が法線列の像に入る必要がある。
+非平方型は一般 $\beta$ でこの条件を満たさず、旗で残る曲線は次数15の
+指定平方切断に限られる。これで次数5を排除する。次数10の場合は交叉サイクルが
+次数5の曲線の二倍で、五つの共役な垂直直線が現れる。幾何的整な射影曲面の
+超平面切断の連結性と次数から、候補は五つの二次錐に限られ、その各頂点は
+指定平方点である。母線を用いた表示で元式を二つのパラメータに展開すると、
+三つの元行の有理定数倍の和が、非零な指定因子の係数の平方を零にする。
+これで次数10も排除する\cite{degree-low-v58,degree-ten-v58}。
+この制約は関数体 $K$ 上の曲面に対するものである。
+
+固定有限射 $(u_6,u_{42})$ の指定値では、二座標を消した後の23変数の
+最高二次部は階数134、三次部は全2300列を張る。全20法線上で166生成元と
+782関係を得て、指定二方向では全射影パラメータで消滅することを検算した
+\cite{pair-v58}。曲面の不存在には一般射影次数の上界など、全20変数の
+支持に対する追加の証明が必要である。成分数の下界は57である。
+
 \begingroup\footnotesize
 \begin{thebibliography}{99}
 \setlength{\itemsep}{0pt}
@@ -5868,6 +5932,15 @@ Section 11.1, Example 11.1.11 and Exercise 11.8.
 \bibitem{t7-end-v57} 同プロジェクト、\nolinkurl{research/notes/S61_FLAG_T7_CORE_REMOVAL_20261102.md}。
 \bibitem{polar-image-v57} 同プロジェクト、\nolinkurl{research/notes/TORIC_PROJECTIVE_ZERO_FIBER_POLAR_IMAGE_20261102.md}。
 \bibitem{linear-ruling-v57} 同プロジェクト、\nolinkurl{research/notes/TORIC_DISCRIMINANT_LINEAR_RULING_20261102.md}。
+\bibitem{t5-v58} 同プロジェクト、\nolinkurl{research/notes/S61_FLAG_T5_CORE_REMOVAL_20261102.md}。
+\bibitem{t5-review-v58} 同プロジェクト、\nolinkurl{research/notes/S61_FLAG_T5_CORE_REMOVAL_PROOF_REVIEW_20261102.md}。
+\bibitem{r2-v58} 同プロジェクト、\nolinkurl{research/notes/S61_FLAG_R2_POSITIVE_BASE_REMOVAL_20261102.md}。
+\bibitem{r2-review-v58} 同プロジェクト、\nolinkurl{research/notes/S61_FLAG_R2_POSITIVE_BASE_REMOVAL_REVIEW_20261102.md}。
+\bibitem{sigma-v58} 同プロジェクト、\nolinkurl{research/notes/S61_MARKED_SIGMA_RESIDUAL_FINITE_20261102.md}。
+\bibitem{index-v58} 同プロジェクト、\nolinkurl{research/notes/S61_GENERIC_BOUNDARY_INDEX_20261102.md}。
+\bibitem{degree-low-v58} 同プロジェクト、\nolinkurl{research/notes/S61_AFFINE_SURFACE_DEGREE_OBSTRUCTION_20261102.md}。
+\bibitem{degree-ten-v58} 同プロジェクト、\nolinkurl{research/notes/S61_AFFINE_DEGREE_TEN_EXCLUSION_20261102.md}。
+\bibitem{pair-v58} 同プロジェクト、\nolinkurl{research/notes/S61_AFFINE_FIXED_PAIR_LOCALIZATION_20261102.md}。
 \end{thebibliography}
 \endgroup
 \end{document}
