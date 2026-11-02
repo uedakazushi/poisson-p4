@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checkpoint": "v58-s61",
+  "checkpoint": "v59-s61",
   "date": "2026-11-02",
   "base_mathematical_checkpoint": "v24",
   "new_mathematical_progress_in_this_setup": false,
@@ -8905,6 +8905,202 @@
       ],
       "limitations_ja": [
         "元134式のJacobianとHessianの全再生成は主証明による。"
+      ]
+    },
+    {
+      "id": "S61_BINARY_ZERO_PAIR_STRATUM_REMOVAL",
+      "title_ja": "c=f=0の非平方二平面型全層の除去",
+      "statement_ja": "五群方向の全横断で正のβ座標二つを残す。有限長だけで周囲t冪零が従う。重み平面P(1,1,3)の豊富な曲線を、354×239多項式行加群と無限遠の長72で全点被覆し、一般β上のc=f=0全層を除去。",
+      "scope": "Exactly the pointwise, generic-open, all-degree or finite-model scope stated in each proof note.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_02",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_BINARY_H11_RANK_DROP_RESIDUAL_FINITE",
+          "S61_BINARY_NUISANCE_CONTRACTION"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_BINARY_ZERO_PAIR_STRATUM_REMOVAL_20261102.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_BINARY_ZERO_PAIR_STRATUM_REMOVAL_20261102.json"
+      ],
+      "limitations_ja": [
+        "他のmarked非平方H11・平方Σには結論を延ばさない。"
+      ]
+    },
+    {
+      "id": "S61_AFFINE_BOUNDARY_FINITE_ANCHORS",
+      "title_ja": "全境界曲線を有限個の指定点へ帰着",
+      "statement_ja": "全真境界は標準楕円曲線上の二次形式束Bに入る。指定因子を持つ形式の豊富な因子Dとの交叉は高々有限であり、真の境界曲線は必ずこの有限集合に会う。",
+      "scope": "Exactly the pointwise, generic-open, all-degree or finite-model scope stated in each proof note.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_02",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_MARKED_SIGMA_RESIDUAL_FINITE",
+          "S61_FLAG_R2_POSITIVE_BASE_REMOVAL",
+          "S61_FLAG_T5_CORE_REMOVAL",
+          "S61_AFFINE_SURFACE_BOUND"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_AFFINE_BOUNDARY_FINITE_ANCHORS_20261102.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_AFFINE_BOUNDARY_FINITE_ANCHORS_20261102.json"
+      ],
+      "limitations_ja": [
+        "有限集合の空性、個数、各点の局所次元は別の計算。"
+      ]
+    },
+    {
+      "id": "S61_AFFINE_ANCHOR_LENGTH_BOUND",
+      "title_ja": "有限集合の局所商による曲面次数の上界",
+      "statement_ja": "元のqに線形、βに二次の六式で指定因子を切る。仮想曲面の次数dとこの因子との交叉数cはd≤2c、c≤全局所商長を満たす。局所商長の和9以下なら曲面を排除。",
+      "scope": "Exactly the pointwise, generic-open, all-degree or finite-model scope stated in each proof note.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_02",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_AFFINE_BOUNDARY_FINITE_ANCHORS",
+          "S61_AFFINE_SURFACE_DEGREE_FIFTEEN"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_AFFINE_ANCHOR_LENGTH_BOUND_20261102.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_AFFINE_ANCHOR_LENGTH_BOUND_20261102.json"
+      ],
+      "limitations_ja": [
+        "局所商長の和の数値はまだ得られていない。"
+      ]
+    },
+    {
+      "id": "S61_MARKED_SIGMA_INTERSECTION_REMOVAL",
+      "title_ja": "指定平方旗のb1=0交叉の全除去",
+      "statement_ja": "中心ρ=0で長76、飽和後rank31。ρ≠0の実旗点を既知の−4/25通常coreへ移し、二切断を戻し16次元交叉を一般β上で除去した。",
+      "scope": "Exactly the pointwise, generic-open, all-degree or finite-model scope stated in each proof note.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_02",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_MARKED_SIGMA_RESIDUAL_FINITE",
+          "S61_FLAG_ORDINARY_WEIGHTED_REMOVAL"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_MARKED_SIGMA_INTERSECTION_REMOVAL_20261102.md"
+        },
+        {
+          "path": "research/notes/S61_MARKED_SIGMA_INTERSECTION_REMOVAL_PROOF_REVIEW_20261102.md"
+        },
+        {
+          "path": "research/notes/S61_MARKED_SIGMA_RESIDUAL_FINITE_PROOF_REVIEW_20261102.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_MARKED_SIGMA_INTERSECTION_REMOVAL_20261102.json",
+        "reports/S61_MARKED_SIGMA_INTERSECTION_REMOVAL_PROOF_REVIEW_20261102.json",
+        "reports/S61_MARKED_SIGMA_RESIDUAL_FINITE_PROOF_REVIEW_20261102.json"
+      ],
+      "limitations_ja": [
+        "Σの残りはb1≠0の高々有限点。"
+      ]
+    },
+    {
+      "id": "S61_MARKED_SIGMA_PROJECTIVE_CORE",
+      "title_ja": "指定平方旗の射影coreと実アフィン直線",
+      "statement_ja": "b1≠0の残coreはP(2,2,3)で扱える。零nuisanceの不変な旗方向直線を許す射影coreを厳密に二点に分類し、一つに実アフィン平面を得た。",
+      "scope": "Exactly the pointwise, generic-open, all-degree or finite-model scope stated in each proof note.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_02",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_MARKED_SIGMA_RESIDUAL_FINITE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_MARKED_SIGMA_PROJECTIVE_CORE_20261102.md"
+        },
+        {
+          "path": "research/notes/S61_MARKED_SIGMA_PROJECTIVE_CORE_PROOF_REVIEW_20261102.md"
+        },
+        {
+          "path": "research/notes/S61_MARKED_SIGMA_HOMOGENEOUS_PENCILS_20261102.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_MARKED_SIGMA_PROJECTIVE_CORE_20261102.json",
+        "reports/S61_MARKED_SIGMA_PROJECTIVE_CORE_PROOF_REVIEW_20261102.json",
+        "reports/S61_MARKED_SIGMA_HOMOGENEOUS_PENCILS_20261102.json"
+      ],
+      "limitations_ja": [
+        "この二点の一次ジェットは特殊である。一般ファイバーの追加解は与えない。"
+      ]
+    },
+    {
+      "id": "S61_AFFINE_FIXED_PAIR_UNIVARIATE",
+      "title_ja": "166生成表示の一変数表示",
+      "statement_ja": "指定行列式を逆にすると元134式の固定二座標代数が一変数のモニック166次式と134個の余りの商として厳密に表される。三標本の空・単純点・空を検証した。",
+      "scope": "Exactly the pointwise, generic-open, all-degree or finite-model scope stated in each proof note.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_02",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_AFFINE_FIXED_PAIR_LOCALIZATION"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_AFFINE_FIXED_PAIR_UNIVARIATE_20261102.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_AFFINE_FIXED_PAIR_UNIVARIATE_20261102.json"
+      ],
+      "limitations_ja": [
+        "行列式の零点および全20法線上の支持を未確定として保持する。"
       ]
     }
   ],

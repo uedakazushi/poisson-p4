@@ -1,8 +1,20 @@
 # Poisson structures on P4 — Codex instructions
 
-Version: v58-s61 · 2026-11-02 (Asia/Tokyo).
+Version: v59-s61 · 2026-11-02 (Asia/Tokyo).
 
-Current v58 additions: both remaining ordinary flag cores r=2 and -6/25
+Current v59 additions: the ENTIRE c=f=0 nonsquare marked binary stratum is
+removed over sufficiently general beta. The full five-orbit transversal
+retains two positive beta coordinates. Fiber finiteness suffices for
+nilpotence, even when the transverse length is 72. The P(1,1,3) core test
+line is covered over all finite values and at infinity. The b1=0 part of
+the marked square section is removed over general beta. Every remaining
+true boundary curve meets a finite set on the marked divisor. Six explicit
+linear equations in q give a local length upper bound: total length <=9
+would rule out affine surfaces; this numerical bound is still open. The
+localized fixed-pair univariate model is exact on the stated determinant open.
+Lower57. Continue the nonzero-c marked cores and generic affine exhaustion.
+
+Previous v58 additions: both remaining ordinary flag cores r=2 and -6/25
 are removed over general beta. ALL b0!=0 flag points are now removed.
 At r=2 a positive base coordinate rho is retained, with a length111 torsion
 kernel and a three-cut orbit determinant 8; ambient t^2=0. T5 uses a

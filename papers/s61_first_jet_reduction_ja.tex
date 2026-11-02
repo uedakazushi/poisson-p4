@@ -35,7 +35,7 @@
 \title{射影四空間の Poisson 構造の一次ジェット還元\\
 \large 普遍的楕円切断、Jacobian の二捩れと Toric 成分の境界}
 \author{Poisson P4 研究プロジェクト・内部研究草稿}
-\date{2026年11月2日・v58-s61}
+\date{2026年11月2日・v59-s61}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -5590,6 +5590,71 @@ $\operatorname{Pic}^1(C)\simeq C$ の点である。従って $5\mid[L:K]$。
 \cite{pair-v58}。曲面の不存在には一般射影次数の上界など、全20変数の
 支持に対する追加の証明が必要である。成分数の下界は57である。
 
+\section{二平面型の零対の除去と有限な境界交叉（v59）}
+\paragraph{非平方二平面型の全周囲を切る。}
+$Q_0=xw\partial_y\wedge\partial_z$ を固定する。一次部分の六座標を
+\[
+(a,b,c,d,e,f)=(u_4,u_{14},u_{35},u_{36},u_{49},u_{50})
+\]
+と書く。
+一般 $\beta$ では、$u_{12}=u_{13}=c=f=0$ の十七次元表示は全て飽和で除去される
+\cite{zero-pair-v59}。これには二つの正重みの一次部分 $u_{12},u_{13}$ を
+周囲の横断変数として残す。射影群軌道の五方向を元テンソルの微分から選び、
+その五座標を固定する。残る42横断変数の重みは全て正で、他の十四底変数は
+非正である。固定coreの零nuisanceにおける横断商が有限であれば、
+相対完成環は非正底上有限であり、正重み3の $t$ はそこで冪零となる。
+滑らかな群写像で五方向を戻せる。ここでは横断長の値を65に固定する必要がない。
+
+$(a,b,d,e)=(s^3,6,12,16)$ の試験曲線を取る。有限部分の線形消去の四ブロックは
+行列式が全て $s$ に依存しない単元であり、七つの重み1変数と一つの重み2変数が残る。
+$a$ を不定元としたまま、重み四の354行239列を $\mathbf F_{32003}[a]$ 上で消去する。
+多項式行結合から得られた定数基底の行列式は20982である。
+従ってすべての有限 $s$ で横断代数は有限次元である。$v=1/s$ の chart では
+同じcoreは対角群作用で $(1,6v^2,12,16v^2)$ となる。$v=0$ の正確な還元は
+Hilbert 関数 $(1,7,23,34,5,2)$、長さ72である。正重み変数を射影化した
+不良集合は試験射影直線上で閉であり、二つの chart は共通部分で同型である。
+射影直線の固有性から、閉ファイバーが空であるこの不良集合は標数零でも空となる。
+
+固定旗の代わりに固定した $Q_0$ における十二次元 source を考える。四core上の
+真の閉集合でのみ不良点が現れ、八nuisanceは正の収縮で同じcoreの零へ移る。
+従って次元11の不良成分があれば、それはcore超曲面と八nuisance全体の積である。
+トーラスの二指標により、その超曲面は $a,d$ を除いて
+$F(a^2d,b,e)=0$、重み $(3,1,1)$ と書ける。対応する重み平面曲線は先述の
+$e=8b/3$ の試験曲線と交わる。そこは全域で良いので矛盾する。
+$a=0$ は同じ試験の有限点に含まれる。$d=0$ では五つの制約方向への群微分が
+四次階数となり、$\beta$ 像は次元15以下である。残る不良集合の次元は10以下。
+五次元安定化群を考慮すると、その joint 像も次元15以下になり主張を得る。
+
+\paragraph{実境界の有限個の交叉点。}
+通常旗の全除去により、真の境界は標準楕円曲線上の二次形式束
+$B=\mathbf P_C(\operatorname{Sym}^2 V)$ に入る。指定因子を持つ部分
+$D\in|\mathcal O_B(1)|$ と真の境界との交叉は高々有限である。
+$B$ から二次形式 $[F]$ への写像は有限である。非平方では核から支持平面が一意で、
+平方 $F=\ell^2$ でも候補は固定した Schubert 直線と $C$ の有限交叉に入る。
+よって $\mathcal O_B(1)$ は豊富で、真の全境界曲線はこの有限集合に会う
+\cite{anchor-finite-v59}。指定平方 $\Sigma$ と $b_1=0$ の交叉も、
+指定点の非零底で既知の $-4/25$ の通常旗へ移すことで全一般 $\beta$ 上で除去した
+\cite{sigma-meet-v59}。$b_1\ne0$ 側に残る射影coreは $\mathbf P(2,2,3)$ に入る。
+特殊な二coreでは実際に旗方向のアフィン直線が現れ、その一つには平面もある
+\cite{sigma-core-v59,sigma-line-v59}。
+
+未知曲面の射影次数を $d$、その無限遠交叉サイクルと $D$ との交叉数を $c$、
+楕円曲線への射影次数を重複込みで $e$ とする。線束の次数により
+$d=c+5e\le2c$ である。$D$ をスキームとして切る六式は、
+$\beta$ に二次、元の $q$ に線形な式として計算できる。
+有限集合で単元となる座標とその線形式 $\lambda$ を選べば、各点の真の
+局所環の $(t,\lambda)$ 商の長さの和が $c$ の上界である。
+その和が9以下なら $5\mid c$ により $d\le10$ となり、既証の次数下界15から
+曲面は存在しない\cite{anchor-length-v59}。この長さの和は未算定である。
+
+\paragraph{固定二座標での一変数表示。}
+166個の生成元に対して、一次式による乗算の候補行列 $T$ と、
+$1,1T,\ldots,1T^{165}$ を並べた正方行列を元式から構成する。
+その行列式を反転すると、各元座標が同じ一変数の165次以下の多項式になる。
+Cayley--Hamilton のモニック166次式と、元134式への代入余りにより、
+この開での全代数を一変数の商として両方向に同定できる\cite{pair-uni-v59}。
+さらに進むには行列式が零になる部分と、全20法線の支持を扱う必要がある。
+
 \begingroup\footnotesize
 \begin{thebibliography}{99}
 \setlength{\itemsep}{0pt}
@@ -5941,6 +6006,13 @@ Section 11.1, Example 11.1.11 and Exercise 11.8.
 \bibitem{degree-low-v58} 同プロジェクト、\nolinkurl{research/notes/S61_AFFINE_SURFACE_DEGREE_OBSTRUCTION_20261102.md}。
 \bibitem{degree-ten-v58} 同プロジェクト、\nolinkurl{research/notes/S61_AFFINE_DEGREE_TEN_EXCLUSION_20261102.md}。
 \bibitem{pair-v58} 同プロジェクト、\nolinkurl{research/notes/S61_AFFINE_FIXED_PAIR_LOCALIZATION_20261102.md}。
+\bibitem{zero-pair-v59} 同プロジェクト、\nolinkurl{research/notes/S61_BINARY_ZERO_PAIR_STRATUM_REMOVAL_20261102.md}。
+\bibitem{anchor-finite-v59} 同プロジェクト、\nolinkurl{research/notes/S61_AFFINE_BOUNDARY_FINITE_ANCHORS_20261102.md}。
+\bibitem{anchor-length-v59} 同プロジェクト、\nolinkurl{research/notes/S61_AFFINE_ANCHOR_LENGTH_BOUND_20261102.md}。
+\bibitem{sigma-meet-v59} 同プロジェクト、\nolinkurl{research/notes/S61_MARKED_SIGMA_INTERSECTION_REMOVAL_20261102.md}。
+\bibitem{sigma-core-v59} 同プロジェクト、\nolinkurl{research/notes/S61_MARKED_SIGMA_PROJECTIVE_CORE_20261102.md}。
+\bibitem{sigma-line-v59} 同プロジェクト、\nolinkurl{research/notes/S61_MARKED_SIGMA_HOMOGENEOUS_PENCILS_20261102.md}。
+\bibitem{pair-uni-v59} 同プロジェクト、\nolinkurl{research/notes/S61_AFFINE_FIXED_PAIR_UNIVARIATE_20261102.md}。
 \end{thebibliography}
 \endgroup
 \end{document}

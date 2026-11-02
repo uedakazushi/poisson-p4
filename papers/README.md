@@ -1,6 +1,6 @@
 # 公表用原稿の構成案と証明資料
 
-**状態：v58-s61、2026-11-02。零一次部分の被約台AB、ABのincidenceと特異点集合、最小型無限遠の完成局所環、二平面型の横断Artin代数を統合。**
+**状態：v59-s61、2026-11-02。零一次部分の被約台AB、ABのincidenceと特異点集合、最小型無限遠の完成局所環、二平面型の横断Artin代数を統合。**
 
 [一次ジェット還元の日本語原稿](s61_first_jet_reduction_ja.tex)（[PDF・41ページ](s61_first_jet_reduction_ja.pdf)）は、
 primitive gauge、T01/T39/T40の優越性と全S61のétale点、楕円型五変数模型、T01の一般次数3、
@@ -371,3 +371,12 @@ v35では一般被約無限遠の全型帰着、ABの原点外の正規性、二
 - 仮想アフィン曲面の次数下界15: `S61_AFFINE_SURFACE_DEGREE_OBSTRUCTION_20261102`。適用範囲と未解決部分を各ノートに明記。
 - 固定二座標上での166生成表示: `S61_AFFINE_FIXED_PAIR_LOCALIZATION_20261102`。適用範囲と未解決部分を各ノートに明記。
 - 五平面と節点復元の独立点検: `TORIC_DISCRIMINANT_LINEAR_RULING_REVIEW_20261102`。適用範囲と未解決部分を各ノートに明記。
+
+## v59: 非平方零対の除去と有限境界点への帰着
+
+- c=f=0の非平方二平面型全層の除去: `S61_BINARY_ZERO_PAIR_STRATUM_REMOVAL_20261102`。適用範囲と未解決部分を各ノートに明記。
+- 全境界曲線を有限個の指定点へ帰着: `S61_AFFINE_BOUNDARY_FINITE_ANCHORS_20261102`。適用範囲と未解決部分を各ノートに明記。
+- 有限集合の局所商による曲面次数の上界: `S61_AFFINE_ANCHOR_LENGTH_BOUND_20261102`。適用範囲と未解決部分を各ノートに明記。
+- 指定平方旗のb1=0交叉の全除去: `S61_MARKED_SIGMA_INTERSECTION_REMOVAL_20261102`。適用範囲と未解決部分を各ノートに明記。
+- 指定平方旗の射影coreと実アフィン直線: `S61_MARKED_SIGMA_PROJECTIVE_CORE_20261102`。適用範囲と未解決部分を各ノートに明記。
+- 166生成表示の一変数表示: `S61_AFFINE_FIXED_PAIR_UNIVARIATE_20261102`。適用範囲と未解決部分を各ノートに明記。
