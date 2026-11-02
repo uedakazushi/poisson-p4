@@ -35,7 +35,7 @@
 \title{射影四空間の Poisson 構造の一次ジェット還元\\
 \large 普遍的楕円切断、Jacobian の二捩れと Toric 成分の境界}
 \author{Poisson P4 研究プロジェクト・内部研究草稿}
-\date{2026年11月2日・v55-s61}
+\date{2026年11月2日・v56-s61}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -5392,6 +5392,68 @@ $4z^2+16z^3+34z^4+43z^5+9z^6$、従って長106である。原点で支持され
 特殊切断の二重直線が一般底へ平坦に持ち上がることはこの計算からは従わない。
 成分下界は57であり、一般アフィン部分の尽くし、全体の成分上界とその後の分類は未解決である。
 
+\section{実トーリック零ファイバーと判別因子（v56）}
+\paragraph{274本を実際の関係へ持ち上げる。}
+実 T01 のイデアルを一次部分 $b$ で割ったイデアルを $J_0$ とする。
+すると $J_0=I_{AB}$ である。特に原点も含めて実零ファイバーが正規な被約ABと一致する。
+証明の一方では、アフィン場の一次部分を primitive にし、その二次部分に対応する
+二形式に $d\iota_E/4$ を施して閉二形式に射影する。得られる45座標 $q'$ は、
+元の $q$ に一次部分の二次式を加えた三角座標であり、$b=0$ では元の座標に一致する。
+$Sp_4$ の単純根を使って $I_{AB,2}$ の15本の最高重みベクトルを取り、
+$b^2q'$ と $b^4$ の項で代表を補正する。生成した274ベクトルの全1096個の
+単純根微分がその空間内にあることと、$b=0$ での像が $I_{AB,2}$ であることを
+有理数で検算した。六変数の代表 coframe 上で全274式の全係数が零となり、
+その右 $Sp_4$ 軌道は可逆 coframe に稠密なので、実成分上の恒等式を得る
+\cite{coframe-274-v56}。
+
+もう一方では、結合則の補助20変数 $c$ を用い、実座標 $z=q-\bar q(b)=N(b)c$
+に戻す。各二次式 $r$ に対して $r(Nc)$ を、96結合則から得る二次式の
+$b^2$ 倍、一次関係の $bc$ 倍、および $b^2(Nc)$ の線形結合に還元する。
+29重みの全係数を二度照合し、各 $r(z)$ に足す $b^2z,b^4$ の実係数を保存した
+\cite{asso-274-v56}。両方の計算によって $I_{AB}\subset J_0$ を得る。
+逆包含は既知の被約台 $\sqrt{J_0}=I_{AB}$ から従う。
+
+\paragraph{分岐と無限遠の長さ二。}
+$D=V(c_4^3-c_6^2)$ の一般点で、正規三次被覆の環は二つの閉点を持つ
+半局所一次元正規整域となる。$r=-3c_6/c_4$ とおけば、剰余体上では
+$f=(X-r)^2(X+2r)$ である。$f'$ のノルムは判別式の非零定数倍なので、
+$f'$ は重根の素 $P$ で付値1、単根で単元である。$q_i=\bar q_i+h_i/f'$
+の全座標が $P$ でも正則だと仮定すると、すべての高さ一で正則となる。
+正規環が高さ一の局所環の共通部分であることから実座標全部が正規三次被覆の環に
+入り、実 T01 が底上有限になる。これは零ファイバーの次元十に反する。
+従って少なくとも一つの $h_j$ が $P$ で単元である。$(h_j,f')=(1)$ により
+$1/f'$ が実環に入り、半局所化後の実環は $A[1/f']$ に一致する
+\cite{toric-discriminant-v56,toric-disc-review-v56}。
+
+射影座標 $[f':f'\bar q+h]$ はこの二点を分離する。重根側で $t/q_j$ が
+一様化元になるため、$1,t/q_j$ の二つで底の剰余体上の長さ二のファイバーを
+生成する。有限順像に中山の補題を適用すると像の局所環は源のDVRそのものとなる。
+従って一般判別因子の近くで相対射影閉包は正規三次被覆である。
+アフィンに被約一点、無限遠に長さ二の一点が現れる。
+
+\paragraph{全S61の未知アフィン部分を制限する。}
+射影25平面を切る法線20座標を $y$ とする。法線イデアルは
+$\mathbf C[y]$ 加群として次数一、二、三にそれぞれ42,292,100個以下の生成元を持つ
+\cite{normal-module-v56}。$t=1$ として元134式を平面に沿う25個の変数について
+消去すると、二次最高部の階数は134、三次最高部は2925列の全階数である。
+従って全アフィン代数は、定数1、一次25、二次191の217生成元で表せる。
+三次を消した425行はこれらの多項式関係となる。この行列を法線方向の一つの
+射影直線の全点で検査し、一般射影26平面で既知五点が全断面を尽くすことを得た
+\cite{affine-border-v56}。さらに $y=0$ での212独立列と残る五列の20方向の
+変化を使い、312行の行列式 $D_0(y)$ を明示的に選べる。$D_0(0)\ne0$ であり、
+余因子の恒等式から $D_0$ は既知五点への制限の核を殺す
+\cite{affine-ann-v56}。全アフィン空間に追加解があれば $D_0=0$ 上にある。
+
+\paragraph{T7の横断環。}
+指定した二切断と $\epsilon\ne0$ で、T7の直線に沿う値を固定する。九変数の
+完成底を $A$ とすると実環は $A\oplus(A/(a_9^3))\eta$、$\eta^2=f\eta$、
+$f$ は $a_9$ の単位倍、$t=0$ である。陰関数消去後に実sectionを用いて
+$\eta$ で割り、その後の底イデアルの三次先頭は $a_9^3$ 一つとなる。
+高さ一 $(a_9)$ で切断を一つ外し、実在する長さ4の厚化に戻すと、
+同じ切断の関係行列の三つの対角成分はすべて付値1である。得られる長さ3で
+上界が尽き、全底のイデアルを確定できる\cite{t7-nine-v56,t7-dvr-v56}。
+全成分の尽くしには一般アフィン残余の空性と他の特殊層の処理が残る。
+
 \begingroup\footnotesize
 \begin{thebibliography}{99}
 \setlength{\itemsep}{0pt}
@@ -5717,6 +5779,15 @@ Section 11.1, Example 11.1.11 and Exercise 11.8.
 \bibitem{affine-p25-v55} 同プロジェクト、\nolinkurl{research/notes/S61_AFFINE_TWENTYFIVE_PLANE_20261102.md}。
 \bibitem{binary-h11-v55} 同プロジェクト、\nolinkurl{research/notes/S61_BINARY_H11_RANK_DROP_RESIDUAL_FINITE_20261102.md}。
 \bibitem{t7-primary-v55} 同プロジェクト、\nolinkurl{research/notes/S61_FLAG_T7_WEIGHTED_PRIMARY_20261102.md}。
+\bibitem{coframe-274-v56} 同プロジェクト、\nolinkurl{research/notes/TORIC_ZERO_FIBER_COFRAME_QUADRICS_20261102.md}。
+\bibitem{asso-274-v56} 同プロジェクト、\nolinkurl{research/notes/TORIC_ZERO_JET_ASSOCIATIVE_LIFTS_20261102.md}。
+\bibitem{toric-discriminant-v56} 同プロジェクト、\nolinkurl{research/notes/TORIC_GENERIC_DISCRIMINANT_AFFINE_FIBER_20261102.md}。
+\bibitem{toric-disc-review-v56} 同プロジェクト、\nolinkurl{research/notes/TORIC_GENERIC_DISCRIMINANT_AFFINE_FIBER_REVIEW_20261102.md}。
+\bibitem{normal-module-v56} 同プロジェクト、\nolinkurl{research/notes/S61_AFFINE_FINITE_NORMAL_MODULE_20261102.md}。
+\bibitem{affine-border-v56} 同プロジェクト、\nolinkurl{research/notes/S61_AFFINE_BORDER_SUPPORT_20261102.md}。
+\bibitem{affine-ann-v56} 同プロジェクト、\nolinkurl{research/notes/S61_AFFINE_RESIDUAL_ANNIHILATOR_20261102.md}。
+\bibitem{t7-nine-v56} 同プロジェクト、\nolinkurl{research/notes/S61_FLAG_T7_RELATIVE_TORSION_FULL_BASE_20261102.md}。
+\bibitem{t7-dvr-v56} 同プロジェクト、\nolinkurl{research/notes/S61_FLAG_T7_TRANSVERSE_BASE_TORSION_20261102.md}。
 \end{thebibliography}
 \endgroup
 \end{document}

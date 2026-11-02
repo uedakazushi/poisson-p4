@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checkpoint": "v55-s61",
+  "checkpoint": "v56-s61",
   "date": "2026-11-02",
   "base_mathematical_checkpoint": "v24",
   "new_mathematical_progress_in_this_setup": false,
@@ -8327,6 +8327,175 @@
       ],
       "limitations_ja": [
         "固定β・指定二切断での一次分解。実相対flat2商や全T7の周囲t冪零性を含まない。"
+      ]
+    },
+    {
+      "id": "S61_TORIC_ZERO_FIBER_REDUCED_GLOBALLY",
+      "title_ja": "実T01零ファイバーの全域での被約性",
+      "statement_ja": "全274本のAB二次式を実T01の重み4の恒等式に持ち上げ、零ファイバーがスキームとしてABと一致することを証明。Sp4と6変数coframe、および96結合則の二つの独立な計算で全係数を検証。",
+      "scope": "Exactly the pointwise, generic-open, all-degree or finite-model scope stated in each proof note.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_02",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_AB_QUADRATIC_PRIME_PRESENTATION",
+          "S61_TORIC_ZERO_JET_EXHAUSTION"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/TORIC_ZERO_FIBER_COFRAME_QUADRICS_20261102.md"
+        },
+        {
+          "path": "research/notes/TORIC_ZERO_JET_ASSOCIATIVE_LIFTS_20261102.md"
+        }
+      ],
+      "verification_records": [
+        "reports/TORIC_ZERO_FIBER_COFRAME_QUADRICS_20261102.json",
+        "reports/TORIC_ZERO_JET_ASSOCIATIVE_LIFTS_20261102.json"
+      ],
+      "limitations_ja": [
+        "実T01を底へ制限したファイバーの結果。周囲の全Jacobiスキームには他の成分がある。"
+      ]
+    },
+    {
+      "id": "S61_TORIC_GENERIC_DISCRIMINANT_FIBER",
+      "title_ja": "判別因子の一般点での実T01のファイバー",
+      "statement_ja": "判別因子の一般点で実アフィンT01は被約一点。あるqの単純極により、射影閉包は一般判別因子近傍で正規三次被覆となり、無限遠は長さ2の一点。",
+      "scope": "Exactly the pointwise, generic-open, all-degree or finite-model scope stated in each proof note.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_02",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_TORIC_NORMALIZATION_AND_BOUNDARY_GAP",
+          "S61_TORIC_ZERO_JET_EXHAUSTION"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/TORIC_GENERIC_DISCRIMINANT_AFFINE_FIBER_20261102.md"
+        },
+        {
+          "path": "research/notes/TORIC_GENERIC_DISCRIMINANT_AFFINE_FIBER_REVIEW_20261102.md"
+        }
+      ],
+      "verification_records": [
+        "reports/TORIC_GENERIC_DISCRIMINANT_AFFINE_FIBER_20261102.json",
+        "reports/TORIC_GENERIC_DISCRIMINANT_AFFINE_FIBER_REVIEW_20261102.json"
+      ],
+      "limitations_ja": [
+        "判別因子の稠密開。特別な判別点の全ファイバーは別。"
+      ]
+    },
+    {
+      "id": "S61_AFFINE_FINITE_NORMAL_MODULE",
+      "title_ja": "法線20変数上の有限表示と射影26平面",
+      "statement_ja": "全射影模型の法線イデアルには次数3以下434個の加群生成元が足りる。t=1の全代数に対しては217個で足り、425行の明示関係を得る。一本の全方向の検査により一般P26断面で既知五点を尽くす。",
+      "scope": "Exactly the pointwise, generic-open, all-degree or finite-model scope stated in each proof note.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_02",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_AFFINE_NORMAL_PROJECTION",
+          "S61_AFFINE_TWENTYFIVE_PLANE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_AFFINE_FINITE_NORMAL_MODULE_20261102.md"
+        },
+        {
+          "path": "research/notes/S61_AFFINE_BORDER_SUPPORT_20261102.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_AFFINE_FINITE_NORMAL_MODULE_20261102.json",
+        "reports/S61_AFFINE_BORDER_SUPPORT_20261102.json"
+      ],
+      "limitations_ja": [
+        "425本が全関係を張ることや、全20変数の支持が原点のみであることは仮定しない。"
+      ]
+    },
+    {
+      "id": "S61_AFFINE_RESIDUAL_ANNIHILATOR",
+      "title_ja": "未知アフィン部分を消す具体的な行列式",
+      "statement_ja": "既知五点への制限の核について312生成元に対する行列式Dを構成。D(0)≠0かつDが全残余加群を殺す。追加点はD=0上に限られる。",
+      "scope": "Exactly the pointwise, generic-open, all-degree or finite-model scope stated in each proof note.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_02",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_AFFINE_FINITE_NORMAL_MODULE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_AFFINE_RESIDUAL_ANNIHILATOR_20261102.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_AFFINE_RESIDUAL_ANNIHILATOR_20261102.json"
+      ],
+      "limitations_ja": [
+        "この多項式の零集合全体の除去は次の段階。"
+      ]
+    },
+    {
+      "id": "S61_FLAG_T7_TRANSVERSE_BASE_TORSION",
+      "title_ja": "T7二切断の実相対torsion",
+      "statement_ja": "指定横断で九nuisance底Aを保持した実環はA⊕A/(a9³)η、η²=fηでfはa9の単位倍、t=0。DVR経路と固定βの一次分解を別に監査。",
+      "scope": "Exactly the pointwise, generic-open, all-degree or finite-model scope stated in each proof note.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "scope_recorded_in_separate_review_notes_or_exact_cross_checks",
+        "certificates": "reproduced_2026_11_02",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_FLAG_T7_WEIGHTED_PRIMARY",
+          "S61_FLAG_T7_FLAT4_COVER"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_FLAG_T7_TRANSVERSE_BASE_TORSION_20261102.md"
+        },
+        {
+          "path": "research/notes/S61_FLAG_T7_RELATIVE_TORSION_FULL_BASE_20261102.md"
+        },
+        {
+          "path": "research/notes/S61_FLAG_T7_PRIMARY_TORSION_PROOF_REVIEW_20261102.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_FLAG_T7_TRANSVERSE_BASE_TORSION_20261102.json",
+        "reports/S61_FLAG_T7_RELATIVE_TORSION_FULL_BASE_20261102.json",
+        "reports/S61_FLAG_T7_PRIMARY_TORSION_PROOF_REVIEW_20261102.json"
+      ],
+      "limitations_ja": [
+        "ε非零の指定切断。旗原点で切断を戻した全ambientの消滅は別。"
       ]
     }
   ],

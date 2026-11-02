@@ -1,6 +1,6 @@
 # 公表用原稿の構成案と証明資料
 
-**状態：v55-s61、2026-11-02。零一次部分の被約台AB、ABのincidenceと特異点集合、最小型無限遠の完成局所環、二平面型の横断Artin代数を統合。**
+**状態：v56-s61、2026-11-02。零一次部分の被約台AB、ABのincidenceと特異点集合、最小型無限遠の完成局所環、二平面型の横断Artin代数を統合。**
 
 [一次ジェット還元の日本語原稿](s61_first_jet_reduction_ja.tex)（[PDF・41ページ](s61_first_jet_reduction_ja.pdf)）は、
 primitive gauge、T01/T39/T40の優越性と全S61のétale点、楕円型五変数模型、T01の一般次数3、
@@ -344,3 +344,11 @@ v35では一般被約無限遠の全型帰着、ABの原点外の正規性、二
 - 一般P25切断でのスキーム論的五点の尽くし: `S61_AFFINE_TWENTYFIVE_PLANE_20261102`。適用範囲と未解決部分を各ノートに明記。
 - 全非平方二平面型の階数34以下での残余有限性: `S61_BINARY_H11_RANK_DROP_RESIDUAL_FINITE_20261102`。適用範囲と未解決部分を各ノートに明記。
 - 指定T7横断環の一次分解: `S61_FLAG_T7_WEIGHTED_PRIMARY_20261102`。適用範囲と未解決部分を各ノートに明記。
+
+## v56: 実T01零ファイバー、分岐、一般アフィン支持
+
+- 実T01零ファイバーの全域での被約性: `TORIC_ZERO_FIBER_COFRAME_QUADRICS_20261102`。適用範囲と未解決部分を各ノートに明記。
+- 判別因子の一般点での実T01のファイバー: `TORIC_GENERIC_DISCRIMINANT_AFFINE_FIBER_20261102`。適用範囲と未解決部分を各ノートに明記。
+- 法線20変数上の有限表示と射影26平面: `S61_AFFINE_FINITE_NORMAL_MODULE_20261102`。適用範囲と未解決部分を各ノートに明記。
+- 未知アフィン部分を消す具体的な行列式: `S61_AFFINE_RESIDUAL_ANNIHILATOR_20261102`。適用範囲と未解決部分を各ノートに明記。
+- T7二切断の実相対torsion: `S61_FLAG_T7_TRANSVERSE_BASE_TORSION_20261102`。適用範囲と未解決部分を各ノートに明記。

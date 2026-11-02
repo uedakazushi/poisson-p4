@@ -1,8 +1,19 @@
 # Poisson structures on P4 — Codex instructions
 
-Version: v55-s61 · 2026-11-02 (Asia/Tokyo).
+Version: v56-s61 · 2026-11-02 (Asia/Tokyo).
 
-Current v55 additions: the 274 explicit quadratic relations generate the
+Current v56 additions: the actual scheme-theoretic zero first-jet fiber of
+reduced T01 equals reduced AB, including its origin. Two independent exact
+proofs lift all 274 quadratic generators. At the general discriminant point
+the actual affine T01 fiber is one reduced point. Its relative projective
+closure has an additional double point at infinity. In the full general S61
+affine fiber the residual ideal over twenty normal coordinates is annihilated
+by an explicit determinant nonzero at the origin. A general P26 section is
+exactly the five known points. The nine-base relative T7 transverse ring at
+epsilon nonzero has nil augmentation A/(a9^3) eta and t=0 on the stated
+cuts. Continue the affine exhaustion and the remaining strata. Lower57.
+
+Previous v55 additions: the 274 explicit quadratic relations generate the
 entire homogeneous prime ideal of reduced AB. This does not yet prove global
 reducedness of the actual T01 zero fiber. Off the known plane, the projective
 S61 fiber admits a closed cubic/quartic normal-coordinate model in P41. A
