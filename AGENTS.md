@@ -1,8 +1,30 @@
 # Poisson structures on P4 — Codex instructions
 
-Version: v62-s61 · 2026-11-03 (Asia/Tokyo).
+Version: v63-s61 · 2026-11-03 (Asia/Tokyo).
 
-Current v62 additions: WHOLE marked-square stratum Sigma is removed over
+Current v63 additions: FULL35-variable equivariant finite model at resonant
+Q_(2/9) constructed and independently checked: actual350 Jacobi equations,
+74 EXACT weighted polynomial implicit eliminations, 17 orbit cuts, all orders.
+Projective formal smooth factor16. Full branch decomposition remains OPEN.
+Closed weight6 five-variable subslice ideal=(u*eta,w*(w,eta)); two reduced
+branches generic lengths4/1, CM dimension1 multiplicity5. This is ONLY a
+closed subslice; full35 is NON-CM by known minimal component dimensions12/9.
+Exact ordinary57 quadratic obstructions contain a13-plane: do not infer full
+local dimension<=12 from quadrics alone or claim an actual13-dimensional branch.
+CA/CB full reduced rank3 firstjet fibers are A10 with A9 intersection;
+proper closed flag incidences cover entire reduced components. beta0 reduced
+fibers M0(13),M1(13),R0(12). At distinguished Q_(1) individual reduced CA/CB/N
+normalization fibers are length2, completions domains,multiplicity2; components
+R1 but nonnormal and non-CM there. Keep Q_(1) distinct from resonant Q_(2/9).
+General P31 slice is reducedfive. Actual global annihilators det(T_t-I) and
+cleared resultant work BEFORE cyclic localization; their zero loci remain open.
+J=5ad-6e-4=0 nonsquare product-rank41 defect is finite over QQ; Jneq and other
+quartic defects remain open. NormalACTUALD recognition/classification now has
+a self-contained91-page Japanese manuscript with independent scope/proof audit.
+Frozen v62 main118-page manuscript/source index stay historical; v63 supplement
+index registers new notes/paper. Full global exhaustion OPEN, lower57 uppernull.
+
+Saved v62 additions: WHOLE marked-square stratum Sigma is removed over
 general beta. Actualdouble rawV mixedcuts upper5 plus SAME incidences lower2+3
 force free5,t0; fullspecialsupport/actualt-sat positiveweight/properP1/Cartier
 ample/source15 chain independently audited. Do not reopen this resolved layer.

@@ -1,5 +1,7 @@
 # 研究ノートと評価資料の入口
 
+現行v63の入口は [引継ぎ](../CLOUD_HANDOFF_20261103_v63.md)、[全35変数模型](Q_WEIGHTED_FINITE_MODEL_20261103_v63.md)、[重み6閉切断](Q_WEIGHT6_CLOSED_SUBSLICE_20261103_v63.md)、[原稿・証明索引](../../papers/RESEARCH_SOURCE_INDEX_v63.json)。旧版の未解決記述は現在のSTATEと照合する。
+
 **v62-s61、2026-11-03。既知51族の座標化、17底変数の実t還元、平方例外の周囲。**
 
 ## v62 の新しい入口

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checkpoint": "v62-s61",
+  "checkpoint": "v63-s61",
   "date": "2026-11-03",
   "base_mathematical_checkpoint": "v24",
   "new_mathematical_progress_in_this_setup": false,
@@ -547,19 +547,27 @@
         },
         {
           "path": "research/notes/NORMAL_QUINTIC_RECOGNITION_AUDIT_20261103_v62.md"
+        },
+        {
+          "path": "papers/normal_actual_divisor_recognition_ja.tex"
         }
       ],
       "verification_records": [
         "audits/2026-10-30/v14_recheck/verification_summary.json",
         "audits/2026-10-30/geometry_strategy.txt",
-        "reports/NORMAL_QUINTIC_RECOGNITION_AUDIT_20261103_v62.json"
+        "reports/NORMAL_QUINTIC_RECOGNITION_AUDIT_20261103_v62.json",
+        "reports/NORMAL_ACTUAL_DIVISOR_PAPER_20261103.json",
+        "reports/NORMAL_MODEL_RREF_20261103_v62_REVIEW.json"
       ],
       "limitations_ja": [
         "同じHilbert関数の任意のGorenstein曲線がgradientとして生じるとは限らない。",
         "標本計算の成功は全相対スキーム論証の独立証明ではない。"
       ],
       "current_audit_scope_ja": "証明・全分岐被覆・外部定理の仮定を監査し、全5監査341入力hashを照合。変更のない旧数値証明書は保存済み独立検証を再利用し、今回すべてを再実行したとはしない。",
-      "relative_normality_hypothesis": "Geometric fibers normal, including arbitrary nonreduced C-base; not normality of the total divisor over a nilpotent base."
+      "relative_normality_hypothesis": "Geometric fibers normal, including arbitrary nonreduced C-base; not normality of the total divisor over a nilpotent base.",
+      "self_contained_manuscript_pages": 91,
+      "manuscript_integration_status": "complete_2026_11_03_v63_no_recursive_tex_inputs",
+      "publication_novelty_audit_complete": false
     },
     {
       "id": "NORMAL_CLASSIFICATION",
@@ -627,6 +635,9 @@
         },
         {
           "path": "research/notes/NORMAL_QUINTIC_RECOGNITION_AUDIT_20261103_v62.md"
+        },
+        {
+          "path": "papers/normal_actual_divisor_recognition_ja.tex"
         }
       ],
       "verification_records": [
@@ -635,7 +646,9 @@
         "reports/NORMAL_ACTUAL_E6_E8_GEOMETRY_AUDIT_20261103_v62.json",
         "reports/NORMAL_ACTUAL_RNC4_COVER_AUDIT_20261103_v62.json",
         "reports/NORMAL_ACTUAL_EIGHT_SUPPORT_AUDIT_20261103_v62.json",
-        "reports/NORMAL_QUINTIC_RECOGNITION_AUDIT_20261103_v62.json"
+        "reports/NORMAL_QUINTIC_RECOGNITION_AUDIT_20261103_v62.json",
+        "reports/NORMAL_ACTUAL_DIVISOR_PAPER_20261103.json",
+        "reports/NORMAL_MODEL_RREF_20261103_v62_REVIEW.json"
       ],
       "limitations_ja": [
         "全証明と還元のscope監査を完了した。変更のない旧数値証明書は保存済み独立検証を再利用し、今回全てを再実行したとはしない。",
@@ -643,7 +656,10 @@
         "5Hは対象外。",
         "閉点分類から全モジュライのscheme同型を追加推論しない。"
       ],
-      "current_audit_scope_ja": "証明・全分岐被覆・外部定理の仮定を監査し、全5監査341入力hashを照合。変更のない旧数値証明書は保存済み独立検証を再利用し、今回すべてを再実行したとはしない。"
+      "current_audit_scope_ja": "証明・全分岐被覆・外部定理の仮定を監査し、全5監査341入力hashを照合。変更のない旧数値証明書は保存済み独立検証を再利用し、今回すべてを再実行したとはしない。",
+      "self_contained_manuscript_pages": 91,
+      "manuscript_integration_status": "complete_2026_11_03_v63_no_recursive_tex_inputs",
+      "publication_novelty_audit_complete": false
     },
     {
       "id": "T37_IDENTIFICATION",
@@ -10392,7 +10408,8 @@
         "全35変数のKuranishi ideal、全局所枝、所属成分は主張しない。",
         "κ=−1の零点スキームの特殊化とは別現象。"
       ],
-      "later_component_identification": "Q_RESONANCE_Q51_INCIDENCE"
+      "later_component_identification": "Q_RESONANCE_Q51_INCIDENCE",
+      "later_full_finite_model": "Q_WEIGHTED_FINITE_MODEL_35"
     },
     {
       "id": "Q_RESONANCE_NORMAL_DIVISOR_DEGENERATION",
@@ -10527,6 +10544,370 @@
       "limitations_ja": [
         "全局所枝、交差ideal、完成局所環は尽くしていない。",
         "既知T39への所属であり、新しい全成分は加算しない。"
+      ]
+    },
+    {
+      "id": "Q_WEIGHTED_FINITE_MODEL_35",
+      "title_ja": "共鳴点の全35変数・有限同変模型",
+      "statement_ja": "Q_(2/9)で全350 Jacobi式を保持する35変数の正確な有限idealを構成した。正重みによる74変数の陰関数は有限多項式で、17群切断が中心でétale。全射影完成局所環は横断完成環に16滑らかな変数を加えたもの。",
+      "scope": "Actual scoped theorem with exact certificates; not global exhaustion.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_bounded_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/Q_WEIGHTED_FINITE_MODEL_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/Q_WEIGHTED_FINITE_MODEL_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/Q_WEIGHTED_FINITE_MODEL_20261103_v63/report.json",
+        "reports/Q_WEIGHTED_FINITE_MODEL_20261103_v63_REVIEW.json"
+      ],
+      "limitations_ja": [
+        "全枝・primary分解・全初期idealは未決。"
+      ]
+    },
+    {
+      "id": "Q_WEIGHT6_CLOSED_SUBSLICE",
+      "title_ja": "重み6閉切断の厳密idealと二枝",
+      "statement_ja": "aと四つのweight6自由入力だけを残す実閉切断はI=(uη,w(w,η))。全350式と十生成元の両向き恒等式から、二つの被約枝、一般厚み4と1、CM次元1・重複度5・埋込素idealなしを決定した。",
+      "scope": "Actual scoped theorem with exact certificates; not global exhaustion.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_bounded_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "Q_WEIGHTED_FINITE_MODEL_35"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/Q_WEIGHT6_CLOSED_SUBSLICE_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/Q_WEIGHT6_CLOSED_SUBSLICE_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/Q_WEIGHT6_CLOSED_SUBSLICE_20261103_v63/report.json",
+        "reports/Q_WEIGHT6_CLOSED_SUBSLICE_20261103_v63_REVIEW.json"
+      ],
+      "limitations_ja": [
+        "全35変数模型の枝の尽くしではない。"
+      ]
+    },
+    {
+      "id": "Q_RESONANCE_FULL_MODEL_NON_CM",
+      "title_ja": "共鳴点の全Poisson完成環の非CM性",
+      "statement_ja": "Q_(2/9)は実28次元成分CA/CBと25次元T39に属する。全横断完成環には次元12と9の極小枝があり、unmixednessに反するため非CMである。",
+      "scope": "Actual scoped theorem with exact certificates; not global exhaustion.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_bounded_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "Q_WEIGHTED_FINITE_MODEL_35",
+          "Q_RESONANCE_Q51_INCIDENCE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/Q_RESONANCE_NON_CM_20261103_v63.md"
+        }
+      ],
+      "verification_records": [
+        "reports/Q_RESONANCE_NON_CM_20261103_v63_REVIEW.json"
+      ],
+      "limitations_ja": [
+        "全局所次元の上界・深さ・枝の個数は未決。"
+      ]
+    },
+    {
+      "id": "Q_ORDINARY_QUADRATIC_THIRTEEN_PLANE",
+      "title_ja": "通常二次障害だけの次元上界に対する障害",
+      "statement_ja": "全350残差の通常二次部分はQQ階数57で、その零集合は明示的な13座標平面を含む。従って二次障害だけから実全模型の次元12以下とは結論できない。",
+      "scope": "Exact negative result about the quadratic obstruction cone only.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_bounded_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "Q_WEIGHTED_FINITE_MODEL_35"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/Q_ORDINARY_QUADRATIC_CONE_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/Q_ORDINARY_QUADRATIC_CONE_20261103_v63/extraction.json",
+        "reports/Q_ORDINARY_QUADRATIC_CONE_20261103_v63/coordinate-plane.json",
+        "reports/Q_ORDINARY_QUADRATIC_CONE_20261103_v63_REVIEW.json"
+      ],
+      "limitations_ja": [
+        "実13次元枝の存在や全初期idealの一致を主張しない。"
+      ]
+    },
+    {
+      "id": "S61_CA_CB_FULL_RANK3_FIBERS",
+      "title_ja": "CA/CBの全rank3一次ファイバーとproper旗解消",
+      "statement_ja": "共通Z9上のrankKβ=3開で、全被約CA/CBファイバーは埋込A10、そのscheme交叉はA9。閉properなsmooth旗入射EA/EB/ENが全被約CA/CB/Nを解消する。",
+      "scope": "Actual scoped theorem with exact certificates; not global exhaustion.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_bounded_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_CA_CB_FIRST_JET_IMAGE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_FULL_FIRSTJET_FIBERS_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_FULL_FIRSTJET_FIBERS_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_FIBER_BUNDLE_20261103_v63/report.json",
+        "reports/AMBIENT_FIBER_BUNDLE_20261103_v63_REVIEW.json"
+      ],
+      "limitations_ja": [
+        "全S61の同じ一次ファイバーを尽くす主張ではない。"
+      ]
+    },
+    {
+      "id": "S61_CA_CB_ZERO_JET_FIBERS",
+      "title_ja": "CA/CB/Nの全被約零一次ファイバー",
+      "statement_ja": "β=0で全被約CA0=M0(13),CB0=M1(13),N0=R0(12)。properな零基底変換と実QQ全係数のcrosswalkで既存Q45成分を認識し、入射側全旗ファイバーも決定した。",
+      "scope": "Actual scoped theorem with exact certificates; not global exhaustion.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_bounded_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_CA_CB_FULL_RANK3_FIBERS"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_ZERO_FIRSTJET_FIBERS_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_ZERO_FIRSTJET_FIBERS_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_ZERO_FIRSTJET_FIBERS_20261103_v63/report.json",
+        "reports/AMBIENT_ZERO_FIRSTJET_FIBERS_20261103_v63_REVIEW.json"
+      ],
+      "limitations_ja": [
+        "target零ファイバーのscheme被約性・全S61零ファイバーは未証明。"
+      ]
+    },
+    {
+      "id": "CA_CB_Q_NORMALIZATION_NONNORMAL",
+      "title_ja": "指定Q_(1)での正規化と長さ2",
+      "statement_ja": "指定Q_(1)で個々の被約CA/CB/Nの全正規化ファイバーは(r,z,w²)という長さ2の一点。近傍のsmooth proper birational解消は有限正規化となり、各完成局所環はdomain、重複度2、非正規である。",
+      "scope": "Actual scoped theorem with exact certificates; not global exhaustion.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_bounded_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_CA_CB_FULL_RANK3_FIBERS"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_Q_NORMALIZATION_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_Q_NORMALIZATION_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_RANKDROP_FLAG_FIBERS_V2_20261103_v63/report.json",
+        "reports/AMBIENT_Q_NORMALIZATION_20261103_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "共鳴Q_(2/9)への自動延長や全Jacobi完成環の主張ではない。"
+      ]
+    },
+    {
+      "id": "CA_CB_COMPONENTS_R1_NON_CM",
+      "title_ja": "CA/CB/NのR1と指定Q_(1)の非CM性",
+      "statement_ja": "基底旗の全critical支持はτ=4CF−D²=0で源の余次元2。全射影旗の一意性・被約性とpropernessから各被約CA/CB/NはR1。指定Q_(1)では非正規なのでS2でなく非CMであり、通常cuspとsmooth空間の積でもない。",
+      "scope": "Actual scoped theorem with exact certificates; not global exhaustion.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_bounded_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "CA_CB_Q_NORMALIZATION_NONNORMAL"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_COMPONENT_R1_NONCM_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_COMPONENT_R1_NONCM_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_BASE_FLAG_CRITICAL_20261103_v63/report.json",
+        "reports/AMBIENT_COMPONENT_R1_NONCM_20261103_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "全S61のR1や全交叉idealの決定ではない。"
+      ]
+    },
+    {
+      "id": "S61_AFFINE_BASE_PLANE_P31",
+      "title_ja": "全base平面と一般P31断面の被約五点",
+      "statement_ja": "元134式を全P2底へ制限した実四次quotientは次元5。全平面上の支持は既知五点であり、QQ一般β上の一般P31切断も被約五点となる。",
+      "scope": "Actual scoped theorem with exact certificates; not global exhaustion.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_bounded_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_AFFINE_SEVENTEEN_BASE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_AFFINE_BASE_PLANE_SUPPORT_20261103_v62.md"
+        },
+        {
+          "path": "research/notes/S61_AFFINE_BASE_PLANE_SUPPORT_20261103_v62_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_AFFINE_BASE_PLANE_SUPPORT_20261103_v62/report.json",
+        "reports/S61_AFFINE_BASE_PLANE_SUPPORT_20261103_v62_REVIEW.json"
+      ],
+      "limitations_ja": [
+        "全一般アフィンファイバーの尽くしではない。"
+      ]
+    },
+    {
+      "id": "S61_AFFINE_GLOBAL_ANNIHILATORS",
+      "title_ja": "cyclic反転前の全実代数の大域annihilator",
+      "statement_ja": "全17底上の実t作用からG=det(Tt−I)∈Ann(A/(t−1)),degG≤1031,G(0)=−1を構成した。cyclic式のadjugateとSylvester resultantも反転前の元134式への実所属を与え、非零性を厳密なradial証明で確認した。",
+      "scope": "Actual scoped theorem with exact certificates; not global exhaustion.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_bounded_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_AFFINE_FULL_T_ACTION_CIRCUIT",
+          "S61_AFFINE_CYCLIC_OPEN_PRESENTATION"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_AFFINE_GLOBAL_ACTION_SPREAD_20261103_v62.md"
+        },
+        {
+          "path": "research/notes/S61_AFFINE_GLOBAL_ANNIHILATORS_20261103_v62.md"
+        },
+        {
+          "path": "research/notes/S61_GLOBAL_ANNIHILATORS_20261103_v62_REVIEW.md"
+        },
+        {
+          "path": "research/notes/S61_GLOBAL_ACTION_CYCLIC_OPEN_20261103_v62_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_AFFINE_T_DETERMINANT_ANNIHILATOR_20261103_v62/report.json",
+        "reports/S61_AFFINE_GLOBAL_RESULTANT_ANNIHILATOR_20261103_v62/report.json",
+        "reports/S61_GLOBAL_ANNIHILATORS_20261103_v62_REVIEW.json",
+        "reports/S61_GLOBAL_ACTION_CYCLIC_OPEN_20261103_v62_REVIEW.json"
+      ],
+      "limitations_ja": [
+        "annihilatorの零集合、全gcd支持、曲面不存在は未解決。"
+      ]
+    },
+    {
+      "id": "S61_NONSQUARE_PRODUCT_J_ZERO_FINITE",
+      "title_ja": "非平方J=0の二次積rank41欠損の有限性",
+      "statement_ja": "J=5ad−6e−4=0の指定adFBC開で、元六二次式のlight一次倍rank41欠損は零次元以下。実12unitpivotとQQ四最大minorのgcdが既知単元a^12 C³(3e+2)^31であることによる。",
+      "scope": "Actual scoped theorem with exact certificates; not global exhaustion.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_bounded_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_NONSQUARE_QUADRATIC_COVER"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_BINARY_NONSQUARE_PRODUCT_J_ZERO_20261103_v62.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_NONSQUARE_PRODUCT_J_ZERO_REVIEW_20261103_v62.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_BINARY_NONSQUARE_PRODUCT_J_ZERO_20261103_v62/report.json"
+      ],
+      "limitations_ja": [
+        "J≠0、全core product被覆、周囲t冪零性は主張しない。"
       ]
     }
   ],

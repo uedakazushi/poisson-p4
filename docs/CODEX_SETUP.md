@@ -1,5 +1,10 @@
 # Codexで研究を継続する
 
+2026-11-03 v63研究追記：公開済みCloudを再利用中。再セットアップは不要。
+M2 1.24.11の必要な既存計算は再現済み。QQのAlgorithm=>LinearAlgebraには
+配列順序エラーがありdefault GBを用いる。新しい有限模型・原稿の再現入口は
+[v63引継ぎ](../research/CLOUD_HANDOFF_20261103_v63.md)を参照。
+
 2026-11-03の公開済みCloud再開では、既設の
 `source /workspace/cloud-setup/activate.sh` と `.venv` を使う。
 Macaulay2は1.24.11（移行元1.26.05）、FLINTは3.1で、全135式・有限行加群・QQ/GF拡大体・

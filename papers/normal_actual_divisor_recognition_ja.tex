@@ -1,0 +1,5786 @@
+\documentclass[11pt,a4paper]{ltjsarticle}
+\usepackage[margin=24mm]{geometry}
+\usepackage[haranoaji]{luatexja-preset}
+\usepackage{amsmath,amssymb,amsthm,mathtools,bm,mathrsfs}
+\usepackage{booktabs,longtable,array,enumitem,xcolor,needspace}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue!45!black,urlcolor=blue!45!black,
+ pdftitle={正規な実退化因子をもつ射影四空間のPoisson構造},
+ pdfauthor={Poisson P4 research project}}
+\setlength{\emergencystretch}{3em}
+\setlist{nosep}
+\newcommand{\CC}{\mathbf C}\newcommand{\QQ}{\mathbf Q}
+\newcommand{\PP}{\mathbf P}\renewcommand{\AA}{\mathbf A}
+\newcommand{\OO}{\mathcal O}\newcommand{\FF}{\mathcal F}
+\newcommand{\cP}{\mathscr P_4}\newcommand{\dd}{\mathrm d}
+\newcommand{\g}{\mathfrak g}\newcommand{\borel}{\mathfrak b}
+\newcommand{\cQ}{\mathcal Q}
+\DeclareMathOperator{\Spec}{Spec}\DeclareMathOperator{\Proj}{Proj}
+\DeclareMathOperator{\PGL}{PGL}\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\SL}{SL}\DeclareMathOperator{\Sp}{Sp}
+\DeclareMathOperator{\rank}{rank}\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Pf}{Pf}\DeclareMathOperator{\length}{length}
+\DeclareMathOperator{\Ass}{Ass}\DeclareMathOperator{\Ann}{Ann}
+\DeclareMathOperator{\rad}{rad}\DeclareMathOperator{\grad}{grad}
+\DeclareMathOperator{\Aut}{Aut}\DeclareMathOperator{\Stab}{Stab}
+\DeclareMathOperator{\Sym}{Sym}\DeclareMathOperator{\lct}{lct}
+\newtheorem{theorem}{定理}[section]
+\newtheorem{lemma}[theorem]{補題}
+\newtheorem{proposition}[theorem]{命題}
+\newtheorem{corollary}[theorem]{系}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{注意}
+\renewcommand{\proofname}{証明}
+\title{正規な実退化因子をもつ射影四空間のPoisson構造\\
+\large Pfaffian認識、非被約基底と特異支持の全排除}
+\author{Poisson P4研究プロジェクト・内部研究草稿}
+\date{2026年11月3日}
+\begin{document}
+\maketitle
+\begin{abstract}
+複素射影四空間上の一般階数四のPoisson構造を、その実際の退化五次因子から認識する。
+因子の正規性の下で、全Jacobian idealの高さ三Gorenstein条件、二次交代行列の中心化核、
+および一意なPoisson構造が同値となることを示す。
+さらに、幾何的fibresが正規である開集合では、実際の最大minor determinantal schemeとの同型が
+非被約基底を含め成立する。
+閉点については、modular residueが恒等零の全曲線成分を除き、全Jacobian次数四十を用いて
+全$\widetilde E_6$五次支持または全$\widetilde E_8$四次支持へ帰着する。
+可約な$E_6$支持、有理正規四次、超平面内の四次支持、残る八つの有理木配置を順に尽くし、
+正規な実退化因子は滑らかな楕円正規五次曲線の割線因子、構造は$q_{5,1}$型に限ることを示す。
+有限の係数排除は有理数・一変数有理関数・二次数体上の保存済み恒等式を用い、全分母例外を明示する。
+本稿は収録証明を独立に監査して再構成した研究草稿であり、歴史的な新規性を主張しない。
+\end{abstract}
+\tableofcontents
+\section{対象、主定理、証明の構成}
+基礎体を$\CC$とし、$\PGL_5$で割る前の全射影Jacobi scheme
+\[
+\cP=\{[\pi]\in\PP H^0(\PP^4,\wedge^2T_{\PP^4}):[\pi,\pi]=0\}
+\]
+を考える。一般階数四の点では$D=V(\pi\wedge\pi)$は反標準五次因子である。
+本稿の正規性は重複を除く前の\emph{実際の因子}$D$に課す。
+$Y=\operatorname{Sing}(D)$は全Jacobian scheme、$C=Y_{\mathrm{red}}$は被約支持とする。
+両者の次数、位相的な零点数、scheme長を区別する。
+\begin{theorem}[正規な実退化因子の閉点分類]\label{thm:classification}
+一般階数四の$\PP^4$上のPoisson構造の実際の退化因子$D$が正規なら、
+$C$は滑らかな楕円正規五次曲線であり、$D=\operatorname{Sec}(C)$である。
+射影座標変換と非零定数倍を除き、$\pi$はこの曲線に付随するFeigin--Odesskiiの$q_{5,1}$型である。
+逆に、滑らかな楕円正規五次曲線の$q_{5,1}$はこの条件を満たす。
+\end{theorem}
+認識定理と相対scheme同型は第\ref{sec:normal}、\ref{sec:normal-scheme}節で証明する。
+分類の証明は、不活性成分の排除、次数二分、支持の幾何、有限係数排除の順に進む。
+各段階を本文に展開し、旧原稿を再帰的に読むことを前提にしない。
+標準定理としてBuchsbaum--Eisenbud、形式的Poincar\'e--Dulac分解、Engel、
+曲線の正規化と導分、割線次数公式、Pymの楕円局所正常形を用い、必要な仮定を各適用箇所に記す。
+
+\paragraph{既刊結果との区別。}
+Pymの分類\cite[Theorem 1.3]{PymElliptic}は\emph{全ての}特異点がellipticという仮定を持つ。
+四次元ではこれは正規性に加えmodular residueの至る所非消滅を要求する
+\cite[Definition 4.2, Remark 4.4]{PymElliptic}。
+総説\cite[Theorem 5.12]{PymSurvey}も同じ非消滅を明記する。
+本稿は正規性だけからその仮定を引用して置き換えず、非活動成分と残余支持の排除を別に証明する。
+全Poisson schemeのreducedness、一般階数二、非正規または非被約な実因子、全成分数の分類は扱わない。
+
+\paragraph{有限証明書。}
+保存された恒等式$g^N=\sum a_jJ_j$は複素閉点で$g=0$を与えるが、
+$g\in(J_j)$やschemeのreducednessを意味しない。
+本稿ではこの区別を保ち、必要な開条件・primitive条件・全分母例外を本文と
+付録\ref{sec:reproduction}に記す。再現コードは元の係数行列から必要式を再構築する。
+\part{五次因子からの認識}
+
+
+\section{正規な退化五次超曲面の存在判定と一意復元}
+\label{sec:normal}
+
+この節では一般階数4の構造を扱う。
+$S=\CC[x_0,\ldots,x_4]$、$S_d$ をその次数 $d$ の部分とする。
+非零な $F\in S_5$ に対して
+\[
+ f=\nabla F=(F_0,\ldots,F_4)^{\mathsf T},\qquad
+ J_F=(F_0,\ldots,F_4),\qquad F_i=\partial_iF
+\]
+と置く。$D_F=(F=0)\subset\PP^4$ が\emph{正規}であると仮定する。
+正規性と単純正規交差性は異なる条件である。
+ここで正規な五次超曲面は既約かつ被約であり、その特異集合は高々曲線である。
+
+\subsection{固定した五次式に対する線形空間}
+
+\[
+ K_F=\{P\in\operatorname{Alt}_5(S_2):P\nabla F=0\}
+\]
+と定める。$\operatorname{Alt}_5(S_2)$ は二次係数の交代行列の150次元空間である。
+行列 $P$ の Jacobi 条件も発散零条件も、$K_F$ の定義には入れていない。
+
+\begin{theorem}[正規五次式の同値な判定条件]\label{thm:recognition}
+$D_F$ が正規であるとする。次は同値である。
+\begin{enumerate}
+\item $D_F$ は $\PP^4$ 上の一般階数4の Poisson 構造の退化因子である。
+\item $\operatorname{ht}J_F=3$、$S/J_F$ は Gorenstein であり、五つの偏微分 $F_i$ は $\CC$ 上一次独立である。
+\item $K_F$ は $\operatorname{Frac}(S)$ 上の階数が4となる行列を含む。
+\item $\dim K_F=1$ であり、その生成元の4次 Pfaffian ベクトルは非零である。
+\end{enumerate}
+成立する場合、定数倍を除いた Poisson 構造は一意であり、その canonical lift は $K_F$ の直線として復元される。
+\end{theorem}
+
+この判定は特異集合の\emph{被約台}だけから行うものではない。
+条件(2)は実際の斉次 Jacobian イデアル $J_F$ と、その商環に対する条件である。
+特異曲線が局所的に Gorenstein であることだけを条件(2)へ置き換えてはいけない。
+Pfaffian 分解と Gorenstein 特異スキームの関係は
+Gualtieri--Pym \cite{GP}、楕円正規五次曲線の secant の場合は Fisher \cite[\S10]{Fisher}
+に現れる。以下では、それらの構造を任意の正規五次式に対する逆向きの判定にも用いる。
+
+\subsection{Canonical lift と二つの恒等式}
+
+$\Omega=\dd x_0\wedge\cdots\wedge\dd x_4$、$E=\sum x_i\partial_i$ とする。
+二次 bivector $P$ の発散を
+\[
+ (\delta P)^j=\sum_i\partial_iP^{ij}
+\]
+と定める。一次ベクトル場 $A$ に対して
+$\delta(E\wedge A)=5A-\tr(A)E$ なので、射影 bivector の一意な発散零 lift は
+\[
+                  P_{\mathrm{can}}=P-\frac15 E\wedge\delta P
+\]
+である。このliftはaffine Poissonでもある。
+実際、$T=[P_{\mathrm{can}},P_{\mathrm{can}}]/2$についてprojective Jacobiは$E\wedge T=0$、
+BVのdivergence--Schouten恒等式は$\delta T=0$を与える。
+三次係数の三vectorに対する同次恒等式
+$\delta(E\wedge T)=5T-E\wedge\delta T$から$T=0$となる。
+この線形splitと恒等式は任意の$\CC$基底変更でも成立する。
+
+\[
+ p_i(P)=(-1)^i\Pf(P_{\widehat i}),\qquad
+ \alpha_P=\sum_i p_i(P)\dd x_i=\iota_{P\wedge P/2}\Omega
+\]
+と置く。任意の交代行列について $Pp(P)=0$ であり、BV 恒等式は本ノートの規約で
+\begin{equation}\label{eq:BV}
+ \dd\alpha_P=\iota_{\operatorname{Jac}(P)-\delta P\wedge P}\Omega,
+ \qquad \operatorname{Jac}(P)=\frac12[P,P]
+\end{equation}
+となる。従って発散零のとき、Jacobi 条件は $\dd\alpha_P=0$ と同値である。
+閉じている場合、Euler の公式から
+\[
+       F_P=\frac15\sum_i x_i p_i(P),\qquad \dd F_P=\alpha_P
+\]
+を得る。射影退化因子は $(F_P=0)$ である。
+
+もう一つの恒等式は、$P\nabla F=0$ を微分して得られる
+\begin{equation}\label{eq:div-syzygy}
+               \sum_j(\delta P)^jF_j=0
+\end{equation}
+である。Hessian の対称性により $\sum_{ij}P^{ij}F_{ij}=0$ となることを使った。
+すなわち、中心条件があれば発散は勾配に対する\emph{一次係数の syzygy}になる。
+
+\subsection{必要条件と純粋自由分解}
+
+まず定理の(1)を仮定する。Canonical lift の Pfaffian ベクトルは $\nabla F$ の非零定数倍である。
+正規性より $\operatorname{ht}J_F\ge3$ である。
+一方、$5\times5$ 交代行列の submaximal Pfaffian イデアルの高さは高々3なので、等号となる。
+Buchsbaum--Eisenbud の定理 \cite{BE} により
+\begin{equation}\label{eq:BE}
+ 0\longrightarrow S(-10)\xrightarrow{f}
+ S(-6)^5\xrightarrow{P}S(-4)^5\xrightarrow{f^{\mathsf T}}S
+ \longrightarrow S/J_F\longrightarrow0
+\end{equation}
+が完全である。外側の写像には符号と非零定数倍の調整を許す。
+各行列成分は正次数なので、この分解は最小である。
+従って $J_F$ は五つの四次式を最小生成元としてもち、$S/J_F$ は Gorenstein である。
+特に、五次式が五つの変数を本質的に使うことも結論される。
+
+この分解から $\operatorname{depth}S/J_F=2$ であり、$J_F$ は飽和している。
+$C_F=\operatorname{Proj}(S/J_F)$ は arithmetically Gorenstein な曲線スキームで、
+\begin{align*}
+ \operatorname{Hilb}_{S/J_F}(z)
+ &=\frac{1-5z^4+5z^6-z^{10}}{(1-z)^5}\\
+ &=\frac{1+3z+6z^2+10z^3+10z^4+6z^5+3z^6+z^7}{(1-z)^2}.
+\end{align*}
+従って
+\begin{equation}\label{eq:jacobian-invariants}
+ \deg C_F=40,\qquad p_a(C_F)=101,\qquad
+ \omega_{C_F}\simeq\OO_{C_F}(5),\qquad
+ P_{C_F}(m)=40m-100.
+\end{equation}
+これは $C_F$ 全体の数値である。楕円正規五次曲線の secant の例では、
+被約台の次数は5であり、40ではない。
+
+\subsection{Gorenstein 条件から Jacobi 条件へ戻る}
+
+次に定理の(2)を仮定する。五つの四次式で最小生成される高さ3の Gorenstein イデアルの
+自己双対な最小分解は、最後の次数シフトを $c$ として
+\[
+ 0\longrightarrow S(-c)\longrightarrow S(4-c)^5
+ \longrightarrow S(-4)^5\longrightarrow S
+\]
+となる。Hilbert 分子の $z=1$ における一階微分が零であることから
+\[
+                         -20+5(c-4)-c=0,
+\]
+従って $c=10$ である。Buchsbaum--Eisenbud の交代行列 $P$ の成分はすべて二次になる。
+その Pfaffian は $J_{F,4}$ の基底をなす。
+定数行列による congruence と非零定数倍により
+\[
+                              p(P)=\nabla F
+\]
+と正規化できる。実際、$p(CPC^{\mathsf T})=\det(C)C^{-\mathsf T}p(P)$ を用いればよい。
+
+このとき $P\nabla F=0$ である。
+式\eqref{eq:div-syzygy}と分解\eqref{eq:BE}を合わせると、
+一次 syzygy が存在しないため $\delta P=0$ となる。
+さらに $\alpha_P=\dd F$ は閉じているので、式\eqref{eq:BV}から $[P,P]=0$ を得る。
+これは一般階数4の射影 Poisson 構造へ降り、その退化式は $F$ である。
+これで(2)$\Rightarrow$(1)が示された。
+
+\subsection{線形判定の十分性と一意性}
+
+$P\in K_F$ が階数4であるとする。分数体上の $\ker P$ は一次元なので
+$p(P)=h\nabla F$ となる有理函数 $h$ がある。
+正規性から偏微分の最大公約因子は1であるため、$h$ の分母は定数である。
+両辺の次数は4なので、$h$ は非零定数である。
+従って上と同じ Pfaffian 分解が使え、$P$ は発散零かつ Poisson となる。
+
+この $P$ に対し、任意の $R\in K_F$ を取る。$R$ の各列は $f$ に対する二次 syzygy なので
+\[
+                          R=PA,\qquad A\in\operatorname{Mat}_5(\CC)
+\]
+と書ける。$R$ の交代性と $Rf=0$ より $PAf=0$ である。
+分解の完全性により $\ker P=Sf$ だから、次数を比較して $Af=cf$、$c\in\CC$ となる。
+五つの $F_i$ は一次独立なので $A=cI$、従って $R=cP$ である。
+これで $K_F=\CC P$、定理の全同値、および一意性が証明された。
+
+\begin{corollary}[存在しない正規五次式と有限安定化群]
+滑らかな五次式、特異点が有限個だけの五次式、正規な五次錐はいずれもこの退化因子にならない。
+実現される正規五次式について $\Aut(\PP^4,D_F)$ は有限であり、
+対応する $\PGL_5$ 軌道の次元は24である。
+\end{corollary}
+\begin{proof}
+最初の二つは $\operatorname{ht}J_F=3$ に反し、錐は五つの偏微分の独立性に反する。
+無限小自己同型 $A$ は $A(F)=\lambda F$ を満たす。
+$A-(\lambda/5)E$ は一次 syzygy なので零であり、射影 Lie 代数は零となる。
+標数0で有限型の代数群であることから安定化群は有限である。
+\end{proof}
+
+\begin{remark}[五生成元という仮定を落とせない]
+$F=x_0^5+x_1^5+x_2^5$ は特異直線をもつ正規な五次錐である。
+$J_F=(x_0^4,x_1^4,x_2^4)$ は高さ3の Gorenstein 完全交差だが、最小生成元は三つである。
+従って「高さ3かつ Gorenstein」だけでは十分でない。
+\end{remark}
+
+\section{幾何的fibresが正規な開上の全scheme認識}
+\label{sec:normal-scheme}
+
+定理\ref{thm:recognition}は個々の閉点に対する判定である。
+本節では冪零元を含む基底上でも復元が成立することを示す。
+\[
+ L_F:\operatorname{Alt}_5(S_2)\longrightarrow S_6^5,
+ \qquad P\longmapsto P\nabla F
+\]
+の係数行列を $M(F)$ とする。
+\[
+        \dim\operatorname{Alt}_5(S_2)=150,
+        \quad \dim S_6^5=5\binom{10}{4}=1050.
+\]
+従って $M(F)$ は、$F$ の126係数に線形に依存する $1050\times150$ 行列である。
+
+\subsection{対象となる determinantal subscheme}
+
+ここで基底上の「正規」は幾何的fibresの正規性を意味する。
+非被約基底上の全hypersurface環自体が正規であるとは主張しない。
+平坦な普遍projective hypersurfaceの幾何的正規性の開集合を $U_{\mathrm{nor}}\subset\PP S_5$ とする。
+この上で、$M(F)$ のすべての $150\times150$ minor で定義される\emph{実際の} determinantal subscheme を取る。
+さらに、少なくとも一つの $149\times149$ minor が可逆な開部分へ制限する。
+そこでは $M(F)$ の核は直線束である。
+最後に、その核の局所生成元 $P$ の Pfaffian ベクトルが非零となる開部分へ制限し、これを $Z^{\mathrm{nor}}$ と呼ぶ。
+
+\begin{theorem}[全スキームの同型]\label{thm:normal-scheme}
+全射影 Poisson スキームのうち退化因子が正規となる開部分を $\cP^{\mathrm{nor}}$ とすると、
+退化因子の写像と核直線の復元により
+\[
+                    \cP^{\mathrm{nor}}\simeq Z^{\mathrm{nor}}
+\]
+を得る。この同型は被約化を取らずに成立する。
+\end{theorem}
+
+\subsection{非被約な基底上の Pfaffian 分解}
+
+局所 Noether 環 $A$ 上で、$Z^{\mathrm{nor}}$ の一つの chart を考える。
+可逆な149次 minor を使って核を解き、ある係数を1に正規化した二次交代行列 $P$ を得る。
+このとき $P\nabla F=0$ は $A$ 上の恒等式である。
+$b=p(P)$ と置き、Pfaffian complex
+\begin{equation}\label{eq:relative-BE}
+ 0\longrightarrow S_A(-10)\xrightarrow{b}S_A(-6)^5
+ \xrightarrow{P}S_A(-4)^5\xrightarrow{b^{\mathsf T}}S_A,
+ \qquad S_A=A[x_0,\ldots,x_4]
+\end{equation}
+を考える。各 residue field 上では、正規性、非零 Pfaffian、定理\ref{thm:recognition}の証明によって
+$b$ は $\nabla F$ の非零定数倍であり、そのイデアルの高さは3である。
+従って Buchsbaum--Eisenbud によりこの complex は次数0の cokernel を除いて完全である。
+剰余体が代数閉でない場合は、その代数閉包で認識定理を適用し、忠実平坦性で完全性を降ろす。
+これは幾何的fibresが正規という開条件を使う箇所である。
+
+必要な基底変更の議論を明記する。
+固定した斉次次数における\eqref{eq:relative-BE}は有限自由 $A$ 加群の有界 complex である。
+その residue field 上の complex が正のホモロジー次数で完全なら、左端の写像の可逆 minor を使って
+可縮な直和因子を分離できる。同じ操作を順に繰り返せば、正の次数はすべて split exact となり、
+最後の cokernel も自由になる。これは局所環上での有限次元 Gaussian elimination と同じ議論であり、
+$A$ の被約性を必要としない。
+各斉次次数へ適用することにより\eqref{eq:relative-BE}の完全性が $A$ 上で従う。
+
+いま $P\nabla F=0$ であり、$\nabla F$ の成分は四次である。
+完全性と次数から
+\[
+                        \nabla F=c\,b,\qquad c\in A
+\]
+となる。各 residue field で $c\ne0$ なので $c\in A^\times$ である。
+また、一次 syzygy が存在しないことも同じ分解から $A$ 上で従う。
+式\eqref{eq:div-syzygy}を使って $\delta P=0$、さらに\eqref{eq:BV}で $[P,P]=0$ を得る。
+
+逆に、正規退化因子をもつ Poisson 族では $M(F)P=0$ が成り立つ。
+局所的に $P$ の一係数を可逆に取れるので、150次 minor はすべて零となる。
+閉点で階数149であるため149次 minor の可逆な chart で被覆でき、核直線は元の $P$ と一致する。
+比例定数$c$の平方根を基底上で取る必要はない。
+$P$の単元$u$倍は$F_P$を$u^2$倍にするが、両者はprojectiveな点なので構成はglueする。
+以上の二つの構成は基底変更と両立し互いに逆なので、定理\ref{thm:normal-scheme}が証明された。
+
+\subsection{固定した退化因子の無限小剛性}
+
+固定 Pfaffian ベクトルをもつ一次変形 $P+\epsilon R$ を考える。
+恒等式 $Pp(P)=0$ を微分すると $R\nabla F=0$ となる。
+従って $R=cP$ であり、Pfaffian の微分は $2c\nabla F$ なので $c=0$ である。
+退化式を射影的に固定する場合には、まず対応する定数倍の方向を引けば同じ結論となる。
+従って退化因子写像の接写像は全点で単射で、固定因子の fiber は被約な一点である。
+この主張は Poisson スキーム全体が被約という意味ではない。
+もし非被約な方向があれば、それは上記 determinantal subscheme 側にも記録される。
+
+
+
+\begin{lemma}[錐の排除]\label{lem:no-cone}
+正規な実退化因子は射影錐ではない。
+\end{lemma}
+\begin{proof}
+最小BE分解から五偏微分は一次独立である。錐なら座標変換後に$\partial_0F=0$となって矛盾する。
+一般の正規超曲面からの帰結ではなく、Poissonの実退化因子の分解を使っている。
+\end{proof}
+
+
+\part{Modular residueと不活性成分の排除}
+\section{曲線上のresidueと楕円局所正常形}\label{sec:modular}
+以下、$Y=\operatorname{Proj}(S/J_F)$、$C=Y_{\mathrm{red}}$、$B=V_+(P_{ij})$とする。
+正規な実$D$を仮定する。$B$は$Y$の厚みを持つ部分schemeであり、$C$の被約零点schemeとは限らない。
+
+
+\begin{proposition}\label{prop:normal-modular-base-v15}
+$C$ は連結であり、射影 Poisson bivector $\pi$ は $C$ 上で消える。
+局所 modular vector field の制限は
+\[
+ Z\in H^0(C,T_C)
+\]
+に貼り合わさる。さらに $B\subset Y$ であり、$B$ の台は $C$ 上の $Z$ の零点集合に等しい。
+$C$ の点が Pym の意味で elliptic であることは、その点が $B$ に属さないことと同値である。
+特に $\operatorname{Sing}(C)\subset B$ である。
+$B$ の各点では $F$ の Hessian も零であり、$D$ の重複度は3以上である。
+特に
+\[
+ B=\varnothing\quad\Longleftrightarrow\quad
+ \pi\text{ は滑らかな楕円正規五次曲線から来る }q_{5,1}\text{ 型である}.
+\]
+\end{proposition}
+
+\begin{proof}
+分解 \eqref{eq:BE} を層化すると
+\[
+0\longrightarrow\mathcal O(-10)\longrightarrow\mathcal O(-6)^5
+ \longrightarrow\mathcal O(-4)^5\longrightarrow\mathcal I_Y\longrightarrow0
+\]
+となる。$\PP^4$ 上の直線束の中間コホモロジーの消滅から
+$H^1(\mathcal I_Y)=0$、従って $H^0(\mathcal O_Y)=\CC$ である。
+非自明な冪等元が存在しないので、$Y$ とその被約台 $C$ は連結である。
+
+局所方程式を $f$ とする。Hamiltonian ベクトル場 $X$ が $Xf=hf$ を満たせば
+\[
+ X(\partial_i f)=h\partial_i f+f\partial_i h
+             -\sum_j(\partial_iX^j)\partial_jf
+\]
+であり、特異イデアル $(f,\dd f)$ とその根基は Poisson イデアルである。
+従って $\pi$ は被約曲線 $C$ に接する。
+$C$ の滑らかな稠密開集合では一次元性から $\pi=0$、従って $C$ 全体で $\pi=0$ である。
+体積形式を変更したときの modular vector field の差は Hamiltonian ベクトル場なので、
+$C$ 上の制限は貼り合わさる。この場が $C$ に接することも、modular vector field が
+Poisson 対称性であることから従う。これは \cite[Remark 4.1 とその直前]{PymElliptic}
+の一般的構成の特殊場合である。
+
+二次行列との関係は座標で確認できる。
+$x_0\ne0$ 上で $t=x_0$, $y_i=x_i/x_0$ とすると、斉次性から
+\[
+ P=t\partial_t\wedge A(y)+\pi(y)
+\]
+と書ける。円錐上の体積形式は $t^4\dd t\wedge\dd y_1\wedge\cdots\wedge\dd y_4$ なので、
+$\delta P=0$ は
+\[
+ \operatorname{div}_y A=0,\qquad 5A+\delta_y\pi=0
+\]
+を意味する。modular vector field の規約を $Z=\delta_y\pi$ とすると、
+$C$ 上では $\pi=0$ だから
+\[
+ P\big|_{\widehat C}=-\frac15 E\wedge Z^{\mathrm{hor}}.\tag{R}\label{eq:residue}
+\]
+従って $P$ の全成分の消滅は $Z$ の消滅と同値である。
+また $J_F=(b_i(P))\subset(P_{ij})^2$ より $B\subset Y$ である。
+Pfaffian の式を一回微分すると Hessian の各成分も $(P_{ij})$ に属するので、
+$B$ 上では二次までの jet が零となり、重複度の主張も従う。
+正規性、$\dim\PP^4=4$、$\pi|_C=0$ のもとでは、
+\cite[Definition 4.2]{PymElliptic} の ellipticity はちょうど $Z\ne0$ となる。
+elliptic 局所正規形 \cite[Theorem 4.5]{PymElliptic} の被約特異曲線は滑らかなので、
+$\operatorname{Sing}(C)\subset B$ も従う。
+最後は \cite[Theorem 1.3]{PymElliptic} と
+$q_{5,1}$ の modular residue の非消滅 \cite[Proposition 8.5]{GP} による。
+\end{proof}
+
+\subsection{一つの成分から得られる大域的判定}
+
+\begin{proposition}\label{prop:active-elliptic-v15}
+$C_i$ を $C$ の既約成分、$\widetilde C_i$ をその正規化とする。
+$Z$ が $C_i$ 上恒等的に零でなければ $g(\widetilde C_i)\le1$ である。
+さらに $g(\widetilde C_i)=1$ ならば、$C=C_i$ は滑らかな楕円曲線であり、
+$Z$ は至る所で非零、従って $\pi$ は $q_{5,1}$ 型である。
+
+従って $q_{5,1}$ 型以外では、modular residue が一般点で非零な成分はすべて有理曲線である。
+幾何種数2以上の成分があれば、その成分全体が $B$ に含まれる。
+\end{proposition}
+
+\begin{proof}
+標数零では導分は正規化に持ち上がり、conductor を保つ
+\cite[主定理および169頁の系]{Seidenberg}。
+後者は $R\subset\overline R$ の conductor $\mathfrak c$ に対し、
+$a\in\mathfrak c$, $b\in\overline R$ なら
+$(Za)b=Z(ab)-aZb\in R$ となることからも確認できる。
+正規化上で conductor が局所的に $(u^m)$, $m>0$ と書ける点では、
+その保存性により
+$m u^{m-1}Z(u)\in(u^m)$、従って $Z(u)\in(u)$ である。
+持ち上げた場は $C$ の特異点のすべての逆像で零となる。
+これは他成分との交点の逆像も含む。
+
+滑らかな完備曲線上の非零ベクトル場の零因子の次数は $2-2g$ である。
+従って $g\le1$。$g=1$ なら零点がないので、この成分の上には conductor の台がない。
+従って $C_i$ は滑らかで他成分と交わらない。
+命題\ref{prop:normal-modular-base-v15}の連結性から $C=C_i$ となり、
+至る所で $Z\ne0$ なので $q_{5,1}$ 型である。
+\end{proof}
+
+
+
+\begin{theorem}[活動点での局所正常形]\label{thm:pym-local}
+滑らかな複素四次元Poisson多様体で、実退化因子が正規、特異点$p$で$Z(p)\ne0$なら、
+局所的に退化因子は滑らかな曲線と単純楕円曲面特異点の積である。
+横断方程式と重み、全Jacobianの一般長さは次の表となる。
+\begin{center}\begin{tabular}{cccc}\toprule
+型&重み&横断方程式&長さ\\\midrule
+$\widetilde E_6$&$(1,1,1)$&$x^3+y^3+z^3+\tau xyz$&8\\
+$\widetilde E_7$&$(1,1,2)$&$x^4+y^4+z^2+\tau xyz$&9\\
+$\widetilde E_8$&$(1,2,3)$&$x^6+y^3+z^2+\tau xyz$&10\\\bottomrule
+\end{tabular}\end{center}
+パラメータは孤立曲面特異点となる範囲に取る。
+\end{theorem}
+\begin{proof}
+Pym\cite[Theorem 4.5, Table 1]{PymElliptic}の正確な適用である。
+四次元ではellipticityは正規性と$Z(p)\ne0$に等しい。同定は曲線方向の実際の局所積であり、
+横断方程式は曲線変数に依存しない。重み付きEuler式から$F$自身は横断gradient idealに入り、
+全Jacobian長さは表のMilnor数に等しい。任意の動く$j$ familyのTjurina数を代用していない。
+同論文の\S4.2.3もこの全Jacobian長さを明記する。
+\end{proof}
+\section{滑らかな不活性成分は直線である}\label{sec:smooth-inactive}
+成分$\Gamma$上で$Z$が恒等零ならinactiveと呼ぶ。他成分との交点を許す。
+
+
+$D$ は引き続き正規とし、$\Gamma$ を $C$ の滑らかな被約既約成分とする。
+$C$ 全体の滑らかさは仮定せず、$\Gamma$ が他成分と交わることも許す。
+$Z|_\Gamma\equiv0$ を仮定する。
+
+\subsection{三重消滅と secant による制約}
+
+式\eqref{eq:residue}より $P_{ij}|_\Gamma=0$ である。
+従って $\partial_iF\in\mathcal I_\Gamma^2$ であり、滑らかな $\Gamma$ の
+局所 normal 座標に関する Taylor 展開から
+\begin{equation}\label{eq:triple-vanishing}
+                  F\in H^0(\PP^4,\mathcal I_\Gamma^3(5))
+\end{equation}
+となる。二点で三重に消える五次式の直線への制限は零なので
+\begin{equation}\label{eq:secant-containment}
+                          \operatorname{Sec}(\Gamma)\subset D.
+\end{equation}
+
+$\Gamma$ が $\PP^4$ を張る場合を考える。$d=\deg\Gamma,g=g(\Gamma)$ とすると、
+滑らかな非退化曲線の secant は三次元であり、その次数は
+\begin{equation}\label{eq:secant-degree}
+                 \deg\operatorname{Sec}(\Gamma)=\binom{d-1}{2}-g
+\end{equation}
+である \cite[Theorem 3.5]{AMSSecant}。
+ここでは ambient dimension が4なので、一般点を通る secant の本数という
+別の係数で割る必要はない。同文献の $\PP^3$ の場合とは区別する。
+正規な $D$ は既約であり、\eqref{eq:secant-containment}から
+$D=\operatorname{Sec}(\Gamma)$、従って \eqref{eq:secant-degree}は5に等しい。
+
+Castelnuovo の種数上界は
+\[
+                g\le\left\lfloor\frac{d(d-5)}6\right\rfloor+1
+\]
+である \cite[Proposition 2.6, Corollary 2.7]{BlancLamy}。
+$d\ge6$ なら
+\[
+ \binom{d-1}{2}-g\ \ge\ \frac{d(d-2)}3\ \ge\ 8
+\]
+となり矛盾する。非退化なので $d\ge4$。
+$d=4$ では $g=0$ で secant 次数は3、$d=5$ では次数5となるために $g=1$ が必要である。
+後者は完全線形系による楕円正規五次曲線である。
+その secant 五次式は $q_{5,1}$ の退化因子なので、
+前節の正規因子からの射影 Poisson 構造の一意復元により、$\pi$ も $q_{5,1}$ 型となる。
+しかしこの構造の modular residue は楕円曲線上で零にならず
+\cite[Proposition 8.5]{GP}、
+$Z|_\Gamma=0$ と矛盾する。
+
+$\Gamma$ が超平面 $\PP^3$ を張る場合、その secant は当該超平面全体である。
+従って $F$ に一次因子が生じ、正規性に反する。
+$\Gamma$ が平面 $\Pi$ を張り $d\ge3$ の場合、
+二次式 $P_{ij}|_\Pi$ は次数3以上の既約平面曲線上で零だから、全て零である。
+すると $\nabla F|_\Pi=0$、従って $\Pi\subset\operatorname{Sing}(D)$ となり、
+これも正規性に反する。
+残る線形包は直線と平面二次曲線である。
+
+\subsection{閉じた対数剰余による二次曲線の排除}
+
+\begin{lemma}\label{lem:conic}
+正規な退化五次因子の被約特異曲線に、modular residue が恒等的に零となる
+滑らかな平面二次曲線成分は存在しない。
+\end{lemma}
+\begin{proof}
+その曲線を $\Gamma\subset\Pi=\PP(U)$、$\dim U=3$ とし、
+非退化な三変数二次形式 $q$ で定義されるとする。
+$P_{ij}|_\Gamma=0$ と次数から
+\begin{equation}\label{eq:conic-A}
+                            P|_\Pi=qA
+\end{equation}
+であり、$A$ は定数係数の $5\times5$ 交代行列である。
+式\eqref{eq:triple-vanishing}を平面に制限すると $q^3\mid F|_\Pi$。
+$\deg q^3=6>5$ なので $F|_\Pi=0$、すなわち $\Pi\subset D$ となる。
+Euler 公式を平面に制限すると、定数 Pfaffian ベクトル $b(A)$ は $U$ を消す。
+
+$b(A)=0$ なら平面全体で $\nabla F=q^2b(A)=0$ となるため、正規性に反する。
+従って $A$ の階数は4である。平面に垂直な二座標を変え、
+$b_4(A)$ だけが非零となるようにできる。
+$W=\{x_4=0\}$ は $U$ を含む四次元空間であり、$A$ は $W$ 上で非退化な定数二重ベクトルを与える。
+その逆の定数シンプレクティック形式を $\eta$ とする。
+$\eta_U=\eta|_U$ は非零である。実際、四次元シンプレクティック空間の
+等方部分空間の次元は高々二だからである。
+
+$\Pi\setminus\Gamma$ 上で $\nabla F=q^2b(A)\ne0$ なので、これは $D_{\mathrm{reg}}$ に含まれる。
+$\omega=\pi^{-1}$ は $D$ に単純極を持つ閉じた対数二形式であり、
+$\alpha=\operatorname{Res}_D\omega$ は $D_{\mathrm{reg}}$ 上の閉一形式である。
+ここでその平面への制限は、\emph{固定した非零定数倍}を除いて
+\begin{equation}\label{eq:conic-residue}
+                  \alpha|_\Pi=c\,\frac{\iota_E\eta_U}{q},\qquad c\in\CC^\times
+\end{equation}
+である。この式は一形式が定める分布だけの同定ではない。
+
+係数が定数であることを確認するため、$x_0=1,y_i=x_i/x_0$ で計算する。
+射影二重ベクトルの係数は
+\[
+                 \pi_{ij}=P_{ij}-y_iP_{0j}+y_jP_{0i}.
+\]
+平面上では、これは $q(A_{ij}-y_iA_{0j}+y_jA_{0i})$ であり、
+$\pi_{i4}=0$ である。一方、$\Pf(\pi)=5F$、$\dd F|_\Pi=q^2b_4(A)\dd y_4$。
+逆行列の Pfaffian 余因子公式により、$\dd y_i\wedge\dd y_4$ の分子には
+$q$ が一つだけ現れる。$\dd F$ で割って剰余を取ると $q^{-1}$ が残り、
+定数行列の余因子を $b_4(A)$ で割った係数は $A|_W$ の逆行列である。
+したがって \eqref{eq:conic-residue} が従う。
+現在の $F$ の規約では $c$ は符号を除き $1/5$ であり、$q$ や座標の有理関数には依存しない。
+この一形式は Euler 場に水平かつ斉次次数零なので $\PP(U)$ へ降下する。
+
+$\theta=\iota_E\eta_U$ と置くと $\dd\theta=2\eta_U$。
+よって閉性は
+\begin{equation}\label{eq:conic-closed}
+                        2q\eta_U-\dd q\wedge\theta=0
+\end{equation}
+を与える。$U$ の線形座標を変えて $\eta_U=\dd x_0\wedge\dd x_1$ とすれば
+$\theta=x_0\dd x_1-x_1\dd x_0$ である。
+式\eqref{eq:conic-closed}の $\dd x_2\wedge\dd x_0$、$\dd x_2\wedge\dd x_1$ 成分から
+\[
+                         x_0\partial_2q=x_1\partial_2q=0.
+\]
+従って $\partial_2q=0$ となり、$q$ は二変数の二次式になる。
+これは滑らかな平面二次曲線の非退化性に反する。
+\end{proof}
+
+\begin{proposition}[成分ごとの制約]\label{prop:inactive-line}
+$D$ が正規であり、$\Gamma$ が $C$ の滑らかな被約既約成分であるとする。
+$Z|_\Gamma\equiv0$ ならば、$\Gamma$ は直線である。
+$C$ 全体が可約でもこの結論は成立する。
+\end{proposition}
+\begin{proof}
+前項の線形包による場合分けで、直線と滑らかな平面二次曲線だけが残り、
+後者を補題\ref{lem:conic}が排除する。
+各段階は $\Gamma$ 自身の滑らかさだけを用いており、
+他成分との交点があっても $\mathcal I_\Gamma$ の Taylor 展開には支障がない。
+\end{proof}
+
+
+
+\section{不活性直線と局所Casimirの冪零性}\label{sec:inactive-local}
+以後$L\subset C$を不活性な射影直線と仮定する。$C=L$、$C$の滑らかさ、既約性は仮定しない。
+$P|_{\widehat L}=0$から$F\in I_L^3$である。
+\begin{theorem}[不活性直線の非存在]\label{thm:v19-main}
+正規な実退化因子を持つ一般階数四の$\PP^4$上のPoisson構造に、不活性射影直線は存在しない。
+他の特異曲線成分とその交点を許す。
+\end{theorem}
+この定理を局所冪零性、先頭形の全被覆、完全な高次恒等式の順に証明する。
+形式的座標変換に収束を仮定しない。有限型複素局所環の完備化はJacobian商のKrull次元を保ち、
+形式的座標変更と可逆関数倍は$(f,\dd f)$を保つので、正規性の特異次元上界と矛盾させられる。
+正規性が完備化で保たれる優秀性を用いても同じである\cite{Stacks}。
+
+
+\subsection{形式的半単純部分が保存するもの}
+
+以下では $R=\mathbb C[[x_1,\ldots,x_n]]$、$\mathfrak m=(x_1,\ldots,x_n)$ とする。
+
+\begin{lemma}[半単純部分と消滅イデアル]
+\label{lem:formal-semisimple-fixed}
+$X$ を原点で零となる形式的ベクトル場とする。
+形式的 Poincar\'e--Dulac 座標では
+\[
+ X=S+N,\qquad
+ S=\sum_i\lambda_i x_i\partial_{x_i},\qquad [S,N]=0,
+\]
+と書け、$N$ の線形部は冪零である。
+このとき次が成り立つ。
+\begin{enumerate}
+ \item $\mathcal L_X T=0$ となる形式的テンソル $T$ は
+       $\mathcal L_S T=0$ を満たす。
+ \item $I\subset R$ がイデアルで $X(R)\subset I$ ならば $S(R)\subset I$ である。
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+形式的 Poincar\'e--Dulac 分解の存在については
+Jiang--Ratiu--Zung \cite[\S2.1]{JRZFormal} を参照する。
+第一項は同文献の Conservation Theorem \cite[Theorem 2.3(i)]{JRZFormal}
+の特別な場合であるが、ここで必要な形式的テンソルに対しては有限 jet 上の
+線形代数で直接確認できる。
+
+$R/\mathfrak m^k$ 上で $S$ は対角化可能であり、$N$ は冪零である。
+実際、次数による有限 filtration の随伴次数上で $N$ が誘導する作用は
+その冪零な線形部から来るので、随伴次数上で冪零である。
+従って $N$ 自身も有限 jet 上で冪零となる。
+テンソルの係数を $\mathfrak m^k$ で切った有限 jet に対する Lie 微分にも
+同じ議論が成り立つ。
+二作用は可換だから、$\mathcal L_S$ の非零固有値 $\lambda$ の空間では
+$\mathcal L_X=\lambda+\mathcal L_N$ が可逆である。
+従って $\mathcal L_XT=0$ は $T$ の非零 weight 成分を全て消し、第一項を与える。
+
+第二項について、$R/\mathfrak m^k$ 上の $S$ は $X$ の Jordan 半単純部分である。
+ゆえに $S=q_k(X)$ と書ける。定数関数が $X$ の核に入るため、
+$q_k(0)=0$ と選べる。
+$X(R)\subset I$ ならば $X^a(R)\subset I$ が全ての $a\ge1$ で成り立つので
+\[
+                         S(R)\subset I+\mathfrak m^k.
+\]
+全ての $k$ について交わりを取り、$R$ のイデアルが
+$\mathfrak m$-進閉であることを使えば $S(R)\subset I$ となる。
+\end{proof}
+
+\subsection{不変関数の最大 weight 軸}
+
+\begin{lemma}[三重消滅と非零 weight]
+\label{lem:maximum-weight}
+$R=\mathbb C[[t,y_1,y_2,y_3]]$、$I=(y_1,y_2,y_3)$ とする。
+\[
+             S=\sum_{j=1}^3\lambda_j y_j\partial_{y_j}
+\]
+で少なくとも一つの $\lambda_j$ が非零であるとする。
+$f\in I^3$ かつ $S(f)=0$ ならば、$f$ の Jacobian イデアル
+\[
+             J(f)=(f,\partial_t f,\partial_{y_1}f,
+                         \partial_{y_2}f,\partial_{y_3}f)
+\]
+の零点集合の次元は少なくとも二である。
+\end{lemma}
+\begin{proof}
+$|\lambda_i|=\max_j|\lambda_j|>0$ となる $i$ を選ぶ。
+二つの他の normal 座標で生成される素イデアル
+\[
+                        Q_i=(y_j:j\ne i)
+\]
+を考える。$R/Q_i=\mathbb C[[t,y_i]]$ なので、その零点集合は二次元である。
+$S(f)=0$ より、$f$ に現れる各単項式
+$t^b y_1^{a_1}y_2^{a_2}y_3^{a_3}$ は
+$\sum_j a_j\lambda_j=0$ を満たす。
+一方 $f\in I^3$ より $\sum_j a_j\ge3$ である。
+
+$Q_i$ で割った後も $f$ に残り得る項は $c(t)y_i^a$、$a\ge3$ だけだが、
+その weight は $a\lambda_i\ne0$ なので存在しない。
+$\partial_t f$ と $\partial_{y_i}f$ にも同じ結論が成り立つ。
+$j\ne i$ に対し、$\partial_{y_j}f$ が $Q_i$ で割った後に残るためには
+$f$ に $c(t)y_i^a y_j$、$a\ge2$ が必要である。
+しかしその weight が零なら
+\[
+                       |\lambda_j|=a|\lambda_i|
+                                      \ge2|\lambda_i|,
+\]
+となり、$i$ の選び方に矛盾する。
+従って $J(f)\subset Q_i$ である。
+\end{proof}
+
+
+
+\begin{lemma}[Casimir を固定するベクトル場の冪零性]
+\label{lem:casimir-nilpotent}
+$M$ を滑らかな複素 $n$ 次元多様体、$H=(f=0)$ を正規 hypersurface とする。
+$\Sigma\subset M$ は滑らかな余次元三の部分多様体で、$f\in I_\Sigma^3$ とする。
+局所ベクトル場 $V$ が $V|_\Sigma=0$ と $V(f)=0$ を満たすならば、
+全ての $p\in\Sigma$ で $\mathrm d_pV$ は冪零である。
+\end{lemma}
+\begin{proof}
+$p$ で完備化し、$V=S+N$ を形式的 Poincar\'e--Dulac 形にする。
+補題\ref{lem:formal-semisimple-fixed}により $S(f)=0$、$S|_\Sigma=0$ である。
+weight 零の座標内で $\Sigma$ を直線化すると
+\[
+ R=\mathbb C[[t_1,\ldots,t_{n-3},y_1,y_2,y_3]],\qquad
+ I_\Sigma=(y_1,y_2,y_3),\qquad
+ S=\sum_j\lambda_jy_j\partial_{y_j}
+\]
+となる。
+非零 $\lambda_j$ が存在すれば、補題\ref{lem:maximum-weight}と全く同じ
+最大絶対値の議論により、ある
+$Q_i=(y_j:j\ne i)$ が $(f,\mathrm df)$ を含む。
+ここで $\dim R/Q_i=n-2$ である。
+これは正規な $(n-1)$ 次元 hypersurface の特異集合が高々 $(n-3)$ 次元である
+ことに反する。従って全固有値が零であり、$\mathrm d_pV$ は冪零である。
+この証明には $\operatorname{tr}(\mathrm d_pV)=0$ という別の仮定は不要である。
+\end{proof}
+
+\begin{theorem}[五次元 isotropy の冪零性]
+\label{thm:affine-nilpotent}
+$\mathbb P^4$ 上の Poisson 構造の退化五次因子 $D=(F=0)$ が正規であり、
+$L\subset\operatorname{Sing}(D)_{\mathrm{red}}$ が零 modular residue を持つ直線であるとする。
+標準発散零 lift $P$ に対し、全ての非零 $p\in\widehat L$ で
+\[
+                 \mathfrak g^{\mathrm{aff}}_p
+                   =(T_p^*\mathbb C^5,[\ ,\ ]_{P,1})
+\]
+は五次元冪零 Lie algebra である。
+\end{theorem}
+\begin{proof}
+第\ref{sec:normal}節の標準liftの確認により $[P,P]=0$ である。
+また Pfaffian 恒等式と $\nabla F=b(P)$ により
+\[
+                              P\nabla F=0.
+\]
+従って $F$ は affine Poisson 構造の Casimir である。
+$P|_{\widehat L}=0$ と $F\in I_{\widehat L}^3$ は零 residue から既に分かっている。
+非零点 $p\in\widehat L$ では $\widehat L$ は滑らかな二次元部分多様体であり、
+affine cone $(F=0)$ は局所的に $D$ と $\mathbb C^*$ の積なので正規である。
+任意の Hamiltonian ベクトル場 $X_h$ は $\widehat L$ 上で零となり $X_h(F)=0$ を満たす。
+補題\ref{lem:casimir-nilpotent}により $\mathrm d_pX_h$ は全て冪零となる。
+Engel の定理\cite{EtingofEngel}を五次元 isotropy に適用して結論を得る。
+\end{proof}
+
+
+
+局所normal座標の三次元Lie括弧を巡回外積基底で行列$B$に表す。
+零modular residueからそのLie代数はunimodularなので$B$は対称である。
+$N^*_{L/\PP^4}=\OO_L(-1)^3$より、その全成分はbinary一次式となる。
+\begin{proposition}\label{prop:normal-bracket-rank}
+直線のconormal Lie bracketを対称pencil $B(s,t)$で表すと、全点で$\rank B\le1$である。
+非零なら$B=\ell(s,t)vv^t$、$v$は一定ベクトルである。
+\end{proposition}
+\begin{proof}
+normal Lie algebraは五次元isotropyのidealなので冪零。
+三次元unimodular Lie algebraの対称行列表示ではrank3は$\mathfrak{sl}_2$、rank2は
+$\mathfrak r_{3,-1}$、rank1はHeisenberg、rank0はabelianであり、前二者は非冪零。
+異なる像を持つ二つの対称rank1行列の一般線形結合はrank2となるためpencilの像は一定である。
+\end{proof}
+
+
+\begin{proposition}[Heisenberg normal jet の純冪 tangent cone]
+\label{prop:heisenberg-pure-power}
+上の仮定に加え、$B$ が一般点で階数一であるとする。
+$F\in I_L^m\setminus I_L^{m+1}$ とし、$F_m$ を最初の normal 項とする。
+このとき固定された normal 一次式 $w$ と binary form $c(s,t)$ により
+\[
+                  F_m=c(s,t)w^m,\qquad \deg c=5-m
+\]
+と書ける。
+\end{proposition}
+\begin{proof}
+局所 Hamiltonian ベクトル場 $X_h$ は
+\[
+                    X_h(f)=\operatorname{div}(X_h)f
+\]
+を満たす。これは $\mathcal L_{X_h}(\pi^2)=0$ を局所体積で表した式である。
+modular residue の消滅から $\operatorname{div}(X_h)\in I_L$。
+$h$ を normal 一次座標としたとき、$X_h$ の normal 一次部分は
+$B$ が定める coadjoint ベクトル場であり、tangent 部分は $I_L$ に入る。
+従って normal 次数 $m$ の式を取ると、この coadjoint ベクトル場が $F_m$ を消す。
+
+Heisenberg bracket を $\{u,v\}=w$、$\{v,w\}=\{w,u\}=0$ と書けば、
+この条件は $w\partial_uF_m=w\partial_vF_m=0$ である。
+係数環は整域なので $F_m$ は $w$ のみの関数であり、同次性から $c(s,t)w^m$ となる。
+rank-one pencil の image が一定であるため $w$ は大域的に固定した normal 一次式と
+選べる。$F$ の全次数が五なので $c$ の次数は $5-m$ である。
+\end{proof}
+
+
+
+\begin{lemma}[五次元冪零 linear Poisson 構造の三次 Casimir]
+\label{lem:nilpotent-cubic}
+$\mathfrak g$ を五次元冪零複素 Lie algebra、$P_1$ を対応する linear Poisson 行列とする。
+三次同次式 $G$ が
+\[
+                             b(P_1)=\nabla G
+\]
+を満たすとする。このとき $G=0$、または $G=c\ell^3$ である。
+後者では $\ell$ は非零の中心元に対応する一次 Casimir であり、
+$\dim Z(\mathfrak g)=1$ である。
+\end{lemma}
+\begin{proof}
+$G\ne0$ なら $b(P_1)\ne0$ なので $P_1$ は有理関数体上で階数四であり、
+その核は一次元である。
+非零冪零 Lie algebra の中心は非零なので、非零中心元に対応する
+一次 Casimir $\ell$ を選べる。
+$\nabla\ell$ と $\nabla G=b(P_1)$ はいずれも $P_1$ の核に入るから
+\[
+                              \mathrm dG=q\,\mathrm d\ell
+\]
+と書ける。$\ell$ を一つの線形座標に取れば、他の四座標に関する $G$ の偏微分は
+全て零である。三次同次性より $G=c\ell^3$ となる。
+二つの線形独立な中心元があれば核が二次元以上になるので、中心は一次元である。
+\end{proof}
+
+\begin{theorem}[全ての conormal rank に共通する三次項]
+\label{thm:fixed-cubic}
+定理\ref{thm:affine-nilpotent}の仮定の下で
+\[
+       F=F_3(s,t,z)+F_4(s,t,z)+F_5(z),
+       \qquad \deg_{s,t}F_j=5-j,\quad \deg_zF_j=j
+\]
+と normal 次数で展開する。
+$F_3\ne0$ ならば、固定した非零 normal 一次式 $w(z)$ と非零 binary quadratic
+$q_2(s,t)$ が存在して
+\begin{equation}\label{eq:fixed-cubic}
+                              F_3=q_2(s,t)w(z)^3
+\end{equation}
+となる。この結論は $B$ の階数が一の場合にも零の場合にも成り立つ。
+\end{theorem}
+\begin{proof}
+$p=(s_0,t_0,0)\in\widehat L\setminus\{0\}$ を固定する。
+$P$ の $p$ での一次 Taylor 項 $P_{1,p}$ は normal 変数 $z$ のみに依存する。
+$\nabla F=b(P)$ の全 Taylor 次数二の部分を取ると
+\[
+          b(P_{1,p})=
+           (0,0,\partial_{z_1}F_3(s_0,t_0,z),
+                  \partial_{z_2}F_3(s_0,t_0,z),
+                  \partial_{z_3}F_3(s_0,t_0,z))
+\]
+となる。$s,t$ に関する偏微分は normal 次数三以上なので右辺の最初の二成分は零である。
+定理\ref{thm:affine-nilpotent}と補題\ref{lem:nilpotent-cubic}から、
+$F_3(s_0,t_0,z)$ が非零なら normal 一次式の三乗の定数倍となる。
+その一次式に tangent 座標が含まれないことは、上式の最初の二成分が零であることから従う。
+
+最後にこの pointwise 条件を大域化する。
+$R=\mathbb C[s,t]$、$K=\mathbb C(s,t)$ と置く。
+Veronese 像は閉なので、一般点での純三乗性は $K$ 上でも成立する。
+より具体的には、ある $z_i^3$ の係数が非零である chart で
+$[z_i^2z_j]F_3/(3[z_i^3]F_3)$ を取れば、一次式の係数比を $K$ 内に復元できる。
+従って
+\[
+                    F_3=c(s,t)\,\ell(s,t,z)^3
+\]
+と書け、$\ell=\sum_i a_i(s,t)z_i$ の係数 $a_i\in R$ は互いに共通因子を持たず、
+同じ次数 $e\ge0$ の同次式と選べる。
+$\ell$ は $R[z]$ の primitive polynomial なので、Gauss の補題により $\ell^3$ も
+primitive である。$F_3\in R[z]$ であることから $c\in R$ が従う。
+binary 次数を比較すると
+\[
+                              \deg c+3e=2.
+\]
+よって $e=0$ であり、$\ell=w(z)$ は固定した一次式、$c=q_2$ は binary quadratic となる。
+\end{proof}
+
+
+
+\begin{equation}\label{eq:canonical}
+\delta P=0,\quad[P,P]=0,\quad\nabla F=b(P),\quad P\,\dd F=0.
+\end{equation}
+
+\section{局所五生成元と一般法線重複度}\label{sec:five-minimal}
+$m=\operatorname{ord}_L(F)$を一般法線消滅次数、$F_m$を最初の非零な法線同次項とする。
+$F\in I_L^3$と$\deg F=5$から$3\le m\le5$である。
+$L$の一般点$\eta$で$R=\widehat{\mathcal O}_{\PP^4,\eta}=\CC(t)[[z_1,z_2,z_3]]$とする。
+BEの右完全な提示$R^5\xrightarrow P R^5\to J_FR\to0$を剰余体とtensorすると、
+$P\bmod\mathfrak m=0$なので$J_FR/\mathfrak mJ_FR=\CC(t)^5$。
+従って局所Jacobian idealの最小生成元数は厳密に五である。他成分は$\eta$で消える。
+$s=1$で$f=F(1,t,z)$とすれば、Eulerによる可逆な生成元変換から
+\[
+J_FR=(f,f_t,f_{z_1},f_{z_2},f_{z_3}),\qquad f_t\notin(f,f_z),\quad f\notin(f_t,f_z).
+\]
+この段階で長さを40と置かない。その数値を成分の一般長さと同一視できるのは$C=L$の場合だけである。
+
+
+\subsection{五重消滅と比例四次 pencil の排除}
+
+\begin{proposition}\label{prop:mult-exclusions}
+直線型では $m=5$ は不可能である。
+$m=4$ の場合、四次係数の pencil は比例してはならない。
+\end{proposition}
+\begin{proof}
+$F\in I_L^5(5)$ なら、全次数が五なので $F$ は法線三変数だけに依存する。
+このとき $f_t=0$ となり、上の五生成元の非所属条件 に反する。
+
+$m=4$ のときは
+\[
+             F=sA_4(z)+tB_4(z)+C_5(z)
+\]
+と書ける。$A_4,B_4$ が比例すると仮定すると、
+一般 chart では、非零の四次式 $G_4$ と非零の一次または定数式 $q$ により
+$f=q(t)G_4+C_5$ と書ける。
+法線 Euler 場 $E_z=\sum z_i\partial_{z_i}$ によって
+\[
+                    5f-E_zf=q(t)G_4,\qquad
+ f_t=\frac{q'(t)}{q(t)}(5f-E_zf)\in(f,f_z)
+\]
+を得る。$q$ は非零なので $K=\CC(t)$ 上で割ってよい。
+再び 上の五生成元の非所属条件 と矛盾する。
+また比例 pencil では同次線形座標変換により $F$ が一つの直線座標に
+依存しなくなるため、五つの同次偏微分の最小性から直接矛盾を出すこともできる。
+\end{proof}
+
+conormal 括弧 $B$ が非零なら、命題\ref{prop:heisenberg-pure-power}により
+$F_m=c(s,t)w^m$ となる。
+$m=4$ ならこれは比例四次 pencil なので、上の命題で排除される。
+従って
+\[
+                  B\ne0\quad\Longrightarrow\quad
+                  m=3,\quad F_3=q_2(s,t)w^3.
+\]
+ここで $m$ は直線の一般点における次数である。
+$q_2$ の零点で transverse multiplicity が跳ぶことまで排除したわけではない。
+
+
+
+\section{不活性な直線に沿う標準二次リフトの一次 jet}
+\label{sec:v17-line-algebra}
+
+この節では検証コードに合わせて法線添字を $0,1,2$ とする。
+以下、基礎体を $\mathbf C$ とし、
+$L=\{z_0=z_1=z_2=0\}\subset\mathbf P^4$、
+同次座標を $(s,t,z_0,z_1,z_2)$ とする。
+$I=(z_0,z_1,z_2)$ と書く。
+標準二次リフト $P$ に対して
+\[
+ \delta P=0,\qquad P|_{\widehat L}=0
+\]
+を課す。後者は、退化五次超曲面の滑らかな被約特異成分 $L$ 上で
+モジュラー留数が零という、上で得た条件である。
+この節の線形代数部分では、まだ Jacobi 恒等式を課さない。
+
+\subsection{正確な 96 次元から 36 次元への写像}
+
+$P_{ij}\in I(2)$ は各 $12$ 係数、上三角成分は $10$ 個あるので、
+係数空間は $120$ 次元である。
+発散写像は $25\times120$ 行列で表され、その階数は $24$ である。
+したがって標準リフトの線形空間は $96$ 次元となる。
+この階数は、行列式 $-1$ の $24$ 次小行列と、
+$\operatorname{div}(\delta P)=0$ という一つの線形関係により検証できる。
+
+$s=1$ の座標を $\tau=t/s$、$y_i=z_i/s$ とし、
+射影 Poisson 二重ベクトルの一次法線 jet を
+\begin{align*}
+ \{\tau,y_i\}&=\sum_j A_{ij}(\tau)y_j\pmod{I^2},\\
+ \{y_1,y_2\}&=(B(\tau)y)_0\pmod{I^2},\\
+ \{y_2,y_0\}&=(B(\tau)y)_1\pmod{I^2},\\
+ \{y_0,y_1\}&=(B(\tau)y)_2\pmod{I^2}
+\end{align*}
+と書く。すると
+\[
+ A\in\mathfrak{sl}_3\otimes H^0(\mathbf P^1,O(2)),\qquad
+ B\in\operatorname{Sym}^2\mathbf C^3\otimes H^0(\mathbf P^1,O(1)).
+\]
+第一項は $24$ 次元、第二項は $12$ 次元である。
+この $36$ 次元空間への一次 jet 写像は全射で、核は $60$ 次元である。
+全射性には行列式 $-256$ の $36$ 次小行列があり、
+明示的な有理数係数の右逆写像も保存した。
+従って、一次 jet に対する追加の線形制約は存在しない。
+
+一次法線次数における Jacobi 恒等式は、正確に
+\begin{equation}
+ A^{\mathsf T}B+BA=0
+ \label{eq:v17-first-jacobi}
+\end{equation}
+である。$B$ の対称性により法線三変数間の一次 Jacobi 恒等式は自動的に成立し、
+接方向一変数を含む三つの Jacobi 恒等式が
+\eqref{eq:v17-first-jacobi} を与える。
+
+\subsection{一次 jet を持ち上げる14個の追加変数}
+
+法線次数 $1$ の斉次部分 $P_1$ を
+\[
+ P_1=\begin{pmatrix}
+ 0&a&(Mz)^{\mathsf T}\\
+ -a&0&(Nz)^{\mathsf T}\\
+ -Mz&-Nz&D(Bz)
+ \end{pmatrix},
+\qquad
+ D(q)=\begin{pmatrix}0&q_2&-q_1\\-q_2&0&q_0\\q_1&-q_0&0\end{pmatrix}
+\]
+と書く。ここで $a=\alpha(s,t)\cdot z$、$\alpha$ は $3$ 成分の二項一次式、
+$M,N$ は跡零 $3\times3$ 行列の二項一次式である。
+$A=A_0s^2+A_1st+A_2t^2$ と書けば
+\begin{equation}
+ M=sU-tA_2,\qquad N=sA_0+t(A_1+U),\qquad U\in\mathfrak{sl}_3,
+ \qquad A=sN-tM.
+ \label{eq:v17-lift-mn}
+\end{equation}
+従って、$(A,B)$ に加えて $U$ の $8$ 係数と $\alpha$ の $6$ 係数、
+合計 $14$ 個で $P_1$ を記述できる。
+
+法線二次部分 $P_2$ の空間は $60$ 次元であり、その発散像は $14$ 次元である。
+実際、接方向二成分は任意の法線一次式を与えるため $6$ 次元、
+法線方向三成分は任意の跡零 $3\times3$ 行列を与えるため $8$ 次元である。
+$P_1$ の残りの発散はこの像に属するので、任意の上記 $P_1$ に対し、
+$\delta(P_1+P_2)=0$ を満たす $P_2$ は $46$ 次元のアフィン空間をなす。
+これが $50+46=96$ と、一次 jet の核 $14+46=60$ の具体的な説明である。
+
+\subsection{先頭 Pfaffian--勾配方程式}
+
+標準リフトに関する既知の恒等式を
+\[
+ b_i=(-1)^i\operatorname{Pf}(P_{\widehat i}),\qquad
+ \nabla F=b(P),\qquad F\in I^3
+\]
+の符号規約で用いる。
+添字 $2$ はここでは法線次数 $2$ の部分を表す。
+直接 $4\times4$ Pfaffian を展開すると
+\begin{align}
+ (b_0)_2&=(Nz)\cdot(Bz),&
+ (b_1)_2&=-(Mz)\cdot(Bz),\label{eq:v17-b-tangent}\\
+ (b_{\mathrm{normal}})_2&=aBz-(Mz)\times(Nz).
+ \label{eq:v17-b-normal}
+\end{align}
+$F\in I^3$ より \eqref{eq:v17-b-tangent} は零でなければならない。
+従って
+\begin{equation}
+ M^{\mathsf T}B+BM=0,\qquad N^{\mathsf T}B+BN=0.
+ \label{eq:v17-mn-orthogonal}
+\end{equation}
+これは $A$ だけの条件 \eqref{eq:v17-first-jacobi} より強く、
+追加変数 $U$ にも条件を課す。
+
+ベクトルの外積行列を $[\alpha]_\times v=\alpha\times v$ と定めると、
+$M,N$ の跡零性と $B$ の対称性から
+\begin{equation}
+ \operatorname{curl}\bigl(aBz-(Mz)\times(Nz)\bigr)
+ =\bigl([\alpha]_\times B-[M,N]\bigr)z.
+ \label{eq:v17-curl}
+\end{equation}
+従って、法線勾配であるための必要十分条件は
+\begin{equation}
+ [M,N]=[\alpha]_\times B.
+ \label{eq:v17-commutator}
+\end{equation}
+このとき法線三次部分は
+\begin{equation}
+ F_3=\frac13 z\cdot\bigl(aBz-(Mz)\times(Nz)\bigr).
+ \label{eq:v17-f3}
+\end{equation}
+従って $F_3$ とここまでの制約は、$60$ 個の核変数全部ではなく、
+上記 $14$ 個の一次法線持ち上げ変数だけに依存する。
+これらは完全な Jacobi 方程式の必要条件であり、
+高い法線次数での Pfaffian--勾配方程式を置き換えるものではない。
+
+
+
+\subsection{三重の場合に共通する先頭標準形}
+
+別節の五次元等方冪零性と純粋三乗定理を用いる。
+$F_3\ne0$ の場合、一定の法線座標変換の後
+\[
+ F_3=c(s,t)w^3,\qquad c\in\mathbf C[s,t]_2\setminus\{0\},
+ \qquad z=(w,u,v)
+\]
+とできる。
+固定された $(s,t)$ において、$P_1$ の法線二次 Pfaffian ベクトルは
+$(0,0,3cw^2,0,0)$ である。
+奇数次交代行列の Pfaffian 恒等式 $P_1b_2=0$ から、
+$M,N$ の第一行は零であり、$B=b(s,t)\operatorname{diag}(1,0,0)$ となる。
+従って $B=0$ の三重の場合も、同じ表示に含まれる。
+
+$M,N$ の下ブロックを $H,K$ とする。
+五次元等方 Lie 代数の冪零性から $H,K$ は各点で冪零であり、
+\eqref{eq:v17-commutator} から $[H,K]=0$ である。
+二項一次式係数の跡零 $2\times2$ 行列が全ての点で冪零なら、
+その二つの係数行列は比例する。
+これは $\mathbf P(\mathfrak{sl}_2)$ の冪零円錐の射影化が
+滑らかな二次曲線であり、射影直線を含まないことから従う。
+従って $H=\ell J$、$K=mJ$ と書け、
+両方が非零の場合には可換性と中心化代数の一次元性から同じ一定冪零行列 $J$ を取れる。
+一方だけが非零の場合も同じ表示ができる。
+両方零の場合は $\ell=m=0$ として含める。
+一定の二次元座標変換で $J=E_{12}$ と正規化すると
+\begin{equation}
+ M=\begin{pmatrix}0&0&0\\p&0&\ell\\q&0&0\end{pmatrix},\qquad
+ N=\begin{pmatrix}0&0&0\\r&0&m\\k&0&0\end{pmatrix},\qquad
+ B=b\operatorname{diag}(1,0,0).
+ \label{eq:v17-unified-m3}
+\end{equation}
+ここで $b,\ell,m,p,q,r,k$ は全て二項一次式である。
+$a=a_w w+a_u u+a_v v$ と書けば、
+\eqref{eq:v17-commutator} と \eqref{eq:v17-f3} は正確に
+\begin{equation}
+ b a_u=0,\qquad b a_v=\ell k-mq,\qquad
+ 3c=b a_w-pk+qr
+ \label{eq:v17-unified-m3-equations}
+\end{equation}
+を与える。
+従って三重の場合の全ての残存候補は、
+\eqref{eq:v17-unified-m3}--\eqref{eq:v17-unified-m3-equations} と
+$c\ne0$ を満たす先頭係数を持つ。
+これは第一段階の必要条件を明示したものであり、
+残る法線二次係数と高次恒等式は、この後の排除節で扱う。
+
+
+
+% v18 independent proof note.  All preceding v17 files are unchanged.
+% Intended to be \input into the parent's Japanese LuaLaTeX document.
+\section{三重の場合：Heisenberg 点の排除と二次補正}
+\label{sec:v18-m3}
+
+$L=\{w=u=v=0\}\subset\mathbb P^4$ とし、同次座標を $(s,t,w,u,v)$ とする。
+本節では\eqref{eq:v17-unified-m3}の標準形を用いる。
+すなわち、標準発散零二次 lift を $P=P_1+Q$ と書き、
+$P_1$ は法線次数一、$Q$ は法線次数二とする。
+$Q$ の係数は $s,t$ に依存しない。
+退化五次式は
+\[
+ F=c(s,t)w^3+F_4(s,t,w,u,v)+F_5(w,u,v),\qquad c\ne0,
+\]
+であり、$F_j$ の法線次数は $j$、binary 次数は $5-j$ である。
+$\nabla F=b(P)$、$[P,P]=0$、$\delta P=0$ を用いる。
+
+一次部分を
+\begin{align*}
+ (P_1)_{st}&=a_w w+a_u u+a_v v,\\
+ (P_1)_{su}&=p w+\ell v,& (P_1)_{sv}&=q w,\\
+ (P_1)_{tu}&=r w+m v,& (P_1)_{tv}&=k w,\\
+ (P_1)_{uv}&=b w,& (P_1)_{wi}&=0
+\end{align*}
+と書く。ここに現れる $a_w,a_u,a_v,p,q,r,k,\ell,m,b$ は binary 一次式であり、
+\begin{equation}\label{eq:v18-leading}
+ ba_u=0,\qquad ba_v=\ell k-mq,\qquad 3c=ba_w-pk+qr
+\end{equation}
+が成立する。以下の結論は正規な実際の退化因子を持つ閉点に関する必要条件であり、
+パラメータ・スキームの既約成分の分類を主張しない。
+
+\subsection{一点の Heisenberg 型だけで生じる矛盾}
+
+\begin{theorem}[Heisenberg 点の排除]\label{thm:v18-heisenberg}
+非零の $p_0=(s_0,t_0)\in\mathbb C^2$ で $c(p_0)\ne0$ とし、
+一次部分が
+\[
+                       P_1(p_0,w,u,v)=wK_{p_0}
+\]
+となると仮定する。ここで $K_{p_0}$ は
+$\langle\partial_s,\partial_t,\partial_u,\partial_v\rangle$
+上の一定二重ベクトルである。
+このとき $w\mid F$ である。従って退化五次因子 $D=(F=0)$ は正規でない。
+特に正規な場合、五次元 isotropy が Heisenberg 型になる点は
+$c\ne0$ の範囲に存在しない。
+\end{theorem}
+
+\begin{proof}
+$c(p_0)\ne0$ より $K_{p_0}$ の階数は四である。
+Jacobi 恒等式の法線次数二の部分を取り、$w=0$ で割り、
+$p_0$ で評価する。
+$[P_1,P_1]$ の接方向微分を含む項は $P_1(p_0,z)=wK_{p_0}$ の因子を持つので消える。
+$P_1$ が $Q$ を法線微分する項も同じ理由で消える。
+$Q$ が $P_1$ を接方向微分する項は法線次数三なので、この次数には現れない。
+残るのは
+\[
+                    K_{p_0}\wedge V=0,\qquad
+                    V=(Q^\sharp\mathrm dw)\bmod w
+\]
+だけである。$V$ は $\partial_w$ 成分を持たず、$s,t$ に依存しない。
+
+四次元空間上の非退化二重ベクトル $K$ に対し、
+$V\mapsto K\wedge V$ は一次ベクトルから三次ベクトルへの同型である。
+実際、Darboux 基底で直ちに確認できる。
+一般の交代行列 $K$ でこの写像の行列式を計算すると $\operatorname{Pf}(K)^2$ になる。
+従って $V=0$、すなわち全ての $Q_{wi}$ が $w$ で割り切れる。
+$Q$ は binary 座標に依存しないので、この結論は $p_0$ に限定されない。
+また $P_1$ の $w$ 行は恒等的に零だから、$P$ の $w$ 行全体が $w$ で割り切れる。
+
+$i\ne w$ に対する $b_i(P)$ は $w$ 行を含む四次 Pfaffian なので、
+$w\mid b_i(P)=\partial_iF$ である。
+従って $F\bmod w$ は残る四変数の全てについて微分が零であり、
+標数零と五次同次性から $F\bmod w=0$ となる。
+
+$F=wG_4$ の因子 $w$ が重複すれば非被約であり、
+重複しなければ超平面と四次超曲面は射影空間内で交わるため、その交点で局所環は整域でない。
+いずれも $D$ の正規性に反する。
+\end{proof}
+
+\begin{corollary}[階数一の共通根]\label{cor:v18-rankone-root}
+$b\ne0$ の場合、$\ell,m$ の共通零点 $p_0\in\mathbb P^1$ では
+\[
+                              b(p_0)c(p_0)=0
+\]
+でなければならない。
+特に $\ell=m=0$ は不可能である。
+$\ell,m$ が共通の一次因子 $h$ を持つなら、必要条件として $h\mid bc$ が成立する。
+\end{corollary}
+\begin{proof}
+$b(p_0)c(p_0)\ne0$ とすると、\eqref{eq:v18-leading} より
+$a_u(p_0)=a_v(p_0)=0$ である。
+従って $P_1(p_0,z)=wK_{p_0}$ となり、定理に反する。
+$\ell=m=0$ なら $a_u=a_v=0$ は恒等式なので、$bc\ne0$ の一般点を取ればよい。
+\end{proof}
+
+\subsection{Conormal bracket が零の場合の二次補正}
+
+以下 $b=0$ と仮定する。
+$\ell k=mq$、$3c=-pk+qr$ が成立する。
+\begin{proposition}[中心座標の Hamiltonian の法線部分]\label{prop:v18-qw}
+定数 $\mu,\nu,\lambda\in\mathbb C$ が存在して
+\begin{equation}\label{eq:v18-qw}
+ Q_{wu}=w(\mu w+\nu v),\qquad Q_{wv}=\lambda w^2
+\end{equation}
+となり、binary 恒等式
+\begin{align}
+ p c_s+r c_t&=-3\mu c,\label{eq:v18-logp}\\
+ \ell c_s+m c_t&=-3\nu c,\label{eq:v18-logl}\\
+ q c_s+k c_t&=-3\lambda c\label{eq:v18-logq}
+\end{align}
+を満たす。
+\end{proposition}
+\begin{proof}
+接方向の Pfaffian--勾配恒等式の法線次数三の部分は
+\begin{align*}
+ -(rw+mv)Q_{wv}+kwQ_{wu}&=c_s w^3,\\
+ (pw+\ell v)Q_{wv}-qwQ_{wu}&=c_t w^3
+\end{align*}
+である。$Q_{wu},Q_{wv}$ に関する係数行列の行列式は
+\[
+ (pk-qr)w^2+(\ell k-mq)wv=-3cw^2.
+\]
+分数体上で Cramer の公式を適用すると
+\begin{align*}
+ Q_{wu}&=-\frac{p c_s+r c_t}{3c}w^2
+          -\frac{\ell c_s+m c_t}{3c}wv,\\
+ Q_{wv}&=-\frac{q c_s+k c_t}{3c}w^2.
+\end{align*}
+左辺の係数は $s,t$ に依存しないので、各比は定数となる。
+これが結論である。
+\end{proof}
+
+この条件は二次の先頭係数を単に数えたものではない。
+三つの binary 線形ベクトル場が $c$ を定数倍に保つことを要求する。
+たとえば $c=\kappa st$、$\kappa\ne0$ の場合には
+\begin{equation}\label{eq:v18-node-leading}
+ p=\alpha s,\quad r=\beta t,\quad
+ q=\gamma s,\quad k=\delta t,\quad
+ \ell=\varepsilon s,\quad m=\zeta t,
+ \qquad 3\kappa=-\alpha\delta+\gamma\beta.
+\end{equation}
+従って射影一次 jet の全ての成分は $st$ で割り切れ、$A=stA_0$ となる。
+$c=\kappa s^2$ の場合には $p,q,\ell$ が $s$ の倍数となる。
+さらに $r=\beta s+\gamma t$、$k=\varepsilon s+\zeta t$ と書けば、
+$pk-qr=-3\kappa s^2$ の $st$ 係数が零という追加条件が残る。
+
+\subsection{零の下ブロックの完全な排除}
+
+\begin{theorem}[三重の場合には下ブロックが非零]\label{thm:v18-nonzero-block}
+正規な退化五次因子を持つ三重の場合には
+\[
+                              (\ell,m)\ne(0,0)
+\]
+である。これは $b=0$ と $b\ne0$ の両方に成立する。
+\end{theorem}
+\begin{proof}
+$b\ne0$ の場合は系\ref{cor:v18-rankone-root}で証明した。
+$b=0$、$\ell=m=0$ とする。
+命題\ref{prop:v18-qw}より $Q_{wu}=\mu w^2$、$Q_{wv}=\lambda w^2$ となる。
+以下、上線は $w=0$ への制限を表す。
+\[
+              X=\overline{Q_{sw}},\qquad
+              Y=\overline{Q_{tw}},\qquad
+              Z=\overline{Q_{uv}}
+\]
+と置く。これらは $u,v$ の二次式である。
+
+法線方向の三次 Pfaffian を展開すると
+\[
+ \overline{\partial_uF_4}=0,\qquad
+ \overline{\partial_vF_4}=v(\ell Y-mX)=0.
+\]
+$\overline{F_4}$ は $u,v$ に関して四次同次なので $\overline{F_4}=0$ となる。
+一方、接方向四次 Pfaffian から
+\[
+ \overline{\partial_sF_4}=YZ,
+ \qquad\overline{\partial_tF_4}=-XZ
+\]
+であり、従って $XZ=YZ=0$ を得る。
+
+$Z\ne0$ なら整域 $\mathbb C[u,v]$ での議論から $X=Y=0$ である。
+$Z=0$ なら、Jacobi 恒等式の binary 次数一の部分を $w=0$ で割り、
+三つ組 $(s,t,u)$、$(s,t,v)$ を取ると、それぞれ
+\[
+             rX-pY+a_vZ=0,\qquad kX-qY-a_uZ=0
+\]
+を得る。係数行列の行列式は $pk-qr=-3c\ne0$ なので、やはり $X=Y=0$ である。
+全ての $Q_{wi}$ が $w$ で割り切れたので、定理\ref{thm:v18-heisenberg}の最後の議論から
+$w\mid F$ となり、正規性に反する。
+ここでは $a_u,a_v$ の消滅を仮定していない。
+\end{proof}
+
+\subsection{Squarefree 三次係数と \texorpdfstring{$1:-4$}{1:-4} の必要共鳴}
+
+\begin{theorem}[Squarefree の零 conormal bracket]\label{thm:v18-resonance}
+$b=0$、$c=\kappa st$、$\kappa\ne0$ とする。
+\eqref{eq:v18-node-leading} の記号を用いる。
+正規な退化五次因子が存在するためには、ある $\rho\ne0$ に対して
+\[
+        \ell=\rho q,\qquad m=\rho k,
+        \qquad \gamma\delta\ne0
+\]
+であり、さらに
+\begin{equation}\label{eq:v18-resonance}
+                  \delta=-4\gamma\quad\text{または}\quad
+                  \gamma=-4\delta
+\end{equation}
+が必要である。
+第一の場合
+\[
+ Q_{sw}\bmod w=xv^2\quad(x\ne0),\qquad Q_{tw}\bmod w=0,
+\]
+第二の場合はその逆が成立する。
+\end{theorem}
+
+\begin{proof}
+$\varepsilon\delta=\zeta\gamma$ が \eqref{eq:v18-leading} から従う。
+$(\gamma,\delta)\ne(0,0)$ は $c\ne0$ から分かる。
+従って $(\varepsilon,\zeta)=\rho(\gamma,\delta)$ と書け、
+定理\ref{thm:v18-nonzero-block}より $\rho\ne0$ である。
+命題\ref{prop:v18-qw}では
+\[
+ \mu=-\frac{\alpha+\beta}{3},\qquad
+ \lambda=-\frac{\gamma+\delta}{3},\qquad
+ \nu=-\frac{\rho(\gamma+\delta)}{3}
+\]
+となる。
+
+発散零条件の $u,v$ 成分は
+\begin{align*}
+ \partial_vQ_{uv}
+   &=(p_s+r_t+2\mu)w+(\ell_s+m_t+\nu)v
+     =-\mu w-2\nu v,\\
+ \partial_uQ_{uv}
+   &=-(q_s+k_t+2\lambda)w=\lambda w.
+\end{align*}
+従って、ある $d\in\mathbb C$ により
+\[
+                  Q_{uv}=dw^2+\lambda wu-\mu wv-\nu v^2.
+\]
+特に
+\[
+ Z=\overline{Q_{uv}}=\sigma v^2,
+ \qquad \sigma=\frac{\rho(\gamma+\delta)}3.
+\]
+$X=\overline{Q_{sw}}$、$Y=\overline{Q_{tw}}$ とおく。
+Pfaffian--勾配恒等式は
+\begin{align}
+ \overline{F_4}&=(sY-tX)\sigma v^2,\label{eq:v18-f4bar}\\
+ \partial_u\overline{F_4}&=0,\label{eq:v18-f4baru}\\
+ \partial_v\overline{F_4}&=\rho v(\gamma sY-\delta tX)
+ \label{eq:v18-f4barv}
+\end{align}
+を与える。
+
+$\sigma=0$ なら $\gamma+\delta=0$ である。
+$\gamma,\delta$ は共に非零となるので、
+\eqref{eq:v18-f4bar}--\eqref{eq:v18-f4barv} から $X=Y=0$ となり、
+再び $w\mid F$ という矛盾を得る。
+従って $\sigma\ne0$ である。
+\eqref{eq:v18-f4baru} より $\partial_uX=\partial_uY=0$ であり、
+$X=xv^2$、$Y=yv^2$ と書ける。
+\eqref{eq:v18-f4barv} の $sv^3,tv^3$ の係数比較は
+\[
+                    y(\gamma+4\delta)=0,\qquad
+                    x(4\gamma+\delta)=0
+\]
+となる。
+$x=y=0$ なら全ての $Q_{wi}$ が $w$ で割り切れて矛盾するため、少なくとも一つは非零である。
+二つが共に非零なら $\gamma=\delta=0$ となるから不可能である。
+従ってちょうど一方が非零であり、\eqref{eq:v18-resonance} と主張された形が得られる。
+各共鳴の場合には $\gamma\delta\ne0$ も従う。
+\end{proof}
+
+本定理は共鳴枝で完全な Jacobi 恒等式が解けることを主張しない。
+その枝の存在と退化因子の正規性は別問題である。
+
+\subsection{二重根の三次係数に残る三つの必要枝}
+
+\begin{theorem}[二重根の場合]\label{thm:v18-double-resonance}
+$b=0$、$c=\kappa s^2$、$\kappa\ne0$ とする。
+一次係数を
+\begin{align*}
+ p&=\alpha s,&r&=\beta s+\gamma t,\\
+ q&=\delta s,&k&=\varepsilon s+\zeta t,\\
+ \ell&=\eta s,&m&=\theta s+\iota t
+\end{align*}
+と書く。常に
+\begin{equation}\label{eq:v18-double-relations}
+ -\alpha\varepsilon+\delta\beta=3\kappa,\qquad
+ -\alpha\zeta+\delta\gamma=0,\qquad
+ \eta\varepsilon=\delta\theta,\qquad
+ \eta\zeta=\delta\iota
+\end{equation}
+が成立する。正規性を満たす候補は次の三枝に限られる。
+\begin{enumerate}
+\item $\delta\ne0$、$\zeta=\delta/6$。
+      この場合 $\eta\ne0$ であり、
+      $\overline{Q_{sw}}=0$、$\overline{Q_{tw}}=yv^2$、$y\ne0$ となる。
+\item $\delta\ne0$、$\zeta=-2\delta/3$。
+      この場合 $\eta\ne0$ であり、
+      $\overline{Q_{sw}}=xv^2$、
+      $\overline{Q_{tw}}=3\varepsilon x v^2/(5\delta)$、$x\ne0$ となる。
+\item $\delta=\zeta=\eta=\iota=0$、$\alpha\varepsilon\theta\ne0$。
+      この場合 $q=\ell=0$、$k=\varepsilon s$、$m=\theta s$ であり、
+      $\overline{Q_{sw}}=0$、$\overline{Q_{tw}}\ne0$ となる。
+      最後の非零式は、この段階では任意の $u,v$ の二次式である。
+\end{enumerate}
+第一、第二の枝では $t$ を $t+as$ に置き換えて $\varepsilon=0$ とできる。
+そのとき第二の枝でも $\overline{Q_{tw}}=0$ となる。
+\end{theorem}
+
+\begin{proof}
+係数の表示は命題\ref{prop:v18-qw}から従い、
+\eqref{eq:v18-double-relations} は $3c=-pk+qr$ と $\ell k=mq$ の係数比較である。
+同命題において
+\[
+             \mu=-2\alpha/3,\qquad
+             \lambda=-2\delta/3,\qquad
+             \nu=-2\eta/3
+\]
+となる。発散零条件から
+\[
+ Q_{uv}\bmod w=\sigma v^2,
+ \qquad \sigma=\frac{\ell_s+m_t+\nu}{2}
+              =\frac{\eta+3\iota}{6}
+\]
+である。
+$X=\overline{Q_{sw}}$、$Y=\overline{Q_{tw}}$ と置くと、先ほどと同じ Pfaffian 展開は
+\begin{align}
+ \overline{F_4}&=(sY-tX)\sigma v^2,\label{eq:v18-double-f4}\\
+ \partial_u\overline{F_4}&=0,\label{eq:v18-double-du}\\
+ \partial_v\overline{F_4}&=v\bigl(\eta sY-(\theta s+\iota t)X\bigr)
+ \label{eq:v18-double-dv}
+\end{align}
+を与える。常に $X=Y=0$ は $w\mid F$ を意味するので排除される。
+
+まず $\delta\ne0$ とする。
+\eqref{eq:v18-double-relations} より
+$\theta=\eta\varepsilon/\delta$、$\iota=\eta\zeta/\delta$ である。
+$\eta=0$ なら $\ell=m=0$ となるので、定理\ref{thm:v18-nonzero-block}より $\eta\ne0$ である。
+$\sigma=0$ なら $\zeta=-\delta/3$、$\iota=-\eta/3\ne0$ であり、
+\eqref{eq:v18-double-f4} と \eqref{eq:v18-double-dv} の $s,t$ 係数から
+$X=Y=0$ が従って矛盾する。
+従って $\sigma\ne0$ であり、\eqref{eq:v18-double-du}から
+$X=xv^2$、$Y=yv^2$ と書ける。
+\eqref{eq:v18-double-dv} の二つの係数を比較し、非零の $\eta/(3\delta)$ で割ると
+\begin{equation}\label{eq:v18-double-xy}
+          x(2\delta+3\zeta)=0,\qquad
+          (-\delta+6\zeta)y+3\varepsilon x=0
+\end{equation}
+を得る。
+$x=0$ なら $y\ne0$ なので $\zeta=\delta/6$ となり、第一枝を得る。
+$x\ne0$ なら $\zeta=-2\delta/3$、
+$y=3\varepsilon x/(5\delta)$ となり、第二枝を得る。
+
+次に $\delta=0$ とする。
+\eqref{eq:v18-double-relations} の最初の二式より
+$\alpha\varepsilon\ne0$、$\zeta=0$ であり、第三式より $\eta=0$ である。
+もし $\iota\ne0$ なら $\sigma=\iota/2\ne0$ なので再び
+$X=xv^2$、$Y=yv^2$ と書ける。
+\eqref{eq:v18-double-dv} の係数比較は
+$\iota x=0$、$2\iota y+\theta x=0$ となるため $X=Y=0$ という矛盾になる。
+従って $\iota=0$ であり、非零下ブロックの条件から $\theta\ne0$ である。
+このとき $\sigma=0$ なので \eqref{eq:v18-double-f4} は零であり、
+\eqref{eq:v18-double-dv} は $-\theta svX=0$ を与える。
+よって $X=0$、$Y\ne0$ となり、第三枝を得る。
+
+最後に、$t'=t+as$ によって
+\[
+ \varepsilon'=\varepsilon+a(\delta-\zeta),
+ \qquad X'=X,\qquad Y'=Y+aX
+\]
+となる。第一、第二枝では $\delta-\zeta\ne0$ なので
+$a=-\varepsilon/(\delta-\zeta)$ とすればよい。
+第二枝ではこの $a$ が $-3\varepsilon/(5\delta)$ であるため、$Y'=0$ も従う。
+全ての除算の分母は、それぞれの枝で非零と確認済みである。
+\end{proof}
+
+二つの共鳴枝と第三の枝は、完全な Jacobi 方程式を解く前の必要条件である。
+特に第三枝の $\overline{Q_{tw}}\ne0$ は存在を主張せず、
+残りの方程式がこの二次式をさらに制限する可能性を残している。
+
+\subsection{独立な多項式検証の範囲}
+
+\path{verify_m3_restrictions.py} は標本化を使わず、次を有理数係数の記号計算で確認する。
+四次元の $K\wedge(-)$ の行列式は $\operatorname{Pf}(K)^2$ である。
+全60個の二次補正係数を保持したまま、Heisenberg 型における Jacobi 恒等式の制限が
+上記の wedge 方程式になる。
+さらに Cramer の公式の分母と分子、$w=0$ での四つの Pfaffian 恒等式、
+零下ブロックの二つの Jacobi 恒等式、binary quadratic を保つ線形導分、
+最後の $1:-4$ 共鳴の係数比較、二重根の二つの共鳴と例外枝、
+および許された $t\mapsto t+as$ による規格化を厳密に確認する。
+正規性からの排除と同次式の議論は、本節の証明が担当する。
+
+
+% v18 independent working proof. No preceding edition is modified.
+% This is a theorem about necessary first jets at closed points, not components.
+\section{四重消滅の場合にも存在する一定の法線旗}
+\label{sec:v18-m4-flag}
+
+標準五次元リフト $P$ と不活性な直線
+$L=(z_0=z_1=z_2=0)$ を考える。
+退化五次式 $F$ は正規で、$L$ に沿う一般法線消滅次数が四とする。
+命題\ref{prop:mult-exclusions}と命題\ref{prop:normal-bracket-rank}から
+\[
+ B=0,\qquad
+ F=F_4+F_5=sA_4(z)+tB_4(z)+C_5(z),
+ \qquad A_4,B_4\text{ は一次独立}
+\]
+を入力する。最後の一次独立性には、全 Jacobian ideal の五つの
+生成元が局所的にも最小であることを用いている。
+また、非零の $\widehat L$ 上で標準リフトの五次元等方 Lie 代数が
+冪零である、という前節までの定理を用いる。
+
+\begin{theorem}[四重型の一定旗]\label{thm:v18-m4-flag}
+一定の法線線形座標 $z=(w,u,v)$ を選ぶと、法線一次部分は
+\[
+ P_1=
+ \begin{pmatrix}
+ 0&a&(Mz)^{\mathsf T}\\
+ -a&0&(Nz)^{\mathsf T}\\
+ -Mz&-Nz&0_{3\times3}
+ \end{pmatrix},\qquad
+ M=\begin{pmatrix}0&0&0\\p&0&\ell\\q&0&0\end{pmatrix},\qquad
+ N=\begin{pmatrix}0&0&0\\r&0&m\\k&0&0\end{pmatrix}
+\]
+と書ける。ここで $p,q,r,k,\ell,m$ は二項一次式で、
+\begin{equation}\label{eq:v18-m4-firstjet}
+             pk-qr=0,\qquad \ell k-mq=0.
+\end{equation}
+さらに $M,N$ はともに零ではない。
+したがって四重型の一次部分にも一定の完全旗があり、
+前節までの三重型の標準形で $b=c=0$ とした形に入る。
+この主張は必要条件であり、高次部分の存在や正規性を結論しない。
+\end{theorem}
+
+\subsection{四次先頭項から得る二つの入力}
+
+$b(P)=\nabla F$ の法線二次部分は
+\begin{equation}\label{eq:v18-m4-cross}
+                    (Mz)\times(Nz)=0.
+\end{equation}
+また $P\,dF=0$ の接方向二成分の法線次数四を取ると
+\begin{equation}\label{eq:v18-m4-invariants}
+       (Mz)\cdot\nabla_zF_4=0,\qquad
+       (Nz)\cdot\nabla_zF_4=0.
+\end{equation}
+例えば $P_{st}\partial_tF_4$ の法線次数は五なので、この次数四の
+式には寄与しない。等方冪零性により、全ての $[s:t]$ で
+$M(s,t),N(s,t)$ は冪零である。
+
+\subsection{局所的に一次従属な二つの行列束}
+
+ここで全ての係数体は標数零とする。
+線形写像 $M,N:V\to V$ が全ての $z$ に対して $Mz\wedge Nz=0$ を
+満たすとき、$\operatorname{rank}M\ge2$ なら $N=\lambda M$ である。
+実際、像が独立な二つのベクトルを選び、その和にも条件を適用すると
+各比例定数が等しくなる。$\ker M$ 上の $N$ の像は二つの独立な像の
+張る直線の共通部分に入るため零である。
+両写像の階数が高々一なら、両者が非零の場合には像が共通の直線である。
+
+これを $K=\mathbf C(s,t)$ 上で適用する。
+零の場合を除き、必要なら $M,N$ を入れ替える。
+以下のいずれかに帰着する。
+\begin{enumerate}
+\item $N=cM$、$c\in\mathbf C$。$M=0$ の場合も一方を入れ替えて含める。
+\item $M=a(s,t)J$、$N=b(s,t)J$、$J$ は一定の冪零行列。
+\item $M,N$ の像が全ての parameter で一定の直線に含まれる。
+\end{enumerate}
+階数が二以上のとき、この帰着は一意分解整域の議論だけで従う。
+$M$ の成分の最大公約数が定数なら、$N=\lambda M$ の全成分が
+多項式であることから $\lambda$ も多項式であり、次数により定数である。
+最大公約数が一次なら $M=aJ$ で、同様に $N=bJ$ と書ける。
+
+一般階数一の場合は、$3\times6$ 行列 $[M\;N]$ も階数一である。
+その原始な列因子を取って多項式として $u(s,t)v(s,t)^{\mathsf T}$ と
+因子分解すると、全次数一より因子の次数は $(0,1)$ または $(1,0)$ である。
+前者は一定の像の場合である。後者で $u$ の方向が動くなら、その二つの
+係数ベクトルは独立である。冪零性は各一定行因子がその両方を消すことを
+要求する。その消去空間は一次元なので、$M,N$ の行因子は比例し、
+$N=cM$ に戻る。方向が動かない場合はもともと一定の像の場合である。
+
+第二の場合は $J$ の Jordan 旗を取ればよい。
+第三の場合は共通像を $U$ とすると、冪零性から $M(U)=N(U)=0$ である。
+$U$ を含む任意の二次元平面と合わせて共通旗を作れる。
+従って残る問題は、第一の場合に現れる一つの冪零 $3\times3$ 行列束が
+一定の完全旗を持つかどうかである。
+
+\subsection{三次元冪零行列束の初等的な二分法}
+
+\begin{lemma}\label{lem:v18-nilpotent-pencil}
+二項一次式係数の $3\times3$ 行列 $T(s,t)$ が全ての点で冪零なら、
+一定座標で同時に狭義上三角化できるか、あるいは一定の法線座標変換と
+parameter の可逆線形変換の後、
+\begin{equation}\label{eq:v18-exceptional-pencil}
+ T(s,t)=sJ+tK_0
+ =\begin{pmatrix}0&s&0\\t&0&s\\0&-t&0\end{pmatrix},\qquad
+ J=\begin{pmatrix}0&1&0\\0&0&1\\0&0&0\end{pmatrix},\quad
+ K_0=\begin{pmatrix}0&0&0\\1&0&0\\0&-1&0\end{pmatrix}
+\end{equation}
+と書ける。
+\end{lemma}
+\begin{proof}
+全ての行列の階数が高々一なら、階数一線形行列束の因子分解により
+一定の像、または一定の核平面を持つ。冪零性を合わせると、どちらの場合も
+一定の完全旗を選べる。係数空間が一次元以下の場合も Jordan 形でよい。
+
+そうでなければ階数二の冪零行列を含むため、それを $J$ とし、他方を $K$ とする。
+$J+\lambda K$ の冪零性から
+\[
+ \operatorname{tr}K=\operatorname{tr}(JK)
+ =\operatorname{tr}(J^2K)=\operatorname{tr}(JK^2)=0,
+ \qquad \operatorname{tr}(K^2)=\det K=0.
+\]
+最初の三式から
+\[
+ K=\begin{pmatrix}a&b&c\\d&e&f\\0&-d&-a-e\end{pmatrix},
+ \qquad \operatorname{tr}(JK^2)=d(2a+e).
+\]
+$d=0$ なら $K$ は上三角で、冪零性より対角成分も零である。
+$d\ne0$ なら残る式は
+\[
+ e=-2a,\qquad f=b+\frac{3a^2}{d},\qquad c=\frac{a^3}{d^2}
+\]
+を与える。$J$ と可換な行列
+\[
+ G=I-\frac adJ+\left(\frac bd+\frac{2a^2}{d^2}\right)J^2
+\]
+を用いると、直接計算で $GKG^{-1}=dK_0$ となる。
+parameter を取り直せば \eqref{eq:v18-exceptional-pencil} を得る。
+\end{proof}
+
+\subsection{四次不変式による例外束の排除}
+
+\begin{lemma}\label{lem:v18-no-bidegree14}
+例外束 \eqref{eq:v18-exceptional-pencil} に対し、
+$F_4(s,t,x,y,z)$ が bidegree $(1,4)$ で
+$(T(s,t)z)\cdot\nabla_zF_4=0$ を満たせば、$F_4=0$ である。
+\end{lemma}
+\begin{proof}
+$F_4=sA+tB$ とし
+\[
+ D_s=y\partial_x+z\partial_y,\qquad
+ D_t=x\partial_y-y\partial_z
+\]
+と書く。条件は $D_sA=0$、$D_tB=0$、$D_tA+D_sB=0$ である。
+最初の二式の四次解は
+\begin{align*}
+ A&=a z^4+b z^2Q+cQ^2,& Q&=2xz-y^2,\\
+ B&=d x^4+e x^2R+fR^2,& R&=2xz+y^2.
+\end{align*}
+例えば $z$ を可逆にすると、$D_s(y/z)=1$ と $D_sQ=0$ から不変環は
+$\mathbf C[z,z^{-1},Q]$ である。その多項式部分は
+$\mathbf C[z,Q]$ であり、次数四の部分が上記三つの項を与える。
+分母の $z$ が残れないことは、$Q|_{z=0}=-y^2$ を使って順に確認できる。
+$D_t$ についても同様である。
+
+残る式を $y$ で割って整理すると
+\begin{align*}
+0={}&-4a z^3+4d x^3
+ +b(-8xz^2+2y^2z)+c(-16x^2z+8xy^2)\\
+ &+e(8x^2z+2xy^2)+f(16xz^2+8y^2z).
+\end{align*}
+$z^3,x^3$ から $a=d=0$、
+$xz^2,y^2z$ から $b=f=0$、
+$x^2z,xy^2$ から $c=e=0$ となる。
+この六元一次系の行列式は $-147456$ である。
+\end{proof}
+
+\subsection{一定旗定理の証明の完結}
+
+\eqref{eq:v18-m4-invariants} は非零の bidegree $(1,4)$ 不変式を与えるため、
+補題\ref{lem:v18-no-bidegree14}により例外束は起こらない。
+従って全ての場合で $M,N$ は一定の完全旗を持つ。
+その旗に適合した座標の順序を $(w,u,v)$ とすれば、
+定理\ref{thm:v18-m4-flag}の行列表示となる。
+式 \eqref{eq:v18-m4-cross} はこの表示でちょうど
+\[
+ (Mz)\times(Nz)=
+ \bigl((pk-qr)w^2+(\ell k-mq)wv,\;0,\;0\bigr)=0
+\]
+となり、\eqref{eq:v18-m4-firstjet}を与える。
+
+最後に $M=N=0$ を排除する。法線二次部分を
+\[
+ P_{s,z}=U(z),\qquad P_{t,z}=V(z),\qquad
+ P_{z,z}=D(C(z)),\qquad
+ P_{s,t}=s a_s(z)+t a_t(z)+h(z)
+\]
+と書く。$U,V,C$ は二次、$a_s,a_t$ は一次である。
+法線 Pfaffian の法線三次部分から
+\[
+                  \nabla A_4=a_s C,\qquad
+                  \nabla B_4=a_t C
+\]
+を得る。従って二つの勾配は従属する。
+同次数の非零同次式に Euler 恒等式を適用すると
+$d(A_4/B_4)=0$ となるため、$A_4,B_4$ は比例する。
+どちらかが零の場合も一次従属である。
+これは入力した最小生成元の条件に反する。
+以上で定理が証明された。
+
+
+
+% Conditional refinement developed with the parent; all signs independently
+% checked against delta(P)_j=sum_i partial_i(P_ij) and the matrix equation P dF=0.
+\section{一定の正則冪零方向に対する \texorpdfstring{$3:-2$}{3:-2} 共鳴条件}
+\label{sec:v18-regular-direction}
+
+この節では、四重型のうち、さらに
+\[
+ M=a(s,t)J,\qquad N=b(s,t)J,\qquad
+ Jz=(0,v,w),\qquad z=(w,u,v)
+\]
+となる場合だけを扱う。$J$ は Jordan 型 $(3)$ の一定冪零行列であり、
+$a,b$ は二項一次式、少なくとも一方は非零とする。
+一般の同時三角化可能な行列束をこの形だとは主張しない。
+
+\begin{proposition}\label{prop:v18-regular-direction}
+$V=a\partial_s+b\partial_t$、$\lambda=\operatorname{tr}V$ と置く。
+法線二次括弧を $Q=D(R)$ とすると、ある定数 $h,g$ により
+\begin{align*}
+ R&=(G,h w^2,-h wv),\\
+ G&=(2h-\lambda)wu+\frac{\lambda-h}{2}v^2+g w^2
+\end{align*}
+であり、必要条件
+\begin{equation}\label{eq:v18-resonance-polynomial}
+                 h(\lambda+2h)(h-2\lambda)=0
+\end{equation}
+が成り立つ。
+
+さらに $a,b$ が一次独立なら、$\lambda\ne0$ であり、$V$ の固有値は
+$3\lambda,-2\lambda$ である。
+適当な一定座標変換の後、四次 pencil は次のいずれかになる。
+\begin{equation}\label{eq:v18-two-quartic-pencils}
+ \langle w^4,H^2\rangle
+ \quad\text{または}\quad
+ \langle w^2H,H^2\rangle,
+ \qquad H=2uw-v^2.
+\end{equation}
+従って base の固有座標と非零の定数 $\alpha,\beta$ により、先頭項は
+\[
+ F_4=\alpha sH^2+\beta t w^4
+ \quad\text{または}\quad
+ F_4=\alpha s w^2H+\beta tH^2
+\]
+と書ける。いずれも高次 Jacobi 方程式の可解性を保証するものではない。
+\end{proposition}
+
+\begin{proof}
+法線二次部分を
+\[
+ P_{s,z}=aJz+U(z),\qquad P_{t,z}=bJz+W(z),\qquad P_{z,z}=D(R(z))
+\]
+と書く。$U,W,R$ は二次である。接方向 Pfaffian は
+\[
+ F_s=(bJz+W)\cdot R=A_4,
+ \qquad F_t=-(aJz+U)\cdot R=B_4.
+\]
+右辺には $s,t$ がないので、$(Jz)\cdot R=0$ である。
+また発散の法線成分は
+\[
+       \lambda Jz-\operatorname{curl}R=0.
+\]
+符号は $\delta P_j=\sum_i\partial_iP_{ij}$ から直接得られる。
+
+$vR_u+wR_v=0$ と $\gcd(v,w)=1$ から
+$R_u=wL$、$R_v=-vL$ と書ける。curl の第一成分は
+$-vL_u-wL_v=0$ なので、一次式 $L$ は $hw$ となる。
+残る二成分を積分すれば、表示された $G$ を得る。
+
+$D=v\partial_u+w\partial_v$ とし、$H=2uw-v^2$ と置く。
+行列を左から掛ける規約で直接計算すると
+\[
+ Q\nabla w=h wD,
+ \qquad Q\nabla H=((\lambda-h)H-2g w^2)D.
+\]
+$D(A_4)=D(B_4)=0$ なので、$A_4,B_4$ は
+\[
+ E=\langle w^4,w^2H,H^2\rangle
+\]
+に属する。$P\,dF=0$ の法線次数五の式は
+\[
+             Q\nabla F_4=(aA_4+bB_4)D.
+\]
+従って $E$ 上の作用素
+\[
+ T=h w\partial_w+((\lambda-h)H-2g w^2)\partial_H
+\]
+について、$W_0=\langle A_4,B_4\rangle$ は二次元の不変部分空間となり、
+$\operatorname{tr}(T|_{W_0})=\lambda$ である。
+ここで $w,H$ は不変環 $\mathbf C[w,H]$ の独立変数として微分する。
+
+表示された順序の $E$ の基底に関する行列は
+\[
+ [T]_E=\begin{pmatrix}
+ 4h&-2g&0\\0&h+\lambda&-4g\\0&0&2\lambda-2h
+ \end{pmatrix}.
+\]
+$\wedge^2W_0$ は $\wedge^2E$ の不変直線で固有値が $\lambda$ だから、
+\[
+ 0=(5h+\lambda-\lambda)(2h+2\lambda-\lambda)
+       (-h+3\lambda-\lambda)
+   =5h(2h+\lambda)(2\lambda-h).
+\]
+これが \eqref{eq:v18-resonance-polynomial} であり、半単純性の仮定は不要である。
+
+$\lambda\ne3h$ なら
+\[
+ H'=H+\frac{2g}{3h-\lambda}w^2
+\]
+によって $T$ は基底 $w^4,w^2H',H'^2$ 上で対角化される。
+その三固有値は相異なるため、二次元不変空間は二固有方向の和であり、
+trace 条件は次の表を与える。
+\[
+\begin{array}{c|c|c}
+\text{条件}&W_0&\text{restriction の固有値}\\\hline
+h=0&\langle w^4,w^2H'\rangle&0,\lambda\\
+\lambda=-2h,\ h\ne0&\langle w^4,H'^2\rangle&-2\lambda,3\lambda\\
+h=2\lambda,\ \lambda\ne0&\langle w^2H',H'^2\rangle&3\lambda,-2\lambda
+\end{array}
+\]
+重複固有値の場合 $\lambda=3h$ は、trace 条件から $h=\lambda=0$ に限られる。
+$g\ne0$ なら $T$ は一つの三次 Jordan block で、二次元不変空間は
+$\langle w^4,w^2H\rangle$ のみである。
+$g=0$ なら $R=0$ となり、接方向 Pfaffian が零、すなわち
+$A_4=B_4=0$ となるので不可能である。
+
+$a,b$ が一次独立なら $V$ の行列は可逆である。
+$T|_{W_0}$ はその行列と同じ固有値を持つため、零固有値を持つ枝は除かれる。
+残る二枝の固有値はどちらも $3\lambda,-2\lambda$ である。
+$u$ を $u+g(3h-\lambda)^{-1}w$ に取り替えることで $H'$ を標準の $H$ とできる。
+この変換は $D=v\partial_u+w\partial_v$ の形を保つ。
+base の固有座標を選べば、最後の二つの先頭式を得る。
+\end{proof}
+
+
+
+\section{三重・階数一の conormal 括弧の完全な排除}
+\label{sec:v19-rank1}
+
+本節では前節の標準形と符号を保つ。座標を $(s,t,w,u,v)$ とし、
+\[
+ P=P_1+Q,\qquad F=c(s,t)w^3+F_4+F_5,\qquad c\ne0
+\]
+とする。$Q$ は $s,t$ に依存しない純法線二次式、$F_4$ は binary 次数一・法線次数四、
+$F_5$ は純法線五次式である。一次部分は
+\begin{align*}
+ (P_1)_{st}&=a_w w+a_v v,&(P_1)_{uv}&=b w,\\
+ (P_1)_{su}&=p w+\ell v,&(P_1)_{sv}&=q w,\\
+ (P_1)_{tu}&=r w+m v,&(P_1)_{tv}&=k w,
+\end{align*}
+かつ $w$ 行が零であり、全ての表示係数は binary 一次式である。
+$b\ne0$ を仮定する。$a_u=0$ は $ba_u=0$ から従う。
+以下では $\nabla F=b(P)$、$P\,\mathrm dF=0$、$\delta P=0$ を用いる。
+
+\begin{theorem}[階数一の排除]\label{thm:v19-rank1-exclusion}
+上の標準形にある三重型で、conormal 括弧が恒等的に非零なら $w\mid F$ である。
+従って、正規な実際の退化五次因子を持つ inactive 直線型では、三重の場合にも
+conormal 括弧は恒等的に零でなければならない。
+\end{theorem}
+
+\begin{proof}
+$(\ell,m)=(0,0)$ の場合は前節の Heisenberg 点の議論で $w\mid F$ が従う。
+実際、$b\ne0$ から $a_u=0$、$ba_v=\ell k-mq=0$ から $a_v=0$ であり、
+$c\ne0$ の点で $P_1=wK$、$K$ は階数四になる。
+以下 $(\ell,m)\ne(0,0)$ とする。
+
+\paragraph{第一段階：$Q_{wv}$ と $F_4$ の可除性。}
+記号を
+\[
+ C=Q_{wu},\quad D=Q_{wv},\quad X=Q_{sw},\quad Y=Q_{tw}
+\]
+と置く。接方向の Pfaffian--勾配恒等式の法線次数三の部分は
+\begin{align}
+ bwY-(rw+mv)D+kwC&=c_s w^3,\label{eq:v19-r1-pfs}\\
+ -bwX+(pw+\ell v)D-qwC&=c_t w^3.\label{eq:v19-r1-pft}
+\end{align}
+$w=0$ で制限すると $mv(D\bmod w)=\ell v(D\bmod w)=0$ となる。
+係数環は整域で、$(\ell,m)\ne(0,0)$ なので $D=wD_1$ である。
+
+Casimir 恒等式の $u,v$ 行の法線次数四をそれぞれ $w$ で割ると
+\begin{align}
+ b\,\partial_vF_4
+  &=(pc_s+rc_t)w^3+(\ell c_s+mc_t)w^2v+3cwC,
+  \label{eq:v19-r1-casu}\\
+ b\,\partial_uF_4
+  &=-(qc_s+kc_t)w^3-3cwD.
+  \label{eq:v19-r1-casv}
+\end{align}
+$b\ne0$ なので、第一式より $w\mid\partial_vF_4$、第二式より
+$w^2\mid\partial_uF_4$ である。$F_4$ の法線同次性から $w\mid F_4$ となり、さらに
+\[
+ F_4=A(s,t)wv^3+w^2G_2(s,t,w,u,v)
+\]
+と書ける。ここで $A$ は binary 一次式、$G_2$ は binary 次数一・法線次数二である。
+\eqref{eq:v19-r1-casu} の $w$ の係数を比較すると
+\[
+                    bA v^2=c(C\bmod w)
+\]
+である。$c\ne0$ と $Q$ の binary 独立性から、ある定数 $\xi$ に対し
+\begin{equation}\label{eq:v19-r1-xi}
+                    C\bmod w=\xi v^2,\qquad bA=\xi c
+\end{equation}
+となる。
+
+\paragraph{第二段階：$\xi=0$ は完全な Casimir 恒等式から従う。}
+ここで最低法線次数だけでなく、$P\,\mathrm dF=0$ 全体の $u$ 行を使う。
+$w=0$ で制限し、binary 次数一の部分を取ると、唯一残る項は
+\[
+                        -\xi A v^5=0
+\]
+である。実際、$F\bmod w=F_5\bmod w$ は binary 座標に依存しないため
+$\partial_sF$ と $\partial_tF$ はこの制限で零である。
+$P_{uv}$ の一次部分 $bw$ も消え、$Q$ と $F_5$ の積から生じる項は binary 次数零である。
+残る binary 次数一の項は $-C\partial_wF_4\bmod w$ だけである。
+\eqref{eq:v19-r1-xi} を合わせると $\xi^2c=0$ なので $\xi=0$、従って $A=0$ である。
+よって
+\begin{equation}\label{eq:v19-r1-divisibility}
+                    C,D\in(w),\qquad F_4\in(w^2).
+\end{equation}
+
+\paragraph{第三段階：残った五次項と発散。}
+定数 $\mu,\lambda,\alpha,\eta,\nu$ を用い、発散の $w$ 成分も課すと
+\[
+ C=w(\mu w+\alpha u+\eta v),\qquad
+ D=w(\lambda w+\nu u-\alpha v)
+\]
+と書ける。$Z=Q_{uv}\bmod w$ と置く。発散の $v$ 成分を $w=0$ で制限すれば
+\begin{equation}\label{eq:v19-r1-divv}
+                          \partial_u Z=-\nu u+\alpha v
+\end{equation}
+である。$X_0=X\bmod w$、$Y_0=Y\bmod w$ と置き、
+\eqref{eq:v19-r1-pfs}--\eqref{eq:v19-r1-pft} の $w$ の係数を比較すると
+\begin{equation}\label{eq:v19-r1-XY}
+ bX_0=\ell R,\qquad bY_0=mR,
+ \qquad R=v(\nu u-\alpha v)
+\end{equation}
+を得る。
+
+$C_5=F_5\bmod w$ とする。\eqref{eq:v19-r1-divisibility} を使って
+完全な Casimir 恒等式の $s,t$ 行を $w=0$ で制限し、binary 次数一を取ると
+\[
+                   \ell v\,\partial_u C_5=0,\qquad
+                   mv\,\partial_u C_5=0
+\]
+となる。従って $\partial_uC_5=0$、法線五次同次性から $C_5=\gamma v^5$ である。
+$\gamma=0$ なら既に $w\mid F$ なので結論を得る。
+$\gamma\ne0$ とすると、Casimir 恒等式の $u$ 行を $w=0$ で制限した式は
+\[
+                             5\gamma v^4 Z=0
+\]
+である。従って $Z=0$、\eqref{eq:v19-r1-divv} から $\nu=\alpha=0$ となる。
+\eqref{eq:v19-r1-XY} は $X_0=Y_0=0$ を与える。
+これで $P$ の $w$ 行の全成分が $w$ で割り切れる。
+
+$i\ne w$ に対する Pfaffian $b_i(P)=\partial_iF$ は $w$ 行を含むので、
+$w\mid\partial_iF$ である。従って $F\bmod w$ は四つの残る変数に関して定数であり、
+五次同次性から零となる。いずれの場合も $w\mid F$ が証明できた。
+五次射影因子が超平面因子を持てば、重複がある場合には非被約であり、
+重複がない場合にも残る四次因子との交点で正規でない。
+従って正規な実際の退化因子では本枝は存在しない。
+\end{proof}
+
+本証明は必要条件のパラメータ数を数える議論ではなく、仮定を満たす閉点の非存在を示す。
+ただし、非正規な退化因子を持つ Poisson 構造の枝や、全 Jacobi スキームの
+被約性・既約成分・閉包については結論しない。
+
+\paragraph{機械検証の範囲。}
+\path{verify_rank1_exclusion.py} は全60個の純法線二次補正係数を保ったまま、
+二つの三次 Pfaffian、二つの最低 Casimir 恒等式、$\xi$ を消す完全な Casimir 項、
+$C_5$ と $Z$ を制限する完全な Casimir 項、発散条件、および
+\eqref{eq:v19-r1-XY} を有理数係数の記号計算で照合する。
+整域での除算可能性、同次性、および正規性からの矛盾は上の証明が担う。
+
+
+\section{Squarefree な三次先頭係数の排除}
+\label{sec:v19-squarefree}
+
+定理\ref{thm:v18-resonance}のsquarefree共鳴条件を用いる。
+本節の計算には、未定の二次補正を特殊化する操作も、一般パラメータでの階数計算も必要ない。
+
+\begin{theorem}\label{thm:v19-squarefree}
+正規な実際の退化五次因子を持ち、inactive な特異直線に沿う一般重複度が三であるとする。
+Conormal bracket が零なら、三次項 $F_3=c(s,t)w^3$ の binary 二次式 $c$ は
+異なる二つの根を持つことができない。
+\end{theorem}
+
+\begin{proof}
+矛盾を仮定し、$c=\kappa st$、$\kappa\ne0$ とする。
+定理\ref{thm:v18-resonance}と $s,t$ の交換により、
+\begin{align*}
+ (P_1)_{su}&=s(\alpha w+\rho\gamma v),&
+ (P_1)_{sv}&=\gamma sw,\\
+ (P_1)_{tu}&=t(\beta w-4\rho\gamma v),&
+ (P_1)_{tv}&=-4\gamma tw,
+\end{align*}
+かつ $\gamma\rho\ne0$ としてよい。
+純法線二次部分は
+\begin{align*}
+ Q_{sw}&=xv^2+X_0w^2+X_1wu+X_2wv,& x&\ne0,\\
+ Q_{tw}&=Y_0w^2+Y_1wu+Y_2wv,\\
+ Q_{wu}&=-\frac{\alpha+\beta}{3}w^2+\rho\gamma wv,&
+ Q_{wv}&=\gamma w^2,\\
+ Q_{uv}&=dw^2+\gamma wu+\frac{\alpha+\beta}{3}wv-\rho\gamma v^2
+\end{align*}
+となる。$P_{st}$ の $tu$ 係数を $a$ とし、
+\[
+ Q_{sv}=V_0w^2+V_1wu+V_2wv+V_3u^2+V_4uv+V_5v^2
+\]
+と書く。これ以外の係数は全て任意のまま残す。
+
+Jacobi 多項式を
+\[
+ J_{ijk}=\sum_r\bigl(P_{ir}\partial_rP_{jk}
+                  +P_{jr}\partial_rP_{ki}
+                  +P_{kr}\partial_rP_{ij}\bigr)
+\]
+と定める。四つの単項式係数を取ると、
+\begin{align*}
+ E_1=[twv]J_{stw}&=\rho\gamma(4X_1+a)+8\gamma x,\\
+ E_2=[twu]J_{stv}&=-2\beta V_3+4\gamma V_4-4\gamma X_1,\\
+ E_3=[tuv]J_{stv}&=8\rho\gamma V_3,\\
+ E_4=[tv^2]J_{stv}&=4\rho\gamma V_4+\rho\gamma a-4\gamma x.
+\end{align*}
+従って恒等的に
+\begin{equation}\label{eq:v19-squarefree-certificate}
+ 4\gamma\bigl(E_1+\rho E_2-E_4\bigr)+\beta E_3
+                      =48\gamma^2x
+\end{equation}
+が成立する。Poisson 条件は左辺を零にするが、右辺は非零である。
+これは矛盾である。
+\end{proof}
+
+\begin{remark}
+式\eqref{eq:v19-squarefree-certificate}は、共鳴条件を課した係数空間上の
+明示的な多項式証明書である。
+$\gamma x$ を可逆にした環では Jacobi 係数が生成するイデアルは単位イデアルになる。
+これが示すのはこの条件付き枝の空性であり、全 Jacobi スキームの成分数や
+他の境界点の非被約性についての結論ではない。
+\end{remark}
+
+
+% v19 new proof. Earlier editions are unchanged.
+\section{二重根を持つ三重枝の排除}
+\label{sec:v19-double-root}
+
+本節では定理\ref{thm:v18-double-resonance}の三つの必要枝を全て排除する。
+係数空間の非被約構造を消去する主張ではなく、正規な実際の退化五次因子を持つ
+閉点がこれらの枝に存在しないという主張である。
+
+\begin{theorem}\label{thm:v19-double-root}
+定理\ref{thm:v18-double-resonance}の三つの枝のいずれかに属し、
+$B=0$ かつ $c=\kappa s^2$、$\kappa\ne0$ とする。
+Jacobi 恒等式と Pfaffian--勾配恒等式を満たすなら、
+ある射影平面が退化因子の特異点集合に含まれる。
+従って退化因子は正規でない。
+\end{theorem}
+
+\subsection{非零の \texorpdfstring{$\delta$}{delta} を持つ二つの共鳴枝}
+
+前節より、$\varepsilon=0$ とした座標で
+\[
+ p=\alpha s,\quad r=\beta s+(\alpha\zeta/\delta)t,\quad
+ q=\delta s,\quad k=\zeta t,\quad
+ \ell=\eta s,\quad m=(\eta\zeta/\delta)t,
+\]
+であり、$\delta\eta\beta\ne0$ と
+$\zeta/\delta\in\{1/6,-2/3\}$ が成立する。
+ここで $\delta\beta=3\kappa$ を用いた。
+まず $u_1=u-(\alpha/\delta)v$ とし、次に
+\[
+ S=s,\quad T=(\delta\eta/\beta)t,\quad
+ W=\delta w,\quad U=u_1/\eta,\quad V=v
+\]
+と置く。この変換は全ての対象で可逆である。
+大文字を再び小文字に書き直すと、$e=\zeta/\delta$ として
+\begin{equation}\label{eq:v19-double-nonzero-jet}
+ (P_1)_{su}=sv,\qquad (P_1)_{sv}=sw,\qquad
+ (P_1)_{tu}=sw+etv,\qquad (P_1)_{tv}=etw
+\end{equation}
+を得る。$(P_1)_{st}$ の六つの係数は自由のまま保持する。
+
+前節の混合 Pfaffian 恒等式と発散零条件は
+\[
+ Q_{wu}=-\frac23wv,\qquad Q_{wv}=-\frac23w^2,\qquad
+ Q_{uv}=dw^2+\left(\frac13-e\right)wu
+                   +\left(\frac16+\frac e2\right)v^2
+\]
+を与える。また $Q_{sw}\bmod w$ と $Q_{tw}\bmod w$ は共に $v^2$ の定数倍である。
+$A=[u^2]Q_{sv}$、$B=[u^2]Q_{tv}$ と置く。
+Jacobi 多項式を
+\[
+ J_{ijk}=\sum_a\bigl(P_{ia}\partial_aP_{jk}
+                    +P_{ja}\partial_aP_{ki}
+                    +P_{ka}\partial_aP_{ij}\bigr)
+\]
+と定める。残りの全係数を保持した直接の係数比較により
+\begin{equation}\label{eq:v19-double-two-coefficients}
+                       [su^2]J_{stu}=-B,
+                 \qquad[tu^2]J_{stu}=eA
+\end{equation}
+となる。$e\ne0$ なので $A=B=0$ である。
+
+平面 $\Pi=\{w=v=0\}\subset\mathbb P^4$ に制限すると、
+$P$ の $w$ 行は零であり、さらに $v$ 行も零になる。
+実際、$Q_{sw},Q_{tw}$ はこの平面上で消え、法線ブロックも消え、
+$P_{sv},P_{tv}$ は上で示した $A=B=0$ により消える。
+従って $P|_\Pi$ は $(s,t,u)$ の三行三列の交代ブロックしか持たず、階数は高々二である。
+全ての四次 Pfaffian が $\Pi$ 上で消えるため、
+\[
+                              (\nabla F)|_\Pi=0.
+\]
+Euler 恒等式から $F|_\Pi=0$ も従い、$\Pi\subset\operatorname{Sing}(F=0)$ となる。
+三次元の正規超曲面の特異点集合は次元高々一なので、これは正規性に反する。
+
+\subsection{\texorpdfstring{$\delta=0$}{delta=0} の例外枝}
+
+この枝は前節で
+\[
+ p=\alpha s,\quad r=\beta s+\gamma t,\quad
+ q=\ell=0,\quad k=\varepsilon s,\quad m=\theta s,
+ \qquad\alpha\varepsilon\theta\ne0
+\]
+とされていた。$u_1=u-(\beta/\varepsilon)v$ とし、
+\[
+ S=s,\quad T=(\alpha/\varepsilon)t,\quad
+ W=(\varepsilon/\theta)w,\quad U=u_1,\quad V=v
+\]
+と変換して、さらに $P$ を非零定数 $\varepsilon/(\alpha\theta)$ 倍する。
+大文字を小文字に書き直すと
+\begin{equation}\label{eq:v19-exceptional-jet}
+ (P_1)_{su}=sw,\qquad (P_1)_{sv}=0,\qquad
+ (P_1)_{tu}=atw+sv,\qquad (P_1)_{tv}=sw,
+ \qquad a=\gamma/\alpha
+\end{equation}
+となる。変換は $\alpha\varepsilon\theta\ne0$ の全範囲で有効であり、
+$a$ に条件を加えない。
+
+混合 Pfaffian 恒等式と発散零条件より
+\begin{equation}\label{eq:v19-exceptional-normal}
+ Q_{wu}=-\frac23w^2,\qquad Q_{wv}=0,\qquad
+ Q_{uv}=dw^2+\left(a-\frac13\right)wv
+\end{equation}
+である。$d$ は任意の定数のまま保持する。
+また $Q_{sw}$ は $w$ で割り切れる。以下の記号を使う。
+\begin{align*}
+ Q_{sw}&=Lw^2+Bwu+Cwv,\\
+ Q_{tw}\bmod w&=y_{20}u^2+\xi uv+y_{02}v^2,\\
+ Q_{su}\bmod w&=Au^2+Uuv+\text{$v^2$ の項},\\
+ Q_{sv}\bmod w&=Vu^2+Euv+\text{$v^2$ の項},\\
+ Q_{tv}\bmod w&=Wu^2+\text{$uv,v^2$ の項},\\
+ h&=[tu](P_1)_{st},\qquad j=[tv](P_1)_{st}.
+\end{align*}
+これ以外の全係数も任意のまま保持する。
+
+次の九つの係数恒等式は、\eqref{eq:v19-exceptional-jet} と
+\eqref{eq:v19-exceptional-normal} の直接展開である。
+\begin{center}
+\begin{tabular}{ccl}
+\hline
+記号 & 取る係数 & 値\\
+\hline
+$E_1$ & $[swu]J_{stw}$ & $2y_{20}$\\
+$E_2$ & $[swv]J_{stw}$ & $-B+\xi$\\
+$E_3$ & $[tw^2]J_{stw}$ & $-aB-2h/3$\\
+$E_4$ & $[su^2]J_{stu}$ & $V-y_{20}$\\
+$E_5$ & $[suv]J_{stu}$ & $-h-2A+E-\xi$\\
+$E_6$ & $[twu]J_{stu}$ & $aB-2aA+h$\\
+$E_7$ & $[swu]J_{stv}$ & $-h+B-E+2W$\\
+$E_8$ & $[sv^2]J_{stv}$ & $-E$\\
+$E_9$ & $[u^2v]J_{stw}$ &
+ $\xi(A+E-B-h)+y_{20}(2U-C-j)+2y_{02}V$\\
+\hline
+\end{tabular}
+\end{center}
+
+全ての $E_i$ は Jacobi 恒等式により零である。
+$E_1,E_2,E_3,E_4,E_8,E_5,E_7$ をこの順に使うと
+\begin{gather*}
+ y_{20}=0,\quad B=\xi,\quad h=-\frac32a\xi,\quad V=E=0,\\
+ A=\frac{3a-2}{4}\xi,\qquad W=-\frac{3a+2}{4}\xi
+\end{gather*}
+となる。この代入後、残る二式は
+\begin{equation}\label{eq:v19-exceptional-two-relations}
+ E_6=-\frac12a(3a-1)\xi=0,
+ \qquad
+ E_9=\frac34(3a-2)\xi^2=0
+\end{equation}
+となる。ここで $a$ の値に応じて場合分けする必要はない。
+\[
+ a(3a-1)\xi^2-\left(a+\frac13\right)(3a-2)\xi^2
+                                  =\frac23\xi^2
+\]
+より $\xi^2=0$、従って閉点上で $\xi=0$ となる。
+
+より強く、元の九つの係数多項式に関して次の恒等式が成立する。
+\begin{align}
+ \xi^2={}&\left(a+\frac13\right)(2U+2y_{02}-C-j)E_1
+          +\left(2a+\frac23\right)\xi E_2-3\xi E_3\notag\\
+ &+\left(4a+\frac43\right)y_{02}E_4
+          +\left(2a-\frac13\right)\xi E_5-3\xi E_6
+          -\xi E_8-\left(2a+\frac23\right)E_9.
+ \label{eq:v19-exceptional-certificate}
+\end{align}
+従って $\xi^2$ は、係数多項式環の中で Jacobi 係数イデアルに入る。
+非定数式での除算も、特殊な値の除外も行っていない。
+ただし $\xi^2=0$ から $\xi=0$ とする最後の段階は閉点についての議論であり、
+係数スキームに冪零方向がないとは主張しない。
+
+閉点上では $y_{20}=\xi=h=A=V=E=W=0$ となる。
+従って先ほどと同じ平面 $\Pi=\{w=v=0\}$ において、
+$P$ の $w,v$ 行は零である。
+全ての四次 Pfaffian が零なので $\Pi\subset\operatorname{Sing}(F=0)$ となり、
+再び正規性と矛盾する。これで三つの枝が全て排除された。
+
+\subsection{計算証明書の検証範囲}
+
+\path{verify_double_root_exclusion.py} は SymPy により有理数係数の恒等式を厳密に検証する。
+非零 $\delta$ の二枝では、$(P_1)_{st}$ の六係数を保持したまま
+\eqref{eq:v19-double-two-coefficients} と平面上の階数条件を確認する。
+例外枝では $a,d$ と全ての残りの二次補正係数を保持し、九つの Jacobi 係数、
+\eqref{eq:v19-exceptional-certificate} の多項式恒等式、
+および五つの四次 Pfaffian の平面上での消滅を確認する。
+標本化、有限体計算、一般の分数体上での除算、Gr\"obner 基底計算は使わない。
+
+
+\section{四重型の全ての場合を尽くす帰着}
+\label{sec:v19-m4-exhaustion}
+
+前節により、四重型の一次法線部分は一定の法線座標で
+\[
+ Mz=(0,pw+\ell v,qw),\qquad
+ Nz=(0,rw+mv,kw),\qquad z=(w,u,v)
+\]
+となる。係数は全て $s,t$ の一次式であり、
+\[
+              (Mz)\times(Nz)=0,\qquad(M,N)\ne(0,0)
+\]
+を満たす。$F_4=sA_4+tB_4$ の $A_4,B_4$ は一次独立である。
+この節では、以下の排除定理を合わせたときに場合の漏れがないことを示す。
+
+\begin{lemma}[二つの行列束の三分]\label{lem:v19-three-types}
+上の $M,N$ は次の少なくとも一つに属する。
+\begin{enumerate}
+\item ある一定の非零冪零行列 $J$ と一次式 $a,b$ により $M=aJ,N=bJ$。
+\item $M,N$ の像が、一定の一次元空間に共に含まれる。
+\item 一方が他方の定数倍である。
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+係数体を $K=\CC(s,t)$ に拡大する。
+二つの線形写像 $A,B$ に対し、全ての $z$ で $Az,Bz$ が従属し、
+$\rank A\ge2$ なら $B=fA$ となる。
+実際、独立な像を持つ二つのベクトルとその和に適用すると、その比例係数が一致する。
+$\ker A$ の元をこれらに加えることで $\ker A\subset\ker B$ も従う。
+
+これを $M,N$ に適用し、$M$ の全成分の最大公約因子を取る。
+最大公約因子が定数なら $f\in\CC[s,t]$ であり、次数から $f$ は定数である。
+一次因子を持つなら $M=aJ$、$N=bJ$ と一定行列で書ける。
+一方が零の場合もこの議論の退化した場合、または座標交換で扱える。
+
+両者の階数が高々一なら、$K$ 上で二つの像は同じ直線に含まれる。
+従って $3\times6$ 行列 $[M\ N]$ の階数は高々一である。
+その多項式成分を primitive な列 $u$ と行の積に分解すると、同次次数が一なので、
+$u$ の次数は零または一である。
+次数零なら一定の共通像を得る。
+次数一なら $u=su_0+tu_1$ と書け、primitive 性から $u_0,u_1$ は独立である。
+この場合 $M=u\alpha^{\mathsf T}$、$N=u\beta^{\mathsf T}$ の
+$\alpha,\beta$ は一定であり、冪零性から両者は $u_0,u_1$ を消す。
+その annihilator は一次元なので、$M,N$ は定数比例する。
+\end{proof}
+
+一定行列 $J$ の階数が一なら共通像の場合に含まれ、階数二なら Jordan 型 $(3)$ である。
+したがって一定の正則冪零方向と一定共通像を排除した後に残るのは、
+三つ目のうち行列の方向が一定でない場合だけである。
+
+\subsection{定数比例するが方向が変わる行列束}
+
+この場合の混合一次部分は
+\[
+ P_{s,z}=\xi\mathcal D(s,t)z+U(z),\qquad
+ P_{t,z}=\eta\mathcal D(s,t)z+W(z),
+ \quad V=\xi\partial_s+\eta\partial_t\ne0
+\]
+と書ける。$U,W$ は純法線二次ベクトルであり、
+\[
+ \mathcal D=(pw+\ell v)\partial_u+qw\partial_v
+\]
+と解釈する。base の一定座標変換を行った場合には $V$ も同時に変換する。
+一定方向を除いた全ての場合は、次の三つに帰着する。
+\begin{center}
+\begin{tabular}{p{55mm}p{67mm}}
+\toprule
+係数の関係 & 標準的なベクトル場 $\mathcal D$\\
+\midrule
+$\ell,q$ が一次独立 & $sv\partial_u+tw\partial_v$\\[1mm]
+$\ell,q\ne0$ が比例し、$p,q$ が独立
+ & $sw\partial_u+t(v\partial_u+w\partial_v)$\\[1mm]
+$\ell=0$、$p,q$ が独立 & $w(s\partial_u+t\partial_v)$\\
+\bottomrule
+\end{tabular}
+\end{center}
+$q=0$ なら像は一定の $\partial_u$ 方向であり、別の定理で排除される。
+$q\ell\ne0$ で $\ell,q$ が比例し、$p$ も同じ一次式の倍数なら一定行列方向である。
+$\ell=0$ で $p,q$ が従属する場合も同様である。
+これで表の外の可能性は全て既出の場合に含まれる。
+
+表の第一行で $p$ を除く操作も明示しておく。
+$v'=v+aw$、$u'=u+bv$ とすると、$w\partial_u$ の係数は
+$p+bq-a\ell$ となる。$\ell,q$ が一次独立なので $a,b$ を選んでこれを零にできる。
+次いで base の座標を $s=\ell,t=q$ と取る。
+このとき $V$ を元の $\partial_s$ に固定しておくことはしない。
+
+\subsection{独立な二つの下段係数の排除}
+
+\begin{proposition}\label{prop:v19-independent-pencil}
+上表第一行の型は、四重型の Pfaffian--勾配恒等式と発散零条件を満たさない。
+\end{proposition}
+
+\begin{proof}
+$\mathcal D=sv\partial_u+tw\partial_v$、$F_4=sA+tB$ とする。
+最低法線次数の Casimir 条件は $\mathcal D(F_4)=0$ であるから
+\[
+       \partial_u A=0,\quad \partial_v B=0,
+       \quad v\partial_uB+w\partial_vA=0.
+\]
+四次同次性を使って全て解くと
+\begin{equation}\label{eq:v19-independent-invariants}
+ A=\alpha w^4-\beta w^2v^2,
+ \qquad B=\gamma w^4+2\beta w^3u.
+\end{equation}
+実際、最初の二式は $A\in\CC[w,v]$、$B\in\CC[w,u]$ を与え、
+最後の式の $u,v$ 係数比較により $B$ の $u$ 次数は高々一、
+$A$ の $v$ 次数は高々二となり、上式を得る。
+$A,B$ が一次独立なので $\beta\ne0$ であり、
+\[
+                           \gcd(A,B)=w^2
+\]
+である。
+
+法線二次部分を $Q=D(R)$ とする。
+接方向 Pfaffian の法線次数三の部分は
+$\eta(\mathcal Dz)\cdot R=0$、$\xi(\mathcal Dz)\cdot R=0$ を与える。
+$V\ne0$ と、$R$ の $s,t$ 独立性から $R_u=R_v=0$ となる。
+従って $R=G e_w$ であり、接方向の四次 Pfaffian は
+\[
+                           A=W_wG,\qquad B=-U_wG
+\]
+となる。$G\ne0$ は二次式なので、上の gcd から $G=gw^2$ である。
+
+発散条件の法線成分は、上と同じ符号で
+\[
+ \operatorname{curl}(Ge_w)=V(\mathcal Dz)=(0,\xi v,\eta w)
+\]
+を要求する。$G=gw^2$ の左辺は零であるから、$\xi=\eta=0$ となり矛盾する。
+\end{proof}
+
+残る二行は、同じ公約因子と curl の議論によって次節で排除する。
+\path{verify_varying_independent.py} は全 $30$ 単項式から不変式写像を組み立て、
+その階数が $27$、非零な小行列式が $95551488$ であることを確認する。
+したがって式\eqref{eq:v19-independent-invariants}の三次元核に取りこぼしはない。
+この機械検証とは独立に、上の証明でも不変式条件を全て解いている。
+
+
+\section{四重型で一定の共通像を持つ枝の排除}
+\label{sec:v19-m4-fixed-image}
+
+\begin{theorem}[一定共通像の排除]\label{thm:v19-m4-fixed-image}
+四重型 $F=sA_4+tB_4+F_5$ において、一次法線行列 $M,N$ の像がともに一定の
+一次元空間に含まれるなら、退化五次因子は正規でない。
+特に一定の階数一 nilpotent 方向 $M=aJ,N=bJ$ の枝は排除される。
+\end{theorem}
+
+\begin{proof}
+共通像を $\partial_u$ の張る直線とする。
+冪零性により $M,N$ はこの像を消すから、一定の座標 $(w,u,v)$ を選べば
+\[
+ P_{1,su}=L=pw+\ell v,\quad P_{1,tu}=N=rw+mv,
+ \quad P_{1,st}=a_w w+a_u u+a_v v
+\]
+以外の一次成分は零となる。$(L,N)\ne(0,0)$ である。
+Casimir 恒等式の最低法線次数から
+\[
+ L\,\partial_uF_4=N\,\partial_uF_4=0
+\]
+となるので、$A_4,B_4\in\CC[w,v]_4$ である。
+接方向の法線次数三の Pfaffian は
+\[
+                  -NQ_{wv}=0,\qquad LQ_{wv}=0
+\]
+を与え、従って $Q_{wv}=0$ となる。
+発散の $w,v$ 成分より
+\[
+ C=Q_{wu}\in\CC[w,v]_2,\qquad Z=Q_{uv}\in\CC[w,v]_2.
+\]
+
+$X=Q_{sw}$、$Y=Q_{tw}$、$V=Q_{sv}$、$T=Q_{tv}$ と置く。
+これらにはまだ $u$ 依存を許している。
+接方向の四次 Pfaffian と $u$ 方向の Pfaffian はそれぞれ
+\begin{equation}\label{eq:v19-m4-fi-pf}
+ A_4=CT+ZY,\qquad B_4=-CV-ZX,
+ \qquad \partial_uF_5=XT-VY
+\end{equation}
+となる。$C=Z=0$ なら $A_4=B_4=0$ となり四重型に反するため、
+$(C,Z)\ne(0,0)$ としてよい。
+
+$g=\gcd(C,Z)$、$e=\deg g\le2$ とし、
+$C=gC'$、$Z=gZ'$ と書く。
+片方が零の場合も、他方を $g$ として扱うので $e=2$ であり、以下の議論は同じである。
+$C',Z'$ は互いに素で、次数 $2-e$ である。
+$X_0=X|_{u=0}$、$V_0=V|_{u=0}$ とし、同様に $Y_0,T_0$ を定める。
+$A_4,B_4$ は $u$ に依存しないから、
+\eqref{eq:v19-m4-fi-pf} より
+\[
+ C'(V-V_0)+Z'(X-X_0)=0,
+ \quad C'(T-T_0)+Z'(Y-Y_0)=0.
+\]
+互いに素な二元の syzygy は一つで生成されるため、ある $H,K$ によって
+\begin{align*}
+ X&=X_0+C'H,&V&=V_0-Z'H,\\
+ Y&=Y_0+C'K,&T&=T_0-Z'K
+\end{align*}
+となる。$H,K$ は全次数 $e$ の同次式で、$u$ で割り切れる。
+従って $e=0$ のときは $H=K=0$ である。
+二つの $u$ 依存部分は同じベクトル $(C',-Z')$ に比例するので、
+その交差積は零であり
+\begin{align*}
+ \partial_uF_5
+ &=X_0T_0-V_0Y_0
+   +H(C'T_0+Z'Y_0)-K(C'V_0+Z'X_0)\\
+ &=X_0T_0-V_0Y_0+H\frac{A_4}{g}+K\frac{B_4}{g}
+ \in(w,v)^{4-e}\subseteq(w,v)^2.
+\end{align*}
+ここで $A_4/g,B_4/g$ は $w,v$ の次数 $4-e$ の同次式である。
+標数零なので $u$ に関する積分で $(w,v)$ 次数は下がらず、
+$F_5|_{u=0}\in\CC[w,v]_5$ も同じイデアルに属する。
+従って $F_5\in(w,v)^2$ であり、$F_4\in(w,v)^4$ と合わせて
+\[
+                           F\in(w,v)^2
+\]
+となる。ゆえに $D$ の特異点集合は射影平面
+$\Pi=(w=v=0)\subset\PP^4$ を含む。
+$D$ は三次元超曲面なので、この平面は余次元一の特異点集合を与え、
+正規性の必要条件 $R_1$ に反する。
+\end{proof}
+
+この定理は一定の共通像を持つ枝全体に適用される。
+像が parameter とともに動く行列束を一定共通像と見なしてはいけない。
+また、接錐だけの可約性を使っているのではなく、完全な五次式が
+射影平面のイデアルの二乗に属することを証明している。
+
+
+\section{四重型における一定の正則冪零方向の完全排除}
+\label{sec:v19-constant-regular}
+
+ここでは前節までの四重型標準形のうち
+\[
+ M=a(s,t)J,\qquad N=b(s,t)J,\qquad
+ Jz=(0,v,w),\qquad z=(w,u,v)
+\]
+を考える。$J$ は一定の Jordan 型 $(3)$ の行列である。
+$a,b$ の一次独立性は仮定しない。
+
+\begin{theorem}\label{thm:v19-no-constant-regular}
+退化五次超曲面 $D=(F=0)\subset\mathbf P^4$ が正規で、
+不活性直線に沿う一般法線次数が四であるとする。
+このとき、非零の一次部分が一定の正則冪零行列 $J$ の倍数
+$M=aJ$, $N=bJ$ となることはない。
+\end{theorem}
+
+本節は一定の Jordan 型 $(3)$ の場合を扱う。
+一定行列の Jordan 型 $(2,1)$ は \S\ref{sec:v19-m4-fixed-image}、
+$N=cM$ における可変方向は \S\ref{sec:v19-m4-exhaustion} で排除した。
+
+\subsection{式と符号}
+
+$\mathcal D=v\partial_u+w\partial_v$、$H=2uw-v^2$ と置く。
+二次の法線成分を用いて
+\[
+ P_{s,z}=aJz+U(z),\quad P_{t,z}=bJz+W(z),\quad
+ P_{z,z}=Q=D(R),\quad
+ F=sA(z)+tB(z)+C(z)
+\]
+と書く。$U,W,R$ は二次、$A,B$ は一次独立な四次式、$C$ は五次式である。
+$\delta P=0$ の接方向二成分は
+\begin{equation}\label{eq:v19-st-div}
+ P_{st}=s\operatorname{div}W-t\operatorname{div}U+S(z)
+\end{equation}
+を与える。ただし $S$ は二次式である。
+法線二次部分の符号は
+\[
+ D(R)=\begin{pmatrix}0&R_v&-R_u\\-R_v&0&R_w\\R_u&-R_w&0\end{pmatrix}
+\]
+である。Pfaffian の接方向成分、および法線四次成分は
+\begin{equation}\label{eq:v19-pfaff-pure}
+ A=W\cdot R,\quad B=-U\cdot R,\quad
+ \nabla C=S R-U\times W.
+\end{equation}
+以下ではこの最後の右辺の閉性も用いる。
+
+前節までの必要条件を再掲すると、$V=a\partial_s+b\partial_t$、
+$\lambda=\operatorname{tr}V$ に対して
+\[
+ R=\left((2h-\lambda)wu+\frac{\lambda-h}{2}v^2+gw^2,
+          hw^2,-hwv\right),\qquad
+ h(\lambda+2h)(h-2\lambda)=0.
+\]
+四次不変式空間 $E=\langle w^4,w^2H,H^2\rangle$ 上の作用素は
+\[
+ T=hw\partial_w+((\lambda-h)H-2gw^2)\partial_H.
+\]
+$\langle A,B\rangle$ は二次元不変部分空間で、$T$ のこの制限と $V$ は
+同じ trace と固有値を持つ。
+
+\subsection{可逆な接方向作用素}
+
+$a,b$ が一次独立の場合、命題\ref{prop:v18-regular-direction}により $\lambda\ne0$ で、
+$V$ の固有値は $3\lambda,-2\lambda$ である。
+$P$ の非零定数倍と一定座標変換により
+\[
+ V=3s\partial_s-2t\partial_t,\quad\lambda=1,\quad g=0,
+ \qquad h=-\frac12\ \text{または}\ h=2
+\]
+とできる。$D_0=Jz=(0,v,w)^{\mathsf T}$ と書く。
+法線三次 Pfaffian の $s,t$ 係数は
+\begin{equation}\label{eq:v19-linear-UW}
+ \nabla(W\cdot R)=(\operatorname{div}W)R-3D_0\times W,
+ \qquad
+ \nabla(U\cdot R)=(\operatorname{div}U)R+2D_0\times U.
+\end{equation}
+
+\begin{lemma}\label{lem:v19-linear-spaces}
+各 $h=-1/2,2$ について、式\eqref{eq:v19-linear-UW}の $U$ の解空間と
+$W$ の解空間は、それぞれ四次元である。
+一定座標変換
+$s'=s+\ell(z)$, $t'=t+k(z)$ を使うと、$h=-1/2$ の場合は
+\[
+ U=\alpha(0,w^2,0),\qquad
+ W=\beta\left(uw-\frac54v^2,\frac72u^2,uv\right)
+\]
+とできる。$h=2$ の場合は
+\[
+ U=\alpha\left(uw+\frac52v^2,-4u^2,uv\right),\qquad
+ W=\beta(0,-H,0)+d wD_0
+\]
+とできる。いずれも $\alpha\beta\ne0$ である。
+\end{lemma}
+
+\begin{proof}
+三成分二次ベクトル場を $18$ 個の係数で書き、
+式\eqref{eq:v19-linear-UW}の三次単項式の係数を比較する。
+各係数行列の階数は $14$ である。
+この係数比較は添付の厳密計算証明書に全て含めた。
+以下の四つの解を代入して線形独立性を確認しても、解空間を具体的に得られる。
+
+座標 shear による $U,W$ の変化は、それぞれ
+\[
+ U\longmapsto U-3\ell D_0-Q\nabla\ell,
+ \qquad W\longmapsto W+2kD_0-Q\nabla k.
+\]
+各式の特解は補題に表示した $\alpha,\beta$ の係数である。
+$h=-1/2$ では $\ell=w,u,v$ および $k=w,u,v$ の三つの変化が、
+それぞれ対応する $X\cdot R=0$ の三次元核を張る。
+$h=2$ の $U$ についても同じである。
+
+$h=2$ の $W$ については $k=w$ の変化が零であり、
+$k=u,v$ の二方向しか除けない。残る方向が $wD_0$ である。
+従ってこの $d$ を勝手に零に置いてはいけない。
+表示した $U,W$ に対し、接方向 Pfaffian は順に
+\[
+ (A,B)=\left(-\frac{15\beta}{16}H^2,\frac\alpha2w^4\right),
+ \qquad
+ (A,B)=\left(-2\beta w^2H,\frac{5\alpha}{4}H^2\right).
+\]
+$A,B$ の一次独立性から $\alpha\beta\ne0$ となる。
+\end{proof}
+
+\paragraph{$h=-1/2$ の排除。}
+式\eqref{eq:v19-pfaff-pure}の右辺の閉性を取ると
+\[
+ S=cw^2-2\alpha\beta wv,
+\qquad
+ C=\frac{w^2}{4}
+ \left(4\alpha\beta uvw-3\alpha\beta v^3-2cu w^2+cv^2w\right)
+\]
+となる。従って
+\[
+ F=-\frac{15\beta}{16}sH^2+\frac\alpha2tw^4+C
+       \ \in\ (w,v)^2.
+\]
+平面 $\Pi=(w=v=0)\cong\mathbf P^2$ は $D$ の特異集合に含まれる。
+三次元正規超曲面は余次元一で正則なので、これは矛盾である。
+
+\paragraph{$h=2$ の排除。}
+ここでは $d$ を残して
+$G=S R-U\times W$ と置く。
+$\partial_wG_u-\partial_uG_w$ の $w^2u$ の係数は
+\[
+                         -5\alpha d
+\]
+である。$S$ のどの係数もこの式に寄与しない。
+従って $\alpha\ne0$ から $d=0$ となる。
+残る閉性の条件は
+\[
+ S=-cH+2\alpha\beta uv,\qquad
+ C=\frac{H}{2}
+       \left(2\alpha\beta uvw+\alpha\beta v^3-cwH\right)
+\]
+を与える。ゆえに $H\mid F$ である。
+$H$ は非定数二次式、$F/H$ は三次式であり、
+二つの射影超曲面は交わる。重複成分がある場合も含め、
+実際の退化超曲面 $D$ は正規ではない。
+
+\subsection{階数一で trace が非零の場合}
+
+$a,b$ が従属し、$\lambda\ne0$ とする。
+前節までの不変部分空間の分類により、零固有値を含む枝は $h=0$ のみである。
+$H'=H-2g\lambda^{-1}w^2$ と置くと
+\[
+ R=-\frac\lambda2H' e_w,
+ \qquad \langle A,B\rangle=\langle w^4,w^2H'\rangle.
+\]
+一方、$A=W\cdot R$, $B=-U\cdot R$ から $H'$ は $A,B$ の両方を割る。
+従って $H'\mid w^4$ となるが、$H'|_{w=0}=-v^2$ より不可能である。
+
+\subsection{階数一で trace が零の場合}
+
+この場合 $V$ は非零な冪零二次行列である。
+前節までの条件から $h=0$ で、$g=0$ では $R=0$ により $A=B=0$ となるので
+$g\ne0$ である。$P$ の定数倍と接方向の一定座標変換により
+\[
+ V=t\partial_s,\qquad R=w^2 e_w,\qquad
+ T=-2w^2\partial_H
+\]
+とできる。$\langle A,B\rangle=\langle w^4,w^2H\rangle$ であり、
+$TA=0$, $TB=A$ だから、$V$ と可換な $s\mapsto s+ct$ を使って
+\[
+ A=-2\rho w^4,\qquad B=\rho w^2H,\qquad\rho\ne0
+\]
+とできる。接方向 Pfaffian から
+\[
+ W_w=-2\rho w^2,\qquad U_w=-\rho H.
+\]
+法線三次 Pfaffian の $t$ 係数は
+\[
+ \nabla B=-(\operatorname{div}U)w^2e_w-D_0\times W.
+\]
+その $w$ 成分を $w$ で割った剰余を見ると、$w\mid vW_v$ である。
+$w,v$ は互いに素なので $W_v=wL$ と書ける。ここで $L$ は一次式である。
+同じ式を整理すると
+\[
+ W_u=vL+(6\rho u+\operatorname{div}U)w-2\rho v^2.
+\]
+従って $W(0,u,0)=0$ となる。
+$R(0,u,0)=0$ も成り立つので、式\eqref{eq:v19-pfaff-pure}から
+\[
+                   \nabla C(0,u,0)=0
+\]
+を得る。$C$ は同次五次式だから $C\in(w,v)^2$ であり、
+$F\in(w,v)^2$ となる。再び平面 $\Pi$ が特異集合に含まれ、正規性に矛盾する。
+これで定理\ref{thm:v19-no-constant-regular}の全ての場合が尽くされた。
+
+\paragraph{検証範囲。}
+\path{verify_constant_regular.py} は、四つの $18$ 変数一次系について、
+階数 $14$ の非零小行列、核の四つの基底、および shear の階数を厳密に検証する。
+特に $h=2$ の残余係数 $d$ を消す $-5\alpha d$ の式も独立に再構成する。
+さらに表示された二つの非正規な標準形族について、発散の五成分、
+Pfaffian と $dF$ の五成分、および Jacobi 恒等式の十成分を全て展開して確認する。
+trace 零の枝については、上記の法線 Pfaffian 恒等式と
+$W|_{w=v=0}=0$ を直接検証する。
+従ってこの排除は無作為な係数選択や数値解探索には依存しない。
+
+
+\subsection{比例する二つの下段係数と、動く階数一像}
+\label{sec:v19-two-varying-pencils}
+
+ここでは $N=cM$ に帰着した後の、二種類の一定でない行列方向を排除する。
+接方向の一定座標変換を行うと、一次部分は
+\[
+ P_{s,z}=\xi\mathcal D(s,t)z+U(z),\qquad
+ P_{t,z}=\eta\mathcal D(s,t)z+W(z)
+\]
+と書ける。$V=\xi\partial_s+\eta\partial_t\ne0$ は一定ベクトル場である。
+base の座標変換は $\mathcal D$ の二つの係数と $V$ を同時に変えるので、
+$V=\partial_s$ の形を不変に保つとは仮定しない。
+法線二次部分は $Q=D(R)$、$R$ は $(s,t)$ に依存しない二次ベクトルとする。
+先頭五次式は $F_4=sA+tB$ で、$A,B$ は一次独立な四次式である。
+
+接方向 Pfaffian の $(s,t)$ 依存部分から
+\[
+ (\mathcal D(s,t)z)\cdot R=0
+\]
+を得る。以下の二つの型では、$\mathcal D$ の二つの係数ベクトル場は
+多項式の商体上で独立であり、いずれも $w$ 成分が零である。
+従って
+\[
+ R=G(w,u,v)e_w,\qquad
+ A=W_wG,\qquad B=-U_wG.
+\]
+特に $G$ は $A,B$ の公約因子であり、$G\ne0$ である。
+一方、発散条件は
+\begin{equation}\label{eq:v19-varying-div}
+ \operatorname{curl}(Ge_w)=V(\mathcal D(s,t)z)
+\end{equation}
+を与える。ここで左辺は $(0,\partial_vG,-\partial_uG)$ である。
+
+\paragraph{下段係数が比例する正則型。}
+共通旗表示
+\[
+ \mathcal D=(p(s,t)w+\ell(s,t)v)\partial_u+q(s,t)w\partial_v
+\]
+において、$q,\ell$ は非零で比例し、$p,q$ は一次独立とする。
+一定の法線座標と base 座標の変換で
+\[
+ \mathcal D=sE+tJ,
+ \quad E=w\partial_u,\quad J=v\partial_u+w\partial_v
+\]
+とできる。$\ell/q$ の非零定数は法線の対角変換で吸収できる。
+不変式条件 $\mathcal D(F_4)=0$ は
+\[
+ EA=0,\qquad JB=0,\qquad EB+JA=0
+\]
+である。$EA=0$ から $A\in\mathbf C[w,v]$、
+$JB=0$ から $B\in\langle w^4,w^2H,H^2\rangle$、$H=2uw-v^2$ となる。
+最後の式の $u$ 係数により $H^2$ の係数は零となり、積分して
+\begin{equation}\label{eq:v19-dep-ellq-invariants}
+ A=\alpha w^4-2\beta w^3v,
+ \qquad B=\gamma w^4+\beta w^2H
+\end{equation}
+を得る。一次独立性は $\beta\ne0$ と同値である。
+このとき
+\[
+                        \gcd(A,B)=w^2
+\]
+である。実際、$w^2$ を除いた $A$ の因子は $w$ と
+$\alpha w-2\beta v$ であるが、後者は $B/w^2$ の $u$ の係数
+$2\beta w$ を割らない。
+従って $G=gw^2$ でなければならない。
+しかし式\eqref{eq:v19-varying-div}を積分すると
+\[
+ G=-\eta wu+\xi wv+\frac\eta2v^2+gw^2
+\]
+である。ゆえに $\xi=\eta=0$ となり、$V\ne0$ に反する。
+
+\paragraph{像が動く階数一型。}
+次に
+\[
+                  \mathcal D=w(s\partial_u+t\partial_v)
+\]
+とする。これは $\ell=0$、$p,q$ が一次独立の場合の一定座標標準形である。
+不変式条件は
+\[
+ \partial_uA=0,\qquad\partial_vB=0,
+ \qquad\partial_uB+\partial_vA=0
+\]
+であり、その全解は
+\begin{equation}\label{eq:v19-moving-image-invariants}
+ A=\alpha w^4+\beta w^3v,
+ \qquad B=\gamma w^4-\beta w^3u.
+\end{equation}
+$A,B$ の一次独立性から $\beta\ne0$ であり、
+$\gcd(A,B)=w^3$ となる。$G$ は二次式なので、再び $G=gw^2$ である。
+他方、式\eqref{eq:v19-varying-div}は
+\[
+                    G=w(\xi v-\eta u+gw)
+\]
+を与えるため、$\xi=\eta=0$ となり矛盾する。
+
+\paragraph{独立な厳密検証。}
+\path{verify_varying_pencils.py} は、bidegree $(1,4)$ の全 $30$ 単項式から
+不変式写像を再構成し、上の二型の核がそれぞれ式
+\eqref{eq:v19-dep-ellq-invariants}、\eqref{eq:v19-moving-image-invariants}の
+三次元空間そのものであることを確認する。
+どちらも係数行列の階数は $27$ で、非零な $27$ 次小行列を保存する。
+curl の式と接方向 Pfaffian に用いた共通直交成分の計算も同時に検証する。
+
+
+\begin{proof}[定理\ref{thm:v19-main}の証明]
+不活性直線 $L$ が存在すると仮定する。
+前節までの入力から、一般重複度は三または四である。
+
+三重の場合、非零 conormal 括弧は定理\ref{thm:v19-rank1-exclusion}により排除される。
+零括弧では、$c$ は非零の binary 二次式なので、複素数体上では
+squarefree または二重根のいずれかである。
+前者は定理\ref{thm:v19-squarefree}、後者は定理\ref{thm:v19-double-root}で排除される。
+従って三重型は存在しない。
+
+四重の場合は補題\ref{lem:v19-three-types}を適用する。
+一定の正則冪零方向は定理\ref{thm:v19-no-constant-regular}、
+一定の共通像は定理\ref{thm:v19-m4-fixed-image}により排除される。
+残る定数比例の場合は、\S\ref{sec:v19-m4-exhaustion}の三つの可変方向に尽くされる。
+第一の型は命題\ref{prop:v19-independent-pencil}、残り二型は
+\S\ref{sec:v19-two-varying-pencils}の公約因子と発散の議論で矛盾する。
+従って四重型も存在せず、定理が従う。
+\end{proof}
+
+
+
+\part{全支持の幾何と有理正規四次の有限排除}
+\section{特異な不活性成分と割線}\label{sec:inactive-singular}
+\begin{theorem}\label{thm:finite-B}
+正規な実退化因子の$C$の全既約成分でmodular residueは一般に非零であり、
+$B$は有限、$\length B\le16$である。
+\end{theorem}
+
+
+\subsection{三重消滅は滑らかな一般点だけで足りる}
+
+\begin{lemma}\label{lem:triple-secant}
+五次式 $F$ が被約曲線 $A,B\subset\PP^4$ の各成分の滑らかな一般点で
+それぞれ三重に消えるとする。このとき
+\[
+\operatorname{Sec}(A)\subset V(F),\qquad
+\operatorname{Join}(A,B)\subset V(F).
+\]
+第二式には、同じ曲線の異なる既約成分の間の join も含む。
+\end{lemma}
+\begin{proof}
+一般の相異なる二点 $a,b$ を取り、それらを結ぶ直線へ $F$ を制限する。
+零でない次数五の二変数斉次式が、二点でそれぞれ少なくとも三重の零点を持つことはできない。
+従ってその直線上で恒等的に零である。閉包を取ればよい。
+\end{proof}
+
+この段階では $F\in\mathcal I_A^3$ を特異点の局所環で主張しない。
+記号冪 $I_A^{(3)}$ または一般点での消滅だけで十分である。
+通常冪を使うのは、後で扱う直線や平面内の完全交叉の場合である。
+
+\subsection{特異点から出る join は特異集合に含まれる}
+
+\begin{lemma}[特異な母曲線の補題]\label{lem:singular-directrix}
+$\Gamma\subset\PP^4$ を被約既約非退化曲線とし、
+斉次式 $G$ が $\operatorname{Sec}(\Gamma)$ 上で消えるとする。
+$p\in\operatorname{Sing}(\Gamma)$ ならば
+\begin{equation}\label{eq:join-sing}
+\operatorname{Join}(p,\Gamma)\subset V(G,\dd G).
+\end{equation}
+左辺は曲面である。従って $\operatorname{Sec}(\Gamma)$ を含む超曲面は正規でない。
+\end{lemma}
+
+\begin{proof}
+$V=\CC^5$、$X=\widehat\Gamma\subset V$ とし、
+$p$ の非零 lift $a\in X$ を固定する。
+ここで使う接空間は full Zariski tangent space
+\[
+W=T_aX
+\]
+である。$\Gamma$ の特異点の上では $\dim W\ge3$ なので、
+$r=\dim V/W\le2$ である。
+
+線形射影 $\ell:V\to V/W$ の制限 $\ell|_X$ が優越であることを示す。
+$r=0$ は自明、$r=1$ は非退化性と錐の斉次性から従う。
+$r=2$ の場合、誘導される有理写像
+\[
+\Gamma\dashrightarrow\PP(V/W)=\PP^1
+\]
+が定数なら、その像の直線 $L\subset V/W$ に対して、
+$\Gamma$ は $\PP(\ell^{-1}(L))$ という真の線形部分空間に含まれる。
+これは非退化性に反する。従ってこの有理写像は非定数であり、優越である。
+錐の射影 $\ell$ も優越となる。
+
+標数零なので、一般の滑らかな $b\in X$ では
+$\dd\ell_b:T_bX\to V/W$ が全射である。従って
+\begin{equation}\label{eq:tangent-sum}
+W+T_bX=V.
+\end{equation}
+一方、割線包含により、固定した $b$ に対する多項式 $x\mapsto G(x+b)$ は $X$ 上で零である。
+これを $a$ において微分すると、$\dd G_{a+b}$ は $W$ を消す。
+同様に $y\mapsto G(a+y)$ を $b$ で微分すると、$T_bX$ も消す。
+\eqref{eq:tangent-sum}により $\dd G_{a+b}=0$ である。
+
+一般の $b$ とそのスカラー倍を動かすと、$[a+b]$ は
+$\operatorname{Join}(p,\Gamma)$ に稠密である。
+特異集合の閉性から \eqref{eq:join-sing} が従う。
+$\Gamma$ は直線ではないため、この join は二次元である。
+三次元の正規超曲面が曲面に沿って特異になることは $R_1$ に反する
+\cite{StacksNormal}。
+\end{proof}
+
+\paragraph{特異点での微分について。}
+尖点では正規化写像の微分が零になり得る。
+上の証明はその微分像を用いていない。
+$G(x+b)$ が曲線の座標環で零であることを、
+\emph{その局所環の全ての接導分}に対して微分している。
+generic smoothness を使うのは、別に選んだ一般の滑らかな点 $b$ の側だけである。
+従って多枝の節点にも一枝の尖点にも同じ証明が適用できる。
+
+
+
+\subsection{特異な不活性成分の排除}
+
+\begin{proof}[定理\ref{thm:finite-B}の非存在部分]
+不活性成分 $\Gamma$ が存在すると仮定する。
+\eqref{eq:residue}から、全ての $P_{ij}$ は $\widehat\Gamma$ 上で零である。
+従って Pfaffian の式より
+\[
+\partial_iF\in I_\Gamma^2.
+\]
+特に $\Gamma$ の滑らかな一般点で $F$ は三重に消える。
+局所 normal 座標の Taylor 展開で、一次・二次項が消えることを確認すればよい。
+補題\ref{lem:triple-secant}により
+\[
+\operatorname{Sec}(\Gamma)\subset D.
+\]
+
+$\Gamma$ が滑らかなら、前節では直線に限ることが示され、
+前節ではその直線も排除されている。
+従ってここでは $\Gamma$ が特異な場合を考える。
+\begin{enumerate}
+\item $\Gamma$ が $\PP^4$ を張る場合、補題\ref{lem:singular-directrix}により
+$D$ は曲面に沿って特異になり、正規性に反する。
+\item $\Gamma$ が $\PP^3$ を張る場合、非平面曲線の割線はその $\PP^3$ 全体である
+\cite[Proposition 2.5 の直前]{AMSSecant}。
+従って $F$ は超平面因子を持ち、正規性に反する。
+\item $\Gamma$ が平面 $\Pi$ を張る場合、特異な既約平面曲線なので $\deg\Gamma\ge3$。
+二次式 $P_{ij}|_\Pi$ が $\Gamma$ 上で零となることから、
+それらは全て $\Pi$ 上で恒等的に零である。
+すると $\nabla F=b(P)$ も平面全体で零となり、やはり正規性に反する。
+\end{enumerate}
+直線を張る被約既約曲線は直線そのものであり、特異な場合はない。
+以上で全ての場合が排除された。
+\end{proof}
+
+\subsection{有限性とスキーム長}
+
+$B$ の台は $C$ に含まれ、$C$ は純一次元である。
+どの既約成分も $B$ の台に含まれないため、$B$ は有限である。
+ここで有限とは空の場合も含み、射影スキームとしての主張である。
+
+\begin{proposition}\label{prop:lengthB}
+全ての正規な実際の退化因子について $\length B\le16$ である。
+\end{proposition}
+\begin{proof}
+$B$ は二次式 $P_{ij}$ の共通零スキームである。
+有限基底を持つこの線形系から、一般の四本 $Q_1,\ldots,Q_4$ を選ぶと、
+共通零集合は零次元となる。
+実際、正次元の各既約成分は基底に含まれないので、
+逐次一般の線形結合を選ぶことで次元を一つずつ下げられる。
+四本は多項式環の正則列となり、その完全交叉の次数は $2^4=16$。
+\[
+B\subset V_+(Q_1,Q_2,Q_3,Q_4)
+\]
+はスキームの包含なので、長さの不等式が従う。
+\end{proof}
+
+\subsection{一般横断型の数値的二分}
+
+各成分の一般点で $Z\ne0$ となったので、Pym の局所正規形
+\cite[Theorem 4.5, Table 1]{PymElliptic}を各成分に適用できる。
+一般横断型は $\widetilde E_6,\widetilde E_7,\widetilde E_8$ のいずれかであり、
+その Jacobian の一般長はそれぞれ $8,9,10$ である。
+型 $\widetilde E_j$ の成分の次数和を $a_j$ と置くと、
+\[
+8a_6+9a_7+10a_8=\deg Y=40.
+\]
+非負整数解は
+\[
+(a_6,a_7,a_8)=(5,0,0),\qquad (0,0,4)
+\]
+のみである。従って $\widetilde E_7$ と混合型は現れない。
+
+
+標数零で $Z$ は各成分の正規化に持ち上がる \cite{Seidenberg}。
+非零ベクトル場が存在する滑らかな完備曲線の種数は高々一である。
+種数一の成分では場は至る所非零なので、conductor の保存性から
+他成分との交点も自己特異点もない。
+連結性により、その成分が $C$ 全体となる。
+この場合は purely elliptic な分類 \cite[Theorem 1.3]{PymElliptic}から $q_{5,1}$ 型である。
+それ以外の場合は、全ての成分の正規化が $\PP^1$ である。
+
+
+\section{有理正規四次支持の排除}\label{sec:rnc4}
+\begin{theorem}\label{thm:rnc4}
+正規な実退化因子について、$C$が既約な有理正規四次曲線となることはない。
+\end{theorem}
+この場合$\deg C=4$なので全$\widetilde E_8$型である。
+以下では全候補を二十八の必要族に含め、その各primitiveな閉点を排除する。
+固定対称性$[A,P]=0$を課さない。
+
+
+座標を選び
+\[
+ C=[s^4:s^3t:s^2t^2:st^3:t^4]
+\]
+とする。そのイデアルの二次部分の基底を、以下の順序で固定する。
+\[
+\begin{split}
+ q_0&=x_0x_2-x_1^2,\quad q_1=x_0x_3-x_1x_2,\quad q_2=x_0x_4-x_1x_3,\\
+ q_3&=x_1x_3-x_2^2,\quad q_4=x_1x_4-x_2x_3,\quad q_5=x_2x_4-x_3^2.
+\end{split}
+\]
+非零な $Z\in H^0(\PP^1,T_{\PP^1})$ は、二つの単純零点を持つ場合と
+一つの二重零点を持つ場合に分かれる。
+$\operatorname{PGL}_2$ による座標変換と Poisson 構造全体の定数倍を用いると、
+その $\PP^4$ 上の一次延長を次のいずれかに正規化できる。
+\[
+\begin{split}
+ A_h&=4x_0\partial_0+2x_1\partial_1-2x_3\partial_3-4x_4\partial_4,\\
+ A_e&=x_0\partial_1+2x_1\partial_2+3x_2\partial_3+4x_3\partial_4.
+\end{split}
+\]
+これは $s\partial_s-t\partial_t$ と $s\partial_t$ の $\operatorname{Sym}^4$ 表現である。
+ここで用いているのは軌道代表の正規化であり、対象とする Poisson スキームそのものを
+$\operatorname{PGL}_5$ で割っているわけではない。
+
+\begin{proposition}[二つの明示的 affine slice]\label{prop:rnc4-slices-v15}
+$A=A_h$ または $A_e$ とする。
+\[
+ \mathcal A_A=\left\{P\in\operatorname{Alt}_5(S_2):
+ \delta P=0,\quad P|_{\widehat C}=-\frac15E\wedge A|_{\widehat C}\right\}
+\]
+は36次元の affine 空間である。
+各空間に有理係数の座標 $u_0,\ldots,u_{35}$ を取ると、Poisson 条件は
+94個の次数2の多項式の消滅で表される。
+この94個は多項式として一次独立であるが、イデアルの最小生成系であるとは主張しない。
+\end{proposition}
+
+\begin{proof}
+制限条件を満たす $P$ は一意的に
+\[
+ P=-\frac15E\wedge A+Q,\qquad
+ Q\in\operatorname{Alt}_5(I_C(2))
+\]
+と書ける。$A$ の trace は零なので、発散条件は $\delta Q=A$ である。
+線形写像
+\[
+ \delta:\operatorname{Alt}_5(I_C(2))\longrightarrow\mathfrak{sl}_5
+\]
+の始域は60次元であり、階数は24である。
+これは次の小行列式で有理数上完全に証明できる。
+交代成分 $(i,j)$ を辞書式順序に並べ、その各成分について $q_0,\ldots,q_5$ の順に60列を取る。
+行は $(\delta Q)^j$ の $x_k$ 係数を $5j+k$ 番目とする。
+得られる $25\times60$ 整数行列の0から23番目の行と、列
+\[
+\begin{split}
+ I=\{&0,1,2,3,4,6,7,8,9,12,13,14,15,18,19,20,\\
+     &24,25,30,31,36,42,43,48\}
+\end{split}
+\]
+からなる小行列式は $-16$ である。
+一方、$\delta^2Q=0$ により像は trace 零なので階数は高々24である。
+従って核の次元は36となる。
+
+特解も明示できる。
+\[
+ q=x_0x_4-4x_1x_3+3x_2^2=q_2-3q_3,\qquad H=\operatorname{Hess}(q)
+\]
+とし、$A=Mx$ と書く。$H$ は可逆であり、$A(q)=0$ なので
+\[
+ S_A=-MH^{-1}\quad\text{は交代行列},\qquad
+ \delta(qS_A)=A.
+\]
+従って
+\[
+ P_A^{(0)}=-\frac15E\wedge A+qS_A,\qquad
+ \mathcal A_A=P_A^{(0)}+\ker\delta
+\]
+である。上の小行列の逆を用い、残り36列の係数を自由変数に取れば、
+両場合に共通な有理係数の核基底 $K_0,\ldots,K_{35}$ が定まる。
+\[
+ P_A(u)=P_A^{(0)}+\sum_{a=0}^{35}u_aK_a
+\]
+を
+\[
+ \sum_{\ell=0}^4\left(
+ P^{i\ell}\partial_\ell P^{jk}+
+ P^{j\ell}\partial_\ell P^{ki}+
+ P^{k\ell}\partial_\ell P^{ij}\right)=0,
+ \qquad i<j<k
+\]
+へ代入し、$x$ の三次単項式の係数を取る。
+350個の候補のうち48個は恒等的に零であり、両場合とも302個の次数2の式を得る。
+これらに対する有理数上の線形代数で、その線形包の次元は両場合とも94となる。
+元の302個から94個を選び、すべての式を選んだ94個の定数係数線形結合として表したので、
+94個が定義するイデアルは全 Jacobi 係数のイデアルと一致する。
+全有理係数、核基底、特解、302個の式、選択した94個の番号と全線形結合は付属 JSON に保存した。
+生成には記号計算を用い、別の標準ライブラリだけの実装で
+小行列式、36本の核基底、二つの発散条件と制限条件、全 Jacobi 係数と94個への削減証明を再検証した。
+\end{proof}
+
+
+
+\section{有理正規四次曲線上の余法束と Lie 括弧}
+
+以降、この節では $C=[s^4:s^3t:s^2t^2:st^3:t^4]$ とする。
+
+\begin{lemma}[恒等的に零の residue は起こらない]\label{lem:zero-residue}
+正規な退化五次因子の被約特異曲線が $C$ なら、$Z\not\equiv0$ である。
+\end{lemma}
+\begin{proof}
+$Z=0$ なら \eqref{eq:residue} より全成分 $P_{ij}$ が $C$ 上で消え、
+$\partial_iF_P=b_i(P)\in I_C^2$ となる。
+$C$ は滑らかなので、局所 normal 座標の Taylor 展開から
+$F_P\in\mathcal I_C^3$ が従う。異なる二点 $p,q\in C$ を結ぶ直線への
+五次式の制限は、両点で少なくとも三重に消える。従ってその制限は零である。
+よって $\operatorname{Sec}(C)\subset D$。
+有理正規四次曲線の secant は既約な三次超曲面
+\begin{equation}\label{eq:hankel}
+ H=\det\begin{pmatrix}x_0&x_1&x_2\\x_1&x_2&x_3\\x_2&x_3&x_4\end{pmatrix}=0
+\end{equation}
+である。したがって $H\mid F_P$ となる。
+正の次数の二つの超曲面は $\PP^4$ 内で交わるため、正規な超曲面は既約かつ被約であり、
+三次因子を持つ五次式とは両立しない。
+\end{proof}
+
+従って前節までの制約から一般横断型は $\widetilde E_8$ である。
+$\operatorname{PGL}_2$ と $P$ 全体の定数倍を用いて、$Z$ の一次延長を
+\begin{equation}\label{eq:AhAe}
+\begin{split}
+ A_h&=4x_0\partial_0+2x_1\partial_1-2x_3\partial_3-4x_4\partial_4,\\
+ A_e&=x_0\partial_1+2x_1\partial_2+3x_2\partial_3+4x_3\partial_4
+\end{split}
+\end{equation}
+のいずれかに正規化できる。零因子の台は、それぞれ $\{s=0,t=0\}$ と $\{s=0\}$ である。
+
+\subsection{余法束の明示的な分裂}
+
+Euler 列から $\Omega_{\PP^4}|_C$ は $5\OO_{\PP^1}(-4)\to\OO_{\PP^1}$ の核であり、
+その写像は五つの単項式 $s^{4-i}t^i$ で与えられる。
+標準基底を $e_0,\ldots,e_4$ と書くと、
+$\alpha_i=te_i-se_{i+1}$、$0\le i\le3$ が分裂 $4\OO(-5)$ を与える。
+余法束 $\mathcal E=N^*_{C/\PP^4}$ はさらに $\dd\nu$ の核であり、
+\begin{equation}\label{eq:beta}
+ \beta_i=t^2e_i-2st e_{i+1}+s^2e_{i+2},\qquad 0\le i\le2
+\end{equation}
+が全点で階数三の写像 $3\OO(-6)\to5\OO(-4)$ を与える。
+従って
+\[
+                         \mathcal E\simeq\OO(-6)^3.
+\]
+
+$x_0=1$、$\tau=y_1=t/s$ 上では、次の関数の微分が \eqref{eq:beta} に対応する。
+\begin{equation}\label{eq:eta}
+\begin{split}
+ \eta_0&=y_2-\tau^2,\\
+ \eta_1&=y_3-2\tau y_2+\tau^3,\\
+ \eta_2&=y_4-2\tau y_3+\tau^2y_2.
+\end{split}
+\end{equation}
+逆変換は
+$y_2=\tau^2+\eta_0$、$y_3=\tau^3+2\tau\eta_0+\eta_1$、
+$y_4=\tau^4+3\tau^2\eta_0+2\tau\eta_1+\eta_2$ である。
+
+\subsection{二変数六次式に値を取る余法 Lie 括弧}
+
+$\pi|_C=0$ より、Poisson 括弧は $\mathcal E=\mathcal I_C/\mathcal I_C^2$ 上に
+$\OO_C$ 双線形の Lie 括弧を誘導する。
+基底を $\dd\eta_i$ として
+\[
+ \{\eta_1,\eta_2\}\equiv\sum_jB_{0j}\eta_j,\quad
+ \{\eta_2,\eta_0\}\equiv\sum_jB_{1j}\eta_j,\quad
+ \{\eta_0,\eta_1\}\equiv\sum_jB_{2j}\eta_j\pmod{\mathcal I_C^2}
+\]
+で $B$ を定める。
+Pym の正規形では $\widetilde E_8$ は
+$f=x^6+y^3+z^2+\lambda xyz$ であり、normal 一次括弧は三次元 Heisenberg Lie 代数になる
+\cite[Theorem 4.5, Table 1]{PymElliptic}。
+従って一般点で $B$ は対称・階数一・非零である。
+対称性と二次小行列式の消滅は稠密開集合から $C$ 全体へ延びる。
+intrinsic な型は
+\[
+ B\in H^0\bigl(C,\Sym^2\mathcal E\otimes(\det\mathcal E)^{-1}\bigr)
+   =\Sym^2\CC^3\otimes H^0(\PP^1,\OO(6)).
+\]
+つまり $B$ の六成分は二変数六次式である。
+
+\begin{lemma}[Hessian と residue]\label{lem:hessian}
+実際の反標準切断 $\sigma=\pi^2/2$ の normal Hessian は
+\[
+                         \operatorname{Hess}_N(\sigma)=-ZB
+\]
+である。右辺は $T_C\otimes\Sym^2\mathcal E\otimes\det N$ の切断として解釈する。
+\end{lemma}
+\begin{proof}
+$\{\tau,\eta_i\}=\sum_j A_{ij}\eta_j+O(\mathcal I_C^2)$ と書く。
+一次の Jacobi 条件は
+$A^tB+BA=(\tr A)B$ を与える。
+Pfaffian の二次部分は $\eta^tA^tB\eta=(\tr A)\eta^tB\eta/2$、
+modular vector field の $\partial_\tau$ 成分は $-\tr A$ なので従う。
+$F_P$ を使う場合には \eqref{eq:canonical} の規約により固定した係数 $1/5$ が入る。
+\end{proof}
+
+$Z\ne0$ の各点は elliptic であり、局所正規形は曲線方向に一定である。
+一般型が $\widetilde E_8$ なので、$C\setminus V(Z)$ の全点で $B$ は非零である。
+
+\begin{proposition}[階数一分解]\label{prop:factorB}
+非零な $B$ は
+\[
+                 B=hvv^t,\qquad v=(v_0,v_1,v_2)^t
+\]
+と書ける。$v_i$ は共通因子を持たない同じ次数 $d$ の二変数同次式であり、
+$0\le d\le3$、$\deg h=6-2d$ である。
+$h$ の零点は $Z$ の零点に含まれる。
+従って非零定数を $v$ に吸収すれば
+\[
+\begin{array}{ll}
+ A_h:&h=s^at^b,\quad a+b=6-2d,\\
+ A_e:&h=s^{6-2d}.
+\end{array}
+\]
+\end{proposition}
+\begin{proof}
+$\CC[s,t]$ の一意分解性、あるいは階数一対称行列の Veronese 表示から、
+共通因子を除いた $v$ と $h$ が得られる。次数比較が $d\le3$ を与える。
+共通因子を持たない同次三成分は $\PP^1$ 上で共通零点を持たないので、
+$B$ の零点は正確に $h$ の零点である。前段落からその台は $V(Z)$ に含まれる。
+\end{proof}
+
+
+\section{三十六変数から二十八族への帰着}
+
+\subsection{線形写像の像を一つの微分作用素で記述する}
+
+前節の affine 空間を
+\[
+ P=P_A^{(0)}+\sum_{i=0}^{35}u_iK_i,\qquad A=A_h\text{ または }A_e
+\]
+と書く。これは $\delta P=0$ と $P|_{\widehat C}=-E\wedge A/5$ を満たす全行列である。
+$B$ の六成分それぞれの七係数を並べると、写像 $P\mapsto B$ の線形部分は
+\[
+                   L:\QQ^{36}\longrightarrow\QQ^{42}
+\]
+で表される。直接微分による係数計算で $\rank L=33$、$\dim\ker L=3$ となる。
+保存した33次小行列式は $-944784$ である。
+
+対称六次行列 $B$ に対して
+\[
+\begin{split}
+ \mathcal C_B(s,t;\xi,\upsilon)
+ ={}&B_{00}\xi^4+2B_{01}\xi^3\upsilon
+ +(2B_{02}+B_{11})\xi^2\upsilon^2\\
+ &+2B_{12}\xi\upsilon^3+B_{22}\upsilon^4
+\end{split}
+\]
+および
+\begin{equation}\label{eq:T}
+ T(B)=\left.(\partial_s\partial_\upsilon-\partial_t\partial_\xi)
+                \mathcal C_B\right|_{\xi=s,\upsilon=t}
+\end{equation}
+を定義する。$T(B)$ は二変数八次式である。
+全係数を使った有理数上の検証で $\rank T=9$、$TL=0$ なので
+\begin{equation}\label{eq:imageL}
+                         \operatorname{Im}L=\ker T.
+\end{equation}
+さらに両特解の像は、$v_*=(t^2,-2st,s^2)^t$ として
+\[
+ B_h^{(0)}=-st\,v_*v_*^t,\qquad
+ B_e^{(0)}=\tfrac12s^2v_*v_*^t
+\]
+であり、どちらも $\ker T$ に属する。
+
+この42成分の線形条件は簡潔に再構成できる。
+$i\le j$ に対し $B_{ij}$ の $s^{6-k}t^k$ 係数の寄与は、
+$T(B)$ の $s^{8-n}t^n$ 係数、$n=k+i+j-1$ にのみ現れ、その係数は
+\[
+                  (2-\delta_{ij})\bigl(6(i+j)-4k\bigr)
+\]
+である。範囲外の $n$ に対する係数は零になる。
+
+\subsection{階数一条件の二つの分岐}
+
+$B=hvv^t$ とし、
+\[
+\begin{split}
+ q(s,t;\xi,\upsilon)&=v_0\xi^2+v_1\xi\upsilon+v_2\upsilon^2,\\
+ Q&=q(s,t;s,t)=s^2v_0+st v_1+t^2v_2,\\
+ R_s&=2sv_0+tv_1,\qquad R_t=sv_1+2tv_2
+\end{split}
+\]
+と置く。直接微分から
+\begin{equation}\label{eq:closed}
+ T(hvv^t)=2\{\partial_s(hQR_t)-\partial_t(hQR_s)\}
+\end{equation}
+である。
+
+\begin{proposition}\label{prop:branches}
+固定した $h=s^at^b$ に対し、$T(hvv^t)=0$ を満たす $v$ は、次の二つの
+線形条件で記述される部分集合に含まれる。
+\begin{enumerate}
+ \item $Q=0$。この場合
+ \[
+ v=(-tA,\ sA-tB,\ sB),\qquad A,B\in\CC[s,t]_{d-1}.
+ \]
+ \item $Q\ne0$ であり、
+ \begin{equation}\label{eq:linear-branch}
+ 5hR_s=Q\partial_sh+2h\partial_sQ,\qquad
+ 5hR_t=Q\partial_th+2h\partial_tQ.
+ \end{equation}
+\end{enumerate}
+後者の方程式自体は $v$ の係数に関して線形である。
+\end{proposition}
+\begin{proof}
+$Q=0$ の syzygy 表示は $s^2,st,t^2$ の二つの一次 syzygy から従う。
+$Q\ne0$ の場合、$\omega=hQ(R_s\dd s+R_t\dd t)$ と置く。
+係数の次数は9、従って Euler 場に関する重みは10である。
+また $\iota_E\omega=2hQ^2$ である。
+\eqref{eq:closed} は $\dd\omega=0$ と同値なので、Cartan 公式より
+$10\omega=\dd(2hQ^2)$。整域 $\CC[s,t]$ で非零な $Q$ を消去すると
+\eqref{eq:linear-branch} が得られる。逆向きは同じ式の微分から従う。
+\end{proof}
+
+ここで $Q$ の消去は各複素閉点において行っている。
+冪零係数環上で同じ分岐がスキーム論的な分解を与えるとは主張しない。
+
+\subsection{全候補族と係数の復元}
+
+零ベクトルしか与えない線形空間を除くと、次の表になる。
+$\ker L$ の三変数を加える前の $v$ 空間の次元を記した。
+\begin{center}
+\begin{tabular}{cclcc}
+\toprule
+$d$ & $\deg h$ & 半単純の場合の $h$ & $Q=0$ & 線形分岐\\\midrule
+0&6&$s^6,s^3t^3,t^6$ &なし&1\\
+1&4&$s^at^{4-a}$、$0\le a\le4$ &2&端点3、他2\\
+2&2&$s^2,st,t^2$ &4&端点5、中間4\\
+3&0&$1$ &6&8\\\bottomrule
+\end{tabular}
+\end{center}
+半単純の場合は $3+10+6+2=21$ 族である。
+冪零の場合は $h=s^{6-2d}$ のみを取り、$1+2+2+2=7$ 族である。
+従って全部で28族、最大パラメータ数は $8+3=11$ となる。
+
+各 $B=hvv^t$ の持ち上げは、$L$ の固定した33次可逆小行列を用いて
+\[
+ Lu=B-B_A^{(0)}
+\]
+を解き、三つの核変数 $k_0,k_1,k_2$ を加えて得る。
+各 $u_i$ は新しい変数 $z_j,k_j$ の次数高々二の多項式である。
+従って Jacobi 条件の代入後の次数は高々四となる。
+全係数は \path{code/geometry/candidate_parameterizations.json} に保存した。
+
+最小分解の $v$ が共通零点を持たないという条件と、線形分岐の $Q\ne0$ は、
+最後の排除に使うことができる。例えば $d=3,h=1$ の全解で $v(0,1)=0$ が
+従えば、$s$ が三成分の共通因子となるため、その分岐から正規な候補は得られない。
+
+
+\paragraph{候補座標の一意な規約。}
+二つの36座標系では、表示した24列minorの補集合を昇順に$u_0,\ldots,u_{35}$とする。
+$B$の係数は$(i,j)$、$0\le i\le j\le2$の辞書式順、その後$s^{6-k}t^k$の$k=0,\ldots,6$順とする。
+線形分岐の$v$係数は成分順、その後$s^{d-k}t^k$順で並べる。
+RREFの非pivot座標を昇順に一つずつ1とする標準核基底の係数を$z_0,z_1,\ldots$とする。
+$Q=0$分岐では$A=\sum_{i=0}^{d-1}z_i s^{d-1-i}t^i$、
+$B=\sum_{i=0}^{d-1}z_{d+i}s^{d-1-i}t^i$とする。
+$Lu=B-B_A^{(0)}$の特解は、$L$のRREF pivot列を選び、その列行列の転置のRREF pivot行で解き、
+他の$u$を零とする。$\ker L$の標準核基底三本に$k_0,k_1,k_2$を付ける。
+これにより後の全係数恒等式に使う$z,k,u$の意味を本文の有限線形演算だけで復元できる。
+
+
+\section{半単純 residue：二十一族の排除}\label{sec:semisimple}
+
+この節の $z_j$ は命題\ref{prop:branches}の線形空間の基底係数、
+$k_0,k_1,k_2$ は $\ker L$ の座標である。
+基底は付属の \path{candidate_parameterizations.json} に固定している。
+各族の Jacobi イデアルを $I$ と書く。
+以下のイデアル所属は全て $\QQ$ 上の明示的な恒等式で検証した。
+
+\subsection{十八族と \texorpdfstring{$d=3,Q=0$}{d=3, Q=0} の族}
+
+二十一族のうち、以下の三族を除く十八族では、各 $z_j$ の有限冪が $I$ に属する。
+\[
+ (d,h,\text{分岐})=(2,st,Q=0),\quad(3,1,Q=0),\quad(3,1,\text{線形}).
+\]
+したがって複素閉点では $v=0$ であり、非零な階数一括弧という必要条件に反する。
+この十八族と次項の $(2,st,Q=0)$ については、一方向の多項式変換行列と
+逆方向の厳密な多項式除算により、
+元の Jacobi イデアルと提示した生成系のイデアルが一致することまで確認した。
+生成系を発見した計算法の正しさを、検証側で仮定する必要はない。
+
+$(3,1,Q=0)$ では、二つの一方向の所属
+\begin{equation}\label{eq:h-d3-q0}
+                           z_2^2,z_5^2\in I
+\end{equation}
+だけで十分である。命題\ref{prop:branches}の syzygy 表示で
+$v(0,1)=(-z_2,-z_5,0)$ なので、全閉点で三成分が共通因子 $s$ を持つ。
+これは命題\ref{prop:factorB}の最小次数分解における primitivity に反する。
+ここでこの族の全スキーム、あるいは全閉点を分類する主張は用いない。
+
+\subsection{\texorpdfstring{$d=2,h=st,Q=0$}{d=2, h=st, Q=0}：可約な五次式}
+
+証明書から、閉点では
+\[
+ k_0=k_2=0,\qquad k_1(3k_1+2)=0,
+\]
+\[
+ z_0=z_3=0,\qquad z_1=z_2,\qquad 2z_1^2=3k_1+2
+\]
+が従う。$k_1=-2/3$ の場合は $v=0$ である。
+$k_1=0$ の場合は $z_1=z_2=\pm1$ であり、二つの符号は同じ $P$ を与える。
+このとき、全体符号を除いて
+\[
+                           v=(-t^2,0,s^2)^t.
+\]
+前節の36座標における非零成分は
+\[
+                 u_5=-14,\quad u_{12}=-1,\quad u_{13}=1,\quad u_{19}=-2
+\]
+である。
+\[
+ Q_0=x_0x_4-x_2^2,\qquad L_0=x_0x_3-x_1x_2,\qquad R_0=x_1x_4-x_2x_3
+\]
+と置くと、Pfaffian 五次式は
+\begin{equation}\label{eq:h-reducible}
+                     F_B=\frac{x_2}{5}(Q_0^2-4L_0R_0).
+\end{equation}
+これは非零な可約五次式なので、退化因子は正規ではない。
+
+\subsection{\texorpdfstring{$d=3,h=1$}{d=3, h=1} の線形分岐：非自明な乗法群の族}
+
+この分岐では、必要な包含を八つに絞ることができる。
+\begin{equation}\label{eq:h-eight}
+\begin{gathered}
+ k_0,k_2,z_1^2,z_4^2,z_6^2\in I,\\
+ 5z_2^2-16z_0z_6,\quad
+ 5z_3^2-24z_1z_7,\quad
+ 5z_5^2-6z_1z_7\in I.
+\end{gathered}
+\end{equation}
+従って全閉点で
+\[
+                         k_0=k_2=0,\qquad z_1=\cdots=z_6=0.
+\]
+$a=z_0,b=z_7,k=k_1$ とすると、元の Jacobi 生成元のうち二つの制限は
+\begin{equation}\label{eq:h-original-two}
+               \frac29(3ab+6k+4),\qquad 2a^2(k+1)
+\end{equation}
+である。この段階で $v=(as^3,0,bt^3)^t$ となり、primitivity から $ab\ne0$。
+従って
+\begin{equation}\label{eq:h-cstar}
+                          k=-1,\qquad ab=\frac23
+\end{equation}
+が従う。$k$ の二次方程式を別途イデアルへ持ち上げる必要はない。
+八つの所属証明書の乗数次数は高々二である。
+
+この $\CC^\times$ 族の各 $P$ は $[A_h,P]\ne0$ を満たす。
+したがって、最初に $[A_h,P]=0$ を課して計算を小さくする方法では、この候補を落とす。
+一方、$A_h$ のトーラスはこの族に
+\[
+                  (a,b)\longmapsto(\lambda^5a,\lambda^{-5}b)
+\]
+で作用する。これは行列 $P$ 自体の座標変換として検証でき、
+$ab=2/3$ は一つのトーラス軌道である。
+
+代表 $a=b=\sqrt{2/3}$ を取ると、$P$ の係数自体は有理数になる。
+\[
+ q_0=x_0x_2-x_1^2,\quad q_3=x_1x_3-x_2^2,\quad q_5=x_2x_4-x_3^2
+\]
+および \eqref{eq:hankel} の $H$ を用いると
+\begin{equation}\label{eq:h-phi}
+\begin{split}
+ F_C&=\frac2{15}\Phi,\\
+ \Phi&=x_1q_0^2+2x_2q_0q_5+x_3q_5^2+q_3H.
+\end{split}
+\end{equation}
+全ての一階偏微分に
+\begin{equation}\label{eq:h-surface}
+ [x_0:x_1:x_2:x_3:x_4]
+ =[t^4-tw+t^{-1}:1:t:t^2:w],\qquad t\ne0
+\end{equation}
+を代入すると恒等的に零になる。
+$x_1=1$ のチャートにおいて $x_2=t,x_4=w$ は独立なので、像の閉包は曲面である。
+よって三次元超曲面 $V(\Phi)$ は余次元一で特異となり、正規でない。
+これは有理係数の多項式恒等式であり、有限個の標本点を用いた判定ではない。
+また $\Phi$ の因子分解は結論に必要ない。
+
+以上で半単純の場合の二十一族が全て除外された。
+ここで得たのは正規性の必要条件を課した候補の排除であり、
+元の36変数 affine スキーム全体の成分分類ではない。
+
+
+
+\section{冪零 residue：七族の排除}\label{sec:nilpotent}
+
+この場合も $[A_e,P]=0$ は仮定しない。
+七族全体について、二十三個の多項式を元の Jacobi 生成元の多項式倍の和として表した。
+標準ライブラリの有理数演算でその恒等式を再検証する。
+
+\subsection{六族を除く所属関係と primitivity}
+
+下表の式は各族の Jacobi イデアル $I$ に属する。
+「線形」は命題\ref{prop:branches}の第二分岐の線形方程式を意味する。
+\begin{center}
+\begin{tabular}{ccll}
+\toprule
+$d$ & $h$ & 分岐 & 所属する多項式\\\midrule
+0 & $s^6$ & 線形 & $z_0^2$\\
+1 & $s^4$ & $Q=0$ & $z_0^2,z_1^2$\\
+1 & $s^4$ & 線形 & $z_0^2,z_1^2,z_2^2$\\
+2 & $s^2$ & 線形 & $z_0^2,z_1^2,z_4^2,(z_2+2z_3)^2$\\
+3 & $1$ & $Q=0$ & $z_2^2,z_5^2$\\
+3 & $1$ & 線形 & $z_7^2,z_6^2,(z_3-4z_5)^2$\\\bottomrule
+\end{tabular}
+\end{center}
+初めの三行は閉点で $v=0$ を与える。
+第四行では
+\[
+ Q=z_0s^4+\tfrac52z_1s^3t+\tfrac54(z_2+2z_3)s^2t^2+5z_4st^3
+\]
+なので $Q=0$ となる。従って、意図した $Q\ne0$ 部分は空であり、
+境界は同じ $h$ の $Q=0$ 分岐に含まれる。
+
+$d=3,Q=0$ では $v(0,1)=(-z_2,-z_5,0)$、線形分岐では
+\[
+                   v(0,1)=(-z_3/6+2z_5/3,\,2z_6/3,\,z_7)
+\]
+である。従って残り二行はともに $v(0,1)=0$ を強制し、
+三成分の共通因子 $s$ が生じるため、primitivity に反する。
+特に最後の族を排除するために、その全イデアルの素分解は必要ない。
+
+\subsection{\texorpdfstring{$d=2,h=s^2,Q=0$}{d=2, h=s2, Q=0}：残る閉点条件}
+
+$k=k_2,a=z_0,b=z_2$ と書く。
+証明書から閉点では $k_0=k_1=z_3=0$ であり、以下が零になる。
+\begin{align*}
+ C_0&=330k^3-840z_2^2-409k^2-2311k-1572,\\
+ D_0&=(11k+58)z_2^2+84k^2+196k+112,\\
+ A_0&=11z_1z_2+171z_2^2+11z_0z_3+300k^2+700k+400,\\
+ B_0&=11z_1^2+69z_2^2+150k^2+350k+200,\\
+ E_0&=(2k+1)z_0^2.
+\end{align*}
+$C_0,D_0$ から $z_2^2$ を消去すると
+\begin{equation}\label{eq:e-k-four}
+                    (k+1)(2k+1)(3k+4)(5k+6)=0.
+\end{equation}
+ここでは分母として変数を使っていない。実際、恒等式は
+\begin{align*}
+ &\frac{(11k+58)(330k^3-409k^2-2311k-1572)}{840}
+             +84k^2+196k+112\\
+ &\hspace{18mm}=\frac{121}{840}(k+1)(2k+1)(3k+4)(5k+6)
+\end{align*}
+である。
+
+$k=-1,-4/3$ のときは $z_0=z_1=z_2=z_3=0$ となり、$v=0$ で除外される。
+$k=-6/5$ のときは
+\[
+                     z_0=z_3=0,\qquad z_2^2=1/20,\qquad z_1=-z_2.
+\]
+再構成された五次式は
+\begin{equation}\label{eq:e-double}
+           F=-\frac{x_0}{200}(x_0x_4-4x_1x_3+3x_2^2)^2
+\end{equation}
+であり、非被約なので正規ではない。
+
+\subsection{残る加法群の族と特異曲面}
+
+$k=-1/2$ の場合だけは、非自明な一変数族が残る。
+\[
+                z_0=a,\quad z_2=b,\quad b^2=-2/3,\quad
+                z_1=3b/2,\quad z_3=0.
+\]
+この族の五次式は
+\begin{equation}\label{eq:e-ga}
+                    F(a,b)=\exp\bigl((-3ab/5)A_e\bigr)F_0
+\end{equation}
+と書ける。ただし
+\begin{equation}\label{eq:e-F0}
+\begin{split}
+60F_0={}&4x_0^3x_4^2-12x_0^2x_1x_3x_4+9x_0^2x_2x_3^2
+       -12x_0x_1^2x_2x_4\\
+ &+6x_0x_1x_2^2x_3+16x_1^4x_4-12x_1^3x_2x_3+x_1^2x_2^3.
+\end{split}
+\end{equation}
+$A_e^3F_0=0$ なので指数式は二次で打ち切られる。
+式\eqref{eq:e-ga}は $\QQ[a,b]/(b^2+2/3)$ 上の恒等式として確認した。
+したがって全ての退化因子は射影線形変換で移り合う。
+
+$x_0=1$ のチャート内で
+\begin{equation}\label{eq:e-surface}
+           (x_1,x_2,x_3,x_4)
+             =\bigl(r,s,(4r^3-rs)/3,r^2s\bigr)
+\end{equation}
+を $F_0$ とその五つの同次偏微分に代入すると、全て恒等的に零になる。
+$x_1=r,x_2=s$ が独立なので、特異点集合は曲面を含む。
+従って $V(F_0)$ は正規でなく、式\eqref{eq:e-ga}により族全体が除外される。
+
+以上は七族を尽くす。半単純の場合と合わせ、
+補題\ref{lem:zero-residue}を用いると定理\ref{thm:rnc4}が証明された。
+二つの一変数族は、追加の一次対称性を仮定しなかったことの必要性も示している。
+
+
+
+\section{全\texorpdfstring{$\widetilde E_6$}{E6}型の支持}\label{sec:e6-input}
+\begin{theorem}\label{thm:e6}
+正規な実退化因子の全成分の一般横断型が$\widetilde E_6$ならば、
+$C$は滑らかな楕円正規五次、$D=\operatorname{Sec}(C)$、$\pi$は$q_{5,1}$型である。
+可約支持も含めて結論する。
+\end{theorem}
+
+
+\section{全 \texorpdfstring{$\widetilde E_6$}{E6} 型の完結}\label{sec:e6}
+
+本節では $\deg C=5$、全成分の一般横断型が $\widetilde E_6$ であるとする。
+局所正規形により $F$ は各成分の一般点で三重に消える。
+従って、各成分の割線も、異なる二成分の join も $D$ に含まれる。
+
+\subsection{個々の成分の線形包}
+
+非退化な成分 $\Gamma$ があれば、補題\ref{lem:singular-directrix}により
+$\Gamma$ は滑らかである。
+$D$ と $\operatorname{Sec}(\Gamma)$ はともに既約三次元なので等しい。
+滑らかな非退化曲線の割線次数公式 \cite[Theorem 3.5]{AMSSecant}から
+\begin{equation}\label{eq:e6-secant-degree}
+5=\binom{d-1}{2}-g,\qquad d=\deg\Gamma,\quad g=g(\Gamma).
+\end{equation}
+総次数は五なので $4\le d\le5$。
+$d=4$ なら有理正規四次曲線で $g=0$、右辺は三となり矛盾する。
+ここで最小次数の事実は、$\OO_\Gamma(1)$ の少なくとも五つの切断から三点を引くと、
+次数一で二つ以上の切断を持つ線束が得られることからも示せる。
+それは次数一の $\Gamma\to\PP^1$ を定めるので $\Gamma\simeq\PP^1$ である。
+従って $d=5,g=1$ であり、$\Gamma=C$ は楕円正規五次曲線である。
+modular residue は非零かつ無零点となるため、$q_{5,1}$ 型である。
+
+$\PP^3$ を張る成分は、その割線が超平面全体となるため不可能である。
+また平面 $\Pi$ を張る次数 $d\ge3$ の成分も不可能である。
+実際、$\Pi$ の式を $u=v=0$、平面内での曲線の式を $g=0$ として
+\[
+F=F_0+uF_{10}+vF_{01}+\text{normal degree が二以上の項}
+\]
+と展開する。一般点での三重消滅は
+\[
+g^3\mid F_0,\qquad g^2\mid F_{10},F_{01}
+\]
+を意味する。これらは平面多項式の UFD における divisibility であり、
+曲線の特異点での通常冪の主張を必要としない。
+$\deg F_0=5$、$\deg F_{10}=\deg F_{01}=4$ なので、三つとも零である。
+従って $F\in(u,v)^2$、$\Pi\subset\operatorname{Sing}(D)$ となる。
+
+よって楕円正規五次曲線の場合でなければ、
+全成分は直線または滑らかな平面二次曲線である。
+
+\subsection{二次曲線を含む可約支持}
+
+二次曲線 $A\subset\Pi$ と、$\Pi$ に含まれない別成分 $B$ を考える。
+このとき $\operatorname{Join}(A,B)$ は三次元である。
+一つの確認方法は、$q\in B\setminus\Pi$ での
+$\operatorname{Join}(q,A)$ が、$q$ を唯一の頂点とする二次曲面錐であることを使うことである。
+もし全 join が二次元なら、一般の $q$ に対するこれらの曲面錐は同じ曲面となり、
+唯一の頂点が動くという矛盾が生じる。
+
+さらに
+\[
+\deg\operatorname{Join}(A,B)\le\deg A\deg B\le4.
+\]
+この上界は、互いに素な線形空間に置いた二曲線の抽象的な join の次数が
+積 $\deg A\deg B$ であり、それを元の空間へ線形射影すると
+像の次数は増えないことから従う。
+この三次元既約 join が五次既約超曲面 $D$ に含まれることはできない。
+
+従って二次曲線成分が一つでもあれば、全成分が同じ平面 $\Pi$ に入る。
+すると $C$ は被約平面五次曲線となるが、
+$\partial_iF|_\Pi$ は次数四で $C$ 上消えるので、全て零である。
+平面が $\operatorname{Sing}(D)$ に含まれ、矛盾する。
+
+\subsection{五本の直線への帰着}
+
+残る支持は五本の相異なる直線である。
+二本が skew なら、その join は $\PP^3$ となり $D$ に超平面成分を強制する。
+従って任意の二本は交わる。
+
+相異なる直線の族が pairwise intersecting なら、
+全て同じ平面に入るか、全て同じ点を通る。
+実際、二本の交点を $p$、張る平面を $\Pi$ とすると、
+$p$ を通らない第三の直線は $\Pi$ 内にある。
+その第三の直線が存在する場合、$\Pi$ 外の直線は最初の二本と
+$p$ でしか交われず、第三の直線とは交われない。
+従って全て $\Pi$ 内となる。
+
+平面の場合は前項で既に排除した。
+以下、五本が一点 $p$ を通るとし、その線形包の次元で分ける。
+各直線に沿う一般の三重消滅は直線全体に延びる。
+法方向の Taylor 係数が直線上で恒等的に零となるからであり、
+ここでは $F\in I_L^3$ を正しく用いることができる。
+
+\subsection{線形包が \texorpdfstring{$\PP^4$}{P4} の場合}
+
+$p=[1:0:0:0:0]$、座標を $(s,y_1,y_2,y_3,y_4)$ とする。
+五本の方向のうち四つを、$y$ の四座標方向に取れる。
+単項式 $s^{a_0}y_1^{a_1}\cdots y_4^{a_4}$ が
+第 $i$ 座標方向の直線の三乗イデアルに入る条件は
+\[
+\sum_{j\ne i,\ j\ge1}a_j\ge3.
+\]
+これを四本全てに課し、総次数を五とすると、
+$s$ を含む可能な項は $s y_1y_2y_3y_4$ だけである。従って
+\begin{equation}\label{eq:star-form}
+F=c\,s\,y_1y_2y_3y_4+f_5(y_1,y_2,y_3,y_4).
+\end{equation}
+第五の方向は四座標点と異なるから、少なくとも二つの $y_i$ が非零である。
+積 $y_1y_2y_3y_4$ はその点で高々二重にしか消えない。
+第五直線に沿う三重消滅を \eqref{eq:star-form} の $s$ の係数に課すと $c=0$。
+従って $F$ は $s$ に依存せず、$D$ は錐である。
+これは補題\ref{lem:no-cone}に反する。
+
+\subsection{線形包が \texorpdfstring{$\PP^3$}{P3} の場合}
+
+必要な平面曲線の補題を先に証明する。
+
+\begin{lemma}[五点での三重消滅]\label{lem:five-triple}
+$\PP^2$ の相異なる五点が一直線上にないとする。
+その五点全てで三重に消える次数五以下の斉次式は零である。
+\end{lemma}
+\begin{proof}
+低次数の場合は、五点を避ける適当な次数の式を掛けて五次にできるため、
+五次式 $f$ を考えれば十分である。
+\begin{enumerate}
+\item 三点共線がない場合、五点を通る二次曲線 $Q$ は滑らかである。
+制限 $f|_Q$ は次数十だが、零点の重複度の和は少なくとも十五なので、
+$Q\mid f$。残る三次式は五点で二重に消えるから、再び $Q$ が割る。
+残る一次式は五点で消えなければならず、零である。
+\item 同一直線上にある点の最大数が三で、その直線を $L$ とする場合、
+制限の次数比較を二度用いると $L^2\mid f$ となる。
+残る三次式は $L$ 外の二点で三重に消える。
+そのような三次式は、二点を結ぶ直線 $M$ の三乗の定数倍しかない。
+これは座標を二点に合わせて単項式を見ることでも分かる。
+しかし $M^3$ は $L$ 上の相異なる三点全てで零にはならない。
+\item 四点が同一直線 $L$ 上にある場合、同じ次数比較により
+$L^3\mid f$。残る二次式が $L$ 外の一点で三重に消えるため、零である。
+\end{enumerate}
+これで全ての場合を尽くした。
+\end{proof}
+
+五本の直線の張る超平面を $H$ とし、その座標を $(s,y_1,y_2,y_3)$ とする。
+共通点からの五方向は $\PP^2_y$ の相異なる、全体が一直線上にない五点となる。
+\[
+F|_H=\sum_{k=0}^5s^{5-k}f_k(y_1,y_2,y_3)
+\]
+と書くと、各 $f_k$ は五方向で全て三重に消える。
+補題\ref{lem:five-triple}から全て零である。
+従って $H\subset D$ となり、正規性に反する。
+
+以上で可約な支持の場合は全て排除された。
+唯一残った楕円正規五次曲線の場合が $q_{5,1}$ 型であり、
+定理\ref{thm:e6}が証明された。
+
+
+\begin{lemma}\label{lem:rational-space-quartic-v15}
+$C$ を超平面 $H\simeq\PP^3$ を張る滑らかな有理四次曲線とする。
+五次超曲面 $D$ が $C$ に沿って特異で、その横断的 Hessian の階数が
+$C$ 上高々1ならば、$D$ はある二次曲面に沿って特異であり、正規でない。
+\end{lemma}
+
+\begin{proof}
+$h^0(\mathcal O_{\PP^3}(2))=10>9=h^0(\mathcal O_C(2))$ から、$C$ は二次曲面 $Q\subset H$ に含まれる。
+既約で非平面的な $C$ を含むので $Q$ は既約である。
+$Q$ が二次錐だと仮定し、その解消 $\mathbb F_2$ 上の例外曲線を $e$、母線を $f$ とする。
+厳密変換の類は $ae+4f$、$e^2=-2$ であり、既約性から $1\le a\le2$。
+種数は $1-(a-2)^2$ だから、滑らかな有理曲線の厳密変換では $a=1$ となる。
+しかし例外曲線との交点数は2であり、これは錐頂点における $C$ の重複度であるから滑らかさに反する。
+実際、頂点を通る一般超平面の全変換は例外曲線と二本の母線の和であり、
+その二母線は厳密変換と例外曲線の交点を避けて選べる。
+従って $Q\simeq\PP^1\times\PP^1$ は滑らかであり、次数と種数から
+$C$ の bidegree は、母線を交換すれば $(1,3)$ である。
+
+$h=0$ を $H$ の式、$q=0$ を $H$ 内の $Q$ の式とする。
+$D$ は $C$ に沿って特異なので、$F|_Q$ は $2C$ 以上で消える。
+しかし
+\[
+ H^0\bigl(Q,\mathcal O_Q(5,5)(-2C)\bigr)
+       =H^0\bigl(Q,\mathcal O_Q(3,-1)\bigr)=0.
+\]
+従って $F=hA_4+qB_3$ と書け、$C$ に沿う特異性から $A_4|_C=B_3|_C=0$ となる。
+局所的に $h,q,r$ を $C$ の normal coordinates とし、$r$ は $Q$ 内の $C$ の式とする。
+二次 normal jet に $r^2$ 項はない。対称行列の階数が高々1で $rr$ 成分が零なら、
+$hr,qr$ 成分も零である。実際、それぞれの主二次小行列式は当該成分の平方の負数である。
+従って $A_4|_Q,B_3|_Q$ はともに $2C$ 以上で消える。しかし
+\[
+ H^0\bigl(Q,\mathcal O_Q(4,4)(-2C)\bigr)=H^0\bigl(Q,\mathcal O_Q(2,-2)\bigr)=0,
+\]
+\[
+ H^0\bigl(Q,\mathcal O_Q(3,3)(-2C)\bigr)=H^0\bigl(Q,\mathcal O_Q(1,-3)\bigr)=0.
+\]
+従って $A_4,B_3\in(h,q)$、すなわち $F\in(h,q)^2$ であり、$Q\subset\operatorname{Sing}(D)$ となる。
+上の定理で generic $\widetilde E_8$ 型からこの補題を使う際は、Hessian の二次小行列式が
+$C$ の稠密開集合で零であることから、$C$ 全体での階数条件が従う。
+\end{proof}
+
+
+
+\section{残る \texorpdfstring{$\widetilde E_8$}{E8} 四次曲線}\label{sec:e8}
+
+以下は $q_{5,1}$ 型以外の場合の\emph{必要条件}である。
+前節までにより、$C$ は連結な被約四次曲線で、
+一般横断型は全成分で $\widetilde E_8$、
+全成分の正規化は $\PP^1$、$B$ は有限かつ非空である。
+
+\subsection{平面内の支持を除く二つの補題}
+
+\begin{lemma}\label{lem:plane-zero}
+$\sigma\in H^0(\PP^4,\wedge^2T_{\PP^4})$ が、
+平面 $\Pi$ 内の被約曲線 $A$、$\deg A\ge4$ 上で零なら、
+$\sigma|_\Pi=0$ である。$A$ は可約でもよい。
+\end{lemma}
+\begin{proof}
+二次持ち上げを $R$ とすると、$\sigma$ が零である条件は
+$E\wedge R=0$ である。その全係数は三次式である。
+$\Pi$ 上では、これらの三次式が被約曲線 $A$ の方程式で割れる。
+その次数は四以上なので、全て零である。
+\end{proof}
+
+これを $\sigma=\pi$ に適用すると、$C$ 全体は平面に含まれない。
+$\pi|_\Pi=0$ なら $\pi\wedge\pi$ とその一階微分も平面上で零となり、
+$D$ が平面に沿って特異になるからである。
+
+\begin{lemma}\label{lem:plane-hessian}
+五次超曲面 $D=V(F)$ が平面内の被約既約曲線 $\Gamma$、
+$\deg\Gamma=d\ge3$ に沿って特異であり、
+一般点の横断的 Hessian の階数が高々一ならば、$D$ は正規でない。
+\end{lemma}
+\begin{proof}
+平面の式を $u=v=0$、平面曲線の式を $g=0$ とする。
+二重消滅から $g^2\mid F|_\Pi$ だが $2d>5$ なので $F|_\Pi=0$。
+従って
+\[
+F=uA_4+vB_4,\qquad
+A_4|_\Pi=g\,a_{4-d},\quad B_4|_\Pi=g\,b_{4-d}.
+\]
+$d>4$ なら既に $A_4|_\Pi=B_4|_\Pi=0$。
+$d=3,4$ の場合、$\Gamma$ の滑らかな一般点で
+法座標を $u,v,r=g$ とする。
+二次 normal jet に $r^2$ 項はない。
+対称行列の階数が高々一で $rr$ 成分が零なら、
+対応する二次小行列式から $ur,vr$ 成分も零である。
+従って $a_{4-d},b_{4-d}$ は $\Gamma$ 上で消える。
+$4-d<d$ なので、平面上で恒等的に零である。
+よって $F\in(u,v)^2$、$\Pi\subset\operatorname{Sing}(D)$ となる。
+\end{proof}
+
+$\widetilde E_8$ の二次 normal jet は階数一である。
+従ってこの型の平面三次成分も、補題\ref{lem:plane-hessian}で排除される。
+
+\subsection{支持曲線の六つの必要型}
+
+\begin{proposition}\label{prop:six}
+$q_{5,1}$ 型でない正規な実際の退化因子の支持 $C$ は、
+次表のいずれかである。全体の線形包は $\PP^3$ または $\PP^4$ である。
+\begin{center}
+\begin{tabular}{@{}clcc@{}}
+\toprule
+番号 & 被約支持の必要型 & 成分数 $r$ & $|B_{\mathrm{red}}|$ の上界\\
+\midrule
+N & 節点を一つ持つ空間四次曲線 & 1 & 1\\
+K & 尖点を一つ持つ空間四次曲線 & 1 & 2\\
+31 & twisted cubic と直線 & 2 & 3\\
+22 & 二本の滑らかな二次曲線 & 2 & 3\\
+211 & 二次曲線と二本の直線 & 3 & 4\\
+1111 & 四本の直線 & 4 & 5\\
+\bottomrule
+\end{tabular}
+\end{center}
+表は既約成分の次数の分割と、個々の成分の形を述べる。
+交点の位置・接触・多重点の分類や、Poisson 構造の存在を述べるものではない。
+\end{proposition}
+\begin{proof}
+既約で非退化な四次曲線は、正規化$\PP^1$上の$\OO(4)$の五切断を全て使う埋め込みなので、有理正規四次曲線である。この支持は定理\ref{thm:rnc4}で排除した。
+平面四次曲線は補題\ref{lem:plane-zero}で排除される。
+超平面を張る滑らかな有理四次曲線は前節の Hessian の補題で排除される。
+従って既約の場合に残るのは特異な空間四次曲線であり、次項で節点・尖点の二型を示す。
+
+可約の場合、次数の分割は $3+1,2+2,2+1+1,1+1+1+1$ である。
+次数三の既約成分は、平面三次曲線または twisted cubic であるが、
+前者は補題\ref{lem:plane-hessian}で排除される。
+次数二の既約成分は滑らかな二次曲線である。
+全体が平面に入る場合は補題\ref{lem:plane-zero}で排除される。
+零点数の上界は命題\ref{prop:point-bound}による。
+\end{proof}
+
+\subsection{特異な空間四次曲線は二つの完全交叉標準形}
+
+$\Gamma\subset\PP^3$ を特異な被約既約非退化四次曲線とする。
+補題\ref{lem:hilbert-v21}のHilbert関数論証を、この連結被約非退化曲線へ適用する。
+既約非平面なので次数三の平面部分曲線を含まず、仮定を満たす。
+同補題の証明は成分分類を用いないため、この適用は循環しない。
+特異性と正規化公式から$p_a\ge1$、同補題から$p_a\le1$なので、
+$p_a=1$、$g=0$、$\sum\delta_p=1$であり、$\Gamma$は$(2,2)$完全交叉となる。
+ACM性を先に仮定せず、追加のCastelnuovo上界やduality/Riemann--Rochを必要としない。
+
+$\delta=1$ の二枝特異点は ordinary node、一枝特異点は ordinary cusp である。
+一枝の場合、完備局所環 $A\subset\CC[[t]]$ に order 一の元は存在せず、
+\[
+A\subset\CC+t^2\CC[[t]].
+\]
+両辺の余次元が一なので等しく、$\CC[[t^2,t^3]]$ を得る。
+
+正規化は $\PP^1$、埋め込みに用いる線束は $\OO_{\PP^1}(4)$ である。
+従ってこれは有理正規四次曲線の一点からの射影であり、
+射影中心が honest secant 上か tangent 上かに応じて、次の二型になる。
+二点と二つの非零係数、または一点と非零接ベクトルは
+$\PGL_2$ とスカラーの調整で標準化できるので、これらは射影標準形である。
+
+\paragraph{節点型 N。}
+\[
+\nu_N([s:t])=[s^4+t^4:s^3t:s^2t^2:st^3:0],
+\]
+\[
+I_N=(x_4,\ q_1,\ q_2),\quad
+q_1=x_1x_3-x_2^2,\quad q_2=x_0x_2-x_1^2-x_3^2.
+\]
+唯一の特異点は $p=[1:0:0:0:0]$ で、逆像は $t=0$ と $s=0$ である。
+
+\paragraph{尖点型 K。}
+\[
+\nu_K([s:t])=[s^4:s^2t^2:st^3:t^4:0],
+\]
+\[
+I_K=(x_4,\ q_1,\ q_2),\quad
+q_1=x_0x_3-x_1^2,\quad q_2=x_1x_3-x_2^2.
+\]
+特異点は同じ $p$ で、逆像は $t=0$ の一点である。
+
+\subsection{零点の台を高々五点に絞る}
+
+\begin{proposition}\label{prop:point-bound}
+$q_{5,1}$ 型でない場合、$C$ の成分数を $r$、
+$b_p=|\nu^{-1}(p)|$ とすると
+\[
+|B_{\mathrm{red}}|
+\le2r-\sum_{p\in\operatorname{Sing}C}(b_p-1)
+\le r+1.
+\]
+ここで $\nu:\coprod_{i=1}^r\PP^1\to C$ は正規化である。
+\end{proposition}
+\begin{proof}
+各成分に持ち上げた非零ベクトル場 $\widetilde Z_i$ の零因子は次数二である。
+conductor の保存性から、特異点の全ての逆像で零となる。
+滑らかな点では持ち上げと元の場の零点が一致するため、
+\[
+\operatorname{Zeros}(\widetilde Z)_{\mathrm{red}}=\nu^{-1}(B_{\mathrm{red}}),
+\qquad
+\sum_{q\in\nu^{-1}(B_{\mathrm{red}})}\operatorname{ord}_q(\widetilde Z)=2r.
+\]
+従って $|\nu^{-1}(B_{\mathrm{red}})|\le2r$。
+正規化で枝を分けると、点 $p$ につき点数が $b_p-1$ 増えるので第一不等式が従う。
+
+成分を頂点とし、特異点と各枝の所属で incidence graph を作る。
+$C$ が連結なので、このグラフは連結である。
+自己特異点の複数枝も数えれば
+$\sum_{p\in\operatorname{Sing}C}(b_p-1)\ge r-1$。
+従って第二不等式が従う。
+\end{proof}
+
+節点型 N は $r=1,b_p=2$ なので、$B_{\mathrm{red}}=\{p\}$ である。
+尖点型 K では $p$ のほかに高々一点だけ零点を許す。
+可約の場合も、各正規化上で特異点の逆像は高々二点である。
+ただし多重点があると、通常の dual graph の各頂点の次数が二以下とは限らない。
+上の incidence の記述が必要である。
+
+点数の上界五と、命題\ref{prop:lengthB}のスキーム長の上界16は異なる主張である。
+零点の冪零構造・重複度をここで被約化して捨てているわけではない。
+
+
+\part{四次支持の超平面排除と八つの木配置}
+\section{超平面支持の全排除への設定}\label{sec:hyperplane-setting}
+\begin{theorem}\label{thm:hyperplane}
+全$\widetilde E_8$型の次数四支持$C$は超平面に含まれない。
+接触、多重点、既約・可約を全て含む。
+\end{theorem}
+$H=(h=x_4=0)$に$C$が入るとき、modular residueの接性により$P_{i4}|_C=0$である。
+単に$h|_C=0$という理由だけでこの消滅を課さない。
+
+
+\section{空間四次曲線の算術種数と、種数零の場合の排除}\label{sec:space}
+
+\subsection{平面内の可約部分曲線も排除する}
+
+\begin{lemma}\label{lem:plane-v21}
+五次式 $F$ が平面 $\Pi$ 内の被約曲線 $A$、$\deg A=d\ge3$ に沿って特異であり、
+各成分の一般点で横断 Hessian の階数が高々一なら、$\Pi\subset\operatorname{Sing}V(F)$。
+$A$ は可約であってよい。
+\end{lemma}
+\begin{proof}
+$\Pi=(u=v=0)$、$A=(g=0)\subset\Pi$ とする。
+各成分で二重消滅するので $g^2\mid F|_\Pi$ だが $2d>5$。従って
+\[
+F=uA_4+vB_4,\qquad A_4|_\Pi=g a_{4-d},\quad B_4|_\Pi=g b_{4-d}.
+\]
+$d>4$ では右辺は既に零である。$d=3,4$ では、各成分の一般点で
+$u,v,r=g$ を法座標とすると $rr$ Hessian 成分が零。
+階数高々一なので $ur,vr$ 成分も零となり、$a,b$ は全成分で消える。
+次数が $d$ より小さいので恒等的に零であり、$F\in(u,v)^2$。
+\end{proof}
+
+従って残る支持 $C$ は次数三以上の平面部分曲線を含まない。
+特に conic とその平面内の直線、同一平面内の三直線を排除する。
+
+\subsection{ACM 性を仮定しない Hilbert 関数の議論}
+
+\begin{lemma}\label{lem:hilbert-v21}
+$C\subset\PP^3$ を連結な被約非退化四次曲線とし、
+次数三の平面部分曲線を含まないとする。このとき
+\[
+p_a(C)\in\{0,1\},\quad
+\begin{cases}
+p_a(C)=1 \Longrightarrow C\text{ は }(2,2)\text{ 完全交叉},\quad h^0(\mathcal I_C(2))=2,\\
+p_a(C)=0 \Longrightarrow h^0(\mathcal I_C(2))=1.
+\end{cases}
+\]
+\end{lemma}
+\begin{proof}
+斉次座標環を $R$、一般一次式を $\ell$、四点の一般平面切断を $Z$ とする。
+連結かつ被約なので $H^0(\OO_C)=\CC$、従って $H^1(\mathcal I_C)=0$。
+イデアル層の制限完全列と $H^0(\mathcal I_C(1))=0$ から、$Z$ は同一直線上にない。
+その Hilbert 関数は $1,3,4,4,\ldots$ である。
+
+$\ell$ は $R$ の非零因子で、$R/\ell R$ の飽和は $Z$ の座標環なので
+\[
+\dim(R/\ell R)_n\ge h_Z(n),\qquad
+\dim R_n=\sum_{j=0}^n\dim(R/\ell R)_j.
+\]
+大きな $n$ で $4n+1-p_a(C)\ge4n$、一方 $p_a(C)=h^1(\OO_C)\ge0$。
+超過分の総和は $1-p_a(C)$ であり、次数零、一では超過がない。
+従って $\dim R_2\le9$ で、少なくとも一本の二次式が $C$ を含む。
+
+二本の独立な二次式が共通因子を持つなら、その共通零集合は平面と直線の和となり、
+$C$ の少なくとも次数三の部分が平面内に入る。これは仮定に反する。
+従って独立な二本は正則列であり、その完全交叉と $C$ は共に次数四。
+unmixedness と一般点での重複度の比較からスキームとして等しく、種数一となる。
+$p_a=1$ では Hilbert 差分が全て最小なので $\dim R_2=8$ であり二本が存在する。
+$p_a=0$ では二本あれば種数一になってしまうので、一本だけである。
+\end{proof}
+
+\subsection{種数零の空間支持を排除する}
+
+\begin{proposition}\label{prop:genus-zero}
+一般 $\widetilde E_8$ 型の残存支持が $\PP^3$ を張り $p_a(C)=0$ である場合、
+正規な実際の退化因子は存在しない。
+\end{proposition}
+\begin{proof}
+唯一の二次式を $Q$ とすると、modular residue の接性から
+$P_{i4}|_H=v_iQ$、$v\in\CC^4$ と書ける。
+一般点の conormal 上で $h$ の adjoint の trace は、非零スカラーを除き $\partial_vQ$。
+Heisenberg 条件からこの一次式は $C$ 上零なので、非退化性により恒等的に零である。
+この計算は $Q$ の滑らかな一般点を持つ成分で行う。
+$\operatorname{Sing}Q$ に含まれる成分では $\partial_vQ$ は自動的に零であり、例外は生じない。
+
+$Q$ の階数が四なら $v=0$。水平 Pfaffian が全て零となり $F|_H=0$ なので排除される。
+階数一なら $C$ が平面的になる。
+階数三の場合、次の初等的な錐の幾何から $C$ は $(2,2)$ 完全交叉となり、種数零に反する。
+\begin{itemize}
+\item 二本の conic は錐の平面切断なので、二平面の積を第二の二次式に取る。
+\item conic と二直線では、二直線は頂点を通る母線である。
+conic の平面と二母線の平面の積を取る。
+\item 四直線では、四母線を二組に分け、それぞれの平面の積を取る。
+\item twisted cubic と直線の場合、twisted cubic の二次式 net
+\[
+q_1=x_0x_2-x_1^2,\quad q_2=x_0x_3-x_1x_2,\quad q_3=x_1x_3-x_2^2
+\]
+の determinant は $(ac-b^2)^2/16$。
+階数三の錐の頂点は twisted cubic 上にあり、座標を選んで $Q=q_1$ とできる。
+母線が頂点 $e_3$ と $[s^3:s^2t:st^2:t^3]$ を結ぶなら $tq_2-sq_3$、
+接線 $\langle e_2,e_3\rangle$ なら $q_2$ が第二の二次式になる。
+\end{itemize}
+各場合、得られた完全交叉は次数四と unmixedness により $C$ と等しい。
+
+残る階数二の場合を $Q=uv$、$\Pi_1=(u=0)$、$\Pi_2=(v=0)$ と書く。
+補題\ref{lem:plane-v21}から各平面内の部分曲線の次数は高々二。
+共通交線が $C$ の成分なら、この二つの次数の和が五となって矛盾する。
+従って $C=A_1\cup A_2$、各 $A_i$ は平面内の被約二次曲線で、共通交線を成分に持たない。
+平面内の方程式を $g_i$ とする。
+
+水平 Pfaffian の $Q$-可除性から $F|_H=Q^2L$。
+$L=0$ は排除済みなので $L\ne0$ とする。
+$G=\partial_hF|_H$ を各平面に制限すると、特異性から $G|_{\Pi_i}=g_i k_i$。
+一般点で法座標を $u_i,h,r=g_i$ と取ると $rr$ Hessian 成分が零である。
+階数一から $hr$ 成分も零となり、$k_i$ は $A_i$ 全体で零。
+次数比較により
+\[
+G|_{\Pi_i}=c_i g_i^2,\qquad c_i\in\CC.
+\]
+$L$ が恒等的に消えない平面と、その中で $L$ が消えない成分を選べる。
+その一般点で $u_i^2$ Hessian 係数は非零であり、radical 上の三次式には
+$r^3$ がなく、$hr^2$ の係数は $c_i$ の非零定数倍である。
+三乗条件から $c_i=0$。
+従って $u_i\mid G$。もう一方の平面に制限すると共通交線が $c_j g_j^2$ を割る。
+交線は $A_j$ の成分ではないので $c_j=0$ も従う。
+よって $Q\mid G$、曲面 $V(h,Q)$ が $\operatorname{Sing}D$ に入り、正規性に反する。
+\end{proof}
+
+
+
+\section{局所正規形と共通する三次 jet の障害}\label{sec:local}
+
+\subsection{一般 \texorpdfstring{$\widetilde E_8$}{E8} 点で使う二つの必要条件}
+
+Pym の局所正規形 \cite[Theorem 4.5, Table 1]{PymElliptic}は、
+一般 $\widetilde E_8$ 点で横断方程式を
+\[
+f=z^2+y^3+x^6+\tau xyz
+\]
+とし、横断括弧を非零定数倍の Jacobian 括弧で表す。
+従って、次の二つの必要条件がある。
+\begin{enumerate}
+\item 横断 Hessian の階数は一であり、その radical 上の三次 jet は
+非零一次式の三乗である。上の座標では $y^3$ である。
+\item 曲線の conormal Lie 代数は三次元 Heisenberg 代数である。
+実際、一次括弧は $[x,y]=2\lambda z$、その他は零となる。
+従って任意の conormal 元 $u$ の $\operatorname{ad}(u)$ は冪零である。
+\end{enumerate}
+これらを特異曲線の特異点や modular residue の孤立零点で仮定しない。
+各成分の一般点だけで用いる。
+
+Hessian radical 上の三次 jet の性質は、横断座標の変更や局所定義式の可逆元倍に対して不変である。
+二次以上の座標補正が二次項に与える三次の変化は Hessian の radical 上では零となり、
+可逆元倍からの追加項も同様に消える。
+
+\subsection{conormal の二次元商を使う}
+
+$C=V_H(q_1,q_2)$ を、$H\cong\PP^3$ を張る被約 $(2,2)$ 完全交叉とする。
+\eqref{eq:residue}と $I_{C/H}(2)=\langle q_1,q_2\rangle$ より
+\[
+V=\sum_{i=0}^3 P_{i4}|_H\partial_{x_i}=q_1A+q_2B,
+\qquad A,B\in\CC^4.
+\]
+各成分の関数体を $K$ とする。一般点の conormal Lie 代数で、
+$\operatorname{ad}(h)$ が保つ一次元部分空間 $Kh$ によるベクトル空間の商を取ると、
+$q_1,q_2$ の二次元商を得る。$Kh$ が Lie イデアルであるとは仮定しない。
+その adjoint 行列は、局所自明化の非零スカラーと転置の違いを除いて
+\begin{equation}\label{eq:matrixM}
+M=\begin{pmatrix}A(q_1)&B(q_1)\\ A(q_2)&B(q_2)\end{pmatrix}.
+\end{equation}
+例えば $x_0\ne0$ で $h/x_0,q_1/x_0^2,q_2/x_0^2$ を使うと行列は $-M/x_0$ となる。
+分母を微分して生じる項は $I_C^2$ または $h$ の方向に入り、商上の行列を変えない。
+従って
+\begin{equation}\label{eq:nilpotency}
+\tr M|_C=0,\qquad \det M|_C=0.
+\end{equation}
+trace は一次式なので、非退化性から恒等的に零。
+determinant は二次式なので $\langle q_1,q_2\rangle$ への所属条件となる。
+150個の係数を持つ全 Jacobi 計算を、ここではこの小さな必要条件に置き換えられる。
+
+\subsection{五次式の共通 jet 補題}
+
+\begin{lemma}[完全交叉に沿う三次 jet の障害]\label{lem:jet}
+$C=V_H(Q,R)\subset H=(h=0)$ を、$H$ を張る被約 $(2,2)$ 完全交叉とする。
+五次式 $F$ が $C$ に沿って特異であり、全成分の一般横断型が $\widetilde E_8$ とする。
+もし
+\[
+F|_H=Q^2L,
+\]
+ただし $Q$ は被約二次式、$L$ は一次式なら、$V(F)$ は正規でない。
+\end{lemma}
+\begin{proof}
+$L=0$ なら $h\mid F$ なので、既約正規五次超曲面にはならない。
+以下 $L\ne0$ とする。
+$G=\partial_hF|_H$ は $C$ 上零の四次式なので
+\[
+G=QA_2+RB_2.
+\]
+各成分の一般点で $(h,Q,R)$ は横断座標となる。
+横断 Hessian の $RR$ 成分は零である。
+階数高々一の対称行列では、このことから $hR$ 成分も零となるので $B_2|_C=0$。
+この段階では $L$ の当該成分上での非消滅を必要としない。
+被約完全交叉の二次イデアルを用い、$A_2$ を取り直すと
+\begin{equation}\label{eq:G-jet}
+G=QA_2+\mu R^2,\qquad \mu\in\CC
+\end{equation}
+となる。
+
+$C$ は $H$ を張るので、非零一次式 $L$ は全成分上では消えない。
+$L$ が非零の成分の一般点を取り、係数をその点で評価すると、
+二次項は $L_0Q^2+A_0hQ+B_0h^2$。
+階数一から $B_0=A_0^2/(4L_0)$ であり、radical は
+$Q=-A_0h/(2L_0)$ である。
+三次 jet をこの平面に制限すると
+\[
+h(\mu R^2+e hR+f h^2)
+\]
+となる。$R^3$ 項はなく、$hR^2$ の係数は正確に $\mu$ である。
+$Q^2L$、$hQA_2$、$h^2$ 以降の項からは、制限後に $h^2$ の倍数しか生じないためである。
+この三次式が非零一次式の三乗であるためには、その一次式は $h$ の倍数でなければならない。
+従って $\mu=0$。
+\eqref{eq:G-jet}と $F|_H=Q^2L$ から、全ての偏微分が曲面 $V(h,Q)$ 上で消える。
+三次元正規超曲面の特異 locus が曲面を含むことは $R_1$ に反する \cite{StacksNormal}。
+\end{proof}
+
+\begin{corollary}[水平 Pfaffian の共通二次因子]\label{cor:factor}
+上の Poisson の設定で、全ての $P_{i4}|_H$ が同じ被約二次式 $Q\in I_{C/H}(2)$ で割れるなら、
+正規な実際の退化因子は存在しない。全て零の場合も同じ結論である。
+\end{corollary}
+\begin{proof}
+$i<4$ の各 Pfaffian $b_i|_H$ は第四行の成分を一つ含むので、全て $Q$ で割れる。
+従って $Q\mid\partial_i(F|_H)$。Euler 公式から $Q\mid F|_H$ であり、
+$Q$ の各既約因子に沿って微分を比較すると、被約性から $Q^2\mid F|_H$。
+次数五なので $F|_H=Q^2L$ となり、補題\ref{lem:jet}を適用する。
+第四列が全て零なら全ての水平微分が零なので、斉次性から $F|_H=0$ である。
+\end{proof}
+
+後で扱う四直線同時交点の混合枝では、第四列の共通因子は従わない。
+その場合は別途 $F|_H=Q^2L$ を証明し、補題\ref{lem:jet}そのものを適用する。
+
+
+
+\section{完全交叉四次曲線の網羅と係数計算}\label{sec:ci}
+
+前節により、超平面内に残り得るのは被約 $(2,2)$ 完全交叉だけである。
+既約の場合は前節の節点・尖点の二型。
+可約の場合は次の八配置となる。
+
+\begin{center}\small
+\begin{tabular}{@{}lll@{}}
+\toprule
+記号 & 配置 & 二次式の組 $(q_1,q_2)$\\
+\midrule
+$31s$ & twisted cubic と割線 & $x_0x_2-x_1^2,\ x_1x_3-x_2^2$\\
+$31t$ & twisted cubic と接線 & $x_0x_3-x_1x_2,\ x_1x_3-x_2^2$\\
+$22s$ & 二 conic の二点交差 & $x_0x_1,\ x_0^2+x_1^2+x_2x_3$\\
+$22t$ & 二 conic の接触 & $x_0x_1,\ x_2^2+(x_0+x_1)x_3$\\
+$211s$ & 三成分のサイクル & $x_0x_2-x_1^2,\ x_1x_3$\\
+$211t$ & 平面的 ordinary 三重点 & $x_0x_2-x_1^2+x_1x_3,\ x_2x_3$\\
+$1111q$ & 四辺形 & $x_0x_2,\ x_1x_3$\\
+$1111p$ & 四直線同時交点 & $x_1(x_2-x_3),\ x_2(x_1-x_3)$\\
+\bottomrule
+\end{tabular}\end{center}
+
+\subsection{配置の網羅性}
+
+二成分の種数加法公式から、$31,22$ では交叉長が二である。
+twisted cubic と直線は二点割線か接線に限られる。
+二 conic の平面の共通直線上では次数二の交叉因子が一致し、二つの単根か一つの重根となる。
+
+$211$ では、conic の平面を $\Pi$、二直線を $L_1,L_2$ とする。
+平面三次部分曲線がないので $L_i\not\subset\Pi$。
+$m=\length(L_1\cap L_2)\le1$、$k=\length(A\cap(L_1\cup L_2))\le2$ とすると
+$1=p_a(C)=m+k-2$ なので $m=1,k=2$。
+交点が $\Pi$ 外ならサイクル。交点が $\Pi$ 内なら、二直線の平面と $\Pi$ の交線が
+conic にそこで接するときに限り交叉長二となり、平面的な ordinary 三重点を得る。
+この最後の記述は、完全交叉を定義する一方の二次式がそこで滑らかであり、
+三枝が滑らかな局所曲面上で異なる接線を持つことによる。
+表の標準形でも $x_0=1$ で $x_2$ を消去すると $x_1x_3(x_1-x_3)=0$ となる。
+
+$1111$ では三本の同一平面内の直線を許さない。
+三直線が一点に集まり第四直線がその点を通らない場合、第四直線は最初の三本の高々一本と交わる。
+連結なら ordinary 空間三重点と一節点になり、種数は零なので既に排除されている。
+従って三重点を持つ種数一の場合は四本同時交点である。
+それ以外は節点だけで、交叉グラフは三角形を持たず、種数一から四頂点四辺となるので四辺形である。
+
+各配置は一つの射影軌道である。
+$31$ では twisted cubic の自己同型で標点または接点を動かす。
+$22$ では共通直線上の二点または重根を標準化し、二平面の法座標の独立な shear と尺度で
+表の二次式に直す。
+$211$ のサイクルでは conic 上の二標点と平面外の交点を標準化する。
+三重点では conic の接点・接線を固定した後、その接線以外の二方向を正規化する。
+四辺形は四つの独立な頂点、四本同時交点は $\PP^2$ 内の projective frame で決まる。
+詳細な標準化と全成分への代入は添付の独立証明・計算にも収録した。
+
+\subsection{節点・尖点の二型}
+
+節点型は
+\[
+q_1=x_1x_3-x_2^2,\qquad q_2=x_0x_2-x_1^2-x_3^2.
+\]
+trace 条件の全解は
+\[
+A=(u,2k,v,w),\qquad B=(2v,w/2,0,k).
+\]
+determinant の二次式の係数条件は正確に
+\[
+(v^2,uw,vw,w^2-4k^2,ku,kv).
+\]
+従って複素閉点では $v=0$ であり、
+\[
+V=u q_1e_0,\quad V=k(q_2+2q_1)(e_1+e_3),\quad
+V=k(q_2-2q_1)(-e_1+e_3)
+\]
+のいずれかになる。非零二次因子は全て被約であり、系\ref{cor:factor}が適用できる。
+
+尖点型は
+\[
+q_1=x_0x_3-x_1^2,\qquad q_2=x_1x_3-x_2^2.
+\]
+trace 条件の全解は
+\[
+A=(\alpha,\beta,\gamma,0),\qquad B=(\varepsilon,-\alpha,0,2\beta).
+\]
+正規化 $r(t)=(1,t^2,t^3,t^4)$ 上で
+\[
+\begin{aligned}
+\det M(r(t))={}&-(\alpha^2+\beta\varepsilon)t^8
++2\varepsilon\gamma t^7+2\alpha\beta t^6\\
+&+4\alpha\gamma t^5-6\beta^2t^4+4\beta\gamma t^3.
+\end{aligned}
+\]
+係数比較により $\beta=\alpha=0$、$\varepsilon\gamma=0$。
+従って $V=\gamma q_1e_2$ または $V=\varepsilon q_2e_0$ であり、同じ系で排除される。
+全 Jacobi 方程式の大規模な成分分解を用いずに、前節までの二つの既約支持問題が閉じた。
+
+\subsection{可約な七配置の計算}
+
+四本同時交点以外では、\eqref{eq:nilpotency}から共通二次因子が従う。
+次に trace の全解と determinant の帰結を列挙する。
+係数は各配置ごとに独立の記号である。
+
+\paragraph{$31s$。}
+$A=(2b_2,b_3/2,0,a_3)$、$B=(b_0,0,b_2,b_3)$。
+determinant 条件は閉点で $b_2=b_3=0$、$a_3b_0=0$ を与える。
+従って $V=a_3q_1e_3$ または $V=b_0q_2e_0$。
+
+\paragraph{$31t$。}
+$A=(-b_1,-2b_2,b_3,0)$、$B=(b_0,b_1,b_2,b_3)$。
+determinant 条件は閉点で $b_3=b_2=b_1=0$ を与え、$V=b_0q_2e_0$。
+
+\paragraph{$22s$。}
+$A=(-2b_1,-2b_0,a_2,a_3)$、$B=(b_0,b_1,0,0)$。
+二次剰余の係数イデアルは
+\[
+(a_2b_0,a_3b_0,a_2b_1,a_3b_1,b_0^2-b_1^2).
+\]
+従って $V=q_1(a_2e_2+a_3e_3)$、
+$V=b_0(q_2-2q_1)(e_0+e_1)$、または $V=b_0(q_2+2q_1)(e_0-e_1)$。
+
+\paragraph{$22t$。}
+$A=(-b_3,-b_3,a_2,a_3)$、$B=(-b_1,b_1,0,b_3)$。
+係数イデアルは $(a_2b_1,a_3b_1,b_1b_3,b_3^2)$。
+従って $V=q_1(a_2e_2+a_3e_3)$ または $V=b_1q_2(-e_0+e_1)$。
+
+\paragraph{$211s$。}
+$A=(0,b_3/2,0,a_3)$、$B=(b_0,0,b_2,b_3)$。
+係数イデアルは $(a_3b_0,a_3b_2,b_0b_3,b_2b_3,b_3^2)$。
+従って $b_3=0$ かつ $a_3=0$ または $b_0=b_2=0$ であり、$q_2$ または $q_1$ が共通因子。
+
+\paragraph{$211t$。}
+$A=(-b_3,-b_2,0,-2b_2)$、$B=(b_0,b_1,b_2,b_3)$。
+determinant 条件は $b_2^2=0$ と $2b_0b_2-b_3^2=0$ を含み、閉点で $b_2=b_3=0$。
+従って $A=0$、$V=q_2B$。
+
+\paragraph{$1111q$。}
+$A=(0,a_1,0,a_3)$、$B=(b_0,0,b_2,0)$。
+係数イデアルは $(a_1b_0,a_1b_2,a_3b_0,a_3b_2)$。
+従って $A=0$ または $B=0$。
+
+以上の全てで、非零な共通二次因子は被約である。
+そもそも被約かつ非退化な $C$ を含む pencil の非零二次式は、一次式の平方にはなれない。
+従って系\ref{cor:factor}から七配置は全て排除される。
+各 trace の完全性、determinant の係数条件、因子分解は有理数上の恒等式として検証した。
+
+
+
+\section{四直線同時交点を処理する Pfaffian 恒等式}\label{sec:star}
+
+最後の配置では、冪零性だけでは第四列の共通二次因子は従わない。
+ここで Jacobi 条件の勾配としての可積分性をもう一段用いる。
+
+共通点を $e_0$、$s=x_0$、$y=(x_1,x_2,x_3)$ とし、方向を
+\[
+[1:0:0],\quad[0:1:0],\quad[0:0:1],\quad[1:1:1]
+\]
+とする。完全交叉の方程式は
+\[
+q_1=x_1(x_2-x_3),\qquad q_2=x_2(x_1-x_3).
+\]
+trace 条件の全解は
+\[
+A=(\alpha,-b_2,a_3-b_2,a_3),\qquad B=(\beta,b_2+b_3,b_2,b_3),
+\]
+determinant 条件の正確な係数イデアルは
+\begin{equation}\label{eq:star-det}
+(a_3b_2,a_3b_3,b_2b_3).
+\end{equation}
+従って $a_3,b_2,b_3$ のうち高々一つが非零。
+しかし例えば $a_3\ne0$ の枝では $\alpha,\beta$ が自由であり、$A,B$ の一次従属性は従わない。
+
+\subsection{頂点変数に依存しないことの証明}
+
+\eqref{eq:residue}により、各直線上で $P$ の値は
+$\bigwedge^2\langle e_0,d\rangle$ に属する。
+従って $a,b\in\{1,2,3,4\}$ に対して $P_{ab}|_H$ は $C$ 上零であり、
+$q_1,q_2$ の定数係数線形結合となる。特に $s$ に依存しない。
+さらに
+\begin{equation}\label{eq:scalar-tangency}
+P_{0a}|_H=c\,s\,y_a+Q_a(y),\qquad a=1,2,3.
+\end{equation}
+実際、$s^2$ の係数ベクトルは四方向全てに平行なので零。
+$sy$ の係数行列は四方向を固有直線として持ち、最初の三方向から対角、第四方向からスカラーとなる。
+$c\ne0$ は仮定しない。
+
+符号付き Pfaffian ベクトルを $b=(b_0,\ldots,b_4)$、
+$U=(P_{14},P_{24},P_{34})|_H$ とすると、
+\[
+\partial_s(b_1,b_2,b_3)|_H=-c(y\times U).
+\]
+$b_0|_H$ は $y$ の四次式なので、Euler 公式から普遍的恒等式
+\begin{equation}\label{eq:star-key}
+\boxed{\displaystyle
+4b_0|_H=\sum_{a=1}^3 y_a(\partial_a b_0-\partial_0 b_a)|_H}
+\end{equation}
+を得る。Jacobi 条件による $b=dF$ を代入すると
+\[
+b_0|_H=0,\qquad \partial_s(F|_H)=0.
+\]
+従って $F|_H=f_5(y)$。ここでは超平面切断だけの $s$-独立性を結論しており、
+$D$ 全体が錐であると主張してはいない。
+\eqref{eq:star-key}は $c=0$ も含めて成り立つ。
+
+\subsection{残る三枝と二変数五次式}
+
+$a_3=b_2=b_3=0$ なら $V=(\alpha q_1+\beta q_2)e_0$。
+この二次式が非零なら被約であり、系\ref{cor:factor}で排除される。
+$V=0$ も同系の零の場合で処理できる。
+
+それ以外は、$S=\alpha q_1+\beta q_2$ として次の三枝である。
+\begin{center}
+\begin{tabular}{@{}lll@{}}
+\toprule
+非零係数 & $V-Se_0$ & $(u,v)$、$Q=uv$\\
+\midrule
+$a_3$ & $a_3q_1(e_2+e_3)$ & $(x_1,x_2-x_3)$、$Q=q_1$\\
+$b_2$ & $b_2(q_2-q_1)(e_1+e_2)$ & $(x_3,x_1-x_2)$、$Q=q_2-q_1$\\
+$b_3$ & $b_3q_2(e_1+e_3)$ & $(x_2,x_1-x_3)$、$Q=q_2$\\
+\bottomrule
+\end{tabular}
+\end{center}
+各場合 $V=Se_0+\lambda Qd$ と書ける。
+\eqref{eq:canonical}の Casimir 恒等式の第四行と $\partial_sF|_H=0$ から
+$d(f_5)=0$。
+従って $f_5$ は表の二つの一次式 $u,v$ だけの五次式である。
+四方向の像には $[1:0]$ と $[0:1]$ の両方が含まれる。
+$C\subset\operatorname{Sing}D$ なので両点で二変数五次式の勾配が消え、
+\[
+u^2v^2\mid f_5,\qquad F|_H=Q^2L.
+\]
+ここから補題\ref{lem:jet}を適用すると曲面 $V(h,Q)$ 上の特異性を得る。
+この混合枝では第四列の共通因子を使っていない点に注意する。
+
+これで第\ref{sec:ci}節の八つの可約完全交叉、節点・尖点の二既約完全交叉、
+および前節の種数零の場合が全て排除され、定理\ref{thm:hyperplane}が証明された。
+
+
+
+\section{残る非退化支持の八配置}\label{sec:trees}
+
+以下では $q_{5,1}$ 型以外の正規退化因子が存在すると仮定する。
+前節までにより、被約特異曲線 $C$ は $\PP^4$ 全体を張る被約可約四次曲線である。
+
+\subsection{算術種数零と普通の多重点}
+
+一般超平面切断は四点であり、前節と同じイデアル層の完全列から $\PP^3$ を張る。
+その Hilbert 関数は $1,4,4,\ldots$。
+座標環の差分を比較すると
+\[
+4n+1-p_a(C)\ge1+4n,
+\]
+なので $p_a(C)=0$。
+
+各成分は、その線形包の中の滑らかな有理正規曲線である。
+成分数を $r$、特異点 $p$ の枝数を $b_p$ とすると、正規化の公式と連結性から
+\begin{equation}\label{eq:delta-equality}
+r-1=\sum_p\delta_p\ge\sum_p(b_p-1)\ge r-1.
+\end{equation}
+最後の不等式は成分と特異点の二部 incidence graph の連結性である。
+従って全て等号で、グラフは木、各点で $\delta_p=b_p-1$ となる。
+完備局所環は正規化内の equal-constant 環
+\begin{equation}\label{eq:ordinary-multiple}
+\left\{(f_1,\ldots,f_{b_p})\in\prod_{i=1}^{b_p}\CC[[t_i]]:
+f_1(0)=\cdots=f_{b_p}(0)\right\}
+\end{equation}
+に含まれる。右辺の正規化内の余長が既に $b_p-1$ なので、両者は等しい。
+従って接触はなく、各多重点の接線方向は一次独立である。
+例えば三重点は平面的な ordinary 三重点ではなく、三つの独立な空間方向を持つ点である。
+
+\subsection{八配置と明示的な代表}
+
+各正規化成分上の modular vector field の零因子の次数は二であり、
+特異点の逆像全てで消える。従って各成分に付く特異点は高々二つ。
+この条件を incidence tree に課すと、下表の八配置だけになる。
+
+$e_i$ を標準座標点とし、
+\[
+L_{ij}=\langle e_i,e_j\rangle,\qquad
+A_{ijk}=[s^2e_i+st e_j+t^2e_k],
+\]
+\[
+T_{0123}=[s^3e_0+s^2t e_1+st^2e_2+t^3e_3]
+\]
+と書く。
+
+\begin{center}\small
+\begin{tabular}{@{}cllc@{}}
+\toprule
+記号 & 代表 & 接続の型 & $h^0(T_C)$\\
+\midrule
+$31$ & $T_{0123}\cup L_{04}$ & 一節点 &4\\
+$22$ & $A_{012}\cup A_{034}$ & 一節点 &4\\
+$211a$ & $A_{012}\cup L_{03}\cup L_{24}$ & conic が中央の鎖 &5\\
+$211b$ & $A_{012}\cup L_{03}\cup L_{34}$ & 直線が中央の鎖 &5\\
+$211c$ & $A_{012}\cup L_{03}\cup L_{04}$ & 一つの空間三重点 &6\\
+$1111a$ & $L_{01}\cup L_{12}\cup L_{23}\cup L_{34}$ & 四成分の鎖 &6\\
+$1111b$ & $L_{01}\cup L_{02}\cup L_{03}\cup L_{14}$ & 三重点と節点 &7\\
+$1111c$ & $L_{01}\cup L_{02}\cup L_{03}\cup L_{04}$ & 一つの空間四重点 &8\\
+\bottomrule
+\end{tabular}\end{center}
+
+二成分では一節点だけ。三成分では二節点の鎖か一三重点となり、
+鎖の中央が conic か直線かで二つに分かれる。
+四直線では、三節点なら四成分の鎖である。
+中央の一本に三つの異なる接続点を持つ分岐は、modular 零点数の制約に反する。
+残るのは一三重点に一節点を加えたもの、または一四重点である。
+これで配置の網羅性が得られる。
+
+\paragraph{各配置が一つの射影軌道である理由。}
+各 $\PP^1$ 成分の標点は高々二つなので自己同型で標準化できる。
+木と \eqref{eq:ordinary-multiple} の貼り合わせから抽象曲線が決まり、
+木には線束の貼り合わせのモジュラスがないので、各成分次数を指定した線束も一意。
+その大域切断は
+\[
+\sum_i(d_i+1)-(r-1)=5
+\]
+次元である。節点・多重点での値の一致条件は木に沿って独立であり、この数え上げに余剰条件はない。
+ambient の五次元の一次式空間は非退化性から単射に入るので、埋め込みはこの完全線形系である。
+従って連続な射影配置パラメータは残らない。
+
+表の $T_C$ は $\operatorname{Der}_{\CC}\OO_C$ を意味する。
+正規化上のベクトル場は各標点で零であるとき、かつそのときに限り
+\eqref{eq:ordinary-multiple}に降下する。高次 jet の一致条件はない。
+各成分の標点数 $n_i$ に対し $3-n_i$ を足すことで右列を得る。
+\emph{この列は曲線の内在的なベクトル場の次元であり、Poisson 族の次元ではない。}
+
+\subsection{modular 零点の上界の精密化}
+
+特異点数を $n$ とすると、\eqref{eq:delta-equality}から
+$\sum_p b_p=r-1+n$。
+正規化上の非零ベクトル場の零因子の総次数は $2r$ なので、
+特異点以外の追加零点の数は高々
+\[
+2r-(r-1+n)=r+1-n.
+\]
+従って前節までの $|B_{\mathrm{red}}|\le r+1$ は、各配置について
+「必須の $n$ 特異点と、高々 $r+1-n$ 個の追加零点」という形になる。
+これは被約な台の点数であり、$\length B\le16$ というスキーム長とは別の条件である。
+
+
+
+\section{八配置の全 Jacobi 方程式}\label{sec:models-v21}
+
+\subsection{全二次持ち上げからの線形消去}
+
+各支持を前節の代表に固定し、全150個の係数を持つ
+\[
+P_{ij}=\sum_{0\le k\le l\le4}c_{ij,kl}x_kx_l
+\]
+から始める。各成分の正規化のアフィン表示を $r(t)$ とし、
+その全ての内在的ベクトル場 $R(t)\partial_t$ を保持して、
+\begin{equation}\label{eq:tree-restriction}
+P_{ij}(r(t))=-\frac15R(t)(r_i r_j'-r_j r_i'),\qquad \delta P=0
+\end{equation}
+を課す。標点 $0$ では $R(0)=0$、標点 $\infty$ では $t^2$ 項の係数が零となる。
+自由パラメータを残した有理数上の線形消去により、次表のモデルを得た。
+どの支持の二次イデアルも六次元である。
+
+\begin{center}
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+配置 & $h^0(T_C)$ & 線形空間の次元 & 非零 Jacobi 係数 & monic 二次式の数\\
+\midrule
+$31$ &4&40&260&203\\
+$22$ &4&40&254&159\\
+$211a$ &5&41&216&148\\
+$211b$ &5&41&219&149\\
+$211c$ &6&43&211&148\\
+$1111a$ &6&42&184&139\\
+$1111b$ &7&44&183&141\\
+$1111c$ &8&48&178&139\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+第二列は内在的な曲線のデータ、第三列は Jacobi 条件を課す前の必要な線形空間の次元である。
+第四・五列は方程式の個数であって、独立方程式数、最小生成元数、余次元ではない。
+いずれも Poisson 既約成分やモジュライ空間の次元に読み替えない。
+
+\subsection{四直線同時交点での新しい線形制約}
+
+最初の七配置では、全ての内在的 residue が線形 canonical-lift 段階で現れる。
+最後の $1111c$ だけは、各枝上で
+\[
+R_i(t)\partial_t=(a_i t+b_i t^2)\partial_t
+\]
+と書いたとき、
+\begin{equation}\label{eq:trace-slopes}
+\boxed{a_1+a_2+a_3+a_4=0}
+\end{equation}
+という必要条件が生じる。
+これは保存した線形モデルの residue 写像の像の余次元一を表す。
+他の係数に除算や一般性条件を課して得た式ではない。
+この関係は局所的にも導ける。共通点 $e_0$ のアフィン近傍で四直線を四座標軸に取る。
+$\pi$ は各軸上零なので、その一次項は零である。
+従って modular vector field の一次項は体積形式の選び方に依存せず、
+四軸への接性から $\sum_i a_i t_i\partial_{t_i}$ となる。
+modular vector field の発散は、交代性による $\delta^2=0$ から零である。
+その定数項を比較すると \eqref{eq:trace-slopes}を得る。
+
+\subsection{全350係数と同じイデアルを保存する}
+
+各モデル上で全十本の三次式
+\[
+J_{ijk}(x)=\sum_{\ell=0}^4
+\bigl(P_{i\ell}\partial_\ell P_{jk}
++P_{j\ell}\partial_\ell P_{ki}
++P_{k\ell}\partial_\ell P_{ij}\bigr),\quad i<j<k
+\]
+を展開した。各三次式に五変数の三次単項式35個があるので、全350係数スロットである。
+非零係数を自由パラメータに関する二次式とみなし、
+\emph{非零有理数の先頭係数}だけで割って monic にし、重複を除いた。
+従って表の最後の列の方程式は、元の350係数と\emph{全く同じイデアル}を生成する。
+パラメータで割る操作、局所化、根基化、飽和、成分分解は行っていない。
+
+全ての行列成分、residue、パラメータ順序、方程式、Pfaffian、
+$F=\sum_i x_i b_i/5$ は JSON に保存した。
+各非零 Jacobi 係数には、
+\[
+\text{元の係数}=\text{非零有理数}\times\text{保存された二次式}
+\]
+の対応も監査報告に付けた。
+
+\subsection{独立実装による全イデアルの監査}
+
+生成側は SymPy を用いるが、監査側は Python 標準ライブラリだけを用い、
+式を構文木として読み、\texttt{fractions.Fraction} による疎な係数の積・微分で再構成する。
+生成スクリプトやその CAS を読み込んでいない。
+八モデル、合計249項目について、行列の斉次性、発散零、成分上の制限式、
+パラメータ写像の単射性、全350係数と保存式の同一性、全Pfaffian、Euler primitive を確認した。
+さらに方程式を課す\emph{前}に、全80本の恒等式
+\begin{equation}\label{eq:all-dbJ}
+\partial_i b_j-\partial_j b_i=(-1)^{i+j+1}J_{\{0,\ldots,4\}\setminus\{i,j\}}
+\end{equation}
+および全40本の $P b(P)=0$ を検証した。
+
+
+
+\subsection{係数記号を単独で復元する規約}
+各成分のアフィン表示の向きは
+\[
+L_{ij}:\ r(t)=e_i+t e_j,\qquad
+A_{ijk}:\ r(t)=e_i+t e_j+t^2e_k,
+\]
+\[
+T_{0123}:\ r(t)=e_0+t e_1+t^2e_2+t^3e_3
+\]
+と固定する。conicの反対側の標点は$t=\infty$、直線も同じ向きで標点を読む。
+係数の順序を固定する。$(i,j)$を$0\le i<j\le4$の辞書式順、$(k,l)$を$0\le k\le l\le4$の辞書式順に並べ、
+$c_{ij,kl}$をこの順で150個並べる。その後、成分を代表表示の左から右へ取り、
+各成分のresidue基底を$1,t,t^2$の昇冪順で、標点$0$なら$1$を、標点$\infty$なら$t^2$を除いて並べる。
+この係数列に\eqref{eq:tree-restriction}の全係数とdivergenceの全係数を課し、有理数上でreduced row echelon formを取る。
+非pivot列の値を昇順に$z_0,z_1,\ldots$と定義する。
+従って本稿の$z_j$は外部の旧原稿に依存せず、この有限線形手順で一意に復元できる。
+特に後で長い係数証明書を用いる三模型の非pivot列を示す（零始まり）。
+
+
+\paragraph{\texttt{211\_triple}。}
+\[\begin{gathered}
+10,11,13,22,23,25,26,28,38,41,43,52,53,55\\
+56,58,73,85,86,88,100,101,103,113,116,118,127,128\\
+130,131,133,140,142,143,145,146,148,150,151,152,153,154\\
+155
+\end{gathered}\]
+
+
+\paragraph{\texttt{22\_node}。}
+\[\begin{gathered}
+10,11,22,23,25,26,38,41,52,53,55,56,68,71\\
+72,83,85,86,87,100,101,112,113,115,116,117,127,128\\
+130,131,140,142,143,145,146,147,150,151,152,153
+\end{gathered}\]
+
+
+\paragraph{\texttt{31\_external}。}
+\[\begin{gathered}
+11,13,23,26,28,38,41,43,53,54,56,58,69,73\\
+84,86,88,96,99,101,103,113,114,116,118,126,128,129\\
+131,133,140,141,143,144,146,148,150,151,152,153
+\end{gathered}\]
+
+
+後の$211$三重点の短証明で用いる二つのJacobi式は、番号だけでなく次の多項式として固定できる。
+\begin{align*}
+J_{19}={}&-2z_{17}z_{37}/5+2z_{18}z_{28}+2z_{19}z_{34}-2z_{20}z_{24}
++4z_{29}z_{38}/5+z_{33}z_5\\
+&+2z_{36}z_{38}/5-2z_{38}z_{39}/25-4z_{38}z_{41}/25,\\
+J_{143}={}&z_{28}z_{35}-z_{29}z_{34}+z_{31}z_5+z_{32}z_{38}/5.
+\end{align*}
+これらは元のJacobiの単項式係数の非零有理数倍である。
+他の長い証明書についても、入力は上の線形規約から得る全$P$のJacobi係数と、後述の全必要jet係数で定義する。
+保存JSONはその同じ多項式を明示し、verifierは元の$P$から一致を照合する。
+
+
+\part{八つの\texorpdfstring{$\widetilde E_8$}{E8}木支持の全排除}
+\section{残存支持の排除定理}\label{sec:eight-exclusion}
+\begin{theorem}\label{thm:eight-exclusion}
+前節で得た八つの射影配置のいずれについても、全成分が一般に活動的な
+$\widetilde E_8$型である正規な実退化因子は存在しない。
+\end{theorem}
+有限証明書に現れる非正規な実Jacobi族は保持し、その完全な五次式で正規性を排除する。
+以下の局所jet、全residueの正規化、全分母セルの処理がこの定理を証明する。
+各成分の表示$r(t)$でpivot座標を1、ある座標を$t$とし、残る三座標に
+$n_j=x_j-r_j(t)$を取る。$\{t,n_j\}=\sum_iH_{ij}n_i+O(n^2)$、
+$\{n_{j+1},n_{j+2}\}=\sum_iB_{ij}n_i+O(n^2)$（添字は三成分を巡回）で$H,B$を定義する。
+従って以下の行列は、上の全係数模型から有限回の代入・微分で一意に再構成できる。
+
+
+\section{標準持ち上げと局所固有値}
+
+\subsection{射影性が与える三次項の恒等式}
+$S=\CC[x_0,\ldots,x_4]$ とし、発散零の標準二次持ち上げを $P=(P_{ij})$ とする。
+\[
+ (\delta P)_j=\sum_i\partial_iP_{ij}=0,\qquad
+ b_i=(-1)^i\Pf(P_{\widehat i}),\qquad
+ F=\frac15\sum_i x_i b_i.
+\]
+Jacobi 条件の下で $\partial_iF=b_i$ である。
+アフィンチャート $x_0=1$ の座標を $y_i=x_i/x_0$ とすると
+\[
+ \pi^{ij}=P_{ij}-y_iP_{0j}+y_jP_{0i},\qquad
+ Z^j=\sum_{i=1}^4\partial_{y_i}\pi^{ij}=-5P_{0j}.
+\]
+最後の等式は $\delta P=0$ と二次の Euler 恒等式から従う。
+$E=\sum y_i\partial_{y_i}$、$\pi_k,Z_k$ を次数 $k$ の項とすると
+\begin{equation}\label{eq:radial-cubic}
+ \boxed{\pi_3=\frac15E\wedge Z_2.}
+\end{equation}
+この恒等式はアフィンの線形座標変換で保たれる。
+本稿では nonlinear な座標変換後にこの恒等式を使わない。
+また $\operatorname{div}Z=0$, $[Z,\pi]=0$ であり、アフィン Pfaffian $f=\Pf(\pi)=5F$
+に対して $Z(f)=0$ となる。
+
+\subsection{一般の elliptic 点から得る必要条件}
+前節の帰着における残存四次曲線の各成分は、一般点で $\widetilde E_8$ 型である。
+Pym の局所標準形\cite[Theorem 4.5, Table 1]{PymElliptic}では
+\[
+ \{w,u\}=u,\quad\{w,v\}=2v,\quad\{w,z\}=3z,
+ \qquad f=z^2+v^3+u^6+\tau uvz.
+\]
+横断括弧は $f$ の Jacobian 括弧であり、conormal Lie algebra は Heisenberg algebra。
+modular residue はこの規約で $-6\partial_w$ である。
+
+曲線のパラメータを $t$、residue を $R(t)\partial_t$ とし、
+$H(t)$ を tangent covector $dt$ の conormal 空間への adjoint action とする。
+normal covector を $dt$ に加えたときの差は Heisenberg algebra の inner derivation であり、
+中心へ写す三角行列なので固有値は変わらない。従って
+\begin{equation}\label{eq:e8-spectrum}
+ \operatorname{Spec}H=-\frac R6\{1,2,3\},\quad
+ \tr H=-R,\quad \tr(H^2)=\frac7{18}R^2,\quad \det H=-\frac1{36}R^3.
+\end{equation}
+これらは一般点での多項式恒等式であり、係数の恒等式として曲線全体へ延びる。
+特に $R=0$ の特殊点を除いて計算する必要はない。
+
+conormal bracket を、巡回的な外積基底に関する対称行列 $B$ で表す。
+$B$ は一般に階数一で、中心はその像である。$H$ は列を入力とする規約で
+\begin{equation}\label{eq:e8-center}
+ \rank B\le1,\qquad (H+RI/2)B=0
+\end{equation}
+を満たす。横断 Hessian の一次元方向はこの中心と一致する。
+Hessian の核上の三次項は非零の三乗である。
+
+\subsection{交点での leading-center weight}
+滑らかな枝を $t$ 軸とし、$R(t)=a t+O(t^2)$ とする。
+conormal bracket の零点次数が $k$、その先頭項が非零 Heisenberg bracket なら、
+modular 線形化の normal 空間への作用 $D$ は、この先頭 bracket の conformal derivation である。
+中心の固有値を $\nu$ とすると
+\[
+ \tr D-2\nu=ka,
+\]
+発散零より $\tr D=-a$ なので
+\begin{equation}\label{eq:leading-center}
+ \boxed{\nu=-\frac{k+1}{2}a.}
+\end{equation}
+この式は $D$ の半単純性を仮定しない。
+
+\subsection{正規な退化因子は錐にならない}
+認識定理のPfaffian分解を再掲する。
+正規な実際の退化因子の場合、Jacobian イデアル $J_F=(b_0,\ldots,b_4)$ は高さ三であり、
+Buchsbaum--Eisenbud の複体\cite{BE}は
+\[
+ 0\longrightarrow S(-10)\longrightarrow S(-6)^5
+ \xrightarrow{P}S(-4)^5\longrightarrow S\longrightarrow S/J_F\longrightarrow0
+\]
+という最小分解である。従って五つの $b_i=\partial_iF$ は $\CC$ 上一次独立。
+具体的には、定数係数の非零な関係ベクトルは $S(-4)^5$ の kernel に入るが、
+正次数成分だけを持つ $P$ の像には入らない。
+従って線形座標変換後に $\partial_0F=0$ となる射影錐は存在しない。
+一般の正規超曲面についての主張ではなく、Poisson 退化因子のこの分解を使う補題である。
+
+
+\section{Modular 零点と直線上の jet の次数}
+
+\subsection{零 slope と modular 線形化}
+
+\begin{lemma}\label{lem:zero-slope-nilpotent}
+滑らかな零曲線の枝 $\Gamma$ 上で、一般点が $\widetilde E_8$ 型 elliptic point
+であるとする。$p\in\Gamma$ で modular residue が零で、その一次係数も零なら、
+ambient modular vector field の $p$ での線形化は全ての固有値が零である。
+\end{lemma}
+
+\begin{proof}
+枝を $t$ 軸に取り、$Z|_\Gamma=R(t)\partial_t$、$\operatorname{ord}_0R\ge2$ とする。
+体積形式に対応する affine Pfaffian を $F$ とすれば $Z(F)=0$。
+normal 二次 jet は一般点で階数一なので、一変数の局所環上で共通因子を除き
+\[
+ F_2=H(t)\ell(t)^2
+\]
+と書ける。$\ell(t)$ は primitive な normal covector、$H$ は非零の正則関数。
+必要なら単元の平方根を局所的に取ればよい。
+$\ell(t)$ の核は $t=0$ まで延びる階数二の bundle である。
+その上の三次 jet は一般に非零の cube なので、同様に primitive な線形形式
+$m(t)$ と非零 scalar $C(t)$ を用いて $C(t)m(t)^3$ と書ける。
+これにより normal 空間の flag が $p$ まで延びる。
+
+$Z(F)=0$ の二次 jet は、$\ell$ の方向の作用係数 $\eta_H(t)$ について
+\[
+ RH'+2\eta_H H=0
+\]
+を与える。primitive generator の $t$ 微分に由来する項は $R$ を因子に持ち、
+$t=0$ での固有値には影響しない。$\operatorname{ord}R\ge2$ と
+$\operatorname{ord}H<\infty$ から $\eta_H(0)=0$。
+二次 jet の核上の三次 class も同様に
+$RC'+3\eta_C C=0$ を与え、$\eta_C(0)=0$。
+normal に沿う nonlinear 項が二次 jet に作用した項は Hessian radical 上では零なので、
+この三次 class の式に補正を加えない。
+残る normal eigenvalue は $\operatorname{div}Z=0$ と tangent eigenvalue 零から零となる。
+従って四つの ambient eigenvalues は全て零である。
+\end{proof}
+
+\subsection{直線上の六つの可能な spectrum}
+
+一般に $\widetilde E_8$ 型である射影直線 $L$ の conormal bracket は
+対称 rank-one pencil $B=\ell(s,t)vv^t$ と書け、中心方向は一定である。
+五次式 $F$ の Hessian scalar は modular residue $R$ と pencil scalar $\ell$ の積に
+比例する。従って単純 modular 零点では Hessian scalar の零点次数 $h$ は一または二。
+一定な Hessian radical 上の cubic は $\OO_{\PP^1}(2)$ 係数の binary cubic であり、
+一般に cube なのでその方向も一定である。実際、cube direction の非定数写像は
+三次 Veronese により次数が少なくとも三となり、係数の次数二に反する。
+cubic scalar の零点次数は $m\in\{0,1,2\}$。
+
+residue slope が $a\ne0$ なら、$Z(F)=0$ と発散零から ambient spectrum は
+\begin{equation}\label{eq:line-spectrum-node}
+ a\left\{1,-\frac h2,-\frac m3,\frac h2+\frac m3-1\right\}.
+\end{equation}
+どの六つの可能性でも固有値 $a$ の重複度は一である。
+conormal bracket が交点で零なら $h=2$ なので
+\[
+ \operatorname{Spec}(Z_1)=a\{1,-1,-m/3,m/3\}.
+ \tag{LS2}
+\]
+
+
+
+\section{二直線の交点では両 residue が二重零になる}
+
+\begin{proposition}\label{prop:two-lines}
+正規な実際の退化因子の被約特異支持に二本の直線が含まれ、
+各直線の一般横断型が $\widetilde E_8$ であるとする。
+両直線の交点における二つの modular residue の一次係数は共に零である。
+交点に他の成分が入ることを許す。
+\end{proposition}
+
+\begin{proof}
+両 slope を $a,b$ とする。一方だけが零である場合は
+補題\ref{lem:zero-slope-nilpotent}に反するので、$a,b\ne0$ と仮定する。
+前節の六つの spectrum を比較すると、$b/a=1$ または
+$b/a=-1$、$h=h'=2$、$m=m'$ に限る。
+最初の場合は tangent 二軸が同じ固有値 $a$ の独立固有ベクトルとなるが、
+六つの spectrum における $a$ の重複度は一なので不可能。
+従って $b=-a$, $h=h'=2$、$m\in\{0,1,2\}$ となる。
+この比較は六つの明示的な四元多重集合の有理数比較であり、全場合を記録した。
+
+両直線をアフィン $x,y$ 軸、残る座標を $z,w$ とする。
+両 conormal bracket が交点で零なので、一次 Poisson tensor は
+\[
+ \pi_1=\ell(z,w)\partial_x\wedge\partial_y
+\]
+の形である。二つの直線の一定な Hessian covectors は、
+$Z_1^*$ の単純固有値 $-a,a$ に対応する。
+二軸を保つ線形座標変換により、それぞれを $dy,dx$ に取れる。
+$m=0$ の場合、残る weight 零の二次元 block が冪零である可能性は除外しない。
+
+\paragraph{$m=0$。}
+$\ell=0$ なら $F$ の最低次数は四以上であり、交点で cubic scalar は零となる。
+従って $m=0$ に反する。
+$\ell\ne0$ なら、直線 conormal pencil が単純零を持つため
+$\pi_2^{zw}$ の $xy$ 係数 $i$ は非零である。
+三次 Pfaffian は $\ell\pi_2^{zw}$ であり、$i xy\ell$ は直線上で
+一次の零しか持たない mixed Hessian を与える。他の一次行列成分はないので相殺されない。
+これは Hessian の零点次数 $h=2$ に反する。
+
+\paragraph{$m=1$。}
+$a=3$ と規格化すると modular 線形化の固有値は $(3,-3,-1,1)$。
+相異なる固有値に適合する線形座標を取る。
+$[Z_1,\pi_1]=0$ は $\ell=0$ を与えるので、$\pi$ は二次から始まり、
+$[Z_1,\pi_2]=0$ かつ $[\pi_2,\pi_2]=0$ である。
+全ての重み零の二次成分は次の形となる。
+\[
+\begin{array}{ll}
+P_{xy}=Axy+Bzw,&P_{xz}=Cxz+Dw^2,\\
+P_{xw}=Exw,&P_{yz}=Gyz,\\
+P_{yw}=Hyw+Iz^2,&P_{zw}=Jxy+Kzw.
+\end{array}
+\]
+conormal pencil の単純零から $J\ne0$。
+二つの cubic scalar の零点次数が一なので、Pfaffian の $xz^3,yw^3$ 係数が共に非零であり、
+特に $D I\ne0$ である。
+Jacobi の $xyz$ 成分における $xyz$ と $wz^2$ の係数は、それぞれ
+\[
+ BJ,\qquad B(C+G+K)-2DI.
+\]
+従って $B=0$ と $DI=0$ を得て矛盾する。
+
+\paragraph{$m=2$。}
+$a=3$ として固有値を $(3,-3,-2,2)$ に取る。
+再び $\pi_1=0$、$[Z_1,\pi_2]=0$。
+一定な Hessian と cubic の方向に適合した線形固有座標では、
+二つの cubic scalar の二重零により、五次 Pfaffian の
+$x^2z^3$ と $y^2w^3$ の係数が共に非零でなければならない。
+これらはどちらも重み零である。
+
+しかし $(3,-3,-2,2)$ に関して、重み零の二次ベクトル場は存在しない。
+すなわち、二次単項式の重みは四つの座標重みのいずれとも一致しない。
+従って $Z_2$ に重み零成分はない。
+射影恒等式\eqref{eq:radial-cubic}と $E$ の重み零から、$\pi_3$ にも重み零成分はない。
+$\pi_2$ は重み零、$\tr Z_1=0$ なので、混合 Pfaffian
+$F_5$（$\pi_2\wedge\pi_3$ の係数）には重み零単項式がない。
+先ほど必要とされた二つの非零係数と矛盾する。
+ここでは線形座標変換だけを用いたので、射影恒等式の適用に問題はない。
+\end{proof}
+
+\paragraph{四直線の鎖と triple-tail。}
+四直線の鎖では中央の直線上に二つの異なる modular 零点があり、
+非零の $\PP^1$ 上の vector field の零因子次数二から各零点は単純である。
+命題に反するので存在しない。
+三重点と節点を持つ四直線でも、両点を結ぶ直線の節点側は単純零でなければならず、
+同様に排除される。
+conic--line--line の鎖も、中央の直線と末端直線の交点にこの議論を適用して排除できる。
+
+
+\section{独立な四重点における modular 一次項の消滅}
+
+\begin{proposition}
+滑らかな複素四次元多様体上の Poisson 構造 $\pi$ が、原点を通る四つの
+座標軸上で零であるとする。各軸の原点を除く一般点は、正規な退化因子の
+$\widetilde E_8$ 型 elliptic point であると仮定する。
+局所体積形式に関する modular vector field を $Z$ とすると、$Z$ の原点における
+一次項は零である。
+\end{proposition}
+
+\begin{proof}
+四軸上で $\pi$ が零なので $\pi_0=\pi_1=0$。
+$Q=\pi_2$ と置く。modular residue は四軸に接するので
+\[
+ Z_1=\sum_{i=1}^4\alpha_i y_i\partial_{y_i}.
+\]
+体積形式を変えたときの差は Hamiltonian vector field であり、$\pi$ が
+二次以上なのでこの一次項には影響しない。modular vector field は Poisson
+vector field なので $[Z_1,Q]=0$。
+
+第 $i$ 軸上の点 $t e_i$ において、Hamiltonian $y_i$ の conormal 空間
+$\langle dy_j:j\ne i\rangle$ への adjoint action を $H_i(t)$ とする。
+局所括弧の Taylor 展開により
+\[
+ H_i(t)=t A_i+O(t^2).
+\]
+また $Z|_{L_i}=R_i(t)\partial_t$ と書けば
+$R_i(t)=\alpha_i t+O(t^2)$ である。
+
+Pym の elliptic normal form theorem（Theorem 4.5, Table 1）を用いる。
+$\widetilde E_8$ 型の isotropy Lie algebra では、normal Heisenberg ideal に
+作用する任意の tangent covector の固有値は
+\[
+ -\frac{R_i(t)}6\{1,2,3\}
+\]
+である。具体的に $\{w,x\}=x$, $\{w,y\}=2y$, $\{w,z\}=3z$ で、
+$Z=-6\partial_w$。tangent covector に normal covector を加えても、
+Heisenberg ideal の inner derivation が加わるだけであり、同じ三角基底で
+対角成分は変わらない。
+従って characteristic polynomial の恒等式を $t=0$ に延長して
+\[
+ \operatorname{Spec}(A_i)
+ =-\frac{\alpha_i}{6}\{1,2,3\}.
+ \tag{*}
+\]
+特に $\alpha_i=0$ の場合も $A_i$ は冪零である。
+
+$Q_{ij}$ の $y_i y_j$ の係数を $c_{ij}$ とすれば $c_{ji}=-c_{ij}$。
+$A_i$ の $j$ 番目の対角成分は $c_{ij}$ である。
+$[Z_1,Q]=0$ より、$Q_{ij}$ の $y_i y_k$ の係数は
+$\alpha_j=\alpha_k$ のときにしか非零にならない。
+従って $A_i$ は normal indices の $\alpha_j$ の等値群ごとの block に分かれる。
+
+非零の共通値 $\alpha$ を持つ index 集合 $G$ の大きさが二以上なら、
+各 $i\in G$ に対する block $G\setminus\{i\}$ の trace は $(*)$ により
+$-\alpha$ の正の有理数倍である。一方、それらの総和は
+\[
+ \sum_{i\in G}\sum_{j\in G\setminus\{i\}}c_{ij}=0
+\]
+となり矛盾する。従って非零の $\alpha_i$ はすべて相異なる。
+
+非零の $\alpha_i$ と零の $\alpha_j$ が共存するとする。
+$A_j$ は冪零であり、$i$ の属する block は一次元なので $c_{ji}=0$。
+従って $A_i$ の零 weight block の trace は零であるが、その固有値は
+$(*)$ の非零の固有値の空でない部分集合なので trace は零にならない。
+これも矛盾である。
+
+最後に、すべての $\alpha_i$ が非零ならすべて相異なるので各 $A_i$ は対角行列。
+ある $w_{ij}\in\{1,2,3\}$ により
+\[
+ c_{ij}=-\alpha_i w_{ij}/6.
+\]
+交代性から、任意の異なる $i,j$ について
+$\alpha_j/\alpha_i=-w_{ij}/w_{ji}$ は負の有理数となる。
+三つの index を取ると、二つの比の積が正となる一方、残る比は負であり矛盾。
+従って全ての $\alpha_i$ は零である。
+\end{proof}
+
+
+\paragraph{四直線同時交点の排除。}
+$C=L_{01}\cup L_{02}\cup L_{03}\cup L_{04}$ に適用すると、全ての residue は
+$R_i(t)=\beta_i t^2$、$\beta_i\ne0$ となる。
+標準持ち上げの $P_{ab}$（$a,b\ge1$）は四直線上で零なので、$x_0$ に依存しない。
+$P_{0i}$ の $x_0x_i$ 係数は residue の一次係数に比例し、これも零。
+従って全ての $P_{ij}$ が $x_0$ に依存しない。
+Jacobi 条件により $\partial_i b_0=\partial_0b_i=0$、斉次性により $b_0=0$。
+よって $\partial_0F=0$ となり、前節の錐の排除に反する。
+
+
+\section{Conic の張る平面と四次 jet の障害}
+
+\begin{lemma}[平面内 normal 方向の Hessian は消えない]\label{lem:conic-plane}
+$F$ を $\PP^4$ 上の五次式、$D=V(F)$ を正規な超曲面とする。
+滑らかな conic $C\subset\Pi\cong\PP^2$ に沿って $D$ は特異であり、
+$C$ の一般点の横断型は $\widetilde E_8$ であると仮定する。
+このとき、横断 Hessian を $N_{C/\Pi}$ の方向に制限した二次形式は
+恒等的には零でない。
+\end{lemma}
+
+\begin{proof}
+$\Pi=V(z,w)$、$C=V(z,w,q)$ とし、$q$ は平面上の既約二次式とする。
+反対に、平面内 normal 方向で Hessian が消えると仮定する。
+$F$ とその一階微分は $C$ 上零なので $q^2\mid F|_\Pi$。
+Hessian の仮定からさらに $q^3\mid F|_\Pi$。
+次数が $5<6$ なので $F|_\Pi=0$ である。
+
+従って全 transverse Hessian の平面内 normal 方向の対角成分は零。
+一般点で Hessian は階数一だから、その方向に対応する行と列も零である。
+よって $F_z|_\Pi$ と $F_w|_\Pi$ は $q$ に沿って二重に消える。
+これらは四次式なので
+\[
+ F_z|_\Pi=a q^2,\qquad F_w|_\Pi=b q^2,\qquad a,b\in\CC.
+\]
+$a=b=0$ なら平面 $\Pi$ 全体が $\operatorname{Sing}(D)$ に入るので正規性に反する。
+従って $(a,b)\ne(0,0)$ とし、$z,w$ の定数係数線形変換とスカラー倍で
+$F_z|_\Pi=q^2$, $F_w|_\Pi=0$ とできる。
+
+$C$ の一般点の横断座標を $u=q,z,w$ とする。
+ここからは $C$ の関数体上で Taylor 展開してよい。
+二次項は $z,w$ の階数一形式、三次項は
+\[
+ F_2=A\ell(z,w)^2,\qquad
+ F_3=z u^2+u Q_2(z,w)+Q_3(z,w),\qquad A\ne0
+\]
+の形である。Hessian の核で $\ell=0$ と置くと、三次式には $u^3$ 項がない。
+$\widetilde E_8$ の条件はこの三次式が非零の三乗であることだから、
+$u^2v$ の係数は零でなければならない。従って $z$ は $\ell$ に比例する。
+座標を調整すると
+\[
+ F_2=A z^2,\qquad F_3|_{z=0}=c w^3,\qquad A c\ne0.
+\]
+
+非退化な $z$ 方向を形式的に分離する。
+方程式 $F_z=0$ の解を $z=\psi(u,w)$ とし、$g(u,w)=F(u,\psi(u,w),w)$ とする。
+$F(u,0,0)=0$ と $F_z(u,0,0)=u^2$ から
+\[
+ \psi(u,0)=-\frac{u^2}{2A}+O(u^3),\qquad
+ g(u,0)=-\frac{u^4}{4A}+O(u^5).
+\]
+一方、$\widetilde E_8$ の標準形
+$z^2+w^3+u^6+\tau uwz$ で $z$ を分離すると
+\[
+ g_{\mathrm{std}}(u,w)=w^3+u^6-\frac{\tau^2}{4}u^2w^2.
+\]
+その四次項は三次項の radical $w=0$ 上で零である。
+この消滅は座標変換と単元倍に不変である。
+実際、三次項が $c w^3$ のとき、二次の座標補正による四次項の変化は
+$w^2$ で割れ、単元の一次項による変化は $w^3$ で割れる。
+線形変換は三次項の radical をその radical に移す。
+従って上の非零な $-u^4/(4A)$ と矛盾する。
+\end{proof}
+
+\paragraph{Conormal 行列への翻訳。}
+正規な Poisson 退化因子の場合、modular residue が非零の一般点では
+横断 Hessian は、conormal Heisenberg bracket を表す対称行列 $B$ の
+非零スカラー倍である。conic の内部 normal を第0成分として取ると、
+この補題は $B_{00}\ne0$ を要求する。
+前節の $22$ モデルでは、二つの conic に対してそれぞれ
+$B_{00}=-z_{30}$ および $B_{00}=-z_{14}$ なので、正規な実際の退化因子には
+必ず $z_{30}z_{14}\ne0$ が必要である。
+
+\paragraph{四次 jet の計算式。}
+一般に $F=Az^2+F_3+F_4+O(5)$ で $A\ne0$ のとき、
+$z$ を分離した関数の四次項は
+\[
+ g_4=F_4|_{z=0}-\frac{1}{4A}\left(F_{3,z}|_{z=0}\right)^2.
+\]
+上の議論では cubic radical 上で第一項が零、第二項が $-u^4/(4A)$ となる。
+これは $\widetilde E_8$ の三次項だけでは見えない障害である。
+
+
+\section{直線と bracket が非零の枝の交点}
+\subsection{交点の isotropy Lie algebra}
+
+\begin{proposition}\label{prop:line-conic-slopes}
+正規な実際の退化因子の被約特異支持に直線 $L$ と滑らかな枝 $\Gamma$ が含まれ、
+両者の一般横断型がともに $\widetilde E_8$ であり、異なる接線方向で $p$ において交わるとする。
+$\Gamma$ の conormal bracket は $p$ で非零であると仮定する。
+このとき両枝の modular residue の $p$ における一次係数は零である。
+\end{proposition}
+
+\begin{proof}
+両枝を局所的に $x$ 軸と $y$ 軸に取り、normal 二方向を残す。
+modular slope をそれぞれ $a,b$ とする。
+補題\ref{lem:zero-slope-nilpotent}により、一方が零で他方が非零ということはない。
+従って矛盾のため $a,b\ne0$ と仮定する。
+
+原点の isotropy Lie algebra を $\mathfrak g=T_p^*\PP^4$、両枝の conormal ideals を
+$H_x,H_y$ とし、$N=H_x\cap H_y$ と置く。$N$ は二次元の ideal である。
+一次 Poisson tensor は二つの normal 座標だけに依存するので
+$[\mathfrak g,\mathfrak g]\subset N$。
+$Z(p)=0$ による unimodularity から $N$ は abelian となる。
+具体的には $N=\langle u,v\rangle$ で $[u,v]=\alpha u+\beta v$ とすると、
+$\operatorname{tr}\operatorname{ad}(u)=\beta$、
+$\operatorname{tr}\operatorname{ad}(v)=-\alpha$ なので両者が零である。
+
+まず直線側の conormal bracket も $p$ で非零とする。
+このとき $H_x,H_y$ はともに Heisenberg algebra。
+$\operatorname{ad}(dx)|_N$ と $\operatorname{ad}(dy)|_N$ は非零の二次冪零行列であり、
+Jacobi と $N$ の可換性により可換である。従って両者の像と核は同じ一次元空間 $K$。
+これは二つの Heisenberg ideals の共通の中心である。
+leading-center weight の式 $\nu=-(k+1)a/2$ を $k=0$ に適用すると、
+$K$ の modular weight は $-a/2$ と $-b/2$ の両方であり、$a=b$。
+しかし tangent 二軸は独立な eigenvectors なので eigenvalue $a$ の重複度は二以上となり、
+\eqref{eq:line-spectrum-node}に反する。
+
+次に直線側の conormal bracket が $p$ で零とする。
+$H_x$ は abelian、$H_y$ は Heisenberg である。
+$M=\operatorname{ad}(dx)|_N$ は非零の二次冪零行列で、その像と核の共通の一次元空間を
+$K_0$ と書く。$K_0$ は $H_y$ の中心なので、その modular weight は $\nu=-b/2$。
+
+$K=\ker(\operatorname{ad}(dx):H_x\to H_x)$ と置くと
+\[
+ K\cap N=K_0,\qquad K/K_0\hookrightarrow H_x/N.
+\]
+従って $K$ に現れる modular eigenvalues は $\nu$ と、存在するなら $b$ だけである。
+この kernel は modular 線形化 $D=Z_1^*$ により保存される。
+実際、$D(dx)=a\,dx+n$、$n\in N$ であり、$D$ は isotropy algebra の derivation だから、
+$v\in H_x$ に対し
+\[
+ D([dx,v])=a[dx,v]+[n,v]+[dx,Dv]
+ =a[dx,v]+[dx,Dv]
+\]
+となる。ここでは $H_x$ の可換性を用いた。
+
+直線 conormal pencil の零点は単純なので、その leading center の modular weight は $-a$。
+また $\widetilde E_8$ の tangent Hamiltonian の中心固有値が $-R/2$ であることから、
+この leading center は $K$ に含まれる。従って
+\[
+ -a\in\{b,-b/2\},\qquad b/a\in\{-1,2\}.
+\]
+(LS2) は比二を許さないため、$b=-a$。
+$M$ は $N/K_0$ を $K_0$ に非零に写し、derivation $D$ に対する weight shift は $a$ なので、
+$N/K_0$ の weight は $\nu-a=-a/2$、$K_0$ の weight は $\nu=a/2$ となる。
+よって ambient spectrum は
+\[
+ a\{1,-1,-1/2,1/2\}.
+\]
+これは $m=0,1,2$ のいずれの (LS2) とも一致しない。矛盾である。
+\end{proof}
+
+\paragraph{conic の非消滅条件と二配置の排除。}
+別途証明した conic-plane fourth-jet 補題により、normal quintic の $\widetilde E_8$ conic
+では平面内 normal 方向の Hessian は一般に非零である。
+平面内normalが$\OO(4)$、外部normalが$\OO(2)^2$で、$H^1(\OO(2))=0$により分裂することから、conormal splitting $\OO(-4)\oplus\OO(-2)^2$ で bracket matrix の対応する $B_{00}$ は
+定数であり、その非零性により conormal bracket は conic 全体で非零である。
+従って上の命題を各 conic--line 交点で適用できる。
+
+$211a$（conic が鎖の中央）では conic 上の二つの異なる交点がともに二重 modular 零点
+となり、$\PP^1$ 上の非零 vector field の零因子次数二に反する。
+$211b$（直線が鎖の中央）でも中央の直線は conic との交点で二重零を持ち、
+さらに別の直線との交点で零を持つので、同様に矛盾する。
+
+
+\section{conic と二直線の三重点：短い排除証明書}
+
+対象は $C=A_{012}\cup L_{03}\cup L_{04}$。
+conic-plane 補題により、conic の bracket matrix の内部 normal 成分
+$B_{00}=-z_{31}$ は非零の定数である。命題\ref{prop:two-lines}を二本の直線に適用すると、その二つの slope は零となる。
+補題\ref{lem:zero-slope-nilpotent}により ambient modular 線形化は冪零なので、
+conic の tangent eigenvalue も零である。
+従って三つの modular slopes は全て零、すなわち
+\[
+z_{37}=z_{39}=z_{41}=0.
+\]
+各 residue は active なので、その二次係数は非零である。
+Poisson 全体の非零定数倍と $\operatorname{diag}(1,r,r^2,s,t)$ の射影変換により
+\[
+z_{38}=z_{40}=z_{42}=z_{31}=1
+\]
+と正規化できる。具体的に初期の二次係数を $\beta_c,\beta_1,\beta_2$ とすれば、
+Poisson 倍率 $c$ に対して $r=c\beta_c,s=c\beta_1,t=c\beta_2$ を選ぶ。
+そのとき $z_{31}'=c\beta_1\beta_2 z_{31}/\beta_c^2$ なので、四条件を同時に満たせる。
+
+\subsection{rank-one 条件だけによる初期消去}
+
+conic の bracket matrix の第一列は
+\[
+\begin{pmatrix}-1\\t^2z_{34}+tz_{32}\\t^2z_{35}+tz_{33}\end{pmatrix}.
+\]
+rank one から残る成分はこの列の積で決まり、係数比較により
+\[
+z_{23}=z_{26}=z_{27}=0,\quad
+z_{24}=-z_{33}^2/3,\quad z_{28}=z_{32}^2/3,
+\]
+\[
+z_{29}=z_{32}z_{33}/3-2z_{36}/3,
+\]
+\[
+z_{13}=z_{34}^2,\quad z_{14}=z_{34}z_{35},\quad z_9=-z_{35}^2,
+\]
+\[
+z_{11}=2z_{20}+2z_{32}z_{34},\quad
+z_8=2z_{18}-2z_{33}z_{35},\quad
+z_{12}=2z_{21}+z_{32}z_{35}+z_{33}z_{34}.
+\]
+この下で第一の直線の bracket matrix は
+\[
+B_1(t)=
+\begin{pmatrix}
+0&tz_{32}^2/3&tz_{30}\\
+tz_{32}^2/3&-tz_{20}-z_{32}/2&-tz_{22}\\
+tz_{30}&-tz_{22}&tz_{16}
+\end{pmatrix}.
+\]
+第二の直線では $z_{32},z_{30},z_{20},z_{22}$ をそれぞれ
+$z_{33},z_{25},z_{18},z_{19}$ に置き換えた形であり、必要な符号だけが変わる。
+対称 rank-one 行列で第一対角成分が零なら、第一行・列は零である。
+従って複素閉点では
+\[
+z_{32}=z_{30}=z_{33}=z_{25}=0.
+\]
+特に $z_{24}=z_{28}=0$、$z_{36}=-3z_{29}/2$ となる。
+
+両直線の tangent Hamiltonian 行列の定数項は、normal 基底の第二方向が
+conic 内部 normal $q$、第三方向が他方の直線の tangent となる順序で
+\[
+H_1(0)=-E_{23},\qquad H_2(0)=E_{23}.
+\]
+中心固有値条件 $(H_i+R_i I/2)B_i=0$ の $t$ 係数を比較すると
+\[
+z_{22}=z_{16}=z_{19}=0.
+\]
+従って
+\[
+B_1(t)=-tz_{20}E_{22},\qquad B_2(t)=-tz_{18}E_{22}.
+\]
+一般点で Heisenberg なので $z_{20},z_{18}$ は非零である。
+
+\subsection{二つの Jacobi 係数と一つの中心条件}
+
+前節の全 Jacobi 方程式の第19番と第143番（零始まり）を上の必要条件で特殊化すると、
+それぞれ
+\[
+J_{19}=z_{29}/5,\qquad J_{143}=z_5-z_{29}z_{34}
+\]
+となる。従って $z_{29}=z_5=0$。
+一方、第一直線の中心条件の第二対角成分の $t^3$ 係数は
+\[
+E_3=z_{20}(z_5-3/10).
+\]
+これが零で、$z_{20}\ne0$ なので $z_5=3/10$。矛盾である。
+
+全てを polynomial-combination 証明書として書けば
+\[
+E_3-z_{20}J_{143}-5z_{20}z_{34}J_{19}
+=-\frac3{10}z_{20}.
+\]
+従って Jacobi と中心条件は $z_{20}=0$ を強制し、一般 Heisenberg 条件と両立しない。
+この証明ではパラメータで割る必要はなく、rank-one 条件の閉点での帰結と、
+明示した非零条件だけを用いている。
+
+
+\section{二つの conic が一節点で交わる配置の排除}
+
+本節は一般階数四、実際の退化因子の正規性、および両成分上の一般
+横断型が $\widetilde E_8$ であることを仮定する。
+支持を $C=A_{012}\cup A_{034}$ とする。
+前節の固定支持モデルの係数を $z_0,\ldots,z_{39}$ と書く。
+両成分の residue は
+\[
+R_1=(z_{36}t+z_{37}t^2)\partial_t,\qquad
+R_2=(z_{38}t+z_{39}t^2)\partial_t.
+\]
+以下の排除は複素閉点の非存在であり、根基と元の係数イデアルを同一視しない。
+
+\subsection{非零な平面 Hessian}
+補題\ref{lem:conic-plane}を両 conic に適用する。
+第一 conic のアフィン座標を
+$(t,u,v,w)=(x_1,x_2-x_1^2,x_3,x_4)$ とする。
+$P_{01}|_C=-R_1/5$ と $\partial_uP_{34}|_C=-z_{30}$、
+$b_2=P_{01}P_{34}-P_{03}P_{14}+P_{04}P_{13}$ から
+\[
+F_{uu}|_C=R_1z_{30}/5.
+\]
+第二 conic でも同様に $F_{uu}|_C=R_2z_{14}/5$。
+従って両 residue が一般に非零である以上、正規性には
+\[
+z_{30}z_{14}\ne0
+\]
+が必要である。
+
+\subsection{非零な二つの係数の標準形}
+
+$a=z_{30},b=z_{14},d=z_{25},k=z_{35},u=z_{31},v=z_{21},w=z_{27},r=z_{28}$ と置く。
+両 conic の Heisenberg 行列の階数一条件と、二本の Jacobi 係数から
+\[
+ad=k^2,\quad av=uk,\quad a z_{26}=0,\quad a(3r+4k)=u^2,
+\]
+\[
+b(r+2k)=d(v+w),\quad ab=du/2,\quad a(v+w)=uk
+\]
+を得る。
+$a,b\ne0$ なので $w=0,r=0,z_{26}=0$。
+$a=1$ と標準化し、$u=-2\lambda$ と置けば
+\[
+\lambda\ne0,\quad
+z_{14}=-\lambda^5,\ z_{35}=\lambda^2,\ z_{25}=\lambda^4,\
+z_{31}=-2\lambda,\ z_{21}=-2\lambda^3,\ z_{26}=z_{27}=z_{28}=0.
+\]
+この帰着に使用した分母は非零と仮定した $a,b$ のみである。
+
+各 conic の標点を固定する自己同型は独立に $\mathrm{PGL}_5$ の支持安定化群に延びる。
+$R=t(\alpha+\beta t)\partial_t$ は $\alpha\ne0$ なら
+$\alpha t\partial_t$、$\alpha=0,\beta\ne0$ なら $t^2\partial_t$ に標準化できる。
+対角変換
+\[
+(x_1,x_2,x_3,x_4)\mapsto(rx_1,r^2x_2,sx_3,s^2x_4)
+\]
+と Poisson 構造の $c$ 倍は
+\[
+\beta_1\mapsto c\beta_1/r,\quad
+\beta_2\mapsto c\beta_2/s,\quad
+z_{30}\mapsto cs^3z_{30}/r^2
+\]
+を与える。特に両 residue が nilpotent の場合は
+$r=c\beta_1,s=c\beta_2$ として、残る $c$ により
+$c^2\beta_2^3z_{30}/\beta_1^2=1$ とできる。
+従って residue を同時に $(t^2\partial_t,t^2\partial_t)$ としつつ $z_{30}=1$ としてよい。
+semisimple の場合も、residue を変えない二つの対角変換で $z_{30}=1$ にできる。
+
+\subsection{有理関数による厳密な非存在証明書}
+
+上の標準形で全 Jacobi 係数と両 Heisenberg 行列の全二次小行列式を用いる。
+保存した四つの証明書は次を与える。
+\begin{enumerate}
+\item 全 residue を残したまま、四つの係数の線形結合で
+$z_{36}-z_{38}=0$ を得る。分母の因子は $\lambda$ のみ。
+\item この共通値が非零なら、residue は $(t\partial_t,t\partial_t)$ に標準化される。
+二段の線形結合と線形消去で $1$ を得る。分母の因子は $\lambda$ のみ。
+\item 共通値が零なら、両 residue の非零性から
+$(t^2\partial_t,t^2\partial_t)$ としてよい。
+$\lambda\ne-1$ では二段で $1$ を得る。分母の因子は $\lambda,\lambda+1$ のみ。
+\item $\lambda=-1$ では、一般 $\widetilde E_8$ の接方向作用 $H$ と
+conormal 括弧行列 $B$ に対する
+\[
+\operatorname{tr}(H^2)=7R^2/18,\qquad B(H+R I/2)=0
+\]
+も加えると、二段の有理数線形結合で $1$ を得る。
+この証明書には変数の分母はない。
+\end{enumerate}
+ここでは $H$ の行が入力 conormal 生成元であるという規約を用いる。
+$H$ の列を入力とする規約では中心の式は $(H+RI/2)B=0$ となる。
+
+各段の入力式、線形結合の全係数、消去した一次式と代入写像を保存した。
+Python 標準ライブラリのみの独立実装が、元の $P$ からの両局所行列の再構成、
+全局所方程式、七つの係数関係、二つの消去恒等式、二つの平面 Hessian 恒等式、
+および全証明書の計228項目を確認した。
+行列自体も独立生成した行列と、第二成分の巡回的な基底順序の変更を除いて一致する。
+これで残る開集合も空となり、$22$ 配置全体が排除される。
+
+
+\section{Twisted cubic と外側の直線の排除}\label{sec:31}
+
+最後の支持は $C=T_{0123}\cup L_{04}$ である。
+前節の40パラメータ模型を用い、residue を
+\[
+ R_T=(z_{36}t+z_{37}t^2)\partial_t,\qquad
+ R_L=(z_{38}t+z_{39}t^2)\partial_t
+\]
+と書く。以下では全203本の Jacobi 二次式に加え、両成分上の全186本の
+必要 $\widetilde E_8$ first-jet 係数式を用いる。
+一般パラメータで得た結論を例外値へ延長することはせず、全ての例外を分けて処理する。
+
+\subsection{中心線束と有限個の residue の型}
+Twisted cubicの内部conormalは、二つのbalancedな二階差分
+$t^2e_i-2st e_{i+1}+s^2e_{i+2}$、$i=0,1$から$\OO(-5)^2$となる。
+外部hyperplaneのnormalは$\OO(3)$であり、$H^1(\OO(2))=0$によってnormal列は分裂する。
+従って normal bundle は
+\[
+ N_{T/\PP^4}=\OO_{\PP^1}(5)^2\oplus\OO_{\PP^1}(3).
+\]
+conormal bracket の飽和した中心線束を $M=\OO(-m)$ とすると、対称 rank-one bracket は
+$M^{\otimes2}\otimes\det N$ の非零切断を係数とする。
+その零因子の次数は $13-2m$ である。
+
+中心が $N^*_{\PP^3/\PP^4}|_T=\OO(-3)$ に含まれるなら、
+$F|_{\PP^3}$ の横断 Hessian は零であり、$F|_{\PP^3}$ は $T$ に沿って三重に消える。
+一般の割線は二つの点でそれぞれ三重零を持つので、五次式はその割線全体で零となる。
+Twisted cubic の割線は $\PP^3$ を満たすから $F|_{\PP^3}=0$。
+これは $D$ の正規性に反する。
+従って $M\to N^*_{T/\PP^3}=\OO(-5)^2$ は非零であり、
+\begin{equation}\label{eq:tc-center-degrees}
+ m\in\{5,6\},\qquad \deg\operatorname{div}(B_T)\in\{3,1\}.
+\end{equation}
+
+bracket の零因子は modular flow で保存されるので、その台は residue の零点に含まれる。
+交点で $B_T\ne0$ なら、前節の直線と非零 Heisenberg bracket を持つ枝の議論から、
+両 slope は零となる。ところがその場合、$T$ の residue の唯一の零点は交点であり、
+正次数を持つ bracket 零因子もそこに支持されなければならない。
+従って $B_T\ne0$ という仮定と矛盾する。よって常に
+\[
+ B_T(p)=0,\qquad z_{30}=z_{31}=z_{25}=0.
+\]
+
+一方の slope が零なら補題\ref{lem:zero-slope-nilpotent}により両方とも零。
+支持の二つの成分の標点を固定する自己同型は、完全線形系による埋め込みを通じて
+支持安定化群に延びる。従って残る residue は
+\[
+ \mathrm{NN}:\ (t^2\partial_t,t^2\partial_t),\qquad
+ \mathrm{SS}:\ (t\partial_t,\rho t\partial_t),\quad\rho\ne0
+\]
+に標準化できる。
+
+\subsection{SS 型の七つの有限な場合}
+$B_L(p)=0$ なら、直線の spectrum と $T$ の tangent eigenvalue が1であることから
+\[
+ \rho\in\{-1,-3,3,-3/2,3/2\}.
+\]
+この場合の初期線形条件は
+\[
+ z_{32}=0,\quad z_{22}=z_{26},\quad
+ z_{14}=-z_{28}-z_{35}-(2-\rho)/5.
+\]
+$B_L(p)\ne0$ なら、$T$ の接方向の weight を1、直線の weight を $\rho$ とし、
+二つの conormal ideals の共通の二次元 ideal を $N$ と置く。
+$T$ 側の conormal algebra は abelian、直線側は Heisenberg なので、
+$\operatorname{ad}(dt)|_N$ は非零の二次冪零行列である。
+その中心の weight は $\nu=-\rho/2$、$N$ の中心による商の weight は $\nu-1$。
+従って ambient spectrum は
+\[
+ \{1,\rho,-\rho/2,-\rho/2-1\}.
+\]
+一方、$k=\operatorname{ord}_p B_T\le3$ の leading center は
+$\ker\operatorname{ad}(dt)$ に入り、その weight $-(k+1)/2$ は
+$\{\rho,-\rho/2\}$ のいずれかである。
+この二条件を直線の $h=1$ spectrum と比較して
+\[
+ (\rho,k,m_L)=(-3/2,2,2)\quad\text{または}\quad(-2,3,0)
+\]
+に限られる。これで全 SS 型が七つの有理数上の係数問題になる。
+
+後二場合の証明書に入れる初期条件も明記する。
+$k\ge2$ から $z_{33}=z_{32}=z_{26}=z_{21}=0$、$z_{27}=2z_{17}$ を得て、
+直線側の rank-one 条件から $z_{22}=0$ を得る。
+$k\ge3$ なら、さらに
+\[
+ z_{17}=z_{27}=z_{18}=z_{34}=z_{23}=0,\qquad
+ 3z_{28}+2z_{35}=3\rho/5
+\]
+となる。このうち前者は $\rho=-3/2$、後者は $\rho=-2$ に特殊化して用いる。
+
+全七場合の完全な係数証明書を保存した。
+$B_L(p)=0,\rho=-1$ を除く六場合では、全 Jacobi と E8 係数の有理数線形結合、
+および得られた一次式の消去によって $1$ が得られる。
+係数体は $\QQ$ で、変数を分母にする操作はない。
+
+残る $\rho=-1$ では、係数イデアルは線形消去後に
+\[
+ z_9z_{21}=1/9
+\]
+となる。$a=z_9\ne0$ を用いた全 Poisson 行列を保存した。
+その退化五次式は正確に
+\begin{equation}\label{eq:ss-factor-family}
+ F=-\frac{\bigl(3a(x_2^2-x_1x_3)+x_0x_4\bigr)
+ \bigl(3a x_2(x_2^2-x_1x_3)+x_1^2x_4\bigr)}{90a}.
+\end{equation}
+従って actual divisor は二次因子と三次因子を持ち、正規でない。
+これは空な係数イデアルとして処理していない。
+全 Jacobi 方程式を満たす具体的な一般階数四の族であり、正規性によって排除される。
+
+\subsection{NN 型の閉点に関する場合分け}
+NN では $R_T=R_L=t^2\partial_t$。
+bracket の零因子は交点だけに支持されるため、\eqref{eq:tc-center-degrees}より
+$k=\operatorname{ord}_p B_T$ は三または一である。
+直線の bracket も交点で零となるので
+\[
+ z_{36}=z_{38}=0,\quad z_{37}=z_{39}=1,\quad
+ z_{30}=z_{31}=z_{25}=z_{32}=0,
+\]
+\[
+ z_{22}=z_{26},\qquad z_{14}=-z_{28}-z_{35}.
+\]
+
+まず係数式の有理数線形結合が $z_{33}^2$ を与えるので、複素閉点では $z_{33}=0$。
+その後、同じく線形結合で
+\[
+ (z_{17}+4z_{27})(z_{17}-z_{27}),\qquad
+ z_{17}z_j\quad(j=21,23,24,26,28,34),
+\]
+\[
+ z_{18}^2+z_{17}z_9,\qquad z_{18}(z_{17}+4z_{27})
+\]
+を得る。$z_{17}=0$ の枝では、さらに $z_{26}^2,z_{34}^2$ を得る。
+これらを証明する12個の線形結合を別添した。
+従って次の四場合で尽きる。
+
+\begin{center}\small
+\begin{tabular}{@{}lll@{}}\toprule
+場合 & 条件 & 追加の必要条件\\\midrule
+$k=3$ & $\operatorname{ord}_pB_T=3$ & 下記の幾何学的線形条件\\
+IA & $s=z_{17}\ne0,\ z_{27}=s$ & $z_{18}=z_9=0$\\
+IB & $s=z_{17}\ne0,\ z_{27}=-s/4$ & $z_9=-z_{18}^2/s$\\
+II & $z_{17}=z_{27}=z_{18}=z_{26}=z_{34}=0$ & $z_{21}\ne0$\\\bottomrule
+\end{tabular}\end{center}
+IA, IB では上の六つの $z_j$ も零である。
+$s=z_{27}=z_{18}=z_{26}=z_{34}=0$ の下では、$B_T$ の $t$ 係数は
+$\diag(0,0,z_{21})$ である。従ってさらに $z_{21}=0$ の場合は一次項も零となるので、
+既に判明した $k\in\{1,3\}$ により $k=3$ の場合へ入る。
+ここで二乗が零なら変数が零という推論は複素閉点に用いている。
+元の Jacobi イデアルとその根基を同一視するものではない。
+
+\subsection{\texorpdfstring{$k=3$}{k=3} と一変数 B\'ezout 証明書}
+$B_T$ の二次までの係数が零であることから、
+$z_{17}=z_{27}=z_{26}=z_{21}=z_{18}=z_{34}=z_{23}=0$ と $3z_{28}+2z_{35}=0$ を得る。
+先頭行列の rank-one 条件は $3z_{28}+4z_{35}=0$ も与えるので、
+$z_{28}=z_{35}=z_{14}=0$。
+内部二成分の行列は
+\[
+ t^3z_9\begin{pmatrix}4t^2&-2t\\-2t&1\end{pmatrix}.
+\]
+中心が完全に外部へ入る場合は既に排除したので $z_9\ne0$。
+rank-one の交差関係は $z_{20}=0,z_{19}=2z_{29}$ を与え、直線の rank-one 条件は
+$z_{24}=0$ を与える。
+
+この下で、有理数の線形結合と一次式の消去を五段行う。
+最終方程式から順に $z_{16}=0,z_{10}=0,z_{12}=1/10$ を得る。
+$u=z_{29}$ とすると残る二式は
+\[
+ A=2u^2+13u/10+9/50,\qquad
+ B=2u^2-u/5-2/225.
+\]
+しかし
+\[
+ \left(\frac{1098}{175}-\frac{972}{35}u\right)A+
+ \left(\frac{972}{35}u+\frac{2547}{175}\right)B=1.
+\]
+従ってこの場合は存在しない。
+
+\subsection{IA, IB, II と全ての分母の例外}
+一般パラメータの線形消去で使った全ての分母を因数分解した結果は次の通りである。
+記載したもの以外の因子は現れない。
+
+\begin{center}\small
+\begin{tabular}{@{}lll@{}}\toprule
+場合 & 一般計算の分母の因子 & 例外値の処理\\\midrule
+IA & $s,\ 69s+28$ & $s=-28/69$ も $\QQ$ 上で $1$ を得る\\
+IB & $s,\ 3s+1,\ 621s^2+87s+52$ & 下記の二処理\\
+II & $z_{21}$ & 既に非零なので例外なし\\\bottomrule
+\end{tabular}\end{center}
+一般値の三場合はすべて単位イデアルとなる。
+
+IB の二次方程式の根では
+\[
+ \QQ[\theta]/(\theta^2+13511),\qquad s=(-29+\theta)/414
+\]
+上で三段の厳密な線形消去を行い、$1$ を得る。
+証明書の係数は $\theta$ の有理係数多項式である。
+二つの複素埋め込みの両方に同じ恒等式を適用でき、どちらか一方だけを数値的に調べたものではない。
+
+最後の例外 $s=-1/3$ は単位イデアルではない。
+四変数までの消去後、残る方程式は
+\[
+ z_{11}=3z_{18}z_{20},\qquad z_1=3z_{20}^2
+\]
+と同値であり、二つの自由変数 $a=z_{18},b=z_{20}$ を持つ実際の Poisson 族となる。
+その五次式は全ての $a,b$ で
+\begin{equation}\label{eq:nn-singular-plane}
+ F\in(x_2,x_3)^2,\qquad [x_1^3x_3^2]F=-1/120.
+\end{equation}
+従って $F\ne0$ だが、平面 $V(x_2,x_3)$ 全体で特異になり、正規でない。
+全 Poisson 行列と $F$ は保存してあり、Jacobi と\eqref{eq:nn-singular-plane}を独立に直接検証した。
+
+以上で SS と NN の全場合が排除され、最後の $31$ 支持も正規な実際の退化因子には現れない。
+
+
+\section{主定理の証明と相対認識の位置}
+\begin{proof}[定理\ref{thm:classification}の証明]
+全Jacobian分解から$Y$は純一次元、次数40、被約支持$C$は連結。
+不活性成分は定理\ref{thm:finite-B}で存在しない。
+局所積正常形の長さ8,9,10から$8a_6+9a_7+10a_8=40$であり、
+全$E_6$次数五または全$E_8$次数四に限る。
+前者は定理\ref{thm:e6}で楕円正規五次となる。
+後者は有理正規四次排除、超平面排除、算術種数零とincidence treeの分類により八配置へ入り、
+定理\ref{thm:eight-exclusion}に反する。
+楕円正規五次ではresidueは至る所非零なのでPymのpurely elliptic分類が正しい仮定で適用できる。
+逆に$q_{5,1}$の実退化schemeは楕円割線五次であり正規、曲線上のresidueは至る所非零
+\cite[Theorems 8.1, 8.3 and Proposition 8.5]{GP}。
+\end{proof}
+閉点分類と定理\ref{thm:normal-scheme}の相対認識は異なる主張である。
+後者は実determinantal schemeのnilpotent方向を保持し、基底の幾何的fibresが正規である開上の同型を与える。
+閉点の$q_{5,1}$同定だけから任意基底上の軌道分類やschemeのreducednessを推論しない。
+\appendix
+\section{最小再現資料と証明書の適用条件}\label{sec:reproduction}
+本稿のTeX本文は単独で組版でき、旧TeXの\texttt{input}を要求しない。
+以下の旧ディレクトリは係数データと検証器の安定した保存先を指す。
+証明の本文を年代順に読む必要はなく、各ファイルは本文で指定した有限恒等式の再現に用いる。
+公開済み環境では既設のPython3.12、SymPy1.14、日本語LuaLaTeXを再利用する。
+原本を上書きしない別出力先を指定する。
+\begin{longtable}{p{.19\linewidth}p{.74\linewidth}}
+\toprule 範囲&再現先と確認内容\\\midrule\endhead
+普遍認識&\path{legacy/v14/code/normal/}を新しい一時ディレクトリへ複製し、
+\path{verify_normal_quintic.py}と\path{independent_normal_certificate.py}はBV、Pfaffian、勾配、
+正規な具体例、rank149を照合する。普遍的・相対的完全性の証明は本文にある。\\
+不活性直線の先頭&\path{legacy/v17/code/line_algebra/}の二独立verifier、
+\path{legacy/v18/proofs/m3/verify_m3_restrictions.py}、
+\path{legacy/v18/proofs/m4/verify_m4_flag.py}、\path{verify_regular_direction.py}。
+全rank1/zero bracket、定数旗、例外nilpotent pencil、共鳴の全核を保持する。\\
+不活性直線の全排除&\texttt{python} \path{legacy/v19/code/run_checks.py} \texttt{--output-dir <new-dir>}。
+九群は全60純法線二次係数、squarefree二共鳴、double二共鳴+例外、
+四重の三分と全可変方向を含む。一定正則$h=2$のshear残余$d$を消さず保持する。\\
+RN四次&\texttt{python} \path{legacy/v16/code/run_checks.py} \texttt{--output <new-dir>}。
+\path{code/geometry/candidate_parameterizations.json}の21+7族と三kernel係数を保持。
+各primitive条件、$Q\ne0$、四つの$k$根、全$\CC^*$族と$\AA^1$族を本文で処理した。
+固定$[A,P]=0$sliceの結果は主証明に不要。\\
+P$^3$四次支持&\texttt{python} \path{legacy/v21/code/run_checks.py} \texttt{--output-directory <new-dir>}。
+既約N/Kと八可約CI、四直線共点の混合枝、全25成分のモデルを照合する。
+Hilbert・Hessian・割線の普遍幾何は本文の証明である。\\
+八支持の最終排除&\texttt{python} \path{legacy/v22/code/run_checks.py} \texttt{--output-directory <new-dir> --symbolic}。
+四stdlib群2239項目、六symbolic群990項目、計3229項目。
+二conicの$\lambda=-1$、TCの全七SSセル、NNの$k=3$,IA,IB,IIと全中間分母例外を含む。\\
+現在の独立監査&\path{reports/NORMAL_QUINTIC_RECOGNITION_AUDIT_20261103_v62.json}と
+\path{reports/NORMAL_ACTUAL_*_20261103_v62.json}。
+対応する\path{code/normal_*_audit_20261103_v62.py}が入力hash、保存成功出力、全有限セルを照合する。
+旧計算を今回全て再実行したという意味ではない。\\\bottomrule
+\end{longtable}
+\paragraph{保存証明書の検査規則。}
+各線形消去段では、入力式が元Jacobi式と必要jet式の指定代入に一致すること、
+保存した有理数または有理関数係数の積和がtarget式に等しいこと、
+新代入が得た一次式を消すことを照合する。
+一般有理関数計算の分母は中間段を含め全て因数分解し、本文の例外表で覆う。
+二次数体証明書は最小多項式で係数を還元し、両複素埋め込みで同じ恒等式が成立する。
+非空なJacobi族は単位idealと呼ばず、その全$F$の因数分解または特異平面を別に検証する。
+個別verifierが自身のディレクトリへ結果を書く場合は、必ずそのディレクトリを一時コピーして実行する。
+上に示したrunnerはその処理を行う。普遍認識の具体例だけを検査する最小手順は、
+\path{legacy/v14/code/normal/}を複製し、その中の二つのverifierを実行することである。
+\paragraph{組版。}
+\begin{verbatim}
+lualatex -interaction=nonstopmode -halt-on-error \
+  -output-directory=<new-build-dir> \
+  papers/normal_actual_divisor_recognition_ja.tex
+\end{verbatim}
+新しい作業ディレクトリでは、目次と参照を安定させるため同じコマンドを三回実行する。
+\paragraph{限界。}
+本稿の主定理は正規な実退化因子の閉点分類と相対認識である。
+全一般階数四成分の尽くし、非正規・非被約因子、全交叉・非被約構造の分類、
+歴史的な新規性の網羅的調査や投稿先への公表は、この内部研究草稿では完了したとしない。
+
+\begin{thebibliography}{99}
+\small
+\bibitem{AMSSecant}
+R.~Achilles, M.~Manaresi and P.~Schenzel,
+\emph{A Degree Formula for Secant Varieties of Curves},
+Proc. Edinburgh Math. Soc. \textbf{57} (2014), 305--322.
+\url{https://doi.org/10.1017/S0013091513000497}.
+
+\bibitem{BE}
+D. A. Buchsbaum and D. Eisenbud,
+\emph{Algebra structures for finite free resolutions, and some structure theorems for ideals of codimension 3},
+Amer. J. Math. \textbf{99} (1977), 447--485.
+\url{https://doi.org/10.2307/2373926}.
+
+\bibitem{BlancLamy}
+J.~Blanc and S.~Lamy, \emph{On birational maps from cubic threefolds},
+North-Western European Journal of Mathematics \textbf{1} (2015), 55--84,
+Proposition 2.6, Corollary 2.7(2).
+\url{https://algebra.dmi.unibas.ch/blanc/articles/cubicthreefolds.pdf}.
+
+\bibitem{EtingofEngel}
+P.~Etingof, \emph{18.745: Lie Groups and Lie Algebras, I},
+\S13.2, Corollary 13.8 (Engel の定理).
+\url{https://math.mit.edu/~etingof/lnlg.pdf}.
+
+\bibitem{Fisher}
+T. A. Fisher,
+\emph{Invariants for the elliptic normal quintic},
+2002, \S10, equations (38)--(39).
+\url{https://www.dpmms.cam.ac.uk/~taf1000/papers/invenq.pdf}.
+
+\bibitem{GP}
+M. Gualtieri and B. Pym,
+\emph{Poisson modules and degeneracy loci},
+arXiv:1203.4293, Theorem 7.9.
+\url{https://arxiv.org/abs/1203.4293}.
+
+\bibitem{JRZFormal}
+K.~Jiang, T.~S.~Ratiu and N.~T.~Zung,
+\emph{Local normal forms of dynamical systems with a singular underlying geometric structure},
+arXiv:1904.09784v2 (2019), \S2.1, Theorem 2.3(i).
+\url{https://arxiv.org/abs/1904.09784}.
+形式的正規化と保存則の番号はこの arXiv 版による。
+
+\bibitem{PymElliptic}
+B. Pym,
+\emph{Elliptic singularities on log symplectic manifolds and Feigin--Odesskii Poisson brackets},
+arXiv:1507.05668, Theorem 1.3.
+\url{https://arxiv.org/abs/1507.05668}.
+
+\bibitem{PymSurvey}
+B.~Pym, \emph{Constructions and classifications of projective Poisson varieties},
+Letters in Math. Phys. \textbf{108} (2018), 573--632.
+\url{https://doi.org/10.1007/s11005-017-0984-5}.
+特に Theorem 5.12 の modular residue に関する仮定を保持して参照する。
+
+\bibitem{Seidenberg}
+A.~Seidenberg, \emph{Derivations and integral closure},
+Pacific J. Math. \textbf{16} (1966), 167--173.
+\url{https://doi.org/10.2140/pjm.1966.16.167}.
+
+\bibitem{Stacks}
+The Stacks Project, Tag 0C23 (excellent な正規局所環の完備化).
+\url{https://stacks.math.columbia.edu/tag/0C23}.
+
+\bibitem{StacksNormal}
+The Stacks Project Authors, \emph{The Stacks Project},
+Lemma 10.157.4, Tag 031S, Serre's criterion for normality.
+\url{https://stacks.math.columbia.edu/tag/031S}.
+\end{thebibliography}
+\end{document}
