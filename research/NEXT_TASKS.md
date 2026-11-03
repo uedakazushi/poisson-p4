@@ -1,5 +1,24 @@
 # 次の課題 — v63-s61 / 2026-11-03
 
+## v63 Z: 長さ13の実Noether fiber・二adjoint有限切片・次数下界24
+
+直前保存 main `f9e849842bc1c19243acadebcfe8d5cd133af466` は通常push済み。以下は過去時点を含む。
+
+generic B18の全非被約交叉Dに、物理28座標による有限な単射R28→Dを構成した。generic加群rankは2。一変数source四次と全87独立graphを独立Lie-log法で検証し、閉Noether fiberを正確にC[z,Y10]/(z³,zY_i,Y_iY_j)、長さ13、HF(1,11,1)、socle11と決定した。R28加群の最小生成元数は13である。閉fiberの冪零次数を元Dへ移さず、元Dのdepthはcone19〜20のまま、全nil構造も未決とする。
+
+W16の二adjoint共変量対について四つの普遍関係を与え、一般pairからsourceを符号±だけを除いて復元することを証明した。実像は四式零点の一つの一般滑らかなcodim4成分で、有理Sp4不変函数体も一致する。regular semisimple Dと二つのtorus gaugeの明示的開では、四式idealは三つのgraphと七変数77項の一式に正確に書き換わる。これは6次元の有限軌道切片であり、NEW25にはさらに未知のdivisorが必要である。
+
+NEW25 firstjet超曲面の方程式次数下界は24へ改善した。全Inv22の次元21に対し、既存36個のQQ点だけで制限rank21を正確なQQ小行列式と独立監査で確認した。実方程式や24次での存在は未証明で、24次probeは行わない。
+
+非平方ではternary pencilの全leading caseをQQ恒等式で尽くし、共通因子例外が有限であることを証明した。B²を除いたpairの全域rank2は正しいが、初稿のB*S/B*U比較による五式syzygy推論は撤回し、別のERRATUMを保存した。追加gate G3またはintegral scrollを明示した修正版quad78補題は受理した。全三次57、全四次全射、一般betaのδ_E∈J0と全成分尽くしは継続する。総下界58、rank4下界52、総上界未定。五つの凍結原稿は変更しない。
+
+
+全W非零の交叉接空間も全150物理係数で独立に決定した。CA/CB/Nは38/38/36、実Dは37で、被約D=Nとの差は正確に一つの線形nil classである。ここから新embedded成分や全完成型を推測せず、既存の全218式模型との実座標同定を次に進める。
+
+scrollのE5非零開での幾何学的integralityと、E5零・vertex rank不足の有限交わりも証明した。これにより修正版の全gateを合わせ、全aPJ開でraw quad78欠損が有限と決まる。元のdegree3 colonを六Koszulで厳密に持ち上げると、FULLUで有限例外を除きlight146・weighted152となる。有限例外の実rank、残る122×64全quartic判定、9×43 full cubic判定は未解決である。
+
+二種類のR28を区別する。今回のfinite13はconeの物理R29からfold行61を除きscale行106を残したR28である。旧rank4 union-module模型のR28は、fold行61を含むcone R29からscale行106を除いた射影底である。後者の二normalizerがfree rank2という性質を前者へ移さない。
+
 ## v63 Y: 実接触長4・被約交叉の全gluing・半正規化
 
 直前保存 main `57457c3acc785101d6a66e23aa6f8b95635458a5` は通常push済み。以下は過去時点を含む。

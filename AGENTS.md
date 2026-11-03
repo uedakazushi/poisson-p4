@@ -2,6 +2,21 @@
 
 Version: v63-s61 · 2026-11-03 (Asia/Tokyo).
 
+Latest Z: actual genericB18 fullD FINITE injective over physicalR28,
+generic MODULErank2, MINIMALgenerators13. Exact closedNoetherfiber
+C[z,Y10]/(z³,zY,YY), length13/HF(1,11,1)/socle11, independent ALL150
+sourcep4/87graphs. Fiber nilindex NOTactualD; Ddepth19..20/fullnil stillOPEN.
+W16 pairC/D has4universalrelations, genericdegree2 ±recovery, rational
+Sp4invariantfields agree. ONE codim4imagecomponent, notwhole4eqslocus.
+Finite genericnormalform: sevenvars77termF, dim6, xyΔbe unit; exactideal
+equality. NEW25 isUNKNOWNadditionaldivisor5, NOTtheF equation.
+NEW25 firstjetequationdegree>=24 byInv22dim21/exactQQ21minor onOLD36points;
+noequation/24probe. TernaryG2exceptionfiniteQQ, notempty/properarithmodel.
+OmitB² pair2×5rank2 TRUE; oldBS/BU conditionalSYZapplication WITHDRAWN.
+Correctedquad78 requiresG1,G2 and(vertexbinaryrank2 OR integralC).
+QQ41unchanged, full57/quartic/genericbeta/exhaustionOPEN. Lower58/r4lower52.
+Continueactualresearch andordinarymainpush; checkpoint isnotstop.
+
 Latest Y: ACTUALgenericB18 N_intersect_R lengthEXACT4, k=h4. Independent
 ALL150bivariateD3/27IFT/fold/113graphcubiczero, nofalseflatbasechange/source2lift.
 Dred FULLFORMAL fiberproduct actualNcompletion ×_(C[[g19,T]]/T4) regularR.
