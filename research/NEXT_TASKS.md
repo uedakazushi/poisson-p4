@@ -1,5 +1,22 @@
 # 次の課題 — v63-s61 / 2026-11-03
 
+## v63 AB: 元の被約conductor・embedded21境界・有限ΣのQQ四次階数
+
+直前保存 main `972753a4c8131c35c50bb3f30e003c5c8edf3a09` は通常push済み。以下は過去時点を含む。
+
+generic B18で元の被約交叉Dredの全normalization conductorを決定した。N側は実九odd係数を使う17生成上界、R側はT4である。Nの元のconductorとの差は、G19を除くと長さ4のcyclic module、annihilatorはHF(1,2,1)の完全交叉となる。全二変数source四次・18写像・even-base gaugeを独立検証した。非被約Dの全nilと正確なdepth19〜20は未決である。
+
+既存embedded21支持がB18を通ることも、全多項式E(W,λ)と群作用で証明した。21小行列式から一つの正則形式枝を得たが、全germの滑らかさは主張しない。B18のnil支持はG19横断で少なくとも二次元であり、三つの曲線だけという模型は使わない。
+
+非平方の六quadに全22 syzygy加群を構成し、像加群の局所自由146とpure四次商のreflexive64を証明した。周囲での特殊化rankは別で、孤立した非自由点はなお可能。既存proper有限Σ全体については一回のGF block rank2184とsplit有限NakayamaによりQQ quad78・元146/152を証明した。他のG2/vertex有限例外と実122×64全射、full cubic9×43は引き続き未解決である。
+
+W16の固定特性基底における残余曲線を二つの明示的(2,2)式で表し、有限ordered拡大と相対符号quotient後のm次数上界8を得た。有理trace不変量mは五Inv8から独立である。NEW multisectionの次数や方程式の上界ではなく、種数も未決。NEW方程式次数下界24、一般betaのδ_E∈J0、全成分尽くしは継続する。総下界58/rank4下界52/総上界未定。
+
+
+元のDred/conductorもconeでdim20/depth19/e1、projectiveで19/18/e1と決定した。有限長4の差を含む完全列のlocal cohomologyによる証明であり、元の非被約Dのdepthへは移さない。
+
+実四次の次の係数計算には、今回構築・独立検証したlazy APIのframeを明示して接続する。APIはT34、既存quad/cubic57はT34*diag(Tden)で、Tden=[a,a,a,1,a,B/50,a,a]。これはaFBC上の単位変数変換で、全33 genuine quarticの単位row rescalingも必要である。未補正の二つのframeを混ぜて122×64を評価しない。API接続のexact receipt・独立監査と、Schouten/Bianchiによる全四次syzygyの新しい構造的検討を次に続ける。
+
 ## v63 AA: 全W非零の実交叉完成環・特性基底への優越・実122行判定
 
 直前保存 main `75a9f688f5932c996c25e250943bc830656698bb` は通常push済み。以下は過去時点を含む。

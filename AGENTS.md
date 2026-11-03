@@ -2,6 +2,21 @@
 
 Version: v63-s61 · 2026-11-03 (Asia/Tokyo).
 
+Latest AB: ORIGINAL genericB18 Dred normalizationconductor solved,
+Nsideactual17generatorUPPERrecipe/RsideT4. IBN/J cycliclength4,
+annCI4 HF(1,2,1), G19restoredfree4. IndependentALL150bivD4/evenbasegauge;
+notfullnonreducedD/depth. Embedded21containsP0 withONEregular21formal
+imagebranch viaE(W,lambda), notwholegermsmooth; Nil transverseSUPPORT>=2.
+SixquadWHOLEkernelmodule22/imageLOCALLYFREE146; cokernelREFLEXIVE64
+overregular3paramR. DoesNOTimplypointwise146/flatness/fullquartic.
+ENTIREproperfiniteSigma QQrawquad78/light146/weighted152 byONEGF2184
+block+splitkernel+finiteV Nakayama. OtherG2/vertexfiniteexceptionsOPEN.
+Fixedcharacteristic residualcurve TWO(2,2) equations, intrinsicrationalm
+independentoffiveInv8, mdegree<=8 AFTERfiniteorderedbase/signquotient.
+Noexact8/genus/NEWmultisectiondegreeclaim. NEWdegree>=24/equationOPEN.
+Actual122x64/full57/B18fullnil/depth19..20/genericbeta/exhaustionOPEN.
+Lower58/r4lower52/uppernull; continueactualresearch/ordinarymainpush.
+
 Latest AA: ENTIRE W!=0 ACTUALD FULL218completion solved viaEXPLICIT
 GL5/150coeff/61/134/old49point v4=v7=1 andglobalideal/colon localbinding.
 Cone28/37/depth21/e2,proj27/36/depth20/e2. Nilprincipal squarezero/free1
