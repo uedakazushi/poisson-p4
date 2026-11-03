@@ -1,0 +1,18 @@
+# 非平方の次数有界unit liftの独立監査
+
+2026年11月3日。元14×46行列と全154項witnessを別のFraction実装で掛け、
+指定行でaJとなる全有理数係数恒等式を確認した。witnessの第22列係数は非零有理定数なので、
+同列をwitness列へ置換する行列の行列式はその定数単元であり、aJを反転した13×45への縮約が正当である。
+fresh producerで再生成した全残余のSHAも一致した。
+
+強いisolated column targetの次数≤5問題について、元の全係数から11302×2577の
+有限係数行列を独立に再構築した。保存された2577行を抽出し、別のFLINT nmod行列rankで
+2577次正方行列のfull rankを法32003で確認した。
+全係数はこの素数で整であり、2577列は係数未知数2576列とtarget一列を合わせたもの。
+従ってQQでも全列独立となり、この次数以下のisolated target解は存在しない。
+単なるmod p不整合からQQ不整合を推論したのではなく、全列rankによる証明である。
+
+これは有限次数の補助行列と単元pivotの結果であり、全coreの像rank下界、自由coker、
+全四次65被覆や周囲の非平方層除去を意味しない。元の14×46行列の来歴は入力の既存product packetに依存する。
+新しい独立監査は `code/s61_bounded_unit_lift_review_20261103_v62.py` と
+`reports/S61_BINARY_NONSQUARE_BOUNDED_UNIT_LIFT_20261103_v62_REVIEW/` に保存する。

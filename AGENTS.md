@@ -2,6 +2,20 @@
 
 Version: v63-s61 · 2026-11-03 (Asia/Tokyo).
 
+Latest K: ALL finiteQa incl0 lie ACTUAL T01–T38, hence>=40known
+fullcomponents withCA/CB. Positive QQ etale17/Hensel16 proofs, notjet
+extrapolation. NOnewglobalcomponent, NObranch exhaustion; lower57.
+ALLnonzeroQa individual CA/CB=A8[[u9]],N=A7[[u9]], includes2/9.
+ActualD full218+colon translation extends nilmoduleC[[u20]]F,
+exact2Ass N+embedded20, depth20 toALLa!=0; no a0 extension/ringsplit.
+GenericB16 fullR completion=C[[u16,t,r,c,p²,pr,pt]], normalizer
+quadric r²−25t²−2cp; dim19 edim22 depth18 mult3, onefiberlength2.
+NotwholeB16. Weight6 CLOSEDcut exacttwoaxes±8/9, totalCM1,
+specialfiberdepth0; negativeaxisT40, positiveaxisrecognitionpending.
+Nonsquare boundedQQunitpivot accepted; v8/J0continuations NOTfullrank
+orambientcoker/quarticproof. Recoveredworkspace main1986a0ec from64c5;
+reuseexistingtools, continueactualresearch andnormalpushes.
+
 Latest J: ENTIREQa alsoinACTUALT02/T03 via2-eigenarc+densea+closedness;
 atleast5knowncomponentsT01/T02/T03/CA/CB, noexhaustion/noincrease.
 FULLR19 properNORMALquadric model; ENTIREredR∩N=B18,

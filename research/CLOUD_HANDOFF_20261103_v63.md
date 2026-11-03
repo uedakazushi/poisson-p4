@@ -8,6 +8,20 @@ v62保存は `e187b40de68bce534391f406f616940cddd045a7`、
 `66a80ab53dfcf0ff842c67140320d8da0226039d`。全て通常push済み。
 このv63保存のSHAはGit履歴で識別する。
 
+## v63 K: 全Qaの四十成分と交叉の全非零a型
+
+直前研究保存 `64c5c455ac642cbeacbf59fc63fd638e80102712` は通常push済み。障害時の記録のみ `1986a0ec09113a291dee46cfd98a1a1f6c0ddead` をGitHub APIで保存し、復旧後に取り込んだ。
+
+全有限Qaが実MPS成分T01–T38の全三十八に属することを証明した。可換冪の実canonical toric arc、十七QQ etale source、十六の単元Jacobian付き正のHensel sourceを独立監査した。全域CA/CB所属と合わせ少なくとも四十既知成分が全Qaを通る。新成分の追加や全枝の尽くしではなく、全体の下界57は変わらない。
+
+全非零Qaでは個別CA/CB/Nの全pinched完成環をaだけの反転で決定し、共鳴a2/9も含めた。実交叉Dの全218関係・colonを保つ有限target平行移動も得て、Q1の主平方零nilradical、smooth20次元embedded prime、depth20を全非零Qaへ延長した。a0の全型と全Poisson枝は残る。
+
+R19のgeneric B16軌道の全完成像はC[[u16,t,r,c,p²,pr,pt]]、quadric normalizer r²−25t²−2cp=0を持ち、dim19,edim22,depth18,mult3である。B16の全特殊点や実R∩Nの厚みへは延長しない。
+
+全重み六閉切断は二special軸a=±8/9を持つ厳密primary idealで、totalはCM一次元、special fiberはdepth0。負軸は実T40。非平方では短いQQ単元pivotと有界次数lift不能を独立確認し、v8/J0の続行証拠も保存する。全各点rank・四次被覆、一般アフィン五点の全支持の尽くし、全大域primary分解は未解決である。
+
+障害後に同じworkspaceへ復旧し、開始時main64c5c455から緊急引継ぎ1986a0ecを確認してfast-forwardした。M2 1.24.11/default QQ GB、FLINT3.1.0、SymPy1.14.0を軽量再確認し、セットアップは再実行していない。二度目の短い接続断も復旧した。新成果の通常commit/push後も研究を続ける。
+
 ## v63 全Rのnormal/CM locusとRat113の実prime
 
 直前保存 `b5545eeadc928bb5a0cb11cb2d9906f7113eedc2` は通常push済み。

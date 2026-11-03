@@ -1,0 +1,10 @@
+A=QQ[a,ainv,W1,W2,eta]/(a*ainv-1);
+m=ideal(W1,W2,eta); g=(9*a-8)*(9*a+8);
+I=ideal(W1^2,W1*W2,W2^2,W1*eta,W2*eta,g*eta^2);
+assert(I==intersect{m^2,ideal(9*a-8,W1,W2),ideal(9*a+8,W1,W2)});
+N=ideal(W1,W2,g*eta); assert(isSubset(N^2,I)); assert(dim(A/I)==1);
+R=QQ[u,x,y,z]; J=ideal(x^2,x*y,y^2,x*z,y*z,u*z^2);
+assert(dim(R/J)==1); assert(pdim(coker gens J)==3); assert(degree(R/J)==5);
+S=QQ[x,y,z]; K=ideal(x^2,x*y,y^2,x*z,y*z);
+assert(dim(S/K)==1); assert(pdim(coker gens K)==3);
+print "PRIMARY_AND_LOCAL_MULTIPLICITY_PASS"; exit 0;

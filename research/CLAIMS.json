@@ -12744,6 +12744,372 @@
         "必要条件の消失だけではなく、実toric boundaryを通る全arcの十分条件を使う。",
         "絶対既約性、局所枝の尽くし、他成分への非帰属、新しい成分数は主張しない。"
       ]
+    },
+    {
+      "id": "R19_GENERIC_B16_QUADRIC_PINCHED_COMPLETION",
+      "title_ja": "B16一般軌道の全R完成環",
+      "statement_ja": "B16の稠密開軌道で全RhatはC[[u16,t,r,c,p²,pr,pt]]、normalizerはC[[u16,p,t,r,c]]/(r²−25t²−2cp)。dim19,edim22,depth18,mult3のanalytic domainで、normalization fiberは一点長2。商はC[[u16,p²]]p、conductorはnormalizer内(t,r,c)、target内(t,r,c,pr,pt)、被約B18のidealは(t,pt)である。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "R19_GLOBAL_PROPER_QUADRIC_AND_BOUNDARY_B18"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_R19_B16_COMPLETED_IMAGE_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_R19_B16_COMPLETED_IMAGE_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_R19_B16_COMPLETED_IMAGE_20261103_v63/report.json",
+        "reports/AMBIENT_R19_B16_COMPLETED_IMAGE_20261103_v63_REVIEW.json"
+      ],
+      "limitations_ja": [
+        "B16の全特殊点、実CA/CB交叉の境界厚み、全Poisson完成環へ延長しない。"
+      ]
+    },
+    {
+      "id": "Q_ALL_A_FOUR_EXTENDED_MPS_ARCS",
+      "title_ja": "全Qaの四toric成分への実arc",
+      "statement_ja": "可換tracefree冪に二つの消える項を加えた全150係数のcanonical多項式arcを構成した。全QaはT02,T03,T16,T17へ入り、admissible period恒等式とa像の密度、成分の閉性によりa0を含む全有限aで成立する。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "Q_ALL_A_ACTUAL_T01_MEMBERSHIP",
+          "MPS40"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/Q_MPS_EXTENDED_TORIC_ARCS_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/Q_MPS_EXTENDED_TORIC_ARCS_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/Q_MPS_EXTENDED_TORIC_ARCS_20261103_v63/report.json",
+        "reports/Q_MPS_EXTENDED_TORIC_ARCS_20261103_v63_REVIEW.json"
+      ],
+      "limitations_ja": [
+        "既知成分への所属であり、新成分や全局所枝の尽くしではない。"
+      ]
+    },
+    {
+      "id": "Q_ALL_A_SEVENTEEN_QQ_ETALE_MPS_ARCS",
+      "title_ja": "十七QQ sourceから全Qaのtoric帰属",
+      "statement_ja": "T04–T15,T18–T21,T28の全period方程式を満たす十七の厳密QQ点と非rho Jacobian単元を構成した。代数的陰函数定理によるrho上etaleな実source曲線とcanonical toric arc、a像の密度・閉性から全有限Qaが各実成分に入る。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "Q_ALL_A_FOUR_EXTENDED_MPS_ARCS"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/Q_MPS_IMPLICIT_TORIC_ARCS_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/Q_MPS_IMPLICIT_TORIC_ARCS_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/Q_MPS_IMPLICIT_TORIC_ARCS_20261103_v63/report.json",
+        "reports/Q_MPS_IMPLICIT_TORIC_ARCS_20261103_v63_REVIEW.json"
+      ],
+      "limitations_ja": [
+        "有限jetの外挿ではない。全次数存在はetale定理による。"
+      ]
+    },
+    {
+      "id": "Q_ALL_A_SIXTEEN_POSITIVE_HENSEL_MPS_ARCS",
+      "title_ja": "十六の正のHensel証人から全Qa帰属",
+      "statement_ja": "T22–T27,T29–T38の全五period式と五非rho変数JacobianをFpで厳密に検証し、Henselと形式陰函数定理からrhoを優越する標数零の実sourceを得た。全次数canonical arcと閉性により全有限Qaが十六成分の各々に入る。p8 Newton更新も独立に監査した。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "Q_ALL_A_FOUR_EXTENDED_MPS_ARCS"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/Q_MPS_HENSEL_TORIC_ARCS_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/Q_MPS_HENSEL_TORIC_ARCS_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/Q_MPS_HENSEL_TORIC_ARCS_20261103_v63/report.json",
+        "reports/Q_MPS_HENSEL_TORIC_ARCS_20261103_v63_REVIEW.json"
+      ],
+      "limitations_ja": [
+        "正の単元Jacobian付き存在を使用する。有限体の空性や有限精度から標数零へ外挿しない。"
+      ]
+    },
+    {
+      "id": "Q_ALL_A_THIRTY_EIGHT_MPS_FORTY_COMPONENTS",
+      "title_ja": "全Qaを通る三十八toric成分と計四十成分",
+      "statement_ja": "独立検証した四分割の和は正確にT01–T38の全三十八成分を覆う。CA,CBへの全域liftと合わせ、a0を含む全有限Qaを少なくとも四十個の相異なる実既約成分が通る。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "Q_ALL_A_ACTUAL_T01_MEMBERSHIP",
+          "Q_ALL_A_FULL_POISSON_NON_CM",
+          "Q_ALL_A_FOUR_EXTENDED_MPS_ARCS",
+          "Q_ALL_A_SEVENTEEN_QQ_ETALE_MPS_ARCS",
+          "Q_ALL_A_SIXTEEN_POSITIVE_HENSEL_MPS_ARCS"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/Q_ALL_TORIC_MPS_COMPONENTS_20261103_v63.md"
+        }
+      ],
+      "verification_records": [
+        "reports/Q_ALL_TORIC_MPS_COMPONENTS_20261103_v63.json"
+      ],
+      "limitations_ja": [
+        "局所枝の尽くし、総成分数の増加、一般betaの五点尽くしではない。"
+      ]
+    },
+    {
+      "id": "Q_MPS_CYCLE_EXTENDED_SOURCE_OBSTRUCTION",
+      "title_ja": "cycle toric arc sourceの必要条件を厳密決定",
+      "statement_ja": "全240標識を24period線形式へ減らし、全補小行列とBezout恒等式をQQで検証した。このextended arcのadmissible sourceがT39を与えるならa2/9、T40ならa−8/9が必要である。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "Q_ALL_A_FOUR_EXTENDED_MPS_ARCS"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/Q_MPS_CYCLE_SOURCE_OBSTRUCTION_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/Q_MPS_CYCLE_SOURCE_OBSTRUCTION_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/Q_MPS_CYCLE_SOURCE_OBSTRUCTION_20261103_v63/report.json",
+        "reports/Q_MPS_CYCLE_SOURCE_OBSTRUCTION_20261103_v63_REVIEW.json"
+      ],
+      "limitations_ja": [
+        "このsourceの必要条件だけであり、全成分からの非所属やa0の全境界を判定しない。"
+      ]
+    },
+    {
+      "id": "Q_CA_CB_N_ALL_A_SOURCE_SMITH",
+      "title_ja": "全QaのCA/CB/N source微分をSmith決定",
+      "statement_ja": "QQ[a]の全150係数source微分に対し、Smith変換と両単元行列式を照合した。affine image rankはCA28,N27が全aで一定、CBはa非零で28,a0で27となる。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "Q_ALL_A_FULL_POISSON_NON_CM"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/Q_CA_CB_N_SOURCE_SMITH_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/Q_CA_CB_N_ALL_A_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/Q_CA_CB_N_SOURCE_SMITH_20261103_v63/report.json",
+        "reports/Q_CA_CB_N_ALL_A_20261103_v63_REVIEW.json"
+      ],
+      "limitations_ja": [
+        "source微分のrankでありtarget接空間やnormalityを直接は決めない。"
+      ]
+    },
+    {
+      "id": "Q_CA_CB_N_ALL_NONZERO_FULL_PINCHED_COMPLETIONS",
+      "title_ja": "全非零Qaの個別成分の完成環",
+      "statement_ja": "aだけを反転して全proper flag fiberと全source/targetを比較し、全非零QaでCA,CBはA8に九正則因子、NはA7に九正則因子を持つと証明した。Ac=C[[u10,s_c,p²,p³,s_i*p]]。全projective次元28/28/27、edim37/37/35、depth20,mult2、normalizer fiber長2のdomainで、a2/9も含む。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_CA_CB_COMPONENT_PINCHED_COMPLETIONS",
+          "Q_CA_CB_N_ALL_A_SOURCE_SMITH"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/Q_CA_CB_N_ALL_NONZERO_COMPLETED_MODELS_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/Q_CA_CB_N_ALL_A_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/Q_CA_CB_N_ALL_NONZERO_COMPLETED_MODELS_20261103_v63/report.json",
+        "reports/Q_CA_CB_N_ALL_A_20261103_v63_REVIEW.json"
+      ],
+      "limitations_ja": [
+        "a0の全型や全Poisson環の型は主張しない。conductorはnormalizer内(s_i,p²)、targetへの縮約ではp³,s_i*pも含む。"
+      ]
+    },
+    {
+      "id": "Q_CA_CB_ACTUAL_INTERSECTION_ALL_NONZERO_TRANSLATION",
+      "title_ja": "全非零Qaで実交叉の平方零とembedded層を決定",
+      "statement_ja": "CA/CB両sourceに共通な有限変換k0+=λ,k2−=pλ,k5+=p²λ/3が全61targetでu38だけを平行移動する。全218関係,F,Gと45colonはそのtargetに独立で、Q1の実交叉完成表示を全非零Qaへ移した。nilradical=(F),F²0,F非零、全projective nilmodule=C[[u20]]F、associated primesはNとsmooth20次元embedded層の正確に二つ、depth20。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "Q_CA_CB_INTERSECTION_EXACT_LOCAL_RING",
+          "Q_CA_CB_N_ALL_NONZERO_FULL_PINCHED_COMPLETIONS"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/Q_CA_CB_ACTUAL_INTERSECTION_TRANSLATION_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/Q_CA_CB_N_ALL_A_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/Q_CA_CB_ACTUAL_INTERSECTION_TRANSLATION_20261103_v63/report.json",
+        "reports/Q_CA_CB_N_ALL_A_20261103_v63_REVIEW.json"
+      ],
+      "limitations_ja": [
+        "環の分裂、a0、全大域primary分解は主張しない。"
+      ]
+    },
+    {
+      "id": "S61_NONSQUARE_BOUNDED_UNIT_PIVOT_AND_OBSTRUCTION",
+      "title_ja": "非平方の有効単元pivotと有界lift不能",
+      "statement_ja": "薄14×46行列の指定行aJを次数3の154項QQ係数で持ち上げた。非零QQ定数係数の列置換により厳密13×45残余を得た。別の強い標的の次数5以下liftは、全11302×2577係数行列の選択2577正方小行列を別素数32003でfull rankと独立検証しQQで不存在を証明した。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_NONSQUARE_CUBIC_ROW_MODULE_FREE57"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_BINARY_NONSQUARE_BOUNDED_UNIT_LIFT_20261103_v62.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_NONSQUARE_BOUNDED_UNIT_LIFT_20261103_v62_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_BINARY_NONSQUARE_BOUNDED_UNIT_LIFT_20261103_v62/report.json",
+        "reports/S61_BINARY_NONSQUARE_BOUNDED_UNIT_LIFT_20261103_v62_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "有界次数内の不能であり全lift不能ではない。全各点rank、自由ambient coker、全四次被覆は未取得。"
+      ]
+    },
+    {
+      "id": "Q_GLOBAL_WEIGHT6_TWO_AXES_EXACT_PRIMARY_MODEL",
+      "title_ja": "重み六閉切断の二special軸と厳密primary分解",
+      "statement_ja": "a非零の全37模型の重み六三座標閉切断を全350式の両向き恒等式から(W1,W2)*(W1,W2,eta)+((9a−8)(9a+8)*eta²)と決定した。全primaryはm²,(9a−8,W1,W2),(9a+8,W1,W2)の交叉、totalにembeddedなし、nilradical平方零かつa軸上自由3、total次元1のCM、crossing多重度5。負軸は実T40に一致する。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "Q_ALL_A_EXACT_FINITE_MODELS_37_35"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/Q_GLOBAL_WEIGHT6_TWO_AXES_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/Q_GLOBAL_WEIGHT6_TWO_AXES_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/Q_GLOBAL_WEIGHT6_TWO_AXES_20261103_v63/report.json",
+        "reports/Q_GLOBAL_WEIGHT6_TWO_AXES_20261103_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "special fiberにはembedded originがありdepth0。閉切断から親全R37の非平坦性や全枝は推論しない。正軸の全成分帰属は別課題。"
+      ]
     }
   ],
   "setup_checkpoint": "v25-setup",
