@@ -2,6 +2,24 @@
 
 Version: v63-s61 · 2026-11-03 (Asia/Tokyo).
 
+Latest N: NEW25 GENERIC FULL SCHEME TRANSVERSE LENGTH EXACT5.
+At n111 FULLprojective completion C[[s25,u,v]]/(uv,u^3,v^3), CMtype2,
+nilcube0, reducedcomponent smoothTHERE; globalnormality/boundariesOPEN.
+Proof: actualR26section +closedfiber5 upper +genericedim2/quadrank1 lower
+=>freeR5. N/N² freeFIRST, thenN² free, nondegenerateq=>uv. NoTor shortcut.
+FULL350 genericJacrank98, augmented99, universal2polynormal independently
+audited. PositiveaxisFULLscheme NONCM edim8/dim3/e<=5; NOTreducedclaim.
+NewD3H+smoothQ tangent; Jordan311, genericorbit23/Ga, 2paramcover ONLY
+withcorrectz-hshear. Fullfiniteequivalence stillOPEN. Firstjetimage15,
+hypersurfaceDEGREE>=16; equation/fibertypeOPEN. Full52denseS61maps now
+frozen, old51 immutable. New14p separatepaper registeredv63indexONLY.
+Positiveaxis excludesHquartic andT21:17oldrank4 exclusions; othersOPEN.
+J0indep37pivots20x54, author39pivots18x52; notfinite/coker/quarticproof.
+EntireFULLcubicdefect dim<=1 alreadyknown; J0finite needsno badcurve
+containedJ0, notcheckingheavyYalone. NonsquareadFBCJ productrank>=35
+ALLpoints exactshadow, no full41claim. GLOBALlower58/R4lower52/uppernull.
+Continueactualwork andordinarymainpush; doNOTstopatcheckpoint.
+
 Latest M: NEW ACTUAL fullcomponent R4_POSITIVE_WEIGHT6_25 EXACT25D.
 Unconstrained3-normal finitegraph (dropauxN²) ALL140/350Jac QQzero,
 canonical GL+scalar+3family RANK26. Independentlyaudited FULLambient
