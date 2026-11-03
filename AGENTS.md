@@ -2,6 +2,17 @@
 
 Version: v63-s61 · 2026-11-03 (Asia/Tokyo).
 
+Latest I: EXACTglobalR37 polynomialALLa, R35 onlya inv, R34 onlya(9a−2)
+inv COMPLETED. FULL350/150, finitepositiveweightedelimination; nojets.
+Full126actionJac INCLUDES Bprime*w, reorderedconstantunit20480/531441.
+ALLQa ACTUALT01 tangent>=30affine/29projective, ALLsingular; no2branchclaim.
+GeneralS61 exactmonic5/5x675 onexplicitnonemptyfinite-recipeopen;
+normlocalizedactualschemeKNOWNfree5, complementH0/cyclicoutside OPEN.
+TRUEordinaryinitial_eta=P_T39_eta EXACT, reducedsmoothGm*A8.
+J=(57Q,17G) contains TWO15Dcones (indeedlinearplanes in savedgraphs),
+soANY12linear sectionJ hasdim>=3: ArtiniantargetIMPOSSIBLEusingJalone.
+NOactualfullmodel lower15. SeekNEWtruequarticinitials oneta0, notsameGB.
+
 Latest H: ENTIRE physicalQa forALLfinite complexa incl0 liesACTUALT01,
 via explicitregularnilpotent powers+tracefree canonical polynomialarc.
 AllQa FULLPoisson/reducedcompletion NONCM byT01(25),CA/CB(28); notallbranches.

@@ -1,0 +1,28 @@
+{
+  "chosen_original_residual": 0,
+  "high_coefficient_block": {
+    "rows": "coefficients s^5,...,s^2055",
+    "first_columns": "s^j*chi, 0<=j<1025",
+    "second_columns": "s^j*r0,0<=j<1026",
+    "size": 2051,
+    "nonzero_determinant_witness_cofactor_resultant": 16461
+  },
+  "monic_relation": "Solve highblock*(u,v)=e_s5; g=u*chi+v*r0 is monic degree5",
+  "exact_module_presentation_shape": [
+    5,
+    675
+  ],
+  "retained_residuals": "rem_g(chi), rem_g(F1(P)),...,rem_g(F134(P))",
+  "normal_recognition_recipe": [
+    "Y1=1, yk=Y_(k+1)-v_(k+1)/v1",
+    "F=R[s]/g, F0=Rbeta[s]/g_at_y0; shrink beta by Disc(g0) and Norm(det(C*Jac_original))",
+    "B=last16rows((C*Jac_original)^(-1)*C) overF0; lift its degree<5 coefficients toF",
+    "rj=sum_i Bji*rem_g(Fi(P)), divide coefficientwise by y using telescoping after clearing unit denominators",
+    "rj=sum_k Mjk*yk, M_at_y0=I16; invert Norm_F/R(det M)",
+    "Then residualideal=(y), C=F0, t=1/v1; affine chart is the knownfive algebra"
+  ],
+  "global_open": "Product of setup minors, Y1, cyclicDelta, highblockdet, Disc(g), Norm(t), Jacobian norm, denominator norms, Norm(detM)",
+  "all_open_factors_are_units_at_known_five": true,
+  "complement_resolved": false,
+  "generic_coefficients_representation": "Exact finite inverses and norm recipes; no expanded generic coefficient table"
+}
