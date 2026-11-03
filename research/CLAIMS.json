@@ -15955,6 +15955,344 @@
       "limitations_ja": [
         "actual所属・unitは未取得。新EulerRed circuit版に対する次数で、旧hash-pinned circuitsは改変しない。有限体の零やunitをQQへ外挿した証明ではない。"
       ]
+    },
+    {
+      "id": "AMBIENT_B18_CA_CB_CONDUCTOR_DIMENSION20_INITIAL_UPPER4",
+      "title_ja": "両conductorの正確な次元20と初期重複度上界4",
+      "statement_ja": "七actual regular odd constraintをIFTで解いたminimal S22について、intrinsic conductorへのG19作用のderivationを持ち上げ、全二次式と三次class modulo Qがg19と独立であることを証明した。真二次WU/WVと真三次U³非零を結び、全initialはHilbert–Burch CM ideal(WU,WV,U(aU²+bUV+cV²))を含む。両conductorはdim20/edim22、重複度≤4。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "AMBIENT_B18_CA_CB_ACTUAL_ODD_CUBIC_TEN_CLASSES"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_B18_CONDUCTOR_DIMENSION20_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_B18_CONDUCTOR_DIMENSION20_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_B18_CONDUCTOR_DIMENSION20_20261103_v63/report.json",
+        "reports/AMBIENT_B18_CONDUCTOR_DIMENSION20_20261103_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "この上界packetだけではfull ideal、CM、重複度等号を主張しない。unknown binary coefficientsは後続の別認識結果を待つ。"
+      ]
+    },
+    {
+      "id": "AMBIENT_CA_ORIGIN_FULL_CONDUCTOR_MULTIPLICITY4_CM",
+      "title_ja": "CA原点conductorの全初期・十生成元と正確な深さ",
+      "statement_ja": "critical W/Vのgeneric長1ずつと、実CA自己旗のdense20次元族でmeeting edim21/dim20から得るgeneric長≥2をintrinsic gluingで同定した。重複度associativityと上界4が一致し、unmixed CM初期模型への非零kernelは不可能。従って全initial等号、conductor CM20/e4/type2、actual odd idealは指定十行で生成。CA cone29/edim39/depth21/e2、projective28/38/depth20。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "AMBIENT_B18_CA_CB_CONDUCTOR_DIMENSION20_INITIAL_UPPER4",
+          "AMBIENT_CA_GENERIC_SELF_PAIR_TWO_SMOOTH_BRANCHES_NON_CM",
+          "AMBIENT_CA_GENERIC_V_FULL_ACTUAL_COMPLETION",
+          "AMBIENT_B18_GENERIC_W_FULL_ACTUAL_COMPLETIONS"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_CA_ORIGIN_CONDUCTOR_MULTIPLICITY4_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_CA_ORIGIN_CONDUCTOR_MULTIPLICITY4_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_CA_ORIGIN_CONDUCTOR_MULTIPLICITY4_20261103_v63/report.json",
+        "reports/AMBIENT_CA_ORIGIN_CONDUCTOR_MULTIPLICITY4_20261103_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "混合binary cubicの係数・高次analytic normal form、actual D原点の全環は本packetでは決めない。被約CAの結果でありfull Poisson環のCM性ではない。"
+      ]
+    },
+    {
+      "id": "AMBIENT_CB_ACTUAL_NEW_POLYNOMIAL_SELF_PAIR",
+      "title_ja": "別の実多項式族によるCB自己旗枝",
+      "statement_ja": "Q_b=P0−b(2C[1]+C[9])について二つのactual CB sourceを全150係数でQQ(b)上に構成した。全ratio*f混合項を保った両29微分、全58方向の同一点pushback、GL+db image20を独立監査した。全proper fiber長2開により一般bのCBは正確に二つのsmooth29枝、cross union37/intersection21、projective depth≤21で非CM。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_CB_ORIGIN_POLYNOMIAL_SELF_PAIR_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_CB_ORIGIN_POLYNOMIAL_SELF_PAIR_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_CB_ORIGIN_POLYNOMIAL_SELF_PAIR_20261103_v63/report.json",
+        "reports/AMBIENT_CB_ORIGIN_POLYNOMIAL_SELF_PAIR_20261103_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "旧P_a族のCB一旗とは別の族。rank2の自己旗枝であり、新Poisson成分や全原点idealをこの構成だけから主張しない。"
+      ]
+    },
+    {
+      "id": "AMBIENT_CB_ORIGIN_FULL_CONDUCTOR_MULTIPLICITY4_CM",
+      "title_ja": "CB原点conductorの全初期・十生成元と正確な深さ",
+      "statement_ja": "独立受理した新Q_b族の二つのCB sourceとdense20次元meetingを使い、CB専用にgeneric自己成分長≥2を得た。critical W/V長1ずつと上界4の一致から全initial等号、conductor CM20/e4/type2、actual十生成元を証明した。CB cone29/edim39/depth21/e2、projective28/38/depth20。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "AMBIENT_B18_CA_CB_CONDUCTOR_DIMENSION20_INITIAL_UPPER4",
+          "AMBIENT_CB_ACTUAL_NEW_POLYNOMIAL_SELF_PAIR",
+          "AMBIENT_CB_GENERIC_V_FULL_ACTUAL_COMPLETION",
+          "AMBIENT_B18_GENERIC_W_FULL_ACTUAL_COMPLETIONS"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_CB_ORIGIN_CONDUCTOR_MULTIPLICITY4_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_CB_ORIGIN_CONDUCTOR_MULTIPLICITY4_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_CB_ORIGIN_CONDUCTOR_MULTIPLICITY4_20261103_v63/report.json",
+        "reports/AMBIENT_CB_ORIGIN_CONDUCTOR_MULTIPLICITY4_20261103_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "CAの自己旗族をCBへ流用していない。高次analytic normal formとactual D原点は別課題。"
+      ]
+    },
+    {
+      "id": "AMBIENT_PA_ALL_NONZERO_WHOLE_CA_CB_N_FLAGS",
+      "title_ja": "P_a全非零parameterでの全CA/CB/N旗",
+      "statement_ja": "全proper endpointの被覆、constant Casimir除外、intrinsic factorの一意性と全三Darboux線形形式を使い、全a≠0で全CA fiberは二被約旗、CB/Nは一被約旗と決定した。両CAはsmooth29形式枝、CB smooth29、N smooth28。CAは全a≠0で非正規・非CM、cone depth≤22。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "AMBIENT_CA_ACTUAL_POLYNOMIAL_ORDINARY_SELF_PAIR",
+          "AMBIENT_CA_SELF_PAIR_ENTIRE_LINE_ACTUAL_N_AND_CB"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_CA_SELF_PAIR_ALL_NONZERO_FLAGS_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_CA_SELF_PAIR_ALL_NONZERO_FLAGS_20261103_v63_REVIEW.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_CA_SELF_PAIR_CB_WHOLE_FIBER_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_CA_SELF_PAIR_CB_WHOLE_FIBER_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_CA_SELF_PAIR_ALL_NONZERO_FLAGS_20261103_v63/report.json",
+        "reports/AMBIENT_CA_SELF_PAIR_ALL_NONZERO_FLAGS_20261103_v63_REVIEW.json",
+        "reports/AMBIENT_CA_SELF_PAIR_CB_WHOLE_FIBER_20261103_v63/report.json",
+        "reports/AMBIENT_CA_SELF_PAIR_CB_WHOLE_FIBER_20261103_v63_REVIEW.json"
+      ],
+      "limitations_ja": [
+        "有限個candidateの失敗からの尽くしではなく全proper coverageを使用。a0の原点型は別。"
+      ]
+    },
+    {
+      "id": "AMBIENT_QB_ALL_NONZERO_WHOLE_CA_CB_N_FLAGS",
+      "title_ja": "Q_b全非零parameterでの全CA/CB/N旗",
+      "statement_ja": "新Q_b族でも全proper endpointを被覆し、全b≠0でCB二被約旗、CA/N一被約旗を独立に証明した。CBは二つのsmooth29枝、cross union37/intersection21で非CM。CA smooth29、N smooth28が全b≠0で成立する。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "AMBIENT_CB_ACTUAL_NEW_POLYNOMIAL_SELF_PAIR"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_CB_SELF_PAIR_ALL_NONZERO_FLAGS_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_CB_SELF_PAIR_ALL_NONZERO_FLAGS_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_CB_SELF_PAIR_ALL_NONZERO_FLAGS_20261103_v63/report.json",
+        "reports/AMBIENT_CB_SELF_PAIR_ALL_NONZERO_FLAGS_20261103_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "P_aの全旗結果と区別する。全成分や原点analytic型の分類ではない。"
+      ]
+    },
+    {
+      "id": "AMBIENT_CA_SELF_PAIR_MEETING_DOUBLE_ENTIRE_COMPLETION",
+      "title_ja": "CA二枝のdouble meetingと全81関係",
+      "statement_ja": "P1で全150係数の独立な有限5×5 curveを使い、共有接方向の真二次差Lとell(L)=−5/12を得た。dense smooth20族沿いの接次元21からmeeting idealは(rho²)である。全fiber-product kernelはuv、u*tau、v*(tau−rho²)、tau*(tau−rho²)の81関係で尽くされる。CA cone29/edim38/depth21/e2、projective28/37/depth20/e2、normalizationは二正則29環の積。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "AMBIENT_CA_GENERIC_SELF_PAIR_TWO_SMOOTH_BRANCHES_NON_CM"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_CA_SELF_PAIR_MEETING_DOUBLE_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_CA_SELF_PAIR_MEETING_DOUBLE_20261103_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "P1のunit近傍と対応する族の開。全aで二次unit、a0原点、actual CA/CB Dの型はこのpacketだけでは主張しない。"
+      ]
+    },
+    {
+      "id": "AMBIENT_CA_SELF_PAIR_ACTUAL_D_TRUE_TWOJET_NONREDUCED",
+      "title_ja": "真二次差によるactual Dの非被約性",
+      "statement_ja": "QQ(a)上で全150行のJ1/J2/CBを揃え、rank30/38/37と真二次差を加えたrank38・CB込みrank38を独立検証した。actual CA idealの両curveへの二次差からwhole CA tangentがCB tangentを含む。N smoothはB18を除外するのでD_red=N、actual Dはcone28/edim29、projective27/28で非被約。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "AMBIENT_PA_ALL_NONZERO_WHOLE_CA_CB_N_FLAGS",
+          "AMBIENT_CA_SELF_PAIR_MEETING_DOUBLE_ENTIRE_COMPLETION"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_CA_SELF_PAIR_ACTUAL_D_TWOJET_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_CA_SELF_PAIR_ACTUAL_D_TWOJET_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_CA_SELF_PAIR_ACTUAL_D_TWOJET_20261103_v63/report.json",
+        "reports/AMBIENT_CA_SELF_PAIR_ACTUAL_D_TWOJET_20261103_v63_REVIEW.json"
+      ],
+      "limitations_ja": [
+        "QQ(a)の非空開とG飽和。単一標本の外挿ではない。このpacketだけではnil長や全D idealを主張しない。"
+      ]
+    },
+    {
+      "id": "AMBIENT_CA_SELF_PAIR_ACTUAL_D_FULL_EMBEDDED_COMPONENT",
+      "title_ja": "actual D全完成環と新embedded associated成分",
+      "statement_ja": "二CA枝の全81 kernel、CBのclean N/S交叉、S全体での真接空間条件を結び、全ambient equationを含む両ideal包含からD_hat=C[[s20,u8,f]]/(f²,fu8)を証明した。nilradicalはC[[s20]]f、square-zero、primary decompositionは(f)∩(f²,u8)。cone28/edim29/depth20/e1、projective27/28/depth19/e1。Sの代数的閉包はglobal actual Dのembedded associated成分(cone20/projective19)で、minimal R19と異なる。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "AMBIENT_CA_SELF_PAIR_ACTUAL_D_TRUE_TWOJET_NONREDUCED",
+          "AMBIENT_CA_SELF_PAIR_MEETING_DOUBLE_ENTIRE_COMPLETION"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_CA_SELF_PAIR_ACTUAL_D_FULL_RING_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_CA_SELF_PAIR_ACTUAL_D_FULL_RING_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_CA_SELF_PAIR_ACTUAL_D_FULL_RING_20261103_v63/report.json",
+        "reports/AMBIENT_CA_SELF_PAIR_ACTUAL_D_FULL_RING_20261103_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "P_aの非空unit開とG飽和の全型。B18原点、全global primary decomposition、Q_b側の別embedded成分は未決。新しいfull Poisson成分は数えない。"
+      ]
+    },
+    {
+      "id": "AMBIENT_B18_CA_CB_EXACT_INITIAL_BINARY_CUBICS",
+      "title_ja": "両conductorの初期binary cubicを完全認識",
+      "statement_ja": "全actual物理P_a/Q_bを原点で微分し、G19+WUVのminimal22方向へ全29式で分解した。自己成分の接方向はCAでV=3U、CBでV=U/9。三smooth supportのtangent-cycle長1,1,2と既証の全初期等号から、cubicはCA (12/125)U(U−V/3)²、CB (−4/243)U(U−9V)²と正確に決まる。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "AMBIENT_CA_ORIGIN_FULL_CONDUCTOR_MULTIPLICITY4_CM",
+          "AMBIENT_CB_ORIGIN_FULL_CONDUCTOR_MULTIPLICITY4_CM"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_ORIGIN_BINARY_CUBIC_RECOGNITION_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_ORIGIN_BINARY_CUBIC_RECOGNITION_20261103_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "七actual constraintを消したminimal quotientの全graded initial。高次formal normal form、CA/CB相対embedding、原点actual Dはまだ含めない。"
+      ]
     }
   ],
   "setup_checkpoint": "v25-setup",

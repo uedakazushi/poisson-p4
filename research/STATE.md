@@ -1,5 +1,21 @@
 # 研究状態 — v63-s61 / 2026-11-03
 
+## v63 U: 両原点conductorとactual Dのembedded成分
+
+直前保存 main `b1f02523f7485255f5670c28cee4905367b8aa80` は通常push済み。以下は過去時点を含む。
+
+generic B18原点の個別被約CA/CBで、conductor quotientの全初期idealと十生成元を証明した。七actual constraintのIFTとintrinsic G19作用からdim20/edim22/e≤4を得て、critical W/Vの長1ずつと実自己旗成分の長≥2をmultiplicity associativityで合わせた。e=4となり、unmixed CM初期模型からの非零kernelが排除される。両conductorはCM20/type2、actual Iは十行で生成される。個別CA/CB imageはcone29/edim39/depth21/e2、projective28/38/depth20。高次analytic normal formやB18原点actual Dの全環はまだ決めていない。
+
+初期binary cubicも両方で正確に認識した。CAは(12/125)U(U−V/3)²、CBは(−4/243)U(U−9V)²であり、未知だった三次係数は解消した。これは全graded initialの認識で、高次formal normal formは別課題である。
+
+新しい別族Q_bでCBの実自己旗二枝も全150係数と全微分で独立構成した。全proper旗被覆を両族で完了し、全非零parameterでP_aはCA二旗・CB/N一旗、Q_bはCB二旗・CA/N一旗となる。一旗側のCA/CBはsmooth29、Nはsmooth28。両族を取り違えず、成分数は増やさない。
+
+P_a側CAの二枝のmeetingを真二次差からC[[s20,rho]]/(rho²)と決定し、全81関係で全CA完成環を提示した。generic unit近傍でcone29/edim38/depth21/e2、projective28/37/depth20/e2。二枝接空間の和37だけをwhole embedding dimensionとする以前の誤りは使わない。
+
+さらにactual CA/CB交叉Dを同じ開で全次数で決定した。QQ(a)の全150真二次差でT_CB⊂T_CAを証明し、全81 kernelのCB制限とS全体の接空間条件から全idealがf*(f,u8)となる。D_hat=C[[s20,u8,f]]/(f²,fu8)、nil module=C[[s20]]f、associated primesはminimal Nとembedded S20の二つ。projective Dはdim27/edim28/depth19/e1。Sの閉包はglobal actual Dの新しいembedded associated成分(projective19)で、既知minimal R19とは異なる。B18原点や全primary分解へは広げない。
+
+一般beta残余の実scalar所属delta_E∈J0、QQ product41/全57/四次被覆は継続中。raw e0のGF certificateは原wrapperの誤りと独立全24式確認を分離して保存した。三既存fieldのcofactor復元はQQ候補に至らず停止し、有限体結果をQQへ外挿しない。総下界58/rank4下界52、総上界未定。Cloud環境の短い再起動後も作業fileは保存され、セットアップ全体はやり直していない。
+
 ## v63 T: 実CA自己旗枝・一般点の全枝、次数20とactual scalar target
 
 直前保存 main `3233e823d0f23551ca52bb319d5354bf8e719602` は通常push済み。以下は過去時点を含む。

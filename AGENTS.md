@@ -2,6 +2,24 @@
 
 Version: v63-s61 · 2026-11-03 (Asia/Tokyo).
 
+Latest U: BOTHCA/CB genericB18originconductor FULLINITIAL=I0 HB CMcurve,
+dim20/edim22/e4/type2, EXACT10actualoddgenerators. Actualindividualimage
+cone29/edim39/depth21/e2; projective28/38/depth20/e2. Higheranalytic
+normalform NOTidentified, originactualD STILLopen. Exactinitialcubic CA
+(12/125)U(U−V/3)^2, CB(−4/243)U(U−9V)^2; highertermsOPEN. Intrinsicgluing needed.
+NEWactualQbCBselfpair distinctfromPa, bothQQ(b)fullsources/Jacindep.
+WHOLEproperflags ALLnonzeroparameters: PaCA2/CB1/N1; QbCA1/CB2/N1.
+OneflagCA/CBsmooth29,Nsmooth28, twobranchfamiliesNONCM.
+PaCAmeeting C=doubleS20; WHOLE81fiberproductkernel. Genericunitopen
+CAcone29/edim38/depth21/e2 (NOT37fromtangentunion), proj28/37/20/e2.
+ActualDgenericPa FULLCOMPLETION C[[s20,u8,f]]/(f²,fu8), twoinclusions
+useALL-S tangent+actual81kernel; cone28/29/depth20/e1, proj27/28/19/e1.
+Nil=C[[s20]]f squarezero, Ass minimalN+embeddedS20; globalembedded
+selfpairclosureproj19 DISTINCTminimalR19. NOa0/allglobalprimaryclaim.
+Generalbetaδmembership, QQ41/full57/quartic stillOPEN. GF e0wrapper
+invalidchecks preserved+indepALL24identities, NOQQpromotion. Lower58/r4lower52.
+Continueactualresearch and ordinarymainpush.
+
 Latest T: ACTUALCA ordinarypolynomialselfpair ALL150 QQ[a],rank2allpoints.
 FullCAfinitefiber EXACTtwo reducedflags genericPa; bothsource29immersed,
 two smooth29formalbranches, meetingedim21/dim20..21, depthCA<=22cone,
