@@ -8,6 +8,28 @@ v62保存は `e187b40de68bce534391f406f616940cddd045a7`、
 `66a80ab53dfcf0ff842c67140320d8da0226039d`。全て通常push済み。
 このv63保存のSHAはGit履歴で識別する。
 
+## v63 Y: 実接触長4・被約交叉の全gluing・半正規化
+
+直前保存 main `57457c3acc785101d6a66e23aa6f8b95635458a5` は通常push済み。以下は過去時点を含む。
+
+generic B18での実N∩Rを正確に決定した。全N sourceの27 IFTと二次Weierstrassを二変数三次まで全150係数で構成し、独立なLie-log計算でも全113 graph cubicの零を確認した。零一次接触h4と合わせ、実接触kも正確に4である。群十九因子を含む共通商はC[[g19,T]]/(T4)となる。
+
+被約交叉Dredの全形式環は、既知のactual N全完成環と正則R完成環を、この明示的length4商でglueするfiber productとして決定した。actual N37生成元の中心化座標の非零値はu16=13T,u22=−25T²,u65=−12T,u112=−13Tのみで、有限gluing mapも保存した。被約Dのcone数値はdim28/edim37/depth20/e2、projectiveは27/36/depth19/e2。全非被約Dのdepthはcone19〜20のまま未決である。
+
+被約Dの正確な半正規化もC[[g19,x9,T]]/(T*x1,...,T*x9)と決定した。二つの正則normalizerをreduced G19上でglueする有限subintegralな環であり、square/cube判定でseminormal。cone28/29/depth20/e1、projective27/28/depth19/e1。ここでのconductorは半正規化からnormalizerへのものに限り、元Dredのconductorを計算済みとはしない。
+
+T_Dred=T_N37が確定したため、全Dとのcotangent差は正確に二次元となる。物理係数の基底classは[u46+u95],[u63]。各classには形式的nilpotent liftがあるが、生の線形函数自体をnilpotentとは主張しない。さらに全Dの真の接錐の被約台は一つの線形28平面、接錐環のnilradicalの六乗は零と証明した。これは元Dのnil indexや全initial idealの決定とは別である。
+
+W16のSpin4切片を二形式U(2,1),V(1,2)として同定し、その既約混合判別式D(8,8)を構成した。quintic判別式からRes(V)²を除く正確な恒等式とnormalizer不変性を証明し、D(p0)上へ斉次次数16の正則有理不変式として降下する。極次数、24次多項式lift、NEW25との対応は未解決。NEW25方程式次数下界22と実方程式未決の状態は維持する。
+
+非平方はadFBCJ全開でのQQ product41が既証。full cubicには実9×43判定が残り、全四次354→319の同span縮約と286×238の十分条件を独立検証した。これらは全三次57・四次全射の証明ではない。次はこの実残余と元Dのnil・exact depth、一般betaのδ_E∈J0判定を続ける。総下界58/rank4下界52、総上界未定。五つの凍結原稿・PDFは変更しない。
+
+元四quadのZW商について、全aC開で20×35 product階数は正確に19と証明した。二つのquadに共通linear factorがあり、既知一本のsyzygyが常に残る。generic CIとcolon exact sequenceを合わせると、light四次quadratic productはgeneric146・全点上界146、weighted版はgeneric152・全点上界152となる。全点での下界146は未決であり、147を目指す前提は誤りと訂正した。QQ恒等式の保存117項には零一項があり、非零116項である。
+
+さらにvertexの実binary resultantが非零となる明示的R9開では、raw四quadのCI4とpointwise146を証明した。R9は未知degree9多項式として保持し、全域で反転しない。残るR9=0と、四次での追加三次・四次関係の全射は別に続ける。
+
+Spin4混合判別式は、一つの既受理NEW25点で厳密に非零だった。dense DAG、全β、QQ二次体frame、全170 circuit node、Sylvester判別式を独立再構築したため、この候補とp0冪で極を払ったどのnumeratorもNEW25方程式から除外される。Spin4構成自体は有効で、別の方程式候補を継続する。
+
 ## v63 X: adFBCJ全域のQQ product41とB18接触
 
 直前保存 main `e92227d0afe6e27a778cd67d053321209b673761` は通常push済み。以下は過去時点を含む。

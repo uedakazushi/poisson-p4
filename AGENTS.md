@@ -2,6 +2,22 @@
 
 Version: v63-s61 · 2026-11-03 (Asia/Tokyo).
 
+Latest Y: ACTUALgenericB18 N_intersect_R lengthEXACT4, k=h4. Independent
+ALL150bivariateD3/27IFT/fold/113graphcubiczero, nofalseflatbasechange/source2lift.
+Dred FULLFORMAL fiberproduct actualNcompletion ×_(C[[g19,T]]/T4) regularR.
+FinitephysicalN37gluemap CENTERED nonzero16=13T,22=−25T²,65=−12T,112=−13T.
+Dred cone28/37/depth20/e2,proj27/36/depth19/e2. ActualDdepth19..20 STILLopen.
+Dred seminormEXACT C[[g19,x9,T]]/(T*x9), cone28/29/depth20/e1.
+NormalizerBN⊕BR, seminormconductorquotientC[[g19]], notoriginalDredconductor.
+T_Dred=TN37. NilcotangentEXACT2 classes[u46+u95],[u63]; RAWlinearfunctions
+themselvesNOTclaimednilpotent, formalnillifts only. ActualfullD/nilindexOPEN.
+TRUEfullTC radical=(Y10,L), singlelinear28plane, TCnilradical^6=0 ONLYTC.
+Spin4 U(2,1)+V(1,2), exactDiscF=Res(V)²D(8,8), N-even givesregularrational
+Sp4invariantdegree16 onD(p0). Polek/24lift/NEW25correspondenceSTILLopen.
+QQ41 ALLadFBCJ saved; actualcubic9x43 andquartic319/286sufficient remainOPEN.
+Globalcomponentlower58/r4lower52/uppernull; genericbetaδmembershipOPEN.
+Continueactualresearch andordinarymainpush; checkpoint isnotstop.
+
 Latest X: QQ ORIGINAL PRODUCT41 PROVED ALLadFBCJ !=0 (=aPFB0CJ,P=ad).
 Actualpairrank2 all aPJ byEXACTQQ C/Q23 finitequotientidentities, noGB/prime
 promotion. BinaryD+acceptedfinitegcdΣ⇒RAW24ALLFULLU. Independent17kernel/

@@ -17176,6 +17176,400 @@
       "limitations_ja": [
         "周囲の表現と不変式環に関する定理。NEW25方程式・判別式や次数24 liftを主張しない。"
       ]
+    },
+    {
+      "id": "AMBIENT_B18_N_R_EXACT_CONTACT4_AND_TWO_LINEAR_NIL_CLASSES",
+      "title_ja": "NとRの実接触長4・被約edimと二つの線形nil",
+      "statement_ja": "実N sourceの27 IFTとquadratic Weierstrassを二変数三次まで全150係数で構成し、全113 nonbasis graphの三次制限が零であることを独立Lie-log法でも検証した。既証h4と合わせk=h=4。被約Dの横断edim18、cone37、projective36。全Dとの差にある線形nil cotangentは正確に二次元。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "AMBIENT_B18_ZERO_LINEAR_CONTACT_EXACT4"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_B18_N_R_DVR_CUBIC_GRAPH_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_B18_N_R_DVR_CUBIC_GRAPH_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_B18_N_R_DVR_CUBIC_GRAPH_20261103_v63/report.json",
+        "reports/AMBIENT_B18_N_R_DVR_CUBIC_GRAPH_20261103_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "非flatなimage ideal basechangeやsource二次持上げを仮定しない。全非被約Dの型・正確なdepth・nil indexは未決。"
+      ]
+    },
+    {
+      "id": "AMBIENT_B18_REDUCED_D_EXPLICIT_LENGTH4_FIBER_PRODUCT",
+      "title_ja": "被約交叉の全形式fiber productと有限gluing map",
+      "statement_ja": "actual Nの37個の物理的局所生成元からC[T]/T4への全写像を明示した。中心化座標の非零値はu16=13T,u22=−25T²,u65=−12T,u112=−13Tのみ。実群作用でC[[g19,T]]/(T4)へ延ばし、Dredは既知の全N完成環と正則R完成環のこの有限商上の正確なfiber productである。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "AMBIENT_B18_N_R_EXACT_CONTACT4_AND_TWO_LINEAR_NIL_CLASSES",
+          "AMBIENT_B18_N_FULL_ACTUAL_COMPLETION"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_B18_REDUCED_INTERSECTION_DVR_GLUING_20261103_v63.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_B18_REDUCED_INTERSECTION_DVR_GLUING_20261103_v63/report.json"
+      ],
+      "limitations_ja": [
+        "実physical生成元での有限gluing模型。抽象N標準座標と元の相対embeddingを無断で同一視しない。全非被約Dの型ではない。"
+      ]
+    },
+    {
+      "id": "AMBIENT_B18_REDUCED_D_DEPTH_AND_SEMINORMALIZATION",
+      "title_ja": "被約Dの正確な深さと半正規化",
+      "statement_ja": "length4 fiber productのexact sequenceから被約Dのdepthは横断1、cone20、projective19。正確な半正規化はC[[g19,x9,T]]/(T*x1,...,T*x9)。Nのsubintegral正規化とreduced G19 gluingにより有限subintegralであり、componentwise square/cube判定でseminormal。normalizerは二つの正則環の直和、半正規化からのconductor商はC[[g19]]。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "AMBIENT_B18_REDUCED_D_EXPLICIT_LENGTH4_FIBER_PRODUCT"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_B18_REDUCED_DEPTH_SEMINORMALIZATION_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_B18_REDUCED_DEPTH_SEMINORMALIZATION_20261103_v63_REVIEW.json"
+      ],
+      "limitations_ja": [
+        "半正規化のcone数値28/29/depth20/e1、projective27/28/depth19/e1。元のDred自身のconductorや全非被約Dのdepthは未計算。"
+      ]
+    },
+    {
+      "id": "AMBIENT_B18_PHYSICAL_NIL_COTANGENT_BASIS",
+      "title_ja": "線形nil cotangentの物理係数基底",
+      "statement_ja": "実150×39 D接平面に実150×37 N接平面を含め、全行を正確に比較した。k4からT_Dred=T_N37であり、そのcotangent annihilatorの基底は中心化されたraw150座標の[u46+u95],[u63]。nilradicalの一次可視部分は正確にこの二classで張られる。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "AMBIENT_B18_N_R_EXACT_CONTACT4_AND_TWO_LINEAR_NIL_CLASSES",
+          "AMBIENT_B18_ACTUAL_D_COMMON_TANGENT39_AND_MULTIPLICITY2"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_B18_NILCOTANGENT_BASIS_20261103_v63.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_B18_NILCOTANGENT_BASIS_20261103_v63/report.json"
+      ],
+      "limitations_ja": [
+        "生の二つの線形函数そのものをnilpotentとは主張しない。各classに形式的nilpotent liftが存在する。全nil生成元やnil indexは未決。"
+      ]
+    },
+    {
+      "id": "AMBIENT_B18_ACTUAL_D_TANGENT_CONE_LINEAR_SUPPORT_AND_NIL_BOUND6",
+      "title_ja": "全接錐の線形被約台と六乗零上界",
+      "statement_ja": "共通even接埋込みを確認し、両成分の真のproduct関係の三次差をYで射影した。28 cubicはL=2r0−r9を共通因子とし、商はLを含む七空間の全Sym²を張る。共有Y_iY_jとL³+Y*f2からrad(in I_D)=(Y10,L)、radの六乗零を得た。全接錐の被約台はcone28、横断9の一つの線形平面である。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "AMBIENT_B18_CA_CB_FULL_FORMAL_NORMAL_MODEL_99",
+          "AMBIENT_B18_ACTUAL_D_COMMON_TANGENT39_AND_MULTIPLICITY2"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_B18_ACTUAL_D_TANGENT_CONE_SUPPORT_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_B18_ACTUAL_D_TANGENT_CONE_SUPPORT_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_B18_ACTUAL_D_TANGENT_CONE_SUPPORT_20261103_v63/report.json",
+        "reports/AMBIENT_B18_ACTUAL_D_TANGENT_CONE_SUPPORT_20261103_v63_REVIEW.json"
+      ],
+      "limitations_ja": [
+        "未知のY*a2項を零と仮定しない。全initial ideal等号、元Dのnilpotencyやexact depthへは移さない。"
+      ]
+    },
+    {
+      "id": "W16_SPIN4_BIFORM_MIXED_DISCRIMINANT_DESCENT",
+      "title_ja": "Spin4切片と混合判別式の正則有理降下",
+      "statement_ja": "p0=det Cの非零開でW16はnormal lineに付随するSpin4切片へ同定され、U(2,1)とV(1,2)の二形式で表せる。quintic判別式はRes(V)²と既約混合判別式D(8,8)の積で、normalizer偶性を確認した。DはD(p0)上の正則Sp4不変函数として降下し、斉次次数16。多項式分子は次数16+8kとなる。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "W16_SPIN5_TWO_ADJOINT_COVARIANTS_AND_INV8_PENCIL"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/Q_FIRSTJET_SPIN4_MIXED_DISCRIMINANT_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/Q_FIRSTJET_SPIN4_MIXED_DISCRIMINANT_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/Q_FIRSTJET_SPIN4_MIXED_DISCRIMINANT_20261103_v63/report.json",
+        "reports/Q_FIRSTJET_SPIN4_MIXED_DISCRIMINANT_20261103_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "極次数k、k≤1という上界、24次多項式lift、NEW25上の消失・対応は未証明。新しい標本や22次以上のprobeを用いない。"
+      ]
+    },
+    {
+      "id": "S61_NONSQUARE_ACTUAL_CUBIC_NINE_BY43_CRITERION",
+      "title_ja": "full cubicの実9×43判定",
+      "statement_ja": "product41とheavy7の追加minorを反転したchartで、元57×91全係数から387個の49角bordered minor circuitを定義した。正確にrank(full)=48+rank(9×43残余)。自由row module57や抽象商16だけから特殊化rank9は従わず、反例も明示した。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_NONSQUARE_ORIGINAL_PRODUCT41_ALL_ADFBCJ",
+          "S61_NONSQUARE_CUBIC_ROW_MODULE_FREE57"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_NONSQUARE_CUBIC_NINE_ROW_CRITERION_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/S61_NONSQUARE_CUBIC_QUARTIC_STRUCTURAL_REDUCTIONS_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_NONSQUARE_CUBIC_NINE_ROW_CRITERION_20261103_v63/report.json",
+        "reports/S61_NONSQUARE_CUBIC_QUARTIC_STRUCTURAL_REDUCTIONS_20261103_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "QQ点(1,2,3)はchartが非空という確認のみ。全rank57・欠損有限性は未証明。"
+      ]
+    },
+    {
+      "id": "S61_NONSQUARE_QUARTIC_319_ROW_SPAN_AND_286_SUFFICIENT",
+      "title_ja": "四次319行への等号縮約と286行十分条件",
+      "statement_ja": "既存の全三次関係を七lightで掛け、35本のunit三角関係を全係数で検証した。削除minorは−a14、全aFBC開で全四次354×239と319×239のrow spanは等しい。global H² unitを併用する別の286×238 module全射は全四次全射の十分条件となる。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_NONSQUARE_CUBIC_ROW_MODULE_FREE57"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_NONSQUARE_QUARTIC_319_ROWS_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/S61_NONSQUARE_CUBIC_QUARTIC_STRUCTURAL_REDUCTIONS_20261103_v63_REVIEW.md"
+        },
+        {
+          "path": "research/notes/S61_NONSQUARE_QUARTIC_286_SUFFICIENT_20261103_v63.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_NONSQUARE_QUARTIC_319_ROWS_20261103_v63/report.json",
+        "reports/S61_NONSQUARE_CUBIC_QUARTIC_STRUCTURAL_REDUCTIONS_20261103_v63_REVIEW/report.json",
+        "reports/S61_NONSQUARE_QUARTIC_286_SUFFICIENT_20261103_v63/report.json"
+      ],
+      "limitations_ja": [
+        "286×238の実全射は未証明であり、全319行との等価を主張しない。full57やambient除去も含まない。"
+      ]
+    },
+    {
+      "id": "S61_NONSQUARE_ORIGINAL_ZW_PRODUCT_RANK19_ALL_AC",
+      "title_ja": "元ZW商の全aC開でのproduct階数19",
+      "statement_ja": "元四二次式をZ=W0へ制限した五変数商でQ1=L²/8100、Q3=L(eL−400a*x0)/8100、L_x1=−40C。Q0 mod Lはdet625a²/1024で非退化。残るpair条件を116非零項のliteral QQ sum1で全域解決し、線形syzygyは既知一本だけとなる。20×35 product rankは全aC開で正確に19。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_NONSQUARE_QUADRATIC_COVER"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_NONSQUARE_ZW_PRODUCT_RANK19_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/S61_NONSQUARE_ZW_PRODUCT_RANK19_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_NONSQUARE_ZW_PRODUCT_RANK19_20261103_v63/report.json",
+        "reports/S61_NONSQUARE_ZW_PRODUCT_RANK19_20261103_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "保存された117項という統計は零一項を含む。非零項は116。四次全射や全点CIを主張しない。"
+      ]
+    },
+    {
+      "id": "S61_NONSQUARE_QUARTIC_QUADRATIC_PRODUCT_GENERIC146_GLOBAL_UPPER146",
+      "title_ja": "四次quadratic productのgeneric146と全域上界",
+      "statement_ja": "actual804からのgeneric四quad CI witnessを独立再構成した。generic CIとellの非零因子性からcolon exact sequenceが成り立ち、六quadのlight四次商は48+16=64。従って168×210 imageはgeneric rank146、全点で146以下。heavy×六quadの独立方向を加えるweighted imageはgeneric152、全点上界152。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_NONSQUARE_ORIGINAL_ZW_PRODUCT_RANK19_ALL_AC"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_NONSQUARE_ZW_PRODUCT_RANK19_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/S61_NONSQUARE_ZW_PRODUCT_RANK19_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_NONSQUARE_ZW_PRODUCT_RANK19_20261103_v63/report.json",
+        "reports/S61_NONSQUARE_ZW_PRODUCT_RANK19_20261103_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "全点での下界146・全点CIは未証明。147/153を目標にする旧条件付き数値は不可能なgeneric前提だった。fullquartic全射とは別。"
+      ]
+    },
+    {
+      "id": "W16_MIXED_DISCRIMINANT_REJECTED_FOR_NEW25",
+      "title_ja": "混合判別式のNEW25方程式候補を厳密除外",
+      "statement_ja": "既受理のNEW25 QQ点を一つだけ使い、dense DAGから全βを再構成した。QQ(s)上のsymplectic eigenframeと全24係数のpullback、二つのSylvester determinantから、p0非零かつ混合DがQQ非零であると独立検証した。このDとp0のどの冪で極を払ったnumeratorも、NEW25方程式ではない。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "W16_SPIN4_BIFORM_MIXED_DISCRIMINANT_DESCENT",
+          "R4_NEW25_FIRSTJET_IMAGE_EXACT15_GENERIC_FIBER1"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/Q_FIRSTJET_SPIN4_NEW25_POINT_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/Q_FIRSTJET_SPIN4_NEW25_POINT_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/Q_FIRSTJET_SPIN4_NEW25_POINT_20261103_v63/report.json",
+        "reports/Q_FIRSTJET_SPIN4_NEW25_POINT_20261103_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "一つの候補への非零QQ反例。Spin4模型自体、他の候補、次数下界22は変更しない。零標本からの方程式推論や高次数probeは行わない。"
+      ]
+    },
+    {
+      "id": "S61_NONSQUARE_QUADRIC_CI_ON_VERTEX_RESULTANT_OPEN",
+      "title_ja": "明示的vertex resultant開上の四quad完全交叉",
+      "statement_ja": "aPJ開で、実vertex上の二binary quadricのresultantは非零有理定数*t*R9。R9非零ならP3成分もdeterminantal scroll成分も共通vertexを避け、射影次元定理とproperなrulingへの射影からQ0,...,Q3のprojective共通零点は次元1以下。従ってraw四quadはCI4。FULLUとの共通部分で元light四次product rank146、weighted152となる。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_NONSQUARE_BINARY_D_REDUCTION_TO_SINGLE_PAIR_GATE",
+          "S61_NONSQUARE_ORIGINAL_ZW_PRODUCT_RANK19_ALL_AC"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_NONSQUARE_QUADRIC_CI_OPEN_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/S61_NONSQUARE_QUADRIC_CI_OPEN_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_NONSQUARE_QUADRIC_CI_OPEN_20261103_v63/report.json",
+        "reports/S61_NONSQUARE_QUADRIC_CI_OPEN_20261103_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "R9は新しい未知因子であり全coreの既知単元ではない。R9=0、全点CI、full57・全四次全射は未解決。scroll baseのsmooth・reduced・irreducible性は仮定しない。"
+      ]
     }
   ],
   "setup_checkpoint": "v25-setup",

@@ -1,6 +1,6 @@
 # 研究継続方針：複素射影4空間の Poisson 構造
 
-非平方のadFBCJ開全体で、元productのQQ階数41を証明した。B18原点では全像イデアルの接触が三次以上、零一次関係の接触は正確に四次と分かった。個別CA/CBの全形式型・二つのembedded交叉型は17頁独立原稿に保存済み。全三次57・四次全射、一般五点尽くし、全成分上界は継続中で、総下界58（rank4は52）は変わらない。
+generic B18でN∩Rの実接触長4と、被約交叉Dredの全形式fiber product・半正規化を決定した。Dredのdepthはcone20、projective19。全Dには正確に二つの線形nil classがあるが、全nil構造・exact depthは継続中。非平方adFBCJ開のQQ product41は既証、全三次57・四次全射と一般五点尽くしは未決。総下界58（rank4は52）、総上界未定を維持する。
 
 新25成分の全Poisson一般横断長さは正確に5。n111の全完成環 C[[s25,u,v]]/(uv,u³,v³) とCM type2を証明・独立監査し、[14ページの独立原稿](papers/positive_weight6_component_ja.pdf)に保存した。全52 rank4成分のdense S61写像が揃った。新一次像は15次元・方程式次数22以上だが実方程式、全境界、全分類は未解決。以下は以前の記録を含む。
 
