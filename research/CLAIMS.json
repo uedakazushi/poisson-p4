@@ -10139,7 +10139,8 @@
       "limitations_ja": [
         "27次元交差成分の一意性、全ideal、非被約構造・完成局所環は主張しない。",
         "全Poisson成分の個数には加算しない。"
-      ]
+      ],
+      "later_uniqueness_in_symplectic_chart": "S61_CA_CB_WHOLE_REDUCED_INTERSECTION"
     },
     {
       "id": "KNOWN51_FIRSTJET_IMAGE_DIMENSIONS",
@@ -10774,7 +10775,7 @@
       "id": "CA_CB_COMPONENTS_R1_NON_CM",
       "title_ja": "CA/CB/NのR1と指定Q_(1)の非CM性",
       "statement_ja": "基底旗の全critical支持はτ=4CF−D²=0で源の余次元2。全射影旗の一意性・被約性とpropernessから各被約CA/CB/NはR1。指定Q_(1)では非正規なのでS2でなく非CMであり、通常cuspとsmooth空間の積でもない。",
-      "scope": "Actual scoped theorem with exact certificates; not global exhaustion.",
+      "scope": "Reduced S61 components and full projective generic-Poisson-rank4 open. Local Q_(1) statements unaffected; rank<=2 boundary R1 not proved.",
       "status": {
         "proof": "proof_with_exact_certificates_and_explicit_dependencies",
         "independent_review": "accepted_independent_scope_and_bounded_exact_certificate_review_2026_11_03",
@@ -10793,6 +10794,9 @@
         },
         {
           "path": "research/notes/AMBIENT_COMPONENT_R1_NONCM_20261103_v63_REVIEW.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_INTERSECTION_SYMPLECTIC_SCOPE_20261103_v63.md"
         }
       ],
       "verification_records": [
@@ -10800,7 +10804,8 @@
         "reports/AMBIENT_COMPONENT_R1_NONCM_20261103_v63_REVIEW/report.json"
       ],
       "limitations_ja": [
-        "全S61のR1や全交叉idealの決定ではない。"
+        "全S61のR1や全交叉idealの決定ではない。",
+        "全射影閉包のgeneric Poisson rank≤2境界の余次元1正則性は未証明。"
       ]
     },
     {
@@ -10908,6 +10913,347 @@
       ],
       "limitations_ja": [
         "J≠0、全core product被覆、周囲t冪零性は主張しない。"
+      ]
+    },
+    {
+      "id": "S61_CA_CB_BASE_PINCHED_COMPLETION",
+      "title_ja": "共通一次像Zの全pinched完成環",
+      "statement_ja": "Zの7次元critical rank2軌道で完成環はC[[u7,s,p²,p³,sp]]。全係数の群sliceと有限正規化の単射で全像を同定し、conductor(s,p²)、多重度2、depth8、embedding dimension11を決定した。",
+      "scope": "Exact stated scope; dimensions before PGL quotient unless a transverse or S61 dimension is explicitly given.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_bounded_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_CA_CB_FULL_RANK3_FIBERS"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_BASE_PINCHED_SURFACE_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_PINCHED_MODELS_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_BASE_PINCHED_SURFACE_20261103_v63/report.json",
+        "reports/AMBIENT_PINCHED_MODELS_20261103_v63_REVIEW.json"
+      ],
+      "limitations_ja": [
+        "Zの被約像の局所環であり、全S61の局所環ではない。"
+      ]
+    },
+    {
+      "id": "S61_CA_CB_COMPONENT_PINCHED_COMPLETIONS",
+      "title_ja": "指定Q_(1)での個々のCA/CB/Nの全完成局所環",
+      "statement_ja": "Ac=C[[u10,s1,…,sc,p²,p³,s1p,…,scp]]として、S61でCAhat=CBhat=A8、Nhat=A7。正規化商はC[[u10]]p、conductor=(s_i,p²)、depth11、多重度2。全実targetRとp²Bを含むため、一次奇数係数idealが全環を決める。",
+      "scope": "Exact stated scope; dimensions before PGL quotient unless a transverse or S61 dimension is explicitly given.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_bounded_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_CA_CB_BASE_PINCHED_COMPLETION",
+          "CA_CB_Q_NORMALIZATION_NONNORMAL"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_COMPONENT_PINCHED_MODELS_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_PINCHED_MODELS_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_COMPONENT_PINCHED_MODELS_20261103_v63/report.json",
+        "reports/AMBIENT_PINCHED_MODELS_20261103_v63_REVIEW.json"
+      ],
+      "limitations_ja": [
+        "個々の被約成分の完成環。全Poisson完成環や共鳴Q_(2/9)への同定ではない。"
+      ]
+    },
+    {
+      "id": "S61_CA_CB_WHOLE_REDUCED_INTERSECTION",
+      "title_ja": "全S61とrank4開での被約交叉の一意性",
+      "statement_ja": "全S61において(CA∩CB)red=N。rankKβ≥2、非零rank1、β0の全層をproper旗入射と同じ旗でのq交叉で尽くした。従ってQを通る交叉成分は唯一であり、rank4開でも唯一。",
+      "scope": "Exact stated scope; dimensions before PGL quotient unless a transverse or S61 dimension is explicitly given.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_bounded_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_CA_CB_FULL_RANK3_FIBERS",
+          "S61_CA_CB_ZERO_JET_FIBERS"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_RANK2_INTERSECTION_UNIQUE_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_WHOLE_REDUCED_INTERSECTION_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_INTERSECTION_SYMPLECTIC_SCOPE_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_INTERSECTION_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_RANK2_INTERSECTION_UNIQUE_20261103_v63/report.json",
+        "reports/AMBIENT_WHOLE_REDUCED_INTERSECTION_20261103_v63/report.json",
+        "reports/AMBIENT_INTERSECTION_20261103_v63_REVIEW.json"
+      ],
+      "limitations_ja": [
+        "全射影閉包にgeneric Poisson rank≤2だけの追加交叉成分がある可能性は未検査。",
+        "一次係数行列Kβの階数とPoissonの一般階数を混同しない。"
+      ]
+    },
+    {
+      "id": "Q_CA_CB_INTERSECTION_NONREDUCED",
+      "title_ja": "指定Q_(1)で実交叉は非被約",
+      "statement_ja": "個々の実target完成環の全cotangentをQQ(c0,c2,c5)上で再構築し、S61でCA/CB tangent28、N26、実scheme交叉tangent≥27を得た。全被約交叉=Nなので実交叉はQと共通非正規層の全点で非被約。",
+      "scope": "Exact stated scope; dimensions before PGL quotient unless a transverse or S61 dimension is explicitly given.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_bounded_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_CA_CB_COMPONENT_PINCHED_COMPLETIONS",
+          "S61_CA_CB_WHOLE_REDUCED_INTERSECTION"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_INTERSECTION_NONREDUCED_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_INTERSECTION_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_INTERSECTION_TANGENT_EXCESS_20261103_v63/report.json",
+        "reports/AMBIENT_INTERSECTION_20261103_v63_REVIEW.json"
+      ],
+      "limitations_ja": [
+        "正規化の微分や正規化tensorからの推論ではない。",
+        "この接空間の定理だけではnilradicalの生成元・冪零次数を決めない。"
+      ]
+    },
+    {
+      "id": "Q_CA_CB_INTERSECTION_EMBEDDED_PRIME",
+      "title_ja": "実交叉の埋込associated primeの存在",
+      "statement_ja": "rankKβ3開で実交叉は被約で、全被約台Nは既約。一方Qと共通非正規層では実交叉が非被約なので、各局所環には少なくとも一つの埋込associated primeが存在する。",
+      "scope": "Exact stated scope; dimensions before PGL quotient unless a transverse or S61 dimension is explicitly given.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_bounded_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "Q_CA_CB_INTERSECTION_NONREDUCED",
+          "S61_CA_CB_WHOLE_REDUCED_INTERSECTION"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_INTERSECTION_EMBEDDED_PRIMES_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_INTERSECTION_EMBEDDED_PRIMES_20261103_v63_REVIEW.json"
+      ],
+      "limitations_ja": [
+        "埋込素idealの方程式・次元・個数や全primary分解は、この一般論からは決まらない。"
+      ]
+    },
+    {
+      "id": "S61_AFFINE_SMALL_PARAMETER_CRITERIA",
+      "title_ja": "一般曲面判定の9変数次数模型と8変数unit模型",
+      "statement_ja": "Sp4×Gm×A5→W16は実16次minor438994543750/3により優越。二つの独立secant評価は真の境界を避ける有限射を与え、9パラメータの実rank≤29なら曲面を除去できる。Wronski対は8パラメータでunit⇔曲面なしという判定を与える。",
+      "scope": "Exact stated scope; dimensions before PGL quotient unless a transverse or S61 dimension is explicitly given.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_bounded_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_AFFINE_NO_LINES_SURFACE_DEGREE_30"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_AFFINE_SMALL_PARAMETER_PROJECTION_20261103_v62.md"
+        },
+        {
+          "path": "research/notes/S61_AFFINE_SMALL_PARAMETER_PROJECTION_20261103_v62_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_AFFINE_SMALL_PARAMETER_PROJECTION_20261103_v62/report.json",
+        "reports/S61_AFFINE_SMALL_PARAMETER_PROJECTION_20261103_v62_REVIEW.json"
+      ],
+      "limitations_ja": [
+        "判定の実rank/unit結果は未計算。",
+        "体拡大後に分裂する各幾何成分へ次数30を個別に課さず、総二次元cycleを使う。",
+        "Wronski射はunitのみを使い、次数や有限性を仮定しない。"
+      ]
+    },
+    {
+      "id": "S61_AFFINE_INTEGRAL_PREMISE_OBSTRUCTION",
+      "title_ja": "有限体空性を一般空性へ移す際の不足前提",
+      "statement_ja": "既存166/191有限模型は全20法線を残したp整多項式環上の有限生成であり、法線を忘れたパラメータ局所環上の有限生成ではない。p単元monic例t−pYは特殊t1空・一般非空を示す。相対colonと特殊colonも異なり、既存receiptだけではNakayamaによる一般空性を推論できない。",
+      "scope": "Exact stated scope; dimensions before PGL quotient unless a transverse or S61 dimension is explicitly given.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_bounded_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_AFFINE_INTEGRAL_FINITE_PREMISE_AUDIT_20261103_v62.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_AFFINE_INTEGRAL_FINITE_PREMISE_AUDIT_20261103_v62.json"
+      ],
+      "limitations_ja": [
+        "一般βに対する幾何的有限射の既存定理は有効のまま。",
+        "必要な追加前提は、凍結点を含むp整な実アフィン商の有限生成性又はそれを与える相対中心回避。"
+      ]
+    },
+    {
+      "id": "Q_NONRESONANT_FINITE_MODEL_34",
+      "title_ja": "指定Q_(1)を含む全34変数有限模型",
+      "statement_ja": "全35模型の実残余296は273項・非線形269項を持ち、c(a)z33+r0に厳密に等しい。D(a)(9a−2)開で単元cを反転し、全350式・150復元へ合成して34変数の正確な全idealを得た。QQ(a)一次rank75、Q1横断tangent34・全射影tangent50。",
+      "scope": "Exact stated scope; dimensions before PGL quotient unless a transverse or S61 dimension is explicitly given.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_bounded_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "Q_WEIGHTED_FINITE_MODEL_35"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/Q_NONRESONANT_FINITE_MODEL_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/Q_NONRESONANT_FINITE_MODEL_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/Q_NONRESONANT_FINITE_MODEL_20261103_v63/report.json",
+        "reports/Q_NONRESONANT_FINITE_MODEL_20261103_v63_REVIEW.json"
+      ],
+      "limitations_ja": [
+        "Q_(2/9)では消去単元を反転できず、35変数模型を用いる。",
+        "全枝の分解やprimary構造は未決。"
+      ]
+    },
+    {
+      "id": "CA_GLOBAL_PROPER_FLAG_MODEL_AND_RANK_TWO_BOUNDARY",
+      "title_ja": "全射影CAのproper旗模型と全rank2境界の二成分",
+      "statement_ja": "F(1,3,4;5)上の階数20随伴束のP19束は滑らかな射影28次元で全CAへproper全射。全rank≤2の逆像はg0とf0という二つの不変線形部分束。実微分minorと閉定ベクトル因子条件から、それぞれの全閉像は相異なる既約27次元・25次元で、全被約rank≤2境界を尽くす。",
+      "scope": "Exact stated scope; dimensions before PGL quotient unless a transverse or S61 dimension is explicitly given.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_bounded_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "R4_ADDITIONAL_ELEVEN"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_CA_GLOBAL_FLAG_MODEL_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_CA_GLOBAL_FLAG_MODEL_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_CA_GLOBAL_FLAG_MODEL_20261103_v63/report.json",
+        "reports/AMBIENT_CA_GLOBAL_FLAG_MODEL_20261103_v63_REVIEW.json"
+      ],
+      "limitations_ja": [
+        "全射影CAの被約境界の結果であり、新しい全Poisson成分を加算しない。",
+        "模型の全ファイバー・正規化・全体のR1・CBとの全交叉は未決。"
+      ]
+    },
+    {
+      "id": "Q_CA_CB_INTERSECTION_EXACT_LOCAL_RING",
+      "title_ja": "指定Q_(1)の実交叉の全局所idealと平方零nilradical",
+      "statement_ja": "実target49変数の全218関係と7滑らか因子で実交叉完成環を同定した。nilradicalは主(F)、F≠0,F²=0、被約商A7。ann(F)は滑らか11次元のprimeで、nilmoduleはC[[u11]]F、associated primesはNとこのembedded primeの正確に二つ。S61の次元18・depth11、全射影局所では27・20。",
+      "scope": "Actual scheme intersection of reduced CA/CB at Q_(1), S61 and generic-Poisson-rank4 open, not full projective rank<=2 boundary.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent94_generator_N_kernel_and_actual_M2_ideal_colon_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_CA_CB_COMPONENT_PINCHED_COMPLETIONS",
+          "S61_CA_CB_WHOLE_REDUCED_INTERSECTION"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_INTERSECTION_EXACT_IDEAL_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_INTERSECTION_EXACT_IDEAL_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_INTERSECTION_EXACT_IDEAL_20261103_v63/report.json",
+        "reports/AMBIENT_INTERSECTION_EXACT_IDEAL_20261103_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "環の直和分裂は主張しない。失敗した二つの分裂候補も保存。",
+        "nilmoduleの支持11次元は個々の成分の非正規層10次元より大きい。",
+        "全射影rank≤2交叉・全Poisson局所枝は別課題。"
       ]
     }
   ],

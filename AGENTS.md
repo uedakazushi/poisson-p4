@@ -2,6 +2,26 @@
 
 Version: v63-s61 · 2026-11-03 (Asia/Tokyo).
 
+Latest v63 exact intersection: actual49-variable218-relation target ideal plusG7,
+nilradical=(F),Fnonzero,F²0, nilmodule=C[[u11]]F with smooth11Dprimeannihilator,
+EXACT2 associated primes (N and embedded11D), dim18depth11 inS61.
+Do not infer a ring split; failed split candidates saved. FullP4rank2 boundary
+and allPoissonbranches remain separate.
+
+Latest v63 followup: whole S61 reduced CA/CB intersection=N, hence unique
+through Q and on generic-Poisson-rank4 open. Actual intersection NONREDUCED
+with embedded associated prime atQ1/common nonnormal layer. Individual reduced
+component completions atQ1: CA=CB=A8,N=A7, Ac=C[[u10,s_c,p²,p³,s_i*p]],
+full projective edim37/37/35,depth20,mult2. R1 ONLY S61/rank4open; global
+rank<=2 boundary R1 and global intersection remain separate. Full projective
+CA now has a smooth proper P19-bundle model over9D flags; ENTIRE reduced
+rank<=2 boundary has exactly TWO irreducible images of dimensions27/25.
+No normalization or R1 of this boundary inferred. Nonresonant Q1 full34
+finite model also constructed by EXACT273-term residual elimination, not
+linearization; resonant Qstar still uses35. Exact9-param degree/8-param
+Wronski unit criteria have NO unit result. p-integral166/191 finite models
+retain20 normals; Nakayama without finite-over-parameter-ring premise is invalid.
+
 Current v63 additions: FULL35-variable equivariant finite model at resonant
 Q_(2/9) constructed and independently checked: actual350 Jacobi equations,
 74 EXACT weighted polynomial implicit eliminations, 17 orbit cuts, all orders.
@@ -15,7 +35,7 @@ CA/CB full reduced rank3 firstjet fibers are A10 with A9 intersection;
 proper closed flag incidences cover entire reduced components. beta0 reduced
 fibers M0(13),M1(13),R0(12). At distinguished Q_(1) individual reduced CA/CB/N
 normalization fibers are length2, completions domains,multiplicity2; components
-R1 but nonnormal and non-CM there. Keep Q_(1) distinct from resonant Q_(2/9).
+R1 on the rank4 open but nonnormal and non-CM there. Keep Q_(1) distinct from resonant Q_(2/9).
 General P31 slice is reducedfive. Actual global annihilators det(T_t-I) and
 cleared resultant work BEFORE cyclic localization; their zero loci remain open.
 J=5ad-6e-4=0 nonsquare product-rank41 defect is finite over QQ; Jneq and other

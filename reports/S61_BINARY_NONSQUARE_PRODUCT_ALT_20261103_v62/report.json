@@ -1,0 +1,343 @@
+{
+  "id": "S61_BINARY_NONSQUARE_PRODUCT_ALT_20261103_v62",
+  "all_passed": true,
+  "meaning_of_all_passed": "Recorded exact bounded identities/native pivots and saved receipts; not all-core rank41.",
+  "all_core_QQ_product_rank41_proved": false,
+  "original_product_matrix_shape": [
+    41,
+    84
+  ],
+  "known_open": "a*F*B*C!=0",
+  "original_known_unit_pivots": 21,
+  "additional_constant_span_pivots": 3,
+  "additional_R3_scalar_unit_pivots": [
+    {
+      "target": "a",
+      "lift_terms": 73
+    },
+    {
+      "target": "a^3",
+      "lift_terms": 3148
+    }
+  ],
+  "total_known_unit_pivots": 26,
+  "remaining_shape": [
+    15,
+    60
+  ],
+  "growth_barrier": {
+    "nonzero_polynomial_terms": 1082813,
+    "matrix_bytes": 512385225,
+    "sha256": "eee11d05c249cb0b5c7a6563bb5650b96e3dc88a27d6c3e8053845f795c00993",
+    "omitted_from_archive": true,
+    "regeneration": "Compile recorded native source; apply controller-2-witness.txt at target row12 to after-witness.txt with product-units.txt and metadata=1."
+  },
+  "direct_QQ_module_attempts": [
+    {
+      "input": "mod-ell/thin.m2",
+      "shape": [
+        14,
+        46
+      ],
+      "locus": "aFBCJ!=0",
+      "observed_returncode": 124,
+      "timeout_seconds": 120
+    },
+    {
+      "input": "mod-ell/jzero-thin.m2",
+      "shape": [
+        12,
+        44
+      ],
+      "locus": "J=0, aFBC(3e+2)!=0",
+      "observed_returncode": 124,
+      "timeout_seconds": 90
+    }
+  ],
+  "corner_rank24_exact": {
+    "locus": "d=0,e=-2/3,aFC!=0",
+    "native_unit_pivots": 24,
+    "remaining_shape": [
+      0,
+      32
+    ],
+    "observed_returncode": 0
+  },
+  "M2_compatibility": {
+    "version": "1.24.11",
+    "baseline_gb_and_matrix_division_supported": true,
+    "experimental_LinearAlgebra_QQ_supported": false,
+    "fixture": "R=QQ[x,y];gb(ideal(x^2+y,x*y+1),Algorithm=>LinearAlgebra)",
+    "observed_returncode": 1,
+    "observed_error": "Internal error: array out of order; unknown engine error"
+  },
+  "next_step": "Use stable mod-ell coordinate API for four-quadrics/66-column quartic work, or find shorter R3 scalar witnesses by lookahead. Avoid unchanged full QQ module GB retries.",
+  "input_sha256": {
+    "code/polynomial_unit_span_pivots_20261103_v62.cpp": "1b7544a9571b9a32c0a1d11b1bc184ed52075d0bee8ee125f7dcac4c6aac62f9",
+    "code/s61_binary_nonsquare_mod_ell_coordinates_20261103_v62.py": "98eb60ec9cfb0c9af9bc0f9686cc4cdd466f390dfc2fe60f9bd1a5e64a3a27ea",
+    "reports/S61_BINARY_HYPERPLANE_QUADRATIC_CODIMENSION_20261102.json": "c14d0bc52917b2cd79da13a9b5046533983d6832d216dd291f88a2f610b4cbc7",
+    "reports/S61_BINARY_HYPERPLANE_QUADRATIC_PAIR_20261102.json": "bff78220de89d1fca2f604ac36e5d99fd04e5209288c9ccb60c7d87b8c836eec"
+  },
+  "evidence_sha256": {
+    "evidence.tar.gz": "d8cad738534edd9ca3ae0b0c3c0e9719174533a1534f37e4dad483357864c980"
+  },
+  "archive_member_manifest": {
+    "work/nonsquare-product-alt-v62/fixture.txt": {
+      "sha256": "6d69c37511ad9e47267465647bd64eb613fc8d4c9dc1eba4a0990f045433c224",
+      "bytes": 51
+    },
+    "work/nonsquare-product-alt-v62/fixture-units.txt": {
+      "sha256": "6299415828300050ea10dd6a8d33a228b4a410f0706f4e9a71f7350f383eb288",
+      "bytes": 18
+    },
+    "work/nonsquare-product-alt-v62/fixture-witness.txt": {
+      "sha256": "4e0f09a07f87d94f55555a131b3939a0e35b863cac73d89d9090199de11a129e",
+      "bytes": 24
+    },
+    "work/nonsquare-product-alt-v62/fixture-witness.log": {
+      "sha256": "8317e4ff349c70555bf3fc0dca5af80368aabf94074daeda7d7216832dd1fdc9",
+      "bytes": 126
+    },
+    "work/nonsquare-product-alt-v62/fixture-witness-result.txt": {
+      "sha256": "57b43dfe66a3b64b32acaecaa77533c8a13afd350286febcb9f4f6434b1c1ee9",
+      "bytes": 12
+    },
+    "work/nonsquare-product-alt-v62/product-units.txt": {
+      "sha256": "fba87e3436ae3c95a8ed87ebbbb8e14cd212344df03f48e8eb8de888a5d919b5",
+      "bytes": 71
+    },
+    "work/nonsquare-product-alt-v62/residual2.txt": {
+      "sha256": "e7218f8cea3bfbcd118c21b8d373af54e802ff0e744c074b0073a21c79271bf9",
+      "bytes": 2556576
+    },
+    "work/nonsquare-product-alt-v62/generic-v2.log": {
+      "sha256": "4efad235e0f6a868a8cebd490191d352b5bceb5fdff97c1a922b1bd60536e27c",
+      "bytes": 2815
+    },
+    "work/nonsquare-product-alt-v62/scalar-r3.m2": {
+      "sha256": "54c282757dc7a1ef675b558dcb1fe0a78f6ef9df612f0c502db039f1877fe670",
+      "bytes": 7521
+    },
+    "work/nonsquare-product-alt-v62/scalar-r3-v3.log": {
+      "sha256": "762ee181a473ff44bbbfe41f8b0c2973fbd289e9acf71abf70d6c610169346e9",
+      "bytes": 84
+    },
+    "work/nonsquare-product-alt-v62/scalar-r3-lift.txt": {
+      "sha256": "c9eb3900c59cff5d9fb72285992d942e00fbd47b2044da243d0cac2d25680e00",
+      "bytes": 3399
+    },
+    "work/nonsquare-product-alt-v62/after-witness.txt": {
+      "sha256": "4b7f59661a8962fadb205ec24ecb6a0495ed843bf25996fa7e49eb65975879dd",
+      "bytes": 10050180
+    },
+    "work/nonsquare-product-alt-v62/witness.log": {
+      "sha256": "655540b6af1cdd4265f478345746a12e5e152380c12b458ecda61b8366f1d566",
+      "bytes": 2572
+    },
+    "work/nonsquare-product-alt-v62/controller.py": {
+      "sha256": "ed158869ab2e170e12f1215201d9164272fad378f58c76b05843298cde25d0e4",
+      "bytes": 3322
+    },
+    "work/nonsquare-product-alt-v62/controller-status.json": {
+      "sha256": "7d4e2a0959c0a1821a1f9c1351539315989a28a7ac375b1bfaff5643037999d4",
+      "bytes": 492
+    },
+    "work/nonsquare-product-alt-v62/controller-2.m2": {
+      "sha256": "7cc9bdbc132e8711bc01f1e7b609c8bf043f1f5163b4007f1fd8b444230b0933",
+      "bytes": 176012
+    },
+    "work/nonsquare-product-alt-v62/controller-2.log": {
+      "sha256": "239f0200039b18431af32c23097b72d55382319fc09448e9007c71bcedc73375",
+      "bytes": 89
+    },
+    "work/nonsquare-product-alt-v62/controller-2-witness.txt": {
+      "sha256": "ed2dfeca91e68c7f7ef11644537555a66164a6208869ce144eaaf58461210e65",
+      "bytes": 2360855
+    },
+    "work/nonsquare-product-alt-v62/controller-2-native.log": {
+      "sha256": "c542cd64d73e5a87de20ac2ffb784829f532dc5e1f6834d1b79cb787b0784314",
+      "bytes": 2576
+    },
+    "work/nonsquare-product-alt-v62/controller-3.m2": {
+      "sha256": "d2dbf12d65617d9e7ad4fe432b92aae03f29e12b5b980b7de0adc69eee32f050",
+      "bytes": 2731582
+    },
+    "work/nonsquare-product-alt-v62/mod_ell_build.py": {
+      "sha256": "c86844e34c811f164339ae81550454e1390cbd96473be1364d253b28fd6a5f19",
+      "bytes": 3118
+    },
+    "work/nonsquare-product-alt-v62/mod_ell_jzero.py": {
+      "sha256": "9bfed95a4193ea20bc1d0b3edcb6efcff76c5d4d8c1dbd3a1c9dfe30ec72612e",
+      "bytes": 2977
+    },
+    "work/nonsquare-product-alt-v62/mod-ell/chart-0-residual.txt": {
+      "sha256": "7dee2025403cdcb99365350994ab4cf1c58ce822b57e77c66d618b5bf9a169bf",
+      "bytes": 651162
+    },
+    "work/nonsquare-product-alt-v62/mod-ell/chart-0.txt": {
+      "sha256": "f6d8b8700ae02c33dcf3aa258404a57bd737eb6cbbbf08bc8cbbed1aeb89e92d",
+      "bytes": 783890
+    },
+    "work/nonsquare-product-alt-v62/mod-ell/chart-1.log": {
+      "sha256": "0f62ce4c483dc9f21601283e0e18783fe865bcec2da45386e1fc7063fde531ba",
+      "bytes": 2591
+    },
+    "work/nonsquare-product-alt-v62/mod-ell/chart-3-units.txt": {
+      "sha256": "1cca4bd164b9b6ada28bec3098736e7f970963e2a266ded95cbb77d60a2eb1ad",
+      "bytes": 113
+    },
+    "work/nonsquare-product-alt-v62/mod-ell/corner.txt": {
+      "sha256": "567b3ea6363668e7bb6972089bea26b57b98f3675e5e89dc160d9ea3911b9fc6",
+      "bytes": 15524
+    },
+    "work/nonsquare-product-alt-v62/mod-ell/status.json": {
+      "sha256": "7db9d2ab1e5c99eead901def1bd220068134b93772d5fb547a438efdf3226a25",
+      "bytes": 2918
+    },
+    "work/nonsquare-product-alt-v62/mod-ell/chart-1-units.txt": {
+      "sha256": "3a51180936891f8e1dbc6cef1ed6e201d111235668671bdc5a70185c3596c3f0",
+      "bytes": 214
+    },
+    "work/nonsquare-product-alt-v62/mod-ell/chart-3.txt": {
+      "sha256": "53d74538a2770fd29807e0d4b0037b3992cbeb57084ed42cd8bd6e9014fb797f",
+      "bytes": 99104
+    },
+    "work/nonsquare-product-alt-v62/mod-ell/chart-2.log": {
+      "sha256": "cf8ef46e7e987bbe5f624e5e03fa5f5b5286c4b490129b9987cc47a24d1d540b",
+      "bytes": 2579
+    },
+    "work/nonsquare-product-alt-v62/mod-ell/chart-2.txt": {
+      "sha256": "9325fa850d1010de555be46a32569fa1df221f4571fd0d0cc37976bc8a8c4e3a",
+      "bytes": 427796
+    },
+    "work/nonsquare-product-alt-v62/mod-ell/chart-3-ad-residual.txt": {
+      "sha256": "3ca344d93e6e370f872fb6109457f16bf01a83bab9b0835db01dd40d06dc5745",
+      "bytes": 516926
+    },
+    "work/nonsquare-product-alt-v62/mod-ell/jzero-residual.txt": {
+      "sha256": "8cdc89a2f04e7ffab241e254143e375fa20cf6609cf2f95b4f0709c558408e82",
+      "bytes": 1852099
+    },
+    "work/nonsquare-product-alt-v62/mod-ell/corner-units.txt": {
+      "sha256": "e9776267e74615def2518f65ab6bfa08a4e3ba414b9b52215beeb5b720197032",
+      "bytes": 21
+    },
+    "work/nonsquare-product-alt-v62/mod-ell/jzero.txt": {
+      "sha256": "6f9ff0cbaaf945388771d69a52fad2531114692254a78065918c6c7bddcb86a6",
+      "bytes": 92600
+    },
+    "work/nonsquare-product-alt-v62/mod-ell/chart-0-units.txt": {
+      "sha256": "cb9f03ad115e030fcffca97a8515a80d2d62db6a7f1116513bca5509f3f400e5",
+      "bytes": 214
+    },
+    "work/nonsquare-product-alt-v62/mod-ell/chart-1-residual.txt": {
+      "sha256": "e9f3a933546b850303b27e73adae64fe785843108aa8e27fff7ff188c8ef8256",
+      "bytes": 650196
+    },
+    "work/nonsquare-product-alt-v62/mod-ell/chart-3-residual.txt": {
+      "sha256": "3ca344d93e6e370f872fb6109457f16bf01a83bab9b0835db01dd40d06dc5745",
+      "bytes": 516926
+    },
+    "work/nonsquare-product-alt-v62/mod-ell/chart-3-ad.stdout": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "work/nonsquare-product-alt-v62/mod-ell/chart-4.log": {
+      "sha256": "61353106f6e3c82427f6034d0b1de0fab5c672914684493fee951b885f95d70f",
+      "bytes": 2591
+    },
+    "work/nonsquare-product-alt-v62/mod-ell/corner-residual.txt": {
+      "sha256": "35b409fc124ec771650134d0d80cda260c6d090c26ffde58ce554d7f080ec5b5",
+      "bytes": 72
+    },
+    "work/nonsquare-product-alt-v62/mod-ell/thin.log": {
+      "sha256": "11745ca5a0e6c2d8660f6b103d247014148231904b9df25ba565c2881bb64158",
+      "bytes": 25
+    },
+    "work/nonsquare-product-alt-v62/mod-ell/chart-4-residual.txt": {
+      "sha256": "2fc47b271edbbc93534897761f0e7568abcaecdd1dfc426d698a0ce3fd892925",
+      "bytes": 518748
+    },
+    "work/nonsquare-product-alt-v62/mod-ell/jzero-thin.log": {
+      "sha256": "46343d5270652b9557a2dacf91967bed71b83cf4fecaf7ab8ed8a55070f6b599",
+      "bytes": 21
+    },
+    "work/nonsquare-product-alt-v62/mod-ell/chart-2-residual.txt": {
+      "sha256": "a06d1a8b791738c9bb5e7be4631c1d2dfe9aca54e15548604a5bee23198ab90d",
+      "bytes": 386136
+    },
+    "work/nonsquare-product-alt-v62/mod-ell/jzero-thin.m2": {
+      "sha256": "2e82d630ab9ddd1b705651e899f9c751e2ec32bfdfe70d8b85a9302795ed68dd",
+      "bytes": 1885948
+    },
+    "work/nonsquare-product-alt-v62/mod-ell/chart-2-units.txt": {
+      "sha256": "15225727f40ac45c1a89e19ea2cfa76cb810e2ffad0d9f59447a45215f3603b6",
+      "bytes": 135
+    },
+    "work/nonsquare-product-alt-v62/mod-ell/chart-3-ad.log": {
+      "sha256": "8033827e4920f3c86488e2a1a0cee750a0b23e312ae56b5e64c967536664f394",
+      "bytes": 4221
+    },
+    "work/nonsquare-product-alt-v62/mod-ell/chart-4-units.txt": {
+      "sha256": "103c02db8e79ecb6f6a019f457a18a0d47eaf594fc572ac052e90b9787c46aa4",
+      "bytes": 212
+    },
+    "work/nonsquare-product-alt-v62/mod-ell/chart-3.log": {
+      "sha256": "4de9d72f24ae16ace9f0d264712a0b41b267951b5b08170e2dc6ae4ac7d2b064",
+      "bytes": 4226
+    },
+    "work/nonsquare-product-alt-v62/mod-ell/jzero.log": {
+      "sha256": "d60ee7ad683d0ce648f013c70337dd44a4822cb5ee9b1224a8ebf557222c14af",
+      "bytes": 2396
+    },
+    "work/nonsquare-product-alt-v62/mod-ell/chart-1.txt": {
+      "sha256": "da7dbdf9b03574907b4b6aa859fa30d307af61f4664e616a4bb5cbbcee42ba43",
+      "bytes": 699248
+    },
+    "work/nonsquare-product-alt-v62/mod-ell/thin.m2": {
+      "sha256": "9f4c2b80c62c5b643a5940f0a5405b0dcc2ad2f2b5aadba9961d47d2d8a275f4",
+      "bytes": 655777
+    },
+    "work/nonsquare-product-alt-v62/mod-ell/chart-4.txt": {
+      "sha256": "ed241bfd4eeb2599972847a03136dff4f98a2729542b1fc9e1ffcb342451389b",
+      "bytes": 590870
+    },
+    "work/nonsquare-product-alt-v62/mod-ell/jzero-units.txt": {
+      "sha256": "588e94057d9d0c1592f4bd593e2c2f53e5b397fbe2ee2b71218926ff800dbd6c",
+      "bytes": 97
+    },
+    "work/nonsquare-product-alt-v62/mod-ell/chart-0.log": {
+      "sha256": "6c14f22feb20f8adaa2bf432541d709c34249f5c7d60174ce4c761eeb97cf9c7",
+      "bytes": 2591
+    },
+    "work/nonsquare-product-alt-v62/mod-ell/chart-3-ad-units.txt": {
+      "sha256": "e1068466e3ac69a2320a04db1a92aad25ddf076958c2abdb2758246467f78f7f",
+      "bytes": 115
+    },
+    "work/nonsquare-product-alt-v62/mod-ell/corner.log": {
+      "sha256": "e8227f3d8266ede14be5f09633b86222b9786b1258acb8479ccd48882a2b6d98",
+      "bytes": 1389
+    },
+    "work/nonsquare-v62/products-full.txt": {
+      "sha256": "c32dc1c3cdbaf6f688f55ad2db35314513fc92a405b092ca655600993f4acf41",
+      "bytes": 151895
+    },
+    "work/nonsquare-v62/products-schur.txt": {
+      "sha256": "6d68aae8fc4fabaff126d928b6ff4921c99b8dea77f3d56e170f16a0a388b16c",
+      "bytes": 645026
+    },
+    "work/nonsquare-v62/products-schur.cpp": {
+      "sha256": "02b9624bd9ed2594cea975111edd279b6d196acb6798f2a3678a82a8dbea3cce",
+      "bytes": 3675
+    },
+    "work/nonsquare-v62/products-schur.log": {
+      "sha256": "bb9346685971d8520e1da665812c897775baacd56f3307ee000bbda344c1caad",
+      "bytes": 1013
+    },
+    "work/nonsquare-v62/products.py": {
+      "sha256": "9482ee076aae269f7dd3e768c731be0bc79e77711664be38463da9165204d484",
+      "bytes": 1890
+    }
+  },
+  "observed_exit_code_receipts": "Native/controller outputs plus tool-observed timeout/compatibility outcomes recorded here. Failed syntax prototypes are not adopted."
+}

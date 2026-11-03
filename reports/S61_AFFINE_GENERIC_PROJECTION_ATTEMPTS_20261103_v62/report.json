@@ -1,0 +1,148 @@
+{
+  "id": "S61_AFFINE_GENERIC_PROJECTION_ATTEMPTS_20261103_v62",
+  "all_recorded": true,
+  "runtime": "reused same-session Singular4.4.1 wrapper; direct jobs used --cpus=0",
+  "runtime_wrapper_sha256": "3815f9c7d75c3fd1c838bf07a18933d257190276cbcd18c82002eec24bd151a0",
+  "attempts": [
+    {
+      "name": "generic-pair-QQ",
+      "coefficient_parameter_count": 18,
+      "ring_variable_count": 43,
+      "input_generators": 134,
+      "algorithm": "exact direct slimgb",
+      "time_cap_seconds": 300,
+      "address_space_cap_KiB": 6291456,
+      "returncode": 124,
+      "status": "time_limit",
+      "verified_reduced_system_match": false,
+      "candidate_obtained": false,
+      "rank_or_unit_result": false,
+      "source_and_log_raw_sha256": {
+        "generic-pair-QQ.sing": "520874de40f375e056a1cee454ad169e294efdbebfc761f20c53ec1ac81f71b5",
+        "generic-pair-QQ.log": "d4c248205cef9992925f9732bdda662a88a07d567ea2c7d22704772e35d7cfa7"
+      }
+    },
+    {
+      "name": "generic-pair-homogeneous-v2",
+      "coefficient_parameter_count": 18,
+      "ring_variable_count": 44,
+      "input_generators": 134,
+      "algorithm": "homogeneous modStd candidate plus exact HF guards",
+      "time_cap_seconds": 300,
+      "address_space_cap_KiB": 6291456,
+      "returncode": 124,
+      "status": "time_limit",
+      "verified_reduced_system_match": false,
+      "candidate_obtained": false,
+      "rank_or_unit_result": false,
+      "source_and_log_raw_sha256": {
+        "generic-pair-homogeneous-v2.sing": "cf323db9c026fc3eafa04f320b926c3271ad7e2b9e62a0937f63b12dc2ac43d6",
+        "generic-pair-homogeneous-v2.log": "e0d70b4db504f66622546711c29e6e22d1e0faea5dec2369ad86273a29e4a54f"
+      }
+    },
+    {
+      "name": "secant-nine-QQ",
+      "coefficient_parameter_count": 9,
+      "ring_variable_count": 45,
+      "input_generators": 136,
+      "algorithm": "exact direct slimgb",
+      "time_cap_seconds": 600,
+      "address_space_cap_KiB": 6291456,
+      "returncode": 14,
+      "status": "address_space_limit",
+      "verified_reduced_system_match": true,
+      "candidate_obtained": false,
+      "rank_or_unit_result": false,
+      "source_and_log_raw_sha256": {
+        "secant-nine-QQ.sing": "5be3fe2cbf004246c4b2bb1ea2fe82fca50e94a6a0f39b8961b22c7ca5479277",
+        "secant-nine-QQ.log": "59120da38f67d3025d259d40ede9093ab5acb367634d5ae705f19994fc17d079"
+      }
+    },
+    {
+      "name": "wronski-eight-QQ",
+      "coefficient_parameter_count": 8,
+      "ring_variable_count": 45,
+      "input_generators": 136,
+      "algorithm": "exact direct slimgb",
+      "time_cap_seconds": 600,
+      "address_space_cap_KiB": 6291456,
+      "returncode": 14,
+      "status": "address_space_limit",
+      "verified_reduced_system_match": true,
+      "candidate_obtained": false,
+      "rank_or_unit_result": false,
+      "source_and_log_raw_sha256": {
+        "wronski-eight-QQ.sing": "5849a82fd91695c1b2807984c9bff749a06e759d16d7034e900f3fbe1025aa57",
+        "wronski-eight-QQ.log": "14b942c21c56bbce2dc555059486ba986134fd1bfaa690a9ceb54cf05305344b"
+      }
+    },
+    {
+      "name": "wronski-eight-sparse-QQ",
+      "coefficient_parameter_count": 8,
+      "ring_variable_count": 45,
+      "input_generators": 136,
+      "algorithm": "exact direct slimgb",
+      "time_cap_seconds": 600,
+      "address_space_cap_KiB": 6291456,
+      "returncode": 14,
+      "status": "address_space_limit",
+      "verified_reduced_system_match": true,
+      "candidate_obtained": false,
+      "rank_or_unit_result": false,
+      "source_and_log_raw_sha256": {
+        "wronski-eight-sparse-QQ.sing": "f89acb946c43c4fc73980df97ada9b25c714b5cce49f9474b9f3e26c957c2276",
+        "wronski-eight-sparse-QQ.log": "985b8d9592ed3f6160f1b4eb21276b61b4b9c2590552b5580f8eb7687fe6f07a"
+      }
+    }
+  ],
+  "cgroup_memory_at_save": {
+    "memory.max": "17179869184",
+    "memory.current": "5422825472",
+    "memory.events": "low 0\nhigh 0\nmax 7009\noom 0\noom_kill 0\noom_group_kill 0"
+  },
+  "sparse_order_choice": {
+    "first_coordinates": [
+      8,
+      24
+    ],
+    "coefficient_term_counts": [
+      1229,
+      1206
+    ],
+    "prior_first_coordinates": [
+      0,
+      1
+    ],
+    "prior_coefficient_term_counts": [
+      2240,
+      2541
+    ],
+    "linear_elimination_minor": "16*z^31"
+  },
+  "generic_rank_upper29_proved": false,
+  "generic_unit_proved": false,
+  "affine_surfaces_excluded": false,
+  "unaffected_work": "Exact projection reduction, global annihilator proofs, P31 finite-rank section, and independent boundary audits remain valid.",
+  "next_required_change": "Control rational-function coefficient growth or coordinate a larger exclusive-memory run; any modular candidate still requires exact QQ cofactor verification or the homogeneous good-prime Hilbert bridge.",
+  "input_sha256": {
+    "code/s61_affine_generic_projection_attempts_20261103_v62.py": "40d09bbac9640e9a675ddb6189807c78eb6fa35455bf3cdebe7c60fee47bbc68",
+    "reports/S61_AFFINE_SMALL_PARAMETER_PROJECTION_20261103_v62/report.json": "4f07a04ffcec0f4b17c9636ce1af0a56e1d7bf07679a73fff6e345dbbed4dd6e",
+    "reports/S61_AFFINE_SMALL_PARAMETER_PROJECTION_20261103_v62/secant-exact.sing": "dcfea1f5d0b58f4f780db9ff1fd3d23981fabd09fc0a9da352edf71f21b673df",
+    "reports/S61_AFFINE_SMALL_PARAMETER_PROJECTION_20261103_v62/wronski-exact.sing": "4e3450efb42a173d259b6f4f656093defc70f4ff831251f863c012e1bc097956"
+  },
+  "evidence_sha256": {
+    "homogeneous-initial-syntax.log.gz": "a92d473f40f04e24c84ce8bf52d8280e9199e10caf71d839dd4365c3c495808b",
+    "resume.txt": "8ceec9e28901d97b36d1c625be2778d47763b78b51548a55340bff338a3cf874",
+    "secant-nine-QQ.log.gz": "ef202baadbf5c28d302067d0ce0ba752bba25663767b610b8d9843911ecaf570",
+    "generic-pair-homogeneous-v2.sing.gz": "0da26732036573eca46d8472ead37ab617e3f5ba73a85b7c3f828e60dd252e24",
+    "generic-pair-QQ.log.gz": "a578e6f147464be38a84a7a5b1ab08dbd7a9a5f3b02192edf6b72c698abb071f",
+    "wronski-eight-QQ.log.gz": "8c5bda7b9bd4e20d740c2a38b3a80cea9610a836607bec0910a9df85a391c34a",
+    "generic-pair-QQ.sing.gz": "406002b9692da9a0d6e650dc546bea5c9545a4b96558adf5c4f6a5ddbaad2fe6",
+    "secant-nine-QQ.sing.gz": "0508ac8be9be7a12c8bc2c82fd2fd573cf98f1cca3db0e1d8fa6c067ba413ac8",
+    "wronski-eight-QQ.sing.gz": "5dac724b38a99ad74cd66464daa484544304acf513f3130802773c64d06d35ed",
+    "generic-pair-homogeneous-v2.log.gz": "8ab4a3b426f55c941ef8e16623f1dc1d5e0e48aa8a147bc30839c6e5e097221b",
+    "wronski-eight-sparse-QQ.log.gz": "baac02cb95341231e367c82b6bfa2de675315acca8335b19a44cd84d3899474b",
+    "wronski-eight-sparse-QQ.sing.gz": "0c4b6b93e27a01d0f85c0c3c8c2ebfc145dd080d4612c6b77b806c288f507e20"
+  },
+  "seconds": 3.0264215450006304
+}

@@ -49,8 +49,16 @@
     "resonant_Q_full_branch_exhaustion": false,
     "CA_CB_full_rank3_firstjet_fibers_determined": true,
     "CA_CB_reduced_zero_firstjet_fibers_determined": true,
-    "CA_CB_N_R1_proved": true,
-    "CA_CB_N_nonnormal_nonCM_at_distinguished_a_one_Q": true
+    "CA_CB_N_nonnormal_nonCM_at_distinguished_a_one_Q": true,
+    "CA_CB_N_R1_on_generic_Poisson_rank_four_open_proved": true,
+    "CA_CB_N_global_rank_two_boundary_R1_proved": false,
+    "CA_CB_rank_four_open_reduced_intersection_unique": true,
+    "CA_CB_whole_projective_reduced_intersection_exhaustion_proved": false,
+    "CA_global_reduced_rank_at_most_two_boundary_dimensions": [
+      27,
+      25
+    ],
+    "Q_a_one_full_finite_equivariant_model": true
   },
   "blocks": [
     {
@@ -5970,7 +5978,21 @@
           "CA_CB_COMPONENTS_R1_NON_CM",
           "S61_CA_CB_FULL_RANK3_FIBERS",
           "S61_CA_CB_ZERO_JET_FIBERS"
-        ]
+        ],
+        "Serre_R1_scope": "S61 and generic-Poisson-rank4 open",
+        "completed_local_ring_in_S61": "A8=C[[u10,s1..s8,p²,p³,s1p..s8p]]",
+        "completion_dimension": 28,
+        "completion_embedding_dimension": 37,
+        "completion_depth": 20
+      },
+      "full_rank_at_most_two_boundary": {
+        "projective_component_dimensions": [
+          27,
+          25
+        ],
+        "reduced_support_exhaustion": true,
+        "claim": "CA_GLOBAL_PROPER_FLAG_MODEL_AND_RANK_TWO_BOUNDARY",
+        "boundary_normality_or_R1_proved": false
       }
     },
     {
@@ -6061,7 +6083,12 @@
           "CA_CB_COMPONENTS_R1_NON_CM",
           "S61_CA_CB_FULL_RANK3_FIBERS",
           "S61_CA_CB_ZERO_JET_FIBERS"
-        ]
+        ],
+        "Serre_R1_scope": "S61 and generic-Poisson-rank4 open",
+        "completed_local_ring_in_S61": "A8=C[[u10,s1..s8,p²,p³,s1p..s8p]]",
+        "completion_dimension": 28,
+        "completion_embedding_dimension": 37,
+        "completion_depth": 20
       }
     },
     {
@@ -6624,11 +6651,28 @@
         "distinguished_Q"
       ],
       "claims": [
-        "Q_INTERSECTION_DIMENSION_27"
+        "Q_INTERSECTION_DIMENSION_27",
+        "S61_CA_CB_WHOLE_REDUCED_INTERSECTION",
+        "S61_CA_CB_COMPONENT_PINCHED_COMPLETIONS",
+        "Q_CA_CB_INTERSECTION_NONREDUCED",
+        "Q_CA_CB_INTERSECTION_EMBEDDED_PRIME",
+        "Q_CA_CB_INTERSECTION_EXACT_LOCAL_RING"
       ],
       "limitations_ja": [
-        "Qを通る27次元交差成分の一意性と全交差idealは未決。"
-      ]
+        "全S61とrank4開では唯一。全射影閉包のrank≤2だけに支えられた追加交叉は未検査。",
+        "実交叉はQ1で非被約で埋込素idealを持つ。全primary構造は後続課題。"
+      ],
+      "local_S61_completion_at_Q_a_one": "A7=C[[u10,s1..s7,p²,p³,s1p..s7p]]",
+      "intersection_scheme_nonreduced_at_Q": true,
+      "actual_intersection_local_at_Q_a_one": {
+        "S61_dimension": 18,
+        "S61_depth": 11,
+        "nilradical_principal": true,
+        "nilpotence_index": 2,
+        "nilmodule_support_dimension_S61": 11,
+        "associated_prime_count": 2,
+        "ring_splitting_claimed": false
+      }
     }
   ],
   "integrity_rules_ja": [
