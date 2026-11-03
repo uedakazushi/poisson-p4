@@ -11945,6 +11945,180 @@
         "自由ROWmoduleと各点の像階数は別。各点rank下界57/41、ambient cokernel自由性、四次や周囲t冪零性は未証明。",
         "有限次数の核探索の陰性を全kernel不存在と混同しない。"
       ]
+    },
+    {
+      "id": "Q_ALL_A_JACOBI_ORBIT_SMITH",
+      "title_ja": "全Q_aの接空間と軌道の例外を完全決定",
+      "statement_ja": "全126物理canonical方向の350×126 JacobiをQQ[a]上の可逆Smith操作で完全決定した。非単元因子は9a−2,a,aのみ。Jacobi rankはa0で73、a2/9で74、他は75。affine軌道rank17・projective16は全aで一定。横断接次元は36/35/34である。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "Q_WEIGHTED_FINITE_MODEL_35"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/Q_FULL_FAMILY_LINEAR_SMITH_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/Q_FULL_FAMILY_LINEAR_SMITH_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/Q_FULL_FAMILY_LINEAR_SMITH_20261103_v63/report.json",
+        "reports/Q_FULL_FAMILY_LINEAR_SMITH_20261103_v63_REVIEW.json"
+      ],
+      "limitations_ja": [
+        "高次ideal・平坦性・全枝は一次行列からは決まらない。",
+        "旧選択frameの他の根は軌道の跳びではない。"
+      ]
+    },
+    {
+      "id": "Q_ALL_A_ACTUAL_T01_MEMBERSHIP",
+      "title_ja": "全Q_aの実T01への明示的帰属",
+      "statement_ja": "F=3as²+(9a−4)s−6の全被覆上でregular nilpotent Nと二係数λ,μを構成し、全150係数でQa=λNx∧N⁴x+μN²x∧N³xを証明した。tracefree powersの普遍Mat5×A6写像は実T01へ入り、全複素a（0を含む）の帰属が従う。canonical多項式t退化、全350Jacobi、明示固有frameも保存した。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_TORIC_GLOBAL_REDUCED_IDEAL"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/Q_T01_MEMBERSHIP_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/Q_T01_MEMBERSHIP_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/Q_T01_MEMBERSHIP_20261103_v63/report.json",
+        "reports/Q_T01_MEMBERSHIP_20261103_v63_REVIEW.json"
+      ],
+      "limitations_ja": [
+        "全T01境界がこのsourceで覆われるとは主張しない。",
+        "274必要条件の消失やΔ0での未飽和代入は十分条件として使わない。",
+        "T01の正規化・局所枝数の尽くしは別である。"
+      ]
+    },
+    {
+      "id": "Q_ALL_A_FULL_POISSON_NON_CM",
+      "title_ja": "全Q_aでの全Poisson完成環の非CM性",
+      "statement_ja": "CAのf=a h²,g=−2/9とCBのF=h²,比[a:−2/9]に同じHを入れ、全aで直接Qaを持ち上げた。全Qaは実既約成分T01(25),CA(28),CB(28)を通る。閉点のminimal成分次元が異なるため、全Poisson完成局所環と全被約Poisson完成環は全aで非CMである。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "Q_ALL_A_ACTUAL_T01_MEMBERSHIP",
+          "R4_ADDITIONAL_ELEVEN",
+          "MPS40"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/Q_ALL_FAMILY_NON_CM_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/Q_ALL_FAMILY_NON_CM_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/Q_ALL_FAMILY_NON_CM_20261103_v63/report.json",
+        "reports/Q_ALL_FAMILY_NON_CM_20261103_v63_REVIEW.json"
+      ],
+      "limitations_ja": [
+        "個々のCA/CBの全aでの非CM性や全局所次元上界は主張しない。",
+        "指定aでさらに既知T37/T39/T40が通っても全枝を尽くすとはしない。"
+      ]
+    },
+    {
+      "id": "R19_ENTIRE_LOG1112_CONTAINMENT",
+      "title_ja": "全RのLog1112成分への包含",
+      "statement_ja": "標準形PQのK2=120xw+20Ah²+15Bhz+12Fz²とlog residues(−3,1,2,0),(−2,−1,1,1)から、旧Log1112 builderの全150 canonical係数が−300PQと一致する。閉PGL飽和により全R⊂既存Log1112(28)。全RはCA,CB,LPB,Logの少なくとも四つの既知成分を通る。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "CA_CB_GLOBAL_REDUCED_INTERSECTION_N27_R19",
+          "R2_FULL_SIX"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_R19_LOG_AND_BIRATIONAL_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_R19_LOG_AND_BIRATIONAL_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_R19_LOG_AND_BIRATIONAL_20261103_v63/report.json",
+        "reports/AMBIENT_R19_LOG_AND_BIRATIONAL_20261103_v63_REVIEW.json"
+      ],
+      "limitations_ja": [
+        "既存の成分証明書を再使用し、新しい全Poisson成分を加えない。"
+      ]
+    },
+    {
+      "id": "R19_OPEN_POISSON_CREMONA_RATIONAL_LEAVES",
+      "title_ja": "全R\\NのPoisson有理同値と有理葉",
+      "statement_ja": "全R\\Nの標準形はwtilde=w+Ah²/(6x)+Bhz/(8x)+Fz²/(10x)の二次CremonaでQ0へ実Poisson有理同値となる。二つの有理Casimirsと全函数体の有理逆式を証明した。一般葉は有理曲面で、F非零の一般葉閉包は次数6の有理coneである。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "R19_ENTIRE_COMPLEMENT_ORBITS_AND_ORDINARY_DOUBLE",
+          "R19_ENTIRE_LOG1112_CONTAINMENT"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_R19_LOG_AND_BIRATIONAL_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_R19_LOG_AND_BIRATIONAL_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_R19_LOG_AND_BIRATIONAL_20261103_v63/report.json",
+        "reports/AMBIENT_R19_LOG_AND_BIRATIONAL_20261103_v63_REVIEW.json"
+      ],
+      "limitations_ja": [
+        "有理同値・葉の結果をR∩Nの全特殊点へ広げない。",
+        "projective軌道不変量κ²とbirational不変量を混同しない。"
+      ]
     }
   ],
   "setup_checkpoint": "v25-setup",

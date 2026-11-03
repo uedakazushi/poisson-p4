@@ -2,6 +2,15 @@
 
 Version: v63-s61 · 2026-11-03 (Asia/Tokyo).
 
+Latest H: ENTIRE physicalQa forALLfinite complexa incl0 liesACTUALT01,
+via explicitregularnilpotent powers+tracefree canonical polynomialarc.
+AllQa FULLPoisson/reducedcompletion NONCM byT01(25),CA/CB(28); notallbranches.
+Full126 JacSmith ONLYnonunits(9a−2,a,a), rank73at0,74at2/9,75else.
+Orbit17 ALLa, initial7groupframe unitsALLa. Otheroldframepoles artifacts.
+DoNOTinferflatness orhigherideal fromSmith. Global37/35DAG is separate.
+EntireR⊂Log1112 aswellasLPB: fourknowncomponentsALLRpoints.
+AllR\N exactPoissonCremona→Q0, twoCasimirs,rationalleaves; notR∩N.
+
 Latest G extension: ALL R\N orbits classified (κ² family+sixorbits),
 ALLpoints there smoothR andACTUALordinarydoubleD, noembedded; R∩N OPEN.
 Nonsquare ENTIREU=aFBC freeROWmodule57, completekernelbasis6, product
