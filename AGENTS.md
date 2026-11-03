@@ -2,6 +2,25 @@
 
 Version: v63-s61 · 2026-11-03 (Asia/Tokyo).
 
+Latest Q: genericB18 ACTUAL INDIVIDUAL REDUCEDN FULLCOMPLETION SOLVED.
+ActualI=J=(ν,s6,wv,v²) by9J/mJclasses+Nakayama, νfixed. ConeA⊂regularB
+=C[[g19,w,v,s6,t]], A=C[[g19,w,v,s6,t²,s_i*t,t³,wvt,v²t]].
+Projectiveg18: DIM27/EDIM36/DEPTH19/MULT2. WHOLE81kernel relations
+36Taylor+45products independentlyM2. DOMAIN/noembeddedA. ConductorIB;
+embeddednilONLYquotientR/I=g19/(wv,v²). NormalizerSUBINTEGRAL, seminormal
+closureB, nooffdiaggeometric/reducedarcpairsANYorder locally. NotallB18
+specialpoints/globalNbadlocus/CA_CBfulltype/actualD. OtherstaysOPEN.
+WholegenericaffineGLOBALnormalR42quintic+134h<5remainders, 5x670module,
+NO q/cyclicopen omitted. S1/S2/H fixednormalcircuits degree4/4/5.
+FormalFREE45quadratic670rankFULL =>constantvectorpurelinearspanZERO;
+nonlinearS(n)/H(n) substitutionCANcreatecancellations, no42negativeclaim.
+Nonzeroplanecofterms30/30/51; old31/31/52 includedzeroentry, preserved.
+T38Qa8/9 explicitquarticfield/full150arc+frame accepted; fixedlevel−1/5
+edgeansatzeexcludedONLY, P+/P2membershipOPEN. GF32003proofONLYreduced
+31-prefix10x53surjectivity, NOToriginalGF41 orQQ41. All31punitbridge
+unaudited; correctedpartialexportretainedINVALID. CRT8noQQcandidate,
+V27frozen. Nonsquareexecutednative33; laterQQunitseparate. Continuework.
+
 Latest P: NEW25 firstjet hypersurfaceequationDEGREE>=18, fullInv16dim20
 restrictioninjective by20actualQQjets/exact20minor, independentall1200values.
 Inv17zero; degree18/equationOPEN. NonsquareALLadFBCJ productrank>=37,

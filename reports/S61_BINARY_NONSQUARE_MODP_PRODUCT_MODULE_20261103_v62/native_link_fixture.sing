@@ -1,0 +1,9 @@
+ring r=32003,(a,e,d),dp;
+matrix taskT[2][3]=a,e,d,a2,e2,d2;
+link taskOut="ASCII:w /workspace/poisson-p4/work/nonsquare-v62/product-module-v25/native-link-smoke.txt";
+open(taskOut);
+write(taskOut,"2 3 0");
+int taskI,taskJ;poly taskP;intvec taskEx;
+for(taskI=1;taskI<=2;taskI++){for(taskJ=1;taskJ<=3;taskJ++){taskP=taskT[taskI,taskJ];write(taskOut,string(size(taskP)));while(taskP!=0){taskEx=leadexp(taskP);write(taskOut,string(leadcoef(taskP))+" "+string(taskEx[1])+" "+string(taskEx[2])+" "+string(taskEx[3]));taskP=taskP-lead(taskP);}}}
+close(taskOut);
+quit;

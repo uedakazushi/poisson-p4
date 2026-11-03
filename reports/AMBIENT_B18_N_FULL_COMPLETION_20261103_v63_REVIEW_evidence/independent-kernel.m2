@@ -1,0 +1,10 @@
+S=QQ[n,w,v,s1,s2,s3,s4,s5,s6,y0,y1,y2,y3,y4,y5,y6,y7,y8];
+T=QQ[w,v,s1,s2,s3,s4,s5,s6,t];
+phi=map(T,S,{t^2,w,v,s1,s2,s3,s4,s5,s6,t^3,s1*t,s2*t,s3*t,s4*t,s5*t,s6*t,t*v*w,t*v^2});
+use S;
+P=ideal(-n*y1 + s1*y0,-n*y2 + s2*y0,-n*y3 + s3*y0,-n*y4 + s4*y0,-n*y5 + s5*y0,-n*y6 + s6*y0,-n*y7 + v*w*y0,-n*y8 + v^2*y0,-s1*y2 + s2*y1,-s1*y3 + s3*y1,-s1*y4 + s4*y1,-s1*y5 + s5*y1,-s1*y6 + s6*y1,-s1*y7 + v*w*y1,-s1*y8 + v^2*y1,-s2*y3 + s3*y2,-s2*y4 + s4*y2,-s2*y5 + s5*y2,-s2*y6 + s6*y2,-s2*y7 + v*w*y2,-s2*y8 + v^2*y2,-s3*y4 + s4*y3,-s3*y5 + s5*y3,-s3*y6 + s6*y3,-s3*y7 + v*w*y3,-s3*y8 + v^2*y3,-s4*y5 + s5*y4,-s4*y6 + s6*y4,-s4*y7 + v*w*y4,-s4*y8 + v^2*y4,-s5*y6 + s6*y5,-s5*y7 + v*w*y5,-s5*y8 + v^2*y5,-s6*y7 + v*w*y6,-s6*y8 + v^2*y6,v*y7 - w*y8,-n^3 + y0^2,-n^2*s1 + y0*y1,-n^2*s2 + y0*y2,-n^2*s3 + y0*y3,-n^2*s4 + y0*y4,-n^2*s5 + y0*y5,-n^2*s6 + y0*y6,-n^2*v*w + y0*y7,-n^2*v^2 + y0*y8,-n*s1^2 + y1^2,-n*s1*s2 + y1*y2,-n*s1*s3 + y1*y3,-n*s1*s4 + y1*y4,-n*s1*s5 + y1*y5,-n*s1*s6 + y1*y6,-n*s1*v*w + y1*y7,-n*s1*v^2 + y1*y8,-n*s2^2 + y2^2,-n*s2*s3 + y2*y3,-n*s2*s4 + y2*y4,-n*s2*s5 + y2*y5,-n*s2*s6 + y2*y6,-n*s2*v*w + y2*y7,-n*s2*v^2 + y2*y8,-n*s3^2 + y3^2,-n*s3*s4 + y3*y4,-n*s3*s5 + y3*y5,-n*s3*s6 + y3*y6,-n*s3*v*w + y3*y7,-n*s3*v^2 + y3*y8,-n*s4^2 + y4^2,-n*s4*s5 + y4*y5,-n*s4*s6 + y4*y6,-n*s4*v*w + y4*y7,-n*s4*v^2 + y4*y8,-n*s5^2 + y5^2,-n*s5*s6 + y5*y6,-n*s5*v*w + y5*y7,-n*s5*v^2 + y5*y8,-n*s6^2 + y6^2,-n*s6*v*w + y6*y7,-n*s6*v^2 + y6*y8,-n*v^2*w^2 + y7^2,-n*v^3*w + y7*y8,-n*v^4 + y8^2);
+K=ker phi;
+assert(K==P);
+assert(dim(S/P)==9);
+print "INDEPENDENT_N_WHOLE81_MAP_KERNEL_PASS";
+exit 0;

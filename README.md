@@ -1,5 +1,7 @@
 # Poisson structures on projective four-space
 
+generic B18での個別被約Nの全完成環を決定・独立検証した。projective次元27、埋込次元36、depth19、多重度2で、全81関係の証明書を保存した。CA/CBと実交叉Dの全型は継続中。一般affineの大域五次表示も全未知点を保つが、全分類・一般五点尽くしは未解決である。
+
 新25成分の全Poisson一般横断長さは正確に5。n111の全完成環 C[[s25,u,v]]/(uv,u³,v³) とCM type2を証明・独立監査し、[14ページの独立原稿](papers/positive_weight6_component_ja.pdf)に保存した。全52 rank4成分のdense S61写像が揃った。新一次像は15次元・方程式次数16以上だが実方程式、全境界、全分類は未解決。以下は以前の記録を含む。
 
 **現行の下界は58（rank4は52）で、総数の上界は未確定。** 新しい25次元全成分R4_POSITIVE_WEIGHT6_25を全次数Poisson family・rank26・actual局所上界25から証明し、既存57との相違を独立監査した。以下の57/51は以前の保存時点の記録である。全分類、generic scheme厚みや文献上の優先権は別に扱う。

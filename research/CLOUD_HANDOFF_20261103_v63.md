@@ -8,6 +8,20 @@ v62保存は `e187b40de68bce534391f406f616940cddd045a7`、
 `66a80ab53dfcf0ff842c67140320d8da0226039d`。全て通常push済み。
 このv63保存のSHAはGit履歴で識別する。
 
+## v63 Q: generic B18のN全完成環、大域五次表示、厳密有限体証明書
+
+直前保存 main `0e87048ae6eb55900631e4581b0d26b9895070ab` は通常push済み。以下は過去時点の記録を含む。
+
+generic B18軌道で、個別被約target Nの全完成環を決定した。全actual odd generatorsの七一次＋二二次classを元150係数とNeumann二次逆で独立監査し、J=I+(nu)の全九minimal classを得た。NakayamaによりI=J=(nu,s6,wv,v²)が全次数で成立する。projective完成環は正則環C[[g18,w,v,s6,t]]の閉部分環 C[[g18,w,v,s6,t²,s_i t,t³,wvt,v²t]]。全81関係のkernel等号を別のM2でも確認した。dim27・edim36・depth19・多重度2、domainでembedded primeはない。
+
+Nのnormalizerは正則で射はsubintegral、seminormalizationもこのnormalizerとなる。conductor quotientはC[[g19,w,v]]/(wv,v²)で、そこにあるembedded nilとN domain自体を区別する。このgeneric完成germのSing/Nonnormal/NonCM supportはconductorの滑らかな被約台である。Nの全特殊B18点やglobal bad locus、CA/CB個別の全型、実CA/CB交叉Dは未解決である。
+
+一般affine全134式を、normalR42底上の大域monogenic五次と134余り、5×670 moduleへ移した。S1(n),S2(n),H(n)は固定有限circuitであって自由parameterではない。自由formal45変数へ一時的に持ち上げた全670行は二次頭rank670で、定数cofactorの純一次vector spanは零と証明した。ただし非線形basechange後の実42変数障害に移さない。全beta有限性や一般五点尽くしはなお未取得。
+
+Qa8/9の実T38 sourceを明示的四次体と全150係数の多項式curveで構成した。固有frame・全unit norm・全350Jacobiを独立監査した。固定frameでlevel−1 edgeとlevel5 seedの二つの単純経路は除外したが、P+やP2のT38全所属は未決である。
+
+非平方について有限体で厳密証明したのは、p還元済み31-prefix残余10×53の全射性だけである。元product41への全31prefix素数整合性は未監査、QQ41も未証明。完全な183182項証明書と無効なpartial exportを区別して保存した。八素数CRTは係数の安定再構成に至らず、V27 archiveへ実行状態・全signature・再現手順を保存した。新しいQQ scalar unitとnative縮約は別に進める。下界58/rank4下界52、上界未定を維持して研究を続ける。
+
 ## v63 P: 一次像次数18、product下界37、実normal graphとN部分射影
 
 直前保存 main `2f0d9f8` は通常push済み。以下は過去時点の記録を含む。
