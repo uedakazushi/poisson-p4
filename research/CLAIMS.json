@@ -13605,8 +13605,318 @@
       "limitations_ja": [
         "全coker消滅、J0欠損の有限性、quartic/ambient除去は未取得。"
       ]
+    },
+    {
+      "id": "S61_AFFINE_GLOBAL_IDEMPOTENT_DEGREE42",
+      "title_ja": "次数42の単一線形行列式を大域冪等元に正規化",
+      "statement_ja": "五つのreplacement rowのcofactorを既知E5で基底化し、betaだけの5×5逆行列で一行を正規化した。線形42行列のdet E42は既知五点上1、normal idealをannihilateするため全Aで正確にeに等しく冪等。I_res=I+(E42)で、次数42係数17048を含め独立確認した。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_AFFINE_EXACT_RESIDUAL_DEGREE42"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_AFFINE_IDEMPOTENT42_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/S61_AFFINE_IDEMPOTENT42_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_AFFINE_IDEMPOTENT42_20261103_v63/report.json",
+        "reports/S61_AFFINE_IDEMPOTENT42_20261103_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "一般beta係数は有限recipe。実残余unitは未取得。"
+      ]
+    },
+    {
+      "id": "Q_POSITIVE_RAY_FULL_FORMAL_EIGHT_AND_QUADRATIC_CONE",
+      "title_ja": "正軸の全8normal形式模型と二次cone",
+      "statement_ja": "全物理canonical126係数・350式でorbitとscalar23方向を切り、単元95方程式をimplicit消去した全8normal形式模型を得た。残る二次obstruction五本の根基は(z1,z7,z5*(z4+2z6))で、二つの5平面。全formal横断次元は5以下、全projective局所次元27以下。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "Q_POSITIVE_RAY_ORBIT22_FOUR_MORE_EXCLUSIONS"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/Q_POSITIVE_WEIGHT6_QUADRATIC_MODEL_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/Q_POSITIVE_WEIGHT6_SMALL_MODEL_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/Q_POSITIVE_WEIGHT6_QUADRATIC_MODEL_20261103_v63/report.json",
+        "reports/Q_POSITIVE_WEIGHT6_SMALL_MODEL_20261103_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "二次coneの全初期idealへの等号や実5次元枝を主張しない。"
+      ]
+    },
+    {
+      "id": "Q_POSITIVE_RAY_TRUE_INITIAL_FOUR_LOCAL_UPPER25",
+      "title_ja": "全真四次初期式による局所上界25",
+      "statement_ja": "全350形式jetを四次まで保持し、全337 kernel cancellationをQQで計算した。五二次に新八三次と八四次が加わりHF=(1,8,31,72,126)。この初期下位idealは次元3・次数6なので全actual transverse次元≤3、全projective局所次元≤25である。独立nativeQQ実装が全1750 polynomialsを全係数で照合した。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "Q_POSITIVE_RAY_FULL_FORMAL_EIGHT_AND_QUADRATIC_CONE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/Q_POSITIVE_WEIGHT6_INITIAL4_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/Q_POSITIVE_WEIGHT6_SMALL_MODEL_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/Q_POSITIVE_WEIGHT6_INITIAL4_20261103_v63/report.json",
+        "reports/Q_POSITIVE_WEIGHT6_SMALL_MODEL_20261103_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "実3次元枝や全初期idealの生成をこの上界だけから推論しない。"
+      ]
+    },
+    {
+      "id": "Q_POSITIVE_RAY_TRUE_INITIAL_FIVE_TWO_SUPPORT_PLANES",
+      "title_ja": "全真五次初期式と三平面・二平面",
+      "statement_ja": "全350五次jet、全48四次syzygy carryと329新五次sourceを保持し、全1329行のspanningを確認した。全377行のQQ reductionで新15五次類とHF5=171を厳密決定した。根基はL3=(z1,z2,z4,z6,z7)とP2=(z1,z3,z4,z5,z6,z7)の交叉、dim3 degree5。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "Q_POSITIVE_RAY_TRUE_INITIAL_FOUR_LOCAL_UPPER25"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/Q_POSITIVE_WEIGHT6_INITIAL5_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/Q_POSITIVE_WEIGHT6_INITIAL5_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/Q_POSITIVE_WEIGHT6_INITIAL5_20261103_v63/report.json",
+        "reports/Q_POSITIVE_WEIGHT6_INITIAL5_20261103_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "有限jetを実枝の全分解と同一視しない。新成分の存在は別の全次数familyで証明する。"
+      ]
+    },
+    {
+      "id": "R4_NEW25_POSITIVE_WEIGHT6_FULL_COMPONENT",
+      "title_ja": "新しい25次元全Poisson成分と下界58",
+      "statement_ja": "補助N²条件を外した三変数の有限二次graphは全140 affine Jacobiと全350 canonical JacobiをQQ[n0,n1,n2]で恒等的に満たす。PGL・scalar・三familyの全150微分rank26を独立確認した。既証のactual局所上界25と合わせ、飽和像閉包は正確に25次元の全既約成分R4_POSITIVE_WEIGHT6_25である。既存大次元五成分は正軸を避け、他既存rank4成分は24次元以下、六rank2成分は閉rank2内なので全57と相異なる。従って総下界58、rank4下界52。正軸とQa8/9を含む。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "Q_POSITIVE_RAY_TRUE_INITIAL_FOUR_LOCAL_UPPER25",
+          "Q_POSITIVE_RAY_OUTSIDE_FULL_T01_CA_CB",
+          "Q_POSITIVE_RAY_ORBIT22_FOUR_MORE_EXCLUSIONS",
+          "R4_ADDITIONAL_ELEVEN",
+          "MPS40",
+          "R2_FULL_SIX"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/Q_POSITIVE_WEIGHT6_NEW_FAMILY_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/Q_POSITIVE_WEIGHT6_NEW_FAMILY_20261103_v63_REVIEW.md"
+        },
+        {
+          "path": "research/notes/Q_POSITIVE_WEIGHT6_COMPONENT25_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/Q_POSITIVE_WEIGHT6_NEW_FAMILY_20261103_v63/report.json",
+        "reports/Q_POSITIVE_WEIGHT6_NEW_FAMILY_20261103_v63_REVIEW/report.json",
+        "reports/Q_POSITIVE_WEIGHT6_COMPONENT25_20261103_v63_REVIEW.json"
+      ],
+      "limitations_ja": [
+        "全分類、総数58の等号、一般beta優越性、全形式枝、正規性・generic reducednessは主張しない。",
+        "新規性は既存57成分との数学的区別であり、文献上の優先権は未確認。"
+      ]
+    },
+    {
+      "id": "AMBIENT_GENERIC_B18_ACTUAL_QUADRATIC_IMAGE_REDUCTION",
+      "title_ja": "B18一般軌道の実交叉を二つの二次image kernelへ還元",
+      "statement_ja": "全CA/CB/N proper旗fiberを一つの長さ2 schemeと決定した。共通29 cone/28 projective actual target関数に関する両normalizerのclosed fiber長2と単元minorを別に証明し、同じ正則R28上free rank2を得た。実D完成環は二つの一変数quadratic image kernelの和へ厳密に還元される。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "R19_GLOBAL_PROPER_QUADRIC_AND_BOUNDARY_B18",
+          "CA_CB_GLOBAL_REDUCED_INTERSECTION_N27_R19"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_B18_QUADRATIC_IMAGE_REDUCTION_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_B18_QUADRATIC_IMAGE_REDUCTION_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_B18_QUADRATIC_IMAGE_REDUCTION_20261103_v63/report.json",
+        "reports/AMBIENT_B18_QUADRATIC_IMAGE_REDUCTION_20261103_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "係数は明示有限sourceとWeierstrassによるalgebraic formal recipe。全nilradical・primary構造は未計算。normalizer tensorを代用しない。"
+      ]
+    },
+    {
+      "id": "AMBIENT_GENERIC_B18_FOUR_ROW_ACTUAL_MODULE",
+      "title_ja": "B18実交叉の四行有限moduleと全target作用",
+      "statement_ja": "共通R28上の二normalizer直和はfree4。polarized Cayley–Hamiltonによりactual union像Uは長さ3以下の全161700 wordで生成され、個別image直和Mは196列で生成される。実Dは正確にM/U。97個のpaired target作用とclass(1,0)が全actual完成環も復元する。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "AMBIENT_GENERIC_B18_ACTUAL_QUADRATIC_IMAGE_REDUCTION"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_B18_FINITE_UNION_MODULE_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_B18_FINITE_UNION_MODULE_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_B18_FINITE_UNION_MODULE_20261103_v63/report.json",
+        "reports/AMBIENT_B18_FINITE_UNION_MODULE_20261103_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "Uをnormalizer直和のidealと仮定しない。未展開の係数を計算済みと扱わず、全Ass/depthは未決。"
+      ]
+    },
+    {
+      "id": "S61_J0_SECOND_FIVE_INTEGER_UNIT_PIVOT_21_BY_55",
+      "title_ja": "J0の五整数関係による21×55縮約",
+      "statement_ja": "実22×56のrow13の五列を整数5757,2400,12320,−22945,8225で結ぶと、非零QQ定数×a²C(3e+2)²となる。実入力全五polynomialと正規化witnessを独立Fractionで照合し、単元列置換による余核同型21×55を得た。合計36安全pivotで未知因子は反転しない。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_J0_FOUR_CONSTANT_UNIT_PIVOT_22_BY_56"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_NONSQUARE_J0_SECOND_UNIT_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/S61_NONSQUARE_J0_SECOND_UNIT_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_NONSQUARE_J0_SECOND_UNIT_20261103_v63/report.json",
+        "reports/S61_NONSQUARE_J0_SECOND_UNIT_20261103_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "全coker消滅、J0欠損有限性、quartic/ambient除去は未取得。"
+      ]
+    },
+    {
+      "id": "R4_NEW25_FIRSTJET_IMAGE_EXACT15_GENERIC_FIBER1",
+      "title_ja": "新25成分の一次像は15次元・一般fiberは一次元",
+      "statement_ja": "全三family・評価点四変数を保つ30×28 jet行列を20有理単元pivotで10×8へ減らし、QQ七変数函数体で厳密rank5を二つの別engineで独立確認した。全rank25からvalue六方向とperspective四方向を除きprimitive beta像は正確に15次元。新S61成分は16次元なので像上の一般fiberは一次元。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "R4_NEW25_POSITIVE_WEIGHT6_FULL_COMPONENT"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/Q_NEW_FAMILY_FIRSTJET_IMAGE_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/Q_NEW_FAMILY_FIRSTJET_IMAGE_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/Q_NEW_FAMILY_FIRSTJET_IMAGE_20261103_v63/report.json",
+        "reports/Q_NEW_FAMILY_FIRSTJET_IMAGE_20261103_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "全W16を優越しない。新成分は一般beta五点尽くしの反例ではない。",
+        "15次元像の全定義式とgeneric fiberの全scheme型は未計算。"
+      ]
     }
   ],
   "setup_checkpoint": "v25-setup",
-  "current_checkpoint_includes_new_research": true
+  "current_checkpoint_includes_new_research": true,
+  "current_global_component_lower_bound": 58
 }

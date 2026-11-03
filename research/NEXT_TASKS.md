@@ -1,5 +1,9 @@
 # 次の課題 — v63-s61 / 2026-11-03
 
+## M以降: 下界58を基準とする
+
+新25成分R4_POSITIVE_WEIGHT6_25の全成分性・旧57との相違は解決し、総下界58/rank4下界52へ更新した。新成分のgeneric scheme厚み・二normal Artin模型、全S61写像、既証15次元一次像の定義式と一次元generic fiberの全型、実軌道moduliと原稿を続ける。正軸L3を除去して局所上界24を証明する目標は実三変数familyに反するため再試行しない。一般beta五点の全尽くしは別課題であり、新成分の一次像優越性を次元16だけから推論しない。全generic affine残余E42のunit、B18実交叉のodd ideals/primary構造、非平方のrank・四次被覆は未解決のまま続ける。
+
 ## L以降の実行可能な残余
 
 一般アフィンの既知五点は大域idempotentで分離済みで、未知schemeは厳密にI+(R42)。このunitを証明するか未知支持を構成することが次の有限目標。全beta-only35模型と129×42線形normal行列を再使用する。完了degree3 Macaulayが同じ中心で線形帰結なしなので、同値なD1leftinverse探索は繰り返さない。正軸は十五の既知rank4成分から除外したが残るMPS・Hquarticが未決。全physical350から得る8normal formal模型と高次obstructionを扱い、有限jetのconeを全枝と同一視しない。全QaのDarbouxと40/41下界は解決済み。実B18境界交叉と非平方の残余単元・四次被覆を継続する。

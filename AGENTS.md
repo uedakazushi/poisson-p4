@@ -2,6 +2,24 @@
 
 Version: v63-s61 · 2026-11-03 (Asia/Tokyo).
 
+Latest M: NEW ACTUAL fullcomponent R4_POSITIVE_WEIGHT6_25 EXACT25D.
+Unconstrained3-normal finitegraph (dropauxN²) ALL140/350Jac QQzero,
+canonical GL+scalar+3family RANK26. Independentlyaudited FULLambient
+localupper25 =>component, distinctALLprior57. GLOBALlower58/R4lower52,
+uppernull. GenericD=3H+SMOOTHrank5Q tangentH. NOTold22rank4quadric.
+Containspositiveorbit22 andQa8/9⇒Qa8/9formalminimalprimes>=41.
+ALLQa containment/genericreducedness/normality/fullbranches OPEN.
+Trueinitial<=5 HF(1,8,31,72,126,171), radicalL3+P2. Actualtransverse3,
+projlocal25 EQUALITY bynewfamily. DoNOTtryL3removal/upper24: false.
+EXACTfirstjetimage15 byQQ7varRF rank25-6-4, independentlyaudited.
+NewS61dim16=>genericfiber1 onitsimage, NOTgeneralW16dominant.
+No genericfivecounterexample; hypersurfaceequation/fiber typeOPEN.
+GenericQQpointsJacrank98⇒tangent28affine only, notgenericnilproof.
+E42 normalizedLINEAR42det itselfGLOBALidempotent; residualunitOPEN.
+B18actualD exactcommonR28rank2imagekernels+fourrowfinite M/U/actions;
+oddideals/primaryOPEN. J0safe36pivot21x55, notcokerunit/quarticproof.
+Frozenold118p/16p/91p unchanged; NEW25paper separate. Continuework.
+
 Latest L: WHOLEgenericaffine A=knownetale5 E × A/(e), global
 polarizationtraceidempotent, no q/cyclic/H localization. Exactresidual
 I+(R42)=I+(R43)=I+(e); linear129x42normalfactor, QQwholeidentities.

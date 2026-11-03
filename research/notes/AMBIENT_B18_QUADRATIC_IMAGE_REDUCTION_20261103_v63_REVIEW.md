@@ -1,0 +1,21 @@
+# generic B18のactual image-kernel還元の独立監査
+
+2026年11月3日。producerのsource・canonical・action関数を呼ばず、別に書いた
+CA/CBのraw式とEuler補正から三つの全旗Groebner fiberを再構築した。
+両十変数coreの全150係数、物理GL19列、共通28小行列式、全150の補正二次係数を比較した。
+全sourceのaugmented rank29と、共通29番目の係数−4,3/8を確認した。
+canonical126座標の再構築の全divergence線形制約も照合した。
+
+全geometric旗の唯一性と長さ2は全proper source上の議論を必要とする。
+定vector factorの線形rank4、唯一のCasimir x、Darboux covectorとWの唯一性を検討し、
+他endpointが二Casimirを要する点も確認した。rank2条件はfのunit係数によりg/ratioを
+schemeとして零にするので、CBの非線形ratio条件を線形fiberへ置き換えた誤りはない。
+
+共通29 actual target関数のclosed fiberがp²で長さ2となり、complete Nakayamaで有限化する。
+正則normalizerと正則等次元底のCM性からfree rank2が従う。このparameter idealを
+別に確認せず、長さ2のproper旗fiberだけからflatを推論する方法は使っていない。
+
+実交叉は二つのtarget image kernelの和であり、normalizer tensorで代用できない。
+quadratic algebraへの個別contraction、odd-coefficient idealとそのsyzygy/product表示の
+全形式的な還元を受理する。未展開の係数を計算済みと扱わず、全nilradical・embedded
+primary typeやB18の全特殊点への延長は承認しない。

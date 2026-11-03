@@ -1,0 +1,27 @@
+{
+  "base": "The SAME R=C[[r28]] from the frozen common-target rank2 reduction",
+  "normalizer_bases": [
+    "1,pA",
+    "1,pB"
+  ],
+  "quadratics": [
+    "pA\u00b2=tauA*pA+nuA",
+    "pB\u00b2=tauB*pB+nuB"
+  ],
+  "target_generator_pairs": "b_j=(a_Aj,b_Aj,a_Bj,b_Bj) in B_A directsum B_B, 0<=j<97",
+  "coefficient_representation": "Algebraic formal series specified by exact finite source+unitIFT+quadratic Weierstrass; not expanded.",
+  "M_generator_count": 196,
+  "M_columns": "(1,0) and(0,1), plus(z_j^A,0),(0,z_j^B); 4 rows in B free4 basis",
+  "U_generator_count": 161700,
+  "U_columns": "Products of paired b_j indexed by frozen word archive, including diagonal1",
+  "module_exact_sequence": "0 -> U -> A_A directsum A_B -> actualD ->0",
+  "last_map": "(a,b) -> lift(a)-lift(b) modulo sum of the TWO ACTUAL image kernels",
+  "ring_structure_warning": "U is not an ideal of normalizer directproduct; use paired TARGET actions, not arbitrary normalizer multiplication",
+  "target_action_matrices": "blockdiag([[a_Aj,nuA*b_Aj],[b_Aj,a_Aj+tauA*b_Aj]],[[a_Bj,nuB*b_Bj],[b_Bj,a_Bj+tauB*b_Bj]])",
+  "unit_class": "class of (1,0) in A_A directsum A_B; paired target actions make this the full cyclic T-module actualD",
+  "rank4_product_reduction": "24*b1*b2*b3*b4 = sum_nonemptyS (-1)^(|S|+1)*(4-|S|)!*mixed_sigma(S)*product_remaining_b",
+  "mixed_sigma": "sum_setpartitions pi (-1)^(|S|-|pi|)*product_blocks (|block|-1)!*Tr(product_block b)",
+  "rank2_pair_reduction": "2*b1*b2=Tr(b1)*b2+Tr(b2)*b1-(Tr(b1)Tr(b2)-Tr(b1b2))*1",
+  "actual_image_kernels_not_computed": true,
+  "full_primary_structure_not_claimed": true
+}

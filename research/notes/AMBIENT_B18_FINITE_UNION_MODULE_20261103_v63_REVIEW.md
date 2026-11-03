@@ -1,0 +1,15 @@
+# actual交叉の四行module・target actionの独立監査
+
+2026年11月3日。二つのgeneric quadratic algebraの乗算を独立なblock diagonal
+4×4行列にし、特性多項式が二つの二次式の積であることと全Cayley–Hamilton式を確認した。
+rank2の二因子trace還元も別の行列積で検証した。
+全161700 word indexが次数0から3の全重複組合せと一致することを監査した。
+
+任意四generatorの和に対するdegree4 CH式の全四変数係数を取ると、先頭係数は24、
+他の項はtraceを係数とする短いwordである。QQ-algebra上で24は単元なのでword boundが従う。
+subalgebra Uのfree性を仮定せず、有限R-submoduleの閉性から全形式的像にも適用できる。
+
+二つの実target idealのMayer–Vietoris列によりD=M/Uがmoduleとして厳密に成立する。
+paired target乗算はMもUも保ち、class(1,0)はT-cyclicでannihilatorがIA+IBなので、
+この作用とunit classが実全環構造も一意に復元する。一般のnormalizer乗算をquotientへ
+降ろすという誤りはない。元normalizerの全係数やactual Dのnilradical・primary typeは未計算である。

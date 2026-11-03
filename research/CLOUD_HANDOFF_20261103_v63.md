@@ -8,6 +8,20 @@ v62保存は `e187b40de68bce534391f406f616940cddd045a7`、
 `66a80ab53dfcf0ff842c67140320d8da0226039d`。全て通常push済み。
 このv63保存のSHAはGit履歴で識別する。
 
+## v63 M: 新25次元全成分、総下界58
+
+直前保存 `50bce81f14f00db48ebe4b49b268d9d50278725a` は通常push済み。以下より前の57/51は当時の下界・既存カタログを記録する。
+
+新しい全25次元既約Poisson成分 R4_POSITIVE_WEIGHT6_25 を証明した。補助incidenceのN²条件を外すと三変数の全次数Poisson familyが残り、全140 affine・350 canonical Jacobiを独立QQ演算で確認した。PGL・scalar込みの像微分rank26と、全350から得た真四次初期式のactual局所上界25が一致し、飽和像閉包は実際の全成分となる。既存57成分との区別も独立監査した。総下界は58、rank4下界52へ上がる。これは全分類や58の等号、文献上の優先権を意味しない。
+
+新成分のprimitive一次像は全七変数の函数体rankを別engineで監査して正確に15次元と決定した。S61成分は16次元なので像上の一般fiberは一次元であり、全W16を優越しない。従って今回の新成分は一般beta五点尽くしの反例ではなく、その未解決課題は継続する。一次像のhypersurface式とfiberの全型は未計算。
+
+新成分の一般退化因子は3H+Qで、Qは滑らかなrank5 quadric、Hは接超平面である。正の重み六軸を含み、その極限Qa8/9も含むため、Qa8/9の全局所・完成極小素数も41以上となる。全Qaへの包含は未証明。generic reducedness・全局所枝・正規性は未決で、固定QQ二点でtangent27が出たことだけからgeneric nilpotentを推論しない。
+
+正軸の全8normal形式模型を構成し、真の全初期式を五次まで厳密計算した。HF=(1,8,31,72,126,171)、五次下位idealの根基は唯一の三平面L3と二平面P2。新実familyが三次元を与えるので、正軸のactual横断次元3・projective局所次元25は等号で確定した。全初期idealや他の形式枝は未決である。
+
+一般アフィン残余はさらに、一行をbetaだけで正規化した線形42行列の冪等det E42へ簡約した。実unitはなお未取得。generic B18の実CA/CB交叉は共通R28上の二つのfree rank2 normalizerの個別image kernelへ還元した。CHにより四行有限module M/Uとtarget作用で実全環を復元できるが、係数idealと全primary型はまだ未計算。J0は五整数単元pivotにより36pivot・21×55へ進んだ。研究と通常pushを継続する。
+
 ## v63 L: 大域idempotentと次数42残余・Darboux同定
 
 直前保存 `01bc0d884b54e3027a4bd3cb83c13c32cecc5395` は通常push済み。

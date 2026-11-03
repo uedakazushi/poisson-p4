@@ -14,15 +14,15 @@
     "null_values": "not catalogued or not applicable; never a claim of zero"
   },
   "coverage": {
-    "global_lower_bound": 57,
+    "global_lower_bound": 58,
     "generic_rank_two_full_components": 6,
-    "generic_rank_four_lower_bound": 51,
+    "generic_rank_four_lower_bound": 52,
     "upper_bound": null,
     "global_exhaustion_proved": false,
-    "individually_catalogued_count": 57,
+    "individually_catalogued_count": 58,
     "unexpanded_block_count": 0,
     "all_51_rank_four_ideals_in_S61_constructed": false,
-    "note_ja": "既知57成分を個別記載し、階数四51成分全てに稠密な一般族のS61有理演算写像を構成した。定義素イデアルの全生成系と大域根基の一致は未完成。下界57・上界未定を維持する。",
+    "note_ja": "既存57件に、新たに全次数familyと局所上界から証明した25次元成分R4_POSITIVE_WEIGHT6_25を加えた。rank4下界52、総下界58、上界未定。旧51件の稠密S61写像は凍結済みで、新成分の追加写像と一次像を続ける。",
     "generic_primitive_first_jet_known_lifts_lower_bound": 5,
     "full_generic_fiber_exhaustion_proved": false,
     "known_union_over_smooth_canonical_curve": {
@@ -106,7 +106,17 @@
     "Qa_all_a_uniform_cubic_polynomial_Darboux": true,
     "generic_affine_global_known5_idempotent_splitter": true,
     "generic_affine_exact_residual_degree42": true,
-    "generic_affine_residual_empty_proved": false
+    "generic_affine_residual_empty_proved": false,
+    "all_52_rank_four_dense_s61_maps_constructed": false,
+    "generic_affine_degree42_determinant_idempotent": true,
+    "positive_axis_full_projective_local_dimension": 25,
+    "positive_axis_formal_transverse_dimension": 3,
+    "Qa_eight_over_nine_formal_minimal_primes_lower": 41,
+    "generic_B18_actual_D_quadratic_image_reduction": true,
+    "generic_B18_actual_D_four_row_module_reduction": true,
+    "new25_component_beta_image_dimension": 15,
+    "new25_component_generic_S61_fiber_dimension_over_its_image": 1,
+    "new25_component_dominates_general_beta": false
   },
   "blocks": [
     {
@@ -6688,6 +6698,58 @@
         "generic_fiber_dimension": 4,
         "record": "reports/KNOWN51_FIRSTJET_DIMENSION_TABLE_20261103_v62.json"
       }
+    },
+    {
+      "id": "R4_POSITIVE_WEIGHT6_25",
+      "name": "3Hと接する滑らかな二次超曲面をもつ25次元成分",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "new_generic_rank_four_full_component_v63",
+      "generic_rank": 4,
+      "projective_dimension": 25,
+      "s61_dimension": 16,
+      "component_definition": "Reduced PGL5-saturated closure of the exact three-parameter canonical150 family in Q_POSITIVE_WEIGHT6_NEW_FAMILY_20261103_v63",
+      "generic_actual_degeneracy_divisor": {
+        "description": "3H+Q, Q smooth rank5 and H tangent to Q",
+        "irreducible_factor_degrees": [
+          1,
+          2
+        ],
+        "corresponding_multiplicities": [
+          3,
+          1
+        ]
+      },
+      "claims": [
+        "R4_NEW25_POSITIVE_WEIGHT6_FULL_COMPONENT",
+        "R4_NEW25_FIRSTJET_IMAGE_EXACT15_GENERIC_FIBER1"
+      ],
+      "proof_sources": [
+        {
+          "path": "research/notes/Q_POSITIVE_WEIGHT6_NEW_FAMILY_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/Q_POSITIVE_WEIGHT6_COMPONENT25_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/Q_POSITIVE_WEIGHT6_NEW_FAMILY_20261103_v63/report.json",
+        "reports/Q_POSITIVE_WEIGHT6_NEW_FAMILY_20261103_v63_REVIEW/report.json",
+        "reports/Q_POSITIVE_WEIGHT6_COMPONENT25_20261103_v63_REVIEW.json"
+      ],
+      "contains_all_nonzero_positive_weight6_ray": true,
+      "contains_Qa_eight_over_nine": true,
+      "all_Qa_family_contained": "not proved",
+      "generic_scheme_reducedness": "unresolved",
+      "normality": "unresolved",
+      "full_independent_review": "exact family/Jacobi/rank and whole ambient local-dimension/component scope accepted",
+      "novelty": "distinct from prior57 proven; literature priority not established",
+      "firstjet_dimension_v63": {
+        "firstjet_image_dimension": 15,
+        "generic_fiber_dimension": 1,
+        "record": "reports/Q_NEW_FAMILY_FIRSTJET_IMAGE_20261103_v63_REVIEW/report.json"
+      },
+      "generic_primitive_first_jet_image": "irreducible hypersurface of dimension15 inW16; equation not yet computed"
     }
   ],
   "named_block_member_annotations": [
@@ -6949,8 +7011,10 @@
         "Q_POSITIVE_RAY_ORBIT22_FOUR_MORE_EXCLUSIONS",
         "SIX_LAGRANGIAN_COMPONENTS_UNIVERSAL_SINGULAR_PRIMITIVE_JET",
         "Q_POSITIVE_RAY_WHOLE_T02_T03_TORUS_EXCLUSION",
-        "Q_POSITIVE_RAY_QUADRATIC_DARBOUX_CREMONA"
-      ]
+        "Q_POSITIVE_RAY_QUADRATIC_DARBOUX_CREMONA",
+        "R4_NEW25_POSITIVE_WEIGHT6_FULL_COMPONENT"
+      ],
+      "contained_in_actual_full_component": "R4_POSITIVE_WEIGHT6_25"
     }
   ],
   "integrity_rules_ja": [
@@ -6962,5 +7026,5 @@
     "MPS40 blockを展開したらblockによる加算を止め、二重計上しない。",
     "文献上の新規性は内部成分証明とは別に確認する。"
   ],
-  "new_components_added_in_this_checkpoint": 0
+  "new_components_added_in_this_checkpoint": 1
 }
