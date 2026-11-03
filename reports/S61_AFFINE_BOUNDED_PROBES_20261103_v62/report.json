@@ -1,0 +1,58 @@
+{
+  "id": "S61_AFFINE_BOUNDED_PROBES_20261103_v62",
+  "all_completed": false,
+  "cases": [
+    {
+      "name": "32003",
+      "scope": "full135 affine actual u6=u42=0,43 variables,default gb",
+      "returncode": 124,
+      "timeout_seconds": 120,
+      "address_space_limit_KiB": null,
+      "status": "time_limit_without_completed_basis",
+      "mathematical_conclusion": null
+    },
+    {
+      "name": "P29",
+      "scope": "original134 homogeneous P29 section,30 variables,F4",
+      "returncode": 124,
+      "timeout_seconds": 120,
+      "address_space_limit_KiB": null,
+      "status": "time_limit_without_completed_basis",
+      "mathematical_conclusion": null
+    },
+    {
+      "name": "P29-reverse",
+      "scope": "same P29 with reversed variable order,F4",
+      "returncode": 124,
+      "timeout_seconds": 90,
+      "address_space_limit_KiB": null,
+      "status": "time_limit_without_completed_basis",
+      "mathematical_conclusion": null
+    },
+    {
+      "name": "32003-F4",
+      "scope": "full135 affine actual u6=u42=0,43 variables,F4",
+      "returncode": 134,
+      "timeout_seconds": 120,
+      "address_space_limit_KiB": 8388608,
+      "status": "std_bad_alloc_under_address_space_limit",
+      "mathematical_conclusion": null
+    }
+  ],
+  "limitations": [
+    "No emptiness, degree or generic exhaustion conclusion follows from these runs.",
+    "8GiB address-space cap was selected for the F4 probe on the 16GiB shared Cloud executor.",
+    "Do not repeat unchanged; use sparse module reduction or a smaller verified linear section."
+  ],
+  "evidence_sha256": {
+    "32003.m2": "4c9a3fbfcf99df0bc65e140c671b080f0db396fd77e8350546b7e2b7709f45bc",
+    "32003-F4.m2": "057f71a430746a8e1a72f2786bd7c62e77f8fb8eddf7654e5795900a1e44c840",
+    "P29_normal_basis.json": "50f5833edb78be837ad991cbd5066bbdb862c0d37a6d2911283361b721a7b48c",
+    "32003-F4.log": "4f6896584bac3743a113a3ebb628d4abe69da298ce195906344ba7b90e1ce42c",
+    "32003.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "P29.m2": "faae9d7ec74aa8ffb72effcb26c7bd09f21dbf3edc68842df9aca5a2b0dffe60",
+    "P29.log": "b2c0cbc0b8f391d573190445c982a750f0cdd6c028927c769b927bcff064da44",
+    "P29-reverse.m2": "1b81fa57a1072c13cf42433b1a97c14f4ab75e975706d1ca2a5a9a74750b4f20",
+    "P29-reverse.log": "b2c0cbc0b8f391d573190445c982a750f0cdd6c028927c769b927bcff064da44"
+  }
+}

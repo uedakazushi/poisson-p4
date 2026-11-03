@@ -1,8 +1,20 @@
 # Poisson structures on P4 — Codex instructions
 
-Version: v61-s61 · 2026-11-03 (Asia/Tokyo).
+Version: v62-s61 · 2026-11-03 (Asia/Tokyo).
 
-Current v61 additions: the ENTIRE nonsquare K=a=0 stratum is removed
+Current v62 additions: the full nonsquare quadratic rank is SIX on ALL
+aFBC!=0. The new marked-square quadratic axis 1000h^2+1127 has actual
+T6 total-incidence free2 and ambient t=0 away from its origin. The OLD
+h^2+2 full13-variable central quotient has reduced weight(2,3) plane
+with finite nilkernel in weights1..4, QQ length<=66, central t^2=0;
+its generic orbit beta image is14 and its double locus is separate.
+General P27/P28 sections are reducedfive; residual module finite over17
+normals with <=1271 generators. General Poisson families are constructed
+for T02..T38, with38 exact image dimensions and dense component labels
+using explicit MPS6.16/6.23/6.24 dependencies. Full general affine
+exhaustion and global upper bound remain OPEN. Continue after checkpoints.
+
+Previous v61 additions: the ENTIRE nonsquare K=a=0 stratum is removed
 over sufficiently general beta. Seven nonzero central rays lift through smooth
 full135 orbit incidences over the mixed-characteristic base; their specified
 beta differentials have rank15, while the SAME incidence is beta dominant.

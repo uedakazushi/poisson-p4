@@ -1,0 +1,39 @@
+{
+  "component_id": "T19",
+  "all_passed": true,
+  "period_parameters": [
+    "p0",
+    "p1"
+  ],
+  "smoothing_parameters": [
+    "t0",
+    "t1"
+  ],
+  "period_pfaffian_open": "-p0**2 + p0*p1",
+  "possible_higher_multidegrees": 1,
+  "correction_steps": [
+    {
+      "smoothing_multidegree": [
+        1,
+        1
+      ],
+      "weight_space_dimension": 1,
+      "correction": {
+        "0,2": "2*x1*x4/(p0 - p1)"
+      }
+    }
+  ],
+  "homogeneous_bivector": {
+    "0,1": "t0*x3*x4",
+    "0,2": "2*t0*t1*x1*x4/(p0 - p1)",
+    "1,2": "p1*x1*x2",
+    "1,3": "-p1*x1*x3",
+    "1,4": "p0*x1*x4",
+    "2,3": "-p0*x2*x3 - p1*x2*x3 + t1*x1**2",
+    "2,4": "3*p0*x2*x4/2 - p1*x2*x4/2",
+    "3,4": "p0*x3*x4/2 + p1*x3*x4/2"
+  },
+  "exact_projective_Jacobi_checked": true,
+  "expected_s61_dimension": 14,
+  "seconds": 0.22856077099913819
+}

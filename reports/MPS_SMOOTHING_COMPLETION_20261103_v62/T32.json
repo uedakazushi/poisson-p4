@@ -1,0 +1,51 @@
+{
+  "component_id": "T32",
+  "all_passed": true,
+  "period_parameters": [
+    "p0"
+  ],
+  "smoothing_parameters": [
+    "t0",
+    "t1",
+    "t2"
+  ],
+  "period_pfaffian_open": "-p0**2/2",
+  "possible_higher_multidegrees": 2,
+  "correction_steps": [
+    {
+      "smoothing_multidegree": [
+        0,
+        1,
+        1
+      ],
+      "weight_space_dimension": 1,
+      "correction": {
+        "0,4": "2*x1*x3/p0"
+      }
+    },
+    {
+      "smoothing_multidegree": [
+        1,
+        0,
+        1
+      ],
+      "weight_space_dimension": 1,
+      "correction": {
+        "0,3": "2*x2*x4/p0"
+      }
+    }
+  ],
+  "homogeneous_bivector": {
+    "0,1": "t0*x4**2",
+    "0,2": "t1*x3**2",
+    "0,3": "2*t0*t2*x2*x4/p0",
+    "0,4": "2*t1*t2*x1*x3/p0",
+    "1,2": "p0*x1*x2",
+    "1,4": "p0*x1*x4",
+    "2,3": "-p0*x2*x3",
+    "3,4": "p0*x3*x4/2 + t2*x1*x2"
+  },
+  "exact_projective_Jacobi_checked": true,
+  "expected_s61_dimension": 14,
+  "seconds": 0.20967698699951143
+}
