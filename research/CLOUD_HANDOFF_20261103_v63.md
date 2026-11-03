@@ -8,6 +8,20 @@ v62保存は `e187b40de68bce534391f406f616940cddd045a7`、
 `66a80ab53dfcf0ff842c67140320d8da0226039d`。全て通常push済み。
 このv63保存のSHAはGit履歴で識別する。
 
+## v63 R: 忠実な単一scalar criterion、CA/CB odd欠損、厳密回路34
+
+直前保存 main `5c5ec7a44f93b6291ee0bc0887bdcced033a90a4` は通常push済み。以下は過去時点の記録を含む。
+
+CA/CBのgeneric B18実odd idealは、判別式nuを含まないことまで独立証明した。全actual generatorsの零一次二次spanはWU/WVのみでUVが欠け、nu liftの非零UV係数と矛盾するためである。非線形critical消去を保った三次計算も独立監査し、IのJ/mJへの像は十次元、mu(I)≥10と決定した。生成数上界と全I型・exact depth・実Dは未決。R19の二旗を個別CA/CB conductorと取り違える議論は使用しない。
+
+一般affine残余は、一つのgeneric定数aによるmoment Schur局所化へ移した。この局所化はBに対して忠実平坦なので未知成分・nilを失わず、単一scalar idealのunit性は全未知残余Bの空性と厳密に同値である。重根も含むquartic normによりdeltaのa次数≤532を証明した。元全670式degree≤10、またはNormと134代入式からなる135生成元degree≤34という具体的な有限targetを保存した。unitそのものは未取得であり、一般五点尽くしは未解決。
+
+同じ残余空性は、さらに具体的なvector所属 delta e0∈image Phi、またはscalar所属 delta²∈Jgと厳密に同値である。独立staircase検証によりformal target次数は7/14、135生成元上界は30へ改善した。実所属は未取得であり、cofactor次数上界を主張しない。以下の34は直前の有効な弱い次数上界である。
+
+この構成に先立ち、全3350 scalar entryの一般二次rank179/total224と全45一次scalar spanを証明し、完全な十五Schur coverも構成した。scalar Fittingの等号をAのannihilationと混同しない。無限遠では全134 midpoint恒等式からaxis冪等元を作り、D(w)を保って正確に分離した。さらに全61変数の普遍degree3恒等式wG6^h=sum Ki^h Fi^hでI134⊂I135⊂I134:wを得た。全w-torsionの除去を主張しない。
+
+非平方の新QQ scalar unit a P²Jを975項cofactorで厳密証明し、次の23×58行列を全6244-node回路で構成した。数学的に構成済みpivotは34、展開済みnative cacheは33である。67000-bit定数や巨大outer展開を避けるための厳密な保存形式であり、未知factorを反転しない。全点product rank下界37は別の既証定理で、QQ product41は未証明。homogeneous module GBの小さい有限体pilotは成功したがQQ復元・全検証は別に継続中。下界58/rank4下界52、上界未定。
+
 ## v63 Q: generic B18のN全完成環、大域五次表示、厳密有限体証明書
 
 直前保存 main `0e87048ae6eb55900631e4581b0d26b9895070ab` は通常push済み。以下は過去時点の記録を含む。

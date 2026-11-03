@@ -2,6 +2,25 @@
 
 Version: v63-s61 · 2026-11-03 (Asia/Tokyo).
 
+Latest R: genericB18 ACTUALCA/CB νNOTinI, t³NOTinA; exact2jetmissingUV,
+7lin+WU/WV+U³ giveIimageJ/mJ10, muI>=10 ONLY; nofullI/depth/actualD.
+R19twoflagsACROSSCA/CB, notinsideone; bothsmoothRminusN, withdrawn
+individualconductorRcurveargumentMUSTNOTreturn. NfulltypeQunchanged.
+Actualaffineexhaustion SINGLEgenericmomentSchurcriterion: faithfulflat
+B→B(a)_δ (notallB(a)pointscover); δa-degree<=532, allAss/nilretained.
+One135scalarideal(unitiffBempty), boundsdeg<=34 (or670deg<=10).
+BESTformaldegreeδ/U<=7; Bempty IFFδe0∈imΦ (target<=7) IFFδ²∈Jg
+(target<=14),135generator<=30. NOCOFACTORdegreebound, noactualmembership.
+Older8/16/34 remainvalidweakerbounds. 3generic/533fixedfullpointcover. ScalarFitt4=m
+viaall3350entries/qrank179,total224, NOTAnnA. Earlier15covervalid.
+Axis45polaridempotent ew0 exactsplit; universal61degree3wG6h identity
+I134⊂I135⊂I134:w, actualD(w)unchanged. Notallwtorsion.
+NonsquareQQrowunit975terms g=aP²J accepted; exact6244-nodeSchur
+23x58 CONSTRUCTIVEpivot34, EXPANDEDnativecache33. Onlygknownunit
+inverted; no67000bitconstantspan/growingoutercache. Allpointproduct>=37
+independent; QQ41/full57/quartic stillOPEN. HomogGFGBpilot!=QQproof.
+Lower58/R4lower52/uppernull; continueactualwork/ordinarymainpush.
+
 Latest Q: genericB18 ACTUAL INDIVIDUAL REDUCEDN FULLCOMPLETION SOLVED.
 ActualI=J=(ν,s6,wv,v²) by9J/mJclasses+Nakayama, νfixed. ConeA⊂regularB
 =C[[g19,w,v,s6,t]], A=C[[g19,w,v,s6,t²,s_i*t,t³,wvt,v²t]].
