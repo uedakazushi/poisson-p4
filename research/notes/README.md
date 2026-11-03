@@ -1,6 +1,12 @@
 # 研究ノートと評価資料の入口
 
-**v60-s61、2026-11-02。楕円型の全域二次切断、既知五延長の三平面。**
+**v61-s61、2026-11-03。Cloud 再開、非平方 K=a=0 全層の除去。**
+
+## v61 の新しい入口
+
+- [非平方 a=0 の全層除去](S61_BINARY_A_ZERO_LIFT_20261103.md)：同じ入射族の一般長、混合標数、飽和支持と完全試験曲線。
+- [中央環と ray の独立監査](S61_BINARY_A_ZERO_COMPUTATION_REVIEW_20261103.md)、[Cloud 計算記録](../../reports/S61_BINARY_A_ZERO_CLOUD_20261103/report.json)、[独立な幾何確認](../../reports/S61_BINARY_A_ZERO_RAY_GEOMETRY_20261103.json)。
+- [再開時の動作確認](../../reports/CLOUD_RESUME_20261103.md)、[文献サイトの接続](../../reports/CLOUD_CONNECTIVITY_20261103.md)。
 
 ## v31 の新しい入口
 

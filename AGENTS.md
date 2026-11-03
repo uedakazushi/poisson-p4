@@ -1,8 +1,19 @@
 # Poisson structures on P4 — Codex instructions
 
-Version: v60-s61 · 2026-11-02 (Asia/Tokyo).
+Version: v61-s61 · 2026-11-03 (Asia/Tokyo).
 
-Current v60 additions: after fixing (u6,u42) arbitrarily over general beta,
+Current v61 additions: the ENTIRE nonsquare K=a=0 stratum is removed
+over sufficiently general beta. Seven nonzero central rays lift through smooth
+full135 orbit incidences over the mixed-characteristic base; their specified
+beta differentials have rank15, while the SAME incidence is beta dominant.
+A t-saturated-support finite-weight lemma removes the central origins. The
+complete test line has its true c=0 endpoint, distinct from the d=0 sample;
+properness and P2 semi-invariant divisors give whole-stratum removal.
+Central support equality is checked over QQ and F32003. Cloud M2 1.24.11
+reproduces the required calculations. d=0, marked square finite values and
+full affine five-point exhaustion remain separate. Lower57. Continue.
+
+Previous v60 additions: after fixing (u6,u42) arbitrarily over general beta,
 one colon by t^2 leaves a projective scheme of dimension <=0. Some finite
 infinity points can remain. The original three-cycle is 65[B]+5[F] with
 degrees 30 and 70, total 2300. Every actual finite anchor has residue degree

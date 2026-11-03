@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "checkpoint": "v60-s61",
-  "date": "2026-11-02",
+  "checkpoint": "v61-s61",
+  "date": "2026-11-03",
   "base_mathematical_checkpoint": "v24",
   "new_mathematical_progress_in_this_setup": false,
   "purpose_ja": "収録原稿の主張、依存、今回の監査・再現範囲、未確認点を区別する研究用台帳。",
@@ -9346,6 +9346,114 @@
       ],
       "limitations_ja": [
         "全方向にわたる解の総数は未確定。"
+      ]
+    },
+    {
+      "id": "S61_BINARY_A_ZERO_CENTRAL_SUPPORT",
+      "title_ja": "非平方 a=0 七例外の中央環の厳密な被約支持",
+      "statement_ja": "元135式と二つの正重みβ座標を含む中央環で、六例外の根基は指定七rayの和、残る例外とd=0標本は長70と65。QQとF32003の両方で根基等式を検証した。",
+      "scope": "Eight stated central algebras only; does not alone imply ambient or whole-stratum removal.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "separate_computation_and_mathematical_review",
+        "certificates": "reproduced_2026_11_03",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_BINARY_ZERO_PAIR_STRATUM_REMOVAL"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_BINARY_A_ZERO_LIFT_20261103.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_A_ZERO_COMPUTATION_REVIEW_20261103.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_BINARY_A_ZERO_CLOUD_20261103/report.json"
+      ],
+      "limitations_ja": [
+        "重み付きdegreeをベクトル空間長と同一視しない。"
+      ]
+    },
+    {
+      "id": "S61_BINARY_A_ZERO_RAY_GEOMETRY",
+      "title_ja": "七rayの同一入射族と混合標数横断長上界",
+      "statement_ja": "全135最高式のH、七rayの軌道型、p単元切断、同じ入射族の一般βへの優越性をQQで確認。特殊横断長は2,2,3,1,1,23,2で、標数零の全長の上界を与える。",
+      "scope": "The seven specified representatives; generic multiplicities are separate dependencies.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "separate_computation_and_mathematical_review",
+        "certificates": "reproduced_2026_11_03",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_NONBINARY_CANONICAL_EXHAUSTION",
+          "S61_R0_MIXED_CURVE_EXHAUSTION",
+          "S61_NONBINARY_DOUBLE_ROOT_EXHAUSTION",
+          "S61_R0_T5_FORMAL_RANK23"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_BINARY_A_ZERO_LIFT_20261103.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_A_ZERO_COMPUTATION_REVIEW_20261103.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_BINARY_A_ZERO_RAY_GEOMETRY_20261103.json",
+        "reports/S61_BINARY_A_ZERO_CLOUD_20261103/report.json"
+      ],
+      "limitations_ja": [
+        "指定β自身の優越微分階数は全て15で、同じHの一般点で16。QQのHilbert関数や同じ冪零指数を有限体の全長だけから推論しない。"
+      ]
+    },
+    {
+      "id": "S61_BINARY_A_ZERO_STRATUM_REMOVAL",
+      "title_ja": "非平方 K=a=0 全層の一般一次ジェット上での除去",
+      "statement_ja": "同じ滑らかな入射族での等階数持上げと飽和支持の非正重み底上有限性により七例外の全混合標数周囲を除去。正しいc=0端点を含む試験曲線の固有性とP2半不変因子の排除から、K=a=0全非平方層の不良像は次元15以下。十分一般βで全層が除かれる。",
+      "scope": "Entire nonsquare K=a=0 stratum over sufficiently general beta, using p-flat closure for arithmetic spreading.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "separate_computation_and_mathematical_review",
+        "certificates": "reproduced_2026_11_03",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_BINARY_A_ZERO_CENTRAL_SUPPORT",
+          "S61_BINARY_A_ZERO_RAY_GEOMETRY",
+          "S61_BINARY_ZERO_PAIR_STRATUM_REMOVAL"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_BINARY_A_ZERO_LIFT_20261103.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_A_ZERO_COMPUTATION_REVIEW_20261103.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_D_ZERO_BRIDGE_20261103.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_BINARY_A_ZERO_CLOUD_20261103/report.json",
+        "reports/S61_BINARY_A_ZERO_RAY_GEOMETRY_20261103.json",
+        "reports/S61_BINARY_A_ZERO_INFINITY_MODP_20261103.json",
+        "reports/S61_BINARY_D_ZERO_PRIME_BRIDGE_20261103_V2/report.json"
+      ],
+      "limitations_ja": [
+        "全特殊βでの除去、全層での一つの共通冪、一般アフィン五点の尽くしを主張しない。"
       ]
     }
   ],
