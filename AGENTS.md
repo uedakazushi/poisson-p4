@@ -2,6 +2,21 @@
 
 Version: v63-s61 · 2026-11-03 (Asia/Tokyo).
 
+Latest S: ACTUALindividualCA/CB GENERICV completionAc8 xg19 projective
+dim28/edim37/depth20/e2, whole81kernelbyKoszul+products; optionalM2false.
+CA V1denseorbit, CBmodulusQQ(V)retained, noallVextension.
+GenericW nineactualminor from7lin+WU/WV, Jregular9,NakayamaI=J.
+PW nonzeroW SINGLEprojectiveorbit r^-1diag(1,1,r,1,1)_*PW=PW/r.
+Thus ALLW!=0 CA/CBsameAc8; NAc7xg19 proj27/35/depth20/e2.
+ActualnormalizationdeducedAFTERnonzeroIrecoversfractionfield; subintegral.
+UniformpolynomialDarboux ALLWwithoutWdivision, exactCremona(5,5).
+W0allaffineleavesA2, allfiniteCasimirclosuresrationalquinticcones.
+CAoriginordinaryself-flag3jetideal(v2,4v0v1+4v0+7v1²+18v1+8)=Gm,
+full150finitewitness; NOactualbranch/allorder/conductorclaim.
+OriginCA/CBfullI, actualD, QQproduct41, generalbetaunit stillOPEN.
+Homogeneous late16/early3modularGBfrontiers NOTQQproof. Lower58/r4lower52.
+Continuerealworkandordinarymainpush.
+
 Latest R: genericB18 ACTUALCA/CB νNOTinI, t³NOTinA; exact2jetmissingUV,
 7lin+WU/WV+U³ giveIimageJ/mJ10, muI>=10 ONLY; nofullI/depth/actualD.
 R19twoflagsACROSSCA/CB, notinsideone; bothsmoothRminusN, withdrawn

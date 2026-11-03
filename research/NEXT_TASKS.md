@@ -1,5 +1,17 @@
 # 次の課題 — v63-s61 / 2026-11-03
 
+## v63 S: V/W境界の全完成型と固定Darboux変換
+
+直前保存 main `cd5002934c19f09a0016b1db55ff729796368792` は通常push済み。以下は過去時点を含む。
+
+CAとCBのgeneric V境界で、個別被約成分の全完成環を独立監査して決定した。いずれもC[[g19,s8,t²,s_i t,t³]]⊂C[[g19,s8,t]]というprojective Ac8型で、dim28、edim37、depth20、多重度2。全81 kernelは正則列のKoszul関係と積関係で尽くされ、M2未実行を証拠に数えない。CAはV1稠密軌道、CBはmodulus Vを保つQQ(V)計算であり、CB全Vへは外挿しない。normalizationは非零actual Iが分数体を回復することを証明してから同定した。
+
+共通のactual W曲線でも七一次と二WU/WV classの九次minorからgeneric全完成型を得た。さらにr^-1 diag(1,1,r,1,1)_*P_W=P_(W/r)を全150係数で証明し、非零Wの単一projective軌道によって全W≠0へ移送した。CA/CBは上のAc8型、NはC[[g19,s7,t²,s_i t,t³]]型でdim27/edim35/depth20/e2。normalizationはいずれもelementary subintegralである。W0のCA/CB全idealとactual CA/CB交叉Dは未決のまま。
+
+同じW曲線にはWを反転しない固定polynomial Darboux自己同型と逆式を構成した。正確なCremona bidegreeは(5,5)。W0では二つのpolynomial Casimirにより全affine葉がA2となり、全有限値の葉閉包は次数5の有理coneである。B18の全特殊点へは広げない。
+
+CA原点のordinary自己旗三次条件は全150式を保ってGmと決定し、有限三次witnessも確認した。実formal/algebraic枝の存在ではない。高次条件を続ける。非平方QQ product41と一般beta残余unitは未証明。homogeneous modular GBのlate16prime、early3primeと同じ93bit比較は係数復元のfrontierとして保存し、QQ証明へ昇格しない。総下界58/rank4下界52、総上界未定。
+
 ## v63 R: 忠実な単一scalar criterion、CA/CB odd欠損、厳密回路34
 
 直前保存 main `5c5ec7a44f93b6291ee0bc0887bdcced033a90a4` は通常push済み。以下は過去時点の記録を含む。

@@ -1,0 +1,8 @@
+S=QQ[t,nu,s1,s2,s3,s4,s5,s6,s7,s8,y0,y1,y2,y3,y4,y5,y6,y7,y8,MonomialOrder=>Eliminate 1];
+P=ideal(-nu*y1 + s1*y0,-nu*y2 + s2*y0,-nu*y3 + s3*y0,-nu*y4 + s4*y0,-nu*y5 + s5*y0,-nu*y6 + s6*y0,-nu*y7 + s7*y0,-nu*y8 + s8*y0,-s1*y2 + s2*y1,-s1*y3 + s3*y1,-s1*y4 + s4*y1,-s1*y5 + s5*y1,-s1*y6 + s6*y1,-s1*y7 + s7*y1,-s1*y8 + s8*y1,-s2*y3 + s3*y2,-s2*y4 + s4*y2,-s2*y5 + s5*y2,-s2*y6 + s6*y2,-s2*y7 + s7*y2,-s2*y8 + s8*y2,-s3*y4 + s4*y3,-s3*y5 + s5*y3,-s3*y6 + s6*y3,-s3*y7 + s7*y3,-s3*y8 + s8*y3,-s4*y5 + s5*y4,-s4*y6 + s6*y4,-s4*y7 + s7*y4,-s4*y8 + s8*y4,-s5*y6 + s6*y5,-s5*y7 + s7*y5,-s5*y8 + s8*y5,-s6*y7 + s7*y6,-s6*y8 + s8*y6,-s7*y8 + s8*y7,-nu^3 + y0^2,-nu^2*s1 + y0*y1,-nu^2*s2 + y0*y2,-nu^2*s3 + y0*y3,-nu^2*s4 + y0*y4,-nu^2*s5 + y0*y5,-nu^2*s6 + y0*y6,-nu^2*s7 + y0*y7,-nu^2*s8 + y0*y8,-nu*s1^2 + y1^2,-nu*s1*s2 + y1*y2,-nu*s1*s3 + y1*y3,-nu*s1*s4 + y1*y4,-nu*s1*s5 + y1*y5,-nu*s1*s6 + y1*y6,-nu*s1*s7 + y1*y7,-nu*s1*s8 + y1*y8,-nu*s2^2 + y2^2,-nu*s2*s3 + y2*y3,-nu*s2*s4 + y2*y4,-nu*s2*s5 + y2*y5,-nu*s2*s6 + y2*y6,-nu*s2*s7 + y2*y7,-nu*s2*s8 + y2*y8,-nu*s3^2 + y3^2,-nu*s3*s4 + y3*y4,-nu*s3*s5 + y3*y5,-nu*s3*s6 + y3*y6,-nu*s3*s7 + y3*y7,-nu*s3*s8 + y3*y8,-nu*s4^2 + y4^2,-nu*s4*s5 + y4*y5,-nu*s4*s6 + y4*y6,-nu*s4*s7 + y4*y7,-nu*s4*s8 + y4*y8,-nu*s5^2 + y5^2,-nu*s5*s6 + y5*y6,-nu*s5*s7 + y5*y7,-nu*s5*s8 + y5*y8,-nu*s6^2 + y6^2,-nu*s6*s7 + y6*y7,-nu*s6*s8 + y6*y8,-nu*s7^2 + y7^2,-nu*s7*s8 + y7*y8,-nu*s8^2 + y8^2);
+G=ideal(-nu + t^2,-nu*t + y0,-s1*t + y1,-s2*t + y2,-s3*t + y3,-s4*t + y4,-s5*t + y5,-s6*t + y6,-s7*t + y7,-s8*t + y8);
+K=eliminate({t},G);
+assert(K==P);
+assert(dim(S/P)==10);
+print "CA_GENERIC_V_WHOLE81_KERNEL_PASS";
+exit 0;

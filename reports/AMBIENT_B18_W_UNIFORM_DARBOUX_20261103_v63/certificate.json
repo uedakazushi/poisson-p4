@@ -1,0 +1,152 @@
+{
+  "physical_P": [
+    [
+      "0",
+      "0",
+      "-x**2",
+      "0",
+      "0"
+    ],
+    [
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "x**2",
+      "0",
+      "0",
+      "h*x",
+      "h**2 + z**2"
+    ],
+    [
+      "0",
+      "0",
+      "-h*x",
+      "0",
+      "W*x**2"
+    ],
+    [
+      "0",
+      "0",
+      "-h**2 - z**2",
+      "-W*x**2",
+      "0"
+    ]
+  ],
+  "all10_strict_Jacobi_polynomials": [
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0"
+  ],
+  "affine_coordinate_order": [
+    "h",
+    "y",
+    "z",
+    "w"
+  ],
+  "affine_P": [
+    [
+      "0",
+      "-1",
+      "0",
+      "0"
+    ],
+    [
+      "1",
+      "0",
+      "h",
+      "h**2 + z**2"
+    ],
+    [
+      "0",
+      "-h",
+      "0",
+      "W"
+    ],
+    [
+      "0",
+      "-h**2 - z**2",
+      "-W",
+      "0"
+    ]
+  ],
+  "forward": [
+    "h",
+    "y",
+    "-h**2/2 + z",
+    "-2*h**5/15 + 2*h**3*z/3 - h**3/3 - h*z**2 + w"
+  ],
+  "inverse": [
+    "H",
+    "Y",
+    "H**2/2 + Z",
+    "H**5/20 + H**3*(Z + 1)/3 + H*Z**2 + T"
+  ],
+  "constant_target": [
+    [
+      "0",
+      "-1",
+      "0",
+      "0"
+    ],
+    [
+      "1",
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "0",
+      "0",
+      "0",
+      "W"
+    ],
+    [
+      "0",
+      "0",
+      "-W",
+      "0"
+    ]
+  ],
+  "homogeneous_degree5_forward": [
+    "h*x**4",
+    "x**5",
+    "x**4*y",
+    "-h**2*x**3/2 + x**4*z",
+    "-2*h**5/15 - h**3*x**2/3 + 2*h**3*x*z/3 - h*x**2*z**2 + w*x**4"
+  ],
+  "homogeneous_degree5_inverse": [
+    "h*x**4",
+    "x**5",
+    "x**4*y",
+    "h**2*x**3/2 + x**4*z",
+    "h**5/20 + h**3*x*(x + z)/3 + h*x**2*z**2 + w*x**4"
+  ],
+  "both_compositions_common_factor": "x^24",
+  "all_nonzero_W_orbit_matrix": "diag(1,1,r,1,1)",
+  "orbit_tensor_scalar": "1/r",
+  "orbit_parameter_change": "W -> W/r",
+  "W0_Casimirs": [
+    "-h**2/2 + z",
+    "-2*h**5/15 + 2*h**3*z/3 - h**3/3 - h*z**2 + w"
+  ],
+  "W0_leaf_projective_curve": [
+    "A*S**4",
+    "S**5",
+    "A**2*S**3/2 + S**5*c",
+    "A**5/20 + A**3*S**2*(c + 1)/3 + A*S**4*c**2 + S**5*d"
+  ],
+  "leaf_curve_parameter_recovery": "h/x=A/S",
+  "leaf_curve_degree_exact": 5,
+  "leaf_surface": "projective cone over the rational quintic, vertex [0:0:1:0:0]"
+}
