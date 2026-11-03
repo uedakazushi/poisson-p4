@@ -2,6 +2,28 @@
 
 Version: v63-s61 · 2026-11-03 (Asia/Tokyo).
 
+Latest W: Qb ACTUAL D FULLRING solved onNONEMPTYunitopen andG-saturation:
+C[[s20,z7,f,rho]]/(f*z7,f³,f*rho²), nilfree4/nil²free2/nil³0.
+Primary(f)intersection(z7,f³,rho²), embeddedprimarylength6NOTnil length4.
+All150 QQ(b) cubic-socle syzygiesZERO, independent sparseLie curves/Hessians
+andRAWsourcejets retained. This givesSECONDdistinctembeddedproj19 closure,
+Pa flagCA2/CB1 vsQbCA1/CB2. NOTnewfullPoissoncomponents/globalAssoclist.
+New25 firstjet equationdegree>=22, fullInv20dim36 exactQQ36minor+indep
+integerword/Bareiss+indepcharacter. Equation/degree22existenceSTILLopen.
+Nonsquare highrankproportionalityEXCLUDED; ENTIREfinitegcdexceptionΣrawQQ
+surjective byPROPERfiniteZpmodel,FULLUunit,Nakayama,all672x1568module.
+Aux5x21 fourthunit175QQterms=>rank>=4allaPJ; main34unchanged.
+Pair/allUrank/Product41/full57/quartic STILLopen. B18originactualDfullring,
+genericbetaexhaustion/componentupperSTILLopen. Lower58/r4lower52/uppernull.
+Continueactualresearch andordinarymainpush; noforcedstopatcheckpoint.
+
+W supplement: actualB18 Dslice edim20 butDredslice edim<=19 by
+DVR-Rcurve fiberproduct: kerneltoNslice PRINCIPAL, 18lifts+1kernel.
+ThusNil(D)NOTsubsetm², atleast1linearvisible nilclass. NoexactDrededim,
+explicitnilcoordinate/nilindex/exactdepth/fullrelativeDclaim. NotTred=sumT.
+New17pJapanese standalone ca_cb_local_normalization_ja.pdf saved separately;
+frozen4oldermanuscripts+historicalSOURCE_INDEX unchanged.
+
 Latest V: BOTHindividualCA/CB genericB18 FULLFORMALNORMALTYPE solved.
 R=C[[g19,z6,nu,w,r,s]], I=(z6,nu-s(s-r),wr,ws,sr²), A=R+I*t,t²nu.
 Tracepairrigidity+G19coverproduct+NEWCohenR+intrinsicpushout; original

@@ -1,0 +1,993 @@
+\documentclass[11pt,a4paper]{ltjsarticle}
+\usepackage[margin=24mm]{geometry}
+\usepackage[haranoaji]{luatexja-preset}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs,longtable,array}
+\usepackage{xcolor,hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue!45!black,urlcolor=blue!45!black,
+pdftitle={射影四空間の二つのPoisson成分の局所正規化と交叉},
+pdfauthor={Poisson P4 research project}}
+\setlength{\emergencystretch}{3em}
+\newcommand{\CC}{\mathbf C}
+\newcommand{\QQ}{\mathbf Q}
+\newcommand{\PP}{\mathbf P}
+\renewcommand{\AA}{\mathbf A}
+\newcommand{\CA}{\mathcal C_A}
+\newcommand{\CB}{\mathcal C_B}
+\newcommand{\cN}{\mathcal N}
+\newcommand{\cD}{\mathcal D}
+\newcommand{\gvars}{g_1,\ldots,g_{19}}
+\newcommand{\zvars}{z_1,\ldots,z_6}
+\newcommand{\sn}{\mathrm{sn}}
+\newcommand{\Nil}{\operatorname{Nil}}
+\newcommand{\edim}{\operatorname{edim}}
+\newcommand{\depth}{\operatorname{depth}}
+\newcommand{\Supp}{\operatorname{Supp}}
+\newcommand{\Ass}{\operatorname{Ass}}
+\newcommand{\Ann}{\operatorname{Ann}}
+\newcommand{\gr}{\operatorname{gr}}
+\newcommand{\GL}{\operatorname{GL}}
+\newcommand{\PGL}{\operatorname{PGL}}
+\newcommand{\Spec}{\operatorname{Spec}}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\Sing}{\operatorname{Sing}}
+\newcommand{\Div}{\operatorname{div}}
+\newtheorem{theorem}{定理}[section]
+\newtheorem{proposition}[theorem]{命題}
+\newtheorem{lemma}[theorem]{補題}
+\newtheorem{corollary}[theorem]{系}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{定義}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{注意}
+\renewcommand{\proofname}{証明}
+\title{射影四空間の二つのPoisson成分の局所正規化と交叉\\[2mm]
+\large 全形式完成型、seminormalization、および二つのembedded stratum}
+\author{Poisson P4研究プロジェクト・計算証明付き研究草稿}
+\date{2026年11月3日・v63}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+射影四空間上の二つの被約Poisson成分$\CA,\CB$について、ある共通階数二点での
+個別の全完備局所環を決定する。十九個の滑らかな変数を除いた模型は、
+$R=\CC[[z_1,\ldots,z_6,\nu,w,r,s]]$、$t^2=\nu$、
+$I=(z_1,\ldots,z_6,\nu-s(s-r),wr,ws,sr^2)$に対する$A=R\oplus It$である。
+正規化は正則であり、conductor商は三枝曲線
+$\CC[[w,r,s]]/(wr,ws,sr^2)$となる。そのgeneric primary長は$(1,1,2)$である。
+全形式型の証明では、実際の七つのodd制約を消去した後の三次項、
+実自己旗族、重複度の等号、conductorとその二重被覆のrigidityを使う。
+初期式の計算だけから高次項を捨てることはしない。
+
+seminormalizationは$A[wt,rt]$であり、正規化とは異なる。
+全kernelを与える99関係と81関係、各形式stratumの特異・非正規・非CM・
+非seminormal locus、正規化fiberを明示する。
+さらにactual scheme intersection $\cD=\CA\cap\CB$について、
+二つの異なる射影19次元stratum上で
+$(f^2,fu_1,\ldots,fu_8)$および
+$(fz_1,\ldots,fz_7,f^3,f\rho^2)$という全完成idealを得る。
+nil moduleのgeneric長はそれぞれ1と4であり、二つのglobal embedded associated
+componentの閉包は異なる。これらは新しい全Poisson成分ではない。
+相対的な共通基点での全交叉、global分類の尽くし、収束する正則座標変換は結論しない。
+\end{abstract}
+
+\section{対象、記号と主結果}
+
+基礎体は$\CC$とする。Poisson構造は$\PP^4$上の大域的二ベクトル$\pi$で
+$[\pi,\pi]=0$を満たすものである。非零スカラー倍は射影化するが、
+$\PGL_5$による商は取らない。一般的な構成の背景には\cite{pym}を参照できる。
+本稿では、次節の明示的な旗模型で定義される二つの被約像$\CA,\CB$を固定する。
+研究カタログでは両者は28次元の既約成分である。
+局所的証明に必要なのは、その実proper sourceと被約像であり、成分リストの尽くしではない。
+
+斉次座標を$(h,x,y,z,w)$とし、共通点を
+\begin{equation}\label{eq:P0}
+ P_0=\partial_y\wedge D_0,\qquad
+ D_0=x^2\partial_h+hx\partial_z+(h^2+z^2)\partial_w
+\end{equation}
+とする。これは射影階数二の非零Poisson構造である。
+coneの局所環は非射影化された係数空間で取り、projective局所環は非零係数を1に固定して取る。
+以下の$\CC[[\cdots]]$は形式冪級数環である。
+
+\begin{theorem}[個別成分の全完成型]\label{thm:formal}
+$P_0$での$\CA$と$\CB$の\emph{それぞれの}cone完備局所環は、次の同じ抽象模型に同型である。
+\begin{align}
+ R&=\CC[[\gvars,\zvars,\nu,w,r,s]],&
+ B&=R[t]/(t^2-\nu),\label{eq:RB}\\
+ F&=\nu-s(s-r),&
+ I&=(z_1,\ldots,z_6,F,wr,ws,sr^2),\label{eq:I}\\
+ A&=R\oplus It\ \subset B.&&\label{eq:A}
+\end{align}
+$B\simeq\CC[[\gvars,\zvars,w,r,s,t]]$は正規化である。
+conductorは$IB$で、その商は
+\begin{equation}\label{eq:C}
+ C=A/IB\simeq R/I\simeq
+ \CC[[\gvars,w,r,s]]/(wr,ws,sr^2).
+\end{equation}
+coneで$\dim A=29$、$\edim A=39$、$\depth A=21$、重複度は2である。
+projective版では十九因子が十八因子になり、数値は$28,38,20,2$となる。
+\end{theorem}
+
+この同型は各成分について別々に構成する。
+元のambient内で$\CA$と$\CB$を同時に同じ座標へ移したものではない。
+従って定理\ref{thm:formal}から$P_0$での$\cD$をtensor productとして求めることはできない。
+
+\begin{theorem}[seminormalization]\label{thm:sn}
+\eqref{eq:A}に対し$J=(z_1,\ldots,z_6,F,w,r)$と置くと、
+\[
+ A^{\sn}=R\oplus Jt=A[wt,rt]
+\]
+である。$A\subsetneq A^{\sn}\subsetneq B$であり、第一の拡大は有限subintegralである。
+source conductor coverは
+\[
+ B/JB\simeq\CC[[\gvars,s,t]]/(t^2-s^2)
+\]
+という被約nodeである。したがってself-pairの二点gluingは残る。
+\end{theorem}
+
+\begin{theorem}[二つのactual交叉型]\label{thm:D}
+後述する実階数二族$P_a,Q_b$の群飽和閉包を$\Sigma_P,\Sigma_Q$とする。
+両閉包のcone次元は20、projective次元は19である。
+適当な非空Zariski open $S_P\subset\Sigma_P$、$S_Q\subset\Sigma_Q$を取ると、
+actual scheme intersection $\cD=\CA\cap\CB$のcone完成環は、それぞれ
+\begin{align}
+ \widehat{\mathcal O}_{\cD,P_a}
+ &\simeq\CC[[p_1,\ldots,p_{20},u_1,\ldots,u_8,f]]/(f^2,fu_1,\ldots,fu_8),
+ \label{eq:DP}\\
+ \widehat{\mathcal O}_{\cD,Q_b}
+ &\simeq\CC[[p_1,\ldots,p_{20},z_1,\ldots,z_7,f,\rho]]/
+ (fz_1,\ldots,fz_7,f^3,f\rho^2).
+ \label{eq:DQ}
+\end{align}
+両者とも$\dim=28$、$\edim=29$、$\depth=20$、重複度1である。
+nilradicalのgeneric module長は順に1と4、冪零次数は2と3である。
+各場所のassociated primeはsmooth28なminimal branchとembedded20なstratumの二つだけである。
+$\overline S_P,\overline S_Q$はglobal $\cD$の相異なるembedded associated componentである。
+\end{theorem}
+
+この定理のfull交叉型は、旗数が全非零parameterで決まることより狭い非空unit open上の結果である。
+特に$a=0,b=0$の共通基点の相対交叉型を主張しない。
+projective版では$p$を十九個とし、数値は$27,28,19,1$となる。
+
+\section{実Poisson族とproper旗模型}
+
+\subsection{正準150係数と二つの族}
+
+$E=h\partial_h+x\partial_x+y\partial_y+z\partial_z+w\partial_w$とする。
+射影二ベクトルは、斉次二次二ベクトルをEuler方向で割ったものである。
+raw係数は$10\times15=150$個である。
+$d_j=\sum_i\partial_iP^{ij}$として
+\[
+ P^{\mathrm{can}}=P-\frac15E\wedge d
+\]
+を取ると$\Div(P^{\mathrm{can}})=0$となり、126次元の正準線形空間を得る。
+計算証明書は冗長な150係数を保持し、24個の線形divergence関係も検査する。
+
+$H$は$(h,x,z,w)$の斉次三次式で、$\CC[h,x]_3$を法とする。
+この空間は16次元である。$X_H=-H_w\partial_z+H_z\partial_w$と置く。
+第一のraw族は
+\begin{equation}\label{eq:rawA}
+ P_A=f(h,x)\partial_x\wedge\partial_y
+       +g h^2\partial_z\wedge\partial_w+\partial_y\wedge X_H,
+\end{equation}
+第二は
+\begin{equation}\label{eq:rawB}
+ P_B=f\partial_x\wedge\partial_y+g\partial_z\wedge\partial_w
+ +\partial_y\wedge\left(-\frac{f_x}{2}(z\partial_z+w\partial_w)+X_H\right),
+ \quad f=aF(h,x),\quad g=bF(h,x).
+\end{equation}
+ここで$f,F$はbinary二次式、第一族の$g$はscalarである。
+
+\begin{lemma}
+\eqref{eq:rawA}と\eqref{eq:rawB}は全parameterでPoissonである。
+\end{lemma}
+\begin{proof}
+第一族のJacobi係数は、$H_{zw}=H_{wz}$による相殺を除けば全て零である。
+第二族の唯一残るraw Jacobi係数は、$(y,z,w)$に対する$g f_x-f g_x$である。
+$f,g$が比例するため零となる。正準化は同じ射影二ベクトルを表す。
+\end{proof}
+
+旗は$L\subset\CC^5$、$W\subset\operatorname{ann}(L)$、$\ell\subset W$で
+$\dim L=1,\dim W=2,\dim\ell=1$を満たすものとする。
+旗baseの次元は$4+4+1=9$である。
+固定旗では第一族の線形空間は$3+1+16=20$次元となる。
+raw式の$\partial_h$成分は零なのでEuler verticalとの交わりは零であり、この20方向は正準空間でも独立である。
+
+\begin{proposition}[proper source]\label{prop:proper}
+第一族は旗base上のrank20 bundleのprojectivizationからのproper mapを与える。
+第二族は、同じparabolicにassociatedな$\PP^1$-bundle上のrank19 bundleのprojectivizationからproper mapを与える。
+その被約像を$\CA,\CB$とする。両sourceのprojective次元は28である。
+\end{proposition}
+\begin{proof}
+旗parabolicは連結である。第一族の20次元正準空間がその16個のGL Lie方向で保たれることは、全320列の有理恒等式で確認される。
+連結性から群作用へ積分でき、associated bundleを得る。
+第二族では22次元の$f,g,H$空間内で$f,g$の係数行列をrank1とする。
+ratio $\mu=g/f$のLie characterは
+$M_{zz}+M_{ww}-M_{xx}-M_{yy}$であり、$\mu\partial_\mu$を補正した全304列がrank19空間を保つ。
+従ってratioを\emph{trivialな}旗baseとの積とは扱わず、associated $\PP^1$を取る。
+固定ratioで19次元、baseは10次元なのでprojectivizationは28次元である。
+両sourceはambientとproperな旗baseの積の閉incidenceとして実現され、projectionはproperである。
+これらのfinite linear identitiesとgeneric source微分の非零minorは付録の証明書へ固定する。
+\end{proof}
+
+共通の19次元fixed-fiber subspace $f\in h\langle h,x\rangle$のproper像を$\cN$と書く。
+そのprojective次元は27であり、両成分に入る。
+この共通性は、明示されたgeneric二sourceの全150係数identityと両像の閉性から得る既存の有限入力である。
+本稿で使う$\cN$へのmembershipとsmoothnessは、後述の二族の実sourceと全fiberでも直接確認する。
+
+\subsection{共通点の全fiber}
+
+基準旗を$L=\langle\partial_y\rangle$、$W=\langle h,x\rangle$、marked lineを$\langle x\rangle$とする。
+式\eqref{eq:P0}は、標準raw座標の$h,x$を交換した後で
+$f=-h^2,g=0,H=-hxw+x^2z+z^3/3$から得られるので、両像に入る。
+
+\begin{lemma}[全fiberの長さ2]\label{lem:fiber2}
+$P_0$での両proper sourceのfiberは、一点支持のdual number schemeである。
+\end{lemma}
+\begin{proof}
+rank二境界のsourceでは、第一族は$g=0$または$f=0$、第二族は二ratio endpointで尽くされる。
+$P_0$の定covector Casimirは$x$だけである。
+二独立Casimirをもつ$f=0$ endpointと第二族の反対endpointは排除される。
+残る端点では$E\wedge v\wedge P_0=0$の定vector解は$\CC\partial_y$だけで、行列rankは4である。
+従って$L$はschemeとしてもreducedな一点となる。
+marked covectorを$\ell$とすると$D_0(\ell)$が$\ell$で割れる必要がある。
+$w$係数と$w^2$係数を比べた後、$\ell=Ah+Bx+Cz$なら
+$D_0(\ell)=x(Ax+Ch)$であり、唯一のmarked lineは$x$となる。
+次の旗生成元も$D_0(k)\in\CC x^2$から$W=\langle x,h\rangle$に決まる。
+これは一chart内だけのgeometric uniquenessではない。
+
+残る全旗chartを
+\[
+ \ell=x+\alpha h+\beta z+\gamma w,\qquad k=h+\delta z+\epsilon w
+\]
+とする。有限座標変換で全150係数のfixed-fiber membershipを課すと、全idealは
+\[
+ \CA:(\beta,\gamma,\delta+2\alpha,\epsilon,\alpha^2),\qquad
+ \CB:(\beta,\gamma,\delta-\alpha/2,\epsilon,\alpha^2)
+\]
+となる。全idealの有理GBと両包含が保存されている。
+ratioも実source条件のままendpointへ制限しており、非線形条件を落としていない。
+固定旗のfiber係数は一意だから、これが全proper fiberである。
+\end{proof}
+
+\section{実target底とquadratic image algebra}
+
+propernessと補題\ref{lem:fiber2}により、$P_0$近傍で全sourceはfiniteとなる。
+sourceは正則29次元である。
+全GL orbitから十九方向を選び、残る十sourceを$(p,k_1,\ldots,k_9)$とする。
+$p$のtarget一次微分は零、旗の微分は非零である。
+ここでsource微分とactual imageのZariski tangentを同一視しない。
+
+\begin{lemma}[実共通29底]\label{lem:base}
+実targetの28座標と一つの追加座標から正則29次元底$R$を取れ、各全sourceは$R$上free rank2となる。
+trace-free generatorを$t$とすれば
+\[
+ B=R\oplus Rt,\quad t^2=\nu,
+ \qquad \nu\in\mathfrak m_R\setminus\mathfrak m_R^2.
+\]
+\end{lemma}
+\begin{proof}
+同じ28 raw座標のsource Jacobian minorは$-2304/25$、$-1536/25$である。
+これを固定して28sourceをimplicitに消去する。
+残る$p^2$係数は、全quadratic column$W$とJacobian$J$に対して
+$W'=W-J(J_{\mathrm{sel}})^{-1}W_{\mathrm{sel}}$で補正される。
+追加raw座標61の係数は順に$-4,3/8$で非零である。
+従ってclosed fiberは正確に$\CC[[p]]/(p^2)$となる。
+29個の実target関数はsourceのparameter idealをなし、complete Nakayamaでfiniteとなる。
+正則sourceのCM性と正則底上のABによりfreeで、rankはclosed fiber長2である。
+traceを半分引いた$t$を取れば二次式を得る。追加座標の非零quadratic係数は$\nu$のregular parameter性も与える。
+fiber長2だけからflatnessを仮定したのではない。
+\end{proof}
+
+全actual target関数を$B$のbasis$(1,t)$で書き、even部分を引くと$b_jt$となる。
+$I=(b_j)\subset R$とする。
+
+\begin{lemma}[actual imageとconductor]\label{lem:odd}
+全actual completed imageは$A=R\oplus It$である。
+$I\ne0$なら$B$は$A$の正規化であり、そのconductorは$IB=I\oplus It$、商は$C=R/I$である。
+\end{lemma}
+\begin{proof}
+odd generatorの積は$\nu b_ib_j\in R$なので、生成された全algebraはこの直和で閉じる。
+finite $R$-module内のimageはcompleteであり、冗長な全targetも保持する。
+$0\ne c\in I$なら$t=(ct)/c\in\operatorname{Frac}(A)$となる。
+従ってfiniteなnormal $B$は同じ分数体をもち、正規化である。
+$a+bt\in B$がconductorに入る条件は、自身とその$t$倍が$A$に入ること、すなわち$a,b\in I$である。
+\end{proof}
+
+一般に$C$の幾何はsource critical schemeとは異なる。
+quadratic表示のsource critical quotientは
+\begin{equation}\label{eq:critical}
+ B/(t,I)\simeq R/(I,\nu)
+\end{equation}
+である。$\nu$が$C$上regularであるとは仮定しない。
+
+\section{全critical式とactual jetからconductorへ}
+
+ここでは有限計算の入力を、計算した量とそこからの環論的推論に分ける。
+各恒等式は元の全150係数から作り、独立なphysical coefficient検査で再確認されている。
+
+\begin{proposition}[有限証明書の入力]\label{prop:jets}
+以下が成り立つ。
+\begin{enumerate}
+\item 全source critical完成環は
+\[
+ \CC[[\gvars,W,U,V]]/(WU,WV,UV,U^3).
+\]
+これは全Schur polynomial idealの等号であり、初期式だけの主張ではない。
+\item actual odd $I$のlinear rankは7である。その七regular functionを$f_1,\ldots,f_7$とする。
+全kernel tangentは十九orbit方向と$W,U,V$の三方向で張られる。
+zero-linear odd functionの三方向への二次restrictionは正確に$WU,WV$を張る。
+\item 七linear classと二quadratic classを引いたactual function$h_{63}\in I$があり、
+exact monic $U$-section上で全$f_j$は$O(U^3)$、
+\[
+ h_{63}=c_AU^3+O(U^4),\quad c_A=12/125,
+ \qquad c_B=-4/243
+\]
+となる。branch derivativeは三次まで零であり、この値はactual odd値である。
+\item 七actual functionを消去した後の$\nu$の二次項は、$\CA$で$UV/75$、$\CB$で$16UV/9$である。
+\end{enumerate}
+\end{proposition}
+
+検査にはCBのratioと$f$の積を\emph{先に微分}し、全mixed項を残す。
+actual quadratic restrictionの二行係数は
+\[
+ C_A=\begin{pmatrix}4/25&-4/25\\9/25&1/25\end{pmatrix},\qquad
+ C_B=\begin{pmatrix}7/45&-1/5\\-1/15&-1/5\end{pmatrix}
+\]
+であり、determinantは$8/125,-2/45$である。
+source criticalの七monic消去を、七actual odd制約の消去の代わりには使わない。
+
+\begin{lemma}[actual消去後のgenuine cubic]\label{lem:cubic}
+$f_1,\ldots,f_7$を本当に消去した最小表示$C=S/L$、$S\simeq\CC[[22]]$で、
+全quadratic initialは$WU,WV$を張る。
+さらに$U^3$係数が$c_A$または$c_B$で非零のgenuine cubic initialが存在する。
+\end{lemma}
+\begin{proof}
+$C$はintrinsic conductor商なのでG不変である。
+十九orbit derivationを$S$へliftすると$L$を保ち、constant tangentは$\partial_{g_i}$となる。
+$L\subset\mathfrak m_S^2$なので、$q\in L$の二次項は
+$\partial_{g_i}q_2=0$を満たす。
+従って三方向へのrestrictionが全quadratic initialを決定する。
+$h_{63}$の二次restrictionは零だから、消去後の\emph{全22変数で}orderは3以上である。
+
+命題のmonic $U$-curveで$f_j=O(U^3)$なので、七actual制約を零へ直すIFT補正も$O(U^3)$から始まる。
+$dh_{63}(0)=0$により、この補正は$h_{63}$の三次値を変えない。
+しかも全orderが3以上なので、curveの二次accelerationやorbit gaugeも$U^3$係数を変えない。
+これで$J/\mathfrak mJ$のclassだけでなく、actual最小表示の三次式を得る。
+\end{proof}
+
+三次式の$g$依存部分は、$\partial_{g_i}h_3\in(WU,WV)$と$g$に関するEuler公式で除ける。
+真のcritical $W$、$V$曲線が$C$に入り、その接線が各軸なので、$W^3,V^3$係数も零である。
+従ってinitial idealは
+\begin{equation}\label{eq:I0}
+ I_0=(WU,WV,U(aU^2+bUV+cV^2)),\qquad a\ne0
+\end{equation}
+を含む。ここでは$b,c$をまだ零と置かない。
+
+\begin{lemma}
+$\dim C=20$、$e(C)\le4$である。
+\end{lemma}
+\begin{proof}
+\eqref{eq:I0}はHilbert--Burch行列
+\[
+ \begin{pmatrix}V&aU^2+bUV+cV^2\\-U&0\\0&-W\end{pmatrix}
+\]
+のmaximal minorsで、height2である。
+curve商はCM、Hilbert seriesは$(1+T)^2/(1-T)$で重複度4となる。
+十九変数を戻した環から$\gr C$への全射があり、次元は20以下である。
+一方、実G19とcritical $W$-curveのactual tangentはrank20である。
+そのformal immersionの像はconductor内に入るため、次元は20以上である。
+同じ次元になった後でmultiplicityの上界4を適用できる。
+\end{proof}
+
+\section{実self-pairとmultiplicityの等号}
+
+\subsection{二つの異なる実族}
+
+\begin{align}
+ P_a&=\partial_y\wedge V_a,\nonumber\\[-1mm]
+ V_a&=(x^2+12ahx/5)\partial_h-3ax^2\partial_x/5
+ +(hx+2axz/5)\partial_z+(h^2+z^2-8axw/5)\partial_w,\label{eq:Pa}\\
+ Q_b&=\partial_y\wedge W_b,\nonumber\\[-1mm]
+ 5W_b&=(5x^2+8bhx)\partial_h-2bx^2\partial_x
+ +(5hx+3bxz)\partial_z+(5h^2+5z^2-7bxw)\partial_w.\label{eq:Qb}
+\end{align}
+両者は全parameterでstrict Jacobiとdivergenceを満たす実多項式族で、原点で$P_0$に戻る。
+全非零parameterで射影階数は2である。
+
+\begin{proposition}[全非零parameterでの旗数]\label{prop:flags}
+$P_a$では全CA旗が2、CB旗が1、N旗が1である。
+$Q_b$では全CB旗が2、CA旗が1、N旗が1である。
+各複数sourceはsmooth29 immersion、各一旗像はsmoothである。
+\end{proposition}
+\begin{proof}
+全proper階数二端点を考える。
+定covector contraction行列は全非零parameterでrank5、constant factor行列はrank4である。
+従って余分なCasimirをもつ反対endpointはなく、$L=\langle\partial_y\rangle$に固定される。
+全Darboux一次式は、$P_a$では
+\[
+ x,\quad x+ah-2a^2z,\quad x+3ah,
+\]
+$Q_b$では
+\[
+ x,\quad K=x+bh-b^2z,\quad H=x+2bh
+\]
+で尽くされる。$w$係数と二次cofactorを全係数比較し、残る三変数のeigenbasisを解くことで得られる。
+標準sourceのnecessary identitiesは、trace-free四変数場$D$について
+\[
+ D(\ell)=\frac{f_k\ell}{5},\quad D(k)=-f+\frac{f_kk}{5}
+ \quad(\CA),
+\]
+\[
+ D(\ell)=\frac{2f_k\ell}{5},\quad D(k)=-f+\frac{2f_kk}{5}
+ \quad(\CB)
+\]
+である。三候補に代入した全9行のkernelで$W$も決まる。
+$P_a$のCA旗はmarked line$x$と$x+ah-2a^2z$、
+$Q_b$のCB旗は$x$と$H$である。
+単独旗は$P_a$のCBでは$x+3ah$、$Q_b$のCAでは$x$である。
+これは候補の必要条件だけではなく、全150係数の実source identityで実現されている。
+各source微分minorはparameterの非零単項式なので、全非零parameterでfiberはreducedである。
+Nは19係数subbundleであり、欠けた係数により一旗だけが残る。
+propernessと一旗・接空間零から一旗像のsmoothnessを得る。
+\end{proof}
+
+例えば$P_a$の二旗は
+\[
+ (\ell,W)=(x,\langle h,x\rangle),\quad
+ (x+ah-2a^2z,\langle x,h-2az\rangle)
+\]
+である。$Q_b$のCB旗は$(x,\langle x,K\rangle)$、$(H,\langle h,x\rangle)$となる。
+後者の二sourceへの有限変換は
+\[
+ (h',x',z')=(x,K,h),\qquad (h',x',z')=(H,x,z)
+\]
+で、determinantは$-b^2,2b$である。
+全Hamiltonian係数も保持した恒等式が保存されている。
+
+\subsection{self成分のgeneric長}
+
+両self-pairの同一点での全source接空間の和は37次元、交わりは21次元である。
+GLとparameterによる像はcone20次元である。
+これらは$\QQ(a)$または$\QQ(b)$上の全行列minorであり、一つのparameter標本からの外挿ではない。
+例えば二sourceのflag block後のminorは
+\[
+ \CA:\ -11943936a^9/15625,\ 864a^{14}/15625,
+ \qquad
+ \CB:\ 432b^5/15625,\ 786432b^{10}/15625
+\]
+である。同一targetでのcross minorは$4076863488a^{25}/3125$、$82944b^{25}/15625$となる。
+
+\begin{lemma}[meetingとconductor]\label{lem:glue}
+全finite normalization fiberが二被約点で、各sourceがsmooth immersionなら、
+\[
+ \widehat A=T/(I_1\cap I_2),\qquad B_i=T/I_i
+\]
+であり、conductor商は$D_{m pair}=T/(I_1+I_2)$である。
+\end{lemma}
+\begin{proof}
+全fiberを使用しているので第三のbranchはない。
+$\widehat A=B_1\times_{D_{m pair}}B_2$であり、正規化内のconductorは
+$\ker(B_1\to D_{m pair})\oplus\ker(B_2\to D_{m pair})$である。
+従ってその商は$D_{m pair}$となる。
+異なるquadratic底の座標を無条件に同一視する必要はない。
+\end{proof}
+
+self族の飽和閉包を$Z$とする。$\dim Z=20=\dim C$なのでsupport componentである。
+meetingの$\edim=21$は$C$の値である。
+もし$Z$上でgeneric長が1なら、他成分とnilの支持を除いたregular openで$\edim=20$となる。
+constructibleで稠密な実群飽和像はそのopenに会うから矛盾する。
+従ってself componentのgeneric長は2以上である。
+二旗であること\emph{だけ}から非被約性を推論していない。
+
+critical $W,V$はgeneric長1のsmooth20成分である。
+self-pairの二点は同じ$R$値と異なる$t$値をもち、$\nu=(t_1-t_2)^2/4\ne0$である。
+従って$\nu=0$の二critical成分とは異なる。
+全ての閉包は$P_0$を通るので、multiplicityのassociativityから
+\[
+ e(C)\ge1+1+2=4.
+\]
+上界と一致して$e(C)=4$となる。
+
+\begin{proposition}[全initialと三次係数]\label{prop:initial}
+actual conductorはCM20、type2であり、minimal support primeは正確に三つ、generic長は$(1,1,2)$である。
+その全initial idealのbinary cubicは
+\[
+ \CA:\ \frac{12}{125}U(U-V/3)^2,\qquad
+ \CB:\ -\frac4{243}U(U-9V)^2.
+\]
+\end{proposition}
+\begin{proof}
+CM・unmixedな$S_{\mathrm{gr}}/I_0$から$\gr C$へのkernelが非零なら、それは正の20次元multiplicityを持つ。
+両商のmultiplicity4の等号に反するからkernelは零である。
+従って全initialは\eqref{eq:I0}に等しく、CM性と三generatorのHilbert--Burch resolutionからtype2を得る。
+associativityの等号は三成分の長を$(1,1,2)$に固定し、追加minimal componentもembedded primeも排除する。
+
+実physical arcを直接微分し、全29 tangent式を解くと、self方向の$(W,U,V)$は
+\[
+ \CA:(0,-5/2,-15/2),\qquad \CB:(0,-9/4,-1/4)
+\]
+である。十九orbit方向と合わせ原点でもrank20なので、self supportはsmoothである。
+三つの異なるtangent lineに対し、prime filtrationとRees specializationはcycleを
+$[W]+[V]+2[\mathrm{self}]$へ移す。
+従ってplane cubicの因子は単純な$U$と二重のself lineである。
+$U^3$係数を補題\ref{lem:cubic}で固定すると表示式を得る。
+総multiplicityだけで二重因子を割り当てたものではない。
+\end{proof}
+
+七actual regular functionを戻すと$\mu(I)=7+3=10$である。
+actual odd係数の行$18,19,28,29,60,67,72,46,95,63$が全$I$を生成する。
+この時点でinitialは全て分かるが、まだ全形式型を初期形と同一視してはいない。
+
+\section{三枝conductorとquadratic pairのrigidity}
+
+補題\ref{lem:group}で正当化する十九smooth方向を除く。$w=W,s=U,r=U-\lambda V$とし、
+$\lambda=1/3$または9と取れば、全initialは$(wr,ws,sr^2)$となる。
+
+\begin{lemma}[curve rigidity]\label{lem:rigid}
+CM curve $C_0$が三つのsmooth reduced branchを持ち、接線が独立、generic長が$(1,1,2)$、
+全initialが$(wr,ws,sr^2)$なら
+\[
+ C_0\simeq\CC[[w,r,s]]/(wr,ws,sr^2).
+\]
+\end{lemma}
+\begin{proof}
+三枝のparametrizationの和を使うidentity-linearなformal automorphismで、reduced三枝を座標軸に直す。
+nilradicalを$N$とする。generic長2だから$N^2$は有限長支持だが、CM curveは有限長submoduleを持たないので$N^2=0$である。
+self branchのprimeも同じ理由で$N$をannihilateする。
+従って$N$は$\CC[[s]]$上torsion-free rank1で、freeである。
+
+reduced quotientが三軸なので$N=(wr,ws,rs)\subset\mathfrak m^2$である。
+initialによって$rs\notin\mathfrak m^3$だから、$rs\in sN$ではない。
+従って$\epsilon=rs$は$N$のgeneratorとなる。
+$wN=rN=0$、また$s$は$N$上injectiveである。
+$swr=w\epsilon=0$より$wr=0$となる。
+$ws=\beta(s)\epsilon$と書けば、initialの$ws=0$から$\beta(0)=0$である。
+$w'=w-\beta(s)r$とすると$w's=0$、さらに$\beta=s\gamma$と$r\epsilon=0$から$w'r=0$である。
+これでmonomial環からの全射を得る。identity-linear変換で全initialは変わらないので、complete filtered divisionにより同型となる。
+\end{proof}
+
+\begin{lemma}[trace quadraticとのpair]\label{lem:pair}
+$C_0$の元$q$が二つのsimple枝で零、$q\in\mathfrak m^2$、
+$q_2=c\,s(s-r)$、$c\ne0$を満たすなら、$C_0$のformal automorphismで$q=s(s-r)$にできる。
+\end{lemma}
+\begin{proof}
+monomial基底から$q=s^2\alpha(s)+rs\beta(s)$と一意に書ける。
+$\alpha(0)=c$、$\beta(0)=-c$はunitである。
+\[
+ S=s\sqrt{\alpha(s)},\qquad R=-r\beta(s)/\sqrt{\alpha(s)}
+\]
+は三つのmonomial関係を保つformal automorphismで、$q=S(S-R)$となる。
+\end{proof}
+
+actual $q=\nu\bmod I$はcritical $W,V$で零である。
+命題\ref{prop:jets}と線形変換から$q_2$の$c$はCAで$1/25$、CBで$16/81$となる。
+従って補題はactual pairに適用でき、source conductor coverは
+\begin{equation}\label{eq:cover}
+ E=C[t]/(t^2-s(s-r))
+\end{equation}
+となる。
+
+\section{群因子、Cohen lift、全形式像}
+
+\begin{lemma}[canonical有限被覆の群分離]\label{lem:group}
+actual component、normalization、conductor、conductor coverを同時に十九formal群因子とその補sliceへ分離できる。
+\end{lemma}
+\begin{proof}
+126次元の正準ambientでstabilizerに横断する十九formal群方向と107次元補sliceを取る。
+action mapの微分は同型なので、formal IFTを適用できる。
+不変idealのpullbackはgroup変数に依存しない。
+normalizationはcanonicalなので群作用がliftし、有限coverについて
+$(g,e)\mapsto g e$と$(g,e)\mapsto g^{-1}e$が互いに逆となる。
+十九parameter sectionがsubgroupである必要はない。
+trace-zero lineも保たれ、そのgeneratorの変更はunit倍だけである。
+従って\eqref{eq:cover}の分類を、actual cover全体へ戻せる。
+\end{proof}
+
+\begin{proof}[定理\ref{thm:formal}の証明]
+actual regular normalizerは29次元、$E$のembedding dimensionは$19+4=23$である。
+$E$のgenerator $g_{19},w,r,s,t$を$B$へliftし、kernelの六独立linear element $z_6$を補う。
+これらは$B$のregular parameterで、minimal Cohen presentationから
+\[
+ B=\CC[[g_{19},z_6,w,r,s,t]],\qquad
+ \ker(B\to E)=(z_6,t^2-s(s-r),wr,ws,sr^2)
+\]
+となる。
+conductorのintrinsic pullback squareは常に$A=B\times_E C$である。
+実際、$b\in B$の$E$像が$C$に入れば、ある$a\in A$との差はconductorに入り、その差も$A$に入る。
+
+$g,w,r,s,z$のliftと$t^2$はこのpullbackにより$A$に入る。
+$\nu=t^2$として新しい$R$を\eqref{eq:RB}で定めれば、$B=R\oplus Rt$となる。
+$C$はそのeven quotientであるから、pullbackは正確に\eqref{eq:A}となる。
+この$R$は\emph{新しく構成した}底であり、元のCAとCBの共通target底を同時に保存すると仮定しない。
+
+$C$はCM20なので$\depth I=21$、$A=R\oplus It$から$\depth A=21$である。
+$\mu(I)=10$より$\edim A=29+10=39$となる。
+odd productsは$\mathfrak m_R^3$に入るので$\mathfrak m_A^2=\mathfrak m_R\mathfrak m_A$であり、rank2から重複度2を得る。
+scalar方向は十九orbit因子に含まれるので、projective版は一smooth因子を除く。
+\end{proof}
+
+\subsection{全kernelを与える99関係}
+
+$b=(z_1,\ldots,z_6,F,wr,ws,sr^2)$、$Y_i=b_it$とする。
+七regular generatorを$a_0,\ldots,a_6$と書くと、第一syzygyは
+\begin{align*}
+ &a_jY_i-a_iY_j &&(0\le i<j\le6),\\
+ &b_jY_i-a_iY_j &&(0\le i\le6, 7\le j\le9),\\
+ &sY_7-rY_8,\qquad rsY_7-wY_9.&
+\end{align*}
+個数は$21+21+2=44$である。さらに
+\[
+ Y_iY_j-\nu b_ib_j\qquad(0\le i\le j\le9)
+\]
+を55個加える。
+七regular sequenceのKoszul resolutionとcore Hilbert--Burch resolutionのtensor productが全syzygyを与える。
+productsで任意の式は$R+\sum RY_i$に還元され、$(1,t)$の独立性から残るkernelはこの44 syzygyだけである。
+従って99関係は\emph{全kernel}である。99が最小個数であることを幾何的定理の仮定にはしない。
+
+\section{seminormalizationとformal bad loci}
+
+\begin{proof}[定理\ref{thm:sn}の証明]
+$I+(w,r)=J$なので$A[wt,rt]=R\oplus Jt$である。
+両elementのsquareは$R$に入り、cubeは
+\[
+ \nu w^3=Fw^3+(ws)w^2(s-r),\qquad
+ \nu r^3=Fr^3+(sr^2)r(s-r)
+\]
+により$It$に入る。従って拡大はelementary subintegralである。
+
+$b=x+yt\in B$のsquareとcubeが$R\oplus Jt$に入るなら
+$2xy\in J$、$y(3x^2+\nu y^2)\in J$である。
+domain $R/J=\CC[[g_{19},s]]$では$\nu=s^2$である。
+$\bar y\ne0$なら第一式から$\bar x=0$、第二式から$s^2\bar y^3=0$となり矛盾する。
+従って$y\in J$である。
+total fraction fieldでsquareが入るelementはintegralなので$B$に入り、この検査はseminormality criterion全体を覆う。
+よって候補はseminormalで、有限subintegralでもあるから正確なseminormalizationである。
+$t$は入らないので$B$より小さい。conductorを計算すると被約nodeを得る。
+\end{proof}
+
+$J$は正則九生成列なので、$A^{\sn}$の全kernelは36 Koszul関係と45 products、計81関係である。
+cone数値は$29,38,21,2$、projective数値は$28,37,20,2$となる。
+
+以下のbad lociの等号は被約閉支持について述べる。
+ここで$W$は$C$の$w$軸、$V$は$r$軸、$S$は$s$軸であり、それぞれ
+$(r,s)=0$、$(w,s)=0$、$(w,r)=0$を意味する。
+\begin{proposition}\label{prop:bad}
+original $A$では
+\[
+ \Sing=\mathrm{Nonnormal}=\mathrm{NonCM}=\mathrm{Nonseminormal}
+ =W\cup V\cup S,
+\]
+$A^{\sn}$では前三者は$S$、Nonseminormal locusは空である。
+各枝はsmooth20で、共通intersectionはsmooth19の$g$方向である。
+\end{proposition}
+\begin{proof}
+conductor外では$A=B$がregularである。
+$\mathfrak p\supset I$でのfiber $A\otimes_R\kappa(\mathfrak p)$は体とsquare-zero odd部分なので、その上の$A$のprimeは一つである。
+局所化を$R_{\mathfrak p}\oplus I_{\mathfrak p}t$として使える。
+CMなら正則$R_{\mathfrak p}$上maximal CM、ABによりfreeとなり、rank1の直和因子$I_{\mathfrak p}$はprincipalとなる。
+しかしheightは9なので矛盾する。$J$にも同じ議論が使える。
+
+また$A^{\sn}/A=(w,r)C\,t$で、monomial計算により
+\[
+ \Ann_C(w)=(r,s),\quad\Ann_C(r)=(w,rs),\quad
+ \Ann_C(w,r)=(rs)=\Nil(C).
+\]
+従ってこのsubintegral補正は全conductor支持で残り、originalはそこでseminormalでない。
+\end{proof}
+
+正規化fiberはconductor上で$\kappa[t]/(t^2-\bar\nu)$である。
+\begin{center}
+\begin{tabular}{lll}\toprule
+stratum & $B\to A$ & $B\to A^{\sn}$\\\midrule
+$W\setminus G,V\setminus G$ & dual numbers、長2 & 同型\\
+$S\setminus G$ & 二つの被約点 & 二つの被約点\\
+$G$ & dual numbers、長2 & dual numbers、長2\\
+各conductorの外 & 同型 & 同型\\\bottomrule
+\end{tabular}
+\end{center}
+ここで$G$は共通十九方向である。
+幾何学的一般点の\emph{横断}完成環の$(\dim,\edim,\depth)$は
+\begin{center}
+\begin{tabular}{lll}\toprule
+stratum & original & seminormalization\\\midrule
+$W,V$ & $(9,18,1)$ & $(9,9,9)$\\
+$S$ & $(9,18,1)$ & $(9,18,1)$\\
+$G$ & $(10,20,2)$ & $(10,19,2)$\\\bottomrule
+\end{tabular}
+\end{center}
+$S$ではoriginalの二sheetをglueする交叉商は$\kappa[\rho]/\rho^2$であり、seminormalizationでは被約点でglueされる。
+これらの横断数値からprojective化のためにさらに1を引くことはしない。
+
+\section{actual交叉に必要な相対入力}
+
+個別完成型は相対embeddingを決めないため、ここからは実physical source間の計算を別に使う。
+全非零旗数は命題\ref{prop:flags}のとおりだが、以下の強い相対型は有限個のminorを反転した非空openに制限する。
+底を$P=\CC[[p_1,\ldots,p_{20}]]$とする。
+
+\begin{proposition}[相対計算の全入力]\label{prop:relative}
+次の有限恒等式が成立する。
+\begin{enumerate}
+\item $P_a$側でCAの二smooth29枝のmeetingは$P[\rho]/\rho^2$である。
+CBはsmooth29、第一CA枝との交叉はsmooth28の$\cN$、第二枝との交叉はsmooth20の$S_P$である。
+全QQ$(a)$の真二次差から$T_{\CB}\subset T_{\CA}$が成立する。
+\item $Q_b$側でCAはsmooth29、CBの第二枝との交叉はsmooth28の$\cN$である。
+第一枝との全相対交叉は$Z_4=P[f,\rho]/(f^2,\rho^2)$で、CB meetingへの実quotientは$f$を殺す。
+このquotient方向は実multiplier pairingでisotropicである。
+\item $Q_b$の三sourceに同じ実29 target座標を用いると、そのJacobian determinantは
+\[
+ -1728b^8(b^2-5)/125,\quad-442368b^9/25,\quad8064b/25
+\]
+であり非空openで全てunitとなる。
+全121 residual odd座標のregular-sequence divisionに関する第三次identityが、$\QQ(b)$上で全行成立する。
+\end{enumerate}
+\end{proposition}
+
+この命題は、単一の有限体標本や二次接空間だけの結果ではない。
+相対CI4では七regular式を\emph{非線形のまま}解き、二quadricのdegree3 spanのunitとNakayamaを使って全idealを得る。
+chosen quotientのisotropic性も実source行列で確認する。
+最後のthird-order identityは、元の三sourceの全150物理係数と同じtarget底を使う。
+8linear generatorのcofactorにはdegree2を要するためsourceは三次まで保持し、quadratic generatorの未計算degree2 cofactorが寄与しないことはそのactual multiplierのconstantが零であることから確認する。
+全higher normal冪は既にCI4 idealに入る。
+付録のsource、inverse、全cofactorとdefect archiveは、この有限命題を再現する完全入力である。
+
+相対CI4の正規形は、free rank4代数のradical filtration $(1,2,1)$からも説明できる。
+chosen isotropic tangentを$f$と取り、補方向$\rho$へ$f$の倍数を加えて$\rho^2=0$とすれば、
+$f\rho$がsocleを張るため$P[f,\rho]/(f^2,\rho^2)$となる。
+このabstract正規化を実際のquotient方向に結び付ける点が、命題のisotropic gateである。
+
+\section{\texorpdfstring{$P_a$}{Pa}側の全交叉ideal}
+
+二CA枝を$B_1=P[[\rho,u_1,\ldots,u_8]]$、$B_2=P[[\rho,v_1,\ldots,v_8]]$とする。
+meetingへのkernelは$(u_8,\rho^2)$、$(v_8,\rho^2)$である。
+$\cN$の第一枝内方程式はmeetingでunit倍の$\rho$となるので、$\cN=(\rho)$とmeetingを同時に正規化できる。
+\[
+ T_0=P[[\rho,u_8,v_8,\tau]],\quad
+ B_1:T_0/(v_8,\tau),\quad B_2:T_0/(u_8,\tau-\rho^2)
+\]
+と取る。全fiber-product kernelは
+\begin{equation}\label{eq:81meet}
+ u_iv_j,\quad u_i\tau,\quad v_j(\tau-\rho^2),\quad
+ \tau(\tau-\rho^2)
+\end{equation}
+という$64+8+8+1=81$関係である。
+\begin{lemma}
+\eqref{eq:81meet}は全kernelである。
+\end{lemma}
+\begin{proof}
+これらの関係で任意の式を、第一枝だけの$u$項、第二枝だけの$v$項、共通$\rho$項と$\tau$の一次項へ還元できる。
+両枝で零になるなら$\tau$部分も$\rho^2$との関係で消え、残りは零である。
+従ってpullback零の検査に留まらない全presentationである。
+\end{proof}
+
+CBのregular環を$B=P[[u_8,f]]$とし、$\cN=(f)$、$S_P=(f,u_8)$と取る。
+CB上では$\rho=fd$、$v_i=fb_i$、$\tau=fc$と書け、$c$はunitである。
+これは$\tau$が二CA tangentの和37を殺す一方、CBはそれを越える方向を持つという実rank38検査から従う。
+従って$u_i\tau$と$\tau(\tau-\rho^2)$はそれぞれ$f u_i$と$f^2$のunit倍であり、actual ideal$Q$は
+\[
+ f(f,u_8)\subset Q
+\]
+を満たす。
+
+逆に$\cN\subset\cD$より$Q\subset(f)$である。
+$F=fk\in Q$に対し、全$S_P$上で$T_{\cD}=T_{\CB}$なので
+$dF|_{S_P}=k|_{S_P}df=0$となる。
+$df\ne0$だから$k\in(f,u_8)$である。
+この上包含は、81以外の全ambient equationにも適用される。
+従って$Q=f(f,u_8)$となり、\eqref{eq:DP}が証明される。
+
+nilradicalは$P f$でsquare-zeroであり、
+\[
+ (f^2,fu_8)=(f)\cap(f^2,u_8)
+\]
+はirredundant primary decompositionである。
+embedded primary quotientはgeneric長2、nil moduleの長は1であり、両者を区別する。
+coreのsocle$f$からdepth0、二十smooth因子を戻してdepth20となる。
+Hilbert seriesは$1/(1-T)^{28}+T/(1-T)^{20}$で、重複度は1である。
+
+\section{\texorpdfstring{$Q_b$}{Qb}側：全ambientの最後のsocleを保つ}
+
+ここではCBが二枝であり、前節をlabel交換してはいけない。
+CAのregular環を$B=P[[z_1,\ldots,z_7,f,\rho]]$とし、
+\[
+ \cN=(f),\qquad J_Z=(z_1,\ldots,z_7,f^2,\rho^2)
+\]
+と取る。$Z_4$は$B/J_Z$である。
+二CB枝のmeetingは$P[\rho]/\rho^2$であり、\eqref{eq:81meet}を使える。
+第二枝に$\cN$が入る規約で、一つの$u_i|_{\CA}$は$f$のunit倍となる。
+全$u_i$と$\tau-\rho^2$は$f$の倍数なので、81 core relationの像は$fK$、
+$K=(v_8|_{\CA},\tau|_{\CA})$となる。
+
+追加common ambient equationsは全38 tangentを殺す。
+その二normal quadratic blockも全QQ$(b)$で零である。
+従って$J_Z$の七linear pivotと二regular quadricはcore $K$から得られる。
+degree3 spanのunitとNakayamaにより$K=J_Z$であり、$fJ_Z\subset Q$を得る。
+fiber-product exactnessを非flat base changeへそのまま移した議論ではない。
+
+一方$\cD_{\mathrm{red}}=\cN$、$Z_4\subset\cD$だから
+\begin{equation}\label{eq:sandwich}
+ fJ_Z\subset Q\subset(f)\cap J_Z.
+\end{equation}
+両端の差は$P$-free rank2で、classは$f^2,f^2\rho$である。
+全stratum上のactual quadratic-zero gateは$f^2$ classを除く。
+残る一つのsocle classが全ambient equationから消えることを、次の全syzygy表示で確認する。
+
+\begin{lemma}[split二sheetのexact colon recipe]\label{lem:colon}
+同じactual底$R$で二sheetを$t=\pm1$とし、CB像を$R\oplus It$、全odd座標を$b_jt$とする。
+CA sectionとの差が$f c_j$で、可逆row操作後$c=e_0$とする。
+$J_B=(b_j:j>0)$ならactual交叉idealは
+\[
+ Q=f\bigl(J_B,f-2b_0,(J_B:b_0)\bigr).
+\]
+\end{lemma}
+\begin{proof}
+全presentationは全$b$-syzygyとproducts $Y_iY_j-b_ib_j$からなる。
+productsをCAへ制限すると$fJ_B$と$f(f-2b_0)$を得る。
+syzygy $a_0b_0+\sum_{j>0}a_jb_j=0$の制限は$fa_0$であり、可能な$a_0$全体は正確に$(J_B:b_0)$である。
+冗長なambient generatorを落とさなければ、これが全idealである。
+\end{proof}
+
+命題\ref{prop:relative}の同じ29 target底を使い、全121 residual odd vectorを保持する。
+CBのconductorは8linearと1quadraticからなるregular sequenceである。
+全$b_j$をその九元へ分解し、対応する全CA defectを計算する。
+全150のconstant・linear defectは零、全quadratic defectは$J_Z$の二quadricへ入る。
+quadratic generatorのmultiplier constantが零なので、未計算の次次数がこの検査を変えない。
+従って残りの$f^2\rho$係数は、\emph{全行について$\QQ(b)$上恒等的に零}である。
+
+GLと$b$の像は実smooth20 stratumをdominantに覆う。
+残余はdomain $P$上free rank1 module $P f^2\rho$のsubmoduleなので、genericに零なら全て零である。
+これで\eqref{eq:sandwich}の下包含は等号となり、\eqref{eq:DQ}を得る。
+higher normal冪は既に$J_Z$に入り、blindな第四次以上のjet検査は必要ない。
+
+\subsection{primary構造とnil module}
+
+\[
+ (fz_7,f^3,f\rho^2)=(f)\cap(z_7,f^3,\rho^2)
+\]
+はirredundant primary decompositionである。
+第二項は$(z_7,f,\rho)$-primaryで、generic primary quotient長は$3\cdot2=6$となる。
+一方nilradicalは
+\[
+ (f)\simeq B/J_Z\simeq P[f,\rho]/(f^2,\rho^2)
+\]
+であり、$P$-basisは$f,f^2,f\rho,f^2\rho$の四つである。
+nilradicalの二乗はrank2、三乗は零である。
+この長4をprimary quotient長6と混同しない。
+socle $f^2\rho$は非零で全九normal変数に殺されるからcore depthは0であり、
+全depthは20となる。Hilbert seriesは
+\[
+ \frac1{(1-T)^{28}}+\frac{T+2T^2+T^3}{(1-T)^{20}}
+\]
+で、dimension28・edim29・multiplicity1を与える。
+重複度1であってもreducedでもCMでもない例である。
+
+\section{二つのglobal embedded閉包と適用限界}
+
+$S_P,S_Q$は実$\GL\times\AA^1$像の既約閉包の非空openである。
+上のembedded primeは、そこでのsmooth20 algebraic stratumのidealのcompletionである。
+忠実flatなcompletionのassociated-prime contractionとlocalizationにより、
+その閉包はglobal actual $\cD$のembedded associated componentとなる。
+
+もし二閉包が同じなら、二つのconstructible dense imageはその共通の非空openで交わる。
+しかし全proper sourceの旗数は$S_P$で$(2,1)$、$S_Q$で$(1,2)$であり矛盾する。
+従って二つのprojective19次元embedded閉包は異なる。
+これで定理\ref{thm:D}のglobalな主張が従う。
+
+これらはintersectionのassociated componentであり、全Poissonスキームの新しい既約成分ではない。
+研究カタログの既約成分数の下界58は変わらない。
+本稿から全embedded primeのリスト、$P_0$での相対$\CA/\CB$配置、
+二stratumの全境界での交叉、global分類の上界は得られない。
+また全形式同型と、収束するholomorphic coordinate changeは区別する。
+
+\appendix
+\section{有限証明書、再現範囲と検証}
+
+本稿はrecursiveな旧TeXを読み込まず、保存された有限証拠\cite{repo}を直接用いる。
+本文の環論的証明と、次の全source恒等式を有限入力として用いる。
+表では日付suffixを$\tau=\texttt{20261103\_v63}$と略す。
+各幹に対応する\texttt{code/}、\texttt{research/notes/}、\texttt{reports/}には、
+全QQ係数、選択minor、全従属関係、独立検証のSHA--256が保存されている。
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{.25\textwidth}>{\raggedright\arraybackslash}p{.68\textwidth}}
+\toprule 内容 & 証明書の幹と検査範囲\\\midrule\endhead
+global proper source & \texttt{AMBIENT\_CA\_GLOBAL\_FLAG\_MODEL\_}$\tau$、\texttt{AMBIENT\_CB\_GLOBAL\_FLAG\_MODEL\_}$\tau$。
+parabolic全320、352、304列、full raw Jacobi、rank witness。各\texttt{\_REVIEW}を伴う。\\
+共通N像 & \texttt{AMBIENT\_INTERSECTION\_DIMENSION27\_20261103\_v62}、
+\texttt{AMBIENT\_GLOBAL\_BOUNDARY\_SQUARE\_RECOGNITION\_}$\tau$と独立review。
+全finite tensor identity、proper19係数subbundle、generic像次元。\\
+全fiber・quadratic底 & \texttt{AMBIENT\_B18\_QUADRATIC\_IMAGE\_REDUCTION\_}$\tau$。
+全旗ideal、両finite core150出力、common28 minor、全corrected quadratic。\\
+全critical ideal & \texttt{AMBIENT\_B18\_CA\_CRITICAL\_SCHEME\_}$\tau$、CB版、
+独立\texttt{CA\_N\_CRITICAL\_SCHEMES}とCBのreview。\\
+actual二次・三次 & \texttt{AMBIENT\_B18\_CA\_CB\_ODD\_QUADRATIC\_DEFECT\_}$\tau$、
+\texttt{ODD\_CUBIC\_CLASS}。全variable sourceと全150 Schur値、actual消去の次数。\\
+conductor次元・multiplicity & \texttt{AMBIENT\_B18\_CONDUCTOR\_DIMENSION20\_}$\tau$、
+\texttt{AMBIENT\_CA\_ORIGIN\_CONDUCTOR\_MULTIPLICITY4\_}$\tau$とCB版。
+実七IFT、G19 kernel、generic長とinitial等号。\\
+binary初期形 & \texttt{AMBIENT\_ORIGIN\_BINARY\_CUBIC\_RECOGNITION\_}$\tau$\texttt{\_REVIEW}。
+decoded physical arcの全29方程式とtangent cycle。\\
+full rigidity・実適用 & \texttt{AMBIENT\_THREE\_AXIS\_CONDUCTOR\_RIGIDITY\_}$\tau$、
+\texttt{AMBIENT\_ORIGIN\_FULL\_FORMAL\_MODEL\_}$\tau$および独立review。
+canonical cover、Cohen lift、全99関係。\\
+seminormality・bad loci & \texttt{AMBIENT\_ORIGIN\_SEMINORMALIZATION\_}$\tau$、
+\texttt{AMBIENT\_ORIGIN\_FORMAL\_BAD\_LOCI\_}$\tau$と各review。\\
+実二族と全旗 & \texttt{AMBIENT\_CA\_ORIGIN\_POLYNOMIAL\_SELF\_PAIR\_}$\tau$、
+CB版、各\texttt{SELF\_PAIR\_ALL\_NONZERO\_FLAGS}、cross-source geometryと全fiber review。\\
+meeting double & \texttt{AMBIENT\_CA\_SELF\_PAIR\_MEETING\_DOUBLE\_}$\tau$\texttt{\_REVIEW}と対応CB証拠。
+smooth二枝と全81 kernel。\\
+$P_a$ actual D & \texttt{AMBIENT\_CA\_SELF\_PAIR\_ACTUAL\_D\_TWOJET\_}$\tau$、
+\texttt{FULL\_RING}および各review。全QQ$(a)$二次差、全ideal両包含。\\
+$Q_b$相対CI4 & \texttt{AMBIENT\_CB1\_CA\_RELATIVE\_CI4\_}$\tau$とreview。
+七非線形regular制約、二quadrics、実isotropic quotient。\\
+$Q_b$全ambient三次 & \texttt{AMBIENT\_CB\_SELF\_PAIR\_COMMON\_BASE\_ETALE\_}$\tau$、
+\texttt{AMBIENT\_CB\_ACTUAL\_D\_CUBIC\_SYZYGY\_}$\tau$とreview。
+58、87次inverse、全121 residual/全150行、全cofactor/defect。\\
+$Q_b$全D・primary & \texttt{AMBIENT\_CB\_SELF\_PAIR\_ACTUAL\_D\_FULL\_RING\_}$\tau$とreview。
+monomial両包含、nil長4とprimary長6、socleとglobal contraction。\\\bottomrule
+\end{longtable}
+
+\subsection{Cloud上の独立全kernel確認}
+
+\texttt{AMBIENT\_ORIGIN\_FORMAL99\_M2\_}$\tau$は、CloudのMacaulay2~1.24.11で
+全99関係idealとsource ideal
+\[
+ (t^2-(F+s(s-r)),\ Y_i-b_it)
+\]
+から$t$を消去した\emph{全ideal}の等号を確認した。
+backendはdefault Gröbner/eliminationであり、旧版QQの\texttt{Algorithm=>LinearAlgebra}は使っていない。
+trim後の個数も99だったが、本稿は最小性を主定理に使わない。
+この検査は関係のpullback零より強い一方、実成分への形式幾何学的適用を代わりに証明するものではない。
+実行は60秒・約2.2GBのcap内で正常終了し、実測秒数は記録されていない。
+今回の原稿作成ではこのCAS計算を再実行していない。
+
+再現用sourceは次の通りである。
+\begin{quote}\footnotesize\ttfamily
+source /workspace/cloud-setup/activate.sh\\
+M2 --script reports/AMBIENT\_ORIGIN\_FORMAL99\_M2\_20261103\_v63/verify.m2
+\end{quote}
+成功文字列は\texttt{FULL99\_EQUALS\_ENTIRE\_SOURCE\_ELIMINATION\_PASS}である。
+他のproducerは新しい\texttt{--output}を指定して実行し、既存証拠を上書きしない。
+三source三次workerの明示的再実行と、保存済み全係数の再監査は区別される。
+独立三次監査が保存したraw source jetsは
+\path{reports/AMBIENT_CB_ACTUAL_D_CUBIC_SYZYGY_20261103_v63_REVIEW/independent-source-curves.json.gz}
+にあり、作者の最終defect archiveだけに依存しない。
+
+新しいcheckoutで物理三次workerまで再実行する場合、最初に
+\begin{quote}\footnotesize\ttfamily
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python\\
+\hspace*{1em}code/restore\_CB\_cubic\_worker\_inputs\_20261103\_v63.py
+\end{quote}
+を使って、公開gzipから必要な入力cacheを復元する。
+次に公開cubic packetの四つの\texttt{*.json.gz}と
+\texttt{completed-worker-manifest.json}だけを、新しい
+\path{work/paper-cb-cubic-replay/}へ複写する。
+\texttt{report.json}は複写せず、既存workを上書きしない。
+その後の明示的な再計算コマンドは
+\begin{quote}\footnotesize\ttfamily
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python\\
+\hspace*{1em}code/ambient\_CB\_actual\_D\_cubic\_syzygy\_20261103\_v63.py\\
+\hspace*{1em}--output work/paper-cb-cubic-replay --recompute
+\end{quote}
+である。短いcompleted-certificate監査だけなら\texttt{--recompute}とcache復元は不要である。
+
+\subsection{この草稿の保存}
+
+本文とPDFは\path{papers/ca_cb_local_normalization_ja.tex}、
+\path{papers/ca_cb_local_normalization_ja.pdf}として独立に保存する。
+ビルドlog、実測ページ数、source/PDF hash、依存する受理済みreportは
+\path{reports/CA_CB_LOCAL_NORMALIZATION_PAPER_20261103_v63/}に固定する。
+既存の118頁、16頁、91頁、14頁の原稿・PDFは変更しない。
+本稿はrepository内の研究草稿であり、外部投稿や優先性の主張を伴わない。
+
+\begin{thebibliography}{9}
+\bibitem{pym}
+B.~Pym, \emph{Constructions and classifications of projective Poisson varieties},
+Letters in Mathematical Physics \textbf{108} (2018), 573--632;
+arXiv:1701.08852.
+\bibitem{repo}
+Poisson P4研究プロジェクト,
+\emph{研究ノート・全source・独立計算証明書}, v63 (2026年11月3日),
+\url{https://github.com/uedakazushi/poisson-p4}.
+本稿で使う有限入力と独立監査は上の付録に列挙した。
+\end{thebibliography}
+\end{document}

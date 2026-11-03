@@ -1,8 +1,8 @@
 # 研究継続方針：複素射影4空間の Poisson 構造
 
-generic B18代表点で、個別被約CA/CBの全形式完成環と正確なseminormalizationを決定した。全99 kernelは独立証明とCloud M2 1.24.11の全source eliminationでも確認した。実交叉DにはP_a族沿いの全型とembedded成分を得たが、B18原点での相対配置・全D型は継続中。総下界58（rank4は52）、総上界と一般五点尽くしは未確定。
+個別CA/CBの全形式完成型とseminormalizationに加え、実交叉Dの相異なる二つのembedded成分を証明した。P_a側のnil長1に対しQ_b側はnil長4・三乗零の全局所環となる。新25成分のfirstjet方程式次数は22以上。B18原点全交叉・一般五点尽くし・全成分上界は継続中で、総下界58（rank4は52）は変わらない。
 
-新25成分の全Poisson一般横断長さは正確に5。n111の全完成環 C[[s25,u,v]]/(uv,u³,v³) とCM type2を証明・独立監査し、[14ページの独立原稿](papers/positive_weight6_component_ja.pdf)に保存した。全52 rank4成分のdense S61写像が揃った。新一次像は15次元・方程式次数20以上だが実方程式、全境界、全分類は未解決。以下は以前の記録を含む。
+新25成分の全Poisson一般横断長さは正確に5。n111の全完成環 C[[s25,u,v]]/(uv,u³,v³) とCM type2を証明・独立監査し、[14ページの独立原稿](papers/positive_weight6_component_ja.pdf)に保存した。全52 rank4成分のdense S61写像が揃った。新一次像は15次元・方程式次数22以上だが実方程式、全境界、全分類は未解決。以下は以前の記録を含む。
 
 **現行の下界は58（rank4は52）で、総数の上界は未確定。** 新しい25次元全成分R4_POSITIVE_WEIGHT6_25を全次数Poisson family・rank26・actual局所上界25から証明し、既存57との相違を独立監査した。以下の57/51は以前の保存時点の記録である。全分類、generic scheme厚みや文献上の優先権は別に扱う。
 

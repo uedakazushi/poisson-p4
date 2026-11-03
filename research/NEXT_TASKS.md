@@ -1,5 +1,26 @@
 # 次の課題 — v63-s61 / 2026-11-03
 
+## v63 W: 第二embedded成分・全三次gate・有限例外のQQ除去
+
+直前保存 main `7ea5cf639a99bd0d57a6d2b5d5aaad175c1a2958` は通常push済み。以下は過去時点を含む。
+
+Q_b側のactual CA/CB交叉Dの全完成環を、全150係数のQQ(b)三次syzygy計算と独立Lie展開で決定した。非空unit openと群飽和上でC[[s20,z7,f,rho]]/(fz7,f³,f rho²)となる。nil moduleは滑らかなS20上free rank4、二乗rank2・三乗零で、embedded primary quotientの長さは6。既知P_a側のsquare-zero rank1 nil moduleとは異なる。両stratumの射影19次元閉包は相異なるglobal embedded associated componentである。全associated primeやb0/B18原点を尽くしたとは主張しない。
+
+新25次元成分のfirstjet hypersurfaceの方程式次数下界を22へ改善した。全20次不変空間のcharacter次元36と、実dense source36点でのQQ非零36minorにより全20次制限の単射性を証明した。独立な整数word評価とBareiss determinantも一致した。実方程式と次数22の存在は未解決。
+
+非平方では高rank比例を全known-unit開で除外し、残る有限gcd例外coverの全raw QQ全射性を証明した。有限Z_(32003) modelで全localizerのunit性を先に確定し、全672×1568作用の全射からNakayamaでQQへ移す。nonproper開のmodp計算をそのまま移す議論は使わない。別の補助5×21では第四unit pivotも厳密確認した。pair gateと全域のrank条件、元product41/full57/四次被覆は引き続き未決。
+
+個別CA/CBの全形式型とseminormalizationは既証。B18原点のactual D全型、一般beta五点尽くし、全成分上界は別に継続する。総下界58/rank4下界52、総上界未定。凍結済み118/16/91/14ページ原稿は変更しない。
+
+generic B18ではOLD共通29底を使って二成分の実150×39接埋込みを再構成し、T_CA=T_CB=T_Dの同じ39平面であると独立検証した。actual Dはcone次元28・edim39・多重度2でdepth≤20、projectiveでは27・38・2・depth≤19。さらに全schemeの強い群不変性とformal IFTで十九群因子を分離し、depthはcone19〜20、projective18〜19と絞った。横断環のdim9/edim20/e2とdepth0〜1は確定し、embedded vertex/socleが最後のdepthの差となる。個別完成環の抽象同型から相対配置を決めたものではなく、D_redの接平面やnilの可視性も未決である。
+
+非平方の別のstructural証明により、六linear entryのrankは全aPJ開で正確に4と分かった。二つの残余係数は四linear変数だけへ依存し、binary Dのx0²係数はknown unit。従って補助五二次rank5はpair gateから従う。DB0のrank5自体も独立に証明済み。有限gcd例外の処理と合わせ、全raw全射の十分条件はA=x0=W0上の二quadric独立性という単一pair gateに縮約された。この最後のgateはまだ未証明である。
+
+次に行う実課題は、(1) pair gateの構造的QQ証明、(2) B18原点の相対全idealとsocle、(3) 実42変数δ_E∈J0の判定である。pair gateのcofactor degree3/4探索、QQ scalar GB60秒、補助rank GB300秒はいずれも証明を与えず、失敗を非所属へ昇格しない。大きいQQ GBの同じ入力での反復は避け、既存の小さい構造式を利用する。全分類の完了条件・上界は引き続き未達である。
+
+さらにDVR曲線とのfiber productを用いる新しい環論的議論で、B18原点のnilradicalがm²に含まれないことを証明した。被約横断環はedim≤19だがactualは20なので、nilには少なくとも一つ一次cotangentに可視なclassがある。被約接空間を単に二成分の接空間の和と仮定していない。正確な被約edim・特定nil座標・全環は未決。個別形式型と二つの交叉型を新規17頁日本語原稿 papers/ca_cb_local_normalization_ja.pdf に独立保存した。
+
+
 ## v63 V: 全形式標準形・seminormalization・全99 kernel
 
 直前保存 main `2ce106c7425a114d98efef89704d9c07162e0852` は通常push済み。以下は過去時点を含む。

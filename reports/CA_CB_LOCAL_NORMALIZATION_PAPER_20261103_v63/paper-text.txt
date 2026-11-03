@@ -1,0 +1,844 @@
+     射影四空間の二つの Poisson 成分の局所正規化と交叉
+         全形式完成型、seminormalization、および二つの embedded stratum
+
+                   Poisson P4 研究プロジェクト・計算証明付き研究草稿
+
+                                        2026 年 11 月 3 日・v63
+
+
+                                                      概要
+         射影四空間上の二つの被約 Poisson 成分 CA , CB について、ある共通階数二点での個別の全完備
+       局所環を決定する。十九個の滑らかな変数を除いた模型は、R = C[[z1 , . . . , z6 , ν, w, r, s]]、t2 = ν 、
+       I = (z1 , . . . , z6 , ν − s(s − r), wr, ws, sr2 ) に対する A = R ⊕ It である。正規化は正則であり、
+       conductor 商は三枝曲線 C[[w, r, s]]/(wr, ws, sr2 ) となる。その generic primary 長は (1, 1, 2) で
+       ある。全形式型の証明では、実際の七つの odd 制約を消去した後の三次項、実自己旗族、重複度
+       の等号、conductor とその二重被覆の rigidity を使う。初期式の計算だけから高次項を捨てること
+       はしない。
+        seminormalization は A[wt, rt] であり、正規化とは異なる。全 kernel を与える 99 関係と 81
+       関係、各形式 stratum の特異・非正規・非 CM・非 seminormal locus、正規化 fiber を明示する。
+       さらに actual scheme intersection D = CA ∩ CB について、二つの異なる射影 19 次元 stratum
+       上で (f 2 , f u1 , . . . , f u8 ) および (f z1 , . . . , f z7 , f 3 , f ρ2 ) という全完成 ideal を得る。 nil module
+       の generic 長はそれぞれ 1 と 4 であり、二つの global embedded associated component の閉包
+       は異なる。これらは新しい全 Poisson 成分ではない。相対的な共通基点での全交叉、global 分類
+       の尽くし、収束する正則座標変換は結論しない。
+
+
+
+1     対象、記号と主結果
+    基礎体は C とする。Poisson 構造は P4 上の大域的二ベクトル π で [π, π] = 0 を満たすものである。
+非零スカラー倍は射影化するが、PGL5 による商は取らない。一般的な構成の背景には [1] を参照でき
+る。本稿では、次節の明示的な旗模型で定義される二つの被約像 CA , CB を固定する。研究カタログで
+は両者は 28 次元の既約成分である。局所的証明に必要なのは、その実 proper source と被約像であ
+り、成分リストの尽くしではない。
+    斉次座標を (h, x, y, z, w) とし、共通点を
+
+                         P0 = ∂y ∧ D0 ,         D0 = x2 ∂h + hx∂z + (h2 + z 2 )∂w                             (1)
+
+とする。これは射影階数二の非零 Poisson 構造である。cone の局所環は非射影化された係数空間で取
+り、projective 局所環は非零係数を 1 に固定して取る。以下の C[[· · · ]] は形式冪級数環である。
+
+定理 1.1 (個別成分の全完成型). P0 での CA と CB のそれぞれの cone 完備局所環は、次の同じ抽象
+
+
+
+
+                                                       1
+模型に同型である。
+
+        R = C[[g1 , . . . , g19 , z1 , . . . , z6 , ν, w, r, s]],           B = R[t]/(t2 − ν),                         (2)
+        F = ν − s(s − r),                                                                                       2
+                                                                             I = (z1 , . . . , z6 , F, wr, ws, sr ),   (3)
+        A = R ⊕ It ⊂ B.                                                                                                (4)
+
+B ≃ C[[g1 , . . . , g19 , z1 , . . . , z6 , w, r, s, t]] は正規化である。conductor は IB で、その商は
+
+                        C = A/IB ≃ R/I ≃ C[[g1 , . . . , g19 , w, r, s]]/(wr, ws, sr2 ).                               (5)
+
+cone で dim A = 29、edim A = 39、depth A = 21、重複度は 2 である。projective 版では十九因子が
+十八因子になり、数値は 28, 38, 20, 2 となる。
+
+    この同型は各成分について別々に構成する。元の ambient 内で CA と CB を同時に同じ座標へ移し
+たものではない。従って定理 1.1 から P0 での D を tensor product として求めることはできない。
+
+定理 1.2 (seminormalization). (4) に対し J = (z1 , . . . , z6 , F, w, r) と置くと、
+
+                                               Asn = R ⊕ Jt = A[wt, rt]
+
+である。A ( Asn ( B であり、第一の拡大は有限 subintegral である。source conductor cover は
+
+                                      B/JB ≃ C[[g1 , . . . , g19 , s, t]]/(t2 − s2 )
+
+という被約 node である。したがって self-pair の二点 gluing は残る。
+
+定理 1.3 (二つの actual 交叉型). 後述する実階数二族 Pa , Qb の群飽和閉包を ΣP , ΣQ とする。両閉
+包の cone 次元は 20、projective 次元は 19 である。適当な非空 Zariski open SP ⊂ ΣP 、SQ ⊂ ΣQ を
+取ると、actual scheme intersection D = CA ∩ CB の cone 完成環は、それぞれ
+                    bD,P ≃ C[[p1 , . . . , p20 , u1 , . . . , u8 , f ]]/(f 2 , f u1 , . . . , f u8 ),
+                    O                                                                                                  (6)
+                        a
+
+                    bD,Q ≃ C[[p1 , . . . , p20 , z1 , . . . , z7 , f, ρ]]/(f z1 , . . . , f z7 , f , f ρ ).
+                    O                                                                             3     2
+                                                                                                                       (7)
+                        b
+
+
+
+両者とも dim = 28、edim = 29、depth = 20、重複度 1 である。nilradical の generic module 長は
+順に 1 と 4、冪零次数は 2 と 3 である。各場所の associated prime は smooth28 な minimal branch
+と embedded20 な stratum の二つだけである。S P , S Q は global D の相異なる embedded associated
+component である。
+
+    この定理の full 交叉型は、旗数が全非零 parameter で決まることより狭い非空 unit open 上の結果
+である。特に a = 0, b = 0 の共通基点の相対交叉型を主張しない。projective 版では p を十九個とし、
+数値は 27, 28, 19, 1 となる。
+
+
+2     実 Poisson 族と proper 旗模型
+2.1   正準 150 係数と二つの族
+
+ E = h∂h + x∂x + y∂y + z∂z + w∂w とする。射影二ベクトルは、斉次二次二ベクトルを Euler 方向
+で割ったものである。raw 係数は 10 × 15 = 150 個である。dj = i ∂i P ij として
+                                             P
+
+                                                              1
+                                                   P can = P − E ∧ d
+                                                              5
+                                                                2
+を取ると div(P can ) = 0 となり、126 次元の正準線形空間を得る。計算証明書は冗長な 150 係数を保
+持し、24 個の線形 divergence 関係も検査する。
+ H は (h, x, z, w) の斉次三次式で、C[h, x]3 を法とする。この空間は 16 次元である。XH = −Hw ∂z +
+Hz ∂w と置く。第一の raw 族は
+
+                       PA = f (h, x)∂x ∧ ∂y + gh2 ∂z ∧ ∂w + ∂y ∧ XH ,                      (8)
+
+第二は
+                                                    
+                                   fx
+ PB = f ∂x ∧ ∂y + g∂z ∧ ∂w + ∂y ∧ − (z∂z + w∂w ) + XH ,     f = aF (h, x),   g = bF (h, x). (9)
+                                   2
+
+ここで f, F は binary 二次式、第一族の g は scalar である。
+
+補題 2.1. (8) と (9) は全 parameter で Poisson である。
+
+証明. 第一族の Jacobi 係数は、 Hzw = Hwz による相殺を除けば全て零である。第二族の唯一残る
+raw Jacobi 係数は、(y, z, w) に対する gfx − f gx である。f, g が比例するため零となる。正準化は同
+じ射影二ベクトルを表す。
+
+ 旗は L ⊂ C5 、W ⊂ ann(L)、` ⊂ W で dim L = 1, dim W = 2, dim ` = 1 を満たすものとする。旗
+base の次元は 4 + 4 + 1 = 9 である。固定旗では第一族の線形空間は 3 + 1 + 16 = 20 次元となる。
+raw 式の ∂h 成分は零なので Euler vertical との交わりは零であり、この 20 方向は正準空間でも独立
+である。
+
+命題 2.2 (proper source). 第一族は旗 base 上の rank20 bundle の projectivization からの proper map
+を与える。第二族は、同じ parabolic に associated な P1 -bundle 上の rank19 bundle の projectivization
+から proper map を与える。その被約像を CA , CB とする。両 source の projective 次元は 28 である。
+
+証明. 旗 parabolic は連結である。第一族の 20 次元正準空間がその 16 個の GL Lie 方向で保たれる
+ことは、全 320 列の有理恒等式で確認される。連結性から群作用へ積分でき、associated bundle を
+得る。第二族では 22 次元の f, g, H 空間内で f, g の係数行列を rank1 とする。ratio µ = g/f の Lie
+character は Mzz + Mww − Mxx − Myy であり、µ∂µ を補正した全 304 列が rank19 空間を保つ。従っ
+て ratio を trivial な旗 base との積とは扱わず、associated P1 を取る。固定 ratio で 19 次元、base は
+10 次元なので projectivization は 28 次元である。両 source は ambient と proper な旗 base の積の閉
+incidence として実現され、projection は proper である。これらの finite linear identities と generic
+source 微分の非零 minor は付録の証明書へ固定する。
+
+ 共通の 19 次元 fixed-fiber subspace f ∈ hhh, xi の proper 像を N と書く。その projective 次元は
+27 であり、両成分に入る。この共通性は、明示された generic 二 source の全 150 係数 identity と両
+像の閉性から得る既存の有限入力である。本稿で使う N への membership と smoothness は、後述の
+二族の実 source と全 fiber でも直接確認する。
+
+
+2.2   共通点の全 fiber
+
+ 基準旗を L = h∂y i、W = hh, xi、marked line を hxi とする。式 (1) は、標準 raw 座標の h, x を交
+換した後で f = −h2 , g = 0, H = −hxw + x2 z + z 3 /3 から得られるので、両像に入る。
+
+                                             3
+補題 2.3 (全 fiber の長さ 2). P0 での両 proper source の fiber は、一点支持の dual number scheme
+である。
+
+証明. rank 二境界の source では、第一族は g = 0 または f = 0、第二族は二 ratio endpoint で尽
+くされる。 P0 の定 covector Casimir は x だけである。二独立 Casimir をもつ f = 0 endpoint と
+第二族の反対 endpoint は排除される。残る端点では E ∧ v ∧ P0 = 0 の定 vector 解は C∂y だけで、
+行列 rank は 4 である。従って L は scheme としても reduced な一点となる。marked covector を `
+とすると D0 (`) が ` で割れる必要がある。w 係数と w2 係数を比べた後、` = Ah + Bx + Cz なら
+D0 (`) = x(Ax + Ch) であり、唯一の marked line は x となる。次の旗生成元も D0 (k) ∈ Cx2 から
+W = hx, hi に決まる。これは一 chart 内だけの geometric uniqueness ではない。
+    残る全旗 chart を
+                        ` = x + αh + βz + γw,             k = h + δz + w
+
+とする。有限座標変換で全 150 係数の fixed-fiber membership を課すと、全 ideal は
+
+                   CA : (β, γ, δ + 2α, , α2 ),       CB : (β, γ, δ − α/2, , α2 )
+
+となる。全 ideal の有理 GB と両包含が保存されている。ratio も実 source 条件のまま endpoint へ制
+限しており、非線形条件を落としていない。固定旗の fiber 係数は一意だから、これが全 proper fiber
+である。
+
+
+
+3     実 target 底と quadratic image algebra
+    properness と補題 2.3 により、P0 近傍で全 source は finite となる。source は正則 29 次元である。
+全 GL orbit から十九方向を選び、残る十 source を (p, k1 , . . . , k9 ) とする。p の target 一次微分は零、
+旗の微分は非零である。ここで source 微分と actual image の Zariski tangent を同一視しない。
+
+補題 3.1 (実共通 29 底). 実 target の 28 座標と一つの追加座標から正則 29 次元底 R を取れ、各全
+source は R 上 free rank2 となる。trace-free generator を t とすれば
+
+                          B = R ⊕ Rt,       t2 = ν,        ν ∈ mR \ m2R .
+
+証明. 同じ 28 raw 座標の source Jacobian minor は −2304/25、 −1536/25 である。これを固定し
+て 28source を implicit に消去する。残る p2 係数は、全 quadratic columnW と JacobianJ に対し
+て W 0 = W − J(Jsel )−1 Wsel で補正される。追加 raw 座標 61 の係数は順に −4, 3/8 で非零である。
+従って closed fiber は正確に C[[p]]/(p2 ) となる。29 個の実 target 関数は source の parameter ideal
+をなし、complete Nakayama で finite となる。正則 source の CM 性と正則底上の AB により free
+で、rank は closed fiber 長 2 である。trace を半分引いた t を取れば二次式を得る。追加座標の非零
+quadratic 係数は ν の regular parameter 性も与える。fiber 長 2 だけから flatness を仮定したのでは
+ない。
+
+    全 actual target 関数を B の basis(1, t) で書き、even 部分を引くと bj t となる。I = (bj ) ⊂ R と
+する。
+
+補題 3.2 (actual image と conductor). 全 actual completed image は A = R ⊕ It である。I 6= 0 な
+ら B は A の正規化であり、その conductor は IB = I ⊕ It、商は C = R/I である。
+
+                                                  4
+証明. odd generator の積は νbi bj ∈ R なので、生成された全 algebra はこの直和で閉じる。 finite
+R-module 内の image は complete であり、冗長な全 target も保持する。0 6= c ∈ I なら t = (ct)/c ∈
+Frac(A) となる。従って finite な normal B は同じ分数体をもち、正規化である。 a + bt ∈ B が
+conductor に入る条件は、自身とその t 倍が A に入ること、すなわち a, b ∈ I である。
+
+    一般に C の幾何は source critical scheme とは異なる。quadratic 表示の source critical quotient は
+
+                                         B/(t, I) ≃ R/(I, ν)                              (10)
+
+である。ν が C 上 regular であるとは仮定しない。
+
+
+
+4     全 critical 式と actual jet から conductor へ
+    ここでは有限計算の入力を、計算した量とそこからの環論的推論に分ける。各恒等式は元の全 150
+係数から作り、独立な physical coefficient 検査で再確認されている。
+
+命題 4.1 (有限証明書の入力). 以下が成り立つ。
+
+     1. 全 source critical 完成環は
+
+                              C[[g1 , . . . , g19 , W, U, V ]]/(W U, W V, U V, U 3 ).
+
+       これは全 Schur polynomial ideal の等号であり、初期式だけの主張ではない。
+     2. actual odd I の linear rank は 7 である。その七 regular function を f1 , . . . , f7 とする。全 kernel
+       tangent は十九 orbit 方向と W, U, V の三方向で張られる。zero-linear odd function の三方向
+       への二次 restriction は正確に W U, W V を張る。
+     3. 七 linear class と二 quadratic class を引いた actual functionh63 ∈ I があり、 exact monic
+       U -section 上で全 fj は O(U 3 )、
+
+                        h63 = cA U 3 + O(U 4 ),      cA = 12/125,          cB = −4/243
+
+       となる。branch derivative は三次まで零であり、この値は actual odd 値である。
+     4. 七 actual function を消去した後の ν の二次項は、CA で U V /75、CB で 16U V /9 である。
+
+    検査には CB の ratio と f の積を先に微分し、全 mixed 項を残す。actual quadratic restriction の
+二行係数は                                                                            
+                            4/25 −4/25                              7/45 −1/5
+                      CA =               ,              CB =
+                            9/25 1/25                               −1/15 −1/5
+
+であり、determinant は 8/125, −2/45 である。source critical の七 monic 消去を、七 actual odd 制
+約の消去の代わりには使わない。
+
+補題 4.2 (actual 消去後の genuine cubic). f1 , . . . , f7 を本当に消去した最小表示 C = S/L、 S ≃
+C[[22]] で、全 quadratic initial は W U, W V を張る。さらに U 3 係数が cA または cB で非零の genuine
+cubic initial が存在する。
+
+証明. C は intrinsic conductor 商なので G 不変である。十九 orbit derivation を S へ lift すると L
+を保ち、constant tangent は ∂gi となる。L ⊂ m2S なので、q ∈ L の二次項は ∂gi q2 = 0 を満たす。
+
+
+                                                    5
+従って三方向への restriction が全 quadratic initial を決定する。h63 の二次 restriction は零だから、
+消去後の全 22 変数で order は 3 以上である。
+    命題の monic U -curve で fj = O(U 3 ) なので、七 actual 制約を零へ直す IFT 補正も O(U 3 ) から
+始まる。dh63 (0) = 0 により、この補正は h63 の三次値を変えない。しかも全 order が 3 以上なので、
+curve の二次 acceleration や orbit gauge も U 3 係数を変えない。これで J/mJ の class だけでなく、
+actual 最小表示の三次式を得る。
+
+    三次式の g 依存部分は、∂gi h3 ∈ (W U, W V ) と g に関する Euler 公式で除ける。真の critical W 、
+V 曲線が C に入り、その接線が各軸なので、W 3 , V 3 係数も零である。従って initial ideal は
+
+                       I0 = (W U, W V, U (aU 2 + bU V + cV 2 )),   a 6= 0               (11)
+
+を含む。ここでは b, c をまだ零と置かない。
+
+補題 4.3. dim C = 20、e(C) ≤ 4 である。
+
+証明. (11) は Hilbert–Burch 行列
+
+                                          aU 2 + bU V + cV 2
+                                                            
+                                   V
+                                  −U             0          
+                                    0            −W
+
+の maximal minors で、height2 である。curve 商は CM、Hilbert series は (1 + T )2 /(1 − T ) で重複
+度 4 となる。十九変数を戻した環から gr C への全射があり、次元は 20 以下である。一方、実 G19 と
+critical W -curve の actual tangent は rank20 である。その formal immersion の像は conductor 内
+に入るため、次元は 20 以上である。同じ次元になった後で multiplicity の上界 4 を適用できる。
+
+
+
+5     実 self-pair と multiplicity の等号
+5.1    二つの異なる実族
+
+
+
+       Pa = ∂y ∧ Va ,
+       Va = (x2 + 12ahx/5)∂h − 3ax2 ∂x /5 + (hx + 2axz/5)∂z + (h2 + z 2 − 8axw/5)∂w ,   (12)
+       Qb = ∂y ∧ Wb ,
+      5Wb = (5x2 + 8bhx)∂h − 2bx2 ∂x + (5hx + 3bxz)∂z + (5h2 + 5z 2 − 7bxw)∂w .         (13)
+
+両者は全 parameter で strict Jacobi と divergence を満たす実多項式族で、原点で P0 に戻る。全非零
+parameter で射影階数は 2 である。
+
+命題 5.1 (全非零 parameter での旗数). Pa では全 CA 旗が 2、CB 旗が 1、N 旗が 1 である。Qb で
+は全 CB 旗が 2、CA 旗が 1、N 旗が 1 である。各複数 source は smooth29 immersion、各一旗像は
+smooth である。
+
+証明. 全 proper 階数二端点を考える。定 covector contraction 行列は全非零 parameter で rank5、
+constant factor 行列は rank4 である。従って余分な Casimir をもつ反対 endpoint はなく、L = h∂y i
+
+
+                                                6
+に固定される。全 Darboux 一次式は、Pa では
+
+                                 x,      x + ah − 2a2 z,       x + 3ah,
+
+Qb では
+                            x,    K = x + bh − b2 z,          H = x + 2bh
+
+で尽くされる。w 係数と二次 cofactor を全係数比較し、残る三変数の eigenbasis を解くことで得られ
+る。標準 source の necessary identities は、trace-free 四変数場 D について
+
+                                       fk `                       fk k
+                          D(`) =            ,   D(k) = −f +               (CA ),
+                                        5                          5
+                                      2fk `                       2fk k
+                         D(`) =             ,   D(k) = −f +                 (CB )
+                                       5                            5
+である。三候補に代入した全 9 行の kernel で W も決まる。Pa の CA 旗は marked linex と x + ah −
+2a2 z 、Qb の CB 旗は x と H である。単独旗は Pa の CB では x + 3ah、Qb の CA では x である。こ
+れは候補の必要条件だけではなく、全 150 係数の実 source identity で実現されている。各 source 微
+分 minor は parameter の非零単項式なので、全非零 parameter で fiber は reduced である。N は 19
+係数 subbundle であり、欠けた係数により一旗だけが残る。properness と一旗・接空間零から一旗像
+の smoothness を得る。
+
+ 例えば Pa の二旗は
+
+                     (`, W ) = (x, hh, xi),      (x + ah − 2a2 z, hx, h − 2azi)
+
+である。Qb の CB 旗は (x, hx, Ki)、(H, hh, xi) となる。後者の二 source への有限変換は
+
+                      (h0 , x0 , z 0 ) = (x, K, h),       (h0 , x0 , z 0 ) = (H, x, z)
+
+で、determinant は −b2 , 2b である。全 Hamiltonian 係数も保持した恒等式が保存されている。
+
+
+5.2   self 成分の generic 長
+
+ 両 self-pair の同一点での全 source 接空間の和は 37 次元、交わりは 21 次元である。GL と parameter
+による像は cone20 次元である。これらは Q(a) または Q(b) 上の全行列 minor であり、一つの
+parameter 標本からの外挿ではない。例えば二 source の flag block 後の minor は
+
+      CA : −11943936a9 /15625, 864a14 /15625,               CB : 432b5 /15625, 786432b10 /15625
+
+である。同一 target での cross minor は 4076863488a25 /3125、82944b25 /15625 となる。
+
+補題 5.2 (meeting と conductor). 全 finite normalization fiber が二被約点で、各 source が smooth
+immersion なら、
+                                 b = T /(I1 ∩ I2 ),
+                                 A                           Bi = T /Ii
+
+であり、conductor 商は Dmpair = T /(I1 + I2 ) である。
+
+証明. 全 fiber を使用しているので第三の branch はない。A
+                                    b = B1 ×D
+                                             mpair
+                                                   B2 であり、正規化内の
+conductor は ker(B1 → Dmpair ) ⊕ ker(B2 → Dmpair ) である。従ってその商は Dmpair となる。異
+なる quadratic 底の座標を無条件に同一視する必要はない。
+
+                                                      7
+    self 族の飽和閉包を Z とする。dim Z = 20 = dim C なので support component である。meeting
+の edim = 21 は C の値である。もし Z 上で generic 長が 1 なら、他成分と nil の支持を除いた regular
+open で edim = 20 となる。constructible で稠密な実群飽和像はその open に会うから矛盾する。従っ
+て self component の generic 長は 2 以上である。二旗であることだけから非被約性を推論していない。
+    critical W, V は generic 長 1 の smooth20 成分である。self-pair の二点は同じ R 値と異なる t 値を
+もち、ν = (t1 − t2 )2 /4 6= 0 である。従って ν = 0 の二 critical 成分とは異なる。全ての閉包は P0 を
+通るので、multiplicity の associativity から
+
+                                      e(C) ≥ 1 + 1 + 2 = 4.
+
+上界と一致して e(C) = 4 となる。
+
+命題 5.3 (全 initial と三次係数). actual conductor は CM20、type2 であり、minimal support prime
+は正確に三つ、generic 長は (1, 1, 2) である。その全 initial ideal の binary cubic は
+
+                            12                                  4
+                     CA :       U (U − V /3)2 ,       CB : −       U (U − 9V )2 .
+                            125                                243
+証明. CM・unmixed な Sgr /I0 から gr C への kernel が非零なら、それは正の 20 次元 multiplicity を
+持つ。両商の multiplicity4 の等号に反するから kernel は零である。従って全 initial は (11) に等し
+く、CM 性と三 generator の Hilbert–Burch resolution から type2 を得る。associativity の等号は三
+成分の長を (1, 1, 2) に固定し、追加 minimal component も embedded prime も排除する。
+    実 physical arc を直接微分し、全 29 tangent 式を解くと、self 方向の (W, U, V ) は
+
+                        CA : (0, −5/2, −15/2),        CB : (0, −9/4, −1/4)
+
+である。十九 orbit 方向と合わせ原点でも rank20 なので、self support は smooth である。三つの異
+なる tangent line に対し、prime filtration と Rees specialization は cycle を [W ] + [V ] + 2[self] へ
+移す。従って plane cubic の因子は単純な U と二重の self line である。U 3 係数を補題 4.2 で固定す
+ると表示式を得る。総 multiplicity だけで二重因子を割り当てたものではない。
+
+    七 actual regular function を 戻 す と µ(I) = 7 + 3 = 10 で あ る。 actual odd 係 数 の 行
+18, 19, 28, 29, 60, 67, 72, 46, 95, 63 が全 I を生成する。この時点で initial は全て分かるが、まだ全形
+式型を初期形と同一視してはいない。
+
+
+
+6     三枝 conductor と quadratic pair の rigidity
+    補題 7.1 で正当化する十九 smooth 方向を除く。w = W, s = U, r = U − λV とし、λ = 1/3 または
+9 と取れば、全 initial は (wr, ws, sr2 ) となる。
+
+補題 6.1 (curve rigidity). CM curve C0 が三つの smooth reduced branch を持ち、接線が独立、
+generic 長が (1, 1, 2)、全 initial が (wr, ws, sr2 ) なら
+
+                                 C0 ≃ C[[w, r, s]]/(wr, ws, sr2 ).
+
+証明. 三枝の parametrization の和を使う identity-linear な formal automorphism で、reduced 三枝
+を座標軸に直す。nilradical を N とする。generic 長 2 だから N 2 は有限長支持だが、CM curve は有
+
+
+                                                  8
+限長 submodule を持たないので N 2 = 0 である。self branch の prime も同じ理由で N を annihilate
+する。従って N は C[[s]] 上 torsion-free rank1 で、free である。
+    reduced quotient が三軸なので N = (wr, ws, rs) ⊂ m2 である。 initial によって rs ∈
+                                                                       / m3 だか
+ら、rs ∈ sN ではない。従って  = rs は N の generator となる。wN = rN = 0、また s は N 上
+injective である。swr = w = 0 より wr = 0 となる。ws = β(s) と書けば、initial の ws = 0 から
+β(0) = 0 である。w0 = w − β(s)r とすると w0 s = 0、さらに β = sγ と r = 0 から w0 r = 0 である。
+これで monomial 環からの全射を得る。identity-linear 変換で全 initial は変わらないので、complete
+filtered division により同型となる。
+
+補題 6.2 (trace quadratic との pair). C0 の元 q が二つの simple 枝で零、q ∈ m2 、q2 = c s(s − r)、
+c 6= 0 を満たすなら、C0 の formal automorphism で q = s(s − r) にできる。
+
+証明. monomial 基底から q = s2 α(s) + rsβ(s) と一意に書ける。 α(0) = c、 β(0) = −c は unit で
+ある。                                     p                          p
+                                 S=s     α(s),          R = −rβ(s)/ α(s)
+
+は三つの monomial 関係を保つ formal automorphism で、q = S(S − R) となる。
+
+    actual q = ν mod I は critical W, V で零である。命題 4.1 と線形変換から q2 の c は CA で 1/25、
+CB で 16/81 となる。従って補題は actual pair に適用でき、source conductor cover は
+
+                                             E = C[t]/(t2 − s(s − r))                              (14)
+
+となる。
+
+
+
+7     群因子、Cohen lift、全形式像
+補題 7.1 (canonical 有限被覆の群分離). actual component、normalization、conductor、conductor
+cover を同時に十九 formal 群因子とその補 slice へ分離できる。
+
+証明. 126 次元の正準 ambient で stabilizer に横断する十九 formal 群方向と 107 次元補 slice を取る。
+action map の微分は同型なので、formal IFT を適用できる。不変 ideal の pullback は group 変数に
+依存しない。normalization は canonical なので群作用が lift し、有限 cover について (g, e) 7→ ge と
+(g, e) 7→ g −1 e が互いに逆となる。十九 parameter section が subgroup である必要はない。trace-zero
+line も保たれ、その generator の変更は unit 倍だけである。従って (14) の分類を、actual cover 全体
+へ戻せる。
+
+定理 1.1 の証明. actual regular normalizer は 29 次元、E の embedding dimension は 19 + 4 = 23
+である。E の generator g19 , w, r, s, t を B へ lift し、kernel の六独立 linear element z6 を補う。これ
+らは B の regular parameter で、minimal Cohen presentation から
+
+           B = C[[g19 , z6 , w, r, s, t]],       ker(B → E) = (z6 , t2 − s(s − r), wr, ws, sr2 )
+
+となる。conductor の intrinsic pullback square は常に A = B ×E C である。実際、b ∈ B の E 像が
+C に入れば、ある a ∈ A との差は conductor に入り、その差も A に入る。
+
+
+
+                                                        9
+    g, w, r, s, z の lift と t2 はこの pullback により A に入る。ν = t2 として新しい R を (2) で定めれ
+ば、B = R ⊕ Rt となる。C はその even quotient であるから、pullback は正確に (4) となる。この
+R は新しく構成した底であり、元の CA と CB の共通 target 底を同時に保存すると仮定しない。
+    C は CM20 なので depth I = 21、 A = R ⊕ It から depth A = 21 である。 µ(I) = 10 より
+edim A = 29 + 10 = 39 となる。odd products は m3R に入るので m2A = mR mA であり、rank2 か
+ら重複度 2 を得る。scalar 方向は十九 orbit 因子に含まれるので、projective 版は一 smooth 因子を
+除く。
+
+
+
+7.1     全 kernel を与える 99 関係
+
+    b = (z1 , . . . , z6 , F, wr, ws, sr2 )、Yi = bi t とする。七 regular generator を a0 , . . . , a6 と書くと、第
+一 syzygy は
+
+                  aj Yi − ai Yj                                (0 ≤ i < j ≤ 6),
+                  bj Yi − ai Yj                                (0 ≤ i ≤ 6, 7 ≤ j ≤ 9),
+                  sY7 − rY8 ,     rsY7 − wY9 .
+
+個数は 21 + 21 + 2 = 44 である。さらに
+
+                                   Yi Yj − νbi bj    (0 ≤ i ≤ j ≤ 9)
+
+を 55 個加える。七 regular sequence の Koszul resolution と core Hilbert–Burch resolution の tensor
+product が全 syzygy を与える。products で任意の式は R +                         RYi に還元され、(1, t) の独立性から
+                                                               P
+
+残る kernel はこの 44 syzygy だけである。従って 99 関係は全 kernel である。99 が最小個数である
+ことを幾何的定理の仮定にはしない。
+
+
+
+8     seminormalization と formal bad loci
+定理 1.2 の証明. I + (w, r) = J なので A[wt, rt] = R ⊕ Jt である。両 element の square は R に入
+り、cube は
+                     νw3 = F w3 + (ws)w2 (s − r),        νr3 = F r3 + (sr2 )r(s − r)
+
+により It に入る。従って拡大は elementary subintegral である。
+    b = x + yt ∈ B の square と cube が R ⊕ Jt に入るなら 2xy ∈ J 、y(3x2 + νy 2 ) ∈ J である。domain
+R/J = C[[g19 , s]] では ν = s2 である。ȳ 6= 0 なら第一式から x̄ = 0、第二式から s2 ȳ 3 = 0 となり矛盾
+する。従って y ∈ J である。total fraction field で square が入る element は integral なので B に入
+り、この検査は seminormality criterion 全体を覆う。よって候補は seminormal で、有限 subintegral
+でもあるから正確な seminormalization である。t は入らないので B より小さい。conductor を計算
+すると被約 node を得る。
+
+    J は正則九生成列なので、Asn の全 kernel は 36 Koszul 関係と 45 products、計 81 関係である。
+cone 数値は 29, 38, 21, 2、projective 数値は 28, 37, 20, 2 となる。
+    以下の bad loci の等号は被約閉支持について述べる。ここで W は C の w 軸、V は r 軸、S は s 軸
+であり、それぞれ (r, s) = 0、(w, s) = 0、(w, r) = 0 を意味する。
+
+
+                                                    10
+命題 8.1. original A では
+
+                 Sing = Nonnormal = NonCM = Nonseminormal = W ∪ V ∪ S,
+
+Asn では前三者は S 、Nonseminormal locus は空である。各枝は smooth20 で、共通 intersection は
+smooth19 の g 方向である。
+
+証明. conductor 外では A = B が regular である。p ⊃ I での fiber A ⊗R κ(p) は体と square-zero
+odd 部分なので、その上の A の prime は一つである。局所化を Rp ⊕ Ip t として使える。CM なら正
+則 Rp 上 maximal CM、AB により free となり、rank1 の直和因子 Ip は principal となる。しかし
+height は 9 なので矛盾する。J にも同じ議論が使える。
+    また Asn /A = (w, r)C t で、monomial 計算により
+
+             AnnC (w) = (r, s),    AnnC (r) = (w, rs),         AnnC (w, r) = (rs) = Nil(C).
+
+従ってこの subintegral 補正は全 conductor 支持で残り、original はそこで seminormal でない。
+
+    正規化 fiber は conductor 上で κ[t]/(t2 − ν̄) である。
+
+                 stratum               B→A                             B → Asn
+
+                 W \ G, V \ G          dual numbers、長 2                同型
+                 S\G                   二つの被約点                          二つの被約点
+                 G                     dual numbers、長 2                dual numbers、長 2
+                 各 conductor の外        同型                              同型
+
+ここで G は共通十九方向である。幾何学的一般点の横断完成環の (dim, edim, depth) は
+
+                            stratum     original          seminormalization
+
+                            W, V        (9, 18, 1)        (9, 9, 9)
+                            S           (9, 18, 1)        (9, 18, 1)
+                            G           (10, 20, 2)       (10, 19, 2)
+
+S では original の二 sheet を glue する交叉商は κ[ρ]/ρ2 であり、 seminormalization では被約点で
+glue される。これらの横断数値から projective 化のためにさらに 1 を引くことはしない。
+
+
+9     actual 交叉に必要な相対入力
+    個別完成型は相対 embedding を決めないため、ここからは実 physical source 間の計算を別に使う。
+全非零旗数は命題 5.1 のとおりだが、以下の強い相対型は有限個の minor を反転した非空 open に制
+限する。底を P = C[[p1 , . . . , p20 ]] とする。
+
+命題 9.1 (相対計算の全入力). 次の有限恒等式が成立する。
+
+     1. Pa 側で CA の二 smooth29 枝の meeting は P [ρ]/ρ2 である。CB は smooth29、第一 CA 枝と
+       の交叉は smooth28 の N 、第二枝との交叉は smooth20 の SP である。全 QQ(a) の真二次差か
+       ら TCB ⊂ TCA が成立する。
+
+                                                     11
+     2. Qb 側で CA は smooth29、CB の第二枝との交叉は smooth28 の N である。第一枝との全相対
+       交叉は Z4 = P [f, ρ]/(f 2 , ρ2 ) で、CB meeting への実 quotient は f を殺す。この quotient 方向
+       は実 multiplier pairing で isotropic である。
+     3. Qb の三 source に同じ実 29 target 座標を用いると、その Jacobian determinant は
+
+                            −1728b8 (b2 − 5)/125,           −442368b9 /25,          8064b/25
+
+       であり非空 open で全て unit となる。全 121 residual odd 座標の regular-sequence division に
+       関する第三次 identity が、Q(b) 上で全行成立する。
+
+ この命題は、単一の有限体標本や二次接空間だけの結果ではない。相対 CI4 では七 regular 式を非
+線形のまま解き、二 quadric の degree3 span の unit と Nakayama を使って全 ideal を得る。chosen
+quotient の isotropic 性も実 source 行列で確認する。最後の third-order identity は、元の三 source
+の全 150 物理係数と同じ target 底を使う。8linear generator の cofactor には degree2 を要するため
+source は三次まで保持し、quadratic generator の未計算 degree2 cofactor が寄与しないことはその
+actual multiplier の constant が零であることから確認する。全 higher normal 冪は既に CI4 ideal に
+入る。付録の source、inverse、全 cofactor と defect archive は、この有限命題を再現する完全入力で
+ある。
+ 相対 CI4 の正規形は、 free rank4 代数の radical filtration (1, 2, 1) からも説明できる。 chosen
+isotropic tangent を f と取り、補方向 ρ へ f の倍数を加えて ρ2 = 0 とすれば、f ρ が socle を張る
+ため P [f, ρ]/(f 2 , ρ2 ) となる。この abstract 正規化を実際の quotient 方向に結び付ける点が、命題の
+isotropic gate である。
+
+
+10     Pa 側の全交叉 ideal
+ 二 CA 枝を B1 = P [[ρ, u1 , . . . , u8 ]]、B2 = P [[ρ, v1 , . . . , v8 ]] とする。meeting への kernel は (u8 , ρ2 )、
+(v8 , ρ2 ) である。N の第一枝内方程式は meeting で unit 倍の ρ となるので、N = (ρ) と meeting を
+同時に正規化できる。
+
+                  T0 = P [[ρ, u8 , v8 , τ ]],   B1 : T0 /(v8 , τ ),    B2 : T0 /(u8 , τ − ρ2 )
+
+と取る。全 fiber-product kernel は
+
+                                 ui vj ,   ui τ,   vj (τ − ρ2 ),      τ (τ − ρ2 )                   (15)
+
+という 64 + 8 + 8 + 1 = 81 関係である。
+
+補題 10.1. (15) は全 kernel である。
+
+証明. これらの関係で任意の式を、第一枝だけの u 項、第二枝だけの v 項、共通 ρ 項と τ の一次項へ
+還元できる。両枝で零になるなら τ 部分も ρ2 との関係で消え、残りは零である。従って pullback 零
+の検査に留まらない全 presentation である。
+
+ CB の regular 環を B = P [[u8 , f ]] とし、 N = (f )、 SP = (f, u8 ) と取る。 CB 上では ρ = f d、
+vi = f bi 、τ = f c と書け、c は unit である。これは τ が二 CA tangent の和 37 を殺す一方、CB は
+
+
+
+                                                       12
+それを越える方向を持つという実 rank38 検査から従う。従って ui τ と τ (τ − ρ2 ) はそれぞれ f ui と
+f 2 の unit 倍であり、actual idealQ は
+                                                 f (f, u8 ) ⊂ Q
+
+を満たす。
+  逆に N ⊂ D より Q ⊂ (f ) である。 F = f k ∈ Q に対し、全 SP 上で TD = TCB なので
+dF |SP = k|SP df = 0 となる。df 6= 0 だから k ∈ (f, u8 ) である。この上包含は、81 以外の全 ambient
+equation にも適用される。従って Q = f (f, u8 ) となり、(6) が証明される。
+  nilradical は P f で square-zero であり、
+
+                                         (f 2 , f u8 ) = (f ) ∩ (f 2 , u8 )
+
+は irredundant primary decomposition である。 embedded primary quotient は generic 長 2、 nil
+module の長は 1 であり、両者を区別する。core の soclef から depth0、二十 smooth 因子を戻して
+depth20 となる。Hilbert series は 1/(1 − T )28 + T /(1 − T )20 で、重複度は 1 である。
+
+
+11      Qb 側：全 ambient の最後の socle を保つ
+  こ こ で は CB が 二 枝 で あ り、 前 節 を label 交 換 し て は い け な い。 CA の regular 環 を B =
+P [[z1 , . . . , z7 , f, ρ]] とし、
+                                   N = (f ),       JZ = (z1 , . . . , z7 , f 2 , ρ2 )
+
+と取る。Z4 は B/JZ である。二 CB 枝の meeting は P [ρ]/ρ2 であり、(15) を使える。第二枝に N が
+入る規約で、一つの ui |CA は f の unit 倍となる。全 ui と τ − ρ2 は f の倍数なので、81 core relation
+の像は f K 、K = (v8 |CA , τ |CA ) となる。
+  追加 common ambient equations は全 38 tangent を殺す。その二 normal quadratic block も全
+QQ(b) で零である。従って JZ の七 linear pivot と二 regular quadric は core K から得られる。degree3
+span の unit と Nakayama により K = JZ であり、f JZ ⊂ Q を得る。fiber-product exactness を非
+flat base change へそのまま移した議論ではない。
+  一方 Dred = N 、Z4 ⊂ D だから
+
+                                           f JZ ⊂ Q ⊂ (f ) ∩ JZ .                        (16)
+
+両端の差は P -free rank2 で、class は f 2 , f 2 ρ である。全 stratum 上の actual quadratic-zero gate は
+f 2 class を除く。残る一つの socle class が全 ambient equation から消えることを、次の全 syzygy 表
+示で確認する。
+
+補題 11.1 (split 二 sheet の exact colon recipe). 同じ actual 底 R で二 sheet を t = ±1 とし、CB 像
+を R ⊕ It、全 odd 座標を bj t とする。CA section との差が f cj で、可逆 row 操作後 c = e0 とする。
+JB = (bj : j > 0) なら actual 交叉 ideal は
+                                                                     
+                                      Q = f JB , f − 2b0 , (JB : b0 ) .
+
+証明. 全 presentation は全 b-syzygy と products Yi Yj − bi bj からなる。products を CA へ制限する
+と f JB と f (f − 2b0 ) を得る。syzygy a0 b0 +               j>0 aj bj = 0 の制限は f a0 であり、可能な a0 全体は
+                                                    P
+
+正確に (JB : b0 ) である。冗長な ambient generator を落とさなければ、これが全 ideal である。
+
+                                                        13
+ 命題 9.1 の同じ 29 target 底を使い、全 121 residual odd vector を保持する。CB の conductor は
+8linear と 1quadratic からなる regular sequence である。全 bj をその九元へ分解し、対応する全 CA
+defect を計算する。全 150 の constant・linear defect は零、全 quadratic defect は JZ の二 quadric
+へ入る。quadratic generator の multiplier constant が零なので、未計算の次次数がこの検査を変え
+ない。従って残りの f 2 ρ 係数は、全行について Q(b) 上恒等的に零である。
+ GL と b の像は実 smooth20 stratum を dominant に覆う。残余は domain P 上 free rank1 module
+P f 2 ρ の submodule なので、generic に零なら全て零である。これで (16) の下包含は等号となり、(7)
+を得る。higher normal 冪は既に JZ に入り、blind な第四次以上の jet 検査は必要ない。
+
+
+11.1   primary 構造と nil module
+
+
+                            (f z7 , f 3 , f ρ2 ) = (f ) ∩ (z7 , f 3 , ρ2 )
+
+は irredundant primary decomposition である。第二項は (z7 , f, ρ)-primary で、 generic primary
+quotient 長は 3 · 2 = 6 となる。一方 nilradical は
+
+                             (f ) ≃ B/JZ ≃ P [f, ρ]/(f 2 , ρ2 )
+
+であり、P -basis は f, f 2 , f ρ, f 2 ρ の四つである。nilradical の二乗は rank2、三乗は零である。この長
+4 を primary quotient 長 6 と混同しない。socle f 2 ρ は非零で全九 normal 変数に殺されるから core
+depth は 0 であり、全 depth は 20 となる。Hilbert series は
+
+                                    1        T + 2T 2 + T 3
+                                           +
+                                (1 − T )28     (1 − T )20
+
+で、dimension28・edim29・multiplicity1 を与える。重複度 1 であっても reduced でも CM でもない
+例である。
+
+
+
+12     二つの global embedded 閉包と適用限界
+ SP , SQ は実 GL ×A1 像の既約閉包の非空 open である。上の embedded prime は、そこでの
+smooth20 algebraic stratum の ideal の completion である。忠実 flat な completion の associated-
+prime contraction と localization により、その閉包は global actual D の embedded associated
+component となる。
+ もし二閉包が同じなら、二つの constructible dense image はその共通の非空 open で交わる。しか
+し全 proper source の旗数は SP で (2, 1)、SQ で (1, 2) であり矛盾する。従って二つの projective19
+次元 embedded 閉包は異なる。これで定理 1.3 の global な主張が従う。
+ これらは intersection の associated component であり、全 Poisson スキームの新しい既約成分で
+はない。研究カタログの既約成分数の下界 58 は変わらない。本稿から全 embedded prime のリスト、
+P0 での相対 CA /CB 配置、二 stratum の全境界での交叉、global 分類の上界は得られない。また全形
+式同型と、収束する holomorphic coordinate change は区別する。
+
+
+
+
+                                                 14
+付録 A        有限証明書、再現範囲と検証
+ 本稿は recursive な旧 TeX を読み込まず、保存された有限証拠 [2] を直接用いる。本文の環論的証
+明と、次の全 source 恒等式を有限入力として用いる。表では日付 suffix を τ = 20261103_v63 と略
+す。各幹に対応する code/、research/notes/、reports/には、全 QQ 係数、選択 minor、全従属
+関係、独立検証の SHA–256 が保存されている。
+
+ 内容                       証明書の幹と検査範囲
+
+ global proper source     AMBIENT_CA_GLOBAL_FLAG_MODEL_τ 、
+                          AMBIENT_CB_GLOBAL_FLAG_MODEL_τ 。parabolic 全 320、352、304
+                          列、full raw Jacobi、rank witness。各_REVIEW を伴う。
+ 共通 N 像                   AMBIENT_INTERSECTION_DIMENSION27_20261103_v62、
+                          AMBIENT_GLOBAL_BOUNDARY_SQUARE_RECOGNITION_τ と独立
+                          review。全 finite tensor identity、proper19 係数 subbundle、
+                          generic 像次元。
+ 全 fiber・quadratic 底      AMBIENT_B18_QUADRATIC_IMAGE_REDUCTION_τ 。全旗 ideal、両
+                          finite core150 出力、common28 minor、全 corrected quadratic。
+ 全 critical ideal         AMBIENT_B18_CA_CRITICAL_SCHEME_τ 、CB 版、独立
+                          CA_N_CRITICAL_SCHEMES と CB の review。
+ actual 二次・三次             AMBIENT_B18_CA_CB_ODD_QUADRATIC_DEFECT_τ 、
+                          ODD_CUBIC_CLASS。全 variable source と全 150 Schur 値、actual
+                          消去の次数。
+ conductor 次元・            AMBIENT_B18_CONDUCTOR_DIMENSION20_τ 、
+ multiplicity             AMBIENT_CA_ORIGIN_CONDUCTOR_MULTIPLICITY4_τ と CB 版。実
+                          七 IFT、G19 kernel、generic 長と initial 等号。
+ binary 初期形               AMBIENT_ORIGIN_BINARY_CUBIC_RECOGNITION_τ _REVIEW。
+                          decoded physical arc の全 29 方程式と tangent cycle。
+ full rigidity・実適用        AMBIENT_THREE_AXIS_CONDUCTOR_RIGIDITY_τ 、
+                          AMBIENT_ORIGIN_FULL_FORMAL_MODEL_τ および独立 review。
+                          canonical cover、Cohen lift、全 99 関係。
+ seminormality・bad loci   AMBIENT_ORIGIN_SEMINORMALIZATION_τ 、
+                          AMBIENT_ORIGIN_FORMAL_BAD_LOCI_τ と各 review。
+ 実二族と全旗                   AMBIENT_CA_ORIGIN_POLYNOMIAL_SELF_PAIR_τ 、CB 版、各
+                          SELF_PAIR_ALL_NONZERO_FLAGS、cross-source geometry と全
+                          fiber review。
+ meeting double           AMBIENT_CA_SELF_PAIR_MEETING_DOUBLE_τ _REVIEW と対応 CB
+                          証拠。smooth 二枝と全 81 kernel。
+ Pa actual D              AMBIENT_CA_SELF_PAIR_ACTUAL_D_TWOJET_τ 、FULL_RING および
+                          各 review。全 QQ(a) 二次差、全 ideal 両包含。
+
+
+
+                                          15
+  内容                           証明書の幹と検査範囲
+
+  Qb 相対 CI4                    AMBIENT_CB1_CA_RELATIVE_CI4_τ と review。七非線形 regular 制
+                               約、二 quadrics、実 isotropic quotient。
+  Qb 全 ambient 三次              AMBIENT_CB_SELF_PAIR_COMMON_BASE_ETALE_τ 、
+                               AMBIENT_CB_ACTUAL_D_CUBIC_SYZYGY_τ と review。58、87 次
+                               inverse、全 121 residual/全 150 行、全 cofactor/defect。
+  Qb 全 D・primary               AMBIENT_CB_SELF_PAIR_ACTUAL_D_FULL_RING_τ と review。
+                               monomial 両包含、nil 長 4 と primary 長 6、socle と global
+                               contraction。
+
+
+
+
+A.1     Cloud 上の独立全 kernel 確認
+  AMBIENT_ORIGIN_FORMAL99_M2_τ は、Cloud の Macaulay2 1.24.11 で全 99 関係 ideal と source
+ideal
+                                   (t2 − (F + s(s − r)), Yi − bi t)
+
+から t を消去した全 ideal の等号を確認した。backend は default Gröbner/elimination であり、旧版
+QQ の Algorithm=>LinearAlgebra は使っていない。trim 後の個数も 99 だったが、本稿は最小性
+を主定理に使わない。この検査は関係の pullback 零より強い一方、実成分への形式幾何学的適用を代
+わりに証明するものではない。実行は 60 秒・約 2.2GB の cap 内で正常終了し、実測秒数は記録され
+ていない。今回の原稿作成ではこの CAS 計算を再実行していない。
+  再現用 source は次の通りである。
+
+        source /workspace/cloud-setup/activate.sh
+        M2 --script reports/AMBIENT_ORIGIN_FORMAL99_M2_20261103_v63/verify.m2
+
+
+成功文字列は FULL99_EQUALS_ENTIRE_SOURCE_ELIMINATION_PASS である。他の producer は新し
+い--output を指定して実行し、既存証拠を上書きしない。三 source 三次 worker の明示的再実行と、保
+存済み全係数の再監査は区別される。独立三次監査が保存した raw source jets は reports/AMBIENT_
+CB_ACTUAL_D_CUBIC_SYZYGY_20261103_v63_REVIEW/independent-source-curves.json.gz
+にあり、作者の最終 defect archive だけに依存しない。
+  新しい checkout で物理三次 worker まで再実行する場合、最初に
+
+        PYTHONDONTWRITEBYTECODE=1 .venv/bin/python
+          code/restore_CB_cubic_worker_inputs_20261103_v63.py
+
+
+を使って、公開 gzip から必要な入力 cache を復元する。次に公開 cubic packet の四つの*.json.gz
+と completed-worker-manifest.json だけを、新しい work/paper-cb-cubic-replay/ へ複写す
+る。report.json は複写せず、既存 work を上書きしない。その後の明示的な再計算コマンドは
+
+        PYTHONDONTWRITEBYTECODE=1 .venv/bin/python
+          code/ambient_CB_actual_D_cubic_syzygy_20261103_v63.py
+          --output work/paper-cb-cubic-replay --recompute
+
+
+である。短い completed-certificate 監査だけなら--recompute と cache 復元は不要である。
+
+
+                                                 16
+A.2   この草稿の保存
+
+  本 文 と PDF は papers/ca_cb_local_normalization_ja.tex、 papers/ca_cb_local_
+normalization_ja.pdf として独立に保存する。ビルド log、実測ページ数、source/PDF hash、依
+存する受理済み report は reports/CA_CB_LOCAL_NORMALIZATION_PAPER_20261103_v63/ に固定
+する。既存の 118 頁、16 頁、91 頁、14 頁の原稿・PDF は変更しない。本稿は repository 内の研究草
+稿であり、外部投稿や優先性の主張を伴わない。
+
+
+
+参考文献
+[1] B. Pym, Constructions and classifications of projective Poisson varieties, Letters in Mathe-
+   matical Physics 108 (2018), 573–632; arXiv:1701.08852.
+[2] Poisson P4 研究プロジェクト, 研究ノート・全 source・独立計算証明書, v63 (2026 年 11 月 3 日),
+   https://github.com/uedakazushi/poisson-p4. 本稿で使う有限入力と独立監査は上の付録に
+   列挙した。
+
+
+
+
+                                              17
+
