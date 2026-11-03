@@ -1,0 +1,1 @@
+A=QQ[ss1,ss2,ss3,ss4,ss5,cc1,cc2];K=frac A;R=K[zz,x,y];I=ideal(zz^87-2,x*x-4/5*ss1*x,y-cc1);G=gb(I,ChangeMatrix=>true);C=(gens G)//(gens I);assert((gens I)*C==gens G);assert(numColumns basis(R/I)==174);print "ORDINARY87_FUNCTION_FIELD_TRACE_PASS";stdio << flush;exit 0;

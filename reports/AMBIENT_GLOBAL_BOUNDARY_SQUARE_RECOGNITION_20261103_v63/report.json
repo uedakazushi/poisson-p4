@@ -1,0 +1,73 @@
+{
+  "id": "AMBIENT_GLOBAL_BOUNDARY_SQUARE_RECOGNITION_20261103_v63",
+  "all_passed": true,
+  "field": "QQ(alpha,beta)",
+  "source_CA": "f=h*(alpha*h+beta*x),g=0,H arbitrary16",
+  "coordinate_change": [
+    [
+      "alpha",
+      "beta",
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "1",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "0",
+      "0",
+      "1",
+      "0",
+      "0"
+    ],
+    [
+      "0",
+      "0",
+      "0",
+      "1",
+      "0"
+    ],
+    [
+      "0",
+      "0",
+      "0",
+      "0",
+      "1"
+    ]
+  ],
+  "target_CB": "f=-beta*x^2,g=0,H transformed by inverse coordinatechange",
+  "exact_Euler_vertical_difference": "E wedge (beta*x*d_y)",
+  "all_raw25_difference_entries_identically_zero": true,
+  "all_canonical150_difference_entries_identically_zero": true,
+  "cubic_monomials": [
+    "h**2*z",
+    "h**2*w",
+    "h*x*z",
+    "h*w*x",
+    "h*z**2",
+    "h*w*z",
+    "h*w**2",
+    "x**2*z",
+    "w*x**2",
+    "x*z**2",
+    "w*x*z",
+    "w**2*x",
+    "z**3",
+    "w*z**2",
+    "w**2*z",
+    "w**3"
+  ],
+  "transformed_H": "(alpha**2*k7*x**2*z + alpha**2*k8*w*x**2 - alpha*beta*k10*w*x*z - alpha*beta*k11*w**2*x - alpha*beta*k2*x**2*z - alpha*beta*k3*w*x**2 - alpha*beta*k9*x*z**2 - 2*alpha*h*k7*x*z - 2*alpha*h*k8*w*x + beta**2*k0*x**2*z + beta**2*k1*w*x**2 + beta**2*k12*z**3 + beta**2*k13*w*z**2 + beta**2*k14*w**2*z + beta**2*k15*w**3 + beta**2*k4*x*z**2 + beta**2*k5*w*x*z + beta**2*k6*w**2*x + beta*h*k10*w*z + beta*h*k11*w**2 + beta*h*k2*x*z + beta*h*k3*w*x + beta*h*k9*z**2 + h**2*k7*z + h**2*k8*w)/beta**2",
+  "conclusion": "Global N rank<=2 boundary equals the square-binary-F images in CB endpoints: g=0 N boundary = Bb_square, and f=0 CA boundary = Ba_square. Proper closure includes coincident/zero cases. This does not exhaust all globalCA/CB rank2 intersections.",
+  "input_sha256": {
+    "code/ambient_global_boundary_square_recognition_20261103_v63.py": "e9ac430b9521d9668c0739789595ae8342aa19b194b10fac602caaae6186ae64",
+    "code/ambient_CA_global_flag_model_20261103_v63.py": "8a12a4323d75500300e73e0ddddd8732bad0114ca77f6a0d9a2236d564394417",
+    "code/ambient_CB_global_flag_model_20261103_v63.py": "eaacb70930b48b9f6949f09e8663b45ac56e1b1bd0f106b482bf35e229e42e57"
+  },
+  "seconds": 0.205233821998263
+}

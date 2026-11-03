@@ -1,0 +1,78 @@
+{
+  "id": "S61_AFFINE_NEW_PROJECTION_ATTEMPTS_20261103_v62",
+  "all_receipts_verified": true,
+  "checked_at_utc": "2026-11-03T07:45:54.252480+00:00",
+  "attempts": [
+    {
+      "id": "algebraic87-polynomial-unit",
+      "source_sha256": "67df7857c2a0786e55319972bb5d688ff44204065f4d2b52433466060480178f",
+      "output_sha256": "65ddb0a792731024c441015e48aa695612af0328753ba0e737a767cee579e82c",
+      "receipt_sha256": "9a373dd43d53ca7e3d985399de40a5e433b436fc37091db98d0b60c01fae0c5c",
+      "executable": "M2 --script",
+      "coefficient_ring": "QQ(ss1,...,ss5,cc1,cc2)[zz,q45]/(zz^87-2)",
+      "polynomial_unknowns": 46,
+      "equations": 137,
+      "exit_code": 124,
+      "timeout_seconds": 180,
+      "virtual_memory_KiB": 4194304,
+      "result": "timeout",
+      "exact_unit_or_eliminant_obtained": false
+    },
+    {
+      "id": "monic-six-exact",
+      "source_sha256": "d759ba6e2af89539431290e688b48d7a3a079b26faa2c546ef48f52ec3e09169",
+      "output_sha256": "9c59f4ef585a3eef036ed3f71cc279afd080e033dd8c9cf5aeac778d1d7880f9",
+      "receipt_sha256": "26f04e6f22dd3f64389b6bed66de454c6d1350c1ad0ac2eb05f8799a65001271",
+      "executable": "run-singular.sh --cpus=0 -q",
+      "coefficient_ring": "QQ(ss1,...,ss5,cc)[q44], q32 eliminated exactly",
+      "polynomial_unknowns": 44,
+      "equations": 134,
+      "exit_code": 14,
+      "timeout_seconds": 180,
+      "virtual_memory_KiB": 4194304,
+      "workers": 0,
+      "result": "memory_limit",
+      "exact_unit_or_eliminant_obtained": false
+    },
+    {
+      "id": "monic-polynomial-cc",
+      "source_sha256": "8364e68b770384b6c8721a75cfea1ea5cda69f1c0c4af49258e669f5813f529b",
+      "output_sha256": "6630b600659d002b689a30e330bba9bf8d94bebee5333e79eee82bdce3c519ba",
+      "receipt_sha256": "911b360c31c1c39e0865e73c28ca1740d52bbaa78132f9d12abb23eae44c0e0d",
+      "executable": "run-singular.sh --cpus=0 -q",
+      "coefficient_ring": "QQ(ss1,...,ss5)[q45,cc], block elimination q45 before cc",
+      "polynomial_unknowns": 46,
+      "equations": 135,
+      "exit_code": 124,
+      "timeout_seconds": 120,
+      "virtual_memory_KiB": 3145728,
+      "workers": 0,
+      "result": "timeout",
+      "exact_unit_or_eliminant_obtained": false
+    }
+  ],
+  "setup_repeated": false,
+  "network_required": false,
+  "full_affine_dimension_or_length_result_obtained": false,
+  "blocker": "Exact parameter-dependent elimination exceeds the bounded memory or runtime budgets; no identical computation is automatically repeated.",
+  "restart_requirements": "A new structural reduction or a justified alternative exact algorithm; otherwise additional explicit compute budget is needed for these same models.",
+  "limitation": "This report verifies unsuccessful bounded computations, not the mathematical unit conclusion.",
+  "input_sha256": {
+    "code/s61_affine_new_projection_attempts_20261103_v62.py": "8619bda370a9af7fa1e7b5fb9e7b8a1c27f82d127d568b97d86ba0f7ea253d66",
+    "reports/S61_AFFINE_FINITE_WRONSKI_CRITERION_20261103_v62/report.json": "4e420c3f385811167b7d06b84f4098d7972088c4a3b9b0ed3dec4f0244f128a1",
+    "reports/S61_AFFINE_MONIC_DIMENSION_CRITERION_20261103_v62/report.json": "de3b247fbc1c48eb4d1ac856f24bbe14c7aea42c984be76d32c6e5987963e89b",
+    "research/notes/S61_AFFINE_NEW_PROJECTION_ATTEMPTS_20261103_v62.md": "0c26ca88b22f8aa18d488269cf5685572552b9dc0b1f9a114b203a621b5ee55e"
+  },
+  "evidence_sha256": {
+    "monic-six-exact.log.gz": "db232b212ab982e29ba877b63de448dc6de315509e0eaa13cf424ff2edd94085",
+    "algebraic87-polynomial-unit.m2.gz": "fb92617253ca4d476727547eda77168a12265353167a46f8ab950960c5facb85",
+    "monic-polynomial-cc.sing.gz": "4a666291421d5fb9b1fc886d63bae8315ef15d907d17961f63aef753561f54d7",
+    "monic-polynomial-cc-exit.json.gz": "ffacc04039d9a584f35c1ce4a54fd3dea7a1054b39489250e54f850a71609912",
+    "monic-polynomial-cc.log.gz": "8db2014ce0fb065bee8df2f459c983af73184ff6c05345b199d9266e42d71967",
+    "monic-six-exact.sing.gz": "d79287818566306f7d1199c16d923ef03d8558b8952a1a248e0f8179ef3a9ab4",
+    "algebraic87-polynomial-unit-exit.json.gz": "a592f2703ce06d8c8f06be1d8ac7ddb5f87c8633327b8934c63b571f2a18b804",
+    "algebraic87-polynomial-unit.log.gz": "b24c864ce847540122aa6c362fcee4380682dfbe1827590737fc572112ef02c7",
+    "monic-six-exact-exit.json.gz": "468925c8c9984de2f5d99cf82b31e403b709d9f54587b73aca16a4283795c634"
+  },
+  "seconds": 0.7471519099999568
+}

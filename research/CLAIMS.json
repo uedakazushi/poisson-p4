@@ -11020,9 +11020,10 @@
         "reports/AMBIENT_INTERSECTION_20261103_v63_REVIEW.json"
       ],
       "limitations_ja": [
-        "全射影閉包にgeneric Poisson rank≤2だけの追加交叉成分がある可能性は未検査。",
-        "一次係数行列Kβの階数とPoissonの一般階数を混同しない。"
-      ]
+        "本S61定理単独では全rank2閉包を扱わない。後続の全大域計算により追加R19と正確な二成分を証明した。",
+        "Kβの階数とPoissonの一般階数を混同しない。"
+      ],
+      "later_global_rank_two_completion": "CA_CB_GLOBAL_REDUCED_INTERSECTION_N27_R19"
     },
     {
       "id": "Q_CA_CB_INTERSECTION_NONREDUCED",
@@ -11254,6 +11255,289 @@
         "環の直和分裂は主張しない。失敗した二つの分裂候補も保存。",
         "nilmoduleの支持11次元は個々の成分の非正規層10次元より大きい。",
         "全射影rank≤2交叉・全Poisson局所枝は別課題。"
+      ]
+    },
+    {
+      "id": "CB_GLOBAL_PROPER_FLAG_MODEL_AND_RANK_TWO_BOUNDARY",
+      "title_ja": "全射影CBのproper模型と全rank2境界の二成分",
+      "statement_ja": "9次元旗上の非自明なassociated P1束と階数19束のP18化は滑らかな28次元proper全射模型。全rank≤2境界はa0の26次元像とb0の27次元像という二つの相異なる既約成分。F0のH-only像は23次元で双方に含まれる。",
+      "scope": "Exact stated scope; projective dimensions before PGL quotient except explicitly stated S61/transverse quantities.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "R4_ADDITIONAL_ELEVEN"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_CB_GLOBAL_FLAG_MODEL_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_CB_GLOBAL_FLAG_MODEL_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_CB_GLOBAL_FLAG_MODEL_20261103_v63/report.json",
+        "reports/AMBIENT_CB_GLOBAL_FLAG_MODEL_20261103_v63_REVIEW.json"
+      ],
+      "limitations_ja": [
+        "全正規化・境界のR1・scheme厚みはこのproper像からは決まらない。"
+      ]
+    },
+    {
+      "id": "GLOBAL_N_RANK_TWO_BOUNDARY_SQUARES",
+      "title_ja": "全射影Nのproper模型と全rank2境界の平方認識",
+      "statement_ja": "CAのf∈hWなる不変19次元空間のP18束の閉像が全N。全rank≤2境界はg0の26次元像=Bb,squareとf0の25次元像=Ba,squareの正確に二成分。全ポテンシャルのEuler-vertical変換と実微分minorで認識した。",
+      "scope": "Exact stated scope; projective dimensions before PGL quotient except explicitly stated S61/transverse quantities.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "CA_GLOBAL_PROPER_FLAG_MODEL_AND_RANK_TWO_BOUNDARY",
+          "CB_GLOBAL_PROPER_FLAG_MODEL_AND_RANK_TWO_BOUNDARY",
+          "Q_INTERSECTION_DIMENSION_27"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_GLOBAL_BOUNDARY_SQUARE_RECOGNITION_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_GLOBAL_BOUNDARY_SQUARE_RECOGNITION_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_GLOBAL_BOUNDARY_SQUARE_RECOGNITION_20261103_v63/report.json",
+        "reports/AMBIENT_GLOBAL_BOUNDARY_SQUARE_RECOGNITION_20261103_v63_REVIEW.json"
+      ],
+      "limitations_ja": [
+        "Nは全Poisson空間の成分ではない。",
+        "この被約支持の認識から境界のscheme厚みを推論しない。"
+      ]
+    },
+    {
+      "id": "CA_CB_GLOBAL_REDUCED_INTERSECTION_N27_R19",
+      "title_ja": "全射影CA/CB被約交叉はN27と階数二R19の二成分",
+      "statement_ja": "全射影閉包で(CA∩CB)red=N27∪R19。33相対旗×二端点の全66線形交叉をQQで尽くし、64場合は同じCA旗のN、一場合はCB平方型のN、残りは実19次元族R。具体的なrank2点を内在的なcanonical場の条件で全Nの外と証明した。",
+      "scope": "Exact stated scope; projective dimensions before PGL quotient except explicitly stated S61/transverse quantities.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "GLOBAL_N_RANK_TWO_BOUNDARY_SQUARES",
+          "S61_CA_CB_WHOLE_REDUCED_INTERSECTION"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_GLOBAL_INTERSECTION_COMPLETION_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_GLOBAL_INTERSECTION_COMPLETION_20261103_v63_REVIEW.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_GLOBAL_INTERSECTION_GEOMETRY_REVIEW_20261103_v63.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_GLOBAL_INTERSECTION_COMPLETION_20261103_v63/report.json",
+        "reports/AMBIENT_GLOBAL_INTERSECTION_COMPLETION_20261103_v63_REVIEW.json",
+        "reports/AMBIENT_RANK2_EXCEPTION_NOT_N_20261103_v63_REVIEW.json"
+      ],
+      "limitations_ja": [
+        "R19はCA/CB交叉の新しい成分であり、全Poisson空間の新成分ではない。下界57は変わらない。",
+        "Rはrank2のみでS61に入らず、Qでの交叉成分の一意性と両立する。",
+        "全大域scheme交叉・Rでの厚み・大域primary分解は未決。"
+      ]
+    },
+    {
+      "id": "Q_ORDINARY_CUBIC_INITIAL_SEVENTEEN",
+      "title_ja": "共鳴全模型の真三次初期関係17類",
+      "statement_ja": "全350 residualのQQ通常三次までを物理Jacobiで再構築し、二次rank57のcarry消去と全1995一次倍を保持した。QQ rank1894→1911、新三次17類、HF0..3=(1,35,573,5859)。元のGから17代表を明示し、二次57+三次17の初期下位idealを構成した。偽13平面の制限はz8²(12z14+z17+6z3)という実三次因子になる。",
+      "scope": "Exact stated scope; projective dimensions before PGL quotient except explicitly stated S61/transverse quantities.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "Q_WEIGHTED_FINITE_MODEL_35",
+          "Q_ORDINARY_QUADRATIC_THIRTEEN_PLANE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/Q_ORDINARY_CUBIC_INITIAL_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/Q_ORDINARY_CUBIC_INITIAL_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/Q_ORDINARY_CUBIC_INITIAL_20261103_v63/report.json",
+        "reports/Q_ORDINARY_CUBIC_MINIMAL_GENERATORS_20261103_v63/report.json",
+        "reports/Q_ORDINARY_CUBIC_INITIAL_20261103_v63_REVIEW.json"
+      ],
+      "limitations_ja": [
+        "74式は三次までの斉次初期下位idealで、実completed idealの全74生成とは主張しない。",
+        "最大座標平面12はKrull次元や実全局所次元の上界12を意味しない。"
+      ]
+    },
+    {
+      "id": "S61_AFFINE_FINITE_WRONSKI_CRITERION",
+      "title_ja": "87共役値による七パラメータ曲面unit判定",
+      "statement_ja": "45座標Wronskianの次数は86以下なので、87個の共役値alpha^87=2における一つのexact unit判定は曲面不存在と同値。元134式を保持し、七超越パラメータの有限判定を与える。",
+      "scope": "Exact stated scope; projective dimensions before PGL quotient except explicitly stated S61/transverse quantities.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_AFFINE_SMALL_PARAMETER_CRITERIA"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_AFFINE_FINITE_WRONSKI_CRITERION_20261103_v62.md"
+        },
+        {
+          "path": "research/notes/S61_AFFINE_FINITE_WRONSKI_CRITERION_20261103_v62_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_AFFINE_FINITE_WRONSKI_CRITERION_20261103_v62/report.json",
+        "reports/S61_AFFINE_FINITE_WRONSKI_CRITERION_20261103_v62_REVIEW.json"
+      ],
+      "limitations_ja": [
+        "実全模型のunit結果は未取得。数値サンプルやツール失敗を証明にしない。"
+      ]
+    },
+    {
+      "id": "S61_AFFINE_MONIC_DIMENSION_CRITERION",
+      "title_ja": "六超越パラメータの全アフィン零次元unit判定",
+      "statement_ja": "五変数一次slice上の全134式にc^45−Σq_i c^iを加えたunit判定は、全アフィンfiber零次元と同値。monic多項式が定数根のprime因子の積を割れば全q_iが代数的となる一般論による。q32を係数−1で厳密に消去し、残44未知の二次模型を構成した。",
+      "scope": "Exact stated scope; projective dimensions before PGL quotient except explicitly stated S61/transverse quantities.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_AFFINE_SMALL_PARAMETER_CRITERIA"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_AFFINE_MONIC_DIMENSION_CRITERION_20261103_v62.md"
+        },
+        {
+          "path": "research/notes/S61_AFFINE_MONIC_DIMENSION_CRITERION_20261103_v62_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_AFFINE_MONIC_DIMENSION_CRITERION_20261103_v62/report.json",
+        "reports/S61_AFFINE_MONIC_DIMENSION_CRITERION_20261103_v62_REVIEW.json"
+      ],
+      "limitations_ja": [
+        "実全模型のunitは未取得。dim0でも全長5や全既知成分の尽くしは別である。",
+        "固定二座標のfinite性を五変数sliceへ無条件に移したり、p整Nakayamaを使ったりしていない。"
+      ]
+    },
+    {
+      "id": "Q_THROUGH3_FULL_MODEL_DIMENSION_UPPER_22",
+      "title_ja": "共鳴全35模型の無条件の局所次元上界22",
+      "statement_ja": "実QQ初期下位idealの57二次+17真三次をp整に保持し、その特殊化ideal内の13多項式に実cofactor表示を与えた。先頭単項式は互いに素でheight13。実homogeneousモデルのProjのproper性からQQ/C次元上界22へ移し、全35模型にも上界22を得た。",
+      "scope": "Actual full resonant transverse completed model upper bound, not just a finite-field sample or coordinate-plane dimension.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_original74_reconstruction_13_cofactor_and_proper_Proj_scope_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "Q_ORDINARY_CUBIC_INITIAL_SEVENTEEN"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/Q_THROUGH3_PARTIAL_DIMENSION_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/Q_THROUGH3_PARTIAL_DIMENSION_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/Q_THROUGH3_PARTIAL_DIMENSION_20261103_v63/report.json",
+        "reports/Q_THROUGH3_PARTIAL_DIMENSION_20261103_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "全局所次元が22に等しいとは主張しない。既知枝の最大次元12に対する上界12は未取得。",
+        "degree4続行は3GiBの実上限で失敗。329多項式のmembershipは別実装で再検証済み。",
+        "全初期ideal・全枝の尽くしは未決。"
+      ]
+    },
+    {
+      "id": "Q_NORMALITY_OPEN_CERTIFICATE",
+      "title_ja": "全35模型の明示的な正規退化因子の開集合",
+      "statement_ja": "固定平面x3=x4=0上で全五つの実五次偏導関数のdegree10 Macaulay140×66行列を全有限DAGから構成した。実66minor ΔのRstar曲線上の値は非零整数×ε59。Δ非零なら実退化因子は幾何正規で、監査済み分類によりこの開の被約支持はT39に入る。",
+      "scope": "Explicit sufficient normality open and reduced-support containment only, not a necessary normality criterion or full scheme equality.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_Levi_Civita_all75_coefficients_matrix_minor_and_weight_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "Q_WEIGHTED_FINITE_MODEL_35",
+          "Q_RESONANCE_INTEGRABLE_EXTRA_DIRECTION",
+          "NORMAL_CLASSIFICATION"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/Q_NORMALITY_OPEN_CERTIFICATE_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/Q_NORMALITY_OPEN_CERTIFICATE_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/Q_NORMALITY_OPEN_CERTIFICATE_20261103_v63/report.json",
+        "reports/Q_NORMALITY_OPEN_CERTIFICATE_20261103_v63_REVIEW.json"
+      ],
+      "limitations_ja": [
+        "Δ=0を全非正規因子と同一視しない。全ての他の被約枝はΔ0に入るが、その尽くしは未決。",
+        "全35模型の全枝・primary構造やscheme理想等号は主張しない。"
       ]
     }
   ],

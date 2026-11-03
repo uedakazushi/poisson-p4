@@ -53,12 +53,24 @@
     "CA_CB_N_R1_on_generic_Poisson_rank_four_open_proved": true,
     "CA_CB_N_global_rank_two_boundary_R1_proved": false,
     "CA_CB_rank_four_open_reduced_intersection_unique": true,
-    "CA_CB_whole_projective_reduced_intersection_exhaustion_proved": false,
+    "CA_CB_whole_projective_reduced_intersection_exhaustion_proved": true,
     "CA_global_reduced_rank_at_most_two_boundary_dimensions": [
       27,
       25
     ],
-    "Q_a_one_full_finite_equivariant_model": true
+    "Q_a_one_full_finite_equivariant_model": true,
+    "CA_CB_whole_projective_reduced_intersection_component_dimensions": [
+      27,
+      19
+    ],
+    "CB_global_reduced_rank_at_most_two_boundary_dimensions": [
+      26,
+      27
+    ],
+    "N_global_reduced_rank_at_most_two_boundary_dimensions": [
+      26,
+      25
+    ]
   },
   "blocks": [
     {
@@ -6089,6 +6101,15 @@
         "completion_dimension": 28,
         "completion_embedding_dimension": 37,
         "completion_depth": 20
+      },
+      "full_rank_at_most_two_boundary": {
+        "projective_component_dimensions": [
+          26,
+          27
+        ],
+        "reduced_support_exhaustion": true,
+        "claim": "CB_GLOBAL_PROPER_FLAG_MODEL_AND_RANK_TWO_BOUNDARY",
+        "boundary_normality_or_R1_proved": false
       }
     },
     {
@@ -6656,11 +6677,13 @@
         "S61_CA_CB_COMPONENT_PINCHED_COMPLETIONS",
         "Q_CA_CB_INTERSECTION_NONREDUCED",
         "Q_CA_CB_INTERSECTION_EMBEDDED_PRIME",
-        "Q_CA_CB_INTERSECTION_EXACT_LOCAL_RING"
+        "Q_CA_CB_INTERSECTION_EXACT_LOCAL_RING",
+        "GLOBAL_N_RANK_TWO_BOUNDARY_SQUARES",
+        "CA_CB_GLOBAL_REDUCED_INTERSECTION_N27_R19"
       ],
       "limitations_ja": [
-        "全S61とrank4開では唯一。全射影閉包のrank≤2だけに支えられた追加交叉は未検査。",
-        "実交叉はQ1で非被約で埋込素idealを持つ。全primary構造は後続課題。"
+        "全射影被約交叉の他の成分はrank2のR19。NはQを通る唯一の交叉成分。",
+        "Qの局所実交叉は主平方零nilradicalと二associated primesを持つ。全大域primary分解は未決。"
       ],
       "local_S61_completion_at_Q_a_one": "A7=C[[u10,s1..s7,p²,p³,s1p..s7p]]",
       "intersection_scheme_nonreduced_at_Q": true,
@@ -6673,6 +6696,25 @@
         "associated_prime_count": 2,
         "ring_splitting_claimed": false
       }
+    },
+    {
+      "id": "CA_CB_RANK_TWO_INTERSECTION_R19",
+      "name": "Global CA/CB rank-two intersection component R19",
+      "generic_rank": 2,
+      "projective_dimension": 19,
+      "is_component_of_full_Jacobi_scheme": false,
+      "is_component_of_CA_intersection_CB": true,
+      "counted_in_global_lower_bound": false,
+      "contained_in_components": [
+        "R4_CA",
+        "R4_CB"
+      ],
+      "claims": [
+        "CA_CB_GLOBAL_REDUCED_INTERSECTION_N27_R19"
+      ],
+      "in_symplectic_value_chart_S61": false,
+      "reason_ja": "全射影交叉の第二成分。既知全Poisson成分の内部の真閉部分であり、57へ加算しない。",
+      "general_orbit_classification_completed": false
     }
   ],
   "integrity_rules_ja": [

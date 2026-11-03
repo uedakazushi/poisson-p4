@@ -2,6 +2,28 @@
 
 Version: v63-s61 · 2026-11-03 (Asia/Tokyo).
 
+Latest v63 GLOBAL result: FULL PROJECTIVE reduced CA/CB intersection is
+EXACTLY N27 UNION R19, two irreducible components. R19 has only generic
+Poisson rank2 and never enters S61. All66 double-flag linear intersections
+independently audited overQQ; explicit R point excluded from ALL globalN
+boundary images. R is NOT a new fullPoissoncomponent; lower57 uppernull.
+CB global properassociatedP1/rank19 model constructed; fullCB rank2boundary
+two components26/27. FullN rank2boundary two square endpointimages26/25.
+Full global schemeintersection/R19thickness/normalization/R1 stay OPEN.
+FullR35 has explicit normality minorDelta (140x66 ambient-five-partial
+Macaulay, degree10); Delta!=0 implies actualDgeometricallynormal and
+reducedsupport T39 by audited theorem. OnRstar Delta=c*eps^59.
+Otherreducedbranches lieDelta0; no Delta0 exhaustion or schemeequality.
+Full resonantR35 has unconditionalQQ/Cdim<=22 from13coprime leading
+monomials withactualGFcofactors andproperProjspread. Notdim22equality or
+dim12upper/fullbranches; new12-linear-sectiontestis separate.
+True ordinarycubic initials atQstar:17newQQclasses, HF(1,35,573,5859),
+57Q+17G lowerinitialideal; false13plane nowcutby z8²*(12z14+z17+6z3).
+Do NOT infer fullinitial/localdim12 from coordinate-plane calculations.
+Generic affine exhaustion reduces to EXACT6-transcendental monic detector
+c^45-sum(q_i*c^i) UNIT iff fullfiber dim0. Actualunit NOT obtained;
+bounded memory/time failures remain failures, not evidence of emptiness.
+
 Latest v63 exact intersection: actual49-variable218-relation target ideal plusG7,
 nilradical=(F),Fnonzero,F²0, nilmodule=C[[u11]]F with smooth11Dprimeannihilator,
 EXACT2 associated primes (N and embedded11D), dim18depth11 inS61.
