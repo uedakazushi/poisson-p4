@@ -99,3 +99,10 @@ GitHub main への通常 commit/push を保存手段として使う。
 最初の研究 checkpoint は `043955dc8ba47e0186ba8db3de87c2c43c983758`。
 `research: remove the nonsquare a-zero stratum after Cloud resumption` を main に
 通常 push し、GitHub 側で成功を確認した。この保存後も同じタスクで研究を継続した。
+
+第二の研究 checkpoint は `46fb2456cbb1d0d2fee44657c7f5f4ad2d83b4ca`。d=0 の全層除去、平方中央支持、限定的係数模型、主原稿110ページ・評価14ページを通常 push した。
+
+同コミットの clean な一時 checkout から継続ZIP `poisson_p4_continuation_20261103_v61-s61-cloud.zip` を作成した。2155ファイル、259871673 bytes、SHA256 `f69102a2af6dfd298b0dc4f7a8ab4ea1063220f1d6c9594fedfef40a11a2d38a`。
+[保存記録](../reports/BUNDLE_V61_CLOUD_20261103.json)。ZIPは既定の ignored `bundles/` にあり、Library upload は未実行。再現コード・証明・原稿・全原資料と保存記録はGitHubにある。
+
+正式な再現計算と原稿ビルドは完了し、未完の常駐研究計算は残していない。研究を継続する常駐ジョブ・timer・GitHub Actionsは作成していない。開始時の未追跡セットアップ報告はそのまま保持し、配布ZIPには混入させなかった。次の研究は上の数学的な橋から再開する。
