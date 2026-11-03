@@ -1,0 +1,69 @@
+{
+  "exact_QQ_source_is_finite_inverse_recipe": true,
+  "complete_polynomial_Bezout_checks": [
+    {
+      "pivot": 0,
+      "complete_cubic_coefficient_check": true
+    },
+    {
+      "pivot": 5,
+      "complete_cubic_coefficient_check": true
+    },
+    {
+      "pivot": 41,
+      "complete_cubic_coefficient_check": true
+    }
+  ],
+  "uniform_exact_identity": "v_i^2*C*v=(v_i*T1-lambda1*I)*U0-(v_i*T0-lambda0*I)*U1; row_i*C^-1 gives v_i^3",
+  "chart_recipe": "v_i=1;U_k=lambda_k*v-T_k*v;V_k=Q_ki*v-Q_k(v);u0=row_i C^-1(T1-lambda1I);u1=-row_i C^-1(T0-lambda0I);B_i=u0 V0+u1 V1;s=-B_i;zeta_k=s*lambda_k+Q_ki",
+  "exact_direction_only_equations": [
+    "V_kj-B_i*U_kj=0 for3*41mixedcompatibilities",
+    "H2-B_i*H1=0 for3remainingG",
+    "f_plane_hom(zeta,s)+K1*s+K2=0 for5originalF"
+  ],
+  "polynomial_degree_bounds": {
+    "B": 4,
+    "zeta": 5,
+    "compatibilities": 6,
+    "remaining_H": 5,
+    "five_F": 10
+  },
+  "all42_standard_direction_charts_retained": true,
+  "compact_normal_direction_projection_closed_immersion": true,
+  "affine_residual_is_open_B_nonzero": true,
+  "affine_recovery": "n=-v/B_i; z=lambda-Q_i/B_i",
+  "raw_infinity_at_frozen_center": [
+    {
+      "raw_q_axis_zero_based": 8,
+      "free_u_one_based": 11,
+      "direction_pivot": 5,
+      "compact_s": 0,
+      "all134_QQ_leading_forms_zero": true
+    },
+    {
+      "raw_q_axis_zero_based": 16,
+      "free_u_one_based": 22,
+      "direction_pivot": 13,
+      "compact_s": 0,
+      "all134_QQ_leading_forms_zero": true
+    },
+    {
+      "raw_q_axis_zero_based": 24,
+      "free_u_one_based": 33,
+      "direction_pivot": 21,
+      "compact_s": 0,
+      "all134_QQ_leading_forms_zero": true
+    },
+    {
+      "raw_q_axis_zero_based": 32,
+      "free_u_one_based": 45,
+      "direction_pivot": 29,
+      "compact_s": 0,
+      "all134_QQ_leading_forms_zero": true
+    }
+  ],
+  "raw_generic_infinity_exact_dimension": 3,
+  "compact_Y_empty_impossible_on_generic_beta_open": true,
+  "modp_s_nilpotence_does_not_alone_imply_QQ_nilpotence": true,
+  "actual_unknown_affine_empty_or_genericfive_not_claimed": true
+}

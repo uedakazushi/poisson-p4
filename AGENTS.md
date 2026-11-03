@@ -2,6 +2,21 @@
 
 Version: v63-s61 · 2026-11-03 (Asia/Tokyo).
 
+Latest P: NEW25 firstjet hypersurfaceequationDEGREE>=18, fullInv16dim20
+restrictioninjective by20actualQQjets/exact20minor, independentall1200values.
+Inv17zero; degree18/equationOPEN. NonsquareALLadFBCJ productrank>=37,
+irreducibleq+Gr3,6/Fanofibers(6,6,4,4,3,3)+shadow20+kernel17.
+GenericunitrowexistsNONCONSTRUCTIVELYafter33; executed33pivotsunchanged.
+CompactDIVIDEDY(F5h,A^h v,n∧v) CLOSEDIMMERSION intoP41; whole42charts
+vi³Bezout solves s=w/r≤deg4,z/r≤deg5, alloriginalequationsretained.
+RawY containsgeneric3D∞family ANDsimpleISOLATED∞components, soPURE3
+strategyFALSE. Simple∞actualSHEAFcolonclopensplit preservesD(w); notall
+w-torsion/affineunit. FULL135∞dim3 givescontainedfamily, notY134upper3.
+ActualB18 N PARTIALcommon29projection pinch z²=νb², smooth26conefactors;
+NOTfullN orD. OddfirstjetsRAWY28-fixedrow61rank7, ADJUSTEDeta-fixedYrank6,
+fullR29rank7; dνA,dνB independent. Clarificationfile preservesoldbytes.
+ContinueactualQQcertificates/boundarywork; lower58/R4lower52/uppernull.
+
 Latest O: reducedNEW25 SMOOTH alongENTIREnonzeropositiveaxis.
 Multiplicityassociativity eFULL<=5+genericlength5 =>eFULL5/eNEWred1,
 unique25Dcomponent, tangentL3. Lowerdimmin/embeddedbranches stillOPEN;

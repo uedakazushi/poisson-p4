@@ -1,5 +1,17 @@
 # 次の課題 — v63-s61 / 2026-11-03
 
+## v63 P: 一次像次数18、product下界37、実normal graphとN部分射影
+
+直前保存 main `2f0d9f8` は通常push済み。以下は過去時点の記録を含む。
+
+新成分の15次元primitive一次像を定める方程式の次数下界は18へ改善した。degree16全不変空間20次元への実像制限は、全二十QQ点と厳密20minorで単射、degree17は零。全physical正規化・全1200値・独立QQ行列式を監査した。degree18の存在・不在と実方程式は未解決。
+
+非平方adFBCJ開の全点product rank下界は37へ改善した。既約quadを使うGrassmann incidenceとFano全rank分類、三変数shadow8＋12＋17方向による証明である。第33pivot後のunimodular行の存在は非構成的に従うが、実行済みpivot数33・24×58は変わらない。有限体で検証済みなのは縮約10行列の全rankであり、元product rank41への全prefix単元条件は未監査。有理数right inverse探索と明確に区別する。
+
+一般残余のcompact divided normal incidenceは、全42方向chartで四つのfiber座標を多項式に解け、P41へのscheme閉埋込みとなる。実残余はs≠0の開部分である。元134式に属する全45minorから、raw空間には一般betaで被約孤立無限遠成分もある。三次元無限遠族との共存によりraw pure3/CM-pure3方針は偽である。選択した単純無限遠だけを除く実sheaf colon分離を得たが、全w-torsionと実affine空性は未決。modp nilpotenceだけをQQへ移さない。
+
+B18の共通29実target内でCA/CB odd一次係数rank7と独立二判別式を確認した。raw Y28をrow61固定で動かすrank7と、adjusted etaを固定するrank6を区別した。Nの共通29座標への実部分射影像はordinary pinch C[[g26,nu,b,z]]/(z²−nu*b²)となる。これは全N targetや実CA/CB交叉Dの型ではない。全odd idealの高次lift・相対位置、P2実枝、全generic尽くしを続ける。総下界58/rank4下界52、上界未定。
+
 ## v63 O: 正軸の被約smooth性、normal残余、全B18での個別非CM性
 
 直前保存 main `9c8f974cdf70d6ba1313993a70f4e8823d90da80` は通常push済み。以下は過去時点の記録を含む。
