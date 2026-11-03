@@ -8,6 +8,16 @@ v62保存は `e187b40de68bce534391f406f616940cddd045a7`、
 `66a80ab53dfcf0ff842c67140320d8da0226039d`。全て通常push済み。
 このv63保存のSHAはGit履歴で識別する。
 
+## v63 AA: 全W非零の実交叉完成環・特性基底への優越・実122行判定
+
+直前保存 main `75a9f688f5932c996c25e250943bc830656698bb` は通常push済み。以下は過去時点を含む。
+
+全W非零における実交叉Dの全完成環を解決した。W1を明示的GL frameで既存critical-beta全sourceへ移し、全150係数・61座標・134関係、旧49変数のv4=v7=1点、全unit blockを独立に照合した。旧218関係と全colon・reductionを正当に局所化できる。nilradicalは主平方零で正則21次元上free1、associated primesはminimal Nとembedded21の二つ。coneのdim/edim/depth/eは28/37/21/2、projectiveは27/36/20/2。全W非零へ群移送し、W0=generic B18の未解決な全Dへは延長しない。
+
+NEW25 firstjet像は全8次spectral base A5とF4を含む全特性基底を優越すると証明した。同じ既存QQ点だけで実source微分のrank5を得て、独立reverse ADと全共変量微分で検証した。従ってpencil係数だけで作る非自明な判別式など、基底のみの真のdivisorという候補を全て排除できる。NEWの未知条件は、残る一次元の普遍商fiberにおけるgenerically finite multisectionである。その次数・種数や実方程式は未決で、次数下界24を維持する。
+
+全四次は追加DeltaH7・DeltaQ146 chart上で実122×64 circuitへ厳密に縮約した。全33 genuine quarticをunit2×2 H²操作で保持し、元四次cokernelと同型、全rankは175+rankC122である。低重み90×64は十分条件であり、full cubic57の点別rankを仮定しない。実rank64は未証明。次はこの実残余、generic B18の全nilとdepth19〜20、一般betaのδ_E∈J0判定を続ける。総下界58/rank4下界52/総上界未定。五つの凍結原稿は変更しない。
+
 ## v63 Z: 長さ13の実Noether fiber・二adjoint有限切片・次数下界24
 
 直前保存 main `f9e849842bc1c19243acadebcfe8d5cd133af466` は通常push済み。以下は過去時点を含む。
