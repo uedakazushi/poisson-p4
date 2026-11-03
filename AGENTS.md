@@ -2,23 +2,27 @@
 
 Version: v62-s61 · 2026-11-03 (Asia/Tokyo).
 
-Current v62 additions: ALL51 known generic-rank4 components now have dense
-rational arithmetic maps into the full S61, with exact generic source Jacobi,
-full scalar/point/Sp4 freedom and independent payload checks. Only known
-T01,T39,T40 dominate W16; known-union generic fiber is five, full exhaustion
-OPEN. The full134 homogeneous algebra is finite over17 base variables with
-<=1031 generators. Actual t^4 cofactor and ALL17 parameter coefficients are
-checked at frozen F32003 beta; finite-rank spreading proves general P29 through
-knownP3 is reducedfive. This is not full affine exhaustion.
-Nonsquare full quadratic rank6 on ALL aFBC!=0 and full8-nuisance frame gap
-beta image<=15 are proved; current full135 cubic Schur is freshly rebuilt.
-Marked-square T6 newaxis, T4/T7 extras and all-h standardrhoaxis have actual
-mixed-characteristic ambient t=0. OLD fullS special reduced support is the
-rhoaxis union weighted(2,3)plane at BOTH roots. OLD residue-open Delta!=0 and
-u=0 endpoint have same-incidence free2,t0. Actualdouble junction mixed cuts
-and V-infinity arithmetic are being finalized: do not infer entire pencil
-or all complex ratios before those bridges are complete. Lower57, no upper.
-Continue actual research after checkpoints.
+Current v62 additions: WHOLE marked-square stratum Sigma is removed over
+general beta. Actualdouble rawV mixedcuts upper5 plus SAME incidences lower2+3
+force free5,t0; fullspecialsupport/actualt-sat positiveweight/properP1/Cartier
+ample/source15 chain independently audited. Do not reopen this resolved layer.
+L1 solved: dim_Q(CA intersection CB)=27, magneticM26 is not a component.
+L2: the genuine extra tangent at kappa1/4 integrates to an EXACT quadratic
+Poisson curve. Nonzero parameters have NORMAL ACTUAL divisor; zero is5H.
+ALL51 known rank4 dense S61 maps AND firstjet image/fiber dimensions are known.
+Full134 model:17base,1031 generators, actual global t-action, explicit t4,
+P29/P30 reducedfive, and actual univariate presentation on a nonempty cyclic
+open. detK=0 and global gcd/t-invertible support remain OPEN.
+Nonsquare heavy cubic defect curves now have actualquartic upper65 generically,
+properness+sameH11free65 removes this heavy locus over generalbeta. OTHER
+cubic/quartic defects and fullQQproductcover remain active; do not mistake
+smallblock rank loss for full ambient loss. New no-q-lines and K-surface
+projectivedegree/fixedpairrank>=30 is a LOWER bound, not no-surfaces.
+NormalACTUALD classification/recognition chain scope proof audited in5notes,
+341 hashes; relative version assumes geometric fibers normal, even over
+nonreduced base. Old unchanged numeric checks reused, not all newly rerun.
+Full general affine exhaustion/global upper OPEN, lower57. Continue work
+and normal pushes after checkpoints; no forced stop at manuscript saves.
 
 Previous v61 additions: the ENTIRE nonsquare K=a=0 stratum is removed
 over sufficiently general beta. Seven nonzero central rays lift through smooth

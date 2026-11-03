@@ -1,0 +1,262 @@
+{
+  "id": "NORMAL_ACTUAL_INACTIVE_LINE_SCOPE_AUDIT_20261103_v62",
+  "all_passed": true,
+  "human_proof_scope_verdict": "No C=L-only result is used inside the reducible-C inactive-line exclusion.",
+  "theorem_hypotheses": [
+    "complex closed point",
+    "generic rank4 Poisson onP4",
+    "normal actual divisor D, not only D_red",
+    "inactive embedded projective line L"
+  ],
+  "dependency_nodes": [
+    {
+      "id": "canonical_BE",
+      "depends_on": [],
+      "extra_hypotheses": [
+        "generic_rank4",
+        "normal_actual_D"
+      ],
+      "conclusion": "canonical quadratic lift; b(P)=dF; P*dF=0; exact height3 BE presentation"
+    },
+    {
+      "id": "line_triple",
+      "depends_on": [
+        "canonical_BE"
+      ],
+      "extra_hypotheses": [
+        "inactive_embedded_line"
+      ],
+      "conclusion": "P vanishes on coneL, hence F in I_L^3 globally"
+    },
+    {
+      "id": "local_five_generators",
+      "depends_on": [
+        "canonical_BE",
+        "line_triple"
+      ],
+      "extra_hypotheses": [],
+      "conclusion": "at eta_L exact presentation modulo m has zero relation matrix: mu(J_eta)=5"
+    },
+    {
+      "id": "multiplicity_3_or_4",
+      "depends_on": [
+        "local_five_generators"
+      ],
+      "extra_hypotheses": [],
+      "conclusion": "degree5 excludes m>5; m5 and dependent quartic pencil contradict five minimal generators"
+    },
+    {
+      "id": "all_point_affine_nilpotence",
+      "depends_on": [
+        "canonical_BE",
+        "line_triple"
+      ],
+      "extra_hypotheses": [],
+      "conclusion": "formal semisimple Casimir lemma at every nonzero coneL point, including all intersections"
+    },
+    {
+      "id": "m3_fixed_cube_and_flag",
+      "depends_on": [
+        "all_point_affine_nilpotence"
+      ],
+      "extra_hypotheses": [],
+      "conclusion": "nilpotent rank4 center gives cube; primitive binary factorization 2<3 fixes w; sl2 pencil fixes flag"
+    },
+    {
+      "id": "m3_rank1",
+      "depends_on": [
+        "m3_fixed_cube_and_flag"
+      ],
+      "extra_hypotheses": [],
+      "conclusion": "b nonzero: exact full Casimir and divergence imply w divides F"
+    },
+    {
+      "id": "m3_zero_block",
+      "depends_on": [
+        "m3_fixed_cube_and_flag"
+      ],
+      "extra_hypotheses": [],
+      "conclusion": "b=0 and lower block zero: one-point Heisenberg/normal Jacobi imply w divides F"
+    },
+    {
+      "id": "m3_squarefree",
+      "depends_on": [
+        "m3_fixed_cube_and_flag",
+        "m3_zero_block"
+      ],
+      "extra_hypotheses": [],
+      "conclusion": "b=0, c squarefree: two1:-4 resonances exchanged by s,t; coefficient certificate48gamma^2x"
+    },
+    {
+      "id": "m3_double",
+      "depends_on": [
+        "m3_fixed_cube_and_flag",
+        "m3_zero_block"
+      ],
+      "extra_hypotheses": [],
+      "conclusion": "b=0, c double: two nonzero-delta branches plus delta0 exception; singular plane in all3"
+    },
+    {
+      "id": "m4_fixed_flag",
+      "depends_on": [
+        "multiplicity_3_or_4",
+        "all_point_affine_nilpotence"
+      ],
+      "extra_hypotheses": [],
+      "conclusion": "B=0; cross(Mz,Nz)=0; exceptional3x3 pencil has no bidegree(1,4) invariant; M,N notboth0"
+    },
+    {
+      "id": "m4_trichotomy",
+      "depends_on": [
+        "m4_fixed_flag"
+      ],
+      "extra_hypotheses": [],
+      "conclusion": "constant regular direction, constant common image, or constant proportional pair with moving direction"
+    },
+    {
+      "id": "m4_regular",
+      "depends_on": [
+        "m4_trichotomy"
+      ],
+      "extra_hypotheses": [],
+      "conclusion": "invertibleV; rank1 nonzero trace; rank1 zero trace; retain h2 shear residual d until closedness kills it"
+    },
+    {
+      "id": "m4_fixed_image",
+      "depends_on": [
+        "m4_trichotomy"
+      ],
+      "extra_hypotheses": [],
+      "conclusion": "gcd/syzygy for all e=0,1,2, including C=0 orZ=0, implies F in planeideal^2"
+    },
+    {
+      "id": "m4_three_moving",
+      "depends_on": [
+        "m4_trichotomy"
+      ],
+      "extra_hypotheses": [],
+      "conclusion": "independent ell,q; dependent nonzero ell,q and independentp; ell0 with independentp,q; fullV transforms"
+    },
+    {
+      "id": "no_inactive_line",
+      "depends_on": [
+        "multiplicity_3_or_4",
+        "m3_rank1",
+        "m3_zero_block",
+        "m3_squarefree",
+        "m3_double",
+        "m4_regular",
+        "m4_fixed_image",
+        "m4_three_moving"
+      ],
+      "extra_hypotheses": [],
+      "conclusion": "all closed-point alternatives force factorization or a two-dimensional singular plane"
+    },
+    {
+      "id": "smooth_inactive_component",
+      "depends_on": [
+        "no_inactive_line"
+      ],
+      "extra_hypotheses": [
+        "v16_componentwise_smooth_curve_to_line"
+      ],
+      "conclusion": "no smooth inactive irreducible component even inside reducible C"
+    },
+    {
+      "id": "v20_singular_component_connection",
+      "depends_on": [
+        "smooth_inactive_component"
+      ],
+      "extra_hypotheses": [
+        "v20_secant_directrix_lemma"
+      ],
+      "conclusion": "singular inactive component: spanP4 gives singular join surface, spanP3 factor, plane quadratic vanishing"
+    }
+  ],
+  "excluded_whole_support_dependencies": [
+    "literal_local_length40",
+    "whole_Y_finite_flat_degree40_over_L",
+    "global_splitting_for_support_L",
+    "radical_J_equals_I_L",
+    "tau_mu_numerical_bound"
+  ],
+  "archived_v18_certificate_groups": 5,
+  "archived_v19_certificate_groups": 9,
+  "archived_checksum_matches": 56,
+  "archived_certificates_rerun": false,
+  "routine_ambiguities_resolved": [
+    "five-generator proof uses right exactness only",
+    "all-point normality bound allows intersecting C components",
+    "constant cube direction extends across zeros without division there",
+    "m4 moving rank1 image is distinct from fixed image",
+    "h2 shear residual retained and killed by -5alpha*d",
+    "xi^2 ideal membership is used only for complex closed points"
+  ],
+  "unresolved_finite_problem_for_inactive_line": null,
+  "limits": [
+    "This is a human proof/coverage audit plus archived-certificate integrity, not a fresh execution of old algebra.",
+    "The entire normal-D classification still requires the separate E6/E8 and eight-support chain.",
+    "No conclusion for nonnormal or nonreduced actual divisors; no whole Jacobi component count."
+  ],
+  "input_sha256": {
+    "legacy/v14/sections/normal_quintics.tex": "65fb3a1e2e2729c68eaa3df4550b5904f9b8739d35625e2ad846f8f77d7fab78",
+    "legacy/v16/sections/setup.tex": "a3ef31e0985cd1ab4b39e08511a254abd237eac2aa4fc5ec14a19c86b075b140",
+    "legacy/v16/sections/smooth_curves.tex": "c4fd4e78a6feb2897828c53649b1ae81f9974b9109e0477be45629a5c27ff14f",
+    "legacy/v17/sections/setup.tex": "a6d47445ab5238146befc333ccf60f0eec5e0dbc4a8ea4600342d9af4abfbfc6",
+    "legacy/v17/sections/nilpotent_isotropy.tex": "d36b4ed2bb038cfda9eb13ba499ccdd39143d307b1ed6448657bd0d173d8f6f9",
+    "legacy/v17/sections/jacobian.tex": "a6b285e28c5ed7bb7e731ac7e2e4b69e1ed5edb61b89499817e19b7e89f8c4ea",
+    "legacy/v17/sections/line_algebra.tex": "aed26bf5e81a5155e798ea1fbdabf8013197301c543960eb1b5017bccf270382",
+    "legacy/v18/sections/setup.tex": "fcfe05ba3bf6cb1b7826160627c07b0e1c3aa101d009d4910cb876d66b0105a8",
+    "legacy/v18/sections/m3_restrictions.tex": "5d9d98a81f7022a8b68be3e88aefadd4e456a3a913af893ecb86c661cc8084ac",
+    "legacy/v18/sections/m4_flag.tex": "8d695f3637716453e021af30844a10fd6d8f5287fda490b30de4a125e3b2aeb9",
+    "legacy/v18/sections/m4_regular_direction.tex": "012b81840b61be60051a784fe68c477ad226f5c7de21fa16caa71954d14cbd5f",
+    "legacy/v19/sections/setup.tex": "3f56b1799e63659fa6b4aad8500a8a20ae6649814d9f0a28932bb94b5df708cb",
+    "legacy/v19/sections/conclusions.tex": "e27e4084b0d7e59f23a3896a764a22425a46d1faa477c3736aa6c1811789cf76",
+    "legacy/v19/sections/verification.tex": "71aee0ff692776d7f0b23fccc36746ee406c825a9761e03b0e1edd7c0b11d972",
+    "legacy/v20/sections/setup.tex": "fcda2d6a76a78664b2e6317cb4881c01adde962957fe28236a840f55bfdfca85",
+    "legacy/v20/sections/inactive.tex": "bbcde3e1f297af8fc2c6ce8c3bad1863aead16dcaae8d7c0a5ab08d37fc70335",
+    "legacy/v20/sections/secant.tex": "93f7f3d47f0dba81ce94614b4b61db7b9436fb6a422b704edcafa23acc0ae609",
+    "legacy/v19/sections/m3_double_root.tex": "b31497ee63ac40683a857002e519700a902aa8c9e3e299656d2691167b74514b",
+    "legacy/v19/sections/m3_rank1.tex": "2431a75ddf51e23587a108cf99f2c4c547295cf8c7e00fa7455c3a027d68aa8d",
+    "legacy/v19/sections/m3_squarefree.tex": "431e67c678fcc0491ddcdcf68726890f6bd91ad6c2efdf3b0e7ebe3b8ce83a84",
+    "legacy/v19/sections/m4_constant_regular.tex": "ae299c1bb10aa161f0bd1e20cb333ea22951834776a1d91fc90abb12fea0cd3d",
+    "legacy/v19/sections/m4_exhaustion.tex": "21c230fb4529f0644bbed33e811eb11b41115f1a199569ac305b065c26fdcdec",
+    "legacy/v19/sections/m4_fixed_image.tex": "4a893d174515493e83d512c9b53b2afc0a0a343194fe8dc0fa71eca1537b204b",
+    "legacy/v19/sections/m4_varying_two.tex": "0edb235ae2972c47e4352dd473009047579e6f43dab30281c55f5b732d3b4455",
+    "legacy/v18/code/run_checks.py": "990748729605e93d0511048da4da30a91724de9bb756fbe26449d4cf14e4c161",
+    "legacy/v18/data/reproduced/verification_summary.json": "46e348cb77db2e1b573cd5f94a81e63e88e4c430f7a9b55d730c4a406df10be5",
+    "legacy/v18/proofs/local/verify_unimodularization.py": "1babce7f3f478d32bea3812d265f368e2957be25c472fd1578ad557705810468",
+    "legacy/v18/data/reproduced/reports/unimodularization.json": "01f805e26bd58a24b135b71a6e7afb3acfc85cc71d3e989d8e203773ba415b7c",
+    "legacy/v18/proofs/local/verify_one_point_heisenberg.py": "64bdc5ccd4d36c9f7cd5bac06d9f163b3c23d0dd155663c4fce880410942ba9a",
+    "legacy/v18/data/reproduced/reports/one_point_heisenberg.json": "d4d11cfff09057871f6b961cd201bf8093efef9e8acc7cab3fa10492749ae2b5",
+    "legacy/v18/proofs/m3/verify_m3_restrictions.py": "07c6ee9bdc64e5c35c9514d8f95d74707c1a4639ad59d8feea2ad7e338bfd33e",
+    "legacy/v18/data/reproduced/reports/multiplicity_three.json": "33304eb0cde4616e312a2593df2aafe9fca31e3fc6f8ec5f137524ef36689230",
+    "legacy/v18/proofs/m4/verify_m4_flag.py": "700f2d3ce52ba611154c1a7c8c40b99e1a98f7704e7c2e44d0883a01c57dd8eb",
+    "legacy/v18/data/reproduced/reports/multiplicity_four_flag.json": "877f06461ade77f173ab92254641b55df000d5bf3625d384247ea42300e5d942",
+    "legacy/v18/proofs/m4/verify_regular_direction.py": "88e9a9cba7f479de5b43aa031ccc96b83653451d5a8ea111cbba51eb4d3648b0",
+    "legacy/v18/data/reproduced/reports/regular_nilpotent_resonance.json": "fd64131d82c0420c4b8c998e01de49d5ff7e8178140d2fef973a584aeeaaa19d",
+    "legacy/v19/code/run_checks.py": "8f48f397e3388edfeef60bec6301c7b56d10d1f37a7e1d55e3b7633169de6cec",
+    "legacy/v19/data/reproduced/verification_summary.json": "3893814fc6e728607cddd80c17f9485c420092bbccd8839c1223739a6661e075",
+    "legacy/v19/proofs/m3/verify_rank1_exclusion.py": "a93da8f2715202cdf55519b31fefe6aee4cf31b26ff30d62294736a23b4586f8",
+    "legacy/v19/data/reproduced/reports/m3_rank_one.json": "be1609435a6f123b2489e476ff794bc1d407c0d998067e333466861abe96feea",
+    "legacy/v19/proofs/m3/verify_squarefree.py": "26960cb9071bc7a9b14f31da15c26c607140c7b02965c3cac787f5b1b751f91c",
+    "legacy/v19/data/reproduced/reports/m3_squarefree.json": "31f819319eb7443b5468cc830d25f4d8df428cfc5217380bd2ceb1c68257e7bc",
+    "legacy/v19/proofs/m3/verify_double_root_exclusion.py": "167b6de652a72c7c98266242e359786ce14d08d395cede664287e513404141ae",
+    "legacy/v19/data/reproduced/reports/m3_double_root.json": "9bee4cc3c8cafff56c8fe9470166d74ae0a0e0b741c8648a236a9b110ec044e4",
+    "legacy/v19/proofs/m4/verify_m4_fixed_image.py": "6baa1ba145481bda80e9f610d83593aecb5e5047579a769208435bfad2b29f36",
+    "legacy/v19/data/reproduced/reports/m4_fixed_image.json": "290385f16353277230ae9289b77d07eabbe49c2447110edcd1a4a7c512ecac52",
+    "legacy/v19/proofs/m4/verify_constant_regular.py": "e4268fb4ab816a3d0771325fa2ab9c665cea0becc6bee23f597a0fa592f75312",
+    "legacy/v19/data/reproduced/reports/m4_constant_regular.json": "43717a2089c809b6e66f79a7870cb377bc751e2dde7f4ed053cb0c2086884562",
+    "legacy/v19/proofs/m4/verify_varying_independent.py": "a17fb87bc5fbe5acf9e32f3da6739b52beccef47101032e307beb2ec56385d6e",
+    "legacy/v19/data/reproduced/reports/m4_independent_pencil.json": "d486bc9430c2ae37cbaf93e90fdb8f9f09eb0ae1ec1688f43fe96595e651a3a7",
+    "legacy/v19/proofs/m4/verify_varying_pencils.py": "1de4d935aedc7895a8ac16ce68ee321fa69599cbc50599e0d106914596b6d14e",
+    "legacy/v19/data/reproduced/reports/m4_two_varying_pencils.json": "a8478120bbdc056fa182541a4080e210ebc75ebdf8f85c32e4a414ffd73d6acb",
+    "legacy/v19/proofs/audits/verify_m4_moving_rank1.py": "47a87832fcb270ed824fb8446e0d1a88ad3aad3d0a963ec502369ce5fd335961",
+    "legacy/v19/data/reproduced/reports/independent_moving_rank_one.json": "cd1698d8c3e60be84881b8c68e90048d4d2e2af334b7c0340b8e18214bb32417",
+    "legacy/v19/proofs/audits/independent_regular_audit.py": "1ef9153ce843287fb39ff13cf4b5203d40ddbbf5bcc86541a76cd4687689a082",
+    "legacy/v19/data/reproduced/reports/independent_regular_audit.json": "9113f3b24d8a711ae6d10e5f32fafd5dd1a27374a36db368ec2468ec6f55d87b",
+    "audits/2026-10-30/geometry_strategy.txt": "1400e099d3cf74e507000e5bb161cc6daea364fc33feec9238bd7186a0f12021",
+    "code/normal_actual_inactive_line_scope_audit_20261103_v62.py": "2622c3cea4f9fd392208e29641ec5cb5b47b0f4301dc9381dde10d8306dd4c92"
+  },
+  "seconds": 0.09546685900022567
+}

@@ -33,9 +33,9 @@
 \newtheorem{remark}[theorem]{注意}
 \renewcommand{\proofname}{証明}
 \title{射影四空間の Poisson 構造の一次ジェット還元\\
-\large 普遍的楕円切断、Jacobian の二捩れと Toric 成分の境界}
+\large 普遍的楕円切断、既知成分の座標化と境界の除去}
 \author{Poisson P4 研究プロジェクト・内部研究草稿}
-\date{2026年11月3日・v61-s61}
+\date{2026年11月3日・v62-s61}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -62,6 +62,10 @@ $c=2a$ の全有限パラメータに分母のない正重み模型を与える�
 非平方二平面型では、例外点の同じ入射族における混合標数の長さ比較と完全試験曲線を用い、
 $K=a=0$ の全層を十分一般の一次ジェット上で除去する。
 さらに $K=d=0$ の層は、一つの固定支持面での第二因子の全射影直線と実際の旗端点を処理して除去する。
+既知の一般階数四51成分全てについて、一般パラメータから全 $S_{61}$ 成分へ稠密な有理座標写像を構成する。
+二つの28次元成分の交叉には、磁気族と指定端点を含む27次元の実際の成分を与える。
+指定平方層 $\Sigma$ は、完全試験曲線の混合標数被覆と正重みの飽和支持により十分一般の一次ジェット上で除去する。
+全134式を17底変数上1031生成以下に有限化し、既知三平面を通る一般30平面切断が被約五点となることを示す。
 全成分数の下界は57である。未知成分の不存在、一般五点の尽くし、特殊ファイバーの全分類、
 新規性の網羅的調査は未完了であり、本稿は内部研究草稿である。
 \end{abstract}
@@ -1259,8 +1263,164 @@ frame の選択によらず、$\mathcal U$ 上の閉条件となる。
 どちらも既約19次元から既約9次元への優越写像なので、一般 fibre の次元定理を用いる。
 \end{proof}
 
-この結果は二成分の交叉次元、fibre の既約性・同型類、同じ一次項を持つ構造の同一性を決めない。
+共通一次像の結果だけでは二成分の交叉次元や fibre の同型類は決まらない。
 二成分の相異性は既存の退化因子の重複度によって保たれ、その違いは一次項より高い係数に残る。
+
+\section{二つの28次元成分の27次元交叉}\label{sec:ambient-intersection27}
+
+\begin{theorem}\label{thm:ambient-intersection27}
+既知の磁気族 $\mathcal M$ と指定端点 $Q$ を含む、
+$\mathcal C_A\cap\mathcal C_B$ の27次元既約成分 $\mathcal N$ が存在する。
+従って
+\[
+ \dim_Q(\mathcal C_A\cap\mathcal C_B)=27.
+\]
+26次元の $\mathcal M$ はこの交叉の既約成分ではない。
+\end{theorem}
+\begin{proof}
+座標を $(x_0,x,y,z,w)$ とし、$h=h(x_0,x,z,w)$ を
+二変数 $x_0,x$ の三次式を法とした任意の三次式とする。
+$X_h=-h_w\partial_z+h_z\partial_w$ と書く。
+一変数 $p$ と $h$ の十六係数を残した実際の族
+\[
+ P_A=x_0(x_0+px)\partial_x\wedge\partial_y
+       +x_0^2\partial_z\wedge\partial_w+\partial_y\wedge X_h
+\]
+を考える。これは $\mathcal C_A$ の普遍族の部分族である。
+有限射影変換 $x'_0=x_0+px$ を施し、新座標を再び $x_0$ と書く。
+$r=x_0-px$、$\widetilde h=h(r,x,z,w)$ と置くと、全係数で
+\[
+ (x_0\mapsto x_0+px)_*P_A-E\wedge(pr\partial_y)
+ =r^2J+\partial_y\wedge\bigl(pr(z\partial_z+w\partial_w)+X_{\widetilde h}\bigr)
+ =P_B(r^2,\widetilde h)
+\]
+となる。最後は $-\partial_x(r^2)/2=pr$ による。
+Euler-vertical 項は射影双ベクトルを変えないので、この全17変数族は両成分に属する。
+退化因子の重複度条件の一致だけから共通枝を推測したものではない。
+
+この族の $\PGL_5$ 飽和の射影閉包を $\mathcal N$ とする。
+源の既約性から $\mathcal N$ も既約である。
+実際の25座標作用、全体スカラー、17パラメータの微分を全150係数で作り、
+Euler-vertical な24方向を除いた126行43列に、標数零で非零の28次小行列を得る。
+保存有理点での行列式は32003を法として7514である。
+独立な別の有理点でも、vertical を残した生の行列で階数52、vertical 階数24を確認した
+\cite{ambient-intersection27-v62,ambient-intersection27-review-v62}。
+従って affine cone の像次元は28以上、射影像は27以上である。
+一方、相異なる28次元既約成分の交叉は真の閉部分集合なので全成分が27次元以下となる。
+よって $\dim\mathcal N=27$ であり、$\mathcal N$ は交叉の既約成分である。
+
+$p=0$ では $x_0^2J+\partial_y\wedge X_h$ という磁気族の全十六係数が残る。
+従ってその飽和閉包 $\mathcal M$ は $\mathcal N$ に含まれる。
+旧端点の座標 $(t,u,v,w_0,z_0)$ から
+\[
+ (x_0,x,y,z,w)=(t,u,z_0,v,-9w_0/2)
+\]
+への固定線形変換は、$Q$ を $p=0$、
+\[
+ h=\frac43x_0xw+\frac32x_0z^2+\frac92x^2z
+\]
+の元へ正確に移す。従って $Q\in\mathcal M\subset\mathcal N$。
+閉点での局所次元の上下界から等式が従い、$\dim\mathcal M=26<27$ から最後の主張も従う。
+\end{proof}
+
+この定理は $Q$ を通る交叉成分の一意性、交叉の定義イデアル、完成局所環、冪零構造を決定しない。
+特に端点を通る全 Poisson 成分の尽くしとは区別する。
+
+\paragraph{同じ一次ジェット上の実際の交叉族}
+$h_2=Axz+Bxw+Cz^2+Dzw+Fw^2$、$h=x_0h_2+h_3(x,z,w)$ とする。
+前節の共通六次元一次部分に対し、$\mathcal C_A$ では
+$f_A=x_0^2+(5t/2)x_0x+q_Ax^2$、$\mathcal C_B$ では
+$f_B=x_0^2-5tx_0x+q_Bx^2$ を取る。
+有限正規化後の各61座標は、$q$ と $h_3\bmod x^3$ の十変数に関する affine10平面を与える。
+両平面の方向の共通部分は9次元、和は11次元であり、交叉は正確に
+\[
+ q_A=0,\qquad q_B=\frac{25t^2}{4},\qquad
+ h_{3,A}-h_{3,B}=\frac{5t}{2}xh_2\pmod{x^3}
+\]
+という affine9平面である\cite{ambient-fixed-jet-v62}。
+これは表示した二族の全座標の交叉であり、全成分の一般 fibre の尽くしを追加しない。
+
+\section{共鳴点での追加接方向の積分}\label{sec:resonant-direction-v62}
+五係数族の一部分を、$\partial_{ij}=\partial_{x_i}\wedge\partial_{x_j}$ として
+\[
+ Q_a=ax_0^2\partial_{14}-\frac29x_0^2\partial_{23}
+       +\frac43x_0x_1\partial_{24}
+       +\left(\frac23x_0x_2+x_1^2\right)\partial_{34}
+\]
+と書く。不変量は $\kappa=9a/8$ なので、共鳴値 $\kappa=1/4$ は $a=2/9$ である。
+前節の指定端点は $a=1$ であり、この共鳴点とは区別する。
+
+\begin{proposition}\label{prop:resonant-direction-v62}
+共鳴点で増える横断一次元の接方向の一つに対し、全次数で正確な Poisson 曲線
+\[
+ P_\varepsilon=Q_{2/9}+\varepsilon R-75\varepsilon^2x_4^2\partial_{01}
+\]
+がある。ここで $R$ の上三角係数は次表で与えられる。
+\begin{center}
+\begin{tabular}{cl@{\qquad}cl}\toprule
+$ij$&$R^{ij}$&$ij$&$R^{ij}$\\\midrule
+$01$&$4x_0x_2-3x_1^2$&$02$&$4x_0x_3+12x_1x_2$\\
+$03$&$4x_0x_4+12x_1x_3+15x_2^2/2$&$04$&$-18x_1x_4$\\
+$12$&$-20x_0x_4/3+4x_1x_3+x_2^2$&$13$&$-6x_1x_4+6x_2x_3$\\
+$14$&$-4x_2x_4$&$23$&$4x_2x_4+6x_3^2$\\
+$24$&$-4x_3x_4$&$34$&$x_4^2$\\\bottomrule
+\end{tabular}
+\end{center}
+この曲線の全ての元は一般階数四である。
+\end{proposition}
+\begin{proof}
+全五 divergence と全350 raw Jacobi 係数を $\QQ[\varepsilon]$ 上で展開すると恒等的に零となる
+\cite{resonant-direction-v62}。
+退化五次式の $x_0^5$ 係数は $\varepsilon$ によらず非零なので、全パラメータで一般階数四である。
+
+追加方向であることも接空間の次元の差だけによらず確認する。
+対角作用に関する重みを「微分添字の和から係数単項式の添字の和を引いたもの」とする。
+重み $-1$ の全二十生基底について、canonical 条件25係数と Jacobi 350係数の微分を作る。
+その375行20列行列 $M(a)$ は、$\QQ(a)$ 上階数17、$a=2/9$ では階数16である。
+もし $R$ が一般接核の正則な極限なら
+\[
+ M(2/9)R'(2/9)=-M'(2/9)R
+\]
+が必要である。明示的な左核 $\ell$ に対し
+$\ell M(2/9)=0$、$\ell M'(2/9)R\ne0$ を確認したので、そのような延長は存在しない。
+軌道とスカラーの微分は一般接核へ正則に延びるため、$R$ はそれらの方向でもない。
+\end{proof}
+
+この重みの共鳴接核は四次元である。
+保存した基底での座標 $z=(w_0+4s,w_1+6s,w_2-4s,s)$ を使うと、
+全二次延長条件のイデアルは正確に
+\[
+ (w_0,w_1,w_2)(w_0,w_1,w_2,s)
+\]
+となる。$Q$ の重みは5なので、二次補正に寄与できる重み $-7$ の生基底は
+$x_4^2\partial_{01}$ の一つだけであり、他の重みを許してもこの条件は変わらない。
+九個の二次単項式の係数行列の有理数上の階数は9である。
+従ってこの四次元部分での非零射影的な二次延長可能方向は $R$ のみであり、
+上の曲線がその全高次への延長を実現する。
+これは全35横断変数の局所模型、全局所枝、成分所属の尽くしを与えない。
+新しい全 Poisson 成分を数える主張もしていない。
+
+\begin{proposition}
+$\varepsilon\ne0$ における $P_\varepsilon$ の実際の退化五次因子は幾何学的に整かつ正規である。
+$\varepsilon=0$ では五重超平面となる。
+\end{proposition}
+\begin{proof}
+$\varepsilon=1$ の実五次式とその偏微分による Jacobian イデアルの商は、
+有理数体上で affine 次元2、従って射影次元1である\cite{resonant-normal-v62}。
+体の拡大で次元は変わらない。
+幾何学的な重複因子があれば三次元の特異支持が生じ、異なる幾何学的因子があれば
+$\PP^4$ 内でその交叉は二次元以上となるため、どちらもこの特異次元に反する。
+従って実因子は幾何学的に整である。
+超曲面の $S_2$ 性と、特異部分の余次元2以上による $R_1$ 性から Serre の正規性判定を適用する。
+対角作用 $g_\lambda=\operatorname{diag}(\lambda^{-2},\lambda^{-1},1,\lambda,\lambda^2)$ は
+\[
+ (g_\lambda)_*P_\varepsilon=\lambda^5P_{\varepsilon\lambda^{-6}}
+\]
+を満たす。複素数体で $\lambda^6=\varepsilon$ と選べるので、全非零パラメータへ結論が移る。
+零パラメータでは元の五次式が $x_0^5$ の非零定数倍となる。
+\end{proof}
+ここで示したのは実際の正規退化因子から五重超平面への明示的な退化であり、
+この計算だけから新しい全成分や共鳴点を通る全枝の分類を結論しない。
 
 \section{一次資料照合と一般一次項の五つの延長}\label{sec:five-lifts}
 \subsection{MPS40の個別図式の照合}
@@ -1331,6 +1491,102 @@ T39とT40からもそれぞれ少なくとも一つの逆像があり、
 $\PGL_5$ 同型類の個数を数えたものではない。
 T01の一般次数は3、T39・T40の一般次数は後述の普遍切断により1である。未知成分が $W$ を支配する可能性は残る。
 特に全 fibre が有限、またはちょうど五点であるという結論は得られない。
+
+\section{既知51成分の一般族と全 $S_{61}$ 座標}\label{sec:known51-catalogue}
+
+\begin{proposition}\label{prop:known51-circuits}
+既知の一般階数四51成分の各々に対し、一般パラメータから対応する全 $S_{61}$ 成分を優越する
+有限な有理演算による61座標写像がある。
+ここで「有限な演算」は有理定数、変数、加法、乗法、逆元からなる実際の有限列を意味する。
+定義素イデアルの全生成系や、未知成分の不存在を意味しない。
+\end{proposition}
+\begin{proof}
+MPS の toric 図式では、全 period 係数から反対称行列 $B$ を作り、
+$b=\operatorname{Pf}(B)$、$A=-bB^{-1}$ とする。
+四次交代行列なので $A$ の成分は period の一次式となる。
+実際の biresidue は $-A^{-1}=B/b$ であり、$B\mapsto B/\operatorname{Pf}(B)$ は
+非退化開で有理的な対合である。
+各装飾辺の全平滑化変数を toric 二ベクトルに加える。
+$T02$--$T38$ のうち19族はこの単純和で既に Poisson である。
+残る18族では、独立な辺重みと全150二次単項式から候補となる補正を有限に列挙できる。
+辺の全次数順に toric Jacobi 微分の線形方程式を一般 period の有理関数体上で解き、
+最後に全 projective Jacobi を係数ごとに検査した。
+$T37$ は七補正、最大辺次数6を要する。従属重みを持つ $T21$ は単純和自体が Poisson である。
+
+period 次元を $s$、辺数を $e$ とする。
+各補正は辺重みの和を持ち、period と辺変数の同時スカラー倍で二ベクトルも同時に倍される。
+$\PGL_5$ と源の積には自由な四次元対角トーラス作用があり、その各軌道は同じ像を与える。
+従って affine cone の像次元は $20+s+e$ 以下となる。
+全38族の実際の微分で同次数の非零小行列を得るので次元は等しく、
+対応する $S_{61}$ 成分の次元は $10+s+e$ である。
+辺が零の保存点で、18族の補正の全分母は非零であり、補正と全一次微分は零となることも独立に確認した。
+成分のラベルと全成分性には、図式の一次 cocycle の一致と MPS の局所 Torelli
+\cite[Theorem 6.16, Corollary 6.23, Example 6.24]{mps}を用いる。
+番号と次元だけによる同定ではない\cite{mps-general-v62,known51-review-v62}。
+
+追加11成分は旧普遍族の全実変数を保持する。
+各族の全一般係数で Jacobi を検査し、PGL 作用・全体スカラー・族の微分で既存の成分次元に一致する
+下界を新たに確認した。$D_\pm$ の係数体は $\QQ(\sqrt3)$ で正確に演算する。
+上界と成分同定にはそれぞれの旧成分性の定理を用いる。
+
+一般族 $P$、非零スカラー $\lambda$、一般点 $p=(1:p_1:\cdots:p_4)$ を取る。
+まず $p$ を固定点へ移し、そこでの非退化値を $J$ にする有理 Darboux 枠を選ぶ。
+その上で\emph{全十変数の残余 $\Sp_4$}を作用させ、Euler 商、有限 perspective 正規化、
+61自由係数の読み取りを行う。$\Sp_4$ は可逆二行列 $A$ と対称二行列 $S,T$ による大セル
+\[
+ \begin{pmatrix}I&0\\T&I\end{pmatrix}
+ \begin{pmatrix}A&0\\0&A^{-T}\end{pmatrix}
+ \begin{pmatrix}I&S\\0&I\end{pmatrix}
+\]
+で与える。反転する pivot、値の Pfaffian、$\det A$ は全て保存している。
+一般 PGL 枠の固定点の逆像と、二つの値正規化枠の差はこの点変数と $\Sp_4$ で尽くされる。
+共形スカラーには $\lambda$ を使い、残る perspective 四方向を一意に消す。
+従って元の PGL 飽和の稠密性から、全 $S_{61}$ 成分への優越性が従う。
+MPS 族では対角トーラスで一般点を全座標1へ移し、その変化を辺変数へ吸収できる。
+追加11族にはこのトーラスを仮定せず、点の四変数を実際に残す。
+
+$T39,T40$ は全十六一次座標上の普遍二次 graph そのものを同じ有限演算形式で保存した。
+この二族は既に全成分を覆うので群変数を追加する必要はない。
+出力が一般に元134式を満たすことは、元族の Jacobi と有限射影変換による保存、
+既存の全 Poisson 模型への還元定理から従う。
+全51件で別の正確な特殊化検算を行ったが、それを一般恒等式の補間証明とはしていない。
+機械可読な全写像と個別入力 hash は統一 index に保存した\cite{known51-maps-v62}。
+\end{proof}
+
+一次ジェット射影の被約像の次元も全51件で計算できる\cite{known51-jets-v62}。
+非零 residue 小行列による下界と独立な次元上界が一致する41件に加え、
+残る十件では全一般有理関数体上の微分行列を厳密に消去した。
+primitive 一次商が $\Sp_4$ 表現であるため群点を単位元に選べるが、全十個の Lie 方向は保持する。
+$T38$ では固定した稠密 PGL 軌道を用い、未正規化の定数六係数と一次二十四係数の
+全 jet 微分の階数22から、値の六方向と perspective 四方向を除いて12を得る。
+正の次元の一般 fibre を持つものは次表であり、他の成分では一般有限である。
+\begin{center}
+\begin{tabular}{lrrr}\toprule
+成分 & $\dim C_{S_{61}}$ & $\dim\overline{\pi(C)}$ & 一般 fibre 次元\\\midrule
+$T13,T30$ &14&13&1\\
+$T21$ &15&10&5\\
+$T38$ &15&12&3\\
+$\mathcal C_A,\mathcal C_B$ &19&9&10\\
+zero-log &14&10&4\\
+$M,A_0,D_\pm$ &14&11&3\\
+$C_+^{\mathrm{ext}}$ &15&11&4\\
+$C_-^{\mathrm{mag}}$ &14&10&4\\\bottomrule
+\end{tabular}
+\end{center}
+ここで表中の補助成分名 $M$ と前節の磁気族 $\mathcal M$ は異なる。
+次元は被約像と一般 fibre のもので、特殊点の長さや冪零構造は追加しない。
+
+\begin{corollary}
+既知51成分の中で一般一次ジェットを優越するものは正確に $T01,T39,T40$ であり、
+その既知部分の一般 fibre は被約五点に尽きる。
+\end{corollary}
+\begin{proof}
+他の37個の MPS 成分と追加九成分は $S_{61}$ 次元が15以下である。
+残る $\mathcal C_A,\mathcal C_B$ の一次像は9次元なので、一般 $W_{16}$ を避ける。
+三優越成分については既証の次数3と二つの二次 graph を用いる。
+\end{proof}
+この結論は未知成分からの点の不存在を含まない。
+一般五点を全 $S_{61}$ の fibre と同定するには、未知枝を除く根基比較が依然として必要である。
 
 \section{未飽和斉次化の無限遠に現れる旗}\label{sec:infinity}
 固定一次部分 $\beta\in W$ の全S61ファイバーは45個の重み2座標qに関する134二次式
@@ -5999,6 +6255,206 @@ $\ell=0$ は二独立線形条件から一般底に現れない。
 または元 Jacobi 式からの別の制約が必要である。
 一般五点の尽くしと全成分数の上界は引き続き未証明である。
 
+\section{指定平方層の完全試験曲線と全層除去}\label{sec:sigma-full-v62}
+
+\begin{theorem}\label{thm:sigma-full-v62}
+十分一般の一次ジェット $\beta$ に対し、指定平方層
+$\Sigma=\mathbf P_C(L^2)$ は実際の affine 解の射影閉包の境界に交わらない。
+\end{theorem}
+\begin{proof}
+固定旗の正規化で、射影 core は $[a:c:h]\in\PP(2,2,3)$ となる。
+以下の $q$ 添字は保存模型の零始まり順とし、$q_{25}=-1$ の chart を使う。
+試験曲線 $c=2a$ の有限部 $a=1,c=2$ では、三群切断 $q_0=q_{19}=q_{27}=0$ と
+$H_{15}$ 法線 $u_4$ を除き、$\rho=u_5$ を正重みの変数として保持する。
+非正重み底は、$u_4,\rho$ を除く十四一次座標と $q_{32}$、および32003上の完備 DVR である。
+$q_{32}$ は底座標であって第四の群切断ではない。
+元 $t$ は重み3、残る正変数の多重集合は $(1^8,2^4,3^2)$ である。
+四方向を全周囲へ戻す小行列式は4で、射影端点では切断を $q_0,q_9,q_{27}$ に替え、
+同じ底に対する復元小行列式は $-2$ となる\cite{sigma-full-v62,sigma-full-review-v62}。
+
+有限 $h$ の多項式行加群により、特殊体上の有限例外の外では非零中央支持は標準 $\rho$ 軸だけとなる。
+例外の全支持も元135式の実座標で復元した。
+新しい $1000h^2+1127$ の軸は $T6$ の同じ入射で自由長2、
+$125h^2+52$ の追加点は $T4$ の自由長2、
+$125h^2+16$ の追加点は $T7$ の自由長4となり、それぞれ全周囲 $t=0$ を得る。
+$h=4$ の二つの追加点は滑らかな実入射で処理し、有限な符号同型で $h=-4$ も覆う。
+非零標準 $\rho$ 軸は、全 $h$ と全一次底方向に一様な旗の自由5商により $t=0$ となる。
+射影端点の元135式の生42変数でも、非零中央支持はこの軸だけである。
+有限体の中央商の $t^2=0$ を全周囲へ直接外挿してはいない。
+
+残る旧 $h^2+2$ の両剰余根では、$\rho$ を残す全中央被約支持は標準軸と重み$(2,3)$平面の和に等しい。
+旧平面の三根相異型と射影端は、同じ十七次元入射の一般長2と特殊横断上界2により処理する。
+純二重根の接続点には二つの異なる十七次元入射の閉包が実際に入る。
+一つの真の affine 混合切断で三法線の二次初期商の長さは5となり、
+全相対完成環 $S$ は $R=\widehat V[[c_1,\ldots,c_{17}]]$ 上五元以下で有限生成される。
+三根相異型の同じ実閉平方零商の一般厚みは2以上、純二重根型では3である。
+前者の閉包が中心を含むことは、$u=h,v=z$ の元135式を満たす整な曲線で確認する。
+両閉包は $R$ の一般点を覆うため、その一般次数を $e_3,e_D\ge1$ とすれば
+\[
+ 5\ge\operatorname{rank}_RS\ge\operatorname{rank}_R S/(t)
+     \ge2e_3+3e_D\ge5.
+\]
+従って全て等号となる。全射 $R^5\to S$ の核は自由加群の階数零部分加群なので零であり、
+$S$ 自体が自由5となる。同じ理由で $(t)=0$ である。
+raw135 の平坦性や $p$-torsion 除去を先に仮定した議論ではない。
+単元の根を取る非分岐拡大と重み作用により、全非零二重根方向も覆われる。
+
+各特殊中央の全非零幾何支持がこうして元 $V$ 上の実周囲の $t$ 冪零近傍で覆われる。
+ここで実際に $B=\mathcal O/(I:t^\infty)$ を先に取り、その相対完成を考える。
+この環の中央支持は原点だけなので、完備 Nakayama により非正重み底 $A$ 上有限となる。
+有限斉次生成元の重みは上に有界であるため、正重みの $t$ は $B$ で冪零となる。
+一方、実飽和により $t$ は非零因子なので $B=0$ である。
+飽和と特殊化の交換を仮定せず、元全周囲の消滅を得た。
+
+試験曲線には有限全射
+\[
+ \PP^1_V\longrightarrow\PP(2,2,3)_V,
+       \qquad [s_0:s_1]\longmapsto[s_0^2:2s_0^2:s_1^3]
+\]
+がある。実 bad 支持の閉逆像は全特殊幾何点を避けるので、固有性により標数零の一般 fibre も空である。
+従って標数零で $c=2a$ の完全試験曲線は bad 支持を避ける。
+$\PP(2,2,3)$ では $(c-2a)^3$ は可逆 ample 束 $\mathcal O(6)$ の非零切断である。
+正次元の閉 bad core はこの因子と交わるはずなので、残る projective core は有限集合となる。
+$\mathcal O(2)$ が全域で可逆であるとは仮定しない。
+
+固定旗の源は $\mathbf G_m\times\mathbf A^1\times\mathbf A^3_{a,c,h}\times\mathbf A^8$ と表示され、
+最後の八 nuisance は全て正の収縮重みを持つ。
+零 nuisance の core が除去されれば、閉性とこの別の収縮作用により同じ core の全八方向も除去される。
+有限 projective core の affine 逆像は一次元なので、bad 源の次元は $1+1+1+8=11$ 以下、
+旗の四次元軌道を加えても15以下である。
+零 core ではさらに小さく、$b_1=0$ との交叉は既処理である。
+従って十六次元の十分一般の $\beta$ はこの像を避け、指定平方層全体の除去が従う。
+\end{proof}
+
+この定理は非平方の残余 core、全一般 fibre の未知点、全成分数の上界を決めない。
+証明で使った中央支持、有限体の横断上界、同じ入射の一般厚み、混合標数の全周囲、
+固有試験曲線から一般底への全層除去は、それぞれ異なる段階として区別する。
+
+\section{全模型の十七底変数有限表示と残る支持}\label{sec:seventeen-base-v62}
+
+\begin{theorem}\label{thm:seventeen-base-v62}
+十分一般の一次ジェット上で、元134式を全て保持した斉次代数は、
+十七個の明示的な線形底変数上1031元以下で有限生成される。
+また、既知 $\PP^3$ を通る一般 $\PP^{29}$ と元式の交叉は、スキームとして被約な既知五点に等しい。
+\end{theorem}
+\begin{proof}
+既存の25平面枠を
+$(t,\mathrm{plane}_1,\mathrm{plane}_2,\mathrm{plane}_3,w_1,\ldots,w_{22},y_1,\ldots,y_{20})$
+と書く。$t$ と旧 $y_1,y_2,y_3$ を未知数側へ入れ、残る十七個について
+\[
+ Y_j=y_{j+3}+v_jt\quad(1\le j\le17)
+\]
+とする。$v$ は保存した整数方向であり、全十七変数を残す。
+未知数 $Z$ は $Z_0=t$ を含む29個となる。
+$Y=0$ の元二次式 $F_i^0(Z)$ の商は指定した良い還元で
+\[
+ \operatorname{HF}=(1,29,301,700,0,\ldots)
+\]
+を持つ。二次・三次・四次の実際の元式の倍に関する有限行列の非零小行列から、
+全四次単項式は元式で消去できる。
+有理分母と普遍枠は保存点で32003の単元なので、この全射は標数零の十分一般の一次ジェットへ広がる。
+全 $Y$ を戻せば $Z$ 四次を三次以下へ戻せ、生成数は $1+29+301+700=1031$ 以下となる。
+独立基底や全底上の平坦性を仮定してはいない\cite{seventeen-base-v62}。
+
+さらに保存した還元では、元134式そのものの二次 cofactor $H_i$ を構成し、
+\[
+ t^4=\sum_{i=1}^{134}H_iF_i^0
+\]
+の全35960係数を掛け直して検証した。
+全式を $F_i(Z,Y)=F_i^0+\sum_jY_jL_{ij}+\sum_{j\le k}Y_jY_kc_{ijk}$ と書くと、同じ cofactor により
+\[
+ t^4=\sum_iH_iF_i-\sum_jY_jC_j(Z,Y)
+\]
+となる。$Y Z^3$ の75817係数と $Y^2 Z^2$ の63839係数を別の累積計算で照合した。
+この具体的な係数恒等式は保存した有限体上のものであり、標数零の係数へそのまま読み替えない。
+一般底で用いるのは、上の非零小行列が与える有限生成の証明である。
+
+$Y=v$ の全有限代数は保存点で長さ5、$t-1=0$ となり、既知五点で尽くされる。
+非零小行列を局所化した整な底 $R$ 上でも全族は有限なので、Nakayama により $R^5$ から全射がある。
+既知五点が一般底でも残るため一般階数は5以上、従って正確に5である。
+全射の核は自由加群の階数零部分加群なので零となり、族は $R$ 上自由5である。
+こうして標数零でも同じ切断は既知五点となる。
+$Y=0$ には射影点がないので、$[Z:Y]\mapsto[Y]$ は有限な射であり、
+$[Y]=[v]$ の全 fibre はこの affine 計算で覆われる。
+これは既知 $\PP^3$ を含む $\PP^{29}$ 切断である。
+残余支持の proper 像を避ける開性から、一般切断についても結論が従う。
+\end{proof}
+
+\begin{proposition}
+既知 $\PP^3$ を通る一般 $\PP^{30}$ 切断も、スキームとして被約な既知五点に等しい。
+\end{proposition}
+\begin{proof}
+独立な保存整数方向 $v,w$ に対し、底の全射影直線 $Y=sv+aw$ を残す。
+元134式を29個の $Z$ と $s,a$ の全31変数に制限し、実際の元式の倍による有限行消去を行う。
+四次46376単項式に対する行空間の階数は46371以上となる。
+既知五点への評価の階数が5なので、四次商の次元は正確に5である。
+五点のイデアルを $J$、制限した元式を $I$ とすると $I\subset J$ かつ $I_4=J_4$ となる。
+$J$ は既知三平面の一次式と五点の二次式で生成されるため、全生成元に十分な単項式を掛けると $I$ に入り、
+射影イデアル層は一致する。
+有限行列の非零小行列は標数零の一般一次底へ広がり、残余支持の proper 像から一般切断の結論も従う
+\cite{p30-section-v62}。
+底の直線の支持は $[v]$ のみであるが、この一本の直線の外の全底支持を尽くしてはいない。
+\end{proof}
+
+\paragraph{全十七底変数上の実 $t$ 作用}
+有限生成記号を $E$ とし、$B=k[Y_1,\ldots,Y_{17}]$ とする。
+全射 $\varphi:B^{1031}\to A$ に対し、任意の入力 $u$ について
+\[
+ t\,\operatorname{poly}_E(u)-\operatorname{poly}_E(T_t(Y)u)
+      =\sum_{i=1}^{134}K_i(Z,Y;u)F_i(Z,Y)
+\]
+を作る有限多項式回路 $T_t(Y)$ を構成した。
+四次、三次、二次の順の定数逆行列を通じて、全消去を元式の cofactor へ戻す。
+分母は $Y$ に依存せず、各成分の $Y$ 次数は4以下である。
+従って $\varphi T_t=t\varphi$ となり、実際の関係核はこの作用で保たれる。
+全パラメータの正しさは上の元式の恒等式によるもので、有限個の入力の補間ではない
+\cite{t-action-v62}。
+さらに $t^4$ を1031記号へ完全に戻した正常形は90896項を持ち、
+元式の cofactor との等式の全211876係数を独立に掛け直して確認した。
+保存された明示係数は指定有限体上であり、一般標数零では同じ非零小行列による構成を用いる。
+
+全代数での $t^4$ の正常形は零ではなく、$t$ の大域的冪零性を意味しない。
+全十七底での $t$ 可逆支持、$\varphi$ の全関係核と交換子の安定閉包は未計算である。
+自由記号空間を実際の代数と同一視せず、この有限表示や一つの長さ5の fibre から全一般 fibre を尽くしたとはしない。
+
+\subsection{非平方側の全二次被覆と枠の共通欠損}
+非平方 core の既存記号で
+\[
+ F=500a+90e^2+3e-24,\quad
+ B=(50a+18e^2-9e-2)d+60e-40,\quad C=100a+18e^2-9e-2
+\]
+と置く。七 light 変数の六二次残余は $aFBC\ne0$ の\emph{全点}で独立である。
+既知の三 pivot を除いた三行二十五列の全3次小行列について、既知単元だけを除き、
+残る1010多項式と $zaFBC-1$ の有理数体上のイデアルが単位イデアルとなることを確認した。
+これで二次階数の欠損曲線自体が指定開に存在しない\cite{nonsquare-cover-v62}。
+三次・四次の全射や周囲 $t$ の冪零性はこの結論に含めない。
+
+また二枠の共通欠損 $B=D_0=0$ は、$S=3e-2$ により
+$a=-3S(e+1)/50$、$d=-20/S$ と書ける。
+全八 nuisance と $\Sp_4$ 作用を残した一次像の微分には多項式左核があり、
+全点で階数15以下となる。実際の15次非零小行列も得られるので、像次元は正確に15である。
+従って十分一般の十六次元一次底はこの共通枠欠損を避ける\cite{nonsquare-frame-v62}。
+残る非平方 core の全三次・四次条件と、未知枝を除く全根基比較は依然として別の問題である。
+
+\subsection{三次の重い欠損曲線を除く}
+既存の十五行七列の heavy-light 行列の欠損集合を $Y\subset\{aFBC\ne0\}$ とする。
+その有理数体上の余核の annihilator は高々一次元である。
+この同じ25整数式の固有な $\PP^4_{\mathbf Z_{(32003)}}$ 模型を使い、
+特殊無限遠が零次元であること、特殊 affine 曲線が全て $a$ を優越することを確認した。
+$a=1$ の有限自由長4の全幾何点は二つの二次体上の二つの Galois 対で覆われる。
+同じ三十六次小行列が両二次体で非零なので、特殊模型の全曲線一般点で全三次階数は57となる。
+小行列を斉次化した proper な不良閉集合の特殊 fibre が零次元以下であることから、
+標数零でも不適格点は高々有限となる\cite{heavy-defect-v62}。
+
+同じ四点で、元135式の実際の帰結から作る重み四428行300列の同じ300次小行列も非零である。
+同じ固有模型の議論で、$Y$ の各曲線の一般点で四次行列は全射となる。
+真の横断商の重み0,1,2,3の次元上界は $(1,7,23,34)$、四次以後は零なので長さは65以下である。
+既存の同じ H11 入射の相対一般長65と比べると、全 H11 底を残した完成環が相対自由65、$t^2=0$ となる。
+全八 nuisance の収縮を戻すと、残る不適格 core は有限であり、
+自由な三次元群作用を除いた joint 像の次元は $10+8+0-3=15$ 以下である。
+従って十分一般の一次ジェット上では、この重い欠損曲線に由来する marked 非平方残余は全て除かれる。
+重い行列の階数7の場所にある別の三次・四次欠損はこの結論に含めず、全非平方層の尽くしは未証明である。
+
 \begingroup\footnotesize
 \begin{thebibliography}{99}
 \setlength{\itemsep}{0pt}
@@ -6375,6 +6831,23 @@ Section 11.1, Example 11.1.11 and Exercise 11.8.
 \bibitem{d-zero-review-v61} 同プロジェクト、\nolinkurl{research/notes/S61_BINARY_D_ZERO_BRIDGE_REVIEW_20261103.md}。
 \bibitem{d-zero-pencil-v61} 同プロジェクト、\nolinkurl{reports/S61_BINARY_D_ZERO_PENCIL_20261103_V2/report.json}、元135式からの有限試験直線・Smith変換・重み四行加群の再現記録。
 \bibitem{d-zero-geometry-v61} 同プロジェクト、\nolinkurl{reports/S61_BINARY_D_ZERO_GEOMETRY_20261103.json}、固定一次ジェットの全第二因子直線と実旗端点の幾何確認。
+\bibitem{ambient-intersection27-v62} 同プロジェクト、\nolinkurl{research/notes/AMBIENT_INTERSECTION_DIMENSION27_20261103_v62.md}、全17変数の有限射影恒等式・27次元の実交叉族。
+\bibitem{ambient-intersection27-review-v62} 同プロジェクト、\nolinkurl{reports/AMBIENT_INTERSECTION_DIMENSION27_20261103_v62_REVIEW.json}、別の生係数・Jacobi・微分小行列・端点変換による独立監査。
+\bibitem{ambient-fixed-jet-v62} 同プロジェクト、\nolinkurl{research/notes/AMBIENT_FIXED_FIRSTJET_INTERSECTION_20261103_v62.md}、\nolinkurl{reports/AMBIENT_FIXED_FIRSTJET_FAMILIES_20261103_v62/report.json}。
+\bibitem{mps-general-v62} 同プロジェクト、\nolinkurl{research/notes/MPS_S61_CATALOGUE_20261103_v62.md}、全37平滑化族、38像次元と局所Torelli依存。
+\bibitem{known51-maps-v62} 同プロジェクト、\nolinkurl{research/notes/KNOWN51_RANK4_COORDINATE_MAPS_20261103_v62.md}、\nolinkurl{code/data/known51_rank4_s61_coordinate_catalogue_20261103_v62.json}。
+\bibitem{known51-review-v62} 同プロジェクト、\nolinkurl{reports/KNOWN51_COORDINATE_MAPS_20261103_v62_REVIEW.json}、全51 archive・追加11一般Jacobi・次元小行列・有限枠の独立検査。
+\bibitem{known51-jets-v62} 同プロジェクト、\nolinkurl{research/notes/KNOWN51_FIRSTJET_IMAGE_DIMENSIONS_20261103_v62.md}、\nolinkurl{reports/KNOWN51_FIRSTJET_DIMENSION_TABLE_20261103_v62.json}、\nolinkurl{reports/KNOWN51_FIRSTJET_IMAGE_DIMENSIONS_20261103_v62_REVIEW.json}。
+\bibitem{seventeen-base-v62} 同プロジェクト、\nolinkurl{research/notes/S61_AFFINE_SEVENTEEN_BASE_LIFT_20261103_v62.md}、全134式の十七底変数有限表示と一般29平面切断。
+\bibitem{nonsquare-cover-v62} 同プロジェクト、\nolinkurl{research/notes/S61_BINARY_NONSQUARE_QUADRATIC_COVER_20261103_v62.md}、全指定開上の六二次残余の独立性。
+\bibitem{nonsquare-frame-v62} 同プロジェクト、\nolinkurl{research/notes/S61_BINARY_NONSQUARE_FRAME_GAP_20261103_v62.md}、全八nuisanceを含む枠欠損像の次元。
+\bibitem{sigma-full-v62} 同プロジェクト、\nolinkurl{research/notes/S61_MARKED_SIGMA_FULL_PENCIL_BRIDGE_20261103_v62.md}、完全試験曲線・実飽和支持・指定平方層の除去。
+\bibitem{sigma-full-review-v62} 同プロジェクト、\nolinkurl{research/notes/S61_MARKED_SIGMA_FULL_PENCIL_BRIDGE_20261103_v62_REVIEW.md}、元環・非正底・全特殊支持・固有性の最終独立監査。
+\bibitem{resonant-direction-v62} 同プロジェクト、\nolinkurl{research/notes/Q_RESONANCE_INTEGRABLE_DIRECTION_20261103_v62.md}、\nolinkurl{reports/Q_RESONANCE_INTEGRABLE_DIRECTION_20261103_v62_REVIEW.json}、共鳴追加方向の全パラメータ曲線と重み部分の完全な二次延長条件。
+\bibitem{p30-section-v62} 同プロジェクト、\nolinkurl{research/notes/S61_AFFINE_BASE_LINE_SUPPORT_20261103_v62.md}、全底直線の元134式と一般30平面切断。
+\bibitem{t-action-v62} 同プロジェクト、\nolinkurl{research/notes/S61_AFFINE_T_ACTION_CIRCUIT_20261103_v62.md}、全1031入力の実作用と全17底変数の正常形。
+\bibitem{heavy-defect-v62} 同プロジェクト、\nolinkurl{research/notes/S61_BINARY_NONSQUARE_HEAVY_CURVE_CUBIC_20261103_v62.md}、\nolinkurl{research/notes/S61_BINARY_NONSQUARE_HEAVY_CURVE_QUARTIC_20261103_v62.md}、同じ固有模型の三次・四次と実全周囲の橋。
+\bibitem{resonant-normal-v62} 同プロジェクト、\nolinkurl{research/notes/Q_RESONANCE_NORMAL_DIVISOR_20261103_v62.md}、\nolinkurl{reports/Q_RESONANCE_NORMAL_DIVISOR_20261103_v62_REVIEW.json}、実因子のJacobian次元と正規性・有限対角同値。
 \end{thebibliography}
 \endgroup
 \end{document}

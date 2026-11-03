@@ -28,7 +28,7 @@
 \begin{document}
 \title{射影4空間の Poisson 構造\\\large 現状評価と継続方針：第24版評価と現行追補}
 \author{植田一石氏の研究 bundle に対する評価メモ}
-\date{原評価2026年10月30日・2026年11月3日追補（v61-s61）}
+\date{原評価2026年10月30日・2026年11月3日追補（v62-s61）}
 \maketitle
 \begin{abstract}
 \texttt{p4\_poisson\_completeness\_v24.zip} とその保存旧版を読み、
@@ -120,7 +120,91 @@ $c=2a$ の有限部には全パラメータに分母のない14変数模型が�
 重み四561行269列の全射を確認し、実際の旗端点を含む全第二因子の射影直線を処理した。
 支持面の既約因子への固有像により、十分一般の $\beta$ 上の全層が除去される。
 $a=0$ と $d=0$ の二層を除いても、全非平方 marked 境界の尽くしとはならない。
-残る不変因子に対する Jacobi 由来の制約と、平方側の全周囲入射の追加解析は未解決である。
+残る非平方不変因子に対する Jacobi 由来の制約は未解決である。
+平方側の全周囲入射は、以下の追補で全層の除去へ接続した。
+
+\subsection{指定平方層の全一般底での除去}
+指定平方層 $\Sigma$ 全体は、十分一般の一次ジェット上で実際の $t$ 飽和境界を避ける。
+$c=2a$ の有限全パラメータと実際の射影端点を、元135式の全周囲で扱った。
+特に旧二次平面の重根接続では、二つの異なる同じ入射支持の一般厚み2と3が、
+真の混合切断による特殊横断長5を使い切る。
+元の全完成環そのものが正則17切断の底上自由5となり、$t=0$ を得る。
+raw 環の平坦性や $p$-torsion 除去を先に仮定していない。
+
+全非零特殊中央支持を実混合標数の消滅近傍で覆い、実 $I:t^\infty$ の商を先に取る。
+その中央支持が原点のみであることから非正重み底上の有限性を得る。
+正重みの $t$ は冪零かつ非零因子なので、その飽和商は零となる。
+完全試験曲線の proper な被覆と、$(c-2a)^3\in\mathcal O(6)$ の ample 因子により、
+bad projective core は有限となる。
+全八 nuisance を保持した源の次元に旗の四次元を加えても15以下なので、一般の16次元一次底を避ける
+\cite{sigma-full-v62}。
+有限体の中央商の $t^2=0$ や非 proper な一開集合だけから、標数零全層へ外挿した結論ではない。
+非平方の未分類 core と全一般アフィン五点の尽くしは引き続き未解決である。
+
+\subsection{既知全51階数四成分の座標化と一次像}
+既知の MPS40成分と追加11成分の全てについて、一般パラメータから全 $S_{61}$ 成分を
+優越する有限有理演算による61座標写像を構成した。
+全一般係数の Jacobi、MPS の局所 Torelli による成分同定、
+全 $\Sp_4$ と共形スカラーを保持する値・perspective 正規化を区別して証明している。
+特殊化での元134式の検算だけを一般恒等式の証明としていない。
+全51写像の機械可読な archive と個別 hash が保存され、独立な全出力監査も完了した
+\cite{known51-v62}。
+
+各一次像の次元も、非零小行列と幾何的上界、または全一般有理関数体上の厳密な微分階数で決定した。
+既知51件の中で一般 $W_{16}$ を優越するものは正確に $T01,T39,T40$ だけで、
+その既知部分の一般 fibre は被約五点で尽くされる。
+これは未知成分からの点を除いたという結論ではない。
+$\mathcal C_A,\mathcal C_B$ の一次像は9次元・一般 fibre は10次元、
+$T13,T30$ は像13次元・fibre1次元、$T21$ は像10次元・fibre5次元、
+$T38$ は像12次元・fibre3次元である\cite{known51-jets-v62}。
+他の特殊一次像も統一した表で記録した。全定義素イデアルや特殊 fibre の非被約構造は別課題である。
+
+\subsection{26/27次元の交叉問題の決着}
+原評価で副課題とした端点 $Q$ の問題について、
+\[
+ \dim_Q(\mathcal C_A\cap\mathcal C_B)=27
+\]
+を証明した。新しい既約27次元交叉成分 $\mathcal N$ は旧磁気族 $\mathcal M$ 全体を含むので、
+26次元の $\mathcal M$ 自身は交叉の既約成分ではない。
+実際の17変数族 $f_A=x_0(x_0+px)$ に対し、有限射影変換 $x'_0=x_0+px$ と Euler-vertical 補正が
+$f_B=(x'_0-px)^2$ の $\mathcal C_B$ 族を厳密に与える。
+全係数の恒等式と実微分の射影階数27を確認し、異なる28次元成分の交叉の上界27と合わせた。
+$p=0$ で全磁気族と $Q$ が残ることも元座標で検証した\cite{intersection27-v62}。
+交叉成分の一意性、交叉の scheme 構造、$Q$ の完成局所環までは決めていない。
+後続の原評価内にある26/27未決の記述は、この追補で更新される。
+
+さらに共鳴値 $\kappa=1/4$ で増える接方向は、実際の二次多項式曲線
+$P_\varepsilon=Q_{2/9}+\varepsilon R-75\varepsilon^2x_4^2\partial_{01}$ へ積分できる。
+全パラメータの raw Jacobi と divergence は恒等零で、一般接核の正則極限に含まれない追加方向である。
+重み $-1$ の四次元接部分の二次障害錐も計算し、その非零の延長可能方向はこの一方向のみとなる
+\cite{resonance-v62}。
+従って副課題L2の追加方向の積分可能性について一つの明確な定理を得た。
+全35変数の完成局所模型や全局所枝は依然として未解決である。
+この曲線の全非零パラメータでは実際の退化五次因子が幾何学的に整かつ正規である。
+パラメータ $\varepsilon=1$ の全 Jacobian 理想の affine 次元2と Serre の判定を、有限対角同値で全非零値へ移す。
+従って正規な実因子から五重超平面への明示的な退化も得た\cite{resonant-normal-v62}。
+この正規性計算だけから成分のラベルや全局所枝を追加しない。
+
+\subsection{全模型の十七変数有限表示}
+元134式全体を十七底変数上1031生成以下の有限代数へ縮約した。
+未知数に $t$ を含めた29変数の四次を全て三次以下へ戻し、一般底での有限性を非零小行列で証明する。
+保存した有限体上では、元式への二次 cofactor による $t^4$ の全35960係数と、
+全十七底変数を戻した $YZ^3,Y^2Z^2$ の全係数を独立に照合した。
+その還元式は $t^4=-\sum_jY_jC_j$ であり、一般底での $t^4=0$ を主張しない。
+有限族の長さ5の持上げにより、既知 $\PP^3$ を通る一般 $\PP^{29}$ 切断はスキームとして被約五点になる
+\cite{seventeen-v62}。
+さらに元式を全底直線 $Y=sv+aw$ に制限し、四次46376単項式に対する行階数46371と
+五点評価の階数5から、一般 $\PP^{30}$ 切断も被約五点となることを証明した。
+全1031入力記号への $t$ 乗算は全十七底変数を保つ有限多項式回路として構成した。
+$t^4$ の全正常形90896項と元式 cofactor の全211876係数を独立に検査している。
+これは自由記号を実際の代数と同一視するものではない。
+全関係核、全十七底の $t$ 可逆支持と交換子の安定閉包は未計算であり、一般 fibre の尽くしは未解決である
+\cite{affine-final-v62}。
+
+非平方側では、重い三次 coker の欠損曲線の各成分の一般点に、元式からの四次行列の全射を与えた。
+同じ入射の実相対長65との比較で全周囲 $t^2=0$ を得て、nuisance の収縮と像次元15の評価により
+この重い欠損層を一般一次底上で除去した\cite{heavy-final-v62}。
+他の三次・四次欠損を含む全非平方層の除去はまだ別の未解決課題である。
 
 最新の日本語研究草稿は
 \nolinkurl{papers/s61_first_jet_reduction_ja.tex}、
@@ -684,5 +768,33 @@ Example 5.6、Theorem 7.5。
 \emph{射影4空間の Poisson 構造：研究継続第24版}、2026年10月29日。
 添付 \texttt{p4\_poisson\_completeness\_v24.zip}。
 本評価では同梱の保存旧版を含めて参照した。
+\bibitem{known51-v62} 同プロジェクト、
+\nolinkurl{research/notes/KNOWN51_RANK4_COORDINATE_MAPS_20261103_v62.md}、
+\nolinkurl{research/notes/MPS_S61_CATALOGUE_20261103_v62.md}、
+\nolinkurl{reports/KNOWN51_COORDINATE_MAPS_20261103_v62_REVIEW.json}。
+\bibitem{known51-jets-v62} 同プロジェクト、
+\nolinkurl{research/notes/KNOWN51_FIRSTJET_IMAGE_DIMENSIONS_20261103_v62.md}、
+\nolinkurl{reports/KNOWN51_FIRSTJET_DIMENSION_TABLE_20261103_v62.json}、
+\nolinkurl{reports/KNOWN51_FIRSTJET_IMAGE_DIMENSIONS_20261103_v62_REVIEW.json}。
+\bibitem{intersection27-v62} 同プロジェクト、
+\nolinkurl{research/notes/AMBIENT_INTERSECTION_DIMENSION27_20261103_v62.md}、
+\nolinkurl{reports/AMBIENT_INTERSECTION_DIMENSION27_20261103_v62_REVIEW.json}。
+\bibitem{seventeen-v62} 同プロジェクト、
+\nolinkurl{research/notes/S61_AFFINE_SEVENTEEN_BASE_LIFT_20261103_v62.md}、
+\nolinkurl{reports/S61_AFFINE_SEVENTEEN_BASE_20261103_v62_REVIEW.json}。
+\bibitem{sigma-full-v62} 同プロジェクト、
+\nolinkurl{research/notes/S61_MARKED_SIGMA_FULL_PENCIL_BRIDGE_20261103_v62.md}、
+\nolinkurl{research/notes/S61_MARKED_SIGMA_FULL_PENCIL_BRIDGE_20261103_v62_REVIEW.md}。
+\bibitem{resonance-v62} 同プロジェクト、
+\nolinkurl{research/notes/Q_RESONANCE_INTEGRABLE_DIRECTION_20261103_v62.md}、
+\nolinkurl{reports/Q_RESONANCE_INTEGRABLE_DIRECTION_20261103_v62_REVIEW.json}。
+\bibitem{resonant-normal-v62} 同プロジェクト、
+\nolinkurl{research/notes/Q_RESONANCE_NORMAL_DIVISOR_20261103_v62.md}、
+\nolinkurl{reports/Q_RESONANCE_NORMAL_DIVISOR_20261103_v62_REVIEW.json}。
+\bibitem{affine-final-v62} 同プロジェクト、
+\nolinkurl{research/notes/S61_AFFINE_BASE_LINE_SUPPORT_20261103_v62.md}、
+\nolinkurl{research/notes/S61_AFFINE_T_ACTION_CIRCUIT_20261103_v62.md}。
+\bibitem{heavy-final-v62} 同プロジェクト、
+\nolinkurl{research/notes/S61_BINARY_NONSQUARE_HEAVY_CURVE_QUARTIC_20261103_v62.md}。
 \end{thebibliography}
 \end{document}

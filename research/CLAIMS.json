@@ -527,7 +527,7 @@
       "scope": "Normal actual divisors; five independent partial derivatives are essential. Scheme recognition is separate from point classification.",
       "status": {
         "proof": "bundled_complete_proof_claim",
-        "independent_review": "selected_proof_read_not_full_independent_audit",
+        "independent_review": "complete_dependency_scope_and_proof_audit_2026_11_03_saved_numeric_checks_reused",
         "certificates": "reproduced_v14_normal_symbolic_and_independent_integer_witnesses",
         "novelty": "not_independently_established"
       },
@@ -544,16 +544,22 @@
         },
         {
           "path": "legacy/v14/proofs/normal_quintic_full_scheme_audit.txt"
+        },
+        {
+          "path": "research/notes/NORMAL_QUINTIC_RECOGNITION_AUDIT_20261103_v62.md"
         }
       ],
       "verification_records": [
         "audits/2026-10-30/v14_recheck/verification_summary.json",
-        "audits/2026-10-30/geometry_strategy.txt"
+        "audits/2026-10-30/geometry_strategy.txt",
+        "reports/NORMAL_QUINTIC_RECOGNITION_AUDIT_20261103_v62.json"
       ],
       "limitations_ja": [
         "同じHilbert関数の任意のGorenstein曲線がgradientとして生じるとは限らない。",
         "標本計算の成功は全相対スキーム論証の独立証明ではない。"
-      ]
+      ],
+      "current_audit_scope_ja": "証明・全分岐被覆・外部定理の仮定を監査し、全5監査341入力hashを照合。変更のない旧数値証明書は保存済み独立検証を再利用し、今回すべてを再実行したとはしない。",
+      "relative_normality_hypothesis": "Geometric fibers normal, including arbitrary nonreduced C-base; not normality of the total divisor over a nilpotent base."
     },
     {
       "id": "NORMAL_CLASSIFICATION",
@@ -562,7 +568,7 @@
       "scope": "Complex closed-point classification; normality of D itself, not merely D_red.",
       "status": {
         "proof": "bundled_complete_proof_claim",
-        "independent_review": "selected_central_proofs_read_long_dependency_chain_not_fully_independently_audited",
+        "independent_review": "complete_dependency_scope_and_proof_audit_2026_11_03_saved_numeric_checks_reused",
         "certificates": "archived_not_all_rerun_in_2026_10_30_review",
         "novelty": "not_independently_established"
       },
@@ -606,17 +612,38 @@
         },
         {
           "path": "legacy/v21/sections/space_geometry.tex"
+        },
+        {
+          "path": "research/notes/NORMAL_ACTUAL_INACTIVE_LINE_SCOPE_AUDIT_20261103_v62.md"
+        },
+        {
+          "path": "research/notes/NORMAL_ACTUAL_E6_E8_GEOMETRY_AUDIT_20261103_v62.md"
+        },
+        {
+          "path": "research/notes/NORMAL_ACTUAL_RNC4_COVER_AUDIT_20261103_v62.md"
+        },
+        {
+          "path": "research/notes/NORMAL_ACTUAL_EIGHT_SUPPORT_AUDIT_20261103_v62.md"
+        },
+        {
+          "path": "research/notes/NORMAL_QUINTIC_RECOGNITION_AUDIT_20261103_v62.md"
         }
       ],
       "verification_records": [
-        "audits/2026-10-30/geometry_strategy.txt"
+        "audits/2026-10-30/geometry_strategy.txt",
+        "reports/NORMAL_ACTUAL_INACTIVE_LINE_SCOPE_AUDIT_20261103_v62.json",
+        "reports/NORMAL_ACTUAL_E6_E8_GEOMETRY_AUDIT_20261103_v62.json",
+        "reports/NORMAL_ACTUAL_RNC4_COVER_AUDIT_20261103_v62.json",
+        "reports/NORMAL_ACTUAL_EIGHT_SUPPORT_AUDIT_20261103_v62.json",
+        "reports/NORMAL_QUINTIC_RECOGNITION_AUDIT_20261103_v62.json"
       ],
       "limitations_ja": [
-        "v14-v22の全証明書・全還元は今回再検証していない。",
+        "全証明と還元のscope監査を完了した。変更のない旧数値証明書は保存済み独立検証を再利用し、今回全てを再実行したとはしない。",
         "Pym既刊定理のpurely elliptic仮定をnormalityだけに置き換えて引用しない。",
         "5Hは対象外。",
         "閉点分類から全モジュライのscheme同型を追加推論しない。"
-      ]
+      ],
+      "current_audit_scope_ja": "証明・全分岐被覆・外部定理の仮定を監査し、全5監査341入力hashを照合。変更のない旧数値証明書は保存済み独立検証を再利用し、今回すべてを再実行したとはしない。"
     },
     {
       "id": "T37_IDENTIFICATION",
@@ -720,9 +747,9 @@
       ],
       "limitations_ja": [
         "MのQでの滑らかさは未証明。",
-        "Mが交差の一成分か、交差全体が26次元かは未決。",
         "表示族の微分像と成分自身の全接空間を同一視しない。"
-      ]
+      ],
+      "later_resolution": "Q_INTERSECTION_DIMENSION_27"
     },
     {
       "id": "Q_OBSTRUCTIONS",
@@ -10062,6 +10089,444 @@
       "limitations_ja": [
         "成分ラベル・次元上界はMPS局所Torelliと追加族の既存定理への明示依存。",
         "全定義素イデアルの生成系、全根基一致、成分上界を構成済みとはしない。"
+      ]
+    },
+    {
+      "id": "Q_INTERSECTION_DIMENSION_27",
+      "title_ja": "QでのCA∩CBは27次元、Mは交差成分ではない",
+      "statement_ja": "17パラメータの実共通族のPGL飽和閉包Nは27次元既約交差成分で、全磁気MとQを含む。従ってdim_Q(CA∩CB)=27、26次元Mは交差成分ではない。",
+      "scope": "Actual reduced intersection, before PGL5 quotient; full150-coordinate identity and actual differential, not tangent-image identification.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v62",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "Q_COMMON_26"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_INTERSECTION_DIMENSION27_20261103_v62.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_INTERSECTION_DIMENSION27_20261103_v62_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_INTERSECTION_DIMENSION27_20261103_v62/report.json",
+        "reports/AMBIENT_INTERSECTION_DIMENSION27_20261103_v62_REVIEW.json"
+      ],
+      "limitations_ja": [
+        "27次元交差成分の一意性、全ideal、非被約構造・完成局所環は主張しない。",
+        "全Poisson成分の個数には加算しない。"
+      ]
+    },
+    {
+      "id": "KNOWN51_FIRSTJET_IMAGE_DIMENSIONS",
+      "title_ja": "全既知51階数四成分の一次像・一般ファイバー次元",
+      "statement_ja": "全51の一次像次元を正確な微分下界と幾何または全関数体の階数上界で決定した。像を優越するのはT01,T39,T40だけである。一般ファイバー次元は各成分次元と像次元の差である。",
+      "scope": "Reduced known components and dimensions of their natural firstjet projections; residual Sp4 retained.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v62",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "KNOWN51_RANK4_S61_COORDINATE_MAPS"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/KNOWN51_FIRSTJET_IMAGE_DIMENSIONS_20261103_v62.md"
+        },
+        {
+          "path": "research/notes/KNOWN51_FIRSTJET_IMAGE_DIMENSIONS_20261103_v62_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/KNOWN51_FIRSTJET_DIMENSION_TABLE_20261103_v62.json",
+        "reports/KNOWN51_FIRSTJET_IMAGE_DIMENSIONS_20261103_v62_REVIEW.json"
+      ],
+      "limitations_ja": [
+        "一般ファイバーの全点、交叉、非被約構造は分類していない。",
+        "未知成分の不存在・総数上界は結論しない。"
+      ]
+    },
+    {
+      "id": "S61_MARKED_SIGMA_OLD_DOUBLE_JUNCTION",
+      "title_ja": "旧二重根実接続点のraw混合標数自由5",
+      "statement_ja": "旧二重根の同じ実点でδu4+δu20の混合切断が上界5となる。二つの異なる同じ入射閉包の一般下界2と3を合わせ、raw135完成環が正則17底上自由5、t=0となる。",
+      "scope": "Both residue roots, actual rawV ring, no pre-removal of p-torsion.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v62",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_MARKED_SIGMA_OLD_RESIDUE_OPEN_REMOVAL"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_MARKED_SIGMA_OLD_DOUBLE_JUNCTION_20261103_v62.md"
+        },
+        {
+          "path": "research/notes/S61_MARKED_SIGMA_OLD_DOUBLE_JUNCTION_20261103_v62_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_MARKED_SIGMA_OLD_DOUBLE_MIXED_CERTIFICATE_20261103_v62_FINAL/report.json",
+        "reports/S61_MARKED_SIGMA_OLD_DOUBLE_JUNCTION_FAMILY_20261103_v62.json",
+        "reports/S61_MARKED_SIGMA_OLD_DOUBLE_MIXED_CERTIFICATE_20261103_v62_REVIEW.json"
+      ],
+      "limitations_ja": [
+        "全一般ファイバー五点の主張ではない。"
+      ]
+    },
+    {
+      "id": "S61_MARKED_SIGMA_FULL_PENCIL_REMOVAL",
+      "title_ja": "指定平方のc=2a全試験曲線の除去",
+      "statement_ja": "全特殊中央支持の実周囲V除去、実t飽和商の有限正重み補題、射影端点とproperなP1_V被覆により、標数零c=2a試験曲線の全点で周囲tは局所冪零である。",
+      "scope": "Entire characteristic-zero test curve, including ratios reducing to the old discriminant and nonintegral parameters.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v62",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_MARKED_SIGMA_OLD_DOUBLE_JUNCTION",
+          "S61_MARKED_SIGMA_STANDARD_FLAG_SPREAD",
+          "S61_MARKED_SIGMA_FINITE_EXTRAS_REMOVAL",
+          "S61_MARKED_SIGMA_NEW_QUADRATIC_AXIS_REMOVAL"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_MARKED_SIGMA_FULL_PENCIL_BRIDGE_20261103_v62.md"
+        },
+        {
+          "path": "research/notes/S61_MARKED_SIGMA_FULL_PENCIL_BRIDGE_20261103_v62_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_MARKED_SIGMA_FULL_PENCIL_BRIDGE_20261103_v62.json",
+        "reports/S61_MARKED_SIGMA_FULL_PENCIL_BRIDGE_20261103_v62_REVIEW.json"
+      ],
+      "limitations_ja": [
+        "全点に共通する数値冪指数は特定しない。"
+      ]
+    },
+    {
+      "id": "S61_MARKED_SIGMA_FULL_STRATUM_REMOVAL",
+      "title_ja": "指定平方層Σ全体の一般β上での除去",
+      "statement_ja": "試験曲線の除去とCartier ample切断(c−2a)^3から不良projective coreは有限。別の八nuisance収縮と源の次元11+旗4=15により、指定平方層Σ全体は十分一般の16次元β上で実t飽和支持に交わらない。",
+      "scope": "Whole specified marked-square stratum over sufficiently general beta, not the full Jacobi scheme.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v62",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_MARKED_SIGMA_FULL_PENCIL_REMOVAL",
+          "S61_MARKED_SIGMA_PROJECTIVE_CORE",
+          "S61_MARKED_SIGMA_INTERSECTION_REMOVAL"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_MARKED_SIGMA_FULL_PENCIL_BRIDGE_20261103_v62.md"
+        },
+        {
+          "path": "research/notes/S61_MARKED_SIGMA_FULL_PENCIL_BRIDGE_20261103_v62_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_MARKED_SIGMA_FULL_PENCIL_BRIDGE_20261103_v62.json",
+        "reports/S61_MARKED_SIGMA_FULL_PENCIL_BRIDGE_20261103_v62_REVIEW.json"
+      ],
+      "limitations_ja": [
+        "残る非平方欠損曲線、全一般ファイバー五点、全成分上界は別課題。"
+      ]
+    },
+    {
+      "id": "S61_AFFINE_BASE_LINE_P30",
+      "title_ja": "全base直線と一般P30断面の被約五点",
+      "statement_ja": "元134式を全底直線Y=sv+awへ制限した四次行rank46371/46376と既知五点の評価rank5から、全P1底の支持はv上の既知五点。QQ一般βへ有限行列で持ち上げ、既知P3を通る一般P30断面も被約五点となる。",
+      "scope": "Exact entire projective base line, not a finite collection of parameter samples.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "integration_scope_audit_exact_finite_matrix_certificate",
+        "certificates": "reproduced_2026_11_03_v62",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_AFFINE_SEVENTEEN_BASE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_AFFINE_BASE_LINE_SUPPORT_20261103_v62.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_AFFINE_BASE_LINE_SUPPORT_20261103_v62/report.json"
+      ],
+      "limitations_ja": [
+        "全一般アフィンファイバーの五点尽くしではない。"
+      ]
+    },
+    {
+      "id": "S61_AFFINE_FULL_T_ACTION_CIRCUIT",
+      "title_ja": "全17底変数を残す実t作用回路と四次正常形",
+      "statement_ja": "凍結有限体上で1031記号に対する実t作用を全17底変数付き多項式回路として構成し、元134式のcofactor恒等式で正当化した。t四次の90896正常形項と全211876係数を別の直接積で検証した。",
+      "scope": "Actual polynomial reduction on the finite generating symbols over the stated finite field; not a claim of their independence.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "independent_direct_original134_coefficient_product_review",
+        "certificates": "reproduced_2026_11_03_v62",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_AFFINE_SEVENTEEN_BASE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_AFFINE_T_ACTION_CIRCUIT_20261103_v62.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_AFFINE_T_ACTION_CIRCUIT_20261103_v62/report.json",
+        "reports/S61_AFFINE_T_FOURTH_NORMAL_FORM_20261103_v62/report.json",
+        "reports/S61_AFFINE_T_FOURTH_NORMAL_FORM_20261103_v62_REVIEW.json"
+      ],
+      "limitations_ja": [
+        "全関係加群・t可逆支持・全一般ファイバーを尽くしていない。",
+        "保存された有限体係数をそのままQQ係数として扱わない。"
+      ]
+    },
+    {
+      "id": "S61_NONSQUARE_HEAVY_DEFECT_REMOVAL",
+      "title_ja": "非平方の重い欠損曲線の一般β上での除去",
+      "statement_ja": "QQの重い三次coker欠損曲線の各一般点で、同じ300次四次minorにより実横断長は65以下。実H11相対自由65とnuisance収縮を接続し、不良core有限・joint像15以下からこの重い欠損層を一般β上で除去した。",
+      "scope": "Specified heavy-defect locus, not all other cubic or quartic defect curves.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "independent_scope_properness_and_current_certificate_audit",
+        "certificates": "reproduced_2026_11_03_v62",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_NONSQUARE_QUADRATIC_COVER"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_BINARY_NONSQUARE_HEAVY_CURVE_CUBIC_20261103_v62.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_NONSQUARE_HEAVY_CURVE_QUARTIC_20261103_v62.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_NONSQUARE_HEAVY_CURVE_CUBIC_REVIEW_20261103_v62.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_BINARY_NONSQUARE_HEAVY_CURVE_CUBIC_20261103_v62/report.json",
+        "reports/S61_BINARY_NONSQUARE_HEAVY_CURVE_QUARTIC_20261103_v62/report.json"
+      ],
+      "limitations_ja": [
+        "他の三次・四次欠損曲線と非平方全層は未解決。"
+      ]
+    },
+    {
+      "id": "Q_RESONANCE_INTEGRABLE_EXTRA_DIRECTION",
+      "title_ja": "κ=1/4の追加接方向の全次数積分",
+      "statement_ja": "a=2/9で増える接方向Rは一般接核の正則極限ではなく、Pε=Q_(2/9)+εR−75ε²x4²∂01という全パラメータの正確なcanonical Poisson曲線へ積分する。重み−1四次元接部分の全二次障害idealは適応座標で(w0,w1,w2)(w0,w1,w2,t)である。",
+      "scope": "Actual additional resonant transverse direction and full second-order obstruction within the specified four-dimensional weight block.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v62",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/Q_RESONANCE_INTEGRABLE_DIRECTION_20261103_v62.md"
+        },
+        {
+          "path": "research/notes/Q_RESONANCE_INTEGRABLE_DIRECTION_20261103_v62_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/Q_RESONANCE_INTEGRABLE_DIRECTION_20261103_v62.json",
+        "reports/Q_RESONANCE_INTEGRABLE_DIRECTION_20261103_v62_REVIEW.json"
+      ],
+      "limitations_ja": [
+        "全35変数のKuranishi ideal、全局所枝、所属成分は主張しない。",
+        "κ=−1の零点スキームの特殊化とは別現象。"
+      ],
+      "later_component_identification": "Q_RESONANCE_Q51_INCIDENCE"
+    },
+    {
+      "id": "Q_RESONANCE_NORMAL_DIVISOR_DEGENERATION",
+      "title_ja": "共鳴曲線の正規な実退化因子から5Hへの退化",
+      "statement_ja": "共鳴明示曲線の非零パラメータは対角作用で互いに射影同値であり、実退化五次のQQ Jacobian affine次元2から実因子そのものが幾何既約・被約・正規である。零パラメータは5Hとなる。",
+      "scope": "Actual divisors, not merely their reduced support.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v62",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "Q_RESONANCE_INTEGRABLE_EXTRA_DIRECTION"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/Q_RESONANCE_NORMAL_DIVISOR_20261103_v62.md"
+        },
+        {
+          "path": "research/notes/Q_RESONANCE_NORMAL_DIVISOR_20261103_v62_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/Q_RESONANCE_NORMAL_DIVISOR_20261103_v62/report.json",
+        "reports/Q_RESONANCE_NORMAL_DIVISOR_20261103_v62_REVIEW.json"
+      ],
+      "limitations_ja": [
+        "この正規性計算自体にはq51同定や全局所枝の結論を含めない。"
+      ]
+    },
+    {
+      "id": "S61_AFFINE_NO_LINES_SURFACE_DEGREE_30",
+      "title_ja": "一般β固定解のq直線排除と曲面次数30以上",
+      "statement_ja": "十分一般βの全S61アフィン解空間はq座標の直線を含まない。K=C(W16)上整な曲面があれば射影次数は30以上であり、実二座標(u6,u42)のcenter-free射影に関する一般rankも30以上となる。",
+      "scope": "K-integral surfaces; degree bound is not asserted separately for every geometric component.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v62",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_MARKED_SIGMA_FULL_STRATUM_REMOVAL",
+          "S61_AFFINE_ANCHOR_RESIDUE_DEGREE",
+          "S61_AFFINE_TWO_COORDINATE_PROJECTION"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_AFFINE_SIGMA_FREE_DEGREE_BOUND_20261103_v62.md"
+        },
+        {
+          "path": "research/notes/S61_AFFINE_SIGMA_FREE_DEGREE_BOUND_20261103_v62_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_AFFINE_SIGMA_FREE_DEGREE_BOUND_20261103_v62.json",
+        "reports/S61_AFFINE_SIGMA_FREE_DEGREE_BOUND_20261103_v62_REVIEW.json"
+      ],
+      "limitations_ja": [
+        "曲面不存在・rank上界は得ていない。",
+        "必要なsupport-plane剰余次数10と射影center回避は既存v60定理への明示依存。"
+      ]
+    },
+    {
+      "id": "S61_AFFINE_CYCLIC_OPEN_PRESENTATION",
+      "title_ja": "全17底の非空cyclic開の実一変数表示",
+      "statement_ja": "実h作用の1031 Krylov記号行列の行列式を反転した全17底変数の開で、元134式の代数をchi1031と全134置換剰余による実一変数商へ二つの逆写像で同定した。凍結Y=vではdet17765、全134剰余のgcdは平方因子のない次数5である。",
+      "scope": "Exact frozen-field construction over all17 parameters on the explicit nonempty open; no assumption that the free1031 symbols are the actual algebra.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "independent_original134_M2_substitution_and_direct_cofactor_review",
+        "certificates": "reproduced_2026_11_03_v62",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_AFFINE_FULL_T_ACTION_CIRCUIT"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_AFFINE_CYCLIC_OPEN_20261103_v62.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_AFFINE_CYCLIC_OPEN_20261103_v62/report.json",
+        "reports/S61_AFFINE_CYCLIC_OPEN_20261103_v62_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "行列式零の補集合、全底上のgcd支持、全アフィン尽くしは未解決。",
+        "保存された有限体係数をそのままQQ係数として扱わない。"
+      ]
+    },
+    {
+      "id": "Q_RESONANCE_Q51_INCIDENCE",
+      "title_ja": "共鳴曲線全体とQ_(2/9)の既知T39への実所属",
+      "statement_ja": "共鳴Poisson曲線をQQ(ε)上で実際にS61へ正規化し、元134式・全150復元係数・全45Q51 graph恒等式を確認した。既知T39の閉性とPGL不変性により、全曲線と共鳴点Q_(2/9)がT39に含まれる。",
+      "scope": "Direct exact coefficient-field graph comparison; independent of the normal-actual-divisor classification theorem.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_fresh_full_normalization_and_separate_graph_evaluation_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v62",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "Q_RESONANCE_INTEGRABLE_EXTRA_DIRECTION",
+          "S61_ELLIPTIC_UNIVERSAL_GRAPHS"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/Q_RESONANCE_Q51_INCIDENCE_20261103_v62.md"
+        },
+        {
+          "path": "research/notes/Q_RESONANCE_Q51_INCIDENCE_20261103_v62_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/Q_RESONANCE_Q51_INCIDENCE_20261103_v62.json",
+        "reports/Q_RESONANCE_Q51_INCIDENCE_20261103_v62_REVIEW.json"
+      ],
+      "limitations_ja": [
+        "全局所枝、交差ideal、完成局所環は尽くしていない。",
+        "既知T39への所属であり、新しい全成分は加算しない。"
       ]
     }
   ],

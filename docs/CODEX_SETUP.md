@@ -1,5 +1,16 @@
 # Codexで研究を継続する
 
+2026-11-03の公開済みCloud再開では、既設の
+`source /workspace/cloud-setup/activate.sh` と `.venv` を使う。
+Macaulay2は1.24.11（移行元1.26.05）、FLINTは3.1で、全135式・有限行加群・QQ/GF拡大体・
+原稿ビルドに必要な計算を再現済みである。成功したセットアップを再実行しない。
+GroebnerBasisの列数には `numColumns gens G` を使う。
+1.24.11のQQ加群で `gb(...,Algorithm=>LinearAlgebra)` は小例でもSIGSEGVを起こしたため、
+正式証明書は既定のGBアルゴリズムを使う。QQ上のF4指定は既定法へ戻る場合があり、
+F4で実行したと無条件に記さない。有理数の有限体化は分子と分母を別々に変換する。
+再開・文献接続の実記録は `reports/CLOUD_RESUME_20261103.md` と
+`reports/CLOUD_CONNECTIVITY_20261103.md` にある。
+
 2026-10-30 / v25-setup。リポジトリの設定と、利用者のCodex側の実行環境を区別する。
 このリポジトリは研究方針・原資料・依存・検証コマンドを用意する。
 AGENTS.mdは実行中のエージェントへの指示であり、単独で常駐プロセスや定期実行を作らない。
