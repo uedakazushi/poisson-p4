@@ -2,17 +2,23 @@
 
 Version: v62-s61 · 2026-11-03 (Asia/Tokyo).
 
-Current v62 additions: the full nonsquare quadratic rank is SIX on ALL
-aFBC!=0. The new marked-square quadratic axis 1000h^2+1127 has actual
-T6 total-incidence free2 and ambient t=0 away from its origin. The OLD
-h^2+2 full13-variable central quotient has reduced weight(2,3) plane
-with finite nilkernel in weights1..4, QQ length<=66, central t^2=0;
-its generic orbit beta image is14 and its double locus is separate.
-General P27/P28 sections are reducedfive; residual module finite over17
-normals with <=1271 generators. General Poisson families are constructed
-for T02..T38, with38 exact image dimensions and dense component labels
-using explicit MPS6.16/6.23/6.24 dependencies. Full general affine
-exhaustion and global upper bound remain OPEN. Continue after checkpoints.
+Current v62 additions: ALL51 known generic-rank4 components now have dense
+rational arithmetic maps into the full S61, with exact generic source Jacobi,
+full scalar/point/Sp4 freedom and independent payload checks. Only known
+T01,T39,T40 dominate W16; known-union generic fiber is five, full exhaustion
+OPEN. The full134 homogeneous algebra is finite over17 base variables with
+<=1031 generators. Actual t^4 cofactor and ALL17 parameter coefficients are
+checked at frozen F32003 beta; finite-rank spreading proves general P29 through
+knownP3 is reducedfive. This is not full affine exhaustion.
+Nonsquare full quadratic rank6 on ALL aFBC!=0 and full8-nuisance frame gap
+beta image<=15 are proved; current full135 cubic Schur is freshly rebuilt.
+Marked-square T6 newaxis, T4/T7 extras and all-h standardrhoaxis have actual
+mixed-characteristic ambient t=0. OLD fullS special reduced support is the
+rhoaxis union weighted(2,3)plane at BOTH roots. OLD residue-open Delta!=0 and
+u=0 endpoint have same-incidence free2,t0. Actualdouble junction mixed cuts
+and V-infinity arithmetic are being finalized: do not infer entire pencil
+or all complex ratios before those bridges are complete. Lower57, no upper.
+Continue actual research after checkpoints.
 
 Previous v61 additions: the ENTIRE nonsquare K=a=0 stratum is removed
 over sufficiently general beta. Seven nonzero central rays lift through smooth
