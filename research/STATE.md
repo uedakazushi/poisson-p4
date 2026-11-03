@@ -1,5 +1,21 @@
 # 研究状態 — v63-s61 / 2026-11-03
 
+## v63 全Rのnormal/CM locusとRat113の実prime
+
+直前保存 `b5545eeadc928bb5a0cb11cb2d9906f7113eedc2` は通常push済み。
+
+全Qaが実MPS成分T02とT03にも入ることを、二自由固有値の実toric arc・明示曲線・a像の密度により証明した。全Qaは少なくともT01,T02,T03,CA,CBの五つの既知成分を通る。全局所枝の尽くしや新成分ではない。
+
+R19の全normal proper quadric模型を構成し、全被約R∩Nを既約B18（18次元）と決定した。B16⊂B17⊂B18は16/17/18次元で、R∩Nf=B17。Rは全体でR1を満たす。さらにR自身の全特異・非正規・非CM locusは正確にB17∪C15であり、C15は一つの15次元軌道である。
+
+B17一般点のR完成環は二つの滑らかな19枝が17次元で交わる C[[u17,a,b,c,d]]/(ac,ad,bc,bd)、depth18。C15では全完成像環をC[[u15,B,E,F,p²,p³,Bp,Ep,Fp]]と同定した。dim19,edim23,depth16,mult2、normalizer一点fiber長2である。実交叉D=CA∩CB自身とは区別する。Dのminimal一般長はN1,R2、R上のDとDredのCM locusは正確にR\B18である。
+
+全37模型内には実Rat113の正則A20商を全係数で構成した。全350式のcofactor C113によりa*C113=0を明示し、C113はQa0完成でも非零。全R37のa0非平坦性と厳密なprime peel I=N113∩(I+C113)を得た。残余は未分類である。
+
+一般アフィンの全正次元支持を含む元45座標のcritical行列式Eと、凍結点を通る両立する五変数断面を得た。実Unit(I,E)は未取得。非平方では全27×61の厳密縮約と有用な失敗receiptをv6 archiveへ保存したが、各点rankや全四次被覆は未解決である。
+
+共鳴点の通常初期式は全四次まで、377方向のcancellationを含めて厳密に検証した。その全てが二つの15平面で消えるので、四次以下からの12切断Artinian目標も不可能である。実blowupの別経路は解決した。厳密な19一次pivotと二法線の全二次を覆う3minorから、completed unsat商をQQ[[δp14]]上有限にし、r飽和strict transformのexceptional fiber次元≤13を得た。従って二つの15平面はいずれも真の全通常接錐には含まれず、交叉はproper closed coneで次元≤14となる。指定点や平面の全方向の除去、全模型の上界14/12とは区別する。全実Poisson枝、全一般アフィン五点の尽くし、成分上界は引き続き未解決で、下界57を維持する。
+
 ## v63 全a有限模型・実五点開・通常接錐の残余
 
 直前保存 `6d82c007d497c5e6edbfdd006274d3133bc405fd` は通常push済み。

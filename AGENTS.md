@@ -2,6 +2,23 @@
 
 Version: v63-s61 · 2026-11-03 (Asia/Tokyo).
 
+Latest J: ENTIREQa alsoinACTUALT02/T03 via2-eigenarc+densea+closedness;
+atleast5knowncomponentsT01/T02/T03/CA/CB, noexhaustion/noincrease.
+FULLR19 properNORMALquadric model; ENTIREredR∩N=B18,
+R∩Nf=B17, B16⊂B17⊂B18 dimensions16/17/18; FULLR R1.
+EXACTglobalSing(R)=Nonnormal(R)=NonCM(R)=B17 union C15(singleorbit15).
+GenericB17 clean2branches19 meet17, Rdepth18; C15exactAc3[[u15]],
+dim19/edim23/depth16/mult2, normalizerfiberlength2. DistinguishD=CA∩CB.
+DminimalgenericlengthsN1/R2; CMlocusONR ofD/Dred=RminusB18.
+FULLR37 Rat113prime N113 exactQQ20, firstgeneratora; explicitnonzero
+C113 witha*C113=0 local/completionQa0, primepeelI=N113∩(I+C113).
+AlltrueinitialsTHROUGH4 keep BOTH15PLANES (377completecancellations).
+NOactualdim15. ACTUALblowup finiteR14/rsaturation PROVES each15plane
+NOTcontainedtrueTC, intersectionproperclosedcone<=14. Notallpoints,
+notglobalfullmodelupper14/12. DoNOTrepeatthrough4Artinian12cut.
+GeneralS61 originalq45criticalE containsALLpositive-dimensionalcomponents;
+newadmissibletoric-centered5slice. Unit(I,E) stillOPEN; lower57 unchanged.
+
 Latest I: EXACTglobalR37 polynomialALLa, R35 onlya inv, R34 onlya(9a−2)
 inv COMPLETED. FULL350/150, finitepositiveweightedelimination; nojets.
 Full126actionJac INCLUDES Bprime*w, reorderedconstantunit20480/531441.

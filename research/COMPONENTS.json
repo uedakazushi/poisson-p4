@@ -86,7 +86,15 @@
     "generic_affine_explicit_knownfive_scheme_open": true,
     "generic_affine_open_complement_exhausted": false,
     "Q_true_initial_lower_J_dimension_at_least": 15,
-    "Q_full_initial_eta_open_exact_T39_plane": true
+    "Q_full_initial_eta_open_exact_T39_plane": true,
+    "R19_full_proper_normal_quadric_model": true,
+    "R19_reduced_intersection_with_N_exact_B18": true,
+    "R19_entire_singular_normal_CM_loci_determined": true,
+    "Q0_actual_Rat113_A20_slice": true,
+    "Q0_full_R37_explicit_a_torsion": true,
+    "Q_true_initial_through_degree4_retains_15_planes": true,
+    "generic_affine_critical_unit_proved": false,
+    "both_15_planes_not_contained_in_actual_full_tangent_cone": true
   },
   "blocks": [
     {
@@ -427,7 +435,8 @@
         "S61_T02_FIRST_JET_HYPERSURFACE",
         "S61_CURVE_TRANSPORT_COUNTEREXAMPLE",
         "S61_T02_INVARIANT_EQUATION_LOWER_BOUND",
-        "KNOWN51_RANK4_S61_COORDINATE_MAPS"
+        "KNOWN51_RANK4_S61_COORDINATE_MAPS",
+        "Q_ALL_A_ACTUAL_T02_T03_MEMBERSHIP"
       ],
       "proof_sources": [
         {
@@ -467,7 +476,8 @@
         "firstjet_image_dimension": 15,
         "generic_fiber_dimension": 0,
         "record": "reports/KNOWN51_FIRSTJET_DIMENSION_TABLE_20261103_v62.json"
-      }
+      },
+      "all_Qa_family_contained": true
     },
     {
       "id": "T03",
@@ -539,7 +549,8 @@
       "claims": [
         "MPS40",
         "MPS40_CROSSWALK",
-        "KNOWN51_RANK4_S61_COORDINATE_MAPS"
+        "KNOWN51_RANK4_S61_COORDINATE_MAPS",
+        "Q_ALL_A_ACTUAL_T02_T03_MEMBERSHIP"
       ],
       "proof_sources": [
         {
@@ -578,7 +589,8 @@
         "firstjet_image_dimension": 15,
         "generic_fiber_dimension": 0,
         "record": "reports/KNOWN51_FIRSTJET_DIMENSION_TABLE_20261103_v62.json"
-      }
+      },
+      "all_Qa_family_contained": true
     },
     {
       "id": "T04",
@@ -6741,7 +6753,11 @@
         "R19_NORMALFORM_OPEN_ORDINARY_DOUBLE",
         "R19_ENTIRE_COMPLEMENT_ORBITS_AND_ORDINARY_DOUBLE",
         "R19_ENTIRE_LOG1112_CONTAINMENT",
-        "R19_OPEN_POISSON_CREMONA_RATIONAL_LEAVES"
+        "R19_OPEN_POISSON_CREMONA_RATIONAL_LEAVES",
+        "R19_GLOBAL_PROPER_QUADRIC_AND_BOUNDARY_B18",
+        "R19_GENERIC_B17_CLEAN_DOUBLE_BRANCH_COMPLETION",
+        "R19_ENTIRE_SINGULAR_NONNORMAL_NONCM_LOCUS",
+        "R19_C15_FULL_PINCHED_COMPLETION"
       ],
       "in_symplectic_value_chart_S61": false,
       "reason_ja": "全射影交叉の第二成分。既知全Poisson成分の内部の真閉部分であり、57へ加算しない。",
@@ -6757,7 +6773,58 @@
       "smooth_outside_N": true,
       "ordinary_double_intersection_at_every_point_outside_N": true,
       "scheme_structure_on_R_intersection_N_completed": false,
-      "all_R_minus_N_birationally_Poisson_equivalent": true
+      "all_R_minus_N_birationally_Poisson_equivalent": true,
+      "full_projective_Serre_R1": true,
+      "intersection_with_N_reduced": "B18 irreducible dimension18",
+      "singular_nonnormal_nonCM_locus": "B17 union C15",
+      "generic_B17_completion": "C[[u17,a,b,c,d]]/(ac,ad,bc,bd)",
+      "C15_completion": "C[[u15,B,E,F,p²,p³,Bp,Ep,Fp]]",
+      "generic_scheme_intersection_length": 2,
+      "global_finite_normalization_completed": false
+    },
+    {
+      "id": "R_N_BOUNDARY_B18",
+      "projective_dimension": 18,
+      "description": "entire reduced R intersection N",
+      "counted_in_global_lower_bound": false,
+      "parent": "CA_CB_RANK_TWO_INTERSECTION_R19",
+      "claims": [
+        "R19_GLOBAL_PROPER_QUADRIC_AND_BOUNDARY_B18",
+        "R19_ENTIRE_SINGULAR_NONNORMAL_NONCM_LOCUS"
+      ]
+    },
+    {
+      "id": "R_NF_BOUNDARY_B17",
+      "projective_dimension": 17,
+      "description": "entire reduced R intersection Nf; contained in B18",
+      "counted_in_global_lower_bound": false,
+      "parent": "CA_CB_RANK_TWO_INTERSECTION_R19",
+      "claims": [
+        "R19_GLOBAL_PROPER_QUADRIC_AND_BOUNDARY_B18",
+        "R19_ENTIRE_SINGULAR_NONNORMAL_NONCM_LOCUS"
+      ]
+    },
+    {
+      "id": "R_SQUARE_TRIANGULAR_B16",
+      "projective_dimension": 16,
+      "description": "square binary triangular image inside B17",
+      "counted_in_global_lower_bound": false,
+      "parent": "CA_CB_RANK_TWO_INTERSECTION_R19",
+      "claims": [
+        "R19_GLOBAL_PROPER_QUADRIC_AND_BOUNDARY_B18",
+        "R19_ENTIRE_SINGULAR_NONNORMAL_NONCM_LOCUS"
+      ]
+    },
+    {
+      "id": "R_EXCEPTIONAL_C15",
+      "projective_dimension": 15,
+      "description": "single nonnormal PGL orbit outside B17; closure boundary inside B17",
+      "counted_in_global_lower_bound": false,
+      "parent": "CA_CB_RANK_TWO_INTERSECTION_R19",
+      "claims": [
+        "R19_GLOBAL_PROPER_QUADRIC_AND_BOUNDARY_B18",
+        "R19_ENTIRE_SINGULAR_NONNORMAL_NONCM_LOCUS"
+      ]
     }
   ],
   "integrity_rules_ja": [

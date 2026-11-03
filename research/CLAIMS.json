@@ -12361,6 +12361,389 @@
         "閉切断の非平坦性だけから全R37のa0での非平坦性は推論しない。",
         "全Rat113局所模型やQa0の全枝は別課題である。"
       ]
+    },
+    {
+      "id": "R19_GLOBAL_PROPER_QUADRIC_AND_BOUNDARY_B18",
+      "title_ja": "Rの全proper quadric模型とR∩Nの18次元境界",
+      "statement_ja": "9次元旗上の12係数空間にr²+cd−25t²=0を課したnormal proper19次元quadric模型を構成した。t非零像は全R\\N、t0の全Jordan旗像は既約B18⊂Ngとなる。従って全被約R∩N=B18、R∩Nf=B17で、B16⊂B17⊂B18の次元は16,17,18。全fiber一意性と20微分minorから一般境界点のtarget滑らかさを得てR全体のR1を証明した。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "CA_CB_GLOBAL_REDUCED_INTERSECTION_N27_R19",
+          "R19_ENTIRE_COMPLEMENT_ORBITS_AND_ORDINARY_DOUBLE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_R19_BOUNDARY_SPECTRAL_MODEL_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_R19_BOUNDARY_SPECTRAL_MODEL_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_R19_BOUNDARY_SPECTRAL_MODEL_20261103_v63/report.json",
+        "reports/AMBIENT_R19_BOUNDARY_SPECTRAL_MODEL_20261103_v63_REVIEW.json"
+      ],
+      "limitations_ja": [
+        "proper normal source自体を全Rのfinite normalizationとは同一視しない。",
+        "R∩Nのscheme ideal・境界厚みはこの被約支持定理からは決まらない。"
+      ]
+    },
+    {
+      "id": "R19_GENERIC_B17_CLEAN_DOUBLE_BRANCH_COMPLETION",
+      "title_ja": "B17一般点のR二枝完成環とB18のnode",
+      "statement_ja": "B17の指定非空開で全normalization fiberは正確に二点。各smooth19枝の接交叉は滑らかな共通B17であり、Rhat=C[[u17,a,b,c,d]]/(ac,ad,bc,bd)、B18hat=C[[u17,s,t]]/(st)。Rはdim19,edim21,depth18,mult2で、normalizer商はC[[u17]]となる。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "R19_GLOBAL_PROPER_QUADRIC_AND_BOUNDARY_B18"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_R19_BOUNDARY_LOCAL_MODELS_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_R19_BOUNDARY_LOCAL_MODELS_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_R19_BOUNDARY_LOCAL_MODELS_20261103_v63/report.json",
+        "reports/AMBIENT_R19_BOUNDARY_LOCAL_MODELS_20261103_v63_REVIEW.json"
+      ],
+      "limitations_ja": [
+        "B17の全特殊点へこの二枝表示を延長しない。",
+        "全Poisson完成環や実CA/CB交叉の境界idealではない。"
+      ]
+    },
+    {
+      "id": "R19_ENTIRE_SINGULAR_NONNORMAL_NONCM_LOCUS",
+      "title_ja": "全Rの特異・非正規・非CM locusを完全決定",
+      "statement_ja": "全RでSing=Nonnormal=NonCM=B17∪C15。B18\\B17の全proper fiberは一意で、そのnormal sourceの19 pivotと残列(B,A/6+E,F)を全係数で検証した。例外C15はDh=x²,Dz=hx,Dw=h²−xz/6の一つの15次元PGL軌道。B17は一般二枝とclosednessから全点で非正規・非CM、C15ではfinite normalizerのramificationとR1から同じ結論を得た。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "R19_GLOBAL_PROPER_QUADRIC_AND_BOUNDARY_B18",
+          "R19_GENERIC_B17_CLEAN_DOUBLE_BRANCH_COMPLETION"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_R19_BOUNDARY_LOCAL_MODELS_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_R19_BOUNDARY_LOCAL_MODELS_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_R19_BOUNDARY_LOCAL_MODELS_20261103_v63/report.json",
+        "reports/AMBIENT_R19_BOUNDARY_LOCAL_MODELS_20261103_v63_REVIEW.json"
+      ],
+      "limitations_ja": [
+        "被約R自身の全点のlocusであり、実D=CA∩CBや全Poisson空間と区別する。",
+        "全normalizationのfinite大域模型やB16全局所環を主張しない。"
+      ]
+    },
+    {
+      "id": "R19_C15_FULL_PINCHED_COMPLETION",
+      "title_ja": "C15の全完成像環をA3と同定",
+      "statement_ja": "有限四源族の全150出力がA3=C[[B,E,F,p²,p³,Bp,Ep,Fp]]を厳密に生成する。全normal源への19次etale chartと全23次algebra cotangentから、全Rhat=A3[[u15]]を証明した。analytic domain、dim19,edim23,depth16,mult2、normalization一点fiber長2。conductorはnormalizer内(B,E,F,p²)、target内は(B,E,F,p²,p³,Bp,Ep,Fp)である。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "R19_ENTIRE_SINGULAR_NONNORMAL_NONCM_LOCUS"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_R19_C15_COMPLETED_IMAGE_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_R19_C15_COMPLETED_IMAGE_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_R19_C15_COMPLETED_IMAGE_20261103_v63/report.json",
+        "reports/AMBIENT_R19_C15_COMPLETED_IMAGE_20261103_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "C15の全点に適用するが、B16や実CA/CB交叉のboundary厚みへ拡張しない。",
+        "conductorの二つのambientを区別する。"
+      ]
+    },
+    {
+      "id": "CA_CB_MINIMAL_GENERIC_LENGTHS_AND_R_CM_LOCUS",
+      "title_ja": "実CA/CB交叉の一般長とR上の全CM locus",
+      "statement_ja": "実D=CA∩CBのminimal成分N,Rの一般長は正確に1,2。Nの一般長はK(Z)への平坦底変換の実A10∩A10=A9から得る。R上ではDとDredのCM locusが正確にR\\B18、Dredのnormal locusも同じ開。D自体はR上の全点で非正規である。B18ではminimal次元27/19の差を使う。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_CA_CB_FULL_RANK3_FIBERS",
+          "R19_ENTIRE_COMPLEMENT_ORBITS_AND_ORDINARY_DOUBLE",
+          "R19_GLOBAL_PROPER_QUADRIC_AND_BOUNDARY_B18"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_CA_CB_MINIMAL_LENGTHS_AND_R_CM_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_CA_CB_MINIMAL_LENGTHS_AND_R_CM_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_CA_CB_MINIMAL_LENGTHS_AND_R_CM_20261103_v63.json",
+        "reports/AMBIENT_CA_CB_MINIMAL_LENGTHS_AND_R_CM_20261103_v63_REVIEW.json"
+      ],
+      "limitations_ja": [
+        "N\\Rの全CM locus、全大域primary分解やproper Chow交叉積は主張しない。",
+        "R自身のCM locusとは別の定理である。"
+      ]
+    },
+    {
+      "id": "Q_RAT113_EXACT_GLOBAL_A20_SLICE",
+      "title_ja": "全37模型内の実Rat113成分の厳密A20",
+      "statement_ja": "75×5線形Casimir contractionの定数3minor−4/81でSchur150条件を全係数環上に定義した。literal−aと16正重み単元の消去により全商QQ[20]、全350JacobiとSchur150を恒等検証した。固定二Casimirの31次元Hamiltonian線形模型とのsplit逆はnilpotent baseも保つ。実全Jacobian rank17により実minimal Rat113成分と同定し、a0での全R37の非平坦性を得た。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "Q_ALL_A_EXACT_FINITE_MODELS_37_35",
+          "R2_FULL_SIX"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/Q_RAT113_GLOBAL_SLICE_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/Q_RAT113_GLOBAL_SLICE_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/Q_RAT113_GLOBAL_SLICE_20261103_v63/report.json",
+        "reports/Q_RAT113_GLOBAL_SLICE_20261103_v63_REVIEW.json"
+      ],
+      "limitations_ja": [
+        "全Qa0枝の尽くし、parentの正則性、linearCasimir contraction rank<3境界を主張しない。",
+        "閉二平面の非平坦性からの推測ではない。"
+      ]
+    },
+    {
+      "id": "Q_RAT113_EXPLICIT_ANNIHILATOR_PRIME_PEEL",
+      "title_ja": "Rat113の明示cofactor開と実a-torsion",
+      "statement_ja": "17選択実JacobiをF=M*N113と多項式17×17行列で表示し、C113=detMを得た。A20上のdense点で非零、weighted ray上cλ129。I_C=N113_C、I:C^k=N113、I=N113∩(I+C)を証明した。N113はaを含むためa*C113=0、C113はQa0局所環・完成でも非零となり、全R37のa0非平坦性を明示的に証明する。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "Q_RAT113_EXACT_GLOBAL_A20_SLICE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/Q_RAT113_COFACTOR_OPEN_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/Q_RAT113_COFACTOR_OPEN_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/Q_RAT113_COFACTOR_OPEN_20261103_v63/report.json",
+        "reports/Q_RAT113_COFACTOR_OPEN_20261103_v63_REVIEW.json"
+      ],
+      "limitations_ja": [
+        "残余I+Cの全枝と他の非平坦値の尽くしは未解決。"
+      ]
+    },
+    {
+      "id": "S61_GLOBAL_CRITICAL_DETERMINANT_ADMISSIBLE_SLICE",
+      "title_ja": "元45座標の全正次元支持を含むcritical行列式",
+      "statement_ja": "元134式の45Jacobianの共通row combinationから次数45以下の非零行列式Eを定義した。既知五点全てで非零であり、全正次元成分はE0に含まれる。frozen toricβを通る新五変数断面のdominance minor3564223982/1029を証明し、既存p単元模型と両立する全134式を保存した。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_ACTUAL_QUINTIC_SCHEME_OPEN",
+          "S61_AFFINE_SMALL_PARAMETER_CRITERIA"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_AFFINE_ADMISSIBLE_CRITICAL_20261103_v62.md"
+        },
+        {
+          "path": "research/notes/S61_AFFINE_ADMISSIBLE_CRITICAL_20261103_v62_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_AFFINE_ADMISSIBLE_CRITICAL_20261103_v62/report.json",
+        "reports/S61_AFFINE_ADMISSIBLE_CRITICAL_20261103_v62_REVIEW.json"
+      ],
+      "limitations_ja": [
+        "Unit(I,E)は全fiber零次元の十分条件であり同値ではない。実unitは未取得。",
+        "cyclic開外も含むglobal obstructionだが、未知孤立点や全五点尽くしを排除しない。"
+      ]
+    },
+    {
+      "id": "Q_TRUE_INITIAL_THROUGH_FOUR_RETAINS_15_PLANES",
+      "title_ja": "全真四次初期式を計算しても二つの15平面が残る",
+      "statement_ja": "全350四次Taylorを物理Jacobiで照合し、350→57+293の可逆変換、全219非零三次核と158零三次方向の377 cancellationを厳密に被覆した。全真四次成分はS²Q+S¹C+核のquartic carryで尽くされ、それらは全て二つの15平面で零。従って真初期式の四次以下だけでも12一次切断のArtinian証明は不可能である。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "Q_TRUE_INITIAL_LOWER_IDEAL_DIMENSION_GE_15",
+          "Q_ORDINARY_CUBIC_INITIAL_SEVENTEEN"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/Q_ORDINARY_QUARTIC_INITIAL_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/Q_ORDINARY_QUARTIC_INITIAL_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/Q_ORDINARY_QUARTIC_INITIAL_20261103_v63/report.json",
+        "reports/Q_ORDINARY_QUARTIC_INITIAL_20261103_v63_REVIEW.json"
+      ],
+      "limitations_ja": [
+        "全初期ideal・実全局所環の次元15以上という意味ではない。",
+        "五次以上の初期条件やactual blowupの構造は別に扱う。"
+      ]
+    },
+    {
+      "id": "Q_ACTUAL_BLOWUP_REMOVES_GENERIC_15_PLANES",
+      "title_ja": "実blowupの有限性により二つの15平面の一般方向を除去",
+      "statement_ja": "各15平面の厳密有理方向で、実blowup式F(r(v+n))/r²の全350一次写像に19単元pivot（rを含む）を得た。残る二法線の全二次単項式を覆う3minorによりclosed transverse fiber長≤3。完成unsat商はQQ[[δp14]]上有限、r飽和したstrict商も有限でr正則となるのでexceptional fiber次元≤13。従って各15平面と真の全通常接錐の交叉はproper closed coneで次元≤14である。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "Q_TRUE_INITIAL_LOWER_IDEAL_DIMENSION_GE_15"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/Q_PLANE_BLOWUP_FINITE_TRANSVERSE_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/Q_PLANE_BLOWUP_FINITE_TRANSVERSE_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/Q_PLANE_BLOWUP_FINITE_TRANSVERSE_20261103_v63/report.json",
+        "reports/Q_PLANE_BLOWUP_FINITE_TRANSVERSE_20261103_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "各平面の全点や指定p0自体を除去したとは主張しない。",
+        "全35模型の大域局所次元上界14/12ではない。",
+        "generic普通2jetの不整合だけの議論ではなく、飽和とPuiseuxを含む実blowupの次元論を使う。"
+      ]
+    },
+    {
+      "id": "Q_ALL_A_ACTUAL_T02_T03_MEMBERSHIP",
+      "title_ja": "全Q_aは実MPS成分T02とT03にも属する",
+      "statement_ja": "二つの自由固有値を持つsemisimple toric arcに、T02/T03それぞれの実toric boundary period条件を全係数で課す明示既約曲線を構成した。許容開でaが非定数となることを厳密な接微分と剰余で証明し、全150係数のQa極限と成分のclosednessから全有限複素aでQa∈T02∩T03を得た。T01,CA,CBと合わせ全Qaは少なくとも五つの既知成分を通る。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "Q_ALL_A_ACTUAL_T01_MEMBERSHIP",
+          "MPS40",
+          "MPS40_CROSSWALK"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/Q_MPS_TORIC_ARC_MEMBERSHIPS_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/Q_MPS_TORIC_ARC_MEMBERSHIPS_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/Q_MPS_TORIC_ARC_MEMBERSHIPS_20261103_v63/report.json",
+        "reports/Q_MPS_TORIC_ARC_MEMBERSHIPS_20261103_v63_REVIEW.json"
+      ],
+      "limitations_ja": [
+        "必要条件の消失だけではなく、実toric boundaryを通る全arcの十分条件を使う。",
+        "絶対既約性、局所枝の尽くし、他成分への非帰属、新しい成分数は主張しない。"
+      ]
     }
   ],
   "setup_checkpoint": "v25-setup",
