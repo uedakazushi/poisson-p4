@@ -2,6 +2,21 @@
 
 Version: v63-s61 · 2026-11-03 (Asia/Tokyo).
 
+Latest L: WHOLEgenericaffine A=knownetale5 E × A/(e), global
+polarizationtraceidempotent, no q/cyclic/H localization. Exactresidual
+I+(R42)=I+(R43)=I+(e); linear129x42normalfactor, QQwholeidentities.
+Actualunit134+R42 OPEN. beta-only35/124 wholemodel; oldquinticopen
+critical5x680 exactpresentation. Don'trepeat D1leftinverse equivalent
+samecentercomplete degree3Macaulay no linearconsequences.
+ALLQa completedminimalprimes>=40, >=41at0,2/9,-8/9. ForALLa!=0
+EXACTknownMPS T01-38 plusT39 iff2/9,T40 iff-8/9; no a0negatives.
+Positiveaxis projectiveorbit22, excludes15knownrank4 inclT02/T03;
+otherMPS/Hquartic OPEN, NOTnewcomponent. Wholepositiveaxis polynomial
+Darboux/(2,3)Cremona; fixedALLQa cubicDarboux/(3,3) maps toconstant
+a dx^dW-2dy^dz/9, no a inversion, explicita0A2leaves.
+Nonsquare shortconstants full26x60; J0knownunit22x56, NOTfullrank/
+ambient/quartic proof. Continueactualresearch+normalpush; lower57.
+
 Latest K: ALL finiteQa incl0 lie ACTUAL T01–T38, hence>=40known
 fullcomponents withCA/CB. Positive QQ etale17/Hensel16 proofs, notjet
 extrapolation. NOnewglobalcomponent, NObranch exhaustion; lower57.

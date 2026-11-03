@@ -1,5 +1,7 @@
 # Poisson structures on projective four-space
 
+全一般アフィン代数の既知五点を大域idempotentで分離し、未知残余を次数42の一式で厳密に指定した。残余の空性は未証明。全Qaの共通三次Darboux、正軸の二次Darbouxと十五既知成分の排除を得た。全成分数は下界57・上界未確定のまま研究を続ける。
+
 全有限QaはT01–T38とCA/CBの少なくとも四十既知成分を通る。全非零Qaの個別CA/CB/N完成環と実交叉embedded構造、generic B16のquadric pinched完成環を決定した。全枝・一般アフィン尽くしは継続中で、全成分数は下界57・上界未確定である。
 
 複素射影4空間のPoisson構造の完全分類を目指す研究リポジトリ。

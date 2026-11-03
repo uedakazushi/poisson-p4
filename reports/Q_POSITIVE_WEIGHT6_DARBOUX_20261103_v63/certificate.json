@@ -1,0 +1,89 @@
+{
+  "affine_variables": [
+    "x",
+    "y",
+    "z",
+    "w"
+  ],
+  "affine_Darboux_map": [
+    "x",
+    "48*eta*w**2 - 3*x**2/4 + y",
+    "-3*x*y/4 + z",
+    "w"
+  ],
+  "affine_inverse_variables": [
+    "X",
+    "Y",
+    "Z",
+    "W"
+  ],
+  "affine_inverse": [
+    "X",
+    "-48*W**2*eta + 3*X**2/4 + Y",
+    "-36*W**2*X*eta + 9*X**3/16 + 3*X*Y/4 + Z",
+    "W"
+  ],
+  "full_affine_source_P": "Matrix([[0, -256*eta*w/3, -64*eta*w*x, 8/9], [256*eta*w/3, 0, 64*eta*w*y - 2/9, 4*x/3], [64*eta*w*x, -64*eta*w*y + 2/9, 0, x**2 + 2*y/3], [-8/9, -4*x/3, -x**2 - 2*y/3, 0]])",
+  "full_affine_target_matrix": "Matrix([[0, 0, 0, 8/9], [0, 0, -2/9, 0], [0, 2/9, 0, 0], [-8/9, 0, 0, 0]])",
+  "Jacobian": [
+    [
+      "1",
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "-3*x/2",
+      "1",
+      "0",
+      "96*eta*w"
+    ],
+    [
+      "-3*y/4",
+      "-3*x/4",
+      "1",
+      "0"
+    ],
+    [
+      "0",
+      "0",
+      "0",
+      "1"
+    ]
+  ],
+  "Jacobian_determinant": "1",
+  "translation_Hamiltonian": "216*eta*w**2 - 27*x**2/8 + 9*y/2",
+  "homogeneous_source_variables": [
+    "x0",
+    "x1",
+    "x2",
+    "x3",
+    "x4"
+  ],
+  "homogeneous_forward": [
+    "x0**2",
+    "x0*x1",
+    "48*eta*x4**2 + x0*x2 - 3*x1**2/4",
+    "x0*x3 - 3*x1*x2/4",
+    "x0*x4"
+  ],
+  "homogeneous_target_variables": [
+    "H",
+    "Xh",
+    "Yh",
+    "Zh",
+    "Wh"
+  ],
+  "homogeneous_inverse": [
+    "H**3",
+    "H**2*Xh",
+    "H**2*Yh - 48*H*Wh**2*eta + 3*H*Xh**2/4",
+    "H**2*Zh + 3*H*Xh*Yh/4 - 36*Wh**2*Xh*eta + 9*Xh**3/16",
+    "H**2*Wh"
+  ],
+  "homogeneous_target_constant_bivector": "Matrix([[0, 0, 0, 0, 0], [0, 0, 0, 0, 8*H**2/9], [0, 0, 0, -2*H**2/9, 0], [0, 0, 2*H**2/9, 0, 0], [0, -8*H**2/9, 0, 0, 0]])",
+  "forward_inverse_composition_scalar": "x0^5",
+  "inverse_forward_composition_scalar": "H^5",
+  "degree_two_gcd_one_uniform_witness": "F0=h^2 and F1=h*x force any common factor to divide h; coefficient x^2 of F2 modh=-3/4",
+  "degree_three_gcd_one_uniform_witness": "G0=H^3 and G1=Xh*H^2 force any common factor to divide H; coefficient Xh^3 of G3 modH=9/16"
+}

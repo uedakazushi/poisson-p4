@@ -1,5 +1,17 @@
 # 研究状態 — v63-s61 / 2026-11-03
 
+## v63 L: 大域idempotentと次数42残余・Darboux同定
+
+直前保存 `01bc0d884b54e3027a4bd3cb83c13c32cecc5395` は通常push済み。
+
+一般アフィン代数を全schemeとして A=E_known5×A_res に分離した。全134二次式のpolarizationとadjugateから次数45のtrace idempotentを得た後、全129残余を線形normal行列A129×42(q)nで表し、次数42の一式R42によりI_res=I+(R42)=I+(e)と厳密決定した。betaだけの逆元を使い、cyclic/Hや未知qで切らない。未知残余の空性はなお未証明である。別にbetaのみで全35変数124式へ縮約し、旧quintic開では元critical商の正確な5×680表示を得た。
+
+全Qaの完成極小素数下界は40、a0,2/9,−8/9では41以上。全非零aの既知MPS40所属はT01–T38に加え、T39 iff2/9、T40 iff−8/9と完全判定した。a0の両楕円成分の非所属や未知の全枝は主張しない。
+
+正の重み六軸は一つの22次元projective軌道で、全T01/T02/T03/T39/T40、CA/CB、二quadric成分、六つの普遍特異jet成分の外にある。全部で十五の既知rank4成分から排除したが、残るMPSとHquarticへの所属は未決で、新成分と数えない。全軸にはJacobian1の二次Darbouxと(2,3)Poisson Cremonaを構成した。さらに全Qaに同じa独立の三次三角Darbouxを得て、全aのPoisson正規形をa∂X∧∂W−2∂Y∧∂Z/9とした。a0の全affine葉は二CasimirのA2 fiber、非零aではA4全体が一葉となる。
+
+非平方では二定数の短い単元pivotでfull26×60、J0では別の四定数単元pivotで22×56へ厳密縮約した。全各点rank・欠損有限性・quartic/ambient除去は未解決。保存後は一般残余のunit、正軸の全小transverse模型、実B18境界交叉と非平方縮約を続ける。下界57、上界未確定を維持する。
+
 ## v63 K: 全Qaの四十成分と交叉の全非零a型
 
 直前研究保存 `64c5c455ac642cbeacbf59fc63fd638e80102712` は通常push済み。障害時の記録のみ `1986a0ec09113a291dee46cfd98a1a1f6c0ddead` をGitHub APIで保存し、復旧後に取り込んだ。

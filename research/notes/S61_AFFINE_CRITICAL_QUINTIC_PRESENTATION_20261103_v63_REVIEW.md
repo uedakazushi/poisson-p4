@@ -1,0 +1,17 @@
+# 元S61からのcritical五次表示の独立監査
+
+2026年11月3日。既存のcentered-fiber loaderを呼ばず、元v02の全61変数134式を
+直接評価・微分した。五つの中心点で全670式が零であり、元45座標についての
+45行列式は18384,6387,6706,13504,28620となる。別の係数配列演算で五次式の全積、
+degree四critical余り、全polynomial Bézout恒等式、全5×5乗算行列と逆を確認した。
+normは9485であり、数値証明書は法32003での厳密な全係数証人である。
+
+一般係数の結論は有限逆行列recipeによる。monic五次自由代数Fのidealは
+各生成元とそのs,s²,s³,s⁴倍で基底環上生成されるので、元135余りとcritical余りを
+保つ5×680行列は全商の有限presentationである。判別式の反転は要らない。
+全5小行列式のFitting idealがsupportを与え、critical元のnormはadjugateにより
+annihilatorとなる。ただしnormの零集合とsupportの等号は従わない。
+
+cyclic・high-block・t-normの補集合、一般critical quotientのunit、一般アフィンの
+全五点尽くしは承認しない。独立実装は
+`code/s61_critical_quintic_review_20261103_v63.py`、receiptは同名のREVIEWディレクトリ。
