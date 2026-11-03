@@ -1,6 +1,6 @@
 # Poisson structures on projective four-space
 
-個別CA/CBの全形式完成型とseminormalizationに加え、実交叉Dの相異なる二つのembedded成分を証明した。P_a側のnil長1に対しQ_b側はnil長4・三乗零の全局所環となる。新25成分のfirstjet方程式次数は22以上。B18原点全交叉・一般五点尽くし・全成分上界は継続中で、総下界58（rank4は52）は変わらない。
+非平方のadFBCJ開全体で、元productのQQ階数41を証明した。B18原点では全像イデアルの接触が三次以上、零一次関係の接触は正確に四次と分かった。個別CA/CBの全形式型・二つのembedded交叉型は17頁独立原稿に保存済み。全三次57・四次全射、一般五点尽くし、全成分上界は継続中で、総下界58（rank4は52）は変わらない。
 
 新25成分の全Poisson一般横断長さは正確に5。n111の全完成環 C[[s25,u,v]]/(uv,u³,v³) とCM type2を証明・独立監査し、[14ページの独立原稿](papers/positive_weight6_component_ja.pdf)に保存した。全52 rank4成分のdense S61写像が揃った。新一次像は15次元・方程式次数22以上だが実方程式、全境界、全分類は未解決。以下は以前の記録を含む。
 

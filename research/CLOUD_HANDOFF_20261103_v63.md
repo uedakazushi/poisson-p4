@@ -8,6 +8,20 @@ v62保存は `e187b40de68bce534391f406f616940cddd045a7`、
 `66a80ab53dfcf0ff842c67140320d8da0226039d`。全て通常push済み。
 このv63保存のSHAはGit履歴で識別する。
 
+## v63 X: adFBCJ全域のQQ product41とB18接触
+
+直前保存 main `e92227d0afe6e27a778cd67d053321209b673761` は通常push済み。以下は過去時点を含む。
+
+非平方の全adFBCJ開（P=ad表示ではaPFB0CJ開）で、元の42×84 product行列の階数が正確に41であることを証明した。最後のpair条件を全QQの有限商・subresultant・inverse恒等式だけで解決し、既知のgcd例外処理とbinary-D縮約から全raw24全射へ進んだ。元の六二次式への17 kernel方向と全known-unit座標変換も独立に再構成した。元productのimageはrank41 subbundle、cokernelはlocally free rank43である。有限体のunitをnonproper開へ移した議論や、未知因子の反転ではない。
+
+この結論はd0/J0とより広いaFBC全開、full cubic57・四次全射性・ambient除去を含まない。product41とheavy7だけから出る三次下界は48であり、残る実9方向の特殊化を別に調べる必要がある。追加Δproduct・Δheavy chartでの9×43 bordered-minor circuitと、四次354→319行の同span縮約を保存した。部分的なrank結果を全三次・四次の証明へ昇格しない。
+
+B18原点では、実R曲線の接方向がN sourceの微分像へ入ることを確認し、実N曲線の曲率を差し引いて全像イデアルの接触次数k≥3を得た。正規化sourceへの二次持上げは全kernel速度を許しても不可能であり、この失敗と像イデアルの接触は区別した。全81関係とtrace/discriminantの実際の二次曲率から、零一次N関係の接触は正確にh=4と証明した。kは3または4であり、対応する被約横断edimは19または18、線形nil次元は1または2となる。
+
+primitive W16をSpin5のgamma-traceless vector-spinorへ全係数で同定し、二つの二次adjoint共変量を構成した。4×4 pencilの行列式五係数は全8次不変式の基底となる。これは新25成分の方程式同定ではなく、その次数下界22・実方程式未決という状態は維持する。
+
+一般beta五点尽くし、全成分上界、B18原点の全相対環・exact depthは引き続き未解決。総下界58/rank4下界52、総上界未定。既存118/16/91/14/17頁の原稿とPDFは変更しない。
+
 ## v63 W: 第二embedded成分・全三次gate・有限例外のQQ除去
 
 直前保存 main `7ea5cf639a99bd0d57a6d2b5d5aaad175c1a2958` は通常push済み。以下は過去時点を含む。

@@ -16950,6 +16950,232 @@
       "limitations_ja": [
         "T_NとT_Rの和をT_Dredと同一視した議論ではない。被約edimの正確値、特定物理nil座標、冪零次数、正確なdepthや全相対環は未決。"
       ]
+    },
+    {
+      "id": "S61_NONSQUARE_PAIR_GATE_EMPTY_OVER_QQ",
+      "title_ja": "非平方pair gateの全QQ証明",
+      "statement_ja": "実804係数からの2×6 pair matrixはaPJ開の全幾何学的点でrank2である。finite projectionのR(v)=k f² C(v)² Q23(v)を全場合分けし、C枝はQQ membershipとinverse、Q23枝はH/tのsubresultant inverseと残るactual minorのinverseで全て除外した。Q23の既約性・被約性・有限体移送を使わない。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_NONSQUARE_BINARY_D_REDUCTION_TO_SINGLE_PAIR_GATE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_NONSQUARE_PAIR_EMPTY_QQ_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/S61_NONSQUARE_PAIR_EMPTY_QQ_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_NONSQUARE_PAIR_EMPTY_QQ_20261103_v63/report.json",
+        "reports/S61_NONSQUARE_PAIR_EMPTY_QQ_20261103_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "aPJ開の正確なpair statement。original productへのbridgeは別claim。full cubic57・四次被覆を含まない。"
+      ]
+    },
+    {
+      "id": "S61_NONSQUARE_RAW24_ALL_FULLU_SURJECTIVE",
+      "title_ja": "非平方FULLUの全raw24全射性",
+      "statement_ja": "全QQ pair gateとbinary-D縮約から補助五二次rank5を得る。gcd gateの比例除外と全有限例外のproper Nakayama証明を合わせ、FULLU=aPFB0CJ上のactual raw24×56は全域でrank24。maximal minor idealの空性から対応cokernelも零となる。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_NONSQUARE_PAIR_GATE_EMPTY_OVER_QQ",
+          "S61_NONSQUARE_ENTIRE_FINITE_GCD_EXCEPTION_RAW_QQ_SURJECTIVE",
+          "S61_NONSQUARE_BINARY_D_REDUCTION_TO_SINGLE_PAIR_GATE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_NONSQUARE_PAIR_EMPTY_QQ_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/S61_NONSQUARE_PAIR_EMPTY_QQ_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_NONSQUARE_PAIR_EMPTY_QQ_20261103_v63/report.json",
+        "reports/S61_NONSQUARE_PAIR_EMPTY_QQ_20261103_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "全域は明示したaPFB0CJ開。有限体標本・generic rankからの外挿ではない。未展開right inverseやsafe pivot数の増加を主張しない。"
+      ]
+    },
+    {
+      "id": "S61_NONSQUARE_ORIGINAL_PRODUCT41_ALL_ADFBCJ",
+      "title_ja": "adFBCJ全開で元product階数41",
+      "statement_ja": "元六二次式・全七lightの42×84行列について、実座標変換と17個の独立kernel方向を独立監査した。raw24全射と合わせ全adFBCJ開で元product rankは正確に41。imageはrank41 subbundle、cokernelはlocally free rank43である。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_NONSQUARE_RAW24_ALL_FULLU_SURJECTIVE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_NONSQUARE_PRODUCT41_FULL_OPEN_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/S61_NONSQUARE_RAW24_PRODUCT41_BRIDGE_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_NONSQUARE_PRODUCT41_FULL_OPEN_20261103_v63/report.json",
+        "reports/S61_NONSQUARE_RAW24_PRODUCT41_BRIDGE_20261103_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "d0/J0やより広いaFBC開の全点、full57、四次全射、ambient除去は未証明。global free cokernel basisや明示right inverseは未構成。"
+      ]
+    },
+    {
+      "id": "AMBIENT_B18_R_CURVE_AND_SOURCE_N_TANGENCY",
+      "title_ja": "generic B18の実R曲線とN sourceへの接方向",
+      "statement_ja": "proper R模型の全150係数を満たす多項式曲線を構成し、全Jacobi・divergenceを検証した。orbitと曲線はrank20で実Rは正則、十九群因子を除いたRはDVR曲線である。曲線の接方向はNの27次元source微分の像に入る。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "AMBIENT_B18_ACTUAL_D_SCHEME_ORBIT_PRODUCT_AND_DEPTH_RANGE",
+          "R19_ENTIRE_SINGULAR_NONNORMAL_NONCM_LOCUS"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_B18_R_CURVE_TANGENT_20261103_v63.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_B18_R_CURVE_TANGENT_20261103_v63/report.json"
+      ],
+      "limitations_ja": [
+        "接方向の包含だけで被約和の接空間や高次接触を決めない。"
+      ]
+    },
+    {
+      "id": "AMBIENT_B18_R_N_CONTACT_AT_LEAST3_AND_SOURCE_JET_OBSTRUCTION",
+      "title_ja": "RとNの像イデアルは三次以上接触する",
+      "statement_ja": "真のN曲線の二次曲率を差し引いた全150差はactual T_N37へ入る。従って実I_NのR曲線への制限は(t³)に入る。一方、全source kernel速度を許しても二次source持上げ条件のQQ idealはunitであり、像イデアルの接触と正規化sourceへのjet持上げを区別する。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "AMBIENT_B18_R_CURVE_AND_SOURCE_N_TANGENCY",
+          "AMBIENT_B18_N_FULL_ACTUAL_COMPLETION"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_B18_N_R_SECOND_CONTACT_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_B18_ZERO_LINEAR_CONTACT4_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_B18_N_R_SECOND_CONTACT_20261103_v63/report.json",
+        "reports/AMBIENT_B18_ZERO_LINEAR_CONTACT4_20261103_v63_REVIEW.json"
+      ],
+      "limitations_ja": [
+        "二次持上げ失敗から像イデアルの二次障害を推論しない。kの正確値は次の別計算を要する。"
+      ]
+    },
+    {
+      "id": "AMBIENT_B18_ZERO_LINEAR_CONTACT_EXACT4",
+      "title_ja": "零一次N関係の正確な接触次数4",
+      "statement_ja": "全150曲率のΔ=A W+B H、A=4800/23、B=300/23、B²−A=−20400/529を独立有理数演算で確認した。元のνとtrace線を保つ全N模型の81関係はR上で四次以上。あるproduct関係は四次非零である。ambient graphのm倍も四次以上なのでh=4、kは3または4となる。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "AMBIENT_B18_R_N_CONTACT_AT_LEAST3_AND_SOURCE_JET_OBSTRUCTION",
+          "AMBIENT_B18_ACTUAL_D_LINEAR_VISIBLE_NILRADICAL"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_B18_ZERO_LINEAR_CONTACT4_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_B18_ZERO_LINEAR_CONTACT4_20261103_v63_REVIEW.json"
+      ],
+      "limitations_ja": [
+        "明示的physical四次多項式やkの正確値、全D環・depthの決定ではない。"
+      ]
+    },
+    {
+      "id": "W16_SPIN5_TWO_ADJOINT_COVARIANTS_AND_INV8_PENCIL",
+      "title_ja": "W16のSpin5模型と全8次不変式のpencil基底",
+      "statement_ja": "元Sp4表現W16をClifford積のgamma-traceless E5⊗S4へ全係数で同定した。独立な二次adjoint共変量C,Dは全二次共変量空間を張り、μ転置=−C+2D。det(tC+uD)の五係数は全Inv8基底であり、F4²=400p0+1600p4。独立Fraction/整数Newton計算でも全係数を再構成した。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/Q_FIRSTJET_SPIN5_STRUCTURE_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/Q_FIRSTJET_SPIN5_STRUCTURE_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/Q_FIRSTJET_SPIN5_STRUCTURE_20261103_v63/report.json",
+        "reports/Q_FIRSTJET_SPIN5_STRUCTURE_20261103_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "周囲の表現と不変式環に関する定理。NEW25方程式・判別式や次数24 liftを主張しない。"
+      ]
     }
   ],
   "setup_checkpoint": "v25-setup",
