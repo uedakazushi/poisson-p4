@@ -2,6 +2,25 @@
 
 Version: v63-s61 · 2026-11-03 (Asia/Tokyo).
 
+Latest O: reducedNEW25 SMOOTH alongENTIREnonzeropositiveaxis.
+Multiplicityassociativity eFULL<=5+genericlength5 =>eFULL5/eNEWred1,
+unique25Dcomponent, tangentL3. Lowerdimmin/embeddedbranches stillOPEN;
+FULLpositivePoissonringNONCM unchanged. DoNOTinferfullbranchexhaustion.
+WholegenericA FINITE<=5generators OVER K[n42], NOTbeta-finite/free.
+FullcrossQQrank126; residualnormalprojection CLOSEDIMMERSION, avoids0.
+Normal2796deg<=4 criterion +42actualcubiccommutators gives J0=m∩Ires;
+normalD84detrecipe=originale, Ires=J0+(D84). Actualunit stillOPEN.
+B18SOURCEcriticalCA/CB=C[[g19,w,u,v]]/(wu,wv,uv,u³), N=g19/(wv,v²).
+Wholephysical/allmixedterms independentlyaudited; nottargetDtype.
+OddI IMAGE modν:6linear+4CA/CBcore or2Ncore, mu10/10/8. NownR28cone,
+notCA/CBcommonR29. No I/νI shortcut, coordinatealignment/liftsOPEN.
+ENTIREB18 inNONCM/NONNORMAL/SING ofEACHreducedCA/CB/N byfiniteR⊕It
+AB/directsummandprincipality contradiction+denseorbitclosure. Inclusion
+ONLY, notexactbadlocus/depth/actualDprimary. Nonsquare33pivots24x58,
+V24archive reproducible; nofull41/57/quarticproof. J0indep39pivots18x52,
+latestprimitive876541698bytes/SHA039ee56e...9489a; notfinite/cokerunit.
+Continuemainpush.
+
 Latest N: NEW25 GENERIC FULL SCHEME TRANSVERSE LENGTH EXACT5.
 At n111 FULLprojective completion C[[s25,u,v]]/(uv,u^3,v^3), CMtype2,
 nilcube0, reducedcomponent smoothTHERE; globalnormality/boundariesOPEN.

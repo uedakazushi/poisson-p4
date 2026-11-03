@@ -1,5 +1,21 @@
 # 研究状態 — v63-s61 / 2026-11-03
 
+## v63 O: 正軸の被約smooth性、normal残余、全B18での個別非CM性
+
+直前保存 main `9c8f974cdf70d6ba1313993a70f4e8823d90da80` は通常push済み。以下は過去時点の記録を含む。
+
+正の重み六軸の全非零点で、新25次元被約成分は滑らかである。全Poisson横断環の多重度上界5と新成分一般長さ5を結合公式で比較し、全多重度5・被約新成分多重度1・唯一の25次元極小成分を証明した。解析的分裂を先に仮定せず全branchを数える。低次元成分・embedded構造は未決で、全Poisson環は非CMのままである。
+
+一般affine全134式はnormal座標42個の多項式環上、実際に五元で有限生成される。全z*n cross rank126とtiny plane行列を元式から独立監査した。実残余のnormal射影は閉埋込みとなり、2796低次数recipeのorigin saturationで定義できる。さらにnormal-only三次commutatorの42Jacobianがp-unitで、42式を加えたJ0は被約originと残余の直和、normal-only冪等det D84により残余=J0+(D84)。これはbeta底上有限性や残余unitではなく、一般五点尽くしはまだ未解決である。
+
+B18におけるCA/CB/Nの正規化source全ramification schemeを元150係数から計算・独立監査した。CA/CBのcone完成環はC[[g19,w,u,v]]/(wu,wv,uv,u³)、NはC[[g19,w,v]]/(wv,v²)。source結果を実交叉Dへ転用しない。実odd idealの判別式上への像は六線形と上の小coreで、最小生成数は10/10/8。Nの正則底は自身の28cone変数で別に構成した。
+
+有限R加群A=R⊕I*tのCM性ならIがprincipalになる矛盾から、個々の被約CA/CB/NはB18全体で非CM・非正規・特異であると証明した。bad locusへの包含であって等号ではない。共通R内のodd idealのnu方向liftと相対位置、実Dのnilradical・Ass・depthは未解決。
+
+J0の二つのDixon単元も全row・witnessを独立Fractionで監査し、39安全pivot・18×52を受理した。最新primitive入力は876541698 bytes、SHA039ee56e033a9d576aae8e271483f34e10dd111e87f391eb740251dc90c9489a。全coker unitやJ0欠損有限性は未取得。
+
+非平方は元二行split right inverseと次transportにより33安全product pivot・24×58に進んだ。全product rank41、全cubic rank57、四次被覆は未証明。再現用V24 archiveは小さい入力・witness・失敗限界を保存し、巨大生成行列はhashとrecipeで再生成する。下界58/rank4下界52・上界未定を維持し、残るP2枝、一般残余、B18実交叉、非平方の全被覆を続ける。
+
 ## v63 N: 新成分の一般長さ5と全完成環、独立原稿
 
 直前保存 main `0bc26c274760d02af900dd4f2fee9aaef2e3e966` は通常push済み。以下は過去時点の記録を含む。

@@ -1,0 +1,7 @@
+R=QQ[n1,n3,n4,n5,n6,n7,r];
+I=ideal(2*(-60*n1*n3 + 20*n1*n6 + 124416*n1*r - 48*n3*n7 - 32*n4*n5 + 8*n4*n7 - 64*n5*n6 - 414756*n5*r + 32*n6*n7 + 103689*n7*r),-(-240*n1*n3 - 24*n1*n4 + 64*n1*n6 + 124443*n1*r - 480*n3*n7 - 64*n4*n7 + 64*n6*n7 + 124578*n7*r)/48,(3*n1^2 - 20*n1*n5 + 11*n1*n7 - 40*n5*n7 + 18*n7^2)/8,(3*n1^2 - 28*n1*n5 + 7*n1*n7 - 32*n5*n7)/16,3*(n1^2 - 8*n1*n5 + 2*n1*n7 + 8*n5*n7 - 2*n7^2)/16,9*r*(-96*n1*n3 + 32*n1*n6 - 48*n3*n7 - 32*n4*n5 + 8*n4*n7 - 64*n5*n6 + 248796*n5*r + 32*n6*n7 - 62199*n7*r)/2,-161243136*r^2*(-15*n3 + 5*n6 + 10368*r),-r*(n1 + 6*n7)*(4*n5 - n7)/8,-36*r*(12*n1^2 - 76*n1*n5 + 19*n1*n7 + 16*n5*n7 - 4*n7^2),-864*r*(-168*n1*n3 + 56*n1*n6 + 165888*n1*r - 48*n3*n7 - 32*n4*n5 + 8*n4*n7 - 64*n5*n6 - 82980*n5*r + 32*n6*n7 + 20745*n7*r),-r*(6*n1^2 - 28*n1*n5 + 49*n1*n7 - 128*n5*n7 + 84*n7^2)/8,-3*r*(9*n1^2 - 52*n1*n5 + 91*n1*n7 - 392*n5*n7 + 162*n7^2)/32,-9*n7*r*(12*n5 + n7)/32);
+print("DIM="|toString dim(R/I));print("DEG="|toString degree(R/I));print("GB="|toString gens gb I);
+K=ideal(n1,n7,n5*r,r*(15*n3-5*n6-10368*r),n5*(n4+2*n6));
+assert(dim(R/I)==3);assert(degree(R/I)==6);J=radical I;assert(gens J%gb K==0);assert(gens K%gb J==0);
+L=ideal(n1,n5,n7,15*n3-5*n6-10368*r);KR=saturate(K,ideal(r));assert(gens KR%gb L==0);assert(gens L%gb KR==0);
+assert(r%gb J!=0);print("RAD="|toString J);print("RADIAL_SATURATED_INITIAL_RADICAL="|toString L);print("ALL_EXACT_ASSERTIONS_PASS");

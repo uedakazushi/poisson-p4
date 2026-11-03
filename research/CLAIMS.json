@@ -14344,6 +14344,373 @@
       "limitations_ja": [
         "abstract row freenessを点毎rankと同一視しない。rank41やquartic除去までは得ていない。"
       ]
+    },
+    {
+      "id": "R4_NEW25_POSITIVE_AXIS_REDUCED_SMOOTH_MULTIPLICITY5",
+      "title_ja": "正軸上で新被約成分は滑らか・全多重度5",
+      "statement_ja": "全横断環の実多重度上界5と、新成分の一般長さ5を結合公式で比較するとe(A)=5、e(Cred)=1となる。excellenceによる解析branch全てを数え、有限rank1の正規parameter底への整拡大論法で被約成分の正則性を証明した。全非零正軸で新成分はsmooth、25次元極小成分は唯一、横断接空間はL3。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "R4_NEW25_FULL_COMPLETION_LENGTH5_CM_TYPE2",
+          "Q_POSITIVE_RAY_TRUE_INITIAL_FIVE_TWO_SUPPORT_PLANES"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/R4_NEW25_POSITIVE_AXIS_SMOOTH_REDUCED_COMPONENT_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/Q_POSITIVE_WEIGHT6_REDUCED_COMPONENT_SMOOTH_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/R4_NEW25_POSITIVE_AXIS_SMOOTH_REDUCED_COMPONENT_20261103_v63.json",
+        "reports/Q_POSITIVE_WEIGHT6_REDUCED_COMPONENT_SMOOTH_20261103_v63_REVIEW.json"
+      ],
+      "limitations_ja": [
+        "低次元極小成分・埋込み成分は除外しない。全Poisson環は非CMのままである。大域正規性は未決。"
+      ]
+    },
+    {
+      "id": "AMBIENT_B18_CA_SOURCE_WHOLE_RAMIFICATION_COMPLETION",
+      "title_ja": "B18でのCA正規化source全分岐環",
+      "statement_ja": "全16parabolic×20基底の安定性・実etale19因子・全150×9旗商を独立再構築した。全断面の8次minorは1。全Schur idealは七消去式と(wu,wv,uv,u^3)に等しく、cone完成環はC[[g19,w,u,v]]/(wu,wv,uv,u^3)。被約nodeにcubic nil junctionを持つ。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "AMBIENT_GENERIC_B18_ACTUAL_QUADRATIC_IMAGE_REDUCTION"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_B18_CA_CRITICAL_SCHEME_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_B18_CA_N_CRITICAL_SCHEMES_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_B18_CA_CRITICAL_SCHEME_20261103_v63/report.json",
+        "reports/AMBIENT_B18_CA_N_CRITICAL_SCHEMES_20261103_v63_REVIEW.json"
+      ],
+      "limitations_ja": [
+        "source ramification schemeの結果。CA targetや実交叉Dの全完成環を同定しない。"
+      ]
+    },
+    {
+      "id": "AMBIENT_B18_N_SOURCE_WHOLE_RAMIFICATION_COMPLETION",
+      "title_ja": "B18でのN正規化source全分岐環",
+      "statement_ja": "N自身の19基底・全16parabolic作用と全150×9旗商から再計算した。8次minorは恒等的に1、全critical idealは七消去式と(wv,v^2)。cone完成環C[[g19,w,v]]/(wv,v^2)はsmooth lineとsquare-zero embedded junctionを持つ。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "AMBIENT_GENERIC_B18_ACTUAL_QUADRATIC_IMAGE_REDUCTION"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_B18_N_CRITICAL_SCHEME_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_B18_CA_N_CRITICAL_SCHEMES_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_B18_N_CRITICAL_SCHEME_20261103_v63/report.json",
+        "reports/AMBIENT_B18_CA_N_CRITICAL_SCHEMES_20261103_v63_REVIEW.json"
+      ],
+      "limitations_ja": [
+        "CAの断面を切るだけの推論ではない。N targetや実Dの完成環は別問題。"
+      ]
+    },
+    {
+      "id": "AMBIENT_B18_CB_SOURCE_WHOLE_RAMIFICATION_COMPLETION",
+      "title_ja": "B18でのCB正規化source全分岐環",
+      "statement_ja": "associated ratioとfの全積を保持し、全16×22作用・ratio character・可変fiber20微分・全150旗商を独立照合した。fiber minor−864/25、旗minor8/3は全断面で定数単元。全critical idealのcone完成環はC[[g19,w,u,v]]/(wu,wv,uv,u^3)。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "AMBIENT_GENERIC_B18_ACTUAL_QUADRATIC_IMAGE_REDUCTION"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_B18_CB_CRITICAL_SCHEME_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_B18_CB_CRITICAL_SCHEME_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_B18_CB_CRITICAL_SCHEME_20261103_v63/report.json",
+        "reports/AMBIENT_B18_CB_CRITICAL_SCHEME_20261103_v63_REVIEW.json"
+      ],
+      "limitations_ja": [
+        "抽象的source型のCAとの一致を、共通target内の実交叉等号に使わない。"
+      ]
+    },
+    {
+      "id": "AMBIENT_B18_ACTUAL_ODD_IDEALS_MOD_DISCRIMINANT",
+      "title_ja": "実odd idealの判別式上の形式型と最小生成数",
+      "statement_ja": "Nには自身の28cone実parameter底と長さ2 fiberを別に構成した。三者それぞれB=R[t]/(t^2−nu)、A=R+I*t、全source critical=(t,I)。従って判別式上のIの像は独立形式座標変換で六線形とCA/CBの(wu,wv,uv,u^3)、Nの(wv,v^2)となる。最小生成数は正確に10/10/8、全Iにも同じ下界。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "AMBIENT_B18_CA_SOURCE_WHOLE_RAMIFICATION_COMPLETION",
+          "AMBIENT_B18_N_SOURCE_WHOLE_RAMIFICATION_COMPLETION",
+          "AMBIENT_B18_CB_SOURCE_WHOLE_RAMIFICATION_COMPLETION"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_B18_ODD_DISCRIMINANT_REDUCTION_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_B18_ODD_DISCRIMINANT_REDUCTION_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_B18_ODD_DISCRIMINANT_REDUCTION_20261103_v63/report.json",
+        "reports/AMBIENT_B18_ODD_DISCRIMINANT_REDUCTION_20261103_v63_REVIEW.json"
+      ],
+      "limitations_ja": [
+        "像modnuをI/nuIと同一視しない。三者の形式座標は独立で共通R内の相対位置、nu方向lift、実Dの全型は未決。"
+      ]
+    },
+    {
+      "id": "AMBIENT_ENTIRE_B18_IN_REDUCED_CA_CB_N_NONCM_NONNORMAL",
+      "title_ja": "全B18で個々の被約CA/CB/Nは非CM・非正規",
+      "statement_ja": "実有限R加群A=R⊕I*tがCMなら正則R上自由となり、rank1直和因子Iはprincipalとなるが、最小生成数下界10/10/8と矛盾する。有限正規化fiber長2は非正規性を示す。独立GL軌道rank19と開性から、各targetの非CM・非正規・特異集合はB18全体を含む。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "AMBIENT_B18_ACTUAL_ODD_IDEALS_MOD_DISCRIMINANT"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_B18_REDUCED_COMPONENTS_NONCM_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_B18_REDUCED_COMPONENTS_NONCM_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_B18_REDUCED_COMPONENTS_NONCM_20261103_v63.json",
+        "reports/AMBIENT_B18_REDUCED_COMPONENTS_NONCM_20261103_v63_REVIEW.json"
+      ],
+      "limitations_ja": [
+        "包含のみでbad locusの等号ではない。各exact depthと実Dのnilradical/primary構造は未決。nuがR/I上regularとは仮定しない。"
+      ]
+    },
+    {
+      "id": "S61_AFFINE_NORMAL_BASE_FINITE_FIVE_AND_CLOSED_RESIDUAL",
+      "title_ja": "全affine代数のnormal底上五生成と残余閉埋込み",
+      "statement_ja": "元全134式から得た129×126のz*n cross matrixはQQ rank126で、両逆行列積と全119070係数を別整数実装で監査した。全z_k*n_jは純nの次数≤2多項式となる。五平面二次のrank5と三次rank10により全AはK[n42]上五生成。残余は有限加群の局所化比較でnormal A42に閉埋込み、2796低次数式のorigin saturationが実残余idealとなる。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_AFFINE_GLOBAL_IDEMPOTENT_DEGREE42",
+          "S61_AFFINE_EXACT_RESIDUAL_DEGREE42"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_AFFINE_NORMAL_FINITE5_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/S61_AFFINE_NORMAL_FINITE5_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_AFFINE_NORMAL_FINITE5_20261103_v63/report.json",
+        "reports/S61_AFFINE_NORMAL_FINITE5_20261103_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "K[n42]上の有限性であってbeta底上の有限性ではない。自由性・残余空性・全五点尽くしを主張しない。"
+      ]
+    },
+    {
+      "id": "S61_AFFINE_NORMAL_COMMUTATOR_REDUCED_ORIGIN_SPLITTER",
+      "title_ja": "Normal三次式・被約origin・normal-only冪等元",
+      "statement_ja": "z_k*n=R_k(n)nの交換から全commutator三次式が元idealに入る。三つの42定数minorはp-unitで、独立GF逆行列と全5292線形係数比較で確認した。42三次式を2796式に加えたJ0は正確にm∩I_res。normal-only det[R0,R1]を定数detで割った次数≤84 recipeは大域冪等元eと等しく、I_res=J0+(D84)。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_AFFINE_NORMAL_BASE_FINITE_FIVE_AND_CLOSED_RESIDUAL"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_AFFINE_NORMAL_COMMUTATOR_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/S61_AFFINE_NORMAL_COMMUTATOR_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_AFFINE_NORMAL_COMMUTATOR_20261103_v63/report.json",
+        "reports/S61_AFFINE_NORMAL_COMMUTATOR_20261103_v63_REVIEW.json"
+      ],
+      "limitations_ja": [
+        "巨大QQ行列式展開・次数84の等号は計算していない。一般beta有限性やunitは未取得。"
+      ]
+    },
+    {
+      "id": "S61_NONSQUARE_ORIGINAL_TWO_PRODUCT_ROWS_SPLIT",
+      "title_ja": "非平方の元二product行に明示的右逆",
+      "statement_ja": "元2×60の全120係数に対する206項right inverseをQQ多項式で独立検証した。積はa I2であり、既知単元aだけを除けばsplit projectionとなる。二scalar恒等式と次Schur行への厳密transportも検証した。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_NONSQUARE_CUBIC_ROW_MODULE_FREE57"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_BINARY_NONSQUARE_SCALAR_PRODUCT_ROWS_20261103_v62.md"
+        },
+        {
+          "path": "research/notes/S61_NONSQUARE_SCALAR_PRODUCT_ROWS_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_BINARY_NONSQUARE_SCALAR_PRODUCT_ROWS_20261103_v62/report.json",
+        "reports/S61_NONSQUARE_SCALAR_PRODUCT_ROWS_20261103_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "全product rank41、全cubic rank57、quartic/ambient除去は意味しない。"
+      ]
+    },
+    {
+      "id": "S61_NONSQUARE_CONSTRUCTIVE_PRODUCT_PIVOT33",
+      "title_ja": "非平方の第33安全product pivot",
+      "statement_ja": "138項の実Schur witnessを二行右逆からtransportし、五cofactorのQQ定数結合1で可逆列変換を作った。元行の全59係数・cleaning単元・native別fixtureを独立検証し、余核同型24×58、product安全pivot33を得た。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_NONSQUARE_ORIGINAL_TWO_PRODUCT_ROWS_SPLIT"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_BINARY_NONSQUARE_SECOND_SCALAR_PIVOT_20261103_v62.md"
+        },
+        {
+          "path": "research/notes/S61_NONSQUARE_SECOND_SCALAR_PIVOT_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_BINARY_NONSQUARE_SECOND_SCALAR_PIVOT_20261103_v62/report.json",
+        "reports/S61_NONSQUARE_SECOND_SCALAR_PIVOT_20261103_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "残り八product行と十六genuine cubic行は未解決。全rank・欠損有限性・quartic被覆は主張しない。"
+      ]
+    },
+    {
+      "id": "S61_J0_DIXON_TWO_EXACT_UNITS_PIVOT39",
+      "title_ja": "J0の二つの厳密Dixon単元で39pivot",
+      "statement_ja": "実20×54/19×53の全rowとcofactorを独立Fractionで検証し、積和ell^3およびa*ell^6を得た。26/44 active cofactorは34/84項で非零QQ定数cofactorを持つ。既知単元a,ellだけの可逆列置換により合計39pivot・18×52へ進み、巨大生成出力はstream hashで固定した。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_J0_DEGREE1_UNIT_PIVOT37"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_NONSQUARE_J0_DIXON_UNITS_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/S61_NONSQUARE_J0_DIXON_UNITS_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_NONSQUARE_J0_DIXON_UNITS_20261103_v63/report.json",
+        "reports/S61_NONSQUARE_J0_DIXON_UNITS_20261103_v63_REVIEW.json"
+      ],
+      "limitations_ja": [
+        "全余核消滅・J0欠損有限性・quartic被覆は未取得。巨大native pivotの再実行はせず、独立全polynomial恒等式と既存出力receiptを区別する。"
+      ]
     }
   ],
   "setup_checkpoint": "v25-setup",
