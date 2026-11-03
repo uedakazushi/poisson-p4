@@ -1,5 +1,19 @@
 # 研究状態 — v63-s61 / 2026-11-03
 
+## v63 T: 実CA自己旗枝・一般点の全枝、次数20とactual scalar target
+
+直前保存 main `3233e823d0f23551ca52bb319d5354bf8e719602` は通常push済み。以下は過去時点を含む。
+
+CAで二つの異なる旗が同じ実Poisson構造を与える全次数の多項式直線P(a)を構成し、全150係数と全strict Jacobiを独立検証した。有限三次・四次候補から実際の枝へ進んだが、rankは全aで2である。全proper fiberと両source immersionにより、一般aの被約CAは正確に二つのsmooth29形式枝を持つ。meetingのedim21からprojective depth≤21で非CM。接空間の和37をwhole CAのedimと取り違えず、clean meetingや原点full idealは未決とする。
+
+全直線は第一CA旗を通じて実Nに入り、明示的CB表示も得た。第二CA旗はN旗ではない。全N sourceの閉subbundleと全fiberを監査し、一般aではNがprojective27で正則と証明した。指定CB liftも全a≠0でimmersiveだが、CB全fiber型はまだ決めていない。N所属からR19所属は従わず、CA smooth R minus Nの既証定理と矛盾しない。
+
+この族にはa≠0のみを反転する一様なPoisson Cremona(2,2)があり、有理中心は正確にC(H/Z³,ZW)。一般葉の閉包は通常次数7、4a²+1=0では5の有理coneとなる。全150係数の実sourceから既存LPB39・Log1112_28にも全直線が入る。成分数は増やさない。
+
+新25次元成分のfirstjet超曲面について、完全な18次不変式空間への制限が単射とexact QQ九次minorで証明した。独立整数word計算も一致し、定義方程式の次数下界は20へ改善した。方程式自体は未同定。
+
+一般betaの未知残余にはactual42上の新EulerRed determinant delta_Eを構成し、次数は正確に28と証明した。B空性はdelta_E∈J0という2838個の次数≤4生成元へのscalar所属と同値であり、polynomial cofactorには次数≥24が必要。所属そのものは未取得。raw四quadricの小さい有限体GBと47個のexact QQ seed所属、bounded QQ GB失敗はfrontierとして保存し、QQ product41/全57/四次被覆へ昇格しない。総下界58/rank4下界52、総上界未定。
+
 ## v63 S: V/W境界の全完成型と固定Darboux変換
 
 直前保存 main `cd5002934c19f09a0016b1db55ff729796368792` は通常push済み。以下は過去時点を含む。

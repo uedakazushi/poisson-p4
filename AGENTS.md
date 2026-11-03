@@ -2,6 +2,25 @@
 
 Version: v63-s61 · 2026-11-03 (Asia/Tokyo).
 
+Latest T: ACTUALCA ordinarypolynomialselfpair ALL150 QQ[a],rank2allpoints.
+FullCAfinitefiber EXACTtwo reducedflags genericPa; bothsource29immersed,
+two smooth29formalbranches, meetingedim21/dim20..21, depthCA<=22cone,
+<=21projective NONCM. Tangentunion37 NOTwholeCAedimequality/cleanproof.
+FourjetLaurentideal(y2,(t²−1)²,4t²y0+(7t²+3)y1), doublednormalizedA4.
+ALLPa actualN viafirstCAflag C2=0; secondCA C2=−a² notNflag.
+NsourceclosedinwholeCA, genericNfiber1reduced+rank28=>N SMOOTHproj27.
+ActualCBexplicitlift, allnonzeroa source29immersed; CBWHOLEfiberOPEN.
+NmembershipdoesNOTimplyR19. OldindividualCAsmoothRminusNunchanged.
+UniformPoissonCremona(2,2) forallanonzero, centerC(H/Z³,ZW), generic
+leafcone7/drop5at4a²+1=0; wholelineLPB39+Log1112_28actualsource.
+New25firstjethypersurface equationdegree>=20 byEXACTQQInv18rank9,
+indepintegerwordminor; equation/degree20OPEN, noautomatichigherchase.
+NEWactual42EulerRed δ_E degreeEXACT28; Bempty IFFδ_E∈J0(2838gens<=4),
+necessarypolynomialcofactor>=24, NOMembershipproof. Oldcircuitsunchanged.
+RawmodularGB/47exactlowdegreeQQseeds NOTQQ41/full57/quarticproof.
+OriginCA_CBfullI, actualD, genericbetaexhaustionOPEN. Lower58/r4lower52.
+Continueactualresearch and ordinarymainpush.
+
 Latest S: ACTUALindividualCA/CB GENERICV completionAc8 xg19 projective
 dim28/edim37/depth20/e2, whole81kernelbyKoszul+products; optionalM2false.
 CA V1denseorbit, CBmodulusQQ(V)retained, noallVextension.
