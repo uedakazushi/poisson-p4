@@ -8,6 +8,22 @@ v62保存は `e187b40de68bce534391f406f616940cddd045a7`、
 `66a80ab53dfcf0ff842c67140320d8da0226039d`。全て通常push済み。
 このv63保存のSHAはGit履歴で識別する。
 
+## v63 V: 全形式標準形・seminormalization・全99 kernel
+
+直前保存 main `2ce106c7425a114d98efef89704d9c07162e0852` は通常push済み。以下は過去時点を含む。
+
+generic B18代表点で、個別被約CA/CBの全形式標準形を決定した。両者は新しいformal座標でA=R⊕I*t、R=C[[g19,z6,ν,w,r,s]]、I=(z6,ν−s(s−r),wr,ws,sr²)、t²=νとなる。三軸conductorのnil moduleと函数の剛性、G19-equivariant finite coverのproduct、最小Cohen表示、intrinsic pushoutを分けて証明した。全kernelは44 syzygy＋55積関係の99式。作者側のKoszul/Hilbert–Burch証明と独立監査に加え、Cloud M2 1.24.11のdefault eliminationでも全source kernelとの一致を確認した。
+
+全formal germの特異・非正規・非CM・非seminormal locusも、三枝のreduced conductorに正確に一致すると証明した。seminormalization後の前三者はself枝だけに縮む。normalizer fiberの全局所stratumも記録した。
+
+正確なseminormalizationもA_sn=A[wt,rt]=R⊕J*t、J=(z6,ν−s(s−r),w,r)と決定した。二新元は元Aのsquare/cube条件を満たし、domain R/Jとν=s²非零を使ってnormalization B全体のsquare/cube判定を証明した。A⊊A_sn⊊Bで、self-pairの二点gluingは残る。全81関係とnormalizer conductorのreduced node coverも保存した。
+
+これらは個別完成環のformal同型であり、収束holomorphic同型や元のCA/CB相対配置を与えない。従ってgeneric B18原点のactual D全型はなお未解決。全Poisson分類、総数上界、一般beta五点尽くしも継続する。
+
+Q_b側CBのdouble meetingと全81 fiber-product型も独立検証した。実交叉Dは一般に非被約だが、P_a側と相対接空間が異なるため、以前の全D型をラベル交換しない。alternate branch∩CAには閉長4・relative free4とisotropic quotientを全150係数の独立series演算でも証明した。98秒のsymbolic workerは再実行せず、完成済み入力を独立な短い計算へ移した。actual Dの全idealには最後のambient cubic条件が残る。common R29へのétale性だけで余分なambient関係を消せるという候補は撤回し、正確なcolon criterionと未検証点を保存した。
+
+非平方の四quadricでは、単元a²Jだけによるexact row reductionと5×21の小さい条件へ移す証明を保存した。generic regular sequenceはQQで確認したが、全unit開でのgcd/constant-rank条件は未決。大きいQQ GBを繰り返さず、低次係数の小さい厳密問題を続ける。総下界58/rank4下界52、総上界未定。
+
 ## v63 U: 両原点conductorとactual Dのembedded成分
 
 直前保存 main `b1f02523f7485255f5670c28cee4905367b8aa80` は通常push済み。以下は過去時点を含む。

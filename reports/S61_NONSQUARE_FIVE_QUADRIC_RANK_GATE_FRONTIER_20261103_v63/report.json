@@ -1,0 +1,91 @@
+{
+  "frozen": true,
+  "scope": "Auxiliary five-quadric coefficient matrix only",
+  "exact_QQ_third_unit_identity": {
+    "exact_original_scalar_row_identity": true,
+    "source": "work/nonsquare-v62/raw-fourquad-structure-v49/five-after.txt",
+    "source_sha256": "39c36450ffa13ff19c7f2b94b760819218b0264409ef60af8780726842cb243d",
+    "target_residual_row": 1,
+    "original_five_quadric_row": 3,
+    "witness": "work/nonsquare-v62/five-quadric-minors-v50/primitive-row1.witness",
+    "witness_sha256": "1b9e48825b5bfdaa906e8cec01a7cf752b5f4eeacd1f90e7bb3922af2d9a4909",
+    "nonzero_cofactors": [
+      {
+        "column": 5,
+        "coefficient": "55000/3"
+      },
+      {
+        "column": 7,
+        "coefficient": "-11000/3"
+      }
+    ],
+    "exact_result": "P*a**3*(-5*P + 6*e + 4)**2",
+    "known_unit_powers_a_P_J": [
+      3,
+      1,
+      2
+    ],
+    "QQ_constant": "1",
+    "safe_rank_pivots_total": 3,
+    "remaining_shape": [
+      2,
+      18
+    ],
+    "rank5_gate_not_proved": true
+  },
+  "auxiliary_safe_pivots_total": 3,
+  "remaining_shape": [
+    2,
+    18
+  ],
+  "main_product_or_cubic_pivot_count_not_changed": true,
+  "full_QQ_rank5_gate_not_proved": true,
+  "QQ_localized_GB_timed_out": true,
+  "QQ_GB_run": {
+    "command": [
+      "work/nonsquare-v62/singular-runtime/run-singular-optimized-v6.sh",
+      "--cpus=0",
+      "-q",
+      "work/nonsquare-v62/five-quadric-localized-QQ-v51/source.sing"
+    ],
+    "elapsed_seconds": 59.80682784700184,
+    "exit_code": -9,
+    "timed_out": true,
+    "max_rss_kib": 178700,
+    "QQ_claim": false
+  },
+  "degree1_search_rows": [
+    {
+      "row": 0,
+      "exit_code": 2,
+      "elapsed": 0.032192218997806776,
+      "witness": false
+    },
+    {
+      "row": 1,
+      "exit_code": 2,
+      "elapsed": 0.03204090100189205,
+      "witness": false
+    }
+  ],
+  "degree1_primitive_cofactor_monomials": [
+    "1",
+    "a",
+    "e",
+    "P"
+  ],
+  "degree1_unknowns_per_row": 72,
+  "degree1_search_target_factor_bound": 8,
+  "degree1_search_not_global_nonmembership": true,
+  "positive_P_multiplier_fixture_pass": true,
+  "independent_review_pending": true,
+  "input_sha256": {
+    "research/notes/S61_NONSQUARE_FIVE_QUADRIC_RANK_GATE_FRONTIER_20261103_v63.md": "86580cf978e8b5fa38f21708a9cba9fabe21dd57ef071a606b95efab2c3a16a2",
+    "work/nonsquare-v62/raw-fourquad-structure-v49/five-after.txt": "39c36450ffa13ff19c7f2b94b760819218b0264409ef60af8780726842cb243d",
+    "work/nonsquare-v62/five-quadric-minors-v50/primitive-row1.witness": "1b9e48825b5bfdaa906e8cec01a7cf752b5f4eeacd1f90e7bb3922af2d9a4909",
+    "work/nonsquare-v62/five-quadric-minors-v50/after-primitive.txt": "fa74d40486fa58cb7a57897c714df3f7128c0c61efe6157434fcbac7fe67cbcf"
+  },
+  "archive": "reports/S61_NONSQUARE_FIVE_QUADRIC_RANK_GATE_FRONTIER_20261103_v63/rank_gate_frontier.tar.gz",
+  "archive_bytes": 65349,
+  "archive_sha256": "1decc3d7bc5e35eff687deac7caa2eb2fb07db600e0cefbb5364c8d97d13c831"
+}

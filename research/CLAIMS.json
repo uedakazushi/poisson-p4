@@ -16293,6 +16293,295 @@
       "limitations_ja": [
         "七actual constraintを消したminimal quotientの全graded initial。高次formal normal form、CA/CB相対embedding、原点actual Dはまだ含めない。"
       ]
+    },
+    {
+      "id": "THREE_AXIS_DOUBLE_BRANCH_CONDUCTOR_PAIR_RIGIDITY",
+      "title_ja": "三軸conductorと二次函数の形式的剛性",
+      "statement_ja": "CM一次元・embedding dimension3、三つの滑らかな独立接方向の被約枝、generic長1,1,2、全initial(wr,ws,sr²)を仮定する。nil moduleはDVR上free rank1でrsが生成元となり、座標修正で全環はC[[w,r,s]]/(wr,ws,sr²)。さらにq∈m²、単純二枝上q0、q2=c*s(s−r),c≠0ならpairはq=s(s−r)へ正規化される。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "complete_conceptual_proof_and_counterexamples_no_arithmetic_job",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_THREE_AXIS_CONDUCTOR_RIGIDITY_20261103_v63.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_THREE_AXIS_CONDUCTOR_RIGIDITY_20261103_v63.json"
+      ],
+      "limitations_ja": [
+        "全initialだけやqの二次成分だけでは足りない。generic長とq∈m²を落とす反例も保存した。実CA/CB適用は次claimで別証明。"
+      ]
+    },
+    {
+      "id": "AMBIENT_B18_CA_CB_FULL_FORMAL_NORMAL_MODEL_99",
+      "title_ja": "generic B18の個別CA/CB全形式標準形と完全99関係",
+      "statement_ja": "canonical G19-equivariant finite coverとconductorをformal sliceで分離し、実νの零一次・非零二次を剛性定理へ結んだ。正則normalizerの最小Cohen表示とintrinsic pushoutにより、両個別完成環はA=R⊕I*t、R=C[[g19,z6,ν,w,r,s]]、I=(z6,ν−s(s−r),wr,ws,sr²)、t²=νに同型。44完全syzygy＋55積関係が全kernel。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "THREE_AXIS_DOUBLE_BRANCH_CONDUCTOR_PAIR_RIGIDITY",
+          "AMBIENT_B18_CA_CB_EXACT_INITIAL_BINARY_CUBICS",
+          "AMBIENT_CA_ORIGIN_FULL_CONDUCTOR_MULTIPLICITY4_CM",
+          "AMBIENT_CB_ORIGIN_FULL_CONDUCTOR_MULTIPLICITY4_CM"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_ORIGIN_FULL_FORMAL_MODEL_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_ORIGIN_FULL_FORMAL_MODEL_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_ORIGIN_FULL_FORMAL_MODEL_20261103_v63/report.json",
+        "reports/AMBIENT_ORIGIN_FULL_FORMAL_MODEL_20261103_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "新しいformal座標での各個別完成環。元のCA/CBの相対配置を揃えた主張、収束holomorphic同型、global normality・原点actual Dは含まない。"
+      ]
+    },
+    {
+      "id": "AMBIENT_ORIGIN_FORMAL99_ENTIRE_KERNEL_M2_12411",
+      "title_ja": "Macaulay2 1.24.11での全kernel一致",
+      "statement_ja": "Cloud版M2 1.24.11のdefault GB/eliminationで、独立な99生成元idealとsource(t²−ν,Y−b*t)からtを全消去したidealが正確に一致した。作者の99式とは全項を比較し、第二HB syzygyの初等row加算だけの違いと確認した。trim生成元は99。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "exact_computer_algebra_verification_of_entire_source_elimination_kernel",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "AMBIENT_B18_CA_CB_FULL_FORMAL_NORMAL_MODEL_99"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_ORIGIN_FORMAL99_M2_20261103_v63.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_ORIGIN_FORMAL99_M2_20261103_v63/report.json"
+      ],
+      "limitations_ja": [
+        "polynomial normal modelの全kernel検証。実CA/CBへの形式幾何の適用を、このM2検査だけで証明したとは扱わない。既存setupは再実行していない。"
+      ]
+    },
+    {
+      "id": "AMBIENT_B18_CA_CB_EXACT_SEMINORMALIZATION",
+      "title_ja": "両個別完成環の正確なseminormalization",
+      "statement_ja": "J=(z6,ν−s(s−r),w,r)をself primeとする。A_sn=R⊕J*t=A[wt,rt]であり、二新元のsquare/cubeは元Aへ入る。R/J=C[[g19,s]]はdomainでν=s²非零なので、normalization B全体のsquare/cube判定からA_snはseminormal。A⊊A_sn⊊B、normalizer conductorは(z6,w,r,t²−s²)、reduced node coverを保つ。全81関係も決定。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "AMBIENT_B18_CA_CB_FULL_FORMAL_NORMAL_MODEL_99"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_ORIGIN_SEMINORMALIZATION_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_ORIGIN_SEMINORMALIZATION_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_ORIGIN_SEMINORMALIZATION_20261103_v63/report.json",
+        "reports/AMBIENT_ORIGIN_SEMINORMALIZATION_20261103_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "各個別formal germのみ。Jをrad(I)と取り違えない。normalization Bへ全て移してself-pairを消した結果ではない。相対配置・global seminormalityは別。"
+      ]
+    },
+    {
+      "id": "AMBIENT_QB_CB_DOUBLE_MEETING_AND_ACTUAL_D_NONREDUCED",
+      "title_ja": "Q_b側CBのdouble meetingとactual Dの非被約性",
+      "statement_ja": "独立な全QQ(b) source coefficient-array二次jetでe63(L)=24b⁴、分母はbの冪のみを確認した。全b≠0でCB meetingはdouble smooth20、全81 fiber-product型はcone29/38/depth21/e2。actual CA tangentがwhole CB tangentへ入るのでDは一般にcone28/edim29で非被約。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "AMBIENT_QB_ALL_NONZERO_WHOLE_CA_CB_N_FLAGS",
+          "AMBIENT_CA_SELF_PAIR_MEETING_DOUBLE_ENTIRE_COMPLETION"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_CB_SELF_PAIR_ACTUAL_D_TWOJET_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_CB_SELF_PAIR_ACTUAL_D_TWOJET_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_CB_SELF_PAIR_ACTUAL_D_TWOJET_20261103_v63/report.json",
+        "reports/AMBIENT_CB_SELF_PAIR_ACTUAL_D_TWOJET_20261103_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "P_a側actual D全型をラベル交換しない。Q_bではbranch∩CA tangent22、共有extra方向はN内にあり、nil moduleと全D idealはまだ未決。"
+      ]
+    },
+    {
+      "id": "AMBIENT_CB1_CA_ACTUAL_CLOSED_TRANSVERSE_CI4",
+      "title_ja": "alternate CB枝とCAの実閉横断長4",
+      "statement_ja": "Q_bのb1で二normal方向を残す全58 source frameと36単元逆を構成し、全150二次残差を独立再計算した。二quadricsの三次乗法block行列式は64/25でunit。Nakayamaにより高次項は冗長となり、実閉横断idealは(r²,(r−z)²)、長4/HF(1,2,1)/m³0である。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "AMBIENT_QB_CB_DOUBLE_MEETING_AND_ACTUAL_D_NONREDUCED"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_CB1_CA_TRANSVERSE_CI4_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_CB1_CA_RELATIVE_CI4_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_CB1_CA_TRANSVERSE_CI4_20261103_v63/report.json",
+        "reports/AMBIENT_CB1_CA_RELATIVE_CI4_20261103_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "閉横断fiberだけからgeneric長やflatnessを外挿しない。相対free4は次の別claimで証明。"
+      ]
+    },
+    {
+      "id": "AMBIENT_CB1_CA_RELATIVE_FREE4_AND_ISOTROPIC_QUOTIENT",
+      "title_ja": "実交叉の相対free4とisotropic quotient",
+      "statement_ja": "全QQ(b)の150二次残差rank2と三次span unitを独立係数seriesで確認した。smooth S20沿いの全接次元と二次rank2から相対全idealは二quadricsで尽くされ、実完成交叉はC[[s20,u,v]]/(u²,v²)、base上free rank4。CB二枝meetingへの実写像はuを零にし、kernel(u)はsquare-zero/base rank2。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "AMBIENT_CB1_CA_ACTUAL_CLOSED_TRANSVERSE_CI4"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_CB1_CA_RELATIVE_CI4_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_CB1_CA_RELATIVE_CI4_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_CB1_CA_RELATIVE_CI4_20261103_v63/report.json",
+        "reports/AMBIENT_CB1_CA_RELATIVE_CI4_20261103_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "b1近傍およびgeneric unit開。b²3というframe除外を幾何例外と断定しない。Torを無視したbasechangeやactual D全環は主張しない。"
+      ]
+    },
+    {
+      "id": "AMBIENT_QB_COMMON_BASE_ETALE_AND_FULL_COLON_CRITERION",
+      "title_ja": "共通baseへのétale性と全ambient colon criterion",
+      "statement_ja": "old actual共通29target関数に対し両CB枝とCAの三つのJacobi determinantがQQ(b)で非零であり、共通R chartを取れる。clean N=(f)のodd差をf*c、cのunit行をe0へ正規化すると、全syzygyを含むactual D idealはf*(J_B,f−2b0,(J_B:b0))となる。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "AMBIENT_QB_CB_DOUBLE_MEETING_AND_ACTUAL_D_NONREDUCED",
+          "AMBIENT_CB1_CA_RELATIVE_FREE4_AND_ISOTROPIC_QUOTIENT"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_CB_SELF_PAIR_COMMON_BASE_ETALE_20261103_v63.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_CB_SELF_PAIR_COMMON_BASE_ETALE_20261103_v63/report.json"
+      ],
+      "limitations_ja": [
+        "単にbaseがétaleだからproduct式f*J_Zだけで尽くせるとは言えない。余分なambient syzygyのcolon項が残り、最後のcubic socle条件は未計算。"
+      ]
+    },
+    {
+      "id": "AMBIENT_B18_CA_CB_EXACT_LOCAL_BAD_LOCI_AND_NORMALIZER_FIBERS",
+      "title_ja": "個別完成環の正確なbad lociと正規化fiber",
+      "statement_ja": "全formal modelでSing=Nonnormal=NonCM=Nonseminormalは三つのsmooth20枝からなるreduced conductor全体に一致する。local ABとheight9が全点の非CM性を与え、Ann_C(w,r)=(rs)=nilradがseminormalization差の全supportを与える。seminormalizationでは前3者がself smooth20枝だけに縮む。normalizer fiberはcritical W/VとG19上で長2の一点、self枝のG19外で被約二点、conductor外で同型。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "AMBIENT_B18_CA_CB_FULL_FORMAL_NORMAL_MODEL_99",
+          "AMBIENT_B18_CA_CB_EXACT_SEMINORMALIZATION"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_ORIGIN_FORMAL_BAD_LOCI_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_ORIGIN_FORMAL_BAD_LOCI_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_ORIGIN_FORMAL_BAD_LOCI_20261103_v63.json",
+        "reports/AMBIENT_ORIGIN_FORMAL_BAD_LOCI_20261103_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "個別formal germの全点の記述。global CA/CB bad locus、相対配置、収束解析型へは広げない。"
+      ]
     }
   ],
   "setup_checkpoint": "v25-setup",

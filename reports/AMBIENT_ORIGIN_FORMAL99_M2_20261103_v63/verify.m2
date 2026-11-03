@@ -1,0 +1,16 @@
+S=QQ[t,z1,z2,z3,z4,z5,z6,F,w,r,s,y1,y2,y3,y4,y5,y6,y7,y8,y9,y10,MonomialOrder=>Eliminate 1];
+b={z1,z2,z3,z4,z5,z6,F,w*r,w*s,s*r^2};
+y={y1,y2,y3,y4,y5,y6,y7,y8,y9,y10};
+nu=F+s*(s-r);
+L=flatten apply(7,i->apply(toList(i+1..6),j->b#j*y#i-b#i*y#j));
+L=L|flatten apply(7,i->apply(toList(7..9),j->b#j*y#i-b#i*y#j));
+L=L|{s*y8-r*y9,r^2*y9-w*y10};
+P=flatten apply(10,i->apply(toList(i..9),j->y#i*y#j-nu*b#i*b#j));
+assert(#L==44 and #P==55);
+K=ideal(L|P);
+Source=ideal({t^2-nu}|apply(10,i->y#i-b#i*t));
+E=eliminate(Source,{t});
+assert(K==E);
+print "FULL99_EQUALS_ENTIRE_SOURCE_ELIMINATION_PASS";
+print(numColumns gens trim K);
+exit 0;

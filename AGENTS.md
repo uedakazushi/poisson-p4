@@ -2,6 +2,26 @@
 
 Version: v63-s61 · 2026-11-03 (Asia/Tokyo).
 
+Latest V: BOTHindividualCA/CB genericB18 FULLFORMALNORMALTYPE solved.
+R=C[[g19,z6,nu,w,r,s]], I=(z6,nu-s(s-r),wr,ws,sr²), A=R+I*t,t²nu.
+Tracepairrigidity+G19coverproduct+NEWCohenR+intrinsicpushout; original
+CA_CBrelativealignment NOTgiven, noholomorphicconvergence/globalclaim.
+WHOLE99kernel=44syzygies+55products, independentM2 1.24.11 fullsource
+eliminationequalityPASS(defaultGB,notQQLinearAlgebra); oldsetupreused.
+EXACTseminormalization A_sn=A[wt,rt]=R+J*t,J=(z6,Fnu,w,r) SELFPRIME
+notradI. A<Asn<B, reducednodeconductor t²-s² preserves2pointselfgluing.
+DomainR/J,nu=s²nonzero givesENTIREB square/cubetest. Whole81kernel.
+ALLformalpoint original4badloci=3axisconductor; Asnfirst3=selfS20only,
+seminormaleverywhere. NoGLOBALbadlocusextension.
+NEWQbCBmeetingdoubleS20ALLnonzerob, cone29/38/depth21/e2. ActualD
+generic28/29nonreduced, but CB1_CA tangent22/sharedvinsideN, oldPaD
+fulltypeDOESNOTswap. RelativeCI4/isotropicdiagramINDEPENDENTLYPROVED freeR20^4,
+quotientR[u,v]/u²,v²→R[v]/v² killsu; extraambientcubic remains. CommonR29etaleALONE
+doesNOTkillredundantoddsyzygies; exactcoloncriterionneeded.
+OriginactualD, genericbetaδmembership, QQ41/full57/quartic STILLopen.
+Raw4q unitrow/small5x21conditions structuralfrontier, noallUclaim.
+Lower58/r4lower52/uppernull; continueactualresearch and ordinarymainpush.
+
 Latest U: BOTHCA/CB genericB18originconductor FULLINITIAL=I0 HB CMcurve,
 dim20/edim22/e4/type2, EXACT10actualoddgenerators. Actualindividualimage
 cone29/edim39/depth21/e2; projective28/38/depth20/e2. Higheranalytic
