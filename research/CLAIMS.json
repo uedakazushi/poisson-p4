@@ -10806,7 +10806,8 @@
       "limitations_ja": [
         "全S61のR1や全交叉idealの決定ではない。",
         "全射影閉包のgeneric Poisson rank≤2境界の余次元1正則性は未証明。"
-      ]
+      ],
+      "later_full_projective_R1_completion": "CA_CB_N_FULL_PROJECTIVE_SERRE_R1"
     },
     {
       "id": "S61_AFFINE_BASE_PLANE_P31",
@@ -11538,6 +11539,411 @@
       "limitations_ja": [
         "Δ=0を全非正規因子と同一視しない。全ての他の被約枝はΔ0に入るが、その尽くしは未決。",
         "全35模型の全枝・primary構造やscheme理想等号は主張しない。"
+      ]
+    },
+    {
+      "id": "CA_CB_N_FULL_PROJECTIVE_SERRE_R1",
+      "title_ja": "全射影CA/CB/NのR1",
+      "statement_ja": "全proper模型の幾何ファイバーを一意に戻し、全源の微分から長さ1のschemeファイバーを得て、finite/Nakayamaでtargetの滑らかさを証明した。唯一のrank2境界因子Ag/Bb/Ngに滑らかな点があるため、rank4開の既存R1を全射影CA/CB/Nへ延長した。",
+      "scope": "Exact stated scope; projective dimensions before PGL quotient unless specified otherwise.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "GLOBAL_N_RANK_TWO_BOUNDARY_SQUARES",
+          "CA_CB_COMPONENTS_R1_NON_CM"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_R19_GENERIC_GEOMETRY_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_R19_GEOMETRY_20261103_v63_REVIEW.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_N_GLOBAL_R1_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_N_GLOBAL_R1_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_R19_GENERIC_GEOMETRY_20261103_v63/report.json",
+        "reports/AMBIENT_R19_GEOMETRY_20261103_v63_REVIEW.json",
+        "reports/AMBIENT_N_GLOBAL_R1_20261103_v63/report.json",
+        "reports/AMBIENT_N_GLOBAL_R1_20261103_v63_REVIEW.json"
+      ],
+      "limitations_ja": [
+        "全正規性やCM性は主張しない。Q1での非正規・非CM性は維持する。"
+      ]
+    },
+    {
+      "id": "R19_RATIONAL_GENERIC_ORBIT_MODULUS",
+      "title_ja": "R19の有理性と一般軌道の完全不変量",
+      "statement_ja": "Rは有理19次元。t*q5*q7≠0の全点をVκ=4x²∂x−2xz∂z+(2xw+h²+κhz+z²)∂wへ正確に移し、κ²=4q6²/(3q7q5)が完全不変量。一般PGL軌道18、stabilizer6、invariant field C(κ²)。",
+      "scope": "Exact stated scope; projective dimensions before PGL quotient unless specified otherwise.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "CA_CB_GLOBAL_REDUCED_INTERSECTION_N27_R19"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_R19_GENERIC_ORBITS_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_R19_GENERIC_ORBITS_20261103_v63_REVIEW.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_R19_GENERIC_GEOMETRY_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_R19_GEOMETRY_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_R19_GENERIC_ORBITS_20261103_v63/report.json",
+        "reports/AMBIENT_R19_GENERIC_ORBITS_20261103_v63_REVIEW.json",
+        "reports/AMBIENT_R19_GEOMETRY_20261103_v63_REVIEW.json"
+      ],
+      "limitations_ja": [
+        "この主張だけではt0/AF0やR∩Nの全軌道を分類しない。GL7はprojective classのstabilizer、affine tensorのGL stabilizerは6。"
+      ]
+    },
+    {
+      "id": "R19_LPB_CONTAINMENT_FULL_POISSON_NON_CM",
+      "title_ja": "全RのLPB39包含と全Poisson局所環の非CM性",
+      "statement_ja": "全8係数族が既存LPBの e∧quadratic vector field on C4 modulo radial に実際に一致する。閉PGL不変性で全R⊂LPB39。Rの全閉点は実全Poisson成分CA/CB28とLPB39に属し、minimal dimensionsの差から全Poisson完成局所環は非CM。",
+      "scope": "Exact stated scope; projective dimensions before PGL quotient unless specified otherwise.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "CA_CB_GLOBAL_REDUCED_INTERSECTION_N27_R19",
+          "R2_FULL_SIX"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_R19_LPB_CONTAINMENT_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_R19_GEOMETRY_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_R19_LPB_CONTAINMENT_20261103_v63/report.json",
+        "reports/AMBIENT_R19_GEOMETRY_20261103_v63_REVIEW.json"
+      ],
+      "limitations_ja": [
+        "R自体やCA/CB交叉のCM性と区別する。既存LPB成分certificateを再使用し、新しい全大規模再計算とはしない。"
+      ]
+    },
+    {
+      "id": "R19_NORMALFORM_OPEN_ORDINARY_DOUBLE",
+      "title_ja": "R19の一般正規形開における実交叉のordinary double",
+      "statement_ja": "全κでproper源の全微分rank29/29、union37、R源20を定数minorで証明し、全幾何旗の一意性でCA/CB/Rのtarget滑らかさを得た。実二曲線の二次差と全tangent cokernelから冪零次数2を証明。t*q5*q7≠0のPGL飽和の全点でDhat=C[[u19,ε]]/(ε²)、CMでembedded primeなし。",
+      "scope": "Exact stated scope; projective dimensions before PGL quotient unless specified otherwise.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "R19_RATIONAL_GENERIC_ORBIT_MODULUS",
+          "CA_CB_N_FULL_PROJECTIVE_SERRE_R1"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_R19_GENERIC_DOUBLE_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_R19_OPEN_DOUBLE_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_R19_DOUBLE_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_R19_GENERIC_DOUBLE_20261103_v63/report.json",
+        "reports/AMBIENT_R19_OPEN_DOUBLE_20261103_v63/report.json",
+        "reports/AMBIENT_R19_DOUBLE_20261103_v63_REVIEW.json"
+      ],
+      "limitations_ja": [
+        "全大域primary分解や、この定理単独でのAF0/R∩Nの全構造は主張しない。",
+        "全Poisson局所環はLPB39との交点なので非CMのまま。"
+      ]
+    },
+    {
+      "id": "Q_LOCAL_Q51_EXACT_A9_QUOTIENT",
+      "title_ja": "全35模型内のT39の厳密A9商と二つの楕円交点",
+      "statement_ja": "固定e0で全150係数をS61へ正規化し、Q51 graph45式を合成した。正重みの25変数三角消去でR/(G51)=QQ[9]を全次数で検証し、350Jacobi+45graphの全恒等式と物理left inverseを確認した。全模型上でG51_25=(9a−2)/(2a²)、G52_25=(9a+8)/(2a²)。零QaのT39/T40とのscheme交点はa=2/9,−8/9の単純一点。",
+      "scope": "Exact stated scope; projective dimensions before PGL quotient unless specified otherwise.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "Q_WEIGHTED_FINITE_MODEL_35",
+          "S61_ELLIPTIC_UNIVERSAL_GRAPHS"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/Q_LOCAL_Q51_QUOTIENT_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/Q_LOCAL_Q51_QUOTIENT_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/Q_LOCAL_Q51_QUOTIENT_20261103_v63/report.json",
+        "reports/Q_LOCAL_Q51_QUOTIENT_20261103_v63_REVIEW.json"
+      ],
+      "limitations_ja": [
+        "全35模型の全枝の尽くしではない。T40の点はQstarとは別である。"
+      ]
+    },
+    {
+      "id": "Q_T39_EXACT_COFACTOR_SCHEME_OPEN",
+      "title_ja": "T39枝の実ideal等号を与える明示cofactor開",
+      "statement_ja": "26個のgraph正規生成元N39について、全実Jacobiの選択26式をM39*N39と有限DAG差商で厳密に表示した。C39=detM39はRstarε1で非零、ray上cε44。I[1/C39]=N39[1/C39]、実全schemeは9変数多項式環の明示開と一致する。",
+      "scope": "Exact stated scope; projective dimensions before PGL quotient unless specified otherwise.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "Q_LOCAL_Q51_EXACT_A9_QUOTIENT"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/Q_T39_DIVIDED_DIFFERENCE_OPEN_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/Q_T39_DIVIDED_DIFFERENCE_OPEN_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/Q_T39_DIVIDED_DIFFERENCE_OPEN_20261103_v63/report.json",
+        "reports/Q_T39_DIVIDED_DIFFERENCE_OPEN_20261103_v63_REVIEW.json"
+      ],
+      "limitations_ja": [
+        "normal-D分類やΔに依存しない実ideal等号。C39零の残余は未分類。"
+      ]
+    },
+    {
+      "id": "Q_GROUP_SLICE_GLOBAL_ETALE_UNIT",
+      "title_ja": "全109変数切断上の群17方向の単元",
+      "statement_ja": "全289群微分entryを全109変数の線形形式として独立再構築し、重み総和0と正性から群17minorが全slice上で163840a³(9a+4)/531441に等しいと証明した。全D開で群写像はidentity×sliceに沿ってétale、R9 regularならcanonical affine26/projective25もregular。",
+      "scope": "Exact stated scope; projective dimensions before PGL quotient unless specified otherwise.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "Q_WEIGHTED_FINITE_MODEL_35"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/Q_GROUP_SLICE_GLOBAL_UNIT_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/Q_GROUP_SLICE_GLOBAL_UNIT_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/Q_GROUP_SLICE_GLOBAL_UNIT_20261103_v63/report.json",
+        "reports/Q_GROUP_SLICE_GLOBAL_UNIT_20261103_v63_REVIEW.json"
+      ],
+      "limitations_ja": [
+        "非Qa点で任意のliteral Rhat[[16]]射影因子を主張しない。大域の一意な群cross-sectionでもない。"
+      ]
+    },
+    {
+      "id": "Q_LOCAL_Q52_EXACT_A9_AND_SCHEME_OPEN",
+      "title_ja": "T40の厳密A9商と実scheme開",
+      "statement_ja": "別のa=−8/9でQ52 graphを有限重み付き三角消去しR/(G52)=QQ[9]を全350+45恒等式で検証した。実差商26×26行列M40によりI_C40=N40_C40、九free入力全1でC40非零。weighted ray上C40=cλ275、λ非零点はfullR regular9。",
+      "scope": "Exact stated scope; projective dimensions before PGL quotient unless specified otherwise.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "Q_LOCAL_Q51_EXACT_A9_QUOTIENT",
+          "Q_GROUP_SLICE_GLOBAL_ETALE_UNIT"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/Q_T40_FINITE_QUOTIENT_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/Q_T40_DIVIDED_DIFFERENCE_OPEN_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/Q_T40_GRAPH_OPEN_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/Q_T40_FINITE_QUOTIENT_20261103_v63/report.json",
+        "reports/Q_T40_DIVIDED_DIFFERENCE_OPEN_20261103_v63/report.json",
+        "reports/Q_T40_GRAPH_OPEN_20261103_v63_REVIEW.json"
+      ],
+      "limitations_ja": [
+        "Qa(-8/9)自体のfull親Jacobian rankは1で、regularとは主張しない。Qstarの新枝でもない。"
+      ]
+    },
+    {
+      "id": "Q_KNOWN_GRAPH_EXACT_PEEL_NONFLATNESS",
+      "title_ja": "二つの既知primeの実scheme分解と全模型の非平坦性",
+      "statement_ja": "全親環でI:C_i^k=N_i、I=N39∩N40∩K、K=I+(C39,C40)を厳密に証明した。C39(a−2/9)=C40(a+8/9)=0で各Cは対応完成で非零、従って全Rはaについて両点で非平坦。C39C40=0、ideal交叉0、R_(C39+C40)は二つのA9開の直積となる。",
+      "scope": "Exact stated scope; projective dimensions before PGL quotient unless specified otherwise.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "Q_T39_EXACT_COFACTOR_SCHEME_OPEN",
+          "Q_LOCAL_Q52_EXACT_A9_AND_SCHEME_OPEN"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/Q_KNOWN_GRAPH_COLON_NONFLATNESS_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/Q_KNOWN_GRAPH_RESIDUAL_DECOMPOSITION_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/Q_KNOWN_GRAPH_ALGEBRA_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/Q_KNOWN_GRAPH_COLON_NONFLATNESS_20261103_v63.json",
+        "reports/Q_KNOWN_GRAPH_RESIDUAL_DECOMPOSITION_20261103_v63.json",
+        "reports/Q_KNOWN_GRAPH_ALGEBRA_20261103_v63_REVIEW.json"
+      ],
+      "limitations_ja": [
+        "残余Kの全枝・厚みは未分類。Kは各known primeの真閉部分を含み得る。",
+        "全Rそのものを直積とは主張しない。module注入をunital ring直積と混同しない。"
+      ]
+    },
+    {
+      "id": "R19_ENTIRE_COMPLEMENT_ORBITS_AND_ORDINARY_DOUBLE",
+      "title_ja": "全R\\Nの軌道分類と全点ordinary double",
+      "statement_ja": "全66旗表とproper性によりR\\N全体がt非零の正規形V_Qで覆われる。κ²一変数族と六つの単独軌道を完全分類し、R\\Nは12次元相対旗軌道上の滑らかな有理A7束。全六特殊Qと全κの全源rank・二次障害を確認し、全点で実交叉完成環C[[u19,ε]]/(ε²)、CM・embeddedなしを証明した。",
+      "scope": "Exact stated scope; component counts unaffected.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_exact_QQ_finite_cover_and_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "R19_NORMALFORM_OPEN_ORDINARY_DOUBLE",
+          "CA_CB_GLOBAL_REDUCED_INTERSECTION_N27_R19"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_R19_COMPLEMENT_ORBITS_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_R19_ENTIRE_COMPLEMENT_DOUBLE_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_R_COMPLEMENT_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_R19_COMPLEMENT_ORBITS_20261103_v63/report.json",
+        "reports/AMBIENT_R19_ENTIRE_COMPLEMENT_DOUBLE_20261103_v63/report.json",
+        "reports/AMBIENT_R_COMPLEMENT_20261103_v63_REVIEW.json"
+      ],
+      "limitations_ja": [
+        "R∩Nの軌道・scheme厚みと全大域primary分解は未決。",
+        "全Poisson局所環はLPB39との交点なので非CM。"
+      ]
+    },
+    {
+      "id": "S61_NONSQUARE_CUBIC_ROW_MODULE_FREE57",
+      "title_ja": "非平方core全Uの三次行加群自由57と全六関係",
+      "statement_ja": "元135から再構築した63×91三次行列はR=QQ[a,e,d,(aFBC)−1]上で自由row module57を張る。六つの正確な全91列関係と単元三角minor−12a³/5、57minor27632から証明。六関係は全関係核の基底、product submoduleは自由41、抽象商は自由16。d0/J0も含む。ad開の代替basisは30既存pivotを保つ。",
+      "scope": "Exact stated scope; component counts unaffected.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_exact_QQ_finite_cover_and_certificate_review_2026_11_03",
+        "certificates": "reproduced_2026_11_03_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_NONSQUARE_QUADRATIC_COVER"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_BINARY_NONSQUARE_CUBIC_ROW_BASIS_20261103_v62.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_NONSQUARE_CUBIC_ROW_BASIS_20261103_v62_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_BINARY_NONSQUARE_CUBIC_ROW_BASIS_20261103_v62/report.json",
+        "reports/S61_BINARY_NONSQUARE_CUBIC_ROW_BASIS_20261103_v62_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "自由ROWmoduleと各点の像階数は別。各点rank下界57/41、ambient cokernel自由性、四次や周囲t冪零性は未証明。",
+        "有限次数の核探索の陰性を全kernel不存在と混同しない。"
       ]
     }
   ],

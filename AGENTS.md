@@ -2,6 +2,25 @@
 
 Version: v63-s61 · 2026-11-03 (Asia/Tokyo).
 
+Latest G extension: ALL R\N orbits classified (κ² family+sixorbits),
+ALLpoints there smoothR andACTUALordinarydoubleD, noembedded; R∩N OPEN.
+Nonsquare ENTIREU=aFBC freeROWmodule57, completekernelbasis6, product
+free41/ABSTRACTquotientfree16. NOpointwiseimage lower/freeambientcoker.
+Next actualad27x61 rankdefect/quartic, notblindgenericGB.
+
+Latest v63 G: FULL projective CA/CB/N satisfyR1, now includingrank2
+boundary via WHOLEfiber uniqueness+sourceimmersion+length1+properfinite
+Nakayama. Not globalnormality/CM. R rational, genericκ²completeorbitinvariant,
+ordinaryDOUBLE actualintersection on t*q5*q7!=0, CMdepth19. EntireR⊂LPB39;
+FULLPoissoncompletion NON-CM atEVERYclosedRpoint by28/39minimaldimensions.
+Parent35 model has EXACTT39 andT40 quotientsQQ9 (a=2/9 and−8/9).
+Divided-difference matrices give ACTUAL I_Ci=Ni_Ci, notonlyreducedsupport.
+EXACT I=N39 intersectionN40 intersectionK, K=I+(C39,C40); Qstarresidual
+I+(C39). ColonsI:Ci^k=Ni, actualFULLRnonflat overa atbothvalues.
+No wholeRproduct or residualexhaustion. Globalgroup17minor is a-onlyunit
+onFULL109sliceD; regularR9 impliescanonical26/projective25, noarbitrary
+nonQa literal16factor. Continuegenericfiber, residualK andglobalprimary.
+
 Latest v63 GLOBAL result: FULL PROJECTIVE reduced CA/CB intersection is
 EXACTLY N27 UNION R19, two irreducible components. R19 has only generic
 Poisson rank2 and never enters S61. All66 double-flag linear intersections

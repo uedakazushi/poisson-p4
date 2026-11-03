@@ -51,7 +51,7 @@
     "CA_CB_reduced_zero_firstjet_fibers_determined": true,
     "CA_CB_N_nonnormal_nonCM_at_distinguished_a_one_Q": true,
     "CA_CB_N_R1_on_generic_Poisson_rank_four_open_proved": true,
-    "CA_CB_N_global_rank_two_boundary_R1_proved": false,
+    "CA_CB_N_global_rank_two_boundary_R1_proved": true,
     "CA_CB_rank_four_open_reduced_intersection_unique": true,
     "CA_CB_whole_projective_reduced_intersection_exhaustion_proved": true,
     "CA_global_reduced_rank_at_most_two_boundary_dimensions": [
@@ -70,7 +70,12 @@
     "N_global_reduced_rank_at_most_two_boundary_dimensions": [
       26,
       25
-    ]
+    ],
+    "CA_CB_N_full_projective_Serre_R1_proved": true,
+    "Q_T39_exact_A9_quotient": true,
+    "Q_T40_exact_A9_quotient": true,
+    "Q_known_two_graphs_exact_scheme_peel": true,
+    "Q_residual_branch_exhaustion_proved": false
   },
   "blocks": [
     {
@@ -5991,7 +5996,7 @@
           "S61_CA_CB_FULL_RANK3_FIBERS",
           "S61_CA_CB_ZERO_JET_FIBERS"
         ],
-        "Serre_R1_scope": "S61 and generic-Poisson-rank4 open",
+        "Serre_R1_scope": "FULL projective reduced component; rank2 gap completed",
         "completed_local_ring_in_S61": "A8=C[[u10,s1..s8,p²,p³,s1p..s8p]]",
         "completion_dimension": 28,
         "completion_embedding_dimension": 37,
@@ -6004,7 +6009,7 @@
         ],
         "reduced_support_exhaustion": true,
         "claim": "CA_GLOBAL_PROPER_FLAG_MODEL_AND_RANK_TWO_BOUNDARY",
-        "boundary_normality_or_R1_proved": false
+        "boundary_normality_or_R1_proved": true
       }
     },
     {
@@ -6096,7 +6101,7 @@
           "S61_CA_CB_FULL_RANK3_FIBERS",
           "S61_CA_CB_ZERO_JET_FIBERS"
         ],
-        "Serre_R1_scope": "S61 and generic-Poisson-rank4 open",
+        "Serre_R1_scope": "FULL projective reduced component; rank2 gap completed",
         "completed_local_ring_in_S61": "A8=C[[u10,s1..s8,p²,p³,s1p..s8p]]",
         "completion_dimension": 28,
         "completion_embedding_dimension": 37,
@@ -6109,7 +6114,7 @@
         ],
         "reduced_support_exhaustion": true,
         "claim": "CB_GLOBAL_PROPER_FLAG_MODEL_AND_RANK_TWO_BOUNDARY",
-        "boundary_normality_or_R1_proved": false
+        "boundary_normality_or_R1_proved": true
       }
     },
     {
@@ -6695,7 +6700,8 @@
         "nilmodule_support_dimension_S61": 11,
         "associated_prime_count": 2,
         "ring_splitting_claimed": false
-      }
+      },
+      "full_projective_Serre_R1": true
     },
     {
       "id": "CA_CB_RANK_TWO_INTERSECTION_R19",
@@ -6707,14 +6713,30 @@
       "counted_in_global_lower_bound": false,
       "contained_in_components": [
         "R4_CA",
-        "R4_CB"
+        "R4_CB",
+        "R2_LPB"
       ],
       "claims": [
-        "CA_CB_GLOBAL_REDUCED_INTERSECTION_N27_R19"
+        "CA_CB_GLOBAL_REDUCED_INTERSECTION_N27_R19",
+        "R19_RATIONAL_GENERIC_ORBIT_MODULUS",
+        "R19_LPB_CONTAINMENT_FULL_POISSON_NON_CM",
+        "R19_NORMALFORM_OPEN_ORDINARY_DOUBLE",
+        "R19_ENTIRE_COMPLEMENT_ORBITS_AND_ORDINARY_DOUBLE"
       ],
       "in_symplectic_value_chart_S61": false,
       "reason_ja": "全射影交叉の第二成分。既知全Poisson成分の内部の真閉部分であり、57へ加算しない。",
-      "general_orbit_classification_completed": false
+      "general_orbit_classification_completed": false,
+      "rational": true,
+      "generic_PGL_orbit_dimension": 18,
+      "generic_stabilizer_dimension": 6,
+      "generic_orbit_modulus": "kappa²=4q6²/(3q7q5)",
+      "generic_intersection_transverse_algebra": "K(R)[epsilon]/epsilon²",
+      "full_Poisson_completion_nonCM_at_every_closed_point": true,
+      "orbits_outside_N_completely_classified": true,
+      "exceptional_orbits_outside_AF_open": 6,
+      "smooth_outside_N": true,
+      "ordinary_double_intersection_at_every_point_outside_N": true,
+      "scheme_structure_on_R_intersection_N_completed": false
     }
   ],
   "integrity_rules_ja": [

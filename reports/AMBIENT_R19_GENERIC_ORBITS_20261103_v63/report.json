@@ -1,0 +1,95 @@
+{
+  "id": "AMBIENT_R19_GENERIC_ORBITS_20261103_v63",
+  "all_passed": true,
+  "field": "QQ(parameters)",
+  "source_parameters": [
+    "t",
+    "q0",
+    "q1",
+    "q2",
+    "q3",
+    "q5",
+    "q6",
+    "q7"
+  ],
+  "source_vector_field": [
+    "0",
+    "4*t*x**2",
+    "-q0*x**2 - 2*t*x*z",
+    "3*h**2*q7 + 2*h*q3*x + 2*h*q6*z + q1*x**2 + q2*x*z + q5*z**2 + 2*t*w*x"
+  ],
+  "generic_open": "t*q5*q7 !=0",
+  "normalizing_linear_matrix": [
+    [
+      "1",
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "0",
+      "1",
+      "0",
+      "0"
+    ],
+    [
+      "0",
+      "q0/(6*t)",
+      "1",
+      "0"
+    ],
+    [
+      "(-q0*q6/(3*t) + 2*q3)/(2*t)",
+      "q0*(-q0*q5/(3*t) + q2)/(24*t**2) + (-q0**2*q5/(36*t**2) + q0*q2/(6*t) - q1)/(2*t)",
+      "(-q0*q5/(3*t) + q2)/(4*t)",
+      "1"
+    ]
+  ],
+  "normalized_coefficients": {
+    "A": "3*q7/t",
+    "B": "2*q6/t",
+    "F": "q5/t"
+  },
+  "normal_form": "P_kappa=d_y wedge (4*x\u00b2*d_x-2*x*z*d_z+(2*x*w+h\u00b2+kappa*h*z+z\u00b2)*d_w)",
+  "complete_projective_orbit_invariant": "kappa\u00b2=4*q6\u00b2/(3*q7*q5)",
+  "invariant_hyperplane_division_remainder": "5*A*h**2 + 5*B*h*z + 5*F*z**2 - 10*a*h*x + 10*b*x**2 - 20*c*x*z",
+  "invariant_hyperplanes_exactly": [
+    "h=0",
+    "x=0",
+    "z=0"
+  ],
+  "canonical_D": [
+    "-8*h*x",
+    "12*x**2",
+    "-18*x*z",
+    "5*A*h**2 + 5*B*h*z + 5*F*z**2 + 2*w*x"
+  ],
+  "relative_cofactor_ratios": {
+    "h": "-2/3",
+    "z": "-3/2"
+  },
+  "distinguished_self_cofactor_hyperplane": "x=0",
+  "intrinsic_constant_factor_unique": "C*d_y",
+  "equivalence_quotient_matrix_form": "diag(da,db,dc,dd); w translations vanish between normalforms",
+  "coefficient_transform": {
+    "A": "A*db*dd/da**2",
+    "B": "B*db*dd/(da*dc)",
+    "F": "F*db*dd/dc**2"
+  },
+  "sign_equivalence": true,
+  "stabilizer_connected_diagonal_conditions": [
+    "db*dd=da\u00b2",
+    "dc=da"
+  ],
+  "stabilizer_full_GL_dimension": 7,
+  "stabilizer_PGL_dimension": 6,
+  "projective_orbit_dimension": 18,
+  "stabilizer_components_special_B_zero": "dc=+da or -da; connected dimension unchanged",
+  "source_generality": "Dense parameteropen and itsPGL saturation; specialt=0 orAF=0 orbits not classified",
+  "input_sha256": {
+    "code/ambient_R19_generic_orbits_20261103_v63.py": "cb3383cb5eb7b2741f0ffd9466b1bd2d51af3feced668b54711d797a09a1899d",
+    "code/ambient_CA_global_flag_model_20261103_v63.py": "8a12a4323d75500300e73e0ddddd8732bad0114ca77f6a0d9a2236d564394417",
+    "research/notes/AMBIENT_GLOBAL_INTERSECTION_COMPLETION_20261103_v63.md": "4ba5f9760cecf38e7a7394eacc1f67cfe46155ecd2a2b623950f036a163fbd3f"
+  },
+  "seconds": 0.25125627200031886
+}
