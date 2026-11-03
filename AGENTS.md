@@ -10,8 +10,13 @@ A t-saturated-support finite-weight lemma removes the central origins. The
 complete test line has its true c=0 endpoint, distinct from the d=0 sample;
 properness and P2 semi-invariant divisors give whole-stratum removal.
 Central support equality is checked over QQ and F32003. Cloud M2 1.24.11
-reproduces the required calculations. d=0, marked square finite values and
-full affine five-point exhaustion remain separate. Lower57. Continue.
+reproduces the required calculations. The ENTIRE marked nonsquare d=0
+stratum is also removed over general beta, using its actual fixed-beta P1,
+polynomial Smith frames, the true flag endpoint and a proper support-plane image.
+In the marked square c=2a central quotient, 1000h^2+1127 gives a genuine
+weight2 ray and h^2+2 a weight(2,3) plane over QQ number fields. Their
+central t^2=0 is NOT ambient removal. Identify the SAME incidences next;
+full affine five-point exhaustion stays open. Lower57. Continue.
 
 Previous v60 additions: after fixing (u6,u42) arbitrarily over general beta,
 one colon by t^2 leaves a projective scheme of dimension <=0. Some finite

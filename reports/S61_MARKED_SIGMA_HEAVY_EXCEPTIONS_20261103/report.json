@@ -1,0 +1,177 @@
+{
+  "id": "S61_MARKED_SIGMA_HEAVY_EXCEPTIONS_20261103",
+  "all_passed": true,
+  "global_rows_sha256": "836b6fd4ad1e631456f2b6f48ded55b0291012a4d5feb546d4c5cfe27558a7f6",
+  "minor_QQ": {
+    "shape": [
+      140,
+      23
+    ],
+    "selected_rows": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      24,
+      25,
+      28,
+      30,
+      52,
+      53,
+      84,
+      85,
+      128,
+      129,
+      134,
+      137
+    ],
+    "determinant_QQ": "129554523904000000000000000000000*h**26/178127909047449497962558989261955181192499 + 329093299029248000000000000000000*h**24/113354123939286044157992084075789660758863 - 12642134672855098112000000000000000*h**22/59375969682483165987519663087318393730833 - 6497200724720135276288000000000000*h**20/138543929259127387304212547203742918705277 - 6032742939218357232166400000000000*h**18/942475709245764539484439096624101487791 - 10570376312679302003666912000000000000*h**16/415631787777382161912637641611228756115831 + 501041942606111358829156332800000000000*h**14/415631787777382161912637641611228756115831 + 3882635736928857782860172326400000000000*h**12/415631787777382161912637641611228756115831 + 11807994902175805460496688384000000000000*h**10/415631787777382161912637641611228756115831 + 54072550828379120577499253964800000000000*h**8/1246895363332146485737912924833686268347493 + 1822238139291207238568257638400000000000*h**6/54212841884006368945126648905812446449891 + 195416917229717362304819200000000000*h**4/17561659178492506946915014222809344493 + 237938300266156605440000000000000*h**2/485895708495840113155751381658756567 - 2568597607546880000000000000/30484704717726338738675662316253",
+    "factorization_QQ": "(68911980800000000000/1246895363332146485737912924833686268347493, [(1000*h**2 + 1127, 1), (1000*h**2 + 5313, 1), (h**2 + 2, 2), (329*h**4 + 474*h**2 + 64, 1), (5000*h**4 + 104305*h**2 + 138138, 1), (8*h**10 - 230*h**8 + 2577*h**6 - 21767*h**4 + 115550*h**2 - 7200, 1)])",
+    "degree": 26,
+    "scope": "one explicit nonzero minor; not the complete QQ Fitting ideal"
+  },
+  "cases": [
+    {
+      "case": "new-QQ",
+      "returncode": 0,
+      "output": "LINE={(100/161)*h, -1, (10/7)*h}\nDIM=1\nHS=(1+3*T^2+2*T^3-2*T^4-2*T^5-T^6)/((1-T^2))\nRADICAL=matrix {{x0-(100/161)*h*x3, x1+x3, x2-(10/7)*h*x3, x4, x5}}\nGB=matrix {{x1*x3-(1000/483)*h*x2*x3-(7/3)*x3^2, x0*x3-(100/69)*x2*x3+(100/69)*h*x3^2, x2^2-(17/7)*h*x2*x3-(161/100)*x3^2, x1*x2+(10/3)*x2*x3-(10/3)*h*x3^2, x0*x2-(1000/483)*h*x2*x3-(7/3)*x3^2, x1^2+(1000/483)*h*x2*x3+(7/3)*x3^2, x0*x1+(100/69)*x2*x3-(100/69)*h*x3^2, x0^2-(10000/11109)*h*x2*x3-(70/69)*x3^2, x3*x5, x2*x5, x1*x5, x0*x5, x3*x4, x2*x4, x1*x4, x0*x4, x5^2, x4*x5, x4^2, x2*x3^2-(10/7)*h*x3^3}}\nHEAVY SUPPORT PASS: t=x4, t^2=0\n"
+    },
+    {
+      "case": "new-modp",
+      "returncode": 0,
+      "output": "LINE={-6559*h, -1, 13717*h}\nDIM=1\nHS=(1+3*T^2+2*T^3-2*T^4-2*T^5-T^6)/((1-T^2))\nRADICAL=matrix {{x0+6559*h*x3, x1+x3, x2-13717*h*x3, x4, x5}}\nGB=matrix {{x1*x3+528*h*x2*x3-10670*x3^2, x0*x3-6031*x2*x3+6031*h*x3^2, x2^2-13718*h*x2*x3-4162*x3^2, x1*x2+10671*x2*x3-10671*h*x3^2, x0*x2+528*h*x2*x3-10670*x3^2, x1^2-528*h*x2*x3+10670*x3^2, x0*x1+6031*x2*x3-6031*h*x3^2, x0^2+1621*h*x2*x3-7422*x3^2, x3*x5, x2*x5, x1*x5, x0*x5, x3*x4, x2*x4, x1*x4, x0*x4, x5^2, x4*x5, x4^2, x2*x3^2-13717*h*x3^3}}\nHEAVY SUPPORT PASS: t=x4, t^2=0\n"
+    },
+    {
+      "case": "old-QQ",
+      "returncode": 0,
+      "output": "DIM=2\nHS=(1+3*T^2+T^3-3*T^4-4*T^5-T^6+3*T^7+T^8)/((1-T^3)*(1-T^2))\nRADICAL=matrix {{x0, x1, x2-h*x3, x4}}\nGB=matrix {{x2*x3-h*x3^2, x1*x3, x0*x3, x2^2+2*x3^2, x1*x2, x0*x2, x1^2, x0*x1, x0^2, x2*x5-h*x3*x5, x1*x5, x0*x5, x3*x4, x2*x4, x1*x4, x0*x4, x4*x5, x4^2}}\nHEAVY SUPPORT PASS: t=x4, t^2=0\n"
+    },
+    {
+      "case": "old-modp-plus",
+      "returncode": 0,
+      "output": "DIM=2\nHS=(1+3*T^2+T^3-3*T^4-4*T^5-T^6+3*T^7+T^8)/((1-T^3)*(1-T^2))\nRADICAL=matrix {{x0, x1, x2-3083*x3, x4}}\nGB=matrix {{x2*x3-3083*x3^2, x1*x3, x0*x3, x2^2+2*x3^2, x1*x2, x0*x2, x1^2, x0*x1, x0^2, x2*x5-3083*x3*x5, x1*x5, x0*x5, x3*x4, x2*x4, x1*x4, x0*x4, x4*x5, x4^2}}\nHEAVY SUPPORT PASS: t=x4, t^2=0\n"
+    },
+    {
+      "case": "old-modp-minus",
+      "returncode": 0,
+      "output": "DIM=2\nHS=(1+3*T^2+T^3-3*T^4-4*T^5-T^6+3*T^7+T^8)/((1-T^3)*(1-T^2))\nRADICAL=matrix {{x0, x1, x2+3083*x3, x4}}\nGB=matrix {{x2*x3+3083*x3^2, x1*x3, x0*x3, x2^2+2*x3^2, x1*x2, x0*x2, x1^2, x0*x1, x0^2, x2*x5+3083*x3*x5, x1*x5, x0*x5, x3*x4, x2*x4, x1*x4, x0*x4, x4*x5, x4^2}}\nHEAVY SUPPORT PASS: t=x4, t^2=0\n"
+    }
+  ],
+  "full_S5_numeric_ranks_mod_32003": [
+    {
+      "h": 0,
+      "rank": 1428,
+      "cokernel_dimension": 4,
+      "nonpivot_columns": [
+        0,
+        204,
+        354,
+        586
+      ]
+    },
+    {
+      "h": 4499,
+      "rank": 1427,
+      "cokernel_dimension": 5,
+      "nonpivot_columns": [
+        0,
+        204,
+        354,
+        586,
+        931
+      ]
+    },
+    {
+      "h": 27504,
+      "rank": 1427,
+      "cokernel_dimension": 5,
+      "nonpivot_columns": [
+        0,
+        204,
+        354,
+        586,
+        931
+      ]
+    },
+    {
+      "h": 15938,
+      "rank": 1427,
+      "cokernel_dimension": 5,
+      "nonpivot_columns": [
+        0,
+        204,
+        354,
+        586,
+        1431
+      ]
+    },
+    {
+      "h": 16065,
+      "rank": 1427,
+      "cokernel_dimension": 5,
+      "nonpivot_columns": [
+        0,
+        204,
+        354,
+        586,
+        1431
+      ]
+    },
+    {
+      "h": 4,
+      "rank": 1426,
+      "cokernel_dimension": 6,
+      "nonpivot_columns": [
+        0,
+        204,
+        354,
+        586,
+        1430,
+        1431
+      ]
+    },
+    {
+      "h": 31999,
+      "rank": 1426,
+      "cokernel_dimension": 6,
+      "nonpivot_columns": [
+        0,
+        204,
+        354,
+        586,
+        1430,
+        1431
+      ]
+    }
+  ],
+  "input_sha256": {
+    "code/s61_marked_sigma_heavy_exceptions_20261103.py": "b7d57a8960c8d89b482d6ab4a7cc0f7d524e08bf042fa5f6e64ddf9af8d764f8",
+    "code/s61_marked_sigma_pencil_rank_20261103.py": "9ff0a4f6130149750728a1df37ca23daaec2282d952fea495876d83fe29951af",
+    "code/s61_marked_sigma_numeric_complement_20261103.cpp": "a366aba1cbc82a9d1691ffa6b6cb4c150dcf49c97a7d4600b957b577913f44bc",
+    "reports/S61_MARKED_SIGMA_PENCIL_MODEL_20261102.json": "f094180908260526d61f5127ee423fbb6075a769dd44a5aec392559afe14ab3b"
+  },
+  "evidence_sha256": {
+    "old-QQ.log": "886cdaf66dead17759731c00540049a01753ac73de1b6c9930fc77202e2a50de",
+    "old-modp-minus.log": "bffd0ae0d37348cbf3625cc9e94a890bfd2477709b878fecd998f3b248cfb56d",
+    "old-modp-plus.log": "1f6e1f82261ced5f1a022a15acd90b8087624ec32b8f2f54894492fe90641d5c",
+    "old-QQ.m2": "ad0ec224cf418cf4ae78f76555a5350ecf5a0674787b7cefe800bf90e359686d",
+    "full5_original.in": "7efac6810cd2f4d0b00b9ee436897c88389956dac66014087e978515d6412cda",
+    "new-modp.log": "a2cb7210da64bc7902b8bf248592ec9178a5d5ea9fa894a19358aa9787d1b7a4",
+    "new-modp.m2": "f07810fed77eb6be5ad401f2c6c1aaecbc7b539d641f42be821135e0f7351658",
+    "old-modp-minus.m2": "89a5ad3b29107a08542072379c729bae77af7683f5237cfee669477146e4fff8",
+    "new-QQ.m2": "c0be4170245e106536b8521a7e09b779e736939adc007ed20f5b300b07a36b63",
+    "new-QQ.log": "e55abf66feb92503220514e6b592445b8a3cbbcff096c975f12a1522e1d5bdb7",
+    "old-modp-plus.m2": "bf40c709a0ebcbc4b515c47ce398ab177612e9f656eb1ab9256bfc19fb6a8b96",
+    "minor_QQ.json": "a0933c1c05aa168516254fe880590dcee01946c1601155935e29bf7eb0530b2a"
+  },
+  "whole_pencil_removal_proved": false,
+  "ambient_nilpotence_proved": false,
+  "seconds": 18.558294919000218
+}

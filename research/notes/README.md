@@ -4,8 +4,13 @@
 
 ## v61 の新しい入口
 
+現行の評価 PDF は14ページ、一次ジェット還元の日本語主原稿は110ページ。版と再ビルド記録は [原稿同期記録](../../reports/MANUSCRIPT_SYNC_20261103_FINAL.md)。
+
 - [非平方 a=0 の全層除去](S61_BINARY_A_ZERO_LIFT_20261103.md)：同じ入射族の一般長、混合標数、飽和支持と完全試験曲線。
 - [中央環と ray の独立監査](S61_BINARY_A_ZERO_COMPUTATION_REVIEW_20261103.md)、[Cloud 計算記録](../../reports/S61_BINARY_A_ZERO_CLOUD_20261103/report.json)、[独立な幾何確認](../../reports/S61_BINARY_A_ZERO_RAY_GEOMETRY_20261103.json)。
+- [非平方 d=0 の全層除去](S61_BINARY_D_ZERO_STRATUM_REMOVAL_20261103.md)、[整数模型・実旗端の橋](S61_BINARY_D_ZERO_BRIDGE_20261103.md)、[独立監査](S61_BINARY_D_ZERO_BRIDGE_REVIEW_20261103.md)。
+- [平方試験直線の厳密な中央支持と未解決の周囲](S61_MARKED_SIGMA_PENCIL_PROGRESS_20261103.md)、[中央支持・係数模型の独立監査](S61_MARKED_CENTRAL_AND_POLAR_REVIEW_20261103.md)。
+- [非平方markedの残る推論の障害と有限基準](S61_NONSQUARE_MARKED_REMAINING_20261103.md)。模型はJacobi解ではない。
 - [再開時の動作確認](../../reports/CLOUD_RESUME_20261103.md)、[文献サイトの接続](../../reports/CLOUD_CONNECTIVITY_20261103.md)。
 
 ## v31 の新しい入口

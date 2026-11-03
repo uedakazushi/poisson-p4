@@ -50,14 +50,52 @@ M2 --script reports/S61_BINARY_A_ZERO_INFINITY_MODP_20261103.m2
 531×386 の行加群は522662演算、法32003で行列式次数17。
 有限体の因子を QQ の因子と同一視する代わりに、混合標数の固有性を使った。
 
-## 継続中の課題
+## 後続の完了単位：非平方 d=0
 
-次の研究単位として `d=0` の旗端点の混合標数の橋と、平方 `c=2a` の有限値を扱っている。
-それぞれの新しい計算・証明の採否は STATE/NEXT_TASKS と最終保存時に更新する。
+最初の push 後も研究を続け、**十分一般β上の指定非平方 d=0 全層を除去した**。
+固定した (β,支持面) 上の実際の第二因子 P¹を明示し、有限部を元135式から
+QQ[m] Smith 枠で再構築した。非定数対角因子を逆にせず、全561×269行加群が全列を張る。
+再構築行列の SHA256 は `7fd3baf38b83fb9af4a43f377f9021959b9cb2b8995f1e1473dd0ab61ce49fa0`、
+引継ぎと完全一致。全過程177.33秒。
+実際の平方旗端を真coreへ有限群で移し、平坦な平方零商と実kernelの混合標数の議論、
+飽和支持の正重み有限性を使う。全P¹の消滅から既約16次元の支持面因子上の proper image を
+取って全層へ進めた。[最終証明](notes/S61_BINARY_D_ZERO_STRATUM_REMOVAL_20261103.md)、
+[独立レビュー](notes/S61_BINARY_D_ZERO_BRIDGE_REVIEW_20261103.md)。
+
+```sh
+source /workspace/cloud-setup/activate.sh
+.venv/bin/python code/s61_binary_d_zero_prime_bridge_20261103.py --output work/d0-prime-new
+.venv/bin/python code/s61_binary_d_zero_geometry_20261103.py --output work/d0-geometry-new.json
+.venv/bin/python code/s61_binary_d_zero_pencil_20261103.py --output work/d0-pencil-new
+```
+
+## 現在の証明上の障害と次の操作
+
+平方 `c=2a` の中央環 S の閉商 H=S/(ρ,七light) を二つのQQ数体上で厳密に計算した。
+`1000h²+1127=0` には重み2の中央軸、`h²+2=0` には重み(2,3)の中央平面がある。
+両Hで t=x4,t²=0だが、この消滅は周囲への証明ではない。
+したがって全hで S/(ρ) 有限とする単純な判定経路は使えない。
+[根基・行加群・数体証明書](notes/S61_MARKED_SIGMA_PENCIL_PROGRESS_20261103.md)を保存した。
+
+次は同ノート§6に従い、新しい軸の x3=1 と平面の重み付き射影直線を、凍結した Smith
+陰関数式へ戻す。元の (β,[q])、全135式、同じ滑らかな入射族と一般重複度を同定してから、
+新しい横断上界を求める。固定中央 t²=0から周囲の消滅を結論しない。
+全S5の別の有限体次元跳びも同ノート§5に記録した。
+汎用 QQ(h) GB の既失敗計算を同条件で再実行する前に、この小さい閉層を処理する。
+
 一般アフィン五点の尽くし、未知成分数の上界、軌道・交叉・非被約構造の全分類は未解決。
-**成分数57は引き続き下界である。**
+**成分数57は引き続き下界である。** a=0 と d=0 の除去だけで全 marked 非平方を
+尽くしたとも結論していない。[shifted polar の厳密な係数模型と残る有限基準](notes/S61_NONSQUARE_MARKED_REMAINING_20261103.md)
+を記録した。この模型は Jacobi 解でも実境界点でもない。新しい中央枝での周囲消滅に必要な同一入射族が、現在の
+具体的な未完成の橋である。アクセスや権限の障害とは区別する。
 
-v60 の日本語原稿統合と v61 への更新も進めている。最終 PDF ページ数・検証記録は
-`reports/MANUSCRIPT_SYNC_20261103.md` に実測結果を記す。
+v60 の日本語原稿統合と v61 の a=0,d=0 更新を行い、最終 PDF のページ数・検証記録は
+`reports/MANUSCRIPT_SYNC_20261103_FINAL.md` に実測結果を記す。
 ChatGPT Library への汎用 ZIP 保存機能は見つからず、Library 保存は未実行。
 GitHub main への通常 commit/push を保存手段として使う。
+
+## 保存済み checkpoint
+
+最初の研究 checkpoint は `043955dc8ba47e0186ba8db3de87c2c43c983758`。
+`research: remove the nonsquare a-zero stratum after Cloud resumption` を main に
+通常 push し、GitHub 側で成功を確認した。この保存後も同じタスクで研究を継続した。

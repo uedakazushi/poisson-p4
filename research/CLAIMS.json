@@ -9455,6 +9455,172 @@
       "limitations_ja": [
         "全特殊βでの除去、全層での一つの共通冪、一般アフィン五点の尽くしを主張しない。"
       ]
+    },
+    {
+      "id": "S61_BINARY_D_ZERO_PRIME_BRIDGE",
+      "title_ja": "Cloud混合標数の全復元・旗端点の整数模型",
+      "statement_ja": "109038個の元式・復元係数、鉛直商・perspective逆・E/Pi・真coreのT/Uをp整に確認。実旗端を有限Borelでr=-4/25へ移し、平坦平方零商と実kernelから全混合標数周囲のt冪零性を得た。",
+      "scope": "Local arithmetic bridge and the specified actual flag endpoint.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_in_separate_review_note_2026_11_03",
+        "certificates": "reproduced_2026_11_03",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_BINARY_D_ZERO_BRIDGE_20261103.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_D_ZERO_BRIDGE_REVIEW_20261103.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_BINARY_D_ZERO_PRIME_BRIDGE_20261103_V2/report.json"
+      ],
+      "limitations_ja": [
+        "旧真coreの巨大な重み7/8/9行列は入力hashと既存minorを照合し、今回別実装したとはしない。"
+      ]
+    },
+    {
+      "id": "S61_BINARY_D_ZERO_PENCIL",
+      "title_ja": "固定一次ジェット・固定支持面の全第二因子P1",
+      "statement_ja": "固定βの実P1を有限symplectic枠で同定。QQ[m]のp整なSmith枠で非定数因子を逆にせず元135式を再構築し、561×269行加群が全有限modp値で全射。実旗端とpropernessにより標数零の全P1が周囲除去開に入る。",
+      "scope": "One complete actual fixed-beta support-plane pencil over the mixed-characteristic base.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_in_separate_review_note_2026_11_03",
+        "certificates": "reproduced_2026_11_03",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_BINARY_D_ZERO_PRIME_BRIDGE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_BINARY_D_ZERO_STRATUM_REMOVAL_20261103.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_D_ZERO_BRIDGE_REVIEW_20261103.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_BINARY_D_ZERO_PENCIL_20261103_V2/report.json",
+        "reports/S61_BINARY_D_ZERO_GEOMETRY_20261103.json"
+      ],
+      "limitations_ja": [
+        "nativeのDET1は正規化残余の値で、未規格化269次基底の行列式測定ではない。全269定数pivotが全射性を与える。"
+      ]
+    },
+    {
+      "id": "S61_BINARY_D_ZERO_STRATUM_REMOVAL",
+      "title_ja": "指定非平方d=0全層の一般一次ジェット上の除去",
+      "statement_ja": "内在条件P(ker l)=0の支持面因子は既約16次元。全第二因子P1束の悪いproper像は一つの全fiberを避ける真閉部分で次元15以下となり、十分一般βで全d=0層が除かれる。",
+      "scope": "Entire marked nonsquare d=0 stratum over sufficiently general beta, with c=0 and L=0 handled by stated old results.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_in_separate_review_note_2026_11_03",
+        "certificates": "reproduced_2026_11_03",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_BINARY_D_ZERO_PENCIL",
+          "S61_BINARY_ZERO_PAIR_STRATUM_REMOVAL"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_BINARY_D_ZERO_STRATUM_REMOVAL_20261103.md"
+        },
+        {
+          "path": "research/notes/S61_BINARY_D_ZERO_BRIDGE_REVIEW_20261103.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_BINARY_D_ZERO_PENCIL_20261103_V2/report.json",
+        "reports/S61_BINARY_D_ZERO_GEOMETRY_20261103.json",
+        "reports/S61_BINARY_D_ZERO_PRIME_BRIDGE_20261103_V2/report.json"
+      ],
+      "limitations_ja": [
+        "全特殊β、残る他core、全marked非平方点、全一般アフィン五点の尽くしを主張しない。"
+      ]
+    },
+    {
+      "id": "S61_MARKED_SIGMA_PENCIL_HEAVY_SUPPORT",
+      "title_ja": "平方試験直線の二つの数体中央支持",
+      "statement_ja": "H=S/(rho,七light)で、1000h²+1127=0の根基は明示的な重み2軸、h²+2=0の根基は重み(2,3)平面。QQ数体上の全135残余で二包含を確認。両Hでt=x4,t²=0。全hでS/(rho)有限という判定経路は使えない。",
+      "scope": "Exact stated six-variable central quotient over two QQ number fields; modular matrix profiles are separate evidence.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_scope_audit_2026_11_03",
+        "certificates": "reproduced_2026_11_03",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_MARKED_SIGMA_PENCIL_MODEL"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_MARKED_SIGMA_PENCIL_PROGRESS_20261103.md"
+        },
+        {
+          "path": "research/notes/S61_MARKED_CENTRAL_AND_POLAR_REVIEW_20261103.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_MARKED_SIGMA_HEAVY_EXCEPTIONS_20261103/report.json",
+        "reports/S61_MARKED_SIGMA_PENCIL_FULL5_20261103/report.json",
+        "reports/S61_MARKED_SIGMA_PENCIL_RANK_20261103/report.json"
+      ],
+      "limitations_ja": [
+        "中央閉商の支持であり、S全体の支持・周囲冪零性・アフィン枝を同定しない。全S5の追加跳びは有限体上の観察として区別する。"
+      ]
+    },
+    {
+      "id": "S61_NONSQUARE_MARKED_POLAR_OBSTRUCTION",
+      "title_ja": "非平方marked残余に追加Jacobi情報が必要な厳密な係数模型",
+      "statement_ja": "二元三次Pと一次lからR,H,Sを再構成し、P(v1)=R(S^4+3R^2HS^2-R^6)等を厳密に確認。既約因子H-R上のshifted polar模型は一般に次数10で、Σ,a=0,d=0,零対を避ける。内在係数・有限性と既処理層の除去だけから全空性は導けない。",
+      "scope": "An equivariant coefficient/incidence model showing insufficiency of a proposed inference; explicitly NOT a Jacobi solution or actual saturated boundary.",
+      "status": {
+        "proof": "exact_covariant_identities_and_geometric_obstruction_to_inference",
+        "independent_review": "accepted_scope_audit_2026_11_03",
+        "certificates": "reproduced_2026_11_03",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_AFFINE_ANCHOR_RESIDUE_DEGREE",
+          "S61_BINARY_A_ZERO_STRATUM_REMOVAL",
+          "S61_BINARY_D_ZERO_STRATUM_REMOVAL"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_NONSQUARE_MARKED_REMAINING_20261103.md"
+        },
+        {
+          "path": "research/notes/S61_MARKED_CENTRAL_AND_POLAR_REVIEW_20261103.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_NONSQUARE_MARKED_POLAR_OBSTRUCTION_20261103_V2.json"
+      ],
+      "limitations_ja": [
+        "元135式・t飽和に属する模型とは主張しない。実bad coreに追加Jacobi情報を使う必要性を示す。"
+      ]
     }
   ],
   "setup_checkpoint": "v25-setup",

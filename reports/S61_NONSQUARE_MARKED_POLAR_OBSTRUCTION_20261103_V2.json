@@ -1,0 +1,70 @@
+{
+  "id": "S61_NONSQUARE_MARKED_POLAR_OBSTRUCTION_20261103",
+  "all_passed": true,
+  "field": "QQ",
+  "cubic": "A*r**3 + B*r**2*t + C*r*t**2 + D*t**3",
+  "linear": "h*r + k*t",
+  "marked_vector": [
+    "-k",
+    "h"
+  ],
+  "polar_vector": [
+    "B*k**2 - 2*C*h*k + 3*D*h**2",
+    "-3*A*k**2 + 2*B*h*k - C*h**2"
+  ],
+  "shifted_polar_vector": [
+    "k*(-A*k**3 + B*h*k**2 - C*h**2*k + D*h**3)**2 + (B*k**2 - 2*C*h*k + 3*D*h**2)*(27*A**2*D*k**3 - 9*A*B*C*k**3 - 27*A*B*D*h*k**2 + 18*A*C**2*h*k**2 - 27*A*C*D*h**2*k + 27*A*D**2*h**3 + 2*B**3*k**3 - 3*B**2*C*h*k**2 + 18*B**2*D*h**2*k - 3*B*C**2*h**2*k - 9*B*C*D*h**3 + 2*C**3*h**3)",
+    "-h*(-A*k**3 + B*h*k**2 - C*h**2*k + D*h**3)**2 + (-3*A*k**2 + 2*B*h*k - C*h**2)*(27*A**2*D*k**3 - 9*A*B*C*k**3 - 27*A*B*D*h*k**2 + 18*A*C**2*h*k**2 - 27*A*C*D*h**2*k + 27*A*D**2*h**3 + 2*B**3*k**3 - 3*B**2*C*h*k**2 + 18*B**2*D*h**2*k - 3*B*C**2*h**2*k - 9*B*C*D*h**3 + 2*C**3*h**3)"
+  ],
+  "invariants": {
+    "resultant": "-A*k**3 + B*h*k**2 - C*h**2*k + D*h**3",
+    "hessian": "-3*A*C*k**2 + 9*A*D*h*k + B**2*k**2 - B*C*h*k - 3*B*D*h**2 + C**2*h**2",
+    "discriminant": "-27*A**2*D**2 + 18*A*B*C*D - 4*A*C**3 - 4*B**3*D + B**2*C**2",
+    "sextic": "27*A**2*D*k**3 - 9*A*B*C*k**3 - 27*A*B*D*h*k**2 + 18*A*C**2*h*k**2 - 27*A*C*D*h**2*k + 27*A*D**2*h**3 + 2*B**3*k**3 - 3*B**2*C*h*k**2 + 18*B**2*D*h**2*k - 3*B*C**2*h**2*k - 9*B*C*D*h**3 + 2*C**3*h**3"
+  },
+  "verified_identities": [
+    "P(polar)=resultant*sextic",
+    "det(marked,polar)=-3*resultant",
+    "sextic^2=4*hessian^3-27*resultant^2*discriminant",
+    "P(shifted)=resultant*(sextic^4+3*resultant^2*hessian*sextic^2-resultant^6)",
+    "gradientP(marked).shifted=-3*resultant^3",
+    "det(marked,shifted)=-3*resultant*sextic"
+  ],
+  "invariant_countermodel_support_divisor": "-3*A*C*k**2 + 9*A*D*h*k + A*k**3 + B**2*k**2 - B*C*h*k - 3*B*D*h**2 - B*h*k**2 + C**2*h**2 + C*h**2*k - D*h**3",
+  "support_divisor_absolutely_irreducible": true,
+  "sample": {
+    "A": "1",
+    "B": "0",
+    "C": "1",
+    "D": "1",
+    "h": "1",
+    "k": "0"
+  },
+  "sample_polar_value": "29",
+  "sample_shifted_polar_value": "709803",
+  "sample_core": {
+    "a": "26289/24389",
+    "b": "-218/841",
+    "c": "1/174",
+    "d": "-1",
+    "e": "-249/841",
+    "f": "-5/174"
+  },
+  "sample_deeper_condition": "10197/841",
+  "model_generic_support_plane_degree": 10,
+  "conclusion": "Intrinsic finite-anchor geometry plus a=0,d=0 removal does not alone force all nonsquare marked anchors empty.",
+  "limitations": [
+    "This is a geometric countermodel to a proposed inference, NOT a Jacobi solution.",
+    "The unshifted polar is c=f=0; the shifted polar is used to avoid that already removed stratum.",
+    "No containment in the actual residual weighted-rank defect locus is claimed.",
+    "It establishes no actual remaining boundary point or new Poisson component.",
+    "The actual localized saturated Jacobi ideal still requires exclusion."
+  ],
+  "input_sha256": {
+    "code/s61_nonsquare_marked_polar_obstruction_20261103.py": "7daa699c024b0acc577bd668db1a770b2a892c422d692133c2b8e50f10b6e81a",
+    "reports/S61_AFFINE_ANCHOR_RESIDUE_DEGREE_20261102.json": "30b22281d17878a164f4f5fbeb11c56149cfe7a5a2179577867441c3aca7b4c3",
+    "research/notes/S61_AFFINE_ANCHOR_RESIDUE_DEGREE_20261102.md": "369b96df70fb53a4bf3e82e82d1c74821b98742139a608ff023141f67c02d021",
+    "research/notes/S61_AFFINE_BOUNDARY_FINITE_ANCHORS_20261102.md": "145f6170590e1bc04b383a65d4b2aabed1bed76a4e7e438eb68b16a41a8e66ed"
+  },
+  "seconds": 3.2803895473480225
+}
