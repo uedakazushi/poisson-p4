@@ -2,6 +2,20 @@
 
 Version: v63-s61 · 2026-11-04 (Asia/Tokyo).
 
+Latest AK (2026-11-04): ACTUALfirstjet B_NEW15 birationalSp4xA5 overQQ/C,
+pureRATIONAL15, genericGEOMETRICstabilizerIDENTITY bySAMEoldbeta0/32003
+fullcommutant15minor17760; notmerelyLiealgebra. Actualsection+index1 solves
+torsor, notrationalquotientalone. CompletequotientANDgroupinverse finiteoperator
+recipes: allG/C1/C-D/Omega; FIXEDInv14wordnonzero byminor7584column0.
+FinitepullbackANTI-action C(g*b)=g^t C g^-t; intertwinerT=tg^t,
+lambda=t²,k=t³⇒g=(lambda/k)T^t; NOsqrt. Cayley10+quotient5coords.
+FullPoissoncomponent25 rationality NOTclaimed atthischeckpoint.
+B18actualD depth19/20 iffSOCLEof4finiteR0^2subquotients overzero9;
+positivew-torsionONLYdegrees0..3,w4T=0,topT3≤12concretepairs.
+ALL87graphsretained; w-torsionNOTNil, actualcoeffs/answersFULLnil-depthOPEN.
+Globalquartic282/full239/genericbeta/NEWdefinitiondegree>=26eq/exhaustionOPEN.
+Bounds58/r4lower52/uppernull; continueactualresearch/ordinarymainpush.
+
 Latest AJ (2026-11-04): ACTUALfirstjet B_NEW15 Sp4 invariantfield equals
 knownτfixedsource QQ(xi,R,Z0,r,s), INDEX1/RATIONAL5 overQQandC.
 Shapeextension10 viafullcontent/Bézout andprimitiveG10; ZNprimitive10 by

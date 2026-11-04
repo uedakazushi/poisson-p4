@@ -1,0 +1,94 @@
+{
+  "finite_program_names": [
+    "base",
+    "quotient_field",
+    "balanced_pair",
+    "matrix",
+    "two_linear_solves",
+    "recover_r",
+    "recover_s",
+    "recover_q",
+    "recover_B",
+    "h14",
+    "recover_xi"
+  ],
+  "all_literal_inputs_bound": {
+    "G_terms": 891,
+    "C1_terms": [
+      10314,
+      10698
+    ],
+    "C_D_rows": 32,
+    "quadratic_monomials": 136,
+    "source_five_DAG_nodes": 1032
+  },
+  "old_matrix_twenty_dot_product_identities": true,
+  "adjugate_convention": "adj(M)_ij=(-1)^(i+j)det(delete row j,column i)",
+  "r_inverse_proof": "M*a=e_r and M*b=e_1 imply r=V^9*sum(a_j*eta^j), 1=V^9*sum(b_j*eta^j), hence quotient; denominator equals V^-9 nonzero generically",
+  "s_inverse": "C1_linear is nonzero generically by the independently proved3/5 birationality",
+  "q_B_inverse": "the embedded exact Mobius and compression recipes, on their named nonzero dense chart",
+  "fixed_nonzero_J14": {
+    "definition": "{tr(C^4),tr(C^3 D)}",
+    "Inv14_semantic_basis_column": 0,
+    "columns_in_nonzero_prior_minor": [
+      0,
+      1,
+      4
+    ],
+    "minor_mod32003": 7584
+  },
+  "cyclic_trace_gradients": {
+    "T0_C": [
+      {
+        "word": [
+          0,
+          0,
+          0
+        ],
+        "multiplicity": 4
+      }
+    ],
+    "T1_C": [
+      {
+        "word": [
+          0,
+          0,
+          1
+        ],
+        "multiplicity": 1
+      },
+      {
+        "word": [
+          0,
+          1,
+          0
+        ],
+        "multiplicity": 1
+      },
+      {
+        "word": [
+          1,
+          0,
+          0
+        ],
+        "multiplicity": 1
+      }
+    ],
+    "T1_D": [
+      {
+        "word": [
+          0,
+          0,
+          0
+        ],
+        "multiplicity": 1
+      }
+    ]
+  },
+  "ambient_derivative_before_source_substitution": true,
+  "h14_direct": "evaluate the actual embedded rational Sp4 orbit representative at xi=1, using global quadratic C/D coefficients and Omega inverse",
+  "h14_fallback": "evaluate the full1032 source circuit in the etale rank2 algebra u^2=1600r with X=s/(48u),c=B*u/40,W=(q+1)/3072; tau invariance gives zero odd part, so trace/2 is identical",
+  "h14_nonzero": "selected universal bracket is nonzero by its prior full-basis minor; defining degree>=26 prevents vanishing of this degree14 restriction",
+  "xi_inverse": "all16 source covariance gives J14=xi^7*h14, F4=xi^2*f4; displayed ratio therefore equals xi",
+  "scope": "finite rational-operator inverse on a dense open; no generic expanded adjugate/h14/source26/NEW equation or boundary extension"
+}

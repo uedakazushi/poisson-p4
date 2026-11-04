@@ -1,5 +1,17 @@
 # 研究状態 — v63-s61 / 2026-11-04
 
+## v63 AK / 2026-11-04: 第一jet像の有理15変数・構成的逆・B18有限深さ判定
+
+直前 main `694288bb00cc28f6ba95ff40118c7cb0823bb218` は通常push済み。以下は過去時点を含む。
+
+実第一jet像B_NEW15自体がQQ/C上で有理であることを証明した。保存済みの同じbeta点と素数だけで、共通commutantの指定minorが17760 mod32003と非零であることを別算法で確認した。これは一般Sp4安定化群を有限中心まで含めて自明にする。前回の商体指数1と実有理sectionを合わせると、Sp4×A5からB_NEWへの実写像が双有理であり、商の有理性だけでtorsorを自明とした推論ではない。
+
+逆写像も、巨大な式展開をせず完全な有限演算として保存した。商のr/s/q/B/xi回収は全入力係数と二つの保存行列solveを含み、固定したInv14の非零性も確認した。群の回収は実pullbackの転置規約を守り、intertwinerのscalarをweight2/3の比で除くため平方根を要しない。Cayleyの十群座標と五つの商座標が十五個の有理逆座標を与える。全Poisson成分25への有理性の拡張は、このcheckpointでは別課題である。
+
+B18の全非被約交叉のdepth19/20は、零weight九変数上の四つの有限加群のsocle判定へ帰着した。w-torsionは正weight0〜3に限られ、wの四乗で消える。最上段は高々十二個の係数積で指定できる。ただしactual algebraic power series係数とsocleの答えは未計算で、w-torsionをnilradicalとは呼ばない。全nil/depthの決定を済んだとはしない。
+
+次は第一jet像上の実一変数Poisson fiber、非平方global282表示の全239全射、B18四加群の実係数、普遍残余曲線の種数、NEW実定義式、一般betaのdelta_E所属と全成分尽くしを続ける。NEW定義次数下界26、全下界58/rank4下界52/上界未定、五凍結原稿は維持する。
+
 ## v63 AJ / 2026-11-04: 実firstjet指数1・spectral次数10/20/40・global282
 
 直前保存 main `65a215b3d27f7e265b967ca49a323884a81bb4b6` は通常push済み。以下は過去時点を含む。
