@@ -1,0 +1,264 @@
+#!/usr/bin/env python3
+"""Independent typed prePOWER-to-full57/63 source and eta cleanup audit.
+
+No coefficient query, new parameter value, POWER expansion, or rank calculation.
+"""
+import hashlib,itertools,json,resource,signal,time
+from fractions import Fraction as Q
+from pathlib import Path
+ROOT=Path(__file__).resolve().parents[1]
+PRIMARY='S61_NONSQUARE_PREPOWER_FULL57_SOURCE_LIFT_20261104_v63'
+ID=PRIMARY+'_REVIEW';OUT=ROOT/'reports'/ID
+P4='S61_NONSQUARE_PREPOWER_DIRECT_P4_H5_SCHUR_20261104_v63'
+K11='S61_NONSQUARE_PREPOWER_KAPPA11_SCHUR_20261104_v63'
+ENTRY='S61_NONSQUARE_PREPOWER_KAPPA_EXTRA2_ENTRY_20261104_v63'
+LF='S61_NONSQUARE_ELL_LFRAME_PREFLIGHT_20261104_v63'
+PAIR='S61_NONSQUARE_CUBIC_PROJECTED15_UNIT_PAIR_20261104_v63'
+HEAVY='S61_NONSQUARE_CUBIC_PROJECTED15_HEAVY_PREFLIGHT_20261104_v63'
+AUG='S61_NONSQUARE_CUBIC_ZW25_AUGMENTED_INPUT_20261104_v63'
+ZW='S61_NONSQUARE_CUBIC_ZW25_UNITS_20261104_v63'
+GL6='S61_NONSQUARE_CUBIC_ZW25_PAIR_UNIT_COMPLETION_20261104_v63'
+GL3='S61_NONSQUARE_CUBIC_Q2_L_UNIT_COMPLETION_20261104_v63'
+BASIS='S61_BINARY_NONSQUARE_CUBIC_ROW_BASIS_20261103_v62'
+REPLAY='S61_BINARY_NONSQUARE_CUBIC_REPLAY_20261103_v62'
+def sha(p):
+    with p.open('rb')as f:return hashlib.file_digest(f,'sha256').hexdigest()
+def write(n,x):(OUT/n).write_text(json.dumps(x,indent=2)+'\n')
+def dec(p):return {tuple(m):Q(c)for m,c in p if Q(c)}
+def add(p,q,scale=Q(1)):
+    r=dict(p)
+    for m,c in q.items():
+        v=r.get(m,Q(0))+scale*c
+        if v:r[m]=v
+        else:r.pop(m,None)
+    return r
+def mult(p,q):
+    r={}
+    for m,c in p.items():
+        for n,d in q.items():
+            e=tuple(a+b for a,b in zip(m,n));v=r.get(e,Q(0))+c*d
+            if v:r[e]=v
+            else:r.pop(e,None)
+    assert len(r)<10000
+    return r
+def scale(p,c):return {e:a*c for e,a in p.items()if a*c}
+def power(p,k,n=3):
+    r={(0,)*n:Q(1)}
+    for _ in range(k):r=mult(r,p)
+    return r
+def polyline(line):
+    x=line.split();n=int(x[0]);assert len(x)==1+4*n
+    return [[list(map(int,x[4*i+2:4*i+5])),str(Q(x[4*i+1]))]for i in range(n)]
+def matmul(A,B):return [[sum(Q(a)*Q(B[k][j])for k,a in enumerate(r))for j in range(len(B[0]))]for r in A]
+
+def main():
+    start=time.monotonic();signal.alarm(60);resource.setrlimit(resource.RLIMIT_AS,(2_000_000_000,2_000_000_000))
+    OUT.mkdir(exist_ok=True);pins={};cache={}
+    def load(st,name='report.json'):
+        p=ROOT/'reports'/st/name;k=str(p.relative_to(ROOT));pins[k]=sha(p)
+        if k not in cache:cache[k]=json.loads(p.read_text())
+        return cache[k]
+    r=load(PRIMARY);assert pins[f'reports/{PRIMARY}/report.json']=='1f114c13d65c7cb9685c572088f20d84be76a5c07c65e3a01f00e748a933202a'
+    for p,h in r['input_sha256'].items():assert sha(ROOT/p)==h
+    O=load(PRIMARY,'operator.json');proof=load(PRIMARY,'proof.json')
+    assert pins[f'reports/{PRIMARY}/operator.json']=='c4c3ba8fbf4cda604c5bba8ac12878b278c0f63251ea7b022841bea1032c02cf'
+    for st in [P4+'_REVIEW',K11+'_REVIEW',ENTRY+'_REVIEW',BASIS+'_REVIEW',LF+'_REVIEW',ZW+'_REVIEW',GL6+'_REVIEW',GL3+'_REVIEW',PAIR+'_REVIEW']:
+        assert load(st)['all_passed']
+    basis=load(BASIS);raw=load(REPLAY,'source-report.json');aug=load(AUG,'input.json')
+    lf=load(LF,'certificate.json');lfn=load(LF,'native.json');unit=load(PAIR,'certificate.json');h=load(HEAVY,'certificate.json')
+    gl6=load(GL6,'certificate.json');gl3=load(GL3,'certificate.json');cp=load(ZW,'checkpoint.json')
+    remaining=basis['remaining_original_row_indices'];labels=raw['labels'];mons=raw['normal_monomials']
+    assert len(remaining)==57 and len(labels)==63 and len(mons)==91 and mons==sorted(mons)
+    assert basis['original_matrix_shape']==[63,91] and basis['remaining_matrix_shape']==[57,91]
+    assert basis['exact_known_unit_normalization_and_reconstruction_checked']
+    np=ROOT/'reports'/BASIS/'normalization.txt';pins[str(np.relative_to(ROOT))]=sha(np)
+    lines=np.read_text().splitlines();assert lines[0]=='63';normal=[]
+    for l in lines[1:]:
+        v=polyline(l);assert len(v)==1 and v[0][0]==[0,0,0] and Q(v[0][1]);normal.append(Q(v[0][1]))
+    assert len(normal)==63 and list(map(str,normal))==proof['full63_nonzero_QQ_normalizers']
+    assert all(v==Q(9,20)for v in normal[:7]) and all(v==Q(-5,4)for v in normal[35:42])
+    # Immutable parser direction: normalized row * saved multiplier == original.
+    cpp=ROOT/'code/s61_binary_nonsquare_cubic_row_basis_20261103_v62.cpp';pins[str(cpp.relative_to(ROOT))]=sha(cpp)
+    text=cpp.read_text();assert 'assert(n==63&&m==91&&target==57)' in text
+    assert 'fmpq_mpoly_scalar_div_fmpq(p.p,p.p,scalar,ctx)' in text
+    assert 'fmpq_mpoly_mul(temp.p,A[i][j].p,multipliers[i].p,ctx);assert(fmpq_mpoly_equal(temp.p,original[i][j].p,ctx))' in text
+    frozen57=ROOT/'reports/S61_NONSQUARE_ELL_SIX_BORDERS_20261104_v63/frozen57-source.txt'
+    pins[str(frozen57.relative_to(ROOT))]=sha(frozen57);assert sha(frozen57)==basis['remaining_matrix_sha256']
+    with frozen57.open()as f:assert f.readline().strip()=='57 91 57'
+    light=[0,1,2,3,4,6,7];H=[]
+    for v in light:
+        m=[0]*8;m[5]=m[v]=1;H.append(mons.index(m))
+    pure=[j for j,m in enumerate(mons)if m[5]==0]
+    assert len(pure)==84 and H==[65,43,27,16,9,5,4]
+    assert all(sum(e*(2 if i==5 else 1)for i,e in enumerate(m))==3 for m in mons)
+    assert proof['physical7_H_columns']==H and proof['pure84_columns']==pure and proof['physical91_monomial_order']==mons
+
+    # ALL16 clearing units are fixed powers of C; q5 scale is literal1600.
+    a={(1,0,0):Q(1)};e={(0,1,0):Q(1)};d={(0,0,1):Q(1)};one={(0,0,0):Q(1)}
+    C=add(add(scale(a,100),scale(power(e,2),18)),add(scale(e,-9),scale(one,-2)))
+    F=add(add(scale(a,500),scale(power(e,2),90)),add(scale(e,3),scale(one,-24)))
+    B=add(mult(add(add(scale(a,50),scale(power(e,2),18)),add(scale(e,-9),scale(one,-2))),d),add(scale(e,60),scale(one,-40)))
+    assert lfn['q5_C_factors_cancelled']==2
+    assert Q(1600)*normal[35]==-2000
+    mu=aug['genuine16_source_clearing_units'];cancel=lfn['genuine_C_factors_cancelled']
+    assert len(mu)==len(cancel)==16
+    for p,k in zip(mu,cancel):assert k<=3 and dec(p)==scale(power(C,3-k),Q(-40)**3)
+    delta=scale(power(C,2),-64000)
+    assert dec(mu[1])==dec(mu[6])==dec(h['known_unit_delta'])==delta
+    assert aug['removed_genuine_relative_row']==6 and aug['kept_genuine_relative_row']==1 and aug['duplicate_zero_in_both_pi_and_psi']
+    lp=ROOT/'reports'/LF/'L-coefficients.txt';pins[str(lp.relative_to(ROOT))]=sha(lp)
+    ls=lp.read_text().splitlines();assert ls[0].split()==['5','1'];L=[polyline(t)for t in ls[1:]];assert len(L)==5 and dec(L[1])==scale(C,-40)
+    # Actual eta polynomial identity: only tiny fixed source polynomials are multiplied.
+    cz=dec(unit['Bezout_cZ']);cw=dec(unit['Bezout_cW'])
+    zz=dec(h['delta_scaled_HZ_HW_coefficients']['Z']);ww=dec(h['delta_scaled_HZ_HW_coefficients']['W'])
+    eta=dec(unit['known_unit_eta']);assert add(mult(cz,zz),mult(cw,ww))==eta
+    assert eta==scale(mult(mult(mult(a,F),power(B,2)),power(C,3)),Q(192,125))
+    # Independent universal sign identities in SIX FREE variables.
+    z0=(0,)*6
+    def v(i):return {tuple(int(j==i)for j in range(6)):Q(1)}
+    cZ,cW,z,w,hZ,hW=[v(i)for i in range(6)]
+    E=add(mult(cZ,z),mult(cW,w));co=add(mult(cZ,hZ),mult(cW,hW));psi=add(mult(z,hW),mult(w,hZ),-1)
+    assert not add(add(mult(E,hZ),mult(co,z),-1),mult(cW,psi))
+    assert not add(add(mult(E,hW),mult(co,w),-1),mult(cZ,psi),-1)
+    # Constant physical-v -> (oldfive,Z,W) substitution, coefficient row uses transpose.
+    T=unit['constant_heavy_coefficient_change7x7'];Ti=unit['constant_heavy_inverse7x7']
+    assert matmul(T,Ti)==matmul(Ti,T)==[[int(i==j)for j in range(7)]for i in range(7)]
+    assert T==[[1,0,0,0,0,-3,0],[0,1,0,0,0,1,0],[0,0,1,0,0,0,0],[0,0,0,0,1,0,0],[0,0,0,0,0,0,1],[0,0,0,0,0,1,0],[0,0,0,1,0,0,0]]
+
+    N=O['nodes'];X=O['exports'];assert len(N)==181
+    external_shapes={'/exports/source_current15_to_original25':[15,25],'/exports/surviving4_source_original25':[4,25],'/exports/full_source15':[15,15]}
+    for i,n in enumerate(N):
+        k=n['op'];sh=n['shape'];ar=[N[j]['shape']for j in n['args']]
+        assert n['id']==i and all(j<i for j in n['args'])
+        if k=='external_frozen_reference':
+            rf=n['reference'];p=ROOT/rf['path'];assert sha(p)==rf['sha256'];pins[rf['path']]=sha(p)
+            value=cache.setdefault(rf['path'],json.loads(p.read_text()))
+            for s in rf['json_pointer'].strip('/').split('/'):value=value[int(s)]if isinstance(value,list)else value[s]
+            if rf['json_pointer']in external_shapes:assert sh==external_shapes[rf['json_pointer']]
+            elif rf['json_pointer']in ['/target24_roots','/target23_roots']:assert sh==[len(value),len(value[0])]
+            else:assert sh==[1,1]
+        elif k=='QQ_constant':assert sh==[1,1] and Q(n['value'])
+        elif k=='literal_parameter_polynomial':assert sh==[1,1] and n['polynomial']==L[n['source']['row']]
+        elif k=='matrix_product':assert len(ar)==2 and ar[0][1]==ar[1][0] and sh==[ar[0][0],ar[1][1]]
+        elif k in ['sum','difference']:assert ar==[sh,sh]
+        elif k=='negative':assert ar==[sh]
+        elif k=='sparse_matrix_from_scalar_roots':
+            assert n['args']==[j for r,c,j in n['entries']] and all(0<=r<sh[0] and 0<=c<sh[1] and N[j]['shape']==[1,1]for r,c,j in n['entries'])
+        elif k=='submatrix':assert sh==[len(n['rows']),len(n['columns'])] and all(j in range(ar[0][0])for j in n['rows']) and all(j in range(ar[0][1])for j in n['columns'])
+        elif k=='transpose':assert sh==ar[0][::-1]
+        elif k=='literal_QQ_matrix':assert sh==[len(n['matrix']),len(n['matrix'][0])]
+        elif k=='known_FULLU_parameter_unit_inverse':assert sh==[1,1] and ar==[[1,1]] and n['proof']=='eta=192*a*F*B^2*C^3/125'
+        elif k=='external_sparse_coefficient_matrix_file':assert sh==[57,91] and n['reference']['path']==str(frozen57.relative_to(ROOT)) and n['reference']['sha256']==sha(frozen57)
+        elif k=='finite_weighted_polynomial_substitution_and_selection':assert sh==[91,31] and ar==[[1,1]]*5
+        elif k=='horizontal_concatenation':assert ar==[[91,31],[91,1]] and sh==[91,32]
+        elif k=='coordinate_column_selector':assert len(n['columns'])==sh[1] and all(j in range(sh[0])for j in n['columns'])
+        else:raise AssertionError(k)
+    def flat(i):return sum((flat(j)for j in N[i]['args']),[])if N[i]['op']=='matrix_product'else[i]
+    def ref(i,st,path,ptr):
+        q=N[i];assert q['op']=='external_frozen_reference' and q['reference']['path']==f'reports/{st}/{path}' and q['reference']['json_pointer']==ptr
+    def sub(i,parent,rr,cc):
+        q=N[i];assert q['op']=='submatrix' and q['args']==[parent] and q['rows']==rr and q['columns']==cc
+    def scalar_expression(i):
+        q=N[i]
+        if q['op']=='QQ_constant':return {(0,0,0):Q(q['value'])}
+        if q['op']=='literal_parameter_polynomial':return dec(q['polynomial'])
+        if q['op']=='matrix_product':return mult(*(scalar_expression(j)for j in q['args']))
+        if q['op']=='negative':return scale(scalar_expression(q['args'][0]),-1)
+        assert q['op']=='external_frozen_reference';rf=q['reference'];x=cache[rf['path']]
+        for s in rf['json_pointer'].strip('/').split('/'):x=x[int(s)]if isinstance(x,list)else x[s]
+        return dec(x)
+    # Independently reconstruct EVERY sparse25->57 and57->63 coefficient.
+    lift={};physical=[0,1,2,4,7]
+    for r,v in enumerate([0,2,4,7]):
+        for row,quad,factor in [(r,0,1),(r+4,5,1600)]:
+            orig=labels.index(['product',quad,v]);lift[(row,remaining.index(orig))]={(0,0,0):Q(factor)*normal[orig]}
+    for j,v in enumerate(physical):
+        for row,quad,factor in [(8,0,1),(9,5,1600)]:
+            orig=labels.index(['product',quad,v]);lift[(row,remaining.index(orig))]=scale(dec(L[j]),Q(factor)*normal[orig])
+    genuine_labels=[]
+    for row,desc in enumerate(aug['source25_labels'][10:],10):
+        name,g,r57,orig=desc;assert name=='ZW_genuine' and r57==41+g and remaining[r57]==orig and labels[orig][0]=='cubic'
+        lift[(row,r57)]=dec(mu[g]);genuine_labels.append(labels[orig][1])
+    assert {tuple([r,c]):scalar_expression(j)for r,c,j in N[X['lift25_to_full57']]['entries']}==lift
+    assert {tuple([r,c]):scalar_expression(j)for r,c,j in N[X['full57_to_original63']]['entries']}=={(r,orig):{(0,0,0):1/normal[orig]}for r,orig in enumerate(remaining)}
+    assert genuine_labels==[18,20,23,39,40,43,68,85,86,92,99,115,120,129,134]
+    assert labels[remaining[47]]==['cubic',61] and labels[remaining[42]]==['cubic',20]
+    ref(0,P4,'operator.json','/exports/source_current15_to_original25')
+    ref(112,HEAVY,'certificate.json','/known_unit_delta')
+    assert N[113]['args']==[112] and N[114]['entries']==[[0,47,112],[0,42,113]]
+    assert N[118]['args']==[117] and [i for i,n in enumerate(N)if 'inverse' in n['op']]==[118]
+    ref(115,PAIR,'certificate.json','/Bezout_cZ');ref(116,PAIR,'certificate.json','/Bezout_cW');ref(117,PAIR,'certificate.json','/known_unit_eta')
+    assert N[123]['entries']==[[0,r,j]for r,j in zip([2,4,5,8],[119,120,121,122])]
+    for j,root in zip([119,120,121,122],[179,198,217,237]):ref(j,ENTRY,f'root{root}.json','/polynomial')
+    assert flat(124)==[123,0]
+    ref(125,K11,'operator.json','/exports/surviving4_source_original25');ref(126,K11,'operator.json','/exports/full_source15')
+    sub(127,126,list(range(11)),list(range(15)));assert flat(128)==[127,0]
+    sub(109,108,list(range(57)),H);assert N[110]['matrix']==T and N[111]['args']==[110]
+    for key,amount in [('kappa',1),('residual4',4)]:
+        ex=X[key];W25=ex['source25'];W=ex['uncorrected_full57'];before=ex['raw7_oldX_before'];cor=ex['eta_Cdelta_correction'];correct=ex['corrected_full57']
+        assert flat(W)==flat(W25)+[X['lift25_to_full57']]
+        assert flat(before)==flat(W25)+[X['lift25_to_full57'],109,111]
+        # Do not flatten matrix products past the two scalar input submatrices.
+        scalar_sum=N[cor]['args'][0];assert N[cor]['args'][1]==118 and N[scalar_sum]['op']=='sum'
+        left,right=N[scalar_sum]['args'];assert N[left]['args'][1]==115 and N[right]['args'][1]==116
+        sub(N[left]['args'][0],before,list(range(amount)),[5]);sub(N[right]['args'][0],before,list(range(amount)),[6])
+        assert N[correct]['op']=='difference' and N[correct]['args'][0]==W and N[N[correct]['args'][1]]['args']==[cor,114]
+        assert flat(ex['uncorrected_original63'])==flat(W25)+[X['lift25_to_full57'],X['full57_to_original63']]
+        assert flat(ex['corrected_original63'])==[correct,X['full57_to_original63']]
+        whole=N[ex['actual_pure84_image']]['args'][0];assert flat(whole)==[correct,108];sub(ex['actual_pure84_image'],whole,list(range(amount)),pure)
+        assert flat(ex['raw7_after'])==[correct,109,111]
+    assert flat(X['pivot11_uncorrected_full57'])==[127,0,X['lift25_to_full57']]
+    assert flat(X['pivot11_uncorrected_original63'])==[127,0,X['lift25_to_full57'],X['full57_to_original63']]
+    # Exact finite physical91 -> old32 -> current22 construction and initial H*L pivot.
+    subop=N[164];assert subop['L_coefficients']==[1,2,3,4,5]
+    assert subop['substitution_v8']==['x0','(L-L0*x0-L2*y1-L3*y2-L4*y3)/L1','y1','0','y2','H','(L-L0*x0-L2*y1-L3*y2-L4*y3)/L1-3*x0','y3']
+    assert subop['L1_is_known_FULLUunit']=='-40*C'
+    mon35=[list(tuple(c.count(i)for i in range(5)))for c in itertools.combinations_with_replacement(range(5),3)]
+    assert subop['new_full40_monomial_order']['pure35']==lf['full35_cubic_monomials_new_light_order']==mon35
+    assert subop['retained31_full40']==aug['target31_recipe']['retained31_full40_columns']==list(range(15,35))+list(range(9,15))+list(range(35,40))
+    assert aug['rawHZ_HW_indices_in_frozen91']==[H[5],H[3]]==[5,16]
+    assert N[167]['args']==[166] and N[168]['entries']==[[5,0,167],[16,0,165]] and N[169]['args']==[164,168]
+    ref(165,HEAVY,'certificate.json','/delta_scaled_HZ_HW_coefficients/Z');ref(166,HEAVY,'certificate.json','/delta_scaled_HZ_HW_coefficients/W')
+    assert N[170]['columns']==cp['remaining_columns'] and len(cp['all_completed_unit_steps'])==8
+    assert (11,26)in[(s['pivot_row'],s['pivot_column'])for s in cp['all_completed_unit_steps']]
+    ref(171,GL6,'certificate.json','/target24_roots');ref(173,GL3,'certificate.json','/target23_roots')
+    assert N[172]['columns']==[i for i,j in enumerate(gl6['old24_target_original32_columns'])if j!=5]
+    assert N[174]['columns']==[i for i,j in enumerate(gl3['old23_target_original32_columns'])if j!=21]
+    assert gl6['all_5_remaining_heavy_and_psi_columns_unchanged']==gl3['all5_remaining_heavy_quotient_columns_unchanged']==[27,28,29,30,31]
+    assert flat(X['physical91_to_current22'])==[169,170,171,172,173,174]
+    # The accepted source prefix clears initial pivot26=H*L, not a pure column.
+    # Currentheavy5=Hx0,Hy1,Hy2,Hy3,psi; L1 unit recovers Hx1=0 as well.
+    # Cdelta has pi=psi=0, while eta gives a primitive seventh raw-H direction.
+    assert proof['no_allpoint_rank4_or_fullFULLU57_claim'] and proof['no_POWER207_or_canonical_unknowng_upivot']
+    assert O['new_expanded_parameter_coefficients']==0 and O['all_frozen57coefficients_external']
+    write('independent-full-source-projection-and-eta-proof.json',{
+        'all181_typed_nodes_hashes_and_source_wire_checks':True,
+        'all63_normalizers_direction_verified_and57_header_pinned':True,
+        'Q0_multiplier':'9/20','Q5_multiplier':'-2000','all16_genuine_mu_exact_known_C_powers':True,
+        'actual_135_genuine_labels_kept15':genuine_labels,'actual_Cdelta_full57_rows':[47,42],
+        'all91physical_monomials_and_full84pure7heavy_targets_retained':True,
+        'all8_other_Q9_tail_effects_preserved_in_complete_prefix':True,
+        'P32_actual_ZW_L_known_unit_substitution_and_psi_sign':True,
+        'initial_genuine_pivot_target26_is_HL_and_later_heavy5_unchanged':True,
+        'all_eta_cZ_cW_zdelta_wdelta_literal_polynomial_identities':True,
+        'eta_known_FULLU_unit':'192*a*F*B^2*C^3/125',
+        'universal_six_variable_eta_cleanup_signs':True,
+        'corrected_kappa_and_residual4_rawH7_zero_with_same_projected_image':True,
+        'rawpure84_before_after_NOT_assumed_equal':True,
+        'rank4_implies_actual_full57_on_chart_only':True,
+        'chart':'FULLU D(Delta407*Saux*T)',
+        'no_residual_rank4_global57_quartic239_or_new_source_value_claim':True})
+    rep={'id':ID,'all_passed':True,'frozen':True,'typed_nodes':181,
+         'actual_full57_original63_raw91_source_lifts_and_eta_cleanup_accepted':True,
+         'previous_projected15_to_actual57_source_gap_closed':True,
+         'rank4_suffices_full57_only_on_chart':'FULLU D(Delta407*Saux*T)',
+         'rank4_globalFULLU57_quartic239_NOT_computed_or_claimed':True,
+         'no_new_source_values_POWER_expansion_rank_point_prime_or_GB':True,
+         'input_sha256':pins,'code_sha256':sha(Path(__file__)),
+         'note_sha256':sha(ROOT/'research/notes'/f'{ID}.md'),
+         'evidence_sha256':{'independent-full-source-projection-and-eta-proof.json':sha(OUT/'independent-full-source-projection-and-eta-proof.json')},
+         'seconds':time.monotonic()-start,'max_rss_kib':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss}
+    assert sum(p.stat().st_size for p in OUT.iterdir())<32*1024*1024
+    write('report.json',rep);signal.alarm(0);print(json.dumps({k:v for k,v in rep.items()if k!='input_sha256'},indent=2))
+
+if __name__=='__main__':main()

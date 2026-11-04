@@ -2,6 +2,19 @@
 
 Version: v63-s61 · 2026-11-04 (Asia/Tokyo).
 
+Latest BN (2026-11-04): ORIGINALNil(D0) finiteDVR rank11, N≅K⊕D7 NONCANONIC DmoduleONLY.
+WholeE4/Ered ellregular byall6Ass; normalizedNilfreeD9/Nil²freeD3.
+muDN=L+3=14..20,torsmu=L−8=3..9; NOalgebrasplit/nilgens/cube/exponents.
+HonestTnil COMPLETE128x972, exactlength=L+5=16..22 independentlyreviewed.
+Actualcachedm0rank24/X0rank18/W84rank81 =>mu_R0Tnil5, all780/146304checks.
+Primary5x849unitSchur storedseparately; nextX2/m1 notautomaticallycancelled.
+κtail2T7208QQNONZERO+typed11/full57sourceLIFT independentlyaccepted,
+samecoker3x10onD(Delta407*Saux*T*N6), rawH7η/Cdelta gapCLOSED.
+9047N6FULLQQpeer+PIVOT12typedpeerPASS, noextrag/D5chart; residualrank3/global57/239OPEN.
+Generic83newactual49039termblock+24unitprefixresidual212x59 stored,
+notnormalinverse/exhaustion; guardstopsretained, tighterforecastseparate.
+TactualHF5,3,2,1/L11..17/nilindex3..7/depth19/18 unchanged; continueallwork/mainpush.
+
 Latest BM (2026-11-04): ACTUALHF(T) first4=(5,3,2,1),lenT/m4=11,11<=TOTALlength<=17.
 All619purethird correctedvaluesZERO after114OWN57univ5cofs/sourcefullpostchecks;
 8g2 b5/g3 exact, CBcurvature2zero, noCOMMON105order5/fullmixed/source6.

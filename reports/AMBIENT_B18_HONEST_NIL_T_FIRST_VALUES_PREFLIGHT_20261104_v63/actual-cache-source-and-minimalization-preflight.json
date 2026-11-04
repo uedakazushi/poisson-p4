@@ -1,0 +1,58 @@
+{
+  "actual_coefficient_frame": [
+    "zA0",
+    "zA1",
+    "zA2",
+    "zA3",
+    "zA4",
+    "zA5",
+    "zA6",
+    "rA"
+  ],
+  "ell0": "same actual CA-F9 sA=rA; not physical rho approximation",
+  "source_coefficient_availability": {
+    "all9_proper_kappa_full8_firsts": "proper1.kappa9, C36 interleaved four trace components",
+    "all5_actual_u_full8_firsts": "native1.G8[0:5], not rational pivot roots on the intersection",
+    "native_N12_full8_firsts": "native1.N; invert the actual unit matrix in C36",
+    "third_gamma_sector_r_squared": "properB11.kappa9_C_B44 and actualG8_C_B44 plus actual monics/B11 multiplication",
+    "old640_B_and_P_all8_firsts": "Bfirst source_columns640_rows56_sparse_dual9",
+    "radical_native35_source": "literal Koszul6 tensor HilbertBurch2; 70 nonzero polynomial entries",
+    "missing_source_directions": []
+  },
+  "coefficient_construction": [
+    "Evaluate actual dR9 and D8x9 in C36 using u5=G8[:5], core=(kappa[0],kappa[1],kappa[2],kappa[6]) and pinned GL4.",
+    "Preserve tauA^2=nuA_1 and tauB^2=nuB_1 in C36; do not freeze both squares to zero.",
+    "Evaluate dR9 in C44 to extract only third gamma rA^2; B11 retains every required monomial.",
+    "Vrad=[Qrad non-even3, -beta8*tauA non-even3], beta=zA7,gA; gA has order3 and hence zero firsts/rA^2.",
+    "m0 consists of gamma-sector z firsts and r firsts for sectors0,1; sector2 has rA^2 coefficient.",
+    "A12x9=N12_inverse*injection12x8*D8x9; Res4(A^t) transforms old Bfirst, with unchanged P8.",
+    "Last140 X columns are the exact restricted native Syz(dR9), evaluated in C36."
+  ],
+  "conditional_numeric_minimalization": [
+    "First check rank(m0)=24. Select literal24 columns E, put n=E*(mE)^-1. Then mn=I and Vgamma*n=d1.",
+    "Compute r=rank(X0), select pivot source columns; residual constant combinations c satisfy X0*c=0.",
+    "For each residual, (mX*c)_1=m0*(X1*c), so unknown m1 and regular-quotient first derivatives cancel.",
+    "Extract the unique84 constant Koszul lift W0 from coefficients zi in component j (including pairs zi,rA^2). Verify all24x8 derivative equations.",
+    "mu_S(Tnil)=104-r-rank(W0). A constant rank is a minimal-generator result, not total length or nil-generator coefficients."
+  ],
+  "bounds": {
+    "new_X0_and_X1_nonzero_output_QQ_upper": 20356,
+    "m0_24_by44_dense": 1056,
+    "m0_selected_minor_and_inverse_twice": 1152,
+    "X0_pivot_vectors44_by20": 880,
+    "X0_constant_pivot_coefficients20_by760": 15200,
+    "W0_84_by780_upper": 65520,
+    "W0_fixed_pivot_minor84_squared": 7056,
+    "simultaneous_C36_N_Ninverse_A_slots": 14256,
+    "C36_C44_proper_variables_and_dR_values": 3000,
+    "native_Koszul_sparse_linear_slots": 336
+  },
+  "total_saved_plus_live_QQ_bound": 128812,
+  "C36_matrix_inverse_C_product_bound": 5184,
+  "C36_A_matrix_product_bound": 864,
+  "worker_cpu_seconds": 60,
+  "worker_address_bytes": 2147483648,
+  "total_output_bytes": 33554432,
+  "unknown_quotient_derivatives_assumed_zero": false,
+  "new_source_jet_or_value_worker_run": false
+}

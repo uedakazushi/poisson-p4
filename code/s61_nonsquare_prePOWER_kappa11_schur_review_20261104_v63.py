@@ -1,0 +1,293 @@
+#!/usr/bin/env python3
+"""Independent source/type/exterior and block audit of the typed kappa11 chart.
+
+No parameter-polynomial coefficient, minor, rank, or source jet is computed.
+"""
+import hashlib, itertools, json, resource, signal, time
+from fractions import Fraction as Q
+from pathlib import Path
+
+ROOT=Path(__file__).resolve().parents[1]
+PRIMARY='S61_NONSQUARE_PREPOWER_KAPPA11_SCHUR_20261104_v63'
+ID=PRIMARY+'_REVIEW'; OUT=ROOT/'reports'/ID
+P4='S61_NONSQUARE_PREPOWER_DIRECT_P4_H5_SCHUR_20261104_v63'
+ENTRY='S61_NONSQUARE_PREPOWER_KAPPA_EXTRA2_ENTRY_20261104_v63'
+SAX='S61_NONSQUARE_PREPOWER_U4_T15_SCHUR_PREFLIGHT_20261104_v63'
+HC='S61_NONSQUARE_CUBIC_GENUINE14_H5_PREFLIGHT_20261104_v63'
+RANK='S61_NONSQUARE_RAW_H_GENERIC_RANK_20261104_v63'
+COLS=[1,2,3,4,6,7,8,9,11,13,14,15,17,18,19,22,25,27,28,29,30,31]
+
+def sha(p):
+    with p.open('rb') as f:return hashlib.file_digest(f,'sha256').hexdigest()
+def save(n,x):(OUT/n).write_text(json.dumps(x,indent=2)+'\n')
+def sign(p):return (-1)**sum(p[i]>p[j] for i in range(len(p)) for j in range(i+1,len(p)))
+
+# Free commutative polynomial algebra for small universal identities ONLY.
+def plus(p,q,c=Q(1)):
+    z=dict(p)
+    for w,a in q.items():
+        b=z.get(w,Q(0))+c*a
+        if b:z[w]=b
+        else:z.pop(w,None)
+    return z
+def times(p,q):
+    z={}
+    for w,a in p.items():
+        for v,b in q.items():z=plus(z,{tuple(sorted(w+v)):a*b})
+    assert len(z)<10000
+    return z
+def sym(n):return {(str(n),):Q(1)}
+def const(n):return {():Q(n)} if n else {}
+def determinant(A):
+    z={}
+    for p in itertools.permutations(range(len(A))):
+        t=const(sign(p))
+        for i,j in enumerate(p):t=times(t,A[i][j])
+        z=plus(z,t)
+    return z
+
+# Free NONcommutative block algebra: only the stated inverse pairs reduce.
+PAIRS={'Ai':'A','A':'Ai','Hi':'H','H':'Hi','Ki':'K','K':'Ki'}
+def nc(*s):return {tuple(s):Q(1)}
+def ncm(p,q):
+    z={}
+    for w,a in p.items():
+        for v,b in q.items():
+            s=[]
+            for x in w+v:
+                if s and PAIRS.get(s[-1])==x:s.pop()
+                else:s.append(x)
+            z=plus(z,{tuple(s):a*b})
+    return z
+def mm(A,B):
+    return [[sum_polys([ncm(A[i][k],B[k][j]) for k in range(len(B))])
+             for j in range(len(B[0]))] for i in range(len(A))]
+def sum_polys(ps):
+    z={}
+    for p in ps:z=plus(z,p)
+    return z
+def neg(p):return {w:-a for w,a in p.items()}
+def nc_block_proof():
+    I=nc(); Z={}; E=[[I,Z],[Z,I]]
+    A,Ai,H,Hi,C=map(nc,['A','Ai','H','Hi','C'])
+    K=[[A,Z],[C,H]]; Ki=[[Ai,Z],[neg(ncm(ncm(Hi,C),Ai)),Hi]]
+    assert mm(K,Ki)==mm(Ki,K)==E
+    K,Ki,B,C,D=map(nc,['K','Ki','B','C2','D'])
+    M=[[K,B],[C,D]];L=[[Ki,Z],[neg(ncm(C,Ki)),I]];Li=[[K,Z],[C,I]]
+    U=[[I,neg(ncm(Ki,B))],[Z,I]];Ui=[[I,ncm(Ki,B)],[Z,I]]
+    assert mm(L,Li)==mm(Li,L)==mm(U,Ui)==mm(Ui,U)==E
+    assert mm(mm(L,M),U)==[[I,Z],[Z,plus(D,ncm(ncm(C,Ki),B),-1)]]
+
+def main():
+    start=time.monotonic();signal.alarm(60)
+    resource.setrlimit(resource.RLIMIT_AS,(2_000_000_000,2_000_000_000))
+    OUT.mkdir(exist_ok=True); pins={}; cache={}
+    def load(st,name='report.json'):
+        p=ROOT/'reports'/st/name;k=str(p.relative_to(ROOT));pins[k]=sha(p)
+        if k not in cache:cache[k]=json.loads(p.read_text())
+        return cache[k]
+    report=load(PRIMARY)
+    assert pins[f'reports/{PRIMARY}/report.json']=='b1bf5462f3bb3089a9d580af362f9fe0890269b507c47e508121b95e8d724543'
+    for p,h in report['input_sha256'].items():assert sha(ROOT/p)==h
+    op=load(PRIMARY,'operator.json');proof=load(PRIMARY,'proof.json')
+    assert pins[f'reports/{PRIMARY}/operator.json']=='4d3ff74f6ce7cbfd6fe132d9ea08f6bc9165e2e9a1e0fdf39d77df375d86ebda'
+    peer=load(ENTRY+'_REVIEW')
+    assert pins[f'reports/{ENTRY}_REVIEW/report.json']=='fb6343721086e85f9ee44c7cd361d585249bcbbb35fc9a7bc35c3337a5576726'
+    assert peer['all_passed'] and peer['independent_QQ_DEGREVLEX_source238_and_fourproducts'] and peer['T_nonzero_terms']==7208
+    for st in [P4+'_REVIEW','S61_NONSQUARE_PREPOWER_RAW8_ZERO_20261104_v63_REVIEW',
+               'S61_NONSQUARE_PREPOWER_U4_T15_MODP_POLYNOMIAL_20261104_v63_REVIEW',
+               HC+'_REVIEW',RANK+'_REVIEW']:
+        assert load(st)['all_passed']
+    old=load(P4,'operator.json');hc=load(HC,'certificate.json');rk=load(RANK,'certificate.json')
+    pre=load(SAX,'operator-and-cost.json');entry=load(ENTRY,'source-binding.json')
+    assert entry['source_current15_rows']==[2,4,5,8]
+    assert entry['cofactor_roots']==[179,198,217,237] and entry['common_B_clearing_power']==1
+    assert pre['source_current15_rows']==[5,2,4] and pre['source_coefficients3']==[33,35,37]
+    rhos=hc['known_row_units_rho14'];constants=['40000/9','160000/63','-800000/81']
+    for i,c in zip([1,3,4],constants):assert rhos[i]=={'constant':c,'a_d_F_B_C_J_powers':[1,0,1,0,2,0]}
+    cprod=Q(1)
+    for c in constants:cprod*=Q(c)
+    assert cprod==Q('-5120000000000000/45927')==Q(proof['cprod'])
+    assert hc['known_column_units'][4]=={'constant':'-4/625','a_d_F_B_C_J_powers':[0,0,1,1,2,0]}
+    assert all(not hc['raw_compact14x5'][i][j] for i in [1,3,4,7] for j in [1,2,3])
+    for i in [6,12,9]:
+        assert Q(rhos[i]['constant']) and len(rhos[i]['a_d_F_B_C_J_powers'])==6
+    assert rk['selected_rows7']==[0,5,2] and rk['selected_cols3']==[0,2,1]
+    assert [rk['all_other3_column_support_exact_rows'][i] for i in rk['selected_rows7']]==[7,13,10]
+    assert rk['nonzero_selected_minor_Delta']
+
+    # Source Bhat coefficients have EXACT raw, not hybrid, row normalization.
+    S=pre['nodes']
+    assert S[33]['args']==[17,32] and S[32]['reference']=={'constant':'-81/800000'}
+    assert S[35]['args']==[24,34] and S[34]['reference']=={'constant':'-9/40000'}
+    assert S[37]['args']==[31,36] and S[36]['reference']=={'constant':'-63/160000'}
+    assert S[17]['reference']['key']=='literal_pair_determinant'
+    for j in [24,31]:assert S[j]['op']=='sub'
+    assert [S[j]['reference']['index'] for j in [18,19,21,22,25,26,28,29]]==[[4,0],[3,4],[4,4],[3,0],[4,4],[1,0],[4,0],[1,4]]
+    # Check the complete bordered formula syntactically in a free polynomial ring.
+    # No 7022-term parameter polynomial is re-expanded or claimed newly replayed.
+    cut={i:sym('p'+str(i)) for i in range(16)}
+    cut[16]=sym('D4')
+    for i in pre['Bhat_pivot_and_target_roots']:cut[i]=sym('b'+str(i))
+    for i in [196,206,216,226]:cut[i]=sym('t'+str(i))
+    vals={}
+    def formal(i):
+        if i in cut:return cut[i]
+        if i in vals:return vals[i]
+        n=S[i]
+        if n['op']=='atom':z=const(Q(n['reference']['constant']))
+        else:
+            a,b=map(formal,n['args'])
+            z=times(a,b) if n['op']=='mul' else plus(a,b,-1 if n['op']=='sub' else 1)
+        vals[i]=z;return z
+    P=[[cut[4*i+j] for j in range(4)] for i in range(4)]
+    bs=[cut[i] for i in pre['Bhat_pivot_and_target_roots']]
+    ts=[cut[i] for i in [196,206,216,226]]
+    expected=times(cut[16],bs[4])
+    for col in range(4):
+        cof={}
+        for row in range(4):
+            minor=[[P[i][j] for j in range(4) if j!=col] for i in range(4) if i!=row]
+            cof=plus(cof,times(determinant(minor),ts[row]),(-1)**(row+col))
+        expected=plus(expected,times(bs[col],cof),-1)
+    assert formal(pre['output'])==expected
+    # Generalized Laplace: the two heavy columns are zero on the first four rows.
+    a,b,c,d,e,f,x,y,z=map(sym,'abcdefxyz')
+    delta=plus(times(a,d),times(b,c),-1)
+    mu0=plus(times(e,d),times(f,c),-1);mu1=plus(times(f,a),times(e,b),-1)
+    rhs=plus(plus(times(delta,z),times(mu0,x),-1),times(mu1,y),-1)
+    assert determinant([[a,b,x],[c,d,y],[e,f,z]])==rhs
+    # These x,y,z stand for the three bordered pure5 determinants. By linearity
+    # this is det(P4,delta*Gu/c4-mu0*G1/c1-mu1*G3/c3)=Saux, directly polynomial.
+    assert sign([4,5,0,1,2,3,6])==sign([5,6,0,1,2,3,4])==1
+    assert (-1)**(7+5)==1
+
+    N=op['nodes'];assert len(N)==84
+    for i,n in enumerate(N):
+        assert n['id']==i and all(0<=j<i for j in n['args'])
+        sh=n['shape']; ar=[N[j]['shape'] for j in n['args']];k=n['op']
+        if k=='external_frozen_input':
+            r=n['reference'];p=ROOT/r['path'];assert sha(p)==r['sha256'];pins[r['path']]=sha(p)
+            data=cache.setdefault(r['path'],json.loads(p.read_text()))
+            for s in r['json_pointer'].strip('/').split('/'):data=data[int(s)] if isinstance(data,list) else data[s]
+            if r['json_pointer'].startswith('/exports/'):
+                doc=cache[r['path']];assert doc['nodes'][data]['shape']==sh
+            else:assert sh==[1,1]
+        elif k=='matrix_product':assert len(ar)==2 and ar[0][1]==ar[1][0] and sh==[ar[0][0],ar[1][1]]
+        elif k=='central_scalar_multiple':assert ar[0]==[1,1] and sh==ar[1]
+        elif k=='negative':assert ar==[sh]
+        elif k=='submatrix':assert sh==[len(n['rows']),len(n['columns'])] and all(0<=j<ar[0][0] for j in n['rows']) and all(0<=j<ar[0][1] for j in n['columns'])
+        elif k=='difference':assert ar==[sh,sh]
+        elif k=='transpose':assert sh==ar[0][::-1]
+        elif k in ['one','named_FULLU_unit','QQ_constant']:assert sh==[1,1] and not ar
+        elif k=='certified_parameter_unit_inverse':assert sh==[1,1] and ar==[[1,1]]
+        elif k=='diagonal':assert n['args']==n['diagonal'] and len(ar)==sh[0]==sh[1] and all(s==[1,1] for s in ar)
+        elif k in ['row_permutation','column_permutation']:assert sh[0]==sh[1] and sorted(n['order'])==list(range(sh[0])) and not ar
+        elif k in ['identity','zero']:assert not ar
+        elif k in ['universal_determinant','universal_polynomial_adjugate']:
+            assert len(ar)==1 and ar[0][0]==ar[0][1] and n['expanded'] is False
+            assert sh==([1,1] if k=='universal_determinant' else ar[0])
+        elif k=='block_matrix':
+            assert n['args']==[v for r in n['blocks'] for v in r]
+            ss=[[N[j]['shape'] for j in r] for r in n['blocks']]
+            assert all(len({s[0] for s in r})==1 for r in ss)
+            assert all(len({r[j][1] for r in ss})==1 for j in range(len(ss[0])))
+            assert sh==[sum(r[0][0] for r in ss),sum(s[1] for s in ss[0])]
+        else:raise AssertionError(k)
+
+    X=op['exports']
+    def flat(i):return sum((flat(j) for j in N[i]['args']),[]) if N[i]['op']=='matrix_product' else [i]
+    def sub(i,parent,rr,cc):
+        n=N[i];assert n['op']=='submatrix' and n['args']==[parent] and n['rows']==rr and n['columns']==cc
+    def external(i,path,pointer):
+        n=N[i];assert n['op']=='external_frozen_input' and n['reference']['path']==f'reports/{path}' and n['reference']['json_pointer']==pointer
+    assert N[11]['order']==op['source_pivot11']+op['source_remaining4']==[0,1,3,6,2,4,5,8,7,13,10,9,11,12,14]
+    assert [COLS[j] for j in N[13]['order']]==op['target_pivot11_original32']+op['target_remaining11_original32']==[22,11,13,25,15,2,27,31,28,30,29,1,3,4,6,7,8,9,14,17,18,19]
+    M=X['input15x22'];external(M,P4+'/operator.json','/exports/input15x22')
+    assert N[2]['expression']=='a*F*C^2' and N[3]['expression']=='B'
+    external(4,HC+'/certificate.json','/known_column_units/4')
+    assert N[5]['args']==[2,4] and N[6]['args']==[2] and N[7]['args']==[5] and N[8]['args']==[3]
+    assert N[9]['diagonal']==[1,3]+[1]*15+[6]+[1]*3+[7]
+    assert N[10]['diagonal']==[1,8]+[1]*15+[2]+[1]*3+[5]
+    MM=N[X['actual_A8']]['args'][0];assert flat(MM)==[11,M,9,13]
+    sub(X['actual_A8'],MM,list(range(8)),list(range(8)))
+    sub(X['actual_B3'],MM,list(range(8,11)),list(range(8,11)))
+    assert N[24]['value']==str(cprod)
+    external(21,'S61_NONSQUARE_PREPOWER_U4_T15_SCHUR_ENTRY_20261104_v63/native.json','/exact_Saux_Laurent_polynomial')
+    external(22,ENTRY+'/root239.json','/polynomial');external(23,ENTRY+'/root237.json','/polynomial')
+    assert flat(26)==[24,21,22] and N[27]['args']==[26]
+    assert N[X['unexpanded_D8']]['args']==[X['actual_A8']]
+    assert flat(X['certified_D8_inverse'])==[23,27]
+    assert N[30]['args']==[X['actual_A8']] and N[31]['args']==[X['certified_D8_inverse'],30]
+    external(32,P4+'/operator.json','/exports/H5_B3')
+    external(33,RANK+'/certificate.json','/nonzero_selected_minor_Delta')
+    assert N[34]['args']==[33] and N[43]['args']==[32] and N[44]['args']==[34,43] and flat(45)==[44,42]
+    for i,j in zip([35,36,37],[6,12,9]):external(i,HC+'/certificate.json',f'/known_row_units_rho14/{j}')
+    assert [N[i]['args'][0] for i in [38,39,40]]==[35,36,37] and N[42]['diagonal']==[38,39,40]
+    sub(20,MM,list(range(8,11)),list(range(8)))
+    sub(X['pivot11'],MM,list(range(11)),list(range(11)))
+    assert N[X['pivot11_inverse']]['blocks']==[[31,47],[50,45]] and N[47]['op']=='zero'
+    assert N[50]['op']=='negative' and flat(N[50]['args'][0])==[44,42,20,31]
+    sub(52,MM,list(range(11)),list(range(11,22)))
+    sub(53,MM,list(range(11,15)),list(range(11)))
+    sub(54,MM,list(range(11,15)),list(range(11,22)))
+    assert flat(55)==[X['pivot11_inverse'],52] and flat(56)==[53,X['pivot11_inverse']]
+    assert N[X['residual4x11']]['args']==[54,57] and flat(57)==[53,X['pivot11_inverse'],52]
+    assert N[62]['blocks']==[[X['pivot11_inverse'],59],[60,61]] and N[60]['args']==[56]
+    assert N[65]['blocks']==[[X['pivot11'],63],[53,64]]
+    assert N[70]['blocks']==[[66,67],[68,69]] and N[67]['args']==[55]
+    assert N[74]['blocks']==[[71,55],[72,73]]
+    assert flat(X['full_source15'])==[62,11] and flat(X['full_source15_inverse'])==[12,65] and N[12]['args']==[11]
+    assert flat(X['full_target22'])==[9,13,70] and flat(X['full_target22_inverse'])==[74,14,10] and N[14]['args']==[13]
+    sub(81,X['full_source15'],list(range(11,15)),list(range(15)))
+    external(82,P4+'/operator.json','/exports/source_current15_to_original25')
+    assert flat(X['surviving4_source_original25'])==[81,82]
+    assert {tuple(N[i]['args']) for i in range(len(N)) if N[i]['op']=='certified_parameter_unit_inverse'}=={(2,),(5,),(3,),(26,),(33,),(35,),(36,),(37,)}
+    # Check dependency closures: read the old actual input/prefix/B3, NOT old H5 inverse.
+    closureproof={}
+    for exp in ['input15x22','source_current15_to_original25','H5_B3']:
+        seen=set();todo=[old['exports'][exp]]
+        while todo:
+            j=todo.pop()
+            if j not in seen:seen.add(j);todo+=old['nodes'][j]['args']
+        inverses=[]
+        for j in sorted(seen):
+            n=old['nodes'][j]
+            if 'inverse' in n['op']:
+                s=json.dumps(n.get('unit_proof'));assert 'Delta5' not in s and 'R434' not in s and 'h22' not in s and 'D4' not in s
+                assert 'FULLU' in s or isinstance(n.get('unit_proof'),dict)
+                inverses.append(j)
+        closureproof[exp]={'nodes':len(seen),'inverse_nodes':inverses}
+    nc_block_proof()
+    assert op['chart']==proof['whole_chart']=='FULLU D(Delta407*Saux*T)'
+    assert op['raw_H7_lift_NOT_computed'] and op['rank4_or_global57_NOT_proved'] and op['new_scalar_coefficients']==0
+    assert op['all_original8_Q9_tail_effects_retained'] and op['remaining7_extra_tails']==[1,3,4,6,7,8,9]
+    save('independent-typed-source-and-exterior-proof.json',{
+        'all84_types_external_hashes_and_full_wire_assembly':True,
+        'new_QQ_T7208_and_four_signed_cofactor_peer':pins[f'reports/{ENTRY}_REVIEW/report.json'],
+        'literal_M22_anchor_no_extra_a_and_B_times_M2_column':True,
+        'source_Bhat_raw_three_coefficients_and_free_bordered_Saux_formula':True,
+        'Saux7022_full_QQ_coefficients_not_newly_replayed':True,
+        'direct_polynomial_Laplace_D7_identity_no_delta2_inverse_needed':True,
+        'cprod':str(cprod),'row7_col5_sign':1,'D7_row_column_even_swaps':[8,10],
+        'kappa3_D8_equals_cprod_Saux_T_and_product_unit_inverse':True,
+        'kappa3_p_R434_h22_Delta5_not_inverted':True,
+        'upper8x3_literal_zero_and_actual_B3_rho_order':[6,12,9],
+        'old_dependency_closures':closureproof,
+        'all_noncommutative_two_sided_block_and_Schur_identities':True,
+        'projected_current15_sources':op['source_remaining4'],
+        'remaining_original32_targets':op['target_remaining11_original32'],
+        'samecokernel_shape':[4,11], 'source_scope':'projected prePOWER15x22; fullrawH7 lift remains separate',
+        'no_D8_coefficients_residual_rank_or_global57_claim':True})
+    rep={'id':ID,'all_passed':True,'frozen':True,'actual_samecokernel_shape':[4,11],
+         'chart':'FULLU D(Delta407*Saux*T)','typed_nodes':84,'all_source_tail_effects_retained':True,
+         'no_extra_kappa3_p_R_h22_Delta5_inverse':True,'polynomial_det_identity_verified_structurally':True,
+         'new_parameter_coefficients':0,'projected15_only_rawH7_lift_gap_retained':True,
+         'no_scalar_D8_residual_rank_full57_or_quartic239_claim':True,'input_sha256':pins,
+         'code_sha256':sha(Path(__file__)),'note_sha256':sha(ROOT/'research/notes'/f'{ID}.md'),
+         'evidence_sha256':{'independent-typed-source-and-exterior-proof.json':sha(OUT/'independent-typed-source-and-exterior-proof.json')},
+         'seconds':time.monotonic()-start,'max_rss_kib':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss}
+    assert sum(p.stat().st_size for p in OUT.iterdir())<32*1024*1024
+    save('report.json',rep);signal.alarm(0);print(json.dumps({k:v for k,v in rep.items() if k!='input_sha256'},indent=2))
+
+if __name__=='__main__':main()

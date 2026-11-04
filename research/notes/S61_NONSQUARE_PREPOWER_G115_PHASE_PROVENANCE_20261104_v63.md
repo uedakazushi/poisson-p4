@@ -1,0 +1,9 @@
+# G115 source preflightのphase byte保存
+
+2026-11-04。元source preflightはreportのevidence hashを計算した後にphase.jsonを
+完了表示へ置き換えたため、その一ファイルだけ保存hashと現byteが異なる。
+数学・source・operator・費用見積もりと元reportは変更していない。
+
+元hashと一致する初期phase byteを正確に再構成し、現完了phase byteも別名で保存する。
+全ての他evidenceと入力hashを照合する。凍結primaryや元scriptは修正せず、
+このreceiptで二つのphaseと順序上のmetadata不整合を明示的に保持する。

@@ -1,0 +1,39 @@
+{
+  "id": "S61_SPARSE_GENERIC5_CONSTRAINED83_UNIT_PREFIX_20261104_v63",
+  "phase": "frozen_pre_arithmetic_policy",
+  "source_shape": [
+    236,
+    83
+  ],
+  "source_total_coefficients": 49039,
+  "source_column_order": "c,alpha20,beta20,n42; no column is dropped except a proved unit pair",
+  "five_parameter_order": [
+    "H",
+    "L",
+    "s0",
+    "q0",
+    "t0"
+  ],
+  "allowed_pivots": "QQ constants first whenever present; otherwise one Laurent parameter monomial with nonzero QQ coefficient. No nonmonomial pivot.",
+  "selection": "Minimum exact structural fill=sum over target rows of #pivot-row active columns absent in that row; tie by term-pair majorant, coefficient height, original row, original column.",
+  "forecast_before_any_pivot": "For each proposed update, multiply support sets of the old column factor and normalized pivot entry; union with old entry. This proves k product terms and b result terms before arithmetic. The whole prospective pivot is forecast before any normalization/update.",
+  "visible_live_bound": "Let L be current/predicted owned coefficient slots, k product support bound and b union bound. L+2k+3b+16 bounds product, two aligned add/sub scratch polynomials, result and literal back-add identity check. Support-set scratch is counted separately against150000. After each update L is advanced by b-old_length; cleared column and retired pivot row are subtracted.",
+  "normalization_bound": "Monomial scalar/shift scaling in place changes no support; no polynomial inverse or GCD is used.",
+  "serialized_bound": "Before a pivot, normalized row/factor receipts plus the entire predicted residual are bounded using exact supports, rational numerator/denominator bit bounds and signed exponent digit bounds, with1MiB metadata reserve; must be<=32MiB.",
+  "time_policy": "Stop before a new pivot at47 native seconds to reserve time for final residual serialization; parent process hard60seconds/2GB.",
+  "stop_policy": "No allowed pivot, next deterministic pivot forecast over any cap, or time budget: serialize the exact current residual and all completed operations; no larger retry or nonmonomial pivot.",
+  "receipt": "Stream normalized pivot row and all target factors with original source row/column identifiers; retain per-update forecast records and literal back-add checks. Forward row operations and reverse triangular substitutions define a factored inverse instruction, not a dense236-square inverse.",
+  "all_original_parsed_source_arrays_released": "Native reads only the new49039-term matrix. Python JSON is not present in the native address space.",
+  "no_T_P_selector_Gram_or_dense_inverse": true,
+  "hard_live_terms": 150000,
+  "hard_artifact_bytes": 33554432,
+  "hard_seconds": 60,
+  "hard_memory_bytes": 2000000000,
+  "input_sha256": {
+    "reports/S61_SPARSE_GENERIC5_CONSTRAINED83_RAW_BLOCK_20261104_v63/report.json": "3b9d32cf070644c7651adf382155f2379702faa967d4e12047a0d730befdc303",
+    "reports/S61_SPARSE_GENERIC5_CONSTRAINED83_RAW_BLOCK_20261104_v63/actual-236x83-matrix.json": "6e9b70c3ae7a9143128ad58369121c0d91749a0ca5687ecfbc54fdffac1df5fd"
+  },
+  "work_input_sha256": "473892d4cd56544719280079741a98e85c1343934598775c502262cc1b470c03",
+  "work_input_bytes": 1005664,
+  "prepare_seconds": 0.23972152899659704
+}
