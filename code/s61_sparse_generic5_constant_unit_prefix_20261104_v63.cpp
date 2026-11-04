@@ -1,0 +1,48 @@
+// New constant-unit method on saved L. No old Cramer or large adjugate replay.
+#define main unused_frozen_qpoly_main
+#include "q_new_family_v_zero_degree26_restriction_20261104_v63.cpp"
+#undef main
+#include <tuple>
+using Mat=vector<vector<P>>;
+P oneu(){P p;fmpq_mpoly_one(p.v,ctx);return p;}
+P readu(istream&in){P p;int n;in>>n;fmpq_t c;fmpq_init(c);ulong e[5];for(int k=0;k<n;k++){string q;in>>q;for(auto&x:e)in>>x;assert(fmpq_set_str(c,q.c_str(),10)==0);fmpq_canonicalise(c);fmpq_mpoly_set_coeff_fmpq_ui(p.v,c,e,ctx);}fmpq_clear(c);return p;}
+void pu(ostream&f,const P&p){f<<"{\"content\":\""<<qstr(p.v->content)<<"\",\"terms\":[";fmpz_t c;fmpz_init(c);ulong e[5];for(long k=0;k<fmpq_mpoly_length(p.v,ctx);k++){if(k)f<<',';fmpz_mpoly_get_term_coeff_fmpz(c,p.v->zpoly,k,ctx->zctx);fmpq_mpoly_get_term_exp_ui(e,p.v,k,ctx);f<<"[\""<<zstr(c)<<"\"";for(auto x:e)f<<','<<x;f<<']';}f<<"]}";fmpz_clear(c);}
+void mu(ostream&f,const Mat&A){f<<'[';for(size_t i=0;i<A.size();i++){if(i)f<<',';f<<'[';for(size_t j=0;j<A[i].size();j++){if(j)f<<',';pu(f,A[i][j]);}f<<']';}f<<']';}
+void vu(ostream&f,const vector<P>&v){f<<'[';for(size_t i=0;i<v.size();i++){if(i)f<<',';pu(f,v[i]);}f<<']';}
+P d3(const Mat&A){P p;for(int j=0;j<3;j++){int k=(j+1)%3,l=(j+2)%3;p=add(p,mul(A[0][j],add(mul(A[1][k],A[2][l]),scale(mul(A[1][l],A[2][k]),-1))));}return p;}
+Mat rows3(const Mat&A,const vector<int>&r){Mat B;for(int i:r)B.push_back(A[i]);return B;}
+struct Op{int stage,row,col;string pivot;vector<P>multipliers;};
+int main(int argc,char**argv){assert(argc==3);fmpq_mpoly_ctx_init(ctx,5,ORD_DEGLEX);auto start=chrono::steady_clock::now();int status=0;{
+ try{
+  string dir=argv[2];ifstream in(argv[1]);int vars,n,m,q;in>>vars>>n>>m>>q;assert(vars==5&&n==51&&m==20&&q==45);Mat L(51,vector<P>(20)),N(45,vector<P>(20));for(auto&r:L)for(auto&p:r)p=readu(in);for(auto&r:N)for(auto&p:r)p=readu(in);vector<P>center,d;for(auto*v:{&center,&d})for(int i=0;i<45;i++)v->push_back(readu(in));P oldD=readu(in);Mat oldT(20,vector<P>(2));for(auto&r:oldT)for(auto&p:r)p=readu(in);vector<int>oldFree(2);for(auto&i:oldFree)in>>i;string extra;assert(in&&!(in>>extra));
+  Mat A=L;vector<int>rorder(51),corder(20);for(int i=0;i<51;i++)rorder[i]=i;for(int j=0;j<20;j++)corder[j]=j;vector<Op>ops;int k=0;
+  for(;k<17;k++){
+   int pi=-1,pj=-1;tuple<long,long,long,int,int>best;bool first=true;
+   for(int i=k;i<51;i++)for(int j=k;j<20;j++)if(!zero(A[i][j])&&fmpq_mpoly_is_fmpq(A[i][j].v,ctx)){
+    long rn=0,cn=0,terms=0;for(int z=k;z<20;z++){rn+=!zero(A[i][z]);terms+=fmpq_mpoly_length(A[i][z].v,ctx);}for(int z=0;z<51;z++){cn+=!zero(A[z][j]);terms+=fmpq_mpoly_length(A[z][j].v,ctx);}fmpq_t c;fmpq_init(c);fmpq_mpoly_get_fmpq(c,A[i][j].v,ctx);long bits=fmpz_bits(fmpq_numref(c))+fmpz_bits(fmpq_denref(c));fmpq_clear(c);auto score=make_tuple((rn-1)*(cn-1),terms,bits,i,j);if(first||score<best){first=false;best=score;pi=i;pj=j;}
+   }
+   if(pi<0)break;
+   if(pi!=k){swap(A[pi],A[k]);swap(rorder[pi],rorder[k]);}if(pj!=k){for(auto&r:A)swap(r[pj],r[k]);swap(corder[pj],corder[k]);}
+   fmpq_t pivot,inv;fmpq_init(pivot);fmpq_init(inv);fmpq_mpoly_get_fmpq(pivot,A[k][k].v,ctx);fmpq_inv(inv,pivot);Op op{k,pi,pj,qstr(pivot),vector<P>(51)};for(int j=k;j<20;j++)A[k][j]=scaleq(A[k][j],qstr(inv));assert(equal(A[k][k],oneu()));
+   for(int i=0;i<51;i++)if(i!=k&&!zero(A[i][k])){P c=A[i][k];op.multipliers[i]=c;for(int j=k+1;j<20;j++)A[i][j]=add(A[i][j],scale(mul(c,A[k][j]),-1));A[i][k]=P();}ops.push_back(move(op));fmpq_clear(pivot);fmpq_clear(inv);cerr<<"QQ_UNIT_PIVOT "<<k+1<<" MAXTERMS "<<maxterms<<endl;
+  }
+  {ofstream f(dir+"/constant-prefix.json");f<<"{\"all_passed\":true,\"constant_QQ_pivots\":"<<k<<",\"row_order\":";ints(f,rorder);f<<",\"column_order\":";ints(f,corder);f<<",\"reduced51x20\":";mu(f,A);f<<",\"elementary_operations\":[";for(size_t i=0;i<ops.size();i++){auto&o=ops[i];if(i)f<<',';f<<"{\"stage\":"<<o.stage<<",\"swap_row_with\":"<<o.row<<",\"swap_column_with\":"<<o.col<<",\"pivot_QQ\":\""<<o.pivot<<"\",\"elimination_multipliers51\":";vu(f,o.multipliers);f<<'}';}f<<"],\"only_QQ_constants_inverted\":true}\n";f.close();saved(dir+"/constant-prefix.json");}
+  if(k<17){ofstream f(dir+"/native-certificate.json");f<<"{\"all_passed\":true,\"status\":\"constant_prefix_stopped_before17\",\"constant_QQ_pivots\":"<<k<<",\"kernel_complete\":false,\"plane_complete\":false,\"max_terms\":"<<maxterms<<"}\n";f.close();saved(dir+"/native-certificate.json");}
+  else{
+   int pi=-1,pj=-1;tuple<long,long,int,int>best;bool first=true;for(int i=17;i<51;i++)for(int j=17;j<20;j++)if(!zero(A[i][j])){long len=fmpq_mpoly_length(A[i][j].v,ctx),deg=fmpq_mpoly_total_degree_si(A[i][j].v,ctx);auto score=make_tuple(len,deg,i,j);if(first||score<best){first=false;best=score;pi=i;pj=j;}}assert(pi>=0);
+   if(pi!=17){swap(A[pi],A[17]);swap(rorder[pi],rorder[17]);}if(pj!=17){for(auto&r:A)swap(r[pj],r[17]);swap(corder[pj],corder[17]);}P den=A[17][17];assert(!zero(den));Mat tail(3,vector<P>(2));tail[0][0]=scale(A[17][18],-1);tail[0][1]=scale(A[17][19],-1);tail[1][0]=den;tail[2][1]=den;Mat C(20,vector<P>(3));for(int i=0;i<17;i++)for(int j=0;j<3;j++)C[corder[i]][j]=scale(A[i][17+j],-1);for(int i=0;i<3;i++)C[corder[17+i]][i]=oneu();Mat T(20,vector<P>(2));for(int i=0;i<20;i++)for(int j=0;j<2;j++)for(int z=0;z<3;z++)if(!zero(C[i][z])&&!zero(tail[z][j]))T[i][j]=add(T[i][j],mul(C[i][z],tail[z][j]));vector<int>free={corder[18],corder[19]};
+   for(int i=0;i<51;i++)for(int j=0;j<2;j++){P z;for(int h=0;h<20;h++)if(!zero(L[i][h])&&!zero(T[h][j]))z=add(z,mul(L[i][h],T[h][j]));assert(zero(z));}for(int i=0;i<2;i++)for(int j=0;j<2;j++)assert(equal(T[free[i]][j],i==j?den:P()));
+   // Same two-dimensional source-field kernel, checked without old determinants/gcds.
+   for(int i=0;i<20;i++)for(int j=0;j<2;j++){P a,b;for(int h=0;h<2;h++){a=add(a,mul(T[i][h],oldT[free[h]][j]));b=add(b,mul(oldT[i][h],T[oldFree[h]][j]));}assert(equal(a,mul(den,oldT[i][j])));assert(equal(b,mul(oldD,T[i][j])));}
+   {ofstream f(dir+"/small-kernel.json");f<<"{\"all_passed\":true,\"rank_exact\":18,\"constant_QQ_pivots\":17,\"generic_tail_pivot_row_position\":"<<pi<<",\"generic_tail_pivot_column_position\":"<<pj<<",\"denominator\":";pu(f,den);f<<",\"free_original_columns\":";ints(f,free);f<<",\"column_order_after_tail\":";ints(f,corder);f<<",\"factored_kernel_map20x3\":";mu(f,C);f<<",\"factored_tail3x2\":";mu(f,tail);f<<",\"T_numerators20x2\":";mu(f,T);f<<",\"all51_kernel_and_freeI_verified\":true,\"both_old_new_crossmultiplications_verified\":true,\"generic_coefficient_field_only_not_FULLU\":true}\n";f.close();saved(dir+"/small-kernel.json");}cerr<<"SMALL_KERNEL_FULL51_OLDSPAN_PASS MAXTERMS "<<maxterms<<endl;
+   Mat V(45,vector<P>(3));for(int i=0;i<45;i++){for(int j=0;j<2;j++)for(int h=0;h<20;h++)if(!zero(N[i][h])&&!zero(T[h][j]))V[i][j]=add(V[i][j],mul(N[i][h],T[h][j]));V[i][2]=d[i];}
+   long vmax=0;for(auto&r:V)for(auto&p:r)vmax=max(vmax,fmpq_mpoly_length(p.v,ctx));bool plane=false;
+   if(vmax<=300){vector<int>pr={0,1,2};P oldGamma=d3(rows3(V,pr)),Gamma=oldGamma;if(zero(Gamma)){int a=0;while(a<45&&all_of(V[a].begin(),V[a].end(),[](const P&p){return zero(p);}))a++;assert(a<45);int b=-1;for(int i=0;i<45&&b<0;i++)if(i!=a)for(int c=0;c<3;c++)for(int e=c+1;e<3;e++)if(!zero(add(mul(V[a][c],V[i][e]),scale(mul(V[a][e],V[i][c]),-1)))){b=i;break;}assert(b>=0);for(int c=0;c<45;c++)if(c!=a&&c!=b){P z=d3(rows3(V,{a,b,c}));if(!zero(z)){pr={a,b,c};Gamma=move(z);break;}}}assert(!zero(Gamma));
+    Mat B=rows3(V,pr),adj(3,vector<P>(3));for(int i=0;i<3;i++)for(int j=0;j<3;j++){vector<int>ri,ci;for(int h=0;h<3;h++){if(h!=j)ri.push_back(h);if(h!=i)ci.push_back(h);}adj[i][j]=scale(add(mul(B[ri[0]][ci[0]],B[ri[1]][ci[1]]),scale(mul(B[ri[0]][ci[1]],B[ri[1]][ci[0]]),-1)),(i+j)%2?-1:1);}
+    for(int i=0;i<3;i++)for(int j=0;j<3;j++){P l,r;for(int h=0;h<3;h++){l=add(l,mul(B[i][h],adj[h][j]));r=add(r,mul(adj[i][h],B[h][j]));}assert(equal(l,i==j?Gamma:P())&&equal(r,i==j?Gamma:P()));}Mat W(45,vector<P>(3));for(int i=0;i<45;i++)for(int j=0;j<3;j++)for(int h=0;h<3;h++)if(!zero(V[i][h])&&!zero(adj[h][j]))W[i][j]=add(W[i][j],mul(V[i][h],adj[h][j]));for(int i=0;i<3;i++)for(int j=0;j<3;j++)assert(equal(W[pr[i]][j],i==j?Gamma:P()));vector<int>normal;for(int i=0;i<45;i++)if(find(pr.begin(),pr.end(),i)==pr.end())normal.push_back(i);
+    {ofstream f(dir+"/plane-normal42-adapter.json");f<<"{\"all_passed\":true,\"plane_pivot_q_rows\":";ints(f,pr);f<<",\"old_rows012_minor_numerator\":";pu(f,oldGamma);f<<",\"Gamma3\":";pu(f,Gamma);f<<",\"plane_columns_V45x3\":";mu(f,V);f<<",\"column_denominators\":[\"tail_pivot\",\"tail_pivot\",\"1\"],\"embedding_E_numerators45x3\":";mu(f,W);f<<",\"embedding_denominator\":\"Gamma3\",\"q_center45\":";vu(f,center);f<<",\"normal_q_rows42\":";ints(f,normal);f<<",\"all_adjugate_and_EpivotI3_verified\":true,\"affine_rule\":\"q=center+(W/Gamma3)z+std_nonpivot*n42; z=q_pivot-center_pivot\",\"all45_unknowns_retained\":true,\"no134_orJ0_substitution\":true}\n";f.close();saved(dir+"/plane-normal42-adapter.json");}plane=true;
+   }
+   {ofstream f(dir+"/native-certificate.json");f<<"{\"all_passed\":true,\"status\":\""<<(plane?"small_kernel_plane_normal42_complete":"small_kernel_complete_plane_cost_stop")<<"\",\"constant_QQ_pivots\":17,\"kernel_complete\":true,\"plane_complete\":"<<(plane?"true":"false")<<",\"V_max_terms\":"<<vmax<<",\"max_terms\":"<<maxterms<<",\"products\":"<<products<<",\"bytes_saved\":"<<savedbytes<<",\"seconds\":"<<chrono::duration<double>(chrono::steady_clock::now()-start).count()<<"}\n";f.close();saved(dir+"/native-certificate.json");}
+  }
+ }catch(const exception&e){cerr<<"BOUNDED_CONSTANT_UNIT_PREFIX_STOP "<<e.what()<<endl;status=2;}
+ }fmpq_mpoly_ctx_clear(ctx);flint_cleanup();return status;}

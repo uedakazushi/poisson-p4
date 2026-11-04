@@ -1,0 +1,17 @@
+# H1 atomic分母の有限既知単元モデル
+
+2378 scalar atomに現れる228種類の分母だけを既存native FLINTで処理する。
+因子はa,d,F,B,C,Jの六つに限定し、exact divisionの後が非零QQ定数であること、
+元分母を定数と因子の冪で文字通り再構成することを確認する。さらに全2378
+atomで、元分母と再構成分母を使うfractionのcross-productが一致することを
+native多項式積で確認する。一般の多変数GCDや因数分解は使わない。
+
+これが通れば、scalarはQQ多項式分子と六つの分母指数でexactに表せる。
+加算は指数の成分ごとの最大値へ揃え、乗算は指数を足す。既知六因子だけを
+exact divisionで分子から除けば値は不変で、一般の多変数GCDによる正規化は
+正確性に不要である。ただし十分な項数・時間の節約になるかは次の別予算の
+coefficient pilotで確認する必要がある。
+
+first psi行113と全quartic21行にはgraph到達数、最大live node数、atom項数と
+DAG深さだけを計数する。いずれのscalar値も評価しない。この予算でHquartic
+再試行やGaussianは行わず、既存113行・7ピボットは一切変えない。

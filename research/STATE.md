@@ -1,5 +1,21 @@
 # 研究状態 — v63-s61 / 2026-11-04
 
+## v63 AS / 2026-11-04: B18 top T3は零、残るT0/T1/T2へ
+
+直前 main `66fd1b621b9d53f9abadb25c09a0e0b2fdb86bc4` は通常push済み。以下は過去時点を含み、T3未解決という過去記述は今回解決した。
+
+B18のtop T3を正確に零と解決した。単に低次像が零という検査からは推論せず、同じ実R0上のNとcyclic nilを結んだ完全な九生成四十四関係を使う。独立な四十三一次関係と一つの二次関係に対し、全top十二の一次項は零、E0二次項も零であることを全2069関係・二つの57source二次系から独立確認した。全topがmJinfへ入るのでNakayamaからJinf=Q3、T3=0となる。以前のtop一colon課題もこれで解決した。w torsionは次数零・一・二に限られw三乗で消えるが、nilradicalの指数三とは言わない。
+
+この証明のため、実w一tailを旧218式にliteralに結び付けた。十七group unitIFTとG19/torusの二十smooth因子、残る三regular切断を確認し、tailD/Nは次元八・深さ一、そのnilは同じR0の正則曲線上のcyclic moduleとした。w零完成環をw一へ局所化することはせず、有限w多項式模型をR0係数底だけで完成する正しい順序を明記した。
+
+さらに実Nnormalizationからphysical Cohen八底とrho61を構成し、同じR0=R8[[v]]でv=z1tau、N=R8⊕m8tauを証明した。全150のodd八微分det−4/9とNakayamaを使い、型だけの座標同一視ではない。最小八生成・三十六関係・八十四syzygyと全Betti列をliteral化し独立監査した。Nil曲線のparameterにz1も取れるため、残る加群問題へ接続できる。
+
+残るT0/T1/T2と元B18深さ19/20は未判定。Q1/Q2のhonest九生成入力では一次rankがいずれも四十三と分かった。唯一の二次functionalの計算では両rank44を得たが、独立算術監査中であり台帳のT1/T2はまだ解決扱いにしない。実D4の44/112 horseshoeやnil係数抽出も有限DAGへ保存しつつあるが、未監査の入力完成を深さ解決とは呼ばない。
+
+四次H像はnativeの既知単位因子表現に切り替え、全134行のQQ係数を初めて完成した。一般多変数GCDを毎nodeで繰り返す必要をなくした。七unit pivot・全点下界125・安全な183対114は不変で、全21quarticとpure98を保持する。全quartic残余には単独の既知単位entryが無いため、同じGaussianを再試行せず、構造的な小さいBezoutや次のblockを調べる。一般betaの疎五parameter入力ではLのrank十八と核二本を保存し、平面枠/normal42は別の小さい係数手法で進行中。
+
+NEW原始像の実定義式G28は正確に二十八次として解決済み。全FULLU cubic57、四次239、B18残りの深さ・nil、一般betaの尽くしと全成分上界を続ける。総下界58/rank4下界52/上界未定、五凍結原稿は維持する。
+
 ## v63 AR / 2026-11-04: 疎な一般beta被覆・cubic57開・四次標的114
 
 直前 main `b91cd9760a9921aa41b6b6a14303532c21fb1206` は通常push済み。以下は過去時点を含む。

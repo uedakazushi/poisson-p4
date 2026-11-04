@@ -1,0 +1,16 @@
+# 残り11行のみを保存するserialization repair
+
+最初の20行native jobは全119623 nodeの値を計算したが、`strlen+100`という
+一項ごとの保守的counterで30MBに達し、9行の完成後に保存を止めた。実際の
+packetは約9MiBだった。その9行とfailure receiptは凍結したまま参照する。
+
+修正は保存byte数だけで、符号付き既知単元の有理演算kernelはbyte一致。
+実stream positionと次tokenのbyte数を使い、入力とmetadataの余地を含めて
+hard32MiBを守る。新queryは未保存の123..133だけ。完成済み9行の全raw root IDを
+seed候補として照合したが、新依存graphとの共通rootはない。従って完成済み
+9行を再queryせず、保存されていない内部ancestorだけを新11式のために再計算
+する。この内部演算までcache済みだったとの主張はしない。
+
+各行の全23係数と旧7ピボットSchurの23恒等式を検査し、完成行単位で保存する。
+完成すれば113行cache、psi、旧9行、新11行をhash付きdescriptorで結び、全134行の
+exact inputとなる。pure98・Gaussianは行わず、既知7 unitとlower125は不変。

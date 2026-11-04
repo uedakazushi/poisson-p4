@@ -2,6 +2,25 @@
 
 Version: v63-s61 · 2026-11-04 (Asia/Tokyo).
 
+Latest AS (2026-11-04): B18 ACTUAL TOP T3=0 SOLVED, Jinf=Q3,
+byCOMPLETE44relationmodule/43indepLINEAR+1quadratic(E0=v²)/Nakayama.
+Independentboth57source2/all2069firstjetsrank43/topfirst0 +literalcol5zero
+andE0toporder>=3; NOTfinitejetmembershipguess. w-torsionONLYdegrees0..2,
+w³killsit; NOTnilindex3. T0/T1/T2/depth19vs20/fullnilSTILLOPEN.
+SamephysicalR0 W1tail old218+17unitIFT+3regularcuts PROVED;
+D/Ntaildim8depth1, Nilcyclicregularcurve1. Laurentusesfinitew-POLYNOMIAL
+model completedONLYcoefficientbase, NEVERw0-completedringdehomogenization.
+ACTUAL N=R8+m8tau, sameR0=R8[[v]], v=z1tau;56unitCoheninput/odd8det-4/9.
+LiteralminimalNmodule8/36/84/fullBetti accepted. Naka noabstracttype-ID.
+Q1/Q2honest9firstspan43; quadraticphi PRIMARYrank44BOTH, independentreviewpending.
+ALL134H1rows exactQQ now nativefactor-den arithmetic, old7pivots unchanged;
+originaltargetunitlower125/SAFE redundant183→114, ALLquartics/pure98 retained.
+Noindividualunitincompletequarticresidual; no sameGaussianretry.
+GENERIC5Lrank18/twokernels complete; planeentries/normal42newmethodinprogress,
+noJ0GB/point. FullFULLUcubic57/239/genericexhaustion OPEN.
+NEWprimitivefirstjetG28exactdegree28 SOLVED AQ; nofurtherdegreechase.
+Bounds58/r4lower52/uppernull; actualresearch/ordinarymainpush continues.
+
 Latest AR (2026-11-04): GENERIC W16 sparse6fieldcover DOMINANT/
 genericallyfinite PROVED; beta6=lambda*b(H,L,s,q)+eps*e4,10nonzero13terms.
 Exact16Jac=(2^33/996451875)lambda^14H³L²Gamma, Gamma=1+5q+8s+15H²+115H²q.

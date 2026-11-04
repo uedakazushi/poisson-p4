@@ -1,6 +1,6 @@
 # Poisson structures on projective four-space
 
-一般一次ジェットへの疎な六parameter優勢被覆と、追加minor開での実cubic rank57を証明した。全四次は同じcokernelの冗長183対114へ縮約し、全quarticを保持する。NEW原始像の既約定義式は正確に28次で解決済み。全四次全射、B18深さ・nil、一般ファイバーと全分類を継続する。総下界58（rank4は52）、上界未定。
+B18の実top加群T3は、完全関係表示とNakayamaにより零と解決した。T0/T1/T2と元局所環の深さ・nilは継続中。四次H像の全134行を厳密QQ係数に完成し、一般betaの疎な入力も進める。NEW原始像の既約定義式は正確に28次で解決済み。総下界58（rank4は52）、全分類の上界は未定。
 
 新25成分の全Poisson一般横断長さは正確に5。n111の全完成環 C[[s25,u,v]]/(uv,u³,v³) とCM type2を証明・独立監査し、[14ページの独立原稿](papers/positive_weight6_component_ja.pdf)に保存した。全52 rank4成分のdense S61写像が揃った。新一次像は15次元・方程式次数22以上だが実方程式、全境界、全分類は未解決。以下は以前の記録を含む。
 

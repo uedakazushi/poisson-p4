@@ -1,0 +1,18 @@
+# 残るquartic20行の共有native queryと全134行exact cache
+
+psi113で確認した符号付き既知単元演算kernelをbyte一致のまま使う。新たな
+rootはquartic114..133の20×23個だけで、既存113行とpsi23係数は保存値を参照
+する。新依存graphには完成済みの非零source出力rootは含まれない。ただし
+psiとの共通内部ancestorの値は保存されていないため、新20式が必要とする
+内部計算は明示的に計数する。存在しない内部cacheの再利用は主張しない。
+43..49の七cubic行はdelta*(G61−G20)へ変換済みで、元G61の値としてaliasしない。
+
+各行のraw23係数と旧7ピボットを引いた残差を計算し、全23のSchur恒等式を
+復元して検査する。完成行ごとに三つのfactored fileとcompleted-row一覧を
+保存する。未完了行を完成行数へ含めない。pure98は同じ実際のfull sourceの
+lazy演算として全て残す。
+
+完成すれば既存113行・psi・新20行を結ぶhash付きdescriptorが全134×23入力の
+exact cacheになる。reader APIは保存値を読むだけでsource DAGを評価しない。
+Gaussianは行わない。既知H1単元7、元239へのunit lower125、kernel38は不変で、
+全点全射や自由(163−n)表示を推論しない。
