@@ -2,6 +2,19 @@
 
 Version: v63-s61 · 2026-11-04 (Asia/Tokyo).
 
+Latest BJ (2026-11-04): actualT MINIMAL5, complete5x825 after111unitpairs.
+AllX0/X1 sources independentlyreviewed; X0rank27, W84x741rank84.
+ActualT/m²T LENGTH8/HF(5,3), linearrelsrank37; knownquadrelsrank177/180.
+Remaining3quadquotient NOTactualHF2; unknowncyclequads maykill. Tlength/depthOPEN.
+Next620zero-linearcycle projectedquadratics/source-order sensitivity, no blindX2/m1/348.
+NormalizedE4 nilideal MINIMAL2 explicitgens, complete2x6S4/2x16S9inclu5ann.
+Actualreducedtargetfree4/36,Syz36x140, NilD0=H1(780->44->3); NOTnilgenlist.
+P100globalfixed9section/pure89 SAMECOKER319x89 typed, unexpandedEuclid/CRT/normhonest.
+prePOWERliteralpure3fixedminor nonzero; det3=h22² det4, det4=a^4 C^3 R434deg20.
+h22 ONLYchartunit, Runknownretained, all8otherQ9puretailskept. Full9/global57OPEN.
+OriginalD0depth/fullDnil/fullFULLU57/239/exhaustion/globalupperOPEN.
+Bounds58/r4lower52/uppernull,G28exact28DONE; ordinarypush/checkpoint thencontinue.
+
 Latest BI (2026-11-04): WHOLE permittedP100 actualquarticPOINTWISE150 proved.
 Fiveactual9minor ideal(H15); offH15 pure9, onALLH15 FULL239 by7field98minors.
 All319source/QQden/inverses/selectedmatrices/fixedpivots independentlyaudited;
