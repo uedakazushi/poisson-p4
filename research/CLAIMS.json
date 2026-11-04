@@ -22882,8 +22882,8 @@
         "reports/S61_NONSQUARE_RAW_H_B_K13_ACTUAL_SOURCE_SCHEME_20261104_v63_REVIEW/report.json"
       ],
       "limitations_ja": [
-        "これは小B行列のFitting schemeである。full cubicやPoisson schemeの階数低下・成分を意味しない。",
-        "この証明ではKa13の体性・既約性・被約性を仮定しない。幾何的十三点という強化には別のsquarefree証明が必要。"
+        "これは小B行列のFitting schemeで、Poisson全schemeの不良ではない。後続claimで被約十三点と、その全点でのfull cubic57回復まで証明した。",
+        "QQ有理点性・QQ既約性を仮定しない。"
       ]
     },
     {
@@ -22961,6 +22961,226 @@
       "limitations_ja": [
         "対象はcore/(d)のみで、元の非正規化D0を意味しない。",
         "全E4/(d)とは異なる。coreの零因子dで割った後に現れるsocleで、H0(core)=H0(E4)=0と矛盾しない。元D0の有限socleや深さを決めない。"
+      ]
+    },
+    {
+      "id": "AMBIENT_B18_FULL_CORE_FIVE_LINES_AND_NORMALIZED_E4_NIL_INDEX3",
+      "title_ja": "全coreの五直線支持と正規化E4の冪零指数三",
+      "statement_ja": "実CI coreのidealを(Q0,Q1,s*r二乗)と書く。r零とs零への元多項式の制限を厳密に因数分解し、既知単位d二乗+5だけを反転して、支持を五本の明示直線N,C,R,P,Lとして尽くした。元二式の各直線に沿う小さいArtin模型を独立再構成し、一般長さは順に3,4,2,2,1、Hilbert函数はNが(1,1,1)、Cが(1,2,1)、R/Pはdual numbers、Lは被約と決定した。coreはCMなので埋込associated primeがなく、全associated primeへの局所化でnil三乗は零、二乗は非零となる。全E4=S/(dJ)では完全列によりassociated primeは(d)と五core primeの六つで、N/Pが埋込となる。両点でdはcore内で非零かつ二乗零と独立確認し、nil idealのk乗がdのk-1乗に対応することから、全正規化E4でも冪零指数は正確に三となる。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independently_reviewed_certificates_and_explicit_dependency_composition_2026_11_04",
+        "certificates": "reproduced_2026_11_04_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "AMBIENT_B18_ACTUAL_FULL_CORE_CI223_AND_E4_DEPTH1"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_B18_PROPER_CORE_FIVE_LINES_20261104_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_B18_PROPER_CORE_FIVE_LINES_20261104_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_B18_PROPER_CORE_FIVE_LINES_20261104_v63/report.json",
+        "reports/AMBIENT_B18_PROPER_CORE_FIVE_LINES_20261104_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "対象は実coreおよび正規化E4である。元D0・full Dのnilradicalや深さに移さない。",
+        "五直線はproper source座標での厳密な局所支持で、Poisson全schemeの五成分という主張ではない。"
+      ]
+    },
+    {
+      "id": "AMBIENT_B18_ACTUAL_COMPLETE_Q_SYZYGY_RES4_OPERATOR",
+      "title_ja": "実normalizer表示Qの完全な四成分syzygy作用素",
+      "statement_ja": "proper正則九座標と実physical正則九変数環の間の有限単位陰函数operatorを構成し、Jacobian 5/48と十二式のrow adapterの単位性を独立確認した。全次数の恒等式は元150出力・群gauge・有限Hadamard係数に束縛され、一次検査だけから延長したものではない。四冗長式のcofactorを含むproper可逆Tとphysical R12からN=T(kappa)R12を得る。八つの正則生成元のKoszul28と四つの零式の自由方向をN転置で運び、C/R0のfree四基底へ制限した。従って実Qの完全Syz(Q)は48対128、次は128対224の有限型付きoperatorとして確定する。全入力、単位陰函数、四成分積、逆演算、全Q列とKoszul恒等式を独立監査した。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independently_reviewed_certificates_and_explicit_dependency_composition_2026_11_04",
+        "certificates": "reproduced_2026_11_04_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "AMBIENT_B18_PROPER_POLYNOMIAL_E4_AND_FOUR_VARIABLE_CORE",
+          "AMBIENT_B18_ACTUAL_FULL_CORE_CI223_AND_E4_DEPTH1"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_B18_COMPLETE_NORMALIZER_SYZYGY_OPERATOR_20261104_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_B18_PROPER_PHYSICAL_INTERFACE_FIRSTJET_20261104_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_B18_PROPER_PHYSICAL_INTERFACE_FIRSTJET_20261104_v63_REVIEW.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_B18_COMPLETE_NORMALIZER_SYZYGY_OPERATOR_20261104_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_B18_COMPLETE_NORMALIZER_SYZYGY_OPERATOR_20261104_v63/report.json",
+        "reports/AMBIENT_B18_PROPER_PHYSICAL_INTERFACE_FIRSTJET_20261104_v63/report.json",
+        "reports/AMBIENT_B18_PROPER_PHYSICAL_INTERFACE_FIRSTJET_20261104_v63_REVIEW/report.json",
+        "reports/AMBIENT_B18_COMPLETE_NORMALIZER_SYZYGY_OPERATOR_20261104_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "係数は有限の四成分・単位陰函数で指定され、R0冪級数係数を展開・求解したとはしない。",
+        "制限後のR0自由解像度は非極小の場合がある。Kのtorsion、元D0の深さ、単純ell零特殊化の正当化は結論しない。"
+      ]
+    },
+    {
+      "id": "AMBIENT_B18_ACTUAL_PRODUCT_CONDUCTOR_SPECIAL_FIBER20_TABLES",
+      "title_ja": "実conductor積baseの閉fiber二十次元と全作用表",
+      "statement_ja": "実CA-F9正則座標(zA七個,r,s)、ell=5(s-r)を使い、既存二次full sourceと三次plane sourceからIBの単位Hadamard正規化を構成した。必要三次jetはA0,A1,b2,b3だけで決まり、未計算のfull九変数三次を仮定しない。全六十四IA対IB source積をm五乗まで取り、495単項式における保存pivotを独立再計算した。商は二十次元、Hilbert函数(1,8,8,2,1)となり、既証の実H/ell長さ二十と一致する。実商からこの切断商への全射は同じ有限長だから同型で、m五乗零と八座標の乗法表は全次数で厳密となる。全作用の可換性と元六十四source積の全basis上の零性も確認した。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independently_reviewed_certificates_and_explicit_dependency_composition_2026_11_04",
+        "certificates": "reproduced_2026_11_04_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "AMBIENT_B18_CONDUCTOR_DVR_BASE20_AND_RAW_COMPARISON26"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_B18_CONDUCTOR_PRODUCT_SPECIAL_FIBER20_20261104_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_B18_CONDUCTOR_PRODUCT_SPECIAL_FIBER20_20261104_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_B18_CONDUCTOR_PRODUCT_SPECIAL_FIBER20_20261104_v63/report.json",
+        "reports/AMBIENT_B18_CONDUCTOR_PRODUCT_SPECIAL_FIBER20_20261104_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "八作用はCA-F9正則座標のものであり、raw physical rhoへの読戻しを代用しない。",
+        "これはH=R0/(IAIB)のell閉fiberで、DVR一般作用・比較K・元D0のtorsionを判定しない。"
+      ]
+    },
+    {
+      "id": "S61_NONSQUARE_B_BAD_THIRTEEN_GEOMETRICALLY_REDUCED_POINTS",
+      "title_ja": "実B不良schemeは幾何学的に被約な十三点",
+      "statement_ja": "実不良代数Ka13の元整数多項式g13について、S*g13微分+T*g13=Rという全整数係数のBezout恒等式を独立な整数畳込みで確認した。Rは非零定数であるからg13は平方因子を持たず、実不良代数はQQ上有限etale次数十三となる。従って代数閉体上では相異なる被約十三点である。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independently_reviewed_certificates_and_explicit_dependency_composition_2026_11_04",
+        "certificates": "reproduced_2026_11_04_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_NONSQUARE_B_BAD_FITTING_SCHEME_EXACT_KA13"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_NONSQUARE_RAW_H_B_K13_SQUAREFREE_20261104_v63.md"
+        },
+        {
+          "path": "research/notes/S61_NONSQUARE_RAW_H_B_K13_SQUAREFREE_20261104_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_NONSQUARE_RAW_H_B_K13_SQUAREFREE_20261104_v63/report.json",
+        "reports/S61_NONSQUARE_RAW_H_B_K13_SQUAREFREE_20261104_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "十三個のQQ有理点やg13のQQ既約性を主張しない。小B不良をfull cubicの不良と同一視しない。"
+      ]
+    },
+    {
+      "id": "S61_NONSQUARE_P100_PURE8_GENERIC_RANK8_QUARTIC149",
+      "title_ja": "P100実pure八行の一般階数八とquartic開集合下界149",
+      "statement_ja": "元full57対91保存行列のG18行から七つの実pure四次倍を構成し、全H係数零・全84係数・座標逆変換・1470積・686NFを独立に確認した。受理済みq5pure行と合わせた8対98の指定8対8 minorを、行の既知単位LCDだけでQQ[zeta]へ戻した。独立FLINT行列式は保存された次数二百の非零多項式と一致し、随伴行列の両側積も全て確認した。従って実pure八行は一般階数八で、このminorの非零開集合では元quartic rank149以上となる。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independently_reviewed_certificates_and_explicit_dependency_composition_2026_11_04",
+        "certificates": "reproduced_2026_11_04_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_NONSQUARE_P100_PURE_ROW_UNIMODULAR_AND_QUARTIC142"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_NONSQUARE_P100_PURE8_GENERIC_RANK_20261104_v63.md"
+        },
+        {
+          "path": "research/notes/S61_NONSQUARE_P100_G18_PURE7_20261104_v63.md"
+        },
+        {
+          "path": "research/notes/S61_NONSQUARE_P100_G18_PURE8_20261104_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_NONSQUARE_P100_PURE8_GENERIC_RANK_20261104_v63/report.json",
+        "reports/S61_NONSQUARE_P100_G18_PURE7_20261104_v63/report.json",
+        "reports/S61_NONSQUARE_P100_G18_PURE8_20261104_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "未知minorの零点は保持し、全P100で149とはしない。全曲線での既証下界は142。",
+        "他のpure行の独立性、pure98、全239、全FULLUについての結論は含まない。"
+      ]
+    },
+    {
+      "id": "S61_NONSQUARE_FULL_CUBIC57_ON_ALL_THIRTEEN_B_BAD_POINTS",
+      "title_ja": "実B不良十三点全体でfull cubic rank五十七を回復",
+      "statement_ja": "POWER-free既存八単位checkpointの実17対24行列全408成分を、実不良代数Ka13のe=t(a),d=s(a)へ戻した。元84253係数とのsource恒等式と全分母・八prefix単位を厳密に検査した。この行列のKa13係数を基底1,a,...,a十二乗の乗法として表した221対312のQQ正則表現について、全有理分母とg13先頭係数が既存素数32003で単位であることを確認した。固定した221次minorとLUの全48841成分を独立再計算すると行列式は30542 modulo32003で非零となる。従って標数零でKa13二十四生成から十七生成への写像は全射で、任意のresidue fieldへのbase changeも全射。既存八単位とproduct41等の正確なsource同値から、full cubic rank五十七が実B不良十三点の全体で成立する。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independently_reviewed_certificates_and_explicit_dependency_composition_2026_11_04",
+        "certificates": "reproduced_2026_11_04_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_NONSQUARE_B_BAD_FITTING_SCHEME_EXACT_KA13"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_NONSQUARE_RAW_H_B_K13_CUBIC_REGULAR_REP_20261104_v63.md"
+        },
+        {
+          "path": "research/notes/S61_NONSQUARE_RAW_H_B_K13_CUBIC17_COEFFICIENTS_20261104_v63.md"
+        },
+        {
+          "path": "research/notes/S61_NONSQUARE_RAW_H_B_K13_CUBIC_REGULAR_REP_20261104_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_NONSQUARE_RAW_H_B_K13_CUBIC_REGULAR_REP_20261104_v63/report.json",
+        "reports/S61_NONSQUARE_RAW_H_B_K13_CUBIC17_COEFFICIENTS_20261104_v63/report.json",
+        "reports/S61_NONSQUARE_RAW_H_B_K13_CUBIC_REGULAR_REP_20261104_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "新しいbeta点や素数を選んだ計算ではなく、実有限source代数と既存32003での正係数証明である。有限体のrank上界から標数零上界を推測しない。",
+        "全FULLUのcubic57やquartic239はまだ未解決。Bがrank三の開集合に残り得るpure欠損を別に調べる。"
       ]
     }
   ],

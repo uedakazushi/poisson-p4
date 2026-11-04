@@ -1,5 +1,17 @@
 # 次の課題 — v63-s61 / 2026-11-03
 
+## v63 BE / 2026-11-04: 正規化E4冪零指数三、完全syzygyと実有限例外の回復
+
+直前 main `55857e17c57cabfe746c70fa9c7f01814864efec` は通常push済み。
+
+B18の実full coreの支持を、proper座標の五本の明示直線として尽くした。一般長さ3,4,2,2,1とArtin模型を独立確認し、CM性と全associated primeへの局所化からcoreのnilradicalは正確に三乗零と証明した。全正規化E4ではassociated primeは主八次元超曲面と五core直線の六つで、二直線が埋込。そこに沿うdの二乗零も確認し、E4のnilradicalの指数も正確に三と決定した。元D0/full Dへの転用はしない。
+
+proper九座標と実physical正則九変数環の間の有限単位陰函数operator、十二式のrow adapterを独立監査した。正則八生成と四冗長式を運ぶ完全Syz(Q)48対128、次128対224を四成分R0 operatorとして確定し、比較の未入力だった完全性gateを閉じた。係数冪級数の展開は不要だが、Kのtorsionは未計算である。実conductor積baseのell閉fiberについては、保存source二次とplane三次から二十次元乗法表を構成し、既証の全長二十との一致でm五乗零と全次数の厳密性を証明した。CA-F9正則座標の作用表であり、raw physical函数の読戻しは次の有限Artin計算で扱う。
+
+非平方B不良代数Ka13は元整数Bezoutにより有限etale次数十三、幾何的に被約な十三点と確定した。その全体で実full cubic rank五十七も回復する。実17対24の全408係数を源へ束縛し、正則表現221対312の固定minorを既存32003で独立検証すると非零で、標数零の有限代数上の全射が従う。小B不良をfull cubic不良とみなす推測はここでも否定された。
+
+P100ではG18からの七pure行とq5pureを合わせた実八行を独立監査し、次数二百minorの非零開集合でquartic rank149以上を得た。全曲線では142下界を維持する。残る十pure cubic kernelのsource全体を指定し、七つの未評価rowを保存full57からstreamする次の有界計算へ進む。全FULLU cubic57・quartic239、一般fiber尽くし・全分類上界・元B18深さ十九対二十と全nilは未解決で継続する。下界58、rank4下界52、NEW既約式28次、五凍結原稿を維持する。
+
 ## v63 BD / 2026-11-04: 実B不良代数十三と全P100のquartic下界142
 
 直前 main `9e32341ae309280a819b5da52566992610f8c8bf` は通常push済み。

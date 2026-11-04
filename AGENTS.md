@@ -2,6 +2,20 @@
 
 Version: v63-s61 · 2026-11-04 (Asia/Tokyo).
 
+Latest BE (2026-11-04): FULLcore supports5EXACTlines/general lengths3,4,2,2,1, coreNILINDEX3.
+NormalizedE4 NILINDEX3/6associatedprimes, main8hypersurface+3minimalcurves/2embeddedlines.
+Independentlyreviewed, NOToriginalD0/fullD nil/depth.
+Actualproper↔physical9 unitimplicitinterface+R12 accepted; COMPLETEQ Syz48x128,next128x224.
+Finite4componenttypedcoefficients, notscalarseriesexpanded; Ktorsion remainsuncomputed.
+ActualconductorproductH/ell20 multiplication/HF(1,8,8,2,1)/m5ZERO provedbyequallengths.
+CA-F9coordinates, rawphysicalreadback remainsfiniteArtin105sourcegate.
+ActualBbad is13GEOMETRICALLYREDUCEDpoints and ALL13fullcubic57 independentlyproved
+via QQregularrep221x312/positivefixedminor32003, notfullquartic/globalFULLU57.
+P100quartic149 onexplicitdegree200minoropen independentlyreviewed; wholecurve142.
+Nextsource10purecubickernelstream/fullpure98; unknownpuredefectcurvesH7open stillactive.
+OriginalD0depth19vs20/fullnil/genericexhaustion/globalupper OPEN; bounds58/r4lower52.
+G28exact28DONE; ordinarypush/checkpoint thencontinue.
+
 Latest BD (2026-11-04): ACTUAL Bbad Fitting algebra EXACTKa13/nonempty/QQlength13 independentlyproved.
 ALL22originalminor zero+FULLUinverse; necessaryupper/lowermaps compfixesa. Notfullcubicbad.
 Noassumedfield/reducedness; separateg13squarefreecertificate mayupgradegeometricpoints.
