@@ -22575,8 +22575,8 @@
         "reports/AMBIENT_B18_CORE_CUBIC_20261104_v63_REVIEW/report.json"
       ],
       "limitations_ja": [
-        "全coreは三函数CI曲線の四graphによる商である。四graphの全次数零性・CM・H0・socle・元深さ19/20は未解決。",
-        "binary sectionの零点を自動的に実枝へ持ち上げない。新source三次・四次の解は作らず、許可した係数次数で停止した。"
+        "本claimの初期式と次元の結果は、後続AMBIENT_B18_ACTUAL_FULL_CORE_CI223_AND_E4_DEPTH1で全七式coreの完全交叉性へ強められた。元D0の深さと全nilは引き続き別問題。",
+        "binary sectionの零点を自動的に実枝へ持ち上げない。"
       ]
     },
     {
@@ -22628,8 +22628,8 @@
     },
     {
       "id": "S61_NONSQUARE_TWO_RAW_H_DROP_CURVES_GENERIC_FULL_CUBIC57",
-      "title_ja": "raw H欠損二曲線の一般点でfull cubic rank五十七を回復",
-      "statement_ja": "P80とP100の各曲線全体の有理parameterを元sourceへ代入し、POWERを含まない既存八unit checkpointの残る17対24行列をQQ[zeta]上へ戻した。全408成分の分母が既知単位であること、全row clearing、保存した十七次minorを各々独立検証した。両行列はQQ(zeta)上でrank十七、八unitを加えたrank二十五を持つので、元source同値から実full cubicのrankは両曲線の一般点で五十七となる。raw Hが六になる点でもpure成分が一般に不足を回復することが証明された。",
+      "title_ja": "raw H欠損二曲線の全点でfull cubic rank五十七を回復",
+      "statement_ja": "P80とP100の各曲線上の実17対24source行列を、全408恒等式を保持する単位行列操作でpreconditionした。選択minorの未知四十六次因子Rに対し、別columnのreplacement solveのAX=delta*bを全十七成分で確認した。P80とP100のどちらも最初のreplacement成分とRがQQ[zeta]で互いに素で、明示整数Bezout恒等式を独立再計算した。従って二つの実minorが許可した有理chart全体を覆い、旧八unitと合わせてfull cubic rank五十七が両曲線の全点で成り立つ。",
       "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
       "status": {
         "proof": "proof_with_exact_certificates_and_explicit_dependencies",
@@ -22655,17 +22655,33 @@
         },
         {
           "path": "research/notes/S61_NONSQUARE_THETA_P100_CUBIC_GENERIC_20261104_v63_REVIEW.md"
+        },
+        {
+          "path": "research/notes/S61_NONSQUARE_THETA_P80_REPLACEMENT_SOLVE_20261104_v63.md"
+        },
+        {
+          "path": "research/notes/S61_NONSQUARE_THETA_P80_REPLACEMENT_20261104_v63_REVIEW.md"
+        },
+        {
+          "path": "research/notes/S61_NONSQUARE_THETA_P100_REPLACEMENT_SOLVE_20261104_v63.md"
+        },
+        {
+          "path": "research/notes/S61_NONSQUARE_THETA_P100_REPLACEMENT_20261104_v63_REVIEW.md"
         }
       ],
       "verification_records": [
         "reports/S61_NONSQUARE_THETA_P80_CUBIC_GENERIC_20261104_v63/report.json",
         "reports/S61_NONSQUARE_THETA_P80_CUBIC_GENERIC_20261104_v63_REVIEW/report.json",
         "reports/S61_NONSQUARE_THETA_P100_CUBIC_GENERIC_20261104_v63/report.json",
-        "reports/S61_NONSQUARE_THETA_P100_CUBIC_GENERIC_20261104_v63_REVIEW/report.json"
+        "reports/S61_NONSQUARE_THETA_P100_CUBIC_GENERIC_20261104_v63_REVIEW/report.json",
+        "reports/S61_NONSQUARE_THETA_P80_REPLACEMENT_SOLVE_20261104_v63/report.json",
+        "reports/S61_NONSQUARE_THETA_P80_REPLACEMENT_20261104_v63_REVIEW/report.json",
+        "reports/S61_NONSQUARE_THETA_P100_REPLACEMENT_SOLVE_20261104_v63/report.json",
+        "reports/S61_NONSQUARE_THETA_P100_REPLACEMENT_20261104_v63_REVIEW/report.json"
       ],
       "limitations_ja": [
-        "両曲線の全点でのrank五十七ではない。P80の選択minorから既知単位を除くと未知四十六次因子が残り、閉因子上の別minorが必要。",
-        "source17対24は十分条件である。そこでrankが落ちても元の全cubicの欠損とは限らない。full quartic239や全分類は未証明。"
+        "歴史的IDのGENERICは保持するが、この証明で指定二曲線上の全点へ強めた。除外したpoleやcompactificationへは広げない。",
+        "全FULLUのcubic57やquartic239を証明したものではなく、他の欠損曲線は残る。"
       ]
     },
     {
@@ -22698,8 +22714,127 @@
         "reports/S61_NONSQUARE_P100_H1_20261104_v63_REVIEW/report.json"
       ],
       "limitations_ja": [
-        "これはH1射影の右逆であり、raw cubicのpure tailは零ではない。pure98はlazy演算として全て保持する。",
-        "固定した元141 minorや自由補空間を計算したとはしない。全239とP80の対応全射は別の未完了課題。"
+        "これはH1射影の右逆であり、raw cubicのpure tailは零ではない。pure98は全て保持する。",
+        "固定した元141 minorや自由補空間を計算したとはしない。全239は未解決。対応するP80全射は後続claimで証明済み。"
+      ]
+    },
+    {
+      "id": "AMBIENT_B18_PROPER_POLYNOMIAL_E4_AND_FOUR_VARIABLE_CORE",
+      "title_ja": "B18正規化E4の実proper多項式表示と四変数七式core",
+      "statement_ja": "元のCA/CBの十九次元線形fiber、全三十六zero係数と百五十物理係数を保持して共通GL4 gaugeを固定した。十四変数十七式のproper模型を構成し、五つの単位線形pivotを有理的に消去した。残る十二式には同じflag変数dが正確に因子として現れる。さらに五つの単位線形pivotを消去し、全次数のE4をS9/(d*(u1,...,u5,K0,...,K6))へ帰着した。七つの実Kは四変数(a,d,v2,v6)の明示多項式で、単位として反転する非定数は1-d二乗とd二乗+5のみである。各消去と元sourceへの代入は独立に再計算した。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independently_reviewed_certificates_and_explicit_dependency_composition_2026_11_04",
+        "certificates": "reproduced_2026_11_04_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "AMBIENT_B18_ACTUAL_NORMALIZER_TENSOR_FREE4_OVER_COMMON_ZERO_BASE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_B18_PROPER_POLYNOMIAL_MODEL_20261104_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_B18_PROPER_POLYNOMIAL_MODEL_20261104_v63_REVIEW.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_B18_PROPER_RATIONAL_ELIMINATION_20261104_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_B18_PROPER_RATIONAL_ELIMINATION_20261104_v63_REVIEW.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_B18_PROPER_CORE_ELIMINATION_20261104_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_B18_PROPER_CORE_ELIMINATION_20261104_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_B18_PROPER_POLYNOMIAL_MODEL_20261104_v63/report.json",
+        "reports/AMBIENT_B18_PROPER_POLYNOMIAL_MODEL_20261104_v63_REVIEW/report.json",
+        "reports/AMBIENT_B18_PROPER_RATIONAL_ELIMINATION_20261104_v63/report.json",
+        "reports/AMBIENT_B18_PROPER_RATIONAL_ELIMINATION_20261104_v63_REVIEW/report.json",
+        "reports/AMBIENT_B18_PROPER_CORE_ELIMINATION_20261104_v63/report.json",
+        "reports/AMBIENT_B18_PROPER_CORE_ELIMINATION_20261104_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "これは正規化E4の表示であり、元のD0と同一視しない。五つのd倍pivot関係を捨てない。",
+        "GL4の中心方向を含むrank十五を固定しており、追加のprojective商を取らない。"
+      ]
+    },
+    {
+      "id": "AMBIENT_B18_ACTUAL_FULL_CORE_CI223_AND_E4_DEPTH1",
+      "title_ja": "B18全七式coreの完全交叉性と正規化E4の深さ一",
+      "statement_ja": "四変数の実七式から単位因子を除くと、最初三式は(Q0,Q1,s*r二乗)と同じidealを生成する。ここでr=v2-a-d,s=a+v2であり、Q0-2Q2=-(d二乗+5)*s*rを厳密確認した。残る四式それぞれについて三式への所属を全十二cofactorで証明し、元七式との単位倍恒等式もQQ上で独立再計算した。二次初期式二つのgcdとr零・s零での制限gcdを別々に確認したため、初期形は次数(2,2,3)の正則列である。従って実全coreは一次元完全交叉、CMかつGorenstein、重複度十二である。J=(u1,...,u5,K0,...,K6)として0→S/J→S/dJ→S/(d)→0を用いると、全E4は深さ一でH0(E4)=0となる。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independently_reviewed_certificates_and_explicit_dependency_composition_2026_11_04",
+        "certificates": "reproduced_2026_11_04_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "AMBIENT_B18_PROPER_POLYNOMIAL_E4_AND_FOUR_VARIABLE_CORE",
+          "AMBIENT_B18_ACTUAL_CORE_DIMENSION1_AND_CI223_CURVE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_B18_PROPER_CORE_CI_MEMBERSHIP_20261104_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_B18_PROPER_CORE_CI_MEMBERSHIP_20261104_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_B18_PROPER_CORE_CI_MEMBERSHIP_20261104_v63/report.json",
+        "reports/AMBIENT_B18_PROPER_CORE_CI_MEMBERSHIP_20261104_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "全E4の次元は八であり、一次元coreと同一視しない。E4はCMとは主張しない。",
+        "元D0の深さ十九対二十、有限socle、全nilは未決である。比較kernel KについてH0(D0)=H0(K)へ帰着するが、Kのell-torsionを別に計算する必要がある。",
+        "M2 1.24.11の既定gb一回と独立QQ係数恒等式で証明した。QQ LinearAlgebra backendは使用しない。"
+      ]
+    },
+    {
+      "id": "S61_NONSQUARE_P80_H1_PROJECTION_SURJECTIVE_FROM112_CUBIC_ROWS",
+      "title_ja": "P80全体でH1二十三射影全射とquartic点ごとのrank百四十一",
+      "statement_ja": "P80のraw H余核functionalを全十六source行から構成し、元q1の評価41600/(81 zeta二乗)が全曲線上の単位であることを確認した。七linear lift、六quad値、元とdelta7両source frameの全千二百八十八恒等式を独立に検査し、百十二cubic倍行からH1二十三targetへの明示右逆を得た。五corrected Hquad関係を含むため、元quartic行列の点ごとのrankは全P80で141以上である。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independently_reviewed_certificates_and_explicit_dependency_composition_2026_11_04",
+        "certificates": "reproduced_2026_11_04_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_NONSQUARE_P_BRANCH_SPLIT_G1_UNIT_PAIR_AND_RATIONAL_THETA"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_NONSQUARE_P80_H1_RESCUE_20261104_v63.md"
+        },
+        {
+          "path": "research/notes/S61_NONSQUARE_P80_H1_RESCUE_20261104_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_NONSQUARE_P80_H1_RESCUE_20261104_v63/report.json",
+        "reports/S61_NONSQUARE_P80_H1_RESCUE_20261104_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "右逆はH1射影へのものであり、pure98は零にしていない。固定した141 minor・自由補空間・全239は未証明。"
       ]
     }
   ],

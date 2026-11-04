@@ -1,0 +1,18 @@
+In file included from /usr/include/c++/14/cassert:44,
+                 from /workspace/poisson-p4/code/s61_nonsquare_raw_H_B_K13_mixed23_20261104_v63.cpp:6:
+/workspace/poisson-p4/code/s61_nonsquare_raw_H_B_K13_mixed23_20261104_v63.cpp: In function ‘int main(int, char**)’:
+/workspace/poisson-p4/code/s61_nonsquare_raw_H_B_K13_mixed23_20261104_v63.cpp:41:464: warning: ISO C++ says that these are ambiguous, even though the worst conversion for the first is better than the worst conversion for the second:
+   41 |    if(entry)b<<',';b<<'[';for(int d=0;d<4;d++){P q,r,num;ulong lp;fmpz_poly_pseudo_divrem(q.v,r.v,&lp,raw[d].v,g.v);Z f,rd,den;fmpz_pow_ui(f.v,L.v,lp);fmpz_mul(rd.v,common.v,f.v);P x,y;fmpz_poly_scalar_mul_fmpz(x.v,raw[d].v,f.v);fmpz_poly_mul(y.v,g.v,q.v);fmpz_poly_add(y.v,y.v,r.v);assert(fmpz_poly_equal(x.v,y.v));normal(num,den.v,r,rd.v);if(d)b<<',';b<<"{\"numerator\":";jp(b,num);b<<",\"denominator\":";jz(b,den.v);b<<'}';}b<<']';assert(b.tellp()+scalarbytes+100000<32*1024*1024);}
+      |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ^~~~~~
+In file included from /usr/include/c++/14/iosfwd:42,
+                 from /usr/include/x86_64-linux-gnu/gmp.h:35,
+                 from /workspace/cloud-setup/prefix/usr/include/flint/flint.h:28,
+                 from /workspace/cloud-setup/prefix/usr/include/flint/fmpz_types.h:15,
+                 from /workspace/cloud-setup/prefix/usr/include/flint/fmpz.h:21,
+                 from /workspace/poisson-p4/code/s61_nonsquare_raw_H_B_K13_mixed23_20261104_v63.cpp:2:
+/usr/include/c++/14/bits/postypes.h:154:7: note: candidate 1: ‘std::fpos<_StateT> std::fpos<_StateT>::operator+(std::streamoff) const [with _StateT = __mbstate_t; std::streamoff = long int]’
+  154 |       operator+(streamoff __off) const
+      |       ^~~~~~~~
+/workspace/poisson-p4/code/s61_nonsquare_raw_H_B_K13_mixed23_20261104_v63.cpp:41:464: note: candidate 2: ‘operator+(std::streamoff {aka long int}, int)’ (built-in)
+   41 |    if(entry)b<<',';b<<'[';for(int d=0;d<4;d++){P q,r,num;ulong lp;fmpz_poly_pseudo_divrem(q.v,r.v,&lp,raw[d].v,g.v);Z f,rd,den;fmpz_pow_ui(f.v,L.v,lp);fmpz_mul(rd.v,common.v,f.v);P x,y;fmpz_poly_scalar_mul_fmpz(x.v,raw[d].v,f.v);fmpz_poly_mul(y.v,g.v,q.v);fmpz_poly_add(y.v,y.v,r.v);assert(fmpz_poly_equal(x.v,y.v));normal(num,den.v,r,rd.v);if(d)b<<',';b<<"{\"numerator\":";jp(b,num);b<<",\"denominator\":";jz(b,den.v);b<<'}';}b<<']';assert(b.tellp()+scalarbytes+100000<32*1024*1024);}
+      |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ^~~~~~

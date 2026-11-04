@@ -8,6 +8,18 @@ v62保存は `e187b40de68bce534391f406f616940cddd045a7`、
 `66a80ab53dfcf0ff842c67140320d8da0226039d`。全て通常push済み。
 このv63保存のSHAはGit履歴で識別する。
 
+## v63 BC / 2026-11-04: 全core完全交叉と二曲線の全点三次回復
+
+直前 main `8a5bbf1e30b30d1fcff7fac213ad93e099ee8a7c` は通常push済み。
+
+B18の正規化E4に対し、実proper模型の十四変数十七式を全物理係数から構成し、二段の単位線形消去を独立検証した。五つのd倍pivot関係を残したまま、四変数七式のcoreを明示した。残る四式は最初三式のidealに属し、全十二cofactorと元七式への単位倍恒等式を独立確認した。二次初期形二つと三次s*r二乗は正則列で、全coreは一次元CI(2,2,3)、CM/Gorenstein、重複度十二となった。全E4は八次元、深さ一、H0(E4)=0。元D0と同一視せず、H0(D0)=H0(K)となる比較kernel Kのell-torsionを次に計算する。完全なSyz(Q)をcoreのKoszul八生成と四冗長式の証明書から構成し、DVR比較複体の完全性を確保する。元深さ十九対二十・全nilはまだ未解決。
+
+raw H欠損二曲線P80/P100について、実17対24行列の単位preconditionerとreplacement solveを独立確認した。選択minorの未知四十六次因子とreplacement成分の整数Bezoutを両曲線で検証したため、full cubic rank五十七は指定chartの全点で成立する。一般点だけという前checkpointの制限は解消した。さらにP80にもH1二十三射影の全曲線右逆を独立検証し、元quartic点ごとのrank141以上を両曲線で得た。pure98は保持し、全239や固定141 minorの証明とはしない。P100の一つの実pure98行と二成分Bezoutによる142への改善は一次証明書を凍結し、独立source監査中である。
+
+非平方Bの残る有限coverはKa13の明示e復元とH四次へ源を結んだ。Gと名前付き局所化因子のcover上の単位証明、g/kのd三次入力を保存した。実Bbad scheme長上界52は維持し、空性・実在は別のunit認証付きd-Euclid計算で判定する。全ての成分を保持し、有限代数を無断で体とみなさない。
+
+一般betaのincidence次元監査では、有限core例外はbeta真部分へ入るが、残るcurveには全relative sourceの追加証明が必要と確認した。全FULLU cubic57・quartic239・一般fiber尽くし・全分類上界は未解決で、継続する。下界58、rank4下界52、NEW既約式28次、五凍結原稿を維持する。
+
 ## v63 BB / 2026-11-04: B18 core次元一とCI曲線、有限Fitting schemeと二曲線三次回復
 
 直前 main `ebabbebcf791581cef99d960adcf6e448189d34e` は通常push済み。

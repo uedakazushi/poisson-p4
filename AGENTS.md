@@ -2,6 +2,18 @@
 
 Version: v63-s61 · 2026-11-04 (Asia/Tokyo).
 
+Latest BC (2026-11-04): ACTUAL FULL7core CI(2,2,3), CM/Gorenstein/e12 independentlyproved.
+Proper14vars17eq model plus two5unit eliminations; all4graph membership/sourcecofs reviewed.
+Whole normalized E4=S9/(dJ), keepsfive d*u, dimension8/depth1/H0ZERO.
+NOT D0: H0(D0)=H0(K); completeSyzQ/K ell-torsion required, originaldepth19vs20/fullnil OPEN.
+Both P80/P100 FULLCUBIC57 UNIFORM ALL permitted curvepoints via two actualminors/Bézout.
+Wholecurve H1projection23/rightinverse onBOTH independentlyreviewed; pointwisequartic≥141.
+P100 pure98row/gcd-unit PRIMARY frozen, independent sourcepeerpending; nofull239.
+B Ka13 e-reconstruction/H4cover52 bound, G/U units and actualg/k degree3inputs frozen.
+ActualBbad empty/existence pending unit-certifieddEuclid, no assumedfield/componentsdiscarded.
+Globalquartic239/fullcubic57 FULLU/genericexhaustion/fullnil/globalupper OPEN.
+Bounds58/r4lower52/uppernull; G28exact28DONE; ordinarypush/checkpoint then continue.
+
 Latest BB (2026-11-04): B18 actualCORE DIM1 independentlyproved, first3CI(2,2,3)
 CM/Gorensteincurve/e12; full7core quotientby4graphs CM/socle STILLopen.
 Fivecubics viaCACHEDsource2+linearadjoint145ring, no source3/4solve; source700coeffchecks.

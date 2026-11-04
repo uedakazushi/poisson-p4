@@ -1,0 +1,17 @@
+# Prepared P80の一回replacement solve
+
+既知六chart単元だけで正規化したA17×17/B17×7について、fraction-free solveを一回
+行う。全119cofactorsをoptional Bezout前にlocal checkpointへ保存する。公開するのは
+最初のR46-coprime entryが属する17-vectorだけと、そのAX=delta B・GCD証明書。
+全119の冗長dumpは公開しない。全408source preconditioningも独立整数演算で再確認する。
+
+deltaが保存sourceから得たexpected degree144 determinantの非零QQ単元倍であることを
+全係数で確認する。選択17-vectorの全17式と、S*Xij+T*R46=C（非零整数C）を検査する。
+成功ならR46の外は旧minor、R46上はreplacementminorが非零で、二つのactual source
+minorがP80全体を覆う。source17×24のfullrank17から既存のpointwise criterionにより
+full cubic57がP80の全点で成り立つ。quartic239やP100への新主張ではない。
+
+全119entryがR46を割る場合はこの十分条件の判定が不成功として停止し、full57の
+否定や別のtargetへの自動queryはしない。K46 Gaussian、点・新素数・GBは使わない。
+全checkpointはlocalにSHA付きで保持する。optional Bezoutが保存capに入らない場合も
+checkpointを保持し、巨大なcofactor束を勝手に追加しない。
