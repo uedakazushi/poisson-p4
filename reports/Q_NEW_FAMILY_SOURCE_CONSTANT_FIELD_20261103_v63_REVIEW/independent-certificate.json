@@ -1,0 +1,59 @@
+{
+  "original_kernel_rescaling": "delta=(v/3072)*K_raw",
+  "r": "384*X*v + v*(3072*W - 1) + 256",
+  "s": "384*X*v - v*(3072*W - 1) + 256",
+  "X_inverse": "(r + s - 512)/(768*v)",
+  "W_inverse": "1/3072 + (r - s)/(6144*v)",
+  "transformed_variable_order": [
+    "u",
+    "r",
+    "s",
+    "v",
+    "c",
+    "B"
+  ],
+  "transformed_velocity": [
+    "0",
+    "r*(r**2 - 65536)",
+    "s*(s**2 - 65536)",
+    "16*u*(r - s)**2 + v*(r**2 + s**2)",
+    "c*(-r**2 - s**2 - 32*u*(r - s)**2/v + 131072)",
+    "B*(-r**2 - s**2 - 48*u*(r - s)**2/v + 131072)"
+  ],
+  "first_integral_order": [
+    "u",
+    "k",
+    "Iv",
+    "Ic",
+    "IB"
+  ],
+  "first_integrals": [
+    "u",
+    "(1 - 65536/r**2)/(1 - 65536/s**2)",
+    "(v - 8*u*(r - s)**2/(r*s))/(r*s*(1 - 65536/r**2))",
+    "c*v**2/(r*s*(1 - 65536/r**2)**2)",
+    "B*v**3/(r**2*s**2*(1 - 65536/r**2)**3)"
+  ],
+  "conic_identity": "256^2*(1/r^2-k/s^2)=1-k",
+  "rational_parameter": "(-1/256 + 1/r)/(-1/256 + 1/s)",
+  "r_inverse": "(256*k - 256*t**2)/(-2*k*t + k + t**2)",
+  "s_inverse": "(-256*k + 256*t**2)/(k + t**2 - 2*t)",
+  "v_inverse": "Iv*r*s*(1 - 65536/r**2) + 8*u*(r - s)**2/(r*s)",
+  "c_inverse": "Ic*r*s*(1 - 65536/r**2)**2/v**2",
+  "B_inverse": "IB*r**2*s**2*(1 - 65536/r**2)**3/v**3",
+  "derivative_parameter": "(256*r**2*s - 256*r*s**2 - 65536*r*s + 65536*s**2)/(r*s - 256*r)",
+  "rational_field_generators": [
+    "u",
+    "k",
+    "Iv",
+    "Ic",
+    "IB",
+    "t"
+  ],
+  "field_identity": "QQ(u,v,c,X,W,B)=QQ(u,k,Iv,Ic,IB)(t)",
+  "constants_identity": "ker(delta)=QQ(u,k,Iv,Ic,IB)",
+  "symbolic_section_v": "-98304*X/(147456*X**2 - (3072*W - 1)**2)",
+  "source_five_circuit_nodes": 1032,
+  "known_finite_involution_section_fixed_field": "QQ(X^2,u/X,c/X,W,B)",
+  "no_actual_beta_quotient_field_equality_or_index_one_asserted": true
+}

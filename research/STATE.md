@@ -1,4 +1,21 @@
-# 研究状態 — v63-s61 / 2026-11-03
+# 研究状態 — v63-s61 / 2026-11-04
+
+## v63 AC / 2026-11-04: 固定四次欠損・有理source・単位frame接続
+
+直前保存 main `f39105f754edf85d568f884930d7a4c0e88fe068` は通常push済み。以下は過去時点を含む。
+
+固定319×239四次行列の欠損がaFBC開で余次元2以上となることを証明した。既存の相対自由65模型を、nilpotent kernel・CM性・正則cutの変更で今回の固定cutへ移す。正確な低重みHFの和65から全height1でweight4 quotientが零となる。全域独立80本のsource kernelがあれば全射を導けるが未構成。直接の重み四以下Schouten/Bianchiだけでは最大30新行の見込みで、旧22本と合わせても80には足りない。実際のoperator抽出と単位pivotをbounded jobで進め、全点239を先取りしない。
+
+四次lazy APIと既存quad/cubic57のframe接続を正確に完了した。全33 genuine quarticの単位row rescalingも含み、旧H²係数は保持される。今後の実122×64係数計算はこのadapterを通す。未補正のT34/Tnを混ぜない。
+
+新成分first jetに六sourceの明示的有理共変量回路を構成し、GL16・perspective4を加えた実30×26微分のrank25とsource kernelを独立に決定した。微分の情報、この一方向の有理積分、および実target商への有限indexを区別する。
+
+元の被約Dredのconductor商について、被約環はC[[g19,w]]、nilradicalはG19正則係数環上free5、横断H0長さ5と決定した。これは元の非被約Dのnilではない。後者の全型とdepth19〜20、一般betaのδ_E∈J0、NEW方程式、全成分尽くしは未解決。総下界58/rank4下界52/総上界未定、凍結五原稿は変更しない。
+
+
+このsource kernelの有理積分も完了した。五つのfirst integralとconicの全有理逆式からsource定数体は有理五変数体と決まり、t=2のsectionで実β・共変量を1032-nodeの五source回路へ縮約した。既知有限involutionの固定体も有理五変数体だが、実NEW target不変体との有限indexは未解決である。次は新点の高次数probeではなく、この小さな回路の低次数不変式を正確に展開できるかpreflightする。
+
+普遍残余曲線側では全一般交点代数を八次monogenic表示と線形T回収へ還元した。これは全8次代数であって、選択した実成分が八次・既約・被約であることや、NEW multisectionの次数を意味しない。種数も引き続き未決とする。
 
 ## v63 AB: 元の被約conductor・embedded21境界・有限ΣのQQ四次階数
 

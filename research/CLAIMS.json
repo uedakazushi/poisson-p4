@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "checkpoint": "v63-s61",
-  "date": "2026-11-03",
+  "date": "2026-11-04",
   "base_mathematical_checkpoint": "v24",
   "new_mathematical_progress_in_this_setup": false,
   "purpose_ja": "収録原稿の主張、依存、今回の監査・再現範囲、未確認点を区別する研究用台帳。",
@@ -18313,6 +18313,236 @@
       ],
       "limitations_ja": [
         "APIはT34座標。既存quad/cubic57のTn=T34diag(Tden)へは明示的な単位変数・row変換を要する。未補正で混ぜない。全四次行列の展開、rank64、全射は主張しない。"
+      ]
+    },
+    {
+      "id": "AMBIENT_B18_REDUCED_CONDUCTOR_QUOTIENT_NIL_MODULE_FREE5",
+      "title_ja": "被約交叉conductor商の被約台と自由rank5 nil",
+      "statement_ja": "E=Dred/conductor=A_N/Jについて、G=C[[g19]]と置くとEred=G[[w]]である。有限長4のideal IBN/Jはnilであり、0→G^4→Nil(E)→G*v→0からNil(E)はG上free5となる。G19横断ではH0(E)=Nil(E)の長さ5、商はDVRである。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_04",
+        "certificates": "reproduced_2026_11_04_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "AMBIENT_B18_REDUCED_D_ORIGINAL_FULL_CONDUCTOR_CI4_DEFECT",
+          "AMBIENT_B18_REDUCED_CONDUCTOR_QUOTIENT_DEPTH19_MULTIPLICITY1"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_B18_DRED_CONDUCTOR_QUOTIENT_NILRADICAL_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_B18_DRED_CONDUCTOR_QUOTIENT_NILRADICAL_20261103_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "conductor商のnilであり、元の非被約Dのnilではない。環分裂、nil index、全大域への延長は主張しない。"
+      ]
+    },
+    {
+      "id": "NEW25_SIX_SOURCE_RATIONAL_COVARIANT_CIRCUIT",
+      "title_ja": "新成分の六source有理共変量回路",
+      "statement_ja": "既知family冗長性とGa gaugeを用い、六source(u,v,c,X,W,B)から実first jetとprimitive beta16への有理Darboux frameを構成した。1025-node回路にC,D,F4,Inv8,p_i,N12,mを束縛し、元の全30 first-jet係数と同じsourceを独立検証した。分母は既知cB単元だけで、c gradingも全て照合した。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_04",
+        "certificates": "reproduced_2026_11_04_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "NEW25_DOMINATES_FULL_OCTIC_CHARACTERISTIC_BASE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/Q_NEW_FAMILY_SIX_PARAMETER_COVARIANTS_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/Q_NEW_FAMILY_SIX_SOURCE_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/Q_NEW_FAMILY_SIX_PARAMETER_COVARIANTS_20261103_v63/report.json",
+        "reports/Q_NEW_FAMILY_SIX_SOURCE_20261103_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "六sourceを五次元商と無条件に同一視しない。実target不変函数体との有限index、全域finite equivalenceは未決。新β点を評価しない。"
+      ]
+    },
+    {
+      "id": "NEW25_RAW_FIRSTJET_SOURCE_KERNEL_EXACT_RANK25",
+      "title_ja": "実first jetのrank25と一つのsource kernel",
+      "statement_ja": "六sourceとGL16・perspective4の全30×26微分を実係数から構成した。20単位pivot後の10×6残余に独立な非零5角小行列式があり、全体rankは25。非零source部分を持ちdu=0となる唯一のkernel方向を求め、全30 polynomial dot product零を独立に検証した。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_04",
+        "certificates": "reproduced_2026_11_04_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "NEW25_SIX_SOURCE_RATIONAL_COVARIANT_CIRCUIT"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/Q_NEW_FAMILY_SOURCE_KERNEL_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/Q_NEW_FAMILY_SIX_SOURCE_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/Q_NEW_FAMILY_SOURCE_KERNEL_20261103_v63/report.json",
+        "reports/Q_NEW_FAMILY_SIX_SOURCE_20261103_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "微分kernelだけから有理積分やtarget商へのbirationalityを推論しない。追加点・24次probeは使わない。"
+      ]
+    },
+    {
+      "id": "S61_NONSQUARE_EXACT_T34_TO_TN_ORACLE_FRAME_ADAPTER",
+      "title_ja": "四次oracleの正確な単位frame接続",
+      "statement_ja": "lazy APIのT34と旧quad/cubic57のTn=T34diag(a,a,a,1,a,B/50,a,a)を全既知単元で接続した。全174 quad係数、3731 product成分、16 genuine行の単位倍率を、元135式とnative graphの厳密な共変性とexact anchorsで独立検証した。全33 quarticはF(Dv)/D_H²とし、旧H²係数・unit2×2操作を保持する。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_04",
+        "certificates": "reproduced_2026_11_04_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_NONSQUARE_CURRENT_T34_LAZY_QUARTIC_COEFFICIENT_ORACLE",
+          "S61_NONSQUARE_FULL_QUARTIC_ACTUAL_122_BY64_CRITERION"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_NONSQUARE_ORACLE_FRAME_ADAPTER_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/S61_NONSQUARE_ORACLE_FRAME_ADAPTER_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_NONSQUARE_ORACLE_FRAME_ADAPTER_20261103_v63/report.json",
+        "reports/S61_NONSQUARE_ORACLE_FRAME_ADAPTER_20261103_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "anchorsだけで全恒等式を推測しない。元full63はSchur前の実行subsetであることを確認した。全148858項の再展開、rank64・全四次全射は主張しない。"
+      ]
+    },
+    {
+      "id": "S61_NONSQUARE_FIXED_QUARTIC239_DEFECT_CODIMENSION_AT_LEAST2",
+      "title_ja": "固定319四次行列の欠損は余次元2以上",
+      "statement_ja": "既証の全relative自由65模型とgeneric binary factorの長さ65からnilpotent kernelを得た。nil filtrationとCM性により、被約binary底で正則座標となる任意の三cutへ自由65を移せる。実weighted chartの固定cut determinantは−C/25。全height1での正確な低重みHF(1,7,23,34)が65を尽くすため、同じ135式とG6を保持した固定M319のweight4 quotientは零となる。aFBC開のrank239欠損は次元1以下。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_04",
+        "certificates": "reproduced_2026_11_04_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_NONSQUARE_FULL_QUARTIC_ACTUAL_122_BY64_CRITERION"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_NONSQUARE_FIXED_QUARTIC_CODIMENSION_TRANSFER_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/S61_NONSQUARE_FIXED_QUARTIC_CODIMENSION_TRANSFER_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_NONSQUARE_FIXED_QUARTIC_CODIMENSION_TRANSFER_20261103_v63/report.json",
+        "reports/S61_NONSQUARE_FIXED_QUARTIC_CODIMENSION_TRANSFER_20261103_v63_REVIEW.json"
+      ],
+      "limitations_ja": [
+        "対象はaFBC開の固定cut。C0でこの行列を使わない。80本の全域独立source kernelがあれば全射を示せるが未構成であり、全点239は結論しない。"
+      ]
+    },
+    {
+      "id": "W16_TOTAL_GENERIC_RESIDUAL_INTERSECTION_MONOGENIC_OCTIC",
+      "title_ja": "全一般残余交点の八次monogenic表示",
+      "statement_ja": "固定特性基底とm上の二つの(2,2)式を明示的な八次P8(R)と線形T回収式へ変換した。generic係数体でLの単元性を、p1の超越性と実resultantの非零leading係数から証明し、全一般交点代数はK[R]/(P8)で次元8となる。全ideal恒等式と直接Sylvester resultantを独立に検証した。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_04",
+        "certificates": "reproduced_2026_11_04_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "W16_FIXED_CHARACTERISTIC_RESIDUAL_CURVE_TWO22_AND_M_DEGREE_LE8"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/Q_FIRSTJET_RESIDUAL_OCTIC_PRESENTATION_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/Q_FIRSTJET_RESIDUAL_OCTIC_PRESENTATION_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/Q_FIRSTJET_RESIDUAL_OCTIC_PRESENTATION_20261103_v63/report.json",
+        "reports/Q_FIRSTJET_RESIDUAL_OCTIC_PRESENTATION_20261103_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "TOTAL generic intersectionの表示であり、選択成分の次数が8・既約性・被約性・種数・NEW multisectionの次数や方程式は結論しない。全特殊基底へ延長しない。"
+      ]
+    },
+    {
+      "id": "NEW25_SOURCE_KERNEL_RATIONAL_CONSTANT_FIELD_FIVE_AND_SECTION",
+      "title_ja": "source kernelの有理定数体と五変数section",
+      "statement_ja": "実source kernelを有理積分し、五つの明示first integralを得た。conicの有理parametrizationと全逆式からsource体はQQ(U,K,Iv,Ic,Ib)(t)、微分定数体は正確にQQ(U,K,Iv,Ic,Ib)と証明した。t=2の有理sectionはv=−98304X/[147456X²−(3072W−1)²]を与え、五source(u,c,X,W,B)の1032-node実共変量回路となる。既知有限involutionの固定体もQQ(X²,u/X,c/X,W,B)と有理的に記述し、全係数を独立検証した。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_04",
+        "certificates": "reproduced_2026_11_04_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "NEW25_RAW_FIRSTJET_SOURCE_KERNEL_EXACT_RANK25",
+          "NEW25_SIX_SOURCE_RATIONAL_COVARIANT_CIRCUIT"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/Q_NEW_FAMILY_SOURCE_RATIONAL_QUOTIENT_20261103_v63.md"
+        },
+        {
+          "path": "research/notes/Q_NEW_FAMILY_SOURCE_CONSTANT_FIELD_20261103_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/Q_NEW_FAMILY_SOURCE_RATIONAL_QUOTIENT_20261103_v63/report.json",
+        "reports/Q_NEW_FAMILY_SOURCE_CONSTANT_FIELD_20261103_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "source定数体および既知有限involutionの固定体の結果。実際のNEW target不変函数体との有限index・同一性は未証明。24次方程式やN12の二次関係は主張せず、新β点を評価しない。"
       ]
     }
   ],

@@ -1,0 +1,37 @@
+{
+  "generic_field": "QQ(x,y,a,k2,m)(K), K=k1/2-A0; x*y*(x^2-y^2)*m*c*f*u*v nonzero generically",
+  "auxiliary_polynomials": {
+    "A": "R**2 - 2*R*d - f",
+    "b": "-K*R - R**2*v*x + f*u*x",
+    "q": "R**2*v + f*u",
+    "L": "R*y*(B*R - 2*R**2*a*v + 2*a*f*u) + (R**2 - 2*R*d - f)*(-K*R - R**2*v*x + f*u*x)",
+    "M": "R*m*y*(R**2*v + f*u)",
+    "Q1": "-R*T**2*c*y + R*u*v*y + T*(-K*R - R**2*v*x + f*u*x)",
+    "Q2": "-R**2*v**2 + 2*R*d*u*v + T**2*c*(R**2 - 2*R*d - f) + T*(B*R - 2*R**2*a*v + 2*a*f*u) + f*u**2",
+    "P8": "-R**2*c*m**2*y**2*(R**2*v + f*u)**2 - m*(R**2*v + f*u)*(R*y*(B*R - 2*R**2*a*v + 2*a*f*u) + (R**2 - 2*R*d - f)*(-K*R - R**2*v*x + f*u*x))*(-K*R - R**2*v*x + f*u*x) + u*v*(R*y*(B*R - 2*R**2*a*v + 2*a*f*u) + (R**2 - 2*R*d - f)*(-K*R - R**2*v*x + f*u*x))**2"
+  },
+  "relation": "m=u-v",
+  "linear_T_identity": "y*R*Q2+A*Q1=L*T+M",
+  "whole_ideal_identity": "y*R*P8=L^2*Q1-a1*(L*T+M)^2-(b*L-2*a1*M)*(L*T+M); a1=-c*y*R",
+  "T_recovery": "T=-y*m*R*(v*R^2+f*u)/L",
+  "octic_coefficients_R0_through_R8": [
+    "f**4*u**4*x**2",
+    "2*f**3*u**3*x*(-K - a*u*y - a*v*y + d*u*x + d*v*x)",
+    "-f**2*u**2*(B*u*x*y + B*v*x*y - K**2 - 2*K*a*u*y - 2*K*a*v*y + 4*K*d*u*x + 4*K*d*v*x - 4*a**2*u*v*y**2 + 8*a*d*u*v*x*y + c*u**2*y**2 - 2*c*u*v*y**2 + c*v**2*y**2 - 4*d**2*u*v*x**2 + f*u**2*x**2 + 2*f*u*v*x**2 + f*v**2*x**2)",
+    "-f*u*(-B*K*u*y - B*K*v*y - 4*B*a*u*v*y**2 + 4*B*d*u*v*x*y - 2*K**2*d*u - 2*K**2*d*v - 8*K*a*d*u*v*y + 8*K*d**2*u*v*x - 2*K*f*u**2*x - 2*K*f*u*v*x - 2*K*f*v**2*x - 6*a*f*u**2*v*x*y - 6*a*f*u*v**2*x*y + 6*d*f*u**2*v*x**2 + 6*d*f*u*v**2*x**2)",
+    "B**2*u*v*y**2 + 4*B*K*d*u*v*y + 2*B*f*u**2*v*x*y + 2*B*f*u*v**2*x*y + 4*K**2*d**2*u*v - K**2*f*u**2 - K**2*f*v**2 - 4*K*a*f*u**2*v*y - 4*K*a*f*u*v**2*y + 8*K*d*f*u**2*v*x + 8*K*d*f*u*v**2*x - 8*a**2*f*u**2*v**2*y**2 + 16*a*d*f*u**2*v**2*x*y - 2*c*f*u**3*v*y**2 + 4*c*f*u**2*v**2*y**2 - 2*c*f*u*v**3*y**2 - 8*d**2*f*u**2*v**2*x**2 + 2*f**2*u**3*v*x**2 + 2*f**2*u**2*v**2*x**2 + 2*f**2*u*v**3*x**2",
+    "v*(-B*K*u*y - B*K*v*y - 4*B*a*u*v*y**2 + 4*B*d*u*v*x*y - 2*K**2*d*u - 2*K**2*d*v - 8*K*a*d*u*v*y + 8*K*d**2*u*v*x - 2*K*f*u**2*x - 2*K*f*u*v*x - 2*K*f*v**2*x - 6*a*f*u**2*v*x*y - 6*a*f*u*v**2*x*y + 6*d*f*u**2*v*x**2 + 6*d*f*u*v**2*x**2)",
+    "-v**2*(B*u*x*y + B*v*x*y - K**2 - 2*K*a*u*y - 2*K*a*v*y + 4*K*d*u*x + 4*K*d*v*x - 4*a**2*u*v*y**2 + 8*a*d*u*v*x*y + c*u**2*y**2 - 2*c*u*v*y**2 + c*v**2*y**2 - 4*d**2*u*v*x**2 + f*u**2*x**2 + 2*f*u*v*x**2 + f*v**2*x**2)",
+    "-2*v**3*x*(-K - a*u*y - a*v*y + d*u*x + d*v*x)",
+    "v**4*x**2"
+  ],
+  "octic_degree": 8,
+  "R_leading": "x^2*v^4",
+  "R_constant": "x^2*f^4*u^4",
+  "A_q_resultant": "4*d**2*f*u*v + f**2*(u + v)**2",
+  "actual_resultant_m_degree": 4,
+  "actual_resultant_m_leading": "(ax**2 + ay**2)**2/(4*ax**2*ay**2)",
+  "generic_L_unit_proof_in_note": true,
+  "inverse_L_finite_recipe": "adjugate of multiplication-by-L on K[R]/(P8) divided by its nonzero determinant",
+  "no_coefficient_expansion_as_beta_polynomial": true
+}

@@ -1,6 +1,22 @@
 # Poisson structures on P4 — Codex instructions
 
-Version: v63-s61 · 2026-11-03 (Asia/Tokyo).
+Version: v63-s61 · 2026-11-04 (Asia/Tokyo).
+
+Latest AC (2026-11-04): fixedM319 quartic239defect CODIM>=2 onaFBC,
+by65freecomplete-relative-model+ANYadmissiblecut transfer+EXACTlowHF65.
+Notallpoint239. Full80sourcekernel gateUNCONSTRUCTED; directBianchi
+weight<=4 predicts<=30newrows+old22 insufficient. Fulloperatorjobbounded.
+T34toTn EXACTunitframeadapter nowaccepted174quads/3731product/16genuine
+bySOURCEcovariance, notanchorsalone. ALL33Qhat=F(Dv)/DH²; useadapter.
+NEWsixsource1025DAG/rationalframe, actual30x26 rank25 sourcekerneldu0.
+SOURCEconstantfieldQQ5 by5explicitintegrals/conicinverse; t2section5source
+1032DAG. Knownfiniteinvolutionfixedfieldrational5; NOTactualNEWfieldequality.
+TOTALgenericresidualintersection monogenic8/Tlinearrecovery; NOTselected
+actualcomponentexact8/genus/NEWmultisectiondegree.
+ActualNEWinvariantfieldfiniteindex stillunknown; noNEWpoint/24probe.
+Dred/conductor reducedG[[w]], NilGfree5/H0transverselength5, NOTactualDnil.
+B18actualDdepth19..20/fullnil/generalbeta/fullquartic/NEW eq/exhaustionOPEN.
+Lower58/r4lower52/uppernull; keepresearch andordinarymainpush.
 
 Latest AB: ORIGINAL genericB18 Dred normalizationconductor solved,
 Nsideactual17generatorUPPERrecipe/RsideT4. IBN/J cycliclength4,
