@@ -1,0 +1,155 @@
+{
+  "coefficient_field": "K(tau), K=QQ(H,L,s0,q0,t0), tauformaltranscendental",
+  "source_files": {
+    "normal_operator": "reports/S61_SPARSE_GENERIC5_NORMAL42_EXACT_PRESENTATION_20261104_v63/typed-normal42-operator.json.gz",
+    "residual129": "reports/S61_SPARSE_GENERIC5_RESIDUAL129_CIRCUIT_20261104_v63/residual129-factored-circuit.json.gz",
+    "G6": "reports/S61_SPARSE_GENERIC5_G6_RESIDUAL_20261104_v63/G6-normal-residual-circuit.json.gz",
+    "full134_direct": "reports/S61_SPARSE_GENERIC5_FULL134_NORMAL_CIRCUIT_20261104_v63/full134-direct-circuit.json.gz",
+    "full134_blocks": "reports/S61_SPARSE_GENERIC5_FULL134_NORMAL_CIRCUIT_20261104_v63/coefficient-block-circuit.json.gz",
+    "original_W": "reports/S61_SPARSE_GENERIC5_PLANE_RANK3_CIRCUIT_20261104_v63/plane-W-original.json.gz"
+  },
+  "selected_five_rows": [
+    50,
+    10,
+    52,
+    51,
+    15
+  ],
+  "selected_plane10_roots": [
+    [
+      50805,
+      50806,
+      50807,
+      50808,
+      50813,
+      50820,
+      50827,
+      50832,
+      50839,
+      50844
+    ],
+    [
+      33484,
+      33485,
+      33486,
+      33487,
+      33494,
+      33507,
+      33520,
+      33527,
+      33540,
+      33547
+    ],
+    [
+      51270,
+      51271,
+      51272,
+      51273,
+      51279,
+      51290,
+      51301,
+      51307,
+      51318,
+      51324
+    ],
+    [
+      51008,
+      51009,
+      51010,
+      51011,
+      51022,
+      51043,
+      51064,
+      51075,
+      51096,
+      51107
+    ],
+    [
+      36657,
+      36658,
+      36659,
+      36660,
+      36695,
+      36764,
+      36833,
+      36868,
+      36937,
+      36972
+    ]
+  ],
+  "raw_plane_change": "zE=V_R*(a,b,sigma), V_R=originalW[pivotrows,:]/P, P=common_P",
+  "pivot_q_rows": [
+    3,
+    6,
+    13
+  ],
+  "rawV_to_E_determinant_nonzero_gate": "acceptedplaneRank3Gamma/P^3",
+  "normalizing_G5": "G_i=sum_j P*adj(B5)_ij/Delta5*Fselected_j(rawplane)",
+  "adjB5_roots": [
+    [
+      318,
+      368,
+      417,
+      467,
+      516
+    ],
+    [
+      566,
+      615,
+      665,
+      714,
+      764
+    ],
+    [
+      813,
+      863,
+      912,
+      962,
+      1011
+    ],
+    [
+      1061,
+      1110,
+      1160,
+      1209,
+      1259
+    ],
+    [
+      1308,
+      1358,
+      1407,
+      1457,
+      1506
+    ]
+  ],
+  "inverseDelta5_root": 269,
+  "M3": "coefficientsof(a\u00b2,ab,b\u00b2)inthefirst3normalizedG_i; matrix9parameterentries",
+  "M3_nonzero_gate": "centerednoncollineartriangle: canonicaldet3 andGL2basischange",
+  "toric_table": "binaryproductvector=-inverse(M3)*(1_T,a,b); multiplicationA3/B3 fromcolumns1,a,b",
+  "known5_decomposition": "etaledegree3toricfactor E3 plusKplusK; noquadraticfactorizationassumed",
+  "primitive_h": "a+tau*b+tau\u00b2*sigma",
+  "toric_h": "a+tau*b",
+  "toric_cubic": "det(hI3-(A3+tau B3))",
+  "Krylov3": "[e0,H3*e0,H3\u00b2*e0], invertiblebecauseformalhseparates3toricpoints",
+  "ell_h_values": [
+    "-tau\u00b2/2",
+    "tau\u00b2"
+  ],
+  "primitive_g5": "g3(h)*(h+tau\u00b2/2)*(h-tau\u00b2)",
+  "p_b_and_p_sigma": "Chineseinterpolationoftoricdegree2polynomialsandtwoellvalues;3x3and2x2parameterinversesonly",
+  "cofactor_tracking": "gradedlexa>b>sigma, sixborderrewrites a\u00b2,ab,b\u00b2,a*sigma,b*sigma,sigma\u00b3; recordcoefsofG_i andthenoriginalF5; targetsdegree4/5,cofdegree2/3",
+  "border_sigma3_identity": "sigma\u00b3-(sigma+sigma\u00b2)/2=-(sigma/2)*G0+((q00*a+q01*b)/2)*G3+(q02*b/2)*G4",
+  "all_parameter_inverse_nonzero_gates": [
+    "P",
+    "Delta5",
+    "Gamma3",
+    "detM3",
+    "detKrylov3",
+    "g3(-tau\u00b2/2)",
+    "g3(tau\u00b2)",
+    "tau"
+  ],
+  "NO_normal_dependent_inverse": true,
+  "actual_new_field_polynomials_or_coefficients_computed": false,
+  "coherent_h_definition": "Choose b,sigma cofactors first; p_a=h-tau*p_b-tau\u00b2*p_sigma and B_ai=-tau*B_bi-tau\u00b2*B_sigma_i. Hence S_a+tau*S_b+tau\u00b2*S_sigma=0 identically; noextra h-definition relation."
+}

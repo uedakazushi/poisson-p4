@@ -1,0 +1,17 @@
+// Safe Qexception union: protect denominator fibers, filter only generic-root normpart.
+#include <flint/fmpq.h>
+#include <flint/fmpq_poly.h>
+#include <cassert>
+#include <chrono>
+#include <fstream>
+#include <iostream>
+#include <string>
+#include <vector>
+using namespace std;chrono::steady_clock::time_point start;
+void tick(){assert(chrono::duration<double>(chrono::steady_clock::now()-start).count()<50);}
+struct P{fmpq_poly_t p;P(){fmpq_poly_init(p);}P(const P&x):P(){fmpq_poly_set(p,x.p);}P(P&&x):P(){fmpq_poly_swap(p,x.p);}P&operator=(P x){fmpq_poly_swap(p,x.p);return*this;}~P(){fmpq_poly_clear(p);}};
+P one(){P p;fmpq_poly_one(p.p);return p;}P add(const P&a,const P&b){P p;fmpq_poly_add(p.p,a.p,b.p);return p;}P mul(const P&a,const P&b){P p;fmpq_poly_mul(p.p,a.p,b.p);assert(fmpq_poly_length(p.p)<150000);tick();return p;}bool eq(const P&a,const P&b){return fmpq_poly_equal(a.p,b.p);}P divexact(const P&a,const P&b){P q,r;fmpq_poly_divrem(q.p,r.p,a.p,b.p);assert(fmpq_poly_is_zero(r.p)&&eq(mul(q,b),a));return q;}
+void readp(istream&f,P&p){int n;f>>n;assert(n>0);fmpq_t c;fmpq_init(c);for(int i=0;i<n;i++){int d;string v;f>>d>>v;assert(d>=0&&!fmpq_set_str(c,v.c_str(),10));fmpq_canonicalise(c);fmpq_poly_set_coeff_fmpq(p.p,d,c);}fmpq_clear(c);}
+void jp(ostream&o,const P&p){o<<'[';fmpq_t c;fmpq_init(c);bool first=true;for(long i=fmpq_poly_degree(p.p);i>=0;i--){fmpq_poly_get_coeff_fmpq(c,p.p,i);if(fmpq_is_zero(c))continue;if(!first)o<<',';first=false;char*s=fmpq_get_str(nullptr,10,c);o<<'['<<i<<",\""<<s<<"\"]";flint_free(s);}o<<']';fmpq_clear(c);assert(o.tellp()<31*1024*1024);}
+int main(int argc,char**argv){assert(argc==3);start=chrono::steady_clock::now();ifstream f(argv[1]);P S;readp(f,S);int n;f>>n;assert(n==20);P E=one();for(int i=0;i<n;i++){P p;readp(f,p);fmpq_poly_make_monic(p.p,p.p);E=mul(E,p);}P exc,s,t;fmpq_poly_xgcd(exc.p,s.p,t.p,S.p,E.p);assert(eq(add(mul(s,S),mul(t,E)),exc));P residual=divexact(S,exc),eqt=divexact(E,exc);int k;f>>k;assert(k==15);vector<P>N(k);for(auto&p:N)readp(f,p);string extra;assert(!(f>>extra));vector<P>before,chain,bq,nq,bs,bt;P common=residual;for(int i=0;i<k;i++){before.push_back(common);P cg,cs,ct;fmpq_poly_xgcd(cg.p,cs.p,ct.p,common.p,N[i].p);assert(eq(add(mul(cs,common),mul(ct,N[i])),cg));chain.push_back(cg);bq.push_back(divexact(common,cg));nq.push_back(divexact(N[i],cg));bs.push_back(cs);bt.push_back(ct);common=cg;}
+ P news=mul(exc,common),removed=divexact(S,news);ofstream o(argv[2]);o<<"{\"denominator_exception_product\":";jp(o,E);o<<",\"protected_exception_gcd\":";jp(o,exc);o<<",\"initial_generic_root_part\":";jp(o,residual);o<<",\"denominator_product_quotient_by_exc\":";jp(o,eqt);o<<",\"protected_gcd_Bezout\":[";jp(o,s);o<<',';jp(o,t);o<<"],\"all15_generic_norm_gcd_steps\":[";for(int i=0;i<k;i++){if(i)o<<',';o<<"{\"before\":";jp(o,before[i]);o<<",\"norm\":";jp(o,N[i]);o<<",\"gcd_after\":";jp(o,chain[i]);o<<",\"before_quotient\":";jp(o,bq[i]);o<<",\"norm_quotient\":";jp(o,nq[i]);o<<",\"Bezout\":[";jp(o,bs[i]);o<<',';jp(o,bt[i]);o<<"]}";}o<<"],\"final_generic_part\":";jp(o,common);o<<",\"new_safe_squarefree_cover\":";jp(o,news);o<<",\"old_cover_quotient_by_new\":";jp(o,removed);o<<",\"new_degree\":"<<fmpq_poly_degree(news.p)<<",\"protected_degree\":"<<fmpq_poly_degree(exc.p)<<",\"generic_degree\":"<<fmpq_poly_degree(common.p)<<",\"native_seconds\":"<<chrono::duration<double>(chrono::steady_clock::now()-start).count()<<"}\n";}

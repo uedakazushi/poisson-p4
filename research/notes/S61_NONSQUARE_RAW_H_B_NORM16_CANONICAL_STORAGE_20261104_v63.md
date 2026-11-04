@@ -1,0 +1,18 @@
+# norm16のcanonical表示と保存量修正
+
+最初のnative実行ではdet16とNV=delta e0は通ったが、Z-polynomialからQQ-mpolyへの
+embeddingでsortだけを呼びcombineを省いたため、非canonicalなcontent表示が残った。
+2+2aの小fixtureで、構造的equal=falseでも差が0になることを再現した。
+combineとcanonicality guardを追加した新sourceで全16source除算・NV・元h1/k1の
+Bezoutを通し、別の整数演算でもNVと元sourceの全係数恒等式を検証した。
+
+さらに数学的検査後のaggregate32MiB guardで、実際34,721,772 bytesとなり停止した。
+約4MBを見込んだraw cofactor/checkpoint総量予測は不足していた。determinantだけの
+次数・係数上限は満たすが、raw aggregate guardが通ったとは主張しない。
+全raw bytesはignored workに保存しSHAを記録。native certificateと先行det/V checkpointを
+lossless gzip化し、decompress SHAを確認して32MiB以内の公開aggregateにした。
+serialization修正ではdet・solve・source計算を再実行していない。
+
+最終detとsolver deltaは一致し、a次数148。QQ contentとa31だけを除くと、aの非零
+117次多項式が残る。これは旧有限残余の必要a条件であり、実在を主張しない。
+未知a因子の除去・factorizationは未実行。元16cofactorsとh1/k1 Bezoutをgzip内に保持する。

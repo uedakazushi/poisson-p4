@@ -1,0 +1,34 @@
+/workspace/poisson-p4/code/s61_nonsquare_raw_H_B_norm16_cofactor_review_20261104_v63.cpp: In function ‘void readp(std::istream&, P&)’:
+/workspace/poisson-p4/code/s61_nonsquare_raw_H_B_norm16_cofactor_review_20261104_v63.cpp:19:41: error: ‘fmpz_init’ was not declared in this scope; did you mean ‘mpz_init’?
+   19 |  long n;in>>n;assert(in&&n>=0);fmpz_t z;fmpz_init(z);
+      |                                         ^~~~~~~~~
+      |                                         mpz_init
+In file included from /usr/include/c++/14/cassert:44,
+                 from /workspace/poisson-p4/code/s61_nonsquare_raw_H_B_norm16_cofactor_review_20261104_v63.cpp:4:
+/workspace/poisson-p4/code/s61_nonsquare_raw_H_B_norm16_cofactor_review_20261104_v63.cpp:21:162: error: ‘fmpz_set_str’ was not declared in this scope; did you mean ‘mpz_set_str’?
+   21 |  for(long j=0;j<n;j++){long degree;string c;in>>degree>>c;assert(in&&degree>=0&&find(seen.begin(),seen.end(),degree)==seen.end());seen.push_back(degree);assert(!fmpz_set_str(z,c.c_str(),10)&&!fmpz_is_zero(z));fmpz_poly_set_coeff_fmpz(p.v,degree,z);}
+      |                                                                                                                                                                  ^~~~~~~~~~~~
+/workspace/poisson-p4/code/s61_nonsquare_raw_H_B_norm16_cofactor_review_20261104_v63.cpp:21:193: error: ‘fmpz_is_zero’ was not declared in this scope; did you mean ‘fmpz_poly_zero’?
+   21 |  for(long j=0;j<n;j++){long degree;string c;in>>degree>>c;assert(in&&degree>=0&&find(seen.begin(),seen.end(),degree)==seen.end());seen.push_back(degree);assert(!fmpz_set_str(z,c.c_str(),10)&&!fmpz_is_zero(z));fmpz_poly_set_coeff_fmpz(p.v,degree,z);}
+      |                                                                                                                                                                                                 ^~~~~~~~~~~~
+/workspace/poisson-p4/code/s61_nonsquare_raw_H_B_norm16_cofactor_review_20261104_v63.cpp:22:61: error: ‘fmpz_clear’ was not declared in this scope; did you mean ‘mpz_clear’?
+   22 |  assert(fmpz_poly_length(p.v)==0||fmpz_poly_degree(p.v)>=0);fmpz_clear(z);
+      |                                                             ^~~~~~~~~~
+      |                                                             mpz_clear
+/workspace/poisson-p4/code/s61_nonsquare_raw_H_B_norm16_cofactor_review_20261104_v63.cpp: In function ‘int main(int, char**)’:
+/workspace/poisson-p4/code/s61_nonsquare_raw_H_B_norm16_cofactor_review_20261104_v63.cpp:45:53: error: ‘fmpz_init’ was not declared in this scope; did you mean ‘mpz_init’?
+   45 |  out<<"],\"cofactor00\":[";bool first=true;fmpz_t z;fmpz_init(z);for(long i=fmpz_poly_degree(cofactor.v);i>=0;i--){fmpz_poly_get_coeff_fmpz(z,cofactor.v,i);if(fmpz_is_zero(z))continue;if(!first)out<<',';first=false;char*s=fmpz_get_str(nullptr,10,z);out<<'['<<i<<",\""<<s<<"\"]";flint_free(s);}fmpz_clear(z);
+      |                                                     ^~~~~~~~~
+      |                                                     mpz_init
+/workspace/poisson-p4/code/s61_nonsquare_raw_H_B_norm16_cofactor_review_20261104_v63.cpp:45:160: error: ‘fmpz_is_zero’ was not declared in this scope; did you mean ‘fmpz_poly_zero’?
+   45 |  out<<"],\"cofactor00\":[";bool first=true;fmpz_t z;fmpz_init(z);for(long i=fmpz_poly_degree(cofactor.v);i>=0;i--){fmpz_poly_get_coeff_fmpz(z,cofactor.v,i);if(fmpz_is_zero(z))continue;if(!first)out<<',';first=false;char*s=fmpz_get_str(nullptr,10,z);out<<'['<<i<<",\""<<s<<"\"]";flint_free(s);}fmpz_clear(z);
+      |                                                                                                                                                                ^~~~~~~~~~~~
+      |                                                                                                                                                                fmpz_poly_zero
+/workspace/poisson-p4/code/s61_nonsquare_raw_H_B_norm16_cofactor_review_20261104_v63.cpp:45:223: error: ‘fmpz_get_str’ was not declared in this scope; did you mean ‘mpz_get_str’?
+   45 |  out<<"],\"cofactor00\":[";bool first=true;fmpz_t z;fmpz_init(z);for(long i=fmpz_poly_degree(cofactor.v);i>=0;i--){fmpz_poly_get_coeff_fmpz(z,cofactor.v,i);if(fmpz_is_zero(z))continue;if(!first)out<<',';first=false;char*s=fmpz_get_str(nullptr,10,z);out<<'['<<i<<",\""<<s<<"\"]";flint_free(s);}fmpz_clear(z);
+      |                                                                                                                                                                                                                               ^~~~~~~~~~~~
+      |                                                                                                                                                                                                                               mpz_get_str
+/workspace/poisson-p4/code/s61_nonsquare_raw_H_B_norm16_cofactor_review_20261104_v63.cpp:45:294: error: ‘fmpz_clear’ was not declared in this scope; did you mean ‘mpz_clear’?
+   45 |  out<<"],\"cofactor00\":[";bool first=true;fmpz_t z;fmpz_init(z);for(long i=fmpz_poly_degree(cofactor.v);i>=0;i--){fmpz_poly_get_coeff_fmpz(z,cofactor.v,i);if(fmpz_is_zero(z))continue;if(!first)out<<',';first=false;char*s=fmpz_get_str(nullptr,10,z);out<<'['<<i<<",\""<<s<<"\"]";flint_free(s);}fmpz_clear(z);
+      |                                                                                                                                                                                                                                                                                                      ^~~~~~~~~~
+      |                                                                                                                                                                                                                                                                                                      mpz_clear

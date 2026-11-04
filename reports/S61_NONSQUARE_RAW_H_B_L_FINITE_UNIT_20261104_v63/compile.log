@@ -1,0 +1,72 @@
+/workspace/poisson-p4/code/s61_nonsquare_raw_H_B_L_finite_unit_20261104_v63.cpp: In function ‘E er(const E&)’:
+/workspace/poisson-p4/code/s61_nonsquare_raw_H_B_L_finite_unit_20261104_v63.cpp:18:266: error: reference to ‘modulus’ is ambiguous
+   18 | E eo(){E p;fmpq_poly_one(p.p);return p;}E ea(const E&a,const E&b){E p;fmpq_poly_add(p.p,a.p,b.p);return p;}E neg(const E&a){E p;fmpq_poly_neg(p.p,a.p);return p;}bool eq(const E&a,const E&b){return fmpq_poly_equal(a.p,b.p);}E er(const E&a){E p;fmpq_poly_rem(p.p,a.p,modulus.p);return p;}E em(const E&a,const E&b){E p;fmpq_poly_mul(p.p,a.p,b.p);tick();return er(p);}E es(const E&a,const fmpq_t c){E p;fmpq_poly_scalar_mul_fmpq(p.p,a.p,c);return p;}E ediv(const E&a,const E&b){E q,r;fmpq_poly_divrem(q.p,r.p,a.p,b.p);assert(fmpq_poly_is_zero(r.p));E z;fmpq_poly_mul(z.p,q.p,b.p);assert(eq(z,a));return q;}
+      |                                                                                                                                                                                                                                                                          ^~~~~~~
+In file included from /usr/include/c++/14/string:49,
+                 from /usr/include/c++/14/bits/locale_classes.h:40,
+                 from /usr/include/c++/14/bits/ios_base.h:41,
+                 from /usr/include/c++/14/ios:44,
+                 from /usr/include/c++/14/istream:40,
+                 from /usr/include/c++/14/fstream:40,
+                 from /workspace/poisson-p4/code/s61_nonsquare_raw_H_B_L_finite_unit_20261104_v63.cpp:10:
+/usr/include/c++/14/bits/stl_function.h:172:12: note: candidates are: ‘template<class _Tp> struct std::modulus’
+  172 |     struct modulus;
+      |            ^~~~~~~
+/workspace/poisson-p4/code/s61_nonsquare_raw_H_B_L_finite_unit_20261104_v63.cpp:17:3: note:                 ‘E modulus’
+   17 | E modulus;long en;
+      |   ^~~~~~~
+/workspace/poisson-p4/code/s61_nonsquare_raw_H_B_L_finite_unit_20261104_v63.cpp: In function ‘int main(int, char**)’:
+/workspace/poisson-p4/code/s61_nonsquare_raw_H_B_L_finite_unit_20261104_v63.cpp:34:261: error: reference to ‘modulus’ is ambiguous
+   34 |  vector<E>removed,after,aquot;E current=originalS;while(true){E g;fmpq_poly_gcd(g.p,current.p,aL.p);if(fmpq_poly_degree(g.p)<=0)break;removed.push_back(g);current=ediv(current,g);after.push_back(current);aquot.push_back(ediv(aL,g));assert(removed.size()<=10);}modulus=current;en=fmpq_poly_degree(modulus.p);assert(en>0&&en<=9);long N=4*en;E gcd,bezS,bezA;fmpq_poly_xgcd(gcd.p,bezS.p,bezA.p,modulus.p,aL.p);assert(fmpq_poly_is_one(gcd.p));E raw0,raw1;fmpq_poly_mul(raw0.p,bezS.p,modulus.p);fmpq_poly_mul(raw1.p,bezA.p,aL.p);assert(eq(ea(raw0,raw1),eo()));E ainv=er(bezA);assert(eq(em(ainv,aL),eo()));
+      |                                                                                                                                                                                                                                                                     ^~~~~~~
+/usr/include/c++/14/bits/stl_function.h:172:12: note: candidates are: ‘template<class _Tp> struct std::modulus’
+  172 |     struct modulus;
+      |            ^~~~~~~
+/workspace/poisson-p4/code/s61_nonsquare_raw_H_B_L_finite_unit_20261104_v63.cpp:17:3: note:                 ‘E modulus’
+   17 | E modulus;long en;
+      |   ^~~~~~~
+/workspace/poisson-p4/code/s61_nonsquare_raw_H_B_L_finite_unit_20261104_v63.cpp:34:297: error: reference to ‘modulus’ is ambiguous
+   34 |  vector<E>removed,after,aquot;E current=originalS;while(true){E g;fmpq_poly_gcd(g.p,current.p,aL.p);if(fmpq_poly_degree(g.p)<=0)break;removed.push_back(g);current=ediv(current,g);after.push_back(current);aquot.push_back(ediv(aL,g));assert(removed.size()<=10);}modulus=current;en=fmpq_poly_degree(modulus.p);assert(en>0&&en<=9);long N=4*en;E gcd,bezS,bezA;fmpq_poly_xgcd(gcd.p,bezS.p,bezA.p,modulus.p,aL.p);assert(fmpq_poly_is_one(gcd.p));E raw0,raw1;fmpq_poly_mul(raw0.p,bezS.p,modulus.p);fmpq_poly_mul(raw1.p,bezA.p,aL.p);assert(eq(ea(raw0,raw1),eo()));E ainv=er(bezA);assert(eq(em(ainv,aL),eo()));
+      |                                                                                                                                                                                                                                                                                                         ^~~~~~~
+/usr/include/c++/14/bits/stl_function.h:172:12: note: candidates are: ‘template<class _Tp> struct std::modulus’
+  172 |     struct modulus;
+      |            ^~~~~~~
+/workspace/poisson-p4/code/s61_nonsquare_raw_H_B_L_finite_unit_20261104_v63.cpp:17:3: note:                 ‘E modulus’
+   17 | E modulus;long en;
+      |   ^~~~~~~
+/workspace/poisson-p4/code/s61_nonsquare_raw_H_B_L_finite_unit_20261104_v63.cpp:34:391: error: reference to ‘modulus’ is ambiguous
+   34 |  vector<E>removed,after,aquot;E current=originalS;while(true){E g;fmpq_poly_gcd(g.p,current.p,aL.p);if(fmpq_poly_degree(g.p)<=0)break;removed.push_back(g);current=ediv(current,g);after.push_back(current);aquot.push_back(ediv(aL,g));assert(removed.size()<=10);}modulus=current;en=fmpq_poly_degree(modulus.p);assert(en>0&&en<=9);long N=4*en;E gcd,bezS,bezA;fmpq_poly_xgcd(gcd.p,bezS.p,bezA.p,modulus.p,aL.p);assert(fmpq_poly_is_one(gcd.p));E raw0,raw1;fmpq_poly_mul(raw0.p,bezS.p,modulus.p);fmpq_poly_mul(raw1.p,bezA.p,aL.p);assert(eq(ea(raw0,raw1),eo()));E ainv=er(bezA);assert(eq(em(ainv,aL),eo()));
+      |                                                                                                                                                                                                                                                                                                                                                                                                       ^~~~~~~
+/usr/include/c++/14/bits/stl_function.h:172:12: note: candidates are: ‘template<class _Tp> struct std::modulus’
+  172 |     struct modulus;
+      |            ^~~~~~~
+/workspace/poisson-p4/code/s61_nonsquare_raw_H_B_L_finite_unit_20261104_v63.cpp:17:3: note:                 ‘E modulus’
+   17 | E modulus;long en;
+      |   ^~~~~~~
+/workspace/poisson-p4/code/s61_nonsquare_raw_H_B_L_finite_unit_20261104_v63.cpp:34:479: error: reference to ‘modulus’ is ambiguous
+   34 |  vector<E>removed,after,aquot;E current=originalS;while(true){E g;fmpq_poly_gcd(g.p,current.p,aL.p);if(fmpq_poly_degree(g.p)<=0)break;removed.push_back(g);current=ediv(current,g);after.push_back(current);aquot.push_back(ediv(aL,g));assert(removed.size()<=10);}modulus=current;en=fmpq_poly_degree(modulus.p);assert(en>0&&en<=9);long N=4*en;E gcd,bezS,bezA;fmpq_poly_xgcd(gcd.p,bezS.p,bezA.p,modulus.p,aL.p);assert(fmpq_poly_is_one(gcd.p));E raw0,raw1;fmpq_poly_mul(raw0.p,bezS.p,modulus.p);fmpq_poly_mul(raw1.p,bezA.p,aL.p);assert(eq(ea(raw0,raw1),eo()));E ainv=er(bezA);assert(eq(em(ainv,aL),eo()));
+      |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               ^~~~~~~
+/usr/include/c++/14/bits/stl_function.h:172:12: note: candidates are: ‘template<class _Tp> struct std::modulus’
+  172 |     struct modulus;
+      |            ^~~~~~~
+/workspace/poisson-p4/code/s61_nonsquare_raw_H_B_L_finite_unit_20261104_v63.cpp:17:3: note:                 ‘E modulus’
+   17 | E modulus;long en;
+      |   ^~~~~~~
+/workspace/poisson-p4/code/s61_nonsquare_raw_H_B_L_finite_unit_20261104_v63.cpp:39:332: error: reference to ‘modulus’ is ambiguous
+   39 |  ofstream o(argv[2]);o<<"{\"dimension_N\":"<<N<<",\"base_e_degree\":"<<en<<",\"a_zero_clopen_removal_steps\":[";for(int i=0;i<(int)removed.size();i++){if(i)o<<',';o<<"{\"removed_factor\":";je(o,removed[i]);o<<",\"remaining_after\":";je(o,after[i]);o<<",\"aL_quotient\":";je(o,aquot[i]);o<<'}';}o<<"],\"remaining_e_modulus\":";je(o,modulus);o<<",\"aL_inverse\":";je(o,ainv);o<<",\"modulus_aL_Bezout1\":[";je(o,bezS);o<<',';je(o,bezA);o<<"],\"Hclear_coefficients\":[";for(int i=0;i<5;i++){if(i)o<<',';je(o,hclear[i]);}o<<"],\"H_normalized_monic_coefficients\":[";for(int i=0;i<5;i++){if(i)o<<',';je(o,hnorm[i]);}o<<"],\"all22_original_source_images\":[";for(int i=0;i<count;i++){if(i)o<<',';ja(o,images[i]);}o<<"],\"U_image\":";ja(o,ui);o<<",\"target_U_power_N\":";ja(o,target);o<<",\"all22N_ideal_matrix_columns\":[";for(int i=0;i<(int)cols.size();i++){if(i)o<<',';ja(o,cols[i]);}o<<"],\"membership_solved\":"<<(solved?"true":"false")<<",\"source22_cofactor_witness\":[";for(int i=0;i<(int)witness.size();i++){if(i)o<<',';ja(o,witness[i]);}o<<"],\"matrix_nonzero_entries\":"<<nz<<",\"matrix_max_numerator_plus_denominator_bits\":"<<maxbits<<",\"solve_backend\":\"fmpq_mat_can_solve_fraction_free\",\"all_source_membership_identities_checked\":true,\"native_seconds\":"<<chrono::duration<double>(chrono::steady_clock::now()-begin_time).count()<<"}\n";
+      |                                                                                                                                                                                                                                                                                                                                            ^~~~~~~
+/usr/include/c++/14/bits/stl_function.h:172:12: note: candidates are: ‘template<class _Tp> struct std::modulus’
+  172 |     struct modulus;
+      |            ^~~~~~~
+/workspace/poisson-p4/code/s61_nonsquare_raw_H_B_L_finite_unit_20261104_v63.cpp:17:3: note:                 ‘E modulus’
+   17 | E modulus;long en;
+      |   ^~~~~~~
+/workspace/poisson-p4/code/s61_nonsquare_raw_H_B_L_finite_unit_20261104_v63.cpp:41:69: error: reference to ‘modulus’ is ambiguous
+   41 | }apowers.clear();epowers.clear();dpowers.clear();for(auto&x:h)x=E();modulus=E();fmpq_mpoly_ctx_clear(ctx);flint_cleanup();}
+      |                                                                     ^~~~~~~
+/usr/include/c++/14/bits/stl_function.h:172:12: note: candidates are: ‘template<class _Tp> struct std::modulus’
+  172 |     struct modulus;
+      |            ^~~~~~~
+/workspace/poisson-p4/code/s61_nonsquare_raw_H_B_L_finite_unit_20261104_v63.cpp:17:3: note:                 ‘E modulus’
+   17 | E modulus;long en;
+      |   ^~~~~~~

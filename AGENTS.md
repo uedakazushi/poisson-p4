@@ -2,6 +2,25 @@
 
 Version: v63-s61 · 2026-11-04 (Asia/Tokyo).
 
+Latest BA (2026-11-04): actualcore4 quadraticspan2/fivezero independentlyverified,
+cachedsource2+adjoint98 nohighersourcesolve. QuadraticCIcurve QQ-rationalNODALquartic,
+actualfirst2functions INTEGRALCMsurface2/mult4; notfullcoreideal/socle/non-normality.
+DVRproductbaseD6+(D/ell²)^7+(D/ell)^7 specialfiber20, rawcokerD12+same14torsion mu26.
+ActualDVRactions/kernelSyzQ/ell-torsion NOTcomputed; no naivekernelofellzero matrix.
+BfiniteLcover+ALL5linearQclosedfibers emptyFULLU byORIGINAL22sourceU^N certificates.
+GeomBbadupper724, notlength; higherQ6,6,9,11 retained +oldcoverEXACTlength468.
+OldprojectionQQlength117 byindependent15cofactor/detdegree148/aorder31; emptyOPEN.
+Oldresidualnorm16 PRIMARYa148/a31→a117 necessarycover/sourceBezout; guardraw34.72MB
+FAILEDhonestlyrecorded/losslessgzip15.35MB, no recomputation; QQ+cofactorpeeraccepted.
+p0 exactg1/Theta comaximal; g1unitpairallpoints; Thetaexplicitrationalunitcoordinates.
+ThetaDelta GLOBALUNIT andexactrawHcokerT/(P80P100), twoDISJOINTnonemptyrationalcurves.
+RawH6oncurves/7off, heavy4/5; FULLUuniformrawH7 FALSE, stopthatroute.
+NextquarticH1andpuretailrescueONSEPARATEwholecurves, NOTfullcubicnegative.
+Full57/239 OPEN, unit125/point126/kernel38/gap42 unchanged.
+Generic5Ecol0=144*(Q52-center)/(Hq0t0),75terms/rawcrossfirstblock≤13506terms;
+plane692953coefs+84coupledcols remain, noactualGram126/member/unit/exhaustion.
+Bounds58/r4lower52/uppernull, NEWG28exact28; normalpushcheckpointthencontinue.
+
 Latest AZ (2026-11-04): ActualB18 NnormalizerPAIR allorders smooth8hypersurface
 inE4regular9, sourceboundnonzeroIA/IBpullback+integralclosure, NOT0/0unitinverse.
 All12F=L*G proved; fiveunitminor1/497664 givescore4/sevenactualtypedfunctions.

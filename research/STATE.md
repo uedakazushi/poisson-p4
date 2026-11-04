@@ -1,5 +1,19 @@
 # 研究状態 — v63-s61 / 2026-11-04
 
+## v63 BA / 2026-11-04: 実core二次近似と例外有限代数、非平方branchの有理座標
+
+直前 main `9811ca9dfe183b1726e2db31b35f011cb8039efd` は通常push済み。
+
+B18の実四core函数の二次spanは二で、残り五函数の二次は零と独立確認した。全98未知source三次感度を消し、既存source二次だけから四変数三次を評価したため、新しいsource三次求解は不要だった。二つの二次式の射影交叉はQQ上で有理な既約節点四次曲線であり、正規化conicと明示有限双有理写像を独立検証した。実最初二函数だけの商は整なCM二次元・重複度四となるが、七函数全部のideal、残る高次、socle、元深さ19/20は未決である。四graphの冗長性は普遍物理恒等式だけでは証明できず、実CA/CB sourceの4対32 membershipとして次の具体的gateへ固定した。
+
+conductor積baseを実ell=5(s−r)上のDVR加群として明確にした。自由rank六とell二乗/ellの七blockずつ、閉fiber長二十を独立確認した。raw normalizer比較cokernelは自由rank十二と同じ十四torsion blockを持ち、最小二十六生成である。右完全なDVR表示手順はあるが、実作用行列と完全kernel Syz(Q)は未計算。ell零への単純代入をkernelの判定に使わない。
+
+非平方Bの有限例外は、元二十二minorによるU冪の所属恒等式を全QQ有限代数で検査して除去した。Lの全例外とQの全五線形閉fiberがFULLU内で空と解決し、未処理の高次四因子と元の有限残余を合わせた幾何点数上界は、下記のexact cover長の改善で724となった。scheme lengthや全域B rank三の証明ではない。元の有限残余には別の16対16 normでa一変数の必要被覆を一次計算した。source Bezoutも全係数で確認したが、raw34.72MBは32MiB guardを超えたことを明記し、数学を再計算せずlossless gzipへ保存した。必要a被覆の全QQ恒等式に加え、独自十五対十五cofactor計算でexact determinant degree148とa order31を確認した。PID長公式によりa局所化後の明示射影商の長さ117、H持上げcoverの長さ468を独立受理し、残るQ coverの高々256点と合わせて幾何点数上界724となる。全Bbad scheme長を724以下と主張するものではない。
+
+raw Hのp零は、既知単位によるg1とThetaの互いに素な二branchへ分かれる。g1では二対二単位pairを全点で得た。Thetaは明示有理座標zeta,dで局所化多項式環となり、一単位と7対4行列へ正確に整理できた。追加列の三関係は零、一関係は269項で非零である。既知単位除去を独立確認するとDeltaは全Theta上の単位となり、最後のminorは単位倍のP80 P100、Pm=3zeta(zeta+20)+m dである。二因子の差20dも単位なので、両rank欠損曲線は互いに交わらない。元の二単位方向も全sourceへ結び、実raw Hのcokernelは正確にT/(P80 P100)と解決した。raw Hは両非空有理曲線上でrank六、補集合で七。従って全FULLU raw H七という十分条件は偽であり、この証明の再試行は止める。次は両曲線上でquartic H1とpure tailによる回復を別々に調べ、全cubic57・quartic239を続ける。
+
+一般betaの実第一plane列は75項の差Q52−centerから直接表せ、raw cross第一blockのsupport上界は13,506項へ下がった。普遍五点補間の完全cofactorも小さく計算したが、実五plane quotientの692,953項と残る84列の結合は未解決で、Gram126やmembershipを新たに計算していない。全分類・一般fiber尽くし・B18全nil・全57/239を継続する。下界58・rank4下界52、NEW既約式28次、五凍結原稿を維持する。
+
 ## v63 AZ / 2026-11-04: 四変数socle帰着と非平方欠損集合の有限性
 
 直前 main `0971289599a265ae3c6669f4e22e5139b1d24871` は通常push済み。

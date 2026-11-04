@@ -1,0 +1,5 @@
+#include <flint/fmpq.h>
+#include <flint/fmpq_mpoly.h>
+#include <cassert>
+#include <iostream>
+int main(){fmpq_mpoly_ctx_t c;fmpq_mpoly_ctx_init(c,3,ORD_LEX);fmpq_mpoly_t raw,canonical,diff;fmpq_mpoly_init(raw,c);fmpq_mpoly_init(canonical,c);fmpq_mpoly_init(diff,c);fmpq_t two;fmpq_init(two);fmpq_set_si(two,2,1);ulong ex[3]={0,0,0};fmpq_mpoly_push_term_fmpq_ui(raw,two,ex,c);ex[0]=1;fmpq_mpoly_push_term_fmpq_ui(raw,two,ex,c);fmpq_mpoly_sort_terms(raw,c);fmpq_mpoly_set(canonical,raw,c);fmpq_mpoly_combine_like_terms(canonical,c);fmpq_mpoly_sub(diff,raw,canonical,c);std::cout<<"raw_canonical="<<fmpq_mpoly_is_canonical(raw,c)<<" canonical_canonical="<<fmpq_mpoly_is_canonical(canonical,c)<<" equal_before="<<fmpq_mpoly_equal(raw,canonical,c)<<" difference_zero="<<fmpq_mpoly_is_zero(diff,c)<<'\n';assert(!fmpq_mpoly_is_canonical(raw,c)&&fmpq_mpoly_is_zero(diff,c));fmpq_mpoly_combine_like_terms(raw,c);assert(fmpq_mpoly_equal(raw,canonical,c));std::cout<<"combine_repair_exact_equal=1\n";fmpq_clear(two);fmpq_mpoly_clear(raw,c);fmpq_mpoly_clear(canonical,c);fmpq_mpoly_clear(diff,c);fmpq_mpoly_ctx_clear(c);flint_cleanup();}
