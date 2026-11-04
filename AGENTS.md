@@ -2,6 +2,21 @@
 
 Version: v63-s61 · 2026-11-04 (Asia/Tokyo).
 
+Latest BI (2026-11-04): WHOLE permittedP100 actualquarticPOINTWISE150 proved.
+Fiveactual9minor ideal(H15); offH15 pure9, onALLH15 FULL239 by7field98minors.
+All319source/QQden/inverses/selectedmatrices/fixedpivots independentlyaudited;
+finiteintegralCRT/Nakayama => char0H15 FULL239. NOTwholecurve239/fixed150minor.
+ActualT116x936 COMPLETE source768/Euleroperator independentlyreviewed, no348scalar.
+Allmixedpositive nilproductsZERO; fullnil²/³ degree0, nil³ finiteorigintorsK.
+Tlen8=>fullnilindexEXACT3, butunconditionalcubezero/depth remainsOPEN.
+CriticalCA wholefiber1ramifiedlen2/CB1smooth => THIRDdistinctembeddedclosure,
+cone20/projective19, NOTnewPoissoncomponent orfullAsslist.
+ActualX0rank27 +first640X1 primarysaved; native128X1 derivativegate active.
+NexttinyQQmuTtest usesconstantcancel: muT=89-rankw0; >8=>depth19, otherwiseinconclusive.
+Structuredpath/hash+codehashsourceclosure added; immutableproducerbytes recovered.
+OriginalD0depth/fullDnil/fullFULLU57/239/exhaustion/globalupperOPEN.
+Bounds58/r4lower52/uppernull,G28exact28DONE; ordinarypush/checkpoint thencontinue.
+
 Latest BH (2026-11-04): actualCAcriticalV1 FULLcontact independent source+algebra accepted.
 FullD=G20[[l7,v,x]]/x(l7,x,v^2), nil free2 squarezero, embeddedprimarylen4.
 ActualE=(lt,t^2-vt,t^3), x->t^2, K=xv length1,C=t length1: kappa1 SOLVED.

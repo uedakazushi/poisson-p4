@@ -1,0 +1,58 @@
+{
+  "all768_actual_source_columns_reconstructed": true,
+  "source_shape": [
+    56,
+    768
+  ],
+  "source_640_sign": "[B48;P8] for V=[Q48,-U8]",
+  "source_128_actual_native_transpose": "Res4(N^t)*Res4(S12_by32), zero8",
+  "P0_cancellation": "U(1)=1; constant row of UP=QB eliminates P0 without changing the other56 source entries",
+  "unit_center_inverse_products": 1152,
+  "unit_determinant_from_accepted_fixed_source": "-397267578125/50096498540544",
+  "column_change": "(old_S,old_J)->(M old_S+N old_J,old_J), inverse=(M^-1(a-Nb),b)",
+  "kernel_after_unit_change": "im(d2) direct_sum Rbar^32",
+  "all84_d2_and168_d3_columns_independently_rebuilt": [
+    84,
+    168
+  ],
+  "all70017_relation_entries_and74176_nodes_bound": true,
+  "operator_tag_counts": {
+    "zero_function": 1,
+    "actual_C0_scalar_function_restrict_ell0": 723,
+    "actual_chain_scalar_function_restrict_ell0": 1239,
+    "actual_Res4_SyzQ_scalar_entry_restrict_ell0": 6144,
+    "formal_Euler_Koszul_template24_to84": 1,
+    "actual_literal_Rbar_polynomial": 20,
+    "actual_matrix_product_column": 768,
+    "apply_formal_Euler_Koszul_template": 768,
+    "Euler_lift_component": 64512
+  },
+  "universal_homogeneous_contraction_proof": {
+    "first7_formal_degree_numerator": {
+      "d*vj": 1,
+      "vj": 1,
+      "r^n*partial_j_v8": 1
+    },
+    "first7_denominator": "d+1",
+    "first7_cancelled_numerator": {
+      "(d+1)*vj": 1
+    },
+    "last_component_numerator_and_denominator": [
+      "k*v8",
+      "k"
+    ],
+    "d_ge_0_k_ge_1": true,
+    "v8_u_degree_zero_vanishes_by_r_power_in_domain": true,
+    "proof_not_deduced_from_fixtures": true
+  },
+  "independent_coefficient_scatter_fixtures": 1512,
+  "source_shift_applied_before_differentiation": "u=z+c r\u00b2 on CB, u=z elsewhere; r fixed",
+  "formal_continuity": "partial lowers order at most1; Euler inverse only rescales nonzero homogeneous degrees; adapted shifts are continuous triangular automorphisms",
+  "all_degrees_exactness": "d2 Euler(cycle)=cycle; kernel(d2)=im(d3) by the three regular Koszul sequences",
+  "presentation_exactness": "Rbar^84+Rbar^32 surjects ker(V); its kernel is im(d3)+0. Preimages of each of768 X columns plus this kernel generate the complete inverse image of im(X).",
+  "nonlinear_contraction_not_used_as_Rbar_linear_map": true,
+  "matrix_formed_by768_selected_preimages_then_Rbar_linear_extension": true,
+  "original_formal_functions_not_reduced_I_squared_first": true,
+  "integer_Euler_inverses_only": true,
+  "no_coefficient_evaluation_minimality_length_K_torsion_depth_claim": true
+}

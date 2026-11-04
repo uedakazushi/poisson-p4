@@ -1,5 +1,19 @@
 # 次の課題 — v63-s61 / 2026-11-03
 
+## v63 BI / 2026-11-04: 全P100 quartic150、有限候補239、全T表示と第三embedded閉包
+
+直前 main `3f2d8bc75ef66278bac806a9e14bafd8cf3ce0f4` は通常push済み。
+
+P100の全許可曲線で元quartic rank150以上を証明した。五つの実9minorの正確な共通idealは(H15)で、その外では既証141blockとpure九方向が成立する。H15上では全319源を保持し、既存32003の全七剰余体で実pure98全階数を固定minorにより確認した。元source、全21329分母逆積、七つの選択98行と固定pivotsを独立実装で検証し、有限自由模型・CRT・Nakayamaで標数零の全H15上の元rank239へ上げた。従って全曲線のI150は単位idealとなる。全曲線の239や固定150 minorとは区別する。G68*Wを加えた六minor共通idealの正確な二次式と、不成功・修正履歴も保存した。
+
+特殊比較Tは全768 source cycleを保持する116生成936関係の完全表示となった。三sectorの元形式函数に正しいEuler contractionを施し、全次数exactness、全70017参照、168 literal d3とsource routingを独立監査した。係数を348商へ落としてから微分していない。次の定数・一次係数制限と、小さい最小生成数・長さの判定を進める。T長と元B18深さはまだ未決である。
+
+全実交叉のnil二乗・三乗は零weight部分だけにあり、すべての混合正次数nil積が零であると証明した。nil三乗は元比較核の有限長原点torsionの部分になる。T長八ならnil指数は正確に三であるが、三乗の零性を無条件には主張しない。元の深さと全nilの残る障害を同じ有限原点moduleへ局在化した。
+
+critical CA軌道の全proper fiberを一つのramified長二、CB側を一つのsmooth点と確定し、局所Ann(xv)を実軌道idealとしてassociated閉包へ降ろした。Pa・Qbの全fiber型と異なるため、実交叉には相異なる第三のembedded閉包がある。各cone次元20・射影次元19であり、新しいPoisson既約成分ではない。
+
+保存監査はstructured path/sha256と記録済みcode hashも追跡するように拡張した。既存報告と同じbyteのproducer sourceを回収し、以前の失敗履歴は宣言済みarchive内memberのhashまで確認した。五凍結原稿は変更しない。全FULLU cubic57・quartic239、一般beta尽くし・全分類上界は継続し、下界58、rank4下界52、NEW既約式28次を維持する。
+
 ## v63 BH / 2026-11-04: critical接触核長一、比較核rank四と原点深さの長さ判定
 
 直前 main `27dbae2ca3965596cc091e0559d0a38570d07898` は通常push済み。
