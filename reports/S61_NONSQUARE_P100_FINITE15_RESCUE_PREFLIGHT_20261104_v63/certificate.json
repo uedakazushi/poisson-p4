@@ -1,0 +1,141 @@
+{
+  "finite_algebra": {
+    "QQ": "QQ[z]/(Hmonic15)",
+    "integral": "V[z]/H,V=Z_(32003)",
+    "dimension": 15,
+    "monic_H_external_ref": {
+      "path": "reports/S61_NONSQUARE_P100_NEXT9_QQ_GCD_20261104_v63/native.json",
+      "sha256": "161888f3ad31a27f72e492ec7454c336c99f27817730588feea59693166580ed",
+      "json_pointer": "/exact_gcd_monic"
+    },
+    "H_coefficients_32003_integral": true,
+    "not_assumed_field_or_reduced": true
+  },
+  "single_fixed_border": {
+    "old8cover_basis_index": 9,
+    "nine_source_rows_in_order": [
+      9,
+      2,
+      3,
+      5,
+      7,
+      6,
+      1,
+      4,
+      11
+    ],
+    "known_unit_LCD_powers5": [
+      [
+        8,
+        11,
+        1,
+        0,
+        0
+      ],
+      [
+        8,
+        16,
+        2,
+        0,
+        0
+      ],
+      [
+        9,
+        16,
+        1,
+        0,
+        0
+      ],
+      [
+        8,
+        10,
+        1,
+        0,
+        0
+      ],
+      [
+        9,
+        16,
+        1,
+        0,
+        0
+      ],
+      [
+        8,
+        16,
+        2,
+        0,
+        0
+      ],
+      [
+        8,
+        14,
+        1,
+        0,
+        0
+      ],
+      [
+        8,
+        12,
+        1,
+        0,
+        0
+      ],
+      [
+        8,
+        6,
+        0,
+        0,
+        0
+      ]
+    ],
+    "nine_oldlocal98_target_columns": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      9,
+      28
+    ],
+    "additional_target_local98": 28,
+    "additional_target_original122": 33,
+    "additional_parent239": 122,
+    "additional_joint_monomial": [
+      0,
+      1,
+      1,
+      0,
+      2,
+      0,
+      0,
+      0
+    ]
+  },
+  "cost": {
+    "support_scan_only_no_minor_values": true,
+    "RF_input_terms": 1043,
+    "cleared_entry_polynomial_terms_upper": 1500,
+    "determinant_degree_upper": 214,
+    "determinant_terms_upper": 215,
+    "raw_det_JSON_bytes_upper": 156735,
+    "all_selected_input_QQ_denominators_32003_units": true,
+    "future_polynomial_remainder_degree_bound": 14
+  },
+  "safe_next_recipe": [
+    "ClearrowLCDsusingonlythe5knowncurvefactors. ComputeONEfixed9detN globallyoverQQ[z]withBareissexactdivision, notinfinitequotientring.",
+    "ReduceNmodthemonicH bypolynomialdivision. ThisinvertsnoDi,nofinite-ringmatrixpivot,nounknownfactor.",
+    "CheckallnewQQdenominators32003-units; thencomputeoldprimegcd/BezoutofHbarandtheENTIREresidueNbar.",
+    "Ifunit, M=V[z]/(H,N) isfiniteoverVandM/pM=0,soNakayamaM=0. Char0chosenexceptiondisappears; withold5minorcoveroffH thisproveswholeP100quartic>=150."
+  ],
+  "important_conditions": [
+    "NoassumptionthatanyoldDiisunitmodH. Thefullknown8coverisretainedandonlyitsweightedselectorisused.",
+    "DoNOTdiscardanyspecialfiberpointwhereacurveunitreduceszero; positiveunitgatemustholdontheENTIREfiniteSbar,includingnilpotents.",
+    "NoLCconditiononnewNisneededforthefiniteNakayamagate; monicHanchorsfiniteness. Allcoefficientsmustremainp-integral.",
+    "Hhasnoexcludedchar0linearfactorbecauseitdividesfullyunit-strippedoldprimitiveinputs; originalrowLCDsarethereforeunitsonS_Q."
+  ],
+  "if_nonunit": "Inconclusive; no actualrankfailure, alternativeprime, nextcolumn/sourceoradditionalborder isautomatic.",
+  "no_determinant_remainder_finite_unit_rank_or_source_query_executed": true
+}

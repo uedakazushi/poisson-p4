@@ -8,6 +8,20 @@ v62保存は `e187b40de68bce534391f406f616940cddd045a7`、
 `66a80ab53dfcf0ff842c67140320d8da0226039d`。全て通常push済み。
 このv63保存のSHAはGit履歴で識別する。
 
+## v63 BH / 2026-11-04: critical接触核長一、比較核rank四と原点深さの長さ判定
+
+直前 main `27dbae2ca3965596cc091e0559d0a38570d07898` は通常push済み。
+
+CA critical V1の全実接触を決定した。N適合fold、CB even射影の単位性、三つの小混合source係数を独立監査すると、接触係数と全ambient graphの一次係数が零となる。全81 intrinsic式と全追加graphを残した全次数idealはx*(l7,x,v二乗)。nil moduleはG20自由二・二乗零、embedded primary長四である。実正規化base changeのmap x→t二乗を直接計算し、kernelはxvの長一、cokernelはtの長一と証明した。接空間の情報だけからの推測ではない。
+
+全weight比較のconductor積零化と、全正次数w-torsion零、同じphysical底のdegree零図を合わせ、比較核のDVR一般rankをcritical一・Pa一・Qb二の合計四と確定した。特殊比較Tに対する正確な完全列から、mu_D K=length(T)-4、torsion最小生成数=length(T)-8となる。原点cone深さ20とlength(T)=8は同値、それより長ければ深さ19である。length(T)自体はまだ計算していない。
+
+実Cbarは三つのliteral cyclic sectorの直和で、それぞれ長さ3,3,2。元targetを保つ全3072成分の極小Koszul解像度を独立検証した。実full比較56列のcanonical cofactor中心はrank24、固定minorは非零で、全次数の単位sectionを型付きoperatorとして構成した。旧正則r/gや未知高次tailを勝手に特殊化していない。次は完全Xのcycle持上げと、X0/X1を使う小さい最小生成数判定を進める。
+
+P100では既証の全曲線八target全射を明示det一変換へ戻し、同じcokernelの冗長334対90表示を独立監査した。全319 sourceと十五residualを保持し、pure90のscalar評価や全239とは区別する。五つの追加9minorの正確な共通十五次因子、その上の一つの不成功border、G68*Wの一行、mod32003因子inventoryと新source preflightも、成立範囲と未検証部分を明記して保存する。
+
+全FULLU cubic57・quartic239、一般beta尽くし・全分類上界、元B18深さと全nilは引き続き研究する。下界58、rank4下界52、NEW既約式28次、五凍結原稿を維持する。
+
 ## v63 BG / 2026-11-04: 全P100 quartic149、比較rank四と348有限base
 
 直前 main `2b446cebb567b378eee4bc4e735cc955597dad52` は通常push済み。

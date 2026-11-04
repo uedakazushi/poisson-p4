@@ -1,6 +1,6 @@
 # 研究継続方針：複素射影4空間の Poisson 構造
 
-P100全許可曲線でquartic rank149以上を証明した。B18比較cokernelはDVR rank4・閉fiber8、torsion最小生成数4。全640列の比較chain liftと348次元有限baseを確定し、元D0深さの判定を続ける。正規化E4のnilradical指数3は解決済み。全239・一般fiber尽くし・全分類は未決。下界58（rank4は52）、NEW既約式28次。
+CA critical枝の全接触と比較核長1を独立証明し、B18比較核のDVR一般rank4を確定した。原点深さ20は特殊比較T長8と同値で、長さの実計算を継続中。実Cbarの全極小解像度と比較単位section、全P100のpure90表示を保存した。全239・一般fiber尽くし・全分類は未決。下界58（rank4は52）、NEW既約式28次。
 
 新25成分の全Poisson一般横断長さは正確に5。n111の全完成環 C[[s25,u,v]]/(uv,u³,v³) とCM type2を証明・独立監査し、[14ページの独立原稿](papers/positive_weight6_component_ja.pdf)に保存した。全52 rank4成分のdense S61写像が揃った。新一次像は15次元・方程式次数22以上だが実方程式、全境界、全分類は未解決。以下は以前の記録を含む。
 

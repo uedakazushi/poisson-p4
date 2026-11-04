@@ -23477,6 +23477,229 @@
         "既存V1とそのG軌道での相対接空間の結果であり、B18原点の接次元ではない。",
         "接次元29だけでは高次ideal、critical branchのK一般長さkappa、元D0の深さは決まらない。"
       ]
+    },
+    {
+      "id": "AMBIENT_B18_CBAR_LITERAL_THREE_CYCLIC_SECTORS_AND_RESOLUTION",
+      "title_ja": "実C閉fiberの三cyclic sectorと全極小自由分解",
+      "statement_ja": "実CA-F9座標でCbarの三target tauA,tauB,tauAtauBがそれぞれRbar/(z7,r三乗)、Rbar/(z7+c r二乗,r三乗)、Rbar/(z7,r二乗)を生成する。保存済み八作用表との全成分一致と実target持上げを独立確認した。三regular sequenceのKoszul直和の全3072非零成分を保存し、全chain積・augmentation・三角座標変換から全次数exactnessと極小性を証明した。Betti数は3*C(8,i)。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independently_reviewed_certificates_and_explicit_dependency_composition_2026_11_04",
+        "certificates": "reproduced_2026_11_04_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "AMBIENT_B18_ACTUAL_COMPARISON_C_SPECIAL_FIBER_DIMENSION8",
+          "AMBIENT_B18_CBAR_MINIMAL_BETTI_AND_LOEWY_STRUCTURE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_B18_CBAR_LITERAL_RESOLUTION_20261104_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_B18_CBAR_LITERAL_RESOLUTION_20261104_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_B18_CBAR_LITERAL_RESOLUTION_20261104_v63/report.json",
+        "reports/AMBIENT_B18_CBAR_LITERAL_RESOLUTION_20261104_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "閉module Cbarだけの実分解で、元CのDVR直和分解を主張しない。",
+        "Kのtorsion・元D0深さは未計算。"
+      ]
+    },
+    {
+      "id": "AMBIENT_B18_SPECIALIZED_COMPARISON_EXACT_T_SEQUENCE",
+      "title_ja": "特殊比較Tの正確な完全列とK最小生成数への帰着",
+      "statement_ja": "同じphysical R0上のV=(Qred,-U)、X=(Bred,P)と完全SyzQを使う。J=imVは自由moduleの部分なのでell正則であり、二つの完全列のtensorとcokernel右完全性から0→K/ellK→T→C[ell]→0、T=kerVbar/imXbarを得た。既証C閉fiber八・DVR rank四からC[ell]次元四、従ってmu_D K=length(T)-4である。conductor積Iが両端を零化するためTはI二乗で零化される。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independently_reviewed_certificates_and_explicit_dependency_composition_2026_11_04",
+        "certificates": "reproduced_2026_11_04_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "AMBIENT_B18_ACTUAL_NORMALIZER_CHAIN_LIFT_UP_EQ_QB640",
+          "AMBIENT_B18_ACTUAL_COMPLETE_Q_SYZYGY_RES4_OPERATOR",
+          "AMBIENT_B18_COMPARISON_C_GENERIC_DVR_RANK4_AND_TORSION_GENERATORS4",
+          "AMBIENT_B18_CONDUCTOR_PRODUCT_SQUARE_CLOSED_BASE348"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_B18_SPECIALIZED_COMPARISON_T_PREFLIGHT_20261104_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_B18_SPECIALIZED_COMPARISON_T_PREFLIGHT_20261104_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_B18_SPECIALIZED_COMPARISON_T_PREFLIGHT_20261104_v63/report.json",
+        "reports/AMBIENT_B18_SPECIALIZED_COMPARISON_T_PREFLIGHT_20261104_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "実Tの長さはまだ計算していない。naiveなH20上の特殊化kernelをK/ellKと同一視しない。",
+        "有限base長348をT長としない。"
+      ]
+    },
+    {
+      "id": "AMBIENT_B18_FULLV56_UNIT_COMPARISON_SECTION",
+      "title_ja": "実full比較五十六列の単位section",
+      "statement_ja": "保存actual Artin20関数と二つのcurve mapの全800積を用い、実V三対五十六のcanonical cofactor mの中心を独立計算した。二十四行のrankは24で、固定minorは-397267578125/50096498540544。actual gAの三次係数125/24だけを中心抽出に使い、未計算四次tailを零としない。全次数Hadamardと正則r冪除法を型付き元関数に施してd1m=Vを定義し、単位部分Mによりn=ES M逆、mn=I、Vn=d1を得た。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independently_reviewed_certificates_and_explicit_dependency_composition_2026_11_04",
+        "certificates": "reproduced_2026_11_04_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "AMBIENT_B18_CBAR_LITERAL_THREE_CYCLIC_SECTORS_AND_RESOLUTION",
+          "AMBIENT_B18_ACTUAL_NORMALIZER_CHAIN_LIFT_UP_EQ_QB640"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_B18_FULLV56_COMPARISON_UNIT_20261104_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_B18_FULLV56_COMPARISON_UNIT_20261104_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_B18_FULLV56_COMPARISON_UNIT_20261104_v63/report.json",
+        "reports/AMBIENT_B18_FULLV56_COMPARISON_UNIT_20261104_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "係数の全Taylor展開や348baseへの評価は実行していない。旧r/gの正則元を保持し非単位逆元を新設しない。",
+        "完全X768のcycle持上げを行えばT116生成936関係、proper零十六消去後100/920となるが、このpacketはcycle係数を構成していない。"
+      ]
+    },
+    {
+      "id": "S61_NONSQUARE_P100_GLOBAL_TYPED_PURE90_SAME_COKERNEL",
+      "title_ja": "全P100で八targetをsplitしたpure九十表示",
+      "statement_ja": "既証五minor Bezoutの元多項式と全曲線単位だけを外部参照し、実十五対九十八行列M=[A,B]のK A=I八を有限operatorとして構成した。明示det一target変換によりKM=[I八,0]となり、全十五のresidual source R=(I-AK)Bを残す。実Gamma319のjoint先行変換・元delta補正・Lの転置・NFと全三十三quartic tailを保持し、同じcokernelの冗長334対90表示を独立検証した。新たなscalar多項式係数は零項。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independently_reviewed_certificates_and_explicit_dependency_composition_2026_11_04",
+        "certificates": "reproduced_2026_11_04_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_NONSQUARE_P100_WHOLE_CURVE_QUARTIC149"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_NONSQUARE_P100_PURE90_TYPED_SPLIT_20261104_v63.md"
+        },
+        {
+          "path": "research/notes/S61_NONSQUARE_P100_PURE90_TYPED_SPLIT_20261104_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_NONSQUARE_P100_PURE90_TYPED_SPLIT_20261104_v63/report.json",
+        "reports/S61_NONSQUARE_P100_PURE90_TYPED_SPLIT_20261104_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "pure90成分・rank・全239を評価したものではない。residual十五sourceのkernelが自由七と仮定しない。",
+        "P100全許可曲線の結果で、全FULLUへの一様延長ではない。"
+      ]
+    },
+    {
+      "id": "AMBIENT_CA_CRITICAL_V1_FULL_ACTUAL_CONTACT_AND_KERNEL_LENGTH1",
+      "title_ja": "CA critical V1の全実交叉環と比較核長一",
+      "statement_ja": "実N適合foldと同じ150物理係数のCA/CB方向を束縛した。保存sourceだけの三つの小さい混合係数から接触vectorを構成し、cv=0と全ambient graphの一次接触零を独立確認した。実G20軌道productとCB正則even射影を使い、全81 intrinsic式と追加graphを保持してidealをx*(l7,x,v二乗)と全次数同定した。nil moduleはG20自由二・二乗零、embedded primary長四。正規化base changeはG20[[l7,v,t]]/(l7*t,t二乗-v*t,t三乗)、x→t二乗であり、実kernelはG20*xv、cokernelはG20*t、各長一となる。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independently_reviewed_certificates_and_explicit_dependency_composition_2026_11_04",
+        "certificates": "reproduced_2026_11_04_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "AMBIENT_CA_GENERIC_V_FULL_ACTUAL_COMPLETION",
+          "AMBIENT_CA_CRITICAL_V1_ACTUAL_INTERSECTION_TANGENT29"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_CA_CRITICAL_V1_CONTACT_VECTOR_20261104_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_CA_CRITICAL_V1_CONTACT_20261104_v63_REVIEW.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_CA_CRITICAL_V1_CONTACT_ALGEBRA_20261104_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_CA_CRITICAL_V1_CONTACT_VECTOR_20261104_v63/report.json",
+        "reports/AMBIENT_CA_CRITICAL_V1_CONTACT_20261104_v63_REVIEW/report.json",
+        "reports/AMBIENT_CA_CRITICAL_V1_CONTACT_ALGEBRA_20261104_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "元B18原点の深さ・socleをこの一般critical点の結果と同一視しない。",
+        "独立source監査と全次数idealの独立代数監査を合わせた結論で、接空間次元からkappaを推測していない。"
+      ]
+    },
+    {
+      "id": "AMBIENT_B18_COMPARISON_K_GENERIC_DVR_RANK4_AND_DEPTH_LENGTH_CRITERION",
+      "title_ja": "実比較核のDVR一般rank四と原点深さの長さ判定",
+      "statement_ja": "全比較kernelは同じphysical底のconductor積IAIBで零化される。一般conductor上で反対側I0と同側J0が単位なのでwがkernelを殺す。既証の全正次数w-torsion零と非負grading、完全な零次数比較図から、一般kernel長を実D0→E4のkernelへ正確に輸送した。critical CAの一、Paの一、Qbの二、CA外CB criticalの零を合計しrank_D K=4と得る。特殊比較のL=length(T)に対しmu_D K=L-4、torsion最小生成数L-8。H0(D0)=H0(K)と既存深さ二択から、元P0のcone深さはL=8なら20、L>8なら19となる。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independently_reviewed_certificates_and_explicit_dependency_composition_2026_11_04",
+        "certificates": "reproduced_2026_11_04_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "AMBIENT_CA_CRITICAL_V1_FULL_ACTUAL_CONTACT_AND_KERNEL_LENGTH1",
+          "AMBIENT_B18_SPECIALIZED_COMPARISON_EXACT_T_SEQUENCE",
+          "AMBIENT_B18_ACTUAL_T1_T2_ZERO_AND_W_ANNIHILATION",
+          "AMBIENT_B18_ACTUAL_TOP_T3_ZERO_AND_DEGREE3_SATURATION",
+          "AMBIENT_PA_ALL_NONZERO_WHOLE_CA_CB_N_FLAGS",
+          "AMBIENT_QB_ACTUAL_D_FULL_RING_AND_SECOND_EMBEDDED_COMPONENT"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_B18_CRITICAL_CONTACT_AND_COMPARISON_RANK4_20261104_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_CA_CRITICAL_V1_CONTACT_20261104_v63_REVIEW.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_CA_CRITICAL_V1_CONTACT_ALGEBRA_20261104_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_B18_CRITICAL_CONTACT_AND_COMPARISON_RANK4_20261104_v63/report.json",
+        "reports/AMBIENT_CA_CRITICAL_V1_CONTACT_20261104_v63_REVIEW/report.json",
+        "reports/AMBIENT_CA_CRITICAL_V1_CONTACT_ALGEBRA_20261104_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "Lは未計算で、元D0深さ十九対二十はこのcheckpointでは未決。",
+        "w零化だけからdegree零を推測せず、全正次数torsion零の証明を用いた。D0→D4のkernelとD0→E4のkernelを同一視しない。"
+      ]
     }
   ],
   "setup_checkpoint": "v25-setup",

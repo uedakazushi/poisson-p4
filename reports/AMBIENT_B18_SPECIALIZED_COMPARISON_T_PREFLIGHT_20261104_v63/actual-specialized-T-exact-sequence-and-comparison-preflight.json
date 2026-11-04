@@ -1,0 +1,189 @@
+{
+  "rings": {
+    "D": "QQ[[ell]]",
+    "R": "actual regular R0",
+    "Rbar": "R/(ell)=QQ[[zA0,...,zA6,rA]]",
+    "I": "image(IA*IB) in Rbar"
+  },
+  "source_low_complex": {
+    "V_shape": [
+      3,
+      40
+    ],
+    "X_shape": [
+      40,
+      752
+    ],
+    "construction": "apply accepted actual C-valued12->regular8 plus zero4 unit source adapter to Q48 and B48; discard16 zero source columns and use complete112 Koszul syzygies; form (Q_reduced,-U), then cancel its actual unit1 source/target pair",
+    "sign": "V before target cancellation=(Q_reduced,-U); X includes (B_reduced,P) and (SyzQ_reduced,0)",
+    "source_P": [
+      9,
+      640
+    ],
+    "source_B": [
+      48,
+      640
+    ],
+    "Q_reduced": [
+      4,
+      32
+    ],
+    "SyzQ_reduced": [
+      32,
+      112
+    ],
+    "actual_X752_and_V40_scalar_matrices_serialized_here": false
+  },
+  "definitions": {
+    "J": "im(V)",
+    "L": "ker(V)",
+    "K": "L/im(X)",
+    "C": "coker(V)",
+    "T": "ker(V mod ell)/im(X mod ell)"
+  },
+  "exact_specialization": {
+    "J_ell_torsionfree": "J is a submodule of the free R^3, so multiplication by ell is injective",
+    "first": "0 -> L/ellL -> ker(Vbar) -> C[ell] -> 0",
+    "second": "0 -> K/ellK -> T -> C[ell] -> 0",
+    "quotient_proof": "im(Xbar) is the image of the actual specialized columns inside L/ellL; right-exact cokernel specialization gives (L/ellL)/im(Xbar)=K/ellK",
+    "no_naive_specialized_kernel_equals_Kbar": true
+  },
+  "actual_Cbar_presentation": {
+    "targets": [
+      "tauA",
+      "tauB",
+      "tauA*tauB"
+    ],
+    "Cbar_basis_lifts": [
+      [
+        "e0",
+        "r*e0",
+        "r2*e0"
+      ],
+      [
+        "e1",
+        "r*e1",
+        "r2*e1"
+      ],
+      [
+        "e2",
+        "r*e2"
+      ]
+    ],
+    "actual_minimal_resolution_ranks": [
+      3,
+      24,
+      84,
+      168,
+      210,
+      168,
+      84,
+      24,
+      3
+    ],
+    "differentials": "three actual triangular regular-sequence Koszul complexes; literal source-bound3072 polynomial entries saved in the companion",
+    "generic_DVR_resolution_needed": false
+  },
+  "complete_kernel_adapter": {
+    "m_shape": [
+      24,
+      40
+    ],
+    "n_shape": [
+      40,
+      24
+    ],
+    "h_shape": [
+      84,
+      24
+    ],
+    "required_actual_identities": [
+      "d1*m=Vbar",
+      "Vbar*n=d1",
+      "d2*h=I24-m*n"
+    ],
+    "Lspecial_generators": "S=[n*d2, I40-n*m]",
+    "S_shape": [
+      40,
+      124
+    ],
+    "complete_relation_matrix": "[(d3,0),(-h,n)]",
+    "relation_shape": [
+      124,
+      192
+    ],
+    "completeness_proof": "if S(w,x)=0, y=m*x-d2*w satisfies x=n*y and d2*(w+h*y)=0; use ker(d2)=im(d3)",
+    "lift_each_known_X_cycle": "for v=Xbar_j choose w with d2*w=m*v, then S(w,v)=v",
+    "T_cokernel_shape": [
+      124,
+      944
+    ],
+    "complete_SyzP_required": false,
+    "actual_m_n_h_and752_cycle_lifts_constructed": false
+  },
+  "finite_support": {
+    "premise": "the actual normalization tensor comparison has (IA*IB)K=(IA*IB)C=0",
+    "I_annihilates_Kbar_and_C_ell": true,
+    "I_squared_annihilates_T": true,
+    "m5_subset_I": "accepted exactH20 has maximalideal fifthpower0",
+    "m10_T_zero": true,
+    "I_annihilates_T_claimed": false,
+    "H20_naive_kernel_replacement_permitted": false,
+    "correct_finite_base": "Rbar/I^2, not Rbar/I",
+    "ring348_optional_source": "AMBIENT_B18_CONDUCTOR_SQUARE_CLOSED348_20261104_v63; its separate source/peer gate must be retained when using its concrete348actions"
+  },
+  "DVR_count": {
+    "mu_D_C": 8,
+    "generic_DVR_rank_C": 4,
+    "dimension_QQ_C_ell": 4,
+    "formula": "mu_D(K)=length_QQ(T)-4",
+    "why": "a finite DVR module of minimal generator count8 and rank4 has four torsion summands, and each contributes one dimension to C[ell]",
+    "C_torsion_total_length_computed": false,
+    "K_torsion_boolean": "nonzero iff mu_D(K)>rank_D(K); actual generic rankK still required",
+    "T_length_K_mu_K_rank_K_torsion_depth_computed": false
+  },
+  "remaining_finite_completion_gates": [
+    "serialize actual Vbar and Xbar through the already source-bound Q/B adapters",
+    "construct and verify actual comparison m,n,h and752 cycle lifts using the complete literalCbar resolution",
+    "restrict the honest complete T cokernel to actual Rbar/I^2; right-exactness is legal only after that presentation is complete",
+    "evaluate all coefficient function references by their actual regular restriction operators; never redivide old r/g after specialization",
+    "use adapted348 basis/cancellations and sparse operators before any large rational matrix",
+    "compare the resulting mu_D(K) with independently established rank_D(K) for a torsion/depth conclusion"
+  ],
+  "conservative_raw_348_counts": {
+    "QQ_generators": 43152,
+    "QQ_relation_columns": 328512,
+    "dense_matrix_authorized": false,
+    "full348_T_matrix_built": false
+  },
+  "source_hashes": {
+    "actual_chainlift": {
+      "path": "reports/AMBIENT_B18_NORMALIZER_CHAIN_LIFT_640_NEGATIVE_BOUNDARY_20261104_v63/report.json",
+      "sha256": "dbc64bb35c1d3708d90e45b5767c89ceb909e0b016165d753d9555a86e708df3"
+    },
+    "chainlift_peer": {
+      "path": "reports/AMBIENT_B18_NORMALIZER_CHAIN_LIFT_640_20261104_v63_REVIEW/report.json",
+      "sha256": "8638aee8f1f1a43e85e5083f5c8f4c7f08fd2302505b83aeeacf7d722f9392f2"
+    },
+    "complete_Q_peer": {
+      "path": "reports/AMBIENT_B18_COMPLETE_NORMALIZER_SYZYGY_OPERATOR_20261104_v63_REVIEW/report.json",
+      "sha256": "0c336db514a814df9e3a1b2709ac5c204ff2016017411a9a47d70f934b52bccd"
+    },
+    "literal_Cbar_resolution": {
+      "path": "reports/AMBIENT_B18_CBAR_LITERAL_RESOLUTION_20261104_v63/report.json",
+      "sha256": "8885adc6fb2cfeccef8fc1924616866c16e9f694288b8a596bc0f218e95aab77"
+    },
+    "actual_Cbar_peer": {
+      "path": "reports/AMBIENT_B18_RAW_COKERNEL_ARTIN20_EVALUATION_20261104_v63_REVIEW/report.json",
+      "sha256": "79dd7a7e8d5833a110a138b6625919e4cf83bdc0f184b8533a964eba5303a873"
+    },
+    "generic_C_rank_peer": {
+      "path": "reports/AMBIENT_B18_COMPARISON_C_GENERIC_DVR_RANK_20261104_v63_REVIEW/report.json",
+      "sha256": "22ce48012e3366120c1246a4b9276965eea2569a4f953478b32c7a79105d1496"
+    },
+    "conductor_H20_peer": {
+      "path": "reports/AMBIENT_B18_CONDUCTOR_PRODUCT_SPECIAL_FIBER20_20261104_v63_REVIEW/report.json",
+      "sha256": "271f7b246430f5db7cf3ac6033d0092ce834c5995a0bffbc0a7f039c01a03640"
+    }
+  }
+}

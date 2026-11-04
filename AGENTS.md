@@ -2,6 +2,20 @@
 
 Version: v63-s61 · 2026-11-04 (Asia/Tokyo).
 
+Latest BH (2026-11-04): actualCAcriticalV1 FULLcontact independent source+algebra accepted.
+FullD=G20[[l7,v,x]]/x(l7,x,v^2), nil free2 squarezero, embeddedprimarylen4.
+ActualE=(lt,t^2-vt,t^3), x->t^2, K=xv length1,C=t length1: kappa1 SOLVED.
+SAMEbase IAIB-ann+allpositiveTnZERO+exactdegree0transport => generic K_D rank4.
+mu_D K=lenT-4, torsionmu=lenT-8; ORIGINALdepth20 iff lenT8, >8=>19. TlengthOPEN.
+ActualCbar literal3cyclicsectors lengths3,3,2/full3072Koszulcomponents accepted.
+ActualfullV56 m0rank24/fixedminor nonzero, allorders typedunitsection mn=I,Vn=d1.
+CompleteactualX768 cyclelifts and smallX0/X1 lowerbound next; no348matrix evaluated.
+P100globalpure90 SAMECOKER334x90 typed accepted, no scalar90rank/full239.
+Next9minors exactcommonH15; ONEoldK2border residueZERO, newK7Wrow primary saved.
+H15bar factor degrees4,1,1,1,2,3,3 atold32003; directfinitefull239sourcepreflight only.
+OriginalD0depth/fullDnil/fullFULLU57/239/exhaustion/globalupperOPEN.
+Bounds58/r4lower52/uppernull,G28exact28DONE; ordinarypush/checkpoint thencontinue.
+
 Latest BG (2026-11-04): WHOLEpermittedP100 quarticPOINTWISE149 independentlyproved
 by5actualminors polynomialBezout→knownunitE; nofixed149minor/full239.
 ActualC_Dgenericrank4, C/ell8 ⇒FOURtorsionminimalgenerators, notlength/exponents/K.
