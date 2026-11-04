@@ -1,0 +1,98 @@
+{
+  "coefficient_base": "K0=QQ(R,Z0,Z1,Z2)",
+  "finite_field": "L=K0[r]/(monic G10)",
+  "G_source_terms": 891,
+  "C1_source_terms": [
+    10314,
+    10698
+  ],
+  "support_degree_order": [
+    "degree_r",
+    "max(exponent_R-exponent_Z0)",
+    "max(2*sum_Z_exponents)"
+  ],
+  "G_degrees": [
+    10,
+    0,
+    10
+  ],
+  "C1_constant_linear_degrees": [
+    [
+      31,
+      8,
+      10
+    ],
+    [
+      31,
+      8,
+      10
+    ]
+  ],
+  "small_homogenized_bounds": {
+    "N79": [
+      99,
+      27,
+      30
+    ],
+    "N41": [
+      67,
+      18,
+      20
+    ],
+    "Fn": [
+      67,
+      18,
+      20
+    ],
+    "J": [
+      32,
+      8,
+      10
+    ]
+  },
+  "homogenization": "H_d[f]=A_lin^d*f(r,-B_const/A_lin,R), s=-B_const/A_lin from the accepted primitive C1",
+  "balanced_U": "Z0*r*(r-1)^2*JH*N79H+25*Z0^2*FnH*N41H",
+  "balanced_V": "20*r*(r-1)^2*FnH*JH^2",
+  "U_degree_bounds": [
+    134,
+    34,
+    44
+  ],
+  "V_degree_bounds": [
+    134,
+    34,
+    40
+  ],
+  "formal_eta_weight_for_support": 3,
+  "eta_V_minus_U_bounds": [
+    134,
+    34,
+    44
+  ],
+  "finite_operator": "P(eta)=lc_r(G)^134 det_10(eta*M_V-M_U), multiplication in the monic G10 companion algebra",
+  "polynomialness": "The root-product formula identifies this with the fixed-degree(10,134) Sylvester determinant, including the lc(G) padding power if the second degree is smaller. No determinant is expanded here.",
+  "nonzero": "V is nonzero in the accepted degree10 field; the eta^10 coefficient is lc(G)^134 Norm(V)!=0. Primitivity additionally makes the degree10 norm minimal over K0 up to a base factor.",
+  "source_vanishing": "Actual eta=N12/F4^3=U/V in Kshape, hence P(eta) vanishes on actual NEW.",
+  "polynomial_support_bounds": {
+    "R_minus_Z0": 340,
+    "two_Z_sum_plus_three_eta": 1780
+  },
+  "target_substitution": {
+    "R": "(p3+4*p4)/p0",
+    "Z0": "p0/F4^2",
+    "Z1": "p1/F4^2",
+    "Z2": "p2/F4^2",
+    "eta": "N12/F4^3",
+    "p0": "F4^2/400-4*p4"
+  },
+  "explicit_target_polynomial": "H=p0^340*F4^1780*P((p3+4p4)/p0,p0/F4^2,p1/F4^2,p2/F4^2,N12/F4^3), then substitute p0=F4^2/400-4p4",
+  "clearing_proof": "Each P monomial R^a Z0^b Z1^c Z2^d eta^e has a-b<=340 and 2(b+c+d)+3e<=1780. Its substituted p0 exponent340+b-a and F4 exponent1780-2(b+c+d)-3e are nonnegative.",
+  "nonzero_universally": "The six selected low invariants are algebraically independent; the rational base change with F4,R,Z0,Z1,Z2,eta is invertible generically. Clearing by nonzero F4,p0 cannot turn P into zero.",
+  "homogeneous_beta_degree": 9840,
+  "minimal_NEW_defining_degree_upper": 9840,
+  "irreducible_factor_reason": "The actual geometric image is an irreducible hypersurface. Its homogeneous prime generator divides the nonzero invariant H.",
+  "not_minimal_equation": "H may have other ambient hypersurface factors because the low-six map is not finite/HSOP and has generic degree8. Base content and boundary factors need separate isolation.",
+  "finite_isolation_strategy": "Factor H over QQ and test each factor on the accepted dense actual rational source; exactly one irreducible factor vanishes on actual NEW. This is a finite recipe, not a factorization job.",
+  "ordered_genus_poles_not_used_to_force_degree": true,
+  "no_expanded_norm_resultant_products_newpoint_prime_or_equation_search": true
+}

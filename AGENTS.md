@@ -2,6 +2,23 @@
 
 Version: v63-s61 · 2026-11-04 (Asia/Tokyo).
 
+Latest AQ (2026-11-04): NEW ACTUAL REDUCED PRIMITIVE FIRSTJET B15
+IRREDUCIBLE DEFININGEQUATION EXACTDEGREE28 QQ/C SOLVED, notjustlowerbound.
+G28=-80000*F*(F²-120p1-80p2)*T+R75, T=tr(theta^7 H16),78terms,
+NOInv14used. Universal108basis complete; source26rank45/lower28; source28
+rank107; exact107QQkernel+ALL96453TRUEQQcofs independentlyreconstructedZERO.
+ActualdenseB15+lower28 givesirreducibleequation; NOTfullS61ideal/nil/invarring.
+STOPdegreechase; nextsmall6paramGENERICbeta transversev0sectionpreflight.
+ActualGLOBALFREE164→122 samecoker FULLU,117quadunitpivotsfirst,
+P57restoration/old15/NONQUADsurplusBnew22/sepdelete allreviewed.
+Knownuniformkernel38/missing42 unchanged; full122/full239/full57 OPEN.
+B18 HONESTD3/D4 free10/2070and2082relations,36Koszul retained,
+8pureCA57prefixsystems/792regularcoordinatequotients; oldr/gNEVERrestricted.
+T3isimage12, abstractrelationkernel/nonzero/depth19vs20/fullnil OPEN.
+RawLOW3andhonestLOW2negative-testsinconclusive; noautoblindjetraise.
+TailW1hasNminimaldim28+nilSUPPORTED21, notwholeregular21; exactbindingneeded.
+Bounds58/r4lower52/uppernull; actualresearch/ordinarymainpush continues.
+
 Latest AP (2026-11-04): ActualGLOBALFREE183→141 samecoker FULLU,
 ALL18overlap/33quartic retained. Fourcorrectedquad degree4IMAGErankEXACT103
 by5moreunitpivots/13zeros; knownuniformkernel38/missing42UNCHANGED.
