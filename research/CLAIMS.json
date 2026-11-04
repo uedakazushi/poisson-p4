@@ -66,6 +66,11 @@
         "Proposition2.8"
       ],
       "scope": "Smooth orthogonal elliptic quintics are Picard torsors; universal orthogonality is proved separately."
+    },
+    "HOCHSTER_ROBERTS_CM": {
+      "url": "https://doi.org/10.1016/0001-8708(74)90067-X",
+      "reference": "Hochster–Roberts (1974), Rings of invariants of reductive groups acting on regular rings are Cohen-Macaulay",
+      "scope": "Standard invariant-ring Cohen–Macaulay theorem in characteristic0; bibliography checked, no novelty claim."
     }
   },
   "verification_runs": [
@@ -20111,6 +20116,151 @@
       ],
       "limitations_ja": [
         "generic transcendental parameterの軌道商の結果。特殊u/v境界、全有限isotropy群、全Poissonスキームの被約性、NEW一次像の定義式は決定しない。二つの有理商生成元を得たことと全特殊軌道分類を区別する。"
+      ]
+    },
+    {
+      "id": "NEW25_GENERIC_FULL_PGL_STABILIZER_GA_TIMES_MU2",
+      "title_ja": "新成分の一般全PGL安定化群はGaとmu2の積",
+      "statement_ja": "二つのsigma行列の差と既知modular flowから非自明な有理involution Eを構成し、E²=IとEN=NEを全係数で確認した。内在的H・vertex・方向旗から一般affine変換とtensor scalarを全て保持して比較し、divergenceと全二次係数がa=±1の二場合だけを許すことを証明した。残る三未知係数の固定rank3線形系を解き、全150 homogeneous係数の独立検証により残る全族がGaとGa Eで尽くされる。従ってQQ(u,v)と幾何的一般点での全PGL安定化群はGa×mu2である。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_04",
+        "certificates": "reproduced_2026_11_04_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "NEW25_FULL_PGL_QUOTIENT_RATIONAL2_AND_EXACT_V4_IDENTIFICATIONS"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/Q_NEW_FAMILY_GENERIC_STABILIZER_20261104_v63.md"
+        },
+        {
+          "path": "research/notes/Q_NEW_FAMILY_GENERIC_STABILIZER_20261104_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/Q_NEW_FAMILY_GENERIC_STABILIZER_20261104_v63/report.json",
+        "reports/Q_NEW_FAMILY_GENERIC_STABILIZER_20261104_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "parameter間を同定するV4と同じtensorを保つGa×mu2は別の群。特殊parameterでの安定化群の跳びはこのgeneric証明に含めない。"
+      ]
+    },
+    {
+      "id": "W16_ACTUAL_UNIVERSAL_SPECTRAL_CURVE_GENUS3_AND_LOW6_INDEX8",
+      "title_ja": "実Sp4普遍spectral曲線の種数三と低六部分体への指数八",
+      "statement_ja": "actual pairのbeta±中心商とeffective torus sign商を既に数え終えたordered field Lに、位数八W(C2)が係数field Kprime上faithfulかつsemilinearに作用することを確認した。全ordered曲線の幾何的既約性からactual fullSp4不変体F=L^W。ArtinとGalois対応によりFKprime=L、regularityから同じ幾何的曲線が下降し、QQ/C両方で実generic spectral曲線の種数は三。次数tower64/8から[F:k(F4,p1,p2,p3,p4,N12)]=8を得た。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_04",
+        "certificates": "reproduced_2026_11_04_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "W16_ORDERED_RESIDUAL_CURVE_GEOMETRIC_GENUS3_AND_EXACT_M_DEGREE8",
+          "W16_TWO_ADJOINT_FOUR_RELATIONS_GENERIC_SIGN_RECOVERY",
+          "W16_TWO_ADJOINT_FINITE_GENERIC_SEVEN_COORDINATE_NORMAL_FORM"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/Q_FIRSTJET_UNIVERSAL_WEYL_DESCENT_20261104_v63.md"
+        },
+        {
+          "path": "research/notes/Q_FIRSTJET_UNIVERSAL_WEYL_DESCENT_20261104_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/Q_FIRSTJET_UNIVERSAL_WEYL_DESCENT_20261104_v63/report.json",
+        "reports/Q_FIRSTJET_UNIVERSAL_WEYL_DESCENT_20261104_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "係数を動かすWeyl下降であり、固定した幾何的曲線をさらにWeylで商して種数を下げない。reciprocal involutionは別物。regular環の有限性・生成、ambient純QQ有理性、NEW実方程式や別次数10/20/40は含めない。"
+      ]
+    },
+    {
+      "id": "W16_LOW6_DEGREE_TYPE_NOT_HSOP_AND_ORIGIN_FIBER_POSITIVE_DIMENSION",
+      "title_ja": "低六次数型のHSOP不存在と原点ファイバーの正次元性",
+      "statement_ja": "完全なWeyl文字計算のH14=3,H18=9,H22=21,H26=45等から、Hilbert級数に(1−t4)(1−t8)^4(1−t12)を掛けた二十六次係数が−3であることを別の整数convolutionで検証した。Hochster–RobertsのCM定理により同次数HSOPなら正則列・Artinian商のHilbert級数が非負であるはずなので矛盾する。従って次数型(4,8,8,8,8,12)のHSOPは存在せず、実low6写像はgenerically finiteだがfiniteでなく、商空間の原点fiberは正次元である。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_04",
+        "certificates": "reproduced_2026_11_04_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "W16_SPIN5_TWO_ADJOINT_COVARIANTS_AND_INV8_PENCIL",
+          "W16_ACTUAL_UNIVERSAL_SPECTRAL_CURVE_GENUS3_AND_LOW6_INDEX8"
+        ],
+        "external": [
+          "HOCHSTER_ROBERTS_CM"
+        ]
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/Q_FIRSTJET_LOW6_NON_HSOP_20261104_v63.md"
+        },
+        {
+          "path": "research/notes/Q_FIRSTJET_LOW6_NON_HSOP_20261104_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/Q_FIRSTJET_LOW6_NON_HSOP_20261104_v63/report.json",
+        "reports/Q_FIRSTJET_LOW6_NON_HSOP_20261104_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "原点はgeneric ordered xyDelta chartの外にある。非零pointの実構成は行っておらず、generic指数八を全域finiteと推定しない。NEWのdegree30をこの議論で証明も否定もせず、source26検査を行っていない。"
+      ]
+    },
+    {
+      "id": "S61_NONSQUARE_LFRAME_STRUCTURED_IDENTITY_GENERIC_CUBIC11_RANK10",
+      "title_ja": "L単位枠での全係数消去とcanonical cubic11一般階数十",
+      "statement_ja": "既知単位L_x1の座標変換とq1=L²,q3からのLx0を用いて九monomial pivotを厳密に除いた。全逆座標照合と317項のquad block、50085項のgenuine blockを独立検証した。別の固定操作実装が全215消去・240正確正規化と全snapshotを照合し、heavy消去後のG6が恒等零となることを確認した。既存の十次非零minor下界と合わせ、canonical cubic11の一般階数は正確に十である。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_04",
+        "certificates": "reproduced_2026_11_04_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_NONSQUARE_ELL_COLON_SMALL_QUARTIC_CRITERIA_AND_GENERIC10"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_NONSQUARE_ELL_LFRAME_PREFLIGHT_20261104_v63.md"
+        },
+        {
+          "path": "research/notes/S61_NONSQUARE_ELL_LFRAME_PREFLIGHT_20261104_v63_REVIEW.md"
+        },
+        {
+          "path": "research/notes/S61_NONSQUARE_ELL_LFRAME_BORDERS_20261104_v63.md"
+        },
+        {
+          "path": "research/notes/S61_NONSQUARE_ELL_LFRAME_BORDERS_20261104_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_NONSQUARE_ELL_LFRAME_PREFLIGHT_20261104_v63/report.json",
+        "reports/S61_NONSQUARE_ELL_LFRAME_PREFLIGHT_20261104_v63_REVIEW/report.json",
+        "reports/S61_NONSQUARE_ELL_LFRAME_BORDERS_20261104_v63/report.json",
+        "reports/S61_NONSQUARE_ELL_LFRAME_BORDERS_20261104_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "全点での下界十や全四次239全射は証明しない。pivot factorsは一般chart因子であり既知FULLU単位へ加えない。known uniform kernel37はこのpacketでは増やさない。元dense消去の60秒失敗は保存し、異なるmonomial前処理だけを成功として扱う。"
       ]
     }
   ],

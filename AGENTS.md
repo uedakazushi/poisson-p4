@@ -2,6 +2,19 @@
 
 Version: v63-s61 · 2026-11-04 (Asia/Tokyo).
 
+Latest AN (2026-11-04): NEW25 genericFULLPGLstabilizerEXACTGa x mu2,
+fullflag+scalarquadraticcaseexhaustion/all150coeff; NOTparameterV4/allspecialstrata.
+ACTUALFULLSp4universalspectralcurve QQ/C geoGENUS3, low6subfieldindexEXACT8;
+semilinearWeyldescentF=L^W,FKprime=L, noextrabeta±/gaugesign/reciprocalcollapse.
+Low6morphismNOTFINITE, quotientoriginfiberpositivedim; NOHSOPtype(4,8^4,12)
+byFULLHilbert26coefficient-3+HR-CM; noNEWdegree30proofORnegation/source26.
+NonSquareLunitframe9monomialpivots317termquad/50085genuine, ALL455opsreviewed:
+canonicalcubic11 genericrankEXACT10. Noallpointlower10/full239/uniform38yet;
+G6−G1compactgloballiftunderconstruction. Knownuniform37/missing43unchanged.
+NEW25reducedrational25/PGLrational2/V4remainproved;genericJacobilength5unchanged.
+Full239,B18fullnil-depth19..20,NEWdefinitiondegree>=26eq,genericbeta/exhaustionOPEN.
+Bounds58/r4lower52/uppernull; continueactualresearch/ordinarymainpush.
+
 Latest AM (2026-11-04): NEW25 ACTUALFULLPGLquotient pureQQ/C-rational2,
 EXACTgeneratorsu²,J=(v/u+16)²; globalall-evaluationr andintrinsicH/conicchord.
 Actualsigma(u,v)->(u,-32u-v) BOTHsignfull150coeffs verified; genericnormalform

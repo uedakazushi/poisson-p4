@@ -1,6 +1,6 @@
 # Poisson structures on projective four-space
 
-新二十五次元被約成分はQQ/C上で有理で、一般PGL商の明示二生成元とnormal formの正確なV4同定も得た。順序付き底上の普遍残余曲線は種数3・m次数8。全四次、NEW実方程式、B18全nil/depth、一般五点と全分類は未解決。総下界58（rank4は52）、総上界未定。
+新成分の一般全PGL安定化群はGa×mu2、実普遍Sp4 spectral曲線はQQ/C上で種数3・低六部分体への指数8と決定した。low6写像は全域finiteではない。非平方の一般cubic階数10も証明したが、全四次・B18全nil/depth・NEW実方程式・全分類は未解決。総下界58（rank4は52）、総上界未定。
 
 新25成分の全Poisson一般横断長さは正確に5。n111の全完成環 C[[s25,u,v]]/(uv,u³,v³) とCM type2を証明・独立監査し、[14ページの独立原稿](papers/positive_weight6_component_ja.pdf)に保存した。全52 rank4成分のdense S61写像が揃った。新一次像は15次元・方程式次数22以上だが実方程式、全境界、全分類は未解決。以下は以前の記録を含む。
 

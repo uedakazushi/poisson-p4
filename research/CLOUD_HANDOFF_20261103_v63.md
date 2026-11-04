@@ -8,6 +8,20 @@ v62保存は `e187b40de68bce534391f406f616940cddd045a7`、
 `66a80ab53dfcf0ff842c67140320d8da0226039d`。全て通常push済み。
 このv63保存のSHAはGit履歴で識別する。
 
+## v63 AN / 2026-11-04: 全一般安定化群・実普遍曲線種数三・low6非有限・一般cubic階数十
+
+直前 main `fccac559ed4f42265fdc4f9b1bbf4a04588c923d` は通常push済み。以下は過去時点を含む。
+
+新成分の一般全PGL安定化群をGa×mu2と決定した。二つの有限sigma変換からinvolution Eを作り、元の一般affine旗とtensor scalarを残す全係数比較により、全ての一般安定化群がGaとGa Eの二族で尽くされることを独立に確認した。parameter間のV4同定とは別の群である。特殊parameterの跳びは引き続き調べる。
+
+ordered曲線の種数三を実際の普遍Sp4 spectral曲線へ下降した。beta中心sign、torusのrelative sign、reciprocal involutionの三つを区別し、semilinear Weyl固定体とArtin定理を用いる。QQ/C両方で実generic曲線は幾何的種数三、低六不変量部分体への指数は正確に八である。これは係数baseの下降であり固定曲線の追加Weyl商ではない。
+
+このlow6写像は全域finiteではないことも証明した。完全文字計算からHilbert級数の二十六次係数−3が得られ、Hochster–RobertsのCM定理により同次数型HSOPの存在が否定される。商空間の原点fiberは正次元である。従ってgeneric指数八とNEW次数二十をHilbert multiplicityへ代入して実定義次数を推定してはならない。NEW実定義式・次数下界26は未決のまま。
+
+非平方側のdense quad消去の失敗は、既知単位Lの枠で九monomial pivotを先に除く方法へ変更して解消した。317項quad blockと実genuine block、全455行操作を独立検証し、canonical cubic11の一般階数を正確に十と決定した。全点下界十・全239全射・known uniform kernel37の増加はこのpacketでは主張しない。簡約したG6−G1関係の全域source liftを次に確認する。
+
+全四次239、B18の全nilと実depth19/20、NEW実定義式、一般beta delta_E所属と全成分尽くしを続行する。総下界58/rank4下界52/上界未定、五凍結原稿は維持する。
+
 ## v63 AM / 2026-11-04: 全PGL商二変数・V4同定・普遍残余曲線種数三
 
 直前 main `1eaa9cefd491a848ef0998f1aca2598711a7ec5a` は通常push済み。以下は過去時点を含む。

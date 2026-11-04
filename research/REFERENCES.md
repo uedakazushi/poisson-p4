@@ -118,3 +118,7 @@ Theorem15（21頁）とLemma8（16頁）は五次元S5表現のsign twistの照�
 任意標数、QQ上の有理性、NEW方程式やsource-target指数へは延長しない。
 一次読解・適用の証拠は `Q_FIRSTJET_SHEPHERD_BARRON_RATIONALITY_20261104_v63`
 と同REVIEW。既存定理の適用で、優先権を主張しない。
+
+## Hochster–RobertsのCM定理（low6非HSOP）
+
+M. Hochster and J. L. Roberts, *Rings of invariants of reductive groups acting on regular rings are Cohen-Macaulay*, Advances in Mathematics 13 (1974), 115–175. DOI: https://doi.org/10.1016/0001-8708(74)90067-X 。char0のSp4多項式不変環がCMである標準定理として適用。書誌は著者publication listとDOIで確認、publisher本文は403で未取得。新しい優先権の主張ではない。適用・範囲は `research/notes/Q_FIRSTJET_LOW6_NON_HSOP_20261104_v63.md` と独立REVIEW。
