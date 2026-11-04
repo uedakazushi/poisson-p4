@@ -1,6 +1,6 @@
 # Poisson structures on projective four-space
 
-非平方三次の全quadratic行を大域的に消し、projected表示を14対21へ縮約した。一般betaの全129残差とcross rank126も独立検証したが、全fiberの尽くしは未証明。B18は実T0非零・D4全Bettiに続き、可視T0 classがsocleにならないと確認し、隠れた有限部分を調べる。元深さ・全nil、全分類の上界は未決。下界58（rank4は52）、NEW原始像の既約式28次。
+B18のR-primary商を実際の二重DVRとして分離し、有限gluingの上界16・19を独立検証した。残余socleと元環の深さは未決定。非平方三次は14対21表示のheavy blockを小さく整理し、一般betaでは全129残差・cross rank126に続くG6を調べる。全fiber尽くし・全上界は未証明。下界58（rank4は52）、NEW原始像の既約式28次。
 
 新25成分の全Poisson一般横断長さは正確に5。n111の全完成環 C[[s25,u,v]]/(uv,u³,v³) とCM type2を証明・独立監査し、[14ページの独立原稿](papers/positive_weight6_component_ja.pdf)に保存した。全52 rank4成分のdense S61写像が揃った。新一次像は15次元・方程式次数22以上だが実方程式、全境界、全分類は未解決。以下は以前の記録を含む。
 

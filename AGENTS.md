@@ -2,6 +2,28 @@
 
 Version: v63-s61 · 2026-11-04 (Asia/Tokyo).
 
+Latest AX (2026-11-04): B18 ACTUALR zero-slice20unitgraph reviewed,
+rho112 DVRparam/cutdet−32/augdet64; allpositivecoords/w0 ALLorders.
+ActualnormF=v²−nu z1² onR lead−81600T4, D4supportmiss⇒D0=T0
+genericRlength2 (NOTnilcharacterguess). ConductorpowerscannotkillRpart.
+CanonicalBR=D0/(0:F∞) abstractdoubleDVR/free2; T0imageidealcolength≤16,
+D4/imageFtorsion cokernellength≤19. Epsilonembedding/saturationindexNOTcomputed.
+HiddenF-torsionH0/fullDdepth19vs20/fullnil OPEN, NOTresidualfiniteassumption.
+Normalizer tensorE4free4/48 PRIMARY, ker(D0→E4) killedIAIB (NOTT0ann),
+product-conductorbaseH0length21 PRIMARY/peerpending, noarbitraryKlengthbound.
+Genuine14heavy5 EXACTunit-equivalent tocompact14×5/all70reviewed,
+13854→2407terms. Oneoldgenuinepivot TARGET26=H*L HEAVY,
+NOT11purepivots; nofalsewholepure≤9/cubic-counterlocus inference.
+B7×3 35minorcomputed; QQ4var22polyGB hit52s cap NOunit/properconclusion.
+GCD1/codim≥2/dimension≤1 INDEPENDENTLYreviewed (NOTempty/globalB3);
+newmonicquarticfinite-coverroute primary;
+NOsameGBretry. Full57/239 open, unit125/point126/kernel38/gap42 unchanged.
+Generic5G6pull1940terms/125cofactoridentity independentlyreviewed;
+FULL135independent/normal-onlyrelationsdimension4, Afinite≤5moduleoverK[n42],
+NOTfree/Kfinite/exhaustion;
+doesNOTkillknownflaginfinity, normalmembership/exhaustion OPEN.
+Bounds58/r4lower52/uppernull, NEWG28exact28 solved, continueordinarypush.
+
 Latest AW (2026-11-04): lastQ GLOBALa29Bezout+explicitGL10 reviewed,
 actualprojected15×22→14×21 SAMECOKER. 11globalpivots=10Q+1genuine,
 remaining14sources genuine/allheavy5 retained. No207degreecofexpand.

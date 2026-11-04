@@ -1,0 +1,14 @@
+# B7×3の固定35determinantsと既知単元content
+
+前段の345項整数7×3に対し、全35三行組のdeterminantを固定してFLINTで計算する。
+各minorを六permutation積とLaplace式の二つで照合する。908項の元source行列の
+35minorも計算し、行列前処理の全21成分および35minorのscale換算を文字通り
+確認する。既存407項の選択Deltaも同じsource行列から再構成する。
+
+各非零minorから除く因子はa,d,F,B,C,JとQQ定数だけ。残多項式をQQ定数で整数化
+し、全minorを再構成する。零minorは零として全て残す。QQ scalar倍で同じ
+generatorはmonic係数でだけ同一視し、未知多項式のgcdやfactorは取らない。
+
+同じlocalized maxminor idealを生成する小多項式とFULLU localizerの費用を
+保存する。単独で既知単元になるminorが見つからない限り全域rank3は未証明。
+GB・saturationはこの予算で開始せず、新点・有限体・fullquarticの結論もない。

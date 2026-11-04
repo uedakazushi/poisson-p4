@@ -1,5 +1,22 @@
 # 研究状態 — v63-s61 / 2026-11-04
 
+## v63 AX / 2026-11-04: 実R-primary二重DVRと有限gluing上界、小さいheavy行列へ
+
+直前 main `1e634dd3549b2cab52d478b6aa0f2eac86ac6b15` は通常push済み。
+
+B18の実R曲線を現在の零weight切断へ厳密に結んだ。raw曲線は切断内ではないため、十九群のunit系det−32で正規化し、rho112の微分−2と二十minor64から実R0上のDVR graphを構成した。torus同変性と一意性から正次数座標とwは全次数で零となる。N五十六係数系への二次代入はnu=256T二乗,z1=−23T,v=232T二乗を与え、F=v二乗−nu z1二乗は−81600T四乗から始まる。R0の一般点がD4 supportを外れることを独立検証し、D0=T0のR一般長二を確定した。conductorの冪でR部分を消せるという誤った仮定は使わない。
+
+正準なF飽和によりR-primary部分を分離した。B_R=D0/(0:F無限乗)は自由rank二DVR moduleで、抽象的にk[[U,epsilon]]/(epsilon二乗)となる。T0の像は有限colength rank二idealで、F二乗D4=0とR上のorder四から、そのcolengthは十六以下。contact四の包含とZ長三を使い、残余F-torsionのD4への像のcokernelは長さ十九以下と得た。これは未知kernelやsocleの有限長を保証しない。残余F-torsionのH0が、元B18深さ19/20を決める課題として残る。
+
+非平方十四genuineのheavy五列は、巨大なa二十九乗cofactorを展開せず、既存checkpointへliteralに戻る。全七十成分を既知単位でraw compact14対5へ移し、13854項を2407項へ整理した。三sourceのheavy列は零である。一genuine pivotはH*Lのheavy targetだったため、全十一pivotをpureと数えてpure上界九を推測してはいけない。全57/239は未解決。
+
+小さい7対3 blockでは全35minorを正確に構成した。22個のprimitive polynomialは計2963項で、四変数QQ局所化idealのGBを一回試したが、M2 1.24.11の既定法で52秒上限に達した。基底もliftも無いためunit/properの結論は出さず、入力・停止状態を保存した。続く別手法のexact GCDは一となり、全35source minorと二つのcoprime多項式の独立監査により、7対3 blockの欠損supportにdivisorが無いと解決した。空集合または次元一以下だが、全域rank三とはまだ言えない。次数九の二つのcoprime minorとmonic d四次への構造的簡約を調べ、同じGBを繰り返さない。
+
+一般betaのG6実1940項と125-cofactor恒等式・全q三次相殺、130本目の残差・normal因子・cross成分を独立監査した。RAW134とは別のFULL135共変性によりnormalだけの二次以下関係空間は四次元となる。標準planeの最高二次HF(1,3,1)から全AはK[n42]上高々五生成であるが、自由性・残余空性は従わない。正確なnormal irrelevant-power membershipを次の有限目標とする。G6は既存の無限遠flagを消さず、全fiber尽くしは未証明。全52rank4成分・総下界58、NEW原始像の既約式28次、五凍結原稿を維持する。
+
+
+二族の正規化のtensor積をfree4・48関係の小さい模型へ一次構成した。比較写像D0→E4のkernelはI0A I0Bで消えるが、これはT0を消すという主張ではない。二conductor曲線のscheme unionはCM1、product idealの環にはTor由来の長さ21の有限H0があるという別の構造的証明を保存し、独立監査を進める。任意の比較kernelの長さやE4のsocleはまだ判定していない。
+
 ## v63 AW / 2026-11-04: 全quadratic行消去・14対21、一般cross126、B18隠れたsocleへ
 
 直前 main `737747f73317b5dd432c6d114464ee91237e7683` は通常push済み。

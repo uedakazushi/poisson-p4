@@ -1,0 +1,137 @@
+{
+  "initial_augmented_pure_heavy_targets": [
+    26,
+    6
+  ],
+  "old_eight_selected_pivots": [
+    [
+      8,
+      20
+    ],
+    [
+      1,
+      10
+    ],
+    [
+      2,
+      16
+    ],
+    [
+      3,
+      12
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      6,
+      23
+    ],
+    [
+      7,
+      24
+    ],
+    [
+      11,
+      26
+    ]
+  ],
+  "old_eight_classification": {
+    "quadratic_pure": 7,
+    "genuine_heavy": 1
+  },
+  "genuine_pivot": {
+    "source_label": 11,
+    "target_label": 26,
+    "target": "H*L",
+    "not_pure": true,
+    "normalized_pure_support19": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      11,
+      13,
+      14,
+      15,
+      17,
+      18,
+      19,
+      21,
+      22,
+      25
+    ]
+  },
+  "later_three_pivots_all_quadratic_pure": [
+    [
+      4,
+      5
+    ],
+    [
+      5,
+      21
+    ],
+    [
+      9,
+      1
+    ]
+  ],
+  "total_eleven_classification": {
+    "pure": 10,
+    "heavy": 1
+  },
+  "final_pure_heavy_target_counts": [
+    16,
+    5
+  ],
+  "canonical11_headers": {
+    "completed-afterquad16x21.txt": "16 21",
+    "completed-R11x16.txt": "11 16"
+  },
+  "canonical11_scope": "completed-R11x16, if present, is the actual canonical11 image after exactly10quad and5heavy pivots on this extra generic chart",
+  "canonical_generic_rank10_bound_applies_after_heavy5_Schur_only": true,
+  "canonical_rank10_not_whole_initial_pure_projection_upper": true,
+  "no_all10_pure_minors_zero_inference": true,
+  "correct_kernel_criterion": {
+    "field_map": "M=(P,H):k14->k16+ k5",
+    "K": "ker(H), dimension14-r where r=rank(H)",
+    "exact_rank_formula": "rank(M)=r+rank(P|K)",
+    "full_injectivity": "rank(P|K)=14-r",
+    "rank5_heavy_open": "K9; nine-by16 kernel-pure map must be injective",
+    "heavy_rank_atmost4": "K dimension at least10; P16 may still inject it, so no rank13 conclusion"
+  },
+  "constant_rank_chart_recipe": {
+    "choose": "r source rows I and r heavy columns C with Delta=det(H[I,C]) nonzero",
+    "kernel_vectors": "Delta*e_u - sum_i (H[u,C]*adj(H[I,C]))_i*e_i, for u outside I",
+    "condition": "On rank(H)=r these vectors annihilate all five heavy columns and form a kernel frame after inverting Delta",
+    "actual_pure_rows": "Delta*P_u - sum_i lambda_ui*P_i; retain finite DAG, no coefficient expansion",
+    "no_global_unknown_factor_unit": "Delta is only a chart denominator unless separately certified unit"
+  },
+  "logical_countermodel": {
+    "matrix_pure2_heavy1": [
+      [
+        "1",
+        "0",
+        "x"
+      ],
+      [
+        "0",
+        "1",
+        "0"
+      ]
+    ],
+    "pure_projection_rank": "2 everywhere",
+    "heavy_rank": "1 on D(x),0 at x=0",
+    "after_generic_heavy_Schur": "one pure row remains, of rank1",
+    "full_rank": "2 everywhere because the pure2 minor is1",
+    "purpose": "A generic Schur remainder rank is not an upper bound on the whole fixed pure projection."
+  },
+  "Bbad_does_not_by_itself_prove_cubic57_failure": true,
+  "no_accepted_ledger_theorem_withdrawal": "The invalid implication was only proposed for audit and was never adopted."
+}
