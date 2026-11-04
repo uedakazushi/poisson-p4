@@ -1,0 +1,194 @@
+{
+  "id": "Q_NEW_FAMILY_LOW_INVARIANT_EXPANSION_20261104_v63",
+  "all_passed": true,
+  "one_native_expansion_run": true,
+  "native_run_count": 1,
+  "native_hard_limits": {
+    "cpu_and_wall_seconds": 60,
+    "address_space_bytes": 2000000000,
+    "coefficient_bytes": 33554432,
+    "output_terms": 100000,
+    "intermediate_terms": 150000
+  },
+  "shape_variables": [
+    "a=u/X",
+    "Y=X^2",
+    "W",
+    "B"
+  ],
+  "D": "147456*Y-(3072*W-1)^2",
+  "source_c_algebraically_set1_and_restored_by_homogeneity": true,
+  "exact_native_word_scales": {
+    "F4": "16*(1080BD)^4",
+    "p_i": "256*(1080BD)^8",
+    "N12": "32768*(1080BD)^12"
+  },
+  "B_monomial_and_integer_content_cancelled": true,
+  "D_factors_not_cancelled": true,
+  "completed_outputs": [
+    {
+      "name": "F4",
+      "terms": 96,
+      "max_coefficient_bits": 127,
+      "raw_bytes": 3676,
+      "compressed_bytes": 1680,
+      "denominator_integer": "3240",
+      "denominator_B_power": 2,
+      "denominator_D_power": 4
+    },
+    {
+      "name": "p0",
+      "terms": 336,
+      "max_coefficient_bits": 221,
+      "raw_bytes": 19021,
+      "compressed_bytes": 8675,
+      "denominator_integer": "2278125",
+      "denominator_B_power": 3,
+      "denominator_D_power": 8
+    },
+    {
+      "name": "p1",
+      "terms": 1040,
+      "max_coefficient_bits": 245,
+      "raw_bytes": 62737,
+      "compressed_bytes": 26928,
+      "denominator_integer": "2624400000",
+      "denominator_B_power": 4,
+      "denominator_D_power": 8
+    },
+    {
+      "name": "p2",
+      "terms": 1061,
+      "max_coefficient_bits": 256,
+      "raw_bytes": 65525,
+      "compressed_bytes": 28418,
+      "denominator_integer": "20995200000",
+      "denominator_B_power": 4,
+      "denominator_D_power": 8
+    },
+    {
+      "name": "p3",
+      "terms": 973,
+      "max_coefficient_bits": 256,
+      "raw_bytes": 59478,
+      "compressed_bytes": 26195,
+      "denominator_integer": "20995200000",
+      "denominator_B_power": 4,
+      "denominator_D_power": 8
+    },
+    {
+      "name": "p4",
+      "terms": 893,
+      "max_coefficient_bits": 256,
+      "raw_bytes": 54375,
+      "compressed_bytes": 23792,
+      "denominator_integer": "83980800000",
+      "denominator_B_power": 4,
+      "denominator_D_power": 8
+    },
+    {
+      "name": "N12",
+      "terms": 1700,
+      "max_coefficient_bits": 341,
+      "raw_bytes": 133722,
+      "compressed_bytes": 60060,
+      "denominator_integer": "922640625",
+      "denominator_B_power": 5,
+      "denominator_D_power": 12
+    }
+  ],
+  "coefficient_output_bytes": 398534,
+  "compressed_coefficient_bytes": 175748,
+  "native_report": {
+    "all_passed": true,
+    "outputs": [
+      {
+        "name": "F4",
+        "terms": 96,
+        "max_coefficient_bits": 127,
+        "B_factors_cancelled": 2,
+        "D_factors_cancelled": 0,
+        "denominator_integer": "3240"
+      },
+      {
+        "name": "p0",
+        "terms": 336,
+        "max_coefficient_bits": 221,
+        "B_factors_cancelled": 5,
+        "D_factors_cancelled": 0,
+        "denominator_integer": "2278125"
+      },
+      {
+        "name": "p1",
+        "terms": 1040,
+        "max_coefficient_bits": 245,
+        "B_factors_cancelled": 4,
+        "D_factors_cancelled": 0,
+        "denominator_integer": "2624400000"
+      },
+      {
+        "name": "p2",
+        "terms": 1061,
+        "max_coefficient_bits": 256,
+        "B_factors_cancelled": 4,
+        "D_factors_cancelled": 0,
+        "denominator_integer": "20995200000"
+      },
+      {
+        "name": "p3",
+        "terms": 973,
+        "max_coefficient_bits": 256,
+        "B_factors_cancelled": 4,
+        "D_factors_cancelled": 0,
+        "denominator_integer": "20995200000"
+      },
+      {
+        "name": "p4",
+        "terms": 893,
+        "max_coefficient_bits": 256,
+        "B_factors_cancelled": 4,
+        "D_factors_cancelled": 0,
+        "denominator_integer": "83980800000"
+      },
+      {
+        "name": "N12",
+        "terms": 1700,
+        "max_coefficient_bits": 341,
+        "B_factors_cancelled": 7,
+        "D_factors_cancelled": 0,
+        "denominator_integer": "922640625"
+      }
+    ],
+    "max_intermediate_terms": 4083,
+    "polynomial_multiplications": 925,
+    "coefficient_output_bytes": 398534,
+    "quartic_relations_and_F4_square_pencil_identity_verified": true,
+    "integer_word_N12": "8tr(CD2CD2)-4tr(D2)tr(C2D2)+tr(D2)^2tr(C2)-2tr(D4)tr(C2)",
+    "seconds": 0.0987069
+  },
+  "error": null,
+  "no_new_beta_point_no_Inv24_evaluation_matrix": true,
+  "no_41_relation_search_launched": true,
+  "no_automatic_retry_or_budget_enlargement": true,
+  "input_sha256": {
+    "code/q_new_family_low_invariant_expand_20261104_v63.py": "bd94d79182d5aeb1bd1f640c62c812ae6b8ce0a34bcace5ce5aa5ee83176b0c6",
+    "code/q_new_family_low_invariant_expand_20261104_v63.cpp": "b10a0837cfa46c5c6cc6c3467c503309f89fd72e0bed94403ec7dbaee993b736",
+    "reports/Q_NEW_FAMILY_LOW_INVARIANT_PREFLIGHT_20261104_v63/report.json": "355f5a3706b9282cc2057b7201fddbb50bae722cc1a3bad04a584d87bca038d0",
+    "reports/Q_NEW_FAMILY_SIX_PARAMETER_COVARIANTS_20261103_v63/certificate.json": "2c2c6be40333be0fe5c43935e7d4af65152cfce4d325b9175a359cd4d7447243",
+    "reports/Q_NEW_FAMILY_SOURCE_RATIONAL_QUOTIENT_20261103_v63/certificate.json": "8b6c72fc71e2d61920661cc6fde60a98618ed28703163e2b2e193f6efb4f227f",
+    "reports/Q_FIRSTJET_SPIN5_STRUCTURE_20261103_v63/certificate.json.gz": "a62f62bbda5a77bad0d015fb5f7685ba0d4402dfb998fa4f962d01d79827e10f"
+  },
+  "evidence_sha256": {
+    "native-report.json": "35c6783e8e3d33b03d19fe31e798785e97787f2b91dc7d90a9c60bdc27eb1f92",
+    "p4.json.gz": "6026479de0692418f27acbda70b3192ccd1768697e0088e4867f1e08aa49fecb",
+    "p3.json.gz": "1d633dccedba37fc4936d02cb65e672c0e6e3be436380f95fcf13e5584202aff",
+    "p1.json.gz": "365b95a916240c3ba7d79646ca4f75970020a3b7c6e26ce23bcc95841b88551f",
+    "native-input.txt.gz": "b407d0b88cd4e53b1cb26c9d354c4afced58961bc82f65eda7f28408394f9174",
+    "p0.json.gz": "430e61d48351c79af49d0c57305b3f3139198bde6e09fcdde3a90f33f6fb5e66",
+    "p2.json.gz": "970b0cdc1280ee849149911892e049c29d0bc3d2eca4d1aa25de2d5de56e6a24",
+    "native.log": "3ff948ecb026d1db49fb78e48d6e153c084fdf1013781e6d4dbda3c7b403b24e",
+    "F4.json.gz": "aa7e9abb13c43d838b02cea1d179845bc50132ab51a004735b73dfeaf2c4192f",
+    "N12.json.gz": "2f50ec8103f59f1ca8ea19f28fb10c51151766e935e2262c6315bf988fe8dfc4"
+  },
+  "seconds": 1.4345421719990554
+}

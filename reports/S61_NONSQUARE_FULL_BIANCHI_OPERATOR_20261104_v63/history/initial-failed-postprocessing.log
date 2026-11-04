@@ -1,0 +1,14 @@
+START_RAW80_140
+RAW_MAPS_EXACT 4.9314838650025195
+FULL_HOMOG_P_COEFFICIENTS 876 10.401962588999595
+FULL_IDENTITIES_VERIFIED_DEG 4 19.612163010002405
+FULL_IDENTITIES_VERIFIED_DEG 5 25.384716173000925
+FULL_IDENTITIES_VERIFIED_DEG 6 25.38508046100469
+Traceback (most recent call last):
+  File "/workspace/poisson-p4/code/s61_nonsquare_full_bianchi_operator_20261104_v63.py", line 136, in <module>
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--output',type=Path,default=ROOT/'reports'/ID);main(p.parse_args().output.resolve())
+                                                                                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/poisson-p4/code/s61_nonsquare_full_bianchi_operator_20261104_v63.py", line 128, in main
+    if g in quartic_rows:assert var==-1;row[g]=c
+                                ^^^^^^^
+AssertionError

@@ -2,6 +2,20 @@
 
 Version: v63-s61 · 2026-11-04 (Asia/Tokyo).
 
+Latest AD (2026-11-04): full175Schouten+tG6 exactoperator verified;
+nonzerospatialrows35/56/0, trueweight4ONLY15 (old30predictionSUPERSEDED),
+quarticconstant15x33/11nonzero. Exactunit11pivots andALL15 354→319transport.
+New11 aFBC; old22+new11=33FULLU, missing47for80. NOquarticallpointproof.
+Quad6 constantindependentALLaC, weight2HF23 ALLaFBC; no22d0/J0extension.
+NEWlow7maps exactin4shapevars, independentallcoeffcheck. Sixlowgens
+F4,p1,p2,p3,p4,N12 algebraicallyindependent. Their41degree24monomials
+restrictionrank41 pointFREEcoefficientproof; NOTallInv24(67)/degree>=26.
+NEWdegree>=24/equationOPEN. Full24spacebasisneededbeforefurtherrelationtest.
+JOINTconnectedSpin4biformfield rational6; extraSpin5U/VswapUNCOMPUTED,
+NO fullW16 rationality/invarring claim. ActualNEWtargetfieldindexOPEN.
+B18fullDdepth19..20/fullnil/generalbeta/exhaustionOPEN. Lower58/r4lower52.
+Continueactualresearch andordinarymainpush; checkpoint isnotstop.
+
 Latest AC (2026-11-04): fixedM319 quartic239defect CODIM>=2 onaFBC,
 by65freecomplete-relative-model+ANYadmissiblecut transfer+EXACTlowHF65.
 Notallpoint239. Full80sourcekernel gateUNCONSTRUCTED; directBianchi
