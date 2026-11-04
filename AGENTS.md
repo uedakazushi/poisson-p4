@@ -2,6 +2,18 @@
 
 Version: v63-s61 · 2026-11-04 (Asia/Tokyo).
 
+Latest AF (2026-11-04): full universalInv26 basis45 VERIFIED viaambient16
+Poisson gradients, sameformalplane andcharacter; NOsource26restrictiontest.
+NEW lower26/equationOPEN. Low7mapHcancellation4,7,7,7,7,7,10 exactmaximal;
+remainingHden0,1,1,1,1,1,2. Birationalknownτfixedsourcecoords xi,r,s,q,B:
+xi=40c/(Bu),r=u²/1600,s=48uX,q=3072W−1. All7maps5/6/29/33/31/30/43terms.
+F4=(2/405)xi²F, F=100r(r−1)q²−4rs+s²+4r; h=s²−25rq².
+Q0=p0/F4² ⇒B=Q0hF²/[2359296000r⁴(r−1)q²(−s+5q+1)] ondensechart.
+ActualtargetfieldindexstillOPEN. Preferdirectsmallrationalimplicitization
+methodpreflight beforeanyfurtherdegreechase/source26expansion.
+Quartic37FULLU/missing43, genericbeta/B18fullnil/depth/exhaustionOPEN.
+Lower58/r4lower52/uppernull. Continueactualresearch andordinarymainpush.
+
 Latest AE (2026-11-04): FULL Inv24 QQ basis67 constructed; complete source
 restriction injective by pointFREE coefficientminor9857 mod32003, independent
 all4489 entries verified. NEW definingdegree>=26; EQUATIONSTILLOPEN.

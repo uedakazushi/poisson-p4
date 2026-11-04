@@ -1,0 +1,38 @@
+{
+  "old_coordinates": [
+    "a=u/X",
+    "Y=X^2",
+    "W",
+    "B",
+    "c/X"
+  ],
+  "new_coordinates": [
+    "xi=40*c/(B*u)",
+    "r=u^2/1600",
+    "s=48*u*X",
+    "q=3072*W-1",
+    "B"
+  ],
+  "inverse": {
+    "a": "76800*r/s",
+    "Y": "s^2/(3686400*r)",
+    "W": "(q+1)/3072",
+    "c_over_X": "1920*xi*B*r/s"
+  },
+  "forward_in_old": {
+    "xi": "40*(c/X)/(B*a)",
+    "r": "Y*a^2/1600",
+    "s": "48*Y*a",
+    "q": "3072*W-1"
+  },
+  "h": "s^2-25*r*q^2",
+  "H": "h/(25*r)",
+  "F": "100*r*(r-1)*q^2-4*r*s+s^2+4*r",
+  "F4": "(2/405)*xi^2*F",
+  "Q0": "p0/F4^2=1/400-4*p4/F4^2",
+  "D": "2359296000*r^4*(r-1)*q^2*(-s+5*q+1)",
+  "B_recovery": "B=Q0*h*F^2/D",
+  "recovery_scope": "Dense rational source chart r*s*B*h*F*D!=0; no global localization assertion",
+  "known_tau_fixed_source_field": "QQ(xi,r,s,q,B)",
+  "actual_NEW_target_field_equality_claimed": false
+}

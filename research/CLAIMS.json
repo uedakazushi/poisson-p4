@@ -18963,6 +18963,107 @@
       "limitations_ja": [
         "実方程式、正確な次数、商函数体index、multisection次数や種数は未解決。整数係数minorによる証明であり、有限体上のsampleやkernel推測のQQ持上げではない。"
       ]
+    },
+    {
+      "id": "W16_COMPLETE_INV26_POISSON_BASIS45",
+      "title_ja": "全十六方向のPoisson微分から全二十六次不変式の四十五基底",
+      "statement_ja": "C/Dの全16 ambient方向の微分を形式平面への代入前に構成し、Poisson括弧による14次3本・18次9本を得た。全Inv12とInv8を掛けた57候補から45本を選び、同一形式平面の係数minor7998 mod32003および独立character上界45により全QQ Inv26の基底と証明した。独立な疎多項式エンジンが全gradient・10/18/57列・三つのminorを再構成した。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_04",
+        "certificates": "reproduced_2026_11_04_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "W16_COMPLETE_UNIVERSAL_INV24_BASIS67_WITH_HESSIAN16",
+          "W16_SPIN5_TWO_ADJOINT_COVARIANTS_AND_INV8_PENCIL"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/Q_NEW_FAMILY_DEGREE26_POISSON_BASIS_20261104_v63.md"
+        },
+        {
+          "path": "research/notes/Q_NEW_FAMILY_DEGREE26_POISSON_BASIS_20261104_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/Q_NEW_FAMILY_DEGREE26_POISSON_BASIS_20261104_v63/report.json",
+        "reports/Q_NEW_FAMILY_DEGREE26_POISSON_BASIS_20261104_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "全16方向の微分をs,t微分で代用しない。NEWへの26次制限・方程式は未検査で、次数下界26を維持する。"
+      ]
+    },
+    {
+      "id": "NEW25_SEVEN_LOW_SOURCE_MAPS_MAXIMAL_H_POLE_CANCELLATION",
+      "title_ja": "七つの低不変式の最大H約分による全係数縮約",
+      "statement_ja": "受理済みの七source多項式のH因子をQQ上で正確に除いた。取消し冪は4,7,7,7,7,7,10、残る分母H冪は0,1,1,1,1,1,2、商の項数は8,14,74,81,77,74,110である。別の純Fraction疎算術が全再乗算とH零上の非零剰余を確認し、最大取消し冪まで独立検証した。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_04",
+        "certificates": "reproduced_2026_11_04_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "NEW25_EXACT_LOW_INVARIANT_COEFFICIENT_MAPS_ON_FIVE_SOURCE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/Q_NEW_FAMILY_LOW_INVARIANT_POLE_CANCELLATION_20261104_v63.md"
+        },
+        {
+          "path": "research/notes/Q_NEW_FAMILY_LOW_INVARIANT_POLE_CANCELLATION_20261104_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/Q_NEW_FAMILY_LOW_INVARIANT_POLE_CANCELLATION_20261104_v63/report.json",
+        "reports/Q_NEW_FAMILY_LOW_INVARIANT_POLE_CANCELLATION_20261104_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "全不変式環・高次source写像・定義方程式の構成は意味しない。元の入力を変更せず約分後の正確な写像を追加する。"
+      ]
+    },
+    {
+      "id": "NEW25_BIRATIONAL_FIVE_SOURCE_COMPRESSION_AND_B_RECOVERY",
+      "title_ja": "五有理source座標での小さい写像とBの有理回収",
+      "statement_ja": "既知involution固定source体の五有理座標をxi=40c/(Bu),r=u²/1600,s=48uX,q=3072W−1,Bとし、旧五座標との両向き逆式を独立検証した。七つの低写像は5,6,29,33,31,30,43項となり、F4=(2/405)xi²F、h=s²−25rq²、F=100r(r−1)q²−4rs+s²+4rを得た。Q0=p0/F4²に対してB=Q0 h F²/[2359296000r⁴(r−1)q²(−s+5q+1)]を正確に回収した。全七写像の逆代入と全係数が独立に一致した。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_04",
+        "certificates": "reproduced_2026_11_04_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "NEW25_SEVEN_LOW_SOURCE_MAPS_MAXIMAL_H_POLE_CANCELLATION",
+          "NEW25_SOURCE_KERNEL_RATIONAL_CONSTANT_FIELD_FIVE_AND_SECTION"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/Q_NEW_FAMILY_LOW_INVARIANT_BIRATIONAL_COMPRESSION_20261104_v63.md"
+        },
+        {
+          "path": "research/notes/Q_NEW_FAMILY_LOW_INVARIANT_BIRATIONAL_COMPRESSION_20261104_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/Q_NEW_FAMILY_LOW_INVARIANT_BIRATIONAL_COMPRESSION_20261104_v63/report.json",
+        "reports/Q_NEW_FAMILY_LOW_INVARIANT_BIRATIONAL_COMPRESSION_20261104_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "回収は分母非零のdense rational source chartで成立する。known involution固定体と実NEW target不変体との有限indexは未解決。実方程式・正確な定義次数・全商の純有理性を主張しない。"
+      ]
     }
   ],
   "setup_checkpoint": "v25-setup",
