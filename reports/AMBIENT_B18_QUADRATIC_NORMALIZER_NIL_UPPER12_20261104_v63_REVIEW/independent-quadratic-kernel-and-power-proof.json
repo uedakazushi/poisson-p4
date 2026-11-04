@@ -1,0 +1,250 @@
+{
+  "variables": [
+    "k",
+    "j0",
+    "j1",
+    "s",
+    "nu",
+    "tau"
+  ],
+  "universal_identity_left": [
+    [
+      [
+        0,
+        0,
+        2,
+        0,
+        1,
+        0
+      ],
+      "-1"
+    ],
+    [
+      [
+        0,
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      "1"
+    ],
+    [
+      [
+        0,
+        2,
+        0,
+        0,
+        0,
+        0
+      ],
+      "1"
+    ],
+    [
+      [
+        1,
+        0,
+        1,
+        1,
+        0,
+        0
+      ],
+      "-1"
+    ],
+    [
+      [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "-2"
+    ],
+    [
+      [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "1"
+    ]
+  ],
+  "universal_identity_right": [
+    [
+      [
+        0,
+        0,
+        2,
+        0,
+        1,
+        0
+      ],
+      "-1"
+    ],
+    [
+      [
+        0,
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      "1"
+    ],
+    [
+      [
+        0,
+        2,
+        0,
+        0,
+        0,
+        0
+      ],
+      "1"
+    ],
+    [
+      [
+        1,
+        0,
+        1,
+        1,
+        0,
+        0
+      ],
+      "-1"
+    ],
+    [
+      [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "-2"
+    ],
+    [
+      [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "1"
+    ]
+  ],
+  "k_square_minus_J_expression": [
+    [
+      [
+        0,
+        0,
+        2,
+        0,
+        1,
+        0
+      ],
+      "-1"
+    ],
+    [
+      [
+        0,
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      "1"
+    ],
+    [
+      [
+        0,
+        2,
+        0,
+        0,
+        0,
+        0
+      ],
+      "1"
+    ],
+    [
+      [
+        1,
+        0,
+        1,
+        1,
+        0,
+        0
+      ],
+      "-1"
+    ],
+    [
+      [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "-2"
+    ],
+    [
+      [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "1"
+    ]
+  ],
+  "kernel_lemma": [
+    "For an arbitrary A-algebra M choose a possibly infinitely generated polynomial presentation M=A[X]/J.",
+    "If k maps to zero in B tensor_A M then k is in J B[X]. Since B=A+A tau, write k=j0+j1 tau with both ji in J.",
+    "A[X] injects into B[X], although B need not be A-flat. The displayed monic identity therefore holds already in A[X].",
+    "It gives k\u00b2 in J. Polarization and 2 invertible give products of any two kernel classes zero.",
+    "Neither 1,tau independence over A nor nu/discriminant invertibility is required."
+  ],
+  "actual_base_change": [
+    "The accepted same-physical-R0 source inclusions are Ai=R0+Ii taui subset Bi=R0+R0 taui, taui\u00b2=nui.",
+    "Both Ai and Bi are finite over the same complete Noetherian R0, since Ii is finitely generated; the source ambient maps include R0.",
+    "Each tensor over the common zero ambient is a quotient of the tensor over R0, hence finite and already complete over R0.",
+    "Consequently the actual completed tensors D0,D1,E4 agree with the finite ordinary tensors, and both comparison arrows are literal base changes.",
+    "Apply the arbitrary-algebra lemma separately to D0->D1 and D1->E4; both kernel ideals have square zero."
+  ],
+  "power_bookkeeping": {
+    "each_step_kernel_power": 2,
+    "composite_kernel_power": 4,
+    "whole_E4_nil_power": 3,
+    "original_D0_nil_power": 12
+  },
+  "composition": [
+    "For K=ker(D0->E4), its image in D1 is contained in the second kernel. Thus K\u00b2 is contained in the first kernel; K\u2074=0.",
+    "Nil(D0)\u00b3 maps to zero in the whole E4, including its embedded localizations. Hence Nil(D0)^12 subset K\u2074=0."
+  ],
+  "full_germ": [
+    "The accepted finite-w-polynomial model is localized before w1-completion; no w=1 substitution in a w0-completed ring is used.",
+    "All positive homogeneous pieces inject into the square-zero-nil stable tail. A product of two homogeneous nil elements with positive total weight is zero.",
+    "The nil ideal is torus-stable and closed; weight projections modulo maximal-ideal powers and completeness extend this identity to arbitrary formal nil series.",
+    "Thus for every q>=2, Nil(Dtrans)^q equals the degree-zero power. This transfers the power12 bound.",
+    "Nil ideals extend unchanged under the actual G19 power-series product; the literal scalar chart removes one regular scalar factor without changing the index."
+  ],
+  "lower_bound": [
+    "The actual Qb family through P0 has nonzero nil square on a dense unit open. The coherent nil-square support is closed.",
+    "It therefore contains P0. Localization, faithful completion, and the actual group product preserve nonzero nil square."
+  ],
+  "scope": "Only actual B18 germ of CA intersect CB: 3<=nil index<=12. No exact index, cube nonzero/zero, upper8, full Poisson scheme, or global exhaustive nil inventory."
+}

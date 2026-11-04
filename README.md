@@ -1,6 +1,6 @@
 # Poisson structures on projective four-space
 
-実特殊比較Tは5生成となり、T/m二乗Tの長さ8を独立確認した。未確認の二次は三方向へ絞ったが、全長と元B18深さは未決。正規化E4のnilideal二生成、Nil(D0)の完全比較複体、全P100のpure89表示を保存した。全分類と全FULLU239を継続中。下界58（rank4は52）、NEW既約式28次。
+元B18実交叉の深さはcone19・射影18と独立証明した。TのHF初三層は(5,3,2)、有限H0は非零で、B18が第四の埋込associated閉包となる。元nil指数は無条件に3〜12、正確な指数は未決。全分類・一般beta尽くし・全FULLU239を続ける。下界58（rank4は52）、NEW既約式28次。
 
 新25成分の全Poisson一般横断長さは正確に5。n111の全完成環 C[[s25,u,v]]/(uv,u³,v³) とCM type2を証明・独立監査し、[14ページの独立原稿](papers/positive_weight6_component_ja.pdf)に保存した。全52 rank4成分のdense S61写像が揃った。新一次像は15次元・方程式次数22以上だが実方程式、全境界、全分類は未解決。以下は以前の記録を含む。
 

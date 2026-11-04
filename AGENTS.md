@@ -2,6 +2,22 @@
 
 Version: v63-s61 · 2026-11-04 (Asia/Tokyo).
 
+Latest BK (2026-11-04): ORIGINALB18depth SOLVED cone19/projective18.
+NonzeroactualTquadraticdual survivesALL825relations, source+pureindependentpeersclosed.
+ActualHF(T) first3layers(5,3,2), lengthT/m³T=10, TOTALlengthOPEN>=10.
+K_Dtorsionmin≥2/H0length≥2; NOexplicitD0socle/exactH0length/nil³claim.
+ActualB18orbitclosure cone19/projective18 is FOURTHdistinctembeddedAss ofCA/CBintersection.
+NotPoissonnewcomponent/fullAsslist. Bounds58/r4lower52/uppernullunchanged.
+Eachquadraticnormalizerbasechangekernel²0 =>compositeK⁴0 =>originalNIL^12ZERO.
+ExactnilindexOPEN in[3,12]; depth19 DOESNOTimplycubeNONZERO.
+Nil(E4)² exactAssN/P/C,CM1/e3/reducedann; COREd²0 isNOTfullE4d²0.
+Upper8shortcutREJECTED, no nilimage-square conclusion withoutallthreeactualmaps.
+Directpure4+H5samecoker6x13 onD(R434Delta5), no h22inv/all8Q9tailskept.
+One7022termSchurentry char0NONZERO independentlyproved bysymbolic32003/allpunitchecks;
+QQpeer48sguardstop retained, notQQfullcoefficientidentitypeer.
+NextactualcubicTclasses/sourceprofile andnil³multiplication; no blindX3/348/sourcejets.
+FullDnilEXACT/fullFULLU57/239/exhaustion/globalupperOPEN; ordinarypush/checkpointthencontinue.
+
 Latest BJ (2026-11-04): actualT MINIMAL5, complete5x825 after111unitpairs.
 AllX0/X1 sources independentlyreviewed; X0rank27, W84x741rank84.
 ActualT/m²T LENGTH8/HF(5,3), linearrelsrank37; knownquadrelsrank177/180.

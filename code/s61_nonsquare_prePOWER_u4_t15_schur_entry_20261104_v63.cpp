@@ -1,0 +1,23 @@
+#define main frozen_fixed3_main_NOT_CALLED
+#include "s61_nonsquare_prePOWER_h22_pure3_fixed_minor_20261104_v63.cpp"
+#undef main
+#include <memory>
+#include <stdexcept>
+long precise_peak=0,generic_reserve=15000;
+void bounded(long scratch=0){long n=reserve_terms+generic_reserve+scratch;for(auto*t:alive)n+=fmpq_mpoly_length(t->p,ctx);precise_peak=max(precise_peak,n);if(n>150000)throw runtime_error("150000_total_terms_including_scratch");if(chrono::duration<double>(chrono::steady_clock::now()-began).count()>50)throw runtime_error("50s_native_guard");}
+// Change REPRESENTATION only: a^old P = a^new (a^(old-new) P).
+void rebase(L&f,long target){assert(target<=f.a);long k=f.a-target;if(!k||zero(f)){f.a=zero(f)?0:target;return;}ulong ex[3];long old=f.a;for(long i=0;i<fmpq_mpoly_length(f.p,ctx);i++){fmpq_mpoly_get_term_exp_ui(ex,f.p,i,ctx);long actual=long(ex[0])+old;ex[0]+=k;fmpq_mpoly_set_term_exp_ui(f.p,i,ex,ctx);assert(long(ex[0])+target==actual);}f.a=target;assert(fmpq_mpoly_is_canonical(f.p,ctx));}
+void normalize_inplace(L&f){if(zero(f)){f.a=0;return;}ulong ex[3];long k=LONG_MAX;for(long i=0;i<fmpq_mpoly_length(f.p,ctx);i++){fmpq_mpoly_get_term_exp_ui(ex,f.p,i,ctx);k=min(k,long(ex[0]));}if(!k)return;long old=f.a;for(long i=0;i<fmpq_mpoly_length(f.p,ctx);i++){fmpq_mpoly_get_term_exp_ui(ex,f.p,i,ctx);long actual=long(ex[0])+old;ex[0]-=k;fmpq_mpoly_set_term_exp_ui(f.p,i,ex,ctx);assert(long(ex[0])+old+k==actual);}f.a+=k;assert(fmpq_mpoly_is_canonical(f.p,ctx));}
+L operate(L&x,L&y,char op){L z;if(op=='m'){fmpq_mpoly_mul(z.p,x.p,y.p,ctx);z.a=x.a+y.a;}else if(zero(x)){z=y;if(op=='s')fmpq_mpoly_neg(z.p,z.p,ctx);}else if(zero(y))z=x;else{long s=min(x.a,y.a);rebase(x,s);rebase(y,s);if(op=='a')fmpq_mpoly_add(z.p,x.p,y.p,ctx);else fmpq_mpoly_sub(z.p,x.p,y.p,ctx);z.a=s;}normalize_inplace(z);bounded(fmpq_mpoly_length(z.p,ctx));return z;}
+struct O{char op;int x=-1,y=-1;};
+int main(int argc,char**argv){assert(argc==3);began=chrono::steady_clock::now();fmpq_mpoly_ctx_init(ctx,3,ORD_LEX);string folder=argv[2];try{{ifstream f(argv[1]);int n;f>>reserve_terms>>generic_reserve>>n;assert(n==768);vector<O>ops(n);vector<unique_ptr<L>>v(n);vector<int>uses(n),special;vector<long>sourceatom(n);ofstream audit(folder+"/node-audit.jsonl");
+ for(int i=0;i<n;i++){char op;f>>op;ops[i].op=op;if(op=='p'){long shift;string c;f>>shift>>c;v[i]=make_unique<L>(readpoly(f));fmpq_t q;fmpq_init(q);assert(!fmpq_set_str(q,c.c_str(),10));fmpq_canonicalise(q);fmpq_mpoly_scalar_div_fmpq(v[i]->p,v[i]->p,q,ctx);fmpq_clear(q);v[i]->a+=shift;normalize_inplace(*v[i]);sourceatom[i]=fmpq_mpoly_length(v[i]->p,ctx);}else{f>>ops[i].x>>ops[i].y;assert(ops[i].x<i&&ops[i].y<i);uses[ops[i].x]++;uses[ops[i].y]++;}}
+ int root,k;f>>root>>k;for(int i=0;i<k;i++){int x;f>>x;special.push_back(x);}uses[root]++;string extra;assert(!(f>>extra));
+ // Atoms are immutable input polynomials, not precomputed768values. The
+ // lifetime proof reserves their literal size before any operation.
+ bounded();for(int i=0;i<n;i++){auto&o=ops[i];if(o.op!='p'){v[i]=make_unique<L>(operate(*v[o.x],*v[o.y],o.op));}bounded(fmpq_mpoly_length(v[i]->p,ctx));audit<<"{\"node\":"<<i<<",\"terms\":"<<fmpq_mpoly_length(v[i]->p,ctx)<<",\"a_shift\":"<<v[i]->a<<",\"same_RF_inplace_alignment_checked\":true}\n";
+  if(find(special.begin(),special.end(),i)!=special.end()){ofstream s(folder+"/source-cofactor-node"+to_string(i)+".json");s<<"{\"node\":"<<i<<",\"polynomial\":";jp(s,*v[i]);s<<"}\n";}
+  if(o.op!='p'){for(int j:{o.x,o.y})if(!--uses[j])v[j].reset();}
+ }
+ audit.close();assert(v[root]);L&answer=*v[root];long clear=max(0L,-answer.a);ofstream out(folder+"/native.json");out<<"{\"all_passed\":true,\"same768_source_operations_evaluated\":true,\"exact_Saux_Laurent_polynomial\":";jp(out,answer);out<<",\"known_a_clearing_power\":"<<clear<<",\"B_denominator_power\":0,\"cleared_numerator_polynomial\":";long old=answer.a;answer.a+=clear;jp(out,answer);answer.a=old;out<<",\"numerator_terms\":"<<fmpq_mpoly_length(answer.p,ctx)<<",\"numerator_is_zero\":"<<(zero(answer)?"true":"false")<<",\"all_inplace_exponent_denominator_identities_checked\":true,\"all_source_convolution_identities_in_pinned_operation_DAG\":true,\"peak_live_terms_with_input_work_and_output_scratch\":"<<precise_peak<<",\"no_other_entry_minor_point_or_prime\":true,\"seconds\":"<<chrono::duration<double>(chrono::steady_clock::now()-began).count()<<"}\n";}}
+ catch(const exception&e){ofstream o(folder+"/frontier.json");o<<"{\"all_passed\":false,\"reason\":\""<<e.what()<<"\",\"peak\":"<<precise_peak<<",\"no_auto_retry\":true}\n";return 2;}fmpq_mpoly_ctx_clear(ctx);flint_cleanup();}

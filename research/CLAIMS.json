@@ -16921,6 +16921,7 @@
         "reports/AMBIENT_B18_ACTUAL_INTERSECTION_ORBIT_PRODUCT_20261103_v63_REVIEW.json"
       ],
       "limitations_ja": [
+        "本claimの深さ19/20という範囲は、後続 AMBIENT_B18_ORIGINAL_ACTUAL_CONE_DEPTH19_AND_NONZERO_FINITE_H0 により19と確定した。旧証明とsourceは保存する。",
         "新しいembedded vertexの有無、横断socle、正確なdepth、全相対idealは未解決。既知の二embedded曲線閉包だけでvertexを除外しない。"
       ]
     },
@@ -23697,8 +23698,8 @@
         "reports/AMBIENT_CA_CRITICAL_V1_CONTACT_ALGEBRA_20261104_v63_REVIEW/report.json"
       ],
       "limitations_ja": [
-        "Lは未計算で、元D0深さ十九対二十はこのcheckpointでは未決。",
-        "w零化だけからdegree零を推測せず、全正次数torsion零の証明を用いた。D0→D4のkernelとD0→E4のkernelを同一視しない。"
+        "L全長は未計算だが、後続の実二次計算でL>=10と証明し、元cone深さ19を確定した。",
+        "w零化だけからdegree零を推測せず、全正次数torsion零を用いた。D0→D4のkernelとD0→E4のkernelを同一視しない。"
       ]
     },
     {
@@ -23772,9 +23773,9 @@
         "reports/AMBIENT_B18_NIL_CUBE_FINITE_ORIGIN_20261104_v63_REVIEW/report.json"
       ],
       "limitations_ja": [
-        "元深さ・nil三乗の零性と長さは未決。有限長torsionが非零でもnil三乗が非零とは限らない。",
-        "完成環へ直接w=1を代入しない。tailは被約と仮定せず、global比較kernelの正次数零も仮定しない。",
-        "実CA/CB交叉の結果で、全Poisson Jacobi schemeのnil指数ではない。"
+        "元の深さは後続で19と確定したが、nil三乗の零性・長さは未決。非零H0からnil三乗非零を推論しない。",
+        "条件L=8は後続L>=10と両立しないため、この条件付き指数三を無条件結果として用いない。",
+        "実CA/CB交叉の結果で、全Jacobi schemeのnil指数ではない。"
       ]
     },
     {
@@ -24089,6 +24090,210 @@
         "完全なsource付きhomology表示であり、Nil(D0)の具体的生成元を解いたとはしない。nil三乗・深さは未決。",
         "元r/gは元の正則関数への参照を保持し、新しい非単位除法を作らない。",
         "proper ambientでのregularityを用い、E4内の零因子dを反転していない。"
+      ]
+    },
+    {
+      "id": "AMBIENT_B18_ORIGINAL_ACTUAL_CONE_DEPTH19_AND_NONZERO_FINITE_H0",
+      "title_ja": "元B18実交叉の深さ十九と非零有限H0",
+      "statement_ja": "実Tの完全5生成825関係表示を用い、全一次関係rank37と620個の一次零定数結合を固定した。非零双対Pi179は、一次関係の変数倍・全168 d3二次・全620実cycle二次を零化する。第三源成分を実P8最終行のr二乗へ直接戻し、57複製式・既存CB57二次jetと105値・90源根を独立再構成すると、39個の未知正則商二次感度も記号のまま全て相殺する。任意の形式係数関係の二次項を尽くす別の証明によりgr二乗Tは非零、length(T)は九以上となる。既証C[ell]四とrank_D K四からKのDVR torsionが非零、H0(D0)も非零であり、元のcone深さは正確に19、射影化後18と決定した。さらに全三成分の独立再構成はrank一で、初三層HF(5,3,2)、length(T/m三乗T)=10を確定した。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independently_reviewed_certificates_and_explicit_dependency_composition_2026_11_04",
+        "certificates": "reproduced_2026_11_04_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "AMBIENT_B18_SPECIALIZED_T_MINIMAL5_AND_FIRST_LOEWY_LAYERS",
+          "AMBIENT_B18_COMPARISON_K_GENERIC_DVR_RANK4_AND_DEPTH_LENGTH_CRITERION"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_B18_ORIGINAL_DEPTH19_COROLLARY_20261104_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_B18_T_NEXT3_EXISTING_CACHE_TRANSPORT_20261104_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_B18_T_NEXT3_EXISTING_CACHE_TRANSPORT_20261104_v63_REVIEW.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_B18_ORIGINAL_DEPTH19_INITIAL_SPACE_20261104_v63_REVIEW.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_B18_T_ACTUAL_PROJECTED_QUADRATIC_RANK_20261104_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_B18_T_ACTUAL_PROJECTED_QUADRATIC_RANK_20261104_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_B18_ORIGINAL_DEPTH19_COROLLARY_20261104_v63/report.json",
+        "reports/AMBIENT_B18_T_NEXT3_EXISTING_CACHE_TRANSPORT_20261104_v63/report.json",
+        "reports/AMBIENT_B18_T_NEXT3_EXISTING_CACHE_TRANSPORT_20261104_v63_REVIEW/report.json",
+        "reports/AMBIENT_B18_ORIGINAL_DEPTH19_INITIAL_SPACE_20261104_v63_REVIEW/report.json",
+        "reports/AMBIENT_B18_T_ACTUAL_PROJECTED_QUADRATIC_RANK_20261104_v63/report.json",
+        "reports/AMBIENT_B18_T_ACTUAL_PROJECTED_QUADRATIC_RANK_20261104_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "全長T、H0の長さ・明示socle元、DVR torsion指数、nil三乗の非零性はこの証明からは決まらない。",
+        "生き残るTの二次方向をそのままD0のsocle元と同一視しない。",
+        "深さの最小証明は第三成分だけで閉じ、より強いHF(5,3,2)の独立監査を別に保持した。新しいsource jetや数値点は使わない。"
+      ]
+    },
+    {
+      "id": "AMBIENT_B18_FOURTH_DISTINCT_EMBEDDED_ASSOCIATED_CLOSURE",
+      "title_ja": "実交叉の第四の埋込associated閉包B18",
+      "statement_ja": "元B18の横断深さ零から、非零socleのannihilatorは横断maximal idealとなる。実Gamma19群作用productではその延長は明示的な実軌道idealの完成であり、任意の形式primeを使わず忠実平坦な完成とlocalizationからassociated primeを代数的交叉へ降ろす。P0は実B18のchain a=b=1,c=0,G2=h二乗+z二乗に属する。B18既約cone19と実軌道rank19から軌道閉包は正確にB18である。従ってB18はcone19・射影18のembedded associated閉包で、前の三つのcone20閉包と次元により相異なる。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independently_reviewed_certificates_and_explicit_dependency_composition_2026_11_04",
+        "certificates": "reproduced_2026_11_04_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "AMBIENT_B18_ORIGINAL_ACTUAL_CONE_DEPTH19_AND_NONZERO_FINITE_H0",
+          "AMBIENT_B18_ACTUAL_D_SCHEME_ORBIT_PRODUCT_AND_DEPTH_RANGE",
+          "AMBIENT_CA_CRITICAL_THIRD_DISTINCT_EMBEDDED_ASSOCIATED_CLOSURE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_B18_FOURTH_EMBEDDED_ASSOCIATED_CLOSURE_20261104_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_B18_FOURTH_EMBEDDED_ASSOCIATED_CLOSURE_20261104_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_B18_FOURTH_EMBEDDED_ASSOCIATED_CLOSURE_20261104_v63/report.json",
+        "reports/AMBIENT_B18_FOURTH_EMBEDDED_ASSOCIATED_CLOSURE_20261104_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "実CA/CB交叉に少なくとも四つの埋込閉包があるという下界で、全Assの尽くしではない。",
+        "全Poissonの新しい既約成分として数えない。明示socle元・generic H0長・nil指数を付加しない。"
+      ]
+    },
+    {
+      "id": "AMBIENT_B18_ORIGINAL_NIL_INDEX_UNCONDITIONAL_UPPER12",
+      "title_ja": "元B18交叉のnil指数の無条件上界十二",
+      "statement_ja": "単射A→B=A+A*tau、tau二乗=nu in Aの任意基底変換のkernel idealは平方零である。多項式表示M=A[X]/Jのkernel lift k=j0+j1*tau、ji in Jに対し、単射により(k-j0)二乗=nu*j1二乗をA[X]へ戻せるためk二乗はJへ入る。標数零のpolarizationと実有限完全環への適用を独立確認した。実二成分の正規化はそれぞれ同じR0上のこの二次型であり、二段階kernelの平方零から合成比較kernel Kの四乗零を得る。全E4のnil三乗零と合わせNil(D0)の十二乗は零。既証の全正次数混合nil積零とG19 productから元のfull B18交叉完成環にも適用でき、Qbの非零二乗と合わせ指数は無条件に三以上十二以下となる。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independently_reviewed_certificates_and_explicit_dependency_composition_2026_11_04",
+        "certificates": "reproduced_2026_11_04_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "AMBIENT_B18_FULL_CORE_FIVE_LINES_AND_NORMALIZED_E4_NIL_INDEX3",
+          "AMBIENT_B18_FULL_NIL_CUBE_FINITE_ORIGIN_AND_CONDITIONAL_INDEX3",
+          "AMBIENT_B18_ACTUAL_NORMALIZER_TENSOR_FREE4_OVER_COMMON_ZERO_BASE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_B18_QUADRATIC_NORMALIZER_NIL_UPPER12_20261104_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_B18_QUADRATIC_NORMALIZER_NIL_UPPER12_20261104_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_B18_QUADRATIC_NORMALIZER_NIL_UPPER12_20261104_v63/report.json",
+        "reports/AMBIENT_B18_QUADRATIC_NORMALIZER_NIL_UPPER12_20261104_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "正確な指数や三乗の零性は未決で、深さ十九から三乗非零を推論しない。",
+        "単一元の平方零だけで止めず標数零polarizationでideal平方零を証明した。nuや零因子を反転せず、基底変換の平坦性も仮定しない。",
+        "元B18の実CA/CB交叉完成環の範囲であり、全Jacobi schemeのnil指数ではない。"
+      ]
+    },
+    {
+      "id": "AMBIENT_B18_NORMALIZED_NIL_SQUARE_EXACT_THREE_SUPPORTS",
+      "title_ja": "正規化E4 nil二乗の正確な三支持と被約annihilator",
+      "statement_ja": "M=Nil(E4)二乗について、既証の六associated primeと全五core直線の一般局所模型を用いた。NとPではnil moduleはcoreへのd倍であり、その二乗はd*coreに対応して非零長一となる。Cも長一、残る支持では零。submoduleのAssとH0(E4)=0から、Mは正確にN,P,CをAssとする一次元CM・重複度三である。三直線の被約和ideal(u5,a-d+x,ad,d(2t-a),a(2t-a))は一般点でMを殺し、残像は有限原点支持なのでH0零性で消える。従ってこの被約idealがMの正確なannihilatorである。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independently_reviewed_certificates_and_explicit_dependency_composition_2026_11_04",
+        "certificates": "reproduced_2026_11_04_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "AMBIENT_B18_NORMALIZED_E4_NIL_IDEAL_MINIMAL2_COMPLETE_RELATIONS",
+          "AMBIENT_B18_FULL_CORE_FIVE_LINES_AND_NORMALIZED_E4_NIL_INDEX3"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_B18_NORMALIZER_NIL_SQUARE_THREE_SUPPORTS_20261104_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_B18_NORMALIZER_NIL_SQUARE_THREE_SUPPORTS_20261104_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_B18_NORMALIZER_NIL_SQUARE_THREE_SUPPORTS_20261104_v63/report.json",
+        "reports/AMBIENT_B18_NORMALIZER_NIL_SQUARE_THREE_SUPPORTS_20261104_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "core内d二乗零をfull E4内d二乗零へ移さない。N/Pではfull nil二乗は非零である。",
+        "元D0のnil像の平方零性や指数上界八には結論を広げない。N/P/Cすべての実像を別に調べる必要がある。"
+      ]
+    },
+    {
+      "id": "S61_NONSQUARE_DIRECT_PURE4_HEAVY5_SAME_COKERNEL6_BY13",
+      "title_ja": "pure四とheavy五の直接Schur同cokernel六対十三",
+      "statement_ja": "prePOWER十五対二十二源のQ9,G18,G39,G68から実pure四block P4を直接取り、detP4=a四乗 C三乗 R434とした。指定heavy五blockを既存の二対二・三対三へ分け、hybridの源rho・target gamma正規化を明示して、九pivot blockを((P4,0),(C,H5))とした。R434とDelta5が単位となる開上で、stageした二つの随伴演算による完全な左右逆とsource covectorを保存・独立検証した。同じcokernelの六対十三表示となり、h22反転や新しいscalar展開を要しない。全八つの追加Q9 pure tailを保持する。さらに指定一成分の7022項一次計算について、独立なsymbolic F32003[a,e,d,a逆]計算が全768演算・全係数還元・bordered五行列式を確認した。全QQ分母のp単位性と非零係数の証人から、標数零のこの一成分の非零性が従う。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independently_reviewed_certificates_and_explicit_dependency_composition_2026_11_04",
+        "certificates": "reproduced_2026_11_04_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_NONSQUARE_PREPOWER_ACTUAL_PURE4_MINOR_WITH_RETAINED_FACTOR",
+          "S61_NONSQUARE_PROJECTED_CUBIC_TEN_GLOBAL_UNITS_AND_FREE15_OVER22"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_NONSQUARE_PREPOWER_DIRECT_P4_H5_SCHUR_20261104_v63.md"
+        },
+        {
+          "path": "research/notes/S61_NONSQUARE_PREPOWER_DIRECT_P4_H5_SCHUR_20261104_v63_REVIEW.md"
+        },
+        {
+          "path": "research/notes/S61_NONSQUARE_PREPOWER_U4_T15_SCHUR_ENTRY_20261104_v63.md"
+        },
+        {
+          "path": "research/notes/S61_NONSQUARE_PREPOWER_U4_T15_MODP_POLYNOMIAL_20261104_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_NONSQUARE_PREPOWER_DIRECT_P4_H5_SCHUR_20261104_v63/report.json",
+        "reports/S61_NONSQUARE_PREPOWER_DIRECT_P4_H5_SCHUR_20261104_v63_REVIEW/report.json",
+        "reports/S61_NONSQUARE_PREPOWER_U4_T15_SCHUR_ENTRY_20261104_v63/report.json",
+        "reports/S61_NONSQUARE_PREPOWER_U4_T15_MODP_POLYNOMIAL_20261104_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "R434=0とDelta5=0の補集合を省略しない。六行の全rankや全FULLU cubic57は未決。",
+        "一成分の7022項scalar一次計算とは別の型付き表示の独立証明である。そのQQ scalar別監査は48秒ガードで中断した。別のsymbolic32003検証は非零性を証明したが、全QQ係数恒等式の独立確認とは区別する。",
+        "standalone adj3のscalar係数が既に保存されたとは記さず、未展開の有限随伴operatorとして用いた。"
       ]
     }
   ],
