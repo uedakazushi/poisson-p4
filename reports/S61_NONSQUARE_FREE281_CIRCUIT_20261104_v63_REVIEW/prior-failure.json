@@ -1,0 +1,14 @@
+{
+  "status": "native_check_failed_before_receipt",
+  "stage": "structural_root_compositions_all_completed; native_denominator/scalar_check",
+  "source_sha256": {
+    "code/s61_nonsquare_free281_circuit_review_20261104_v63.py": "c463b6a2775292cdca2e60ab99b331fec1c2ffc214feb36ac6b77c9452fdb6e1",
+    "code/s61_nonsquare_free281_circuit_review_20261104_v63.cpp": "4adf2892d1637b6862c89796997865425be0b9cc4e843b9d51e8ed5c03c379b8"
+  },
+  "no_PASS_claim": true,
+  "identified_review_implementation_bug": "Ratio denominator initialized1; generic load appends terms; failed reader made denominator den+1",
+  "correction": "clear Ratio.d before loading frozen denominator",
+  "diagnostic_without_activation": "dynamic loader failed before arithmetic",
+  "activated_diagnostic": "same assertion known-unit denominator failed, no PASS claim",
+  "no_author_input_changed": true
+}

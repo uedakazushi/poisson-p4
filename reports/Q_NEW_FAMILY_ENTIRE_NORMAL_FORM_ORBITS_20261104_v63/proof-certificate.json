@@ -1,0 +1,93 @@
+{
+  "parameter_domain": "u*v*(32*u+v)!=0",
+  "target_domain": "U*V*(32*U+V)!=0",
+  "base_field": "any characteristic-zero field; geometric orbit classification over algebraic closure",
+  "intrinsic_flags": "unique tripleH; unique vertex of Q restricted toH; homogeneous ImN=span(ey,ez) with minor4u^2/3 and target4U^2/3",
+  "full_affine_form": "xprime=a*x+b*w+tx; wprime=c*x+d*w+tw; yprime=e*x+f*y+g*w+ty; zprime=h*x+i*y+j*z+k*w+tz",
+  "invertibility": "f*j*(a*d-b*c)!=0; kappa!=0 retained",
+  "general_low_bracket_relations": [
+    "kappa*(a*d-b*c)=1",
+    "eta=kappa*f",
+    "eta*b=64*c",
+    "eta*a=d",
+    "eta*d=a",
+    "eta*c=b/64"
+  ],
+  "modular_relation": "N_target*M=kappa*M*N_source; y,h entry gives U=eta*u",
+  "no_lost_sign_case": [
+    "eta*(eta*a-d)+(eta*d-a)=(eta^2-1)*a",
+    "eta*(eta*b-64*c)+64*(eta*c-b/64)=(eta^2-1)*b",
+    "a,b not both zero implies eta^2=1"
+  ],
+  "first_necessary_condition": "U=+u or -u for ALL displayed parameters, not just generic u",
+  "line_covariance": [
+    {
+      "eta": 1,
+      "b": "64*c",
+      "d": "a",
+      "lplus_target_pullback": "(a+8*c)*lplus_source",
+      "lminus_target_pullback": "(a-8*c)*lminus_source"
+    },
+    {
+      "eta": -1,
+      "b": "-64*c",
+      "d": "-a",
+      "lplus_target_pullback": "(a+8*c)*lminus_source",
+      "lminus_target_pullback": "(a-8*c)*lplus_source"
+    }
+  ],
+  "nonzero_line_scales": "(a+8c)(a-8c) is a nonzero scalar multiple of det(xw block)",
+  "conic": "q2=-x^2+64*w^2+64*u*x*y+32*u*v*y^2; target obtained by u,v->U,V",
+  "projected_Q_covariance": "Q_target under quotient P2 linear map is nonzero scalar times Q_source, since actual anticanonical quadric component is preserved",
+  "chord": "J=256*(lplus^t Q^-1 lminus)^2/(self(lplus)*self(lminus))",
+  "chord_unit_conditions": "detQ=-2048*u*(32u+v), self(lplus)=self(lminus)=32u/(32u+v), all nonzero on ENTIRE domain",
+  "second_necessary_condition": "(V/U+16)^2=(v/u+16)^2 for ALL displayed parameters, no invariant-line uniqueness assumption",
+  "all_parameter_candidates": [
+    [
+      "u",
+      "v"
+    ],
+    [
+      "-u",
+      "-v"
+    ],
+    [
+      "u",
+      "-32*u-v"
+    ],
+    [
+      "-u",
+      "32*u+v"
+    ]
+  ],
+  "sufficiency": "known FULL tau plus independently checked FULL sigma matrices, both defined on entire uvp domain",
+  "equivalence_criterion": "P(u,1,v) and P(U,1,V) are projectively equivalent iff U^2=u^2 and (V/U+16)^2=(v/u+16)^2",
+  "sign_coordinates": {
+    "z": "v/u+16",
+    "A": "u^2",
+    "J": "z^2",
+    "tau": "(u,z)->(-u,z)",
+    "sigma": "(u,z)->(u,-z)"
+  },
+  "parameter_coordinate_ring": "k[u,u^-1,z,(z^2-256)^-1]",
+  "finite_parameter_quotient_ring": "k[A,A^-1,J,(J-256)^-1]",
+  "quotient_proof": "independent signs select even u-Laurent and z-polynomial exponents; denominator already invariant",
+  "finite_free_rank": 4,
+  "free_basis": [
+    "1",
+    "u",
+    "z",
+    "u*z"
+  ],
+  "quotient_parameter_space": "Gm_A times (A1_J minus {256})",
+  "geometric_orbit_normalform_size": {
+    "J_nonzero": 4,
+    "J_zero": 2
+  },
+  "J_zero_scheme_fibre": "two geometric u-roots, each z^2=0: scheme length4 is NOT four reduced points",
+  "no_rational_point_lift_claim": "quotient k-points need not admit u,z in k; however two k-valued normalforms with equal A,J are explicitly PGL(k)-equivalent",
+  "scope": "ENTIRE displayed normalform family and its set-theoretic PGL saturation",
+  "NOT_all_smooth_quadric_points_in_whole_component": true,
+  "NOT_categorical_or_good_PGL_quotient_of_whole_component": true,
+  "no_CAS_new_point_prime_GB_or_invariant_probe": true
+}

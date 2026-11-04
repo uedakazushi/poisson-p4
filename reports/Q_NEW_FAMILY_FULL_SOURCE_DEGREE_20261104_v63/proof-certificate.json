@@ -1,0 +1,64 @@
+{
+  "base_fields": [
+    "QQ",
+    "C"
+  ],
+  "Y": "actual reduced NEW S61 component Y16",
+  "B": "actual primitive beta image B15",
+  "G": "Sp4, not PSp4",
+  "old_source_field": "S_old=k(G)(u,v,c,X,W,B)",
+  "point_coordinates": "p=(X,0,Z,W), Z=-3/(4u)*(B+W/1536-W^2+X^2/64+2/9)",
+  "source_dimension": 16,
+  "Y_dimension": 16,
+  "firstjet_dimension": 15,
+  "actual_normalized_equivalence_data": {
+    "equation": "Pi=c*T_*P(u,1,v), T inPGL5, Pi inS61 valueJ/perspectivefixed",
+    "point": "p=T^-1(e0); rank4 value forces p off tripleH, hence affine, and offQ",
+    "unique_projective_factorization": "T=Persp(alpha)*block(A)*Translate(-p), after denominator atp normalizedto1",
+    "scalar": "c uniquely determined by nonzero fixed affinecanonicalPi andPGL action; centralGL5 scalar acts trivially on quadratic bivectors",
+    "value": "A*(c*C(p))*A^T=J",
+    "Darboux": "R*(c*C(p))*R^T=J",
+    "symplectic_frame": "g=A*R^-1, unique actualSp4 matrix",
+    "perspective": "alpha unique by invertible4x4 S61 perspective response matrix; full tensor normalizer, not justbeta",
+    "reverse": "given(u,v,c,p_y0,g), useA=gR and the unique perspective to reconstructT",
+    "chart": "c andPf(C(p))units, andPf(C(p))=8B/9 in y0 gauge; no generic preimages lost",
+    "fixed_n1": "n1=1 rational gauge already removed; no remaining Gm or square-root choice"
+  },
+  "generic_parameter_choices": [
+    "(u,v)",
+    "(-u,-v)",
+    "(u,-32u-v)",
+    "(-u,32u+v)"
+  ],
+  "equivalence_torsor": "for each parameter representative, projectiveT choices form a torsor underAut(P)=Ga xmu2",
+  "point_cut": "T->T*exp(qN) changes p_y by-4*u*q/3; in EACH of2 Aut components the y0 condition has exactlyone solution",
+  "old_geometric_generic_preimages": 8,
+  "generic_separability": "char0 dominant same-dimension map, hence functionfielddegree equals geometric generic preimagecount",
+  "old_full_source_field_degree": 8,
+  "no_extra_factors": [
+    "two sigma matrices differ bythe finiteAut component and are NOT an additionalfactor2",
+    "Sp4 center-I is NOT quotiented: it changes beta sign, generic beta stabilizeridentity; A uniquelyfixesg",
+    "Poisson scalarc is unique forT; rational DarbouxR introduces no square root",
+    "n1 torus gauge wasfixed once, its residual parameteridentifications alreadyin fourchoices"
+  ],
+  "full_tau_frame_change": {
+    "raw_pair_match": "S_t inSp4 physicalframe, rational inF6",
+    "gu": "diag(u,u^-1,1,1); u is an ORIGINALF6 coordinate, no new fieldextension",
+    "effective_linear_frame": "newnormalization differs fromold by gu^-1*S_t; perspective is removed bysame S61crosssection",
+    "group_variable_change": "oldphysicalg=newphysicalh*gu^-1*S_t, a birational rationalchange overF6",
+    "base_convention": "replace physicalh byh^-1 to align with accepted pullbackanti beta action; groupinversion is birational"
+  },
+  "old_constant_field": "F6=F5(t), F5^tau=E5=k(xi,r,s,q,B), F5=E5(u),u^2=1600r",
+  "tau": "u->-u,t->t/(t-1), acts trivially on correctedSp4 coordinate",
+  "invariant_curve_coordinate": "z=u*(t-2)/t, inverse t=2u/(u-z)",
+  "source_tau_fixed_field": "S_new=k(G)E5(z), [S_old:S_new]=2",
+  "full_tensor_descends": "accepted full150 finite equivariance, not beta-onlysource symmetry",
+  "base_field_binding": "accepted GxSpecE5 birationaltoB15 via genericallyfree beta; S_new=k(B15)(z) overSAME actual base",
+  "exact_degree_tower": "8=[S_old:k(Y16)]=2*[k(B15)(z):k(Y16)]",
+  "descended_full_source_degree": 4,
+  "Luroth": "withK=k(B15), k(Y16)=K(w) subsetK(z), [K(z):K(w)]=4",
+  "not_degree1_not_Galois_claim": true,
+  "no_expanded_Luroth_generator_or_NEW_equation_or_global_finite_map": true,
+  "no_CAS_point_prime_Mobius_or_new_invariant_expansion": true,
+  "v0_alternative_section_NOT_used": "its constantmap extension is a separatefuturegate, not assumed here"
+}

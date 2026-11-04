@@ -1,5 +1,21 @@
 # 研究状態 — v63-s61 / 2026-11-04
 
+## v63 AO / 2026-11-04: 全域38方向・自由281・B18全実入力・normal form全域と境界
+
+直前 main `4690f9a9efec8d6f876360daf8fcaa5410137bf9` は通常push済み。以下は過去時点を含む。
+
+非平方の全域kernelを一方向増やし、既知uniform方向38・残り42とした。新しいpolynomial source vectorの全239係数と既知37からのunit separatorを独立確認した。旧global282のB22混合がseparator二座標を含む点も修正し、別のBnewを使う実自由281表示を完成した。全四次239全射と全点cubic57は引き続き未決。
+
+新25成分のnormal form領域uv(32u+v)≠0全体では、PGL同定の必要十分条件A=u²,J=(v/u+16)²を確定した。J≠0の安定化群はGa×mu2、J=0では(Ga⋊mu2)×mu2で、共鳴点でも追加Gmは全一次係数により消える。v=0,u≠0の境界族も全域でGa、u同定は符号だけ、飽和閉包24次元と決定した。旧209式の閉入射への所属は確認したが、その退化center/pencilを既存Hquartic成分への所属とは取り違えない。全C58境界の尽くしではない。
+
+full正規化sourceの一般次数も元の六source＋Sp4で正確に八、tau下降後の同じbeta底上で正確に四と決定した。四normal formと二Aut成分を数え、sigmaの二表示・Sp4中心・gaugeを二重計数していない。既存のLuroth有理性は維持されるが、z自体を次数一座標とは呼ばない。
+
+B18では実係数が未計算だった全相対modelを、具体的な有限algebraic DAGへした。正しい48＋5 unit Hensel系、九実座標でのtelescoping、既知zero-image生成に基づく正則g商、完全な44 syzygy＋55 productから、全99 CB kernelと全87 graph差をCAの同じtraceへ輸送した。全186関係、四Q[n]とJinfの8131生成列が明示済み。四つのg商の原点値は未評価で、単位として使わない。
+
+さらに96恒等式からT3はactual conductor曲線上の有限加群となり、multiplicity3、ell=5(s−r)の閉fiber長3、T3/ellの長さ上界36を得た。top T3の有限台torsionは一つのell-colonで判定できる。ただしこのcolonやT0/T1/T2、実depth19/20、full nilradicalは未計算である。ambient二行matrixを単純にI0で割るTor shortcutや、不正なjet切捨ては行わない。
+
+次はactual281/239のlossless monic前処理と欠損、B18の実module所属・colon、v=0を使う小さいbeta表示、NEW実定義式、一般beta delta_E所属と全成分尽くしを続ける。総下界58/rank4下界52/上界未定、NEW次数下界26、五凍結原稿は維持する。
+
 ## v63 AN / 2026-11-04: 全一般安定化群・実普遍曲線種数三・low6非有限・一般cubic階数十
 
 直前 main `fccac559ed4f42265fdc4f9b1bbf4a04588c923d` は通常push済み。以下は過去時点を含む。

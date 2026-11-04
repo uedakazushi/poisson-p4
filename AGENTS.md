@@ -2,6 +2,24 @@
 
 Version: v63-s61 · 2026-11-04 (Asia/Tokyo).
 
+Latest AO (2026-11-04): NONSQUAREUNIFORMkernel38/missing42 FULLU,
+compactoriginal319ALL239identity+unitsep−1024000aC³J/243 reviewed.
+ActualGLOBALFREE281samecoker, BnewEXCLUDES182/186 (oldB22includedthem!),
+P22transport+constantsumunitdelete; notfixedold281submatrix/full239.
+NEWnormalformuvpALLorbits(A=u²,J) classified,parameterquotientGm x(A1-256);
+JnonzeroGa×mu2,J0(Ga⋊mu2)×mu2 inclresonantA256,noextraGm.
+v0/uunitBOUNDARYfullstabGa,orbits±u,saturation24, CLOSED209incidenceonly,
+NOTCA/CB/MPSN/Hquartic; allC58boundaryexhaustionOPEN.
+OriginalfullnormalizedsourceGENERICdegree8, tau-descendedSAMEβfiberdegree4;
+notextra2sigma/center/gauge, noexplicitLurothgenerator.
+B18ACTUALfullrelative186 INPUTCONSTRUCTED finitealgebraicDAG:44syz+55product
+CBkernel99+ALL87graphs SAMEτCA, degreecounts68/85/27/6; Qncols612/1513/1926/2034
+Jinf2046. Fourregular-gdivisionoriginsUNEVALUATEDandNEVERunits.
+T3annI0_CA by96identities, CMcurve1/mult3,ell5(s-r),lengthT3/ell≤36,
+ONEell-colonanswerOPEN; doNOTambientmodI0/Tor orblindjettruncate.
+Full239,B18actualdepth19..20/nil,NEWdegree>=26eq,genericβδE/exhaustionOPEN.
+Bounds58/r4lower52/uppernull; continueactualresearch/ordinarymainpush.
+
 Latest AN (2026-11-04): NEW25 genericFULLPGLstabilizerEXACTGa x mu2,
 fullflag+scalarquadraticcaseexhaustion/all150coeff; NOTparameterV4/allspecialstrata.
 ACTUALFULLSp4universalspectralcurve QQ/C geoGENUS3, low6subfieldindexEXACT8;
