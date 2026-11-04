@@ -8,6 +8,18 @@ v62保存は `e187b40de68bce534391f406f616940cddd045a7`、
 `66a80ab53dfcf0ff842c67140320d8da0226039d`。全て通常push済み。
 このv63保存のSHAはGit履歴で識別する。
 
+## v63 AL / 2026-11-04: 新二十五次元被約全成分の有理性
+
+直前 main `e32ecb2ea57773d144761da318565b1638d904fe` は通常push済み。以下は過去時点を含む。
+
+新成分R4_POSITIVE_WEIGHT6_25の被約な射影成分全体がQQ/C上で有理二十五次元であることを証明した。第一jet像B_NEW15の有理性から単に推測せず、残る実一変数fiberと全Poisson成分へ戻す正規化を二つに分けて独立検証した。
+
+全raw kernelのperspective補償が零であることからnormalized raw pair像は十五次元で、実sectionと既存指数1によってB_NEW15へ双有理となる。これでprimitive betaを合わせるframeはtrace covectorも合わせる。正しいtranspose/inverseとfull tensorの有限tau同値を用い、五定数体E5にz=u(t−2)/tを加えた有理体上のfull tensorを構成した。同じK=QQ(B_NEW15)上でK⊂QQ(Y16)⊂K(z)が得られ、Lurothにより被約S61成分Y16は有理十六次元となる。source parameterの写像次数1や明示Luroth生成元は仮定しない。
+
+さらに固定評価点のskew値六係数と旧S61のperspective四係数を失わず、affine coneをU6×A4×Y16へ両方向に有理同定した。先にprojective scaleを値の一成分=1で固定すると全射影成分はU5×A4×Y16、すなわち九自由変数を加えるだけである。評価点を動かす余分な四変数は数えない。これにより実被約全成分の有理性が確定した。
+
+全Jacobiスキームのgeneric長さ5とCM type2は維持し、被約になったとは言わない。NEW firstjet実定義式、generic PGL有限同定、普遍残余曲線の正確な種数、非平方全239全射、B18全nil/depth、一般betaのdelta_E所属と全成分尽くしは続行する。総下界58/rank4下界52/上界未定、NEW次数下界26、五凍結原稿は維持する。
+
 ## v63 AK / 2026-11-04: 第一jet像の有理15変数・構成的逆・B18有限深さ判定
 
 直前 main `694288bb00cc28f6ba95ff40118c7cb0823bb218` は通常push済み。以下は過去時点を含む。

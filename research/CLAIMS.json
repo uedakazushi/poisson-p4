@@ -19820,6 +19820,110 @@
       "limitations_ja": [
         "w-torsionをnilradicalと同一視しない。actual algebraic power series係数と四つのsocleの答えは未計算であり、全nil・実depth19/20そのものは未解決。有限jetの零を全次数membershipへ持ち上げていない。"
       ]
+    },
+    {
+      "id": "NEW25_FULL_S61_COMPONENT_RATIONAL_FIBER_AND_RATIONAL16",
+      "title_ja": "実S61成分の有理一次元fiberと有理十六次元性",
+      "statement_ja": "元のraw30 kernelのperspective補償が全四成分零であることから、Darboux正規化後のraw pair像は十五次元となる。実有理sectionとfirstjet指数一からこのpair像はB_NEW15へ双有理で、primitive matching frameはtrace covectorも合わせる。正しいdual frameを元full tensorへ作用させ、全tensorのtau同値とz=u(t−2)/tにより五定数体E5(z)へ下降した。同じbase K=QQ(B_NEW15)上でK⊂QQ(Y16)⊂K(z)を得て、LurothによりQQ(Y16)=K(z0)。従って被約S61成分Y16はQQ/C上で有理十六次元である。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_04",
+        "certificates": "reproduced_2026_11_04_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "NEW25_ACTUAL_FIRSTJET_IMAGE_BIRATIONAL_SP4_TIMES_A5_RATIONAL15",
+          "NEW25_SIX_SOURCE_RATIONAL_COVARIANT_CIRCUIT",
+          "NEW25_SOURCE_KERNEL_RATIONAL_CONSTANT_FIELD_FIVE_AND_SECTION",
+          "R4_NEW25_FIRSTJET_IMAGE_EXACT15_GENERIC_FIBER1"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/Q_NEW_FAMILY_FULL_TENSOR_FIBER_PREFLIGHT_20261104_v63.md"
+        },
+        {
+          "path": "research/notes/Q_NEW_FAMILY_FULL_TENSOR_FIBER_PREFLIGHT_20261104_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/Q_NEW_FAMILY_FULL_TENSOR_FIBER_PREFLIGHT_20261104_v63/report.json",
+        "reports/Q_NEW_FAMILY_FULL_TENSOR_FIBER_PREFLIGHT_20261104_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "kernelをfull tensorの対称性と同一視しない。z自体がLuroth生成元、source mapが次数一、全fiberの境界が滑らか、全Jacobiスキームが被約とは主張しない。"
+      ]
+    },
+    {
+      "id": "S61_RANK4_COMPONENT_BIRATIONAL_PRODUCT_PLUS9",
+      "title_ja": "rank4全射影成分とS61の有理九変数積",
+      "statement_ja": "固定評価点の一般skew値Cの六係数を保持し、Pfaffianと一つの非零成分だけを逆にした明示有理Darboux行列で値Jへ動かす。旧S61の四perspective係数と全次数消去を使い、全affine coneのrank4開をU6×A4×S61と両方向に同定した。連結PGL5が各被約既約成分を保つため各成分へ制限でき、先にprojective scaleを値の一成分=1で固定すると、全射影成分XはU5×A4×Yに双有理である。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_04",
+        "certificates": "reproduced_2026_11_04_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_PRIMITIVE_GAUGE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_RATIONAL_COMPONENT_TRANSFER_20261104_v63.md"
+        },
+        {
+          "path": "research/notes/S61_RATIONAL_COMPONENT_TRANSFER_20261104_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_RATIONAL_COMPONENT_TRANSFER_20261104_v63/report.json",
+        "reports/S61_RATIONAL_COMPONENT_TRANSFER_20261104_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "固定評価点での操作であり、評価点の余分な四変数を加算しない。旧gaugeとprimitive gaugeを取り違えない。Yの有理性はこの一般移行補題自体の仮定に残る。"
+      ]
+    },
+    {
+      "id": "NEW25_REDUCED_FULL_COMPONENT_RATIONAL_OVER_QQ_AND_C",
+      "title_ja": "新二十五次元被約全成分はQQとC上で有理",
+      "statement_ja": "実S61被約成分Y16が同じfirstjet底上のLuroth定理で有理十六次元であることと、全射影成分X25がY16と九自由変数の積へ双有理であることを独立に検証して合成した。従って新成分R4_POSITIVE_WEIGHT6_25の被約台はQQ/C上で純有理二十五次元である。firstjet像だけから全成分へ推測したものではない。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_04",
+        "certificates": "reproduced_2026_11_04_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "NEW25_FULL_S61_COMPONENT_RATIONAL_FIBER_AND_RATIONAL16",
+          "S61_RANK4_COMPONENT_BIRATIONAL_PRODUCT_PLUS9",
+          "R4_NEW25_POSITIVE_WEIGHT6_FULL_COMPONENT"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/NEW25_REDUCED_COMPONENT_RATIONALITY_20261104_v63.md"
+        },
+        {
+          "path": "research/notes/NEW25_REDUCED_COMPONENT_RATIONALITY_20261104_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/NEW25_REDUCED_COMPONENT_RATIONALITY_20261104_v63/report.json",
+        "reports/NEW25_REDUCED_COMPONENT_RATIONALITY_20261104_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "有理性の対象は被約既約成分であり、全Jacobiスキームのgeneric長さ五・CM type二は変わらない。NEW firstjetの実定義方程式、全境界orbit、一般beta五点尽くし、全成分上界と完全分類は未解決。"
+      ]
     }
   ],
   "setup_checkpoint": "v25-setup",

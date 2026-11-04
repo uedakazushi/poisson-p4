@@ -2,6 +2,19 @@
 
 Version: v63-s61 · 2026-11-04 (Asia/Tokyo).
 
+Latest AL (2026-11-04): ACTUALREDUCEDFULLnewPoissonprojectivecomponent
+R4_POSITIVE_WEIGHT6_25 isQQ/C-RATIONAL25, notonlyfirstjetB15.
+Rawpairimage15 byrawkernelperspective0/rank21minusvalue6; SAMEt2section
+andindex1 givespairYbirationalB15, soalphamatcheswithprimitivebeta.
+FulltensorfiniteframeS=Q^-t, physicalg_u^-1 andFULLtau descending
+z=u(t-2)/t yieldsE5(z); SAMEbaseK(B15)⊂K(Y16)⊂K(B15)(z),Luroth=>rational16.
+No degree1t-map orfulltensor-symmetryassumption. ExactfullS61normalization
+U6xA4xY16,projectiveconstantc=1 givesU5xA4xY16 =>25. Fixedpoint,noextra4.
+FULLJacobi schemegenericlength5/CMtype2 UNCHANGED, rationalityREDUCEDsupport.
+NEWdefinitiondegree>=26/actualeq,finitePGLidentifications,curveexactgenus,
+full239,B18actualnil/depth19..20,genericbeta/exhaustionOPEN.
+Bounds58/r4lower52/uppernull; continueactualresearch/ordinarymainpush.
+
 Latest AK (2026-11-04): ACTUALfirstjet B_NEW15 birationalSp4xA5 overQQ/C,
 pureRATIONAL15, genericGEOMETRICstabilizerIDENTITY bySAMEoldbeta0/32003
 fullcommutant15minor17760; notmerelyLiealgebra. Actualsection+index1 solves

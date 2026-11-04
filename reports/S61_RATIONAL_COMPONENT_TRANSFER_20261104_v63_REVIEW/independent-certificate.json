@@ -1,0 +1,132 @@
+{
+  "fixed_point": "[1:0:0:0:0], never add an evaluation-point parameter",
+  "c_index_convention": "C03 in the four-dimensional affine tangent space; global spatial pair is(1,4)",
+  "C": [
+    [
+      "0",
+      "a",
+      "b",
+      "c"
+    ],
+    [
+      "-a",
+      "0",
+      "d",
+      "e"
+    ],
+    [
+      "-b",
+      "-d",
+      "0",
+      "f"
+    ],
+    [
+      "-c",
+      "-e",
+      "-f",
+      "0"
+    ]
+  ],
+  "pfaffian": "a*f - b*e + c*d",
+  "R": [
+    [
+      "1",
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "0",
+      "0",
+      "0",
+      "1/c"
+    ],
+    [
+      "-e/c",
+      "1",
+      "0",
+      "-a/c"
+    ],
+    [
+      "-f/(a*f - b*e + c*d)",
+      "0",
+      "c/(a*f - b*e + c*d)",
+      "-b/(a*f - b*e + c*d)"
+    ]
+  ],
+  "explicit_R_inverse": [
+    [
+      "1",
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "e/c",
+      "a",
+      "1",
+      "0"
+    ],
+    [
+      "f/c",
+      "b",
+      "0",
+      "(a*f - b*e + c*d)/c"
+    ],
+    [
+      "0",
+      "c",
+      "0",
+      "0"
+    ]
+  ],
+  "only_frame_localizers": [
+    "c",
+    "pfaffian"
+  ],
+  "det_R": "1/pfaffian",
+  "all_frame_identities": true,
+  "full_finite_affine_perspective_formula": "h^2*(J+E wedge Jalpha)+h*(L+E wedge Lalpha)+Q+E wedge Qalpha+C_radial",
+  "full_degrees_retained": "Q changes by -fL+E wedge Lalpha+f^2 J-2f E wedge Jalpha; higher changes are retained by the finite group action",
+  "old_S61_gauge_response": [
+    [
+      "-3",
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "0",
+      "-3",
+      "0",
+      "0"
+    ],
+    [
+      "0",
+      "0",
+      "-2",
+      "0"
+    ],
+    [
+      "0",
+      "0",
+      "0",
+      "-2"
+    ]
+  ],
+  "old_alpha": [
+    "L12_0/3",
+    "L12_1/3",
+    "L12_2/2",
+    "L12_3/2"
+  ],
+  "primitive_gauge_is_different": "grad(L01+L23)/5 is not substituted for the old S61 alpha",
+  "scheme_product": "actual rank4 affine-cone open U6 x A4 x S61 via C, actual-old-gauge-alpha, N; inverse undo perspective then R",
+  "scheme_input": "exact55 elimination with rational constant units and20 identities proving the154/134 IDEALS equal, not only radicals",
+  "component_restriction": "connected PGL5 and tensorGm stabilize every reduced irreducible component; their actual maps and inverses preserve component ideals, including Artin points",
+  "slice_irreducibility": "the product restricted to an irreducible component forces its slice Y to be irreducible; the product is reduced and the base is faithfully flat, so the reduced component statement is valid",
+  "nonempty_chart": "move a nondegenerate point to the fixed point by PGL, then use GL4 fixing that point to make C03 nonzero",
+  "projective_product": "take the unique tensor-scale representative c=1 BEFORE normalization, giving U5 x A4 x Y, not a scalar quotient of S61",
+  "rationality_transfer": "Y rational n-dimensional over QQ (respectively C) implies the projective component rational of dimension n+9 over the same field",
+  "Y16_or_X25_rationality_not_proved_here": true
+}
