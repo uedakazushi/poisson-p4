@@ -8,6 +8,18 @@ v62保存は `e187b40de68bce534391f406f616940cddd045a7`、
 `66a80ab53dfcf0ff842c67140320d8da0226039d`。全て通常push済み。
 このv63保存のSHAはGit履歴で識別する。
 
+## v63 AY / 2026-11-04: 実正規化tensorと有限曲線被覆、法線飽和表示
+
+直前 main `415f9a7c6e88ebd87e7f2ad61d09c921da194228` は通常push済み。
+
+B18の正規化tensorを、同じphysical R0九座標と十二出力を保つfree四・四十八列の全次数模型として独立受理した。D0比較kernelとcokernelはconductor積で零化されるが、T0全体や比較kernelの有限長は従わない。conductor積base自体のH0は長さ21・socle13であり、全TorをA3とcanonical moduleの直和として決定した。二次source cacheの独立再構築により、E4はembedding dimension九、二次initial全体はL*(x108,x109,x113,x118,x119)のrank五である。実N-normalizer pairの全次数hypersurfaceを結ぶことが、四core変数への次の有限目標である。共通二次因子だけで全次数因子やsocleを決めない。
+
+非平方B欠損点を全て含む、QQ[a,a逆]上有限自由rank112の曲線被覆を独立検証した。二つの実minorからmonic d四次H、乗法行列のノルムとBezout恒等式、既知単位の除去、monic e二十八次Eを全係数で確認した。追加minorのノルムとformal lambda pencilは一次計算では49項の必要曲線を残し、48次coverと有限残余へ絞れているが、独立監査中であり実欠損点の存在・空性は未判定である。同じGBの再試行は行わない。
+
+一般betaでは実130残差を使い、未知残余を42法線の2923生成・次数四以下のideal Jの飽和商B=K[n]/(J:(n)無限乗)として正確に指定した。全42chartのscheme同型、有限高々五生成とclopen分離による閉埋込みを独立監査した。Gramはparameterだけの型付き一意求解であり、scalar展開や飽和を実行したものではない。irrelevant-power membershipと残余空性は未決。
+
+有限Tor63 imageを使うB18 socle検出は、十五の二次候補すべてが既知第一関係のmaximal-ideal倍へ入るという一次計算で停止した。二次手法はinconclusiveであり、zero imageや深さは推論しない。実cycle演算子と高次での検出方法を検討する。全下界58・rank4下界52、NEW原始像の既約式28次、五凍結原稿を維持し、全分類まで研究を続ける。
+
 ## v63 AX / 2026-11-04: 実R-primary二重DVRと有限gluing上界、小さいheavy行列へ
 
 直前 main `1e634dd3549b2cab52d478b6aa0f2eac86ac6b15` は通常push済み。

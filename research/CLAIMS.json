@@ -22034,6 +22034,174 @@
         "G6のFULL135共変性は別のtrivial quotientとBianchi復元に基づき、RAW134の共変性だけから推論していない。",
         "G6のhomogenizationは既知isotropic flags上で消え、無限遠除去・適切性・全fiber尽くしは証明していない。次の有限目標はnormal irrelevant-power membership等の実QQ恒等式である。"
       ]
+    },
+    {
+      "id": "AMBIENT_B18_ACTUAL_NORMALIZER_TENSOR_FREE4_OVER_COMMON_ZERO_BASE",
+      "title_ja": "B18の同じ物理零切断上の正規化tensorをfree四・四十八列で構成",
+      "statement_ja": "同じphysical R0九座標と残る十二physical出力を保持した共通P0上で、CAとCBの正規化tensor E4を構成した。純粋CA48、CB48、CA prefix57の計153単位系、二つのtrace二次式、十二出力差を全次数のunit演算回路へ固定した。basis 1,tauA,tauB,tauA tauB上の全四倍を取り、free四・四十八関係列が理想全体を表すことと、実C0九生成からの自然写像を独立確認した。各conductorによる両向きscalar-return mapをtensor後にも使い、D0からE4へのkernelとcokernelはいずれもI_A I_Bで零化されると証明した。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_04",
+        "certificates": "reproduced_2026_11_04_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "AMBIENT_B18_ACTUAL_Z_CANONICAL_LENGTH3_AND_T0_NONZERO"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_B18_ZERO_NORMALIZER_TENSOR_MODEL_20261104_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_B18_ZERO_NORMALIZER_TENSOR_MODEL_20261104_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_B18_ZERO_NORMALIZER_TENSOR_MODEL_20261104_v63/report.json",
+        "reports/AMBIENT_B18_ZERO_NORMALIZER_TENSOR_MODEL_20261104_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "I_A I_BがT0全体を零化するとは言っていない。比較kernelの有限長、E4のsocle、D0からの単射性は未解決。",
+        "二つのtrace基底を同一視せず、後四つのphysical graph出力も保持する。旧r/gを再評価しない。"
+      ]
+    },
+    {
+      "id": "AMBIENT_B18_CONDUCTOR_PRODUCT_BASE_TOR_AND_LENGTH21",
+      "title_ja": "B18の実conductor積baseの全Torと有限長二十一",
+      "statement_ja": "同じR0上の二つのCI八conductorについて、既受理の厳密な和ideal I_A+I_B=(z七,r二乗,rs,s二乗)を使う。combined十六生成Koszulはlocal可逆操作で七regular座標、三quadric、六零列へ移る。三quadricのH0はA3=QQ[[r,s]]/(r,s)二乗、H1はそのcanonical module omega、H2以上は零。従ってTor_i(R/I_A,R/I_B)=A3のbinom(6,i)個とomegaのbinom(6,i-1)個の直和となる。Tor1=(I_A交I_B)/(I_A I_B)は長さ二十一・socle十三。scheme-theoretic unionはCM一次元なので、R/(I_A I_B)のH0はこの長さ二十一moduleに等しい。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_04",
+        "certificates": "reproduced_2026_11_04_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "AMBIENT_B18_ACTUAL_NORMALIZER_TENSOR_FREE4_OVER_COMMON_ZERO_BASE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_B18_CONDUCTOR_PRODUCT_CURVE_BASE_20261104_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_B18_ZERO_NORMALIZER_TENSOR_MODEL_20261104_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_B18_CONDUCTOR_PRODUCT_CURVE_BASE_20261104_v63/report.json",
+        "reports/AMBIENT_B18_ZERO_NORMALIZER_TENSOR_MODEL_20261104_v63_REVIEW/report.json",
+        "reports/AMBIENT_B18_CONDUCTOR_PRODUCT_CURVE_BASE_20261104_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "可逆十六列変換の巨大な実係数行列を計算したとはしない。存在と厳密ideal等号に基づく。",
+        "unionを被約とは仮定しない。product base上の任意moduleや比較kernelの長さ二十一以下は従わない。"
+      ]
+    },
+    {
+      "id": "AMBIENT_B18_ACTUAL_E4_QUADRATIC_INITIAL_FIVE_PRODUCTS",
+      "title_ja": "B18正規化tensorの全二次initialは共通一次因子を持つ五積",
+      "statement_ja": "両FULL9の既存source二次係数を独立なQQ辞書演算で再構成し、同じphysical R0への二次逆写像を両方向確認した。二つのmonic trace式と十二出力差の一次rankは二で、x27,x61のminorは−20/9。unit Schur後の九変数はx108,x109,x112,x113,x117,x118,x119,tauA,tauBである。全idealの二次initialの線形包は正確にL掛ける(x108,x109,x113,x118,x119)、L=5x112−20x117+24tauA+6tauBとなり、rank五・embedding dimension九である。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_04",
+        "certificates": "reproduced_2026_11_04_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "AMBIENT_B18_ACTUAL_NORMALIZER_TENSOR_FREE4_OVER_COMMON_ZERO_BASE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_B18_ZERO_NORMALIZER_QUADRATIC_20261104_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_B18_ZERO_NORMALIZER_QUADRATIC_20261104_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_B18_ZERO_NORMALIZER_QUADRATIC_20261104_v63/report.json",
+        "reports/AMBIENT_B18_ZERO_NORMALIZER_QUADRATIC_20261104_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "二次共通因子から全次数の共通因子を推論しない。実N-normalizer pairのhypersurface liftは未結合。",
+        "四変数への全次数帰着、E4のsocle、D0単射性や深さは未証明。新しい高次source jetは計算していない。"
+      ]
+    },
+    {
+      "id": "S61_NONSQUARE_B_BAD_LOCUS_CONTAINED_IN_FINITE_FREE112_CURVE_COVER",
+      "title_ja": "非平方B欠損点を全て含む有限自由百十二次曲線被覆",
+      "statement_ja": "実B最大minorから選んだ二式f,gのsourceを独立固定した。既知単位aだけを逆にしたH=−9(af−qg)/(11a五乗), q=a+13e/50−13/75はdのmonic四次式である。gの乗法四対四行列、全四monic除算、四cofactorと行列式R、およびR=uf+vgの恒等式を独立整数疎演算で確認した。既知FULLU単位だけの三十一段除去によりRはa三十一乗C四乗と225項hの積になる。hはeの最高係数が非零QQ定数で、monic二十八次Eへ正規化できる。QQ[a,a逆]上の(E,H)商は基底e^i d^j,i<28,j<4の有限自由rank百十二であり、全FULLU B欠損点はこの被覆に含まれる。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_04",
+        "certificates": "reproduced_2026_11_04_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_NONSQUARE_RAW_H_B_RANK_BAD_LOCUS_NO_DIVISOR"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_NONSQUARE_RAW_H_B_PAIR_NORM_FINITE112_20261104_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_NONSQUARE_RAW_H_B_PAIR_NORM_FINITE112_20261104_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "有限自由なのはcover代数であり、pair quotientや実欠損schemeの自由性・非空性は従わない。",
+        "FULLUの残る局所化を加えた後もbase上有限とは限らない。特殊fiberから未検証の中山適用をしない。全B rank三、heavy五、全57/239は未証明。"
+      ]
+    },
+    {
+      "id": "GENERIC_BETA_ACTUAL_NORMAL42_SATURATED_SCHEME_PRESENTATION",
+      "title_ja": "一般betaの実四十二法線上の飽和scheme表示",
+      "statement_ja": "既受理の130残差をu_hk=z_h n_kとしてXu+bへ固定した。形式的実体K=QQ(H,L,s,q,t)上のX rank126によりGram行列式は平方和で非零となる。parameterだけの一意線形求解L=(X転置X)逆X転置を型付き演算として指定し、P=−Lb,H=b+XPを定義する。百三十pure-normal式、2583compatibility式、二百十の分母を払った選択五式を合わせたJは2923生成・次数四以下。全42chartでz_h=P_hj/n_jにより元全135式のschemeを回復する。既知五点のclopen分離とAのK[n]上高々五生成から、未知残余Bは原点を避ける閉部分schemeとなり、B=K[n42]/(J:(n)無限乗)を証明した。全24501型付きnodeと45402単項式・5292chart恒等式を独立監査した。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_04",
+        "certificates": "reproduced_2026_11_04_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "GENERIC_BETA_G6_EXACT_PULLBACK_AND_FOUR_NORMAL_RELATION_SPACE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_SPARSE_GENERIC5_NORMAL42_EXACT_PRESENTATION_20261104_v63.md"
+        },
+        {
+          "path": "research/notes/S61_SPARSE_GENERIC5_NORMAL42_EXACT_PRESENTATION_20261104_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_SPARSE_GENERIC5_NORMAL42_EXACT_PRESENTATION_20261104_v63/report.json",
+        "reports/S61_SPARSE_GENERIC5_NORMAL42_EXACT_PRESENTATION_20261104_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "新たなGram係数や四つのpure-normal基底を実際に評価したとはしない。型付き一意線形求解を一演算として保持する。",
+        "特定の複素parameterでは全既存分母とGram行列式の非零が別途必要。normalの平方和を逆にしていない。",
+        "飽和、unit、irrelevant-power membership、残余空性、一般五点の尽くしは未計算・未証明。既存抽象NORMAL_FINITE5定理の実K5へのsource-bound実装であり別の抽象新定理とはしない。"
+      ]
     }
   ],
   "setup_checkpoint": "v25-setup",

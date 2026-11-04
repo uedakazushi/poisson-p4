@@ -2,6 +2,20 @@
 
 Version: v63-s61 · 2026-11-04 (Asia/Tokyo).
 
+Latest AY (2026-11-04): B18 actualE4free4/48 independentlyreviewed,
+commonP0/all12outputs/153unitinputs; ker/cokerD0→E4 killedIAIB NOTT0ann.
+ProductbaseH0length21/socle13/fullTor proved, noarbitraryKlengthbound.
+E4edim9/quadraticinitial EXACT L*(x108,x109,x113,x118,x119),rank5.
+ActualN-normalizerPAIR hypersurface NOTyetbound; noallorderfactorfromjets.
+FiniteTor63image candidatequadratics ALLinm*first38 PRIMARY; inconclusive,
+nozeroimage/depthclaim/noautohigherjets; literaloperatorpreflight next.
+BbadcontainedinfiniteFREE112cover independentlyreviewed; actualbadnonempty
+or emptyNOTproved. Additionalnorm/pencil49termcurve primaryreviewpending.
+Generic5 actualNORMAL42 B=K[n]/(J:m∞),2923gensdeg≤4/42schemecharts reviewed.
+Gram ONLYtypedparameterunique-solve,noactualscalarGram/saturation computed.
+Residualempty/genericexhaustion/B18socle/fullnil/full57/239/globalupper OPEN.
+Bounds58/r4lower52/uppernull, NEWG28exact28 solved; checkpointsNOTstop.
+
 Latest AX (2026-11-04): B18 ACTUALR zero-slice20unitgraph reviewed,
 rho112 DVRparam/cutdet−32/augdet64; allpositivecoords/w0 ALLorders.
 ActualnormF=v²−nu z1² onR lead−81600T4, D4supportmiss⇒D0=T0
