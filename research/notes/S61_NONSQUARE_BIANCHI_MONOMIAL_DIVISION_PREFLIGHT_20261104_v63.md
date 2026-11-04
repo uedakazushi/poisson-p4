@@ -1,0 +1,13 @@
+# Higher Bianchi identitiesのindividual monomial-division preflight
+
+2026-11-04。凍結済みfull Schouten operatorのlocalweight>4 piecesおよびtG6 identityをread-onlyで読む。原式・operatorを再構成せず、全135列を残したまま、各恒等式**一つずつ**の全cofactor polynomialに共通なpositive-weight monomialを調べる。F5/F6列を捨ててから割る操作はしない。
+
+許す最初の代入はlocal nuisance19,23=0だけ。これはweightだけの仮定でなく、actual fixed normal graphのTnormal両行とU両行がliteral zeroであることを凍結chartから再確認する。元135式の同じ代入後の各monomial weightと、全cofactor termのweightを照合する。
+
+共通monomialは、全135cofactorに現れる全非零monomialの指数ごとの最小値である。少なくとも一つにconstant termがあれば共通positive monomialはない。元cofactorはlocal variableについてaffine-linearなので、あれば一変数一乗に限られる。a,e,dの係数は正確なFraction polynomialsとして保持する。
+
+共通positive factorを除いてtotalweight<=4となる場合だけcandidateを保存する。ambient coefficient polynomial ringはdomainなので、全恒等式に共通するmonomialはunitでなくても消去できる。この場合はさらに、全135実local方程式でdivided identityをliteral polynomial arithmeticにより検査する。tG6列のtだけを個別にunitとして消すことはない。
+
+candidateがない場合も、そのnegative scopeは **個別の凍結weight-pieceに対する共通monomial除去だけ** である。複数identityのlinear combination、nonmonomial gcd、module saturation、全syzygy生成、実quartic rankを判定しない。candidateがあってもnormal graphや319 source pivotへの適用は行わず、別の検証課題として保存する。
+
+実行上限は30秒・500MB。新しいfield、point、GB、行列、normal graph、operator regenerationは使わない。

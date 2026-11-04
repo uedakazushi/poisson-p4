@@ -1,0 +1,11 @@
+ring R=(32003,a),(e,d,z),dp;
+poly f=(1/(a+1))*(a+1)-1;
+if(f!=0){ERROR("FIELD_RATIONAL_ARITHMETIC_FAILED");quit;}
+matrix T[2][3]=a*e,1-a*e,0,0,0,a;
+matrix X[3][2]=1,0,1,0,0,1/a;
+matrix E[2][2]=1,0,0,1;
+if(T*X!=E){ERROR("FIELD_EXPLICIT_MODULE_IDENTITY_FAILED");quit;}
+module I=T;module G=std(I);module EE=E;
+if(size(reduce(EE,G))!=0){ERROR("FIELD_STD_UNIT_SANITY_FAILED");quit;}
+if(vdim(G)!=0){ERROR("FIELD_STD_VDIM_SANITY_FAILED");quit;}
+print("EXACT_FIELD_AND_STD_SANITY_PASS");quit;

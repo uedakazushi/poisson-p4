@@ -2,6 +2,21 @@
 
 Version: v63-s61 · 2026-11-04 (Asia/Tokyo).
 
+Latest AE (2026-11-04): FULL Inv24 QQ basis67 constructed; complete source
+restriction injective by pointFREE coefficientminor9857 mod32003, independent
+all4489 entries verified. NEW definingdegree>=26; EQUATIONSTILLOPEN.
+Four additional CD/Hessian source maps21834 coefficients independently verified.
+C/D are4x4 adjoints; oldtheta/H are16x16, DO NOTsubstituteoneforother.
+DirectBianchi15 independentALLaFBC; old22+direct15=37 FULLU, missing43for80.
+For usualpositiveweight B4: E22+B4=E22⊕D15, NOT B4alonerank37.
+Higherweight/generalpolynomialdivision/saturation/full80/full239 STILLopen.
+F32003(a)[e,d,z] cubic36x106 ONEstd timedout60s AFTERsanity/inputPASS;
+NOunit/dim/finitebasis/QQresult. DoNOTrepeatwithoutnewmethod.
+Universal26basis SAMEformalplane/ambient16derivatives ONEboundedjob inprogress;
+NOsource26 authorization. Actualtargetfieldindex/fullSp4rationality OPEN.
+B18fullDdepth19..20/fullnil/generalbeta/exhaustionOPEN. Lower58/r4lower52.
+Continueactualresearch andordinarymainpush; checkpoint isnotstop.
+
 Latest AD (2026-11-04): full175Schouten+tG6 exactoperator verified;
 nonzerospatialrows35/56/0, trueweight4ONLY15 (old30predictionSUPERSEDED),
 quarticconstant15x33/11nonzero. Exactunit11pivots andALL15 354→319transport.
