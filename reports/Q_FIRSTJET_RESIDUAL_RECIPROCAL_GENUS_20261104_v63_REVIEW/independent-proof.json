@@ -1,0 +1,56 @@
+{
+  "all1592_actual_plane_coefficients_independently_verified": true,
+  "independent_actual_clearing": "F=16*x^2*y^10*Psi",
+  "actual_quartic_total_degree": 4,
+  "r4_coefficient": "16*x^4*y^8",
+  "q_total_degree_r_m": 3,
+  "same_original_ideal_binding": "R*T*L1=Q1, R*T*L2=Q2 in the frozen octic presentation",
+  "involution": "R->-fu/(vR), T->-uv/(cT), m fixed; r,t,z fixed and h changes sign",
+  "matrix_orientation": "(C,D)->(-C,-D), then diag(J2,J2) conjugation and diagonal normalization; C signs/offdiagonal positions independently checked",
+  "generic_base_units": [
+    "x",
+    "y",
+    "x^2-y^2",
+    "m",
+    "c",
+    "f",
+    "u",
+    "v"
+  ],
+  "h_unit_proof": "If Psi=q=0, r is algebraic over QQ(x,y,a,k2,m) while t is transcendental because K1=k1/2-A0. The linear W=0 forces B0+2ar=0, hence B0^2+16a^2fuv=0, impossible since its m^4 coefficient is4.",
+  "scheme_inverse": "t=(K1-xr)/y, z=-(2uvD0+(u+v)rt)/m, h^2=q, R=(h-r)/(2v), T=(z/h-t)/(2c)",
+  "inverse_units": "1/R=(h+r)/(2fu), 1/T=(z/h+t)/(2uv); h^-1=h*q^-1; q^-1 may be computed by adjugate of its4x4 multiplication matrix",
+  "all_algebras_not_only_points": "quartic base is free4 (leading x^2/y^2 unit), monic quadratic is free2 and h unit gives etale; h-sign fixed algebra is exactly the quartic base even if nonreduced",
+  "genus_proof": "For every m-dominant geometric component, normalize its plane component of degree d<=4. Genus<=3, q poles<=3d<=12, odd zero/pole valuations at most6d<=24. RH gives connected genus<=17; split genus<=3.",
+  "genus_degree_table": [
+    {
+      "plane_component_degree": 1,
+      "plane_genus_upper": 0,
+      "pole_divisor_degree_upper": 3,
+      "ramification_degree_upper": 6,
+      "connected_quadratic_genus_upper": 2
+    },
+    {
+      "plane_component_degree": 2,
+      "plane_genus_upper": 0,
+      "pole_divisor_degree_upper": 6,
+      "ramification_degree_upper": 12,
+      "connected_quadratic_genus_upper": 5
+    },
+    {
+      "plane_component_degree": 3,
+      "plane_genus_upper": 1,
+      "pole_divisor_degree_upper": 9,
+      "ramification_degree_upper": 18,
+      "connected_quadratic_genus_upper": 10
+    },
+    {
+      "plane_component_degree": 4,
+      "plane_genus_upper": 3,
+      "pole_divisor_degree_upper": 12,
+      "ramification_degree_upper": 24,
+      "connected_quadratic_genus_upper": 17
+    }
+  ],
+  "scope": "ordered eigenvalue base and existing relative-sign quotient; no irreducibility/smoothness/exact genus/selected degree8 or Weyl descent assumption"
+}

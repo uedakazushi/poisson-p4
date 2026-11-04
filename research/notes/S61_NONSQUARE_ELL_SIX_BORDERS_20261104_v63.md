@@ -1,0 +1,13 @@
+# Cubic11の六border identityだけを検査する有限job
+
+2026-11-04。保存oldpointでrank10となった実cubic11×16について、generic rank10/11を区別する。新点・新prime・rank探索・GB・大quartic展開は使わない。
+
+rank10 packetの十行・十列minorは非零であり、残るrow4に一列ずつ残る六列を加えた六個の11determinantsが全て零ならgeneric upper10となる。一つでも非零ならgeneric rank11となる。どちらも全点rankの主張ではない。
+
+同じrestricted36×40 polynomial sourceで、固定quad19とheavy5を合わせた24pivotを戻す。十minorを合わせた固定34squareは既に非零である。そこへremainingrow4と六列を付けた一つの35×40 matrixを使う。その六bordered35 determinantsは、対応する11determinantsに同じ非零Delta24を掛けたものなので零判定が同値である。元のcore coefficientは保存57×91 sourceと四quadから読み、Tn/ZW restrictionと全row/column順序を固定する。
+
+実行は固定34blockのfraction-free row elimination。各rowのpolynomial contentをexact divisionで除く操作はQQ(a,e,d)上の非零row scalingとして追跡する。未知factorをFULLU unitと宣言しない。各stepのpivot/term/degree checkpointを保存する。最後rowの六remaindersが同時に零となることと、元六border polynomialの恒等零は同値である。途中で最後rowが全て零になれば、その時点で依存が証明できる。
+
+全零なら、固定34blockのadjugate/Delta34でremainingrowを表すCramer circuitを取り、row4 coefficient1のexact relationを得る。このcircuitはintermediate row factorsが消える元のDelta34 chart上で定義できる。既知37と異なる新方向かどうかのsource inspectionは別packetで、独立監査前に方向数は増やさない。非零ならgeneric11のpositive minor circuitを保存する。cap時はどちらも結論しない。
+
+一回だけ、準備・compile・nativeを合わせ60秒、2GB、artifact32MiB。single-entry/live term guardsも設ける。cap/failure後の自動retryや別methodの続行はしない。

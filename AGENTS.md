@@ -2,6 +2,23 @@
 
 Version: v63-s61 · 2026-11-04 (Asia/Tokyo).
 
+Latest AM (2026-11-04): NEW25 ACTUALFULLPGLquotient pureQQ/C-rational2,
+EXACTgeneratorsu²,J=(v/u+16)²; globalall-evaluationr andintrinsicH/conicchord.
+Actualsigma(u,v)->(u,-32u-v) BOTHsignfull150coeffs verified; genericnormalform
+identificationsEXACTV4(tau,sigma). NOTfullfiniteisotropy/allspecialorbitclassification.
+ORDEREDBASE/relative-sign universalresidualcurve GEOIRRED GENUS3,mdegreeEXACT8;
+reciprocalquotientnodalplanequartic, proper(2,2)normalizationGENUS1;
+NO finitebranch, FOURsimple∞ polesqRorder-3, RH. ALLWeylquotientnotclaimed;
+NOTNEWmultisection10/20/40 ordefinitioneq. Originalquarticsmoothnessfailed,
+SAMEcoefficientpointdifferentpropernode-modelsucceeded; noalternateprobe.
+QuarticellcolonONLYdegree3(U78/heavy7) exactV16/B64/V48. Savedold(1,2,3)
+cubic11rank10=>generic≥10, upper11; conditional59x16/49x6 noFULL239.
+ONEsixborder60sjobtimeoutdensequadstep15,noidentityconclusion; NEWLunit
+monomialframeinputpreflightonly, no solverretry. Knownkernel37/missing43.
+ActualREDUCEDwholeNEW25rational25 remainsproved; genericJacobilength5 unchanged.
+B18nil/depth19..20,full239,NEWdefinitiondegree>=26eq,genericbeta/exhaustionOPEN.
+Bounds58/r4lower52/uppernull; continueactualresearch/ordinarymainpush.
+
 Latest AL (2026-11-04): ACTUALREDUCEDFULLnewPoissonprojectivecomponent
 R4_POSITIVE_WEIGHT6_25 isQQ/C-RATIONAL25, notonlyfirstjetB15.
 Rawpairimage15 byrawkernelperspective0/rank21minusvalue6; SAMEt2section

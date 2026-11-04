@@ -1,5 +1,17 @@
 # 次の課題 — v63-s61 / 2026-11-03
 
+## v63 AM / 2026-11-04: 全PGL商二変数・V4同定・普遍残余曲線種数三
+
+直前 main `1eaa9cefd491a848ef0998f1aca2598711a7ec5a` は通常push済み。以下は過去時点を含む。
+
+新二十五次元成分の一般PGL商について、二つの明示有理生成元u²と(v/u+16)²を決定した。第一jetのrが全評価点で同じu²を返すことと、内在的H上の二不変直線・conic chordを検証した。残るsigma変換を有限行列で構成し、二符号の全150 homogeneous係数を独立に確認したため、一般normal formの有限同定は正確にKlein fourとなる。全有限stabilizer群や特殊parameter軌道まで分類したとはしない。
+
+普遍残余曲線は、明示したordered-eigenvalue baseと相対符号商の後で幾何的既約・種数三、mへの正確な次数八と決定した。reciprocal involutionの商は二節点の平面四次で、二節点を処理したproper (2,2)模型は種数一となる。最初の同じ係数点での平面四次smoothness検査は失敗したまま保存し、節点を識別した別模型だけが成功した。二次coverの全有限境界と四つの無限遠三位極を確認し、四分岐から種数三を得た。全Weyl商やNEWの別次数10/20/40と混同しない。
+
+非平方の全四次は、degree3 ell-colonを用いた16/64/48 exact sequenceへ分けた。保存済み同じQQ点では実cubic11のrank10であり、同じRREF minorから一般rank≥10を証明した。projected48全射の追加開では59×16、十minor開で49×6へ縮約できる。ただし全FULLUへの全射や一般上界10は未証明。六bordered minorを狙った別の60秒jobはdense quad消去段階で期限に達し、結論なしとして入力・進捗を保存した。次は既知unit L frameによる小さいmonomial消去の入力preflightであり、同じdense solverを再試行しない。
+
+B18の全nilと実深さ19/20、全四次239、NEW実定義式、一般betaのdelta_E所属と全成分尽くしを続ける。総下界58/rank4下界52/上界未定、NEW次数下界26、五凍結原稿は維持する。
+
 ## v63 AL / 2026-11-04: 新二十五次元被約全成分の有理性
 
 直前 main `e32ecb2ea57773d144761da318565b1638d904fe` は通常push済み。以下は過去時点を含む。

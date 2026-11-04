@@ -1,0 +1,16 @@
+S=ZZ/32003[r,m,z,MonomialOrder=>GRevLex];
+F=11499*r^0*m^0*z^4 + 3340*r^0*m^1*z^3 + 9202*r^0*m^2*z^2 + 7732*r^0*m^3*z^1 + 30098*r^0*m^4*z^0 + 14086*r^1*m^0*z^3 + 2109*r^1*m^1*z^2 + 28122*r^1*m^2*z^1 + 31838*r^1*m^3*z^0 + 13504*r^2*m^0*z^2 + 18874*r^2*m^1*z^1 + 2343*r^2*m^2*z^0 + 8559*r^3*m^0*z^1 + 8957*r^3*m^1*z^0 + 4096*r^4*m^0*z^0;
+J=ideal(diff(r,F),diff(m,F),diff(z,F));
+Ar=(1_S % gb(J+ideal(r-1_S))==0_S);
+Am=(1_S % gb(J+ideal(m-1_S))==0_S);
+Az=(1_S % gb(J+ideal(z-1_S))==0_S);
+print("PATCH_R "|toString Ar);
+print("PATCH_M "|toString Am);
+print("PATCH_Z "|toString Az);
+H=substitute(F,{z=>0_S});
+Ir=(1_S % gb(ideal(z,r-1_S,diff(r,H),diff(m,H)))==0_S);
+Im=(1_S % gb(ideal(z,m-1_S,diff(r,H),diff(m,H)))==0_S);
+print("INFINITY_R "|toString Ir);
+print("INFINITY_M "|toString Im);
+if Ar and Am and Az then print("PROJECTIVE_SMOOTH_PASS") else print("PROJECTIVE_SINGULAR_STOP");
+if Ir and Im then print("INFINITY_TRANSVERSE_PASS") else print("INFINITY_REPEATED_STOP");

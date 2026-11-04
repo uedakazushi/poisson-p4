@@ -1,0 +1,51 @@
+{
+  "coefficient_field": "K=QQ(x,y,a,k1,k2); Bbase=QQ(x,y,a,k2)",
+  "biquadratic_algebra": "Bbase[m][r,t]/(r^2+4fuv,t^2+4cuv)",
+  "W": "2uv*B0+4uv*a*r+4uv*d*t+(u+v)*r*t",
+  "multiplication_matrix_W": [
+    [
+      "2*u*v*B",
+      "-16*a*f*u**2*v**2",
+      "-16*d*c*u**2*v**2",
+      "16*c*f*u**3*v**2 + 16*c*f*u**2*v**3"
+    ],
+    [
+      "4*a*u*v",
+      "2*u*v*B",
+      "-4*c*u**2*v - 4*c*u*v**2",
+      "-16*d*c*u**2*v**2"
+    ],
+    [
+      "4*d*u*v",
+      "-4*f*u**2*v - 4*f*u*v**2",
+      "2*u*v*B",
+      "-16*a*f*u**2*v**2"
+    ],
+    [
+      "u + v",
+      "4*d*u*v",
+      "4*a*u*v",
+      "2*u*v*B"
+    ]
+  ],
+  "norm_formula": "16*(uv)^4*((B0^2-16fuv*a^2+16cuv*d^2-4cf*(u+v)^2)^2+64fuv*(a*B0+2cd*(u+v))^2)",
+  "norm_m_degree": 16,
+  "norm_m_leading": "(x^2-y^2)^12/(4096*x^12*y^12)",
+  "leading_data": {
+    "u_m": "-(x-y)^2/(4xy)",
+    "v_m": "-(x+y)^2/(4xy)",
+    "uv_m2": "Delta^2/(16x^2y^2)",
+    "(u+v)_m": "-(x^2+y^2)/(2xy)",
+    "B0_m2": 2,
+    "E_m4": "-Delta^2/(x^2*y^2)"
+  },
+  "finite_common_zero_exclusion": "NormW nonzero => m,r,t algebraic over Bbase; xr+yt=K1 contradicts k1 transcendental",
+  "boundary_m0": "qR unit at both nodes by accepted generic node proof",
+  "boundary_u_or_v0": "qR=r^2 forces r=0; Psi=-m^2*f*t^2 then t=0 contradicts k1 transcendental",
+  "boundary_f0": "qR=r^2 forces r=0; Psi=uv*(B0+2dt)^2 contradicts k1 transcendental",
+  "other_finite_qR_zeros": "muv!=0 and qT!=0, hence qR=(W/m)^2/qT has even valuation",
+  "infinity": "four distinct points; m has simple poles; qR leading m3=Delta^2/(4x^2y^2); ord=-3 at each",
+  "ramification_degree": 4,
+  "Riemann_Hurwitz": "g=2*1-1+4/2=3",
+  "selected_actual_binding": "full generic degree8 algebra is a field; actual m-dominant field factor must be the whole field"
+}

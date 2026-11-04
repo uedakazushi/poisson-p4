@@ -1,0 +1,95 @@
+{
+  "family_parameters": [
+    "u",
+    "v"
+  ],
+  "intrinsic_H": "unique multiplicity3 hyperplane in actual h^3 Q",
+  "intrinsic_vertex": "unique vertex of Q restricted to H; [x:y:z:w]=[0:0:1:0]",
+  "leading_full_tensor": [
+    [
+      "0",
+      "0",
+      "-64*v*w*y - 64*w*x",
+      "0"
+    ],
+    [
+      "0",
+      "0",
+      "u*v*y**2/2 + u*x*y + w**2 + 64*w*y - x**2/64",
+      "0"
+    ],
+    [
+      "64*v*w*y + 64*w*x",
+      "-u*v*y**2/2 - u*x*y - w**2 - 64*w*y + x**2/64",
+      "0",
+      "v*x*y + x**2"
+    ],
+    [
+      "0",
+      "0",
+      "-v*x*y - x**2",
+      "0"
+    ]
+  ],
+  "induced_P2_coordinates": [
+    "x",
+    "y",
+    "w"
+  ],
+  "vector_field": [
+    "64*w*(v*y + x)",
+    "-u*v*y**2/2 - u*x*y - w**2 - 64*w*y + x**2/64",
+    "x*(v*y + x)"
+  ],
+  "conic_polynomial": "32*u*v*y**2 + 64*u*x*y + 64*w**2 - x**2",
+  "conic_matrix": [
+    [
+      "-1",
+      "32*u",
+      "0"
+    ],
+    [
+      "32*u",
+      "32*u*v",
+      "0"
+    ],
+    [
+      "0",
+      "0",
+      "64"
+    ]
+  ],
+  "conic_determinant": "-2048*u*(32*u + v)",
+  "conic_at_line_intersection": "32*u*v",
+  "invariant_lines": [
+    "8*w + x",
+    "-8*w + x"
+  ],
+  "cofactors": [
+    "8*(x+v*y)",
+    "-8*(x+v*y)",
+    "-u*(x+v*y)"
+  ],
+  "closed_log_form": "dlog(Q/(lplus*lminus))+(u/16)*dlog(lplus/lminus)",
+  "residues": {
+    "Q": "1",
+    "lplus": "u/16-1",
+    "lminus": "-u/16-1"
+  },
+  "no_other_geometric_generic_invariant_line_proof": "restriction to any other line gives integer orders a+(u/16)b=0; generic u implies a=b=0; lplus/lminus constant forces line through O; Q(O)!=0 contradicts Q/(lplus*lminus) constant",
+  "dual_conic_values": {
+    "lplus_self": "32*u/(32*u + v)",
+    "lminus_self": "32*u/(32*u + v)",
+    "cross": "-2*(16*u + v)/(32*u + v)"
+  },
+  "intrinsic_chord_invariant": "256*(lplus^T Q^-1 lminus)^2/((lplus^T Q^-1 lplus)*(lminus^T Q^-1 lminus))",
+  "chord_restriction": "(16*u + v)**2/u**2",
+  "first_global_invariant": "A=1600*r_firstjet=u^2, independent of evaluation point and Poisson scalar on dense actual fullsource",
+  "target_field_sandwich": "k(A,J) subset k(X_NEW25)^PGL5 subset k(A,b), A=u^2,b=u*v",
+  "degree2_equation": "A**2*(256 - J) + 32*A*b + b**2",
+  "discriminant": "4*A^2*J",
+  "endpoints_both_pure_rational_dimension2": true,
+  "undetermined_generic_extra_equivalence": "sigma:(u,v)->(u,-32*u-v), besides known simultaneous sign",
+  "no_sigma_existence_or_nonexistence_proved": true,
+  "no_special_parameter_exhaustion": true
+}

@@ -1,0 +1,357 @@
+{
+  "parameters": [
+    "u",
+    "v"
+  ],
+  "open": "u*v*(32*u+v)!=0",
+  "target_parameters": [
+    "u",
+    "-32*u-v"
+  ],
+  "branches": [
+    {
+      "sign": 1,
+      "linear_matrix": [
+        [
+          "0",
+          "0",
+          "0",
+          "8*v/(32*u + v)"
+        ],
+        [
+          "-v/(32*u + v)**2",
+          "-v**2/(32*u + v)**2",
+          "0",
+          "8*v/(32*u + v)**2"
+        ],
+        [
+          "v*(v - 256)/(512*(32*u + v)**3)",
+          "v**2*(v - 512)/(512*(32*u + v)**3)",
+          "-v**3/(32*u + v)**3",
+          "4*v/(32*u + v)**3"
+        ],
+        [
+          "v/(256*u + 8*v)",
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "translation": [
+        "(256 - v)/(12288*u + 384*v)",
+        "0",
+        "(-2097152*v**3 - v*(32*u + v)*(v - 512) - 2097153*(32*u + v)**3)/(12582912*u*(32*u + v)**3)",
+        "(32*u + v + 256)/(98304*u + 3072*v)"
+      ],
+      "homogeneous_matrix": [
+        [
+          "1",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "(256 - v)/(12288*u + 384*v)",
+          "0",
+          "0",
+          "0",
+          "8*v/(32*u + v)"
+        ],
+        [
+          "0",
+          "-v/(32*u + v)**2",
+          "-v**2/(32*u + v)**2",
+          "0",
+          "8*v/(32*u + v)**2"
+        ],
+        [
+          "(-2097152*v**3 - v*(32*u + v)*(v - 512) - 2097153*(32*u + v)**3)/(12582912*u*(32*u + v)**3)",
+          "v*(v - 256)/(512*(32*u + v)**3)",
+          "v**2*(v - 512)/(512*(32*u + v)**3)",
+          "-v**3/(32*u + v)**3",
+          "4*v/(32*u + v)**3"
+        ],
+        [
+          "(32*u + v + 256)/(98304*u + 3072*v)",
+          "v/(256*u + 8*v)",
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "Poisson_scalar": "(-32*u - v)*(32*u + v)/v**2",
+      "linear_determinant": "-v^7/(32*u+v)^7",
+      "all_six_full_affine_brackets": [
+        {
+          "pair": [
+            0,
+            1
+          ],
+          "all_full_degree0_1_2_coefficients_zero": true,
+          "checked_monomials": [
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pair": [
+            0,
+            2
+          ],
+          "all_full_degree0_1_2_coefficients_zero": true,
+          "checked_monomials": [
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pair": [
+            0,
+            3
+          ],
+          "all_full_degree0_1_2_coefficients_zero": true,
+          "checked_monomials": [
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pair": [
+            1,
+            2
+          ],
+          "all_full_degree0_1_2_coefficients_zero": true,
+          "checked_monomials": [
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pair": [
+            1,
+            3
+          ],
+          "all_full_degree0_1_2_coefficients_zero": true,
+          "checked_monomials": [
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pair": [
+            2,
+            3
+          ],
+          "all_full_degree0_1_2_coefficients_zero": true,
+          "checked_monomials": [
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      ],
+      "full_identity": "kappa*A*P(u,1,v)(x)*A^T=P(u,1,-32*u-v)(A*x+t)",
+      "homogeneous_identity": "kappa*M*rawP(u,1,v)(X)*M^T=rawP(u,1,-32*u-v)(M*X)",
+      "homogeneous_identity_reason": "exact homogeneous degree2 extension of the verified full affine identity; row/col h zero and affine M"
+    },
+    {
+      "sign": -1,
+      "linear_matrix": [
+        [
+          "0",
+          "0",
+          "0",
+          "-8*v/(32*u + v)"
+        ],
+        [
+          "-v/(32*u + v)**2",
+          "-v**2/(32*u + v)**2",
+          "0",
+          "-8*v/(32*u + v)**2"
+        ],
+        [
+          "v*(-v - 256)/(512*(32*u + v)**3)",
+          "v**2*(-v - 512)/(512*(32*u + v)**3)",
+          "-v**3/(32*u + v)**3",
+          "-4*v/(32*u + v)**3"
+        ],
+        [
+          "-v/(256*u + 8*v)",
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "translation": [
+        "(v + 256)/(12288*u + 384*v)",
+        "0",
+        "(-2097152*v**3 - v*(32*u + v)*(v + 512) - 2097153*(32*u + v)**3)/(12582912*u*(32*u + v)**3)",
+        "(32*u + v - 256)/(98304*u + 3072*v)"
+      ],
+      "homogeneous_matrix": [
+        [
+          "1",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "(v + 256)/(12288*u + 384*v)",
+          "0",
+          "0",
+          "0",
+          "-8*v/(32*u + v)"
+        ],
+        [
+          "0",
+          "-v/(32*u + v)**2",
+          "-v**2/(32*u + v)**2",
+          "0",
+          "-8*v/(32*u + v)**2"
+        ],
+        [
+          "(-2097152*v**3 - v*(32*u + v)*(v + 512) - 2097153*(32*u + v)**3)/(12582912*u*(32*u + v)**3)",
+          "v*(-v - 256)/(512*(32*u + v)**3)",
+          "v**2*(-v - 512)/(512*(32*u + v)**3)",
+          "-v**3/(32*u + v)**3",
+          "-4*v/(32*u + v)**3"
+        ],
+        [
+          "(32*u + v - 256)/(98304*u + 3072*v)",
+          "-v/(256*u + 8*v)",
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "Poisson_scalar": "(-32*u - v)*(32*u + v)/v**2",
+      "linear_determinant": "-v^7/(32*u+v)^7",
+      "all_six_full_affine_brackets": [
+        {
+          "pair": [
+            0,
+            1
+          ],
+          "all_full_degree0_1_2_coefficients_zero": true,
+          "checked_monomials": [
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pair": [
+            0,
+            2
+          ],
+          "all_full_degree0_1_2_coefficients_zero": true,
+          "checked_monomials": [
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pair": [
+            0,
+            3
+          ],
+          "all_full_degree0_1_2_coefficients_zero": true,
+          "checked_monomials": [
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pair": [
+            1,
+            2
+          ],
+          "all_full_degree0_1_2_coefficients_zero": true,
+          "checked_monomials": [
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pair": [
+            1,
+            3
+          ],
+          "all_full_degree0_1_2_coefficients_zero": true,
+          "checked_monomials": [
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pair": [
+            2,
+            3
+          ],
+          "all_full_degree0_1_2_coefficients_zero": true,
+          "checked_monomials": [
+            [
+              0,
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      ],
+      "full_identity": "kappa*A*P(u,1,v)(x)*A^T=P(u,1,-32*u-v)(A*x+t)",
+      "homogeneous_identity": "kappa*M*rawP(u,1,v)(X)*M^T=rawP(u,1,-32*u-v)(M*X)",
+      "homogeneous_identity_reason": "exact homogeneous degree2 extension of the verified full affine identity; row/col h zero and affine M"
+    }
+  ],
+  "all_coefficient_identities_over_QQ_u_v_not_point_samples": true,
+  "inverse_parameter_map": "sigma^2(u,v)=(u,v); no coordinate matrix square/stabilizer classification claimed",
+  "generic_parameter_equivalence_group": "generated by known tau=(-u,-v) and sigma=(u,-32u-v), Klein four",
+  "full_moduli_field_after_independent_global_invariant_gate": "k(u^2,(v/u+16)^2)",
+  "exact_generic_parameter_fibre_cardinality_after_gate": 4,
+  "extra_generic_PGL_stabilizer_group_or_special_parameter_exhaustion_claimed": false
+}

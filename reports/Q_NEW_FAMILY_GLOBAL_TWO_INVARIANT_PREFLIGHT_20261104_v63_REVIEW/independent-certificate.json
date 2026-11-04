@@ -1,0 +1,88 @@
+{
+  "modular_divergence": [
+    "0",
+    "4*u/3",
+    "u*v*y + u*x + 1/48",
+    "0"
+  ],
+  "actual_finite_flow": [
+    "x",
+    "4*t*u/3 + y",
+    "2*t**2*u**2*v/3 + t*(u*v*y + u*x + 1/48) + z",
+    "w"
+  ],
+  "move_to_y_zero": [
+    "x",
+    "0",
+    "(-24*u*v*y**2 - 48*u*x*y + 64*u*z - y)/(64*u)",
+    "w"
+  ],
+  "source_z": "(-3*B + 3*W**2 - W/512 - 3*X**2/64 - 2/3)/(4*u)",
+  "B_inverse": "W**2 - W/1536 - X**2/64 - 4*Z*u/3 - 2/9",
+  "all_point_binding": "r_target is delta-constant; on the rational section r=u^2/1600; the section generates the entire delta-constant field. The modular full-tensor symmetry reaches y=0 from every generic affine point, and c is arbitrary.",
+  "leading_tensor": [
+    [
+      "0",
+      "0",
+      "-64*v*w*y - 64*w*x",
+      "0"
+    ],
+    [
+      "0",
+      "0",
+      "u*v*y**2/2 + u*x*y + w**2 + 64*w*y - x**2/64",
+      "0"
+    ],
+    [
+      "64*v*w*y + 64*w*x",
+      "-u*v*y**2/2 - u*x*y - w**2 - 64*w*y + x**2/64",
+      "0",
+      "v*x*y + x**2"
+    ],
+    [
+      "0",
+      "0",
+      "-v*x*y - x**2",
+      "0"
+    ]
+  ],
+  "projected_vector": [
+    "64*v*w*y + 64*w*x",
+    "-u*v*y**2/2 - u*x*y - w**2 - 64*w*y + x**2/64",
+    "v*x*y + x**2"
+  ],
+  "horizontal_log_numerator": [
+    "-32*u**2*v*w*y**2 - 64*u**2*w*x*y - 64*u*v*x*y**2 - 64*u*w**3 - 4096*u*w**2*y + u*w*x**2 - 64*u*x**2*y",
+    "-4096*u*v*w**2*y + 64*u*v*x**2*y - 4096*u*w**2*x + 64*u*x**3",
+    "32*u**2*v*x*y**2 + 64*u**2*x**2*y + 4096*u*v*w*y**2 + 64*u*w**2*x + 8192*u*w*x*y - u*x**3"
+  ],
+  "conic": "32*u*v*y**2 + 64*u*x*y + 64*w**2 - x**2",
+  "conic_matrix": [
+    [
+      "-1",
+      "32*u",
+      "0"
+    ],
+    [
+      "32*u",
+      "32*u*v",
+      "0"
+    ],
+    [
+      "0",
+      "0",
+      "64"
+    ]
+  ],
+  "adjugate_pairings": [
+    "-65536*u**2",
+    "-65536*u**2",
+    "65536*u**2 + 4096*u*v"
+  ],
+  "invariant_line_proof": "On another geometric-generic invariant line, integer residues a+(u/16)b=0 force a=b=0. The first constant ratio forces the line through O; Q(O)!=0 contradicts the second constant ratio.",
+  "field_sandwich": "k(u^2,(v/u+16)^2) subset E_full subset k(u^2,uv), k=QQ,C",
+  "quadratic": "A**2*(256 - jj) + 32*A*b + b**2",
+  "valuation": "The jj-adic valuation of 4*A^2*jj is one, so the extension has degree two.",
+  "conclusion": "E_full is one of these two rational fields of transcendence degree two.",
+  "endpoint_and_sigma_not_decided_in_this_review": true
+}
