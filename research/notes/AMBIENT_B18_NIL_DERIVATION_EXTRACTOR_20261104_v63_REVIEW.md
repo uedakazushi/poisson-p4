@@ -1,0 +1,25 @@
+# B18のnil導分抽出器：独立監査
+
+2026-11-04。作者のsolverは再実行せず、保存済みの実tailとNの回路を別のcheckerで結ぶ。
+全218式の値とv0偏微分を、ann45上の四自由変数を残したQQ多項式として再構築する。
+同じ環上でF=2aa+v0+z25の値0・偏微分1を検証する。
+これがdual数への全次数の環写像を保証する根拠であり、中心の微分だけではない。
+
+既に独立受理されたphysical tailの150関数、二十切断、R0九readbackと、実Nの
+五十六unit系を独立にroutingし直す。元77式の中心Jacobianとv0 forcingをQQで戻し、
+作者の行列解法を用いず中心補正を解く。行列式は−47775744000である。
+この補正を用いて全77式のdual数代入を組み立て、保存したcurve77とdual77の各nodeに
+厳密一致することを検証する。すべての逆数はdual次数零にあり、両77系は同じ可逆Jacobianを持つ。
+
+さらに全150physical関数、R0九座標、Nのz八・nu・v、八生成liftと三十六関係の
+各dual数成分を独立に再構成する。even部の差引きと、R0係数自体のdual成分を保持する。
+従って正符号の三十六nil係数cと八つの曲線graph関数psiは、実D4上の関係の値から
+指定される。厳密なnode一致は有限の環・dual数恒等式の照合であり、標本点評価ではない。
+
+unit陰関数定理により、curve77とlinear dual77はparameter Z=z1上の一意な形式的代数関数を
+定める。Fはdeltaへ移り、nil上ではR0線形の抽出器となる。D4全体でR0線形だとはしない。
+有限のepsilon族をD4上の族と仮定せず、delta二乗零の写像だけを使う。
+cの冪級数消滅、extension分裂、T0、元B18の深さ・全nilの解決は主張しない。
+
+再現入口は `code/ambient_B18_nil_derivation_extractor_review_20261104_v63.py` の
+`--output` に新しい空の保存先を指定する。実行結果・全入力hashと行列を同名REVIEW報告へ保存する。

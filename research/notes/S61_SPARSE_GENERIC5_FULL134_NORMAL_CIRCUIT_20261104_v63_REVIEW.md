@@ -1,0 +1,19 @@
+# 全134式・normal42回路の独立監査
+
+対象は `S61_SPARSE_GENERIC5_FULL134_NORMAL_CIRCUIT_20261104_v63` の凍結成果物である。前段の独立レビューが、元の物理的S61模型から全134式の五変数源への代入、Lのrank18、既知平面のrank3、および1608節点の忠実な45変数アダプタを検証済みである。本監査はその入力hashを固定し、著者のbuilderをimport・実行しない。
+
+独自の有理数・疎多項式演算で、保存された全primitive整数parameter atomを読み直す。各元式の単項式に対してcenterか新変数を選ぶ一般的な代入展開を両方向に行い、定数と45線形成分の全6164恒等式を検証する。その後、得た二次テンソルを45×45線形変換へ直接代入し、全134行のplane10・linear-n42・z*n126・n²903を一つの単項式表として組み立て、保存四blockと全成分で照合する。
+
+大きなparameter有理式は展開しない。独立監査済みのEの各entryをscalar記号、primitive parameter atomを別の記号とする、より強い形式的可換多項式環で回路を比較する。保存Eが元1608回路の正しいimportであることも、外部葉・逆元因子の形式式として別に照合する。したがって、この比較は単一標本・有限体評価・構文的な非零判定へ依存しない。全45未知数のforward/inverseおよび逆行列の4050成分も確認する。
+
+全scalar節点の依存次数を検査し、逆元がparameterだけに依存することを確認する。係数の厳密な零、厳密な非零、field和の相殺未判定という三分類を保存された演算から独立に再計算する。未判定の和を非零へ昇格しない。既知五点quotientに限ったsigmaの三冪等元も照合するが、未知解を含む全fiber上の冪等元とはしない。
+
+以上により、係数体 `QQ(H,L,s0,q0,t0)` 上で全134式が全45変数を保った3+42回路として忠実に表される。特殊parameterの分母零点、plane上のrank5、cross行列のrank126、平面外の解の不存在、アフィン尽くしは本監査の結論に含めない。centerをPoisson点とも仮定しない。
+
+独立実行は次のcheckerだけを使う。著者builder、消去、Groebner基底、J0、別の標本は実行しない。
+
+```
+.venv/bin/python code/s61_sparse_generic5_full134_normal_circuit_review_20261104_v63.py --output work/NEW-review-output
+```
+
+実測時間・メモリと全入力hashは専用review reportに保存する。

@@ -2,6 +2,22 @@
 
 Version: v63-s61 · 2026-11-04 (Asia/Tokyo).
 
+Latest AU (2026-11-04): FULLUquarticPOINTWISEranklower126,
+fromactualrawHlinear2→Hquadratic13→afterNF117lose5 gives8 plusH²unit.
+NOTfixed126unit/minor/freecomplement; constructiveunit125/7Hpivots unchanged.
+Projectedcubic explicitGL6+GL3twoBezoutunits: 17×24→15×22 SAMECOKER,
+10globalpivots/all3914nodes reviewed; puretails/heavy5 retained, full57OPEN.
+B18 actualnil-extractor218QQfree4/77+dual77/all150+R09+c36 reviewed,
+actualD4complete9/44/112 horseshoe reviewed,112NOTminimalityclaim.
+C0honest9/28Koszul+Q0612⇒D0free9/640, exactD4map originrank7 reviewed;
+all4newgAquotientorigins0, alloldCBr/g keptoriginalscalars.
+T1=T2=T3=0/wkillsT0; T0finiteSOCLE/depth19vs20/fullnil OPEN.
+Generic5 full134normalcircuitINDEPENDENTLYreviewed/all144854blocks; plane5selector OPEN.
+Selector692953termQQmatrixcomplete/3fieldpivots raw32MBcap; total150kguardmiss
+explicitlyrecorded/noautoretry; oneformalQQ[T]curvewitnessnewmethod active;
+noGB/J0/newpoint orwholefiberplanecontainment/exhaustionclaimed.
+NEWG28exactdegree28 SOLVED; bounds58/r4lower52/uppernull; continuemainpush.
+
 Latest AT (2026-11-04): B18 ACTUAL T1=T2=T3=0 SOLVED,
 Q1=Q2=Q3=Jinf. COMPLETE minimal44 + independent43first/phi rank44,
 bothminor−390625/279936/allunknown788theta+4gamma cancel, notjetguess.
