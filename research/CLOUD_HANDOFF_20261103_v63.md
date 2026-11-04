@@ -8,6 +8,18 @@ v62保存は `e187b40de68bce534391f406f616940cddd045a7`、
 `66a80ab53dfcf0ff842c67140320d8da0226039d`。全て通常push済み。
 このv63保存のSHAはGit履歴で識別する。
 
+## v63 AT / 2026-11-04: B18 T1・T2も零、一般betaの忠実なnormal42座標
+
+直前 main `651f9ae448e19bfb66c5d9f142f3afe487df4926` は通常push済み。以下の過去時点のT1/T2未解決記述は今回更新した。
+
+B18の実T1・T2も零と解決した。全次数の関係加群J/mJは四十四次元で、四十三の一次項と一つの二次functional phiで検出できる。二つの57-sourceの保存二次係数からphysical x61線の逆変換を独立に戻し、full-HのN-unit補正も独立導出した。全788未知二次係数と四つの未知一次係数を保持したまま相殺を確認し、Q1の1548関係、Q2の1961関係でともにrank四十四・minor−390625/279936を得た。NakayamaからQ1=Q2=Jinfとなる。既証T3消滅と合わせ、w torsionは次数零のT0のみとなりwで消える。nilradicalの指数を判定したことにはならない。
+
+残るB18課題はT0=(Jinf∩C0_CA)/Q0の有限socleである。T0が非零であっても正次元supportなら深さ十九とは結論できない。C0_CA=R0⊕(z7,g_A)tauの正しい九生成・二十八Koszulと、Q0の612列を結び付け、有限socleを調べる。C0へD4の九生成・三十六Koszulをそのまま流用しない。旧r/g係数の勝手な制限や未知Hadamard係数の零代入もしない。元B18の深さ19/20・全nilは未決定のまま研究を続ける。
+
+一般betaでは、既証のdominant疎六parameter被覆と重みGmを使い、K=QQ(H,L,s,q,t)上の全134式を忠実に扱う入力を独立検証した。primitive adapter det36/625、全28316係数、全L/N係数と重み、十一定数＋七係数体pivot、L rank十八・kernel二本、実三次元平面のrank三まで確認した。計3924有理式恒等式と68非零検査が通過した。未展開adjugateを使う1608-node E回路によりq=center+Ez+normal42がアフィン同型となり、元45未知数を全て保持する。逆数はparameter式のみで、未知qを局所化しない。centerのJacobiは仮定しない。
+
+次はこの忠実なnormal42+plane3座標で全134方程式を小さいscalar circuitとして組み立て、normal二次・planeとの交差・一次blockを分けて調べる。全fiberの平面包含、既知五点3+1+1による尽くしはまだ証明していない。非平方の全FULLU cubic57・四次239も未解決であり、小さいunit合成を続ける。NEW原始像の既約定義式は正確に二十八次で解決済み。総下界58/rank4下界52/上界未定、五凍結原稿は維持する。
+
 ## v63 AS / 2026-11-04: B18 top T3は零、残るT0/T1/T2へ
 
 直前 main `66fd1b621b9d53f9abadb25c09a0e0b2fdb86bc4` は通常push済み。以下は過去時点を含み、T3未解決という過去記述は今回解決した。

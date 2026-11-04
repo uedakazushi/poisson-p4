@@ -2,6 +2,21 @@
 
 Version: v63-s61 · 2026-11-04 (Asia/Tokyo).
 
+Latest AT (2026-11-04): B18 ACTUAL T1=T2=T3=0 SOLVED,
+Q1=Q2=Q3=Jinf. COMPLETE minimal44 + independent43first/phi rank44,
+bothminor−390625/279936/allunknown788theta+4gamma cancel, notjetguess.
+w-torsionONLYdegree0/T0 and w KILLS it; NOTnilradicalindex1.
+T0 finiteSOCLE/fullDdepth19vs20/fullnil OPEN; T0 nonzero alone insufficient.
+Next honestC0_CA9/28Koszul+612Q0; DO NOTreuseD4/36Koszul asC0.
+GENERIC5 complete134input/28316coeffs/rankL18/kernel2/PLANE3 reviewed,
+3924QQidentities/68nonzeros; faithfulAFFINE45↔3+42 adapter1608SLP.
+CenterNOTassumedPoisson, one3Dplane NOTthreeplanes; parameterinversesONLY.
+GenericKfieldchart only, Sp4+weightedGm sparse6 dominance notSp4alone5.
+Full134normalcircuit next, NOplanecontainment/exhaustion/GBclaimed.
+FULLUcubic57/quartic239 OPEN; oldknownkernel38/missing42/lower125 unchanged.
+NEWfirstjetG28 exactlydegree28 SOLVED AQ; nofurtherdegreechase.
+Bounds58/r4lower52/uppernull; ordinarymainpush/checkpointNOTstop.
+
 Latest AS (2026-11-04): B18 ACTUAL TOP T3=0 SOLVED, Jinf=Q3,
 byCOMPLETE44relationmodule/43indepLINEAR+1quadratic(E0=v²)/Nakayama.
 Independentboth57source2/all2069firstjetsrank43/topfirst0 +literalcol5zero
