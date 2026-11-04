@@ -1,5 +1,19 @@
 # 研究状態 — v63-s61 / 2026-11-04
 
+## v63 AW / 2026-11-04: 全quadratic行消去・14対21、一般cross126、B18隠れたsocleへ
+
+直前 main `737747f73317b5dd432c6d114464ee91237e7683` は通常push済み。
+
+非平方の最後のquadratic行を大域的に消去した。実九係数hに対するsum H_i h_i=a二十九乗を、conicの固定座標、五つの明示power恒等式と3060 multinomial項から構成し、別実装で全source対応と回路を検証した。未知因子の逆元・次数探索・自由補空間の仮定は無い。余ったpure targetを使う明示GL10と全tail/source操作により、projected自由表示は14対21の同じ余核へ縮んだ。計十一単位の内訳は十quadraticと一genuineで、残る十四行はgenuine。全heavy五方向を保持する。全FULLU三次57と四次239は未解決。
+
+raw H一次行列の一般rankは正確に七と独立確認した。明示minorは既知B三乗と104項多項式Qに分かれ、pQ非零開ではH1二十三方向が全射となる。p,QをFULLU全域で単位とはしない。元四次の全点下界126・構成済み単位125・kernel38/不足42は区別して維持する。次は高次数の完成係数を展開せず、heavy blockと既存の小さいraw H行列の関係を使う。
+
+一般betaの全670functionalを元134式からQQ五変数でstreaming照合し、692953項のsource gapを閉じた。全129残差、5418法線因子、16254 cross成分も独立確認し、元134idealと選択五式＋129残差idealがK上で等しいと証明した。全法線二次項と全45未知数を保持し、逆元はparameterだけである。
+
+さらに全二十Bianchi恒等式のbetaのみのoperatorと、RAW350 Jacobiの同変性・一意な低jet graphを結び、旧RAW134のexact cross126証明を疎五parameter源へ移した。拡大rank131/cross rank126は同変性とdominanceによる証明で、新しい固定126minorや大きい係数体Gaussianを計算したものではない。134が全二次ideal空間を張るという誤った前提やG6は用いない。全fiberの平面包含と既知五点による尽くしは依然未解決。
+
+B18では必要な四正則商の一次微分を二族の保存三次解へ一回だけ四次補正して決めた。各族の微分は零ではないが、実全九変数adapterでCB−CA差が全て消える。全640一次関係rankは三十八で、可視g_A leading classのr,s倍は独立に残る。そのclassを持つ全次数liftはsocleになれず、もし有限socleがあればmD0内に隠れる。T0非零・有限Z長三・D4全最小Betti列は維持するが、元B18深さ19/20・全nilは未決定。次は実R曲線のgraded位置と支持を結び、隠れた有限部分を切り分ける。下界58/rank4下界52/上界未定、五凍結原稿を維持し研究を続ける。
+
 ## v63 AV / 2026-11-04: 実T0非零と有限Z、D4全Betti、一般平面rank五
 
 直前 main `7296a5bfd118021507876e34254ffde58c1da157` は通常push済み。

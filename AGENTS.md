@@ -2,6 +2,23 @@
 
 Version: v63-s61 · 2026-11-04 (Asia/Tokyo).
 
+Latest AW (2026-11-04): lastQ GLOBALa29Bezout+explicitGL10 reviewed,
+actualprojected15×22→14×21 SAMECOKER. 11globalpivots=10Q+1genuine,
+remaining14sources genuine/allheavy5 retained. No207degreecofexpand.
+RawHgenericrank7/openD(pQ)H1surj23 independentlyreviewed, NOTallFULLU.
+Pointwiserank126/constructiveunit125/kernel38/gap42/full57/239OPEN.
+GENERIC5 all670QQsourcebindings+129residual/normalfactorcircuits reviewed,
+full134ideal=(selected5,residual129), allnormal²/all45unknowns retained.
+Cross126/extended131 overK5 PROVED viaRAW134covariance+Sp4xGmdominance,
+20QQbeta-onlyBianchi identities, lowjet55graph uniqueness; NOTfullI2/G6.
+NoNEWfixed126minor/newfieldGaussian; nofiberplanecontainment/exhaustion.
+B18D0actualfirstspan38/all4CB−CAquotientfirstdifferences0 fromONEtwofamily4jet,
+individualderivsnonzero/actual9adapter; anyvisiblegAtauT0liftNOTsocle.
+HiddenfiniteSOCLEinmD0/depth19vs20/fullnilOPEN; noautohigherjet.
+T0NONZERO/Z=omegaA3length3/D4fullminimalBetti9,44,112,182,196,140,64,17,2.
+NextactualRcurvegradedbinding/support, notfalseconductorannassumption.
+Bounds58/r4lower52/uppernull; ordinarymainpush/checkpointNOTstop.
+
 Latest AV (2026-11-04): ACTUALT0 NONZERO PROVED viaZ=omegaA3,
 Z=cokerD0→D4 FINITE length3/mu2/pairdet36/25; full9Torboundaryrank16
 ⇒mu(imageD0)=8<muD0=9. FiniteZ NOTfiniteT0. VisibleclassgAtauONLY,

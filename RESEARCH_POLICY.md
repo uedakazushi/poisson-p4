@@ -1,6 +1,6 @@
 # 研究継続方針：複素射影4空間の Poisson 構造
 
-B18の実T0は非零と証明し、別の有限cokernel Zを長さ三のcanonical moduleと同定した。T0の有限socleと元環の深さは未決定。同じtail D4の全最小Betti列も決定した。一般betaの平面制限rankは正確に五と独立検証したが、全fiberの尽くしは継続中。非平方層の四次全点rank下界126、NEW原始像の既約式28次。総下界58（rank4は52）、上界未定。
+非平方三次の全quadratic行を大域的に消し、projected表示を14対21へ縮約した。一般betaの全129残差とcross rank126も独立検証したが、全fiberの尽くしは未証明。B18は実T0非零・D4全Bettiに続き、可視T0 classがsocleにならないと確認し、隠れた有限部分を調べる。元深さ・全nil、全分類の上界は未決。下界58（rank4は52）、NEW原始像の既約式28次。
 
 新25成分の全Poisson一般横断長さは正確に5。n111の全完成環 C[[s25,u,v]]/(uv,u³,v³) とCM type2を証明・独立監査し、[14ページの独立原稿](papers/positive_weight6_component_ja.pdf)に保存した。全52 rank4成分のdense S61写像が揃った。新一次像は15次元・方程式次数22以上だが実方程式、全境界、全分類は未解決。以下は以前の記録を含む。
 
