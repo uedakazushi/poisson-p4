@@ -8,6 +8,20 @@ v62保存は `e187b40de68bce534391f406f616940cddd045a7`、
 `66a80ab53dfcf0ff842c67140320d8da0226039d`。全て通常push済み。
 このv63保存のSHAはGit履歴で識別する。
 
+## v63 BG / 2026-11-04: 全P100 quartic149、比較rank四と348有限base
+
+直前 main `2b446cebb567b378eee4bc4e735cc955597dad52` は通常push済み。
+
+P100の実pure八方向を、五minorの多項式Bezoutにより全許可曲線で確保した。補正済みK2からの一行replacement十五候補と既知単位LCDを独立確認し、全点で元quartic rank149以上を証明した。固定149 minorや全239の証明ではない。次はこの全射八targetを型付きの全曲線splitへ戻し、残るpure90を同じcokernelで保持する。
+
+B18比較cokernel CのDVR一般rankを四と決定した。Paのtriple meetingは被約で長さ一、Qbはdouble長さ二、CA critical-Vは一、CB critical-VはCAの外なので零となる。共通G19と全gradingから零次数への輸送、同じcanonical R0 conductorとell次数を独立監査した。dim C/ell=8と合わせtorsion最小生成数は四。長さ・指数は未決で、Kのtorsionとは区別する。実Cbarの最小Betti数は(3,24,84,168,210,168,84,24,3)、Loewy HFは(3,3,2)、socle次元三も独立確認した。
+
+実IA/IB pairをell零で全次数正規化し、conductor積ideal二乗の有限baseを348次元と決定した。固定二変数lex証明書と全作用表を検証し、m十乗零を確定した。これはTの実presentationの後に使えるbaseで、Tの長さそのものではない。normalizer比較の全640列のchain lift UP=QBも型付きの元関数を保持して独立証明した。負号境界の表現で中断した初回は保存し、境界を閉じた小さい別検証だけを採用した。
+
+残る深さ判定は、正しい0→K/ellK→T→C[ell]→0と、Cbarの小さい実解像度・実Xを組み合わせる。今回rank C=4なのでdim C[ell]=4であり、mu_D K=length(T)-4となる。K一般rankにはPaから一、Qbから二が既知で、CA criticalのkappaが未決。既存V1で完全CA38・CB29・和38を独立確認した結果、交叉接次元29であり、kappa零を接空間だけで判定する方法は成立しなかった。相対CB embeddingの高次を具体化して次の小さいgateを定める。
+
+非平方の全FULLU cubic57・quartic239、一般fiber尽くし・全分類上界、元B18深さ十九対二十と全nilは継続する。下界58、rank4下界52、NEW既約式28次、五凍結原稿を維持する。
+
 ## v63 BF / 2026-11-04: 比較cokernel閉fiber八と実pure核十本
 
 直前 main `0342b881c5132f1d83a333d78e166589156e2db8` は通常push済み。

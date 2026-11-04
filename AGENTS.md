@@ -2,6 +2,20 @@
 
 Version: v63-s61 · 2026-11-04 (Asia/Tokyo).
 
+Latest BG (2026-11-04): WHOLEpermittedP100 quarticPOINTWISE149 independentlyproved
+by5actualminors polynomialBezout→knownunitE; nofixed149minor/full239.
+ActualC_Dgenericrank4, C/ell8 ⇒FOURtorsionminimalgenerators, notlength/exponents/K.
+ActualCbarBetti3*C(8,i),Loewy(3,3,2),socle3 independentlyreviewed.
+AllordersellzeroIA/IBpairnormalform givesRbar/(IAIB)^2 LENGTH348, sparseactions/m10zero.
+ActualUP640=Q48B chainlift independentlyreviewed; oldf63/r-g refs preserved.
+SpecializedT route μDK=lenT−4 needsHONESTpresentation/comparisons, notnaiveH20kernel.
+GenericK Pa1+Qb2 known;CAcriticalκ stillopen. ExistingV1relativegate union38/TD29
+andCBevenprojection28 checked; noκ/fromtangent/higherspeculation.
+NextliteralCbar3targetKoszul +348Tbase, sourcecriticalrelativeCBembedding.
+Pure90globaltypedquotient/PREPOWER9kernelactualminor+h9 charts inprogress.
+OriginalD0depth/fullDnil/fullFULLU57/239/exhaustion/globalupperOPEN.
+Bounds58/r4lower52/uppernull,G28exact28DONE; ordinarypush/checkpoint thencontinue.
+
 Latest BF (2026-11-04): ACTUALcomparisonC/ell dimension8 independentlyproved.
 Source105finiteArtin20 evaluation/allphysicalreadbacks/12actions312cols rank18.
 Raw26actions/piA/piB independentlyreviewed; no105solvererunafterpathmetadatarepair.

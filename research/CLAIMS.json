@@ -23141,8 +23141,8 @@
         "reports/S61_NONSQUARE_P100_G18_PURE8_20261104_v63_REVIEW/report.json"
       ],
       "limitations_ja": [
-        "未知minorの零点は保持し、全P100で149とはしない。全曲線での既証下界は142。",
-        "他のpure行の独立性、pure98、全239、全FULLUについての結論は含まない。"
+        "本claimの指定開集合での149下界は後続S61_NONSQUARE_P100_WHOLE_CURVE_QUARTIC149で全許可P100へ強めた。",
+        "全239・全FULLUの結論は含まない。"
       ]
     },
     {
@@ -23269,6 +23269,213 @@
         "自由基底はraw H射影の核についてで、quadratic idealを法とするpure像十本の独立性を主張しない。",
         "七十quartic倍の同時展開・階数計算を実行したとはしない。K2は補正済みC23でありliteral C23とは区別する。",
         "全P100のquartic下界142、指定minor開集合で149という既存範囲は、この係数計算だけでは更新しない。"
+      ]
+    },
+    {
+      "id": "AMBIENT_B18_COMPARISON_C_GENERIC_DVR_RANK4_AND_TORSION_GENERATORS4",
+      "title_ja": "実比較cokernelのDVR一般rank四とtorsion最小生成数四",
+      "statement_ja": "同じphysical R0上のcanonical conductorを用い、共通G19の平坦な作用productとGm gradingにより全比較から零次数比較へ運んだ。全I=I0+wJ0かつI0+J0=mなので、零conductorの一般点ではwが比較cokernelを殺し、trace生成元がcharacter零であるため任意の非平坦切断を仮定せず零次数に一致する。四branchはCA critical-Vが長さ一、CA self Paが被約triple meetingの長さ一、CB critical-VはCAの外なので零、CB self Qbは実double triple meetingの長さ二となる。全conductor被覆と同じellの単純零を確認し、各D次数一を独立監査した。従ってrank_D C=4。既証dim C/ell=8とDVR構造定理からtorsionの最小生成数は正確に四である。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independently_reviewed_certificates_and_explicit_dependency_composition_2026_11_04",
+        "certificates": "reproduced_2026_11_04_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "AMBIENT_B18_ACTUAL_COMPARISON_C_SPECIAL_FIBER_DIMENSION8",
+          "AMBIENT_B18_CONDUCTOR_DVR_BASE20_AND_RAW_COMPARISON26"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_B18_COMPARISON_C_GENERIC_DVR_RANK_20261104_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_B18_COMPARISON_C_GENERIC_DVR_RANK_20261104_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_B18_COMPARISON_C_GENERIC_DVR_RANK_20261104_v63/report.json",
+        "reports/AMBIENT_B18_COMPARISON_C_GENERIC_DVR_RANK_20261104_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "torsionの長さ・指数は決めていない。Kのtorsionや元D0のsocle・深さには移さない。",
+        "self conductor自体の一般長さを比較cokernelの長さと同一視しない。Paで二から一へ落ちる実scheme交叉を使った。"
+      ]
+    },
+    {
+      "id": "AMBIENT_B18_CBAR_MINIMAL_BETTI_AND_LOEWY_STRUCTURE",
+      "title_ja": "実C閉fiberの極小Betti数とLoewy構造",
+      "statement_ja": "独立検証済みCbar=C/(ell)の八つの実CA-F9座標作用から、regular Rbar八変数上のKoszul複体を疎なQQ係数で構成した。全1024非零微分係数、全d二乗零と保存pivot証明を独立確認した。微分rankは5,35,105,175,175,105,35,5で、極小Betti数は3,24,84,168,210,168,84,24,3となる。最小生成数三、socle次元三、Loewy Hilbert函数(3,3,2)も同じ実作用から確定した。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independently_reviewed_certificates_and_explicit_dependency_composition_2026_11_04",
+        "certificates": "reproduced_2026_11_04_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "AMBIENT_B18_ACTUAL_COMPARISON_C_SPECIAL_FIBER_DIMENSION8"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_B18_CBAR_KOSZUL_BETTI_20261104_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_B18_CBAR_KOSZUL_BETTI_20261104_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_B18_CBAR_KOSZUL_BETTI_20261104_v63/report.json",
+        "reports/AMBIENT_B18_CBAR_KOSZUL_BETTI_20261104_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "Rbar=R0/(ell)の極小解像度不変量で、C全DVR型やD0のBetti数ではない。",
+        "Kのtorsionや深さをこの有限複体のrankだけから判定しない。"
+      ]
+    },
+    {
+      "id": "AMBIENT_B18_CONDUCTOR_PRODUCT_SQUARE_CLOSED_BASE348",
+      "title_ja": "実conductor積ideal二乗の零ell有限base三百四十八",
+      "statement_ja": "ell零後の実CA-F9座標でIA=(z7,r三乗)を全次数の単位除法で得た。IBの七つの単位IFT graphはz=-c r二乗+O(r三乗)で、残る実gBのgraph制限は非零三次先頭係数を持つ。従ってr三乗がIBに入り、全高次graphが吸収され、IB=(z+c r二乗,r三乗)と全idealとして等しい。c非零を確認した定数GL7で標準pair A=(z,w6,r三乗),B=(z+r二乗,w6,r三乗)へ直した。A二乗B二乗のw次数零、一、二、三の二変数商を固定source cofactorと厳密S-pair基準で検証し、長さ26,14,6,2、w単項式数1,6,21,56を得た。従って実Rbar/(IAIB)二乗の長さは348。全疎作用表と1296生成積の零性を独立確認し、m十乗零・r九乗非零も確定した。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independently_reviewed_certificates_and_explicit_dependency_composition_2026_11_04",
+        "certificates": "reproduced_2026_11_04_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "AMBIENT_B18_ACTUAL_PRODUCT_CONDUCTOR_SPECIAL_FIBER20_TABLES"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_B18_CONDUCTOR_SQUARE_CLOSED348_20261104_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_B18_CONDUCTOR_SQUARE_CLOSED348_20261104_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_B18_CONDUCTOR_SQUARE_CLOSED348_20261104_v63/report.json",
+        "reports/AMBIENT_B18_CONDUCTOR_SQUARE_CLOSED348_20261104_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "これはTのhonest presentationを得た後に使える有限baseである。TやKの長さを348とするものではない。",
+        "同じRbar座標の実pair全次数正規化を使い、有限jetの型だけから二乗idealを置換していない。"
+      ]
+    },
+    {
+      "id": "AMBIENT_B18_ACTUAL_NORMALIZER_CHAIN_LIFT_UP_EQ_QB640",
+      "title_ja": "実D0表示全六百四十列のnormalizer chain lift",
+      "statement_ja": "実D0のhonest九生成・六百四十関係、実E4のfree四生成・四十八関係と比較Uの同じsource frameを保持した。二十八intrinsic列は零liftとし、残る612列は元CB六十八多項式と元CA九乗数のHadamard差へ因数化した。元f63*tauAとgA_plane*tauAを混同せず、既証のunit adapterを明示した。負号DAG境界を閉じて元regular関数をopaque参照のまま保持し、B48対640の全2808非零operator係数、全68 Hadamard、全48 Q、全612 source対応と全640恒等式UP=QBを独立なQQ形式多項式で検証した。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independently_reviewed_certificates_and_explicit_dependency_composition_2026_11_04",
+        "certificates": "reproduced_2026_11_04_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "AMBIENT_B18_ACTUAL_C0_D0_HONEST9_640_AND_D4_MAP",
+          "AMBIENT_B18_ACTUAL_COMPLETE_Q_SYZYGY_RES4_OPERATOR"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_B18_NORMALIZER_CHAIN_LIFT_640_NEGATIVE_BOUNDARY_20261104_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_B18_NORMALIZER_CHAIN_LIFT_640_20261104_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_B18_NORMALIZER_CHAIN_LIFT_640_NEGATIVE_BOUNDARY_20261104_v63/report.json",
+        "reports/AMBIENT_B18_NORMALIZER_CHAIN_LIFT_640_20261104_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "旧r/gの正則関数は元の定義で参照し、新しい非単位除法や0/0を作っていない。係数冪級数を全展開したとはしない。",
+        "最初の60秒中断は境界表現の失敗として保存した。修正後の別operator検証を根拠とし、Kのtorsionはまだ計算していない。"
+      ]
+    },
+    {
+      "id": "S61_NONSQUARE_P100_WHOLE_CURVE_QUARTIC149",
+      "title_ja": "P100全許可曲線上で元quartic rank百四十九以上",
+      "statement_ja": "既存q5pure行とG18七倍の固定8対8 minorに、補正済みK2七倍の一行だけを入れ替える固定候補を用いた。各row LCDは五つの既知曲線単位だけであり、全56成分と元随伴行列の両側128恒等式を独立確認した。最初の固定15候補のうち五minorだけの明示多項式結合がE=zeta二十一乗*(zeta+20)九十三乗*(zeta+60)六乗*(zeta+12)となることを別FLINT実装で厳密検算した。Eは全許可P100上の単位で、未知因子を反転せず選択minor族が曲線全体を覆う。従って全点でpure八方向と既証141 blockが成立し、元quartic rankは149以上である。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independently_reviewed_certificates_and_explicit_dependency_composition_2026_11_04",
+        "certificates": "reproduced_2026_11_04_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_NONSQUARE_P100_PURE8_GENERIC_RANK8_QUARTIC149",
+          "S61_NONSQUARE_P100_ACTUAL_PURE_CUBIC_KERNEL_FREE10"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_NONSQUARE_P100_PURE15_COVER_20261104_v63.md"
+        },
+        {
+          "path": "research/notes/S61_NONSQUARE_P100_PURE15_COVER_20261104_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_NONSQUARE_P100_PURE15_COVER_20261104_v63/report.json",
+        "reports/S61_NONSQUARE_P100_PURE15_COVER_20261104_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "元の固定149 minorや全239を計算したとはしない。P100に限り、全FULLUの下界は変えない。",
+        "候補は固定順15個で停止し、新しいsource点・素数・rank探索・二行replacementは使っていない。"
+      ]
+    },
+    {
+      "id": "AMBIENT_CA_CRITICAL_V1_ACTUAL_INTERSECTION_TANGENT29",
+      "title_ja": "既存CA critical V1の実交叉接空間次元二十九",
+      "statement_ja": "既存V1に対し、normalizer微分二十八方向、補正したp二乗方向と全九odd方向から実CAの完全接空間rank三十八を構成した。実Npair det一frameとCB十九次元fiber左逆で元150係数を再構成し、ratioと九flag方向を含むCB二十九方向を同じ点の同じ物理座標へ戻した。全列の固定minor・factorizationを独立再検算すると、CA rank38、CB rank29、和rank38であり、実交叉接空間は29次元となる。CBのCA-even29への射影rankは28である。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independently_reviewed_certificates_and_explicit_dependency_composition_2026_11_04",
+        "certificates": "reproduced_2026_11_04_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "AMBIENT_CA_GENERIC_V_FULL_ACTUAL_COMPLETION"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_CA_CRITICAL_V1_RELATIVE_TANGENT_20261104_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_CA_CRITICAL_V1_RELATIVE_TANGENT_20261104_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_CA_CRITICAL_V1_RELATIVE_TANGENT_20261104_v63/report.json",
+        "reports/AMBIENT_CA_CRITICAL_V1_RELATIVE_TANGENT_20261104_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "既存V1とそのG軌道での相対接空間の結果であり、B18原点の接次元ではない。",
+        "接次元29だけでは高次ideal、critical branchのK一般長さkappa、元D0の深さは決まらない。"
       ]
     }
   ],
