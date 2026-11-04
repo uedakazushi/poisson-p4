@@ -1,0 +1,170 @@
+{
+  "variables": [
+    "lambda",
+    "H",
+    "L",
+    "s0",
+    "q0",
+    "epsilon"
+  ],
+  "deleted_row": 4,
+  "sparse_beta6": [
+    "-45*lambda*s0/16",
+    "-30*L*lambda",
+    "2400*lambda",
+    "0",
+    "0+epsilon",
+    "lambda*(H*q0/48 + H*s0/240 + H/240)",
+    "lambda*s0/54000",
+    "0",
+    "-32*H*lambda/3",
+    "-32*lambda/675",
+    "0",
+    "0",
+    "0",
+    "0",
+    "lambda*(H*s0/120 + H/120)",
+    "-64*H*lambda/3"
+  ],
+  "coordinate_convention": "original beta16 basis, zero-based",
+  "localizers": [
+    "lambda",
+    "H",
+    "L"
+  ],
+  "Schur_determinant_terms": [
+    [
+      "1073741824/5605041796875",
+      2,
+      2,
+      0,
+      0
+    ],
+    [
+      "1073741824/1121008359375",
+      2,
+      2,
+      0,
+      1
+    ],
+    [
+      "8589934592/5605041796875",
+      2,
+      2,
+      1,
+      0
+    ],
+    [
+      "1073741824/373669453125",
+      4,
+      2,
+      0,
+      0
+    ],
+    [
+      "24696061952/1121008359375",
+      4,
+      2,
+      0,
+      1
+    ]
+  ],
+  "row_permutation_sign": -1,
+  "source_block_determinant": "45000*H",
+  "full15_minor": {
+    "lambda_power": 14,
+    "HLsq_polynomial_terms": [
+      [
+        "-8589934592/996451875",
+        3,
+        2,
+        0,
+        0
+      ],
+      [
+        "-8589934592/199290375",
+        3,
+        2,
+        0,
+        1
+      ],
+      [
+        "-68719476736/996451875",
+        3,
+        2,
+        1,
+        0
+      ],
+      [
+        "-8589934592/66430125",
+        5,
+        2,
+        0,
+        0
+      ],
+      [
+        "-197568495616/199290375",
+        5,
+        2,
+        0,
+        1
+      ]
+    ]
+  },
+  "full16_Jacobian_determinant": {
+    "lambda_power": 14,
+    "HLsq_polynomial_terms": [
+      [
+        "8589934592/996451875",
+        3,
+        2,
+        0,
+        0
+      ],
+      [
+        "8589934592/199290375",
+        3,
+        2,
+        0,
+        1
+      ],
+      [
+        "68719476736/996451875",
+        3,
+        2,
+        1,
+        0
+      ],
+      [
+        "8589934592/66430125",
+        5,
+        2,
+        0,
+        0
+      ],
+      [
+        "197568495616/199290375",
+        5,
+        2,
+        0,
+        1
+      ]
+    ]
+  },
+  "determinant_epsilon_specialization": 0,
+  "nonzero_coefficient_witness": [
+    "8589934592/996451875",
+    3,
+    2,
+    0,
+    0
+  ],
+  "actual_pulledback_Lie10_and_source6": true,
+  "dominant_generically_finite_to_W16": true,
+  "inference": "nonzero16Jac at epsilon0 proves dominance inchar0; equal16dimensions gives finite functionfield extension; extension is faithfully flat, permitting generic-beta exhaustion after basechange",
+  "no_birationality_or_generic_exhaustion_solution_claim": true,
+  "Gamma": "1+5*q0+8*s0+15*H^2+115*H^2*q0",
+  "Schur_determinant_factored": "2^30/5605041796875*H^2*L^2*Gamma",
+  "actual16_Jacobian_factored": "2^33/996451875*lambda^14*H^3*L^2*Gamma",
+  "all_factorization_coefficients_remultiplied": true
+}

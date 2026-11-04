@@ -2,6 +2,24 @@
 
 Version: v63-s61 · 2026-11-04 (Asia/Tokyo).
 
+Latest AR (2026-11-04): GENERIC W16 sparse6fieldcover DOMINANT/
+genericallyfinite PROVED; beta6=lambda*b(H,L,s,q)+eps*e4,10nonzero13terms.
+Exact16Jac=(2^33/996451875)lambda^14H³L²Gamma, Gamma=1+5q+8s+15H²+115H²q.
+Notbirational/globalfinite/exhaustion; fixedNONinvariantminor mayvanishonslice.
+HistoricalS61adapter/Gmstrip5param-input/18L-kerneljob inprogress, noJ0GB.
+CUBICunitpairCdelta HZ/HW globallyprimitive; actual56→90samecokerFULLU.
+Fullactualcubic57 ALLpointsDDelta34 PROVED, NOTallFULLU. Projected25×32
+knownunitGaussian8steps→17×24; no nonunitinverses/noallpointnegative.
+QUARTICfree163→121 H²unitdelete accepted; completeH1input134×23 includes
+ALL112cubics/ALL21quartics/q5H. SevenMOREglobalHunits=>SAFE REDUNDANT183→114,
+originaltargetunitlower125. NOTfree156. Allquartics/pure98 retainedlazy.
+Uniformkernel38/missing42/full239OPEN. Cachecontinuation productive only.
+B18 HONESTD3/D4 minimalR0gen9 viaone10/3unit; relations2069/2081.
+ActualT3kernel/nonzero/depth19vs20/nilOPEN; nofurtherblindplanejets.
+W1tailold218+17unitIFT+3cuts andN_R0/nilcurvebinding workinprogress.
+NEWfirstjetG28exactdegree28 SOLVED (AQ); nofurtherdegreechase.
+Bounds58/r4lower52/uppernull; actualresearch/ordinarymainpush continues.
+
 Latest AQ (2026-11-04): NEW ACTUAL REDUCED PRIMITIVE FIRSTJET B15
 IRREDUCIBLE DEFININGEQUATION EXACTDEGREE28 QQ/C SOLVED, notjustlowerbound.
 G28=-80000*F*(F²-120p1-80p2)*T+R75, T=tr(theta^7 H16),78terms,
