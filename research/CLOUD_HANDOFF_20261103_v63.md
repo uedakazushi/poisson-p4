@@ -8,6 +8,20 @@ v62保存は `e187b40de68bce534391f406f616940cddd045a7`、
 `66a80ab53dfcf0ff842c67140320d8da0226039d`。全て通常push済み。
 このv63保存のSHAはGit履歴で識別する。
 
+## v63 AV / 2026-11-04: 実T0非零と有限Z、D4全Betti、一般平面rank五
+
+直前 main `7296a5bfd118021507876e34254ffde58c1da157` は通常push済み。
+
+B18の残るT0は非零と証明した。ただし有限socleの有無はまだ分からない。別のcokernel Z=coker(D0→D4)は両zero idealにannihilateされ、長さ三のA3=QQ[[r,s]]/(r,s)二乗上のmoduleとなる。完全cokernelを27次元QQ空間へ下げ、rank二十四と全作用を独立再構成した。Zは正確にomega(A3)、長さ三・二生成・一socleで、pairing determinantは36/25である。全九変数のTor境界rank十六からimage B0の最小生成数八を得た。mu(D0)=9との比較によりT0非零が従う。D0/mD0に見えるclassはg_A tau一方向だが、raw関数自体のkernel所属を仮定しない。有限なのはZでありT0ではない。
+
+同じactual D4のBetti二は、固定I84とI28の一次係数minorにより正確に112と決まった。さらに全Koszul次数の弱いstrictnessを使い、高次horseshoe offdiagonalを全てm内に選べると証明した。従って全最小Betti列は(9,44,112,182,196,140,64,17,2)である。これはw一tailであり、元B18環やD0の深さを決めたものではない。旧honest九生成からactual N八生成への全写像、九十六/160 unit系と六十四商も独立監査した。
+
+一般betaの平面制限では、元の選択五式50,10,52,51,15が独立であると解決した。既知五点の二次ideal上の五functionalは単射であり、形式環準同型(H,L,s,q,t)=(T,T二乗,T三乗,T五乗,T七乗)で五minorは次数448・393項の非零QQ多項式になる。元134式から選択25成分を独立に戻し、別の整数多項式行列式で確認した。数値beta標本や有限素数は使わない。平面制限rankは正確に五だが、全fiberの平面包含とは異なる。
+
+全129残差とnormal42因数・cross129対126のfactored回路は一次報告へ保存した。選択25成分だけでは他645functionalのsource bindingを保証しないことを監査で検出したため、全670QQ成分のstreaming独立確認を別gateにした。field Gaussianを再試行せず、既知最大2083項/成分の正確な係数比較だけを60秒/2GB/32MiBで行う。cross126rank・残余の空性はまだ未証明。
+
+非平方層では全点rank下界126・projected自由15対22・kernel38/不足42を維持する。raw H一次の一般rank七と明示開集合のH1全射を一次報告へ保存し、最後のquadratic行の大域的dualを固定のconic/power恒等式から構成しつつある。degreeを盲目的に増やす探索や未知因子の逆元は使わない。全FULLU三次57・四次239、元B18有限socle・全nil、一般fiber尽くし・全上界は継続中。NEW原始像の既約式は正確に二十八次で解決済み。下界58/rank4下界52、五凍結原稿を維持する。
+
 ## v63 AU / 2026-11-04: 全点rank126、三次15対22、B18の残るT0への実表示
 
 直前 main `89f7eefee1977694493c8774e9bb3417304f4eb6` は通常push済み。

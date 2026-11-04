@@ -1,6 +1,6 @@
 # Poisson structures on projective four-space
 
-非平方層の四次行列は全点rank126以上と証明し、三次のprojected表示を15対22へ縮約した。B18はT1・T2・T3の消滅に続き、残るT0用の正確な九生成640関係を独立検証した。T0の有限socle・元環の深さ・全nilと一般fiberの尽くしは継続中。NEW原始像の既約式は正確に28次。総下界58（rank4は52）、上界は未定。
+B18の実T0は非零と証明し、別の有限cokernel Zを長さ三のcanonical moduleと同定した。T0の有限socleと元環の深さは未決定。同じtail D4の全最小Betti列も決定した。一般betaの平面制限rankは正確に五と独立検証したが、全fiberの尽くしは継続中。非平方層の四次全点rank下界126、NEW原始像の既約式28次。総下界58（rank4は52）、上界未定。
 
 新25成分の全Poisson一般横断長さは正確に5。n111の全完成環 C[[s25,u,v]]/(uv,u³,v³) とCM type2を証明・独立監査し、[14ページの独立原稿](papers/positive_weight6_component_ja.pdf)に保存した。全52 rank4成分のdense S61写像が揃った。新一次像は15次元・方程式次数22以上だが実方程式、全境界、全分類は未解決。以下は以前の記録を含む。
 

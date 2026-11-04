@@ -2,6 +2,22 @@
 
 Version: v63-s61 · 2026-11-04 (Asia/Tokyo).
 
+Latest AV (2026-11-04): ACTUALT0 NONZERO PROVED viaZ=omegaA3,
+Z=cokerD0→D4 FINITE length3/mu2/pairdet36/25; full9Torboundaryrank16
+⇒mu(imageD0)=8<muD0=9. FiniteZ NOTfiniteT0. VisibleclassgAtauONLY,
+notrawfunctionkernelassertion. H0(T0)=H0(D0), finiteSOCLE/depth19vs20OPEN.
+ActualD4 FULLMINIMALBetti[9,44,112,182,196,140,64,17,2] proved,
+I84/I28+allKoszulweakstrictness⇒minimalhorseshoeALLorders; notoriginDdepth.
+Honest9→N8 actualfullmap/96+160unitinputs/64quotients independentlyreviewed.
+GENERIC5 actualPLANEQUADRICSrank5 SOLVED, selectedrows[50,10,52,51,15],
+formalQQ[T]minor nonzero degree448/393terms, source25coefs independent.
+No numericbeta/prime/allpointchart/fullfibercontainmentclaim.
+Residual129/cross126factoredPRIMARYcomplete; all670QQfunctional sourcebinding
+independentgateACTIVE, NOTinferredfromselected25. No126fieldGaussian.
+NonSquarepointwiserank126/globalunit125/projected15×22/kernel38/gap42;
+rawHgeneric7/openH1surjPRIMARY; lastQpowera29BezoutPRIMARYpeerpending.
+Full57/239, T0socle/fullnil, genericexhaustion/globalupper OPEN; continuepush.
+
 Latest AU (2026-11-04): FULLUquarticPOINTWISEranklower126,
 fromactualrawHlinear2→Hquadratic13→afterNF117lose5 gives8 plusH²unit.
 NOTfixed126unit/minor/freecomplement; constructiveunit125/7Hpivots unchanged.
