@@ -1,0 +1,105 @@
+{
+  "hypotheses": [
+    "R0 char0 commutative complete local actual B18 base",
+    "D=k[[ell]] with actual ell, not rA",
+    "K=ker(D0\u2192E4), N=Nil(D0)",
+    "N^3 subset finite-origin tors_D K",
+    "N*K^2=0",
+    "P=N/K is D-free rank7",
+    "mu_D K=L-4, 11<=L<=17",
+    "W*N^2=0, IA*IB*N subset W"
+  ],
+  "beta": "K tensor_D Sym^2_D P \u2192 N^3, (k,p,q)\u21a6k*lift(p)*lift(q)",
+  "beta_well_defined": "Changing either lift adds a product in N*K^2=0.",
+  "H": "image(beta)=K*N^2",
+  "gamma": "Sym^3_D P \u2192 N^3/H, using arbitrary lifts",
+  "gamma_well_defined": "Every lift change introduces at least one K and two N factors, hence lies in H.",
+  "cube_zero_iff": "beta=0 AND gamma=0",
+  "safe_transfer_quotient": "beta descends through K/(K intersect W); both P factors and gamma descend through P/image(W\u2192P).",
+  "no_K_mod_J_for_beta": "JK^2=0 only justifies K/JK for K^2. J*K*N^2=0 has NOT been proved.",
+  "interim_implications": [
+    "beta=0 implies N^5=0 since N^3 subset K",
+    "gamma=0 implies N^4=0 since N^3=K*N^2 and N*K^2=0"
+  ],
+  "D_generator_product_bounds_by_L": [
+    {
+      "L": 11,
+      "mu_D_K": 7,
+      "mixed_generator_product_upper": 196,
+      "pure_generator_product_upper": 84,
+      "total_upper": 280
+    },
+    {
+      "L": 12,
+      "mu_D_K": 8,
+      "mixed_generator_product_upper": 224,
+      "pure_generator_product_upper": 84,
+      "total_upper": 308
+    },
+    {
+      "L": 13,
+      "mu_D_K": 9,
+      "mixed_generator_product_upper": 252,
+      "pure_generator_product_upper": 84,
+      "total_upper": 336
+    },
+    {
+      "L": 14,
+      "mu_D_K": 10,
+      "mixed_generator_product_upper": 280,
+      "pure_generator_product_upper": 84,
+      "total_upper": 364
+    },
+    {
+      "L": 15,
+      "mu_D_K": 11,
+      "mixed_generator_product_upper": 308,
+      "pure_generator_product_upper": 84,
+      "total_upper": 392
+    },
+    {
+      "L": 16,
+      "mu_D_K": 12,
+      "mixed_generator_product_upper": 336,
+      "pure_generator_product_upper": 84,
+      "total_upper": 420
+    },
+    {
+      "L": 17,
+      "mu_D_K": 13,
+      "mixed_generator_product_upper": 364,
+      "pure_generator_product_upper": 84,
+      "total_upper": 448
+    }
+  ],
+  "total_D_generator_product_upper": 448,
+  "not_length_bound": true,
+  "actual_seven_lifts_K_generators_or_product_values_constructed": false,
+  "source_filtered_product": {
+    "b0": 1,
+    "B": 1,
+    "bilinear_a_terms": [
+      1,
+      2,
+      1,
+      1,
+      2,
+      1
+    ],
+    "bilinear_c_terms": [
+      1,
+      1
+    ],
+    "cubic_a_minimum": 2,
+    "cubic_c_minimum": 2,
+    "conclusion": "F^pN*F^qN subset F^(p+q+1)N; N^3 subset F^2N, F^qN=image(kerV intersect J^q R44)",
+    "not_inferred": "F^qN=J^qN; J annihilates N^3; K/JK controls mixed K*N^2"
+  },
+  "remaining_exact_source_requests": [
+    "Seven actual D-basis lifts of P=N/K and at most13 actual D-generators of K, with all-order comparison/source identities. Existence/rank alone is not such a certificate.",
+    "Or an exact cyclic-image membership proof for the source-bound cube44 operator on all actual cycles, preserving Tor2 and W quotients.",
+    "For K/JK specifically: the all-order (c,h) lifts in the supplied 30\u00d7692 constraint, not a mod-J2 approximation. This gate alone does not decide beta."
+  ],
+  "no_nil_cube_verdict": true,
+  "no_new_source_jet_scalar_search_or_parameter_point": true
+}

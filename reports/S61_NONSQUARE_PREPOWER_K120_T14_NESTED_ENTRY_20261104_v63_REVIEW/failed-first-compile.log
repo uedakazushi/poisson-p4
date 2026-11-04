@@ -1,0 +1,5 @@
+/workspace/poisson-p4/code/s61_nonsquare_prePOWER_K120_t14_nested_entry_review_20261104_v63.cpp: In function ‘int main(int, char**)’:
+/workspace/poisson-p4/code/s61_nonsquare_prePOWER_K120_t14_nested_entry_review_20261104_v63.cpp:46:78: error: ‘n_invmod’ was not declared in this scope; did you mean ‘fmpz_invmod’?
+   46 |  string ds;long count;in>>ds>>count;ulong gd=modstr(ds);assert(gd);ulong inv=n_invmod(gd,PRIME);long nonzero=0,compared=0;for(ulong x:acc)if(x)nonzero++;for(long i=0;i<count;i++){long a,e,d;string cs;in>>a>>e>>d>>cs;ulong c=(modstr(cs)*inv)%PRIME;assert(acc[index(a,e,d)]==c);if(c)compared++;}assert(nonzero==compared&&count==14986&&nonzero>0);string extra;assert(!(in>>extra));
+      |                                                                              ^~~~~~~~
+      |                                                                              fmpz_invmod

@@ -2,6 +2,22 @@
 
 Version: v63-s61 · 2026-11-04 (Asia/Tokyo).
 
+Latest BP (2026-11-04): actualK120/t14 N7 NONZERO14986terms primaryintegerlattice.
+Independent symbolic32003 source/all14986reduction/punitden proveschar0NONZERO,
+NOTfullQQcoefficientidentitypeer. q*a9*N7bar normalization fullychecked.
+PIVOT13 SAMEcoker2x9 onD(Delta407*Saux*T*N6*N7bar), all57/63sources/tails retained.
+Rawpairrows[2,4,5,8] shareONLYrow2withbare7; extra2borderrowsoutsidepair.
+Residualrank2/full57/239/complementsOPEN. Noextra g/D5/p/R/h22chart.
+Genericreordered37pairs199x46/147370terms; next16/310unsafe,294untested.
+Newrow/cell-streamSOURCEgateonly, noactualnormalinverse/exhaustionclaim.
+TnilACTUALHF(5,5)/lenmodm²10; knownquadquot6 isNOTactualHF2.
+Nilcube canonicalbeta/gamma/448testbound reviewed, actualvaluesOPEN.
+beta0=>N5zero/gamma0=>N4zero ONLYconditional, noactualnilindeximprovement.
+619quarticcommonlower106/N2cached1460 available; newsourceinputsnotautomatic.
+Rawcross18QQzero extendsfixed8only; nextdet11forecastFAIL238909/64.5MB.
+ContinueweightedNewton/contentgate, nilquad/cube/global/genericresearch.
+Ttotal11..17/nilindex3..7/DVRrank11/depth19/18/bounds58/r4lower52unchanged.
+
 Latest BO (2026-11-04): honestTnil COMPLETE minimal5x849 independentlyreviewed.
 Three unitSchurs24/18/81, all780+168sourcepaths/allorderprojection retained.
 d3ONLY linear rank15, NOTfullHF1; Bold0rank4/adapter2/m1X1/m0X2 retained.

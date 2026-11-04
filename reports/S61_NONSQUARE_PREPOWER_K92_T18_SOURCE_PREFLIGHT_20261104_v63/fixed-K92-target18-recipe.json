@@ -1,0 +1,76 @@
+{
+  "fixed_current15_remaining_source": 9,
+  "fixed_original32_target": 18,
+  "source_label": "G92 meanscurrent15row9afterallprefixQproductcorrections",
+  "known_raw_pair_columns": [
+    22,
+    11,
+    13,
+    25,
+    15,
+    19,
+    14
+  ],
+  "new_column18_NOT_yet_proportional": true,
+  "prerequisite": "Three rawcross18 zeros wouldextendpairrawrank1from7to8columns; kappazeroaloneisinsufficient.",
+  "H3_normalized_columns_original32": [
+    28,
+    30,
+    29
+  ],
+  "B3_pivot_current15": [
+    7,
+    13,
+    10
+  ],
+  "B3_normalized_rows": [
+    6,
+    12,
+    9
+  ],
+  "K92": "Delta407*current9/c8-lambda505*current7/c6-a*lambda419*current13/c12-lambda428*current10/c9",
+  "K92_published_Cramer_sizes": [
+    505,
+    419,
+    428
+  ],
+  "K92_extra_a_factor_reason": "rho12=c12*F*C\u00b2 whileotherfourrho=c_i*a*F*C\u00b2",
+  "raw8_columns_if_prerequisite": [
+    22,
+    11,
+    13,
+    25,
+    15,
+    19,
+    14,
+    18
+  ],
+  "A": "current11/c10",
+  "B": "(current12-current10)/c11",
+  "D": "current9/c8",
+  "C": "current7/c6",
+  "E": "a*current13/c12",
+  "F": "current10/c9",
+  "determinant11_rows": "P4[0,1,3,6],G20current2,A,B,D,C,E,F",
+  "determinant11_columns": [
+    22,
+    11,
+    13,
+    25,
+    15,
+    19,
+    14,
+    18,
+    28,
+    30,
+    29
+  ],
+  "H3_column_normalization": "divideonlythelast3columnsbyknownFULLUunitL=a*F*C\u00b2",
+  "exact_polynomial_identity": "D8=det(P4,G20,K115small,K120small,K92)=g\u00b2*det11",
+  "proof": "Subtractlast3pivotrowsfromA,B,D overD(g*Delta):A->K115/g,B->K120/g,D->K92/Delta; H3blockdet=Delta, soDelta cancels.Polynomialidentitydescendsfromlocalizeddomain.",
+  "conditional_actual_next_entry": "c8*g*det11/(Delta407*a\u00b2*N7) oncurrentchartifraw8prerequisiteholds",
+  "all_existing_unknown_chart_complements_retained": true,
+  "no_det11_coefficient_or_rank_job": true,
+  "no_full_worker_resource_gate_for_det11": true,
+  "only_rawcross18_gate_has_precise_scalar_budget": true
+}
