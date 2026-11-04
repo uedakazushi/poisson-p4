@@ -1,5 +1,19 @@
 # 研究状態 — v63-s61 / 2026-11-04
 
+## v63 AI / 2026-11-04: 固定M284・B18相対三次模型・結果式計算
+
+直前保存 main `e96a97e564a7ec862b991a843daaa191287f6723` は通常push済み。以下は過去時点を含む。
+
+非平方の旧二十二kernelに二十のglobal known-unit pivotを構成し、全行操作・三角分解・有限left split回路を独立検証した。既存十五と合わせ三十五sourceを固定座標で削除でき、元M319と同じ余核のM284へ縮約した。残る二関係は154×2、全FULLUで点別rank2である。全P22・大域282基底の構造的primary回路は完成し、独立監査中である。指定66個の2minorはknown unitを与えなかったため、既存dualと単位anchorによる別の構造的extractorを検討する。方向の総数37・不足43を増えたと数え直さない。
+
+B18の実全交叉については、絶対positive gradingが無いという障害を受け、零weight十七変数上の相対表示を得た。正weight三変数に関して全idealは三次以下・高々285生成元で足りる。個別成分の二次以下kernelだけでなく、実ambientの全87 graph差を保持した結果で、六つの三次graphを落とさない。全次数のequivarianceと単射を保つ共通G19 productを独立検証した。係数函数は未計算で、fullDのnil・depth19〜20は未解決である。raw coreの物理cutは零ではなく、正しいgaugeを入れないbase逆算もできないことを別preflightへ記録した。
+
+NEWの二shape模型では、有理数上のs-resultantを一回で全47114整数係数まで計算した。既知境界因子を完全除算すると、raw P=25*2^68*r^22*Z0*(r−1)^16*T^15*Q、Qは6919項・r次数19となった。ここはexact library computationとその因子identityの保存であり、raw Sylvester determinantの独立identity監査では、別のPRS計算で二次・一次subresultantまで厳密に構成したが、最後の定数段階は2GB上限で未完了だった。その保存prefixの既知因子を除いてから行う別の6GB final norm計算が完了し、全805531中間係数の完全除算・再乗算と、元の全47114係数の一致を独立に確認した。一般fiber次数19、primitive equation、NEW定義式を主張しない。残るJ/Fn等の境界も明示したまま調べる。
+
+また二つのspectral比はsの正確な三次・五次有理写像であり、次数の互いに素性からsの有理回収を証明した。この証明は最後のresultant identityに依存せず、残る本質的なshapeはrだけである。r自身の回収や射影次数は未決である。
+
+全Sp4商のC有理性は確定済みだが、NEWの実方程式とsource-target指数は別である。次数下界26、四次全射、一般betaのdelta_E所属、全成分尽くしも未解決。総下界58/rank4下界52/総上界未定、五つの凍結原稿は変更しない。
+
 ## v63 AH / 2026-11-04: 全Sp4商のC有理性・二shape方程式
 
 直前保存 main `9da00337cc3d2da30a1ca252356a19934d5cce6b` は通常push済み。以下は過去時点を含む。

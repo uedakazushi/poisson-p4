@@ -2,6 +2,23 @@
 
 Version: v63-s61 · 2026-11-04 (Asia/Tokyo).
 
+Latest AI (2026-11-04): oldK174x22 hasEXACT20globalunitsplit;
+15+20fixedsource deletions giveactualM284x239 samecoker. RemainingK154x2
+pointwise rank2FULLU; knownkernelTOTAL37/missing43 unchanged.
+P22primaryPK=I22 PASS, independentreviewPENDING.
+66limited2minors NOknownunit, notglobalnegative; structuraldualextractorbudgeted.
+B18FULLD relativeB=C[[X17]],positiveY3 idealdegree≤3,≤285gens EXACT;
+retainALL87graphs(4/53/24/6 byweight), notjusttwoabstract99models.
+ActualformalzerocoefficientsUNCOMPUTED; fullnil/depth19..20OPEN.
+NEWraws-resultant exactlibrary47114coeffs; P=25*2^68*r22*Z0*(r−1)^16*T15*Q.
+Q6919terms/r19 isNOTgenericdegree19/NEWequation; independentPRS C2/C1
+verified,originalC0hit2GBcap; DIFFERENT6GBfinalnormPASSED ALL47114cofs.
+Otherboundary/contentgates inprogress; notNEWdefinitionequation. Coprime s-mapdegrees3/5 prove sRATIONALoverr+spectralbase independently.
+No source26, NEWlower26.
+FULLSp4field PUREC-rational trdeg6 bySB1989Prop11; explicit6gensOPEN.
+Fullquartic/genericbeta/exhaustionOPEN. Lower58/r4lower52/uppernull.
+Continueactualresearch andordinarymainpush; checkpoint isnotstop.
+
 Latest AH (2026-11-04): FULLSp4W16 quotientfield PUREC-RATIONAL trdeg6,
 byShepherd-Barron1989Prop11 exactprojectivebiformquotient +F=B(t2).
 PrimaryPDF/printed18..21independentlyread; establishedliteratureapplication,
