@@ -2,6 +2,20 @@
 
 Version: v63-s61 · 2026-11-04 (Asia/Tokyo).
 
+Latest BB (2026-11-04): B18 actualCORE DIM1 independentlyproved, first3CI(2,2,3)
+CM/Gorensteincurve/e12; full7core quotientby4graphs CM/socle STILLopen.
+Fivecubics viaCACHEDsource2+linearadjoint145ring, no source3/4solve; source700coeffchecks.
+DoNOTlifttangentdirectionsautomatically; exactdeck/conductorbranchmapsnext.
+B ALLQ/Lclosedcasesexcluded FULLU, GunitmodactualI3(B).
+Mixednorm actualgcd13/Fitt0 triplecoker length≤13/H4cover≤52, actualBbadSCHEME length≤52.
+NOTcokerBmodulelength/empty; Wmodg13ALLZERO, explicitKa13e-reconstruction next.
+RawH6ontwoTheta curves (uniformrawH7FALSE) butFULLCUBIC57 GENERIC BOTH P80/P100 proved.
+Wholecurveuniform remainsfinitepolynomialcases; P80minorunknownR46, no newnumericβ/prime.
+P100H1rightinverse112×23 independentlyreviewed; POINTWISEquartic141, notfixedminor.
+Pure98 retained/all239 OPEN.
+Globalquartic239/fullcubic57 FULLU/genericexhaustion/fullnil/globalupper OPEN.
+Unit125/point126/kernel38/gap42 unchangedglobally; Bounds58/r4lower52/uppernull, G28exact28DONE.
+
 Latest BA (2026-11-04): actualcore4 quadraticspan2/fivezero independentlyverified,
 cachedsource2+adjoint98 nohighersourcesolve. QuadraticCIcurve QQ-rationalNODALquartic,
 actualfirst2functions INTEGRALCMsurface2/mult4; notfullcoreideal/socle/non-normality.

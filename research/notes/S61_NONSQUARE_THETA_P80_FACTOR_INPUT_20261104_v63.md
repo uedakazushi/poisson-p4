@@ -1,0 +1,18 @@
+# P80のR46因子と閉factor上17×24入力のpreflight
+
+保存済みdegree447 minorから既知の六chart単元だけを除いたR46（47項、primitive
+404bit）をQQでexact factorizationし、全factorと重複度・QQ定数から元の全係数を
+独立整数演算で再構成する。新たなcore点やrank計算は行わない。
+
+元のfrozen17×24 univariate整数行列だけを各monic既約factorで割る。全408entryの
+quotient/remainderを保存・独立検査し、field coefficient数と実際の高さを記録する。
+全factorの次数和は高々46なので入力coeff数の合計は高々408*46。
+
+六つのchart因子の積VにもQQ[zeta]のBezout=1を保存する。従って各閉factorで
+FULLUの既知chart因子は単元。元sourceのzeta24*a*BとrowLCM/content clearingsも
+単元のままであり、field matrixはactual sourceのrankを保存する。
+
+最小次数・項数・入力高さ・indexで一成分を選び、将来の17×24 Gaussianと
+24×17右逆行列のcostを提示する。逆元は各pivotのexact Bezout modulo factorで
+検証し、右逆は全289entryで検査する必要がある。このpacketでは未実行。
+全P80full57、quartic239、他curveへの結論は追加していない。

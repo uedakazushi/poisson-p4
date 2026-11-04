@@ -1,0 +1,17 @@
+# P80: independent actual-source generic cubic57 review
+
+The actual full cubic source has rank57 at the generic point of the permitted P80 curve. The claim is generic on this one curve; it is not a uniform rank theorem at its exceptional roots, a P100 result, a quartic239 result or generic-beta exhaustion.
+
+The accepted ZW25_UNITS review independently binds the augmented25-by-32 map to the original full57 cubic source and its retained pure directions. Its eight recorded known-unit operations are valid on FULLU. This review reuses that source/operation gate, the accepted exact Theta curve parameterization and the full-source sufficient criterion. It does not replace the full cubic source by the heavy projection, whose rank on P80 is only six.
+
+From the frozen actual checkpoint, Python independently enumerates the remaining 17-by-24 rows and columns, all 84,253 numerator terms, 1,113 distinct monomials and all 408 denominators. Every denominator is literally a nonzero rational constant times 1, a or the accepted polynomial B. All recorded classifications and actual index orders are compared. No POWER cofactor is evaluated.
+
+The separate verification-only C++ implementation substitutes a=-8(7zeta+80)/(45zeta²), e=2(zeta+40)/(9zeta), d=-3zeta(zeta+20)/80 by direct QQ[zeta] polynomial arithmetic. It also reconstructs B from its original six monomials, obtaining zeta(7zeta+300)/60. Each numerator is multiplied by zeta^24, and the remaining factors of the common scalar zeta^24*a*B are applied according to the independently checked denominator kind. All Laurent shifts are checked exact. This common scalar is a unit on the permitted P80 open; no additional unknown-dependent inverse is introduced.
+
+The checker independently recomputes all seventeen denominator LCMs and integer row contents, then compares every polynomial coefficient of all 408 saved entries. Their profile is 5,182 terms, maximal degree34 and maximal coefficient bit size169. Thus source transformation and constant clearings are certified independently of the author substitution implementation.
+
+Only the saved ordered17-by-17 minor is then evaluated. Fixed-order Bareiss arithmetic uses the already selected rows and columns; no new pivot or minor search is performed. Every exact polynomial division is checked by remultiplication. The full determinant polynomial agrees coefficientwise with the saved nonzero determinant, of degree447 and 152 terms; its sign relative to the recorded fraction-free denominator also agrees. This directly proves rank17 over QQ(zeta), without rerunning the author 17-by-24 rank algorithm.
+
+Adding the eight accepted unit pivots gives augmented rank25. The accepted product41 theorem and global Cdelta unit-line construction then give full cubic rank57 by the previously reviewed sufficient projected criterion. Since the actual full cubic matrix has no more than57 independent rows, this is equality. The determinant is a nonzero polynomial, so any full-cubic rank defect in the permitted P80 open is contained in its finite zero set. The determinant's roots have not been removed by this packet and are retained without extrapolation.
+
+All immutable source/report hashes are checked. The dedicated verifier executable and input are saved only in ignored work; the author packet, ledgers and commits are untouched. No new point, prime, field Gaussian, Groebner solver, POWER expansion or additional curve job is used.

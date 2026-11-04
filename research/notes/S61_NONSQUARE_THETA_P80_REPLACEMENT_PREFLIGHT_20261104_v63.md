@@ -1,0 +1,17 @@
+# P80 replacement-minor solve入力の既知単元preconditionとcost
+
+保存済み17×24整数sourceとdegree447 selectedminorだけを使う。17×17 Aは同じrow
+permutationとcolumns0..16、Bは残るcolumns17..23。新たなdet・solve・rankを計算しない。
+
+全17×24で六つの既知chart線形単元だけのrow/column共通因子をexact除算し、QQ row
+clearingsで再び整数matrixにする。全408source entryと、保存detの単元倍・商を
+全係数で検証する。未知因子は除かず、R46のmultiplicity1は保存される。
+
+各row最大degreeと整数L1係数normから、全119replacement minorsのdegree・height・
+slot上限を得る。保存は将来最初のcoprime entryに属する17-vectorだけを想定し、
+全119cofactorsのdumpやgcd Bezout bundleのサイズをこの上限だけから推測しない。
+
+将来一回のfraction-free solve A X=delta Bを行う場合、deltaとsourceから得たexpected
+prepareddetの一致を確認する。あるentryがR46と互いに素なら、そのreplacementminorが
+全R46根で単元になる。全entriesが0 modR46でも、このprojection十分条件の失敗であり
+full57の否定ではない。このpreflightではいずれのrank判定も未実行。

@@ -1,5 +1,17 @@
 # 次の課題 — v63-s61 / 2026-11-03
 
+## v63 BB / 2026-11-04: B18 core次元一とCI曲線、有限Fitting schemeと二曲線三次回復
+
+直前 main `ebabbebcf791581cef99d960adcf6e448189d34e` は通常push済み。
+
+B18の五つの実core三次初期式を、既存source二次のみとstationary adjoint補正で取り出した。五IFT加速度とmixed dualを含む全700除法係数を独立確認し、row63のbinary十二次sectionが非零と証明した。実最初三函数はCI(2,2,3)の整なsurface上の曲線で、CM/Gorenstein・重複度十二となる。実Rによる下界と合わせ、全七函数のcore次元は正確に一と決定した。残る四graphの全次数所属、全coreのCM性・socle・元B18深さは未解決。六つの正規化方向を自動的に実六枝と読まず、実deck作用とconductorのscheme写像で必要な重複度下界を構成する。
+
+非平方Bの全Q/L例外を元二十二式のU冪証明書で除去し、Gを実Fitting商の単位とした。混合pencilの係数のadjugate恒等式を使うと、実不良schemeは三式有限商(h1,k1,m1)とHのcoverの商となる。同じh1基底上の二行列式のgcd十三次とPID Fitting公式から、明示三式商の長さは十三以下、H四次を加えて五十二以下。従って実I3(B)不良scheme自体のQQ長上界は五十二となった。これはcoker B加群の長さではなく、空性・実在も未判定。W=Nm1 V modg13は全十六成分が零と確認され、残る十三次候補のeを再構成して全二十二式を判定する。
+
+raw Hがrank六となるP80/P100でも、pure成分を含む実full cubicは両曲線の一般点でrank五十七へ回復すると独立確認した。各17対24行列の全408 source成分と非零minorをQQ[zeta]で検査し、巨大なa二十九乗POWERは展開していない。全曲線上の成立には有限のminor例外が残る。P80は未知四十六次因子上で、既知単位だけのpreconditionerと別columnのminorを使う有界な判定へ進む。
+
+P100ではq1のraw H余核functional評価が全曲線上の単位であるため、quad-H消去と百十二cubic倍からH1二十三射影への明示右逆を構成した。全source恒等式を独立監査し、点ごとの元quartic rank141以上を受理した。 pure98を保持しているのでfull239とは区別する。全S61・一般fiber尽くし、B18全nil、全分類上界を引き続き研究する。下界58・rank4下界52、NEW既約式28次、五凍結原稿を維持する。
+
 ## v63 BA / 2026-11-04: 実core二次近似と例外有限代数、非平方branchの有理座標
 
 直前 main `9811ca9dfe183b1726e2db31b35f011cb8039efd` は通常push済み。
