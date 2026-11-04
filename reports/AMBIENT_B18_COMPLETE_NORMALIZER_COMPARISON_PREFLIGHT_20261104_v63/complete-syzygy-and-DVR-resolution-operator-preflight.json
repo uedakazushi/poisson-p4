@@ -1,0 +1,164 @@
+{
+  "source_status": {
+    "CI8_and_E4_H0_zero": "accepted",
+    "physical_T12_Cfree4_interface": "MS separate typed-interface/Res4 producer, not computed in this packet or inferred from source type",
+    "actual_DVR20_basis_actions_and26by326_entries": "not yet serialized by prior preflight"
+  },
+  "actual_normalizer_basis": [
+    "1",
+    "tau_CA",
+    "tau_CB",
+    "tau_CA*tau_CB"
+  ],
+  "R0_physical_rows": [
+    27,
+    108,
+    109,
+    112,
+    113,
+    117,
+    118,
+    119,
+    61
+  ],
+  "source_adapter_orientation": "Hnew=T Hold as columns; Qnew=Qold Res(T^t). Res(T^t) hasblock(j,i)=mu(T[i,j]), not transpose(mu(T)).",
+  "complete_Q_syzygies": {
+    "over_normalizer_C": "transported Koszul28 plus4 free redundant-source relations",
+    "R0_d2_shape": [
+      48,
+      128
+    ],
+    "R0_d3_shape": [
+      128,
+      224
+    ],
+    "E_resolution_sizes_nonminimal": [
+      4,
+      48,
+      128,
+      224,
+      280,
+      224,
+      112,
+      32,
+      4
+    ],
+    "after_redundant16_source_columns_removed": [
+      4,
+      32,
+      112,
+      224,
+      280,
+      224,
+      112,
+      32,
+      4
+    ],
+    "no_d_inverse": "cancel the nonzero common d in the regular domain, never call it a unit"
+  },
+  "literal_low_comparison": {
+    "P": [
+      9,
+      640
+    ],
+    "Q_reduced": [
+      4,
+      32
+    ],
+    "U": [
+      4,
+      9
+    ],
+    "B_lift": [
+      32,
+      640
+    ],
+    "identity": "U P=Q B",
+    "after_eliminating_unit1_shapes": [
+      [
+        40,
+        752
+      ],
+      [
+        3,
+        40
+      ]
+    ],
+    "H1": "K",
+    "H0": "actual coker M",
+    "higher_homology": "unwanted; truncated H2 is not K[ell]"
+  },
+  "complete_DVR_M_input": {
+    "D": "QQ[[ell]], actualell=5(s_CA-r_CA)",
+    "R": "D[[x1,...,x8]]",
+    "generators_max": 26,
+    "presentation_relations_max": 326,
+    "image_basis_rank_max": 26,
+    "required_two_inclusions": [
+      "P_D=A B",
+      "A=P_D H"
+    ],
+    "required_injectivity": "nonzero r-minor ofA, or exact DVR image-basis proof",
+    "actions": [
+      "T_i A=A S_i",
+      "[T_i,T_j]=A H_ij"
+    ],
+    "consequences": [
+      "[S_i,S_j]=H_ij A",
+      "cyclicsum(H_jk T_i-S_i H_jk)=0 byJacobi+injectivityA"
+    ]
+  },
+  "complete_R0_M_resolution": {
+    "modules": "F_n=(R^m tensor exterior^n D8) directsum (R^r tensor exterior^(n-1) D8)",
+    "worst_sizes": [
+      26,
+      234,
+      936,
+      2184,
+      3276,
+      3276,
+      2184,
+      936,
+      234,
+      26
+    ],
+    "differential": "A oninternal1; sum(x_i-T_i)iota_i oninternal0; minus sum(x_i-S_i)iota_i oninternal1; minus sum H_ij iota_i iota_j frominternal0 to1",
+    "exactness": "filter byexterior degree: A injective leavesM; commuting x_i-actions give completed monicKoszul resolution. Actual actions topologicallynilpotent mod ell.",
+    "no_automatic_higher_homotopies": "the2-row amplitude killsH*H; Jacobi forces theonlycubic identity"
+  },
+  "Schanuel_complete_L": {
+    "existing_M_shape": [
+      3,
+      40
+    ],
+    "free_resolution_of_M": "G3->G2->G1->R3->M",
+    "required_lifts": [
+      "d1 m=V",
+      "V n=d1",
+      "d2 h=I-m n"
+    ],
+    "L_generators": "S=[n d2, I-n m]",
+    "L_relations": "[(d3,0),(-h,n)]",
+    "completeness": "ifS(w,x)=0,set y=m x-d2w; thenx=n y andd2(w+h y)=0",
+    "L_generator_upper": 976,
+    "L_relation_upper": 2395
+  },
+  "complete_K_presentation": {
+    "input_cycles": 752,
+    "lift_formula": "for v inkerV choose w via completeC Koszul/Weierstrass contraction with d2w=m v, thenlift v as(w,v)",
+    "generator_upper": 976,
+    "relation_upper": 3147,
+    "no_SyzP_required": true,
+    "source_ancestry_required": "all752cycles andtheirlifts checked; oldr/gstayexistingregularR0functions, nofresh0/0 orinventedderivatives"
+  },
+  "DVR_torsion_finish": {
+    "after_complete_K_cokernel_presentation_only": "tensor byH=R/(IAIB), thenbyD/ell; right exactness is enough becauseIAIB K=0",
+    "naive_upper_D_generators": 19520,
+    "naive_upper_D_relations": 76604,
+    "naive_dense_query_not_authorized": true,
+    "test": "H0(K)!=0 iff dimQQ K/ellK >dimFracD K[1/ell]",
+    "torsion_cyclic_count": "difference equals number, not length, ofDVRtorsioncyclicsummands",
+    "H0D0_equals_H0K": "follows fromH0E4=0; fullDdepth is not computed"
+  },
+  "derived_special_fiber_warning": "H2=K[ell] holds only for a genuine comparison modelwithhomologyKdegree1,Mdegree0,nootherhomology. Not fromthe752->40->3truncation."
+}

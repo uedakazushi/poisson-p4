@@ -1,0 +1,182 @@
+{
+  "source_H12_file": "reports/AMBIENT_B18_PROPER_RATIONAL_ELIMINATION_20261104_v63/actual12-flag-divided-polynomials.json",
+  "regular_source_ring": "S=QQ[a,d,v2,v6,u0..u4,D^-1,P^-1] completed at origin",
+  "D": "1-d^2",
+  "P": "d^2+5",
+  "permutation_selected_then_rest": [
+    0,
+    4,
+    1,
+    2,
+    3,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "pivots": [
+    "v4",
+    "v3",
+    "v5",
+    "v7",
+    "v8"
+  ],
+  "u_definition": "u_i=pivot_i-frozen_root_i(a,d,v2,v6)",
+  "telescoping": "H_j=R_j+sum_i A_ji*u_i; A_ji=sum_m coefficient_m*base^m*prod_{l<i}(root_l+u_l)^e_l*sum_{k=0}^{e_i-1}(root_i+u_i)^(e_i-1-k)*root_i^k*prod_{l>i}root_l^e_l",
+  "triangular_diagonal": [
+    {
+      "source_row": 0,
+      "pivot": "v4",
+      "coefficient_constant": "2",
+      "D_power": 0,
+      "P_power": 1,
+      "origin": "10"
+    },
+    {
+      "source_row": 4,
+      "pivot": "v3",
+      "coefficient_constant": "8",
+      "D_power": 1,
+      "P_power": 0,
+      "origin": "8"
+    },
+    {
+      "source_row": 1,
+      "pivot": "v5",
+      "coefficient_constant": "80",
+      "D_power": 2,
+      "P_power": 0,
+      "origin": "80"
+    },
+    {
+      "source_row": 2,
+      "pivot": "v7",
+      "coefficient_constant": "16",
+      "D_power": 2,
+      "P_power": 0,
+      "origin": "16"
+    },
+    {
+      "source_row": 3,
+      "pivot": "v8",
+      "coefficient_constant": "192",
+      "D_power": 3,
+      "P_power": 0,
+      "origin": "192"
+    }
+  ],
+  "residual_Rj_equals_lambda_j_Kj": [
+    {
+      "QQ_constant": "5",
+      "D_denominator_power": 0,
+      "P_denominator_power": 1
+    },
+    {
+      "QQ_constant": "2",
+      "D_denominator_power": 0,
+      "P_denominator_power": 1
+    },
+    {
+      "QQ_constant": "3",
+      "D_denominator_power": 0,
+      "P_denominator_power": 1
+    },
+    {
+      "QQ_constant": "1/5",
+      "D_denominator_power": 0,
+      "P_denominator_power": 2
+    },
+    {
+      "QQ_constant": "1",
+      "D_denominator_power": 0,
+      "P_denominator_power": 2
+    },
+    {
+      "QQ_constant": "1",
+      "D_denominator_power": 0,
+      "P_denominator_power": 2
+    },
+    {
+      "QQ_constant": "1/5",
+      "D_denominator_power": 0,
+      "P_denominator_power": 3
+    }
+  ],
+  "factors_in_action_order": [
+    "\u03a0: selected5 followed by remaining7",
+    "E1=[[A^-1,0],[-B*A^-1,I7]]: maps \u03a0H to (u5,R7)",
+    "E2=diag(I5,lambda_0^-1,...,lambda_6^-1): gives (u5,K7)",
+    "E3=diag(I5,M3,I4), M3=[[1/D,0,0],[0,1/D,0],[-r/(PD),0,-2/(PD)]]: gives (u5,Q0,Q1,s*r\u00b2,K3..K6)",
+    "E4=unit lower block subtracting Uj*C_ij times the three CI rows from each last graph row: gives (u5,Q0,Q1,s*r\u00b2,0^4)"
+  ],
+  "full_transform": "T=E4*E3*E2*E1*\u03a0",
+  "inverse": "\u03a0^-1*E1^-1*E2^-1*E3^-1*E4^-1",
+  "determinant": "P^10/(2359296*D^11)",
+  "determinant_origin": "9765625/2359296",
+  "cofactors_file": "reports/AMBIENT_B18_PROPER_CORE_CI_MEMBERSHIP_20261104_v63/membership-and-source-cofactors.json",
+  "cofactors_key": "cofactor3_by4; Kj=Uj*sum_i C_ij*G_i",
+  "whole_E4_preserved": "T*(d*H12)=d*(u5,Q0,Q1,s*r\u00b2,0^4)",
+  "syzygy_orientation": "For equation columns c=T*h, syz(h^t)=T^t*syz(c^t)",
+  "complete_source_syzygy_count": 32,
+  "complete_source_syzygy_generators": "28 Koszul on regular8 (u5,Q0,Q1,s*r\u00b2) plus4 unit coordinate vectors on zero rows, then T^t",
+  "why_d_does_not_change_syzygies": "S is regular domain and d nonzero, so d*h^t*v=0 iff h^t*v=0",
+  "regular8_proof_gate": "reports/AMBIENT_B18_PROPER_CORE_CI_MEMBERSHIP_20261104_v63_REVIEW/report.json",
+  "source_no_unknown_formal_inverse": "all root rational functions and all inverse diagonals use only D,P,QQ units",
+  "factor_circuit_scalar_node_ceiling": 114416,
+  "expanded_T12_or128_R0_syzygies_not_constructed": true,
+  "physical_free4_interface": {
+    "actual_R0_rows9": [
+      27,
+      108,
+      109,
+      112,
+      113,
+      117,
+      118,
+      119,
+      61
+    ],
+    "R0_variable_nodes": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "free4_basis": [
+      "1",
+      "tau_CA",
+      "tau_CB",
+      "tau_CA*tau_CB"
+    ],
+    "nu_CA_node": 9966,
+    "nu_CB_node": 18940,
+    "F12_order": [
+      18,
+      19,
+      28,
+      29,
+      60,
+      67,
+      72,
+      63,
+      64,
+      68,
+      73,
+      74
+    ],
+    "free4_relation_column_rule": "column(4*i+a)=F_i*basis_a",
+    "proper_S9_to_physical_C_coefficient_map_serialized": false,
+    "proper_H12_to_physical_F12_invertible_row_map_serialized": false,
+    "why_two_maps_required": "A source-gauge quotient isomorphism alone is not a literal lift of all coefficients and relations in the regular ambient C.",
+    "permitted_finite_interface": "actual proper-source/group factorization, pointed unit Hensel coordinate adapter and unit12 target-difference row adapter",
+    "not_permitted": "type-only identification, dividing a conductor/root at B18, assuming a rational global source inverse"
+  }
+}

@@ -22621,9 +22621,8 @@
         "reports/S61_NONSQUARE_RAW_H_B_MIXED_NORM16_20261104_v63_REVIEW/report.json"
       ],
       "limitations_ja": [
-        "全Q/L除去・二ノルム・gcdの独立監査済み依存を合成したscheme上界である。空性・実在・全域B rank三はまだ判定していない。",
-        "これはR/I3(B)の長さであり、coker B加群、Poisson全scheme、full cubic57/quartic239の長さではない。",
-        "W=Nm1 V modg13の全成分は零と一次確認され、十三次候補を保持する。追加のe再構成とH四次上の元二十二式が次の実計算である。"
+        "本claimの上界52は、後続S61_NONSQUARE_B_BAD_FITTING_SCHEME_EXACT_KA13で正確な長さ13・非空へ改善された。",
+        "これはR/I3(B)の長さであり、coker B加群やPoisson全schemeの長さではない。full cubic57/quartic239は別課題。"
       ]
     },
     {
@@ -22835,6 +22834,133 @@
       ],
       "limitations_ja": [
         "右逆はH1射影へのものであり、pure98は零にしていない。固定した141 minor・自由補空間・全239は未証明。"
+      ]
+    },
+    {
+      "id": "S61_NONSQUARE_B_BAD_FITTING_SCHEME_EXACT_KA13",
+      "title_ja": "非平方B不良Fitting schemeを長さ十三の非空代数として完全決定",
+      "statement_ja": "実B7対3行列の不良ideal I3(B)を既知FULLU上で扱う。全Q/L閉例外を除いた既存G単位証明とnorm所属から、eの十三次商上の復元e=t(a)を厳密に導いた。H四次と元minor g,kの共通idealは全Ka13上でd-s(a)と同じで、四つのLC単位証明、全divisionとsource Bezoutを独立確認した。一方、a,e=t,d=sで元二十二minorの全二千九百六十三項が零、FULLUの明示逆元が存在すると全有限代数上で独立検証した。必要coverからKa13→R/I3(B)、この十分sourceからR/I3(B)→Ka13を得て、合成は生成元aを固定する。従って実不良Fitting代数は正確にQQ[a]/(g13)と同型、長さ十三で非空である。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independently_reviewed_certificates_and_explicit_dependency_composition_2026_11_04",
+        "certificates": "reproduced_2026_11_04_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_NONSQUARE_B_BAD_FITTING_SCHEME_FINITE_LENGTH_AT_MOST52"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_NONSQUARE_RAW_H_B_K13_ACTUAL_SOURCE_SCHEME_20261104_v63.md"
+        },
+        {
+          "path": "research/notes/S61_NONSQUARE_RAW_H_B_K13_D_EUCLID_20261104_v63.md"
+        },
+        {
+          "path": "research/notes/S61_NONSQUARE_RAW_H_B_K13_D_EUCLID_20261104_v63_REVIEW.md"
+        },
+        {
+          "path": "research/notes/S61_NONSQUARE_RAW_H_B_K13_B21_ROOT_TEST_20261104_v63.md"
+        },
+        {
+          "path": "research/notes/S61_NONSQUARE_RAW_H_B_K13_B21_ROOT_TEST_20261104_v63_REVIEW.md"
+        },
+        {
+          "path": "research/notes/S61_NONSQUARE_RAW_H_B_K13_ACTUAL_SOURCE_SCHEME_20261104_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_NONSQUARE_RAW_H_B_K13_ACTUAL_SOURCE_SCHEME_20261104_v63/report.json",
+        "reports/S61_NONSQUARE_RAW_H_B_K13_D_EUCLID_20261104_v63/report.json",
+        "reports/S61_NONSQUARE_RAW_H_B_K13_D_EUCLID_20261104_v63_REVIEW/report.json",
+        "reports/S61_NONSQUARE_RAW_H_B_K13_B21_ROOT_TEST_20261104_v63/report.json",
+        "reports/S61_NONSQUARE_RAW_H_B_K13_B21_ROOT_TEST_20261104_v63_REVIEW/report.json",
+        "reports/S61_NONSQUARE_RAW_H_B_K13_ACTUAL_SOURCE_SCHEME_20261104_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "これは小B行列のFitting schemeである。full cubicやPoisson schemeの階数低下・成分を意味しない。",
+        "この証明ではKa13の体性・既約性・被約性を仮定しない。幾何的十三点という強化には別のsquarefree証明が必要。"
+      ]
+    },
+    {
+      "id": "S61_NONSQUARE_P100_PURE_ROW_UNIMODULAR_AND_QUARTIC142",
+      "title_ja": "P100全曲線で実pure行がunimodularとなりquartic rank百四十二以上",
+      "statement_ja": "元q5H cache row0がQPAIRの元row57でH二乗成分を持たないことを確認し、受理済み百十二対二十三右逆で全H1成分を除いた。delta7 source変換を戻した四十二cofactor、元六genuine cubicの全五百四pure係数、light逆変換、全二百十quartic係数とNF98を独立算術で再構成した。保存された98成分の分子gcdは一で、最初二成分の明示Bezout恒等式と全分母の全曲線単位性を確認した。従って実pure行はP100の許可chart全体でunimodularであり、既存141下界に加えて元quartic rankは全点で142以上となる。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independently_reviewed_certificates_and_explicit_dependency_composition_2026_11_04",
+        "certificates": "reproduced_2026_11_04_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_NONSQUARE_P100_H1_PROJECTION_SURJECTIVE_FROM112_CUBIC_ROWS"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_NONSQUARE_P100_Q5_PURE98_ROW_20261104_v63.md"
+        },
+        {
+          "path": "research/notes/S61_NONSQUARE_P100_PURE98_ROW_GCD_20261104_v63.md"
+        },
+        {
+          "path": "research/notes/S61_NONSQUARE_P100_Q5_PURE98_ROW_20261104_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_NONSQUARE_P100_Q5_PURE98_ROW_20261104_v63/report.json",
+        "reports/S61_NONSQUARE_P100_PURE98_ROW_GCD_20261104_v63/report.json",
+        "reports/S61_NONSQUARE_P100_Q5_PURE98_ROW_20261104_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "元の固定142 minorや全239のrankを計算したとはしない。",
+        "これはP100上の結果で、全FULLUのunit125・点ごと126という既存下界を一様に改善するものではない。"
+      ]
+    },
+    {
+      "id": "AMBIENT_B18_ACTUAL_CORE_MOD_FLAG_D_DVR3_PLUS_SOCLE1",
+      "title_ja": "実coreのd零制限のDVR自由rank三と長さ一socle",
+      "statement_ja": "元の十二H式をd零に制限したliteral係数、五つの定数単位root、残る七式を独立確認した。u=a+v2,x=v2,t=v6とするとidealはF=u二乗-6ux、G=(23x-6t)u+2x二乗+4xt、H=ux二乗に等しい。全七式へのcofactorと逆の三式を検査し、q=uxがu,x,tに殺される恒等式を確認した。積x二乗=3tu-2tx-23q/2、xu=q、u二乗=6q、tq=xq=uq=q二乗=0による結合代数の両方向同型を証明した。従って実core/(d)はD=QQ[[t]]上D三個とD/(t)の直和、H0は非零qで生成される長さ一、深さ零、重複度三である。qで割った飽和はdouble lineとsingle lineの交叉で、gluing determinantは4t/3となる。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independently_reviewed_certificates_and_explicit_dependency_composition_2026_11_04",
+        "certificates": "reproduced_2026_11_04_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "AMBIENT_B18_PROPER_POLYNOMIAL_E4_AND_FOUR_VARIABLE_CORE",
+          "AMBIENT_B18_ACTUAL_FULL_CORE_CI223_AND_E4_DEPTH1"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_B18_NPAIR_RESTRICTION_DVR_20261104_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_B18_PROPER_NPAIR_RESTRICTION_20261104_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_B18_NPAIR_RESTRICTION_DVR_20261104_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_B18_NPAIR_RESTRICTION_DVR_20261104_v63/report.json",
+        "reports/AMBIENT_B18_PROPER_NPAIR_RESTRICTION_20261104_v63/report.json",
+        "reports/AMBIENT_B18_NPAIR_RESTRICTION_DVR_20261104_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "対象はcore/(d)のみで、元の非正規化D0を意味しない。",
+        "全E4/(d)とは異なる。coreの零因子dで割った後に現れるsocleで、H0(core)=H0(E4)=0と矛盾しない。元D0の有限socleや深さを決めない。"
       ]
     }
   ],

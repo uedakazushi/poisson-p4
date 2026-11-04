@@ -1,6 +1,6 @@
 # Poisson structures on projective four-space
 
-B18の全実coreはCI(2,2,3)・重複度12、正規化E4は深さ一・H0零と証明した。元D0の深さは未決。非平方raw H欠損二曲線でfull cubic rank57が全点で成立し、quartic点ごとのrankは141以上。全239・一般fiber尽くし・全分類を継続中。下界58（rank4は52）、NEW既約式28次。
+非平方B不良Fitting代数は正確に長さ13で非空、P100全曲線でquartic点ごとのrank142以上と証明した。B18全coreはCI(2,2,3)、正規化E4は深さ一・H0零。元D0の深さ・全239・一般fiber尽くし・全分類を継続中。下界58（rank4は52）、NEW既約式28次。
 
 新25成分の全Poisson一般横断長さは正確に5。n111の全完成環 C[[s25,u,v]]/(uv,u³,v³) とCM type2を証明・独立監査し、[14ページの独立原稿](papers/positive_weight6_component_ja.pdf)に保存した。全52 rank4成分のdense S61写像が揃った。新一次像は15次元・方程式次数22以上だが実方程式、全境界、全分類は未解決。以下は以前の記録を含む。
 

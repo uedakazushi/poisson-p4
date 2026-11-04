@@ -2,6 +2,18 @@
 
 Version: v63-s61 · 2026-11-04 (Asia/Tokyo).
 
+Latest BD (2026-11-04): ACTUAL Bbad Fitting algebra EXACTKa13/nonempty/QQlength13 independentlyproved.
+ALL22originalminor zero+FULLUinverse; necessaryupper/lowermaps compfixesa. Notfullcubicbad.
+Noassumedfield/reducedness; separateg13squarefreecertificate mayupgradegeometricpoints.
+P100actualpure98row UNIMODULAR independentlyreviewed, wholecurvepointwisequartic≥142.
+G18sevenpure rows/GL2pure97 and compact8x98 rank8 PRIMARY frozen, sourcepeerpending;
+genericquartic149 onlyD(det), nofull239/wholecurve149.
+B18 actualcore/(d)=DVRfree3 plusSOCLElength1 independentlyproved; NOTwholeE4/(d) orD0.
+Actualproper↔physicalregular9 interface unitJac androw12adapter PRIMARY; typedRes4 inprogress.
+CompletecomparisonK preflightavoidsSyzP, but actualDVR20/26basis/actions/lifts uncomputed.
+FullcoreCI/E4H0zero remain; originalD0depth19vs20/fullnil/globalupper/exhaustion OPEN.
+Bounds58/r4lower52/uppernull; G28exact28DONE; ordinarypush/checkpoint then continue.
+
 Latest BC (2026-11-04): ACTUAL FULL7core CI(2,2,3), CM/Gorenstein/e12 independentlyproved.
 Proper14vars17eq model plus two5unit eliminations; all4graph membership/sourcecofs reviewed.
 Whole normalized E4=S9/(dJ), keepsfive d*u, dimension8/depth1/H0ZERO.

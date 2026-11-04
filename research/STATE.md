@@ -1,5 +1,17 @@
 # 研究状態 — v63-s61 / 2026-11-04
 
+## v63 BD / 2026-11-04: 実B不良代数十三と全P100のquartic下界142
+
+直前 main `9e32341ae309280a819b5da52566992610f8c8bf` は通常push済み。
+
+非平方B行列の実不良Fitting schemeを、正確にKa13=QQ[a]/(g13)と同定した。元二十二minorの全二千九百六十三項とFULLU逆元を独立再計算し、既存G単位・norm・e復元と新d-Euclidの必要coverからの写像、その十分sourceからの逆写像が生成元aを固定すると確認した。実不良代数は長さ十三で非空となり、前上界52と空性の未決は解消した。有限代数を体や被約と仮定しない。これは小Bブロックの不良で、full cubicやPoisson rankの不良とは限らない。次はPOWER-free17対24 sourceを同じ有限代数へ戻し、実full cubicを判定する。
+
+P100では、実q5HからH1右逆を引いたpure98行を元135式の独立係数再帰から再構成した。全五百四cubic係数、四十二cofactor、joint210、NF98と二成分Bezoutを確認し、98分子gcd一を証明した。従って全曲線上のquartic点ごとのrankは142以上。G18からの七pure行と明示GL2のpure97表示を一次計算し、元の小さい8対98行列のrank八も一次確認した。これは指定非零minor上で149下界を与えるが、その独立source監査と全曲線のminor例外判定は継続中。全239や全FULLU cubic57へ飛躍しない。
+
+B18では、core/(d)のactual十二式・五root・七式を独立再計算し、DVR自由rank三と長さ一socleの明示結合代数を得た。これは零因子dで割ったcoreの結果であり、H0(core)=H0(E4)=0と区別する。元D0の深さは未決。proper九座標からphysical正則九変数環への実Jacobianと十二式のrow adapterを一次構成し、完全Syz(Q)を型付きRes4へ下ろす作業を続ける。DVR比較には実20/26基底・作用・liftの構成が必要で、大きい未検証行列を単純にell零へ特殊化しない。
+
+全分類上界、一般fiber尽くし、全quartic239、元B18全nilは未解決で継続する。下界58、rank4下界52、NEW既約式28次、五凍結原稿を維持する。
+
 ## v63 BC / 2026-11-04: 全core完全交叉と二曲線の全点三次回復
 
 直前 main `8a5bbf1e30b30d1fcff7fac213ad93e099ee8a7c` は通常push済み。

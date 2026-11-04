@@ -1,0 +1,37 @@
+{
+  "target_GL2": [
+    [
+      "c0",
+      "-r1"
+    ],
+    [
+      "c1",
+      "r0"
+    ]
+  ],
+  "inverse_GL2": [
+    [
+      "r0",
+      "r1"
+    ],
+    [
+      "-c1",
+      "c0"
+    ]
+  ],
+  "column_j_clear": "j>=2: col_j -> col_j-r_j*col0",
+  "source_cofactor": "a=v0*c0+v1*c1",
+  "residual97": [
+    "-v0*r1+v1*r0",
+    "v_j-a*r_j for j>=2"
+  ],
+  "full_source_reconstruction": [
+    "v0=a*r0-w1*c1",
+    "v1=a*r1+w1*c0",
+    "v_j=w_j+a*r_j for j>=2"
+  ],
+  "target_order": "first residual column is original col1 afterGL2, then originalcols2..97",
+  "actual_pure_quotient_source": "G18*vj minus a_j times actual accepted q5H-cleared pure source; no pure tails discarded",
+  "same_coker_with_q5_unit_direction_removed": true,
+  "no_generic_or_uniform_rank_increment_claimed": true
+}
