@@ -104,3 +104,17 @@ T01の名称・次元は既存MPSカタログを入力とし、今回の非零�
 - MPS v2のTable 2全40 SVG、定理1.4、§5.3、例6.24を照合した。
   [全対応と符号注記](notes/MPS40_CROSSWALK_20261031.md)を参照。
   以前未完だった個別図式照合は完了したが、外部証明全体の独立再証明ではない。
+
+## 2026-11-04：SHEPHERD_BARRON_1989_PROP11
+
+N. I. Shepherd-Barron, *Invariant theory for S5 and the rationality of M6*,
+Compositio Mathematica **70** (1989), 13–25。
+[一次PDF](https://www.numdam.org/article/CM_1989__70_1_13_0.pdf)
+
+Proposition11（印刷頁18、証明は21頁まで）は全Aut(Q)によるprojective
+biform pairの商のC有理性を与える。今回のBとの一致と、二倍率を保つ
+F=B(t1,t2)を独立監査し、全Sp4商体の純C有理性へ適用した。
+Theorem15（21頁）とLemma8（16頁）は五次元S5表現のsign twistの照合に使う。
+任意標数、QQ上の有理性、NEW方程式やsource-target指数へは延長しない。
+一次読解・適用の証拠は `Q_FIRSTJET_SHEPHERD_BARRON_RATIONALITY_20261104_v63`
+と同REVIEW。既存定理の適用で、優先権を主張しない。

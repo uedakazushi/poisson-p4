@@ -1,5 +1,17 @@
 # 研究状態 — v63-s61 / 2026-11-04
 
+## v63 AH / 2026-11-04: 全Sp4商のC有理性・二shape方程式
+
+直前保存 main `9da00337cc3d2da30a1ca252356a19934d5cce6b` は通常push済み。以下は過去時点を含む。
+
+全W16のSp4不変函数体の複素数体上の純有理性を確定した。新しい有理性定理を証明したという意味ではない。Shepherd-Barron, Compositio Mathematica70(1989)13–25, Proposition11の一次本文と印刷頁18〜21を二担当で読み、対象がまさに全Aut(Q)によるprojective二形式商であることを照合した。既証のF=B(t1,t2)と合わせC(W16)^Sp4は純有理・超越次数6となる。六つの明示生成元、QQ上の有理性、全不変式環、NEWの方程式・source-target指数は未取得である。
+
+NEWのsourceでは、不変式比R=(p3+4p4)/p0からqをMöbius逆式で回収し、Bの回収と合わせ、未知shapeをr,sの二つへ削減した。二spectral式のbidegreeは(9,3),(14,5)、N12比の式は(10,4)で、全2310係数と元の有理式との同値を独立検証した。一般cancelによる60秒停止を残し、既知因子による多項式homogenizationで成功した方法を別packetへ保存した。Fn上の二重極を消すQQ定数の簡単な候補も非零minorから除外したが、より一般の変換の否定ではない。
+
+次は、この二shape模型のsに関する8×8 Sylvester resultantを、contentと明示localizerを保持して一回のexact QQ計算で求める。120秒・2GB・32MiBの上限を定めた。これはr射影の有限模型を目指す段階で、単独でNEWの定義式や指数1を意味しない。全26次制限は引き続き未実行、次数下界26・方程式未決を維持する。
+
+四次全射と具体的なglobal282基底、generic B18の全nilとdepth19〜20、一般betaのdelta_E所属、全成分尽くしを継続する。総下界58/rank4下界52/総上界未定、五つの凍結原稿は変更しない。
+
 ## v63 AG / 2026-11-04: source282・全Sp4固定体・B18 grading障害
 
 直前保存 main `b5fa715dd519633b8394a54c63fa141fc138c1f2` は通常push済み。以下は過去時点を含む。

@@ -19205,6 +19205,107 @@
       "limitations_ja": [
         "全五次元S5不変式体の純有理性は未証明。二倍率を捨てたりrulingを勝手にsplitしたりせず、honest vector bundle descentを使う。全不変式環やNEWの方程式を与えたものではない。"
       ]
+    },
+    {
+      "id": "W16_FULL_SP4_INVARIANT_FIELD_C_RATIONAL_BY_SHEPHERD_BARRON",
+      "title_ja": "一次文献の適用による全Sp4不変函数体の複素数体上の純有理性",
+      "statement_ja": "Shepherd-Barron(1989) Proposition11はP(V(1,2))×P(V(2,1))をfactor交換も含む全Aut(Q)で割った商の有理性を証明する。一次PDFの該当命題・証明と独立読解を照合し、既証のF=B(t1,t2)へ適用した。従ってC(W16)^Sp4は超越次数6の純有理体である。Theorem15とLemma8による五次元S5表現のsign twistも別途確認した。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_04",
+        "certificates": "reproduced_2026_11_04_v63",
+        "novelty": "application_of_established_primary_literature_no_priority_claim"
+      },
+      "dependencies": {
+        "claims": [
+          "W16_FIVEPOINT_QUADRIC_S5_REDUCTION_AND_STABLE_LEVEL2"
+        ],
+        "external": [
+          "SHEPHERD_BARRON_1989_PROP11"
+        ]
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/Q_FIRSTJET_SHEPHERD_BARRON_RATIONALITY_20261104_v63.md"
+        },
+        {
+          "path": "research/notes/Q_FIRSTJET_SHEPHERD_BARRON_RATIONALITY_20261104_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/Q_FIRSTJET_SHEPHERD_BARRON_RATIONALITY_20261104_v63/report.json",
+        "reports/Q_FIRSTJET_SHEPHERD_BARRON_RATIONALITY_20261104_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "既存の1989年の有理性定理への適用であり、新しい有理性定理や優先権を主張しない。六つの明示的な純超越生成元、QQ上の有理性、全不変式環、NEW方程式・source-target指数は未取得。"
+      ]
+    },
+    {
+      "id": "NEW25_MOBIUS_Q_RECOVERY_AND_TWO_SHAPES_OVER_TARGET_RATIOS",
+      "title_ja": "不変式比からのqのMöbius回収と二shapeへの帰着",
+      "statement_ja": "既知のQ0=p0/F4²に加えR=(p3+4p4)/p0を取ると、Rのsource表示はBに依存せずqのMöbius式となる。T=(r−1)R−2r,L=8Rr(r−1)−6r²−11r+1としてq=((s−1)L−(r−1))/(40rT)である。Bの既知回収とこの両向き逆式を別のFraction算術で検証し、残るshapeをr,sの二つへ減らした。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_04",
+        "certificates": "reproduced_2026_11_04_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "NEW25_BIRATIONAL_FIVE_SOURCE_COMPRESSION_AND_B_RECOVERY"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/Q_NEW_FAMILY_MOBIUS_SHAPE_RECOVERY_20261104_v63.md"
+        },
+        {
+          "path": "research/notes/Q_NEW_FAMILY_TWO_SHAPE_RECOVERY_20261104_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/Q_NEW_FAMILY_MOBIUS_SHAPE_RECOVERY_20261104_v63/report.json",
+        "reports/Q_NEW_FAMILY_TWO_SHAPE_RECOVERY_20261104_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "指定した非零分母のdense source開での正確な函数体再表示である。実target体とsource体の指数1や定義方程式はまだ従わない。"
+      ]
+    },
+    {
+      "id": "NEW25_EXACT_LOCALIZED_TWO_SHAPE_POLYNOMIAL_CONSTRAINTS",
+      "title_ja": "二shape制約の正確な多項式表示",
+      "statement_ja": "qとBの回収式を、既知因子だけでhomogenize・完全除算して六つの有理係数対と三つの制約を得た。全2310係数・全交差乗算・分母因子を独立再構成した。二spectral式の(r,s)次数は(9,3),(14,5)、N12比の式は(10,4)、項数284,1076,471である。r,(r−1),J,Fn等の明示開で元のsource制約と等価である。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_scope_and_exact_certificate_review_2026_11_04",
+        "certificates": "reproduced_2026_11_04_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "NEW25_MOBIUS_Q_RECOVERY_AND_TWO_SHAPES_OVER_TARGET_RATIOS"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/Q_NEW_FAMILY_TWO_SHAPE_HOMOGENIZATION_20261104_v63.md"
+        },
+        {
+          "path": "research/notes/Q_NEW_FAMILY_TWO_SHAPE_RECOVERY_20261104_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/Q_NEW_FAMILY_TWO_SHAPE_HOMOGENIZATION_20261104_v63/report.json",
+        "reports/Q_NEW_FAMILY_TWO_SHAPE_RECOVERY_20261104_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "一般SymPy cancelは一回60秒で未完了だった。別の多項式homogenizationにより0.806秒で完了した。二変数消去・実方程式・proper finite model・target指数は未解決。原稿の未実行resultant記述はpacket凍結時の状態である。"
+      ]
     }
   ],
   "setup_checkpoint": "v25-setup",

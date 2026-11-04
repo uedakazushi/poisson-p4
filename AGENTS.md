@@ -2,6 +2,19 @@
 
 Version: v63-s61 · 2026-11-04 (Asia/Tokyo).
 
+Latest AH (2026-11-04): FULLSp4W16 quotientfield PUREC-RATIONAL trdeg6,
+byShepherd-Barron1989Prop11 exactprojectivebiformquotient +F=B(t2).
+PrimaryPDF/printed18..21independentlyread; establishedliteratureapplication,
+NOnewpriorityclaim/noexplicit6generators/QQrationality/invarring/NEWformula.
+NEW Q0=p0/F4²,R=(p3+4p4)/p0 recoverB andqRATIONAL; remaining2shapesr,s.
+Exactlocalizedconstraints(9,3),(14,5),(10,4),terms284/1076/471 ALLverified.
+Genericsympycancel60stimeout preserved; differentpolyhomogenizationSUCCESS.
+ONEexactQQs-resultant120s/2GB/32MiB authorized afterknowncontentpreflight;
+onlyrprojectionmodel, NOTequation/index1. NOsource26, NEWlower26.
+Knownkernel37/missing43; global282P/full239/B18fullnil-depth19..20,
+genericbeta/exhaustionOPEN.
+Lower58/r4lower52/uppernull; continueactualresearch/ordinarymainpush.
+
 Latest AG (2026-11-04): actualM319→fixedM304 samecoker via15unitdeletions;
 old22matrix174x22 all963entries/22identities independentlyverified.
 Rank282sourcebundle atlas; globalfree282EXISTS butexplicitbasis/Puncomputed.

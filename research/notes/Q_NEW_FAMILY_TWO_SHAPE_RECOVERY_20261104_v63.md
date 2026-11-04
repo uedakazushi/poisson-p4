@@ -1,0 +1,10 @@
+# 一般的な有理式約分の60秒停止記録
+
+2026-11-04。受理済みの短い低不変式にBとqの復元式を代入し、SymPyの一般的な多変数`cancel`で最小形を得ようとした。一回60秒/2GBで実行したが、最初の二shape関数の完成前にwall alarmでexit142となった。
+
+q/Bの両方向回収は約0.306秒で完了しfrontierへ記録した。正規化p₁,p₂,N₁₂の全式、次数、resultantはこの試行では得ていない。GB、source26、新しい点評価は行っていない。停止を式の非存在・数学的障害と解釈しない。
+
+codeは`code/q_new_family_two_shape_recovery_20261104_v63.py`、状態・入力hashは
+`reports/Q_NEW_FAMILY_TWO_SHAPE_RECOVERY_20261104_v63/report.json`。`all_passed=false`とexit142を保持する。自動再試行はしなかった。
+
+完了したq/B回収は`Q_NEW_FAMILY_MOBIUS_SHAPE_RECOVERY_20261104_v63`で保存し、未完部分は多項式斉次化と追跡因子の完全除算という別方式`Q_NEW_FAMILY_TWO_SHAPE_HOMOGENIZATION_20261104_v63`で約0.81秒で構成できた。元の失敗記録は置き換えない。
