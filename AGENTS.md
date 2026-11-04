@@ -2,6 +2,21 @@
 
 Version: v63-s61 · 2026-11-04 (Asia/Tokyo).
 
+Latest AZ (2026-11-04): ActualB18 NnormalizerPAIR allorders smooth8hypersurface
+inE4regular9, sourceboundnonzeroIA/IBpullback+integralclosure, NOT0/0unitinverse.
+All12F=L*G proved; fiveunitminor1/497664 givescore4/sevenactualtypedfunctions.
+E4=S/(LJ) keepsfiveL*u, H0E4=H0core4; NOTwholeE4=core/notH0D0=core.
+FiniteTor63 actualimage⊂m_R0³D0 reviewed; all15quadratics in342spanrank261.
+Zero/nonzero NOTresolved; literal209337node27imageoperators PRIMARY saved.
+Bnormpencil/free48cover+finite≤1600residual independentlyreviewed.
+G=QL^4; LgenericcommonrootsB0; Qgenericrootfails15actualminors.
+WHOLEFULLU Bbad FINITEorEMPTY, geometricpointbound4748, NOTscheme-length.
+AllfiniteLCexceptions/oldresidualsretained; empty/globalB3/H7/full57/239 OPEN.
+RawH p=0 remainsseparate; nofalseBbad→wholecubicrankdrop.
+Corequadratic4var+adjointsource2methodpreflight, noautohigherjets.
+Genericnormal42unit/membership/exhaustion/fullclassificationupper/B18fullnil OPEN.
+Bounds58/r4lower52/uppernull, NEWG28exact28solved; ordinarypushthencontinue.
+
 Latest AY (2026-11-04): B18 actualE4free4/48 independentlyreviewed,
 commonP0/all12outputs/153unitinputs; ker/cokerD0→E4 killedIAIB NOTT0ann.
 ProductbaseH0length21/socle13/fullTor proved, noarbitraryKlengthbound.

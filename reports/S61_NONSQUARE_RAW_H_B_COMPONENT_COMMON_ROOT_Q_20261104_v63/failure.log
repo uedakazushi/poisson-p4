@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "/workspace/poisson-p4/code/s61_nonsquare_raw_H_B_component_common_root_20261104_v63.py", line 71, in <module>
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--component',choices=['L','Q'],required=True);p.add_argument('--output',type=Path);args=p.parse_args();main(args.component,(args.output or(ROOT/'reports'/(PREFIX+args.component+TAIL))).resolve())
+                                                                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/poisson-p4/code/s61_nonsquare_raw_H_B_component_common_root_20261104_v63.py", line 51, in main
+    s0,t0,g01=gcdex(P[0],P[1],'a5H_vs_g');u,v,G=gcdex(g01,P[2],'gcd01_vs_k');C=[u*s0,u*t0,v];assert sum((C[i]*P[i]for i in range(3)),zero)==G
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/poisson-p4/code/s61_nonsquare_raw_H_B_component_common_root_20261104_v63.py", line 43, in gcdex
+    lc=r1.rep.LC();inv=K.exquo(K.one,lc);assert K.mul(lc,inv)==K.one
+                       ^^^^^^^^^^^^^^^^^
+  File "/workspace/poisson-p4/.venv/lib/python3.12/site-packages/sympy/polys/agca/extensions.py", line 344, in exquo
+    rep = self.ring.exquo(f.rep, g.rep)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/poisson-p4/.venv/lib/python3.12/site-packages/sympy/polys/domains/ring.py", line 22, in exquo
+    raise ExactQuotientFailed(a, b, self)
+sympy.polys.polyerrors.ExactQuotientFailed: DMP_Python([(-153055008*e**7 - 378385992*e**6 - 321226560*e**5 - 112790151*e**4 - 37100997*e**3 - 23819589*e**2 - 2526759*e + 2211272)/6561000000, (-114791256*e**9 - 344373768*e**8 - 314140680*e**7 + 1948617*e**6 + 146186370*e**5 + 62054586*e**4 + 1934748*e**3 + 1553661*e**2 + 2315594*e + 321680)/36450000000], QQ(e)) does not divide DMP_Python([1], QQ(e)) in QQ(e)[a]

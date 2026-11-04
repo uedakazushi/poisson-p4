@@ -1,0 +1,26 @@
+Traceback (most recent call last):
+  File "/workspace/poisson-p4/code/s61_nonsquare_raw_H_B_component_Q_field_repair_20261104_v63.py", line 81, in <module>
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--component',choices=['L','Q'],required=True);p.add_argument('--output',type=Path);args=p.parse_args();main(args.component,(args.output or(ROOT/'reports'/(PREFIX+args.component+TAIL))).resolve())
+                                                                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/poisson-p4/code/s61_nonsquare_raw_H_B_component_Q_field_repair_20261104_v63.py", line 32, in main
+    P=[toP(x['remainder'])for x in rec['polynomials']];assert all(p.degree()==4 for p in P)
+       ^^^^^^^^^^^^^^^^^^^
+  File "/workspace/poisson-p4/code/s61_nonsquare_raw_H_B_component_Q_field_repair_20261104_v63.py", line 31, in toP
+    return s.Poly.from_dict({(j,):K.from_sympy(v)for j,v in by.items()},(d,),domain=K)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/poisson-p4/.venv/lib/python3.12/site-packages/sympy/polys/polytools.py", line 231, in from_dict
+    return cls._from_dict(rep, opt)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/poisson-p4/.venv/lib/python3.12/site-packages/sympy/polys/polytools.py", line 267, in _from_dict
+    rep[monom] = domain.convert(coeff)
+                 ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/poisson-p4/.venv/lib/python3.12/site-packages/sympy/polys/agca/extensions.py", line 317, in convert
+    rep = self.ring.convert(f, base)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/poisson-p4/.venv/lib/python3.12/site-packages/sympy/polys/domains/domain.py", line 448, in convert
+    return self.convert_from(element, element.parent())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/poisson-p4/.venv/lib/python3.12/site-packages/sympy/polys/domains/domain.py", line 393, in convert_from
+    _convert = getattr(self, method)
+               ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'GlobalPolynomialRing' object has no attribute 'from_ExactQuadraticField'

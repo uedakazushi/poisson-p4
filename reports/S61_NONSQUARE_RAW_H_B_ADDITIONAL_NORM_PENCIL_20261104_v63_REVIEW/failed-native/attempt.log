@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/workspace/poisson-p4/code/s61_nonsquare_norm_pencil_review_20261104_v63.py", line 166, in <module>
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--output',type=Path,required=True);main(p.parse_args().output.resolve())
+                                                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/poisson-p4/code/s61_nonsquare_norm_pencil_review_20261104_v63.py", line 144, in main
+    with(out/'native.log').open('w')as f:subprocess.run([str(exe),str(native),str(out/'native-result.json')],check=True,stdout=f,stderr=subprocess.STDOUT,timeout=max(1,55-(time.monotonic()-began)))
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/workspace/poisson-p4/reports/S61_NONSQUARE_RAW_H_B_ADDITIONAL_NORM_PENCIL_20261104_v63_REVIEW/checker', '/workspace/poisson-p4/reports/S61_NONSQUARE_RAW_H_B_ADDITIONAL_NORM_PENCIL_20261104_v63_REVIEW/independent-native-input.txt', '/workspace/poisson-p4/reports/S61_NONSQUARE_RAW_H_B_ADDITIONAL_NORM_PENCIL_20261104_v63_REVIEW/native-result.json']' died with <Signals.SIGABRT: 6>.

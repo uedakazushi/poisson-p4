@@ -1,0 +1,27 @@
+/workspace/poisson-p4/code/s61_nonsquare_norm_pencil_review_20261104_v63.cpp: In function ‘L determinant(const std::vector<std::vector<L> >&)’:
+/workspace/poisson-p4/code/s61_nonsquare_norm_pencil_review_20261104_v63.cpp:23:260: error: reference to ‘plus’ is ambiguous
+   23 | L determinant(const vector<vector<L>>&A){int n=A.size();if(!n)return one();if(n==1)return A[0][0];L r;for(int j=0;j<n;j++){vector<vector<L>>B(n-1);for(int i=0;i<n-1;i++)for(int k=0;k<n;k++)if(k!=j)B[i].push_back(A[i][k]);L t=times(A[n-1][j],determinant(B));r=plus(r,t,((n-1+j)&1));}return r;}
+      |                                                                                                                                                                                                                                                                    ^~~~
+In file included from /usr/include/c++/14/string:49,
+                 from /usr/include/c++/14/bits/locale_classes.h:40,
+                 from /usr/include/c++/14/bits/ios_base.h:41,
+                 from /usr/include/c++/14/ios:44,
+                 from /usr/include/c++/14/istream:40,
+                 from /usr/include/c++/14/fstream:40,
+                 from /workspace/poisson-p4/code/s61_nonsquare_norm_pencil_review_20261104_v63.cpp:8:
+/usr/include/c++/14/bits/stl_function.h:160:12: note: candidates are: ‘template<class _Tp> struct std::plus’
+  160 |     struct plus;
+      |            ^~~~
+/workspace/poisson-p4/code/s61_nonsquare_norm_pencil_review_20261104_v63.cpp:18:3: note:                 ‘L plus(const L&, const L&, bool)’
+   18 | L plus(const L&x,const L&y,bool minus=false){long z=min(x.a,y.a);P p=shifted(x.p,x.a-z),q=shifted(y.p,y.a-z),r;if(minus)fmpq_mpoly_sub(r.v,p.v,q.v,ctx);else fmpq_mpoly_add(r.v,p.v,q.v,ctx);return L(std::move(r),z);}
+      |   ^~~~
+/workspace/poisson-p4/code/s61_nonsquare_norm_pencil_review_20261104_v63.cpp: In function ‘int main(int, char**)’:
+/workspace/poisson-p4/code/s61_nonsquare_norm_pencil_review_20261104_v63.cpp:28:79: error: reference to ‘plus’ is ambiguous
+   28 |  }else{long x,y;f>>x>>y;assert(x<i&&y<i);v.push_back(op=='M'?times(v[x],v[y]):plus(v[x],v[y],op=='S'));}}
+      |                                                                               ^~~~
+/usr/include/c++/14/bits/stl_function.h:160:12: note: candidates are: ‘template<class _Tp> struct std::plus’
+  160 |     struct plus;
+      |            ^~~~
+/workspace/poisson-p4/code/s61_nonsquare_norm_pencil_review_20261104_v63.cpp:18:3: note:                 ‘L plus(const L&, const L&, bool)’
+   18 | L plus(const L&x,const L&y,bool minus=false){long z=min(x.a,y.a);P p=shifted(x.p,x.a-z),q=shifted(y.p,y.a-z),r;if(minus)fmpq_mpoly_sub(r.v,p.v,q.v,ctx);else fmpq_mpoly_add(r.v,p.v,q.v,ctx);return L(std::move(r),z);}
+      |   ^~~~
