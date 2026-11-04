@@ -24353,6 +24353,9 @@
         },
         {
           "path": "research/notes/AMBIENT_B18_T_UNISERIAL_DEEP_TAIL_20261104_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_B18_T_UNISERIAL_DEEP_TAIL_20261104_v63_REVIEW.md"
         }
       ],
       "verification_records": [
@@ -24367,9 +24370,11 @@
         "reports/AMBIENT_B18_T_LINEAR_SYZYGY_PURE_R3_20261104_v63/report.json",
         "reports/AMBIENT_B18_T_LINEAR_SYZYGY_PURE_R3_20261104_v63_REVIEW/report.json",
         "reports/AMBIENT_B18_T_KNOWN_QUADRATIC_CUBIC_CLOSURE_20261104_v63_REVIEW/report.json",
-        "reports/AMBIENT_B18_T_UNISERIAL_DEEP_TAIL_20261104_v63/report.json"
+        "reports/AMBIENT_B18_T_UNISERIAL_DEEP_TAIL_20261104_v63/report.json",
+        "reports/AMBIENT_B18_T_UNISERIAL_DEEP_TAIL_20261104_v63_REVIEW/report.json"
       ],
       "limitations_ja": [
+        "後続の純三次完全性と実114五次係数によりHF3=1、全長11〜17、uniserial chain長sは1〜7と改善した。この旧10〜17上界証明は保存する。",
         "119本は全三次初期関係を尽くさない。残る純r三次候補が真に非零か、実HF3や全長の等号は未決。",
         "全119値の一次計算と独立監査された第71番の非零証人を区別する。このclaimに必要なのは一つの実非零関係である。",
         "H0長の上界、DVR torsion指数、nil三乗の零性をこの長さ区間から推測しない。",
@@ -24491,6 +24496,239 @@
         "H七未満の記述は幾何的支持の包含であってFitting schemeの同一視ではない。",
         "Delta5零・Saux零の補集合、五対十二の全rank、全FULLU cubic57とquartic239は未決。",
         "7022項entryのQQ全係数独立恒等式とは別の型付き同cokernel証明である。新しい第六pivotのsupport上界180479は150000上限を超えるため実行しない。"
+      ]
+    },
+    {
+      "id": "S61_NONSQUARE_R434_QQ_IRREDUCIBLE_AND_COPRIME_SAUX",
+      "title_ja": "保持因子R434のQQ既約性とSauxとの互いに素性",
+      "statement_ja": "実P4の保持因子Rは434項・全次数20・a次数11である。QQでの全因子分解と、独立な同一F32003上の記号多項式全因子分解はともに次数20の因子一つを与えた。primitive content・分母p単位性・全次数保存とGauss補題からQQ[a,e,d]上の既約性が従う。実7022項Sauxの分母p単位性も元の全768源演算から確認し、固定商3212項・正規剰余6729項の再乗算と非零正規性を独立検証した。従ってRはSauxを割らず、QQ上のgcdは一。a次数の比較とDelta5の既証因子分解からRとDelta5*h22も互いに素である。正則列の体拡大により共通複素因子はなく、直接P5 chart D(Delta5*Saux)は旧R零集合の各幾何的成分で稠密となる。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independently_reviewed_certificates_and_explicit_dependency_composition_2026_11_04",
+        "certificates": "reproduced_2026_11_04_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_NONSQUARE_H7_DEFECT_COVERAGE_AND_DIRECT_PURE5_HEAVY5_SAME_COKERNEL"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_NONSQUARE_PREPOWER_R434_SAUX_DIVISION_20261104_v63.md"
+        },
+        {
+          "path": "research/notes/S61_NONSQUARE_PREPOWER_R434_FACTOR_20261104_v63.md"
+        },
+        {
+          "path": "research/notes/S61_NONSQUARE_PREPOWER_R434_MODP_IRREDUCIBILITY_20261104_v63_REVIEW.md"
+        },
+        {
+          "path": "research/notes/S61_NONSQUARE_PREPOWER_R434_SAUX_DIVISION_20261104_v63_REVIEW.md"
+        },
+        {
+          "path": "research/notes/S61_NONSQUARE_PREPOWER_R434_FACTOR_RESULT_20261104_v63.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_NONSQUARE_PREPOWER_R434_SAUX_DIVISION_20261104_v63/report.json",
+        "reports/S61_NONSQUARE_PREPOWER_R434_FACTOR_20261104_v63/report.json",
+        "reports/S61_NONSQUARE_PREPOWER_R434_MODP_IRREDUCIBILITY_20261104_v63_REVIEW/report.json",
+        "reports/S61_NONSQUARE_PREPOWER_R434_SAUX_DIVISION_20261104_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "Rそのものの絶対既約性・複素既約性は主張しない。",
+        "互いに素とunit ideal・空交叉を同一視しない。RとDelta5*Sauxの交わりは非空なら余次元二以上で、全cubic57や全239は依然未決。",
+        "FLINT内部の一時係数数にはcallbackがなく、可視多項式のguardと60秒・2GBのhard guardを区別して記録する。QQ factor初回のdynamic-loader失敗はmainより前であり、実factor呼出しは一回だけである。"
+      ]
+    },
+    {
+      "id": "AMBIENT_B18_CONDUCTOR_TRANSFER512_SUBIDEAL_AND_CUBE_FACTOR",
+      "title_ja": "実conductor移送の五百十二cycleとnil三乗の商への因子化",
+      "statement_ja": "全二正規化conductorからのD0線形移送phi_f:E4→D0を実sourceに束縛した。CA八生成とrawCB八生成・正規化nil二生成・C四basis倍の512個について、C0九成分代表とQrad持上げを実44cycleとして保存・独立検証した。rawCB八生成がIB全体を生成することは、最初七つがzB、最後がgB+sum zBi*eiとなる行列式一の実unipotent frameと、四graphの完全所属により確認した。旧正則商を新しい非単元除算に置き換えない。生成する部分ideal WはWN二乗=0、(IAIB)N⊂Wを満たし、元nil三乗の積はSym三乗(N/W)を経由する。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independently_reviewed_certificates_and_explicit_dependency_composition_2026_11_04",
+        "certificates": "reproduced_2026_11_04_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "AMBIENT_B18_ACTUAL_NIL_HOMOLOGY_PRODUCT44_AND_CUBE_OPERATOR",
+          "AMBIENT_B18_ORIGINAL_NIL_INDEX_UNCONDITIONAL_UPPER7"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_B18_CONDUCTOR_TRANSFER512_NIL_CYCLES_20261104_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_B18_CONDUCTOR_TRANSFER512_NIL_CYCLES_20261104_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_B18_CONDUCTOR_TRANSFER512_NIL_CYCLES_20261104_v63/report.json",
+        "reports/AMBIENT_B18_CONDUCTOR_TRANSFER512_NIL_CYCLES_20261104_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "512本はWの明示cycleであって全N・H0の生成元ではない。nil三乗零は未証明。",
+        "K/JKへのTor2 connecting imageを捨てない。R0/J二乗の長さ31だけからArtin-Rees strictnessやK/JKを推論しない。",
+        "有限pairingに対する長さ上界はK二乗だけであり、全H0長の上界ではない。"
+      ]
+    },
+    {
+      "id": "AMBIENT_B18_ACTUAL_THIRD_LOEWY_LAYER_AND_LENGTH_LOWER11",
+      "title_ja": "実第三Loewy層の非零性とT全長下界十一",
+      "statement_ja": "残る純r三次方向の全初期関係を、619個の二次零定数結合、119線形係数syzygy、168 d3境界と既知初期倍へ尽くした。既存三次cacheだけで全未知二次感度を消す615結合を確認したが、全て零で判定には四つのgCB-gCA二次差が必要だった。そこで二族それぞれ57単位方程式の既存四次cacheを指定した直線へ制限し、五次係数114個だけを固定Jacobianで一回解いた。全57式の零から五次まで、physical九readback、八つの正則商の分子恒等式を検証した。h0=0、g4=0、非零g3とCB二次曲率零により二次商は正確にb5/g3であり、源五次以外の新jetを用いない。実差(0,35/9,1435/288,0)を代入すると619個全ての純三次関係は零となる。完全性から真のHF初四層は(5,3,2,1)、length(T/m四乗T)=11、全長は11〜17である。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independently_reviewed_certificates_and_explicit_dependency_composition_2026_11_04",
+        "certificates": "reproduced_2026_11_04_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "AMBIENT_B18_ACTUAL_CUBIC_INITIAL_RELATION_AND_T_LENGTH_10_TO17"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_B18_T_GDIFF_SECOND_UNIVARIATE5_20261104_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_B18_T_GDIFF_SECOND_UNIVARIATE5_20261104_v63_REVIEW.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_B18_T_GDIFF_SECOND_UNIVARIATE5_PREFLIGHT_20261104_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_B18_T_GDIFF_SECOND_UNIVARIATE5_PREFLIGHT_20261104_v63_REVIEW.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_B18_T_PURE_CUBIC619_COMPLETENESS_PREFLIGHT_20261104_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_B18_T_PURE619_MISSING_JET_SENSITIVITY_20261104_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_B18_T_PURE619_CACHED_THIRD_ECONOMY_20261104_v63.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_B18_T_GDIFF_SECOND_UNIVARIATE5_20261104_v63/report.json",
+        "reports/AMBIENT_B18_T_GDIFF_SECOND_UNIVARIATE5_20261104_v63_REVIEW/report.json",
+        "reports/AMBIENT_B18_T_GDIFF_SECOND_UNIVARIATE5_PREFLIGHT_20261104_v63/report.json",
+        "reports/AMBIENT_B18_T_GDIFF_SECOND_UNIVARIATE5_PREFLIGHT_20261104_v63_REVIEW/report.json",
+        "reports/AMBIENT_B18_T_PURE_CUBIC619_COMPLETENESS_PREFLIGHT_20261104_v63/report.json",
+        "reports/AMBIENT_B18_T_PURE619_MISSING_JET_SENSITIVITY_20261104_v63/report.json",
+        "reports/AMBIENT_B18_T_PURE619_CACHED_THIRD_ECONOMY_20261104_v63/report.json",
+        "reports/AMBIENT_B18_T_PURE619_CACHED_THIRD_ECONOMY_20261104_v63_PREFLIGHT/report.json"
+      ],
+      "limitations_ja": [
+        "全長の等号、次の第四層、DVR torsion指数と明示socle元、nil三乗の零性は未決。",
+        "新しく解いたのは二本のown57系の一変数五次係数だけで、common105の五次や全混合高jetではない。",
+        "一次経路名修正で算術前に停止した試行と既存cache economyの零結果も保存し、実114値の検証と区別する。"
+      ]
+    },
+    {
+      "id": "AMBIENT_B18_REDUCED_COMPARISON_CBAR4_AND_GENERIC_DVR_RANK2",
+      "title_ja": "被約比較余核のell商長四と一般DVR階数二",
+      "statement_ja": "実reduced targetの比較余核Cprimeについて、原点の全36 Qrad列と全odd列が零となりR0最小生成数は三である。既存の実proper九座標C44値から正規化nil二生成の四basis倍を読み、三つのliteral Cbar sectorへ正確に写した。B11の全定義式が各sectorで零となるため、未入力高係数を勝手に零とせず消せる。八nil像のR0作用閉包は階数四となり、Cprime/ellは長四・HF(3,1)。基底変更後にk,k,k[[r]]/(r二乗)の直和で、全七zは零として作用する。さらに同じ四つの実generic比較mapを被約targetへ写すとcriticalCA零、Pa一、CBcritical零、Qb一であり、CprimeがCの商であることと既証zero-weight輸送により一般DVR階数は二。従ってDVR torsionの最小生成数は二である。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independently_reviewed_certificates_and_explicit_dependency_composition_2026_11_04",
+        "certificates": "reproduced_2026_11_04_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "AMBIENT_B18_ACTUAL_REDUCED_TARGET_AND_COMPLETE_NIL_KERNEL_COMPLEX",
+          "AMBIENT_B18_COMPARISON_C_GENERIC_DVR_RANK4_AND_TORSION_GENERATORS4"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_B18_REDUCED_COMPARISON_CBAR_VALUES_20261104_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_B18_REDUCED_COMPARISON_CBAR_VALUES_20261104_v63_REVIEW.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_B18_REDUCED_COMPARISON_ORIGIN_20261104_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_B18_REDUCED_COMPARISON_ORIGIN_20261104_v63_REVIEW.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_B18_REDUCED_COMPARISON_GENERIC_RANK2_20261104_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_B18_REDUCED_COMPARISON_GENERIC_RANK2_20261104_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_B18_REDUCED_COMPARISON_CBAR_VALUES_20261104_v63/report.json",
+        "reports/AMBIENT_B18_REDUCED_COMPARISON_CBAR_VALUES_20261104_v63_REVIEW/report.json",
+        "reports/AMBIENT_B18_REDUCED_COMPARISON_ORIGIN_20261104_v63/report.json",
+        "reports/AMBIENT_B18_REDUCED_COMPARISON_ORIGIN_20261104_v63_REVIEW/report.json",
+        "reports/AMBIENT_B18_REDUCED_COMPARISON_GENERIC_RANK2_20261104_v63/report.json",
+        "reports/AMBIENT_B18_REDUCED_COMPARISON_GENERIC_RANK2_20261104_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "mu_R0=3とmu_D=4を同一視しない。torsion長・指数は未決。",
+        "このcokerの有限商計算からNil(D0)の全生成元や三乗零を推論しない。原点rank零だけでnil像が零とはしない。",
+        "三つのKoszul直和を抽象的完全極小解像度として選べるが、元Vradからの全比較chain liftは別の未完了課題である。"
+      ]
+    },
+    {
+      "id": "S61_NONSQUARE_SELECTED_RAW8_MINOR_ZERO_AND_SIX_COLUMN_PAIR_RANK_AT_MOST_ONE",
+      "title_ja": "指定raw八minorの恒等零と選択六列上のpair pure階数制限",
+      "statement_ja": "指定raw八minorを、既知FULLU単位LとLgammaだけで二heavy列を正規化して一回計算した。全1898源演算と105 denominator gateを完了し、下段四対六pure blockの全九十個の二minorは零であった。独立検証は同じ結果を巨大worker再実行から仮定せず、46 atom・190節点の小さい源閉包で実24係数を再構成し、全九十QQ多項式恒等式を確認した。従ってこの六列でpure階数は一以下、二heavy列を加えた下段階数は三以下なので、指定raw八minorは恒等的に零である。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independently_reviewed_certificates_and_explicit_dependency_composition_2026_11_04",
+        "certificates": "reproduced_2026_11_04_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "S61_NONSQUARE_H7_DEFECT_COVERAGE_AND_DIRECT_PURE5_HEAVY5_SAME_COKERNEL"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_NONSQUARE_PREPOWER_NORMALIZED_RAW8_ENTRY_20261104_v63.md"
+        },
+        {
+          "path": "research/notes/S61_NONSQUARE_PREPOWER_RAW8_BOTTOM24_SOURCE_20261104_v63.md"
+        },
+        {
+          "path": "research/notes/S61_NONSQUARE_PREPOWER_RAW8_ZERO_20261104_v63_REVIEW.md"
+        },
+        {
+          "path": "research/notes/S61_NONSQUARE_PREPOWER_NESTED_RAW8_SOURCE_20261104_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_NONSQUARE_PREPOWER_NORMALIZED_RAW8_ENTRY_20261104_v63/report.json",
+        "reports/S61_NONSQUARE_PREPOWER_RAW8_BOTTOM24_SOURCE_20261104_v63/report.json",
+        "reports/S61_NONSQUARE_PREPOWER_RAW8_ZERO_20261104_v63_REVIEW/report.json",
+        "reports/S61_NONSQUARE_PREPOWER_NESTED_RAW8_SOURCE_20261104_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "指定六pure列だけの結果であり、他の十一列や全pure列の階数、全cubic57の否定へ広げない。十一pivotや同cokernel四対十一へは進めない。",
+        "445860項・158134項の不合格forecastを保持し、同じ候補をFULLU単位正規化とnested整数加算へ変更した131590項gateのみ実行した。上限を増やしていない。",
+        "次のpure covectorはprojected prePOWER上の源であり、full rawH7への既存eta/Cdelta/HZ/HW liftを省略しない。"
       ]
     }
   ],

@@ -2,6 +2,21 @@
 
 Version: v63-s61 · 2026-11-04 (Asia/Tokyo).
 
+Latest BM (2026-11-04): ACTUALHF(T) first4=(5,3,2,1),lenT/m4=11,11<=TOTALlength<=17.
+All619purethird correctedvaluesZERO after114OWN57univ5cofs/sourcefullpostchecks;
+8g2 b5/g3 exact, CBcurvature2zero, noCOMMON105order5/fullmixed/source6.
+DeepM=m3T is ONE k[[r]]/(r^s),1<=s<=7; notDVRell/Ktorsionexponent.
+muDK>=7/torsmu>=3/H0D0length>=3; exactlength/H0/exponents/nilcubeOPEN.
+Transfer512actualnilcycles verified, W*N²0,(IAIB)N⊂W, cube factorsSym³(N/W).
+WnotallN/H0, honestK/JKneedsTor2lift; noJ²-ARshortcut.
+ReducedCprime exactellfiber4/HF3,1=k+k+k[[r]]/r²; genericDVRrank2/torsmu2.
+SelectedRAW8ZERO independentlyprovedvia24source/90QQ2minors; NO11pivot/4x11promotion.
+Onlyselected6purecols, other11incl8tailsretained; nextdirectκextrasourcegate.
+R434QQIRRED viaSAME32003polynomialfactor+degree/Gauss, NOTabsoluteirred.
+gcdQQ(R,Saux)=gcd(R,Delta5*h22)=1 viafixednormalrem/sourcepunit+adegrees;
+directP5chartdenseEACHgeometricRcomponent, codim>=2intersectionNOTempty/unitideal.
+Continueactualfourthlayer/nilcube/globalresiduals andordinarymainpush; no checkpointstop.
+
 Latest BL (2026-11-04): TRUEcubic e4*z5*r² from119linearSyz witness71 independentlyproved.
 X2ONLY/Eulerboundarygate, allpairsalreadyB11; nofreshsource3/jet.
 Known40initialmoduleGB/all140Spairs =>10<=Tlength<=17, gr3<=1ONLY.

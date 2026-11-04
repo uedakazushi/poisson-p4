@@ -1,0 +1,26 @@
+# 同一raw8の二重fused整数accumulator：支持と生存の証明
+
+2026-11-04。新parameter係数は計算しない。先行normalized-column/outer-fused見積は
+158134項で150000を超え、不合格のまま保存する。reserveは削らない。
+
+残るpeakは各bottom4 determinantの六項加算にある。そこで同じtop4/bottom4 Laplace
+recipeを一切変えず、bottom4の六つのH2*P2も、bottom4一つのdense整数格子bufferへ
+scalar convolutionで直接蓄積する。最終top4*bottom4も常駐する外側bufferへ直接加える。
+従ってbottomの六個のproduct、多項式accumulatorの旧・新copyを作らない。
+
+各bottom4の全degree/box格子点を最初のinner eventで割り付け、outer eventの消費直後に
+全て解放する。異なる15個のbottom bufferを同時に保持しない。top4 polynomialと
+H2/P2の通常DAG演算は元と同じexact polynomial演算で、last-useを全nodeについて数える。
+literal atom reserve15000とは別の一般work reserveも元通り15000を保つ。
+ここでliteral atomの実reserveは既存資料の8048項であり、15000へ増減しない。
+
+各inner six productの理論分母積がそのbottom4の理論分母を割ること、各outer productの
+理論分母積が最終理論分母を割ることを全て検査する。dense bufferの係数はこれらの
+固定整数倍率を掛けたfmpzであり、parameter-dependent inverseを新たに入れない。
+係数height上界は既存l1上界をそのまま引き継ぐ。
+
+このpacketは全2094source nodeを再展開せず、凍結済みoperatorからinner six項を
+別演算で抽出し、各H2が一度ずつ現れることと符号を固定する。全15のbottom/top、
+全inner/outereventとlifetimeを保存する。出力bufferは格子点全体を数えるため、未知の
+cancellationを仮定しない。scalar convolution回数の上界から60秒完了を保証するもの
+ではない。値の計算やnonzeroを主張する資料ではなく、明示予算の前段である。
