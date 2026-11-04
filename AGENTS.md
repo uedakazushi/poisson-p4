@@ -2,6 +2,15 @@
 
 Version: v63-s61 · 2026-11-04 (Asia/Tokyo).
 
+Latest BO (2026-11-04): honestTnil COMPLETE minimal5x849 independentlyreviewed.
+Three unitSchurs24/18/81, all780+168sourcepaths/allorderprojection retained.
+d3ONLY linear rank15, NOTfullHF1; Bold0rank4/adapter2/m1X1/m0X2 retained.
+kappa14ZERO AND3rawcrossesZERO independentlyQQ =>fixed7rawpairrank<=1.
+Nofullpureproportionality/global57/239. NextK120target14 exactgcancel sourcegate.
+Corrected168quarticALLZERO existingcache, notactualHF4/Tlength equality.
+Ttotal11..17,originalnilindex3..7,DVRrank11/depth19/18 unchanged.
+Continuefullconstantcyclequartic/sourceprofile,honestNilfirstlinear,genericexhaustion.
+
 Latest BN (2026-11-04): ORIGINALNil(D0) finiteDVR rank11, N≅K⊕D7 NONCANONIC DmoduleONLY.
 WholeE4/Ered ellregular byall6Ass; normalizedNilfreeD9/Nil²freeD3.
 muDN=L+3=14..20,torsmu=L−8=3..9; NOalgebrasplit/nilgens/cube/exponents.
