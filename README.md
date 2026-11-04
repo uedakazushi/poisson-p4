@@ -1,6 +1,6 @@
 # Poisson structures on projective four-space
 
-元B18実交叉の深さはcone19・射影18と独立証明した。TのHF初三層は(5,3,2)、有限H0は非零で、B18が第四の埋込associated閉包となる。元nil指数は無条件に3〜12、正確な指数は未決。全分類・一般beta尽くし・全FULLU239を続ける。下界58（rank4は52）、NEW既約式28次。
+元B18実交叉の深さはcone19・射影18。実三次関係により比較Tの全長は10〜17、元nil指数は正しいconductor証明により無条件に3〜7へ改善した。正確な全長・nil三乗は未決。大域三次欠損はH7へ制限し、R反転不要の同cokernel五対十二へ進めた。全分類・一般beta尽くし・全FULLU239を続ける。下界58（rank4は52）、NEW既約式28次。
 
 新25成分の全Poisson一般横断長さは正確に5。n111の全完成環 C[[s25,u,v]]/(uv,u³,v³) とCM type2を証明・独立監査し、[14ページの独立原稿](papers/positive_weight6_component_ja.pdf)に保存した。全52 rank4成分のdense S61写像が揃った。新一次像は15次元・方程式次数22以上だが実方程式、全境界、全分類は未解決。以下は以前の記録を含む。
 

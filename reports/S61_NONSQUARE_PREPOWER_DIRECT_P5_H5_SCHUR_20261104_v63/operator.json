@@ -1,0 +1,1238 @@
+{
+  "coefficient_ring": "FULLU additionally localize ONLY at Delta5*Saux; R434,D4,h22 never inverted.",
+  "nodes": [
+    {
+      "id": 0,
+      "op": "accepted_external_export",
+      "shape": [
+        15,
+        22
+      ],
+      "args": [],
+      "reference": {
+        "path": "reports/S61_NONSQUARE_PREPOWER_DIRECT_P4_H5_SCHUR_20261104_v63/operator.json",
+        "sha256": "4bbcd0b3aa6dcb70c991ed75ce0f213cd8253a3e060736ce63b363d1a3123397",
+        "export": "input15x22",
+        "node": 0
+      }
+    },
+    {
+      "id": 1,
+      "op": "accepted_external_scalar_DAG_node",
+      "shape": [
+        1,
+        1
+      ],
+      "args": [],
+      "reference": {
+        "path": "reports/S61_NONSQUARE_PREPOWER_U4_T15_SCHUR_PREFLIGHT_20261104_v63/operator-and-cost.json",
+        "sha256": "e38a60a7ac1e56595b496d88e22ee53ef45100a7af3da5ad318cb1f2345e4717",
+        "node": 33
+      },
+      "semantics": "Literal source cofactor in the accepted768 operation DAG."
+    },
+    {
+      "id": 2,
+      "op": "accepted_external_scalar_DAG_node",
+      "shape": [
+        1,
+        1
+      ],
+      "args": [],
+      "reference": {
+        "path": "reports/S61_NONSQUARE_PREPOWER_U4_T15_SCHUR_PREFLIGHT_20261104_v63/operator-and-cost.json",
+        "sha256": "e38a60a7ac1e56595b496d88e22ee53ef45100a7af3da5ad318cb1f2345e4717",
+        "node": 35
+      },
+      "semantics": "Literal source cofactor in the accepted768 operation DAG."
+    },
+    {
+      "id": 3,
+      "op": "accepted_external_scalar_DAG_node",
+      "shape": [
+        1,
+        1
+      ],
+      "args": [],
+      "reference": {
+        "path": "reports/S61_NONSQUARE_PREPOWER_U4_T15_SCHUR_PREFLIGHT_20261104_v63/operator-and-cost.json",
+        "sha256": "e38a60a7ac1e56595b496d88e22ee53ef45100a7af3da5ad318cb1f2345e4717",
+        "node": 37
+      },
+      "semantics": "Literal source cofactor in the accepted768 operation DAG."
+    },
+    {
+      "id": 4,
+      "op": "certified_chart_scalar_inverse",
+      "shape": [
+        1,
+        1
+      ],
+      "args": [
+        1
+      ],
+      "proof": "cu=rhoLCM*delta2/rho_u; rhoLCM=a*F*C^2; delta2 divides Delta5; all rho known FULLU units.",
+      "chart": "D(Delta5)"
+    },
+    {
+      "id": 5,
+      "op": "single_row_linear_replacement",
+      "shape": [
+        15,
+        15
+      ],
+      "args": [
+        1,
+        2,
+        3
+      ],
+      "replaced_row": 5,
+      "source_rows": [
+        5,
+        2,
+        4
+      ],
+      "coefficients": [
+        1,
+        2,
+        3
+      ],
+      "all_other_rows": "identity"
+    },
+    {
+      "id": 6,
+      "op": "central_scalar_multiple",
+      "shape": [
+        1,
+        1
+      ],
+      "args": [
+        4,
+        2
+      ]
+    },
+    {
+      "id": 7,
+      "op": "negative",
+      "shape": [
+        1,
+        1
+      ],
+      "args": [
+        6
+      ]
+    },
+    {
+      "id": 8,
+      "op": "central_scalar_multiple",
+      "shape": [
+        1,
+        1
+      ],
+      "args": [
+        4,
+        3
+      ]
+    },
+    {
+      "id": 9,
+      "op": "negative",
+      "shape": [
+        1,
+        1
+      ],
+      "args": [
+        8
+      ]
+    },
+    {
+      "id": 10,
+      "op": "single_row_linear_replacement",
+      "shape": [
+        15,
+        15
+      ],
+      "args": [
+        4,
+        7,
+        9
+      ],
+      "replaced_row": 5,
+      "source_rows": [
+        5,
+        2,
+        4
+      ],
+      "coefficients": [
+        4,
+        7,
+        9
+      ],
+      "all_other_rows": "identity"
+    },
+    {
+      "id": 11,
+      "op": "accepted_external_export",
+      "shape": [
+        15,
+        15
+      ],
+      "args": [],
+      "reference": {
+        "path": "reports/S61_NONSQUARE_PREPOWER_DIRECT_P4_H5_SCHUR_20261104_v63/operator.json",
+        "sha256": "4bbcd0b3aa6dcb70c991ed75ce0f213cd8253a3e060736ce63b363d1a3123397",
+        "export": "hybrid_row_unit",
+        "node": 32
+      }
+    },
+    {
+      "id": 12,
+      "op": "diagonal_known_unit_inverse",
+      "shape": [
+        15,
+        15
+      ],
+      "args": [
+        11
+      ],
+      "proof": "Only the five selected H5 source rows divided by accepted known rho units."
+    },
+    {
+      "id": 13,
+      "op": "accepted_external_export",
+      "shape": [
+        22,
+        22
+      ],
+      "args": [],
+      "reference": {
+        "path": "reports/S61_NONSQUARE_PREPOWER_DIRECT_P4_H5_SCHUR_20261104_v63/operator.json",
+        "sha256": "4bbcd0b3aa6dcb70c991ed75ce0f213cd8253a3e060736ce63b363d1a3123397",
+        "export": "heavy_column_unit",
+        "node": 33
+      }
+    },
+    {
+      "id": 14,
+      "op": "diagonal_known_unit_inverse",
+      "shape": [
+        22,
+        22
+      ],
+      "args": [
+        13
+      ],
+      "proof": "Only heavy target31 divided by accepted known gamma unit."
+    },
+    {
+      "id": 15,
+      "op": "row_permutation",
+      "shape": [
+        15,
+        15
+      ],
+      "args": [],
+      "order": [
+        0,
+        1,
+        3,
+        6,
+        5,
+        2,
+        4,
+        7,
+        13,
+        10,
+        8,
+        9,
+        11,
+        12,
+        14
+      ]
+    },
+    {
+      "id": 16,
+      "op": "transpose",
+      "shape": [
+        15,
+        15
+      ],
+      "args": [
+        15
+      ]
+    },
+    {
+      "id": 17,
+      "op": "column_permutation",
+      "shape": [
+        22,
+        22
+      ],
+      "args": [],
+      "order": [
+        15,
+        8,
+        9,
+        16,
+        11,
+        17,
+        21,
+        18,
+        20,
+        19,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        10,
+        12,
+        13,
+        14
+      ]
+    },
+    {
+      "id": 18,
+      "op": "transpose",
+      "shape": [
+        22,
+        22
+      ],
+      "args": [
+        17
+      ]
+    },
+    {
+      "id": 19,
+      "op": "matrix_product",
+      "shape": [
+        15,
+        22
+      ],
+      "args": [
+        5,
+        0
+      ]
+    },
+    {
+      "id": 20,
+      "op": "matrix_product",
+      "shape": [
+        15,
+        22
+      ],
+      "args": [
+        11,
+        19
+      ]
+    },
+    {
+      "id": 21,
+      "op": "matrix_product",
+      "shape": [
+        15,
+        22
+      ],
+      "args": [
+        15,
+        20
+      ]
+    },
+    {
+      "id": 22,
+      "op": "matrix_product",
+      "shape": [
+        15,
+        22
+      ],
+      "args": [
+        21,
+        13
+      ]
+    },
+    {
+      "id": 23,
+      "op": "matrix_product",
+      "shape": [
+        15,
+        22
+      ],
+      "args": [
+        22,
+        17
+      ]
+    },
+    {
+      "id": 24,
+      "op": "submatrix",
+      "shape": [
+        5,
+        5
+      ],
+      "args": [
+        23
+      ],
+      "rows": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "columns": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "id": 25,
+      "op": "submatrix",
+      "shape": [
+        5,
+        5
+      ],
+      "args": [
+        23
+      ],
+      "rows": [
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "columns": [
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    {
+      "id": 26,
+      "op": "submatrix",
+      "shape": [
+        5,
+        5
+      ],
+      "args": [
+        23
+      ],
+      "rows": [
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "columns": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "id": 27,
+      "op": "accepted_external_polynomial",
+      "shape": [
+        1,
+        1
+      ],
+      "args": [],
+      "reference": {
+        "path": "reports/S61_NONSQUARE_PREPOWER_U4_T15_SCHUR_ENTRY_20261104_v63/native.json",
+        "sha256": "84a458d0d5708e614468516971914ba26abe149ae18b918414e436cb953ac3a4",
+        "json_pointer": "/exact_Saux_Laurent_polynomial"
+      },
+      "terms": 7022
+    },
+    {
+      "id": 28,
+      "op": "certified_chart_scalar_inverse",
+      "shape": [
+        1,
+        1
+      ],
+      "args": [
+        27
+      ],
+      "chart": "D(Saux)",
+      "proof": "Actual polynomial detP5=Saux by universal bordered determinant identity; existing exact source768 replay, and independent symbolicFp nonzero peer."
+    },
+    {
+      "id": 29,
+      "op": "universal_polynomial_cofactor_adjugate",
+      "shape": [
+        5,
+        5
+      ],
+      "args": [
+        24
+      ],
+      "expanded": false
+    },
+    {
+      "id": 30,
+      "op": "central_scalar_multiple",
+      "shape": [
+        5,
+        5
+      ],
+      "args": [
+        28,
+        29
+      ]
+    },
+    {
+      "id": 31,
+      "op": "accepted_external_export",
+      "shape": [
+        5,
+        5
+      ],
+      "args": [],
+      "reference": {
+        "path": "reports/S61_NONSQUARE_PREPOWER_DIRECT_P4_H5_SCHUR_20261104_v63/operator.json",
+        "sha256": "4bbcd0b3aa6dcb70c991ed75ce0f213cd8253a3e060736ce63b363d1a3123397",
+        "export": "H5_inverse",
+        "node": 63
+      }
+    },
+    {
+      "id": 32,
+      "op": "zero",
+      "shape": [
+        5,
+        5
+      ],
+      "args": []
+    },
+    {
+      "id": 33,
+      "op": "matrix_product",
+      "shape": [
+        5,
+        5
+      ],
+      "args": [
+        31,
+        26
+      ]
+    },
+    {
+      "id": 34,
+      "op": "matrix_product",
+      "shape": [
+        5,
+        5
+      ],
+      "args": [
+        33,
+        30
+      ]
+    },
+    {
+      "id": 35,
+      "op": "negative",
+      "shape": [
+        5,
+        5
+      ],
+      "args": [
+        34
+      ]
+    },
+    {
+      "id": 36,
+      "op": "block_matrix",
+      "shape": [
+        10,
+        10
+      ],
+      "args": [
+        30,
+        32,
+        35,
+        31
+      ],
+      "blocks": [
+        [
+          30,
+          32
+        ],
+        [
+          35,
+          31
+        ]
+      ]
+    },
+    {
+      "id": 37,
+      "op": "submatrix",
+      "shape": [
+        10,
+        10
+      ],
+      "args": [
+        23
+      ],
+      "rows": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "columns": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    {
+      "id": 38,
+      "op": "submatrix",
+      "shape": [
+        10,
+        12
+      ],
+      "args": [
+        23
+      ],
+      "rows": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "columns": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ]
+    },
+    {
+      "id": 39,
+      "op": "submatrix",
+      "shape": [
+        5,
+        10
+      ],
+      "args": [
+        23
+      ],
+      "rows": [
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "columns": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    {
+      "id": 40,
+      "op": "submatrix",
+      "shape": [
+        5,
+        12
+      ],
+      "args": [
+        23
+      ],
+      "rows": [
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "columns": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ]
+    },
+    {
+      "id": 41,
+      "op": "matrix_product",
+      "shape": [
+        10,
+        12
+      ],
+      "args": [
+        36,
+        38
+      ]
+    },
+    {
+      "id": 42,
+      "op": "matrix_product",
+      "shape": [
+        5,
+        10
+      ],
+      "args": [
+        39,
+        36
+      ]
+    },
+    {
+      "id": 43,
+      "op": "matrix_product",
+      "shape": [
+        5,
+        12
+      ],
+      "args": [
+        39,
+        41
+      ]
+    },
+    {
+      "id": 44,
+      "op": "difference",
+      "shape": [
+        5,
+        12
+      ],
+      "args": [
+        40,
+        43
+      ]
+    },
+    {
+      "id": 45,
+      "op": "zero",
+      "shape": [
+        10,
+        5
+      ],
+      "args": []
+    },
+    {
+      "id": 46,
+      "op": "negative",
+      "shape": [
+        5,
+        10
+      ],
+      "args": [
+        42
+      ]
+    },
+    {
+      "id": 47,
+      "op": "identity",
+      "shape": [
+        5,
+        5
+      ],
+      "args": []
+    },
+    {
+      "id": 48,
+      "op": "block_matrix",
+      "shape": [
+        15,
+        15
+      ],
+      "args": [
+        36,
+        45,
+        46,
+        47
+      ],
+      "blocks": [
+        [
+          36,
+          45
+        ],
+        [
+          46,
+          47
+        ]
+      ]
+    },
+    {
+      "id": 49,
+      "op": "zero",
+      "shape": [
+        10,
+        5
+      ],
+      "args": []
+    },
+    {
+      "id": 50,
+      "op": "identity",
+      "shape": [
+        5,
+        5
+      ],
+      "args": []
+    },
+    {
+      "id": 51,
+      "op": "block_matrix",
+      "shape": [
+        15,
+        15
+      ],
+      "args": [
+        37,
+        49,
+        39,
+        50
+      ],
+      "blocks": [
+        [
+          37,
+          49
+        ],
+        [
+          39,
+          50
+        ]
+      ]
+    },
+    {
+      "id": 52,
+      "op": "identity",
+      "shape": [
+        10,
+        10
+      ],
+      "args": []
+    },
+    {
+      "id": 53,
+      "op": "negative",
+      "shape": [
+        10,
+        12
+      ],
+      "args": [
+        41
+      ]
+    },
+    {
+      "id": 54,
+      "op": "zero",
+      "shape": [
+        12,
+        10
+      ],
+      "args": []
+    },
+    {
+      "id": 55,
+      "op": "identity",
+      "shape": [
+        12,
+        12
+      ],
+      "args": []
+    },
+    {
+      "id": 56,
+      "op": "block_matrix",
+      "shape": [
+        22,
+        22
+      ],
+      "args": [
+        52,
+        53,
+        54,
+        55
+      ],
+      "blocks": [
+        [
+          52,
+          53
+        ],
+        [
+          54,
+          55
+        ]
+      ]
+    },
+    {
+      "id": 57,
+      "op": "identity",
+      "shape": [
+        10,
+        10
+      ],
+      "args": []
+    },
+    {
+      "id": 58,
+      "op": "zero",
+      "shape": [
+        12,
+        10
+      ],
+      "args": []
+    },
+    {
+      "id": 59,
+      "op": "identity",
+      "shape": [
+        12,
+        12
+      ],
+      "args": []
+    },
+    {
+      "id": 60,
+      "op": "block_matrix",
+      "shape": [
+        22,
+        22
+      ],
+      "args": [
+        57,
+        41,
+        58,
+        59
+      ],
+      "blocks": [
+        [
+          57,
+          41
+        ],
+        [
+          58,
+          59
+        ]
+      ]
+    },
+    {
+      "id": 61,
+      "op": "matrix_product",
+      "shape": [
+        15,
+        15
+      ],
+      "args": [
+        48,
+        15
+      ]
+    },
+    {
+      "id": 62,
+      "op": "matrix_product",
+      "shape": [
+        15,
+        15
+      ],
+      "args": [
+        61,
+        11
+      ]
+    },
+    {
+      "id": 63,
+      "op": "matrix_product",
+      "shape": [
+        15,
+        15
+      ],
+      "args": [
+        62,
+        5
+      ]
+    },
+    {
+      "id": 64,
+      "op": "matrix_product",
+      "shape": [
+        15,
+        15
+      ],
+      "args": [
+        10,
+        12
+      ]
+    },
+    {
+      "id": 65,
+      "op": "matrix_product",
+      "shape": [
+        15,
+        15
+      ],
+      "args": [
+        64,
+        16
+      ]
+    },
+    {
+      "id": 66,
+      "op": "matrix_product",
+      "shape": [
+        15,
+        15
+      ],
+      "args": [
+        65,
+        51
+      ]
+    },
+    {
+      "id": 67,
+      "op": "matrix_product",
+      "shape": [
+        22,
+        22
+      ],
+      "args": [
+        13,
+        17
+      ]
+    },
+    {
+      "id": 68,
+      "op": "matrix_product",
+      "shape": [
+        22,
+        22
+      ],
+      "args": [
+        67,
+        56
+      ]
+    },
+    {
+      "id": 69,
+      "op": "matrix_product",
+      "shape": [
+        22,
+        22
+      ],
+      "args": [
+        60,
+        18
+      ]
+    },
+    {
+      "id": 70,
+      "op": "matrix_product",
+      "shape": [
+        22,
+        22
+      ],
+      "args": [
+        69,
+        14
+      ]
+    },
+    {
+      "id": 71,
+      "op": "submatrix",
+      "shape": [
+        5,
+        15
+      ],
+      "args": [
+        63
+      ],
+      "rows": [
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "columns": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ]
+    },
+    {
+      "id": 72,
+      "op": "accepted_external_export",
+      "shape": [
+        15,
+        25
+      ],
+      "args": [],
+      "reference": {
+        "path": "reports/S61_NONSQUARE_PREPOWER_DIRECT_P4_H5_SCHUR_20261104_v63/operator.json",
+        "sha256": "4bbcd0b3aa6dcb70c991ed75ce0f213cd8253a3e060736ce63b363d1a3123397",
+        "export": "source_current15_to_original25",
+        "node": 149
+      }
+    },
+    {
+      "id": 73,
+      "op": "matrix_product",
+      "shape": [
+        5,
+        25
+      ],
+      "args": [
+        71,
+        72
+      ]
+    }
+  ],
+  "exports": {
+    "row_replacement15": 5,
+    "row_replacement15_inverse": 10,
+    "P5": 24,
+    "H5": 25,
+    "pivot10": 37,
+    "pivot10_inverse": 36,
+    "residual5x12": 44,
+    "full_source15": 63,
+    "full_source15_inverse": 66,
+    "full_target22": 68,
+    "full_target22_inverse": 70,
+    "surviving5_source_original25": 73
+  },
+  "context": {
+    "pivot_current15": [
+      0,
+      1,
+      3,
+      6,
+      5,
+      2,
+      4,
+      7,
+      13,
+      10
+    ],
+    "pivot_original32": [
+      22,
+      11,
+      13,
+      25,
+      15,
+      27,
+      31,
+      28,
+      30,
+      29
+    ],
+    "remaining_current15": [
+      8,
+      9,
+      11,
+      12,
+      14
+    ],
+    "remaining_original25": [
+      18,
+      19,
+      21,
+      22,
+      24
+    ],
+    "remaining_original32": [
+      1,
+      2,
+      3,
+      4,
+      6,
+      7,
+      8,
+      9,
+      14,
+      17,
+      18,
+      19
+    ],
+    "all8_Q9_tails_retained": true,
+    "hybrid": "H5 source rows only scaled by rho; u4 replaced BEFORE that scaling; all other source rows unchanged.",
+    "determinant": "detK10=detP5*Delta5=Saux*Delta5",
+    "no_R434_D4_h22_inverse": true,
+    "complements_retained": [
+      "Delta5=0",
+      "Saux=0",
+      "other H5 charts including p=0"
+    ],
+    "new_scalar_values": 0
+  },
+  "identities": [
+    "R15*R15inverse=R15inverse*R15=I15 from cu unit and unchanged pair source rows",
+    "row5(R15*M) has heavy5 all zero and pure17 equal accepted Bhat_u4",
+    "detP5=D4*Bhat15-Bhatpiv4*AdjP4*P4col15=Saux as a polynomial identity, no D4 inverse",
+    "P5*AdjP5=AdjP5*P5=Saux I5; H5*H5inverse=I5 independently of R434",
+    "fullsource*M*fulltarget=diag(I10,residual5x12); both full inverse pairs are identities",
+    "on overlap D(R434), this is row/column equivalent to the accepted fifth-pivot5x12",
+    "Source full rank implies actualfullcubic57; converse is not asserted"
+  ]
+}

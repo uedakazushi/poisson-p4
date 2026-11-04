@@ -2,6 +2,18 @@
 
 Version: v63-s61 · 2026-11-04 (Asia/Tokyo).
 
+Latest BL (2026-11-04): TRUEcubic e4*z5*r² from119linearSyz witness71 independentlyproved.
+X2ONLY/Eulerboundarygate, allpairsalreadyB11; nofreshsource3/jet.
+Known40initialmoduleGB/all140Spairs =>10<=Tlength<=17, gr3<=1ONLY.
+muDK6..13/torsmu2..9; notH0lengthupper/exponents/actualHF3.
+Nil(D0) actualH1 product44/cube operator complete, ALLcycles quantified, notnilgenlist.
+NEWcorrectconductorroute: J=IA+IB containsm², cachednuA/B firsts0=>nuinJ;
+allQradmC²=>EVERYnilcycleevenb0inJ; fulloddconductorannfirstkernel.
+N*K²=0=>K³0 andN^7ZERO. ExactB18nilindexOPEN[3,7]; notoldINVALIDN/Pimageargument.
+GlobalcubicdefectonlyH7 by13points+twoThetafull57. DirectP5+H5samecoker5x12
+onD(Delta5*Saux), NOR434/D4/h22inverse; complements/all8Q9tailsretained.
+FullFULLU57/239/exhaustion/globalupperOPEN, continueactualwork/mainpush.
+
 Latest BK (2026-11-04): ORIGINALB18depth SOLVED cone19/projective18.
 NonzeroactualTquadraticdual survivesALL825relations, source+pureindependentpeersclosed.
 ActualHF(T) first3layers(5,3,2), lengthT/m³T=10, TOTALlengthOPEN>=10.

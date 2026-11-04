@@ -1,0 +1,951 @@
+{
+  "nodes": [
+    {
+      "id": 0,
+      "op": "accepted_external_export",
+      "shape": [
+        6,
+        13
+      ],
+      "args": [],
+      "reference": {
+        "path": "reports/S61_NONSQUARE_PREPOWER_DIRECT_P4_H5_SCHUR_20261104_v63/operator.json",
+        "sha256": "4bbcd0b3aa6dcb70c991ed75ce0f213cd8253a3e060736ce63b363d1a3123397",
+        "export": "residual6x13",
+        "node": 81
+      }
+    },
+    {
+      "id": 1,
+      "op": "submatrix",
+      "shape": [
+        1,
+        1
+      ],
+      "args": [
+        0
+      ],
+      "rows": [
+        0
+      ],
+      "columns": [
+        9
+      ]
+    },
+    {
+      "id": 2,
+      "op": "certified_chart_scalar_inverse",
+      "shape": [
+        1,
+        1
+      ],
+      "args": [
+        1
+      ],
+      "proof": {
+        "expression": "Saux=D4*Bhat[15]-Bhat[piv4]*Adj(P4)*P4[15]",
+        "Bhat": "rhoLCM*(det2*P_u/rho_u-(N_u,pair*Adj(A2))*(P_pair/rho_pair))",
+        "hybrid_Schur_entry": "rho_u/(det2*rhoLCM*D4)*Saux",
+        "polynomial_clearing": {
+          "a_power": 0,
+          "B_power": 0
+        },
+        "full6_chart": "FULLU intersectD(Delta5*R434); chosenoneentryneedsno h22 orDelta3inverse. Allcomplementsretained.",
+        "Mark_final_DIRECT_P4_H5_operator_binding": true,
+        "Mark_operator_export": 81,
+        "Mark_residual_entry": [
+          0,
+          9
+        ]
+      },
+      "new_chart_factor": "Saux7022"
+    },
+    {
+      "id": 3,
+      "op": "submatrix",
+      "shape": [
+        1,
+        12
+      ],
+      "args": [
+        0
+      ],
+      "rows": [
+        0
+      ],
+      "columns": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12
+      ]
+    },
+    {
+      "id": 4,
+      "op": "submatrix",
+      "shape": [
+        5,
+        1
+      ],
+      "args": [
+        0
+      ],
+      "rows": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "columns": [
+        9
+      ]
+    },
+    {
+      "id": 5,
+      "op": "submatrix",
+      "shape": [
+        5,
+        12
+      ],
+      "args": [
+        0
+      ],
+      "rows": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "columns": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12
+      ]
+    },
+    {
+      "id": 6,
+      "op": "matrix_product",
+      "shape": [
+        5,
+        12
+      ],
+      "args": [
+        4,
+        3
+      ]
+    },
+    {
+      "id": 7,
+      "op": "central_scalar_multiple",
+      "shape": [
+        5,
+        12
+      ],
+      "args": [
+        2,
+        6
+      ]
+    },
+    {
+      "id": 8,
+      "op": "difference",
+      "shape": [
+        5,
+        12
+      ],
+      "args": [
+        5,
+        7
+      ]
+    },
+    {
+      "id": 9,
+      "op": "central_scalar_multiple",
+      "shape": [
+        5,
+        12
+      ],
+      "args": [
+        1,
+        5
+      ]
+    },
+    {
+      "id": 10,
+      "op": "matrix_product",
+      "shape": [
+        5,
+        12
+      ],
+      "args": [
+        4,
+        3
+      ]
+    },
+    {
+      "id": 11,
+      "op": "difference",
+      "shape": [
+        5,
+        12
+      ],
+      "args": [
+        9,
+        10
+      ]
+    },
+    {
+      "id": 12,
+      "op": "zero",
+      "shape": [
+        1,
+        5
+      ],
+      "args": []
+    },
+    {
+      "id": 13,
+      "op": "central_scalar_multiple",
+      "shape": [
+        5,
+        1
+      ],
+      "args": [
+        2,
+        4
+      ]
+    },
+    {
+      "id": 14,
+      "op": "negative",
+      "shape": [
+        5,
+        1
+      ],
+      "args": [
+        13
+      ]
+    },
+    {
+      "id": 15,
+      "op": "identity",
+      "shape": [
+        5,
+        5
+      ],
+      "args": []
+    },
+    {
+      "id": 16,
+      "op": "block_matrix",
+      "shape": [
+        6,
+        6
+      ],
+      "args": [
+        2,
+        12,
+        14,
+        15
+      ],
+      "blocks": [
+        [
+          2,
+          12
+        ],
+        [
+          14,
+          15
+        ]
+      ]
+    },
+    {
+      "id": 17,
+      "op": "zero",
+      "shape": [
+        1,
+        5
+      ],
+      "args": []
+    },
+    {
+      "id": 18,
+      "op": "identity",
+      "shape": [
+        5,
+        5
+      ],
+      "args": []
+    },
+    {
+      "id": 19,
+      "op": "block_matrix",
+      "shape": [
+        6,
+        6
+      ],
+      "args": [
+        1,
+        17,
+        4,
+        18
+      ],
+      "blocks": [
+        [
+          1,
+          17
+        ],
+        [
+          4,
+          18
+        ]
+      ]
+    },
+    {
+      "id": 20,
+      "op": "identity",
+      "shape": [
+        1,
+        1
+      ],
+      "args": []
+    },
+    {
+      "id": 21,
+      "op": "central_scalar_multiple",
+      "shape": [
+        1,
+        12
+      ],
+      "args": [
+        2,
+        3
+      ]
+    },
+    {
+      "id": 22,
+      "op": "negative",
+      "shape": [
+        1,
+        12
+      ],
+      "args": [
+        21
+      ]
+    },
+    {
+      "id": 23,
+      "op": "zero",
+      "shape": [
+        12,
+        1
+      ],
+      "args": []
+    },
+    {
+      "id": 24,
+      "op": "identity",
+      "shape": [
+        12,
+        12
+      ],
+      "args": []
+    },
+    {
+      "id": 25,
+      "op": "block_matrix",
+      "shape": [
+        13,
+        13
+      ],
+      "args": [
+        20,
+        22,
+        23,
+        24
+      ],
+      "blocks": [
+        [
+          20,
+          22
+        ],
+        [
+          23,
+          24
+        ]
+      ]
+    },
+    {
+      "id": 26,
+      "op": "identity",
+      "shape": [
+        1,
+        1
+      ],
+      "args": []
+    },
+    {
+      "id": 27,
+      "op": "central_scalar_multiple",
+      "shape": [
+        1,
+        12
+      ],
+      "args": [
+        2,
+        3
+      ]
+    },
+    {
+      "id": 28,
+      "op": "zero",
+      "shape": [
+        12,
+        1
+      ],
+      "args": []
+    },
+    {
+      "id": 29,
+      "op": "identity",
+      "shape": [
+        12,
+        12
+      ],
+      "args": []
+    },
+    {
+      "id": 30,
+      "op": "block_matrix",
+      "shape": [
+        13,
+        13
+      ],
+      "args": [
+        26,
+        27,
+        28,
+        29
+      ],
+      "blocks": [
+        [
+          26,
+          27
+        ],
+        [
+          28,
+          29
+        ]
+      ]
+    },
+    {
+      "id": 31,
+      "op": "column_permutation",
+      "shape": [
+        13,
+        13
+      ],
+      "args": [],
+      "order": [
+        9,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12
+      ]
+    },
+    {
+      "id": 32,
+      "op": "transpose",
+      "shape": [
+        13,
+        13
+      ],
+      "args": [
+        31
+      ]
+    },
+    {
+      "id": 33,
+      "op": "identity",
+      "shape": [
+        9,
+        9
+      ],
+      "args": []
+    },
+    {
+      "id": 34,
+      "op": "zero",
+      "shape": [
+        9,
+        6
+      ],
+      "args": []
+    },
+    {
+      "id": 35,
+      "op": "zero",
+      "shape": [
+        6,
+        9
+      ],
+      "args": []
+    },
+    {
+      "id": 36,
+      "op": "block_matrix",
+      "shape": [
+        15,
+        15
+      ],
+      "args": [
+        33,
+        34,
+        35,
+        16
+      ],
+      "blocks": [
+        [
+          33,
+          34
+        ],
+        [
+          35,
+          16
+        ]
+      ]
+    },
+    {
+      "id": 37,
+      "op": "identity",
+      "shape": [
+        9,
+        9
+      ],
+      "args": []
+    },
+    {
+      "id": 38,
+      "op": "zero",
+      "shape": [
+        9,
+        6
+      ],
+      "args": []
+    },
+    {
+      "id": 39,
+      "op": "zero",
+      "shape": [
+        6,
+        9
+      ],
+      "args": []
+    },
+    {
+      "id": 40,
+      "op": "block_matrix",
+      "shape": [
+        15,
+        15
+      ],
+      "args": [
+        37,
+        38,
+        39,
+        19
+      ],
+      "blocks": [
+        [
+          37,
+          38
+        ],
+        [
+          39,
+          19
+        ]
+      ]
+    },
+    {
+      "id": 41,
+      "op": "matrix_product",
+      "shape": [
+        13,
+        13
+      ],
+      "args": [
+        31,
+        25
+      ]
+    },
+    {
+      "id": 42,
+      "op": "matrix_product",
+      "shape": [
+        13,
+        13
+      ],
+      "args": [
+        30,
+        32
+      ]
+    },
+    {
+      "id": 43,
+      "op": "identity",
+      "shape": [
+        9,
+        9
+      ],
+      "args": []
+    },
+    {
+      "id": 44,
+      "op": "zero",
+      "shape": [
+        9,
+        13
+      ],
+      "args": []
+    },
+    {
+      "id": 45,
+      "op": "zero",
+      "shape": [
+        13,
+        9
+      ],
+      "args": []
+    },
+    {
+      "id": 46,
+      "op": "block_matrix",
+      "shape": [
+        22,
+        22
+      ],
+      "args": [
+        43,
+        44,
+        45,
+        41
+      ],
+      "blocks": [
+        [
+          43,
+          44
+        ],
+        [
+          45,
+          41
+        ]
+      ]
+    },
+    {
+      "id": 47,
+      "op": "identity",
+      "shape": [
+        9,
+        9
+      ],
+      "args": []
+    },
+    {
+      "id": 48,
+      "op": "zero",
+      "shape": [
+        9,
+        13
+      ],
+      "args": []
+    },
+    {
+      "id": 49,
+      "op": "zero",
+      "shape": [
+        13,
+        9
+      ],
+      "args": []
+    },
+    {
+      "id": 50,
+      "op": "block_matrix",
+      "shape": [
+        22,
+        22
+      ],
+      "args": [
+        47,
+        48,
+        49,
+        42
+      ],
+      "blocks": [
+        [
+          47,
+          48
+        ],
+        [
+          49,
+          42
+        ]
+      ]
+    },
+    {
+      "id": 51,
+      "op": "accepted_external_export",
+      "shape": [
+        15,
+        15
+      ],
+      "args": [],
+      "reference": {
+        "path": "reports/S61_NONSQUARE_PREPOWER_DIRECT_P4_H5_SCHUR_20261104_v63/operator.json",
+        "sha256": "4bbcd0b3aa6dcb70c991ed75ce0f213cd8253a3e060736ce63b363d1a3123397",
+        "export": "full_source15",
+        "node": 99
+      }
+    },
+    {
+      "id": 52,
+      "op": "matrix_product",
+      "shape": [
+        15,
+        15
+      ],
+      "args": [
+        36,
+        51
+      ]
+    },
+    {
+      "id": 53,
+      "op": "accepted_external_export",
+      "shape": [
+        15,
+        15
+      ],
+      "args": [],
+      "reference": {
+        "path": "reports/S61_NONSQUARE_PREPOWER_DIRECT_P4_H5_SCHUR_20261104_v63/operator.json",
+        "sha256": "4bbcd0b3aa6dcb70c991ed75ce0f213cd8253a3e060736ce63b363d1a3123397",
+        "export": "full_source15_inverse",
+        "node": 103
+      }
+    },
+    {
+      "id": 54,
+      "op": "matrix_product",
+      "shape": [
+        15,
+        15
+      ],
+      "args": [
+        53,
+        40
+      ]
+    },
+    {
+      "id": 55,
+      "op": "accepted_external_export",
+      "shape": [
+        22,
+        22
+      ],
+      "args": [],
+      "reference": {
+        "path": "reports/S61_NONSQUARE_PREPOWER_DIRECT_P4_H5_SCHUR_20261104_v63/operator.json",
+        "sha256": "4bbcd0b3aa6dcb70c991ed75ce0f213cd8253a3e060736ce63b363d1a3123397",
+        "export": "full_target22",
+        "node": 101
+      }
+    },
+    {
+      "id": 56,
+      "op": "matrix_product",
+      "shape": [
+        22,
+        22
+      ],
+      "args": [
+        55,
+        46
+      ]
+    },
+    {
+      "id": 57,
+      "op": "accepted_external_export",
+      "shape": [
+        22,
+        22
+      ],
+      "args": [],
+      "reference": {
+        "path": "reports/S61_NONSQUARE_PREPOWER_DIRECT_P4_H5_SCHUR_20261104_v63/operator.json",
+        "sha256": "4bbcd0b3aa6dcb70c991ed75ce0f213cd8253a3e060736ce63b363d1a3123397",
+        "export": "full_target22_inverse",
+        "node": 105
+      }
+    },
+    {
+      "id": 58,
+      "op": "matrix_product",
+      "shape": [
+        22,
+        22
+      ],
+      "args": [
+        50,
+        57
+      ]
+    },
+    {
+      "id": 59,
+      "op": "submatrix",
+      "shape": [
+        5,
+        6
+      ],
+      "args": [
+        16
+      ],
+      "rows": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "columns": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "id": 60,
+      "op": "accepted_external_export",
+      "shape": [
+        6,
+        25
+      ],
+      "args": [],
+      "reference": {
+        "path": "reports/S61_NONSQUARE_PREPOWER_DIRECT_P4_H5_SCHUR_20261104_v63/operator.json",
+        "sha256": "4bbcd0b3aa6dcb70c991ed75ce0f213cd8253a3e060736ce63b363d1a3123397",
+        "export": "surviving6_source_original25",
+        "node": 150
+      }
+    },
+    {
+      "id": 61,
+      "op": "matrix_product",
+      "shape": [
+        5,
+        25
+      ],
+      "args": [
+        59,
+        60
+      ]
+    }
+  ],
+  "exports": {
+    "residual5x12": 8,
+    "cleared_residual5x12": 11,
+    "source6": 16,
+    "source6_inverse": 19,
+    "target13": 41,
+    "target13_inverse": 42,
+    "full_source15": 52,
+    "full_source15_inverse": 54,
+    "full_target22": 56,
+    "full_target22_inverse": 58,
+    "surviving5_source_original25": 61
+  },
+  "chart": "FULLU D(R434*Delta5*Saux)",
+  "remaining_current15": [
+    8,
+    9,
+    11,
+    12,
+    14
+  ],
+  "remaining_original25": [
+    18,
+    19,
+    21,
+    22,
+    24
+  ],
+  "remaining_original32": [
+    1,
+    2,
+    3,
+    4,
+    6,
+    7,
+    8,
+    9,
+    14,
+    17,
+    18,
+    19
+  ],
+  "extra8_Q9_tails_retained": [
+    1,
+    2,
+    3,
+    4,
+    6,
+    7,
+    8,
+    9
+  ],
+  "new_parameter_coefficients": 0,
+  "identities": [
+    "L6*E6x13*Pcol*U13=diag(1,T5x12)",
+    "all four inverse products are identities",
+    "full_source15*M15x22*full_target22=diag(I10,T5x12)",
+    "I6(E)=I5(T) on stated chart; this is a sufficient-source criterion, not converse actual57",
+    "surviving5_source_original25=L6[1:6,:]*previous_surviving6_original25"
+  ],
+  "unresolved_complements": [
+    "p=0 (covered only for heavy rank by g1/Theta analysis)",
+    "Delta5=0",
+    "R434=0",
+    "Saux=0"
+  ]
+}
