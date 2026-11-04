@@ -1,5 +1,19 @@
 # 研究状態 — v63-s61 / 2026-11-04
 
+## v63 AP / 2026-11-04: 自由183対141・B18有限長T3・実fiber生成元
+
+直前 main `32e55357fef2f406cc6149fe70b3bf9a5f652001` は通常push済み。以下は過去時点を含む。
+
+全四次problemを、全補正と全33genuine quarticを保持したまま、同じcokernelの実自由183対141へ縮約し独立検証した。さらに四つのmonic quadの十八overlapは五つの全域unit pivotと十三零行へなり、その四次像は全FULLUで正確にrank103。whole known kernel38・残り42は変わらず、全141全射と元239全射は未決。残る二quadのknown-unit消去を別の有限予算で進める。
+
+新成分ではv零の小さいactual beta sectionを作り、非零九係数・合計十二項・単項式分母だけにした。元の多項式kernelの横断性とDVR証明で同じB_NEW15への密度を結び付け、実boundary Y15はB15へ双有理となる。新座標は旧t二sectionの同名函数とは異なる。全u非零v零は、orbit次元からT01を、実閉graphの残余−u/16と9/64からT39/T40を全域で排除した。他の全成分や全境界を尽くしたとはしない。
+
+同じbeta上のactual Y16の明示Luroth生成元も完成した。full Eとsigmaをsource評価点へ作用させたr_f/s_f独立符号反転V4を、tauと共に下降する。w=u(K−1)r_f²/(2*256²+(K−1)r_f²)がactual k(Y16)=k(B15)(w)を与える。source次数八・tau下降後四は変わらない。Jはこの実P1上の次数二函数で、二つのgeneric分岐値は零と256−256/(25r0q0²)。これはNEWのbeta定義式やspectral次数とは別である。
+
+B18の四つの正則g商の原点値を、同じ57unit系の独立三次microjetと既知の全次数正則除算から全て零と決めた。凍結186入力のNoneを改変せず別overrideへ保存した。さらに実CA57と実CB48を同じphysical九底で結び付けた105unit系で、両zero-odd idealの和の商を正確にk[[r,s]]/(r,s)²（長さ三）と決定した。二側のannihilatorからT3自体は有限長・最大ideal二乗で零・長さ三十六以下となる。T3非零なら実cone depth十九が従うが、非零性はまだ未決。ambient matrixの単純還元によるTor shortcutは使わない。
+
+次は全四次の新しい有限unit消去、B18のactual低jet nonmembership、十二項v零betaからの全Inv26 restriction、一般beta delta_E所属と全成分尽くしを続ける。下界58/rank4下界52/上界未定、NEW定義次数下界26、五凍結原稿は維持する。
+
 ## v63 AO / 2026-11-04: 全域38方向・自由281・B18全実入力・normal form全域と境界
 
 直前 main `4690f9a9efec8d6f876360daf8fcaa5410137bf9` は通常push済み。以下は過去時点を含む。

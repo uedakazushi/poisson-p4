@@ -2,6 +2,23 @@
 
 Version: v63-s61 · 2026-11-04 (Asia/Tokyo).
 
+Latest AP (2026-11-04): ActualGLOBALFREE183→141 samecoker FULLU,
+ALL18overlap/33quartic retained. Fourcorrectedquad degree4IMAGErankEXACT103
+by5moreunitpivots/13zeros; knownuniformkernel38/missing42UNCHANGED.
+B18 FOURregular-gquot origins EXACT0, frozenNone unchanged/separateoverride.
+ACTUALI0_CA+I0_CB quotient k[[r,s]]/(r,s)^2 length3 viacombined105/microjet
+unitquadraticdet625/768+Nakayama. BOTHidealsannT3 =>T3FINITE,length<=36,m^2T3=0.
+T3nonzero/depth19vs20 STILLopen; noambientmodideal/Torshortcut.
+NEWv0actualbeta9nonzero/12terms/Laurent; originalVv0unit402653184/DVRdensity;
+newF0coords!=oldt2names, boundaryY15birationalsectionB15. ALLu!=0v0outside
+T01/T39/T40; othercomponentmembership/wholeboundaryexhaustionOPEN.
+ACTUALfullfiberLurothw=u(K-1)r_f²/[2*256²+(K-1)r_f²], QQ/C; source8/4UNCHANGED.
+Jmapdegree2, branch0 and256-256/(25r0q0²); genericcurveONLY, notNEWbetaeq.
+Newv0Inv26 SUPPORTpreflight12terms/2874support/707bit/28.28MB; ONEactual
+exactrestriction+GFcoefficientrank60s2GB32MB newlyauthorized, notyetresult.
+Full239,full57,B18nil-depth,NEWdefeq>=26,genericbeta/exhaustionOPEN.
+Bounds58/r4lower52/uppernull; checkpointNOTstop/ordinarymainpush.
+
 Latest AO (2026-11-04): NONSQUAREUNIFORMkernel38/missing42 FULLU,
 compactoriginal319ALL239identity+unitsep−1024000aC³J/243 reviewed.
 ActualGLOBALFREE281samecoker, BnewEXCLUDES182/186 (oldB22includedthem!),

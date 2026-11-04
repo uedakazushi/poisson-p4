@@ -1,0 +1,36 @@
+{
+  "flow_coordinates": {
+    "r_f": "v*(3072*W + 384*X - 1) + 256",
+    "s_f": "v*(-3072*W + 384*X + 1) + 256",
+    "A": 256
+  },
+  "full_deck_lifts": {
+    "simultaneous_sign": "Aut E, followed by unique Ga to p_y=0",
+    "r_sign": "sigma sign+1, followed by unique target Ga to p_y=0",
+    "sigma_scalar_new": "-c*v**2/(1024*u**2 + 64*u*v + v**2)",
+    "sigma_B_new": "-B*v**3/(32768*u**3 + 3072*u**2*v + 96*u*v**2 + v**3)"
+  },
+  "all5_constants_preserved": true,
+  "exact_t_deck_maps": {
+    "simultaneous_sign": "(K*t - K + 1)/(K*(t - 1))",
+    "r_sign": "(K - 1)/(K*t)"
+  },
+  "deck_group": "V4, independent sign flips of r_f,s_f; NOT parameter V4(tau,sigma)",
+  "pre_tau_fixed_field": "F5(r_f^2)",
+  "pre_tau_index": 4,
+  "tau": "u->-u,K->1/K,r_f<->s_f; corresponding semilinear action on F5",
+  "q": "(K**3*t**4 - 4*K**3*t**3 + 6*K**3*t**2 - 4*K**3*t + K**3 + 4*K**2*t**3 - 10*K**2*t**2 + 8*K**2*t - 2*K**2 + 4*K*t**2 - 4*K*t + K)/(K**2*t**4 - 2*K**2*t**2 + K**2 + 2*K*t**2 - 2*K + 1)",
+  "q_definition": "(r_f^2-256^2)/(s_f^2-256^2)=1+(K-1)*r_f^2/256^2",
+  "explicit_actual_generator": "w_fiber=u*(K-1)*r_f^2/(2*256^2+(K-1)*r_f^2)",
+  "inverse_r_squared": "131072*w_fiber/((K - 1)*(u - w_fiber))",
+  "tau_invariant": true,
+  "t_degree": 4,
+  "actual_same_beta_field": "k(Y16)=k(B15)(w_fiber), k=QQ,C",
+  "physical_frame_binding": "Every lift preserves the full tensor by accepted full E/sigma identities; raw-pair matching and unique generic beta frame keep h fixed. Thus inclusion into degree8 full-source invariants, equality by accepted degree8 and tau degree2.",
+  "J_in_t": "(68719476736*Iv**2*K**4*t**6 - 274877906944*Iv**2*K**4*t**5 + 412316860416*Iv**2*K**4*t**4 - 274877906944*Iv**2*K**4*t**3 + 68719476736*Iv**2*K**4*t**2 + 137438953472*Iv**2*K**3*t**5 - 412316860416*Iv**2*K**3*t**4 + 412316860416*Iv**2*K**3*t**3 - 137438953472*Iv**2*K**3*t**2 + 68719476736*Iv**2*K**2*t**4 - 137438953472*Iv**2*K**2*t**3 + 68719476736*Iv**2*K**2*t**2 - 8388608*Iv*K**4*t**7*u + 33554432*Iv*K**4*t**6*u - 58720256*Iv*K**4*t**5*u + 67108864*Iv*K**4*t**4*u - 58720256*Iv*K**4*t**3*u + 33554432*Iv*K**4*t**2*u - 8388608*Iv*K**4*t*u - 25165824*Iv*K**3*t**6*u + 92274688*Iv*K**3*t**5*u - 150994944*Iv*K**3*t**4*u + 150994944*Iv*K**3*t**3*u - 92274688*Iv*K**3*t**2*u + 25165824*Iv*K**3*t*u - 33554432*Iv*K**2*t**5*u + 100663296*Iv*K**2*t**4*u - 125829120*Iv*K**2*t**3*u + 83886080*Iv*K**2*t**2*u - 25165824*Iv*K**2*t*u - 16777216*Iv*K*t**4*u + 33554432*Iv*K*t**3*u - 25165824*Iv*K*t**2*u + 8388608*Iv*K*t*u + 256*K**4*t**8*u**2 - 1024*K**4*t**7*u**2 + 2048*K**4*t**6*u**2 - 3072*K**4*t**5*u**2 + 3584*K**4*t**4*u**2 - 3072*K**4*t**3*u**2 + 2048*K**4*t**2*u**2 - 1024*K**4*t*u**2 + 256*K**4*u**2 + 1024*K**3*t**7*u**2 - 4096*K**3*t**6*u**2 + 8192*K**3*t**5*u**2 - 11264*K**3*t**4*u**2 + 11264*K**3*t**3*u**2 - 8192*K**3*t**2*u**2 + 4096*K**3*t*u**2 - 1024*K**3*u**2 + 2048*K**2*t**6*u**2 - 7168*K**2*t**5*u**2 + 12800*K**2*t**4*u**2 - 15360*K**2*t**3*u**2 + 12288*K**2*t**2*u**2 - 6144*K**2*t*u**2 + 1536*K**2*u**2 + 2048*K*t**5*u**2 - 6144*K*t**4*u**2 + 9216*K*t**3*u**2 - 8192*K*t**2*u**2 + 4096*K*t*u**2 - 1024*K*u**2 + 1024*t**4*u**2 - 2048*t**3*u**2 + 2048*t**2*u**2 - 1024*t*u**2 + 256*u**2)/(K**4*t**8*u**2 - 4*K**4*t**7*u**2 + 4*K**4*t**6*u**2 + 4*K**4*t**5*u**2 - 10*K**4*t**4*u**2 + 4*K**4*t**3*u**2 + 4*K**4*t**2*u**2 - 4*K**4*t*u**2 + K**4*u**2 + 4*K**3*t**7*u**2 - 8*K**3*t**6*u**2 - 8*K**3*t**5*u**2 + 28*K**3*t**4*u**2 - 12*K**3*t**3*u**2 - 16*K**3*t**2*u**2 + 16*K**3*t*u**2 - 4*K**3*u**2 + 4*K**2*t**6*u**2 + 4*K**2*t**5*u**2 - 26*K**2*t**4*u**2 + 12*K**2*t**3*u**2 + 24*K**2*t**2*u**2 - 24*K**2*t*u**2 + 6*K**2*u**2 + 8*K*t**4*u**2 - 4*K*t**3*u**2 - 16*K*t**2*u**2 + 16*K*t*u**2 - 4*K*u**2 + 4*t**2*u**2 - 4*t*u**2 + u**2)",
+  "J_in_w": "64*(-8192*Iv*K**2*u + 8192*Iv*K**2*w_fiber + 8192*Iv*K*u + 8192*Iv*K*w_fiber + K**2*u**2 - K**2*u*w_fiber + 2*K*u*w_fiber - u**2 - u*w_fiber)**2/(K*u**2*(K - 1)**2*(u - w_fiber)*(u + w_fiber))",
+  "J_degree_on_source": 8,
+  "J_degree_on_actual_fiber": 2,
+  "no_new_point_or_rank_or_high_invariant_or_full150_recalculation": true,
+  "no_special_fiber_or_global_morphism_claim": true
+}
