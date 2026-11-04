@@ -2,6 +2,19 @@
 
 Version: v63-s61 · 2026-11-04 (Asia/Tokyo).
 
+Latest BF (2026-11-04): ACTUALcomparisonC/ell dimension8 independentlyproved.
+Source105finiteArtin20 evaluation/allphysicalreadbacks/12actions312cols rank18.
+Raw26actions/piA/piB independentlyreviewed; no105solvererunafterpathmetadatarepair.
+GenericC_Drank geometry PRIMARYpeerpending, notassumed6; noKtorsion/D0depthclaim.
+Newexact0→K/ellK→T→C[ell]→0 valid; T requiresactualkerVbar/X sourceandI²base,
+NOTnaiveH20kernel. Eight-actionCbarKoszulres available, realchainlift inprogress.
+P100rawH kernelFREE10 actualpure84values independentlyreviewed, bothsourceframes.
+CorrectedK2×7/NF98 peerpassed, noimage10independence/70rank/full239claim.
+Nextfixed56replacementminors/gcdcurvecover; whole142/open149 remain.
+Source9purekernelcharts avoidPOWER butunknownnormalizer/pivotchartcomplements retained.
+Core/E4nilindex3 solved; originalD0/fullDnil/depth/exhaustion/globalupperOPEN.
+Bounds58/r4lower52/uppernull,G28exact28DONE; ordinarypush/checkpoint thencontinue.
+
 Latest BE (2026-11-04): FULLcore supports5EXACTlines/general lengths3,4,2,2,1, coreNILINDEX3.
 NormalizedE4 NILINDEX3/6associatedprimes, main8hypersurface+3minimalcurves/2embeddedlines.
 Independentlyreviewed, NOToriginalD0/fullD nil/depth.

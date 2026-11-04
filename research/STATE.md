@@ -1,5 +1,17 @@
 # 研究状態 — v63-s61 / 2026-11-04
 
+## v63 BF / 2026-11-04: 比較cokernel閉fiber八と実pure核十本
+
+直前 main `0342b881c5132f1d83a333d78e166589156e2db8` は通常push済み。
+
+B18の比較cokernel Cに対し、実CA-F9二十次元代数から三次元二商への写像とraw二十六次元作用を独立検証した。元の105単位方程式を有限Artin代数上で評価し、全物理函数delta/bA/bB/nuを読戻した。保存根に対する独立な全方程式検査、元IAIBの六十四積、十二物理作用の312列を確認し、rank十八、実C/(ell)の次元八を決定した。最初の実行のpath metadataだけの保存エラーは記録し、105求解を繰り返さずaction側の保存を完了した。
+
+比較kernel Kについて、ell零後の正しい新しい完全列0→K/ellK→T→C[ell]→0を確認した。Tは単純にH20上でkernelを取ったものではなく、R0/(ell)上の実Vのkernelを実Xの像で割る。C/(ell)の八作用Koszul解像度と実chain liftを使う道を具体化し、Tを消すconductor積idealの二乗の有限baseを構成・監査する。CのDVR一般rankの幾何的証明も一次ノートを保存して独立監査中で、まだ確定値として採用しない。元D0深さ十九対二十と全nilは引き続き未決。
+
+P100では、元十六cubicのH射影の完全自由核基底十本を、元とdelta7両source frameで構成した。全source対応・140 H恒等式・100 identity block・1680 pure係数恒等式と840値を独立確認した。補正済みK2の七つの実quartic倍とNF98も監査済みである。wholecurve142・既存minor開集合149という下界は保持し、固定した56 replacement minorによる全曲線被覆の次の有界計算へ進む。全七十行の同時保持は上限を超えるため、blockごとのstreamを使う。
+
+全FULLU cubic57・quartic239、一般fiber尽くし・全分類上界・元B18深さと全nilは継続する。下界58、rank4下界52、NEW既約式28次、五凍結原稿を維持する。
+
 ## v63 BE / 2026-11-04: 正規化E4冪零指数三、完全syzygyと実有限例外の回復
 
 直前 main `55857e17c57cabfe746c70fa9c7f01814864efec` は通常push済み。
