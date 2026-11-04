@@ -1,5 +1,17 @@
 # 研究状態 — v63-s61 / 2026-11-04
 
+## v63 AG / 2026-11-04: source282・全Sp4固定体・B18 grading障害
+
+直前保存 main `b5fa715dd519633b8394a54c63fa141fc138c1f2` は通常push済み。以下は過去時点を含む。
+
+実四次sourceの新しい縮約を得た。直接十五方向の単位blockで固定M319から十五sourceを削除すると、同じ余核のM304になる。旧二十二kernel行列の全963成分と全恒等式を独立検証し、それを割ったrank282 source bundleのatlasを構成した。大域free282表示は存在するが、具体的なleft inverseや基底を作ったとはしない。双対rank43加群Dについて余核=Ext1(D,R)、D反射性と曲線欠損なし、D局所自由性と全射の同値を整理した。abstract kernelの自由性だけでは足りないことも反例で確定し、全239全射は未解決のままである。
+
+W16の全Sp4不変函数体について、追加Spin5成分の六座標作用を有限な有理回路として求め、全固定体を生成する十三式を独立監査した。旧Spin4のline normalizerとは別の成分である。さらにprojective biform pairをquadric上の五点配置へ認識し、frameを通るquadricの五次元S5表現へ帰着した。二つの倍率は中心mu2²を割ったhonest rank2 vector bundleとして降下するため、全商体F=B(t1,t2)、B=C(P4)^S5である。projective no-name法によりBは安定level4、従ってFの安定有理性の上界は最初の10から2へ改善した。全商の純有理性、全不変式環、NEW方程式は未解決である。
+
+generic B18の全非被約Dに対しては、実際の四項P0からstabilizerと横断接空間を再構成した。群由来の有効torusはrank1、横断20方向に零weightが17残るため、どの共役cocharacterでも全方向positive gradingは得られない。これはsourceの高次を有限weighted IFTに置換する案への正確な障害であり、抽象的formal gradingや零weight底を残す相対手法は排除しない。全nilとdepth19〜20は継続する。
+
+NEWの小さい有理写像からはBに加えqを不変式比から回収する方法が進んでいるが、二shape式の一般cancel計算は一回60秒で未完了だった。明示多項式homogenizationへ方法を替えて準備中であり、GB・実方程式・26次制限を先取りしない。一般betaのdelta_E所属と全成分尽くしも未解決。総下界58/rank4下界52/総上界未定、五つの凍結原稿は変更しない。
+
 ## v63 AF / 2026-11-04: 小さい五有理source表示・全26次基底
 
 直前保存 main `997d45e503dde414c810aecfb4e5b08196740f81` は通常push済み。以下は過去時点を含む。

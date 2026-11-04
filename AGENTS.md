@@ -2,6 +2,22 @@
 
 Version: v63-s61 · 2026-11-04 (Asia/Tokyo).
 
+Latest AG (2026-11-04): actualM319→fixedM304 samecoker via15unitdeletions;
+old22matrix174x22 all963entries/22identities independentlyverified.
+Rank282sourcebundle atlas; globalfree282EXISTS butexplicitbasis/Puncomputed.
+DualD43 torsionfree/pd≤1, actualC=Ext1(D43,R). Dreflexive⇔nocurves,
+Dlocfree⇔full239. Abstractfreekernel43/80 NOTsufficient(counterexample).
+ExtraSpin5involution nowEXACT rationalDAG1169nodes;13generatorsFULLSp4field.
+Fivepointquadric/projectiveframe⇒B=C(P4)^S5; honestcenter-squaredrank2
+vectorbundledescent⇒FULLSp4fieldF=B(t2). Projectiveno-name⇒Fstablelevel≤2.
+PURErationalityofB/F STILLopen; NOinvarring/NEW equationclaim.
+B18actualfour-termP0, effectiveextendedstabtorusrank1, transverseweights0^17/1^3.
+ALLgroup-inducedpositivegradingblocked; abstractformal/relativezero-weightOPEN.
+NEWdirectq/Brecoverypreflightcontinues; onegenericcancel60stimeout recorded,
+differentpolyhomogenizationbudgeted; NOsource26/GB/equationyet.
+NEWlower26; fullquartic/genericbeta/B18fullnil-depth/exhaustionOPEN.
+Lower58/r4lower52/uppernull; continueactualresearch/ordinarymainpush.
+
 Latest AF (2026-11-04): full universalInv26 basis45 VERIFIED viaambient16
 Poisson gradients, sameformalplane andcharacter; NOsource26restrictiontest.
 NEW lower26/equationOPEN. Low7mapHcancellation4,7,7,7,7,7,10 exactmaximal;
