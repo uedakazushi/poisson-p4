@@ -1,5 +1,19 @@
 # 研究状態 — v63-s61 / 2026-11-04
 
+## v63 AJ / 2026-11-04: 実firstjet指数1・spectral次数10/20/40・global282
+
+直前保存 main `65a215b3d27f7e265b967ca49a323884a81bb4b6` は通常push済み。以下は過去時点を含む。
+
+新成分のprimitive firstjet像B_NEWについて、長く未決だったactual Sp4 target不変体と既知source固定体の指数を正確に一と決定した。全contentを除いたrの既約十次模型と、三次・五次写像からのs有理回収を独立検証した。さらに同じ保存点一つの有限自由十次係数模型でZN=N12/F4³のKrylov determinantが21349 mod32003と非零になり、全100係数を別方式でも確認した。これはgeneric QQ/CでZNが全shape体を生成する正の係数証明であり、有限体の空性の移送ではない。
+
+全十六source座標のcocharacter共変性を確認した結果、任意次数の不変式に対するc斉次性も確定した。定義次数下界26から非零のInv14はB_NEWでも非零であり、その奇数xi-weightを使って最後のxiも回収できる。従ってB_NEWのSp4不変函数体はQQ/C上の純有理五変数体で、known fixed sourceからの指数は一。明示したbase別の一般次数はprojective正規化spectral baseで10、F4を含むaffine characteristic baseで20、五つのoctic係数baseで40となる。これは十五次元firstjet像の結果であり、全二十五次元Poisson成分の有理性や定義多項式を先取りしない。
+
+非平方の四次側でも、既存dualを実座標へ輸送して全二十二kernelのglobal left inverse P22を明示した。全484成分P22K=I22と全scalar dualを独立検証し、同じ余核の大域自由282-source表示[A+B P22,C]を構成した。固定された旧282行部分行列ではない。既知kernel方向の総数は37のままで、残る43方向と全239全射は未解決である。inverse differential formから追加syzygyを得る自然な操作も、普遍的にはPfaffian倍BianchiとKoszulに戻ることを別frontierへ記録した。
+
+さらに全十六座標から補助平方根を消した五変数有理orbit代表を構成し、そのSp4飽和が元の第一jet像に稠密であることを独立検証した。generic stabilizerと十五次元像自体の有理性は別の課題として調べる。
+
+次はこの実global282表示の欠損、B_NEWの定義方程式、普遍残余曲線の種数、generic B18の全nilとdepth19〜20、一般betaのdelta_E所属、全成分尽くしを進める。NEW定義次数下界26・方程式未構成、総下界58/rank4下界52/総上界未定、五つの凍結原稿は維持する。
+
 ## v63 AI / 2026-11-04: 固定M284・B18相対三次模型・結果式計算
 
 直前保存 main `e96a97e564a7ec862b991a843daaa191287f6723` は通常push済み。以下は過去時点を含む。

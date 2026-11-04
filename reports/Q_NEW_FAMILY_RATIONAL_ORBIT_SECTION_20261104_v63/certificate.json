@@ -1,0 +1,122 @@
+{
+  "variables": [
+    "xi",
+    "r",
+    "s",
+    "q",
+    "B"
+  ],
+  "h": "s^2-25*r*q^2",
+  "auxiliary_extension": "u^2=1600*r",
+  "source_substitution": {
+    "v": "-32*s*u/(-25*q**2*r + s**2)",
+    "c": "B*u*xi/40",
+    "X": "s/(48*u)",
+    "W": "q/3072 + 1/3072"
+  },
+  "exact_orbit_gauge": "g_u=diag(u,u^-1,1,1) in Sp4; beta_bar_i=u^(w1_i)*beta_i",
+  "beta_bar16": [
+    "(-1125*q**2*r*s + 30*s**3)/(400*B**2*q**2*r*xi - 16*B**2*s**2*xi)",
+    "-750*q**2*r/(25*B**2*q**2*r*xi - B**2*s**2*xi)",
+    "2400*r",
+    "0",
+    "0",
+    "(125*q**3*r + 25*q**2*r*s + 25*q**2*r - s**3 - s**2)/(6000*B*q**2*r - 240*B*s**2)",
+    "-s**3*xi/(1350000*q**2*r**2 - 54000*r*s**2)",
+    "2*q*s/(75*B*q**2*r - 3*B*s**2)",
+    "-32*B*r*xi/3",
+    "-32*B**2*xi**2/675",
+    "0",
+    "0",
+    "0",
+    "0",
+    "(s + 1)/(120*B)",
+    "-64*B*r*xi/3"
+  ],
+  "all16_checks": [
+    {
+      "index": 0,
+      "Cartan_weight": 2,
+      "quadratic_remainder_odd_part_zero": true
+    },
+    {
+      "index": 1,
+      "Cartan_weight": 1,
+      "quadratic_remainder_odd_part_zero": true
+    },
+    {
+      "index": 2,
+      "Cartan_weight": 2,
+      "quadratic_remainder_odd_part_zero": true
+    },
+    {
+      "index": 3,
+      "Cartan_weight": 1,
+      "quadratic_remainder_odd_part_zero": true
+    },
+    {
+      "index": 4,
+      "Cartan_weight": 1,
+      "quadratic_remainder_odd_part_zero": true
+    },
+    {
+      "index": 5,
+      "Cartan_weight": 0,
+      "quadratic_remainder_odd_part_zero": true
+    },
+    {
+      "index": 6,
+      "Cartan_weight": -2,
+      "quadratic_remainder_odd_part_zero": true
+    },
+    {
+      "index": 7,
+      "Cartan_weight": -1,
+      "quadratic_remainder_odd_part_zero": true
+    },
+    {
+      "index": 8,
+      "Cartan_weight": 0,
+      "quadratic_remainder_odd_part_zero": true
+    },
+    {
+      "index": 9,
+      "Cartan_weight": -2,
+      "quadratic_remainder_odd_part_zero": true
+    },
+    {
+      "index": 10,
+      "Cartan_weight": -1,
+      "quadratic_remainder_odd_part_zero": true
+    },
+    {
+      "index": 11,
+      "Cartan_weight": -1,
+      "quadratic_remainder_odd_part_zero": true
+    },
+    {
+      "index": 12,
+      "Cartan_weight": 1,
+      "quadratic_remainder_odd_part_zero": true
+    },
+    {
+      "index": 13,
+      "Cartan_weight": -1,
+      "quadratic_remainder_odd_part_zero": true
+    },
+    {
+      "index": 14,
+      "Cartan_weight": 0,
+      "quadratic_remainder_odd_part_zero": true
+    },
+    {
+      "index": 15,
+      "Cartan_weight": 0,
+      "quadratic_remainder_odd_part_zero": true
+    }
+  ],
+  "source_domain": "xi*r*s*B*(s^2-25*r*q^2)!=0 together with previously stated source chart units",
+  "known_tau_ambiguity_removed_in_rational_orbit_representative": true,
+  "generic_one_orbit_per_source_requires_actual_target_index1_gate": true,
+  "full_hypersurface_rationality_or_generic_stabilizer_trivial_proved": false
+}

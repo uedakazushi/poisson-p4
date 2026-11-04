@@ -2,6 +2,21 @@
 
 Version: v63-s61 · 2026-11-04 (Asia/Tokyo).
 
+Latest AJ (2026-11-04): ACTUALfirstjet B_NEW15 Sp4 invariantfield equals
+knownτfixedsource QQ(xi,R,Z0,r,s), INDEX1/RATIONAL5 overQQandC.
+Shapeextension10 viafullcontent/Bézout andprimitiveG10; ZNprimitive10 by
+finiteFREE10coefficientdet21349mod32003 atSAMEoldpoint0, ALL100cofsreviewed.
+ALL16sourcecocharacter givesarbitrarydegreec^(d/2); nonzeroInv14bylower26
+recoversxi. NOnewInv14/source26expansion. Spectraldegrees10(projective),
+20(affineF4base),40(octicfivebase), exactspecifiedbases; universalcurvegenusOPEN.
+NOTwholePoissoncomponent25rationality/ambientW16QQrationality/NEWpolynomial.
+Rationalbeta_bar5 constructed with10nonzerocoordinates, SAMEdenseSp4saturation
+byactualdelta transverse t2section; genericstabilizer/fullB15rationalityOPEN.
+GlobalP22actualPK=I22 all484 verified; explicitFREE282presentation[A+B P,C].
+NOTfixedold282submatrix; totaluniformkernel37/missing43/full239OPEN.
+NEWdefinitiondegree>=26/equationOPEN; B18fullnil-depth19..20/genericbeta/
+globalexhaustionOPEN. Lower58/r4lower52/uppernull. Continueactualresearch.
+
 Latest AI (2026-11-04): oldK174x22 hasEXACT20globalunitsplit;
 15+20fixedsource deletions giveactualM284x239 samecoker. RemainingK154x2
 pointwise rank2FULLU; knownkernelTOTAL37/missing43 unchanged.
