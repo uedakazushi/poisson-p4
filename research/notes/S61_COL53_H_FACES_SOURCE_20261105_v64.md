@@ -1,0 +1,9 @@
+# 固定H=-3/H=21の全顔：SOURCEのみ
+
+受理済み1203 SSAを読み、10個の頂点配列から各nodeのmin/max Hを抽出後、頂点配列を直ちに解放する。rootのH極値は−3と21。和はH極値がtieする子だけ、積は両子の同じ極値顔のconvolution、copyは全5座標shiftを用いる。係数の相殺で実顔が0になっても、この固定正係数支持極値の顔を求める式は成り立つ。10頂点の係数0を顔全体0と見なさない。
+
+SOURCEは全5指数を保った顔支持だけを伝播し、完成済み正支持snapshotの全keyから取り出した766/214単項式に一致させる。新しいsigned顔係数は計算しない。SOURCEと将来VALUEのDAG last-use、全decoded leaf、metadataとbufferを含むnumeric予算を別々に算出する。VALUEは5指数+整数+slotの7numeric/termで課金し、SOURCEの集合索引を使って減額しない。
+
+各nodeの固定SOURCE QQ scalar qを保持し、copyはqChild*scalar/qOut、積はqA*qB*scalar/qOut、和はqChild*scalarB/qOutが整数であることを検査する。qOut=0はsource正規化式からactual polynomial0が帰納的に従うため、VALUEのみ正確に枝を落とせる。それ以外の顔の未知相殺を事前に仮定しない。これらの固定qに対する整数写像は、実係数gcdを各nodeで取り直す必要がない。serialization時のprimitive化は別である。
+
+正Mにより全commit係数と積/整数weight/加算の途中値を事前に抑え、VALUE2048bit guardを変更しない。新workerのcode/custody/時間とROOT reviewは別途必要で、このSOURCE reportは顔VALUEのGOではない。固定row6/col53、全167×14、87追加RHS、66制約RHS、P290一回、F9/F10と全補集合を保持する。全entryの0/非0、全14行、全体逆行列、exhaustionは未証明。

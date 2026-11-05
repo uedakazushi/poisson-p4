@@ -2,6 +2,19 @@
 
 Version: v63-s61 · 2026-11-05 (Asia/Tokyo).
 
+Latest CK (2026-11-06 JST): Originalconnectinghead23 all14 independentlyverified; kernel3=J2(r)+k.
+M7 R0split viaS(h4,rh4,h0,h1), det11979/2260608800; originalTold R0NONSPLIT viaactualr²h4.
+r³Kbar0 => upstairsONLYr³KsubsetellK. Remaining8highs/Kbarextension/H0/nilcubeOPEN.
+NativeC28 r²ell32G8+2monic independentlyverified; native23second92primaryDONE/postpeerPENDING.
+OLD2all617formal1909slots/42IDs verified; selected508and288wholeupperZERO viaindependentpositiveenvelopes.
+Only12opaqueSECONDcase support, NOT605zero; fullmixedgA/gBcertificate/native549/fullcarryOPEN.
+Genericcol53H−3full411nonzero/H21zero peerPASS; witness241815/134217728 at(-3,0,6,-1,10).
+FULLF11nonzero=>11thtyped/70totalpivotSOURCE; prospective166x13/top100+66/13+87RHS, updatesUNRUN.
+Vertexmetadata correctedwholedecoded125016 (old84916omittedlabels), no rerun/changefrozenprimary.
+Two-tailmodgcd3899independentlyexact; char0commonfactoradeg<=6ONLY, fixed40CRT_SOURCE/nochar0factor.
+HEAD29gradδ63all105zero independentlyproved, next63algebraLOWERextension/cacheSOURCEbeforevalues.
+OriginalH0/cube/nil3..6/T2L17..20/global58/r4lower52/upperNULL/NEW28/fivepapersfrozen. Continueafterpush.
+
 Latest CJ (2026-11-06 JST): Genericcol53fixedrow6 SOURCE all11componentscomplete,36620positiveS/Hmax2970.
 LIVE08remaining48 completedonce/114086owned/19.27MB/5.35s; old8+45notreplayed/no capraise.
 New10signedcycliclexvertexfunctional SOURCE1203SSA/exactrootvertices,84916/402bits/VALUE2048kept.

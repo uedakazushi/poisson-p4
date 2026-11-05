@@ -8,6 +8,22 @@ v62保存は `e187b40de68bce534391f406f616940cddd045a7`、
 `66a80ab53dfcf0ff842c67140320d8da0226039d`。全て通常push済み。
 このv63保存のSHAはGit履歴で識別する。
 
+## v63 CK / 2026-11-06: 元接続写像の核・非分裂、T2二関係、一般五点の非零entry
+
+直前 main `1004a1f7212dc0ae53a063a1effe4a161fa9bbda` は通常push済み。Cloud開始SHAは`4c3f623fb698f9adc6077015b25e2325b11072af`。公開済みCloudの既設環境を再利用し、成功したセットアップは再実行していない。
+
+元接続写像のhead23全十四係数を既存105変数cacheだけから求め、別のbinomial法で独立確認した。単純商minor1331/115200が非零なので、M7→G4の三次元核は実際にJ2(r)⊕kである。S=span(h4,rh4,h0,h1)はR0安定で、像の行列式11979/2260608800は残る八high parameterによらず非零。従って七次元商では分裂する。一方、元Toldではr²h4の独立な次数二類がsectionを妨げ、全射はR0非分裂と独立証明した。またr³は接続写像のcyclic topを経由するためr³Kbar=0。元Kへはr³K⊂ellKだけであり、元H0やnil三乗への飛躍をしない。
+
+T2の全617 upper式のOLD二次形式感度1909 slot/42functionIDを異なる収縮順で独立再構築した。十二opaque第二記号に依存するcaseは十二個だが、他605個が零または計算済みという意味ではない。指定508と288ではfull source・全九first・known-FIRST crossを保ち、両channelの非負envelopeが個別に零と独立確認できた。この二関係はsigned値計算なしで零と証明済み。native C28のr²ell三次32 G8+二monicも元rational rootsと異なるtrace積表で独立確認した。native二十三pivotの九十二二次値は一回計算済み、別universal64法の値peerは未完了。次はnative649のS零次とOLD298/4を持つcase549を厳密に接続する。
+
+一般五点col53ではH=-3面の全411非零係数とH=21面の零を独立再計算した。指数(-3,0,6,-1,10)の係数241815/134217728がfull F11の非零を証明する。よって同じ旧chartのD(F11)で十一番目typed/元83中七十番目pivotが存在する。将来shapeはfull166x13/top100+66、selected13+87追加RHS。これはSOURCE存在証明で、更新済み行列・RHS・inverseは未計算。pivotには411項の面でなくfull1203DAG F11を用い、F9/F10/F11補集合・全66条件・P290一回を保持する。旧十vertex予算のlabel欠落は訂正receiptで全decoded上界125016を明示し、旧凍結資料を改変していない。
+
+二tailの固定32003 gcd3899は、独立な二入力全割り算と商同士のEuclid互いに素で確認した。元leading係数が法pで生き残るので、任意の標数零共通因子のa次数は六以下となる。ただし標数零因子の存在は未証明。固定四十素数CRTのSOURCEを凍結し、conditional8192bit境界・primitive化・二本全整数恒等式のworkerを準備する。
+
+HEAD29の元delta63 origin gradient全105零を独立forward ADで確認し、未知Phi四次を使わないcache合成へ進める見通しを得た。HEAD29/30用の正確な六十三次元lower extension SOURCE・新コード・全予算を先に点検し、新IFTや未提供jetを零補完しない。八high parameterとKbar extensionは未完了。
+
+元H0・ell消滅・nil三乗・正確な指数、T2全長17〜20、全FULLU57/239、一般五点尽くし、全分類上界は未解決。元nil指数3〜6、下界58（rank4は52）、NEW式28次と五凍結原稿を維持する。詳細と証拠は `research/notes/V63_CK_CONNECTING_T2_AND_GENERIC_ENTRY_20261106.md`。保存を研究停止とは扱わず、具体的な残課題の計算・証明を継続する。
+
 ## v63 CJ / 2026-11-06: col53 SOURCE完了・十vertex係数・二tail base ideal
 
 直前 main `d4e48d0b818db3c10600d0b85b200a3b726ee00e` は通常push済み。Cloud開始SHAは`4c3f623fb698f9adc6077015b25e2325b11072af`である。以下の日付は日本時間で記す。
