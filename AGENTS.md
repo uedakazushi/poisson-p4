@@ -2,6 +2,24 @@
 
 Version: v63-s61 · 2026-11-05 (Asia/Tokyo).
 
+Latest BU (2026-11-05): Tnil FULLHF55321/Loewy5/length16 independentlyPROVED.
+Actualnaturalw coefficient1+a*c=−526852874262941/1327771335000 NONZERO.
+Explicit16filteredsourcebasis, m^jlength16,11,6,3,1,0; m2rAJordan321.
+Complete917rank1/right106zero=>constant811rank1 INFERRED, noactualnonzerocolumn.
+No originalnilidealindex/cube/generator/socle claim; originalnilindex3..7.
+NEXTactualNbar14connecting/formallifts viahonestCprime[ell]; finiteCprime2quotientgate.
+HonestT2 complete132x1186/all768source, fullC2resolution3,26,102,418.
+G2linear102injective =>741X0zero origin lifts fromFULL9X1 only, noM1/N1.
+ACTUALmu_B(T2)=6 fromrank99/all741x234eq/fixedminor+factors independentlyPASS; length17..20OPEN.
+CanonicalgaugeFIRSTell30+effectiveS1ell derived/peerPASS, no newphysicalsolve.
+T2length17+j(0<=j<=3), muD11; length17 iffH0length3/ellH0zero, actualjOPEN.
+NoncanonicalDmoduleA^(6+j)+k^(5−j), NOTR0/filtered/naturalreduction split.
+Genericactual49pairs187x34/809647logical; 5selected50forecastsunsafe,notall27.
+Twoactualfixed5constraintadjugates NONZERO/all100identities peerPASS;
+chartD(detA*detB) BASEonly, complementsOPEN, top111x24FACTORED notfullinverse.
+K92exact121blocks/sparseSchur finiteprofiles, nofull det/rank/global57 claim.
+Bounds58/r4lower52/NEWG28/fivepapersfrozen; continueactualresearch/mainordinarypush.
+
 Latest BT (2026-11-05): ACTUALm5TnilZERO viaF2/r² sourceproof independentlyaccepted.
 FullTnilHF ONLY5533or55321; Loewy4or5, NOToriginalnilidealindex.
 Completeactualcubic3x917SOURCE all811+106/H174 paths; rank0or1 decidesHF, valuesOPEN.

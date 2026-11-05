@@ -1,0 +1,3 @@
+# Exact49: one fresh bounded parameter unit
+
+Input is the immutable exact48 snapshot. Source frontier3 report0e22d67078aefa2162fefb1e031673b878f041997cb13bf5ea2a61c09d3f217a proves original(75,73)=-2048/1215 times the parameter monomial [1, 0, 0, 0, 1]. Whole owned+metadata<=81155, fresh RAW<=33082322 bytes. Apply the frozen generic exact binary-row worker once, with source-only full per-update forecasts, normalization/back-add identities, canonical signed-Laurent storage and independent decoded cell roundtrip. All five parameters and constraints remain. No replay of48, second pivot, nonmonomial inverse, point, prime, polynomial GCD or complete inverse claim.

@@ -8,6 +8,22 @@ v62保存は `e187b40de68bce534391f406f616940cddd045a7`、
 `66a80ab53dfcf0ff842c67140320d8da0226039d`。全て通常push済み。
 このv63保存のSHAはGit履歴で識別する。
 
+## v63 BU / 2026-11-05: nil比較の全HF55321と十六基底、ell二乗と一般betaの縮約
+
+直前 main `01640d813ebb3fd695bebf181d70f049a17b6d56` は通常push済み。
+
+nil特殊比較Tnilの全HFを(5,5,3,2,1)と確定した。自然写像の一つの二次類w=a*v+b*q2を保存済み四対のsource二次から評価し、旧n一次項と実relation lift補正を全て保持した。係数1+a*(11767/3652)=−526852874262941/1327771335000が非零で、既証m五乗零と合わせてm四乗非零を示す。独立実装が源・carry・三成分分解を再構築した。長さ16、Loewy五、m冪長16,11,6,3,1,0、rAに関するm二乗Jordan長321が確定し、実source lift十六個もfiltered基底となる。完全917のrank一・constant811のrank一は推論したが、非零811列を実際に一つ計算したとはしない。元nilidealの指数や三乗とは区別し、指数3〜7を維持する。
+
+honest ell二乗比較を完全132対1186へ縮約し、全768 liftを保存した。新旧26frameの行列式−1を明示し、古い正minorを新frameへ無条件にコピーしない。既存C2作用からG2一次部の全102 sourceへの単射性を証明し、T2のorigin生成数判定を元Xの全九方向一次データだけへ還元した。新たな三十canonical gauge first-ellは既存Jacobian応答で導き、全式・旧八方向・G32・nuell・intrinsic S1ellを独立監査した。実mu_B(T2)=6も全九方向・全741列で独立検証した。 T2の実全長・H0長・Kの指数はなお未決である。
+
+DVRの純証明によりT2長は17+j、jは三つのK torsion指数のうち二以上の個数で0〜3となる。T2長17とH0長三・ell H0零化は同値。さらにDのhereditary性からD加群として非標準的にT2=A^(6+j)直和k^(5−j)、D最小生成数は常に十一となる。R0、環、自然写像、filtrationの分解ではない。元nil三乗の判定に向け、全Tnil基底からN/ellNの十四次元kernelを得る本物のconnecting mapをsourceから構成する。Cprime/ell二乗の正確な右完全商を先に計算するgateを固定し、有限商kernelと真のtorsionを混同しない。
+
+一般betaの実消去は49対・残余187対34・809647 logical項まで進んだ。五つの選択50候補はRAW予測上限で停止したが、全27単項式入口の失敗とはしない。代わりに二つの固定五対五制約の実adjugateを計算し、両非零det・全百左右恒等式を独立確認した。base五変数のD(detAlpha*detBeta)と既存単項式単元上で十制約変数を解ける。top111対24はfactored sourceに保ち、補集合・完全normal逆・五点尽くしは未決。
+
+大域K92 det11は全展開prefixを全て保存し、同じ記号重みの源からexact121 polynomial blockを順次構成した。零先頭層のsupport/correctionを飛ばし、小さいSchur rank profileで残余を六・五へ進める有限source解析を続ける。零になった有限係数を行列式全体の零・非零にしない。全FULLU57/239・補集合は未決。
+
+元T全長十一・HF5321・B18深さcone19/射影18、元nilDVR階数十一・生成数十四・torsion生成数三を維持する。下界58（rank4は52）、NEW既約式28次、五凍結原稿を変更せず、全分類上界・元nil三乗・H0を解く実研究を通常push保存後も続ける。
+
 ## v63 BT / 2026-11-05: nil比較は二候補、ell二乗honest比較を構成
 
 直前 main `1e6060721d0d1052a80a9f87d68b30de0e16b286` は通常push済み。

@@ -1,0 +1,7 @@
+# Exact49: small literal constraint blocks and the honest source frontier
+
+The current exact187 by34 matrix has809647 logical terms, with all five field parameters retained. Its alpha and beta constraints are each38 by7, containing respectively487 and663 terms. Every literal constraint cell is independently decoded/re-encoded from the current hash-bound snapshot. The26 earlier deleted constraint rows and columns consist of13 valid pure-block unit pairs each. Their normalized rows stay inside their own20-column original block. Every other retired column is a normal column and therefore does not alter either pure constraint block. The accepted full L51 by20 rank18 theorem consequently gives rank5 for each current block. This derives existing ranks and performs no new rank search.
+
+All five selected remaining distinct monomial-column source forecasts exceed the same32MiB fresh RAW bound; all owned+scratch forecasts fit150000. They are five candidates drawn from27 actual monomial entries, not an all-entry impossibility result. No50 arithmetic was executed and every completed49 row/identity and all rejected forecasts stay stored.
+
+A useful next SOURCE method is the two small field constraint blocks. A separately authorized nonmonomial5 by5 instruction could reduce ten constrained variables without substituting the huge plane kernel. No determinant, field inversion, polynomial GCD, new parameter point/prime or such worker is run in this packet. Full inverse and fiber exhaustion remain open.

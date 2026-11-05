@@ -1,0 +1,11 @@
+# Cprime2 nilimage の独立 SOURCE gate
+
+既存の実105 source値から全150物理根へ閉じる元DAG、同じcanonical15群位置とflag5/fiber10、固定30Jacobianの両側逆を検査した。proper九座標と旧coreの対応、実nil二生成元dh,dclを既受理のsourceに照合する。新しい物理source・jetやcanonical990値はこの監査では計算しない。
+
+33代数の全1089積を独立に射影し、形式的なr²=ell²=z7=0平面への写像を確認した。次数filtrationからbaseのm5零、trace maximal idealの11乗零を得るので、非零定数をもつunitの有限逆が使える。四段の固定Jacobian補正と全source/readback検査は将来workerで実施する。
+
+実NEの二生成元の四tracebasis倍は、その像をR0-moduleとして生成する。実C2は既に33係数代数を通るため、八像を33基底で閉じた商は右完全性により本物のCprime/ell²となる。有限複体のH1をkernelと同一視する方法ではない。
+
+CprimeのDVR rank2とtorsion最小生成数2から長さは6..8である。長さ6だけが二指数とも1を強制し、真のCprime[ell]をCprimebar内のkerell/imellで回収できる。長さ7/8なら指数≥3の可能性を残す。Artin33内でellを割らない。
+
+connecting mapは形式的なcycle liftと全sourceのell除算から定義する。free-headのm1とcycle-firstの感度は別gateであり、この監査は十四個のnilcycleや元nilcubeを計算しない。118256QQ・2048bit・60秒・2GB・32MiBの停止条件、およびB11/ell0の完全readbackを保持することを前提にsource gateを受理する。

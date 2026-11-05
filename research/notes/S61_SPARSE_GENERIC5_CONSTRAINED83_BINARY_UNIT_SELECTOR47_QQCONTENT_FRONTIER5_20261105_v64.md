@@ -1,0 +1,3 @@
+# Exact47 SOURCE frontier: a different monomial column
+
+This source-only continuation evaluates metadata-shortlist ordinal5, original pivot(126,65), rather than repeating unsafe ordinal0. It preserves the exact47 literal matrix and every earlier bound. Same support-union, integer amplitude/content, binary RAW and whole resident-metadata proofs; no coefficient multiplication or pivot is executed. The target source payload is smaller (9,019,619 bytes versus11,672,705), but safety is decided only after the full forecast. Caps remain60s,2GB,150000 owned coefficient/metadata slots,32MiB fresh RAW. Shortlist failure does not assert all monomial entries unsafe.
