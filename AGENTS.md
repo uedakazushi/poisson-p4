@@ -2,6 +2,21 @@
 
 Version: v63-s61 · 2026-11-05 (Asia/Tokyo).
 
+Latest BT (2026-11-05): ACTUALm5TnilZERO viaF2/r² sourceproof independentlyaccepted.
+FullTnilHF ONLY5533or55321; Loewy4or5, NOToriginalnilidealindex.
+Completeactualcubic3x917SOURCE all811+106/H174 paths; rank0or1 decidesHF, valuesOPEN.
+Prioritizecachedold37socle7/right106 beforefullM3/newhigherjets; nozero-fill.
+Actualell² Vconormal26x56rank26/fixedminor+all56/source105eq peerPASS.
+HonestT2 FULLR0SOURCE complete459x2070/all768typedlifts, I²ann/m10/finitebase<=696.
+NOell0reuse/naivefinitehomology/T2length/H0length/Kexponent claim.
+C2active d3rank126/full327 =>actualbeta2=102; nextboundedsourceunittransport.
+Genericactual47pairs189x36/704603logical, binaryrows/activefragmentroundtrip;
+next48..50freshgates,no GCD/points/newGF; inverse/exhaustionOPEN.
+K92QQleading33allZERO; newrowprecondition+minplusSchur first7x7sourcegate,
+NOdetnonzero/rank/global57 frompartialprefix; keepallfailedstates.
+Tlength11/nilDVRrank11mu14torsmu3/depth19/18/nilindex3..7unchanged.
+Bounds58/r4lower52/NEWG28/fivepapersfrozen; continueactualresearch/mainordinarypush.
+
 Latest BS (2026-11-05): ACTUALTnil HFthrough2=(5,5,3) independentlyPROVED.
 Complete6x661rank3 incl15mixed; fixednonzero3minor ANDall661factorization.
 Tnil length16 =>m3length3; actualm3=rA*m2 byverifiedcubicreduction+Nakayama.

@@ -1,0 +1,16 @@
+{
+  "constant_rank": 4,
+  "residual_size": 7,
+  "source": "B(t)=diag(rowLCM)*diag(t^rowpot)*actualM(t^-w)*diag(t^colpot)",
+  "exact_identity": "R*B(0)*Q=diag(I_rank,0)",
+  "block_A": "upper rank-square block of R*B(t)*Q; A(0)=I",
+  "block_B": "upper right",
+  "block_C": "lower left",
+  "block_D": "lower right",
+  "formal_unit_inverse": "A^-1=adj(A)/det(A), detA(0)=1",
+  "residual": "S=D-C*A^-1*B",
+  "determinant_identity": "detB=(detR*detQ)^-1*detA*detS",
+  "construction_uses_only_constant_QQ_inverse": true,
+  "NO_transformed_polynomial_or_formalseries_coefficients_computed": true,
+  "actual_source_constant_unit_minor": "70738003686773901671424000000000000000000"
+}

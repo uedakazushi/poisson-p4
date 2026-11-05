@@ -1,0 +1,5 @@
+# Direct binary byte bound from known QQ content
+
+This SOURCE-only variant uses fixed integer divisibility of the two known rational amplitudes A,B after their common denominator D is formed. For the already present rational bases2,3,5, h_p=min(v_p(A),v_p(B)); G=product p^h_p divides every integer numerator, and T=product p^min(h_p,v_p(D)) divides G,D. Thus primitive integer coefficients<=M/G and content bounds are M/T,D/T. This is a serialization bound, not a polynomial GCD/factor search, field specialization or coefficient normalization operation. Computed QQ cells are unchanged and each stored value must independently roundtrip.
+
+The previous exact binary-output forecast remains frozen. This changed-source check additionally replaces repeated O(n²) metadata-slot recounts with exact incremental row counts, enforcing the same150000 owned slots. All actual inputs/new versions remain RAW charged under32MiB,60s/2GB. No coefficient product, pivot, point, GF prime, nonmonomial inverse, rank or exhaustion is performed.

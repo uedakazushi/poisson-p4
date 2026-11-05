@@ -1,5 +1,21 @@
 # 次の課題 — v63-s61 / 2026-11-03
 
+## v63 BT / 2026-11-05: nil比較は二候補、ell二乗honest比較を構成
+
+直前 main `1e6060721d0d1052a80a9f87d68b30de0e16b286` は通常push済み。
+
+nil特殊比較TnilのLoewy上界を六から五へ改善した。訂正済み自然写像からF2=Told交m二乗Tnilを実二元e3*rA,e4*z5とold m二乗で記述し、元Toldの実二次・三次関係とm四乗零だけでrA二乗F2=0を証明した。商Qのm三乗零とrA reductionによりm五乗Tnil=0となる。独立source監査も通り、全長16・HF553の後続は3又は2,1の二択となった。元nilidealの五乗零ではなく、元nil指数3〜7は維持する。
+
+この二択を判定する完全な実三次operatorも三対917へ還元・独立監査した。811定数kernelと106一次syzygyの全経路、174右逆による補正、153 d3-onlyと15 mixedを保持し、実rank零なら5533、一なら55321となる。実三次値はまだ未評価。既存old37二次cacheからの七つのsocle obstruction、又は新しい右106ブロックを先に調べ、追加の高次入力を減らす。
+
+ell二乗比較では保存済み係数だけのB56合成から実26対56 conormal写像を算出した。全105式・164根・非線形CB輸送・固定minor38773173828125/2404631929946112・全列factorizationを独立確認した。これを全R0の元sourceへ戻した周期/Koszul形式収縮でhonest T2の完全459対2070 typed表示を構成し、全768 liftを保持した。大域conductor零化からI二乗T2=0、有限基礎環長696以下・m十乗零を証明したが、実T2長・H0長・K torsion指数は未計算である。C2の既存作用の五active定数d3 rank126から第二Betti数102も確定し、次の表示縮約に用いる。
+
+一般betaの消去は実47対・残余189対36・704603 logical項まで進んだ。全3829計算cellのbinary roundtripを独立検査し、旧世代を保存した。現行参照の正確なactive fragmentによってRAW上限内のcompactionも構成した。48以後は別source gateで続け、unsafeな一候補を全候補の失敗としない。五点尽くし・normal逆は未証明。
+
+大域K92 det11の全展開はguarded prefixを保存したまま、固定記号重みの先頭係数へ方法を変えた。最初の33係数は全零で非零証明にはならなかった。一行の厳密な前処理とrank四の定数変換、Boolean/min-plus Schur支持により、先の13254層を計算せず最初の可能な有限七対七係数へ絞った。このsource解析や部分和を行列式非零や全FULLU57へ置き換えない。
+
+元T全長十一・HF5321・Loewy四、元nilのDVR階数十一・生成数十四・torsion生成数三、B18深さcone19・射影18を維持する。全FULLU57/239・一般beta尽くし・全分類上界と元nil三乗はなお未決。下界58（rank4は52）・NEW既約式28次・五凍結原稿を維持し、通常push保存後も実研究を続ける。
+
 ## v63 BS / 2026-11-05: nil比較の実HF553とell二乗cokernel長十四
 
 直前 main `8a77162c6fc254ff8bc926498a0920bfd7a298e4` は通常push済み。

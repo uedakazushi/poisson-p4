@@ -1,0 +1,49 @@
+In file included from /usr/include/c++/14/memory:69,
+                 from /workspace/poisson-p4/code/s61_nonsquare_prePOWER_K92_tropical_prefix32_20261105_v63.cpp:9:
+/usr/include/c++/14/bits/stl_uninitialized.h: In instantiation of ‘constexpr bool std::__check_constructible() [with _ValueType = Term; _Tp = const Term&]’:
+/usr/include/c++/14/bits/stl_uninitialized.h:182:4:   required from ‘_ForwardIterator std::uninitialized_copy(_InputIterator, _InputIterator, _ForwardIterator) [with _InputIterator = __gnu_cxx::__normal_iterator<const Term*, vector<Term> >; _ForwardIterator = Term*]’
+  182 |         = _GLIBCXX_USE_ASSIGN_FOR_INIT(_ValueType2, _From);
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/14/bits/stl_uninitialized.h:373:37:   required from ‘_ForwardIterator std::__uninitialized_copy_a(_InputIterator, _InputIterator, _ForwardIterator, allocator<_Tp>&) [with _InputIterator = __gnu_cxx::__normal_iterator<const Term*, vector<Term> >; _ForwardIterator = Term*; _Tp = Term]’
+  373 |       return std::uninitialized_copy(__first, __last, __result);
+      |              ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/14/bits/stl_vector.h:606:31:   required from ‘std::vector<_Tp, _Alloc>::vector(const std::vector<_Tp, _Alloc>&) [with _Tp = Term; _Alloc = std::allocator<Term>]’
+  606 |           std::__uninitialized_copy_a(__x.begin(), __x.end(),
+      |           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~
+  607 |                                       this->_M_impl._M_start,
+      |                                       ~~~~~~~~~~~~~~~~~~~~~~~
+  608 |                                       _M_get_Tp_allocator());
+      |                                       ~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/14/bits/stl_construct.h:119:7:   required from ‘void std::_Construct(_Tp*, _Args&& ...) [with _Tp = vector<Term>; _Args = {const vector<Term, allocator<Term> >&}]’
+  119 |       ::new((void*)__p) _Tp(std::forward<_Args>(__args)...);
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/14/bits/stl_uninitialized.h:120:21:   required from ‘_ForwardIterator std::__do_uninit_copy(_InputIterator, _InputIterator, _ForwardIterator) [with _InputIterator = __gnu_cxx::__normal_iterator<const vector<Term>*, vector<vector<Term> > >; _ForwardIterator = vector<Term>*]’
+  120 |             std::_Construct(std::__addressof(*__cur), *__first);
+      |             ~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/14/bits/stl_uninitialized.h:137:32:   [ skipping 6 instantiation contexts, use -ftemplate-backtrace-limit=0 to disable ]
+/usr/include/c++/14/bits/stl_uninitialized.h:284:34:   required from ‘static _ForwardIterator std::__uninitialized_fill_n<_TrivialValueType>::__uninit_fill_n(_ForwardIterator, _Size, const _Tp&) [with _ForwardIterator = std::vector<std::vector<Term> >*; _Size = long unsigned int; _Tp = std::vector<std::vector<Term> >; bool _TrivialValueType = false]’
+  284 |         { return std::__do_uninit_fill_n(__first, __n, __x); }
+      |                  ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+/usr/include/c++/14/bits/stl_uninitialized.h:327:17:   required from ‘_ForwardIterator std::uninitialized_fill_n(_ForwardIterator, _Size, const _Tp&) [with _ForwardIterator = vector<vector<Term> >*; _Size = long unsigned int; _Tp = vector<vector<Term> >]’
+  326 |       return __uninitialized_fill_n<__can_fill>::
+      |              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  327 |         __uninit_fill_n(__first, __n, __x);
+      |         ~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+/usr/include/c++/14/bits/stl_uninitialized.h:472:39:   required from ‘_ForwardIterator std::__uninitialized_fill_n_a(_ForwardIterator, _Size, const _Tp&, allocator<_Tp2>&) [with _ForwardIterator = vector<vector<Term> >*; _Size = long unsigned int; _Tp = vector<vector<Term> >; _Tp2 = vector<vector<Term> >]’
+  472 |       return std::uninitialized_fill_n(__first, __n, __x);
+      |              ~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+/usr/include/c++/14/bits/stl_vector.h:1709:33:   required from ‘void std::vector<_Tp, _Alloc>::_M_fill_initialize(size_type, const value_type&) [with _Tp = std::vector<std::vector<Term> >; _Alloc = std::allocator<std::vector<std::vector<Term> > >; size_type = long unsigned int; value_type = std::vector<std::vector<Term> >]’
+ 1709 |           std::__uninitialized_fill_n_a(this->_M_impl._M_start, __n, __value,
+      |           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 1710 |                                         _M_get_Tp_allocator());
+      |                                         ~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/14/bits/stl_vector.h:572:9:   required from ‘std::vector<_Tp, _Alloc>::vector(size_type, const value_type&, const allocator_type&) [with _Tp = std::vector<std::vector<Term> >; _Alloc = std::allocator<std::vector<std::vector<Term> > >; size_type = long unsigned int; value_type = std::vector<std::vector<Term> >; allocator_type = std::allocator<std::vector<std::vector<Term> > >]’
+  572 |       { _M_fill_initialize(__n, __value); }
+      |         ^~~~~~~~~~~~~~~~~~
+/workspace/poisson-p4/code/s61_nonsquare_prePOWER_K92_tropical_prefix32_20261105_v63.cpp:23:56:   required from here
+   23 | vector<vector<vector<Term>>>M(N,vector<vector<Term>>(N));
+      |                                                        ^
+/usr/include/c++/14/bits/stl_uninitialized.h:90:56: error: static assertion failed: result type must be constructible from input type
+   90 |       static_assert(is_constructible<_ValueType, _Tp>::value,
+      |                                                        ^~~~~
+/usr/include/c++/14/bits/stl_uninitialized.h:90:56: note: ‘std::integral_constant<bool, false>::value’ evaluates to false

@@ -1,6 +1,6 @@
 # Poisson structures on projective four-space
 
-nil特殊比較の実HF初三層(5,5,3)と全長十六、元比較cokernelのell二乗商長十四を独立検証した。元Tは全長十一・HF(5,3,2,1)・Loewy四。元nil三乗、H0長とtorsion指数、大域FULLU57/239と全分類上界は未決で、実研究を続ける。下界58（rank4は52）、NEW既約式28次、五凍結原稿を維持する。
+nil特殊比較の全Hilbert候補を5533又は55321の二択へ絞った。ell二乗の実conormal単元写像とhonest比較の完全な形式表示を独立検証し、H0長と元nil三乗の判定を続ける。一般betaは実47対消去。元T全長十一・B18深さ19/18、下界58（rank4は52）、NEW既約式28次、五凍結原稿を維持し、全分類上界は未解決。
 
 新25成分の全Poisson一般横断長さは正確に5。n111の全完成環 C[[s25,u,v]]/(uv,u³,v³) とCM type2を証明・独立監査し、[14ページの独立原稿](papers/positive_weight6_component_ja.pdf)に保存した。全52 rank4成分のdense S61写像が揃った。新一次像は15次元・方程式次数22以上だが実方程式、全境界、全分類は未解決。以下は以前の記録を含む。
 
