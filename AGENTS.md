@@ -2,6 +2,23 @@
 
 Version: v63-s61 · 2026-11-05 (Asia/Tokyo).
 
+Latest CG (2026-11-05): GenuineC[ell] EXACTR0typeJ2(r)+k²,mu3/socle3/m²ann.
+ActualE7cofs α(−85/6,8315/432),β(275/3,−359975/1728); fixedI3/kernelI4 independent.
+Ractionlow→high [[3/5,−6],[121/80,−121/8]],z7/ell0, bycorrectedcycles/−HB; F_DONLYnotR0stable.
+OriginalconnectinghonestM7=Told/(z7,r²)Told=J2²+k³;ITold4⊂Kbar7;remainingkernel3.
+Actualfiveheadmap17parametersOPEN; χ=(0,0,c/4,c,d),c,dnotboth0. RegDivellBEFOREfiniteNF.
+Full918factoredR SOURCE allFRF/2349DAG/28unitblock peerPASS; arbitraryRHSheightseparate.
+Fourpointdualrows actual99bit; alpha918supports34/52/all836G3zero independentlyverified.
+Actualrho1144supports24/42/56unit+1836rhoF=alpha peerPASS; trueimageonly, noRHSZ2/b1/upper/HFclaim.
+NextD=Cfull−rhoM0 SOURCE; all617functional/cross/pivotcarry retained. OLD4pivots notK99old80.
+NativeindividualL2S0notdropped; noautomaticmixedcallback/honesthigherdescent.
+Q1namedJunitvaluationEXACT0/all606 independentdHorner; noJquotient/GCD/complementclaim.
+RemainingB SOURCE b1notunit; primitivebinaryGL2det1000a auxiliaryonly, freshcode/GO beforevalues.
+Genericcol53SOURCE150kCOPYguard after8losslesssnapshots/oldhashes; noVALUE/capraise/retry.
+Nextsavedphase07 offsetviews+fusedunion SOURCE, full167x14/87+66/oneP290/allcomplements kept.
+Ctors1123/length7 NOToriginalH0; originalnil3..6/H0/cubeOPEN, bounds58/r4lower52/upperNULL.
+Fivepapersfrozen; continueactualresearch/mainordinarypush; checkpointNOTstop.
+
 Latest CF (2026-11-05): COMPARISON C EXACT Dtorsiontype1123/length7 independentlyPROVED.
 FullC HF3666444.../series(3+3t−2t⁴)/(1−t);m2tors(2,2),m3torsk²,m4Dfree4.
 τABphysical18residual1331/9216/minor−1331/15360; independentexpanded39symbolvalues/all18NF15resids.

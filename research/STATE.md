@@ -1,5 +1,29 @@
 # 研究状態 — v63-s61 / 2026-11-05
 
+## v63 CG / 2026-11-05: 真正C[ell]の加群型と元connecting七次元商・実alpha/rho
+
+直前 main `b2775c0f714580228c6c14cd0f06c11765f6adca` は通常push済み。
+
+比較Cのtorsion型1123を使い、真正C[ell]の具体的な四次元座標とR0加群型を決定した。C4のfiltered23基底からD自由補成分Fをprimitiveに選び、七次元D商のell表の四係数を既存C2だけで求めた。alpha=(−85/6,8315/432)、beta=(275/3,−359975/1728)で、独立な全60項逆順収縮・7対7 E表・7対4 kernel・固定I3/I4・E二乗rank一/E三乗零が一致した。
+
+FはR0安定ではないため、D商の単純な商作用を使わない。canonical R0線形同型C[ell]=ker(ell:C4→C4)/im ell三乗を用い、低二cycleの自由二次補正Y2と、残る未知Y3を保持した。mY3はm四乗C4からim ell三乗へ入るので真正作用には影響しない。四つのr作用operatorが既存HB operatorの負に厳密一致し、低二生成元から高二socleへの行列は[[3/5,−6],[121/80,−121/8]]、rank一である。他のz七変数・ellは零、高二生成元はmで零化される。従って真正C[ell]はJ2(r)直和k二個、最小生成数三、socle次元三、m二乗零化となった。新しいphysical/IFT/gauge値は使っていない。
+
+これを元connectingへ接続するhonest商も作った。Told十一をI=(z七変数,r二乗)で切るとM七=J2二個直和k三個となる。全37一次関係のr係数はrank三、固定minor−36333/20を独立確認した。I Toldの四literal基底は実Kbar七に入り、正確列0→I Told四→Kbar七→ker(M七→真正G四)三→0を得る。これはKbar/I Kbarではなく、naiveなhomology basechangeを使わない。実五headのcyclic-top行chiは(0,0,c/4,c,d)、c,dは同時に零でないと分かり、残る実connecting写像は17有理数parameterの未評価問題である。
+
+次のSOURCEでは、旧五headを同じFULL_R0_F9/ELL0_F9 cloneで戻し、literalchain Q48 bottom三行と−U8を保持する。RegDivellは有限NFより前に行う。七次元targetへの射影はdegree三以下だけを使うが、ellで割る前のpureplane分子四次の必要係数は明示して保持し、未計算値を零としない。genuine targetの加群型だけから元H0やnil三乗は結論しない。
+
+T2では指定strandの全918に対応するfactored rightsolveを独立検証した。2349 scalar node・162 literal単元・固定28単元blockで全918 F R F=Fを満たし、dense inverseは不要である。これは真のF像上のsolveで、像外の正準性や任意の将来RHSの高さは別である。
+
+全396 Kfullから固定四point双対行を、384commit/1153temporaryの変更しないguard付き一回計算で得た。coarse424bit boundのfullalphaは実行せず、実四行の99bit結果から後段boundを絞った。全792 point恒等式を独立確認し、alphaの全1836 slot・50 preJ25・全836 G3零化が別の収縮順でも一致した。alpha supportは34/52。続いて332-node逆DAGとUtranspose二十八単元を使ってrho二行を求め、support24/42・全56 unit式・全1836 rhoF=alphaを独立確認した。真の像上で正しいfunctionalだが、Z2、b1項、617 upper関係像、HF2やT2全長は未計算である。
+
+実rhoではzz候補が全て相殺し、残るpairはz0,z1,z4,z5とr/ellの八mixed pairだけだった。次は既知point行列だけのD=Cfull−rhoM0を先に調べ、Γ(Xc三次−Xp二次a1)+D(Xc二次−Xp一次a1)という全617 functionalを保持してsource依存性を調べる。旧四pivot604/613/622/631はK99のold80列には無いので、その二次項へ旧order証明を流用しない。native個別pivotもL二次S0を落とさず、source Z2やhonest高次を勝手にcacheへ降ろさない。
+
+大域第二tail Q1の指定J=5ad−6e−4重複度は零となった。k零606項非零を得て直ちに止め、別のdescending-d整数Hornerが元4811係数から全606・numeric D*5十八乗・symbolic a十八乗を再構築した。Jのprimitive係数gcd一をunit idealとは混同せず、普通多項式環での正確な重複度である。J商は作らず、任意因子/GCDや補集合消尽も主張しない。残る既知B単元のSOURCEは、未知の先頭係数b1を単元とせず、primitive/Gaussとdet1000aの補助binary GL2恒等式を使って準備する。
+
+一般五点col53はSOURCE資源上限の局所的な障害が続く。変更SOURCEは旧八境界hashを全再現し、全LIVE supportのlossless snapshotも保存したが、monomial/scalar copyの一時支持複製で150k guardへ達した。係数VALUEは一件も求めていない。次は保存済みphase07からだけ再開し、immutable supportと正確なoffset view、唯一所有accumulatorへのMinkowski union融合を別SOURCEとして検証する。前の停止code・全prefixを残し、capを引き上げず、全167対14・87追加RHS・66制約・one P290・全補集合を保持する。将来の値計算には別の厳密H区分予算が必要である。
+
+比較Cのtorsion長七と元H0の長さは区別する。元nil指数3〜6・零次数ideal最小五生成・下界58（rank4は52）・全分類上界未確定・NEW式28次・五凍結原稿は維持する。元H0・nil三乗・正確な指数、全FULLU57/239、全大域境界と一般五点尽くしは未完了で、保存後も研究を続ける。
+
 ## v63 CF / 2026-11-05: 比較Cのtorsion型1123と全HFの確定・実K396・第一tailの4500項表示
 
 直前 main `ce7dd5d469c9fd4b0c74005b1c48313d7e31d657` は通常push済み。

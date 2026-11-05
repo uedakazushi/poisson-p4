@@ -1,0 +1,9 @@
+# Prepared two rho coefficient rows from the factored transpose
+
+The immutable worker is prepared and unrun. It reverses the literal pruned332-node linear source circuit using actual accepted alpha. At the contiguous28-component unit barrier it solves U transpose by the exact28 no-fill singleton steps, checks all56 literal equations and adds the resulting contributions to existing prefix adjoints before continuing. No inverse, rank search or arbitrary formal RHS is evaluated.
+
+Every coefficient product, addition and division by a known nonzero integer unit is guarded against the source-derived201-bit prior before commit; temporary412/604-style bounds are within unchanged384/1153 limits. Every unit RHS/solution and all1144 rho coordinates per channel are checked against the positive envelopes. Every one of the1836 rhoF=alpha identities is evaluated using the original full102 G2linear source columns and44 ordinary quadratic pairs, retaining only the coefficient-ring relation ell squared zero.
+
+Guard or source-identity failure saves exact operation operands/cursor/accumulator, current adjoint map, unit RHS/current solutions/deferred state, completed rows and identity prefixes. No retry, cap increase or unavailable callback zero is permitted. The literal input/code/whole-live/RAW and guard-state bounds are fixed in custody; no local helper is imported and --help performs no arithmetic.
+
+The output contains only two coefficient rows on formal1144 inputs, the56 unit checks and1836 source identities. Actual RHS/sourceZ2 values, honest second coefficients, proper/gauge response availability, b1 pairings, upper617 relation values and Hilbert/length consequences are not computed. They require new source-support/descent and resource gates. Fresh independent source/code/custody review and parent GO are required before execution.

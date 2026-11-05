@@ -1,0 +1,25 @@
+/workspace/poisson-p4/code/s61_nonsquare_Q1_J_hasse_20261105_v63.cpp: In function ‘void update(Poly&, int, const Z&)’:
+/workspace/poisson-p4/code/s61_nonsquare_Q1_J_hasse_20261105_v63.cpp:26:6: error: declaration of ‘int a’ shadows a parameter
+   26 |  int a=key/1024,e=key%1024;if(a<0||a>34||e<0||e>51-kcur||a+e>68-kcur)throw Stop("bivariate_support_guard");
+      |      ^
+/workspace/poisson-p4/code/s61_nonsquare_Q1_J_hasse_20261105_v63.cpp:25:25: note: ‘Poly& a’ previously declared here
+   25 | static void update(Poly&a,int key,const Z&v){
+      |                    ~~~~~^
+/workspace/poisson-p4/code/s61_nonsquare_Q1_J_hasse_20261105_v63.cpp:27:12: error: request for member ‘find’ in ‘a’, which is of non-class type ‘int’
+   27 |  auto it=a.find(key);Z x;if(it==a.end())fmpz_set(x.v,v.v);else fmpz_add(x.v,it->second.v,v.v);bits(x);
+      |            ^~~~
+/workspace/poisson-p4/code/s61_nonsquare_Q1_J_hasse_20261105_v63.cpp:27:35: error: request for member ‘end’ in ‘a’, which is of non-class type ‘int’
+   27 |  auto it=a.find(key);Z x;if(it==a.end())fmpz_set(x.v,v.v);else fmpz_add(x.v,it->second.v,v.v);bits(x);
+      |                                   ^~~
+/workspace/poisson-p4/code/s61_nonsquare_Q1_J_hasse_20261105_v63.cpp:28:33: error: request for member ‘end’ in ‘a’, which is of non-class type ‘int’
+   28 |  if(fmpz_is_zero(x.v)){if(it!=a.end()){a.erase(it);--accsize;}return;}
+      |                                 ^~~
+/workspace/poisson-p4/code/s61_nonsquare_Q1_J_hasse_20261105_v63.cpp:28:42: error: request for member ‘erase’ in ‘a’, which is of non-class type ‘int’
+   28 |  if(fmpz_is_zero(x.v)){if(it!=a.end()){a.erase(it);--accsize;}return;}
+      |                                          ^~~~~
+/workspace/poisson-p4/code/s61_nonsquare_Q1_J_hasse_20261105_v63.cpp:29:11: error: request for member ‘end’ in ‘a’, which is of non-class type ‘int’
+   29 |  if(it==a.end()){own(ninput,powslots,accsize+1);a.emplace(key,std::move(x));++accsize;}else fmpz_swap(it->second.v,x.v);
+      |           ^~~
+/workspace/poisson-p4/code/s61_nonsquare_Q1_J_hasse_20261105_v63.cpp:29:51: error: request for member ‘emplace’ in ‘a’, which is of non-class type ‘int’
+   29 |  if(it==a.end()){own(ninput,powslots,accsize+1);a.emplace(key,std::move(x));++accsize;}else fmpz_swap(it->second.v,x.v);
+      |                                                   ^~~~~~~

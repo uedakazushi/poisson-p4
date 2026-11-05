@@ -1,0 +1,9 @@
+# 固定row6/col53係数側SOURCEの60秒frontier
+
+変更した係数側SOURCEは、old callbackの支持/hash一致を経て、raw11成分のうち8成分の完了phaseを保存した。第9成分のaccumulator hashで60秒に達した。係数値は作っておらず、150k ownedガードは発火していない。code374bb437・helper66384df0・全phase・partial・failure bytesを保存し、再実行しない。本reportは保存profileのread-only診断であり、完了profileとは呼ばない。
+
+最大の完全accumulatorは36620支持、最大H断片は2970。共通UF10、C10Ni56、C9C10alphaのpositive支持は951・1762・5794、各H最大は189・397・672である。これはSOURCE正係数支持上界であり、実際の係数支持を評価した結果ではない。whole VALUE mapはこの出力だけで7*36620=256340のforecastである。一方、現在の単一H断片は7*2970=20790だが、共通map・全中間・metadata・codecを加えた全worker予算は未証明なので、これをGOにはしない。
+
+次SOURCE方式の提案は、巨大な中間nodeごとのtuplelex sortを避け、card/BOX/Hcountsとliteral DAGを保存し、旧callback境界およびraw成分境界だけhashを検査するものとする。各phase終了時に全LIVE packed支持を無圧縮5byte整数でstream保存すれば、次の再開で支持計算を失わずに済む。旧8成分の支持回復にも新しい独立code・SOURCE予算が必要で、同じ失敗workerの自動再試行を許可するものではない。
+
+将来はH区間からの厳密なbackpropでVALUEの途中支持を制限できる可能性があるが、現時点では新SOURCE/値のいずれもこのreportから許可しない。全167×14、87追加RHS、66制約RHS、P290一回、F9/F10とすべての補集合・復元式は保持する。

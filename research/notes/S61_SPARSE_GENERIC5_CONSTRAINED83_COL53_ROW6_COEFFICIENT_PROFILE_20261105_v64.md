@@ -1,0 +1,9 @@
+# 変更した係数側SOURCE：固定row6/col53のみ
+
+旧50,335支持のhash jobは再実行しない。e2968d3bの11行係数順序を用い、同じ既存col56 callbackのN8_i56/N8_58,56の支持だけを再構成し、実係数を評価せずにPlücker係数側を先にまとめるSOURCE実験である。row6とcol53は固定で、別の行・列や重みの検索を行わない。
+
+SOURCE支持のpackは全5パラメータ指数を正確に保ち、各積のBOXを前もって検査する。canonical decoded tuplelex hashはH指数ごとのalias配列を一つずつ作り、解放して次へ進む。旧全alias配列を再び確保せず、各H断片の全owned予測が150000を越えれば停止する。旧STOP164259と全prefixは不変更である。
+
+旧700演算の必要closureだけを読み、全保存support hashとQQ scalingを一致させる。N8_i56を新しい数値cacheとして扱わない。Ui等・原始列値・C10Ni56・UF10は既存入力または受理済みbinary値の単項式変換である。SOURCEは支持と正係数majorantだけを運び、新しい行列係数やscalar VALUEを作らない。raw11行への収縮はmonomial項ごとに加え、不要な大きい中間列を先に生成しない。
+
+support開始前にcold parse、全metadata、leaf parse、binary decode、全READ集合と全新出力を課金したgateを保存する。各raw成分のSOURCE phaseを別ファイルに保存してmetadataを解放し、未完了ならpartial profilesと失敗理由を残す。60秒/2GB/150kowned/32MiB全RAW。将来VALUEの7numeric/termやcodec予算は別であり、本SOURCEのpacked値を用いて緩めない。全167×14、87追加RHS、66制約RHS、P290一回、F9/F10を含む全chart補集合と復元式を保持する。全14行のprofileや係数worker GOを主張しない。

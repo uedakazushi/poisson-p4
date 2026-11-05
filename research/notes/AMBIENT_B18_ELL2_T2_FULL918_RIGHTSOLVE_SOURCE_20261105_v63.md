@@ -1,0 +1,11 @@
+# Factored full918 source rightsolve
+
+This packet constructs a literal linear source circuit R from the 1,144 ordinary quadratic output slots to the 918 coefficient-degree-one source slots of the current full G2 map. The active 340 by 252 part uses the independently certified 162 singleton units followed by the fixed 28 by 28 scalar unit. Its inverse remains adjugate divided by the already verified nonzero determinant; no dense inverse is expanded. The singleton source substitutions are serialized in both directions.
+
+The three-zero-variable tensor then uses the literal 306,102,54 and24 pivots. In the actual source convention its equations are P=G2A U minus the sum qi Vi and Qi=G1A Vi plus the alternating zero-variable W terms. The source gauge sets Uzero, the lower-triangular V zero coefficients and one W12 coefficient per head to zero. Together with the active62 free coordinates this leaves exactly242 source gauges and676 nonzero output components. These are chosen source coordinates, not unavailable physical values filled with zero.
+
+Before fixed QQ fixture arithmetic, an independent positive replay bounds every active and full source-generator image, every resulting F R F accumulation, live numerical ownership and total RAW input/output. All252 active A R_A A identities and all918 full F R F identities are then checked exactly and the actual source-generator lifts are saved. Consequently R lifts every true image input, with all1,144 coordinate compatibilities. It does not claim that an arbitrary output vector is liftable.
+
+The accepted strand kernel is the known G3 image of rank242. For a formal source covector alpha that annihilates this kernel, alpha R F=alpha. Therefore alpha R descends to an output covector. The actual alpha, Kfull, rho, b1, source Z2 response, cancellation, output support and future evaluation bounds remain separate. The complete Cfull/Psi correction is required in any future Kfull-based covector.
+
+This source circuit stores only bounded known QQ literals and a factored scalar-unit block. The fixed block inherits the306-bit minor/613-bit difference certificate. No global bound or authority to expand R on arbitrary numeric right-hand sides is inferred from the source proof. Future actual functional composition and higher source queries need their own source, support, ownership and height gates.
