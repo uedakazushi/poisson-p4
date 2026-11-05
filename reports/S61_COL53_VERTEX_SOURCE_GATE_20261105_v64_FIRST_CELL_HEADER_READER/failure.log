@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/workspace/poisson-p4/code/s61_col53_vertex_coefficients_20261105_v64.py", line 107, in <module>
+    p=argparse.ArgumentParser();p.add_argument('--prepare',action='store_true');p.add_argument('--gate-sha');main(p.parse_args())
+                                                                                                             ^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/poisson-p4/code/s61_col53_vertex_coefficients_20261105_v64.py", line 43, in main
+    node['source']=op['source'];p,sc,shift=polynomial(op['source'],prof);leads=vertices(p,shift)
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/poisson-p4/code/s61_col53_vertex_coefficients_20261105_v64.py", line 26, in polynomial
+    return decode(b),Q(1),[0]*5
+           ^^^^^^^^^
+  File "/workspace/poisson-p4/code/s61_sparse_generic5_primitive_binary_codec_20261105_v64.py", line 41, in decode
+    num,den=i(),i();assert num and den>0
+                           ^^^^^^^^^^^^^
+AssertionError

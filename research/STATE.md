@@ -1,5 +1,19 @@
 # 研究状態 — v63-s61 / 2026-11-05
 
+## v63 CJ / 2026-11-06: col53 SOURCE完了・十vertex係数・二tail base ideal
+
+直前 main `d4e48d0b818db3c10600d0b85b200a3b726ee00e` は通常push済み。Cloud開始SHAは`4c3f623fb698f9adc6077015b25e2325b11072af`である。以下の日付は日本時間で記す。
+
+一般五点col53の固定row6では、親が保存済みlive08からだけ再開し、残A44/A52の48項を完了した。全36既存profile・45842 keyをreceiptと照合し、二componentのID退役fixtureを通してから一回SOURCEを行った。最大所有量114086、全READ/生成物19265982 byte、5.35秒で、150k・32MiB・55秒math/60秒hard・2GBを維持した。完了済み八componentや45項は再計算していない。全11componentの正支持は36620、最大H slice2970、Hの範囲−3〜21である。これはsigned実支持ではなく正の和集合である。
+
+次に全entryを展開せず、exposed vertex係数十個を求める別方法を構成した。有限Laurent支持のsigned cyclic lex orderは平行移動と両立するので、積では最小単項式が加算され、和では同じ最小単項式を持つ子だけが係数へ寄与する。元全receiptから1203-node SSA circuitを作り、raw53の再定義を区別した。十vertexは最終正支持snapshotの全keyとも照合した。
+
+旧cacheのQ5CELL1 headerとUF10/C10_Ni56の353894400000およびH*t変換を保ち、初回reader失敗を保存した。V2の算術前上界は全所有84916、係数402bit、VALUE committed640/temporary1921（既存2048以内）、RAW16992633 byte。一回の十係数計算は全て厳密に零であった。entry全体の零・非零、new pivotやrankは何も結論しない。別実装によるこの十係数の確認はまだ未完了。次はH=−3/21の面全体を他の四座標を保って扱うSOURCE/last-use予算を設計する。
+
+二tailについては別stream parserでleading monomialを再構築し、N2がN0を普通多項式環で割らないことを独立確認した。正確な六因子base環QQ[a,e,d,1/(a*d*F*B*C*J)]で六因子の逆順積は元FULLU全49係数に一致し、各既約性・非同伴性も確認した。N2は受理済exact valuationとB四乗恒等式から六反転因子全てと互いに素なので、UFD cancellationによりこの環で(Q2)は(Q0,Q2)に真に含まれる。D12等の追加局所化、strict open、radical、実bad Fittingや補集合消尽には読み替えない。
+
+六担当の容量制約中も親は影響しない作業を継続し、日本時間十一月六日〇時台に六つの既存担当すべてを再開できた。canonical C68の全544/二次320+monic二十は独立確認済みで、次は全carry付きでT2のnative部分へ結ぶ。OLD2 opaque感度、original connectingのhead23と低二行、固定二tailの標数零factor lift、col53面係数は未完了。元H0・nil三乗・正確なnil指数・T2全長17〜20、全FULLU57/239、一般五点尽くしと全分類上界も未解決。下界58（rank4は52）、元nil指数3〜6、NEW式28次と五凍結原稿を維持し、保存を研究完了とは扱わない。
+
 ## v63 CI / 2026-11-05: native C68の全二次係数・接続三行adjoint・容量制約下の継続
 
 直前 main `ab90df1e6524aee94a3f10d611170acc3c23c23f` は通常push済み。Cloud開始SHAは`4c3f623fb698f9adc6077015b25e2325b11072af`である。
