@@ -1,0 +1,9 @@
+# 完全661二次列の独立source・carry・階数監査
+
+独立監査済み120 gaugeと実C1を入力に使い、新しいsourceやgaugeの求解はしない。全1239 typedBと768 C0の二次known代表を既存共通105・copied57と真の正則商一次値から再構成する。正則商の未入力二次係数は原点gradientとして形式的に保持し、各complete661 sourceの全B/P成分で消えることをtransportより先に確認する。
+
+R9のKoszul6⊗HB2を別の有限trace代数で評価する。native三次には既知proper二次から作るlower代表だけを使い、未知最高係数のmonic・u5・core応答を原点のC4+epsilon代数で独立確認する。実B0零とrow20原点零は旧sourceの最高項を消す。
+
+実canonical m1は必要なprefix係数だけを読む。base25に無いpairを零とせず例外とし、last componentのpure-r未知係数は18個のrestricted-source cycle恒等式へ置換する。独自のordered-Hadamard/Euler stencilでsource補正と実C1 carryを作り、15 mixed d3を保持する。1983個のpure-r二次cycle、literal零行2と別監査済みfree43行3も確認する。
+
+最後は指定された3×3 minorの両側逆・行列式・全661列factorizationだけを検査し、階数探索をしない。完全operatorの階数3ならTnilの最初の三層は(5,5,3)。総長さ、三次以降、nil生成元・nil三乗は別問題である。

@@ -2,6 +2,17 @@
 
 Version: v63-s61 · 2026-11-05 (Asia/Tokyo).
 
+Latest BS (2026-11-05): ACTUALTnil HFthrough2=(5,5,3) independentlyPROVED.
+Complete6x661rank3 incl15mixed; fixednonzero3minor ANDall661factorization.
+Tnil length16 =>m3length3; actualm3=rA*m2 byverifiedcubicreduction+Nakayama.
+Allhigher=rApowers; m2rAJordan411/321/222, fullHF5533/55321/553111 undecided.
+Completeactualcubicvalues/nilcubeOPEN.
+ActualC/ell2C length14, ellrank6 =>(D/ell2)^6+k² independentlySOURCEreviewed.
+FourCtors exponents: exactlytwo=1, two>=2; exacttwohigherexponentsOPEN.
+NOhonestT2/Ktorsion/H0length inference fromfinitebasehomology.
+OriginalTlength11/HF5321/Loewy4,nilDVRrank11/mu14/torsmu3/depth19/18unchanged.
+Originalnilindex3..7,globalFULLU57/239/exhaustion/upperOPEN; continueactualwork/mainpush.
+
 Latest BR (2026-11-05): ACTUALT TOTALlength11/HF(5,3,2,1)/m4T0 independentlyPROVED.
 Witness580(original768 406:-8/3,647:60,710:1) correctedquartic40553074375/178412544NONZERO.
 AllhonestsecondLIN+QUADcancel; noall619claim. TLoewy4 isNOTnilidealindex.

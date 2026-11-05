@@ -1,0 +1,3 @@
+# Exact46 fixed-format metadata budget
+
+The source-only mixed gate80229430... roundtripped all current values but the generic1MiB metadata allowance forecast33,952,204 RAW bytes. This metadata-only supplement uses the already-computed binary payload/index sizes and exact fixed writer formats. Bounded additional read files160000 bytes, source ledger,190 row hash records, output hash map and final ledger fit524288 metadata bytes. Full33,427,916 remains below the unchanged32MiB limit; owned110961,60s/2GB unchanged. No coefficient recomputation, pivot, GCD, point, prime, loss or old-byte deletion occurs.

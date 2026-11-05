@@ -1,0 +1,7 @@
+# Changed method: exact binary literal row outputs
+
+Both source frontier chunks retained nine RAW-unsafe JSON-output candidates; this is not all-unit failure. This one SOURCE-only preflight takes the already source-bound candidate(76,66) and recomputes its exact support/height bounds for uncompressed binary row files and complete paired cell indices. No coefficient product, elimination, GCD, point or prime is computed.
+
+For a new entry with common integer denominator D and numerator coefficient magnitudes at most M, the canonical rational content has numerator at most M and denominator at most D; every primitive integer coefficient has magnitude at most M. Exact signed-magnitude byte lengths and support-derived exponent lengths therefore give a rigorous binary-size bound without assuming any factor or cancellation. All cell indices, optional monomial coefficients/exponents, headers, hashes and versions are included. The writer's extra binary/FLINT roundtrip scratch and every retained metadata scalar are charged.
+
+If safe, the sole authorized pivot must compare every encoded output cell back to its computed QQ polynomial, publish both row files and paired indices atomically, and keep all prior JSON/binary data and unsafe source forecasts. Fresh32MiB RAW,150000 owned slots,60s/2GB remain unchanged. No new nonmonomial inversion, general field Gaussian search, source point, prime, GCD or exhaustion is authorized.
