@@ -1,0 +1,9 @@
+# Full G3-linear constant-kernel source gate
+
+The complete current C2 resolution has ranks 3,26,102,418. Its zero-action variables are zA2,zA3,zA6. The first238 third sources come from the active resolution. A fixed projection on180 distinct zero-variable target slots sends all418 source columns to `[0,diag(+/-1)]`. It follows that the full constant kernel of G3-linear is exactly the kernel of the active252-by238 matrix. The source gate checks all418 projected columns directly; it performs no rank search.
+
+This is the **full** G3-linear kernel, not the earlier withdrawn kernel of its rank25 projection. If a constant source vector c is in the full kernel, the quadratic term after the final99 unit cancellations is the constant quotient projection of G3-quadratic applied to c: the unknown derivative of that quotient multiplies G3-linear(c)=0. G3 has bottomzero to all orders; the first27 source cancellations therefore do not alter it. The later coherent normalization is a constant target frame change. None of this identifies the true unit-transported G3-quadratic coefficients with raw d3 coefficients. Their exact source and Taylor2 cost require a separate gate.
+
+For a possible next rank job the static representation keeps normalized basis columns and one partition of238-source vectors into basis representations and triangular kernel columns. It does not also retain a dense factor matrix or duplicate elimination trace. At most252*238+238*238 such coefficient slots are required, plus inputs and bounded scratch. The384-bit guard is a fail-closed cap; no guarantee that Gaussian intermediates meet it is asserted. Failure preserves the frontier and does not authorize a larger cap or retry.
+
+The source gate makes no new physical, implicit, comparison, or quadratic coefficient query and makes no claim about actual T2 HF beyond(6,6), its total length17..20, or H0 torsion exponents. The coarse known-linear GB cover has prefix24>20 and is stopped.

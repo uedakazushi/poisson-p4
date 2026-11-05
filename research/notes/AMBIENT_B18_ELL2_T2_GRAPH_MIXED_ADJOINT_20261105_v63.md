@@ -1,0 +1,6 @@
+# 混合sourceの二不変量adjoint
+
+まず全Phi2と選択Phi3の180output、必要ならplane Phi4を加えた186outputを使う。
+全286domain（F1全234係数と未知F2plane52係数）で二不変量の恒等式を確認する。
+未知F2を零としていない。成功しても新しいPhi3/Phi4やM1/M2値は求めず、
+source callbackの正確なsupportと既存cache overlapを次のgateへ渡す。

@@ -1,0 +1,7 @@
+# 286入力へのexact adjoint二本と180出力obstructionの独立検証
+
+二つの保存rhoを全186列へ代入し、全234 F1係数と全52 F2 nuisance係数で対象不変量に一致することを確認する。特にF2係数は全て厳密に零になる。rho supportは11個と16個で、必要source出力の和集合は二次6個・選択三次6個・plane四次4個である。solveやrank探索を再実行しない。
+
+先頭180出力だけの場合の二dualも全列を零化し、対象へのpairing非零を確認する。完全186出力では成功するため、原点線形・plane制限で失われたliftability情報をmixed-z制約が補う。
+
+これでalpha=rho0 Phi、beta=rho1 Phiは厳密なsource式になるが、Phiやgraphの実値は求めていない。必要mixed三次・四次のancestorと既存cacheへのfunctionalな対応を別に確認する必要があり、まだ新しい物理source計算が必要だと結論しない。

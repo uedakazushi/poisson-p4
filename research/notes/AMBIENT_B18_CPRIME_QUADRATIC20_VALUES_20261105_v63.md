@@ -1,0 +1,13 @@
+# complete4×20の既存source二次値
+
+2026-11-05。prepared bounded worker。値jobを走らせる前にSOURCE peerのreceiptを引数で固定する。
+FULL9巨大JSONは全体decodeせず、独立したselective subset6270係数と必要ラベルだけを読む。
+他の大きい入力も必要なtop-level fieldsだけをdecodeし、入力RAWと出力の合計32MiBを保つ。
+
+full adapter2の曲率を含むCA/CB own57の合成を全114元方程式で確認する。
+B26旧値との一致を保ち、ell²のcanonical gauge三十係数だけをJ30から補正する。
+全proper formulaをtrace代数で評価した後に、双対が読むplane三方向を取り出す。
+全九変数V1の定数kernel二十列により、保存する4×20は二次initialの完全operatorである。
+
+このjobだけではCprimeの長いtorsion指数や元nilcubeを決めない。
+必要なら、得られた真の二次initialと既知一次式から次の小さいcubic上界を別に構成する。

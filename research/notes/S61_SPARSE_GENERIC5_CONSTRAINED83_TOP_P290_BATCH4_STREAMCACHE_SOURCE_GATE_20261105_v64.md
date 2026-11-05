@@ -1,0 +1,3 @@
+# Fourth16-cell batch: fresh SOURCE/support/bit/storage gate
+
+Start from cumulative48 exact cells, excluding all evaluated rows by the frozen layerbe1714e3. Select the next four deterministic remaining low-cost rows. The same exact packed-support box/injectivity/signed63-bit proof and one-cached-factor residency apply, without re-evaluating earlier coefficients. Prove parser, product/add, binary and preparation bounds against the stricter56473 owned cap and32MiB RAW before any coefficient job. All16 forecasts are saved incrementally; unsafe storage or support is retained honestly rather than raising caps. Old20columns/full177rows/66formalzero proofs/coker/chart and complements remain unchanged; no full111/inverse/exhaustion claim.

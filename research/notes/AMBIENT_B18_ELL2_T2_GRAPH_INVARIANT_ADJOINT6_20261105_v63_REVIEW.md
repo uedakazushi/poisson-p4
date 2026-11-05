@@ -1,0 +1,7 @@
+# 二graph不変量adjointの不成立：独立dual検証
+
+全234入力に対する六列はliteral零である。両不変量に対する標準dual e115（F1のsource12、rA係数）は六列を零化し、不変量へのpairingはそれぞれ非零の保存値と一致する。solveを再実行していない。
+
+さらにG1linearのsource12列自体がliteral零なので、同じe115はG1linearの全132二次出力を零化する。従って両不変量はrr/rellへの制限だけでなく、全二次出力の任意の線形汎関数からも回収できない。これは原点線形strandの限界であり、canonical M1やgraph値の零性を主張しない。
+
+新しいsource係数、adjoint solve、M1実値、高次HF・T2長は求めていない。次段階には正確なG1多項式・比較sourceの別のorder economyが必要である。

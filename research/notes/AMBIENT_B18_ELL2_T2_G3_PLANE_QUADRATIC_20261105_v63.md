@@ -1,0 +1,7 @@
+# Actual enlarged G3 quadratic values
+
+This prepared root-gated worker evaluates the factored218 quadratic initial classes supplied by the independently verified source gate. It retains the leading minus sign in the inverse derivative. Ell-squared terms are omitted exactly in the base ring, not filled from a cache. All constant-unit projection corrections were removed only after the separate378 target*z*variable normal-form proof. The nonzero pre-projection first z terms remain in the source certificate.
+
+The two known factors and fixed L48 normal form give6 projected coordinates per source. Every value is checked against its positive common-denominator/absolute-numerator envelope. The global positive envelope has a75-bit denominator and75-bit cleared numerator bound. Integer minors of order at most6 are bounded by6!*U^6, giving460 bits, and normalized Gaussian/Cramer/source-representation coefficients by535 bits. Uncommitted scalar product/addition bounds are1606 bits; the separate2048-bit hard guard therefore does not rest on an arbitrary cap increase. All rank columns have original-source factors and a nonzero selected-minor pivot product.
+
+The resulting span supplies actual quadratic initial relations and a sufficient known upper cover. It is not a complete calculation of actual HF2, total T2 length, or torsion exponents. A fresh bounded overlap/initial-closure gate is needed before using any new upper length. Allzero stops only this source family.

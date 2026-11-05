@@ -1,0 +1,9 @@
+# K92：全a軸を整数多項式Bareissで一括判定するsource
+
+定数kernelは左右とも全a軸へ延長しなかった。これはrank六を棄却するものではなく、定数normalizerを棄却するだけである。次は三変数の有理関数Gaussianを再試行せず、579係数・degree八の整数一変数行列を有限のfraction-free Bareissで扱う案をsource計測する。
+
+全minorは次数88以下、L1は11!と各行entry最大L1の積以下である。未約分積・差・整数長除算の残余は別にH²倍で評価する。非monic divisorを有理関数へ変えず、既知の整数多項式exactdivisionとして商・零余りを検証する。
+
+rankは非零polynomial pivotと最後の零blockで証明する。sourceに根を選ばず、値の点やprimeを使わない。全階数はQQ(a)上だけであり、元FULLUへd=0を代入する点wiseの主張ではない。全11detが非零なら元detMのe^0d^0係数多項式に戻せるが、独立peerまではprimaryとする。
+
+各stageは更新したremaining blockだけを保存し、前matrixと除算を再構成できる。45秒guardでは全matrix・五buffer・正確な演算cursorを保存し、capを上げず自動続行しない。SOURCE段階で新しいrankや多項式除算は行わない。

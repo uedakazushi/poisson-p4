@@ -1,0 +1,7 @@
+# K92：同じ固定重みの有限多項式行列の終端face
+
+新weightを取らず、同じtの最高次数側を調べる。元の全121個の正確な有限QQ[t]多項式から各entryの最高次数と係数を読み、最大次数matchingと双対potentialを求める。全最適matchingがtight edgeだけを通るため、終端係数は固定11角定数faceの行列式に等しい。
+
+元M11との行列式差は既知のQQ定数とt^232227だけである。終端次数を元のweightへ戻し、混合radixで元Newton boxと全半空間条件を確認する。範囲外なら、このfaceは必ず特異であり非零探索をしない。元行列式全体の零とは別である。
+
+SOURCE段階は定数faceの行列式やrankをまだ計算しない。unique matchingの有無、全tight係数、整数行分母、bit・slot・RAW上界を保存する。特異が強制されてもunit minor/kernel profileが有用なら別budgetで一回だけ検証し、blindな係数範囲拡大はしない。

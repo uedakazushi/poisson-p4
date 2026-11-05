@@ -1,0 +1,7 @@
+# 選択22だけでなく全175のsourceとRHS
+
+二つの実単元を削除した全残余は175対22であり、109top行と旧66零制約行から成る。具体的に保存した固定22対22はその一部分に過ぎず、全体と同じcokernelとはしない。87の追加top整合式と66零行のRHSをすべて保持する。
+
+元full177型付きrootへ一度だけ四列P290 scaleを適用したAを基準に、全175・全22columnに同じ添字付きSchur式を指定する。旧零行が新たにも零であることはaccepted実rank-basis証明に従い、unknown係数を0へ置換しない。二単元によりcoker(full177x24)≅coker(full175x22)で、後者はcoker(top109x22)直和K5^66。rankは2だけ分離できるが、残余rank22や選択固定24のbasisは未証明。
+
+復元はx51、x49、単一P290 scale、十constraint変数、旧49対の順で元83 unknownへ戻し、元normal42の41..82を読み出す。全chart・補集合義務を保つ。新しいpolynomial係数更新は行わない。

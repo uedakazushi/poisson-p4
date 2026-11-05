@@ -1,0 +1,9 @@
+# 六component汎関数のraw33 factor入力：独立検証
+
+作用を逆順に用いて全660通常単項式の実raw33 NFを独立復元し、33 literal基底単項式が単位ベクトルになることを確認する。保存rhoから三componentずつの元Taylor汎関数と候補bar-rhoを読み直す。この段階ではfactor一致の3960判定や値dotを行わない。
+
+元汎関数はm5を零化し、実raw33もm5を零化する。従って次段階で全660単項式・六componentの一致が成り立てば、全形式函数に対するfactorとなる。単なる有限jet値の推測ではない。
+
+scalar raw33→plane9は全297座標intertwinerだけでなく全1089積でも検証する。source上も、z=0ではIAがorder3、IBがorder2なので積idealはm5へ入り、このquotientは正当である。従ってplane四次が既存raw33に残ることは確認できるが、mixedを含む最終rhoのfactor判定はまだ必要である。
+
+slot上界45839は150000以内。新しいsource係数、factor verdict、Phi/M1・不変量実値は求めていない。

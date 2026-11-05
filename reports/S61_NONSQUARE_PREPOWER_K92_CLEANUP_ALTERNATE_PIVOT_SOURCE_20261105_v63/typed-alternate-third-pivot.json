@@ -1,0 +1,103 @@
+{
+  "nodes": [
+    {
+      "name": "Tprime",
+      "shape": [
+        7,
+        7
+      ],
+      "op": "external_genericcleanup_bridge",
+      "all7Ncallbacks_retained": true
+    },
+    {
+      "name": "P2",
+      "shape": [
+        2,
+        2
+      ],
+      "op": "submatrix",
+      "rows": [
+        0,
+        6
+      ],
+      "columns": [
+        0,
+        6
+      ]
+    },
+    {
+      "name": "Ualt",
+      "shape": [],
+      "op": "oneborderedSchurentry",
+      "formula": "Tprime[2,1]-Tprime[2,[0,6]]*P2^-1*Tprime[[0,6],1]",
+      "parameter_inverse_only": "detP2"
+    },
+    {
+      "name": "P3alt",
+      "shape": [
+        3,
+        3
+      ],
+      "op": "submatrix",
+      "rows": [
+        0,
+        6,
+        2
+      ],
+      "columns": [
+        0,
+        6,
+        1
+      ],
+      "determinant_identity": "detP2*Ualt"
+    },
+    {
+      "name": "remaining4alt",
+      "shape": [
+        4,
+        4
+      ],
+      "op": "Schur",
+      "pivot_rows": [
+        0,
+        6,
+        2
+      ],
+      "pivot_columns": [
+        0,
+        6,
+        1
+      ],
+      "free_rows": [
+        1,
+        3,
+        4,
+        5
+      ],
+      "free_columns": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "formula": "D4-C4*adj(P3alt)/detP3alt*B4"
+    }
+  ],
+  "field": "samegenericQQ(a,e,d) source",
+  "nonzero_proof": "peerQQ[t2313]Ualt coefficientnonzero \u21d2Ualt genericRFnonzero; detP2 nonzero",
+  "chart": [
+    "deltaP!=0",
+    "deltaQ!=0",
+    "detP2!=0",
+    "Ualt!=0"
+  ],
+  "all_chart_complements_RETAINED": true,
+  "firsttwoSchurpivots_RETAINED": true,
+  "thirdpivot_is_EXCHANGED_not_added": true,
+  "total_existing4plus3_prefix_preserved": true,
+  "remaining_size_still4": true,
+  "compare_to_old4": "onintersection ofboththirdpivotcharts, both4Schurmatrices areequivalent viaexactpivotexchange; no sourceprogressisdiscarded",
+  "generic_N6_NOTzeroed": true,
+  "no_morecallback_or_coefficientwindow_job": true,
+  "no_residual_rank_or_full57_claim": true
+}

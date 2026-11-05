@@ -2,6 +2,31 @@
 
 Version: v63-s61 · 2026-11-05 (Asia/Tokyo).
 
+Latest BW (2026-11-05): ACTUALCprimeHFthrough2=(3,3,3), complete4x20rank1 peerPASS.
+All114source/all164diagnostics/B26overlaps; ONLY30derivedgaugeell², no newphysicalsource.
+RIGHT85actualwitness49=99/64 and27minor−671/128000 independentlyPROVEDm3Cprime3zero/L9.
+CprimeDVRtorsEXACT(1,2)/torslength3, FULLHF333222.../series(3−t³)/(1−t).
+Cprime m³=ell³=ell*m², m^j=ell^j forj≥3. NOToriginalD0H0.
+ActualCprime3nineactions/all44relations/81commutators/cyclicbasis accepted.
+GenuineCprime[ell]=kerellCprime3/imell², basis[K,Q1], rA*K=−11/16Q1; allz/ell0.
+Genuineconnectingfiveheads×2functionalsNEXT, no Artinell inversion/fullnilbasis/cubeclaim.
+T2 COMPLETElineargraph ACTUALtwoinvariants alpha=-198005215625/261453984,
+beta=-738247661671905875/6408579914013024; all46A23/nonzerocols19,21peerPASS.
+Combinedrho factorsraw33 ALL715monomials/m5, no newPhi4/physical/gaugejets.
+Canonicalother2muUNCOMPUTED; normalizedframe viaPROVEDcoherentunit, notzero-fill.
+Graphsourceheight538/actual147bits, no assumption T2total17/H0; upper17..20OPEN.
+Knownlinear+ell² coverHF6666.../prefix24>20, noactualHF2claim; stopdegreeescalation.
+FULLG3rank242/kernel176 actualquadraticsalreadyknown; enlargedactiveplane218primaryallZERO.
+Remainingactive4/nonactive171/619mixedfamiliesOPEN, noHF2/totalclaim.
+Projected393G3kernel isNOTfullzero; retainunknownprojectionderivativeuntilproperlift.
+K92 N0oneQQcoefficientNONZERO independentlydirect5verified, existingpivotcolumnonly.
+No newrank/residualsize/full11det/global57/239. Originalterminala5e0d0face rank6/ZERO.
+GenericcallbacksNOTunivariatepolys; zerofinitecallbackNOTgenericzero.
+Generic24rows96actualresponses sourceheld; fixed24rowbasisNOTknownfromrank24alone.
+Boundedsource-matching certificate pending; allcomplements/fullinverse/exhaustionOPEN.
+Nilcube/index3..7/H0/Nbar14edgevaluesOPEN, bounds58/r4lower52/fivepapersfrozen.
+Continueactualresearch/mainordinarypush; checkpointNOTstoppingcondition.
+
 Latest BV (2026-11-05): honestT2 COMPLETEminimal6x1060/all1060linearSOURCE.
 ActualHF0,1(T2)=(6,6), lenmodm2=12 independentlyPROVED; all619old/native2classsumsZERO.
 T2total17..20/H0/KexponentsOPEN; unknownbottom23toplineargraphNOTzero-filled.

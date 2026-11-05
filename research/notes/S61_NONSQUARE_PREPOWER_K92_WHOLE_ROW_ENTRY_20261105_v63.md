@@ -1,0 +1,7 @@
+# K92：全七成分のSchur行恒等式を一回だけ検証する
+
+ROOTの個別budgetに従い、full sourceの整数多項式を使う。重みを付ける前のSchur行候補S2−59375 S0を、block lower2+2 adjugateで分母を払う。全23932係数、旧T550の全七成分の比59375、alphaの差68、A右上二角の零とA(0)=Iを照合する。
+
+v,u,w,deltaP*vを先に作り、七つの分子を列0〜6順に一つずつ構成する。最初の非零で止め、行恒等式の棄却だけを記録する。全七つが零ならこの固定11候補の恒等零がprimaryで証明される。元Newton範囲で混合radix写像が単射なので、univariateの零は元の三変数minorの零を意味する。全域57や他のminorの階数は主張しない。
+
+動的counterは全input・prefix・出力と積buffer・scratch・metadata15000を数える。45秒または所有slot guardでは全active多項式と未commitの次の積cursorをJSON版K92WR001へ保存する。自動再試行をしない。独立peer前には大域的な恒等零をaccepted扱いしない。

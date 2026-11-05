@@ -1,0 +1,7 @@
+# K92 generic cleanup行の新目的column6 callback
+
+個別budget後だけ一回実行する。既に完成したdelta,w0,w1,vp0,vp1の五多項式9350係数と、六literal入力102係数を読み、一つのcolumn6 callbackの同じformal代入値を計算する。旧STOP後の全六成分やprefixを再計算しない。
+
+目的は、genericに型付けたcleanup行とその一つの正確なformal値・valuationを結ぶことである。非零像ならgeneric RFも非零と分かる。零像からgeneric RFの零を推測せず、generic N6 rootと全補集合を残す。det11非零、全域57、新しい十分条件を主張しない。
+
+入力prefixは選択JSON decoderで逐次読み、全17多項式を同時に保持しない。動的counterは9350prefix・literal・現在出力・一つの積buffer・scratch・metadata15000を数える。45秒guardでは旧immutable入力を参照する正確な積cursorと部分積・accumulatorを保存し、自動再試行しない。

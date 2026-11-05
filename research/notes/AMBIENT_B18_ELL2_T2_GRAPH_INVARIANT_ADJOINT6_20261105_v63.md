@@ -1,0 +1,7 @@
+# graph二不変量の六未知数adjoint
+
+全234個のF1=M1H0v係数について、二不変量の汎関数が
+G1linear F1のphysical3targetのrr/rell係数だけから得られるか確認する。
+成功なら既存primitive V2から値を求める正確なsource式になる。
+不成功なら全六列を零化してtargetを零化しないdualを保存する。
+これは限定supportの結果であり、M1値やcanonical graph四値は計算しない。

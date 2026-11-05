@@ -1,0 +1,7 @@
+# K92全a軸の一回整数多項式Bareiss
+
+個別budget後、固定11角degree八の行列だけを使う。完全pivotingで非零多項式を選び、更新を整数多項式の正確な長除算で行う。元の三変数有理関数Gaussian・gcd・新しい点やprimeを使わない。
+
+各stageは行列の更新blockだけをstream保存する。独立checkerは旧matrixを再構成し、全Bareiss式の商を掛け戻して零余りを確認できる。45秒guardでは現在matrix・五buffer・積または長除算の未commit cursorを全てK92AB001へ保存する。自動再実行しない。
+
+結果はQQ(a)上の全軸rankであり、d=0は元FULLUの外である。det非零なら元のe^0d^0係数多項式へ戻すが、独立peerまではprimaryである。det零でも全一般三変数行列式の零とはしない。残るnormal dimensionは次のsource対象であり、transverse演算を自動で行わない。

@@ -1,0 +1,5 @@
+# K92全行jobのcounterとsource pin
+
+承認された121965slotを固定し、全入力・prefix・現在出力accumulator・積buffer・scratch・metadata15000を同時に数える。source見積もりは二入力copyを含み、実装は一copyである。七列を一つずつ計算し、最初の非零で停止する。
+
+45秒またはslot guardでは、全active多項式、現在の積の未commit cursorと部分積、親の五項combineの完了term数・全符号を版K92WR001へ保存する。旧source572や重み・係数windowを再計算しない。実worker byte hashを先に固定し、次の一回だけを実行する。

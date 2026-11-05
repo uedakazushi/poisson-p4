@@ -8,6 +8,24 @@ v62保存は `e187b40de68bce534391f406f616940cddd045a7`、
 `66a80ab53dfcf0ff842c67140320d8da0226039d`。全て通常push済み。
 このv63保存のSHAはGit履歴で識別する。
 
+## v63 BW / 2026-11-05: Cprime実HF333、T2一次graphのcache値と大域source検証
+
+直前 main `4a0274c73a5d5b75c1c809ca74e4e395a83234a5` は通常push済み。
+
+被約比較Cprimeの完全二次作用素4対20を実評価し、rank一・唯一の非零列18と全二十列factorizationを独立検証した。既知二次上界四から実HF2=3を確定し、実HF最初三項は(3,3,3)となった。新しい物理sourceやthird jetはなく、同じJ30による三十gauge ell二乗応答だけを既存own57 sourceから導出した。全114式・全164診断・既存B26二次を保持した。準備V2のimport失敗はmain前に停止し、別V3のlossless decoder修復・正確な来歴と数学実行一回を区別して保存する。Cprimeについては、既知三次の残る一次元に実first syzygy49のV2u1が99/64で非零となり、全八十五値・元27minor−671/128000を独立検証した。従ってCprime/ell三乗は長九・m三乗零、DVR torsion指数は厳密に(1,2)となった。m三乗=ell三乗=ell*m二乗から全HFは(3,3,3,2,2,...)、級数(3−t三乗)/(1−t)、Cprime torsion長三が確定した。元D0のH0とは別である。
+
+さらに既存一次・二次sourceのみから九次元Cprime/ell三乗の全九作用を構成し、全44関係・81交換子・cyclic基底を独立確認した。ell rank五・ell二乗rank二を固定unit blockで示し、真正Cprime[ell]をkernel四からfree top image二を除いた二次元商として実現した。基底[K,Q1]では全zとellが零、rA*K=−11/16 Q1、rA*Q1=0で、真正targetはk[[rA]]/(rA二乗)となる。次はgenuine connectingの五head×二座標だけを、元formal環でellに割ってから有限NFへ送る。全十六列は五first列をr/z作用から導き、六higher列は零になる。edge値・十四nil basis・元nil三乗は未計算である。
+
+honest T2の残る一次graphも全て既存cacheへ帰着し、実値を独立再構成した。二対二十三graphを四つの共通contractionへ縮約し、coherent比較gaugeで不変な二値を全286 coefficient adjointから指定した。高次Phi functionalsの合成が実raw33を通ることを全715単項式で証明し、個別Phi4・新physical sourceを求める必要を除いた。全四十六A23のhonest-second感度も零で、nativeのL0SeとLeS0を保持した。alpha=−198005215625/261453984、beta=−738247661671905875/6408579914013024が確定し、正規化したgraphの非零列は19、21だけ。canonical残り二muを零としたのではなく、証明済みunit frameで表した。源の高さ538 bit・実値147 bitを区別した。完全既知linear initial relationとell二乗のcover計算はHF(6,6,6,6,...)を与え、四次未満の累積24が元の全長上界20を超えた。このcoverの全critical pairを独立監査し、global GBを確認したため、それ以上の同じdegree計算は止めた。I二乗はm四乗に入り、このprefixを減らせない。次はFULL零linear G3 kernel又はhonest unit補正を持つ実高次sourceを調べる。投影後393 kernelだけで未知projection derivativeが消えるという近道は成立しない。実T2のHF2、全長17〜20・H0長・K指数はなお未決。
+
+追加のT2源検査では、FULL G3一次部のactive rank62/full242/kernel176を独立確認し、その全176二次classは既知関係内と証明した。さらにz*mの既知零関係だけで未知quotient derivativeを消せるactive条件のrank20/kernel218を構成し、主計算の全218二次値も零となった。後者の独立postcheckを継続する。投影393のうち残るactive四方向と非active171方向、元sourceの619 mixed familyは別に残り、完全HF2やT2全長を決めたとはしない。次のactive四方向は八つの組合せfunctionalsへ源を縮約できるが、未知M1・unit carryとcoherent frameを保持してcache感度を調べる。
+
+大域K92では、零prefixの後にwhole rowの比例を実多項式で検査し、第一列4131項の非零を得た。一係数17149069629000000000/7を別の直接五角border determinantで独立検証した。この列は既存pivot内にあり、残余四からの新rank進展ではない。generic rational callbackとformal univariate値を分離し、formalに零だった別列もgeneric callbackとして保持した。同じ記号重みの反対endpointもsourceから検査し、原行列のa五乗e零d零のconstant faceはrank六・係数零と判定した。whole a-axisの整数多項式Bareiss主計算はdet P(a,0,0)の非零を与え、現在は元sourceと一係数の独立確認を待つ。条件付きPIVOT14は追加chart Pだけで残余1対8を保持するが、この段階では受理済みrank進展にしない。全FULLU57/239・補集合は未決で、十分条件の零集合を真のbad locusと同一視しない。
+
+一般betaの四つの変更free columnは、全値をhash付きで保持して少数行ずつ進めている。二十四top行・96セルまで完了した時点の値を保ち、残る一部八行は現在の固定実装の所有上界を超えるため未実行。全未処理行の失敗とはしない。固定24対24の同じactual入力を使ったmatchingは非一意、先頭constant faceはrank八・kernel十六で、全actual minorの非零は未決。ただし実row11−8row44から列49/51の単項式minor H*s0*q0*t0/27337500を得て、二単元のsource逆と全175対22残余を指定した。選択22対22 subblockを全cokernelと同一視せず、残る87 top RHSと旧66整合条件を保持する。残余col81は旧Ai81−Ai51へ簡約でき、次は小さい一列の源を検査する。rank二十四だけからliteral row basisを推測しない。新しいpoint・prime・GCD・field Gaussian searchは行わない。
+
+元nil三乗の280積縮約、Tnil全HF55321・長十六、元T長十一、B18深さ19/18、下界58（rank4は52）と五凍結原稿を維持する。真正connecting十edge値・十四nil基底・cubeは未評価である。有限torsion targetの正確な抽出と真正kernelだけの有限三次積に関する新source方針をノートへ残し、純粋な二つのsource方針の独立監査も通った。actual edgeと有限cube値は次の課題である。意味のある進展を通常main pushで保存し、その後も全未完了課題の実研究を続ける。
+
 ## v63 BV / 2026-11-05: T2実HF6,6、被約比較ell二乗長七と真正nil connecting
 
 直前 main `4441fab0345e0967d2c59027e259f082c1a995b6` は通常push済み。

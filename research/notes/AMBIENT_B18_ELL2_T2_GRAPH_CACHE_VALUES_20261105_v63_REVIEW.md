@@ -1,0 +1,9 @@
+# 実二不変量・全46 A23・normalized一次graphの独立検証
+
+実raw33作用から独立に積を作り、元trace四nodeからmonic nuを再構成する。physical67/63の正確なmask式でV56Wvの全三成分を再計算し、保存bar-rhoとの二dotを検証する。高次Phiを個別に新しく計算していない。
+
+native individual ell firstをL0S1ell+L1ellS0で復元し、全23の二方向についてB30逆によるa1/b1と全56成分の分解を確認する。old typed callbackは未知secondを先にfoldして相殺し、三つの新しい原点零積は既知first交差項だけを使う。全46のold/native/pivot補正とA23を検証する。
+
+二不変量はalpha=-198005215625/261453984、beta=-738247661671905875/6408579914013024となる。coherent constant unitが存在するframeでのnormalized graphを確認し、非零列は19/21だけである。canonical残り二muは未評価のtyped scalarであり、四つを零としたのではない。数値化された全次数presentationを得たとも言わない。
+
+新しいsource/gauge/implicit係数はなく、実T2全長、H0長、Kのell指数、高次HFは未決のままである。

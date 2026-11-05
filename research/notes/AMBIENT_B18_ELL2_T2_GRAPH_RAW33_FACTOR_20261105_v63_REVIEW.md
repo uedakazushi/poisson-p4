@@ -1,0 +1,9 @@
+# 全形式sourceへのraw33 functional factorの独立検証
+
+二つのrho・三つのphysical componentについて全660単項式の3960一致を独立確認する。省略されたell次数二以上の55単項式は実raw33作用で零になり、rho側もsupportを持たない。合計715単項式を尽くす。
+
+実raw33は元coordinate quotientでありm5を零化する。元rhoも次数四以下のTaylor汎関数なのでm5を零化する。従って715基底での一致は全形式函数に対する連続線形mapの一致を証明する。特定の数値点やcurve上だけの一致ではない。
+
+既証286係数adjointと合わせ、実Phi=V56 Wvに対する二不変量はraw33像へbar-rhoを適用して得られる。値dot前には元physical12(delta,bA,-bB)、monic、Wvのsource bindingを別に確認する。A23 callbackのhonest second感度を自動的に消したとはしない。
+
+新しいsource係数、Phi dot、不変量・M1・graph実値はこの検証で求めていない。

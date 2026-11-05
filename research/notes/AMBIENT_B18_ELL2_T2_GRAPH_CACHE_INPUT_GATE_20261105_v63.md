@@ -1,0 +1,14 @@
+# 二不変量dotとA23の実既存cache入力
+
+最終rhoのraw33 factorを使い、primitive V*Wvを実raw33のphysical67/63とmonicから
+全係数で作る。nuのz一次を落とさず、元Q48のmask順を保つ。個々のPhi4を求めない。
+
+A23について619 kernelの相殺を流用せず、全23元sourceへ再foldする。
+二次感度に現れる全literalC0関数は既存108 compositeのzero-gradient、または
+literal coordinateである。追加typed516/785/846は二つの原点零atomの積なので
+second感度は厳密零、既存first交差項だけを使う。従ってmixed numerator5は不要。
+nativeはL1ell OmegaRを含む全coherent式、pivot補正も実firstを使う。
+
+本gateは二不変量・A23の実値をまだ求めない。値が得られてもcanonical四muを
+零とはせず、既証のcoherent comparison unitで選んだnormalized initial graphを
+区別する。完全高次表示・T2全長を一次graphだけから推論しない。

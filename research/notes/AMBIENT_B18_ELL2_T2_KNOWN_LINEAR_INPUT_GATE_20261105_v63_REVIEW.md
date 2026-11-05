@@ -1,0 +1,9 @@
+# 真の一次48式・全264二次rewrite入力の独立検証
+
+既証G3一次25列とactual normalized graph23列から全48一次式を再構成し、固定消去receiptで独立性・spanを確認する。graph上側は既知G3関係を法としたcanonical代表であり、未計算の高次liftを零とする意味ではない。存在するcoherent定数unit frameでの真のinitial式である。
+
+全264二次monomialの270 dependency nodeをsource monomialごと独立に追い、各rewriteが真の線形関係の単項式倍であること、position-over-lexで厳密に降下すること、ell²零、候補standard六個を確認する。正の分子・分母伝播によるNF上界139bitも照合する。
+
+線形48式をGBとは仮定しない。次段階では全48式×九変数の432列を残し、ell²によりleading項が消える場合も含める必要がある。その完全rankから得るのはknown linear coverの正確な二次層であり、実HF2への上界である。cover prefixが実上界20より大きくても、実HFの下界とはしない。
+
+このgateでは新しいsource係数・真の二次initial値・rankやHF2を求めていない。

@@ -1,0 +1,3 @@
+# 固定24先頭faceの厳密定数検証
+
+既存6c84源の固定24整数行列だけを使う。保存する有理数のminor比1618bitと、未約分の積3238bit・差4858bitを区別して証明する。whole29608 numeric、RAW2.37MB以内で一回の定数QQ消去を実装・保存gateとして固定する。特異時はadjugateを作らずkernelと全column factorを保存する。

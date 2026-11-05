@@ -1,0 +1,7 @@
+# plane三・四次adjointの不成立：104係数独立dual検証
+
+保存された二つずつのdualについて、Phi3だけの全六列、Phi3+Phi4の全十二列とのpairing零、および二不変量とのpairing非零を独立に確認する。solveやrank探索を再実行しない。
+
+完全十二出力の場合のdualにはF2 nuisanceの非零成分が含まれる。F2を零と置けば正しい不成立証拠を失う。この結果はplane上104独立係数modelでの不成立であり、追加mixed-z方程式によるliftability制約が未知量を減らす可能性を除かない。従って新しい高次source係数が必要だとの主張もしない。
+
+M1/M2、Phi3/Phi4、graph実値、高次HF・T2長は未評価のままである。

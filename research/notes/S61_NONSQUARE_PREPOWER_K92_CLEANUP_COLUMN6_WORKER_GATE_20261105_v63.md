@@ -1,0 +1,5 @@
+# K92 column6一回jobのstorage pin
+
+9350完成prefix係数だけを選択decodeし、現在decodeした一多項式は二copyとしてcounterへ入れる。literal102係数、dd、現在accumulator・一つの積・sort scratch・metadata15000まで46999slot以内とする。prefix演算は再計算しない。
+
+五積は既存のgeneric callbackの同じformal代入であり、各source識別子・符号・多項式hashと最終値を保存する。零ならgeneric N6を残す。新weight・逆級数window・残り五列を自動実行しない。

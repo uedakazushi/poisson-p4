@@ -1,0 +1,5 @@
+# K92終端定数faceの一時積を別に数える
+
+521bitは正規化されたminorおよびminor比の分子分母の上界である。未約分積には1042bit、Bareiss差には1043bitを認める。正規化された分数と二分数の積を引く途中は1563bitの交差積・1564bitの差までを数える。521bitを未約分積へ誤適用しない。
+
+全列factorizationはpivot minorの共通分母で整数化して121成分を照合する。恒等式recordを含めても15000reserved metadata内、入力・working・rank/kernel/factor arraysとの全体は17057slot以内である。固定した元のface以外の係数を計算しない。

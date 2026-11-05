@@ -1,0 +1,9 @@
+# 全G3一次kernelの正確なzero3分離とrank入力：独立検証
+
+既証全418列を読み、active first238列の252係数と、残り180列に対する固定座標projectionを独立に確認する。projectionは[0,diag(±1)]そのものであるため、全constant kernelの非active係数は全て零になる。全kernelはactive252対238のkernelに等しく、全rankは180+active rankである。
+
+実G3定数は零である。全一次kernelの定数cについてのみ、最終unit quotientの微分は全G3_1 c=0を掛けるので、二次像はPiY0 G3_2 cとなる。撤回済みのrank25 projection kernel393ではこの推論はできない。G3はbottomが全次数零で、最初の27 unit消去も追加項を生まない。
+
+actual active unit transportのG3_2をraw d3へ置き換えることはしない。その係数source・Taylor2のcost gateは別に必要である。
+
+次rank jobのrepresentationはnormalized basisと238-source表現/kernelのpartitionだけを保持し、重複factor matrixを持たない。124906数値slotとraw31854720byteは各cap以内。384bitは成功予測ではなくfail-closed stopであり、超過時の増額・再試行を認めない。この検証ではrank/kernelや新しい係数を計算しない。

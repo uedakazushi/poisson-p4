@@ -1,0 +1,3 @@
+# 固定24割当・保存入力の追補gate
+
+初回SOURCEの数学・上限を保存したまま、workerが読む新gate二ファイルのRAW字節を独立prepared入力として明示加算する。旧版の131072 byte reserve内でありcapは変えない。実際の割当workerはまだ一度も実行していない。新worker/sourceコードを固定してから一回だけ同じ24行・同じ重みを検査する。

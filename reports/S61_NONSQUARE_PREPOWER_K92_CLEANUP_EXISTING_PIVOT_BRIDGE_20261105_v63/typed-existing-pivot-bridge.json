@@ -1,0 +1,390 @@
+{
+  "nodes": [
+    {
+      "name": "G",
+      "shape": [
+        11,
+        11
+      ],
+      "op": "accepted_genericcleanup_external"
+    },
+    {
+      "name": "S7",
+      "shape": [
+        7,
+        7
+      ],
+      "op": "A4_Schur_of_G",
+      "formula": "D-C*A4^-1*B; A4block2+2 inverse viaadjP,adjQ"
+    },
+    {
+      "name": "T7",
+      "shape": [
+        7,
+        7
+      ],
+      "op": "weighted_normalization",
+      "formula": "R2normalized*diag(a^alpha)*S7*diag(a^beta)*Q2",
+      "alpha": [
+        4486,
+        2176,
+        4418,
+        4419,
+        4418,
+        4418,
+        2312
+      ],
+      "beta": [
+        -68,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "R2": [
+        [
+          "0",
+          "53/134719200000000",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "1",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "1",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "1"
+        ]
+      ],
+      "Q2": [
+        [
+          "0",
+          "1",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "1",
+          "0",
+          "0",
+          "18/7",
+          "147/25",
+          "126/25",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "1",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "1"
+        ]
+      ]
+    },
+    {
+      "name": "K7",
+      "shape": [
+        7,
+        7
+      ],
+      "op": "identity_except_row2",
+      "row2_coefficients": {
+        "column2": "delta",
+        "column1": "-59375*delta*a^-68"
+      },
+      "determinant": "delta",
+      "inverse_row2": {
+        "column2": "1/delta",
+        "column1": "59375*a^-68"
+      }
+    },
+    {
+      "name": "Tprime",
+      "shape": [
+        7,
+        7
+      ],
+      "op": "matrix_product",
+      "args": [
+        "K7",
+        "T7"
+      ]
+    },
+    {
+      "name": "P3",
+      "shape": [
+        3,
+        3
+      ],
+      "op": "submatrix",
+      "matrix": "T7",
+      "rows": [
+        0,
+        6,
+        1
+      ],
+      "columns": [
+        0,
+        6,
+        1
+      ]
+    },
+    {
+      "name": "P3inverse",
+      "shape": [
+        3,
+        3
+      ],
+      "op": "classical_adjugate3_over_determinant",
+      "matrix": "P3",
+      "parameter_only_chart": "detP3!=0"
+    },
+    {
+      "name": "S4",
+      "shape": [
+        4,
+        4
+      ],
+      "op": "Schur",
+      "formula": "T7[J,J]-T7[J,P]*P3inverse*T7[P,J]"
+    },
+    {
+      "name": "S4prime",
+      "shape": [
+        4,
+        4
+      ],
+      "op": "Schur",
+      "formula": "Tprime[J,J]-Tprime[J,P]*P3inverse*Tprime[P,J]"
+    },
+    {
+      "name": "S4prime_firstrow_callback",
+      "shape": [
+        1,
+        4
+      ],
+      "op": "finite_callback_expression",
+      "formula": "a^4418*(rJ-[N2,N6,a^-68*N0]*P3inverse*T7[P,J])",
+      "rJ": [
+        "N1",
+        "N3+(18/7)*N2",
+        "N4+(147/25)*N2",
+        "N5+(126/25)*N2"
+      ]
+    }
+  ],
+  "pivot_order": [
+    0,
+    6,
+    1
+  ],
+  "free_order": [
+    2,
+    3,
+    4,
+    5
+  ],
+  "callback_columns": [
+    {
+      "Tprime_column": 0,
+      "common_a_power": 4418,
+      "terms": [
+        {
+          "N_index": 2,
+          "QQ": "1",
+          "a_power": 0
+        }
+      ]
+    },
+    {
+      "Tprime_column": 6,
+      "common_a_power": 4418,
+      "terms": [
+        {
+          "N_index": 6,
+          "QQ": "1",
+          "a_power": 0
+        }
+      ]
+    },
+    {
+      "Tprime_column": 1,
+      "common_a_power": 4418,
+      "terms": [
+        {
+          "N_index": 0,
+          "QQ": "1",
+          "a_power": -68
+        }
+      ]
+    },
+    {
+      "Tprime_column": 2,
+      "common_a_power": 4418,
+      "terms": [
+        {
+          "N_index": 1,
+          "QQ": "1",
+          "a_power": 0
+        }
+      ]
+    },
+    {
+      "Tprime_column": 3,
+      "common_a_power": 4418,
+      "terms": [
+        {
+          "N_index": 2,
+          "QQ": "18/7",
+          "a_power": 0
+        },
+        {
+          "N_index": 3,
+          "QQ": "1",
+          "a_power": 0
+        }
+      ]
+    },
+    {
+      "Tprime_column": 4,
+      "common_a_power": 4418,
+      "terms": [
+        {
+          "N_index": 2,
+          "QQ": "147/25",
+          "a_power": 0
+        },
+        {
+          "N_index": 4,
+          "QQ": "1",
+          "a_power": 0
+        }
+      ]
+    },
+    {
+      "Tprime_column": 5,
+      "common_a_power": 4418,
+      "terms": [
+        {
+          "N_index": 2,
+          "QQ": "126/25",
+          "a_power": 0
+        },
+        {
+          "N_index": 5,
+          "QQ": "1",
+          "a_power": 0
+        }
+      ]
+    }
+  ],
+  "rowcleaning_identity": "Tprime row2=delta*(T7row2-59375*a^-68*T7row1); allotherrowsunchanged",
+  "pivot3_UNCHANGED": "row2notinP, soTprime[P,P]=P3; row1isINpivotset",
+  "exact_residual_identity": "S4prime=diag(delta,1,1,1)*S4",
+  "universal_proof": "pivotrow1 satisfies T7[1,J]=T7[1,P]*P3inverse*T7[P,J]; subtractedpivotrow contributesZERO toSchur. Remainingfirstrow scalesdelta.",
+  "same_cokernel_on_chart": [
+    "deltaP!=0",
+    "deltaQ!=0",
+    "detP3!=0"
+  ],
+  "all_chart_complements_RETAINED": true,
+  "all_existing4plus3_pivots_RETAINED": true,
+  "N0_andN6_lie_in_existing_pivot_columns": true,
+  "alternateP5_is_NOTnewrankprogress": true,
+  "specialized_N6_ZERO_NOT_substituted_in_genericformula": true,
+  "all7generic_Ncallbacks_RETAINED": true,
+  "no_next_N1toN5_callback_job_or_coefficient_window": true
+}

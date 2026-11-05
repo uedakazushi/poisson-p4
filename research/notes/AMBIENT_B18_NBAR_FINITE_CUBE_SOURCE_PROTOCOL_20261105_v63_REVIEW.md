@@ -1,0 +1,9 @@
+# 真正十四kernelでのみ定義する有限積：独立source証明
+
+元R0 free complexのell chain正確列から0→N/ellN→Tnil→Cprime[ell]→0を得る。真正kernel classに有限cycle代表を選ぶと、正確列が保証する全cycle liftとの有限境界差をfull d2境界で補正できる。従って、その有限代表自身をreductionに持つ全cycleの存在は保証される。明示liftは計算しない。
+
+受理済みproduct44/cube44は実N cycle上の多項式式なので、ell零化と可換である。未知ell倍のlift差はNbar積を変えず、有限代表のboundary差もfull境界liftと既証N積descentからclassを変えない。これは真正十四kernel上の非単位的代数構造であり、Tnil全十六classを代数とはしない。新しい780境界homotopyを与えたとも言わない。
+
+実edge kernel、有限source代表、Tnil source projection・境界判定は依然必要で、HF55321・filtered16basisだけで作用表を零埋めできない。有限非零tripleは元N³非零を無条件で証明するが、全零だけならN³⊂ellNに留まる。追加仮定ellH0=0、すなわち実T2全長17の下でのみ、H0∩ellN=0により元cube零も検出できる。十四基底の対称tripleは高々560個である。
+
+親note二本の固定hashと全実source依存を束縛する。source、edge、積・projection・full lift、元cube・H0指数の計算jobは行わない。

@@ -1,0 +1,3 @@
+# 固定24先頭faceの厳密定数検証
+
+固定されたtied leading行列のrank・一つの非零minor・全24列のbasis展開とkernelをQQで厳密検証する。別の行・重み・beta点・primeを探索しない。正ならactual固定minor非零を証明し、定数preconditionでleadingIにした全実entryの有限RF命令を記録する。特異ならこの先頭faceだけの結論でありactual determinantは未決。

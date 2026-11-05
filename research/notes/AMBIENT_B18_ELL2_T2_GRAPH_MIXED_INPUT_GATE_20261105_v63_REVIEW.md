@@ -1,0 +1,9 @@
+# exact full G1・286入力186出力の閉じたsource gate
+
+実C2作用とp0 monomial liftから全26 G1多項式を独立復元し、実加群を零化すること、既証一次・plane多項式との一致を確認する。各項は正次数三以下、zを高々一つ含む。
+
+全F1の234係数とF2のplane二次52係数から、全二次132・選択mixed/plane三次48・plane四次6出力を再構成する。省略した全F2 mixed単項式と全F3単項式が選択出力に寄与しないことも可除性を用いず単項式ごと確認する。G1linearがzのみであるため、F2 mixedは二つ以上のzを生み、F3項はplane四次へ入らない。F0=0は既証M0Wv=0に基づく。
+
+この完全な係数範囲でadjointが成り立った場合のみ値のsource要求へ進める。mixed三次は既存selected135/source33とfunctionalに照合し、Phi4は記号のまま保持する。B56の切断を零値としない。slot上界118371は150000以内である。
+
+adjoint solve、新しいphysical/source/gauge係数、M1/M2・Phi値、T2高次HFは求めていない。

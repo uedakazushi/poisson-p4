@@ -1,0 +1,9 @@
+# K92元M11終端faceの一回定数検証
+
+ROOTの個別budget後だけ実行する。同じ固定重みの有限sourceから確定した98個のtight係数を使い、11角整数faceの行列式・rank・kernel・単元minorを厳密に検証する。全Bareiss除算を保存する。
+
+元detMのa^5 e^0 d^0係数だけが対象である。R1/Q1で混合した行列の範囲外faceを使わず、元のNewton範囲に入るfaceであることを先に確認済みとする。新weight、数値点、素数、source572や別係数windowを使わない。
+
+非零なら固定候補の非零に結び付くが独立peerを待つ。零ならこのfaceだけの結論とし、kernel/unitblockから次のsource構造を選ぶ。全域57や補集合の結論を追加しない。
+
+V1は定数計算後にmath import不足で保存に失敗した。数学的失敗ではなく、結果も未公開として失敗bytesを保存する。V2はimportだけを追加するが算術を再度行うので、ROOTの明示的な回収budget後だけ実行する。

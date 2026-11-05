@@ -1,0 +1,9 @@
+# Full G3-linear fixed rank and source kernel
+
+This worker is prepared for one root-authorized bounded known-array rank computation. It uses the frozen full-kernel input gate and its independent source peer. The180 nonactive source constants vanish separately by that gate's fixed diagonal block. No quadratic coefficient, implicit source, or physical function is evaluated.
+
+The active matrix has252 rows and238 columns. Each retained normalized basis vector is certified as a combination of the original238 columns. Each nonselected source yields a kernel vector with its own distinct free-source coefficient1. Membership products, kernel zero products, leading pivot independence, and this triangular source partition certify both rank bounds and the full kernel. The original selected minor is certified by a factored product of nonzero elimination pivots; this avoids an unnecessary large rational scalar.
+
+The worker streams certificate records and retains no second dense factor matrix or duplicate elimination trace. New normalized rational coefficients are checked before they enter committed arrays. An uncommitted product of two384-bit inputs has at most768 numerator/denominator bits; adding it to a committed384-bit value has at most1153 uncancelled numerator bits. Divisions have at most768 bits. These temporary scalar bounds and one offending coefficient are separate from the384-bit committed-array guard. On failure, one frontier stores the cursor, partial operation accumulator, working vectors, and committed basis/source/kernel arrays **instead of** final output; no duplicate past/new coefficient array is kept. No cap increase or blind retry is authorized.
+
+This computation does not identify actual T2 HF2 or its total length. Applying the kernel to actual G3-quadratic requires its own source and coefficient budget gate.

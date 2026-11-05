@@ -1,0 +1,7 @@
+# 同じ固定24の二単元と一般callback残余
+
+前SOURCEの「他行Ai49/Ai51もmonomial」という仮定はfalseであり、係数算術前に停止してfailed sourceを保存した。本版はそれらを一般polynomial callbackのまま扱い、逆に使う二pivotだけを実証済みmonomialとして保つ。全八左右逆恒等式と全484残余root・元の全source/RHS・66零制約整合条件を保持する。新しいpolynomial coefficient更新は行わない。
+
+二pivot行では列81のvectorがpivot列51そのもの(b,d)とliteralに等しい。従って新しい22行の列81は、厳密に元のAi81−Ai51となる。一般のshared-row productを一切必要としない。この一列22差だけについて、既存入力支持和・QQ scalar content分母LCM・primitive係数byteによる高さ・owned・非圧縮RAWをSOURCEで予測する。実装storage addendumと新しい係数GOは別に必要。
+
+固定24のbasis・rank24・完全逆は未証明。旧parameter unit、P290、constraint detおよびH*s0*q0*t0のchartとその補集合を保持し、normal座標の非単元は反転しない。別の行集合・重み探索やGCDを使わない。

@@ -1,0 +1,5 @@
+# K92 generic liftの零blockと単元像をspecialization前に確認する
+
+generic Aの右上二角が零である理由を、Kronecker像の零から推測しない。元Mの行0,1,2・列8,10はgenericにliteral零。行1+2行2をしても零であり、R1の最初二行は行0,1だけを使い、Q1のpivot列2,3は元列8,10そのものである。左右のa単項式倍も零を保つ。従ってgenericなblock lower2+2は代入前に証明できる。
+
+FULLUのa,d,F,B,C,Jのformal像もすべて非零Laurent多項式と確認する。元generic入力の局所化が同じformal体へ写ることを保つ。個々のN行分子についてspecializationの零からgeneric零を結論しない。N0の非零像はgeneric非零を証明する一方向だけに使い、残り七callbackと全chart補集合を保持する。

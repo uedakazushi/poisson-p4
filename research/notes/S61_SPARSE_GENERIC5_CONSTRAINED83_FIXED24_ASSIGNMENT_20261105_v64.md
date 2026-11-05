@@ -1,0 +1,3 @@
+# 固定二十四行の有限組合せ証明
+
+凍結SOURCE gateの固定二十四行・Kronecker重みだけを用いる。全actual leading monomialを照合し、選ばれた24個はもう一度源payloadから独立に読む。整数dualの全不等式と等号を確認する。一意性はzero-reduced-cost graphの閉路の有無で判定。別行探索はしない。非一意なら実pivot非零や逆は未証明として保存する。

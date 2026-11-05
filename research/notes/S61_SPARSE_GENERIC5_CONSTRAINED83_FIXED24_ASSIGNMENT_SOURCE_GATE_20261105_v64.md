@@ -1,0 +1,3 @@
+# 固定二十四行の有限組合せ証明
+
+固定二十四行の576 leading-source参照、整数costのbit上限、24対24のdeterministic Hungarian/dual/zero-cost graphと一回だけの最小割当検査の予算を先に固定する。rank/係数det探索・別行集合・別重み・series評価はしない。unique時だけ実K5の全entryを残す有限逆命令を出し、nonunique時は厳密交代閉路を保存する。

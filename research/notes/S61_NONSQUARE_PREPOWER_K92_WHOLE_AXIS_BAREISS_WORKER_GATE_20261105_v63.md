@@ -1,0 +1,7 @@
+# K92全軸整数多項式workerの固定storageと全guard state
+
+121×89のminor係数と五つの177係数raw bufferを固定確保し、入力二copy1158とmetadata15000を足して27812slot以内に保つ。opaqueな多項式有理関数の逆を作らず、整数leading長除算を用いる。全商の整数性・H以内・零余りを照合する。
+
+証明は各stageの置換と更新remaining blockだけを保存し、前matrixから全除算を掛け戻せる。45秒guardでは全matrix、五buffer、現在商係数、積・除算の未commit cursor、置換と符号を版K92AB001へ保存する。独立inspectorは全係数を読むだけで再開しない。
+
+main proof5.165MBと全state8.425MBの両方を同時に数えて13.590MB以内とする。元input・新fileを合わせ32MiBを超えない。native --helpを先に確認し、一回だけ実行する。軸d=0は元FULLU点ではない。

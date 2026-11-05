@@ -1,0 +1,7 @@
+# 固定二十四行からの次の逆：源のみ
+
+既評価96セルの二十四行と、変更しない二十列のliteral参照から、576 entryの零・項数・指数箱のみを一セルずつ読む。新しい係数積・rank探索・matching・series評価はしない。既知rank24はある行basisの存在を示すが、この固定二十四行をbasisとはしない。
+
+各変数の全entry指数範囲を[m_j,M_j]とする。determinantの全monomialは[24m_j,24M_j]内にあり、幅24(M_j−m_j)+1から作るmixed-radix整数重みはこの箱に単射である。将来、各entryの最小重みmonomialを用いた割当が一意な最小完全matchingを持てば、determinantの最小項が一つでそのQQ係数は非零になる。この条件自体は未検査。従って未評価全111行を必要としない可能性を、検証可能な十分条件へ落としただけである。
+
+一意matchingのequality graphはmatching辺を縮約したとき巡回を持たない。順序をtriangular化すればleading principal pivotsも非零となる。実際のK5係数を保持した有限Gaussian命令を作れるが、新たなSOURCE・計算gateが必要。近似零によるentry削除やGramを計算済み逆とする主張はしない。全177行・66零行のfree cokernel、およびP290・二つの小constraint detと旧単項式単元のchartを維持し、補集合は未決。

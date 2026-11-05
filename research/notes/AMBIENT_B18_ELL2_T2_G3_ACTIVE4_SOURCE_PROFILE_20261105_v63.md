@@ -1,0 +1,7 @@
+# Four remaining active G3 source directions
+
+The already verified projected G3 rank certificate selects16 active sources. All16 occur among the20 sources of the plane-condition certificate. The four additional selected sources are77,101,117,125. Subtracting their recorded projected factors in the16 sources gives four actual projected-zero linear source combinations. Their classes form a complement to the218 plane-kernel combinations inside the222-dimensional active projected kernel. This uses fixed rank certificates, not a new rank search.
+
+Their full first terms are uniquely expressed in the selected99 constant Ystar unit columns. The source gate replays every full102-coordinate first-term identity in all9 directions. The actual quadratic class after the99 cancellations has top `PiY0*G3_2*c - PiY0*Ystar1*b1` and bottom `-Hstar1*b1`. Here Ystar1 is the actual derivative **after the first27 cancellations**. It includes the unknown top-pivot carry and must not be replaced by raw Yj1 or claimed to depend only on M1.
+
+Allz-variable unknown derivative terms are kept until the accepted literal normal-form check removes them. Remaining formal derivative labels retain their exact selected99 source index, projected top target, and coordinate. No unknown coefficient, physical function, comparison value, or fresh rank is evaluated. The known bottom term and exact remaining derivative provenance require a later source/value gate. No actual HF2 or length follows from this profile.

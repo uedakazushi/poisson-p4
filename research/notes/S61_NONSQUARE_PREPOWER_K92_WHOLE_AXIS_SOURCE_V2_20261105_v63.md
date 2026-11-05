@@ -1,0 +1,9 @@
+# K92：全a軸の有限多項式sourceと固定六角minor
+
+新しい点を選ばず、元の有限三変数分子多項式からe^0 d^0成分を全て抽出する。d=0はFULLUの外なので、これはactual Poissonファイバーの階数を調べるものではない。既知単元で分母を払ったmatrixの係数faceとしてのみ用いる。
+
+同じterminal双対potentialをa単項式として用いると、軸行列Caxisは非負a次数の整数多項式になる。Caxis(0)は既に厳密rank六を確認したterminal行列の既知QQ単元行倍に等しい。従って保存済みの固定六角minorはQQ(a)上で非零であり、新しいrank searchを要しない。
+
+全軸rank六を証明する最小候補は、terminalの五つの右kernel・五つの左kernelを全a多項式へ伝播する有限linear恒等式である。いずれか全55本が零ならrank≤6、固定minorによりrank=6。両側が零なら定数normalizerで全軸を六角blockと零五角へ分けられ、(e,d) transverseの初期五角が次の具体sourceになる。SOURCE段階ではこれらの新しい和を評価しない。
+
+V1はface rowLCDを全axisにも使えるとしたsource assertionで停止し保存した。V2は全axis係数を払うLCDを取り、右kernelはそのまま、左kernelは既知QQ行倍率の逆を掛ける。新しいkernel値はまだ計算しない。

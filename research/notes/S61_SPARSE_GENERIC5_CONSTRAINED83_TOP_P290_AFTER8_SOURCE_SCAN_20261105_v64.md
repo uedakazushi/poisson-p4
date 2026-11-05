@@ -1,0 +1,3 @@
+# 次の未処理行のSOURCE診断
+
+前回四行は単独の固定実装owned上限が56473を超えたので、その不変予測を根拠にだけ除外する。全他行unsafeとはしない。次の四行を係数積なしで支持・高さ予測し、安全なら既存group authorizationの範囲内、unsafeなら次methodの正確な源frontierとして保存する。

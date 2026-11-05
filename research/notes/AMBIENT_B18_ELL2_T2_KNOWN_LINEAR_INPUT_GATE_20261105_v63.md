@@ -1,0 +1,13 @@
+# 完全実一次初項L48の既知同次閉包入力
+
+独立検証されたnormalized graphと既知G3topから、実T2の全一次初項を張る48列を
+構成する。これは存在が証明されたcoherent定数単位frameであり、canonical M1の
+未知二値を零とした表示ではない。固定48列の独立性と単位正規化を確認する。
+
+次数を保つposition-over-lexで線形leading項をrewriteし、次数二の全264単項式の
+依存DAGを作る。ell²=0も保つ。全48真の一次関係×九変数の432列を次のjobで
+reduceし、全S-overlapを落とさない。線形48式がGBだと仮定しない。
+
+得られるのは既知一次初項だけが作る同次coverの次数二。prefix長が20を超えたら
+このcoverでは実上界20を改善できないので止める。実HF2がそれ以上という意味ではない。
+prefixが小さいときだけ新しい次数三のslot/overlap gateを作る。
