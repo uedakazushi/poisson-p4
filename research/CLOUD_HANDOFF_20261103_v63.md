@@ -8,6 +8,24 @@ v62保存は `e187b40de68bce534391f406f616940cddd045a7`、
 `66a80ab53dfcf0ff842c67140320d8da0226039d`。全て通常push済み。
 このv63保存のSHAはGit履歴で識別する。
 
+## v63 CL / 2026-11-06: native九十二全値・全混合導体三次消滅・六十三次元安全合成
+
+直前 main `199b260f04775eefe3bb99afff84e92f954a17f1` は通常pushとremote照合済み。Cloud開始SHAは`4c3f623fb698f9adc6077015b25e2325b11072af`。既設Cloudを使い続け、元ソース・検証runner・依存・五凍結原稿は変更していない。
+
+二十三native pivotのGamma二次全九十二値と積則322内訳を別のuniversal64 trace法で独立再構築した。primaryのGamma L/Res4(S)行列を作らず、元三maskを一度に掛け、monic collisionをbitの整数和から還元する。全individual L二次S零次と両monic carryが残り、全値が一致した。既存source280bit/temporary841bit、whole12432以内である。入力Nの最大152bitと新しい演算中間値112bitをmetadata receiptで区別し、全数学値の最大は152bit（source280以内）と記した。個別source648は両channel rr/r ell全て零と確認済み。
+
+gA505938/gB299650は元のpointed own-chartを経由し、全混合方向でm_R0三乗に属すると独立証明した。own二変数の二次以下全六係数、九変数inverseの全定数零・unit Jacobian・literal prefix ASTを別実装で照合した。無制限f63とのnamespaceを区別する。605非opaque caseでこの二関数のsecondを零にできるが、残るphysical/known-FIRST/native carryやupper全体は別である。元SOURCE18882というcurated部分保持数と、全parse lifetime55138/独立55301を訂正receiptで区別した。
+
+case549は完全なc0=OLD298/4+native649、全三十二a1・五十五FIRST factor・外側648 carryを結合した。nativeの必要六十八積はBoolean支持法でも空、OLDquarterと110 FIRST factorは別のdense正vector法でも各上界零。648はS零次非零だが、独立全九十二cacheにより外側実値が零である。よってwhole549 upper二成分とQ六成分は零と証明した。508/288/549の三個別caseだけで、全605の零ではない。次の554は非零outer priorを持つp644を含むため意図的に選んだ。全六c0、二十九a1、五十七FIRST factorとweighted native S零次を保つSOURCE/正予算を準備中で、値は未計算。
+
+元delta63=g20144−g40922は未知105変数に対するorigin gradientが全て零。このためB63の三十二次元socleにある未提供Phi入力は全delta63出力へ影響しないと証明した。B63全3969積と250047結合則、全socleとtrusted plane10/B27への商写像を独立確認済みである。これは未知Phiの真の高次係数を零とする操作ではない。任意のlower extensionで全deltaだけを安全に評価し、他のodd関数は信頼済み商でのみ読む。HEAD29/30の四highが揃えばKbarの明示七基底に必要なparameterを埋められる。残るhead0/head4 high四個はその基底には不要である。新しいhead値workerはSOURCE・正profile・custody・独立code点検を先に閉じる。
+
+一般五点ではfull F11を使う十一番目typed Schur更新を5789-nodeの有限operatorとして構成した。Np=P7*F9*FULL_F11、D11=D10*Np、N11=Np*N10ij−N10i53*N10_6jを保持し、166x13・全166行RHS・87追加RHSと66条件・逆代入を元ownerに結ぶ。これはformal callbackの構築で、全係数やRHSの値は未計算。次の候補row17/col79では一つの面functionalのSOURCEを設計し、full F11の代わりに411項面を使わない。全F9/F10/F11補集合とP290一回を維持する。
+
+二tailは固定四十素数CRTのnative workerと全prefix/custodyを準備中。標数零因子の値計算はまだ実行していない。DVR構造からの別候補として三つの正しいBockstein像が独立ならell H0=0を示せるという条件付き基準をノートに残したが、実cycleやrankは未計算である。途中で打ち切った自由表示のH2を使わない。
+
+元H0の長さ・ell消滅・nil三乗・正確なnil指数、T2全長17〜20、全FULLU57/239、一般五点尽くし、全分類上界は未解決。元nil指数3〜6、下界58（rank4は52）、NEW式28次と五凍結原稿を維持し、保存後も具体的な計算と証明を続ける。
+
 ## v63 CK / 2026-11-06: 元接続写像の核・非分裂、T2二関係、一般五点の非零entry
 
 直前 main `1004a1f7212dc0ae53a063a1effe4a161fa9bbda` は通常push済み。Cloud開始SHAは`4c3f623fb698f9adc6077015b25e2325b11072af`。公開済みCloudの既設環境を再利用し、成功したセットアップは再実行していない。

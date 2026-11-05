@@ -1,0 +1,13 @@
+# 個別native二十三pivotの二次全九十二係数：別のtrace積による独立確認
+
+2026年11月6日（日本時間）。primary `8eea9b0748d2d230dc6495c910197db61f15e95b6d92721075bbc97191b4048d` の全九十二値と積則の内訳322個を確認した。
+
+primaryはGamma Lの五係数とRes4(S)を先に作る。独立法はこれらの行列を作らず、元のN係数mask、G8係数mask、original入力maskの三つを直接掛ける。各trace変数について三bitの和の偶奇を出力mask、二で割った整数部分をmonic因子の指数とする。全64組を検証し、二重collisionは次数四以上なので必要二次係数に寄与しない。ordinary rrとr ellの係数を直接収縮した後、collisionがintrinsic側かN側かだけを分類して全322内訳も確認した。Gamma自体の下八成分零を仮定せず、元native Xの下八行零だけを使う。
+
+full L二次S零次、N零次monic二次、intrinsic Sのmonic carryを全て保持した。原sourceの正280bit/temporary841bitを保ち、全保持の算術前上界12432は元21034以内、実際の最大中間高さ112bit、1918操作、0.033秒で全て一致した。新たなphysical/gauge/honest/N三次/upper値は求めていない。
+
+元source648（current27のindex6、native23のindex2）のGamma Xp二次は、両channelのrrとr ellとも零である。個別積のL二次S零次を省略して得た零ではない。この受理済み値はcase549のa1 plane係数に使えるが、case549全体やT2 HF・全長はまだ決まらない。
+
+証拠は `reports/AMBIENT_B18_NATIVE92_ROOT_DIRECT_REVIEW_20261105_v63/report.json` と全92/322のexact table。既存cacheの同じ枝・frameの計算であり、独立な幾何学的尽くしを主張しない。
+
+高さの表示補足：凍結reportの`actual_max_bits=112`は新しい積和の中間値だけを数える。読み込んだN cacheの最大は152bitなので、入力を含む数学値全体の最大は152bitである。別metadata receipt `AMBIENT_B18_NATIVE92_ROOT_METADATA_20261105_v63`にこの区別とliteral READ53746 byte・全RAW算術前上界1102322 byteを記し、primary・独立peer・全値を再計算も改変もしていない。
