@@ -1,0 +1,33 @@
+{
+  "id": "AMBIENT_B18_NATIVE_SHARED72_SOURCE_FINE_20261105_v63_REVIEW_PUBLICATION",
+  "all_passed": true,
+  "metadata_only_no_arithmetic_rerun": true,
+  "primary_and_final_report_bytes_unchanged": true,
+  "own_attempt1_preserved": true,
+  "exact_name_only_three_line_diff": [
+    "--- ATTEMPT1/source-before-name-correction.py\n",
+    "+++ code/ambient_B18_native_shared72_source_fine_review_20261105_v63.py\n",
+    "@@ -198,9 +198,9 @@\n",
+    "   piecebook=[];channels=[]\n",
+    "   for ch in range(2):\n",
+    "    cg=[dot(R[0,ch,-1,rb],sb)for rb,sb in cub];ds=[]\n",
+    "-   for p,(a,b)in enumerate(dpairs):\n",
+    "-    terms=[(0,7+p)]+[(vf[x],vf[y])for x,y in([(a,b)]if a==b else[(a,b),(b,a)])]\n",
+    "-    ds.append([dot(R[1,ch,p,rb],sb)for rb,sb in terms])\n",
+    "+   for pi,(a,b)in enumerate(dpairs):\n",
+    "+    terms=[(0,7+pi)]+[(vf[x],vf[y])for x,y in([(a,b)]if a==b else[(a,b),(b,a)])]\n",
+    "+    ds.append([dot(R[1,ch,pi,rb],sb)for rb,sb in terms])\n",
+    "    A=sumdu(cg);D=sumdu([z for row in ds for z in row]);total=sumdu([A,D]);values[i,ch]=total\n",
+    "    channels.append([enc(A),enc(D),enc(total)]);piecebook.append([list(map(enc,cg)),[[enc(z)for z in row]for row in ds]]);allpieces+=len(cg)+sum(map(len,ds))\n",
+    "   assert channels==expected[i]['two_channels_Gamma_D_sum_DU']\n"
+  ],
+  "input_sha256": {
+    "reports/AMBIENT_B18_NATIVE_SHARED72_SOURCE_FINE_20261105_v63_REVIEW/report.json": "0384d2623fab486eb0dbd1a4df239bd04e6a7ff778f7464c454ec324c541683e",
+    "code/ambient_B18_native_shared72_source_fine_review_20261105_v63.py": "a0c468b2b2c6c417852d27dd43138ac145691464f4936389a0acd070823d302c",
+    "research/notes/AMBIENT_B18_NATIVE_SHARED72_SOURCE_FINE_20261105_v63_REVIEW.md": "10b83b49959bbcca9db3607c4f3a0c8d68881cbebf1d3178bad9f2dd48f824b3",
+    "reports/AMBIENT_B18_NATIVE_SHARED72_SOURCE_FINE_20261105_v63_REVIEW/independent-full617-kernel72-and-all-fine605-DU-source-proof.json": "51c78330d7a31bef50db868d65912be58be6df1cf83fbbf87c21f636ba29095b",
+    "reports/AMBIENT_B18_NATIVE_SHARED72_SOURCE_FINE_20261105_v63_REVIEW_ATTEMPT1/positive-before-independent-kernel-and-fine-paths.json": "d368435d56ecea2ad3ceefb3fea7edd23209baa26b2e78e2f9c76c4020d6170b",
+    "reports/AMBIENT_B18_NATIVE_SHARED72_SOURCE_FINE_20261105_v63_REVIEW_ATTEMPT1/source-before-name-correction.py": "d905c80084af284b2430bcc1ce3faae9bf0c46b69ceb8b1fdb8b201a5706f2b2",
+    "reports/AMBIENT_B18_NATIVE_SHARED72_SOURCE_FINE_20261105_v63_REVIEW_ATTEMPT1/failure-receipt.json": "58f9c9f29ff966631f27985c081be8e21d9518b124c4dca22b8783867a303c63"
+  }
+}

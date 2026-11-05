@@ -1,0 +1,7 @@
+# ONE554 signed結果の独立固定postcheck
+
+承認済み339/1018事前上界と同じ元入力だけを使う。primaryのdirect N転置Sc法を再使用せず、先に68個のGamma/D covector-L行を作り、別にweighted intrinsic Sの864係数を作る。五つのcubic積と十pairのordinary second積（rrは一回）へ分解し、native両合計を確認する。全varying monic carryを残す。
+
+OLD二列はdense21多項式・逆順積で評価し、物理入力の既知first-crossを残す。28個別FIRSTのnativeellはSeL0＋S0Leを逆順で計算し、全114個の係数積と合計を照合する。外側644は元accepted92 cacheを別に読み、fullL2S0を含む四targetへ元a1係数を掛けて二つの補正を比較する。
+
+最後に六部分を別順で合計してupper二成分とQ六成分を確認する。これはONE554だけの結果であり、他605、HF二次等号・全長・元H0への推論ではない。新しい物理・gauge・higher function・別caseは求めない。

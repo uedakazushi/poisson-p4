@@ -1,0 +1,7 @@
+# native72・605へのfine正上界SOURCE
+
+独立確認済みの68 covector-L正上界は定数sourceに依存しない。固定72 kernel列それぞれのweighted intrinsic Sを作り、Gamma五項とD十pairのordinary積を正に収縮する。rrは一回である。scalar-mask kernelでは絶対値を取ったpoint上界が非零になり得る。実full48 S0の厳密kernel証明によってpoint係数だけを零へ置き、first・second・r²ell・全monic carryを残す。個別raw4/8/12を零にするのではない。
+
+全factor生成前に、R68/G8/monic/kernel係数の共通分母・絶対分子と2^20 path数から事前上界を保存する。各72列の両channelでGamma/D/合計のfine上界を作り、120個の定数係数だけで605 native部分へ合成する。SOURCE算術のpriorは既存coarse341/354と新fine計算の和集合を保ち、上げない。
+
+将来値workerはnative coarse段階をこのfine出力へ戻してからOLD・FIRST・外側・Qを合計する。coarse354を直接Qへ掛けない。このpacketは非負上界だけで、native144応答も605 upperも求めていない。genuine honest quotientやOLD conductorの第三係数を零としない。

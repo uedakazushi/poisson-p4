@@ -1,0 +1,9 @@
+# 全605用native共有75→72→605 SOURCE
+
+opaque-secondを持たない605個には、明示kernel105のうち72列だけが現れ、定数係数は計120個である。元605のnative raw支持は72個だが、72個の固定kernel列を展開するとraw75個を使う。追加4/8/12は点S0非零のmask0列である。従って75個別auxiliaryに未提供N三次・mixed二次の実値を代入したとは言えず、known partialNからの形式extensionとしてだけ扱う。固定72 kernelへの制限と605定数表の積で初めて実Gamma三次＋D非zz二次になる。
+
+同じcanonical G8/monicのJ18_with_r2ell像、N既知九base係数、現在Gamma/Dをpruneして保存する。全75 Koszul sourceはNの最初八行だけを使う。monic二個の支持消滅と、ordinary rrが一回であることを保持する。fulltrace-mask carryを除かない。
+
+native basisの共通分母・絶対分子341/1024事前上界を引き継ぎ、各605行の少数の定数係数LCM・絶対和だけからcomposition事前上界を作る。関数応答は計算しない。保持量はraw＋parsed入力、N/G/monic、source一列のSc/NSc、形式aux75・実restriction72・605 native結果とguardコピーを明記するが、future forecastは実行許可の代用ではない。
+
+OLD physical graph、全FIRST、個別pivotのL2S0、honest quotientやconductor三次、whole upper605は別laneである。gA/gBがm三乗に入ることはその三次係数が零という意味ではない。全605/HF・長さ・元H0の主張は無い。別のimmutable worker・custody・独立peerとROOTの新しいGOが必要である。
