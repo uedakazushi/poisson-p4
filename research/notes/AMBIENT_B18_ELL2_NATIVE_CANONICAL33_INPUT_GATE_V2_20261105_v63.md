@@ -1,0 +1,13 @@
+# Canonical native finite33 cache source gate
+
+The accepted ten ordinary second-coefficient functionals descend further to B17=R0/(IA IB,ell squared,m cubed,z2,z3,z6). Its basis is one, the six active variables and the ten nonzz quadratics. The source gate checks all1,089 raw33 products and all660 normal forms against this ring quotient, retaining nonhomogeneous carry. It preserves every requested second coefficient and the active point/first data. The trace extension has the unchanged free-four basis and dimension68.
+
+The input binds the original finite33 canonical30 cache, actual14, retained kappa9 and actual trace-free monics. Origins, all available B11 and C16 gauge/kappa/actual14/monic projections are compared literally with the prior canonical branch. The nonzero odd gauge origins are retained. The scalar auxiliary etaA equations are distinguished from the physical tauA embedding. No physical105 system or canonical gauge system is solved again.
+
+The eight G8 functions retain the original five rational graph roots in their exact pivot order and the three prepared core generators. Their only effective denominators are powers of P=5+d squared. In C68, assign base variables weight two and trace variables weight one. Monic carries have weight at least two, and the largest basis weight is six. Thus the maximal ideal has seventh power zero and (d squared) to the fourth is zero. The four-term unit expansion gives exact G8 polynomials modulo that nilpotence; it evaluates no G8 response.
+
+A source-derived common-denominator and term-count bound covers future coefficient arithmetic, with at most six kappa factors, two monic carries and fewer than2^100 paths. The proposed value bundle contains320 G8 scalar second coefficients and20 monic coefficients, plus cached overlap checks. No value worker is authorized by this source report. Pure-plane third/fourth extraction remains a separate P9 lane.
+
+The native unit program contains no honest quotient dependency. The36 OLD2 only79 functions and four new gA quotient nodes are recorded as outside frontiers; neither abstract descent nor the finite unit cache computes their images or allows division by a nonunit. Individual native-pivot L2 S0 carries also remain in their separate comparison source. No b1, upper relation, Hilbert function or module length is evaluated.
+
+V2 changes only the accepted C16 adapter reader from sparse-pair parsing to its literal dense four-entry row format. The failed reader, its completed SOURCE prefix and traceback remain in FIRST_DENSE_READER; no native function responses were evaluated. No cap or mathematical representation changed.

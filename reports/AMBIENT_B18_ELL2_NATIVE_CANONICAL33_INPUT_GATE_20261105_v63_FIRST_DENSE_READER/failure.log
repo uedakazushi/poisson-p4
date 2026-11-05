@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/workspace/poisson-p4/code/ambient_B18_ell2_native_canonical33_input_20261105_v63.py", line 120, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/workspace/poisson-p4/code/ambient_B18_ell2_native_canonical33_input_20261105_v63.py", line 72, in main
+    reidx=[0,8,9,25];assert all(sp(c16['raw33_to_Rell4_columns'][i])=={j:Q(1)} for j,i in enumerate(reidx))
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/poisson-p4/code/ambient_B18_ell2_native_canonical33_input_20261105_v63.py", line 72, in <genexpr>
+    reidx=[0,8,9,25];assert all(sp(c16['raw33_to_Rell4_columns'][i])=={j:Q(1)} for j,i in enumerate(reidx))
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/poisson-p4/code/ambient_B18_ell2_T2_G2_strand_rank_input_review_20261105_v63.py", line 40, in sp
+    def sp(a):return {int(i):Q(v) for i,v in a if Q(v)}
+                                      ^^^
+ValueError: not enough values to unpack (expected 2, got 1)

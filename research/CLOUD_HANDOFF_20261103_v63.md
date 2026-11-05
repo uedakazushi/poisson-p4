@@ -8,6 +8,28 @@ v62保存は `e187b40de68bce534391f406f616940cddd045a7`、
 `66a80ab53dfcf0ff842c67140320d8da0226039d`。全て通常push済み。
 このv63保存のSHAはGit履歴で識別する。
 
+## v63 CI / 2026-11-05: native C68の全二次係数・接続三行adjoint・容量制約下の継続
+
+直前 main `ab90df1e6524aee94a3f10d611170acc3c23c23f` は通常push済み。Cloud開始SHAは`4c3f623fb698f9adc6077015b25e2325b11072af`である。
+
+native の必要十functionalを保つ B17 商と free-four 拡大 C68 を確定した。全1089 raw33積と660非斉次NF、canonical30枝のactual14/kappa9/monic/gaugeのoriginおよびB11/C16 overlapを確認した。初回のC16 dense行reader失敗を保存し、V2は読み方だけを修正した。sourceで保つbranch・monic・frameや正予算は変えていない。
+
+重みbase二・trace一の最大基底重み六からradical七乗零を得て、P=5+d二乗の逆を四項で正確に扱った。算術前の正313bit・temporary940bit・保持25258・operation上界147599を証明して一回計算し、全八G8の544成分、要求されたscalar二次320とmonic二次二十を得た。既存B11全352とC16全128が一致し、実二次の最大高さは22bitである。別実装はtrace基底積表と元五rational rootのgeometric inverse冪から直接求め、primaryの展開済みprogramや同じ積algorithmを用いず全544とmonic二十を再構築した。
+
+これはcanonical unit関数の計算であり、honest quotientのfinite像や元比較frameへの全carryを与えない。36個のOLD79-only境界と四つの新gは残る。native個別pivotのL二次S0も保持し、full617 functionalへ組み込むsourceを次に調べる。pureplane三次/四次はB17で消えるので別P9課題であり、未計算値を零としない。
+
+元connectingのsigma二次adjointも三つのHadamard行へ限定した。L=C n零次の支持は旧m行8,12,13だけで、係数は−43303/59400,−149887/237600,30713/59400。全495 original-z ordered-prefix恒等式、五B contractionと七primitive関数を独立確認した。V四次sigma零次だけなら十四slotだが、coherentな全最高依存性の消失ではない。sigma一次_rの最後のsource四次行とmixed carryを残す。既存cacheだけで一つのhead23/physical67の全列、および低二行を決められるかが次の小課題である。実17 edge parameterは未評価。
+
+大域の二tailについては、N2がN0を割らないことをliteral leading monomialから証明したSOURCEを保存した。正確な六因子base環QQ[a,e,d,1/(a*d*F*B*C*J)]の全反転因子をpinし、N2の六因子との互いに素性を既存重複度と整数掛け戻しから導く。この環で(Q2)は(Q0,Q2)に真に含まれるが、D12等の追加局所化、strict open/radical、実bad Fittingや補集合消尽は射程外である。この新SOURCEの別担当peerは容量不足で未完了なので新しい独立検証済みclaimへは昇格していない。
+
+さらに固定prime32003と単射Kronecker符号化a=t646,e=t19,d=tで二式のunivariate gcdを一回調べた。入力次数10544/7975は保たれたが、gcdは次数3899・94項であった。従って標数零のcoprimalityは証明できず、共通因子の存在もまだ主張しない。結果と正予算・全codeを保存し、次は固定有限個primeのCRT候補と元整数二式の全除算・掛け戻しを先にsource設計する。診断の独立再計算も未実施である。
+
+一般五点col53のSOURCEは保存済みlive07から45項を進め、A11成分の全scalar/H/BOX bound・canonical hash・lossless live08 snapshotが通った。その次に退役済みraw53 metadata IDの再使用assertで止まった。前の全45 receiptとlive08（36 map/45842 key）を保存した。次はlive08だけから残A44/A52の48項を、新しいcomponent別literal IDと明示的metadata退役で続ける。draft workerは未実行でfreshSOURCE gate/peer/GO待ち。旧八成分や45項を再実行せず、150k・32MiB・時間上限は上げない。係数VALUEはまだ求めていない。
+
+日本時間11月5日23時台に六並列担当が全てサービス側のモデル容量不足で中断し、既存担当の一度の再開も同じエラーとなった。親は影響を受けない計算を継続し、上のC68独立検証と固定二tail診断を実施した。中断したsource準備、未承認draft、失敗prefixと次の実行位置を保存する。容量回復後は既存担当をそのpacketから再開すればよく、環境の再構築は不要である。
+
+元H0・nil三乗・正確なnil指数、T2 HF2二〜四/HF3一〜四/長十七〜二十、全FULLU57/239、一般五点尽くしと全分類上界は未解決のままである。比較Cのtorsion長七を元H0へ移さない。元nil指数三〜六、下界58（rank4は52）、NEW式28次と五凍結原稿を維持し、保存を研究完了とは扱わない。
+
 ## v63 CH / 2026-11-05: 十係数の正確な降下と元connectingの形式source・B重複度四
 
 直前 main `8ace0e00d357e7b7a78b45ba2179f5ac43bcdb89` は通常push済み。Cloud開始SHAは`4c3f623fb698f9adc6077015b25e2325b11072af`。再開時にもHEAD/origin/main/GitHub mainの一致を確認し、既設環境と同じproxy/CAを再利用した。

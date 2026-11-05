@@ -1,0 +1,39 @@
+{
+  "all_passed": true,
+  "source_only_no_gcd_evaluated": true,
+  "prime": 32003,
+  "weights_a_e_d": [
+    646,
+    19,
+    1
+  ],
+  "input_degrees": [
+    10544,
+    7975
+  ],
+  "inputs": [
+    "reports/S61_NONSQUARE_PREPOWER_T0_C4_QUOTIENT_ENTRY_20261105_v63/quotient-integer-common-D.txt",
+    "reports/S61_NONSQUARE_PREPOWER_Q1_B4_QUOTIENT_ENTRY_20261105_v63/quotient-integer-common-D.txt"
+  ],
+  "finitefield_scalar_bits": 15,
+  "all_scalar_product_bits": 30,
+  "decimal_reduction_bits": 19,
+  "owned_upper": 25000,
+  "ownership": "two vector capacities total18521+4096 metadata, no original coefficient maps retained; trim never allocates, swap only; all indexed coefficients are implicit-key vector cells",
+  "all_products_cap150M": 150000000,
+  "positive_cost_reason": "classical Euclidean divisions: sum ((m-n+1)*(n+1)) <=2*(10545)^2 conservatively; tighter n0*m0+2*10545\u00b2 is TOO BIG for150M, so guard may honestly stop. No auto retry or cap raise; full f/g prefix saved. Usual strict degree drop cost sum(2*delta_i*n_i) <=(10545)^2 plus inverse exponentiation<1M; hence150M covers this standard bound.",
+  "positive_product_upper": 112500000,
+  "RAW_upper4000000": 4000000,
+  "soft45_hard60_RAM2GB": true,
+  "theorem": "Suppose nonconstant common primitive Z[a,e,d] divisor H. Its e/d degrees <=33/18, so substitution is injective on H and H(t) nonconstant. If both input weighted leading coefficients survive mod32003, Gauss factorization and multiplicativity of univariate leading coefficients imply H(t) retains nonconstant degree modulo32003. Thus computed univariate gcd1 implies ordinary char0 coprimality, also overC by faithful field extension and geometric factor conjugate product. If gcd positive, only diagnostic, no char0 factor claim.",
+  "geometric_scope": "If gcd1, (N0,N2) has no common divisorial component in QQ[a,e,d], base six-factor localization or further open localizations; common zero scheme dimension<=1 (or empty). Not comaximality, exhaustion, strictopen, actualbadFitting equality or allFULLU57/239.",
+  "input_sha256": {
+    "reports/S61_NONSQUARE_PREPOWER_T0_C4_QUOTIENT_ENTRY_20261105_v63/report.json": "a86f87ecddf58ae08110daf099b3fa61a0d290a018423550c22c9d68cd097131",
+    "reports/S61_NONSQUARE_PREPOWER_T0_C4_QUOTIENT_ENTRY_20261105_v63/quotient-integer-common-D.txt": "6c2f3b989cc083e00892d77d40cc20c62d3311f77eb6b528d5bb0330efa6a6ab",
+    "reports/S61_NONSQUARE_PREPOWER_Q1_B4_QUOTIENT_ENTRY_20261105_v63/report.json": "24370d35886931b1c636e5d4b421fe01bf67924684ba22ff13235b6386719cc5",
+    "reports/S61_NONSQUARE_PREPOWER_Q1_B4_QUOTIENT_ENTRY_20261105_v63/quotient-integer-common-D.txt": "4eef3dad39c0906804508505c9a867a5671f7537a1471ccb272d2b7d71d5defe",
+    "code/s61_two_tail_fixed_kronecker_20261105_v63.cpp": "de29372b19cc7f5e2a9f80bbf120548d76a324c820e88bebeba3dfbf36de3a9b"
+  },
+  "worker_sha256": "dcad9f62dbaa93b5a19bd21718946c4468f434d7ed24af363669389891cf2fbe",
+  "code_sha256": "a5d2853c2c2eb55fc07f4d67406c1590a27d19477adf5a44ed5e705d4ba1a6de"
+}
