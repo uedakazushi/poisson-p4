@@ -1,0 +1,9 @@
+# 二十case用native SOURCEの厳密prune
+
+独立確認済みの全605正上界とONE554結果から残る二十caseだけを取る。これらは固定kernel105の二十五列を参照する。そのうち十列は、両channelのGamma・D・合計の正上界分子がすべて厳密に零である。独立SOURCE/FINE peerに結ばれた明示zero証明を保存して除き、残る十五列と十六個のraw auxiliaryだけを将来の値計算へ渡す。未計算の別kernelを零で補わない。
+
+raw8・32・80のfull48 S0は非零であり、raw auxiliaryは形式的なpartialN extensionのままである。十五個の固定kernelへ制限してからfullS0が零になることを既知point係数だけで再確認する。raw4/12は依存性pruneで不要になったのであり、point-zeroと呼ばない。全higher first-cross・monic carry、knownNrr/rellを保持する。
+
+native二十mapは全617 sourceの563/609補正を既に含む。特に617はsource617＋20source563であり、native mapへ563を二重に加えない。OLD/FIRST側のraw二十一case処理とは区別し、raw563のupperが零とも仮定しない。
+
+新しいsigned応答は求めない。新規算術は既知constant pointの32bit以下だけで、higher intermediate354/1063・fine出力上界は以前のSOURCEを単調に制限して使う。whole二十worker・custody・全所有量・独立peerとROOTの新しいGOが必要である。
