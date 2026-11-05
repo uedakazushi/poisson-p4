@@ -8,6 +8,26 @@ v62保存は `e187b40de68bce534391f406f616940cddd045a7`、
 `66a80ab53dfcf0ff842c67140320d8da0226039d`。全て通常push済み。
 このv63保存のSHAはGit履歴で識別する。
 
+## v63 CF / 2026-11-05: 比較Cのtorsion型1123と全HFの確定・実K396・第一tailの4500項表示
+
+直前 main `ce7dd5d469c9fd4b0c74005b1c48313d7e31d657` は通常push済み。
+
+比較加群Cの残る長いDVR指数を解決した。真正tauA tauB四次sourceを、39個の既存cache・954 scalar演算だけから評価すると、physical18のHB残余第三座標1331/9216が非零となった。独立な39記号の展開多項式を直接評価する方法で、全18 NF・15残余・二次minor−1331/15360・両側逆・全四列因子化・literal ell四乗A/Bを含む四次minorが一致した。全Cの四次HFは厳密に四、m二乗Cのtorsion型は(2,2)である。ell四乗商C4の実長は23、HF(3,6,6,6,2)、m五乗零と確定し、D長の式からe=3が従った。
+
+従って比較CはD加群としてD四自由成分とtorsion型(1,1,2,3)、torsion長七、全HF(3,6,6,6,4,4,...)、級数(3+3t−2t四乗)/(1−t)を持つ。m三乗Cのtorsionはk二個、m四乗CはD自由四である。C[ell]は次元四、C[ell二乗]は長六、C[ell三乗]は長七となる。C3長19/HF3664とも整合する。新しいdelta四次、physical/gauge/IFT jet、root再計算は不要だった。未知高次係数を零とせず、真正部分像の下界と長さの上下界が一致することで証明した。
+
+これは比較Cの結果であり、元H0(D0)の長さ・指数や元nil三乗の判定とは区別する。次はgenuine C[ell]を、正確なR0線形模型ker(ell:C4→C4)/im ell三乗から実cycleとして取り出す。D自由補成分Fを明示的に選ぶ場合もFのR0安定性は仮定せず、C4/Fの単純な商作用を使わない。既存C2の四scalarだけで七次元D-torsion targetのell表を得るSOURCEと、元K/H0へのconnecting sourceを別々に監査する。Cの指数を決めるためだけのprimitive delta四次計算は不要となった。
+
+honest T2では選択99 sourceの完全Kfull、二channel・rr/rellの全396係数を計算し、84値の非零を得た。元physical24 P5・80 firsts・B11/C16配列へ戻った別の収縮順が、全396値と1980 pieceを再現した。全99のnative原点組合せ零からrr二項・rell三項の正しいSUMを使い、fullPsi補正を保持した。honest327554自体を零とせず、次数三以上とsourceで証明した七つの積だけを省いた。実全918 adjoint、b1項、Z2、617 upper関係像、HF2/T2全長はなお未計算である。
+
+全918 strandのrightsolveは、literal162単元・28単元adjugate block・零三変数Koszulをfactoredに保持するSOURCEへ進んだ。既知fixtureの恒等式と、将来の任意alpha/RHSの高さは別に扱う。actual alphaの粗い正高さ上界は従来384bit guardを超えたため実行せず、固定四dual行だけをguard付きで調べる別目的gateを準備する。capを引き上げず、未commit値と全cursorを保存して止まる構成とする。全alphaやupperが既に求まったとは報告しない。
+
+大域の第一tail T0も、指定済みC単元の重複度が正確に四となった。元root239の7208本文は既にa四乗を除いたU0であり、aを二重にずらさず、Hasse零〜三の全零と四次646項非零を独立五jet整数Hornerで再構築した。その後Q0=T0/(a四乗C四乗)を一回厳密計算し、全slab完成後の固定100二十乗整除・逆乗算・全C四乗multiplybackを確認した。別の固定25項C四乗整数長除算は元7208有理数literalから全4500係数・剰余零・原197bit分母を再現した。既存Q1の4811項と全く同じ共通Dを使い、二tailを小さい同値表示へ戻せた。これはFULLU既存単元だけによる表示変更で、真の開の拡大、bad Fitting等号や補集合消尽は未証明である。
+
+一般五点の次col53はSOURCEのcanonical支持hash scratchでguard停止した。row6の未相殺正Minkowski支持50335を得た段階で、全aliasを加えるforecast164259が150000を超えたためalias割当・matrix係数計算へ進まなかった。prefixとcodeを保存し、実係数支持50335や階数失敗とは解釈しない。hashだけ直しても将来の未相殺積forecastが大きいので、元のSchur式のPluecker恒等式を先に使う別SOURCEへ進む。形式的共通P7F9と十一個のraw行への係数側収縮を証明し、W35の自己aliasも保持する。F9の数値GCD・未知因子探索やchart補集合の削除は行わない。全167対14・87追加RHS・66制約・P290一回・全旧補集合を維持する。
+
+元nil指数3〜6・零次数ideal最小五生成・下界58（rank4は52）・全分類上界未確定・NEW式28次・五凍結原稿を維持する。元H0・nil三乗・正確な指数、全FULLU57/239、全大域境界と一般五点尽くしは継続中で、保存後も実研究を続ける。
+
 ## v63 CE / 2026-11-05: 比較Cの全HFの一整数還元・T2の指定strand完全性・第十pivot候補
 
 直前 main `4f3d5e921095ec1c49f88f13a67c15cf39f1bacb` は通常push済み。

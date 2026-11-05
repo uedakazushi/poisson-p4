@@ -1,0 +1,5 @@
+# Selected-99 OLD source order and plane selectors
+
+The literal honest leaf327554 has no escape to a required root outside its seven products with zB. Its zero origin and the zero point/r/ell coefficients of zB give order at least three for each product. The complete ordinary plane second response of each product therefore vanishes, without assigning a value to the honest second derivative. The other nonphysical leaf is the true zero-seven CB conductor299650, whose accepted all-six source-second vanishing implies plane order at least three under the centered coordinate pullback. It is distinct from raw f6328539.
+
+The remaining 24 physical leaves use the accepted raw33 to plane9 ring map, further truncated through plane degree two with ell squared zero. The unique literal selectors are raw indices 0,8,9,24,25 for 1,r,ell,r squared,r ell. This is not a claim about arbitrary mixed or higher jets. The independently proved all-99 intrinsic native S0 identity is reused without repeating its arithmetic. All native first-cross terms remain required. This review evaluates no second response, gradient, K, b1 or upper relation value.

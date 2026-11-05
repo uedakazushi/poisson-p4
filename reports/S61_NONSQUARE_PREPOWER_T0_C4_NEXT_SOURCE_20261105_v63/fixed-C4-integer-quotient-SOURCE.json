@@ -1,0 +1,57 @@
+{
+  "SOURCE_ONLY_NO_QUOTIENT_VALUES": true,
+  "independent_Cvaluation_peer_REQUIRED": true,
+  "U0": "T0/a^4=I0/D0, I0 integer7208,D0 original197bits",
+  "target": "J0=I0/C^4 integer polynomial; Q0=J0/D0=T0/(a^4*C^4)",
+  "C": "100a-R, R=2+9e-18e^2",
+  "finite_scaled_slab": "S_i=sum_{j>=i+4} I_j*binom(j-i-1,3)*R^(j-i-4)*100^(20-j+i),i0..16",
+  "scalar_normalization": "after FULLslab, assert every S_i coefficient divisible fixed100^20, then J0_i=S_i/(100^20); backmultiply integer equality",
+  "Gauss_proof": "Cprimitive since-1*(-9)+4*(-2)=1; rationalC4divisibility makesI0/C4 integral. ThereforeALLscaledslabcoeffs are divisible10020; no content/GCDsearch.",
+  "negative_a_remainder": "no assumption or truncation: verify ALLcoeff C^4*J0=I0 after completeddivision, which eliminates the whole Laurentnegativepart",
+  "fullslab_before_bounds": "e<=72,d<=18,1387slots; only AFTERwhole sum check finalbounds, no dropping high e terms",
+  "final_J0_bounds": {
+    "a": [
+      0,
+      16
+    ],
+    "e": [
+      0,
+      32
+    ],
+    "d": [
+      0,
+      18
+    ],
+    "total_degree_max49": 49,
+    "support_upper9690": 9690
+  },
+  "remainder_bounds": {
+    "a_max20": 20,
+    "e_max40": 40,
+    "d_max18": 18,
+    "total_degree_max57": 57,
+    "support_upper14592": 14592
+  },
+  "lifetime": "input7208+Rcache289+J0+ONEslab; releaseALLRcache and emptyslab BEFORE Cpowercache/remainder; one product accumulator",
+  "formula_owned53148": 53148,
+  "verification_owned79558": 79558,
+  "coefficient_and_packedkey_counted": true,
+  "ALLmetadata16000": 16000,
+  "source_l1I0_bits326": 326,
+  "scaledS_l1_bits435": 435,
+  "canonical_J0_l1_bits303": 303,
+  "integer_scalar_backcheck_bits436": 436,
+  "full_C4multiplyback_partial_bits333": 333,
+  "proposed_unchanged_hard_integer518": 518,
+  "height_proof": "||S||1<4*100^16||I||1; divide known100^20>=2^132; ||C4||1<2^29, so multiplyback partials<2^333",
+  "ALL_scaled_root_polynomial_products_upper2581132": 2581132,
+  "exact_fixed_scalar_division_checks_upper9690": 9690,
+  "canonical_D0_equals_existing_J1_D1": true,
+  "common_D0_D1_integer": 164144011096127878172550148707469312481250000000000000000000,
+  "future_two_tail_reduction": "T0=a4*C4*J0/D andT1=a3*C4*J1/D; sameQQdenominator, knownFULLUunits only. NoactualJ0 computed.",
+  "RAW_upper11000000": 11000000,
+  "soft45_hard60_RAM2GB": true,
+  "one_state_OR_success_no_IO_doubleprefix_required": true,
+  "no_actual_division_GCD_otherfactor_tail_or_badlocus": true,
+  "new_budget_and_fresh_source_code_audit_REQUIRED": true
+}

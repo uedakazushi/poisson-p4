@@ -2,6 +2,22 @@
 
 Version: v63-s61 · 2026-11-05 (Asia/Tokyo).
 
+Latest CF (2026-11-05): COMPARISON C EXACT Dtorsiontype1123/length7 independentlyPROVED.
+FullC HF3666444.../series(3+3t−2t⁴)/(1−t);m2tors(2,2),m3torsk²,m4Dfree4.
+τABphysical18residual1331/9216/minor−1331/15360; independentexpanded39symbolvalues/all18NF15resids.
+C4EXACTL23/HF36662/m5zero; C3L19/HF3664distinct. NooriginalH0/niltransfer.
+NextgenuineC[ell]=kerE(C4)/imE³ actualcycles viaD-onlyF16/T7 SOURCE; noR0quotientactionassumption.
+T2Kfull396 actual/84nonzero/all1980pieces independentlyoriginalcacheverified; fullPsi/nativeSUM kept.
+Actualalpha918/rho/b1/Z2/upper617/HF2/lengthOPEN; coarse384bitguardblockedfullalpha beforevalues.
+PrepareSTOP-onlyfixed4dualrows unchanged384/1153 withallstateprefix; no capraise/newphysics.
+Full918factoredrightsolveSOURCE fixture proof separatefromfuturearbitraryalpha/RHSheight.
+T0namedCvaluationEXACT4; all4zeros+646 independentjetHorner; Q0canonical4500 independentintegerlongdivision.
+Q0andQ1sameoriginalD197;knowna/Cunits only, two-tailcomplements/Fitting/wholeFULLU57/239OPEN.
+Genericcol53packedSOURCEguardSTOPprehashalias164259>150k, no matrixvalues/no actual50335supportclaim.
+NextformalPlueckerP7F9+11rawrowcoefficient-sideSOURCE; all167x14/87+66/oneP290/complements retained.
+Originalnilindex3..6/H0/cubeOPEN,zeroD0mu5,bounds58/r4lower52/upperNULL/fivepapersfrozen.
+Continueactualresearch/mainordinarypush; checkpointNOTstop.
+
 Latest CE (2026-11-05): FullC M=m²C Dtypefree4+(2,b>=2); h_j=4+1(j<4)+1(j<b+2), j>=2.
 FullC series(3+3t−t⁴−t^(b+2))/(1−t); e=b+1orb+2, b/eOPEN; HF4∈4,5.
 FullHB6coords exactrank1/col1=−10col0; μ03=(22/675,659/5400,1/675)independent.
