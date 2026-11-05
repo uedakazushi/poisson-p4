@@ -1,0 +1,3 @@
+# lower四covector事前上界のstage診断
+
+元known-input gateの441bit positive上界は384bit guardを覆わず、係数構築は実行していない。異なる診断実装として、同じ正のenvelopeをstage別に記録する。実source値・符号付きcovector・adjoint solve・cap変更はない。固定恒等式から証明済みの零を、不要な大きい検算として再計算しているだけのstageかを特定し、精密な次gateへ進むための資料とする。

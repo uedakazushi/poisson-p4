@@ -2,6 +2,17 @@
 
 Version: v63-s61 · 2026-11-05 (Asia/Tokyo).
 
+Latest BZ (2026-11-05): ZEROdegreeD0 NILIDEALminimalgenerators5 independentlyPROVED.
+Actualodd8 annihilateN/m_R0N: all352actions44order2/H128order1/Π0e42/trueLz=z0+25/4z4+z5.
+m_D0N=m_R0N, no scalar8x5job/fullformallifts. WholepositivegradednilidealmuNOTclaimed.
+OldTold→genuineG3 ACTUALrank1/witness2991593/10086000; imageQ1only.
+Told∩NbarL10/Nbar→NilEbarimage4; I=N/K Dfree7⊂NilEDfree9.
+L=NilE/I MODULEquotient rank2/torsμ3/ellfiber5; NOTquotring/E4ideal/Qsplit, torslength/expsOPEN.
+Currentoriginalnilindex3..6/Nbar³0/N³⊂ellH0; originalcube/exactindex/H0OPEN.
+T2active222zero finished; nonactive171→162structuralzero+9SOURCE pending, original619OPEN.
+M12axisbinary22.24MB source only; no newdetvalue/global57/239/exhaustionclaim.
+Continueactualresearch/mainordinarypush; checkpointNOTstoppingcondition.
+
 Latest BY (2026-11-05): actualGENUINENbar³=0 independentlyPROVED structurally.
 Completeφ4 all1650 hasONLYhead0*rA4 coordinate329=1; tiny3x8rank2 peerPASS.
 ExactΠ0firstrowFULL128=e42 viaall780X0/directnrowzero/threeSchurs42→18→0→0.

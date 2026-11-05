@@ -1,0 +1,3 @@
+# 第五後col81の十九値のみ：実装gate
+
+八十leafのsourceと全十九支持・D/M・全integer partialを算術前に照合。Q/U/V三十九はaccepted1c5f79物理gateとexactobject一致を再利用し、旧14MBmatrixは新しく読まない。残四十一は小cachebinary・既存Q商の掛戻し・固定row和をliteral確認する。HELPの安全性、VALUEparse全numeric metadataとcoff同時保持30408、freshRAW2.9MBを固定。SOURCE96956は前回別phaseとして保持する。

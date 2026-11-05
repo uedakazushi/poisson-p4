@@ -1,0 +1,7 @@
+# lower四channelのknown-source入力と事前guard
+
+既存literal定数・r/ell firstだけを小bundleへ切り出す。Pi3、selected99の元768結合とY0基底、B99用固定receipt、full G3 selected25、F25用固定receipt、G2linearを保持する。selected99 native S0結合は先行独立sourceで零と証明済みなので、Hstar_ellの構成にはL0Seのeffective部分を使える。individual pivot ell firstをeffectiveにするという意味ではない。
+
+実B99、Hstar、F25、四covectorを新たに作る前に、componentwise common-denominator/absolute-numeratorの正のenvelopeを伝播する。known basisへのmembershipと最終covector*J25確認の部分和も含める。384bit priorが覆えなければ新しい係数構築は止め、精密化gateを作る。capを自動で上げない。
+
+次のsource builderはfixed receiptの再生と既知行列の積だけであり、Gaussian・adjoint solve・X2係数値・physical/gauge/jetを求めない。四covectorは全918linearY1 slotを保持する。714個のz slotが零である場合だけ52plane adjointへ進める。条件が覆われても、そのadjoint solveには別のroot resource/source判断が要る。

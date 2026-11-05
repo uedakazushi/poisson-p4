@@ -1,0 +1,7 @@
+# 第六typed単元と列74のrow-streamed SOURCE
+
+既存chart上の実unit H*q0*Q/765450000を使い、全172対19を全171対18/top105+66へunit同値にする。selected18squareのみを同cokernelとせず、87追加topと66制約RHS・全normal42復元を保持する。pivotrow104全体と任意RHSはstage2のaliasであり、生のA104行へ置換しない。
+
+固定十八列の同じliteral tupleモデルで列74が最小101405、次列82は259185。新しい残余値はまだ計算しない。Q²*S6_i74=Q*H5_i74−765450000*F5_i81*M2_10474/(H*q0)を使い、既存M2の正確な四項source式まで展開した最大28product/rowをSOURCEだけで指定する。M2_10474のQ可除性を仮定せず、共通分母Q²を保守的に維持する。RF GCDや未証明のQ cancelはない。
+
+全leafは既存literal cellまたはaccepted現値。今回は新たに旧14MBmatrixの小cellを読むので、その全actual READ bytesを新RAWへ加算し、前回2.9MB予算を流用しない。future VALUE実装はcommon bundle＋一行bundle＋一行planだけをparseする。全18支持planを同時保持せず、SOURCEも各行planを書いたら解放する。支持・scalar content分母LCM・全partial integer高さ・owned/非圧縮RAWを先に証明する。P290は一度、Q²は表現分母で新しいcolumnoperationではない。補集合・完全逆・全分類は未証明。

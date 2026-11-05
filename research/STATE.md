@@ -1,5 +1,23 @@
 # 研究状態 — v63-s61 / 2026-11-05
 
+## v63 BZ / 2026-11-05: 零次数nil idealの最小五生成と正規化nil像
+
+直前 main `10b4d715a3a7fe230f89f3619612a59e412d9bad` は通常push済み。
+
+零次数D0のnil idealそのものの最小生成数も五と証明した。以前のR0加群生成数五だけからideal最小性を推測せず、実D0の八odd生成元の作用を調べた。全352出力のliteral作用素は、真正bar-cycleの原点消滅からm二乗の44代表を与える。実Hは高々一次のorderを失い、honest128代表はmにある。全128上のPi0第一行=e42なので最小head0の全一次係数は零、四補正headの原点も零である。第五fiber汎関数は単一z5係数ではなくLz=z0+(25/4)z4+z5であり、これも零になる。従ってodd八元全てがN/m_R0 Nを零化し、m_D0 N=m_R0 N、mu_D0 N=5となる。独立source監査は同じphysical R0・C0九生成元・全640源・curve gA・off-cycle chainを確認した。
+
+この生成数は零次数D0のidealの結果で、全positive graded nil idealへは広げない。五つのbar-cycleの任意の実nil持上げが生成するが、全次数lift係数や完全ideal関係は展開していない。実8対5作用値の新計算も不要だった。
+
+旧比較から真正targetへの像も厳密に一次元と確定した。全old原点のhead0零と、既存Jr=-43373/15129を用いる五項cache contractionだけから非零値2991593/10086000を得て独立検証した。像はQ1 socleであり、Told交Nbar長十、Nbar→正規化nil特殊ファイバーの像は四次元となる。I=N/KはD自由七、正規化nilはD自由九なので、L=Nil(E4)/Iはgeneric階数二、torsion最小生成数三、ell特殊ファイバー長五となった。IをE4 idealと仮定せず、Lは加群商として扱う。Tnil/Toldの長五部分加群とLbarの長五商は別物で、分裂や同一視をしない。L torsion長・指数と元H0はなお未決である。
+
+元N/ell N三乗零、元N三乗⊂ell H0、無条件N六乗零・指数3〜6は維持する。H0全長・ell零化、元三乗の零・非零、正確な指数は未決である。honest T2ではactive222の実二次class全零が閉じ、非active171から構造的零162を分離して残る九sourceへ進む。元619 mixed familyの独立source調査も並行し、新しい実値を得る前に未知carry・全source・高さを確認する。
+
+比較Cのell三乗商も別のsource経路として調べる。既証DVR型(1,1,e3≥2,e4≥2)とgeneric階数四から長さは18〜20で、18ならtorsion指数(1,1,2,2)が確定するが、実長は未計算。元105式を使うraw conductor有限基礎環のell三乗への拡張と既存cacheの可用性を先に検査する。whole E4は主hypersurfaceを持ちD有限ではなく、core CI(2,2,3)だけのell三乗長36を全E4やCへ移してはならない。core経路を使うには別の実factorization証明が必要である。
+
+大域M12の新しい軸sourceは、旧579係数を再利用して追加行列の源を固定した。全JSON保存は予算超過と判明したため実行せず、binary patchと全guard状態を含む約22.24MBの別表現を検証する。新det値は未計算で、軸零は不十分・非零も指定chart上のcubic57十分条件に限る。一般betaは第六の既存単元候補へ進み、全行・追加87 top RHS・66整合条件・補集合を保持する。
+
+下界58（rank4は52）、全分類上界未確定、NEW式28次と五凍結原稿を維持し、通常main pushで保存しながら未完了研究を続ける。
+
 ## v63 BY / 2026-11-05: 真正nil特殊ファイバーの三乗零、最小加群生成数五と元六乗零
 
 直前 main `2b69f44b124066074bb2c0b82d9030e604f4e297` は通常push済み。

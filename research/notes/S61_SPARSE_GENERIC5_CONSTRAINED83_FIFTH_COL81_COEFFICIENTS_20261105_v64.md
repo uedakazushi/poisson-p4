@@ -1,0 +1,3 @@
+# 第五後col81の十九値のみ：実装gate
+
+許可された新しい値は第五後のcol81の十九Laurent numeratorだけ。sourceDでinteger化し2928primitive tuplesを計算、全partial・backadd・binary roundtrip/valuehashを検証。値はnumerator/Qであって新しいcolumnoperationではなくQ補集合未決。P290を二度掛けず、全172行・87+66RHS・他十八typed列を保持する。
