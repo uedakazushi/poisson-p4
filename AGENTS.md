@@ -2,6 +2,24 @@
 
 Version: v63-s61 · 2026-11-05 (Asia/Tokyo).
 
+Latest BY (2026-11-05): actualGENUINENbar³=0 independentlyPROVED structurally.
+Completeφ4 all1650 hasONLYhead0*rA4 coordinate329=1; tiny3x8rank2 peerPASS.
+ExactΠ0firstrowFULL128=e42 viaall780X0/directnrowzero/threeSchurs42→18→0→0.
+Honestcube128∈m4/raw42∈m5=>allbarcubes0, no35/560scalarjob/Tnilalgebra.
+Originalnil SAMEregularR0 MODULEminimalgenerators5 viafull12x877/Tor rank7/witness−75/11.
+Fourcorrectedheads+z5h0 minimalbarset; actualnil liftsEXISTbutnotexpanded.
+Dmodulemu14 unchanged; D0IDEALminimalcountunknown≤5, notmodule/idealconfusion.
+OriginalN³⊂ellH0(D0), NOToriginalcubezero; ellH0zero/T2length17stillOPEN.
+Originalnilindex3..6/T2length17..20/global57/239/exhaustion/upperOPEN.
+OriginalN6ZERO unconditional: N3⊂ellK, ell²∈J, JK²0 overSAMEfullphysicalR0.
+Exactindex/cube/H0 remainOPEN; countermodel7omittedJK², no contradiction.
+T2active4cachevalues independentlyallZERO; ACTIVE222closed ONLY, nonactive171/619mixedOPEN.
+OriginalM1alpha23−34768825/17826408,beta23 10996847220793/13982356176028416.
+Withdrawn7b6a/afa boundmax nativeE replacedSUM e196/404d beforeONEactualjob; failureskept.
+Target17pair actualproportionalanchor22 via3Cramer[0,0,1768] independentpeer; λ=−Y2/κ3.
+Fixed17polynomialλtestNEGATIVE; 12termcandidateNOTactualλ, rationalretained/bare12axisSOURCE next.
+Continueactualresearch/mainordinarypush; checkpointNOTstoppingcondition.
+
 Latest BX (2026-11-05): genuineNbar14 ACTUALfivecachededgevalues/basis independentlyPROVED.
 Fourcorrectedheads +Tnilindices5,7,8,9,10..15; canonicalbetaunknown absorbedtargetchange.
 Actualbarcube subset one-dimensionalm4Tnil viafull492node/H-order/sourceproof, NOTTnilalgebra.

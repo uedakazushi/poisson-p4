@@ -1,0 +1,3 @@
+# 第四pivot後の列76のみの実装gateと値
+
+ROOT許可の20 cleared numeratorだけの実装を固定する。全63leafの元cached source、全20支持、content分母LCM・Mと全integer部分和上限を再照合する。producerのwhole SOURCE parseは87029、coefficientphase28968と区別し、helper/worker --helpが値を作らないことも確認する。全freshRAWへHELP/addendum入力も加算する。

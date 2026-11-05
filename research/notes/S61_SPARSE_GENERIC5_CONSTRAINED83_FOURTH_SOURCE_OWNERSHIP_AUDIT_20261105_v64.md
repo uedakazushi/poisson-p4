@@ -1,0 +1,5 @@
+# 第四SOURCEの入力parseも含む全owned上限
+
+凍結SOURCEの38348という追跡値は、旧row差の大JSONを解放した後のphaseについての値だった。凍結producer・既存値は変更せず、本独立な静的読み取りauditで入力parseを含めた全SOURCEの安全上界を与える。全入力・全出力JSONを同時保持した仮定でnumeric数を数え、E key、追加profile support、S/T/union scratch、scalar作業を更に加える。実際には同時に保持されない旧39487-slot差JSONも含む保守的な上界であり、150000内である。
+
+係数workerの将来28968上限、支持・高さ・RAW、第四unitの数学は変えない。新しいproducer再実行やfamily係数算術を行わない。

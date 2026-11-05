@@ -1,0 +1,9 @@
+# Prepared whole cache-only active4 value bundle
+
+This worker runs only under root GO after the fresh whole source/height/input peer. It combines the fourteen old cached or literal-zero second callbacks, all three coherent native C16 terms, the actual individual pivot first derivatives (including Lell*S0), the two gauge-invariant raw33 dots alpha23/beta23, and the independently bound finite-resolution G2/G3 quadratic callbacks. No new physical coefficient, implicit solve, gauge coefficient, source jet, or individual Phi3/Phi4 value is requested.
+
+The signs are recorded per contraction: psi=old+native-pivot+M1-G2quadratic. The two M1 responses are kappa*alpha23 and -kappa*beta23; no canonical unknown mu is assigned. Each of the four quadratic classes is rawG3quadratic-qA*psiA-qB*psiB, with known bottom and normalizer covariance normal forms zero by the source proof. The primitive source is exactly column23/raw67 mask3, retaining full33 monics and products.
+
+Before values, the source gate verifies every upper quadratic normal form factors through a fixed injective six-by-two Q matrix. Rank and all four factorizations use one common-denominator-cleared two-by-four integer matrix. Integer minors and cross-products have the prior948-bit bound, and all non-rank source envelopes have at most410 bits, giving a separate unreduced scalar product/sum bound1231 below2048. Committed coefficients are checked before acceptance. A full checkpoint is saved before rank; a guard failure retains the exact cursor and completed values instead of retrying or raising caps.
+
+The rank supplies actual quadratic initial relations and therefore an upper bound6-rank on actual HF2. It does not give HF2 equality, total T2 length, H0 torsion exponents, or complete coverage of the remaining nonactive/cycle source families. No unchanged known-upper closure is rerun automatically.

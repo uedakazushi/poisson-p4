@@ -1,0 +1,5 @@
+# Prior membership-verification height margin
+
+The previous prior bound covers coefficient construction and all positive triangular-elimination partial sums. This addendum covers the exact verification products against fixed67/182 basis columns before the factor job is launched. If all fixed matrix entries have common denominator Dm and maximum cleared numerator Um, while a source coefficient vector has common denominator D and L1 cleared bound U, every partial target product sum has denominator dividing D*Dm and absolute cleared numerator at most U*Um. There is no extra term-count factor because U already bounds the sum of absolute source coefficients.
+
+The same argument applies to verifying the frozen receipt representation vectors, using their previously proved L1 height bounds. Only integer GCD/LCM and positive source envelopes are computed. No signed factor, G2/G3 response, or physical coefficient is constructed. The report explicitly confirms the prepared384-bit committed guard and its derived scalar-temporary bound; no cap increase is implied.

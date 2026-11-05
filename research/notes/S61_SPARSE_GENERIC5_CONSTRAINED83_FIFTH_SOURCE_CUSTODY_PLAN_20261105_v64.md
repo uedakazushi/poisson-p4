@@ -1,0 +1,5 @@
+# 次col81の小RAW入力と既存物理custodyの正確な再利用
+
+八十leafのうちQ/U/V三十九個は、以前の全六十三leaf物理照合済みbundleと文字通り同じobjectであり、accepted gate 1c5f79…を同じhashで再利用できる。新しいR/T/W二十一個は古いR/Wと異なるので、accepted stage2列81の二十二cacheから必ずrow/path/SHAを照合する。C十九個は既存col76 numeratorにQを掛け戻す既知商witness、G一個は同じstage2 cache行14＋6行35のliteral和である。
+
+次実装がこのaccepted proofを再利用すれば、大きい旧current-matrix.binを新たに読む必要はない。2.9MB予算はこの入力集合に対する値であり、旧fullmatrixを再読する実装を選べば別のactual READ/RAW gateが必要。小予算と隠れた大入力を混同しない。新しい値workerやfamily係数算術は未実施。

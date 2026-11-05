@@ -29,22 +29,49 @@ def raw_linear(active,degree):
    for s,z in enumerate(w):v=add(v,{(14*look[w[:s]+w[s+1:]]+j)*6+(active+[8]).index(z):F((-1)**(p+s))})
    out.append(v)
  return out
-def main(out):
+def main(out,budget_only=False):
  start=time.monotonic();signal.alarm(60);resource.setrlimit(resource.RLIMIT_AS,(2_000_000_000,2_000_000_000));resource.setrlimit(resource.RLIMIT_FSIZE,(32*1024*1024,32*1024*1024))
  out.mkdir(parents=True,exist_ok=False);H.dump(out/'phase.json',{'phase':'factored_known_resolution_source_no_quadratic_values'});hs={}
  def read(p):hs[p]=H.sha(ROOT/p);return json.loads((ROOT/p).read_text())
  prior=read('reports/AMBIENT_B18_ELL2_T2_SOURCE8_RESOLUTION_PRIOR_HEIGHT_20261105_v63/report.json');assert prior['all_passed'] and prior['hard_factor_guard_384_covered']
+ verifyheight=read('reports/AMBIENT_B18_ELL2_T2_SOURCE8_RESOLUTION_VERIFY_HEIGHT_20261105_v63/report.json');assert verifyheight['all_passed'] and verifyheight['prepared384guard_covered']
+ assert read('reports/AMBIENT_B18_ELL2_T2_SOURCE8_RESOLUTION_METHOD_GUARD_20261105_v63_REVIEW/report.json')['all_passed']
  t=read(H.PATHS['transport']);pref=read(H.PATHS['active']);active=pref['active_variables'];assert active==[0,1,4,5,7]
  fold=read('reports/AMBIENT_B18_ELL2_T2_G3_ACTIVE4_SOURCE8_INPUT_GATE_20261105_v63/actual-eight-source-root-folds-M1-operators-and-positive-AD-budget.json')
  four=read('reports/AMBIENT_B18_ELL2_T2_G3_ACTIVE4_SOURCE_PROFILE_20261105_v63/actual-four-active-source-complements-and-unknown-derivative-profile.json')
  oldg3=read('reports/AMBIENT_B18_ELL2_T2_G3_QUADRATIC_INPUT_GATE_20261105_v63/actual176-G3quadratic-factored-source-and-known-NF-input.json')
  plane=read('reports/AMBIENT_B18_ELL2_T2_GRAPH_PLANE34_INPUT_GATE_20261105_v63/actual-plane-G1-degree23-and-twelve-adjoint-source-input.json')
- source_input_numeric=count([t,pref,fold,four,oldg3,plane]);assert source_input_numeric+15000<60000,('source_input_guard',source_input_numeric)
+ acceptedG2=read(H.PATHS['G2'])
+ source='reports/AMBIENT_B18_ELL2_T2_FIRST_HILBERT_INPUT_GATE_20261105_v63/actual-known-G3linear-and-bottom3-first-Hilbert-inputs.json';hs[source]=H.sha(ROOT/source)
+ I3stored=H.selected(source,'actual_active_I3_origin_columns')
+ source_input_numeric=count([t,pref,fold,four,oldg3,plane,acceptedG2,prior,verifyheight,I3stored])
+ def repr_support_upper(receipts):
+  supports={}
+  for r in receipts:
+   s={r['source_column']}
+   for p,c in r['subtract']:
+    if F(c):s.update(supports[p])
+   supports[r['pivot']]=s
+  return sum(map(len,supports.values()))
+ # Before any factor coefficients are constructed: existing constants are
+ # counted twice only where a parsed rational copy is retained, and fixed
+ # representation support is bounded from the receipt DAG without values.
+ parsed_constant_upper=count([t['active_F1_fixed67_columns'],t['active_F2_fixed182_columns'],t['active_Pi17_columns'],t['active_Pi42_columns'],
+  acceptedG2['actual_I2_source_origin42_columns'],I3stored,oldg3['actual_selected126_rawD31_Pi42_linear_columns'],oldg3['PiY_L48_degree2_NF42_times20_columns']])
+ repr_and_norm_upper=2*(repr_support_upper(t['active_F1_fixed67_receipts'])+repr_support_upper(t['active_F2_fixed182_receipts']))+count([r['normalized'] for r in t['active_F1_fixed67_receipts']+t['active_F2_fixed182_receipts']])
+ constructed_arrays_upper=2*(8*2*2*67+4*6*126+2*17*67+3*17+26*2)
+ raw_operator_upper=2*(3*224+4*364)
+ source_whole_upper=source_input_numeric+parsed_constant_upper+repr_and_norm_upper+constructed_arrays_upper+raw_operator_upper+4500
+ H.dump(out/'phase.json',{'phase':'before_factor_construction','source_whole_numeric_upper':source_whole_upper,'prior_commit_bits':verifyheight['all_factor_and_membership_commit_height_bits']})
+ assert source_whole_upper<60000,('source_combined_input_output_guard',source_whole_upper)
+ if budget_only:
+  H.dump(out/'budget-only.json',{'source_whole_numeric_upper':source_whole_upper,'factor_coefficients_constructed':False,'prior_commit_bound_bits':280,'input_sha256':hs,'code_sha256':H.sha(Path(__file__))})
+  print(json.dumps({'budget_only':True,'source_whole_numeric_upper':source_whole_upper,'no_factor_coefficients_constructed':True}));return
  f1=list(map(H.parse,t['active_F1_fixed67_columns']));n1,r1=fixed_replay(f1,t['active_F1_fixed67_receipts']);Pi17=list(map(H.parse,t['active_Pi17_columns']));free17=t['active_F1_free17'];E17=[{j:F(1)} for j in free17]
  f2=list(map(H.parse,t['active_F2_fixed182_columns']));n2,r2=fixed_replay(f2,t['active_F2_fixed182_receipts']);Pi42=list(map(H.parse,t['active_Pi42_columns']));free42=t['active_F2_free42'];E42=[{j:F(1)} for j in free42]
- D20=list(map(H.parse,pref['active_d2_columns']));D30=list(map(H.parse,pref['active_d3_columns']));raw2=raw_linear(active,2);raw3=raw_linear(active,3)
+ raw2=raw_linear(active,2);raw3=raw_linear(active,3)
  sel56=t['active56_source_columns'];sel126=t['active126_source_columns']
- acceptedG2=read(H.PATHS['G2']);I2=list(map(H.parse,acceptedG2['actual_I2_source_origin42_columns']))
+ I2=list(map(H.parse,acceptedG2['actual_I2_source_origin42_columns']))
  assert acceptedG2['rank']==42 and acceptedG2['linear_injectivity_full102']
  # Frozen source coefficient I2 and D20I2=0 were already checked by the
  # independent G2-linear gate; retain that proof rather than recomputing I2.
@@ -67,7 +94,7 @@ def main(out):
  for rec in fold['eight_source_folds']:
   channels=[]
   for ys in rec['pure_known_G2quadratic_Y0_two_channels']:
-   y=H.parse(ys);w=H.guard(mv(I2,{i:x for i,x in y.items() if i<42}));assert not mv(D20,w)
+   y=H.parse(ys);w=H.guard(mv(I2,{i:x for i,x in y.items() if i<42}))
    a_pair=[]
    for var in [4,5]:
     v={};
@@ -78,10 +105,9 @@ def main(out):
     'zero9_quadratic_plane_response_zero':True})
   g2.append({'extra_active_source':rec['extra_active_source'],'contraction':rec['contraction'],'channels':channels})
  # G3 actual source basis and inverse derivative; general V has a free42 part.
- source='reports/AMBIENT_B18_ELL2_T2_FIRST_HILBERT_INPUT_GATE_20261105_v63/actual-known-G3linear-and-bottom3-first-Hilbert-inputs.json';hs[source]=H.sha(ROOT/source)
- I3=list(map(H.parse,H.selected(source,'actual_active_I3_origin_columns')));g3=[]
+ I3=list(map(H.parse,I3stored));g3=[]
  for rec in four['remaining_four_source_directions']:
-  c=H.parse(rec['actual_projected_zero_linear_source238_combination']);w=H.guard(mv(I3,c));assert not mv(D30,w);v=H.guard(mv(raw3,w));a={}
+  c=H.parse(rec['actual_projected_zero_linear_source238_combination']);w=H.guard(mv(I3,c));v=H.guard(mv(raw3,w));a={}
   for var in range(6):
    q={i//6:x for i,x in v.items() if i%6==var};q=add(q,mv(E42,mv(Pi42,q)),-1);s=span(q,f2,n2,r2)
    for i,x in s.items():
@@ -125,6 +151,9 @@ def main(out):
   'four_G3_quadratic_factored_responses':g3,'G3_Pi42_rawD31selected126_linear_columns':[srec(v) for v in P3],
   'G3_PiY_L48_NF42times20_columns':[srec(v) for v in NF3],'G3_active_pair_order20':oldg3['degree2_active_pair_order20'],
   'lambda26_two_channels':fold['lambda26_two_channels'],'all_I2_D20_and_67_span_identities':True,'all_I3_D30_and_corrected182_span_identities':True,
+  'D20_I2_and_D30_I3_source_zero_identities':'reusedacceptedfrozenconstantI2/I3sourceproofsbylinearity; noredundantverificationproductsoutsidepriorheightmargin',
+  'prior_all_factor_and_membership_height_bound_bits':verifyheight['all_factor_and_membership_commit_height_bits'],
+  'source_construction_whole_numeric_upper':source_whole_upper,
   'G2_active_formula':'G2=P17D21I2(0), P17last17inverse[a11,D2sel56,Efree17]; quadrell=-Pi17(Kfirst_r*a_ell+Kfirst_ell*a_r)',
   'G2_mixed_formula':'source42+17iz+j contributes+G1active17_j_quadrell inrows17+3iz; zero9none',
   'G3_formula':'PiY0G3quad projected=-NF(Pi42D31selected126*A126(D31I3c-Efree42Pi42D31I3c)); unknownYstarfirst separateeightpsi',
@@ -136,4 +165,4 @@ def main(out):
   'evidence_sha256':{ep.name:H.sha(ep)},'seconds':time.monotonic()-start}
  H.dump(out/'report.json',report);print(json.dumps({k:report[k] for k in ['all_passed','next_value_whole_QQ_bound','next_value_raw_byte_bound','positive_bound_bits','operational_bound_bits','seconds']}))
 if __name__=='__main__':
- p=argparse.ArgumentParser();p.add_argument('--output',required=True,type=Path);a=p.parse_args();main(a.output.resolve())
+ p=argparse.ArgumentParser();p.add_argument('--output',required=True,type=Path);p.add_argument('--budget-only',action='store_true');a=p.parse_args();main(a.output.resolve(),a.budget_only)
