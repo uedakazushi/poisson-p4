@@ -1,0 +1,28 @@
+{
+  "id": "S61_NONSQUARE_PREPOWER_T1_C4_QUOTIENT_ROOT_SOURCE_REVIEW_20261105_v63",
+  "all_passed": true,
+  "source_only": true,
+  "no_quotient_slab_rootpower_or_multiplyback_evaluated": true,
+  "all7595_input_lines_identical": true,
+  "known_C_valuation4_independent_peer": "ae012d21cbef98ac9554efb634412cd0062014e630a1aed7572582386ccdd406",
+  "operator": "D*100^20 Q_i=sum_(j>=i+4) N_j binom(j-i-1,3) R^(j-i-4)100^(20-j+i)",
+  "quotient_total_l1_bound_bits": 472,
+  "full_remainder_l1_bound_bits": 500,
+  "hard_bit_bound": 518,
+  "quotient_support": 10013,
+  "partial_slab_support": 1406,
+  "remainder_support": 14991,
+  "source_owned_peak": 81310,
+  "contract_owned_limit": 81776,
+  "all_product_upper": 680888,
+  "RAW_upper": 6585274,
+  "manual_code_review": "Retain whole high-e partial slabs; validate final degree bounds after complete; release all R powers before C cache; verify every coefficient of C^4Q-100^20 U1, including missing negative-a consistency. Before-commit guards/full cursors, no I/O second state.",
+  "no_other_tail_factor_GCD_or_bad_locus_claim": true,
+  "input_sha256": {
+    "reports/S61_NONSQUARE_PREPOWER_T1_C4_QUOTIENT_WORKER_CUSTODY_20261105_v63/report.json": "2697636cf24fd85244f7f017f7f2cd3d940be9717c0a1748c1805f99417b51a0",
+    "reports/S61_NONSQUARE_PREPOWER_T1_C_HASSE_WORKER_CUSTODY_20261105_v63/native-input.txt": "f76650586b95d9765152a3fb56e5d4d2395180eaba0611a74e0e5d7ba3b295ea",
+    "reports/S61_NONSQUARE_PREPOWER_T1_C4_QUOTIENT_WORKER_CUSTODY_20261105_v63/native-input.txt": "5062cd1290082b3cdfa9fcb6c68041eec6c94485dcaf32d1afd4baae3e2451cf",
+    "code/s61_nonsquare_prePOWER_T1_C4_quotient_root_review_20261105_v63.py": "20574f83c03a2c576422e0ff22639731090fa08eb9a17e1ba16affe21a4b798c"
+  },
+  "seconds": 0.010119330021552742
+}

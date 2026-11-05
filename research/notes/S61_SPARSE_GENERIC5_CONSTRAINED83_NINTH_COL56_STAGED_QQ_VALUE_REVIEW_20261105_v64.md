@@ -1,0 +1,7 @@
+# Distinct staged QQ VALUE validation for col56
+
+This is a same-agent alternate arithmetic validation, with the independent source/code premise ROOT14597dfd. It imports neither the700-op integer-DAG evaluator nor its helper. It reads the literal source operands and independently constructs QQ Laurent maps through M2, the fourth/fifth/sixth/seventh/eighth formulas, the once-shared N8_35,56 and the ninth two-product formula. Unlike the producer it combines the U/V curvature before multiplying the shared B83 row, and performs coefficient arithmetic as reduced rational numbers rather than source-content-scaled integers.
+
+Every product has a pre-arithmetic support and positive denominator/integer-height envelope; all temporary Fraction maps and exact back-add copies are charged. Rows and dead input maps are released before the large ninth products. Existing col82 values enter through the original accepted binary API, not the primary known-content arithmetic. All15 residuals and the shared auxiliary are compared coefficient-by-coefficient with the completed primitive files, decoded and re-encoded with the old independent codec and canonical value hash. No new target value, producer rerun, parameter point, prime, gcd or field-rank computation occurs.
+
+The full168×15 operator,87+66 RHS, other14 columns, one P290 scaling and every chart complement remain. This verification does not claim a matrix basis, complete inverse or exhaustion.

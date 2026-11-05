@@ -1,0 +1,59 @@
+#!/usr/bin/env python3
+"""Freeze the unrun eta4 worker, import-only checks and whole budget."""
+import ast,hashlib,importlib.util,json,re,subprocess,time
+from pathlib import Path
+
+ROOT=Path(__file__).resolve().parents[1]
+STEM='AMBIENT_B18_C_FULL_ETA4_VALUE_CUSTODY_20261105_v63'
+WORKER='code/ambient_B18_C_full_eta4_cache_values_20261105_v63.py'
+SOURCE='reports/AMBIENT_B18_C_FULL_ETA4_CACHE_SOURCE_20261105_v63/report.json'
+COMPILED='reports/AMBIENT_B18_C_FULL_ETA4_CACHE_SOURCE_20261105_v63/compiled-eight-free-even-roots-and-pure-ell4-inputs.json'
+PROFILE='reports/AMBIENT_B18_C_FULL_ETA4_CACHE_SOURCE_20261105_v63/full-eta4-source-frame-and-whole-operational-profile.json'
+def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
+def count(x):
+ if isinstance(x,(int,float)):return 1
+ if isinstance(x,str):return int(bool(re.fullmatch(r'-?\d+(?:/\d+)?',x)))
+ if isinstance(x,(list,tuple)):return sum(map(count,x))
+ if isinstance(x,dict):return sum(map(count,x.values()))
+ return 0
+
+def main():
+ t=time.monotonic();worker=ROOT/WORKER;tree=ast.parse(worker.read_text())
+ source=json.loads((ROOT/SOURCE).read_text());c=json.loads((ROOT/COMPILED).read_text());p=json.loads((ROOT/PROFILE).read_text())
+ spec=importlib.util.spec_from_file_location('unrun_eta4_worker',worker);m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)
+ assert m.SOURCE_SHA==sha(ROOT/SOURCE)
+ assert not(ROOT/'reports'/m.STEM).exists()
+ # Unrelated guard fixtures: no source root is composed here.
+ x=list(map(m.parse,['1','2/3','-3/7','4/11']));v=m.inverse(x)
+ assert m.conv(x,v)==[1,0,0,0]==m.conv(v,x)
+ assert m.parse('1/4')!=m.parse('1')
+ try:m.times(m.Q(1<<2040),m.Q(1<<20))
+ except AssertionError:pass
+ else:raise AssertionError('before-operation hard guard failed')
+ help_result=subprocess.run([str(ROOT/'.venv/bin/python'),str(worker),'--help'],capture_output=True,text=True,timeout=10)
+ assert help_result.returncode==0 and'--source-peer-report'in help_result.stdout
+ # The eventual peer numeric body is bounded independently at5000 slots;
+ # dynamic worker repeats the complete exact count before any root values.
+ owned=count(source)+count(c)+count(p)+5000+2*7945+525+4*184+16+9000
+ assert owned<75000<100000<150000
+ raw=sum((ROOT/k).stat().st_size for k in[SOURCE,COMPILED,PROFILE])
+ assert raw+80000+150000<1000000
+ data={
+  'worker_sha256':sha(worker),'source_sha256':sha(ROOT/SOURCE),'compiled_sha256':sha(ROOT/COMPILED),'profile_sha256':sha(ROOT/PROFILE),
+  'unrun_value_folder_absent':True,'import_only_help_passed':True,'unrelated_inverse_numerator_denominator_and_overflow_fixtures':True,
+  'requested_eta4_values_computed':False,
+  'source_proven_before_operation_bits':p['max_operational_before_add_mul_bound'],'hard_bits':2048,
+  'owned_with5000_future_peer_numeric_slots':owned,'static_numeric':75000,'hard_numeric':100000,'global_numeric':150000,
+  'existing_RAW_bytes':raw,'future_peer_RAW_reserve':80000,'new_output_RAW_reserve':150000,'total_fresh_RAW_cap':1000000,
+  'seconds_cap':60,'memory_bytes_cap':2147483648,
+  'AST_functions':[n.name for n in tree.body if isinstance(n,ast.FunctionDef)],
+  'future_command':'.venv/bin/python '+WORKER+' --source-peer-report reports/AMBIENT_B18_C_FULL_ETA4_CACHE_SOURCE_20261105_v63_REVIEW/report.json',
+  'one_same_cache_job_only':'After fresh SOURCE/code peer and parent conditional GO. No IFT, gauge, new physical source or jet.',
+  'scope':'Four eta values exhaust full-C cubic operator: nonzero gives HF3=5, allzero gives6. The remaining DVR exponent is undetermined in both cases. Graph03 stays source-zero/unrun.'}
+ out=ROOT/'reports'/STEM;out.mkdir(exist_ok=False);ep=out/'unrun-worker-import-guard-and-whole-budget-custody.json';ep.write_text(json.dumps(data,indent=2)+'\n')
+ report={'id':STEM,'all_passed':True,'status':'UNRUN_NEW_ETA4_WORKER_FROZEN_NO_VALUES',
+  'input_sha256':{k:sha(ROOT/k)for k in[WORKER,SOURCE,COMPILED,PROFILE]},'code_sha256':sha(Path(__file__)),
+  'evidence_sha256':{ep.name:sha(ep)},'seconds':time.monotonic()-t}
+ (out/'report.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report))
+
+if __name__=='__main__':main()

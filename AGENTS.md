@@ -2,6 +2,23 @@
 
 Version: v63-s61 · 2026-11-05 (Asia/Tokyo).
 
+Latest CD (2026-11-05): C3 EXACT length19/HF3664/m4zero independentlyPROVED by HB+cut1.
+C3cut1missingdual759275/1728, QQ[t] inverse products keep unpairedA4 formal; no newδ4jets.
+FullC Dfinite rank4/torsiontype(1,1,2,e>=3), eOPEN; m3C=ell*m2C.
+FullC HF3>=5 by torsion-saturation contradiction withactualnonzero r ell²C3; graph5ell³ forced0.
+All4freeeta03 existing105cache EXACTZERO independently⇒FULL C HFthrough3=3666.
+C3HF3664 remainsdistinct; e>=3OPEN, eta≠0conditional e3 NOTapplicable; nextfullquarticSOURCE.
+T2 COMPLETE1060/linear48/kernel393+619; corrected563/609 kernel617, HF2=4-rankupper617∈2..4.
+T2 m3=rA*m2, tail QQ[[rA]] length5..8/gens2..4; rA differsell, H0/nilcubeOPEN.
+DirectOLD617 honest h2/h3 sensitivities cancel; J0/Jr/Je50/22/22; onlygA/gB cache descents.
+Fullupper requiresnative/cross/b1/A2/M1 and bottomPsi in Cfull/Kfull, notpureUonly.
+T1/(a³C⁴)=Q1 exact4811terms; independent integer longdivision/remainder0; originalD197bits.
+F-Hasse next SOURCE/prepared only untilfreshROOT code/whole budget audit/ONEGO.
+Genericcol56 all15cells28886terms+shared113 independentlyQQchecked; fixedrow58col56951termsnextSOURCE.
+All168x15/87extra/66constraints/oneP290/othercols/complements retained; exhaustionOPEN.
+Nilindex3..6/zeroD0mu5/bounds58/r4lower52/globalupperNULL/fivepapersfrozen.
+Continueactualresearch/mainordinarypush; checkpointNOTstoppingcondition.
+
 Latest CC (2026-11-05): C3=C/ell³C EXACTHFthrough3=3664; allα4cachedzero independently.
 C3remaining36640/36641,L19..20,Ctors1122EXCLUDED/atleastoneexp≥3; NOTfullCdegree3HF.
 Next3quadpivotHBsyzygiesquarticSOURCE uses3cachedpivotδr ell²/fulloldcarry; noδ4claimbeforeproof.
