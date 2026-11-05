@@ -1,0 +1,23 @@
+{
+  "method": "fixed knownFULLU unit C Taylor/Hasse evaluation, no polynomial gcd/factorization or 3var quotient",
+  "a0": "(-18e^2+9e+2)/100",
+  "inputs": [
+    "T1/a^3",
+    "T2/a^4"
+  ],
+  "literal_operator": "D*100^20*[z^k]U(a0+z,e,d)=sum(c_integer*binom(i,k)*100^(20-i+k)*(-18e^2+9e+2)^(i-k)*e^j*d^l)",
+  "orders": "0..20, stop at FIRST nonzero coefficient for each input; exact lowest order=v_C",
+  "source_coefficient_l1_bits_upper363": 363,
+  "root_numerator_l1": 29,
+  "root_denominator100": 100,
+  "height_proof": "29<100 and binom(i,k)<=2^20, so all integer partial sums <=L1(input)*2^20*100^20",
+  "integer_coefficient_bits_upper": 518,
+  "one_accumulator_support_upper": 1558,
+  "cached_univariate_root_power_coefficients_upper": 441,
+  "total_mul_pairs_upper": 6528123,
+  "owned_coefficient_key_metadata_upper": 35188,
+  "all_output_RAW_upper": 19442896,
+  "no_3var_quotient_or_actual_unit_valuation_evaluated": true,
+  "new_parent_budget_REQUIRED": true,
+  "purpose": "certify exact known-unit valuations to shrink T1/T2 before any subsequent multivariate gcd/elimination; by itself removes no base locus"
+}

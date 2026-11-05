@@ -1,5 +1,23 @@
 # 研究状態 — v63-s61 / 2026-11-05
 
+## v63 CC / 2026-11-05: C3の実三次HF四・T2の非零二次関係・第二tailのC因子四重
+
+直前 main `25809f1e19dd3ca229a562535ab8c5879527b12c` は通常push済み。
+
+元比較のell三乗商C3で、完全三次像の残る四alphaを既存joint105 cacheから一回読戻し、全零と独立確認した。全7945 original operation・六百三十lower overlap・四十既存root・二単元・分母付き定数を、別のdual-number演算でも検証した。従ってC3の実HF次数零〜三は厳密に(3,6,6,4)、残るHFは36640又は36641、長十九又は二十である。元C全体の三次HFを四とはしない。C torsion型1122は除外され、長い二指数の少なくとも一つは三以上。正確な指数と元H0は未決である。
+
+次は三つの実H二次pivotを(r二乗H,r ell H,ell二乗H)に正規化し、その二つのHilbert-Burch syzygyから真の四次関係を作る。full firstframe補正を保持すれば必要なのは三pivotのplane cubicだけで、旧C2の混合二次carryと既存joint105の三つのdelta_r ell二乗読戻しへ縮約できる可能性がある。四次高係数や新jetが不要というsource証明を先に独立監査する。quartic階数一か二かはまだ決めていない。
+
+honest T2ではnative/mixed七十の先頭十五を評価してcase563に真正非零二次関係を検出した。lower四成分は(−1000/3,−212/3,−19000,−3968)で、全OLD/native/firstcrossとindividual pivot carryの和を別のC72畳込みが再現した。未知upper二成分を保持してもr倍とell倍のcubic dual minorは1000000/9なので、HF2<=5、HF3<=4となる。これは上界で、全長十七や元nil三乗零を結論しない。既知線形coverは6666で、abstract実長上界二十から関係を差し引く議論はしない。その後、最初の十五を再計算せず新五十五だけを評価し、native/mixed全七十lower階数二を確定した。disjoint十四零・一witness・五十五の独立再計算と全百四十bordered minorが通り、旧純OLD549零と合わせ全619 lower像が二次元平面と閉じた。canonical基底は(1,0,57,−9/50),(0,1,0,57)、従ってHF2<=4、既証全長下界からHF3>=1、上界四は維持する。六次元の完全二次像や全長を決めたのではなく、残るupper二成分をlower-kernel617方向へ絞る。算術前のhash reader/CLI path失敗と修正版の初actual五十五を区別して保存した。
+
+619 upperについても全27/99/G3 clearingとfree3存在frameの純source監査が通った。後者は全48 linear関係とY/Yp frameを両立して動かす存在証明で、canonical M1の未知成分を数値的に零としたものではない。case563の二つのupperだけを先にsource-profileし、b1/A2を全918 slotで保持した最高次感度を調べる。新しいupper値やphysical係数はまだ求めていない。
+
+大域の第二tail T1では、既存単元C=100a+18e二乗−9e−2の因子重複度を正確に四と決定した。a三乗だけ除いた同じ7595係数に対しHasse order零〜三は全零、order四は665項の非零である。独立の五jet Hornerはnative binomial展開を使わず全零layerと全665係数を再構築した。これはnamed unitの因子で新chartを加えない。次はC四乗商を有限係数公式と全係数multiplybackで保存するsourceを準備し、まだ商自体は計算しない。D(D12)交(D(T0)和D(T1))の十分cubic57開、全FULLU57/239と補集合の未解決性は維持する。
+
+一般beta次col56は、約十億のliteral tuple展開を実行せず、共有中間と段階積700 source operation・約四百四十四万pairへ組み直した。SOURCEの所有量は130219以内だが、一括metadataと旧encoderによる値予算は150kを超えたため値を実行していない。同じ保持量の細い一行controlと逐次canonical encoderをsource-onlyで検査し、全168対15・87追加top RHS・66整合条件・one P290・全補集合を保持する。
+
+元nil指数三〜六・零次数ideal最小五生成・下界58（rank4は52）・全分類上界未確定・NEW式二十八次・五凍結原稿を維持する。元H0・nil三乗・正確な指数、C3全長、一般五点尽くしと全大域境界は継続中で、保存後も研究を続ける。
+
 ## v63 CB / 2026-11-05: 比較三次の一方向化・真正M1不変量・第二cubic57開
 
 直前 main `73ccd71e2283f2738b5d3ca95a05a582c960979c` は通常push済み。

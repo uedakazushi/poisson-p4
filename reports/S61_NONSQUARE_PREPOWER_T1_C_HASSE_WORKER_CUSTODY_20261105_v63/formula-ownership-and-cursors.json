@@ -1,0 +1,32 @@
+{
+  "ONLY_T1": true,
+  "input": "literal7595 common-D integer coefficients of stored T1",
+  "a_shift3": "U1=T1/a^3; C does not divide a, so v_C(T1)=v_C(U1)",
+  "C": "100*a+18*e^2-9*e-2",
+  "a0": "(-18*e^2+9*e+2)/100",
+  "root_integer_coefficients_low_to_high": [
+    2,
+    9,
+    -18
+  ],
+  "scalar_formula": "D1*100^20*[z^k]U1(a0+z,e,d)=sum I_ijl*choose(i,k)*100^(20-i+k)*R(e)^(i-k)*e^j*d^l",
+  "each_Hasse_order": "0..20 sequential, stop FIRST nonzero; no C quotient materialized",
+  "exact_valuation_lemma": "C=100(a-a0) and100 is a QQ unit; the first nonzero z coefficient has exact C order",
+  "proof_Hasse_coefficient_bits": "L1(input)<2^363, choose<=2^20, ||R||1=29<100, hence all integer partial sums <=L1*2^20*100^20 <2^518",
+  "proof_bivariate_support": "e<=41+2*20=81,d<=18 =>1558 slots",
+  "proof_root_cache": "sum_h(2h+1),h0..20=441 slots; no root powers evaluated during preparation",
+  "strict_owned": 35188,
+  "strict_owned_detail": "inputcoefficient+packedkey15190; conservative rootcoefficient+index882; acccoefficient+key3116; allmetadata/scratch16000",
+  "coefficient_bits518": 518,
+  "denominator_bits_upper": 331,
+  "first_pass_products_upper": 3349395,
+  "verification_first_nonzero_only_products_upper": 622790,
+  "combined_products_upper": 3972185,
+  "prefix": "T1CHP001: full input vector, all root arrays inclzero slots, current accumulator, D/inputL1, phase/k/i/r and root-build cursors; fixed choose/100-powers reconstructed from literal metadata",
+  "no_second_accumulator_or_full_product": true,
+  "prefix_pending": "convolution i/r points to the UNCOMMITTED next scalar term; phase5 full layer complete, pre-output guard",
+  "completed_zero_orders": "separate small text file; prior k all complete before next layer",
+  "mathematical_guards_before_commit": true,
+  "output_IO_failure": "bounded partial output only, no second full prefix",
+  "no_GCD_factor_other_tail_or_parameter_point": true
+}
