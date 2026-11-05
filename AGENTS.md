@@ -2,6 +2,21 @@
 
 Version: v63-s61 · 2026-11-05 (Asia/Tokyo).
 
+Latest CH (2026-11-05): T2actualD=Cfull−rhoM0 all1120/122nonzero independentlyPROVED.
+Full617functional Gamma(Xc3−Xp2a1)+D(Xc2−Xp1a1); outer4notK99old80, individualL2S0kept.
+Native10nonzzdegree2 SOURCE all64literalIAIBinitials+6600NFidentities, lambda33indices22,23,20,21,14,15,12,13,24,25.
+No nativekappa/G8/honestresponsevalues; nextsamebranch/monic/free4canonical33SOURCE, plane3/4separateP9.
+q7SOURCE all660columns/1187multiples/Dlinearity/21basis independentlyPROVED; affinecacheunpaired.
+FiveactualheadRegDivell SOURCE all168refs/15memberships/full768descent peerPASS.
+U9gA505938/OLD640f637790namespacesdistinguished; formaldivisionBEFOREfiniteNF.
+All56planeproof sigma3drops,B2NONZERO:sigma2_rradjoint rows0,16,20=(−107/275,−3191/2200,−64/825).
+NextcoherentV4sigma0+V3sigma1+mixedcarry+V2Bsigma2source; actual17edgesOPEN/nohigherGO.
+Q1namedBvaluationEXACT4/all4zeros+1107 independentlyfivejetHorner; b1NOTunit/nochartdiscard.
+FixedB4quotientACTUAL2317/all4remainders0/fullB4back independently126multinomialverified; D197/noGCD/complementclaim.
+Genericcol53live07remaining3 immutableviews/fusedunionSOURCEpreparedonly/noVALUE/capraise.
+Ctors1123length7 NOToriginalH0; originalnil3..6/H0/cubeOPEN/T2L17..20.
+Bounds58/r4lower52/globalupperNULL/NEWG28/fivepapersfrozen; continueafterordinarymainpush.
+
 Latest CG (2026-11-05): GenuineC[ell] EXACTR0typeJ2(r)+k²,mu3/socle3/m²ann.
 ActualE7cofs α(−85/6,8315/432),β(275/3,−359975/1728); fixedI3/kernelI4 independent.
 Ractionlow→high [[3/5,−6],[121/80,−121/8]],z7/ell0, bycorrectedcycles/−HB; F_DONLYnotR0stable.

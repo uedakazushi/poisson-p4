@@ -1,6 +1,6 @@
 # 研究継続方針：複素射影4空間の Poisson 構造
 
-真正C[ell]のR0加群型J2(r)直和k二個と最小三生成を確定し、元connectingをhonest七次元商・17未評価parameterへ還元した。T2では実alpha/rhoと全1836 source恒等式を独立検証した。比較Cのtorsion長7と元H0は区別する。全FULLU57/239・元nil三乗・H0・一般五点尽くし・全分類上界は未決。元nil指数3〜6・零次数ideal最小五生成、下界58（rank4は52）、NEW式28次と五凍結原稿を維持し、実研究を続ける。
+T2の実D全1120係数と、十個の非zz二次functionalの全6600 NF降下恒等式を独立検証した。元connectingの五head形式RegDivell sourceと非零sigma二次adjointを確定し、大域第二tailの指定B重複度を正確に四と決定した。比較Cのtorsion長7と元H0は区別する。全FULLU57/239・元nil三乗・H0・一般五点尽くし・全分類上界は未決。元nil指数3〜6・零次数ideal最小五生成、下界58（rank4は52）、NEW式28次と五凍結原稿を維持し、実研究を続ける。
 
 新25成分の全Poisson一般横断長さは正確に5。n111の全完成環 C[[s25,u,v]]/(uv,u³,v³) とCM type2を証明・独立監査し、[14ページの独立原稿](papers/positive_weight6_component_ja.pdf)に保存した。全52 rank4成分のdense S61写像が揃った。新一次像は15次元・方程式次数22以上だが実方程式、全境界、全分類は未解決。以下は以前の記録を含む。
 

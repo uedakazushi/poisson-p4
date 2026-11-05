@@ -1,0 +1,5 @@
+# 固定row6/col53のSOURCE残3成分（prepared）
+
+immutable LIVE07から22mapを直接読む。SOURCE関数ownerと11行式は変えず、残A11/A44/A52の93項だけを、immutable support viewとSOURCE融合unionで処理する。旧8成分を再計算しない。各項のliteral receiptと各成分の全LIVE snapshotを保持する。詳細な予算・Source bitとRAWの証明は同日REMAINING3_VIEW_SOURCE_GATEを参照する。
+
+このprepared noteの時点ではprofile未実行である。GateとROOTレビューのSHA両方がCLIで指定された場合だけにSOURCE実行を許す。SOURCEの正係数支持から係数値や非零性を推定せず、全VALUEや全行列の許可を意味しない。全167×14と全RHS、P290一回、F9/F10および全補集合を維持する。

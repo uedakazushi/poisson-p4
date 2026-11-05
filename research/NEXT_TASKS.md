@@ -1,5 +1,23 @@
 # 次の課題 — v63-s61 / 2026-11-03
 
+## v63 CH / 2026-11-05: 十係数の正確な降下と元connectingの形式source・B重複度四
+
+直前 main `8ace0e00d357e7b7a78b45ba2179f5ac43bcdb89` は通常push済み。Cloud開始SHAは`4c3f623fb698f9adc6077015b25e2325b11072af`。再開時にもHEAD/origin/main/GitHub mainの一致を確認し、既設環境と同じproxy/CAを再利用した。
+
+T2のD=Cfull−rho M0を既知係数だけから構成し、全1120 slot・122非零係数を独立確認した。実高さは85bit。r二乗成分はC_ell、r ell成分はC_r、八mixed成分は−rho M0である。これはsource応答そのものではなく、全617のfunctionalをGamma(Xc三次−Xp二次a1)+D(Xc二次−Xp一次a1)として保つための確定した係数表である。outer四pivot604/613/622/631は旧K99old80には無く、そのhonest order証明を流用できない。個別native pivotのL二次S0も残し、combined second sensitivity/source依存性を調べる。
+
+native非zz十係数について、同じ物理R0の元IA八個とIB八個を直接使い、全64積の二次initialがzzのみであることを証明した。raw f63の定数・一次零と、CB共通線形化のplane成分零を両方保持する。十個のordinary係数functionalは実product idealとell二乗を零化し、raw33上のlambda indexは22,23,20,21,14,15,12,13,24,25となる。degree四以下・ell指数二未満の全660 scalar monomialの6600恒等式を独立確認し、非斉次NF carryも保持した。literal積copyは七bit、lambda NF算術は一bitという高さの射程を区別した。次は同じbranch・monic・free四basisにあるcanonical unit-IFT kappa/G8のfinite33像へ結ぶSOURCEだけを準備する。honest quotientをArtin環内で割らず、pureplane三次/四次も別のP9課題に残す。
+
+元connectingでは、q:C/m四乗→D-only T7の全660列・25非零列、1187 source倍、全D線形性と21 basis imageを独立検証した。q自体はm四乗を消すため新しい四次応答を要しない。既存kappa零次/E三次cacheへのaffine係数は未評価で、D-only商へのqをR0線形とはしない。
+
+さらに元五headの形式RegDivell operatorを受理した。全168 signed参照、15形式除算membership、17型と全768境界降下を同じFULL_R0_F9/ELL0_F9 cloneで再構築した。U9のnormalized gA505938とOLD640 Q0のphysical f637790という第八関数のnamespaceを明確に分け、同じf63=gA+sum(e_i z_i)恒等式を保持した。全56 plane sourceの監査ではsigma三次が不要と分かった。一方V二次_Bは非零なのでsigma二次_rrを落とせない。その残るadjointはrow0,16,20上の(−107/275,−3191/2200,−64/825)。共通cacheにsigma二次があると仮定せず、V四次sigma零次、V三次sigma一次、mixed carryとこのadjointのcoherent依存性を次に調べる。実17 connecting parameter、新しいdelta四次やIFT応答はまだ求めていない。
+
+大域第二tail Q1の指定B重複度は正確に四となった。B=(50a+18e二乗−9e−2)d+60e−40に対するHasse零〜三は全零、四次は1107項非零である。独立な五jet d-Hornerはbinomial/S-cacheを使わず元4811係数から全layerを再構築し、数値D197とsymbolic b1十八乗を一致させた。b1は反転せず、b1=0 chartを除かない。Bのprimitive性と20b1+(40−60e)(6e+1)=1000aは補助binary恒等式で、physical PGL操作ではない。fresh source/code監査後の一回整数lex除算も完了し、四stage余り零から2317項商Q2=T1/(a三乗C四乗B四乗)を得た。元D197を維持する。独立checkerは除算を繰り返さず、六項B四乗を126 multinomialから直接構成し、74項因子との全171458積を元4811係数へ掛け戻した。全係数が一致した。Q2はこのtail商の名前で、元S61 quadric q2とは異なる。任意因子GCDや補集合の消尽とは区別する。
+
+一般五点col53は、前の150k guard停止と全lossless snapshotを保持する。live07から残り三成分だけをimmutable backingとoffset view、唯一所有accumulatorへの融合Minkowski unionで再開する別SOURCEを準備中である。read-onlyの全93残term scalar/H boundは閉じ、旧snapshotのhash/全五座標/BOXを別readerで確認した。dot support/H countの上界とendpointの正確なsupport/hashを区別し、まだ係数VALUEは一件も求めない。全167対14・87追加RHS・66制約・one P290・F9/F10および全補集合を残す。
+
+比較Cのtorsion型1123・長七、真正C[ell]のJ2(r)直和k二個は元H0へ移さない。元nil指数三〜六・Nbar三乗零・N三乗⊂ell H0・零次数ideal最小五生成を維持する。T2はHF2二〜四、HF3一〜四、全長十七〜二十のままで、元H0・nil三乗・正確な指数は未解決。全FULLU57/239、全大域境界、一般五点尽くし、全分類上界も未完了。下界58（rank4は52）・NEW式28次と五凍結原稿を維持し、保存後も実研究を続ける。
+
 ## v63 CG / 2026-11-05: 真正C[ell]の加群型と元connecting七次元商・実alpha/rho
 
 直前 main `b2775c0f714580228c6c14cd0f06c11765f6adca` は通常push済み。

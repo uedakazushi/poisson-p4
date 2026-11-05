@@ -1,0 +1,9 @@
+# LIVE07からの残3成分SOURCE gate：immutable viewと融合union
+
+旧8成分と全停止historyを保持し、LIVE07（22maps/44555keys）のみから再開する。8成分の算術を再実行しない。d3da153eの独自snapshot readerと93項のscalar/BOX preflightにより、M404bit・QQ80bit・H幅26の上界が得られている。SOURCEの保存guardをM512/QQ128、temporaryを従来の16384以内として明示する。VALUEのbit/cap方針は変更しない。
+
+コピーは不変のbacking支持と正確なpacked offsetのviewだけを作る。全5指数は保持され、copy BOXと各積のpair BOXを先に検査する。集合を変更できるのは唯一所有・offset0のaccumulatorだけである。SOURCE dotを一時集合に作らず、そのMinkowski要素をaccumulatorへ直接unionする。dotのcard/Hcountsは未materialize upperと明示し、出力accumulatorの正係数支持card/Hcountsはexactに保つ。literal multiply/addのQQと整数wa/wb、正M、provenanceを残す。係数値の計算ではない。
+
+所有数はunique backing keys・view metadata・index・全SOURCE metadataとscratchを課金する。4k numericを常に失敗保存用に予約し、そのうち2k以内で共有backingとoffsetの診断snapshotをstream保存できる。完了成分のsnapshotは旧5byte形式で全key/header/EOFを往復する。失敗時view形式は共有backingを一度だけ保存し、未完了operationを完了profileとして扱わない。
+
+各項のreceiptを直ちに保存してmetadataを解放する。残93項、成分3つ、全snapshot、失敗保存、reportと全旧READ/historyを同時課金する。generated上界8047824Bは8MiB未満で、fresh全RAWは32MiB未満。SOURCE150k・math55/hard60秒・2GBを守り、RootレビューSHAとgate SHAを固定するまでprofileを開始しない。係数worker GO、全14行profile、逆行列、exhaustionは主張しない。全167×14、87追加RHS、66制約RHS、P290一回、F9/F10と全補集合・復元式を保持する。

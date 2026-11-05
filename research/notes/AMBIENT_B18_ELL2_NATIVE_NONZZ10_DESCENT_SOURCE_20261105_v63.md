@@ -1,0 +1,9 @@
+# Ten native pure-R0 coefficient functionals descend to raw33
+
+Work in the actual physical CA F9 coordinates zA0,...,zA6,rA,ell with ell=5(sA-rA). The exact original conductor generators are the seven CA coordinates and raw f637790, and the seven CB coordinates and raw f6328539. Cached source certificates give zero constant and first coefficients for each raw f63 in its own centered F9 chart. The actual common CB linearization has no rA or sA component in its first seven rows. Thus the complete degree-two initials of all64 literal conductor-generator products involve only zi zj. This conclusion is preserved under arbitrary formal multipliers, whose degree-two contribution uses only their constant terms.
+
+Each of the ten ordinary coefficient functionals at z0r,z0ell,z1r,z1ell,z4r,z4ell,z5r,z5ell,r squared,r ell therefore annihilates the actual product ideal and ell squared. No derivative factorial occurs. The accepted source theorem identifies the exact quotient with raw33 and proves m5=0. Lambda is defined on its33 literal basis monomials, and all660 saved normal forms are checked against every functional. This includes the full nonhomogeneous carry, rather than assuming a homogeneous quotient.
+
+The OLD Q9 generator source and current M0 physical frame are retained. The OLD eighth function is gA505938, not raw f637790. No comparison coefficient is filled with zero. A later componentwise application to canonical unit-IFT kappa/G8 images must separately bind the same physical R0, monics, free-four basis and branch, with resource and overlap checks. This source packet reads no such function response.
+
+Abstract descent does not produce a cached image of a genuine honest quotient or license division by its nonunit denominator in raw33. Honest g/h functions remain opaque until a whole-functional AD cancellation or a separate source certificate. Pure-plane third/fourth coefficient extraction is also a separate P9 lane.
