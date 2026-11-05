@@ -1,0 +1,134 @@
+{
+  "actual_source": "current15prefix,notbare135;all7remainingtailsandtail2effectsretained",
+  "source_matrix11x8_nodes": [
+    [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    [
+      559,
+      560,
+      561,
+      562,
+      563,
+      564,
+      565,
+      566
+    ],
+    [
+      567,
+      568,
+      569,
+      570,
+      571,
+      572,
+      573,
+      574
+    ],
+    [
+      105,
+      106,
+      107,
+      108,
+      118,
+      125,
+      132,
+      139
+    ],
+    [
+      140,
+      141,
+      142,
+      143,
+      144,
+      145,
+      146,
+      147
+    ],
+    [
+      160,
+      171,
+      182,
+      191,
+      199,
+      207,
+      215,
+      223
+    ],
+    [
+      242,
+      258,
+      274,
+      286,
+      302,
+      318,
+      334,
+      350
+    ],
+    [
+      360,
+      368,
+      376,
+      382,
+      390,
+      398,
+      406,
+      414
+    ],
+    [
+      424,
+      432,
+      440,
+      446,
+      454,
+      462,
+      470,
+      478
+    ],
+    [
+      489,
+      498,
+      507,
+      514,
+      523,
+      532,
+      541,
+      550
+    ],
+    [
+      551,
+      552,
+      553,
+      554,
+      555,
+      556,
+      557,
+      558
+    ]
+  ],
+  "source_nodes_external_or_included": "source-circuit-metadata.json",
+  "source_H3_rows": [
+    "N10",
+    "N11-N9",
+    "N8",
+    "N6",
+    "N12",
+    "N9"
+  ],
+  "ten_H3_nonzero_coefficients": "sixfrozencoefs+fourliteral3x3Hminors;all10signsfromweighted-output.json",
+  "H3_cofactor_exactcontent": "FournewcofscomputedonlyfromsmallH3polynomials,thenrescaledbyprovenexactQQcontentusingwholecoefficientintegerdivisionchecks.No polynomialgdivision.",
+  "determinant_expression": "Sumall10 H3coef * signedpure8det. Eachpure8detusesrowstreamedsubsetDPwithTWOadjacentlayers; NOunapprovedpolynomialgcd/factorization.",
+  "source_evaluation": "Sourceatomstreamreadintoownedcells;sourceDAGlast-use. KnowncontentfactorsperoperationassignafixedQQscalar;integercontentratiosarecheckedbeforeanyaddmul.",
+  "sparse_addmul": "Eachproductcoefficientisgeneratedinlexicographicinputkeyorder. Computeonependingintegerupdate,checkBEFOREcommitnewcell/bitgrowth. Zeroresultsreleasecells. Nofullproductbuffer.",
+  "source_and_DP_content": "Allsourceadditions/productsandDPcandidatecontentrulesareprecomputablegcdQ/multiplication.Metadatafactorensuresintegerquotientscalesforeverypartialsum.",
+  "release": "AfteraDPtransitionhasconsumedapreviousstateitscellsarereleased. Aftereachpure8detisaccumulatedreleaseallitsDPstates. StreamH3cofactors ifneeded;neverdropamathterm.",
+  "stop": "Beforecommitstopifownedcellpoolwouldexceed135000,activepolys1024,coefficient1024bits,QQcontent4096bits,metadata/input/logcaps,or45sclock. Saveexactcurrentstate/pendingoperationcursor. Noautomaticretry.",
+  "completion": "OnlycompletionofALL10terms/ALLsourceandDPloopspermitsfullscalar/nonzeroclaim. A nonzeroprefixisNOTnonzerodet11.",
+  "no_scalar_job_executed": true
+}

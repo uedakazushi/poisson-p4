@@ -1,0 +1,9 @@
+# One next streamed pivot on compact generation39
+
+The source-only gate 140eae607c7b9c8ffc18d580ccb5521d1ad81ab7a32e63f13940f62292277464 proves that original entry (69,59) is exactly -s0 t0/108000 and its complete next-pivot forecast is safe. This worker performs exactly that one row/column deletion on the accepted compact current matrix. It does not repeat any of the previous39 pairs.
+
+One 369-term fixed pivot row and one current row are owned. All other literal values remain in the hash-bound compact file. The unchanged signed-Laurent kernel independently reconstructs each source support product/union, checks its saved forecast before arithmetic, and verifies every normalization and entry subtraction by exact back-add. The algebraic coefficients/scratch bound is9662; all index/plan/receipt integer slots add56600, for total66262 below150000. Logical support may reach293018, explicitly external to the owned cap.
+
+The fresh actual-read compact snapshot/index/receipt/report and helper/source files total9328957 bytes. Adding all new immutable rows, normalization and three MiB for every new gate, worker source, executable, control, operation record, receipt and manifest gives25587768 RAW bytes. All retired generations remain stored unchanged. No gzip, missing coefficients or deletion is used to meet32 MiB.
+
+The next generation becomes complete only after all105 changed rows have been bounded-written, hash-verified and checked. All zero rows and original identifiers remain. The fresh worker has hard60 seconds and2 GB with a42-second native row-start stop. The only new division is the parameter monomial -108000/(s0 t0), not an unknown normal-coordinate or nonmonomial inverse. No second pivot, point, prime, GCD, series, new rank assertion, complete inverse or exhaustion is claimed.

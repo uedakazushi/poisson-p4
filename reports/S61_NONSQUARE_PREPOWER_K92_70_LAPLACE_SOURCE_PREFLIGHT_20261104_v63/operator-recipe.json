@@ -1,0 +1,17 @@
+{
+  "expression": "sum_C (-1)^sum(C) det(P4[:,C])*sum_t sign[t]*H3weight[t]*det([G20;remaining_lower3[t]][:,C_complement])",
+  "execution_order": "C lexicographic70; compute one P4 cofactor; t=0..9, compute one bottom4 minor with consumed previous-layer release; multiply weight*bottom4 into one temporary; stream P4*temporary into global accumulator; release bottom4/weighted temporary before next t; release P4 before next C",
+  "state_reuse": "Select state.bin only pinned matrix88 roots and ten weights; do not allocate DP records or rerun572sourceoperations. Source-factor normalization from original state is preserved.",
+  "signs": "normative source-binding ten signs times (-1)^sum(top4columns); all rows/columns retain original order",
+  "normalization": {
+    "common_QQfactor": "1/57869025040366293060689964478093827437987783923745155334472656250000000000000000000000",
+    "known_output_a_shift": 5,
+    "g_kept_factored": true,
+    "known_source_a_squared_already_removed": true
+  },
+  "checkpoints": "Every addmul coefficient BEFORE-COMMIT: ownedpool135000/work15000,coef1024bits,commonQQ4096bits,exponentint32,pending16384bits,clock45s; store all active source/cofactor/bottomDP/temp/accumulator polynomials and group/term/row/mask/operandcursor/pendingupdate ONCE as binary, not duplicateJSON",
+  "exact_prefix_restore": "All active factors/integers/cursors. A partial sum or nonzero prefix is NOT det11/nonzero proof. Need ALL70groups and ALL10terms.",
+  "no_scalar_run_in_this_packet": true,
+  "no_completion_promise": true,
+  "no_new_chart_or_candidate": true
+}

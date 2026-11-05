@@ -1,0 +1,20 @@
+# det11だけの一回guarded attemptと完全prefix復元
+
+2026-11-04。gは現在のN6 chartで単元のため出力へ掛けず、同じ固定K92/18のdet11だけを扱う。
+元156898格子・38MBの通常方式FAILは変更しない。source gate9a2a547eと別のH3符号scheduleを使う。
+literal四H3minorに相対符号を二重適用せず、既存六lambdaを含む実十項を全て保持する。
+
+新nativeはFLINTの整数・有理数演算だけを使い、多項式bulk積やfield Gaussianは使わない。
+各多項式を共通QQ因子と整数sparse mapで保持し、一係数addmulごとにcommit前のcell数・
+係数bit・指数・QQ因子bitを検査する。使用済みsourceとDP状態は即座に解放する。
+全入力・重み・global和・二層DPを135000cellに数え、15000workと合わせ150000以下とする。
+1024bit係数または4096bit共通QQ因子、active1024poly、45秒clock等の上限に触れる直前で止める。
+
+小さい人工多項式の積、cell超過・係数bit超過でdestinationが変わらないこと、
+binary writerと独立Python readerを検証してから一度だけ実sourceを実行する。
+停止なら全active poly・QQ因子・source/DP/畳み込みcursorと未commit更新をK92SP001形式で保存する。
+これは正確な途中状態であり、非零prefixをdet11の非零証明とは呼ばない。自動再試行しない。
+
+復元は保存reportのexact_restore_commandで行う。readerのread_state関数は全係数と因子を再構成し、
+CLI --checkは形式・byte上限・SHA・順序・係数bitを検査するだけで、演算を再開しない。
+完了した場合だけ全十項の正確なscalar値・非零性を主張できる。全FULLU57・239や尽くしは別問題である。
