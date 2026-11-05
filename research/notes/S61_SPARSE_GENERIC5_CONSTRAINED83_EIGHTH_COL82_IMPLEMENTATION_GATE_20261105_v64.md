@@ -1,0 +1,9 @@
+# Eighth column82 immutable implementation and custody gate
+
+This SOURCE helper verifies165 source leaves: 64 raw literal cells against the authenticated old binary payloads and fixed576 metadata; explicit Q,Q²,Q(q0+1),E; one fresh row11−8row44 difference;80 exact U/V/C/F5/N6 objects with the accepted seventh-stage proof;16 actual previous column62 numerator binaries. The old14MB matrix is explicitly charged in actual READ RAW accounting. It is hash-streamed, not parsed as a complete polynomial matrix.
+
+The exact next numerator recipe prefixes every seventh-stage source product by E=32s0+15q0+35 and subtracts 273375 t0² M7_i A52,82/(32768 H³). The helper reconstructs all factor lists, signed parameter-monomial prefactors, rational contents, denominators, supports, primitive coefficient-height bounds and partial bounds. No new matrix cell is evaluated by the helper.
+
+The future worker keeps shared leaves and only one row bundle/plan. Every VALUE phase, including parsing, compiled leaves, receipt metadata, product, old/new accumulators, exact back-add, binary encoding/decoding and readback, is covered by the newly source-proven fixed metadata40,000 plus row-specific buffers. The whole bound106,064 remains below global150,000; this does not change any earlier frozen bound. The fresh RAW ledger includes all inputs, new outputs, prepared gate/help and receipts, below18,769,117B and32MiB without gzip. Both --help paths are side-effect-free.
+
+All restored169×16 rows, top103+66 constraints,87 other top RHS,15 other columns, the one old P290 scale and every restoration map remain. The selected16 square is not the full cokernel. The common Q³(q0+1)E denominator is only a representation. No cancellation, rank, complete inverse or exhaustion assertion is made. Every chart complement remains open. Root/source review is required before coefficient execution.

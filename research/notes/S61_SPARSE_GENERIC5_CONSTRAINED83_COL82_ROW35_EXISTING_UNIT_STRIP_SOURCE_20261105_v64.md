@@ -1,0 +1,5 @@
+# Fixed row35 source normalization by existing units only
+
+This SOURCE-only check is restricted to the already computed111-term numerator at row35,col82. It removes the literal Laurent monomial valuation and performs only fixed linear divisions by the previously inverted Q=5q0+1, R=q0+1 and E=32s0+15q0+35. Every division has a pre-arithmetic support, integer-height, owned-lifetime and RAW forecast, a full quotient/remainder record and literal remultiplication. A nonzero remainder only stops stripping that prescribed factor; it is not an irreducibility or general gcd assertion.
+
+The final nonzero polynomial and exact reconstruction describe the same existing matrix entry. No other matrix entry, pivot, row search, rank, field elimination, parameter point or prime is computed. The old169×16 operator,87+66 RHS,15 other columns, one P290 scale, all restoration maps and all chart complements remain untouched. Any future use of the reduced polynomial as an additional chart factor and any future coefficients require a separate source gate and authorization.

@@ -1,0 +1,7 @@
+# Two cached invariants for the remaining point-kernel directions
+
+The fixed H0 free directions are literally e23,e29,e30 and all three columns of M0 vanish. The universal mixed functional rho was verified on all286 F1/F2 coefficient slots and descends componentwise to raw33. Thus, for each constant e_j in ker M0, its two pairings with V e_j give alpha_j=lambda0*M_r*e_j and beta_j=lambda0*M_ell*e_j-lambda1*M_r*e_j. This is a universal source identity, not a consequence inferred from previous numerical answers.
+
+For j=29 the actual Q48 mask1 law is V29=(delta63,0,-bB63). The exact original physical row63 and trace-free scalar root IDs are hash-bound to the accepted finite-source cache. No proper gauge value or new primitive coefficient is requested. All99 vector coordinates of Wv=(-3375/11)V23-50V29+(25/2)V30 are checked before any pairing. Therefore two new V29 pairings, together with the already accepted e23 and Wv invariants, recover the two V30 invariants by linearity without extra V30 pairings.
+
+The gate computes only source-vector identities and positive denominator/numerator envelopes. It evaluates neither new rho pairing. This may fix the six gauge-invariant M1 contractions on the point kernel, but does not erase the b1/A2/Yp0/M1 carries in the actual upper619 formula; that typed source construction remains separate. No actual upper relation, HF2 or total length is claimed.

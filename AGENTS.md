@@ -2,6 +2,20 @@
 
 Version: v63-s61 · 2026-11-05 (Asia/Tokyo).
 
+Latest CB (2026-11-05): COMPLETEactualC3cubicimageONEformalLINE, independent155sourceproof.
+All855/945coefficientmultiples/63Koszul+92constant/fullmixedβRHcarryretained.
+B4correctedV2all144formalcoeffs/60weightedcachezeros; unknownα4NOTset0.
+ExactHF3∈{3,4}; C3possibleHF36630/36631/36640/36641,length18..20.
+Nextα4ONLYexistingjoint105plane3 readbackSOURCE/codepeer beforeonevalues, nofreshjets.
+Graph5SOURCEZERO by21−4≤17contradictionactual18; bothcachedworkersunrun.
+T2pointkernelM1sixgaugeinvariantsEXACT via2new29dots/algebraic30, notcanonicalM1allvalues.
+All393T2G3classes0/OLD549lower0;native70lower+ALL619upperOPEN/fullclearingcarryretained.
+T1native7595 NONZERO viaindependentfourcolaxis/allT1axis/a3witness; notall7595coefpeer.
+FULLU D12*(T0orT1) sufficient57, no strictimprovement/radicalcoprimality/complementexhaustion.
+Generic9thpivotSOURCEfull168x15/87extras+66conditions/oneP290; col56raw~1BtuplesNOTGO.
+Nilindex3..6/zeroD0mu5/bounds58/r4lower52/globalupperNULL/fivepapersfrozen.
+Continueactualresearch/mainordinarypush; checkpointNOTstoppingcondition.
+
 Latest CA (2026-11-05): actualcubic57 onNONEMPTY FULLU D(T*D12) independentlyPROVED.
 D12a15e0d0 nonzero viaown67literal/214DAG/144inputs/direct12subsetDP; notall29coefpeer.
 GLOBALcurrent15rank15⇒57 viaALLFULLUproduct41/8+2unitops/all330roots/tails/eta.

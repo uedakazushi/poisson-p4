@@ -1,0 +1,7 @@
+# Alternate complete col82 readback and staged QQ formula validation
+
+This is a same-agent arithmetic validation with a distinct algorithm, not an additional external source peer. The independent source premise is the frozen root review0dc56acb. The completed producer used direct common-denominator integer Cartesian tuples. This checker imports no producer and instead evaluates the actual first-two-pivot rows, fourth/fifth cleared formulas, sixth formula, seventh formula and eighth formula successively as sparse rational Laurent polynomials. It shares only the public binary codec and canonical value-hash specification.
+
+Every product is preceded by an exact support-only lifetime forecast. Integer numerator/denominator bounds are derived from the operands before coefficient multiplication. All169 restored rows and87+66 RHS remain in the source operator; this checker evaluates only16 selected cells and does not replace the full operator by its square. It checks every staged addition by exact subtraction, every final4160 rational coefficient against the public binary, all16 encode/decode roundtrips and hashes, and the frozen final source-height bounds. No coefficient-source worker is rerun. No new cell, rank, pivot search, parameter point, prime or gcd is computed.
+
+The full scope remains169×16 with15 other columns typed, one P290 scale, common Q³(q0+1)E representation and all chart complements open. No full inverse or exhaustion conclusion follows.

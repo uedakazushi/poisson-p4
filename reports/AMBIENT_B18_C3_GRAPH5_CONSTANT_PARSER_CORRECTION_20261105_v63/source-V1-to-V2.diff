@@ -1,0 +1,38 @@
+--- code/ambient_B18_C3_graph5_cached_source_20261105_v63.py
++++ code/ambient_B18_C3_graph5_cached_source_v2_20261105_v63.py
+@@ -11,7 +11,7 @@
+ from pathlib import Path
+ 
+ ROOT=Path(__file__).resolve().parents[1]
+-STEM='AMBIENT_B18_C3_GRAPH5_CACHED_SOURCE_20261105_v63'
++STEM='AMBIENT_B18_C3_GRAPH5_CACHED_SOURCE_V2_20261105_v63'
+ PATHS={
+  'compiled164':'reports/AMBIENT_B18_C3_PURE_ELL_READBACK_SOURCE_20261105_v63/compiled-original164-DAG-and-provided-pure-ell-inputs.json',
+  'joint':'reports/AMBIENT_B18_T3_JOINT_CURVE_RESTRICTIONS_20261104_v63/joint-degree3-certificate.json',
+@@ -122,7 +122,7 @@
+  for r in records:
+   i,op=r[:2]
+   if op=='input':v=provided[i]
+-  elif op=='c':v=zero();v[0]=(Q(r[2]),1)
++  elif op=='c':v=zero();v[0]=(Q(r[2],r[3]),1)
+   elif op=='a':v=[bound_sum(a,b)for a,b in zip(cache[r[2]],cache[r[3]])]
+   elif op=='n':v=cache[r[2]].copy();v[0]=(-v[0][0],1)
+   elif op=='m':
+@@ -170,7 +170,7 @@
+  profile={
+   'source_scope':'Five actual physical F_graph*tauB cubic relations, rows63,64,68,73,74; no whole C3 presentation/rank or exponent claim.',
+   'source_graph_premises_row_bAfirst0_delta2nonzz0_delta3_r3_r2ell0':graph_premises,
+-  'full_cubic_carry_proof':'These five columns have first0 and no nonzz quadratic component. Unknown zz quadratic terms are cleared by z times the ACTUAL first frame. Every beta2/RH2 carry retains z and has zero plane3. Primitive bA3 eH dies modulo actual plane2 eH; remaining cubic is delta3 eB.',
++  'full_cubic_carry_proof':'These five columns have first0; the delta2 eB component has no nonzz terms, while bA2 eH MAY contain mixed z*r and z*ell terms. Clear delta2/bA2 zz terms by z times the ACTUAL first frame, retaining z in every beta2 carry. Clear bA2 mixed H terms by r/ell times RH_i; its eB plane2 is actual delta_i2_plane=0, so this full mixed correction has zero eB plane3. Primitive bA3 eH and its H corrections die modulo actual plane2 eH; the remaining eB cubic is exactly delta3 eB.',
+   'least_unknown_functional':'Existing C2 delta3 r^3 and r^2*ell vanish on these five rows. Mod ell^3, the only remaining cubic function is delta3_(r*ell^2). It equals (old delta_(r*s^2)+3 old delta_(s^3))/25 after the SAME source substitution.',
+   'unknowns_are_readbacks_not_new_physics':'All105 source coefficients through3 are already supplied and independently reviewed. New job would only compose ten existing finite scalar-DAG roots; no IFT, gauge, point, source solve or new jet.',
+   'same105_common_frame_ids_verified':True,
+@@ -196,7 +196,7 @@
+   'future_hard_seconds':60,'future_hard_memory_bytes':2147483648,
+   'future_RAW_input_plus_output_bytes':1000000,'hard_RAW_bytes':33554432,'hard_QQ_bits':2048,
+   'future_mandatory_checks':['all630 provided105 source2 overlaps rechecked','all10 roots const/r/ell/rell andell2 overlap prior C2/pureell cache','both source inverse products exact in B6','all5 graph delta lower five coefficients zero; only r*ell2 can remain','all10 roots source IDs and row ordering preserved','strict QQ precheck before every operation and root-only STOP on failure'],
+-  'nonzero_consequence':'One nonzero delta_(r*ell2) gives an actual nonzero eB cubic class and a nonzero quartic multiple in the CI(3,3) summand, hence known C3 upper19 only.',
++  'nonzero_consequence':'One nonzero delta_(r*ell2) gives an actual nonzero eB cubic class; multiplication by r gives nonzero eB r^2*ell^2 in the CI(3,3) summand, hence known C3 upper19 only.',
+   'zero_consequence':'All five zero excludes only these five graph-cubic sources. It does not settle C3 or unknown quartic/coherent corrections.',
+  }
+  assert sum(profile['future_owned_budget'].values())<75000
