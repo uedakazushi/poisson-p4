@@ -1,0 +1,5 @@
+# Exact45 fixed-format metadata budget
+
+The immutable mixed-source gate2cac9174... roundtripped all4328 source cells but its one-MiB generic metadata reserve forecast33,938,925 RAW bytes. No compaction ran. This supplementary SOURCE-only check reuses the exact binary payload/index sizes and counts the actual fixed metadata formats: input ledger,191 row hash records, output source/hash map, bounded extra source/proof/note files, and final ledger. It performs no coefficient query, encoding replay or pivot.
+
+The writer receives explicit per-file caps derived from actual identifiers and fixed64-character hash placeholders. Additional read files are bounded160000 bytes; all planned new metadata is below524288 bytes. The resulting complete fresh input+snapshot+index+metadata bound is33,414,637 bytes, below the unchanged33,554,432 limit, with111319 owned slots and60s/2GB. The old cap frontier and all prior text/binary files remain unchanged. An unexpected metadata overflow stops before a completed new representation; no cap is increased and no coefficient omitted.

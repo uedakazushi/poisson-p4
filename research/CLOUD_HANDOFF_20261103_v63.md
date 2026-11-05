@@ -8,6 +8,24 @@ v62保存は `e187b40de68bce534391f406f616940cddd045a7`、
 `66a80ab53dfcf0ff842c67140320d8da0226039d`。全て通常push済み。
 このv63保存のSHAはGit履歴で識別する。
 
+## v63 BR / 2026-11-05: 全長十一・実Loewy四とnil比較二次層の範囲
+
+直前 main `c05a38cf7df005219883b2841ea38bc888243d51` は通常push済み。
+
+元比較加群Tの全長を十一と確定した。元768列のわずか三項{406:−8/3,647:60,710:1}による実関係で、全honest二次の線形・二次product symbolが消え、補正四次係数40553074375/178412544が非零となる。別実装で源・coherent copy・native既知応答・選択implicit項・Theta4補正を監査した。唯一の四次候補が消えるのでNakayamaでm四乗T=0、HFは正確に(5,3,2,1)、m^jT長は11,6,3,1,0となる。全619計算は不要で、実行したとも主張しない。
+
+これによりKのDVR最小生成数七・torsion生成数三、元Nil(D0)のDVR最小生成数十四・torsion生成数三、Tnil全長十六が確定した。元nilのDVR階数十一、元B18深さcone19・射影18を維持する。TのLoewy指数四をnilideal指数と混同しない。H0(D0)の全長・ell-torsion指数・nil三乗はなお未決で、元nil指数は3〜7のままである。
+
+自然単射Told→Tnilと既知Loewy情報だけから、実HF2(Tnil)を二以上五以下へ絞った。m三乗の長さ比較で上界五、h2=1なら全後続層が高々一というgraded moduleのmonomial論とLoewy上界から下界二が出る。新しい係数は不要。完全6対661のrankは1〜4である。商Tnil/Toldの三つのfirst列も訂正済みV2で独立監査し、HF(3,1,1)を確定した。旧V1のnu carry欠落と撤回は記録し、受理済み原点rank二には影響しない。
+
+商の唯一の一次dualは文字通りfree44 row42*rAであり、二次はrow42*rA二乗。このクラスが非零なので6対661のrow index2は恒等的に零。一変数rAに関する商のJordan型は(3,1,1)だが、全S分解やell torsionではない。別のrow index3は既存cacheだけで全661値を求め、23個非零を独立検証した。残る四行のhonest第二source感度は全て相殺し、追加の四z6 pairに必要な正準gauge二次120個を既存physical source2から計算した。全行の評価と正確なHF2は次の作業である。
+
+一般betaのconstrained83消去は五段を追加し、実四十五対、残余191対38・467009項へ進んだ。各段で全hash付き行・係数・恒等式と旧世代を保存し、textと無圧縮binaryの厳密roundtripを使い同じ所有150000・RAW32MiBを守った。完全逆行列・一般五点尽くしは未証明で、次の限定五段をsource gate付きで続ける。Nov5のworker suffix v64は作業証拠の名称であり、凍結原稿を新版へ変更したものではない。
+
+非平方K92 det11の70群guarded計算はtime上限で三つのH3項まで完成し、97053係数・全cursorを保存復元した。部分和の非零を行列式の非零としない。次はその途中積から厳密に続け、残るweighted-bottom項を先に和して外側乗算を696回から70回へ減らす別計画をsource検証する。元572source演算をやり直さない。
+
+ell二乗によるH0長・torsion指数の方法も具体化したが、honest T2比較は未構成。raw33基礎環の三次truncationにはunionのTor attachmentを含む明示六基底の証明を用い、branch tensor単射という誤った近道は使わない。raw基礎環の計算とC2、honest T2を区別する。全FULLU57/239・補集合・一般beta尽くし・全分類上界は未決で、下界58（rank4は52）、NEW方程式28次、五凍結原稿を維持し、保存後も実研究を続ける。
+
 ## v63 BQ / 2026-11-04: 実六次入力・九四次汎関数と自然比較rank二
 
 直前 main `c982273505b0237eec720319a39937047badde80` は通常push済み。

@@ -1,0 +1,3 @@
+# Continuation candidate13 complete worker budget
+
+The source continuationc86504e3... skipped completed forecasts0..9 and selected original(53,54)=s0t0/162000 after completing10..13. This source-only budget retains all four continuation records and source-stop cursor. Fresh actual-read source plus all row versions and3500000 auxiliary bytes total32,367,271<32MiB; owned61368<150000,60s/2GB unchanged. Compile/control and all future compact-event/context/receipt/manifest costs are guarded before arithmetic. No old step or unsafe coefficient elimination is replayed, no GCD/point/prime/nonmonomial inverse is introduced.

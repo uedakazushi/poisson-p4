@@ -1,6 +1,21 @@
 # Poisson structures on P4 — Codex instructions
 
-Version: v63-s61 · 2026-11-04 (Asia/Tokyo).
+Version: v63-s61 · 2026-11-05 (Asia/Tokyo).
+
+Latest BR (2026-11-05): ACTUALT TOTALlength11/HF(5,3,2,1)/m4T0 independentlyPROVED.
+Witness580(original768 406:-8/3,647:60,710:1) correctedquartic40553074375/178412544NONZERO.
+AllhonestsecondLIN+QUADcancel; noall619claim. TLoewy4 isNOTnilidealindex.
+KmuD7/torsmu3; originalNilmuD14/torsmu3/rank11; Tnil EXACTlength16.
+H0length/ell-exponents/nilcubeOPEN,originalnilindex3..7/depth19/18 unchanged.
+Pureproof2<=HF2(Tnil)<=5/complete6x661rank1..4; no newcoeffs.
+CorrectedV2naturalcokerHF3,1,1 independentlyaccepted; oldV1moniccarrybugWITHDRAWN.
+Literalgradedrow2(e42*r²)ZEROall661/classNONZERO; rA-onlyJordan3,1,1 NOTS/ell-DVRsplit.
+ActualFREE43row3 has23NONZERO/cachepeerPASS; fourremainingrows/gauge120secondcacheactive.
+Genericactual45pairs191x38/467009logical viaexactrowstream/binaryroundtrip;
+inverse/exhaustionOPEN, continueboundednext5actualunits/no points/primes/GCD.
+K92partial70guardedTIMEprefixsaved, no det/nonzero claim; newtailassociationSOURCEgate.
+Rawell²basis33 proofkeepsunionTorattachment; honestT2stillOPEN/no naivefinitehomology.
+Bounds58/r4lower52/NEWG28/fivepapersfrozen; continueactualresearch/mainordinarypush.
 
 Latest BQ (2026-11-04): NEWphysical own57univ6 exactly114QQ/all57eq+quotients peerPASS.
 CommonoldCB-newCAg3=(68165/3456,0,0,1435/256). Ninephi4 ADJOINTvalues/945rhoJchecked.

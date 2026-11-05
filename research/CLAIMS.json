@@ -25190,6 +25190,130 @@
         "transfer原点像の独立検討はC4の次数と元source式によるもので、全512 source数値の二重実行とはしない。",
         "WとKでNを生成する経路は使えないが、nil三乗の零・非零は依然未決。未知K/ellK基底やprimitiveな正規化fiberを仮定しない。"
       ]
+    },
+    {
+      "id": "AMBIENT_B18_ACTUAL_T_EXACT_LENGTH11_AND_LOEWY4",
+      "title_ja": "元比較加群の全長十一とLoewy指数四を確定",
+      "statement_ja": "完全5対825表示の実constant-source case580、元768列の結合{406:−8/3,647:60,710:1}について、全honest二次の一次・二次product symbolが厳密に相殺し、補正四次係数40553074375/178412544が非零となることを別実装で確認した。既知initial moduleの唯一の四次候補e4*rA四乗が消えるのでm四乗T=m五乗T、Nakayamaによりm四乗T=0。既知の正確な初四層HF(5,3,2,1)から全長は十一、Loewy指数は四である。十一個の実filtered monomial liftが基底となり、m^jTの長さは11,6,3,1,0。従ってmu_D K=7、torsion最小生成数3、mu_D Nil(D0)=14、同torsion最小生成数3、Tnilの全長16が確定する。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_source_proof_and_exact_certificates_2026_11_05",
+        "certificates": "reproduced_2026_11_05_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "AMBIENT_B18_ACTUAL_THIRD_LOEWY_LAYER_AND_LENGTH_LOWER11",
+          "AMBIENT_B18_T_ACTUAL_G_THIRD_AND_NINE_FOURTH_SOURCE_VALUES",
+          "AMBIENT_B18_NIL_DVR_FINITE_RANK11_AND_COMPARISON_SPLIT"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_B18_T_COMBINED619_QUARTIC_CLOSURE_20261105_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_B18_T_COMBINED619_QUARTIC_WITNESS_20261105_v63_REVIEW.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_B18_T_EXACT_LOEWY11_20261105_v63.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_B18_T_COMBINED619_QUARTIC_CLOSURE_20261105_v63/report.json",
+        "reports/AMBIENT_B18_T_COMBINED619_QUARTIC_WITNESS_20261105_v63_REVIEW/report.json",
+        "reports/AMBIENT_B18_T_EXACT_LOEWY11_20261105_v63/report.json"
+      ],
+      "limitations_ja": [
+        "一つの非零実関係で十分であり、全619値を計算したとはしない。",
+        "TのLoewy指数四は元nilidealの冪零指数ではない。nil指数は依然3〜7。",
+        "H0(D0)の全長・ell-torsion指数・全socle・全nil生成元・nil三乗の零性は未決。"
+      ]
+    },
+    {
+      "id": "AMBIENT_B18_TNIL_SECOND_HILBERT_DIMENSION_BETWEEN2_AND5",
+      "title_ja": "nil特殊比較の実二次層次元は二以上五以下",
+      "statement_ja": "同じS上の自然単射Told→Tnilと全長差五を用いる。m三乗Toldの長さL−10はm三乗Tnilの長さL−5−HF2以下なのでHF2≤5。s=L−10と置くとm^(s+3)Told=0、cokernelの最小生成数三・長さ五からm三乗cokernel=0で、m^(s+6)Tnil=0。仮にHF2=1なら、S五生成自由moduleのgraded商の唯一の二次standard monomialにより全高次層は高々一次元となり、全長はs+14以下。しかし実長はs+15で矛盾する。HF2=0も不可能。従って2≤HF2(Tnil)≤5、完全6対661作用素のrankは1〜4。証明は高次係数の評価を使わない。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_source_proof_and_exact_certificates_2026_11_05",
+        "certificates": "reproduced_2026_11_05_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "AMBIENT_B18_NATURAL_TOLD_TNIL_RANK2_AND_TRANSFER_STRICTNESS",
+          "AMBIENT_B18_HONEST_NIL_T_ACTUAL_FIRST_HF_5_5",
+          "AMBIENT_B18_ACTUAL_THIRD_LOEWY_LAYER_AND_LENGTH_LOWER11"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_B18_TNIL_QUADRATIC_DIMENSION_BOUNDS_20261105_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_B18_TNIL_QUADRATIC_DIMENSION_BOUNDS_20261105_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_B18_TNIL_QUADRATIC_DIMENSION_BOUNDS_20261105_v63/report.json",
+        "reports/AMBIENT_B18_TNIL_QUADRATIC_DIMENSION_BOUNDS_20261105_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "真のHF2の等号、六方向のどの組が生きるか、全661値は未決。",
+        "rAの深いtailとDVR parameter ellは区別する。証明は同一Sのm-adic filtrationに関する。"
+      ]
+    },
+    {
+      "id": "AMBIENT_B18_NATURAL_COMPARISON_COKERNEL_HF311_AND_LITERAL_QUADRATIC_ZERO_ROW",
+      "title_ja": "自然比較の長五商HF(3,1,1)と文字通りの二次零行",
+      "statement_ja": "旧τAτB列のb1*nu1項の欠落を訂正したV2だけを用い、三つのzero-origin自然比較列の全576 first-Koszul係数、252h0補正と全81cleanupを確認した。独立source監査でも同じ値を得て、四対三minor86403125/7746048の非零からcokernelのHFは(3,1,1)となる。その唯一の一次dualは文字通りnew free44 row42*rA、唯一の二次dualもrow42*rA二乗であり、このクラスは非零。従って完全6対661作用素のrow index2は恒等的に零である。商は一変数k[[rA]]加群として非標準的にk[[rA]]/(rA三乗)直和k二個となる。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_source_proof_and_exact_certificates_2026_11_05",
+        "certificates": "reproduced_2026_11_05_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "AMBIENT_B18_NATURAL_TOLD_TNIL_RANK2_AND_TRANSFER_STRICTNESS"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_B18_TOLD_TNIL_ZERO3_FIRST_MAP_20261105_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_B18_TOLD_TNIL_ZERO3_SOURCE_20261105_v63_REVIEW.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_B18_TOLD_TNIL_ZERO3_FIRST_CACHE_V2_20261105_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_B18_TOLD_TNIL_COKERNEL_GRADED_R2_20261105_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_B18_TOLD_TNIL_COKERNEL_R_CHAIN_20261105_v63.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_B18_TOLD_TNIL_ZERO3_FIRST_MAP_20261105_v63/report.json",
+        "reports/AMBIENT_B18_TOLD_TNIL_ZERO3_SOURCE_20261105_v63_REVIEW/report.json",
+        "reports/AMBIENT_B18_TOLD_TNIL_ZERO3_FIRST_CACHE_V2_20261105_v63/report.json",
+        "reports/AMBIENT_B18_TOLD_TNIL_COKERNEL_GRADED_R2_20261105_v63/report.json",
+        "reports/AMBIENT_B18_TOLD_TNIL_COKERNEL_R_CHAIN_20261105_v63/report.json"
+      ],
+      "limitations_ja": [
+        "撤回済みV1 cacheとrank診断を証拠に使わない。訂正履歴と元byteは保存する。",
+        "一変数rA加群の分解だけで、全S作用の分解、ell-DVRのtorsion指数ではない。二十一個のz作用scalarは未評価。",
+        "文字通りの零行以外の二次rankとnil三乗は別課題である。"
+      ]
     }
   ],
   "setup_checkpoint": "v25-setup",

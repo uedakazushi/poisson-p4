@@ -1,6 +1,6 @@
 # Poisson structures on projective four-space
 
-未決四次への実六次入力114係数と九つの四次source汎関数を独立検証した。自然Told→Tnilは原点rank二、transfer WはKを加えても全nilを張らない。一般betaの消去はrow-streamで実四十対へ進んだ。元T全長11〜17、nil指数3〜7、DVR階数十一・深さcone19/射影18を維持し、全分類・全FULLU57/239・一般beta尽くしを続ける。下界58（rank4は52）、NEW方程式28次。
+元比較加群Tの全長十一・HF(5,3,2,1)・Loewy指数四を独立検証した。元nilのDVR生成数十四・torsion生成数三、nil特殊比較の全長十六も確定。nil比較の二次層は二〜五だが、元nil三乗とell-torsion指数は未決で、nil指数3〜7を維持する。一般betaは四十五対消去まで進んだ。全分類・全FULLU57/239・一般beta尽くしを続け、下界58（rank4は52）、NEW方程式28次、五凍結原稿を維持する。
 
 新25成分の全Poisson一般横断長さは正確に5。n111の全完成環 C[[s25,u,v]]/(uv,u³,v³) とCM type2を証明・独立監査し、[14ページの独立原稿](papers/positive_weight6_component_ja.pdf)に保存した。全52 rank4成分のdense S61写像が揃った。新一次像は15次元・方程式次数22以上だが実方程式、全境界、全分類は未解決。以下は以前の記録を含む。
 

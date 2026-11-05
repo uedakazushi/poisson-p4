@@ -1,0 +1,5 @@
+# Exact uncompressed binary representation preflight
+
+The immutable current42 text compaction forecast is35,911,623 bytes and was not executed. This changed representation stores each primitive rational polynomial as exact signed-magnitude numerator/denominator integers, zigzag signed five-dimensional shifts, term count, then every signed integer coefficient and five unsigned exponent integers. All fields are canonical length-delimited base128/big-endian integers; there is no compression, precision loss or parameter specialization.
+
+This source-only job encodes and independently decodes each of the4734 current cells in memory and compares every coefficient, rational content, shift and exponent. Only one source cell and its codec scratch are resident. It records expected binary offsets/lengths/hashes and proves the complete prospective snapshot/index and fresh actual-read input ledger fit32MiB,150000 owned slots,60s/2GB. No full binary snapshot, coefficient arithmetic, pivot, GCD, point, prime or old-step replay is performed. All previous text results and guard failures remain stored unchanged.

@@ -1,0 +1,9 @@
+# 自然写像の三つの零origin列：実一次像と長さ五の商
+
+旧free56 rows23,29,30のcanonical m1は訂正V2の保存済みsourceだけから得る。特に旧row23のbνではb一次×ν一次を保持する。旧誤packetとそのrank診断はwithdrawnのまま保存し、本証明はV2だけを使う。
+
+全三列で実44 cycleのoriginを固定18列で消し、元の形式函数に列ごとに適用するHadamard/Eulerの定数84成分を固定81列で消す。全3×192のfirst Koszul係数と全3×84の定数homotopy係数を検査する。この消去後には全adapter二次・native even二次callbackの係数が零になる。従って保存したknown40式は実際の一次列であり、未知係数を零と仮定していない。真のm1のr係数と順序付きHadamard規約は既証FIRST_LINEARと同じである。
+
+既証849一次関係のrank35 minorから厳密な5×40商写像を作る。自然写像の非零origin二列の8変数倍16列を加えると階数は一つだけ増え、4×40商となる。その上で三つの実一次列を検査し、固定小minorと両側逆・全列factorを保存する。商Qの長さ5、最小生成元数3を使い、一次層と残りの層を決定する。
+
+自然写像のorigin rank2の既証計算は本訂正の影響を受けない。旧cycle originはmold0,nold0だけで決まり、Z20のorigin零によりoldcycle一次項はnewselected h0に寄与しない。二次層Tnilの正確な値、総長さ、nil三乗の結論ではない。

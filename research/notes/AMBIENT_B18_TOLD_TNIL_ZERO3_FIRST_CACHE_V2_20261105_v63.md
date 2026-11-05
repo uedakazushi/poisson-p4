@@ -1,0 +1,9 @@
+# 自然写像の零origin三列：旧canonical一次値と全81 cleanup
+
+既存両57の二次source、物理座標adapter、正則prefix一次値、r五次曲線だけから、旧free56 rows23,29,30のcanonical m1を取り出す。mold0 e_j=0なので未知nold1は消える。旧curveのlast-coordinate一次値も保存済みである。
+
+新側の18 source消去に続き、84 wedgeの固定81単位minorを使う。元の形式函数に列ごとに適用したHadamard/Eulerの定数値を使い、未入力のadapter二次係数とnative even二次係数を独立の形式callbackとして保持する。出力のknown40部分だけを実際の一次写像と同一視しない。
+
+このpacketは新しいsourceやgauge jetを計算しない。三列の実際の一次rank、商の二通りのHilbert函数、nil三乗をまだ決定しない。次段階は固定4 cotangent商へ形式callbackを射影し、消えない成分だけを正確な既存cacheへ結びつけることである。
+
+訂正V2：旧row23の(−bB5νB,bA5νA)ではbの一次部分とνの一次部分の積を保持する。νはz方向に非零一次を持つため、b0=0だけではこの二次積を消せない。全3×192のfirst-Koszul係数検査を必須とする。旧packet・旧rank39診断は採用しない。

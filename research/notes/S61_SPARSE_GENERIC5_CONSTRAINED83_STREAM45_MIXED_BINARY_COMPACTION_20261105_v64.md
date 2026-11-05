@@ -1,0 +1,3 @@
+# Exact45 mixed binary compaction
+
+Current45 is191 by38 with467009 logical coefficients. The source plan resolves every active JSON row or binary snapshot payload by encoding/file/offset/length/SHA. One cell is independently encoded/decoded at a time and every row identifier including zero rows is preserved. Actual-read input plus every plan/snapshot/index/code/IO/receipt must fit RAW32MiB,150000 owned scalars incl metadata,60s/2GB. All older files remain stored unchanged. No pivot, coefficient arithmetic, GCD, point, prime, nonmonomial inverse, rank or exhaustion occurs in this representation stage.

@@ -1,0 +1,9 @@
+# 提出済み120 gauge二次係数の独立監査
+
+新たな求解は行わない。既存二族own57二次展開を、完全な九変数F9 adapterにより物理座標へ独立に合成し、base20にz6一次と四pairを加えたbase25で全105 source値・全114方程式を検査する。150物理trace対と二つのnuも独自の疎な多項式演算・last-use評価で得る。
+
+提出済み120係数について、保存されたJ30による全120線形補正条件とJ30の両側逆を検査する。さらに有限5×5 frame・物理tensor作用から全30 canonical条件を直接評価する。未知係数の再求解はしない。traceのnu一次項も乗法carryに保持する。
+
+実際のproper14、kappa9、G8、F12を独立に再構成し、base25の全C100値と、既知base20・B11・first z6への射影を比較する。新四pairの二次idealはbase maximal idealに殺され、原点のtrace-frame J30は可逆なので、検証済み補正は一意である。
+
+このpacketは残る4×661行の値やその階数をまだ監査しない。source3、X3、新physical source jetは計算しない。

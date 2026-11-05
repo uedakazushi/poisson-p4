@@ -1,0 +1,3 @@
+# Source-only next unit gate on exact41
+
+The accepted exact compact41 matrix is195 by42,301097 logical terms. This independently forecasts complete updates for a cheap metadata shortlist of at most16 constant/parameter-monomial unit candidates, stopping at the first safe examined candidate. Every actual-read input and all prospective immutable rows, code/control/executable/receipts/manifests are counted RAW under32MiB; owned algebraic scratch plus integer metadata remains under150000, time60s/memory2GB. All older bytes remain stored. No old pivot replay, polynomial GCD, point, prime, series, nonmonomial inverse, rank or exhaustion claim is involved.

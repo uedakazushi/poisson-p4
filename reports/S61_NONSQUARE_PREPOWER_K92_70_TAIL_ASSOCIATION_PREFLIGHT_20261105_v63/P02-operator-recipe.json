@@ -1,0 +1,15 @@
+{
+  "version": "K9270P02",
+  "origin_version": "K9270P01",
+  "origin_state_sha256": "b979ac727295fe6689bd8cd6805189899271ce7c124103e4479728268dce9aa7",
+  "phase0": "Restore all101 exact P01 activepolys with originalIDs/commonfactors. DO NOT commit scratch with value_known=false. Recompute pending top434*weighted16099 once, then only the lexicographic remaining product pairs; preserve every prior acc coefficient.",
+  "phase1": "At exact term3 boundary increment completedterms to4/releaseweighted182. Reuse P4id114. Sum signed H3weight[t]*bottom4[t] for group0 t4..9 into ONE fixed-content tail accumulator. No P4 multiplication per term. Then stream P4*tail into existing global accumulator once, with a^-5 and exact commonQQscale.",
+  "phase2": "For groups1..69 compute one P4; sum all10 signed H3weight*bottom4 into tail FIRST, then multiply P4 once with column-Laplace sign. Retain all ten terms and all original source/tails.",
+  "tail_content": "Before starting any group choose gcd_Q of all positive H3factor*bottomDPfactor products; per-term integer ratios recorded in groups70-tail-source.json. No coefficient gcd/unknown division.",
+  "required_state_fields": "P02 stage=resume_P01_outer/build_tail/bottom_DP/new_global_accumulate; inherited P01origin hash,cursor and originalIDs; currentgroup,tail term,tailid,topid,bottomid,accid; DP row/mask/order; operation dst/lhs/rhs/left/right/key/scale/value_known; all active integerpolys/commonQQfactors. No auto continuation.",
+  "checkpoint": "One K9270P02 binary, every write prechecked to totalRAW32MiB; no duplicated JSON coefficients/atomic doublebuffer. New parser must restore all exact state but not resume.",
+  "coefficient_guards": "Every term insertion,coefficient or factor growth BEFORE commit:135000numeric+15000allmetadata/scratch,1024bitcoeff,4096bitfactor,16384bitpending,int32exponents,45secondclock. Customcheckedops only.",
+  "exactness": "P01prefix + exact remaining term3 + P4*sum(t4..9) + sum_{groups1..69} P4*sum(t0..9) is algebraically identical to original70\u00d710 expression. No old term/source replay,undo,division of acc,stale update or omitted term.",
+  "proof_scope": "Prefix is not det/nonzero. ALL70groups and all original700 H3terms must be accounted for unless a separate source noncancellation certificate is proved.",
+  "scalar_run_authorized_by_this_packet": false
+}

@@ -1,0 +1,5 @@
+# One exact streamed pivot from binary current42
+
+Gate6cf47c3b... selects original(10,69)=−131072H²/(3645t0), after one RAW-unsafe forecast. The accepted binary snapshot is the same actual QQ polynomial matrix. The native reader independently parses signed-magnitude integers/zigzag shifts/varint exponents and re-encodes every loaded FLINT primitive polynomial byte for byte to its binary payload before any coefficient operation. This binds the original source values, without compression, numeric points or precision loss. Parser/raw/re-encoding scratch is explicitly charged.
+
+One503-term pivot row and one current row are owned. Every117 target/support forecast and literal back-add is checked. Owned12661+57371metadata=70032, fresh RAW29,608,152, hard60s/2GB/150000/32MiB. All older text/binary files and unsafe forecasts stay preserved. Only parameter monomial−3645t0/(131072H²) is inverted. No second pivot, nonmonomial inverse, GCD, point, prime, new rank or exhaustion claim. Atomic generation only after all rows pass.

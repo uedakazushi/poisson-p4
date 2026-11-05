@@ -1,0 +1,3 @@
+# Selected06 complete auxiliary-artifact budget
+
+The immutable41 source gate saved seven complete forecasts. Its selected sixth candidate (original81,55) passes coefficient/row bounds, but the old3MiB auxiliary allowance alone does not cover the whole saved gate folder plus new worker artifacts. This source-only supplementary budget preserves and counts all seven records, with6MiB for all auxiliary data and31,323,772 bytes total, below the unchanged32MiB hard cap. Owned bound68415 and60s/2GB remain unchanged. No failed candidate is retried, no coefficients are dropped, and no arithmetic is run here. The future worker checks actual control/executable size and every bounded row/event/receipt/manifest write; a violation leaves the old generation current.

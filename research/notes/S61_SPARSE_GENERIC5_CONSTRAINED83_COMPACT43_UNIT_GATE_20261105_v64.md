@@ -1,0 +1,3 @@
+# Next source-only unit gate on exact43
+
+Accepted mixed binary compaction64fd53c4... retains the exact193 by40,400727-term matrix. This independent source forecast decodes actual binary cells into their full QQ primitive polynomials, examines a metadata shortlist of at most16 monomial/constant candidates, and stops at first complete safe forecast. Parser/value-roundtrip scratch, all index metadata, every row output and new auxiliary artifacts are under the unchanged60s/2GB/150000-owned/32MiB-RAW limits. Old records remain stored. No arithmetic pivot, old replay, point, prime, GCD, nonmonomial inverse, rank or exhaustion is performed here.
