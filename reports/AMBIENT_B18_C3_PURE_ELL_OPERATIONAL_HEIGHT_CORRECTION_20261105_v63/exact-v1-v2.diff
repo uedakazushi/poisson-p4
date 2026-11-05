@@ -1,0 +1,87 @@
+--- code/ambient_B18_C3_pure_ell_readback_values_20261105_v63.py
++++ code/ambient_B18_C3_pure_ell_readback_values_v2_20261105_v63.py
+@@ -7,9 +7,45 @@
+ STEM='AMBIENT_B18_C3_PURE_ELL_READBACK_VALUES_20261105_v63'
+ SOURCE='reports/AMBIENT_B18_C3_PURE_ELL_READBACK_SOURCE_20261105_v63'
+ def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
+-def plus(a,b):return tuple(x+y for x,y in zip(a,b))
+-def neg(a):return tuple(-x for x in a)
+-def times(a,b):return tuple(sum((a[j]*b[i-j]for j in range(i+1)),Q(0))for i in range(3))
++HEIGHT_STOP_HANDLER=None
++def halt(reason):
++ if HEIGHT_STOP_HANDLER is not None:HEIGHT_STOP_HANDLER(reason)
++ raise RuntimeError('OPERATIONAL_HEIGHT_STOP_before_Fraction_operation:'+str(reason))
++def bits(x):return max(abs(x.numerator).bit_length(),x.denominator.bit_length())
++def qconst(n,d=1):
++ if d==0 or max(abs(n).bit_length(),abs(d).bit_length())>2048:halt(['input_ratio',abs(n).bit_length(),abs(d).bit_length()])
++ z=Q(n,d)
++ if bits(z)>2048:halt(['input_reduced_ratio',bits(z)])
++ return z
++def qparse(x):
++ if isinstance(x,Q):
++  if bits(x)>2048:halt(['provided_fraction',bits(x)])
++  return x
++ z=str(x).split('/')
++ return qconst(int(z[0]),int(z[1])if len(z)==2 else 1)
++def qadd(x,y):
++ if not x:return y
++ if not y:return x
++ nx,dx=abs(x.numerator).bit_length(),x.denominator.bit_length();ny,dy=abs(y.numerator).bit_length(),y.denominator.bit_length()
++ bound=max(max(nx+dy,ny+dx)+1,dx+dy)
++ if bound>2048:halt(['add_bound',bound])
++ z=x+y;assert bits(z)<=2048;return z
++def qmul(x,y):
++ if not x or not y:return qconst(0)
++ nx,dx=abs(x.numerator).bit_length(),x.denominator.bit_length();ny,dy=abs(y.numerator).bit_length(),y.denominator.bit_length()
++ bound=max(nx+ny,dx+dy)
++ if bound>2048:halt(['multiply_bound',bound])
++ z=x*y;assert bits(z)<=2048;return z
++def qneg(x):assert bits(x)<=2048;return -x
++def plus(a,b):return tuple(qadd(x,y)for x,y in zip(a,b))
++def neg(a):return tuple(qneg(x)for x in a)
++def times(a,b):
++ ans=[]
++ for i in range(3):
++  z=qconst(0)
++  for j in range(i+1):z=qadd(z,qmul(a[j],b[i-j]))
++  ans.append(z)
++ return tuple(ans)
+ def enc(v):
+  if isinstance(v,Q):return str(v)
+  if isinstance(v,dict):return {k:enc(x)for k,x in v.items()}
+@@ -31,24 +67,30 @@
+  assert report['all_passed']and peer['all_passed']and peer['input_sha256'][paths[0]]==pins[paths[0]]
+  assert report['evidence_sha256'][Path(paths[1]).name]==pins[paths[1]]and report['evidence_sha256'][Path(paths[2]).name]==pins[paths[2]]
+  assert gate['future_static_cap']==130000 and gate['source_bit_bound']==2048
+- phi={i:tuple(map(Q,v))for i,v in D['provided105_originalID_pure_ell_coefficients']};records=D['operator_records_originalID_op_args'];vals=[None]*(max(r[0]for r in records)+1);inversechecks=[];maxbits=0
++ global HEIGHT_STOP_HANDLER
++ records=D['operator_records_originalID_op_args'];vals=[None]*(max(r[0]for r in records)+1);inversechecks=[];maxbits=0
++ def operational_checkpoint(reason):
++  partial=[[j,vals[j]]for j in D['requested_root_nodes164']if vals[j]is not None]
++  (out/'root-operational-height-stop.json').write_text(json.dumps(enc({'reason':reason,'computed_requested_roots_only':partial,'stop_before_offending_Fraction_operation':True,'no_cap_raise':True}),indent=2)+'\n')
++ HEIGHT_STOP_HANDLER=operational_checkpoint
++ phi={i:tuple(map(qparse,v))for i,v in D['provided105_originalID_pure_ell_coefficients']}
+  for r in records:
+   i,op,*args=r
+   if op=='input':v=phi[i]
+-  elif op=='c':v=(Q(args[0],args[1]),Q(0),Q(0))
++  elif op=='c':v=(qconst(args[0],args[1]),qconst(0),qconst(0))
+   elif op=='a':v=plus(vals[args[0]],vals[args[1]])
+   elif op=='n':v=neg(vals[args[0]])
+   elif op=='m':v=times(vals[args[0]],vals[args[1]])
+   else:
+    assert op=='i';x=vals[args[0]];assert x[0]==1
+-   v=(Q(1),-x[1],x[1]*x[1]-x[2]);assert times(x,v)==(Q(1),Q(0),Q(0));inversechecks.append([i,args[0],'1'])
++   v=(qconst(1),qneg(x[1]),qadd(qmul(x[1],x[1]),qneg(x[2])));assert times(x,v)==(qconst(1),qconst(0),qconst(0));inversechecks.append([i,args[0],'1'])
+   assert all(max(abs(x.numerator).bit_length(),x.denominator.bit_length())<=2048 for x in v)
+   maxbits=max(maxbits,*(max(abs(x.numerator).bit_length(),x.denominator.bit_length())for x in v));vals[i]=v
+  assert inversechecks==D['unit_inverse_centers6']
+  targets={p:(Q(0),Q(1,5),Q(0))if j==8 else(Q(0),Q(0),Q(0))for j,p in enumerate(D['CA_target_positions'])}
+  for j,i in enumerate(D['equation105_order']):assert vals[i]==targets.get(j,(Q(0),Q(0),Q(0))),(j,i,vals[i])
+- for i,v in D['expected164_constant_and_ell_coefficients_from_C2']:assert vals[i][:2]==tuple(map(Q,v)),i
+- nus=[vals[i]for i in D['nu_roots_CA_CB']];assert nus==[tuple(map(Q,v))for v in D['expected_nu_pure_ell3_from_Q20']]
++ for i,v in D['expected164_constant_and_ell_coefficients_from_C2']:assert vals[i][:2]==tuple(map(qparse,v)),i
++ nus=[vals[i]for i in D['nu_roots_CA_CB']];assert nus==[tuple(map(qparse,v))for v in D['expected_nu_pure_ell3_from_Q20']]
+  if 2*maxbits+2>2048:
+   checkpoint={'all164_root_values3':[[i,vals[i]]for i in D['requested_root_nodes164']],'all105_equations_and_prior_overlaps_passed':True,'stop_before_physical_delta_subtractions':True,'actual_root_bit_bound':maxbits,'required_subtraction_bound':2*maxbits+2}
+   (out/'root-readback-height-stop.json').write_text(json.dumps(enc(checkpoint),indent=2)+'\n')

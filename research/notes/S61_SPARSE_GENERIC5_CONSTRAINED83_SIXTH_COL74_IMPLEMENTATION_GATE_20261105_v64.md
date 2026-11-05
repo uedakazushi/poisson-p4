@@ -1,0 +1,9 @@
+# Sixth column74: immutable implementation, custody, and row-stream gate
+
+This SOURCE gate precedes the one authorized 18-cell coefficient worker. It checks all 142 leaves: 67 authenticated raw cells against the fixed576 metadata and old literal matrix, two explicit parameter polynomials, one fresh row11−8row44 difference, 54 exact U/V/C objects with the accepted fifth-stage source proof, and 18 actual fifth-column81 numerator binaries. The old 13,857,993-byte matrix is explicitly included in the fresh READ ledger; it is hashed by streaming and decoded only at authenticated small payloads.
+
+The four inner first-two-pivot prefactors are reconstructed from the actual raw monomials. Seven outer coefficients then give the literal Q²-cleared sixth-column formula. Every active factor list, rational content, signed Laurent shift, integer denominator, support, and partial-height bound is verified. The worker retains only shared leaves plus one row bundle and one row support plan. It requires the fixed metadata allowance 25,000 and the per-row proved coefficient bound at most 43,816, including product, old/new accumulators, back-add, binary encode/decode, and readback. The separate prior SOURCE audit bound 87,572 is not represented as a VALUE parse.
+
+The fresh RAW bound includes all actual READ sources, all new binary cells, receipts, and prepared help/gate files; it is below 17,232,821 bytes and 32 MiB without gzip. Both new command-line helpers have side-effect-free `--help`. No coefficient computation is performed by this gate.
+
+The denominator Q² is a representation, not a new column operation; no additional Q cancellation is assumed. Full171 rows, top105 plus66 constraint rows, 87 other top right-hand sides, all17 other columns, and the single old P290 scaling remain. The selected18 square is not asserted to have the full cokernel. All chart complements and inverse/rank/exhaustion questions remain open.

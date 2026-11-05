@@ -1,0 +1,5 @@
+# Independent literal conductor and symbolic order check
+
+Case508 is original old source595 with empty a1. The checker pins the actual gA505938 and gB299650 zero7 restrictions, distinct from ordinary CB f6328539, to accepted pointed unit57 source identities. All six saved constant/linear/quadratic cut coefficients vanish in each own57 certificate, and centered pullback preserves order at least3.
+
+It then evaluates no quadratic coefficient. Instead it forms free symbolic polynomials in the opaque positive-order leaves, discarding terms of degree at least3 and assigning the two proved conductors weight3. Every supported Gamma root has zero truncated polynomial, except ordinary root281; every remaining term of that root contains an actual CA coordinate. Its zero7 plane polynomial is zero, and Gamma uses that root only in plane coefficients. All four lower channels therefore vanish by order. Combined with the separately verified548 result this closes549 pure-old lower cases only;70 native/mixed cases and all619 upper channels remain open.

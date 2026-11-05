@@ -1,0 +1,9 @@
+# No finite-resolution quadratic response in the nine upper contractions
+
+For each remaining nonactive G3 source, the frozen full102 point memberships give `sum Yj0*b_r[j]=G3_r*c` and the analogous ell equation. The exact tensor source places every plane coefficient of a nonactive G3 column in the mixed51 F2 block; its active42 block is only `z_i*identity`. Therefore every weighted Y0 appearing in the18 psi contractions is supported in mixed51. This conclusion uses the full point membership, not a projection or an assumption of associated-graded exactness.
+
+In the same allorder tensor resolution, a mixed F2 source has active17 F1 block exactly `-z_i*e_j`, and zero-action F1 block the genuine active G1 column. The active block has no quadratic coefficient; all quadratic terms are in target rows17..25. Both fixed lambda rows are supported in12..15. Consequently `lambda*G2_quadratic*weighted_Y0=0` identically for all18 contractions, without querying any G2 quadratic coefficient.
+
+The literal known-linear checks below verify the exact frame and signs, but are not used to infer higher coefficients from a tangent matrix: the allorder zero statement follows from the accepted tensor source operator and its active unit transport. The M1 operator term is separately literally zero by primary951061 and independent peerdf568. The bottom quadratic term is zero by the full56 W2/source-chart proof and its known-first check. Thus a future complete nine-class value gate needs only accepted old104 responses, coherent native C16 responses and cached pivot-first carries. No comparison M1, invariant, new physical/gauge jet or finite-resolution quadratic value is needed.
+
+These are source cancellations only. The remaining actual old/native/pivot sums have not been evaluated, and no actual HF2 or total length follows yet.

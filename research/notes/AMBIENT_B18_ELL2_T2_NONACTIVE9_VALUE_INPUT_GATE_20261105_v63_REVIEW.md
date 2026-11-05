@@ -1,0 +1,7 @@
+# Fresh complete-nine source and height review
+
+All old104 responses and native C16, first-pivot, Gamma/lambda and Q-embedding data are bound literally to frozen accepted caches. The individual native pivot ell derivative is the sum L0Se plus LeS0. The coherent native second coefficient retains all three products L0S2, LrSe and LeSr. Only whole separately verified zero-S0 combinations use the effective native response.
+
+The M1 term is literally zero. The finite-resolution G2 term vanishes by the exact allorder tensor source: the active block of each mixed column is minus a zero variable times an identity and has no quadratic term; all remaining quadratic coefficients lie in targets17..25, killed by lambda12..15. This is not an inference from a tangent matrix. The joint W2 cancellation and transverse normal-form identities remove the unknown canonical normalization. The actual class is minus Q times the two complete psi values.
+
+Every component envelope is independently rebuilt:204 nonrank bits,362 integer rank/factor bits and613 temporary bits. The rank worker uses integer two-vectors and cleared minors; it does not invoke unrestricted rational Gaussian elimination. All rank products and at most nine-term kernel sums fit the explicit362 bound. The literal worker and custody are checked under21856 numeric slots and3886640 raw bytes. This source review evaluates no psi, class or rank. Future values yield only the true rank contributed by this source family and an upper bound onHF2, not an exact full layer or total length.

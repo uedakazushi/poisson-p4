@@ -1,5 +1,25 @@
 # 次の課題 — v63-s61 / 2026-11-03
 
+## v63 CA / 2026-11-05: 二因子の実cubic57開集合とell三乗の有限模型
+
+直前 main `4238b361592d7a54a440b688b315bc55d6ffec60` は通常push済み。
+
+実cubic57を保証する明示的な非空開集合FULLU D(T*D12)を証明した。十二角borderの主計算は軸上29項の非零を与え、別実装が元67 literal・214定義・全144整数入力と、a十五乗e零d零係数460045760701204897047977860413366725648080149283864576/1756614506664276123046875を独立確認した。旧十一角の579係数は再利用し、未完了572 sourceや主Bareissを再実行しない。軸はFULLU外であり、ここでは元detの非零だけを証明する。
+
+全FULLUでのsource橋渡しも別に監査した。product41の全点階数、八単元pivot・二global可逆completionと全330 root/tail、raw7 eta cleanupを保持すると、current15全行階数が実cubic57を含意する。literal anchor AについてA*D15norm=-T*D12なので、T D12を単元とすれば選択十五minorも単元となる。新しい十分chartにはDelta407/Saux/N6/N7/P_K92/kappa3/anchorの逆元を加えない。Tは7208項のliteral root239で、補助completion式と区別する。旧Omegaより真に広いこと・bad Fitting idealの同定・補集合・全FULLU57/239は未決である。
+
+元B18ではell三乗のconductor積基礎環B3をexactな有限cubic模型へ戻した。各曲線のD自由階数三、union自由六とell二乗で消えるtorsion型から長三十九、raw比較は九+九+三十九=五十七となる。m五乗零とcubic truncationの両向き証明、七十五ambient・六十二関係・二百四項を独立確認した。新しいquotient階数や作用表は未計算で、raw五十七を実C3の長さと同一視しない。
+
+原164-rootのpureell cache読戻しも実行し、全105式・164の旧零一次値・六単元・二nuを別のjet乗算で独立確認した。全十二delta ell二乗・bA ell二乗は零、bBは行18で−1/15、行60で−29/120、他は零だった。新しいIFTやphysical jetはない。V1では保存係数の2048bit上界と演算temporaryの上界を区別する必要があり、実行前に旧bytesを保存して別V2の全Fraction事前guardを固定した。数学実行はV2一回のみ、独立検算も全て通った。
+
+この値と同じC2 sourceから実116-sourceの三角unit firstframe21・完全kernel95を構成し、元CとC/ell三乗の実HF初三項(3,6,6)を確定した。全二次像はplane二次×tauA tauBの三次元だけで、固定minor−5/768を確認した。指定十二tauA tauB列の三次classも、全zz/mixed unit補正と未知delta3を保持して零と証明した。これは加群Cの結果で、T2のHF2やnil三乗を解いたものではない。既知cover HF36642・長21は実C3長18〜20を決めないため、同じdegree計算は止める。次は他のphysical sourceのcached三次projectionとcoherent carryを調べる。個別branch quartic係数とproductのcubic exactness、whole E4と有限coreを区別する。
+
+honest T2のG3由来393方向は全て実二次class零と閉じた。active222・構造的零162に加え、残九の全十八psiと九つの六成分classも既存cacheだけで独立確認した。M1の全18作用素は2912 slotで文字通り零、G2 mixed項もsourceから零となる。これをHF2や全長の決定とはしない。元619の四lower channelでは、全first-crossとXp1 carryを保持した純OLD548方向の2192値が全零、残る純OLD一方向もsource次数で零と証明した。残るnative/mixed70のlowerと619全てのupper二成分は未解決で、別のA18 sourceと一つの三次出力r二乗ellによるupper抽出sourceへ進む。
+
+実C3の九つのtauA cubic eA projectionも、既存C2の二つの三次係数だけから全零と独立確認した。これは九つの全cubic classの零や長18を意味しない。次は同じ105式の既存plane3証明書から五つのgraph tauBのeB projectionを読むsourceを監査し、全mixed補正を保持する。新しいphysical jetは未実行である。
+
+一般betaは第八の既存行から単元を得るsourceへ進み、追加線形chartと全169対16・追加87 top RHS・66整合条件を保持する。normal逆・五点尽くしは未完了。元nil三乗・H0・正確な指数も未決で、指数3〜6、零次数ideal最小五生成、下界58（rank4は52）・全分類上界未確定、NEW式28次と五凍結原稿を維持して研究を続ける。
+
 ## v63 BZ / 2026-11-05: 零次数nil idealの最小五生成と正規化nil像
 
 直前 main `10b4d715a3a7fe230f89f3619612a59e412d9bad` は通常push済み。

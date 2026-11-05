@@ -1,0 +1,7 @@
+# Seventh column62 implementation and custody gate
+
+This SOURCE helper checks all155 leaves: 66 raw cells against authenticated literal payloads and fixed576 entry metadata; Q,Q²,Q(q0+1) explicitly; one fresh raw row11−8row44 difference; 68 exact U/V/C/F5 old objects with the accepted sixth helper source proof; and17 actual sixth-column74 numerator binaries. The old14MB matrix is in the fresh actual READ ledger.
+
+The source formula uses P7 times the previous seventh-row source recipe and three extra products from the exact row51 alias. All factor lists, source monomial prefactors, denominator contents, exact supports, integer heights and partial-height estimates are independently reconstructed. No coefficient matrix entry is evaluated here. The worker parses common leaves and only one row bundle/plan. The25,000 metadata allowance plus product/back-add/encode/readback bounds remain below the per-row SOURCE limits and whole66,008. Both --help paths have no value side effect. Fresh RAW includes input, new cells, gate/help and receipts, below17,691,677B without gzip.
+
+The common Q³(q0+1) denominator is only a representation on the explicitly added q0+1 chart; no Q cancellation is assumed. All170 right-hand sides,87+66 consistency rows, all other16 columns, one P290 scale, and all restoration maps remain. No fixed-square cokernel, rank, complete inverse or exhaustion conclusion is asserted.

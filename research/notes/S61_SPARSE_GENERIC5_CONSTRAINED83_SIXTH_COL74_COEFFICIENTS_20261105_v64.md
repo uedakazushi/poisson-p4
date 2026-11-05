@@ -1,0 +1,5 @@
+# Eighteen actual sixth-column74 numerator cells
+
+The worker is authorized only after the immutable implementation/custody/storage/height gate passes. It computes exactly the 18 fixed Laurent numerators in the previously frozen SOURCE index by direct integer convolution, with common Q² representation. No other column is expanded. Every product is added with an exact back-add check, every intermediate coefficient is bounded by the source integer height, and each final cell has an uncompressed binary roundtrip and canonical rational-value hash.
+
+The full sixth-stage formula and row104/RHS alias are inherited from the source proof. In particular row104 is the stage2 row, not raw row104. No Q cancellation or extra P290 scaling is applied. The full171×18 operator and all87+66 consistency/right-hand-side records remain; the selected18 square is not the full cokernel. No fixed determinant, full inverse, or exhaustion conclusion follows from this single-column computation. Chart complements remain open.

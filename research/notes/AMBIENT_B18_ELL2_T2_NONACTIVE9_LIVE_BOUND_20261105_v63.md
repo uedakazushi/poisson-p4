@@ -1,0 +1,7 @@
+# Nonactive9 live ownership clarification before values
+
+The frozen source producer computed its11408 allowance before appending three numeric bound fields. The first prepared worker's `count(input)+10000` precheck would therefore reject by3. No value arithmetic ran. Its exact worker/custody bytes remain preserved. The distinct V2 changes the precheck to `count(input)+9000`; the bound-only receipt proves that this is actual headroom rather than an arbitrary reserve reduction.
+
+The receipt counts every serialized input field, including those three fields. Beyond that decoded input it reserves a second raw JSON input copy, all possible parsed Hstar firsts, the two current b1 vectors, both4-by9 matrices, all normalized rank/basis/source-factor arrays, every kernel vector, receipt/image scratch, scalar/determinant registers, gate/peer metadata and duplicated output serialization. Their explicit sum is below9000, and input plus this sum is below the unchanged11408 cap. Before any value arithmetic the FINAL source peer and gate together must also pass the literal900-record metadata sub-bound. The worker's separate5000 end check is an additional assertion; it is not used as the proof of all intermediate ownership.
+
+No lower quadratic response, determinant, rank or physical/source coefficient is evaluated by this count-only receipt. The261-bit source construction bound,784 temporary bound and148-bit integer-rank bound remain unchanged.

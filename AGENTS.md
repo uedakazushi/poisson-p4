@@ -2,6 +2,24 @@
 
 Version: v63-s61 · 2026-11-05 (Asia/Tokyo).
 
+Latest CA (2026-11-05): actualcubic57 onNONEMPTY FULLU D(T*D12) independentlyPROVED.
+D12a15e0d0 nonzero viaown67literal/214DAG/144inputs/direct12subsetDP; notall29coefpeer.
+GLOBALcurrent15rank15⇒57 viaALLFULLUproduct41/8+2unitops/all330roots/tails/eta.
+A*D15norm=−T*D12, nonewΔ/Saux/N6/N7/P/κ/anchorinverse; no strictchartlarger/badFittingequality.
+WholeFULLU57/239/complements/exhaustionOPEN; axisd0NOTFULLUpoint.
+B18ell3productB3L39/m5zero/EXACTcubic75x62 source; rawcomparison9+9+39=57 ONLY.
+ActualC HFthrough2=366 viaCOMPLETE3x116/I21/free95/quadminor−5/768 independentlyPROVED.
+All164pureellreadbackPASS; δell²,bAell² all12zero,bB18−1/15,bB60−29/120.
+Physical12τAτB cubicclassesSOURCEZERO withallunknownδ3/coherentcarryretained.
+Knowncover36642/L21 NOTactualC3; stopcoverdegreeescalation/actualC3length&expsOPEN.
+ActualC3L18..20 uncomputed; individualbranchquartic/wholeE4vsfinitecore distinctions retained.
+T2all393G3 actualquadraticclassesZERO; nonactive9all18psi/full6classesZERO independently.
+619LOWER4 pureOLD549ZERO; native/mixed70lower andALL619UPPER2OPEN.
+C3nineτA eAprojectionsALLZERO only; noactualC3lengthimprovement.
+619adjoint2rho all918identitiesPASS, directX2/cross/pivotcarrykept.
+Nilindex3..6/zeroD0idealmu5/H0&cubeOPEN/bounds58/r4lower52/fivepapersfrozen.
+Continueactualresearch/mainordinarypush; checkpointNOTstoppingcondition.
+
 Latest BZ (2026-11-05): ZEROdegreeD0 NILIDEALminimalgenerators5 independentlyPROVED.
 Actualodd8 annihilateN/m_R0N: all352actions44order2/H128order1/Π0e42/trueLz=z0+25/4z4+z5.
 m_D0N=m_R0N, no scalar8x5job/fullformallifts. WholepositivegradednilidealmuNOTclaimed.

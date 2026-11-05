@@ -1,0 +1,9 @@
+# Positive source gate for the remaining known-first M1 operators
+
+All inputs are already accepted original FULL9 first coefficients. The gate prunes them to the34 selected99 source directions actually used by the9 nonactive relations. It retains the same27 pivot chart, all native S0 eligibility, the original G2-linear source and M0, and both full r/ell directions. It evaluates only positive denominator/numerator envelopes, not signed first sums or M1 functionals.
+
+The future coefficient-only test reconstructs Xeff1, verifies the source-first chain identity and the exact pivot coordinates, then folds the18 formal M1 operators. On the accepted plane W2=0 identity these are alpha(K) and alpha(L)-beta(K), where K=sum(b_r Xeff_ell) and L=sum(b_ell Xeff_ell). The four comparison invariants already known numerically are alpha/beta on the common Wv and on e23; beta has the literal source definition lambda0*M_ell-lambda1*M_r. The test uses source29/e23 and a fixed nonzero lambda0 row to propose coefficients, then checks every2912 M1 input slot. Failure retains the exact source-vector/operator residue instead of assigning a new M1 value.
+
+All source-first memberships, extraction products and both r/ell fixed-basis verification sums are included in the positive197-bit bound. Whole ownership is16454 numerical records and RAW4632640 bytes; no physical/gauge/source jet or implicit solve is involved. Actual invariant values and actual quadratic classes are not queried by this test.
+
+The first positive-only profile accidentally routed the beta verification envelope into the r slot alone. No signed fold or value used that profile. Its exact files remain preserved; the distinct V2 places the lambda0 beta terms in the ell slot and the lambda1 beta terms in the r slot and replays the complete prior. This changes the positive bound198 to197 and no mathematical coefficient value was evaluated in either profile.
