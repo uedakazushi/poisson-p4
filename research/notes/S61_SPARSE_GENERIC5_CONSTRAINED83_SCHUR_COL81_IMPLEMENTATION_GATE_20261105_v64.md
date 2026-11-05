@@ -1,0 +1,3 @@
+# 残余col81の22個だけのliteral差
+
+既存typed二単元sourceとfull175 transportを固定入力とし、新しい値は選択22行のAi81−Ai51だけ。decodedsource・QQdict・backadd・encode/decodeの同時保持量を各phaseで先に証明する。content分母LCMとprimitive係数byteによる高さを使い、全22実係数heightとbackaddとroundtripを義務にする。fresh RAWに新gate二入力も加算する。

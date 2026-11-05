@@ -1,5 +1,19 @@
 # 次の課題 — v63-s61 / 2026-11-03
 
+## v63 BX / 2026-11-05: 真正十四nil基底と最深三重積層、大域第十四pivot
+
+直前 main `90577e048c955c279bd20bfef60a35eec8a032e5` は通常push済み。
+
+真正connectingの五cache値と十四bar-cycleを独立に求めた。a=-1/10、b=(11/96,-121/500,11/400,187/1500)、xi=11/160で、N/ell Nの基底は四つの補正head h1-5/3*rA*h0、h2+88/25*rA*h0、h3-2/5*rA*h0、h4-136/75*rA*h0と既存Tnil index 5,7,8,9,10..15となる。全28edge積・I14・実44対14作用素を保持する。canonical head0の長いbetaはtarget generatorの変更に吸収し、零と置いていない。全次数nil liftの係数や元nilの最小生成系ではない。
+
+さらに実product44の492 scalar node、m0e43=0、全関数Koszul homotopyと正則128→5射影を独立監査し、真正bar三重積がTnilの一次元m四乗層に入ることを証明した。Hは高々一次のorderを失うだけでr二乗divisionはない。Tnil全体を環とはしない。次は既知cubic closureとold m四乗零から実quartic dualを求め、literal first sourceで残る高々35三重積だけを評価する。積の実値は未計算である。非零bar cubeは元cube非零を無条件に検出するが、全零から元cube零へは未証明のell H0(D0)=0が必要である。
+
+大域K92の独立binary source再構築と別のsubset determinant計算により、P_K92のa十二乗e零d零係数488042709959022324503443014699328840826617856/17514302730560302734375が非零と証明された。全121軸成分・579係数・LCD/a正規化を照合し、主Bareissや未完了DPは再利用しない。軸d=0はFULLU外だが、元多項式の非零を証明する。これで追加chartはP_K92だけの第十四pivotが有効となり、全source liftを保持した同cokernel残余1対8へ進んだ。この一行が張ることは実cubic57の十分条件であり、bad Fitting ideal等号・残余rank・全補集合・全FULLU57/239は未決。次はtarget17の全四pair tailと十補正を保持して一成分ずつ計算する。
+
+honest T2ではactive四方向の二次obstructionを八つのweighted functionalsへ縮約した。M1は元row23と同じraw33 adjointを通るため、新しい二cache値へ帰着するsourceを検査中。既知C2 resolution応答と全coherent carryの高さ・所有上界を先に確定する。元T2長17〜20・H0長・K torsion指数は未決。一般betaでは第三既存単元まで縮約し、全174対21、87追加top RHSと66整合条件を保持した。実col48は30項、12零・9非零で、新しい非単項式候補のsourceだけを調べる。五点尽くし・normal逆は未決。
+
+元nil指数3〜7、Tnil全HF55321、元T長十一・B18深さ19/18、下界58（rank4は52）・上界未確定、NEW式28次と五凍結原稿を維持する。通常main pushは保存区切りであり停止指示ではない。
+
 ## v63 BW / 2026-11-05: Cprime実HF333、T2一次graphのcache値と大域source検証
 
 直前 main `4a0274c73a5d5b75c1c809ca74e4e395a83234a5` は通常push済み。

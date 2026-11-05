@@ -1,0 +1,3 @@
+# 残余col81の22個だけのliteral差
+
+選択22行のpost-Schur列81だけをQQで計算する。他の21列はtypedのまま。結果に旧列51を足して旧列81とexactに一致させ、全binary roundtrip/valuehash・支持/高さを検査する。四列P290 response96には手を触れずscale追加もしない。全175行・87追加topと66制約RHSを保持し、選択22を同cokerにしない。全零の場合だけTHISfixed24det零が分かり、非零の場合はsource単項式構造だけを報告し、次のfield更新を自動実行しない。

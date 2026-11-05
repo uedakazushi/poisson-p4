@@ -1,0 +1,9 @@
+# SOURCE8 finite-resolution quadratic callback gate
+
+This prepared source gate binds only finite matrices of the accepted C2 resolution. It computes fixed span coordinates and positive envelopes, not signed quadratic responses or any physical source coefficient.
+
+For the active G2 differential, the last17 rows of the inverse of the first-source basis are unchanged when its corrected free17 columns are replaced by Efree17: the correction is a11 times a matrix. Thus P17 is the last17 rows of `[a11(t),D2selected56(t),Efree17]^-1`. The constant source correction I2(0) is reconstructed from frozen67 receipts and checked D20*I2(0)=0. The selected56 source clearing is killed exactly by P17*D2selected56=0, so current G2=P17*D21*I2(0). The inverse derivative gives the mixed coefficient `-Pi17*(Kfirst_r*a_ell+Kfirst_ell*a_r)`, with the full free17 projection subtracted before fixed67-span extraction. The tensor mixed51 source columns add the already frozen exact G1 quadratic coefficient; their sign is positive. The remaining zero9 source columns have no plane quadratic coefficient.
+
+For the four raw active G3 callbacks, the existing inverse-derivative formula is reused without a plane-zero assumption. The full free42 projection is subtracted before fixed182 extraction. The final99 quotient derivative is deliberately not discarded here: it is handled by the separate eight psi contractions. The source gate records the resulting P/A and normal-form factors separately, preserving signs.
+
+Every input is a fixed C2-action resolution coefficient, an accepted unit basis receipt, or a source combination already bound by the independent ACTIVE4 gate. No implicit solve, gauge coefficient, source jet, phi value, comparison derivative, or actual invariant is queried. A future signed response calculation needs the complete cache-value budget and root authorization; no actual HF2 or length follows from this profile alone.

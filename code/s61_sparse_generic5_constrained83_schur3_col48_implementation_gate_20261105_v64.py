@@ -1,0 +1,25 @@
+#!/usr/bin/env python3
+"""Freeze exact shifted21difference implementation and ALL temporary-bit bounds."""
+from pathlib import Path
+from fractions import Fraction as Q
+import hashlib,json,ast,time
+ROOT=Path(__file__).resolve().parents[1];ID='S61_SPARSE_GENERIC5_CONSTRAINED83_SCHUR3_COL48_IMPLEMENTATION_GATE_20261105_v64'
+def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
+def read(p):return json.loads(p.read_text())
+def enc(v):return(json.dumps(v,separators=(',',':'))+'\n').encode()
+begin=time.monotonic();out=ROOT/'reports'/ID;out.mkdir(exist_ok=False);sp=ROOT/'reports/S61_SPARSE_GENERIC5_CONSTRAINED83_THIRD_UNIT_SOURCE_20261105_v64/report.json';assert sha(sp)=='46803a74176f4e299cbbeb561d16c4bfc8d42a23f9677b4adea383e0c6650002';s=read(sp);assert s['all_passed'];cp=sp.parent/'col48-21-source-support-bit-storage-plans.json';tp=sp.parent/'actual-third-unit-and-full174x21-typed-operator.json'
+for p in(cp,tp):assert sha(p)==s['evidence_sha256'][p.name]
+plans=read(cp)['all21_exact_difference_plans'];assert len(plans)==21;worker=ROOT/'code/s61_sparse_generic5_constrained83_schur3_col48_coefficients_20261105_v64.py';ast.parse(worker.read_text());inputs={ROOT/p:h for p,h in s['input_sha256'].items()};inputs.update({sp:sha(sp),cp:sha(cp),tp:sha(tp),worker:sha(worker),Path(__file__):sha(Path(__file__)),ROOT/f'research/notes/{ID}.md':sha(ROOT/f'research/notes/{ID}.md'),ROOT/'research/notes/S61_SPARSE_GENERIC5_CONSTRAINED83_SCHUR3_COL48_COEFFICIENTS_20261105_v64.md':sha(ROOT/'research/notes/S61_SPARSE_GENERIC5_CONSTRAINED83_SCHUR3_COL48_COEFFICIENTS_20261105_v64.md')})
+for p,h in inputs.items():assert sha(p)==h
+phase=[];tempmax=0
+for p in plans:
+ ns={z['column']:z['terms']for z in p['operand_refs']};na,nb=ns.get(48,0),ns.get(50,0);U=na+nb;assert U==p['support_union_cardinality_upper'];data_max=max(20*max(na,nb)+7*min(na,nb)+32,7*(U+U+max(na,nb))+32,13*U+32,14*U+32);assert 25000+data_max<=p['whole_owned_upper']==30000
+ M=int(p['integer_numerator_abs_upper']);D=int(p['integer_common_denominator']);coeff={}
+ for z in p['operand_refs']:
+  transformed=Q(z['QQ_content_with_sign']);raw=transformed if z['column']==48 else -transformed/Q(256,3);num=abs(raw.numerator).bit_length()+z['primitive_integer_bit_upper'];den=raw.denominator.bit_length()
+  if z['column']==50:num+=9;den+=2
+  coeff[z['column']]=(num,den)
+ an,ad=coeff.get(48,(1,1));bn,bd=coeff.get(50,(1,1));mb,db=M.bit_length(),D.bit_length();bound=max(an+bd+2,bn+ad+2,ad+bd+2,mb+bd+2,bn+db+2,db+bd+2,mb+db+2,2*mb+2);tempmax=max(tempmax,bound);phase.append({'row':p['row'],'source_data_owned_extra_upper':data_max,'whole_owned_limit':30000,'raw_and_ratio_input_coefficient_bit_pairs':{str(k):list(v)for k,v in coeff.items()},'all_QQ_temporary_bit_upper':bound,'source_output_M':str(M),'source_common_D':str(D)})
+base=sum(p.stat().st_size for p in inputs);caps=sum(p['binary_RAW_upper']for p in plans);reserve=300000;fresh=base+caps+reserve+65536;assert fresh<=16263920 and fresh<=32*1024*1024
+b={'all_passed':True,'source_only':True,'ONE21_difference_job_safe':True,'cell_plans':str(cp.relative_to(ROOT)),'source_report_sha256':sha(sp),'worker_sha256':sha(worker),'actual_READ_input_sha256':{str(p.relative_to(ROOT)):h for p,h in inputs.items()},'actual_READ_input_RAW_bytes':base,'whole_owned_limit':30000,'fixed_metadata_upper':25000,'all21_phase_specific_extra_numeric_bounds':phase,'unreduced_QQ_temporary_bit_upper':tempmax,'coefficient_bit_proof':'Recover actual rawinputcontent from recorded signedtransformedcontent and exactratio256/3. Its numerator times primitiveinteger gives numerator-bit bound. Ratio multiplication adds9 numerator/2 denominatorbits BEFOREcancellation. Crossproducts in subtraction/backadd and commonLCD height checks are separately bounded by saved bitpairs,M,D; no observedsmall-coefficient assumption.','metadata_proof':'Parse21smallplans only; otherprovenance hashstream. Discarddecodedoriginal beforeowning nextQQdict. ActualB transform may brieflyownold+newdict, charged20n. ReleaseallQQdicts beforeoutputdecode. Allsourceindices/exponents/helperstate<25kmetadata.','binary_output_upper':caps,'other_artifact_upper':reserve,'prepared_gate_input_upper':65536,'fresh_RAW_upper':fresh,'hard_seconds':60,'hard_address_space_bytes':2000000000,'no_other20_residual_column_updates':True,'all174_and87plus66_RHS_kept':True,'no_field_kernel_GCD_newpoint_prime':True}
+(out/'implementation-storage-bit-addendum.json').write_bytes(enc(b));report={'id':ID,'all_passed':True,'source_only':True,'ONE21_difference_job_safe':True,'owned_upper':30000,'RAW_upper':fresh,'unreduced_QQ_temporary_bit_upper':tempmax,'input_sha256':{str(p.relative_to(ROOT)):h for p,h in inputs.items()},'evidence_sha256':{'implementation-storage-bit-addendum.json':sha(out/'implementation-storage-bit-addendum.json')},'seconds':time.monotonic()-begin};(out/'report.json').write_bytes(enc(report));assert sum(p.stat().st_size for p in out.iterdir())<=65536;print(json.dumps({k:v for k,v in report.items()if k not in('input_sha256','evidence_sha256')}));print('report_sha256',sha(out/'report.json'))

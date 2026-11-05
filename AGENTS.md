@@ -2,6 +2,17 @@
 
 Version: v63-s61 · 2026-11-05 (Asia/Tokyo).
 
+Latest BX (2026-11-05): genuineNbar14 ACTUALfivecachededgevalues/basis independentlyPROVED.
+Fourcorrectedheads +Tnilindices5,7,8,9,10..15; canonicalbetaunknown absorbedtargetchange.
+Actualbarcube subset one-dimensionalm4Tnil viafull492node/H-order/sourceproof, NOTTnilalgebra.
+Quarticdual/35finitecubevalues NEXT; originalnilcube/index3..7 stillOPEN.
+K92 PgenericNONZERO independenta12e0d0coeff+all121axisentries/579coeffs/sourceLCDverified.
+P14samecoker1x8 onoldOmega+P ONLY; full57SUFFICIENTcriterion, notactualbadFittingequality.
+NoaxisFULLUrank/noall24coeffpeer/global57/239/exhaustionclaim.
+T2active4->8weightedpsi; M1row23/raw33->2newcache sourcegate, actualquadraticsOPEN.
+Genericthirdunit174x21/selected21+87extra+66RHS; col48actual30terms12zero9nonzero.
+Continueactualresearch/mainordinarypush; checkpointNOTstoppingcondition.
+
 Latest BW (2026-11-05): ACTUALCprimeHFthrough2=(3,3,3), complete4x20rank1 peerPASS.
 All114source/all164diagnostics/B26overlaps; ONLY30derivedgaugeell², no newphysicalsource.
 RIGHT85actualwitness49=99/64 and27minor−671/128000 independentlyPROVEDm3Cprime3zero/L9.

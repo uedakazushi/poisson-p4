@@ -1,0 +1,9 @@
+# SOURCE8 folds and formal AD input gate
+
+The eight formal contractions are pulled back through the earlier exact two52 adjoints, both supported on rA*ell. All selected99 source columns are original zero-origin combinations among741 columns. The gate checks zero X0 and separate intrinsic native S0, replays M0*Xeff1=G2linear*Y0 for both r/ell first coefficients, and folds identical old typedB/originalP scalar roots before any new AD.
+
+The source identity is `G2linear*Ystar1=M0*(Xj2-Xp1*a1j)+M1*(Xj1-Xp0*a1j)-G2quadratic*Yj0`. Its four terms remain separated: formal raw X2, known first-pivot carry, M1 on known Xeff1, and a pure known C2-resolution quadratic response. Native raw X2 has the coherent three terms L0*S2rell, Lr*Sell, Lell*Sr; L2 is removed only by exact S0 zero. No individual effective-pivot shortcut is used.
+
+M1 belongs to the same normalized comparison frame as the known L48 cover. It remains the formal sum canonicalM1+G2linear*A0, with canonical other-two mu values and the typed normalizer recipe retained. The source gate does not evaluate M1, A0, G2quadratic, or any actual second source value.
+
+Only cached origin and full9 r/ell first coefficients enter the proposed old formal AD. Each originalC0 second coefficient is independent. Atom mixed-known entries0 mean an unknown second coefficient is separated into its own formal symbol, not a physical zero. Exact source-center dependencies give a sparse gradient bound. Common-denominator/absolute-numerator envelopes propagate through the retained DAG with ordinary mixed product rule and give a prior height bound. Raw owned input, metadata, scratch, and output counts are tracked together; broad earlier arrays are discarded before the AD-input profile. A later AD worker may run only if this gate and its independent review satisfy the root's conditional bounds. It may report symbolic sensitivities and first-only lower responses, not actual phi values or HF2.
