@@ -1,0 +1,5 @@
+# Independent all-224 Cfull values
+
+This checker reconstructs the point chart and six invariant values from their original frozen sources. It reads pivot r coefficients from the original old-640 and native-128 first arrays, and old pivot ell coefficients from the full-nine-coordinate cache. For each native ell pivot it contracts Gamma with the two adapter matrices first, then evaluates Gamma Le S0 plus Gamma L0 Se. This is a different summation and grouping from the producer's Gamma applied after L0 Se plus Le S0. Every individual pivot carry is retained.
+
+The bottom Psi correction is reconstructed directly from the original Q left inverse and the same point projection. Pivot contributions, invariants and Psi are then summed in a different order. An independent positive bound is saved before signed arithmetic. All 108 Gamma-pivot coefficients and all 224 Cfull coefficients are compared exactly. The result concerns the coherent existence comparison frame only, and evaluates no K, source second/third coefficient, upper relation image or Hilbert value.

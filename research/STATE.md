@@ -1,5 +1,23 @@
 # 研究状態 — v63-s61 / 2026-11-05
 
+## v63 CE / 2026-11-05: 比較Cの全HFの一整数還元・T2の指定strand完全性・第十pivot候補
+
+直前 main `4f3d5e921095ec1c49f88f13a67c15cf39f1bacb` は通常push済み。
+
+比較Cの全Hilbert級数を未決の整数b一つに還元した。M=m二乗CのD=QQ[[ell]]加群型は四自由成分と指数(2,b)、b>=2である。実HF3666とell還元から両torsion指数が二以上と分かり、ell二乗torsionが元Cの巡回ell二乗torsionへ入ることから一方を正確に二とした。全j>=2でh_j=4+1_(j<4)+1_(j<b+2)、級数は(3+3t−t四乗−tの(b+2)乗)/(1−t)。さらにC3のm四乗零を使う両方向包含から、元Cの長いtorsion指数eはb+1又はb+2となる。従って四次HFは四又は五であり、b、eの実値はまだ未決である。D加群の非標準的分解をR0加群や環の分裂へ広げない。
+
+元Cの二つの真正HB四次sourceについて、残る三つのpivot delta_ell三乗を同じ105式cacheから読む六root SOURCEを新たに監査した。既存C3射影だけでなくr ell三乗・ell四乗を保持する全六座標へ戻す。一回の読戻しは(22/675,659/5400,1/675)となり、全六座標でも第二HB列は第一の−10倍、階数一だけだった。独立検算が全root・十二affine応答を再現した。これは指定二sourceの部分像の結果で、b/eやfull HF4の等号を決めない。ell四乗商C4のm五乗零から、実HFは36662又は36663、長23又は24まで絞れるが選択は未決である。新しいdelta四次やphysical solveは含まない。必要なら同じcacheを使う他の真正quartic sourceへ進み、既知coverのdegreeを上げるだけでは完了としない。
+
+honest T2のG2一次係数の指定strandで、active340対252を162個のliteral単元pivotと残46対41へ縮約した。一回の整数計算と別の固定minor・全41列逆代入検算により残階数28、active rank190/kernel62=G3像を確定した。零三変数のKoszul tensorを元の全102 G2・418 G3へ戻すと、全918係数slotのkernelは厳密にG3linear像242、rank676である。全graded complexのexactnessや実HF2を主張しない。
+
+upper617の既知Cfull全224係数も独立構成した。pure-Uにbottom Psiを足し、native個別pivotのL0 Se+Le S0を保持した。別の元640/128 callbackと収縮順序が、108 GammaXpと224係数を全再現した。全393 G3 class零のsource証明はKfullのb1汎関数のG3像零化を与え、上記strand完全性と合わせると実b1項は解の選択に依存せず出力covectorを通して因子化する。実Kfull二次係数、全918 adjoint、617 upper実値はまだ求めていない。次の選択99 sourceは元old80列の完全callbackへ戻し、以前のpruned packetに無かった18列を含めてhonest高次依存性と全native carryを調べる。
+
+大域tail Q1=T1/(a三乗C四乗)では指定済みFULLU単元Fの重複度が零と確定した。最初のHasse k=0で665項の非零を得て直ちに止め、独立整数Hornerが全665係数と元固定分母を再現した。F除算・他因子探索・一般GCDは行っていない。次は他方のtail T0の既存7208係数から、既知a四乗と指定C因子を扱うSOURCEへ進む。root239保存形式のoffset四は既にT0/a四乗のbodyを意味するので、aを二重にずらさない。
+
+一般五点の固定row58/col56は、既知単元Q四乗R二乗Eを正確に除いてprimitive317項F10となった。独立なstream decoderと直接整数積が元951係数全てを復元し、三つの記号根代入でもF10は非零だったので指数四・二・一は正確である。実第十pivotはF10/(353894400000 H t0 F9)。F9は除算していない。新chart D(F10)上の全167対14・top101+66制約・selected14+87追加RHSを保持したtyped SOURCEへ進み、他列実値・normal逆・五点尽くしは未完了である。
+
+元nil指数3〜6・零次数ideal最小五生成・C3長19/HF3664・元C実HF初四項3666・下界58（rank4は52）・全分類上界未確定・NEW式28次・五凍結原稿を維持する。元H0・nil三乗・正確な指数、全FULLU57/239、全大域境界と一般五点尽くしは継続中で、保存後も研究を続ける。
+
 ## v63 CD / 2026-11-05: C3長19の確定、完全upper617への縮約と第二tailの4811項表示
 
 直前 main `eb9ce5533875d61de3e7d0dfc58a07753bf6b570` は通常push済み。

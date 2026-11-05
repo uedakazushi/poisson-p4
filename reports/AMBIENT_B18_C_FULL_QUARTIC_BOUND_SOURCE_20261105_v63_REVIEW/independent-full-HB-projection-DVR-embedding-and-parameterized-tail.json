@@ -1,0 +1,278 @@
+{
+  "scope": "same actual full C, not C3 or original H0",
+  "fresh_recursive_no_cut_NF4": [
+    [
+      "44/625",
+      "-8/25",
+      "1",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "144/15625",
+      "-4/125",
+      "0",
+      "1",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "128/390625",
+      "-16/15625",
+      "0",
+      "0",
+      "1",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "6252/75625",
+      "-96/275",
+      "1",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "10192/831875",
+      "-2964/75625",
+      "0",
+      "1",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "259584/519921875",
+      "-2704/1890625",
+      "0",
+      "0",
+      "1",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ]
+  ],
+  "full_HB0_order3_cancellation_without_cut_and_old_row0_3_projection": true,
+  "actual_nonzero_full_quartic_coordinate": {
+    "source": "HB0",
+    "row": 0,
+    "coefficient": "-3/5"
+  },
+  "independent_DVR_embedding_proof_of_HF4_4_or5": [
+    "Set M=m\u00b2C and T=Tor_D C. Finite-D reduction gives rankD M4, muD M=HF2=6, and muD ellM=HF3=6.",
+    "Thus S=Tor_D M has exactly two cyclic summands D/ell^a,D/ell^b; both a,b>=2 because none disappears after multiplication by ell.",
+    "S=M intersect T embeds in T of actual type(1,1,2,e). Hence ell\u00b2S embeds in ell\u00b2T, which is CYCLIC (or zero). A submodule of a cyclic module over the DVR D is cyclic.",
+    "Therefore at most one of a,b exceeds2, so after sorting a=2 and b>=2. This gives HF4=muD ell\u00b2M<=5 independently of the HB calculation.",
+    "Together with rankD4 this proves HF4 in{4,5}. No quartic completeness or vanishing of unknown ell\u00b3/ell\u2074 coordinates is assumed.",
+    "All decompositions here are D-module structure theorem decompositions, neither R0-module nor algebra splittings."
+  ],
+  "noncanonical_D_type_m2C": {
+    "free_rank": 4,
+    "torsion_exponents": [
+      2,
+      "b>=2"
+    ]
+  },
+  "all_higher_HF_formula": "h_j=4+1_{j<4}+1_{j<b+2} for every j>=2; h0=3,h1=6",
+  "Hilbert_series": "(3+3t-t^4-t^(b+2))/(1-t)",
+  "additional_e_b_refinement_proof": [
+    "ell\u00b2T subset M because ell\u00b2C subset m\u00b2C; it is torsion, hence ell\u00b2T subset S. The largest exponent e-2 of ell\u00b2T is at most b. Thus e<=b+2.",
+    "Actual C3m4=0 gives ell\u00b2M=m4C subset ell\u00b3C. For a finite D-module, Tor_D(ell^n C)=ell^n Tor_D C; this follows from any D-free plus torsion decomposition, without R0 compatibility.",
+    "Taking torsion gives ell\u00b2S subset ell\u00b3T. These cyclic modules have lengths b-2 and e-3 (e>=3), so b-2<=e-3. Thus e>=b+1.",
+    "Consequently e is b+1 or b+2. Both parameters are still unknown; in particular HF4=4 means b=2 and only constrains e to3 or4."
+  ],
+  "remaining_e_cases": [
+    "b+1",
+    "b+2"
+  ],
+  "finite_sanity_receipts_not_general_proof": [
+    {
+      "b": 2,
+      "possible_e": [
+        3,
+        4
+      ],
+      "finite_HF_prefix": [
+        3,
+        6,
+        6,
+        6,
+        4,
+        4,
+        4
+      ]
+    },
+    {
+      "b": 3,
+      "possible_e": [
+        4,
+        5
+      ],
+      "finite_HF_prefix": [
+        3,
+        6,
+        6,
+        6,
+        5,
+        4,
+        4,
+        4
+      ]
+    },
+    {
+      "b": 4,
+      "possible_e": [
+        5,
+        6
+      ],
+      "finite_HF_prefix": [
+        3,
+        6,
+        6,
+        6,
+        5,
+        5,
+        4,
+        4,
+        4
+      ]
+    },
+    {
+      "b": 5,
+      "possible_e": [
+        6,
+        7
+      ],
+      "finite_HF_prefix": [
+        3,
+        6,
+        6,
+        6,
+        5,
+        5,
+        5,
+        4,
+        4,
+        4
+      ]
+    },
+    {
+      "b": 6,
+      "possible_e": [
+        7,
+        8
+      ],
+      "finite_HF_prefix": [
+        3,
+        6,
+        6,
+        6,
+        5,
+        5,
+        5,
+        5,
+        4,
+        4,
+        4
+      ]
+    },
+    {
+      "b": 7,
+      "possible_e": [
+        8,
+        9
+      ],
+      "finite_HF_prefix": [
+        3,
+        6,
+        6,
+        6,
+        5,
+        5,
+        5,
+        5,
+        5,
+        4,
+        4,
+        4
+      ]
+    },
+    {
+      "b": 8,
+      "possible_e": [
+        9,
+        10
+      ],
+      "finite_HF_prefix": [
+        3,
+        6,
+        6,
+        6,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        4,
+        4,
+        4
+      ]
+    }
+  ],
+  "no_actual_b_or_e_value_and_no_quartic_completeness_claim": true,
+  "unknown_full_quartic_coordinates_not_assigned_zero": true,
+  "no_new_source_values_physical_gauge_IFT_or_jet": true
+}

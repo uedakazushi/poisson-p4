@@ -2,6 +2,21 @@
 
 Version: v63-s61 · 2026-11-05 (Asia/Tokyo).
 
+Latest CE (2026-11-05): FullC M=m²C Dtypefree4+(2,b>=2); h_j=4+1(j<4)+1(j<b+2), j>=2.
+FullC series(3+3t−t⁴−t^(b+2))/(1−t); e=b+1orb+2, b/eOPEN; HF4∈4,5.
+FullHB6coords exactrank1/col1=−10col0; μ03=(22/675,659/5400,1/675)independent.
+C4HF36662or36663/L23or24/m5zero; b/eOPEN. NextτABfullquartics+completenessSOURCE, noδ4.
+T2 fixedG2linearstrand active340x252rank190/ker62, full918rank676/kernelG3image242 independent.
+Notallgradedexactness; fullKfull annihilation⇒b1choiceindependence, explicitadjoint/uppervaluesOPEN.
+Cfull224+GammaXp108 independentlyfromoriginalcallbacks/nativeSUM/fullPsi; notcanonicalM1zero.
+NextK99 originalold80includes18priorpacketmissing; honesthigherdependency/sourcebudgets first.
+Q1namedFunitvaluationEXACT0; k0nonzero665 independentlyintegerHornerchecked; noFdivision/GCD.
+NextT0/root2397208body ALREADYa4removed(offset4), knownCvaluationSOURCE/codebeforevalues.
+Genericfixedrow58Q4R2E exact, F10primitive317/all951multiplyback+rootnonzero independent.
+p10=F10/(353894400000Ht0F9); full167x14/87extra/66constraints/oneP290 retainedSOURCE.
+C3L19/HF3664 vsfullCHF3666; originalnilindex3..6/H0/cubeOPEN, bounds58/r4lower52/upperNULL.
+Fivepapersfrozen; continueactualresearch/mainordinarypush; checkpointNOTstop.
+
 Latest CD (2026-11-05): C3 EXACT length19/HF3664/m4zero independentlyPROVED by HB+cut1.
 C3cut1missingdual759275/1728, QQ[t] inverse products keep unpairedA4 formal; no newδ4jets.
 FullC Dfinite rank4/torsiontype(1,1,2,e>=3), eOPEN; m3C=ell*m2C.
