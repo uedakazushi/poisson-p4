@@ -1,0 +1,9 @@
+# Full-nine Cprime linear-initial SOURCE gate review
+
+独立に全1089積を射影し、raw33の逆順zラベルから実z0,...,z6,r,ellへの並べ替えを確認した。full C40で五unit-root residualとdR9を評価してからtrace一次係数を取る必要がある。properのτ冪零定数を先に捨てない。実gAの一次入力は既存source7790で実際に零と確認し、仮定しない。
+
+全44一次列はdegree1 initial relationを尽くすが、それらの二次倍396列が真の二次を尽くすとは言わない。既知二次商が3次元以下の場合だけ、canonical divisorによる495→27以下の圧縮、全I−qE整合列、三つのell³targetを使う。三次商零かつ累積上界9なら、Nakayamaと独立したDVR下界9から長い指数が2と従う。失敗は陰性判定ではない。
+
+最初の準備workerは全圧縮列を保持しており、stream予算と一致していなかった。値実行前に保存し、二passで最大27列のbasisとhashだけを保持する版へ修正したことをsource監査した。古い135行scratchを解放し、小逆行列前にnormalizedbasisも解放する。条件付き三次の上界4860は5000枠内、全体85555である。
+
+このSOURCE監査は実Vfirst、rank、Cprime/ell³の長さをまだ計算していない。新source/gauge/高次jet、一般GB、有限H1 kernelの同一視は行わない。

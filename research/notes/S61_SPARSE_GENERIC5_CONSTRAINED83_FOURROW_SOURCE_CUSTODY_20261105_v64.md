@@ -1,0 +1,3 @@
+# Literal SOURCE byte custody, without recomputation
+
+The frozen failed SOURCE report05817f47 incorrectly named12 nested support files by basename. All12 original byte-identical files remain under supports/. Create exact literal aliases at the12 advertised root paths, preserving every original byte and the unchanged failed-report hash. The strict original evidence path/hash loop then passes without any resolver exception or broad ignore. A separate receipt also verifies all16 successful thin-source support files; the last four(row51) were first completed by the successful thin SOURCE. No source support, coefficient, failed-guard status or success claim is recomputed or rewritten.

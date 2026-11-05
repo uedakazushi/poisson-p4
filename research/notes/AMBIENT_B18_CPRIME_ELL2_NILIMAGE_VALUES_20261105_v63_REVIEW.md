@@ -1,0 +1,7 @@
+# Provided gauge990 と実 Cprime2 の独立検証
+
+元のscalar DAGと既存105値を、独自のsparse33積表・C132 trace代数で再合成する。与えられた990 gauge値を同じ元のcanonical30非線形式へ代入し、flag/fiber条件、actual14/kappa9、二nil生成元の全tracebasis倍を検査する。sourceやgaugeの係数solveはしない。unit inverseはtraceの11乗零に合わせpowers0..10を使い、積を確認する。
+
+実raw45→C2写像と独立に合成し、全264閉包列を再構成する。保存された七pivot列を固定して全spanと作用不変性を確認し、商と全九作用、ell0のnil像、Cprimebar長さ4への作用intertwinerを検査する。
+
+実Cprime/ell²の長さは7、nilimageのrankは7、ell作用のrankは3である。DVR rank2/torsion最小生成数2より、torsion指数は一つが1、もう一つは2以上となる。後者の正確指数と本物のCprime[ell]全体は未決である。finite kernelをH1と同一視せず、Artin33内でellを割らない。実connecting値や十四個のnil liftを構成したとはしない。

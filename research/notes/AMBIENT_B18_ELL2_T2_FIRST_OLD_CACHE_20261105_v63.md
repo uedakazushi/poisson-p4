@@ -1,0 +1,11 @@
+# old rell callback の実既存cache値
+
+B56からRell4への全56²積を確認し、既に厳密零の105方程式をring homomorphismで
+移す。copied57はactual common105のYB7/8へown CB57source2を合成し、全57式を
+元DAGで直接確認する。opaque Hadamard/正則商のsecondは独立記号のまま、
+既存FULL9のorigin,r,ell一次値だけを用いる。全104 compositeのopaque gradientが
+零となった場合だけ実rell値とし、619行の既知部分へ戻す。
+
+この値には前packetのpivot一次補正の定数部分が一度含まれる。native S2と
+L1ell OmegaRはまだ外部に保持し、完全な二対619作用素のrankやT2のHFを
+推論しない。新しいphysical/implicit/gauge係数は求めない。

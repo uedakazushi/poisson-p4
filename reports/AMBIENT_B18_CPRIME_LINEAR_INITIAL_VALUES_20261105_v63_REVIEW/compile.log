@@ -1,0 +1,20 @@
+/workspace/poisson-p4/code/ambient_B18_Cprime_linear_initial_values_review_20261105_v63.cpp: In function ‘int main(int, char**)’:
+/workspace/poisson-p4/code/ambient_B18_Cprime_linear_initial_values_review_20261105_v63.cpp:29:31: warning: ‘int SHA256_Init(SHA256_CTX*)’ is deprecated: Since OpenSSL 3.0 [-Wdeprecated-declarations]
+   29 |   SHA256_CTX state;SHA256_Init(&state);
+      |                    ~~~~~~~~~~~^~~~~~~~
+In file included from /workspace/poisson-p4/code/ambient_B18_Cprime_linear_initial_values_review_20261105_v63.cpp:5:
+/usr/include/openssl/sha.h:73:27: note: declared here
+   73 | OSSL_DEPRECATEDIN_3_0 int SHA256_Init(SHA256_CTX *c);
+      |                           ^~~~~~~~~~~
+/workspace/poisson-p4/code/ambient_B18_Cprime_linear_initial_values_review_20261105_v63.cpp:33:282: warning: ‘int SHA256_Update(SHA256_CTX*, const void*, size_t)’ is deprecated: Since OpenSSL 3.0 [-Wdeprecated-declarations]
+   33 |    string line="[";for(long i=0;i<r;i++){if(i)line+=",";char*s=fmpq_get_str(nullptr,10,fmpq_mat_entry(fac,i,0));string value=s;flint_free(s);if(value.size()>2&&value.substr(value.size()-2)=="/1")value.erase(value.size()-2);line+='"';line+=value;line+='"';}line+="]\n";SHA256_Update(&state,line.data(),line.size());assert(chrono::duration<double>(chrono::steady_clock::now()-start).count()<55);
+      |                                                                                                                                                                                                                                                                             ~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/openssl/sha.h:74:27: note: declared here
+   74 | OSSL_DEPRECATEDIN_3_0 int SHA256_Update(SHA256_CTX *c,
+      |                           ^~~~~~~~~~~~~
+/workspace/poisson-p4/code/ambient_B18_Cprime_linear_initial_values_review_20261105_v63.cpp:35:58: warning: ‘int SHA256_Final(unsigned char*, SHA256_CTX*)’ is deprecated: Since OpenSSL 3.0 [-Wdeprecated-declarations]
+   35 |   unsigned char digest[SHA256_DIGEST_LENGTH];SHA256_Final(digest,&state);if(b)out<<',';out<<"{\"rows\":"<<n<<",\"columns\":"<<m<<",\"fixed_rank\":"<<r<<",\"both_inverse_products\":true,\"all_span_columns\":"<<m<<",\"factorization_sha256\":\""<<hexsum(digest)<<"\"}";
+      |                                              ~~~~~~~~~~~~^~~~~~~~~~~~~~~
+/usr/include/openssl/sha.h:76:27: note: declared here
+   76 | OSSL_DEPRECATEDIN_3_0 int SHA256_Final(unsigned char *md, SHA256_CTX *c);
+      |                           ^~~~~~~~~~~~

@@ -8,6 +8,22 @@ v62保存は `e187b40de68bce534391f406f616940cddd045a7`、
 `66a80ab53dfcf0ff842c67140320d8da0226039d`。全て通常push済み。
 このv63保存のSHAはGit履歴で識別する。
 
+## v63 BV / 2026-11-05: T2実HF6,6、被約比較ell二乗長七と真正nil connecting
+
+直前 main `4441fab0345e0967d2c59027e259f082c1a995b6` は通常push済み。
+
+honest ell二乗比較T2の完全最小六対1060表示と全一次sourceを独立検証した。旧sourceとnative sourceの全619残余結合は二つのlinear classで正確に相殺し、実HFの最初の二項は(6,6)、m二乗商長は十二となる。全長17〜20・H0長・K torsion指数はなお未決で、bottom二十三列の未知上部linear graphも残す。次はこのgraphの源を少数のcached adjoint contractionへ縮約し、I二乗annを使う有限閉包を調べる。
+
+被約比較Cprime/ell二乗Cprimeの実長は七、ell作用rank三と確定した。二torsion指数は一と二以上で、有限商ker ellを真のCprime[ell]としない。別にfull proper sourceの全一次項を独立評価し、実HF1(Cprime)=3、既知二次spanから実HF2≤4を得た。条件付きcubic計算は未実行で、高い指数は未決。次は定数kernel二十の実二次像を、既存sourceと同じ三十gauge応答から必要なell二乗だけ補うsource gateを調べる。
+
+全Tnil十六基底から真正Tnil→Cprime[ell]を指定するformal connecting作用素を構成した。ell切断前と切断後の別namespaceを保持し、元formal環で正則にellを割るsourceを示した。target長二から高次六基底はkernelに入り、全kernel=N/ellNは十四次元だが、残る十edge値と全次数nil liftは未評価である。
+
+元nil三乗のcanonical二段obstructionへ実mu_D K=7を使い、必要な生成積上界を448から280へ改善した。N/ellNの非零三次積は無条件で元N三乗非零を検出する。追加仮定T2全長17の下ではH0がN/ellNへ単射となり、全三次積零も元N三乗零と同値になる。この追加仮定・積の実値は未証明で、元nil指数3〜7を維持する。
+
+一般betaの二つの五対五逆はmain保存済みである。十四のliteral denominatorが共通290項因子P290の単項式・定数倍であることを全4060係数で照合し、四つのfree columnだけが変わるsourceに整理した。最初の八行・三十二成分は実82541項、全192恒等式とbinary roundtripを確認した。残る103行、補集合、完全normal逆、五点尽くしは未決で、以後もsourceから上界を証明できる四行単位で進める。
+
+大域K92候補minorは有限係数が零のままである。実Tbar prefixとinverse不要のborder恒等式を使い、零supportとrank一pivotを検出して残余四へ縮約した。直接四角borderの要求係数も全十六成分で零だったため、同じ候補の全source row-dependenceを先に調べる。有限prefixから全行列式零・非零や全FULLU57/239を結論しない。下界58・rank4下界52・NEW式28次、元T長十一、Tnil全HF55321、B18深さ19/18と五凍結原稿を維持し、通常main保存後も研究を続ける。
+
 ## v63 BU / 2026-11-05: nil比較の全HF55321と十六基底、ell二乗と一般betaの縮約
 
 直前 main `01640d813ebb3fd695bebf181d70f049a17b6d56` は通常push済み。

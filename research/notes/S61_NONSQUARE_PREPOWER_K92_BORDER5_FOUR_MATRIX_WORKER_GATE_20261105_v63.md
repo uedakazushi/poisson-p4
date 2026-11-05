@@ -1,0 +1,5 @@
+# K92四行列のwhole-worker保持量
+
+source係数の二copyまでを安全側で数え、全有限path・49Hbar・49Tbar・11cofactor・全100係数・bidegree DP・読取りscratch・分母とmetadataを含めても80000slot以内に収まる。実workerでは入力を逐次整数化し一つのcopyだけを残し、cofactor抽出前に23932入力・Abar・Hbar cacheを解放する。
+
+新しいsigned係数はまだ評価しない。実行対象は既定の四つの五角行列と[u²t]係数一つだけである。元のsourceゲートの39510は将来の単一copyの見積もりであり、ここではsource構成や読み込みの重複をさらに安全側で含めた上限を固定する。sourceゲートは変更しない。

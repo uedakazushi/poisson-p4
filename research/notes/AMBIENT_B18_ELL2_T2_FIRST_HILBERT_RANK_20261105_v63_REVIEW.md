@@ -1,0 +1,7 @@
+# 実T2の完全一次Hilbert層の独立検証
+
+独立source peer済みの619 old部分と619 native部分を同じ元source順で一回ずつ加える。負のintrinsic pivot補正はold側に既にあり、nativeへ重複させない。L1ell OmegaRを保持する。元の非零minorと全619列factorによりrankの両向きを検証する。
+
+完全な最小6対1060 presentationの全定数は零なので、一次初項は1060列の定数線形結合で尽くされる。418 G3列は上側rank25、642残余列の下側はrank23である。その619 kernel組合せの残余二方向が全918係数adjointと完全source peerを通った今回の二対619行列である。従って実一次relation rankは48+d、HFは(6,6-d)、mod m²長は12-dとなる。sourceのformal exactnessをassociated graded exactnessへ置換する議論は使わない。
+
+これで全T2長17..20、H0長、Kのell指数、二次以降のHFを決めたとはしない。新しいsource/implicit/gauge係数はない。

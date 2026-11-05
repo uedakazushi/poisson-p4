@@ -1,0 +1,5 @@
+# Thin-metadata SOURCE method after the preserved first guard
+
+The previous SOURCE attempt correctly stopped at150000 metadata/support slots before any coefficient product. Its failed code/report remain immutable. This distinct source representation first selects only the4 by14 needed old-cell descriptors, then releases the whole3872-cell parsed index/lookup and temporary old denominator arrays before forming supports. All literal source files remain hash-bound and RAW charged; no coefficient or source value is removed. The same150000 ownership,32MiB RAW,60s/2GB limits apply.
+
+Four smallest prior-cost rows52,11,44,51 give16 prospective changed cells. Formula P290*oldfree+sum5(oldpivot*rescaled cached numerator) changes only the four free columns;20 other columns remain literal. Full177rows/66formalzero proofs remain, with coker(full)=coker(top)⊕K5^66. All support/height/whole-worker forecasts precede any coefficient job. A safe report still requires parent GO before coefficients are multiplied. Chart is old parameter units and P290*detA*detB nonzero; complements/exhaustion remain open. No point/prime/GCD or fullmatrix regeneration.

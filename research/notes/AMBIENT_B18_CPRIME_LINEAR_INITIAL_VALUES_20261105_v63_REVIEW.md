@@ -1,0 +1,7 @@
+# Full C40 first matrix と既知二次 closure の独立監査
+
+既存κ9とνを全九変数のfirst baseへ射影し、τの冪零定数を保った独自C40代数で五unit-root residual、dR9、36trace倍と負の八列を再生成した。numeratorの[mon,num,den]は有理数として直接解釈する。全44列の原点零と一次27係数、全396既知二次列を照合した。
+
+独立C++は与えられた固定小行列の両側逆と全440列のspanを検査し、factorization hashも一致する。rank検索・逆行列solve・det計算はしない。一次rank24より実HF1は3、既知二次rank131より商の次元は4である。これは実HF2を決定せず、条件付き三次計算も実行されていない。長いtorsion指数の結論はない。
+
+SOURCEレビューが指した準備コード1be2は正確なsnapshotで保持され、後のlossless reader修正との履歴receiptを明示して束縛した。他のhash例外は設けない。新しいsource/gauge/jetやV2係数を求めていない。

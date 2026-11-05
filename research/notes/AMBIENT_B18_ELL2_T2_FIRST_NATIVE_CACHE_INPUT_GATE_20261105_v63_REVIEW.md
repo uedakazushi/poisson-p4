@@ -1,0 +1,7 @@
+# native C16 cache入力gateの独立検証
+
+実raw33からRell4への全1089積と297座標intertwinerを独立確認し、既証MS canonical30・actual14/kappa9・monicを同じ写像で復元する。共通105の全値はB56と一致し、canonical30 ell一次は既証firstellと一致する。actual14/kappa9の定数・r一次は既証B11とも一致する。元physical12の行順と(delta,bA,-bB,0)の符号を確認する。
+
+このgateは同じeven15+odd15*tauA、auxetaAの枝を保持する。normalizerのfull17、first5 telescopes、R12/T/Nの有限source参照は元manifestでhash固定される。値workerはoffintersection恒等式と既存定数・一次を再検証し、L1ell OmegaRを残してから評価する。slot上界65484は150000以内である。
+
+新しいphysical・gauge・implicit係数、N1ell、S2rell、native実値やT2 HF1はこの検証で求めていない。

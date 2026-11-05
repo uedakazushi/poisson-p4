@@ -1,0 +1,9 @@
+# 真の connecting16 source operator の独立監査
+
+68個のtyped matrix、foreign artifact、full/ell0の二つのunit105 cloneと別途のnamespace receiptを確認した。各Schur射影のretained-coordinate injectionは厳密な右sectionであり、合成は元128行42,43,50,68,70である。filtered16の全座標を、自由な自然行列NijとS単項式の多項式として独立に比較した。
+
+directPhiは(I−nm,n d2)である。Vbar=d1m、mn=I、d1d2=0から全48分子のell0制限は恒等的に零になる。正則な形式的環でellは非零因子なので、RegDivellは一意な正則関数である。有限Artin環で割るのではない。full比較の境界恒等式から代表・liftによらない真のedgeが得られる。
+
+真の標的Cprime[ell]は同じ局所S上で長さ2なので、Nakayamaによりm²で消える。従って六つの高次basis classはN/ellNに入る。残りはhead/first十classで、真のkernelの次元は14である。
+
+これは形式的関数とclassのsource operatorを検証したものである。ell商の値、標的の二基底、六零classのliteral Vpreimage、十四個のfull nil liftやnilcubeは計算していない。Cprime2長さ7から全ell-torsion標的を同一視しない。元のfrozen source operatorは変更せず、radical_full_R0の別namespace receiptを明示的に束縛する。

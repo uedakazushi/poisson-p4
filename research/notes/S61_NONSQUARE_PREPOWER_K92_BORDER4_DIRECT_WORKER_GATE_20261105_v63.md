@@ -1,0 +1,5 @@
+# K92 direct4 workerの固定counter
+
+ROOT承認済みsource63555slotをそのまま実counterの上限とする。整数入力・全Abar/Hbar/Tbar・cofactor・16entry係数・DP・scratch・metadata15000を毎段階で数える。source見積もりは二copyを含むが、workerは一copyだけを保持する。I/Abar/Hbarはcofactor前に解放する。
+
+新sourceは元の全23932係数から有限単純路をH550まで組み、保存済み98個の138次prefix全体との一致を照合する。新しいtarget値はgate段階で一切計算しない。worker byte hashとsource gateを固定してから、一回だけ実行する。

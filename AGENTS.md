@@ -2,6 +2,22 @@
 
 Version: v63-s61 · 2026-11-05 (Asia/Tokyo).
 
+Latest BV (2026-11-05): honestT2 COMPLETEminimal6x1060/all1060linearSOURCE.
+ActualHF0,1(T2)=(6,6), lenmodm2=12 independentlyPROVED; all619old/native2classsumsZERO.
+T2total17..20/H0/KexponentsOPEN; unknownbottom23toplineargraphNOTzero-filled.
+ActualCprime/ell2 length7/ellrank3; torsionexps{1,e>=2}, finitekerellNOTgenuinetors.
+ActualHF1Cprime3; knownquad135x396rank131=>HF2<=4, cubicNOTrun/exponentOPEN.
+Genuineconnecting16 FULLR0formalRegDivell SOURCE/descent/namespace accepted.
+SixhigherTnilbasisclassesinkernel, N/ellN14dim; tenedgevalues/fullnil-liftsOPEN.
+Nilcube beta196+gamma84=280generatorproducts, not448/current, noactualproducts.
+ConditionalT2length17=>ellH0zero=>H0injectNbar=>cubezero iff14dimtriplemapzero.
+NonzerotripleNbar detectsN3nonzeroUNCONDITIONAL; actualcube/index3..7OPEN.
+GenericcommonP290SOURCE/all4060coeffchecks; first8rows32actualcells82541terms.
+Rest103rowsFACTORED/open; completeinverse/exhaustion/complementsOPEN.
+K92direct4borderfiniteprefixallZERO, inspectfullsource rowdependencebeforemorecoeffs.
+No global57/239/upperclaim; bounds58/r4lower52,NEWG28/fivepapersfrozen.
+Continueactualresearch/mainordinarypush; checkpoint NOTstoppingcondition.
+
 Latest BU (2026-11-05): Tnil FULLHF55321/Loewy5/length16 independentlyPROVED.
 Actualnaturalw coefficient1+a*c=−526852874262941/1327771335000 NONZERO.
 Explicit16filteredsourcebasis, m^jlength16,11,6,3,1,0; m2rAJordan321.

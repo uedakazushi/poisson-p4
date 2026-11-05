@@ -1,0 +1,16 @@
+# Cprimeの全九変数一次sourceとinitial上界による指数判定gate
+
+2026-11-05。長いtorsion指数を決めるため、先に高いell/source jetを増やすことはしない。
+新たに独立検証されたactual kappa9_C132とsource105_33には、ellを含む全九変数の一次係数がある。
+33代数から全一次base10への商写像を全1089積で固定した。
+
+実Vfullは3×44のcomplete presentationなので、全44列の一次式が一次initial relationを尽くす。
+ただしproper座標はtauの冪零定数成分を持つため、full polynomial/rational rootsをC40で評価してから
+monictraceの一次係数を読む。proper polynomialを先に線形化する手順は正当でない。
+
+既知の一次式だけの二次倍396列を取り、もしその商が三次元以下なら三次を小さく圧縮できる。
+ell³の三target列も加えて第三層が全て消え、累積上界が9なら、本物のCprime/ell³の長さも9以下となる。
+generic rank2と既証torsion指数{1,e≥2}は下界9を与えるので、その場合e=2を証明できる。
+これは既存sourceのinitial relationによる正の上界証明であり、非零remainderや大きい上界からe>2とは言わない。
+
+このpreflightは実一次行列の係数・rank・次数別上界をまだ計算しない。新しいsource/gauge/jetも計算しない。
