@@ -1,0 +1,7 @@
+# ONE554 native四列とnonzero outer644の正入力
+
+同じJ18/N/G8/monic/Gamma/Dに関する68個の正演算子rowは、既存native549 sourceからhash付きで再利用する。四native列と重みを使ったintrinsic Sの正上界だけを新たに構成する。元四inputmaskのfull point S0列が零であり、正上界のpointも空になる。未知N二次・三次を任意に零とする必要はない。
+
+Gamma cubic五項、D ordinary二次十pairと全unique FIRST分解を保つ。rrを二倍にしない。full trace/nu carryを両演算子とSで保持する。個別pivot644 mask0はS0非零であり、独立92cacheから非零Gamma二次を参照する。outerの重み付き積は絶対上界だけを作り、signed pairingは実行しない。648の零結果は使わない。
+
+case549ではBoolean支持不交差だけで十分だったが、554は正上界が非零となる。従ってfuture値を許可する前に、同じ68rowの数値D/U上界を元primitiveから独立に検証する必要がある。OLD/FIRST57 laneと結合したwhole保持量・height・source/code/custodyの独立確認とROOT一回GOを別に必要とする。ここではnative/outer/whole応答値を計算しない。

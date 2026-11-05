@@ -1,0 +1,16 @@
+/workspace/poisson-p4/code/s61_two_tail_CRT_lift_20261105_v63.cpp: In function ‘int main(int, char**)’:
+/workspace/poisson-p4/code/s61_two_tail_CRT_lift_20261105_v63.cpp:122:51: error: ‘cout’ is not a member of ‘std’
+  122 |  if(argc==2&&std::string(argv[1])=="--help"){std::cout<<"--run N0 N2 SEED OUTDIR BASE_RAW; fixed40/reuse32003,degree3899/noreset,primitivecandidate/conditional8192 weighteddivision/ALL2identities;60000owned/6Bmod/2.1Mbig/45soft60hard/2GB/RAW32MiB. --prefix-fixture PATH uses synthetic IO data ONLY.\n";return 0;}
+      |                                                   ^~~~
+/workspace/poisson-p4/code/s61_two_tail_CRT_lift_20261105_v63.cpp:6:1: note: ‘std::cout’ is defined in header ‘<iostream>’; this is probably fixable by adding ‘#include <iostream>’
+    5 | #include <sstream>
+  +++ |+#include <iostream>
+    6 | using namespace tt;
+/workspace/poisson-p4/code/s61_two_tail_CRT_lift_20261105_v63.cpp:134:142: error: ‘cerr’ is not a member of ‘std’
+  134 |   if(!attemptedPrefix){attemptedPrefix=true;try{savePrefix(s,out+"/TTCRT001-prefix.bin",why);saved=true;}catch(const std::exception&io){std::cerr<<"PREFIX_IO_FAILURE_NO_SECOND_STATE: "<<io.what()<<'\n';}}
+      |                                                                                                                                              ^~~~
+/workspace/poisson-p4/code/s61_two_tail_CRT_lift_20261105_v63.cpp:134:142: note: ‘std::cerr’ is defined in header ‘<iostream>’; this is probably fixable by adding ‘#include <iostream>’
+/workspace/poisson-p4/code/s61_two_tail_CRT_lift_20261105_v63.cpp:135:74: error: ‘cerr’ is not a member of ‘std’
+  135 |   try{report(s,out,false,why,saved);}catch(const std::exception&io){std::cerr<<"REPORT_IO_FAILURE_NO_RERUN: "<<io.what()<<'\n';}return 10;
+      |                                                                          ^~~~
+/workspace/poisson-p4/code/s61_two_tail_CRT_lift_20261105_v63.cpp:135:74: note: ‘std::cerr’ is defined in header ‘<iostream>’; this is probably fixable by adding ‘#include <iostream>’

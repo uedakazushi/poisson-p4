@@ -28998,6 +28998,169 @@
       "limitations_ja": [
         "case549だけの結論。全605/617 upper、HF2・T2長・元H0やnil三乗を確定しない。次の554は非零outer priorを持ち、別sourceと値gateを要する。"
       ]
+    },
+    {
+      "id": "S61_TWO_TAIL_EXACT_SQUAREFREE_GCD94_CHAR0",
+      "title_ja": "二tailの標数零最大公約因子H全94項と平方自由性",
+      "statement_ja": "元N0全4500項とN2全2317項に対し、固定四十素数の一回CRTとprimitive化によりH全94項を得た。二つの整数商は1795項と724項で、両整数割り算と元三変数の全係数掛け戻しが零である。独立実装はCRT・割り算・producer readerを用いず、逆順の整数積をdense三次元tensorの全10659/5070係数へ展開し、元4500/2317項と完全一致させた。Hを法32003でmonic化すると既存の厳密gcd3899へ一致し、両商のleading係数は生き残る。既存の独立modular商互いに素から、HはQQ[a,e,d]で正確なgcdとなる。Hの各変数次数は6,9,4、全次数11。別の同じ固定特殊化e=0,d=1で、a次数六を保ち、独立なderivative Euclidによりfとfprimeが互いに素と確認した。Hのa-leading=17578125*d³*(80-25d+66ed)とa0のe0係数からa-contentは単元なので、H自身も平方自由である。Hは六因子base環でも非単元で、選択二tail idealの余次元一部分はこの被約な主因子H、残る(A0,A2)はproperならheight二以上である。 さらに既存D12軸を同じ法32003の四次商Fp[a]/Haxisで読み、独立な十二段Newton/Faddeev trace算法はsubset行列式法と同じ非零余り(27788,575,7510,2387)を得た。a/Bだけの分母を消しHと全六unitの互いに素を使うと、base六因子環でもHはD12を割らない。H平方自由性とNullstellensatzから、あるH成分はFULLU六因子baseかつD12非零の部分と非空な二次元開集合で交わる。これは指定二tail十分条件が取り残すparameter divisorである。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_source_and_exact_formal_or_value_replay_2026_11_05",
+        "certificates": "reproduced_2026_11_05_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/S61_TWO_TAIL_CRT_LIFT_RESULT_20261105_v63.md"
+        },
+        {
+          "path": "research/notes/S61_TWO_TAIL_CRT_LIFT_SOURCE_20261105_v63.md"
+        },
+        {
+          "path": "research/notes/S61_TWO_TAIL_CRT_LIFT_WORKER_CUSTODY_20261105_v63.md"
+        },
+        {
+          "path": "research/notes/S61_TWO_TAIL_CRT_LIFT_ROOT_SOURCE_REVIEW_20261105_v63.md"
+        },
+        {
+          "path": "research/notes/S61_TWO_TAIL_CRT_ROOT_DENSE_REVIEW_20261105_v63.md"
+        },
+        {
+          "path": "research/notes/S61_TWO_TAIL_COMMON_FACTOR_SOURCE_20261105_v63.md"
+        },
+        {
+          "path": "research/notes/S61_TWO_TAIL_H_ROOT_SQUAREFREE_20261105_v63.md"
+        },
+        {
+          "path": "research/notes/V63_CM_EXACT_GCD_AND_CONNECTING_20261106.md"
+        },
+        {
+          "path": "research/notes/S61_TWO_TAIL_H_D12_ROOT_NEWTON_REVIEW_20261105_v63.md"
+        },
+        {
+          "path": "research/notes/S61_TWO_TAIL_H_D12_NONEMPTY_GAP_20261105_v63.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_TWO_TAIL_CRT_LIFT_SOURCE_20261105_v63/report.json",
+        "reports/S61_TWO_TAIL_CRT_LIFT_WORKER_CUSTODY_20261105_v63/report.json",
+        "reports/S61_TWO_TAIL_CRT_LIFT_ROOT_SOURCE_REVIEW_20261105_v63/report.json",
+        "reports/S61_TWO_TAIL_CRT_LIFT_ENTRY_20261105_v63/report.json",
+        "reports/S61_TWO_TAIL_CRT_ROOT_DENSE_REVIEW_20261105_v63/report.json",
+        "reports/S61_TWO_TAIL_COMMON_FACTOR_SOURCE_20261105_v63/report.json",
+        "reports/S61_TWO_TAIL_H_ROOT_SQUAREFREE_20261105_v63/report.json",
+        "reports/S61_TWO_TAIL_H_D12_AXIS_CUSTODY_20261105_v63/report.json",
+        "reports/S61_TWO_TAIL_H_D12_AXIS_QUOTIENT_ENTRY_20261105_v63/report.json",
+        "reports/S61_TWO_TAIL_H_D12_ROOT_NEWTON_REVIEW_20261105_v63/report.json",
+        "reports/S61_TWO_TAIL_H_D12_NONEMPTY_GAP_20261105_v63/report.json"
+      ],
+      "limitations_ja": [
+        "Hの既約性は未決。固定六次modular像の可約性はQQ上の可約性を意味しない。",
+        "非空なparameter gapは選択二tailの十分条件の補集合であり、実bad FittingやJacobi schemeの新成分・実rank低下は結論しない。H全体のD12との共通因子、H上の全FULLU57/239・補集合消尽は未決。"
+      ]
+    },
+    {
+      "id": "AMBIENT_B18_ORIGINAL_CONNECTING_HEAD29_HEAD30_FOUR_ACTUAL_HIGHS",
+      "title_ja": "元接続写像二headの四高位係数とKbar基底parameterの確定",
+      "statement_ja": "同じ元接続写像のHEAD29/30を既存Phi三次以下cacheから一回計算し、別の疎radix5多項式代数・逆順積・geometric inverseで全8081 node hash、safe delta63全B63、八bBのtrusted plane10、全2673 post積と八出力を独立確認した。canonical高位は(p2,b2)=(13621/40344,-1573/1920)、(p3,b3)=(-32129/161376,336618121/20528640)。HEAD30の汎用式に現れるdelta63(z1*ell)は元C2slot21の既証零だけで除き、全十四nonzz二次も独立に零と確認した。未知Phiのsocle係数を真の零とせず、zero-gradientによる全deltaの安全性を用いる。既証のhonest Kbar七基底I4+rh3+U+Sに必要な四parameterは全て実値になった。 実11x7組込みと全11次QQ基底を独立に再構築し、双方121逆行列積と全28edge恒等式を四つの残パラメータを形式のまま確認した。FIVEroot6と旧5x11単項式mapからtyped56x7 cycleも記録した。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_source_and_exact_formal_or_value_replay_2026_11_05",
+        "certificates": "reproduced_2026_11_05_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_B18_C_CONNECTING_HEADS2930_CACHE_SOURCE_V2_20261105_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_B18_C_CONNECTING_HEADS2930_CACHE_SOURCE_CODE_20261105_v63_REVIEW.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_B18_C_CONNECTING_HEADS2930_CACHED_VALUES_20261105_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_B18_C_CONNECTING_HEADS2930_CACHED_VALUES_20261105_v63_REVIEW.md"
+        },
+        {
+          "path": "research/notes/V63_CM_EXACT_GCD_AND_CONNECTING_20261106.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_B18_C_KBAR_ACTUAL_SEVEN_BASIS_SOURCE_20261105_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_B18_C_KBAR_ACTUAL_SEVEN_BASIS_SOURCE_20261105_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_B18_C_CONNECTING_HEADS2930_CACHE_SOURCE_V2_20261105_v63/report.json",
+        "reports/AMBIENT_B18_C_CONNECTING_HEADS2930_CACHE_SOURCE_CODE_20261105_v63_REVIEW/report.json",
+        "reports/AMBIENT_B18_C_HEADS2930_ROOT_SOURCE_REVIEW_20261105_v63/report.json",
+        "reports/AMBIENT_B18_C_CONNECTING_HEADS2930_CACHED_VALUES_20261105_v63/report.json",
+        "reports/AMBIENT_B18_C_CONNECTING_HEADS2930_CACHED_VALUES_20261105_v63_REVIEW/report.json",
+        "reports/AMBIENT_B18_C_KBAR_ACTUAL_SEVEN_BASIS_SOURCE_20261105_v63/report.json",
+        "reports/AMBIENT_B18_C_KBAR_ACTUAL_SEVEN_BASIS_SOURCE_20261105_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "新しいPhi・IFT・gauge・高次source solveは無い。head0/head4の四highは未計算だが、このhonest七基底には不要。",
+        "実Kbar作用表、元Kの全形式lift、元H0長・ell指数・nil三乗は別課題。",
+        "全11次基底の補空間はQQ線形だけ。元ToldのR0接続写像は非分裂のままであり、56成分や元Kへの全形式liftのscalar展開はしていない。"
+      ]
+    },
+    {
+      "id": "AMBIENT_B18_ORIGINAL_K_R0_GENERATORS_2_TO3_AND_R_RANK4",
+      "title_ja": "元比較kernelの最小R0生成数二〜三とKbarのr階数四",
+      "statement_ja": "honest Kbar=K/ellKの七基底を(v,q1,q2,g,w,U,S)、v=z5h4,q1=rv,q2=r²h4,g=rq2,w=rh3とする。実初期関係を独立な37次線形消去で点検し、rSのv係数lambdaS=-6957653957/295294329が非零と確定した。深い七係数を全て形式のまま保ち、rS=lambdaS*v+E*q1+F*q2+G*g、rU=w+A*v+B*q1+C*q2+D*gとなる。三元U,S,q2による商ではg=rq2、q1=(r²S-F*g)/lambdaS、v=(rS-E*q1-F*q2-G*g)/lambdaS、w=rU-A*v-B*q1-C*q2-D*gが順に零になる。独立証明はこの商消去を使い、primaryの七次minor=lambdaS²を再利用しない。有限性とell-Nakayamaで元KのR0生成数は三以下。U,Sの定数head二次minor=-1から二以上である。またA5=span(v,q1,q2,g,w)のr像は正確にspan(q1,g)、rU/rSはこの像を法として独立なのでrank_r Kbar=4。r三乗零と次元七からr-Jordanは(3,3,1)または(3,2,2)だけとなる。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_source_and_exact_formal_or_value_replay_2026_11_05",
+        "certificates": "reproduced_2026_11_05_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/AMBIENT_B18_C_K_R0_FOUR_GENERATOR_UPPER_SOURCE_20261105_v63.md"
+        },
+        {
+          "path": "research/notes/V63_CM_EXACT_GCD_AND_CONNECTING_20261106.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_B18_C_KBAR_R2_INITIAL_SOURCE_20261105_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_B18_C_KBAR_R2_INITIAL_SOURCE_20261105_v63_REVIEW.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_B18_C_KBAR_THREE_GENERATOR_RANK_SOURCE_20261105_v63.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_B18_C_K_R0_FOUR_GENERATOR_UPPER_SOURCE_20261105_v63/report.json",
+        "reports/AMBIENT_B18_K_FOUR_ROOT_MINOR_REVIEW_20261105_v63/report.json",
+        "reports/AMBIENT_B18_C_KBAR_R2_INITIAL_SOURCE_20261105_v63/report.json",
+        "reports/AMBIENT_B18_C_KBAR_R2_INITIAL_SOURCE_20261105_v63_REVIEW/report.json",
+        "reports/AMBIENT_B18_C_KBAR_THREE_GENERATOR_RANK_SOURCE_20261105_v63/report.json",
+        "reports/AMBIENT_B18_K_THREE_ROOT_QUOTIENT_REVIEW_20261105_v63/report.json"
+      ],
+      "limitations_ja": [
+        "最小生成数が二か三か、r-Jordan二候補の区別は未決。残る一scalar lambdaU*F-lambdaS*(H+C)と深い作用は未計算。",
+        "r作用とell-DVR型を区別する。D最小七生成・nil ideal最小五生成は変更せず、元Kの全形式lift・H0長・nil三乗は決めていない。"
+      ]
     }
   ],
   "setup_checkpoint": "v25-setup",

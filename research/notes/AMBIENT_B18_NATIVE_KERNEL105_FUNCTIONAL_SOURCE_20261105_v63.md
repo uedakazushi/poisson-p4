@@ -1,0 +1,9 @@
+# native点kernel105に対する二functionalの線形SOURCE
+
+固定された105列（非零trace mask84列・scalar mask Koszul kernel21列）へ、同じGamma/Dのnative部分を制限するfactored SOURCEだけを保存する。J18_with_r2ell、canonical G8/monicとknown N九係数は既存cacheそのものであり、新しい物理・gauge・honest quotient係数を求めない。
+
+形式的なpartial Nから作る112個の補助Koszul列の全係数を、真の未提供native jetとは呼ばない。未知mixed N二次とN三次の影響は、105個の固定kernelへの制限およびpureplane射影後にだけ消える。個々のcomplementにこの消失を主張しない。全monic trace carryを保持し、ordinary rrの積は一回である。
+
+各basis列は三source項以下である。既知入力の共通分母と絶対上界、単一path中の入力class数、および2^28のpath上界から将来算術の係数高を事前に制限する。nu二個を含むpathはJ18で支持が無く、係数積の前に除く。streamingでsource列一個を持つforecastを明記するが、これは値workerの時間・custody・新しいGOの代用ではない。
+
+このpacketはdeterminacyと線形性だけである。210個の値、605/617全関係、OLD/FIRST/外側carry、HF・長さ・annihilationは未計算であり、このSOURCEから零を結論しない。ONE554のwhole監査を優先し、将来実行には別のimmutable worker/custodyと独立peer・ROOTのGOを必要とする。

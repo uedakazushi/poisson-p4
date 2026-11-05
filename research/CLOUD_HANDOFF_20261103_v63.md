@@ -8,6 +8,24 @@ v62保存は `e187b40de68bce534391f406f616940cddd045a7`、
 `66a80ab53dfcf0ff842c67140320d8da0226039d`。全て通常push済み。
 このv63保存のSHAはGit履歴で識別する。
 
+## v63 CM / 2026-11-06: 平方自由な正確gcd、接続四係数、元kernel三生成上界
+
+直前main `4ff9f6d4ad41f6bb0dd81b113f8d43fe902b9702` は通常pushとremote照合済み。Cloud開始SHAは`4c3f623fb698f9adc6077015b25e2325b11072af`。既設Cloudを再利用し、元ソース・runner・依存・五凍結原稿は変更していない。
+
+二tailの標数零gcdを全94項で確定した。固定四十素数の一回CRT後にprimitive化し、元N0/N2の両整数割り算と全三変数掛け戻しが零。独立法はCRT・割り算・producer readerを使わず、逆順整数積をdense tensorの全10659/5070係数へ置き、元4500/2317項と照合した。法32003での既存厳密gcdと商互いに素・leading係数生存から最大性も証明した。Hの変数次数6,9,4、全次数11、二商の項数1795/724である。一次SOURCEで候補とされたfactorが標数零で本物かどうかという課題は、この二恒等式と独立検証で解決した。
+
+指定の固定六次Rabin像は可約であり、Hの既約性は決まらなかった。ただし同じ固定像に対する別のderivative Euclidでsquarefree性を独立証明できた。Hのa-contentが単元でa次数六が保たれるため、Hそのものが平方自由と従う。従って完全六因子base環における選択二tail idealのcodimension一部分は被約なHである。残るcofactor idealはproperならheight二以上。Hと追加D12局所化の関係、実bad Fitting等号や全FULLU57/239は別に残る。既存D12軸の全144セル/LCDを四次商で読み、十二段Newton/Faddeev trace算法でも余り[27788,575,7510,2387]が一致した。HはD12を六因子baseでも割らず、平方自由性とNullstellensatzからあるH成分はFULLUかつD12非零部分と非空二次元parameter開集合で交わる。これは選択二tail十分条件のgapであり実bad Fittingやrank低下は意味しない。
+
+元接続写像HEAD29/30を既存低次cacheだけから一回計算し、独立な疎radix5・逆順積・geometric inverseで全8081 node hash、全delta63 B63、八bB plane10、全2673 post積と八出力を照合した。canonical(p2,b2)=(13621/40344,-1573/1920)、(p3,b3)=(-32129/161376,336618121/20528640)。source上界51/103・118/237、hard384/1153、owned67465を維持した。unknown Phi socleは任意lower extensionとしてだけ扱い、全deltaのzero-gradient安全性を用いる。全十四nonzz二次の零も独立確認した。HEAD30のdelta(z1ell)は元C2slot21の既存零だけで除く。head0/head4四highは残るが、honest Kbar七基底に必要な四parameterは全て実値になった。
+
+元比較kernel Kの最小R0生成数は二〜三と証明した。まず四生成上界をhonest七基底のunit minor=-1で示し、さらに既存初期関係からrSのv係数lambdaS=-6957653957/295294329が非零と独立確認した。深い七係数を形式のまま保って、三元U,S,q2による商でg,q1,v,wを順に消す別証明を与えた。有限性とell-Nakayamaで三つの元K liftが存在し、定数head minorから下界二となる。またrank_r Kbar=4、r-Jordanは331または322と限定した。残る一scalarと二か三かの最小性は未決で、D上の最小七生成・nil ideal最小五生成とは区別する。Kbarの実11x7組込みと全11次QQ基底・双方121逆行列積・全28edge恒等式も独立確認した。これはQQ線形の補空間だけで、元R0接続の非分裂を変えない。初期r作用を小さいSOURCEで整理し、元Kの全形式liftや高次作用は未展開である。
+
+T2の次のcase554は非零outer644、全六c0・二十九a1・五十七FIRST factorを保つ。nativeの別C72算法はcoarse339/1018、収縮後のfine envelopeに戻してOLD/FIRST/outer/Qを合計するwhole gate・worker・独立codepeerを準備中。一回のsigned554 primaryは(0,0)で、非零の各OLD/native/FIRST/644項が相殺した。独立値確認は未完了。native point kernel全105方向のSOURCEも構成したが、determinacyとannihilationを区別し、全605/617の計算済み・零とはしない。
+
+一般五点のrow17/col79 compilerはSOURCE所有157050>150000で停止し、全2998 typed nodeと入力hashを持つprefixを保存した。supportやsigned係数は未計算。次は完了済みprefixから補助box/countだけを退役させる別finalization SOURCEを使い、coefficient/qMの済んだ操作を再計算しない。全166x13・87追加RHSと66条件・逆代入・P290一回・F9/F10/F11補集合を保持する。
+
+詳細と証拠は `research/notes/V63_CM_EXACT_GCD_AND_CONNECTING_20261106.md`。元H0長・ell消滅・nil三乗・正確な指数、T2長17〜20、全FULLU57/239、一般五点尽くしと全分類上界は未決。元nil指数3〜6、下界58（rank4は52）、NEW式28次と五凍結原稿を維持し、保存後も計算と証明を継続する。
+
 ## v63 CL / 2026-11-06: native九十二全値・全混合導体三次消滅・六十三次元安全合成
 
 直前 main `199b260f04775eefe3bb99afff84e92f954a17f1` は通常pushとremote照合済み。Cloud開始SHAは`4c3f623fb698f9adc6077015b25e2325b11072af`。既設Cloudを使い続け、元ソース・検証runner・依存・五凍結原稿は変更していない。

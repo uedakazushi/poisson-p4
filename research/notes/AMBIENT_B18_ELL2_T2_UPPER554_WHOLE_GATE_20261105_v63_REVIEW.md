@@ -1,0 +1,9 @@
+# ONE554全体SOURCE・正上界・workerの独立監査
+
+六c0と二十九a1、現在のGamma/D/fullPsi、非零外側644を文字通りに結び、独立OLD/FIRST監査と新しいnative68数値上界監査を併用する。case554のlower四成分零は元native70記録とprefix14独立peerから読む。617 source subtractionが零という事実だけで代用しない。これにより全六成分のQ埋込みが正当化される。
+
+native direct C72法の入力class共通分母と2^28 path上界を再構成し、339/1018を確認する。全nu_i nu_j支持はJ18外なので係数を掛ける前に除く。known partialNは形式的なextensionであり、未知mixedN二次/N三次を真に零としない。weighted full S0とpureplane抽出後のfunctionalだけが実値である。
+
+native出力のfine envelopeへ戻してから、OLD cubic/native cubic、OLD second/native second、FIRST/外側補正を別順に集約し、Q六成分まで正上界を比較する。signed responseは求めない。workerのsourceとcustody、標準library import、safe help、元pointchart/入力mask/転置/ordinary積規約、支持判定の先行、guard保存とraw+parsed+snapshot保持数を確認する。
+
+この監査後も実行はROOTが指定した一回のONE554だけに限られる。全605、617、HF、全長や元H0への結論はない。

@@ -2,6 +2,19 @@
 
 Version: v63-s61 · 2026-11-05 (Asia/Tokyo).
 
+Latest CM (2026-11-06 JST): EXACTchar0gcdH94/degree6,9,4,total11 ofselectedtwo tails, bothintegerquotients1795/724.
+IndependentDENSEtensorALL10659/5070coeffmatchoriginal4500/2317; seedmodgcd3899+coprimequotients provesMAXIMALITY.
+Samefixede0d1p32003RabinnegativeforirredONLY; independentderivativegcd+primitive-a provesH SQUAREFREE.
+Reducedcodim1selectedtaildivisorH inBASE6; H∤D12 independentlyNewtonverified/nonemptydim2selectedcriteriongap, NOTactualbadFitting/fullFULLU57/239.
+HEAD29/30actualcanonical(p2,b2)=(13621/40344,-1573/1920),(p3,b3)=(-32129/161376,336618121/20528640).
+Independentall8081nodehash/eightroots/2673postproducts; NOnewPhi/IFT/gauge/jets. Remaining4head0/4highsnotneededKbarbasis.
+OriginalK 2<=mu_R0<=3 viaλSnonzero/threegeneratorquotient andellNakayama; rankrKbar4/rJordan331or322, deep1scalarOPEN. Dmu7/nilidealmu5unchanged.
+Kbaractual11x7basis/QQcomplementindepverified (NOTR0UCTsplit); initialrSOURCE next, nofullKlifts/H0/niltransfer.
+T2case554fullnonzeropiecescancelPRIMARYupper(0,0); independentvaluepeerPENDING, no605/HFclaim. Native339/1018/hard384/1153kept.
+NativekerS0dim105SOURCEdeterminate, notzero. Generic17/79compilerSOURCE157050guardSTOP/full2998prefixsaved.
+Freshfinalizationfromprefix(noqMreplay)SOURCEpending; allRHS/constraints/restoration/P290/complementskept.
+OriginalH0/cube/nil3..6/T2L17..20/global58/r4lower52/upperNULL/NEW28/fivepapersfrozen. Continueafterpush.
+
 Latest CL (2026-11-06 JST): Native23 GammaXp2 all92+322pieces independentlydirectUNIVERSAL64 verified.
 FullL2S0/moniccarry retained;648bothrr/rellchannels0 isACTUAL, notindividualS0zero.
 PointedgA505938/gB299650 FULLmixedm_R0³ independentlyproved; notunrestrictedf637790/28539.

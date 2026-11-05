@@ -1,0 +1,7 @@
+# 全617 native定数sourceの105点kernelへの因子分解
+
+元619 sourceと563/609の実lower補正recipeから各native128係数vectorを作り、同じfull48 intrinsic S0に掛けて全617個が零であることを直接確かめる。M0やOLD/native間の相殺から推論しない。105個の固定free source係数を読み、明示kernel105列で元128vector全体が再構成されることを確認する。七つのscalar-mask complement係数は一般に非零であり、basis列から再構成される。free16係数だけが個別に零である。
+
+この定数SOURCE表により、全617のnativeGamma三次＋D非zz二次は、将来の同じ二行105 functionalと小さな定数表の積に因子化する。210個のfunctional値も617 upper値も求めない。既知FIRST carry・個別Xp二次L2S0・OLD部分は外に残る。この因子分解をannihilation・HF・全長・全605の零に読み替えない。
+
+signedなのは既知の定数source係数だけであり、新しい関数応答ではない。全算術の前に四つの入力classのLCMと絶対上界、4096 path上界を保存する。全raw入力とparse peakを含め、60秒・2GB・150k numeric・32MiB以内で実施する。
