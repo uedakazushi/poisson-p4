@@ -1,0 +1,38 @@
+{
+  "source_report":"reports/CLASSIFICATION_MULTIPLE_HYPERPLANE_RANK2_NIL_SOURCES_20261107.json",
+  "completeness_scope":"The four unresolved full sources in nil(3,1), c=long-chain-top: two product branches at r=-1 and the branches r=2/3,3/2. The two other complete sources r=-1/3,-1/2 are already covered via a different hyperplane and the full nilJordan4 theorem; they are not retested.",
+  "branches":[
+    {
+      "name":"r_minus_one_n5_zero",
+      "chart_index":1,
+      "substitution":{"n10":"-1","n1":"0","n4":"0","n5":"0","n6":"0","n8":"0"},
+      "free_parameters":["n0","n2","n3","n7","n9"],
+      "witness":{"n0":1,"n2":1,"n3":1,"n7":1,"n9":1},
+      "localization":"n0 !=0"
+    },
+    {
+      "name":"r_minus_one_n7_zero",
+      "chart_index":1,
+      "substitution":{"n10":"-1","n1":"0","n4":"-n5*n9","n6":"0","n7":"0","n8":"0"},
+      "free_parameters":["n0","n2","n3","n5","n9"],
+      "witness":{"n0":1,"n2":1,"n3":1,"n5":1,"n9":1},
+      "localization":"(n0,n5) != (0,0); witness lies in n5!=0"
+    },
+    {
+      "name":"r_two_thirds",
+      "chart_index":1,
+      "substitution":{"n10":"2/3","n0":"3*n3*n8/5","n1":"0","n4":"0","n5":"0","n6":"0"},
+      "free_parameters":["n2","n3","n7","n8","n9"],
+      "witness":{"n2":1,"n3":1,"n7":1,"n8":1,"n9":1},
+      "localization":"n8 !=0"
+    },
+    {
+      "name":"r_three_halves",
+      "chart_index":1,
+      "substitution":{"n10":"3/2","n0":"0","n1":"0","n5":"0","n6":"0","n8":"0"},
+      "free_parameters":["n2","n3","n4","n7","n9"],
+      "witness":{"n2":1,"n3":1,"n4":1,"n7":1,"n9":1},
+      "localization":"n4 !=0"
+    }
+  ]
+}
