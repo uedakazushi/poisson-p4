@@ -1,0 +1,29 @@
+{
+  "task_id": "G",
+  "target_statement": "Determine all low-degree extensions for the complete quartic integrating-factor type D=x^2 yz with independent numerator w.",
+  "implication_to_classification": "An empty-support or global firstjet-image bound closes this whole logarithmic boundary type, with the dependent-linear and zero-nilpotent complements already proved.",
+  "coefficient_ring": "QQ(u) for a/b and QQ at all exceptional roots; one b=0 whole orbit",
+  "hypotheses": "Q=(X+aN) wedge (Y+bN), Xdiag(1,-2,0,1),Ydiag(0,1,-1,0),N=x partial_w; b nonzero normalizes to1 or a nonzero,b0 normalizesa1.",
+  "inverted_elements": [
+    "b or a for the two displayed disjoint cases",
+    "explicit pivot determinants, every zero retained"
+  ],
+  "complements": [
+    "a=b=0 is the proved five-edge log source",
+    "dependent numerator and denominator linears are the proved pullback source",
+    "D=x^2 q remains separate"
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_unimodular_logarithmic.py",
+      "sha256": "7b29a324d71a3f61931f1721d46a7d924fdd568724469a366a78652b2249e714"
+    }
+  ],
+  "success_certificate": "Full QQ(u) coefficient matrices, exact kernel and translation minor, constant-source inverse, and every remaining positive-degree Pfaffian coefficient.",
+  "independent_check": "Independent symbolic coefficient reconstruction and geometric review of the complete five-quadric normal forms and each exceptional residue.",
+  "resource_limit": {
+    "timeout_seconds": 60,
+    "memory_mb": 768
+  },
+  "negative_result_next_step": "Keep unresolved exceptional residues and equations. If symbolic elimination exceeds the finite bound, switch to the hand classification of closed linear one-forms rather than another point or larger GB."
+}

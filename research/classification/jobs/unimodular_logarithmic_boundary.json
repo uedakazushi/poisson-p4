@@ -1,0 +1,30 @@
+{
+  "task_id": "G",
+  "target_statement": "Determine all low-degree extension sources for the two complete repeated-denominator types D=x^3 y and D=x^2 y^2, outside their already proved nondegenerate-quadric and pullback complements.",
+  "implication_to_classification": "These are whole log-component boundary strata obtained by the closed quartic integrating-factor incidence and rational partial fractions. Empty support or a universal primitive evaluation rank<=3 proves G non-dominance on each whole stratum.",
+  "coefficient_ring": "QQ; one transverse rank1 quadric uses QQ(u), retaining every exceptional root",
+  "hypotheses": "Nonzero magnetic coefficient normalized to one. q restriction to ker(x,y) has rank<=1 and mixed rank is nonzero; all normalizations are checked separately.",
+  "inverted_elements": [
+    "nonzero magnetic coefficient",
+    "all explicit saved pivot minors, with every zero handled in the same finite run"
+  ],
+  "complements": [
+    "zero magnetic coefficient is R22 or actual L112",
+    "nondegenerate q restriction has a uniform empty-extension proof",
+    "zero mixed rank is the proved full pullback stratum",
+    "remaining D=x^2 yz and D=x^2 q are separate"
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_unimodular_logarithmic.py",
+      "sha256": "44cea3f156badd1fd684a1ac12a96b6161b1ea926a6d72ca4ff2670aa70a029f"
+    }
+  ],
+  "success_certificate": "Full QQ(u) coefficient matrices, exact kernel and translation minor, constant-source inverse, and every remaining positive-degree Pfaffian coefficient.",
+  "independent_check": "Independent symbolic coefficient reconstruction and geometric review of the complete five-quadric normal forms and each exceptional residue.",
+  "resource_limit": {
+    "timeout_seconds": 60,
+    "memory_mb": 768
+  },
+  "negative_result_next_step": "Keep unresolved exceptional residues and equations. If symbolic elimination exceeds the finite bound, switch to the hand classification of closed linear one-forms rather than another point or larger GB."
+}

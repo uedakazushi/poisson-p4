@@ -1,0 +1,31 @@
+{
+  "task_id": "G",
+  "target_statement": "Determine whole low-degree extension sources of all five L112 quadric types with degenerate restriction to ker(x,y), retaining every exceptional residue.",
+  "implication_to_classification": "The full closed linear kernel and complete remaining Pfaffian equations permit an empty-support or primitive-rank proof for each actual logarithmic highest stratum; a generic kernel alone is not claimed as exhaustion.",
+  "coefficient_ring": "QQ(u), u=s/t, with all24 linear and all6 constant coefficients",
+  "hypotheses": "t nonzero, u differs from0,1; these complementary residues are already linear-Casimir or R22. Five quadric normal forms exhaust restrictionrank<=1 outside the proved pullback complement.",
+  "inverted_elements": [
+    "t",
+    "u",
+    "u-1",
+    "explicit pivot determinants saved in the output"
+  ],
+  "complements": [
+    "All zeros of each pivot determinant remain to be resolved exactly",
+    "Restrictionrank2 has a separate uniform magnetic five-edge proof",
+    "All non-actual source boundary points remain outside this run"
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_unimodular_logarithmic.py",
+      "sha256": "018a4660a0530d752153a6c9a35898fabfa13de652387ff21c47aa840c293ec9"
+    }
+  ],
+  "success_certificate": "Full QQ(u) coefficient matrices, exact kernel and translation minor, constant-source inverse, and every remaining positive-degree Pfaffian coefficient.",
+  "independent_check": "Independent symbolic coefficient reconstruction and geometric review of the complete five-quadric normal forms and each exceptional residue.",
+  "resource_limit": {
+    "timeout_seconds": 60,
+    "memory_mb": 768
+  },
+  "negative_result_next_step": "Keep unresolved exceptional residues and equations. If symbolic elimination exceeds the finite bound, switch to the hand classification of closed linear one-forms rather than another point or larger GB."
+}

@@ -30381,9 +30381,70 @@
       "limitations_ja": [
         "他のnilrank二型・全分類上界は未証明。"
       ]
+    },
+    {
+      "id": "R4_PLANE_TWO_LINES_CUBIC_THREE_MORE_COMPONENTS_23",
+      "title_ja": "平面二直線・三次曲線の追加三つの23次元成分",
+      "statement_ja": "節点二変曲接線、節点・変曲点割線と変曲接線、尖点割線と通常接線第三交点型の全源は相異なる23次元全成分。全D100/101、実源48、真102次元固定切片、陰関数二次補正と二次三次初期支持を別Fraction実装で再構成。配置不変量と一般因子型で既存86成分および相互と区別。",
+      "scope": "Reduced support over C before PGL5 quotient; no global exhaustion.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_2026_11_07",
+        "certificates": "independent_exact_QQ_reconstruction_and_geometric_review",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/classification/TWO_LINES_PLANE_CUBIC_SUPPORT.md"
+        },
+        {
+          "path": "research/classification/TWO_LINES_PLANE_CUBIC_CUBIC_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_TWO_LINES_PLANE_CUBIC_CUBIC_REVIEW_20261107.json"
+      ],
+      "limitations_ja": [
+        "全1+1+3支持の被覆は未証明。平面残四配置と非平面nil源を保持。",
+        "一般軌道次元と正確な非被約厚さは未決定。"
+      ]
+    },
+    {
+      "id": "COUNT_AT_LEAST_89",
+      "title_ja": "全成分数下界89・一般階数4下界83",
+      "statement_ja": "既存86に独立検証済み三つの23次元全成分を加え、全89成分を個別同定。一般rank4は83、rank2は6。",
+      "scope": "Reduced support over C before PGL5 quotient; no global exhaustion.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_2026_11_07",
+        "certificates": "independent_exact_QQ_reconstruction_and_geometric_review",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "COUNT_AT_LEAST_86",
+          "R4_PLANE_TWO_LINES_CUBIC_THREE_MORE_COMPONENTS_23"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/classification/KNOWN_COMPONENT_AUDIT.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_TWO_LINES_PLANE_CUBIC_CUBIC_REVIEW_20261107.json"
+      ],
+      "limitations_ja": [
+        "全成分数上界・一般五点尽くし・全分類は未証明。"
+      ]
     }
   ],
   "setup_checkpoint": "v25-setup",
   "current_checkpoint_includes_new_research": true,
-  "current_global_component_lower_bound": 86
+  "current_global_component_lower_bound": 89
 }

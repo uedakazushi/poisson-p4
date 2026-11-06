@@ -14,15 +14,15 @@
     "null_values": "not catalogued or not applicable; never a claim of zero"
   },
   "coverage": {
-    "global_lower_bound": 86,
+    "global_lower_bound": 89,
     "generic_rank_two_full_components": 6,
-    "generic_rank_four_lower_bound": 80,
+    "generic_rank_four_lower_bound": 83,
     "upper_bound": null,
     "global_exhaustion_proved": false,
-    "individually_catalogued_count": 86,
+    "individually_catalogued_count": 89,
     "unexpanded_block_count": 0,
     "all_51_rank_four_ideals_in_S61_constructed": false,
-    "note_ja": "全86成分を個別同定。一般rank4は80、rank2は6。直前74に平面conic+cubicの六成分と平面二直線+cubicの六成分（全て23次元）を追加。既約二次因子＋既約三次因子の全支持はMPS40と新六成分へ被覆。全成分数上界・一般ファイバー尽くし・全分類は未証明。",
+    "note_ja": "全89成分を個別同定。一般rank4は83、rank2は6。平面conic+cubic六成分と平面二直線+cubic九成分は全て23次元。既約Q+C3全支持を被覆済み。全成分数上界・一般ファイバー尽くし・全分類は未証明。",
     "generic_primitive_first_jet_known_lifts_lower_bound": 5,
     "full_generic_fiber_exhaustion_proved": false,
     "known_union_over_smooth_canonical_curve": {
@@ -10566,6 +10566,219 @@
         "本質三変数の閉条件と全MPSのSNC点、一般因子型と平面配置により既知成分および相互の相違を証明。",
         "証明点の群・鉛直・scale階数47と実族階数48を区別。一般軌道次元は未決定。"
       ]
+    },
+    {
+      "source_checkpoint": "v64-classification-first",
+      "id": "R4_PLANE_TWO_LINES_CUBIC_NODE_TWO_FLEXES_23",
+      "name": "平面二直線・三次曲線型 node_two_flexes",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "additional_generic_rank_four_full_component_outside_MPS40",
+      "generic_rank": 4,
+      "projective_dimension": 23,
+      "generic_pgl5_orbit_dimension": null,
+      "generic_reduced_rosenlicht_quotient_dimension": null,
+      "generic_transverse_algebra": null,
+      "meets_SNC_log_symplectic_locus": false,
+      "component_definition": "Reduced PGL5-saturated closure of the complete six-magnetic-parameter source for the specified plane configuration",
+      "generic_construction": {
+        "source_case": "node_two_flexes",
+        "full_source": "research/classification/TWO_LINES_PLANE_CUBIC_SUPPORT.md",
+        "all_six_magnetic_parameters_retained": true,
+        "universal_brackets": {
+          "(1, 3)": "-3600*h*x + 450*x**2 + 1800*x*y",
+          "(1, 4)": "-3*x*y",
+          "(2, 3)": "9600*h**2 - 1200*h*x - 6000*h*y + 300*x*y + 900*y**2",
+          "(2, 4)": "-16*h**2 + 2*h*x + 12*h*y - 2*y**2",
+          "(3, 4)": "30*h**2*r0 + 30*h*r1*x + 30*h*r2*y + 30*r3*x**2 + 30*r4*x*y + 30*r5*y**2 - 30*w*(-40*h + 5*x + 30*y) - 2*y*z"
+        }
+      },
+      "generic_actual_degeneracy_divisor": {
+        "essential_variable_count": 3,
+        "irreducible_factor_degrees": [
+          1,
+          1,
+          3
+        ],
+        "corresponding_multiplicities": [
+          1,
+          1,
+          1
+        ],
+        "reduced": true,
+        "cubic": "-X**2*(X - 3*Z) + Y**2*Z",
+        "hyperplanes": [
+          "Z",
+          "-3*X + Y + 8*Z"
+        ]
+      },
+      "claims": [
+        "R4_PLANE_TWO_LINES_CUBIC_THREE_MORE_COMPONENTS_23"
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/TWO_LINES_PLANE_CUBIC_SUPPORT.md"
+        },
+        {
+          "path": "research/classification/TWO_LINES_PLANE_CUBIC_CUBIC_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_TWO_LINES_PLANE_CUBIC_CUBIC_REVIEW_20261107.json"
+      ],
+      "review_status": {
+        "proof": "full_ambient_componenthood_and_distinctness_proved",
+        "independent_review": "accepted_independent_full150_full350_Fraction_and_geometry_2026_11_07",
+        "certificates": "exact_QQ_reconstruction",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "notes_ja": [
+        "全周囲の実48方向に横断な真正102次元線形切片を固定し、陰関数の一意二次補正と真正二次・三次初期式から支持原点を独立証明。Krull不等式で23次元全成分。",
+        "本質三変数の閉条件と全MPSのSNC点、一般因子型と平面配置により既知成分および相互の相違を証明。",
+        "証明点の群・鉛直・scale階数47と実族階数48を区別。一般軌道次元は未決定。"
+      ]
+    },
+    {
+      "source_checkpoint": "v64-classification-first",
+      "id": "R4_PLANE_TWO_LINES_CUBIC_NODE_FLEX_SECANT_23",
+      "name": "平面二直線・三次曲線型 node_flex_secant",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "additional_generic_rank_four_full_component_outside_MPS40",
+      "generic_rank": 4,
+      "projective_dimension": 23,
+      "generic_pgl5_orbit_dimension": null,
+      "generic_reduced_rosenlicht_quotient_dimension": null,
+      "generic_transverse_algebra": null,
+      "meets_SNC_log_symplectic_locus": false,
+      "component_definition": "Reduced PGL5-saturated closure of the complete six-magnetic-parameter source for the specified plane configuration",
+      "generic_construction": {
+        "source_case": "node_flex_secant",
+        "full_source": "research/classification/TWO_LINES_PLANE_CUBIC_SUPPORT.md",
+        "all_six_magnetic_parameters_retained": true,
+        "universal_brackets": {
+          "(1, 3)": "-50*h*x - 50*x**2",
+          "(1, 4)": "16*x*y",
+          "(2, 3)": "25*h*y",
+          "(2, 4)": "8*h**2 - 8*y**2",
+          "(3, 4)": "20*h**2*r0 + 20*h*r1*x + 20*h*r2*y + 25*h*w + 20*r3*x**2 + 20*r4*x*y + 20*r5*y**2 + 16*y*z"
+        }
+      },
+      "generic_actual_degeneracy_divisor": {
+        "essential_variable_count": 3,
+        "irreducible_factor_degrees": [
+          1,
+          1,
+          3
+        ],
+        "corresponding_multiplicities": [
+          1,
+          1,
+          1
+        ],
+        "reduced": true,
+        "cubic": "-X**2*(X + Z) + Y**2*Z",
+        "hyperplanes": [
+          "X",
+          "Z"
+        ]
+      },
+      "claims": [
+        "R4_PLANE_TWO_LINES_CUBIC_THREE_MORE_COMPONENTS_23"
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/TWO_LINES_PLANE_CUBIC_SUPPORT.md"
+        },
+        {
+          "path": "research/classification/TWO_LINES_PLANE_CUBIC_CUBIC_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_TWO_LINES_PLANE_CUBIC_CUBIC_REVIEW_20261107.json"
+      ],
+      "review_status": {
+        "proof": "full_ambient_componenthood_and_distinctness_proved",
+        "independent_review": "accepted_independent_full150_full350_Fraction_and_geometry_2026_11_07",
+        "certificates": "exact_QQ_reconstruction",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "notes_ja": [
+        "全周囲の実48方向に横断な真正102次元線形切片を固定し、陰関数の一意二次補正と真正二次・三次初期式から支持原点を独立証明。Krull不等式で23次元全成分。",
+        "本質三変数の閉条件と全MPSのSNC点、一般因子型と平面配置により既知成分および相互の相違を証明。",
+        "証明点の群・鉛直・scale階数47と実族階数48を区別。一般軌道次元は未決定。"
+      ]
+    },
+    {
+      "source_checkpoint": "v64-classification-first",
+      "id": "R4_PLANE_TWO_LINES_CUBIC_CUSP_TANGENT_CUSP_THIRD_SECANT_23",
+      "name": "平面二直線・三次曲線型 cusp_tangent_cusp_third_secant",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "additional_generic_rank_four_full_component_outside_MPS40",
+      "generic_rank": 4,
+      "projective_dimension": 23,
+      "generic_pgl5_orbit_dimension": null,
+      "generic_reduced_rosenlicht_quotient_dimension": null,
+      "generic_transverse_algebra": null,
+      "meets_SNC_log_symplectic_locus": false,
+      "component_definition": "Reduced PGL5-saturated closure of the complete six-magnetic-parameter source for the specified plane configuration",
+      "generic_construction": {
+        "source_case": "cusp_tangent_cusp_third_secant",
+        "full_source": "research/classification/TWO_LINES_PLANE_CUBIC_SUPPORT.md",
+        "all_six_magnetic_parameters_retained": true,
+        "universal_brackets": {
+          "(1, 3)": "400*h*x - 3600*x**2",
+          "(1, 4)": "60*h*x - 432*x**2",
+          "(2, 3)": "-200*h*x + 600*h*y - 600*x**2 - 1800*x*y",
+          "(2, 4)": "-30*h*x + 90*h*y - 63*x**2 - 270*x*y + 81*y**2",
+          "(3, 4)": "360*h**2*r0 + 360*h*r1*x + 360*h*r2*y + 360*r3*x**2 + 360*r4*x*y + 360*r5*y**2 - 360*w*(5*h/3 - 5*x) + 360*z*(h/4 - 3*x/5)"
+        }
+      },
+      "generic_actual_degeneracy_divisor": {
+        "essential_variable_count": 3,
+        "irreducible_factor_degrees": [
+          1,
+          1,
+          3
+        ],
+        "corresponding_multiplicities": [
+          1,
+          1,
+          1
+        ],
+        "reduced": true,
+        "cubic": "-X**3 + Y**2*Z",
+        "hyperplanes": [
+          "-3*X + 2*Y + Z",
+          "X + 2*Y"
+        ]
+      },
+      "claims": [
+        "R4_PLANE_TWO_LINES_CUBIC_THREE_MORE_COMPONENTS_23"
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/TWO_LINES_PLANE_CUBIC_SUPPORT.md"
+        },
+        {
+          "path": "research/classification/TWO_LINES_PLANE_CUBIC_CUBIC_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_TWO_LINES_PLANE_CUBIC_CUBIC_REVIEW_20261107.json"
+      ],
+      "review_status": {
+        "proof": "full_ambient_componenthood_and_distinctness_proved",
+        "independent_review": "accepted_independent_full150_full350_Fraction_and_geometry_2026_11_07",
+        "certificates": "exact_QQ_reconstruction",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "notes_ja": [
+        "全周囲の実48方向に横断な真正102次元線形切片を固定し、陰関数の一意二次補正と真正二次・三次初期式から支持原点を独立証明。Krull不等式で23次元全成分。",
+        "本質三変数の閉条件と全MPSのSNC点、一般因子型と平面配置により既知成分および相互の相違を証明。",
+        "証明点の群・鉛直・scale階数47と実族階数48を区別。一般軌道次元は未決定。"
+      ]
     }
   ],
   "named_block_member_annotations": [
@@ -10919,5 +11132,5 @@
     "MPS40 blockを展開したらblockによる加算を止め、二重計上しない。",
     "文献上の新規性は内部成分証明とは別に確認する。"
   ],
-  "new_components_added_in_this_checkpoint": 28
+  "new_components_added_in_this_checkpoint": 31
 }

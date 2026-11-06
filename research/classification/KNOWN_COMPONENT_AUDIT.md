@@ -1,7 +1,7 @@
 # 既知成分の分類への接続監査
 
 2026-11-07。対象は複素数体上の射影化Jacobiスキーム、PGL5商の前。
-現在の既知86成分について、主分類に必要な成分性・次元・相違の依存監査を完了した。
+現在の既知89成分について、主分類に必要な成分性・次元・相違の依存監査を完了した。
 rank2支持はRANK_TWO_SUPPORT.md、追加11族とNEW25の全周囲証明は下記三監査へ接続する。
 全rank4被覆・一般五点尽くし・全特殊底被覆は証明しない。
 旧証明書の再実行と今回読んだ数学的議論を区別する。
@@ -253,3 +253,15 @@ two-lines+cubic六源は群方向47と族方向48を区別し、一般軌道次�
 独立報告はQ3_FREE_CONIC_CUBIC_COMPONENT_REVIEW、Q3_FREE_CONIC_CUBIC_THIRD_REVIEW、
 TWO_LINES_PLANE_CUBIC_COMPONENT_REVIEW、TWO_LINES_PLANE_CUBIC_TWO_NORMAL_REVIEW（全て20261107）。
 従って全86を個別同定し、一般rank4は80、rank2は6。全分類上界は未証明である。
+
+## 固定切片の三次初期式による三追加成分と下界89
+
+TWO_LINES_PLANE_CUBIC_CUBIC_REVIEW.mdの三全源を追加した。
+全D100/101と実源48、真正102次元線形切片、選択minorにより一意な陰関数二次補正を独立再構成した。
+全Dと全normal二次式を消す余核により、真の三次初期式を得る。
+二次初期式との共通零点が原点だけであることから、Krull不等式で全成分性を証明した。
+任意kernel補正の不変性は仮定せず、実際に固定した切片の一意補正を用いる。
+node二変曲接線、node割線・変曲接線、cusp第三交点割線という配置は既登録六型と相異なる。
+本質三変数閉条件と一般因子型を合わせ、既存86成分との相違も確認した。
+独立報告はCLASSIFICATION_TWO_LINES_PLANE_CUBIC_CUBIC_REVIEW_20261107.json。
+全89成分、一般rank4は83、rank2は6。一般軌道次元と全分類上界は未証明である。

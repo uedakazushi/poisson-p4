@@ -1,0 +1,27 @@
+{
+  "task_id": "G",
+  "target_statement": "Determine the complete low-degree extensions of the unique principal E3 highest orbit from Pym2014 eq13.",
+  "implication_to_classification": "Empty support or a uniform primitive-image rank bound closes the principal E3 branch of G; boundary is explicitly kept separate.",
+  "coefficient_ring": "QQ[x,y,z,w,l0,...,l23,c0,...,c5]",
+  "hypotheses": "Closed/unimodular full quadratic bivector Q+L+C with constant nonzero Pfaffian; fixed Q represents the entire principal E3 orbit up to GL4.",
+  "inverted_elements": [
+    "the exact nonzero translation and coefficient minors recorded in the report"
+  ],
+  "complements": [
+    "All E3 boundary highest parts remain separate",
+    "All24 L and6 C coefficients are retained before true translation normalization"
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_unimodular_exceptional.py",
+      "sha256": "b33b45f2ff3ef245e39acbd6e14a4582877447ec2bc3c54d3179ba4f35399338"
+    }
+  ],
+  "success_certificate": "Full div/cubicPf matrix, exact kernel and translation minor, all six constant coefficients and all remaining positive/zero-degree Pfaffian coefficients.",
+  "independent_check": "A separate standard-library Fraction reconstruction of all coefficient matrices and source identities will be requested after the finite source reduction.",
+  "resource_limit": {
+    "timeout_seconds": 30,
+    "memory_mb": 768
+  },
+  "negative_result_next_step": "Keep the full reduced source and identify its necessary primitive-image bound; no arbitrary coefficient slice or higher-jet search."
+}

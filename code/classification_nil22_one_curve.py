@@ -64,9 +64,9 @@ def main():
     print(json.dumps({'status':out['status'],'seconds':out['seconds'],'nonzero_residual_rows':len(out['all_nonzero_actual_Jacobi_coefficients'])}))
 
 
-def cubic_support():
+def cubic_support(short=False):
     begun=time.monotonic();xx=s.symbols('h x1 x2 x3 x4');env={str(v):v for v in xx}
-    source_path=ROOT/'reports/CLASSIFICATION_NIL22_ONE_ACTUAL_CURVE_20261107.json'
+    source_path=ROOT/('reports/CLASSIFICATION_NIL31_SHORT_TWO_THIRDS_QUADRATIC_20261107.json' if short else 'reports/CLASSIFICATION_NIL22_ONE_ACTUAL_CURVE_20261107.json')
     packet=json.loads(source_path.read_text())
     def decode(data):
         M=s.zeros(5)
@@ -80,7 +80,14 @@ def cubic_support():
         for ((i,j),e),a in zip(engine.COLUMNS,v):M[i,j]+=a*s.prod(x**k for x,k in zip(xx,e))
         return M-M.T
     def dm(M):return DomainMatrix.from_Matrix(M).convert_to(s.QQ)
-    P=decode(packet['point_brackets']);R=decode(packet['normal_brackets']);Q=decode(packet['quadratic_correction_brackets'])
+    if short:
+        A=s.diag(1,-s.Rational(1,58),1,-58,-s.Rational(1,58));inv=A.inv()*s.Matrix(xx)
+        def transport(M):return (A*M*A.T).subs(dict(zip(xx,inv)),simultaneous=True).applyfunc(s.expand)
+        P=-58*transport(decode(packet['canonical_brackets']))
+        R=transport(decode(packet['normal_brackets'][0])+290*decode(packet['normal_brackets'][1]))
+        T=transport(decode(packet['normal_brackets'][1]))
+    else:
+        P=decode(packet['point_brackets']);R=decode(packet['normal_brackets']);Q=decode(packet['quadratic_correction_brackets'])
     J=lambda M:engine.jacobi(sparse(M))
     assert J(P)==s.zeros(350,1)
     Dcols=[];ps=sparse(P)
@@ -89,6 +96,11 @@ def cubic_support():
         Dcols.append(engine.jacobi(value))
     D=s.Matrix.hstack(*Dcols);K=dm(D).nullspace().to_Matrix().T
     assert K.shape==(150,49) and D*K==s.zeros(350,49)
+    if short:
+        columns=list(dm(D).rref()[1]);rows=list(dm(D[:,columns].T).rref()[1]);block=dm(D[rows,columns])
+        q=-block.inv().to_Matrix()*J(R)[rows,:];qv=s.zeros(150,1)
+        for j,index in enumerate(columns):qv[index]=q[j]
+        Q=tensor(qv)
     assert D*engine.vector(sparse(Q))+J(R)==s.zeros(350,1)
     JR=J(R);C=J(R+Q)-JR-J(Q)
     kernel_tensors=[tensor(K[:,i]) for i in range(49)]
@@ -108,23 +120,26 @@ def cubic_support():
                     nonzero_cubic_pairing=str(value),minor_rows=rows,minor_columns=cols,minor_determinant=str(block.det())),lam
     result,lam=project(M,C)
     direct=None
-    if result['nonzero']:
+    if result['nonzero'] and not short:
         oldpath=ROOT/'reports/CLASSIFICATION_NIL22_ONE_QUADRATIC_SUPPORT_20261107.json';old=json.loads(oldpath.read_text())
         T=decode(old['normal_brackets'][1]);mu=s.Rational(1,159);A=s.diag(1,mu**2,mu,mu,1);inv=A.inv()*s.Matrix(xx)
         T=(A*T*A.T).subs(dict(zip(xx,inv)),simultaneous=True).applyfunc(s.expand)
         assert D*engine.vector(sparse(T))==s.zeros(350,1)
         direct,_=project(M.row_join(J(T)),C)
+    if result['nonzero'] and short:direct,_=project(M.row_join(J(T)),C)
     out={'task_id':'E_multiple_hyperplane','status':'CUBIC_SUPPORT_OBSTRUCTION_NONZERO' if result['nonzero'] else 'CUBIC_AMBIGUITY_QUOTIENT_ZERO',
          'input_sha256':{str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in [source_path,Path(__file__),Path(engine.__file__)]},
          'producer_bytes':Path(__file__).read_text(),'full_D_rank':101,'full_kernel_dimension':49,
          'all_kernel_vectors_killed_by_full_D':True,'second_order_equation_exact':True,
+         'point_brackets':encode(P),'normal_brackets':encode(R),'quadratic_correction_brackets':encode(Q),
+         'quadratic_polynomial_curve_is_actual':C==s.zeros(350,1) and J(Q)==s.zeros(350,1),
          'kernel_basis_brackets':[encode(T) for T in kernel_tensors],
          'cubic_B_R_Q':{str(i):str(v) for i,v in enumerate(C) if v},
          'all_second_order_ambiguities_quotient':result,
          'including_remaining_full_normal_quadratic_image_quotient':direct,
          'scope':'Nonzero quotient kills every second-order correction Q+kerD. Together with the quadratic initial support (a²,ab), the Puiseux valuation argument proves reduced support is a point. A literal cubic initial generator is asserted only if the strengthened quotient remains nonzero.',
          'exact_nilpotence_thickness_not_claimed':True,'seconds':time.monotonic()-begun}
-    path=ROOT/'reports/CLASSIFICATION_NIL22_ONE_CUBIC_SUPPORT_20261107.json'
+    path=ROOT/('reports/CLASSIFICATION_NIL31_SHORT_TWO_THIRDS_CUBIC_SUPPORT_20261107.json' if short else 'reports/CLASSIFICATION_NIL22_ONE_CUBIC_SUPPORT_20261107.json')
     if path.exists():raise FileExistsError(str(path))
     path.write_text(json.dumps(out,indent=2)+'\n')
     print(json.dumps({'status':out['status'],'quotient_rank':result['rank'],'direct_cubic':None if direct is None else direct['nonzero'],'seconds':out['seconds']}))
@@ -220,6 +235,7 @@ def aff32_limit():
 
 if __name__=='__main__':
     import sys
-    if '--aff32-limit' in sys.argv:aff32_limit()
+    if '--short-two-thirds' in sys.argv:cubic_support(short=True)
+    elif '--aff32-limit' in sys.argv:aff32_limit()
     elif '--cubic-support' in sys.argv:cubic_support()
     else:main()

@@ -1,0 +1,35 @@
+{
+  "task_id": "G",
+  "target_statement": "Independently reconstruct all ten whole x^3y/x^2y^2 logarithmic-boundary sources over QQ(u) or QQ.",
+  "implication_to_classification": "Closes the exact coefficient dependency for the two remaining quartic integrating-factor multiplicity types; geometric partial fractions and reduced-support arguments remain separate.",
+  "coefficient_ring": "QQ(u)[x,y,z,w,n0,...,n4,a0,a1] with both exceptional u=0,-1/2 retained.",
+  "hypotheses": "All highest parts are the complete normalized forms displayed by the producer boundary calculation; full coefficient scope is retained.",
+  "inverted_elements": [
+    "every explicitly recorded nonzero matrix minor and source denominator"
+  ],
+  "complements": [
+    "Both u=0 and u=-1/2 sources are checked independently",
+    "Nondegenerate restriction and partial-fraction completeness are separate geometric inputs"
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_unimodular_logarithmic_boundary_review.py",
+      "sha256": "0d3c0c5c1383a6a9f4d52a493ca99e775cf12e1d69dcb48a71cccb1d50260026"
+    },
+    {
+      "path": "code/classification_unimodular_logarithmic_review.py",
+      "sha256": "cc5da8f4ac53bb814e549d439d806271a81f28cacfd9656b85765eb78b21cdcf"
+    },
+    {
+      "path": "reports/CLASSIFICATION_UNIMODULAR_LOGARITHMIC_BOUNDARY_20261107.json",
+      "sha256": "b9f7f9f7c10942847075e3f9b4095cf251d7dbfd43eb20824fa77cd7c890ce28"
+    }
+  ],
+  "success_certificate": "All reconstructed matrices, complete kernels, full translation image and true slice, constant inverse solution, every remaining Pfaffian coefficient, and exact coverage of all denominators by the eleven exceptional sources.",
+  "independent_check": "Standard-library Fraction rational functions plus sparse polynomial arithmetic, no producer or CAS import.",
+  "resource_limit": {
+    "timeout_seconds": 115,
+    "memory_mb": 1024
+  },
+  "negative_result_next_step": "Identify the failed exact identity and keep that source open. No specialization, point interpolation or GB extension."
+}
