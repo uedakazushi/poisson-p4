@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "checkpoint": "v63-s61",
-  "date": "2026-11-04",
+  "checkpoint": "v64-classification-first",
+  "date": "2026-11-07",
   "base_mathematical_checkpoint": "v24",
   "new_components_added_in_this_setup": 0,
   "conventions": {
@@ -14,15 +14,15 @@
     "null_values": "not catalogued or not applicable; never a claim of zero"
   },
   "coverage": {
-    "global_lower_bound": 58,
+    "global_lower_bound": 60,
     "generic_rank_two_full_components": 6,
-    "generic_rank_four_lower_bound": 52,
+    "generic_rank_four_lower_bound": 54,
     "upper_bound": null,
     "global_exhaustion_proved": false,
-    "individually_catalogued_count": 58,
+    "individually_catalogued_count": 60,
     "unexpanded_block_count": 0,
     "all_51_rank_four_ideals_in_S61_constructed": false,
-    "note_ja": "既存57件に、新たに全次数familyと局所上界から証明した25次元成分R4_POSITIVE_WEIGHT6_25を加えた。rank4下界52、総下界58、上界未定。旧51件の稠密S61写像は凍結済みで、新成分の追加写像と一次像を続ける。",
+    "note_ja": "従前58件に、階数三二重二次曲面の混合型22次元成分とTw0型24次元成分を追加。両方の全周囲成分性・相違と有限係数を独立確認した。一般rank4下界54、総下界60、個別同定60。H+2QでQ既約の全支持は被覆済みだが、全成分数の上界・一般五点・他の退化因子の全支持は未証明。",
     "generic_primitive_first_jet_known_lifts_lower_bound": 5,
     "full_generic_fiber_exhaustion_proved": false,
     "known_union_over_smooth_canonical_curve": {
@@ -8710,6 +8710,150 @@
         "equation_file": "reports/Q_NEW_FAMILY_DEGREE28_EXACT_EQUATION_20261104_v63/equation.txt",
         "full_S61_ideal_claimed": false
       }
+    },
+    {
+      "id": "R4_DOUBLE_RANK3_QUADRIC_MIXED_22",
+      "name": "H+2Q_rank3 の混合余剰型22次元成分",
+      "source_checkpoint": "v64-classification-first",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "additional_generic_rank_four_full_component_outside_MPS40",
+      "generic_rank": 4,
+      "projective_dimension": 22,
+      "generic_pgl5_orbit_dimension": 22,
+      "generic_reduced_rosenlicht_quotient_dimension": 0,
+      "component_definition": "Reduced PGL5 orbit closure of the explicit h-Casimir quadratic tensor P in RANK3_MIXED_COMPONENT_REVIEW.md, section 1",
+      "representative": {
+        "coordinates": [
+          "h",
+          "u",
+          "v",
+          "z",
+          "w"
+        ],
+        "h_is_Casimir": true,
+        "upper_pair_order": [
+          "uv",
+          "uz",
+          "uw",
+          "vz",
+          "vw",
+          "zw"
+        ],
+        "coefficients": [
+          "-h*v",
+          "3*h*z-2*u*w",
+          "2*h*w+2*u^2",
+          "2*h*w+2*u^2+2*w*v",
+          "-2*u*v",
+          "4*w^2+6*u*z"
+        ]
+      },
+      "generic_actual_degeneracy_divisor": {
+        "description": "H+2Q; Q has rank 3 and H contains the vertex and is tangent to the quotient conic",
+        "equation": "4*h*(h*w+u^2)^2",
+        "irreducible_factor_degrees": [
+          1,
+          2
+        ],
+        "corresponding_multiplicities": [
+          1,
+          2
+        ],
+        "quadric_rank": 3,
+        "reduced": false
+      },
+      "generic_transverse_algebra": null,
+      "generic_transverse_note_ja": "真の一変数切片に非零二次初期式があるため被約台は点。分類に不要な正確な厚みはこの台帳では主張しない。",
+      "meets_SNC_log_symplectic_locus": false,
+      "claims": [
+        "R4_RANK3_MIXED_FULL_COMPONENT_22"
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/RANK3_MIXED_COMPONENT_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_RANK3_MIXED_COMPONENT_20261107.json",
+        "reports/CLASSIFICATION_RANK3_MIXED_COMPONENT_REVIEW_20261107.json"
+      ],
+      "review_status": {
+        "proof": "full_ambient_componenthood_and_distinctness_proved",
+        "independent_review": "independent_full350_polynomial_action_rank_and_cokernel_reconstruction_2026_11_07",
+        "certificates": "exact_QQ_and_integer_identities",
+        "novelty": "distinct_from_repository_previous58_literature_novelty_unchecked"
+      },
+      "notes_ja": [
+        "全150係数のJacobi階数102、鉛直・尺度・群作用階数47、一法線を加えた階数48をQQで確認。",
+        "全Jacobi微分を殺す十項のfunctionalは法線二次障害に−140を与える。真の形式切片の次元零と軌道次元22で全空間成分性を得る。",
+        "従前の22次元rank4二成分とは二次因子の階数と三重一次因子の閉条件で区別。他成分とは次元または閉rank条件で区別。",
+        "全支持の網羅性と全S61像の構成は別義務。"
+      ]
+    },
+    {
+      "id": "R4_DOUBLE_RANK3_QUADRIC_TWZERO_24",
+      "name": "H+2Q_rank3 のT(w)=0型24次元成分",
+      "source_checkpoint": "v64-classification-first",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "additional_generic_rank_four_full_component_outside_MPS40",
+      "generic_rank": 4,
+      "projective_dimension": 24,
+      "generic_pgl5_orbit_dimension": null,
+      "generic_reduced_rosenlicht_quotient_dimension": null,
+      "component_definition": "Reduced projective PGL5-saturated image closure of the full SL2 times Gm times A7 inverse-form source in RANK3_TANGENT_ZERO_TW_RESTRICTION.md equations9-10",
+      "generic_construction": {
+        "affine_Q": "w+u^2",
+        "closed_inverse_form": "alpha/Q^2, alpha=Q*d(gamma)-dQ wedge gamma, gamma=beta+u*dr-r*du",
+        "source": "SL2 x Gm x A7",
+        "full_source_formulas": "research/classification/RANK3_TANGENT_ZERO_TW_RESTRICTION.md, equations9-10",
+        "Pfaffian": "-delta*Q^2, delta nonzero"
+      },
+      "generic_actual_degeneracy_divisor": {
+        "description": "H+2Q; Q has rank3 and H contains the vertex and is tangent to the quotient conic",
+        "irreducible_factor_degrees": [
+          1,
+          2
+        ],
+        "corresponding_multiplicities": [
+          1,
+          2
+        ],
+        "quadric_rank": 3,
+        "reduced": false
+      },
+      "generic_transverse_algebra": null,
+      "meets_SNC_log_symplectic_locus": false,
+      "claims": [
+        "R4_RANK3_TWZERO_FULL_COMPONENT_24"
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/RANK3_TWZERO_COMPONENT.md"
+        },
+        {
+          "path": "research/classification/RANK3_TANGENT_ZERO_TW_RESTRICTION.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_RANK3_TWZERO_SOURCE_20261107.json",
+        "reports/CLASSIFICATION_RANK3_TWZERO_GENERIC_REVIEW_20261107.json",
+        "reports/CLASSIFICATION_RANK3_TWZERO_NORMAL_QUADRICS_20261107.json",
+        "reports/CLASSIFICATION_RANK3_TWZERO_NORMAL_QUADRICS_REVIEW_20261107.json"
+      ],
+      "review_status": {
+        "proof": "full_ambient_componenthood_and_distinctness_proved",
+        "independent_review": "accepted_full_source_formal_slice_and_independent_fraction_matrix_review_2026_11_07",
+        "certificates": "exact_QQ_D98_source49_kernel52_and_three_normal_quadratic_obstructions",
+        "novelty": "distinct_from_repository_previous59_literature_novelty_unchecked"
+      },
+      "notes_ja": [
+        "全実源微分・群・鉛直・尺度の階数49と全Jacobi微分階数98から真の三法線切片を得る。五二次初期式の根基が原点なのでKrull上界と実族下界が一致し24次元全成分となる。",
+        "同次元のMPS8とCPLUSとは、全閉包の非被約因子条件LQ²と既知成分の被約点の存在で区別。他次元の成分とは次元で区別する。",
+        "全Tw0源を覆う成分である。証拠点を通る他成分の不存在、一般PGL軌道次元、精密nil構造は未主張。",
+        "弱い追加成分存在証明に使ったT39/T40全閉graph診断は独立証拠として保持するが、この成分性と相違の主証明には不要。"
+      ]
     }
   ],
   "named_block_member_annotations": [
@@ -9063,5 +9207,5 @@
     "MPS40 blockを展開したらblockによる加算を止め、二重計上しない。",
     "文献上の新規性は内部成分証明とは別に確認する。"
   ],
-  "new_components_added_in_this_checkpoint": 0
+  "new_components_added_in_this_checkpoint": 2
 }

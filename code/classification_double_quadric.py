@@ -190,15 +190,62 @@ def anisotropic_tangent():
     return result
 
 
+def rank_three_extra_sources():
+    h=s.symbols('h');u,v,z,w=V;xx=(h,*V)
+    bv,bz,bw,A,B,C=s.symbols('bv bz bw A B C');parameters=(bv,bz,bw,A,B,C)
+    result={}
+    for name,r in [('square',v*v),('mixed',w*v)]:
+        if name=='square':
+            av=(16*bz*A-16*C-bv)/3;az=-3*bz;aw=-2*bw-8*bz*bz
+            sigmav=bv-av;sigmaz=4*bz;aconst=-sigmav*C+4*bz*B
+            eta0=s.Matrix([A*v-s.Rational(3,4)*z-2*bz*w+B,v/4+C,-2*bz*v])
+            k=bw+8*bz*bz;scale=4
+        else:
+            av=(bv-4*bz*A)/3;az=3*bz;aw=-2*bw-2*C
+            sigmav=bv-av;sigmaz=-2*bz;aconst=-sigmav*C-2*bz*B
+            eta0=s.Matrix([A*v-s.Rational(3,2)*z+B,-v/2+C,2*bz*w])
+            k=bw+2*C;scale=2
+        au=sigmaz*bv-sigmav*bz
+        beta=s.Matrix([au*u+av*v+az*z+aw*w+aconst,*list(u*s.Matrix([bv,bz,bw])+eta0)])
+        gamma=beta+s.Matrix([-r,*[u*s.diff(r,x)for x in (v,z,w)]])
+        Q=w+u*u
+        alpha={(i,j):s.expand(Q*(s.diff(gamma[j],V[i])-s.diff(gamma[i],V[j]))
+                              -s.diff(Q,V[i])*gamma[j]+s.diff(Q,V[j])*gamma[i])for i,j in PAIRS}
+        pf=s.expand(alpha[0,1]*alpha[2,3]-alpha[0,2]*alpha[1,3]+alpha[0,3]*alpha[1,2])
+        assert s.expand(pf-k*Q**2)==0
+        coeffs=[alpha[2,3],-alpha[1,3],alpha[1,2],alpha[0,3],-alpha[0,2],alpha[0,1]]
+        P=s.zeros(5)
+        for (i,j),f in zip(PAIRS,coeffs):
+            poly=s.Poly(f,*V)
+            assert poly.total_degree()<=2
+            P[i+1,j+1]=s.expand(scale*sum(a*h**(2-sum(e))*s.prod(x**n for x,n in zip(V,e))for e,a in poly.terms()))
+            P[j+1,i+1]=-P[i+1,j+1]
+        assert s.expand(check_affine_poisson(P,xx)-scale**2*k*(h*w+u*u)**2)==0
+        point_sub={bv:0,bz:0,bw:1,A:0,B:0,C:0}
+        point=P.subs(point_sub)
+        directions=[(3*P.diff(t).subs(point_sub)).applyfunc(s.expand)for t in parameters]
+        ranks=full_tangent_ranks(point,xx,directions)
+        ranks.update(parameter_names=list(map(str,parameters)),nondegeneracy_polynomial=str(k),
+                     primitive_beta=list(map(str,beta)),extra_r=str(r),bivector_scale=scale,
+                     all_parameter_Jacobi_and_Pfaffian_exact=True,
+                     universal_brackets={f'{i+1},{j+1}':str(P[i+1,j+1])for i,j in PAIRS},
+                     witness_substitution={str(a):str(b)for a,b in point_sub.items()},
+                     witness_brackets={f'{i+1},{j+1}':str(point[i+1,j+1])for i,j in PAIRS})
+        result[name]=ranks
+    return result
+
+
 def main():
-    ap=argparse.ArgumentParser();ap.add_argument('mode',choices=['linear','rank3','family','anisotropic']);ap.add_argument('--output',type=Path,required=True);args=ap.parse_args()
+    ap=argparse.ArgumentParser();ap.add_argument('mode',choices=['linear','rank3','family','anisotropic','rank3_extra']);ap.add_argument('--output',type=Path,required=True);args=ap.parse_args()
     resource.setrlimit(resource.RLIMIT_AS,(1536*1024**2,1536*1024**2));resource.setrlimit(resource.RLIMIT_CPU,(55,56))
     start=time.monotonic()
-    value={'linear':linear_spaces,'rank3':rank_three_spaces,'family':tangent_family,'anisotropic':anisotropic_tangent}[args.mode]()
+    value={'linear':linear_spaces,'rank3':rank_three_spaces,'family':tangent_family,'anisotropic':anisotropic_tangent,'rank3_extra':rank_three_extra_sources}[args.mode]()
     report=dict(date='2026-11-07',mode=args.mode,result=value,source_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),elapsed_seconds=time.monotonic()-start,global_exhaustion_proved=False)
     args.output.parent.mkdir(parents=True,exist_ok=True)
     with args.output.open('x')as stream:json.dump(report,stream,indent=2,default=int);stream.write('\n')
-    summary = ({k:value[k] for k in ('matrix_ranks_mod_prime','projective_tangent_dimension_upper',
+    summary = ({name:{k:case[k]for k in ('matrix_ranks_mod_prime','projective_tangent_dimension_upper','projective_family_dimension_lower')}
+                for name,case in value.items()} if args.mode=='rank3_extra' else
+               {k:value[k] for k in ('matrix_ranks_mod_prime','projective_tangent_dimension_upper',
                                      'projective_family_dimension_lower','componenthood_proved')}
                if args.mode in ('family','anisotropic') else {k:v['kernel_dimension']for k,v in value.items()})
     print(json.dumps({'mode':args.mode,'seconds':report['elapsed_seconds'],'output':str(args.output),'result_summary':summary},default=int))

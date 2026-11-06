@@ -5,14 +5,16 @@
   "baseline_commit": "a00a541b835b2bff18bafcba545ecbd4bae7175b",
   "target": "exhaustive_reduced_components_before_PGL5_and_generic_geometry",
   "mathematical_status": {
-    "global_lower_bound": 58,
-    "rank4_lower_bound": 52,
+    "global_lower_bound": 60,
+    "rank4_lower_bound": 54,
     "global_upper_bound": null,
     "generic_five_exhaustion": false,
     "global_exhaustion": false,
-    "verification_scope": "Known58 componenthood/distinctness dependency audit complete using original certificates; selected inverse-form spaces and NEW25 support bound independently verified; generic/global exhaustion unproved",
+    "verification_scope": "All60 components individually identified, including independent full350/QQ support proofs of mixed22 and Tw0_24. Entire H+2Q support with Q irreducible covered. Generic/global exhaustion unproved.",
     "rank2_component_count": 6,
-    "rank2_support_exhaustion": true
+    "rank2_support_exhaustion": true,
+    "individually_identified_components": 60,
+    "additional_unidentified_components_lower_bound": 0
   },
   "source_registry": "research/classification/SOURCES.json",
   "tasks": [
@@ -59,7 +61,7 @@
         "generic_circuit_review"
       ],
       "acceptance": "全42法線の根基所属等または未知残余の空性を証明し、適用底開・全分母・独立検証を明記する。新残余があれば分類計画を更新し、未解決のまま成功扱いしない。",
-      "first_step": "DOMINANT_COMPONENT_GEOMETRY.mdの正規被約分岐を、unimodular零点の可解一次Lie部分と全Poisson延長のincidenceから制限する。G-normalの底像次元上界は未証明で、非被約・非正規分岐も保持する。",
+      "first_step": "既存NORMAL_CLASSIFICATIONにより正規実退化因子は全てT39。未知優越成分の非被約・被約非正規退化因子を元134式の全支持で扱う。局所Lie補題だけの再分類を反復しない。",
       "fallback": "同経路の二回未決で支持幾何または境界経路に変更し、E0/Aも進める。",
       "nonclosing_attempts": 0,
       "proof": null,
@@ -67,13 +69,13 @@
       "activation_reason": null,
       "last_result": "reports/CLASSIFICATION_NORMAL_LINEAR_OBSTRUCTION_REVIEW_20261107.json",
       "current_proof_reduction": "research/classification/DOMINANT_COMPONENT_GEOMETRY.md",
-      "route_change_reason": "Five direct GB attempts failed. Polynomial left inverse and splitter were independently verified, but an explicit five-plus-one finite quadratic model shows these structural conditions do not imply exhaustion. Generic constant low-degree trace identity also fails. Change to actual Poisson degeneracy geometry, retaining all complements.",
+      "route_change_reason": "Five direct GB attempts failed. Polynomial left inverse and splitter were independently verified, but an explicit five-plus-one finite quadratic model shows these structural conditions do not imply exhaustion. Generic constant low-degree trace identity also fails. Change to actual Poisson degeneracy geometry, retaining all complements. The archived NORMAL_CLASSIFICATION already closes the entire normal-divisor branch; reconnect that audited theorem instead of reopening it.",
       "current_symmetry_reduction": "research/classification/SYMMETRY_FIXED_NORMAL_CHART.md",
       "direct_groebner_route_suspended": true,
       "fixed_base_premise": "reports/CLASSIFICATION_FROZEN_T01_BETA_G28_20261106.json",
       "current_direction_reduction": "research/classification/NORMAL_DIRECTION_INCIDENCE.md",
       "prior_direct_groebner_nonclosing_attempts": 5,
-      "current_route": "Poisson-specific geometry of dominant components and unimodular zero incidence; normal branch first",
+      "current_route": "Reduced nonnormal and nonreduced degeneracy geometry; normal branch already classified by archived audited theorem",
       "previous_structural_route_nonclosing_attempts": 2
     },
     {
@@ -187,6 +189,25 @@
       "activation_reason": "Gの分母を待たずにbeta零被覆を非零一次部分を含む明示部分へ拡張する。"
     },
     {
+      "id": "E_normal",
+      "title": "正規実退化因子の既存全点分類を接続する",
+      "kind": "primary",
+      "priority": 2,
+      "status": "done",
+      "depends_on": [],
+      "inputs": [
+        "normal_classification_current",
+        "claims"
+      ],
+      "acceptance": "既存NORMAL_CLASSIFICATIONと全依存監査の仮定を保持し、実退化因子が正規の全点をT39へ接続する。D_redのみの正規性へ拡張しない。",
+      "first_step": "新しい具体的欠陥がない限り旧証明を再開せず、非正規・非被約分岐へ進む。",
+      "fallback": "特定の依存に不備が見つかった場合だけ、その影響範囲を限定して再監査する。",
+      "nonclosing_attempts": 0,
+      "proof": "papers/normal_actual_divisor_recognition_ja.tex",
+      "review": "research/notes/NORMAL_ACTUAL_EIGHT_SUPPORT_AUDIT_20261103_v62.md",
+      "activation_reason": "既存の証明済み全点定理を現在の主分類に接続し、重複したG-normal課題を除く。"
+    },
+    {
       "id": "E_quadric",
       "title": "二重二次曲面の明示配置の全支持を覆う",
       "kind": "primary",
@@ -214,7 +235,7 @@
       "title": "階数三の二重二次曲面の残る二配置を覆う",
       "kind": "primary",
       "priority": 2,
-      "status": "ready",
+      "status": "done",
       "depends_on": [
         "E_quadric"
       ],
@@ -224,12 +245,13 @@
         "claims"
       ],
       "acceptance": "H+2Q,rank(Q)=3の頂点非包含と接触配置について、全19/25次元の閉逆形式に非零Pfaffian条件を課した全支持を既知閉包又は新しい証明済み成分で覆う。",
-      "first_step": "全kernel表示を保持し、頂点非包含Q=u²+v²+z²と接触Q=w+u²の各Pfaffian分岐を幾何的に制限する。接触の六追加クラスは落とさない。",
+      "first_step": "全rank3支持を被覆済み。新22/24全成分、平方・原始・頂点非包含MPSの証明を主分類へ用いる。未処理のrepeatedHと被約非正規へ進む。",
       "fallback": "二回同経路で支持結論が増えなければ、別の退化因子型又はGへ移り、未処理の全枝を明記する。",
       "nonclosing_attempts": 0,
-      "proof": null,
-      "review": null,
-      "activation_reason": "二重二次曲面rank>=4の全支持が閉じたので、既約Qの最後の階数を処理する。"
+      "proof": "research/classification/RANK_THREE_QUADRIC_SUPPORT.md",
+      "review": "reports/CLASSIFICATION_RANK3_TWZERO_NORMAL_QUADRICS_REVIEW_20261107.json",
+      "activation_reason": "二重二次曲面rank>=4の全支持が閉じたので、既約Qの最後の階数を処理する。",
+      "last_result": "reports/CLASSIFICATION_RANK3_MIXED_COMPONENT_REVIEW_20261107.json"
     },
     {
       "id": "A",
@@ -248,7 +270,7 @@
         "bibliography"
       ],
       "acceptance": "主分類に使う各族のPoisson性、成分性、相違、次元とrank2被覆の証明・一次引用を確認し、欠落を明示する。",
-      "first_step": "既知58の成分性・相違の依存監査は完了。新候補が生じた場合だけ、その全周囲成分性と既知閉包との差を追加する。",
+      "first_step": "既知60の成分性・相違の依存監査は完了。新候補が生じた場合だけ、その全周囲成分性と既知閉包との差を追加する。",
       "fallback": "依存しない結果を巻き込まず問題の影響範囲を限定し、修正課題としてC0/Fに接続する。",
       "nonclosing_attempts": 0,
       "proof": "research/classification/KNOWN_COMPONENT_AUDIT.md",
@@ -269,7 +291,7 @@
         "bibliography"
       ],
       "acceptance": "確認した結果を主原稿の該当節へ十分な証明とともに統合し、主分類未証明を明示する。既存有用成果を削らない。",
-      "first_step": "既知58の成分性監査、二重二次曲面の全支持命題、Gの新しい幾何必要条件を主原稿へ統合し、分類未証明の射程を維持する。",
+      "first_step": "主TeXの60成分・全H+2Q被覆を基準とし、重複Hと被約非正規因子で新たに閉じた支持を同じ原稿へ統合する。",
       "fallback": "未確認主張は本文の定理に昇格せず、必要な証明義務として残す。",
       "nonclosing_attempts": 0,
       "proof": null,
@@ -288,7 +310,10 @@
         "E_zero",
         "E_poly",
         "E_quadric",
-        "E_quadric3"
+        "E_quadric3",
+        "E_normal",
+        "E_multiple_hyperplane",
+        "E_reduced_nonnormal"
       ],
       "inputs": [
         "s61",
@@ -297,7 +322,7 @@
       ],
       "acceptance": "一般証明の実補集合を各閉層で尽くし、残余が空となる。有限層別、全チャート、元式との同値を証明する。",
       "first_step": "Gの底分母からV(f)を作り、その最大次元既約層の一般点上で元134式を既知閉包と比較する。",
-      "fallback": "新成分を構成・証明して表へ追加するか、別の構造定理で層を認識する。58に固執しない。",
+      "fallback": "新成分を構成・証明して表へ追加するか、別の構造定理で層を認識する。既知下界に固執しない。",
       "nonclosing_attempts": 0,
       "proof": null,
       "review": null,
@@ -347,6 +372,52 @@
       "proof": null,
       "review": null,
       "activation_reason": null
+    },
+    {
+      "id": "E_multiple_hyperplane",
+      "title": "重複超平面を持つrank4全支持",
+      "kind": "primary",
+      "priority": 2,
+      "status": "ready",
+      "depends_on": [
+        "C0"
+      ],
+      "inputs": [
+        "s61",
+        "components",
+        "claims",
+        "remaining_divisor_support"
+      ],
+      "acceptance": "全非被約実退化因子のうち二重以上の超平面を持つ全点を既知族または新しい証明済み成分で被覆。全affine二次Poisson条件とPf(Q)=0を保持。",
+      "first_step": "REMAINING_DEGENERACY_DIVISOR_SUPPORT.mdの全affine模型を使用。modular場の固有値分岐と既存Q45分類を照合し、全源被覆と実変形を優先する。",
+      "fallback": "同じ経路で二回非閉鎖なら具体的障害を記録し別の支持幾何へ変更。全補集合を保持する。",
+      "nonclosing_attempts": 0,
+      "proof": null,
+      "review": null,
+      "activation_reason": "全H+2Q(Q既約)被覆後に残る全rank4支持の二大分岐。"
+    },
+    {
+      "id": "E_reduced_nonnormal",
+      "title": "被約非正規の実退化五次因子の全支持",
+      "kind": "primary",
+      "priority": 2,
+      "status": "ready",
+      "depends_on": [
+        "C0"
+      ],
+      "inputs": [
+        "s61",
+        "components",
+        "claims",
+        "remaining_divisor_support"
+      ],
+      "acceptance": "既存の正規因子T39分類とは別に、被約非正規因子の全rank4支持を閉既約族で尽くす。可約因子も含み、既知MPSを上界と仮定しない。",
+      "first_step": "既存原稿と主張の該当依存を狭く照合し、全支持で未処理の最小因子型または特異曲面型を決めて証明を進める。",
+      "fallback": "同じ経路で二回非閉鎖なら具体的障害を記録し別の支持幾何へ変更。全補集合を保持する。",
+      "nonclosing_attempts": 0,
+      "proof": null,
+      "review": null,
+      "activation_reason": "全H+2Q(Q既約)被覆後に残る全rank4支持の二大分岐。"
     },
     {
       "id": "P",

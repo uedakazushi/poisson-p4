@@ -1,0 +1,36 @@
+{
+  "task_id": "E_quadric3",
+  "target_statement": "Verify the full six-parameter sources for the two forced nonzero-extra strata r=v^2 and r=wv with tau_vz nonzero, and determine full150 tangent/family bounds at their exact nondegenerate representatives.",
+  "implication_to_classification": "All-solution analytic normal forms reduce these two strata to irreducible sources. Exact source Jacobi/Pfaffian and a later smooth known-component representative imply whole-source coverage; tangent ranks alone are not coverage.",
+  "coefficient_ring": "QQ[bv,bz,bw,A,B,C,h,u,v,z,w], with k=bw+8bz^2 or bw+2C nonzero.",
+  "hypotheses": "All25 inverse-form coefficients retained initially; tau_vz!=0 and nonzero r force square or mixed eigenquadratics. Their complete normalized beta solutions are the sources checked here.",
+  "inverted_elements": [
+    "k only for generic rank four",
+    "tau_vz in this branch, with its zero branch separately retained"
+  ],
+  "complements": [
+    "r=0 and tau_vz=0 remain separate primary obligations.",
+    "Rank3 non-tangent configurations and other divisor types not inferred from this run."
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_double_quadric.py",
+      "sha256": "dad8af82e92558d24e956408e2f657c6d639373035016509b1ea3ebf6c727b96"
+    },
+    {
+      "path": "reports/CLASSIFICATION_RANK3_QUADRIC_FORMS_20261107.json",
+      "sha256": "53c126ae5e5ac2aaf08eb5f31fd88b9c39cb74476ac4e7fb4660dcb84dcd330e"
+    },
+    {
+      "path": "legacy/v03/code/poisson_p4_components_check.py",
+      "sha256": "08ca6a3d9938dec9df734a7a95d7d3eedb1b7c95d11213d8ada59feed625203f"
+    }
+  ],
+  "success_certificate": "All-parameter Jacobi/Pfaffian identities overQQ, true family derivatives killed by full350x150 Jacobi derivative, nonzero modular minors used only for characteristic-zero rank lower bounds.",
+  "independent_check": "Independent analytic coefficient decomposition; a separate worker will verify real known-component deformation before coverage is claimed.",
+  "resource_limit": {
+    "timeout_seconds": 60,
+    "memory_mb": 1536
+  },
+  "negative_result_next_step": "If the exact source identity fails repair algebra; if ranks do not squeeze seek actual Poisson deformation, not repeated random points or longer jets."
+}

@@ -1,0 +1,44 @@
+{
+  "task_id": "E_quadric3",
+  "target_statement": "Independently verify full ambient componenthood of the mixed rank-three tangent-quadric orbit using one genuine obstructed normal direction.",
+  "implication_to_classification": "If the full local dimension equals the actual orbit dimension22 and closed-divisor distinctness holds, this adds one verified component to the classification lower bound; it does not prove exhaustion.",
+  "coefficient_ring": "QQ[h,u,v,z,w], all150 quadratic bivector coefficients and all350 Euler-wedge Jacobi coefficients",
+  "hypotheses": "The stated P and R are literal physical tensors, not a restricted fixed-divisor slice. Formal implicit function theory only uses full102 nonzero derivative minor and actual47 orbit/vertical/scale directions.",
+  "inverted_elements": [],
+  "complements": [
+    "No localization of Poisson coefficient space; projective rank4 point P is nonzero."
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_rank3_mixed_component_review.py",
+      "sha256": "48e61e30f9d7f04fb81f1bb5eec0e18daa28c8192d6a02a251e09cf8855b9bd0"
+    },
+    {
+      "path": "work/rank3-mixed-support-obstruction.json",
+      "sha256": "0e887e60e8f78fccd7f575d9e7c9def491de1be1d1e10ebc69bbd8c0e635cb69"
+    },
+    {
+      "path": "reports/CLASSIFICATION_RANK3_TANGENT_EXTRA_SOURCES_20261107.json",
+      "sha256": "64d7358ddd39aee369c2c44dedafdaa9abaccb8af0db2ba7321d21ceb513350d"
+    },
+    {
+      "path": "reports/MPS40_CROSSWALK_20261031.json",
+      "sha256": "e1f83d19ac665bf7584e7c9b2a0c25a15b88c32bba33ef3f23be560f68ebe3a2"
+    },
+    {
+      "path": "research/classification/ADDITIONAL_RANK4_EARLY_COMPONENT_AUDIT.md",
+      "sha256": "5e217f3e28a8a400b05acc2b54d24c3214408de253aa0e056f2216fc12465b99"
+    },
+    {
+      "path": "research/classification/ADDITIONAL_RANK4_LATE_COMPONENT_AUDIT.md",
+      "sha256": "e89d7500c475c7b62cf11093501cc0af854f68234c7a1541ba1bade1e57cce41"
+    }
+  ],
+  "success_certificate": "Independently rebuilt D rank102, vertical rank24, actual orbit+vertical+scale rank47 and plusR rank48; integral left cokernel annihilates D and evaluates Jacobi(R) to -140.",
+  "independent_check": "Sparse integer monomial construction and actual GL action derivatives are independently implemented, without importing producer monomial, Jacobi, orbit or rank helpers. The ten left-cokernel rows are decoded to concrete four-vector and degree4 monomial labels.",
+  "resource_limit": {
+    "timeout_seconds": 60,
+    "memory_mb": 1536
+  },
+  "negative_result_next_step": "Reject componenthood if actual tangent or obstruction fails; preserve candidate as unproved and inspect coefficient ordering before any larger calculation."
+}

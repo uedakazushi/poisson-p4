@@ -1,0 +1,93 @@
+{
+  "task_id": "E_quadric3",
+  "cases": {
+    "lagrangian": {
+      "parameter": "lam",
+      "P_six": [
+        "-2*u**2 + w*(2*lam - 2)",
+        "-lam*u",
+        "0",
+        "u*z*(4 - 4*lam) - v*(2 - lam)",
+        "4*lam*u*w",
+        "u**2*(2 - 2*lam) + 2*w"
+      ],
+      "Pfaffian_P": "4*(lam - 1)*(u**2 + w)**2",
+      "linear_log_compatibility_shape": [
+        10,
+        6
+      ],
+      "log_compatibility_rank": 5,
+      "log_compatibility_nullspace": [
+        [
+          "1/2",
+          "-lam/2",
+          "lam/2",
+          "lam/2 - 1",
+          "-lam/2",
+          "1"
+        ]
+      ],
+      "general_log_coefficients": [
+        "b0/2",
+        "-b0*lam/2",
+        "b0*lam/2",
+        "b0*(lam/2 - 1)",
+        "-b0*lam/2",
+        "b0"
+      ],
+      "Pfaffian_log": "-b0**2*u*v*w*z*(lam - 1)/2",
+      "universal_pencil_verified": true,
+      "R_six": [
+        "u*v/2",
+        "-lam*u*z/2",
+        "lam*u*w/2",
+        "v*z*(lam/2 - 1)",
+        "-lam*v*w/2",
+        "w*z"
+      ],
+      "Pfaffian_R": "-u*v*w*z*(lam - 1)/2",
+      "Pfaffian_pencil": "-(lam - 1)*(t*u*v - 4*u**2 - 4*w)*(t*w*z + 2*u**2 + 2*w)/2"
+    },
+    "symplectic": {
+      "parameter": "a",
+      "P_six": [
+        "3*a*v",
+        "z*(3 - 3*a)",
+        "3*u**2 + 3*w",
+        "u**2 + w",
+        "6*a*u*v",
+        "u*z*(6 - 6*a)"
+      ],
+      "Pfaffian_P": "3*(u**2 + w)**2",
+      "linear_log_compatibility_shape": [
+        10,
+        6
+      ],
+      "log_compatibility_rank": 5,
+      "log_compatibility_nullspace": [
+        [
+          "0",
+          "0",
+          "0",
+          "1",
+          "0",
+          "0"
+        ]
+      ],
+      "general_log_coefficients": [
+        "0",
+        "0",
+        "0",
+        "b0",
+        "0",
+        "0"
+      ],
+      "Pfaffian_log": "0",
+      "universal_pencil_verified": false
+    }
+  },
+  "seconds": 0.9275100720005867,
+  "source": "from pathlib import Path\nimport hashlib,itertools,json,resource,time\nresource.setrlimit(resource.RLIMIT_CPU,(55,55));resource.setrlimit(resource.RLIMIT_AS,(1536*1024**2,)*2)\nstart=time.monotonic()\nimport sympy as s\nu,v,z,w,a,lam,t=s.symbols('u v z w a lam t');xx=(u,v,z,w)\npairs=list(itertools.combinations(range(4),2));triples=list(itertools.combinations(range(4),3))\ng=s.symbols('g:6')\ndef matrix(entries):\n M=s.zeros(4)\n for(i,j),f in zip(pairs,entries):M[i,j]=f;M[j,i]=-f\n return M\ndef jac(P):\n return[s.expand(sum(P[i,l]*s.diff(P[j,k],xx[l])+P[j,l]*s.diff(P[k,i],xx[l])+P[k,l]*s.diff(P[i,j],xx[l])for l in range(4)))for i,j,k in triples]\ndef pf(P):return s.expand(P[0,1]*P[2,3]-P[0,2]*P[1,3]+P[0,3]*P[1,2])\nR=matrix([g0*xx[i]*xx[j]for g0,(i,j)in zip(g,pairs)])\ncases={'lagrangian':(lam,[-2*u*u+(2*lam-2)*w,-lam*u,0,(4-4*lam)*u*z-(2-lam)*v,4*lam*u*w,2*w+(2-2*lam)*u*u]),\n       'symplectic':(a,[3*a*v,3*(1-a)*z,3*(w+u*u),w+u*u,6*a*u*v,6*(1-a)*u*z])}\noutput={}\nfor name,(param,entries)in cases.items():\n P=matrix(entries);assert jac(P)==[0]*4\n equations=[]\n for f in jac(P+t*R):\n  polar=s.expand(f).coeff(t,1)\n  equations.extend(s.Poly(polar,*xx).coeffs())\n A=s.linear_eq_to_matrix(equations,g)[0]\n basis=A.nullspace()\n nspars=s.symbols(f'b0:{len(basis)}')\n generic=sum([q*b for q,b in zip(nspars,basis)],s.zeros(6,1))\n RG=R.subs(dict(zip(g,generic)))\n determinant=s.factor(pf(RG))\n record={'parameter':str(param),'P_six':list(map(str,entries)),'Pfaffian_P':str(s.factor(pf(P))),\n         'linear_log_compatibility_shape':list(A.shape),'log_compatibility_rank':A.rank(),\n         'log_compatibility_nullspace':[list(map(str,b))for b in basis],\n         'general_log_coefficients':list(map(str,generic)),'Pfaffian_log':str(determinant)}\n if determinant!=0:\n  # One predetermined combination: all nullspace coefficients equal to one.\n  value=generic.subs(dict.fromkeys(nspars,s.S.One));RR=R.subs(dict(zip(g,value)))\n  if pf(RR)!=0:\n   assert jac(P+t*RR)==[0]*4\n   record.update(universal_pencil_verified=True,R_six=[str(RR[i,j])for i,j in pairs],\n       Pfaffian_R=str(s.factor(pf(RR))),Pfaffian_pencil=str(s.factor(pf(P+t*RR))))\n  else:record['universal_pencil_verified']=False\n else:record['universal_pencil_verified']=False\n output[name]=record\nresult={'task_id':'E_quadric3','cases':output,'seconds':time.monotonic()-start,\n 'source':Path(__file__).read_text(),'source_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),\n 'scope':'Exact rational-function-field logcanonical compatibility for two complete primitive normal-form families; generic nonzero Pfaffian plus closedness can cover that family. No nonprimitive source exhaustion claimed.'}\npath=Path('/workspace/poisson-p4/work/rank3-primitive-universal-log-pencil-result.json')\npath.write_text(json.dumps(result,indent=2)+'\\n')\nprint(json.dumps({k:v for k,v in result.items()if k!='source'},indent=2))\n",
+  "source_sha256": "f663c0d77a46da7f4ab437d636ec4dae11491560afb63ff7fbc50ffed87ef250",
+  "scope": "Exact rational-function-field logcanonical compatibility for two complete primitive normal-form families; generic nonzero Pfaffian plus closedness can cover that family. No nonprimitive source exhaustion claimed."
+}

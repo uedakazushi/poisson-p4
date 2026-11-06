@@ -1,0 +1,36 @@
+{
+  "task_id": "E_quadric3",
+  "target_statement": "Verify the full SL2 x Gm x A7 inverse-form source for the T(w)=0 rank-three tangent-quadric branch, retaining all six extra inverse-form classes before deriving support restrictions.",
+  "implication_to_classification": "A surjective irreducible source reduces coverage of this entire Pfaffian branch to locating one ambient smooth known-component point, or a universal deformation; this job does not claim that final containment.",
+  "coefficient_ring": "QQ[a,b,c,d,delta,D,D0,S,C,g,T0,T,u,v,z,w] with ad-bc=1 and delta nonzero",
+  "hypotheses": "Full degree<=2 inverse-form kernel is the independently verified 25-dimensional space. The SL2 parameterization is proved surjective by symmetric rank-one matrix factorization.",
+  "inverted_elements": [
+    "delta for rank four",
+    "a only in derivative chart"
+  ],
+  "complements": [
+    "delta=0 is outside the rank-four stratum",
+    "a=0 remains in the full SL2 source and is not discarded; only the chart used for tangent derivatives omits it"
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_rank3_twzero_source.py",
+      "sha256": "b7639dedcc28f0fd7cfa435f6be8e20dea6a9035d6e0e35952fa1db399d81f88"
+    },
+    {
+      "path": "research/classification/RANK3_TANGENT_ZERO_TW_RESTRICTION.md",
+      "sha256": "d3a6406d5552ba3d49f1baf03c4778c5348036991185cf70fa8e8b5f4d3f35b7"
+    },
+    {
+      "path": "reports/CLASSIFICATION_RANK3_QUADRIC_FORMS_20261107.json",
+      "sha256": "53c126ae5e5ac2aaf08eb5f31fd88b9c39cb74476ac4e7fb4660dcb84dcd330e"
+    }
+  ],
+  "success_certificate": "Universal closedness, degree bound and Pf(alpha)=-delta*Q*(u^2+(ad-bc)^2*w), plus a direct raw Jacobi check at a nonzero-extra witness.",
+  "independent_check": "Direct polynomial differentiation of the complete one-form and six two-form entries, independent of the scalar Pfaffian derivation in the note; parent will check ambient tangent on these 11 actual parameter directions.",
+  "resource_limit": {
+    "timeout_seconds": 60,
+    "memory_mb": 1536
+  },
+  "negative_result_next_step": "Correct the bounded source identities before any ambient tangent or containment claim; no Groebner escalation."
+}

@@ -1,0 +1,17 @@
+{
+  "task_id": "E_quadric3",
+  "target_statement": "Extract the complete two-dimensional tangent quotient at the rank-three tangent square-source witness, then project all a^2,ab,b^2 Jacobi coefficients to the cokernel of the full 350-by-150 derivative. Test whether their obstruction ideal has empty projective support; for an unobstructed coordinate direction retain all second-order corrections and check the resulting actual family once.",
+  "implication_to_classification": "If the transverse quadratic obstruction ideal has empty P1 support, the formal transverse reduced support is a point; the orbit dimension 22 then equals the full local dimension, and connected PGL invariance gives a unique component equal to the orbit closure. This could identify a genuinely new full component after distinctness checks. If the obstructions vanish, an exact corrected family and orbit limits could instead yield MPS containment. No obstruction is tested on a truncated subset of the 350 equations.",
+  "coefficient_ring": "QQ[h,u,v,z,w,a,b], all 150 homogeneous quadratic bivector coefficients; exact rational linear algebra.",
+  "hypotheses": "Fixed square-source witness with h central and brackets (hv,3hz-8uv,4hw+4u^2,4hw+4u^2-4v^2,2uv,6uz+16vw). The prior all-source reduction and irreducibility are external inputs.",
+  "inverted_elements": ["Only nonzero rational constants from exact linear algebra"],
+  "complements": ["All six-source parameters remain in the exceptional_geometry support proof; this computation alone treats its specified witness.","The mixed extra class and non-tangent rank-three configurations remain separate.","If the quotient plane is obstructed, do not infer the absence of curved actual deformations."],
+  "exact_inputs_and_hashes": [
+    {"path":"reports/CLASSIFICATION_RANK3_TANGENT_EXTRA_SOURCES_20261107.json","sha256":"64d7358ddd39aee369c2c44dedafdaa9abaccb8af0db2ba7321d21ceb513350d"},
+    {"path":"legacy/v03/code/poisson_p4_components_check.py","sha256":"08ca6a3d9938dec9df734a7a95d7d3eedb1b7c95d11213d8ada59feed625203f"}
+  ],
+  "success_certificate": "Exact full kernel and orbit ranks, all quotient basis entries, exact augmented obstruction rank, full correction equations in the original 350 rows, and generators of the residual binary quadratic ideal. If applicable preserve the support bound proof or all corrected-family identities.",
+  "independent_check": "Root independently checks the full Jacobi cokernel rank increment and formal-slice support argument, and independently verifies any actual polynomial family.",
+  "resource_limit": {"timeout_seconds":90,"memory_mb":1536},
+  "negative_result_next_step": "If the quadratic obstruction ideal has projective zeros and no exact corrected family emerges, report those retained directions and stop this finite job; do not infer componenthood from the nonintegrability of one chosen linear plane."
+}

@@ -1,0 +1,44 @@
+{
+  "task_id": "E_quadric3",
+  "target_statement": "Determine full ambient tangent and actual11-source image dimensions at one nonzero-extra general-parameter Tw0 witness.",
+  "implication_to_classification": "If the actual family lower bound equals the full ambient tangent upper bound, the entire already-proved irreducible Tw0 source lies in that full component. Otherwise preserve the measured residual and avoid a smoothness claim.",
+  "coefficient_ring": "QQ; full350 projective Jacobi equations in150 homogeneous bivector coefficients, with all11 actual parameter derivatives",
+  "hypotheses": "The full SL2 x Gm x A7 source is universally Poisson and surjects the Tw0 inverse-form support. Witness a=b=c=1,delta=D=D0=S=2,C=g=T0=T=1 is in the a!=0 coordinate chart.",
+  "inverted_elements": [
+    "a for differentiation chart",
+    "delta for rank4"
+  ],
+  "complements": [
+    "a=0 is retained in the full irreducible SL2 source and closure argument",
+    "delta=0 is outside the general-rank4 stratum"
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_rank3_twzero_generic_review.py",
+      "sha256": "f4dde6796f422d0b6e15141a5a70c7ab7b1a75250fd69875195e84abafb937a7"
+    },
+    {
+      "path": "code/classification_rank3_twzero_source.py",
+      "sha256": "b7639dedcc28f0fd7cfa435f6be8e20dea6a9035d6e0e35952fa1db399d81f88"
+    },
+    {
+      "path": "code/classification_rank3_mixed_component_review.py",
+      "sha256": "48e61e30f9d7f04fb81f1bb5eec0e18daa28c8192d6a02a251e09cf8855b9bd0"
+    },
+    {
+      "path": "reports/CLASSIFICATION_RANK3_TWZERO_SOURCE_20261107.json",
+      "sha256": "38a4e5057a64ef26701226b2516b7c1b47022521be0a07a637259bde158e19d2"
+    },
+    {
+      "path": "research/classification/RANK3_TANGENT_ZERO_TW_RESTRICTION.md",
+      "sha256": "d3a6406d5552ba3d49f1baf03c4778c5348036991185cf70fa8e8b5f4d3f35b7"
+    }
+  ],
+  "success_certificate": "ExactQQ rank and explicit nonzero minors of fullD, vertical, orbit/scale, and complete actualfamily directions, with D F=0 verified integrally after recording denominator scalings.",
+  "independent_check": "Use the independently reconstructed full sparse integer engine from mixed-component review; no restricted hCasimir tangent matrix and no discarded actual family direction.",
+  "resource_limit": {
+    "timeout_seconds": 60,
+    "memory_mb": 1536
+  },
+  "negative_result_next_step": "If bounds differ, report the exact remaining transverse dimension and coordinate with the existing nonzero-extra Poisson-pencil search; do not repeat the singular primitive boundary point."
+}

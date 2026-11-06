@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "checkpoint": "v63-s61",
-  "date": "2026-11-04",
+  "checkpoint": "v64-classification-first",
+  "date": "2026-11-07",
   "base_mathematical_checkpoint": "v24",
   "new_mathematical_progress_in_this_setup": false,
   "purpose_ja": "収録原稿の主張、依存、今回の監査・再現範囲、未確認点を区別する研究用台帳。",
@@ -167,6 +167,20 @@
       "date": "2026-10-31",
       "result": "PASS",
       "scope_ja": "QQ核36次元と35 Bianchi関係、9257項の普遍G6、135次非零小行列式の独立点検。"
+    },
+    {
+      "id": "CLASSIFICATION_RANK3_MIXED_COMPONENT_REVIEW_20261107",
+      "record": "reports/CLASSIFICATION_RANK3_MIXED_COMPONENT_REVIEW_20261107.json",
+      "date": "2026-11-07",
+      "result": "PASS",
+      "scope_ja": "新点の全350式・全150微分・群作用・鉛直方向・QQ階数・十項余核と非零二次障害をproducer helperなしで独立再構成。真の形式切片論理と既知58との相違を読解確認。"
+    },
+    {
+      "id": "CLASSIFICATION_RANK3_TWZERO_NORMAL_QUADRICS_REVIEW_20261107",
+      "record": "reports/CLASSIFICATION_RANK3_TWZERO_NORMAL_QUADRICS_REVIEW_20261107.json",
+      "date": "2026-11-07",
+      "result": "PASS",
+      "scope_ja": "producer importなしFraction演算で全D・source49・kernel52・全65方向・五余核functionalと五二次式を再構成。真の切片とKrull支持論理は別に独立受理。"
     }
   ],
   "claims": [
@@ -29304,9 +29318,132 @@
         "Hは全formal cycleに作用させる。84×780列のRbar線形延長や有限Artin NF内部の除算ではない。一般のjet query lossをordinary orderへ読み替えない。",
         "三積の実値、元H0の生成・長さ・ell指数、nil四乗や正確なnil指数は未決。Tnil全体を代数として扱わない。"
       ]
+    },
+    {
+      "id": "R4_RANK3_MIXED_FULL_COMPONENT_22",
+      "title_ja": "階数三二重二次曲面の22次元全Poisson成分と下界59",
+      "statement_ja": "h-Casimir二次テンソルPの六係数(-hv,3hz−2uw,2hw+2u²,2hw+2u²+2wv,−2uv,4w²+6uz)は全Jacobiを満たし、実退化因子は4h(hw+u²)²である。全350×150微分のQQ階数102と群・鉛直・尺度階数47から一法線を得る。全微分を殺す十項の余核functionalがその二次障害に−140を与えるため真の形式切片の被約支持は零次元。従って22次元PGL軌道閉包は全空間成分で、証拠点を通る成分は唯一。従前58成分とは次元・閉rank条件・二次因子の階数・三重一次因子条件で区別され、総下界59、rank4下界53となる。",
+      "scope": "Full projectivized Jacobi scheme over C, before PGL5 quotient; reduced support componenthood and distinctness.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_full350_and_formal_support_review_2026_11_07",
+        "certificates": "all_matrices_and_cokernel_reconstructed_over_QQ_independently",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "MPS40",
+          "MPS40_CROSSWALK",
+          "R2_FULL_SIX",
+          "R4_ADDITIONAL_ELEVEN",
+          "R4_NEW25_POSITIVE_WEIGHT6_FULL_COMPONENT"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/classification/RANK3_MIXED_COMPONENT_REVIEW.md"
+        },
+        {
+          "path": "research/classification/KNOWN_COMPONENT_AUDIT.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_RANK3_MIXED_COMPONENT_20261107.json",
+        "reports/CLASSIFICATION_RANK3_MIXED_COMPONENT_REVIEW_20261107.json"
+      ],
+      "limitations_ja": [
+        "59は下界であり、総数・全分類・一般五点の尽くしは未証明。",
+        "全S61写像・一次像・正確な非被約厚みはこの証明の結論としない。",
+        "従前58との数学的区別は確認したが、文献上の新規性・優先権は未確認。"
+      ]
+    },
+    {
+      "id": "R4_RANK3_TWZERO_ADDITIONAL_COMPONENT_EXISTS",
+      "title_ja": "Tw0全源を含む別成分の存在と総下界60",
+      "statement_ja": "階数三二重二次曲面のT(w)=0全逆形式を覆う既約源SL2×Gm×A7のPGL飽和閉包Zは、実源微分rank49から射影次元24以上を持つ。証拠点の全Jacobi微分rank98によりZを含む全空間成分Cの次元は24〜27。全Zは閉非被約因子条件LQ²を満たすため24次元以下のMPS成分とは一致せず、CPLUS一般因子、T01/CA/CB/NEW25の閉因子条件でも非包含。全S61正規化と両閉45座標graphの残差−31/4、−1によりT39,T40への非包含も得る。六rank2成分と新22成分を含む全既知59から外れるCが少なくとも一つ存在し、総下界60、rank4下界54。",
+      "scope": "Existence of an additional reduced irreducible component of the full projectivized Poisson scheme over C; this does not identify that component with the24-dimensional source closure.",
+      "status": {
+        "proof": "existence_proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_full_scope_and_existing_closed_graph_dependency_review_2026_11_07",
+        "certificates": "exact_QQ_source_Jacobi_ranks_normalization_and_graph_residuals",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "R4_RANK3_MIXED_FULL_COMPONENT_22",
+          "MPS40",
+          "MPS40_CROSSWALK",
+          "R2_FULL_SIX",
+          "R4_ADDITIONAL_ELEVEN",
+          "R4_NEW25_POSITIVE_WEIGHT6_FULL_COMPONENT"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/classification/RANK3_TWZERO_NEW_COMPONENT_EXISTENCE.md"
+        },
+        {
+          "path": "research/classification/RANK3_TANGENT_ZERO_TW_RESTRICTION.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_RANK3_TWZERO_SOURCE_20261107.json",
+        "reports/CLASSIFICATION_RANK3_TWZERO_GENERIC_REVIEW_20261107.json",
+        "reports/CLASSIFICATION_RANK3_TWZERO_GRAPH_DIAGNOSTIC_20261107.json"
+      ],
+      "limitations_ja": [
+        "この存在証明だけでは成分自身の同定・正確な次元・一意性を結論しない。",
+        "後続R4_RANK3_TWZERO_FULL_COMPONENT_24で、全源の閉包自身が24次元成分と証明された。局所成分の一意性は引き続き未主張。",
+        "全分類は未証明。"
+      ],
+      "subsequent_stronger_claim": "R4_RANK3_TWZERO_FULL_COMPONENT_24"
+    },
+    {
+      "id": "R4_RANK3_TWZERO_FULL_COMPONENT_24",
+      "title_ja": "Tw0全源の閉包は24次元全Poisson成分、個別下界60",
+      "statement_ja": "T(w)=0の全逆形式を覆う実既約源SL2×Gm×A7のPGL飽和閉包Zは射影次元24の全Poisson成分である。全150係数のJacobi微分rank98、全実群・鉛直・尺度・11源微分rank49から三法線切片を得る。その真正二次初期式はn0²,n0n1,n0n2−28n2²/3477,n1²,n1n2−7n2²/13908を含み、根基は原点。49線形切片とKrull次元不等式の上界が実族下界と一致する。同次元MPS8/CPLUSは被約退化点を持つが全ZはLQ²という閉非被約条件に入るため異なる。他次元との相違も合わせ、個別全成分数下界60、rank4下界54。全Tw0支持はZに含まれる。",
+      "scope": "Full reduced componenthood and full Tw0 support coverage over C, before PGL5 quotient.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_source_and_Krull_slice_proof_and_full_fraction_reconstruction_2026_11_07",
+        "certificates": "independent_D98_source49_kernel52_DK_zero_and_five_exact_cokernel_pairings",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "R4_RANK3_MIXED_FULL_COMPONENT_22",
+          "MPS40",
+          "MPS40_CROSSWALK",
+          "R2_FULL_SIX",
+          "R4_ADDITIONAL_ELEVEN",
+          "R4_NEW25_POSITIVE_WEIGHT6_FULL_COMPONENT"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/classification/RANK3_TWZERO_COMPONENT.md"
+        },
+        {
+          "path": "research/classification/RANK3_TANGENT_ZERO_TW_RESTRICTION.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_RANK3_TWZERO_SOURCE_20261107.json",
+        "reports/CLASSIFICATION_RANK3_TWZERO_GENERIC_REVIEW_20261107.json",
+        "reports/CLASSIFICATION_RANK3_TWZERO_NORMAL_QUADRICS_20261107.json",
+        "reports/CLASSIFICATION_RANK3_TWZERO_NORMAL_QUADRICS_REVIEW_20261107.json"
+      ],
+      "limitations_ja": [
+        "証拠点を通る成分の一意性、一般軌道次元、精密な非被約構造は結論しない。",
+        "全成分数上界・一般五点の尽くし・全分類は未証明。",
+        "文献上の新規性は未確認。"
+      ]
     }
   ],
   "setup_checkpoint": "v25-setup",
   "current_checkpoint_includes_new_research": true,
-  "current_global_component_lower_bound": 58
+  "current_global_component_lower_bound": 60
 }

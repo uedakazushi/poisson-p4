@@ -1,0 +1,147 @@
+{
+  "task_id": "E_quadric3",
+  "date": "2026-11-07",
+  "S_family_brackets": {
+    "1,2": "3*a*h*v",
+    "1,3": "h*z*(3 - 3*a)",
+    "1,4": "3*h*w + 3*u**2",
+    "2,3": "h*w + u**2",
+    "2,4": "6*a*u*v",
+    "3,4": "u*z*(6 - 6*a)"
+  },
+  "R_family_brackets": {
+    "0,4": "-u**2",
+    "1,2": "a*u*v",
+    "1,3": "u*z*(1 - a)",
+    "1,4": "u*w",
+    "2,3": "v*z*(2 - 2*a)",
+    "2,4": "v*w*(1 - 2*a)",
+    "3,4": "w*z*(2*a - 1)"
+  },
+  "universal_parameter": "a",
+  "affine_Jacobi_S_zero": true,
+  "affine_Jacobi_R": {
+    "0,1,4": "-u**3",
+    "0,2,4": "-u**2*v",
+    "0,3,4": "-u**2*z"
+  },
+  "projective_Jacobi_R_zero": true,
+  "projective_Jacobi_S_plus_tR_zero": true,
+  "all350_projective_coefficients_verified": true,
+  "divisor_S": "3*h*(h*w + u**2)**2",
+  "divisor_R": "u*v*z*(h*w + u**2)",
+  "divisor_log_limit": "h*u*v*w*z",
+  "log_limit_Pfaffian_coefficient": 1,
+  "pushforward_weights": [
+    0,
+    -1,
+    0,
+    0,
+    0
+  ],
+  "exact_weighted_monomials": [
+    [
+      0,
+      4,
+      [
+        0,
+        2,
+        0,
+        0,
+        0
+      ],
+      "-1",
+      2
+    ],
+    [
+      1,
+      2,
+      [
+        0,
+        1,
+        1,
+        0,
+        0
+      ],
+      "a",
+      0
+    ],
+    [
+      1,
+      3,
+      [
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
+      "1 - a",
+      0
+    ],
+    [
+      1,
+      4,
+      [
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "1",
+      0
+    ],
+    [
+      2,
+      3,
+      [
+        0,
+        0,
+        1,
+        1,
+        0
+      ],
+      "2 - 2*a",
+      0
+    ],
+    [
+      2,
+      4,
+      [
+        0,
+        0,
+        1,
+        0,
+        1
+      ],
+      "1 - 2*a",
+      0
+    ],
+    [
+      3,
+      4,
+      [
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "2*a - 1",
+      0
+    ]
+  ],
+  "orbit_limit": "g_epsilon=diag(1,epsilon^(-1),1,1,1); g_epsilon*R = R_log - epsilon^2*u^2*d_h wedge d_w, with logcanonical limit.",
+  "mathematical_implication": "Every S_a lies on an actual projective Poisson pencil through R_a; every ambient component through R_a contains its SNC logcanonical orbit limit, hence is one of known MPS40 components.",
+  "parameter_exceptions": [],
+  "full_nonprimitive_Tw0_coverage_proved": false,
+  "global_exhaustion_proved": false,
+  "seconds": 0.30786541099951137,
+  "resource_limits": {
+    "cpu_seconds": 55,
+    "address_space_bytes": 1610612736
+  },
+  "source": "from pathlib import Path\nimport hashlib,itertools,json,resource,time\nresource.setrlimit(resource.RLIMIT_CPU,(55,55));resource.setrlimit(resource.RLIMIT_AS,(1536*1024**2,)*2)\nstart=time.monotonic()\nimport sympy as s\nh,u,v,z,w,a,t=s.symbols('h u v z w a t');xx=(h,u,v,z,w)\npairs=list(itertools.combinations(range(5),2));triples=list(itertools.combinations(range(5),3));quads=list(itertools.combinations(range(5),4))\nQ=h*w+u*u\nS=s.zeros(5);R=s.zeros(5)\nfor(i,j),f in zip(itertools.combinations(range(1,5),2),[3*a*h*v,3*(1-a)*h*z,3*Q,Q,6*a*u*v,6*(1-a)*u*z]):S[i,j]=f;S[j,i]=-f\ngamma=[a,1-a,1,2-2*a,1-2*a,2*a-1]\nfor(i,j),g in zip(itertools.combinations(range(1,5),2),gamma):R[i,j]=g*xx[i]*xx[j];R[j,i]=-R[i,j]\nR[0,4]=-u*u;R[4,0]=u*u\ndef jac(M):\n return{(i,j,k):s.expand(sum(M[i,l]*s.diff(M[j,k],xx[l])+M[j,l]*s.diff(M[k,i],xx[l])+M[k,l]*s.diff(M[i,j],xx[l])for l in range(5)))for i,j,k in triples}\ndef projected(J):\n return{s0:s.expand(sum((-1)**i*xx[s0[i]]*J[s0[:i]+s0[i+1:]]for i in range(4)))for s0 in quads}\njs,jr,jp=jac(S),jac(R),jac(S+t*R)\nassert all(f==0 for f in js.values())\nassert all(f==0 for f in projected(jr).values())\nassert all(f==0 for f in projected(jp).values())\ndef pf(M,ids):\n i,j,k,l=ids\n return s.expand(M[i,j]*M[k,l]-M[i,k]*M[j,l]+M[i,l]*M[j,k])\ndef divisor(M):\n return s.factor(sum((-1)**i*xx[i]*pf(M,tuple(j for j in range(5)if j!=i))for i in range(5)))\nDR=divisor(R);DS=divisor(S)\nassert s.expand(DR-u*v*z*(h*w+u*u))==0\nassert s.expand(DS-3*h*Q*Q)==0\nlogR=R.copy();logR[0,4]=0;logR[4,0]=0\nassert s.expand(divisor(logR)-h*u*v*z*w)==0\nassert all(f==0 for f in jac(logR).values())\nweights=[0,-1,0,0,0]\nweighted_terms=[]\nfor i,j in pairs:\n for mon,coef in s.Poly(R[i,j],*xx).terms():\n  if not coef:continue\n  degree=weights[i]+weights[j]-sum(x*y for x,y in zip(weights,mon))\n  expected=2 if(i,j)==(0,4)else 0\n  assert degree==expected\n  weighted_terms.append([i,j,list(mon),str(coef),degree])\nassert s.factor(pf(logR,(1,2,3,4))/(u*v*z*w))==1\nreport={'task_id':'E_quadric3','date':'2026-11-07',\n 'S_family_brackets':{f'{i},{j}':str(S[i,j])for i,j in pairs if S[i,j]!=0},\n 'R_family_brackets':{f'{i},{j}':str(R[i,j])for i,j in pairs if R[i,j]!=0},\n 'universal_parameter':'a','affine_Jacobi_S_zero':True,\n 'affine_Jacobi_R':{','.join(map(str,k)):str(f)for k,f in jr.items()if f!=0},\n 'projective_Jacobi_R_zero':True,'projective_Jacobi_S_plus_tR_zero':True,\n 'all350_projective_coefficients_verified':True,\n 'divisor_S':str(DS),'divisor_R':str(DR),'divisor_log_limit':str(divisor(logR)),\n 'log_limit_Pfaffian_coefficient':1,'pushforward_weights':weights,\n 'exact_weighted_monomials':weighted_terms,\n 'orbit_limit':'g_epsilon=diag(1,epsilon^(-1),1,1,1); g_epsilon*R = R_log - epsilon^2*u^2*d_h wedge d_w, with logcanonical limit.',\n 'mathematical_implication':'Every S_a lies on an actual projective Poisson pencil through R_a; every ambient component through R_a contains its SNC logcanonical orbit limit, hence is one of known MPS40 components.',\n 'parameter_exceptions':[],'full_nonprimitive_Tw0_coverage_proved':False,\n 'global_exhaustion_proved':False,'seconds':time.monotonic()-start,\n 'resource_limits':{'cpu_seconds':55,'address_space_bytes':1536*1024**2},\n 'source':Path(__file__).read_text(),'source_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}\ntarget=Path('/workspace/poisson-p4/reports/CLASSIFICATION_RANK3_PRIMITIVE_PROJECTIVE_PENCIL_20261107.json')\nwith target.open('x')as f:json.dump(report,f,indent=2);f.write('\\n')\nprint(json.dumps({'passed':True,'seconds':report['seconds'],'D_R':str(DR),'D_log':str(divisor(logR)),'affine_R_is_Poisson':not report['affine_Jacobi_R']}))\n",
+  "source_sha256": "156199bd50676f41468c0a0676c5b92edfa22885bb6b45a8f0f13946abf7b514"
+}

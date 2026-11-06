@@ -1,0 +1,33 @@
+{
+  "task_id": "E_quadric3",
+  "target_statement": "Determine whether the unique transverse normal at the mixed-extra orbit has a nonzero quadratic (or, if necessary, cubic) obstruction in the full350-equation cokernel.",
+  "implication_to_classification": "A nonzero true one-variable slice equation proves the22-dimensional orbit closure is a full irreducible component. This is reduced support needed for classification, not an exact nilpotence or completed-ring task.",
+  "coefficient_ring": "QQ[h,u,v,z,w] full150 projective equations and QQ[t,h,u,v,z,w], exact matrices at the same specified nondegenerate representative.",
+  "hypotheses": "Representative is the mixed r=wv source witness verified by the all-parameter certificate; full projective tangent dimension upper23 is already certified.",
+  "inverted_elements": [],
+  "complements": [
+    "All150 directions and all350 projective Jacobi coefficients retained in this second and final tangent construction attempt.",
+    "Other rank3 branches are separate."
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "work/rank3_mixed_support_obstruction.py",
+      "sha256": "7c2144944e3081435407696b3df7f537e7e3a7d275072bddfe229c145fd18e0c"
+    },
+    {
+      "path": "reports/CLASSIFICATION_RANK3_TANGENT_EXTRA_SOURCES_20261107.json",
+      "sha256": "64d7358ddd39aee369c2c44dedafdaa9abaccb8af0db2ba7321d21ceb513350d"
+    },
+    {
+      "path": "legacy/v03/code/poisson_p4_components_check.py",
+      "sha256": "08ca6a3d9938dec9df734a7a95d7d3eedb1b7c95d11213d8ada59feed625203f"
+    }
+  ],
+  "success_certificate": "Exact QQ fullD rank102, actual orbit rank47 dependency, normal tangent identity, explicit integral left-cokernel vector detecting quadratic obstruction. If only cubic is nonzero, its correction ambiguity must be checked separately before claiming support.",
+  "independent_check": "Separate sparse-coefficient checker required for successful pencil and source identification.",
+  "resource_limit": {
+    "timeout_seconds": 60,
+    "memory_mb": 1536
+  },
+  "negative_result_next_step": "At most throughcubic. If no support obstruction is found, stop local expansion and use global graph/source recognition."
+}

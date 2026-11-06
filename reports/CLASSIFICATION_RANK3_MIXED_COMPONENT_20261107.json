@@ -1,0 +1,39 @@
+{
+  "task_id": "E_quadric3",
+  "full_D_rank_QQ": 102,
+  "full_tangent_dimension": 48,
+  "actual_orbit_vertical_scale_rank_dependency": 47,
+  "normal_R": {
+    "(0, 1)": "-2*h*u + 2*u*v",
+    "(0, 2)": "-4*h*v + 6*v**2",
+    "(0, 3)": "4*h*z - 2*v*z",
+    "(0, 4)": "2*u**2",
+    "(1, 2)": "-u*v",
+    "(1, 3)": "3*u*z",
+    "(2, 3)": "11*v*z"
+  },
+  "D_R_exact_zero": true,
+  "quadratic_residual_zero": false,
+  "nonzero_quadratic_obstruction": true,
+  "left_cokernel_witness": {
+    "7": "-18",
+    "14": "18",
+    "18": "-9",
+    "20": "9",
+    "46": "-5",
+    "73": "36",
+    "78": "18",
+    "80": "-36",
+    "91": "-9",
+    "117": "4"
+  },
+  "left_times_quadratic": "-140",
+  "classification_implication": "True one-normal formal slice has nonzero quadratic initial equation, hence dimension0; actual22-dimensional projective orbit closure is a full component, subject to independent review and distinctness audit.",
+  "input_sha256": {
+    "code/classification_double_quadric.py": "dad8af82e92558d24e956408e2f657c6d639373035016509b1ea3ebf6c727b96",
+    "reports/CLASSIFICATION_RANK3_TANGENT_EXTRA_SOURCES_20261107.json": "64d7358ddd39aee369c2c44dedafdaa9abaccb8af0db2ba7321d21ceb513350d"
+  },
+  "source": "from pathlib import Path\nimport hashlib,itertools,json,resource,sys,time\nimport sympy as s\nfrom sympy.polys.matrices import DomainMatrix\nresource.setrlimit(resource.RLIMIT_CPU,(55,56));resource.setrlimit(resource.RLIMIT_AS,(1536*1024**2,)*2)\nroot=Path('/workspace/poisson-p4');sys.path.insert(0,str(root/'legacy/v03/code'))\nimport poisson_p4_components_check as p\nstart=time.monotonic();h,u,v,z,w,t=s.symbols('h u v z w t');xx=(h,u,v,z,w)\nP=s.zeros(5)\nfor(i,j),f in zip(itertools.combinations(range(1,5),2),[-h*v,3*h*z-2*u*w,2*h*w+2*u*u,2*h*w+2*u*u+2*w*v,-2*u*v,4*w*w+6*u*z]):P[i,j]=f;P[j,i]=-f\nR=s.zeros(5)\nfor(i,j),f in {(0,1):-2*h*u+2*u*v,(0,2):-4*h*v+6*v*v,(0,3):4*h*z-2*v*z,(0,4):2*u*u,(1,2):-u*v,(1,3):3*u*z,(2,3):11*v*z}.items():R[i,j]=f;R[j,i]=-f\npairs=list(itertools.combinations(range(5),2));triples=list(itertools.combinations(range(5),3));quads=list(itertools.combinations(range(5),4))\ndef sparse(A):return{(i,j):{e:int(c)for e,c in s.Poly(A[i,j],*xx).terms()if c}for i,j in pairs if A[i,j]!=0}\ndef vec(A):return s.Matrix([s.Poly(A[i,j],*xx).coeff_monomial(s.prod(x**a for x,a in zip(xx,e)))for(i,j),e in p.BIVECTOR_BASIS])\ndef jac(A):\n j={ijk:s.expand(sum(A[i,l]*s.diff(A[j,k],xx[l])+A[j,l]*s.diff(A[k,i],xx[l])+A[k,l]*s.diff(A[i,j],xx[l])for l in range(5)))for ijk in triples for i,j,k in[ijk]}\n q={inds:s.Poly(s.expand(sum((-1)**a*xx[inds[a]]*j[inds[:a]+inds[a+1:]]for a in range(4))),*xx)for inds in quads}\n return s.Matrix([q[inds].coeff_monomial(s.prod(x**a for x,a in zip(xx,e)))for inds,e in p.FOUR_VECTOR_BASIS])\nD=s.Matrix(p.linearized_jacobi_matrix(sparse(P)));assert D*vec(R)==s.zeros(350,1)\ndm=DomainMatrix.from_Matrix(D).convert_to(s.QQ);cols=list(dm.rref()[1]);assert len(cols)==102\nrows=list(dm.extract(range(350),cols).transpose().rref()[1]);M=D.extract(rows,cols)\nquadratic=jac(R)\nsol=M.inv()*(-quadratic.extract(rows,[0]));Tvec=s.zeros(150,1)\nfor i,a in zip(cols,sol):Tvec[i]=a\nresidual=D*Tvec+quadratic\nreport={'task_id':'E_quadric3','full_D_rank_QQ':102,'full_tangent_dimension':48,'actual_orbit_vertical_scale_rank_dependency':47,'normal_R':{str(ij):str(R[ij])for ij in pairs if R[ij]!=0},'D_R_exact_zero':True,'quadratic_residual_zero':residual==s.zeros(350,1)}\nif residual!=s.zeros(350,1):\n i=next(i for i,a in enumerate(residual)if a)\n co=M.T.inv()*D.extract([i],cols).T\n left=s.zeros(1,350);left[0,i]=1\n for j,a in zip(rows,co):left[0,j]-=a\n den=s.ilcm(*[s.denom(a)for a in left]);left=left*den\n nums=[abs(int(a))for a in left if a];g=s.igcd(*nums);left=left/g\n assert left*D==s.zeros(1,150) and (left*quadratic)[0]!=0\n report.update(nonzero_quadratic_obstruction=True,left_cokernel_witness={str(j):str(a)for j,a in enumerate(left)if a},left_times_quadratic=str((left*quadratic)[0]),classification_implication='True one-normal formal slice has nonzero quadratic initial equation, hence dimension0; actual22-dimensional projective orbit closure is a full component, subject to independent review and distinctness audit.')\nelse:\n T=s.zeros(5)\n for a,((i,j),e)in zip(Tvec,p.BIVECTOR_BASIS):T[i,j]+=a*s.prod(x**n for x,n in zip(xx,e));T[j,i]=-T[i,j]\n assert jac(P+t*R+t*t*T).applyfunc(lambda f:s.Poly(f,t).coeff_monomial(t**2))==s.zeros(350,1)\n cubic=jac(R+T)-jac(R)-jac(T)\n coeff=M.inv()*cubic.extract(rows,[0]);rest=cubic-D.extract(range(350),cols)*coeff\n report.update(second_correction={str(ij):str(s.expand(T[ij]))for ij in pairs if T[ij]!=0},cubic_residual_zero=rest==s.zeros(350,1),classification_implication='No quadratic obstruction; cubic remainder requires ambiguity check before support conclusion.')\nreport.update(input_sha256={'code/classification_double_quadric.py':hashlib.sha256((root/'code/classification_double_quadric.py').read_bytes()).hexdigest(),'reports/CLASSIFICATION_RANK3_TANGENT_EXTRA_SOURCES_20261107.json':hashlib.sha256((root/'reports/CLASSIFICATION_RANK3_TANGENT_EXTRA_SOURCES_20261107.json').read_bytes()).hexdigest()},source=Path(__file__).read_text(),source_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),seconds=time.monotonic()-start)\n(root/'work/rank3-mixed-support-obstruction.json').write_text(json.dumps(report,indent=2)+'\\n')\nprint(json.dumps({k:v for k,v in report.items()if k not in('source','left_cokernel_witness','input_sha256','normal_R','second_correction')},indent=2))\n",
+  "source_sha256": "7c2144944e3081435407696b3df7f537e7e3a7d275072bddfe229c145fd18e0c",
+  "seconds": 0.5670196430000942
+}
