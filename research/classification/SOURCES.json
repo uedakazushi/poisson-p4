@@ -1,0 +1,143 @@
+{
+  "version": "v64-classification-plan",
+  "date": "2026-11-06",
+  "baseline_commit": "a00a541b835b2bff18bafcba545ecbd4bae7175b",
+  "scope_note": "確認範囲を付した入口。source_readは実行済みを意味しない。未読の主張は独立証明済みとしない。",
+  "repository_sources": [
+    {
+      "id": "s61",
+      "path": "code/s61_model.py",
+      "baseline_git_blob": "6c7bd9f007c238b9a7807025aece4f4916d5d8d8",
+      "purpose": "元61変数・134式のadapter。正規化は既に値を固定した点で行う。",
+      "review_scope": "source_read"
+    },
+    {
+      "id": "slice6",
+      "path": "code/primitive_curve_dominant_slice_20261101.py",
+      "baseline_git_blob": "6e8c07ee6e80fd7e6349e25b01d5da2520e0d07e",
+      "purpose": "Sp4優越六切片。det=8428695240のassertを含む。今回再実行なし。",
+      "review_scope": "source_read"
+    },
+    {
+      "id": "components",
+      "path": "research/COMPONENTS.json",
+      "baseline_git_blob": "3aa185f3dc62dc098d662d3796b4d5e99b8cf57a",
+      "purpose": "58/52の台帳。generic五点・全被覆はfalse。冒頭を確認。",
+      "review_scope": "excerpt_read"
+    },
+    {
+      "id": "claims",
+      "path": "research/CLAIMS.json",
+      "baseline_git_blob": null,
+      "purpose": "主張と証明・検証報告の依存入口。全項目は今回未読。",
+      "review_scope": "path_referenced"
+    },
+    {
+      "id": "current_evidence",
+      "path": "research/STATE.md",
+      "baseline_git_blob": null,
+      "purpose": "v63 COまでの証拠への入口。旧キューとして再開しない。",
+      "review_scope": "excerpt_read"
+    },
+    {
+      "id": "scalar",
+      "path": "research/notes/S61_AFFINE_ACTUAL42_EULER_DELTA28_20261103_v63.md",
+      "baseline_git_blob": "eefe8b05311320a74db841695ecd1d8ede281734",
+      "purpose": "全actual42、J0、未知残余、delta_E membershipとcofactor次数障害。",
+      "review_scope": "proof_note_read"
+    },
+    {
+      "id": "scalar_review",
+      "path": "research/notes/S61_AFFINE_ACTUAL42_EULER_DELTA28_20261103_v63_REVIEW.md",
+      "baseline_git_blob": null,
+      "purpose": "scalar判定の既存レビュー。今回は検索抜粋を確認。",
+      "review_scope": "excerpt_read"
+    },
+    {
+      "id": "schur_review",
+      "path": "code/s61_affine_scalar_schur_review_20261103_v63.py",
+      "baseline_git_blob": "bd5067902af49935976aecce25c4129fdeb5215b",
+      "purpose": "全134式、670行、Schur15チャートの検証器。今回は先頭170行を確認。",
+      "review_scope": "excerpt_read"
+    },
+    {
+      "id": "generic_circuit",
+      "path": "code/s61_sparse_generic5_residual129_circuit_20261104_v63.py",
+      "baseline_git_blob": null,
+      "purpose": "残余129行を保持する既存回路。別実装レビューも検索で確認。",
+      "review_scope": "excerpt_read"
+    },
+    {
+      "id": "generic_circuit_review",
+      "path": "code/s61_sparse_generic5_residual129_circuit_review_20261104_v63.py",
+      "baseline_git_blob": null,
+      "purpose": "回路の独立レビューの入口。source基底と全行の保持を確認する。",
+      "review_scope": "excerpt_read"
+    },
+    {
+      "id": "rank2",
+      "path": "sources/v14.zip",
+      "baseline_git_blob": null,
+      "purpose": "rank≤2の8成分、全空間6成分の原入力。bootstrap後legacy/v14。",
+      "review_scope": "path_referenced"
+    },
+    {
+      "id": "normal_divisor",
+      "path": "sources/v22.zip",
+      "baseline_git_blob": null,
+      "purpose": "実退化因子が正規の認識定理の原入力。主分類に必要な範囲で監査。",
+      "review_scope": "path_referenced"
+    },
+    {
+      "id": "bibliography",
+      "path": "research/REFERENCES.md",
+      "baseline_git_blob": null,
+      "purpose": "MPS、Pym、Corrêa–Muniz等の文献台帳。一次本文はAで再確認。",
+      "review_scope": "path_referenced"
+    },
+    {
+      "id": "environment",
+      "path": "docs/CODEX_SETUP.md",
+      "baseline_git_blob": null,
+      "purpose": "既設Cloud・M2の制約・検証コマンド。研究優先順位は新方針が優先。",
+      "review_scope": "source_read"
+    },
+    {
+      "id": "verify",
+      "path": "scripts/verify.py",
+      "baseline_git_blob": null,
+      "purpose": "既存quick/rank2/integrity。全分類を検証するsuiteではない。",
+      "review_scope": "path_referenced"
+    },
+    {
+      "id": "checkpoint",
+      "path": "scripts/checkpoint.py",
+      "baseline_git_blob": null,
+      "purpose": "既存stage済み限定commit/push用。使用前に現在の実装を読む。",
+      "review_scope": "path_referenced"
+    }
+  ],
+  "external_sources": [
+    {
+      "id": "codex_agents",
+      "title": "OpenAI / Custom instructions with AGENTS.md",
+      "url": "https://learn.chatgpt.com/docs/agent-configuration/agents-md",
+      "checked": "2026-11-06",
+      "use": "AGENTS読込順・override・既定32KiB。個々の実環境設定は別途確認。"
+    },
+    {
+      "id": "generic_flatness",
+      "title": "Stacks Project, Tag 0529",
+      "url": "https://stacks.math.columbia.edu/tag/0529",
+      "checked": "2026-11-06",
+      "use": "generic flatnessの仮定と射程。有限性・尽くしは帰結しない。"
+    },
+    {
+      "id": "stratification",
+      "title": "Stacks Project, Tag 0H3Y",
+      "url": "https://stacks.math.columbia.edu/tag/0H3Y",
+      "checked": "2026-11-06",
+      "use": "Noether底での層別の論理背景。分類の計算成功は保証しない。"
+    }
+  ]
+}

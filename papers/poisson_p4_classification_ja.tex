@@ -1,0 +1,205 @@
+\documentclass[a4paper,11pt]{ltjsarticle}
+\usepackage[haranoaji]{luatexja-preset}
+\usepackage[margin=25mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs,longtable,array}
+\usepackage[unicode,hidelinks]{hyperref}
+\usepackage{xurl}
+\newtheorem{proposition}{命題}[section]
+\newtheorem{lemma}[proposition]{補題}
+\theoremstyle{definition}
+\newtheorem{target}[proposition]{目標（未証明）}
+\newtheorem{remark}[proposition]{注意}
+\newcommand{\PP}{\mathbf P}
+\newcommand{\CC}{\mathbf C}
+\newcommand{\Spec}{\operatorname{Spec}}
+\newcommand{\red}{\mathrm{red}}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\PGL}{\operatorname{PGL}}
+\newcommand{\Sp}{\operatorname{Sp}}
+\title{複素射影四空間上のPoisson構造の成分分類\\[3pt]
+\large 主原稿の骨格：分類主定理は未証明}
+\author{}
+\date{2026年11月6日\quad v64-classification-plan}
+\begin{document}
+\maketitle
+\begin{abstract}
+本稿は、複素射影四空間上のPoisson構造の被約既約成分を尽くし、各成分の一般元の幾何を記述する論文の現行骨格である。
+分類主定理の証明は完成していない。ここでは主定理の射程、一般ファイバーの被約支持を決定するための十分条件、一般底から特殊底への証明義務を固定する。
+既存リポジトリに収録された個々のPoisson分類結果を本稿で改めて証明したとは主張しない。
+詳細なnilpotent構造や派生論文の完成を、主分類定理の前提条件に追加しない。
+\end{abstract}
+
+\section{目的と分類の射程}
+複素数体上で
+\[
+ \mathcal P=\{[\pi]\in\PP H^0(\PP^4,\wedge^2T_{\PP^4})\mid[\pi,\pi]=0\}
+\]
+をJacobiスキームとする。スカラー倍による射影化を行うが、\(\PGL_5\)による商は取らない。
+本論文の主目標は\(\mathcal P_{\red}\)の既約成分分類である。
+これは、特殊点を含む全\(\PGL_5\)軌道の分類や、\(\mathcal P\)の全非被約構造の決定とは異なる。
+
+\begin{target}[主分類定理]\label{target:main}
+有限個の閉既約族\(\mathcal C_1,\ldots,\mathcal C_N\)を明示し、
+\[
+ \mathcal P_{\red}=\bigcup_{i=1}^{N}\mathcal C_i
+\]
+を証明する。各族が全空間の既約成分であること、相互に異なること、次元、一般階数、一般元の構成および退化因子の幾何を記述する。
+\end{target}
+
+\(N\)は未決定である。2026年11月6日に確認したリポジトリの台帳は、全成分数の下界58、一般階数4の成分数の下界52を記録している。
+これらは本稿で独立に再検証した定理ではなく、主定理に組み込むための監査対象である。
+58を答えとして固定して未知成分を排除するのではない。
+
+\subsection{先行研究との比較：未完了の執筆項目}
+Introductionの完成には、既存の40成分を扱う文献、Pymのpurely ellipticな構造の分類、rank2の葉層に関する文献等について、一次資料の仮定と本稿の主張の差を具体的に確認する必要がある。
+現在の入口は\texttt{research/REFERENCES.md}である。
+本稿では、未確認の書誌情報や新規性の断定を補わない。
+特に、実際の退化因子が正規という仮定と、その被約化が正規という仮定を区別する。
+
+\section{既存の還元を用いるための証明義務}
+一般階数4の構造を扱う既存モデル\(S_{61}\)は、重み1の16変数と重み2の45変数、元の134方程式からなる。
+これを用いるには、正則点の選択と群作用・正規化によって全てのrank4構造を捕捉できることを確認しなければならない。
+45変数の特別断面の分類を全\(S_{61}\)の分類と同一視しない。
+
+一次部分の底を\(W_{16}\)、その関数体を\(K=\CC(W_{16})\)と書く。
+一般ファイバーの座標環を
+\[
+ A=K[q_1,\ldots,q_{45}]/I
+\]
+とする。\(I\)は全134式を保持したイデアルである。
+既存の三平面に適合する法線座標を\(n_1,\ldots,n_{42}\)と書き、\(L=(n_1,\ldots,n_{42})\)とする。
+この座標変更の定義域・逆写像・分母も、主定理に必要なデータである。
+
+既存の記録では、三平面内の交叉は次数5の有限エタール代数\(E\)として決定される。
+以下でこの結果を仮定として用いる。一般の\(K\)上で5点が全て有理点という意味ではない。
+幾何学的な5点であり、トーリック側の三次代数と二つの一次代数を区別する。
+
+\section{一般ファイバーには弱い支持条件で足りる}
+\begin{proposition}[根基包含による尽くし]\label{prop:radical}
+\(R=K[q_1,\ldots,q_{45}]\)とする。\(R/(I+L)\)が既知の次数5の有限エタール代数であると仮定する。
+このとき\(L\subset\sqrt I\)を示せば、\(\Spec(R/I)_{\red}\)は既知の幾何学的5点に尽くされる。
+\end{proposition}
+\begin{proof}
+\(I\subset I+L\subset\sqrt I\)であるから、\(\sqrt{I+L}=\sqrt I\)である。
+有限エタール代数は被約なので\(I+L\)は根基イデアルである。
+したがって\(R/\sqrt I\simeq R/(I+L)\)であり、結論を得る。
+\end{proof}
+
+\begin{lemma}[有限個の証明書]\label{lem:certificate}
+\(L\subset\sqrt I\)を示すには、各\(j\)についてある\(m_j>0\)と多項式\(a_{ij}\)を構成し、
+\[
+ n_j^{m_j}=\sum_i a_{ij}f_i,\qquad I=(f_i),
+\]
+を確認すればよい。同値に、追加変数\(z\)を用いた
+\[
+ 1\in (I,1-zn_j)\subset R[z]
+\]
+を各\(j\)について示せばよい。
+\end{lemma}
+\begin{proof}
+前者は根基の定義である。後者の商は\((R/I)_{n_j}\)と同型である。
+この環が零環であることは、\(n_j\)のある冪が\(I\)に属することと同値である。
+\end{proof}
+
+この証明方針は、冪の最小値や全完成局所環を要求しない。
+局所計算を主目標に利用するときも、その結果が補題\ref{lem:certificate}等の支持条件を与えるかを先に確認する。
+有限次数のjetで\(n_j\)が零になるだけでは不十分である。
+
+\subsection{既存scalar判定との比較}
+既存ノートには、actual42変数上のイデアル\(J_0\)、未知残余\(B\)、補助変数\(a\)を含む\(\delta_E(n,a)\)について
+\[
+ B=0\quad\Longleftrightarrow\quad\delta_E\in J_0
+\]
+という判定が記載されている。
+これを適用する前に、全代数との同値、\(B(a)\)上でのregular性、各局所化の忠実性を監査する。
+本稿では、このPoisson固有の橋渡しの証明を未収録である。
+
+同ノートの記録では、\(\delta_E\)のactual次数は28、\(J_0\)の生成元次数は4以下である。
+したがって多項式cofactor表示があるなら、少なくとも一つのcofactorの次数は24以上となる。
+これは同じ低次数探索を繰り返さないための障害であるが、命題\ref{prop:radical}の別証明を排除するものではない。
+また、この28次のtargetと新25次元成分の一次像を定義する28次式とは異なる。
+
+\section{底の縮約と特殊底への移行}
+\begin{lemma}[体拡大からの降下]\label{lem:descent}
+\(K\subset K'\)を体拡大とする。\(L K'[q]\subset\sqrt{I K'[q]}\)が成り立てば、\(L\subset\sqrt I\)が成り立つ。
+\end{lemma}
+\begin{proof}
+各生成元\(n_j\)について、ある\(m_j\)で\(n_j^{m_j}\in I K'[q]\)となる。
+\(K[q]\to K'[q]\)は忠実平坦なので\(I K'[q]\cap K[q]=I\)である。
+よって\(n_j^{m_j}\in I\)である。
+\end{proof}
+
+既存コードは\(\Sp_4\)と六次元切片から\(W_{16}\)への優越写像を構成する。
+同変性とS61の座標対応を検証すれば、その関数体拡大に補題\ref{lem:descent}を適用できる。
+この利用は計画上の候補であり、今回そのPoisson固有の対応を全て再証明したわけではない。
+切片の任意の一つの有理点で計算することは、優越写像の関数体上で証明することの代わりにならない。
+
+\begin{proposition}[一般証明の開集合への拡張]\label{prop:spread}
+\(S\)を整域、\(K=\operatorname{Frac}(S)\)とし、\(I\subset S[q]\)と有限個の多項式\(n_j\in S[q]\)を取る。
+各\(n_j\)が\(I K[q]\)の根基に属するなら、ある\(0\ne d\in S\)について
+\(n_j\in\sqrt{I S_d[q]}\)が全ての\(j\)で成り立つ。
+\end{proposition}
+\begin{proof}
+有限個の\(j\)について冪の所属恒等式を選ぶ。
+その有限個の係数の分母を全て払う非零元\(d\)を取ればよい。
+\end{proof}
+
+この\(d\)は底の元であることが重要である。
+未知のfiber座標を反転して得たチャートについては、その補集合に別の枝が残る可能性がある。
+特殊底\(V(d)\)は次の証明義務であり、無視できない。
+一般ファイバーの5点だけで、主目標\ref{target:main}は完成しない。
+
+\subsection{閉層での再帰}
+\(V(d)\)の各既約閉層\(Z\)に元134式を制限する。
+その一般部分を既知族の閉包で覆えたとき、証明書の分母を払って\(Z\)内の非空開部分を覆い、残りを真の閉部分へ送る。
+各段階で有限個に分け、各子の次元が厳密に小さくなれば有限深さとなる。
+これはNoether性を利用する証明の枠組みであり、各層の一般分類が自動的に成功するという主張ではない。
+一般平坦性と層別の背景は\cite{stacks0529,stacks0H3Y}を参照する。
+
+未知の族が現れたら、それを元方程式で確認し、全空間での成分性と既存族との違いを証明する。
+特殊fiberの成分であることだけから、全空間の新しい成分と数えてはいけない。
+
+\section{最終証明へ向けた未解決箇所}
+本稿に未収録の主要部分を明示する。
+\begin{enumerate}
+\item S61による全rank4被覆、座標変更、元134式との同値の自己完結した証明。
+\item 一般ファイバーに対する命題\ref{prop:radical}の仮定\(L\subset\sqrt I\)、または同等の尽くしの証明。
+\item 得られた開集合の全補集合と、特殊一次部分上の未知成分の排除または追加。
+\item rank2の全被覆、既知成分の成分性・相互識別・一般幾何の証明統合。
+\item 主要な先行研究との一次資料に基づく比較と、主張・計算証明書の独立点検。
+\end{enumerate}
+
+全FULLUでの三次57・四次239や選択tailのgcdの絶対既約性は、上記のどの箇所を閉じるかが明確な場合にだけ補助課題とする。
+B18の精密なnil指数、\(H^0\)、\(T_2\)全長、追加の接触・Betti不変量は原則secondaryであり、主分類定理の受入条件にはしない。
+既存の価値ある証明と結果は破棄せず、必要な箇所へ統合する。
+
+\section{計算・証拠の位置づけ}
+本稿の命題\ref{prop:radical}、補題\ref{lem:certificate}、補題\ref{lem:descent}、命題\ref{prop:spread}には本文で証明を与えた。
+これらは一般的な可換代数の論理であり、新しいPoisson分類定理ではない。
+Poisson固有の既存結果については、収録証明、今回の証明確認、計算の再実行を区別する。
+計画用スクリプトのPASSは数学的証明の検証を意味しない。
+
+基準リポジトリのcommitは
+\texttt{a00a541b835b2bff18bafcba545ecbd4bae7175b}である。
+各証拠の入口と確認範囲は\texttt{research/classification/SOURCES.json}、未解決課題は\texttt{PLAN.json}に置く。
+主原稿の再生成は、リポジトリ直下から次のとおりである。
+\begin{verbatim}
+mkdir -p build/classification
+lualatex -interaction=nonstopmode -halt-on-error \
+  -output-directory=build/classification \
+  papers/poisson_p4_classification_ja.tex
+# 同じコマンドをもう一度実行して相互参照を確定する。
+\end{verbatim}
+
+\begin{thebibliography}{9}
+\bibitem{stacks0529} The Stacks Project Authors,
+\emph{The Stacks Project}, Tag 0529, Generic flatness.
+\url{https://stacks.math.columbia.edu/tag/0529}.
+2026年11月6日本文確認。
+\bibitem{stacks0H3Y} The Stacks Project Authors,
+\emph{The Stacks Project}, Tag 0H3Y, Generic flatness stratification.
+\url{https://stacks.math.columbia.edu/tag/0H3Y}.
+2026年11月6日本文確認。
+\end{thebibliography}
+\end{document}

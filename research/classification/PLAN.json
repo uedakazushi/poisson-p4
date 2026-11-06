@@ -1,0 +1,241 @@
+{
+  "schema_version": 1,
+  "version": "v64-classification-plan",
+  "date": "2026-11-06",
+  "baseline_commit": "a00a541b835b2bff18bafcba545ecbd4bae7175b",
+  "target": "exhaustive_reduced_components_before_PGL5_and_generic_geometry",
+  "mathematical_status": {
+    "global_lower_bound": 58,
+    "rank4_lower_bound": 52,
+    "global_upper_bound": null,
+    "generic_five_exhaustion": false,
+    "global_exhaustion": false,
+    "verification_scope": "repository_reported_not_reexecuted_here"
+  },
+  "source_registry": "research/classification/SOURCES.json",
+  "tasks": [
+    {
+      "id": "C0",
+      "title": "元方程式・被覆・一般還元の依存監査",
+      "kind": "primary",
+      "priority": 0,
+      "status": "ready",
+      "depends_on": [],
+      "inputs": [
+        "s61",
+        "slice6",
+        "components",
+        "claims",
+        "scalar",
+        "scalar_review",
+        "schur_review"
+      ],
+      "acceptance": "S61全rank4被覆と全134式、normal42・既知五点・六切片の各写像について証明の所在と未解決仮定を一巡で特定する。",
+      "first_step": "PROOF_ROUTE.mdと入力入口を照合し、Gの三経路の必要十分な仮定表を作る。新しい巨大計算はしない。",
+      "fallback": "具体的に欠けた橋渡し命題を一つのprimary課題として追加する。監査だけを反復しない。",
+      "nonclosing_attempts": 0,
+      "proof": null,
+      "review": null,
+      "activation_reason": null
+    },
+    {
+      "id": "G",
+      "title": "一般betaファイバーの被約尽くし",
+      "kind": "primary",
+      "priority": 1,
+      "status": "blocked",
+      "depends_on": [
+        "C0"
+      ],
+      "inputs": [
+        "s61",
+        "slice6",
+        "scalar",
+        "scalar_review",
+        "generic_circuit",
+        "generic_circuit_review"
+      ],
+      "acceptance": "全42法線の根基所属等または未知残余の空性を証明し、適用底開・全分母・独立検証を明記する。新残余があれば分類計画を更新し、未解決のまま成功扱いしない。",
+      "first_step": "正当化した六切片の関数体で全134式を保ち、直接支持証明と既存scalar判定を比較して一つの有限certificate jobを選ぶ。",
+      "fallback": "同経路の二回未決で支持幾何または境界経路に変更し、E0/Aも進める。",
+      "nonclosing_attempts": 0,
+      "proof": null,
+      "review": null,
+      "activation_reason": null
+    },
+    {
+      "id": "E0",
+      "title": "特殊底の被覆義務を準備する",
+      "kind": "primary",
+      "priority": 2,
+      "status": "blocked",
+      "depends_on": [
+        "C0"
+      ],
+      "inputs": [
+        "components",
+        "claims",
+        "s61"
+      ],
+      "acceptance": "既知像、実分母、選択minorの因子を区別し、元式の制限と未処理閉層の記法を固定する。これ自体を尽くしと呼ばない。",
+      "first_step": "52成分の像と各チャートの補集合を読み、最初の未処理層に対する元式・既知族比較を準備する。",
+      "fallback": "全primary decompositionを先取りせず、一つの最大次元候補に限定して入力と証明義務を明示する。",
+      "nonclosing_attempts": 0,
+      "proof": null,
+      "review": null,
+      "activation_reason": null
+    },
+    {
+      "id": "A",
+      "title": "既知成分・rank2・主要引用の監査",
+      "kind": "primary",
+      "priority": 3,
+      "status": "ready",
+      "depends_on": [],
+      "inputs": [
+        "components",
+        "claims",
+        "rank2",
+        "normal_divisor",
+        "bibliography"
+      ],
+      "acceptance": "主分類に使う各族のPoisson性、成分性、相違、次元とrank2被覆の証明・一次引用を確認し、欠落を明示する。",
+      "first_step": "成分数58を支持する依存を抽出し、全suite再実行でなく最も荷重の大きい未監査の一命題を確認する。",
+      "fallback": "依存しない結果を巻き込まず問題の影響範囲を限定し、修正課題としてC0/Fに接続する。",
+      "nonclosing_attempts": 0,
+      "proof": null,
+      "review": null,
+      "activation_reason": null
+    },
+    {
+      "id": "M",
+      "title": "主分類論文に証明を統合する",
+      "kind": "primary",
+      "priority": 4,
+      "status": "ready",
+      "depends_on": [],
+      "inputs": [
+        "claims",
+        "components",
+        "bibliography"
+      ],
+      "acceptance": "確認した結果を主原稿の該当節へ十分な証明とともに統合し、主分類未証明を明示する。既存有用成果を削らない。",
+      "first_step": "papers/poisson_p4_classification_ja.texの骨格にC0/Aの確認済み設定と証明を移す。",
+      "fallback": "未確認主張は本文の定理に昇格せず、必要な証明義務として残す。",
+      "nonclosing_attempts": 0,
+      "proof": null,
+      "review": null,
+      "activation_reason": null
+    },
+    {
+      "id": "E",
+      "title": "明示された特殊底を最後まで被覆する",
+      "kind": "primary",
+      "priority": 2,
+      "status": "blocked",
+      "depends_on": [
+        "G",
+        "E0"
+      ],
+      "inputs": [
+        "s61",
+        "components",
+        "claims"
+      ],
+      "acceptance": "一般証明の実補集合を各閉層で尽くし、残余が空となる。有限層別、全チャート、元式との同値を証明する。",
+      "first_step": "Gの底分母からV(f)を作り、その最大次元既約層の一般点上で元134式を既知閉包と比較する。",
+      "fallback": "新成分を構成・証明して表へ追加するか、別の構造定理で層を認識する。58に固執しない。",
+      "nonclosing_attempts": 0,
+      "proof": null,
+      "review": null,
+      "activation_reason": null
+    },
+    {
+      "id": "B",
+      "title": "必要な無限遠のbeta優越層を排除する",
+      "kind": "optional_primary",
+      "priority": 5,
+      "status": "conditional",
+      "depends_on": [
+        "C0"
+      ],
+      "inputs": [
+        "claims",
+        "current_evidence"
+      ],
+      "acceptance": "Gへの必要な矢印と対象層を明記し、周囲の支持排除またはbeta像の非優越性を証明する。",
+      "first_step": "FULLU57/239やH既約性が具体的にどの被覆命題を閉じるかを確認してから起動する。",
+      "fallback": "必要性がない／代替が短いならGの直接支持またはscalar経路に戻る。",
+      "nonclosing_attempts": 0,
+      "proof": null,
+      "review": null,
+      "activation_reason": null
+    },
+    {
+      "id": "F",
+      "title": "全被約既約成分の分類主定理を閉じる",
+      "kind": "primary",
+      "priority": 1,
+      "status": "blocked",
+      "depends_on": [
+        "C0",
+        "G",
+        "E",
+        "A"
+      ],
+      "inputs": [
+        "components",
+        "claims"
+      ],
+      "acceptance": "rank2とrank4全点の被覆、全族の成分性・相違、一般幾何が揃い、未処理閉層・未知枝がない。",
+      "first_step": "G/E/Aの証明を一つのglobal包含に接続し、数と次元の表を監査する。",
+      "fallback": "未処理の最小の義務をactiveへ戻し、主定理は未完成と明示する。",
+      "nonclosing_attempts": 0,
+      "proof": null,
+      "review": null,
+      "activation_reason": null
+    },
+    {
+      "id": "P",
+      "title": "分類を主定理とする論文を仕上げる",
+      "kind": "primary",
+      "priority": 2,
+      "status": "blocked",
+      "depends_on": [
+        "F",
+        "M"
+      ],
+      "inputs": [
+        "bibliography",
+        "claims",
+        "components"
+      ],
+      "acceptance": "主定理の十分な証明、先行研究比較、再現資料、必要な独立確認、組版が完了する。",
+      "first_step": "主原稿と最小再現bundleを同期し、分類の射程をIntroductionで具体的に説明する。",
+      "fallback": "論理の穴はFへ戻す。別論文完成を代用にしない。",
+      "nonclosing_attempts": 0,
+      "proof": null,
+      "review": null,
+      "activation_reason": null
+    },
+    {
+      "id": "S",
+      "title": "B18精密局所構造と派生論文",
+      "kind": "secondary",
+      "priority": 99,
+      "status": "suspended",
+      "depends_on": [],
+      "inputs": [
+        "current_evidence",
+        "claims"
+      ],
+      "acceptance": "分類への不可欠な依存が示されたときだけ、必要な弱い支持命題へ課題を改める。",
+      "first_step": "自動実行しない。T2/H0/nil指数や別原稿の旧キューは休止する。",
+      "fallback": "既存の証拠を保持しG/E/Aへ戻る。",
+      "nonclosing_attempts": 0,
+      "proof": null,
+      "review": null,
+      "activation_reason": null
+    }
+  ]
+}
