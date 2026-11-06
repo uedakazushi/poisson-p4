@@ -1,0 +1,52 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "target_statement": "Independently reconstruct the three remaining plane-two-line cubic full-source component proofs on true fixed linear slices.",
+  "implication_to_classification": "Full source rank48 and a complementary102-dimensional slice with zero-dimensional reduced support imply ambient local dimension48 and each irreducible source closure is a23-dimensional full component. This verifies actual componenthood for three candidates before catalogue registration.",
+  "coefficient_ring": "QQ in all150 ambient coefficients and the one or two literal true normal variables.",
+  "hypotheses": "The literal six-magnetic-parameter sources are actual irreducible polynomial sources. Geometric source exhaustion and component distinctness remain separate obligations.",
+  "inverted_elements": [
+    "Only explicit nonzero rational derivative minors"
+  ],
+  "complements": [
+    "All source, PGL, scale and vertical tangent directions are retained in the reconstructed F48.",
+    "The slice is a literal linear complement to F48; no group-product or arbitrary-kernel correction invariance is assumed.",
+    "IFT quadratic corrections need solve only the selected derivative rows. Cubic functionals annihilate all D columns and all raw normal quadratic coefficients."
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_two_lines_plane_cubic_cubic_review.py",
+      "sha256": "b2c630dc69770befcf7d58c7f63bd4af472320b782d3e0dc71a4083fe2981ff8"
+    },
+    {
+      "path": "code/classification_two_lines_plane_cubic_component_review.py",
+      "sha256": "47720c5f3f8bebf96f1838f0671e5d2a6af9e6f93361edcd5d4b19e11c46a23c"
+    },
+    {
+      "path": "reports/CLASSIFICATION_TWO_LINES_PLANE_CUBIC_20261107.json",
+      "sha256": "f0ec94367063e9fe85c053352672e23f9fe4c01267205bedceec2ee9ac908e3a"
+    },
+    {
+      "path": "reports/CLASSIFICATION_TWO_LINES_PLANE_CUBIC_THIRD_SECANT_20261107.json",
+      "sha256": "12165819a393c15fd4eef366c007787c4b2cfcd13eb380ed92e01583166e5431"
+    },
+    {
+      "path": "reports/CLASSIFICATION_TWO_LINES_PLANE_CUBIC_NORMALS_20261107.json",
+      "sha256": "d1470e3da77f626090198d6638fea737a922833d2ff313cc252136d45dfe6af3"
+    },
+    {
+      "path": "reports/CLASSIFICATION_TWO_LINES_PLANE_CUBIC_TWO_NORMALS_20261107.json",
+      "sha256": "06b77068297cb32eee423c9b716487b2120e8051274bab89c2b81c8000d7aab5"
+    },
+    {
+      "path": "reports/CLASSIFICATION_TWO_LINES_PLANE_CUBIC_CUBIC_SUPPORT_20261107.json",
+      "sha256": "71adabc299e2dd54d593c55f68ceb1a3ea2d6b3f1e34223aa2d0f6ac34568d1e"
+    }
+  ],
+  "success_certificate": "Independent standard-library Fraction all-source Jacobi/Pf,350x150 D ranks, actual F48 plus normals spanning kerD, explicit nonzero pivot minors, literal correction support and IFT equations, all cubic coefficient vectors and annihilating functional pairings, and elementary radical-origin certificates.",
+  "independent_check": "generic_structure independently reviewed and accepted the fixed-slice formal IFT and Krull argument. This execution independently rebuilds arithmetic without any producer or SymPy import.",
+  "resource_limit": {
+    "timeout_seconds": 60,
+    "memory_mb": 1536
+  },
+  "negative_result_next_step": "If any identity fails, preserve the discrepancy and report the candidate as unverified; do not change the point or increase formal order."
+}

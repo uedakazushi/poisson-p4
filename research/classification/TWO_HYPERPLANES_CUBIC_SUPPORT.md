@@ -623,6 +623,19 @@ p=0全五源には、Vと二超平面を保つ六つの線形場
 `CLASSIFICATION_TWO_HYPERPLANES_CUBIC_NILPOTENT_TRANSLATION_NORMALS_20261107.json`、
 `CLASSIFICATION_TWO_HYPERPLANES_CUBIC_NILPOTENT_UNIVERSAL_PENCILS_20261107.json`に保存した。
 
+その後、n3=λを保った全一パラメータsectionを忠実S61で検証した。
+T39の全45残差のgcdはλで、λ=0だけがT39に入り、T40では残差gcdが1となった。
+λ=1では全D102・実orbit/source47でtangent上界23となるが、真正一法線の二次と
+既に得た二次補正からの三次余核はともに零である。
+二次までのliteral曲線は高次Jacobi残差を持ち、実Poisson曲線ではない。
+これ以上のjet補正は追加しない。
+二超平面の一次変位h→h+t w,x→x+t(w-v)を吸収した固定H模型も構成したが、
+そのliteral pencilにも二次Jacobi残差があり、全被覆は依然未決である。
+
+u非依存枝は、本質三変数の平面三次因子の側で全係数を保持して扱える。
+`TWO_LINES_PLANE_CUBIC_SUPPORT.md`はその全支持を十三配置の全磁気六源へ還元し、
+うち六つの23次元成分を証明した。残る七配置と本節のu依存源は未処理として保持する。
+
 (L,M)=(0,h)でn6≠0なら残Jacobiからn16=n17=n18=0となり、F全体をhが割るため空である。
 最終的に残るのはp=0全五源、(L,M)=(h,x)の全六源、(30)の全六源、
 (L,M)=(0,h),(0,h+x)のu非依存枝、およびB=0のrank二平行移動である。

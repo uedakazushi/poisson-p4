@@ -1,0 +1,27 @@
+{
+  "task_id": "G",
+  "target_statement": "Compute the whole closed-linear two-form kernels for all ten factor-free self-adjoint Jordan pencil types with a nondegenerate member, and identify which constant orthogonal forms can be nondegenerate.",
+  "implication_to_classification": "An eight-dimensional kernel equal to alpha wedge df plus delta wedge dg gives the exact full low-degree representation omega=Omega+dF wedge dG. A separate rank-two Omega lemma excludes all degenerate Omega for nondegenerate f. The only two surviving constant-Pfaffian types have explicit linear Pf conditions forcing rank(firstjet)<=3. Together this excludes the entire nondegenerate-member quadratic-pencil highest branch from generic beta.",
+  "coefficient_ring": "QQ; each canonical pair represents an entire Segre orbit under GL4 and GL2 changes. No source point in a fixed family is sampled.",
+  "hypotheses": "Retain all24 linear two-form coefficients, all closedness and cubic orthogonality equations, and all6 constant two-form coefficients. Canonical blocks are anti-diagonal symmetric metrics times Jordan blocks, with distinct eigenvalues normalized by the pencil GL2 action.",
+  "inverted_elements": [],
+  "complements": [
+    "Four distinct eigenvalues have an existing uniform empty-extension proof",
+    "Zero/factor highest parts already have a separate proper-image proof",
+    "Pencils with no nondegenerate member remain separate",
+    "Any additional linear kernel found is retained without support exclusion"
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_unimodular_quadratic_pencil.py",
+      "sha256": "5d15b78530babf4c269c162b1765ffe8c2fe77d54bb31826176e55c34100f9e6"
+    }
+  ],
+  "success_certificate": "Ten full rational coefficient matrices; exact rank16 and an explicit rank8 expected kernel; all6 constant-form kernel matrices and their exact Pfaffian polynomials. The only nonzero Pfaffians must occur in semisimple2+2 and single-eigenvalueJordan2+2.",
+  "independent_check": "A separate rational row reduction reproduces every full kernel. A separate reader verifies Segre completeness, the degenerate-Omega lemma and the two surviving types before the whole-branch claim.",
+  "resource_limit": {
+    "timeout_seconds": 30,
+    "memory_mb": 512
+  },
+  "negative_result_next_step": "If extra kernels occur, preserve the exact full kernels and handle their geometry. Do not replace the full Segre stratum by additional coefficient points or infer support from the kernel dimension alone."
+}

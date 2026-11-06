@@ -1,6 +1,6 @@
 # Poisson structures on projective four-space
 
-**2026-11-06 · v64-classification-plan**
+**2026-11-07 · v64-classification-first**
 **主目標：Poisson構造の分類を主定理とする論文。派生論文はsecondary。**
 
 最初に [研究方針](RESEARCH_POLICY.md)、次に
@@ -13,8 +13,8 @@ Codexの入口は [AGENTS.md](AGENTS.md)。[次の課題](research/NEXT_TASKS.md
 PGL5商を取る前の空間である。第一主定理は、その**被約既約成分の尽くしと一般元の幾何**。
 特殊点を含む全PGL5軌道分類や全冪零構造とは区別する。
 
-現行台帳の成分下界は **58（一般階数4は52）**。上界・一般一次ジェットの五点尽くし・
-全成分の尽くしは未証明。本更新は計画の変更であり、新しい分類定理を証明した更新ではない。
+現行台帳の成分下界は **86（一般階数4は80）**。上界・一般一次ジェットの五点尽くし・
+全成分の尽くしは未証明。全86成分を個別同定し、既約二次因子＋既約三次因子などの全支持を被覆した。
 
 現在の最短候補は、一般ファイバーの未知**被約支持**を消し、得られた開集合の補集合を
 実際の方程式で尽くすこと。B18の正確なnil指数などは、必要性を示さない限り休止する。
@@ -32,8 +32,8 @@ python3 -m unittest discover -s tests -p test_classification.py
 
 - [証明の経路と停止基準](research/classification/PROOF_ROUTE.md)
 - [証拠・コードの入口](research/classification/SOURCES.json)
-- [主論文の日本語LuaLaTeX原稿](papers/poisson_p4_classification_ja.tex)（未完成の骨格）
+- [主論文の日本語LuaLaTeX原稿](papers/poisson_p4_classification_ja.tex)（分類主定理は未証明）
 - 既存 `research/CLAIMS.json` / `research/COMPONENTS.json`：数学的主張・成分台帳。
 
 旧 `research/STATE.md`・過去handoff・既存五原稿は証拠資料として残るが、旧優先順位や
-過去の「未決」記載を現行方針として読み直さない。今回、既存の数理コード・原稿・証明書は変更しない。
+過去の「未決」記載を現行方針として読み直さない。原証明・旧証明書を保持し、新たな全源と独立検証を現行原稿へ統合する。

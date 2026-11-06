@@ -1,0 +1,40 @@
+{
+  "task_id": "E_multiple_hyperplane",
+  "target_statement": "Test the minimal third-order obstruction after every second-order correction on the unique quadratic support line of nil22 A=1.",
+  "implication_to_classification": "If B(R,Q) is outside imD+B(R,kerD), every branch with the required quadratic tangent fails: (a\u00b2,ab) forces val(a)>=2val(b), so all allowed order2 corrections are covered. This proves reduced support is a point without an exact nil index.",
+  "coefficient_ring": "QQ in the full350-equation coefficient space and all150 ambient coefficient directions.",
+  "hypotheses": "The genuine quadratic support ideal is (a\u00b2,ab) after a linear normal change. The point and R,Q are the same transported frozen witness and previously certified full quadratic solution.",
+  "inverted_elements": [
+    "exact nonzero rational minors only"
+  ],
+  "complements": [
+    "All49-dimensional kerD is retained for Q ambiguity, including group directions and both true normals",
+    "If the quotient is zero, stop: no automatic degree4 or larger jet",
+    "A direct cubic initial generator is distinguished from a valuation-only support proof"
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_nil22_one_curve.py",
+      "sha256": "4c50b7570f0258559c76a0657401268e4e7f4cf23c9dfd3a4e2e7d25df583998"
+    },
+    {
+      "path": "code/classification_rank3_mixed_component_review.py",
+      "sha256": "48e61e30f9d7f04fb81f1bb5eec0e18daa28c8192d6a02a251e09cf8855b9bd0"
+    },
+    {
+      "path": "reports/CLASSIFICATION_NIL22_ONE_ACTUAL_CURVE_20261107.json",
+      "sha256": "939cdc842163d04d1199a8930a5bfa206d80d45c7dd8826cb1dafda24bd4f185"
+    },
+    {
+      "path": "reports/CLASSIFICATION_NIL22_ONE_QUADRATIC_SUPPORT_20261107.json",
+      "sha256": "30e49211f38e8c8431f601c976778090da836c499ba32b6470436aaa81a09d7f"
+    }
+  ],
+  "success_certificate": "FullD101 and49dimkernel, exact DQ+JacR0, full cubic C, complete B(R,kerD) quotient and an explicit left functional annihilating every ambiguity but pairing nonzero with C. Optionally include the remaining normal quadratic image for a stronger direct cubic certificate.",
+  "independent_check": "Parent independently specified the complete ambiguity quotient and corrected the Puiseux support argument. Any nonzero main certificate will be independently numerically reconstructed and its support logic reviewed.",
+  "resource_limit": {
+    "timeout_seconds": 60,
+    "memory_mb": 1536
+  },
+  "negative_result_next_step": "If quotientzero, preserve the surviving direction and return to actual whole-source geometry; do not extend the formal order."
+}

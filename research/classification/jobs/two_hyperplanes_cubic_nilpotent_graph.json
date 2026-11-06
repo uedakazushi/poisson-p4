@@ -1,0 +1,48 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "target_statement": "Test the entire n3 parameter section of the p0 source against the faithful full T39 and T40 closed S61 graphs.",
+  "implication_to_classification": "The actual centralizer orbit plus this section dominates the entire irreducible five-parameter source; positive whole-section membership proves whole-source containment by closedness.",
+  "coefficient_ring": "QQ(lambda), with polynomial identities after exact denominator clearing; every full134 S61 equation and all45 graph relations retained.",
+  "hypotheses": "The section is an actual universal Poisson family; evaluation at(1,1,1,0,0) is symplectic for every lambda with determinant16.",
+  "inverted_elements": [
+    "Only constant determinants in Darboux normalization; any additional denominator is explicitly stored and its complement handled by closedness."
+  ],
+  "complements": [
+    "All values of the true modulus lambda are retained, not a collection of numerical points.",
+    "Both globally certified reduced graphs are checked with full45 equations.",
+    "A negative graph test does not exclude other MPS components or prove a new component."
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_two_hyperplanes_cubic_nilpotent_graph.py",
+      "sha256": "d92b31dba703ce12f21bd2b94eaffda5a122cd8c4480052f4b01acef434954e6"
+    },
+    {
+      "path": "code/s61_model.py",
+      "sha256": "347fd285c5342d6e6444bf6d049a49342650a22b29857f87bbd5f4b689400fc1"
+    },
+    {
+      "path": "code/classification_degenerate_quadric_q4_nil31_I_graph.py",
+      "sha256": "a069489bad3470e7b185b3c7392f8987b1bdd006db2d7f81e0499c97d08e7059"
+    },
+    {
+      "path": "reports/CLASSIFICATION_TWO_HYPERPLANES_CUBIC_NILPOTENT_COMPONENTS_20261107.json",
+      "sha256": "d3a09e83b6c7085610a5b8da35666a6a1937f04d56235d8577f9cbd80ee3b042"
+    },
+    {
+      "path": "reports/Q51_UNIVERSAL_SECTION_20261101.json",
+      "sha256": "afdcea05be5450c7f1263c79e9746a83671a432df179fe3c7a5c63a3c1ce97a5"
+    },
+    {
+      "path": "reports/Q52_UNIVERSAL_SECTION_20261101.json",
+      "sha256": "b1b9cd28202559b33658c6bd3dc7ed17986eb6b53193a1463df595f55a5ea8d3"
+    }
+  ],
+  "success_certificate": "Full150 reconstruction, all134 original equations, all45 graph residual identities, exact framing and normalization.",
+  "independent_check": "For a positive result, independently check the explicit resulting parameter identities and centralizer dominance; the S61 equivalence and full graphs are already independently certified.",
+  "resource_limit": {
+    "timeout_seconds": 55,
+    "memory_mb": 1536
+  },
+  "negative_result_next_step": "If both closed graphs fail, stop this recognition route and retain the full source as an explicit unresolved obligation."
+}

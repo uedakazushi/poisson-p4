@@ -1,0 +1,50 @@
+{
+  "branch": "nil22_top_A_minus_half_main",
+  "source_report": "reports/CLASSIFICATION_NIL22_TOP_COMPONENTS_20261107.json",
+  "source_branch": "A_minus_half_main",
+  "canonical_parameter_values": {
+    "n14": 7
+  },
+  "actual_family_parameters": [
+    "n14"
+  ],
+  "coordinates": [
+    "h",
+    "x1+(n9/n14)*(x3-2*n10*x2)+(-2*(n6+n9*n5/n14))*(x4-2*n10*h)+(((n2-(24*n14+10)*n10*n6-24*n10*n5*n9)+(-2*n5/(2*n14+1))*n5-2*(n14+1)*(n7-4*n10**2*n9)*(n9/n14))/(2*n14+1))*h",
+    "x2+(n9/n14)*(x4-2*n10*h)",
+    "(x3-2*n10*x2)+(-2*n5/(2*n14+1))*(x4-2*n10*h)-2*(n7-4*n10**2*n9)*h",
+    "(x4-2*n10*h)"
+  ],
+  "canonical_brackets": {
+    "1,3": "2*(2*n14+1)*x1*x4-2*(n14+1)*x2*x3",
+    "1,4": "-(2*n14+1)*h*x3+2*n14*x2*x4",
+    "2,3": "-h*x3",
+    "2,4": "-h*x4",
+    "3,4": "2*n14*x4**2"
+  },
+  "weight": [
+    0,
+    2,
+    1,
+    1,
+    0
+  ],
+  "P_weight": 1,
+  "expected_full_D_rank": 102,
+  "expected_actual_group_rank": 46,
+  "expected_actual_family_rank": 47,
+  "rank_four_condition": "n14 != -1/2",
+  "normalization_open": "n14 !=0; its complement is covered by closure of the full explicit irreducible source",
+  "output_report": "reports/CLASSIFICATION_NIL22_HALF_MAIN_CANONICAL_20261107.json",
+  "universal_all_source_identity": true,
+  "affine_determinant": "1",
+  "universal_raw_jacobi_zero": true,
+  "universal_affine_pfaffian": "h*(2*n14 + 1)*(h*x3**2 + 2*x1*x4**2 - 2*x2*x3*x4)",
+  "homogeneous_weight_identity": true,
+  "same_frozen_witness_after_affine_change": true,
+  "source_report_sha256": "62c5ca9bbc2d6f87f2110e54025ee56d5ed52eb7b4b8802b70b20287267cb89d",
+  "input_sha256": "f30962629512f297123b42193a35e352cf78db6245033f50c84e83c8cbc7197e",
+  "producer_sha256": "8c023d995c178546e4247ccbb092562e6b9b9ca066c1f03fe0fc0a4e72187907",
+  "producer_bytes": "#!/usr/bin/env python3\n\"\"\"Verify a supplied all-source affine normalization without dropping charts.\"\"\"\nimport argparse\nimport hashlib\nimport itertools\nimport json\nfrom pathlib import Path\nimport resource\nimport time\n\nimport sympy as s\n\n\ndef main(path):\n    resource.setrlimit(resource.RLIMIT_CPU,(30,31))\n    resource.setrlimit(resource.RLIMIT_AS,(768*1024**2,768*1024**2))\n    started=time.monotonic();data=json.loads(path.read_text())\n    source_path=Path(data['source_report'])\n    source=next(v for v in json.loads(source_path.read_text())['branches'] if v['name']==data['source_branch'])\n    xx=s.symbols('h x1 x2 x3 x4');nn=s.symbols('n0:15')\n    env={str(v):v for v in xx+nn}\n    def matrix(values):\n        P=s.zeros(5)\n        for key,value in values.items():\n            i,j=map(int,key.split(','));P[i,j]=s.sympify(value,locals=env)\n        return P-P.T\n    P=matrix(source['universal_brackets']);C=matrix(data['canonical_brackets'])\n    coordinates=s.Matrix([s.sympify(v,locals=env) for v in data['coordinates']])\n    A=coordinates.jacobian(xx)\n    assert all(s.expand(v)==0 for v in coordinates-A*s.Matrix(xx))\n    determinant=s.factor(A.det());assert determinant==1\n    assert all(s.cancel(v)==0 for v in A*P*A.T-C.subs(dict(zip(xx,coordinates)),simultaneous=True))\n    for i,j,k in itertools.combinations(range(5),3):\n        assert s.expand(sum(C[i,l]*s.diff(C[j,k],xx[l])+C[j,l]*s.diff(C[k,i],xx[l])+C[k,l]*s.diff(C[i,j],xx[l]) for l in range(5)))==0\n    weights=data['weight']\n    for (i,j) in itertools.combinations(range(5),2):\n        for mon,coef in s.Poly(C[i,j],*xx).terms():\n            if coef:assert weights[i]+weights[j]-sum(a*b for a,b in zip(weights,mon))==data['P_weight']\n    pf=s.factor(C[1,2]*C[3,4]-C[1,3]*C[2,4]+C[1,4]*C[2,3])\n    old_at={env[k]:s.Rational(v) for k,v in source['full_source_specification']['witness'].items()}\n    canonical_at={env[k]:s.Rational(v) for k,v in data['canonical_parameter_values'].items()}\n    assert C.subs(old_at)==C.subs(canonical_at)\n    result=dict(data,universal_all_source_identity=True,affine_determinant=str(determinant),\n                universal_raw_jacobi_zero=True,universal_affine_pfaffian=str(pf),\n                homogeneous_weight_identity=True,same_frozen_witness_after_affine_change=True,\n                source_report_sha256=hashlib.sha256(source_path.read_bytes()).hexdigest(),\n                input_sha256=hashlib.sha256(path.read_bytes()).hexdigest(),\n                producer_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),\n                producer_bytes=Path(__file__).read_text(),seconds=round(time.monotonic()-started,4))\n    Path(data['output_report']).write_text(json.dumps(result,indent=2)+'\\n')\n    print(json.dumps(dict(branch=data['branch'],all_passed=True,pfaffian=str(pf),seconds=result['seconds'])))\n\n\nif __name__=='__main__':\n    ap=argparse.ArgumentParser();ap.add_argument('input',type=Path);main(ap.parse_args().input)\n",
+  "seconds": 0.4961
+}

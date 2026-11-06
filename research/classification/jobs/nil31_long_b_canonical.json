@@ -1,0 +1,36 @@
+{
+  "task_id": "E_multiple_hyperplane",
+  "target_statement": "Verify the entire five-parameter long-top B source maps to a three-parameter canonical family fixed by the w-scaling torus.",
+  "implication_to_classification": "The full actual family, rather than its group orbit alone, can be removed by a true transverse linear slice. If remaining normal weights have one strict sign, representation weights bound the full IFT problem.",
+  "coefficient_ring": "QQ[n0,n2,n3,n5,n9,h,x1,x2,x3,x4]",
+  "hypotheses": "The complete long-top B source is established. The previous quadratic-zero and graph-negative diagnostics are not repeated.",
+  "inverted_elements": [
+    "none"
+  ],
+  "complements": [
+    "The fixed family is not one orbit",
+    "Rank-two boundary n0=n5=0 is kept and is separately classified",
+    "A positive-dimensional slice gives an upper bound unless an actual lower-dimensional source is proved"
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_modular_affine_normalization.py",
+      "sha256": "8c023d995c178546e4247ccbb092562e6b9b9ca066c1f03fe0fc0a4e72187907"
+    },
+    {
+      "path": "code/data/classification_nil31_long_b_canonical.json",
+      "sha256": "930f8f5cefd76f050f06b0b973974256001e230a3830eb05b3eb02191465e7b3"
+    },
+    {
+      "path": "reports/CLASSIFICATION_NIL31_LONG_SOURCES_20261107.json",
+      "sha256": "9db02086da47c282c90894d06d869c6eee7884224de1ba80798b9c09e788755c"
+    }
+  ],
+  "success_certificate": "Universal determinant-one affine identity for all original coefficients, all raw Jacobi, Pfaffian, w-scaling weights, exact transport of the same frozen witness.",
+  "independent_check": "The two shears were derived directly by canceling the n3*x3*x4 terms and preserving every source coefficient. All later support claims require separate verification.",
+  "resource_limit": {
+    "timeout_seconds": 35,
+    "memory_mb": 768
+  },
+  "negative_result_next_step": "Correct the full source identity before any support computation; do not replace the full family with a sampled slice."
+}

@@ -1,0 +1,33 @@
+{
+  "task_id": "E_multiple_hyperplane",
+  "target_statement": "Cover the entire nil22 half-extra source using an explicit universal affine quadratic Poisson pencil splitting its double hyperplane.",
+  "implication_to_classification": "Generic epsilon has three independent hyperplanes plus a rank4 quadric, so the established full support theorem covers it; epsilon0 closure covers every s!=0 source point and s0 is already T01-covered.",
+  "coefficient_ring": "QQ[a,s,epsilon,h,x1,x2,x3,x4]",
+  "hypotheses": "The whole n5!=0 source is universally normalized. The construction is a true polynomial pencil, not a formal jet or a normal-only ansatz.",
+  "inverted_elements": [
+    "w only in the explanatory r=z/w coordinate",
+    "s only in the existing source normalization"
+  ],
+  "complements": [
+    "The final polynomial Jacobi identity extends across w=0",
+    "For each s!=0 the quadric determinant is nonzero on a dense epsilon open",
+    "s=0 is the separately covered half n5zero source"
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_nil31_long_b_deformation.py",
+      "sha256": "31b028aab9b758b81d60df343c8871da31d1cbd6cbd510dbb87904cdd2cacb8d"
+    },
+    {
+      "path": "reports/CLASSIFICATION_NIL22_HALF_EXTRA_CANONICAL_20261107.json",
+      "sha256": "9d80d9467bef03683035c652e51032a7a5c4e44fa8efeded59e126c259407ea4"
+    }
+  ],
+  "success_certificate": "All universal strict Jacobi, whole source endpoint equality, degree2 projective homogenization, exact Pf=-2w(h+epsilon*y)Q and rank4 quadric determinant s\u00b2(a epsilon+2s)\u00b2/4.",
+  "independent_check": "Parent receives the commuting-field derivation and all source formulas for an independent hand review; direct symbolic identities are checked in this finite job.",
+  "resource_limit": {
+    "timeout_seconds": 30,
+    "memory_mb": 768
+  },
+  "negative_result_next_step": "Correct the explicit polynomial pencil if an identity fails; only then return to the already-authorized weakest quadratic-support test, without longer formal jets."
+}

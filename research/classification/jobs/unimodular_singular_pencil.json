@@ -1,0 +1,26 @@
+{
+  "task_id": "G",
+  "target_statement": "Verify the whole closed linear two-form kernel for the unique no-common-kernel singular4-variable symmetric pencil f=x1*x2,g=x1*x3+x4^2/2.",
+  "implication_to_classification": "If the whole kernel is df wedge v plus u wedge dg, the full extension is Omega+dF wedge dG. Constant orthogonality leaves only Omega proportionaldx1 wedge dx2; linear Pf forcesu3=u4=0, making the constantPf zero. This proves the whole Kronecker stratum is empty and, with the complete common-kernel argument and nondegenerate-member cases, closes the quadratic-pencil highest branch.",
+  "coefficient_ring": "QQ, with all24 linear coefficients and all6 constant coefficients",
+  "hypotheses": "Use the complete symmetricKronecker3+regular1 representative; all changes of coordinates and scaling preserve extension existence and primitive evaluation rank. The full linear coefficient kernel is retained.",
+  "inverted_elements": [],
+  "complements": [
+    "Pencils with a common kernel have the separate complete Hilbert-Burch argument",
+    "Pencils with a nondegenerate member have the independently accepted ten-Segre proof",
+    "Highest forms outside the rational22 family remain separate"
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_unimodular_quadratic_pencil.py",
+      "sha256": "deb6cab57438e45632b852b1adb83e3811e47c12bfa0237518dd499ee9dee016"
+    }
+  ],
+  "success_certificate": "Full closed/orthogonal coefficient matrix of rank16; explicit independent8-column expected kernel; full constant-form matrix with sole kerneldx1 wedge dx2.",
+  "independent_check": "A separate rational coefficient reconstruction and geometric review of symmetric-pencil completeness and the Pfaffian contradiction.",
+  "resource_limit": {
+    "timeout_seconds": 30,
+    "memory_mb": 512
+  },
+  "negative_result_next_step": "Any extra linear kernel is retained and analyzed directly; do not claim an empty extension or omit the Kronecker stratum."
+}

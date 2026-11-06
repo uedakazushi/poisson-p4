@@ -1,0 +1,40 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "target_statement": "Check one literal quadratic curve at the nonzero p0 modulus, using the unique normal and the canonical exact second-order correction.",
+  "implication_to_classification": "If every full projective Jacobi coefficient vanishes, the actual algebraic curve can be recognized geometrically. A finite jet alone has no coverage implication.",
+  "coefficient_ring": "QQ[h,x,u,v,w,t] and full350x150 exact Jacobi derivative.",
+  "hypotheses": "FullD102 and actual47 are already checked; the unique normal has zero genuine quadratic obstruction.",
+  "inverted_elements": [
+    "None in displayed polynomial sources."
+  ],
+  "complements": [
+    "All four genuine normal directions are retained in the compatibility calculation.",
+    "Failure to find a pencil in this fixed span does not imply absence of a deformation.",
+    "No higher jets and no extra point probes."
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_two_hyperplanes_cubic_nilpotent_curve.py",
+      "sha256": "96405189868b01b72031e16f86090e633307643455aebdda38e59a001f6ec273"
+    },
+    {
+      "path": "code/classification_rank3_mixed_component_review.py",
+      "sha256": "48e61e30f9d7f04fb81f1bb5eec0e18daa28c8192d6a02a251e09cf8855b9bd0"
+    },
+    {
+      "path": "reports/CLASSIFICATION_TWO_HYPERPLANES_CUBIC_NILPOTENT_NONZERO_MODULUS_20261107.json",
+      "sha256": "42e99e0a0678fe6d873676da02d3c99e35fed0bc0981c89bec1a4778ef66dc58"
+    },
+    {
+      "path": "reports/CLASSIFICATION_TWO_HYPERPLANES_CUBIC_NILPOTENT_NONZERO_MODULUS_NORMAL_20261107.json",
+      "sha256": "5718cfc27c8462ae3e88c9a4af6402643d561e5de8126ee6c97c0bc851e6cb01"
+    }
+  ],
+  "success_certificate": "All polynomial coefficients of the complete P+tR+t\u00b2T satisfy projective Jacobi, not just terms throughdegree2; preserve any nonzero higher residuals if it fails.",
+  "independent_check": "Separate arithmetic implementation required for any new component claim; source exhaustion has a written branch proof.",
+  "resource_limit": {
+    "timeout_seconds": 55,
+    "memory_mb": 1536
+  },
+  "negative_result_next_step": "If this single complete candidate is not Poisson, stop this jet-derived curve route and use intrinsic source/divisor geometry. Do not append higher corrections."
+}

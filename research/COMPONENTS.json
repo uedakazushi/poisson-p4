@@ -14,15 +14,15 @@
     "null_values": "not catalogued or not applicable; never a claim of zero"
   },
   "coverage": {
-    "global_lower_bound": 74,
+    "global_lower_bound": 86,
     "generic_rank_two_full_components": 6,
-    "generic_rank_four_lower_bound": 68,
+    "generic_rank_four_lower_bound": 80,
     "upper_bound": null,
     "global_exhaustion_proved": false,
-    "individually_catalogued_count": 74,
+    "individually_catalogued_count": 86,
     "unexpanded_block_count": 0,
     "all_51_rank_four_ideals_in_S61_constructed": false,
-    "note_ja": "全74成分を個別同定、一般rank4は68、rank2は6。直前70に負の法線重みを持つ三つの22次元軌道閉包と、二超平面・既約三次型22次元成分を追加。全周囲成分性と相違を独立確認。全成分数上界・一般ファイバー尽くし・全分類は未証明。",
+    "note_ja": "全86成分を個別同定。一般rank4は80、rank2は6。直前74に平面conic+cubicの六成分と平面二直線+cubicの六成分（全て23次元）を追加。既約二次因子＋既約三次因子の全支持はMPS40と新六成分へ被覆。全成分数上界・一般ファイバー尽くし・全分類は未証明。",
     "generic_primitive_first_jet_known_lifts_lower_bound": 5,
     "full_generic_fiber_exhaustion_proved": false,
     "known_union_over_smooth_canonical_curve": {
@@ -9732,6 +9732,840 @@
         "証明点の軌道・鉛直・scale階数は46、実源を加えると47。一般軌道次元と商次元はこの一点から推論せず未決定。",
         "他の22次元非MPS成分は一般非被約因子、MPS40は次元23以上なので相異なる。"
       ]
+    },
+    {
+      "source_checkpoint": "v64-classification-first",
+      "id": "R4_PLANE_CONIC_CUBIC_CUSP_OUTSIDE_1_23",
+      "name": "平面二次・三次曲線型 cusp_outside_1",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "additional_generic_rank_four_full_component_outside_MPS40",
+      "generic_rank": 4,
+      "projective_dimension": 23,
+      "generic_pgl5_orbit_dimension": 23,
+      "generic_reduced_rosenlicht_quotient_dimension": 0,
+      "generic_transverse_algebra": null,
+      "meets_SNC_log_symplectic_locus": false,
+      "component_definition": "Reduced PGL5-saturated closure of the complete six-magnetic-parameter source for the specified plane configuration",
+      "generic_construction": {
+        "source_case": "cusp_outside_1",
+        "full_source": "research/classification/DEGENERATE_QUADRIC_Q3_AZERO_SUPPORT.md",
+        "all_six_magnetic_parameters_retained": true,
+        "universal_brackets": {
+          "01": "0",
+          "02": "0",
+          "03": "-20*a**2/41 - 13*a*b/82 + 10*b**2/123 + 625*b*c/246",
+          "04": "-51*a**2/1025 - 4*a*b/615 - 2*a*c/3 + b**2/615 + 160*b*c/123",
+          "12": "0",
+          "13": "625*a**2/164 - 45*a*b/41 - 121*b**2/164",
+          "14": "80*a**2/41 + 283*a*b/2050 - 2*b**2/205 - 3*b*c/2",
+          "23": "10*a**2/41 + 30*a*c/41 + b*c",
+          "24": "a**2/205 - 436*a*c/1025 + c**2",
+          "34": "a**2*m0 + a*b*m1 + a*c*m2 + 793*a*r/2050 - 55*a*z/41 + b**2*m3 + b*c*m4 + 16*b*r/615 - 26*b*z/41 + c**2*m5 + c*r/6"
+        }
+      },
+      "generic_actual_degeneracy_divisor": {
+        "essential_variable_count": 3,
+        "irreducible_factor_degrees": [
+          2,
+          3
+        ],
+        "corresponding_multiplicities": [
+          1,
+          1
+        ],
+        "reduced": true,
+        "quadric": "225*a**2 + 24*a*b + 1875*a*c + b**2 + 1000*b*c - 3125*c**2",
+        "cubic": "-a**3 + b**2*c",
+        "quadric_rank": 3
+      },
+      "claims": [
+        "R4_PLANE_CONIC_CUBIC_SIX_COMPONENTS_23"
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/DEGENERATE_QUADRIC_Q3_AZERO_SUPPORT.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_Q3_FREE_CONIC_CUBIC_COMPONENT_REVIEW_20261107.json",
+        "reports/CLASSIFICATION_Q3_FREE_CONIC_CUBIC_THIRD_REVIEW_20261107.json"
+      ],
+      "review_status": {
+        "proof": "full_ambient_componenthood_and_distinctness_proved",
+        "independent_review": "accepted_independent_full150_full350_Fraction_and_geometry_2026_11_07",
+        "certificates": "exact_QQ_reconstruction",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "notes_ja": [
+        "全周囲の実48方向と真正一又は二法線の二次・三次支持から23次元成分。全支持の分類上界は未主張。",
+        "本質三変数の閉条件と全MPSのSNC点、一般因子型と平面配置により既知成分および相互の相違を証明。",
+        "磁気shearのrank五商とscalar作用により非零商は一軌道、零商はその実極限。"
+      ]
+    },
+    {
+      "source_checkpoint": "v64-classification-first",
+      "id": "R4_PLANE_CONIC_CUBIC_CUSP_OUTSIDE_3_23",
+      "name": "平面二次・三次曲線型 cusp_outside_3",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "additional_generic_rank_four_full_component_outside_MPS40",
+      "generic_rank": 4,
+      "projective_dimension": 23,
+      "generic_pgl5_orbit_dimension": 23,
+      "generic_reduced_rosenlicht_quotient_dimension": 0,
+      "generic_transverse_algebra": null,
+      "meets_SNC_log_symplectic_locus": false,
+      "component_definition": "Reduced PGL5-saturated closure of the complete six-magnetic-parameter source for the specified plane configuration",
+      "generic_construction": {
+        "source_case": "cusp_outside_3",
+        "full_source": "research/classification/DEGENERATE_QUADRIC_Q3_AZERO_SUPPORT.md",
+        "all_six_magnetic_parameters_retained": true,
+        "universal_brackets": {
+          "01": "0",
+          "02": "0",
+          "03": "a*b/6 + 5*b*c/6",
+          "04": "a**2 - 2*a*c/3 + 5*b**2/3",
+          "12": "0",
+          "13": "5*a**2/4 - b**2/4",
+          "14": "7*a*b/2 - 3*b*c/2",
+          "23": "b*c",
+          "24": "5*a**2 - 4*a*c + c**2",
+          "34": "a**2*m0 + a*b*m1 + a*c*m2 - 3*a*r/2 + b**2*m3 + b*c*m4 + 2*b*z/3 + c**2*m5 + c*r/6"
+        }
+      },
+      "generic_actual_degeneracy_divisor": {
+        "essential_variable_count": 3,
+        "irreducible_factor_degrees": [
+          2,
+          3
+        ],
+        "corresponding_multiplicities": [
+          1,
+          1
+        ],
+        "reduced": true,
+        "quadric": "-3*a**2 + 3*a*c + b**2 - c**2",
+        "cubic": "-a**3 + b**2*c",
+        "quadric_rank": 3
+      },
+      "claims": [
+        "R4_PLANE_CONIC_CUBIC_SIX_COMPONENTS_23"
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/DEGENERATE_QUADRIC_Q3_AZERO_SUPPORT.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_Q3_FREE_CONIC_CUBIC_COMPONENT_REVIEW_20261107.json",
+        "reports/CLASSIFICATION_Q3_FREE_CONIC_CUBIC_THIRD_REVIEW_20261107.json"
+      ],
+      "review_status": {
+        "proof": "full_ambient_componenthood_and_distinctness_proved",
+        "independent_review": "accepted_independent_full150_full350_Fraction_and_geometry_2026_11_07",
+        "certificates": "exact_QQ_reconstruction",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "notes_ja": [
+        "全周囲の実48方向と真正一又は二法線の二次・三次支持から23次元成分。全支持の分類上界は未主張。",
+        "本質三変数の閉条件と全MPSのSNC点、一般因子型と平面配置により既知成分および相互の相違を証明。",
+        "磁気shearのrank五商とscalar作用により非零商は一軌道、零商はその実極限。"
+      ]
+    },
+    {
+      "source_checkpoint": "v64-classification-first",
+      "id": "R4_PLANE_CONIC_CUBIC_CUSP_AT_CUSP_2_23",
+      "name": "平面二次・三次曲線型 cusp_at_cusp_2",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "additional_generic_rank_four_full_component_outside_MPS40",
+      "generic_rank": 4,
+      "projective_dimension": 23,
+      "generic_pgl5_orbit_dimension": 23,
+      "generic_reduced_rosenlicht_quotient_dimension": 0,
+      "generic_transverse_algebra": null,
+      "meets_SNC_log_symplectic_locus": false,
+      "component_definition": "Reduced PGL5-saturated closure of the complete six-magnetic-parameter source for the specified plane configuration",
+      "generic_construction": {
+        "source_case": "cusp_at_cusp_2",
+        "full_source": "research/classification/DEGENERATE_QUADRIC_Q3_AZERO_SUPPORT.md",
+        "all_six_magnetic_parameters_retained": true,
+        "universal_brackets": {
+          "01": "0",
+          "02": "0",
+          "03": "a**2/22 - 3*a*b/22 - 5*b**2/11",
+          "04": "-25*a**2/44 + 5*a*b/11 - a*c/4 + 15*b**2/22 - 5*b*c/2",
+          "12": "0",
+          "13": "7*a*b/44 - 31*b**2/44",
+          "14": "-15*a**2/4 + 155*a*b/88 + 15*b**2/22 - 7*b*c/8",
+          "23": "-15*a**2/11 - 2*a*c/11 + b*c",
+          "24": "45*a**2/22 - 115*a*c/22 + c**2",
+          "34": "a**2*m0 + a*b*m1 + a*c*m2 + 405*a*r/88 + 3*a*z/44 + b**2*m3 + b*c*m4 - 20*b*r/11 - 6*b*z/11 + c**2*m5 - 7*c*r/8"
+        }
+      },
+      "generic_actual_degeneracy_divisor": {
+        "essential_variable_count": 3,
+        "irreducible_factor_degrees": [
+          2,
+          3
+        ],
+        "corresponding_multiplicities": [
+          1,
+          1
+        ],
+        "reduced": true,
+        "quadric": "6*a**2 - 4*a*b + a*c + b**2 - 4*b*c",
+        "cubic": "-a**3 + b**2*c",
+        "quadric_rank": 3
+      },
+      "claims": [
+        "R4_PLANE_CONIC_CUBIC_SIX_COMPONENTS_23"
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/DEGENERATE_QUADRIC_Q3_AZERO_SUPPORT.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_Q3_FREE_CONIC_CUBIC_COMPONENT_REVIEW_20261107.json",
+        "reports/CLASSIFICATION_Q3_FREE_CONIC_CUBIC_THIRD_REVIEW_20261107.json"
+      ],
+      "review_status": {
+        "proof": "full_ambient_componenthood_and_distinctness_proved",
+        "independent_review": "accepted_independent_full150_full350_Fraction_and_geometry_2026_11_07",
+        "certificates": "exact_QQ_reconstruction",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "notes_ja": [
+        "全周囲の実48方向と真正一又は二法線の二次・三次支持から23次元成分。全支持の分類上界は未主張。",
+        "本質三変数の閉条件と全MPSのSNC点、一般因子型と平面配置により既知成分および相互の相違を証明。",
+        "磁気shearのrank五商とscalar作用により非零商は一軌道、零商はその実極限。"
+      ]
+    },
+    {
+      "source_checkpoint": "v64-classification-first",
+      "id": "R4_PLANE_CONIC_CUBIC_CUSP_AT_CUSP_3_23",
+      "name": "平面二次・三次曲線型 cusp_at_cusp_3",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "additional_generic_rank_four_full_component_outside_MPS40",
+      "generic_rank": 4,
+      "projective_dimension": 23,
+      "generic_pgl5_orbit_dimension": 23,
+      "generic_reduced_rosenlicht_quotient_dimension": 0,
+      "generic_transverse_algebra": null,
+      "meets_SNC_log_symplectic_locus": false,
+      "component_definition": "Reduced PGL5-saturated closure of the complete six-magnetic-parameter source for the specified plane configuration",
+      "generic_construction": {
+        "source_case": "cusp_at_cusp_3",
+        "full_source": "research/classification/DEGENERATE_QUADRIC_Q3_AZERO_SUPPORT.md",
+        "all_six_magnetic_parameters_retained": true,
+        "universal_brackets": {
+          "01": "0",
+          "02": "0",
+          "03": "-a*b/9 - 5*b**2/9",
+          "04": "-a**2/3 + 10*a*b/27 - a*c/9 + 20*b**2/27 - 10*b*c/9",
+          "12": "0",
+          "13": "-2*b**2/3",
+          "14": "-5*a**2/3 + 4*a*b/3 + 5*b**2/9 - 2*b*c/3",
+          "23": "-5*a**2/3 + b*c",
+          "24": "20*a**2/9 - 11*a*c/3 + c**2",
+          "34": "a**2*m0 + a*b*m1 + a*c*m2 + 3*a*r + b**2*m3 + b*c*m4 - 40*b*r/27 - 4*b*z/9 + c**2*m5 - 11*c*r/9"
+        }
+      },
+      "generic_actual_degeneracy_divisor": {
+        "essential_variable_count": 3,
+        "irreducible_factor_degrees": [
+          2,
+          3
+        ],
+        "corresponding_multiplicities": [
+          1,
+          1
+        ],
+        "reduced": true,
+        "quadric": "3*a**2 - 3*a*b + b**2 - b*c",
+        "cubic": "-a**3 + b**2*c",
+        "quadric_rank": 3
+      },
+      "claims": [
+        "R4_PLANE_CONIC_CUBIC_SIX_COMPONENTS_23"
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/DEGENERATE_QUADRIC_Q3_AZERO_SUPPORT.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_Q3_FREE_CONIC_CUBIC_COMPONENT_REVIEW_20261107.json",
+        "reports/CLASSIFICATION_Q3_FREE_CONIC_CUBIC_THIRD_REVIEW_20261107.json"
+      ],
+      "review_status": {
+        "proof": "full_ambient_componenthood_and_distinctness_proved",
+        "independent_review": "accepted_independent_full150_full350_Fraction_and_geometry_2026_11_07",
+        "certificates": "exact_QQ_reconstruction",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "notes_ja": [
+        "全周囲の実48方向と真正一又は二法線の二次・三次支持から23次元成分。全支持の分類上界は未主張。",
+        "本質三変数の閉条件と全MPSのSNC点、一般因子型と平面配置により既知成分および相互の相違を証明。",
+        "磁気shearのrank五商とscalar作用により非零商は一軌道、零商はその実極限。"
+      ]
+    },
+    {
+      "source_checkpoint": "v64-classification-first",
+      "id": "R4_PLANE_CONIC_CUBIC_NODE_SMOOTH_CONTACT_23",
+      "name": "平面二次・三次曲線型 node_smooth_contact",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "additional_generic_rank_four_full_component_outside_MPS40",
+      "generic_rank": 4,
+      "projective_dimension": 23,
+      "generic_pgl5_orbit_dimension": 23,
+      "generic_reduced_rosenlicht_quotient_dimension": 0,
+      "generic_transverse_algebra": null,
+      "meets_SNC_log_symplectic_locus": false,
+      "component_definition": "Reduced PGL5-saturated closure of the complete six-magnetic-parameter source for the specified plane configuration",
+      "generic_construction": {
+        "source_case": "node_smooth_contact",
+        "full_source": "research/classification/DEGENERATE_QUADRIC_Q3_AZERO_SUPPORT.md",
+        "all_six_magnetic_parameters_retained": true,
+        "universal_brackets": {
+          "01": "0",
+          "02": "0",
+          "03": "a*b/6 - 5*b*c/6",
+          "04": "-5*a**2/2 - 3*a*c/2 + 5*b**2/3",
+          "12": "0",
+          "13": "-5*a**2/6 - 5*a*c/6 - b**2/4",
+          "14": "-25*a*b/12 - 3*b*c/2",
+          "23": "b*c",
+          "24": "5*a**2 + 5*a*c + c**2",
+          "34": "a**2*m0 + a*b*m1 + a*c*m2 + 25*a*r/12 + b**2*m3 + b*c*m4 + 2*b*z/3 + c**2*m5 + c*r"
+        }
+      },
+      "generic_actual_degeneracy_divisor": {
+        "essential_variable_count": 3,
+        "irreducible_factor_degrees": [
+          2,
+          3
+        ],
+        "corresponding_multiplicities": [
+          1,
+          1
+        ],
+        "reduced": true,
+        "quadric": "2*a**2 + 3*a*c + b**2 + c**2",
+        "cubic": "-a**2*(a + c) + b**2*c",
+        "quadric_rank": 3
+      },
+      "claims": [
+        "R4_PLANE_CONIC_CUBIC_SIX_COMPONENTS_23"
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/DEGENERATE_QUADRIC_Q3_AZERO_SUPPORT.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_Q3_FREE_CONIC_CUBIC_COMPONENT_REVIEW_20261107.json",
+        "reports/CLASSIFICATION_Q3_FREE_CONIC_CUBIC_THIRD_REVIEW_20261107.json"
+      ],
+      "review_status": {
+        "proof": "full_ambient_componenthood_and_distinctness_proved",
+        "independent_review": "accepted_independent_full150_full350_Fraction_and_geometry_2026_11_07",
+        "certificates": "exact_QQ_reconstruction",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "notes_ja": [
+        "全周囲の実48方向と真正一又は二法線の二次・三次支持から23次元成分。全支持の分類上界は未主張。",
+        "本質三変数の閉条件と全MPSのSNC点、一般因子型と平面配置により既知成分および相互の相違を証明。",
+        "磁気shearのrank五商とscalar作用により非零商は一軌道、零商はその実極限。"
+      ]
+    },
+    {
+      "source_checkpoint": "v64-classification-first",
+      "id": "R4_PLANE_CONIC_CUBIC_NODE_AT_NODE_23",
+      "name": "平面二次・三次曲線型 node_at_node",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "additional_generic_rank_four_full_component_outside_MPS40",
+      "generic_rank": 4,
+      "projective_dimension": 23,
+      "generic_pgl5_orbit_dimension": 23,
+      "generic_reduced_rosenlicht_quotient_dimension": 0,
+      "generic_transverse_algebra": null,
+      "meets_SNC_log_symplectic_locus": false,
+      "component_definition": "Reduced PGL5-saturated closure of the complete six-magnetic-parameter source for the specified plane configuration",
+      "generic_construction": {
+        "source_case": "node_at_node",
+        "full_source": "research/classification/DEGENERATE_QUADRIC_Q3_AZERO_SUPPORT.md",
+        "all_six_magnetic_parameters_retained": true,
+        "universal_brackets": {
+          "01": "0",
+          "02": "0",
+          "03": "-7*a**2/8 - a*b/4 + 5*b**2/8",
+          "04": "87*a**2/176 + 15*a*b/88 - 4*a*c/11 - 45*b**2/176 - 10*b*c/11",
+          "12": "0",
+          "13": "5*a**2/8 - a*b/4 - 7*b**2/8",
+          "14": "-255*a**2/176 - 39*a*b/88 - 10*a*c/11 + 45*b**2/176 - 4*b*c/11",
+          "23": "15*a**2/8 + a*c + b*c",
+          "24": "-135*a**2/176 + 12*a*c/11 + c**2",
+          "34": "a**2*m0 + a*b*m1 + a*c*m2 - 18*a*r/11 - a*z + b**2*m3 + b*c*m4 - 15*b*r/22 - b*z + c**2*m5 - 14*c*r/11"
+        }
+      },
+      "generic_actual_degeneracy_divisor": {
+        "essential_variable_count": 3,
+        "irreducible_factor_degrees": [
+          2,
+          3
+        ],
+        "corresponding_multiplicities": [
+          1,
+          1
+        ],
+        "reduced": true,
+        "quadric": "7*a**2 + 4*a*b + 8*a*c + b**2 + 8*b*c",
+        "cubic": "-a**2*(a + c) + b**2*c",
+        "quadric_rank": 3
+      },
+      "claims": [
+        "R4_PLANE_CONIC_CUBIC_SIX_COMPONENTS_23"
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/DEGENERATE_QUADRIC_Q3_AZERO_SUPPORT.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_Q3_FREE_CONIC_CUBIC_COMPONENT_REVIEW_20261107.json",
+        "reports/CLASSIFICATION_Q3_FREE_CONIC_CUBIC_THIRD_REVIEW_20261107.json"
+      ],
+      "review_status": {
+        "proof": "full_ambient_componenthood_and_distinctness_proved",
+        "independent_review": "accepted_independent_full150_full350_Fraction_and_geometry_2026_11_07",
+        "certificates": "exact_QQ_reconstruction",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "notes_ja": [
+        "全周囲の実48方向と真正一又は二法線の二次・三次支持から23次元成分。全支持の分類上界は未主張。",
+        "本質三変数の閉条件と全MPSのSNC点、一般因子型と平面配置により既知成分および相互の相違を証明。",
+        "磁気shearのrank五商とscalar作用により非零商は一軌道、零商はその実極限。"
+      ]
+    },
+    {
+      "source_checkpoint": "v64-classification-first",
+      "id": "R4_PLANE_TWO_LINES_CUBIC_NODE_TANGENT_FLEX_23",
+      "name": "平面二直線・三次曲線型 node_tangent_flex",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "additional_generic_rank_four_full_component_outside_MPS40",
+      "generic_rank": 4,
+      "projective_dimension": 23,
+      "generic_pgl5_orbit_dimension": null,
+      "generic_reduced_rosenlicht_quotient_dimension": null,
+      "generic_transverse_algebra": null,
+      "meets_SNC_log_symplectic_locus": false,
+      "component_definition": "Reduced PGL5-saturated closure of the complete six-magnetic-parameter source for the specified plane configuration",
+      "generic_construction": {
+        "source_case": "node_tangent_flex",
+        "full_source": "research/classification/TWO_LINES_PLANE_CUBIC_SUPPORT.md",
+        "all_six_magnetic_parameters_retained": true,
+        "universal_brackets": {
+          "(1, 3)": "-450*h*x - 600*x*y",
+          "(1, 4)": "-8*x**2 - 9*x*y",
+          "(2, 3)": "-150*h*y - 300*y**2",
+          "(2, 4)": "-2*h*x - 4*x*y - 3*y**2",
+          "(3, 4)": "30*h**2*r0 + 30*h*r1*x + 30*h*r2*y + 30*r3*x**2 + 30*r4*x*y + 30*r5*y**2 - 30*w*(-10*h - 10*y) - 3*y*z"
+        }
+      },
+      "generic_actual_degeneracy_divisor": {
+        "essential_variable_count": 3,
+        "irreducible_factor_degrees": [
+          1,
+          1,
+          3
+        ],
+        "corresponding_multiplicities": [
+          1,
+          1,
+          1
+        ],
+        "reduced": true,
+        "cubic": "-X**2*(X + Z) + Y**2*Z",
+        "hyperplanes": [
+          "-X + Y",
+          "Z"
+        ]
+      },
+      "claims": [
+        "R4_PLANE_TWO_LINES_CUBIC_SIX_COMPONENTS_23"
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/TWO_LINES_PLANE_CUBIC_SUPPORT.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_TWO_LINES_PLANE_CUBIC_COMPONENT_REVIEW_20261107.json",
+        "reports/CLASSIFICATION_TWO_LINES_PLANE_CUBIC_TWO_NORMAL_REVIEW_20261107.json"
+      ],
+      "review_status": {
+        "proof": "full_ambient_componenthood_and_distinctness_proved",
+        "independent_review": "accepted_independent_full150_full350_Fraction_and_geometry_2026_11_07",
+        "certificates": "exact_QQ_reconstruction",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "notes_ja": [
+        "全周囲の実48方向と真正一又は二法線の二次・三次支持から23次元成分。全支持の分類上界は未主張。",
+        "本質三変数の閉条件と全MPSのSNC点、一般因子型と平面配置により既知成分および相互の相違を証明。",
+        "証明点の群・鉛直・scale階数47と実族階数48を区別。一般軌道次元は未決定。"
+      ]
+    },
+    {
+      "source_checkpoint": "v64-classification-first",
+      "id": "R4_PLANE_TWO_LINES_CUBIC_CUSP_FLEX_TANGENT_23",
+      "name": "平面二直線・三次曲線型 cusp_flex_tangent",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "additional_generic_rank_four_full_component_outside_MPS40",
+      "generic_rank": 4,
+      "projective_dimension": 23,
+      "generic_pgl5_orbit_dimension": null,
+      "generic_reduced_rosenlicht_quotient_dimension": null,
+      "generic_transverse_algebra": null,
+      "meets_SNC_log_symplectic_locus": false,
+      "component_definition": "Reduced PGL5-saturated closure of the complete six-magnetic-parameter source for the specified plane configuration",
+      "generic_construction": {
+        "source_case": "cusp_flex_tangent",
+        "full_source": "research/classification/TWO_LINES_PLANE_CUBIC_SUPPORT.md",
+        "all_six_magnetic_parameters_retained": true,
+        "universal_brackets": {
+          "(1, 3)": "-900*h*x + 900*x**2 + 3600*x*y",
+          "(1, 4)": "-6*x*y",
+          "(2, 3)": "450*h**2 - 450*h*x - 2250*h*y + 600*x*y + 1800*y**2",
+          "(2, 4)": "-h**2 + h*x + 5*h*y - 4*y**2",
+          "(3, 4)": "60*h**2*r0 + 60*h*r1*x + 60*h*r2*y + 60*r3*x**2 + 60*r4*x*y + 60*r5*y**2 - 60*w*(-15*h/2 + 5*x + 30*y) + 60*z*(h/60 - y/15)"
+        }
+      },
+      "generic_actual_degeneracy_divisor": {
+        "essential_variable_count": 3,
+        "irreducible_factor_degrees": [
+          1,
+          1,
+          3
+        ],
+        "corresponding_multiplicities": [
+          1,
+          1,
+          1
+        ],
+        "reduced": true,
+        "cubic": "-X**3 + Y**2*Z",
+        "hyperplanes": [
+          "Z",
+          "-3*X + 2*Y + Z"
+        ]
+      },
+      "claims": [
+        "R4_PLANE_TWO_LINES_CUBIC_SIX_COMPONENTS_23"
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/TWO_LINES_PLANE_CUBIC_SUPPORT.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_TWO_LINES_PLANE_CUBIC_COMPONENT_REVIEW_20261107.json",
+        "reports/CLASSIFICATION_TWO_LINES_PLANE_CUBIC_TWO_NORMAL_REVIEW_20261107.json"
+      ],
+      "review_status": {
+        "proof": "full_ambient_componenthood_and_distinctness_proved",
+        "independent_review": "accepted_independent_full150_full350_Fraction_and_geometry_2026_11_07",
+        "certificates": "exact_QQ_reconstruction",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "notes_ja": [
+        "全周囲の実48方向と真正一又は二法線の二次・三次支持から23次元成分。全支持の分類上界は未主張。",
+        "本質三変数の閉条件と全MPSのSNC点、一般因子型と平面配置により既知成分および相互の相違を証明。",
+        "証明点の群・鉛直・scale階数47と実族階数48を区別。一般軌道次元は未決定。"
+      ]
+    },
+    {
+      "source_checkpoint": "v64-classification-first",
+      "id": "R4_PLANE_TWO_LINES_CUBIC_CUSP_TWO_TANGENTS_INCIDENT_23",
+      "name": "平面二直線・三次曲線型 cusp_two_tangents_incident",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "additional_generic_rank_four_full_component_outside_MPS40",
+      "generic_rank": 4,
+      "projective_dimension": 23,
+      "generic_pgl5_orbit_dimension": null,
+      "generic_reduced_rosenlicht_quotient_dimension": null,
+      "generic_transverse_algebra": null,
+      "meets_SNC_log_symplectic_locus": false,
+      "component_definition": "Reduced PGL5-saturated closure of the complete six-magnetic-parameter source for the specified plane configuration",
+      "generic_construction": {
+        "source_case": "cusp_two_tangents_incident",
+        "full_source": "research/classification/TWO_LINES_PLANE_CUBIC_SUPPORT.md",
+        "all_six_magnetic_parameters_retained": true,
+        "universal_brackets": {
+          "(1, 3)": "-437400*h*x - 437400*x**2",
+          "(1, 4)": "-783*h*x - 783*x**2 - 729*x*y",
+          "(2, 3)": "-32400*h**2 - 40500*h*x + 437400*h*y - 8100*x**2 - 218700*x*y",
+          "(2, 4)": "-70*h**2 - 83*h*x + 891*h*y - 13*x**2 - 486*x*y + 729*y**2",
+          "(3, 4)": "43740*h**2*r0 + 43740*h*r1*x + 43740*h*r2*y + 43740*r3*x**2 + 43740*r4*x*y + 43740*r5*y**2 + 218700*w*x + 43740*z*(h/810 - 7*x/810 - y/60)"
+        }
+      },
+      "generic_actual_degeneracy_divisor": {
+        "essential_variable_count": 3,
+        "irreducible_factor_degrees": [
+          1,
+          1,
+          3
+        ],
+        "corresponding_multiplicities": [
+          1,
+          1,
+          1
+        ],
+        "reduced": true,
+        "cubic": "-X**3 + Y**2*Z",
+        "hyperplanes": [
+          "-3*X + 2*Y + Z",
+          "12*X + 16*Y - Z"
+        ]
+      },
+      "claims": [
+        "R4_PLANE_TWO_LINES_CUBIC_SIX_COMPONENTS_23"
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/TWO_LINES_PLANE_CUBIC_SUPPORT.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_TWO_LINES_PLANE_CUBIC_COMPONENT_REVIEW_20261107.json",
+        "reports/CLASSIFICATION_TWO_LINES_PLANE_CUBIC_TWO_NORMAL_REVIEW_20261107.json"
+      ],
+      "review_status": {
+        "proof": "full_ambient_componenthood_and_distinctness_proved",
+        "independent_review": "accepted_independent_full150_full350_Fraction_and_geometry_2026_11_07",
+        "certificates": "exact_QQ_reconstruction",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "notes_ja": [
+        "全周囲の実48方向と真正一又は二法線の二次・三次支持から23次元成分。全支持の分類上界は未主張。",
+        "本質三変数の閉条件と全MPSのSNC点、一般因子型と平面配置により既知成分および相互の相違を証明。",
+        "証明点の群・鉛直・scale階数47と実族階数48を区別。一般軌道次元は未決定。"
+      ]
+    },
+    {
+      "source_checkpoint": "v64-classification-first",
+      "id": "R4_PLANE_TWO_LINES_CUBIC_CUSP_FLEX_CUSP_SECANT_23",
+      "name": "平面二直線・三次曲線型 cusp_flex_cusp_secant",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "additional_generic_rank_four_full_component_outside_MPS40",
+      "generic_rank": 4,
+      "projective_dimension": 23,
+      "generic_pgl5_orbit_dimension": null,
+      "generic_reduced_rosenlicht_quotient_dimension": null,
+      "generic_transverse_algebra": null,
+      "meets_SNC_log_symplectic_locus": false,
+      "component_definition": "Reduced PGL5-saturated closure of the complete six-magnetic-parameter source for the specified plane configuration",
+      "generic_construction": {
+        "source_case": "cusp_flex_cusp_secant",
+        "full_source": "research/classification/TWO_LINES_PLANE_CUBIC_SUPPORT.md",
+        "all_six_magnetic_parameters_retained": true,
+        "universal_brackets": {
+          "(1, 3)": "-200*h*x + 450*x**2 + 600*x*y",
+          "(1, 4)": "4*h*x - 9*x*y",
+          "(2, 3)": "-100*h*x - 300*h*y + 300*x*y + 300*y**2",
+          "(2, 4)": "2*h*x + 6*h*y - 6*y**2",
+          "(3, 4)": "30*h**2*r0 + 30*h*r1*x + 30*h*r2*y + 30*r3*x**2 + 30*r4*x*y + 30*r5*y**2 - 30*w*(-10*h + 5*x + 10*y) + 30*z*(h/5 - y/5)"
+        }
+      },
+      "generic_actual_degeneracy_divisor": {
+        "essential_variable_count": 3,
+        "irreducible_factor_degrees": [
+          1,
+          1,
+          3
+        ],
+        "corresponding_multiplicities": [
+          1,
+          1,
+          1
+        ],
+        "reduced": true,
+        "cubic": "-X**3 + Y**2*Z",
+        "hyperplanes": [
+          "Z",
+          "-X + Y"
+        ]
+      },
+      "claims": [
+        "R4_PLANE_TWO_LINES_CUBIC_SIX_COMPONENTS_23"
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/TWO_LINES_PLANE_CUBIC_SUPPORT.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_TWO_LINES_PLANE_CUBIC_COMPONENT_REVIEW_20261107.json",
+        "reports/CLASSIFICATION_TWO_LINES_PLANE_CUBIC_TWO_NORMAL_REVIEW_20261107.json"
+      ],
+      "review_status": {
+        "proof": "full_ambient_componenthood_and_distinctness_proved",
+        "independent_review": "accepted_independent_full150_full350_Fraction_and_geometry_2026_11_07",
+        "certificates": "exact_QQ_reconstruction",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "notes_ja": [
+        "全周囲の実48方向と真正一又は二法線の二次・三次支持から23次元成分。全支持の分類上界は未主張。",
+        "本質三変数の閉条件と全MPSのSNC点、一般因子型と平面配置により既知成分および相互の相違を証明。",
+        "証明点の群・鉛直・scale階数47と実族階数48を区別。一般軌道次元は未決定。"
+      ]
+    },
+    {
+      "source_checkpoint": "v64-classification-first",
+      "id": "R4_PLANE_TWO_LINES_CUBIC_CUSP_TANGENT_CUSP_SECANT_23",
+      "name": "平面二直線・三次曲線型 cusp_tangent_cusp_secant",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "additional_generic_rank_four_full_component_outside_MPS40",
+      "generic_rank": 4,
+      "projective_dimension": 23,
+      "generic_pgl5_orbit_dimension": null,
+      "generic_reduced_rosenlicht_quotient_dimension": null,
+      "generic_transverse_algebra": null,
+      "meets_SNC_log_symplectic_locus": false,
+      "component_definition": "Reduced PGL5-saturated closure of the complete six-magnetic-parameter source for the specified plane configuration",
+      "generic_construction": {
+        "source_case": "cusp_tangent_cusp_secant",
+        "full_source": "research/classification/TWO_LINES_PLANE_CUBIC_SUPPORT.md",
+        "all_six_magnetic_parameters_retained": true,
+        "universal_brackets": {
+          "(1, 3)": "-40*h*x + 90*x**2",
+          "(1, 4)": "-276*h*x + 486*x**2 - 405*x*y",
+          "(2, 3)": "-20*h*x - 60*h*y + 60*x**2 + 180*x*y",
+          "(2, 4)": "-138*h*x - 414*h*y + 144*x**2 + 432*x*y - 810*y**2",
+          "(3, 4)": "90*h**2*r0 + 90*h*r1*x + 90*h*r2*y + 90*r3*x**2 + 90*r4*x*y + 90*r5*y**2 - 90*w*(-2*h/3 + x) + 90*z*(-23*h/5 + 42*x/5)"
+        }
+      },
+      "generic_actual_degeneracy_divisor": {
+        "essential_variable_count": 3,
+        "irreducible_factor_degrees": [
+          1,
+          1,
+          3
+        ],
+        "corresponding_multiplicities": [
+          1,
+          1,
+          1
+        ],
+        "reduced": true,
+        "cubic": "-X**3 + Y**2*Z",
+        "hyperplanes": [
+          "-3*X + 2*Y + Z",
+          "-X + Y"
+        ]
+      },
+      "claims": [
+        "R4_PLANE_TWO_LINES_CUBIC_SIX_COMPONENTS_23"
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/TWO_LINES_PLANE_CUBIC_SUPPORT.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_TWO_LINES_PLANE_CUBIC_COMPONENT_REVIEW_20261107.json",
+        "reports/CLASSIFICATION_TWO_LINES_PLANE_CUBIC_TWO_NORMAL_REVIEW_20261107.json"
+      ],
+      "review_status": {
+        "proof": "full_ambient_componenthood_and_distinctness_proved",
+        "independent_review": "accepted_independent_full150_full350_Fraction_and_geometry_2026_11_07",
+        "certificates": "exact_QQ_reconstruction",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "notes_ja": [
+        "全周囲の実48方向と真正一又は二法線の二次・三次支持から23次元成分。全支持の分類上界は未主張。",
+        "本質三変数の閉条件と全MPSのSNC点、一般因子型と平面配置により既知成分および相互の相違を証明。",
+        "証明点の群・鉛直・scale階数47と実族階数48を区別。一般軌道次元は未決定。"
+      ]
+    },
+    {
+      "source_checkpoint": "v64-classification-first",
+      "id": "R4_PLANE_TWO_LINES_CUBIC_CUSP_CUSP_TANGENT_ORDINARY_TANGENT_23",
+      "name": "平面二直線・三次曲線型 cusp_cusp_tangent_ordinary_tangent",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "additional_generic_rank_four_full_component_outside_MPS40",
+      "generic_rank": 4,
+      "projective_dimension": 23,
+      "generic_pgl5_orbit_dimension": null,
+      "generic_reduced_rosenlicht_quotient_dimension": null,
+      "generic_transverse_algebra": null,
+      "meets_SNC_log_symplectic_locus": false,
+      "component_definition": "Reduced PGL5-saturated closure of the complete six-magnetic-parameter source for the specified plane configuration",
+      "generic_construction": {
+        "source_case": "cusp_cusp_tangent_ordinary_tangent",
+        "full_source": "research/classification/TWO_LINES_PLANE_CUBIC_SUPPORT.md",
+        "all_six_magnetic_parameters_retained": true,
+        "universal_brackets": {
+          "(1, 3)": "3600*h*x - 450*x**2 + 1800*x*y",
+          "(1, 4)": "3*h*x + 3*x*y",
+          "(2, 3)": "-1800*h**2 + 900*h*y - 150*x*y + 900*y**2",
+          "(2, 4)": "-2*h**2 + h*y + y**2",
+          "(3, 4)": "30*h**2*r0 + 30*h*r1*x + 30*h*r2*y + 30*r3*x**2 + 30*r4*x*y + 30*r5*y**2 - 30*w*(60*h + 5*x + 30*y) + 30*z*(h/15 + y/30)"
+        }
+      },
+      "generic_actual_degeneracy_divisor": {
+        "essential_variable_count": 3,
+        "irreducible_factor_degrees": [
+          1,
+          1,
+          3
+        ],
+        "corresponding_multiplicities": [
+          1,
+          1,
+          1
+        ],
+        "reduced": true,
+        "cubic": "-X**3 + Y**2*Z",
+        "hyperplanes": [
+          "Y",
+          "-3*X + 2*Y + Z"
+        ]
+      },
+      "claims": [
+        "R4_PLANE_TWO_LINES_CUBIC_SIX_COMPONENTS_23"
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/TWO_LINES_PLANE_CUBIC_SUPPORT.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_TWO_LINES_PLANE_CUBIC_COMPONENT_REVIEW_20261107.json",
+        "reports/CLASSIFICATION_TWO_LINES_PLANE_CUBIC_TWO_NORMAL_REVIEW_20261107.json"
+      ],
+      "review_status": {
+        "proof": "full_ambient_componenthood_and_distinctness_proved",
+        "independent_review": "accepted_independent_full150_full350_Fraction_and_geometry_2026_11_07",
+        "certificates": "exact_QQ_reconstruction",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "notes_ja": [
+        "全周囲の実48方向と真正一又は二法線の二次・三次支持から23次元成分。全支持の分類上界は未主張。",
+        "本質三変数の閉条件と全MPSのSNC点、一般因子型と平面配置により既知成分および相互の相違を証明。",
+        "証明点の群・鉛直・scale階数47と実族階数48を区別。一般軌道次元は未決定。"
+      ]
     }
   ],
   "named_block_member_annotations": [
@@ -10085,5 +10919,5 @@
     "MPS40 blockを展開したらblockによる加算を止め、二重計上しない。",
     "文献上の新規性は内部成分証明とは別に確認する。"
   ],
-  "new_components_added_in_this_checkpoint": 16
+  "new_components_added_in_this_checkpoint": 28
 }

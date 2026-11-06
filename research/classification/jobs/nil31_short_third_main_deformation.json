@@ -1,0 +1,30 @@
+{
+  "task_id": "E_multiple_hyperplane",
+  "target_statement": "Verify the full nil31 short r=1/3 main-source polynomial pencil with semisimple rank-two modular linear part away from epsilon=0.",
+  "implication_to_classification": "The complete rank-two semisimple modular support theorem covers every nonzero-epsilon point; closedness of the finite union covers the full normalized nilpotent source at epsilon=0. The original source closure includes normalization-denominator complements.",
+  "coefficient_ring": "QQ[v,g,epsilon,x,y,z,w]",
+  "hypotheses": "The canonical source report gives the all-parameter source identity. The complete semisimple modular theorem includes the nonzero constant zero-eigenspace case.",
+  "inverted_elements": [],
+  "complements": [
+    "All source parameters are retained in the actual polynomial pencil.",
+    "The normalization complement is handled by the original irreducible source closure, not by treating the canonical chart as all fibers.",
+    "The rank-four open is 3*v+1!=0."
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_nil31_long_b_deformation.py",
+      "sha256": "48813a4ac32b015b9d153c1f0f18bc6de9576adb99be361cf3b2dcd8d05081cc"
+    },
+    {
+      "path": "reports/CLASSIFICATION_NIL31_SHORT_THIRD_MAIN_CANONICAL_20261107.json",
+      "sha256": "60d7d2ba075d4014997e9aeb8e8247df3f2b2f58919c14ee7d230e3b90fd0883"
+    }
+  ],
+  "success_certificate": "All four strict Jacobi polynomials, complete source endpoint identity, actual Pfaffian, exact modular vector, rank2 and squarefree annihilating polynomial away from epsilon=0, and preservation of q and pi3.",
+  "independent_check": "The constructor supplied the geometric pencil; this direct all-coefficient verifier independently rebuilds the six brackets and Jacobi using SymPy differentiation without the producer tangent engine. The hand argument was independently rederived.",
+  "resource_limit": {
+    "timeout_seconds": 60,
+    "memory_mb": 1536
+  },
+  "negative_result_next_step": "Retain any failed identity and correct only an identified transcription; do not add formal orders or sample alternate points."
+}

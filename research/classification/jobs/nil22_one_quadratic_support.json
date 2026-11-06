@@ -1,0 +1,39 @@
+{
+  "task_id": "E_multiple_hyperplane",
+  "target_statement": "Check whether the full true two-normal quadratic initial ideal at the canonically transported nil22 A=1 source witness is zero-dimensional.",
+  "implication_to_classification": "A zero-dimensional initial ideal proves the full true formal slice is supported at the origin, so the entire irreducible source image is a22 component. A positive-dimensional quadratic zero set is diagnostic only and leaves full support unresolved.",
+  "coefficient_ring": "QQ in all150 ambient coefficients, all350 projective Jacobi equations, and the two genuine normal coordinates",
+  "hypotheses": "Use exactly the original witness after the all-source affine coordinate identity; retain all actual family/group/vertical/scale directions. This branch has not had a true quadratic obstruction test before.",
+  "inverted_elements": [
+    "One explicitly stored101x101 derivative minor"
+  ],
+  "complements": [
+    "All higher-order support is retained if the quadratic initial ideal is not zero-dimensional",
+    "No new point, prime, or higher jet extension"
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_modular_weighted_slice.py",
+      "sha256": "80728aae3d171fb0d443f04cd30bae73d5d7c286ca4de0f39b368bcda3f0c438"
+    },
+    {
+      "path": "code/data/classification_nil22_one_quadratic_input.json",
+      "sha256": "996b036a2c35ff41798dc73d0de402d4a87cb0ee5230f61c8655d42c6eabe411"
+    },
+    {
+      "path": "reports/CLASSIFICATION_NIL22_ONE_CANONICAL_20261107.json",
+      "sha256": "3005f2c210d451617a69e620e004c0965ff10b5b00752fba507e20109d6f827e"
+    },
+    {
+      "path": "code/classification_rank3_mixed_component_review.py",
+      "sha256": "48e61e30f9d7f04fb81f1bb5eec0e18daa28c8192d6a02a251e09cf8855b9bd0"
+    }
+  ],
+  "success_certificate": "All exact D and actual family ranks, true normal representatives, sparse full-D left-null functionals, their complete independent quadratic image, and a zero-dimensional quadratic Groebner ideal when obtained.",
+  "independent_check": "A separate implementation checks the full derivative and small quadratic cokernel certificate before component-table use.",
+  "resource_limit": {
+    "timeout_seconds": 90,
+    "memory_mb": 1536
+  },
+  "negative_result_next_step": "If the quadratic initial support is positive-dimensional, preserve its equations and change to actual deformation or geometric classification. Do not infer full support from quadratic range or add arbitrary higher jets."
+}

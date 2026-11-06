@@ -5,7 +5,8 @@ modular 場を `X=x2∂x1+x3∂x2+∂x3` とする全 affine 二次 Poisson 構�
 入口は `CLASSIFICATION_MULTIPLE_HYPERPLANE_RANK2_NIL_SOURCES_20261107.json` case1 の
 全11源と全 Jacobi である。全90線形係数還元は当該証明書を入力とし、ここで再実行しない。
 本ノートはその全残条件を解き、二源を既存成分へ認識し、A源を実toric変形で被覆し、
-さらに二つの新全成分を得る。r=−1 の B源だけを未被覆のまま明記する。
+さらに二つの新全成分を得る。最後の r=−1 の B源も、§5の全パラメータ実変形で
+既済の三相異超平面＋既約二次因子層へ被覆する。これで全六源の帰属が閉じる。
 第1–2節の全六源・全rank四条件・超平面変更による二源の全認識は、別担当が手で独立確認した。
 
 ## 1. 全六源の導出
@@ -53,7 +54,7 @@ F&n_4(y-z^2/2+n_7).
 \]
 
 これにより表の rank四条件は必要十分である。
-下記の未被覆四源 A,B,E,F は、四 raw Jacobi と実 Pfaffian を有限恒等式として検算した。
+下記の四源 A,B,E,F は、四 raw Jacobi と実 Pfaffian を有限恒等式として検算した。
 C,D は(1)への代入と次節の全支持帰着で扱う。
 
 ## 2. CとDは全て既存の冪零Jordan4成分に入る
@@ -162,29 +163,129 @@ W と合わせた四次元対角場の空間は Euler 場を含まない。
 ε=0 は元の全 A源なので、全パラメータを保った実変形と閉性により全 A源はT01に入る。
 この全係数恒等式、Cartan の四次元性、Pfaffian 非零は別担当が独立に手で確認した。
 
-## 5. Bの全支持は残す
+## 5. Bの全源を三相異超平面と既約二次因子の層へ変形する
 
-同じ有限jobで A と B にもそれぞれ一つの全源代表を指定した。
-結果は A が D rank下界98、軌道込み45、実源込み47、
-B が D rank下界100、軌道込み46、実源込み47である。
-よって実族の次元下界は22、周囲局所次元の上界はそれぞれ27と25。
-この差を零とみなしたり、形式の有限次近似から全支持を被覆済みとしたりしない。
-Aの被覆は上節の別の実変形で閉じた。
-Bの一般因子は2H+H'+Q3であり、全式と全パラメータを保持している。
-この B源について、次は既知成分への実変形または真の支持判定が必要である。
+### 5.1 全源の正規形
 
-同じ指定点の全 D を QQ 上で再構成すると rank100、実源接像は47である。
-この実47方向に横断する真の三法線を全て残し、D の100方向を消去して得た
-**全二次余核障害は零**であった。
-従って三変数の二次初期支持は全空間であり、零次元切片や22次元成分性を推論できない。
-全三法線と消去 minor は `CLASSIFICATION_NIL31_LONG_B_NORMAL_QUADRICS_20261107.json` に保持した。
+`W=w−n9 h,X=x−n3 W` は行列式一の affine 変更である。
+`a=n0,c=n2+n3 n9,f=n5` と置けば、元の全五変数源は非零定数倍を除いて
 
-また指定点は原点で symplectic なので、厳密 Darboux frame と perspective による
-全150係数の復元・全134式を確認した上で、Q51/Q52 の **全閉グラフ**を判定した。
-結果は両方不所属で、例えば zero-based u index1 の残差はそれぞれ −1、−4。
-`CLASSIFICATION_NIL31_LONG_B_GRAPH_20261107.json` に全90残差を保存した。
-全接次元25に既知25次元成分の存在を合わせる smoothness 認識は、この点には適用できない。
-この二つの結果を理由に高次 jet を自動延長せず、全三方向を残した幾何的変形を次の課題とする。
+\[
+\begin{aligned}
+ P^{xy}&=a h^2+c hz-fhy+fz^2/2,&P^{xz}&=c h^2,\\
+ P^{xw}&=w(fh-y),&P^{yz}&=0,\\
+ P^{yw}&=-zw,&P^{zw}&=-hw
+\end{aligned}                                                    \tag{8}
+\]
+
+となり、h は Casimir である。全 rank四条件は `(a,f)≠(0,0)`。
+この正規形は一軌道という主張ではなく、全三変数の実源を保持する。
+全係数の普遍恒等式は `CLASSIFICATION_NIL31_LONG_B_CANONICAL_20261107.json` で確認した。
+
+別の Poisson 超平面 w を無限遠に取る。四変数 `(h,x,y,z)` の Euler 場 E と
+
+\[
+ K=h\partial_x,\qquad N=y\partial_x+z\partial_y+h\partial_z,
+ \qquad R=-hy+z^2/2
+\]
+
+を用いれば、(8)へ Euler 鉛直項 `E5∧(fK−N)` を加えた w-Casimir lift は
+
+\[
+ Q_0=\Pi_0+E\wedge A_0,\qquad A_0=5fK/4-N,
+\]
+
+と書ける。四次元体積形式 `vol=dh∧dx∧dy∧dz` に対して、\(\Pi_0\) は次の構成の ε=0 である。
+
+### 5.2 全パラメータの閉一形式による構成
+
+\[
+ H=h+\epsilon z,\quad q_\epsilon=aH^2+fR,\qquad
+ N_\epsilon=N+\epsilon(2y\partial_y+z\partial_z)
+\]
+
+と置く。次の三次係数一形式は全 `(a,c,f,ε)` について多項式である。
+
+\[
+ \omega_\epsilon=q_\epsilon(h\,dz-z\,dh)
+       +ch(H\,dR-2R\,dH).                                   \tag{9}
+\]
+
+`f ε≠0` の開で説明すると
+
+\[
+ \frac{\omega_\epsilon}{hHq_\epsilon}
+ =\frac1\epsilon d\log(H/h)
+       +\frac cf d\log(q_\epsilon/H^2)                        \tag{10}
+\]
+
+であり、右辺は閉じている。また Nε(H)=εH、Nε(qε)=2εqε なので、
+右辺の Nε による contraction は1である。
+従って `L_Nε ωε=3ε ωε`、`tr Nε=3ε` となる。
+
+\[
+ \iota_{\Pi_\epsilon}\mathrm{vol}=\tfrac14 d\omega_\epsilon,
+ \quad A_\epsilon=-N_\epsilon+\tfrac{3\epsilon}{4}E+\tfrac{5f}{4}K,
+ \quad Q_\epsilon=\Pi_\epsilon+E\wedge A_\epsilon             \tag{11}
+\]
+
+と定義する。ωε は Euler に contraction 零で重み四だから、
+`ι_E(dωε/4)=ωε`。閉じた(10)から `ωε∧dωε=0` となり、さらに `(dωε)²=0` が従う。
+従って Πε は divergence 零・rank高々二の strict Poisson tensor である。
+上の Lie 微分恒等式は `[Nε,Πε]=0` を与える。
+ωε は x に依存せず dx 成分を持たないので、K も Πε を保つ。
+E も斉次二次 Πε と可換であり、従って `[Aε,Πε]=0`、`tr Aε=0`。
+これにより Qε は strict Poisson となる。
+
+(9),(11)の係数は多項式なので、導出に使った fε≠0 を除いた全境界でも
+Jacobi 恒等式は成り立つ。実際、全パラメータの係数として全四 strict Jacobi、
+Πε の Jacobi と divergence、`[Aε,Πε]=0` を直接検算した。
+ε=0 では (8) と上記 Euler 差を通じて全係数が一致し、選んだ一点だけの変形ではない。
+
+Pfaffian は厳密に
+
+\[
+ \operatorname{Pf}(Q_\epsilon)=-hHq_\epsilon.               \tag{12}
+\]
+
+P4 に w-Casimir lift すると、その実五次因子は `w h H qε` である。
+二次式 qε の `(h,y,z)` における対称行列式は
+
+\[
+ -f^2(2a\epsilon^2+f)/8.
+\]
+
+従って各 f≠0 の固定源点について、ε の稠密開では qε は rank三の既約二次式である。
+ε≠0 では h,H,w は相異なる三超平面なので、その全点は既済の
+**三相異超平面＋既約二次因子の全支持定理**に入る。
+その定理の有限個の閉成分の和は閉集合だから、ε=0 の元点も入る。
+最後に f≠0 は全 B 源の稠密開であり、全源自体が既約なので、f=0 の rank四境界も同じ有限閉和に入る。
+`a=f=0` の rank二境界は既存の全 rank二分類に属する。
+これで B の全 rank四支持を被覆し、long-top 全六源の帰属が閉じた。
+
+この証明には、変形全体が一つの既知成分に入るという推定も、元点の局所唯一性も必要ない。
+全3H+Q層の有限閉被覆と、各固定源点の実変形を使っている。
+証明書は `CLASSIFICATION_NIL31_LONG_B_DEFORMATION_20261107.json`、
+producer は `classification_nil31_long_b_deformation.py`、有限契約は
+`jobs/nil31_long_b_deformation.json`。実測0.350秒。例外層担当が閉一形式の恒等式、Lie微分、rank二canonical lift、
+strict Poisson 構成、全3H+Q定理の適用、ε=0とf=0への閉性を独立に手確認して受理した。
+generic-structure担当も閉一形式構成と全支持適用を別に手確認した。
+元の全源とのEuler差は公開された全パラメータ恒等式を入力とする。
+
+### 5.3 局所診断の限界と今回の幾何への橋
+
+旧指定点は D rank100、軌道・鉛直・scale の接像46、実源接像47であり、
+全二次余核障害は三法線上で零だった。
+`CLASSIFICATION_NIL31_LONG_B_NORMAL_QUADRICS_20261107.json` はこの限定的事実を保持する。
+また全閉 Q51/Q52 グラフはともに不所属で、
+`CLASSIFICATION_NIL31_LONG_B_GRAPH_20261107.json` に全残差がある。
+これらを元点の成分性や全支持排除へ拡大していない。
+
+w-scaling 不変な全正規形 (8) では、実源方向を含む真の切片の三法線は全て重み零であった。
+`CLASSIFICATION_NIL31_LONG_B_WEIGHTED_SLICE_20261107.json` はこの結果だけを保存し、
+重みによる有限な陰関数次数上界は主張しない。
+この固定部分を w∞ の斉次二次 tensor として読み直し、(9)の閉有理一形式へ進んだことが
+今回の全支持被覆に必要な幾何的変更である。
 
 ## 6. 全long-top型のβ非優越はBの帰属に依存しない
 
@@ -199,7 +300,7 @@ Aff4 における安定化群の次元は6である。
 従って固定した値 J の fiber は高々 `19−6=13` 次元で、primitive β の像も高々13。
 重複超平面を無限遠へ送る perspective が primitive β を保つ既存の橋を用いれば、
 この全 modular 型は W=A16 を優越しない。
-ここではBの既知成分帰属・未知成分不存在・形式切片の零次元性を仮定しない。
+この非優越の証明は§5の新たな全支持被覆とは独立であり、形式切片の零次元性を仮定しない。
 
 ## 有限検算の入口
 

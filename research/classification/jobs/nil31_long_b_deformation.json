@@ -1,0 +1,33 @@
+{
+  "task_id": "E_multiple_hyperplane",
+  "target_statement": "Construct a universal actual projective Poisson deformation of the entire long-top B family that splits its double hyperplane into two distinct hyperplanes while preserving a rank3 irreducible quadric.",
+  "implication_to_classification": "The known full three-distinct-hyperplanes plus irreducible-quadric theorem covers every generic deformation point; closedness covers every original f!=0 point and then the whole irreducible source boundary f=0.",
+  "coefficient_ring": "QQ[a,c,f,epsilon,h,x1,x2,x3,x4]",
+  "hypotheses": "The complete B source is universally normalized. The closed rational one-form is used on f*epsilon*h*H*Q!=0 only to derive the construction; the final bivector is polynomial in all parameters.",
+  "inverted_elements": [
+    "nonzero rational constants in the actual tensor",
+    "f*epsilon only in the explanatory rational identity"
+  ],
+  "complements": [
+    "For each f!=0 the rank3 determinant is nonzero on a dense epsilon open",
+    "f=0 rank-four boundary is included by source irreducibility and closedness",
+    "a=f=0 is rank at most2 and previously classified"
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_nil31_long_b_deformation.py",
+      "sha256": "8c8aa394c33b29ab476239b3ed70c767bf1b8dc85fbd0da1e0b957c3d65faeb9"
+    },
+    {
+      "path": "reports/CLASSIFICATION_NIL31_LONG_B_CANONICAL_20261107.json",
+      "sha256": "74c43c55ae9400854d85740bfa274ea856484796da2bf9b1dbf194a4fda2de83"
+    }
+  ],
+  "success_certificate": "Universal strict Jacobi for Pi and Qhom, divPi0, symmetry[A,Pi]0, exact epsilon0 source modulo Euler, Pf=-h(h+epsilon*z)Q, quadric rank3 minor -f\u00b2(2a epsilon\u00b2+f)/8.",
+  "independent_check": "Parent receives the full closed-one-form derivation for independent review. The code directly verifies all parameter identities without a jet truncation or an assumed Q45 classification.",
+  "resource_limit": {
+    "timeout_seconds": 30,
+    "memory_mb": 768
+  },
+  "negative_result_next_step": "Correct the explicit source/volume signs; retain all parameters and do not return to the failed weight-zero formal expansion."
+}

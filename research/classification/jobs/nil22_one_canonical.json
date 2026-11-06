@@ -1,0 +1,35 @@
+{
+  "task_id": "E_multiple_hyperplane",
+  "target_statement": "Verify the whole seven-parameter nil22 A=1 source maps to the explicit two-parameter canonical family with parameters t=n13-n10 and e=n7-n10*n8+n10^2*n9.",
+  "implication_to_classification": "This transports the existing full-source obligation and frozen witness to a canonical point at which a true finite weighted slice can settle reduced support; it does not itself claim componenthood.",
+  "coefficient_ring": "QQ[n2,n6,n7,n8,n9,n10,n13,h,x1,x2,x3,x4]",
+  "hypotheses": "Retain all seven coefficients and map exactly the prior frozen witness to t=1,e=159.",
+  "inverted_elements": [
+    "rational constants only; t!=0 is the original rank-four condition"
+  ],
+  "complements": [
+    "t=0 has rank below4",
+    "e=0 stays in the explicit polynomial source and can be included by closure after a dense-open support proof"
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_modular_affine_normalization.py",
+      "sha256": "8c023d995c178546e4247ccbb092562e6b9b9ca066c1f03fe0fc0a4e72187907"
+    },
+    {
+      "path": "code/data/classification_nil22_one_canonical.json",
+      "sha256": "0c504aeeb85dd3f112ff3351d578fe81de7d24b6a5e8dc9d62d63e5db5a02fc1"
+    },
+    {
+      "path": "reports/CLASSIFICATION_NIL22_TOP_COMPONENTS_20261107.json",
+      "sha256": "62c5ca9bbc2d6f87f2110e54025ee56d5ed52eb7b4b8802b70b20287267cb89d"
+    }
+  ],
+  "success_certificate": "All universal coordinate-change coefficients, determinant1, raw Jacobi, Pfaffian, diagonal weights, and proof that the old witness maps to the chosen canonical parameter value.",
+  "independent_check": "The normalization is independently read before component application, and any resulting weighted-slice proof requires a separate full-ambient reconstruction.",
+  "resource_limit": {
+    "timeout_seconds": 30,
+    "memory_mb": 768
+  },
+  "negative_result_next_step": "If the identity fails, correct the hand-derived normal form before any slice computation. No alternate witness search."
+}

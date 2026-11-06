@@ -5,15 +5,15 @@
   "baseline_commit": "a00a541b835b2bff18bafcba545ecbd4bae7175b",
   "target": "exhaustive_reduced_components_before_PGL5_and_generic_geometry",
   "mathematical_status": {
-    "global_lower_bound": 74,
-    "rank4_lower_bound": 68,
+    "global_lower_bound": 86,
+    "rank4_lower_bound": 80,
     "global_upper_bound": null,
     "generic_five_exhaustion": false,
     "global_exhaustion": false,
-    "verification_scope": "All74 components individually identified. Full rank4-quadric/irreducible-cubic support covered by MPS. All unimodular highest parts with a linear Casimir excluded from primitive-base dominance. Rank3 quadric nilpotent supports and other remaining divisors remain open.",
+    "verification_scope": "All86 components individually identified. Entire irreducible quadric/cubic support covered by MPS40 and six new23 components. Six additional plane-two-lines/cubic23 components proved. All unimodular quadratic-pencil and pullback highest parts excluded from dominance. Global exhaustion remains open.",
     "rank2_component_count": 6,
     "rank2_support_exhaustion": true,
-    "individually_identified_components": 74,
+    "individually_identified_components": 86,
     "additional_unidentified_components_lower_bound": 0
   },
   "source_registry": "research/classification/SOURCES.json",
@@ -61,7 +61,7 @@
         "generic_circuit_review"
       ],
       "acceptance": "全42法線の根基所属等または未知残余の空性を証明し、適用底開・全分母・独立検証を明記する。新残余があれば分類計画を更新し、未解決のまま成功扱いしない。",
-      "first_step": "G-2HはA=c=0、共通因子なし・線形Casimirなしの最高部へ還元。全quadratic pencilと他highest foliation型を処理し、被約非正規支持も継続する。",
+      "first_step": "G-2Hは全R13/R22/S23最高部を非優越へ被覆済み。log L112/L1111の全境界とexceptional E3最高部の全低次延長を処理する。",
       "fallback": "同経路の二回未決で支持幾何または境界経路に変更し、E0/Aも進める。",
       "nonclosing_attempts": 0,
       "proof": null,
@@ -75,7 +75,7 @@
       "fixed_base_premise": "reports/CLASSIFICATION_FROZEN_T01_BETA_G28_20261106.json",
       "current_direction_reduction": "research/classification/NORMAL_DIRECTION_INCIDENCE.md",
       "prior_direct_groebner_nonclosing_attempts": 5,
-      "current_route": "Non-dominance for the factor-free nonzero highest part of unimodular quadratic symplectic structures, and full reduced-nonnormal divisor geometry.",
+      "current_route": "Remaining logarithmic and exceptional highest parts and all parameter-map boundaries; keep all nonreduced and reduced-nonnormal divisor complements.",
       "previous_structural_route_nonclosing_attempts": 2,
       "latest_full_source_nondominance": "research/classification/NIL31_PRIMITIVE_BETA_IMAGE.md"
     },
@@ -271,7 +271,7 @@
         "bibliography"
       ],
       "acceptance": "主分類に使う各族のPoisson性、成分性、相違、次元とrank2被覆の証明・一次引用を確認し、欠落を明示する。",
-      "first_step": "個別74成分の成分性・相違を監査済み。新候補のみ全周囲成分性と相違を追加検証する。",
+      "first_step": "個別86成分の成分性・相違を監査済み。新候補のみ全周囲成分性と相違を追加検証する。",
       "fallback": "依存しない結果を巻き込まず問題の影響範囲を限定し、修正課題としてC0/Fに接続する。",
       "nonclosing_attempts": 0,
       "proof": "research/classification/KNOWN_COMPONENT_AUDIT.md",
@@ -390,7 +390,7 @@
         "remaining_divisor_support"
       ],
       "acceptance": "全非被約実退化因子のうち二重以上の超平面を持つ全点を既知族または新しい証明済み成分で被覆。全affine二次Poisson条件とPf(Q)=0を保持。",
-      "first_step": "nil22 A=-1,-1/3とshort r=1の全源を三新22へ被覆。short r=1/2も同値橋で被覆。残るlongB、short二源、nil22他源とrank1/zero全型の帰属を処理する。G非優越からE帰属を推論しない。",
+      "first_step": "nil31 long-top全六源とnil22 top全八源は被覆済み。short r=2/3とimage内nil源、残るunimodular源の全帰属を処理する。",
       "fallback": "同じ経路で二回非閉鎖なら具体的障害を記録し別の支持幾何へ変更。全補集合を保持する。",
       "nonclosing_attempts": 0,
       "proof": null,
@@ -413,7 +413,7 @@
         "remaining_divisor_support"
       ],
       "acceptance": "既存の正規因子T39分類とは別に、被約非正規因子の全rank4支持を閉既約族で尽くす。可約因子も含み、既知MPSを上界と仮定しない。",
-      "first_step": "rank4Q+既約C3全支持はMPSへ被覆完了。rank3Q+C3の純nil十二型、1+1+3の残nil源、他次数分割と既約非正規を処理する。",
+      "first_step": "全2+3支持はMPS40と六新23成分へ被覆済み。1+1+3の残七平面配置と非平面nil源、H+既約quartic、既約非正規quinticを処理する。",
       "fallback": "同じ経路で二回非閉鎖なら具体的障害を記録し別の支持幾何へ変更。全補集合を保持する。",
       "nonclosing_attempts": 0,
       "proof": null,

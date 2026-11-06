@@ -1,0 +1,36 @@
+{
+  "task_id": "E_multiple_hyperplane",
+  "target_statement": "Verify the entire nil22 A=-1/2 main seven-parameter source on B!=0 maps to a single explicit one-parameter canonical family P_B.",
+  "implication_to_classification": "This transports the existing full-source obligation and frozen witness to a canonical point at which a true finite weighted slice can settle reduced support; it does not itself claim componenthood.",
+  "coefficient_ring": "QQ[n2,n5,n6,n7,n9,n10,n14,1/n14,1/(2n14+1),h,x1,x2,x3,x4]",
+  "hypotheses": "All seven universal source parameters are retained. B=7 is exactly the prior frozen witness image, not a new point.",
+  "inverted_elements": [
+    "B!=0 for the rational affine coordinate change",
+    "2B+1!=0 is the entire main-branch assumption"
+  ],
+  "complements": [
+    "B=0 is part of the same explicitly polynomial irreducible source and is in the closure of its dense B!=0 image",
+    "B=-1/2 belongs to separately retained other sources"
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_modular_affine_normalization.py",
+      "sha256": "8c023d995c178546e4247ccbb092562e6b9b9ca066c1f03fe0fc0a4e72187907"
+    },
+    {
+      "path": "code/data/classification_nil22_half_main_canonical.json",
+      "sha256": "f30962629512f297123b42193a35e352cf78db6245033f50c84e83c8cbc7197e"
+    },
+    {
+      "path": "reports/CLASSIFICATION_NIL22_TOP_COMPONENTS_20261107.json",
+      "sha256": "62c5ca9bbc2d6f87f2110e54025ee56d5ed52eb7b4b8802b70b20287267cb89d"
+    }
+  ],
+  "success_certificate": "All universal coordinate-change coefficients, determinant1, raw Jacobi, Pfaffian, diagonal weights, and proof that the old witness maps to the chosen canonical parameter value.",
+  "independent_check": "The normalization is independently read before component application, and any resulting weighted-slice proof requires a separate full-ambient reconstruction.",
+  "resource_limit": {
+    "timeout_seconds": 30,
+    "memory_mb": 768
+  },
+  "negative_result_next_step": "If the identity fails, correct the hand-derived normal form before any slice computation. No alternate witness search."
+}

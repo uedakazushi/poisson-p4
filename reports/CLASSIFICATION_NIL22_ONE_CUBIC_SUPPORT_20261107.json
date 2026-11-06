@@ -1,0 +1,468 @@
+{
+  "task_id": "E_multiple_hyperplane",
+  "status": "CUBIC_AMBIGUITY_QUOTIENT_ZERO",
+  "input_sha256": {
+    "reports/CLASSIFICATION_NIL22_ONE_ACTUAL_CURVE_20261107.json": "939cdc842163d04d1199a8930a5bfa206d80d45c7dd8826cb1dafda24bd4f185",
+    "code/classification_nil22_one_curve.py": "4c50b7570f0258559c76a0657401268e4e7f4cf23c9dfd3a4e2e7d25df583998",
+    "code/classification_rank3_mixed_component_review.py": "48e61e30f9d7f04fb81f1bb5eec0e18daa28c8192d6a02a251e09cf8855b9bd0"
+  },
+  "producer_bytes": "#!/usr/bin/env python3\n\"\"\"One actual quadratic-curve attempt on the unique surviving tangent line.\nThis does not infer a formal solution or increase a jet when the polynomial\ncurve fails. The point is an explicit diagonal image of the frozen witness.\n\"\"\"\nimport hashlib,itertools,json,time\nfrom pathlib import Path\nimport sympy as s\nfrom sympy.polys.matrices import DomainMatrix\nimport classification_rank3_mixed_component_review as engine\nROOT=Path(__file__).resolve().parents[1]\n\ndef main():\n    begun=time.monotonic();xx=s.symbols('h x1 x2 x3 x4');h,x,y,z,w=xx;u=s.Symbol('u')\n    path=ROOT/'reports/CLASSIFICATION_NIL22_ONE_QUADRATIC_SUPPORT_20261107.json'\n    packet=json.loads(path.read_text());env={str(q):q for q in xx}\n    def decode(data):\n        P=s.zeros(5)\n        for key,value in data.items():\n            i,j=map(int,key.split(','));P[i,j]=s.sympify(value,locals=env)\n        return P-P.T\n    old=decode(packet['canonical_brackets']);oldR=decode(packet['normal_brackets'][0])+318*decode(packet['normal_brackets'][1])\n    mu=s.Rational(1,159);M=s.diag(1,mu**2,mu,mu,1);inv=M.inv()*s.Matrix(xx)\n    def transform(P):return (M*P*M.T).subs(dict(zip(xx,inv)),simultaneous=True).applyfunc(s.expand)\n    P=transform(old)/mu;R=transform(oldR)\n    expected=decode({'0,3':'-x2*x4/2','1,3':'2*x2*x3','1,4':'h*x2+2*x2*x4','2,3':'2*h*x3-x1*x4/2','2,4':'h**2+2*h*x4','3,4':'h**2-x2*x4/2+x3*x4+2*x4**2'})\n    assert P[2,3]==24*(h*h+y*w) and R==expected\n    def sparse(A):return {ij:dict(s.Poly(A[ij],*xx).terms()) for ij in engine.PAIRS if A[ij]!=0}\n    assert engine.jacobi(sparse(P))==s.zeros(350,1)\n    J=engine.jacobi(sparse(P+u*R)).applyfunc(s.expand)\n    assert all(s.Poly(q,u).coeff_monomial(u)==0 for q in J)\n    Rjac=engine.jacobi(sparse(R));Q=s.zeros(5);minor=None\n    if Rjac!=s.zeros(350,1):\n        Dcols=[];ps=sparse(P)\n        for ij,e in engine.COLUMNS:\n            v={k:dict(f) for k,f in ps.items()};v.setdefault(ij,{})[e]=v.get(ij,{}).get(e,0)+1\n            Dcols.append(engine.jacobi(v))\n        D=s.Matrix.hstack(*Dcols);indices=packet['implicit_coordinate_indices'];rows=packet['selected_equation_rows']\n        block=DomainMatrix.from_Matrix(D[rows,indices]).convert_to(s.QQ)\n        minor=block.det();assert minor\n        correction=-block.inv().to_Matrix()*Rjac[rows,:]\n        qv=s.zeros(150,1)\n        for i,index in enumerate(indices):qv[index]=correction[i]\n        assert D*qv+Rjac==s.zeros(350,1)\n        for ((i,j),e),a in zip(engine.COLUMNS,qv):Q[i,j]+=a*s.prod(q**v for q,v in zip(xx,e))\n        Q-=Q.T\n    curve=P+u*R+u*u*Q;actual=engine.jacobi(sparse(curve)).applyfunc(s.expand)\n    success=actual==s.zeros(350,1)\n    def encode(A):return {str(i)+','+str(j):str(s.factor(A[i,j])) for i,j in engine.PAIRS if A[i,j]!=0}\n    out={'task_id':'E_multiple_hyperplane','status':'EXACT_ACTUAL_QUADRATIC_POISSON_CURVE' if success else 'QUADRATIC_POLYNOMIAL_CURVE_NOT_POISSON',\n         'input_sha256':{str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in [path,Path(__file__),Path(engine.__file__)]},\n         'producer_bytes':Path(__file__).read_text(),'diagonal_transport':list(map(str,M.diagonal())),\n         'point_scalar_factor':'159','normal_scalar_after_transport':'1/159','same_frozen_witness_exact_transport':True,\n         'point_brackets':encode(P),'normal_brackets':encode(R),'normal_self_Jacobi_zero':Rjac==s.zeros(350,1),\n         'quadratic_correction_brackets':encode(Q),'implicit_minor_determinant':str(minor),\n         'all350_quadratic_coefficient_zero':True,'full_curve_brackets':encode(curve),\n         'whole350_actual_Jacobi_zero':success,\n         'all_nonzero_actual_Jacobi_coefficients':{str(i):str(s.factor(v)) for i,v in enumerate(actual) if v},\n         'scope':'One genuine degree-two polynomial curve was tested. If it fails, no formal integration or new componenthood is inferred.',\n         'seconds':time.monotonic()-begun}\n    target=ROOT/'reports/CLASSIFICATION_NIL22_ONE_ACTUAL_CURVE_20261107.json'\n    if target.exists():raise FileExistsError(str(target))\n    target.write_text(json.dumps(out,indent=2)+'\\n')\n    print(json.dumps({'status':out['status'],'seconds':out['seconds'],'nonzero_residual_rows':len(out['all_nonzero_actual_Jacobi_coefficients'])}))\n\n\ndef cubic_support():\n    begun=time.monotonic();xx=s.symbols('h x1 x2 x3 x4');env={str(v):v for v in xx}\n    source_path=ROOT/'reports/CLASSIFICATION_NIL22_ONE_ACTUAL_CURVE_20261107.json'\n    packet=json.loads(source_path.read_text())\n    def decode(data):\n        M=s.zeros(5)\n        for key,value in data.items():\n            i,j=map(int,key.split(','));M[i,j]=s.sympify(value,locals=env)\n        return M-M.T\n    def sparse(M):return {ij:dict(s.Poly(s.expand(M[ij]),*xx).terms()) for ij in engine.PAIRS if M[ij]!=0}\n    def encode(M):return {str(i)+','+str(j):str(s.factor(M[i,j])) for i,j in engine.PAIRS if M[i,j]!=0}\n    def tensor(v):\n        M=s.zeros(5)\n        for ((i,j),e),a in zip(engine.COLUMNS,v):M[i,j]+=a*s.prod(x**k for x,k in zip(xx,e))\n        return M-M.T\n    def dm(M):return DomainMatrix.from_Matrix(M).convert_to(s.QQ)\n    P=decode(packet['point_brackets']);R=decode(packet['normal_brackets']);Q=decode(packet['quadratic_correction_brackets'])\n    J=lambda M:engine.jacobi(sparse(M))\n    assert J(P)==s.zeros(350,1)\n    Dcols=[];ps=sparse(P)\n    for ij,e in engine.COLUMNS:\n        value={k:dict(p) for k,p in ps.items()};value.setdefault(ij,{})[e]=value.get(ij,{}).get(e,0)+1\n        Dcols.append(engine.jacobi(value))\n    D=s.Matrix.hstack(*Dcols);K=dm(D).nullspace().to_Matrix().T\n    assert K.shape==(150,49) and D*K==s.zeros(350,49)\n    assert D*engine.vector(sparse(Q))+J(R)==s.zeros(350,1)\n    JR=J(R);C=J(R+Q)-JR-J(Q)\n    kernel_tensors=[tensor(K[:,i]) for i in range(49)]\n    mixed=s.Matrix.hstack(*[J(R+T)-JR-J(T) for T in kernel_tensors])\n    M=D.row_join(mixed)\n    def project(matrix,C):\n        cols=list(dm(matrix).rref()[1]);basis=matrix[:,cols]\n        rows=list(dm(basis.T).rref()[1]);block=dm(basis[rows,:]);inv=block.inv().to_Matrix()\n        rem=C-basis*inv*C[rows,:]\n        if rem==s.zeros(350,1):return dict(rank=len(cols),nonzero=False),None\n        nz=next(i for i,value in enumerate(rem) if value)\n        lam=s.zeros(1,350);lam[0,nz]=1;selected=basis[nz,:]*inv\n        for j,row in enumerate(rows):lam[0,row]-=selected[0,j]\n        assert lam*matrix==s.zeros(1,matrix.cols)\n        value=(lam*C)[0];assert value\n        return dict(rank=len(cols),nonzero=True,left_functional={str(i):str(lam[0,i]) for i in range(350) if lam[0,i]},\n                    nonzero_cubic_pairing=str(value),minor_rows=rows,minor_columns=cols,minor_determinant=str(block.det())),lam\n    result,lam=project(M,C)\n    direct=None\n    if result['nonzero']:\n        oldpath=ROOT/'reports/CLASSIFICATION_NIL22_ONE_QUADRATIC_SUPPORT_20261107.json';old=json.loads(oldpath.read_text())\n        T=decode(old['normal_brackets'][1]);mu=s.Rational(1,159);A=s.diag(1,mu**2,mu,mu,1);inv=A.inv()*s.Matrix(xx)\n        T=(A*T*A.T).subs(dict(zip(xx,inv)),simultaneous=True).applyfunc(s.expand)\n        assert D*engine.vector(sparse(T))==s.zeros(350,1)\n        direct,_=project(M.row_join(J(T)),C)\n    out={'task_id':'E_multiple_hyperplane','status':'CUBIC_SUPPORT_OBSTRUCTION_NONZERO' if result['nonzero'] else 'CUBIC_AMBIGUITY_QUOTIENT_ZERO',\n         'input_sha256':{str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in [source_path,Path(__file__),Path(engine.__file__)]},\n         'producer_bytes':Path(__file__).read_text(),'full_D_rank':101,'full_kernel_dimension':49,\n         'all_kernel_vectors_killed_by_full_D':True,'second_order_equation_exact':True,\n         'kernel_basis_brackets':[encode(T) for T in kernel_tensors],\n         'cubic_B_R_Q':{str(i):str(v) for i,v in enumerate(C) if v},\n         'all_second_order_ambiguities_quotient':result,\n         'including_remaining_full_normal_quadratic_image_quotient':direct,\n         'scope':'Nonzero quotient kills every second-order correction Q+kerD. Together with the quadratic initial support (a\u00b2,ab), the Puiseux valuation argument proves reduced support is a point. A literal cubic initial generator is asserted only if the strengthened quotient remains nonzero.',\n         'exact_nilpotence_thickness_not_claimed':True,'seconds':time.monotonic()-begun}\n    path=ROOT/'reports/CLASSIFICATION_NIL22_ONE_CUBIC_SUPPORT_20261107.json'\n    if path.exists():raise FileExistsError(str(path))\n    path.write_text(json.dumps(out,indent=2)+'\\n')\n    print(json.dumps({'status':out['status'],'quotient_rank':result['rank'],'direct_cubic':None if direct is None else direct['nonzero'],'seconds':out['seconds']}))\n\nif __name__=='__main__':\n    import sys\n    cubic_support() if '--cubic-support' in sys.argv else main()\n",
+  "full_D_rank": 101,
+  "full_kernel_dimension": 49,
+  "all_kernel_vectors_killed_by_full_D": true,
+  "second_order_equation_exact": true,
+  "kernel_basis_brackets": [
+    {
+      "0,1": "h*x1",
+      "0,2": "h*x2",
+      "0,3": "h*x3",
+      "0,4": "h*x4"
+    },
+    {
+      "0,1": "x1**2",
+      "0,2": "x1*x2",
+      "0,3": "x1*x3",
+      "0,4": "x1*x4"
+    },
+    {
+      "0,1": "x1*x2",
+      "0,2": "x2**2",
+      "0,3": "x2*x3",
+      "0,4": "x2*x4"
+    },
+    {
+      "0,1": "x1*x3",
+      "0,2": "x2*x3",
+      "0,3": "x3**2",
+      "0,4": "x3*x4"
+    },
+    {
+      "0,1": "x1*x4",
+      "0,2": "x2*x4",
+      "0,3": "x3*x4",
+      "0,4": "x4**2"
+    },
+    {
+      "1,2": "h**2",
+      "1,3": "h*(h + 2*x4)/2"
+    },
+    {
+      "0,1": "2*(h*x1 - 2*h*x2 + 3*x1*x4)/3",
+      "0,2": "2*(-2*h**2 - h*x2 + 2*x2*x4)/3",
+      "0,3": "(-6*h*x3 - 15*h*x4 + 10*x2*x4 + 6*x3*x4)/9",
+      "1,2": "-2*x2*(4*x1 - x2)/3",
+      "1,3": "-x1*(-6*h + 2*x2 + 4*x3 - 3*x4)/3"
+    },
+    {
+      "1,3": "-2*h*x1 + x2**2"
+    },
+    {
+      "0,1": "-h*x2",
+      "1,2": "2*x2**2",
+      "1,3": "h*x1 - h*x2 + x2*x3"
+    },
+    {
+      "0,1": "-h**2",
+      "1,2": "3*h*x2",
+      "1,3": "-h**2 + h*x2 + h*x3 + x2*x4"
+    },
+    {
+      "0,1": "(6*h**2 + 2*h*x1 - h*x2 - 3*h*x3 + 6*x1*x4 - 6*x2*x4)/3",
+      "0,2": "(-4*h**2 - 2*h*x2 - 9*h*x4 + 4*x2*x4)/3",
+      "0,3": "2*(-3*h*x3 - 21*h*x4 + 5*x2*x4 + 3*x3*x4 - 9*x4**2)/9",
+      "1,2": "-(6*h*x1 + 30*h*x2 + 16*x1*x2 + 18*x1*x4 + 11*x2**2 - 18*x2*x3)/6",
+      "1,3": "-(-6*h**2 + 9*h*x3 + 2*x1*x2 + 4*x1*x3 - 3*x3**2)/3"
+    },
+    {
+      "0,1": "-h*(h + x4)/3",
+      "1,2": "(h**2 + h*x2 + 2*h*x3 + 2*x2*x4)/3",
+      "1,3": "x3*(2*h + 3*x4)/3"
+    },
+    {
+      "1,2": "h*(-2*h + 3*x4)/3",
+      "1,3": "(-h**2 + 3*x4**2)/3"
+    },
+    {
+      "0,1": "-h**2",
+      "1,2": "h*x2",
+      "1,3": "h*x3",
+      "1,4": "h*x4"
+    },
+    {
+      "0,1": "-h*x1",
+      "1,2": "x1*x2",
+      "1,3": "x1*x3",
+      "1,4": "x1*x4"
+    },
+    {
+      "1,2": "-x2**2",
+      "1,3": "-h*(x1 - x2)",
+      "1,4": "x2*x4"
+    },
+    {
+      "0,1": "-(6*h**2 + 2*h*x1 - h*x2 + 6*x1*x4 - 6*x2*x4)/3",
+      "0,2": "-(-4*h**2 - 2*h*x2 - 9*h*x4 + 4*x2*x4)/3",
+      "0,3": "-2*(-3*h*x3 - 21*h*x4 + 5*x2*x4 + 3*x3*x4 - 9*x4**2)/9",
+      "1,2": "(6*h*x1 + 30*h*x2 + 16*x1*x2 + 18*x1*x4 + 11*x2**2 - 12*x2*x3)/6",
+      "1,3": "(-6*h**2 + 9*h*x3 + 2*x1*x2 + 4*x1*x3)/3",
+      "1,4": "x3*x4"
+    },
+    {
+      "0,1": "-h*(-h + 2*x4)/3",
+      "1,2": "(-h**2 - h*x2 - 2*h*x3 + x2*x4)/3",
+      "1,3": "-2*h*x3/3",
+      "1,4": "x4**2"
+    },
+    {
+      "1,3": "h*x2",
+      "2,3": "h**2"
+    },
+    {
+      "0,1": "2*(10*h*x1 + 4*h*x2 + 12*x1*x4 - 3*x2**2)/3",
+      "0,2": "2*(4*h**2 + 5*h*x2 + 8*x2*x4)/3",
+      "0,3": "(-72*h**2 + 9*h*x2 + 60*h*x3 - 48*h*x4 + 8*x2*x4 + 48*x3*x4)/18",
+      "1,2": "2*(12*h*x1 + 5*x1*x2 - 8*x2**2)/3",
+      "1,3": "x1*(11*x2 + 4*x3)/6",
+      "2,3": "h*x1"
+    },
+    {
+      "0,3": "h**2",
+      "1,3": "h*x1",
+      "2,3": "h*x2"
+    },
+    {
+      "0,2": "-h**2",
+      "1,2": "-3*h*x1",
+      "1,3": "-h*(x1 - x2)",
+      "2,3": "h*x3"
+    },
+    {
+      "0,1": "h**2",
+      "1,2": "-3*h*x2",
+      "1,3": "-h*(-h + x2 + x3)",
+      "2,3": "h*x4"
+    },
+    {
+      "0,1": "-(-40*h*x1 - 16*h*x2 + 3*x1*x2 - 48*x1*x4 + 12*x2**2)/3",
+      "0,2": "(16*h**2 + 3*h*x1 + 20*h*x2 - 6*x2**2 + 32*x2*x4)/3",
+      "0,3": "(-144*h**2 + 36*h*x2 + 120*h*x3 - 96*h*x4 + 36*x1*x4 - 9*x2**2 - 18*x2*x3 + 16*x2*x4 + 96*x3*x4)/18",
+      "1,2": "-(-48*h*x1 + 9*x1**2 - 20*x1*x2 + 32*x2**2)/3",
+      "1,3": "-2*x1*(3*x1 - 4*x2 - 2*x3)/3",
+      "2,3": "-x1*(x2 - x3)"
+    },
+    {
+      "0,1": "2*(-h*x1 + 2*h*x2 + 6*x1*x4)/3",
+      "0,2": "2*(2*h**2 + h*x2 + 4*x2*x4)/3",
+      "0,3": "(6*h*x3 - 12*h*x4 + 11*x2*x4 + 12*x3*x4)/9",
+      "1,2": "4*(3*h*x1 + 2*x1*x2 - 2*x2**2)/3",
+      "1,3": "2*x1*(-3*h + x2 + 2*x3)/3",
+      "2,3": "x1*x4"
+    },
+    {
+      "0,1": "2*(10*h*x1 + 4*h*x2 + 12*x1*x4 - 3*x2**2)/3",
+      "0,2": "2*(4*h**2 + 5*h*x2 + 8*x2*x4)/3",
+      "0,3": "(-36*h**2 + 9*h*x2 + 30*h*x3 - 24*h*x4 + 4*x2*x4 + 24*x3*x4)/9",
+      "1,2": "2*(12*h*x1 + 5*x1*x2 - 8*x2**2)/3",
+      "1,3": "x1*(7*x2 + 2*x3)/3",
+      "2,3": "x2**2"
+    },
+    {
+      "0,1": "(11*h*x1 + 8*h*x2 + 24*x1*x4 - 3*x2**2)/3",
+      "0,2": "4*(2*h**2 + h*x2 + 4*x2*x4)/3",
+      "0,3": "(-9*h**2 + 21*h*x3 - 24*h*x4 + 13*x2*x4 + 24*x3*x4)/9",
+      "1,2": "(24*h*x1 + x1*x2 - 16*x2**2)/3",
+      "1,3": "x1*(x2 + 2*x3)/3",
+      "2,3": "x2*x3"
+    },
+    {
+      "0,1": "-h*x1 + 2*h*x2 - 3*x1*x4",
+      "0,2": "2*h**2 + h*x2 - 2*x2*x4",
+      "0,3": "-(-3*h*x3 - 9*h*x4 + 5*x2*x4 + 3*x3*x4)/3",
+      "1,2": "x2*(4*x1 - x2)",
+      "1,3": "x1*(-3*h + x2 + 2*x3)",
+      "2,3": "x2*x4"
+    },
+    {
+      "0,1": "(10*h*x1 + 4*h*x2 + 30*x1*x4 - 3*x2**2)/6",
+      "0,2": "(-h**2 + h*x2 - 3*h*x3 + 10*x2*x4)/3",
+      "0,3": "(-9*h**2 + 3*h*x3 - 24*h*x4 + 13*x2*x4 + 15*x3*x4)/9",
+      "1,2": "(6*h*x1 + x1*x2 - 9*x1*x3 - 10*x2**2)/3",
+      "1,3": "(-3*h*x1 + 3*h*x2 + x1*x2 - 4*x1*x3)/3",
+      "2,3": "x3**2"
+    },
+    {
+      "0,1": "(3*h**2 + h*x1 - 2*h*x2 + 3*x1*x4 - 3*x2*x4)/3",
+      "0,2": "(-2*h**2 - h*x2 - 6*h*x4 + 2*x2*x4)/3",
+      "0,3": "(-3*h*x3 - 21*h*x4 + 5*x2*x4 + 3*x3*x4 - 9*x4**2)/9",
+      "1,2": "-(9*h*x2 + 4*x1*x2 + 9*x1*x4 - x2**2)/3",
+      "1,3": "-(-3*h**2 - 3*h*x1 + 3*h*x2 + 3*h*x3 + x1*x2 + 2*x1*x3)/3",
+      "2,3": "x3*x4"
+    },
+    {
+      "0,1": "h*(-7*h + 2*x4)/6",
+      "1,2": "-(2*h**2 - 19*h*x2 - 2*h*x3 + 10*x2*x4)/6",
+      "1,3": "h*(-15*h + 12*x2 + 16*x3)/12",
+      "2,3": "x4**2"
+    },
+    {
+      "0,1": "-2*(25*h*x1 + 16*h*x2 + 48*x1*x4 - 6*x2**2)/3",
+      "0,2": "-(32*h**2 + 19*h*x2 + 64*x2*x4)/3",
+      "0,3": "-2*(-18*h**2 + 33*h*x3 - 48*h*x4 + 26*x2*x4 + 48*x3*x4)/9",
+      "0,4": "-h**2",
+      "1,2": "-(96*h*x1 + x1*x2 - 64*x2**2)/3",
+      "1,3": "-2*x1*(2*x2 - 5*x3)/3",
+      "1,4": "-(4*h*x1 + 2*h*x2 - x2**2 - 2*x2*x3)/2",
+      "2,4": "-h*(h + x2 - x3)"
+    },
+    {
+      "1,2": "2*h*x1",
+      "1,3": "h*(x1 - x2)",
+      "2,4": "h*x4"
+    },
+    {
+      "0,1": "(-40*h*x1 - 16*h*x2 + 3*x1*x2 - 48*x1*x4 + 12*x2**2)/3",
+      "0,2": "-2*(8*h**2 + 3*h*x1 + 10*h*x2 - 3*x2**2 + 16*x2*x4)/3",
+      "0,3": "-(-144*h**2 + 36*h*x2 + 120*h*x3 - 96*h*x4 + 36*x1*x4 - 9*x2**2 - 18*x2*x3 + 16*x2*x4 + 96*x3*x4)/18",
+      "1,2": "2*(-24*h*x1 + 3*x1**2 - 10*x1*x2 + 16*x2**2)/3",
+      "1,3": "2*x1*(3*x1 - 4*x2 - 2*x3)/3",
+      "2,3": "x1*x2",
+      "2,4": "x1*x4"
+    },
+    {
+      "0,1": "-(11*h*x1 + 8*h*x2 + 24*x1*x4 - 3*x2**2)/3",
+      "0,2": "-(8*h**2 + 7*h*x2 + 16*x2*x4)/3",
+      "0,3": "-(-9*h**2 + 21*h*x3 - 24*h*x4 + 13*x2*x4 + 24*x3*x4)/9",
+      "1,2": "-4*(6*h*x1 + x1*x2 - 4*x2**2)/3",
+      "1,3": "-x1*(x2 + 2*x3)/3",
+      "2,4": "x2*x4"
+    },
+    {
+      "0,1": "-(10*h*x1 + 4*h*x2 + 30*x1*x4 - 3*x2**2)/6",
+      "0,2": "-(-h**2 + h*x2 + 10*x2*x4)/3",
+      "0,3": "-(-9*h**2 + 3*h*x3 - 24*h*x4 + 13*x2*x4 + 15*x3*x4)/9",
+      "1,2": "-(6*h*x1 + x1*x2 - 6*x1*x3 - 10*x2**2)/3",
+      "1,3": "-(-3*h*x1 + 3*h*x2 + x1*x2 - 4*x1*x3)/3",
+      "2,4": "x3*x4"
+    },
+    {
+      "0,1": "-(3*h**2 + h*x1 - 2*h*x2 + 3*x1*x4 - 3*x2*x4)/3",
+      "0,2": "-(-2*h**2 - h*x2 - 3*h*x4 + 2*x2*x4)/3",
+      "0,3": "-(-3*h*x3 - 21*h*x4 + 5*x2*x4 + 3*x3*x4 - 9*x4**2)/9",
+      "1,2": "(9*h*x2 + 4*x1*x2 + 6*x1*x4 - x2**2)/3",
+      "1,3": "(-3*h**2 - 3*h*x1 + 3*h*x2 + 3*h*x3 + x1*x2 + 2*x1*x3)/3",
+      "2,4": "x4**2"
+    },
+    {
+      "0,3": "-h**2",
+      "1,3": "h*x1",
+      "1,4": "h*x2",
+      "2,4": "h**2",
+      "3,4": "h**2"
+    },
+    {
+      "0,1": "-8*(10*h*x1 + 4*h*x2 + 12*x1*x4 - 3*x2**2)/3",
+      "0,2": "-8*(4*h**2 + 5*h*x2 + 8*x2*x4)/3",
+      "0,3": "-(-153*h**2 + 9*h*x2 + 120*h*x3 - 96*h*x4 + 16*x2*x4 + 96*x3*x4)/9",
+      "1,2": "-8*(12*h*x1 + 5*x1*x2 - 8*x2**2)/3",
+      "1,3": "-x1*(3*h + 13*x2 + 8*x3)/3",
+      "1,4": "-2*h*x1 - h*x2 + 2*x2**2",
+      "2,4": "h*(-h + x2)",
+      "3,4": "h*x2"
+    },
+    {
+      "0,4": "h**2",
+      "1,4": "h*x1",
+      "2,4": "h*x2",
+      "3,4": "h*x3"
+    },
+    {
+      "3,4": "h*x4"
+    },
+    {
+      "0,4": "h*x1",
+      "1,4": "x1**2",
+      "2,4": "x1*x2",
+      "3,4": "x1*x3"
+    },
+    {
+      "0,3": "-h*x1",
+      "1,3": "-x1**2",
+      "2,3": "-x1*x2",
+      "3,4": "x1*x4"
+    },
+    {
+      "0,1": "-16*(10*h*x1 + 4*h*x2 + 12*x1*x4 - 3*x2**2)/3",
+      "0,2": "-16*(4*h**2 + 5*h*x2 + 8*x2*x4)/3",
+      "0,3": "-2*(-153*h**2 + 36*h*x1 + 9*h*x2 + 120*h*x3 - 96*h*x4 + 16*x2*x4 + 96*x3*x4)/9",
+      "1,2": "-16*(12*h*x1 + 5*x1*x2 - 8*x2**2)/3",
+      "1,3": "-2*x1*(3*h + 18*x1 + 13*x2 + 8*x3)/3",
+      "1,4": "-2*(2*h*x1 + h*x2 + x1*x2 - 2*x2**2)",
+      "2,3": "-10*x1*x2",
+      "2,4": "-2*(h**2 + 3*h*x1 - h*x2 - x2**2)",
+      "3,4": "-4*h*x1 + x2**2"
+    },
+    {
+      "0,4": "h*x2",
+      "1,4": "x1*x2",
+      "2,4": "x2**2",
+      "3,4": "x2*x3"
+    },
+    {
+      "0,1": "2*(10*h*x1 + 4*h*x2 + 12*x1*x4 - 3*x2**2)/3",
+      "0,2": "2*(4*h**2 + 5*h*x2 + 8*x2*x4)/3",
+      "0,3": "2*(-18*h**2 + 15*h*x3 - 12*h*x4 + 2*x2*x4 + 12*x3*x4)/9",
+      "1,2": "2*(12*h*x1 + 5*x1*x2 - 8*x2**2)/3",
+      "1,3": "2*x1*(2*x2 + x3)/3",
+      "3,4": "x2*x4"
+    },
+    {
+      "0,4": "h*x3",
+      "1,4": "x1*x3",
+      "2,4": "x2*x3",
+      "3,4": "x3**2"
+    },
+    {
+      "0,1": "(11*h*x1 + 8*h*x2 + 24*x1*x4 - 3*x2**2)/3",
+      "0,2": "4*(2*h**2 + h*x2 + 4*x2*x4)/3",
+      "0,3": "(-9*h**2 + 12*h*x3 - 24*h*x4 + 13*x2*x4 + 24*x3*x4)/9",
+      "1,2": "(24*h*x1 + x1*x2 - 16*x2**2)/3",
+      "1,3": "x1*(x2 - x3)/3",
+      "3,4": "x3*x4"
+    },
+    {
+      "0,1": "-(h*x1 - 2*h*x2 + 3*x1*x4)/3",
+      "0,2": "-(-2*h**2 - h*x2 + 2*x2*x4)/3",
+      "0,3": "-(-3*h*x3 - 3*h*x4 + 5*x2*x4 + 3*x3*x4)/9",
+      "1,2": "x2*(4*x1 - x2)/3",
+      "1,3": "x1*(-3*h + x2 + 2*x3)/3",
+      "3,4": "x4**2"
+    }
+  ],
+  "cubic_B_R_Q": {
+    "2": "-2/9",
+    "5": "5/144",
+    "6": "41/216",
+    "9": "2/9",
+    "16": "1/192",
+    "18": "1/9",
+    "19": "-1/24",
+    "20": "-11/72",
+    "21": "1/18",
+    "25": "-155/864",
+    "28": "8/9",
+    "45": "-1/384",
+    "47": "1/18",
+    "49": "-1/3",
+    "55": "5/288",
+    "56": "1/18",
+    "57": "-1/9",
+    "71": "35/72",
+    "72": "1/9",
+    "79": "-19/144",
+    "80": "2/9",
+    "91": "-11/72",
+    "93": "4/9",
+    "94": "8/9",
+    "95": "-1/192",
+    "99": "4/9",
+    "120": "-1/3",
+    "127": "-1/18",
+    "140": "1/9",
+    "141": "2/9",
+    "142": "35/72",
+    "143": "-2/9",
+    "144": "2/9",
+    "146": "67/1152",
+    "147": "-23/288",
+    "148": "-37/216",
+    "149": "23/144",
+    "150": "-47/144",
+    "151": "-4/9",
+    "153": "-2/3",
+    "159": "1/768",
+    "160": "-1/384",
+    "161": "29/288",
+    "163": "13/144",
+    "164": "-25/108",
+    "165": "-13/576",
+    "166": "-1/32",
+    "167": "133/216",
+    "168": "1/9",
+    "169": "2/3",
+    "170": "-2/9",
+    "172": "4/9",
+    "190": "19/216",
+    "193": "1/3",
+    "197": "-5/288",
+    "199": "-1/9",
+    "200": "1/9",
+    "210": "17/24",
+    "211": "1/128",
+    "212": "49/192",
+    "213": "-47/144",
+    "214": "-1/3",
+    "216": "1/256",
+    "217": "-1/128",
+    "218": "-47/288",
+    "219": "1/384",
+    "220": "-41/576",
+    "221": "479/864",
+    "222": "1/9",
+    "223": "-2/9",
+    "231": "1/192",
+    "234": "-5/144",
+    "235": "-1/768",
+    "236": "1/384",
+    "237": "101/576",
+    "239": "-7/48",
+    "240": "-31/216",
+    "243": "-4/9",
+    "267": "-1/384",
+    "270": "31/216",
+    "273": "1/3",
+    "281": "17/24",
+    "282": "-1/9",
+    "285": "1/128",
+    "286": "19/576",
+    "287": "23/144",
+    "288": "-1/3",
+    "289": "-35/72",
+    "290": "1/3",
+    "296": "1/256",
+    "297": "-1/128",
+    "298": "-19/96",
+    "299": "-1/18",
+    "300": "5/576",
+    "301": "463/864",
+    "302": "1/9",
+    "303": "-2/9",
+    "305": "-23/144",
+    "306": "7/36",
+    "307": "2/9",
+    "308": "2/9",
+    "309": "2/3",
+    "324": "-7/48",
+    "325": "-1/384",
+    "326": "1/192",
+    "327": "67/576",
+    "329": "-17/72",
+    "330": "7/216",
+    "332": "4/9",
+    "333": "4/9",
+    "335": "13/576",
+    "336": "5/192",
+    "337": "-377/864",
+    "338": "-1/9",
+    "339": "-2/3",
+    "340": "2/9",
+    "342": "-8/9"
+  },
+  "all_second_order_ambiguities_quotient": {
+    "rank": 102,
+    "nonzero": false
+  },
+  "including_remaining_full_normal_quadratic_image_quotient": null,
+  "scope": "Nonzero quotient kills every second-order correction Q+kerD. Together with the quadratic initial support (a\u00b2,ab), the Puiseux valuation argument proves reduced support is a point. A literal cubic initial generator is asserted only if the strengthened quotient remains nonzero.",
+  "exact_nilpotence_thickness_not_claimed": true,
+  "seconds": 1.8083344619954005
+}

@@ -125,7 +125,7 @@ MPS は最小でも23次元。一般 rank2 成分とは rank 条件で区別す�
 canonical cofactor の冪の階数3,1,0、三次因子の既約性を独立に確認した。
 正式な台帳追加は統合担当が行う。
 
-## 4. 他の五源と、残る二源
+## 4. 他の五源と、残る r=2/3 源
 
 他の五源の一般因子型は順に
 `2H+L+Q_rank3`、`2H+3L`、`2H+L+Q_rank4`、`3H+2L`、`4H+L`。
@@ -135,8 +135,9 @@ canonical cofactor の冪の階数3,1,0、三次因子の既約性を独立に�
 さらに r=1 は§6で全成分へ、r=1/2 は nil22 A=−1/3 の全源への正確な橋と
 `NIL22_RESONANT_AFFINE32_ORBIT.md` §4 の有限二法線支持判定により、別の22次元全成分へ入る。
 後二件も別担当による独立算術レビューが完了しており、台帳への同期は統合担当が行う。
-残る二源は、因子型が既知族と同じという理由だけで所属を主張しない。
-全 source の実変形または別の重複超平面を用いた正確な帰着が次の義務である。
+r=1/3 主枝も§8の全パラメータ変形で被覆する。残る r=2/3 源は§7へ正規化したが、
+因子型が既知族と同じという理由だけで所属を主張しない。全 source の実変形または
+別の幾何的認識が次の義務である。
 接空間の二次以上を際限なく精密化する経路は採らない。
 
 ## 5. r=1 全源の一軌道化と有限な安定トーラス切片
@@ -233,3 +234,137 @@ PGL 変換と cofactor の非零 scalar 倍に不変である。
 有限契約は `jobs/nil31_short_components.json`。
 全六源の raw Jacobi/Pfaffian と一つずつの全接空間検査の実測合計は3.54秒。
 この report は全 nilrank2 の被覆を主張しない。
+
+
+## 7. r=2/3 全源の正規化と未決の真二法線
+
+この節は全支持の証明ではなく、残る六変数源を正確に二変数へ帰着する。
+元の自由変数 n3,n5,n6,n10,n11,n12 に対し
+
+\[
+\begin{gathered}
+ t=n_3,\qquad d=n_5-3n_{10}n_{11},\\
+ X=x-\tfrac32\{n_6+n_{12}(n_3-3n_{10})\}z+3n_{10}w,\\
+ Y=y+3n_{10},\quad Z=z,\quad W=w+n_{12}z+3n_{11}
+\end{gathered}                                                    \tag{14}
+\]
+
+と置く。行列式一の affine 変更であり、全六括弧は
+
+\[
+\begin{aligned}
+ P^{XY}&=dZ-tY+2tZW-Y^2/3,&P^{XZ}&=tZ-2YZ/3,\\
+ P^{XW}&=d+YW/3,&P^{YZ}&=-2Z^2/3,\\
+ P^{YW}&=(Y+ZW)/3,&P^{ZW}&=2Z/3.                  \tag{15}
+\end{aligned}
+\]
+
+に一致する。元証明書は整数倍 3P を記録する。
+全パラメータの係数恒等式、全 affine Jacobi、行列式と既存 witness の移送は
+`CLASSIFICATION_NIL31_SHORT_TWO_THIRDS_CANONICAL_20261107.json` に保存した。
+実五次因子は非零定数倍の `t h² Z(hY−ZW)` で、t≠0 が rank四の条件である。
+
+座標を `(h,X,Y,Z,W)↦(h,μ²νX,μνY,νZ,μW)` とし bivector を μ⁻¹ 倍すると
+`(t,d)↦(μνt,μ²νd)` となる。したがって td≠0 は一つの PGL・scalar 軌道である。
+d=0 は同じ明示的既約多項式源の閉集合として残す。
+一般点の既知閉包への所属が得られた場合だけ、閉性でこの集合へ戻すことができる。
+
+元の witness は t=1,d=−58 へ送られる。この同じ点で全350×150微分 D、
+軌道・vertical・scalar の G、および二つの実源方向を保持した真の切片を構成した。
+QQ で `rank D=101,rank G=47` で、二法線の全二次余核像は
+
+\[
+ (u^2-v^2/84100,\;uv-v^2/290)
+       =(u-v/290)(u,v).                              \tag{16}
+\]
+
+これは初期支持に一本の直線を残す。全形式支持が直線という結論や成分性は含意しない。
+`CLASSIFICATION_NIL31_SHORT_TWO_THIRDS_QUADRATIC_20261107.json` は
+全Dの左余核関数、独立二次像、真の法線代表を保存する。
+ここから高次 jet を際限なく延長せず、既知族への実変形または幾何的認識を次の義務とする。
+
+幾何を比較するため、開集合 Z≠0 で
+`q=Y/Z−W,F=X−YW+ZW²/2` と置くと、括弧は
+
+\[
+ \{F,q\}=-2tq,\quad\{F,Z\}=tZ,\quad\{F,W\}=d,
+ \quad\{q,W\}=-q/3,\quad\{Z,W\}=2Z/3,\quad\{q,Z\}=0.
+\]
+
+これは有理座標による線形化であって PGL による成分所属の証明ではない。
+
+
+## 8. r=1/3 主枝の全支持は半単純階数二へ変形される
+
+v=n9,u=n10,f=n12,g=n11 とし、
+`d=n5−3ug,a=n1−3uf` と置く。v(3v+1)≠0 上で
+
+\[
+ X=x+3uw+3d+\frac{a}{3v+1}z,\quad
+ Y=y+3u,\quad Z=z,\quad W=w-\frac f v z                 \tag{17}
+\]
+
+は行列式一の affine 座標変更である。全六源の括弧は正確に
+
+\[
+\begin{aligned}
+ P^{XY}&=(2v+1)XZ-(v+1)Y^2/2,&P^{XZ}&=vYZ,\\
+ P^{YZ}&=vZ^2,&P^{XW}&=X/3+gY,\\
+ P^{YW}&=Y/3+gZ,&P^{ZW}&=Z/3                         \tag{18}
+\end{aligned}
+\]
+
+となる。整数係数を保存した旧源は6Pの規約である。
+`CLASSIFICATION_NIL31_SHORT_THIRD_MAIN_CANONICAL_20261107.json` は、
+全六変数を残した座標恒等式・全 Jacobi・行列式・旧 witness の正確な移送を確認する。
+以下では X,Y,Z,W を再び x,y,z,w と書く。
+
+三変数 q=2xz−y²、E3=x∂x+y∂y+z∂z に対し
+
+\[
+ q_\varepsilon=2xz-y^2+\varepsilon x^2,\qquad
+ N_\varepsilon=y\partial_x+(z+\varepsilon x)\partial_y
+\]
+
+と置く。三変数二ベクトル π_ε を
+
+\[
+ \iota_{\pi_\varepsilon}(dx\wedge dy\wedge dz)
+       =\frac12\{vz\,dq_\varepsilon+(v+1)q_\varepsilon\,dz\}
+                                                               \tag{19}
+\]
+
+で定め、次の実多項式族を使う。
+
+\[
+ P_\varepsilon=\pi_\varepsilon+
+       (E_3/3+gN_\varepsilon)\wedge\partial_w.                 \tag{20}
+\]
+
+(19)の一形式 α は α∧dα=0 なので π_ε は Poisson。
+`Nε(qε)=Nε(z)=div Nε=0` より Nε は π_ε を保ち、
+π_ε が二次斉次なので E3 も π_ε を保つ。
+したがって (20) は任意の v,g,ε に対して真の二次 Poisson 構造で、P0 は (18) である。
+その modular 場と実因子は直接
+
+\[
+ \operatorname{div}P_\varepsilon=N_\varepsilon+\partial_w,
+ \qquad D_\varepsilon\doteq(3v+1)h^2zq_\varepsilon.           \tag{21}
+\]
+
+線形部 Aε の特性多項式は `λ²(λ²−ε)` で、ε≠0 なら零固有空間は二次元。
+従って Aε は半単純階数二である。定数成分 ∂w は im Aε の外に残るので、
+これを零に置き換えず、`MULTIPLE_HYPERPLANE_LOW_RANK_MODULAR.md` §2 の
+**定数成分を含む全半単純階数二支持定理**を適用する。
+3v+1≠0 なら全 ε で rank四であり、generic ε の全点が既知 MPS 閉和へ入る。
+ε=0 の閉性により (18) の任意 g も同じ閉和に入る。
+
+(17)で除いた v=0 は、元の六変数**多項式実源**の内部にある。
+v≠0 はこの既約源で稠密なので、その全像の閉性により v=0 も被覆される。
+3v+1=0 は主枝の局所化から外れ、既に§4で T01 へ被覆した追加枝が保持されている。
+この論理は未知 fiber を正規源の閉包から推測するものではない。
+
+別担当も (19)–(21) の全係数と半単純性を手で再導出して独立に受理した。
+全パラメータ Jacobi、Pfaffian、modular、特性多項式の小証明書は
+`CLASSIFICATION_NIL31_SHORT_THIRD_MAIN_DEFORMATION_20261107.json` に保存した（0.101秒）。
+この被覆では局所の接空間・高次障害を追加前提としない。

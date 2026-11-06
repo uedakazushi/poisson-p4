@@ -1,0 +1,36 @@
+{
+  "task_id": "E_multiple_hyperplane",
+  "target_statement": "Verify the full six-parameter short r=1/3 main source is mapped to the two-parameter family indexed by v=n9,g=n11.",
+  "implication_to_classification": "The explicit canonical family admits the hand-derived q->q+epsilon*x^2 Poisson deformation to a modular field with semisimple linear part of rank2. The identity connects all six source coefficients to that actual support proof.",
+  "coefficient_ring": "QQ[n1,n5,n9,n10,n11,n12,h,x1,x2,x3,x4,1/n9,1/(3*n9+1)]",
+  "hypotheses": "Retain all six parameters and the exact frozen witness. The determinant-one normalization is evaluated only on v(3v+1)!=0.",
+  "inverted_elements": [
+    "n9",
+    "3*n9+1"
+  ],
+  "complements": [
+    "3*n9+1=0 belongs to the separately solved extra source",
+    "n9=0 is inside the original explicit polynomial main source; its entire image follows by closure after the dense-open whole-source membership is proved"
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_modular_affine_normalization.py",
+      "sha256": "8c023d995c178546e4247ccbb092562e6b9b9ca066c1f03fe0fc0a4e72187907"
+    },
+    {
+      "path": "code/data/classification_nil31_short_third_main_canonical.json",
+      "sha256": "b1acf05bbb8c5ece16f2566b4070ce8d68bef0c69d60543f33380348baf019d0"
+    },
+    {
+      "path": "reports/CLASSIFICATION_NIL31_SHORT_COMPONENTS_20261107.json",
+      "sha256": "6a57d0185cb6f75b2d323b93799b027dd955fc42f23fb924a8ffc9f61340349a"
+    }
+  ],
+  "success_certificate": "Universal full tensor identity, determinant1, all raw Jacobi equations, Pfaffian, and the frozen witness identity.",
+  "independent_check": "Read the affine normalization and full-source-to-orbit closure argument independently before component use.",
+  "resource_limit": {
+    "timeout_seconds": 30,
+    "memory_mb": 768
+  },
+  "negative_result_next_step": "Correct a failed coefficient identity mathematically. No alternate witness or repeated point probes."
+}

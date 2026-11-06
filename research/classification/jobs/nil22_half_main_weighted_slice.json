@@ -1,0 +1,39 @@
+{
+  "task_id": "E_multiple_hyperplane",
+  "target_statement": "Determine the complete reduced support transverse to the actual22-dimensional nil22 half-main family using its stable torus slice.",
+  "implication_to_classification": "A zero-dimensional true slice proves the entire irreducible seven-parameter source image closure is a22 component. A finite exact curve may instead connect it to known components. A zero-weight normal is retained unresolved.",
+  "coefficient_ring": "QQ in all150 ambient coefficients and all350 projective Jacobi equations, reduced by the exact stable103-dimensional slice and102 selected IFT equations",
+  "hypotheses": "The source is an actual polynomial one-parameter family P_B on B!=-1/2. Its parameter derivative is included with orbit/vertical/scale in the47-dimensional actual family tangent; B is not a normal variable. The canonical point B=7 is exactly the prior frozen witness image. The family and its tangent are stable for the displayed torus, so the true stable slice finite-IFT theorem applies if its unique normal weight is nonzero.",
+  "inverted_elements": [
+    "One102x102 IFT minor",
+    "B!=0 only for source-to-normal coordinate change",
+    "2B+1!=0 is the source assumption"
+  ],
+  "complements": [
+    "B=0 source points are in closure of the dense B!=0 polynomial source image",
+    "Weight-zero normal leaves the finite method unresolved",
+    "Other nil22 branches stay separate"
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_modular_weighted_slice.py",
+      "sha256": "565a58467730a7a9dff7ac51dd1669d3090ca515101a0ddecd365507e7e6141e"
+    },
+    {
+      "path": "reports/CLASSIFICATION_NIL22_HALF_MAIN_CANONICAL_20261107.json",
+      "sha256": "5f207bb4a2766dd426dad42615a8a4c3048c44457475df0efc61c7962b27024c"
+    },
+    {
+      "path": "code/classification_rank3_mixed_component_review.py",
+      "sha256": "48e61e30f9d7f04fb81f1bb5eec0e18daa28c8192d6a02a251e09cf8855b9bd0"
+    }
+  ],
+  "success_certificate": "Exact stable orbit complement, full derivative and actual orbit ranks, normal weight, full polynomial IFT graph with ALL selected equations identically zero, and the residual ideal of all350 equations. No truncated jet is used for support.",
+  "independent_check": "A second implementation reconstructs the full derivative and the finite implicit graph/residual support before component-table use.",
+  "resource_limit": {
+    "timeout_seconds": 90,
+    "memory_mb": 1536
+  },
+  "route_change_reason": "The all-source rational affine normal form produces an actual P_B family with a stabilizing torus. The B direction must be removed as an actual base direction, rather than spuriously counted as a normal. The entire remaining formal slice is then intrinsically finite if its normal weight is nonzero.",
+  "negative_result_next_step": "If the normal weight vanishes, resource limit is reached, or any equivariance assertion fails, retain the complete source and return to geometric recognition."
+}

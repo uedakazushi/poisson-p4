@@ -29,7 +29,7 @@ def main(path):
     A=coordinates.jacobian(xx)
     assert all(s.expand(v)==0 for v in coordinates-A*s.Matrix(xx))
     determinant=s.factor(A.det());assert determinant==1
-    assert all(s.expand(v)==0 for v in A*P*A.T-C.subs(dict(zip(xx,coordinates)),simultaneous=True))
+    assert all(s.cancel(v)==0 for v in A*P*A.T-C.subs(dict(zip(xx,coordinates)),simultaneous=True))
     for i,j,k in itertools.combinations(range(5),3):
         assert s.expand(sum(C[i,l]*s.diff(C[j,k],xx[l])+C[j,l]*s.diff(C[k,i],xx[l])+C[k,l]*s.diff(C[i,j],xx[l]) for l in range(5)))==0
     weights=data['weight']

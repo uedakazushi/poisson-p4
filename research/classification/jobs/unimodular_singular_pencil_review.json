@@ -1,0 +1,29 @@
+{
+  "task_id": "G",
+  "target_statement": "Independently reconstruct the full coefficient kernels of the unique all-singular Kronecker pencil without common kernel.",
+  "implication_to_classification": "Completes the last finite coefficient case of all quadratic-pencil highest parts; constant Pfaffian then contradicts symplecticity.",
+  "coefficient_ring": "QQ in all24 linear and all6 constant two-form coefficients",
+  "hypotheses": "The singular-pencil normal form and common-kernel Hilbert-Burch complement are separate geometric arguments.",
+  "inverted_elements": [],
+  "complements": [
+    "Common-kernel pencils are retained and handled uniformly by Hilbert-Burch.",
+    "Highest parts not of Jacobian quadratic-pencil type remain open."
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_unimodular_singular_pencil_review.py",
+      "sha256": "e621b07b7e400affd6594e00ea5c35ceeb95ab5ff6e56deae9df3511144d84df"
+    },
+    {
+      "path": "reports/CLASSIFICATION_UNIMODULAR_SINGULAR_PENCIL_20261107.json",
+      "sha256": "c10cd33b45b523c5fb1cbcabc6180528612626e4c7d410ec6c678e3f8c130428"
+    }
+  ],
+  "success_certificate": "Full24 rank16, full8 kernel, full6 rank5 and constant kernel dx1 wedge dx2 with Pfaffian zero.",
+  "independent_check": "Independent standard-library Fraction coefficient and matrix reconstruction; no producer import.",
+  "resource_limit": {
+    "timeout_seconds": 60,
+    "memory_mb": 768
+  },
+  "negative_result_next_step": "Keep the entire Kronecker source open and identify the failed coefficient identity; do not infer from a sampled point."
+}

@@ -1,0 +1,41 @@
+{
+  "task_id": "E_multiple_hyperplane",
+  "target_statement": "Test one actual degree-two Poisson curve along the unique line surviving the full two-normal quadratic obstruction of nil22 A=1.",
+  "implication_to_classification": "An exact curve can connect the whole generic source orbit to a known divisor stratum or an SNC limit. Failure is only failure of this polynomial curve and does not trigger a larger jet.",
+  "coefficient_ring": "QQ[u,h,x1,x2,x3,x4]",
+  "hypotheses": "The whole-source canonicalization and full quadratic obstruction are established. The point t=e=1 is the explicit diagonal/scalar image of the frozen t1,e159 witness; the normal is transported exactly.",
+  "inverted_elements": [
+    "nonzero rational diagonal scales",
+    "the already nonzero101-square IFT minor after transport"
+  ],
+  "complements": [
+    "Keep the whole e=0 source boundary for later closedness",
+    "No proof of formal integration from a finite jet",
+    "Do not increase polynomial degree if this one quadratic correction fails"
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_nil22_one_curve.py",
+      "sha256": "6de4fb4a746ebdcecaa1016963f43c0414d9c60ec3b5c6793e0903300c51a7b8"
+    },
+    {
+      "path": "code/classification_rank3_mixed_component_review.py",
+      "sha256": "48e61e30f9d7f04fb81f1bb5eec0e18daa28c8192d6a02a251e09cf8855b9bd0"
+    },
+    {
+      "path": "reports/CLASSIFICATION_NIL22_ONE_QUADRATIC_SUPPORT_20261107.json",
+      "sha256": "30e49211f38e8c8431f601c976778090da836c499ba32b6470436aaa81a09d7f"
+    },
+    {
+      "path": "reports/CLASSIFICATION_NIL22_ONE_CANONICAL_20261107.json",
+      "sha256": "3005f2c210d451617a69e620e004c0965ff10b5b00752fba507e20109d6f827e"
+    }
+  ],
+  "success_certificate": "Exact frozen-point and tangent transport, all350 first-order equations, R selfJacobi or one exact degree2 correction, and finally all350 equations of the full polynomial curve.",
+  "independent_check": "Parent independently derived the normal and diagonal transport; the resulting full curve, if successful, will be independently checked before geometric recognition.",
+  "resource_limit": {
+    "timeout_seconds": 45,
+    "memory_mb": 1024
+  },
+  "negative_result_next_step": "Use the observed obstruction to seek a genuine geometric whole-source deformation, retaining all normals and avoiding higher-order formal probes."
+}

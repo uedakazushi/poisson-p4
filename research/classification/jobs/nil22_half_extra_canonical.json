@@ -1,0 +1,35 @@
+{
+  "task_id": "E_multiple_hyperplane",
+  "target_statement": "Verify the complete nil22 half-extra source normalization on n5!=0 to a two-parameter torus-invariant canonical source, preserving the frozen witness.",
+  "implication_to_classification": "The actual family can then be used for a true transverse-support test; n5=0 is already in the fully covered half n5zero source.",
+  "coefficient_ring": "QQ[n0,n2,n5,n6,n7,n9,n10,n5^-1,h,x1,x2,x3,x4]",
+  "hypotheses": "The full eight nil22 sources and n5zero T01 coverage are established. No actual source direction is discarded.",
+  "inverted_elements": [
+    "n5"
+  ],
+  "complements": [
+    "n5=0 belongs to the already covered T01 half source",
+    "The two-parameter actual source is not one orbit"
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_modular_affine_normalization.py",
+      "sha256": "8c023d995c178546e4247ccbb092562e6b9b9ca066c1f03fe0fc0a4e72187907"
+    },
+    {
+      "path": "code/data/classification_nil22_half_extra_canonical.json",
+      "sha256": "7112436688e6f0216dd70dbf9e7f06316b3963d7cbaa832db0720d1f08d845ae"
+    },
+    {
+      "path": "reports/CLASSIFICATION_NIL22_TOP_COMPONENTS_20261107.json",
+      "sha256": "62c5ca9bbc2d6f87f2110e54025ee56d5ed52eb7b4b8802b70b20287267cb89d"
+    }
+  ],
+  "success_certificate": "All six source coefficients equal the canonical family under a determinant-one affine change; universal Jacobi/Pfaffian, all coefficient weights and exact witness transport.",
+  "independent_check": "Parent derived the affine normal form; the present code compares every original source coefficient. Any later support conclusion is a separate finite obligation.",
+  "resource_limit": {
+    "timeout_seconds": 35,
+    "memory_mb": 768
+  },
+  "negative_result_next_step": "Correct the finite affine change or keep the complete original source; do not replace it by a sampled representative."
+}

@@ -17,9 +17,9 @@ Read only the evidence needed for the selected task. Do not load the whole histo
 Write a paper whose main theorem EXHAUSTS the reduced irreducible components of
 Poisson structures on complex P4, before PGL5 quotient, and describes their general members.
 Prove coverage of all points by the resulting closed families, componenthood and distinctness.
-The present lower bound is 74, including 68 of generic rank four; the total is UNKNOWN.
-All74 are individually identified, including the new rank3 double-quadric components of dimensions22 and24.
-The entire H+2Q locus with Q irreducible, three distinct hyperplanes plus an irreducible quadric, and rank4/5 quadric plus irreducible cubic are covered. Other degeneracy divisors remain open.
+The present lower bound is 86, including 80 of generic rank four; the total is UNKNOWN.
+All86 are individually identified, including the new rank3 double-quadric components of dimensions22 and24.
+The entire H+2Q locus with Q irreducible, three distinct hyperplanes plus an irreducible quadric, and irreducible quadric plus irreducible cubic are covered. Other degeneracy divisors remain open.
 Do not fix the lower bound as the answer. Add genuinely new components when necessary.
 Full orbit classification and full nonreduced scheme structure are not claimed by this theorem.
 They are secondary, not prerequisites silently added to the primary target.

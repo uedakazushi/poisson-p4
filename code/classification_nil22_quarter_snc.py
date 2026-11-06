@@ -112,6 +112,66 @@ def minus_two():
     out.write_text(json.dumps(result,indent=2)+'\n')
     print(json.dumps({'all_passed':True,'seconds':result['seconds'],'Qdet':str(Qmatrix.det()),'coprimality_nonzero':str(gv)}))
 
+def half_main():
+    started=time.monotonic();h,x,y,z,w=xx=s.symbols('h x1 x2 x3 x4');B,tau=s.symbols('B tau')
+    source=ROOT/'reports/CLASSIFICATION_NIL22_HALF_MAIN_CANONICAL_20261107.json'
+    packet=json.loads(source.read_text());env={str(v):v for v in xx};env['n14']=B
+    P=s.zeros(5)
+    for key,value in packet['canonical_brackets'].items():
+        i,j=map(int,key.split(','));P[i,j]=s.sympify(value,locals=env)
+    P-=P.T;R=s.zeros(5)
+    for ij,value in {(0,3):2*y*z/B,(0,4):2*y*w/B,(1,4):-(2*B+1)*x*z/B,(3,4):z*z}.items():R[ij]=value
+    R-=R.T;curve=P+tau*R
+    def sparse(M):return {ij:dict(s.Poly(s.expand(M[ij]),*xx).terms()) for ij in engine.PAIRS if M[ij]!=0}
+    assert engine.jacobi(sparse(curve)).applyfunc(s.cancel)==s.zeros(350,1)
+    # Canonical stabilizer makes all nonzero pencil members one orbit.
+    canonical_weights=packet['weight']
+    for M,expected in ((P,1),(R,-1)):
+        for i,j in engine.PAIRS:
+            for mon,c in s.Poly(M[i,j],*xx).terms():
+                if c:assert canonical_weights[i]+canonical_weights[j]-sum(a*b for a,b in zip(canonical_weights,mon))==expected
+    point=curve.subs(tau,-B/2).applyfunc(s.cancel)
+    weights=[1,0,1,0,0];limit=s.zeros(5);terms=[]
+    for i,j in engine.PAIRS:
+        for mon,c in s.Poly(point[i,j],*xx).terms():
+            if not c:continue
+            weight=sum(a*b for a,b in zip(weights,mon))-weights[i]-weights[j]
+            assert weight>=0
+            terms.append(dict(pair=[i,j],monomial=mon,coefficient=str(c),weight=weight))
+            if weight==0:limit[i,j]+=c*s.prod(a**b for a,b in zip(xx,mon))
+    limit-=limit.T
+    # New coordinate order X=x,U=h-y,V=h+y,Z=2w-z,W=2w+z.
+    M=s.Matrix([[0,1,0,0,0],[1,0,-1,0,0],[1,0,1,0,0],[0,0,0,-1,2],[0,0,0,1,2]])
+    inverse=M.inv()*s.Matrix(xx)
+    toric=(M*limit*M.T).subs(dict(zip(xx,inverse)),simultaneous=True).applyfunc(s.expand)
+    gamma={}
+    for i,j in engine.PAIRS:
+        value=s.cancel(toric[i,j]/(xx[i]*xx[j]))
+        assert not any(value.has(v) for v in xx)
+        if value:gamma[f'{i},{j}']=str(value)
+    section=0
+    for k in range(5):
+        i,j,l,m=[v for v in range(5) if v!=k]
+        section+=(-1)**k*xx[k]*(toric[i,j]*toric[l,m]-toric[i,l]*toric[j,m]+toric[i,m]*toric[j,l])
+    section=s.factor(section);factor=s.cancel(section/s.prod(xx));assert factor!=0 and not any(factor.has(v) for v in xx)
+    assert s.factor(factor/(2*B+1))!=0
+    result=dict(task_id='E_multiple_hyperplane',all_passed=True,
+                source_identity_report=str(source.relative_to(ROOT)),source_identity_sha256=hashlib.sha256(source.read_bytes()).hexdigest(),
+                producer_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),producer_bytes=Path(__file__).read_text(),
+                universal_endpoint_brackets={f'{i},{j}':str(P[i,j]) for i,j in engine.PAIRS if P[i,j]!=0},
+                universal_pencil_direction={f'{i},{j}':str(R[i,j]) for i,j in engine.PAIRS if R[i,j]!=0},
+                full350_universal_projective_Jacobi_zero=True,pencil_endpoint_weights=[1,-1],
+                selected_nonzero_parameter='-B/2',degeneration_weights=weights,every_coefficient_term=terms,
+                coordinate_matrix=[[str(v) for v in row] for row in M.tolist()],coordinate_determinant=str(M.det()),
+                toric_log_coefficients=gamma,toric_pfaffian_section=str(section),
+                canonical_open='B*(2*B+1)!=0',remaining_B_zero_covered_by_explicit_source_density=True,
+                entire_half_main_source_MPS_covered=True,seconds=time.monotonic()-started)
+    out=ROOT/'reports/CLASSIFICATION_NIL22_HALF_MAIN_MPS_20261107.json'
+    if out.exists():raise FileExistsError(str(out))
+    out.write_text(json.dumps(result,indent=2)+'\n')
+    print(json.dumps(dict(all_passed=True,seconds=result['seconds'],SNC_factor=str(factor))))
+
+
 if __name__=='__main__':
     import sys
-    minus_two() if '--minus-two' in sys.argv else main()
+    half_main() if '--half-main' in sys.argv else minus_two() if '--minus-two' in sys.argv else main()

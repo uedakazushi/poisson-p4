@@ -1,0 +1,46 @@
+{
+  "branch": "nil22_top_A_one",
+  "source_report": "reports/CLASSIFICATION_NIL22_TOP_COMPONENTS_20261107.json",
+  "source_branch": "A_one",
+  "canonical_parameter_values": {
+    "n2": 1,
+    "n6": 2,
+    "n7": 3,
+    "n8": 4,
+    "n9": 5,
+    "n10": 6,
+    "n13": 7
+  },
+  "actual_family_parameters": [
+    "n7",
+    "n13"
+  ],
+  "coordinates": [
+    "h",
+    "x1+(n9/2)*(x3+n10*x2)+((n6-n9*(n8-2*n10*n9)/2)/3)*(x4+n10*h)+(((n2-n10*n6-2*(n13-n10)*n6/3+n10*(n13-n10)*n9**2/12+(n13-n10)*n9*n8/3)-n9*(n7-n10*n8+n10**2*n9)/2)/2)*h",
+    "x2+(n9/2)*(x4+n10*h)",
+    "(x3+n10*x2)+(-(n8-2*n10*n9)+n9*(n13-n10)/2)*(x4+n10*h)",
+    "(x4+n10*h)"
+  ],
+  "canonical_brackets": {
+    "1,2": "48*h*x1-24*x2**2",
+    "1,3": "24*(n13-n10)*h*x1-12*(n13-n10)*x2**2+48*x1*x4+24*(n7-n10*n8+n10**2*n9)*h*x2",
+    "1,4": "24*x2*x4",
+    "2,3": "24*(n7-n10*n8+n10**2*n9)*h**2+24*x2*x4",
+    "2,4": "24*h*x4",
+    "3,4": "24*x4**2+24*(n13-n10)*h*x4"
+  },
+  "weight": [
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "P_weight": 0,
+  "expected_full_D_rank": 101,
+  "expected_actual_group_rank": 47,
+  "expected_actual_family_rank": 47,
+  "rank_four_condition": "n13 != n10",
+  "output_report": "reports/CLASSIFICATION_NIL22_ONE_CANONICAL_20261107.json"
+}

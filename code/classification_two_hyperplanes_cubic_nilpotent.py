@@ -115,14 +115,14 @@ def components(input_path, output):
                          lower=r['projective_family_dimension_lower']) for r in results]))
 
 
-def normal_quadrics(report_path, case_index, output):
+def normal_quadrics(report_path, case_index, output, record_override=None):
     """One finite genuine quadratic obstruction, with all actual source directions."""
     from sympy.polys.matrices import DomainMatrix
     from classification_rank3_mixed_component_review import COLUMNS, jacobi, sparse, vector
     start = time.monotonic()
     resource.setrlimit(resource.RLIMIT_CPU, (55, 56))
     resource.setrlimit(resource.RLIMIT_AS, (1536*1024**2,)*2)
-    record = json.loads(report_path.read_text())['branches'][case_index]
+    record = record_override if record_override is not None else json.loads(report_path.read_text())['branches'][case_index]
     x = s.symbols('h x1:5')
     def matrix(encoded):
         P = s.zeros(5)
@@ -180,6 +180,24 @@ def normal_quadrics(report_path, case_index, output):
     n=s.symbols('t0:'+str(len(normals)));monomials=[n[i]*n[j] for i,j in pairs]
     quadrics=[s.expand(sum(qr[i,j]*monomials[j] for j in range(len(pairs)))) for i in range(len(qp))]
     gb=s.groebner(quadrics,*n,order='grevlex') if quadrics else None
+    functional=None
+    all_functionals=[]
+    if qp:
+        obstruction_rows=list(DomainMatrix.from_Matrix(obstruction.T).convert_to(s.QQ).rref()[1])
+        inverse=block.inv().to_Matrix()
+        for row in obstruction_rows:
+            coefficients=D[row,list(pivots)]*inverse;ell=s.zeros(1,350);ell[row]=1
+            for k,r in enumerate(rows):ell[r]-=coefficients[k]
+            assert ell*D==s.zeros(1,150)
+            all_functionals.append(dict(nonzero_coefficients={str(i):str(a)for i,a in enumerate(ell)if a},
+                                        quadratic_pairing=list(map(str,list(ell*Q)))))
+    if len(normals)==1 and any(obstruction):
+        row=next(i for i,a in enumerate(obstruction[:,0])if a)
+        inverse=block.inv().to_Matrix();coefficients=D[row,list(pivots)]*inverse
+        ell=s.zeros(1,350);ell[row]=1
+        for k,r in enumerate(rows):ell[r]-=coefficients[k]
+        assert ell*D==s.zeros(1,150)
+        functional=dict(nonzero_coefficients={str(i):str(a)for i,a in enumerate(ell)if a},pairing=str((ell*Q)[0]))
     result=dict(task_id='E_reduced_nonnormal',source_report=str(report_path),case=record['name'],
         full_D_rank=len(pivots),actual_source_rank=source_rank,normal_count=len(normals),
         all_D_times_directions_zero=True,normal_indices=normal_indices,
@@ -188,8 +206,11 @@ def normal_quadrics(report_path, case_index, output):
         zero_dimensional_quadratic_support=bool(gb and gb.is_zero_dimensional),
         grevlex_basis=[str(g.as_expr()) for g in gb.polys] if gb else [],
         literal_Poisson_normal_axes=[i for i,q in enumerate(squares) if q==s.zeros(350,1)],
+        one_normal_quadratic_cokernel_functional=functional,
+        quadratic_cokernel_functionals=all_functionals,
         full_initial_ideal_not_claimed=True,source_report_sha256=hashlib.sha256(report_path.read_bytes()).hexdigest(),
         producer_source=Path(__file__).read_text(),seconds=time.monotonic()-start)
+    if output is None:return result
     with output.open('x') as handle:json.dump(result,handle,indent=2);handle.write('\n')
     print(json.dumps({k:result[k] for k in ['case','normal_count','quadratic_initial_generators','zero_dimensional_quadratic_support','literal_Poisson_normal_axes','seconds']}))
 

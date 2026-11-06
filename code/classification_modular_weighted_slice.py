@@ -54,11 +54,15 @@ def main():
     source=json.loads(args.input.read_text())
     xx=s.symbols('h x1 x2 x3 x4')
     env={str(v):v for v in xx};env['n1']=s.Integer(1)
-    env.update({k:s.Rational(v) for k,v in source.get('canonical_parameter_values',{}).items()})
+    at={s.Symbol(k):s.Rational(v) for k,v in source.get('canonical_parameter_values',{}).items()}
+    family_parameters=[s.Symbol(v) for v in source.get('actual_family_parameters',[])]
+    env.update({str(k):v for k,v in at.items()})
+    env.update({str(v):v for v in family_parameters})
     P=s.zeros(5)
     for key,value in source['canonical_brackets'].items():
         i,j=map(int,key.split(','));P[i,j]=s.sympify(value,locals=env)
-    P-=P.T;ps=sparse(P,xx)
+    P-=P.T;family=P.copy();P=P.subs(at);ps=sparse(P,xx)
+    assert engine.jacobi(sparse(family,xx)).applyfunc(s.expand)==s.zeros(350,1)
     assert engine.jacobi(ps)==s.zeros(350,1)
     weights=source['weight'];pweight=source['P_weight']
     absolute=[weights[i]+weights[j]-sum(a*b for a,b in zip(weights,e)) for (i,j),e in engine.COLUMNS]
@@ -76,6 +80,11 @@ def main():
         V.append(engine.vector(sparse(E*field.T-field*E.T,xx)))
         O.append(engine.vector(sparse(A*P+P*A.T-xx[b]*P.diff(xx[a]),xx)))
     G=s.Matrix.hstack(*V,*O,engine.vector(ps))
+    group_rank=len(dm(G).rref()[1])
+    if 'expected_actual_group_rank' in source:assert group_rank==source['expected_actual_group_rank']
+    for parameter in family_parameters:
+        direction=family.diff(parameter).subs(at)
+        G=G.row_join(engine.vector(sparse(direction,xx)))
     assert D*G==s.zeros(350,G.cols)
     for col in range(G.cols):assert len({relative[i] for i in range(150) if G[i,col]})<=1
     reduced,pivot_rows=dm(G.T).rref();reduced=reduced.to_Matrix();gdim=len(pivot_rows)
@@ -95,13 +104,14 @@ def main():
         assert D*rv==s.zeros(350,1)
         normals.append(tensor(rv,xx));normal_weights.append(next(iter(rw)))
     if 'expected_full_D_rank' in source:assert drank==source['expected_full_D_rank']
-    if 'expected_actual_group_rank' in source:assert gdim==source['expected_actual_group_rank']
-    base=dict(task_id='E_multiple_hyperplane',branch=source.get('branch','unspecified'),
+    if 'expected_actual_family_rank' in source:assert gdim==source['expected_actual_family_rank']
+    base=dict(task_id=source.get('task_id','E_multiple_hyperplane'),branch=source.get('branch','unspecified'),
               source_identity_report=str(args.input),source_identity_sha256=hashlib.sha256(args.input.read_bytes()).hexdigest(),
               canonical_brackets=brackets(P),coordinate_weights=weights,P_weight=pweight,
               relative_action=f'lambda^(-{pweight}) times diagonal pushforward',
               relative_ambient_weight_range=[min(relative),max(relative)],normal_relative_weights=normal_weights,
-              full_D_rank=drank,actual_orbit_vertical_scale_rank=gdim,
+              full_D_rank=drank,actual_orbit_vertical_scale_rank=group_rank,
+              actual_family_parameters=list(map(str,family_parameters)),actual_family_tangent_rank=gdim,
               stable_slice_dimension=len(slice_indices),stable_slice_coordinate_indices=slice_indices,
               actual_group_tangent_pivot_rows=list(pivot_rows),implicit_coordinate_indices=implicit_indices,
               full_kernel_dimension=150-drank,normal_brackets=[brackets(R) for R in normals],
@@ -112,8 +122,41 @@ def main():
         result={**base,**extra,'seconds':round(time.monotonic()-started,4)}
         args.output.write_text(json.dumps(result,indent=2)+'\n')
         print(json.dumps({k:result[k] for k in ['status','normal_relative_weights','seconds']}))
+    if source.get('quadratic_support_only'):
+        tau=s.symbols('tau0:'+str(len(normals)))
+        J=D[:,implicit_indices]
+        rows=list(dm(J.T).rref()[1]);assert len(rows)==drank
+        inverse=dm(J[rows,:]).inv().to_Matrix()
+        R=sum((t*N for t,N in zip(tau,normals)),s.zeros(5))
+        raw=engine.jacobi(sparse(R,xx)).applyfunc(s.expand)
+        projected=(raw-J*inverse*raw[rows,:]).applyfunc(s.expand)
+        monomials=[e for e in itertools.product(range(3),repeat=len(normals)) if sum(e)==2]
+        coefficients=s.Matrix([[s.Poly(v,*tau).coeff_monomial(e) for e in monomials] for v in projected])
+        selected=list(dm(coefficients.T).rref()[1])
+        functionals=[];generators=[]
+        for row in selected:
+            functional=s.zeros(1,350);functional[0,row]=1
+            values=J[row,:]*inverse
+            for k,index in enumerate(rows):functional[0,index]-=values[0,k]
+            assert functional*D==s.zeros(1,150)
+            poly=s.expand((functional*raw)[0]);assert s.expand(poly-projected[row])==0
+            generators.append(s.Poly(poly,*tau).monic().as_expr())
+            functionals.append(dict(row=row,coefficients={str(i):str(functional[0,i]) for i in range(350) if functional[0,i]},quadratic=str(poly)))
+        basis=s.groebner(generators,*tau,order='grevlex',domain=s.QQ) if generators else None
+        zero=bool(basis is not None and basis.is_zero_dimensional)
+        save(dict(status='QUADRATIC_INITIAL_SUPPORT_IS_POINT' if zero else 'QUADRATIC_INITIAL_SUPPORT_NOT_ZERO_DIMENSIONAL',
+                  normal_variables=list(map(str,tau)),selected_equation_rows=rows,
+                  implicit_minor_determinant=str(dm(J[rows,:]).det()),
+                  quadratic_monomial_exponents=monomials,quadratic_projected_space_rank=len(selected),
+                  full_D_left_cokernel_functionals=functionals,
+                  independent_quadratic_generators=list(map(str,generators)),
+                  quadratic_groebner_basis=[] if basis is None else list(map(str,basis.exprs)),
+                  quadratic_initial_support_zero_dimensional=zero,
+                  projective_family_closure_component_dimension=gdim-25 if zero else None,
+                  higher_order_support_not_inferred_from_nonzero_dimensional_quadratics=True))
+        return
     if not normal_weights:
-        save(dict(status='SMOOTH_ORBIT_COMPONENT',projective_local_dimension=gdim-25));return
+        save(dict(status='SMOOTH_FAMILY_COMPONENT' if family_parameters else 'SMOOTH_ORBIT_COMPONENT',projective_local_dimension=gdim-25));return
     if not (all(w<0 for w in normal_weights) or all(w>0 for w in normal_weights)):
         save(dict(status='NORMAL_WEIGHTS_NOT_STRICTLY_ONE_SIGN',full_slice_support_unresolved=True));return
     sign=-1 if normal_weights[0]<0 else 1
@@ -169,7 +212,11 @@ def main():
                  reduced_slice_supported_only_at_origin=dim==0,
                  projective_local_dimension=None if dim is None else gdim+dim-25,
                  full_finite_IFT_not_a_truncated_jet=True)
-    if dim==0:support['status']='FULL_REDUCED_SLICE_IS_POINT';support['projective_orbit_closure_component_dimension']=gdim-25
+    if family_parameters and dim not in (None,0):
+        support['projective_local_dimension_upper']=support.pop('projective_local_dimension')
+    if dim==0:
+        support['status']='FULL_REDUCED_SLICE_IS_POINT'
+        support['projective_family_closure_component_dimension' if family_parameters else 'projective_orbit_closure_component_dimension']=gdim-25
     save(support)
 
 

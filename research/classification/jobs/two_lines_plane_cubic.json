@@ -1,0 +1,37 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "target_statement": "Construct the complete quadratic logarithmic anchors for the twelve geometrically specified two-lines plus nodal/cuspidal cubic configurations; retain all six magnetic coefficients and determine one declared full ambient tangent per free source.",
+  "implication_to_classification": "The whole essential-three-variable locus reduces to free plane quintics with exponents(2,2), tau12. Every retained configuration gives a complete source. A source/tangent squeeze proves componenthood; configurations with inadequate anchor rank are empty for rankfour Poisson structures.",
+  "coefficient_ring": "QQ[h,x,y,z,w,r0,...,r5]; complete18-column quadratic gradient syzygy space and full350x150 ambient Jacobi derivative.",
+  "hypotheses": "The twelve configurations come from a separate Milnor/Tjurina intersection-budget analysis; global completeness is not inferred from this computation.",
+  "inverted_elements": [
+    "Only explicitly displayed nonzero constant coordinate-frame and anchor determinants."
+  ],
+  "complements": [
+    "All quadratic syzygies are retained; free-source acceptance requires exact Saito determinant hxC.",
+    "All six magnetic coefficients remain arbitrary.",
+    "One predefined parameter tuple(1,2,3,5,7,11) for each geometric configuration, with no point sweep.",
+    "Failure of a tangent squeeze leaves the full source unresolved."
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_two_lines_plane_cubic.py",
+      "sha256": "1d895b2576c4a82d023ca1eba078c44979251af7c73c1f24e108d593fd4b8a42"
+    },
+    {
+      "path": "code/classification_three_hyperplanes_quadric_independent.py",
+      "sha256": "674ffb31d0afdf48c187780a876c8526b8acff3ff6aeca83d048f650fdbe8a7a"
+    },
+    {
+      "path": "code/classification_rank3_mixed_component_review.py",
+      "sha256": "48e61e30f9d7f04fb81f1bb5eec0e18daa28c8192d6a02a251e09cf8855b9bd0"
+    }
+  ],
+  "success_certificate": "Full syzygy kernels, exact anchor determinant, universal Jacobi/Pfaffian, all actual magnetic directions, and exact full ambient rank certificates.",
+  "independent_check": "Separate sparse Fraction source/tangent reconstruction for any new component; geometric contact classification and distinctness reviewed separately.",
+  "resource_limit": {
+    "timeout_seconds": 90,
+    "memory_mb": 1536
+  },
+  "negative_result_next_step": "For unresolved full sources, use intrinsic geometry or actual deformations; do not increase local-jet orders or repeat point sampling."
+}

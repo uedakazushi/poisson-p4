@@ -1,0 +1,36 @@
+{
+  "task_id": "E_multiple_hyperplane",
+  "target_statement": "Test the full nil22 half-extra actual family under the (z,w)-scaling torus; perform a complete representation-bounded IFT reduction only if all remaining normal weights have the same strict sign.",
+  "implication_to_classification": "A zero-dimensional true linear slice plus actual family rank47 proves its22-dimensional closure is a full component. Positive-dimensional support is retained and only gives a local upper bound; mixed/zero weights stop the finite route without a jet increase.",
+  "coefficient_ring": "QQ in all150 coefficients, all350 original Jacobi equations and the complete true normal parameter set.",
+  "hypotheses": "The entire n5!=0 source normalization is certified at the frozen witness a_prime=-13995,s=3. Actual parameter derivatives n0,n5 are retained; n5=0 is already covered by T01.",
+  "inverted_elements": [
+    "the exact nonzero IFT minor if the one-sign condition holds"
+  ],
+  "complements": [
+    "No claim of local product with the actual family",
+    "Mixed-sign or zero normal weights are retained as an unresolved obstruction",
+    "No new witness or larger formal jet is introduced"
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_modular_weighted_slice.py",
+      "sha256": "dd418e5c9be2952f74b50610aefe12288305ffa2303d95be8471c9c5b2e136c9"
+    },
+    {
+      "path": "code/classification_rank3_mixed_component_review.py",
+      "sha256": "48e61e30f9d7f04fb81f1bb5eec0e18daa28c8192d6a02a251e09cf8855b9bd0"
+    },
+    {
+      "path": "reports/CLASSIFICATION_NIL22_HALF_EXTRA_CANONICAL_20261107.json",
+      "sha256": "9d80d9467bef03683035c652e51032a7a5c4e44fa8efeded59e126c259407ea4"
+    }
+  ],
+  "success_certificate": "FullD100, puregroup46 and actualfamily47, true103slice and full normal weight list; if bounded, complete finite residual ideal. Zero or mixed weights stop the route without truncation.",
+  "independent_check": "Parent reviewed actual-family transverse Krull argument and corrected positive-dimensional outputs to upper bounds. Any new component conclusion requires separate numerical/support verification.",
+  "resource_limit": {
+    "timeout_seconds": 90,
+    "memory_mb": 1536
+  },
+  "negative_result_next_step": "If weights have mixed signs or zero, return to explicit whole-family geometry and actual Poisson curves, not a growing sequence of jets."
+}
