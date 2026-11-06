@@ -17,7 +17,7 @@
 | E_quadric | 完了。実退化因子H+2Q、rank Q>=4の全点を既知閉包で被覆。rank3横断配置も余剰逆形式を含めて被覆 |
 | E_quadric3 | 完了。頂点非包含・平方・原始枝はMPS、混合型は新22次元、Tw0全源は新24次元成分へ被覆。Q既約の全H+2Qが被覆済み |
 | E_multiple_hyperplane | 未完了。重複Hを持つ全rank4支持は全affine二次P=J+L+Q、Pf(Q)=0の全支持へ還元。可逆・非冪零rank3・半単純rank2全被覆、冪零rank3五源全被覆。nilrank≤2残枝を処理 |
-| E_reduced_nonnormal | 未完了。五相異なるH、相異なる三H+既約Q全配置、smoothQ+既約C3全型を被覆。1+1+3、特異Q+C3、他次数分割と既約非正規が残る |
+| E_reduced_nonnormal | 未完了。五相異なるH、相異なる三H+既約Q全配置、rank4/5Q+既約C3全型を被覆。1+1+3の残nil源、rank3Q+C3の純nil十二型、他次数分割と既約非正規が残る |
 | A_rank2 | 完了。全安定・非安定・因子付き支持、CM/LPT、六族とrank4閉包への接続 |
 | A | 完了。従前58と追加十六成分の全周囲証明・相違を接続し個別下界74 |
 | E/F | 他の退化因子型、全例外底・全分類は未完了。未知特殊成分を既知49像の和に限定しない |
@@ -78,9 +78,9 @@ nil22 A=−1、nil31 short r=1、nil22 A=−1/3（同値short r=1/2）の全源�
 
 二超平面+既約三次の全支持は全45W係数へ還元。非零半単純部分の全型はMPSへ被覆。純nilのV=v∂u+(h+x)∂v+h∂wからp=±1の全五源は一つの滑らかな22次元全成分を与える。全D103/F47と厳密PGL同定を独立確認。実群だけは46であり、一般軌道次元は未決定。p0と他のnil全源を残す。
 
-特異Q+C3はrank4十一、rank3二十の全cofactor代表へ有限還元した。全31源の全150線形問題・全Jacobi・Euler Pfaffianを独立Fractionで再構成。正則三型は全MPS、非正則半単純九型とrank4 Azero二型および純nil三型は既約C3条件で空。rank4の三全源とrank3 pure nil十二型の帰属を継続する。
+特異Q+C3はrank4十一、rank3二十の全cofactor代表へ有限還元した。全31源の全150線形問題・全Jacobi・Euler Pfaffianを独立Fractionで再構成。正則三型は全MPS、非正則半単純九型とrank4 Azero二型および純nil三型は既約C3条件で空。残るrank4三全源も全MPSへ被覆した。nil31 Iはliteral全三法線実族とD100/F50からsmooth25、全150商同値と全134/45T40 graphを独立Fractionで確認。IIは全実曲線のcanonical cofactorが正則比2へ移る。nil22は全四源一軌道のLaurent恒等式とsmoothQへの実曲線・非零Hessian・c0既約性を独立に再構成。これでrank4Q+既約C3全支持が閉じた。rank3 pure nil十二型は残る。
 
-全rank1 modular支持の非優越も全源上界と実一次fiber、既存25成分への稠密接続で閉じた。非零定数場ではβ(c)=0から一次評価非単射の真の閉条件へ入る。A=c=0でも最高部が零又は共通因子付きならprimitive二形式の全等方次元で非優越。G-2Hの残余は共通因子なしの非零最高部を持つunimodular支持となる。
+全rank1 modular支持の非優越も全源上界と実一次fiber、既存25成分への稠密接続で閉じた。非零定数場ではβ(c)=0から一次評価非単射の真の閉条件へ入る。A=c=0でも最高部が零又は共通因子付きならprimitive二形式の全等方次元で非優越。さらに最高部に線形Casimirがあるunimodular全支持も、零点のないaffine Hamiltonianの全六対へ還元し、全45線形源・全Jacobi/Pf・15評価minorの独立Fraction再構成から非優越を証明した。G-2Hの残余は共通因子も線形Casimirもない非零最高部となる。
 
 ## Gの現在の数学と中止した経路
 
@@ -117,4 +117,4 @@ CM/LPT/MPS/Pymの外部定理自体、全旧証明書・全134生成を今回再
 計画checkerと制御テストのPASSは全分類の数学的認証ではない。
 Libraryへのアップロード、完全依存bundle生成は未実行。B18精密構造・旧minor farmは休止。
 
-最新の追加四22成分、全rank1/非零定数場の非優越、特異二次因子の全31cofactor還元を主原稿へ統合し、PDFを38頁で同期した。最終二passは未解決参照・overfullなし。26/35/36頁を目視確認。計画入力binding、制御23テスト、74/68台帳、追加成分の証拠参照、Python/JSON構文を確認した。
+rank4Q+C3の全支持とunimodular線形Casimir枝の非優越を主原稿へ統合し、PDFを40頁で同期した。最終二passは未解決参照・overfullなし、29/38頁を目視確認。下界74/68を維持し、新しい全支持定理を下界増加と取り違えない。計画binding、制御テスト、全参照・Python/JSON構文を確認した。

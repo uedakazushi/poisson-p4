@@ -1,0 +1,28 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "all_parameter_projective_Jacobi_zero": true,
+  "family": {
+    "0,1": "-6*h**2 - 9*t**4*x4**2/500 - 27*t**3*x3**2/500",
+    "0,2": "-3*t**4*x3*x4/125 + 2*t**3*x2*x4/25 - t**2*x1*x2/5",
+    "0,3": "-6*h*x2 - 2*t**3*x3*x4/25 - t**2*x1*x3/5 + 2*t**2*x2*x4/5",
+    "0,4": "-6*h*x1 - t**3*x4**2/25 + t**2*x1*x4/5 - 3*t**2*x3**2/25 + 3*x2**2",
+    "1,2": "-3*h*t*x3/2 + h*x2 + 3*t**3*x3*x4/50 - 3*t**2*x1*x3/5 + 7*t**2*x2*x4/10 + t*x1*x2",
+    "1,3": "-9*h*x3 + 11*t**2*x3*x4/10 - 3*t*x1*x3 + 4*x1*x2",
+    "1,4": "-4*h*x4 + 17*t**2*x4**2/20 - t*x1*x4 + 3*t*x3**2/4 - x1**2 + 3*x2*x3",
+    "2,3": "2*t**2*x3**2/5 - 2*t*x2*x3 - x2**2",
+    "2,4": "-5*h*x3 + 4*t**2*x3*x4/5 - 3*t*x2*x4 + 4*x1*x2",
+    "3,4": "t*x3*x4 + 4*x1*x3 - 4*x2*x4"
+  },
+  "Euler_contracted_Pfaffian": "3*(-62500*h**3*x3**2 + 10000*h**2*t**2*x3**2*x4 - 25000*h**2*t*x1*x3**2 - 12500*h**2*t*x2*x3*x4 + 125000*h**2*x1*x2*x3 - 525*h*t**4*x3**2*x4**2 + 2500*h*t**3*x1*x3**2*x4 + 1250*h*t**3*x2*x3*x4**2 - 125*h*t**3*x3**4 - 2500*h*t**2*x1**2*x3**2 - 15000*h*t**2*x1*x2*x3*x4 - 625*h*t**2*x2**2*x4**2 + 750*h*t**2*x2*x3**3 + 25000*h*t*x1**2*x2*x3 + 12500*h*t*x1*x2**2*x4 + 1875*h*t*x2**2*x3**2 - 62500*h*x1**2*x2**2 - 12500*h*x2**3*x3 + 9*t**6*x3**2*x4**3 - 60*t**5*x1*x3**2*x4**2 - 30*t**5*x2*x3*x4**3 + 9*t**5*x3**4*x4 + 100*t**4*x1**2*x3**2*x4 + 400*t**4*x1*x2*x3*x4**2 - 20*t**4*x1*x3**4 + 25*t**4*x2**2*x4**3 - 90*t**4*x2*x3**3*x4 - 1000*t**3*x1**2*x2*x3*x4 - 500*t**3*x1*x2**2*x4**2 + 200*t**3*x1*x2*x3**3 + 225*t**3*x2**2*x3**2*x4 + 2500*t**2*x1**2*x2**2*x4 - 5000*t*x1*x2**3*x3 + 12500*x1*x2**4)/12500",
+  "factor_degrees_multiplicities": [
+    [
+      5,
+      1
+    ]
+  ],
+  "quadratic_factor": null,
+  "quadratic_hessian_determinant": null,
+  "source_sha256": "abdf2ad86c1092c46057d03600b24873903fc35c1aa2a265f179aad38340e5b9",
+  "producer_source": "#!/usr/bin/env python3\n\"\"\"Actual one-parameter curve from the finite full equivariant I-slice.\"\"\"\nimport hashlib,itertools,json,resource,time\nfrom pathlib import Path\nimport sympy as s\nresource.setrlimit(resource.RLIMIT_CPU,(55,56));resource.setrlimit(resource.RLIMIT_AS,(1536*1024**2,1536*1024**2))\nstart=time.monotonic();path=Path('reports/CLASSIFICATION_DEGENERATE_QUADRIC_Q4_NIL22_WEIGHTED_20261107.json');src=json.loads(path.read_text());xx=s.symbols('h x1 x2 x3 x4');tau=s.symbols('tau0:3');t=s.Symbol('t');P=s.zeros(5)\nfor key,val in src['full_curve_brackets'].items():\n    ij=tuple(map(int,key.split(',')));P[ij]=s.expand(s.sympify(val).subs({tau[0]:0,tau[1]:t,tau[2]:0}));P[ij[::-1]]=-P[ij]\nJ={ijk:s.expand(sum(P[i,l]*s.diff(P[j,k],xx[l])+P[j,l]*s.diff(P[k,i],xx[l])+P[k,l]*s.diff(P[i,j],xx[l]) for l in range(5))) for ijk in itertools.combinations(range(5),3) for i,j,k in [ijk]}\nfull={ijkl:s.expand(sum((-1)**at*xx[ell]*J[ijkl[:at]+ijkl[at+1:]] for at,ell in enumerate(ijkl))) for ijkl in itertools.combinations(range(5),4)};assert all(v==0 for v in full.values())\npf=[]\nfor missing in range(5):\n    i,j,k,l=[v for v in range(5) if v!=missing];pf.append(s.expand((-1)**missing*(P[i,j]*P[k,l]-P[i,k]*P[j,l]+P[i,l]*P[j,k])))\nD=s.factor(sum(x*f for x,f in zip(xx,pf))/5);factors=s.factor_list(D)[1]\nquads=[f for f,e in factors if s.Poly(f,*xx).total_degree()==2]\nq=quads[0] if len(quads)==1 else None\nrecord={'task_id':'E_reduced_nonnormal','all_parameter_projective_Jacobi_zero':True,'family':{','.join(map(str,ij)):str(P[ij]) for ij in itertools.combinations(range(5),2) if P[ij]},'Euler_contracted_Pfaffian':str(D),'factor_degrees_multiplicities':[(s.Poly(f,*xx).total_degree(),e) for f,e in factors],'quadratic_factor':None if q is None else str(q),'quadratic_hessian_determinant':None if q is None else str(s.factor(s.hessian(q,xx).det())),'source_sha256':hashlib.sha256(path.read_bytes()).hexdigest(),'producer_source':Path(__file__).read_text(),'seconds':time.monotonic()-start}\nout=Path('reports/CLASSIFICATION_DEGENERATE_QUADRIC_Q4_NIL22_CURVE_20261107.json')\nwith out.open('x') as f:json.dump(record,f,indent=2);f.write('\\n')\nprint(json.dumps({k:record[k] for k in ['Euler_contracted_Pfaffian','factor_degrees_multiplicities','quadratic_factor','quadratic_hessian_determinant','seconds']},indent=2))\n",
+  "seconds": 0.5686691720038652
+}

@@ -1,0 +1,31 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "target_statement": "Independently verify the literal nil22 H-curve and its smooth quadric factor over every nonzero parameter.",
+  "implication_to_classification": "The actual curve enters the proved smooth-quadric plus cubic locus; closedness and the separately proved full-source orbit reduction cover the whole nil22 source.",
+  "coefficient_ring": "QQ[x0,x1,x2,x3,x4,t,L] with sparse Fraction arithmetic.",
+  "hypotheses": "Use the saved actual polynomial curve, not a finite jet; no producer arithmetic imported.",
+  "inverted_elements": [
+    "Only constant rational denominators in the literal curve; t nonzero for the Hessian determinant, tzero handled by closedness."
+  ],
+  "complements": [
+    "All projective Jacobi equations and every parameter value retained.",
+    "Whole-source orbit reduction and membership theorem are separate geometric inputs."
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_degenerate_quadric_q4_nil_curve_review.py",
+      "sha256": "83fe6a9d255b7a5050bfd0ec2316298754bdf7c48efd7467be677c32f1c2440d"
+    },
+    {
+      "path": "reports/CLASSIFICATION_DEGENERATE_QUADRIC_Q4_NIL22_CURVE_H_20261107.json",
+      "sha256": "15cd6d074e22f8a299d5126dfddd78b98fe8593f0354bd94a1e67afd6d82b1e3"
+    }
+  ],
+  "success_certificate": "All full projective Jacobi polynomials, actual quintic factorization, and120-term Hessian determinant are exact Fraction identities.",
+  "independent_check": "This is the separate Fraction implementation reviewing the SymPy producer.",
+  "resource_limit": {
+    "timeout_seconds": 55,
+    "memory_mb": 1536
+  },
+  "negative_result_next_step": "On any failed exact identity, stop the coverage conclusion and correct the actual curve or cofactor."
+}

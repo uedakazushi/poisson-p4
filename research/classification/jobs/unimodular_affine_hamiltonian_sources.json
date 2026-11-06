@@ -1,0 +1,28 @@
+{
+  "task_id": "G",
+  "target_statement": "Solve the complete six nilpotent affine-Hamiltonian pair sources for unimodular quadratic symplectic Poisson tensors, and test whether every primitive first-jet evaluation is noninjective.",
+  "implication_to_classification": "For a highest part with a nonzero linear Casimir, its full Hamiltonian field is affine and nowhere zero. Semisimple and constant affine Hamiltonians force a constant translation symmetry, hence a kernel of the first jet. The six nilpotent pairs are the exact remaining types. If all six sources have identically vanishing4x4 evaluation minors or are rank4-empty, the entire linear-Casimir highest-part branch has proper primitive-beta image.",
+  "coefficient_ring": "QQ and all free parameters of each exact affine linear source, no coefficient point evaluation",
+  "hypotheses": "For each canonical nowhere-zero affine V and nonzero linear function ell with V(ell)=0, fix P#dell=V and retain all45 coefficients of the three other brackets. Impose divP=0 and all positive-degree coefficients of PfP=0. These are affine linear equations; in dimension4 divP=0 plus constantPf is equivalent to Jacobi.",
+  "inverted_elements": [
+    "Only PfP!=0 for the rank4 source; no source parameter is divided out in solving the full linear system"
+  ],
+  "complements": [
+    "The semisimple and constant affine-Hamiltonian types have a separate translation-symmetry proof",
+    "Highest parts without a nonzero linear Casimir remain open",
+    "If a source has injective evaluation, no non-dominance conclusion is drawn from its dimension alone"
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_unimodular_hamiltonian.py",
+      "sha256": "64d2ba17c00114641595bf30b5d4c8b8a78665ab48d06f08282c8adfb5bfe6c2"
+    }
+  ],
+  "success_certificate": "Every full45-variable affine solution and dimension; universal Hamiltonian identity, divergence and Jacobi; constantPf; the full6x4 first-jet evaluation matrix and all15 maximal minors. No sampled points or partial source equations.",
+  "independent_check": "A separate reader verifies all affine pair orbits and the no-zero implication. An independent coefficient implementation checks the linear sources and the small maximal-minor identities before using the support exclusion.",
+  "resource_limit": {
+    "timeout_seconds": 60,
+    "memory_mb": 768
+  },
+  "negative_result_next_step": "If injective sources remain, keep their complete parameterizations and investigate a structural invariant or image-dimension bound. Do not repeat coefficient samples or discard those sources."
+}

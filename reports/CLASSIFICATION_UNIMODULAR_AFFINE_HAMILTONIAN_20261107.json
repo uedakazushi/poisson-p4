@@ -1,0 +1,671 @@
+{
+  "status": "ALL_SIX_TYPES_PROPER",
+  "producer_sha256": "64d2ba17c00114641595bf30b5d4c8b8a78665ab48d06f08282c8adfb5bfe6c2",
+  "producer_bytes": "#!/usr/bin/env python3\n\"\"\"Complete unimodular quadratic sources with a fixed affine Hamiltonian.\n\nThe affine Hamiltonian has no zero.  Its six nilpotent pair types are kept.\nThe three unspecified brackets retain all45 coefficients.  With div P=0,\nconstant Pfaffian is equivalent to Jacobi; it is linear after fixing P#dl.\n\"\"\"\nimport hashlib\nimport itertools\nimport json\nfrom pathlib import Path\nimport resource\nimport signal\nimport time\n\nimport sympy as s\nfrom sympy.polys.matrices import DomainMatrix\n\n\ndef main():\n    started=time.monotonic()\n    signal.alarm(60)\n    resource.setrlimit(resource.RLIMIT_AS,(768*1024**2,768*1024**2))\n    x,y,z,w=xx=s.symbols('x y z w')\n    pairs=tuple(itertools.combinations(range(4),2))\n    monomials=[s.Integer(1),*xx]+[xx[i]*xx[j] for i,j in itertools.combinations_with_replacement(range(4),2)]\n    cases=[('nil31_long',s.Matrix([y,z,1,0]),3),\n           ('nil31_short',s.Matrix([y,z,0,1]),2),\n           ('nil22_top',s.Matrix([y,1,w,0]),3),\n           ('nil211_long',s.Matrix([y,1,0,0]),3),\n           ('nil211_short_chain_covector',s.Matrix([y,0,1,0]),1),\n           ('nil211_short_other_covector',s.Matrix([y,0,1,0]),3)]\n    results=[]\n    for name,V,ell in cases:\n        begun=time.monotonic()\n        assert V[ell]==0\n        cc=s.symbols('c0:45')\n        P=s.zeros(4);cursor=0\n        for i,j in pairs:\n            if i==ell:\n                value=V[j]\n            elif j==ell:\n                value=-V[i]\n            else:\n                value=sum(cc[cursor+k]*m for k,m in enumerate(monomials));cursor+=15\n            P[i,j]=value;P[j,i]=-value\n        assert cursor==45\n        div=[s.expand(sum(s.diff(P[i,j],xx[i]) for i in range(4))) for j in range(4)]\n        pf=s.expand(P[0,1]*P[2,3]-P[0,2]*P[1,3]+P[0,3]*P[1,2])\n        equations=[]\n        for p in div:\n            equations += s.Poly(p,*xx).coeffs() if p!=0 else []\n        equations += [coefficient for exponent,coefficient in s.Poly(pf,*xx).terms() if any(exponent)]\n        matrix,rhs=s.linear_eq_to_matrix(equations,cc)\n        augmented=DomainMatrix.from_Matrix(matrix.row_join(rhs)).convert_to(s.QQ)\n        reduced,pivots=augmented.rref();R=reduced.to_Matrix()\n        if 45 in pivots:\n            results.append({'name':name,'affine_Hamiltonian':list(map(str,V)),\n                            'linear_Hamiltonian_coordinate':str(xx[ell]),'full_unknown_count':45,\n                            'linear_system_shape':list(matrix.shape),'augmented_rank':len(pivots),\n                            'inconsistent_augmented_pivot':45,'source_dimension':None,\n                            'status':'EMPTY_LINEAR_SOURCE','seconds':round(time.monotonic()-begun,4)})\n            continue\n        free=[i for i in range(45) if i not in pivots]\n        nn=s.symbols('n0:'+str(len(free)))\n        solutions=dict(zip((cc[i] for i in free),nn))\n        for row,col in enumerate(pivots):\n            solutions[cc[col]]=R[row,45]-sum(R[row,j]*solutions[cc[j]] for j in free)\n        source=P.subs(solutions,simultaneous=True).applyfunc(s.expand)\n        assert all(s.expand(e.subs(solutions,simultaneous=True))==0 for e in equations)\n        actual_pf=s.expand(pf.subs(solutions,simultaneous=True))\n        assert not any(actual_pf.has(q) for q in xx)\n        assert [s.expand(sum(s.diff(source[i,j],xx[i]) for i in range(4))) for j in range(4)]==[0]*4\n        assert source[ell,:].T==V\n        jacobi=[s.expand(sum(source[i,l]*s.diff(source[j,k],xx[l])\n                              +source[j,l]*s.diff(source[k,i],xx[l])\n                              +source[k,l]*s.diff(source[i,j],xx[l]) for l in range(4)))\n                for i,j,k in itertools.combinations(range(4),3)]\n        assert jacobi==[0]*4\n        atzero=dict.fromkeys(xx,0)\n        linear=s.Matrix([[s.diff(source[i,j],q).subs(atzero) for q in xx] for i,j in pairs])\n        minors={','.join(map(str,rows)):s.factor(linear[list(rows),:].det())\n                for rows in itertools.combinations(range(6),4)}\n        nonzero={key:str(value) for key,value in minors.items() if value!=0}\n        status='EMPTY_RANK4_SOURCE' if actual_pf==0 else 'ALL_PRIMITIVE_EVALUATIONS_NONINJECTIVE' if not nonzero else 'INJECTIVE_SOURCE_REMAINS'\n        results.append({'name':name,'affine_Hamiltonian':list(map(str,V)),\n                        'linear_Hamiltonian_coordinate':str(xx[ell]),'full_unknown_count':45,\n                        'linear_system_shape':list(matrix.shape),'linear_system_rank':len(pivots),\n                        'source_dimension':len(free),'free_column_indices':free,\n                        'full_affine_solution':{str(c):str(solutions[c]) for c in cc},\n                        'full_six_brackets':{str(i)+','+str(j):str(source[i,j]) for i,j in pairs},\n                        'constant_Pfaffian':str(actual_pf),'all_universal_Jacobi_zero':True,\n                        'all_divergence_zero':True,'exact_Hamiltonian_identity':True,\n                        'linear_evaluation_matrix':[[str(t) for t in row] for row in linear.tolist()],\n                        'all_fifteen_evaluation_minors_zero':not nonzero,'nonzero_evaluation_minors':nonzero,\n                        'status':status,'seconds':round(time.monotonic()-begun,4)})\n    here=Path(__file__)\n    report={'status':'ALL_SIX_TYPES_PROPER' if all(q['status']!='INJECTIVE_SOURCE_REMAINS' for q in results) else 'FULL_SOURCES_WITH_REMAINDER',\n            'producer_sha256':hashlib.sha256(here.read_bytes()).hexdigest(),'producer_bytes':here.read_text(),\n            'coefficient_field':'QQ','all_six_nilpotent_affine_Hamiltonian_pairs_retained':True,\n            'cases':results,'scope':'All unimodular quadratic P with the displayed nowhere-zero affine Hamiltonian and linear Hamiltonian function. Exhaustion of pair types and the semisimple/constant complement are separate elementary geometry dependencies. No sampled point is used.',\n            'seconds':round(time.monotonic()-started,4)}\n    Path('reports/CLASSIFICATION_UNIMODULAR_AFFINE_HAMILTONIAN_20261107.json').write_text(json.dumps(report,indent=2)+'\\n')\n    signal.alarm(0)\n    print(json.dumps({'status':report['status'],'cases':[{q:r[q] for q in ('name','source_dimension','status')} for r in results],'seconds':report['seconds']}))\n\n\nif __name__=='__main__':\n    main()\n",
+  "coefficient_field": "QQ",
+  "all_six_nilpotent_affine_Hamiltonian_pairs_retained": true,
+  "cases": [
+    {
+      "name": "nil31_long",
+      "affine_Hamiltonian": [
+        "y",
+        "z",
+        "1",
+        "0"
+      ],
+      "linear_Hamiltonian_coordinate": "w",
+      "full_unknown_count": 45,
+      "linear_system_shape": [
+        45,
+        45
+      ],
+      "linear_system_rank": 41,
+      "source_dimension": 4,
+      "free_column_indices": [
+        0,
+        15,
+        19,
+        30
+      ],
+      "full_affine_solution": {
+        "c0": "n0",
+        "c1": "0",
+        "c2": "-n3",
+        "c3": "n1",
+        "c4": "0",
+        "c5": "0",
+        "c6": "0",
+        "c7": "0",
+        "c8": "0",
+        "c9": "0",
+        "c10": "0",
+        "c11": "0",
+        "c12": "n3",
+        "c13": "n2",
+        "c14": "0",
+        "c15": "n1",
+        "c16": "0",
+        "c17": "0",
+        "c18": "n3",
+        "c19": "n2",
+        "c20": "0",
+        "c21": "0",
+        "c22": "0",
+        "c23": "0",
+        "c24": "0",
+        "c25": "0",
+        "c26": "0",
+        "c27": "0",
+        "c28": "0",
+        "c29": "0",
+        "c30": "n3",
+        "c31": "0",
+        "c32": "0",
+        "c33": "0",
+        "c34": "0",
+        "c35": "0",
+        "c36": "0",
+        "c37": "0",
+        "c38": "0",
+        "c39": "0",
+        "c40": "0",
+        "c41": "0",
+        "c42": "0",
+        "c43": "0",
+        "c44": "0"
+      },
+      "full_six_brackets": {
+        "0,1": "n0 + n1*z + n2*w*z - n3*y + n3*z**2",
+        "0,2": "n1 + n2*w + n3*z",
+        "0,3": "-y",
+        "1,2": "n3",
+        "1,3": "-z",
+        "2,3": "-1"
+      },
+      "constant_Pfaffian": "-n0",
+      "all_universal_Jacobi_zero": true,
+      "all_divergence_zero": true,
+      "exact_Hamiltonian_identity": true,
+      "linear_evaluation_matrix": [
+        [
+          "0",
+          "-n3",
+          "n1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "n3",
+          "n2"
+        ],
+        [
+          "0",
+          "-1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "-1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "all_fifteen_evaluation_minors_zero": true,
+      "nonzero_evaluation_minors": {},
+      "status": "ALL_PRIMITIVE_EVALUATIONS_NONINJECTIVE",
+      "seconds": 0.4994
+    },
+    {
+      "name": "nil31_short",
+      "affine_Hamiltonian": [
+        "y",
+        "z",
+        "0",
+        "1"
+      ],
+      "linear_Hamiltonian_coordinate": "z",
+      "full_unknown_count": 45,
+      "linear_system_shape": [
+        45,
+        45
+      ],
+      "augmented_rank": 40,
+      "inconsistent_augmented_pivot": 45,
+      "source_dimension": null,
+      "status": "EMPTY_LINEAR_SOURCE",
+      "seconds": 0.0261
+    },
+    {
+      "name": "nil22_top",
+      "affine_Hamiltonian": [
+        "y",
+        "1",
+        "w",
+        "0"
+      ],
+      "linear_Hamiltonian_coordinate": "w",
+      "full_unknown_count": 45,
+      "linear_system_shape": [
+        45,
+        45
+      ],
+      "linear_system_rank": 39,
+      "source_dimension": 6,
+      "free_column_indices": [
+        15,
+        19,
+        29,
+        30,
+        34,
+        44
+      ],
+      "full_affine_solution": {
+        "c0": "n1",
+        "c1": "0",
+        "c2": "0",
+        "c3": "n5",
+        "c4": "n2",
+        "c5": "0",
+        "c6": "0",
+        "c7": "0",
+        "c8": "0",
+        "c9": "0",
+        "c10": "0",
+        "c11": "-n5",
+        "c12": "0",
+        "c13": "0",
+        "c14": "0",
+        "c15": "n0",
+        "c16": "0",
+        "c17": "n3",
+        "c18": "0",
+        "c19": "n1",
+        "c20": "0",
+        "c21": "0",
+        "c22": "0",
+        "c23": "0",
+        "c24": "-1",
+        "c25": "0",
+        "c26": "n4",
+        "c27": "0",
+        "c28": "n5",
+        "c29": "n2",
+        "c30": "n3",
+        "c31": "0",
+        "c32": "-1",
+        "c33": "0",
+        "c34": "n4",
+        "c35": "0",
+        "c36": "0",
+        "c37": "0",
+        "c38": "0",
+        "c39": "0",
+        "c40": "0",
+        "c41": "0",
+        "c42": "0",
+        "c43": "0",
+        "c44": "n5"
+      },
+      "full_six_brackets": {
+        "0,1": "n1 + n2*w - n5*w*y + n5*z",
+        "0,2": "n0 + n1*w + n2*w**2 + n3*y + n4*w*y + n5*w*z - y**2",
+        "0,3": "-y",
+        "1,2": "n3 + n4*w + n5*w**2 - y",
+        "1,3": "-1",
+        "2,3": "-w"
+      },
+      "constant_Pfaffian": "n0",
+      "all_universal_Jacobi_zero": true,
+      "all_divergence_zero": true,
+      "exact_Hamiltonian_identity": true,
+      "linear_evaluation_matrix": [
+        [
+          "0",
+          "0",
+          "n5",
+          "n2"
+        ],
+        [
+          "0",
+          "n3",
+          "0",
+          "n1"
+        ],
+        [
+          "0",
+          "-1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "-1",
+          "0",
+          "n4"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "-1"
+        ]
+      ],
+      "all_fifteen_evaluation_minors_zero": true,
+      "nonzero_evaluation_minors": {},
+      "status": "ALL_PRIMITIVE_EVALUATIONS_NONINJECTIVE",
+      "seconds": 0.464
+    },
+    {
+      "name": "nil211_long",
+      "affine_Hamiltonian": [
+        "y",
+        "1",
+        "0",
+        "0"
+      ],
+      "linear_Hamiltonian_coordinate": "w",
+      "full_unknown_count": 45,
+      "linear_system_shape": [
+        39,
+        45
+      ],
+      "linear_system_rank": 35,
+      "source_dimension": 10,
+      "free_column_indices": [
+        0,
+        3,
+        4,
+        12,
+        13,
+        14,
+        15,
+        30,
+        33,
+        34
+      ],
+      "full_affine_solution": {
+        "c0": "n0",
+        "c1": "n8",
+        "c2": "0",
+        "c3": "n1",
+        "c4": "n2",
+        "c5": "0",
+        "c6": "0",
+        "c7": "0",
+        "c8": "0",
+        "c9": "-n8/2",
+        "c10": "0",
+        "c11": "0",
+        "c12": "n3",
+        "c13": "n4",
+        "c14": "n5",
+        "c15": "n6",
+        "c16": "0",
+        "c17": "n7",
+        "c18": "0",
+        "c19": "0",
+        "c20": "0",
+        "c21": "0",
+        "c22": "0",
+        "c23": "0",
+        "c24": "0",
+        "c25": "n8",
+        "c26": "n9",
+        "c27": "0",
+        "c28": "0",
+        "c29": "0",
+        "c30": "n7",
+        "c31": "0",
+        "c32": "0",
+        "c33": "n8",
+        "c34": "n9",
+        "c35": "0",
+        "c36": "0",
+        "c37": "0",
+        "c38": "0",
+        "c39": "0",
+        "c40": "0",
+        "c41": "0",
+        "c42": "0",
+        "c43": "0",
+        "c44": "0"
+      },
+      "full_six_brackets": {
+        "0,1": "n0 + n1*z + n2*w + n3*z**2 + n4*w*z + n5*w**2 + n8*x - n8*y**2/2",
+        "0,2": "n6 + n7*y + n8*y*z + n9*w*y",
+        "0,3": "-y",
+        "1,2": "n7 + n8*z + n9*w",
+        "1,3": "-1",
+        "2,3": "0"
+      },
+      "constant_Pfaffian": "n6",
+      "all_universal_Jacobi_zero": true,
+      "all_divergence_zero": true,
+      "exact_Hamiltonian_identity": true,
+      "linear_evaluation_matrix": [
+        [
+          "n8",
+          "0",
+          "n1",
+          "n2"
+        ],
+        [
+          "0",
+          "n7",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "-1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "n8",
+          "n9"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "all_fifteen_evaluation_minors_zero": true,
+      "nonzero_evaluation_minors": {},
+      "status": "ALL_PRIMITIVE_EVALUATIONS_NONINJECTIVE",
+      "seconds": 0.4097
+    },
+    {
+      "name": "nil211_short_chain_covector",
+      "affine_Hamiltonian": [
+        "y",
+        "0",
+        "1",
+        "0"
+      ],
+      "linear_Hamiltonian_coordinate": "y",
+      "full_unknown_count": 45,
+      "linear_system_shape": [
+        39,
+        45
+      ],
+      "linear_system_rank": 35,
+      "source_dimension": 10,
+      "free_column_indices": [
+        0,
+        2,
+        4,
+        9,
+        11,
+        14,
+        15,
+        30,
+        32,
+        34
+      ],
+      "full_affine_solution": {
+        "c0": "n0",
+        "c1": "n9",
+        "c2": "n1",
+        "c3": "1",
+        "c4": "n2",
+        "c5": "0",
+        "c6": "0",
+        "c7": "0",
+        "c8": "0",
+        "c9": "n3",
+        "c10": "-n9",
+        "c11": "n4",
+        "c12": "0",
+        "c13": "0",
+        "c14": "n5",
+        "c15": "n6",
+        "c16": "0",
+        "c17": "n7",
+        "c18": "0",
+        "c19": "0",
+        "c20": "0",
+        "c21": "0",
+        "c22": "0",
+        "c23": "0",
+        "c24": "n8",
+        "c25": "0",
+        "c26": "n9",
+        "c27": "0",
+        "c28": "0",
+        "c29": "0",
+        "c30": "n7",
+        "c31": "0",
+        "c32": "n8",
+        "c33": "0",
+        "c34": "n9",
+        "c35": "0",
+        "c36": "0",
+        "c37": "0",
+        "c38": "0",
+        "c39": "0",
+        "c40": "0",
+        "c41": "0",
+        "c42": "0",
+        "c43": "0",
+        "c44": "0"
+      },
+      "full_six_brackets": {
+        "0,1": "-y",
+        "0,2": "n0 + n1*y + n2*w + n3*y**2 + n4*w*y + n5*w**2 + n9*x - n9*y*z + z",
+        "0,3": "n6 + n7*y + n8*y**2 + n9*w*y",
+        "1,2": "1",
+        "1,3": "0",
+        "2,3": "n7 + n8*y + n9*w"
+      },
+      "constant_Pfaffian": "n6",
+      "all_universal_Jacobi_zero": true,
+      "all_divergence_zero": true,
+      "exact_Hamiltonian_identity": true,
+      "linear_evaluation_matrix": [
+        [
+          "0",
+          "-1",
+          "0",
+          "0"
+        ],
+        [
+          "n9",
+          "n1",
+          "1",
+          "n2"
+        ],
+        [
+          "0",
+          "n7",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "n8",
+          "0",
+          "n9"
+        ]
+      ],
+      "all_fifteen_evaluation_minors_zero": true,
+      "nonzero_evaluation_minors": {},
+      "status": "ALL_PRIMITIVE_EVALUATIONS_NONINJECTIVE",
+      "seconds": 0.4409
+    },
+    {
+      "name": "nil211_short_other_covector",
+      "affine_Hamiltonian": [
+        "y",
+        "0",
+        "1",
+        "0"
+      ],
+      "linear_Hamiltonian_coordinate": "w",
+      "full_unknown_count": 45,
+      "linear_system_shape": [
+        39,
+        45
+      ],
+      "linear_system_rank": 35,
+      "source_dimension": 10,
+      "free_column_indices": [
+        0,
+        15,
+        17,
+        19,
+        24,
+        26,
+        29,
+        30,
+        32,
+        34
+      ],
+      "full_affine_solution": {
+        "c0": "n0",
+        "c1": "0",
+        "c2": "-n7",
+        "c3": "0",
+        "c4": "0",
+        "c5": "0",
+        "c6": "0",
+        "c7": "0",
+        "c8": "0",
+        "c9": "-n8",
+        "c10": "0",
+        "c11": "-n9",
+        "c12": "0",
+        "c13": "0",
+        "c14": "0",
+        "c15": "n1",
+        "c16": "-n8",
+        "c17": "n2",
+        "c18": "n7",
+        "c19": "n3",
+        "c20": "0",
+        "c21": "0",
+        "c22": "0",
+        "c23": "0",
+        "c24": "n4",
+        "c25": "2*n8",
+        "c26": "n5",
+        "c27": "0",
+        "c28": "n9",
+        "c29": "n6",
+        "c30": "n7",
+        "c31": "0",
+        "c32": "n8",
+        "c33": "0",
+        "c34": "n9",
+        "c35": "0",
+        "c36": "0",
+        "c37": "0",
+        "c38": "0",
+        "c39": "0",
+        "c40": "0",
+        "c41": "0",
+        "c42": "0",
+        "c43": "0",
+        "c44": "0"
+      },
+      "full_six_brackets": {
+        "0,1": "n0 - n7*y - n8*y**2 - n9*w*y",
+        "0,2": "n1 + n2*y + n3*w + n4*y**2 + n5*w*y + n6*w**2 + n7*z - n8*x + 2*n8*y*z + n9*w*z",
+        "0,3": "-y",
+        "1,2": "n7 + n8*y + n9*w",
+        "1,3": "0",
+        "2,3": "-1"
+      },
+      "constant_Pfaffian": "-n0",
+      "all_universal_Jacobi_zero": true,
+      "all_divergence_zero": true,
+      "exact_Hamiltonian_identity": true,
+      "linear_evaluation_matrix": [
+        [
+          "0",
+          "-n7",
+          "0",
+          "0"
+        ],
+        [
+          "-n8",
+          "n2",
+          "n7",
+          "n3"
+        ],
+        [
+          "0",
+          "-1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "n8",
+          "0",
+          "n9"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "all_fifteen_evaluation_minors_zero": true,
+      "nonzero_evaluation_minors": {},
+      "status": "ALL_PRIMITIVE_EVALUATIONS_NONINJECTIVE",
+      "seconds": 0.4419
+    }
+  ],
+  "scope": "All unimodular quadratic P with the displayed nowhere-zero affine Hamiltonian and linear Hamiltonian function. Exhaustion of pair types and the semisimple/constant complement are separate elementary geometry dependencies. No sampled point is used.",
+  "seconds": 2.3096
+}

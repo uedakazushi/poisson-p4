@@ -1,0 +1,40 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "target_statement": "Independently verify the entire four-parameter q4 nil22 source is one orbit, with an actual deformation to smooth quadric plus irreducible cubic.",
+  "implication_to_classification": "Completes the last surviving rank4-quadric/cubic source using the established smooth-quadric full-support theorem.",
+  "coefficient_ring": "QQ[t,h,x1,x2,x3,x4] and QQ[lam,lam^-1,n2,n3,n6]",
+  "hypotheses": "The preceding full-source reduction is established. Only the actual curve and universal orbit identity are needed, not the full finite-slice ideal.",
+  "inverted_elements": [
+    "lam!=0, parameterizing all n0!=0 over C",
+    "t!=0 for smoothness of the quadratic factor"
+  ],
+  "complements": [
+    "Cubic irreducibility at t0 gives a nonempty open parameter locus, which suffices by closedness.",
+    "The complete source at n0=0 is already excluded by the irreducible-cubic support reduction."
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_degenerate_quadric_q4_nil22_review.py",
+      "sha256": "c5e19cc264b6c76082aecbaed25647c22995d4347af41bbf734edb15af9bfcc8"
+    },
+    {
+      "path": "reports/CLASSIFICATION_DEGENERATE_QUADRIC_Q4_NIL22_CURVE_H_20261107.json",
+      "sha256": "15cd6d074e22f8a299d5126dfddd78b98fe8593f0354bd94a1e67afd6d82b1e3"
+    },
+    {
+      "path": "reports/CLASSIFICATION_DEGENERATE_QUADRIC_Q4_NIL22_CANONICAL_20261107.json",
+      "sha256": "7e491bf760adc43110aabb8b971d994016ca583775f46c0b83e21904c8ebd138"
+    },
+    {
+      "path": "reports/CLASSIFICATION_DEGENERATE_QUADRIC_Q4_NIL_COMPONENTS_20261107.json",
+      "sha256": "91ca961c50c24849136c757083e5dbd64be52282614707dd40809d883a4f65af"
+    }
+  ],
+  "success_certificate": "All350 actual curve Jacobi; actual Euler Pfaffian factorization; nonzero generic Hessian determinant; cubic primitive at zero; endpoint equality and all10 universal orbit identities.",
+  "independent_check": "Separate standard-library Fraction polynomial/Laurent arithmetic; no producer, SymPy or producer-engine import.",
+  "resource_limit": {
+    "timeout_seconds": 60,
+    "memory_mb": 768
+  },
+  "negative_result_next_step": "Locate failed exact identity and keep this source open until repaired; no arbitrary point or higher-jet substitute."
+}

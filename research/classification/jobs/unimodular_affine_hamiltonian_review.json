@@ -1,0 +1,31 @@
+{
+  "task_id": "G",
+  "target_statement": "Independently reconstruct all six full45-coefficient affine-Hamiltonian linear sources and prove every primitive first evaluation is noninjective.",
+  "implication_to_classification": "Together with the independently reviewed affine-pair exhaustion, excludes all unimodular highest parts having a nonzero linear Casimir from primitive-base dominance.",
+  "coefficient_ring": "QQ and the whole polynomial parameter space of each affine source",
+  "hypotheses": "Fixed nowhere-zero affine Hamiltonian and linear function pairs; impose all divergence equations and all positive-degree Pfaffian coefficients.",
+  "inverted_elements": [
+    "Only the constant Pfaffian must be nonzero for the final symplectic interpretation."
+  ],
+  "complements": [
+    "The semisimple and constant cases are handled geometrically.",
+    "Highest parts with no linear Casimir remain."
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_unimodular_hamiltonian_review.py",
+      "sha256": "117fb5d6438e4531589ab94c89070eb69a8c096764e44cb0a943d7b4cd0b1ea1"
+    },
+    {
+      "path": "reports/CLASSIFICATION_UNIMODULAR_AFFINE_HAMILTONIAN_20261107.json",
+      "sha256": "a12f9d9188e39409906a660e827ac08b4d81e3caeefd96b72b43da358e4abade"
+    }
+  ],
+  "success_certificate": "Full45 coefficient matrix ranks; universal solutions and full parameter rank; empty sixth source by augmented rank; all Hamiltonian/divergence/Pfaffian/Jacobi identities and all fifteen evaluation minors.",
+  "independent_check": "Separate Fraction polynomial implementation, importing neither producer nor its arithmetic engine; full pair exhaustion independently reviewed by root.",
+  "resource_limit": {
+    "timeout_seconds": 60,
+    "memory_mb": 768
+  },
+  "negative_result_next_step": "Locate failed exact identity or missing pair; do not claim full exclusion until corrected, no generic-point or finite-field substitute."
+}

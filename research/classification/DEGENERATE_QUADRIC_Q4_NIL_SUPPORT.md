@@ -6,7 +6,9 @@
 `CLASSIFICATION_DEGENERATE_QUADRIC_SOURCES_REVIEW_20261107.json` の独立全150再構成を入力とする。
 以下で三源を除外し、残る二cofactor型を**三つの全既約源**へ帰着する。
 §5の実変形によりnil31長鎖型IIは既知MPS成分の和に含まれる。
-残る二源の成分帰属はまだ未解決であり、空と扱わない。
+§6の真三方向変形と忠実graph認識によりnil31長鎖型IはT40に含まれる。
+§8の滑らかな二次曲面への実変形によりnil22非零の全源もMPS成分の和に含まれる。
+従って対象の五cofactor型は全て除外又は既知成分の和に被覆される。
 
 ## 1. 直ちに除外できる三源
 
@@ -197,6 +199,102 @@ t≠0では全五固有値が相異なり、二対の非零固有値の絶対比
 （全tの射影Jacobi、実五次式、0.34秒）と
 `CLASSIFICATION_DEGENERATE_QUADRIC_Q4_NIL_CURVE_RECOGNITION_20261107.json`
 （unimodular射影、cofactor、特性多項式、0.16秒）。
-独立算術再構成は依頼中であり、成分の局所唯一性・正規性は主張しない。
+`CLASSIFICATION_DEGENERATE_QUADRIC_Q4_NIL_CURVE_REVIEW_20261107.json` は
+producer/SymPyを使わない独立Fraction実装で、全tの射影Jacobi、unimodular gauge、
+全五cofactor式、120項の特性行列式、実五次式の因数分解を再構成した（0.014秒、PASS）。
+成分の局所唯一性・正規性はこのIIの証明には不要であり、主張しない。
 
-残る義務はIとnil22非零の全支持の帰属である。
+## 6. nil31長鎖型Iの全源はT40に含まれる
+
+Iの有理代表Pは座標重み(2,1,0,1,−1)、bivector重み−1で同次である。
+全150係数でgroup・Euler-vertical・scalar接方向47次元を除いた安定線形sliceでは、
+真のnormalは三つで、その相対重みは4、2、3となる。
+全ambient相対重みの範囲は−4から6なので、同変陰関数の重み付き次数上界は6。
+有限計算は全補正項が零、全残余Jacobi idealが零となることを示す。
+従ってliteral三方向R0,R1,R2に対して
+
+    P+aR0+bR1+cR2
+
+は任意(a,b,c)で実際の射影Poissonテンソルである。
+`CLASSIFICATION_DEGENERATE_QUADRIC_Q4_NIL31_I_WEIGHTED_20261107.json` に
+三方向・安定slice・全100独立Jacobi行・全族を保存した。
+この族の三方向は全kernelをgroup接47方向と合わせて張るため、
+実族の射影次元下界は25、全接次元上界も25である。
+ゆえにPは全射影Poisson概形のsmooth25点で、一つの成分だけを通る。
+
+同じPを点(1,0,1,0,1)でDarboux規格化して忠実S61 chartへ移し、
+全150係数の商再構成・全134方程式・T39/T40の全45graph式を検査した。
+結果はT39には属さず、T40の全被約graphに属する。
+記録は `CLASSIFICATION_DEGENERATE_QUADRIC_Q4_NIL31_I_GRAPH_20261107.json`。
+したがってPを通る唯一の成分はT40である。
+§4の全二源の軌道恒等式から、Iの全源がT40に含まれる。
+
+`CLASSIFICATION_DEGENERATE_QUADRIC_Q4_NIL31_I_REVIEW_20261107.json` は
+独立Fraction実装で全D100、group47、三実方向を加えた階数50、全350の普遍Jacobi、
+同一源点、全PGL変換と150係数の商同値、全134方程式及びT40の全45graph式を再構成した
+（3.396秒、PASS）。
+なお正規五次式を使うために行った二つのMacaulay rank診断は十分なrankを与えず、
+この帰属証明の依存には一切使っていない。
+
+## 7. nil22非零の全源も一軌道へ還元できる
+
+§3の全源でn0≠0とする。λ≠0をn0=λ^(−2)となるように選び、k=3n3/5と置く。
+原点代表(n0,n2,n3,n6)=(1,0,0,0)から、次の線形変換を順に施す。
+
+    G0=diag(1,1,λ,λ,1),
+    Gz: x4'=x4+3(n2−kn6)x0/10+3n6x2/5,
+    G3: x2'=x2−kx0, x3'=x3−kx1.
+
+合成G3 Gz G0によるpushforwardは、全四自由係数を保持した§3の源に一致する。
+`CLASSIFICATION_DEGENERATE_QUADRIC_Q4_NIL22_CANONICAL_20261107.json` はこの全十括弧の恒等式を検査した。
+標準代表は重み(2,0,1,−1,−2)、bivector重み−2で同次である。
+
+この代表の全150係数での有限同変sliceは、真normal三つの相対重み1、2、3を持つ。
+全陰関数の次数上界は9であり、その全多項式と残余idealは
+`CLASSIFICATION_DEGENERATE_QUADRIC_Q4_NIL22_WEIGHTED_20261107.json` に保存した。
+normal変数を(a,b,c)とすると、残余idealは非零定数倍を除き
+
+    (11a³+18ab−54c) · (4a²+9b, ab+6c, 3b²−8ac).
+
+従って被約sliceの支持は曲面11a³+18ab−54c=0と
+曲線b=−4a²/9、c=2a³/27の和である。
+これは任意精度jetからの外挿ではなく、全同変陰関数の有限上界内での全残余idealである。
+ただし各枝の既知成分への帰属はこの計算だけでは従わない。
+全源は一軌道なので、原点代表への一つの実変形を既知成分へ認識すれば全被覆できる。
+この支持分解は別担当も独立読解して受理した。
+Hは素ideal、Fはcに一次で滑らか、H上のFは−a³なので二枝は相異なり原点だけで交わる。
+
+## 8. nil22非零の全源は滑らかな二次曲面への実変形で被覆される
+
+全有限sliceの多項式に
+
+    (a,b,c)=(t,−4t²/9,2t³/27)
+
+を代入して得たP_tの全十括弧を
+`CLASSIFICATION_DEGENERATE_QUADRIC_Q4_NIL22_CURVE_H_20261107.json` に保存した。
+このP_tは全tで射影Poissonである。
+実際、ここでも有限jetではなく、literal多項式族について全350の射影Jacobi係数が恒等零であることを直接検査した。
+その実退化式は非零定数倍を除きq_t c_tであり、二次因子は
+
+    q_t=−24300x0x3+24300x1x2+4050t x1²+675t² x1x3
+        −180t³ x1x4+72t³ x3²+2t⁵ x4².
+
+五変数Hessianの行列式は
+
+    det Hess(q_t)=1394713760400000000 t⁵.
+
+従ってt≠0でq_tは滑らかである。t=0の三次因子は§3のn0=1の既約三次なので、
+一般tでもc_tは既約である。
+滑らかな二次曲面＋既約三次曲面の全支持定理から、一般tのP_tはMPS成分の和に含まれる。
+有限個の成分の和の閉性によりP_0も含まれ、§7の全四自由係数の軌道恒等式から
+nil22非零の全源が被覆される。
+
+この最終被覆には有限sliceの全支持性や各枝の局所次元は不要であり、
+全源の軌道恒等式、保存したliteral実曲線、実退化式の因数分解、
+Hessian行列式、及び既存smooth-quadric全支持定理だけを用いる。
+`CLASSIFICATION_DEGENERATE_QUADRIC_Q4_NIL22_REVIEW_20261107.json` は独立Fraction実装で
+全十括弧のG3GzG0 Laurent普遍恒等式、det G=λ²、n0=λ^(−2)による全開被覆、
+curve endpointの一致、c0のprimitive既約性、全tの射影Jacobi・実因数分解・Hessianを再構成した
+（0.034秒、PASS）。
+さらに `CLASSIFICATION_DEGENERATE_QUADRIC_Q4_NIL22_CURVE_REVIEW_20261107.json` も
+別の独立Fraction実装でliteral curve、実因数分解、Hessianの全120項を検証した（0.022秒、PASS）。
