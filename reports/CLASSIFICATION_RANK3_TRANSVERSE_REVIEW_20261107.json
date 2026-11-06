@@ -1,0 +1,47 @@
+{
+  "task_id": "A",
+  "date": "2026-11-07",
+  "source_report": "reports/CLASSIFICATION_RANK3_QUADRIC_FORMS_20261107.json",
+  "source_report_sha256": "53c126ae5e5ac2aaf08eb5f31fd88b9c39cb74476ac4e7fb4660dcb84dcd330e",
+  "source_runner_sha256": "2b511b2fdb744cc004c76faa5dc9c3fa4b79c2f51c9c73601f43dc651d25b2cd",
+  "independent_algorithm": "Sparse integer exterior products and derivatives; fraction-free integer Bareiss minors; producer and SymPy are not imported.",
+  "Q": "1+u^2+v^2",
+  "closure_shape": [
+    140,
+    90
+  ],
+  "all_D_times_enlarged_zero": true,
+  "primitive_dQ_kernel_nonzero": true,
+  "exact_minor_matches": {
+    "closure": {
+      "size": 70,
+      "determinant": "-5192296858534827628530496329220096"
+    },
+    "primitive": {
+      "size": 19,
+      "determinant": "65536"
+    },
+    "enlarged": {
+      "size": 20,
+      "determinant": "131072"
+    }
+  },
+  "matrix_sha256_matches": {
+    "D": "fa900277510486a517eccdacd031f16bb7907b46ad5e0921f9f5f304e239e5b0",
+    "B": "3d05f700b2e3f2b80cd719626658ef6ca9f8f6b43b087d85cce993e2cc2359cc",
+    "enlarged": "e1f1d43540d66afab4eb3dc58d94cb7ac4de062e83bd43b81000f9e955cebea6"
+  },
+  "exact_closure_rank": 70,
+  "exact_primitive_rank": 19,
+  "exact_enlarged_image_rank": 20,
+  "closed_space_equals_enlarged_image": true,
+  "scope": "Only the rank-three transverse inverse-form space. Geometric support proof reviewed separately; no other degeneracy strata or global classification asserted.",
+  "global_exhaustion_proved": false,
+  "elapsed_seconds": 0.04999669800236006,
+  "resource_limits": {
+    "cpu_seconds": 55,
+    "address_space_bytes": 1073741824
+  },
+  "reviewer_source": "#!/usr/bin/env python3\n\"\"\"Independent sparse exterior algebra; no producer/SymPy imports.\"\"\"\nfrom pathlib import Path\nimport hashlib\nimport itertools\nimport json\nimport resource\nimport time\n\nresource.setrlimit(resource.RLIMIT_AS, (1024**3, 1024**3))\nresource.setrlimit(resource.RLIMIT_CPU, (55, 55))\nstart = time.monotonic()\nROOT = Path(__file__).resolve().parents[1]\nreport_path = 'reports/CLASSIFICATION_RANK3_QUADRIC_FORMS_20261107.json'\nsource = json.loads((ROOT / report_path).read_text())\nassert hashlib.sha256((ROOT / 'code/classification_double_quadric.py').read_bytes()).hexdigest() == source['source_sha256']\ncert = source['result']['rank3_H_contains_vertex_transverse']\nzero = (0, 0, 0, 0)\nunit = [tuple(int(i == j) for i in range(4)) for j in range(4)]\npairs = list(itertools.combinations(range(4), 2))\ntriples = list(itertools.combinations(range(4), 3))\n\ndef mons(d):\n    result = []\n    for k in range(d + 1):\n        for ids in itertools.combinations_with_replacement(range(4), k):\n            result.append(tuple(ids.count(i) for i in range(4)))\n    return result\n\ndef plus(a, b, scale=1):\n    c = dict(a)\n    for m, v in b.items():\n        c[m] = c.get(m, 0) + scale*v\n        if not c[m]:\n            del c[m]\n    return c\n\ndef times(a, b):\n    c = {}\n    for ma, va in a.items():\n        for mb, vb in b.items():\n            m = tuple(x + y for x, y in zip(ma, mb))\n            c[m] = c.get(m, 0) + va*vb\n    return {m: v for m, v in c.items() if v}\n\ndef deriv(p, i):\n    return {tuple(x - int(k == i) for k, x in enumerate(m)): v*m[i]\n            for m, v in p.items() if m[i]}\n\ndef wedge(a, b):\n    result = {}\n    for ia, pa in a.items():\n        for ib, pb in b.items():\n            ids = ia + ib\n            if len(set(ids)) != len(ids):\n                continue\n            sign = (-1)**sum(ids[i] > ids[j] for i in range(len(ids)) for j in range(i+1, len(ids)))\n            key = tuple(sorted(ids))\n            result[key] = plus(result.get(key, {}), times(pa, pb), sign)\n    return {k: p for k, p in result.items() if p}\n\ndef exterior(a):\n    result = {}\n    for ids, p in a.items():\n        for i in range(4):\n            term = wedge({(i,): deriv(p, i)}, {ids: {zero: 1}})\n            for key, poly in term.items():\n                result[key] = plus(result.get(key, {}), poly)\n    return {k: p for k, p in result.items() if p}\n\nQ = {zero: 1, (2, 0, 0, 0): 1, (0, 2, 0, 0): 1}\ndQ = {(i,): deriv(Q, i) for i in range(4) if deriv(Q, i)}\nqmons, cmon = mons(2), mons(3)\ncolumns = []\nfor pair in pairs:\n    for mon in qmons:\n        alpha = {pair: {mon: 1}}\n        da, qa = exterior(alpha), wedge(dQ, alpha)\n        columns.append([plus(times(Q, da.get(triple, {})), qa.get(triple, {}), -2).get(m, 0)\n                        for triple in triples for m in cmon])\nD = list(map(list, zip(*columns)))\nprimitive = []\nfor i in range(4):\n    for mon in mons(1):\n        beta = {(i,): {mon: 1}}\n        db, qb = exterior(beta), wedge(dQ, beta)\n        primitive.append([plus(times(Q, db.get(pair, {})), qb.get(pair, {}), -1).get(m, 0)\n                          for pair in pairs for m in qmons])\nB = list(map(list, zip(*primitive)))\nextra = [Q.get(m, 0) if pair == (0, 1) else 0 for pair in pairs for m in qmons]\nE = [row + [extra[i]] for i, row in enumerate(B)]\nassert (len(D), len(D[0])) == (140, 90)\nassert (len(B), len(B[0])) == (90, 20)\nassert (len(E), len(E[0])) == (90, 21)\nassert all(sum(x*y for x, y in zip(row, col)) == 0 for row in D for col in zip(*E))\n\ndef determinant(a):\n    a = [r[:] for r in a]\n    sign, previous = 1, 1\n    for k in range(len(a)-1):\n        if not a[k][k]:\n            p = next(i for i in range(k+1, len(a)) if a[i][k])\n            a[k], a[p] = a[p], a[k]\n            sign = -sign\n        pivot = a[k][k]\n        for i in range(k+1, len(a)):\n            for j in range(k+1, len(a)):\n                numerator = pivot*a[i][j]-a[i][k]*a[k][j]\n                assert numerator % previous == 0\n                a[i][j] = numerator//previous\n            a[i][k] = 0\n        previous = pivot\n    return sign*a[-1][-1]\n\nminor_results = {}\nfor label, matrix, key, size in [('closure', D, 'closure_minor', 70),\n                                ('primitive', B, 'primitive_minor', 19),\n                                ('enlarged', E, 'enlarged_image_minor', 20)]:\n    m = cert[key]\n    assert len(m['rows']) == len(m['columns']) == size\n    value = determinant([[matrix[i][j] for j in m['columns']] for i in m['rows']])\n    assert value != 0 and str(value) == m['determinant']\n    minor_results[label] = {'size': size, 'determinant': str(value)}\nkernel_beta = [0]*20\nkernel_beta[1] = 2\nkernel_beta[7] = 2\nassert all(sum(x*y for x, y in zip(row, kernel_beta)) == 0 for row in B)\nhashes = {}\nfor label, matrix in [('D', D), ('B', B), ('enlarged', E)]:\n    digest = hashlib.sha256(json.dumps([[str(x) for x in row] for row in matrix]).encode()).hexdigest()\n    assert digest == cert['matrix_sha256'][label]\n    hashes[label] = digest\noutput = {'task_id': 'A', 'date': '2026-11-07',\n    'source_report': report_path,\n    'source_report_sha256': hashlib.sha256((ROOT / report_path).read_bytes()).hexdigest(),\n    'source_runner_sha256': source['source_sha256'],\n    'independent_algorithm': 'Sparse integer exterior products and derivatives; fraction-free integer Bareiss minors; producer and SymPy are not imported.',\n    'Q': '1+u^2+v^2', 'closure_shape': [140, 90],\n    'all_D_times_enlarged_zero': True, 'primitive_dQ_kernel_nonzero': True,\n    'exact_minor_matches': minor_results, 'matrix_sha256_matches': hashes,\n    'exact_closure_rank': 70, 'exact_primitive_rank': 19,\n    'exact_enlarged_image_rank': 20, 'closed_space_equals_enlarged_image': True,\n    'scope': 'Only the rank-three transverse inverse-form space. Geometric support proof reviewed separately; no other degeneracy strata or global classification asserted.',\n    'global_exhaustion_proved': False, 'elapsed_seconds': time.monotonic()-start,\n    'resource_limits': {'cpu_seconds': 55, 'address_space_bytes': 1024**3},\n    'reviewer_source': Path(__file__).read_text()}\noutput['reviewer_sha256'] = hashlib.sha256(output['reviewer_source'].encode()).hexdigest()\ntarget = ROOT / 'reports/CLASSIFICATION_RANK3_TRANSVERSE_REVIEW_20261107.json'\nwith target.open('x') as f:\n    json.dump(output, f, ensure_ascii=False, indent=2)\n    f.write('\\n')\nprint(json.dumps({'passed': True, 'seconds': output['elapsed_seconds'], 'ranks': [70, 19, 20]}))\n",
+  "reviewer_sha256": "b6b8f0f66807a3b397941c8c7ad37a9d95232ea6bc70205773e2bfa91e799eba"
+}

@@ -10,7 +10,7 @@
     "global_upper_bound": null,
     "generic_five_exhaustion": false,
     "global_exhaustion": false,
-    "verification_scope": "Rank2 support proved using audited stable argument, CM/LPT and existing six-component certificates; generic incidence rank3 excluded with independent nonzero commutator certificate; generic/global exhaustion unproved",
+    "verification_scope": "Known58 componenthood/distinctness dependency audit complete using original certificates; selected inverse-form spaces and NEW25 support bound independently verified; generic/global exhaustion unproved",
     "rank2_component_count": 6,
     "rank2_support_exhaustion": true
   },
@@ -59,25 +59,26 @@
         "generic_circuit_review"
       ],
       "acceptance": "全42法線の根基所属等または未知残余の空性を証明し、適用底開・全分母・独立検証を明記する。新残余があれば分類計画を更新し、未解決のまま成功扱いしない。",
-      "first_step": "一般方向incidenceはrank[A d]=4でありrank3枝は除外済み。残るrank[A b]=rank[A b d]=4上のF5を全支持として処理する。有限48/144被覆の忠実chartを使えるが、dense normal-onlyは四次式前に331008項となるため直接GBを反復しない。",
+      "first_step": "DOMINANT_COMPONENT_GEOMETRY.mdの正規被約分岐を、unimodular零点の可解一次Lie部分と全Poisson延長のincidenceから制限する。G-normalの底像次元上界は未証明で、非被約・非正規分岐も保持する。",
       "fallback": "同経路の二回未決で支持幾何または境界経路に変更し、E0/Aも進める。",
       "nonclosing_attempts": 0,
       "proof": null,
       "review": null,
       "activation_reason": null,
       "last_result": "reports/CLASSIFICATION_NORMAL_LINEAR_OBSTRUCTION_REVIEW_20261107.json",
-      "current_proof_reduction": "research/classification/FINITE_SEPARABLE_NORMAL_CHART.md",
-      "route_change_reason": "Direct GB suspended after five nonclosing runs. New exact incidence removes rank3 by invertible commutator; finite separable cover removes extra transcendental parameter. Rank4 directions plus F5 remain. Dense inverse expansion measured11x increase, so structural support geometry is required.",
+      "current_proof_reduction": "research/classification/DOMINANT_COMPONENT_GEOMETRY.md",
+      "route_change_reason": "Five direct GB attempts failed. Polynomial left inverse and splitter were independently verified, but an explicit five-plus-one finite quadratic model shows these structural conditions do not imply exhaustion. Generic constant low-degree trace identity also fails. Change to actual Poisson degeneracy geometry, retaining all complements.",
       "current_symmetry_reduction": "research/classification/SYMMETRY_FIXED_NORMAL_CHART.md",
       "direct_groebner_route_suspended": true,
       "fixed_base_premise": "reports/CLASSIFICATION_FROZEN_T01_BETA_G28_20261106.json",
       "current_direction_reduction": "research/classification/NORMAL_DIRECTION_INCIDENCE.md",
       "prior_direct_groebner_nonclosing_attempts": 5,
-      "current_route": "Exact rank4 normal-direction incidence after commutator exclusion; finite separable faithful cover optional"
+      "current_route": "Poisson-specific geometry of dominant components and unimodular zero incidence; normal branch first",
+      "previous_structural_route_nonclosing_attempts": 2
     },
     {
       "id": "G_direction",
-      "title": "一般方向incidenceの階数三枝を排除する",
+      "title": "一般方向の階数三枝排除の独立再検証と全底への接続",
       "kind": "primary",
       "priority": 1,
       "status": "done",
@@ -186,11 +187,56 @@
       "activation_reason": "Gの分母を待たずにbeta零被覆を非零一次部分を含む明示部分へ拡張する。"
     },
     {
+      "id": "E_quadric",
+      "title": "二重二次曲面の明示配置の全支持を覆う",
+      "kind": "primary",
+      "priority": 2,
+      "status": "done",
+      "depends_on": [
+        "E_zero"
+      ],
+      "inputs": [
+        "components",
+        "claims"
+      ],
+      "acceptance": "実際のH+2Q退化因子についてrank(Q)>=4の全配置とrank3横断配置を全点として既知成分で覆う。全rank4接触解の二枝と実変形・全補集合・独立確認を保持する。",
+      "first_step": "全rank(Q)>=4とrank3横断配置は被覆済み。残るrank3二配置はE_quadric3で処理する。",
+      "fallback": "線形逆形式のkernelだけでPfaffian条件や全支持を推測せず、余剰クラスと全残余を残す。",
+      "nonclosing_attempts": 0,
+      "proof": "research/classification/DOUBLE_QUADRIC_SUPPORT.md",
+      "review": "research/classification/TANGENT_DOUBLE_QUADRIC_MPS_COVERAGE.md",
+      "activation_reason": "一般底の分母を待たずに処理できる内在的な退化因子の支持層。",
+      "additional_proof": "research/classification/RANK_THREE_QUADRIC_SUPPORT.md",
+      "additional_review": "research/classification/RANK3_TRANSVERSE_QUADRIC_REVIEW.md"
+    },
+    {
+      "id": "E_quadric3",
+      "title": "階数三の二重二次曲面の残る二配置を覆う",
+      "kind": "primary",
+      "priority": 2,
+      "status": "ready",
+      "depends_on": [
+        "E_quadric"
+      ],
+      "inputs": [
+        "rank3_quadric_support",
+        "components",
+        "claims"
+      ],
+      "acceptance": "H+2Q,rank(Q)=3の頂点非包含と接触配置について、全19/25次元の閉逆形式に非零Pfaffian条件を課した全支持を既知閉包又は新しい証明済み成分で覆う。",
+      "first_step": "全kernel表示を保持し、頂点非包含Q=u²+v²+z²と接触Q=w+u²の各Pfaffian分岐を幾何的に制限する。接触の六追加クラスは落とさない。",
+      "fallback": "二回同経路で支持結論が増えなければ、別の退化因子型又はGへ移り、未処理の全枝を明記する。",
+      "nonclosing_attempts": 0,
+      "proof": null,
+      "review": null,
+      "activation_reason": "二重二次曲面rank>=4の全支持が閉じたので、既約Qの最後の階数を処理する。"
+    },
+    {
       "id": "A",
       "title": "既知成分・rank2・主要引用の監査",
       "kind": "primary",
       "priority": 3,
-      "status": "ready",
+      "status": "done",
       "depends_on": [
         "A_rank2"
       ],
@@ -202,11 +248,11 @@
         "bibliography"
       ],
       "acceptance": "主分類に使う各族のPoisson性、成分性、相違、次元とrank2被覆の証明・一次引用を確認し、欠落を明示する。",
-      "first_step": "rank2支持は完了。追加11rank4族とNEW25の全周囲成分性・相違の依存を主原稿へ統合し、未監査の最も重い一命題を確認する。",
+      "first_step": "既知58の成分性・相違の依存監査は完了。新候補が生じた場合だけ、その全周囲成分性と既知閉包との差を追加する。",
       "fallback": "依存しない結果を巻き込まず問題の影響範囲を限定し、修正課題としてC0/Fに接続する。",
       "nonclosing_attempts": 0,
-      "proof": null,
-      "review": null,
+      "proof": "research/classification/KNOWN_COMPONENT_AUDIT.md",
+      "review": "research/classification/NEW25_COMPONENT_AUDIT.md",
       "activation_reason": null,
       "current_partial_audit": "research/classification/KNOWN_COMPONENT_AUDIT.md"
     },
@@ -223,7 +269,7 @@
         "bibliography"
       ],
       "acceptance": "確認した結果を主原稿の該当節へ十分な証明とともに統合し、主分類未証明を明示する。既存有用成果を削らない。",
-      "first_step": "有限分離被覆、一般方向のrank3除外と直接splitter、階数二全支持、SNC最高部の被覆を現主原稿へ統合する。",
+      "first_step": "既知58の成分性監査、二重二次曲面の全支持命題、Gの新しい幾何必要条件を主原稿へ統合し、分類未証明の射程を維持する。",
       "fallback": "未確認主張は本文の定理に昇格せず、必要な証明義務として残す。",
       "nonclosing_attempts": 0,
       "proof": null,
@@ -240,7 +286,9 @@
         "G",
         "E0",
         "E_zero",
-        "E_poly"
+        "E_poly",
+        "E_quadric",
+        "E_quadric3"
       ],
       "inputs": [
         "s61",

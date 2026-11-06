@@ -1,0 +1,47 @@
+{
+  "task_id": "A",
+  "target_statement": "Audit full H+2 smooth quadric support recognition and determine exact linear inverse-form spaces for all three rank4 quadric/hyperplane positions. Check the explicit tangent-rank4 one-parameter family on full150 tangent space. Determine the full150 orbit/tangent bounds for the forced c=2/3 anisotropic tangent orbit.",
+  "implication_to_classification": "Smooth recognition closes an intrinsic support stratum; rank4 kernel equality or extra classes defines next bounded algebraic coverage problem and cannot itself imply classification. A full tangent/family dimension squeeze would establish componenthood; unequal bounds only diagnose a support candidate. The anisotropic orbit is a distinct intrinsic branch of the full tangent-divisor stratum; bounds determine whether its support is a known/new component candidate or requires a real deformation to known support.",
+  "coefficient_ring": "QQ[y0,y1,y2,y3], alpha coefficient degree<=2 and beta coefficient degree<=1; fixed integer matrices, no sample Poisson parameters.",
+  "hypotheses": "Full inverse form closedness Q*dalpha-2*dQ wedge alpha=0; Pfaffian equation imposed separately and not inferred from linear closedness.",
+  "inverted_elements": [
+    "Q on symplectic complement, as rational differential form; original polynomial coefficients retained"
+  ],
+  "complements": [
+    "Q=0 recovered by polynomial identity and closure of actual source, not inferred fiber coverage.",
+    "Rank3 or lower quadrics and other divisor types are not covered."
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "legacy/v03/code/closed_quadric_forms.py",
+      "sha256": "10c97138b5c55c47c3c89b5aa8571c25ccc1c23b080bd51cf519366d0910a6b4"
+    },
+    {
+      "path": "legacy/v03/code/verify_smooth_double_quadric.py",
+      "sha256": "1f8c3c79798c9bd5f8f460b7d92f0760ceeeaa1eae119b2f13e51d680072a777"
+    },
+    {
+      "path": "legacy/v03/data/double_quadric_classification_certificate.json",
+      "sha256": "d0d6dcb781754fe87d66909e210db9dcb23d2c624a482d72be5aac8b1c620779"
+    },
+    {
+      "path": "legacy/v03/proofs/smooth_double_quadric_theorem.txt",
+      "sha256": "cbd18c3d98afce13552e9750f3f2f50e6a7fcc15e7f75b8fe0865dcfbe8815b8"
+    },
+    {
+      "path": "code/classification_double_quadric.py",
+      "sha256": "a7e71b5ccbc3d9d5c7a11f210dcafe2bae87a7d8644323b563d39af6fb11ac78"
+    },
+    {
+      "path": "legacy/v03/code/poisson_p4_components_check.py",
+      "sha256": "08ca6a3d9938dec9df734a7a95d7d3eedb1b7c95d11213d8ada59feed625203f"
+    }
+  ],
+  "success_certificate": "Both smooth ranks71/19 reproduced overQQ and independent linearform construction; each rank4 kernel/image rank and all composition identities explicit. Family mode proves all-parameter Jacobi and divisor, exact tangent annihilation and lower-rank minors; no characteristic-zero upper rank inferred from modular rank.",
+  "independent_check": "Alternative SymPy polynomial exterior derivative builds matrices and computes exactQQ ranks; proofread conformal symplectic/orthogonal uniqueness.",
+  "resource_limit": {
+    "timeout_seconds": 60,
+    "memory_mb": 1536
+  },
+  "negative_result_next_step": "Retain failed normalform as open, check sourcebasis; no repeated randompoint orGBfarm. Expand rank4 kernel only when algebraically justified."
+}

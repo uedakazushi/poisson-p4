@@ -1,0 +1,447 @@
+{
+  "task_id": "A",
+  "field": "QQ",
+  "source_sha256": "b58ff7e3c74369aa39d83a0520372e2ad378e58eb791ecbc4beb86523fb68927",
+  "independent_checker_source": "from fractions import Fraction as F\nfrom itertools import combinations, permutations\nfrom pathlib import Path\nimport csv, hashlib, json, resource, time\n\nresource.setrlimit(resource.RLIMIT_CPU, (30, 31))\nresource.setrlimit(resource.RLIMIT_AS, (1024**3, 1024**3))\nstarted = time.monotonic()\nROOT = Path('/workspace/poisson-p4')\nN = 6\nZERO = (0,)*N\n\ndef term(a, *indices):\n    m = [0]*N\n    for i in indices: m[i] += 1\n    return {tuple(m): F(a)} if a else {}\n\ndef add(*polys):\n    out = {}\n    for p in polys:\n        for m,a in p.items(): out[m] = out.get(m,F(0))+a\n    return {m:a for m,a in out.items() if a}\n\ndef scale(p,a): return {m:a*b for m,b in p.items() if a*b}\n\ndef mul(p,q):\n    out = {}\n    for m,a in p.items():\n        for n,b in q.items():\n            k = tuple(x+y for x,y in zip(m,n))\n            out[k] = out.get(k,F(0))+a*b\n    return {m:a for m,a in out.items() if a}\n\ndef der(p,i):\n    out = {}\n    for m,a in p.items():\n        if m[i]:\n            k = list(m); k[i] -= 1\n            out[tuple(k)] = a*m[i]\n    return out\n\ndef tensor(data):\n    out = {}\n    for (i,j),p in data.items(): out[i,j] = p; out[j,i] = scale(p,-1)\n    return out\n\nP = tensor({\n (1,2):term(1,0,1),\n (1,3):add(term(-1,0,4),term(-3,1,1),term(-1,2,2)),\n (1,4):term(-2,1,2),\n (2,3):add(term(-2,0,3),term(-2,1,2)),\n (2,4):add(term(-3,0,4),term(-1,1,1),term(-3,2,2)),\n (3,4):add(term(4,1,4),term(-4,2,3)),\n})\nR = tensor({\n (0,1):term(F(-1,2),0,1), (0,2):term(F(-3,2),0,2),\n (0,3):term(F(1,2),0,3), (0,4):term(F(3,2),2,2),\n (1,2):term(F(-1,2),1,2), (1,3):term(F(1,4),1,3),\n (2,3):term(1,2,3),\n})\npairs = list(combinations(range(5),2))\n\ndef projective_jacobi(A):\n    triple = {}\n    for i,j,k in combinations(range(5),3):\n        triple[i,j,k] = add(*(mul(A.get((a,l),{}),der(A.get((b,c),{}),l))\n                       for a,b,c in [(i,j,k),(j,k,i),(k,i,j)] for l in range(5)))\n    result = {}\n    for inds in combinations(range(5),4):\n        result[inds] = add(*(scale(mul(term(1,inds[k]),triple[inds[:k]+inds[k+1:]]),(-1)**k)\n                             for k in range(4)))\n    return result\n\ndef divisor(A):\n    values = []\n    for i in range(5):\n        a,b,c,d = [j for j in range(5) if j != i]\n        pf = add(mul(A.get((a,b),{}),A.get((c,d),{})),\n                 scale(mul(A.get((a,c),{}),A.get((b,d),{})),-1),\n                 mul(A.get((a,d),{}),A.get((b,c),{})))\n        values.append(scale(mul(term(1,i),pf),(-1)**i))\n    return add(*values)\n\nPt = tensor({ij:add(P.get(ij,{}),mul(term(1,5),R.get(ij,{}))) for ij in pairs})\njac = projective_jacobi(Pt)\nassert all(not v for v in jac.values())\nquad = add(term(1,5,1,3),term(4,0,4),term(4,1,1),term(4,2,2))\ncubic = add(term(1,5,0,2,4),term(1,5,2,2,2),term(2,0,0,4),term(2,0,1,1),term(2,0,2,2))\nexpected = scale(mul(quad,cubic),F(-3,8))\nassert divisor(Pt) == expected\nassert divisor(P) == scale(mul(term(1,0),mul(add(term(1,0,4),term(1,1,1),term(1,2,2)),add(term(1,0,4),term(1,1,1),term(1,2,2)))), -3)\n\ndef weights(A,w):\n    return {ij:{m:sum(m[k]*w[k] for k in range(5))-w[ij[0]]-w[ij[1]]\n                   for m in A.get(ij,{})} for ij in pairs}\n\nfirst_weights = (1,0,0,-3,-2)\nP1 = tensor({ij:add(P.get(ij,{}),R.get(ij,{})) for ij in pairs})\nws = weights(P1,first_weights)\nassert all(k >= 0 for values in ws.values() for k in values.values())\ninitial = tensor({ij:{m:a for m,a in P1.get(ij,{}).items() if ws[ij][m] == 0} for ij in pairs})\nexpected_initial = dict(R)\nexpected_initial.pop((0,4)); expected_initial.pop((4,0))\nassert all(initial.get(ij,{}) == expected_initial.get(ij,{}) for ij in pairs)\nassert divisor(initial) == term(F(-3,8),0,1,2,3,4)\nassert all(not v for v in projective_jacobi(initial).values())\nfor ij in pairs:\n    assert all(m == tuple(int(k in ij) for k in range(6)) for m in initial.get(ij,{}))\n\nsecond_weights = (0,1,1,2,2)\nassert set(k for values in weights(P,second_weights).values() for k in values.values()) == {-1}\nassert set(k for values in weights(R,second_weights).values() for k in values.values()) == {0}\n\n# The affine chart w=1 gives a nondegenerate four-dimensional logarithmic matrix.\nGamma = [[F(0) for j in range(4)] for i in range(4)]\nfor i,j in combinations(range(4),2):\n    entry = initial.get((i,j),{})\n    val = next(iter(entry.values()),F(0))\n    Gamma[i][j] = val; Gamma[j][i] = -val\naug = [row[:] + [F(int(i==j)) for j in range(4)] for i,row in enumerate(Gamma)]\nfor j in range(4):\n    pivot = next(i for i in range(j,4) if aug[i][j])\n    aug[j],aug[pivot] = aug[pivot],aug[j]\n    a = aug[j][j]; aug[j] = [v/a for v in aug[j]]\n    for i in range(4):\n        if i != j:\n            a = aug[i][j]; aug[i] = [u-a*v for u,v in zip(aug[i],aug[j])]\ninverse = [row[4:] for row in aug]\nB = [[F(0) for j in range(5)] for i in range(5)]\nfor i,j in combinations(range(4),2): B[i][j] = F(3,2)*inverse[i][j]; B[j][i] = -B[i][j]\nfor i in range(4): B[i][4] = -sum(B[i]); B[4][i] = -B[i][4]\nassert all(sum(row)==0 for row in B)\nedges = []\nfor i,j in combinations(range(5),2):\n    if not B[i][j]: continue\n    vals = {k:(B[j][k]+B[k][i])/B[i][j] for k in range(5) if k not in (i,j)}\n    if all(v.denominator==1 and v>=0 for v in vals.values()):\n        assert sum(vals.values())==2\n        edges.append({'edge':[i,j],'orders':{str(k):int(v) for k,v in vals.items()}})\n\ndef canon(edges, perm):\n    return sorted((tuple(sorted(perm[i] for i in r['edge'])),\n                   tuple(sorted((perm[int(k)],v) for k,v in r['orders'].items()))) for r in edges)\nmatches = []\nwith (ROOT/'legacy/v02/baseline/data/p4_toric_components_40.csv').open() as stream:\n    for row in csv.DictReader(stream):\n        target = canon(json.loads(row['edge_orders']),range(5))\n        for perm in permutations(range(5)):\n            if canon(edges,perm) == target:\n                matches.append({'id':row['id'],'permutation':list(perm)}); break\nassert len(matches)==1\n\ndef serialize(A): return {f'{i},{j}':[[list(m),str(a)] for m,a in sorted(A.get((i,j),{}).items())] for i,j in pairs}\ninputs = ['reports/CLASSIFICATION_ANISOTROPIC_DOUBLE_QUADRIC_20261107.json',\n          'legacy/v02/baseline/data/p4_toric_components_40.csv',\n          'research/classification/BETA_ZERO_COVERAGE.md']\nsource = Path(__file__).read_text()\nout = {'task_id':'A','field':'QQ','source_sha256':hashlib.sha256(source.encode()).hexdigest(),\n       'independent_checker_source':source,'input_sha256':{p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in inputs},\n       'method':'Pure Fraction sparse exterior-polynomial arithmetic; no SymPy or producer imported.',\n       'P':serialize(P),'R':serialize(R),'all_parameter_projective_Jacobi_zero':True,\n       'factored_divisor':'-3/8*(t*u*z+4*h*w+4*u^2+4*v^2)*(t*h*v*w+t*v^3+2*h^2*w+2*h*u^2+2*h*v^2)',\n       'SNC_deformation_weights':list(first_weights),'SNC_initial':serialize(initial),\n       'SNC_divisor_coefficient':'-3/8','all_SNC_weights_nonnegative':True,\n       'contraction_weights':list(second_weights),'P_weight':-1,'R_weight':0,\n       'biresidue_matrix':[[str(v) for v in row] for row in B],\n       'SNC_smoothable_edges':edges,'SNC_maximal_diagram_match':matches[0],\n       'component_scope':'Membership in the finite union of MPS40 follows from the SNC orbit limit. The maximal diagram match alone is not asserted to identify a unique component containing P or P+R.',\n       'global_exhaustion_proved':False,'elapsed_seconds':time.monotonic()-started}\noutput = ROOT/'reports/CLASSIFICATION_ANISOTROPIC_MPS_DEFORMATION_REVIEW_20261107.json'\nwith output.open('x') as stream: json.dump(out,stream,indent=2);stream.write('\\n')\nprint(json.dumps({k:out[k] for k in ['all_parameter_projective_Jacobi_zero','all_SNC_weights_nonnegative','SNC_maximal_diagram_match','elapsed_seconds']},indent=2))\n",
+  "input_sha256": {
+    "reports/CLASSIFICATION_ANISOTROPIC_DOUBLE_QUADRIC_20261107.json": "9e30102c8cac3de10eb92cde16cc68e64c650527f0a2e5a010f524495e201f74",
+    "legacy/v02/baseline/data/p4_toric_components_40.csv": "3afadf67b7fec143057f2e84b5bc91ccba17cc14db09fda705dfdcd418fb75a0",
+    "research/classification/BETA_ZERO_COVERAGE.md": "2f0d4e10f2a9d325e7a2e01677004d2839ca2af9f47c143904b725fbc0074bff"
+  },
+  "method": "Pure Fraction sparse exterior-polynomial arithmetic; no SymPy or producer imported.",
+  "P": {
+    "0,1": [],
+    "0,2": [],
+    "0,3": [],
+    "0,4": [],
+    "1,2": [
+      [
+        [
+          1,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "1"
+      ]
+    ],
+    "1,3": [
+      [
+        [
+          0,
+          0,
+          2,
+          0,
+          0,
+          0
+        ],
+        "-1"
+      ],
+      [
+        [
+          0,
+          2,
+          0,
+          0,
+          0,
+          0
+        ],
+        "-3"
+      ],
+      [
+        [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0
+        ],
+        "-1"
+      ]
+    ],
+    "1,4": [
+      [
+        [
+          0,
+          1,
+          1,
+          0,
+          0,
+          0
+        ],
+        "-2"
+      ]
+    ],
+    "2,3": [
+      [
+        [
+          0,
+          1,
+          1,
+          0,
+          0,
+          0
+        ],
+        "-2"
+      ],
+      [
+        [
+          1,
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        "-2"
+      ]
+    ],
+    "2,4": [
+      [
+        [
+          0,
+          0,
+          2,
+          0,
+          0,
+          0
+        ],
+        "-3"
+      ],
+      [
+        [
+          0,
+          2,
+          0,
+          0,
+          0,
+          0
+        ],
+        "-1"
+      ],
+      [
+        [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0
+        ],
+        "-3"
+      ]
+    ],
+    "3,4": [
+      [
+        [
+          0,
+          0,
+          1,
+          1,
+          0,
+          0
+        ],
+        "-4"
+      ],
+      [
+        [
+          0,
+          1,
+          0,
+          0,
+          1,
+          0
+        ],
+        "4"
+      ]
+    ]
+  },
+  "R": {
+    "0,1": [
+      [
+        [
+          1,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "-1/2"
+      ]
+    ],
+    "0,2": [
+      [
+        [
+          1,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        "-3/2"
+      ]
+    ],
+    "0,3": [
+      [
+        [
+          1,
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        "1/2"
+      ]
+    ],
+    "0,4": [
+      [
+        [
+          0,
+          0,
+          2,
+          0,
+          0,
+          0
+        ],
+        "3/2"
+      ]
+    ],
+    "1,2": [
+      [
+        [
+          0,
+          1,
+          1,
+          0,
+          0,
+          0
+        ],
+        "-1/2"
+      ]
+    ],
+    "1,3": [
+      [
+        [
+          0,
+          1,
+          0,
+          1,
+          0,
+          0
+        ],
+        "1/4"
+      ]
+    ],
+    "1,4": [],
+    "2,3": [
+      [
+        [
+          0,
+          0,
+          1,
+          1,
+          0,
+          0
+        ],
+        "1"
+      ]
+    ],
+    "2,4": [],
+    "3,4": []
+  },
+  "all_parameter_projective_Jacobi_zero": true,
+  "factored_divisor": "-3/8*(t*u*z+4*h*w+4*u^2+4*v^2)*(t*h*v*w+t*v^3+2*h^2*w+2*h*u^2+2*h*v^2)",
+  "SNC_deformation_weights": [
+    1,
+    0,
+    0,
+    -3,
+    -2
+  ],
+  "SNC_initial": {
+    "0,1": [
+      [
+        [
+          1,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "-1/2"
+      ]
+    ],
+    "0,2": [
+      [
+        [
+          1,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        "-3/2"
+      ]
+    ],
+    "0,3": [
+      [
+        [
+          1,
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        "1/2"
+      ]
+    ],
+    "0,4": [],
+    "1,2": [
+      [
+        [
+          0,
+          1,
+          1,
+          0,
+          0,
+          0
+        ],
+        "-1/2"
+      ]
+    ],
+    "1,3": [
+      [
+        [
+          0,
+          1,
+          0,
+          1,
+          0,
+          0
+        ],
+        "1/4"
+      ]
+    ],
+    "1,4": [],
+    "2,3": [
+      [
+        [
+          0,
+          0,
+          1,
+          1,
+          0,
+          0
+        ],
+        "1"
+      ]
+    ],
+    "2,4": [],
+    "3,4": []
+  },
+  "SNC_divisor_coefficient": "-3/8",
+  "all_SNC_weights_nonnegative": true,
+  "contraction_weights": [
+    0,
+    1,
+    1,
+    2,
+    2
+  ],
+  "P_weight": -1,
+  "R_weight": 0,
+  "biresidue_matrix": [
+    [
+      "0",
+      "4",
+      "-1",
+      "-2",
+      "-1"
+    ],
+    [
+      "-4",
+      "0",
+      "2",
+      "6",
+      "-4"
+    ],
+    [
+      "1",
+      "-2",
+      "0",
+      "-2",
+      "3"
+    ],
+    [
+      "2",
+      "-6",
+      "2",
+      "0",
+      "2"
+    ],
+    [
+      "1",
+      "4",
+      "-3",
+      "-2",
+      "0"
+    ]
+  ],
+  "SNC_smoothable_edges": [
+    {
+      "edge": [
+        0,
+        4
+      ],
+      "orders": {
+        "1": 0,
+        "2": 2,
+        "3": 0
+      }
+    },
+    {
+      "edge": [
+        1,
+        3
+      ],
+      "orders": {
+        "0": 1,
+        "2": 0,
+        "4": 1
+      }
+    },
+    {
+      "edge": [
+        2,
+        4
+      ],
+      "orders": {
+        "0": 0,
+        "1": 2,
+        "3": 0
+      }
+    }
+  ],
+  "SNC_maximal_diagram_match": {
+    "id": "T33",
+    "permutation": [
+      2,
+      4,
+      1,
+      3,
+      0
+    ]
+  },
+  "component_scope": "Membership in the finite union of MPS40 follows from the SNC orbit limit. The maximal diagram match alone is not asserted to identify a unique component containing P or P+R.",
+  "global_exhaustion_proved": false,
+  "elapsed_seconds": 0.020880426000076113
+}

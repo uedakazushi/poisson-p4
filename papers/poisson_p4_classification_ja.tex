@@ -25,7 +25,7 @@
 \maketitle
 \begin{abstract}
 本稿は、複素射影四空間上のPoisson構造の被約既約成分を尽くし、各成分の一般元の幾何を記述するための研究原稿である。
-分類主定理の証明は完成していない。S61の一次座標と一般切片の対応を確認し、既知三平面に沿う多項式左逆から未知残余を分離する。その空性は一つの忠実な法線チャートの単位証明へ帰着でき、有限分離被覆を使えば係数体の超越次数を増やす必要はない。また、階数2の全支持を六族と階数4の閉包で覆い、一次部分零の層と、SNC最高部を持つ二次多項式代表の支持包含を接続する。
+分類主定理の証明は完成していない。S61の一次座標と一般切片の対応を確認し、既知三平面に沿う多項式左逆から未知残余を分離する。その空性は忠実な法線チャートの単位証明へ帰着できるが未証明である。階数2の全支持を六族と階数4の閉包で覆い、既知58成分の成分性・相違の依存を監査する。さらに、一次部分零の層、SNC最高部を持つ二次多項式代表、および階数4以上の二重二次曲面を持つ全支持を既知成分へ接続する。
 既存リポジトリの全証明書を再実行したとは主張せず、原証明の読解と今回の独立検算を区別する。
 詳細なnilpotent構造や派生論文の完成を、主分類定理の前提条件に追加しない。
 \end{abstract}
@@ -48,7 +48,8 @@
 \end{target}
 
 \(N\)は未決定である。2026年11月7日に確認したリポジトリの台帳は、全成分数の下界58、一般階数4の成分数の下界52を記録している。
-これらは本稿で独立に再検証した定理ではなく、主定理に組み込むための監査対象である。
+既存証明書を入力とする成分性・相違の依存監査を行い、以下で主分類に接続する。
+全証明書を今回再実行したという意味ではない。
 58を答えとして固定して未知成分を排除するのではない。
 
 \subsection{先行研究との比較：未完了の執筆項目}
@@ -244,6 +245,8 @@ Introductionの完成には、既存の40成分を扱う文献、Pymのpurely el
 この直接の同値はsplitterを必要としない。既知五点を結論する際は、既知三平面交叉の定理を用いる。
 
 \subsection{方向incidenceの階数三枝の排除}
+交換子による排除とcompact方向graphは2026年11月3日の既存ノートにも含まれる。
+以下は全底への橋を明記した独立再検証と証明の整理であり、新しい排除枝として二重に数えない。
 全底の関数体\(K=\CC(W_{16})\)上で、元134式を五式\(F_a(z,n)\)と129残差
 \[
  R(z,n)=X(z\otimes n)+D_1n+D_2(n,n)
@@ -377,7 +380,8 @@ NEW25像には\(\Delta\ne0\)の既存の点があるので、底の特殊部分�
 \item S61による全rank4被覆、座標変更、元134式との同値の自己完結した証明。
 \item 一般ファイバーに対する命題\ref{prop:radical}の仮定\(L\subset\sqrt I\)、または同等の尽くしの証明。
 \item 得られた開集合の全補集合と、特殊一次部分上の未知成分の排除または追加。
-\item 既知rank4成分の成分性・相互識別・一般幾何の証明統合。rank2支持は以下の命題で接続する。
+\item 一般元の幾何と有限証明書を含む、既知成分の自己完結した記述の整備。
+成分性・相互識別の必要依存の監査とrank2支持は以下で接続済みである。
 \item 主要な先行研究との一次資料に基づく比較と、主張・計算証明書の独立点検。
 \end{enumerate}
 
@@ -573,6 +577,239 @@ Aff5とAff41は一般の飽和接層$\mathcal O^2$が復元する二次元Lie部
 B18の精密なnil指数、\(H^0\)、\(T_2\)全長、追加の接触・Betti不変量は原則secondaryであり、主分類定理の受入条件にはしない。
 既存の価値ある証明と結果は破棄せず、必要な箇所へ統合する。
 
+\section{既知成分の下界を支える支持の証明}
+MPSの定理\cite[Theorem 1.4]{mps}はSNC locusと交わる40成分を与える。
+これに追加する十一族とNEW25の射影次元は次の通りである。
+\begin{center}
+\begin{tabular}{lr}
+\toprule
+族&次元\\\midrule
+滑らかな二重二次曲面、三重超平面と二次曲面&22,22\\
+$\mathcal C_A,\mathcal C_B$&28,28\\
+本質五変数の超平面と四次曲面、ZERO\_LOG&23,23\\
+MINIMAL\_M、A0、DPM&23,23,23\\
+CPLUS\_EXT、CMINUS\_MAG&24,23\\
+NEW25&25\\\bottomrule
+\end{tabular}
+\end{center}
+前述の六rank2成分と合わせて下界は$40+11+1+6=58$となる。
+以下の議論はこの下界を支えるもので、全支持の上界を与えない。
+
+\subsection{精密な横断環を要しない成分性}
+\begin{lemma}\label{lem:transverse-support}
+滑らかな$N$次元空間内の有限型スキーム$X$に、滑らかな源からの実際の解の族があり、
+点$p$でその微分の階数を$d$とする。実際の族の$d$座標を零に固定した真の形式横断切片が
+零次元なら、その既約像閉包は$d$次元の全$X$成分である。
+\end{lemma}
+\begin{proof}
+源の$d$方向と接法線・接空間の補方向で形式座標を作り、全方程式の線形可逆方向を陰関数で解く。
+局所環の完成を$\CC[[s_1,\ldots,s_d,n_1,\ldots,n_e]]/I$と書ける。
+切片$B=\widehat{\mathcal O}_{X,p}/(s)$が零次元なら、Krullの次元不等式により
+$\dim\mathcal O_{X,p}\le d$。実族の微分階数は像閉包の次元下界$d$を与えるので一致する。
+同次元の閉既約包含から像閉包が成分となる。切片の正確な長さや全完成環は要しない。
+\end{proof}
+
+全150係数では24の鉛直方向とスカラーを実際の族に含め、得た次元から25を引く。
+滑らかな二重二次曲面と三重超平面二次曲面では、Jacobi微分と実方向の階数が$(103,47)$、
+$\mathcal C_A,\mathcal C_B$では$(97,53)$で、接次元と像次元が一致する。
+本質五変数四次曲面の族では$(102,48)$が同じ挟み撃ちを与える。
+ZERO\_LOG、M、A0、DPMでは$(101,48)$で一法線が残るが、全補正の曖昧さを含む
+非零三次障害が真の一変数切片を零次元にする。
+CPLUSは$(100,49)$の一法線に非零二次障害、CMINUSは$(100,48)$の二法線に
+初期式$uv,v^2,u^3$を持つ。従って全てに補題を適用できる。
+有限jetの存在を形式変形の存在とみなすのではなく、真正初期イデアルの零次元性を用いている。
+
+十一族のMPS40との差は、閉包全体がSNC因子を排除する閉条件を満たすことによる。
+平方二次因子・三乗一次因子・五乗一次式の各条件は射影的掛け算の像で閉である。
+また、ある平面に沿って退化五次式が三次以上で消える条件はGrassmannian上のproper incidenceで閉、
+本質変数数が高々三という条件も偏微分行列のrank条件で閉である。
+これらが各族を覆う。追加族同士は次元と一般因数分解、四次因子の本質変数数、
+特異平面の数、一般横断三次の重複度型$(3)$または$(2,1)$で区別する。
+詳細な対応と元の全周囲証明書は
+\path{ADDITIONAL_RANK4_EARLY_COMPONENT_AUDIT.md}および
+\path{ADDITIONAL_RANK4_LATE_COMPONENT_AUDIT.md}にあり、相互独立査読を行った。
+
+\subsection{NEW25の上界を八初期式で証明する}
+既存の全350式の形式模型は、証拠点で22変数の滑らかな因子と八変数横断環を与える。
+真の三変数Poisson族の微分は射影次元25の下界を与えるので、横断次元上界3で十分である。
+既存の真正初期式$f_0,\ldots,f_{20}$のうち、
+$f_0,f_2,f_3,f_4,f_8,f_{16},f_{17},f_{18}$だけを用いる。
+$a=z_1,b=z_5,c=z_7$とすると、明示的な一次係数との恒等式により
+$a^3,c^3\in(f_2,f_3,f_4)$であり、$a=c=0$上で$f_0=-64b(z_4+2z_6)$となる。
+
+$b=0$の枝では$f_{16},f_{18}$は$z_3,z_4,z_6$だけの二四次式である。
+整数化した第一式の$z_3$最高係数は$-3531600(z_4+2z_6)$、定数係数を$z_4=-2z_6$へ
+制限した値は$-194040z_6^4$なので、係数内容は単元である。
+$(z_4,z_6)=(1,0)$での二三次式のSylvester行列式は
+$-69250121673542498866103739000000\ne0$。
+従って三変数で互いに素であり、自由な$z_0,z_2$を戻して次元は高々3。
+他の枝$z_4=-2z_6$では$f_8=-8bz_6^2/3$、さらに$z_6=z_4=0$で
+$f_{17}=1433272320bz_2^3$となる。$b=0$は既処理なので、残りは
+$z_1=z_2=z_4=z_6=z_7=0$の三平面に含まれる。
+これで全横断次元が高々3となり、実族の下界と合わせて25次元の全空間成分を得る。
+
+全初期イデアルの生成やHilbert関数はこの上界に不要である。
+八式の初期イデアルへの所属と形式模型は既存の独立証明書に依存する。
+既知51rank4成分のうち次元25以上のT01,T39,T40,CA,CBは、同じ証拠点が満たさない
+全閉包条件によって除外する。他は次元、六rank2成分は閉階数条件で区別できる。
+全依存と二つの三次恒等式は\path{research/classification/NEW25_COMPONENT_AUDIT.md}にある。
+
+\section{二重二次曲面を持つ支持の被覆}
+実際の退化因子が$D=H+2\mathcal Q$である点を考える。
+$\mathcal Q$が既約なら、primitive liftの$\Pi^\sharp d(Hq^2)=0$からHが不変となる。
+Hをcentralにした二次liftを選ぶと、affine逆二形式は$\alpha/Q^2$となり、
+\[
+ Qd\alpha-2dQ\wedge\alpha=0,\qquad \alpha^2/2=kQ^2\operatorname{vol},\quad k\ne0.
+\]
+ここで$\deg\alpha\le2$であり、全90係数を残す。
+
+\begin{proposition}\label{prop:double-quadric}
+$\rank\mathcal Q=5$なら全点は既知の22次元軌道に属する。
+$\rank\mathcal Q=4$でHが頂点を避ける配置は空であり、頂点を含んで商の二次曲面に非接触なら
+全点が命題\ref{prop:beta-zero}のPGL飽和に入る。
+接触配置の全点はMPS40成分の和に属する。従って$\rank\mathcal Q\ge4$の全層が被覆される。
+$\rank\mathcal Q=3$でHが頂点を含んで商の円錐曲線に横断する場合は、その飽和閉包に入る。
+\end{proposition}
+\begin{proof}
+rank5の二配置およびrank4の三配置では、全閉性空間は
+$\alpha=Qd\beta-dQ\wedge\beta$、$\deg\beta\le1$で尽くされる。
+全閉性行列の階数71、原始形式の像階数19、および合成零をQQで二実装により検査した。
+$\Omega=d\beta$と置く。symplecticなら$i_Z\Omega=\beta$によって
+\[
+ L_Z\Omega=\Omega,\qquad \operatorname{tr}(DZ)=2,\qquad ZQ=cQ,\quad c\ne1
+\]
+を得る。rank5では$\rank\Omega=2$だとQが二つの一次式の積の差となりrank5に反する。
+従ってsymplecticで、斉次化したtrace比較から$c=4/5$。
+非接触配置$Q=1+\sum y_i^2$の臨界点では$ZQ=0$なので矛盾する。
+接触配置では$S=\Omega^{-1}\operatorname{Hess}Q$が$[DZ,S]=S/5$を満たし、
+rank3のnilpotent行列となる。四固有重み$1/5,2/5,3/5,4/5$により
+\[
+ Q=d+b^2+ac,\qquad \Omega=da\wedge dd+db\wedge dc
+\]
+へ規格化できる。これが既知の一軌道の全点認識である。
+
+rank4の頂点回避配置ではQは四変数非退化斉次二次式。
+symplecticならHessianのtrace比較で$c=1$となり矛盾する。
+$\rank\Omega=2$なら$\Omega=du\wedge dv$とし、
+$X=\beta_w\partial_z-\beta_z\partial_w$を取ると$XQ=-kQ$かつ$\operatorname{div}X=0$。
+非退化Hessianのtrace比較は再び$k=0$を強制する。
+rank4非接触配置$Q=1+u^2+v^2+z^2$では、臨界直線上の評価がrank2を除き$c=0$を与える。
+Hessianの三次元商上のtraceは零、radical上の固有値は2なので、Zは臨界直線内に唯一の零点を持つ。
+そこへ平行移動すれば$\alpha$と双対Poisson係数は非退化定数項と二次項だけになり、beta零被覆を適用できる。
+
+rank4接触配置では$R=\ker\operatorname{Hess}Q$は二次元で、Qの一次部分はR上非零である。
+$\rank\Omega=2$なら、上のXの線形部はR上に固有値$-k,2k$を持つ。
+しかしXは$\ker\Omega$に値を持ち、R上で可逆だから$R=\ker\Omega$となり、
+商上のtraceが$-k\ne0$という二次係数条件と矛盾する。
+従って$\Omega$はsymplecticで、$S=\Omega^{-1}\operatorname{Hess}Q$はrank2のnilpotentとなる。
+symplectic性はJordan型$(3,1)$を排除するので$S^2=0$、RはLagrangianである。
+座標を$x=(u,v),y=(z,w)$とすると
+\[
+ \Omega=du\wedge dz+dv\wedge dw,\quad Q=q_2(x)+b^ty,
+ \quad A=\frac c2I+T,\quad T\in\mathfrak{so}(q_2),\quad Ab=(1-c)b.
+\]
+ここでAはZのx方向線形部で、$(2-3c)q_2(b)=0$となる。
+
+$q_2(b)=0$の枝では$Q=w+uv$と規格化でき、全解の場は
+\[
+ Z=((2c-1)u+p)\partial_u+((1-c)v+q)\partial_v
+ +(ru-qv+(2-2c)z+e)\partial_z+(-qu-pv+cw)\partial_w.
+\]
+これは$c\ne1,p,q,r,e$の既約五変数源である。一般cではLの固有値は相異なり非零で、
+平行移動とsymplectic固有座標により$p=q=r=e=0$の一変数族$P_c$へ移る。
+この族の$c=2$の点は、全係数恒等式と軌道極限によりT18の実源
+$(p_0,p_1,t_0,t_1)=(10,12,-2,-2)$から得られる。
+同点の全Jacobi微分の102次非零minorは射影接次元上界23を与え、$\dim T18=23$と一致する。
+従って同点は唯一の成分T18の滑らかな点であり、既約なc族全体、さらに五変数源全体がT18に入る。
+全係数・分母8・軌道極限と独立minorは
+\path{TANGENT_DOUBLE_QUADRIC_T18_REVIEW.md}に明示した。
+
+$q_2(b)\ne0$の枝では$c=2/3$、$A=I/3$となり、平行移動とsymplectic shearにより一つの軌道となる。
+その代表Pは、$(uv,uz,uw,vz,vw,zw)$の順に
+\[
+ (hu,-hw-3u^2-v^2,-2uv,-2hz-2uv,-3hw-u^2-3v^2,4uw-4vz)
+\]
+を持ち、hはcentralである。さらに
+\[
+ (R_{hu},R_{hv},R_{hz},R_{hw},R_{uv},R_{uz},R_{vz})
+ =(-hu/2,-3hv/2,hz/2,3v^2/2,-uv/2,uz/4,vz)
+\]
+とすると、全tで$E\wedge[P+tR,P+tR]=0$である。
+P+Rの全項は重み$(1,0,0,-3,-2)$で非負、零重み極限の五次式は$-3huvzw/8$なのでSNCである。
+P+Rを含む同じ全空間成分Cは、連結PGLの作用で保たれてこのSNC点を含むため、MPS40の一つである。
+別の重み$(0,1,1,2,2)$ではPは重み$-1$、Rは0なので、P+Rの軌道極限はPとなる。
+従ってこの一軌道もCに入る。全tのJacobiと両重みを独立な有理数疎演算で検査した。
+これでrank4接触配置の全支持を覆う。
+
+rank3横断配置$Q=1+u^2+v^2$では閉性空間の次元は20で、余剰クラスを含む全表示は
+\[
+ \alpha=Qd\beta-dQ\wedge\beta+tQ\,du\wedge dv.
+\]
+$\Omega=d\beta+tdu\wedge dv$と置く。臨界平面R上でQ=1なので
+$\Omega^2/2=k\operatorname{vol}$、従って$\Omega$はsymplecticである。
+$i_Z\Omega=\beta$とすると$ZQ=0$、$L_Z\Omega=\Omega-tdu\wedge dv$。
+線形部は$(A,0;C,D)$、定数項はRに入り、Aは二変数二次形式の直交Lie代数に属する。
+
+$\Omega|_R$が非退化なら直交分解でC=0、$\operatorname{tr}D=1$となり、
+$D_s=(1-s)D+sI/2$は全条件を保って一般に可逆である。
+RがLagrangianならsymplectic交差行列をIにして$D=I-A^t$を得るので、
+$A_s=(1-s)A$、$D_s=I-A_s^t$、C固定という変形を用いる。
+両場合とも全閉性・Pfaffian条件を保つ実Poisson族である。
+一般sでR内の零点へ移すと定数+二次だけになり、beta零飽和に入る。
+閉包により元のs=0も覆われる。余剰クラスtを零と仮定していない。
+\end{proof}
+
+rank3の他の配置には未処理の支持がある。頂点非包含では閉性空間19次元、接触配置
+$Q=w+u^2$では25次元となり、後者の六追加クラスは
+$\beta=u\,dr-r\,du$、$r\in\operatorname{Sym}^2\langle v,z,w\rangle$から生じる。
+これらを落として全被覆とすることはできない。
+証明・全補集合・独立確認は\path{research/classification/DOUBLE_QUADRIC_SUPPORT.md}と
+\path{research/classification/RANK_THREE_QUADRIC_SUPPORT.md}に記録した。
+
+\section{一般底の未知成分を制限する幾何}
+交換子・多項式左逆・有限性だけから一般五点を結論することはできない。
+実際、独立reviewには同じ二次cross形式と可逆交換子を持ち、平面上の五被約点のほかに
+一つの孤立被約点が残る具体例を記録した。Poisson固有の全方程式を用いる必要がある。
+
+既存のアフィン次元上界では、未知一般fiberの次元dは高々2である。
+固定rank4評価値の五次元とperspectiveの四次元をS61へ戻すと、
+底を優越する未知全空間成分の射影次元は$16+d+9=25+d$、従って25,26,27に限られる。
+MPSの尽くしにより、この未知成分はSNC点を含まない。
+
+一般退化因子が被約正規の場合、Pymの定理\cite{pymelliptic}によれば、
+その全特異点でmodular vectorが非零ならpurely ellipticとなりT39に属する。
+従ってT39以外のこの分岐には、$\pi(p)=0$かつ$Z_\pi(p)=0$となる点pがある。
+零点でのmodular vectorの値は局所体積形式に依らないので、これは
+$\mathcal P\times\PP^4$内の閉incidenceを定め、そのPoisson空間への像もproper性により閉である。
+一次Lie--Poisson構造$\pi_1$はunimodularである。
+modular恒等式$\pi_1^\sharp df_2=f_2Z_{\pi_1}=0$から
+$f_2=\operatorname{Pf}(\pi_1)=0$となる。さもなければ可逆な開上で$df_2=0$となり斉次次数2に矛盾する。
+従って退化因子の重複度は3以上で、その三次初項$f_3$は$\pi_1^\sharp df_3=0$を満たす。
+
+\begin{proposition}\label{prop:solvable-zero}
+一般階数4の四次元Poisson構造の零点では、一次cotangent Lie代数は可解である。
+\end{proposition}
+\begin{proof}
+四次元の非可解複素Lie代数は$\mathfrak g=\mathfrak{sl}_2\oplus\CC$に限られる。
+次数kの斉次polyvector複体は$C^\bullet(\mathfrak g,\operatorname{Sym}^k\mathfrak g)$である。
+中心は自明に作用し一次元なので、Whiteheadの二補題から
+\[
+H^2(\mathfrak g,M)=H^2(\mathfrak{sl}_2,M)
+ \oplus H^1(\mathfrak{sl}_2,M)\otimes\CC=0,
+\qquad M=\operatorname{Sym}^k\mathfrak g.
+\]
+従ってJacobiを満たす全高次項を次数順に形式座標変換で消去できる。
+線形部分は三方向だけに支えられ、その二乗は零なので、元の$\pi^2$も完成局所環で零になる。
+滑らかな局所環から完成への単射により実際のgermでも零となり、一般階数4に矛盾する。
+形式変換の解析的収束は不要である。この線形化自体は既知のLevi理論\cite{zunglevi}の帰結である。
+\end{proof}
+
+次の未証明の標的は、T39を除く正規被約分岐において、可解unimodular零点を持つ
+全Poisson構造のS61一次像が次元15以下となることである。
+零点でのLie代数と、rank4基点で作るprimitive一次座標を同一視しない。
+この像の上界はまだ得ておらず、一般非被約・被約非正規退化因子の分岐も残る。
+必要条件と全補集合の独立査読は\path{research/classification/DOMINANT_COMPONENT_GEOMETRY.md}にある。
+
 \section{計算・証拠の位置づけ}
 本稿の命題\ref{prop:radical}、補題\ref{lem:certificate}、補題\ref{lem:descent}、命題\ref{prop:spread}には本文で証明を与えた。
 これらは一般的な可換代数の論理であり、新しいPoisson分類定理ではない。
@@ -609,6 +846,14 @@ arXiv:1112.3871v3, Theorem 6.2.
 \emph{A local Torelli theorem for log symplectic manifolds},
 arXiv:2010.08692v2 (2021), Theorem 1.4.
 \url{https://arxiv.org/html/2010.08692v2}.
+\bibitem{pymelliptic} B. Pym,
+\emph{Elliptic singularities on log symplectic manifolds and Feigin--Odesskii Poisson brackets},
+arXiv:1507.05668, Theorem 1.3, Definition 4.2, Remark 4.4.
+\url{https://arxiv.org/pdf/1507.05668}.
+\bibitem{zunglevi} N. T. Zung,
+\emph{Levi decomposition of analytic Poisson structures and Lie algebroids},
+arXiv:math/0203023v2, Theorem 1.1, Remark 3.
+\url{https://arxiv.org/pdf/math/0203023}.
 \bibitem{stacks0529} The Stacks Project Authors,
 \emph{The Stacks Project}, Tag 0529, Generic flatness.
 \url{https://stacks.math.columbia.edu/tag/0529}.

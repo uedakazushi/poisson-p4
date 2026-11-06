@@ -1,0 +1,14 @@
+{
+  "task_id": "A",
+  "target_statement": "Determine the full degree-at-most-two inverse-form spaces for every rank-three irreducible quadric relative to a hyperplane, then prove support containment only when the Pfaffian equation also permits it.",
+  "implication_to_classification": "An exhaustive pair-normal-form calculation reduces the intrinsic H+2Q stratum with rank(Q)=3 to explicitly retained finite coefficient equations; a kernel computation alone is not coverage.",
+  "coefficient_ring": "QQ[y0,y1,y2,y3]; all 90 coefficients of alpha and all 20 affine beta coefficients, with no specialization of Poisson parameters.",
+  "hypotheses": "Q is an irreducible projective rank-three quadric; the hyperplane either does not contain its vertex, contains the vertex and is transverse to the quotient conic, or is tangent to that conic. Inverse closedness is Q*dalpha-2*dQ wedge alpha=0, and Pf(alpha)=k*Q^2 with k nonzero remains compulsory.",
+  "inverted_elements": ["Q only in the rational inverse form; k nonzero for generic rank four"],
+  "complements": ["All Q=0 points remain governed by polynomial identities.", "Rank-two or lower quadrics and other degeneracy divisor types are outside this job."],
+  "exact_inputs_and_hashes": [{"path": "legacy/v03/code/closed_quadric_forms.py", "sha256": "10c97138b5c55c47c3c89b5aa8571c25ccc1c23b080bd51cf519366d0910a6b4"}],
+  "success_certificate": "Exact QQ kernel and primitive-image dimensions for all three cases; separately constructed polynomial matrices and all composition identities, followed by explicit proofs or a fully stated remaining Pfaffian problem.",
+  "independent_check": "SymPy exterior-form matrix construction using symbolic derivatives, independent of legacy sparse polynomial arithmetic; exact rank and residual-form comparison.",
+  "resource_limit": {"timeout_seconds": 60, "memory_mb": 1536},
+  "negative_result_next_step": "Retain any extra inverse-form classes and unresolved Pfaffian branches; do not infer primitive exactness or coverage from a nearby rank-four case. Stop coefficient expansion if no geometric implication follows."
+}
