@@ -1,0 +1,38 @@
+{
+  "task_id": "G",
+  "target_statement": "Diagnose fixed normal0 chart unit over GF32003, removing the transcendental coefficient field; does not yet test entire residual.",
+  "implication_to_classification": "If equivariant cyclic-span lemma is proved, a characteristic-zero generic unit on this coordinate would suffice. This finitefield fixedcenter run is only an algorithm/certificate candidate.",
+  "coefficient_ring": "GF(32003)[q0,...,q44,u]",
+  "hypotheses": "All134 original equations, archived fixed beta; n0 chart only. Equivariant span and characteristic-zero lifting are unproved.",
+  "inverted_elements": [
+    "n0 via1-u*n0"
+  ],
+  "complements": [
+    "n0=0 unknown residual remains; no faithful-chart conclusion applies to this fixed coordinate without an independent equivariance/span theorem."
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_generic_chart.py",
+      "sha256": "c430893b5d97f6aefa400d8e2e24455d03e6cdf102687a488e89eb1c08bb0838"
+    },
+    {
+      "path": "legacy/v02/data/symplectic_slice_reduced_equations.json",
+      "sha256": "e8e38d8c63f2e6c4db2a905420b6bdebd283f5acdc5814a04bf346283f4f3df5"
+    },
+    {
+      "path": "reports/S61_AFFINE_RESIDUAL42_20261103_v63/linear129x42-QQ.json.gz",
+      "sha256": "dd0a28b6ea0fec16bcfb676ae12111203636e4b5e8fbe1ff2e6919d8e6f1f7c2"
+    },
+    {
+      "path": "reports/S61_KNOWN_FIBER_AUDIT_20261031.json",
+      "sha256": "82c0e01a0cbfaeba0661dda75c2685eec6064d6ade97adec1876ca6041a6fe11"
+    }
+  ],
+  "success_certificate": "Completed exact finitefield Groebner basis and full hash-bound input; any characteristic-zero assertion requires a separate exact QQ/generic certificate.",
+  "independent_check": "Independently audit full134 input and generic-chart lemma; verify any resulting certificate separately over stated field.",
+  "resource_limit": {
+    "timeout_seconds": 305,
+    "memory_mb": 1536
+  },
+  "negative_result_next_step": "After this second incomplete direct Groebner run, leave this backend route. Investigate exact equivariant span/structural syzygies or a native backend, without point/coordinate farms."
+}

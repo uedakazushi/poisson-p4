@@ -1,0 +1,40 @@
+{
+  "task_id": "G",
+  "target_statement": "Test feasibility of exact unit computation for the single faithful generic normal chart at the frozen characteristic-p center.",
+  "implication_to_classification": "A finitefield unit would supply an algorithmic candidate for a later QQ/generic certificate, not prove G. A resource stop diagnoses backend feasibility.",
+  "coefficient_ring": "GF(32003)(tau)[centered_q0,...,centered_q44,u]",
+  "hypotheses": "All134 original equations; archived T01 rational firstjet and known-five affine plane; tau remains transcendental.",
+  "inverted_elements": [
+    "nonzero polynomials in tau as coefficient-field denominators",
+    "ell=sum tau^j n_j via 1-u*ell"
+  ],
+  "complements": [
+    "Known E5 factor is killed by ell; full unknown B is faithfully detected before specialization by the generic-chart lemma.",
+    "Fixedcharacteristic-p center is diagnostic only; no open of beta or char0 conclusion is inferred."
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_generic_chart.py",
+      "sha256": "c430893b5d97f6aefa400d8e2e24455d03e6cdf102687a488e89eb1c08bb0838"
+    },
+    {
+      "path": "legacy/v02/data/symplectic_slice_reduced_equations.json",
+      "sha256": "e8e38d8c63f2e6c4db2a905420b6bdebd283f5acdc5814a04bf346283f4f3df5"
+    },
+    {
+      "path": "reports/S61_AFFINE_RESIDUAL42_20261103_v63/linear129x42-QQ.json.gz",
+      "sha256": "dd0a28b6ea0fec16bcfb676ae12111203636e4b5e8fbe1ff2e6919d8e6f1f7c2"
+    },
+    {
+      "path": "reports/S61_KNOWN_FIBER_AUDIT_20261031.json",
+      "sha256": "82c0e01a0cbfaeba0661dda75c2685eec6064d6ade97adec1876ca6041a6fe11"
+    }
+  ],
+  "success_certificate": "Completed exact finitefield Groebner basis and full hash-bound input; any characteristic-zero assertion requires a separate exact QQ/generic certificate.",
+  "independent_check": "Independently audit full134 input and generic-chart lemma; verify any resulting certificate separately over stated field.",
+  "resource_limit": {
+    "timeout_seconds": 65,
+    "memory_mb": 1536
+  },
+  "negative_result_next_step": "Do not repeat larger degree or point probes with this backend; use structural syzygies or a native exact backend. Preserve input and stop reason."
+}

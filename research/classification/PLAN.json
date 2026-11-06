@@ -10,7 +10,7 @@
     "global_upper_bound": null,
     "generic_five_exhaustion": false,
     "global_exhaustion": false,
-    "verification_scope": "repository_reported_not_reexecuted_here"
+    "verification_scope": "C0 maps and dominance reproduced exactly; remaining catalogue claims repository-reported; generic/global exhaustion unproved"
   },
   "source_registry": "research/classification/SOURCES.json",
   "tasks": [
@@ -19,7 +19,7 @@
       "title": "元方程式・被覆・一般還元の依存監査",
       "kind": "primary",
       "priority": 0,
-      "status": "ready",
+      "status": "done",
       "depends_on": [],
       "inputs": [
         "s61",
@@ -34,8 +34,8 @@
       "first_step": "PROOF_ROUTE.mdと入力入口を照合し、Gの三経路の必要十分な仮定表を作る。新しい巨大計算はしない。",
       "fallback": "具体的に欠けた橋渡し命題を一つのprimary課題として追加する。監査だけを反復しない。",
       "nonclosing_attempts": 0,
-      "proof": null,
-      "review": null,
+      "proof": "research/classification/C0_S61_SLICE_SCALAR_AUDIT_20261106.md",
+      "review": "research/classification/C0_REVIEW.md",
       "activation_reason": null
     },
     {
@@ -43,7 +43,7 @@
       "title": "一般betaファイバーの被約尽くし",
       "kind": "primary",
       "priority": 1,
-      "status": "blocked",
+      "status": "ready",
       "depends_on": [
         "C0"
       ],
@@ -56,19 +56,23 @@
         "generic_circuit_review"
       ],
       "acceptance": "全42法線の根基所属等または未知残余の空性を証明し、適用底開・全分母・独立検証を明記する。新残余があれば分類計画を更新し、未解決のまま成功扱いしない。",
-      "first_step": "正当化した六切片の関数体で全134式を保ち、直接支持証明と既存scalar判定を比較して一つの有限certificate jobを選ぶ。",
+      "first_step": "K5+超越tauの忠実chartでexact unitを求めるか、全K16上の固定eta=n0^J+n34^Jのunitを求める。後者の42spanは証明済みだがK5への非不変形式の輸送は未証明。SymPyGB二回は未完了で反復停止。",
       "fallback": "同経路の二回未決で支持幾何または境界経路に変更し、E0/Aも進める。",
-      "nonclosing_attempts": 0,
+      "nonclosing_attempts": 2,
       "proof": null,
       "review": null,
-      "activation_reason": null
+      "activation_reason": null,
+      "last_result": "reports/CLASSIFICATION_FIXED_NORMAL_PROBE_20261106/report.json",
+      "current_proof_reduction": "research/classification/GENERIC_NORMAL_CHART.md",
+      "route_change_reason": "Two directSymPy Groebner runs did not complete (55CPU and305wall seconds). Move to connectedSp4 covector-span support reduction and exact linear algebra, not more point/degree probes.",
+      "current_symmetry_reduction": "research/classification/SYMMETRY_FIXED_NORMAL_CHART.md"
     },
     {
       "id": "E0",
       "title": "特殊底の被覆義務を準備する",
       "kind": "primary",
       "priority": 2,
-      "status": "blocked",
+      "status": "done",
       "depends_on": [
         "C0"
       ],
@@ -81,9 +85,32 @@
       "first_step": "52成分の像と各チャートの補集合を読み、最初の未処理層に対する元式・既知族比較を準備する。",
       "fallback": "全primary decompositionを先取りせず、一つの最大次元候補に限定して入力と証明義務を明示する。",
       "nonclosing_attempts": 0,
-      "proof": null,
-      "review": null,
+      "proof": "research/classification/EXCEPTIONAL_BASE.md",
+      "review": "research/classification/EXCEPTIONAL_BASE_REVIEW.md",
       "activation_reason": null
+    },
+    {
+      "id": "E_zero",
+      "title": "一次部分零の閉層を既知閉包で覆う",
+      "kind": "primary",
+      "priority": 2,
+      "status": "done",
+      "depends_on": [
+        "C0",
+        "E0"
+      ],
+      "inputs": [
+        "s61",
+        "components",
+        "claims"
+      ],
+      "acceptance": "元134式のbeta=0被約支持の旧22族を、全パラメータの族包含・稠密軌道・SNCへの変形で既知成分閉包へ運び、依存する旧Q45尽くしを明示する。",
+      "first_step": "classification_beta_zero.pyの正確な変形・dense orbit minorと22対応表を独立照合し、beta=0の支持被覆を主原稿へ接続する。",
+      "fallback": "一点の帰属で族全体を主張せず、欠ける稠密性または族包含を明記する。",
+      "nonclosing_attempts": 0,
+      "proof": "research/classification/BETA_ZERO_COVERAGE.md",
+      "review": "research/classification/E_ZERO_REVIEW.md",
+      "activation_reason": "Gの底分母を待たずに独立して処理できる必須の特殊閉層。B18精密構造を用いない。"
     },
     {
       "id": "A",
@@ -105,7 +132,8 @@
       "nonclosing_attempts": 0,
       "proof": null,
       "review": null,
-      "activation_reason": null
+      "activation_reason": null,
+      "current_partial_audit": "research/classification/KNOWN_COMPONENT_AUDIT.md"
     },
     {
       "id": "M",
@@ -135,7 +163,8 @@
       "status": "blocked",
       "depends_on": [
         "G",
-        "E0"
+        "E0",
+        "E_zero"
       ],
       "inputs": [
         "s61",

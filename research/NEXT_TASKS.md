@@ -1,41 +1,39 @@
-# 次の課題 — 分類への最短経路
+# 次の課題 — 全被約成分の尽くし
 
-2026-11-06 / v64-classification-plan。現行キューは `classification/PLAN.json`。
-
-まずリポジトリ直下で実行する。
+2026-11-06 / v64-classification-first。classification/PLAN.jsonが現行キュー。
 
 ```sh
-python3 scripts/classification.py check
-python3 scripts/classification.py next
+.venv/bin/python scripts/classification.py check
+.venv/bin/python scripts/classification.py next
 ```
 
-## 最初の一巡
+C0とE0の有限準備は完了。主課題Gは未解決。
+まずclassification/GENERIC_NORMAL_CHART.mdと独立reviewを読む。
+既存splitter A=E5×Bを用い、tauを超越のまま保つell=Σtau^j n_jにより、
+元134式+1-u ellの一つの単位証明書で全未知残余を検出できる。
+同じK5源の259法線式も全schemeを保つが、係数体solveの展開を先に必須化しない。
 
-**C0：主定理への依存を固定する。** 元134式、S61によるrank4被覆、一般三平面と既知五点、
-42法線への写像、優越六次元切片の対応を確認する。
-`PROOF_ROUTE.md`の各矢印が、証明済み・要監査・未証明のどれかを短く記す。
-この監査を独立した長期研究にせず、一巡で残る穴を具体的な課題にする。
+保存済み中心GF(32003)(tau)のSymPy F5bは55 CPU秒で未完了。
+同じbackendの点・次数だけを変える探索を繰り返さず、native exact backendまたは
+構造的syzygyを選ぶ。成功時にもQQ/一般底への正当な移送と底分母の独立照合が必要。
+固定normal0の診断も305wall秒で未完了であり、直接SymPyGBの反復は停止。
+全K16上の固定eta一つの135式判定はSYMMETRY_FIXED_NORMAL_CHART.mdにある。
+42軌道spanは独立証明済みだが、K5切片への非不変形式の輸送は未証明。群変数を無断で落とさない。
+現環境のM2/Singular/FLINT欠如・proxy接続拒否はCURRENTに記した。
 
-次に**G：一般被約ファイバーの尽くし**を主担当に、**E0：特殊底の被覆台帳**を並行担当に割り当てる。
-監査担当は**A：既知成分とrank2の証明・引用**を進める。人手一つならGが詰まったときE0/Aへ切り替える。
+Eではclassification/EXCEPTIONAL_BASE.mdの必要条件を使う。
+一般五点の底開D(f_G)なら、f_Gは既知49特殊閉像すべてで零となりG28を因子に持つ。
+この条件は十分ではない。底の判別式だけで特殊部分を尽くさない。
+beta=0の全134行は45未知数・70二次式+64零行として保存・独立確認済み。
+旧Q45の22族から既知52族閉包への全包含はBETA_ZERO_COVERAGE.mdとE_ZERO_REVIEW.mdで閉じた。
+次は他の特殊底で、同じ被覆論理へ接続できる最大次元の層を選ぶ。
 
-Gでは、優越六次元切片を正当に使えるかを最初に検証する。使える場合は任意の一点へ特殊化せず、
-その関数体上で全134式と全42法線条件を扱う。被約支持の証明、既存delta_E membership、境界経由を比較し、
-最小の証明義務を選ぶ。row17/col79の特定projectionの零を全minorの零と読み替えない。
+Aではclassification/KNOWN_COMPONENT_AUDIT.mdの弱いrank2接続を使う。
+八rank2-locus族すべての成分性を主分類の前提にせず、六全空間成分と
+closure(rank4)による支持被覆を確認する。安定接層証明・追加11族とNEW25の
+成分性・相違・一次引用の残る荷重を主原稿へ接続する。
 
-E0では、既知52成分の像、使った分母・判別式・チャート補集合を整理する。
-これは網羅性の証明ではない。Gの証明から得る実際の開集合の補集合をEで扱う。
-NEWの一次像の28次式、delta_Eの28次、判別式の24次、選択tailのHは異なる対象である。
-
-## 自動選択から除く課題
-
-B18の正確なnil指数、H0/T2全長、さらに細かな交叉不変量、別論文の仕上げは休止。
-FULLU全域57/239とHの絶対既約性も、Gへの必要性が証明されるまで補助候補であって必須タスクではない。
-再開はPLAN.jsonのconditional/suspendedを理由付きで変更し、依存する主課題と受入条件を指定する。
-
-## 完了の記録
-
-計算成功ではなく、命題・証拠・独立確認・仮定・補集合をまとめて更新する。
-PLAN.jsonのdoneには本文の証明位置と検証記録が必要。checkのPASSだけではdoneにしない。
-続行可能なら次のready課題へ進む。資源・接続の限界では状態と次の一手を保存して終了する。
-旧STATEや過去handoffから停止済みの副課題を自動再開しない。
+主原稿はpapers/poisson_p4_classification_ja.tex。
+PDFは組版依存不足で古い骨格のまま。G/E/Aが閉じるまで分類主定理を未証明と表示する。
+B18 H0/T2/nil指数、H絶対既約性、別論文の仕上げは休止のまま。
+checkpointは完了宣言ではない。利用可能な証明・厳密計算で実研究を続ける。

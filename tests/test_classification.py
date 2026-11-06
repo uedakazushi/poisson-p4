@@ -15,11 +15,21 @@ class ClassificationTests(unittest.TestCase):
     def setUp(self):
         self.plan=json.loads((ROOT/'research/classification/PLAN.json').read_text())
         self.sources=json.loads((ROOT/self.plan['source_registry']).read_text())
+        # Exercise a fixed initial queue. Real mathematical progress may change
+        # the repository plan to done states with actual evidence paths.
+        initial = dict(C0='ready', G='blocked', E0='blocked', A='ready', M='ready',
+                       E='blocked', B='conditional', F='blocked', P='blocked', S='suspended')
+        for task in self.plan['tasks']:
+            task.update(status=initial.get(task['id'], 'blocked'), proof=None, review=None, nonclosing_attempts=0)
         self.temp=tempfile.TemporaryDirectory(); self.root=Path(self.temp.name)
         (self.root/'evidence.txt').write_text('synthetic evidence, not a mathematical proof\n')
     def tearDown(self): self.temp.cleanup()
     def valid(self): return m.validate(self.plan,self.sources,self.root,check_inputs=False)
-    def test_packaged_plan_valid(self): self.assertEqual(len(self.valid()),10)
+    def test_packaged_plan_valid(self): self.assertEqual(len(self.valid()),len(self.plan['tasks']))
+    def test_current_repository_plan_and_evidence_valid(self):
+        current=json.loads((ROOT/'research/classification/PLAN.json').read_text())
+        sources=json.loads((ROOT/current['source_registry']).read_text())
+        self.assertEqual(len(m.validate(current,sources,ROOT,check_inputs=True)),len(current['tasks']))
     def test_first_task(self): self.assertEqual(m.available(self.valid())[0]['id'],'C0')
     def test_suspended_not_selected(self): self.assertNotIn('S',[t['id'] for t in m.available(self.valid())])
     def test_conditional_not_selected(self): self.assertNotIn('B',[t['id'] for t in m.available(self.valid())])
