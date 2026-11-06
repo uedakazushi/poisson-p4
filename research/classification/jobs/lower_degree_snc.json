@@ -1,0 +1,37 @@
+{
+  "task_id": "E_poly",
+  "target_statement": "Cover Poisson polynomial affine representatives C+L+Q whose Q has one of ten certified nondegenerate toric weighted initial forms.",
+  "implication_to_classification": "Extends known40 support coverage to an explicit nonzero-first-jet subset; covers its PGL-saturation and closure, not all special fibers.",
+  "coefficient_ring": "QQ[A,B,D,E,h,x,y,z,w] and integer monomial weights",
+  "hypotheses": "MPS SNC component theorem and existing identification of40 components; exact archived Q normal forms.",
+  "inverted_elements": [],
+  "complements": [
+    "kappa=0 fibers are not inferred from generic Q coverage; only closure of the actual covered incidence is included.",
+    "Structures without affine degree<=2 representative or with other leading Q remain open."
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_lower_degree_snc.py",
+      "sha256": "39648d8c7ac6e65cc02694bbf2fc81e1d6b5cff9cbe8845de7b6fed9e82ceb1d"
+    },
+    {
+      "path": "reports/CLASSIFICATION_BETA_ZERO_FULL_COVERAGE_20261106.json",
+      "sha256": "2d8ed30e892918861511337a0d3006d4362a8e932e461b72d4fed99143f1d846"
+    },
+    {
+      "path": "research/classification/BETA_ZERO_COVERAGE.md",
+      "sha256": "2f0d4e10f2a9d325e7a2e01677004d2839ca2af9f47c143904b725fbc0074bff"
+    },
+    {
+      "path": "research/classification/C0_S61_SLICE_SCALAR_AUDIT_20261106.md",
+      "sha256": "ec302b44d77a511637c3e73df832e2d89d52e3de8a513ae0b2838edc0972ae77"
+    }
+  ],
+  "success_certificate": "All240 linear monomial weights and60constant weights positive; all Q weights and SNC limits match; example Jacobi zero and primitive firstjet nonzero.",
+  "independent_check": "Independent reviewer verifies weight bound, component-through-SNC inference, and no vertical fiber closure shortcut.",
+  "resource_limit": {
+    "timeout_seconds": 40,
+    "memory_mb": 1024
+  },
+  "negative_result_next_step": "Correct only failed type/weight or retain restriction; no new point or GB farm."
+}

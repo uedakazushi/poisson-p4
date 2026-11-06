@@ -38,7 +38,45 @@ def save(path, obj):
         f.write(gzip.compress(raw, mtime=0) if path.suffix == '.gz' else raw)
 
 
-def prepare(output):
+def finite_cover_recipe(kind):
+    """A finite separable base cover, not a numerical specialization.
+
+    Distinct bounded-exponent monomials form a basis over the original K5.
+    The selected 42 coefficients therefore remain independent in every residue
+    tensor product. See FINITE_SEPARABLE_NORMAL_CHART.md for faithful detection.
+    """
+    degrees, cutoff = {'finite48': ((2, 2, 2, 2, 3), 4),
+                       'finite144': ((2, 2, 3, 3, 4), 3)}[kind]
+    basis = list(itertools.product(*(range(d) for d in degrees)))
+    exponents = sorted((m for m in basis if sum(m) <= cutoff),
+                       key=lambda m: (sum(m), m))
+    assert len(exponents) == 42 and exponents[0] == (0, 0, 0, 0, 0)
+    assert len(set(exponents)) == 42
+    parameters = ['H', 'L', 's0', 'q0', 't0']
+    cover_parameters = ['a', 'b', 'c', 'd', 'e']
+    histogram = [sum(sum(m) == k for m in basis)
+                 for k in range(sum(d - 1 for d in degrees) + 1)]
+    return {
+        'kind': kind, 'source_field': 'QQ(H,L,s0,q0,t0)',
+        'target_field': 'QQ(a,b,c,d,e)',
+        'source_parameters': parameters, 'cover_parameters': cover_parameters,
+        'power_degrees': list(degrees),
+        'parameter_substitution': {s: f'{t}^{d}' for s, t, d in
+                                   zip(parameters, cover_parameters, degrees)},
+        'extension_degree': len(basis),
+        'full_basis_total_degree_histogram': histogram,
+        'coefficient_exponents42': [list(m) for m in exponents],
+        'coefficient_order': 'increasing (total_degree, exponent_tuple lexicographic)',
+        'coefficient_maximum_total_degree': cutoff,
+        'linear_independence_reason': 'subset of the bounded-exponent basis of the separable power-cover field extension',
+        'additional_transcendence_degree': 0,
+        'finite_etale_base_open': 'H*L*s0*q0*t0 != 0 over characteristic zero',
+        'closed_complement': 'V(H*L*s0*q0*t0), plus the original source denominator loci',
+        'binding_scope': 'Apply parameter_substitution to EVERY source model coefficient in existing_operator, existing_vector_entry and cleared_full_selected_F before assembly; all 134 equations are pulled back.',
+    }
+
+
+def prepare(output, cover='transcendental'):
     model = load(ROOT / MODEL)
     assert model['coefficient_field'] == 'K=QQ(H,L,s0,q0,t0)'
     # All roots remain external references to the SAME typed operator. No inverse
@@ -51,7 +89,11 @@ def prepare(output):
 
     ext = lambda root: new('existing_operator', root)
     ns = [new('normal', j) for j in range(42)]
-    ws = [new('coefficient_parameter_power', j) for j in range(42)]
+    cover_recipe = None if cover == 'transcendental' else finite_cover_recipe(cover)
+    ws = ([new('coefficient_parameter_power', j) for j in range(42)]
+          if cover_recipe is None else
+          [new('finite_cover_coefficient_monomial', m)
+           for m in cover_recipe['coefficient_exponents42']])
     mul = lambda *args: new('product', list(args))
     add = lambda args: new('sum', list(args))
     ell = add(mul(w, n) for w, n in zip(ws, ns))
@@ -100,9 +142,22 @@ def prepare(output):
         'unit_certificate_computed': False,
         'proof': 'research/classification/GENERIC_NORMAL_CHART.md',
     }
+    if cover_recipe is not None:
+        obj.update({
+            'coefficient_field': 'QQ(a,b,c,d,e)',
+            'tau_is_transcendental_not_a_numeric_specialization': False,
+            'finite_separable_cover': cover_recipe,
+            'coefficient_roots42': ws,
+            'redundancy_identity': 'C_h0 = -sum_(j=1)^41 e_j*C_hj; e_0=1',
+            'criterion': 'B=0 iff 1 belongs the listed ideal over Kprime[n0..n41,u]',
+            'faithful_scope': 'B -> (B tensor_K Kprime)[1/ell] is faithfully flat; a residue fiber may have several points and at least one survives',
+            'proof': 'research/classification/FINITE_SEPARABLE_NORMAL_CHART.md',
+            'additional_transcendental_parameters': 0,
+        })
     assert len(obj['all_generators259']) == 259
     save(output, obj)
-    print(json.dumps({'generators': 259, 'assembly_checks': checks, 'unit_computed': False}))
+    print(json.dumps({'generators': 259, 'assembly_checks': checks,
+                      'cover': cover, 'unit_computed': False}))
 
 
 def probe_child(output, seconds, memory_mb, coordinate):
@@ -185,6 +240,9 @@ if __name__ == '__main__':
     sub = parser.add_subparsers(dest='mode', required=True)
     prep = sub.add_parser('prepare')
     prep.add_argument('--output', type=Path, required=True)
+    prep.add_argument('--cover', choices=['transcendental', 'finite48', 'finite144'],
+                      default='transcendental',
+                      help='Exact coefficient-field cover; finite options retain transcendence degree five.')
     pr = sub.add_parser('probe')
     pr.add_argument('--output', type=Path, required=True)
     pr.add_argument('--seconds', type=int, default=60)
@@ -193,7 +251,7 @@ if __name__ == '__main__':
                     help='Diagnostic fixed coordinate only; does NOT inherit faithful moment-chart coverage.')
     args = parser.parse_args()
     if args.mode == 'prepare':
-        prepare(args.output)
+        prepare(args.output, args.cover)
     else:
         if not 1 <= args.seconds <= 300 or not 256 <= args.memory_mb <= 4096:
             parser.error('Use 1..300 seconds and 256..4096 MiB.')

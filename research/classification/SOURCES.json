@@ -1,6 +1,6 @@
 {
   "version": "v64-classification-plan",
-  "date": "2026-11-06",
+  "date": "2026-11-07",
   "baseline_commit": "a00a541b835b2bff18bafcba545ecbd4bae7175b",
   "scope_note": "確認範囲を付した入口。source_readは実行済みを意味しない。未読の主張は独立証明済みとしない。",
   "repository_sources": [
@@ -202,9 +202,9 @@
     },
     {
       "id": "main_pdf_build",
-      "path": "reports/CLASSIFICATION_MAIN_MANUSCRIPT_BUILD_20261106.json",
+      "path": "reports/CLASSIFICATION_MAIN_MANUSCRIPT_BUILD_20261107.json",
       "baseline_git_blob": null,
-      "purpose": "現主原稿8頁PDFの組版・source/PDF hash・目視範囲",
+      "purpose": "現主原稿12頁PDFの組版・source/PDF hash・1/5/9頁目視。全分類未証明。",
       "review_scope": "built_and_visually_checked"
     },
     {
@@ -234,6 +234,55 @@
       "baseline_git_blob": null,
       "purpose": "固定点評価の再現manifest。元producer bytesを保つ",
       "review_scope": "hash_bound_source_manifest"
+    },
+    {
+      "id": "finite_separable_chart",
+      "path": "research/classification/FINITE_SEPARABLE_NORMAL_CHART.md",
+      "baseline_git_blob": null,
+      "purpose": "有限48/144被覆による忠実chartとGalois根基復元。unit未証明。",
+      "review_scope": "proof_and_independent_recipe_review"
+    },
+    {
+      "id": "finite_separable_recipe_review",
+      "path": "reports/CLASSIFICATION_FINITE_COVER_RECIPE_REVIEW_20261107.json",
+      "baseline_git_blob": null,
+      "purpose": "全259参照と全係数引戻しを別実装で確認。",
+      "review_scope": "independent_exact_recipe_check"
+    },
+    {
+      "id": "normal_direction",
+      "path": "research/classification/NORMAL_DIRECTION_INCIDENCE.md",
+      "baseline_git_blob": null,
+      "purpose": "全134式の方向incidence、一般rank3除外、残るrank4枝。",
+      "review_scope": "proof_and_independent_exact_matrix_check"
+    },
+    {
+      "id": "normal_direction_review",
+      "path": "reports/CLASSIFICATION_NORMAL_LINEAR_OBSTRUCTION_REVIEW_20261107.json",
+      "baseline_git_blob": null,
+      "purpose": "交換子21866、cross19216、全45中心・45x3frameの独立再構成。",
+      "review_scope": "independent_exact_reproduction"
+    },
+    {
+      "id": "rank2_support_current",
+      "path": "research/classification/RANK_TWO_SUPPORT.md",
+      "baseline_git_blob": null,
+      "purpose": "全rank2支持を六族とrank4閉包で覆う。外部定理と既存成分証明に依存。",
+      "review_scope": "full_proof_read_with_independent_review_and_selected_replay"
+    },
+    {
+      "id": "rank2_recheck",
+      "path": "reports/CLASSIFICATION_RANK_TWO_SUPPORT_RECHECK_20261107.json",
+      "baseline_git_blob": null,
+      "purpose": "全spinor kernelとAff32変形の必要有限恒等式。",
+      "review_scope": "exact_replay_matches_archived_certificates"
+    },
+    {
+      "id": "lower_degree_snc",
+      "path": "research/classification/LOWER_DEGREE_SNC_COVERAGE.md",
+      "baseline_git_blob": null,
+      "purpose": "十正常形上の任意Poisson低次項のSNC極限。全逆像の閉包は主張しない。",
+      "review_scope": "proof_and_independent_weight_check"
     }
   ],
   "external_sources": [
@@ -257,6 +306,20 @@
       "url": "https://stacks.math.columbia.edu/tag/0H3Y",
       "checked": "2026-11-06",
       "use": "Noether底での層別の論理背景。分類の計算成功は保証しない。"
+    },
+    {
+      "id": "cm_v5",
+      "title": "Corrêa–Muniz, Holomorphic foliations of degree two and arbitrary dimension, v5",
+      "url": "https://arxiv.org/html/2207.12880v5",
+      "checked": "2026-11-07",
+      "use": "本文Theorem4.1の非安定分岐。安定Jacobian表示は独自証明。"
+    },
+    {
+      "id": "lpt_v3",
+      "title": "Loray–Pereira–Touzet, Foliations with trivial canonical bundle on Fano3-folds, v3",
+      "url": "https://arxiv.org/pdf/1112.3871v3",
+      "checked": "2026-11-07",
+      "use": "Theorem6.2のq=2、次数1foliation分類。"
     }
   ]
 }

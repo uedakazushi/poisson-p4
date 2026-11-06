@@ -1,6 +1,6 @@
 # 主分類定理へ接続するための論理
 
-2026-11-06 / v64-classification-plan。
+2026-11-07 / v64-classification-plan。
 以下の初等的論理は計画の検査に用いる。Poisson固有の仮定を満たしたと主張するものではない。
 
 ## 1. 弱いgeneric目標で十分な理由
@@ -60,6 +60,27 @@ B→B tensor_K K(tau)[1/ell]は忠実平坦である。各素点の剰余体でe
 有限Sp4軌道が全42法線を張ることを非零minor27110で示した。semilinearな群作用によって
 L⊂sqrtI iff eta∈sqrtIとなり、全K上では一つの135式unitで十分。
 etaは非不変で、固定K5切片だけの所属からは自動降下しない。正当な群変数の保持か輸送証明が必要。
+
+## 3b. 有限分離被覆と方向incidence
+
+FINITE_SEPARABLE_NORMAL_CHART.mdは超越tauを有限分離係数体の42独立元へ置き換える。
+K5から有限48/144被覆へ移れば追加超越次数0で一つの忠実chartを得る。
+有限エタール剰余代数の少なくとも一因子が残ることが忠実性の理由である。
+複素数体上のGalois指標によるFourier和で全n_jをellの共役から復元できるので、
+一つの根基条件との同値自体には既存splitterを必要としない。
+全259式のrecipeと独立検証はあるが、単位証明はまだない。
+
+NORMAL_DIRECTION_INCIDENCE.mdでは元134式をF5とR=X(z⊗n)+D1n+D2(n,n)へ書く。
+全K16の有理模型でT_h=−(L D1)_hの交換子が可逆であることを非零minorで証明した。
+従って全v≠0でrank[A d]=4、A=X(I3⊗v)、d=D1vであり、rank3枝は存在しない。
+残るrank[A b]=rank[A b d]=4、b=D2(v,v)上のF5を全部解決する必要がある。
+三変数を消すことや5角minorの消失だけでは、最後の支持条件を証明したことにならない。
+
+交換子からz次数1の多項式左逆Uが得られる。
+H=(1/2)Jac_nD2、delta=det(I+UH)についてdelta n=0、delta≡1 mod(n)が成り立ち、
+delta²=delta、(n)=(1−delta)Aを得る。これがA=E5×Bの新しい直接証明である。
+未知Bの空性は未証明であり、normal二次項を捨てない。
+全分母・選択minor・有限被覆の分岐補集合をEへ残す。
 
 ## 4. 特殊底を必ず扱う理由と有限再帰
 

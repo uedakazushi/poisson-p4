@@ -1,0 +1,52 @@
+{
+  "task_id": "A",
+  "target_statement": "Recheck only finite identities needed by the now fully read weak rank-two support proof.",
+  "implication_to_classification": "Closes the algebraic model and Aff32 deformation dependencies in P_rank_le_2 subset six full components union closure(rank4); does not prove rank4 exhaustion or all A.",
+  "coefficient_ring": "QQ[a,b,c,d,t] and QQ[r0,...,r7,x0,...,x4] for spinor; ZZ[x0,...,x4,b,t] for Aff32",
+  "hypotheses": "Complex closed points; foliation saturation; CM v5 Theorem4.1 nonstable branches and LPT v3 Theorem6.2; source scripts copied unchanged to ignored work before execution.",
+  "inverted_elements": [],
+  "complements": [
+    "Stable proof treats all c2=1,2,3 and all ranks of actual section map; divisor branch handles degree pairs (e,d)=(1,1),(2,0)."
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "legacy/v14/sections/setup.tex",
+      "sha256": "6be5332f585a7624a0aac76913bacafa1b0d81938dd89ef2493700c2eee1ae07"
+    },
+    {
+      "path": "legacy/v14/sections/stable_rank2.tex",
+      "sha256": "d873dc93f5e2cd3165fd38ae1138a935aea9c3d1f9f548e1bb9c64e660315b7f"
+    },
+    {
+      "path": "legacy/v14/sections/rank2_global_eight.tex",
+      "sha256": "c245ce230a10f861d7b67ffb39c916fc7f4577b9ea1815c1647502b8bef582e8"
+    },
+    {
+      "path": "legacy/v14/code/stable/audit_c2_one.py",
+      "sha256": "c48fb2994c3287068ba374b179932c254b17960a0b434cc79ed5ca2651b85b6e"
+    },
+    {
+      "path": "legacy/v14/code/stable/verify_spinor_projection_independent.py",
+      "sha256": "3dcbd6636e126e9d0110a0a75f569b6967b0fda7c4c9f06361810067d145ee15"
+    },
+    {
+      "path": "legacy/v14/code/rank2_lower_bounds/verify_aff32_deformation.py",
+      "sha256": "7fc571c379252581d1f2d6fba009ff262e3bb7c122028f5f15b413a98c9002d2"
+    },
+    {
+      "path": "legacy/v14/code/rank2_lower_bounds/poisson_p4_components_check.py",
+      "sha256": "08ca6a3d9938dec9df734a7a95d7d3eedb1b7c95d11213d8ada59feed625203f"
+    },
+    {
+      "path": "legacy/v14/code/rank2_lower_bounds/verify_rank2_components.py",
+      "sha256": "203d0e5ea715ea5e5e01cdb954b4c4c4f1caf58d8dc2b9ed2e3726f87c5a3f3a"
+    }
+  ],
+  "success_certificate": "Exact universal Ext1, isotropy, all projection kernels, Jacobian identities and full Aff32 projective Jacobi/Pfaffian identity pass.",
+  "independent_check": "Separate proof reviewer audits c2 geometry and Euler/BV lift; two archived independent spinor implementations are replayed and compared.",
+  "resource_limit": {
+    "timeout_seconds": 90,
+    "memory_mb": 2048
+  },
+  "negative_result_next_step": "Identify exact failed identity or proof dependency, retain rank2 support as conditional and correct current note; do not rerun full suite."
+}

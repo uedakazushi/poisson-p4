@@ -1,0 +1,259 @@
+{
+  "date": "2026-11-07",
+  "task_id": "A",
+  "purpose": "Finite exact dependencies for weak rank-two support audit",
+  "results": {
+    "audit_c2_one": {
+      "source_sha256": "c48fb2994c3287068ba374b179932c254b17960a0b434cc79ed5ca2651b85b6e",
+      "output": {
+        "extension_syzygy_dimension": 6,
+        "extension_coboundary_dimension": 4,
+        "extension_quotient_dimension": 2,
+        "extension_representatives_independent": true,
+        "T_transpose_Pgeo_zero": true,
+        "Pgeo_pfaffians_zero": true,
+        "Pspin_pfaffians_zero": true,
+        "Pgeo_quadratic_basis_determinant": "2",
+        "Pgeo_metric": [
+          [
+            "0",
+            "0",
+            "0",
+            "1/2",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "-1/2",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "-1/2",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "1/2",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "1"
+          ]
+        ],
+        "Pspin_metric": [
+          [
+            "-2",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "-1"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "1",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "1",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "-1",
+            "0",
+            "0",
+            "0"
+          ]
+        ],
+        "Pgeo_metric_determinant": "1/16",
+        "Pspin_metric_determinant": "-2",
+        "projection_0_nonisotropic": true,
+        "projection_1_isotropic": true,
+        "divergence": {
+          "None": {
+            "rank": 20,
+            "nullity": 0,
+            "kernel": [
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "0"
+              ]
+            ],
+            "all_input_maximal_minors_zero": true,
+            "input_maximal_minors": [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ]
+          },
+          "0": {
+            "rank": 16,
+            "nullity": 4,
+            "kernel": [
+              [
+                "u0",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "u1",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "u2",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "u3",
+                "0",
+                "0",
+                "0",
+                "0"
+              ]
+            ],
+            "all_input_maximal_minors_zero": true,
+            "input_maximal_minors": [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ]
+          },
+          "1": {
+            "rank": 12,
+            "nullity": 8,
+            "kernel": [
+              [
+                "0",
+                "u0",
+                "0",
+                "0",
+                "-u4"
+              ],
+              [
+                "-u6",
+                "u1",
+                "-u4",
+                "0",
+                "u2"
+              ],
+              [
+                "0",
+                "u3",
+                "0",
+                "0",
+                "u6"
+              ],
+              [
+                "u4",
+                "u5",
+                "0",
+                "u6",
+                "u7"
+              ]
+            ],
+            "all_input_maximal_minors_zero": false,
+            "input_maximal_minors": [
+              "0",
+              "u4**2*(u0*u6 + u3*u4)",
+              "-u6**2*(u0*u6 + u3*u4)",
+              "0",
+              "u4*u6*(u0*u6 + u3*u4)"
+            ]
+          }
+        },
+        "surviving_orbit_actual_Jacobian_identity": true,
+        "surviving_orbit_three_Casimirs_checked": true
+      }
+    },
+    "verify_spinor_projection_independent": {
+      "source_sha256": "3dcbd6636e126e9d0110a0a75f569b6967b0fda7c4c9f06361810067d145ee15",
+      "output": {
+        "spinor_metric_determinant": -2,
+        "isotropic_image": true,
+        "full_divergence_rank": 20,
+        "full_divergence_determinant": 16,
+        "nonisotropic_rank": 16,
+        "nonisotropic_kernel_supported_in_column_zero": true,
+        "isotropic_divergence_rank": 12,
+        "isotropic_A_parametrizes_kernel": true,
+        "isotropic_parameter_rank": 8,
+        "all_three_casimirs": true,
+        "Jacobian_bivector_equals_negative_projected_spinor": true,
+        "all_passed": true
+      }
+    },
+    "aff32_universal_support": {
+      "projective_jacobi_zero": true,
+      "pfaffian_identity_nonzero": true,
+      "coefficient_ring": "ZZ[x0,x1,x2,x3,x4,b,t]",
+      "formula": "2*(b-1)*t*x3*(2*(x0-(b-1)*t*x1)*x2-x1^2)*(x1*x3-(x0-b*t*x1)*x4)",
+      "finite_specialization_used": false
+    }
+  },
+  "elapsed_wall_seconds": 0.954992396000307,
+  "peak_rss_kib": 60224,
+  "limitations": [
+    "No full theorem is certified by these identities alone.",
+    "Stable geometric proof and external nonstable/degree1 theorems are proof-read dependencies.",
+    "No assertion of all rank4 or global exhaustion."
+  ]
+}

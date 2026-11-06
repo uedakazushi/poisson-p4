@@ -19,8 +19,13 @@ class ClassificationTests(unittest.TestCase):
         # the repository plan to done states with actual evidence paths.
         initial = dict(C0='ready', G='blocked', E0='blocked', A='ready', M='ready',
                        E='blocked', B='conditional', F='blocked', P='blocked', S='suspended')
+        dependencies = dict(C0=[], G=['C0'], E0=['C0'], A=[], M=[],
+                            E=['G', 'E0'], B=['C0'], F=['C0', 'G', 'E', 'A'],
+                            P=['F', 'M'], S=[])
+        self.plan['tasks'] = [task for task in self.plan['tasks'] if task['id'] in initial]
         for task in self.plan['tasks']:
-            task.update(status=initial.get(task['id'], 'blocked'), proof=None, review=None, nonclosing_attempts=0)
+            task.update(status=initial[task['id']], depends_on=dependencies[task['id']],
+                        proof=None, review=None, nonclosing_attempts=0)
         self.temp=tempfile.TemporaryDirectory(); self.root=Path(self.temp.name)
         (self.root/'evidence.txt').write_text('synthetic evidence, not a mathematical proof\n')
     def tearDown(self): self.temp.cleanup()

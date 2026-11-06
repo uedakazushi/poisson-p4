@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "version": "v64-classification-plan",
-  "date": "2026-11-06",
+  "date": "2026-11-07",
   "baseline_commit": "a00a541b835b2bff18bafcba545ecbd4bae7175b",
   "target": "exhaustive_reduced_components_before_PGL5_and_generic_geometry",
   "mathematical_status": {
@@ -10,7 +10,9 @@
     "global_upper_bound": null,
     "generic_five_exhaustion": false,
     "global_exhaustion": false,
-    "verification_scope": "C0 maps and dominance reproduced exactly; remaining catalogue claims repository-reported; generic/global exhaustion unproved"
+    "verification_scope": "Rank2 support proved using audited stable argument, CM/LPT and existing six-component certificates; generic incidence rank3 excluded with independent nonzero commutator certificate; generic/global exhaustion unproved",
+    "rank2_component_count": 6,
+    "rank2_support_exhaustion": true
   },
   "source_registry": "research/classification/SOURCES.json",
   "tasks": [
@@ -45,7 +47,8 @@
       "priority": 1,
       "status": "ready",
       "depends_on": [
-        "C0"
+        "C0",
+        "G_direction"
       ],
       "inputs": [
         "s61",
@@ -56,18 +59,63 @@
         "generic_circuit_review"
       ],
       "acceptance": "全42法線の根基所属等または未知残余の空性を証明し、適用底開・全分母・独立検証を明記する。新残余があれば分類計画を更新し、未解決のまま成功扱いしない。",
-      "first_step": "直接GBはstd315wall、G6/slimgb4GiBと12GiBで未完了。自動再試行を止め、全crossから3plane変数を消す同値なnormal-only案のSOURCE/密化コスト、または全K16固定etaのK5輸送を検討する。どちらも支持空性やunit自体は未証明。",
+      "first_step": "一般方向incidenceはrank[A d]=4でありrank3枝は除外済み。残るrank[A b]=rank[A b d]=4上のF5を全支持として処理する。有限48/144被覆の忠実chartを使えるが、dense normal-onlyは四次式前に331008項となるため直接GBを反復しない。",
       "fallback": "同経路の二回未決で支持幾何または境界経路に変更し、E0/Aも進める。",
-      "nonclosing_attempts": 5,
+      "nonclosing_attempts": 0,
       "proof": null,
       "review": null,
       "activation_reason": null,
-      "last_result": "reports/CLASSIFICATION_NATIVE_G6_SLIMGB12_FIXED_GF_20261106.json",
-      "current_proof_reduction": "research/classification/GENERIC_NORMAL_CHART.md",
-      "route_change_reason": "Two SymPy attempts and native std plus G6/slimgb4GiB/12GiB produced no completed basis. Last run reached actual12GiB address-space limit in16GiB cgroup. Require an ideal-preserving structural change or new geometric support proof, not another directGB/point/prime/budget replay.",
+      "last_result": "reports/CLASSIFICATION_NORMAL_LINEAR_OBSTRUCTION_REVIEW_20261107.json",
+      "current_proof_reduction": "research/classification/FINITE_SEPARABLE_NORMAL_CHART.md",
+      "route_change_reason": "Direct GB suspended after five nonclosing runs. New exact incidence removes rank3 by invertible commutator; finite separable cover removes extra transcendental parameter. Rank4 directions plus F5 remain. Dense inverse expansion measured11x increase, so structural support geometry is required.",
       "current_symmetry_reduction": "research/classification/SYMMETRY_FIXED_NORMAL_CHART.md",
       "direct_groebner_route_suspended": true,
-      "fixed_base_premise": "reports/CLASSIFICATION_FROZEN_T01_BETA_G28_20261106.json"
+      "fixed_base_premise": "reports/CLASSIFICATION_FROZEN_T01_BETA_G28_20261106.json",
+      "current_direction_reduction": "research/classification/NORMAL_DIRECTION_INCIDENCE.md",
+      "prior_direct_groebner_nonclosing_attempts": 5,
+      "current_route": "Exact rank4 normal-direction incidence after commutator exclusion; finite separable faithful cover optional"
+    },
+    {
+      "id": "G_direction",
+      "title": "一般方向incidenceの階数三枝を排除する",
+      "kind": "primary",
+      "priority": 1,
+      "status": "done",
+      "depends_on": [
+        "C0"
+      ],
+      "inputs": [
+        "s61",
+        "components",
+        "claims"
+      ],
+      "acceptance": "元134式からの有理模型・固定点との全frame対応・非零交換子minorを検証し、全K16で全v非零のrank[A d]=4を示す。rank4枝の空性は別義務。",
+      "first_step": "記載された証明と独立検証を入力に主課題へ接続する。",
+      "fallback": "具体的欠陥があれば当該依存だけを再開する。",
+      "nonclosing_attempts": 0,
+      "proof": "research/classification/NORMAL_DIRECTION_INCIDENCE.md",
+      "review": "research/classification/NORMAL_DIRECTION_INCIDENCE_REVIEW.md",
+      "activation_reason": "全分類のための支持被覆に必要な独立部分。"
+    },
+    {
+      "id": "A_rank2",
+      "title": "階数二の全支持を六族とrank4閉包へ接続する",
+      "kind": "primary",
+      "priority": 1,
+      "status": "done",
+      "depends_on": [],
+      "inputs": [
+        "s61",
+        "components",
+        "claims"
+      ],
+      "acceptance": "安定・非安定・因子付きの全分岐を確認し、toric/Aff32のrank4変形を全パラメータで接続する。六族の既存成分性を入力に一般rank2成分を尽くす。",
+      "first_step": "記載された証明と独立検証を入力に主課題へ接続する。",
+      "fallback": "具体的欠陥があれば当該依存だけを再開する。",
+      "nonclosing_attempts": 0,
+      "proof": "research/classification/RANK_TWO_SUPPORT.md",
+      "review": "research/classification/RANK2_STABLE_REVIEW.md",
+      "activation_reason": "全分類のための支持被覆に必要な独立部分。"
     },
     {
       "id": "E0",
@@ -115,12 +163,37 @@
       "activation_reason": "Gの底分母を待たずに独立して処理できる必須の特殊閉層。B18精密構造を用いない。"
     },
     {
+      "id": "E_poly",
+      "title": "二次多項式代表の非冪零最高部を持つ部分の被覆",
+      "kind": "primary",
+      "priority": 2,
+      "status": "done",
+      "depends_on": [
+        "C0",
+        "E0"
+      ],
+      "inputs": [
+        "s61",
+        "components",
+        "claims"
+      ],
+      "acceptance": "十正常形のkappa非零部分の任意のPoisson低次項をSNC極限で覆い、PGL飽和・閉包と未処理の全逆像を区別する。",
+      "first_step": "全24一次項と六定数項の正重み、既存十正常形の零重み極限、primitive beta非零の実例を厳密確認する。",
+      "fallback": "SNC極限が非零となる型・開集合に限定し、未知の垂直成分へ閉包を拡張しない。",
+      "nonclosing_attempts": 0,
+      "proof": "research/classification/LOWER_DEGREE_SNC_COVERAGE.md",
+      "review": "research/classification/LOWER_DEGREE_SNC_REVIEW.md",
+      "activation_reason": "Gの分母を待たずにbeta零被覆を非零一次部分を含む明示部分へ拡張する。"
+    },
+    {
       "id": "A",
       "title": "既知成分・rank2・主要引用の監査",
       "kind": "primary",
       "priority": 3,
       "status": "ready",
-      "depends_on": [],
+      "depends_on": [
+        "A_rank2"
+      ],
       "inputs": [
         "components",
         "claims",
@@ -129,7 +202,7 @@
         "bibliography"
       ],
       "acceptance": "主分類に使う各族のPoisson性、成分性、相違、次元とrank2被覆の証明・一次引用を確認し、欠落を明示する。",
-      "first_step": "成分数58を支持する依存を抽出し、全suite再実行でなく最も荷重の大きい未監査の一命題を確認する。",
+      "first_step": "rank2支持は完了。追加11rank4族とNEW25の全周囲成分性・相違の依存を主原稿へ統合し、未監査の最も重い一命題を確認する。",
       "fallback": "依存しない結果を巻き込まず問題の影響範囲を限定し、修正課題としてC0/Fに接続する。",
       "nonclosing_attempts": 0,
       "proof": null,
@@ -150,7 +223,7 @@
         "bibliography"
       ],
       "acceptance": "確認した結果を主原稿の該当節へ十分な証明とともに統合し、主分類未証明を明示する。既存有用成果を削らない。",
-      "first_step": "papers/poisson_p4_classification_ja.texの骨格にC0/Aの確認済み設定と証明を移す。",
+      "first_step": "有限分離被覆、一般方向のrank3除外と直接splitter、階数二全支持、SNC最高部の被覆を現主原稿へ統合する。",
       "fallback": "未確認主張は本文の定理に昇格せず、必要な証明義務として残す。",
       "nonclosing_attempts": 0,
       "proof": null,
@@ -166,7 +239,8 @@
       "depends_on": [
         "G",
         "E0",
-        "E_zero"
+        "E_zero",
+        "E_poly"
       ],
       "inputs": [
         "s61",

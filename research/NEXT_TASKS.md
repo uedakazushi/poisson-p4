@@ -1,45 +1,39 @@
 # 次の課題 — 全被約成分の尽くし
 
-2026-11-06 / v64-classification-first。classification/PLAN.jsonが現行キュー。
+2026-11-07 / v64-classification-first。classification/PLAN.jsonが現行キュー。
 
 ```sh
 .venv/bin/python scripts/classification.py check
 .venv/bin/python scripts/classification.py next
 ```
 
-C0とE0の有限準備は完了。主課題Gは未解決。
-まずclassification/GENERIC_NORMAL_CHART.mdと独立reviewを読む。
-既存splitter A=E5×Bを用い、tauを超越のまま保つell=Σtau^j n_jにより、
-元134式+1-u ellの一つの単位証明書で全未知残余を検出できる。
-同じK5源の259法線式も全schemeを保つが、係数体solveの展開を先に必須化しない。
+主課題Gは未解決。まずclassification/NORMAL_DIRECTION_INCIDENCE.mdと独立reviewを読む。
+全K16で交換子[T0,T1]が可逆であることを非零minor21866で示し、
+方向incidenceのrank3枝を除外した。残るのはrank[A b]=rank[A b d]=4上の全F5である。
+明示的な多項式左逆から既知三平面と未知残余のsplitterも直接得られるが、残余Bの空性は未証明。
+この残るrank4方向集合を全て処理するか、元134式を満たす未知解・族を構成する。
 
-保存済み中心GF(32003)(tau)のSymPy F5bは55 CPU秒で未完了。
-同じbackendの点・次数だけを変える探索を繰り返さず、native exact backendまたは
-構造的syzygyを選ぶ。成功時にもQQ/一般底への正当な移送と底分母の独立照合が必要。
-固定normal0の診断も305wall秒で未完了であり、直接SymPyGBの反復は停止。
-全K16上の固定eta一つの135式判定はSYMMETRY_FIXED_NORMAL_CHART.mdにある。
-42軌道spanは独立証明済みだが、K5切片への非不変形式の輸送は未証明。群変数を無断で落とさない。
-現在は標準network権限によってSingular4.4.1をwork配下に用意できた。
-Native stdの300CPU/315wall/2GiBは未完了。G6帰結を加えたslimgbも4GiB、さらに同じ式の12GiBで実メモリ不足となった。
-この直接GBを自動再実行しない。NATIVE_FIXED_FIBER_SUPPORT.mdの入力・失敗範囲を読む。
-次は三plane変数を正確なcross関係から消すnormal-only案、またはK5への非不変形式の輸送を、元式との同値と実際の支持条件から検討する。
-normal-only化は43未知数になるがcubic/quarticの密化を招くので、まず有限SOURCEとコストを確認し、単に変数減少を進歩と数えない。
-同じ固定betaはG28からQQ・GF両方で外れることを確認済み。他の48proper像の除外やgeneric性は別問題。
-公開パッケージhashと起動環境はreports/CLASSIFICATION_NATIVE_ENV_20261106.json。
+classification/FINITE_SEPARABLE_NORMAL_CHART.mdにより、K5へ有限48/144被覆を施せば、
+42独立係数を持つ一つのellが未知残余を忠実に検出する。追加の超越変数は不要。
+全134式・259法線式への引戻しとGalois指標による根基の復元は証明済みだが、unitは未取得。
+一つの数値根だけを選ぶ特殊化へ置き換えない。分岐補集合と全底分母をEへ残す。
+旧全K16固定etaのK5への単純コピーは、この別形式の定理では正当化されない。
 
-Eではclassification/EXCEPTIONAL_BASE.mdの必要条件を使う。
-一般五点の底開D(f_G)なら、f_Gは既知49特殊閉像すべてで零となりG28を因子に持つ。
-この条件は十分ではない。底の判別式だけで特殊部分を尽くさない。
-beta=0の全134行は45未知数・70二次式+64零行として保存・独立確認済み。
-旧Q45の22族から既知52族閉包への全包含はBETA_ZERO_COVERAGE.mdとE_ZERO_REVIEW.mdで閉じた。
-次は他の特殊底で、同じ被覆論理へ接続できる最大次元の層を選ぶ。
+直接GBは過去五回未完了。normal-only展開も今回四次式前に331,008項と判明した。
+同じ点・素数・予算の直接GB反復を行わず、未展開の行列構造または支持幾何を使う。
+計算前には新しい命題と分類への矢印、全補集合、有限契約を明記する。
 
-Aではclassification/KNOWN_COMPONENT_AUDIT.mdの弱いrank2接続を使う。
-八rank2-locus族すべての成分性を主分類の前提にせず、六全空間成分と
-closure(rank4)による支持被覆を確認する。安定接層証明・追加11族とNEW25の
-成分性・相違・一次引用の残る荷重を主原稿へ接続する。
+E_zeroとE_polyは処理済みの明示部分である。
+beta=0は旧Q45_22を入力に既知52閉包で覆われる。
+SNC最高部を持つ二次多項式代表では全Poisson低次項を覆えるが、
+Qの閉包上だけにある垂直成分、他の最高部、三次尾部を持つ全構造は未処理。
+Gの底分母は既知49proper像で消え、G28を因子に持つ必要がある。十分条件とはしない。
 
-主原稿はpapers/poisson_p4_classification_ja.tex。
-PDFは現TeXから8頁で再生成・確認した。G/E/Aが閉じるまで分類主定理を未証明と表示する。
-B18 H0/T2/nil指数、H絶対既約性、別論文の仕上げは休止のまま。
-checkpointは完了宣言ではない。利用可能な証明・厳密計算で実研究を続ける。
+A_rank2は完了。RANK_TWO_SUPPORT.mdに全安定・非安定・因子付き分岐、
+CM/LPT一次本文の適用、全Aff32変形、独立査読がまとまっている。
+六全空間rank2成分の尽くしは、rank4の全列挙なしで成立する。
+Aの残りは追加11rank4族とNEW25の全周囲成分性・相違の証拠を主原稿へ接続すること。
+
+主原稿papers/poisson_p4_classification_ja.texはこれらの証明を統合している。
+全成分下界58、rank4下界52は維持し、上界・一般五点・全分類を未証明と表示する。
+checkpointは完了宣言ではなく、常駐研究も開始しない。

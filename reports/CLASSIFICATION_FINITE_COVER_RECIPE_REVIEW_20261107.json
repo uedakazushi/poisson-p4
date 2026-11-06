@@ -1,0 +1,71 @@
+{
+  "task_id": "G",
+  "review_date": "2026-11-07",
+  "scope": "Independent finite-cover recipe assembly and source binding; no source solve, unit, Groebner basis, or global support computation.",
+  "producer_imported": false,
+  "recipes": [
+    {
+      "path": "reports/CLASSIFICATION_FINITE48_NORMAL_CHART_20261107.json",
+      "sha256": "565d3af6573f4413c28d9d0c1187163c66a8f770f36b920b399dfe2b3daa19b1",
+      "passed": true,
+      "extension_degree": 48,
+      "coefficient_count": 42,
+      "coefficient_maximum_total_degree": 4,
+      "first_coefficient_is_one": true,
+      "source_references_equal_old_recipe": true,
+      "local_nodes_checked": 888,
+      "changed_nodes_are_exactly42_coefficient_leaves": true,
+      "ell_and_three_moments_expanded_independently": true,
+      "compatibility123_expanded_independently": true,
+      "retained_generator_counts": [
+        130,
+        123,
+        5,
+        1
+      ],
+      "cover_is_declared_global_pullback_not_expanded_parameter_solve": true
+    },
+    {
+      "path": "reports/CLASSIFICATION_FINITE144_NORMAL_CHART_20261107.json",
+      "sha256": "fc266fc59e8b6393939a34dbeb2f9ceafe9d39e06df1564ae538a4da2c88c236",
+      "passed": true,
+      "extension_degree": 144,
+      "coefficient_count": 42,
+      "coefficient_maximum_total_degree": 3,
+      "first_coefficient_is_one": true,
+      "source_references_equal_old_recipe": true,
+      "local_nodes_checked": 888,
+      "changed_nodes_are_exactly42_coefficient_leaves": true,
+      "ell_and_three_moments_expanded_independently": true,
+      "compatibility123_expanded_independently": true,
+      "retained_generator_counts": [
+        130,
+        123,
+        5,
+        1
+      ],
+      "cover_is_declared_global_pullback_not_expanded_parameter_solve": true
+    }
+  ],
+  "source_hashes_verified": {
+    "reports/S61_SPARSE_GENERIC5_NORMAL42_EXACT_PRESENTATION_20261104_v63/typed-normal42-operator.json.gz": "33a36fa21dcee78bf729bb28f72d20419ff093cdb58209164c3cfd3a6fca2553",
+    "reports/S61_SPARSE_GENERIC5_RESIDUAL129_CIRCUIT_20261104_v63/residual129-factored-circuit.json.gz": "f5f1a1126761588f1c480b7f089e34b5b47fee8e678183eca66bd9fbcbf79d76",
+    "reports/S61_SPARSE_GENERIC5_G6_RESIDUAL_20261104_v63/G6-normal-residual-circuit.json.gz": "0a39c05e41f806c10973f0e1fffaba0f5abd992f3ddf3fa1c0a22ddf5ec984b4",
+    "reports/S61_SPARSE_GENERIC5_FULL134_NORMAL_CIRCUIT_20261104_v63/full134-direct-circuit.json.gz": "041382ef4ec78206fe4c84aa270b24fd6d03c577e3df4d9720eee8d7d0652127",
+    "reports/S61_SPARSE_GENERIC5_FULL134_NORMAL_CIRCUIT_20261104_v63/coefficient-block-circuit.json.gz": "9c32ca73f2db47ac3aa4fc4b9fb3e02bf2ca89785f15d417a5ee98b25619479d",
+    "reports/S61_SPARSE_GENERIC5_NORMAL42_EXACT_PRESENTATION_20261104_v63/report.json": "94b27b07a165024a85d1a4630c1d2dc9942c99416d159d53b6a4302135311c8b",
+    "reports/S61_SPARSE_GENERIC5_NORMAL42_EXACT_PRESENTATION_20261104_v63_REVIEW/report.json": "60da4d49d719c87ebfaf42642deb6f6fe94582d21352cc54e6bc5bbb3b9633b8"
+  },
+  "original_transcendental_recipe_sha256": "ebf65db9e207341835397750b766a866b95371d3ae633450be5faad4b0361d81",
+  "source_model_nodes_checked": 24501,
+  "source_external_root_bounds_checked": true,
+  "unit_certificate_computed": false,
+  "generic_exhaustion_proved": false,
+  "elapsed_seconds": 0.5097123839987034,
+  "resource_limits": {
+    "cpu_seconds": 30,
+    "address_space_bytes": 1073741824
+  },
+  "reviewer_source": "#!/usr/bin/env python3\n\"\"\"Independent finite-cover recipe checker; never imports the producer.\"\"\"\nimport collections\nimport gzip\nimport hashlib\nimport json\nimport math\nfrom pathlib import Path\nimport resource\nimport time\n\nresource.setrlimit(resource.RLIMIT_AS, (1024**3, 1024**3))\nresource.setrlimit(resource.RLIMIT_CPU, (30, 30))\nstart = time.monotonic()\nROOT = Path(__file__).resolve().parents[1]\n\ndef read(rel):\n    p = ROOT / rel\n    raw = p.read_bytes()\n    return json.loads(gzip.decompress(raw) if p.suffix == '.gz' else raw)\n\ndef digest(rel):\n    return hashlib.sha256((ROOT / rel).read_bytes()).hexdigest()\n\ndef compositions(total, slots):\n    if slots == 1:\n        yield (total,)\n    else:\n        for first in range(total + 1):\n            for tail in compositions(total - first, slots - 1):\n                yield (first,) + tail\n\ndef add(a, b, sign=1):\n    out = dict(a)\n    for mon, coef in b.items():\n        out[mon] = out.get(mon, 0) + sign * coef\n        if out[mon] == 0:\n            del out[mon]\n    return out\n\ndef mul(a, b):\n    out = {}\n    for ma, ca in a.items():\n        for mb, cb in b.items():\n            mon = tuple(sorted(ma + mb))\n            out[mon] = out.get(mon, 0) + ca * cb\n    return {m: c for m, c in out.items() if c}\n\ndef atom(label):\n    return {(label,): 1}\n\nold_path = 'reports/CLASSIFICATION_GENERIC_CHART_20261106.json'\nold = read(old_path)\nmodel = read(old['source_model'])\ncontexts = {k: read(p) for k, p in old['source_context_files'].items()}\ncontext_lengths = {k: len(v['nodes']) for k, v in contexts.items() if 'nodes' in v}\nblocks = contexts['full134_blocks']\nassert blocks['prefix_node_count'] == context_lengths['full134_direct']\nassert model['source_context_semantics']['full134'] == 'NodeIDs concatenatefull134_direct.nodes andfull134_blocks.appended_nodes'\ncontext_lengths['full134'] = blocks['prefix_node_count'] + len(blocks['appended_nodes'])\nassert model['coefficient_field'] == 'K=QQ(H,L,s0,q0,t0)'\nassert model['normal_rewrite_entry_order'] == 'P_hk at42*h+k'\nassert len(model['H_generator_nodes130']) == 130\nassert len(model['selected_original134_rows']) == 5\nfor index, node in enumerate(model['nodes']):\n    assert all(isinstance(x, int) and 0 <= x < index for x in node['inputs'])\n    if node['op'].startswith('external_'):\n        attrs = node['attrs']\n        assert attrs['context'] in context_lengths\n        assert 0 <= attrs['root'] < context_lengths[attrs['context']]\n\nout = {'task_id': 'G', 'review_date': '2026-11-07',\n       'scope': 'Independent finite-cover recipe assembly and source binding; no source solve, unit, Groebner basis, or global support computation.',\n       'producer_imported': False, 'recipes': [], 'source_hashes_verified': {},\n       'original_transcendental_recipe_sha256': digest(old_path),\n       'source_model_nodes_checked': len(model['nodes']),\n       'source_external_root_bounds_checked': True,\n       'unit_certificate_computed': False,\n       'generic_exhaustion_proved': False}\n\nfor name, bounds, cutoff in [('finite48', (2, 2, 2, 2, 3), 4),\n                             ('finite144', (2, 2, 3, 3, 4), 3)]:\n    path = f'reports/CLASSIFICATION_{name.upper()}_NORMAL_CHART_20261107.json'\n    r = read(path)\n    for key in ['source_model', 'source_sha256', 'source_context_files',\n                'source_context_sha256', 'source_proof_bindings']:\n        assert r[key] == old[key]\n    bindings = {r['source_model']: r['source_sha256']}\n    bindings.update({p: r['source_context_sha256'][k] for k, p in r['source_context_files'].items()})\n    bindings.update(r['source_proof_bindings'])\n    for p, h in bindings.items():\n        assert digest(p) == h\n        out['source_hashes_verified'][p] = h\n    assert r['coefficient_field'] == 'QQ(a,b,c,d,e)'\n    assert r['additional_transcendental_parameters'] == 0\n    assert r['tau_is_transcendental_not_a_numeric_specialization'] is False\n    assert r['unit_certificate_computed'] is False\n    cover = r['finite_separable_cover']\n    assert cover['kind'] == name\n    assert tuple(cover['power_degrees']) == bounds\n    assert cover['source_parameters'] == ['H', 'L', 's0', 'q0', 't0']\n    assert cover['cover_parameters'] == list('abcde')\n    assert cover['parameter_substitution'] == {x: f'{y}^{z}' for x, y, z in zip(['H', 'L', 's0', 'q0', 't0'], 'abcde', bounds)}\n    assert cover['extension_degree'] == math.prod(bounds)\n    assert cover['additional_transcendence_degree'] == 0\n    histogram = [1]\n    for bound in bounds:\n        nxt = [0] * (len(histogram) + bound - 1)\n        for i, c in enumerate(histogram):\n            for j in range(bound):\n                nxt[i+j] += c\n        histogram = nxt\n    assert cover['full_basis_total_degree_histogram'] == histogram\n    exps = [m for total in range(cutoff + 1) for m in compositions(total, 5)\n            if all(x < bound for x, bound in zip(m, bounds))]\n    assert len(exps) == len(set(exps)) == 42\n    assert exps[0] == (0, 0, 0, 0, 0)\n    assert cover['coefficient_exponents42'] == [list(m) for m in exps]\n    assert cover['coefficient_maximum_total_degree'] == max(map(sum, exps)) == cutoff\n    assert cover['finite_etale_base_open'] == 'H*L*s0*q0*t0 != 0 over characteristic zero'\n    assert 'EVERY source model coefficient' in cover['binding_scope']\n    assert 'cleared_full_selected_F' in cover['binding_scope']\n    nodes = r['nodes']\n    assert len(nodes) == len(old['nodes']) == 888\n    changes = []\n    for i, (node, oldnode) in enumerate(zip(nodes, old['nodes'])):\n        if node != oldnode:\n            changes.append(i)\n            assert oldnode == ['coefficient_parameter_power', i - 42]\n            assert node == ['finite_cover_coefficient_monomial', list(exps[i - 42])]\n    assert changes == r['coefficient_roots42'] == list(range(42, 84))\n    values = []\n    for index, node in enumerate(nodes):\n        op = node[0]\n        refs = []\n        if op in ('product', 'sum'):\n            refs = node[1]\n        elif op in ('difference', 'one_minus_product'):\n            refs = node[1:]\n        elif op == 'cleared_full_selected_F':\n            refs = [node[2]] + node[3]\n        assert all(isinstance(x, int) and 0 <= x < index for x in refs)\n        if op == 'normal':\n            assert 0 <= node[1] < 42\n            value = atom(f'n{node[1]:02}')\n        elif op == 'finite_cover_coefficient_monomial':\n            value = atom(f'e{exps.index(tuple(node[1])):02}')\n        elif op == 'existing_vector_entry':\n            assert node[1] == model['normal_rewrite_P126']\n            assert 0 <= node[2] < 126\n            value = atom(f'P{node[2]:03}')\n        elif op == 'existing_operator':\n            assert node[1] in model['H_generator_nodes130']\n            value = atom(f'H{node[1]}')\n        elif op in ('sum', 'product'):\n            value = {} if op == 'sum' else {(): 1}\n            for ref in refs:\n                value = add(value, values[ref]) if op == 'sum' else mul(value, values[ref])\n        elif op == 'difference':\n            value = add(values[node[1]], values[node[2]], -1)\n        elif op == 'inverse_variable':\n            value = atom('u')\n        elif op == 'one_minus_product':\n            value = add({(): 1}, mul(values[node[1]], values[node[2]]), -1)\n        elif op == 'cleared_full_selected_F':\n            assert node[1] in model['selected_original134_rows']\n            assert node[2] == r['ell'] and node[3] == r['moments3']\n            value = atom(f'Fcleared{node[1]}')\n        else:\n            raise AssertionError(op)\n        values.append(value)\n    ell_expected = {}\n    for j in range(42):\n        ell_expected = add(ell_expected, mul(atom(f'e{j:02}'), atom(f'n{j:02}')))\n    assert values[r['ell']] == ell_expected\n    assert len(r['moments3']) == 3\n    for h, root in enumerate(r['moments3']):\n        expected = {}\n        for j in range(42):\n            expected = add(expected, mul(atom(f'e{j:02}'), atom(f'P{42*h+j:03}')))\n        assert values[root] == expected\n    assert len(r['compatibility123']) == 123\n    for h in range(3):\n        for j in range(1, 42):\n            root = r['compatibility123'][41*h+j-1]\n            expected = add(mul(ell_expected, atom(f'P{42*h+j:03}')),\n                           mul(atom(f'n{j:02}'), values[r['moments3'][h]]), -1)\n            assert values[root] == expected\n    assert [nodes[i][1] for i in r['pure_normal130']] == model['H_generator_nodes130']\n    assert [nodes[i][1] for i in r['cleared_selected5']] == model['selected_original134_rows']\n    assert values[r['inverse_equation']] == add({(): 1}, mul(atom('u'), ell_expected), -1)\n    assert r['all_generators259'] == r['pure_normal130'] + r['compatibility123'] + r['cleared_selected5'] + [r['inverse_equation']]\n    assert len(r['all_generators259']) == len(set(r['all_generators259'])) == 259\n    assert r['generator_degrees'] == [2, 3, 4, 2]\n    assert r['full_monomial_assembly_checks'] == 1 + 45 + 45*46//2 == 1081\n    assert r['redundancy_identity'] == 'C_h0 = -sum_(j=1)^41 e_j*C_hj; e_0=1'\n    out['recipes'].append({'path': path, 'sha256': digest(path), 'passed': True,\n        'extension_degree': math.prod(bounds), 'coefficient_count': 42,\n        'coefficient_maximum_total_degree': cutoff, 'first_coefficient_is_one': True,\n        'source_references_equal_old_recipe': True, 'local_nodes_checked': len(nodes),\n        'changed_nodes_are_exactly42_coefficient_leaves': True,\n        'ell_and_three_moments_expanded_independently': True,\n        'compatibility123_expanded_independently': True,\n        'retained_generator_counts': [130, 123, 5, 1],\n        'cover_is_declared_global_pullback_not_expanded_parameter_solve': True})\n\nout['elapsed_seconds'] = time.monotonic() - start\nout['resource_limits'] = {'cpu_seconds': 30, 'address_space_bytes': 1024**3}\nout['reviewer_source'] = Path(__file__).read_text()\nout['reviewer_sha256'] = hashlib.sha256(out['reviewer_source'].encode()).hexdigest()\ntarget = ROOT / 'reports/CLASSIFICATION_FINITE_COVER_RECIPE_REVIEW_20261107.json'\nwith target.open('x') as f:\n    json.dump(out, f, ensure_ascii=False, indent=2)\n    f.write('\\n')\nprint(json.dumps({'passed': True, 'elapsed_seconds': out['elapsed_seconds'],\n                  'recipes': len(out['recipes']), 'source_hash_count': len(out['source_hashes_verified'])}))\n",
+  "reviewer_sha256": "1bb759b15771d66002696a27728f45197698854fb60d60d8d9aaec2e060bd418"
+}

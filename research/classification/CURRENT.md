@@ -1,62 +1,64 @@
 # 現在地 — 分類に必要な情報だけ
 
-2026-11-06 / v64-classification-first。既存数学基準はa00a541b、方針更新はe1d36387。
+2026-11-07 / v64-classification-first。既存数学基準はa00a541b、方針更新はe1d36387。
 現行計画はPLAN.json。旧STATEは証拠の入口であり実行キューではない。
-**下界58、一般rank4は52。上界・一般五点尽くし・全分類は未証明。**
+**下界58、一般rank4は52。全成分数の上界・一般五点尽くし・全分類は未証明。**
+一般rank2の全空間成分は、監査した支持証明と既存成分証明を用いて六族に尽くされる。
 
-## 今回確認した主線
+## 現在使える主線
 
 | 義務 | 確認と残る穴 |
 |---|---|
-| C0 | 一巡を完了。元S61→primitive betaの橋det36/625、標準六切片det8428695240、疎六源det137438953472/996451875をQQで再構成・独立検算。generic5にはSp4とGmが必要。55消去・Bianchiは原証明に依存 |
-| G | 既存splitterを仮定すると、超越tauのell=Σtau^j n_jによる一つの忠実チャートで全残余の空性を検出できる。元134式+1-u ell、任意で259法線式の単位証明が正確な目標。単位所属は未証明。別途全K16上で固定etaの42軌道spanを独立確認（minor27110）。K5の同名形式とは異なり輸送は未証明 |
-| E0 | 準備を完了。52写像の全hash・源inverse・像次元・補集合を区別。一般五点開D(f)なら既知49閉像上でf=0、特にG28がfを割る。既存成分・S61対応・G28定理に依存 |
-| E_zero | 旧Q45_22・MPS・既知成分定理を入力にbeta=0の全被約台を既知52閉包で被覆。22族の全包含、10SNC極限・2全9パラメータ恒等式・5稠密軌道を別実装で確認 |
-| E | 一般証明の底分母f_Gは未確定。G28、判別式、beta零、未知fiber局所化の残部を保持。既知49像の和が全特殊底とはしない |
-| A | 部分監査。rank≤2支持を六全空間成分とclosure(rank4)で覆えば十分。六族の相違・58下界の依存を整理。全独立監査は未完了 |
-| M | 主原稿に座標橋、忠実チャート、必要底因子、弱いrank2接続を統合。分類主定理の未証明表示を維持 |
+| C0 | S61→primitive betaの橋det36/625、六切片の優越性をQQで再構成。55消去・Bianchiは原証明に依存 |
+| G_direction | 完了。全K16の有理模型の方向incidenceでrank[A d]=4が全v≠0に成立。交換子det21866 mod32003、全45中心と45×3frameを独立再構成 |
+| G | 未解決。rank3枝は排除でき、残るのはrank[A b]=rank[A b d]=4上の全F5。有限48/144被覆で追加超越変数なしの忠実chartとGalois根基復元が可能だが、unit未証明 |
+| E0 | 準備完了。既知49proper閉像を区別。一般五点の底分母はG28を因子に持つ必要があるが十分ではない |
+| E_zero | 旧Q45_22・MPS・既知成分定理を入力にbeta=0の全被約台を既知52閉包で被覆 |
+| E_poly | 完了。SNC最高部を持つ二次多項式代表の全Poisson低次項を被覆。十正常形のkappa非零部分と実際のPGL飽和・閉包。全Q閉包の逆像は主張しない |
+| A_rank2 | 完了。安定証明の全読解・独立査読、CM/LPT一次本文、spinor二実装と全Aff32変形の再現で全rank2支持を六族とrank4閉包へ接続 |
+| A | rank4追加11族・NEW25の成分性と相違の全依存監査が残る |
+| E/F | 全例外底・全分類は未完了。未知特殊成分を既知49像の和に限定しない |
+| M | 現主原稿へ有限被覆、rank3除外・直接splitter、rank2支持、低次項SNC被覆を統合。主分類未証明を維持 |
 
-証明・独立査読は同フォルダのC0、GENERIC_NORMAL_CHART、EXCEPTIONAL_BASE、KNOWN_COMPONENT_AUDIT。
-小行列はreports/CLASSIFICATION_SLICE_BRIDGE_20261106.json。
-E0のbeta零制限は全134行のうち二次70行、零64行、未知数45個を保持し、別のQQ代入で全行一致を確認した。
-NEW25全1350祖先節点とDPM全1263節点も独立照合。DPMのsqrt3は自由変数でなく一つの複素埋込みを固定した係数である。
+## Gで新たに閉じた部分
 
-## Gの実計算と次の一手
+NORMAL_DIRECTION_INCIDENCE.mdと独立reviewを読む。元134式と同値なF5と
+R=X(z⊗n)+D1n+D2(n,n)を使う。L X=I、T_h=−(L D1)_hについて
+[T0,T1]の42角行列式が非零である。共通固有ベクトルが存在しないのでrank3枝を排除する。
+正当な全K16有理模型との特殊化は普遍三平面と明示中心で照合済みであり、
+固定fiberの空性を一般空性へ移したものではない。
 
-固定保存中心・GF(32003)(tau)の全134式+逆元式をSymPy F5bで診断した。
-55 CPU秒・1.5GiBで未完了（SIGXCPU）、unit・反例・一般被覆の証拠は得ていない。
-reports/CLASSIFICATION_GENERIC_CHART_PROBE_20261106/に元入力hash・実行producer bytes・停止状態を保存した。
-再生成可能な二つの圧縮診断入力は自動送信審査の対象外とし、work/regenerable_diagnostic_inputsへローカル保全した。数学の証明書ではない。
-tauは超越のままだがbetaと標数は固定しているため、成功してもQQへの移送は別義務だった。
+さらにM_h=z_hI−T_h、C=[T0,T1]とすると
+U=C^(-1)[−M1,M0,0]Lはz次数1の多項式左逆である。
+H=(1/2)Jac_n D2、delta=det(I+UH)からdelta n=0、delta≡1 mod(n)を得て、
+delta²=delta、(n)=(1−delta)A、A=E5×Bが直接従う。
+旧quintic表示・精密nil構造はこのsplitter証明に不要。**B=0はなお未証明。**
 
-次は同じ点・次数・wrapperの反復ではなく、native exact backendか有限syzygyの構造を選ぶ。
-通常のexec sandboxではproxy接続が拒否されたが、標準のnetwork.enabled追加権限で公開Debianパッケージに接続できた。
-Singular4.4.1と必要ライブラリをwork/native-cas/rootへ展開し、optimized moduleの読込みとstd smokeを確認した。
-ソースとhashはreports/CLASSIFICATION_NATIVE_ENV_20261106.json。M2は未導入。システムインストール・proxy迂回は行っていない。
-固定normal0のGF32003診断も305wall秒で未完了。直接SymPyGBを二回続けてもunitは得られず、このbackendの反復を停止した。
-native stdも315wall秒で未完了。全9257係数のQQ恒等式で元ideal内と確認したG6（固定点では790項）を加えてslimgbを使ったが、4GiBでは33秒、同じ式の12GiB評価でも約65秒で実メモリ上限に達した。
-最大16GiB環境で12GiBと2GiB以上のreserveを事前確認した。いずれもbasis・unit・nonunitは未決。NATIVE_FIXED_FIBER_SUPPORT.mdを参照し、同じ直接GBを自動反復しない。
-同じ固定T01のbetaではG28=671334843179656461002307382635849/9039207968、法32003で25057と正確に確認した。既知NEW25像だけは外れる。他の特殊像や一般性は未証明。
-別の構造的還元では全K16上の固定eta一つの135式へ移せるが、K5へ群変数を落とす橋は未証明。
-K5+tauを保持するか、全K16で係数を扱う。どちらのunitも未証明でありGをdoneにしない。
+FINITE_SEPARABLE_NORMAL_CHART.mdはK5の有限48/144被覆を使う。
+42独立係数によるell一つでB→B_K'[1/ell]が忠実平坦となり、係数体の超越次数は5のまま。
+全259式の係数引戻しを別実装で検査した。全分岐補集合と元分母はEへ残す。
+旧全K16固定etaをK5の同名形式へコピーすることは依然として許されない。
 
-## 維持する区別
+## 次の数学と計算限界
 
-* full134の一般根基包含と、選んだ切断・minor・jetは異なる。
-* K[n42]上の有限5生成はK上有限を意味しない。
-* actual42のdelta_E次数28と特殊底NEW25の像G28は別物。
-* 一つの忠実チャートはK(tau)上の全点が同じ開に入るという意味ではない。
-* 源の分母、底の分母、未知qの逆元を区別し、全補集合を残す。
-* rank2の支持被覆は既存の安定接層証明と一次文献に依存する。
+次はrank4方向の全F5が解を持たないこと、または未知点・族を実際に示す。
+Cramer表示の全minor chartと無限遠・除外方向を保持する。
+有限被覆chartや未展開の小行列積は使えるが、表示を作るだけでは支持問題は閉じない。
 
-B18 H0/T2/nil指数、H絶対既約性、旧軸minor farmは休止のまま。
-独立の分類への不可欠な依存がなければ再開しない。
+保存中心の直接GBはSymPy二回、native std、G6/slimgb4GiB/12GiBの五回とも未完了。
+同じ直接GBの反復は停止中。今回のnormal-onlyコスト検査では元29,301項に対し、
+五つの四次式を入れる前に331,008項となったため、追加GBを実行しなかった。
+Singular4.4.1はwork/native-cas/root、環境のpackage/hashは既存NATIVE_ENV報告にある。
+同じ固定betaでG28≠0をQQで確認済みだが、他の特殊像の除外や一般性は別問題である。
 
-## 検証と保存の射程
+## 依存と検証の射程
 
-計画制御の23テスト、strict check、job hash、構文、diff検査は通過。
-これらのPASSは分類の証明ではない。原134式の全再生成や58全証明の再実行はしていない。
-不足していた日本語TeX二パッケージをwork/native-tex/rootへ展開し、主原稿PDFを現TeXから8頁で再生成した。
-2回の完全組版で参照を解決し、最終passに未解決参照・overfullはなく、1頁と7頁を目視した。
-再現環境・package/PDF/source hashはreports/CLASSIFICATION_MAIN_MANUSCRIPT_BUILD_20261106.json。
-Libraryへのアップロードや完全依存bundle生成は今回未実行。
+rank2支持の証明はRANK_TWO_SUPPORT.md、低次項被覆はLOWER_DEGREE_SNC_COVERAGE.md。
+CM/LPT/MPSの外部定理自体を再証明したとはしない。全旧証明書・全134生成を再実行していない。
+新しい行列、全normal/center対応、全低次項重み、必要なrank2恒等式を正確に確認した。
+計画checkerと制御テストのPASSは数学の全分類認証ではない。
+主原稿PDFは現TeXから12頁で再組版した。2passで未解決参照・overfullなし、1/5/9頁を目視確認。
+source/PDF hashと環境はCLASSIFICATION_MAIN_MANUSCRIPT_BUILD_20261107.json。
+計画制御の23テスト、strict check、構文とdiff検査を通過した。
+Libraryへのアップロード、完全依存bundle生成は未実行。
+B18 H0/T2/nil指数、H絶対既約性、旧minor farmは休止のまま。

@@ -20,13 +20,13 @@
 \title{複素射影四空間上のPoisson構造の成分分類\\[3pt]
 \large 研究原稿：分類主定理は未証明}
 \author{}
-\date{2026年11月6日\quad v64-classification-first}
+\date{2026年11月7日\quad v64-classification-first}
 \begin{document}
 \maketitle
 \begin{abstract}
 本稿は、複素射影四空間上のPoisson構造の被約既約成分を尽くし、各成分の一般元の幾何を記述するための研究原稿である。
-分類主定理の証明は完成していない。S61の一次座標と一般切片の対応を確認し、既存の既知五点の分離を仮定して、未知残余の空性を一つの忠実な一般法線チャートの単位証明へ帰着する。また、一般五点を保証する底の開集合は、既知の全特殊成分の閉像を避ける必要があることを示す。
-既存リポジトリに収録された個々のPoisson分類結果を本稿で改めて証明したとは主張しない。
+分類主定理の証明は完成していない。S61の一次座標と一般切片の対応を確認し、既知三平面に沿う多項式左逆から未知残余を分離する。その空性は一つの忠実な法線チャートの単位証明へ帰着でき、有限分離被覆を使えば係数体の超越次数を増やす必要はない。また、階数2の全支持を六族と階数4の閉包で覆い、一次部分零の層と、SNC最高部を持つ二次多項式代表の支持包含を接続する。
+既存リポジトリの全証明書を再実行したとは主張せず、原証明の読解と今回の独立検算を区別する。
 詳細なnilpotent構造や派生論文の完成を、主分類定理の前提条件に追加しない。
 \end{abstract}
 
@@ -47,7 +47,7 @@
 を証明する。各族が全空間の既約成分であること、相互に異なること、次元、一般階数、一般元の構成および退化因子の幾何を記述する。
 \end{target}
 
-\(N\)は未決定である。2026年11月6日に確認したリポジトリの台帳は、全成分数の下界58、一般階数4の成分数の下界52を記録している。
+\(N\)は未決定である。2026年11月7日に確認したリポジトリの台帳は、全成分数の下界58、一般階数4の成分数の下界52を記録している。
 これらは本稿で独立に再検証した定理ではなく、主定理に組み込むための監査対象である。
 58を答えとして固定して未知成分を排除するのではない。
 
@@ -179,7 +179,7 @@ Introductionの完成には、既存の40成分を扱う文献、Pymのpurely el
 すべての素点上でfiberが非空なので忠実平坦である。
 \end{proof}
 
-既存の全代数分離\(A=E_5\times B\)、\((n)A=(1-e)A\)を仮定する。
+全代数分離\(A=E_5\times B\)、\((n)A=(1-e)A\)を用いる。この分離は既存証明に加え、後述の交換子と多項式左逆からも直接得られる。
 \(\ell\)は\(E_5\)上で零であり、\((n)B=B\)であるから、補題により
 \[
  B=0\quad\Longleftrightarrow\quad
@@ -195,6 +195,109 @@ Introductionの完成には、既存の40成分を扱う文献、Pymのpurely el
 逆写像\(z_h=uM_h\)で全crossと元残差が戻るので、nilpotentを含むscheme同型である。
 次数上界は順に2、3、4、2である。
 259式の構成も、単位所属そのものの証明ではない。
+
+\subsection{超越次数を増やさない有限分離被覆}
+\begin{lemma}\label{lem:finite-chart}
+\(K'/K\)を有限分離拡大、\(e_0,\ldots,e_{41}\in K'\)を\(K\)上線形独立とする。
+\((n_0,\ldots,n_{41})B=B\)なら、\(\ell=\sum_j e_j n_j\)について
+\[
+ B\longrightarrow(B\otimes_KK')[\ell^{-1}]
+\]
+は忠実平坦である。
+\end{lemma}
+\begin{proof}
+写像は平坦である。各素点\(\mathfrak p\subset B\)で
+\(\kappa(\mathfrak p)\otimes_KK'\)は有限エタール代数、従って有限個の体の直積である。
+\(e_j\)の線形独立性はこの体拡大後も保たれ、\(n_j\)の像は全て零ではないため、\(\ell\)の像は非零である。
+被約代数の非零元は冪零でないので、その局所化も零環でない。
+全素点上でfiberが非空となり、忠実平坦性を得る。
+全ての直積因子が残ることは必要ない。
+\end{proof}
+
+疎五変数模型の\(K=\CC(H,L,s_0,q_0,t_0)\)には、
+\(K'=\CC(a,b,c,d,e)\)への埋込み
+\[
+ (H,L,s_0,q_0,t_0)=(a^2,b^2,c^2,d^2,e^3)
+\]
+を使える。拡大次数は48で、指数が\((2,2,2,2,3)\)未満かつ総次数4以下の単項式は42個ある。
+これらは標準基底の部分集合なので独立であり、補題の\(e_j\)に選べる。
+別案\((a^2,b^2,c^3,d^3,e^4)\)は拡大次数144で、指数制限内の総次数3以下の単項式が42個となる。
+両案で超越次数は5のままであり、数値への特殊化ではない。
+
+全底係数に同じ埋込みを適用し、\(e_0=1\)、\(M_h=\sum_j e_jP_{hj}\)とすれば、
+全134式の単位判定も、前小節の259式と逆写像もそのまま成立する。
+既知五点因子は\(\ell\)の反転で消え、残余側には補題が適用できる。
+従ってこの有限被覆上の単位証明は一般尽くしに十分であるが、実際の単位証明はまだ得ていない。
+係数の単項式次数が小さいことから計算時間の改善を推測しない。
+
+底の開へ広げるときは\(HLs_0q_0t_0\ne0\)で有限エタールとなることを用い、
+分岐補集合と元模型の分母を残す。証明書の追加分母は有限拡大のノルムで底へ下ろせる。
+分岐fiberでは冪零元を反転して全fiberを失う可能性があるため、同じ証明を適用しない。
+具体的な全係数recipeと独立査読は\path{research/classification/FINITE_SEPARABLE_NORMAL_CHART.md}にある。
+
+複素数体上のこれらの被覆は対角Galois群\(\Gamma\)を持ち、\(e_j\)は相異なる指標\(\chi_j\)の固有元である。
+従って
+\[
+ n_j=\frac{1}{|\Gamma|e_j}\sum_{\sigma\in\Gamma}\chi_j(\sigma)^{-1}\sigma(\ell).
+\]
+元134式の拡大idealは\(\Gamma\)で保たれるので、\(\ell\)の根基所属から全\(n_j\)の根基所属が従う。
+この直接の同値はsplitterを必要としない。既知五点を結論する際は、既知三平面交叉の定理を用いる。
+
+\subsection{方向incidenceの階数三枝の排除}
+全底の関数体\(K=\CC(W_{16})\)上で、元134式を五式\(F_a(z,n)\)と129残差
+\[
+ R(z,n)=X(z\otimes n)+D_1n+D_2(n,n)
+\]
+へ可逆に書き換える既存の有理表示を用いる。\(X\)の列階数は126であり、
+\(L=X_S^{-1}\operatorname{pr}_S\)、\(T_h=-(LD_1)_h\)とする。
+\begin{proposition}\label{prop:commutator}
+これらを定義する非空底開をさらに縮めると、\([T_0,T_1]\)は可逆である。
+従って任意の\(0\ne v\in\overline K^{42}\)について、
+\[
+ A(v)=X(I_3\otimes v),\quad d(v)=D_1v
+ \quad\Longrightarrow\quad\rank[A(v)\ d(v)]=4.
+\]
+\end{proposition}
+\begin{proof}
+普遍三平面の有理frameを\(E=W(W_J)^{-1}\)、\(J=(0,1,2)\)とし、
+中心を\(c=\bar q+E(421/48,-767/84,499/84)^t\)と選ぶ。
+保存底点でこの中心の全45係数とframeの全45行3列が保存された元座標変換と一致する。
+全134式から129残差への有理操作も同じ特殊化を与える。
+この点で選択cross行列式は法32003で19216、\(\det[T_0,T_1]\)は21866である。
+入力分母が同素数で単元であることを確認し、異なる正確線形代数実装で両値と全行列を検算した。
+従ってこれらは\(K\)上の非零有理関数である。
+
+\(d(v)\in\operatorname{im}A(v)\)なら、ある\(z\)について\(A(v)z+d(v)=0\)。
+左逆Lを作用させれば\(T_hv=z_hv\)となり、\([T_0,T_1]v=0\)に矛盾する。
+Xの単射性により\(\rank A(v)=3\)なので結論を得る。
+\end{proof}
+
+忠実チャート\(\ell=c'\cdot n\ne0\)で\(r=\ell\)、\(v=n/r\)と置くと、残差は
+\[
+ A(v)z+b(v)r+d(v)=0,\qquad b(v)=D_2(v,v),\qquad c'\cdot v=1
+\]
+となる。上の命題により\(\rank[A\ b\ d]=3\)の枝は存在しない。
+実際の残余がある場合には\(\rank[A\ b]=\rank[A\ b\ d]=4\)で、\((z,r)\)は一意、\(r\ne0\)である。
+この階数4の方向集合上で\(F_a(z,rv)=0\)を全て課す支持問題が残る。
+その空性は証明されていない。
+
+さらに\(M_h=z_hI-T_h\)、\(C=[T_0,T_1]\)とすれば
+\[
+ U(z)=C^{-1}[-M_1\ \ M_0\ \ 0]L,\qquad
+ U(z)\{X(z\otimes I)+D_1\}=I
+\]
+というz次数1の多項式左逆を得る。未知座標の逆元は使わない。
+ただし全残差には\(U(z)R=n+U(z)D_2(n,n)\)であり、二次法線項を捨てて全支持を決定してはいけない。
+\(H(n)=\frac12\operatorname{Jac}_n D_2\)とすれば\(H(n)n=D_2(n,n)\)なので、
+\(\delta=\det(I+U(z)H(n))\)について
+\[
+ \delta n=\operatorname{adj}(I+UH)UR,\qquad \delta-1\in(n)
+\]
+が成立する。全Poisson代数Aでは\(\delta(n)=0\)であるから\(\delta^2=\delta\)、
+\((n)=(1-\delta)A\)、\(\delta A\simeq A/(n)=E_5\)となる。
+これが旧quintic表示を使わない直接の分離\(A=E_5\times B\)の証明である。
+行列式は展開せず、残余Bの空性もここからは従わない。
+証拠と底の補集合は\path{research/classification/NORMAL_DIRECTION_INCIDENCE.md}と独立reviewに明記した。
 
 \subsection{全底の関数体上での固定形式による判定}
 別の還元として、\(K=\CC(W_{16})\)上の元座標で行番号\(J=(0,1,2)\)のplane frameを用いる。
@@ -274,7 +377,7 @@ NEW25像には\(\Delta\ne0\)の既存の点があるので、底の特殊部分�
 \item S61による全rank4被覆、座標変更、元134式との同値の自己完結した証明。
 \item 一般ファイバーに対する命題\ref{prop:radical}の仮定\(L\subset\sqrt I\)、または同等の尽くしの証明。
 \item 得られた開集合の全補集合と、特殊一次部分上の未知成分の排除または追加。
-\item rank2の全被覆、既知成分の成分性・相互識別・一般幾何の証明統合。
+\item 既知rank4成分の成分性・相互識別・一般幾何の証明統合。rank2支持は以下の命題で接続する。
 \item 主要な先行研究との一次資料に基づく比較と、主張・計算証明書の独立点検。
 \end{enumerate}
 
@@ -325,15 +428,106 @@ L0の二パラメータ族は既知ZERO\_LOG\_5Hの定義族そのものであ�
 入力Q22定理の全場合分けとMPSの外部証明を今回再証明したとはしない。
 この命題は底の一点\(\beta=0\)についてであり、他の特殊底の被覆を含まない。
 
-rank2との接続については、六つの既知全空間成分の和を\(C^{(2)}\)、一般階数4の開を\(\mathcal P^{(4)}\)として、
+\subsection{任意の低次項を許すSNC最高部}
+\begin{proposition}\label{prop:lower-snc}
+射影Poisson構造が、微分方向\(\partial_x,\partial_y,\partial_z,\partial_w\)のみを持つ
+二次斉次代表\(P=h^2C+hL+Q\)を持つとする。
+ある四変数重み\(w\)について\(Q\)の全項の重みが非負で、零重み部分が
+\(\operatorname{Pf}(Q_{\log})=\kappa xyzw\)、\(\kappa\ne0\)のlogcanonicalテンソルであれば、
+\(P\)を含む各全空間既約成分はMPS40の一つである。
+\end{proposition}
+\begin{proof}
+\(h\)の重み\(m\)を
+\[
+ m>\max_{i<j,k}(w_i+w_j-w_k),\qquad 2m>\max_{i<j}(w_i+w_j)
+\]
+と選ぶ。すると全24一次項\(hx_k\partial_i\wedge\partial_j\)と全6定数項
+\(h^2\partial_i\wedge\partial_j\)の重みが正となり、\(Q\)の重みは変わらない。
+PGL軌道の極限は\(Q_{\log}\)で、その射影退化因子は\(\kappa hxyzw\)という被約SNC因子である。
+連結なPGL作用が各既約成分を保つことと、MPSの定理\cite{mps}から従う。
+\end{proof}
+
+前命題の十正常形には、通常\((5,2,2,1,0)\)、G2には\((3,0,0,1,1)\)、T3には
+\((6,0,2,3,0)\)を使える。各\(\kappa\ne0\)の部分で、Poisson条件を満たす全低次項を覆い、
+その実際のPGL飽和と閉包も既知40成分の和に入る。
+Qの閉包の上に新たに現れる低次項の全fiberを覆ったとは推論しない。
+
+例えば\(\pi=(1+x+xy)\partial_x\wedge\partial_y+(1+zw)\partial_z\wedge\partial_w\)はPoissonである。
+原点での値はJ、最高部はG1の\(A=D=1,E=0\)であり、primitive一次部分は
+\[
+ L'=\frac{2x}{5}\partial_x\wedge\partial_y-\frac{2x}{5}\partial_z\wedge\partial_w
+       +\frac z5\partial_y\wedge\partial_z+\frac w5\partial_y\wedge\partial_w\ne0.
+\]
+よってこの包含は\(\beta=0\)だけに限られない。
+全重み、四Jacobi係数、primitive正規化は正確に検査し、別担当も重みを独立に確認した。
+詳細は\path{research/classification/LOWER_DEGREE_SNC_COVERAGE.md}にある。
+
+\subsection{階数二の全支持の接続}
+六つの既知全空間成分の和を\(C^{(2)}\)、一般階数4の開を\(\mathcal P^{(4)}\)とする。
+\begin{proposition}\label{prop:rank2-support}
+以下の安定接層の証明と、非安定分岐についての\cite{cm}本文Theorem4.1、
+次数1の葉層についての\cite{lpt}Theorem6.2を用いると、
 \[
  \mathcal P_{\le2}\subset C^{(2)}\cup\overline{\mathcal P^{(4)}}
 \]
-を示せば全支持の被覆に十分である。
-実際、閉族が\(\mathcal P^{(4)}\)を覆えば、その和は閉包も覆う。
-toric外積族とAff32をrank4構造の極限として含める既存の変形を使うと、
-rank2 locus内で八族すべての成分性を別途証明することは、主分類の必要条件から外せる。
-ただしrank2の支持被覆そのもの、安定接層分岐の証明、六族の全空間成分性は依然として依存する。
+が成り立つ。従って一般階数2の全空間既約成分は、次小節の六族に尽くされる。
+\end{proposition}
+\begin{proof}
+まず因子的零点がない場合を扱う。飽和接層\(\mathcal F\)が安定なら、
+発散零の正準二次lift\(P\)は実際に階数2のPoissonテンソルとなる。
+これは鉛直Jacobiatorに対するBV恒等式と、Euler水平かつ閉な
+\(\iota_{P^2/2}\Omega\)の全重み5に対するCartan公式から従う。
+反射層\(E=\mathcal F(1)\)を五切断が余次元1で生成する。
+一般切断の列\(0\to\mathcal O\to E\to\mathcal I_Z(2)\to0\)で、深さ補題により
+\(Z\)はunmixedであり、\((2,2)\)完全交叉に含まれる。安定性から\(2\le\deg Z\le4\)となる。
+
+\(\deg Z=4\)では完全交叉と一致し、\(h^0(E)=3\)から二つの一次Casimirを得てRat113となる。
+\(\deg Z=3\)では残余平面と二重annihilatorの議論から
+\(0\to\mathcal O(-1)^2\to\mathcal O^4\to E\to0\)となる。
+実切断像が三次元以下ならRat113、四次元なら閉三形式を\(dt\wedge\theta_1\wedge\theta_2\)と書ける。
+\(d_y\theta_i\)の非零pencilは非零大域接線形場を与え、安定性に反する。
+従って\(\theta_i=d_yQ_i\)となりRat122を得る。
+
+\(\deg Z=2\)では、五切断の階数零集合に曲面があるとPlücker二次式がbinaryとなり、
+\(\PP^1\to\operatorname{Gr}(2,5)\)の束分解が\(\mathcal F\)の非安定性を与える。
+よってその集合は次元1以下である。階数1のincidenceと生成開のBertiniから\(Z\)は一般点で被約、
+unmixed性から被約となり、一点で交わる二平面に限られる。
+全反射拡大を二つの非零拡大係数で表すと、完全五切断は\(\operatorname{OGr}(2,5)\simeq\PP^3\)のspinor模型になる。
+元の五切断の出力rankが3以下ならRat113、rank5およびrank4非等方射影は発散条件と矛盾する。
+rank4等方射影の全八パラメータkernelは\(\operatorname{Jac}(t,Q_1,Q_2)\)に一致し、Rat122となる。
+ここでは局所CM性や全切断を元の五切断が張ることを仮定していない。
+全場合分けはv14の原証明を二人で読み、二つの独立spinor恒等式を再現した。
+
+非安定分岐は\cite{cm}の本文定理により、有理型、対数型、affine Lie型または線形引戻し型となる。
+\(\PP^4\)の次数条件から有理型はRat113/Rat122、対数型はLog1112またはtoric外積族である。
+affine Lie型は\((5),(4,1),(3,2)\)を残し、他の分割は対数型または因子付きに帰着する。
+安定分岐の具体的Jacobian表示を同文献から引用しているのではない。
+
+因子的零点がある場合、因子次数\(e\)と飽和葉層次数\(d\)は\(e+d=2\)を満たす。
+\((e,d)=(2,0)\)の線形射影と、\((1,1)\)の有理型\((1,1,2)\)はLog1112の特殊residueに入る。
+\cite{lpt}により残る次数1の型は線形引戻しであり、\(H\partial_4\wedge v_A\)と書ける。
+その全パラメータ族の稠密開で\(H=x_4\)、Aを対角化できるので、全族はtoric外積族の閉包に入る。
+
+最後にtoric外積を可換四次元Lie代数上の一般交代テンソルへ変形すればrank4となる。
+Aff32には既存の全パラメータPoisson変形\(\Pi_{b,t}\)があり、そのPfaffian sectionは
+\[
+2(b-1)t x_3\{2(x_0-(b-1)tx_1)x_2-x_1^2\}
+\{x_1x_3-(x_0-btx_1)x_4\}
+\]
+で、一般に非零である。Jacobiとこの因数分解を全係数で再確認した。
+\([N,H]=N\)、Jordan型\((3,2)\)の一般Hは正則半単純で、二鎖の固有値差を一つのbが表す。
+従ってbとPGL作用がAff32を稠密に覆い、その全閉包もrank4閉包に入る。
+これで支持包含を得る。
+
+\(\overline{\mathcal P^{(4)}}\)は一般rank4の既約成分の和である。
+一般rank2の全空間成分がその和に含まれることは、既約成分の極大性に反する。
+従って上の有限閉和に含まれるrank2成分は六族のいずれかに等しい。
+逆は次小節の全空間成分性による。
+\end{proof}
+
+完全な支持証明と独立査読の入口は\path{research/classification/RANK_TWO_SUPPORT.md}である。
+外部定理の証明自体を再証明したとはせず、原証明の読解・有限恒等式の再実行・六成分の既存証明を区別する。
+rank4の全点を有限個の閉族で覆えば、その閉包も覆うので、上の命題で全支持へ接続できる。
 
 \subsection{rank2側の六つの全空間成分}
 既存の正確な族と全Jacobi微分の証明書を用いる六成分の表は次の通りである。
@@ -403,6 +597,18 @@ lualatex -interaction=nonstopmode -halt-on-error \
 \end{verbatim}
 
 \begin{thebibliography}{9}
+\bibitem{cm} M. Corr\^ea and A. Muniz,
+\emph{Holomorphic foliations of degree two and arbitrary dimension},
+arXiv:2207.12880v5 (2026), Theorem 4.1.
+\url{https://arxiv.org/html/2207.12880v5}.
+\bibitem{lpt} F. Loray, J. V. Pereira and F. Touzet,
+\emph{Foliations with trivial canonical bundle on Fano 3-folds},
+arXiv:1112.3871v3, Theorem 6.2.
+\url{https://arxiv.org/pdf/1112.3871v3}.
+\bibitem{mps} M. Matviichuk, B. Pym and T. Schedler,
+\emph{A local Torelli theorem for log symplectic manifolds},
+arXiv:2010.08692v2 (2021), Theorem 1.4.
+\url{https://arxiv.org/html/2010.08692v2}.
 \bibitem{stacks0529} The Stacks Project Authors,
 \emph{The Stacks Project}, Tag 0529, Generic flatness.
 \url{https://stacks.math.columbia.edu/tag/0529}.
