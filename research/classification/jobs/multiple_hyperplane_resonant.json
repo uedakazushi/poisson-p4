@@ -1,0 +1,29 @@
+{
+  "task_id": "E_multiple_hyperplane",
+  "target_statement": "Verify the complete paired resonant modular eigenspace with spectrum a(1,-1,2,-2), and five all-parameter actual Poisson deformations whose highest Pfaffians are nonzero toric monomials.",
+  "implication_to_classification": "The all-solution modular reduction and exhaustive c,d,p,q case split then cover every rank-four point in this full resonant stratum by the MPS component union using actual Poisson families and SNC limits.",
+  "coefficient_ring": "QQ[a,b,y,c,d,p,q,t,x1,x2,x3,x4]",
+  "hypotheses": "A invertible regular semisimple with spectrum a(1,-1,2,-2), modular constant removed by its unique zero, all low degree Jacobi equations retained, and Pf(Q)=0.",
+  "inverted_elements": [
+    "a",
+    "c or d only in the named nonzero charts"
+  ],
+  "complements": [
+    "Singular or nonsemisimple modular A",
+    "Nonresonant or no opposite pair spectra treated by the separate general proof",
+    "Generic rank at most two belongs to the already classified rank-two support"
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_multiple_hyperplane.py",
+      "sha256": "0a8b5ce4f0b77f01117427cf7717cec1e75f935411b2012f17df8a9f3b569b41"
+    }
+  ],
+  "success_certificate": "Exact full Jacobi polynomial identities, full modular field, zero highest Pfaffian in the source and nonzero highest Pfaffian along each deformation over QQ; no point sampling.",
+  "independent_check": "A separate worker reviews the full eigenspace and exhaustive algebraic case split, including the exchange symmetry for the q-only chart.",
+  "resource_limit": {
+    "timeout_seconds": 30,
+    "memory_mb": 512
+  },
+  "negative_result_next_step": "Repair a failed symbolic identity by direct derivation. If no generic SNC deformation exists, retain that whole chart and change to its inverse-form geometry, not repeated point probes."
+}

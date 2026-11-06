@@ -1,0 +1,105 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "all_passed": true,
+  "independent_Fraction_polynomials": true,
+  "producer_and_SymPy_not_imported": true,
+  "invariant_quadratic_count": 20,
+  "full_linear_coefficient_matrix_shape": [
+    200,
+    20
+  ],
+  "full_linear_rank": 15,
+  "augmented_rank": 15,
+  "displayed_source_direction_rank": 5,
+  "displayed_five_parameter_source_exhausts_linear_solutions": true,
+  "all_ten_strict_Jacobi_polynomials_reconstructed": true,
+  "Jacobi_coefficient_slots": 350,
+  "exact_five_condition_rowspan_rank": 5,
+  "six_line_support_hand_proof": "t(s-1)=0 and (8t+30)s+7t+20=0 yield (t,s)=(0,-2/3) or (-10/3,1); ab,a(u+1),b(v+t+3) split each into precisely the three recorded lines, including all intersections.",
+  "branch_checks": [
+    {
+      "name": "I_central",
+      "all_parameter_Jacobi": true,
+      "actual_divisor_and_all_five_gradients": true,
+      "nonnegative_powers": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "full_parameter_SNC_limit": true
+    },
+    {
+      "name": "I_a",
+      "all_parameter_Jacobi": true,
+      "actual_divisor_and_all_five_gradients": true,
+      "nonnegative_powers": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "full_parameter_SNC_limit": true
+    },
+    {
+      "name": "I_b",
+      "all_parameter_Jacobi": true,
+      "actual_divisor_and_all_five_gradients": true,
+      "nonnegative_powers": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "full_parameter_SNC_limit": true
+    },
+    {
+      "name": "II_central",
+      "all_parameter_Jacobi": true,
+      "actual_divisor_and_all_five_gradients": true,
+      "nonnegative_powers": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "full_parameter_SNC_limit": true
+    },
+    {
+      "name": "II_a",
+      "all_parameter_Jacobi": true,
+      "actual_divisor_and_all_five_gradients": true,
+      "nonnegative_powers": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "full_parameter_SNC_limit": true
+    },
+    {
+      "name": "II_b",
+      "all_parameter_Jacobi": true,
+      "actual_divisor_and_all_five_gradients": true,
+      "nonnegative_powers": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "full_parameter_SNC_limit": true
+    }
+  ],
+  "global_MPS_support_implication": "Every source point has a regular PGL orbit degeneration to a nonzero SNC divisor; every component through it is PGL-invariant and therefore among the MPS40.",
+  "unhandled_Jordan_and_singular_quadric_cases_retained": true,
+  "input_sha256": {
+    "reports/CLASSIFICATION_SMOOTH_QUADRIC_REGULAR_COVERAGE_20261107.json": "9195394658c44cdebb99dfb887a1f8743a1b25f564096ddaea117eacab9e3514",
+    "code/classification_smooth_quadric_review.py": "4b7c37a9b72b5b8463ded8e3fd57a2549e5580fb24ab73fb8693afb46d23f237"
+  },
+  "producer_source": "#!/usr/bin/env python3\n\"\"\"Independent Fraction/polynomial review of the regular smooth-quadric source.\"\"\"\nimport argparse\nimport ast\nfrom fractions import Fraction as F\nimport hashlib\nimport itertools\nimport json\nfrom pathlib import Path\nimport resource\nimport time\n\nROOT = Path(__file__).resolve().parents[1]\nZERO = (0,)*10\nPAIRS = list(itertools.combinations(range(5), 2))\nPARAMETERS = ['p12', 'p14', 'p15', 'p16', 'p18']\n\n\ndef scalar(c):\n    return {ZERO: F(c)} if c else {}\n\n\ndef variable(j):\n    return {tuple(int(i == j) for i in range(10)): F(1)}\n\n\ndef add(*polys):\n    out = {}\n    for poly in polys:\n        for mon, c in poly.items():\n            out[mon] = out.get(mon, F(0))+c\n    return {m: c for m, c in out.items() if c}\n\n\ndef scale(poly, c):\n    return {m: c*v for m, v in poly.items() if c*v}\n\n\ndef multiply(a, b):\n    out = {}\n    for m, c in a.items():\n        for n, d in b.items():\n            word = tuple(x+y for x, y in zip(m, n))\n            out[word] = out.get(word, F(0))+c*d\n    return {m: c for m, c in out.items() if c}\n\n\ndef power(poly, n):\n    out = scalar(1)\n    for _ in range(n):\n        out = multiply(out, poly)\n    return out\n\n\ndef derivative(poly, j):\n    return {tuple(v-int(i == j) for i, v in enumerate(m)): c*m[j]\n            for m, c in poly.items() if m[j]}\n\n\ndef parse(text, extra=None):\n    env = {f'x{i}': variable(i) for i in range(5)}\n    env.update({name: variable(i+5) for i, name in enumerate(PARAMETERS)})\n    env.update(extra or {})\n    def read(node):\n        if isinstance(node, ast.Constant):\n            return scalar(node.value)\n        if isinstance(node, ast.Name):\n            return env[node.id]\n        if isinstance(node, ast.UnaryOp):\n            assert isinstance(node.op, (ast.USub, ast.UAdd))\n            return scale(read(node.operand), -1 if isinstance(node.op, ast.USub) else 1)\n        assert isinstance(node, ast.BinOp)\n        if isinstance(node.op, ast.Pow):\n            return power(read(node.left), ast.literal_eval(node.right))\n        a, b = read(node.left), read(node.right)\n        if isinstance(node.op, ast.Add): return add(a, b)\n        if isinstance(node.op, ast.Sub): return add(a, scale(b, -1))\n        if isinstance(node.op, ast.Mult): return multiply(a, b)\n        assert isinstance(node.op, ast.Div) and set(b) == {ZERO}\n        return scale(a, 1/b[ZERO])\n    return read(ast.parse(str(text), mode='eval').body)\n\n\ndef entry(P, i, j):\n    return P.get((i, j), {}) if i < j else scale(P.get((j, i), {}), -1) if i > j else {}\n\n\ndef jacobi(P):\n    out = {}\n    for i, j, k in itertools.combinations(range(5), 3):\n        terms = []\n        for a, b, c in ((i, j, k), (j, k, i), (k, i, j)):\n            terms += [multiply(entry(P, a, r), derivative(entry(P, b, c), r)) for r in range(5)]\n        out[(i, j, k)] = add(*terms)\n    return out\n\n\ndef rank(rows):\n    rows = [list(map(F, row)) for row in rows]\n    if not rows: return 0\n    at = 0\n    for column in range(len(rows[0])):\n        pivot = next((i for i in range(at, len(rows)) if rows[i][column]), None)\n        if pivot is None: continue\n        rows[at], rows[pivot] = rows[pivot], rows[at]\n        rows[at] = [v/rows[at][column] for v in rows[at]]\n        for i in range(at+1, len(rows)):\n            if rows[i][column]:\n                c = rows[i][column]\n                rows[i] = [a-c*b for a, b in zip(rows[i], rows[at])]\n        at += 1\n        if at == len(rows): break\n    return at\n\n\ndef substitute(poly, values):\n    out = {}\n    for mon, c in poly.items():\n        term = scalar(c)\n        for i, exponent in enumerate(mon):\n            term = multiply(term, power(values.get(i, variable(i)), exponent))\n        out = add(out, term)\n    return out\n\n\ndef pfaffians(P):\n    out = []\n    for missing in range(5):\n        a, b, c, d = [i for i in range(5) if i != missing]\n        out.append(scale(add(multiply(entry(P,a,b), entry(P,c,d)),\n                            scale(multiply(entry(P,a,c),entry(P,b,d)), -1),\n                            multiply(entry(P,a,d),entry(P,b,c))), (-1)**missing))\n    return out\n\n\ndef main(output):\n    resource.setrlimit(resource.RLIMIT_CPU, (30, 31))\n    resource.setrlimit(resource.RLIMIT_AS, (1024*1024**2, 1024*1024**2))\n    begun = time.monotonic()\n    path = ROOT/'reports/CLASSIFICATION_SMOOTH_QUADRIC_REGULAR_COVERAGE_20261107.json'\n    source = json.loads(path.read_text())\n    assert hashlib.sha256(source['producer_source'].encode()).hexdigest() == source['producer_sha256']\n    weights = (0, 1, -1, 2, -2)\n    q = parse('x0**2+x1*x2+x3*x4')\n    xmons = {n: sorted((e for e in itertools.product(range(n+1), repeat=5) if sum(e) == n), reverse=True)\n             for n in (1, 2, 3)}\n    invariant = [(ij, mon) for ij in PAIRS for mon in xmons[2]\n                 if sum(weights[k]*mon[k] for k in range(5)) == weights[ij[0]]+weights[ij[1]]]\n    assert len(invariant) == 20\n    def linear_map(P):\n        div = [add(*(derivative(entry(P, i, j), i) for i in range(5))) for j in range(5)]\n        contraction = [add(*(multiply(derivative(q, i), entry(P, i, j)) for i in range(5))) for j in range(5)]\n        return div+contraction\n    rows = [(j, mon+(0,)*5) for j in range(10) for mon in xmons[1 if j < 5 else 3]]\n    columns = []\n    for ij, mon in invariant:\n        mapped = linear_map({ij: {mon+(0,)*5: F(1)}})\n        columns.append([mapped[j].get(e, F(0)) for j, e in rows])\n    matrix = [list(row) for row in zip(*columns)]\n    rhs_polys = [{}]*5+[scale(multiply(q, variable(j)), weights[j]) for j in range(5)]\n    rhs = [rhs_polys[j].get(e, F(0)) for j, e in rows]\n    assert rank(matrix) == rank([row+[value] for row, value in zip(matrix, rhs)]) == 15\n    P = {(int(key[0]), int(key[1])): parse(value) for key, value in source['brackets'].items()}\n    assert all((ij, mon[:5]) in invariant for ij, poly in P.items() for mon in poly)\n    mapped = linear_map(P)\n    assert all(not add(a, scale(b, -1)) for a, b in zip(mapped, rhs_polys))\n    directions = []\n    for parameter in range(5, 10):\n        direction = {ij: substitute(derivative(poly, parameter), {i: {} for i in range(5, 10)}) for ij, poly in P.items()}\n        directions.append([direction[ij].get(mon+(0,)*5, F(0)) for ij in PAIRS for mon in xmons[2]])\n    assert rank(directions) == 5\n    raw = jacobi(P)\n    coefficients = []\n    for poly in raw.values():\n        for xmon in xmons[3]:\n            coeff = {mon[5:]: c for mon, c in poly.items() if mon[:5] == xmon}\n            coefficients.append(coeff)\n    conditions = [parse(text) for text in ['p12*p14', 'p12*(p15+1)',\n        'p14*(p16+p18+3)', 'p18*(p15+p16-1)', '8*p18*(p15+p16)+30*(p15+p16)+7*p18+20']]\n    conditions5 = [{mon[5:]: c for mon, c in poly.items()} for poly in conditions]\n    parameter_mons = sorted(set().union(*(set(poly) for poly in coefficients+conditions5)))\n    def coefficient_matrix(polys):\n        return [[poly.get(mon, F(0)) for mon in parameter_mons] for poly in polys]\n    assert rank(coefficient_matrix(coefficients)) == rank(coefficient_matrix(conditions5)) == rank(coefficient_matrix(coefficients+conditions5)) == 5\n    branch_checks = []\n    for branch in source['six_complete_sources']:\n        values = {PARAMETERS.index(key)+5: parse(value, {'z': variable(5)}) for key, value in branch['substitution'].items()}\n        assert all(not substitute(poly, values) for poly in conditions)\n        branchP = {ij: substitute(poly, values) for ij, poly in P.items()}\n        assert all(not poly for poly in jacobi(branchP).values())\n        pf = pfaffians(branchP)\n        D = scale(add(*(multiply(variable(i), pf[i]) for i in range(5))), F(1, 5))\n        assert D == parse(branch['actual_divisor'], {'z': variable(5)})\n        assert all(derivative(D, i) == pf[i] for i in range(5))\n        degeneration = branch['diagonal_degeneration_weights']\n        limit = {}\n        powers = set()\n        for ij, poly in branchP.items():\n            value = {}\n            for mon, c in poly.items():\n                degree = degeneration[ij[0]]+degeneration[ij[1]]-sum(mon[k]*degeneration[k] for k in range(5))\n                assert degree >= 0\n                powers.add(degree)\n                if degree == 0:\n                    assert mon[:5] == tuple(int(k in ij) for k in range(5))\n                    value[mon] = c\n            limit[ij] = value\n        limit_pf = pfaffians(limit)\n        limit_D = scale(add(*(multiply(variable(i), limit_pf[i]) for i in range(5))), F(1, 5))\n        assert limit_D == parse('10*x0*x1*x2*x3*x4/3')\n        branch_checks.append(dict(name=branch['name'], all_parameter_Jacobi=True,\n            actual_divisor_and_all_five_gradients=True, nonnegative_powers=sorted(powers),\n            full_parameter_SNC_limit=True))\n    report = dict(task_id='E_reduced_nonnormal', all_passed=True,\n        independent_Fraction_polynomials=True, producer_and_SymPy_not_imported=True,\n        invariant_quadratic_count=20, full_linear_coefficient_matrix_shape=[len(matrix), 20],\n        full_linear_rank=15, augmented_rank=15, displayed_source_direction_rank=5,\n        displayed_five_parameter_source_exhausts_linear_solutions=True,\n        all_ten_strict_Jacobi_polynomials_reconstructed=True,\n        Jacobi_coefficient_slots=len(coefficients), exact_five_condition_rowspan_rank=5,\n        six_line_support_hand_proof='t(s-1)=0 and (8t+30)s+7t+20=0 yield (t,s)=(0,-2/3) or (-10/3,1); ab,a(u+1),b(v+t+3) split each into precisely the three recorded lines, including all intersections.',\n        branch_checks=branch_checks,\n        global_MPS_support_implication='Every source point has a regular PGL orbit degeneration to a nonzero SNC divisor; every component through it is PGL-invariant and therefore among the MPS40.',\n        unhandled_Jordan_and_singular_quadric_cases_retained=True,\n        input_sha256={str(path.relative_to(ROOT)): hashlib.sha256(path.read_bytes()).hexdigest(),\n                      'code/classification_smooth_quadric_review.py': hashlib.sha256(Path(__file__).read_bytes()).hexdigest()},\n        producer_source=Path(__file__).read_text(), seconds=time.monotonic()-begun)\n    with output.open('x') as handle:\n        json.dump(report, handle, indent=2)\n        handle.write('\\n')\n    print(json.dumps({key: report[key] for key in ('all_passed', 'full_linear_rank', 'exact_five_condition_rowspan_rank', 'seconds')}))\n\n\nif __name__ == '__main__':\n    parser = argparse.ArgumentParser()\n    parser.add_argument('--output', type=Path, required=True)\n    main(parser.parse_args().output)\n",
+  "seconds": 0.05250632599927485
+}

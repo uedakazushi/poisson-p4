@@ -14,15 +14,15 @@
     "null_values": "not catalogued or not applicable; never a claim of zero"
   },
   "coverage": {
-    "global_lower_bound": 60,
+    "global_lower_bound": 66,
     "generic_rank_two_full_components": 6,
-    "generic_rank_four_lower_bound": 54,
+    "generic_rank_four_lower_bound": 60,
     "upper_bound": null,
     "global_exhaustion_proved": false,
-    "individually_catalogued_count": 60,
+    "individually_catalogued_count": 66,
     "unexpanded_block_count": 0,
     "all_51_rank_four_ideals_in_S61_constructed": false,
-    "note_ja": "従前58件に、階数三二重二次曲面の混合型22次元成分とTw0型24次元成分を追加。両方の全周囲成分性・相違と有限係数を独立確認した。一般rank4下界54、総下界60、個別同定60。H+2QでQ既約の全支持は被覆済みだが、全成分数の上界・一般五点・他の退化因子の全支持は未証明。",
+    "note_ja": "個別60に、冪零Jordan4の四22次元成分、従属三超平面と二次曲面の24次元成分、モジュラーJordan(3,1)の25次元成分を追加。全周囲成分性と相違を独立検証済み。総下界66、rank4下界60。全成分数の上界・一般五点・全支持分類は未証明。",
     "generic_primitive_first_jet_known_lifts_lower_bound": 5,
     "full_generic_fiber_exhaustion_proved": false,
     "known_union_over_smooth_canonical_curve": {
@@ -8854,6 +8854,383 @@
         "全Tw0源を覆う成分である。証拠点を通る他成分の不存在、一般PGL軌道次元、精密nil構造は未主張。",
         "弱い追加成分存在証明に使ったT39/T40全閉graph診断は独立証拠として保持するが、この成分性と相違の主証明には不要。"
       ]
+    },
+    {
+      "source_checkpoint": "v64-classification-first",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "additional_generic_rank_four_full_component_outside_MPS40",
+      "generic_rank": 4,
+      "meets_SNC_log_symplectic_locus": false,
+      "review_status": {
+        "proof": "full_ambient_componenthood_and_distinctness_proved",
+        "independent_review": "independent_full150_full350_source_and_geometric_proof_accepted_2026_11_07",
+        "certificates": "exact_QQ_rank_and_full_parameter_identities",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "id": "R4_NIL4_DOUBLE_H_CUBIC_22",
+      "name": "冪零Jordan4・二重超平面と既約三次型",
+      "projective_dimension": 22,
+      "generic_pgl5_orbit_dimension": 22,
+      "generic_reduced_rosenlicht_quotient_dimension": 0,
+      "component_definition": "Reduced PGL5-saturated closure of the complete four-parameter modular Jordan4 source s=1/3 in MULTIPLE_HYPERPLANE_NILPOTENT_SUPPORT.md section3",
+      "generic_construction": {
+        "normal_modular_field": "x2*d_x1+x3*d_x2+x4*d_x3",
+        "source_parameter_s": "1/3",
+        "full_source": "research/classification/MULTIPLE_HYPERPLANE_NILPOTENT_SUPPORT.md, sections1-3"
+      },
+      "generic_actual_degeneracy_divisor": {
+        "description": "冪零Jordan4・二重超平面と既約三次型",
+        "irreducible_factor_degrees": [
+          1,
+          3
+        ],
+        "corresponding_multiplicities": [
+          2,
+          1
+        ],
+        "reduced": false
+      },
+      "generic_transverse_algebra": "K",
+      "claims": [
+        "R4_MODULAR_NILPOTENT_FOUR_COMPONENTS_22"
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/MULTIPLE_HYPERPLANE_NILPOTENT_SUPPORT.md"
+        },
+        {
+          "path": "research/classification/NILPOTENT_SOURCE_COMPONENTS_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_MULTIPLE_HYPERPLANE_NILPOTENT_SUPPORT_20261107.json",
+        "reports/CLASSIFICATION_MULTIPLE_HYPERPLANE_NILPOTENT_REVIEW_20261107.json",
+        "reports/CLASSIFICATION_NILPOTENT_SOURCE_COMPONENTS_20261107.json",
+        "reports/CLASSIFICATION_NILPOTENT_SOURCE_COMPONENTS_REVIEW_20261107.json"
+      ],
+      "notes_ja": [
+        "全D103・実source+群+鉛直+尺度47、DF=0により滑らかな22次元全成分。全四源の包含を証明。",
+        "四成分は全閉包の非被約条件でMPSと区別。同次元の旧成分とは因子次数・重複度・二次rank、最後二型は唯一三重因子のcanonical cofactor像条件で区別。",
+        "s=1/7の一点の軌道次元21から一般軌道次元を推論しない。"
+      ]
+    },
+    {
+      "source_checkpoint": "v64-classification-first",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "additional_generic_rank_four_full_component_outside_MPS40",
+      "generic_rank": 4,
+      "meets_SNC_log_symplectic_locus": false,
+      "review_status": {
+        "proof": "full_ambient_componenthood_and_distinctness_proved",
+        "independent_review": "independent_full150_full350_source_and_geometric_proof_accepted_2026_11_07",
+        "certificates": "exact_QQ_rank_and_full_parameter_identities",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "id": "R4_NIL4_DOUBLE_H_H_QUADRIC_22",
+      "name": "冪零Jordan4・二重超平面と超平面と階数三二次型",
+      "projective_dimension": 22,
+      "generic_pgl5_orbit_dimension": null,
+      "generic_reduced_rosenlicht_quotient_dimension": null,
+      "component_definition": "Reduced PGL5-saturated closure of the complete four-parameter modular Jordan4 source s=1/7 in MULTIPLE_HYPERPLANE_NILPOTENT_SUPPORT.md section3",
+      "generic_construction": {
+        "normal_modular_field": "x2*d_x1+x3*d_x2+x4*d_x3",
+        "source_parameter_s": "1/7",
+        "full_source": "research/classification/MULTIPLE_HYPERPLANE_NILPOTENT_SUPPORT.md, sections1-3"
+      },
+      "generic_actual_degeneracy_divisor": {
+        "description": "冪零Jordan4・二重超平面と超平面と階数三二次型",
+        "irreducible_factor_degrees": [
+          1,
+          1,
+          2
+        ],
+        "corresponding_multiplicities": [
+          2,
+          1,
+          1
+        ],
+        "reduced": false,
+        "quadric_rank": 3
+      },
+      "generic_transverse_algebra": "K",
+      "claims": [
+        "R4_MODULAR_NILPOTENT_FOUR_COMPONENTS_22"
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/MULTIPLE_HYPERPLANE_NILPOTENT_SUPPORT.md"
+        },
+        {
+          "path": "research/classification/NILPOTENT_SOURCE_COMPONENTS_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_MULTIPLE_HYPERPLANE_NILPOTENT_SUPPORT_20261107.json",
+        "reports/CLASSIFICATION_MULTIPLE_HYPERPLANE_NILPOTENT_REVIEW_20261107.json",
+        "reports/CLASSIFICATION_NILPOTENT_SOURCE_COMPONENTS_20261107.json",
+        "reports/CLASSIFICATION_NILPOTENT_SOURCE_COMPONENTS_REVIEW_20261107.json"
+      ],
+      "notes_ja": [
+        "全D103・実source+群+鉛直+尺度47、DF=0により滑らかな22次元全成分。全四源の包含を証明。",
+        "四成分は全閉包の非被約条件でMPSと区別。同次元の旧成分とは因子次数・重複度・二次rank、最後二型は唯一三重因子のcanonical cofactor像条件で区別。",
+        "s=1/7の一点の軌道次元21から一般軌道次元を推論しない。"
+      ]
+    },
+    {
+      "source_checkpoint": "v64-classification-first",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "additional_generic_rank_four_full_component_outside_MPS40",
+      "generic_rank": 4,
+      "meets_SNC_log_symplectic_locus": false,
+      "review_status": {
+        "proof": "full_ambient_componenthood_and_distinctness_proved",
+        "independent_review": "independent_full150_full350_source_and_geometric_proof_accepted_2026_11_07",
+        "certificates": "exact_QQ_rank_and_full_parameter_identities",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "id": "R4_NIL4_TRIPLE_H_DOUBLE_H_OUTSIDE_22",
+      "name": "三重超平面cofactor像の外にあるJordan4型",
+      "projective_dimension": 22,
+      "generic_pgl5_orbit_dimension": 22,
+      "generic_reduced_rosenlicht_quotient_dimension": 0,
+      "component_definition": "Reduced PGL5-saturated closure of the complete four-parameter modular Jordan4 source s=1/5 in MULTIPLE_HYPERPLANE_NILPOTENT_SUPPORT.md section3",
+      "generic_construction": {
+        "normal_modular_field": "x2*d_x1+x3*d_x2+x4*d_x3",
+        "source_parameter_s": "1/5",
+        "full_source": "research/classification/MULTIPLE_HYPERPLANE_NILPOTENT_SUPPORT.md, sections1-3"
+      },
+      "generic_actual_degeneracy_divisor": {
+        "description": "三重超平面cofactor像の外にあるJordan4型",
+        "irreducible_factor_degrees": [
+          1,
+          1
+        ],
+        "corresponding_multiplicities": [
+          3,
+          2
+        ],
+        "reduced": false
+      },
+      "generic_transverse_algebra": "K",
+      "claims": [
+        "R4_MODULAR_NILPOTENT_FOUR_COMPONENTS_22"
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/MULTIPLE_HYPERPLANE_NILPOTENT_SUPPORT.md"
+        },
+        {
+          "path": "research/classification/NILPOTENT_SOURCE_COMPONENTS_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_MULTIPLE_HYPERPLANE_NILPOTENT_SUPPORT_20261107.json",
+        "reports/CLASSIFICATION_MULTIPLE_HYPERPLANE_NILPOTENT_REVIEW_20261107.json",
+        "reports/CLASSIFICATION_NILPOTENT_SOURCE_COMPONENTS_20261107.json",
+        "reports/CLASSIFICATION_NILPOTENT_SOURCE_COMPONENTS_REVIEW_20261107.json"
+      ],
+      "notes_ja": [
+        "全D103・実source+群+鉛直+尺度47、DF=0により滑らかな22次元全成分。全四源の包含を証明。",
+        "四成分は全閉包の非被約条件でMPSと区別。同次元の旧成分とは因子次数・重複度・二次rank、最後二型は唯一三重因子のcanonical cofactor像条件で区別。",
+        "s=1/7の一点の軌道次元21から一般軌道次元を推論しない。"
+      ],
+      "intrinsic_triple_hyperplane_cofactor_image_membership": false
+    },
+    {
+      "source_checkpoint": "v64-classification-first",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "additional_generic_rank_four_full_component_outside_MPS40",
+      "generic_rank": 4,
+      "meets_SNC_log_symplectic_locus": false,
+      "review_status": {
+        "proof": "full_ambient_componenthood_and_distinctness_proved",
+        "independent_review": "independent_full150_full350_source_and_geometric_proof_accepted_2026_11_07",
+        "certificates": "exact_QQ_rank_and_full_parameter_identities",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "id": "R4_NIL4_TRIPLE_H_DOUBLE_H_INSIDE_22",
+      "name": "三重超平面cofactor像に入るJordan4型",
+      "projective_dimension": 22,
+      "generic_pgl5_orbit_dimension": 22,
+      "generic_reduced_rosenlicht_quotient_dimension": 0,
+      "component_definition": "Reduced PGL5-saturated closure of the complete four-parameter modular Jordan4 source s=1/15 in MULTIPLE_HYPERPLANE_NILPOTENT_SUPPORT.md section3",
+      "generic_construction": {
+        "normal_modular_field": "x2*d_x1+x3*d_x2+x4*d_x3",
+        "source_parameter_s": "1/15",
+        "full_source": "research/classification/MULTIPLE_HYPERPLANE_NILPOTENT_SUPPORT.md, sections1-3"
+      },
+      "generic_actual_degeneracy_divisor": {
+        "description": "三重超平面cofactor像に入るJordan4型",
+        "irreducible_factor_degrees": [
+          1,
+          1
+        ],
+        "corresponding_multiplicities": [
+          3,
+          2
+        ],
+        "reduced": false
+      },
+      "generic_transverse_algebra": "K",
+      "claims": [
+        "R4_MODULAR_NILPOTENT_FOUR_COMPONENTS_22"
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/MULTIPLE_HYPERPLANE_NILPOTENT_SUPPORT.md"
+        },
+        {
+          "path": "research/classification/NILPOTENT_SOURCE_COMPONENTS_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_MULTIPLE_HYPERPLANE_NILPOTENT_SUPPORT_20261107.json",
+        "reports/CLASSIFICATION_MULTIPLE_HYPERPLANE_NILPOTENT_REVIEW_20261107.json",
+        "reports/CLASSIFICATION_NILPOTENT_SOURCE_COMPONENTS_20261107.json",
+        "reports/CLASSIFICATION_NILPOTENT_SOURCE_COMPONENTS_REVIEW_20261107.json"
+      ],
+      "notes_ja": [
+        "全D103・実source+群+鉛直+尺度47、DF=0により滑らかな22次元全成分。全四源の包含を証明。",
+        "四成分は全閉包の非被約条件でMPSと区別。同次元の旧成分とは因子次数・重複度・二次rank、最後二型は唯一三重因子のcanonical cofactor像条件で区別。",
+        "s=1/7の一点の軌道次元21から一般軌道次元を推論しない。"
+      ],
+      "intrinsic_triple_hyperplane_cofactor_image_membership": true
+    },
+    {
+      "source_checkpoint": "v64-classification-first",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "additional_generic_rank_four_full_component_outside_MPS40",
+      "generic_rank": 4,
+      "meets_SNC_log_symplectic_locus": false,
+      "review_status": {
+        "proof": "full_ambient_componenthood_and_distinctness_proved",
+        "independent_review": "independent_full150_full350_source_and_geometric_proof_accepted_2026_11_07",
+        "certificates": "exact_QQ_rank_and_full_parameter_identities",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "id": "R4_DEPENDENT_THREE_HYPERPLANES_QUADRIC_24",
+      "name": "従属三超平面と階数三二次曲面の24次元成分",
+      "projective_dimension": 24,
+      "generic_pgl5_orbit_dimension": null,
+      "generic_reduced_rosenlicht_quotient_dimension": null,
+      "component_definition": "Reduced PGL5-saturated image closure of the complete eight-parameter source a0,a1,R(x,y) in THREE_HYPERPLANES_QUADRIC_DEPENDENT.md section6",
+      "generic_construction": {
+        "f": "x*(x-1)",
+        "q": "(a0+a1*x)*y+f",
+        "V": "f*d_x+y*(a1*y+2*x-1)*d_y+(-a1*y*w+R(x,y))*d_w",
+        "P": "V wedge d_z+q*d_y wedge d_w",
+        "source_open": "a0*(a0+a1) != 0; R arbitrary polynomial of degree at most2"
+      },
+      "generic_actual_degeneracy_divisor": {
+        "description": "three distinct dependent hyperplanes and one irreducible rank3 quadric",
+        "equation": "-h*x*(x-h)*((a0*h+a1*x)*y+x*(x-h))",
+        "irreducible_factor_degrees": [
+          1,
+          1,
+          1,
+          2
+        ],
+        "corresponding_multiplicities": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "quadric_rank": 3,
+        "hyperplane_span_dimension": 2,
+        "reduced": true
+      },
+      "generic_transverse_algebra": null,
+      "claims": [
+        "R4_DEPENDENT_THREE_HYPERPLANES_QUADRIC_COMPONENT_24"
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/THREE_HYPERPLANES_QUADRIC_DEPENDENT.md",
+          "anchor": "section8"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_THREE_HYPERPLANES_QUADRIC_DEPENDENT_20261107.json",
+        "reports/CLASSIFICATION_THREE_HYPERPLANES_QUADRIC_DEPENDENT_NORMALS_20261107.json",
+        "reports/CLASSIFICATION_THREE_HYPERPLANES_QUADRIC_DEPENDENT_REVIEW_20261107.json"
+      ],
+      "notes_ja": [
+        "全D99/実源49/核51。真正二法線の二次初期式が全二次空間を張り、Krull上界と実族下界から24次元全成分。",
+        "閉な従属三一次因子条件で全MPSとCPLUSを区別。Tw0の全閉包の非被約条件とも区別。",
+        "精密nil厚み、証拠点での局所成分一意性、一般軌道次元は未主張。"
+      ]
+    },
+    {
+      "source_checkpoint": "v64-classification-first",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "additional_generic_rank_four_full_component_outside_MPS40",
+      "generic_rank": 4,
+      "meets_SNC_log_symplectic_locus": false,
+      "review_status": {
+        "proof": "full_ambient_componenthood_and_distinctness_proved",
+        "independent_review": "independent_full150_full350_source_and_geometric_proof_accepted_2026_11_07",
+        "certificates": "exact_QQ_rank_and_full_parameter_identities",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "id": "R4_MODULAR_NIL31_DOUBLE_DOUBLE_H_25",
+      "name": "モジュラーJordan(3,1)・独立三超平面の2,2,1型25次元成分",
+      "projective_dimension": 25,
+      "generic_pgl5_orbit_dimension": null,
+      "generic_reduced_rosenlicht_quotient_dimension": null,
+      "component_definition": "Reduced PGL5-saturated image closure of the full A9 times Gm source n7 != 0 in MODULAR_NIL31_COMPONENT.md",
+      "generic_construction": {
+        "normal_modular_field": "y*d_x+z*d_y",
+        "source": "A9 x Gm",
+        "full_source": "research/classification/MODULAR_NIL31_COMPONENT.md, equation3"
+      },
+      "generic_actual_degeneracy_divisor": {
+        "description": "three independent hyperplanes with multiplicities2,2,1",
+        "equation": "h^2*z^2*(p*h+(2/3)*q*z+t*w), t != 0",
+        "irreducible_factor_degrees": [
+          1,
+          1,
+          1
+        ],
+        "corresponding_multiplicities": [
+          2,
+          2,
+          1
+        ],
+        "hyperplane_span_dimension": 3,
+        "reduced": false
+      },
+      "generic_transverse_algebra": "K",
+      "claims": [
+        "R4_MODULAR_NIL31_COMPONENT_25"
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/MODULAR_NIL31_COMPONENT.md"
+        },
+        {
+          "path": "research/classification/NIL31_PRIMITIVE_BETA_IMAGE.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_MULTIPLE_HYPERPLANE_RANK2_NIL_SOURCES_20261107.json",
+        "reports/CLASSIFICATION_RANK2_NIL_31_COMPONENT_20261107.json",
+        "reports/CLASSIFICATION_RANK2_NIL_31_COMPONENT_REVIEW_20261107.json"
+      ],
+      "notes_ja": [
+        "全90線形系のrank75/null15と全n7主開の十源消去を独立確認。全D100/実源50/DF=0により滑らかな25次元全成分。",
+        "全閉包の非被約因子条件でMPS、三乗一次因子の有無で旧positive-weight25成分を区別。他成分とは次元で区別。",
+        "n7=0の二全枝は別義務。既存rank1冪零c0,b非零全十源は別の二重超平面を無限遠に取ることでこの成分へ入る。",
+        "全源の三次元磁気fiberと固定評価の次元上界からprimitive一次像は13以下。一般軌道次元は未主張。"
+      ],
+      "generic_primitive_first_jet_image": "not dominant; full image dimension at most13 by all-source magnetic fiber bound",
+      "primitive_first_jet_image_dimension_upper_bound": 13
     }
   ],
   "named_block_member_annotations": [
@@ -9207,5 +9584,5 @@
     "MPS40 blockを展開したらblockによる加算を止め、二重計上しない。",
     "文献上の新規性は内部成分証明とは別に確認する。"
   ],
-  "new_components_added_in_this_checkpoint": 2
+  "new_components_added_in_this_checkpoint": 8
 }

@@ -1,0 +1,17 @@
+{
+  "task_id": "E_multiple_hyperplane",
+  "target_statement": "Check all universal identities for the complete rank-one nilpotent modular sources: the ten-parameter c=0,b!=0 source, both affine c-outside-imA inverse sources, and the dense-chart projective recognition of the c=0,b=0 nonconstant-g source as CB.",
+  "implication_to_classification": "The exact CB identity closes an entire irreducible rank-one modular subsource, with its b=0 boundary retained by source closure. The other identities certify the actual full finite sources that remain to be covered; no whole-rank-one exhaustion is asserted.",
+  "coefficient_ring": "QQ with all universal source parameters and affine coordinates; QQ(a,b) only in the explicit CB coordinate change",
+  "hypotheses": "The hand proof derives every source from all modular, invariance and Jacobi equations of degree<=2. The existing CA/CB components and their universal source formulas are inputs; no Q45 condition is substituted.",
+  "inverted_elements": ["a and b in the CB coordinate change"],
+  "complements": ["a=0 is the separate constant-g CA branch", "b=0 remains in the closure of the original irreducible a-nonzero source and is not evaluated in the rational CB coordinates", "The ten-parameter and c-outside-imA sources are verified but their component membership remains open"],
+  "exact_inputs_and_hashes": [
+    {"path": "code/classification_rank1_modular_sources.py", "sha256": "eff808db325f8204f04c0341c5039d4a9cad0c237973aa6ab4a07f41f5d2abb8"},
+    {"path": "sources/v06.zip", "sha256": "7de4b8b5d1475d4f878df091082a36831960360a0ba664d7e31b89ea2ff013a9"}
+  ],
+  "success_certificate": "Exact universal Jacobi and divergence identities, the full Pfaffian x^2*w of the ten-source, the two residuals of both other branches, all original degree bounds, and equality of all ten transformed homogeneous bivector coefficients with rawCB retaining all twenty cubic coefficients.",
+  "independent_check": "Direct coordinate differentiation and full polynomial expansion are separate from the analytic derivation in MULTIPLE_HYPERPLANE_LOW_RANK_MODULAR.md; a second agent is reviewing the CA/CB proof by hand. This run is not claimed as independent of its producer author.",
+  "resource_limit": {"timeout_seconds": 60, "memory_mb": 1536},
+  "negative_result_next_step": "Correct any failed identity or scope statement and retain the whole unresolved branch; no larger Groebner or tangent experiment follows automatically."
+}

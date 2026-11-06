@@ -1,0 +1,34 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "target_statement": "Determine exact full ambient tangent and actual eight-parameter image ranks at the dependent three-hyperplane rank-zero-fiber-Hessian residual witness.",
+  "implication_to_classification": "Equality of actual family lower and full ambient tangent upper proves source componenthood; a positive gap fixes the minimal true transverse dimension without claiming componenthood or known membership.",
+  "coefficient_ring": "QQ; all350 homogeneous projective Jacobi coefficients in all150 quadratic bivector coefficients; all8 actual source derivatives.",
+  "hypotheses": "The polynomial source is P=(f dx+A dy+B dw) wedge dz+Q dy wedge dw, f=x(x-1), Q=(a0+a1*x)y+f, A=y(a1*y+2*x-1), B=-a1*y*w+R(x,y), R arbitrary quadratic; the runner verifies universal strict Jacobi and Pfaffian.",
+  "inverted_elements": [
+    "a0*(a0+a1) for irreducible rank3 Q in this normal chart"
+  ],
+  "complements": [
+    "Other choices of the two base factors are retained by permutation of the three hyperplanes; the vanishing boundary is outside this irreducible normal chart and is not classified by this rank test."
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_three_hyperplanes_quadric_dependent.py",
+      "sha256": "77dd61d4adc9cbaccf81cd76613ab668c3c11316db4e0d9b34cda49d4b6f6f4a"
+    },
+    {
+      "path": "code/classification_rank3_mixed_component_review.py",
+      "sha256": "48e61e30f9d7f04fb81f1bb5eec0e18daa28c8192d6a02a251e09cf8855b9bd0"
+    },
+    {
+      "path": "research/classification/THREE_HYPERPLANES_QUADRIC_DEPENDENT.md",
+      "sha256": "5d4123b4eab2173f302d39c755ffa05ff5bfff94a8248a1ff2073e81c95a57d7"
+    }
+  ],
+  "success_certificate": "Exact QQ ranks and nonzero minors of D350x150, Euler vertical, full GL/scalar, and all8 actual source directions; D F=0; universal Jacobi/Pf and witness quadric rank3.",
+  "independent_check": "Reuse the independently reconstructed sparse integer Jacobi engine from the mixed-component review; bind all source hashes and retain all direction columns for independent reconstruction.",
+  "resource_limit": {
+    "timeout_seconds": 60,
+    "memory_mb": 1536
+  },
+  "negative_result_next_step": "If a positive tangent gap remains, extract only that many true normal directions and their first obstruction modulo the full D image under a new finite contract; no repeated point probes or componenthood claim."
+}

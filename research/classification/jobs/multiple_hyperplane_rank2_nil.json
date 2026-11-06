@@ -1,0 +1,17 @@
+{
+  "task_id":"E_multiple_hyperplane",
+  "target_statement":"Obtain complete affine-linear parametrizations, every residual Jacobi coefficient, and actual Pfaffians for the five rank-two nilpotent modular normal forms (3,1) with constant 0/top-long/top-short and (2,2) with constant 0/top.",
+  "implication_to_classification":"These are the exact remaining whole strata after all nonnilpotent rank>=3 and rank2 semisimple support is covered. The (3,1) top-long chart also contains two unresolved nilpotent Jordan4 divisor branches after moving a different repeated hyperplane to infinity. Finite full-source constraints enable geometric recognition without point sampling.",
+  "coefficient_ring":"QQ in all 90 affine bivector coefficients, followed by the free parameters of exact linear elimination.",
+  "hypotheses":"General rank4 is imposed only by nonzero actual Pfaffian after reduction. All C,L,Q coefficients, divP=c+Ax, Q wedge Ax=0, invariance, and all original affine Jacobi coefficients are retained.",
+  "inverted_elements":[],
+  "complements":["All other modular Jordan types are handled in separate notes; no inference of global coverage from this linear reduction."],
+  "exact_inputs_and_hashes":[
+    {"path":"code/classification_multiple_hyperplane_rank2_nil.py","sha256":"b99e80eb3929a568f19aafc31d08da4e3e1730d25d8c14bdc24444ea35713e44"},
+    {"path":"code/classification_multiple_hyperplane_nilpotent.py","sha256":"4f62de3673ec06246a0b1117befcae14ded04d996d1b81fb4250266e69418f21"}
+  ],
+  "success_certificate":"Full 90-coefficient exact linear solution and substitution verification; highest Pfaffian and highest Jacobi identically zero; complete residual Jacobi list and actual Pfaffian for every chart.",
+  "independent_check":"A separate worker reviews the affine normal-form completeness and any resulting full-source recognition; the executable records all formulas for independent reconstruction.",
+  "resource_limit":{"timeout_seconds":60,"memory_mb":1536},
+  "negative_result_next_step":"If residual equations are too large, stop after this exact reduction and use their invariant foliation geometry or an alternative repeated hyperplane. Do not run unbounded Groebner elimination or sample point/prime sequences."
+}

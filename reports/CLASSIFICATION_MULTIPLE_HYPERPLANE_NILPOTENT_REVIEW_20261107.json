@@ -1,0 +1,278 @@
+{
+  "task_id": "E_multiple_hyperplane",
+  "all_passed": true,
+  "field": "QQ",
+  "method": "Independent Fraction sparse polynomial construction and exact rational linear elimination; no SymPy or producer import.",
+  "independent_checker_source": "from fractions import Fraction as F\nfrom itertools import combinations,combinations_with_replacement\nfrom pathlib import Path\nimport ast,hashlib,json,resource,sys,time\n\nresource.setrlimit(resource.RLIMIT_CPU,(40,41))\nresource.setrlimit(resource.RLIMIT_AS,(1024**3,1024**3))\nstarted=time.monotonic();ROOT=Path.cwd();N=37\npairs=list(combinations(range(4),2));triples=list(combinations(range(4),3))\nunknowns=['sigma','r','t']+['c'+str(i) for i in range(6)]+['l'+str(i) for i in range(24)]\ndef term(a,*inds):\n    e=[0]*N\n    for i in inds:e[i]+=1\n    return {tuple(e):F(a)} if a else {}\ndef add(*ps):\n    out={}\n    for p in ps:\n        for e,a in p.items():out[e]=out.get(e,F(0))+a\n    return {e:a for e,a in out.items() if a}\ndef scale(p,a):return {e:a*b for e,b in p.items() if a*b}\ndef mul(p,q):\n    out={}\n    for e,a in p.items():\n        for f,b in q.items():\n            m=tuple(x+y for x,y in zip(e,f));out[m]=out.get(m,F(0))+a*b\n    return {e:a for e,a in out.items() if a}\ndef der(p,i):\n    out={}\n    for e,a in p.items():\n        if e[i]:\n            m=list(e);m[i]-=1;out[tuple(m)]=a*e[i]\n    return out\ndef tensor(data):\n    out={}\n    for (i,j),p in data.items():out[i,j]=p;out[j,i]=scale(p,-1)\n    return out\ndef jacobi(P):\n    return [add(*(mul(P.get((a,l),{}),der(P.get((b,c),{}),l))\n             for a,b,c in [(i,j,k),(j,k,i),(k,i,j)] for l in range(4))) for i,j,k in triples]\ndef pf(P):return add(mul(P[0,1],P[2,3]),scale(mul(P[0,2],P[1,3]),-1),mul(P[0,3],P[1,2]))\ndef divergence(P):return [add(*(der(P.get((i,j),{}),i) for i in range(4))) for j in range(4)]\ndef invariant(P,Z):\n    return [add(*(mul(Z[k],der(P[i,j],k)) for k in range(4)),\n                *(scale(mul(P.get((k,j),{}),der(Z[i],k)),-1) for k in range(4)),\n                *(scale(mul(P.get((i,k),{}),der(Z[j],k)),-1) for k in range(4))) for i,j in pairs]\ndef parse(text):\n    names={**{'x'+str(i+1):i for i in range(4)},**{'n'+str(i):i+4 for i in range(9)}}\n    def walk(n):\n        if isinstance(n,ast.Constant) and isinstance(n.value,int):return term(n.value)\n        if isinstance(n,ast.Name) and n.id in names:return term(1,names[n.id])\n        if isinstance(n,ast.UnaryOp) and isinstance(n.op,ast.USub):return scale(walk(n.operand),-1)\n        if isinstance(n,ast.BinOp):\n            if isinstance(n.op,ast.Add):return add(walk(n.left),walk(n.right))\n            if isinstance(n.op,ast.Sub):return add(walk(n.left),scale(walk(n.right),-1))\n            if isinstance(n.op,ast.Mult):return mul(walk(n.left),walk(n.right))\n            if isinstance(n.op,ast.Div) and isinstance(n.right,ast.Constant):return scale(walk(n.left),F(1,n.right.value))\n            if isinstance(n.op,ast.Pow) and isinstance(n.right,ast.Constant):\n                p=term(1)\n                for _ in range(n.right.value):p=mul(p,walk(n.left))\n                return p\n        raise ValueError(ast.dump(n))\n    return walk(ast.parse(text,mode='eval').body)\ndef substitute(p,replacements):\n    out={}\n    for e,a in p.items():\n        m=list(e)\n        for j in replacements:m[j]=0\n        value={tuple(m):a}\n        for j,q in replacements.items():\n            for _ in range(e[j]):value=mul(value,q)\n        out=add(out,value)\n    return out\ndef source_substitute(P,replacements):return tensor({ij:substitute(P[ij],replacements) for ij in pairs})\ndef coefficient_polys(polynomials):\n    out=[]\n    for p in polynomials:\n        coeff={}\n        for e,a in p.items():\n            mon=e[:4];m=(0,)*4+e[4:]\n            coeff[mon]=add(coeff.get(mon,{}),{m:a})\n        out.extend((mon,coef) for mon,coef in sorted(coeff.items()) if coef)\n    return out\ndef rref(A):\n    B=[[F(v) for v in row] for row in A];rank=0;pivots=[]\n    if not B:return B,pivots\n    for j in range(len(B[0])):\n        k=next((i for i in range(rank,len(B)) if B[i][j]),None)\n        if k is None:continue\n        B[k],B[rank]=B[rank],B[k];a=B[rank][j];B[rank]=[v/a for v in B[rank]]\n        for i in range(len(B)):\n            a=B[i][j]\n            if i!=rank and a:B[i]=[x-a*y for x,y in zip(B[i],B[rank])]\n        pivots.append(j);rank+=1\n    return B,pivots\ndef same_span(ps,qs):\n    mons=sorted(set().union(*(set(p) for p in ps+qs)))\n    A,ap=rref([[p.get(m,F(0)) for m in mons] for p in ps])\n    B,bp=rref([[p.get(m,F(0)) for m in mons] for p in qs])\n    assert len(ap)==len(bp) and A[:len(ap)]==B[:len(bp)]\n    return len(ap)\n\nX=[term(1,1),term(1,2),term(1,3),{}]\nY=[add(term(F(-1,4),0),term(F(7,4),4,0),term(1,5,2),term(1,6,3)),\n   add(term(F(-1,4),1),term(F(3,4),4,1),term(1,5,3)),\n   add(term(F(-1,4),2),term(F(-1,4),4,2)),\n   add(term(F(-1,4),3),term(F(-5,4),4,3))]\nQ=tensor({(i,j):add(mul(X[i],Y[j]),scale(mul(Y[i],X[j]),-1)) for i,j in pairs})\nassert not pf(Q)\nassert divergence(Q)==X\nP=tensor({ij:add(Q[ij],term(1,7+k),*(term(1,13+4*k+i,i) for i in range(4))) for k,ij in enumerate(pairs)})\ninput_path='reports/CLASSIFICATION_MULTIPLE_HYPERPLANE_NILPOTENT_20261107.json'\ninput_report=json.loads((ROOT/input_path).read_text())\nchart_results=[];sources=[]\nspace_monomials=[]\nfor degree in range(3):\n    for factors in combinations_with_replacement(range(4),degree):\n        e=[0]*4\n        for i in factors:e[i]+=1\n        space_monomials.append(tuple(e))\nfor gamma,record in enumerate(input_report['charts']):\n    assert record['gamma']==gamma\n    Z=X[:];Z[3]=term(gamma)\n    equations=invariant(P,Z)+[add(a,scale(b,-1)) for a,b in zip(divergence(P),Z)]\n    A=[];rhs=[]\n    for equation in equations:\n        rows={e:[F(0)]*34 for e in space_monomials}\n        for e,c in equation.items():\n            assert sum(e[4:])<=1 and e[:4] in rows\n            if sum(e[4:])==0:rows[e[:4]][33]+=c\n            else:\n                j=next(i for i,v in enumerate(e[4:]) if v);rows[e[:4]][j]+=c\n        for e in space_monomials:A.append(rows[e][:33]);rhs.append(-rows[e][33])\n    reduced,pivots=rref(A)\n    sub={i+4:parse(record['full_source_substitution'][name]) for i,name in enumerate(unknowns)}\n    assert all(not substitute(equation,sub) for equation in equations)\n    nr=record['free_parameter_count'];direction_matrix=[]\n    for i in range(33):\n        direction_matrix.append([sub[i+4].get(tuple(int(k==j+4) for k in range(N)),F(0)) for j in range(nr)])\n    _,image_pivots=rref(direction_matrix)\n    assert len(image_pivots)==nr and len(pivots)==33-nr\n    Pn=source_substitute(P,sub);assert all(Pn[ij]==parse(expr) for ij,expr in zip(pairs,record['all_six_brackets']))\n    J=jacobi(Pn);assert J==[parse(p) for p in record['all_four_jacobi_polynomials']]\n    Factual=pf(Pn);assert Factual==parse(record['actual_affine_pfaffian'])\n    assert divergence(Pn)==Z and all(not p for p in invariant(Pn,Z))\n    sources.append(Pn)\n    chart_results.append({'gamma':gamma,'all_coefficient_matrix_shape':[len(A),33],\n        'linear_rank_QQ':len(pivots),'full_affine_solution_dimension':nr,'substitution_image_rank_QQ':len(image_pivots),\n        'source_is_full_affine_solution':True,'all_six_brackets_match':True,'all_four_Jacobi_polynomials_match':True,\n        'actual_Pfaffian_matches':True,'full_divergence_and_modular_invariance':True,\n        'constraint_matrix_sha256':hashlib.sha256(json.dumps([[str(a) for a in row] for row in A]).encode()).hexdigest()})\n\nsix_strings=['n3*(3*n7-1)','n2*(7*n7-1)','n1*(n7-1)+4*n3**2',\n             '8*n2*n6+12*n3*n8+(1-15*n7)*n4','(15*n7-3)*n0-12*n1*n6+8*n2**2+12*n3*n5','n1*n2']\nsix=[parse(f) for f in six_strings]\nrank=same_span([p for _,p in coefficient_polys(jacobi(sources[0]))],six);assert rank==6\n\nP1=sources[1];successive={};triangular=[]\nfor name,target in [('n2','-n4'),('n1','0'),('n5','0'),('n0','0')]:\n    index=4+int(name[1:]);desired=add(term(1,index),scale(parse(target),-1))\n    coeffs=coefficient_polys(jacobi(source_substitute(P1,successive)))\n    found=None\n    for mon,p in coeffs:\n        key=next(iter(desired));ratio=p.get(key,F(0))/desired[key]\n        if ratio and p==scale(desired,ratio):found=(mon,ratio);break\n    assert found is not None\n    triangular.append({'forced_equation':name+'-('+target+')','coefficient_monomial':list(found[0]),'coefficient_ratio':str(found[1])})\n    successive[index]=parse(target)\nP1final=source_substitute(P1,successive)\nassert all(not p for p in jacobi(P1final)) and not pf(P1final)\n\nbranches={\n 's_1_3':({'n7':'1/3','n1':'6*n3**2','n2':'0','n4':'3*n3*n8','n0':'36*n3**2*n6-6*n3*n5'},'n3',(1,0,0,2),'-n3'),\n 's_1_7':({'n7':'1/7','n3':'0','n1':'0','n4':'7*n2*n6','n0':'28*n2**2/3'},'n2',(0,1,0,2),'-2*n2/3'),\n 's_1':({'n7':'1','n2':'0','n3':'0','n4':'0','n0':'n1*n6'},'n1',(0,0,0,0),'-n1**2'),\n 's_1_5':({'n7':'1/5','n1':'0','n2':'0','n3':'0','n4':'0'},'n0',(0,0,0,2),'-n0/2'),\n 's_1_15':({'n7':'1/15','n0':'0','n1':'0','n2':'0','n3':'0'},'n4',(0,0,0,3),'-n4/3'),\n}\nbranch_results={}\nfor name,(mapping,nonzero,mon,witness) in branches.items():\n    sub={4+int(k[1:]):parse(v) for k,v in mapping.items()}\n    Pb=source_substitute(sources[0],sub)\n    assert all(not p for p in jacobi(Pb))\n    Factual=pf(Pb);coeff=dict(coefficient_polys([Factual]))[mon]\n    assert coeff==parse(witness)\n    assert not substitute(Factual,{4+int(nonzero[1:]):{}})\n    free=sorted({j-4 for p in Pb.values() for e in p for j in range(4,13) if e[j]})\n    assert len(free)==4\n    branch_results[name]={'substitution':mapping,'rank4_iff_nonzero':nonzero,'free_parameters':['n'+str(i) for i in free],\n       'all_four_Jacobi_polynomials_zero':True,'rank4_witness_coordinate_monomial':list(mon),'rank4_witness_coefficient':witness,\n       'Pfaffian_zero_on_excluded_boundary':True}\nassert not pf(source_substitute(sources[0],{4+i:{} for i in range(5)}))\nchecker=Path(__file__).read_text()\nresult={'task_id':'E_multiple_hyperplane','all_passed':True,'field':'QQ',\n 'method':'Independent Fraction sparse polynomial construction and exact rational linear elimination; no SymPy or producer import.',\n 'independent_checker_source':checker,'source_sha256':hashlib.sha256(checker.encode()).hexdigest(),\n 'input_sha256':{input_path:hashlib.sha256((ROOT/input_path).read_bytes()).hexdigest()},\n 'all33_unknown_names':unknowns,'retained_low_coefficients':{'constant':6,'linear':24},\n 'highest_normal_form_checks':{'decomposable_Pfaffian_zero':True,'divergence_equals_Jordan4_field':True},\n 'charts':chart_results,'gamma0_all_Jacobi_equivalent_to_six_conditions':six_strings,\n 'gamma1_successive_forced_equations':triangular,'gamma1_full_Pfaffian_zero_after_necessary_conditions':True,\n 'five_complete_rank4_sources':branch_results,\n 'exhaustiveness_case_split':['d!=0 forces s=1/3 and the first source','d=0,c!=0 forces s=1/7 and the second source',\n  'd=c=0,b!=0 forces s=1 and the third source','d=c=b=0,a!=0 forces s=1/5,e=0 and the fourth source',\n  'd=c=b=a=0,e!=0 forces s=1/15 and the fifth source','d=c=b=a=e=0 has identically zero Pfaffian'],\n 'max_normal_source_dimension':4,\n 'scope':'Exact full affine linear source elimination and exhaustive rank4 support in both supplied Jordan4 modular charts. The prior reduction of every rank3-nilpotent highest quadratic to this normal form, and the affine group/fixed-constant primitive-beta dimension argument, are separate geometric dependencies.',\n 'global_exhaustion_proved':False,'elapsed_seconds':time.monotonic()-started}\noutput=Path(sys.argv[1]) if len(sys.argv)>1 else ROOT/'reports/CLASSIFICATION_MULTIPLE_HYPERPLANE_NILPOTENT_REVIEW_20261107.json'\nwith output.open('x') as stream:json.dump(result,stream,indent=2);stream.write('\\n')\nprint(json.dumps({k:result[k] for k in ['all_passed','max_normal_source_dimension','gamma1_full_Pfaffian_zero_after_necessary_conditions','elapsed_seconds']},indent=2))\n",
+  "source_sha256": "f2ca467905127ba49793b07e253dc6824ffe47a83adb277b155b1cca1de8c940",
+  "input_sha256": {
+    "reports/CLASSIFICATION_MULTIPLE_HYPERPLANE_NILPOTENT_20261107.json": "c5acff9e0e941a0af24bbd91a9d777068f3b3d8c2b27a9c7336dcd28203c393b"
+  },
+  "all33_unknown_names": [
+    "sigma",
+    "r",
+    "t",
+    "c0",
+    "c1",
+    "c2",
+    "c3",
+    "c4",
+    "c5",
+    "l0",
+    "l1",
+    "l2",
+    "l3",
+    "l4",
+    "l5",
+    "l6",
+    "l7",
+    "l8",
+    "l9",
+    "l10",
+    "l11",
+    "l12",
+    "l13",
+    "l14",
+    "l15",
+    "l16",
+    "l17",
+    "l18",
+    "l19",
+    "l20",
+    "l21",
+    "l22",
+    "l23"
+  ],
+  "retained_low_coefficients": {
+    "constant": 6,
+    "linear": 24
+  },
+  "highest_normal_form_checks": {
+    "decomposable_Pfaffian_zero": true,
+    "divergence_equals_Jordan4_field": true
+  },
+  "charts": [
+    {
+      "gamma": 0,
+      "all_coefficient_matrix_shape": [
+        150,
+        33
+      ],
+      "linear_rank_QQ": 24,
+      "full_affine_solution_dimension": 9,
+      "substitution_image_rank_QQ": 9,
+      "source_is_full_affine_solution": true,
+      "all_six_brackets_match": true,
+      "all_four_Jacobi_polynomials_match": true,
+      "actual_Pfaffian_matches": true,
+      "full_divergence_and_modular_invariance": true,
+      "constraint_matrix_sha256": "720b725f7d36aac39240b30d3d921b4e8310f216705e6cc339befe3623cfd6ad"
+    },
+    {
+      "gamma": 1,
+      "all_coefficient_matrix_shape": [
+        150,
+        33
+      ],
+      "linear_rank_QQ": 26,
+      "full_affine_solution_dimension": 7,
+      "substitution_image_rank_QQ": 7,
+      "source_is_full_affine_solution": true,
+      "all_six_brackets_match": true,
+      "all_four_Jacobi_polynomials_match": true,
+      "actual_Pfaffian_matches": true,
+      "full_divergence_and_modular_invariance": true,
+      "constraint_matrix_sha256": "1143b818e982b9a7ff2fd23b7892b5a17c557a8c5a0fd06976f338bd4b31d718"
+    }
+  ],
+  "gamma0_all_Jacobi_equivalent_to_six_conditions": [
+    "n3*(3*n7-1)",
+    "n2*(7*n7-1)",
+    "n1*(n7-1)+4*n3**2",
+    "8*n2*n6+12*n3*n8+(1-15*n7)*n4",
+    "(15*n7-3)*n0-12*n1*n6+8*n2**2+12*n3*n5",
+    "n1*n2"
+  ],
+  "gamma1_successive_forced_equations": [
+    {
+      "forced_equation": "n2-(-n4)",
+      "coefficient_monomial": [
+        0,
+        1,
+        1,
+        0
+      ],
+      "coefficient_ratio": "-1/6"
+    },
+    {
+      "forced_equation": "n1-(0)",
+      "coefficient_monomial": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "coefficient_ratio": "5/9"
+    },
+    {
+      "forced_equation": "n5-(0)",
+      "coefficient_monomial": [
+        0,
+        0,
+        0,
+        2
+      ],
+      "coefficient_ratio": "2/3"
+    },
+    {
+      "forced_equation": "n0-(0)",
+      "coefficient_monomial": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "coefficient_ratio": "7/9"
+    }
+  ],
+  "gamma1_full_Pfaffian_zero_after_necessary_conditions": true,
+  "five_complete_rank4_sources": {
+    "s_1_3": {
+      "substitution": {
+        "n7": "1/3",
+        "n1": "6*n3**2",
+        "n2": "0",
+        "n4": "3*n3*n8",
+        "n0": "36*n3**2*n6-6*n3*n5"
+      },
+      "rank4_iff_nonzero": "n3",
+      "free_parameters": [
+        "n3",
+        "n5",
+        "n6",
+        "n8"
+      ],
+      "all_four_Jacobi_polynomials_zero": true,
+      "rank4_witness_coordinate_monomial": [
+        1,
+        0,
+        0,
+        2
+      ],
+      "rank4_witness_coefficient": "-n3",
+      "Pfaffian_zero_on_excluded_boundary": true
+    },
+    "s_1_7": {
+      "substitution": {
+        "n7": "1/7",
+        "n3": "0",
+        "n1": "0",
+        "n4": "7*n2*n6",
+        "n0": "28*n2**2/3"
+      },
+      "rank4_iff_nonzero": "n2",
+      "free_parameters": [
+        "n2",
+        "n5",
+        "n6",
+        "n8"
+      ],
+      "all_four_Jacobi_polynomials_zero": true,
+      "rank4_witness_coordinate_monomial": [
+        0,
+        1,
+        0,
+        2
+      ],
+      "rank4_witness_coefficient": "-2*n2/3",
+      "Pfaffian_zero_on_excluded_boundary": true
+    },
+    "s_1": {
+      "substitution": {
+        "n7": "1",
+        "n2": "0",
+        "n3": "0",
+        "n4": "0",
+        "n0": "n1*n6"
+      },
+      "rank4_iff_nonzero": "n1",
+      "free_parameters": [
+        "n1",
+        "n5",
+        "n6",
+        "n8"
+      ],
+      "all_four_Jacobi_polynomials_zero": true,
+      "rank4_witness_coordinate_monomial": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "rank4_witness_coefficient": "-n1**2",
+      "Pfaffian_zero_on_excluded_boundary": true
+    },
+    "s_1_5": {
+      "substitution": {
+        "n7": "1/5",
+        "n1": "0",
+        "n2": "0",
+        "n3": "0",
+        "n4": "0"
+      },
+      "rank4_iff_nonzero": "n0",
+      "free_parameters": [
+        "n0",
+        "n5",
+        "n6",
+        "n8"
+      ],
+      "all_four_Jacobi_polynomials_zero": true,
+      "rank4_witness_coordinate_monomial": [
+        0,
+        0,
+        0,
+        2
+      ],
+      "rank4_witness_coefficient": "-n0/2",
+      "Pfaffian_zero_on_excluded_boundary": true
+    },
+    "s_1_15": {
+      "substitution": {
+        "n7": "1/15",
+        "n0": "0",
+        "n1": "0",
+        "n2": "0",
+        "n3": "0"
+      },
+      "rank4_iff_nonzero": "n4",
+      "free_parameters": [
+        "n4",
+        "n5",
+        "n6",
+        "n8"
+      ],
+      "all_four_Jacobi_polynomials_zero": true,
+      "rank4_witness_coordinate_monomial": [
+        0,
+        0,
+        0,
+        3
+      ],
+      "rank4_witness_coefficient": "-n4/3",
+      "Pfaffian_zero_on_excluded_boundary": true
+    }
+  },
+  "exhaustiveness_case_split": [
+    "d!=0 forces s=1/3 and the first source",
+    "d=0,c!=0 forces s=1/7 and the second source",
+    "d=c=0,b!=0 forces s=1 and the third source",
+    "d=c=b=0,a!=0 forces s=1/5,e=0 and the fourth source",
+    "d=c=b=a=0,e!=0 forces s=1/15 and the fifth source",
+    "d=c=b=a=e=0 has identically zero Pfaffian"
+  ],
+  "max_normal_source_dimension": 4,
+  "scope": "Exact full affine linear source elimination and exhaustive rank4 support in both supplied Jordan4 modular charts. The prior reduction of every rank3-nilpotent highest quadratic to this normal form, and the affine group/fixed-constant primitive-beta dimension argument, are separate geometric dependencies.",
+  "global_exhaustion_proved": false,
+  "elapsed_seconds": 0.06528174599952763
+}

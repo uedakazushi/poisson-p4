@@ -1,0 +1,30 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "target_statement": "Independently reconstruct the entire regular normal-Hamiltonian invariant quadratic source, its exact five Jacobi conditions, all six lines and all parameter SNC degenerations.",
+  "implication_to_classification": "The full source dimension plus exact Jacobi equivalence and complete six-line split prove no invariant lift was lost; the six universal SNC orbit limits cover the entire regular smooth-quadric branch by MPS40.",
+  "coefficient_ring": "QQ via independent standard-library Fraction sparse polynomials; all5 spatial variables and all5 parameters retained.",
+  "hypotheses": "Smooth q=x0\u00b2+x1*x2+x3*x4; divergence-free canonical quadratic lift with {q,-}=q*diag(0,1,-1,2,-2), invariance under that semisimple field.",
+  "inverted_elements": [
+    "Nonzero scalar used to normalize the normal Hamiltonian before this source"
+  ],
+  "complements": [
+    "Other semisimple/nilpotent Jordan types and singular quadrics are not treated and remain in the source classification queue."
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_smooth_quadric_review.py",
+      "sha256": "4b7c37a9b72b5b8463ded8e3fd57a2549e5580fb24ab73fb8693afb46d23f237"
+    },
+    {
+      "path": "reports/CLASSIFICATION_SMOOTH_QUADRIC_REGULAR_COVERAGE_20261107.json",
+      "sha256": "9195394658c44cdebb99dfb887a1f8743a1b25f564096ddaea117eacab9e3514"
+    }
+  ],
+  "success_certificate": "Independent invariant20 count; all200 linear coefficient slots rank15 with augmented consistency and source dimension5; all350 strictJacobi coefficient slots span the five conditions; universal six-line Jacobi, Pfaffian gradients and all nonnegative weight powers with fixed nonzero SNC limit.",
+  "independent_check": "Do not import producer, SymPy or existing polynomial engine. Parse only saved symbolic bracket data and independently compute Fraction arithmetic, differentiation, Jacobi, ranks and Pfaffians.",
+  "resource_limit": {
+    "timeout_seconds": 35,
+    "memory_mb": 1024
+  },
+  "negative_result_next_step": "Identify the exact failed invariant coefficient, Jacobi condition or weight exponent; do not weaken the source or discard a line to obtain agreement."
+}

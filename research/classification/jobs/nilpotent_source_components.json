@@ -1,0 +1,18 @@
+{
+  "task_id": "E_multiple_hyperplane",
+  "target_statement": "At one explicit point of each of the four remaining complete nilJordan4 sources, compute the full ambient Jacobi tangent space and all actual source, orbit, scale and vertical directions over QQ.",
+  "implication_to_classification": "Equality of the full tangent upper bound with the actual irreducible source lower bound proves a unique smooth full component through the point and hence membership of its entire irreducible source. If equality fails, preserve the exact quotient and change to actual deformation or recognition; tangent dimension alone is not membership.",
+  "coefficient_ring": "QQ, all150 homogeneous quadratic bivector coordinates and all350 projective Jacobi equations",
+  "hypotheses": "The full nilJordan4 rank4 stratum has already been proved to consist of five irreducible four-parameter sources. The s=1 source is already identified with a known smooth component. The four other representatives set their required nonzero parameter to1 and the three unrestricted parameters to0.",
+  "inverted_elements": ["The distinguished nonzero parameter of each previously proved source"],
+  "complements": ["No source omitted: the fifth s=1 source is already recognized", "Rank-at-most2 boundaries remain covered by the established global rank2 theorem", "A failed equality leaves the entire corresponding source unresolved"],
+  "exact_inputs_and_hashes": [
+    {"path": "code/classification_nilpotent_source_components.py", "sha256": "3da919181ba1361f285cfbd2681c0d1d2a3443a3b7909609becc7b88915845a3"},
+    {"path": "reports/CLASSIFICATION_MULTIPLE_HYPERPLANE_NILPOTENT_SUPPORT_20261107.json", "sha256": "4824f4cc3c306b67bfd76f6929cada4e6cdb82aeec997a076ab2abcf849e4d25"},
+    {"path": "legacy/v03/code/poisson_p4_components_check.py", "sha256": "08ca6a3d9938dec9df734a7a95d7d3eedb1b7c95d11213d8ada59feed625203f"}
+  ],
+  "success_certificate": "Full exact derivative ranks via nonzero minors and complete kernel bases, actual source/orbit directions annihilated by all350 rows, and the precise equality or failure for each of the four exhaustive sources.",
+  "independent_check": "Any resulting component claim requires an independent reconstruction of the relevant full derivative and actual direction rank, plus geometric recognition or distinctness. No finite-field upper bound is used.",
+  "resource_limit": {"timeout_seconds": 90, "memory_mb": 1536},
+  "negative_result_next_step": "For a source with tangent excess, use its exact normal quotient only if one finite obstruction or actual Poisson deformation would settle support. Do not repeat sampled points or begin a growing coefficient-probe farm."
+}

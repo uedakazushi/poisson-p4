@@ -25,7 +25,7 @@
 \maketitle
 \begin{abstract}
 本稿は、複素射影四空間上のPoisson構造の被約既約成分を尽くし、各成分の一般元の幾何を記述するための研究原稿である。
-分類主定理の証明は完成していない。S61の一次座標と一般切片の対応を確認し、既知三平面に沿う多項式左逆から未知残余を分離する。その空性は忠実な法線チャートの単位証明へ帰着できるが未証明である。階数2の全支持を六族と階数4の閉包で覆い、従前58成分の成分性・相違の依存を監査し、階数3の二重二次曲面を持つ22次元成分と24次元成分を新たに証明して下界60を得る。さらに、一次部分零の層、SNC最高部を持つ二次多項式代表、および二重の既約二次曲面を持つ全支持を現在の成分和へ接続する。
+分類主定理の証明は完成していない。S61の一次座標と一般切片の対応を確認し、既知三平面に沿う多項式左逆から未知残余を分離する。その空性は忠実な法線チャートの単位証明へ帰着できるが未証明である。階数2の全支持を六族と階数4の閉包で覆い、従前58成分の依存監査に加え、二重二次曲面・冪零モジュラー場・従属三超平面の全源から八つの相異なる成分を証明して下界66を得る。二重の既約二次曲面、相異なる五超平面、およびモジュラー場による複数の全分岐を現在の成分和へ被覆する。各新成分は全周囲方程式で検証し、全支持の尽くしとは区別する。
 既存リポジトリの全証明書を再実行したとは主張せず、原証明の読解と今回の独立検算を区別する。
 詳細なnilpotent構造や派生論文の完成を、主分類定理の前提条件に追加しない。
 \end{abstract}
@@ -47,7 +47,7 @@
 を証明する。各族が全空間の既約成分であること、相互に異なること、次元、一般階数、一般元の構成および退化因子の幾何を記述する。
 \end{target}
 
-\(N\)は未決定である。2026年11月7日に確認したリポジトリの台帳は、全成分数の下界60、一般階数4の成分数の下界54を記録している。
+\(N\)は未決定である。2026年11月7日に確認したリポジトリの台帳は、全成分数の下界66、一般階数4の成分数の下界60を記録している。
 既存証明書を入力とする成分性・相違の依存監査を行い、以下で主分類に接続する。
 全証明書を今回再実行したという意味ではない。
 この下界を答えとして固定して未知成分を排除するのではない。
@@ -579,7 +579,7 @@ B18の精密なnil指数、\(H^0\)、\(T_2\)全長、追加の接触・Betti不�
 
 \section{既知成分の下界を支える支持の証明}
 MPSの定理\cite[Theorem 1.4]{mps}はSNC locusと交わる40成分を与える。
-従前の追加十一族、NEW25、および今回の階数三混合型・Tw0型成分の射影次元は次の通りである。
+従前の追加十一族、positive-weight型NEW25、および今回の八つの追加成分の射影次元は次の通りである。
 \begin{center}
 \begin{tabular}{lr}
 \toprule
@@ -591,10 +591,13 @@ MINIMAL\_M、A0、DPM&23,23,23\\
 CPLUS\_EXT、CMINUS\_MAG&24,23\\
 NEW25&25\\
 階数三二重二次曲面の混合余剰型&22\\
-同じ階数三の$T(w)=0$型&24\\\bottomrule
+同じ階数三の$T(w)=0$型&24\\
+モジュラーJordan4の四つの全源&22,22,22,22\\
+従属三超平面と階数三二次曲面&24\\
+モジュラーJordan$(3,1)$・三超平面2,2,1型&25\\\bottomrule
 \end{tabular}
 \end{center}
-前述の六rank2成分と合わせて下界は$40+11+1+1+1+6=60$となる。
+前述の六rank2成分と合わせて下界は$40+11+1+2+4+1+1+6=66$となる。
 以下の議論はこの下界を支えるもので、全支持の上界を与えない。
 
 \subsection{精密な横断環を要しない成分性}
@@ -1054,6 +1057,434 @@ CPLUSの一般因子$H+Q_1+Q_2$も被約なので、同じ閉条件で区別さ�
 既知成分と今回の二つの追加成分で覆った。
 他の非被約因子や被約非正規五次因子については、依然として全支持の義務が残る。
 
+
+\section{重複超平面とモジュラー場}
+重複超平面Hを無限遠へ送ると、全構造は四変数の二次以下のPoissonテンソル
+$P=C+L+Q$、$\operatorname{Pf}Q=0$で表される。
+この変更は固定symplectic基点を保つperspectiveで行え、primitive一次部分を変えない。
+全条件は
+\[
+ [C,L]=0,\quad 2[C,Q]+[L,L]=0,\quad [L,Q]=0,\quad[Q,Q]=0
+\]
+であり、最高部だけを分類して低次項を捨てることはしない。
+発散を$Z=c+Ax$と書くと、$\operatorname{tr}A=0$、$[Z,P]=0$である。
+
+\begin{lemma}\label{lem:modular-koszul}
+$\operatorname{rank}A\ge3$なら、最高部は$Q=(Ax)\wedge(Bx)$と書ける。
+このとき$BA-AB=(1+\operatorname{tr}B)A$。
+Aが冪零でなければ、$AB=BA$かつ$\operatorname{tr}B=-1$となる。
+\end{lemma}
+\begin{proof}
+$\operatorname{Pf}Q=0$の発散を取ると$Ax\wedge Q=0$。
+Axの係数イデアルは高さ3以上なので、Koszul複体はこの次数で完全であり、
+次数から一次場Bxを得る。発散公式は表示した交換子条件を与える。
+$A^{m-1}$を掛けてtraceを取れば
+$(1+\operatorname{tr}B)\operatorname{tr}(A^m)=0$。
+Aが非冪零ならあるmで後者は非零なので結論を得る。
+冪零型にはこの可換性を適用しない。
+\end{proof}
+
+\begin{proposition}\label{prop:modular-nonnil}
+重複超平面を持ち、モジュラー線形部Aが可逆、または階数3で非冪零、
+または階数2で半単純となる全rank4支持はMPS40成分の和に入る。
+\end{proposition}
+\begin{proof}
+全固有値・Jordan型の線形源と残る全Jacobiは
+\path{REMAINING_DEGENERACY_DIVISOR_SUPPORT.md}、
+\path{MULTIPLE_HYPERPLANE_MODULAR_SUPPORT.md}、
+\path{MULTIPLE_HYPERPLANE_LOW_RANK_MODULAR.md}に明記した。
+ここでは被覆の有限な構造と、特に定数項を落としやすい枝を示す。
+可逆AではZの零点へ平行移動し、$C$の階数0,2,4をすべて残す。
+正則半単純で固有値の対和が零の非共鳴型は
+\[
+ c\partial_{12}+(x_1\partial_1-x_2\partial_2)
+ \wedge(e x_3\partial_3+f x_4\partial_4)
+ +d x_3x_4\partial_{34},\qquad cd\ne0
+\]
+となり、$t x_1x_2\partial_{12}$を加えればSNCへ変形する。
+対和零で一次共鳴を持つ正則型は固有値$(1,-1,2,-2)$だけである。
+全定数$C=c\partial_{12}+d\partial_{34}$、全一次
+$L=p x_2\partial_{14}+q x_1\partial_{23}$を保持すると、
+二次部の二変数b,yに対する全Jacobiは
+\[
+ bc=0,\quad q(b+y)=0,\quad p(1+2b+y)=0,\quad pq+d(1+b)=0.
+\]
+この五つのsource chartの各々に正則なSNC変形がある。
+対和零を持たない型ではC=0、可能なLはHeisenberg型またはfiliform型だけで、
+全二次延長を保つSNC変形を同様に持つ。
+重複固有値および非半単純型では、可換なA,BとC,Lの保存条件を保った
+明示行列変形により、以上の正則半単純型へ入る。
+
+階数3で零固有値が単純なら、全源は
+$P=Dx\wedge\partial_4+(Ax)\wedge(Bx+b x_4\partial_4)$、
+$[A,D]=0$、$DB-BD-bD=sA$となる。
+b=0では同じ二次行列代数内の変形、b非零では唯一の冪零一次係数を保つ
+toric変形でSNCへ入る。
+残る非冪零階数3は
+$Z=a(x\partial_x-y\partial_y)+w\partial_z+\gamma\partial_w$である。
+全六括弧は、$s=e+\eta$として
+\[
+\begin{split}
+ (&-a(1+2b)xy+f_0+f_1w,\ x(abz+\beta w+e),\ x(abw+\gamma\beta),\\
+  &y(-abz+(1+2b-\beta)w+\eta),\ y(-abw+\gamma(1+2b-\beta)),\ bw^2+sw+g),
+\end{split}
+\]
+ただし$\gamma b=\gamma s=\gamma f_1=0$。
+全Jacobiは
+\[
+ bs=bg=\gamma f_0=0,\quad(1+3b)f_1=0,\quad
+ (1+2b)f_0+2sf_1=sf_0+gf_1=0
+\]
+と同値である。b非零のrank4枝は$b=-1/2$と$-1/3$だけで、可逆Aへ実変形する。
+b=0では$f_0=f_1=0$。
+$D_x=x\partial_x,D_y=y\partial_y,A_0=H\partial_z,B_0=w\partial_z$を用いると、
+$\gamma=0$の全源は四つの可換場の外積と$H(sw+gH)\partial_{zw}$の和となる。
+s非零では$W=w+(g/s)H$とし
+\[
+ A_t=H\partial_z+t^2H\partial_H,\qquad B_t=W\partial_z+tW\partial_W
+\]
+で置き換える。二場は可換で、$A_t\wedge B_t/t\to HW\partial_{zW}$。
+s=0では$g\ne0$であり、
+\[
+ A_t=H\partial_z+t^2(H\partial_H+w\partial_w),\quad
+ B_t=w\partial_z+tH\partial_w+t^2w\partial_H
+\]
+を使う。$B_t^2=tA_t$、$A_t\wedge B_t/t\to H^2\partial_{zw}$である。
+どちらも一般tで四場が射影Cartan代数を張り、係数Pfaffianの非零な$1/t$項によりSNCとなる。
+$\gamma\ne0$なら$B_0=w\partial_z+\gamma H\partial_w,A_0=B_0^2/\gamma$とし、
+Bを相異なる三固有値へ変形すれば同じ結論を得る。
+階数2半単純の全源についても、零固有空間の二次係数の三つの共鳴値を分けた
+全パラメータpencilが上記ノートにある。
+各変形は全低次項と定数場cを保持し、有限閉和の閉性とMPSの定理を適用する。
+\end{proof}
+
+\subsection{階数3冪零型の五源と四つの追加成分}
+階数3冪零型では$N=x_2\partial_1+x_3\partial_2+x_4\partial_3$とし、
+モジュラー定数を$\gamma\partial_4$、$\gamma=0,1$へ正規化する。
+補題\ref{lem:modular-koszul}から
+\[
+ Q=N\wedge(D_s+rN^2+tN^3),\quad
+ D_s=\tfrac14\operatorname{diag}(7s-1,3s-1,-s-1,-5s-1).
+\]
+ここでは行列を線形場と同一視している。
+全C6,L24に発散・不変性を課す線形系の階数は、$\gamma=0,1$で24,26である。
+$\gamma=1$の全七変数源に残るJacobiを課すとPfaffianが恒等零となる。
+$\gamma=0$では
+\[
+ C=a\partial_{12}+b(\partial_{23}-\partial_{14}),
+\]
+\[
+ L=\left(\tfrac c3x_2+2dx_1+ex_4+fx_3,\
+ \tfrac c3x_3+2dx_2+fx_4,\ -\tfrac{2c}3x_4+dx_3,\
+ cx_4+dx_3,\ dx_4,\ 0\right),
+\]
+全Jacobiは
+\[
+\begin{gathered}
+ d(3s-1)=c(7s-1)=bc=0,\quad b(s-1)+4d^2=0,\\
+ 8cr+12dt+(1-15s)e=0,\quad(15s-3)a-12br+8c^2+12df=0.
+\end{gathered}
+\]
+rank4の全支持は次の五つで尽くされる。
+\begin{center}\small
+\begin{tabular}{c|l|c}
+s&全解の代入&非零条件\\\hline
+$1/3$&$c=0,b=6d^2,e=3dt,a=36d^2r-6df$&$d\ne0$\\
+$1/7$&$d=b=0,e=7cr,a=28c^2/3$&$c\ne0$\\
+$1$&$c=d=e=0,a=br$&$b\ne0$\\
+$1/5$&$b=c=d=e=0$&$a\ne0$\\
+$1/15$&$a=b=c=d=0$&$e\ne0$
+\end{tabular}
+\end{center}
+各行の残り四変数は任意である。
+s=1の全源は既存の三重超平面・階数4二次曲面成分へ入る。
+実際、旧代表への座標変換
+$(x_1,x_2,x_3,x_4)=(u_2,2u_4,4u_3,-8u_1)$が$b=-8,f=r=t=0$の点を与え、
+その既存点は唯一の22次元成分上の滑らかな点である。既約な全源の閉包もその成分に入る。
+
+\begin{proposition}\label{prop:nil-four-components}
+残る$s=1/3,1/7,1/5,1/15$の各全源のPGL飽和閉包は、
+それぞれ22次元の全空間既約成分である。四成分は相異なり、従前60成分とも異なる。
+\end{proposition}
+\begin{proof}
+各行の指定非零係数を1、他の三自由係数を0とする。
+全350本の射影Jacobiを全150係数で微分した行列Dと、
+全実源・群・鉛直・尺度の接方向Fについて、QQ上で
+\[
+ \operatorname{rank}D=103,\qquad\operatorname{rank}F=47,\qquad DF=0
+\]
+を得る。全projective接空間上界と実族下界がともに22なので滑らかな点であり、
+既約な全源の飽和閉包そのものが唯一の成分となる。
+$s=1/3,1/5,1/15$では軌道の接階数も47なので稠密開軌道を持つ。
+$s=1/7$の一点での軌道次元21から、一般軌道次元を推論しない。
+
+一般実因子は順に
+\[
+ 2H+C_3,\qquad2H+H'+Q_3,\qquad3H+2H',\qquad2H+3H'
+\]
+である。最初の三次式は$x_1$について一次で、係数$x_4^2$と残りが互いに素なので既約。
+第2の二次式は$14chx_4+7rx_4^2+2x_2x_4-x_3^2$、階数3である。
+全閉包は非被約因子という閉条件を満たすためMPS40と異なる。
+同じ22次元の既存非MPS成分とは、因子の次数・重複度・二次因子の階数で区別される。
+
+最後の二型を区別するには因子型だけでは足りない。
+発散零liftは$\Pi=P-E\wedge N/5$であり、両全源で
+\[
+ \Pi^\sharp dh=-hN/5,\qquad
+ \Pi^\sharp dx_4=((25s+1)/20)x_4N.
+\]
+唯一の三重超平面の一次式を$\ell$、そのcofactorを$X_\ell=\Pi^\sharp d\ell/\ell$とする。
+$\ell\in\operatorname{im}X_\ell^*$は射影同型不変である。
+$s=1/5$では$\ell=h\notin\operatorname{im}N^*$、
+$s=1/15$では$\ell=x_4\in\operatorname{im}(N^*)^3$なので、二つの稠密開軌道は相異なる。
+同一既約成分に異なる稠密開軌道は存在できない。
+全微分・全源方向・非零小行列式とこの不変量は独立実装と独立読解でも確認した。
+\end{proof}
+
+五源は一般primitive一次部分を優越しない。
+固定モジュラー場Nのaffine軌道は$20-(4+1)=15$次元、各固定場源は4次元なので、
+全affine支持は19次元以下である。
+GL4が六次元の非退化定数bivector空間に推移的に作用するから、固定$P(0)=J$のfiberは13次元以下。
+perspectiveはprimitive一次部分を保つので、その像も13次元以下となる。
+全証明・五源・四成分の独立記録は
+\path{research/classification/MULTIPLE_HYPERPLANE_NILPOTENT_SUPPORT.md}にある。
+
+\subsection{階数2のJordan型から得る25次元成分}
+モジュラー場が$Z=x_2\partial_1+x_3\partial_2$の場合、
+全90係数に発散、不変性、$Q\wedge Z=0$を課した線形解は15次元である。
+その残る全Jacobiの一つの主開は、以下の全十変数源で尽くされる。
+$b\ne0$、$a,r,s,c_0,\ldots,c_5$を任意とし、
+\[
+ \begin{split}
+ B&=c_0h^2+c_1x_3^2+c_2x_3x_4+c_3x_4^2+c_4hx_3+c_5hx_4,\\
+ K&=\frac{2a+1}{b}(rh+bx_4)+\frac{(2a+2/3)s}{b}x_3
+ \end{split}
+\]
+と置く。h-Casimirテンソルの六係数を
+\[
+ \begin{split}
+ (P^{12},P^{13},P^{14})&=
+ (B+ax_2^2/2-bhx_2/2,\ x_3(ax_2-bh/2),\ h(rh+sx_3+bx_4)-x_2K),\\
+ (P^{23},P^{24},P^{34})&=(ax_3^2,-x_3K,0)
+ \end{split}
+\]
+で定める。全十Jacobiは恒等的に零、実退化式は
+\[
+ -\tfrac12h^2x_3^2(rh+\tfrac23sx_3+bx_4)
+\]
+であり、b非零により三つの一次因子は独立である。
+
+\begin{proposition}\label{prop:nil31-component}
+この全十変数源のPGL飽和閉包は25次元の全Poisson成分であり、
+旧positive-weight型の25次元成分を含む他の既知成分と異なる。
+\end{proposition}
+\begin{proof}
+全自由係数を1とし、テンソル全体を6倍して整数代表を得る。
+全150係数・350Jacobiの微分D、全実族・群・鉛直・尺度方向Fは
+\[
+ \operatorname{rank}D=100,\quad\operatorname{rank}F=50,\quad DF=0
+\]
+を満たす。有限体で見つけた非零minorは階数下界だけに使い、
+有理数上の$DF=0$と双方の下界から等号を得る。
+独立実装でも全90線形系の階数75、全15源、主開の全10源への消去、
+全Jacobi、全D100、実源50をQQで再構成した。
+射影接次元上界と実族下界はともに25であるから滑らかな点であり、
+全既約源の飽和閉包は唯一の25次元成分に等しい。
+全閉包が$H^2L^2M$という非被約因子の閉条件を満たすのでMPSと異なる。
+旧positive-weight成分は全点で三乗一次因子を持つが、今回の一般因子の重複度は2,2,1なので異なる。
+他成分とは次元で区別する。
+\end{proof}
+
+主開b非零の補集合には、全15源の別の二つの十変数枝が残る。
+これらや他のモジュラー型を上の成分へ無断に含めない。
+一方、階数1冪零モジュラー場の既存の未認識十変数源は、もう一つの二重超平面を
+無限遠へ選び直すことで本主開へ移り、その全源もこの成分で被覆される。
+全源の消去、補集合、別超平面への橋と独立証明書は
+\path{research/classification/MODULAR_NIL31_COMPONENT.md}にある。
+この成分も一般primitive一次部分を優越しない。
+固定モジュラー場の全源は10次元、affine軌道は12次元なので全affine支持は22次元以下、
+固定$P(p)=J$では16次元以下である。
+任意のsymplectic基点pにおいて、自由なBに
+\[
+ (x_3-p_3)^2,\quad(x_3-p_3)(x_4-p_4),\quad(x_4-p_4)^2
+\]
+の任意の線形結合を加える三次元実族は、全Poisson条件とPfaffianを保ち、
+0次・1次jetを厳密に変えない。従って全primitive一次fiberは3次元以上あり、
+像の次元は$16-3=13$以下となる。
+一点での微分階数不足から非優越を推論していない。
+全源と全基点での証明は\path{research/classification/NIL31_PRIMITIVE_BETA_IMAGE.md}にある。
+
+\section{相異なる五超平面を持つ全支持}
+\begin{proposition}\label{prop:five-hyperplanes}
+実退化因子が相異なる五超平面の和である全Poisson構造は、T01の閉包に属する。
+五つの一次式が張る空間の次元が2以下、または次元4で唯一の関係の支持が4本以上なら、
+一般階数4の構造は存在しない。
+\end{proposition}
+\begin{proof}
+一次式のrankが5なら五独立超平面であり、各因子のPoisson保存と次数条件から対数型、従ってT01である。
+以下では一因子hをCasimirにしたliftを取り、h=1上の全次数2以下のstrict PoissonテンソルPを扱う。
+
+rank4の場合、唯一の一次関係の支持の大きさは3,4,5である。
+独立な$h,x,y,z$を選び、残る因子を$l=a_0+a_xx+a_yy+a_zz$、$a_0\ne0$とする。
+自由座標をwとすると、各因子の保存より
+$\{x,y\}=Axy,\{x,z\}=Bxz,\{y,z\}=Cyz$。
+$l$で割り切れる斉次二次式は$a_0\ne0$により零だから、lに二つ以上の変数が現れれば$A=B=C=0$となりrank4に反する。
+残る場合は$l=x-1$とでき、全Jacobiとwのaffine shearを用いると全正常形は
+\[
+ (P_{xy},P_{xz},P_{xw},P_{yz},P_{yw},P_{zw})
+ =(0,0,\kappa x(x-1),Cyz,y(p_0+p_1x),z(q_0+q_1x)),\quad\kappa C\ne0.
+\]
+ここで$p_0,p_1,q_0,q_1$は全て任意である。
+$l_t=x-1+tw$、$d_t=\kappa C+t(p_0q_1-p_1q_0)$と置けば、六括弧
+\[
+ {\kappa C\over d_t}
+ \bigl(t(p_0+p_1)xy,\ t(q_0+q_1)xz,\ \kappa xl_t,\ Cyz,
+ y\{p_1x+p_0(1-tw)\},\ z\{q_1x+q_0(1-tw)\}\bigr)
+\]
+は全パラメータでPoissonである。逆形式は$d\log x,d\log l_t,d\log y,d\log z$の定係数外積和で、
+直接反転した上式は$t=0$でも正則で元のPに戻る。
+退化式は$\kappa^2C^2hxyz(x-h+tw)/d_t$で、一般$t\ne0$では五一次式が独立、従ってT01に属する。
+閉性から元のPも含まれる。
+
+rank3の場合は、h=1上で四相異なる直線$\ell_i(x,y)$と自由座標z,wを取る。
+因子保存と次数条件から$P_{xy}=0$であり、混合二列を$X_z,X_w$とすれば
+\[
+ \det(X_z,X_w)=c\prod_{i=1}^4\ell_i(x,y),\qquad c\ne0.
+\]
+z=w=0で評価してもこの等式は保たれる。
+二列をh,x,yで二次に斉次化しh成分を零とした場を$A_1,A_2$とすると、
+Euler場との行列式は$cF$、$F=h\prod\widetilde\ell_i$である。
+任意の対数接場のCramer分子は、各直線の一般点で三列が同じ接平面に入るためその直線式で割れる。
+Fは平方自由なので、$E,A_1,A_2$は次数$(1,2,2)$の対数接場の自由基底となる。
+Euler場を使ってFの対数微分を引けば、gradientの自由な二次syzygy二本を得る。
+従ってJacobian商のHilbert級数は
+\[
+ {1-3t^4+2t^6\over(1-t)^3},
+\]
+その射影長は12である。m重点のTjurina数は$(m-1)^2$なので
+\[
+ \sum_p(m_p-1)^2=12,\qquad\sum_p\binom{m_p}{2}=10.
+\]
+差から三重点は二つ、四重点以上はない。二つの三重点は五本中ちょうど一線を共有する。
+この共通線をh=0に選ぶと、残りは二組の平行線であり、全配置は
+$F=hx(x-h)y(y-h)$へ移る。
+
+$f=x(x-1),g=y(y-1)$とすると、因子保存・次数条件・fiberの定数GL変換により
+混合括弧を$P_{xz}=f,P_{yw}=g,P_{xw}=P_{yz}=0$にできる。
+全Jacobiは$P_{zw}=B(x,y)$を強制し、fiber shearでf,gの倍を除くと
+$B=a+bx+cy+dxy$、四係数は全て任意となる。
+$L=x-1+tz,M=y-1+sw$、$p=a+b+c+d,q=a+b,r=a+c,\Delta=1+(bc-ad)ts$と置く。
+六括弧
+\[
+ \Delta^{-1}\bigl(ptsxy,\ xL,\ tx(qM-py),\ sy(px-rL),\ yM,
+                 aLM-rLy-qxM+pxy\bigr)
+\]
+は閉な対数逆二形式を持ち、$(t,s)=(0,0)$で正則に元のPへ戻る。
+そのPfaffianは$-xyLM/\Delta$である。
+$t=s=\varepsilon$、一般$\varepsilon\ne0$では五つの斉次一次因子が独立なのでT01に入り、
+任意のa,b,c,dについて元の点もT01の閉包に属する。
+
+最後にrank2の配置では、h=1上の四因子は相異なる$x-a_i$である。
+各$P_{xj}$は四因子全部で割り切れ、次数2以下だから零。
+xがCasimirとなるのでrank4に反する。rank1では五因子が相異なることが不可能である。
+\end{proof}
+
+全正常形・逆形式・変形の正則性と全配置の尽くしは、独立な手計算で確認した。
+詳細は\path{research/classification/FIVE_HYPERPLANE_SUPPORT_REVIEW.md}にある。
+本命題は重複する超平面因子を含めず、二次以上の既約因子を持つ他の被約五次型も別に保持する。
+
+\section{従属する三超平面と二次曲面の追加成分}
+三つの超平面がpencilに属するとき、h=1上でその因子を$x(x-1)$とし、
+全rank4支持は
+\[
+ P=V\wedge\partial_z+q(x,y,w)\partial_y\wedge\partial_w,\quad
+ V=f\partial_x+A\partial_y+B\partial_w,\quad f=x(x-1)
+\]
+となる。全係数は次数2以下、$Vq=q(A_y+B_w)$が全Jacobiと同値である。
+qのfiber変数y,wについてのHessianの階数2,1,0を分けると、
+既知MPS、CMINUSおよびそれらへの実変形で覆える枝と、以下の一源が残る。
+全Hessian分岐、係数零の補集合、実変形は
+\path{research/classification/THREE_HYPERPLANES_QUADRIC_DEPENDENT.md}に明記した。
+
+$a(x)=a_0+a_1x$、$a_0(a_0+a_1)\ne0$、$R(x,y)$を任意の二次以下多項式とし、
+\[
+ q=a(x)y+f,\qquad A=y(a_1y+2x-1),\qquad B=-a_1yw+R(x,y)
+\]
+を取る。この八変数源の全点はPoissonである。
+斉次化した実退化式は
+\[
+ -hx(x-h)\{(a_0h+a_1x)y+x(x-h)\}.
+\]
+三一次式は二次元を張り、二次因子は階数3の既約式である。
+
+\begin{proposition}\label{prop:dependent-three-component}
+この全八変数源のPGL飽和閉包Zは24次元の全Poisson成分であり、
+前節までの全成分と相異なる。
+\end{proposition}
+\begin{proof}
+$a_0=a_1=1$、$R=1+2x+3y+5x^2+7xy+11y^2$の点を取る。
+全150係数の全Jacobi微分Dは階数99、鉛直・尺度・群方向は階数46、
+全八源微分を加えたFは階数49であり、$DF=0$。
+従って実射影族の次元は24以上、全射影接空間次元は26である。
+核51方向のうち実族49方向を補う二つの法線$R_0,R_1$を取る。
+全Dを殺す三つの有理係数functionalを$\operatorname{Jac}(n_0R_0+n_1R_1)$に作用させると、
+単項式順$(n_0^2,n_0n_1,n_1^2)$で係数行列は
+\[
+ \begin{pmatrix}
+ 13320&70200&-58320\\22770&69930&-210600\\-270&28890&119880
+ \end{pmatrix},\qquad\det=-34390137600000\ne0.
+\]
+実族49方向に横断する101次元線形切片を取り、Dの99可逆方向を形式的に消去する。
+残る二法線の真正二次初期idealは$(n_0,n_1)^2$を含むので切片の支持は零次元。
+Krullの次元不等式により元のraw局所次元は49以下で、実族の下界49と一致する。
+Zを含む全成分の次元は24以下であり、Z自身が24次元成分となる。
+全源の包含はZの定義による。局所成分の一意性や正確な冪零厚みは仮定しない。
+
+全閉包で退化式は$L_0L_1L_2Q$、$\dim\langle L_0,L_1,L_2\rangle\le2$という閉条件を満たす。
+因子が重なれば非被約、相異なれば三超平面が余次元2で交わるためSNCでない。
+従ってMPS40とは異なる。
+同じ24次元のCPLUSは一般に一次因子を一つだけ持つため、この閉条件に入らない。
+Tw0成分は全閉包が非被約因子を持つが、今回の代表の因子は被約なので異なる。
+他成分とは次元で区別される。
+全D99、実源49、核51、二法線と三余核作用は、producerを使わないFraction実装で独立に再構成した。
+\end{proof}
+
+\section{滑らかな二次因子と三次因子の正則半単純分岐}
+実因子が$D=qc$、qは階数5の二次式、cは既約三次式とする。
+発散零lift$\Pi$についてDはCasimirなので、互いに素な因子から
+$\Pi^\sharp dq=qX$となる線形場Xを得る。
+$Xq=Xc=0$、$[X,\Pi]=0$であり、X=0なら二つの独立Casimirが生じ階数4に反する。
+従って$0\ne X\in\mathfrak{so}(q)$である。
+半単純部の固有値を$(0,a,-a,b,-b)$とすると、ab非零で$a\ne\pm2b,b\ne\pm2a$なら
+全不変三次式は零固有座標で割れ、cの既約性に反する。
+非零半単純型は、正則$(0,1,-1,2,-2)$と零固有空間が三次元の型だけとなる。
+純冪零の型$(5),(3,1,1),(2,2,1)$は別に残す。
+
+正則型で$q=x_0^2+x_1x_2+x_3x_4$とする。
+全20不変二次係数に発散零と$\Pi^\sharp dq=qX$を課す全線形系は階数15であり、
+五変数a,b,u,v,tの全源を得る。全Jacobiは
+\[
+ ab=a(u+1)=b(v+t+3)=t(u+v-1)=0,\quad
+ 8t(u+v)+30(u+v)+7t+20=0
+\]
+と同値である。従って全支持は次の六直線で尽くされる。
+\begin{center}\small
+\begin{tabular}{c|c|c}
+枝&$(a,b,u,v,t)$&SNC極限の対角重み\\\hline
+I0&$(0,0,z,-z-2/3,0)$&$(0,3,0,1,1)$\\
+Ia&$(z,0,-1,1/3,0)$&$(0,3,0,1,1)$\\
+Ib&$(0,z,7/3,-3,0)$&$(0,0,3,1,1)$\\
+II0&$(0,0,z,1-z,-10/3)$&$(0,2,0,1,2)$\\
+IIa&$(z,0,-1,2,-10/3)$&$(0,2,0,1,2)$\\
+IIb&$(0,z,2/3,1/3,-10/3)$&$(0,0,2,2,1)$
+\end{tabular}
+\end{center}
+全括弧と全線形解は\path{research/classification/SMOOTH_QUADRIC_CUBIC_SUPPORT.md}に表示した。
+各行の任意のzについて、この対角作用で現れる指数はすべて非負、極限は対数型で、
+実因子は$(10/3)x_0x_1x_2x_3x_4$である。
+元の点を通る各成分はPGL不変なので軌道閉包内のSNC点を含み、MPS40のいずれかである。
+これで正則半単純型の全支持が覆われる。
+他のJordan型、階数3,4の二次因子、他の次数分割はこの結論に含めない。
 
 \section{一般底の未知成分を制限する幾何}
 交換子・多項式左逆・有限性だけから一般五点を結論することはできない。

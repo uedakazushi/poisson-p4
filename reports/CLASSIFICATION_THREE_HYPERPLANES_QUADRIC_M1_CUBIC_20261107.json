@@ -1,0 +1,37 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "all_passed": true,
+  "case": "m1_t2",
+  "all_source_and_normal_inputs_frozen": true,
+  "full_D_rank": 101,
+  "actual_source_rank": 48,
+  "normal_count": 1,
+  "second_order_correction": {
+    "(0, 1)": "394500*h**2 - 38317400*h*x/3 - 18447000*h*y - 46332800*x**2/3 - 97558000*x*y/3 + 827200*x*z",
+    "(0, 2)": "-71888000*h*y/3 - 14196800*x*y/3 - 58174000*y**2/3 + 264000*y*z",
+    "(0, 3)": "-2566465000*h**2/3 + 151540000*h*w/3 + 1212950200*h*x/3 - 74270400*h*y - 19871200*h*z - 420000*w*x + 72717500*w*y/3 - 330000*w*z + 171694400*x**2/3 - 129833200*x*y - 151308800*x*z/3 - 274294000*y**2/3 - 29708000*y*z + 1654400*z**2",
+    "(0, 4)": "-1035431200*h**2/3 + 521375840*h*x/3 + 179294080*h*z/3 - 133697792*x**2 - 986821184*x*y/3 - 16374272*x*z/3 - 711847360*y**2/3 + 26265920*y*z/3 + 1112320*z**2",
+    "(1, 2)": "-3946500*h*y - 49841000*x*y/3 + 99000*y**2",
+    "(1, 3)": "72004000*h**2/3 + 2878125*h*w + 646307500*h*y/3 - 16255000*h*z + 37821250*w*x/3 - 618750*w*y - 259167200*x**2/3 - 6702800*x*z - 114120000*y**2 - 17754000*y*z",
+    "(1, 4)": "-346796800*h**2/3 + 36849360*h*y - 11162000*h*z + 11836000*x*z/3 - 10572320*y*z",
+    "(2, 3)": "6160000*y*z"
+  },
+  "full_second_order_equations_zero": true,
+  "cubic_obstruction_nonzero": false,
+  "cubic_left_cokernel_witness": null,
+  "all_t_curve_if_order3_and_order4_zero": false,
+  "raw_order3_nonzero_coefficients": 155,
+  "raw_order4_nonzero_coefficients": 193,
+  "source_componenthood_if_formal_slice_argument_accepted": false,
+  "local_projective_dimension_upper_if_nonzero_cubic": null,
+  "exact_nil_thickness_and_local_uniqueness_not_claimed": true,
+  "input_sha256": {
+    "reports/CLASSIFICATION_THREE_HYPERPLANES_QUADRIC_INDEPENDENT_20261107.json": "5835051c4085640dbb07dca8cb340c76bf31c0d8ff1f65d746553a58236d2fc8",
+    "reports/CLASSIFICATION_THREE_HYPERPLANES_QUADRIC_INDEPENDENT_NORMALS_20261107.json": "af7affc35c378b7ef5ab23aab09250dbf8390e978341a4ba663976649de4e9e3",
+    "code/classification_three_hyperplanes_quadric_m1_cubic.py": "d1afe157cb34c5edd8ed4a1cb21715f315ce7d134b8f4807134031cff0e82ceb",
+    "code/classification_three_hyperplanes_quadric_independent.py": "674ffb31d0afdf48c187780a876c8526b8acff3ff6aeca83d048f650fdbe8a7a",
+    "code/classification_rank3_mixed_component_review.py": "48e61e30f9d7f04fb81f1bb5eec0e18daa28c8192d6a02a251e09cf8855b9bd0"
+  },
+  "producer_source": "#!/usr/bin/env python3\n\"\"\"One cubic obstruction after the unique one-normal quadratic correction.\"\"\"\nimport argparse,hashlib,itertools,json,resource,time\nfrom pathlib import Path\nimport sympy as s\nfrom sympy.polys.matrices import DomainMatrix\nfrom classification_rank3_mixed_component_review import COLUMNS,jacobi\nfrom classification_three_hyperplanes_quadric_independent import ambient_matrices\n\nROOT=Path(__file__).resolve().parents[1]\nSOURCE='reports/CLASSIFICATION_THREE_HYPERPLANES_QUADRIC_INDEPENDENT_20261107.json'\nNORMAL='reports/CLASSIFICATION_THREE_HYPERPLANES_QUADRIC_INDEPENDENT_NORMALS_20261107.json'\n\ndef dm(A):return DomainMatrix.from_Matrix(A).convert_to(s.QQ)\ndef decode(data):\n    A=s.zeros(5)\n    for ij in itertools.combinations(range(5),2):\n        A[ij]=s.sympify(data.get(str(ij),'0'));A[ij[::-1]]=-A[ij]\n    return A\ndef sp(A,x):\n    return {ij:{e:v for e,v in s.Poly(A[ij],*x).terms()if v}for ij in itertools.combinations(range(5),2)if A[ij]}\ndef main(output):\n    resource.setrlimit(resource.RLIMIT_CPU,(55,56));resource.setrlimit(resource.RLIMIT_AS,(1536*1024**2,1536*1024**2))\n    begun=time.monotonic();x=s.symbols('h x y z w')\n    saved=json.loads((ROOT/SOURCE).read_text())['cases'][1]\n    normal=json.loads((ROOT/NORMAL).read_text())['cases'][0]\n    assert saved['case']==normal['case']=='m1_t2'\n    P=decode(saved['point_brackets']);R=decode(normal['normals'][0])\n    D,V,M,F=ambient_matrices(P,x,[decode(a)for a in saved['all6_actual_parameter_directions']])\n    assert hashlib.sha256(json.dumps(D.tolist(),default=str).encode()).hexdigest()==saved['matrix_sha256']['full350_D']\n    cols=normal['eliminated_D_columns'];rows=normal['eliminated_D_rows'];independent=D[:,cols]\n    inverse=dm(D.extract(rows,cols)).inv()\n    q2=jacobi(sp(R,x));correction=-inverse.matmul(dm(q2.extract(rows,[0]))).to_Matrix()\n    assert q2+independent*correction==s.zeros(350,1)\n    S=s.zeros(5)\n    for index,value in zip(cols,correction):\n        ij,e=COLUMNS[index];S[ij]+=value*s.prod(v**power for v,power in zip(x,e))\n    for ij in itertools.combinations(range(5),2):S[ij[::-1]]=-S[ij]\n    q4=jacobi(sp(S,x));q3=jacobi(sp(R+S,x))-q2-q4\n    cubic=q3-independent*inverse.matmul(dm(q3.extract(rows,[0]))).to_Matrix()\n    candidates=[i for i,value in enumerate(cubic)if value]\n    functionals=[]\n    if candidates:\n        # Prefer the sparsest single exact annihilator; no extra algebraic search.\n        for row in candidates:\n            weights=dm(independent[row,:]).matmul(inverse).to_Matrix()\n            functional=s.zeros(1,350);functional[row]=1\n            for j,selected in enumerate(rows):functional[selected]-=weights[j]\n            data={str(j):str(value)for j,value in enumerate(functional)if value}\n            functionals.append((len(data),row,functional,data))\n        _,row,functional,data=min(functionals,key=lambda item:item[0])\n        assert functional*D==s.zeros(1,150)and(functional*q3)[0]==cubic[row]\n        witness=dict(row=row,nonzero_coefficients=data,cubic_pairing=str(cubic[row]),annihilates_full_D=True)\n    else:witness=None\n    inputs=[SOURCE,NORMAL,'code/classification_three_hyperplanes_quadric_m1_cubic.py',\n            'code/classification_three_hyperplanes_quadric_independent.py','code/classification_rank3_mixed_component_review.py']\n    result=dict(task_id='E_reduced_nonnormal',all_passed=True,case='m1_t2',\n        all_source_and_normal_inputs_frozen=True,full_D_rank=101,actual_source_rank=48,normal_count=1,\n        second_order_correction={str(ij):str(S[ij])for ij in itertools.combinations(range(5),2)if S[ij]},\n        full_second_order_equations_zero=True,cubic_obstruction_nonzero=bool(candidates),\n        cubic_left_cokernel_witness=witness,\n        all_t_curve_if_order3_and_order4_zero=(q3==s.zeros(350,1)and q4==s.zeros(350,1)),\n        raw_order3_nonzero_coefficients=sum(bool(v)for v in q3),raw_order4_nonzero_coefficients=sum(bool(v)for v in q4),\n        source_componenthood_if_formal_slice_argument_accepted=bool(candidates),\n        local_projective_dimension_upper_if_nonzero_cubic=23 if candidates else None,\n        exact_nil_thickness_and_local_uniqueness_not_claimed=True,\n        input_sha256={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest()for p in inputs},\n        producer_source=Path(__file__).read_text(),seconds=time.monotonic()-begun)\n    with output.open('x')as handle:json.dump(result,handle,indent=2);handle.write('\\n')\n    print(json.dumps({k:result[k]for k in ['cubic_obstruction_nonzero','cubic_left_cokernel_witness','all_t_curve_if_order3_and_order4_zero','seconds']}))\nif __name__=='__main__':\n    ap=argparse.ArgumentParser();ap.add_argument('--output',type=Path,required=True);main(ap.parse_args().output)\n",
+  "seconds": 1.2332761189973098
+}

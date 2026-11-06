@@ -1,0 +1,19 @@
+{
+  "task_id": "E_multiple_hyperplane",
+  "target_statement": "Independently reconstruct all 350-by-150 Jacobi derivatives and actual family/group directions for the four nilpotent modular sources, proving D rank103 and actual-family rank47 over QQ at their full rank-four witnesses.",
+  "implication_to_classification": "Equality of the actual 22-dimensional family lower bound and the full projective tangent dimension22 proves a smooth full component through each witness. Irreducibility of each already derived complete source then covers that source. Pairwise distinctness is audited separately and is not inferred from these ranks.",
+  "coefficient_ring": "QQ for ambient matrices; polynomial QQ[source parameters] for each universal Jacobi check",
+  "hypotheses": "The complete four source formulas are read as literal input from the source report. Source surjectivity is a separate reviewed analytic result. The reviewer imports no producer Jacobi, action or rank arithmetic.",
+  "inverted_elements": ["Only nonzero rational constants used to scale each witness"],
+  "complements": ["The nonzero source parameter is specialized to1 only for the smooth witness; all universal source parameters are retained for the raw Jacobi identity", "Distinctness from one another and existing components remains a separate geometric proof"],
+  "exact_inputs_and_hashes": [
+    {"path":"code/classification_nilpotent_source_components_review.py","sha256":"25d0b42ec85390800a136f5cd1403d525d4f25877dc2ea28b44f3dde2f310ce8"},
+    {"path":"code/classification_rank3_mixed_component_review.py","sha256":"48e61e30f9d7f04fb81f1bb5eec0e18daa28c8192d6a02a251e09cf8855b9bd0"},
+    {"path":"reports/CLASSIFICATION_MULTIPLE_HYPERPLANE_NILPOTENT_SUPPORT_20261107.json","sha256":"4824f4cc3c306b67bfd76f6929cada4e6cdb82aeec997a076ab2abcf849e4d25"},
+    {"path":"reports/CLASSIFICATION_NILPOTENT_SOURCE_COMPONENTS_20261107.json","sha256":"3c76b4aeb96b1e5bc21fce5b70a387c95110051d0dd7aed0fd31b85ec217eae0"}
+  ],
+  "success_certificate": "Four independently reconstructed universal Jacobi identities, all350 witness equations, QQ minors/ranks of D, vertical, actual group and full-source matrices, exact vanishing of D on all55 actual columns, and matrix hashes with literal source derivative columns.",
+  "independent_check": "Sparse exponent coefficient loops and a separately authored action assembly replace the producer's legacy ambient helper. Only the literal complete source and comparison witness are shared.",
+  "resource_limit": {"timeout_seconds":90,"memory_mb":1536},
+  "negative_result_next_step": "Identify any source, sign, basis or rank mismatch before claiming a component. Preserve all branches and return to the minimal geometric comparison; no automatic larger jet calculation."
+}

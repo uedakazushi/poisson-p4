@@ -21,11 +21,12 @@
     {
       "id": "components",
       "path": "research/COMPONENTS.json",
-      "baseline_git_blob": "2b5e676b8213a13583c2283f78f95b169035f927",
-      "purpose": "現行下界60/54、個別同定60の台帳。mixed22とTw0の24次元全成分を独立証明。全分類は未証明。",
+      "baseline_git_blob": "b7a9d14e6a19b77152159bf4ecf35111df41d771",
+      "purpose": "現行下界66/60、全66個別成分の台帳。追加六成分の全周囲成分性・相違を独立検証。全分類は未証明。",
       "review_scope": "excerpt_read",
       "archived_baseline_git_blob": "3aa185f3dc62dc098d662d3796b4d5e99b8cf57a",
-      "binding_update_reason": "二つの新成分性・相違の独立証明に基づく更新。旧baseline blobは別フィールドに保持。"
+      "binding_update_reason": "独立検証済の六成分を追加。元baselineと直前checkpointのblobを別フィールドに保持。",
+      "previous_checkpoint_git_blob": "2b5e676b8213a13583c2283f78f95b169035f927"
     },
     {
       "id": "claims",
@@ -206,7 +207,7 @@
       "id": "main_pdf_build",
       "path": "reports/CLASSIFICATION_MAIN_MANUSCRIPT_BUILD_20261107.json",
       "baseline_git_blob": null,
-      "purpose": "現主原稿12頁PDFの組版・source/PDF hash・1/5/9頁目視。全分類未証明。",
+      "purpose": "現主原稿の組版・source/PDF hashと目視検証。全分類未証明。",
       "review_scope": "built_and_visually_checked"
     },
     {
@@ -385,6 +386,66 @@
       "path": "research/classification/REMAINING_DEGENERACY_DIVISOR_SUPPORT.md",
       "purpose": "正規因子と全H+2Qを除いた重複H・被約非正規の全支持還元。全affine Jacobiとprimitive一次像を保持。",
       "review_scope": "proof_reduction_independently_read_remaining_branches_open"
+    },
+    {
+      "id": "five_hyperplane_full",
+      "path": "research/classification/FIVE_HYPERPLANE_SUPPORT_REVIEW.md",
+      "purpose": "五相異なる超平面の全配置をT01へ被覆",
+      "review_scope": "independent_full_source_geometric_and_selected_exact_review"
+    },
+    {
+      "id": "modular_full_nonnil",
+      "path": "research/classification/MULTIPLE_HYPERPLANE_MODULAR_SUPPORT.md",
+      "purpose": "可逆・非冪零rank3全支持のMPS被覆",
+      "review_scope": "independent_full_source_geometric_and_selected_exact_review"
+    },
+    {
+      "id": "modular_lowrank",
+      "path": "research/classification/MULTIPLE_HYPERPLANE_LOW_RANK_MODULAR.md",
+      "purpose": "rank2半単純全被覆とrank1の全源還元・残補集合",
+      "review_scope": "independent_full_source_geometric_and_selected_exact_review"
+    },
+    {
+      "id": "nil_four_components",
+      "path": "research/classification/MULTIPLE_HYPERPLANE_NILPOTENT_SUPPORT.md",
+      "purpose": "全Jordan4五源の被覆と四新22次元成分・β像上界13",
+      "review_scope": "independent_full_source_geometric_and_selected_exact_review"
+    },
+    {
+      "id": "dependent_three_component",
+      "path": "research/classification/THREE_HYPERPLANES_QUADRIC_DEPENDENT.md",
+      "purpose": "従属三H+Qの全支持と新24成分",
+      "review_scope": "independent_full_source_geometric_and_selected_exact_review"
+    },
+    {
+      "id": "independent_three_support",
+      "path": "research/classification/THREE_HYPERPLANES_QUADRIC_INDEPENDENT.md",
+      "purpose": "独立三Hのa非零全被覆とa零の全四源",
+      "review_scope": "independent_full_source_geometric_and_selected_exact_review"
+    },
+    {
+      "id": "nil31_component",
+      "path": "research/classification/MODULAR_NIL31_COMPONENT.md",
+      "purpose": "全n7非零源の新25成分とrank1十源の被覆",
+      "review_scope": "independent_full_source_geometric_and_selected_exact_review"
+    },
+    {
+      "id": "smooth_quadric_cubic",
+      "path": "research/classification/SMOOTH_QUADRIC_CUBIC_SUPPORT.md",
+      "purpose": "smoothQ+Cの全正則半単純源をMPS被覆",
+      "review_scope": "independent_full_source_geometric_and_selected_exact_review"
+    },
+    {
+      "id": "smooth_quadric_review",
+      "path": "research/classification/SMOOTH_QUADRIC_REGULAR_REVIEW.md",
+      "purpose": "独立Fraction全20係数・五源・全Jacobi・SNC極限確認",
+      "review_scope": "independent_full_source_geometric_and_selected_exact_review"
+    },
+    {
+      "id": "nil31_beta_image",
+      "path": "research/classification/NIL31_PRIMITIVE_BETA_IMAGE.md",
+      "purpose": "全域磁気三次元fiberと固定J支持次元により新25成分のprimitive一次像は13以下。標本の階数不足に依存しない。",
+      "review_scope": "independent_all_source_geometric_proof_read"
     }
   ],
   "external_sources": [
@@ -421,7 +482,7 @@
       "title": "Loray–Pereira–Touzet, Foliations with trivial canonical bundle on Fano3-folds, v3",
       "url": "https://arxiv.org/pdf/1112.3871v3",
       "checked": "2026-11-07",
-      "use": "Theorem6.2のq=2、次数1foliation分類。"
+      "use": "Theorem6.2の次数1foliation分類。加えてTheorems5.2/9.1のsmoothQ3 Poisson全三成分を一次本文確認。P4への全延長分類はこれだけから推論しない。"
     }
   ]
 }

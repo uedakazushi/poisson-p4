@@ -1,0 +1,50 @@
+{
+  "status": "PASS",
+  "source_sha256": "0a8b5ce4f0b77f01117427cf7717cec1e75f935411b2012f17df8a9f3b569b41",
+  "ring": "QQ[a,b,y,c,d,p,q,t,x1,x2,x3,x4]",
+  "localization": "a != 0; c or d nonzero only in their named coverage charts",
+  "full_resonant_coefficients": [
+    "b",
+    "y",
+    "-a - b - y",
+    "-2*b - y",
+    "a + 3*b + y",
+    "-2*a - 2*b"
+  ],
+  "full_jacobi_equations": [
+    "-2*b*c*x3 - b*q*x1**2 - q*x1**2*y",
+    "a*p*x2**2 + 2*b*c*x4 + 2*b*p*x2**2 + p*x2**2*y",
+    "a*d*x1 - 2*a*p*x2*x3 + b*d*x1 - 4*b*p*x2*x3 + p*q*x1 - 2*p*x2*x3*y",
+    "-a*d*x2 - b*d*x2 + 2*b*q*x1*x4 - p*q*x2 + 2*q*x1*x4*y"
+  ],
+  "source_modular_eigenvalues": [
+    "a",
+    "-a",
+    "2*a",
+    "-2*a"
+  ],
+  "families": {
+    "p_only_C0": {
+      "all_parameter_jacobi": true,
+      "highest_pfaffian": "a*t"
+    },
+    "p_only_c_nonzero": {
+      "all_parameter_jacobi": true,
+      "highest_pfaffian": "-2*a*t"
+    },
+    "p_only_d_nonzero": {
+      "all_parameter_jacobi": true,
+      "highest_pfaffian": "-a*t"
+    },
+    "L0_c_nonzero": {
+      "all_parameter_jacobi": true,
+      "highest_pfaffian": "-2*a*t"
+    },
+    "L0_d_nonzero": {
+      "all_parameter_jacobi": true,
+      "highest_pfaffian": "-a*t"
+    }
+  },
+  "logical_scope": "All invertible regular-semisimple modular paired resonant spectra; rank4 points only. Singular and nonsemisimple A remain separate.",
+  "seconds": 0.1248
+}

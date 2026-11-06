@@ -1,0 +1,18 @@
+{
+  "task_id": "E_multiple_hyperplane",
+  "target_statement": "Independently reconstruct the full Jacobi and actual-source tangent ranks for the nil31 short-top r=-1/3 source, and verify the intrinsic double-hyperplane cofactor Jordan type.",
+  "implication_to_classification": "Full QQ ranks D103 and actual source47 establish a unique smooth22 component containing the entire irreducible source. The unique double hyperplane's canonical cofactor type(3,2) distinguishes it from the previously found nil4 type(4,1) component with the same divisor degrees.",
+  "coefficient_ring": "QQ and the six full source parameters; all150 ambient variables and all350 projective Jacobi equations",
+  "hypotheses": "The public all-source parametrization and six parameter witness are preserved. No pointwise subset of the tangent equations is used.",
+  "inverted_elements": ["The rank4 open of the full source"],
+  "complements": ["Other short-top r branches remain separate", "No general orbit or support conclusion is inferred for the other branches"],
+  "exact_inputs_and_hashes": [
+    {"path": "code/classification_nil31_short_component_review.py", "sha256": "60a46993bfd4e555c2878fbab0e32cd51869d0f40d8f43262aecb55476edc663"},
+    {"path": "reports/CLASSIFICATION_NIL31_SHORT_COMPONENTS_20261107.json", "sha256": "6a57d0185cb6f75b2d323b93799b027dd955fc42f23fb924a8ffc9f61340349a"},
+    {"path": "code/classification_rank3_mixed_component_review.py", "sha256": "48e61e30f9d7f04fb81f1bb5eec0e18daa28c8192d6a02a251e09cf8855b9bd0"}
+  ],
+  "success_certificate": "Independent sparse-polynomial fullD, QQ minors/ranks, all actual direction annihilations, all-parameter raw Jacobi, canonical cofactor matrix and its exact power ranks3,1,0, plus irreducibility of the cubic actual divisor factor.",
+  "independent_check": "This checker imports only the independent sparse audit engine, not the producer's Jacobi, orbit, rank or monomial helper. Root reviews the intrinsic geometric distinction.",
+  "resource_limit": {"timeout_seconds": 45, "memory_mb": 1536},
+  "negative_result_next_step": "Report any arithmetic or cofactor mismatch before component-table inclusion; preserve the source and do not adjust producer certificates."
+}

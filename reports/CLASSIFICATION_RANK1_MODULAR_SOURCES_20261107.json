@@ -1,0 +1,86 @@
+{
+  "all_passed": true,
+  "task_id": "E_multiple_hyperplane",
+  "exact_domain": "QQ with all displayed parameters; a and b inverted only for CB coordinate change",
+  "ten_parameter_source": {
+    "parameters": [
+      "A",
+      "d0",
+      "f0",
+      "d",
+      "k0",
+      "k1",
+      "k2",
+      "k3",
+      "k4",
+      "k5"
+    ],
+    "coefficients": [
+      "-x*(A*z + d*w/3 + d0 + f0*x)",
+      "x",
+      "0",
+      "A*z**2/2 + k0 + k1*x + k2*w + k3*x**2 + k4*w*x + k5*w**2 + y + z*(d*w + d0)",
+      "w*(-2*A*z - 2*d*w/3 - 2*d0 + x*(-2*f0 - 1))",
+      "2*w"
+    ],
+    "universal_jacobi_zero": true,
+    "modular": "x*d/dy",
+    "pfaffian": "x**2*w"
+  },
+  "constant_modular_reduction": {
+    "jacobi_equals_jacobian_of_two_residuals": true,
+    "residual0": "-g0*u1 - g0*v2 - g1*s*v2 + g1*u0 + g1*u2*w + g2*s*v1 - g2*u1*w + g2*v0",
+    "residual1": "-F0*g0 - F0*g1*s - F0*g2*w - F1*g0*s - F1*g1*s**2 - F1*g2*s*w - F2*g0*w - F2*g1*s*w - F2*g2*w**2 - F3*g0*s**2 - F3*g1*s**3 - F3*g2*s**2*w - F4*g0*s*w - F4*g1*s**2*w - F4*g2*s*w**2 - F5*g0*w**2 - F5*g1*s*w**2 - F5*g2*w**3 + H0 + H1*s*u1 + H1*s + H1*u0 + H1*u2*w + H2*s*v1 + H2*v0 + H2*v2*w + H2*w + 2*H3*s**2*u1 + H3*s**2 + 2*H3*s*u0 + 2*H3*s*u2*w + H4*s**2*v1 + H4*s*u1*w + H4*s*v0 + H4*s*v2*w + H4*s*w + H4*u0*w + H4*u2*w**2 + 2*H5*s*v1*w + 2*H5*v0*w + 2*H5*v2*w**2 + H5*w**2 + 3*H6*s**3*u1 + H6*s**3 + 3*H6*s**2*u0 + 3*H6*s**2*u2*w + H7*s**3*v1 + 2*H7*s**2*u1*w + H7*s**2*v0 + H7*s**2*v2*w + H7*s**2*w + 2*H7*s*u0*w + 2*H7*s*u2*w**2 + 2*H8*s**2*v1*w + H8*s*u1*w**2 + 2*H8*s*v0*w + 2*H8*s*v2*w**2 + H8*s*w**2 + H8*u0*w**2 + H8*u2*w**3 + 3*H9*s*v1*w**2 + 3*H9*v0*w**2 + 3*H9*v2*w**3 + H9*w**3",
+    "both_full_inverse_sources": [
+      {
+        "branch": "chain_top",
+        "all_six_coefficients": [
+          "-F0 - F1*z - F2*w - F3*z**2 - F4*w*z - F5*w**2 + u1*x**2/2 - u1*y + v2*x**2/2 - v2*y + x**2/2 - y",
+          "u0 + u1*z + u2*w",
+          "v0 + v1*z + v2*w",
+          "H2 + H4*z + 2*H5*w + H7*z**2 + 2*H8*w*z + 3*H9*w**2 - g2*x**2/2 + g2*y + u0*x + u1*x*z + u2*w*x",
+          "-H1 - 2*H3*z - H4*w - 3*H6*z**2 - 2*H7*w*z - H8*w**2 + g1*x**2/2 - g1*y + v0*x + v1*x*z + v2*w*x",
+          "g0 + g1*z + g2*w"
+        ],
+        "degree_at_most_two": true,
+        "exact_modular": [
+          "1",
+          "x",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "branch": "trivial_block",
+        "all_six_coefficients": [
+          "-H2 - H4*x - 2*H5*w - H7*x**2 - 2*H8*w*x - 3*H9*w**2 + g2*x*z - g2*y - u0*x - u1*x**2 - u2*w*x",
+          "-u0 - u1*x - u2*w",
+          "g0 + g1*x + g2*w",
+          "F0 + F1*x + F2*w + F3*x**2 + F4*w*x + F5*w**2 - u0*z - 2*u1*x*z + u1*y - u2*w*z - v2*x*z + v2*y - x*z + y",
+          "-H1 - 2*H3*x - H4*w - 3*H6*x**2 - 2*H7*w*x - H8*w**2 + g0*z + 2*g1*x*z - g1*y + g2*w*z + v0*x + v1*x**2 + v2*w*x",
+          "v0 + v1*x + v2*w"
+        ],
+        "degree_at_most_two": true,
+        "exact_modular": [
+          "0",
+          "x",
+          "1",
+          "0"
+        ]
+      }
+    ]
+  },
+  "cb_recognition": {
+    "all_twenty_cubic_coefficients_retained": true,
+    "all_ten_bivector_coefficients_identical": true,
+    "f": "X0*(H0 - 2*X0)/(6*a)",
+    "ratio": "-2*a/b",
+    "boundary_b_zero": "retained by closure of the original irreducible source; not evaluated in rational coordinates"
+  },
+  "global_rank1_coverage_claimed": false,
+  "seconds": 0.3429257019961369,
+  "input_sha256": {
+    "code/classification_rank1_modular_sources.py": "eff808db325f8204f04c0341c5039d4a9cad0c237973aa6ab4a07f41f5d2abb8",
+    "sources/v06.zip": "7de4b8b5d1475d4f878df091082a36831960360a0ba664d7e31b89ea2ff013a9"
+  }
+}

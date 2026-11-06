@@ -1,0 +1,17 @@
+{
+  "task_id": "G",
+  "target_statement": "Compute the exact primitive-beta differential of the newly identified nil31 rank4 component using all ten source parameters and the full affine orbit at one existing smooth witness.",
+  "implication_to_classification": "Rank16 proves a new component dominates the full primitive base and therefore refutes the old five-point generic exhaustion. A smaller point rank makes no non-dominance claim; its kernel must be understood globally before another step.",
+  "coefficient_ring": "QQ[n0,n1,n2,n3,n4,n5,n6,n7,n8,n10,n7^-1] and all affine infinitesimal directions, evaluated at the existing all-one source witness",
+  "hypotheses": "Use the verified complete nil31 n7!=0 source, all full affine source and group directions, and the symplectic affine basepoint (0,0,1,1). Keep constant evaluation constraints and all four perspective directions.",
+  "inverted_elements": ["n7", "Pf(P(0,0,1,1))"],
+  "complements": ["n7=0 belongs to the separately retained source branches", "Rank at most2 points are not used", "A pointwise differential rank below16 is not asserted globally"],
+  "exact_inputs_and_hashes": [
+    {"path": "code/classification_component_beta_differential.py", "sha256": "8c755a31973c4e257084c47d320793835f82070d4cc9f7a7ae244d3c49031a44"},
+    {"path": "reports/CLASSIFICATION_RANK2_NIL_31_COMPONENT_20261107.json", "sha256": "6d76293e8d00b0a871dae71c28576d5b3dd5da947224a770340e067af83d575a"}
+  ],
+  "success_certificate": "Exact full30x35 jet matrix, constant evaluation rank6, perspective rank4, full matrix rank and kernels with nonzero minors, and the equivalent fixed-constant quotient rank. Rank26 of the combined matrix is a dominance certificate.",
+  "independent_check": "A separate worker reconstructs all jets and the perspective quotient or an explicit Darboux primitive-beta map before any generic classification claim.",
+  "resource_limit": {"timeout_seconds": 45, "memory_mb": 512},
+  "negative_result_next_step": "If rank is below16, analyze the actual tangent kernel and all-source geometric relations for a generic upper bound; do not infer non-dominance from a point and do not start repeated point probes."
+}

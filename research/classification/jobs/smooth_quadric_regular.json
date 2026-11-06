@@ -1,0 +1,33 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "target_statement": "Derive the complete quadratic canonical lift with smooth quadric q and regular semisimple normal Hamiltonian weights (0,1,-1,2,-2); prove the residual Jacobi support is exactly six affine lines and compute their actual divisors. Test the full150 tangent and actual projective orbit for each of the four nonzero arms, each a single orbit under the quadric torus. Prove all six complete sources lie in the MPS40 union by a regular diagonal projective orbit degeneration to the SNC quintic product.",
+  "implication_to_classification": "For actual D=q*c with q smooth and c irreducible cubic, the nonzero normal Hamiltonian lies in so5 and preserves c. Weight enumeration restricts its nonzero semisimple part to the regular 2:1 type or a three-dimensional zero eigenspace. A full source and all Jacobi equations close the linear entrance for the regular type; no generic lifting or component claim is inferred. Full-source nonnegative weights and nonzero SNC limit place every source point in MPS40, since every full component through it is PGL-invariant and contains its orbit closure.",
+  "coefficient_ring": "QQ[p_0,...,p_m,x0,...,x4]",
+  "hypotheses": "q=x0^2+x1*x2+x3*x4; canonical homogeneous quadratic bivector is divergence-free; {q,f}=q*X(f); X=diag(0,1,-1,2,-2); [X,P]=0 follows for Poisson P from the log Hamiltonian identity.",
+  "inverted_elements": [
+    "Nonzero scalar normalizing the semisimple eigenvalue"
+  ],
+  "complements": [
+    "rank-two semisimple part with three-dimensional zero eigenspace",
+    "pure nilpotent normal Hamiltonian types (5),(3,1,1),(2,2,1)",
+    "singular irreducible quadric of rank3 or4",
+    "all other divisor degree partitions"
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_smooth_quadric.py",
+      "sha256": "8b894599181b8eaf9316b7d53938afc9bc6060712c80a04d730a0c28a84ce3c9"
+    },
+    {
+      "path": "code/classification_rank3_mixed_component_review.py",
+      "sha256": "48e61e30f9d7f04fb81f1bb5eec0e18daa28c8192d6a02a251e09cf8855b9bd0"
+    }
+  ],
+  "success_certificate": "Full invariant coefficient enumeration, complete affine linear solve, all ten residual Jacobi polynomials and all signed Pfaffian minors; immutable producer embedded in report. Equality of the coefficient spans of all Jacobi coefficients and the five reduced equations; full Jacobi on all six sources; all five signed Pfaffian minors equal the gradient of the computed actual quintic. Exact full350x150 tangent rank and group/vertical/scale rank with minors at four orbit representatives; the comparison is a local bound, not automatically componenthood. For each complete source and all its parameter values, all transformed bracket powers are nonnegative and the toric limit has actual divisor (10/3)*x0*x1*x2*x3*x4.",
+  "independent_check": "A separate reviewer checks the normal-Hamiltonian argument and all-case eigenvalue restriction; any source support conclusion requires separate exact verification.",
+  "resource_limit": {
+    "timeout_seconds": 60,
+    "memory_mb": 512
+  },
+  "negative_result_next_step": "If the remaining source is large, use the geometric restriction to the three LPT quadric Poisson components, retaining every extension fiber. No repeated dense Groebner runs. If tangent exceeds orbit, seek a known source recognition or only the minimal transverse initial ideal, not exact nil structure."
+}

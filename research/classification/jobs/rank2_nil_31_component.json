@@ -1,0 +1,19 @@
+{
+  "task_id":"E_multiple_hyperplane",
+  "target_statement":"Verify the complete irreducible ten-parameter n7!=0 source in the rank-two nilpotent (3,1), c=0 chart, then compare its full projective orbit/source differential with the full 350x150 Jacobi derivative at the all-free-parameters-one point.",
+  "implication_to_classification":"The whole source has divisor H^2 L^2 M with three independent hyperplanes and predicted projective saturation dimension25. A full tangent/family squeeze proves its closure is a component and covers this entire source; failed squeeze is retained as a true dimension bound, not membership.",
+  "coefficient_ring":"QQ[n0,n1,n2,n3,n4,n8,n10,n5,n6,n7,n7^-1,h,x1,x2,x3,x4]",
+  "hypotheses":"All90 coefficients and all original Jacobi are retained by the bound full-source report; its n7!=0 branch is solved exactly, not specialized except for the final full tangent test.",
+  "inverted_elements":["n7"],
+  "complements":["n7=0 in the same chart", "All other affine modular charts", "Distinctness requires the full divisor/dimension argument separately"],
+  "exact_inputs_and_hashes":[
+    {"path":"code/classification_rank2_nil_component.py","sha256":"af5f458c905e2b620e2ff82947046eeba5bcdc782cb9b151f0f363ea4a2be2da"},
+    {"path":"reports/CLASSIFICATION_MULTIPLE_HYPERPLANE_RANK2_NIL_SOURCES_20261107.json","sha256":"b67e7aed4721e751944c616b41516b24131c0823b06557f4d749a2f6f6d2476b"},
+    {"path":"code/classification_double_quadric.py","sha256":"dad8af82e92558d24e956408e2f657c6d639373035016509b1ea3ebf6c727b96"},
+    {"path":"legacy/v03/code/poisson_p4_components_check.py","sha256":"08ca6a3d9938dec9df734a7a95d7d3eedb1b7c95d11213d8ada59feed625203f"}
+  ],
+  "success_certificate":"All-parameter source Jacobi/Pfaffian identities and exact D times all actual directions zero; nonzero modular minors only prove rational rank lower bounds and are combined with exact annihilation and dimension inequalities.",
+  "independent_check":"If a component squeeze succeeds, an independent worker reconstructs the full matrices and source before a catalogue addition.",
+  "resource_limit":{"timeout_seconds":60,"memory_mb":1536},
+  "negative_result_next_step":"If the tangent is larger, retain the proven whole-source dimension and examine true normal support or actual deformations; do not change point/prime repeatedly."
+}

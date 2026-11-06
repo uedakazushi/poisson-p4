@@ -1,0 +1,20 @@
+{
+  "task_id":"E_multiple_hyperplane",
+  "target_statement":"Verify the four remaining complete five-parameter sources in nil(3,1), c=long-chain-top and test one declared full-source witness per branch against all ambient Jacobi directions.",
+  "implication_to_classification":"These are all unresolved irreducible sources after the exact six residual equations and the two already covered r=-1/3,-1/2 sources. Equality of family lower and ambient tangent upper dimensions will prove a full component for a source; otherwise the finite result diagnoses the missing deformation without asserting coverage.",
+  "coefficient_ring":"QQ[all five source parameters,x1,x2,x3,x4] for universal identities; QQ and one nonzero-minor finite field for the full tangent sandwich",
+  "hypotheses":"The full11 affine source and six residual equations are the frozen case1 of the complete rank2 nilpotent source report. The two r=-1 product branches are retained separately, including their intersection.",
+  "inverted_elements":["Each branch's stated nonzero Pfaffian coefficient, only to specify rank four"],
+  "complements":["The rank-two Pfaffian-zero boundary stays in the closed source image", "The r=-1/3 and -1/2 full sources are covered by the existing nilJordan4 theorem after changing hyperplane, and are not retested", "No component uniqueness is inferred if tangent and family dimensions differ"],
+  "exact_inputs_and_hashes":[
+    {"path":"code/classification_modular_source_components.py","sha256":"ca79878d94b9396ab0d6fdb6d82dcb2f6c9c3965c961605c418cf7a86cd2d964"},
+    {"path":"code/data/classification_nil31_long_sources.json","sha256":"08c69a247cf816fb83b84b882ef587cef7071443c50dfdd7bab96050a9e0a01b"},
+    {"path":"reports/CLASSIFICATION_MULTIPLE_HYPERPLANE_RANK2_NIL_SOURCES_20261107.json","sha256":"b67e7aed4721e751944c616b41516b24131c0823b06557f4d749a2f6f6d2476b"},
+    {"path":"code/classification_double_quadric.py","sha256":"dad8af82e92558d24e956408e2f657c6d639373035016509b1ea3ebf6c727b96"},
+    {"path":"code/classification_multiple_hyperplane_nilpotent.py","sha256":"4f62de3673ec06246a0b1117befcae14ded04d996d1b81fb4250266e69418f21"}
+  ],
+  "success_certificate":"All source residuals and raw Jacobi vanish identically, universal Pfaffian is recorded, all150 ambient variables and350 projective equations are retained, and exact annihilation of all actual source/group directions accompanies nonzero minors.",
+  "independent_check":"The complete branch derivation is analytic and separate from the reusable runner. Any new component equality will be sent for independent QQ reconstruction and geometric distinctness review before catalogue integration.",
+  "resource_limit":{"timeout_seconds":90,"memory_mb":1536},
+  "negative_result_next_step":"Preserve the actual normal dimension at the declared source. Seek an explicit geometric recognition or deformation; do not add a witness farm or assume the existing component count is exhaustive."
+}

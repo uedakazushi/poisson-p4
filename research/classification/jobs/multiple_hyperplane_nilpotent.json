@@ -1,0 +1,14 @@
+{
+  "task_id": "E_multiple_hyperplane",
+  "target_statement": "Derive all rank-three nilpotent Jordan4 modular sources: prove the no-zero modular chart has no rank4 points, and verify the five complete four-parameter rank4 sources in the modular-zero chart.",
+  "implication_to_classification": "The five sources have dimension4, while the affine orbit of the modular Jordan field has dimension15. Thus full affine support has dimension at most19; GL4 equivariance over the six-dimensional space of nondegenerate constant bivectors gives fixed-J dimension at most13 and primitive beta non-dominance. Individual E-component recognition remains separate.",
+  "coefficient_ring": "QQ[sigma,r,t,C_0,...,C_5,L_0,...,L_23,x1,x2,x3,x4], gamma=0 or 1",
+  "hypotheses": "A is the full rank3 nilpotent Jordan block N. After affine translation the modular constant is gamma e4; nonzero gamma is normalized to1 by coordinate dilation. Highest Q=Nx wedge Bx with BN-NB=sigma N and trB=sigma-1. Full C6 and L24 are retained.",
+  "inverted_elements": ["gamma only when normalizing the nonzero gamma chart", "nonzero Jordan chain normalizations"],
+  "complements": ["Other modular Jordan types are separate", "gamma=0 retained as its own chart", "Rank at most2 solutions retained in residual source but may later use the proved rank2 support theorem"],
+  "exact_inputs_and_hashes": [{"path": "code/classification_multiple_hyperplane_nilpotent.py", "sha256": "4f62de3673ec06246a0b1117befcae14ded04d996d1b81fb4250266e69418f21"}],
+  "success_certificate": "All-point affine linear parametrizations and full residual Jacobi; exact five-branch substitutions; full Jacobi zero and nonzero Pfaffian coefficients on every rank4 source; rank4 impossibility elsewhere. Public report embeds immutable source bytes and preserves the earlier linear-normal-form report unchanged.",
+  "independent_check": "A separate worker reviews the Jordan normalizer, both affine constant charts, and the complete reconstruction before any support conclusion.",
+  "resource_limit": {"timeout_seconds": 60, "memory_mb": 512},
+  "negative_result_next_step": "If a source identity fails, correct the exact algebraic case split; do not start coefficient farms or repeated dense Groebner runs. Individual five-source component recognition proceeds only after the non-dominance theorem is reviewed."
+}
