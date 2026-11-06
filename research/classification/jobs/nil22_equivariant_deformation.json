@@ -1,0 +1,38 @@
+{
+  "task_id": "E_multiple_hyperplane",
+  "target_statement": "Construct an actual equivariant Poisson deformation of the entire nil22 top A=-1 source through its explicitly derived affine canonical representative, using the already frozen true normal direction.",
+  "implication_to_classification": "The full seven-parameter source is one PGL orbit after scalar normalization. An actual transverse curve at its canonical representative and tangent upper bound23 would prove a23 component; an SNC member or limit would place it in known MPS. If no exact curve is obtained the source stays unresolved.",
+  "coefficient_ring": "QQ[n1,n2,n6,n7,n8,n9,n10] for the affine source identity, then QQ with one curve parameter; all150 projective directions and all350 equations",
+  "hypotheses": "Use the same frozen A_minus_one witness, transported by an explicit affine transformation. Project the existing normal to the diagonal stabilizer weights (0,2,1,-1,-2). There is one true normal weight because orbit plus scale plus vertical has rank47 and the entire kernel has rank48.",
+  "inverted_elements": [
+    "n1 for the rank-four source",
+    "the existing102x102 derivative minor and rational constants"
+  ],
+  "complements": [
+    "n1=0 has rank below4 and is not part of this source obligation",
+    "No fresh source point, prime, higher jet order, or arbitrary kernel search",
+    "All other seven nil22 sources are separate"
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "reports/CLASSIFICATION_MODULAR_ONE_NORMAL_20261107.json",
+      "sha256": "fe1b1eb8e2004303ea1d54db5e37617a5ddd68bc989940dcdbdfa6d4ebb5699c"
+    },
+    {
+      "path": "reports/CLASSIFICATION_NIL22_TOP_COMPONENTS_20261107.json",
+      "sha256": "62c5ca9bbc2d6f87f2110e54025ee56d5ed52eb7b4b8802b70b20287267cb89d"
+    },
+    {
+      "path": "code/classification_rank3_mixed_component_review.py",
+      "sha256": "48e61e30f9d7f04fb81f1bb5eec0e18daa28c8192d6a02a251e09cf8855b9bd0"
+    }
+  ],
+  "success_certificate": "Universal source-to-canonical identity, transformation determinant, full projective Jacobi for an exact curve, and a nonzero transverse minor. A nonzero residual is only a failure of this construction.",
+  "independent_check": "An independent reviewer checks source normal form and any actual curve before its use for support or componenthood.",
+  "resource_limit": {
+    "timeout_seconds": 90,
+    "memory_mb": 1536
+  },
+  "route_change_reason": "The earlier arbitrary-coordinate quadratic correction did not integrate. A subsequent geometric reduction identifies a diagonal stabilizer and a linear-field r-matrix normal form. The new construction uses the same normal direction, fixes equivariant gauge, and never raises the previous maximum curve degree2.",
+  "negative_result_next_step": "If neither the weight-normal pencil nor one homogeneous quadratic correction is exactly Poisson, retain the source and use the r-matrix geometry. Do not compute cubic or higher corrections."
+}

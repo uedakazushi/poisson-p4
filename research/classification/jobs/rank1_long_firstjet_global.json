@@ -1,0 +1,33 @@
+{
+  "task_id": "G",
+  "target_statement": "Prove a global primitive-beta image bound at most15 for the complete rank1 long-top source with nonconstant g, by a symbolic first-jet kernel over its full rational parameter field.",
+  "implication_to_classification": "An independent9-dimensional kernel of the full30-direction zero/first-jet matrix bounds the global first-jet image by21; fixing nondegenerate constant evaluation subtracts6, proving non-dominance overW16 for this entire source.",
+  "coefficient_ring": "QQ(a,b,c,k,A,B,C), with generic k nonzero",
+  "hypotheses": "The affine centralizer normalizes every symplectic point to(0,0,1,0) with g=z; affine y-shears remove the two linear Taylor coefficients of K, leaving K=k+A(z-1)^2+B(z-1)w+Cw^2. The matrix retains all9 original source directions, all20 affine directions and scale before this normalization.",
+  "inverted_elements": [
+    "k for symplectic evaluation",
+    "Only the displayed rational-function kernel denominators; a dense generic bound extends to the irreducible source image"
+  ],
+  "complements": [
+    "g constant or zero remain separate",
+    "No pointwise-rank argument is used as a generic upper bound",
+    "No higher jet or formal deformation is calculated"
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_rank1_firstjet.py",
+      "sha256": "25c53ea31aa7605b127acc7f46ddfbefba157c482e7ba180330a24854f8e5acf"
+    },
+    {
+      "path": "reports/CLASSIFICATION_RANK1_LONG_FIRSTJET_20261107.json",
+      "sha256": "234d59364bfb52ab64b6f67518def02b601ba0b191aa8599cbca9b73dafb4fd9"
+    }
+  ],
+  "success_certificate": "A full symbolic30x30 jet matrix and nine independent explicit rational-function kernel rows, exact multiplication to zero, and a nonzero9x9 minor of the kernel. Only the rank upper bound is needed.",
+  "independent_check": "A separate reader checks the global affine normalization and image-dimension bridge; separate symbolic multiplication verifies all kernel identities overQQ(parameters).",
+  "resource_limit": {
+    "timeout_seconds": 55,
+    "memory_mb": 768
+  },
+  "negative_result_next_step": "If the one rational-function elimination does not finish, retain the point observation and derive a geometric same-jet family; do not repeat point, variable order, or resource-cap probes."
+}

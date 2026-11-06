@@ -1,0 +1,28 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "target_statement": "Construct the complete quadratic vertical W source for every one of the eleven nilpotent affine cofactor normal forms in the 1+1+3 divisor problem.",
+  "implication_to_classification": "All remaining nilpotent branches reduce to explicit finite coefficient ideals, retaining all forty-five W coefficients and irreducibility; exact factorization can close empty branches, and nonempty branches feed actual deformations.",
+  "coefficient_ring": "QQ[h,x,u,v,w,n]; all coefficients of the four original affine Jacobi equations.",
+  "hypotheses": "Cofactor B is nilpotent; the eleven normal forms are derived using its affine centralizer, individual scaling of h,x, and exchange h/x. The cubic must be irreducible.",
+  "inverted_elements": [
+    "Only coordinate normalization scalars in the written orbit argument."
+  ],
+  "complements": [
+    "Jordan3 all three residual translations; Jordan2+1 all seven residual translations; B0 rank2 translation.",
+    "B0 rank1 gives reducible cubic and rank0 gives rank at most two, proved separately.",
+    "No coefficient of W and no remaining vertical Jacobi equation is dropped."
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_two_hyperplanes_cubic_nilpotent.py",
+      "sha256": "e58324079b02d0f7f00a7c39dfb7eabf020d173eef2079874669e5695975246b"
+    }
+  ],
+  "success_certificate": "Rational row reduction for all full linear systems, complete sources, residual full Jacobi coefficients, and exact actual cubic.",
+  "independent_check": "Reconstruct all linear equations from the displayed full source and audit the centralizer normal forms; any claimed component coverage still requires a separate actual geometric proof.",
+  "resource_limit": {
+    "timeout_seconds": 55,
+    "memory_mb": 1536
+  },
+  "negative_result_next_step": "Use the finite coefficient ideals geometrically; do not infer MPS containment or exhaustion from a sample or extend a nonclosing jet sequence."
+}

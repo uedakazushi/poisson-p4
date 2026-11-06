@@ -5,15 +5,15 @@
   "baseline_commit": "a00a541b835b2bff18bafcba545ecbd4bae7175b",
   "target": "exhaustive_reduced_components_before_PGL5_and_generic_geometry",
   "mathematical_status": {
-    "global_lower_bound": 70,
-    "rank4_lower_bound": 64,
+    "global_lower_bound": 74,
+    "rank4_lower_bound": 68,
     "global_upper_bound": null,
     "generic_five_exhaustion": false,
     "global_exhaustion": false,
-    "verification_scope": "All70 components individually identified. Four further components independently accepted; full three-hyperplane/quadric and smooth-quadric/irreducible-cubic supports covered. Global/generic exhaustion remains unproved.",
+    "verification_scope": "All74 components individually identified; four additional22 components independently verified. All rank1 and nonzero constant modular first-jet non-dominance; full31 degenerate-quadric cofactor reduction with17 representative types covered or excluded. Global/generic exhaustion remains unproved.",
     "rank2_component_count": 6,
     "rank2_support_exhaustion": true,
-    "individually_identified_components": 70,
+    "individually_identified_components": 74,
     "additional_unidentified_components_lower_bound": 0
   },
   "source_registry": "research/classification/SOURCES.json",
@@ -61,7 +61,7 @@
         "generic_circuit_review"
       ],
       "acceptance": "全42法線の根基所属等または未知残余の空性を証明し、適用底開・全分母・独立検証を明記する。新残余があれば分類計画を更新し、未解決のまま成功扱いしない。",
-      "first_step": "全nilrank2 modular型のprimitive像は15以下と証明済み。残るrank1 affine型・A=0全5Hおよび被約非正規因子を処理する。既存正規因子T39は再開しない。",
+      "first_step": "全rank1/2 nilpotent modular型と非零定数場は非優越。G-2HはA=c=0で共通因子なしの非零最高部へ還元。被約非正規因子の全支持も継続する。",
       "fallback": "同経路の二回未決で支持幾何または境界経路に変更し、E0/Aも進める。",
       "nonclosing_attempts": 0,
       "proof": null,
@@ -75,7 +75,7 @@
       "fixed_base_premise": "reports/CLASSIFICATION_FROZEN_T01_BETA_G28_20261106.json",
       "current_direction_reduction": "research/classification/NORMAL_DIRECTION_INCIDENCE.md",
       "prior_direct_groebner_nonclosing_attempts": 5,
-      "current_route": "Non-dominance and full support geometry for the remaining rank1/zero modular fields and reduced nonnormal divisors; all nilrank2 types are excluded from dominance.",
+      "current_route": "Non-dominance for the factor-free nonzero highest part of unimodular quadratic symplectic structures, and full reduced-nonnormal divisor geometry.",
       "previous_structural_route_nonclosing_attempts": 2,
       "latest_full_source_nondominance": "research/classification/NIL31_PRIMITIVE_BETA_IMAGE.md"
     },
@@ -271,7 +271,7 @@
         "bibliography"
       ],
       "acceptance": "主分類に使う各族のPoisson性、成分性、相違、次元とrank2被覆の証明・一次引用を確認し、欠落を明示する。",
-      "first_step": "個別70成分の成分性・相違を監査済み。新候補のみ全周囲成分性と相違を追加検証する。",
+      "first_step": "個別74成分の成分性・相違を監査済み。新候補のみ全周囲成分性と相違を追加検証する。",
       "fallback": "依存しない結果を巻き込まず問題の影響範囲を限定し、修正課題としてC0/Fに接続する。",
       "nonclosing_attempts": 0,
       "proof": "research/classification/KNOWN_COMPONENT_AUDIT.md",
@@ -390,7 +390,7 @@
         "remaining_divisor_support"
       ],
       "acceptance": "全非被約実退化因子のうち二重以上の超平面を持つ全点を既知族または新しい証明済み成分で被覆。全affine二次Poisson条件とPf(Q)=0を保持。",
-      "first_step": "可逆A、全rank3、半単純rank2は被覆済み。nilrank2は三22/一25成分と複数既知帰属を接続し、残るlongB、short四源、nil22各源とrank1/zero全型を全源のまま処理する。G非優越からE被覆を推論しない。",
+      "first_step": "nil22 A=-1,-1/3とshort r=1の全源を三新22へ被覆。short r=1/2も同値橋で被覆。残るlongB、short二源、nil22他源とrank1/zero全型の帰属を処理する。G非優越からE帰属を推論しない。",
       "fallback": "同じ経路で二回非閉鎖なら具体的障害を記録し別の支持幾何へ変更。全補集合を保持する。",
       "nonclosing_attempts": 0,
       "proof": null,
@@ -413,7 +413,7 @@
         "remaining_divisor_support"
       ],
       "acceptance": "既存の正規因子T39分類とは別に、被約非正規因子の全rank4支持を閉既約族で尽くす。可約因子も含み、既知MPSを上界と仮定しない。",
-      "first_step": "五相異なるH全支持、相異なる三H+既約Q全配置、smoothQ+既約C3全型の被覆は完了。1+1+3、rank3/4Q+C3、他次数分割と既約非正規を処理する。",
+      "first_step": "1+1+3の非零半単純全型はMPS、純nilから新22を一つ同定。特異Q+C3は全31cofactorへ還元、17代表を被覆・排除し、rank4三全源とrank3純nil十二型を保持。他次数分割と既約非正規も未完了。",
       "fallback": "同じ経路で二回非閉鎖なら具体的障害を記録し別の支持幾何へ変更。全補集合を保持する。",
       "nonclosing_attempts": 0,
       "proof": null,

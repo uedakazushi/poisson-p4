@@ -1,0 +1,159 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "all_passed": true,
+  "zero_complete_reduced_conditions": [
+    "n0*n4 + n1*n7",
+    "n0*n7 + n2*n5",
+    "n1*n4 + n2*n3",
+    "n2*n4",
+    "n2*n7",
+    "n0*n5",
+    "n1*n3",
+    "-n0*(n10 + 2) + n1*n5",
+    "n0*n3 - n1*(n10 + 2)",
+    "n2*(n10 + 2)",
+    "-n0*(n6 - 3) + n2*n8",
+    "n1*(n10 + n6 + 4) + n2*n9"
+  ],
+  "zero_conditions_equal_full_Jacobi_constant_span": true,
+  "zero_all_support_branches": [
+    {
+      "case": "c_nonzero",
+      "substitution": {
+        "n3": "0",
+        "n4": "0",
+        "n5": "0",
+        "n7": "0",
+        "n10": "-2",
+        "n8": "n0*(n6 - 3)/n2",
+        "n9": "-n1*(n6 + 2)/n2"
+      },
+      "actual_divisor": "x0*x1*(x0*x1 + x2*x3)*(n0*x2 + n1*x3 + n2*x4)",
+      "cubic": "x0*x1*(n0*x2 + n1*x3 + n2*x4)"
+    },
+    {
+      "case": "a_nonzero_c_b_zero",
+      "substitution": {
+        "n1": "0",
+        "n2": "0",
+        "n3": "0",
+        "n4": "0",
+        "n5": "0",
+        "n7": "0",
+        "n10": "-2",
+        "n6": "3"
+      },
+      "actual_divisor": "n0*x0*x1*x2*(x0*x1 + x2*x3)",
+      "cubic": "n0*x0*x1*x2"
+    },
+    {
+      "case": "b_nonzero_c_a_zero",
+      "substitution": {
+        "n0": "0",
+        "n2": "0",
+        "n3": "0",
+        "n4": "0",
+        "n5": "0",
+        "n7": "0",
+        "n10": "-2",
+        "n6": "-2"
+      },
+      "actual_divisor": "n1*x0*x1*x3*(x0*x1 + x2*x3)",
+      "cubic": "n1*x0*x1*x3"
+    },
+    {
+      "case": "abc_zero_rank_at_most2",
+      "substitution": {
+        "n0": "0",
+        "n1": "0",
+        "n2": "0"
+      },
+      "actual_divisor": "0",
+      "cubic": "0"
+    }
+  ],
+  "zero_c0_ab_nonzero_empty_reason": "The equations imply g=3 and g=-2.",
+  "zero_irreducible_cubic_locus_empty": true,
+  "isotropic_n1_in_exact_Jacobi_constant_span": true,
+  "isotropic_potential_after_n1_zero": "-x2*(x0*x1 + x2*x3)*(-2*n0*n2*x2**2 + 2*n0*n5*x0*x1 + 2*n0*n5*x2*x3 - n0*x0*x1 + 4*n0*x2*x3 + n2*x2**2 - 6*n5*x0*x1 - n5*x2*x3 + 3*x0*x1 - 2*x2*x3)/5",
+  "isotropic_irreducible_cubic_locus_empty": true,
+  "nonisotropic_complete_branches": [
+    {
+      "branch": 1,
+      "parameter_substitution": {
+        "n0": "4/3",
+        "n1": "-1/3",
+        "n2": "-3/4",
+        "n5": "1/2"
+      },
+      "remaining_all_parameters": [
+        "n3",
+        "n4"
+      ],
+      "full_brackets": {
+        "01": "-x0*x1 + 5*x2**2/4 - 5*x2*x3/2 + 5*x3**2/4",
+        "02": "3*x0*x2/4 - 5*x0*x3/4",
+        "03": "-5*x0*x2/4 + 3*x0*x3/4",
+        "04": "-n3*x0*x2 - n4*x0*x3 - 2*x0*x2/3 - 2*x0*x3/3 - x0*x4/2",
+        "12": "-3*x1*x2/4 + 5*x1*x3/4",
+        "13": "5*x1*x2/4 - 3*x1*x3/4",
+        "14": "n3*x1*x2 + n4*x1*x3 + x1*x4/2",
+        "23": "0",
+        "24": "5*x0*x1/3 - x2**2/3 + 4*x2*x3/3",
+        "34": "5*x0*x1/3 + 4*x2*x3/3 - x3**2/3"
+      },
+      "all_ten_universal_Jacobi_zero": true,
+      "all_signed_Pfaffians_equal_divisor_gradient": true,
+      "actual_divisor": "-5*(x2 - x3)*(x0*x1 + x2*x3)*(4*x0*x1 - x2**2 + 2*x2*x3 - x3**2)/12",
+      "cubic_factorization": "-5*(x2 - x3)*(4*x0*x1 - x2**2 + 2*x2*x3 - x3**2)/12",
+      "common_linear_factor": "x2 - x3",
+      "cubic_quotient": "-5*x0*x1/3 + 5*x2**2/12 - 5*x2*x3/6 + 5*x3**2/12",
+      "irreducible_cubic_locus_empty": true
+    },
+    {
+      "branch": 2,
+      "parameter_substitution": {
+        "n0": "3",
+        "n1": "-2",
+        "n2": "-1/3",
+        "n5": "-1/3"
+      },
+      "remaining_all_parameters": [
+        "n3",
+        "n4"
+      ],
+      "full_brackets": {
+        "01": "-x0*x1 - 5*x2*x3/3",
+        "02": "x0*x2/3",
+        "03": "x0*x3/3",
+        "04": "-n3*x0*x2 - n4*x0*x3 + x0*x2 + x0*x3 + x0*x4/3",
+        "12": "-x1*x2/3",
+        "13": "-x1*x3/3",
+        "14": "n3*x1*x2 + n4*x1*x3 - x1*x4/3",
+        "23": "0",
+        "24": "-2*x2**2 + 3*x2*x3",
+        "34": "3*x2*x3 - 2*x3**2"
+      },
+      "all_ten_universal_Jacobi_zero": true,
+      "all_signed_Pfaffians_equal_divisor_gradient": true,
+      "actual_divisor": "-5*x2*x3*(x2 - x3)*(x0*x1 + x2*x3)/3",
+      "cubic_factorization": "-5*x2*x3*(x2 - x3)/3",
+      "common_linear_factor": "x2 - x3",
+      "cubic_quotient": "-5*x2*x3/3",
+      "irreducible_cubic_locus_empty": true
+    }
+  ],
+  "nonisotropic_completeness_reason": "Set U=n2+2*n5+1,V=n2-n5. If either nonzero, factored Jacobi forces n0=4/3,n1=-1/3 and the remaining linear equations force n2=-3/4,n5=1/2. If U=V=0, n2=n5=-1/3 and the remaining equations force n0=3,n1=-2.",
+  "nonisotropic_two_case_linear_reductions_exactly_verified": true,
+  "all_three_fixed_cofactor_types_irreducible_cubic_locus_empty": true,
+  "ambient_rank_tests_unnecessary_and_not_run": true,
+  "global_exhaustion_proved": false,
+  "input_sha256": {
+    "reports/CLASSIFICATION_DEGENERATE_QUADRIC_Q4_SEMISIMPLE2_ZERO_20261107.json": "979ed7b94d30c677eb692c9adfb4c0ce632008376ee8198070538f6955ba26b2",
+    "reports/CLASSIFICATION_DEGENERATE_QUADRIC_Q4_SEMISIMPLE2_ISOTROPIC_20261107.json": "a8a2579ee6ea85b3d37134fda2b2ccfad3eb60a3b6dada392601abb2e0923c4e",
+    "reports/CLASSIFICATION_DEGENERATE_QUADRIC_Q4_SEMISIMPLE2_NONISOTROPIC_20261107.json": "9f8e0c0824461118349dc77658449d29fd4c5eb674aa2697e4ffe6bb5c09409a",
+    "code/classification_degenerate_quadric_semisimple2_support.py": "f157af3ee238137076bef6f6dab2d70a57f337b88f5b4a65c21cd7fdc5e4e23d"
+  },
+  "producer_source": "#!/usr/bin/env python3\n\"\"\"Complete residual-Jacobi support for q4 semisimple2 cofactor sources.\"\"\"\nimport argparse,hashlib,itertools,json,resource,time\nfrom pathlib import Path\nimport sympy as s\nfrom sympy.polys.matrices import DomainMatrix\nROOT=Path(__file__).resolve().parents[1]\nPREFIX='reports/CLASSIFICATION_DEGENERATE_QUADRIC_Q4_SEMISIMPLE2_'\ndef decode(r):\n    P=s.zeros(5)\n    for key,value in r['brackets'].items():\n        i,j=map(int,key);P[i,j]=s.sympify(value);P[j,i]=-P[i,j]\n    return P\ndef jacs(P,x):\n    return [s.expand(sum(P[i,l]*s.diff(P[j,k],x[l])+P[j,l]*s.diff(P[k,i],x[l])+P[k,l]*s.diff(P[i,j],x[l])for l in range(5)))for i,j,k in itertools.combinations(range(5),3)]\ndef divisor(P,x,check=True):\n    pf=[]\n    for missing in range(5):\n        i,j,k,l=[a for a in range(5)if a!=missing]\n        pf.append(s.expand((-1)**missing*(P[i,j]*P[k,l]-P[i,k]*P[j,l]+P[i,l]*P[j,k])))\n    D=s.factor(sum(x[i]*pf[i]for i in range(5))/5)\n    if check:assert all(s.expand(s.diff(D,x[i])-pf[i])==0 for i in range(5))\n    return D\ndef rank(A):return len(DomainMatrix.from_Matrix(A).convert_to(s.QQ).rref()[1])\ndef coefficient_span(polys,variables):\n    mons=sorted(set().union(*(set(s.Poly(p,*variables).monoms())for p in polys)))\n    return s.Matrix([[s.Poly(p,*variables).coeff_monomial(m)for m in mons]for p in polys])\ndef main(output):\n    resource.setrlimit(resource.RLIMIT_CPU,(70,71));resource.setrlimit(resource.RLIMIT_AS,(1536*1024**2,1536*1024**2))\n    begun=time.monotonic();xx=s.symbols('x0:5');q=xx[0]*xx[1]+xx[2]*xx[3];n=s.symbols('n0:11');a,b,c,d,e,f,g,h,i,j,k=n\n    paths=[PREFIX+kind+'_20261107.json'for kind in ['ZERO','ISOTROPIC','NONISOTROPIC']]\n    zero,iso,noniso=[json.loads((ROOT/p).read_text())for p in paths]\n    original=[s.sympify(v)for v in zero['residual_jacobi_coefficients']]\n    conditions=[a*e+b*h,a*h+c*f,b*e+c*d,c*e,c*h,a*f,b*d,b*f-a*(k+2),a*d-b*(k+2),c*(k+2),c*i-a*(g-3),c*j+b*(k+g+4)]\n    together=coefficient_span(original+conditions,n)\n    assert rank(together)==rank(together[:len(original),:])==rank(together[len(original):,:])\n    Pzero=decode(zero);zero_records=[]\n    branches=[dict(name='c_nonzero',sub={d:0,e:0,f:0,h:0,k:-2,i:a*(g-3)/c,j:-b*(g+2)/c},expected=xx[0]*xx[1]*(a*xx[2]+b*xx[3]+c*xx[4])),\n              dict(name='a_nonzero_c_b_zero',sub={b:0,c:0,d:0,e:0,f:0,h:0,k:-2,g:3},expected=a*xx[0]*xx[1]*xx[2]),\n              dict(name='b_nonzero_c_a_zero',sub={a:0,c:0,d:0,e:0,f:0,h:0,k:-2,g:-2},expected=b*xx[0]*xx[1]*xx[3]),\n              dict(name='abc_zero_rank_at_most2',sub={a:0,b:0,c:0},expected=0)]\n    for branch in branches:\n        P=Pzero.subs(branch['sub'],simultaneous=True).applyfunc(s.cancel)\n        assert all(s.cancel(v)==0 for v in jacs(P,xx))\n        D=divisor(P,xx);assert s.cancel(D-q*branch['expected'])==0\n        zero_records.append(dict(case=branch['name'],substitution={str(k):str(v)for k,v in branch['sub'].items()},actual_divisor=str(D),cubic=str(branch['expected'])))\n    # c=0,a*b!=0 forces g=3 and g=-2, so this missing stratum is empty.\n    iso_j=[s.sympify(v)for v in iso['residual_jacobi_coefficients']]\n    span=coefficient_span(iso_j+[b],n[:6]);assert rank(span)==rank(span[:-1,:])\n    P_iso=decode(iso).subs(b,0);potential=divisor(P_iso,xx,check=False)\n    assert s.cancel(potential/(q*xx[2])).is_polynomial(*xx,*n[:6])\n    noniso_records=[];Pgen=decode(noniso)\n    noniso_j=[s.sympify(v)for v in noniso['residual_jacobi_coefficients']]\n    U=c+2*f+1;V=c-f\n    factors=[(3*a-4)*U,(3*b+1)*V,(a-2*b-2)*U,(2*a-b-3)*V]\n    assert all(any(s.expand(v-p)==0 or s.expand(v+p)==0 for v in noniso_j)for p in factors)\n    for substitution,required in [({a:s.Rational(4,3),b:s.Rational(-1,3)},[f-2*c-2,2*c+3*f]),\n                                 ({c:s.Rational(-1,3),f:s.Rational(-1,3)},[a-3,b+2])]:\n        values=[s.expand(v.subs(substitution))for v in noniso_j]\n        matrix=coefficient_span(values+required,n[:6])\n        assert rank(matrix)==rank(matrix[:len(values),:])==rank(matrix[len(values):,:])==2\n    for branch_id,values in enumerate([(s.Rational(4,3),s.Rational(-1,3),s.Rational(-3,4),s.Rational(1,2)),(3,-2,s.Rational(-1,3),s.Rational(-1,3))],1):\n        sub=dict(zip([a,b,c,f],values));P=Pgen.subs(sub)\n        assert all(v==0 for v in jacs(P,xx))\n        D=divisor(P,xx);cubic=s.factor(s.cancel(D/q))\n        quotient=s.cancel(cubic/(xx[2]-xx[3]))\n        assert quotient.is_polynomial(*xx)and s.Poly(quotient,*xx).total_degree()==2\n        noniso_records.append(dict(branch=branch_id,parameter_substitution={str(k):str(v)for k,v in sub.items()},\n            remaining_all_parameters=['n3','n4'],full_brackets={''.join(map(str,ij)):str(P[ij])for ij in itertools.combinations(range(5),2)},\n            all_ten_universal_Jacobi_zero=True,all_signed_Pfaffians_equal_divisor_gradient=True,\n            actual_divisor=str(D),cubic_factorization=str(cubic),common_linear_factor=str(xx[2]-xx[3]),\n            cubic_quotient=str(quotient),irreducible_cubic_locus_empty=True))\n        print(json.dumps(dict(branch=branch_id,cubic=str(cubic),irreducible_cubic_locus_empty=True)),flush=True)\n    inputs=paths+['code/classification_degenerate_quadric_semisimple2_support.py']\n    result=dict(task_id='E_reduced_nonnormal',all_passed=True,\n        zero_complete_reduced_conditions=list(map(str,conditions)),zero_conditions_equal_full_Jacobi_constant_span=True,\n        zero_all_support_branches=zero_records,zero_c0_ab_nonzero_empty_reason='The equations imply g=3 and g=-2.',zero_irreducible_cubic_locus_empty=True,\n        isotropic_n1_in_exact_Jacobi_constant_span=True,isotropic_potential_after_n1_zero=str(potential),isotropic_irreducible_cubic_locus_empty=True,\n        nonisotropic_complete_branches=noniso_records,\n        nonisotropic_completeness_reason='Set U=n2+2*n5+1,V=n2-n5. If either nonzero, factored Jacobi forces n0=4/3,n1=-1/3 and the remaining linear equations force n2=-3/4,n5=1/2. If U=V=0, n2=n5=-1/3 and the remaining equations force n0=3,n1=-2.',\n        nonisotropic_two_case_linear_reductions_exactly_verified=True,\n        all_three_fixed_cofactor_types_irreducible_cubic_locus_empty=True,\n        ambient_rank_tests_unnecessary_and_not_run=True,global_exhaustion_proved=False,\n        input_sha256={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest()for p in inputs},producer_source=Path(__file__).read_text(),seconds=time.monotonic()-begun)\n    with output.open('x')as handle:json.dump(result,handle,indent=2);handle.write('\\n')\nif __name__=='__main__':\n    ap=argparse.ArgumentParser();ap.add_argument('--output',type=Path,required=True);main(ap.parse_args().output)\n",
+  "seconds": 1.0783624920004513
+}

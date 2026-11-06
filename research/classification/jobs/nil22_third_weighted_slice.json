@@ -1,0 +1,40 @@
+{
+  "task_id": "E_multiple_hyperplane",
+  "target_statement": "Determine the entire formal reduced transverse support of the single nil22 A=-1/3 rank-four orbit through its strictly one-sign normal representation, if the weights allow finite IFT elimination.",
+  "implication_to_classification": "A zero-dimensional full transverse ideal proves the orbit22 closure is a full component; positive-dimensional support is retained and gives actual polynomial Poisson curves from the finite IFT map, rather than forcing22.",
+  "coefficient_ring": "QQ in all150 coefficients; at most two normal variables and all350 original Jacobi equations.",
+  "hypotheses": "The entire source has been normalized universally and independently reviewed; the fixed canonical tensor is the coordinate image of the existing frozen witness. All implicit functions are finite weighted monomials only if every normal weight has the same strict sign.",
+  "inverted_elements": [
+    "the exact full-rank IFT minor"
+  ],
+  "complements": [
+    "If normal weights have mixed signs or zero, stop with that obstruction",
+    "Retain the entire normal ideal and every support branch",
+    "Do not infer new componenthood from tangent ranks or an incomplete polynomial curve"
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_modular_weighted_slice.py",
+      "sha256": "fffa1d36e003cffa61dd6cc30a84bf32a4240f99981d4fb7c89ee83975540c5b"
+    },
+    {
+      "path": "code/classification_rank3_mixed_component_review.py",
+      "sha256": "48e61e30f9d7f04fb81f1bb5eec0e18daa28c8192d6a02a251e09cf8855b9bd0"
+    },
+    {
+      "path": "code/data/classification_nil22_third_weighted_slice.json",
+      "sha256": "f645b75f505c04b5af2d762998266295f3ab1d85b97717d3659c914806d323ee"
+    },
+    {
+      "path": "reports/CLASSIFICATION_NIL22_RESONANCE_NORMALIZATION_20261107.json",
+      "sha256": "1f600988bf1f7d7253bceb76f8fb58ad196439887dfb75bbabc5f44a901e7eaa"
+    }
+  ],
+  "success_certificate": "FullD/G/slice/normal weight certificates; all possible implicit monomials through the representation-theoretic bound; selected102or101 equations identically zero; full finite residual ideal and two-variable Groebner support dimension.",
+  "independent_check": "Parent reviewed full-source normalization. Any claimed componenthood will receive separate Fraction reconstruction and formal-support review.",
+  "resource_limit": {
+    "timeout_seconds": 90,
+    "memory_mb": 1536
+  },
+  "negative_result_next_step": "If finite elimination fails or the weights do not bound it, retain all normal directions and return to actual geometric deformation; do not increase a formal jet order."
+}

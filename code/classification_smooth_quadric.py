@@ -14,12 +14,19 @@ import time
 import sympy as s
 
 
-def run_nil(kind):
-    """Complete fixed-cofactor sources for the three nilpotent so5 orbits."""
+def run_nil(kind, fixed_spec=None):
+    """Complete fixed-cofactor sources; optionally use a rank3/4 table row."""
     started=time.monotonic()
     x=s.symbols('x0:5')
     N=s.zeros(5)
-    if kind == 'nil5':
+    if fixed_spec is not None:
+        local=dict(zip(map(str,x),x))
+        q=s.sympify(fixed_spec['quadric'],locals=local)
+        components=s.Matrix([s.sympify(f,locals=local) for f in fixed_spec['cofactor_components']])
+        N=components.jacobian(x)
+        assert components==N*s.Matrix(x)
+        assert s.hessian(q,x).rank()==fixed_spec['quadric_rank']
+    elif kind == 'nil5':
         q=x[0]*x[4]-4*x[1]*x[3]+3*x[2]**2
         for i in range(4):N[i+1,i]=i+1
     elif kind == 'nil311':
@@ -32,7 +39,9 @@ def run_nil(kind):
         raise ValueError(kind)
     E=s.Matrix(x);V=N*E
     assert s.expand(sum(V[i]*s.diff(q,x[i]) for i in range(5)))==0
-    assert s.hessian(q,x).det()!=0
+    assert N.trace()==0 and N!=s.zeros(5)
+    if fixed_spec is None:
+        assert s.hessian(q,x).det()!=0
     pairs=list(itertools.combinations(range(5),2))
     mons=[x[i]*x[j] for i in range(5) for j in range(i,5)]
     unknowns=s.symbols('p0:150')
@@ -46,7 +55,15 @@ def run_nil(kind):
     constraints += [lie[i,j] for i,j in pairs]
     equations=[c for f in constraints for c in s.Poly(s.expand(f),*x).coeffs() if c!=0]
     M,b=s.linear_eq_to_matrix(equations,unknowns)
-    sol=next(iter(s.linsolve((M,b),unknowns)))
+    solutions=s.linsolve((M,b),unknowns)
+    if solutions is s.EmptySet:
+        source=Path(__file__).read_text()
+        return {'scope':'empty full150 linear fixed-cofactor source','case':kind,
+                'fixed_specification':fixed_spec,'linear_matrix_shape':list(M.shape),
+                'linear_rank':M.rank(),'augmented_rank':M.row_join(b).rank(),
+                'elapsed_seconds':time.monotonic()-started,
+                'producer_sha256':hashlib.sha256(source.encode()).hexdigest(),'producer_source':source}
+    sol=next(iter(solutions))
     oldparams=sorted(set().union(*(f.free_symbols for f in sol)),key=str)
     parameters=s.symbols(f'n0:{len(oldparams)}')
     rename=dict(zip(oldparams,parameters))
@@ -66,7 +83,7 @@ def run_nil(kind):
     potential=s.factor(sum(x[i]*pf[i] for i in range(5))/5)
     source=Path(__file__).read_text()
     return {'scope':'complete linear fixed-cofactor source; all residual Jacobi retained',
-        'case':kind,'q':str(q),'normal_hamiltonian_matrix':str(N),
+        'case':kind,'fixed_specification':fixed_spec,'q':str(q),'normal_hamiltonian_matrix':str(N),
         'linear_matrix_shape':list(M.shape),'linear_rank':150-len(parameters),
         'source_dimension':len(parameters),'parameters':list(map(str,parameters)),
         'brackets':{f'{i}{j}':str(P[i,j]) for i,j in pairs},
@@ -375,13 +392,92 @@ def run(ambient=False):
     }
 
 
+def run_degenerate_regular_support():
+    """All-source SNC limits and boundary pencils for three regular types."""
+    started=time.monotonic()
+    root=Path(__file__).resolve().parents[1]
+    x=s.symbols('x0:5');n=s.symbols('n0:6');t,z=s.symbols('t z')
+    pairs=list(itertools.combinations(range(5),2))
+    outputs=[]
+    for name in ['Q4_REGULAR_RATIO2','Q3_REGULAR_A1_C2','Q3_REGULAR_A2_C1']:
+        path=root/f'reports/CLASSIFICATION_DEGENERATE_QUADRIC_{name}_20261107.json'
+        raw=json.loads(path.read_text());params=n[:len(raw['parameters'])]
+        local={str(v):v for v in x+params}
+        P=s.zeros(5)
+        for i,j in pairs:
+            P[i,j]=s.sympify(raw['brackets'][f'{i}{j}'],locals=local);P[j,i]=-P[i,j]
+        jac=[s.sympify(f,locals=local) for f in raw['residual_jacobi_coefficients']]
+        if name.startswith('Q4'):
+            cond=[(n[2]+4)*(n[4]+2),n[0]*(n[2]-n[3]+1),n[1]*(n[3]+n[4])]
+            arms=[({n[2]:-4},(1,1,0,0,3),2*(n[4]+2)),
+                  ({n[4]:-2},(0,0,1,1,3),n[2]+4)]
+            boundaries=[{n[0]:0,n[1]:0,n[2]:-4,n[3]:z,n[4]:-2+t},
+                        {n[1]:0,n[2]:-4,n[3]:-3,n[4]:-2+t},
+                        {n[0]:0,n[2]:-4+t,n[3]:2,n[4]:-2}]
+        elif name.endswith('A1_C2'):
+            total=n[4]+n[5]
+            cond=[n[0]*(n[5]+3),n[1]*(n[4]+1),-2*n[0]*n[1]+n[2]*(total-1),5*n[2]-(3*total+2)*n[3]]
+            arms=[({},(1,1,0,3,3),-2*total-3)]
+            boundaries=[{n[1]:0,n[2]:0,n[3]:0,n[4]:s.Rational(3,2)+t,n[5]:-3},
+                        {n[0]:0,n[2]:0,n[3]:0,n[4]:-1,n[5]:-s.Rational(1,2)+t},
+                        {n[0]:0,n[1]:0,n[2]:0,n[3]:0,n[4]:z,n[5]:-s.Rational(3,2)-z+t}]
+        else:
+            total=n[4]+n[5]
+            cond=[n[0]*n[1],n[0]*(n[5]+2),n[1]*(n[4]+1),n[2]*(total-2),(3*total+4)*n[3]-10*n[2]]
+            arms=[({n[1]:0},(1,1,0,4,2),-total-3),
+                  ({n[0]:0},(1,1,0,2,4),-total-3)]
+            boundaries=[{n[1]:0,n[2]:0,n[3]:0,n[4]:-1+t,n[5]:-2},
+                        {n[0]:0,n[2]:0,n[3]:0,n[4]:-1,n[5]:-2+t},
+                        {n[0]:0,n[1]:0,n[2]:0,n[3]:0,n[4]:z,n[5]:-3-z+t}]
+        polynomial_rows=[s.Poly(f,*params).as_dict() for f in jac+cond]
+        monomials=sorted(set().union(*(r.keys() for r in polynomial_rows)))
+        M=s.Matrix([[r.get(m,0) for m in monomials] for r in polynomial_rows])
+        ranks=[M[:len(jac),:].rank(),M[len(jac):,:].rank(),M.rank()]
+        assert ranks==[len(cond)]*3
+        arm_reports=[]
+        for sub,weights,expected in arms:
+            PP=P.subs(sub,simultaneous=True).applyfunc(s.expand);limit=s.zeros(5)
+            for i,j in pairs:
+                for powers,coeff in s.Poly(PP[i,j],*x).terms():
+                    exponent=weights[i]+weights[j]-sum(powers[k]*weights[k] for k in range(5))
+                    assert exponent>=0,(name,(i,j),powers,exponent)
+                    if exponent==0:limit[i,j]+=coeff*s.prod(x[k]**powers[k] for k in range(5))
+                limit[j,i]=-limit[i,j]
+                assert s.cancel(limit[i,j]/(x[i]*x[j])).free_symbols.isdisjoint(x)
+            pf=[]
+            for missing in range(5):
+                i,j,k,l=[r for r in range(5) if r!=missing]
+                pf.append(s.expand((-1)**missing*(limit[i,j]*limit[k,l]-limit[i,k]*limit[j,l]+limit[i,l]*limit[j,k])))
+            actual=s.factor(sum(x[i]*pf[i] for i in range(5))/5)
+            assert all(s.expand(s.diff(actual,x[i])-pf[i])==0 for i in range(5))
+            assert s.expand(actual-expected*s.prod(x))==0,(name,actual,expected)
+            arm_reports.append({'substitution':{str(k):str(v) for k,v in sub.items()},'weights':weights,'all_weights_nonnegative':True,'actual_limit':str(actual),'SNC_condition':str(expected)+' != 0'})
+        for sub in boundaries:
+            assert all(s.expand(f.subs(sub,simultaneous=True))==0 for f in jac)
+        outputs.append({'name':name,'input_sha256':hashlib.sha256(path.read_bytes()).hexdigest(),'full_jacobi_equivalent_conditions':list(map(str,cond)),'coefficient_span_ranks':ranks,'SNC_arms':arm_reports,'boundary_actual_pencils':[{str(k):str(v) for k,v in sub.items()} for sub in boundaries],'all_boundary_jacobi_zero':True})
+    source=Path(__file__).read_text()
+    return {'scope':'three regular degenerate-quadric types: full support MPS via all-parameter SNC limits and complete boundary pencils','cases':outputs,'elapsed_seconds':time.monotonic()-started,'producer_sha256':hashlib.sha256(source.encode()).hexdigest(),'producer_source':source}
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--output", required=True)
     parser.add_argument("--ambient", action="store_true")
-    parser.add_argument("--case", choices=("regular","rank2","rank2mixed","nil5","nil311","nil221"), default="regular")
+    parser.add_argument("--case", choices=("regular","rank2","rank2mixed","nil5","nil311","nil221","fixed","degenerate-regular-support"), default="regular")
+    parser.add_argument("--cofactor-input")
+    parser.add_argument("--cofactor-name")
     args = parser.parse_args()
-    if args.case.startswith('nil'):
+    if args.case == 'degenerate-regular-support':
+        result=run_degenerate_regular_support()
+    elif args.case == 'fixed':
+        if not args.cofactor_input or not args.cofactor_name:
+            parser.error('fixed case requires --cofactor-input and --cofactor-name')
+        table=json.loads(Path(args.cofactor_input).read_text())
+        rows=[r for r in table['cases'] if r['name']==args.cofactor_name]
+        assert len(rows)==1
+        result=run_nil(args.cofactor_name,rows[0])
+        result['cofactor_input_sha256']=hashlib.sha256(Path(args.cofactor_input).read_bytes()).hexdigest()
+    elif args.case.startswith('nil'):
         result=run_nil(args.case)
     else:
         result = run(ambient=args.ambient) if args.case == "regular" else run_rank2(mixed=args.case == "rank2mixed")

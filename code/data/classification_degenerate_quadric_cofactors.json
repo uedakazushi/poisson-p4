@@ -1,0 +1,433 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "purpose": "Finite full-cofactor entrance for a rank3 or rank4 irreducible quadric times an irreducible cubic.",
+  "coordinate_order": [
+    "x0",
+    "x1",
+    "x2",
+    "x3",
+    "x4"
+  ],
+  "proof_note": "research/classification/DEGENERATE_QUADRIC_CUBIC_COFACTOR_REDUCTION.md",
+  "normalization": "q-preserving invertible linear changes and overall nonzero scalar of the Poisson lift; keep the full scalar saturation.",
+  "scope": "Exhausting cofactor representative cover only; not a count of Poisson components and no residual Jacobi support solved.",
+  "mathematical_status": "All31 representatives independently rederived and accepted by root, including the rank3 mixed-nilpotent Sylvester cokernel and its centralizer action; full residual Jacobi support remains open.",
+  "required_full_source_constraints": [
+    "div(Pi)=0",
+    "dq_i Pi^{ij}=q X^j",
+    "[X,Pi]=0"
+  ],
+  "required_remaining_conditions": [
+    "all strict Jacobi",
+    "nonzero actual quintic D=q*c",
+    "c irreducible"
+  ],
+  "number_of_representatives": 31,
+  "rank4_representatives": 11,
+  "rank3_representatives": 20,
+  "cases": [
+    {
+      "name": "q4_regular_ratio2",
+      "quadric_rank": 4,
+      "quadric": "x0*x1+x2*x3",
+      "cofactor_components": [
+        "x0",
+        "-x1",
+        "2*x2",
+        "-2*x3",
+        "0"
+      ],
+      "block_type": "A regular semisimple, ratio2"
+    },
+    {
+      "name": "q4_semisimple2_zero",
+      "quadric_rank": 4,
+      "quadric": "x0*x1+x2*x3",
+      "cofactor_components": [
+        "x0",
+        "-x1",
+        "0",
+        "0",
+        "0"
+      ],
+      "block_type": "A semisimple rank2, C=0"
+    },
+    {
+      "name": "q4_semisimple2_isotropic",
+      "quadric_rank": 4,
+      "quadric": "x0*x1+x2*x3",
+      "cofactor_components": [
+        "x0",
+        "-x1",
+        "0",
+        "0",
+        "x2"
+      ],
+      "block_type": "A semisimple rank2, C=0"
+    },
+    {
+      "name": "q4_semisimple2_nonisotropic",
+      "quadric_rank": 4,
+      "quadric": "x0*x1+x2*x3",
+      "cofactor_components": [
+        "x0",
+        "-x1",
+        "0",
+        "0",
+        "x2+x3"
+      ],
+      "block_type": "A semisimple rank2, C=0"
+    },
+    {
+      "name": "q4_nil31_zero",
+      "quadric_rank": 4,
+      "quadric": "2*x0*x2+x1**2+x3**2",
+      "cofactor_components": [
+        "0",
+        "x0",
+        "-x1",
+        "0",
+        "0"
+      ],
+      "block_type": "A nilpotent(3,1), C=0"
+    },
+    {
+      "name": "q4_nil31_short",
+      "quadric_rank": 4,
+      "quadric": "2*x0*x2+x1**2+x3**2",
+      "cofactor_components": [
+        "0",
+        "x0",
+        "-x1",
+        "0",
+        "x3"
+      ],
+      "block_type": "A nilpotent(3,1), C=0"
+    },
+    {
+      "name": "q4_nil31_long",
+      "quadric_rank": 4,
+      "quadric": "2*x0*x2+x1**2+x3**2",
+      "cofactor_components": [
+        "0",
+        "x0",
+        "-x1",
+        "0",
+        "x2"
+      ],
+      "block_type": "A nilpotent(3,1), C=0"
+    },
+    {
+      "name": "q4_nil22_zero",
+      "quadric_rank": 4,
+      "quadric": "x0*x3-x1*x2",
+      "cofactor_components": [
+        "0",
+        "x0",
+        "0",
+        "x2",
+        "0"
+      ],
+      "block_type": "A nilpotent(2,2), C=0"
+    },
+    {
+      "name": "q4_nil22_nonzero",
+      "quadric_rank": 4,
+      "quadric": "x0*x3-x1*x2",
+      "cofactor_components": [
+        "0",
+        "x0",
+        "0",
+        "x2",
+        "x1"
+      ],
+      "block_type": "A nilpotent(2,2), C=0"
+    },
+    {
+      "name": "q4_Azero_isotropic",
+      "quadric_rank": 4,
+      "quadric": "x0*x1+x2*x3",
+      "cofactor_components": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "x0"
+      ],
+      "block_type": "A=0, C=0, B nonzero"
+    },
+    {
+      "name": "q4_Azero_nonisotropic",
+      "quadric_rank": 4,
+      "quadric": "x0*x1+x2*x3",
+      "cofactor_components": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "x0+x1"
+      ],
+      "block_type": "A=0, C=0, B nonzero"
+    },
+    {
+      "name": "q3_regular_A1_C2",
+      "quadric_rank": 3,
+      "quadric": "x0*x1+x2**2",
+      "cofactor_components": [
+        "x0",
+        "-x1",
+        "0",
+        "2*x3",
+        "-2*x4"
+      ],
+      "block_type": "A,C regular semisimple, ratio1:2"
+    },
+    {
+      "name": "q3_regular_A2_C1",
+      "quadric_rank": 3,
+      "quadric": "x0*x1+x2**2",
+      "cofactor_components": [
+        "2*x0",
+        "-2*x1",
+        "0",
+        "x3",
+        "-x4"
+      ],
+      "block_type": "A,C regular semisimple, ratio2:1"
+    },
+    {
+      "name": "q3_Asemisimple_Czero_Bzero",
+      "quadric_rank": 3,
+      "quadric": "x0*x1+x2**2",
+      "cofactor_components": [
+        "x0",
+        "-x1",
+        "0",
+        "0",
+        "0"
+      ],
+      "block_type": "A semisimple nonzero; C nilpotent or0"
+    },
+    {
+      "name": "q3_Asemisimple_Czero_Bnonzero",
+      "quadric_rank": 3,
+      "quadric": "x0*x1+x2**2",
+      "cofactor_components": [
+        "x0",
+        "-x1",
+        "0",
+        "x2",
+        "0"
+      ],
+      "block_type": "A semisimple nonzero; C nilpotent or0"
+    },
+    {
+      "name": "q3_Asemisimple_Cnil2_Bzero",
+      "quadric_rank": 3,
+      "quadric": "x0*x1+x2**2",
+      "cofactor_components": [
+        "x0",
+        "-x1",
+        "0",
+        "0",
+        "x3"
+      ],
+      "block_type": "A semisimple nonzero; C nilpotent or0"
+    },
+    {
+      "name": "q3_Asemisimple_Cnil2_Bnonzero",
+      "quadric_rank": 3,
+      "quadric": "x0*x1+x2**2",
+      "cofactor_components": [
+        "x0",
+        "-x1",
+        "0",
+        "x2",
+        "x3"
+      ],
+      "block_type": "A semisimple nonzero; C nilpotent or0"
+    },
+    {
+      "name": "q3_Csemisimple_Azero",
+      "quadric_rank": 3,
+      "quadric": "2*x0*x2+x1**2",
+      "cofactor_components": [
+        "0",
+        "0",
+        "0",
+        "x3",
+        "-x4"
+      ],
+      "block_type": "C semisimple nonzero; A nilpotent or0"
+    },
+    {
+      "name": "q3_Csemisimple_Anil3",
+      "quadric_rank": 3,
+      "quadric": "2*x0*x2+x1**2",
+      "cofactor_components": [
+        "0",
+        "x0",
+        "-x1",
+        "x3",
+        "-x4"
+      ],
+      "block_type": "C semisimple nonzero; A nilpotent or0"
+    },
+    {
+      "name": "q3_Azero_Czero_rank1_isotropic",
+      "quadric_rank": 3,
+      "quadric": "2*x0*x2+x1**2",
+      "cofactor_components": [
+        "0",
+        "0",
+        "0",
+        "x0",
+        "0"
+      ],
+      "block_type": "A=C=0, B nonzero"
+    },
+    {
+      "name": "q3_Azero_Czero_rank1_nonisotropic",
+      "quadric_rank": 3,
+      "quadric": "2*x0*x2+x1**2",
+      "cofactor_components": [
+        "0",
+        "0",
+        "0",
+        "x1",
+        "0"
+      ],
+      "block_type": "A=C=0, B nonzero"
+    },
+    {
+      "name": "q3_Azero_Czero_rank2_nondegenerate",
+      "quadric_rank": 3,
+      "quadric": "2*x0*x2+x1**2",
+      "cofactor_components": [
+        "0",
+        "0",
+        "0",
+        "x0",
+        "x2"
+      ],
+      "block_type": "A=C=0, B nonzero"
+    },
+    {
+      "name": "q3_Azero_Czero_rank2_degenerate",
+      "quadric_rank": 3,
+      "quadric": "2*x0*x2+x1**2",
+      "cofactor_components": [
+        "0",
+        "0",
+        "0",
+        "x0",
+        "x1"
+      ],
+      "block_type": "A=C=0, B nonzero"
+    },
+    {
+      "name": "q3_Azero_Cnil2_zero",
+      "quadric_rank": 3,
+      "quadric": "2*x0*x2+x1**2",
+      "cofactor_components": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "x3"
+      ],
+      "block_type": "A=0, C nilpotent2"
+    },
+    {
+      "name": "q3_Azero_Cnil2_isotropic",
+      "quadric_rank": 3,
+      "quadric": "2*x0*x2+x1**2",
+      "cofactor_components": [
+        "0",
+        "0",
+        "0",
+        "x0",
+        "x3"
+      ],
+      "block_type": "A=0, C nilpotent2"
+    },
+    {
+      "name": "q3_Azero_Cnil2_nonisotropic",
+      "quadric_rank": 3,
+      "quadric": "2*x0*x2+x1**2",
+      "cofactor_components": [
+        "0",
+        "0",
+        "0",
+        "x1",
+        "x3"
+      ],
+      "block_type": "A=0, C nilpotent2"
+    },
+    {
+      "name": "q3_Anil3_Czero_zero",
+      "quadric_rank": 3,
+      "quadric": "2*x0*x2+x1**2",
+      "cofactor_components": [
+        "0",
+        "x0",
+        "-x1",
+        "0",
+        "0"
+      ],
+      "block_type": "A nilpotent3, C=0"
+    },
+    {
+      "name": "q3_Anil3_Czero_nonzero",
+      "quadric_rank": 3,
+      "quadric": "2*x0*x2+x1**2",
+      "cofactor_components": [
+        "0",
+        "x0",
+        "-x1",
+        "x2",
+        "0"
+      ],
+      "block_type": "A nilpotent3, C=0"
+    },
+    {
+      "name": "q3_Anil3_Cnil2_zero",
+      "quadric_rank": 3,
+      "quadric": "2*x0*x2+x1**2",
+      "cofactor_components": [
+        "0",
+        "x0",
+        "-x1",
+        "0",
+        "x3"
+      ],
+      "block_type": "A nilpotent3, C nilpotent2"
+    },
+    {
+      "name": "q3_Anil3_Cnil2_lower",
+      "quadric_rank": 3,
+      "quadric": "2*x0*x2+x1**2",
+      "cofactor_components": [
+        "0",
+        "x0",
+        "-x1",
+        "0",
+        "x3+x2"
+      ],
+      "block_type": "A nilpotent3, C nilpotent2"
+    },
+    {
+      "name": "q3_Anil3_Cnil2_upper",
+      "quadric_rank": 3,
+      "quadric": "2*x0*x2+x1**2",
+      "cofactor_components": [
+        "0",
+        "x0",
+        "-x1",
+        "x2",
+        "x3"
+      ],
+      "block_type": "A nilpotent3, C nilpotent2"
+    }
+  ]
+}

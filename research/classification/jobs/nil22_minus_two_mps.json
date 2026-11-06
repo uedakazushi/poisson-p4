@@ -1,0 +1,45 @@
+{
+  "task_id": "E_multiple_hyperplane",
+  "target_statement": "Recognize the complete nil22 A=-2 orbit through an actual Poisson curve whose nonzero points have smooth quadric plus irreducible cubic divisor.",
+  "implication_to_classification": "All nonzero curve points are in one PGL orbit and the established smooth-quadric+cubic theorem covers that orbit by MPS; closedness includes the original point and its entire normalized source orbit.",
+  "coefficient_ring": "QQ[s,h,x1,x2,x3,x4] and exact rational determinant/point checks",
+  "hypotheses": "Full all-source affine normalization and actual finite IFT curve are established inputs. The existing smooth-quadric+cubic theorem covers all actual points, not merely generic sources.",
+  "inverted_elements": [
+    "nonzero curve parameter for orbit equivalence",
+    "nonzero quadric determinant and the constant rational normalizations"
+  ],
+  "complements": [
+    "s=0 is included by closedness",
+    "The original source rank-four open is one orbit",
+    "No two-normal Groebner proof is required for this MPS inclusion"
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_nil22_quarter_snc.py",
+      "sha256": "ebaf93c68dcb00e44a839af109b4844ac43823b609a7d9fb632265f93ef95e96"
+    },
+    {
+      "path": "code/classification_rank3_mixed_component_review.py",
+      "sha256": "48e61e30f9d7f04fb81f1bb5eec0e18daa28c8192d6a02a251e09cf8855b9bd0"
+    },
+    {
+      "path": "reports/CLASSIFICATION_NIL22_MINUS_TWO_WEIGHTED_SLICE_20261107.json",
+      "sha256": "5bb0732fae1ce0b0661a2cdd69845d4dbe93e8ceb4b255c2796bc47c32a8de29"
+    },
+    {
+      "path": "reports/CLASSIFICATION_NIL22_MINUS_TWO_CANONICAL_20261107.json",
+      "sha256": "9d5a3777117179bef5cedc4b0ad91aaa58dd0b007d758733898b31e2d7e46332"
+    },
+    {
+      "path": "reports/CLASSIFICATION_NIL22_QUARTER_SNC_20261107.json",
+      "sha256": "21de76819c47afec66897b71126bad3375fea63cff864f9596beb58c584ff591"
+    }
+  ],
+  "success_certificate": "All350 universal curve Jacobi, endpoint identity and complete equivariant weights; exact quintic Q*C, rankQ5, cubic primitive in w with rank3 coefficient A and A(p)=0,g(p)!=0.",
+  "independent_check": "Parent derived the curve factorization and irreducibility proof independently; checker preserves the full formula and exact small certificates. Historical quarter checker bytes are embedded before extending the shared source.",
+  "resource_limit": {
+    "timeout_seconds": 30,
+    "memory_mb": 1024
+  },
+  "negative_result_next_step": "Retain the actual23-dimensional family and correct the failed geometry; no larger jet or replacement point."
+}

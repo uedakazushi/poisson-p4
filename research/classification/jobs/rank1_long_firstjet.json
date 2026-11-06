@@ -1,0 +1,32 @@
+{
+  "task_id": "G",
+  "target_statement": "Test primitive beta dominance of the full rank1 nilpotent long-top source with nonconstant transverse affine g, using one exact full first-jet differential.",
+  "implication_to_classification": "Rank16 proves an actual nonreduced-divisor source dominates the full primitive base, requiring revised generic exhaustion. Rank below16 only identifies a candidate kernel to be proved globally; it is not non-dominance.",
+  "coefficient_ring": "QQ[a,b,c,k0,...,k5] with all20 affine orbit directions and scale; all30 zero/first jet entries and all4 perspective gauge directions",
+  "hypotheses": "Full normalized source g=z, U=az d_z+(b+cz)d_w, K arbitrary quadratic, r=y-x^2/2. The original six brackets from the full rank1 source are retained and their universal Jacobi, modular field and Pfaffian are checked before evaluation.",
+  "inverted_elements": [
+    "Pf at the single declared basepoint (0,0,1,0)"
+  ],
+  "complements": [
+    "g constant or zero are separate full-source branches",
+    "No higher formal jet is calculated",
+    "A pointwise small rank is not used as a generic upper bound"
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_rank1_firstjet.py",
+      "sha256": "80049ee5f13f0ee3274e12c2dd2601dcba53cc068b934b890e5d4f0af6176110"
+    },
+    {
+      "path": "code/classification_component_beta_differential.py",
+      "sha256": "8c755a31973c4e257084c47d320793835f82070d4cc9f7a7ae244d3c49031a44"
+    }
+  ],
+  "success_certificate": "All universal original-coordinate brackets and Jacobi; exact30x34 combined jet matrix with full constant-evaluation and perspective matrices; QQ minors and kernels, and the equivalent fixed-value quotient rank.",
+  "independent_check": "A separate reader reconstructs the full source and primitive quotient; any rank16 claim requires an independently multiplied nonzero minor.",
+  "resource_limit": {
+    "timeout_seconds": 45,
+    "memory_mb": 512
+  },
+  "negative_result_next_step": "If the rank is below16, inspect the same exact kernel and derive an all-source actual fiber or invariant; no repeated source-point probe and no higher-jet loop."
+}

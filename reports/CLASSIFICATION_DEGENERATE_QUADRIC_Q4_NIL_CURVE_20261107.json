@@ -1,0 +1,30 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "specified_candidate_checked": true,
+  "family": {
+    "(0, 1)": "t**2*x2**2/5 - 6*t*x0*x2 + t*x1**2 - 4*t*x1*x3 + t*x3**2 + 8*x0**2",
+    "(0, 2)": "2*t*x1*x2 - 4*t*x2*x3 - 8*x0*x1 + 10*x0*x3",
+    "(0, 3)": "2*t**2*x2**2/5 - 6*t*x0*x2 - 2*t*x1**2 + 2*t*x1*x3 - 2*t*x3**2 + 10*x0**2",
+    "(0, 4)": "-3*t*x2**2 + 18*x0*x2 + 5*x1**2 + 10*x1*x3 + 5*x3**2",
+    "(1, 2)": "3*t*x2**2 + 2*x0*x2 - 3*x1**2 + 10*x1*x3 - 5*x3**2",
+    "(1, 3)": "-2*t*x1*x2 + 4*t*x2*x3 + 10*x0*x1 - 8*x0*x3",
+    "(1, 4)": "22*x0*x4 - 2*x1*x2 - 20*x2*x3",
+    "(2, 3)": "-10*x0*x2 - 10*x1**2 + 8*x1*x3",
+    "(2, 4)": "-22*x1*x4 - 12*x2**2 + 20*x3*x4",
+    "(3, 4)": "20*x0*x4 - 10*x1*x2 + 8*x2*x3"
+  },
+  "second_order_correction": {
+    "(0, 1)": "x2**2/5",
+    "(0, 3)": "2*x2**2/5"
+  },
+  "all_parameter_full_projective_Jacobi_zero": true,
+  "all_parameter_strict_Jacobi_zero": false,
+  "nonzero_projective_Jacobi": {},
+  "Euler_contracted_Pfaffian": "-(-t*x2**2 + 10*x0*x2 + 5*x1**2 - 5*x3**2)*(6*t**2*x2**2*x4 - 60*t*x0*x2*x4 - 40*t*x1**2*x4 + 40*t*x1*x3*x4 + 45*t*x2**2*x3 - 10*t*x3**2*x4 + 150*x0**2*x4 - 150*x0*x1*x2 - 150*x0*x2*x3 - 50*x1**3 - 75*x1**2*x3 + 25*x3**3)/25",
+  "input_sha256": {
+    "reports/CLASSIFICATION_DEGENERATE_QUADRIC_Q4_NIL_COMPONENTS_20261107.json": "91ca961c50c24849136c757083e5dbd64be52282614707dd40809d883a4f65af",
+    "reports/CLASSIFICATION_DEGENERATE_QUADRIC_Q4_NIL_NORMAL_20261107.json": "9afdf3c1d2c1487cb21293e427524b58c83c35bdbb026471c32e8ad150d6c6c7"
+  },
+  "producer_source": "#!/usr/bin/env python3\n\"\"\"Check a specified quadratic curve, with no iterative jet search.\"\"\"\nimport argparse,hashlib,itertools,json,resource,time\nfrom pathlib import Path\nimport sympy as s\nROOT=Path(__file__).resolve().parents[1]\ndef decode(data):\n    P=s.zeros(5)\n    for ij in itertools.combinations(range(5),2):P[ij]=s.sympify(data.get(str(ij),'0'));P[ij[::-1]]=-P[ij]\n    return P\ndef enc(P):return {str(ij):str(s.expand(P[ij])) for ij in itertools.combinations(range(5),2) if P[ij]!=0}\ndef main(output):\n    resource.setrlimit(resource.RLIMIT_CPU,(55,56));resource.setrlimit(resource.RLIMIT_AS,(1536*1024**2,1536*1024**2))\n    start=time.monotonic();xx=s.symbols('x0:5');t=s.Symbol('t')\n    paths=['reports/CLASSIFICATION_DEGENERATE_QUADRIC_Q4_NIL_COMPONENTS_20261107.json','reports/CLASSIFICATION_DEGENERATE_QUADRIC_Q4_NIL_NORMAL_20261107.json']\n    src=json.loads((ROOT/paths[0]).read_text());normal=json.loads((ROOT/paths[1]).read_text())\n    P=decode(next(c['point_brackets'] for c in src['cases'] if c['source']=='nil31_long_II'));R=decode(normal['literal_normal'])\n    T=s.zeros(5);T[0,1]=xx[2]**2/5;T[0,3]=2*xx[2]**2/5\n    for ij in itertools.combinations(range(5),2):T[ij[::-1]]=-T[ij]\n    Q=P+t*R+t*t*T\n    J={ijk:s.expand(sum(Q[i,l]*s.diff(Q[j,k],xx[l])+Q[j,l]*s.diff(Q[k,i],xx[l])+Q[k,l]*s.diff(Q[i,j],xx[l]) for l in range(5))) for ijk in itertools.combinations(range(5),3) for i,j,k in [ijk]}\n    full={ijkl:s.expand(sum((-1)**at*xx[ell]*J[ijkl[:at]+ijkl[at+1:]] for at,ell in enumerate(ijkl))) for ijkl in itertools.combinations(range(5),4)}\n    pf=[]\n    for missing in range(5):\n        i,j,k,l=[v for v in range(5) if v!=missing]\n        pf.append(s.expand((-1)**missing*(Q[i,j]*Q[k,l]-Q[i,k]*Q[j,l]+Q[i,l]*Q[j,k])))\n    potential=s.factor(sum(x*f for x,f in zip(xx,pf))/5)\n    out={'task_id':'E_reduced_nonnormal','specified_candidate_checked':True,'family':enc(Q),'second_order_correction':enc(T),'all_parameter_full_projective_Jacobi_zero':all(v==0 for v in full.values()),'all_parameter_strict_Jacobi_zero':all(v==0 for v in J.values()),'nonzero_projective_Jacobi':{str(k):str(s.factor(v)) for k,v in full.items() if v},'Euler_contracted_Pfaffian':str(potential),'input_sha256':{p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in paths},'producer_source':Path(__file__).read_text(),'seconds':time.monotonic()-start}\n    with output.open('x') as f:json.dump(out,f,indent=2);f.write('\\n')\n    print(json.dumps({k:out[k] for k in ['all_parameter_full_projective_Jacobi_zero','all_parameter_strict_Jacobi_zero','nonzero_projective_Jacobi','Euler_contracted_Pfaffian','seconds']},indent=2))\nif __name__=='__main__':\n    ap=argparse.ArgumentParser();ap.add_argument('--output',type=Path,required=True);main(ap.parse_args().output)\n",
+  "seconds": 0.3378276770017692
+}

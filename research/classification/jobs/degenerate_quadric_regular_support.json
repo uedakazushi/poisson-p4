@@ -1,0 +1,40 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "target_statement": "Verify full Jacobi condition equivalence, all-parameter SNC orbit limits and complete actual boundary pencils for the three regular cofactor types with rank3/4 quadric.",
+  "implication_to_classification": "The limits place every nonboundary point in MPS; explicit true Poisson pencils cover each full exceptional source, closing all three fixed-cofactor support branches without tangent guesses.",
+  "coefficient_ring": "QQ[p0,...,p149,x0,...,x4], then all free source parameters",
+  "hypotheses": "Each input q has rank3 or4; nonzero linear X has Xq=0 and trace0; all150 quadratic lift coefficients satisfy divPi=0, dq.Pi=qX and [X,Pi]=0. The table is exhaustive up to q-preserving changes and scalar saturation.",
+  "inverted_elements": [
+    "only the displayed SNC coefficients on their open sets"
+  ],
+  "complements": [
+    "q4 intersection n2=-4,n4=-2: all three cases a-only,b-only,bothzero have exact pencils",
+    "q3 A1C2 total n4+n5=-3/2 and q3 A2C1 total=-3: all source equations force the listed three boundary cases",
+    "all nonregular cofactor types remain separate"
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_smooth_quadric.py",
+      "sha256": "8aee56fb7614dfd6d4c4dee6f701278712dbc040690736395084f228142e03fb"
+    },
+    {
+      "path": "reports/CLASSIFICATION_DEGENERATE_QUADRIC_Q4_REGULAR_RATIO2_20261107.json",
+      "sha256": "16a165f860a79a89d98f6f5bc10294fb97fbc9df1f9e63c9a7faee75660d242b"
+    },
+    {
+      "path": "reports/CLASSIFICATION_DEGENERATE_QUADRIC_Q3_REGULAR_A1_C2_20261107.json",
+      "sha256": "269c7110fc26c872945d77b616ce03beaaf780c4709cd496ff293c23d0ca121f"
+    },
+    {
+      "path": "reports/CLASSIFICATION_DEGENERATE_QUADRIC_Q3_REGULAR_A2_C1_20261107.json",
+      "sha256": "3fc3a86778808f513d9b533106ffb1910ab4c626be2c943e2d829e8f6281c5ea"
+    }
+  ],
+  "success_certificate": "Exact QQ row-space equivalence of every Jacobi coefficient and 3/4/5 necessary-and-sufficient equations; nonnegative weight exponents on every full arm; actual diagonal Pfaffian and gradient; whole parameter boundary pencils satisfy all original Jacobi coefficients.",
+  "independent_check": "Independent hand review of exhaustive boundary case distinction and SNC closure argument; source report full150 completeness retained.",
+  "resource_limit": {
+    "timeout_seconds": 60,
+    "memory_mb": 1536
+  },
+  "negative_result_next_step": "If a source exceeds the per-case bound preserve the unsolved row and use invariant geometry. No repeated large Groebner/jet searches; source computation alone does not prove coverage."
+}

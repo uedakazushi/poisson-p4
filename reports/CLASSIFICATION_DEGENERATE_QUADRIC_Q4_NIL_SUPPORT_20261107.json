@@ -1,0 +1,743 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "all_passed": true,
+  "field": "QQ(i)",
+  "method": "Exact standard-library Gaussian Fraction sparse arithmetic, no producer or SymPy import.",
+  "input_sha256": {
+    "reports/CLASSIFICATION_DEGENERATE_QUADRIC_Q4_NIL31_ZERO_20261107.json": "40d158ef7d216b175abba21b88807b94ac40512397ec48aaf046edc6667003e8",
+    "reports/CLASSIFICATION_DEGENERATE_QUADRIC_Q4_NIL31_SHORT_20261107.json": "23c2679ac13f9aaeede67c407d15e0d158823a78456da54426a9724318362421",
+    "reports/CLASSIFICATION_DEGENERATE_QUADRIC_Q4_NIL31_LONG_20261107.json": "6da071f7ccf74a9c851ba46c7e5a010cc180e3753dcdb33b081617e49f16ceda",
+    "reports/CLASSIFICATION_DEGENERATE_QUADRIC_Q4_NIL22_ZERO_20261107.json": "105e2345a172c8503a933fcfaffc2500b72a381a0dd5b848e1dc93ba04d1544f",
+    "reports/CLASSIFICATION_DEGENERATE_QUADRIC_Q4_NIL22_NONZERO_20261107.json": "2ad4026a7fffb814b9fc83118a2a2b06f85492b7b3d7038a19fd8401a25c8b58"
+  },
+  "source_sha256": "12bac2246aac80ac89d37455c805291f0ec758d9ffe5f61ec02af9ac04ed14fd",
+  "independent_checker_source": "#!/usr/bin/env python3\n\"\"\"Independent exact QQ(i) review of rank4-quadric nil31/nil22 support reductions.\"\"\"\nimport argparse\nimport ast\nfrom fractions import Fraction as Rational\nimport hashlib\nimport itertools\nimport json\nfrom pathlib import Path\nimport resource\nimport time\n\nclass F:\n    \"\"\"Exact Gaussian rational; two arguments denote a real rational fraction.\"\"\"\n    __slots__=('a','b')\n    def __init__(self,value=0,denominator=None):\n        if denominator is not None:self.a=Rational(value,denominator);self.b=Rational(0)\n        elif isinstance(value,F):self.a=value.a;self.b=value.b\n        elif isinstance(value,tuple):self.a=Rational(value[0]);self.b=Rational(value[1])\n        else:self.a=Rational(value);self.b=Rational(0)\n    def __add__(self,other):\n        other=F(other);return F((self.a+other.a,self.b+other.b))\n    __radd__=__add__\n    def __neg__(self):return F((-self.a,-self.b))\n    def __sub__(self,other):return self+-F(other)\n    def __rsub__(self,other):return F(other)+-self\n    def __mul__(self,other):\n        other=F(other);return F((self.a*other.a-self.b*other.b,self.a*other.b+self.b*other.a))\n    __rmul__=__mul__\n    def __truediv__(self,other):\n        other=F(other);d=other.a**2+other.b**2\n        return F(((self.a*other.a+self.b*other.b)/d,(self.b*other.a-self.a*other.b)/d))\n    def __rtruediv__(self,other):return F(other)/self\n    def __bool__(self):return bool(self.a or self.b)\n    def __eq__(self,other):\n        other=F(other);return self.a==other.a and self.b==other.b\n    def __str__(self):return str(self.a) if not self.b else '('+str(self.a)+'+('+str(self.b)+')*I)'\n\nROOT = Path(__file__).resolve().parents[1]\nZERO = (0,)*20\nPAIRS = list(itertools.combinations(range(5), 2))\nPARAMETERS = ['n'+str(i) for i in range(15)]\n\n\ndef scalar(c):\n    return {ZERO: F(c)} if c else {}\n\n\ndef variable(j):\n    return {tuple(int(i == j) for i in range(20)): F(1)}\n\n\ndef add(*polys):\n    out = {}\n    for poly in polys:\n        for mon, c in poly.items():\n            out[mon] = out.get(mon, F(0))+c\n    return {m: c for m, c in out.items() if c}\n\n\ndef scale(poly, c):\n    return {m: c*v for m, v in poly.items() if c*v}\n\n\ndef multiply(a, b):\n    out = {}\n    for m, c in a.items():\n        for n, d in b.items():\n            word = tuple(x+y for x, y in zip(m, n))\n            out[word] = out.get(word, F(0))+c*d\n    return {m: c for m, c in out.items() if c}\n\n\ndef power(poly, n):\n    out = scalar(1)\n    for _ in range(n):\n        out = multiply(out, poly)\n    return out\n\n\ndef derivative(poly, j):\n    return {tuple(v-int(i == j) for i, v in enumerate(m)): c*m[j]\n            for m, c in poly.items() if m[j]}\n\n\ndef parse(text, extra=None):\n    env = {f'x{i}': variable(i) for i in range(5)}\n    env.update({name: variable(i+5) for i, name in enumerate(PARAMETERS)})\n    env['I']=scalar(F((0,1)))\n    env.update(extra or {})\n    def read(node):\n        if isinstance(node, ast.Constant):\n            return scalar(node.value)\n        if isinstance(node, ast.Name):\n            return env[node.id]\n        if isinstance(node, ast.UnaryOp):\n            assert isinstance(node.op, (ast.USub, ast.UAdd))\n            return scale(read(node.operand), -1 if isinstance(node.op, ast.USub) else 1)\n        assert isinstance(node, ast.BinOp)\n        if isinstance(node.op, ast.Pow):\n            return power(read(node.left), ast.literal_eval(node.right))\n        a, b = read(node.left), read(node.right)\n        if isinstance(node.op, ast.Add): return add(a, b)\n        if isinstance(node.op, ast.Sub): return add(a, scale(b, -1))\n        if isinstance(node.op, ast.Mult): return multiply(a, b)\n        assert isinstance(node.op, ast.Div) and set(b) == {ZERO}\n        return scale(a, 1/b[ZERO])\n    return read(ast.parse(str(text), mode='eval').body)\n\n\ndef entry(P, i, j):\n    return P.get((i, j), {}) if i < j else scale(P.get((j, i), {}), -1) if i > j else {}\n\n\ndef jacobi(P):\n    out = {}\n    for i, j, k in itertools.combinations(range(5), 3):\n        terms = []\n        for a, b, c in ((i, j, k), (j, k, i), (k, i, j)):\n            terms += [multiply(entry(P, a, r), derivative(entry(P, b, c), r)) for r in range(5)]\n        out[(i, j, k)] = add(*terms)\n    return out\n\n\ndef rank(rows):\n    rows = [list(map(F, row)) for row in rows]\n    if not rows: return 0\n    at = 0\n    for column in range(len(rows[0])):\n        pivot = next((i for i in range(at, len(rows)) if rows[i][column]), None)\n        if pivot is None: continue\n        rows[at], rows[pivot] = rows[pivot], rows[at]\n        rows[at] = [v/rows[at][column] for v in rows[at]]\n        for i in range(at+1, len(rows)):\n            if rows[i][column]:\n                c = rows[i][column]\n                rows[i] = [a-c*b for a, b in zip(rows[i], rows[at])]\n        at += 1\n        if at == len(rows): break\n    return at\n\n\ndef substitute(poly, values):\n    out = {}\n    for mon, c in poly.items():\n        term = scalar(c)\n        for i, exponent in enumerate(mon):\n            term = multiply(term, power(values.get(i, variable(i)), exponent))\n        out = add(out, term)\n    return out\n\n\ndef pfaffians(P):\n    out = []\n    for missing in range(5):\n        a, b, c, d = [i for i in range(5) if i != missing]\n        out.append(scale(add(multiply(entry(P,a,b), entry(P,c,d)),\n                            scale(multiply(entry(P,a,c),entry(P,b,d)), -1),\n                            multiply(entry(P,a,d),entry(P,b,c))), (-1)**missing))\n    return out\n\ndef decode(data):return {tuple(map(int,key)):parse(value) for key,value in data.items()}\n\ndef coefficient_polynomials(polys):\n    output=[]\n    for p in polys:\n        xmons=sorted(set(m[:5] for m in p))\n        for xm in xmons:\n            output.append({(0,)*5+m[5:]:c for m,c in p.items() if m[:5]==xm})\n    return output\n\ndef polynomial_rank(polys):\n    mons=sorted(set().union(*(set(p) for p in polys)))\n    return rank([[p.get(m,F(0)) for m in mons] for p in polys])\n\ndef affine_system(polys,indices):\n    rows=[];constants=[]\n    for p in polys:\n        assert all(sum(m)<=1 and all(not power or i in indices for i,power in enumerate(m)) for m in p)\n        rows.append([p.get(tuple(int(j==i) for j in range(20)),F(0)) for i in indices])\n        constants.append(p.get(ZERO,F(0)))\n    return rank(rows),rank([r+[c] for r,c in zip(rows,constants)])\n\ndef divide_exact(p,d):\n    rest=dict(p);answer={};lead=max(d)\n    while rest:\n        top=max(rest);diff=tuple(a-b for a,b in zip(top,lead));assert min(diff)>=0\n        term={diff:rest[top]/d[lead]};answer=add(answer,term);rest=add(rest,scale(multiply(term,d),-1))\n    assert multiply(answer,d)==p\n    return answer\n\ndef necessary_coefficients(P,texts):\n    slots=[]\n    for triple,p in jacobi(P).items():\n        for xm in sorted(set(m[:5] for m in p)):\n            slots.append((triple,xm,{(0,)*5+m[5:]:a for m,a in p.items() if m[:5]==xm}))\n    output=[]\n    for text in texts:\n        target=parse(text);key=next(iter(target));found=None\n        for triple,xm,p in slots:\n            if key in p and p==scale(target,p[key]/target[key]):\n                found={'condition':text,'triple':list(triple),'spatial_monomial':list(xm),'ratio':str(p[key]/target[key])};break\n        assert found,text\n        output.append(found)\n    return output\n\ndef apply(A,sub):return {ij:substitute(p,sub) for ij,p in A.items()}\ndef nsub(data):return {5+int(k[1:]):parse(str(v)) for k,v in data.items()}\ndef potential(P):\n    pf=pfaffians(P)\n    return scale(add(*(multiply(variable(i),pf[i]) for i in range(5))),F(1,5))\n\ndef main(output):\n    resource.setrlimit(resource.RLIMIT_CPU,(55,56));resource.setrlimit(resource.RLIMIT_AS,(1536*1024**2,1536*1024**2))\n    begun=time.monotonic();records=[]\n    names=['NIL31_ZERO','NIL31_SHORT','NIL31_LONG','NIL22_ZERO','NIL22_NONZERO']\n    paths=['reports/CLASSIFICATION_DEGENERATE_QUADRIC_Q4_'+name+'_20261107.json' for name in names]\n    for name,path in zip(names,paths):\n        saved=json.loads((ROOT/path).read_text());P=decode(saved['brackets']);q=parse(saved['q'])\n        assert hashlib.sha256(saved['producer_source'].encode()).hexdigest()==saved['producer_sha256']\n        X=list(map(parse,saved['fixed_specification']['cofactor_components']))\n        assert all(not add(*(derivative(entry(P,i,j),i) for i in range(5))) for j in range(5))\n        assert all(add(*(multiply(derivative(q,i),entry(P,i,j)) for i in range(5)))==multiply(q,X[j]) for j in range(5))\n        assert all(not add(*(multiply(X[k],derivative(P[ij],k)) for k in range(5)),\n            *(scale(multiply(derivative(X[ij[0]],k),entry(P,k,ij[1])),-1) for k in range(5)),\n            *(scale(multiply(derivative(X[ij[1]],k),entry(P,ij[0],k)),-1) for k in range(5))) for ij in PAIRS)\n        D=potential(P);assert D==parse(saved['euler_contracted_pfaffian_not_yet_actual_divisor'])\n        record={'case':name,'full_source_dimension':saved['source_dimension'],\n            'all_divergence_q_normal_and_invariance_identities_exact':True,\n            'Euler_Pfaffian_exact':True,'full_linear_source_rank_not_recomputed_here':True}\n        if name=='NIL31_ZERO':\n            quotient=divide_exact(D,multiply(variable(0),q));assert all(sum(m[:5])==2 for m in quotient)\n            record.update(entire_source_Euler_Pfaffian_divisible_by_x0_q=True,irreducible_cubic_support_empty=True)\n        elif name=='NIL31_SHORT':\n            record['necessary_Jacobi_coefficients']=necessary_coefficients(P,['n5**2','6*n5*n8-5*n9'])\n            restricted=substitute(D,nsub({'n5':'0','n9':'0'}))\n            quotient=divide_exact(restricted,multiply(variable(0),q));assert all(sum(m[:5])==2 for m in quotient)\n            record.update(reduced_support_forces_n5_n9_zero=True,restricted_Euler_Pfaffian_divisible_by_x0_q=True,irreducible_cubic_support_empty=True)\n        elif name=='NIL31_LONG':\n            equations=['n5*(3*n7+1)','n5*(2*n7-1)',\n                '2*n2*n7+4*n2+2*n6**2+2*n7**2+7*n7+6',\n                '4*n2*n7-2*n2+4*n6**2+10*n7**2+3*n7-4',\n                'n6*(3*n2+3*n7+2)',\n                '2*n1*n6+6*n2*n4+3*n4*n7+3*n4-12*n5**2',\n                '6*n0*n6+18*n2*n3+12*n3*n7+10*n3+9*n4*n5']\n            record['necessary_Jacobi_coefficients']=necessary_coefficients(P,equations)\n            ae=parse('(6*n7**2-11*n7-16)/10')\n            assert add(parse(equations[3]),scale(parse(equations[2]),-2),scale(add(variable(7),scale(ae,-1)),10))=={}\n            assert substitute(scale(parse(equations[2]),5),{7:ae})==parse('10*n6**2+(2*n7-1)*(3*n7+1)*(n7+2)')\n            assert substitute(scale(parse(equations[4]),10),{7:ae})==parse('n6*(6*n7+7)*(3*n7-4)')\n            branches=[]\n            for a,b,dexpr in [('-2','1/2','0'),('-7/6','-1/3','5*x3/36'),('3','-2','5*x3/4')]:\n                sub=nsub({'n2':a,'n7':b,'n6':'0','n5':'0','n3':'0','n4':'0'})\n                pp=apply(P,sub);assert all(not p for p in jacobi(pp).values())\n                actual=potential(pp)\n                expected={} if dexpr=='0' else multiply(parse(dexpr),power(q,1 if b=='-1/3' else 2))\n                if b=='-1/3':expected=multiply(parse('5*x3**3/36'),q)\n                assert actual==expected\n                assert all(derivative(actual,i)==pfaffians(pp)[i] for i in range(5))\n                branches.append({'n2':a,'n7':b,'n6':'0','n3_n4_n5_zero':True,'free_parameters':['n0','n1'],\n                    'all_Jacobi_exact_zero':True,'irreducible_cubic_impossible':True})\n            survivors=[];family_by_key={}\n            for typ,a,b,c_abs,n3_factor,n4_factor in [('I','1/2','-7/6','5*I/6','-I','-2*I/3'),('II','-2','4/3','5*I/3','I','2*I/3')]:\n                for sign in [1,-1]:\n                    ctext='('+str(sign)+')*('+c_abs+')'\n                    subdata={'n2':a,'n7':b,'n5':'0','n6':ctext,\n                        'n3':'('+str(sign)+')*('+n3_factor+')*n0',\n                        'n4':'('+str(sign)+')*('+n4_factor+')*n1'}\n                    sub=nsub(subdata);pp=apply(P,sub);family_by_key[typ,sign]=pp\n                    assert all(not p for p in jacobi(pp).values())\n                    actual=potential(pp);cubic=divide_exact(actual,q)\n                    assert derivative(cubic,4)==multiply(scale(parse(ctext),F(1,2)),power(variable(0),2))\n                    b3=tuple(3 if i==1 else 0 for i in range(20))\n                    assert cubic[b3]==-parse(ctext)[ZERO]/6\n                    assert all(derivative(actual,i)==pfaffians(pp)[i] for i in range(5))\n                    survivors.append({'family':typ,'sign':sign,'substitution':subdata,'free_parameters':['n0','n1'],\n                        'all_Jacobi_exact_zero':True,'linear_x4_coefficient':'('+ctext+')*x0^2/2',\n                        'x1_cubed_coefficient':'-('+ctext+')/6','cubic_irreducible_for_all_parameters_by_Gauss':True,\n                        'full_family_brackets':{str(ij):{str(m):str(v) for m,v in p.items()} for ij,p in pp.items()}})\n            for typ in ['I','II']:\n                pp=apply(family_by_key[typ,1],{3:scale(variable(3),-1),6:scale(variable(6),-1)})\n                reflected={ij:scale(p,(-1)**int(3 in ij)) for ij,p in pp.items()}\n                assert reflected==family_by_key[typ,-1]\n            record.update(scalar_c_zero_branches=branches,surviving_families=survivors,\n                plus_minus_identified_by_x3_reflection_and_n1_sign=True,\n                irreducible_cubic_support_exactly_two_full_two_parameter_sources_up_to_reflection=True)\n        elif name=='NIL22_ZERO':\n            Fc=parse('(n8*x0**2+2*n12*x0*x2-n1*x2**2)*x4/2+(n5*x0**3+3*n7*x0**2*x2+3*n10*x0*x2**2-n0*x2**3)/3')\n            assert P[0,2]==derivative(Fc,4) and P[0,4]==scale(derivative(Fc,2),-1) and P[2,4]==derivative(Fc,0)\n            record['necessary_Jacobi_coefficients']=necessary_coefficients(P,['n1*n8+n12**2','n0*n8+n1*n7+2*n10*n12','n1*n5-n10*n8+2*n12*n7'])\n            pp=apply(P,nsub({'n'+str(i):'0' for i in [0,1,5,7,8,10,12]}))\n            assert all(not p for p in pfaffians(pp))\n            record.update(base_Jacobian_cubic_identical_to_smooth_nil221=True,F_zero_implies_rank_at_most_two=True,\n                same_invariant_cubic_space_C3_plus_q_ell=True,\n                irreducible_cubic_support_empty_by_same_Casimir_discriminant_argument=True)\n        else:\n            equations=['n9','n0*n5+n0*n8+3*n7*n9',\n                '9*n3*n9-2*n5**2-n5*n8+14*n5+n8**2-n8-20',\n                '3*n0*n3+12*n4*n9-2*n5*n7-5*n7*n8+n7',\n                '-2*n1*n5+n1*n8-n1+3*n3*n4',\n                '3*n1*n9-3*n3*n7+n4*n5-2*n4*n8+n4']\n            record['necessary_Jacobi_coefficients']=necessary_coefficients(P,equations)\n            quotient=divide_exact(substitute(D,nsub({'n0':'0','n9':'0'})),multiply(variable(0),q))\n            assert all(sum(m[:5])==2 for m in quotient)\n            subdata={'n9':'0','n5':'4/3','n8':'-4/3','n7':'-3*n0*n3/5','n4':'-9*n0*n3**2/25','n1':'-27*n0*n3**3/125'}\n            pp=apply(P,nsub(subdata));assert all(not p for p in jacobi(pp).values())\n            actual=potential(pp);expected=scale(multiply(q,add(scale(multiply(variable(0),q),5),multiply(variable(5),power(parse('x2+3*n3*x0/5'),3)))),-F(1,3))\n            assert actual==expected and all(derivative(actual,i)==pfaffians(pp)[i] for i in range(5))\n            cubic=divide_exact(actual,q)\n            assert derivative(cubic,3)==scale(power(variable(0),2),-F(5,3))\n            v3=tuple(3 if i==2 else 0 for i in range(20))\n            assert cubic.get(v3+(0,)*0,F(0))==0 # The coefficient is the parameter polynomial -n0/3.\n            assert substitute(cubic,{0:{},1:{},3:{},4:{}})==scale(multiply(variable(5),power(variable(2),3)),-F(1,3))\n            record.update(n0_zero_implies_reducible_cubic=True,surviving_source_substitution=subdata,\n                surviving_free_parameters=['n0','n2','n3','n6'],rank_four_irreducible_open='n0!=0',\n                all_surviving_source_Jacobi_exact_zero=True,\n                surviving_actual_divisor='-q*(5*x0*q+n0*(x2+3*n3*x0/5)^3)/3',\n                all_five_gradient_identities=True,\n                cubic_irreducible_on_n0_nonzero_by_Gauss=True,\n                irreducible_cubic_support_exactly_this_four_parameter_source=True)\n        records.append(record)\n        print(json.dumps({'case':name,'all_checks_passed':True}),flush=True)\n    checker=Path(__file__).read_text()\n    result={'task_id':'E_reduced_nonnormal','all_passed':True,'field':'QQ(i)',\n        'method':'Exact standard-library Gaussian Fraction sparse arithmetic, no producer or SymPy import.',\n        'input_sha256':{p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in paths},\n        'source_sha256':hashlib.sha256(checker.encode()).hexdigest(),'independent_checker_source':checker,\n        'cases':records,'elapsed_seconds':time.monotonic()-begun,\n        'scope':'Full necessary-support reduction of five rank4 nilpotent quadric cofactors. Three cases excluded; nil31-long gives two full2-parameter sources up to reflection and nil22-nonzero one full4-parameter source. Their component membership remains open.',\n        'global_exhaustion_proved':False}\n    with output.open('x') as f:json.dump(result,f,indent=2);f.write('\\n')\n    print(json.dumps({'all_passed':True,'elapsed_seconds':result['elapsed_seconds']},indent=2))\n\nif __name__=='__main__':\n    ap=argparse.ArgumentParser();ap.add_argument('--output',type=Path,required=True)\n    main(ap.parse_args().output)\n\n",
+  "cases": [
+    {
+      "case": "NIL31_ZERO",
+      "full_source_dimension": 11,
+      "all_divergence_q_normal_and_invariance_identities_exact": true,
+      "Euler_Pfaffian_exact": true,
+      "full_linear_source_rank_not_recomputed_here": true,
+      "entire_source_Euler_Pfaffian_divisible_by_x0_q": true,
+      "irreducible_cubic_support_empty": true
+    },
+    {
+      "case": "NIL31_SHORT",
+      "full_source_dimension": 10,
+      "all_divergence_q_normal_and_invariance_identities_exact": true,
+      "Euler_Pfaffian_exact": true,
+      "full_linear_source_rank_not_recomputed_here": true,
+      "necessary_Jacobi_coefficients": [
+        {
+          "condition": "n5**2",
+          "triple": [
+            0,
+            1,
+            2
+          ],
+          "spatial_monomial": [
+            0,
+            1,
+            0,
+            2,
+            0
+          ],
+          "ratio": "-2"
+        },
+        {
+          "condition": "6*n5*n8-5*n9",
+          "triple": [
+            0,
+            1,
+            4
+          ],
+          "spatial_monomial": [
+            1,
+            2,
+            0,
+            0,
+            0
+          ],
+          "ratio": "1/6"
+        }
+      ],
+      "reduced_support_forces_n5_n9_zero": true,
+      "restricted_Euler_Pfaffian_divisible_by_x0_q": true,
+      "irreducible_cubic_support_empty": true
+    },
+    {
+      "case": "NIL31_LONG",
+      "full_source_dimension": 8,
+      "all_divergence_q_normal_and_invariance_identities_exact": true,
+      "Euler_Pfaffian_exact": true,
+      "full_linear_source_rank_not_recomputed_here": true,
+      "necessary_Jacobi_coefficients": [
+        {
+          "condition": "n5*(3*n7+1)",
+          "triple": [
+            0,
+            1,
+            4
+          ],
+          "spatial_monomial": [
+            2,
+            0,
+            0,
+            1,
+            0
+          ],
+          "ratio": "4"
+        },
+        {
+          "condition": "n5*(2*n7-1)",
+          "triple": [
+            1,
+            2,
+            4
+          ],
+          "spatial_monomial": [
+            0,
+            0,
+            0,
+            3,
+            0
+          ],
+          "ratio": "-5/2"
+        },
+        {
+          "condition": "2*n2*n7+4*n2+2*n6**2+2*n7**2+7*n7+6",
+          "triple": [
+            0,
+            1,
+            4
+          ],
+          "spatial_monomial": [
+            1,
+            2,
+            0,
+            0,
+            0
+          ],
+          "ratio": "1/2"
+        },
+        {
+          "condition": "4*n2*n7-2*n2+4*n6**2+10*n7**2+3*n7-4",
+          "triple": [
+            0,
+            1,
+            4
+          ],
+          "spatial_monomial": [
+            1,
+            0,
+            0,
+            2,
+            0
+          ],
+          "ratio": "-1/2"
+        },
+        {
+          "condition": "n6*(3*n2+3*n7+2)",
+          "triple": [
+            0,
+            1,
+            2
+          ],
+          "spatial_monomial": [
+            2,
+            0,
+            0,
+            1,
+            0
+          ],
+          "ratio": "-1"
+        },
+        {
+          "condition": "2*n1*n6+6*n2*n4+3*n4*n7+3*n4-12*n5**2",
+          "triple": [
+            0,
+            1,
+            4
+          ],
+          "spatial_monomial": [
+            3,
+            0,
+            0,
+            0,
+            0
+          ],
+          "ratio": "1/2"
+        },
+        {
+          "condition": "6*n0*n6+18*n2*n3+12*n3*n7+10*n3+9*n4*n5",
+          "triple": [
+            1,
+            2,
+            4
+          ],
+          "spatial_monomial": [
+            2,
+            0,
+            0,
+            1,
+            0
+          ],
+          "ratio": "-1/2"
+        }
+      ],
+      "scalar_c_zero_branches": [
+        {
+          "n2": "-2",
+          "n7": "1/2",
+          "n6": "0",
+          "n3_n4_n5_zero": true,
+          "free_parameters": [
+            "n0",
+            "n1"
+          ],
+          "all_Jacobi_exact_zero": true,
+          "irreducible_cubic_impossible": true
+        },
+        {
+          "n2": "-7/6",
+          "n7": "-1/3",
+          "n6": "0",
+          "n3_n4_n5_zero": true,
+          "free_parameters": [
+            "n0",
+            "n1"
+          ],
+          "all_Jacobi_exact_zero": true,
+          "irreducible_cubic_impossible": true
+        },
+        {
+          "n2": "3",
+          "n7": "-2",
+          "n6": "0",
+          "n3_n4_n5_zero": true,
+          "free_parameters": [
+            "n0",
+            "n1"
+          ],
+          "all_Jacobi_exact_zero": true,
+          "irreducible_cubic_impossible": true
+        }
+      ],
+      "surviving_families": [
+        {
+          "family": "I",
+          "sign": 1,
+          "substitution": {
+            "n2": "1/2",
+            "n7": "-7/6",
+            "n5": "0",
+            "n6": "(1)*(5*I/6)",
+            "n3": "(1)*(-I)*n0",
+            "n4": "(1)*(-2*I/3)*n1"
+          },
+          "free_parameters": [
+            "n0",
+            "n1"
+          ],
+          "all_Jacobi_exact_zero": true,
+          "linear_x4_coefficient": "((1)*(5*I/6))*x0^2/2",
+          "x1_cubed_coefficient": "-((1)*(5*I/6))/6",
+          "cubic_irreducible_for_all_parameters_by_Gauss": true,
+          "full_family_brackets": {
+            "(0, 1)": {
+              "(2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "-7/6"
+            },
+            "(0, 2)": {
+              "(1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "7/6",
+              "(1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "(0+(5/6)*I)"
+            },
+            "(0, 3)": {
+              "(2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "(0+(-5/6)*I)"
+            },
+            "(0, 4)": {
+              "(1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "1/2",
+              "(0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "5/6",
+              "(2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "(0+(1/3)*I)",
+              "(0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "(0+(5/6)*I)",
+              "(0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "5/3"
+            },
+            "(1, 2)": {
+              "(1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "-13/6",
+              "(0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "(0+(5/6)*I)",
+              "(0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "-5/3",
+              "(0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "-1/2"
+            },
+            "(1, 3)": {
+              "(1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "(0+(-5/6)*I)",
+              "(1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "7/6"
+            },
+            "(1, 4)": {
+              "(2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "-1",
+              "(1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "-1",
+              "(1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "-4/3",
+              "(0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "-1/3",
+              "(1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "(0+(1/3)*I)",
+              "(0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "(0+(-5/3)*I)"
+            },
+            "(2, 3)": {
+              "(1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "(0+(5/6)*I)",
+              "(0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "(0+(5/6)*I)",
+              "(0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "-7/6"
+            },
+            "(2, 4)": {
+              "(1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "1",
+              "(0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "1",
+              "(0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "4/3",
+              "(0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "1/2",
+              "(1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "(0+(1)*I)",
+              "(1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "(0+(-1/3)*I)",
+              "(0, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "(0+(-1/3)*I)",
+              "(0, 0, 0, 2, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "(0+(2/3)*I)",
+              "(0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "(0+(5/3)*I)"
+            },
+            "(3, 4)": {
+              "(2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "(0+(-1)*I)",
+              "(1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "(0+(-2/3)*I)",
+              "(1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "(0+(-5/3)*I)",
+              "(0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "(0+(5/6)*I)",
+              "(0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "-7/6"
+            }
+          }
+        },
+        {
+          "family": "I",
+          "sign": -1,
+          "substitution": {
+            "n2": "1/2",
+            "n7": "-7/6",
+            "n5": "0",
+            "n6": "(-1)*(5*I/6)",
+            "n3": "(-1)*(-I)*n0",
+            "n4": "(-1)*(-2*I/3)*n1"
+          },
+          "free_parameters": [
+            "n0",
+            "n1"
+          ],
+          "all_Jacobi_exact_zero": true,
+          "linear_x4_coefficient": "((-1)*(5*I/6))*x0^2/2",
+          "x1_cubed_coefficient": "-((-1)*(5*I/6))/6",
+          "cubic_irreducible_for_all_parameters_by_Gauss": true,
+          "full_family_brackets": {
+            "(0, 1)": {
+              "(2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "-7/6"
+            },
+            "(0, 2)": {
+              "(1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "7/6",
+              "(1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "(0+(-5/6)*I)"
+            },
+            "(0, 3)": {
+              "(2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "(0+(5/6)*I)"
+            },
+            "(0, 4)": {
+              "(1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "1/2",
+              "(0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "5/6",
+              "(2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "(0+(-1/3)*I)",
+              "(0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "(0+(-5/6)*I)",
+              "(0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "5/3"
+            },
+            "(1, 2)": {
+              "(1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "-13/6",
+              "(0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "(0+(-5/6)*I)",
+              "(0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "-5/3",
+              "(0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "-1/2"
+            },
+            "(1, 3)": {
+              "(1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "(0+(5/6)*I)",
+              "(1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "7/6"
+            },
+            "(1, 4)": {
+              "(2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "-1",
+              "(1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "-1",
+              "(1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "-4/3",
+              "(0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "-1/3",
+              "(1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "(0+(-1/3)*I)",
+              "(0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "(0+(5/3)*I)"
+            },
+            "(2, 3)": {
+              "(1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "(0+(-5/6)*I)",
+              "(0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "(0+(-5/6)*I)",
+              "(0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "-7/6"
+            },
+            "(2, 4)": {
+              "(1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "1",
+              "(0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "1",
+              "(0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "4/3",
+              "(0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "1/2",
+              "(1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "(0+(-1)*I)",
+              "(1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "(0+(1/3)*I)",
+              "(0, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "(0+(1/3)*I)",
+              "(0, 0, 0, 2, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "(0+(-2/3)*I)",
+              "(0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "(0+(-5/3)*I)"
+            },
+            "(3, 4)": {
+              "(2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "(0+(1)*I)",
+              "(1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "(0+(2/3)*I)",
+              "(1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "(0+(5/3)*I)",
+              "(0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "(0+(-5/6)*I)",
+              "(0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "-7/6"
+            }
+          }
+        },
+        {
+          "family": "II",
+          "sign": 1,
+          "substitution": {
+            "n2": "-2",
+            "n7": "4/3",
+            "n5": "0",
+            "n6": "(1)*(5*I/3)",
+            "n3": "(1)*(I)*n0",
+            "n4": "(1)*(2*I/3)*n1"
+          },
+          "free_parameters": [
+            "n0",
+            "n1"
+          ],
+          "all_Jacobi_exact_zero": true,
+          "linear_x4_coefficient": "((1)*(5*I/3))*x0^2/2",
+          "x1_cubed_coefficient": "-((1)*(5*I/3))/6",
+          "cubic_irreducible_for_all_parameters_by_Gauss": true,
+          "full_family_brackets": {
+            "(0, 1)": {
+              "(2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "4/3"
+            },
+            "(0, 2)": {
+              "(1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "-4/3",
+              "(1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "(0+(5/3)*I)"
+            },
+            "(0, 3)": {
+              "(2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "(0+(-5/3)*I)"
+            },
+            "(0, 4)": {
+              "(1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "3",
+              "(0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "5/6",
+              "(2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "(0+(-1/3)*I)",
+              "(0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "(0+(5/3)*I)",
+              "(0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "-5/6"
+            },
+            "(1, 2)": {
+              "(1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "1/3",
+              "(0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "(0+(5/3)*I)",
+              "(0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "5/6",
+              "(0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "-1/2"
+            },
+            "(1, 3)": {
+              "(1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "(0+(-5/3)*I)",
+              "(1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "-4/3"
+            },
+            "(1, 4)": {
+              "(2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "-1",
+              "(1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "-1",
+              "(1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "11/3",
+              "(0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "-1/3",
+              "(1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "(0+(-1/3)*I)",
+              "(0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "(0+(-10/3)*I)"
+            },
+            "(2, 3)": {
+              "(1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "(0+(5/3)*I)",
+              "(0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "(0+(5/3)*I)",
+              "(0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "4/3"
+            },
+            "(2, 4)": {
+              "(1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "1",
+              "(0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "1",
+              "(0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "-11/3",
+              "(0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "-2",
+              "(1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "(0+(-1)*I)",
+              "(1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "(0+(1/3)*I)",
+              "(0, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "(0+(1/3)*I)",
+              "(0, 0, 0, 2, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "(0+(-2/3)*I)",
+              "(0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "(0+(10/3)*I)"
+            },
+            "(3, 4)": {
+              "(2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "(0+(1)*I)",
+              "(1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "(0+(2/3)*I)",
+              "(1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "(0+(-10/3)*I)",
+              "(0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "(0+(5/3)*I)",
+              "(0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "4/3"
+            }
+          }
+        },
+        {
+          "family": "II",
+          "sign": -1,
+          "substitution": {
+            "n2": "-2",
+            "n7": "4/3",
+            "n5": "0",
+            "n6": "(-1)*(5*I/3)",
+            "n3": "(-1)*(I)*n0",
+            "n4": "(-1)*(2*I/3)*n1"
+          },
+          "free_parameters": [
+            "n0",
+            "n1"
+          ],
+          "all_Jacobi_exact_zero": true,
+          "linear_x4_coefficient": "((-1)*(5*I/3))*x0^2/2",
+          "x1_cubed_coefficient": "-((-1)*(5*I/3))/6",
+          "cubic_irreducible_for_all_parameters_by_Gauss": true,
+          "full_family_brackets": {
+            "(0, 1)": {
+              "(2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "4/3"
+            },
+            "(0, 2)": {
+              "(1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "-4/3",
+              "(1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "(0+(-5/3)*I)"
+            },
+            "(0, 3)": {
+              "(2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "(0+(5/3)*I)"
+            },
+            "(0, 4)": {
+              "(1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "3",
+              "(0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "5/6",
+              "(2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "(0+(1/3)*I)",
+              "(0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "(0+(-5/3)*I)",
+              "(0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "-5/6"
+            },
+            "(1, 2)": {
+              "(1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "1/3",
+              "(0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "(0+(-5/3)*I)",
+              "(0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "5/6",
+              "(0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "-1/2"
+            },
+            "(1, 3)": {
+              "(1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "(0+(5/3)*I)",
+              "(1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "-4/3"
+            },
+            "(1, 4)": {
+              "(2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "-1",
+              "(1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "-1",
+              "(1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "11/3",
+              "(0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "-1/3",
+              "(1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "(0+(1/3)*I)",
+              "(0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "(0+(10/3)*I)"
+            },
+            "(2, 3)": {
+              "(1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "(0+(-5/3)*I)",
+              "(0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "(0+(-5/3)*I)",
+              "(0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "4/3"
+            },
+            "(2, 4)": {
+              "(1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "1",
+              "(0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "1",
+              "(0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "-11/3",
+              "(0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "-2",
+              "(1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "(0+(1)*I)",
+              "(1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "(0+(-1/3)*I)",
+              "(0, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "(0+(-1/3)*I)",
+              "(0, 0, 0, 2, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "(0+(2/3)*I)",
+              "(0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "(0+(-10/3)*I)"
+            },
+            "(3, 4)": {
+              "(2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "(0+(-1)*I)",
+              "(1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "(0+(-2/3)*I)",
+              "(1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "(0+(10/3)*I)",
+              "(0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "(0+(-5/3)*I)",
+              "(0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)": "4/3"
+            }
+          }
+        }
+      ],
+      "plus_minus_identified_by_x3_reflection_and_n1_sign": true,
+      "irreducible_cubic_support_exactly_two_full_two_parameter_sources_up_to_reflection": true
+    },
+    {
+      "case": "NIL22_ZERO",
+      "full_source_dimension": 15,
+      "all_divergence_q_normal_and_invariance_identities_exact": true,
+      "Euler_Pfaffian_exact": true,
+      "full_linear_source_rank_not_recomputed_here": true,
+      "necessary_Jacobi_coefficients": [
+        {
+          "condition": "n1*n8+n12**2",
+          "triple": [
+            0,
+            1,
+            2
+          ],
+          "spatial_monomial": [
+            1,
+            1,
+            1,
+            0,
+            0
+          ],
+          "ratio": "1"
+        },
+        {
+          "condition": "n0*n8+n1*n7+2*n10*n12",
+          "triple": [
+            0,
+            1,
+            4
+          ],
+          "spatial_monomial": [
+            1,
+            1,
+            1,
+            0,
+            0
+          ],
+          "ratio": "-1/2"
+        },
+        {
+          "condition": "n1*n5-n10*n8+2*n12*n7",
+          "triple": [
+            1,
+            2,
+            4
+          ],
+          "spatial_monomial": [
+            1,
+            1,
+            1,
+            0,
+            0
+          ],
+          "ratio": "-1/2"
+        }
+      ],
+      "base_Jacobian_cubic_identical_to_smooth_nil221": true,
+      "F_zero_implies_rank_at_most_two": true,
+      "same_invariant_cubic_space_C3_plus_q_ell": true,
+      "irreducible_cubic_support_empty_by_same_Casimir_discriminant_argument": true
+    },
+    {
+      "case": "NIL22_NONZERO",
+      "full_source_dimension": 10,
+      "all_divergence_q_normal_and_invariance_identities_exact": true,
+      "Euler_Pfaffian_exact": true,
+      "full_linear_source_rank_not_recomputed_here": true,
+      "necessary_Jacobi_coefficients": [
+        {
+          "condition": "n9",
+          "triple": [
+            0,
+            1,
+            4
+          ],
+          "spatial_monomial": [
+            1,
+            1,
+            1,
+            0,
+            0
+          ],
+          "ratio": "5"
+        },
+        {
+          "condition": "n0*n5+n0*n8+3*n7*n9",
+          "triple": [
+            0,
+            1,
+            4
+          ],
+          "spatial_monomial": [
+            1,
+            0,
+            2,
+            0,
+            0
+          ],
+          "ratio": "2"
+        },
+        {
+          "condition": "9*n3*n9-2*n5**2-n5*n8+14*n5+n8**2-n8-20",
+          "triple": [
+            1,
+            2,
+            4
+          ],
+          "spatial_monomial": [
+            1,
+            1,
+            1,
+            0,
+            0
+          ],
+          "ratio": "1/9"
+        },
+        {
+          "condition": "3*n0*n3+12*n4*n9-2*n5*n7-5*n7*n8+n7",
+          "triple": [
+            0,
+            1,
+            4
+          ],
+          "spatial_monomial": [
+            2,
+            0,
+            1,
+            0,
+            0
+          ],
+          "ratio": "2/3"
+        },
+        {
+          "condition": "-2*n1*n5+n1*n8-n1+3*n3*n4",
+          "triple": [
+            1,
+            2,
+            4
+          ],
+          "spatial_monomial": [
+            3,
+            0,
+            0,
+            0,
+            0
+          ],
+          "ratio": "-1"
+        },
+        {
+          "condition": "3*n1*n9-3*n3*n7+n4*n5-2*n4*n8+n4",
+          "triple": [
+            0,
+            1,
+            4
+          ],
+          "spatial_monomial": [
+            3,
+            0,
+            0,
+            0,
+            0
+          ],
+          "ratio": "2/3"
+        }
+      ],
+      "n0_zero_implies_reducible_cubic": true,
+      "surviving_source_substitution": {
+        "n9": "0",
+        "n5": "4/3",
+        "n8": "-4/3",
+        "n7": "-3*n0*n3/5",
+        "n4": "-9*n0*n3**2/25",
+        "n1": "-27*n0*n3**3/125"
+      },
+      "surviving_free_parameters": [
+        "n0",
+        "n2",
+        "n3",
+        "n6"
+      ],
+      "rank_four_irreducible_open": "n0!=0",
+      "all_surviving_source_Jacobi_exact_zero": true,
+      "surviving_actual_divisor": "-q*(5*x0*q+n0*(x2+3*n3*x0/5)^3)/3",
+      "all_five_gradient_identities": true,
+      "cubic_irreducible_on_n0_nonzero_by_Gauss": true,
+      "irreducible_cubic_support_exactly_this_four_parameter_source": true
+    }
+  ],
+  "elapsed_seconds": 0.9283885129989358,
+  "scope": "Full necessary-support reduction of five rank4 nilpotent quadric cofactors. Three cases excluded; nil31-long gives two full2-parameter sources up to reflection and nil22-nonzero one full4-parameter source. Their component membership remains open.",
+  "global_exhaustion_proved": false
+}

@@ -1,0 +1,789 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "all_passed": true,
+  "complete_invariant_W_models": [
+    {
+      "case": "2_1_minus1",
+      "spectrum": [
+        2,
+        1,
+        -1
+      ],
+      "complete_weight_basis": [
+        {
+          "pair": [
+            2,
+            3
+          ],
+          "monomials": [
+            "u*v"
+          ]
+        },
+        {
+          "pair": [
+            2,
+            4
+          ],
+          "monomials": [
+            "h*v",
+            "v*x",
+            "u*w"
+          ]
+        },
+        {
+          "pair": [
+            3,
+            4
+          ],
+          "monomials": [
+            "h**2",
+            "h*x",
+            "x**2",
+            "v*w"
+          ]
+        }
+      ],
+      "invariant_vertical_quadratic_space_dimension": 8,
+      "full_W": {
+        "(1, 2)": "2*u*x",
+        "(1, 3)": "v*x",
+        "(1, 4)": "-w*x",
+        "(2, 3)": "c*u*v",
+        "(2, 4)": "-b*u*w - v*(h*lh + lx*x)",
+        "(3, 4)": "a*v*w + ah*h**2 + ax*h*x + axx*x**2"
+      },
+      "only_possible_nonzero_Jacobi_coefficient": "-a*h*lh*v**2 - a*lx*v**2*x + ah*b*h**2*u - ah*c*h**2*u + ax*b*h*u*x - ax*c*h*u*x - 2*ax*h*u*x + axx*b*u*x**2 - axx*c*u*x**2 - 4*axx*u*x**2 + c*h*lh*v**2 + c*lx*v**2*x - lx*v**2*x",
+      "expected_complete_Jacobi_equation": "-a*h*lh*v**2 - a*lx*v**2*x + ah*b*h**2*u - ah*c*h**2*u + ax*b*h*u*x - ax*c*h*u*x - 2*ax*h*u*x + axx*b*u*x**2 - axx*c*u*x**2 - 4*axx*u*x**2 + c*h*lh*v**2 + c*lx*v**2*x - lx*v**2*x",
+      "actual_cubic": "2*a*u*v*w + 2*ah*h**2*u + 2*ax*h*u*x + 2*axx*u*x**2 + b*u*v*w - c*u*v*w + h*lh*v**2 + lx*v**2*x"
+    },
+    {
+      "case": "3_1_minus1",
+      "spectrum": [
+        3,
+        1,
+        -1
+      ],
+      "complete_weight_basis": [
+        {
+          "pair": [
+            2,
+            3
+          ],
+          "monomials": [
+            "u*v"
+          ]
+        },
+        {
+          "pair": [
+            2,
+            4
+          ],
+          "monomials": [
+            "u*w",
+            "v**2"
+          ]
+        },
+        {
+          "pair": [
+            3,
+            4
+          ],
+          "monomials": [
+            "h**2",
+            "h*x",
+            "x**2",
+            "v*w"
+          ]
+        }
+      ],
+      "invariant_vertical_quadratic_space_dimension": 7,
+      "full_W": {
+        "(1, 2)": "3*u*x",
+        "(1, 3)": "v*x",
+        "(1, 4)": "-w*x",
+        "(2, 3)": "c*u*v",
+        "(2, 4)": "-b*v**2 - d*u*w",
+        "(3, 4)": "a*v*w + ah*h**2 + ax*h*x + axx*x**2"
+      },
+      "only_possible_nonzero_Jacobi_coefficient": "-a*b*v**3 - ah*c*h**2*u + ah*d*h**2*u - ax*c*h*u*x + ax*d*h*u*x - 3*ax*h*u*x - axx*c*u*x**2 + axx*d*u*x**2 - 6*axx*u*x**2 + b*c*v**3",
+      "expected_complete_Jacobi_equation": "-a*b*v**3 - ah*c*h**2*u + ah*d*h**2*u - ax*c*h*u*x + ax*d*h*u*x - 3*ax*h*u*x - axx*c*u*x**2 + axx*d*u*x**2 - 6*axx*u*x**2 + b*c*v**3",
+      "actual_cubic": "3*a*u*v*w + 3*ah*h**2*u + 3*ax*h*u*x + 3*axx*u*x**2 + b*v**3 - c*u*v*w + d*u*v*w"
+    },
+    {
+      "case": "3_2_1",
+      "spectrum": [
+        3,
+        2,
+        1
+      ],
+      "complete_weight_basis": [
+        {
+          "pair": [
+            2,
+            3
+          ],
+          "monomials": [
+            "u*v"
+          ]
+        },
+        {
+          "pair": [
+            2,
+            4
+          ],
+          "monomials": [
+            "u*w",
+            "v**2"
+          ]
+        },
+        {
+          "pair": [
+            3,
+            4
+          ],
+          "monomials": [
+            "h*u",
+            "u*x",
+            "v*w"
+          ]
+        }
+      ],
+      "invariant_vertical_quadratic_space_dimension": 6,
+      "full_W": {
+        "(1, 2)": "3*u*x",
+        "(1, 3)": "2*v*x",
+        "(1, 4)": "w*x",
+        "(2, 3)": "d*u*v",
+        "(2, 4)": "-b*v**2 - c*u*w",
+        "(3, 4)": "a*v*w + u*(h*lh + lx*x)"
+      },
+      "only_possible_nonzero_Jacobi_coefficient": "-a*b*v**3 + b*d*v**3 + c*h*lh*u**2 + c*lx*u**2*x - d*h*lh*u**2 - d*lx*u**2*x - 3*lx*u**2*x",
+      "expected_complete_Jacobi_equation": "-a*b*v**3 + b*d*v**3 + c*h*lh*u**2 + c*lx*u**2*x - d*h*lh*u**2 - d*lx*u**2*x - 3*lx*u**2*x",
+      "actual_cubic": "3*a*u*v*w + 2*b*v**3 + 2*c*u*v*w + d*u*v*w + 3*h*lh*u**2 + 3*lx*u**2*x"
+    },
+    {
+      "case": "1_1_minus1",
+      "spectrum": [
+        1,
+        1,
+        -1
+      ],
+      "complete_weight_basis": [
+        {
+          "pair": [
+            2,
+            3
+          ],
+          "monomials": [
+            "u**2",
+            "u*v",
+            "v**2"
+          ]
+        },
+        {
+          "pair": [
+            2,
+            4
+          ],
+          "monomials": [
+            "h**2",
+            "h*x",
+            "x**2",
+            "u*w",
+            "v*w"
+          ]
+        },
+        {
+          "pair": [
+            3,
+            4
+          ],
+          "monomials": [
+            "h**2",
+            "h*x",
+            "x**2",
+            "u*w",
+            "v*w"
+          ]
+        }
+      ],
+      "invariant_vertical_quadratic_space_dimension": 13,
+      "full_W": {
+        "(1, 2)": "u*x",
+        "(1, 3)": "v*x",
+        "(1, 4)": "-w*x",
+        "(2, 3)": "e*u**2 + f*u*v + g*v**2",
+        "(2, 4)": "-bh*h**2 - bx*h*x - bxx*x**2 - w*(c*u + d*v)",
+        "(3, 4)": "ah*h**2 + ax*h*x + axx*x**2 + w*(a*u + b*v)"
+      },
+      "only_possible_nonzero_Jacobi_coefficient": "-a*bh*h**2*u - a*bx*h*u*x - a*bxx*u*x**2 - a*f*u**2*w - 2*a*g*u*v*w + ah*c*h**2*u + ah*d*h**2*v - ah*f*h**2*u - 2*ah*g*h**2*v + ax*c*h*u*x + ax*d*h*v*x - ax*f*h*u*x - 2*ax*g*h*v*x - ax*h*u*x + axx*c*u*x**2 + axx*d*v*x**2 - axx*f*u*x**2 - 2*axx*g*v*x**2 - 2*axx*u*x**2 - b*bh*h**2*v - b*bx*h*v*x - b*bxx*v*x**2 + b*e*u**2*w - b*g*v**2*w + 2*bh*e*h**2*u + bh*f*h**2*v + 2*bx*e*h*u*x + bx*f*h*v*x - bx*h*v*x + 2*bxx*e*u*x**2 + bxx*f*v*x**2 - 2*bxx*v*x**2 + c*e*u**2*w - c*g*v**2*w + 2*d*e*u*v*w + d*f*v**2*w",
+      "expected_complete_Jacobi_equation": "-a*bh*h**2*u - a*bx*h*u*x - a*bxx*u*x**2 - a*f*u**2*w - 2*a*g*u*v*w + ah*c*h**2*u + ah*d*h**2*v - ah*f*h**2*u - 2*ah*g*h**2*v + ax*c*h*u*x + ax*d*h*v*x - ax*f*h*u*x - 2*ax*g*h*v*x - ax*h*u*x + axx*c*u*x**2 + axx*d*v*x**2 - axx*f*u*x**2 - 2*axx*g*v*x**2 - 2*axx*u*x**2 - b*bh*h**2*v - b*bx*h*v*x - b*bxx*v*x**2 + b*e*u**2*w - b*g*v**2*w + 2*bh*e*h**2*u + bh*f*h**2*v + 2*bx*e*h*u*x + bx*f*h*v*x - bx*h*v*x + 2*bxx*e*u*x**2 + bxx*f*v*x**2 - 2*bxx*v*x**2 + c*e*u**2*w - c*g*v**2*w + 2*d*e*u*v*w + d*f*v**2*w",
+      "actual_cubic": "a*u**2*w + ah*h**2*u + ax*h*u*x + axx*u*x**2 + b*u*v*w + bh*h**2*v + bx*h*v*x + bxx*v*x**2 + c*u*v*w + d*v**2*w - e*u**2*w - f*u*v*w - g*v**2*w"
+    }
+  ],
+  "all_parametric_SNC_families": [
+    {
+      "case": "2_1_minus1",
+      "indices": [
+        0,
+        0
+      ],
+      "full_source": {
+        "(1, 2)": "2*u*x",
+        "(1, 3)": "v*x",
+        "(1, 4)": "-w*x",
+        "(2, 3)": "a*u*v",
+        "(2, 4)": "-a*u*w - amplitudeB*h*v",
+        "(3, 4)": "a*v*w + amplitudeA*h**2"
+      },
+      "all_ten_raw_Jacobi_zero": true,
+      "actual_cubic": "2*a*u*v*w + 2*amplitudeA*h**2*u + amplitudeB*h*v**2",
+      "SNC_substitution": {
+        "amplitudeA": "0",
+        "amplitudeB": "0",
+        "a": "1"
+      },
+      "SNC_actual_quintic": "2*h*u*v*w*x",
+      "nonzero_SNC_coefficient": "2"
+    },
+    {
+      "case": "2_1_minus1",
+      "indices": [
+        0,
+        1
+      ],
+      "full_source": {
+        "(1, 2)": "2*u*x",
+        "(1, 3)": "v*x",
+        "(1, 4)": "-w*x",
+        "(2, 3)": "u*v*(a + 1)",
+        "(2, 4)": "-amplitudeB*v*x - u*w*(a + 1)",
+        "(3, 4)": "a*v*w + amplitudeA*h**2"
+      },
+      "all_ten_raw_Jacobi_zero": true,
+      "actual_cubic": "2*a*u*v*w + 2*amplitudeA*h**2*u + amplitudeB*v**2*x",
+      "SNC_substitution": {
+        "amplitudeA": "0",
+        "amplitudeB": "0",
+        "a": "1"
+      },
+      "SNC_actual_quintic": "2*h*u*v*w*x",
+      "nonzero_SNC_coefficient": "2"
+    },
+    {
+      "case": "2_1_minus1",
+      "indices": [
+        1,
+        0
+      ],
+      "full_source": {
+        "(1, 2)": "2*u*x",
+        "(1, 3)": "v*x",
+        "(1, 4)": "-w*x",
+        "(2, 3)": "a*u*v",
+        "(2, 4)": "-amplitudeB*h*v - u*w*(a + 2)",
+        "(3, 4)": "a*v*w + amplitudeA*h*x"
+      },
+      "all_ten_raw_Jacobi_zero": true,
+      "actual_cubic": "2*a*u*v*w + 2*amplitudeA*h*u*x + amplitudeB*h*v**2 + 2*u*v*w",
+      "SNC_substitution": {
+        "amplitudeA": "0",
+        "amplitudeB": "0",
+        "a": "1"
+      },
+      "SNC_actual_quintic": "4*h*u*v*w*x",
+      "nonzero_SNC_coefficient": "4"
+    },
+    {
+      "case": "2_1_minus1",
+      "indices": [
+        1,
+        1
+      ],
+      "full_source": {
+        "(1, 2)": "2*u*x",
+        "(1, 3)": "v*x",
+        "(1, 4)": "-w*x",
+        "(2, 3)": "u*v*(a + 1)",
+        "(2, 4)": "-amplitudeB*v*x - u*w*(a + 3)",
+        "(3, 4)": "a*v*w + amplitudeA*h*x"
+      },
+      "all_ten_raw_Jacobi_zero": true,
+      "actual_cubic": "2*a*u*v*w + 2*amplitudeA*h*u*x + amplitudeB*v**2*x + 2*u*v*w",
+      "SNC_substitution": {
+        "amplitudeA": "0",
+        "amplitudeB": "0",
+        "a": "1"
+      },
+      "SNC_actual_quintic": "4*h*u*v*w*x",
+      "nonzero_SNC_coefficient": "4"
+    },
+    {
+      "case": "2_1_minus1",
+      "indices": [
+        2,
+        0
+      ],
+      "full_source": {
+        "(1, 2)": "2*u*x",
+        "(1, 3)": "v*x",
+        "(1, 4)": "-w*x",
+        "(2, 3)": "a*u*v",
+        "(2, 4)": "-amplitudeB*h*v - u*w*(a + 4)",
+        "(3, 4)": "a*v*w + amplitudeA*x**2"
+      },
+      "all_ten_raw_Jacobi_zero": true,
+      "actual_cubic": "2*a*u*v*w + 2*amplitudeA*u*x**2 + amplitudeB*h*v**2 + 4*u*v*w",
+      "SNC_substitution": {
+        "amplitudeA": "0",
+        "amplitudeB": "0",
+        "a": "1"
+      },
+      "SNC_actual_quintic": "6*h*u*v*w*x",
+      "nonzero_SNC_coefficient": "6"
+    },
+    {
+      "case": "2_1_minus1",
+      "indices": [
+        2,
+        1
+      ],
+      "full_source": {
+        "(1, 2)": "2*u*x",
+        "(1, 3)": "v*x",
+        "(1, 4)": "-w*x",
+        "(2, 3)": "u*v*(a + 1)",
+        "(2, 4)": "-amplitudeB*v*x - u*w*(a + 5)",
+        "(3, 4)": "a*v*w + amplitudeA*x**2"
+      },
+      "all_ten_raw_Jacobi_zero": true,
+      "actual_cubic": "2*a*u*v*w + 2*amplitudeA*u*x**2 + amplitudeB*v**2*x + 4*u*v*w",
+      "SNC_substitution": {
+        "amplitudeA": "0",
+        "amplitudeB": "0",
+        "a": "1"
+      },
+      "SNC_actual_quintic": "6*h*u*v*w*x",
+      "nonzero_SNC_coefficient": "6"
+    },
+    {
+      "case": "3_1_minus1",
+      "indices": [
+        0
+      ],
+      "full_source": {
+        "(1, 2)": "3*u*x",
+        "(1, 3)": "v*x",
+        "(1, 4)": "-w*x",
+        "(2, 3)": "a*u*v",
+        "(2, 4)": "-a*u*w - amplitudeB*v**2",
+        "(3, 4)": "a*v*w + amplitudeA*h**2"
+      },
+      "all_ten_raw_Jacobi_zero": true,
+      "actual_cubic": "3*a*u*v*w + 3*amplitudeA*h**2*u + amplitudeB*v**3",
+      "SNC_substitution": {
+        "amplitudeA": "0",
+        "amplitudeB": "0",
+        "a": "1"
+      },
+      "SNC_actual_quintic": "3*h*u*v*w*x",
+      "nonzero_SNC_coefficient": "3"
+    },
+    {
+      "case": "3_1_minus1",
+      "indices": [
+        1
+      ],
+      "full_source": {
+        "(1, 2)": "3*u*x",
+        "(1, 3)": "v*x",
+        "(1, 4)": "-w*x",
+        "(2, 3)": "a*u*v",
+        "(2, 4)": "-amplitudeB*v**2 - u*w*(a + 3)",
+        "(3, 4)": "a*v*w + amplitudeA*h*x"
+      },
+      "all_ten_raw_Jacobi_zero": true,
+      "actual_cubic": "3*a*u*v*w + 3*amplitudeA*h*u*x + amplitudeB*v**3 + 3*u*v*w",
+      "SNC_substitution": {
+        "amplitudeA": "0",
+        "amplitudeB": "0",
+        "a": "1"
+      },
+      "SNC_actual_quintic": "6*h*u*v*w*x",
+      "nonzero_SNC_coefficient": "6"
+    },
+    {
+      "case": "3_1_minus1",
+      "indices": [
+        2
+      ],
+      "full_source": {
+        "(1, 2)": "3*u*x",
+        "(1, 3)": "v*x",
+        "(1, 4)": "-w*x",
+        "(2, 3)": "a*u*v",
+        "(2, 4)": "-amplitudeB*v**2 - u*w*(a + 6)",
+        "(3, 4)": "a*v*w + amplitudeA*x**2"
+      },
+      "all_ten_raw_Jacobi_zero": true,
+      "actual_cubic": "3*a*u*v*w + 3*amplitudeA*u*x**2 + amplitudeB*v**3 + 6*u*v*w",
+      "SNC_substitution": {
+        "amplitudeA": "0",
+        "amplitudeB": "0",
+        "a": "1"
+      },
+      "SNC_actual_quintic": "9*h*u*v*w*x",
+      "nonzero_SNC_coefficient": "9"
+    },
+    {
+      "case": "3_2_1",
+      "indices": [
+        0
+      ],
+      "full_source": {
+        "(1, 2)": "3*u*x",
+        "(1, 3)": "2*v*x",
+        "(1, 4)": "w*x",
+        "(2, 3)": "a*u*v",
+        "(2, 4)": "-a*u*w - amplitudeB*v**2",
+        "(3, 4)": "a*v*w + amplitudeA*h*u"
+      },
+      "all_ten_raw_Jacobi_zero": true,
+      "actual_cubic": "6*a*u*v*w + 3*amplitudeA*h*u**2 + 2*amplitudeB*v**3",
+      "SNC_substitution": {
+        "amplitudeA": "0",
+        "amplitudeB": "0",
+        "a": "1"
+      },
+      "SNC_actual_quintic": "6*h*u*v*w*x",
+      "nonzero_SNC_coefficient": "6"
+    },
+    {
+      "case": "3_2_1",
+      "indices": [
+        1
+      ],
+      "full_source": {
+        "(1, 2)": "3*u*x",
+        "(1, 3)": "2*v*x",
+        "(1, 4)": "w*x",
+        "(2, 3)": "a*u*v",
+        "(2, 4)": "-amplitudeB*v**2 - u*w*(a + 3)",
+        "(3, 4)": "a*v*w + amplitudeA*u*x"
+      },
+      "all_ten_raw_Jacobi_zero": true,
+      "actual_cubic": "6*a*u*v*w + 3*amplitudeA*u**2*x + 2*amplitudeB*v**3 + 6*u*v*w",
+      "SNC_substitution": {
+        "amplitudeA": "0",
+        "amplitudeB": "0",
+        "a": "1"
+      },
+      "SNC_actual_quintic": "12*h*u*v*w*x",
+      "nonzero_SNC_coefficient": "12"
+    },
+    {
+      "case": "1_1_minus1_binary_rank2",
+      "indices": [
+        0,
+        0
+      ],
+      "full_source": {
+        "(1, 2)": "u*x",
+        "(1, 3)": "v*x",
+        "(1, 4)": "-w*x",
+        "(2, 3)": "tau*u*v",
+        "(2, 4)": "-amplitudeB*h**2 - tau*u*w",
+        "(3, 4)": "amplitudeA*h**2 + tau*v*w"
+      },
+      "all_ten_raw_Jacobi_zero": true,
+      "actual_cubic": "amplitudeA*h**2*u + amplitudeB*h**2*v + tau*u*v*w",
+      "SNC_substitution": {
+        "amplitudeA": "0",
+        "amplitudeB": "0",
+        "tau": "4"
+      },
+      "SNC_actual_quintic": "4*h*u*v*w*x",
+      "nonzero_SNC_coefficient": "4"
+    },
+    {
+      "case": "1_1_minus1_binary_rank2",
+      "indices": [
+        0,
+        1
+      ],
+      "full_source": {
+        "(1, 2)": "u*x",
+        "(1, 3)": "v*x",
+        "(1, 4)": "-w*x",
+        "(2, 3)": "tau*u*v",
+        "(2, 4)": "-amplitudeB*h*x - tau*u*w",
+        "(3, 4)": "amplitudeA*h**2 + v*w*(tau - 1)"
+      },
+      "all_ten_raw_Jacobi_zero": true,
+      "actual_cubic": "amplitudeA*h**2*u + amplitudeB*h*v*x + tau*u*v*w - u*v*w",
+      "SNC_substitution": {
+        "amplitudeA": "0",
+        "amplitudeB": "0",
+        "tau": "4"
+      },
+      "SNC_actual_quintic": "3*h*u*v*w*x",
+      "nonzero_SNC_coefficient": "3"
+    },
+    {
+      "case": "1_1_minus1_binary_rank2",
+      "indices": [
+        0,
+        2
+      ],
+      "full_source": {
+        "(1, 2)": "u*x",
+        "(1, 3)": "v*x",
+        "(1, 4)": "-w*x",
+        "(2, 3)": "tau*u*v",
+        "(2, 4)": "-amplitudeB*x**2 - tau*u*w",
+        "(3, 4)": "amplitudeA*h**2 + v*w*(tau - 2)"
+      },
+      "all_ten_raw_Jacobi_zero": true,
+      "actual_cubic": "amplitudeA*h**2*u + amplitudeB*v*x**2 + tau*u*v*w - 2*u*v*w",
+      "SNC_substitution": {
+        "amplitudeA": "0",
+        "amplitudeB": "0",
+        "tau": "4"
+      },
+      "SNC_actual_quintic": "2*h*u*v*w*x",
+      "nonzero_SNC_coefficient": "2"
+    },
+    {
+      "case": "1_1_minus1_binary_rank2",
+      "indices": [
+        1,
+        0
+      ],
+      "full_source": {
+        "(1, 2)": "u*x",
+        "(1, 3)": "v*x",
+        "(1, 4)": "-w*x",
+        "(2, 3)": "tau*u*v",
+        "(2, 4)": "-amplitudeB*h**2 - u*w*(tau + 1)",
+        "(3, 4)": "amplitudeA*h*x + tau*v*w"
+      },
+      "all_ten_raw_Jacobi_zero": true,
+      "actual_cubic": "amplitudeA*h*u*x + amplitudeB*h**2*v + tau*u*v*w + u*v*w",
+      "SNC_substitution": {
+        "amplitudeA": "0",
+        "amplitudeB": "0",
+        "tau": "4"
+      },
+      "SNC_actual_quintic": "5*h*u*v*w*x",
+      "nonzero_SNC_coefficient": "5"
+    },
+    {
+      "case": "1_1_minus1_binary_rank2",
+      "indices": [
+        1,
+        1
+      ],
+      "full_source": {
+        "(1, 2)": "u*x",
+        "(1, 3)": "v*x",
+        "(1, 4)": "-w*x",
+        "(2, 3)": "tau*u*v",
+        "(2, 4)": "-amplitudeB*h*x - u*w*(tau + 1)",
+        "(3, 4)": "amplitudeA*h*x + v*w*(tau - 1)"
+      },
+      "all_ten_raw_Jacobi_zero": true,
+      "actual_cubic": "amplitudeA*h*u*x + amplitudeB*h*v*x + tau*u*v*w",
+      "SNC_substitution": {
+        "amplitudeA": "0",
+        "amplitudeB": "0",
+        "tau": "4"
+      },
+      "SNC_actual_quintic": "4*h*u*v*w*x",
+      "nonzero_SNC_coefficient": "4"
+    },
+    {
+      "case": "1_1_minus1_binary_rank2",
+      "indices": [
+        1,
+        2
+      ],
+      "full_source": {
+        "(1, 2)": "u*x",
+        "(1, 3)": "v*x",
+        "(1, 4)": "-w*x",
+        "(2, 3)": "tau*u*v",
+        "(2, 4)": "-amplitudeB*x**2 - u*w*(tau + 1)",
+        "(3, 4)": "amplitudeA*h*x + v*w*(tau - 2)"
+      },
+      "all_ten_raw_Jacobi_zero": true,
+      "actual_cubic": "amplitudeA*h*u*x + amplitudeB*v*x**2 + tau*u*v*w - u*v*w",
+      "SNC_substitution": {
+        "amplitudeA": "0",
+        "amplitudeB": "0",
+        "tau": "4"
+      },
+      "SNC_actual_quintic": "3*h*u*v*w*x",
+      "nonzero_SNC_coefficient": "3"
+    },
+    {
+      "case": "1_1_minus1_binary_rank2",
+      "indices": [
+        2,
+        0
+      ],
+      "full_source": {
+        "(1, 2)": "u*x",
+        "(1, 3)": "v*x",
+        "(1, 4)": "-w*x",
+        "(2, 3)": "tau*u*v",
+        "(2, 4)": "-amplitudeB*h**2 - u*w*(tau + 2)",
+        "(3, 4)": "amplitudeA*x**2 + tau*v*w"
+      },
+      "all_ten_raw_Jacobi_zero": true,
+      "actual_cubic": "amplitudeA*u*x**2 + amplitudeB*h**2*v + tau*u*v*w + 2*u*v*w",
+      "SNC_substitution": {
+        "amplitudeA": "0",
+        "amplitudeB": "0",
+        "tau": "4"
+      },
+      "SNC_actual_quintic": "6*h*u*v*w*x",
+      "nonzero_SNC_coefficient": "6"
+    },
+    {
+      "case": "1_1_minus1_binary_rank2",
+      "indices": [
+        2,
+        1
+      ],
+      "full_source": {
+        "(1, 2)": "u*x",
+        "(1, 3)": "v*x",
+        "(1, 4)": "-w*x",
+        "(2, 3)": "tau*u*v",
+        "(2, 4)": "-amplitudeB*h*x - u*w*(tau + 2)",
+        "(3, 4)": "amplitudeA*x**2 + v*w*(tau - 1)"
+      },
+      "all_ten_raw_Jacobi_zero": true,
+      "actual_cubic": "amplitudeA*u*x**2 + amplitudeB*h*v*x + tau*u*v*w + u*v*w",
+      "SNC_substitution": {
+        "amplitudeA": "0",
+        "amplitudeB": "0",
+        "tau": "4"
+      },
+      "SNC_actual_quintic": "5*h*u*v*w*x",
+      "nonzero_SNC_coefficient": "5"
+    },
+    {
+      "case": "1_1_minus1_binary_rank2",
+      "indices": [
+        2,
+        2
+      ],
+      "full_source": {
+        "(1, 2)": "u*x",
+        "(1, 3)": "v*x",
+        "(1, 4)": "-w*x",
+        "(2, 3)": "tau*u*v",
+        "(2, 4)": "-amplitudeB*x**2 - u*w*(tau + 2)",
+        "(3, 4)": "amplitudeA*x**2 + v*w*(tau - 2)"
+      },
+      "all_ten_raw_Jacobi_zero": true,
+      "actual_cubic": "amplitudeA*u*x**2 + amplitudeB*v*x**2 + tau*u*v*w",
+      "SNC_substitution": {
+        "amplitudeA": "0",
+        "amplitudeB": "0",
+        "tau": "4"
+      },
+      "SNC_actual_quintic": "4*h*u*v*w*x",
+      "nonzero_SNC_coefficient": "4"
+    },
+    {
+      "case": "1_1_minus1_scalar_M_all_binary_quadrics",
+      "indices": [
+        0
+      ],
+      "full_source": {
+        "(1, 2)": "u*x",
+        "(1, 3)": "v*x",
+        "(1, 4)": "-w*x",
+        "(2, 3)": "tau*(q11*u**2 + q12*u*v + q22*v**2)",
+        "(2, 4)": "-amplitudeB*h**2 - w*(q12*tau*u + 2*q22*tau*v)",
+        "(3, 4)": "amplitudeA*h**2 + w*(2*q11*tau*u + q12*tau*v)"
+      },
+      "all_ten_raw_Jacobi_zero": true,
+      "actual_cubic": "amplitudeA*h**2*u + amplitudeB*h**2*v + q11*tau*u**2*w + q12*tau*u*v*w + q22*tau*v**2*w",
+      "SNC_substitution": {
+        "amplitudeA": "0",
+        "amplitudeB": "0",
+        "tau": "1",
+        "q11": "0",
+        "q12": "1",
+        "q22": "0"
+      },
+      "SNC_actual_quintic": "h*u*v*w*x",
+      "nonzero_SNC_coefficient": "1"
+    },
+    {
+      "case": "1_1_minus1_scalar_M_all_binary_quadrics",
+      "indices": [
+        1
+      ],
+      "full_source": {
+        "(1, 2)": "u*x",
+        "(1, 3)": "v*x",
+        "(1, 4)": "-w*x",
+        "(2, 3)": "tau*(q11*u**2 + q12*u*v + q22*v**2)",
+        "(2, 4)": "-amplitudeB*h*x - w*(2*q22*tau*v + u*(q12*tau + 1))",
+        "(3, 4)": "amplitudeA*h*x + w*(2*q11*tau*u + v*(q12*tau - 1))"
+      },
+      "all_ten_raw_Jacobi_zero": true,
+      "actual_cubic": "amplitudeA*h*u*x + amplitudeB*h*v*x + q11*tau*u**2*w + q12*tau*u*v*w + q22*tau*v**2*w",
+      "SNC_substitution": {
+        "amplitudeA": "0",
+        "amplitudeB": "0",
+        "tau": "1",
+        "q11": "0",
+        "q12": "1",
+        "q22": "0"
+      },
+      "SNC_actual_quintic": "h*u*v*w*x",
+      "nonzero_SNC_coefficient": "1"
+    },
+    {
+      "case": "1_1_minus1_scalar_M_all_binary_quadrics",
+      "indices": [
+        2
+      ],
+      "full_source": {
+        "(1, 2)": "u*x",
+        "(1, 3)": "v*x",
+        "(1, 4)": "-w*x",
+        "(2, 3)": "tau*(q11*u**2 + q12*u*v + q22*v**2)",
+        "(2, 4)": "-amplitudeB*x**2 - w*(2*q22*tau*v + u*(q12*tau + 2))",
+        "(3, 4)": "amplitudeA*x**2 + w*(2*q11*tau*u + v*(q12*tau - 2))"
+      },
+      "all_ten_raw_Jacobi_zero": true,
+      "actual_cubic": "amplitudeA*u*x**2 + amplitudeB*v*x**2 + q11*tau*u**2*w + q12*tau*u*v*w + q22*tau*v**2*w",
+      "SNC_substitution": {
+        "amplitudeA": "0",
+        "amplitudeB": "0",
+        "tau": "1",
+        "q11": "0",
+        "q12": "1",
+        "q22": "0"
+      },
+      "SNC_actual_quintic": "h*u*v*w*x",
+      "nonzero_SNC_coefficient": "1"
+    }
+  ],
+  "family_count": 23,
+  "all_original_quadratic_vertical_coefficients_accounted_for": true,
+  "classification_implication": "Together with the explicit spectral and binary-matrix classification, the affine sources above cover every invertible-B nonscalar branch. Every irreducible source contains an SNC point and therefore lies in the proved finite MPS union. Scalar B is covered separately.",
+  "spectral_necessity_and_branch_exhaustion_require_the_written_proof": true,
+  "global_exhaustion_proved": false,
+  "input_sha256": {
+    "code/classification_two_hyperplanes_cubic_invertible.py": "a23b542b0ac066c40a3eebdca71533f49b652d5b9b42d668055c43f931e99299"
+  },
+  "producer_source": "#!/usr/bin/env python3\n\"\"\"All four nonscalar invertible spectral branches: complete W and SNC sources.\"\"\"\nimport argparse,hashlib,itertools,json,resource,time\nfrom pathlib import Path\nimport sympy as s\n\nROOT=Path(__file__).resolve().parents[1]\ndef brackets(lam,A,B,C,xx):\n    h,x,u,v,w=xx;P=s.zeros(5)\n    for ij,f in {(1,2):x*lam[0]*u,(1,3):x*lam[1]*v,(1,4):x*lam[2]*w,\n                 (2,3):C,(2,4):-B,(3,4):A}.items():P[ij]=f;P[ij[::-1]]=-f\n    return P\ndef jacobi(P,xx):\n    return {ijk:s.expand(sum(P[i,l]*s.diff(P[j,k],xx[l])+P[j,l]*s.diff(P[k,i],xx[l])+P[k,l]*s.diff(P[i,j],xx[l])for l in range(5)))\n            for ijk in itertools.combinations(range(5),3)for i,j,k in [ijk]}\ndef encode(P):return {str(ij):str(P[ij])for ij in itertools.combinations(range(5),2)if P[ij]}\ndef main(output):\n    resource.setrlimit(resource.RLIMIT_CPU,(55,56));resource.setrlimit(resource.RLIMIT_AS,(1536*1024**2,1536*1024**2))\n    begun=time.monotonic();h,x,u,v,w=xx=s.symbols('h x u v w');a,b,c,d,e,f,g=s.symbols('a b c d e f g')\n    ah,ax,axx,bh,bx,bxx,lh,lx=s.symbols('ah ax axx bh bx bxx lh lx')\n    A2=ah*h*h+ax*h*x+axx*x*x;B2=bh*h*h+bx*h*x+bxx*x*x;L=lh*h+lx*x\n    generic=[dict(case='2_1_minus1',lam=(2,1,-1),A=A2+a*v*w,B=v*L+b*u*w,C=c*u*v,\n                  expected=(c-a)*L*v*v+(b-c)*A2*u-x*(2*u*s.diff(A2,x)+v*v*s.diff(L,x))),\n             dict(case='3_1_minus1',lam=(3,1,-1),A=A2+a*v*w,B=b*v*v+d*u*w,C=c*u*v,\n                  expected=b*(c-a)*v**3+(d-c)*A2*u-3*x*u*s.diff(A2,x)),\n             dict(case='3_2_1',lam=(3,2,1),A=u*L+a*v*w,B=b*v*v+c*u*w,C=d*u*v,\n                  expected=b*(d-a)*v**3+(c-d)*L*u*u-3*x*u*u*s.diff(L,x)),\n             dict(case='1_1_minus1',lam=(1,1,-1),A=A2+w*(a*u+b*v),B=B2+w*(c*u+d*v),C=e*u*u+f*u*v+g*v*v,\n                  expected=w*((e*(b+c)-a*f)*u*u+2*(d*e-a*g)*u*v+(d*f-(b+c)*g)*v*v)\n                    +u*((c-f)*A2+(2*e-a)*B2-x*s.diff(A2,x))\n                    +v*((d-2*g)*A2+(f-b)*B2-x*s.diff(B2,x)))]\n    full_records=[]\n    mons=[xx[i]*xx[j]for i,j in itertools.combinations_with_replacement(range(5),2)]\n    for entry in generic:\n        lam=entry['lam'];P=brackets(lam,entry['A'],entry['B'],entry['C'],xx);J=jacobi(P,xx)\n        assert all(value==0 for key,value in J.items()if key!=(2,3,4))\n        assert s.expand(J[(2,3,4)]-entry['expected'])==0\n        weight=(0,0,*lam);weight_basis=[]\n        for ij in [(2,3),(2,4),(3,4)]:\n            actual=set(e for e,value in s.Poly(P[ij],*xx).terms()if value)\n            expected=[]\n            for mon in mons:\n                exponent=s.Poly(mon,*xx).monoms()[0]\n                if sum(a*b for a,b in zip(exponent,weight))==weight[ij[0]]+weight[ij[1]]:expected.append(exponent)\n            assert actual==set(expected)\n            # Every coefficient displayed in each W position is independent.\n            parameters=sorted(set().union(*(value.free_symbols for _,value in s.Poly(P[ij],*xx).terms())),key=str)\n            matrix,_=s.linear_eq_to_matrix([value for _,value in s.Poly(P[ij],*xx).terms()],parameters)\n            assert matrix.rank()==len(expected)\n            weight_basis.append(dict(pair=list(ij),monomials=[str(s.prod(v**power for v,power in zip(xx,exponent)))for exponent in expected]))\n        F=s.expand(lam[0]*u*entry['A']+lam[1]*v*entry['B']+lam[2]*w*entry['C'])\n        full_records.append(dict(case=entry['case'],spectrum=list(lam),complete_weight_basis=weight_basis,\n            invariant_vertical_quadratic_space_dimension=sum(len(z['monomials'])for z in weight_basis),\n            full_W=encode(P),only_possible_nonzero_Jacobi_coefficient=str(J[(2,3,4)]),\n            expected_complete_Jacobi_equation=str(s.expand(entry['expected'])),actual_cubic=str(F)))\n    amplitudeA,amplitudeB,tau=s.symbols('amplitudeA amplitudeB tau');families=[]\n    def add(case,indices,lam,A,B,C,snc_substitution):\n        P=brackets(lam,A,B,C,xx);assert all(value==0 for value in jacobi(P,xx).values())\n        F=s.expand(lam[0]*u*A+lam[1]*v*B+lam[2]*w*C)\n        snc=s.factor(F.subs(snc_substitution));ratio=s.cancel(snc/(u*v*w))\n        assert ratio and not ratio.free_symbols\n        families.append(dict(case=case,indices=indices,full_source=encode(P),all_ten_raw_Jacobi_zero=True,\n            actual_cubic=str(F),SNC_substitution={str(k):str(val)for k,val in snc_substitution.items()},\n            SNC_actual_quintic=str(h*x*snc),nonzero_SNC_coefficient=str(ratio)))\n    for j in range(3):\n        for ell in range(2):\n            AA=amplitudeA*h**(2-j)*x**j;LL=amplitudeB*h**(1-ell)*x**ell\n            add('2_1_minus1',[j,ell],(2,1,-1),AA+a*v*w,v*LL+(a+ell+2*j)*u*w,(a+ell)*u*v,\n                {amplitudeA:0,amplitudeB:0,a:1})\n    for j in range(3):\n        AA=amplitudeA*h**(2-j)*x**j\n        add('3_1_minus1',[j],(3,1,-1),AA+a*v*w,amplitudeB*v*v+(a+3*j)*u*w,a*u*v,\n            {amplitudeA:0,amplitudeB:0,a:1})\n    for j in range(2):\n        LL=amplitudeA*h**(1-j)*x**j\n        add('3_2_1',[j],(3,2,1),u*LL+a*v*w,amplitudeB*v*v+(a+3*j)*u*w,a*u*v,\n            {amplitudeA:0,amplitudeB:0,a:1})\n    for j,k in itertools.product(range(3),repeat=2):\n        AA=amplitudeA*h**(2-j)*x**j;BB=amplitudeB*h**(2-k)*x**k\n        add('1_1_minus1_binary_rank2',[j,k],(1,1,-1),AA+(tau-k)*v*w,BB+(tau+j)*u*w,tau*u*v,\n            {amplitudeA:0,amplitudeB:0,tau:4})\n    q11,q12,q22=s.symbols('q11 q12 q22')\n    for j in range(3):\n        AA=amplitudeA*h**(2-j)*x**j;BB=amplitudeB*h**(2-j)*x**j\n        add('1_1_minus1_scalar_M_all_binary_quadrics',[j],(1,1,-1),\n            AA+w*(2*tau*q11*u+(tau*q12-j)*v),\n            BB+w*((tau*q12+j)*u+2*tau*q22*v),tau*(q11*u*u+q12*u*v+q22*v*v),\n            {amplitudeA:0,amplitudeB:0,tau:1,q11:0,q12:1,q22:0})\n    inputs=['code/classification_two_hyperplanes_cubic_invertible.py']\n    result=dict(task_id='E_reduced_nonnormal',all_passed=True,\n        complete_invariant_W_models=full_records,all_parametric_SNC_families=families,\n        family_count=len(families),all_original_quadratic_vertical_coefficients_accounted_for=True,\n        classification_implication='Together with the explicit spectral and binary-matrix classification, the affine sources above cover every invertible-B nonscalar branch. Every irreducible source contains an SNC point and therefore lies in the proved finite MPS union. Scalar B is covered separately.',\n        spectral_necessity_and_branch_exhaustion_require_the_written_proof=True,global_exhaustion_proved=False,\n        input_sha256={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest()for p in inputs},\n        producer_source=Path(__file__).read_text(),seconds=time.monotonic()-begun)\n    with output.open('x')as handle:json.dump(result,handle,indent=2);handle.write('\\n')\n    print(json.dumps(dict(all_passed=True,source_count=len(families),seconds=result['seconds'])))\nif __name__=='__main__':\n    ap=argparse.ArgumentParser();ap.add_argument('--output',type=Path,required=True);main(ap.parse_args().output)\n",
+  "seconds": 0.5068148939972161
+}

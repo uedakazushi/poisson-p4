@@ -1,0 +1,28 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "all_parameter_projective_Jacobi_zero": true,
+  "family": {
+    "0,1": "-7*h**2 - 2*t*x2**2 - 2*t*x3*x4",
+    "0,2": "7*h*x1 + 5*h*x3 + 2*t*x2*x4",
+    "0,3": "5*h**2 + t*x1*x4 + t*x2**2 + 3*t*x3*x4",
+    "0,4": "3*h*x2 + t*x4**2 + 5*x1**2 + 5*x1*x3 - 10*x3**2",
+    "1,2": "-13*h*x2 - 3*x1**2 + 5*x1*x3 + 10*x3**2",
+    "1,3": "5*h*x1 + 7*h*x3 + t*x2*x4",
+    "1,4": "-8*h*x4 - 2*x1*x2 - 10*x2*x3",
+    "2,3": "-5*h*x2 - 5*x1**2 - 7*x1*x3",
+    "2,4": "8*x1*x4 + 3*x2**2 + 10*x3*x4",
+    "3,4": "10*h*x4 - 5*x1*x2 - 7*x2*x3"
+  },
+  "Euler_contracted_Pfaffian": "(-150*h**3*x2*x4 - 75*h**2*x1**2*x4 + 150*h**2*x1*x2**2 + 300*h**2*x2**2*x3 + 75*h**2*x3**2*x4 - 40*h*t*x1*x2*x4**2 - 15*h*t*x2**3*x4 - 50*h*t*x2*x3*x4**2 + 125*h*x1**3*x2 + 300*h*x1**2*x2*x3 - 75*h*x1*x2*x3**2 - 350*h*x2*x3**3 - t**2*x2**2*x4**3 + 10*t*x1**3*x4**2 + 35*t*x1**2*x2**2*x4 + 50*t*x1**2*x3*x4**2 + 15*t*x1*x2**4 + 95*t*x1*x2**2*x3*x4 + 80*t*x1*x3**2*x4**2 + 30*t*x2**4*x3 + 50*t*x2**2*x3**2*x4 + 40*t*x3**3*x4**2 + 25*x1**5 + 75*x1**4*x3 - 25*x1**3*x3**2 - 175*x1**2*x3**3 + 100*x3**5)/5",
+  "factor_degrees_multiplicities": [
+    [
+      5,
+      1
+    ]
+  ],
+  "quadratic_factor": null,
+  "quadratic_hessian_determinant": null,
+  "source_sha256": "ab9b74e138dcd2820add924a6e4d8c0d71ca4e620e0f4205df253335580f6e02",
+  "producer_source": "#!/usr/bin/env python3\n\"\"\"Actual one-parameter curve from the finite full equivariant I-slice.\"\"\"\nimport hashlib,itertools,json,resource,time\nfrom pathlib import Path\nimport sympy as s\nresource.setrlimit(resource.RLIMIT_CPU,(55,56));resource.setrlimit(resource.RLIMIT_AS,(1536*1024**2,1536*1024**2))\nstart=time.monotonic();path=Path('reports/CLASSIFICATION_DEGENERATE_QUADRIC_Q4_NIL31_I_WEIGHTED_20261107.json');src=json.loads(path.read_text());xx=s.symbols('h x1 x2 x3 x4');tau=s.symbols('tau0:3');t=s.Symbol('t');P=s.zeros(5)\nfor key,val in src['full_curve_brackets'].items():\n    ij=tuple(map(int,key.split(',')));P[ij]=s.expand(s.sympify(val).subs({tau[0]:t,tau[1]:0,tau[2]:0}));P[ij[::-1]]=-P[ij]\nJ={ijk:s.expand(sum(P[i,l]*s.diff(P[j,k],xx[l])+P[j,l]*s.diff(P[k,i],xx[l])+P[k,l]*s.diff(P[i,j],xx[l]) for l in range(5))) for ijk in itertools.combinations(range(5),3) for i,j,k in [ijk]}\nfull={ijkl:s.expand(sum((-1)**at*xx[ell]*J[ijkl[:at]+ijkl[at+1:]] for at,ell in enumerate(ijkl))) for ijkl in itertools.combinations(range(5),4)};assert all(v==0 for v in full.values())\npf=[]\nfor missing in range(5):\n    i,j,k,l=[v for v in range(5) if v!=missing];pf.append(s.expand((-1)**missing*(P[i,j]*P[k,l]-P[i,k]*P[j,l]+P[i,l]*P[j,k])))\nD=s.factor(sum(x*f for x,f in zip(xx,pf))/5);factors=s.factor_list(D)[1]\nquads=[f for f,e in factors if s.Poly(f,*xx).total_degree()==2]\nq=quads[0] if len(quads)==1 else None\nrecord={'task_id':'E_reduced_nonnormal','all_parameter_projective_Jacobi_zero':True,'family':{','.join(map(str,ij)):str(P[ij]) for ij in itertools.combinations(range(5),2) if P[ij]},'Euler_contracted_Pfaffian':str(D),'factor_degrees_multiplicities':[(s.Poly(f,*xx).total_degree(),e) for f,e in factors],'quadratic_factor':None if q is None else str(q),'quadratic_hessian_determinant':None if q is None else str(s.factor(s.hessian(q,xx).det())),'source_sha256':hashlib.sha256(path.read_bytes()).hexdigest(),'producer_source':Path(__file__).read_text(),'seconds':time.monotonic()-start}\nout=Path('reports/CLASSIFICATION_DEGENERATE_QUADRIC_Q4_NIL31_I_CURVE_20261107.json')\nwith out.open('x') as f:json.dump(record,f,indent=2);f.write('\\n')\nprint(json.dumps({k:record[k] for k in ['Euler_contracted_Pfaffian','factor_degrees_multiplicities','quadratic_factor','quadratic_hessian_determinant','seconds']},indent=2))\n",
+  "seconds": 0.24839575299847638
+}

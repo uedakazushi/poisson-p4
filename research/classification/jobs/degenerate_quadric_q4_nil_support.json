@@ -1,0 +1,47 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "target_statement": "Reduce all five q4 nil31/nil22 full sources to the exact support with irreducible cubic factor, preserving every surviving parameter.",
+  "implication_to_classification": "Three full cofactor sources are excluded. The remaining two cofactor cases are exhausted by two full2-parameter sources up to reflection and one full4-parameter source, requiring component recognition next.",
+  "coefficient_ring": "QQ(i)[x0,...,x4,n0,...,n14]",
+  "hypotheses": "The existing full linear source reports are inputs; independently verify all source constraints, necessary literal Jacobi coefficients, universal substitutions and actual Pfaffian identities. Do not assume every nilpotent source is empty.",
+  "inverted_elements": [
+    "rational constants",
+    "n0!=0 only in the surviving nil22-nonzero source, with n0=0 explicitly excluded by reducible cubic"
+  ],
+  "complements": [
+    "All scalar branches of nil31-long retained; zero-n6 branches checked and excluded. Plus/minus nonzero-n6 branches identified by an exact reflection."
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_degenerate_quadric_q4_nil_support.py",
+      "sha256": "12bac2246aac80ac89d37455c805291f0ec758d9ffe5f61ec02af9ac04ed14fd"
+    },
+    {
+      "path": "reports/CLASSIFICATION_DEGENERATE_QUADRIC_Q4_NIL31_ZERO_20261107.json",
+      "sha256": "40d158ef7d216b175abba21b88807b94ac40512397ec48aaf046edc6667003e8"
+    },
+    {
+      "path": "reports/CLASSIFICATION_DEGENERATE_QUADRIC_Q4_NIL31_SHORT_20261107.json",
+      "sha256": "23c2679ac13f9aaeede67c407d15e0d158823a78456da54426a9724318362421"
+    },
+    {
+      "path": "reports/CLASSIFICATION_DEGENERATE_QUADRIC_Q4_NIL31_LONG_20261107.json",
+      "sha256": "6da071f7ccf74a9c851ba46c7e5a010cc180e3753dcdb33b081617e49f16ceda"
+    },
+    {
+      "path": "reports/CLASSIFICATION_DEGENERATE_QUADRIC_Q4_NIL22_ZERO_20261107.json",
+      "sha256": "105e2345a172c8503a933fcfaffc2500b72a381a0dd5b848e1dc93ba04d1544f"
+    },
+    {
+      "path": "reports/CLASSIFICATION_DEGENERATE_QUADRIC_Q4_NIL22_NONZERO_20261107.json",
+      "sha256": "2ad4026a7fffb814b9fc83118a2a2b06f85492b7b3d7038a19fd8401a25c8b58"
+    }
+  ],
+  "success_certificate": "Exact Gaussian Fraction necessary coefficient witnesses; all surviving-source universal Jacobi and five-gradient identities; factor certificates for excluded cases and primitive-linear irreducibility certificates for surviving cubics.",
+  "independent_check": "No producer or SymPy import. Use literal fullsource reports with hashes and embed standalone checker.",
+  "resource_limit": {
+    "timeout_seconds": 60,
+    "memory_mb": 1536
+  },
+  "negative_result_next_step": "Report any mismatch and retain affected source unresolved; no additional point probes or componenthood inference."
+}

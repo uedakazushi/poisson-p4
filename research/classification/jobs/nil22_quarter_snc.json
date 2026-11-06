@@ -1,0 +1,40 @@
+{
+  "task_id": "E_multiple_hyperplane",
+  "target_statement": "Cover the entire nil22 A=1/4 rank-four source by MPS using one actual universal projective Poisson curve and an exact SNC orbit limit.",
+  "implication_to_classification": "Every component containing the irreducible curve contains its SNC orbit limit, hence is MPS. The original point lies on the curve and the whole source is one orbit, so no smoothness or full tangent assertion is needed.",
+  "coefficient_ring": "QQ[t,h,x1,x2,x3,x4]",
+  "hypotheses": "The universal affine source normalization is established and retains the old witness t_source=7; this curve is the exact finite IFT polynomial already produced.",
+  "inverted_elements": [
+    "determinant2 of the displayed linear coordinate change",
+    "nonzero torus parameter for the orbit degeneration"
+  ],
+  "complements": [
+    "The zero degeneration parameter is the explicitly computed SNC limit",
+    "No component catalogue label is inferred from divisor type alone"
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_nil22_quarter_snc.py",
+      "sha256": "91ff68e685f7c0afdcca459c4df422b4993a9388fa42fe02523dfe30c1a23782"
+    },
+    {
+      "path": "code/classification_rank3_mixed_component_review.py",
+      "sha256": "48e61e30f9d7f04fb81f1bb5eec0e18daa28c8192d6a02a251e09cf8855b9bd0"
+    },
+    {
+      "path": "reports/CLASSIFICATION_NIL22_QUARTER_CANONICAL_20261107.json",
+      "sha256": "3af5a1ed0c4e930d99b2418576134fc7b9c4bbe6a8ef762c3ae0fd13f43b1c1b"
+    },
+    {
+      "path": "reports/CLASSIFICATION_NIL22_QUARTER_WEIGHTED_SLICE_20261107.json",
+      "sha256": "baef2ba064bf4ffb14d5936b4271b0208278a576f600b95c54e58057ada7a1f4"
+    }
+  ],
+  "success_certificate": "All350 universal Jacobi equations, exact seven transformed brackets, all coefficient weights nonnegative, and limit Pfaffian section -12h*x1*x2*x3*x4.",
+  "independent_check": "Generic-structure reviewer independently checks the coefficient-weight argument and curve-to-component scope; the producer symbolic identities are recorded separately.",
+  "resource_limit": {
+    "timeout_seconds": 30,
+    "memory_mb": 1024
+  },
+  "negative_result_next_step": "Retain the genuine23-dimensional transverse family and seek a correct orbit degeneration; no new point or formal jet."
+}

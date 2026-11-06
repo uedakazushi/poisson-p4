@@ -1,0 +1,35 @@
+{
+  "task_id": "E_multiple_hyperplane",
+  "target_statement": "Verify the all-seven-parameter nil22 A=1/4 affine normalization to the solvable linear-field resonance at the same frozen witness t=7.",
+  "implication_to_classification": "A valid universal one-orbit normalization makes the finite transverse support test apply to the entire source.",
+  "coefficient_ring": "QQ[n2,n6,n7,n8,n9,n10,n12,h,x1,x2,x3,x4]",
+  "hypotheses": "The all90 reduction and full eight sources are established inputs.",
+  "inverted_elements": [
+    "nonzero rational constants"
+  ],
+  "complements": [
+    "t=0 has rank at most two",
+    "No new witness or point-only transport"
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_modular_affine_normalization.py",
+      "sha256": "a9489b4c935f3295970d5a87ce9df7d7d01296bec617b37ac3ec4d9ba747ccea"
+    },
+    {
+      "path": "code/data/classification_nil22_quarter_canonical.json",
+      "sha256": "a335eb85378eb360034b6473f4eb37536cc8f8fe086e602f44b3fd4289ccf272"
+    },
+    {
+      "path": "reports/CLASSIFICATION_NIL22_TOP_COMPONENTS_20261107.json",
+      "sha256": "62c5ca9bbc2d6f87f2110e54025ee56d5ed52eb7b4b8802b70b20287267cb89d"
+    }
+  ],
+  "success_certificate": "All ten homogeneous bracket coefficients after determinant-one affine change equal the canonical tensor; universal Jacobi/Pfaffian, homogeneous weights, exact old-witness transport.",
+  "independent_check": "Parent hand-derived the whole affine normalization; this checker independently compares its universal coefficients. Later component conclusions need a separate full ambient review.",
+  "resource_limit": {
+    "timeout_seconds": 35,
+    "memory_mb": 768
+  },
+  "negative_result_next_step": "Correct the finite symbolic normalization or retain the full source; do not select a new point."
+}

@@ -1,0 +1,34 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "target_statement": "Derive the complete full150 fixed-cofactor quadratic lift for each of the31 rank3/4 quadric cofactor representatives, retaining every residual Jacobi coefficient.",
+  "implication_to_classification": "An independently read finite cofactor table exhausts the rank3/4 quadric plus irreducible cubic support. These full linear sources preserve every radical coefficient and provide exact finite models to decide actual divisor and component membership.",
+  "coefficient_ring": "QQ[p0,...,p149,x0,...,x4], then all free source parameters",
+  "hypotheses": "Each input q has rank3 or4; nonzero linear X has Xq=0 and trace0; all150 quadratic lift coefficients satisfy divPi=0, dq.Pi=qX and [X,Pi]=0. The table is exhaustive up to q-preserving changes and scalar saturation.",
+  "inverted_elements": [
+    "nonzero linear normalizing scalars only"
+  ],
+  "complements": [
+    "X=0 impossible for independent Casimirs q,c and generic rank4",
+    "All31 table rows retained, including pure nilpotent and every radical extension",
+    "Residual Jacobi support, nonzero actual D and irreducibility of cubic remain to decide; linear source is not full classification"
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_smooth_quadric.py",
+      "sha256": "3caa52edf91c66ee0f0fd58151bf47275d1a8e2154bb0d61d2b991b3fb121174"
+    },
+    {
+      "path": "code/data/classification_degenerate_quadric_cofactors.json",
+      "sha256": "29a34780561e63050286da31db2238052fe62087f9ee59d22c83cab205af04a2"
+    }
+  ],
+  "success_certificate": "Every input qrank/trace/Xq identity; complete affine solution of all150 linear coefficients or exact inconsistency; source substitution into every linear constraint; all ten strict Jacobi polynomials retained by coefficients; Euler-contracted Pfaffian labelled as candidate; immutable producer and input hashes embedded.",
+  "independent_check": "Root independently accepted all31 cofactor orbit reductions. Source arithmetic and nonlinear conclusions will be independently reviewed before any support theorem.",
+  "resource_limit": {
+    "timeout_seconds": 90,
+    "memory_mb": 1536,
+    "number_of_fixed_cases": 31,
+    "total_wall_seconds_limit": 1500
+  },
+  "negative_result_next_step": "If a source exceeds the per-case bound preserve the unsolved row and use invariant geometry. No repeated large Groebner/jet searches; source computation alone does not prove coverage."
+}

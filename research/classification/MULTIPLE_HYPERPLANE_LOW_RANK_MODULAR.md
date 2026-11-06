@@ -517,7 +517,7 @@ scalar の場合は中心を平行移動した後の斉次 k 次式全体が固�
 よって `dim I≤6`、F の六係数を加えて g=0 の全源も12次元以下となる。
 全 Jordan・共鳴・零係数枝を含み、一般 U の固有空間次元を全点に適用してはいない。
 
-### 5.2 短い鎖の定数項のβ像は15次元以下
+### 5.2 全短鎖・長鎖の g=0 と定数gのβ像
 
 `X=x∂y+∂z` の Aff4 安定化群は11次元である。
 線形部の GL4 中心化群は10次元。
@@ -530,9 +530,143 @@ primitive β 像の次元は高々15となる。全固定 symplectic 値 J に�
 既存の perspective の橋により、元の重複超平面層でもこの型は W=A16 を優越しない。
 
 一方 `X=x∂y+∂x` は、c の商空間軌道が三次元なので Aff4 軌道は10次元である。
-同じ計算は `10+12−6=16` までしか与えず、この長い鎖の型の非優越は未証明である。
-自由 K の二次項は一般 symplectic 点で一次 jet に効くため、
-別の nil(3,1) 源の三次元 magnetic fiber をここへ無断で流用しない。
+単なる源次元の比較は `10+12−6=16` までしか与えないが、g=0 と定数 g は以下で閉じる。
+
+**g=0 の全支持。** (19)で F は Pxy だけに現れ、全 Jacobi と Pfaffian から独立な任意二次式である。
+任意の symplectic 基点の q 座標を q0 とすると、q−q0 の斉次二次式三次元を F に加える実族は
+元の座標の全0/1 jet を固定する。従って全 affine 支持の primitive β 像は
+`12+10−6−3=13` 次元以下。短鎖では同じ引算により12次元以下である。
+ここでは実 affine fiber を使っており、一点の微分核から一般 fiber 次元を推定していない。
+
+**g=g0≠0、H3=0 の全支持。** 全固定場源は
+`Gm_g × A5_U × A6_H` であり既約12次元。F=(U+1)H/g で一意に決まる。
+その Aff4 飽和は高々22次元、無限遠超平面の四次元を戻して射影化した
+既約閉包 Z は高々25次元である。
+この Z は旧 positive-weight の25次元成分 NEW25 に等しい。
+
+包含を確かめる入口は `reports/Q_POSITIVE_WEIGHT6_NEW_FAMILY_20261103_v63/certificate.json.gz`
+の `full_affine_P` である。座標を (x,y,z,w)、源の係数を n0,n1,n2 とすると、その modular 場は
+\[
+ Z_0=\frac{4n_0}{3}\partial_y+
+       (n_0x+n_0n_2y+n_1/48)\partial_z.
+\]
+稠密開 n0 n2≠0 で d=4n0²n2/3 と置き、
+\[
+ X=(n_0x+n_0n_2y+n_1/48)/d,\qquad Y=z/d,\qquad q=(x,w)
+\]
+と線形変更すれば `Z0(X)=1,Z0(Y)=X,Z0(q)=0`。
+従ってこれは長鎖の正規 modular 場で、`g={x,w}=8/9` は非零定数である。
+元の Pfaffian は次数高々二であり、(18)の `f=g(Y−X²/2)+H(q)` と一致するので H3=0。
+旧 NEW25 の全三変数源の稠密開とその PGL 飽和が Z に入る。
+旧成分性・次元25を `NEW25_COMPONENT_AUDIT.md` の依存から入力すると、
+既約閉集合 `NEW25⊂Z, dim Z≤25` より Z=NEW25。
+したがって n0 n2=0 の旧境界だけでなく、現在の全 Gm×A11 源も同成分に入る。
+この証明は一代表の所属を全源へ拡張していない。
+旧成分の primitive 像が proper である既存結果も接続する。
+
+**g=g0≠0 の三次共鳴源。** U1 の三次固有多項式 T≠0、`U1(T)=−T` を一つ固定する。
+任意の symplectic 基点 q0 において
+\[
+ \delta H=T(q-q_0),\qquad \delta F=(U+1)\delta H/g_0
+\]
+と置く。δH は三次以上に消える。δF の最高三次項は `(U1+1)T=0` により消えるので、
+δF は許容される二次式であり、q0 では二次以上に消える。
+U と g0 を固定して H,F にこの方向を加えると、全 Jacobi を保つ実 affine line となる。
+(19)の δPyz,δPyw は δH の一階微分、δPxy は −δF だから、全0/1 jet を固定する。
+この実一次元 fiber と源次元上界12により、全 primitive β 像は `12+10−6−1=15` 以下。
+H3 の係数が零の境界点でも同じ affine line が存在し、境界を除外しない。
+
+§5.1 の全 Jordan 次元表と短鎖の15次元上界は generic-structure 担当が独立に手で確認した。
+本節の g=0 の実三平面、定数 g の旧25次元成分への包含、三次共鳴の実直線は同担当の提案を
+本ノート担当が全 jet と源次元の論理まで独立に確認した。
+残る長鎖 g 非定数の全源は、次節の別の実有理曲線によって非優越となる。
+自由 K の二次項は一般 symplectic 点で一次 jet に効くため、g=0 の三次元 fiber を流用しない。
+
+### 5.3 長鎖・非定数gの全点を通る同じ一次jetの実曲線
+
+**命題。** `X=∂x+x∂y`、g 非定数の全 rank四源の primitive β 像は次元高々15である。
+
+まず q の affine 座標を使い g=z とする。このとき
+
+\[
+ U=az\partial_z+(b+cz)\partial_w,\qquad
+ H=zK,\quad F=(U+a+1)K,\quad r=y-x^2/2,
+\]
+
+で K は任意の二次以下の多項式である。
+元の六括弧は (19) に正確に戻り、Pfaffian は `−z(r+K)`。
+従って任意の symplectic 基点では z≠0。
+X を保つ変更 `x↦x−x0,y↦y−x0 x+constant`、z の非零 scalar 倍、w の平行移動を使えば、
+基点を `(x,y,z,w)=(0,0,1,0)` に取れる。z の scalar 倍は g=z の表示も保つ。
+さらに基点で零の affine 式を y に加えることで K の二つの一次 Taylor 係数を消し、
+
+\[
+ \zeta=z-1,\qquad K=k+A\zeta^2+B\zeta w+Cw^2,\qquad k\ne0
+ \tag{20a}
+\]
+
+とできる。ここで行った変更は全て affine であり、非線形な r 座標を射影同値とみなしていない。
+
+`v=b+c`、`ℓ=vζ−aw` と置く。λ≠0 に対して
+
+\[
+ a_\lambda=\lambda a,\qquad b_\lambda=b,\qquad
+ c_\lambda=\lambda v-b,\qquad
+ K_\lambda=\lambda K+\frac{\lambda(\lambda-1)}2\ell^2
+ \tag{20b}
+\]
+
+とする。これらを同じ全源 (19) に代入した二次 Poisson テンソルを Pλ とし、
+基点を固定する可逆 affine frame
+
+\[
+ g_\lambda(x,y,\zeta,w)
+   =\bigl(x+(1-\lambda)\ell,\ y/\lambda,\ \zeta,\ w\bigr)
+ \tag{20c}
+\]
+
+で `Qλ=(gλ)*Pλ` と置く。Q1 は元の全テンソルである。
+全有理恒等式として
+
+\[
+ Q_\lambda(p)=Q_1(p),\qquad
+ dQ_\lambda|_p=dQ_1|_p,
+ \qquad
+ \left.\partial_\lambda\operatorname{coeff}_{x^2}
+       (Q_\lambda^{yw})\right|_{\lambda=1}=-\tfrac12
+ \tag{20d}
+\]
+
+が成立する。従ってこの曲線は全ての a,b,c,k,A,B,C において非定数で、完全な0/1jetを保つ。
+元の座標で全係数は次数高々二のままであり、全 Jacobi を満たす。
+単に形式変形の有限次数が解けるという主張ではない。
+
+恒等式の導出も短く記す。
+λ=e^(−t) と形式的に微分すると、源の変化は
+`δa=−a,δv=−v,δb=0,δK=−K−ℓ²/2`。
+全0/1jetに対して、その変化は線形場 `ℓ∂x+y∂y` の pushforward 微分で補償される。
+この線形場の係数は t に沿って明示的に変化し、積分後の有限行列は (20c) になる。
+存在の根拠は微分方程式の形式解ではなく、(20b)–(20d) の直接の有限有理恒等式である。
+
+§5.1 により固定場の全源は12次元、affine modular orbit は10次元以下なので、
+全 affine 飽和源は22次元以下。固定した非退化定数値 J の開は六次元を引いて16次元以下である。
+各点の元の source 座標へ戻って (20a)–(20d) を適用すれば、全 fiber に非定数曲線が存在する。
+元の座標に戻す変換は曲線に依らないため、全0/1jetの固定と非定数性を保つ。
+同じ定数値と一次項を持つ全曲線には、同じ Darboux frame と同じ有限 perspective を適用できる。
+その可逆性により primitive β の fiber も一次元以上であり、像次元は `12+10−6−1=15` 以下。
+これで rank一 nilpotent の全 affine 型について、一般 β を優越しないことが従う。
+各特殊源の既知成分帰属をここで全て決定したとはしない。
+
+公開恒等式証明書は `reports/CLASSIFICATION_RANK1_LONG_ACTUAL_FIBER_20261107.json`。
+`code/classification_rank1_firstjet.py --curve` は全六括弧、全四 Jacobi、全30 zero/first jet残差、
+次数上界、非定数係数 −1/2 を QQ(a,b,c,k,A,B,C,λ) 上で検算する。
+有限契約は `jobs/rank1_long_actual_fiber.json`、実測1.062秒。
+標本点の微分階数15は発見のための診断として別 report に残し、本命題の上界には使わない。
+独立検算 `CLASSIFICATION_RANK1_LONG_ACTUAL_FIBER_REVIEW_20261107.json` は
+別の Fraction/Laurent 疎実装で source を K,U から再構成し、affine pushforward の全六括弧、
+全四 Jacobi、全30jet差、次数上界、非定数係数 −1/2 を確認した（0.047秒）。
+別担当二名が全基点の affine 正規化、全実 fiber と次元の引算を独立に読解し、
+統合担当も全 rank一 G 非優越を受理した。
 
 ## 6. A=c=0 の h五乗層：既存rank二分類の適用範囲
 

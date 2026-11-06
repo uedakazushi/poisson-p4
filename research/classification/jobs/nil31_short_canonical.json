@@ -1,0 +1,35 @@
+{
+  "task_id": "E_multiple_hyperplane",
+  "target_statement": "Verify the entire six-parameter nil31 short-top r=1 source is carried by an explicit affine centralizer transformation to a single rank-four canonical orbit with a diagonal stabilizer.",
+  "implication_to_classification": "This transports the existing full-source obligation and frozen witness to a canonical point at which a true finite weighted slice can settle reduced support; it does not itself claim componenthood.",
+  "coefficient_ring": "QQ[n0,n5,n6,n10,n11,n12,h,x1,x2,x3,x4]",
+  "hypotheses": "All six universal brackets of the complete source are retained; no parameter specialization occurs in the source identity.",
+  "inverted_elements": [
+    "rational constants only; n0 nonzero is the already stated rank-four open"
+  ],
+  "complements": [
+    "n0=0 has rank below4",
+    "All other nil31 short sources remain separate"
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_modular_affine_normalization.py",
+      "sha256": "a9489b4c935f3295970d5a87ce9df7d7d01296bec617b37ac3ec4d9ba747ccea"
+    },
+    {
+      "path": "code/data/classification_nil31_short_canonical.json",
+      "sha256": "885929a209c462e2b0e69a00b177520d5ad316ae37b08d5d1fe229042becfb12"
+    },
+    {
+      "path": "reports/CLASSIFICATION_NIL31_SHORT_COMPONENTS_20261107.json",
+      "sha256": "6a57d0185cb6f75b2d323b93799b027dd955fc42f23fb924a8ffc9f61340349a"
+    }
+  ],
+  "success_certificate": "All universal coordinate-change coefficients, determinant1, raw Jacobi, Pfaffian, diagonal weights, and proof that the old witness maps to the chosen canonical parameter value.",
+  "independent_check": "The normalization is independently read before component application, and any resulting weighted-slice proof requires a separate full-ambient reconstruction.",
+  "resource_limit": {
+    "timeout_seconds": 30,
+    "memory_mb": 768
+  },
+  "negative_result_next_step": "If the identity fails, correct the hand-derived normal form before any slice computation. No alternate witness search."
+}

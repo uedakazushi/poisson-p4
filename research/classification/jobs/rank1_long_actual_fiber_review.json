@@ -1,0 +1,33 @@
+{
+  "task_id": "G",
+  "target_statement": "Independently reconstruct the full rational rank1 long-top same-first-jet curve using Fraction sparse Laurent polynomials, without producer or SymPy.",
+  "implication_to_classification": "The full fixed modular source has dimension12 and its affine modular orbit dimension10. Nondegenerate constant evaluation removes6 dimensions, and the explicit nonconstant same-jet curve gives actual fiber dimension at least1; hence the entire source primitive-beta image has dimension at most15.",
+  "coefficient_ring": "QQ[a,b,c,k,A,B,C,lam,k^-1,lam^-1]",
+  "hypotheses": "Every symplectic marked point is normalized by affine centralizer changes to g=z and basepoint(0,0,1,0); affine y-shears remove linear Taylor coefficients of K. Keep the original six brackets and all parameters. The curve was derived analytically after the single symbolic nullspace run did not finish.",
+  "inverted_elements": [
+    "k",
+    "lam"
+  ],
+  "complements": [
+    "k=0 at the marked point is nonsymplectic and is moved to a symplectic basepoint for the rank4 bridge",
+    "lam=0 is not needed: a punctured affine curve throughlam1 supplies the full fiber dimension",
+    "Constant-g and zero-g source branches retain their separate proofs"
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_rank1_actual_fiber_review.py",
+      "sha256": "67db4c4a89e0465bca50d106d137b07f37ce54c2c553a0a874ab954ecaff2fd4"
+    },
+    {
+      "path": "reports/CLASSIFICATION_RANK1_LONG_ACTUAL_FIBER_20261107.json",
+      "sha256": "62825f8752b6656a9f485d2a5fc6808712593c450f2c14288a52048c9147fc83"
+    }
+  ],
+  "success_certificate": "Direct source reconstruction from K and U, exact affine pushforward matching all6 reported brackets, universal4Jacobi zero, all30jet differences zero, degree≤2 and universal derivative−1/2.",
+  "independent_check": "This is the separate Fraction arithmetic review; source normalization and dimension bridge already independently read.",
+  "resource_limit": {
+    "timeout_seconds": 60,
+    "memory_mb": 768
+  },
+  "negative_result_next_step": "If a finite identity fails, identify the precise algebraic error and retain the source; do not infer integrability from the infinitesimal kernel and do not resume symbolic elimination."
+}

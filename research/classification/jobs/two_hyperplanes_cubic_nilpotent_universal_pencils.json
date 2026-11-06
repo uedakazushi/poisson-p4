@@ -1,0 +1,36 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "target_statement": "Find exact normal pencils commuting with the genuine n3 modulus of the full p0 nilpotent source, retaining the whole one-parameter section.",
+  "implication_to_classification": "The six-dimensional centralizer has source orbit rank4 and n3 supplies the fifth parameter; a known-component deformation for the whole n3 section therefore covers the entire source by dominance and closedness.",
+  "coefficient_ring": "QQ[h,x,u,v,w,lambda,r0,r1,r2,r3], full projective Jacobi polynomials.",
+  "hypotheses": "The full linear sources and remaining equations are frozen, and all substitutions were solved analytically without dropping irreducible-cubic support.",
+  "inverted_elements": [
+    "None in displayed polynomial sources."
+  ],
+  "complements": [
+    "All four genuine normal directions are retained in the compatibility calculation.",
+    "Failure to find a pencil in this fixed span does not imply absence of a deformation.",
+    "No higher jets and no extra point probes."
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_two_hyperplanes_cubic_nilpotent.py",
+      "sha256": "7c2a9eefafb6cfa54bb1a265f91fc7717155838417817b3b10becb057a05b35a"
+    },
+    {
+      "path": "reports/CLASSIFICATION_TWO_HYPERPLANES_CUBIC_NILPOTENT_COMPONENTS_20261107.json",
+      "sha256": "d3a09e83b6c7085610a5b8da35666a6a1937f04d56235d8577f9cbd80ee3b042"
+    },
+    {
+      "path": "reports/CLASSIFICATION_TWO_HYPERPLANES_CUBIC_NILPOTENT_P0_NORMALS_20261107.json",
+      "sha256": "d2228b3099b231aad728895461294abe4cf38e0caf9191a5402581385896a40c"
+    }
+  ],
+  "success_certificate": "Full source section Jacobi and exact linear compatibility kernel, followed by all remaining quadratic Poisson equations on that kernel; a claimed deformation must solve these literally.",
+  "independent_check": "Separate arithmetic implementation required for any new component claim; source exhaustion has a written branch proof.",
+  "resource_limit": {
+    "timeout_seconds": 55,
+    "memory_mb": 1536
+  },
+  "negative_result_next_step": "If the literal normal span has no nonzero Poisson element compatible with the modulus, change to geometric divisor or closed-source recognition rather than enlarging a jet order."
+}

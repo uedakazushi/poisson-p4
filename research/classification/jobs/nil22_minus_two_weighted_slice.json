@@ -1,0 +1,38 @@
+{
+  "task_id": "E_multiple_hyperplane",
+  "target_statement": "Determine the complete reduced transverse support of the nil22 top A=-2 canonical orbit using its stable torus slice when all true normal weights have one strict sign.",
+  "implication_to_classification": "A zero-dimensional full residual ideal proves the entire seven-parameter canonical source is a22 full component. Positive-dimensional exact residual support gives actual transverse families and retains component identification as necessary. Mixed or zero normal weights leave this route unresolved.",
+  "coefficient_ring": "QQ in all150 ambient coefficients and all350 projective Jacobi equations, reduced by the exact stable103-dimensional slice and102 selected IFT equations",
+  "hypotheses": "All seven source parameters are already mapped to a canonical orbit, and the fixed canonical parameter n4=2 is exactly the old witness image. Relative ambient weights lie in [-6,4]. With normal weights of one strict sign, every monomial in the unique equivariant IFT solution is bounded intrinsically by these ambient weights.",
+  "inverted_elements": [
+    "One stored101x101 derivative minor",
+    "n4!=0 as the original rank-four condition"
+  ],
+  "complements": [
+    "Mixed-sign or zero normal weights leave this route unresolved",
+    "Other modular sources remain separate",
+    "No new point, prime or chosen jet precision"
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_modular_weighted_slice.py",
+      "sha256": "fffa1d36e003cffa61dd6cc30a84bf32a4240f99981d4fb7c89ee83975540c5b"
+    },
+    {
+      "path": "reports/CLASSIFICATION_NIL22_MINUS_TWO_CANONICAL_20261107.json",
+      "sha256": "9d5a3777117179bef5cedc4b0ad91aaa58dd0b007d758733898b31e2d7e46332"
+    },
+    {
+      "path": "code/classification_rank3_mixed_component_review.py",
+      "sha256": "48e61e30f9d7f04fb81f1bb5eec0e18daa28c8192d6a02a251e09cf8855b9bd0"
+    }
+  ],
+  "success_certificate": "Exact stable orbit complement, full derivative and actual orbit ranks, normal weight, full polynomial IFT graph with ALL selected equations identically zero, and the residual ideal of all350 equations. No truncated jet is used for support.",
+  "independent_check": "A second implementation reconstructs the full derivative and the finite implicit graph/residual support before component-table use.",
+  "resource_limit": {
+    "timeout_seconds": 90,
+    "memory_mb": 1536
+  },
+  "route_change_reason": "A full all-parameter affine normal form identifies a stabilizing torus. The proved finite weighted-slice theorem then replaces the whole formal support by one finite exact polynomial ideal; this is not an arbitrary jet expansion.",
+  "negative_result_next_step": "If the normal weight vanishes, resource limit is reached, or any equivariance assertion fails, retain the complete source and return to geometric recognition."
+}

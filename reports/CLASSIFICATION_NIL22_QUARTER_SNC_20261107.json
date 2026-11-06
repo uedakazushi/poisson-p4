@@ -1,0 +1,359 @@
+{
+  "task_id": "E_multiple_hyperplane",
+  "all_passed": true,
+  "method": "Entire actual curve, invertible coordinate change, every coefficient weight, rank-four SNC limit; no local-dimension assumption needed for coverage.",
+  "input_sha256": {
+    "reports/CLASSIFICATION_NIL22_QUARTER_WEIGHTED_SLICE_20261107.json": "baef2ba064bf4ffb14d5936b4271b0208278a576f600b95c54e58057ada7a1f4",
+    "reports/CLASSIFICATION_NIL22_QUARTER_CANONICAL_20261107.json": "3af5a1ed0c4e930d99b2418576134fc7b9c4bbe6a8ef762c3ae0fd13f43b1c1b",
+    "code/classification_nil22_quarter_snc.py": "91ff68e685f7c0afdcca459c4df422b4993a9388fa42fe02523dfe30c1a23782",
+    "code/classification_rank3_mixed_component_review.py": "48e61e30f9d7f04fb81f1bb5eec0e18daa28c8192d6a02a251e09cf8855b9bd0"
+  },
+  "universal_curve_brackets": {
+    "0,3": "-2*t**2*x1*x4 - 2*t*x2*x4",
+    "1,2": "4*h*x1 + 2*t**2*x1**2 - 2*x2**2",
+    "1,3": "4*x1*x4 - x2*x3",
+    "1,4": "x2*x4",
+    "2,3": "-h*x3 - t**2*x1*x3 - 2*t*x1*x4 + 2*x2*x4",
+    "2,4": "h*x4 + t**2*x1*x4",
+    "3,4": "28*h**2 + 3*t*x3*x4 + x4**2"
+  },
+  "whole350_projective_Jacobi_identically_zero": true,
+  "coordinate_matrix": [
+    [
+      "1",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "0",
+      "1",
+      "1",
+      "0",
+      "0"
+    ],
+    [
+      "0",
+      "-1",
+      "1",
+      "0",
+      "0"
+    ],
+    [
+      "0",
+      "0",
+      "0",
+      "1",
+      "0"
+    ],
+    [
+      "0",
+      "0",
+      "0",
+      "0",
+      "1"
+    ]
+  ],
+  "coordinate_matrix_determinant": "2",
+  "transformed_parameter_one_brackets": {
+    "0,3": "-2*x1*x4",
+    "1,2": "4*h*x1 - 4*h*x2 - 4*x1*x2",
+    "1,3": "-h*x3 - x1*x3 + 2*x1*x4",
+    "1,4": "h*x4 + x1*x4",
+    "2,3": "-h*x3 - 2*x1*x4 + x2*x3 + 4*x2*x4",
+    "2,4": "h*x4 - x2*x4",
+    "3,4": "28*h**2 + 3*x3*x4 + x4**2"
+  },
+  "degeneration_weights": [
+    1,
+    0,
+    0,
+    -1,
+    1
+  ],
+  "every_coefficient_term": [
+    {
+      "pair": [
+        0,
+        3
+      ],
+      "monomial": [
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "coefficient": "-2",
+      "weight": 1
+    },
+    {
+      "pair": [
+        1,
+        2
+      ],
+      "monomial": [
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "coefficient": "4",
+      "weight": 1
+    },
+    {
+      "pair": [
+        1,
+        2
+      ],
+      "monomial": [
+        1,
+        0,
+        1,
+        0,
+        0
+      ],
+      "coefficient": "-4",
+      "weight": 1
+    },
+    {
+      "pair": [
+        1,
+        2
+      ],
+      "monomial": [
+        0,
+        1,
+        1,
+        0,
+        0
+      ],
+      "coefficient": "-4",
+      "weight": 0
+    },
+    {
+      "pair": [
+        1,
+        3
+      ],
+      "monomial": [
+        1,
+        0,
+        0,
+        1,
+        0
+      ],
+      "coefficient": "-1",
+      "weight": 1
+    },
+    {
+      "pair": [
+        1,
+        3
+      ],
+      "monomial": [
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
+      "coefficient": "-1",
+      "weight": 0
+    },
+    {
+      "pair": [
+        1,
+        3
+      ],
+      "monomial": [
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "coefficient": "2",
+      "weight": 2
+    },
+    {
+      "pair": [
+        1,
+        4
+      ],
+      "monomial": [
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "coefficient": "1",
+      "weight": 1
+    },
+    {
+      "pair": [
+        1,
+        4
+      ],
+      "monomial": [
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "coefficient": "1",
+      "weight": 0
+    },
+    {
+      "pair": [
+        2,
+        3
+      ],
+      "monomial": [
+        1,
+        0,
+        0,
+        1,
+        0
+      ],
+      "coefficient": "-1",
+      "weight": 1
+    },
+    {
+      "pair": [
+        2,
+        3
+      ],
+      "monomial": [
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "coefficient": "-2",
+      "weight": 2
+    },
+    {
+      "pair": [
+        2,
+        3
+      ],
+      "monomial": [
+        0,
+        0,
+        1,
+        1,
+        0
+      ],
+      "coefficient": "1",
+      "weight": 0
+    },
+    {
+      "pair": [
+        2,
+        3
+      ],
+      "monomial": [
+        0,
+        0,
+        1,
+        0,
+        1
+      ],
+      "coefficient": "4",
+      "weight": 2
+    },
+    {
+      "pair": [
+        2,
+        4
+      ],
+      "monomial": [
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "coefficient": "1",
+      "weight": 1
+    },
+    {
+      "pair": [
+        2,
+        4
+      ],
+      "monomial": [
+        0,
+        0,
+        1,
+        0,
+        1
+      ],
+      "coefficient": "-1",
+      "weight": 0
+    },
+    {
+      "pair": [
+        3,
+        4
+      ],
+      "monomial": [
+        2,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coefficient": "28",
+      "weight": 2
+    },
+    {
+      "pair": [
+        3,
+        4
+      ],
+      "monomial": [
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "coefficient": "3",
+      "weight": 0
+    },
+    {
+      "pair": [
+        3,
+        4
+      ],
+      "monomial": [
+        0,
+        0,
+        0,
+        0,
+        2
+      ],
+      "coefficient": "1",
+      "weight": 2
+    }
+  ],
+  "limit_brackets": {
+    "1,2": "-4*x1*x2",
+    "1,3": "-x1*x3",
+    "1,4": "x1*x4",
+    "2,3": "x2*x3",
+    "2,4": "-x2*x4",
+    "3,4": "3*x3*x4"
+  },
+  "limit_pfaffian_section": "-12*h*x1*x2*x3*x4",
+  "entire_nil22_A_one_quarter_source_MPS_covered": true,
+  "component_label_not_identified": true,
+  "seconds": 0.09318334399722517
+}

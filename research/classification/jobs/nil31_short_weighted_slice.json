@@ -1,0 +1,38 @@
+{
+  "task_id": "E_multiple_hyperplane",
+  "target_statement": "Determine the complete reduced transverse support of the nil31 short-top r=1 canonical orbit, using the full stable torus slice if its unique normal has nonzero weight.",
+  "implication_to_classification": "A nonzero one-variable full residual ideal proves the entire canonically normalized six-parameter source is a22 full component. A zero ideal gives an exact transverse Poisson curve and a23 smooth component. A weight-zero normal is explicitly retained unresolved.",
+  "coefficient_ring": "QQ in all150 ambient coefficients and all350 projective Jacobi equations, reduced by the exact stable103-dimensional slice and102 selected IFT equations",
+  "hypotheses": "The entire source is already mapped by a determinant-one affine transformation to the canonical point; this is exactly the image of the prior frozen witness. Relative ambient weights lie in [-4,3]. With nonzero normal weight, the unique equivariant IFT solution contains only the finitely many monomials forced by these weights.",
+  "inverted_elements": [
+    "One stored102x102 derivative minor",
+    "n0!=0 as the original rank-four condition"
+  ],
+  "complements": [
+    "Weight-zero normal leaves this route unresolved",
+    "All other short and nil22 sources remain separate",
+    "No extra point, prime, precision or enlarged degree range"
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_modular_weighted_slice.py",
+      "sha256": "fffa1d36e003cffa61dd6cc30a84bf32a4240f99981d4fb7c89ee83975540c5b"
+    },
+    {
+      "path": "reports/CLASSIFICATION_NIL31_SHORT_CANONICAL_20261107.json",
+      "sha256": "e8e6664d76a752ff3c19b1b34c240fd73359f2f43a1c41c6b4d43e0d60d5bbf4"
+    },
+    {
+      "path": "code/classification_rank3_mixed_component_review.py",
+      "sha256": "48e61e30f9d7f04fb81f1bb5eec0e18daa28c8192d6a02a251e09cf8855b9bd0"
+    }
+  ],
+  "success_certificate": "Exact stable orbit complement, full derivative and actual orbit ranks, normal weight, full polynomial IFT graph with ALL selected equations identically zero, and the residual ideal of all350 equations. No truncated jet is used for support.",
+  "independent_check": "A second implementation reconstructs the full derivative and the finite implicit graph/residual support before component-table use.",
+  "resource_limit": {
+    "timeout_seconds": 90,
+    "memory_mb": 1536
+  },
+  "route_change_reason": "A previous arbitrary-coordinate quadratic correction did not integrate. Subsequent all-source canonicalization and a diagonal stabilizer make the entire formal slice a finite exact polynomial problem, with an intrinsic weight range. This is the proved finite method that just closed nil22 A=-1, not an increase of arbitrary jet precision.",
+  "negative_result_next_step": "If the normal weight vanishes, resource limit is reached, or any equivariance assertion fails, retain the complete source and return to geometric recognition."
+}

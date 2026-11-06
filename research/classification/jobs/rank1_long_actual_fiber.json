@@ -1,0 +1,33 @@
+{
+  "task_id": "G",
+  "target_statement": "Verify a hand-derived actual rational Poisson curve through every rank1 long-top nonconstant-g source point, fixing the complete0/1jet.",
+  "implication_to_classification": "The full fixed modular source has dimension12 and its affine modular orbit dimension10. Nondegenerate constant evaluation removes6 dimensions, and the explicit nonconstant same-jet curve gives actual fiber dimension at least1; hence the entire source primitive-beta image has dimension at most15.",
+  "coefficient_ring": "QQ[a,b,c,k,A,B,C,lam,k^-1,lam^-1]",
+  "hypotheses": "Every symplectic marked point is normalized by affine centralizer changes to g=z and basepoint(0,0,1,0); affine y-shears remove linear Taylor coefficients of K. Keep the original six brackets and all parameters. The curve was derived analytically after the single symbolic nullspace run did not finish.",
+  "inverted_elements": [
+    "k",
+    "lam"
+  ],
+  "complements": [
+    "k=0 at the marked point is nonsymplectic and is moved to a symplectic basepoint for the rank4 bridge",
+    "lam=0 is not needed: a punctured affine curve throughlam1 supplies the full fiber dimension",
+    "Constant-g and zero-g source branches retain their separate proofs"
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_rank1_firstjet.py",
+      "sha256": "bff8e8dc98782231626c224fdab32742175fd1fdcf4b535aec4000816bad7aec"
+    },
+    {
+      "path": "reports/CLASSIFICATION_RANK1_LONG_FIRSTJET_20261107.json",
+      "sha256": "234d59364bfb52ab64b6f67518def02b601ba0b191aa8599cbca9b73dafb4fd9"
+    }
+  ],
+  "success_certificate": "All six full rational curve brackets; exact universal affine Jacobi; all30 constant and linear jet differences zero; original-coordinate degree at most2; a universally nonzero derivative coefficient -1/2 proving the curve is nonconstant. No formal truncation or jet integration is accepted as a substitute.",
+  "independent_check": "An independent sparse implementation reconstructs the curve and checks the identities; a separate reader checks normalization, dimension and saturation scope.",
+  "resource_limit": {
+    "timeout_seconds": 45,
+    "memory_mb": 768
+  },
+  "negative_result_next_step": "If a finite identity fails, identify the precise algebraic error and retain the source; do not infer integrability from the infinitesimal kernel and do not resume symbolic elimination."
+}

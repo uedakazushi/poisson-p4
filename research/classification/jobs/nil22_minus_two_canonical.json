@@ -1,0 +1,35 @@
+{
+  "task_id": "E_multiple_hyperplane",
+  "target_statement": "Verify the entire seven-parameter nil22 top A=-2 source maps by an explicit determinant-one affine centralizer transformation to its canonical rank-four orbit.",
+  "implication_to_classification": "This transports the existing full-source obligation and frozen witness to a canonical point at which a true finite weighted slice can settle reduced support; it does not itself claim componenthood.",
+  "coefficient_ring": "QQ[n2,n4,n6,n7,n8,n9,n10,h,x1,x2,x3,x4]",
+  "hypotheses": "All seven source parameters and all six universal brackets are retained. The original witness maps exactly to n4=2.",
+  "inverted_elements": [
+    "rational constants only; n4!=0 is the original rank-four condition"
+  ],
+  "complements": [
+    "n4=0 has rank below4",
+    "Other modular sources remain separate"
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_modular_affine_normalization.py",
+      "sha256": "a9489b4c935f3295970d5a87ce9df7d7d01296bec617b37ac3ec4d9ba747ccea"
+    },
+    {
+      "path": "code/data/classification_nil22_minus_two_canonical.json",
+      "sha256": "648a687dd851ad49098588791c4b93543e9f0b9a4247d6359f70b5dd4bdcd760"
+    },
+    {
+      "path": "reports/CLASSIFICATION_NIL22_TOP_COMPONENTS_20261107.json",
+      "sha256": "62c5ca9bbc2d6f87f2110e54025ee56d5ed52eb7b4b8802b70b20287267cb89d"
+    }
+  ],
+  "success_certificate": "All universal coordinate-change coefficients, determinant1, raw Jacobi, Pfaffian, diagonal weights, and proof that the old witness maps to the chosen canonical parameter value.",
+  "independent_check": "The normalization is independently read before component application, and any resulting weighted-slice proof requires a separate full-ambient reconstruction.",
+  "resource_limit": {
+    "timeout_seconds": 30,
+    "memory_mb": 768
+  },
+  "negative_result_next_step": "If the identity fails, correct the hand-derived normal form before any slice computation. No alternate witness search."
+}
