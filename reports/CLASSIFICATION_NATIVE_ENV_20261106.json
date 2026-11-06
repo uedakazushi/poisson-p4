@@ -1,0 +1,54 @@
+{
+  "scope": "Native computation environment availability only; not a classification proof",
+  "network_correction": "Default exec sandbox denied proxy connection. Standard network.enabled additional permission succeeds with inherited proxy and policy; no policy bypass.",
+  "installation": "All debs extracted under ignored work/native-cas/root with dpkg-deb -x. No sudo, system installation or global config changes.",
+  "command": "LD_LIBRARY_PATH=$PWD/work/native-cas/root/usr/lib/x86_64-linux-gnu SINGULAR_PROCS_DIR=$PWD/work/native-cas/root/usr/lib/x86_64-linux-gnu/singular/MOD work/native-cas/root/usr/bin/Singular",
+  "version_summary": "Singular for x86_64-Linux version 4.4.1 (44100, 64 bit) Jan 2025\nwith\n\tGMP(6.3.0),NTL(11.5.1),FLINT(3.1.0),\n\tomalloc,static readline(8),Plural,vspace(2),DBM,\n\tdynamic modules,OM_NDEBUG,SING_NDEBUG,\n\tCC:OPTIMIZE,GenericAdd,TableMult,no invTable,\n\teigenvalues,Gauss-Manin system,random=1793964830\nbuilt-in modules: {}\nAC_CONFIGURE_ARGS =  '--build=x86_64-linux-gnu' '--prefix=/usr' '--includedir=${prefix}/include' '--mandir=${prefix}/share/man' '--infodir=${prefix}/share/info' '--sysconfdir=/etc' '--localstatedir=/var' '--disable-option-checking' '--disable-silent-rules' '--libdir=${prefix}/lib/x86_64-linux-gnu' '--runstatedir=/run' '--disable-maintainer-mode' '--disable-dependency-tracking' '--libexecdir=/usr/libexec/x86_64-linux-gnu' '--htmldir=/usr/share/doc/singular/html' '--with-libparse' '--enable-streamio' 'build_alias=x86_64-linux-gnu' 'CFLAGS=-g -O2 -Werror=implicit-function-declaration -ffile-prefix-map=/build/reproducible-path/singular-4.4.1+ds=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -fcf-protection' 'LDFLAGS=-Wl,-z,relro -Wl,-z,now' 'CPPFLAGS=-Wdate-time -D_FORTIFY_SOURCE=2' 'CXXFLAGS=-g -O2 -ffile-prefix-map=/build/reproducible-path/singular-4.4.1+ds=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -fcf-protection' 'PYTHON=/usr/bin/python3' --enable-omalloc  OMALLOC_LIBS='/build/reproducible-path/singular-4.4.1+ds/omalloc/libsingular-omalloc.la' OMALLOC_INCLUDES='-I/build/reproducible-path/singular-4.4.1+ds'  --with-Singular RESOURCES_LIBS='/build/reproducible-path/singular-4.4.1+ds/resources/libsingular-resources.la' RESOURCES_INCLUDES='-I/build/reproducible-path/singular-4.4.1+ds ' FACTORY_LIBS='/build/reproducible-path/singular-4.4.1+ds/factory/libsingular-factory.la' FACTORY_INCLUDES='-I/build/reproducible-path/singular-4.4.1+ds -I/build/reproducible-path/singular-4.4.1+ds/factory -I/build/reproducible-path/singular-4.4.1+ds/factory/include',\nCC = gcc,FLAGS :  -g -O2 -Werror=implicit-function-declaration -ffile-prefix-map=/build/reproducible-path/singular-4.4.1+ds=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -fcf-protection -pipe -fno-common -O3 -Wno-unused-function -Wno-trigraphs -Wno-unused-parameter -Wunknown-pragmas -Wno-unused-variable -fomit-frame-pointer -fwrapv -fvisibility=default -finline-functions -fno-exceptions -fno-threadsafe-statics -fno-enforce-eh-specs -fconserve-space -funroll-loops -pthread -pthread,\nCXX = g++,FLAGS : -g -O2 -ffile-prefix-map=/build/reproducible-path/singular-4.4.1+ds=. -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -fcf-protection -pipe -fno-common -O3 -Wno-unused-function -Wno-trigraphs -Wno-unused-parameter -Wunknown-pragmas -Wno-unused-variable -fomit-frame-pointer -fwrapv -fvisibility=default -finline-functions -fno-exceptions -fno-threadsafe-statics -fno-enforce-eh-specs -fconserve-space -funroll-loops -fno-rtti -fno-delete-null-pointer-checks -pthread,\nDEFS : ,CPPFLAGS : -Wdate-time -D_FORTIFY_SOURCE=2,\nLDFLAGS : -Wl,-z,relro -Wl,-z,now -pipe -fno-common -g -O3 -Wno-unused-function -Wno-trigraphs -Wno-unused-parameter -Wunknown-pragmas -Wno-unused-variable -fomit-frame-pointer -fwrapv -fvisibility=default -finline-functions -fno-exceptions -fno-threadsafe-statics -fno-enforce-eh-specs -fconserve-space -funroll-loops  -rdynamic -Wl,-undefined,dynamic_lookup,LIBS : -lreadline -lncurses  -lgmp -lrt  -lpthread (ver: 14.2.0)\n",
+  "packages": [
+    {
+      "download": "https://deb.debian.org/debian/pool/main/s/singular/singular-ui_4.4.1+ds-2_amd64.deb",
+      "sha256": "4e28bb5d607d2d4f2174dbb19ec8e82a33687139a63faccd2dcdcc3776808dff",
+      "bytes": 13648,
+      "package_fields": "Package: singular-ui\nVersion: 1:4.4.1+ds-2\nDepends: libsingular4m4n1 (= 1:4.4.1+ds-2), singular-data (= 1:4.4.1+ds-2), libc6 (>= 2.34), libgmp10 (>= 2:6.3.0+dfsg)"
+    },
+    {
+      "download": "https://deb.debian.org/debian/pool/main/s/singular/singular-modules_4.4.1+ds-2_amd64.deb",
+      "sha256": "c156abdfc3370f84232c57b51ba6d78dff68347d8cf52fc25a3106a094b2426c",
+      "bytes": 1201912,
+      "package_fields": "Package: singular-modules\nVersion: 1:4.4.1+ds-2\nDepends: libsingular4m4n1 (= 1:4.4.1+ds-2), libc6 (>= 2.38), libcdd0t64, libgcc-s1 (>= 3.0), libgmp10 (>= 2:6.3.0+dfsg), libstdc++6 (>= 13.1)"
+    },
+    {
+      "download": "https://deb.debian.org/debian/pool/main/s/singular/libsingular4m4n1_4.4.1+ds-2_amd64.deb",
+      "sha256": "c1be1248ccc79461b2036053dfbe86d05759c152481781c4cf37a8461117fcbc",
+      "bytes": 2821072,
+      "package_fields": "Package: libsingular4m4n1\nVersion: 1:4.4.1+ds-2\nDepends: libc6 (>= 2.38), libflint19 (>= 3.1.3), libgmp10 (>= 2:6.3.0+dfsg), libntl44 (>= 11.5.1), libreadline8t64 (>= 6.0), libstdc++6 (>= 13.1)"
+    },
+    {
+      "download": "https://deb.debian.org/debian/pool/main/s/singular/singular-data_4.4.1+ds-2_all.deb",
+      "sha256": "01b7480b34d2e19a4e68304e1f1ca53cd35ee9a6974baa68db00f99d7e9fdf24",
+      "bytes": 4775860,
+      "package_fields": "Package: singular-data\nVersion: 1:4.4.1+ds-2"
+    },
+    {
+      "download": "https://deb.debian.org/debian/pool/main/f/flint/libflint19_3.1.3-2_amd64.deb",
+      "sha256": "81ac3b20d8a1f125100c84b10b3825a9344080575f88769b553dfe5b008b9e4a",
+      "bytes": 3791156,
+      "package_fields": "Package: libflint19\nVersion: 3.1.3-2\nDepends: libc6 (>= 2.34), libgmp10 (>= 2:6.3.0+dfsg), libmpfr6 (>= 4.0.0)"
+    },
+    {
+      "download": "https://deb.debian.org/debian/pool/main/n/ntl/libntl44_11.5.1-1+b2_amd64.deb",
+      "sha256": "1ec859c23f8875141a2ddb4c7a81f0a1b837b64cd4cb822917b1e3f725c4540e",
+      "bytes": 833792,
+      "package_fields": "Package: libntl44\nVersion: 11.5.1-1+b2\nDepends: libc6 (>= 2.34), libgcc-s1 (>= 3.0), libgf2x3, libgmp10 (>= 2:6.2.1+dfsg1), libstdc++6 (>= 12)"
+    },
+    {
+      "download": "https://deb.debian.org/debian/pool/main/g/gf2x/libgf2x3_1.3.0-3_amd64.deb",
+      "sha256": "b1199705ce6aa20d37c96704adfdff5aeff618f66902bfc890623c6f9ed2e67d",
+      "bytes": 51440,
+      "package_fields": "Package: libgf2x3\nVersion: 1.3.0-3\nDepends: libc6 (>= 2.14)"
+    }
+  ],
+  "source_binaries_published": false,
+  "optimized_polynomial_module_loaded": true,
+  "smoke_test": "std(x^2-y,y^2-x) overGF32003 returned two basis generators; no missing-module warning with SINGULAR_PROCS_DIR."
+}

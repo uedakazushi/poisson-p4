@@ -1,0 +1,37 @@
+{
+  "task_id": "M",
+  "scope": "Current eight-page uncompleted main manuscript; no classification completion claim",
+  "source": "papers/poisson_p4_classification_ja.tex",
+  "source_sha256": "aaf8171bcc1d05049096a58ab8375236d608ccbf1f9790f0a8bbe22b34ce6cda",
+  "pdf": "papers/poisson_p4_classification_ja.pdf",
+  "pdf_sha256": "fa9e59d294453a89978b84aded6adf3ad1415820b226aa14528b45998757c267",
+  "pages": 8,
+  "successful_complete_passes": 2,
+  "last_pass_unresolved_references": false,
+  "last_pass_overfull_boxes": false,
+  "last_pass_log_sha256": "97cb4473387cc85c9d74d0ca793d9c84c48413e74f99c88052af6d093852a8f6",
+  "visual_inspection_pages": [
+    1,
+    7
+  ],
+  "visual_result": "Japanese text and mathematics legible; no clipping; unproved main theorem and dependency qualifications visible.",
+  "local_packages": [
+    {
+      "url": "https://deb.debian.org/debian/pool/main/t/texlive-lang/texlive-lang-japanese_2024.20250309-1_all.deb",
+      "bytes": 84610188,
+      "sha256": "80dbfdc745a40dc51138e5da05ed4bb409683f333da4f8614e0770f5810d3916"
+    },
+    {
+      "url": "https://deb.debian.org/debian/pool/main/t/texlive-base/texlive-luatex_2024.20250309-1_all.deb",
+      "bytes": 29141396,
+      "sha256": "c6601d6856af0b9cd25c64fcdab4a219a6ce7fd7a37724f532305add28fc72ff"
+    }
+  ],
+  "environment": {
+    "TEXMFHOME": "$PWD/work/native-tex/root/usr/share/texlive/texmf-dist",
+    "TEXMFVAR": "$PWD/work/native-tex/cache",
+    "TEXMFCACHE": "$PWD/work/native-tex/cache"
+  },
+  "command": "lualatex -interaction=nonstopmode -halt-on-error -output-directory=work/classification-build papers/poisson_p4_classification_ja.tex",
+  "system_installation_or_global_changes": false
+}

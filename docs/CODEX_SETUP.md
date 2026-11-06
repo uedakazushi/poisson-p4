@@ -1,20 +1,36 @@
 # Codexで研究を継続する
 
-2026-11-03 v63研究追記：公開済みCloudを再利用中。再セットアップは不要。
-M2 1.24.11の必要な既存計算は再現済み。QQのAlgorithm=>LinearAlgebraには
-配列順序エラーがありdefault GBを用いる。新しい有限模型・原稿の再現入口は
-[v63引継ぎ](../research/CLOUD_HANDOFF_20261103_v63.md)を参照。
+現行環境（2026-11-06、Debian13）は既設.venvを再利用する。元23版と必要な証明書は展開済み。
+現在の研究優先順位はRESEARCH_POLICYとclassification/PLAN.jsonを使う。
 
-2026-11-03の公開済みCloud再開では、既設の
-`source /workspace/cloud-setup/activate.sh` と `.venv` を使う。
-Macaulay2は1.24.11（移行元1.26.05）、FLINTは3.1で、全135式・有限行加群・QQ/GF拡大体・
-原稿ビルドに必要な計算を再現済みである。成功したセットアップを再実行しない。
-GroebnerBasisの列数には `numColumns gens G` を使う。
-1.24.11のQQ加群で `gb(...,Algorithm=>LinearAlgebra)` は小例でもSIGSEGVを起こしたため、
-正式証明書は既定のGBアルゴリズムを使う。QQ上のF4指定は既定法へ戻る場合があり、
-F4で実行したと無条件に記さない。有理数の有限体化は分子と分母を別々に変換する。
-再開・文献接続の実記録は `reports/CLOUD_RESUME_20261103.md` と
-`reports/CLOUD_CONNECTIVITY_20261103.md` にある。
+Singular4.4.1、FLINT19、NTL44等は公開Debianパッケージをwork/native-cas/rootへ展開して使用できる。
+システムへのインストールやsudoは不要で、元パッケージURLとSHA256は
+reports/CLASSIFICATION_NATIVE_ENV_20261106.jsonに保存した。起動時は二つを設定する。
+
+```sh
+LD_LIBRARY_PATH="$PWD/work/native-cas/root/usr/lib/x86_64-linux-gnu" \
+SINGULAR_PROCS_DIR="$PWD/work/native-cas/root/usr/lib/x86_64-linux-gnu/singular/MOD" \
+work/native-cas/root/usr/bin/Singular -q input.sing
+```
+
+SINGULAR_PROCS_DIRを省くとoptimized polynomial moduleが見つからず低速になる。
+通常のexec sandboxでproxy接続拒否となる場合でも、許可されたhostへの標準network.enabled追加権限で接続できた。
+継承proxy/TLSを保ち、ネットワークポリシーを迂回しない。
+
+主原稿の日本語PDFはlocalに展開したtexlive-lang-japaneseとtexlive-luatexで再生成できる。
+パッケージURL・hashと実行環境はreports/CLASSIFICATION_MAIN_MANUSCRIPT_BUILD_20261106.json。
+既設のTeXが十分なら通常のlualatexを使う。このlocal展開を使う場合は次を指定する。
+
+```sh
+TEXMFHOME="$PWD/work/native-tex/root/usr/share/texlive/texmf-dist" \
+TEXMFVAR="$PWD/work/native-tex/cache" TEXMFCACHE="$PWD/work/native-tex/cache" \
+lualatex -interaction=nonstopmode -halt-on-error \
+  -output-directory=work/classification-build papers/poisson_p4_classification_ja.tex
+```
+
+古いCloudのMacaulay2 1.24.11再現情報はreports/CLOUD_RESUME_20261103.md等に残る。
+本環境でM2が利用可能だとはしない。旧QQ Algorithm=>LinearAlgebraのSIGSEGV注意と
+既定GBを使った原証明書を保持し、新しいnative診断と混同しない。
 
 2026-10-30 / v25-setup。リポジトリの設定と、利用者のCodex側の実行環境を区別する。
 このリポジトリは研究方針・原資料・依存・検証コマンドを用意する。

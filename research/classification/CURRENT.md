@@ -30,8 +30,9 @@ reports/CLASSIFICATION_GENERIC_CHART_PROBE_20261106/に元入力hash・実行pro
 tauは超越のままだがbetaと標数は固定しているため、成功してもQQへの移送は別義務だった。
 
 次は同じ点・次数・wrapperの反復ではなく、native exact backendか有限syzygyの構造を選ぶ。
-この環境にはM2/Singular/FLINTがなく、パッケージ取得は継承proxy:8080接続拒否で失敗した。
-ポリシーの迂回は行わず、利用できる厳密線形計算と証明監査を続ける。
+通常のexec sandboxではproxy接続が拒否されたが、標準のnetwork.enabled追加権限で公開Debianパッケージに接続できた。
+Singular4.4.1と必要ライブラリをwork/native-cas/rootへ展開し、optimized moduleの読込みとstd smokeを確認した。
+ソースとhashはreports/CLASSIFICATION_NATIVE_ENV_20261106.json。M2は未導入。システムインストール・proxy迂回は行っていない。
 固定normal0のGF32003診断も305wall秒で未完了。直接SymPyGBを二回続けてもunitは得られず、このbackendの反復を停止した。
 別の構造的還元では全K16上の固定eta一つの135式へ移せるが、K5へ群変数を落とす橋は未証明。
 K5+tauを保持するか、全K16で係数を扱う。どちらのunitも未証明でありGをdoneにしない。
@@ -52,6 +53,7 @@ B18 H0/T2/nil指数、H絶対既約性、旧軸minor farmは休止のまま。
 
 計画制御の23テスト、strict check、job hash、構文、diff検査は通過。
 これらのPASSは分類の証明ではない。原134式の全再生成や58全証明の再実行はしていない。
-LuaLaTeX再組版はltjsarticle.clsとluaotfload-main不足で失敗した。
-既存PDFは以前の骨格のままで、今回更新したTeXの再生成物ではない。
+不足していた日本語TeX二パッケージをwork/native-tex/rootへ展開し、主原稿PDFを現TeXから8頁で再生成した。
+2回の完全組版で参照を解決し、最終passに未解決参照・overfullはなく、1頁と7頁を目視した。
+再現環境・package/PDF/source hashはreports/CLASSIFICATION_MAIN_MANUSCRIPT_BUILD_20261106.json。
 Libraryへのアップロードや完全依存bundle生成は今回未実行。
