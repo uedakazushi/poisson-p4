@@ -1,0 +1,38 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "target_statement": "Independently reconstruct the universal actual MPS deformations covering all six magnetic coefficients of independent-three-hyperplane conic types m1,m2,m3.",
+  "implication_to_classification": "The exact canonical nonzero-residue source identity proves generic MPS membership; regular t0 limits, constant GL2 anchor equivalence and full magnetic/coboundary rank6 cover each entire remaining source.",
+  "coefficient_ring": "QQ[h,x,y,z,w,t,alpha,beta,gamma]",
+  "hypotheses": "Retain all four parameters and the complete six-dimensional magnetic space. Verify membership via canonical coordinate transformation, not Jacobi alone.",
+  "inverted_elements": [
+    "t and1+t*gamma only when applying known nonzero-residue MPS theorem"
+  ],
+  "complements": [
+    "All special parameters including t0 and all magnetic values are covered by the regular family and closedness of the finite MPS union."
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_three_hyperplanes_quadric_mps_review.py",
+      "sha256": "c3fbe8861c655b8c082eaa4d678ea5482097ed44a756d1c3d3ad962deed6b7f0"
+    },
+    {
+      "path": "reports/CLASSIFICATION_THREE_HYPERPLANES_QUADRIC_M1_MPS_20261107.json",
+      "sha256": "22c9bf0a62e5ed3547feb6ae425f435d2729714447c37df152dca87542bb44be"
+    },
+    {
+      "path": "reports/CLASSIFICATION_THREE_HYPERPLANES_QUADRIC_M23_MPS_20261107.json",
+      "sha256": "5332a19b9dc32e31cf3bbd600e287eb447345eb830c4cecff6be33d75c223d6c"
+    },
+    {
+      "path": "reports/CLASSIFICATION_THREE_HYPERPLANES_QUADRIC_INDEPENDENT_20261107.json",
+      "sha256": "5835051c4085640dbb07dca8cb340c76bf31c0d8ff1f65d746553a58236d2fc8"
+    }
+  ],
+  "success_certificate": "Independent Fraction universal10 Jacobi, coordinate determinant t2, exact T P T^t canonical identity, Pfaffian, complete t0 limit, old/new anchor GL2 identity, all translation coboundaries and determinants8,2,-1.",
+  "independent_check": "No producer or SymPy import; source, input hashes and exact finite matrices retained.",
+  "resource_limit": {
+    "timeout_seconds": 60,
+    "memory_mb": 1536
+  },
+  "negative_result_next_step": "Report any mismatch and withhold whole-source coverage; do not replace the all-parameter identity with point probes."
+}

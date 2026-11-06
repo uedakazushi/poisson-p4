@@ -1,0 +1,37 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "all_passed": true,
+  "case": "m1_t2",
+  "complete_three_hyperplane_ansatz_dimension": 36,
+  "logarithmic_linearized_rank": 23,
+  "logarithmic_tangent_kernel_dimension": 13,
+  "actual_source_rank": 48,
+  "source_plus_cone_tangent_rank": 49,
+  "genuine_normal_has_three_hyperplane_representative": true,
+  "logarithmic_normal_representatives": [
+    {
+      "brackets": {
+        "(1, 2)": "160*x*y",
+        "(1, 3)": "-250*h*x - 125*w*x - 900*x*y + 20*x*z",
+        "(1, 4)": "-264*h*x - 20*w*x - 640*x**2 - 1488*x*y - 48*x*z",
+        "(2, 3)": "-100*h*y - 125*w*y + 800*x*y - 60*y*z",
+        "(2, 4)": "-336*h*y - 100*w*y - 1408*y**2 - 48*y*z",
+        "(3, 4)": "-128*h*z + 125*w**2 - 40*w*z - 48*z**2"
+      },
+      "projective_self_Jacobi_zero": false,
+      "projective_Jacobi_nonzero_coefficients": 37
+    }
+  ],
+  "independent_matrix_hashes": {
+    "cone": "1b10bfaddaad2ae68a7871aad86a5d4eca7ba17e4fc078f74cfc0e62e043231a",
+    "cone_jacobian": "1b8da2ecd938e2067a1ecce900eff2501d3fc456e0bfee8063c2060048dc3627"
+  },
+  "input_sha256": {
+    "reports/CLASSIFICATION_THREE_HYPERPLANES_QUADRIC_INDEPENDENT_20261107.json": "5835051c4085640dbb07dca8cb340c76bf31c0d8ff1f65d746553a58236d2fc8",
+    "code/classification_three_hyperplanes_quadric_cone.py": "fce2151cb681dfb5ac715462eb7825410ed61d1cba5dc56da37fdd170da30eb2",
+    "code/classification_three_hyperplanes_quadric_independent.py": "674ffb31d0afdf48c187780a876c8526b8acff3ff6aeca83d048f650fdbe8a7a",
+    "code/classification_rank3_mixed_component_review.py": "48e61e30f9d7f04fb81f1bb5eec0e18daa28c8192d6a02a251e09cf8855b9bd0"
+  },
+  "producer_source": "#!/usr/bin/env python3\n\"\"\"Test the complete three-hyperplane logarithmic ansatz modulo true source.\n\nThis is distinct from the cone-algebroid ansatz: Pxy may be nonzero, mixed\nentries may involve either fiber coordinate, and Pzw is unrestricted quadratic.\n\"\"\"\nimport argparse,hashlib,itertools,json,resource,time\nfrom pathlib import Path\nimport sympy as s\nfrom sympy.polys.matrices import DomainMatrix\nfrom classification_rank3_mixed_component_review import COLUMNS,jacobi,sparse,vector\nfrom classification_three_hyperplanes_quadric_independent import ambient_matrices\n\nROOT=Path(__file__).resolve().parents[1]\nSOURCE='reports/CLASSIFICATION_THREE_HYPERPLANES_QUADRIC_INDEPENDENT_20261107.json'\ndef dm(A):return DomainMatrix.from_Matrix(A).convert_to(s.QQ)\ndef decode(data):\n    A=s.zeros(5)\n    for ij in itertools.combinations(range(5),2):\n        A[ij]=s.sympify(data.get(str(ij),'0'));A[ij[::-1]]=-A[ij]\n    return A\ndef from_vector(v,x):\n    A=s.zeros(5)\n    for (ij,e),value in zip(COLUMNS,v):A[ij]+=value*s.prod(xx**power for xx,power in zip(x,e))\n    for ij in itertools.combinations(range(5),2):A[ij[::-1]]=-A[ij]\n    return A\ndef encode(A):return {str(ij):str(A[ij])for ij in itertools.combinations(range(5),2)if A[ij]}\ndef main(output):\n    resource.setrlimit(resource.RLIMIT_CPU,(55,56));resource.setrlimit(resource.RLIMIT_AS,(1536*1024**2,1536*1024**2))\n    begun=time.monotonic();h,x,y,z,w=xx=s.symbols('h x y z w')\n    record=json.loads((ROOT/SOURCE).read_text())['cases'][1];assert record['case']=='m1_t2'\n    P=decode(record['point_brackets']);D,V,M,F=ambient_matrices(P,xx,[decode(a)for a in record['all6_actual_parameter_directions']])\n    assert hashlib.sha256(json.dumps(D.tolist(),default=str).encode()).hexdigest()==record['matrix_sha256']['full350_D']\n    base2=[h*h,h*x,h*y,x*x,x*y,y*y];basis=[]\n    A=s.zeros(5);A[1,2]=x*y;A[2,1]=-x*y;basis.append(A)\n    for ij,factor in [((1,3),x),((1,4),x),((2,3),y),((2,4),y)]:\n        for variable in xx:\n            A=s.zeros(5);A[ij]=factor*variable;A[ij[::-1]]=-A[ij];basis.append(A)\n    for i,j in itertools.combinations_with_replacement(range(5),2):\n        mon=xx[i]*xx[j]\n        A=s.zeros(5);A[3,4]=mon;A[4,3]=-mon;basis.append(A)\n    C=s.Matrix.hstack(*[vector(sparse(A,xx))for A in basis]);assert C.cols==36\n    rr,pivots=dm(D*C).rref();rr=rr.to_Matrix();kernel=[]\n    for j in range(36):\n        if j in pivots:continue\n        v=s.zeros(36,1);v[j]=1\n        for i,p in enumerate(pivots):v[p]=-rr[i,j]\n        v*=s.ilcm(1,*[s.denom(a)for a in v]);kernel.append(v)\n    K=C*s.Matrix.hstack(*kernel);assert D*K==s.zeros(350,K.cols)\n    combined=list(dm(F.row_join(K)).rref()[1]);indices=[j-F.cols for j in combined if j>=F.cols]\n    assert len(indices)<=1;directions=[]\n    for index in indices:\n        A=from_vector(K[:,index],xx);J=jacobi(sparse(A,xx))\n        directions.append(dict(brackets=encode(A),projective_self_Jacobi_zero=J==s.zeros(350,1),\n                               projective_Jacobi_nonzero_coefficients=sum(bool(v)for v in J)))\n    inputs=[SOURCE,'code/classification_three_hyperplanes_quadric_cone.py',\n            'code/classification_three_hyperplanes_quadric_independent.py','code/classification_rank3_mixed_component_review.py']\n    result=dict(task_id='E_reduced_nonnormal',all_passed=True,case='m1_t2',\n        complete_three_hyperplane_ansatz_dimension=36,logarithmic_linearized_rank=len(pivots),logarithmic_tangent_kernel_dimension=K.cols,\n        actual_source_rank=48,source_plus_cone_tangent_rank=len(combined),\n        genuine_normal_has_three_hyperplane_representative=bool(indices),logarithmic_normal_representatives=directions,\n        independent_matrix_hashes=dict(cone=hashlib.sha256(json.dumps(C.tolist(),default=str).encode()).hexdigest(),\n                                       cone_jacobian=hashlib.sha256(json.dumps((D*C).tolist(),default=str).encode()).hexdigest()),\n        input_sha256={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest()for p in inputs},\n        producer_source=Path(__file__).read_text(),seconds=time.monotonic()-begun)\n    with output.open('x')as handle:json.dump(result,handle,indent=2);handle.write('\\n')\n    print(json.dumps(result|{'producer_source':'[stored in report]'}))\nif __name__=='__main__':\n    ap=argparse.ArgumentParser();ap.add_argument('--output',type=Path,required=True);main(ap.parse_args().output)\n",
+  "seconds": 0.6853582469993853
+}

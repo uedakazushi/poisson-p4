@@ -1,0 +1,19 @@
+{
+  "task_id": "E_multiple_hyperplane",
+  "target_statement": "Perform one exact true-normal support test at each of two already frozen source witnesses with fullD102 and actual rank47: nil31 short-top r=1 and nil22 top A=-1.",
+  "implication_to_classification": "A nonzero quadratic cokernel obstruction makes the true one-normal slice zero-dimensional, yielding a22 component containing the entire irreducible source. An exact transverse Poisson curve combined with group47 gives a23 component by tangent equality. A correction with nonzero residual leaves the source unresolved.",
+  "coefficient_ring": "QQ and one formal transverse parameter; all150 ambient coefficients and all350 projective Jacobi equations",
+  "hypotheses": "Use exactly the two prior source points and all source directions. The entire source for each point has already been parametrized and verified. Only one quadratic projection and, if needed, one quadratic correction are allowed.",
+  "inverted_elements": ["An explicitly recorded102x102 rational derivative minor"],
+  "complements": ["No additional source points sampled", "All other modular sources stay separate", "A quadratic vector in the derivative image is not by itself called an actual deformation"],
+  "exact_inputs_and_hashes": [
+    {"path": "code/classification_modular_one_normal.py", "sha256": "ea758e4f7b56e177c3674a4c21812e39174cd3b4e1eb15a99e2850b08410a4af"},
+    {"path": "reports/CLASSIFICATION_NIL31_SHORT_COMPONENTS_20261107.json", "sha256": "6a57d0185cb6f75b2d323b93799b027dd955fc42f23fb924a8ffc9f61340349a"},
+    {"path": "reports/CLASSIFICATION_NIL22_TOP_COMPONENTS_20261107.json", "sha256": "62c5ca9bbc2d6f87f2110e54025ee56d5ed52eb7b4b8802b70b20287267cb89d"},
+    {"path": "code/classification_rank3_mixed_component_review.py", "sha256": "48e61e30f9d7f04fb81f1bb5eec0e18daa28c8192d6a02a251e09cf8855b9bd0"}
+  ],
+  "success_certificate": "Full exact tangent and source ranks, a genuine quotient direction, a sparse left-null functional annihilating all150 derivative columns with nonzero pairing on its quadratic Jacobi, or a full350 exact Poisson curve. No jet truncation is accepted as an actual curve.",
+  "independent_check": "A reviewer independently verifies the full derivative/normal quotient and the small left-functional or actual-curve identity before component-table use.",
+  "resource_limit": {"timeout_seconds": 90, "memory_mb": 1536},
+  "negative_result_next_step": "If the one correction is not exactly Poisson, retain the source and change to geometric recognition. Do not increase jet order, repeat points, or infer support from quadratic range alone."
+}

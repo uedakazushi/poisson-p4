@@ -1,0 +1,44 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "target_statement": "Independently verify the complete rank2-semisimple and mixed-Jordan3 smooth-quadric sources cannot have actual divisor q times an irreducible cubic.",
+  "implication_to_classification": "Pure semisimple rank2 has no rank4 support; mixed source has exactly one free parameter and a reducible cubic factor. This closes both normal-Hamiltonian types for the specified divisor stratum.",
+  "coefficient_ring": "QQ(i)[x0,...,x4,l0,l1,l2,m0,...,m7]",
+  "hypotheses": "Preserve all46 invariant coefficients and all11 source parameters; check all three SO3 ell orbit types including ell0. For mixed use the canonical shift and all nilpotent invariance equations.",
+  "inverted_elements": [
+    "nonzero rational constants",
+    "the nonzero ell scalar only in the nonisotropic orbit, justified by exact linearity in ell"
+  ],
+  "complements": [
+    "ell0 checked explicitly and has rank at most2",
+    "mixed one-parameter H+Q_rank3+Q_rank5 source retained; component identification is not claimed"
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_smooth_quadric_rank2_review.py",
+      "sha256": "56b2b9609415bc70fa77d08abd8cce4a218b57a50ecadc707af5ec7c4ed6d3f1"
+    },
+    {
+      "path": "reports/CLASSIFICATION_SMOOTH_QUADRIC_RANK2_LINEAR_20261107.json",
+      "sha256": "ce5d150f62b84c52ebe84025e421963fa1d9a53f93f946859d6735daabe24da3"
+    },
+    {
+      "path": "reports/CLASSIFICATION_SMOOTH_QUADRIC_RANK2_SUPPORT_20261107.json",
+      "sha256": "9616b3fbd81728558c68695f57ce0279184def7ca29bf7a9bdeb929f16584807"
+    },
+    {
+      "path": "reports/CLASSIFICATION_SMOOTH_QUADRIC_RANK2_MIXED_20261107.json",
+      "sha256": "8b7ae3263493a74508a60a2c299a2e6c1a84ad45dbf6c0ee754fac764e4c9399"
+    },
+    {
+      "path": "reports/CLASSIFICATION_SMOOTH_QUADRIC_RANK2_MIXED_SUPPORT_20261107.json",
+      "sha256": "42a4e7e7dd16c46695c20c06c53ae03b7157a619872d2a962c7b84a9fa09ed4f"
+    }
+  ],
+  "success_certificate": "Exact Gaussian Fraction full linear ranks35/35 and source rank11; orbit ranks7/8; mixed invariance ranks8/8 and source3; full Jacobi rowspan equal to two stated conditions; final universal divisor and all five gradients.",
+  "independent_check": "No producer or SymPy import; all arithmetic in exact standard-library Gaussian rational polynomials, with full source and input hashes retained.",
+  "resource_limit": {
+    "timeout_seconds": 60,
+    "memory_mb": 1536
+  },
+  "negative_result_next_step": "Report any failed identity or missing branch before promoting the exclusion claim; no extra parameter probes."
+}

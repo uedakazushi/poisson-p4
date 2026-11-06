@@ -96,3 +96,67 @@ producer、SymPy、producerのJacobi・階数補助関数をimportしない。
 残る一・二・三法線の二次障害projectionは、それぞれ別の証明依存である。
 normalが全核を補うことはここで確認したが、その障害の算術を確認したとは主張しない。
 全Poisson空間の尽くしは、このreviewの結論ではない。
+
+## 4. (1,2)の残余方向：固定plane-cone経路の一次診断
+
+四源の有限代表点のうち(1,2)を固定する。Fを全実族接空間（rank48）、Rを保存された真の一法線とする。
+baseを(h,x,y)、fiberを(z,w)とする。
+各Casimir座標H=h,x,yについて、H行を零、残るbase二変数とfiberの四mixed括弧を
+任意のbase二次式、zw括弧をbase二次式＋fiber一次×base一次とする空間をS_Hとする。
+dim S_H=36である。さらに三H全てを失う変形も許す全空間
+
+    S_all = S_h+S_x+S_y
+
+は、六mixed括弧の各base二次式36係数とzw括弧12係数からなり、dim48である。
+各単独S_Hへの非包含だけでは、その線形和への非包含は従わないため、和も別途確認した。
+
+| S | dim S | dim(F+S) | dim(F+S+CR) | rank(DS) | dim ker(DS) | dim(F∩S) |
+|---|---:|---:|---:|---:|---:|---:|
+| S_h | 36 | 68 | 69 | 20 | 16 | 16 |
+| S_x | 36 | 68 | 69 | 20 | 16 | 16 |
+| S_y | 36 | 68 | 69 | 20 | 16 | 16 |
+| S_all | 48 | 72 | 73 | 24 | 24 | 24 |
+
+全てQQ上の厳密計算であり、各行に対して
+`λF=λS=0, λR=1` となる有理係数の疎linear functionalを保存した。
+単なるmodular階数の観測ではない。
+全150係数の射影JacobiはEuler-vertical追加に不変であり、
+Fも全Euler方向を含むので、x/y-Casimir chartのSを元の全150座標へ直接埋めて比較できる。
+Pだけ又はRだけを変更した不整合な微分は使用していない。
+
+証明記録は順に以下である。各reportは実行時runnerの全bytesと依存hashを保持する。
+先行reportのbytesを上書きせず、同じ有限runnerを順次拡張した。
+
+* `CLASSIFICATION_THREE_HYPERPLANES_QUADRIC_INDEPENDENT_PLANE_DIAGNOSTIC_20261107.json`
+* `CLASSIFICATION_THREE_HYPERPLANES_QUADRIC_INDEPENDENT_REMAINING_PLANE_CHARTS_20261107.json`
+* `CLASSIFICATION_THREE_HYPERPLANES_QUADRIC_INDEPENDENT_FULL_CONE_DIAGNOSTIC_20261107.json`
+
+従って、実族・PGL・scalar・Euler方向を調整しても、Rの非零一次classは
+この固定plane-cone ansatzで表せない。
+この診断だけから、一次法線が零の高接触arcの不存在や、残余成分の不存在を推論しない。
+別の全ambient変形又は支持障害の経路が必要である。
+
+## 5. 残三族の実MPS変形：全係数の独立再構成
+
+その後に得られた `M1_MPS` と `M23_MPS` の実変形は、上の接空間診断とは独立の証明である。
+`code/classification_three_hyperplanes_quadric_mps_review.py` で、三つの全族を標準Fractionだけから再構成した。
+有限job `jobs/three_hyperplanes_quadric_mps_review.json` のgate後、約0.034秒でPASSした。
+証明書は `reports/CLASSIFICATION_THREE_HYPERPLANES_QUADRIC_MPS_REVIEW_20261107.json`。
+
+t,α,β,γを全て変数のまま保ち、次を確認した。
+
+* 全ten strict Jacobiが恒等零、係数は座標二次・tに多項式であり、保存された実Pfaffianと一致する。
+* Y=T(t)xとする座標変更はdetT=t²。
+  逆行列を使わず `T P Tᵗ=tD1(Y)∧D2(Y)+bQ(Y)∂Z∧∂W` を全係数で確認した。
+  既知の非零対数括弧源そのものであり、t(1+tγ)≠0でQの階数は順に4,3,3となる。
+* t=0の全源・三磁気項・anchor bracketが一致する。
+  その二anchorと第2節で独立確認した元の全source anchorとの定数GL2変換を実際に解き、
+  全係数一致と行列式非零を確認した。
+* 六つのfiber translation coboundaryを微分から再構成した。
+  その像は次元3で、三磁気項と合わせた六次行列式は厳密に8,2,−1である。
+
+従って任意の六磁気係数が、これらの極限と射影的fiber translationで得られる。
+既知非零対数括弧の全支持定理とMPS40の有限閉和の閉性を使えば、
+m=1,2,3の全sourceがMPSに含まれる。
+以前の法線の二次・三次診断から実変形を推論してはいない。
+第2節のm=0新23次元成分と合わせて、独立三超平面＋既約二次曲面の全支持が被覆された。

@@ -1,0 +1,28 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "target_statement": "Verify the universal actual MPS degeneration of the entire m1_t2 source, with all magnetic coefficients reached by three weight variations and fiber translations.",
+  "implication_to_classification": "An all-parameter Poisson family with generic point in proved MPS support and full six-magnetic limit proves the entire m1_t2 source is covered by the finite known MPS union.",
+  "coefficient_ring": "QQ[h,x,y,z,w,t,alpha,beta,gamma], with exact cancellation of apparent t pole before specialization.",
+  "hypotheses": "The nonzero-residue rank4 quadric full support is already MPS. Canonical commuting diagonal fields and a semi-invariant rank4 quadratic construct the whole all-parameter family.",
+  "inverted_elements": [
+    "Only t in the coordinate derivation; the resulting bivector has no negative powers and is defined at t=0.",
+    "The dense rank4 MPS membership uses t*(1+t*gamma) nonzero; all remaining points enter by closedness."
+  ],
+  "complements": [
+    "No magnetic parameter omitted: a six-by-six coefficient determinant proves complete reachability.",
+    "No longer jet or finite prime inference."
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_three_hyperplanes_quadric_m1_mps.py",
+      "sha256": "770c3b1bd5dd1bf67e68ccb8d2ef7cb23c81fe63070c89a2950e4f09f1d46758"
+    }
+  ],
+  "success_certificate": "Full explicit polynomial bivector, all10 raw Jacobi identities, actual Pfaffian, regular limit, all six translation coboundaries and a nonzero full magnetic-span determinant.",
+  "independent_check": "Finite_cover_review will reconstruct full source and full150 ranks independently; geometric four-case reduction already independently read.",
+  "resource_limit": {
+    "timeout_seconds": 55,
+    "memory_mb": 1536
+  },
+  "negative_result_next_step": "If an identity fails, repair the explicit geometric construction before claiming coverage; no unrelated probes."
+}

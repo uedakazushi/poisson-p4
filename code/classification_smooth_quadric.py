@@ -14,6 +14,204 @@ import time
 import sympy as s
 
 
+def run_nil(kind):
+    """Complete fixed-cofactor sources for the three nilpotent so5 orbits."""
+    started=time.monotonic()
+    x=s.symbols('x0:5')
+    N=s.zeros(5)
+    if kind == 'nil5':
+        q=x[0]*x[4]-4*x[1]*x[3]+3*x[2]**2
+        for i in range(4):N[i+1,i]=i+1
+    elif kind == 'nil311':
+        q=x[0]*x[2]-x[1]**2+x[3]**2+x[4]**2
+        N[1,0]=1;N[2,1]=2
+    elif kind == 'nil221':
+        q=x[0]*x[3]-x[1]*x[2]+x[4]**2
+        N[1,0]=1;N[3,2]=1
+    else:
+        raise ValueError(kind)
+    E=s.Matrix(x);V=N*E
+    assert s.expand(sum(V[i]*s.diff(q,x[i]) for i in range(5)))==0
+    assert s.hessian(q,x).det()!=0
+    pairs=list(itertools.combinations(range(5),2))
+    mons=[x[i]*x[j] for i in range(5) for j in range(i,5)]
+    unknowns=s.symbols('p0:150')
+    P=s.zeros(5)
+    for at,(i,j) in enumerate(pairs):
+        P[i,j]=sum(unknowns[15*at+k]*mon for k,mon in enumerate(mons))
+        P[j,i]=-P[i,j]
+    constraints=[sum(s.diff(P[i,j],x[i]) for i in range(5)) for j in range(5)]
+    constraints += [sum(s.diff(q,x[i])*P[i,j] for i in range(5))-q*V[j] for j in range(5)]
+    lie=P.applyfunc(lambda f:sum(V[i]*s.diff(f,x[i]) for i in range(5)))-N*P-P*N.T
+    constraints += [lie[i,j] for i,j in pairs]
+    equations=[c for f in constraints for c in s.Poly(s.expand(f),*x).coeffs() if c!=0]
+    M,b=s.linear_eq_to_matrix(equations,unknowns)
+    sol=next(iter(s.linsolve((M,b),unknowns)))
+    oldparams=sorted(set().union(*(f.free_symbols for f in sol)),key=str)
+    parameters=s.symbols(f'n0:{len(oldparams)}')
+    rename=dict(zip(oldparams,parameters))
+    substitution={p:f.subs(rename,simultaneous=True) for p,f in zip(unknowns,sol)}
+    P=P.subs(substitution,simultaneous=True).applyfunc(s.expand)
+    assert all(s.expand(f.subs(substitution,simultaneous=True))==0 for f in constraints)
+    jacobi=[]
+    for i,j,k in itertools.combinations(range(5),3):
+        f=s.expand(sum(P[i,r]*s.diff(P[j,k],x[r])+P[j,r]*s.diff(P[k,i],x[r])
+                        +P[k,r]*s.diff(P[i,j],x[r]) for r in range(5)))
+        jacobi += [s.factor(c) for c in s.Poly(f,*x).coeffs() if c!=0]
+    jacobi=sorted(set(jacobi),key=str)
+    pf=[]
+    for missing in range(5):
+        i,j,k,l=[r for r in range(5) if r != missing]
+        pf.append(s.expand((-1)**missing*(P[i,j]*P[k,l]-P[i,k]*P[j,l]+P[i,l]*P[j,k])))
+    potential=s.factor(sum(x[i]*pf[i] for i in range(5))/5)
+    source=Path(__file__).read_text()
+    return {'scope':'complete linear fixed-cofactor source; all residual Jacobi retained',
+        'case':kind,'q':str(q),'normal_hamiltonian_matrix':str(N),
+        'linear_matrix_shape':list(M.shape),'linear_rank':150-len(parameters),
+        'source_dimension':len(parameters),'parameters':list(map(str,parameters)),
+        'brackets':{f'{i}{j}':str(P[i,j]) for i,j in pairs},
+        'residual_jacobi_coefficients':list(map(str,jacobi)),
+        'euler_contracted_pfaffian_not_yet_actual_divisor':str(potential),
+        'elapsed_seconds':time.monotonic()-started,
+        'producer_sha256':hashlib.sha256(source.encode()).hexdigest(),'producer_source':source}
+
+
+def run_rank2(mixed=False):
+    """All lifts for the semisimple normal Hamiltonian with a zero3 block."""
+    started = time.monotonic()
+    x = s.symbols("x0:5")
+    weights = (0,0,0,1,-1)
+    q = sum(x[i]**2 for i in range(3))+x[3]*x[4]
+    pairs = list(itertools.combinations(range(5),2))
+    monomials = [(x[i]*x[j],weights[i]+weights[j]) for i in range(5) for j in range(i,5)]
+    unknowns=[]
+    universal=s.zeros(5)
+    for i,j in pairs:
+        for mon,weight in monomials:
+            if weight == weights[i]+weights[j]:
+                p=s.Symbol(f"p{len(unknowns)}")
+                unknowns.append(p)
+                universal[i,j]+=p*mon
+        universal[j,i]=-universal[i,j]
+    linear_polys=[sum(s.diff(universal[i,j],x[i]) for i in range(5)) for j in range(5)]
+    linear_polys += [sum(s.diff(q,x[i])*universal[i,j] for i in range(5))
+                     -q*weights[j]*x[j] for j in range(5)]
+    equations=[c for f in linear_polys for c in s.Poly(s.expand(f),*x).coeffs()]
+    M,rhs=s.linear_eq_to_matrix(equations,unknowns)
+    linear_rank=M.rank()
+    assert M.row_join(rhs).rank()==linear_rank
+    ell=s.symbols('l0:3')
+    mm=s.symbols('m0:8')
+    A=s.Matrix([[mm[0],mm[1],mm[2]],[mm[3],mm[4],mm[5]],[mm[6],mm[7],-1-mm[0]-mm[4]]])
+    K=s.Matrix([[0,ell[2],-ell[1]],[-ell[2],0,ell[0]],[ell[1],-ell[0],0]])
+    U=s.Matrix(x[:3])
+    linear_ell=sum(ell[i]*x[i] for i in range(3))
+    J=s.Matrix([[0,x[2],-x[1]],[-x[2],0,x[0]],[x[1],-x[0],0]])
+    P=s.zeros(5)
+    P[:3,:3]=linear_ell*J-x[3]*x[4]*K/2
+    for i in range(3):
+        P[i,3]=x[3]*(A*U)[i]
+        P[3,i]=-P[i,3]
+        P[i,4]=x[4]*((K-A)*U)[i]
+        P[4,i]=-P[i,4]
+    P[3,4]=(2*(U.T*A*U)[0]-sum(x[i]**2 for i in range(3)))-x[3]*x[4]
+    P[4,3]=-P[3,4]
+    assert all(s.expand(sum(s.diff(P[i,j],x[i]) for i in range(5)))==0 for j in range(5))
+    assert all(s.expand(sum(s.diff(q,x[i])*P[i,j] for i in range(5))-q*weights[j]*x[j])==0 for j in range(5))
+    parameters=ell+mm
+    coefficient_columns=[s.Poly(P[i,j],*x).as_dict() for i,j in pairs]
+    source_vector=s.Matrix([d.get(mon,0) for d in coefficient_columns
+        for mon in sorted(set().union(*(e.keys() for e in coefficient_columns)))])
+    assert source_vector.jacobian(parameters).rank()==11
+    assert len(unknowns)-linear_rank==11
+    mixed_linear_data=None
+    if mixed:
+        N=s.zeros(5)
+        N[:3,:3]=s.Matrix([[0,0,-s.I],[0,0,1],[s.I,-1,0]])
+        E=s.Matrix(x)
+        V=N*E
+        P=P-5*q*N/6-(E*V.T-V*E.T)/3
+        assert all(s.expand(sum(s.diff(P[i,j],x[i]) for i in range(5)))==0 for j in range(5))
+        assert all(s.expand(sum(s.diff(q,x[i])*P[i,j] for i in range(5))
+                            -q*(weights[j]*x[j]+V[j]))==0 for j in range(5))
+        lie=P.applyfunc(lambda f:sum(V[i]*s.diff(f,x[i]) for i in range(5)))-N*P-P*N.T
+        lie_eq=[c for i,j in pairs for c in s.Poly(s.expand(lie[i,j]),*x).coeffs() if c!=0]
+        LM,lb=s.linear_eq_to_matrix(lie_eq,parameters)
+        sol=next(iter(s.linsolve((LM,lb),parameters)))
+        sub=dict(zip(parameters,sol))
+        P=P.subs(sub,simultaneous=True).applyfunc(s.expand)
+        mixed_linear_data={'nilpotent_matrix':str(N),'invariance_rank':LM.rank(),
+            'substitution':{str(k):str(v) for k,v in sub.items()},
+            'remaining_parameters':sorted(map(str,set().union(*(f.free_symbols for f in P))-set(x)))}
+    jacobi=[]
+    for i,j,k in itertools.combinations(range(5),3):
+        poly=s.expand(sum(P[i,r]*s.diff(P[j,k],x[r])+P[j,r]*s.diff(P[k,i],x[r])
+                          +P[k,r]*s.diff(P[i,j],x[r]) for r in range(5)))
+        jacobi += [s.factor(c) for c in s.Poly(poly,*x).coeffs() if c!=0]
+    jacobi=sorted(set(jacobi),key=str)
+    if mixed:
+        reduced_sub={ell[1]:-5*s.I/3,mm[4]:-s.Rational(1,3)}
+        assert all(s.expand(f.subs(reduced_sub))==0 for f in jacobi)
+        final_P=P.subs(reduced_sub).applyfunc(s.expand)
+        pfs=[]
+        for missing in range(5):
+            i,j,k,l=[r for r in range(5) if r != missing]
+            pfs.append(s.expand((-1)**missing*(final_P[i,j]*final_P[k,l]-final_P[i,k]*final_P[j,l]+final_P[i,l]*final_P[j,k])))
+        actual=s.factor(sum(x[i]*pfs[i] for i in range(5))/5,extension=s.I)
+        assert all(s.expand(s.diff(actual,x[i])-pfs[i])==0 for i in range(5))
+        assert s.expand(actual-s.Rational(5,6)*(x[0]+s.I*x[1])*sum(t*t for t in x[:3])*q)==0
+        source=Path(__file__).read_text()
+        return {'scope':'complete mixed normal-Hamiltonian source and all residual Jacobi',
+            'case':'semisimple zero3 block plus nilpotent Jordan3 on that block',
+            'q':str(q),'weights':list(weights),'linear_rank_before_invariance':linear_rank,
+            'mixed_invariance':mixed_linear_data,
+            'brackets':{f'{i}{j}':str(P[i,j]) for i,j in pairs},
+            'residual_jacobi_coefficients':list(map(str,jacobi)),
+            'full_poisson_source_substitution':{str(k):str(v) for k,v in reduced_sub.items()},
+            'full_poisson_source_free_parameter':str(mm[7]),
+            'actual_divisor':str(actual),'irreducible_cubic_factor_impossible':True,
+            'elapsed_seconds':time.monotonic()-started,
+            'producer_sha256':hashlib.sha256(source.encode()).hexdigest(),'producer_source':source}
+    support=[]
+    for name,ell_value in [('zero',(0,0,0)),('nonisotropic',(1,0,0)),('isotropic',(1,s.I,0))]:
+        # Nonzero isotropic vectors form one SO3 orbit.  In the nonisotropic
+        # case a nonzero norm scalar factors out of every Jacobi equation.
+        ell_sub=dict(zip(ell,ell_value))
+        specialized=[s.expand(f.subs(ell_sub)) for f in jacobi]
+        CM,cb=s.linear_eq_to_matrix(specialized,mm)
+        solution=s.linsolve((CM,cb),mm)
+        if solution is s.EmptySet:
+            support.append({'case':name,'empty':True,'rank':CM.rank(),'augmented_rank':CM.row_join(cb).rank()})
+            continue
+        values=next(iter(solution))
+        msub=dict(zip(mm,values))
+        pp=P.subs(ell_sub).subs(msub,simultaneous=True).applyfunc(s.expand)
+        assert all(s.expand(f.subs(msub,simultaneous=True))==0 for f in specialized)
+        pfs=[]
+        for missing in range(5):
+            i,j,k,l=[r for r in range(5) if r != missing]
+            pfs.append(s.expand((-1)**missing*(pp[i,j]*pp[k,l]-pp[i,k]*pp[j,l]+pp[i,l]*pp[j,k])))
+        actual=s.factor(sum(x[i]*pfs[i] for i in range(5))/5,extension=s.I)
+        assert all(s.expand(s.diff(actual,x[i])-pfs[i])==0 for i in range(5))
+        cubic=s.cancel(actual/q)
+        assert s.denom(cubic).free_symbols.isdisjoint(x)
+        support.append({'case':name,'empty':False,'substitution':{str(k):str(v) for k,v in msub.items()},
+                        'matrix_A':str(A.subs(msub,simultaneous=True)),
+                        'actual_divisor':str(actual),'cubic_factor':str(s.factor(cubic,extension=s.I)),
+                        'brackets':{f'{i}{j}':str(pp[i,j]) for i,j in pairs}})
+    source=Path(__file__).read_text()
+    return {'scope':'complete linear source; residual Jacobi retained, no full support conclusion',
+        'case':'smooth quadric, semisimple normal Hamiltonian (0,0,0,1,-1)',
+        'q':str(q),'weights':list(weights),'invariant_unknowns':len(unknowns),
+        'linear_shape':list(M.shape),'linear_rank':linear_rank,'source_dimension':11,
+        'parameters':list(map(str,parameters)),'matrix_A':str(A),'matrix_K':str(K),
+        'brackets':{f'{i}{j}':str(s.expand(P[i,j])) for i,j in pairs},
+        'residual_jacobi_coefficients':list(map(str,jacobi)),
+        'complete_ell_orbit_cases':support,
+        'elapsed_seconds':time.monotonic()-started,
+        'producer_sha256':hashlib.sha256(source.encode()).hexdigest(),'producer_source':source}
+
+
 def run(ambient=False):
     started = time.monotonic()
     x = s.symbols("x0:5")
@@ -181,8 +379,12 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--output", required=True)
     parser.add_argument("--ambient", action="store_true")
+    parser.add_argument("--case", choices=("regular","rank2","rank2mixed","nil5","nil311","nil221"), default="regular")
     args = parser.parse_args()
-    result = run(ambient=args.ambient)
+    if args.case.startswith('nil'):
+        result=run_nil(args.case)
+    else:
+        result = run(ambient=args.ambient) if args.case == "regular" else run_rank2(mixed=args.case == "rank2mixed")
     Path(args.output).write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n")
     print(json.dumps({k: v for k, v in result.items()
                       if k not in {"producer_source", "brackets", "signed_pfaffian_minors",

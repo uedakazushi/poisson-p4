@@ -1,0 +1,270 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "all_passed": true,
+  "field": "QQ",
+  "method": "Independent standard-library Fraction sparse arithmetic; no producer or SymPy import.",
+  "input_sha256": {
+    "reports/CLASSIFICATION_THREE_HYPERPLANES_QUADRIC_M1_MPS_20261107.json": "22c9bf0a62e5ed3547feb6ae425f435d2729714447c37df152dca87542bb44be",
+    "reports/CLASSIFICATION_THREE_HYPERPLANES_QUADRIC_M23_MPS_20261107.json": "5332a19b9dc32e31cf3bbd600e287eb447345eb830c4cecff6be33d75c223d6c",
+    "reports/CLASSIFICATION_THREE_HYPERPLANES_QUADRIC_INDEPENDENT_20261107.json": "5835051c4085640dbb07dca8cb340c76bf31c0d8ff1f65d746553a58236d2fc8"
+  },
+  "source_sha256": "c3fbe8861c655b8c082eaa4d678ea5482097ed44a756d1c3d3ad962deed6b7f0",
+  "independent_checker_source": "#!/usr/bin/env python3\n\"\"\"Independent Fraction review of the three complete MPS deformation families.\nArithmetic primitives reused from the dependent-source independent reviewer;\nno producer, SymPy, or producer Jacobi/rank helper is imported.\n\"\"\"\nfrom fractions import Fraction as F\nfrom itertools import combinations,combinations_with_replacement,product\nfrom pathlib import Path\nimport ast,hashlib,json,resource,sys,time\n\nresource.setrlimit(resource.RLIMIT_CPU,(55,56))\nresource.setrlimit(resource.RLIMIT_AS,(1536*1024**2,1536*1024**2))\nstarted=time.monotonic();ROOT=Path.cwd();N=12\npairs=list(combinations(range(5),2))\ndef term(a,*inds):\n    m=[0]*N\n    for i in inds:m[i]+=1\n    return {tuple(m):F(a)} if a else {}\ndef add(*ps):\n    r={}\n    for p in ps:\n        for m,a in p.items():r[m]=r.get(m,F(0))+a\n    return {m:a for m,a in r.items() if a}\ndef scale(p,a):return {m:a*b for m,b in p.items() if a*b}\ndef mul(p,q):\n    r={}\n    for m,a in p.items():\n        for n,b in q.items():\n            k=tuple(x+y for x,y in zip(m,n));r[k]=r.get(k,F(0))+a*b\n    return {m:a for m,a in r.items() if a}\ndef der(p,i):\n    r={}\n    for m,a in p.items():\n        if m[i]:\n            k=list(m);k[i]-=1;r[tuple(k)]=a*m[i]\n    return r\ndef tensor(data):\n    r={}\n    for (i,j),p in data.items():r[i,j]=p;r[j,i]=scale(p,-1)\n    return r\ndef projective_jacobi(A):\n    triples={}\n    for i,j,k in combinations(range(5),3):\n        triples[i,j,k]=add(*(mul(A.get((a,l),{}),der(A.get((b,c),{}),l))\n                for a,b,c in [(i,j,k),(j,k,i),(k,i,j)] for l in range(5)))\n    return {inds:add(*(scale(mul(term(1,inds[k]),triples[inds[:k]+inds[k+1:]]),(-1)**k)\n              for k in range(4))) for inds in combinations(range(5),4)}\ndef monomials(degree):\n    out=[]\n    for factors in combinations_with_replacement(range(5),degree):\n        m=[0]*5\n        for i in factors:m[i]+=1\n        out.append(tuple(m))\n    return out\nmon2=monomials(2);mon4=monomials(4)\ncolumn_basis=[(ij,m) for ij in pairs for m in mon2]\nrow_basis=[(inds,m) for inds in combinations(range(5),4) for m in mon4]\nrow_index={v:i for i,v in enumerate(row_basis)}\ndef bivector_vector(A):return [A.get(ij,{}).get(m+(0,)*(N-5),F(0)) for ij,m in column_basis]\ndef jacobi_vector(A):\n    J=projective_jacobi(A)\n    return [J[inds].get(m+(0,)*(N-5),F(0)) for inds,m in row_basis]\ndef parse_polynomial(text):\n    names=dict(zip(('h','x','y','z','w','t','alpha','beta','gamma'),range(9)))\n    def walk(n):\n        if isinstance(n,ast.Constant) and isinstance(n.value,int):return term(n.value)\n        if isinstance(n,ast.Name) and n.id in names:return term(1,names[n.id])\n        if isinstance(n,ast.UnaryOp) and isinstance(n.op,ast.USub):return scale(walk(n.operand),-1)\n        if isinstance(n,ast.UnaryOp) and isinstance(n.op,ast.UAdd):return walk(n.operand)\n        if isinstance(n,ast.BinOp):\n            if isinstance(n.op,ast.Add):return add(walk(n.left),walk(n.right))\n            if isinstance(n.op,ast.Sub):return add(walk(n.left),scale(walk(n.right),-1))\n            if isinstance(n.op,ast.Mult):return mul(walk(n.left),walk(n.right))\n            if isinstance(n.op,ast.Pow) and isinstance(n.right,ast.Constant) and isinstance(n.right.value,int) and n.right.value>=0:\n                r=term(1)\n                for _ in range(n.right.value):r=mul(r,walk(n.left))\n                return r\n            if isinstance(n.op,ast.Div) and isinstance(n.right,ast.Constant) and isinstance(n.right.value,int):return scale(walk(n.left),F(1,n.right.value))\n        raise ValueError(ast.dump(n))\n    return walk(ast.parse(text,mode='eval').body)\ndef parse_tensor(data):\n    return tensor({tuple(ast.literal_eval(ij)):parse_polynomial(p) for ij,p in data.items()})\n\ndef modular_minor(A,prime=1000003):\n    original=[[int(a.numerator)*pow(int(a.denominator),-1,prime)%prime if isinstance(a,F) else a%prime\n               for a in row] for row in A]\n    B=[r[:] for r in original];nr=len(B);nc=len(B[0]);labels=list(range(nr));rows=[];cols=[];rank=0\n    for j in range(nc):\n        k=next((i for i in range(rank,nr) if B[i][j]),None)\n        if k is None:continue\n        B[rank],B[k]=B[k],B[rank];labels[rank],labels[k]=labels[k],labels[rank]\n        rows.append(labels[rank]);cols.append(j)\n        inv=pow(B[rank][j],-1,prime);B[rank]=[a*inv%prime for a in B[rank]]\n        for i in range(rank+1,nr):\n            a=B[i][j]\n            if a:B[i]=[(x-a*y)%prime for x,y in zip(B[i],B[rank])]\n        rank+=1\n    minor=[[original[i][j] for j in cols] for i in rows];det=1\n    for j in range(rank):\n        k=next(i for i in range(j,rank) if minor[i][j])\n        if k!=j:minor[k],minor[j]=minor[j],minor[k];det=-det\n        a=minor[j][j];det=det*a%prime;inv=pow(a,-1,prime)\n        for i in range(j+1,rank):\n            b=minor[i][j]*inv%prime\n            if b:minor[i]=[(x-b*y)%prime for x,y in zip(minor[i],minor[j])]\n    assert det\n    return {'prime':prime,'rank_mod_prime':rank,'minor_rows':rows,'minor_columns':cols,'minor_determinant_mod_prime':det}\n\ndef strict_jacobi(A):\n    return [add(*(mul(A.get((a,l),{}),der(A.get((b,c),{}),l))\n            for a,b,c in [(i,j,k),(j,k,i),(k,i,j)] for l in range(5)))\n            for i,j,k in combinations(range(5),3)]\n\ndef specialize(p, values):\n    out={}\n    for m,a in p.items():\n        mm=list(m)\n        for i,value in values.items():a*=value**mm[i];mm[i]=0\n        out[tuple(mm)]=out.get(tuple(mm),F(0))+a\n    return {m:a for m,a in out.items() if a}\n\ndef homogeneous_linear(p):\n    out={}\n    for m,a in p.items():\n        assert sum(m)<=1\n        mm=list(m);mm[0]+=1-sum(m);out[tuple(mm)]=a\n    return out\n\ndef rational_relations(A):\n    B=[[F(a) for a in row] for row in A];nr=len(B);nc=len(B[0]);pivots=[];rank=0\n    for j in range(nc):\n        k=next((i for i in range(rank,nr) if B[i][j]),None)\n        if k is None:continue\n        B[rank],B[k]=B[k],B[rank];a=B[rank][j];B[rank]=[v/a for v in B[rank]]\n        for i in range(nr):\n            a=B[i][j]\n            if i!=rank and a:B[i]=[x-a*y for x,y in zip(B[i],B[rank])]\n        pivots.append(j);rank+=1\n    free=[j for j in range(nc) if j not in pivots];relations=[]\n    for j in free:\n        rel=[F(0)]*nc;rel[j]=1\n        for i,k in enumerate(pivots):rel[k]=-B[i][j]\n        assert all(sum(x*y for x,y in zip(row,rel))==0 for row in A)\n        relations.append(rel)\n    return {'rank':rank,'free_columns':free,'independent_kernel_relations':[[str(a) for a in rel] for rel in relations]}\n\ndef matrix_hash(A):\n    # Match the frozen producer's SymPy-string matrix serialization exactly.\n    return hashlib.sha256(json.dumps([[str(a) for a in row] for row in A]).encode()).hexdigest()\n\ndef determinant(A):\n    B=[[F(a) for a in row] for row in A];value=F(1)\n    for i in range(len(B)):\n        j=next((j for j in range(i,len(B)) if B[j][i]),None)\n        if j is None:return F(0)\n        if j!=i:B[i],B[j]=B[j],B[i];value=-value\n        pivot=B[i][i];value*=pivot\n        for j in range(i+1,len(B)):\n            ratio=B[j][i]/pivot\n            B[j]=[a-ratio*b for a,b in zip(B[j],B[i])]\n    return value\n\npaths=['reports/CLASSIFICATION_THREE_HYPERPLANES_QUADRIC_M1_MPS_20261107.json',\n       'reports/CLASSIFICATION_THREE_HYPERPLANES_QUADRIC_M23_MPS_20261107.json',\n       'reports/CLASSIFICATION_THREE_HYPERPLANES_QUADRIC_INDEPENDENT_20261107.json']\none=json.loads((ROOT/paths[0]).read_text());two=json.loads((ROOT/paths[1]).read_text());old=json.loads((ROOT/paths[2]).read_text())\nfor report in [one,two]:\n    assert hashlib.sha256(report['producer_source'].encode()).hexdigest() in report['input_sha256'].values()\nrecords=[];base_mons=[term(1,*f) for f in [(0,0),(0,1),(0,2),(1,1),(1,2),(2,2)]]\ndef base_vector(p):return [p.get(next(iter(m)),F(0)) for m in base_mons]\nfor case_index,saved in enumerate([one,*two['cases']],1):\n    begun=time.monotonic();name=saved['case'];P=parse_tensor(saved['full_polynomial_family'])\n    assert all(sum(m[:5])==2 for p in P.values() for m in p)\n    assert all(not p for p in strict_jacobi(P))\n    Y=list(map(parse_polynomial,saved['coordinate_change']))\n    assert Y[:3]==[term(1,i) for i in range(3)]\n    T=[[der(y,i) for i in range(5)] for y in Y]\n    det=add(mul(T[3][3],T[4][4]),scale(mul(T[3][4],T[4][3]),-1))\n    assert det==term(1,5,5)\n    t=term(1,5);one_tgamma=add(term(1),term(1,5,8))\n    if case_index==1:\n        Q=add(scale(mul(Y[3],Y[4]),F(1,2)),term(-1,0,1));k=-1\n        p=term(1,5,6);r=add(term(F(1,2)),term(1,5,7))\n        w1=add(term(1),scale(p,-1));canon=add(term(F(1,2),3,4),term(-1,0,1))\n    else:\n        k=-2 if case_index==2 else 1;sign=1 if case_index==2 else -1\n        Q=add(mul(Y[3],Y[4]),term(sign,0,0));canon=add(term(1,3,4),term(sign,0,0))\n        p=add(term(-1 if case_index==2 else 1),term(1,5,6))\n        r=add(term(2 if case_index==2 else -1),term(1,5,7));w1=scale(p,-1)\n    D1=[{},Y[1],{},mul(p,Y[3]),mul(w1,Y[4])]\n    D2=[{},{},Y[2],mul(r,Y[3]),scale(mul(r,Y[4]),-1)]\n    canonical=tensor({(i,j):mul(t,add(mul(D1[i],D2[j]),scale(mul(D2[i],D1[j]),-1))) for i,j in pairs})\n    canonical[3,4]=add(canonical[3,4],scale(mul(mul(t,one_tgamma),Q),k));canonical[4,3]=scale(canonical[3,4],-1)\n    pushed=tensor({(i,j):add(*(mul(mul(T[i][a],P.get((a,b),{})),T[j][b]) for a in range(5) for b in range(5))) for i,j in pairs})\n    assert pushed==canonical\n    Hess=[[der(der(canon,i),j).get((0,)*N,F(0)) for j in range(5)] for i in range(5)]\n    assert rational_relations(Hess)['rank']==(4 if case_index==1 else 3)\n    pf=add(mul(P.get((1,2),{}),P.get((3,4),{})),scale(mul(P.get((1,3),{}),P.get((2,4),{})),-1),mul(P.get((1,4),{}),P.get((2,3),{})))\n    assert pf==scale(mul(mul(term(1,1,2),one_tgamma),Q),k)\n    assert mul(term(1,0),pf)==parse_polynomial(saved['actual_quintic'])\n    assert P.get((1,2))==term(1,5,1,2)\n    limit={ij:specialize(p,{5:F(0)}) for ij,p in P.items()}\n    limit={ij:p for ij,p in limit.items() if p};assert limit==parse_tensor(saved['limit_source'])\n    assert specialize(Q,{5:F(0)})==parse_polynomial(saved['limit_quadric'])\n    U=[limit.get((1,3),{}),limit.get((2,3),{})];V=[limit.get((1,4),{}),limit.get((2,4),{})]\n    c=scale(der(limit[(3,4)],3),-1);d=scale(der(limit[(3,4)],4),-1)\n    assert [add(*(add(mul(U[j],der(V[i],j+1)),scale(mul(V[j],der(U[i],j+1)),-1)) for j in range(2))) for i in range(2)]==[add(mul(c,U[i]),mul(d,V[i])) for i in range(2)]\n    magnetic=[der(limit[(3,4)],j) for j in [6,7,8]]\n    assert magnetic==list(map(parse_polynomial,saved['limit_magnetic_terms']))\n    assert limit[(3,4)]==add(scale(mul(c,term(1,3)),-1),scale(mul(d,term(1,4)),-1),*(mul(term(1,j),p) for j,p in zip([6,7,8],magnetic)))\n    cob=[add(*(mul(V[i],der(term(1,j),i+1)) for i in range(2)),mul(c,term(1,j))) for j in range(3)]\n    cob += [add(mul(d,term(1,j)),*(scale(mul(U[i],der(term(1,j),i+1)),-1) for i in range(2))) for j in range(3)]\n    assert cob==list(map(parse_polynomial,saved['all_six_translation_coboundaries']))\n    cobmatrix=list(map(list,zip(*map(base_vector,cob))))\n    assert rational_relations(cobmatrix)['rank']==3\n    six=list(map(parse_polynomial,saved['full_magnetic_span_six_generators']))\n    assert six[:3]==magnetic\n    enlarged=list(map(list,zip(*map(base_vector,cob+six[3:]))))\n    assert rational_relations(enlarged)['rank']==3\n    matrix=list(map(list,zip(*map(base_vector,six))))\n    assert [[str(v) for v in row] for row in matrix]==saved['full_magnetic_span_matrix']\n    value=determinant(matrix);assert value==F(saved['full_magnetic_span_determinant'])\n    # Relate the new limit anchors to the previously certified complete source by an exact constant GL2.\n    old_case=next(cc for cc in old['cases'] if cc['case']==name)\n    U0=list(map(parse_polynomial,old_case['anchor_U']));V0=list(map(parse_polynomial,old_case['anchor_V']))\n    u0=base_vector(U0[0])+base_vector(U0[1]);v0=base_vector(V0[0])+base_vector(V0[1])\n    i,j=next((i,j) for i,j in combinations(range(12),2) if u0[i]*v0[j]-u0[j]*v0[i])\n    pivot=u0[i]*v0[j]-u0[j]*v0[i];coeffs=[]\n    for W in [U,V]:\n        w=base_vector(W[0])+base_vector(W[1]);a=(w[i]*v0[j]-w[j]*v0[i])/pivot;b=(u0[i]*w[j]-u0[j]*w[i])/pivot\n        assert w==[a*u+b*v for u,v in zip(u0,v0)];coeffs.append([a,b])\n    anchor_det=coeffs[0][0]*coeffs[1][1]-coeffs[0][1]*coeffs[1][0]\n    assert anchor_det==-k\n    record={'case':name,'all_parameters':['t','alpha','beta','gamma'],\n        'full_polynomial_family_strict_Jacobi_identically_zero':True,\n        'all_coefficients_quadratic_and_regular_at_t_zero':True,\n        'coordinate_determinant':'t^2','canonical_pushforward_identity_exact':True,\n        'canonical_quadric_rank':4 if case_index==1 else 3,\n        'nonzero_residue':'a=t','rank_four_open':'t*(1+t*gamma)!=0',\n        'universal_actual_quintic_exact':True,'full_t_zero_limit_exact':True,\n        'limit_anchor_GL2_columns_old_basis':[[str(a) for a in row] for row in coeffs],\n        'limit_anchor_GL2_determinant':str(anchor_det),\n        'all_six_translation_coboundaries_exact':True,'translation_image_rank_QQ':3,\n        'magnetic_span_matrix':[[str(a) for a in row] for row in matrix],\n        'magnetic_span_determinant':str(value),'all_six_magnetic_coefficients_reached':True,\n        'seconds':time.monotonic()-begun}\n    records.append(record);print(json.dumps({'case':name,'all_passed':True,'magnetic_determinant':str(value),'seconds':record['seconds']}),flush=True)\n\nchecker=Path(__file__).read_text()\nresult={'task_id':'E_reduced_nonnormal','all_passed':True,'field':'QQ',\n    'method':'Independent standard-library Fraction sparse arithmetic; no producer or SymPy import.',\n    'input_sha256':{p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in paths},\n    'source_sha256':hashlib.sha256(checker.encode()).hexdigest(),'independent_checker_source':checker,\n    'cases':records,'elapsed_seconds':time.monotonic()-started,\n    'scope':'Universal actual MPS deformations of all three remaining independent-three-hyperplane conic magnetic sources, including canonical nonzero-residue recognition and every six-coefficient magnetic limit. Uses the previously proved all-support nonzero-residue MPS theorem.',\n    'global_exhaustion_proved':False}\nwith Path(sys.argv[1]).open('x') as f:json.dump(result,f,indent=2);f.write('\\n')\nprint(json.dumps({'all_passed':True,'elapsed_seconds':result['elapsed_seconds']},indent=2))\n\n",
+  "cases": [
+    {
+      "case": "m1_t2",
+      "all_parameters": [
+        "t",
+        "alpha",
+        "beta",
+        "gamma"
+      ],
+      "full_polynomial_family_strict_Jacobi_identically_zero": true,
+      "all_coefficients_quadratic_and_regular_at_t_zero": true,
+      "coordinate_determinant": "t^2",
+      "canonical_pushforward_identity_exact": true,
+      "canonical_quadric_rank": 4,
+      "nonzero_residue": "a=t",
+      "rank_four_open": "t*(1+t*gamma)!=0",
+      "universal_actual_quintic_exact": true,
+      "full_t_zero_limit_exact": true,
+      "limit_anchor_GL2_columns_old_basis": [
+        [
+          "1",
+          "-5/4"
+        ],
+        [
+          "4/5",
+          "0"
+        ]
+      ],
+      "limit_anchor_GL2_determinant": "1",
+      "all_six_translation_coboundaries_exact": true,
+      "translation_image_rank_QQ": 3,
+      "magnetic_span_matrix": [
+        [
+          "0",
+          "0",
+          "0",
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "-2",
+          "-2",
+          "-1",
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "2",
+          "-1",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "-4",
+          "0",
+          "-2",
+          "0",
+          "0",
+          "1"
+        ],
+        [
+          "-4",
+          "-2",
+          "-1",
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "magnetic_span_determinant": "8",
+      "all_six_magnetic_coefficients_reached": true,
+      "seconds": 0.011700547001964878
+    },
+    {
+      "case": "m2_t1",
+      "all_parameters": [
+        "t",
+        "alpha",
+        "beta",
+        "gamma"
+      ],
+      "full_polynomial_family_strict_Jacobi_identically_zero": true,
+      "all_coefficients_quadratic_and_regular_at_t_zero": true,
+      "coordinate_determinant": "t^2",
+      "canonical_pushforward_identity_exact": true,
+      "canonical_quadric_rank": 3,
+      "nonzero_residue": "a=t",
+      "rank_four_open": "t*(1+t*gamma)!=0",
+      "universal_actual_quintic_exact": true,
+      "full_t_zero_limit_exact": true,
+      "limit_anchor_GL2_columns_old_basis": [
+        [
+          "0",
+          "-5/2"
+        ],
+        [
+          "4/5",
+          "-5/2"
+        ]
+      ],
+      "limit_anchor_GL2_determinant": "2",
+      "all_six_translation_coboundaries_exact": true,
+      "translation_image_rank_QQ": 3,
+      "magnetic_span_matrix": [
+        [
+          "0",
+          "0",
+          "0",
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1",
+          "-2",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "1"
+        ],
+        [
+          "-1",
+          "1",
+          "-2",
+          "0",
+          "0",
+          "1"
+        ],
+        [
+          "-2",
+          "0",
+          "-2",
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "magnetic_span_determinant": "2",
+      "all_six_magnetic_coefficients_reached": true,
+      "seconds": 0.013445803997456096
+    },
+    {
+      "case": "m3_t0",
+      "all_parameters": [
+        "t",
+        "alpha",
+        "beta",
+        "gamma"
+      ],
+      "full_polynomial_family_strict_Jacobi_identically_zero": true,
+      "all_coefficients_quadratic_and_regular_at_t_zero": true,
+      "coordinate_determinant": "t^2",
+      "canonical_pushforward_identity_exact": true,
+      "canonical_quadric_rank": 3,
+      "nonzero_residue": "a=t",
+      "rank_four_open": "t*(1+t*gamma)!=0",
+      "universal_actual_quintic_exact": true,
+      "full_t_zero_limit_exact": true,
+      "limit_anchor_GL2_columns_old_basis": [
+        [
+          "2/5",
+          "0"
+        ],
+        [
+          "0",
+          "-5/2"
+        ]
+      ],
+      "limit_anchor_GL2_determinant": "-1",
+      "all_six_translation_coboundaries_exact": true,
+      "translation_image_rank_QQ": 3,
+      "magnetic_span_matrix": [
+        [
+          "0",
+          "0",
+          "0",
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1",
+          "1",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "-1",
+          "0",
+          "1",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "-1",
+          "1",
+          "1",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "1"
+        ]
+      ],
+      "magnetic_span_determinant": "-1",
+      "all_six_magnetic_coefficients_reached": true,
+      "seconds": 0.0071469899994554
+    }
+  ],
+  "elapsed_seconds": 0.0336648580050678,
+  "scope": "Universal actual MPS deformations of all three remaining independent-three-hyperplane conic magnetic sources, including canonical nonzero-residue recognition and every six-coefficient magnetic limit. Uses the previously proved all-support nonzero-residue MPS theorem.",
+  "global_exhaustion_proved": false
+}

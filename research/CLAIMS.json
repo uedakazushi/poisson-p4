@@ -29598,9 +29598,224 @@
       "limitations_ja": [
         "66は固定した最終回答ではなく下界。未知成分をこの数で排除しない。"
       ]
+    },
+    {
+      "id": "R4_NIL31_THREE_COMPONENTS_22",
+      "title_ja": "冪零定数型の三つの22次元全成分",
+      "statement_ja": "nil31 short r=-1/3とlong E,Fの全飽和閉包は三つの相異なる22次元全成分で稠密開軌道を持つ。全D103/F47と全源恒等式を独立確認。既存同因子型ともcanonical cofactorのJordan型と双対像flag、二次rankにより区別。",
+      "scope": "Reduced support over C before PGL5 quotient; not global exhaustion.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_2026_11_07",
+        "certificates": "independent_exact_QQ_reconstruction_and_geometric_review",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "COUNT_AT_LEAST_66"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/classification/MODULAR_NIL31_SHORT_SUPPORT.md"
+        },
+        {
+          "path": "research/classification/NIL31_LONG_SOURCES_REVIEW.md"
+        },
+        {
+          "path": "research/classification/MODULAR_NIL31_LONG_SUPPORT.md"
+        },
+        {
+          "path": "research/classification/NIL31_LONG_SOURCES_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_NIL31_LONG_SOURCES_20261107.json",
+        "reports/CLASSIFICATION_NIL31_LONG_SOURCES_REVIEW_20261107.json",
+        "reports/CLASSIFICATION_NIL31_SHORT_COMPONENTS_20261107.json",
+        "reports/CLASSIFICATION_NIL31_SHORT_COMPONENT_REVIEW_20261107.json"
+      ],
+      "limitations_ja": [
+        "全成分数の上界・一般ファイバー尽くし・全分類は未証明。",
+        "文献上の新規性は未確認。"
+      ]
+    },
+    {
+      "id": "R4_INDEPENDENT_THREE_HYPERPLANES_QUADRIC_COMPONENT_23",
+      "title_ja": "独立三超平面と三接線二次の23次元全成分",
+      "statement_ja": "m=0,t=3の全六磁気源は23次元全成分を与える。全D102/F48と全像上界23を独立確認。本質変数数の閉条件・独立三H・一般因子型で既知全成分と区別。",
+      "scope": "Reduced support over C before PGL5 quotient; not global exhaustion.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_2026_11_07",
+        "certificates": "independent_exact_QQ_reconstruction_and_geometric_review",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "COUNT_AT_LEAST_66"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/classification/THREE_HYPERPLANES_QUADRIC_INDEPENDENT.md",
+          "anchor": "section5.1"
+        },
+        {
+          "path": "research/classification/THREE_HYPERPLANES_QUADRIC_INDEPENDENT_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_THREE_HYPERPLANES_QUADRIC_INDEPENDENT_20261107.json",
+        "reports/CLASSIFICATION_THREE_HYPERPLANES_QUADRIC_INDEPENDENT_REVIEW_20261107.json"
+      ],
+      "limitations_ja": [
+        "全成分数の上界・一般ファイバー尽くし・全分類は未証明。",
+        "文献上の新規性は未確認。"
+      ]
+    },
+    {
+      "id": "R4_THREE_HYPERPLANES_QUADRIC_FULL_SUPPORT",
+      "title_ja": "相異なる三超平面と既約二次曲面の全支持",
+      "statement_ja": "従属・独立の全配置と全パラメータはMPS40、CMINUS、従属新24、独立三接線新23の閉包和へ入る。独立a零四源のうちm=1,2,3は全六磁気方向を実Poisson族の極限とfiber平行移動で得る。",
+      "scope": "Reduced support over C before PGL5 quotient; not global exhaustion.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_2026_11_07",
+        "certificates": "independent_exact_QQ_reconstruction_and_geometric_review",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "MPS40",
+          "R4_DEPENDENT_THREE_HYPERPLANES_QUADRIC_COMPONENT_24",
+          "R4_INDEPENDENT_THREE_HYPERPLANES_QUADRIC_COMPONENT_23"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/classification/THREE_HYPERPLANES_QUADRIC_DEPENDENT.md"
+        },
+        {
+          "path": "research/classification/THREE_HYPERPLANES_QUADRIC_INDEPENDENT.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_THREE_HYPERPLANES_QUADRIC_M1_MPS_20261107.json",
+        "reports/CLASSIFICATION_THREE_HYPERPLANES_QUADRIC_M23_MPS_20261107.json",
+        "reports/CLASSIFICATION_THREE_HYPERPLANES_QUADRIC_MPS_REVIEW_20261107.json"
+      ],
+      "limitations_ja": [
+        "全成分数の上界・一般ファイバー尽くし・全分類は未証明。",
+        "文献上の新規性は未確認。"
+      ]
+    },
+    {
+      "id": "R4_SMOOTH_QUADRIC_CUBIC_FULL_SUPPORT",
+      "title_ja": "滑らかな二次因子と既約三次因子の全支持",
+      "statement_ja": "canonical q-cofactorの全so5 Jordan型を列挙し、正則半単純の全六源はSNC極限でMPSへ、残る半単純・mixed・純冪零三型は既約三次条件と矛盾する。全150線形源・必要Jacobi・実因子を独立再構成。",
+      "scope": "Reduced support over C before PGL5 quotient; not global exhaustion.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_2026_11_07",
+        "certificates": "independent_exact_QQ_reconstruction_and_geometric_review",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "MPS40"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/classification/SMOOTH_QUADRIC_CUBIC_SUPPORT.md"
+        },
+        {
+          "path": "research/classification/SMOOTH_QUADRIC_RANK2_REVIEW.md"
+        },
+        {
+          "path": "research/classification/SMOOTH_QUADRIC_NIL_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_SMOOTH_QUADRIC_REGULAR_REVIEW_20261107.json",
+        "reports/CLASSIFICATION_SMOOTH_QUADRIC_RANK2_REVIEW_20261107.json",
+        "reports/CLASSIFICATION_SMOOTH_QUADRIC_NIL_REVIEW_20261107.json"
+      ],
+      "limitations_ja": [
+        "全成分数の上界・一般ファイバー尽くし・全分類は未証明。",
+        "文献上の新規性は未確認。"
+      ]
+    },
+    {
+      "id": "G_MODULAR_NIL_RANK2_NONDOMINANCE",
+      "title_ja": "階数二冪零モジュラー全型の一次像非優越",
+      "statement_ja": "全五affine型でprimitive beta像は15次元以下。nil22 c=0では全源のHessian表示と全rank分岐により固定源≤14、実三次元Taylor fiberから像≤15。他四型は全有限源・群軌道・固定評価で≤13。",
+      "scope": "Non-dominance over the primitive sixteen-dimensional base only; does not prove E membership of every source.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_2026_11_07",
+        "certificates": "independent_exact_QQ_reconstruction_and_geometric_review",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/classification/MODULAR_NIL_RANK2_FIRSTJET_BOUND.md"
+        }
+      ],
+      "verification_records": [],
+      "limitations_ja": [
+        "全成分数の上界・一般ファイバー尽くし・全分類は未証明。",
+        "文献上の新規性は未確認。"
+      ]
+    },
+    {
+      "id": "COUNT_AT_LEAST_70",
+      "title_ja": "全成分数下界70・一般階数4下界64",
+      "statement_ja": "既存66に三つの22次元成分と一つの23次元成分を加え、全70の成分性と相違を証明した。うち一般階数4は64、一般階数2は6。",
+      "scope": "Lower bound only; no upper bound or global exhaustion.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_2026_11_07",
+        "certificates": "independent_exact_QQ_reconstruction_and_geometric_review",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "COUNT_AT_LEAST_66",
+          "R4_NIL31_THREE_COMPONENTS_22",
+          "R4_INDEPENDENT_THREE_HYPERPLANES_QUADRIC_COMPONENT_23"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/classification/KNOWN_COMPONENT_AUDIT.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_NIL31_LONG_SOURCES_20261107.json",
+        "reports/CLASSIFICATION_NIL31_LONG_SOURCES_REVIEW_20261107.json",
+        "reports/CLASSIFICATION_NIL31_SHORT_COMPONENTS_20261107.json",
+        "reports/CLASSIFICATION_NIL31_SHORT_COMPONENT_REVIEW_20261107.json",
+        "reports/CLASSIFICATION_THREE_HYPERPLANES_QUADRIC_INDEPENDENT_20261107.json",
+        "reports/CLASSIFICATION_THREE_HYPERPLANES_QUADRIC_INDEPENDENT_REVIEW_20261107.json"
+      ],
+      "limitations_ja": [
+        "全成分数の上界・一般ファイバー尽くし・全分類は未証明。",
+        "文献上の新規性は未確認。"
+      ]
     }
   ],
   "setup_checkpoint": "v25-setup",
   "current_checkpoint_includes_new_research": true,
-  "current_global_component_lower_bound": 66
+  "current_global_component_lower_bound": 70
 }

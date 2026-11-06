@@ -1,0 +1,39 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "target_statement": "Independently verify all three full nilpotent fixed-cofactor linear sources and the weakest necessary support identities excluding smoothq times irreducible cubic.",
+  "implication_to_classification": "Together with regular and rank2 semisimple coverage, exclusion of nil5,nil311,nil221 closes the smooth quadric plus irreducible cubic stratum, conditional on the independently reviewed Casimir geometry.",
+  "coefficient_ring": "QQ[x0,...,x4,n0,...,n14]; all150 quadratic coefficients retained.",
+  "hypotheses": "Only nonzero nilpotent so5 orbits5,311,221 are considered. Each full linear source is reconstructed from divergence, q-normality and N-invariance. No full15-parameter Jacobi solving is required.",
+  "inverted_elements": [
+    "nonzero rational constants",
+    "nonzero scalar after SL2 normalization of a rank-one binary quadratic in the geometric proof"
+  ],
+  "complements": [
+    "Binary quadratic A=0 and Jacobian cubic F=0 are checked explicitly. Other divisor types of the surviving reducible factors remain separate obligations."
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_smooth_quadric_nil_review.py",
+      "sha256": "a1ef449b2a4351c6074d54846f02fc6334931140f841a0429649bbc329a7456b"
+    },
+    {
+      "path": "reports/CLASSIFICATION_SMOOTH_QUADRIC_NIL5_LINEAR_20261107.json",
+      "sha256": "78249767846b9d8033b1627a2bf2c4093364273bc6958488c6e88fc2389df2d5"
+    },
+    {
+      "path": "reports/CLASSIFICATION_SMOOTH_QUADRIC_NIL311_LINEAR_20261107.json",
+      "sha256": "f68e6c51ce1984b73f4e791eb1fafadac44035daad882ca8607c378fb388d409"
+    },
+    {
+      "path": "reports/CLASSIFICATION_SMOOTH_QUADRIC_NIL221_LINEAR_20261107.json",
+      "sha256": "fa73c986cb0aeee7fb1b6b4d63e4032e7f12142c148d2c579723f4a72da12abe"
+    }
+  ],
+  "success_certificate": "Full350x150 linear matrices with QQ kernel/minor sandwiches ranks145,139,135; literal necessary Jacobi coefficient witnesses; universal Pfaffian factors; nil221 full invariant-cubic kernel and Jacobian/F0 identities.",
+  "independent_check": "No producer or SymPy import, exact standard-library Fraction sparse arithmetic; save source, hashes and finite certificates.",
+  "resource_limit": {
+    "timeout_seconds": 60,
+    "memory_mb": 1536
+  },
+  "negative_result_next_step": "Report any mismatch and withhold smoothq+c3 exhaustion; do not broaden to solve all Jacobi support."
+}

@@ -1,0 +1,303 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "all_passed": true,
+  "cases": [
+    {
+      "case": "m2_t1",
+      "all_parameters": [
+        "t",
+        "alpha",
+        "beta",
+        "gamma"
+      ],
+      "coordinate_change": [
+        "h",
+        "x",
+        "y",
+        "h + t*z + y",
+        "-h + t*w + x + y"
+      ],
+      "coordinate_change_determinant": "t**2",
+      "canonical_weights_D1": [
+        "0",
+        "1",
+        "0",
+        "p",
+        "-p"
+      ],
+      "canonical_weights_D2": [
+        "0",
+        "0",
+        "1",
+        "r",
+        "-r"
+      ],
+      "weight_substitution": {
+        "p": "alpha*t - 1",
+        "r": "beta*t + 2"
+      },
+      "canonical_quadric": "H**2 + WW*ZZ",
+      "vertical_coefficient": "-2*t*(gamma*t + 1)",
+      "full_polynomial_family": {
+        "(1, 2)": "t*x*y",
+        "(1, 3)": "beta*h*t*x + beta*t**2*x*z + beta*t*x*y + 2*h*x + 2*t*x*z + x*y",
+        "(1, 4)": "beta*h*t*x - beta*t**2*w*x - beta*t*x**2 - beta*t*x*y + 2*h*x - 2*t*w*x - 2*x**2 - 3*x*y",
+        "(2, 3)": "-alpha*h*t*y - alpha*t**2*y*z - alpha*t*y**2 + h*y + t*y*z + y**2",
+        "(2, 4)": "-alpha*h*t*y + alpha*t**2*w*y + alpha*t*x*y + alpha*t*y**2 + h*y - t*w*y - y**2",
+        "(3, 4)": "-alpha*t*w*y - alpha*t*y*z - alpha*x*y - 2*alpha*y**2 + beta*h*x + beta*t*x*z + beta*x*y - 2*gamma*h*t*w + 2*gamma*h*t*z - 2*gamma*h*x - 2*gamma*t**2*w*z - 2*gamma*t*w*y - 2*gamma*t*x*z - 2*gamma*t*y*z - 2*gamma*x*y - 2*gamma*y**2 - 2*h*w + 2*h*z - 2*t*w*z - w*y - y*z"
+      },
+      "all_ten_universal_raw_Jacobi_zero": true,
+      "no_negative_t_powers": true,
+      "actual_quintic": "-2*h*x*y*(gamma*t + 1)*(h*t*w - h*t*z + h*x + t**2*w*z + t*w*y + t*x*z + t*y*z + x*y + y**2)",
+      "t_nonzero_quadric_rank": 3,
+      "rank4_open_condition": "t*(1+t*gamma) != 0",
+      "limit_source": {
+        "(1, 3)": "2*h*x + x*y",
+        "(1, 4)": "2*h*x - 2*x**2 - 3*x*y",
+        "(2, 3)": "h*y + y**2",
+        "(2, 4)": "h*y - y**2",
+        "(3, 4)": "-alpha*x*y - 2*alpha*y**2 + beta*h*x + beta*x*y - 2*gamma*h*x - 2*gamma*x*y - 2*gamma*y**2 - 2*h*w + 2*h*z - w*y - y*z"
+      },
+      "limit_quadric": "h*x + x*y + y**2",
+      "limit_magnetic_terms": [
+        "-x*y - 2*y**2",
+        "h*x + x*y",
+        "-2*h*x - 2*x*y - 2*y**2"
+      ],
+      "anchor_bracket_coefficients": [
+        "-2*h + y",
+        "2*h + y"
+      ],
+      "all_six_translation_coboundaries": [
+        "-2*h**2 + h*y",
+        "-2*x**2 - 2*x*y",
+        "-h*y",
+        "2*h**2 + h*y",
+        "0",
+        "h*y"
+      ],
+      "translation_coboundary_rank": 3,
+      "full_magnetic_span_six_generators": [
+        "-x*y - 2*y**2",
+        "h*x + x*y",
+        "-2*h*x - 2*x*y - 2*y**2",
+        "h**2",
+        "h*y",
+        "x**2 + x*y"
+      ],
+      "magnetic_coefficient_order": [
+        "h**2",
+        "h*x",
+        "h*y",
+        "x**2",
+        "x*y",
+        "y**2"
+      ],
+      "full_magnetic_span_matrix": [
+        [
+          "0",
+          "0",
+          "0",
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1",
+          "-2",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "1"
+        ],
+        [
+          "-1",
+          "1",
+          "-2",
+          "0",
+          "0",
+          "1"
+        ],
+        [
+          "-2",
+          "0",
+          "-2",
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "full_magnetic_span_determinant": "2",
+      "all_six_magnetic_parameters_reached": true,
+      "seconds": 0.26885834700078703
+    },
+    {
+      "case": "m3_t0",
+      "all_parameters": [
+        "t",
+        "alpha",
+        "beta",
+        "gamma"
+      ],
+      "coordinate_change": [
+        "h",
+        "x",
+        "y",
+        "h + t*z + x",
+        "h + t*w + y"
+      ],
+      "coordinate_change_determinant": "t**2",
+      "canonical_weights_D1": [
+        "0",
+        "1",
+        "0",
+        "p",
+        "-p"
+      ],
+      "canonical_weights_D2": [
+        "0",
+        "0",
+        "1",
+        "r",
+        "-r"
+      ],
+      "weight_substitution": {
+        "p": "alpha*t + 1",
+        "r": "beta*t - 1"
+      },
+      "canonical_quadric": "-H**2 + WW*ZZ",
+      "vertical_coefficient": "t*(gamma*t + 1)",
+      "full_polynomial_family": {
+        "(1, 2)": "t*x*y",
+        "(1, 3)": "beta*h*t*x + beta*t**2*x*z + beta*t*x**2 - h*x - t*x*z - x**2",
+        "(1, 4)": "-beta*h*t*x - beta*t**2*w*x - beta*t*x*y + h*x + t*w*x",
+        "(2, 3)": "-alpha*h*t*y - alpha*t**2*y*z - alpha*t*x*y - h*y - t*y*z",
+        "(2, 4)": "alpha*h*t*y + alpha*t**2*w*y + alpha*t*y**2 + h*y + t*w*y + y**2",
+        "(3, 4)": "-alpha*h*y - alpha*t*y*z - alpha*x*y + beta*h*x + beta*t*w*x + beta*x*y + gamma*h*t*w + gamma*h*t*z + gamma*h*x + gamma*h*y + gamma*t**2*w*z + gamma*t*w*x + gamma*t*y*z + gamma*x*y + h*w + h*z + t*w*z"
+      },
+      "all_ten_universal_raw_Jacobi_zero": true,
+      "no_negative_t_powers": true,
+      "actual_quintic": "h*x*y*(gamma*t + 1)*(h*t*w + h*t*z + h*x + h*y + t**2*w*z + t*w*x + t*y*z + x*y)",
+      "t_nonzero_quadric_rank": 3,
+      "rank4_open_condition": "t*(1+t*gamma) != 0",
+      "limit_source": {
+        "(1, 3)": "-h*x - x**2",
+        "(1, 4)": "h*x",
+        "(2, 3)": "-h*y",
+        "(2, 4)": "h*y + y**2",
+        "(3, 4)": "-alpha*h*y - alpha*x*y + beta*h*x + beta*x*y + gamma*h*x + gamma*h*y + gamma*x*y + h*w + h*z"
+      },
+      "limit_quadric": "h*x + h*y + x*y",
+      "limit_magnetic_terms": [
+        "-h*y - x*y",
+        "h*x + x*y",
+        "h*x + h*y + x*y"
+      ],
+      "anchor_bracket_coefficients": [
+        "-h",
+        "-h"
+      ],
+      "all_six_translation_coboundaries": [
+        "-h**2",
+        "0",
+        "y**2",
+        "-h**2",
+        "x**2",
+        "0"
+      ],
+      "translation_coboundary_rank": 3,
+      "full_magnetic_span_six_generators": [
+        "-h*y - x*y",
+        "h*x + x*y",
+        "h*x + h*y + x*y",
+        "h**2",
+        "x**2",
+        "y**2"
+      ],
+      "magnetic_coefficient_order": [
+        "h**2",
+        "h*x",
+        "h*y",
+        "x**2",
+        "x*y",
+        "y**2"
+      ],
+      "full_magnetic_span_matrix": [
+        [
+          "0",
+          "0",
+          "0",
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1",
+          "1",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "-1",
+          "0",
+          "1",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "-1",
+          "1",
+          "1",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "1"
+        ]
+      ],
+      "full_magnetic_span_determinant": "-1",
+      "all_six_magnetic_parameters_reached": true,
+      "seconds": 0.19945840800210135
+    }
+  ],
+  "classification_implication": "For t*(1+t*gamma) nonzero each family lies in the proved nonzero-residue rank3-quadric MPS support. Every magnetic R is a limit up to a projective fiber translation. Closedness of the finite MPS union covers both entire sources.",
+  "global_exhaustion_proved": false,
+  "input_sha256": {
+    "code/classification_three_hyperplanes_quadric_m23_mps.py": "4125c60ea1c73d8999c7ceb2609da7f1a8e61ee63d8f12307de5897f8943ad6e"
+  },
+  "producer_source": "#!/usr/bin/env python3\n\"\"\"Universal rank-three-quadric MPS degenerations for both remaining sources.\"\"\"\nimport argparse,hashlib,itertools,json,resource,time\nfrom pathlib import Path\nimport sympy as s\n\nROOT=Path(__file__).resolve().parents[1]\ndef encode(A):return {str(ij):str(A[ij])for ij in itertools.combinations(range(5),2)if A[ij]}\ndef main(output):\n    resource.setrlimit(resource.RLIMIT_CPU,(55,56));resource.setrlimit(resource.RLIMIT_AS,(1536*1024**2,1536*1024**2))\n    begun=time.monotonic();h,x,y,z,w=xx=s.symbols('h x y z w');t,alpha,beta,gamma=s.symbols('t alpha beta gamma')\n    records=[]\n    cases=[dict(case='m2_t1',A=h+y,B=x+y-h,sign=1,p0=-1,r0=2,b0=-2,\n                quadric=h*x+x*y+y*y,U=s.Matrix([x*(2*h+y),y*(h+y)]),\n                V=s.Matrix([x*(2*h-2*x-3*y),y*(h-y)]),c=y-2*h,d=2*h+y,\n                Ra=-x*y-2*y*y,Rb=h*x+x*y,Rg=-2*(h*x+x*y+y*y),cobbasis=[h*h,h*y,x*x+x*y]),\n           dict(case='m3_t0',A=h+x,B=h+y,sign=-1,p0=1,r0=-1,b0=1,\n                quadric=h*x+h*y+x*y,U=s.Matrix([-x*(h+x),-h*y]),\n                V=s.Matrix([h*x,y*(h+y)]),c=-h,d=-h,\n                Ra=-h*y-x*y,Rb=h*x+x*y,Rg=h*x+h*y+x*y,cobbasis=[h*h,x*x,y*y])]\n    for case in cases:\n        started=time.monotonic();A,B=case['A'],case['B'];Z=A+t*z;W=B+t*w\n        p=case['p0']+t*alpha;r=case['r0']+t*beta\n        D1=s.Matrix([0,x,0,(p*Z-x*s.diff(A,x))/t,(-p*W-x*s.diff(B,x))/t])\n        D2=s.Matrix([0,0,y,(r*Z-y*s.diff(A,y))/t,(-r*W-y*s.diff(B,y))/t])\n        Q=s.expand(Z*W+case['sign']*h*h)\n        P=t*(D1*D2.T-D2*D1.T);P[3,4]+=case['b0']*(1+t*gamma)*Q/t;P[4,3]=-P[3,4]\n        P=P.applyfunc(lambda f:s.expand(s.cancel(f)))\n        assert all(s.Poly(P[ij],*xx,t,alpha,beta,gamma).total_degree()>=0 for ij in itertools.combinations(range(5),2))\n        for i,j,k in itertools.combinations(range(5),3):\n            assert s.expand(sum(P[i,l]*s.diff(P[j,k],xx[l])+P[j,l]*s.diff(P[k,i],xx[l])+P[k,l]*s.diff(P[i,j],xx[l])for l in range(5)))==0\n        pf=s.expand(P[1,2]*P[3,4]-P[1,3]*P[2,4]+P[1,4]*P[2,3])\n        assert s.expand(pf-case['b0']*(1+t*gamma)*x*y*Q)==0\n        limit=P.subs(t,0);U,V=case['U'],case['V'];c,d=case['c'],case['d']\n        assert all(s.expand(a-b)==0 for a,b in [(limit[1,3],U[0]),(limit[2,3],U[1]),(limit[1,4],V[0]),(limit[2,4],V[1])])\n        R=alpha*case['Ra']+beta*case['Rb']+gamma*case['Rg']\n        assert s.expand(limit[3,4]+c*z+d*w-R)==0\n        bracket=V.jacobian([x,y])*U-U.jacobian([x,y])*V\n        assert (bracket-c*U-d*V).applyfunc(s.expand)==s.zeros(2,1)\n        assert s.expand(Q.subs(t,0)-case['quadric'])==0\n        base=(h,x,y);mons=[h*h,h*x,h*y,x*x,x*y,y*y]\n        cob=[s.expand(V[0]*s.diff(phi,x)+V[1]*s.diff(phi,y)+c*phi)for phi in base]\n        cob += [s.expand(d*psi-U[0]*s.diff(psi,x)-U[1]*s.diff(psi,y))for psi in base]\n        cobmatrix=s.Matrix([[s.Poly(f,*base).coeff_monomial(m)for f in cob]for m in mons]);assert cobmatrix.rank()==3\n        cobbasis=s.Matrix([[s.Poly(f,*base).coeff_monomial(m)for f in case['cobbasis']]for m in mons])\n        assert cobmatrix.row_join(cobbasis).rank()==3\n        six=[case['Ra'],case['Rb'],case['Rg'],*case['cobbasis']]\n        matrix=s.Matrix([[s.Poly(f,*base).coeff_monomial(m)for f in six]for m in mons]);determinant=matrix.det();assert determinant\n        T=s.Matrix([h,x,y,Z,W]).jacobian(xx);assert s.factor(T.det())==t*t\n        H,X,Y,ZZ,WW=s.symbols('H X Y ZZ WW');canonicalQ=ZZ*WW+case['sign']*H*H\n        assert (s.hessian(canonicalQ,(H,X,Y,ZZ,WW))/2).rank()==3\n        records.append(dict(case=case['case'],all_parameters=['t','alpha','beta','gamma'],\n            coordinate_change=[str(f)for f in [h,x,y,Z,W]],coordinate_change_determinant='t**2',\n            canonical_weights_D1=['0','1','0','p','-p'],canonical_weights_D2=['0','0','1','r','-r'],\n            weight_substitution={'p':str(p),'r':str(r)},canonical_quadric=str(canonicalQ),vertical_coefficient=str(case['b0']*t*(1+t*gamma)),\n            full_polynomial_family=encode(P),all_ten_universal_raw_Jacobi_zero=True,no_negative_t_powers=True,\n            actual_quintic=str(case['b0']*h*(1+t*gamma)*x*y*Q),t_nonzero_quadric_rank=3,\n            rank4_open_condition='t*(1+t*gamma) != 0',limit_source=encode(limit),limit_quadric=str(case['quadric']),\n            limit_magnetic_terms=list(map(str,[case['Ra'],case['Rb'],case['Rg']])),\n            anchor_bracket_coefficients=list(map(str,[c,d])),all_six_translation_coboundaries=list(map(str,cob)),\n            translation_coboundary_rank=3,full_magnetic_span_six_generators=list(map(str,six)),\n            magnetic_coefficient_order=list(map(str,mons)),full_magnetic_span_matrix=[[str(v)for v in matrix.row(i)]for i in range(6)],\n            full_magnetic_span_determinant=str(determinant),all_six_magnetic_parameters_reached=True,seconds=time.monotonic()-started))\n        print(json.dumps(dict(case=case['case'],all_passed=True,magnetic_determinant=str(determinant),seconds=time.monotonic()-started)),flush=True)\n    result=dict(task_id='E_reduced_nonnormal',all_passed=True,cases=records,\n        classification_implication='For t*(1+t*gamma) nonzero each family lies in the proved nonzero-residue rank3-quadric MPS support. Every magnetic R is a limit up to a projective fiber translation. Closedness of the finite MPS union covers both entire sources.',\n        global_exhaustion_proved=False,input_sha256={'code/classification_three_hyperplanes_quadric_m23_mps.py':hashlib.sha256(Path(__file__).read_bytes()).hexdigest()},\n        producer_source=Path(__file__).read_text(),seconds=time.monotonic()-begun)\n    with output.open('x')as handle:json.dump(result,handle,indent=2);handle.write('\\n')\nif __name__=='__main__':\n    ap=argparse.ArgumentParser();ap.add_argument('--output',type=Path,required=True);main(ap.parse_args().output)\n",
+  "seconds": 0.5018379260000074
+}

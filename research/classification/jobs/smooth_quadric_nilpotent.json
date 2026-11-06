@@ -1,0 +1,28 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "target_statement": "Derive all canonical quadratic lifts for each of the three nonzero nilpotent so5 normal-Hamiltonian types (5),(3,1,1),(2,2,1), retaining every residual Jacobi coefficient.",
+  "implication_to_classification": "For D=q*c with q smooth and c irreducible cubic, nonnilpotent normal-Hamiltonian types are covered or excluded. These three nilpotent types are the complete remaining orbit list; full150 linear sources give faithful finite models for each without a chosen-slice assumption.",
+  "coefficient_ring": "QQ[p0,...,p149,x0,...,x4], then the full free source parameters",
+  "hypotheses": "q is a specified nondegenerate invariant quadratic form; X=Nx runs through the three nonzero nilpotent so5 orbits. All150 homogeneous bivector coefficients, divP0, P#dq=qX, and [X,P]=0 are imposed.",
+  "inverted_elements": [
+    "nonzero Jordan normalization scalars"
+  ],
+  "complements": [
+    "X=0 is impossible for rank4 with independent factors q,c",
+    "singular irreducible q of rank3 or4 and other divisor degree partitions remain separate",
+    "Nonlinear residual source support is not exhausted merely by this linear computation"
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_smooth_quadric.py",
+      "sha256": "9ee7c6691c6072d5777261ed8c776b1401e96b33e52ccd109ff0ad8da7ce3a4c"
+    }
+  ],
+  "success_certificate": "Complete affine linear parametrization in all150 coefficients; all source identities and every residual Jacobi polynomial; Euler-contracted Pfaffian labelled as a candidate until Jacobi is imposed; embedded immutable producer.",
+  "independent_check": "Independent reconstruction of the finite source and geometric q-normal entrance before full support coverage.",
+  "resource_limit": {
+    "timeout_seconds": 60,
+    "memory_mb": 1536
+  },
+  "negative_result_next_step": "If a residual family is large, use its invariant geometry or restriction to the LPT quadric components with all extension fibers. No repeated dense Groebner or higher-jet runs."
+}

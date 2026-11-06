@@ -1,0 +1,28 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "target_statement": "Derive the complete eleven-parameter canonical lift for smooth q and semisimple normal Hamiltonian (0,0,0,1,-1), retaining all residual Jacobi equations. Solve all residual Jacobi for ell zero, nonisotropic and isotropic, the complete SO3 orbit cases, and compute actual divisors. Also derive the mixed case with a nonzero Jordan3 nilpotent part in the zero eigenspace, using an explicit canonical cofactor lift and all invariance equations.",
+  "implication_to_classification": "This is the remaining semisimple normal-Hamiltonian type for an actual divisor q*c with smooth q and irreducible cubic c, after the complete regular-type MPS coverage. Full linear-source completeness prevents a chosen-slice omission; residual support remains to solve.",
+  "coefficient_ring": "QQ[l0,l1,l2,m0,...,m7,x0,...,x4]",
+  "hypotheses": "q=x0^2+x1^2+x2^2+x3*x4; all canonical homogeneous quadratic coefficients; div(P)=0, P#dq=qX and [X,P]=0; X=diag(0,0,0,1,-1).",
+  "inverted_elements": [
+    "nonzero semisimple eigenvalue normalized to1"
+  ],
+  "complements": [
+    "All cases of semisimple zero3 block, including nonzero nilpotent part, are retained in this two-case computation; pure nilpotent types remain separate.",
+    "pure nilpotent types5,311,221",
+    "singular q and other actual divisor partitions"
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_smooth_quadric.py",
+      "sha256": "29c2bf3b451e7968ec6c034eaf841efd57b43c2b4e20b9c9028666cf238360c3"
+    }
+  ],
+  "success_certificate": "All invariant quadratic monomials; full affine linear constraint rank and augmentation rank; explicit11-source full rank and all linear identities; all ten Jacobi polynomials retained as coefficient constraints; immutable producer embedded. Exact affine matrix solves over QQ or QQ(i) in all three ell orbit types; all remaining Jacobi, full Pfaffian gradient and cubic factor on every resulting source. The explicit shift has divzero and q-cofactor N; complete affine invariant source after all [N,P]=0 equations; every residual Jacobi coefficient over QQ(i). Complete mixed Poisson source l1=-5i/3,m4=-1/3,m7 arbitrary; all Jacobi and actual divisor gradient; cubic factor always reducible.",
+  "independent_check": "Independent geometric reduction and all-source symbolic identities before a support conclusion. This run alone makes no component or coverage claim.",
+  "resource_limit": {
+    "timeout_seconds": 60,
+    "memory_mb": 768
+  },
+  "negative_result_next_step": "Express the remaining equations invariantly in the three-vector ell and the trace-minus-one matrix A; use Jordan classification and actual deformations, not an open-ended dense Groebner computation."
+}
