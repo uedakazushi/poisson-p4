@@ -34,6 +34,9 @@ tauは超越のままだがbetaと標数は固定しているため、成功し�
 Singular4.4.1と必要ライブラリをwork/native-cas/rootへ展開し、optimized moduleの読込みとstd smokeを確認した。
 ソースとhashはreports/CLASSIFICATION_NATIVE_ENV_20261106.json。M2は未導入。システムインストール・proxy迂回は行っていない。
 固定normal0のGF32003診断も305wall秒で未完了。直接SymPyGBを二回続けてもunitは得られず、このbackendの反復を停止した。
+native stdも315wall秒で未完了。全9257係数のQQ恒等式で元ideal内と確認したG6（固定点では790項）を加えてslimgbを使ったが、4GiBでは33秒、同じ式の12GiB評価でも約65秒で実メモリ上限に達した。
+最大16GiB環境で12GiBと2GiB以上のreserveを事前確認した。いずれもbasis・unit・nonunitは未決。NATIVE_FIXED_FIBER_SUPPORT.mdを参照し、同じ直接GBを自動反復しない。
+同じ固定T01のbetaではG28=671334843179656461002307382635849/9039207968、法32003で25057と正確に確認した。既知NEW25像だけは外れる。他の特殊像や一般性は未証明。
 別の構造的還元では全K16上の固定eta一つの135式へ移せるが、K5へ群変数を落とす橋は未証明。
 K5+tauを保持するか、全K16で係数を扱う。どちらのunitも未証明でありGをdoneにしない。
 

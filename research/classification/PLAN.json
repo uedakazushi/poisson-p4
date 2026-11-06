@@ -56,16 +56,18 @@
         "generic_circuit_review"
       ],
       "acceptance": "全42法線の根基所属等または未知残余の空性を証明し、適用底開・全分母・独立検証を明記する。新残余があれば分類計画を更新し、未解決のまま成功扱いしない。",
-      "first_step": "K5+超越tauの忠実chartでexact unitを求めるか、全K16上の固定eta=n0^J+n34^Jのunitを求める。後者の42spanは証明済みだがK5への非不変形式の輸送は未証明。SymPyGB二回は未完了で反復停止。",
+      "first_step": "直接GBはstd315wall、G6/slimgb4GiBと12GiBで未完了。自動再試行を止め、全crossから3plane変数を消す同値なnormal-only案のSOURCE/密化コスト、または全K16固定etaのK5輸送を検討する。どちらも支持空性やunit自体は未証明。",
       "fallback": "同経路の二回未決で支持幾何または境界経路に変更し、E0/Aも進める。",
-      "nonclosing_attempts": 2,
+      "nonclosing_attempts": 5,
       "proof": null,
       "review": null,
       "activation_reason": null,
-      "last_result": "reports/CLASSIFICATION_FIXED_NORMAL_PROBE_20261106/report.json",
+      "last_result": "reports/CLASSIFICATION_NATIVE_G6_SLIMGB12_FIXED_GF_20261106.json",
       "current_proof_reduction": "research/classification/GENERIC_NORMAL_CHART.md",
-      "route_change_reason": "Two directSymPy Groebner runs did not complete (55CPU and305wall seconds). Move to connectedSp4 covector-span support reduction and exact linear algebra, not more point/degree probes.",
-      "current_symmetry_reduction": "research/classification/SYMMETRY_FIXED_NORMAL_CHART.md"
+      "route_change_reason": "Two SymPy attempts and native std plus G6/slimgb4GiB/12GiB produced no completed basis. Last run reached actual12GiB address-space limit in16GiB cgroup. Require an ideal-preserving structural change or new geometric support proof, not another directGB/point/prime/budget replay.",
+      "current_symmetry_reduction": "research/classification/SYMMETRY_FIXED_NORMAL_CHART.md",
+      "direct_groebner_route_suspended": true,
+      "fixed_base_premise": "reports/CLASSIFICATION_FROZEN_T01_BETA_G28_20261106.json"
     },
     {
       "id": "E0",

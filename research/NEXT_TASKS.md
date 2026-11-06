@@ -20,7 +20,11 @@ C0とE0の有限準備は完了。主課題Gは未解決。
 全K16上の固定eta一つの135式判定はSYMMETRY_FIXED_NORMAL_CHART.mdにある。
 42軌道spanは独立証明済みだが、K5切片への非不変形式の輸送は未証明。群変数を無断で落とさない。
 現在は標準network権限によってSingular4.4.1をwork配下に用意できた。
-Native stdの300CPU/315wall/2GBジョブも未完了だった。次は既存G6帰結の厳密前処理とslimgbの別SOURCEを点検する。
+Native stdの300CPU/315wall/2GiBは未完了。G6帰結を加えたslimgbも4GiB、さらに同じ式の12GiBで実メモリ不足となった。
+この直接GBを自動再実行しない。NATIVE_FIXED_FIBER_SUPPORT.mdの入力・失敗範囲を読む。
+次は三plane変数を正確なcross関係から消すnormal-only案、またはK5への非不変形式の輸送を、元式との同値と実際の支持条件から検討する。
+normal-only化は43未知数になるがcubic/quarticの密化を招くので、まず有限SOURCEとコストを確認し、単に変数減少を進歩と数えない。
+同じ固定betaはG28からQQ・GF両方で外れることを確認済み。他の48proper像の除外やgeneric性は別問題。
 公開パッケージhashと起動環境はreports/CLASSIFICATION_NATIVE_ENV_20261106.json。
 
 Eではclassification/EXCEPTIONAL_BASE.mdの必要条件を使う。

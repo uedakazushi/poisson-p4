@@ -206,6 +206,34 @@
       "baseline_git_blob": null,
       "purpose": "現主原稿8頁PDFの組版・source/PDF hash・目視範囲",
       "review_scope": "built_and_visually_checked"
+    },
+    {
+      "id": "native_support",
+      "path": "code/classification_native_support.py",
+      "baseline_git_blob": null,
+      "purpose": "元134式+fixedetaとG6 exact帰結を保持するnative診断runner。unit未取得",
+      "review_scope": "source_and_independent_peer_checked"
+    },
+    {
+      "id": "native_memory_result",
+      "path": "reports/CLASSIFICATION_NATIVE_G6_SLIMGB12_FIXED_GF_20261106.json",
+      "baseline_git_blob": null,
+      "purpose": "12GiB実メモリ上限で未完了というresource証拠。数学的nonunitではない",
+      "review_scope": "bounded_run_completed_with_resource_failure"
+    },
+    {
+      "id": "frozen_base_g28",
+      "path": "reports/CLASSIFICATION_FROZEN_T01_BETA_G28_20261106.json",
+      "baseline_git_blob": null,
+      "purpose": "同じ固定betaがNEW25像から外れるQQ非零評価。一般性は主張しない",
+      "review_scope": "exact_QQ_run_with_independent_final_integer_contraction"
+    },
+    {
+      "id": "frozen_base_source",
+      "path": "reports/CLASSIFICATION_FROZEN_T01_G28_SOURCE_20261106.json",
+      "baseline_git_blob": null,
+      "purpose": "固定点評価の再現manifest。元producer bytesを保つ",
+      "review_scope": "hash_bound_source_manifest"
     }
   ],
   "external_sources": [
