@@ -6,6 +6,7 @@
 ## 開始と環境
 
 最初のCloud開始SHAは `4c3f623fb698f9adc6077015b25e2325b11072af`、
+この継続区間の開始SHAは `37d56e2afb3fd467401d395e39f9c34f32bae7b3`。
 11月7日研究再開のbaselineは `a00a541b835b2bff18bafcba545ecbd4bae7175b`。
 公開済み環境と `/workspace/cloud-setup/activate.sh`、既設 `.venv` を再利用した。
 Macaulay2はCloud1.24.11、元環境1.26.05。使用するQQ行列kernel/既定GBの互換小例を確認済み。
@@ -20,17 +21,21 @@ Singular実体は `work/nonsquare-v62/singular-runtime/prefix/usr/bin/Singular`�
 
 ## 数学と保存の境界
 
-現行個別下界は111（rank四105、rank二6）、主張台帳931。
-旧C45と新七平面quinticの全周囲23成分性・相違、全explicit source/cusp、全必要curve分類を別々に独立確認。
-**本質三変数の既約退化五次は八つの23成分による全点被覆まで完了。全G/E・全上界は未証明。**
-最新の義務・証明・未閉runは `classification/CURRENT.md`、選択順は `classification/PLAN.json`。
-全m二rank零plane、scalar/zero symbol、common-image、全smoothquadric等は受理済み。
-残るdependent高mの全例外、rank二cone/scroll/plane、canonical index二、Eのstable二源・markedquartic等を続ける。
-D5+tangentはsource23/D101/二次余核零で止めた。これを新成分又は高次計算成功に数えない。
+現行個別下界124（rank四118、rank二6）、主張台帳967。
+全essential三変数既約quinticは八23成分へ全被覆、μ六markedquarticは九新23成分を独立採録。
+D5cusptangent全源は旧A0、3A2cusptangent全源は旧DPMへactual全source認識済み。
+全rank零曲面支持のG非優越、全degree四/quadric rank二、plane m四全R等も完了。
+**全G/E・全上界は未証明。** 残るrank二plane m二三、cubicScroll/cone、degree五canonicalindex二、
+Eのstable二源、A5smoothhyperflex未知親、E6smoothflex未知親、他明示残支持を続ける。
+全globalT39/T40のS61判定同値をconnectedSp4＋globalGa4切断で独立確認し、
+既E6点を別Fraction再構成して両親の外と証明した。未知親/次元はそのまま残す。
 
-保存開始前の公開baseは `6ab28a327b64543ba0a7bf8cd302bea9def517e6`（104/916、187頁）。
-このbundleは111/931、主稿201頁、最終2pass/主要頁可視確認と依存完全性を検証した保存単位。実際のGitHub保存状態は、
-`git log`、`git status`、origin/mainと当該build receiptを確認する。
+直近の公開保存は `37d56e2afb3fd467401d395e39f9c34f32bae7b3`（111/931、201頁）。
+本保存単位は124/967、主稿225頁。受理済み全G閉鎖と十三markedquartic新成分を本文へ統合し、
+最終二回組版/全参照/主要頁可視及びpublic依存閉包を検証した。
+実際のGitHub保存状態は `git log`、`git status`、origin/mainとbuild receiptで確認する。
+最新の数学・残余は `classification/CURRENT.md` と `classification/PLAN.json` を使う。
+
 mainへの通常commit/pushはユーザーが明示許可済み。root統合担当だけがGit/大域台帳を編集する。
 Libraryはupload receipt無し。生成、検証、GitHub保存、Library保存を区別する。
 

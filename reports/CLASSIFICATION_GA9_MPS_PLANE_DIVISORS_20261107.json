@@ -1,0 +1,1451 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "all_passed": true,
+  "input_sha256": {
+    "code/classification_ga9_mps_plane_divisors.py": "c91db8d2dbda0deda8687e1791f97ba73ebfcdcdb79524fc0b6151d7bb43a9d7",
+    "reports/MPS_SMOOTHING_COMPLETION_20261103_v62/T36.json": "cbe11f21263e47cad99d372b6974588de115c71e105c11c9ce1d017dd628da06",
+    "reports/MPS_SMOOTHING_COMPLETION_20261103_v62/T37.json": "edc3782c7da1548e73380e1273cb4a87a2668d547dc8196cfa4c11484f7ced74",
+    "reports/MPS_SMOOTHING_COMPLETION_20261103_v62/T38.json": "db24958e3a1900ea45c6171fbf48cdc96ad3e02957f622769ad70fdf2d41e513"
+  },
+  "producer_bytes": "#!/usr/bin/env python3\n\"\"\"Exact divisor restrictions on finite explicit Lagrangian-plane families.\nAll sourceperiod/smoothing=1 tensors represent denseopenPGLorbits ofT36-38.\nNo exhaustive Grassmann assertion is made for omitted nonrational curves.\n\"\"\"\nfrom pathlib import Path\nimport hashlib,itertools,json,time\nimport sympy as s\nROOT=Path(__file__).resolve().parents[1]\ndef main():\n started=time.monotonic();xs=s.symbols('x0:5');base=s.symbols('A B C');t,u,v=s.symbols('t u v');order=[0,3,4,1,2];records=[];inputs=[Path(__file__)]\n cases={\n 'T36':[(\"012\",'main',[0,t,-t*u/5,0,u,-25/t]),(\"013\",'prime1',[-3*t*t/100,-10/t,3*t**4/2000,t,0]),(\"013\",'prime2',[0,t,0,u,(t*u-5)/(5*t**3)]),(\"014\",'prime1',[0,t,0,-5*t*t]),(\"014\",'prime2',[3*t**3,t,15*t**4,10*t*t]),(\"014\",'prime3',[0,0,t,u]),(\"023\",'main',[0,t,u,0]),(\"034\",'axis1',[t,0]),(\"034\",'axis2',[0,t]),(\"134\",'main',[t]),(\"234\",'point',[])],\n 'T38':[(\"012\",'main',[0,t,u,0,-2*u/t,-4/t]),(\"013\",'prime1',[-1/(2*t),1/t**2,u,v,t]),(\"013\",'prime2',[0,t,0,u,(t*u-2)/(2*t**3)]),(\"014\",'prime1',[0,t,0,-2*t*t]),(\"014\",'prime2',[0,0,t,u]),(\"023\",'main',[0,t,u,0]),(\"034\",'main',[t,u]),(\"134\",'main',[t]),(\"234\",'point',[])],\n 'T37':[(\"034\",'main',[t,-1/(4*t)]),(\"134\",'main',[t]),(\"234\",'point',[]),(\"013\",'prime1',[-(t**5+1)/(2*t**2),t,(t**5+1)**2/(12*t**4),-(t**5+1)/(3*t),-t*t])]\n }\n # The second rationalcurve in cell013, derived directly from the smalloriginalGB.\n a4=t;a2=(3-t**5)/(12*t*t);a1=s.cancel((t**3+12*a2)/3);a0=s.cancel((a1*t*t+1)/(2*t));a3=s.cancel((-6*a0**3+a1*a1*t+6*a1*a2*t+18*a0*a2+t*t)/(3*a0*t));cases['T37'].append(('013','prime2',[a0,a1,a2,a3,t]))\n for name in ['T36','T37','T38']:\n  path=ROOT/f'reports/MPS_SMOOTHING_COMPLETION_20261103_v62/{name}.json';inputs.append(path);source=json.loads(path.read_text());env=dict(zip(map(str,xs),xs));env.update({'p0':1,**{'t'+str(i):1 for i in range(4)}});P=s.zeros(5)\n  for ij,f in source['homogeneous_bivector'].items():\n   i,j=map(int,ij.split(','));P[i,j]=s.sympify(f,locals=env);P[j,i]=-P[i,j]\n  pf=[]\n  for missing in range(5):\n   i,j,k,l=[a for a in range(5)if a!=missing];pf.append((-1)**missing*(P[i,j]*P[k,l]-P[i,k]*P[j,l]+P[i,l]*P[j,k]))\n  D=s.expand(sum(xs[i]*pf[i]for i in range(5)))\n  for label,branch,params in cases[name]:\n   pivot=list(map(int,label));M=s.zeros(5,3);count=0\n   for c,r in enumerate(pivot):M[order[r],c]=1\n   for r in range(5):\n    if r in pivot:continue\n    for c,pivotrow in enumerate(pivot):\n     if r>pivotrow:M[order[r],c]=params[count];count+=1\n   assert count==len(params);normals=[]\n   for r in range(5):\n    if r in pivot:continue\n    n=s.zeros(5,1);n[order[r]]=1\n    for c,pivotrow in enumerate(pivot):n[order[pivotrow]]=-M[order[r],c]\n    normals.append(n)\n   sub=dict(zip(xs,M*s.Matrix(base)));lag=s.Poly((normals[0].T*P*normals[1])[0].subs(sub,simultaneous=True),*base);assert all(s.cancel(a)==0 for a in lag.coeffs()),(name,label,branch,lag)\n   restriction=s.cancel(D.subs(sub,simultaneous=True));co,factors=s.factor_list(restriction,*base);data=[dict(factor=str(f),multiplicity=int(m),degree=int(s.Poly(f,*base).total_degree()))for f,m in factors];degrees=sorted([q['degree']for q in data for _ in range(q['multiplicity'])]);assert s.cancel(restriction-co*s.prod(f**m for f,m in factors))==0\n   row=dict(component=name,cell=label,branch=branch,parameters=sorted(str(a)for a in set().union(*(a.free_symbols if hasattr(a,'free_symbols')else set()for a in params))),plane_matrix=[[str(a)for a in rr]for rr in M.tolist()],exact_Lagrangian_identity=True,restricted_actual_quintic=str(restriction),factor_coefficient=str(co),factors=data,degrees=degrees,possible_Ga9_irreducible_quartic=degrees==[1,4]);records.append(row);print(name,label,branch,degrees,round(time.monotonic()-started,3),flush=True)\n result=dict(task_id='E_reduced_nonnormal',all_passed=True,input_sha256={str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest()for p in inputs},producer_bytes=Path(__file__).read_text(),explicit_families=records,scope='Exact generic divisor restrictions for the listed explicitLagrangianplane families. A positiveH+irreducquartic candidate is necessaryforuniform2normal scaling withGa9endpoint. No exhaustiveGrassmannor MPSnonmembership claim; T37cell012 nonrationalcurve not included.',possible_Ga9_families=[dict(component=r['component'],cell=r['cell'],branch=r['branch'])for r in records if r['possible_Ga9_irreducible_quartic']],seconds=time.monotonic()-started)\n out=ROOT/'reports/CLASSIFICATION_GA9_MPS_PLANE_DIVISORS_20261107.json'\n if out.exists():raise FileExistsError(str(out))\n out.write_text(json.dumps(result,indent=2)+'\\n');print('PASS',result['seconds'])\nif __name__=='__main__':main()\n",
+  "explicit_families": [
+    {
+      "component": "T36",
+      "cell": "012",
+      "branch": "main",
+      "parameters": [
+        "t",
+        "u"
+      ],
+      "plane_matrix": [
+        [
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "t",
+          "-t*u/5"
+        ],
+        [
+          "0",
+          "u",
+          "-25/t"
+        ],
+        [
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1"
+        ]
+      ],
+      "exact_Lagrangian_identity": true,
+      "restricted_actual_quintic": "(-75*A*B**4*t**2 + 30*A*B**3*C*t**2*u - 3*A*B**2*C**2*t**2*u**2 - 750*A*B**2*C**2*t + 150*A*B*C**3*t*u - 1875*A*C**4 - 125*B**5*t + 25*B**4*C*t*u - 625*B**3*C**2 - 25*B**2*C**3*t**2 + 5*B*C**4*t**2*u - 125*C**5*t)/(125*t)",
+      "factor_coefficient": "-1/(125*t)",
+      "factors": [
+        {
+          "factor": "5*B**2*t - B*C*t*u + 25*C**2",
+          "multiplicity": 1,
+          "degree": 2
+        },
+        {
+          "factor": "15*A*B**2*t - 3*A*B*C*t*u + 75*A*C**2 + 25*B**3 + 5*C**3*t",
+          "multiplicity": 1,
+          "degree": 3
+        }
+      ],
+      "degrees": [
+        2,
+        3
+      ],
+      "possible_Ga9_irreducible_quartic": false
+    },
+    {
+      "component": "T36",
+      "cell": "013",
+      "branch": "prime1",
+      "parameters": [
+        "t"
+      ],
+      "plane_matrix": [
+        [
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1"
+        ],
+        [
+          "3*t**4/2000",
+          "t",
+          "0"
+        ],
+        [
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "-3*t**2/100",
+          "-10/t",
+          "0"
+        ]
+      ],
+      "exact_Lagrangian_identity": true,
+      "restricted_actual_quintic": "(-9*A**2*B**3*t**11 + 900000*A**2*B**3*t**6 - 9000*A*B**4*t**8 + 600000000*A*B**4*t**3 - 3000000*B**5*t**5 + 100000000000*B**5 + 200000000*B**4*C*t**2)/(1000000*t**5)",
+      "factor_coefficient": "-1/(1000000*t**5)",
+      "factors": [
+        {
+          "factor": "B",
+          "multiplicity": 3,
+          "degree": 1
+        },
+        {
+          "factor": "A**2*(9*t**11 - 900000*t**6) + A*B*(9000*t**8 - 600000000*t**3) + B**2*(3000000*t**5 - 100000000000) - 200000000*B*C*t**2",
+          "multiplicity": 1,
+          "degree": 2
+        }
+      ],
+      "degrees": [
+        1,
+        1,
+        1,
+        2
+      ],
+      "possible_Ga9_irreducible_quartic": false
+    },
+    {
+      "component": "T36",
+      "cell": "013",
+      "branch": "prime2",
+      "parameters": [
+        "t",
+        "u"
+      ],
+      "plane_matrix": [
+        [
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "u",
+          "(t*u - 5)/(5*t**3)"
+        ],
+        [
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "t",
+          "0"
+        ]
+      ],
+      "exact_Lagrangian_identity": true,
+      "restricted_actual_quintic": "(75*A*B**4*t**5*u - 375*A*B**4*t**4 + 30*A*B**3*C*t**3*u - 150*A*B**3*C*t**2 + 3*A*B**2*C**2*t*u - 15*A*B**2*C**2 - 125*B**5*t**7 + 25*B**5*t**3*u - 125*B**5*t**2 - 25*B**4*C*t**5 + 5*B**4*C*t*u - 25*B**4*C)/(125*t**2)",
+      "factor_coefficient": "1/(125*t**2)",
+      "factors": [
+        {
+          "factor": "5*B*t**2 + C",
+          "multiplicity": 1,
+          "degree": 1
+        },
+        {
+          "factor": "B",
+          "multiplicity": 2,
+          "degree": 1
+        },
+        {
+          "factor": "A*B*(15*t**3*u - 75*t**2) + A*C*(3*t*u - 15) + B**2*(-25*t**5 + 5*t*u - 25)",
+          "multiplicity": 1,
+          "degree": 2
+        }
+      ],
+      "degrees": [
+        1,
+        1,
+        1,
+        2
+      ],
+      "possible_Ga9_irreducible_quartic": false
+    },
+    {
+      "component": "T36",
+      "cell": "014",
+      "branch": "prime1",
+      "parameters": [
+        "t"
+      ],
+      "plane_matrix": [
+        [
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "-5*t**2",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "t",
+          "0"
+        ]
+      ],
+      "exact_Lagrangian_identity": true,
+      "restricted_actual_quintic": "-B**5 + B**4*C*t/5",
+      "factor_coefficient": "-1/5",
+      "factors": [
+        {
+          "factor": "5*B - C*t",
+          "multiplicity": 1,
+          "degree": 1
+        },
+        {
+          "factor": "B",
+          "multiplicity": 4,
+          "degree": 1
+        }
+      ],
+      "degrees": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "possible_Ga9_irreducible_quartic": false
+    },
+    {
+      "component": "T36",
+      "cell": "014",
+      "branch": "prime2",
+      "parameters": [
+        "t"
+      ],
+      "plane_matrix": [
+        [
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "15*t**4",
+          "10*t**2",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "3*t**3",
+          "t",
+          "0"
+        ]
+      ],
+      "exact_Lagrangian_identity": true,
+      "restricted_actual_quintic": "-243*A**5*t**15 - 486*A**4*B*t**13 + 81*A**4*C*t**9/5 - 405*A**3*B**2*t**11 - 27*A**3*B**2*t**6 + 108*A**3*B*C*t**7/5 - 171*A**2*B**3*t**9 - 27*A**2*B**3*t**4 + 54*A**2*B**2*C*t**5/5 - 36*A*B**4*t**7 - 9*A*B**4*t**2 + 12*A*B**3*C*t**3/5 - 3*B**5*t**5 - B**5 + B**4*C*t/5",
+      "factor_coefficient": "-1/5",
+      "factors": [
+        {
+          "factor": "3*A*t**2 + B",
+          "multiplicity": 3,
+          "degree": 1
+        },
+        {
+          "factor": "45*A**2*t**9 + 45*A*B*t**7 - 3*A*C*t**3 + B**2*(15*t**5 + 5) - B*C*t",
+          "multiplicity": 1,
+          "degree": 2
+        }
+      ],
+      "degrees": [
+        1,
+        1,
+        1,
+        2
+      ],
+      "possible_Ga9_irreducible_quartic": false
+    },
+    {
+      "component": "T36",
+      "cell": "014",
+      "branch": "prime3",
+      "parameters": [
+        "t",
+        "u"
+      ],
+      "plane_matrix": [
+        [
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "t",
+          "u",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "exact_Lagrangian_identity": true,
+      "restricted_actual_quintic": "-3*A**2*B**3*t/5 - 3*A*B**4*u/5 - B**5",
+      "factor_coefficient": "-1/5",
+      "factors": [
+        {
+          "factor": "B",
+          "multiplicity": 3,
+          "degree": 1
+        },
+        {
+          "factor": "3*A**2*t + 3*A*B*u + 5*B**2",
+          "multiplicity": 1,
+          "degree": 2
+        }
+      ],
+      "degrees": [
+        1,
+        1,
+        1,
+        2
+      ],
+      "possible_Ga9_irreducible_quartic": false
+    },
+    {
+      "component": "T36",
+      "cell": "023",
+      "branch": "main",
+      "parameters": [
+        "t",
+        "u"
+      ],
+      "plane_matrix": [
+        [
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1"
+        ],
+        [
+          "t",
+          "u",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1",
+          "0"
+        ]
+      ],
+      "exact_Lagrangian_identity": true,
+      "restricted_actual_quintic": "3*A**2*B**3*t/5 + 3*A*B**4*u/5 - B**5",
+      "factor_coefficient": "1/5",
+      "factors": [
+        {
+          "factor": "B",
+          "multiplicity": 3,
+          "degree": 1
+        },
+        {
+          "factor": "3*A**2*t + 3*A*B*u - 5*B**2",
+          "multiplicity": 1,
+          "degree": 2
+        }
+      ],
+      "degrees": [
+        1,
+        1,
+        1,
+        2
+      ],
+      "possible_Ga9_irreducible_quartic": false
+    },
+    {
+      "component": "T36",
+      "cell": "034",
+      "branch": "axis1",
+      "parameters": [
+        "t"
+      ],
+      "plane_matrix": [
+        [
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1"
+        ],
+        [
+          "t",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "exact_Lagrangian_identity": true,
+      "restricted_actual_quintic": "-A**5*t**5 - 3*A**4*B*t**3/5",
+      "factor_coefficient": "-t**3/5",
+      "factors": [
+        {
+          "factor": "5*A*t**2 + 3*B",
+          "multiplicity": 1,
+          "degree": 1
+        },
+        {
+          "factor": "A",
+          "multiplicity": 4,
+          "degree": 1
+        }
+      ],
+      "degrees": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "possible_Ga9_irreducible_quartic": false
+    },
+    {
+      "component": "T36",
+      "cell": "034",
+      "branch": "axis2",
+      "parameters": [
+        "t"
+      ],
+      "plane_matrix": [
+        [
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "t",
+          "0",
+          "0"
+        ]
+      ],
+      "exact_Lagrangian_identity": true,
+      "restricted_actual_quintic": "-A**5*t**5 + 3*A**4*C*t**3/5",
+      "factor_coefficient": "-t**3/5",
+      "factors": [
+        {
+          "factor": "5*A*t**2 - 3*C",
+          "multiplicity": 1,
+          "degree": 1
+        },
+        {
+          "factor": "A",
+          "multiplicity": 4,
+          "degree": 1
+        }
+      ],
+      "degrees": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "possible_Ga9_irreducible_quartic": false
+    },
+    {
+      "component": "T36",
+      "cell": "134",
+      "branch": "main",
+      "parameters": [
+        "t"
+      ],
+      "plane_matrix": [
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1"
+        ],
+        [
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "t",
+          "0",
+          "0"
+        ]
+      ],
+      "exact_Lagrangian_identity": true,
+      "restricted_actual_quintic": "-A**5*t**5 - A**5 - A**4*B*t**3/5 + A**4*C*t/5",
+      "factor_coefficient": "-1/5",
+      "factors": [
+        {
+          "factor": "A*(5*t**5 + 5) + B*t**3 - C*t",
+          "multiplicity": 1,
+          "degree": 1
+        },
+        {
+          "factor": "A",
+          "multiplicity": 4,
+          "degree": 1
+        }
+      ],
+      "degrees": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "possible_Ga9_irreducible_quartic": false
+    },
+    {
+      "component": "T36",
+      "cell": "234",
+      "branch": "point",
+      "parameters": [],
+      "plane_matrix": [
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "1",
+          "0",
+          "0"
+        ]
+      ],
+      "exact_Lagrangian_identity": true,
+      "restricted_actual_quintic": "-A**5",
+      "factor_coefficient": "-1",
+      "factors": [
+        {
+          "factor": "A",
+          "multiplicity": 5,
+          "degree": 1
+        }
+      ],
+      "degrees": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "possible_Ga9_irreducible_quartic": false
+    },
+    {
+      "component": "T37",
+      "cell": "034",
+      "branch": "main",
+      "parameters": [
+        "t"
+      ],
+      "plane_matrix": [
+        [
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1"
+        ],
+        [
+          "t",
+          "0",
+          "0"
+        ],
+        [
+          "-1/(4*t)",
+          "0",
+          "0"
+        ]
+      ],
+      "exact_Lagrangian_identity": true,
+      "restricted_actual_quintic": "(-1024*A**5*t**10 + 64*A**5*t**5 - A**5 - 6144*A**4*B*t**8 + 192*A**4*B*t**3 - 3072*A**4*C*t**7 + 96*A**4*C*t**2 - 9216*A**3*B**2*t**6 - 9216*A**3*B*C*t**5 - 2304*A**3*C**2*t**4)/(3072*t**5)",
+      "factor_coefficient": "-1/(3072*t**5)",
+      "factors": [
+        {
+          "factor": "A*(32*t**5 - 1) + 96*B*t**3 + 48*C*t**2",
+          "multiplicity": 2,
+          "degree": 1
+        },
+        {
+          "factor": "A",
+          "multiplicity": 3,
+          "degree": 1
+        }
+      ],
+      "degrees": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "possible_Ga9_irreducible_quartic": false
+    },
+    {
+      "component": "T37",
+      "cell": "134",
+      "branch": "main",
+      "parameters": [
+        "t"
+      ],
+      "plane_matrix": [
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1"
+        ],
+        [
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "t",
+          "0",
+          "0"
+        ]
+      ],
+      "exact_Lagrangian_identity": true,
+      "restricted_actual_quintic": "A**5*t**5/3 - A**5/3 - 2*A**4*B*t**3 + 2*A**4*C*t",
+      "factor_coefficient": "1/3",
+      "factors": [
+        {
+          "factor": "A*(t**5 - 1) - 6*B*t**3 + 6*C*t",
+          "multiplicity": 1,
+          "degree": 1
+        },
+        {
+          "factor": "A",
+          "multiplicity": 4,
+          "degree": 1
+        }
+      ],
+      "degrees": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "possible_Ga9_irreducible_quartic": false
+    },
+    {
+      "component": "T37",
+      "cell": "234",
+      "branch": "point",
+      "parameters": [],
+      "plane_matrix": [
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "1",
+          "0",
+          "0"
+        ]
+      ],
+      "exact_Lagrangian_identity": true,
+      "restricted_actual_quintic": "A**5/3",
+      "factor_coefficient": "1/3",
+      "factors": [
+        {
+          "factor": "A",
+          "multiplicity": 5,
+          "degree": 1
+        }
+      ],
+      "degrees": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "possible_Ga9_irreducible_quartic": false
+    },
+    {
+      "component": "T37",
+      "cell": "013",
+      "branch": "prime1",
+      "parameters": [
+        "t"
+      ],
+      "plane_matrix": [
+        [
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1"
+        ],
+        [
+          "(t**5 + 1)**2/(12*t**4)",
+          "(-t**5 - 1)/(3*t)",
+          "-t**2"
+        ],
+        [
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "(-t**5 - 1)/(2*t**2)",
+          "t",
+          "0"
+        ]
+      ],
+      "exact_Lagrangian_identity": true,
+      "restricted_actual_quintic": "(A**5*t**6 - 6*A**4*B*t**9 - 6*A**4*B*t**4 + 12*A**3*B**2*t**12 + 36*A**3*B**2*t**7 + 12*A**3*B**2*t**2 - 144*A**3*C**2*t**13 - 8*A**2*B**3*t**15 - 72*A**2*B**3*t**10 - 72*A**2*B**3*t**5 - 8*A**2*B**3 - 96*A**2*B**2*C*t**13 + 576*A**2*B*C**2*t**11 + 32*A*B**4*t**13 + 144*A*B**4*t**8 + 48*A*B**4*t**3 + 384*A*B**3*C*t**11 - 576*A*B**2*C**2*t**9 - 32*B**5*t**11 - 96*B**5*t**6 - 384*B**4*C*t**9)/(96*t**6)",
+      "factor_coefficient": "1/(96*t**6)",
+      "factors": [
+        {
+          "factor": "A*t**2 - 2*B",
+          "multiplicity": 2,
+          "degree": 1
+        },
+        {
+          "factor": "A**3*t**2 + A**2*B*(-6*t**5 - 2) + A*B**2*(12*t**8 + 12*t**3) - 144*A*C**2*t**9 + B**3*(-8*t**11 - 24*t**6) - 96*B**2*C*t**9",
+          "multiplicity": 1,
+          "degree": 3
+        }
+      ],
+      "degrees": [
+        1,
+        1,
+        3
+      ],
+      "possible_Ga9_irreducible_quartic": false
+    },
+    {
+      "component": "T37",
+      "cell": "013",
+      "branch": "prime2",
+      "parameters": [
+        "t"
+      ],
+      "plane_matrix": [
+        [
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1"
+        ],
+        [
+          "(3 - t**5)/(12*t**2)",
+          "(1 - t**5)/(3*t**3)",
+          "t"
+        ],
+        [
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "1/t",
+          "t**(-2)",
+          "0"
+        ]
+      ],
+      "exact_Lagrangian_identity": true,
+      "restricted_actual_quintic": "(2*A**5*t**15 + 5*A**5*t**10 + 2*A**5*t**5 + 18*A**4*B*t**14 + 48*A**4*B*t**9 + 18*A**4*B*t**4 - 36*A**4*C*t**13 - 36*A**4*C*t**8 + 52*A**3*B**2*t**13 + 176*A**3*B**2*t**8 + 64*A**3*B**2*t**3 - 240*A**3*B*C*t**12 - 240*A**3*B*C*t**7 + 144*A**3*C**2*t**11 + 32*A**2*B**3*t**12 + 304*A**2*B**3*t**7 + 112*A**2*B**3*t**2 - 480*A**2*B**2*C*t**11 - 576*A**2*B**2*C*t**6 + 576*A**2*B*C**2*t**10 - 80*A*B**4*t**11 + 240*A*B**4*t**6 + 96*A*B**4*t - 192*A*B**3*C*t**10 - 576*A*B**3*C*t**5 + 576*A*B**2*C**2*t**9 - 96*B**5*t**10 + 64*B**5*t**5 + 32*B**5 + 192*B**4*C*t**9 - 192*B**4*C*t**4)/(96*t**10)",
+      "factor_coefficient": "1/(96*t**10)",
+      "factors": [
+        {
+          "factor": "A*(2*t**6 + t) + B*(6*t**5 + 2) - 12*C*t**4",
+          "multiplicity": 1,
+          "degree": 1
+        },
+        {
+          "factor": "A*t + 2*B",
+          "multiplicity": 2,
+          "degree": 1
+        },
+        {
+          "factor": "A**2*(t**7 + 2*t**2) + A*B*(2*t**6 + 6*t) - 12*A*C*t**5 + B**2*(4 - 4*t**5)",
+          "multiplicity": 1,
+          "degree": 2
+        }
+      ],
+      "degrees": [
+        1,
+        1,
+        1,
+        2
+      ],
+      "possible_Ga9_irreducible_quartic": false
+    },
+    {
+      "component": "T38",
+      "cell": "012",
+      "branch": "main",
+      "parameters": [
+        "t",
+        "u"
+      ],
+      "plane_matrix": [
+        [
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "t",
+          "u"
+        ],
+        [
+          "0",
+          "-2*u/t",
+          "-4/t"
+        ],
+        [
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1"
+        ]
+      ],
+      "exact_Lagrangian_identity": true,
+      "restricted_actual_quintic": "(-A*B**4*t**3 - 2*A*B**3*C*t**2*u - 4*A*B**2*C**2*t**2 - A*B**2*C**2*t*u**2 - 4*A*B*C**3*t*u - 4*A*C**4*t + 4*B**5*t**2 - B**4*C*t**4 + 8*B**4*C*t*u - 2*B**3*C**2*t**3*u + 16*B**3*C**2*t + 4*B**3*C**2*u**2 - 4*B**2*C**3*t**3 - B**2*C**3*t**2*u**2 + 16*B**2*C**3*u - 4*B*C**4*t**2*u + 16*B*C**4 - 4*C**5*t**2)/(2*t**2)",
+      "factor_coefficient": "-1/(2*t**2)",
+      "factors": [
+        {
+          "factor": "B**2*t + B*C*u + 2*C**2",
+          "multiplicity": 2,
+          "degree": 2
+        },
+        {
+          "factor": "A*t - 4*B + C*t**2",
+          "multiplicity": 1,
+          "degree": 1
+        }
+      ],
+      "degrees": [
+        1,
+        2,
+        2
+      ],
+      "possible_Ga9_irreducible_quartic": false
+    },
+    {
+      "component": "T38",
+      "cell": "013",
+      "branch": "prime1",
+      "parameters": [
+        "t",
+        "u",
+        "v"
+      ],
+      "plane_matrix": [
+        [
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1"
+        ],
+        [
+          "u",
+          "v",
+          "t"
+        ],
+        [
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "-1/(2*t)",
+          "t**(-2)",
+          "0"
+        ]
+      ],
+      "exact_Lagrangian_identity": true,
+      "restricted_actual_quintic": "(-A**5*t**7*u + A**5*t**5 + 2*A**4*B*t**8*u**2 - A**4*B*t**7*v + 6*A**4*B*t**6*u - 10*A**4*B*t**4 - A**4*C*t**8 + 4*A**3*B**2*t**8*u*v - 4*A**3*B**2*t**8 - 8*A**3*B**2*t**7*u**2 + 6*A**3*B**2*t**6*v - 12*A**3*B**2*t**5*u + 40*A**3*B**2*t**3 + 2*A**3*B*C*t**9*u + 10*A**3*B*C*t**7 + 16*A**2*B**3*t**9*u + 2*A**2*B**3*t**8*v**2 - 16*A**2*B**3*t**7*u*v + 16*A**2*B**3*t**7 + 8*A**2*B**3*t**6*u**2 - 12*A**2*B**3*t**5*v + 8*A**2*B**3*t**4*u - 80*A**2*B**3*t**2 + 2*A**2*B**2*C*t**9*v - 12*A**2*B**2*C*t**8*u - 36*A**2*B**2*C*t**6 + 16*A*B**4*t**9*v - 32*A*B**4*t**8*u - 8*A*B**4*t**7*v**2 + 16*A*B**4*t**6*u*v - 16*A*B**4*t**6 + 8*A*B**4*t**4*v + 80*A*B**4*t + 8*A*B**3*C*t**10 - 12*A*B**3*C*t**8*v + 16*A*B**3*C*t**7*u + 56*A*B**3*C*t**5 + 32*B**5*t**10 - 32*B**5*t**8*v + 8*B**5*t**6*v**2 - 32*B**5 - 32*B**4*C*t**9 + 16*B**4*C*t**7*v - 32*B**4*C*t**4)/(16*t**10)",
+      "factor_coefficient": "-1/(16*t**10)",
+      "factors": [
+        {
+          "factor": "A**2*(t**4*u - t**2) + A*B*(t**4*v - 2*t**3*u + 4*t) + A*C*t**5 + B**2*(4*t**5 - 2*t**3*v - 4) - 4*B*C*t**4",
+          "multiplicity": 1,
+          "degree": 2
+        },
+        {
+          "factor": "A**3*t**3 + A**2*B*(-2*t**4*u - 6*t**2) + A*B**2*(-2*t**4*v + 4*t**3*u + 12*t) + B**3*(-8*t**5 + 4*t**3*v - 8)",
+          "multiplicity": 1,
+          "degree": 3
+        }
+      ],
+      "degrees": [
+        2,
+        3
+      ],
+      "possible_Ga9_irreducible_quartic": false
+    },
+    {
+      "component": "T38",
+      "cell": "013",
+      "branch": "prime2",
+      "parameters": [
+        "t",
+        "u"
+      ],
+      "plane_matrix": [
+        [
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "u",
+          "(t*u - 2)/(2*t**3)"
+        ],
+        [
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "t",
+          "0"
+        ]
+      ],
+      "exact_Lagrangian_identity": true,
+      "restricted_actual_quintic": "(4*A*B**4*t**7*u - 8*A*B**4*t**6 + 4*A*B**3*C*t**5*u - 8*A*B**3*C*t**4 + A*B**2*C**2*t**3*u - 2*A*B**2*C**2*t**2 - 16*B**5*t**9 + 4*B**5*t**6*u**2 - 16*B**5*t**5*u + 16*B**5*t**4 - 16*B**4*C*t**7 + 4*B**4*C*t**4*u**2 - 16*B**4*C*t**3*u + 16*B**4*C*t**2 - 4*B**3*C**2*t**5 + B**3*C**2*t**2*u**2 - 4*B**3*C**2*t*u + 4*B**3*C**2)/(8*t**4)",
+      "factor_coefficient": "1/(8*t**4)",
+      "factors": [
+        {
+          "factor": "B",
+          "multiplicity": 2,
+          "degree": 1
+        },
+        {
+          "factor": "2*B*t**2 + C",
+          "multiplicity": 2,
+          "degree": 1
+        },
+        {
+          "factor": "A*(t**3*u - 2*t**2) + B*(-4*t**5 + t**2*u**2 - 4*t*u + 4)",
+          "multiplicity": 1,
+          "degree": 1
+        }
+      ],
+      "degrees": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "possible_Ga9_irreducible_quartic": false
+    },
+    {
+      "component": "T38",
+      "cell": "014",
+      "branch": "prime1",
+      "parameters": [
+        "t"
+      ],
+      "plane_matrix": [
+        [
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "-2*t**2",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "t",
+          "0"
+        ]
+      ],
+      "exact_Lagrangian_identity": true,
+      "restricted_actual_quintic": "2*B**5 - 2*B**4*C*t + B**3*C**2*t**2/2",
+      "factor_coefficient": "1/2",
+      "factors": [
+        {
+          "factor": "2*B - C*t",
+          "multiplicity": 2,
+          "degree": 1
+        },
+        {
+          "factor": "B",
+          "multiplicity": 3,
+          "degree": 1
+        }
+      ],
+      "degrees": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "possible_Ga9_irreducible_quartic": false
+    },
+    {
+      "component": "T38",
+      "cell": "014",
+      "branch": "prime2",
+      "parameters": [
+        "t",
+        "u"
+      ],
+      "plane_matrix": [
+        [
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "t",
+          "u",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "exact_Lagrangian_identity": true,
+      "restricted_actual_quintic": "-A**2*B**3*t/2 - A*B**4*u/2 + 2*B**5",
+      "factor_coefficient": "-1/2",
+      "factors": [
+        {
+          "factor": "B",
+          "multiplicity": 3,
+          "degree": 1
+        },
+        {
+          "factor": "A**2*t + A*B*u - 4*B**2",
+          "multiplicity": 1,
+          "degree": 2
+        }
+      ],
+      "degrees": [
+        1,
+        1,
+        1,
+        2
+      ],
+      "possible_Ga9_irreducible_quartic": false
+    },
+    {
+      "component": "T38",
+      "cell": "023",
+      "branch": "main",
+      "parameters": [
+        "t",
+        "u"
+      ],
+      "plane_matrix": [
+        [
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1"
+        ],
+        [
+          "t",
+          "u",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1",
+          "0"
+        ]
+      ],
+      "exact_Lagrangian_identity": true,
+      "restricted_actual_quintic": "A**2*B**3*t/2 + A*B**4*u/2 - 2*B**5",
+      "factor_coefficient": "1/2",
+      "factors": [
+        {
+          "factor": "B",
+          "multiplicity": 3,
+          "degree": 1
+        },
+        {
+          "factor": "A**2*t + A*B*u - 4*B**2",
+          "multiplicity": 1,
+          "degree": 2
+        }
+      ],
+      "degrees": [
+        1,
+        1,
+        1,
+        2
+      ],
+      "possible_Ga9_irreducible_quartic": false
+    },
+    {
+      "component": "T38",
+      "cell": "034",
+      "branch": "main",
+      "parameters": [
+        "t",
+        "u"
+      ],
+      "plane_matrix": [
+        [
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1"
+        ],
+        [
+          "t",
+          "0",
+          "0"
+        ],
+        [
+          "u",
+          "0",
+          "0"
+        ]
+      ],
+      "exact_Lagrangian_identity": true,
+      "restricted_actual_quintic": "2*A**5*t**5 - A**5*t**2*u**2 - 2*A**5*u**5 - A**4*B*t**3/2 - 2*A**4*B*t*u**3 - 2*A**4*C*t**3*u + A**4*C*u**3/2 - A**3*B**2*t**2*u/2 + A**3*B*C*t*u/4 + A**3*C**2*t*u**2/2",
+      "factor_coefficient": "1/4",
+      "factors": [
+        {
+          "factor": "A",
+          "multiplicity": 3,
+          "degree": 1
+        },
+        {
+          "factor": "A**2*(8*t**5 - 4*t**2*u**2 - 8*u**5) + A*B*(-2*t**3 - 8*t*u**3) + A*C*(-8*t**3*u + 2*u**3) - 2*B**2*t**2*u + B*C*t*u + 2*C**2*t*u**2",
+          "multiplicity": 1,
+          "degree": 2
+        }
+      ],
+      "degrees": [
+        1,
+        1,
+        1,
+        2
+      ],
+      "possible_Ga9_irreducible_quartic": false
+    },
+    {
+      "component": "T38",
+      "cell": "134",
+      "branch": "main",
+      "parameters": [
+        "t"
+      ],
+      "plane_matrix": [
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1"
+        ],
+        [
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "t",
+          "0",
+          "0"
+        ]
+      ],
+      "exact_Lagrangian_identity": true,
+      "restricted_actual_quintic": "-2*A**5*t**5 + 2*A**5 - 2*A**4*B*t**3 - 2*A**4*C*t - A**3*B**2*t/2 + A**3*C**2*t**2/2",
+      "factor_coefficient": "-1/2",
+      "factors": [
+        {
+          "factor": "A",
+          "multiplicity": 3,
+          "degree": 1
+        },
+        {
+          "factor": "A**2*(4*t**5 - 4) + 4*A*B*t**3 + 4*A*C*t + B**2*t - C**2*t**2",
+          "multiplicity": 1,
+          "degree": 2
+        }
+      ],
+      "degrees": [
+        1,
+        1,
+        1,
+        2
+      ],
+      "possible_Ga9_irreducible_quartic": false
+    },
+    {
+      "component": "T38",
+      "cell": "234",
+      "branch": "point",
+      "parameters": [],
+      "plane_matrix": [
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "1",
+          "0",
+          "0"
+        ]
+      ],
+      "exact_Lagrangian_identity": true,
+      "restricted_actual_quintic": "-2*A**5",
+      "factor_coefficient": "-2",
+      "factors": [
+        {
+          "factor": "A",
+          "multiplicity": 5,
+          "degree": 1
+        }
+      ],
+      "degrees": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "possible_Ga9_irreducible_quartic": false
+    }
+  ],
+  "scope": "Exact generic divisor restrictions for the listed explicitLagrangianplane families. A positiveH+irreducquartic candidate is necessaryforuniform2normal scaling withGa9endpoint. No exhaustiveGrassmannor MPSnonmembership claim; T37cell012 nonrationalcurve not included.",
+  "possible_Ga9_families": [],
+  "seconds": 1.3015822369998205
+}

@@ -334,9 +334,218 @@ def mu6_marked_sources(output):
  report=dict(task_id='E_reduced_nonnormal',all_passed=True,whole_geometry_input=str(inputpath),input_sha256=hashlib.sha256(inputpath.read_bytes()).hexdigest(),producer_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),old_all_FunctionDef_AST_preserved=True,all11_whole_candidates_retained=True,all2_controls_retained=True,cases=records,seconds=time.monotonic()-started,max_rss_kib=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,scope='Complete finite markedgeometry batch with actual H/inverse, full28x18kernel/Saito/6mag/Jac/Pf/cofactor. No additionalambient anchors, no Eparent/count claim; magnetic normalization/component recognition separate.')
  assert not output.exists();output.write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(dict(all_passed=True,cases=[dict(name=v['name'],status=v['status'],type=v.get('canonical_type'),magnetic_rank=v.get('full_magnetic_translation_rank',{}).get('rank'))for v in records],seconds=report['seconds'],max_rss_kib=report['max_rss_kib'])))
 
+def mu6_ambient_components(output):
+ """ONE eleven-source ambient batch; stop each case at its weakest test."""
+ import ast,math,resource
+ started=time.monotonic();resource.setrlimit(resource.RLIMIT_CPU,(179,180));resource.setrlimit(resource.RLIMIT_AS,(1536*1024**2,)*2)
+ jobpath=Path('research/classification/jobs/plane_hyperplane_quartic_mu6_ambient.json');job=json.loads(jobpath.read_text())
+ functions={n.name:hashlib.sha256(ast.dump(n,include_attributes=False).encode()).hexdigest()for n in ast.parse(Path(__file__).read_text()).body if isinstance(n,(ast.FunctionDef,ast.AsyncFunctionDef))}
+ assert all(functions[k]==v for k,v in job['old_function_AST_sha256'].items())
+ sourcepath=Path('reports/CLASSIFICATION_PLANE_HYPERPLANE_QUARTIC_MU6_SOURCES_20261107.json');source=json.loads(sourcepath.read_text())
+ normalpath=Path('reports/CLASSIFICATION_PLANE_HYPERPLANE_QUARTIC_MU6_NORMALFORMS_20261107.json');normals=json.loads(normalpath.read_text())['cases'];assert len(normals)==11
+ env={str(v):v for v in coords+r};records=[]
+ def cert(A):
+  cc=pivots(A);rr=pivots(A[:,cc].T);return dict(shape=list(A.shape),rank=len(cc),rows=rr,columns=cc,determinant=str(dm(A[rr,cc]).det()))
+ def sp(v):return {str(i):str(c)for i,c in enumerate(v)if c}
+ def unvec(v):
+  A=s.zeros(5)
+  for c,((i,j),ex)in zip(v,m.BIVECTOR_BASIS):
+   q=c*s.prod(a**b for a,b in zip(coords,ex));A[i,j]+=q;A[j,i]-=q
+  return A
+ def jvec(A):
+  J=jac(A);W={quad:s.expand(sum((-1)**i*coords[quad[i]]*J[quad[:i]+quad[i+1:]]for i in range(4)))for quad in it.combinations(range(5),4)}
+  return s.Matrix([s.Poly(W[quad],*coords).coeff_monomial(mon)for quad,mon in m.FOUR_VECTOR_BASIS])
+ report=dict(task_id='E_reduced_nonnormal',phase='RUNNING_PARTIAL',all_passed=False,cases=records,source_batch_sha256=hashlib.sha256(sourcepath.read_bytes()).hexdigest(),whole_normalforms_sha256=hashlib.sha256(normalpath.read_bytes()).hexdigest(),old_all_FunctionDef_AST_preserved=True,producer_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),scope='Exactly11 justified wholemarkedsource canonicalorbit points. No D5 rerun, no newpoint/higherjet/count. Componentcandidates require independentreview andallprior111audit.')
+ assert not output.exists()
+ for src,norm in zip(source['cases'][:11],normals):
+  one=time.monotonic();assert src['name']==norm['name'];family=s.zeros(5)
+  for ij,text in src['all150_source_brackets'].items():
+   i,j=map(int,ij.split(','));family[i,j]=s.sympify(text,locals=env);family[j,i]=-family[i,j]
+  binding={v:s.Rational(norm['canonical_parameter_values'][str(v)])for v in r};point=family.subs(binding)
+  scale=s.ilcm(1,*[v.q for f in point for v in s.Poly(f,*coords).coeffs()]);coeffs=[int(v*scale)for f in point for v in s.Poly(f,*coords).coeffs()];content=math.gcd(*coeffs);scale=s.Rational(scale,content);P=(scale*point).applyfunc(s.expand)
+  coeffs=[c for f in P for c in s.Poly(f,*coords).coeffs()];assert all(c.q==1 for c in coeffs);assert max(abs(c)for c in coeffs)<2**55,'Use exactobject arithmetic ratherthan overflow.'
+  assert jvec(P)==s.zeros(350,1)
+  bv={(i,j):{ex:int(c)for ex,c in s.Poly(P[i,j],*coords).terms()if c}for i,j in m.PAIRS if P[i,j]!=0};D=s.Matrix(m.linearized_jacobi_matrix(bv).tolist());action=[]
+  for i,j in it.product(range(5),repeat=2):
+   B=s.zeros(5);B[i,j]=1;X=B*s.Matrix(coords);action.append(vector(sum([X[k]*P.diff(coords[k])for k in range(5)],s.zeros(5))-B*P-P*B.T))
+  V=s.Matrix(m.vertical_bivector_matrix().tolist());M=V.row_join(s.Matrix.hstack(*action,vector(P)));FS=M.row_join(s.Matrix.hstack(*[vector(scale*family.diff(v))for v in r]));assert D*FS==s.zeros(350,FS.cols)
+  dc,vc,mc,fc=map(cert,[D,V,M,FS]);assert vc['rank']==24 and mc['rank']==fc['rank']==48
+  row=dict(name=src['name'],canonical_R=norm['canonical_R'],canonical_source_binding={str(k):str(v)for k,v in binding.items()},canonical_projective_integer_scale=str(scale),canonical_brackets=encode(P),all350_anchor_Jacobi_zero=True,actual_quintic=str(s.expand(scale**2*s.sympify(src['actual_quintic'],locals=env))),full_D=dc,vertical=vc,full51_action=mc,full6_actual_source=fc,all_D_times_actual_directions_zero=True,projective_orbit_dimension=23,tangent_projective_upper=125-dc['rank'],true_normal_count=150-dc['rank']-48,component23_proved_by_dimension=False,new_component_counted=False)
+  if dc['rank']==102:
+   row.update(status='SMOOTH_UNIQUE_23_ORBIT_COMPONENT_CANDIDATE',component23_proved_by_dimension=True,local_scheme_smooth=True,proof='Fullraw tangent48 equals actual48symmetryorbit. Point smoothprojective23, uniquecomponent isits23orbitclosure. Whole6source isthatclosure by explicit normalization.')
+  elif dc['rank']==101:
+   cols,rows=mc['columns'],mc['rows'];F48=M[:,cols];inverse=dm(F48[rows,:]).inv().to_Matrix();K=dm(D).nullspace().to_Matrix().T;reduced=(K-F48*inverse*K[rows,:]).applyfunc(s.cancel);pc=pivots(reduced);assert len(pc)==1
+   N=reduced[:,pc[0]];N=N/next(v for v in N if v);assert D*N==s.zeros(350,1)and N[rows,:]==s.zeros(48,1)
+   I=s.eye(150)[:,dc['columns']];U=I-F48*inverse*I[rows,:];direct=cert(F48.row_join(N).row_join(U));assert direct['rank']==150
+   Q=jvec(unvec(N));qc=cert(D.row_join(Q));row.update(true48cut_coordinate_rows=rows,true_cut_normal=sp(N),full48plus1plus101_direct_sum=direct,all350_quadratic_normal=sp(Q),quadratic_augmented_D=qc)
+   if qc['rank']==102:
+    dr,dd=dc['rows'],dc['columns'];di=dm(D[dr,dd]).inv().to_Matrix();res=Q-D[:,dd]*di*Q[dr,:];bad=next(i for i,v in enumerate(res)if v);lam=s.zeros(1,350);lam[bad]=1
+    for j,k in enumerate(dr):lam[k]-=(D[bad,dd]*di)[j]
+    assert lam*D==s.zeros(1,150)and(lam*Q)[0]!=0
+    row.update(status='ONE_NORMAL_NONZERO_QUADRATIC_23_COMPONENT_CANDIDATE',component23_proved_by_dimension=True,local_scheme_smooth=False,all150_D_annihilating_functional=sp(lam),nonzero_quadratic_functional_value=str((lam*Q)[0]),proof='True48cut hasD101 and1normal. Nonzeroquadraticcokernel gives reducedcut support0. Krullrawdimension<=48 matchesactual48orbit; whole23orbitclosure isfullcomponent. No higherjet needed.')
+   else:row.update(status='ONE_NORMAL_QUADRATIC_ZERO_STOP_NO_HIGHER_JET',local_scheme_smooth='not_proved')
+  else:row.update(status='MULTIPLE_NORMALS_STOP_NO_HIGHER_JET',local_scheme_smooth='not_proved')
+  row['seconds']=time.monotonic()-one;records.append(row);report.update(seconds=time.monotonic()-started,max_rss_kib=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss);output.write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(dict(name=row['name'],D=dc['rank'],M=mc['rank'],status=row['status'],seconds=row['seconds'])),flush=True)
+ report.update(phase='COMPLETE',all_passed=True,whole11_checked=True,component_candidates=[z['name']for z in records if z['component23_proved_by_dimension']],unresolved_frontier=[z['name']for z in records if not z['component23_proved_by_dimension']],inputs=job['exact_inputs_and_hashes'],seconds=time.monotonic()-started,max_rss_kib=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss)
+ output.write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(dict(all_passed=True,candidates=len(report['component_candidates']),unresolved=len(report['unresolved_frontier']),seconds=report['seconds'],max_rss_kib=report['max_rss_kib'])))
+
+def mu5_marked_sources(output):
+ """One finite batch: complete five mu5 marked candidates plus one boundary control."""
+ import ast,resource
+ started=time.monotonic();resource.setrlimit(resource.RLIMIT_CPU,(119,120));resource.setrlimit(resource.RLIMIT_AS,(1536*1024**2,)*2)
+ jobpath=Path('research/classification/jobs/plane_hyperplane_quartic_mu5_sources.json');job=json.loads(jobpath.read_text())
+ functions={n.name:hashlib.sha256(ast.dump(n,include_attributes=False).encode()).hexdigest()for n in ast.parse(Path(__file__).read_text()).body if isinstance(n,(ast.FunctionDef,ast.AsyncFunctionDef))}
+ assert all(functions[k]==v for k,v in job['old_function_AST_sha256'].items())
+ inputpath=Path('reports/CLASSIFICATION_PLANE_HYPERPLANE_QUARTIC_MU5_MARKED_LIST_20261107.json');packet=json.loads(inputpath.read_text());cases=packet['all5_candidates']+packet['controls'];assert len(cases)==6
+ env={'h':h,'y':y,'w':w};base=(h,y,w);degree6=[h**(6-i-j)*y**i*w**j for i in range(7)for j in range(7-i)];assert len(degree6)==28
+ def cert(A):
+  cc=pivots(A);rr=pivots(A[:,cc].T);return dict(shape=list(A.shape),rank=len(cc),rows=rr,columns=cc,determinant=str(dm(A[rr,cc]).det()))
+ def mat(A):return [[str(v)for v in A.row(i)]for i in range(A.rows)]
+ records=[]
+ for case in cases:
+  F_old=s.sympify(case['F'],locals=env);H=s.sympify(case['H'],locals=env);first=s.Matrix([[s.Poly(H,*base).coeff_monomial(v)for v in base]])
+  G=first
+  for i in range(3):
+   trial=G.col_join(s.eye(3)[i,:])
+   if trial.rank()>G.rank():G=trial
+   if G.rows==3:break
+  assert G.det()!=0;back=G.inv()*s.Matrix(base);F=s.expand(F_old.subs(dict(zip(base,back)),simultaneous=True));D=h*F
+  assert s.expand(H.subs(dict(zip(base,back)),simultaneous=True)-h)==0
+  unknown=s.symbols('b0:18');fields=[sum(unknown[6*i+j]*q for j,q in enumerate(mons))for i in range(3)]
+  polynomial=s.Poly(s.expand(sum(fields[i]*s.diff(D,base[i])for i in range(3))),*base)
+  A,rhs=s.linear_eq_to_matrix([polynomial.coeff_monomial(q)for q in degree6],unknown);assert rhs==s.zeros(28,1)
+  K=dm(A).nullspace().to_Matrix().T;assert A*K==s.zeros(28,K.cols)and 18-cert(A)['rank']==K.cols
+  anchors=[]
+  for j in range(K.cols):
+   field=s.Matrix([sum(K[6*i+k,j]*q for k,q in enumerate(mons))for i in range(3)]);ell=s.cancel(field[0]/h);assert ell.is_polynomial(*base)
+   anchors.append(s.Matrix([s.expand(field[1]-ell*y),s.expand(field[2]-ell*w)]))
+  pairs=[]
+  for i,j in it.combinations(range(len(anchors)),2):
+   determinant=s.expand(anchors[i][0]*anchors[j][1]-anchors[i][1]*anchors[j][0]);ratio=s.cancel(determinant/F)
+   if ratio!=0 and not ratio.free_symbols:pairs.append((i,j,ratio))
+   else:assert determinant==0,'Nonzero determinant without Saito divisibility is a defect.'
+  row=dict(name=case['name'],input_quartic=case['F'],input_marked_H=case['H'],actual_H_to_h_base_matrix=mat(G),actual_inverse_base_matrix=mat(G.inv()),base_determinant=str(G.det()),transformed_irreducible_quartic=str(F),full28x18_gradient_matrix=mat(A),gradient_rank=cert(A),full_gradient_kernel=mat(K),full_kernel_dimension=K.cols,all_kernel_to_quadratic_h_Casimir_anchors=[list(map(str,U))for U in anchors])
+  if not pairs:
+   row.update(status='NO_FULLRANK_QUADRATIC_SAITO_FRAME',all_anchor_pair_determinants_zero=True);records.append(row);continue
+  assert K.cols==2 and len(pairs)==1
+  ii,jj,ratio=pairs[0];U,V=anchors[ii],anchors[jj];det=s.expand(U[0]*V[1]-U[1]*V[0]);assert s.expand(det-ratio*F)==0
+  bracket=s.Matrix([s.expand(sum(U[j]*s.diff(V[i],(y,w)[j])-V[j]*s.diff(U[i],(y,w)[j])for j in range(2)))for i in range(2)])
+  alpha=s.cancel((bracket[0]*V[1]-bracket[1]*V[0])/det);beta=s.cancel((U[0]*bracket[1]-U[1]*bracket[0])/det)
+  assert all(v.is_polynomial(*base)and s.Poly(v,*base).total_degree()<=1 for v in [alpha,beta])
+  assert (bracket-alpha*U-beta*V).applyfunc(s.expand)==s.zeros(2,1)
+  P=s.zeros(5);R=sum(c*q for c,q in zip(r,mons))
+  for ij,v in {(1,2):U[0],(1,4):U[1],(2,3):-V[0],(3,4):V[1],(1,3):alpha*x+beta*z+R}.items():P[ij]=v;P[ij[::-1]]=-v
+  strict=jac(P);assert all(v==0 for v in strict.values())
+  projective=s.Matrix([s.Poly(s.expand(sum((-1)**i*coords[quad[i]]*strict[quad[:i]+quad[i+1:]]for i in range(4))),*coords).coeff_monomial(mon)for quad,mon in m.FOUR_VECTOR_BASIS]);assert projective==s.zeros(350,1)
+  pf=s.expand(P[1,2]*P[3,4]-P[1,3]*P[2,4]+P[1,4]*P[2,3]);assert s.expand(pf-ratio*F)==0
+  logarithms=[s.cancel(sum(T[j]*s.diff(F,(y,w)[j])for j in range(2))/F)for T in [U,V]];assert all(v.is_polynomial(*base)for v in logarithms)
+  Z=s.Matrix([s.expand(sum(s.diff(P[i,j],coords[i])for i in range(5)))for j in range(5)]);N=Z.jacobian(coords);assert Z==s.Matrix([0,-logarithms[0],0,-logarithms[1],0]);assert N*N==s.zeros(5)
+  spatial=(x,y,z,w);AZ=Z[1:,:].subs(h,1);AA=AZ.jacobian(spatial);cc=AZ.subs(dict.fromkeys(spatial,0));nr=N.rank();ar=AA.rank();cin=AA.row_join(cc).rank()==ar;h_inside=N.T.row_join(s.Matrix([1,0,0,0,0])).rank()==nr
+  effects=[s.expand(-alpha*l-sum(V[j]*s.diff(l,(y,w)[j])for j in range(2)))for l in [h,y,w]]+[s.expand(-beta*l+sum(U[j]*s.diff(l,(y,w)[j])for j in range(2)))for l in [h,y,w]]
+  T=s.Matrix([[s.Poly(v,*base).coeff_monomial(q)for v in effects]for q in mons]);Tcert=cert(T)
+  category='nil22_image_type6'if nr==ar==2 and cin else 'nil211_translation_zero_covered_type8'if nr==ar==1 and cin else 'nil211_short_translation_type9'if nr==2 and ar==1 and not cin else 'OTHER_KEEP_EXPLICIT'
+  row.update(status='ACTUAL_WHOLE_SIX_MAGNETIC_SOURCE_VERIFIED',anchor_U=list(map(str,U)),anchor_V=list(map(str,V)),Saito_determinant_ratio=str(ratio),commutator=[str(alpha),str(beta)],all6_magnetic_parameters=list(map(str,r)),all150_source_brackets=encode(P),all10_strict_Jacobi_zero=True,all350_projective_Jacobi_zero=True,actual_quintic=str(s.expand(ratio*h*F)),logarithmic_cofactors=list(map(str,logarithms)),canonical_modular_field=list(map(str,Z)),homogeneous_cofactor_matrix=mat(N),homogeneous_cofactor_power_ranks=[(N**j).rank()for j in range(1,6)],distinguished_h_in_dual_image=h_inside,affine_linear_matrix=mat(AA),affine_constant=list(map(str,cc)),affine_power_ranks=[(AA**j).rank()for j in range(1,5)],affine_constant_in_linear_image=cin,canonical_type=category,full_magnetic_translation_matrix=mat(T),full_magnetic_translation_rank=Tcert,magnetic_cokernel_basis=[list(map(str,v))for v in T.T.nullspace()],no_source_membership_or_component_claim=True)
+  records.append(row)
+ report=dict(task_id='E_reduced_nonnormal',all_passed=True,whole_geometry_input=str(inputpath),input_sha256=hashlib.sha256(inputpath.read_bytes()).hexdigest(),producer_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),old_all_FunctionDef_AST_preserved=True,all5_whole_candidates_retained=True,all1_control_retained=True,cases=records,seconds=time.monotonic()-started,max_rss_kib=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,scope='Complete finite markedgeometry batch with actual H/inverse, full28x18kernel/Saito/6mag/Jac/Pf/cofactor. No additionalambient anchors, no Eparent/count claim; magnetic normalization/component recognition separate.')
+ assert not output.exists();output.write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(dict(all_passed=True,cases=[dict(name=v['name'],status=v['status'],type=v.get('canonical_type'),magnetic_rank=v.get('full_magnetic_translation_rank',{}).get('rank'))for v in records],seconds=report['seconds'],max_rss_kib=report['max_rss_kib'])))
+
+
+def e6_smooth_flex_graph(output):
+ from s61_model import S61,X,pushforward
+ import ast,resource
+ started=time.monotonic();root=Path(__file__).resolve().parents[1]
+ sourcepath=Path('reports/CLASSIFICATION_PLANE_HYPERPLANE_QUARTIC_MU6_SOURCES_20261107.json');normalpath=Path('reports/CLASSIFICATION_PLANE_HYPERPLANE_QUARTIC_MU6_NORMALFORMS_20261107.json')
+ source=next(v for v in json.loads(sourcepath.read_text())['cases']if v['name']=='E6_smooth_flex');normal=next(v for v in json.loads(normalpath.read_text())['cases']if v['name']==source['name'])
+ values={s.sympify(k):s.Rational(v)for k,v in normal['canonical_parameter_values'].items()};P=s.zeros(5)
+ for ij,text in source['all150_source_brackets'].items():
+  i,j=map(int,ij.split(','));P[i,j]=s.sympify(text).subs(values);P[j,i]=-P[i,j]
+ P=P.subs(dict(zip(coords,X)),simultaneous=True);F=s.sympify(source['transformed_irreducible_quartic']);assert F.subs({h:1,y:1,w:0})==-1
+ shift=s.eye(5);shift[2,0]=-1;translated=pushforward(P,shift);K=translated.subs(dict(zip(X,[1,0,0,0,0])))[1:,1:]
+ pf=s.factor(K[0,1]*K[2,3]-K[0,2]*K[1,3]+K[0,3]*K[1,2]);assert pf!=0 and not pf.free_symbols
+ pivot=next((i,j)for i,j in it.combinations(range(4),2)if K[i,j]!=0);i,j=pivot;unit=[s.eye(4)[:,k]for k in range(4)];r0=unit[i];r1=unit[j]/K[i,j];other=[]
+ for k in range(4):
+  if k in pivot:continue
+  rr=unit[k];other.append(rr-(rr.T*K*r1)[0]*r0+(rr.T*K*r0)[0]*r1)
+ r2,r3=other;r3=r3/s.cancel((r2.T*K*r3)[0]);frame=s.eye(5);frame[1:,1:]=s.Matrix.vstack(*(rr.T for rr in [r0,r1,r2,r3]));J=s.zeros(4);J[0,1]=J[2,3]=1;J[1,0]=J[3,2]=-1
+ assert (frame[1:,1:]*K*frame[1:,1:].T-J).applyfunc(s.cancel)==s.zeros(4)
+ G=frame*shift;assert G.det()!=0;GI=G.inv();assert G*GI==s.eye(5)
+ model=S61();framed=pushforward(P,G);normalized=model.normalize(framed);verification=model.verify_point(normalized,check_equations=True);point=normalized['parameters'];us=s.symbols('u1:62');results={}
+ for name,path in [('T39','reports/Q51_UNIVERSAL_SECTION_20261101.json'),('T40','reports/Q52_UNIVERSAL_SECTION_20261101.json')]:
+  packet=json.loads(Path(path).read_text());indices=packet['weight2_u_indices_zero_based'];residuals=[s.factor(s.cancel(point[k]-s.sympify(expression).subs(dict(zip(us,point)),simultaneous=True)))for k,expression in zip(indices,packet['quadratic_section_q'])]
+  assert len(residuals)==45
+  results[name]=dict(all45_graph_residuals=list(map(str,residuals)),canonical_point_is_in_graph=all(v==0 for v in residuals),nonzero_residuals={str(k):str(v)for k,v in zip(indices,residuals)if v!=0})
+ paths=[Path(__file__),sourcepath,normalpath,Path('code/s61_model.py'),Path('reports/Q51_UNIVERSAL_SECTION_20261101.json'),Path('reports/Q52_UNIVERSAL_SECTION_20261101.json'),*[Path('legacy/v02/data')/name for name in ['symplectic_slice_certificate.json','symplectic_slice_equations.json','symplectic_slice_reduced_equations.json']]]
+ old=json.loads(Path('research/classification/jobs/plane_hyperplane_quartic_e6_flex_graph.json').read_text())['old_function_AST_sha256'];current={n.name:hashlib.sha256(ast.dump(n,include_attributes=False).encode()).hexdigest()for n in ast.parse(Path(__file__).read_text()).body if isinstance(n,ast.FunctionDef)};assert all(current[k]==v for k,v in old.items())
+ result=dict(task_id='E_reduced_nonnormal',all_passed=True,source_case=source['name'],canonical_magnetic_values=normal['canonical_parameter_values'],structural_rank4_point=[1,0,1,0,0],rank4_point_Pf=str(pf),constant_value_matrix=[[str(v)for v in K.row(i)]for i in range(4)],actual_shift=[[str(v)for v in shift.row(i)]for i in range(5)],Darboux_frame=[[str(v)for v in frame.row(i)]for i in range(5)],full_PGL_matrix=[[str(v)for v in G.row(i)]for i in range(5)],full_inverse_PGL_matrix=[[str(v)for v in GI.row(i)]for i in range(5)],PGL_determinant=str(G.det()),all61_parameters=list(map(str,point)),perspective=list(map(str,normalized['perspective'])),perspective_matrix=[[str(v)for v in normalized['matrix'].row(i)]for i in range(5)],faithful150_full134_verification=verification,exact_graph_membership=results,whole_original_six_source_membership_if_positive=any(v['canonical_point_is_in_graph']for v in results.values()),old_all_FunctionDef_AST_preserved=True,input_sha256={str(p):hashlib.sha256(p.read_bytes()).hexdigest()for p in paths},producer_bytes=Path(__file__).read_text(),seconds=time.monotonic()-started,max_rss_kib=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,scope='Exactly one structurally selected rank4 chart and its faithful actual PGL/S61 bridge. Positive graph membership propagates through the accepted full6mag canonicalorbit closure. Negative residuals exclude this graph entry only, not all PGL translates or other parent components. No pointfarm, no higherjets.')
+ assert not output.exists();output.write_text(json.dumps(result,indent=2)+'\n');print(json.dumps(dict(all_passed=True,membership={k:v['canonical_point_is_in_graph']for k,v in results.items()},seconds=result['seconds'],max_rss_kib=result['max_rss_kib'])))
+
+def mu5_ambient_components(output):
+ """ONE five-source ambient batch; stop each case at its weakest test."""
+ import ast,math,resource
+ started=time.monotonic();resource.setrlimit(resource.RLIMIT_CPU,(179,180));resource.setrlimit(resource.RLIMIT_AS,(1536*1024**2,)*2)
+ jobpath=Path('research/classification/jobs/plane_hyperplane_quartic_mu5_ambient.json');job=json.loads(jobpath.read_text())
+ functions={n.name:hashlib.sha256(ast.dump(n,include_attributes=False).encode()).hexdigest()for n in ast.parse(Path(__file__).read_text()).body if isinstance(n,(ast.FunctionDef,ast.AsyncFunctionDef))}
+ assert all(functions[k]==v for k,v in job['old_function_AST_sha256'].items())
+ sourcepath=Path('reports/CLASSIFICATION_PLANE_HYPERPLANE_QUARTIC_MU5_SOURCES_20261107.json');source=json.loads(sourcepath.read_text())
+ normalpath=Path('reports/CLASSIFICATION_PLANE_HYPERPLANE_QUARTIC_MU5_NORMALFORMS_20261107.json');normals=json.loads(normalpath.read_text())['cases'];assert len(normals)==5
+ env={str(v):v for v in coords+r};records=[]
+ def cert(A):
+  cc=pivots(A);rr=pivots(A[:,cc].T);return dict(shape=list(A.shape),rank=len(cc),rows=rr,columns=cc,determinant=str(dm(A[rr,cc]).det()))
+ def sp(v):return {str(i):str(c)for i,c in enumerate(v)if c}
+ def unvec(v):
+  A=s.zeros(5)
+  for c,((i,j),ex)in zip(v,m.BIVECTOR_BASIS):
+   q=c*s.prod(a**b for a,b in zip(coords,ex));A[i,j]+=q;A[j,i]-=q
+  return A
+ def jvec(A):
+  J=jac(A);W={quad:s.expand(sum((-1)**i*coords[quad[i]]*J[quad[:i]+quad[i+1:]]for i in range(4)))for quad in it.combinations(range(5),4)}
+  return s.Matrix([s.Poly(W[quad],*coords).coeff_monomial(mon)for quad,mon in m.FOUR_VECTOR_BASIS])
+ report=dict(task_id='E_reduced_nonnormal',phase='RUNNING_PARTIAL',all_passed=False,cases=records,source_batch_sha256=hashlib.sha256(sourcepath.read_bytes()).hexdigest(),whole_normalforms_sha256=hashlib.sha256(normalpath.read_bytes()).hexdigest(),old_all_FunctionDef_AST_preserved=True,producer_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),scope='Exactly5 justified wholemarkedsource canonicalorbit points. No old D5cusp-tangent/control rerun, no newpoint/higherjet/count. Componentcandidates require independentreview andallprior111audit.')
+ assert not output.exists()
+ for src,norm in zip(source['cases'][:5],normals):
+  one=time.monotonic();assert src['name']==norm['name'];family=s.zeros(5)
+  for ij,text in src['all150_source_brackets'].items():
+   i,j=map(int,ij.split(','));family[i,j]=s.sympify(text,locals=env);family[j,i]=-family[i,j]
+  binding={v:s.Rational(norm['canonical_parameter_values'][str(v)])for v in r};point=family.subs(binding)
+  scale=s.ilcm(1,*[v.q for f in point for v in s.Poly(f,*coords).coeffs()]);coeffs=[int(v*scale)for f in point for v in s.Poly(f,*coords).coeffs()];content=math.gcd(*coeffs);scale=s.Rational(scale,content);P=(scale*point).applyfunc(s.expand)
+  coeffs=[c for f in P for c in s.Poly(f,*coords).coeffs()];assert all(c.q==1 for c in coeffs);assert max(abs(c)for c in coeffs)<2**55,'Use exactobject arithmetic ratherthan overflow.'
+  assert jvec(P)==s.zeros(350,1)
+  bv={(i,j):{ex:int(c)for ex,c in s.Poly(P[i,j],*coords).terms()if c}for i,j in m.PAIRS if P[i,j]!=0};D=s.Matrix(m.linearized_jacobi_matrix(bv).tolist());action=[]
+  for i,j in it.product(range(5),repeat=2):
+   B=s.zeros(5);B[i,j]=1;X=B*s.Matrix(coords);action.append(vector(sum([X[k]*P.diff(coords[k])for k in range(5)],s.zeros(5))-B*P-P*B.T))
+  V=s.Matrix(m.vertical_bivector_matrix().tolist());M=V.row_join(s.Matrix.hstack(*action,vector(P)));FS=M.row_join(s.Matrix.hstack(*[vector(scale*family.diff(v))for v in r]));assert D*FS==s.zeros(350,FS.cols)
+  dc,vc,mc,fc=map(cert,[D,V,M,FS]);assert vc['rank']==24 and mc['rank']==fc['rank']==48
+  row=dict(name=src['name'],canonical_R=norm['canonical_R'],canonical_source_binding={str(k):str(v)for k,v in binding.items()},canonical_projective_integer_scale=str(scale),canonical_brackets=encode(P),all350_anchor_Jacobi_zero=True,actual_quintic=str(s.expand(scale**2*s.sympify(src['actual_quintic'],locals=env))),full_D=dc,vertical=vc,full51_action=mc,full6_actual_source=fc,all_D_times_actual_directions_zero=True,projective_orbit_dimension=23,tangent_projective_upper=125-dc['rank'],true_normal_count=150-dc['rank']-48,component23_proved_by_dimension=False,new_component_counted=False)
+  if dc['rank']==102:
+   row.update(status='SMOOTH_UNIQUE_23_ORBIT_COMPONENT_CANDIDATE',component23_proved_by_dimension=True,local_scheme_smooth=True,proof='Fullraw tangent48 equals actual48symmetryorbit. Point smoothprojective23, uniquecomponent isits23orbitclosure. Whole6source isthatclosure by explicit normalization.')
+  elif dc['rank']==101:
+   cols,rows=mc['columns'],mc['rows'];F48=M[:,cols];inverse=dm(F48[rows,:]).inv().to_Matrix();K=dm(D).nullspace().to_Matrix().T;reduced=(K-F48*inverse*K[rows,:]).applyfunc(s.cancel);pc=pivots(reduced);assert len(pc)==1
+   N=reduced[:,pc[0]];N=N/next(v for v in N if v);assert D*N==s.zeros(350,1)and N[rows,:]==s.zeros(48,1)
+   I=s.eye(150)[:,dc['columns']];U=I-F48*inverse*I[rows,:];direct=cert(F48.row_join(N).row_join(U));assert direct['rank']==150
+   Q=jvec(unvec(N));qc=cert(D.row_join(Q));row.update(true48cut_coordinate_rows=rows,true_cut_normal=sp(N),full48plus1plus101_direct_sum=direct,all350_quadratic_normal=sp(Q),quadratic_augmented_D=qc)
+   if qc['rank']==102:
+    dr,dd=dc['rows'],dc['columns'];di=dm(D[dr,dd]).inv().to_Matrix();res=Q-D[:,dd]*di*Q[dr,:];bad=next(i for i,v in enumerate(res)if v);lam=s.zeros(1,350);lam[bad]=1
+    for j,k in enumerate(dr):lam[k]-=(D[bad,dd]*di)[j]
+    assert lam*D==s.zeros(1,150)and(lam*Q)[0]!=0
+    row.update(status='ONE_NORMAL_NONZERO_QUADRATIC_23_COMPONENT_CANDIDATE',component23_proved_by_dimension=True,local_scheme_smooth=False,all150_D_annihilating_functional=sp(lam),nonzero_quadratic_functional_value=str((lam*Q)[0]),proof='True48cut hasD101 and1normal. Nonzeroquadraticcokernel gives reducedcut support0. Krullrawdimension<=48 matchesactual48orbit; whole23orbitclosure isfullcomponent. No higherjet needed.')
+   else:row.update(status='ONE_NORMAL_QUADRATIC_ZERO_STOP_NO_HIGHER_JET',local_scheme_smooth='not_proved')
+  else:row.update(status='MULTIPLE_NORMALS_STOP_NO_HIGHER_JET',local_scheme_smooth='not_proved')
+  row['seconds']=time.monotonic()-one;records.append(row);report.update(seconds=time.monotonic()-started,max_rss_kib=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss);output.write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(dict(name=row['name'],D=dc['rank'],M=mc['rank'],status=row['status'],seconds=row['seconds'])),flush=True)
+ report.update(phase='COMPLETE',all_passed=True,whole5_checked=True,component_candidates=[z['name']for z in records if z['component23_proved_by_dimension']],unresolved_frontier=[z['name']for z in records if not z['component23_proved_by_dimension']],inputs=job['exact_inputs_and_hashes'],seconds=time.monotonic()-started,max_rss_kib=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss)
+ output.write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(dict(all_passed=True,candidates=len(report['component_candidates']),unresolved=len(report['unresolved_frontier']),seconds=report['seconds'],max_rss_kib=report['max_rss_kib'])))
+
+
 if __name__=='__main__':
  import sys
- if '--mu6-marked-sources' in sys.argv:
+ if '--mu5-ambient' in sys.argv:
+  parser=argparse.ArgumentParser();parser.add_argument('--mu5-ambient',action='store_true');parser.add_argument('--output',type=Path,required=True);args=parser.parse_args();mu5_ambient_components(args.output)
+ elif '--e6-flex-graph' in sys.argv:
+  parser=argparse.ArgumentParser();parser.add_argument('--e6-flex-graph',action='store_true');parser.add_argument('--output',type=Path,required=True);args=parser.parse_args();e6_smooth_flex_graph(args.output)
+ elif '--mu5-marked-sources' in sys.argv:
+  parser=argparse.ArgumentParser();parser.add_argument('--mu5-marked-sources',action='store_true');parser.add_argument('--output',type=Path,required=True);args=parser.parse_args();mu5_marked_sources(args.output)
+ elif '--mu6-ambient' in sys.argv:
+  parser=argparse.ArgumentParser();parser.add_argument('--mu6-ambient',action='store_true');parser.add_argument('--output',type=Path,required=True);args=parser.parse_args();mu6_ambient_components(args.output)
+ elif '--mu6-marked-sources' in sys.argv:
   parser=argparse.ArgumentParser();parser.add_argument('--mu6-marked-sources',action='store_true');parser.add_argument('--output',type=Path,required=True);args=parser.parse_args();mu6_marked_sources(args.output)
  elif '--d5-source' in sys.argv:
   parser=argparse.ArgumentParser();parser.add_argument('--d5-source',action='store_true');parser.add_argument('--output',type=Path,required=True);args=parser.parse_args();d5_source_component(args.output)

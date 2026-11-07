@@ -1,0 +1,41 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "target_statement": "Construct plane-source boundaries of accepted MPS P5 tensors via actual normal-cone PGL degenerations along Lagrangian projective planes.",
+  "implication_to_classification": "If an explicit Lagrangian plane has the target hxC normal anchor and a finite polynomial plane-motion/normal-scaling produces every magnetic cokernel direction, its exact PGL family covers the entire remaining plane source in MPS. First-order normalization alone is insufficient.",
+  "coefficient_ring": "QQ in the six Grassmann-chart parameters, three plane coordinates, and actual PGL deformation parameter; all existing homogeneous tensor coefficients retained.",
+  "hypotheses": "Use accepted exact T36,T37,T38 tensors at period and smoothing parameters1, without requiring these points to dominate their component. A plane given by independent linear forms ell1,ell2 is Lagrangian outside the degeneracy divisor exactly when {ell1,ell2} restricted to the plane vanishes identically: six quadratic-form coefficients. Its degeneracy quintic restriction must equal a target nodal/cuspidal configuration after a recorded projective plane change. Rescale two normal coordinates and tensor by the same actual epsilon power; verify full regular tensor and Jacobi/Pf for the final family. The natural open chart gives no remaining reduced hxC target: T38 has H*binaryQuadric\u00b2, T36 has two-node-tangents, and T37 has a rational C2+C3 family with nonsingular conic plus a separate H*C2\u00b2 family. Diagnose chart coverage rather than add arbitrary points. Examine the complete finite10 Schubert-cell decomposition of Gr(3,5), in row order(0,3,4,1,2), for each of the three fixed accepted tensors. Each cell has at most6 variables and the same6 intrinsic Lagrangian equations. Complete minimal primes and exact quintic restrictions are used; no point sampling is accepted as full plane coverage.",
+  "inverted_elements": [
+    "Only explicitly nonzero Grassmann-chart determinant and actual nonzero epsilon for the generic PGL map"
+  ],
+  "complements": [
+    "Coordinate-chart negatives do not exclude every Lagrangian plane; no exhaustive claim without all charts.",
+    "Every magnetic term must be matched or controlled by an explicit dominant cokernel map; plane linearization with R0 alone does not cover the full source.",
+    "A nonreduced Lagrangian-plane obstruction may be used only through an actual finite plane-motion matrix giving a regular exact tensor family, never by assuming integration of a formal jet."
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "reports/MPS_SMOOTHING_COMPLETION_20261103_v62/T36.json",
+      "sha256": "cbe11f21263e47cad99d372b6974588de115c71e105c11c9ce1d017dd628da06"
+    },
+    {
+      "path": "reports/MPS_SMOOTHING_COMPLETION_20261103_v62/T37.json",
+      "sha256": "edc3782c7da1548e73380e1273cb4a87a2668d547dc8196cfa4c11484f7ced74"
+    },
+    {
+      "path": "reports/MPS_SMOOTHING_COMPLETION_20261103_v62/T38.json",
+      "sha256": "db24958e3a1900ea45c6171fbf48cdc96ad3e02957f622769ad70fdf2d41e513"
+    },
+    {
+      "path": "reports/CLASSIFICATION_TWO_LINES_PLANE_CUBIC_20261107.json",
+      "sha256": "f0ec94367063e9fe85c053352672e23f9fe4c01267205bedceec2ee9ac908e3a"
+    }
+  ],
+  "success_certificate": "Explicit plane, full six Lagrangian coefficient identities, actual quintic restriction and target configuration equivalence, full polynomial PGL degeneration with every magnetic inverse map, complete Jacobi and Pfaffian checks and finite-known-closed-union implication.",
+  "independent_check": "Independent reviewer reconstructs original known tensor, plane brackets/restriction, actual full PGL family and all target magnetic terms. No global coverage from normal-cone resemblance alone.",
+  "resource_limit": {
+    "timeout_seconds": 360,
+    "memory_mb": 2048
+  },
+  "negative_result_next_step": "If the first natural Grassmann chart yields no relevant plane, use a geometrically justified alternate chart or another accepted P5 tensor; do not repeat arbitrary point/parameter scans. Stop after two nonclosing geometric choices and diagnose the plane-incidence hypotheses.",
+  "route_change_reason": "The all-orders transverse Mora algorithm hit real120s/2GB limits without a result. This replaces the102-variable local Jacobi problem by an intrinsic six-variable Lagrangian-plane incidence inside an already known component and seeks actual PGL families, rather than prescribed modular fields or higher normal jets."
+}

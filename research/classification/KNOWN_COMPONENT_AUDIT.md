@@ -369,3 +369,13 @@ ESSENTIAL_THREE_QUINTIC_FIRST_SEPARATE_REVIEWは全28x18gradient基底、全350/
 ## 平面自由五次の新七成分と現行下界111
 
 EIGHT_SOURCE_SEPARATE_REVIEWが全八explicit曲線のC絶対既約性、fullSaito源、各cusp型を独立認識。EIGHT_AMBIENT_SEPARATE_REVIEWは旧104再用と新七全D/M/真正48cut、四smooth23・三非零二次23を確認。内在的essential三baseと八cusp配置は全PGL5不変で、全prior104と28mutual pairに相違。個別111/rank四105/rank二6。全必要曲線リストのpureproof独立監査と全G/E上界は別未解決。
+
+
+## marked μ六平面quartic九成分と現行下界120
+
+全source/markedcurve必要性/全磁気normalizer/旧111 actualwitnessと全36mutualを別作者Fractionで確認。rootは別実装で全九ambientを再構成し五smoothD102・四D101真cut非零二次を受理。D5cusptangentと3A2cusptangentは旧A0/DPMの印刷実Pfと磁気商非零から全源認識。現在120/rank四114/rank二6。全上界、E6smoothflex、μ五残余と全G/Eは未証明。
+
+
+## marked μ五平面quartic四成分と現行下界124
+
+全五profile/全marked必要性/全GL2＋六磁気/全正則shear逆/旧111とμ六九36pair及び四相互六組を独立確認。rootは全四D101真cut非零二次を別Fractionで受理。計124/rank四118/rank二6。全A3A2共通接Hはk=-1も全kernel bundle正則liftで既cuspidal24へ。E6smoothflex/A5smoothhyperflexの未知親と全G/E/上界は維持する。

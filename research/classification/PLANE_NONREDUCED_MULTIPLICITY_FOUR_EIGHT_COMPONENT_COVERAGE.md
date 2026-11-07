@@ -1,0 +1,32 @@
+# rank二plane・非被約R・m四の全点は既八成分へ
+
+2026-11-07、PRIMARY G/E。全sourceの別作者証明を組み合わせた統合命題。
+実Dが被約既約quintic、plane沿い位数四、restriction rank二、零cubic R非被約とする。
+この全Poisson源は、本質三変数の既約quinticの既八23成分の閉和へ入る。
+一般元の非優越だけでなく全点の被覆である。reducedRの小次元源へはこのE結論を流用しない。
+
+全leadingはG4∈O_P2(1)⊗Sym4C²。係数imageがrank一ならG4=L g4なので、
+actualD=L g4+g5はL,u,vの三変数だけに依存する。既約性からessential数はexactly三、
+全既essential-three source theoremにより八成分へ入る。
+
+rank二以上の残るgeneric root partitionsを全て保持する。
+P1上のbasepoint-free線形系のBertiniから、generic22/4はfixed multiple divisorがdegree四、
+従ってimage-rank一へ戻る。generic211は全support≤二直線のcollision分類と全shearにより
+sem二固定F及びJordan全τ族へ尽くされる。全1075×150 strictCasimir sourceは共通vertex因子を持ちrank二以下。
+`PLANE_M4_TWO_LINE_CASIMIR_SEPARATE_REVIEW.md`。
+
+squarefreeは全binary invariant/root-coverと全special stablepencilから、image-rank一又は六actualD正常形へ。
+六全1075源の全五Pfaffianの全quadratic polarizationsが零なので高rank源は空。
+`PLANE_M4_NONREDUCED_SQUAREFREE_SEPARATE_REVIEW.md`。
+nonexceptional root-coverを使うopenは元connectionのopenより広いA2であり、追加極への接続延長を仮定しない。
+
+generic31の全actualDはF0,F1二正常形へ戻る。F0は全gradient syzygyの二distributionからrank二以下。
+F1の必要strictCasimir sourceは四次元で、全kernelがZi∧∂w、Ziはw非依存。
+rootは全4sourceの350Jacobiと五Pfaffianの十polarizationsを確認し、別作者は全1075matrix/146minor/完全核も再構成した。
+全rawPfが恒等零なのでF1もrank四空。`PLANE_TRIPLE_ROOT_F1_SEPARATE_REVIEW.md`。
+旧G≤21の弱いreceiptは不変であり、新しい全kernel支持の証明で強める。
+
+これで全partitionのrank二以上が空となり、全実rank四m四nonredRはimage-rank一、八既成分へ入る。
+零sourceや振幅境界を削ったgeneric-point議論ではない。
+全reducedR m四のG上界と合わせれば、全rank二plane m四は一般Gを優越しない。
+m二三、reducedR小次元源の全E帰属、他曲面支持及び全G/Eの完了は別義務である。

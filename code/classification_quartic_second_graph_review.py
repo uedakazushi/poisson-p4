@@ -278,5 +278,65 @@ def main():
     print(json.dumps({k:result[k] for k in ['all_passed','seconds','maximum_RSS_KiB','unique_component_at_point']}))
 
 
+
+def e6_global_parent_review():
+    """Full150/134/45 independent E6 graph witness; global theorem separate."""
+    import signal
+    from classification_minimal_quartic_review import LaurentRing
+    start=time.monotonic();signal.alarm(90);resource.setrlimit(resource.RLIMIT_AS,(1024*1024**2,)*2)
+    root=Path(__file__).resolve().parents[1]
+    jobpath='research/classification/jobs/plane_hyperplane_quartic_e6_global_parent_review.json'
+    output=root/'reports/CLASSIFICATION_PLANE_HYPERPLANE_QUARTIC_E6_GLOBAL_PARENT_REVIEW_20261107.json'
+    if output.exists():raise FileExistsError(output)
+    job=json.loads((root/jobpath).read_text())
+    for b in job['exact_inputs_and_hashes']:assert hashlib.sha256((root/b['path']).read_bytes()).hexdigest()==b['sha256'],b['path']
+    graph=json.loads((root/'reports/CLASSIFICATION_PLANE_HYPERPLANE_QUARTIC_E6_FLEX_GRAPH_20261107.json').read_text())
+    source=next(c for c in json.loads((root/'reports/CLASSIFICATION_PLANE_HYPERPLANE_QUARTIC_MU6_SOURCES_20261107.json').read_text())['cases'] if c['name']=='E6_smooth_flex')
+    R=LaurentRing(tuple('r'+str(i) for i in range(6)),('h','x','y','z','w'));values=[F(graph['canonical_magnetic_values']['r'+str(i)]) for i in range(6)]
+    def specialize(poly):
+        out={}
+        for ex,c in poly.items():
+            for power,value in zip(ex[:6],values):c*=value**power
+            e=ex[6:]+(0,0,0);out[e]=out.get(e,F(0))+c
+        return {e:c for e,c in out.items()if c}
+    P=q.antisymmetric({tuple(map(int,k.split(','))):specialize(R.parse(v)) for k,v in source['all150_source_brackets'].items()})
+    assert not any(q.jacobi(P).values())
+    M=[[F(v)for v in row]for row in graph['full_PGL_matrix']];Mi=q.inverse(M)
+    assert Mi==[[F(v)for v in row]for row in graph['full_inverse_PGL_matrix']]
+    assert q.determinant(M)==F(graph['PGL_determinant'])
+    shift=[[F(v)for v in row]for row in graph['actual_shift']];frame=[[F(v)for v in row]for row in graph['Darboux_frame']];assert M==q.matmul(frame,shift)
+    shifted=transform(P,shift);K=[[shifted.get((i+1,j+1),{}).get((2,0,0,0,0,0,0,0),F(0))for j in range(4)]for i in range(4)]
+    assert K==[[F(v)for v in row]for row in graph['constant_value_matrix']]
+    pf=K[0][1]*K[2][3]-K[0][2]*K[1][3]+K[0][3]*K[1][2];assert pf==F(graph['rank4_point_Pf']) and pf
+    B4=[row[1:]for row in frame[1:]];J=[[F((i,j)in[(0,1),(2,3)])-F((i,j)in[(1,0),(3,2)])for j in range(4)]for i in range(4)]
+    assert q.matmul(q.matmul(B4,K),q.transpose(B4))==J
+    A=[[F(v)for v in row]for row in graph['perspective_matrix']];assert A[0][1:]==list(map(F,graph['perspective']))
+    final=q.matmul(A,M);final_inverse=q.inverse(final);pushed=transform(P,final)
+    cert=json.loads((root/'legacy/v02/data/symplectic_slice_certificate.json').read_text());model=json.loads((root/'legacy/v02/data/symplectic_slice_equations.json').read_text());reduced=json.loads((root/'legacy/v02/data/symplectic_slice_reduced_equations.json').read_text());params=list(map(F,graph['all61_parameters']))
+    assert len(params)==61
+    def evaluate(data):
+        ans=F(0)
+        for mon,num,den in data:
+            v=F(num,den)
+            for i in mon:v*=params[i]
+            ans+=v
+        return ans
+    vector=q.vec({(1,2):q.atom(1,0,0),(3,4):q.atom(1,0,0)})
+    for at,v in zip(cert['raw_free_indices'],params):vector[at]=v
+    for e in model['eliminated_raw_variables']:vector[e['raw_index']]=evaluate(e['polynomial'])
+    represented=vector_to_poly(vector);same_projective(pushed,represented);same_projective(transform(represented,final_inverse),P)
+    assert not any(q.jacobi(represented).values())
+    assert len(reduced['equations'])==134 and all(evaluate(f)==0 for f in reduced['equations'])
+    names={f'u{i+1}':v for i,v in enumerate(params)};residuals={}
+    for label,path in [('T39','reports/Q51_UNIVERSAL_SECTION_20261101.json'),('T40','reports/Q52_UNIVERSAL_SECTION_20261101.json')]:
+        section=json.loads((root/path).read_text());res=[params[k]-q.evaluate(f,names)for k,f in zip(section['weight2_u_indices_zero_based'],section['quadratic_section_q'])]
+        assert len(res)==45 and list(map(str,res))==graph['exact_graph_membership'][label]['all45_graph_residuals']
+        assert sum(bool(v)for v in res)==15
+        residuals[label]=list(map(str,res))
+    result=dict(task_id='E_reduced_nonnormal',all_passed=True,no_producer_S61_or_CAS_import=True,source_case='E6_smooth_flex',entire6mag_canonical_source_point_reconstructed=True,actual_rankfour_point_Pf=str(pf),actual_shift_Darboux_perspective_and_all_inverse_maps_verified=True,all150_forward_and_inverse_projective_quotient_relations=True,all134_original_equations_zero=True,all350_projective_Jacobi_zero=True,all45_residuals=residuals,both_graphs_have15_nonzero_residuals=True,global_parent_exclusion_requires_additional_geometric_theorem='research/classification/S61_GLOBAL_COMPONENT_EVALUATION_FIBER.md, independently read in separate receipt; old graph diagnostic alone does not imply this.',allzero_magnetic_boundary_not_excluded=True,inputs=job['exact_inputs_and_hashes'],reviewer_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),reviewer_source_bytes=Path(__file__).read_text(),seconds=time.monotonic()-start,maximum_RSS_KiB=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss)
+    output.write_text(json.dumps(result,indent=2)+'\n');print('PASS E6 fullfaithful graph review',round(result['seconds'],3),'seconds',flush=True)
+
 if __name__=='__main__':
-    main()
+    import sys
+    if '--e6-global-parent' in sys.argv:e6_global_parent_review()
+    else:main()

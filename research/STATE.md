@@ -1,7 +1,7 @@
 # 研究状態 — v63-s61 / 2026-11-05
 
 現行キューは [classification/CURRENT.md](classification/CURRENT.md)・PLAN.json・NEXT_TASKS.md。
-個別下界111（rank四105、rank二6）、主張931。全essential3既約退化quinticは八つの相異なる23全成分へ全点被覆した。
+個別下界124（rank四118、rank二6）、主張931。全essential3既約退化quinticは八つの相異なる23全成分へ全点被覆した。
 今回主稿は201頁、全source/cusp・全周囲成分性・全必要curveリストを別々に独立確認。
 全m二rank零plane、scalar/zero symbol、common-image、全smoothquadric等も受理済み。
 全G/E・上界は未証明で、dependent高m・rank二plane/cone/scroll/canonical index二、Eのstable二源/markedquartic等の残余を続ける。

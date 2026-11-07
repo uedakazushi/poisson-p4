@@ -1,0 +1,79 @@
+{
+  "task_id": "G",
+  "scope": "All actual irreducible quintic m4 generic31 leading-rank2 sources for arbitrary R, including nonreducedR: F0 empty, F1 source image<=21. Not whole E or all plane m.",
+  "files": [
+    {
+      "path": "code/classification_plane_reducible_cubic_m4_special.py",
+      "sha256": "b45036bfeb38a94f97540ae6d822aa6adfaa14480ef10286e36439d70d1adb6c",
+      "bytes": 39232
+    },
+    {
+      "path": "code/classification_degenerate_quadric_q4_nil31_I_review.py",
+      "sha256": "f3900a3d9a77859585118cfdd00c00ecce2c491d0705a94bf42a6c2609abe915",
+      "bytes": 10981
+    },
+    {
+      "path": "reports/CLASSIFICATION_PLANE_M4_TRIPLE_ROOT_QUINTICS_20261107.json",
+      "sha256": "03c9b4bfb1e395b4e552cf46c16ca588270301432759dbf6ecf0a3e8f377139e",
+      "bytes": 5346927
+    },
+    {
+      "path": "research/classification/PLANE_M4_TRIPLE_ROOT_QUINTICS.md",
+      "sha256": "98984335009947749649a9f892da10fc5fbfef175dcd809f889561572acb9240",
+      "bytes": 5561
+    },
+    {
+      "path": "research/classification/PLANE_M4_TRIPLE_ROOT_BOUND.md",
+      "sha256": "4390f6284a614cc06603ca9d2f5f27c55cda6e3e80f9730ad30e3fe1f4b5949e",
+      "bytes": 3587
+    },
+    {
+      "path": "research/classification/ESSENTIAL_THREE_QUINTIC_SAITO_BOUND.md",
+      "sha256": "8a941b6a436a118d9833cd3cb912ca3e448a048c88ee4e386019e027da85a217",
+      "bytes": 12694
+    },
+    {
+      "path": "research/classification/ESSENTIAL_THREE_QUINTIC_SAITO_SEPARATE_REVIEW.md",
+      "sha256": "59c37a209f0998c45f4ceb724a2e8ec994fe45bc7dc7021c49137c0cc454647c",
+      "bytes": 11588
+    },
+    {
+      "path": "reports/CLASSIFICATION_PLANE_M4_REPEATED_211_20261107.json",
+      "sha256": "0e00f1eaeb31a0051dd641704c7b8c5e27f090de1ec3764bd0fd072dd7dc590a",
+      "bytes": 5282806
+    },
+    {
+      "path": "research/classification/inputs/plane_m4_repeated_211_manifest_20261107.json",
+      "sha256": "36ab887678119d2383c5caf285e51d9647fc7d145b83869dfdb0e283add71ce3",
+      "bytes": 9280
+    }
+  ],
+  "executed_contract": {
+    "path": "research/classification/jobs/plane_m4_triple_root_quintics.json",
+    "sha256": "1f02f06ef722e0df94082af6e753e0d481f99339f1d4f82e45da93fd89273693",
+    "exact_bytes_utf8": "{\n  \"task_id\": \"G\",\n  \"target_statement\": \"One exact complete strict-divergencezero quadratic Casimir source for each of the two full actual-D m4 triple-root quintic normalforms F0/F1.\",\n  \"implication_to_classification\": \"Whole actual D normalization covers every m4 generic31 leading-image-rank2 source for arbitrary R. F0 all degree<=2 gradient fields lie in two pointwise directions, so adding one vertex forces rank<=2. F1 has actual D family<=18 from true Ga stabilizer; if complete linear source dim<=7, whole projective Poisson image<=18+dimL1-1<=24. Nonlinear Jacobi or Pf elimination not required for that upper.\",\n  \"coefficient_ring\": \"QQ exact Fraction, all150 raw homogeneous quadratic bivector coefficients in A,B,u,v,w; full1050 degree6 Casimir rows and25 divergence rows. Complete degree0/1/2 four-variable gradient syzygy maps and kernels. No nonlinear elimination, new points, GB or jets.\",\n  \"hypotheses\": \"Actual D irreducible reduced; order4 along a plane and generic normal root partition31 with leading coefficient image rank2. Elementary binary gcd plus all shear/scaling inverse normalizes D to F_epsilon=u4 A+u3v B+epsilon*u2v3+v5 epsilon0/1. No reducedR or log assumption.\",\n  \"inverted_elements\": [\n    \"Only coefficient kappa of v5 is nonzero, forced by actualD irreducibility. The remaining normalized coefficient epsilon has full zero/nonzero split, retaining both normalforms. Square-root scale choices overC are finite and invertible.\"\n  ],\n  \"complements\": [\n    \"All image-rank1 actual D already essential3 and covered by accepted eight-source theorem.\",\n    \"generic211 handled in separate frozen six-source packet for reducedR; nonreducedR211 remains separate.\",\n    \"No m2/m3, allzero R or other surfaces are removed merely by these two normalforms.\",\n    \"All Casimir rows/divergence and all150 coefficients retained; no Euler representative mistaken for canonical strict lift.\",\n    \"If source dim bound fails, preserve exact kernels and bound only; do not declare new component or launch higher jets.\"\n  ],\n  \"exact_inputs_and_hashes\": [\n    {\n      \"path\": \"code/classification_plane_reducible_cubic_m4_special.py\",\n      \"sha256\": \"b45036bfeb38a94f97540ae6d822aa6adfaa14480ef10286e36439d70d1adb6c\"\n    },\n    {\n      \"path\": \"code/classification_degenerate_quadric_q4_nil31_I_review.py\",\n      \"sha256\": \"f3900a3d9a77859585118cfdd00c00ecce2c491d0705a94bf42a6c2609abe915\"\n    },\n    {\n      \"path\": \"research/classification/PLANE_M4_TRIPLE_ROOT_QUINTICS.md\",\n      \"sha256\": \"98984335009947749649a9f892da10fc5fbfef175dcd809f889561572acb9240\"\n    },\n    {\n      \"path\": \"research/classification/ESSENTIAL_THREE_QUINTIC_SAITO_BOUND.md\",\n      \"sha256\": \"8a941b6a436a118d9833cd3cb912ca3e448a048c88ee4e386019e027da85a217\"\n    }\n  ],\n  \"success_certificate\": \"Full1075x150 matrices, complete kernels, original-row substitution, nonzero rank minors; complete degree0/1/2 gradient maps/kernels/rank minors, F0 basis equality S1Z+S1Y; actual Ga ZF=0 and uniform fixed-D source dimension; whole-source dimension bound.\",\n  \"independent_check\": \"Separate author reconstruct full two actual-D normalization, F0 rank2 proof and all exact Fraction linear matrices/kernels/minors. No producer source imports. Independence receipt before claim adoption.\",\n  \"resource_limit\": {\n    \"timeout_seconds\": 240,\n    \"memory_mb\": 2048\n  },\n  \"negative_result_next_step\": \"If dimL1>7, stop with exact full linear source and geometric18+dimL1-1 bound; inspect whole nonlinear family/structural parent before any new calculation. No eight-connection profile, minor farm, GB or jet sequence.\",\n  \"route_change_reason\": \"All generic31 irreducible actualD have only two whole PGL normalforms, strictly weaker and sufficient than eight connection profiles. Fixed-D linear source plus genuine Ga symmetry directly bounds full Poisson source.\",\n  \"immutable_previous_source\": {\n    \"report\": \"reports/CLASSIFICATION_PLANE_M4_REPEATED_211_20261107.json\",\n    \"key\": \"producer_source_bytes\",\n    \"sha256\": \"ca361245a1915735e31c5bbb8acd1170a0492b0ed73d6ca42f5fb58ae6c6b2fb\",\n    \"all_previous_functiondefs_AST_unchanged\": true,\n    \"count\": 10\n  },\n  \"execution_ready\": true\n}\n"
+  },
+  "immutable_executed_producer_source": {
+    "report": "reports/CLASSIFICATION_PLANE_M4_TRIPLE_ROOT_QUINTICS_20261107.json",
+    "key": "producer_source_bytes",
+    "sha256": "b45036bfeb38a94f97540ae6d822aa6adfaa14480ef10286e36439d70d1adb6c"
+  },
+  "previous_repeated211_source_reconstruction": {
+    "report": "reports/CLASSIFICATION_PLANE_M4_REPEATED_211_20261107.json",
+    "key": "producer_source_bytes",
+    "sha256": "ca361245a1915735e31c5bbb8acd1170a0492b0ed73d6ca42f5fb58ae6c6b2fb",
+    "all_previous10_functiondefs_AST_unchanged": true,
+    "historical_manifest": "research/classification/inputs/plane_m4_repeated_211_manifest_20261107.json",
+    "historical_code_ca_entry_reconstruct_from_report_not_current_b450": true
+  },
+  "full1075_row_order": "First5 components each all210 homogeneous degree6 monomials in saved full1075_row_labels; then5 divergence components each5 linear monomials. full150_column_labels are all10 skewpairs times15 degree2 monomials.",
+  "no_work_input": true,
+  "no_legacy_input": true,
+  "no_nonlinear_run": true,
+  "independent_review": "Assigned log_manuscript, pending.",
+  "replay": [
+    "Check all files and exact execution contract bytes.",
+    "Reconstruct immutable executed producer from report and run --triple-root-quintics with fresh temporary output after gate.",
+    "Independently reconstruct every canonical-divergence and Casimir linear row, full kernel/rank minor, F0 full gradient-module proof, and F1 true Ga plus orbit/fiber dimension bridge."
+  ]
+}

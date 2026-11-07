@@ -1,0 +1,46 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "target_statement": "Determine the entire local reduced support dimension of a genuine102-dimensional transverse slice at either remaining one-normal plane source by a complete local standard basis, with no prescribed jet cutoff.",
+  "implication_to_classification": "If the full local Jacobi ideal has zero-dimensional reduced support, Krull with48 actual-source cuts and full-source lower48 proves the entire irreducible six-magnetic source is a23-dimensional component. If the complete standard basis has dimension1, that is a different exact local-support result but does not identify a global component. Unfinished computations prove neither.",
+  "coefficient_ring": "QQ local polynomial ring with ds monomial order in all102 slice variables; full350 projective Jacobi retained. Existing Singular4.4.1 CLI in work/nonsquare-v62/singular-runtime/prefix is reused with cloud-setup shared libraries/data.",
+  "hypotheses": "Use the published exact P0, actual F48, true normal R and independent101 D coordinate columns to construct P0+tR+sum(vj Ecolj). Rescale P0/R only by nonzero rational constants. Every original Jacobi equation remains; no selected jet, prime, truncation order or formal product assertion. Macaulay21.24.11 local-ring gb and ChangeMatrix were verified on a small ideal using the installed environment. M2 input construction exceeded2GB actual RSS (26.1s) before any GB; this is not a mathematical result. Reuse the discovered existing Singular CLI and core liftstd Mora algorithm, verified on the same local small ideal, for this identical full polynomial input. No installation or larger mathematical ansatz.",
+  "inverted_elements": [
+    "Only units of the local ring at the literal slice origin, as required by a complete Mora standard basis"
+  ],
+  "complements": [
+    "All magnetic coefficients remain in the irreducible target source; a transverse witness zero-support criterion covers the whole source closure by the already reviewed Krull argument.",
+    "No finite Groebner partial output or HardDegreeLimit result is accepted.",
+    "If positive, preserve complete input, complete standard basis, full change-of-generators identity and leading ideal/support certificate for independent reconstruction.",
+    "M2 Mora local coefficients and generator-change matrix may use denominators which must be units at the origin; this is distinguished from a global ideal equality."
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "reports/CLASSIFICATION_TWO_LINES_PLANE_CUBIC_20261107.json",
+      "sha256": "f0ec94367063e9fe85c053352672e23f9fe4c01267205bedceec2ee9ac908e3a"
+    },
+    {
+      "path": "reports/CLASSIFICATION_TWO_LINES_PLANE_CUBIC_NORMALS_20261107.json",
+      "sha256": "d1470e3da77f626090198d6638fea737a922833d2ff313cc252136d45dfe6af3"
+    },
+    {
+      "path": "reports/CLASSIFICATION_TWO_LINES_PLANE_CUBIC_CUBIC_SUPPORT_20261107.json",
+      "sha256": "71adabc299e2dd54d593c55f68ceb1a3ea2d6b3f1e34223aa2d0f6ac34568d1e"
+    },
+    {
+      "path": "code/classification_rank3_mixed_component_review.py",
+      "sha256": "48e61e30f9d7f04fb81f1bb5eec0e18daa28c8192d6a02a251e09cf8855b9bd0"
+    },
+    {
+      "path": "code/classification_plane_cubic_local_ideal.py",
+      "sha256": "0a331d45b64f0782d564d147d7b5d8464d2dcbab0f96d0b4fc376198f79c2276"
+    }
+  ],
+  "success_certificate": "Completed exact local standard basis of full sliced Jacobi ideal; verified full generator-change identity; leading ideal containing powers of every slice variable, or a complete positive-dimension leading ideal, plus independently checked true cut/source dimensions and the support implication.",
+  "independent_check": "Independent reviewer reconstructs all sliced equations and literal complement from immutable data, verifies generator membership/leading ideal using another exact implementation or complete CAS rerun, and reviews local support/Krull logic. A timeout is not a certificate.",
+  "resource_limit": {
+    "timeout_seconds": 120,
+    "memory_mb": 2048
+  },
+  "negative_result_next_step": "If the complete Mora computation exceeds the resource limit, preserve exact input/hash and actual failure, do not raise arbitrary jet order or claim nonvanishing. Change to geometric source containment or a mathematically smaller exact presentation.",
+  "route_change_reason": "The old second/cubic initial tests were nonclosing, and literal kernels/field guesses did not supply an actual family. This is a different exact elimination algorithm for the entire all-orders local ideal, with no chosen jet-degree cap. It targets the weakest remaining support statement directly."
+}

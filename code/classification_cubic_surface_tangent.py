@@ -236,7 +236,33 @@ def ranktwo_open():
     print(json.dumps({k:result[k]for k in ('G_non_dominance_obtained','normalized_whole_rank2_slice_dimension_upper','whole_projective_PGL_image_upper','remaining_Jacobi_row_rank','seconds','maximum_RSS_KiB')}),flush=True)
 
 
+
+def ranktwo_branch_support():
+    """Whole three exact branches; linear support over all base parameters."""
+    start=time.monotonic();signal.alarm(120);resource.setrlimit(resource.RLIMIT_AS,(1536*1024**2,)*2)
+    jobpath=ROOT/'research/classification/jobs/cubic_scroll_rank_two_branch_support.json'
+    output=ROOT/'reports/CLASSIFICATION_CUBIC_SCROLL_RANK_TWO_BRANCH_SUPPORT_20261107.json'
+    if output.exists():raise FileExistsError(output)
+    job=json.loads(jobpath.read_text())
+    for b in job['exact_inputs_and_hashes']:assert hashlib.sha256((ROOT/b['path']).read_bytes()).hexdigest()==b['sha256'],b['path']
+    raw=json.loads((ROOT/'reports/CLASSIFICATION_CUBIC_SCROLL_RANK_TWO_OPEN_20261107.json').read_text())
+    t=s.symbols('t0:21');env={str(v):v for v in t};full=[s.sympify(f,locals=env)for f in raw['full350_remaining_polynomials']]
+    product=(t[0]-t[17])*(2*t[0]-t[17])*(2*t[0]-2*t[17]+3*t[19]);assert s.expand(full[73]-s.Rational(5,9)*product)==0
+    secondary=[t[i]for i in [1,3,6,7,9,11,14,15]];base=[t[0],t[19]];records=[]
+    for name,sub in [('first',{t[17]:t[0]}),('second',{t[17]:2*t[0]}),('third',{t[17]:t[0]+3*t[19]/2})]:
+        J=[s.Poly(s.expand(f.subs(sub)),*secondary,domain=s.QQ.poly_ring(*base))for f in full]
+        linear=[(i,f)for i,f in enumerate(J)if f.total_degree()<=1 and f.as_expr()!=0]
+        A=s.Matrix([[f.coeff_monomial(v)for v in secondary]for _,f in linear]);b=s.Matrix([-f.coeff_monomial(1)for _,f in linear]);dm=DomainMatrix.from_Matrix(A).to_field();_,cc=dm.rref();cc=list(cc)
+        _,rr=DomainMatrix.from_Matrix(A[:,cc].T).to_field().rref();rr=list(rr);B=A[rr,cc];det=s.factor(B.det());assert det
+        rank=len(cc);assert A.rank()==rank
+        record=dict(name=name,exact_branch_substitution={str(k):str(v)for k,v in sub.items()},all350_polynomials=[str(f.as_expr())for f in J],all8_secondary_variables=list(map(str,secondary)),all2_base_variables=list(map(str,base)),linear_original350_rows=[i for i,_ in linear],full_linear_matrix=encode_matrix(A),full_linear_rhs=encode_matrix(b),generic_rank=rank,independent_row_indices=rr,independent_columns=cc,selected_nonzero_minor=str(det),generic_normalized_source_dimension_upper=10-rank,minor_factors=[dict(polynomial=str(f),multiplicity=int(n))for f,n in s.factor_list(det)[1]],generic_augmented_rank=DomainMatrix.from_Matrix(A.row_join(b)).to_field().rank())
+        records.append(record)
+    result=dict(task_id='G',all_exact_branch_and_linear_identities_passed=True,scope='Complete three linear branch equations from original350 and complete secondary-linear projection. Generic ranks alone do not prove fullsupport dimension; every minor zero component and residual nonlinear equation is retained.',all_G_closed=False,all_three_cases=records,inputs=job['exact_inputs_and_hashes'],producer_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),producer_bytes=Path(__file__).read_text(),seconds=time.monotonic()-start,maximum_RSS_KiB=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss)
+    output.write_text(json.dumps(result,indent=2)+'\n')
+    print(json.dumps(dict(cases=[{k:r[k]for k in ['name','generic_rank','selected_nonzero_minor','generic_normalized_source_dimension_upper','generic_augmented_rank']}for r in records],seconds=result['seconds'])),flush=True)
+
 if __name__=='__main__':
-    parser=argparse.ArgumentParser();parser.add_argument('--case',choices=CASES,default='smooth_scroll_12');parser.add_argument('--ranktwo-open',action='store_true');args=parser.parse_args()
-    if args.ranktwo_open:ranktwo_open()
+    parser=argparse.ArgumentParser();parser.add_argument('--case',choices=CASES,default='smooth_scroll_12');parser.add_argument('--ranktwo-open',action='store_true');parser.add_argument('--ranktwo-branch-support',action='store_true');args=parser.parse_args()
+    if args.ranktwo_branch_support:ranktwo_branch_support()
+    elif args.ranktwo_open:ranktwo_open()
     else:main(args.case)

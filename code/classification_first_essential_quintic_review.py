@@ -319,7 +319,162 @@ def eight_ambient_review():
     destination.write_text(json.dumps(result,indent=2)+'\n');print('PASS all7fullambient',round(result['seconds'],3),'seconds',flush=True)
 
 
+
+def mu6_marked_ambient_review():
+    """Full nine marked quartic ambient certificates, independently in Fraction."""
+    start=time.monotonic();signal.alarm(180);resource.setrlimit(resource.RLIMIT_AS,(1536*1024**2,)*2)
+    jobpath='research/classification/jobs/plane_hyperplane_quartic_mu6_ambient_review.json'
+    destination=ROOT/'reports/CLASSIFICATION_PLANE_HYPERPLANE_QUARTIC_MU6_AMBIENT_REVIEW_20261107.json'
+    if destination.exists():raise FileExistsError(destination)
+    job=json.loads((ROOT/jobpath).read_text())
+    for b in job['exact_inputs_and_hashes']:assert hashlib.sha256((ROOT/b['path']).read_bytes()).hexdigest()==b['sha256'],b['path']
+    sources={c['name']:c for c in json.loads((ROOT/'reports/CLASSIFICATION_PLANE_HYPERPLANE_QUARTIC_MU6_SOURCES_20261107.json').read_text())['cases']}
+    raw=json.loads((ROOT/'reports/CLASSIFICATION_PLANE_HYPERPLANE_QUARTIC_MU6_AMBIENT_20261107.json').read_text())
+    R=LaurentRing(tuple('r'+str(i) for i in range(6)),('h','x','y','z','w'));R0=LaurentRing((),('h','x','y','z','w'));records=[]
+    convert=lambda s:{e+(0,0,0):v for e,v in R0.parse(s).items()}
+    for a in raw['cases']:
+        if a['name'] not in raw['component_candidates']:continue
+        source=sources[a['name']];values=[F(a['canonical_source_binding']['r'+str(i)]) for i in range(6)]
+        def evaluate(poly):
+            out={}
+            for ex,c in poly.items():
+                for power,value in zip(ex[:6],values):c*=value**power
+                e=ex[6:]+(0,0,0);out[e]=out.get(e,F(0))+c
+            return {e:c for e,c in out.items() if c}
+        whole={tuple(map(int,k.split(','))):R.parse(t) for k,t in source['all150_source_brackets'].items()}
+        scale=F(a['canonical_projective_integer_scale'])
+        P=q.antisymmetric({ij:q.scale(evaluate(v),scale) for ij,v in whole.items()})
+        expected=q.antisymmetric({tuple(map(int,k.split(','))):convert(t) for k,t in a['canonical_brackets'].items()})
+        assert q.vec(P)==q.vec(expected) and not any(q.jacobi(P).values())
+        D=q.transpose([q.jvec(q.jacobi(plus(P,q.antisymmetric({ij:{e+(0,0,0):F(1)}})))) for ij,e in q.COLS])
+        rank=q.rank(D)[0];assert rank==a['full_D']['rank'] and rank in (101,102)
+        dm=minor(D,a['full_D']);Ecols=[];Ocols=[]
+        for i,j in product(range(5),repeat=2):
+            E=q.antisymmetric({(u,v):q.add(q.atom(1,u,j) if v==i else {},q.atom(-1,v,j) if u==i else {}) for u,v in q.PAIRS})
+            O=q.antisymmetric({(u,v):q.add(q.mul(q.atom(1,j),q.der(P.get((u,v),{}),i)),q.scale(P.get((j,v),{}) if u==i else {},-1),q.scale(P.get((u,j),{}) if v==i else {},-1)) for u,v in q.PAIRS})
+            Ecols.append(q.vec(E));Ocols.append(q.vec(O))
+        V=q.transpose(Ecols);M=q.transpose(Ecols+Ocols+[q.vec(P)])
+        # LaurentRing derivative uses ordinary-variable indexes only; the six
+        # parameter derivatives are reconstructed directly from their powers.
+        magnetic=[]
+        for i in range(6):
+            dwhole={}
+            for ij,poly in whole.items():
+                d={}
+                for e,c in poly.items():
+                    if e[i]:
+                        f=list(e);f[i]-=1;d[tuple(f)]=c*e[i]
+                dwhole[ij]=q.scale(evaluate(d),scale)
+            magnetic.append(q.vec(q.antisymmetric(dwhole)))
+        FS=q.transpose(Ecols+Ocols+[q.vec(P)]+magnetic)
+        assert q.rank(V)[0]==24 and q.rank(M)[0]==q.rank(FS)[0]==48
+        vm=minor(V,a['vertical']);mm=minor(M,a['full51_action']);fm=minor(FS,a['full6_actual_source'])
+        assert not any(any(row) for row in matmul(D,FS))
+        actualD=G.quintic(P);assert actualD==convert(a['actual_quintic'])
+        essential=q.rank([[q.der(actualD,i).get(e+(0,0,0),F(0)) for i in range(5)] for e in q.monomials(4)])[0];assert essential==3
+        split=None;pairing=None
+        if rank==101:
+            Fcols=[[M[i][j] for i in range(150)] for j in a['full51_action']['columns']];Fmat=q.transpose(Fcols)
+            rr=a['true48cut_coordinate_rows'];assert rr==a['full51_action']['rows'] and len(set(rr))==48
+            fdet=q.determinant([Fmat[i] for i in rr]);assert fdet
+            N=sparse_vector(a['true_cut_normal'],150);assert not any(N[i] for i in rr)
+            assert not any(any(row) for row in matmul(D,[[v] for v in N]))
+            dc=a['full_D']['columns'];remaining=[i for i in range(150) if i not in dc];perm=remaining+dc
+            sign=(-1)**sum(perm[i]>perm[j] for i in range(150) for j in range(i+1,150))
+            # Replacing each corrected IFT coordinate U by its original e_j
+            # is a column operation in F48, hence preserves this determinant.
+            split=sign*q.determinant([Fmat[i]+[N[i]] for i in remaining])
+            assert split and split==F(a['full48plus1plus101_direct_sum']['determinant'])
+            Q=q.jvec(q.jacobi(tensor(N)));assert Q==sparse_vector(a['all350_quadratic_normal'],350)
+            augmented=[row+[v] for row,v in zip(D,Q)];assert a['quadratic_augmented_D']['rank']==102
+            qm=minor(augmented,a['quadratic_augmented_D'])
+            ell=sparse_vector(a['all150_D_annihilating_functional'],350)
+            assert all(not v for v in matmul([ell],D)[0])
+            pairing=sum(x*y for x,y in zip(ell,Q));assert pairing and pairing==F(a['nonzero_quadratic_functional_value'])
+        records.append(dict(name=a['name'],full350_by150_D_reconstructed=True,D_rank=rank,D_nonzero_minor=dm,full51_actual_columns_reconstructed=True,Euler_rank=24,M_rank=48,M_nonzero_minor=mm,all6_actual_magnetic_directions_retained=True,source_rank=48,full_D_times_all57_directions_zero=True,actual126_quintic_reconstructed=True,essential_rank=essential,true48cut_full150_directsum=None if split is None else str(split),all350_quadratic_source=rank==101,all150_annihilated_and_nonzero_quadratic_pairing=None if pairing is None else str(pairing),full_projective_component_dimension=23,smooth=rank==102,no_higher_obstruction=True))
+    assert len(records)==9 and sum(r['smooth'] for r in records)==5
+    result=dict(task_id='E_reduced_nonnormal',all_passed=True,all_nine_full_ambient_proofs=records,scope='Nine full ambient componenthood statements. Whole marked-source geometry, prior111 distinctness, all36 mutual distinctions and positive A0/DPM membership require the separate independent geometry/source review; no count or global classification follows from arithmetic alone.',two_unreviewed_nonclosing_sources=raw['unresolved_frontier'],no_producer_legacy_or_CAS_imports=True,inputs=job['exact_inputs_and_hashes'],reviewer_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),seconds=time.monotonic()-start,maximum_RSS_KiB=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss)
+    destination.write_text(json.dumps(result,indent=2)+'\n');print('PASS all9 markedquartic ambient',round(result['seconds'],3),'seconds',flush=True)
+
+def marked_quartic_ambient_review(prefix, expected_count, expected_smooth):
+    """Full nine marked quartic ambient certificates, independently in Fraction."""
+    start=time.monotonic();signal.alarm(180);resource.setrlimit(resource.RLIMIT_AS,(1536*1024**2,)*2)
+    jobpath='research/classification/jobs/plane_hyperplane_quartic_'+prefix+'_ambient_review.json'
+    destination=ROOT/('reports/CLASSIFICATION_PLANE_HYPERPLANE_QUARTIC_'+prefix.upper()+'_AMBIENT_REVIEW_20261107.json')
+    if destination.exists():raise FileExistsError(destination)
+    job=json.loads((ROOT/jobpath).read_text())
+    for b in job['exact_inputs_and_hashes']:assert hashlib.sha256((ROOT/b['path']).read_bytes()).hexdigest()==b['sha256'],b['path']
+    sources={c['name']:c for c in json.loads((ROOT/('reports/CLASSIFICATION_PLANE_HYPERPLANE_QUARTIC_'+prefix.upper()+'_SOURCES_20261107.json')).read_text())['cases']}
+    raw=json.loads((ROOT/('reports/CLASSIFICATION_PLANE_HYPERPLANE_QUARTIC_'+prefix.upper()+'_AMBIENT_20261107.json')).read_text())
+    R=LaurentRing(tuple('r'+str(i) for i in range(6)),('h','x','y','z','w'));R0=LaurentRing((),('h','x','y','z','w'));records=[]
+    convert=lambda s:{e+(0,0,0):v for e,v in R0.parse(s).items()}
+    for a in raw['cases']:
+        if a['name'] not in raw['component_candidates']:continue
+        source=sources[a['name']];values=[F(a['canonical_source_binding']['r'+str(i)]) for i in range(6)]
+        def evaluate(poly):
+            out={}
+            for ex,c in poly.items():
+                for power,value in zip(ex[:6],values):c*=value**power
+                e=ex[6:]+(0,0,0);out[e]=out.get(e,F(0))+c
+            return {e:c for e,c in out.items() if c}
+        whole={tuple(map(int,k.split(','))):R.parse(t) for k,t in source['all150_source_brackets'].items()}
+        scale=F(a['canonical_projective_integer_scale'])
+        P=q.antisymmetric({ij:q.scale(evaluate(v),scale) for ij,v in whole.items()})
+        expected=q.antisymmetric({tuple(map(int,k.split(','))):convert(t) for k,t in a['canonical_brackets'].items()})
+        assert q.vec(P)==q.vec(expected) and not any(q.jacobi(P).values())
+        D=q.transpose([q.jvec(q.jacobi(plus(P,q.antisymmetric({ij:{e+(0,0,0):F(1)}})))) for ij,e in q.COLS])
+        rank=q.rank(D)[0];assert rank==a['full_D']['rank'] and rank in (101,102)
+        dm=minor(D,a['full_D']);Ecols=[];Ocols=[]
+        for i,j in product(range(5),repeat=2):
+            E=q.antisymmetric({(u,v):q.add(q.atom(1,u,j) if v==i else {},q.atom(-1,v,j) if u==i else {}) for u,v in q.PAIRS})
+            O=q.antisymmetric({(u,v):q.add(q.mul(q.atom(1,j),q.der(P.get((u,v),{}),i)),q.scale(P.get((j,v),{}) if u==i else {},-1),q.scale(P.get((u,j),{}) if v==i else {},-1)) for u,v in q.PAIRS})
+            Ecols.append(q.vec(E));Ocols.append(q.vec(O))
+        V=q.transpose(Ecols);M=q.transpose(Ecols+Ocols+[q.vec(P)])
+        # LaurentRing derivative uses ordinary-variable indexes only; the six
+        # parameter derivatives are reconstructed directly from their powers.
+        magnetic=[]
+        for i in range(6):
+            dwhole={}
+            for ij,poly in whole.items():
+                d={}
+                for e,c in poly.items():
+                    if e[i]:
+                        f=list(e);f[i]-=1;d[tuple(f)]=c*e[i]
+                dwhole[ij]=q.scale(evaluate(d),scale)
+            magnetic.append(q.vec(q.antisymmetric(dwhole)))
+        FS=q.transpose(Ecols+Ocols+[q.vec(P)]+magnetic)
+        assert q.rank(V)[0]==24 and q.rank(M)[0]==q.rank(FS)[0]==48
+        vm=minor(V,a['vertical']);mm=minor(M,a['full51_action']);fm=minor(FS,a['full6_actual_source'])
+        assert not any(any(row) for row in matmul(D,FS))
+        actualD=G.quintic(P);assert actualD==convert(a['actual_quintic'])
+        essential=q.rank([[q.der(actualD,i).get(e+(0,0,0),F(0)) for i in range(5)] for e in q.monomials(4)])[0];assert essential==3
+        split=None;pairing=None
+        if rank==101:
+            Fcols=[[M[i][j] for i in range(150)] for j in a['full51_action']['columns']];Fmat=q.transpose(Fcols)
+            rr=a['true48cut_coordinate_rows'];assert rr==a['full51_action']['rows'] and len(set(rr))==48
+            fdet=q.determinant([Fmat[i] for i in rr]);assert fdet
+            N=sparse_vector(a['true_cut_normal'],150);assert not any(N[i] for i in rr)
+            assert not any(any(row) for row in matmul(D,[[v] for v in N]))
+            dc=a['full_D']['columns'];remaining=[i for i in range(150) if i not in dc];perm=remaining+dc
+            sign=(-1)**sum(perm[i]>perm[j] for i in range(150) for j in range(i+1,150))
+            # Replacing each corrected IFT coordinate U by its original e_j
+            # is a column operation in F48, hence preserves this determinant.
+            split=sign*q.determinant([Fmat[i]+[N[i]] for i in remaining])
+            assert split and split==F(a['full48plus1plus101_direct_sum']['determinant'])
+            Q=q.jvec(q.jacobi(tensor(N)));assert Q==sparse_vector(a['all350_quadratic_normal'],350)
+            augmented=[row+[v] for row,v in zip(D,Q)];assert a['quadratic_augmented_D']['rank']==102
+            qm=minor(augmented,a['quadratic_augmented_D'])
+            ell=sparse_vector(a['all150_D_annihilating_functional'],350)
+            assert all(not v for v in matmul([ell],D)[0])
+            pairing=sum(x*y for x,y in zip(ell,Q));assert pairing and pairing==F(a['nonzero_quadratic_functional_value'])
+        records.append(dict(name=a['name'],full350_by150_D_reconstructed=True,D_rank=rank,D_nonzero_minor=dm,full51_actual_columns_reconstructed=True,Euler_rank=24,M_rank=48,M_nonzero_minor=mm,all6_actual_magnetic_directions_retained=True,source_rank=48,full_D_times_all57_directions_zero=True,actual126_quintic_reconstructed=True,essential_rank=essential,true48cut_full150_directsum=None if split is None else str(split),all350_quadratic_source=rank==101,all150_annihilated_and_nonzero_quadratic_pairing=None if pairing is None else str(pairing),full_projective_component_dimension=23,smooth=rank==102,no_higher_obstruction=True))
+    assert len(records)==expected_count and sum(r['smooth'] for r in records)==expected_smooth
+    result=dict(task_id='E_reduced_nonnormal',all_passed=True,all_full_ambient_proofs=records,scope='Full ambient componenthood only; complete marked-source geometry and prior/mutual distinctness require separate independent review; no automatic count or global classification.',unreviewed_nonclosing_sources=raw['unresolved_frontier'],no_producer_legacy_or_CAS_imports=True,inputs=job['exact_inputs_and_hashes'],reviewer_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),seconds=time.monotonic()-start,maximum_RSS_KiB=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss)
+    destination.write_text(json.dumps(result,indent=2)+'\n');print('PASS',prefix,expected_count,'markedquartic ambient',round(result['seconds'],3),'seconds',flush=True)
+
 if __name__=='__main__':
     import sys
-    if '--eight-ambient' in sys.argv:eight_ambient_review()
+    if '--mu5-marked-ambient' in sys.argv:marked_quartic_ambient_review('mu5',4,0)
+    elif '--mu6-marked-ambient' in sys.argv:mu6_marked_ambient_review()
+    elif '--eight-ambient' in sys.argv:eight_ambient_review()
     else:main()
