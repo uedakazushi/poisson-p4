@@ -1,7 +1,7 @@
 # 底を優越する未知成分の次元と正規退化因子
 
 2026-11-07。未知優越成分の次元と、既存の正規退化因子分類への接続。
-正規分岐は既存定理により処理済みであり、Gで残るのは非正規・非被約退化因子である。
+正規分岐と全可約・非被約因子型は処理済みであり、Gで残る一般実因子は既約・被約・非正規五次だけである。
 後半の局所Lie代数補題は独立した補足で、処理済み正規分岐を再開する義務ではない。
 交換子・多項式左逆・有限射影だけでは孤立残余を排除できないことは
 [独立reviewの反例](NORMAL_DIRECTION_INCIDENCE_REVIEW.md)による。
@@ -68,6 +68,22 @@ q_(5,1)、すなわちT39に属すことを証明している。
 閉集合C_T39に含まれるのでC⊂C_T39となり、成分の極大性に反する。
 この包含は複素閉点での定理から被約スキームの包含へ移り、一般底への拡大後にも適用できる。
 D_redだけの正規性に弱めたり、非被約Dに拡張したりしない。
+
+## 2.1. 全次数分割を接続した現行の残余
+
+被約可約五次の全次数分割は1+4、1+1+3、1+2+2、2+3、1+1+1+2、1^5である。
+後三型は既存の全点被覆、前三型は現在の全source被覆又は射影像次元≤24で処理した。
+前者の証明はHYPERPLANE_QUARTIC_NIL31_SHORT_REVIEW.md、同LONG_REVIEW.md、
+NIL211_SHORT_TRANSLATION_REVIEW.md、HYPERPLANE_QUARTIC_NIL22_COTANGENT_G_BOUND.md、
+HYPERPLANE_QUARTIC_NIL22_LONG_SUPPORT_REVIEW.mdと半単純/regular/最小nilの既済全支持にある。
+1+1+3はTWO_HYPERPLANES_CUBIC_GENERIC_NONDOMINANCE.md、1+2+2は
+TWO_QUADRICS_SUPPORT.md及びPURE_NILPOTENT_SUPPORT.mdで全型を接続する。
+全非被約因子は重複H又はH+2Qで、既存の全モジュラー型非優越及び全点被覆で処理済みである。
+
+したがって未知優越成分の一般実退化因子は、既約被約非正規quinticに限られる。
+IRREDUCIBLE_NONNORMAL_ORDINARY_DOUBLE_RECOGNITION.mdは明示仮定下の一枝をT40へ認識する。
+PROJECTED_VERONESE_ZERO_SURFACE_REVIEW.mdは滑らかなprojected Veronese rank0曲面を全排除する。
+これらの補集合は未解決であり、G、一般五点尽くし、全分類を証明したとはしない。
 
 ## 3. 局所的な補足：正規被約退化因子とunimodular零点
 

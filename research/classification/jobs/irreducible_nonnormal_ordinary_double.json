@@ -15,7 +15,7 @@
   "exact_inputs_and_hashes": [
     {
       "path": "code/classification_nonnormal_quintic_entrance.py",
-      "sha256": "abc431749dafec54bda44f2721a7a5b6c663be8d0dd5b9554e99e299aa13f169"
+      "sha256": "c0a72db9cedc8f1f47e407fb03d7018ac10b79f9a28902ece681debf2b70fc92"
     },
     {
       "path": "code/classification_quadratic_cofactor_review.py",
@@ -32,5 +32,14 @@
     "timeout_seconds": 20,
     "memory_mb": 1536
   },
-  "negative_result_next_step": "Preserve exact failed identity; retain the whole conditional branch until corrected. Do not identify every nonnormal quintic with T40."
+  "negative_result_next_step": "Preserve exact failed identity; retain the whole conditional branch until corrected. Do not identify every nonnormal quintic with T40.",
+  "clean_mode_extension": {
+    "reason": "Append isolated --clean-rank-zero finite proof mode. AST of all prior finite checks and M2 input is unchanged; original immutable reports embed complete prior source bytes.",
+    "unchanged_functions": [
+      "finite_checks",
+      "ordinary_double_checks",
+      "m2_input"
+    ],
+    "prior_exact_source_report": "reports/CLASSIFICATION_IRREDUCIBLE_NONNORMAL_ORDINARY_DOUBLE_RECOGNITION_20261107.json"
+  }
 }

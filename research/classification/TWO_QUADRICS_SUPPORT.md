@@ -176,7 +176,11 @@ gate後の実行は0.0036秒、証明書は
 全五型の全行・kernel・minor・元Jacobi/Pfaffian・必要strataは独立Fractionレビュー済み。
 これはGの未知優越成分を除く弱い矢印であり、Eの全成分帰属は別である。
 
-Gについて残るのはλ=0内のjoint半単純rank零（二normal場ともnilpotent）である。
+`TWO_QUADRICS_PURE_NILPOTENT_SUPPORT.md` とその新独立type7レビューにより、
+λ=0内のjoint半単純rank零（二normal場ともnilpotent）も全十型で排除された。
+λ≠0及びjoint半単純rank二は既知MPS閉和、rank一と零は有限全源の像次元≤24なので、
+未知W優越成分（必要次元25–27）の一般元が全1+2+2支持に入ることは不可能である。
+これは全因子型のG用排除であり、G全体の完了やEの全成分認識を主張しない。
 Eについてはjoint半単純rank一の全成分認識も別に残る。
 他の冪零modular場、線形場の零点でC=L=0となる純斉次源、
 一般の二quadric pencilとHの全配置は未処理である。

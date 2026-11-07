@@ -618,7 +618,7 @@ def nil_regular_support(source_path):
                 scope='Type2 excluded entirely; type1 reduced to two complete normalized sources; their membership remains unproved.')
 
 
-def nil_regular_component(source_path, second=False, point=None, quadratic=False, twist=False):
+def nil_regular_component(source_path, second=False, point=None, quadratic=False, twist=False, one_normal=False):
     """Full150-variable one-normal support test, through at most cubic order."""
     import importlib.util
     from sympy.polys.matrices import DomainMatrix
@@ -691,7 +691,7 @@ def nil_regular_component(source_path, second=False, point=None, quadratic=False
         if point.get('family_report'):
             family_path=Path(point['family_report'])
             family=json.loads(family_path.read_text())[point['family_result_key']]
-            if 'family_index' in point:family=family['all_three_complete_families'][point['family_index']]
+            if 'family_index' in point:family=family[point.get('family_list_key','all_three_complete_families')][point['family_index']]
             parameters=[s.Symbol(v)for v in family['parameters']]
             parameter_env={str(v):v for v in parameters}
             values={s.Symbol(k):s.Rational(v)for k,v in point['family_parameter_point'].items()}
@@ -714,7 +714,13 @@ def nil_regular_component(source_path, second=False, point=None, quadratic=False
                 extra=[j-actual.cols for j in pivots if j>=actual.cols]
                 normals=[]
                 for at in extra:
-                    value=K[:,at];common=s.ilcm(*[v.q for v in value]);value*=common
+                    value=K[:,at]
+                    if one_normal:
+                        cuts,actions=mcert['rows'],mcert['columns']
+                        action_inverse=dm(M[cuts,actions]).inv()
+                        value-=M[:,actions]*action_inverse.matmul(dm(value[cuts,:])).to_Matrix()
+                        assert value[cuts,:]==s.zeros(len(cuts),1)and D*value==s.zeros(350,1)
+                    common=s.ilcm(*[v.q for v in value]);value*=common
                     divisor=math.gcd(*(int(v)for v in value));normals.append(value/divisor)
                 normal_matrix=s.Matrix.hstack(*normals)
                 matrices=[unvector(v)for v in normals]
@@ -735,6 +741,37 @@ def nil_regular_component(source_path, second=False, point=None, quadratic=False
                     quadratic_initial_support_zero_dimensional=zero_dimensional,
                     reduced_full_source_component_proved_by_true_slice=zero_dimensional,
                     point_unique_component_not_claimed=True)
+                if one_normal:
+                    assert len(extra)==1 and family_cert['rank']==47 and K.cols==48 and dcert['rank']==102
+                    Rvec=normals[0];R=matrices[0];Qvec=Q[:,0]
+                    quadratic_rank=minor(D.row_join(Qvec))
+                    result.update(one_normal_quadratic_obstruction=quadratic_rank,
+                                  actual_action_transverse_coordinate_cuts=cuts,true_slice_embedding_dimension=103,
+                                  first_order_normal_satisfies_all_action_cuts=True,
+                                  support_component_proved=quadratic_rank['rank']>dcert['rank'])
+                    if result['support_component_proved']:
+                        result.update(first_nonzero_obstruction_order=2,unique_component_proved_via_true_slice=True)
+                    else:
+                        Tvec=s.zeros(150,1)
+                        rr,cc=dcert['rows'],dcert['columns']
+                        solution=dm(D[rr,cc]).inv().matmul(dm(-Qvec[rr,0])).to_Matrix()
+                        for i,value in zip(cc,solution):Tvec[i]=value
+                        Tvec-=M[:,actions]*action_inverse.matmul(dm(Tvec[cuts,:])).to_Matrix()
+                        assert D*Tvec+Qvec==s.zeros(350,1)
+                        assert Tvec[cuts,:]==s.zeros(len(cuts),1)
+                        T=unvector(Tvec)
+                        cubic=jac(R+T)-jac(R)-jac(T)
+                        mixed=s.Matrix.hstack(*[jac(R+unvector(K[:,j]))-jac(R)-jac(unvector(K[:,j]))for j in range(K.cols)])
+                        mixed_cert=minor(D.row_join(mixed));cubic_cert=minor(D.row_join(mixed).row_join(cubic))
+                        proved=cubic_cert['rank']>mixed_cert['rank']
+                        result.update(quadratic_correction_sparse=encode(Tvec),exact_full_quadratic_correction=True,
+                            quadratic_correction_satisfies_all_action_cuts=True,
+                            all_kernel_correction_mixed_rank=mixed_cert,cubic_obstruction=cubic_cert,
+                            cubic_coefficient_sparse=encode(cubic),support_component_proved=proved,
+                            first_nonzero_obstruction_order=3 if proved else None,
+                            unique_component_proved_via_true_slice=proved,
+                            one_normal_support_scope='Full103dimensional slice transverse to47 actual action/gauge directions has one firstorder normal. A nonzero cubic moduloD andallkernel correctionambiguities forces its reducedsupport tobe a point; connectedPGL fixes eachambientcomponent, soeverycomponentthroughanchor contains the22orbitclosure and mustequal it.',
+                            next_step=None if proved else 'Quadratic andcubic route didnotclose; stophigherjets andchange toactualsource geometry orknowncomponentrecognition.')
             if twist:
                 Z=s.zeros(5,1)
                 for i in range(4):Z[i+1]=row['field_constant'][i]*h+sum(row['field_linear_matrix'][i][j]*coords[j+1]for j in range(4))
@@ -1252,6 +1289,188 @@ def nil31_long_support(source_path):
         scope='Whole H+irreduciblequartic nil31longtop3 source is two explicit5parameter families, with all empty complements retained. E membership remains separate; dimension22 excludes its generic G dominance.')
 
 
+def nil31_short_quartic_sources(source_path):
+    """All short31 quartic sources after the complete nine-core-branch theorem."""
+    row=json.loads(source_path.read_text())['full_nilpotent_sources'][3]
+    core_path=Path('reports/CLASSIFICATION_HYPERPLANE_QUARTIC_NIL31_SHORT_SUPPORT_20261107.json')
+    core_report=json.loads(core_path.read_text())
+    n=s.symbols('n0:18');x,y,z,w=s.symbols('x y z w')
+    J=list(map(s.sympify,core_report['all_reduced_jacobi_equations']))
+    Pf=s.sympify(row['actual_affine_pfaffian']);K=s.sympify(row['highest_quartic_pfaffian'])
+    lower=[n[i]for i in [3,4,8,12,13,14]];magnetic=[n[i]for i in [0,1,2,5,6,7]]
+    zero={n[17]:0,n[10]:0,n[15]:0,n[9]:0}
+    for fixed,parameter,first in [({**zero,n[16]:s.Rational(1,3)},n[11],(3*n[11]+1)*n[8]/6),
+                                  ({**zero,n[11]:-n[16]},n[16],(1-3*n[16])*n[8]/9)]:
+        assert s.expand(J[2].subs(fixed,simultaneous=True)-first)==0
+        assert s.expand(J[8].subs({**fixed,n[8]:0},simultaneous=True)-(n[11]+s.Rational(1,4)).subs(fixed,simultaneous=True)*n[7])==0
+        assert s.expand(K.subs({**fixed,n[8]:0},simultaneous=True)-(n[11]*n[7]*z**4).subs(fixed,simultaneous=True))==0
+    candidates=[]
+    for branch in core_report['whole_source_dimension_bounds']:
+        if branch['parameter_nonzero']:
+            candidates.append(dict(name=branch['name'],parameter=s.Symbol(branch['parameter']),
+                substitution={s.Symbol(k):s.sympify(v)for k,v in branch['substitution'].items()}))
+    for a,b in [(-s.Rational(1,3),s.Rational(1,3)),(-s.Rational(1,4),s.Rational(1,3)),(-s.Rational(1,4),s.Rational(1,4))]:
+        candidates.append(dict(name=f'c_t_k_zero_a_{a}_b_{b}',parameter=None,
+                               substitution={**zero,n[11]:a,n[16]:b}))
+    def solve_stage(equations,variables,parameter):
+        matrix,rhs=s.linear_eq_to_matrix(equations,variables)
+        rank=matrix.rank();chosen=None
+        for rows in it.combinations(range(matrix.rows),rank):
+            for columns in it.combinations(range(matrix.cols),rank):
+                determinant=s.factor(matrix.extract(rows,columns).det())
+                if not determinant:continue
+                numerator,denominator=s.fraction(determinant)
+                if parameter is None:
+                    unit=not determinant.free_symbols
+                else:
+                    unit=determinant.free_symbols<={parameter}and len(s.Poly(numerator,parameter).terms())==len(s.Poly(denominator,parameter).terms())==1
+                if unit:chosen=(rows,columns,determinant);break
+            if chosen:break
+        assert chosen is not None,('need full pivot charts',parameter,matrix)
+        rows,columns,determinant=chosen
+        free_columns=[i for i in range(len(variables))if i not in columns]
+        actual_rhs=rhs[list(rows),:]-matrix.extract(rows,free_columns)*s.Matrix([variables[i]for i in free_columns])
+        values=matrix.extract(rows,columns).inv()*actual_rhs
+        solution={v:v for v in variables}
+        solution.update({variables[j]:s.cancel(value)for j,value in zip(columns,values)})
+        residual=[s.cancel(q.subs(solution,simultaneous=True))for q in equations]
+        return solution,residual,dict(rank=rank,rows=list(rows),columns=list(columns),determinant=str(determinant),
+                 matrix=[[str(v)for v in matrix.row(i)]for i in range(matrix.rows)],rhs=list(map(str,rhs)))
+    results=[]
+    for branch in candidates:
+        sub=branch['substitution'];parameter=branch['parameter']
+        residual=[s.cancel(v.subs(sub,simultaneous=True))for v in J]
+        L,Lres,Lcert=solve_stage([residual[i]for i in [2,3,4]],lower,parameter)
+        assert all(v==0 for v in Lres)
+        magnetic_equations=[s.cancel(residual[i].subs(L,simultaneous=True))for i in [8,9,10,11]]
+        M,Mres,Mcert=solve_stage(magnetic_equations,magnetic,parameter)
+        complete={v:s.cancel(s.sympify(sub.get(v,v)).subs(L,simultaneous=True).subs(M,simultaneous=True))for v in n}
+        for v in lower:complete[v]=s.cancel(L[v].subs(M,simultaneous=True))
+        for v in magnetic:complete[v]=M[v]
+        jacobi=[s.cancel(v.subs(complete,simultaneous=True))for v in J]
+        constraints=[]
+        for value in jacobi:
+            if value:
+                numerator=s.fraction(value)[0]
+                p=s.Poly(numerator,*n,domain=s.QQ).monic().as_expr()
+                if p not in constraints:constraints.append(p)
+        actual_pf=s.factor(Pf.subs(complete,simultaneous=True))
+        top=s.factor(K.subs(complete,simultaneous=True))
+        free=sorted(set().union(*(v.free_symbols for v in complete.values())),key=str)
+        assert set(free)<={*n}
+        factors=s.factor_list(s.fraction(actual_pf)[0])[1]if actual_pf else[]
+        results.append(dict(name=branch['name'],localization=[str(parameter)+'!=0']if parameter else[],
+            core_substitution={str(k):str(v)for k,v in sub.items()},parameters=list(map(str,free)),
+            source_substitution={str(k):str(v)for k,v in complete.items()},lower_linear_certificate=Lcert,
+            magnetic_linear_certificate=Mcert,all_remaining_Jacobi_constraints=list(map(str,constraints)),
+            all_four_Jacobi_identically_zero=not constraints,
+            universal_brackets=[str(s.factor(s.sympify(v).subs(complete,simultaneous=True)))for v in row['brackets']],
+            actual_affine_pfaffian=str(actual_pf),highest_quartic_pfaffian=str(top),
+            generic_formal_pfaffian_factors=[dict(factor=str(f),multiplicity=int(e),coordinate_degree=int(s.Poly(f,x,y,z,w).total_degree()))for f,e in factors],
+            scope='Whole triangular source chart with allresidual compatibility equations retained; formal factorization is not an allparameter irreducibility assertion.'))
+    return dict(input_report=str(source_path),input_sha256=hashlib.sha256(source_path.read_bytes()).hexdigest(),
+        core_report=str(core_path),core_sha256=hashlib.sha256(core_path.read_bytes()).hexdigest(),
+        whole_H_quartic_support_covered=True,continuous_core_complement_excluded_by_highest_Pf_zero=True,
+        finite_core_candidate_count=len(results),all_ten_candidate_sources=results,
+        scope='Complete finite core reduction and exact two-stage linear source charts; all compatibility equations and actualPf retained. Componentrecognition remains separate.')
+
+
+def nil31_short_quartic_support(candidate_path):
+    """All ten short31 candidates reduce to one complete irreducible six-source."""
+    candidates=json.loads(candidate_path.read_text())['nil31_short_quartic_sources']
+    n=s.symbols('n0:18');x,y,z,w=s.symbols('x y z w');c=n[17]
+    rows=candidates['all_ten_candidate_sources'];exclusions=[]
+    divisors={0:z,1:z*z,2:3*c*z+1,4:15*c*z-1,5:z+3*n[15],7:z*z,8:z,9:z**4}
+    for index,family in enumerate(rows):
+        if index==3:continue
+        Pf=s.sympify(family['actual_affine_pfaffian']);K=s.sympify(family['highest_quartic_pfaffian'])
+        if index==6:
+            assert K==0
+            exclusions.append(dict(candidate_index=index,name=family['name'],reason='Highestquartic identicallyzero.',identity=True))
+        else:
+            divisor=divisors[index];quotient=s.cancel(Pf/divisor)
+            assert quotient.is_polynomial(x,y,z,w)
+            assert s.cancel(Pf-divisor*quotient)==0
+            exclusions.append(dict(candidate_index=index,name=family['name'],divisor=str(divisor),quotient=str(quotient),
+                divisor_nonconstant_on_entire_localization=True,identity=True,
+                reason='Universal nonconstantcoordinate factor excludes irreduciblequartic; any degreecollapse has no simpleH+quartic.'))
+    family=rows[3]
+    assert not family['all_remaining_Jacobi_constraints']and family['all_four_Jacobi_identically_zero']
+    Pf=s.sympify(family['actual_affine_pfaffian'])
+    coefficient=s.factor(s.diff(Pf,x));expected=c*(z-1/(6*c))**3
+    assert s.expand(coefficient-expected)==0 and s.diff(Pf,x,2)==0
+    residue=s.factor(Pf.subs(z,1/(6*c)))
+    square=-(12*n[12]*c+2*n[13]+6*c*y-w)**2/(3456*c**3)
+    assert s.cancel(residue-square)==0
+    assert s.Poly(residue,w).coeff_monomial(w*w)==-1/(3456*c**3)
+    return dict(input_candidates=str(candidate_path),input_sha256=hashlib.sha256(candidate_path.read_bytes()).hexdigest(),
+        all_nine_excluded_candidate_certificates=exclusions,all_core_complements_retained=True,
+        remaining_candidate_index=3,parameters=family['parameters'],localization=family['localization'],
+        source_substitution=family['source_substitution'],universal_brackets=family['universal_brackets'],
+        actual_affine_pfaffian=str(Pf),all_four_Jacobi_identically_zero=True,
+        coefficient_of_x=str(coefficient),restriction_at_its_only_root=str(residue),
+        entire_source_absolutely_irreducible_quartic=True,
+        irreducibility_proof='Pf is linear in x; its leadingcoefficient is c*(z-1/(6c))^3. At the onlyroot, the remainingterm has w^2coefficient -1/(3456c^3), neverzero. Thus the two coefficients arecoprime for every c!=0 and allotherparameters, and primitive degree1 overthe fractionfield is absolutelyirreducible.',
+        source_irreducible_parameter_space='Gm(n17) x A5(n12,n13,n6,n7,n8)',
+        whole_H_irreducible_quartic_support_covered=True,
+        scope='All type4 H+irreduciblequartic support is the PGL saturation of this one complete irreducible sixparameter source. Ambientcomponent membership remains separate.')
+
+
+def nil31_long_normalform(support_path):
+    """Both whole long31 fiveparameter sources are single actual affine orbits."""
+    support=json.loads(support_path.read_text())['nil31_long_support']
+    h,x,y,z,w=coords=s.symbols('h x y z w');n=s.symbols('n0:15');a=s.Symbol('a')
+    u=x-y*z+z**3/3;v=y-z*z/2
+    results=[]
+    for index,family in enumerate(support['all_two_complete_families']):
+        parameters=[s.Symbol(t)for t in family['parameters']]
+        canonical_point={q:s.Integer(q==a)for q in parameters}
+        substitutions={s.Symbol(k):s.sympify(text)for k,text in family['complete_source_substitutions'].items()}
+        values={k:s.cancel(t.subs(canonical_point))for k,t in substitutions.items()}
+        def matrix(brackets):
+            P=s.zeros(5)
+            for(i,j),text in zip(it.combinations(range(1,5),2),brackets):
+                p=s.Poly(s.sympify(text),x,y,z,w)
+                P[i,j]=sum(c*h**(2-sum(e))*s.prod(q**k for q,k in zip((x,y,z,w),e))for e,c in p.terms());P[j,i]=-P[i,j]
+            return P
+        target=matrix(family['universal_brackets'])
+        canonical=target.subs(canonical_point)
+        f=-3*a*n[4]
+        if index==0:
+            d=-3*n[8];shift=6*n[12]+36*a*n[8]
+            e=-2*n[3]-108*a*n[4]*n[8]-12*n[4]*n[12]
+        else:
+            d=-3*n[6]/2+n[12]/(2*a);shift=18*a*n[6]
+            e=-2*n[3]-54*a*n[4]*n[6]+6*n[4]*n[12]
+        G=s.Matrix([[1,0,0,0,0],[e,1,0,d,f],[d,0,1,0,0],[0,0,0,1,0],[shift,0,0,0,a]])
+        assert s.cancel(G.det()-a)==0
+        N=s.zeros(5);N[1,2]=N[2,3]=N[3,0]=1
+        assert G*N==N*G
+        pushed=(G*canonical*G.T).subs(dict(zip(coords,G.inv()*s.Matrix(coords))),simultaneous=True)
+        residual=(pushed-target).applyfunc(s.cancel)
+        assert residual==s.zeros(5),(index,residual)
+        canonical_pf=s.factor(s.sympify(family['actual_pfaffian']).subs(canonical_point))
+        expected=3*u*u/2+4*v**3/3
+        if index:expected-=v*w*w/36+w**3/648
+        assert s.expand(canonical_pf-expected)==0
+        if index:assert s.expand(expected-3*u*u/2+(w-6*v)*(w+12*v)**2/648)==0
+        results.append(dict(name=family['name'],parameters=list(map(str,parameters)),localization=['a!=0'],
+            canonical_parameter_values={str(k):str(t)for k,t in canonical_point.items()},
+            canonical_source_values={str(k):str(t)for k,t in values.items()},
+            canonical_homogeneous_brackets={f'{i},{j}':str(canonical[i,j])for i,j in it.combinations(range(1,5),2)},
+            canonical_affine_pfaffian=str(canonical_pf),
+            canonical_to_universal_affine_matrix=[[str(q)for q in G.row(i)]for i in range(5)],
+            universal_to_canonical_affine_matrix=[[str(s.cancel(q))for q in G.inv().row(i)]for i in range(5)],
+            matrix_determinant='a',commutes_with_full_homogeneous_cofactor=True,
+            all_six_universal_pushforward_identities=True,whole_source_is_one_actual_PGL_orbit=True,
+            scalar_tensor_factor='1',irreducible_quartic=True,
+            irreducibility_reason=('Quadratic in u with constant leading coefficient and nonsquare discriminant proportional to v^3.'if not index else
+                                   'Quadratic in u with constant leading coefficient and nonsquare discriminant proportional to (w-6v)*(w+12v)^2.')))
+    return dict(input_support=str(support_path),input_sha256=hashlib.sha256(support_path.read_bytes()).hexdigest(),
+                all_two_actual_orbit_normalforms=results,all_full_source_parameters_retained=True,
+                scope='Actual whole-source affine equivalence of each complete5source to one canonical point. Ambientcomponenthood and distinctness remain separate.')
+
+
 def source_magnetic_normalform(point_path):
     """Actual affine magnetic normalization and finite monomial-pencil test."""
     import importlib.util
@@ -1690,10 +1909,14 @@ def main():
     ap.add_argument('--nil-short-translation-constant-c',type=Path,help='Complete10parameter c=1 irreducible-quartic source')
     ap.add_argument('--source-family-generic',type=Path,help='Fullambient actualfamily comparison over QQ(b)')
     ap.add_argument('--source-point-quadratic',type=Path,help='Fulltrue normal quadratic support transverse to actualPGL and complete family')
+    ap.add_argument('--source-point-one-normal',type=Path,help='Weakest one-normal reducedsupport throughatmost cubic with allkernel ambiguity retained')
     ap.add_argument('--nil-short-translation-zero-c',type=Path,help='Complete c=0 support to three11parameter sources')
     ap.add_argument('--source-point-twist',type=Path,help='Complete linear search for commuting cofactor twists and actualPoisson pencils')
     ap.add_argument('--source-magnetic-normalform',type=Path,help='Actual6magnetic affine normalform and complete150monomial compatiblepencil test')
     ap.add_argument('--nil31-long-support',type=Path,help='Complete nil31longtop3 quartic source and saturateddimension bound')
+    ap.add_argument('--nil31-long-normalform',type=Path,help='Whole-source actual affine normalforms for both longnil31 families')
+    ap.add_argument('--nil31-short-quartic-sources',type=Path,help='Finite whole shortnil31 quartic sources with all residual compatibility')
+    ap.add_argument('--nil31-short-quartic-support',type=Path,help='One complete irreducible sixparameter shortnil31 quartic source')
     ap.add_argument('--nil22-long-dimension',type=Path,help='Whole nil22top2 source dimension via lifted QQ leading monomials')
     ap.add_argument('--nil22-long-core',type=Path,help='Complete eightvariable nonlinear core of nil22top2 source')
     ap.add_argument('--nil22-long-critical-cores',type=Path,help='Complete nil22top2 core strata n14=-1,-1/2,-1/3')
@@ -1707,6 +1930,26 @@ def main():
     report = dict(task='E_reduced_nonnormal', coefficient_ring='QQ, exact symbolic polynomials',
                   source_sha256=hashlib.sha256(source).hexdigest(), source_bytes=source.decode(),
                   scope='Finite modular cofactor entrance only; residual full Jacobi sources and coverage remain open.')
+    if args.nil31_short_quartic_support:
+        result=nil31_short_quartic_support(args.nil31_short_quartic_support)
+        report.update(nil31_short_quartic_support=result,all_passed=True)
+        args.output.write_text(json.dumps(report,indent=2)+'\n')
+        print(json.dumps(dict(all_passed=True,whole_remaining_sources=1,complete_parameters=6,
+              entire_source_absolutely_irreducible_quartic=True)))
+        return
+    if args.nil31_short_quartic_sources:
+        result=nil31_short_quartic_sources(args.nil31_short_quartic_sources)
+        report.update(nil31_short_quartic_sources=result,all_passed=True)
+        args.output.write_text(json.dumps(report,indent=2)+'\n')
+        print(json.dumps(dict(all_passed=True,finite_candidates=result['finite_core_candidate_count'],
+            residual_constraints=[len(v['all_remaining_Jacobi_constraints'])for v in result['all_ten_candidate_sources']])))
+        return
+    if args.nil31_long_normalform:
+        result=nil31_long_normalform(args.nil31_long_normalform)
+        report.update(nil31_long_normalform=result,all_passed=True)
+        args.output.write_text(json.dumps(report,indent=2)+'\n')
+        print(json.dumps(dict(all_passed=True,whole_actual_orbit_normalforms=2)))
+        return
     if args.nil22_long_support:
         result=nil22_long_support(args.nil22_long_support)
         report.update(nil22_long_support=result,all_passed=True)
@@ -1770,6 +2013,15 @@ def main():
         report.update(nil_short_translation_zero_c=result,all_passed=True)
         args.output.write_text(json.dumps(report,indent=2)+'\n')
         print(json.dumps(dict(all_passed=True,full_sources=[v['name']for v in result['all_three_complete_families']])))
+        return
+    if args.source_point_one_normal:
+        point=json.loads(args.source_point_one_normal.read_text())
+        result=nil_regular_component(Path(point['source_report']),point=point,quadratic=True,one_normal=True)
+        report.update(source_point_one_normal=result,all_passed=True,
+            scope='Fullone-normal weak reducedsupport throughatmost cubic; allkernel correctionambiguities andactualaction directions retained. No higherjet ornilpotence exponent assertion.')
+        args.output.write_text(json.dumps(report,indent=2)+'\n')
+        print(json.dumps(dict(all_passed=True,support_component_proved=result['support_component_proved'],
+              first_nonzero_obstruction_order=result.get('first_nonzero_obstruction_order'))))
         return
     if args.source_point_quadratic:
         point=json.loads(args.source_point_quadratic.read_text())

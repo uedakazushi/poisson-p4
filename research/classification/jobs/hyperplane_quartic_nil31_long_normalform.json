@@ -1,0 +1,32 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "target_statement": "Prove allpoints of each complete fiveparameter longnil31 source are actually affine equivalent to its single canonical point.",
+  "implication_to_classification": "Replaces whole E-support recognition by exactly two canonical ambientcomponent tests; scalar/tensor factors and inverses explicit.",
+  "coefficient_ring": "QQ[a,a^-1,n3,n4,n6,n8,n12,h,x,y,z,w]",
+  "hypotheses": "Complete two-source theorem independently reviewed; all a=0 complements excluded by actual Pf factors.",
+  "inverted_elements": [
+    "a only"
+  ],
+  "complements": [
+    "a=0 and alln14zero complements already covered in frozen independentPASS source report. No other localization."
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_hyperplane_quartic.py",
+      "sha256": "d4ae641b60aa907e8c2cd3f8da03b0ef5a189c6ffc6e70d48f6989deb5cb4dd3",
+      "previous_executed_runner_sha256": "ae887be39f5a16f785ece9b5cc33d8d796ac70f59e643f91e96f242c4cff5d62"
+    },
+    {
+      "path": "reports/CLASSIFICATION_HYPERPLANE_QUARTIC_NIL31_LONG_SUPPORT_20261107.json",
+      "sha256": "3a1441e01fe260a29b3302c307c359e56a21462732330cc4c7b98428b64b7284"
+    }
+  ],
+  "success_certificate": "Explicit fivebyfive affine matrices and inverses withdet a, centralizer identities and allsix universal tensor pushforward identities; canonical quartic Pf identities and nonsquare discriminants.",
+  "independent_check": "Separate actual matrix/substitution verification and fullsource-to-canonical containment argument, before anycomponent count.",
+  "resource_limit": {
+    "timeout_seconds": 60,
+    "memory_mb": 1024
+  },
+  "negative_result_next_step": "If one affine map fails, solve the fullcofactor affinecentralizer equations; do not infer fullsource recognition from Pfaffian normalform alone.",
+  "checkpoint97_compatible_runner_extension_reason": "Reusable source gained isolated modes and optional branches. Previously executed certificates retain exact producer bytes/hash. The changed nil_regular_component adds one_normal=False and an optional family_list_key with the original default, preserving all old calls; nonnormal entrance old arithmetic functions are AST-identical. Current runnable binding follows the extended source without rewriting any old certificate."
+}

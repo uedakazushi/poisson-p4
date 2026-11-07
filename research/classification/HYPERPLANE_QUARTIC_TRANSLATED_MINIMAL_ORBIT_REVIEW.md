@@ -57,5 +57,10 @@ Cの既知MPS帰属は別の全重みslice・実半単純曲線の独立証明�
 
 これは**22次元stratum自身のprimitive β像が非優越**という主張ではない。
 22次元空間から16次元底への写像は優越し得る。
-一般β上の全点の被覆、A/Bの例外支持への帰属、他のcofactor型の排除も未解決のまま残す。
+一般β上の全点の被覆や他のcofactor型の排除はこの軌道補題からは従わない。
+A/B/Cの既知MPS帰属は、その後の
+`HYPERPLANE_QUARTIC_TRANSLATED_MINIMAL_SEMISIMPLE_DEFORMATIONS.md` と
+`CLASSIFICATION_HYPERPLANE_QUARTIC_TRANSLATED_MINIMAL_COFACTOR_CURVES_REVIEW_20261107.json`
+で、A/CからSS20、BからSS7への実Poisson曲線として独立に閉じられた。
+本reviewの軌道rank証明書とGの次元排除はその追加結果を必要としない。
 新成分数の追加は行わない。

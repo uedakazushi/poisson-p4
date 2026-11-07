@@ -16,7 +16,7 @@
   "exact_inputs_and_hashes": [
     {
       "path": "code/classification_nonnormal_quintic_entrance.py",
-      "sha256": "abc431749dafec54bda44f2721a7a5b6c663be8d0dd5b9554e99e299aa13f169"
+      "sha256": "c0a72db9cedc8f1f47e407fb03d7018ac10b79f9a28902ece681debf2b70fc92"
     },
     {
       "path": "code/classification_quadratic_cofactor_review.py",
@@ -42,5 +42,14 @@
     "reason": "Append isolated --ordinary-double mode; finite_checks and generic M2 input/default assertions unchanged. Original immutable report embeds complete original runner bytes and M2 input/output.",
     "original_source_sha256": "1fcbd03274fc22be9fe8c1d31b4243f736458dc60112807ed9dd6657bcb18aa3",
     "original_report": "reports/CLASSIFICATION_IRREDUCIBLE_NONNORMAL_QUINTIC_ENTRANCE_20261107.json"
+  },
+  "clean_mode_extension": {
+    "reason": "Append isolated --clean-rank-zero finite proof mode. AST of all prior finite checks and M2 input is unchanged; original immutable reports embed complete prior source bytes.",
+    "unchanged_functions": [
+      "finite_checks",
+      "ordinary_double_checks",
+      "m2_input"
+    ],
+    "prior_exact_source_report": "reports/CLASSIFICATION_IRREDUCIBLE_NONNORMAL_ORDINARY_DOUBLE_RECOGNITION_20261107.json"
   }
 }

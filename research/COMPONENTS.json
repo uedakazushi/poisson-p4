@@ -14,12 +14,12 @@
     "null_values": "not catalogued or not applicable; never a claim of zero"
   },
   "coverage": {
-    "global_lower_bound": 96,
+    "global_lower_bound": 97,
     "generic_rank_two_full_components": 6,
-    "generic_rank_four_lower_bound": 90,
+    "generic_rank_four_lower_bound": 91,
     "upper_bound": null,
     "global_exhaustion_proved": false,
-    "individually_catalogued_count": 96,
+    "individually_catalogued_count": 97,
     "unexpanded_block_count": 0,
     "all_51_rank_four_ideals_in_S61_constructed": false,
     "note_ja": "全89成分を個別同定。一般rank4は83、rank2は6。平面conic+cubic六成分と平面二直線+cubic九成分は全て23次元。既約Q+C3全支持を被覆済み。全成分数上界・一般ファイバー尽くし・全分類は未証明。",
@@ -10905,7 +10905,8 @@
       "notes_ja": [
         "全150係数・350式の真の切片で、二次は消せるが補正曖昧さによらない三次余核が非零。被約支持だけで成分性を証明し精密nil指数を要求しない。",
         "全旧rank四次元22成分は非被約因子又は被約1+1+3、MPS40は次元23以上。新被約1+4型はこれら全てと相異なる。",
-        "第一normalized全源の既約像とN²centralizer undoもこの成分に入る。"
+        "第一normalized全源の既約像とN²centralizer undoもこの成分に入る。",
+        "既存独立full-ambient reportの実G47はPGL軌道22を既に証明する。成分22との同次元性から稠密開軌道、商次元0を台帳へ反映した。新しい計算又は滑らかさの主張ではない。"
       ]
     },
     {
@@ -11455,6 +11456,102 @@
         "局所全schemeの滑らかさ・成分唯一性・精密な非被約構造は主張しない。",
         "全H²C3閉条件、既存5H閉条件、二重Hとcubic singular planeの内在的incidenceで旧94及び相互と区別。"
       ]
+    },
+    {
+      "id": "R4_NIL31_LONG_HYPERPLANE_QUARTIC_22",
+      "name": "nil31長translation・単純Hとbinary-cubic判別quarticの22次元成分",
+      "source_checkpoint": "v64-classification-first",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "additional_generic_rank_four_full_component_outside_MPS40",
+      "generic_rank": 4,
+      "projective_dimension": 22,
+      "meets_SNC_log_symplectic_locus": false,
+      "generic_pgl5_orbit_dimension": 22,
+      "generic_reduced_rosenlicht_quotient_dimension": 0,
+      "generic_transverse_algebra": null,
+      "component_definition": "Reduced closure of the single actual PGL5 orbit containing the whole first nil31-long five-parameter source.",
+      "generic_construction": {
+        "full_source": "research/classification/HYPERPLANE_QUARTIC_NIL31_LONG_SUPPORT.md",
+        "free_parameters": [
+          "a",
+          "n3",
+          "n4",
+          "n8",
+          "n12"
+        ],
+        "generic_condition": "a!=0",
+        "canonical_values": "n14=1,n13=-1/6; all other n=0",
+        "coordinates": [
+          "h",
+          "x",
+          "y",
+          "z",
+          "w"
+        ],
+        "canonical_brackets_six_times_source": [
+          "3*x*z-2*y^2",
+          "3*h*x-y*z",
+          "12*y^2-18*x*z-w*y",
+          "2*h*y-z^2",
+          "6*y*z-18*h*x-w*z",
+          "6*z^2-12*h*y-h*w"
+        ],
+        "bracket_order": [
+          "xy",
+          "xz",
+          "xw",
+          "yz",
+          "yw",
+          "zw"
+        ],
+        "whole_source_to_orbit": "Explicit affine matrix of determinant a and full150 pushforward in independent review"
+      },
+      "generic_actual_degeneracy_divisor": {
+        "description": "Unique simple hyperplane and irreducible binary-cubic discriminant quartic",
+        "witness_equation": "h*(9*h^2*x^2-18*h*x*y*z+6*x*z^3+8*h*y^3-3*y^2*z^2)",
+        "irreducible_factor_degrees": [
+          1,
+          4
+        ],
+        "corresponding_multiplicities": [
+          1,
+          1
+        ],
+        "reduced": true,
+        "essential_variables": 4,
+        "intrinsic_cofactor": "y*d_x+z*d_y+h*d_z",
+        "unique_hyperplane_covector_flag": "h in im(Ndual)^3"
+      },
+      "claims": [
+        "R4_NIL31_LONG_HYPERPLANE_QUARTIC_COMPONENT_22",
+        "E_HYPERPLANE_QUARTIC_NIL31_LONG_FULL_COVERAGE"
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/HYPERPLANE_QUARTIC_NIL31_LONG_SUPPORT.md"
+        },
+        {
+          "path": "research/classification/QUARTIC_NIL31_LONG_COMPONENT_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_HYPERPLANE_QUARTIC_NIL31_LONG_NORMALFORM_20261107.json",
+        "reports/CLASSIFICATION_HYPERPLANE_QUARTIC_NIL31_LONG_ORBIT1_AMBIENT_20261107.json",
+        "reports/CLASSIFICATION_QUARTIC_NIL31_LONG_COMPONENT_REVIEW_20261107.json",
+        "reports/CLASSIFICATION_QUARTIC_NIL31_LONG_PRIOR96_20261107.json"
+      ],
+      "review_status": {
+        "proof": "smooth_full_ambient_componenthood_and_distinctness_proved",
+        "independent_review": "accepted_separate_author_full90_full150_full350_Fraction_and_geometry",
+        "certificates": "exact_QQ_reconstruction",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "notes_ja": [
+        "全五源は一つの22次元実PGL軌道で、その閉包が全空間成分。全D103とG/F47からcanonical点は正則唯一成分。",
+        "同じ1+4型の旧nil4成分とは唯一Hのcofactor双対flagで区別する。両者のessential数は4で、この数を相違には使わない。",
+        "異次元・rank2・非被約・1+1+3の既存成分も全prior96 projectionで監査した。"
+      ]
     }
   ],
   "named_block_member_annotations": [
@@ -11808,5 +11905,5 @@
     "MPS40 blockを展開したらblockによる加算を止め、二重計上しない。",
     "文献上の新規性は内部成分証明とは別に確認する。"
   ],
-  "new_components_added_in_this_checkpoint": 38
+  "new_components_added_in_this_checkpoint": 39
 }

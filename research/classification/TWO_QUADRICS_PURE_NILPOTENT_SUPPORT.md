@@ -13,10 +13,10 @@
 | 1 | Jordan4,c=0 | 全PGL像次元≤24 | 第2節 |
 | 2 | Jordan4,top4 | 空 | 全Jacobi支持でPfは零又は一quadricの平方 |
 | 3 | Jordan31,c=0 | 空 | Jacobi前の全Pfがzで割れる |
-| 4 | Jordan31,top1 | root側の全源次元定理へ | `HYPERPLANE_QUARTIC_NIL31_SHORT_SUPPORT.md` |
+| 4 | Jordan31,top1 | 全像次元≤23 | `HYPERPLANE_QUARTIC_NIL31_SHORT_SUPPORT.md` と独立V2 review |
 | 5 | Jordan31,top3 | 空 | 第3節 |
 | 6 | Jordan22,c=0 | 全て平面七配置、像次元≤24 | `TWO_QUADRICS_NIL22_BASE_SUPPORT.md` |
-| 7 | Jordan22,top2 | 本稿では未処理 | 全20係数源を別担当が処理中 |
+| 7 | Jordan22,top2 | 全像次元≤24 | 全20源・二段fiber・全criticalcoreの独立review完了 |
 | 8 | Jordan211,c=0 | 空 | 第4節 |
 | 9 | Jordan211,top1 | 全て平面七配置、像次元≤24 | 第5節 |
 | 10 | Jordan211,top2 | 全PGL像次元≤24 | 第6節 |
@@ -24,7 +24,10 @@
 型2の結論は `HYPERPLANE_QUARTIC_NIL_REGULAR_SUPPORT.md` 第1節の
 全二Jacobi分岐をそのまま使う。型3のz因子は独立全source reviewerが無条件に確認した。
 型4の次元定理の全Jacobi支持と例外minor処理は別証明であり、本稿で再計算したとはしない。
-型7が残るので、この表だけから全1+2+2又はG完了とはしない。
+型7は `HYPERPLANE_QUARTIC_NIL22_LONG_SUPPORT_REVIEW.md` により、全Jacobi・
+全670lift・全critical層・一様fiber・affine軌道を別作者が独立再構成して閉じた。
+従って全pure-nil十型が未知W優越一般成分から排除された。
+全E成分帰属又は他因子型のG完了をこの表から主張しない。
 
 ## 2. 型1：残る二quadric枝と弱い次元上界
 
@@ -160,4 +163,6 @@ regular及びnil31-longの**全非線形支持還元**はそれぞれの旧有�
 旧理想所属の全証明を新たに独立再構成したと混同しない。
 
 本稿のG用次元論と、各源のE成分認識は別である。
-特に型7の全HQQ支持、型4の全source次元証明の独立レビューが現時点の合流点である。
+型4の独立 `CLASSIFICATION_HYPERPLANE_QUARTIC_NIL31_SHORT_REVIEW_V2_20261107.json` と、
+型7の独立 `CLASSIFICATION_HYPERPLANE_QUARTIC_NIL22_LONG_SUPPORT_REVIEW_20261107.json`
+により、全十型について必要なG次元上界が揃った。E側の未帰属源は別に残る。

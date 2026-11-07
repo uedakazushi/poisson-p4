@@ -1,0 +1,36 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "target_statement": "Independently exclude every projective Poisson bivector vanishing on a smooth projected Veronese surface.",
+  "implication_to_classification": "A complete full150 vanishing-section computation and full350 Jacobi radical excludes this whole rankzero-surface branch, without smooth-normalization assumptions and without treating all degree4 surfaces as Veronese.",
+  "coefficient_ring": "QQ with standard-library Fraction sparse polynomial arithmetic only",
+  "hypotheses": "S=[a^2-b^2,b^2-c^2,ab,ac,bc]; projective vanishing means E wedge Pi restricts to zero. Reconstruct all280 equations in all150 variables; prove full kernel29 and Euler24 before taking quotient5. Reconstruct all350 Jacobi quadrics and explicit ideal identities for each parameter cube.",
+  "inverted_elements": [
+    "Nonzero rational constants only"
+  ],
+  "complements": [
+    "No restriction to a producer-selected subfamily",
+    "No inference that every degree4 rankzero surface is projected Veronese",
+    "No global quintic exhaustion or component count change"
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_projected_veronese_zero.py",
+      "sha256": "362dd303b437a9b39c20aef579e18c4e46390a64b833096df3bc7a8a10795ae4"
+    },
+    {
+      "path": "reports/CLASSIFICATION_PROJECTED_VERONESE_ZERO_20261107.json",
+      "sha256": "e5e1ad16e2397626d3933373eaf353b9093000f9242ac09c241eb0e2102f57dc"
+    },
+    {
+      "path": "code/classification_projected_veronese_zero_review.py",
+      "sha256": "7fbaa04524f57287df396ff5e0ebd754ad124cd9814055820c70fdd1f863e55d"
+    }
+  ],
+  "success_certificate": "Full matrix equality and nonzero121minor, complete independent quotient reconstruction, all350 Jacobi equality,14 rowspace quadrics with original-row witnesses and five explicit cube ideal identities, plus geometric PGL orbit proof.",
+  "independent_check": "Separate author, no producer or CAS imports; all inputs read as data only.",
+  "resource_limit": {
+    "timeout_seconds": 120,
+    "memory_mb": 1536
+  },
+  "negative_result_next_step": "Preserve any exact discrepancy; no TeX/global promotion until resolved."
+}

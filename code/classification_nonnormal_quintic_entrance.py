@@ -108,6 +108,75 @@ def ordinary_double_checks():
                 all_geometric_hypotheses_proved_by_computation=False)
 
 
+def clean_rank_zero_checks():
+    """Local blowup residue and complete numerical ruled-surface reduction."""
+    from classification_minimal_quartic_review import LaurentRing
+    R=Ring(6)
+    lam,a,b,c,d,e=[R.variable(f'n{i}') for i in range(6)]
+    z={};neg=lambda v:R.scale(v,-1)
+    W=[[z,lam,a,b],[neg(lam),z,c,d],
+       [neg(a),neg(c),z,e],[neg(b),neg(d),neg(e),z]]
+    T=[[1,0,0,0],[1,1,0,0],[0,0,1,0],[0,0,0,1]]
+    transformed=[[R.add(*(R.scale(W[i][j],T[i][k]*T[j][l])
+                          for i,j in it.product(range(4),repeat=2)))
+                  for l in range(4)]for k in range(4)]
+    expected=[lam,R.add(a,c),R.add(b,d),c,d,e]
+    assert [transformed[i][j]for i,j in PAIRS]==expected
+    # If both components of beta=(a+c,b+d) vanish, the residue coframe
+    # determinant ad-bc vanishes, contradicting the log-symplectic unit.
+    determinant=R.add(R.mul(a,d),neg(R.mul(b,c)))
+    out={}
+    for ex,co in determinant.items():
+        term=R.constant(co)
+        for i,n in enumerate(ex):
+            value=neg(a)if i==3 else neg(b)if i==4 else R.variable(R.names[i])
+            for _ in range(n):term=R.mul(term,value)
+        out=R.add(out,term)
+    assert not out
+    L=LaurentRing(['d','k','g','r','s1','s2','m'],[],invert=['k'])
+    H_K='-(d+s2)/k+2*k*(g-1)+s1'
+    K2='8*(1-g)-r'
+    lhs=L.parse('d*d-10*d-5*('+H_K+')-2*('+K2+')+12*(1-g)')
+    rhs=L.parse('d*d-10*d+5*d/k+(4-10*k)*(g-1)+5*s2/k-5*s1+2*r')
+    assert lhs==rhs
+    assert L.parse('5*m*m/k-5*m+2-(5/k-3)')==L.parse('5*(m-1)*(m-k+1)/k')
+    section_table=[]
+    for degree in range(3,7):
+        bound=(degree-2)**2//4
+        section_table.append(dict(degree=degree,Castelnuovo_genus_upper_bound=bound,
+            canonical_hyperplane_intersection_upper_bound=2*bound-2-degree))
+    assert [x for x in section_table if x['canonical_hyperplane_intersection_upper_bound']>=0]==[
+        dict(degree=6,Castelnuovo_genus_upper_bound=4,canonical_hyperplane_intersection_upper_bound=0)]
+    assert 6*6-10*6==-24
+    residual=[]
+    for degree in range(1,7):
+        value=degree*(degree-5)
+        if value%6==0 and 1+value//6>=1:
+            residual.append([degree,1+value//6])
+    assert residual==[[5,1],[6,2]]
+    assert F(5,2)-3==F(-1,2)
+    assert 6-10+F(5,2)==F(-3,2)
+    assert 6+2*(1-2)==4
+    assert 5+2*(1-1)==5 and 3*5==15
+    return dict(logarithmic_blowup_substitution='u=t,v=t*s; du/u=dt/t,dv/v=dt/t+ds/s',
+                all_six_transformed_log_matrix_entries_verified=True,
+                exceptional_residue='lambda*ds/s+(a+c)*dz+(b+d)*dw',
+                rank_zero_exceptional_residue='(a+c)*dz+(b+d)*dw',
+                zero_residue_sum_forces_zero_coframe_determinant=True,
+                smooth_surface_double_point_identity_verified=True,
+                blowup_sum_endpoint_identity='5*m^2/k-5*m+2-(5/k-3)=5*(m-1)*(m-k+1)/k',
+                all_k_ge_two_excluded_by_symbolic_signs=True,
+                complete_Castelnuovo_table=section_table,
+                kappa_nonnegative_exception_forces_chi=2,
+                complete_degree_at_most_six_k_one_pairs=residual,
+                genus_two_degree_six_vanishing_RR_h0=4,
+                elliptic_scroll_degree_five_h0=5,
+                elliptic_scroll_H0_two_H=15,
+                required_geometric_hypotheses=['S smooth','pi zero on S',
+                    'generic transverse ordinary double','no vertical component in strictD restricted to exceptional divisor'],
+                all_geometric_hypotheses_proved_by_computation=False)
+
+
 def m2_input():
     x=[f'x{i}' for i in range(5)]
     B=[['0']*5 for _ in range(5)]
@@ -146,11 +215,15 @@ def main():
     ap.add_argument('--output',type=Path,required=True)
     ap.add_argument('--m2',type=Path)
     ap.add_argument('--ordinary-double',action='store_true')
+    ap.add_argument('--clean-rank-zero',action='store_true')
     ap.add_argument('--workdir',type=Path,default=Path('work/nonnormal-quintic-entrance'))
     args=ap.parse_args();start=time.monotonic()
     resource.setrlimit(resource.RLIMIT_AS,(1536*1024**2,)*2)
-    result=dict(task_id='E_reduced_nonnormal',finite_checks=ordinary_double_checks() if args.ordinary_double else finite_checks(),
-                mathematical_proof='IRREDUCIBLE_NONNORMAL_ORDINARY_DOUBLE_RECOGNITION.md' if args.ordinary_double else 'IRREDUCIBLE_NONNORMAL_QUINTIC_ENTRANCE.md',
+    if args.ordinary_double and args.clean_rank_zero:ap.error('Choose one finite proof mode.')
+    proof='IRREDUCIBLE_NONNORMAL_CLEAN_RANK_ZERO_RECOGNITION.md' if args.clean_rank_zero else 'IRREDUCIBLE_NONNORMAL_ORDINARY_DOUBLE_RECOGNITION.md' if args.ordinary_double else 'IRREDUCIBLE_NONNORMAL_QUINTIC_ENTRANCE.md'
+    checks=clean_rank_zero_checks() if args.clean_rank_zero else ordinary_double_checks() if args.ordinary_double else finite_checks()
+    result=dict(task_id='E_reduced_nonnormal',finite_checks=checks,
+                mathematical_proof=proof,
                 global_exhaustion_proved=False)
     if args.m2:
         args.workdir.mkdir(parents=True,exist_ok=True)

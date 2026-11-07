@@ -5,15 +5,15 @@
   "baseline_commit": "a00a541b835b2bff18bafcba545ecbd4bae7175b",
   "target": "exhaustive_reduced_components_before_PGL5_and_generic_geometry",
   "mathematical_status": {
-    "global_lower_bound": 96,
-    "rank4_lower_bound": 90,
+    "global_lower_bound": 97,
+    "rank4_lower_bound": 91,
     "global_upper_bound": null,
     "generic_five_exhaustion": false,
     "global_exhaustion": false,
-    "verification_scope": "All96 components individually identified; two nil22-image nodal-cubic23 whole-source components independently proved and distinguished from prior94 and each other. Several entire strata excluded from generic unknown components by dimension. Global exhaustion remains open.",
+    "verification_scope": "All97 components individually identified. Every reducible/nonreduced and every normal actual divisor is excluded from a generic unknown dominant component. Irreducible reduced nonnormal quintics remain; E point coverage and the global upper bound are unproved.",
     "rank2_component_count": 6,
     "rank2_support_exhaustion": true,
-    "individually_identified_components": 96,
+    "individually_identified_components": 97,
     "additional_unidentified_components_lower_bound": 0
   },
   "source_registry": "research/classification/SOURCES.json",
@@ -61,7 +61,7 @@
         "generic_circuit_review"
       ],
       "acceptance": "全42法線の根基所属等または未知残余の空性を証明し、適用底開・全分母・独立検証を明記する。新残余があれば分類計画を更新し、未解決のまま成功扱いしない。",
-      "first_step": "全1+1+3とquartic型6も未知優越一般成分から排除済み。型7の全源≤24独立reviewを接続し、残る既約非正規quinticの全支持を処理する。",
+      "first_step": "未知優越成分の一般退化因子は既約・被約・非正規五次に限られる。条件付きordinary-double認識の補集合、rank0/rank2特異曲面と正規化・導手の全支持を処理する。",
       "fallback": "同経路の二回未決で支持幾何または境界経路に変更し、E0/Aも進める。",
       "nonclosing_attempts": 0,
       "proof": null,
@@ -75,13 +75,18 @@
       "fixed_base_premise": "reports/CLASSIFICATION_FROZEN_T01_BETA_G28_20261106.json",
       "current_direction_reduction": "research/classification/NORMAL_DIRECTION_INCIDENCE.md",
       "prior_direct_groebner_nonclosing_attempts": 5,
-      "current_route": "All logarithmic pole and actual E3 closures are non-dominant with all low-order extensions; all A=c=0 supports are closed. Unknown dominant components with generic multiple hyperplane are excluded. Remaining reduced nonnormal supports are not exhausted.",
+      "current_route": "Every reducible actual divisor, every nonreduced actual divisor, and the normal-divisor branch are excluded from generic unknown dominant components. The sole remaining generic divisor type is irreducible reduced nonnormal quintic. Smooth projected-Veronese rank-zero surfaces are excluded; the explicitly conditional ordinary-double smooth-normalization/conductor branch is T40. No global exhaustion claimed.",
       "previous_structural_route_nonclosing_attempts": 2,
       "latest_full_source_nondominance": "research/classification/NIL31_PRIMITIVE_BETA_IMAGE.md",
       "latest_logarithmic_boundary_review": "research/classification/UNIMODULAR_LOGARITHMIC_POLE_BOUNDARY_REVIEW.md",
       "latest_unimodular_closure_proof": "research/classification/UNIMODULAR_EXCEPTIONAL_NILPOTENT_INCIDENCE.md",
       "latest_two_hyperplanes_cubic_generic_exclusion": "research/classification/TWO_HYPERPLANES_CUBIC_GENERIC_NONDOMINANCE.md",
-      "latest_quartic_cotangent_dimension": "research/classification/HYPERPLANE_QUARTIC_NIL22_COTANGENT_G_BOUND.md"
+      "latest_quartic_cotangent_dimension": "research/classification/HYPERPLANE_QUARTIC_NIL22_COTANGENT_G_BOUND.md",
+      "remaining_generic_divisor_types": [
+        "irreducible_reduced_nonnormal_quintic"
+      ],
+      "latest_full_quartic_exclusion": "G_SIMPLE_H_QUARTIC_ALL_GENERIC_EXCLUSION",
+      "latest_full_two_quadrics_exclusion": "G_H_TWO_QUADRICS_ALL_GENERIC_EXCLUSION"
     },
     {
       "id": "G_direction",
@@ -275,7 +280,7 @@
         "bibliography"
       ],
       "acceptance": "主分類に使う各族のPoisson性、成分性、相違、次元とrank2被覆の証明・一次引用を確認し、欠落を明示する。",
-      "first_step": "個別96成分を監査済み。新候補だけ全周囲成分性と相違を追加検証。",
+      "first_step": "個別97成分を監査済み。新候補だけ全周囲成分性と相違を追加検証。",
       "fallback": "依存しない結果を巻き込まず問題の影響範囲を限定し、修正課題としてC0/Fに接続する。",
       "nonclosing_attempts": 0,
       "proof": "research/classification/KNOWN_COMPONENT_AUDIT.md",
@@ -417,7 +422,7 @@
         "remaining_divisor_support"
       ],
       "acceptance": "既存の正規因子T39分類とは別に、被約非正規因子の全rank4支持を閉既約族で尽くす。可約因子も含み、既知MPSを上界と仮定しない。",
-      "first_step": "1+1+3残三平面配置・非平面nil源、H+quarticの残五純nil型、1+2+2のlambda0 joint半単純rank<=1とplane残二源、既約非正規quinticを処理。lambda非零とlambda0 joint半単純rank2は全MPSへ被覆。",
+      "first_step": "quartic型5全支持は新22+T40へ被覆済み。残四純nil型(31top1),(22top0/2),(211top1)、1+1+3/1+2+2のE未帰属源、既約非正規quintic全支持を処理する。",
       "fallback": "同じ経路で二回非閉鎖なら具体的障害を記録し別の支持幾何へ変更。全補集合を保持する。",
       "nonclosing_attempts": 0,
       "proof": null,
