@@ -1,0 +1,48 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "target_statement": "Reduce the complete nil211,translation-long-top type10 simpleH/irreducible-quartic support to three actual affine/PGL orbit representatives.",
+  "implication_to_classification": "Replaces the full25-variable nonlinear source obligation by three explicit fullPoisson tensors, preserving all original coefficients and complements; no componenthood or MPS membership is inferred.",
+  "coefficient_ring": "Exact sparse QQ[25 source parameters,x,y,z,w], then localization delta^-1 for square completion and exact rational trace-1/2 weighted enumeration.",
+  "hypotheses": "Cofactor Z=y\u2202x+\u2202y, full90quadratic source type10. H simple means highestPf nonzero; F irreducible. Ga coordinate r=x-y\u00b2/2 is auxiliary and is not treated as a projective coordinate equivalence.",
+  "inverted_elements": [
+    "delta!=0 forced by highestPfnonzero",
+    "nonzero eigenpolynomial coefficientb after excluding reducibleF",
+    "invertible base affine maps"
+  ],
+  "complements": [
+    "delta=0 implies highestPf=0",
+    "trace-1/2 repeated eigenvalue -1/4 has no polynomial degree<=3 eigenvalue-1",
+    "zero eigenvalue translation kappa\u22600 forces H=az\u00b2 and reducibleF",
+    "vanishing coefficientb gives reducibleF"
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_translated_minimal_quartic.py",
+      "sha256": "f8b8f4ff8c4f22059243cea42869b1e7653f5cec229704be18fb6bc4f7a5b70a"
+    },
+    {
+      "path": "code/classification_minimal_quartic_review.py",
+      "sha256": "75cbf6820a60945f053c4593363d9191cebe860f56230a0fb0bf78a1a43623fe"
+    },
+    {
+      "path": "code/classification_quadratic_cofactor_review.py",
+      "sha256": "b77e9511bad7c8674f2d820c0d1e6022b7aa3788b795c2e55090b28e2d2dffcd"
+    },
+    {
+      "path": "reports/CLASSIFICATION_HYPERPLANE_QUARTIC_NILPOTENT_SOURCES_20261107.json",
+      "sha256": "385df1b5e751954bc33600500429ea5a7d078775b87e274b21a7c35b259e1706"
+    }
+  ],
+  "success_certificate": "Exact affine inverse25x25 parameter map and all90 coefficient comparisons to fullsource; every original degree/div/invariance constraint; fullJacobi=derivatives(Vphi+phi); squarecompletion; exhaustive lowdegree weight table; three strictJacobi/Pf models and explicit affine scale normalizations.",
+  "independent_check": "No producer or CAS imports. Fullsource input already independently reconstructed; this separate sparse derivation generates the Ga normal form and exact inverse map. Component recognition is explicitly left open for a separate ambient proof.",
+  "resource_limit": {
+    "timeout_seconds": 180,
+    "memory_mb": 1024
+  },
+  "negative_result_next_step": "Retain exact failing coefficient or missing affine hypothesis and keep that branch open; do not claim membership from a divisor normal form or finite jets.",
+  "shared_runner_extension_reason": "The runner gained an optional --ambient mode. Normal-form arithmetic is unchanged; the original source bytes remain embedded in CLASSIFICATION_HYPERPLANE_QUARTIC_TRANSLATED_MINIMAL_NORMAL_FORMS_20261107.json.",
+  "shared_runner_quadratic_extension_reason": "The runner gained --quadratic genuine-normal support mode; previous normal-form and ambient mode code is unchanged. Frozen previous reports embed their original full source bytes.",
+  "shared_runner_weighted_extension_reason": "Optional --weighted-mixed mode added for a single a priori degree-bounded exact equivariant IFT slice. Earlier mode bodies unchanged and original full source bytes remain in their frozen reports.",
+  "shared_runner_generic_family_extension_reason": "The ambient mode now also accepts the actual weighted-family pointu=1, preserving its full homogeneous h-row. Frozen earlier reports retain exact originalsourcebytes; normal-form, quadratic and weighted computations are unchanged.",
+  "shared_runner_actual_cofactor_curve_extension": "Optional cofactor-cubic/linear modes added to solve a priori bounded full-coefficient actualPoissoncurve problems into accepted semisimple strata. Earlier mathematical mode bodies unchanged; frozen previous reports preserve original sourcebytes."
+}

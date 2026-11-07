@@ -1,0 +1,34 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "target_statement": "Certify all strata of the full pair-zero semisimple weight source with actual divisor H+Q1+Q2, Q1,Q2 distinct irreducible quadrics, by actual SNC orbit limits.",
+  "implication_to_classification": "Every source point in this complete generic semisimple wall branch lies in MPS40, with all inverse and factor complements retained. This is a whole-support partial theorem for1+2+2, not exhaustion of the factor type.",
+  "coefficient_ring": "QQ[C,D,A,B,E,F,p,q,r,inv,x,y,z,w], with B*inv=1 or E*inv=1 on the two open strata",
+  "hypotheses": "Full permitted source P12=C+Axy+Bzw,P34=D+Exy+Fzw and all four cross logcanonical coefficients p,q,r,s with s=-p-q-r; all Jacobi conditions; actual homogenized Pfaffian has two distinct irreducible quadratic factors and h simple.",
+  "inverted_elements": [
+    "B on its nonzero source stratum, E on its nonzero source stratum",
+    "Nonzero Pfaffian/irreducibility/distinctness force the explicitly listed C,A,p+r or D,F,p+q conditions, rather than discarding extra solutions"
+  ],
+  "complements": [
+    "B=E=0 is handled separately with h-simple forcing the highest logcanonical Pfaffian nonzero",
+    "B!=0 and C=0, or E!=0 and D=0, force extra linear factors and do not have1+2+2 type",
+    "A=0 or F=0 in the two open strata gives a repeated quadric; zero Pfaffian has no rank4 point",
+    "Additional resonance spectra, nilpotent fields and pure homogeneous sources remain separate"
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_two_quadrics.py",
+      "sha256": "a87f47ccd3c690a24644e64e3552bbbd67fb6f64336b94e79ecc02af147a8e6d"
+    },
+    {
+      "path": "code/classification_quadratic_cofactor_review.py",
+      "sha256": "b77e9511bad7c8674f2d820c0d1e6022b7aa3788b795c2e55090b28e2d2dffcd"
+    }
+  ],
+  "success_certificate": "Full Jacobi coefficient ideal equality, exact factorization on both inverse strata, every cocharacter monomial nonnegative and full logcanonical limit Pfaffian kappa*xyzw with kappa nonzero.",
+  "independent_check": "Uses the previously independently reconstructed complete generic pair-zero source, exact Fraction sparse arithmetic, and an explicit geometric proof of every complement and MPS orbit limit; root reviews the new proof.",
+  "resource_limit": {
+    "timeout_seconds": 30,
+    "memory_mb": 512
+  },
+  "negative_result_next_step": "Keep the exact failed coefficient or inverse-stratum identity and correct only a real implementation error; if the geometric condition fails retain that stratum and use the two normal cofactor fields."
+}

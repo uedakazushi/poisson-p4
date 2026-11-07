@@ -1,0 +1,508 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "all_passed": true,
+  "source_normal_form": "linear",
+  "input_sha256": {
+    "code/classification_translated_minimal_quartic.py": "f8b8f4ff8c4f22059243cea42869b1e7653f5cec229704be18fb6bc4f7a5b70a",
+    "reports/CLASSIFICATION_HYPERPLANE_QUARTIC_TRANSLATED_MINIMAL_NORMAL_FORMS_20261107.json": "5c10e740a4700b08de96a08520bd6ac1f3fe2e417a08f74fbcbdb29d1e7915ea",
+    "research/classification/HYPERPLANE_QUARTIC_SEMISIMPLE_SUPPORT.md": "fddae8526194de65f6633b3c7466944391cef317e84544083ff34f33811919ef",
+    "research/classification/HYPERPLANE_QUARTIC_LARGE_SEMISIMPLE_SUPPORT.md": "c6ba0d9a0ae1ba30ced7082b104d4692f665316e1283fc561abcd823fb969e15"
+  },
+  "source_bytes": "#!/usr/bin/env python3\n\"\"\"Complete affine normal forms for nil211 with long-top translation.\n\nThis is a finite reduction of full source type10, not a component theorem.\nThe normal-form mode uses no producer or CAS imports. The optional ambient\nmode reuses the independent sparse350 engine, exact QQ matrices and S61.\n\"\"\"\nimport argparse\nfrom fractions import Fraction as Q\nimport hashlib\nimport itertools\nimport json\nfrom pathlib import Path\nimport resource\nimport time\n\nfrom classification_minimal_quartic_review import LaurentRing\nfrom classification_quadratic_cofactor_review import MONS, Ring\n\nROOT = Path(__file__).resolve().parents[1]\nPAIRS = tuple(itertools.combinations(range(4),2))\nPARAMETERS = ('alpha','A00','A10','A01','A20','A11','A02','d0','dz','dw','e0','ez',\n              'delta','beta','gamma','eta','g10','g01','g20','g11','g02','g30','g21','g12','g03')\n\n\ndef matrix(ring, entries):\n    P = [[{} for _ in range(4)] for _ in range(4)]\n    for (i,j), value in zip(PAIRS,entries):\n        P[i][j],P[j][i] = value,ring.scale(value,-1)\n    return P\n\n\ndef jacobi(ring,P):\n    return [ring.add(*(ring.mul(P[a][k],ring.derivative(P[b][d],k))\n                        for a,b,d in [(i,j,l),(j,l,i),(l,i,j)] for k in range(4)))\n            for i,j,l in itertools.combinations(range(4),3)]\n\n\ndef divergence(ring,P):\n    return [ring.add(*(ring.derivative(P[i][j],i) for i in range(4))) for j in range(4)]\n\n\ndef pfaffian(ring,entries):\n    return ring.add(ring.mul(entries[0],entries[5]),ring.scale(ring.mul(entries[1],entries[4]),-1),\n                    ring.mul(entries[2],entries[3]))\n\n\ndef generic_data(ring,r,s,original_coordinates):\n    A = ring.parse('A00+A10*z+A01*w+A20*z**2+A11*z*w+A02*w**2')\n    d = ring.parse('d0+dz*z+dw*w')\n    e = ring.parse('e0+ez*z+(alpha-1-dz)*w')\n    L = ring.parse('eta+beta*w-gamma*z')\n    G = ring.parse('g10*z+g01*w+g20*z**2+g11*z*w+g02*w**2+g30*z**3+g21*z**2*w+g12*z*w**2+g03*w**3')\n    a = ring.add(ring.mul(ring.variable('alpha'),r),A)\n    phi = ring.add(ring.scale(ring.mul(ring.variable('delta'),r,r),Q(1,2)),ring.mul(r,L),G)\n    p = ring.add(ring.mul(ring.variable('beta'),r),ring.derivative(G,3))\n    q = ring.add(ring.mul(ring.variable('gamma'),r),ring.scale(ring.derivative(G,2),-1))\n    entries = [a,ring.add(p,ring.mul(s,d)) if original_coordinates else p,\n               ring.add(q,ring.mul(s,e)) if original_coordinates else q,d,e,\n               ring.add(ring.mul(ring.variable('delta'),r),L)]\n    return dict(A=A,d=d,e=e,L=L,G=G,a=a,phi=phi,entries=entries)\n\n\ndef inverse(matrix_):\n    n = len(matrix_)\n    A = [[Q(value) for value in row]+[Q(i==j) for j in range(n)] for i,row in enumerate(matrix_)]\n    determinant = Q(1)\n    for j in range(n):\n        pivot = next(i for i in range(j,n) if A[i][j])\n        if pivot != j:\n            A[pivot],A[j] = A[j],A[pivot]\n            determinant *= -1\n        value = A[j][j]\n        determinant *= value\n        A[j] = [t/value for t in A[j]]\n        for i in range(n):\n            if i != j and A[i][j]:\n                value = A[i][j]\n                A[i] = [a-value*b for a,b in zip(A[i],A[j])]\n    assert [row[:n] for row in A] == [[Q(i==j) for j in range(n)] for i in range(n)]\n    return [row[n:] for row in A],determinant\n\n\ndef affine_vectors(ring,entries):\n    result = []\n    for value in entries:\n        for monomial in MONS:\n            vector = [Q(0)]*(ring.n+1)\n            for powers,coefficient in value.items():\n                if powers[-4:] == monomial:\n                    parameter_powers = powers[:-4]\n                    assert min(parameter_powers)>=0 and sum(parameter_powers)<=1\n                    index = 0 if not any(parameter_powers) else parameter_powers.index(1)+1\n                    vector[index] += coefficient\n            result.append(vector)\n    return result\n\n\ndef substitute_constant(ring,polynomial,name,value):\n    position = ring.names.index(name)\n    result = {}\n    for powers,coefficient in polynomial.items():\n        coefficient *= value**powers[position]\n        target = list(powers)\n        target[position] = 0\n        target = tuple(target)\n        result[target] = result.get(target,Q(0))+coefficient\n    return {e:c for e,c in result.items() if c}\n\n\ndef group_r_power(ring,polynomial,degree):\n    result = {}\n    for powers,coefficient in polynomial.items():\n        if powers[ring.n] == degree:\n            target = list(powers)\n            target[ring.n] = 0\n            result[tuple(target)] = coefficient\n    return result\n\n\ndef verify_complete_source(source):\n    ring = LaurentRing(PARAMETERS,('x','y','z','w'))\n    r,s = ring.parse('x-y**2/2'),ring.variable('y')\n    data = generic_data(ring,r,s,True)\n    entries = data['entries']\n    assert all(sum(e[-4:])<=2 for value in entries for e in value)\n    P = matrix(ring,entries)\n    assert divergence(ring,P) == [ring.variable('y'),ring.constant(1),{},{}]\n    lie = []\n    for i,j in PAIRS:\n        value = ring.add(ring.mul(ring.variable('y'),ring.derivative(P[i][j],0)),ring.derivative(P[i][j],1))\n        if i == 0:\n            value = ring.add(value,ring.scale(P[1][j],-1))\n        if j == 0:\n            value = ring.add(value,ring.scale(P[i][1],-1))\n        lie.append(value)\n    assert lie == [{}]*6\n    vectors = affine_vectors(ring,entries)\n    free = source['free_coefficient_indices']\n    assert len(free) == source['free_parameter_count'] == 25\n    selected = [vectors[i][1:] for i in free]\n    offsets = [vectors[i][0] for i in free]\n    backwards,determinant = inverse(selected)\n    old_ring = Ring(25)\n    # Transport the entire ninety-coefficient affine solution via its free\n    # coordinates. The inverse map is explicit, not a dimension-only claim.\n    for actual,reported in zip(vectors,source['all_ninety_coefficients']):\n        coefficients = [sum(actual[k+1]*backwards[k][j] for k in range(25)) for j in range(25)]\n        constant = actual[0]-sum(a*b for a,b in zip(coefficients,offsets))\n        polynomial = old_ring.constant(constant)\n        for j,value in enumerate(coefficients):\n            polynomial = old_ring.add(polynomial,old_ring.scale(old_ring.variable(f'n{j}'),value))\n        assert polynomial == old_ring.parse(reported)\n    Vphi = ring.add(ring.scale(ring.mul(data['a'],ring.derivative(data['phi'],0)),-1),\n                    ring.mul(data['d'],ring.derivative(data['phi'],2)),\n                    ring.mul(data['e'],ring.derivative(data['phi'],3)))\n    assert pfaffian(ring,entries) == ring.scale(Vphi,-1)\n    delta_zero = substitute_constant(ring,pfaffian(ring,entries),'delta',Q(0))\n    assert not {e:c for e,c in delta_zero.items() if sum(e[-4:])==4}\n    return dict(all_original_ninety_coefficients_matched=True,source_parameter_count=25,\n                all_original_degree_two_constraints_preserved=True,\n                full_divergence=['y','1','0','0'],full_cofactor_invariance_checked=True,\n                free_indices=free,affine_parameter_matrix_determinant=str(determinant),\n                inverse_parameter_matrix=[[str(a) for a in row] for row in backwards],\n                original_free_coordinate_offsets=list(map(str,offsets)),\n                raw_pfaffian_is_minus_V_phi=True,delta_zero_implies_highest_pfaffian_zero=True)\n\n\ndef verify_jacobi_and_square_completion():\n    ring = LaurentRing(PARAMETERS,('r','s','z','w'),invert=('delta',))\n    r,s = ring.variable('r'),ring.variable('s')\n    data = generic_data(ring,r,s,False)\n    P = matrix(ring,data['entries'])\n    Vphi = ring.add(ring.scale(ring.mul(data['a'],ring.derivative(data['phi'],0)),-1),\n                    ring.mul(data['d'],ring.derivative(data['phi'],2)),\n                    ring.mul(data['e'],ring.derivative(data['phi'],3)))\n    psi = ring.add(Vphi,data['phi'])\n    assert jacobi(ring,P) == [ring.scale(ring.derivative(psi,3),-1),ring.derivative(psi,2),{},ring.derivative(psi,0)]\n    assert group_r_power(ring,psi,2) == ring.parse('delta*(1/2-alpha)')\n    half = lambda polynomial: substitute_constant(ring,polynomial,'alpha',Q(1,2))\n    d,e = data['d'],half(data['e'])\n    base_L = ring.add(ring.mul(d,ring.derivative(data['L'],2)),ring.mul(e,ring.derivative(data['L'],3)))\n    assert group_r_power(ring,half(psi),1) == ring.add(ring.scale(data['L'],Q(1,2)),base_L,\n                                                                      ring.scale(ring.mul(ring.variable('delta'),data['A']),-1))\n    A = ring.mul(ring.parse('1/delta'),ring.add(ring.scale(data['L'],Q(1,2)),base_L))\n    assert all(sum(exponents[-4:])<=1 for exponents in A)\n    R = ring.add(r,ring.mul(data['L'],ring.parse('1/delta')))\n    H = ring.add(data['G'],ring.scale(ring.mul(data['L'],data['L'],ring.parse('1/delta')),Q(-1,2)))\n    Vr = ring.add(ring.scale(r,Q(-1,2)),ring.scale(A,-1))\n    assert ring.add(Vr,ring.mul(base_L,ring.parse('1/delta'))) == ring.scale(R,Q(-1,2))\n    assert ring.add(data['phi'],ring.scale(ring.mul(ring.variable('delta'),R,R),Q(-1,2))) == H\n    normalized_psi = ring.add(ring.mul(Vr,ring.derivative(data['phi'],0)),\n                               ring.mul(d,ring.derivative(data['phi'],2)),\n                               ring.mul(e,ring.derivative(data['phi'],3)),data['phi'])\n    assert normalized_psi == ring.add(ring.mul(d,ring.derivative(H,2)),ring.mul(e,ring.derivative(H,3)),H)\n    return dict(full_Jacobi_equivalent_to_psi_constant=True,\n                psi_definition='V(phi)+phi',r_squared_coefficient='delta*(1/2-alpha)',\n                delta_nonzero_forces_alpha='1/2',\n                r_coefficient='L/2+Vbase(L)-delta*A2',A2_is_affine=True,\n                R='r+L/delta',H='G-L^2/(2delta)',V_R='-R/2',\n                complete_square_identity_checked=True,\n                remaining_equation='Vbase(H)+H=constant, trace(linear Vbase)=-1/2')\n\n\ndef weighted_table():\n    monomials = [(i,j) for i in range(4) for j in range(4-i) if i+j]\n    spectra = set()\n    for i,j in monomials:\n        if i != j:\n            lam = Q(j-2,2*(i-j))\n            spectra.add(tuple(sorted((lam,Q(-1,2)-lam))))\n        else:\n            assert -Q(i,2) != -1\n    assert spectra == {(Q(-1),Q(1,2)),(Q(-1,2),Q(0)),(Q(-1,3),Q(-1,6))}\n    table = []\n    for lam,mu in sorted(spectra):\n        allowed = [(i,j) for i,j in monomials if i*lam+j*mu == -1]\n        table.append(dict(eigenvalues=[str(lam),str(mu)],all_degree_at_most_three_eigenmonomials=[list(t) for t in allowed]))\n    assert not [(i,j) for i,j in monomials if Q(-1,4)*(i+j) == -1]\n    zero_ring = LaurentRing(('a','b','kappa'),('z','w','p','q'))\n    H = zero_ring.parse('z**2*(a+b*w)')\n    assert zero_ring.mul(zero_ring.variable('kappa'),zero_ring.derivative(H,1)) == zero_ring.parse('kappa*b*z**2')\n    return dict(all_trace_minus_half_spectra=table,\n                repeated_eigenvalue_minus_quarter_has_no_eigenpolynomial=True,\n                zero_eigen_translation_equation='kappa*b=0 for H=z^2(a+bw)',\n                irreducible_F_forces_b_nonzero=True,\n                resulting_normalized_H=['z','z^3','z^2w'])\n\n\ndef actual_models():\n    ring = LaurentRing((),('x','y','z','w'))\n    models = [dict(name='linear',H='z',lam='-1',mu='1/2',\n                   brackets=['x/2-y**2/4','-y*z','-1+y*w/2','-z','w/2','x-y**2/2']),\n              dict(name='cubic',H='z**3',lam='-1/3',mu='-1/6',\n                   brackets=['x/2-y**2/4','-y*z/3','-3*z**2-y*w/6','-z/3','-w/6','x-y**2/2']),\n              dict(name='mixed',H='z**2*w',lam='-1/2',mu='0',\n                   brackets=['x/2-y**2/4','z**2-y*z/2','-2*z*w','-z/2','0','x-y**2/2'])]\n    for model in models:\n        entries = [ring.parse(t) for t in model['brackets']]\n        P = matrix(ring,entries)\n        assert jacobi(ring,P) == [{}]*4\n        assert divergence(ring,P) == [ring.variable('y'),ring.constant(1),{},{}]\n        F = ring.parse('(x-y**2/2)**2/2+'+model['H'])\n        assert pfaffian(ring,entries) == F\n        top = {e:c for e,c in F.items() if sum(e)==4}\n        assert top == ring.parse('y**4/8')\n        model.update(all_four_Jacobi_zero=True,full_divergence=['y','1','0','0'],\n                     affine_pfaffian='(x-y^2/2)^2/2+'+model['H'],highest_pfaffian='y^4/8',\n                     no_component_membership_or_componenthood_claim=True)\n    return models\n\n\ndef ambient_audit(output,weighted_generic=False):\n    import sympy as S\n    from sympy.polys.matrices import DomainMatrix\n    import classification_rank3_mixed_component_review as independent\n    from classification_degenerate_quadric_q4_nil31_I_graph import darboux\n    from s61_model import S61, X, pushforward\n\n    resource.setrlimit(resource.RLIMIT_CPU,(170,175))\n    resource.setrlimit(resource.RLIMIT_AS,(1536*1024**2,1536*1024**2))\n    begun = time.monotonic()\n    source_path = ROOT/('reports/CLASSIFICATION_HYPERPLANE_QUARTIC_TRANSLATED_MINIMAL_WEIGHTED_MIXED_20261107.json'\n                       if weighted_generic else 'reports/CLASSIFICATION_HYPERPLANE_QUARTIC_TRANSLATED_MINIMAL_NORMAL_FORMS_20261107.json')\n    source = json.loads(source_path.read_text())\n    if weighted_generic:\n        assert source['v_zero_is_actual_Poisson_family']\n        models = [dict(name='mixed_generic',homogeneous_brackets=source['actual_v_zero_family_brackets'],\n                       parameter_value=dict(u=1),basepoint=[0,0,1,1])]\n    else:\n        models = source['three_actual_Poisson_models']\n    coordinates = S.symbols('h x y z w')\n    h = coordinates[0]\n    env = {str(v):v for v in coordinates}\n    adapter = S61()\n\n    def sparse(P):\n        return {ij:dict(S.Poly(P[ij],*coordinates).terms()) for ij in independent.PAIRS if P[ij] != 0}\n\n    def rational_matrix(M):\n        return DomainMatrix.from_Matrix(M).convert_to(S.QQ)\n\n    def certificate(M):\n        A = rational_matrix(M)\n        columns = list(A.rref()[1])\n        rows = list(A.extract(range(A.shape[0]),columns).transpose().rref()[1])\n        determinant = A.extract(rows,columns).det()\n        assert determinant != 0\n        return dict(shape=list(M.shape),rank_QQ=len(columns),rows=rows,columns=columns,\n                    determinant=str(determinant))\n\n    results = []\n    for model in models:\n        started = time.monotonic()\n        P = S.zeros(5)\n        if 'homogeneous_brackets' in model:\n            for key,value in model['homogeneous_brackets'].items():\n                i,j = map(int,key.split(','))\n                P[i,j] = S.expand(S.sympify(value,locals=env).subs(S.Symbol('u'),1))\n                P[j,i] = -P[i,j]\n        else:\n            for ij,value in zip(itertools.combinations(range(1,5),2),model['brackets']):\n                affine = S.sympify(value,locals=env)\n                P[ij] = S.expand(h*h*affine.subs({x:x/h for x in coordinates[1:]},simultaneous=True))\n                P[ij[::-1]] = -P[ij]\n        scale = S.ilcm(*[coefficient.q for ij in independent.PAIRS for coefficient in S.Poly(P[ij],*coordinates).coeffs()])\n        P *= scale\n        raw = sparse(P)\n        if not weighted_generic:\n            assert all(not value for value in independent.jacobi(raw,raw=True).values())\n        assert independent.jacobi(raw) == S.zeros(350,1)\n        derivative_columns = []\n        for ij,exponent in independent.COLUMNS:\n            variation = {pair:dict(values) for pair,values in raw.items()}\n            variation.setdefault(ij,{})[exponent] = variation.get(ij,{}).get(exponent,0)+1\n            derivative_columns.append(independent.jacobi(variation))\n        D = S.Matrix.hstack(*derivative_columns)\n        vertical,orbit = [],[]\n        euler = S.Matrix(coordinates)\n        for i,j in itertools.product(range(5),repeat=2):\n            A = S.zeros(5)\n            A[i,j] = 1\n            field = A*euler\n            vertical.append(independent.vector(sparse(euler*field.T-field*euler.T)))\n            action = A*P+P*A.T-coordinates[j]*P.diff(coordinates[i])\n            orbit.append(independent.vector(sparse(action)))\n        VM = S.Matrix.hstack(*vertical)\n        group = S.Matrix.hstack(*vertical,*orbit,independent.vector(raw))\n        assert D*group == S.zeros(350,group.cols)\n        certificates = {name:certificate(M) for name,M in [('D',D),('vertical',VM),('group',group)]}\n        assert certificates['vertical']['rank_QQ'] == 24\n        kernel = rational_matrix(D).nullspace().to_Matrix().T\n        assert D*kernel == S.zeros(350,kernel.cols)\n        assert kernel.cols == 150-certificates['D']['rank_QQ']\n        combined = group.row_join(kernel)\n        pivots = list(rational_matrix(combined).rref()[1])\n        normals = [column-group.cols for column in pivots if column >= group.cols]\n        assert len(normals) == kernel.cols-certificates['group']['rank_QQ']\n\n        # Move a declared rank-four affine point to e0, then Darboux frame it.\n        basepoint = tuple(model.get('basepoint',(0,0,1,1 if model['name']=='mixed' else 0)))\n        translation = S.eye(5)\n        for i,value in enumerate(basepoint,1):\n            translation[i,0] = -value\n        old = P.subs(dict(zip(coordinates,X)),simultaneous=True)\n        translated = pushforward(old,translation)\n        evaluation = translated.subs(dict(zip(X,(1,0,0,0,0))))[1:5,1:5]\n        assert evaluation.det() != 0\n        frame = S.eye(5)\n        frame[1:5,1:5] = darboux(evaluation)\n        normalized = adapter.normalize(pushforward(translated,frame))\n        adapter.verify_point(normalized,check_equations=True)\n        point = normalized['parameters']\n        symbols = S.symbols('u1:62')\n        graphs = {}\n        for name,path in [('T39',ROOT/'reports/Q51_UNIVERSAL_SECTION_20261101.json'),\n                          ('T40',ROOT/'reports/Q52_UNIVERSAL_SECTION_20261101.json')]:\n            graph = json.loads(path.read_text())\n            indices = graph['weight2_u_indices_zero_based']\n            residuals = [S.cancel(point[index]-S.sympify(value).subs(dict(zip(symbols,point)),simultaneous=True))\n                         for index,value in zip(indices,graph['quadratic_section_q'])]\n            assert len(residuals) == 45\n            graphs[name] = dict(all45_residuals=list(map(str,residuals)),\n                                all45_graph_equations_zero=all(value==0 for value in residuals),\n                                nonzero_residual_count=sum(value!=0 for value in residuals))\n        rank_D = certificates['D']['rank_QQ']\n        rank_G = certificates['group']['rank_QQ']\n        quintic = S.Integer(0)\n        for missing in range(5):\n            i,j,k,l = [v for v in range(5) if v!=missing]\n            quintic += (-1)**missing*coordinates[missing]*(P[i,j]*P[k,l]-P[i,k]*P[j,l]+P[i,l]*P[j,k])\n        quintic = S.expand(quintic)\n        result = dict(name=model['name'],integer_scale=str(scale),\n                      full_homogeneous_witness={f'{i},{j}':str(P[i,j]) for i,j in independent.PAIRS if P[i,j] != 0},\n                      all150_ambient_variables=True,all350_projective_equations=True,\n                      all_projective_Jacobi_zero=True,\n                      raw_strict_Jacobi_required_and_checked=not weighted_generic,\n                      actual_orbit_and_vertical_columns_annihilated=True,\n                      certificates=certificates,full_kernel_dimension=kernel.cols,\n                      projective_tangent_dimension=125-rank_D,projective_actual_orbit_dimension=rank_G-25,\n                      actual_orbit_equals_full_tangent=(150-rank_D==rank_G),\n                      kernel_sparse_columns=[{str(i):str(kernel[i,j]) for i in range(150) if kernel[i,j]}\n                                             for j in range(kernel.cols)],\n                      orbit_quotient_normal_kernel_columns=normals,\n                      orbit_quotient_normal_directions=[{str(i):str(kernel[i,j]) for i in range(150) if kernel[i,j]}\n                                                       for j in normals],\n                      matrix_sha256={name:hashlib.sha256(json.dumps(M.tolist(),default=str).encode()).hexdigest()\n                                     for name,M in [('D',D),('group',group)]},\n                      rank4_basepoint=list(basepoint),\n                      translation=[[str(v) for v in row] for row in translation.tolist()],\n                      nondegenerate_evaluation=[[str(v) for v in row] for row in evaluation.tolist()],\n                      Darboux_frame=[[str(v) for v in row] for row in frame.tolist()],\n                      perspective=list(map(str,normalized['perspective'])),all61_parameters=list(map(str,point)),\n                      full150_quotient_reconstruction_checked=True,all134_equations_zero=True,\n                      graph_membership=graphs,\n                      T01_excluded_by_irreducible_quartic_factor=True if not weighted_generic else None,\n                      actual_projective_quintic=str(quintic),quintic_factorization_QQ=str(S.factor(quintic)),\n                      component_recognition_requires_geometric_bridge_and_independent_review=True,\n                      seconds=time.monotonic()-started)\n        results.append(result)\n        print(json.dumps(dict(name=model['name'],D=rank_D,group=rank_G,\n                              tangent=125-rank_D,orbit=rank_G-25,\n                              graphs={name:data['all45_graph_equations_zero'] for name,data in graphs.items()})),flush=True)\n    paths = [Path(__file__),source_path,Path(independent.__file__),\n             ROOT/'code/classification_degenerate_quadric_q4_nil31_I_graph.py',ROOT/'code/s61_model.py',\n             ROOT/'reports/Q51_UNIVERSAL_SECTION_20261101.json',ROOT/'reports/Q52_UNIVERSAL_SECTION_20261101.json',\n             *(ROOT/'legacy/v02/data'/name for name in ['symplectic_slice_certificate.json',\n                 'symplectic_slice_equations.json','symplectic_slice_reduced_equations.json'])]\n    report = dict(task_id='E_reduced_nonnormal',all_passed=True,full_model_count=len(results),results=results,\n                  input_sha256={str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in paths},\n                  source_bytes=Path(__file__).read_text(),\n                  scope='Exact full ambient ranks and declared S61 graph tests at each actual orbit representative. A graph hit recognizes the point using the accepted graph theorem; transporting to the whole type10 uses the complete normal-form proof. No independent replay of these new ambient matrices is claimed.',\n                  seconds=time.monotonic()-begun)\n    with output.open('x') as handle:\n        json.dump(report,handle,indent=2)\n        handle.write('\\n')\n    print(json.dumps(dict(all_passed=True,seconds=report['seconds'])))\n\n\ndef quadratic_audit(output):\n    import sympy as S\n    from sympy.polys.matrices import DomainMatrix\n    import classification_rank3_mixed_component_review as arithmetic\n\n    resource.setrlimit(resource.RLIMIT_CPU,(170,175))\n    resource.setrlimit(resource.RLIMIT_AS,(1536*1024**2,1536*1024**2))\n    begun = time.monotonic()\n    source_path = ROOT/'reports/CLASSIFICATION_HYPERPLANE_QUARTIC_TRANSLATED_MINIMAL_AMBIENT_20261107.json'\n    source = json.loads(source_path.read_text())\n    coordinates = S.symbols('h x y z w')\n    env = {str(x):x for x in coordinates}\n    dm = lambda A:DomainMatrix.from_Matrix(A).convert_to(S.QQ)\n\n    def sparse(P):\n        return {ij:dict(S.Poly(P[ij],*coordinates).terms()) for ij in arithmetic.PAIRS if P[ij] != 0}\n\n    results = []\n    for saved in reversed(source['results']):\n        started = time.monotonic()\n        P = S.zeros(5)\n        for key,value in saved['full_homogeneous_witness'].items():\n            i,j = map(int,key.split(','))\n            P[i,j] = S.sympify(value,locals=env)\n            P[j,i] = -P[i,j]\n        raw = sparse(P)\n        assert arithmetic.jacobi(raw) == S.zeros(350,1)\n        cols = []\n        for ij,exponent in arithmetic.COLUMNS:\n            variation = {pair:dict(values) for pair,values in raw.items()}\n            variation.setdefault(ij,{})[exponent] = variation.get(ij,{}).get(exponent,0)+1\n            cols.append(arithmetic.jacobi(variation))\n        D = S.Matrix.hstack(*cols)\n        assert hashlib.sha256(json.dumps(D.tolist(),default=str).encode()).hexdigest() == saved['matrix_sha256']['D']\n        euler = S.Matrix(coordinates)\n        group_columns = []\n        for i,j in itertools.product(range(5),repeat=2):\n            A = S.zeros(5)\n            A[i,j] = 1\n            field = A*euler\n            group_columns.append(arithmetic.vector(sparse(euler*field.T-field*euler.T)))\n        for i,j in itertools.product(range(5),repeat=2):\n            A = S.zeros(5)\n            A[i,j] = 1\n            group_columns.append(arithmetic.vector(sparse(A*P+P*A.T-coordinates[j]*P.diff(coordinates[i]))))\n        group_columns.append(arithmetic.vector(raw))\n        group = S.Matrix.hstack(*group_columns)\n        assert hashlib.sha256(json.dumps(group.tolist(),default=str).encode()).hexdigest() == saved['matrix_sha256']['group']\n        normal_vectors = []\n        normal_tensors = []\n        scales = []\n        for encoding in saved['orbit_quotient_normal_directions']:\n            vector = S.zeros(150,1)\n            for key,value in encoding.items():\n                vector[int(key)] = S.Rational(value)\n            scale = S.ilcm(1,*[S.denom(value) for value in vector])\n            vector *= scale\n            tensor = S.zeros(5)\n            for (ij,exponents),value in zip(arithmetic.COLUMNS,vector):\n                if value:\n                    tensor[ij] += value*S.prod(x**e for x,e in zip(coordinates,exponents))\n            for i,j in arithmetic.PAIRS:\n                tensor[j,i] = -tensor[i,j]\n            assert arithmetic.vector(sparse(tensor)) == vector\n            normal_vectors.append(vector)\n            normal_tensors.append(tensor)\n            scales.append(str(scale))\n        normals = S.Matrix.hstack(*normal_vectors)\n        assert D*group == S.zeros(350,group.cols)\n        assert D*normals == S.zeros(350,normals.cols)\n        assert len(dm(group).rref()[1]) == saved['certificates']['group']['rank_QQ'] == 47\n        assert len(dm(group.row_join(normals)).rref()[1]) == saved['full_kernel_dimension']\n        pairs = list(itertools.combinations_with_replacement(range(normals.cols),2))\n        squares = [arithmetic.jacobi(sparse(R)) for R in normal_tensors]\n        Qmatrix = S.Matrix.hstack(*[squares[i] if i==j else\n                    arithmetic.jacobi(sparse(normal_tensors[i]+normal_tensors[j]))-squares[i]-squares[j]\n                    for i,j in pairs])\n        rows = saved['certificates']['D']['rows']\n        pivots = saved['certificates']['D']['columns']\n        independent = D[:,pivots]\n        block = dm(D.extract(rows,pivots))\n        assert str(block.det()) == saved['certificates']['D']['determinant']\n        inverse_block = block.inv()\n        correction = inverse_block.matmul(dm(Qmatrix.extract(rows,range(len(pairs))))).to_Matrix()\n        obstruction = Qmatrix-independent*correction\n        assert obstruction.extract(rows,range(len(pairs))) == S.zeros(len(rows),len(pairs))\n        reduced,pivot_quadrics = dm(obstruction).rref()\n        reduced = reduced.to_Matrix()\n        qrank = len(pivot_quadrics)\n        variables = S.symbols(f't0:{normals.cols}')\n        monomials = [variables[i]*variables[j] for i,j in pairs]\n        quadrics = [S.expand(sum(reduced[i,j]*monomials[j] for j in range(len(pairs)))) for i in range(qrank)]\n        gb = S.groebner(quadrics,*variables,order='grevlex') if quadrics else None\n        isolated = bool(gb and gb.is_zero_dimensional)\n        selected_functional_rows = list(dm(obstruction.T).rref()[1])\n        functionals = []\n        for row in selected_functional_rows:\n            weights = dm(independent[row,:]).matmul(inverse_block).to_Matrix()\n            functional = S.zeros(1,350)\n            functional[row] = 1\n            for j,selected in enumerate(rows):\n                functional[selected] -= weights[j]\n            assert functional*D == S.zeros(1,150)\n            coefficients = functional*Qmatrix\n            assert coefficients == obstruction[row,:]\n            functionals.append(dict(row=row,left_coefficients={str(j):str(v) for j,v in enumerate(functional) if v},\n                                    quadratic_coefficients=list(map(str,list(coefficients)))))\n        result = dict(name=saved['name'],full_D_and_actual_group_hashes_reproduced=True,\n                      full_D_rank=len(pivots),actual_group_vertical_scale_rank=47,\n                      genuine_normal_count=normals.cols,normal_integer_scales=scales,\n                      normal_bivectors=[{f'{i},{j}':str(R[i,j]) for i,j in arithmetic.PAIRS if R[i,j] != 0}\n                                         for R in normal_tensors],\n                      full_actual_and_normal_derivatives_zero=True,\n                      group_and_normals_span_entire_kernel=True,\n                      normal_monomial_order=list(map(str,monomials)),\n                      projected_quadratic_rank=qrank,quadratic_initial_generators=list(map(str,quadrics)),\n                      Groebner_basis=[str(p.as_expr()) for p in gb.polys] if gb else [],\n                      quadratic_support_zero_dimensional=isolated,\n                      left_cokernel_functionals=functionals,\n                      implicit_minor_rows=rows,implicit_minor_columns=pivots,\n                      implicit_minor_determinant=str(block.det()),\n                      obstruction_matrix_sha256=hashlib.sha256(json.dumps(obstruction.tolist(),default=str).encode()).hexdigest(),\n                      formal_slice_dimension_bound_if_isolated=0 if isolated else None,\n                      orbit_component_dimension_if_isolated=22 if isolated else None,\n                      componenthood_not_promoted_without_independent_review=True,\n                      higher_jets_or_exact_nil_index_claimed=False,\n                      seconds=time.monotonic()-started)\n        results.append(result)\n        print(json.dumps(dict(name=result['name'],normals=normals.cols,quadrics=list(map(str,quadrics)),\n                              isolated=isolated,seconds=result['seconds'])),flush=True)\n    paths = [Path(__file__),source_path,Path(arithmetic.__file__)]\n    report = dict(task_id='E_reduced_nonnormal',all_passed=True,results=results,\n                  input_sha256={str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in paths},\n                  source_bytes=Path(__file__).read_text(),\n                  scope='Genuine quadratic initial support on kerD modulo actual orbit, scale and vertical directions. Positive-dimensional quadratic cones are retained; no higher-jet iteration or component count inferred.',\n                  seconds=time.monotonic()-begun)\n    with output.open('x') as handle:\n        json.dump(report,handle,indent=2)\n        handle.write('\\n')\n    print(json.dumps(dict(all_passed=True,seconds=report['seconds'])))\n\n\ndef weighted_mixed_slice(output):\n    \"\"\"Exact finite equivariant IFT slice; the bound4 precedes the solve.\"\"\"\n    import sympy as S\n    from sympy.polys.matrices import DomainMatrix\n    import classification_rank3_mixed_component_review as arithmetic\n\n    resource.setrlimit(resource.RLIMIT_CPU,(170,175))\n    resource.setrlimit(resource.RLIMIT_AS,(1536*1024**2,1536*1024**2))\n    begun = time.monotonic()\n    source_path = ROOT/'reports/CLASSIFICATION_HYPERPLANE_QUARTIC_TRANSLATED_MINIMAL_AMBIENT_20261107.json'\n    source = next(v for v in json.loads(source_path.read_text())['results'] if v['name']=='mixed')\n    coordinates = S.symbols('h x y z w')\n    env = {str(v):v for v in coordinates}\n    P = S.zeros(5)\n    for key,value in source['full_homogeneous_witness'].items():\n        i,j = map(int,key.split(','))\n        P[i,j] = S.sympify(value,locals=env)\n        P[j,i] = -P[i,j]\n    dm = lambda A:DomainMatrix.from_Matrix(A).convert_to(S.QQ)\n\n    def sparse(A):\n        return {ij:dict(S.Poly(A[ij],*coordinates).terms()) for ij in arithmetic.PAIRS if A[ij] != 0}\n\n    def from_vector(v):\n        A = S.zeros(5)\n        for (ij,powers),coefficient in zip(arithmetic.COLUMNS,v):\n            if coefficient:\n                A[ij] += coefficient*S.prod(x**e for x,e in zip(coordinates,powers))\n        for i,j in arithmetic.PAIRS:\n            A[j,i] = -A[i,j]\n        return A.applyfunc(S.expand)\n\n    raw = sparse(P)\n    assert arithmetic.jacobi(raw) == S.zeros(350,1)\n    columns = []\n    for ij,exponents in arithmetic.COLUMNS:\n        variation = {pair:dict(values) for pair,values in raw.items()}\n        variation.setdefault(ij,{})[exponents] = variation.get(ij,{}).get(exponents,0)+1\n        columns.append(arithmetic.jacobi(variation))\n    D = S.Matrix.hstack(*columns)\n    assert hashlib.sha256(json.dumps(D.tolist(),default=str).encode()).hexdigest() == source['matrix_sha256']['D']\n    euler = S.Matrix(coordinates)\n    actual = []\n    for i,j in itertools.product(range(5),repeat=2):\n        A = S.zeros(5)\n        A[i,j] = 1\n        field = A*euler\n        actual.append(arithmetic.vector(sparse(euler*field.T-field*euler.T)))\n    for i,j in itertools.product(range(5),repeat=2):\n        A = S.zeros(5)\n        A[i,j] = 1\n        actual.append(arithmetic.vector(sparse(A*P+P*A.T-coordinates[j]*P.diff(coordinates[i]))))\n    actual.append(arithmetic.vector(raw))\n    group = S.Matrix.hstack(*actual)\n    assert hashlib.sha256(json.dumps(group.tolist(),default=str).encode()).hexdigest() == source['matrix_sha256']['group']\n    assert D*group == S.zeros(350,group.cols)\n    weights = (0,2,1,1,2)\n    character = 1\n    relative = [weights[i]+weights[j]-sum(e*w for e,w in zip(powers,weights))-character\n                for (i,j),powers in arithmetic.COLUMNS]\n    row_weights = [sum(weights[i] for i in quad)-sum(e*w for e,w in zip(powers,weights))-2*character\n                   for quad,powers in arithmetic.ROWS]\n    pvector = arithmetic.vector(raw)\n    assert {relative[i] for i,v in enumerate(pvector) if v} == {0}\n    assert (min(relative),max(relative)) == (-4,3)\n    assert all(len({relative[i] for i,value in enumerate(group[:,j]) if value})<=1 for j in range(group.cols))\n    assert all(not D[i,j] or row_weights[i]==relative[j] for i in range(350) for j in range(150))\n\n    group_columns = list(dm(group).rref()[1])\n    assert len(group_columns)==47\n    group_basis = group[:,group_columns]\n    group_rows = list(dm(group_basis.T).rref()[1])\n    assert len(group_rows)==47\n    group_minor = dm(group_basis[group_rows,:]).det()\n    assert group_minor != 0\n    slice_indices = [i for i in range(150) if i not in group_rows]\n    linear_slice = D[:,slice_indices]\n    rr,pivots = dm(linear_slice).rref()\n    rr = rr.to_Matrix()\n    assert len(pivots)==101\n    implicit = [slice_indices[i] for i in pivots]\n    free_positions = [i for i in range(len(slice_indices)) if i not in pivots]\n    assert len(free_positions)==2\n    normal_data = []\n    for free in free_positions:\n        vector = S.zeros(150,1)\n        vector[slice_indices[free]] = 1\n        for row,pivot in enumerate(pivots):\n            vector[slice_indices[pivot]] = -rr[row,free]\n        assert D*vector == S.zeros(350,1)\n        active_weights = {relative[i] for i,value in enumerate(vector) if value}\n        assert len(active_weights)==1 and next(iter(active_weights))<0\n        normal_data.append((-next(iter(active_weights)),slice_indices[free],vector))\n    normal_data.sort(key=lambda value:value[0])\n    assert [value[0] for value in normal_data]==[1,2]\n    free_coordinates = [value[1] for value in normal_data]\n    normal_vectors = S.Matrix.hstack(*(value[2] for value in normal_data))\n    assert len(dm(group.row_join(normal_vectors)).rref()[1])==49\n    rows = list(dm(D[:,implicit].T).rref()[1])\n    block = dm(D.extract(rows,implicit))\n    determinant = block.det()\n    assert len(rows)==101 and determinant != 0\n    inverse_block = block.inv()\n    # Both the group cut and the selected equations are coordinate-weight\n    # subspaces of the entire C150/350 representation, not just of kerD.\n    assert sorted(group_rows+slice_indices)==list(range(150))\n    assert all(not D[row,col] or row_weights[row]==relative[col] for row in rows for col in implicit)\n    bound = max([0]+[-relative[i] for i in implicit])\n    assert bound==4\n    u,v = S.symbols('u v')\n    parameters = (u,v)\n    parameter_weights = (1,2)\n    curve = P+from_vector(u*normal_vectors[:,0]+v*normal_vectors[:,1])\n\n    def residual(A):\n        return arithmetic.jacobi(sparse(A)).applyfunc(S.expand)\n\n    def part(expression,degree):\n        return S.expand(sum(coefficient*u**powers[0]*v**powers[1]\n                            for powers,coefficient in S.Poly(expression,u,v).terms()\n                            if sum(a*b for a,b in zip(powers,parameter_weights))==degree))\n\n    def check_equivariance(values):\n        for row,expression in enumerate(values):\n            for powers,coefficient in S.Poly(expression,u,v).terms():\n                assert not coefficient or sum(a*b for a,b in zip(powers,parameter_weights)) == -row_weights[row]\n\n    corrections = []\n    for degree in range(2,bound+1):\n        values = residual(curve)\n        check_equivariance(values)\n        selected = S.Matrix([part(values[i],degree) for i in rows])\n        correction = -inverse_block.matmul(dm(selected)).to_Matrix() if not selected.free_symbols else None\n        if correction is None:\n            correction = -(inverse_block.to_Matrix()*selected).applyfunc(S.expand)\n        full_correction = S.zeros(150,1)\n        for index,value in zip(implicit,correction):\n            value = S.expand(value)\n            if value:\n                assert relative[index]==-degree\n                assert all(sum(powers)>=2 for powers,coefficient in S.Poly(value,u,v).terms() if coefficient)\n                full_correction[index] = value\n        curve = (curve+from_vector(full_correction)).applyfunc(S.expand)\n        after = residual(curve)\n        assert all(part(after[i],degree)==0 for i in rows)\n        corrections.append(dict(weighted_degree=degree,only_implicit_coordinates=True,\n                                coefficients={str(i):str(value) for i,value in enumerate(full_correction) if value}))\n    final = residual(curve)\n    check_equivariance(final)\n    assert final.extract(rows,[0]) == S.zeros(101,1)\n    displacement = arithmetic.vector(sparse(curve-P))\n    assert all(displacement[i]==0 for i in group_rows)\n    assert [displacement[i] for i in free_coordinates]==[u,v]\n    distinct = []\n    for value in final:\n        if value:\n            normalized = S.Poly(value,u,v).monic().as_expr()\n            if normalized not in distinct:\n                distinct.append(normalized)\n    gb = S.groebner(distinct,u,v,order='grevlex') if distinct else None\n    isolated = bool(gb and gb.is_zero_dimensional)\n    t = S.symbols('t')\n    chart_polynomials = []\n    for value in distinct:\n        polynomial = S.Poly(value,u,v)\n        degree = sum(a*b for a,b in zip(polynomial.monoms()[0],parameter_weights))\n        substituted = S.cancel(value.subs(v,t*u*u)/u**degree)\n        assert not substituted.has(u)\n        chart_polynomials.append(S.Poly(substituted,t))\n    chart_gcd = chart_polynomials[0] if chart_polynomials else S.Poly(0,t)\n    for polynomial in chart_polynomials[1:]:\n        chart_gcd = S.gcd(chart_gcd,polynomial)\n    actual_axis = all(S.expand(value.subs(v,0))==0 for value in final)\n    family = curve.subs(v,0) if actual_axis else None\n    if actual_axis:\n        assert residual(family)==S.zeros(350,1)\n    paths = [Path(__file__),source_path,Path(arithmetic.__file__)]\n    report = dict(task_id='E_reduced_nonnormal',all_passed=True,\n                  input_sha256={str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in paths},\n                  source_bytes=Path(__file__).read_text(),\n                  coordinate_weights=list(weights),P_character=character,\n                  all150_coordinate_relative_weights=relative,all350_equation_relative_weights=row_weights,\n                  entire_C150_weight_action_verified=True,actual_group_weight_stable=True,\n                  actual_group_independent_columns=group_columns,actual_group_cut_rows=group_rows,\n                  actual_group_cut_minor_determinant=str(group_minor),\n                  weight_stable_slice_coordinate_indices=slice_indices,\n                  implicit_coordinate_indices=implicit,selected_equation_rows=rows,\n                  implicit_minor_determinant=str(determinant),free_normal_coordinate_indices=free_coordinates,\n                  normal_relative_weights=[-1,-2],\n                  normal_vectors=[{str(i):str(value) for i,value in enumerate(normal_vectors[:,j]) if value}\n                                  for j in range(2)],\n                  finite_weight_bound_proved_before_solving=bound,\n                  finite_corrections=corrections,all_selected_equations_identically_zero=True,\n                  full_polynomial_slice_brackets={f'{i},{j}':str(curve[i,j]) for i,j in arithmetic.PAIRS if curve[i,j] != 0},\n                  all350_literal_residuals={str(i):str(value) for i,value in enumerate(final) if value},\n                  complete_formal_slice_ideal=list(map(str,distinct)),\n                  Groebner_basis=[str(p.as_expr()) for p in gb.polys] if gb else [],\n                  isolated_support=isolated,weighted_chart_v_over_u_squared_gcd=str(chart_gcd.as_expr()),\n                  v_zero_is_actual_Poisson_family=actual_axis,\n                  actual_v_zero_family_brackets={f'{i},{j}':str(family[i,j]) for i,j in arithmetic.PAIRS if family[i,j] != 0} if actual_axis else None,\n                  mathematical_dependency='The full C150 action, genuine actual-group cut and selected invertible derivative minor make the formal IFT map C*-equivariant. Normal weights -1,-2 force every implicit coordinate series to be a polynomial of weighted degree<=4; the displayed polynomial solves all selected equations identically. Therefore the full350 residuals are the actual complete formal slice equations, not a finite-jet guess.',\n                  scope='Exact finite genuine formal slice at the mixed type10 orbit. Any componenthood/known-component recognition requires independent replay and the stated formal-slice argument. No unbounded jet iteration or exact nil index claim.',\n                  seconds=time.monotonic()-begun)\n    with output.open('x') as handle:\n        json.dump(report,handle,indent=2)\n        handle.write('\\n')\n    print(json.dumps(dict(all_passed=True,normal_weights=[-1,-2],bound=bound,\n                          Groebner_basis=report['Groebner_basis'],isolated=isolated,\n                          actual_axis=actual_axis,seconds=report['seconds'])))\n\n\ndef semisimple_cofactor_curve(output,model_name='cubic'):\n    \"\"\"A bounded whole-coefficient actual curve problem, not a jet solve.\"\"\"\n    import sympy as S\n    from sympy.polys.matrices import DomainMatrix\n\n    resource.setrlimit(resource.RLIMIT_CPU,(170,175))\n    resource.setrlimit(resource.RLIMIT_AS,(1536*1024**2,1536*1024**2))\n    begun = time.monotonic()\n    source_path = ROOT/'reports/CLASSIFICATION_HYPERPLANE_QUARTIC_TRANSLATED_MINIMAL_NORMAL_FORMS_20261107.json'\n    model = next(v for v in json.loads(source_path.read_text())['three_actual_Poisson_models'] if v['name']==model_name)\n    coordinates = S.symbols('h x y z w')\n    h,x,y,z,w = coordinates\n    t = S.Symbol('t')\n    env = {str(v):v for v in coordinates}\n    weights,character = ((0,6,3,4,5),3) if model_name=='cubic' else ((0,2,1,4,-1),1)\n    monomials = [coordinates[i]*coordinates[j] for i,j in itertools.combinations_with_replacement(range(5),2)]\n    exponents = [S.Poly(value,*coordinates).monoms()[0] for value in monomials]\n    base = S.zeros(5)\n    for ij,value in zip(itertools.combinations(range(1,5),2),model['brackets']):\n        affine = S.sympify(value,locals=env)\n        base[ij] = S.expand(h*h*affine.subs({v:v/h for v in coordinates[1:]},simultaneous=True))\n        base[ij[::-1]] = -base[ij]\n    slots = []\n    for i,j in itertools.combinations(range(1,5),2):\n        for monomial,powers in zip(monomials,exponents):\n            relative = weights[i]+weights[j]-sum(a*b for a,b in zip(weights,powers))-character\n            if relative<0 and (-relative)%character==0:\n                slots.append(((i,j),monomial,(-relative)//character))\n    unknowns = S.symbols(f'a0:{len(slots)}')\n    family = base.copy()\n    for coefficient,(ij,monomial,degree) in zip(unknowns,slots):\n        family[ij] += coefficient*t**degree*monomial\n        family[ij[::-1]] -= coefficient*t**degree*monomial\n    assert model_name!='cubic' or (len(slots)==15 and max(v[2] for v in slots)==2)\n    ratios = list(map(S.Rational,[1,2,3]))+[S.Rational(1,2),S.Rational(1,3),-S.Integer(1),-S.Integer(2),-S.Integer(3),-S.Rational(1,2),-S.Rational(1,3)]\n    attempts = []\n    found = None\n    dm = lambda A:DomainMatrix.from_Matrix(A).convert_to(S.QQ)\n\n    def jacobi(P):\n        return [S.expand(sum(P[a,k]*S.diff(P[b,c],coordinates[k])\n                             for a,b,c in [(i,j,l),(j,l,i),(l,i,j)] for k in range(5)))\n                for i,j,l in itertools.combinations(range(5),3)]\n\n    for ratio in ratios:\n        Z = S.Matrix([0,y,h+t*t*x,ratio*t*z,-ratio*t*w])\n        divergence = [sum(S.diff(family[i,j],coordinates[i]) for i in range(5))-Z[j] for j in range(5)]\n        invariance = [S.expand(sum(Z[k]*S.diff(family[i,j],coordinates[k])\n                                  -family[k,j]*S.diff(Z[i],coordinates[k])\n                                  -family[i,k]*S.diff(Z[j],coordinates[k]) for k in range(5)))\n                      for i,j in itertools.combinations(range(1,5),2)]\n        equations = [value for polynomial in divergence+invariance\n                     for value in S.Poly(S.expand(polynomial),*coordinates,t).coeffs() if value != 0]\n        M,b = S.linear_eq_to_matrix(equations,unknowns)\n        linear_rank = len(dm(M).rref()[1])\n        augmented_rank = len(dm(M.row_join(b)).rref()[1])\n        record = dict(kappa=str(ratio),linear_system_shape=list(M.shape),linear_rank=linear_rank,\n                      augmented_rank=augmented_rank)\n        if augmented_rank != linear_rank:\n            record['linear_source_empty'] = True\n            attempts.append(record)\n            continue\n        solution = next(iter(S.linsolve((M,b),unknowns)))\n        free = sorted(set().union(*(value.free_symbols for value in solution)),key=str)\n        constrained = family.subs(dict(zip(unknowns,solution)),simultaneous=True).applyfunc(S.expand)\n        raw = jacobi(constrained)\n        coefficients = list(dict.fromkeys(S.factor(value) for polynomial in raw\n                            for value in S.Poly(polynomial,*coordinates,t).coeffs() if value != 0))\n        record.update(complete_linear_solution={str(k):str(v) for k,v in zip(unknowns,solution)},\n                      free_coefficients=list(map(str,free)),all_remaining_Jacobi_coefficients=list(map(str,coefficients)))\n        point = {parameter:S.Integer(0) for parameter in free}\n        positive = all(S.cancel(value.subs(point))==0 for value in coefficients)\n        if not positive and free:\n            basis = S.groebner(coefficients,*free,order='grevlex')\n            record['Jacobi_Groebner_basis'] = [str(poly.as_expr()) for poly in basis.polys]\n            if not any(poly.as_expr()==1 for poly in basis.polys):\n                solutions = S.solve(coefficients,free,dict=True)\n                for candidate in solutions:\n                    candidate = {**point,**candidate}\n                    candidate = {parameter:S.simplify(value.subs(point,simultaneous=True)) for parameter,value in candidate.items()}\n                    if all(S.simplify(value.subs(candidate,simultaneous=True))==0 for value in coefficients):\n                        point = candidate\n                        positive = True\n                        break\n        record['actual_curve_found'] = positive\n        if not positive:\n            attempts.append(record)\n            continue\n        curve = constrained.subs(point,simultaneous=True).applyfunc(S.expand)\n        assert curve.subs(t,0)==base\n        assert jacobi(curve)==[0]*10\n        actual_divergence = S.Matrix([S.expand(sum(S.diff(curve[i,j],coordinates[i]) for i in range(5))) for j in range(5)])\n        assert actual_divergence==Z\n        assert all(S.Poly(value,*coordinates).total_degree()==2 for value in curve if value != 0)\n        for i,j in itertools.combinations(range(5),2):\n            for powers,coefficient in S.Poly(curve[i,j],*coordinates,t).terms():\n                assert not coefficient or weights[i]+weights[j]-sum(a*b for a,b in zip(weights,powers[:5]))-character==-character*powers[5]\n        pfaffian = S.expand(curve[1,2]*curve[3,4]-curve[1,3]*curve[2,4]+curve[1,4]*curve[2,3])\n        assert S.expand(pfaffian.subs(t,0)-(x*h-y*y/2)**2/2\n                        -(z*h**3 if model_name=='linear' else h*z**3))==0\n        record['free_coefficient_point'] = {str(k):str(v) for k,v in point.items()}\n        attempts.append(record)\n        found = dict(kappa=str(ratio),full_polynomial_brackets={f'{i},{j}':str(curve[i,j])\n                        for i,j in itertools.combinations(range(5),2) if curve[i,j] != 0},\n                     all_t_strict_Jacobi_zero=True,full_divergence=list(map(str,actual_divergence)),\n                     t_zero_equals_entire_original_normal_form=True,all_coefficients_homogeneous_quadratic=True,\n                     full_actual_pfaffian=str(pfaffian),whole_curve_torus_equivariance=True,\n                     nonzero_t_semisimple_spectrum=['-t','t',str(ratio)+'*t',str(-ratio)+'*t'],\n                     nonzero_t_modular_zero='x=-1/t\u00b2,y=z=w=0',\n                     known_semisimple_source_type=20 if abs(ratio)==1 else 12 if abs(ratio) in (2,S.Rational(1,2)) else 7,\n                     whole_original_orbit_MPS_coverage_requires_the_written_closedness_argument=True)\n        break\n    paths = [Path(__file__),source_path,ROOT/'research/classification/HYPERPLANE_QUARTIC_SEMISIMPLE_SUPPORT.md',\n             ROOT/'research/classification/HYPERPLANE_QUARTIC_LARGE_SEMISIMPLE_SUPPORT.md']\n    result = dict(task_id='E_reduced_nonnormal',all_passed=found is not None,source_normal_form=model_name,\n                  input_sha256={str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in paths},\n                  source_bytes=Path(__file__).read_text(),coordinate_weights=list(weights),P_character=character,\n                  complete_equivariant_h_Casimir_positive_weight_slots=[dict(pair=list(ij),monomial=str(mon),t_degree=n)\n                                                                        for ij,mon,n in slots],\n                  coefficient_count=len(slots),a_priori_t_degree_bound=max(v[2] for v in slots),\n                  declared_finite_kappa_table=list(map(str,ratios)),examined_fixed_cases=attempts,\n                  actual_curve=found,\n                  scope='One explicit actual all-t Poisson curve from the entire fixed normal-form orbit into an accepted semisimple source, if found. No arbitrary jet cutoff, new component count, or exclusion of all other deformation geometries.',\n                  seconds=time.monotonic()-begun)\n    with output.open('x') as handle:\n        json.dump(result,handle,indent=2)\n        handle.write('\\n')\n    print(json.dumps(dict(all_passed=result['all_passed'],model=model_name,slots=len(slots),\n                          cases=len(attempts),kappa=found['kappa'] if found else None,seconds=result['seconds'])))\n\n\ndef main(output):\n    resource.setrlimit(resource.RLIMIT_CPU,(170,175))\n    resource.setrlimit(resource.RLIMIT_AS,(1024*1024**2,1024*1024**2))\n    start = time.monotonic()\n    input_path = ROOT/'reports/CLASSIFICATION_HYPERPLANE_QUARTIC_NILPOTENT_SOURCES_20261107.json'\n    source = json.loads(input_path.read_text())['full_nilpotent_sources'][9]\n    assert source['variant'] == dict(jordan_blocks=[2,1,1],translation_top_length=2)\n    bridge = verify_complete_source(source)\n    reduction = verify_jacobi_and_square_completion()\n    table = weighted_table()\n    models = actual_models()\n    inputs = [Path(__file__),Path(__file__).with_name('classification_minimal_quartic_review.py'),\n              Path(__file__).with_name('classification_quadratic_cofactor_review.py'),input_path]\n    result = dict(task_id='E_reduced_nonnormal',all_passed=True,no_producer_import=True,no_CAS_import=True,\n                  input_sha256={str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in inputs},\n                  complete_original_source_bridge=bridge,full_Jacobi_reduction=reduction,\n                  complete_weighted_table=table,three_actual_Poisson_models=models,\n                  normalizing_coordinate_changes='r=x-y^2/2 is auxiliary only; r->r+L/delta is the actual affine x->x+L/delta. Base diagonalization/translations are affine. Final z->tz,w->uw gives delta_new=delta*t*u, b_new=b*t^(1-i)*u^(1-j).',\n                  scale_normalization={'H=bz':['t=b/delta','u=1/b'],\n                                       'H=bz^3':['choose t^3=b/delta','u=1/(delta*t)'],\n                                       'H=bz^2w':['t=b','u=1/(delta*b)']},\n                  inverted_elements=['delta!=0 forced by simpleH','nonzero H coefficientb after excluding reducibleF','nonzero determinant base affine coordinate transforms'],\n                  complements=['delta=0 forces highestPfaffian0, hence H is not simple','repeated eigenvalues -1/4 have no degree<=3 eigenpolynomial','zero-eigen translation with kappa!=0 forces b=0 and a reducibleF','H coefficientb=0 makesF reducible'],\n                  scope='All type10 simpleH/irreducible-quartic points reduce to three actual affine/PGL orbits. Ambient componenthood, known-component membership, pairwise/global distinctness remain open.',\n                  seconds=time.monotonic()-start,maximum_RSS_KiB=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,\n                  source_bytes=Path(__file__).read_text())\n    with output.open('x') as handle:\n        json.dump(result,handle,indent=2)\n        handle.write('\\n')\n    print(json.dumps({key:result[key] for key in ('all_passed','seconds','maximum_RSS_KiB')}))\n\n\nif __name__ == '__main__':\n    parser = argparse.ArgumentParser(description=__doc__)\n    parser.add_argument('--output',type=Path,required=True)\n    parser.add_argument('--ambient',action='store_true',help='Full150/350 ambient ranks and faithful S61 graph tests')\n    parser.add_argument('--quadratic',action='store_true',help='Genuine quadratic initial support on all three actual normal quotients')\n    parser.add_argument('--weighted-mixed',action='store_true',help='Exact weight-bounded genuine two-normal formal slice')\n    parser.add_argument('--generic-mixed',action='store_true',help='Ambient and S61 recognition at the actual weighted-family pointu=1')\n    parser.add_argument('--cofactor-cubic',action='store_true',help='Actual finite semisimple-cofactor curve from the cubic normal form')\n    parser.add_argument('--cofactor-linear',action='store_true',help='Actual finite semisimple-cofactor curve from the linear normal form')\n    args = parser.parse_args()\n    assert sum([args.ambient,args.quadratic,args.weighted_mixed,args.generic_mixed,args.cofactor_cubic,args.cofactor_linear])<=1\n    if args.cofactor_cubic or args.cofactor_linear:\n        semisimple_cofactor_curve(args.output,'cubic' if args.cofactor_cubic else 'linear')\n    elif args.generic_mixed:\n        ambient_audit(args.output,weighted_generic=True)\n    else:\n        (weighted_mixed_slice if args.weighted_mixed else quadratic_audit if args.quadratic else ambient_audit if args.ambient else main)(args.output)\n",
+  "coordinate_weights": [
+    0,
+    2,
+    1,
+    4,
+    -1
+  ],
+  "P_character": 1,
+  "complete_equivariant_h_Casimir_positive_weight_slots": [
+    {
+      "pair": [
+        1,
+        2
+      ],
+      "monomial": "h*z",
+      "t_degree": 2
+    },
+    {
+      "pair": [
+        1,
+        2
+      ],
+      "monomial": "x**2",
+      "t_degree": 2
+    },
+    {
+      "pair": [
+        1,
+        2
+      ],
+      "monomial": "x*y",
+      "t_degree": 1
+    },
+    {
+      "pair": [
+        1,
+        2
+      ],
+      "monomial": "x*z",
+      "t_degree": 4
+    },
+    {
+      "pair": [
+        1,
+        2
+      ],
+      "monomial": "y*z",
+      "t_degree": 3
+    },
+    {
+      "pair": [
+        1,
+        2
+      ],
+      "monomial": "z**2",
+      "t_degree": 6
+    },
+    {
+      "pair": [
+        1,
+        2
+      ],
+      "monomial": "w*z",
+      "t_degree": 1
+    },
+    {
+      "pair": [
+        1,
+        3
+      ],
+      "monomial": "x*z",
+      "t_degree": 1
+    },
+    {
+      "pair": [
+        1,
+        3
+      ],
+      "monomial": "z**2",
+      "t_degree": 3
+    },
+    {
+      "pair": [
+        1,
+        4
+      ],
+      "monomial": "h*x",
+      "t_degree": 2
+    },
+    {
+      "pair": [
+        1,
+        4
+      ],
+      "monomial": "h*y",
+      "t_degree": 1
+    },
+    {
+      "pair": [
+        1,
+        4
+      ],
+      "monomial": "h*z",
+      "t_degree": 4
+    },
+    {
+      "pair": [
+        1,
+        4
+      ],
+      "monomial": "x**2",
+      "t_degree": 4
+    },
+    {
+      "pair": [
+        1,
+        4
+      ],
+      "monomial": "x*y",
+      "t_degree": 3
+    },
+    {
+      "pair": [
+        1,
+        4
+      ],
+      "monomial": "x*z",
+      "t_degree": 6
+    },
+    {
+      "pair": [
+        1,
+        4
+      ],
+      "monomial": "w*x",
+      "t_degree": 1
+    },
+    {
+      "pair": [
+        1,
+        4
+      ],
+      "monomial": "y**2",
+      "t_degree": 2
+    },
+    {
+      "pair": [
+        1,
+        4
+      ],
+      "monomial": "y*z",
+      "t_degree": 5
+    },
+    {
+      "pair": [
+        1,
+        4
+      ],
+      "monomial": "z**2",
+      "t_degree": 8
+    },
+    {
+      "pair": [
+        1,
+        4
+      ],
+      "monomial": "w*z",
+      "t_degree": 3
+    },
+    {
+      "pair": [
+        2,
+        3
+      ],
+      "monomial": "x*z",
+      "t_degree": 2
+    },
+    {
+      "pair": [
+        2,
+        3
+      ],
+      "monomial": "y*z",
+      "t_degree": 1
+    },
+    {
+      "pair": [
+        2,
+        3
+      ],
+      "monomial": "z**2",
+      "t_degree": 4
+    },
+    {
+      "pair": [
+        2,
+        4
+      ],
+      "monomial": "h**2",
+      "t_degree": 1
+    },
+    {
+      "pair": [
+        2,
+        4
+      ],
+      "monomial": "h*x",
+      "t_degree": 3
+    },
+    {
+      "pair": [
+        2,
+        4
+      ],
+      "monomial": "h*y",
+      "t_degree": 2
+    },
+    {
+      "pair": [
+        2,
+        4
+      ],
+      "monomial": "h*z",
+      "t_degree": 5
+    },
+    {
+      "pair": [
+        2,
+        4
+      ],
+      "monomial": "x**2",
+      "t_degree": 5
+    },
+    {
+      "pair": [
+        2,
+        4
+      ],
+      "monomial": "x*y",
+      "t_degree": 4
+    },
+    {
+      "pair": [
+        2,
+        4
+      ],
+      "monomial": "x*z",
+      "t_degree": 7
+    },
+    {
+      "pair": [
+        2,
+        4
+      ],
+      "monomial": "w*x",
+      "t_degree": 2
+    },
+    {
+      "pair": [
+        2,
+        4
+      ],
+      "monomial": "y**2",
+      "t_degree": 3
+    },
+    {
+      "pair": [
+        2,
+        4
+      ],
+      "monomial": "y*z",
+      "t_degree": 6
+    },
+    {
+      "pair": [
+        2,
+        4
+      ],
+      "monomial": "w*y",
+      "t_degree": 1
+    },
+    {
+      "pair": [
+        2,
+        4
+      ],
+      "monomial": "z**2",
+      "t_degree": 9
+    },
+    {
+      "pair": [
+        2,
+        4
+      ],
+      "monomial": "w*z",
+      "t_degree": 4
+    },
+    {
+      "pair": [
+        3,
+        4
+      ],
+      "monomial": "h*z",
+      "t_degree": 2
+    },
+    {
+      "pair": [
+        3,
+        4
+      ],
+      "monomial": "x**2",
+      "t_degree": 2
+    },
+    {
+      "pair": [
+        3,
+        4
+      ],
+      "monomial": "x*y",
+      "t_degree": 1
+    },
+    {
+      "pair": [
+        3,
+        4
+      ],
+      "monomial": "x*z",
+      "t_degree": 4
+    },
+    {
+      "pair": [
+        3,
+        4
+      ],
+      "monomial": "y*z",
+      "t_degree": 3
+    },
+    {
+      "pair": [
+        3,
+        4
+      ],
+      "monomial": "z**2",
+      "t_degree": 6
+    },
+    {
+      "pair": [
+        3,
+        4
+      ],
+      "monomial": "w*z",
+      "t_degree": 1
+    }
+  ],
+  "coefficient_count": 43,
+  "a_priori_t_degree_bound": 9,
+  "declared_finite_kappa_table": [
+    "1",
+    "2",
+    "3",
+    "1/2",
+    "1/3",
+    "-1",
+    "-2",
+    "-3",
+    "-1/2",
+    "-1/3"
+  ],
+  "examined_fixed_cases": [
+    {
+      "kappa": "1",
+      "linear_system_shape": [
+        61,
+        43
+      ],
+      "linear_rank": 37,
+      "augmented_rank": 37,
+      "complete_linear_solution": {
+        "a0": "2*a22 + a35",
+        "a1": "1/4",
+        "a2": "0",
+        "a3": "2*a22 + a35",
+        "a4": "-2*a22 - a35",
+        "a5": "0",
+        "a6": "a6",
+        "a7": "0",
+        "a8": "a22",
+        "a9": "-2*a31",
+        "a10": "-2*a31 - a40",
+        "a11": "-a32",
+        "a12": "-a31",
+        "a13": "-2*a31 - a40",
+        "a14": "-a32",
+        "a15": "0",
+        "a16": "3*a31 + a40",
+        "a17": "a32",
+        "a18": "0",
+        "a19": "a35",
+        "a20": "-1",
+        "a21": "0",
+        "a22": "a22",
+        "a23": "-2*a31 - a40 - 1",
+        "a24": "-6*a31 - 2*a40",
+        "a25": "2*a31 + a40",
+        "a26": "-a32",
+        "a27": "-3*a31 - a40",
+        "a28": "2*a31 + a40",
+        "a29": "-a32",
+        "a30": "1/2",
+        "a31": "a31",
+        "a32": "a32",
+        "a33": "0",
+        "a34": "0",
+        "a35": "a35",
+        "a36": "-a40",
+        "a37": "1/2",
+        "a38": "0",
+        "a39": "-a40",
+        "a40": "a40",
+        "a41": "0",
+        "a42": "-1"
+      },
+      "free_coefficients": [
+        "a22",
+        "a31",
+        "a32",
+        "a35",
+        "a40",
+        "a6"
+      ],
+      "all_remaining_Jacobi_coefficients": [
+        "a6",
+        "-(3*a22 + 2*a35 + 2*a40*a6)/2",
+        "a6/2",
+        "-a6/2",
+        "(3*a22 + 2*a35 + 2*a40*a6)/2",
+        "-a6",
+        "-(4*a22 + 2*a35 - a40)/2",
+        "-4*a22*a31 + 2*a22*a40 - a32 + 2*a35*a40",
+        "-3*(4*a22 + 2*a35 - a40)/4",
+        "(4*a22 + 2*a35 - a40)/2",
+        "-2*(4*a22*a31 - 2*a22*a40 + a32 - 2*a35*a40)",
+        "(4*a22 + 2*a35 - a40)/4",
+        "2*(4*a22*a31 - 2*a22*a40 + a32 - 2*a35*a40)",
+        "3*a22 + 2*a35 + 2*a40*a6",
+        "-(4*a22 + 2*a35 - a40)/4",
+        "-3*a22 - 2*a35 - 2*a40*a6",
+        "3*(4*a22 + 2*a35 - a40)/4",
+        "4*a22*a31 - 2*a22*a40 + a32 - 2*a35*a40",
+        "-3*(4*a22 + 2*a35 - a40)/2"
+      ],
+      "actual_curve_found": true,
+      "free_coefficient_point": {
+        "a22": "0",
+        "a31": "0",
+        "a32": "0",
+        "a35": "0",
+        "a40": "0",
+        "a6": "0"
+      }
+    }
+  ],
+  "actual_curve": {
+    "kappa": "1",
+    "full_polynomial_brackets": {
+      "1,2": "h*x/2 + t**2*x**2/4 - y**2/4",
+      "1,3": "-y*z",
+      "1,4": "-h**2 + w*y/2",
+      "2,3": "-h*z - t**2*x*z",
+      "2,4": "-h**2*t + h*w/2 + t**2*w*x/2",
+      "3,4": "h*x + t**2*x**2/2 - t*w*z - y**2/2"
+    },
+    "all_t_strict_Jacobi_zero": true,
+    "full_divergence": [
+      "0",
+      "y",
+      "h + t**2*x",
+      "t*z",
+      "-t*w"
+    ],
+    "t_zero_equals_entire_original_normal_form": true,
+    "all_coefficients_homogeneous_quadratic": true,
+    "full_actual_pfaffian": "h**3*z + h**2*t**2*x*z - h**2*t*y*z + h**2*x**2/2 + h*t**2*x**3/2 - h*t*w*x*z/2 - h*x*y**2/2 + t**4*x**4/8 - t**3*w*x**2*z/4 - t**2*x**2*y**2/4 + t*w*y**2*z/4 + y**4/8",
+    "whole_curve_torus_equivariance": true,
+    "nonzero_t_semisimple_spectrum": [
+      "-t",
+      "t",
+      "1*t",
+      "-1*t"
+    ],
+    "nonzero_t_modular_zero": "x=-1/t\u00b2,y=z=w=0",
+    "known_semisimple_source_type": 20,
+    "whole_original_orbit_MPS_coverage_requires_the_written_closedness_argument": true
+  },
+  "scope": "One explicit actual all-t Poisson curve from the entire fixed normal-form orbit into an accepted semisimple source, if found. No arbitrary jet cutoff, new component count, or exclusion of all other deformation geometries.",
+  "seconds": 0.8440561950001211
+}

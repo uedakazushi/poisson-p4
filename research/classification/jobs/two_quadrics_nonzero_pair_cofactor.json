@@ -1,0 +1,34 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "target_statement": "Construct complete90-coefficient sources and actual SNC limits for every H+two-irreducible-quadrics point with nonzero constant log-Hamiltonian bracket lambda, using the three joint-character normal forms.",
+  "implication_to_classification": "Every full low-degree source in the entire lambda!=0 factor branch is then contained in MPS40; lambda0 remains separate, with nil22-image already reduced to plane sources.",
+  "coefficient_ring": "QQ[x,y,z,w,n0,...] with lambda=1 and rational joint characters",
+  "hypotheses": "Two commuting affine-linear log-Hamiltonians Xi=P#dlogqi, traces(1,-1), q1 characters(0,-1),q2(1,0); geometric joint-weight classification gives rank44,rank43,rank33 canonical quadric pairs. Full90 coefficients retained.",
+  "inverted_elements": [
+    "lambda!=0 normalized by the allowed nonzero overall tensor scale",
+    "Nonzero quadric coefficients required by actual ranks3/4 normalized by coordinate/quadric scales",
+    "Explicit constant matrix pivots and actual Pfaffian multiple kappa!=0 for rank4"
+  ],
+  "complements": [
+    "lambda=0 is a distinct full branch, not discarded",
+    "All ranks3/4 and ordered-factor swaps are included; rank5 forces lambda0",
+    "Pfaffian-zero parameter values are retained in the source but are outside rank4; they are limits of nonzero-kappa points whenever present"
+  ],
+  "success_certificate": "Full480-by90 normal/divergence/invariance matrices and complete affine solutions, exact rank minors, every fullJacobi identity, full Pfaffian factorization and all-monomial nonnegative cocharacter weights with nonzero logcanonical limit Pfaffian.",
+  "independent_check": "Separate Fraction sparse reconstruction must check every original matrix row and complete source, rank minor, full Jacobi/Pfaffian and actual SNC limit. Geometric completeness of the three character types is separately reviewed.",
+  "resource_limit": {
+    "timeout_seconds": 60,
+    "memory_mb": 1024
+  },
+  "negative_result_next_step": "Retain any inconsistent type or extra source condition exactly. If a displayed cocharacter fails, use the actual polynomial source to find a structural limit rather than dropping a parameter or another generic point.",
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_two_quadrics.py",
+      "sha256": "a87f47ccd3c690a24644e64e3552bbbd67fb6f64336b94e79ecc02af147a8e6d"
+    },
+    {
+      "path": "research/classification/TWO_QUADRICS_SUPPORT.md",
+      "sha256": "602eed82db4aba3b8a7973f4a2ab57dbb1d03c2548e1129f488a6282c88eacfe"
+    }
+  ]
+}

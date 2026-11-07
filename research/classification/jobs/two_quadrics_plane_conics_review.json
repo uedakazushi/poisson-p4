@@ -1,0 +1,37 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "target_statement": "Independently reconstruct all nine plane-conic quadratic-gradient kernels, every Saito determinant and all parameter exceptions, plus all three global linear-gradient obstructions.",
+  "implication_to_classification": "Free degree(2,2) plane quintics are necessary for all essential-three-variable H+two-conics Poisson supports; exact full kernels and Saito determinants accept or exclude candidates before full magnetic-source recognition.",
+  "coefficient_ring": "QQ(u)[x,y,z] with QQ for fixed configurations",
+  "hypotheses": "Plane q1,q2 smooth irreducible conics; H a line; contact-budget geometry yields nine proposed candidates. The calculation itself does not certify completeness of that proposed list.",
+  "inverted_elements": [
+    "All displayed source-kernel pivots and denominators; every parameter factor is explicitly retained"
+  ],
+  "complements": [
+    "u=0 makes one displayed conic reducible and is outside the irreducible-pair type",
+    "u=1 is a repeated conic or the separate common-tangent contact4 case",
+    "Any other pivot factor remains an explicit unresolved parameter obligation",
+    "Non-essential-three-variable configurations remain separate"
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_two_quadrics_review.py",
+      "sha256": "c90f0dd298e02990e78e35c62b43c40c1a8da0ba9642a006176bac581ce93295"
+    },
+    {
+      "path": "code/classification_unimodular_logarithmic_review.py",
+      "sha256": "cc5da8f4ac53bb814e549d439d806271a81f28cacfd9656b85765eb78b21cdcf"
+    },
+    {
+      "path": "reports/CLASSIFICATION_TWO_QUADRICS_PLANE_CONICS_20261107.json",
+      "sha256": "ea4a2779d0ee02e3378fd16849f494530f33186f631ceedf483e45eed258f603"
+    }
+  ],
+  "success_certificate": "All18-coefficient quadratic-gradient-syzygy matrices, complete kernels, exact nonzero minors, all pairwise Saito determinants divided by the plane quintic, and every exceptional parameter factor.",
+  "independent_check": "No producer/CAS import; standard-library Fraction(u) sparse coefficient reconstruction of the full matrix, complete kernels, exact rank minors and every Saito/linear-obstruction identity.",
+  "resource_limit": {
+    "timeout_seconds": 60,
+    "memory_mb": 768
+  },
+  "negative_result_next_step": "Keep exact failed identities. A tenth candidate has a global nonzero degree1 gradient syzygy, which excludes any free degree(2,2) basis without needing its generic kernel determinant; use that weaker uniform obstruction instead of introducing algebraic pivot-root fields."
+}

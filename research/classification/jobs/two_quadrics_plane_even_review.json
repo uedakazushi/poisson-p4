@@ -1,0 +1,43 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "target_statement": "Independently reconstruct the global all6magnetic affine translation and uniform Darboux map of contact4_secant_at_contact to beta=0/Q45.",
+  "implication_to_classification": "The audited beta=0 full-support theorem then covers this whole source by known closed components, despite its nonisolated normal cone. No point-only or higher-jet inference is needed.",
+  "coefficient_ring": "QQ[m0,...,m5,h,x,y,z,w]",
+  "hypotheses": "Full source U,V even in affine base(x,y), a=10x/9+5y/3,b=-x/2; all6 magnetic coefficients arbitrary.",
+  "inverted_elements": [
+    "Only nonzero rational constants; global coordinate determinant9/10"
+  ],
+  "complements": [
+    "No parameter value is excluded",
+    "Other open plane sources and nonplane factor/cofactor types remain separate"
+  ],
+  "success_certificate": "Full coordinate matrix, constant determinant, all transformed brackets, standard constantJ, all16 linear coefficient zeros and full strictJacobi/Q45 compatibility for every magnetic parameter.",
+  "independent_check": "Pure Fraction sparse code independently substitutes the inverse coordinate maps, pushes the six brackets, verifies standardJ/noL and both fullPoisson and Q45 identities for all parameters, with no producer/CAS imports.",
+  "resource_limit": {
+    "timeout_seconds": 30,
+    "memory_mb": 768
+  },
+  "negative_result_next_step": "Keep any failed global coordinate identity; do not infer source membership from a single magnetic point or run another normal jet.",
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_nil22_base_review.py",
+      "sha256": "f90197d856d1089e93afed6e56c93bc4daf6a867b92defce704278f6f2eec85c"
+    },
+    {
+      "path": "code/classification_quadratic_cofactor_review.py",
+      "sha256": "b77e9511bad7c8674f2d820c0d1e6022b7aa3788b795c2e55090b28e2d2dffcd"
+    },
+    {
+      "path": "reports/CLASSIFICATION_TWO_QUADRICS_PLANE_SOURCES_20261107.json",
+      "sha256": "2dd96fc67f78758395dc8c434170bc335123db0bcb71ad4d07d609d6d1663746"
+    },
+    {
+      "path": "reports/CLASSIFICATION_TWO_QUADRICS_PLANE_EVEN_20261107.json",
+      "sha256": "a28a2ca1a56534654c0fc1a2f36d849038c880df55aac18430308aa5a594f0aa"
+    },
+    {
+      "path": "research/classification/BETA_ZERO_COVERAGE.md",
+      "sha256": "2f0d4e10f2a9d325e7a2e01677004d2839ca2af9f47c143904b725fbc0074bff"
+    }
+  ]
+}

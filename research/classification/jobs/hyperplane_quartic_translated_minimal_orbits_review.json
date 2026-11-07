@@ -1,0 +1,52 @@
+{
+  "task_id": "G",
+  "target_statement": "Independently check the complete type10 source reduces to at mostthree actual affine/PGL orbits of dimension22.",
+  "implication_to_classification": "The whole saturated type10stratum has dimension<=22, so it cannot be the generic point of an unknown beta-dominant component of dimension25,26or27. No primitive-beta-image non-dominance claim is inferred.",
+  "coefficient_ring": "QQ for full25/90 sourcebridge and actualGL5 matrices; C for affine normal forms and nonzero cube roots.",
+  "hypotheses": "Simple H plus irreducible quartic, nil211linear cofactor with translationtoplength2. Existing C membership accepted independently; A/B membership irrelevant to this lemma.",
+  "inverted_elements": [
+    "delta!=0 forced by simpleH",
+    "Nonzero b forced by irreducibility in each remaining weightcase",
+    "Only nonzero normalization scales and finite cube-root choice"
+  ],
+  "complements": [
+    "delta0 excludes simpleH; H0 or b0 gives reduciblequartic",
+    "All trace-minus-half eigenvalues, repeatedJordan and zero-eigen translations retained",
+    "Auxiliary r=x-y\u00b2/2 is not used as PGL; x+L/delta completion and subsequent base changes are affine",
+    "A/B componenthood and membership remain open; no count change"
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_translated_minimal_orbits_review.py",
+      "sha256": "a5c0d87b336c53fc4b502c4961cc2a80add912f59ec63f4ede750ab65c3e10a8"
+    },
+    {
+      "path": "code/classification_degenerate_quadric_q4_nil31_I_review.py",
+      "sha256": "f3900a3d9a77859585118cfdd00c00ecce2c491d0705a94bf42a6c2609abe915"
+    },
+    {
+      "path": "code/classification_quadratic_cofactor_review.py",
+      "sha256": "b77e9511bad7c8674f2d820c0d1e6022b7aa3788b795c2e55090b28e2d2dffcd"
+    },
+    {
+      "path": "reports/CLASSIFICATION_HYPERPLANE_QUARTIC_NILPOTENT_SOURCES_20261107.json",
+      "sha256": "385df1b5e751954bc33600500429ea5a7d078775b87e274b21a7c35b259e1706"
+    },
+    {
+      "path": "reports/CLASSIFICATION_HYPERPLANE_QUARTIC_TRANSLATED_MINIMAL_NORMAL_FORMS_20261107.json",
+      "sha256": "5c10e740a4700b08de96a08520bd6ac1f3fe2e417a08f74fbcbdb29d1e7915ea"
+    },
+    {
+      "path": "reports/CLASSIFICATION_HYPERPLANE_QUARTIC_TRANSLATED_MINIMAL_AMBIENT_20261107.json",
+      "sha256": "b0bce64db9e08ea57387d8395b7737cb7f6772a6b404024b1e450483e5bf3182"
+    }
+  ],
+  "success_certificate": "New full25parameter sparse construction with exact inverse25matrix and all90matches, Ga-coordinate Jacobi/clearedsquare identities, complete degree<=3weight table, three fullactualGL5+vertical+scalar rank47 matrices with vertical24+scalar25.",
+  "independent_check": "No producer or CAS imports. Independent standardlibrary Ring and older Fraction/S61 coefficient loops; geometric completeness and true affine normalization separately read.",
+  "resource_limit": {
+    "timeout_seconds": 90,
+    "memory_mb": 1024
+  },
+  "negative_result_next_step": "Retain source/normalization/rank mismatch and keep this generic-component exclusion open. Do not substitute point sampling or infer beta-image non-dominance.",
+  "route_change_reason": "Finite cofactor orbit geometry replaces suspended nonclosing directGB/higherjet routes and proves the weaker generic-component exclusion actually needed."
+}

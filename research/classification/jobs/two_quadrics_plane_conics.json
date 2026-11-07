@@ -1,0 +1,29 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "target_statement": "Compute full quadratic-gradient kernels and every Saito determinant for nine contact candidates, every parameter exception, and global linear-gradient obstructions excluding three cases including the tenth contact-budget candidate.",
+  "implication_to_classification": "Free degree(2,2) plane quintics are necessary for all essential-three-variable H+two-conics Poisson supports; exact full kernels and Saito determinants accept or exclude candidates before full magnetic-source recognition.",
+  "coefficient_ring": "QQ(u)[x,y,z] with QQ for fixed configurations",
+  "hypotheses": "Plane q1,q2 smooth irreducible conics; H a line; contact-budget geometry yields nine proposed candidates. The calculation itself does not certify completeness of that proposed list.",
+  "inverted_elements": [
+    "All displayed source-kernel pivots and denominators; every parameter factor is explicitly retained"
+  ],
+  "complements": [
+    "u=0 makes one displayed conic reducible and is outside the irreducible-pair type",
+    "u=1 is a repeated conic or the separate common-tangent contact4 case",
+    "Any other pivot factor remains an explicit unresolved parameter obligation",
+    "Non-essential-three-variable configurations remain separate"
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_two_quadrics.py",
+      "sha256": "a87f47ccd3c690a24644e64e3552bbbd67fb6f64336b94e79ecc02af147a8e6d"
+    }
+  ],
+  "success_certificate": "All18-coefficient quadratic-gradient-syzygy matrices, complete kernels, exact nonzero minors, all pairwise Saito determinants divided by the plane quintic, and every exceptional parameter factor.",
+  "independent_check": "Independent Fraction(u) polynomial reconstruction and geometric contact-budget review are required before using this as a support classification.",
+  "resource_limit": {
+    "timeout_seconds": 60,
+    "memory_mb": 768
+  },
+  "negative_result_next_step": "Keep exact failed identities. A tenth candidate has a global nonzero degree1 gradient syzygy, which excludes any free degree(2,2) basis without needing its generic kernel determinant; use that weaker uniform obstruction instead of introducing algebraic pivot-root fields."
+}

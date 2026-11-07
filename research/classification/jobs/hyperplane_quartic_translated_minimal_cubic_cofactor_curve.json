@@ -1,0 +1,41 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "target_statement": "Find one actual all-parameter Poisson curve from the entire cubic type10 orbit into the already covered finite semisimple cofactor strata.",
+  "implication_to_classification": "Any successful all-t exact curve P_t with P0 equal to the full cubic representative and nonzerot semisimple cofactor in types7/12/20 covers that entire orbit by the finite MPS union and closedness; no jet support inference is used.",
+  "coefficient_ring": "QQ[t,h,x,y,z,w] with15 auxiliary coefficients; fixed kappa in \u00b1{1,2,3,1/2,1/3}.",
+  "hypotheses": "h-Casimir full originalquadratic representativeB. Z_t=y\u2202x+(h+t\u00b2x)\u2202y+kappa*t*(z\u2202z-w\u2202w). Complete torus weights(0,6,3,4,5),Pcharacter3 force exactly15 positiveweight slots and a priori tdegree<=2. Every coefficient is solved, not a chosen low-order prefix.",
+  "inverted_elements": [
+    "Nonzerot only for the generic semisimple interpretation"
+  ],
+  "complements": [
+    "t=0 is retained by an actual polynomialPoissoncurve and equals the entire original representative.",
+    "The fixed irreducible quartic at0 and the closedness of reduciblequartics ensure a nonempty generic irreducible-quartic subcurve.",
+    "An unsuccessful fixed-kappa ansatz is not called a nonexistence theorem for other deformation geometries."
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_translated_minimal_quartic.py",
+      "sha256": "f8b8f4ff8c4f22059243cea42869b1e7653f5cec229704be18fb6bc4f7a5b70a"
+    },
+    {
+      "path": "reports/CLASSIFICATION_HYPERPLANE_QUARTIC_TRANSLATED_MINIMAL_NORMAL_FORMS_20261107.json",
+      "sha256": "5c10e740a4700b08de96a08520bd6ac1f3fe2e417a08f74fbcbdb29d1e7915ea"
+    },
+    {
+      "path": "research/classification/HYPERPLANE_QUARTIC_SEMISIMPLE_SUPPORT.md",
+      "sha256": "fddae8526194de65f6633b3c7466944391cef317e84544083ff34f33811919ef"
+    },
+    {
+      "path": "research/classification/HYPERPLANE_QUARTIC_LARGE_SEMISIMPLE_SUPPORT.md",
+      "sha256": "c6ba0d9a0ae1ba30ced7082b104d4692f665316e1283fc561abcd823fb969e15"
+    }
+  ],
+  "success_certificate": "Complete15slot enumeration, exact div/invariance linear solutions and any remainingJacobi ideal; explicit fullpolynomialcurve if found, all10strictJacobi zero identically, fullcofactor, homogeneousdegree2, exact P_t0=P_B, torusequivariance and actualPf.",
+  "independent_check": "Every curve formula and all coefficient identities will be independently replayable by the existing Fraction polynomial reviewer before wholebranch coverage is promoted; semisimple whole-support theorems are separately audited inputs.",
+  "resource_limit": {
+    "timeout_seconds": 180,
+    "memory_mb": 1536
+  },
+  "negative_result_next_step": "If no literal curve is found in the entire finite cofactor table, retain its bounded failure without increasing a jet cutoff, and change the basegeometry/target or allow genuine h-row deformation. Never claim newcomponenthood from negative tests.",
+  "route_change_reason": "Quadratic cone atB is nonisolated. This is a whole exact finite coefficient problem for an actual semisimple-cofactor curve, with degreebound proved before solving, not a higher-jet repetition."
+}

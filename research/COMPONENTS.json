@@ -14,12 +14,12 @@
     "null_values": "not catalogued or not applicable; never a claim of zero"
   },
   "coverage": {
-    "global_lower_bound": 90,
+    "global_lower_bound": 92,
     "generic_rank_two_full_components": 6,
-    "generic_rank_four_lower_bound": 84,
+    "generic_rank_four_lower_bound": 86,
     "upper_bound": null,
     "global_exhaustion_proved": false,
-    "individually_catalogued_count": 90,
+    "individually_catalogued_count": 92,
     "unexpanded_block_count": 0,
     "all_51_rank_four_ideals_in_S61_constructed": false,
     "note_ja": "全89成分を個別同定。一般rank4は83、rank2は6。平面conic+cubic六成分と平面二直線+cubic九成分は全て23次元。既約Q+C3全支持を被覆済み。全成分数上界・一般ファイバー尽くし・全分類は未証明。",
@@ -10907,6 +10907,164 @@
         "全旧rank四次元22成分は非被約因子又は被約1+1+3、MPS40は次元23以上。新被約1+4型はこれら全てと相異なる。",
         "第一normalized全源の既約像とN²centralizer undoもこの成分に入る。"
       ]
+    },
+    {
+      "id": "R4_PLANE_TWO_CONICS_BITANGENT_23",
+      "name": "平面二conicの3+1交点と異点共通接線の23次元成分",
+      "source_checkpoint": "v64-classification-first",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "additional_generic_rank_four_full_component_outside_MPS40",
+      "generic_rank": 4,
+      "projective_dimension": 23,
+      "meets_SNC_log_symplectic_locus": false,
+      "generic_pgl5_orbit_dimension": null,
+      "generic_reduced_rosenlicht_quotient_dimension": null,
+      "generic_transverse_algebra": null,
+      "component_definition": "Reduced PGL5-saturated closure of the complete six-magnetic source for contact31_common_bitangent",
+      "generic_construction": {
+        "full_source": "research/classification/TWO_QUADRICS_PLANE_CONIC_CONFIGURATIONS.md",
+        "configuration": "contact31_common_bitangent",
+        "all_six_magnetic_parameters_retained": true,
+        "source_formula": "U wedge d_z + V wedge d_w + (-a*z-b*w+R2(h,x,y)) d_z wedge d_w; [U,V]=aU+bV; full frame and all coefficients in saved source certificate",
+        "plane_coordinates": [
+          "X",
+          "Y",
+          "Z"
+        ],
+        "hyperplane": "X+8*Y+16*Z",
+        "quadrics": [
+          "X*Z-Y^2",
+          "X*Z-Y^2+X*Y"
+        ]
+      },
+      "generic_actual_degeneracy_divisor": {
+        "description": "line and two distinct irreducible plane conics, pulled back to P4",
+        "witness_equation": "(X+8*Y+16*Z)*(X*Z-Y^2)*(X*Z-Y^2+X*Y)",
+        "irreducible_factor_degrees": [
+          1,
+          2,
+          2
+        ],
+        "corresponding_multiplicities": [
+          1,
+          1,
+          1
+        ],
+        "reduced": true,
+        "essential_variables": 3
+      },
+      "claims": [
+        "R4_PLANE_TWO_CONICS_TWO_COMPONENTS_23"
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/TWO_QUADRICS_PLANE_CONIC_CONFIGURATIONS.md"
+        },
+        {
+          "path": "research/classification/TWO_QUADRICS_PLANE_COMPONENTS.md"
+        },
+        {
+          "path": "research/classification/TWO_QUADRICS_BITANGENT_SEPARATE_REVIEW.md"
+        },
+        {
+          "path": "research/classification/TWO_QUADRICS_OTHER_TANGENT_SEPARATE_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_TWO_QUADRICS_PLANE_SOURCES_REVIEW_20261107.json",
+        "reports/CLASSIFICATION_TWO_QUADRICS_PLANE_BITANGENT_SEPARATE_REVIEW_20261107.json"
+      ],
+      "review_status": {
+        "proof": "full_ambient_componenthood_and_distinctness_proved",
+        "independent_review": "accepted_separate_author_full150_full350_Fraction_and_geometry_2026_11_07",
+        "certificates": "exact_QQ_reconstruction",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "notes_ja": [
+        "全D101、実source48、全kernel49と真正48cut切片のnonzero quadraticにより23次元全空間成分を証明。全六磁気係数とPGL飽和を保持。",
+        "essential変数数≤3は閉条件でSNC点を持たない。一般最小既約因子分割と3+1/4交点分割により既知成分・相互と異なる。",
+        "witnessのPGL軌道次元は22だが、一般軌道次元・商次元・局所唯一性は本計算から推論しない。"
+      ]
+    },
+    {
+      "id": "R4_PLANE_TWO_CONICS_CONTACT4_TANGENT_23",
+      "name": "平面二conicの四点接触と別点接線の23次元成分",
+      "source_checkpoint": "v64-classification-first",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "additional_generic_rank_four_full_component_outside_MPS40",
+      "generic_rank": 4,
+      "projective_dimension": 23,
+      "meets_SNC_log_symplectic_locus": false,
+      "generic_pgl5_orbit_dimension": null,
+      "generic_reduced_rosenlicht_quotient_dimension": null,
+      "generic_transverse_algebra": null,
+      "component_definition": "Reduced PGL5-saturated closure of the complete six-magnetic source for contact4_other_tangent",
+      "generic_construction": {
+        "full_source": "research/classification/TWO_QUADRICS_PLANE_CONIC_CONFIGURATIONS.md",
+        "configuration": "contact4_other_tangent",
+        "all_six_magnetic_parameters_retained": true,
+        "source_formula": "U wedge d_z + V wedge d_w + (-a*z-b*w+R2(h,x,y)) d_z wedge d_w; [U,V]=aU+bV; full frame and all coefficients in saved source certificate",
+        "plane_coordinates": [
+          "X",
+          "Y",
+          "Z"
+        ],
+        "hyperplane": "Z",
+        "quadrics": [
+          "X*Z-Y^2",
+          "X*Z-Y^2+X^2"
+        ]
+      },
+      "generic_actual_degeneracy_divisor": {
+        "description": "line and two distinct irreducible plane conics, pulled back to P4",
+        "witness_equation": "(Z)*(X*Z-Y^2)*(X*Z-Y^2+X^2)",
+        "irreducible_factor_degrees": [
+          1,
+          2,
+          2
+        ],
+        "corresponding_multiplicities": [
+          1,
+          1,
+          1
+        ],
+        "reduced": true,
+        "essential_variables": 3
+      },
+      "claims": [
+        "R4_PLANE_TWO_CONICS_TWO_COMPONENTS_23"
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/TWO_QUADRICS_PLANE_CONIC_CONFIGURATIONS.md"
+        },
+        {
+          "path": "research/classification/TWO_QUADRICS_PLANE_COMPONENTS.md"
+        },
+        {
+          "path": "research/classification/TWO_QUADRICS_BITANGENT_SEPARATE_REVIEW.md"
+        },
+        {
+          "path": "research/classification/TWO_QUADRICS_OTHER_TANGENT_SEPARATE_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_TWO_QUADRICS_PLANE_SOURCES_REVIEW_20261107.json",
+        "reports/CLASSIFICATION_TWO_QUADRICS_PLANE_OTHER_TANGENT_SEPARATE_REVIEW_20261107.json"
+      ],
+      "review_status": {
+        "proof": "full_ambient_componenthood_and_distinctness_proved",
+        "independent_review": "accepted_separate_author_full150_full350_Fraction_and_geometry_2026_11_07",
+        "certificates": "exact_QQ_reconstruction",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "notes_ja": [
+        "全D101、実source48、全kernel49と真正48cut切片のnonzero genuine-slice cubicにより23次元全空間成分を証明。全六磁気係数とPGL飽和を保持。",
+        "essential変数数≤3は閉条件でSNC点を持たない。一般最小既約因子分割と3+1/4交点分割により既知成分・相互と異なる。",
+        "witnessのPGL軌道次元は22だが、一般軌道次元・商次元・局所唯一性は本計算から推論しない。"
+      ]
     }
   ],
   "named_block_member_annotations": [
@@ -11260,5 +11418,5 @@
     "MPS40 blockを展開したらblockによる加算を止め、二重計上しない。",
     "文献上の新規性は内部成分証明とは別に確認する。"
   ],
-  "new_components_added_in_this_checkpoint": 32
+  "new_components_added_in_this_checkpoint": 34
 }

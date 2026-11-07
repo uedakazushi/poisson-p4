@@ -1,0 +1,35 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "target_statement": "Carry the entire contact4_secant_at_contact six-magnetic plane-conic source to beta=0/Q45 by a global parameter-polynomial affine translation and Darboux frame.",
+  "implication_to_classification": "The audited beta=0 full-support theorem then covers this whole source by known closed components, despite its nonisolated normal cone. No point-only or higher-jet inference is needed.",
+  "coefficient_ring": "QQ[m0,...,m5,h,x,y,z,w]",
+  "hypotheses": "Full source U,V even in affine base(x,y), a=10x/9+5y/3,b=-x/2; all6 magnetic coefficients arbitrary.",
+  "inverted_elements": [
+    "Only nonzero rational constants; global coordinate determinant9/10"
+  ],
+  "complements": [
+    "No parameter value is excluded",
+    "Other open plane sources and nonplane factor/cofactor types remain separate"
+  ],
+  "success_certificate": "Full coordinate matrix, constant determinant, all transformed brackets, standard constantJ, all16 linear coefficient zeros and full strictJacobi/Q45 compatibility for every magnetic parameter.",
+  "independent_check": "Pure Fraction sparse code independently performs the affine substitutions and Darboux pushforward and checks all coefficients before using the old beta=0 theorem.",
+  "resource_limit": {
+    "timeout_seconds": 30,
+    "memory_mb": 768
+  },
+  "negative_result_next_step": "Keep any failed global coordinate identity; do not infer source membership from a single magnetic point or run another normal jet.",
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_two_quadrics.py",
+      "sha256": "a87f47ccd3c690a24644e64e3552bbbd67fb6f64336b94e79ecc02af147a8e6d"
+    },
+    {
+      "path": "reports/CLASSIFICATION_TWO_QUADRICS_PLANE_SOURCES_20261107.json",
+      "sha256": "2dd96fc67f78758395dc8c434170bc335123db0bcb71ad4d07d609d6d1663746"
+    },
+    {
+      "path": "research/classification/BETA_ZERO_COVERAGE.md",
+      "sha256": "2f0d4e10f2a9d325e7a2e01677004d2839ca2af9f47c143904b725fbc0074bff"
+    }
+  ]
+}

@@ -1,0 +1,500 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "cases": [
+    {
+      "name": "shared_tangent_generic",
+      "residue": "generic u",
+      "old_to_hxy_matrix": [
+        [
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1"
+        ]
+      ],
+      "q1": "h*y - x**2",
+      "q2": "h**2 + h*u*y - x**2",
+      "all_horizontal_anchor_U": [
+        "0",
+        "5*(h**2 + u*x**2 - x**2)/(6*(u - 1))",
+        "5*x*(h + u*y - y)/(3*(u - 1))"
+      ],
+      "all_horizontal_anchor_V": [
+        "0",
+        "5*x*(h + u*y - y)/(6*(u - 1))",
+        "5*(h*u*y - h*y + u**2*y**2 - u*y**2 + x**2)/(3*u*(u - 1))"
+      ],
+      "bracket_coefficients": [
+        "5*(h + u*y - y)/(6*(u - 1))",
+        "0"
+      ],
+      "all_six_magnetic_coefficients": [
+        "m0",
+        "m1",
+        "m2",
+        "m3",
+        "m4",
+        "m5"
+      ],
+      "brackets": [
+        "0",
+        "5*(h**2 + u*x**2 - x**2)/(6*(u - 1))",
+        "5*x*(h + u*y - y)/(6*(u - 1))",
+        "5*x*(h + u*y - y)/(3*(u - 1))",
+        "5*(h*u*y - h*y + u**2*y**2 - u*y**2 + x**2)/(3*u*(u - 1))",
+        "h**2*m0 + h*m1*x + h*m2*y + m3*x**2 + m4*x*y + m5*y**2 - 5*z*(h + u*y - y)/(6*(u - 1))"
+      ],
+      "all_four_Jacobi": [
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "full_Pfaffian": "-25*(-h*y + x**2)*(-h**2 - h*u*y + x**2)/(18*u*(u - 1))",
+      "Pfaffian_multiple_of_q1q2": "-25/(18*u*(u - 1))"
+    },
+    {
+      "name": "shared_tangent_contact3",
+      "residue": "generic u",
+      "old_to_hxy_matrix": [
+        [
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1"
+        ]
+      ],
+      "q1": "h*y - x**2",
+      "q2": "h*x + h*y - x**2",
+      "all_horizontal_anchor_U": [
+        "0",
+        "h*x",
+        "h*y + x**2"
+      ],
+      "all_horizontal_anchor_V": [
+        "0",
+        "5*(-h*x + h*y + x**2)/16",
+        "5*y*(-h + 2*x)/8"
+      ],
+      "bracket_coefficients": [
+        "5*x/8",
+        "0"
+      ],
+      "all_six_magnetic_coefficients": [
+        "m0",
+        "m1",
+        "m2",
+        "m3",
+        "m4",
+        "m5"
+      ],
+      "brackets": [
+        "0",
+        "h*x",
+        "5*(-h*x + h*y + x**2)/16",
+        "h*y + x**2",
+        "5*y*(-h + 2*x)/8",
+        "h**2*m0 + h*m1*x + h*m2*y + m3*x**2 + m4*x*y + m5*y**2 - 5*x*z/8"
+      ],
+      "all_four_Jacobi": [
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "full_Pfaffian": "5*(-h*y + x**2)*(-h*x - h*y + x**2)/16",
+      "Pfaffian_multiple_of_q1q2": "5/16"
+    },
+    {
+      "name": "contact31_common_bitangent",
+      "residue": "generic u",
+      "old_to_hxy_matrix": [
+        [
+          "1",
+          "8",
+          "16"
+        ],
+        [
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1",
+          "0"
+        ]
+      ],
+      "q1": "-(-h*x + x**2 + 8*x*y + 16*y**2)/16",
+      "q2": "-(-h*x + x**2 - 8*x*y + 16*y**2)/16",
+      "all_horizontal_anchor_U": [
+        "0",
+        "-5*x*y/3",
+        "-5*(-h*x + x**2 + 48*y**2)/192"
+      ],
+      "all_horizontal_anchor_V": [
+        "0",
+        "5*(-9*h*x + 9*x**2 + 88*x*y + 48*y**2)/288",
+        "5*(-11*h*x - 24*h*y + 11*x**2 + 96*x*y + 528*y**2)/2304"
+      ],
+      "bracket_coefficients": [
+        "-5*(-3*h + 3*x + 22*y)/144",
+        "-5*y/6"
+      ],
+      "all_six_magnetic_coefficients": [
+        "m0",
+        "m1",
+        "m2",
+        "m3",
+        "m4",
+        "m5"
+      ],
+      "brackets": [
+        "0",
+        "-5*x*y/3",
+        "5*(-9*h*x + 9*x**2 + 88*x*y + 48*y**2)/288",
+        "-5*(-h*x + x**2 + 48*y**2)/192",
+        "5*(-11*h*x - 24*h*y + 11*x**2 + 96*x*y + 528*y**2)/2304",
+        "h**2*m0 + h*m1*x + h*m2*y + m3*x**2 + m4*x*y + m5*y**2 + 5*w*y/6 + 5*z*(-3*h + 3*x + 22*y)/144"
+      ],
+      "all_four_Jacobi": [
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "full_Pfaffian": "-25*(-h*x + x**2 - 8*x*y + 16*y**2)*(-h*x + x**2 + 8*x*y + 16*y**2)/6144",
+      "Pfaffian_multiple_of_q1q2": "-25/24"
+    },
+    {
+      "name": "contact4_other_tangent",
+      "residue": "generic u",
+      "old_to_hxy_matrix": [
+        [
+          "0",
+          "0",
+          "1"
+        ],
+        [
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1",
+          "0"
+        ]
+      ],
+      "q1": "h*x - y**2",
+      "q2": "h*x + x**2 - y**2",
+      "all_horizontal_anchor_U": [
+        "0",
+        "-5*x*y/4",
+        "5*(h*x - 2*y**2)/8"
+      ],
+      "all_horizontal_anchor_V": [
+        "0",
+        "-5*(2*h*x + 2*x**2 - y**2)/4",
+        "-5*y*(h + 2*x)/8"
+      ],
+      "bracket_coefficients": [
+        "5*(3*h + 2*x)/8",
+        "-5*y/4"
+      ],
+      "all_six_magnetic_coefficients": [
+        "m0",
+        "m1",
+        "m2",
+        "m3",
+        "m4",
+        "m5"
+      ],
+      "brackets": [
+        "0",
+        "-5*x*y/4",
+        "-5*(2*h*x + 2*x**2 - y**2)/4",
+        "5*(h*x - 2*y**2)/8",
+        "-5*y*(h + 2*x)/8",
+        "h**2*m0 + h*m1*x + h*m2*y + m3*x**2 + m4*x*y + m5*y**2 + 5*w*y/4 - 5*z*(3*h + 2*x)/8"
+      ],
+      "all_four_Jacobi": [
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "full_Pfaffian": "-25*(h*x - y**2)*(h*x + x**2 - y**2)/16",
+      "Pfaffian_multiple_of_q1q2": "-25/16"
+    },
+    {
+      "name": "contact31_tangent_at_simple_intersection",
+      "residue": "generic u",
+      "old_to_hxy_matrix": [
+        [
+          "0",
+          "0",
+          "1"
+        ],
+        [
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1",
+          "0"
+        ]
+      ],
+      "q1": "h*x - y**2",
+      "q2": "h*x + x*y - y**2",
+      "all_horizontal_anchor_U": [
+        "0",
+        "5*x*(x - 2*y)/6",
+        "5*(h*x + x*y - 3*y**2)/12"
+      ],
+      "all_horizontal_anchor_V": [
+        "0",
+        "-5*(18*h*x + 5*x**2 + 2*x*y - 6*y**2)/36",
+        "-5*(5*h*x + 12*h*y + 5*x*y - 3*y**2)/72"
+      ],
+      "bracket_coefficients": [
+        "5*(12*h + y)/36",
+        "-5*y/6"
+      ],
+      "all_six_magnetic_coefficients": [
+        "m0",
+        "m1",
+        "m2",
+        "m3",
+        "m4",
+        "m5"
+      ],
+      "brackets": [
+        "0",
+        "5*x*(x - 2*y)/6",
+        "-5*(18*h*x + 5*x**2 + 2*x*y - 6*y**2)/36",
+        "5*(h*x + x*y - 3*y**2)/12",
+        "-5*(5*h*x + 12*h*y + 5*x*y - 3*y**2)/72",
+        "h**2*m0 + h*m1*x + h*m2*y + m3*x**2 + m4*x*y + m5*y**2 + 5*w*y/6 - 5*z*(12*h + y)/36"
+      ],
+      "all_four_Jacobi": [
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "full_Pfaffian": "-25*(h*x - y**2)*(h*x + x*y - y**2)/24",
+      "Pfaffian_multiple_of_q1q2": "-25/24"
+    },
+    {
+      "name": "contact4_secant_at_contact",
+      "residue": "generic u",
+      "old_to_hxy_matrix": [
+        [
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1"
+        ]
+      ],
+      "q1": "-h**2 + x*y",
+      "q2": "-h**2 + x**2 + x*y",
+      "all_horizontal_anchor_U": [
+        "0",
+        "-x**2/2",
+        "-(-2*h**2 + x*y)/2"
+      ],
+      "all_horizontal_anchor_V": [
+        "0",
+        "-5*(-2*h**2 + 2*x**2 + 3*x*y)/9",
+        "5*y*(2*x + y)/9"
+      ],
+      "bracket_coefficients": [
+        "5*(2*x + 3*y)/9",
+        "-x/2"
+      ],
+      "all_six_magnetic_coefficients": [
+        "m0",
+        "m1",
+        "m2",
+        "m3",
+        "m4",
+        "m5"
+      ],
+      "brackets": [
+        "0",
+        "-x**2/2",
+        "-5*(-2*h**2 + 2*x**2 + 3*x*y)/9",
+        "-(-2*h**2 + x*y)/2",
+        "5*y*(2*x + y)/9",
+        "h**2*m0 + h*m1*x + h*m2*y + m3*x**2 + m4*x*y + m5*y**2 + w*x/2 - 5*z*(2*x + 3*y)/9"
+      ],
+      "all_four_Jacobi": [
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "full_Pfaffian": "10*(-h**2 + x*y)*(-h**2 + x**2 + x*y)/9",
+      "Pfaffian_multiple_of_q1q2": "10/9"
+    },
+    {
+      "name": "contact31_chord",
+      "residue": "generic u",
+      "old_to_hxy_matrix": [
+        [
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1"
+        ]
+      ],
+      "q1": "-h**2 + x*y",
+      "q2": "-h**2 + h*x + x*y",
+      "all_horizontal_anchor_U": [
+        "0",
+        "-x**2",
+        "h**2"
+      ],
+      "all_horizontal_anchor_V": [
+        "0",
+        "-5*(-h**2 + h*x + 2*x*y)/7",
+        "5*y*(h + y)/7"
+      ],
+      "bracket_coefficients": [
+        "5*(h + 2*y)/7",
+        "0"
+      ],
+      "all_six_magnetic_coefficients": [
+        "m0",
+        "m1",
+        "m2",
+        "m3",
+        "m4",
+        "m5"
+      ],
+      "brackets": [
+        "0",
+        "-x**2",
+        "-5*(-h**2 + h*x + 2*x*y)/7",
+        "h**2",
+        "5*y*(h + y)/7",
+        "h**2*m0 + h*m1*x + h*m2*y + m3*x**2 + m4*x*y + m5*y**2 - 5*z*(h + 2*y)/7"
+      ],
+      "all_four_Jacobi": [
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "full_Pfaffian": "5*(-h**2 + x*y)*(-h**2 + h*x + x*y)/7",
+      "Pfaffian_multiple_of_q1q2": "5/7"
+    },
+    {
+      "name": "shared_tangent_generic",
+      "residue": "1/2",
+      "old_to_hxy_matrix": [
+        [
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1"
+        ]
+      ],
+      "q1": "h*y - x**2",
+      "q2": "-(-2*h**2 - h*y + 2*x**2)/2",
+      "all_horizontal_anchor_U": [
+        "0",
+        "5*(-2*h**2 + x**2)/6",
+        "5*x*(-2*h + y)/3"
+      ],
+      "all_horizontal_anchor_V": [
+        "0",
+        "5*x*(-2*h + y)/6",
+        "-5*(-2*h*y + 4*x**2 - y**2)/3"
+      ],
+      "bracket_coefficients": [
+        "5*(-2*h + y)/6",
+        "0"
+      ],
+      "all_six_magnetic_coefficients": [
+        "m0",
+        "m1",
+        "m2",
+        "m3",
+        "m4",
+        "m5"
+      ],
+      "brackets": [
+        "0",
+        "5*(-2*h**2 + x**2)/6",
+        "5*x*(-2*h + y)/6",
+        "5*x*(-2*h + y)/3",
+        "-5*(-2*h*y + 4*x**2 - y**2)/3",
+        "h**2*m0 + h*m1*x + h*m2*y + m3*x**2 + m4*x*y + m5*y**2 - 5*z*(-2*h + y)/6"
+      ],
+      "all_four_Jacobi": [
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "full_Pfaffian": "25*(-h*y + x**2)*(-2*h**2 - h*y + 2*x**2)/9",
+      "Pfaffian_multiple_of_q1q2": "50/9"
+    }
+  ],
+  "input_sha256": {
+    "reports/CLASSIFICATION_TWO_QUADRICS_PLANE_CONICS_20261107.json": "ea4a2779d0ee02e3378fd16849f494530f33186f631ceedf483e45eed258f603"
+  },
+  "producer_sha256": "67e2ddde6262f79a259ea7693a91640ae1be8d2b7ae6581e5b3b35a240b567bf",
+  "producer_bytes": "#!/usr/bin/env python3\n\"\"\"Whole-source certificates for H + two distinct irreducible quadrics.\n\nInitial mode: all strata of the generic pair-zero semisimple weight source.\nReuses independent sparse Fraction arithmetic, not a CAS or source producer.\n\"\"\"\nimport hashlib,itertools,json,resource,time,sys,signal\nfrom pathlib import Path\nfrom classification_quadratic_cofactor_review import Ring,PAIRS\n\ndef plane_sources():\n    \"\"\"All six magnetic coefficients over every free plane-conic configuration.\"\"\"\n    import sympy as s\n    start=time.monotonic();signal.alarm(60)\n    resource.setrlimit(resource.RLIMIT_AS,(1024*1024**2,1024*1024**2))\n    here=Path(__file__);root=here.resolve().parents[1]\n    path=root/'reports/CLASSIFICATION_TWO_QUADRICS_PLANE_CONICS_20261107.json'\n    data=json.loads(path.read_text());old=s.symbols('X Y Z');u=s.symbols('u')\n    h,x,y,z,w=s.symbols('h x y z w');base=(h,x,y);xx=(x,y,z,w)\n    names=dict(zip(('x','y','z'),old))|{'u':u};mm=s.symbols('m0:6')\n    magnetic=sum(a*b for a,b in zip(mm,[h*h,h*x,h*y,x*x,x*y,y*y]))\n    records=[]\n    for c in data['cases']:\n        if not c['has_free_degree22_basis']:continue\n        H=s.sympify(c['hyperplane'],locals=names)\n        rows=[[s.diff(H,v) for v in old]]\n        for i in range(3):\n            row=[int(i==j) for j in range(3)]\n            if s.Matrix(rows+[row]).rank()>len(rows):rows.append(row)\n        change=s.Matrix(rows);assert change.rows==3 and change.det()!=0\n        inverse=change.inv()*s.Matrix(base);sub=dict(zip(old,inverse))\n        anchor=[]\n        for values in c['all_quadratic_gradient_syzygies']:\n            delta=s.Matrix([s.sympify(v,locals=names) for v in values])\n            multiple=s.cancel(sum(a*b for a,b in zip(delta,rows[0]))/H)\n            assert s.Poly(multiple,*old).total_degree()<=1\n            horizontal=delta-multiple*s.Matrix(old)\n            v=(change*horizontal).applyfunc(lambda f:s.factor(f.subs(sub,simultaneous=True)))\n            assert v[0]==0;anchor.append(v)\n        assert len(anchor)==2;U,V=anchor\n        bracket=s.Matrix([s.expand(sum(U[i]*s.diff(V[j],base[i])-V[i]*s.diff(U[j],base[i]) for i in range(3))) for j in range(3)])\n        determinant=s.factor(U[1]*V[2]-U[2]*V[1]);assert determinant\n        aa=s.factor(s.cancel((bracket[1]*V[2]-bracket[2]*V[1])/determinant))\n        bb=s.factor(s.cancel((U[1]*bracket[2]-U[2]*bracket[1])/determinant))\n        assert s.Poly(aa,*base).total_degree()<=1 and s.Poly(bb,*base).total_degree()<=1\n        assert all(s.cancel(v)==0 for v in bracket-aa*U-bb*V)\n        entries=[s.Integer(0),U[1],V[1],U[2],V[2],-aa*z-bb*w+magnetic]\n        matrix=s.zeros(4)\n        for (i,j),f in zip(PAIRS,entries):matrix[i,j]=f;matrix[j,i]=-f\n        jac=[s.factor(sum(matrix[a,t]*s.diff(matrix[b,d],xx[t]) for a,b,d in [(i,j,k),(j,k,i),(k,i,j)] for t in range(4))) for i,j,k in itertools.combinations(range(4),3)]\n        assert not any(jac)\n        q1=s.factor(s.sympify(c['q1'],locals=names).subs(sub,simultaneous=True))\n        q2=s.factor(s.sympify(c['q2'],locals=names).subs(sub,simultaneous=True))\n        pf=s.factor(entries[0]*entries[5]-entries[1]*entries[4]+entries[2]*entries[3])\n        kappa=s.factor(s.cancel(pf/(q1*q2)));assert kappa and not any(s.diff(kappa,t) for t in base)\n        records.append({'name':c['name'],'residue':c['residue'],'old_to_hxy_matrix':change.tolist(),\n            'q1':str(q1),'q2':str(q2),'all_horizontal_anchor_U':list(map(str,U)),\n            'all_horizontal_anchor_V':list(map(str,V)),\n            'bracket_coefficients':list(map(str,[aa,bb])),\n            'all_six_magnetic_coefficients':['m'+str(i) for i in range(6)],\n            'brackets':list(map(str,entries)),'all_four_Jacobi':list(map(str,jac)),\n            'full_Pfaffian':str(pf),'Pfaffian_multiple_of_q1q2':str(kappa)})\n    out={'task_id':'E_reduced_nonnormal','cases':records,\n        'input_sha256':{str(path.relative_to(root)):hashlib.sha256(path.read_bytes()).hexdigest()},\n        'producer_sha256':hashlib.sha256(here.read_bytes()).hexdigest(),'producer_bytes':here.read_text(),\n        'scope':'Every free plane H+two-conics configuration including its valid pivot exception, with all six magnetic coefficients, full Jacobi and actual factorization. Geometric completeness and component membership are separate proofs.',\n        'seconds':time.monotonic()-start}\n    (root/'reports/CLASSIFICATION_TWO_QUADRICS_PLANE_SOURCES_20261107.json').write_text(json.dumps(out,indent=2,default=str)+'\\n')\n    print(json.dumps({'all_passed':True,'cases':len(records),'seconds':out['seconds']}))\n\ndef plane_conics():\n    \"\"\"All quadratic gradient syzygies and Saito minors for contact candidates.\"\"\"\n    import sympy as s\n    from sympy.polys.matrices import DomainMatrix\n    start=time.monotonic();signal.alarm(60)\n    resource.setrlimit(resource.RLIMIT_AS,(768*1024**2,768*1024**2))\n    x,y,z,u=s.symbols('x y z u');xx=(x,y,z);base=x*z-y*y\n    types=[('shared_tangent_generic',x,u*x*z-y*y+x*x),\n           ('shared_tangent_contact3',x,base+x*y),\n           ('shared_tangent_contact4',x,base+x*x),\n           ('contact31_common_bitangent',x+8*y+16*z,base+x*y),\n           ('contact4_other_tangent',z,base+x*x),\n           ('contact31_tangent_at_simple_intersection',z,base+x*y),\n           ('contact4_secant_at_contact',y,base+x*x),\n           ('contact22_chord',y,x*z-u*y*y),\n           ('contact31_chord',y,base+x*y)]\n    mon2=[xx[i]*xx[j] for i in range(3) for j in range(i,3)]\n    cc=s.symbols('a0:18');records=[]\n    queue=[(name,H,q2,None) for name,H,q2 in types]\n    for name,H,q2,value in queue:\n        if value is not None:q2=q2.subs(u,value)\n        field=s.QQ.frac_field(u) if value is None else s.QQ\n        D=s.expand(H*base*q2);grad=[s.diff(D,v) for v in xx]\n        delta=s.Matrix([sum(cc[6*i+j]*mon2[j] for j in range(6)) for i in range(3)])\n        M,_=s.linear_eq_to_matrix(s.Poly(sum(a*b for a,b in zip(delta,grad)),*xx).coeffs(),cc)\n        dm=DomainMatrix.from_Matrix(M).convert_to(field);rr,pc=dm.rref();rr=rr.to_Matrix()\n        _,pr=DomainMatrix.from_Matrix(M.T).convert_to(field).rref()\n        free=[i for i in range(18) if i not in pc];K=s.zeros(18,len(free))\n        for j,k in enumerate(free):\n            K[k,j]=1\n            for i,p in enumerate(pc):K[p,j]=-rr[i,k]\n        assert all(s.cancel(v)==0 for v in M*K)\n        fields=[s.Matrix([sum(K[6*i+k,j]*mon2[k] for k in range(6)) for i in range(3)]) for j in range(K.cols)]\n        determinants=[]\n        for i,j in itertools.combinations(range(K.cols),2):\n            ratio=s.factor(s.cancel(s.Matrix.hstack(s.Matrix(xx),fields[i],fields[j]).det()/D))\n            assert not any(s.diff(ratio,v) for v in xx)\n            determinants.append({'kernel_columns':[i,j],'Saito_determinant_divided_by_D':str(ratio)})\n        pivot=s.factor(M.extract(pr,pc).det(method='domain-ge'))\n        bad=s.factor(pivot*s.prod(set(s.denom(s.cancel(v)) for v in K)))\n        for item in determinants:\n            ratio=s.sympify(item['Saito_determinant_divided_by_D'])\n            if ratio:\n                numerator,denominator=s.fraction(ratio);bad=s.factor(bad*numerator*denominator)\n        exceptional=s.factor_list(s.fraction(bad)[0],u)[1]\n        if value is None:\n            for factor,_ in exceptional:\n                assert s.degree(factor,u)==1\n                root=s.solve(factor,u)[0]\n                if root not in (0,1):queue.append((name,H,q2,root))\n        records.append({'name':name,'residue':str(value) if value is not None else 'generic u','hyperplane':str(H),'q1':str(base),'q2':str(q2),'plane_quintic':str(s.factor(D)),\n            'quadratic_monomials':list(map(str,mon2)),'gradient_syzygy_matrix':M.tolist(),\n            'rank':len(pc),'pivot_rows':list(pr),'pivot_columns':list(pc),'pivot_determinant':str(pivot),\n            'complete_kernel':K.tolist(),'kernel_dimension':K.cols,'all_quadratic_gradient_syzygies':[list(map(str,v)) for v in fields],\n            'Saito_determinants':determinants,'has_free_degree22_basis':any(v['Saito_determinant_divided_by_D']!='0' for v in determinants),\n            'all_pivots_and_kernel_denominators':str(bad),'exceptional_parameter_factors':[(str(a),int(b)) for a,b in exceptional]})\n    excluded=[]\n    for name,H,q2,linear in [\n        ('shared_tangent_contact22',x,x*z-u*y*y,[4*x,-y,-6*z]),\n        ('shared_tangent_contact4',x,base+x*x,[0,x,2*y]),\n        ('contact22_chord',y,x*z-u*y*y,[x,0,-z])]:\n        D=H*base*q2\n        assert s.expand(sum(a*s.diff(D,b) for a,b in zip(linear,xx)))==0\n        excluded.append({'name':name,'hyperplane':str(H),'q1':str(base),'q2':str(q2),\n            'nonzero_linear_gradient_syzygy':list(map(str,linear)),\n            'obstruction_to_free_degrees22':'A free basis of degrees1,2,2 allows only Euler in degree1; a nonzero degree1 gradient syzygy cannot be an Euler multiple.'})\n    here=Path(__file__);out={'task_id':'E_reduced_nonnormal','cases':records,'analytic_exclusions':excluded,\n        'scope':'Every quadratic gradient syzygy and Saito determinant for the nine contact-budget candidate configurations. Completeness of the geometric candidate list, parameter exceptions and full magnetic-source/component recognition require separate proof.',\n        'producer_sha256':hashlib.sha256(here.read_bytes()).hexdigest(),'producer_bytes':here.read_text(),'seconds':time.monotonic()-start}\n    (here.resolve().parents[1]/'reports/CLASSIFICATION_TWO_QUADRICS_PLANE_CONICS_20261107.json').write_text(json.dumps(out,indent=2,default=str)+'\\n')\n    print(json.dumps({'cases':[(c['name'],c['kernel_dimension'],c['has_free_degree22_basis'],c['exceptional_parameter_factors']) for c in records],'seconds':out['seconds']}))\n\n\ndef main():\n    if '--plane-sources' in sys.argv:return plane_sources()\n    if '--plane-conics' in sys.argv:return plane_conics()\n    resource.setrlimit(resource.RLIMIT_CPU,(25,26))\n    resource.setrlimit(resource.RLIMIT_AS,(512*1024**2,512*1024**2))\n    started=time.monotonic();R=Ring(10)\n    C,D,A,B,E,F,p,q,rr,inv=[R.variable('n'+str(i)) for i in range(10)]\n    x,y,z,w=[R.variable(t) for t in ('x','y','z','w')]\n    zero={};u,v=R.mul(x,y),R.mul(z,w)\n    def sub(f,index,g):\n        out={}\n        for exp,coef in f.items():\n            ee=list(exp);power=ee[index];ee[index]=0;term={tuple(ee):coef}\n            for _ in range(power):term=R.mul(term,g)\n            out=R.add(out,term)\n        return out\n    def subs(f,replacements):\n        for i,g in replacements:f=sub(f,i,g)\n        return f\n    def unit_reduce(f,index):\n        out={}\n        for exp,coef in f.items():\n            ee=list(exp);power=min(ee[index],ee[9]);ee[index]-=power;ee[9]-=power\n            out[tuple(ee)]=out.get(tuple(ee),0)+coef\n        return {e:c for e,c in out.items() if c}\n    def eq(a,b):assert not R.add(a,R.scale(b,-1))\n    def pf(entries):return R.add(R.mul(entries[0],entries[5]),R.scale(R.mul(entries[1],entries[4]),-1),R.mul(entries[2],entries[3]))\n    ss=R.scale(R.add(p,q,rr),-1)\n    source=[R.add(C,R.mul(A,u),R.mul(B,v)),R.mul(p,x,z),R.mul(q,x,w),R.mul(rr,y,z),R.mul(ss,y,w),R.add(D,R.mul(E,u),R.mul(F,v))]\n    P=[[{} for _ in range(4)] for _ in range(4)]\n    for (i,j),f in zip(PAIRS,source):P[i][j]=f;P[j][i]=R.scale(f,-1)\n    jac=[R.add(*(R.mul(P[a][t],R.derivative(P[b][d],t)) for a,b,d in [(i,j,k),(j,k,i),(k,i,j)] for t in range(4))) for i,j,k in itertools.combinations(range(4),3)]\n    v1,v2=R.add(p,q),R.add(p,rr)\n    constraints=[R.mul(B,E),R.add(R.mul(v2,C),R.mul(B,D)),R.add(R.mul(E,C),R.scale(R.mul(v1,D),-1)),R.mul(B,R.add(v2,F)),R.mul(E,R.add(A,R.scale(v1,-1)))]\n    def normalize(f):\n        if not f:return ()\n        a=f[min(f)];return tuple(sorted((e,c/a) for e,c in f.items()))\n    coeffs=[]\n    for f in jac:\n        grouped={}\n        for exp,c in f.items():grouped.setdefault(exp[-4:],{})[exp[:-4]+(0,)*4]=c\n        coeffs+=list(grouped.values())\n    assert {normalize(f) for f in coeffs}=={normalize(f) for f in constraints}\n    totalpf=pf(source)\n    eq(totalpf,R.add(R.mul(source[0],source[5]),R.mul(v1,v2,u,v)))\n    branches=[]\n    # B=E=0: h-simple means the whole highest Pfaffian coefficient is nonzero.\n    b0=[(3,zero),(4,zero)];s0=[subs(f,b0) for f in source]\n    kappa0=R.add(R.mul(A,F),R.mul(v1,v2))\n    def highest(f):return {e:c for e,c in f.items() if sum(e[-4:])==2}\n    eq(pf([highest(f) for f in s0]),R.mul(kappa0,u,v))\n    branches.append({'stratum':'B=E=0','source':list(map(R.encode,s0)),\n        'h_simple_implies_kappa_nonzero':True,'cocharacter_hxyzw':[1,0,0,0,0],\n        'logcanonical_pfaffian_coefficient':R.encode(kappa0)})\n    # B!=0, C!=0: irreducibility/rank4 imply v2!=0, v1=0 and A!=0.\n    brep=[(4,zero),(7,R.scale(p,-1)),(1,R.scale(R.mul(v2,C,inv),-1)),(5,R.scale(v2,-1))]\n    sb=[unit_reduce(subs(f,brep),3) for f in source]\n    assert all(not unit_reduce(subs(f,brep),3) for f in jac)\n    left=unit_reduce(R.mul(B,pf(sb)),3)\n    right=R.scale(R.mul(v2,R.add(C,R.mul(A,u),R.mul(B,v)),R.add(C,R.mul(B,v))),-1)\n    eq(left,right)\n    # E!=0, D!=0: symmetric full source, reconstructed directly.\n    erep=[(3,zero),(8,R.scale(p,-1)),(0,R.mul(v1,D,inv)),(2,v1)]\n    se=[unit_reduce(subs(f,erep),4) for f in source]\n    assert all(not unit_reduce(subs(f,erep),4) for f in jac)\n    eq(unit_reduce(R.mul(E,pf(se)),4),R.mul(v1,R.add(D,R.mul(E,u)),R.add(D,R.mul(E,u),R.mul(F,v))))\n    for label,entries,weights,kappa,nonzero in [\n        ('B!=0',sb,[3,0,0,1,1],R.scale(R.mul(A,v2),-1),['B','C','A','p+r']),\n        ('E!=0',se,[3,1,1,0,0],R.mul(F,v1),['E','D','F','p+q'])]:\n        limit=[];allweights=[]\n        for (i,j),f in zip(PAIRS,entries):\n            kept={}\n            for exp,c in f.items():\n                degree=sum(exp[-4:]);assert degree in (0,2)\n                # h^2 times the constant term, all derivative directions affine.\n                weight=(2-degree)*weights[0]+sum(a*b for a,b in zip(exp[-4:],weights[1:]))-weights[i+1]-weights[j+1]\n                assert weight>=0;allweights.append(weight)\n                if weight==0:kept[exp]=c\n            limit.append(kept)\n        eq(pf(limit),R.mul(kappa,u,v))\n        branches.append({'stratum':label,'source':list(map(R.encode,entries)),\n            'inverted_parameter':'B' if label=='B!=0' else 'E',\n            'irreducible_distinct_quadric_condition_forces_nonzero':nonzero,\n            'cocharacter_hxyzw':weights,'all_monomial_weights':allweights,\n            'logcanonical_limit':list(map(R.encode,limit)),\n            'logcanonical_pfaffian_coefficient':R.encode(kappa),\n            'full_Jacobi_and_Pfaffian_factorization_identity':True})\n    here=Path(__file__);helper=Path(__import__('classification_quadratic_cofactor_review').__file__)\n    result={'task_id':'E_reduced_nonnormal','all_passed':True,\n        'parameter_order':['C','D','A','B','E','F','p','q','r','inverse_B_or_E'],\n        'source':list(map(R.encode,source)),'all_four_Jacobi':list(map(R.encode,jac)),\n        'exact_five_constraint_ideal':list(map(R.encode,constraints)),\n        'full_Pfaffian':R.encode(totalpf),'branches':branches,\n        'scope':'All strata of the complete generic pair-zero semisimple weight source with actual divisor h times two distinct irreducible quadrics. Extra resonance spectra, nilpotent modular fields and pure-homogeneous sources are separate obligations.',\n        'method':'Exact standard-library Fraction sparse polynomial identities; full source and all Jacobi coefficients, inverse equations B*inv=1 or E*inv=1, and every cocharacter monomial retained.',\n        'input_sha256':{str(helper.relative_to(here.resolve().parents[1])):hashlib.sha256(helper.read_bytes()).hexdigest()},\n        'producer_sha256':hashlib.sha256(here.read_bytes()).hexdigest(),'producer_bytes':here.read_text(),\n        'seconds':time.monotonic()-started}\n    (here.resolve().parents[1]/'reports/CLASSIFICATION_TWO_QUADRICS_PAIR_ZERO_20261107.json').write_text(json.dumps(result,indent=2)+'\\n')\n    print(json.dumps({'all_passed':True,'branches':len(branches),'seconds':result['seconds']}))\n\nif __name__=='__main__':main()\n",
+  "scope": "Every free plane H+two-conics configuration including its valid pivot exception, with all six magnetic coefficients, full Jacobi and actual factorization. Geometric completeness and component membership are separate proofs.",
+  "seconds": 1.1584705020000001
+}

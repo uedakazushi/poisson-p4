@@ -25,7 +25,7 @@
 \maketitle
 \begin{abstract}
 本稿は、複素射影四空間上のPoisson構造の被約既約成分を尽くし、各成分の一般元の幾何を記述するための研究原稿である。
-分類主定理の証明は完成していない。S61の一次座標と一般切片の対応を確認し、既知三平面に沿う多項式左逆から未知残余を分離する。その空性は忠実な法線チャートの単位証明へ帰着できるが未証明である。階数2の全支持を六族と階数4の閉包で覆い、従前58成分の依存監査に加え、二重二次曲面・冪零モジュラー場・平面曲線等の全源から三十二の相異なる成分を証明して下界90を得る。二重の既約二次曲面、相異なる五超平面、相異なる三超平面と既約二次曲面、既約二次曲面と既約三次曲面、およびモジュラー場の複数の全分岐を被覆する。各新成分は全周囲方程式で検証し、全支持の尽くしとは区別する。
+分類主定理の証明は完成していない。S61の一次座標と一般切片の対応を確認し、既知三平面に沿う多項式左逆から未知残余を分離する。その空性は忠実な法線チャートの単位証明へ帰着できるが未証明である。階数2の全支持を六族と階数4の閉包で覆い、従前58成分の依存監査に加え、二重二次曲面・冪零モジュラー場・平面曲線等の全源から三十四の相異なる成分を証明して下界92を得る。二重の既約二次曲面、相異なる五超平面、相異なる三超平面と既約二次曲面、既約二次曲面と既約三次曲面、およびモジュラー場の複数の全分岐を被覆する。各新成分は全周囲方程式で検証し、全支持の尽くしとは区別する。
 既存リポジトリの全証明書を再実行したとは主張せず、原証明の読解と今回の独立検算を区別する。
 詳細なnilpotent構造や派生論文の完成を、主分類定理の前提条件に追加しない。
 \end{abstract}
@@ -47,7 +47,7 @@
 を証明する。各族が全空間の既約成分であること、相互に異なること、次元、一般階数、一般元の構成および退化因子の幾何を記述する。
 \end{target}
 
-\(N\)は未決定である。2026年11月7日に確認したリポジトリの台帳は、全成分数の下界90、一般階数4の成分数の下界84を記録している。
+\(N\)は未決定である。2026年11月7日に確認したリポジトリの台帳は、全成分数の下界92、一般階数4の成分数の下界86を記録している。
 既存証明書を入力とする成分性・相違の依存監査を行い、以下で主分類に接続する。
 全証明書を今回再実行したという意味ではない。
 この下界を答えとして固定して未知成分を排除するのではない。
@@ -579,7 +579,7 @@ B18の精密なnil指数、\(H^0\)、\(T_2\)全長、追加の接触・Betti不�
 
 \section{既知成分の下界を支える支持の証明}
 MPSの定理\cite[Theorem 1.4]{mps}はSNC locusと交わる40成分を与える。
-従前の追加十一族、positive-weight型NEW25、および今回の三十二の追加成分の射影次元は次の通りである。
+従前の追加十一族、positive-weight型NEW25、および今回の三十四の追加成分の射影次元は次の通りである。
 \begin{center}
 \begin{tabular}{lr}
 \toprule
@@ -601,10 +601,11 @@ NEW25&25\\
 二超平面と既約三次因子&22\\
 平面二次・三次曲線の六つの全源&各23\\
 平面二直線・三次曲線の九つの全源&各23\\
-regular nilpotent・単純超平面と既約四次因子&22\\\bottomrule
+regular nilpotent・単純超平面と既約四次因子&22\\
+平面二conic・一直線の二つの全磁気源&各23\\\bottomrule
 \end{tabular}
 \end{center}
-一般rank四は$40+11+1+32=84$成分で、前述の六rank2成分と合わせて下界は$84+6=90$となる。
+一般rank四は$40+11+1+34=86$成分で、前述の六rank2成分と合わせて下界は$86+6=92$となる。
 以下の議論はこの下界を支えるもので、全支持の上界を与えない。
 
 \subsection{精密な横断環を要しない成分性}
@@ -3273,6 +3274,289 @@ $(\heartsuit)$とB/E主開・全閉補集合の因数分解も独立疎多項式
 残る全Jacobi、実Pfaffianの既約性、既存成分への帰属は別の支持証明を要する。
 この有限入口を全$H+F$の被覆、一般五点、全成分の上界に読み替えない。
 
+\subsection{非零半単純cofactorの全二十四源}
+前小節の二十四代表について、各固定場Z上の全90係数へ
+$\operatorname{div}P=Z,[Z,P]=0$を課し、全線形kernelと全四Jacobiを保持する。
+源番号は\path{CLASSIFICATION_HYPERPLANE_QUARTIC_SEMISIMPLE_SOURCES_20261107.json}の順とする。
+\begin{proposition}\label{prop:quartic-semisimple-all}
+非零半単純部を持ち、実退化式が単純Hと既約四次Fの積である全Poisson支持はMPS40の和に含まれる。
+\end{proposition}
+\begin{proof}
+まず全線形源のPfaffianに固定座標因子がある十五型を処理する。
+\begin{center}\small
+\begin{tabular}{c|c@{\qquad}c|c@{\qquad}c|c}
+型&因子&型&因子&型&因子\\\hline
+1&z&2&z&3&x\\
+5&xw&6&xw&8&yw\\
+9&y&10&xz&11&xz\\
+13&xw&14&xw&15&x\\
+16&x&18&y&19&w
+\end{tabular}
+\end{center}
+これらはJacobiを課す前から既約Fを持たない。残る九型の全支持を以下で尽くす。
+affine Pfaffianの次数が四未満なら四次斉次化にh因子が生じるので、これも対象条件に反する。
+
+型4の全Jacobiは
+\[
+ n_0(n_4-1)=0,\quad n_3(n_2-n_5)=0,\quad n_0n_3-n_1(n_2-1)=0.
+\]
+$n_0=0$ではz因子、$n_3=0$ではy因子を持つ。
+$n_0n_3\ne0$では$n_4=1,n_5=n_2,n_0=n_1(n_2-1)/n_3$で、Pfaffianは
+\[
+ (n_1y^2-2n_3xz)\bigl(z-(n_2-1)wy/n_3\bigr)
+\]
+となる。型17では全Jacobiに$(2n_5-1)^2,n_3(3n_5-1)$が含まれ、
+被約支持で$n_5=1/2,n_3=0$となり、Pfaffianはwyで割れる。
+元の非被約理想がこれらの一次条件と等しいとは主張しない。
+
+型21,22,24では$v=wx,f=n_0+n_1z+n_2z^2,g=n_3+n_4z+n_6z^2$とする。
+型21の$n_5=0$では、$n_9=0$ならPfaffianは$(f+v)g$、
+$n_9\ne0$なら$n_3=n_4=0$で$z^2[n_6f+(n_6+n_9)v]$となる。
+$n_5\ne0$では$n_9=1/4,n_2=0,n_1=n_4/(4n_5),n_0=n_3/(2n_5)$で、
+残式に$n_4n_3,n_4(3n_6+1),n_3(2n_6+1)+n_4^2$がある。
+最後の式に$n_4$を掛けると$n_4^3=0$なので、被約支持で$n_4=0$。
+$n_3=0$ならv因子、$n_3\ne0$なら$n_6=-1/2$で
+\[
+ \operatorname{Pf}P=(n_3/(2n_5)+v/2)(n_3-z^2/2+n_5v).
+\]
+型22では$n_3=0,n_4n_5=0,n_1(4n_4+1)=0,
+(2n_4+1)n_0+2n_1n_2=0$が従う。
+$t=z^2-2y$とするとPfaffianは
+$(n_0+n_1t+v)(n_2+n_4t)-n_5(2n_4+1)v$。
+$n_4\ne0$なら$n_5=0$で積、$n_4=0$なら$n_1=n_0=0$で$(n_2-n_5)v$となる。
+
+型24の$n_5\ne0$では$n_{10}=1/2,n_6=-2n_2n_5,n_2n_6=0$から
+$n_2=n_6=n_1=0$、さらに$n_0(n_4+1)=0$。
+$n_0=0$ならv因子、$n_0\ne0$なら$n_4=-1$で
+$\operatorname{Pf}P=(v+2n_0)(n_5v+n_3-z)/2$となる。
+$n_5=0,n_6\ne0$では$n_{10}=n_9=n_2=n_1=n_0=0$でPfaffianはvg。
+$n_5=n_6=0$では$n_{10}n_3=n_4n_9$かつ
+\[
+ \operatorname{Pf}P=f(n_3+n_4z)+v[n_3+n_9+(n_4+n_{10})z].
+\]
+$n_4\ne0$なら$(n_3+n_4z)[f+(n_4+n_{10})v/n_4]$。
+$n_4=0,n_3\ne0$なら$n_{10}=0$で次数二以下、
+$n_4=n_3=0$なら$v(n_9+n_{10}z)$となる。全閉補集合を保持した。
+
+\subsubsection*{paired型7と12の全SNC曲線}
+型7の全Jacobiは次の七式と同値である。
+\[
+\begin{gathered}
+ n_4(2n_6+2n_8-3)=n_2n_4=0,\quad n_1n_4-n_3(n_6+n_8)=0,\\
+ n_0(n_6-1)=n_7(n_5-n_8)=0,\\
+ 2n_0n_7-2n_2n_5+n_2=0,\quad n_1(1-n_5)-n_2n_3=0.
+\end{gathered}
+\]
+$\kappa=3n_5-n_6-n_8$とし、$n_2n_4=0$で二枝に分ける。
+$n_j\mapsto t^{w_j}n_j$により、$n_4=0$枝では
+$(w_0,w_7,w_2,w_3,w_1)=(1,1,2,1,3)$、
+$n_2=0$枝では$(w_0,w_7,w_4,w_1,w_3)=(1,1,1,1,2)$とする。
+$n_5,n_6,n_8$は固定する。全七式は斉次なので全tでPoissonとなり、
+$t=1$は元の点、$t=0$はPfaffian$\kappa xyzw$のlogcanonical点である。
+
+$\kappa=0$の補集合も保持する。
+$a=n_0n_7,E=a-n_2(n_5-1/2)$とすると
+\[
+ a^2=aE+\frac{n_2}{2}
+ \{a\kappa+n_7n_0(n_6-1)-n_0n_7(n_5-n_8)\}
+\]
+だから、全残支持で$n_0n_7=0$となる。
+$n_3\ne0,n_4\ne0$は七式と$\kappa=0$から矛盾し、
+$n_3\ne0,n_4=0$では$n_5=n_2=n_1=0$となる。
+この場合は$n_0=0$ならx因子、$n_7=0$ならw因子を持つ。
+$n_3=0,n_4\ne0$でも$n_5=1/2,n_1=n_2=0$から同じ二因子分岐となる。
+$n_3=n_4=0$では$n_0=0$ならz因子、$n_7=0$ならy因子を持つ。
+従って既約Fを持つ全点で$\kappa\ne0$である。
+
+型12の全七式は
+\[
+\begin{gathered}
+ n_4(n_7+n_8-1)=n_2n_4=0,\quad n_1n_4-n_3(n_7+n_8)=0,\\
+ n_0(n_7-1)=n_6(n_5-n_8)=n_2(2n_5-1)=0,\\
+ n_0n_6+n_1(1-n_5)-n_2n_3=0.
+\end{gathered}
+\]
+$\kappa=2n_5-n_7-n_8$とする。
+$n_4=0$枝の重みを$(w_0,w_6,w_2,w_3,w_1)=(1,1,1,1,2)$、
+$n_2=0$枝を$(w_0,w_6,w_4,w_1,w_3)=(1,1,1,2,3)$とすれば、
+全tでPoisson、$t=0$でPfaffian$\kappa xyzw$となる。
+$\kappa=0,n_4\ne0$なら$n_2=0,n_7+n_8=1,n_5=1/2$。
+$n_0n_6\ne0$は矛盾するため$n_0n_6=0$、次いで$n_1=n_3=0$となり、x又はw因子を持つ。
+$\kappa=0,n_4=0,n_2\ne0$でも同じ関係となり、今度はz又はy因子を持つ。
+$n_2=n_4=0$では最高四次Pfaffianが$\kappa xyzw=0$なので単純Hに反する。
+よって両型の全対象点は実SNC曲線へ入る。
+
+\subsubsection*{型23の全支持排除}
+場を$-x\partial_x+w\partial_w$とする。
+$u=xw$、二次以下の$f(y,z),g(y,z)$、一次以下の$a(y,z),b(y,z)$、定数$\ell$を用い、
+全許容源は
+\[
+\begin{gathered}
+ P^{xy}=xa,\quad P^{xz}=xb,\quad P^{xw}=f+ku,\quad P^{yz}=g+\ell u,\\
+ P^{yw}=w(a-g_z),\quad P^{zw}=w(b+g_y),\qquad
+ \delta=a_y+b_z,\quad k=1-\delta.
+\end{gathered}
+\]
+$V=a\partial_y+b\partial_z$、$I=V(g)-\delta g+\ell f$、$II=\ell(1-2\delta)$と置くと
+全四Jacobiは
+\[
+ x(I+IIu),\quad -(fg)_z-uI_z,\quad (fg)_y+uI_y,\quad -w(I+IIu)
+\]
+であり、その係数idealは$I=II=(fg)_y=(fg)_z=0$の係数idealと一致する。
+Pfaffianは$fg+ug+k\ell u^2+uI$である。
+閉点上の整域$\CC[y,z]$でfgは定数となる。
+g非定数ならf零でu因子、g零なら$k\ell u^2$となる。
+$g=\gamma\ne0$定数なら$f=\varphi$も定数で、$\ell\varphi=\delta\gamma$。
+$\ell=0$なら$\delta=0$でPfaffianは$\gamma(\varphi+u)$、四次斉次化に$h^2$因子を持つ。
+$\ell\ne0$なら$\delta=k=1/2,\varphi=\gamma/(2\ell)$で
+$\operatorname{Pf}P=(\ell/2)(u+\gamma/\ell)^2$。
+全枝が既約四次を持たない。
+
+\subsubsection*{型20の定数crossing階数と全七SNC曲線}
+場を$-x\partial_x-y\partial_y+z\partial_z+w\partial_w$とする。
+全定数crossing行列$C=(P^{ij}(0))_{i=x,y;,j=z,w}$を、場を保つ$\mathrm{GL}_2\times\mathrm{GL}_2$により
+rank零、$\operatorname{diag}(1,0)$、単位行列へ移す。
+rank零では低次項が全て零でP=Qとなり、前小節の閉有理一形式の補題に反する。
+rank一の全十一係数源では、Pfaffian分岐に必要な五括弧は
+\[
+\begin{aligned}
+ P^{xy}&=n_9xy+n_7x^2/2-(n_1+n_5)y^2/2,\\
+ P^{xw}&=-n_{17}xw-2n_{16}xz+n_5yw+n_4yz,\\
+ P^{yz}&=n_{10}yw+n_9yz+n_8xw+n_7xz,\quad P^{yw}=yw,\\
+ P^{zw}&=n_{16}z^2+n_{17}zw+n_{18}w^2.
+\end{aligned}
+\]
+他の括弧も全自由係数を保持した線形解のままである。
+全Jacobiは$n_7n_{16}=0,(1-n_9)n_{16}+n_4n_7=0,
+ n_8n_{16}+n_7(1+n_{17})/4=0$及び
+$n_{10}n_{16}-(n_5n_7+n_4n_8)/2=0$を含む。
+$n_7\ne0$なら$n_{16}=n_4=0$でw因子、
+$n_{16}\ne0$なら$n_7=n_8=0$でy因子を持つ。
+$n_7=n_{16}=0$でも$n_4n_8=0$から同じ二枝となり、rank一は全て排除される。
+
+rank二ではC=Iとする。全線形源の十一係数を
+$a,b,c,d,e,f,g,\eta,\rho,t,\sigma$で書くと
+\[
+\begin{aligned}
+ Q^{xy}&=(e+\eta+t-1)xy+(f+c)x^2/2+(g-b)y^2/2,\\
+ P^{xz}&=1+(1-e)xz+(1-\eta)yw-gyz-fxw,\\
+ P^{xw}&=(1-t-\eta)xw-(2\rho+g)xz+byw+ayz,\\
+ P^{yz}&=(2\sigma+f)yw+(t+e)yz+dxw+cxz,\\
+ P^{yw}&=1+\eta yw+gyz+fxw+exz,\quad
+ Q^{zw}=\rho z^2+tzw+\sigma w^2.
+\end{aligned}
+\]
+$r=Q^{zw}$と$q=Q^{xy}$は、安定群GL2の随伴三次元表現に属する二次密度である。
+rは零、非零平方$w^2$、$tzw$（$t\ne0$）の全三型へ正規化できる。
+二固有空間の交換とPの$-1$倍も許し、qとrの対称な補集合を保持する。
+
+rが非零平方なら$\rho=t=0,\sigma=1$とする。
+全Jacobiは次の九式$N_i=0$と同値である。
+\[
+\begin{aligned}
+ N_1&=(1-\eta)(1-2\eta)+g+3b+2bf,&
+ N_2&=\eta+f-f\eta-e-bd,\\
+ N_3&=2g-fg+e(1-\eta)-bc-ad,&N_4&=-eg-ac,\\
+ N_5&=g(3-4\eta)+b(1-2e)-4a-2af,&N_6&=2g^2+a(2e-1),\\
+ N_7&=f(1-4e)+2dg+c(2\eta-1),&N_8&=f+2f^2+d(1-2\eta)+c,\\
+ N_9&=e(2e-1)-2cg.
+\end{aligned}
+\]
+$g=0$では$e=0$又は$1/2$。
+$e=0$なら$a=b=0,\eta=1$又は$1/2$となる。
+前者は$N_2=1$、後者は$N_2$が$f=-1$、$N_7$が$f=0$を与え矛盾する。
+$e=1/2$では$ac=a(2+f)=0$で、$a\ne0$は$N_7$から矛盾するのでa零。
+このとき
+$cN_1+(3+2f)N_3+(1-\eta)N_7=(3/2)(1-\eta)$から$\eta=1$。
+さらに$bc=0,f=c,b=0$となり$N_2=1/2$で矛盾する。
+$g\ne0$なら$N_6$から$a\ne0$。
+$y'=y-kx,z'=z+kw$はCとrを保ちgを$g-ka$へ移すので、$k=g/a$で上の$g=0$へ帰着する。
+この主開とその閉補集合で非零平方の全支持は空である。
+
+$q=r=0$では$c=-f,b=g,\eta=1-e$となり、全Jacobi idealは
+\[
+ \begin{pmatrix}1/2-e&-g&-f\\-g&a&e\\-f&e&d\end{pmatrix}
+\]
+の全二次minorのidealと一致する。
+成分$M_{11}+M_{23}=1/2$だからrank一であり、$M=vv^{\mathsf T}$と書く。
+$J=\left(\begin{smallmatrix}v_1&v_2\\v_3&-v_1\end{smallmatrix}\right)$は$J^2=I/2$を満たす。
+$U=\left(\begin{smallmatrix}xz&xw\\yz&yw\end{smallmatrix}\right)$とするとcrossing二次行列は
+$B=(\operatorname{tr}U)I/2+\operatorname{tr}(JU)J$である。
+Jを対角化すれば全Pは$\{x,z\}=1+xz,\{y,w\}=1+yw$の直積となり、Pfaffianは二次式の積である。
+
+最後に$r=tzw,t\ne0$とし、$\rho=\sigma=0$とする。全九Jacobiは次の$E_i=0$である。
+\[
+\begin{aligned}
+ E_1&=(1-\eta)(1-2\eta)+2bf,&E_2&=f(1+t-\eta)-bd,\\
+ E_3&=-fg+e(1-\eta)-bc-ad,&E_4&=g(t-e)-ac,\\
+ E_5&=g(3-t-4\eta)+b(1-t-2e)-2af,&E_6&=2g^2+a(-1+2t+2e),\\
+ E_7&=f(1-t-4e)+2dg+c(-1+t+2\eta),&E_8&=2f^2+d(1-2t-2\eta),\\
+ E_9&=e(2e-1)-2cg.
+\end{aligned}
+\]
+恒等式
+\[
+ cE_6+(-1+2t+2e)E_4+gE_9=gt(2t-1),\qquad
+ fE_1-bE_8-(1-2t-2\eta)E_2=ft(2t+1)
+\]
+より、$t\ne0,\pm1/2$では$f=g=0$。
+$E_9,E_1$から$e\in\{0,1/2\},\eta\in\{1/2,1\}$、$E_6,E_8$から$a=d=0$。
+この段階の$E_3$は$e(1-\eta)-bc=0$である。
+$bc\ne0$なら$E_5,E_7$から$t=1-2e=1-2\eta$、
+従って$e=\eta=1/2,t=0$となり矛盾する。
+よって$bc=0$が先に従い、$e(1-\eta)=0$から三組$(0,1),(0,1/2),(1/2,1)$を得る。
+全残源と必要な重みは下表の最初の四行である。
+
+$t=1/2$では$f=0,\eta\in\{1/2,1\},d=c=0,e\in\{0,1/2\},e(1-\eta)=0$となる。
+$e=0$なら$g=b=0$でa自由、$e=1/2$なら$\eta=1,a=-2g^2,b=-3g$でg自由。
+後者も$g=0$を含めて扱う。
+$t=-1/2$は$(x,y,z,w)\mapsto(y,x,w,z)$により$t=1/2$へ移る。
+\begin{center}\small
+\begin{tabular}{l|c|c}
+全源の条件&重み$(x,y,z,w)$&初期Pf係数\\\hline
+$e=0,\eta=1,c=0$, $(t-1)b=0$&$(0,1,0,0)$&$-1$\\
+$e=0,\eta=1,b=0$, $(t+1)c=0$&$(0,-1,0,0)$&$-1$\\
+$e=0,\eta=1/2,c=0$, $(t-1)b=0$&$(0,1,0,0)$&$-1/2$\\
+$e=1/2,\eta=1,b=0$, $(t+1)c=0$&$(0,-1,0,0)$&$-1/2$\\
+$t=1/2,e=0,\eta=1$, a自由&$(0,1,0,0)$&$-1$\\
+$t=1/2,e=0,\eta=1/2$, a自由&$(0,1,0,0)$&$-1/2$\\
+$t=1/2,e=1/2,\eta=1,a=-2g^2,b=-3g$&$(0,-1,0,0)$&$-1/2$
+\end{tabular}
+\end{center}
+最後の行だけは$X=x+2gy$へ移してから重みを取る。
+その最高六括弧は
+\[
+ (Xy,Xz/2,-Xw/2,yz,yw+Xz/2,zw/2)
+\]
+となる。
+全七行で、最高部の全係数の重みは非負、零重み部分はlogcanonicalで、
+そのPfaffianは表の非零係数にxyzwを掛けたものである。
+
+実SNC曲線を明示する。重みを$w_i$、$D_s=\operatorname{diag}(s^{w_i})$として
+\[
+ P_s=D_s^{-1}\{Q(D_sx)+s^4C\}D_s^{-\mathsf T}
+\]
+と置く。C=I、P=C+Qには一次項がなく、次数比較から$[Q,Q]=[C,Q]=0$。
+全係数のs冪は非負、C項は全て正冪なので、これは$s=0$を含む多項式Poisson族である。
+$P_1=P$、$P_0$のPfaffianは非零定数倍のxyzwである。
+$r=0,q\ne0$の補集合は固有空間交換へ送り、qが平方なら空、二根なら上の$r=tzw$へ入る。
+$q=r=0$は既に処理したので、C-rank二の全支持を尽くした。
+
+型7,12の曲線と上の七曲線はいずれも、元の点と実SNC点を同じ既約曲線上に持つ。
+その像閉包を含む全空間成分を選べば、同成分はSNC locusと交わる。
+MPS Theorem 1.4は、そのような全成分を既知40個で尽くすので、元の点も同じ閉成分に入る。
+SNC点が既知閉和に入るという一点の所属だけを、曲線全体の所属に代用していない。
+これで全二十四代表の対象支持を被覆した。
+\end{proof}
+
+全90係数線形源の完全性と全Jacobi/Pfaffianは独立Fraction実装で再構成した。
+残支持の因数分解、根基恒等式、九式の全分岐、七重みと実曲線は
+\path{HYPERPLANE_QUARTIC_SEMISIMPLE_SUPPORT.md}、
+\path{HYPERPLANE_QUARTIC_LARGE_SEMISIMPLE_SUPPORT.md}に全証明を保持し、本小節へ統合した。
+後者の独立確認は別作者による証明読解であり、第三の算術実装とは呼ばない。
+型23の疎恒等式、旧source bytesを保持した完成証明書と全入力hashも同ノートに明記する。
+この半単純全支持の被覆は、残る純冪零型や他の実退化因子型の全分類を意味しない。
+
 \subsection{最小冪零モジュラー場の定数部零における四次因子}
 \begin{proposition}\label{prop:quartic-minimal-nilpotent-support}
 前小節の実退化式$hF$で、モジュラー場のJordan型が$(2,1,1)$、
@@ -3390,9 +3674,7 @@ producerやCASをimportせず独立再構成した。
 またJordan$(3,1)$・translation零の全90係数源は、実Pfaffianが恒等的にzで割れるため既約四次Fを持たない。
 この恒等因子は\path{CLASSIFICATION_HYPERPLANE_QUARTIC_NILPOTENT_SOURCES_REVIEW_20261107.json}で独立に確認した。
 他の純冪零型・translation類は、この命題の結論に含めない。
-非零半単純部の全二十四源はMPS又は空へ被覆済みで、全分岐と実SNC曲線の証明は
-\path{HYPERPLANE_QUARTIC_SEMISIMPLE_SUPPORT.md}及び
-\path{HYPERPLANE_QUARTIC_LARGE_SEMISIMPLE_SUPPORT.md}に置く。本文への十分な証明の統合は残る。
+非零半単純部の全二十四源は命題\ref{prop:quartic-semisimple-all}でMPS又は空へ被覆済みである。
 
 \subsection{regular nilpotent・既約四次因子の22次元成分}
 座標$(h,x,y,z,w)$でhをCasimirとし、非零六括弧を
@@ -3671,9 +3953,475 @@ $\delta=-1/3,n_1\ne0$の第一源と$\delta=-1/2,n_{10}\ne0$の第二源に尽�
 producer・S61算術engine・CASをimportせず独立再構成した。
 普遍Q51 graphと25次元T39の同定自体は既済入力であり、この点での代入だけから推測したものではない。
 これでregular nilpotentの$H+F$全支持は完了したが、
-他の純冪零型の残る六型、被約非正規因子の全被覆と主分類は未解決である。
-半単純cofactorの全支持は前記二ノートで被覆済みであり、本文への証明統合を残す。
-追加成分は生じず、下界90・一般rank四84を維持する。
+最小冪零・長block translationは次小節でMPSへ被覆する。
+その他の純冪零型の残支持、被約非正規因子の全被覆と主分類は未解決である。
+半単純cofactorの全支持も命題\ref{prop:quartic-semisimple-all}で被覆済みである。
+このregular型の被覆から追加成分は生じない。
+
+\subsection{最小冪零・長block translationの全三代表をMPSへ送る}
+\begin{proposition}\label{prop:quartic-translated-minimal-mps}
+モジュラー場のJordan型が$(2,1,1)$、translation top長が二で、
+実退化式が単純Hと既約四次Fの積である全Poisson支持はMPS40の有限閉和に含まれる。
+新しい成分数は追加しない。
+\end{proposition}
+\begin{proof}
+場を$Z=y\partial_x+\partial_y$とし、計算の補助に$r=x-y^2/2,s=y$を用いる。
+この非線形補助座標をPGL同値には使用しない。
+$Z=\partial_s$なので、全不変テンソルは$P=\partial_s\wedge V+\pi$と書ける。
+$\operatorname{div}V=-1,\operatorname{div}\pi=0$から$\pi=\operatorname{Jac}\Phi$である。
+元のx,y,z,wで次数二以下という全制約を残すと、正確に
+\[
+\begin{gathered}
+ \Phi=\delta r^2/2+rL+G(z,w),\qquad L=\eta+\beta w-\gamma z,\\
+ V=(-\alpha r-A_2(z,w),d(z,w),e(z,w)),\quad
+ d,e\text{はaffine},\quad d_z+e_w=\alpha-1,\\
+ \deg A_2\le2,\qquad\deg G\le3
+\end{gathered}
+\]
+となる。元の六括弧は
+\[
+ (\alpha r+A_2,\ \beta r+G_w+yd,\ \gamma r-G_z+ye,\ d,\ e,\ \delta r+L).
+\]
+全25parameterと元の完全90係数源の25自由変数の間に可逆affine写像があり、
+両向きの逆積と全90係数の一致を確認した。
+従って補助座標で選んだ部分族を全支持にすり替えていない。
+
+$\Psi=V\Phi+\Phi$とすると、全四Jacobiは$-\Psi_w,\Psi_z,0,\Psi_r$で、
+実Pfaffianは$-V\Phi=\Phi-C$、Cは定数である。
+$\delta=0$では最高四次部分が零となるため、対象では$\delta\ne0$。
+$r^2$係数から$\alpha=1/2$、r係数から
+$\delta A_2=L/2+V_{\mathrm{base}}L$を得る。
+$R=r+L/\delta$、$H_0=G-L^2/(2\delta)$と完成平方すれば
+\[
+ \Phi=\delta R^2/2+H_0,\quad V(R)=-R/2,\quad
+ F=\delta R^2/2+H,\quad V_{\mathrm{base}}H=-H,\quad\deg H\le3.
+\]
+ここで$H=H_0-C$である。Rへの変更は元座標で$x'=x+L(z,w)/\delta$という実affine変更である。
+
+$V_{\mathrm{base}}$の固有値は$\lambda+\mu=-1/2$を満たす。
+重複固有値$-1/4$では次数三以下にweight$-1$は存在せず、Fは平方となる。
+相異なる固有値では非零固有方向のtranslationを除き、零固有方向のtranslationは残す。
+$i\lambda+j\mu=-1,1\le i+j\le3$を全列挙すると、座標交換を除き
+\[
+ (-1,1/2):\ z,\qquad(-1/3,-1/6):\ z^3,
+ \qquad(-1/2,0):\ z^2,z^2w
+\]
+の三型だけである。最後の$H=z^2(a+bw)$では、零固有方向の$\kappa\partial_w$から$\kappa b=0$。
+$b=0$は可約Fを与えるので$b\ne0,\kappa=0$、wの移動でaを消せる。
+他の二型も非零係数bを持つ。
+$z'=tz,w'=uw$により$\delta'=\delta tu,b'=bt^{1-i}u^{1-j}$となるので、
+$H=bz,bz^3,bz^2w$に対し、それぞれ
+$(t,u)=(b/\delta,1/b)$、$t^3=b/\delta,u=1/(\delta t)$、
+$(t,u)=(b,1/(\delta b))$で全非零係数を一へ送れる。
+必要な非零cube rootは複素数上で存在し、除外された係数零は既約性と矛盾する枝として保持した。
+
+従って全対象点は、$r=x-y^2/2$として高々次の三つの実affine/PGL軌道へ入る。
+\[
+\begin{aligned}
+ A&=(r/2,-yz,-1+yw/2,-z,w/2,r),\\
+ B&=(r/2,-yz/3,-3z^2-yw/6,-z/3,-w/6,r),\\
+ C&=(r/2,z^2-yz/2,-2zw,-z/2,0,r).
+\end{aligned}
+\]
+実Pfaffianは順に$r^2/2+z,r^2/2+z^3,r^2/2+z^2w$で既約であり、最高四次部分は$y^4/8\ne0$。
+三代表の相互識別は、この被覆の追加前提ではない。
+
+A,Bについて、h-Casimirの全六括弧を次の実多項式曲線で変える。
+\[
+\begin{aligned}
+ A_t^{xy}&=hx/2+t^2x^2/4-y^2/4,&A_t^{xz}&=-yz,\\
+ A_t^{xw}&=-h^2+yw/2,&A_t^{yz}&=-hz-t^2xz,\\
+ A_t^{yw}&=-h^2t+hw/2+t^2xw/2,&
+ A_t^{zw}&=hx+t^2x^2/2-twz-y^2/2;
+\end{aligned}
+\]
+\[
+\begin{aligned}
+ B_t^{xy}&=hx/2+t^2x^2/4-y^2/4,&B_t^{xz}&=-yz/3,\\
+ B_t^{xw}&=-yw/6-3z^2,&B_t^{yz}&=-hz/3-t^2xz/3,\\
+ B_t^{yw}&=-hw/6-t^2xw/6-3tz^2,&
+ B_t^{zw}&=hx+t^2x^2/2-twz/3-y^2/2.
+\end{aligned}
+\]
+全tでstrict Jacobiを満たし、$t=0$では元の代表と定数項も含め一致する。
+両場は$\kappa=1,1/3$として
+\[
+ Z_t=y\partial_x+(h+t^2x)\partial_y+\kappa tz\partial_z-\kappa tw\partial_w.
+\]
+$t\ne0,h=1$で零点は$(-1/t^2,0,0,0)$、そこで定数Pfaffianは$1/(8t^4)\ne0$。
+$\xi=x+1/t^2$として固有座標$(t\xi-y,t\xi+y,z,w)$の行列式は$2t$、
+固有値は$(-t,t,\kappa t,-\kappa t)$である。
+Aは非退化crossing rank二の半単純型20へ、Bはscale$3/t$と並べ替えで型7へ入る。
+
+Cには、元代表を四倍した次の実u曲線を用いる。
+\[
+\begin{aligned}
+ C_u^{xy}&=2hx+u^2x^2/16-y^2,&C_u^{xz}&=-2yz+4z^2,\\
+ C_u^{xw}&=-8wz,&C_u^{yz}&=-2hz-u^2xz/8-uz^2,\\
+ C_u^{yw}&=2uwz,&C_u^{zw}&=4hx+u^2x^2/8+uwz-2y^2.
+\end{aligned}
+\]
+全uでJacobiが恒等零、$u=0$で正確に四倍Cとなる。
+$Z_u=4y\partial_x+(4h+u^2x/4)\partial_y-uz\partial_z+uw\partial_w$で、
+$u\ne0,h=1$の零点は$(-16/u^2,0,0,0)$、そこで定数Pfaffianは$512/u^4$。
+$\xi=x+16/u^2$とし、固有座標
+$(u\xi/4-y,z,u\xi/4+y,w)$を取ると行列式は$-u/2$、
+負・正二固有空間間の定数crossingは$\operatorname{diag}(-8/u,-32/u^2)$となる。
+従って全$u\ne0$で半単純型20のrank二条件を満たす。
+
+三曲線の非零parameterで既約四次条件を保持していることも確認する。
+A,B,Cの座標重みとcharacterは、それぞれ
+$(0,2,1,4,-1);1$、$(0,6,3,4,5);3$、$(0,2,1,1,2);1$である。
+実compensated PGL・scaleトーラスはparameterを$t/a,t/a^3,u/a$へ送り、
+各曲線の全非零parameterは一つの実軌道をなす。
+初期四次が既約なので、可約式のprojective積像の閉性から既約性を持つ非空開があり、
+この軌道関係により全非零parameterへ広がる。
+定数Pfaffianの上の恒等式はrank四を全非零parameterで直接保証する。
+
+命題\ref{prop:quartic-semisimple-all}の全支持定理から、
+三曲線の非零parameter全体は既存MPS40の有限閉和に入る。
+その閉性と実多項式曲線からparameter零も入り、連結なPGL作用により三代表の全軌道も入る。
+これで元の全25係数源を被覆した。有限jetの持上げや平坦性は仮定していない。
+\end{proof}
+全25変数と元全90係数の可逆写像、全Jacobiとpotential、全weight列挙及び三代表は
+\path{CLASSIFICATION_HYPERPLANE_QUARTIC_TRANSLATED_MINIMAL_ORBITS_REVIEW_20261107.json}で独立確認した。
+Cの全u曲線・固有座標・crossingは
+\path{CLASSIFICATION_HYPERPLANE_QUARTIC_TRANSLATED_MINIMAL_MIXED_REVIEW_20261107.json}、
+A,Bの全曲線・定数Pfaffian・トーラス同変性・全固有値は
+\path{CLASSIFICATION_HYPERPLANE_QUARTIC_TRANSLATED_MINIMAL_COFACTOR_CURVES_REVIEW_20261107.json}で
+producerやCASをimportせず独立再構成した。
+C曲線は全150空間の重み安定な有限切片から得たものであるが、ここでの帰属証明には
+実曲線の全parameter恒等式と半単純全支持定理という弱い十分条件を使う。
+他の純冪零型と実退化因子型、全分類は未解決であり、下界92・一般rank四86を維持する。
+
+\section{超平面と相異なる二既約二次因子}
+実退化式$D=hq_1q_2$で、$q_1,q_2$は相異なる既約二次式とする。
+h-Casimir代表のaffine逆二形式は$\omega=\alpha/(q_1q_2),\deg\alpha\le2$であり、
+全Jacobiと非退化性は正確に
+\[
+ (q_1q_2)d\alpha-d(q_1q_2)\wedge\alpha=0,\qquad
+ \operatorname{Pf}\alpha=kq_1q_2,\quad k\ne0
+\]
+に対応する。最初の条件は全90係数への線形条件で、第二条件も全て保持する。
+$q_i$の全rank、Hとvertexの配置、全低次係数を含む入口である。
+第一添字縮約の規約で$X_i=P^\sharp dq_i/q_i$とすると、因子の互いに素性から
+$X_i$はaffine線形場となり、全支持で
+\[
+\begin{gathered}
+ Z=X_1+X_2,\quad X_i(q_i)=0,\quad[X_i,P]=[X_1,X_2]=0,\\
+ X_1(q_2)=\lambda q_2,\quad X_2(q_1)=-\lambda q_1,
+ \quad\operatorname{tr}X_1=\lambda=-\operatorname{tr}X_2
+\end{gathered}
+\]
+が成立する。各log-Hamiltonian場の発散と、二つのlog-Hamiltonianの括弧が定数$\lambda$の
+Hamiltonian場になることから従う。
+$q_i$のどちらかがrank五、又はrank四でHがvertexを避けるなら$\lambda=0$である。
+全逆形式・normal場・例外配置の入口は\path{TWO_QUADRICS_SUPPORT.md}に置く。
+一般$1+2+2$支持の全配置を、既約quartic用の二十四＋十cofactor表へ無条件で制限しない。
+同表の低次wall必要性はquarticの既約性を使っている。
+
+\subsection{generic pair-zero枝の全SNC被覆}
+前のpair-zero完全源の記法$u=xy,v=zw,v_1=p+q,v_2=p+r$を使う。
+全Jacobiは五式$(\spadesuit)$、Pfaffianは$(\heartsuit)$である。
+$B=E=0$では最高Pfaffianは$(AF_0+v_1v_2)xyzw$で、h単純だから係数は非零。
+重み$(h,x,y,z,w)=(1,0,0,0,0)$により定数項を消せば実SNC点へ入る。
+
+$B\ne0$では$E=0,D_0=-v_2C_0/B,F_0=-v_2,v_1v_2C_0=0$。
+$C_0=0$ならzw因子、$v_2=0$ならrank四でないため、対象では$C_0v_2\ne0,v_1=0$となる。
+Pfaffianは$-(v_2/B)(C_0+Au+Bv)(C_0+Bv)$で、
+二conicが相異なるため$A\ne0$。
+重み$(3,0,0,1,1)$で交換項と定数項を消すと、極限Pfaffianは$-Av_2xyzw\ne0$。
+$E\ne0$も全式から$B=0,C_0=v_1D_0/E,A=v_1,v_1v_2D_0=0$となり、
+対象では$D_0v_1F_0\ne0,v_2=0$。
+重み$(3,1,1,0,0)$で極限Pfaffian$v_1F_0xyzw\ne0$を得る。
+全主開と閉補集合を保持した実軌道極限なので、MPSのSNC成分定理により全点はMPS40へ入る。
+追加共鳴を持つmodular場や一般のquadric対はこの命題の対象外である。
+
+\subsection{本質三変数の全磁気源とCPLUSへの接続}
+$D=hq_1q_2$の本質変数数が三なら、baseをh,x,y、fiberをz,wとする。
+二つのnormal性から、全Jacobian
+$J=\partial_xq_1\partial_yq_2-\partial_yq_1\partial_xq_2$に対し
+$q_i\mid P^{xy}J$となる。
+$J\ne0$なら$q_1q_2$と互いに素である。
+実際、$q_i\mid J$なら次数から$J=cq_i$だが、他方の二変数Hamiltonian場はtrace零であり、
+非退化三変数二次式を非零weight cでscaleする条件$2\operatorname{tr}X=3c$に反する。
+$J=0$では二次式の係数比較から$q_2=aq_1+b$、$ab\ne0$となり、
+$q_2X_2=aq_1X_1$の互いに素性と次数は$X_1=X_2=0$を強制し、非退化性に反する。
+従って$P^{xy}=0$である。
+
+初めはfiberに依存してよいanchor U,Vを用い
+$P=U\wedge\partial_z+V\wedge\partial_w+B\partial_z\wedge\partial_w$と書く。
+$z=w=0$でEulerと二anchorのSaito行列式は非零定数倍の$hq_1q_2$であり、
+free基底の次数は1,2,2となる。
+この基底を$\CC[h,x,y,z,w]$へ拡張して次数比較すると、元の二次anchorの基底係数は定数、
+h成分零からEuler係数も零なので、U,Vのfiber依存は消える。
+$[U,V]=aU+bV$と書けば、全Jacobiは$B_z=-a,B_w=-b$であり、全解は
+\[
+\begin{gathered}
+ P=U\wedge\partial_z+V\wedge\partial_w+
+       (-az-bw+R_2(h,x,y))\partial_z\wedge\partial_w,\\
+ R_2=m_0h^2+m_1hx+m_2hy+m_3x^2+m_4xy+m_5y^2.
+\end{gathered}                                             \tag{\clubsuit\clubsuit}
+\]
+六磁気係数を全て保持した全sourceである。
+
+free平面五次式のTjurina数は12で、接触budgetと全Saito核から七配置へ帰着する。
+$q=XZ-Y^2$とすると、共通接点でHが接するgeneric配置族とcontact3境界は
+既存24次元CPLUS\_EXTへ入る。
+既存の一般点での唯一成分定理を、全rank二kernel/frame bundleと全磁気$\mathbb A^6$の
+既約像へ適用することでgeneric族全体が入る。
+contact3の全点には$q_2(t)=q+XY+tXZ$を使う。
+$t=0$で非零なSaito pivot minorから、任意のframeを$t=0$を含む開へ正則に延ばせる。
+全磁気式$(\clubsuit\clubsuit)$も正則なので、任意の六磁気係数を固定して実Poisson族が得られ、
+CPLUSの閉性からcontact3全sourceも入る。
+generic族の有効pivot例外$u=1/2$も同じrank二kernel bundleの別chartで保持する。
+全七配置、generic parameterの例外値、完全kernelとframeの証明は
+\path{TWO_QUADRICS_PLANE_CONIC_CONFIGURATIONS.md}に置く。
+この接続では最高部の稠密性だけから全低次延長を外挿しない。
+
+\subsection{二つの平面conic配置からの23次元成分}
+\begin{proposition}\label{prop:plane-two-conics-two-components}
+次の二配置の全六磁気源のPGL飽和像閉包は、互いに異なる23次元全空間成分であり、
+追加前の既知90成分とも全て相異なる。
+\begin{center}\small
+\begin{tabular}{c|c|c|c}
+型&H&二conic&相互交差分割\\\hline
+異接点共通接線&$X+8Y+16Z$&$q,q+XY$&$3+1$\\
+他方接線&Z&$q,q+X^2$&4
+\end{tabular}
+\end{center}
+台帳名は\path{R4_PLANE_TWO_CONICS_BITANGENT_23}と
+\path{R4_PLANE_TWO_CONICS_CONTACT4_TANGENT_23}とする。
+\end{proposition}
+\begin{proof}
+$R=R_2(h,x,y)$を上の全六磁気式とする。
+第一配置では
+\[
+ q_1=\{hx-(x+4y)^2\}/16,\qquad q_2=\{hx-(x-4y)^2\}/16
+\]
+で、2304倍した全六源は$P^{xy}=0$及び
+\[
+\begin{aligned}
+ P^{xz}&=-3840xy,\\
+ P^{xw}&=-360hx+360x^2+3520xy+1920y^2,\\
+ P^{yz}&=60hx-60x^2-2880y^2,\\
+ P^{yw}&=-55hx-120hy+55x^2+480xy+2640y^2,\\
+ P^{zw}&=2304R+1920wy+80z(-3h+3x+22y)
+\end{aligned}
+\]
+である。実Pfaffianは$-5529600q_1q_2$。
+第二配置では$q_1=hx-y^2,q_2=hx-y^2+x^2$で、8倍した全六源は$P^{xy}=0$及び
+\[
+\begin{aligned}
+ P^{xz}&=-10xy,&P^{xw}&=-20hx-20x^2+10y^2,\\
+ P^{yz}&=5hx-10y^2,&P^{yw}&=-5y(h+2x),\\
+ P^{zw}&=8R+10wy-5z(3h+2x)
+\end{aligned}
+\]
+となり、実Pfaffianは$-100q_1q_2$である。
+全sourceでstrict Jacobiは恒等零、二conicは滑らかかつ相異なり、一般rank四を保つ。
+両全sourceの実Dはh,x,yだけに依存する。
+
+両源で$(m_0,\ldots,m_5)=(1,2,3,5,7,11)$を証明点に取る。
+周囲の未知変数へh-Casimir条件を追加せず、全150係数・350射影Jacobi式を使う。
+微分Dと、鉛直・実PGL・scale・全六parameter微分の和Fに対し
+\[
+ \rank D=101,\qquad\rank F=48,\qquad\ker D=F\oplus\CC R_0
+\]
+である。鉛直rankは24、群・鉛直・scaleだけでは47である。
+全sourceの実微分48が被約像閉包の次元下界を与える。
+101次非零minorの標準座標列空間Uと$R_0$は、Fに補な102次元空間Sを張る。
+従って$\CC^{150}=F\oplus S$であり、Sは実際の48本の線形cutである。
+全kernel49方向と全D列を確認したことが、この真正な補空間を保証する。
+
+第一配置では、全150列を消す左汎関数$\varphi$と実法線について
+\[
+ \varphi D=0,\qquad \varphi\mathcal J(R_0)=-120295458720\ne0.
+\]
+選択101式をUについて陰関数消去すると、残る一変数tの真の残式が非零二次初項を持つ。
+従ってSの被約支持は原点だけである。
+
+第二配置では二次余核は零である。固定されたU内で唯一のTを
+$DT+\mathcal J(R_0)=0$として解き、全350行でこの等式を確認する。
+全三次係数$C=B(R_0,T)$を再構成すると
+\[
+ \varphi D=0,\quad\varphi\mathcal J(R_0)=0,\qquad
+ \varphi C=-533355840000\ne0.
+\]
+さらに高次U補正の線形寄与はDの像なので消え、真の残式の三次初項は非零である。
+Tは既知source又は任意kernel補正を加えたものではなく、このliteral Uで一意に固定している。
+別作者の確認は全kernel mixed補正のpairingも零と再構成した。
+従って第二配置でも真のSの被約支持は原点だけとなる。
+
+48cut後の支持が零次元なので、Krull不等式から全raw周囲の局所次元は48以下。
+実sourceのrank48から下界も一致する。
+全sourceのPGL・鉛直・scale飽和像閉包は既約であり、証明点を通る次元48の全成分そのものとなる。
+鉛直24とscale一を除いた射影次元は23である。
+従って各全六磁気sourceの全点がその一成分に入る。
+局所成分の唯一性、正確な非被約厚さ、一般群軌道の次元はこの証明の結論に加えない。
+
+相違を確認する。一般rank二の六成分とはrankが異なり、次元23でない成分とは次元が異なる。
+本質変数数三以下という条件はDの五偏微分係数行列のrank条件なので閉じ、全新成分で保持される。
+非零の五次式が三変数以下なら射影vertexの一点で消失次数五を持つが、
+四次元多様体のSNC因子の消失次数は各点で高々四である。
+従って全新成分はSNC点を含まず、SNC点を持つどのMPS成分とも異なる。
+残る同次元非MPS成分の一般因子型は$1+4,5H,1+1+1+2,2+3,1+1+3$で、
+本成分の被約$1+2+2$と異なる。
+正確な因子次数・重複度のstratumはconstructibleなので、同じ既約閉包を持つ二つの稠密constructible像は
+非空開で交わるはずだが、異なる因子型では交われない。
+CPLUS\_EXTは24次元なので、同じ一般因子型を持っていても次元で区別できる。
+
+新しい二成分同士は、Dから内在的に復元される共通vertexで商した平面のconic交差分割が異なる。
+実際$q=XZ-Y^2$の正規化$(X,Y,Z)=(s^2,st,t^2)$で、
+$q+XY$の制限は$s^3t$、$q+X^2$の制限は$s^4$である。
+二因子を交換しても分割$3+1$と4は変わらない。
+各全sourceの稠密constructible像がこの互いに交わらない配置型を持つため、両成分は相異なる。
+\end{proof}
+
+全source・全Saito核と全例外は独立Fraction再構成を経ており、
+第一成分の全D・F・法線・二次余核及び基準90との全個別識別は
+\path{TWO_QUADRICS_BITANGENT_SEPARATE_REVIEW.md}、
+\path{CLASSIFICATION_TWO_QUADRICS_PLANE_BITANGENT_SEPARATE_REVIEW_20261107.json}にある。
+第二成分の固定T・全三次係数・非零pairing・全kernel補正及び第一成分との相違は
+\path{CLASSIFICATION_TWO_QUADRICS_PLANE_OTHER_TANGENT_SEPARATE_REVIEW_20261107.json}で
+producerや元のplane-component checkerをimportせず、別作者が独立確認した。
+
+七平面配置のうち、CPLUSの二配置と本命題の二配置は被覆済みである。
+四重接点を通るH割線の全sourceは次小節で$\beta=0$へ認識する。
+残る$3+1$の単純交点におけるH接線と$3+1$のH弦配置では、三次までの横断支持に直線が残る。
+同じ高次jet経路を反復せず、全sourceの構造的変形へ移る。
+この二成分により下界は$90+2=92$、一般rank四は$84+2=86$となる。
+非平面$1+2+2$、他の純冪零quartic型、既約非正規五次因子も残り、全分類未完を維持する。
+
+\subsection{四重接点の割線配置の全源を零一次底へ送る}
+\begin{proposition}\label{prop:two-conics-even-beta-zero}
+contact4\_secant\_at\_contact配置の全六磁気源は、既済の$\beta=0$支持を覆う既知成分の和に含まれる。
+\end{proposition}
+\begin{proof}
+二conicを$q_1=xy-h^2,q_2=xy-h^2+x^2$とし、完全anchorを
+\[
+\begin{aligned}
+ U&=-x^2\partial_x/2+(h^2-xy/2)\partial_y,\\
+ V&=(10h^2/9-10x^2/9-5xy/3)\partial_x
+          +(10xy/9+5y^2/9)\partial_y
+\end{aligned}
+\]
+と取る。$[U,V]=aU+bV$で$a=10x/9+5y/3,b=-x/2$。
+全源は前の全六磁気式で、$R=m_0h^2+m_1hx+m_2hy+m_3x^2+m_4xy+m_5y^2$、
+実Pfaffianは$10q_1q_2/9$である。
+h=1での一次項は$(m_1x+m_2y)\partial_z\wedge\partial_w$だけとなる。
+
+$z'=z+\alpha h,w'=w+\beta h$により$R'=R+h(\alpha a+\beta b)$となる。
+$(\alpha,\beta)$から二つの奇数次数係数への行列式は$5/6\ne0$であり、
+\[
+ \alpha=-3m_2/5,\qquad\beta=2m_1-4m_2/3
+\]
+とすれば全一次項が消える。この変更は全六parameterに多項式的で、反転や除外はない。
+残る定数値は$C^{xw}=10/9,C^{yz}=1,C^{zw}=m_0$、他は零で、
+$\operatorname{Pf}C=10/9$は全源で非零である。
+一様なDarboux変更
+\[
+ (X,Y,Z,W)=(x,9w'/10,y,z'-9m_0x/10)
+\]
+の行列式は$9/10$で、Cは正確に標準Jへ移る。
+線形変更は消した一次項を再導入しないため、全テンソルが
+\[
+ P_{mathrm{new}}=h^2J+Q(X,Y,Z,W),\qquad[J,Q]=[Q,Q]=0
+\]
+となる。従って命題\ref{prop:beta-zero}の全Q45被覆を適用できる。
+接方向の$\beta$だけを零としたものではなく、全六磁気源の正則な実座標同値である。
+\end{proof}
+全parameterでの逆座標置換、六括弧のpushforward、$C=J$、全一次係数零、
+全JacobiとQ45互換条件は\path{CLASSIFICATION_TWO_QUADRICS_PLANE_EVEN_REVIEW_20261107.json}で
+producerやCASをimportせず独立再構成した。
+既済$\beta=0$尽くし自体は入力として区別し、既知番号の細分類や局所唯一性を追加条件にしない。
+これにより未帰属の平面配置は$3+1$の単純交点におけるH接線と、$3+1$のH弦配置の二つとなる。
+
+\subsection{nil22-imageの全base括弧と一般底への次元排除}
+\begin{proposition}\label{prop:nil22-base-two-conics-plane}
+モジュラー場がJordan$(2,2)$で定数部が線形部の像に属する場合、
+被約$H+q_1+q_2$の全支持は本質三変数の平面七配置へ入る。
+この型の全支持は、一般底を優越する未知25,26,27次元成分の一般元にはならない。
+\end{proposition}
+\begin{proof}
+場を$N=y\partial_x+w\partial_z$へ標準化し、全90係数から得た完全27係数源を使う。
+base括弧は正確に
+\[
+ f=P^{yw}=-n_{24}y^2/3+n_{18}yw+n_{19}w^2.
+\]
+全Jacobi係数の一つが$-4(3n_{18}^2+4n_{19}n_{24})/3$なので、fのdiscriminantは零である。
+f非零ならrank一平方だけとなる。
+base$(y,w)$とfiber$(x,z)$へ同じGL2を作用させるとNを保ち、
+$f'(p')=\det(A)f(A^{-1}p')$となる。
+平方の一次式を第一行に取り、独立な第二行をscaleすれば、全非零fを$f=y^2$へ正規化できる。
+零fは別に保持する。
+
+この正規化は$n_{18}=n_{19}=0,n_{24}=-3$である。
+全一次Jacobiと正確に同じrowspaceから
+\[
+ n_0=n_1=n_2=0,\quad n_9=-2n_{14}/5,\quad
+ n_{10}=(n_{26}-n_{16})/2,\quad n_{11}=-n_{17}/4
+\]
+を得る。残る実係数に$-n_{17}^2$及び
+$-(25n_{12}n_{17}+8n_{14}^2)/10$があるので、被約支持で$n_{17}=n_{14}=0$。
+$n_3,\ldots,n_8$はそれぞれ非零定数pivotの式で大域的に解ける。
+全六多項式解を戻すと、全残Jacobi idealは正確に
+\[
+ \bigl(n_{12}(3n_{16}-n_{26}-2),\ n_{12}(3n_{13}-n_{22})\bigr)
+\]
+となる。従って全支持は二つの閉源
+$A:n_{12}=0$（九係数）と
+$B:n_{26}=3n_{16}-2,n_{22}=3n_{13}$（八係数）で尽くされる。
+B主開だけを取りAを捨てる操作はしていない。
+
+$T=wx-yz$とするとAの全Pfaffianは
+\[
+ -y^2\{T+n_{13}w+n_{15}wy+(n_{16}+n_{26})w^2/4
+              +n_{20}/2+n_{21}y/3+n_{23}y^2/4\}.
+\]
+従って重複一次因子を持ち、被約$H+q_1+q_2$には入らない。
+Bの全Pfaffianは$F=-y^2T+G(y,w)$、$F|_{y=0}=-n_{12}^2$を満たす。
+$n_{12}\ne0$なら、x,zについての一次式の係数の最大公約数は1であり、
+$\CC(y,w)[x,z]$上の非零一次式なのでGauss補題からFは既約となる。
+最高次数四は非零で、斉次化にh因子は付かない。
+$n_{12}=0$はAに既に含まれる。これでf非零の全点は重複一次因子又は既約quarticとなる。
+
+このBの全既約quartic源も既存成分へ認識できる。
+既存H\_QUARTIC\_ESSENTIAL5の点$P_*=h^2J+Q_*$に実GL4変更
+$(x,y,z,w)=(x_4,x_1,-x_2,-x_3)$を行うと、全六括弧がBの点
+\[
+ n_{12}=-1,\quad n_{13}=0,\quad n_{15}=n_{16}=1,
+ \quad n_{20}=n_{21}=n_{23}=0,\quad n_{25}=4
+\]
+と一致する。既存の全周囲証明はこの点の微分rank102、実群・鉛直・scale rank48から
+射影23次元の正則性と唯一成分性を与える。
+八parameter開は既約でこの点を含むので、全像閉包が同じ旧成分に入る。
+実因子の形だけでtensorを認識したものではない。
+
+残るf零では$n_{18}=n_{19}=n_{24}=0$。
+全源の表示から、四つのbase--fiber括弧はy,wだけに依存し、fiber--fiber括弧はx,zについて一次である。
+Pfaffianはh,y,wだけの式となり、本質変数数は三以下。
+二つの相異なる既約二次因子を持つなら正確に三であり、平面七配置の全磁気源へ入る。
+
+一般底への帰結には成分帰属より弱い次元上界で足りる。
+固定平面配置のdivisor familyは本質三平面の選択$\operatorname{Gr}(3,5)$の六次元と
+PGL3の高々八次元から14次元以下。連続CPLUS配置族だけは一parameterを加え15以下である。
+固定Dには唯一の一次因子Hがあり、h-Casimir liftを固定できる。
+fiberはanchorのGL2 frame四係数と磁気六係数で覆え、projective scale一を除いて九次元以下。
+fiberへbase一次式を加える変更$z'=z+\ell,w'=w+m$は
+\[
+ R'=R+a\ell+bm-U(m)+V(\ell)
+\]
+と既存六磁気式の範囲に吸収されるので、追加parameterはない。
+従って固定配置の全PGL飽和源は23次元以下、連続配置族も24次元以下である。
+未帰属の二平面源にも適用される全源上界であり、成分性を仮定しない。
+未知の一般底優越成分の射影次元25,26,27との比較により、この型の一般元である可能性が排除される。
+特殊底での二残源の帰属やG全体の完了は、この排除の結論に含めない。
+\end{proof}
+全27源のdiscriminant、一次rowspace、二平方式、六定数pivot解、残exact ideal、
+両閉源の全Jacobi/Pfaffian及び旧$Q_*$元式からの全六式移送は
+\path{CLASSIFICATION_TWO_QUADRICS_NIL22_RANK1_REVIEW_20261107.json}で独立Fraction再構成した。
+旧23次元成分の唯一性は既済監査の入力であり、今回再計算したとはしない。
 
 \section{計算・証拠の位置づけ}
 本稿の命題\ref{prop:radical}、補題\ref{lem:certificate}、補題\ref{lem:descent}、命題\ref{prop:spread}には本文で証明を与えた。
