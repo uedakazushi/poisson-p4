@@ -1287,9 +1287,70 @@ def global_commonimage_main():
     destination.write_text(json.dumps(result,indent=2)+'\n')
 
 
+def global_dependent_main():
+    """Five fixed whole symbols and one whole line after hyperplane recognition."""
+    import ast
+    destination=ROOT/'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_DEPENDENT_20261107.json'
+    if destination.exists():raise FileExistsError(destination)
+    started=time.monotonic()
+    def timeout(signum,frame):raise TimeoutError('finite dependent six-whole-source budget90s')
+    signal.signal(signal.SIGALRM,timeout);signal.alarm(90)
+    resource.setrlimit(resource.RLIMIT_AS,(768*1024**2,768*1024**2))
+    previous=ROOT/'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_COMMONIMAGE_20261107.json'
+    old=json.loads(previous.read_text())['producer_bytes']
+    parse=lambda value:{node.name:ast.dump(node,include_attributes=False)for node in ast.parse(value).body if isinstance(node,(ast.FunctionDef,ast.AsyncFunctionDef))}
+    before=parse(old);after=parse(Path(__file__).read_text());assert all(after[name]==value for name,value in before.items())
+    x=s.Matrix(s.symbols('a b c z w'));a,b,c,z,w=x
+    Hbase=s.Matrix([a,b,-2*c,0,0]);N=s.Matrix([b,0,0,0,0]);zero=s.zeros(5,1)
+    En=s.Matrix([0,0,0,z,w]);normal_ss=s.Matrix([0,0,0,z,-w]);normal_nil=s.Matrix([0,0,0,0,z])
+    ez=s.Matrix([0,0,0,1,0]);ew=s.Matrix([0,0,0,0,1]);P1,source1,P2,source2=sources(x)
+    models=[('SS_H_RESONANCE',zero,Hbase,normal_ss,-5*z*w,7,False),
+            ('SS_N_LINE',TAU*N,N,normal_ss,s.Integer(0),7,True),
+            ('NIL_H_RESONANCE',zero,Hbase,normal_nil,s.Rational(5,2)*z*z,6,False),
+            ('NIL_N_TRACE_ZERO',zero,N,normal_nil,s.Integer(0),5,False),
+            ('NIL_N_TRACE_ONE_K1',N,N,normal_nil,z*z,7,False),
+            ('NIL_N_TRACE_ONE_K0',N,N,normal_nil,s.Integer(0),6,False)]
+    def hyperplane_certificate(analysis,semisimple):
+        kernel=s.Matrix([[s.sympify(value,locals={'tau':TAU})for value in row]for row in analysis['D1']['complete_kernel']])
+        C=kernel[27:30,:];D=kernel[18:21,:]
+        Czero=all(s.cancel(value)==0 for value in C);Dzero=all(s.cancel(value)==0 for value in D)
+        empty=Czero or semisimple and Dzero
+        analysis.update({'full_C_projection':serial_matrix(C),'full_D_projection':serial_matrix(D),
+                         'required_C_nonzero':True,'required_D_nonzero':semisimple,
+                         'all_C_zero':Czero,'all_D_zero':Dzero,'G_empty_required_normal_hyperplane':empty})
+        if empty:analysis['G_dimension_criterion']=True
+    records=[]
+    for name,T,V,normal,K,base,variable in models:
+        P0=H.wedge(T,En)+H.wedge(V,normal)+K*H.wedge(ez,ew)
+        assert all(s.expand(value)==0 for value in H.projective(H.bilinear(P0,P0,x),x).values())
+        D1=operator(P0,P1,source1,x);D2=operator(P0,P2,source2,x);S=shear(P0,x)
+        assert all(s.expand(value)==0 for value in D1*S)
+        if variable:
+            analysis=nonkernel_univariate(D1,D2,S,base+5,s.Integer(1))
+            for wall in analysis['all_exceptional_roots']:hyperplane_certificate(wall,True)
+        else:analysis,_=nonkernel_matrix_certificate(D1,D2,S,(),base+5)
+        hyperplane_certificate(analysis,normal==normal_ss)
+        analysis['all_strata_dimension_criterion']=analysis['G_dimension_criterion']and all(wall['G_dimension_criterion']for wall in analysis.get('all_exceptional_roots',[]))
+        actual=s.expand(sum((-1)**i*x[i]*(P0[j,k]*P0[l,m]-P0[j,l]*P0[k,m]+P0[j,m]*P0[k,l])for i in range(5)for j,k,l,m in [[r for r in range(5)if r!=i]]));assert actual==0
+        record={'type':name,'affine_first_symbol_dimension_upper':base,'varying_parameter':'tau'if variable else None,
+                'normal_form_P0':{str((i,j)):str(s.expand(P0[i,j]))for i,j in H.PAIRS},'full_P0_projective_Jacobi_zero':True,'actual_D0_zero':True,
+                'full_D1_350_by30':serial_matrix(D1),'full_D2_350_by9':serial_matrix(D2),'full_actual_shear_30_by6':serial_matrix(S),'analysis':analysis}
+        records.append(record)
+        print(name,'higher',analysis['higher_fiber_upper_bound'],'image',analysis['PGL_image_upper_bound'],'allGcriterion',analysis['all_strata_dimension_criterion'],flush=True)
+    proof=ROOT/'research/classification/PLANE_RANK_ZERO_DEPENDENT_GLOBAL_VECTOR_HYPERPLANE_REDUCTION.md'
+    result={'task_id':'G','all_passed':all(record['analysis']['all_strata_dimension_criterion']for record in records),'cases':records,
+            'scope':'Five fixed whole dependent symbols plus entire SSNline, after full-Jordan hyperplane reduction. C/D nonzero are necessary for irreducible actualD; zero projection proves Gempty. Any nonclosing higher bound remains entire exact source, no newjet orsample.',
+            'compatible_extension_old_function_AST_unchanged':True,'old_function_names':sorted(before),
+            'producer_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'producer_bytes':Path(__file__).read_text(),
+            'input_bindings':[{'path':str(path.relative_to(ROOT)),'sha256':hashlib.sha256(path.read_bytes()).hexdigest()}for path in [HELPER,previous,proof]],
+            'seconds':time.monotonic()-started,'maximum_RSS_KiB':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss}
+    destination.write_text(json.dumps(result,indent=2)+'\n')
+
+
 if __name__=='__main__':
     try:
-        if '--global-commonimage' in __import__('sys').argv:global_commonimage_main()
+        if '--global-dependent' in __import__('sys').argv:global_dependent_main()
+        elif '--global-commonimage' in __import__('sys').argv:global_commonimage_main()
         elif '--global-cartan-surface' in __import__('sys').argv:global_cartan_surface_main()
         elif '--global-threeparameter' in __import__('sys').argv:global_threeparameter_main()
         elif '--global-nil-line' in __import__('sys').argv:global_nil_line_main()
@@ -1305,7 +1366,7 @@ if __name__=='__main__':
         else:main()
     except FileExistsError:raise
     except Exception as error:
-        failure=ROOT/('reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_COMMONIMAGE_RUNTIME_20261107.json' if '--global-commonimage' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_CARTAN_SURFACE_RUNTIME_20261107.json' if '--global-cartan-surface' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_THREEPARAMETER_RUNTIME_20261107.json' if '--global-threeparameter' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_NIL_LINE_RUNTIME_20261107.json' if '--global-nil-line' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_HYPERBOLA_RUNTIME_20261107.json' if '--global-hyperbola' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_TWOPARAMETER_RUNTIME_20261107.json' if '--global-twoparameter' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_TSQUARE_RUNTIME_20261107.json' if '--global-tsquare' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_RESIDUAL_RUNTIME_20261107.json' if '--global-residual' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_COMPATIBILITY_RUNTIME_20261107.json' if '--global-compatibility' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_ONECUT_RUNTIME_20261107.json' if '--global-onecut' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_LOWPARAMETER_WEIGHTS_RUNTIME_20261107.json' if '--global-lowparameter' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_RANK_TWO_NONKERNEL_WEIGHTS_RUNTIME_20261107.json' if '--rank2-nonkernel' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_RANK_TWO_KERNEL_WEIGHTS_RUNTIME_20261107.json' if '--rank2-kernel' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_FULLRANK_WEIGHTS_RUNTIME_20261107.json')
+        failure=ROOT/('reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_DEPENDENT_RUNTIME_20261107.json' if '--global-dependent' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_COMMONIMAGE_RUNTIME_20261107.json' if '--global-commonimage' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_CARTAN_SURFACE_RUNTIME_20261107.json' if '--global-cartan-surface' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_THREEPARAMETER_RUNTIME_20261107.json' if '--global-threeparameter' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_NIL_LINE_RUNTIME_20261107.json' if '--global-nil-line' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_HYPERBOLA_RUNTIME_20261107.json' if '--global-hyperbola' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_TWOPARAMETER_RUNTIME_20261107.json' if '--global-twoparameter' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_TSQUARE_RUNTIME_20261107.json' if '--global-tsquare' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_RESIDUAL_RUNTIME_20261107.json' if '--global-residual' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_COMPATIBILITY_RUNTIME_20261107.json' if '--global-compatibility' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_ONECUT_RUNTIME_20261107.json' if '--global-onecut' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_LOWPARAMETER_WEIGHTS_RUNTIME_20261107.json' if '--global-lowparameter' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_RANK_TWO_NONKERNEL_WEIGHTS_RUNTIME_20261107.json' if '--rank2-nonkernel' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_RANK_TWO_KERNEL_WEIGHTS_RUNTIME_20261107.json' if '--rank2-kernel' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_FULLRANK_WEIGHTS_RUNTIME_20261107.json')
         if not failure.exists():
             failure.write_text(json.dumps({'task_id':'G','all_passed':False,'failure':repr(error),
                 'producer_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),

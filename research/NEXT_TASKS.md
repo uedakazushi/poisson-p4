@@ -7,7 +7,7 @@
 .venv/bin/python scripts/classification.py next
 ```
 
-**個別成分の下界104、一般rank四98、rank二6。上界・一般五点・全分類は未証明。**
+**個別成分の下界111、一般rank四105、rank二6。上界・一般五点・全分類は未証明。**
 ユーザーの11月7日の再開指示により実作業を継続する。保存や旧移行用一時停止を終了条件にしない。
 G、E_multiple_hyperplane、E_reduced_nonnormalを並行し、意味のある進展は主原稿・引継ぎへ統合して通常main pushで保存する。
 
@@ -33,10 +33,18 @@ all-degenerate CI22も全九型・全二十源で空と独立確認し、全inte
 全degree四rank零は全centre/extraclassを保持した証明でG像≤24、normaldegree六も全nef数値式とrelativeconicで空となった。degree五六の全coneも全Euler sourceのQ因子で空。
 D正規化のsectional genus零→minimaldegree全scrollと全導手を独立確認し、非normalも含む全degree六rank零を空とした。degree五のgenus零（残余plane付き）も全projection像≤24。
 degree五genus一もcanonical排除・全elliptic bundleのT40/像≤24認識を受理し、quadric cone全源もOreと全一変数例外処理で像≤23。これで全rank零非plane枝がGから排除された。
-rank零plane位数二k1 rankM≥2は全像≤23、Cartan全higher源はMPS40へ。全degree六rank二とdegree五rank二genus零は像≤24、種数一ellipticは全nef/GG型を排除。
-全重複度conormal可換、normalnil b非零全源≤22、全essential3既約D≤23も受理。m4squarefreeleading rank一はordinary四重点の矛盾で全j/concurrentも空。
-次はrank零planeのglobalV残nonCartan/commuting nilnormal・位数三以上、degree五rank二canonical index二、他のrank二特異/vertical支持、rank二planeの零R可約/非被約を処理する。smooth非plane cleanは全横断型を処理済みで、vertical/特異Sを残す。degree3の全Jacobi二次rowspaceは実Dを含まないので、
-この最初の線形判定からrank四不存在を主張しない。旧五回未決GBやjet/minor列へ自動復帰しない。
+rank零planeの実位数二全源は全23plane/232curve/955root等の独立確認でMPS又は像24以下。
+全重複度conormal可換を使い、k1 rankM二以上、b非零normalnil、scalar/zero symbol、common-image四wholeorbitも全G非優越。
+残るdependent globalVは五fixed＋一wholelineへ必要還元済みで、その有限operatorから三型は空又は像20/21以下。
+K零三残余はOre suspensionと元Jacobiによるactual essential三変数還元へ移り、全例外を保持して完了させる。
+旧線形上界33〜35を成功扱いしない。
+
+smoothquadricは正しい同時Euler gaugeと全conormal補正でrank零二/全R空へ強化した。
+rank二quadricconeは正しいHamiltonian pencil全源へ移る。rankzeroOreのv非依存仮定がrank二で失敗したruntimeを保持し、同じprofileを反復しない。
+smoothcubic scrollのrank二integral reduced Rはnormal quadratic/primitive root/全verticalとNのc2八対九で空。
+全21源とrank二openの二回の弱いdimension goalは未閉なので、R可約非被約と実Dの既約性へ変更する。
+degree五rank二canonical index二、他のrank二特異/vertical支持、rank二planeの残零Rも続ける。
+旧五回未決GBやjet/minor列へ自動復帰しない。
 
 rank二planeの既約被約Rはnode/cuspも含め全排除済み。非planeの三重以上はsecant論で不可能、rank零first Lieの全二型からconormal abelianを得る。この線形必要条件でdegree三全源を縮小しており、旧30変数GB/冪探索を繰返さない。
 
@@ -54,8 +62,13 @@ Ga9 distinct-c全源も実cubic曲線で新しい既約非正規quinticの23次�
 重複Hではnil31long-top六源、nil22top八源、nil31image half/third全源は被覆済み。
 nil22imageの全十一源は独立606恒等式で有限化した。triple_A/Bは二つの新23成分、
 quadratic_B/triple_C/double_Dは既知25成分への全parameter実曲線で被覆。
-double_B全六源もCPLUS_EXT24へ実変形で被覆済み。double_C全六源も従属HHHQ24へ全parameter実曲線と全八源actualmapで被覆済み。残るstable二源。double_A全六磁気源は既知cuspidal24へ被覆。quadratic_A全七源はactualsymplectic曲線で全MPSへ被覆済み。double_Aの既知候補はT36/T37/T38まで限定したが帰属未証明。
+double_B全六源もCPLUS_EXT24へ実変形で被覆済み。double_C全六源も従属HHHQ24へ全parameter実曲線と全八源actualmapで被覆済み。残るstable二源。double_A全六磁気源は既知cuspidal24へ被覆。quadratic_A全七源はactualsymplectic曲線で全MPSへ被覆済み。double_Aはa=1/4+epsilonの全六mag正則実族で既知cuspidal24へ全被覆済み。stable二源の全sourceは23次元であり、個々のorbit22/21とは区別する。
 short r=2/3も未帰属で、三次零を高次反復せず幾何又は実変形を使う。
+
+本質三変数の既約自由quinticは、旧C45と新七explicit曲線の全源/各cusp型/全ambient/相違を別作者が独立確認し、全八つを個別23成分として採録した。
+全必要curveリストを八つに尽くすpureproofも別作者独立PASS、全essential3既約DのE/G支持は八つの全23成分へ被覆済み。本質四/五変数など他の残支持へ進む。
+Hquartic型6には全marked quarticのMilnor/Tjurina/contactを用いる。
+D5+cusp-tangent全源はQ7一軌道23へ還元・全D101/true48cutまで確認したが、二次余核零で成分性未証明。高次自動反復をせずactualgeometry/他markedbranchへ。
 
 1+1+3には平面三配置と非平面nil源、1+2+2にはplane tan-simple/chordとlambda零のE残源がある。
 全G次元上界だけではこれらを被覆したことにならない。既約非正規quinticの全点帰属も残る。

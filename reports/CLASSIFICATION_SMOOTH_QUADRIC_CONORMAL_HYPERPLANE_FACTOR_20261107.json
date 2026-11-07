@@ -1,0 +1,65 @@
+{
+  "task_id": "G",
+  "producer": "plane_collision_review",
+  "status": "producer_full_pureproof_pending_root_independent_review",
+  "new_CAS_run": false,
+  "input_sha256": {
+    "research/classification/SMOOTH_QUADRIC_POISSON_CONORMAL_HYPERPLANE_FACTOR.md": "40549633a4afef3670ce563e89c4bcf3e2b21fd77ff13ae0c69fce157e4f3ca6",
+    "research/classification/IRREDUCIBLE_NONNORMAL_RANK2_POISSON_MODULE.md": "085e3ac039aebf9ae68810f44452ae3e084a4302a3be243651164acbacaa7206",
+    "research/classification/REDUCED_DEGENERACY_ZERO_SURFACE_ABELIAN_CONORMAL.md": "691b4d7a5f55c48f7e771b11fa7e4ddddb9403d335a303d40bee98410c0db24b",
+    "research/classification/REDUCED_DEGENERACY_ZERO_SURFACE_SEPARATE_REVIEW.md": "196fd7cd4fe5db162e8c42aac7048cd488dbcec7cc9a406b18f2e559a85fe2e8",
+    "research/classification/SMOOTH_QUADRIC_RANK_TWO_INTEGRAL_ZERO_CURVE_SEPARATE_REVIEW.md": "8c435074ef146a290ba3ba7b0564a0c94fb2f88fa10e481544f8b1f6b7eb0786"
+  },
+  "abstract_lemma": "Smoothquadric Poissoninvariance plus abelianconormal forces invariantspanhyperplane and actualhfactor.",
+  "global_gauge": {
+    "coordinates": [
+      "h",
+      "x1",
+      "x2",
+      "x3",
+      "x4"
+    ],
+    "quadric": "q=x^T Qx, rankQ4",
+    "lambda_twist": "OH",
+    "mu_twist": "O2H",
+    "lambda_global_linear_lift": true,
+    "mu_global_quadratic_lift": true,
+    "W_h": "lambda",
+    "W_x": "Q^-1 B x/2 where mu=x^TBx",
+    "Pi_prime": "Pi+Euler wedgeW",
+    "both_normal_contractions_zero_modI": true,
+    "actual_Pf_Euler_gauge_unchanged": true
+  },
+  "strict_conormal": {
+    "chart": "u=h/Xj,v=q/Xj^2",
+    "exact_identity": "Xj^3{u,v}={h,q}-2q/Xj*{h,Xj}-h/Xj*{Xj,q}",
+    "both_corrections_I2": true,
+    "prime_CI_I2_primary_saturated": true
+  },
+  "factor": {
+    "raw_h_row": "h*l_i+q*a_i",
+    "a_constants": true,
+    "mod_h": "q*sum(a_i*q_i) in(q^2), degree3<4",
+    "q_gradient_rank4": true,
+    "all_a_zero": true,
+    "hyperplane_Poisson_invariant": true,
+    "whole_actual_quintic_h_factor": true
+  },
+  "applied_ranks": {
+    "rank2": "Intrinsic conormalabelian from unit tangentPoisson and actualPf I2, extends globally on smoothS",
+    "rank0": "Accepted all-m reducedactualD modular-tangency conormallemma"
+  },
+  "removed_old_restrictions": [
+    "R integral/reduced",
+    "normalquadraticrootrank",
+    "vertical zero absence",
+    "root extension beyondnormalcone",
+    "normalization/conductorsmoothness"
+  ],
+  "retained_complements": [
+    "quadriccone nonzeroQradical",
+    "other support surfaces",
+    "fullG/E/component count"
+  ],
+  "proof_note": "research/classification/SMOOTH_QUADRIC_POISSON_CONORMAL_HYPERPLANE_FACTOR.md"
+}

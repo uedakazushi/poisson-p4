@@ -226,4 +226,100 @@ def main():
         reviewer_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),seconds=time.monotonic()-start,maximum_RSS_KiB=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss)
     destination.write_text(json.dumps(result,indent=2)+'\n')
     print('PASS',OUT,round(result['seconds'],3),'seconds',result['maximum_RSS_KiB'],'KiB',flush=True)
-if __name__=='__main__':main()
+def eight_ambient_review():
+    """Independent all-seven full ambient proof; old first104 code is untouched."""
+    start=time.monotonic();signal.alarm(180);resource.setrlimit(resource.RLIMIT_AS,(1536*1024**2,)*2)
+    source='reports/CLASSIFICATION_ESSENTIAL_THREE_QUINTIC_EIGHT_SOURCES_20261107.json'
+    ambient='reports/CLASSIFICATION_ESSENTIAL_THREE_QUINTIC_EIGHT_AMBIENT_20261107.json'
+    jobpath='research/classification/jobs/essential_three_quintic_eight_ambient_review.json'
+    destination=ROOT/'reports/CLASSIFICATION_ESSENTIAL_THREE_QUINTIC_EIGHT_AMBIENT_REVIEW_20261107.json'
+    if destination.exists():raise FileExistsError(destination)
+    job=json.loads((ROOT/jobpath).read_text())
+    for b in job['exact_inputs_and_hashes']:assert hashlib.sha256((ROOT/b['path']).read_bytes()).hexdigest()==b['sha256'],b['path']
+    sources={c['id']:c for c in json.loads((ROOT/source).read_text())['eight_curve_sources']['all_eight_candidate_sources']}
+    all_data=json.loads((ROOT/ambient).read_text())['eight_full_ambient'];records=[]
+    R0=LaurentRing((),('x','y','z','u','v'))
+    convert=lambda p:{e+(0,0,0):v for e,v in R0.parse(p).items()}
+    for case in all_data['all_eight_cases']:
+        if case['id']=='C45':
+            for key in ('immutable_full_ambient','immutable_component_support'):
+                b=case[key];assert hashlib.sha256((ROOT/b['path']).read_bytes()).hexdigest()==b['sha256']
+            continue
+        a=case['full_ambient'];row=sources[case['id']];fields=[[convert(t) for t in v] for v in row['complete_quadratic_gradient_kernel']['vector_fields']]
+        U,V=fields;div=lambda W:q.add(*(q.der(W[i],i) for i in range(3)))
+        p={(i,3):U[i] for i in range(3)};p.update({(i,4):V[i] for i in range(3)})
+        p[3,4]=q.add(q.scale(q.mul(div(V),q.atom(1,3)),-1),q.mul(div(U),q.atom(1,4)))
+        scale=int(a['canonical_point_integer_scale']);P=q.antisymmetric({ij:q.scale(v,scale) for ij,v in p.items()})
+        expected=q.antisymmetric({tuple(map(int,k.split(','))):convert(t) for k,t in a['canonical_point'].items()})
+        assert q.vec(P)==q.vec(expected) and not any(q.jacobi(P).values())
+        D=q.transpose([q.jvec(q.jacobi(plus(P,q.antisymmetric({ij:{e+(0,0,0):F(1)}})))) for ij,e in q.COLS])
+        assert D==sparse_rows(a['full_D_sparse_rows'],150)
+        Ecols=[];Ocols=[]
+        for i,j in product(range(5),repeat=2):
+            E=q.antisymmetric({(u,v):q.add(q.atom(1,u,j) if v==i else {},q.atom(-1,v,j) if u==i else {}) for u,v in q.PAIRS})
+            O=q.antisymmetric({(u,v):q.add(q.mul(q.atom(1,j),q.der(P.get((u,v),{}),i)),q.scale(P.get((j,v),{}) if u==i else {},-1),q.scale(P.get((u,j),{}) if v==i else {},-1)) for u,v in q.PAIRS})
+            Ecols.append(q.vec(E));Ocols.append(q.vec(O))
+        M=q.transpose(Ecols+Ocols+[q.vec(P)])
+        assert M==q.transpose([sparse_vector(v,150) for v in a['all51_actual_direction_columns']])
+        assert q.rank(M)[0]==48 and not any(any(row) for row in matmul(D,M))
+        dm=minor(D,a['full_350_by_150_D']);mm=minor(M,a['actual_Euler_GL_scalar_source']);rank=a['full_350_by_150_D']['rank']
+        assert rank in (101,102)
+        sigma=a['Cstar']['coordinate_weights'];assert sigma==[0,0,0,1,1]
+        bw=[sum(sigma[i] for i in ij)-sum(c*d for c,d in zip(e,sigma))-1 for ij,e in q.COLS]
+        ow=[sum(sigma[i] for i in quad)-sum(c*d for c,d in zip(e,sigma))-2 for quad,e in q.ROWS]
+        assert bw==a['Cstar']['relative_input_weights'] and ow==a['Cstar']['relative_output_weights']
+        assert all(not v or bw[j]==ow[i] for i,rowD in enumerate(D) for j,v in enumerate(rowD))
+        assert all(not v or bw[i]==0 for i,v in enumerate(q.vec(P)))
+        cut=a['true_cut'];normals=[sparse_vector(v,150) for v in cut['all150_true_normals']]
+        assert len(normals)==102-rank
+        Fcols=[sparse_vector(v,150) for v in cut['actual48_basis']];Fmat=q.transpose(Fcols)
+        cursor=0
+        for block in a['full_weight_blocks']:
+            for j in block['actual_source_column_indices']:
+                assert Fcols[cursor]==[M[i][j] for i in range(150)]
+                assert all(not v or bw[i]==block['weight'] for i,v in enumerate(Fcols[cursor]));cursor+=1
+        assert cursor==48 and len(set(cut['coordinate_rows']))==48
+        cm=q.determinant([Fmat[i] for i in cut['coordinate_rows']]);assert cm==F(cut['source_cut48_determinant']) and cm
+        for n in normals:
+            assert not any(rowD[0] for rowD in matmul(D,[[v] for v in n]))
+            assert all(not v or bw[i]==-1 for i,v in enumerate(n)) and all(not n[i] for i in cut['coordinate_rows'])
+        dc=cut['independent_implicit_coordinate_indices'];assert len(set(dc))==rank
+        remaining=[i for i in range(150) if i not in dc];perm=remaining+dc
+        sign=(-1)**sum(perm[i]>perm[j] for i in range(150) for j in range(i+1,150))
+        split=sign*q.determinant([Fmat[i]+[n[i] for n in normals] for i in remaining])
+        assert split==F(cut['full150_direct_sum_determinant']) and split
+        assert q.rank(q.transpose(Fcols+normals))[0]==150-rank
+        pairing=None
+        if rank==101:
+            w=case['weakest_one_normal_quadratic'];assert dc==w['IFT_columns'] and w['true_normal_character']==-1
+            dr=w['IFT_rows'];A=[[D[i][j] for j in dc] for i in dr];inverse=[[F(v) for v in r] for r in w['all101inverse_rows']]
+            eye=[[F(i==j) for j in range(101)] for i in range(101)]
+            assert matmul(A,inverse)==eye and matmul(inverse,A)==eye
+            assert q.determinant(A)==F(w['nonzero101minor'])
+            Q=q.jvec(q.jacobi(tensor(normals[0])));assert Q==sparse_vector(w['full350_Jacobi_quadratic_source'],350)
+            T=sparse_vector(w['unique_cut_quadratic_correction'],150)
+            assert all(not v or i in dc and bw[i]==-2 for i,v in enumerate(T))
+            residual=[sum((x*y for x,y in zip(rowD,T) if x and y),F(0))+v for rowD,v in zip(D,Q)]
+            assert residual==sparse_vector(w['all350_true_quadratic_residual'],350) and all(not residual[i] for i in dr)
+            ell=sparse_vector(w['cokernel_functional'],350);assert all(not v for v in matmul([ell],D)[0])
+            pairing=sum(x*y for x,y in zip(ell,Q));assert pairing and pairing==F(w['nonzero_pairing'])==residual[w['residual_row']]
+        grad=G.quintic(P);assert q.rank([[q.der(grad,i).get(ex+(0,0,0),F(0)) for i in range(5)] for ex in q.monomials(4)])[0]==3
+        records.append(dict(id=case['id'],full350_by150_reconstructed=True,full51_actual_columns_reconstructed=True,D_rank=rank,M_rank=48,D_minor=dm,M_minor=mm,true48cut_full150_directsum=str(split),quadratic_pairing=None if pairing is None else str(pairing),projective_component_dimension=23,smooth=rank==102,no_higher_obstruction_run=True))
+    assert len(records)==7
+    meta=all_data['immutable_prior104_catalogue'];blob=subprocess.check_output(['git','cat-file','blob',meta['git_blob']],cwd=ROOT)
+    assert hashlib.sha256(blob).hexdigest()==meta['raw_sha256'] and len(json.loads(blob)['components'])==104
+    assert subprocess.check_output(['git','rev-parse',meta['commit']+':'+meta['path']],cwd=ROOT,text=True).strip()==meta['git_blob']
+    binding=all_data['accepted_prior103_audit'];assert hashlib.sha256((ROOT/binding['path']).read_bytes()).hexdigest()==binding['sha256']
+    projection=all_data['prior104_projection'];assert hashlib.sha256((ROOT/projection['path']).read_bytes()).hexdigest()==projection['sha256']
+    oldreview=json.loads((ROOT/OUT).read_text());assert oldreview['all_passed'] and oldreview['prior103_audit']['all_prior103_distinct']
+    types=[row['expected_curve_type'] for row in sources.values()];assert len(set(types))==8
+    pairs={tuple(sorted((r['first'],r['second']))) for r in all_data['all28_source_closure_distinctness_reasons']}
+    assert pairs=={tuple(sorted(p)) for p in combinations(sources,2)}
+    result=dict(task_id='E_reduced_nonnormal',all_passed=True,all_seven_full_ambient_proofs=records,immutable_prior104=meta,prior103_accepted_independent_audit_reused='reports/CLASSIFICATION_ESSENTIAL_THREE_QUINTIC_FIRST_REVIEW_20261107.json',all7_new_vs104='All prior103 full-component reasons apply uniformly to essential3 irreducible23components; previous104 maximum cusp multiplicity4 differs from all seven max<=3.',all28_mutual_distinctness='Intrinsic essential-three plane quotient and distinct verified cuspconfigurations; two dense23orbits cannot have the same23closure.',curve_classification_and_full_source_recognition='Separate author proof/input obligation; this review confirms all ambient facts and the conditional all104/mutual comparison, not the independent Puiseux completeness audit.',no_new_count_registered=True,no_producer_CAS_imports=True,inputs=job['exact_inputs_and_hashes'],reviewer_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),seconds=time.monotonic()-start,maximum_RSS_KiB=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss)
+    destination.write_text(json.dumps(result,indent=2)+'\n');print('PASS all7fullambient',round(result['seconds'],3),'seconds',flush=True)
+
+
+if __name__=='__main__':
+    import sys
+    if '--eight-ambient' in sys.argv:eight_ambient_review()
+    else:main()

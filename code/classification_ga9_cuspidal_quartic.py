@@ -213,4 +213,131 @@ def main():
  assert not args.output.exists();args.output.write_text(json.dumps(result,indent=2)+'\n')
  print(json.dumps(dict(all_passed=True,new24=True,Ga9_sources_covered=['power1','power3'],prior102_distinct=True,seconds=result['seconds'])))
 
-if __name__=='__main__':main()
+def d5_source_component(output):
+ """Isolated whole D5 marked-source anchor; old functions are unchanged."""
+ import ast,resource
+ started=time.monotonic();resource.setrlimit(resource.RLIMIT_CPU,(119,120));resource.setrlimit(resource.RLIMIT_AS,(1536*1024**2,)*2)
+ original=Path('reports/CLASSIFICATION_GA9_CUSPIDAL_QUARTIC_COMPONENT_20261107.json');old=json.loads(original.read_text())['producer_bytes']
+ tree=lambda text:{node.name:ast.dump(node,include_attributes=False)for node in ast.parse(text).body if isinstance(node,(ast.FunctionDef,ast.AsyncFunctionDef))}
+ before,after=tree(old),tree(Path(__file__).read_text());assert all(after[k]==v for k,v in before.items())
+ F=h*h*y*w+h**4+y**4;R=sum(c*q for c,q in zip(r,mons));family=s.zeros(5)
+ entries={(1,2):y*y,(1,4):4*h*h+3*y*w,(2,3):-4*h*h-y*w,(3,4):-16*y*y+3*w*w,(1,3):3*w*x-y*z+R}
+ for ij,v in entries.items():family[ij]=v;family[ij[::-1]]=-v
+ assert all(v==0 for v in jac(family).values())
+ env=dict(zip(r,[1,0,0,0,0,0]));P=family.subs(env)
+ bv={(i,j):{ex:int(c)for ex,c in s.Poly(P[i,j],*coords).terms()if c}for i,j in m.PAIRS if P[i,j]!=0}
+ D=s.Matrix(m.linearized_jacobi_matrix(bv).tolist());action=[]
+ for i,j in it.product(range(5),repeat=2):
+  B=s.zeros(5);B[i,j]=1;X=B*s.Matrix(coords);action.append(vector(sum([X[k]*P.diff(coords[k])for k in range(5)],s.zeros(5))-B*P-P*B.T))
+ V=s.Matrix(m.vertical_bivector_matrix().tolist());M=V.row_join(s.Matrix.hstack(*action,vector(P)));FS=M.row_join(s.Matrix.hstack(*[vector(family.diff(v))for v in r]))
+ assert D*FS==s.zeros(350,FS.cols)
+ def cert(A):
+  cc=pivots(A);rr=pivots(A[:,cc].T);return dict(shape=list(A.shape),rank=len(cc),rows=rr,columns=cc,determinant=str(dm(A[rr,cc]).det()))
+ def sp(v):return {str(i):str(c)for i,c in enumerate(v)if c}
+ def unvec(v):
+  A=s.zeros(5)
+  for c,((i,j),ex)in zip(v,m.BIVECTOR_BASIS):
+   q=c*s.prod(a**b for a,b in zip(coords,ex));A[i,j]+=q;A[j,i]-=q
+  return A
+ def jvec(A):
+  J=jac(A);W={quad:s.expand(sum((-1)**i*coords[quad[i]]*J[quad[:i]+quad[i+1:]]for i in range(4)))for quad in it.combinations(range(5),4)}
+  return s.Matrix([s.Poly(W[quad],*coords).coeff_monomial(mon)for quad,mon in m.FOUR_VECTOR_BASIS])
+ assert jvec(P)==s.zeros(350,1)
+ dc,vc,mc,fc=map(cert,[D,V,M,FS]);assert vc['rank']==24 and mc['rank']==fc['rank']==48
+ result=dict(task_id='E_reduced_nonnormal',all_passed=True,whole_source_proof='research/classification/PLANE_HYPERPLANE_QUARTIC_D5_TANGENT_SOURCE.md',
+  whole_marked_quartic='H=h,F=h^2*y*w+h^4+y^4',all_six_magnetic_family=encode(family),canonical_source_values={str(k):str(v)for k,v in env.items()},canonical_brackets=encode(P),
+  actual_projective_degeneracy_quintic=str(16*h*F),all10_strict_source_Jacobi_zero=True,all350_anchor_Jacobi_zero=True,
+  full_D=dc,vertical=vc,full51_action=mc,all6_actual_source=fc,all_D_times_actual_directions_zero=True,
+  original_all_functions_AST_preserved=True,original_function_AST_sha256={k:hashlib.sha256(v.encode()).hexdigest()for k,v in before.items()},
+  actual_projective_orbit_dimension=23,canonical_normal_count=150-dc['rank']-48,independent_review_status='pending',new_component_counted=False)
+ if dc['rank']==102:
+  result.update(status='SMOOTH_UNIQUE_23_ORBIT_COMPONENT_CANDIDATE',component23_proved_by_dimension=True,local_scheme_smooth=True,
+   dimension_argument='Fullraw tangent48 equals the actual48 Euler/PGL/scale orbit. Thus projectivepoint smooth23/uniquecomponent, and its23orbit closure is that fullcomponent. Whole6source closure equals this orbitclosure by explicit pureproof normalizer.')
+ elif dc['rank']==101:
+  cols=mc['columns'];rows=mc['rows'];F48=M[:,cols];inverse=dm(F48[rows,:]).inv().to_Matrix();K=dm(D).nullspace().to_Matrix().T
+  reduced=(K-F48*inverse*K[rows,:]).applyfunc(s.cancel);pc=pivots(reduced);assert len(pc)==1
+  N=reduced[:,pc[0]];N=N/next(c for c in N if c);assert D*N==s.zeros(350,1)and N[rows,:]==s.zeros(48,1)
+  I=s.eye(150)[:,dc['columns']];U=I-F48*inverse*I[rows,:];frame=F48.row_join(N).row_join(U);direct=cert(frame);assert direct['rank']==150
+  Q=jvec(unvec(N));quad=cert(D.row_join(Q));result.update(true_cut_linear_coordinate_rows=rows,true_cut_normal=sp(N),true48plus1plus101_direct_sum=direct,quadratic_Jacobi_normal=sp(Q),quadratic_augmented_D=quad)
+  if quad['rank']==102:
+   dr,dd=dc['rows'],dc['columns'];di=dm(D[dr,dd]).inv().to_Matrix();res=Q-D[:,dd]*di*Q[dr,:];bad=next(i for i,v in enumerate(res)if v)
+   lam=s.zeros(1,350);lam[bad]=1
+   for j,k in enumerate(dr):lam[k]-=(D[bad,dd]*di)[j]
+   assert lam*D==s.zeros(1,150)and(lam*Q)[0]!=0
+   result.update(status='ONE_NORMAL_NONZERO_QUADRATIC_23_COMPONENT_CANDIDATE',component23_proved_by_dimension=True,local_scheme_smooth=False,
+    all150_D_annihilating_functional=sp(lam),nonzero_normal_quadratic_value=str((lam*Q)[0]),
+    dimension_argument='Actual48symmetryspace plus true102cut is full150directsum; D101 and1normal, nonzero quadratic cokernel forces reducedcut support0. Krull givesrawdimension<=48 matching actualorbit48. The irreducible23orbitclosure is a fullcomponent; no higherjet or exactthickness needed.')
+  else:result.update(status='ONE_NORMAL_QUADRATIC_ZERO_STOP_NO_HIGHER_JET',component23_proved_by_dimension=False)
+ else:result.update(status='TANGENT_NORMAL_AT_LEAST_TWO_STOP_NO_HIGHER_JET',component23_proved_by_dimension=False)
+ inputs=[Path(__file__),original,helper,Path(result['whole_source_proof']),Path('reports/CLASSIFICATION_PLANE_HYPERPLANE_QUARTIC_D5_SOURCE_20261107.json')]
+ result.update(inputs=[dict(path=str(p),sha256=hashlib.sha256(p.read_bytes()).hexdigest())for p in inputs],seconds=time.monotonic()-started,max_rss_kib=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
+  scope='One justified canonicalpoint of the complete D5+tangent/full6mag irreduciblesource. Distinctness against allknowncomponents and independentverification still required before counting.')
+ assert not output.exists();output.write_text(json.dumps(result,indent=2)+'\n');print(json.dumps({k:result[k]for k in ['all_passed','status','canonical_normal_count','component23_proved_by_dimension','seconds','max_rss_kib']}))
+
+def mu6_marked_sources(output):
+ """One finite batch: complete eleven marked candidates plus two controls."""
+ import ast,resource
+ started=time.monotonic();resource.setrlimit(resource.RLIMIT_CPU,(119,120));resource.setrlimit(resource.RLIMIT_AS,(1536*1024**2,)*2)
+ jobpath=Path('research/classification/jobs/plane_hyperplane_quartic_mu6_sources.json');job=json.loads(jobpath.read_text())
+ functions={n.name:hashlib.sha256(ast.dump(n,include_attributes=False).encode()).hexdigest()for n in ast.parse(Path(__file__).read_text()).body if isinstance(n,(ast.FunctionDef,ast.AsyncFunctionDef))}
+ assert all(functions[k]==v for k,v in job['old_function_AST_sha256'].items())
+ inputpath=Path('reports/CLASSIFICATION_PLANE_HYPERPLANE_QUARTIC_MU6_MARKED_LIST_20261107.json');packet=json.loads(inputpath.read_text());cases=packet['all11_candidates']+packet['controls'];assert len(cases)==13
+ env={'h':h,'y':y,'w':w};base=(h,y,w);degree6=[h**(6-i-j)*y**i*w**j for i in range(7)for j in range(7-i)];assert len(degree6)==28
+ def cert(A):
+  cc=pivots(A);rr=pivots(A[:,cc].T);return dict(shape=list(A.shape),rank=len(cc),rows=rr,columns=cc,determinant=str(dm(A[rr,cc]).det()))
+ def mat(A):return [[str(v)for v in A.row(i)]for i in range(A.rows)]
+ records=[]
+ for case in cases:
+  F_old=s.sympify(case['F'],locals=env);H=s.sympify(case['H'],locals=env);first=s.Matrix([[s.Poly(H,*base).coeff_monomial(v)for v in base]])
+  G=first
+  for i in range(3):
+   trial=G.col_join(s.eye(3)[i,:])
+   if trial.rank()>G.rank():G=trial
+   if G.rows==3:break
+  assert G.det()!=0;back=G.inv()*s.Matrix(base);F=s.expand(F_old.subs(dict(zip(base,back)),simultaneous=True));D=h*F
+  assert s.expand(H.subs(dict(zip(base,back)),simultaneous=True)-h)==0
+  unknown=s.symbols('b0:18');fields=[sum(unknown[6*i+j]*q for j,q in enumerate(mons))for i in range(3)]
+  polynomial=s.Poly(s.expand(sum(fields[i]*s.diff(D,base[i])for i in range(3))),*base)
+  A,rhs=s.linear_eq_to_matrix([polynomial.coeff_monomial(q)for q in degree6],unknown);assert rhs==s.zeros(28,1)
+  K=dm(A).nullspace().to_Matrix().T;assert A*K==s.zeros(28,K.cols)and 18-cert(A)['rank']==K.cols
+  anchors=[]
+  for j in range(K.cols):
+   field=s.Matrix([sum(K[6*i+k,j]*q for k,q in enumerate(mons))for i in range(3)]);ell=s.cancel(field[0]/h);assert ell.is_polynomial(*base)
+   anchors.append(s.Matrix([s.expand(field[1]-ell*y),s.expand(field[2]-ell*w)]))
+  pairs=[]
+  for i,j in it.combinations(range(len(anchors)),2):
+   determinant=s.expand(anchors[i][0]*anchors[j][1]-anchors[i][1]*anchors[j][0]);ratio=s.cancel(determinant/F)
+   if ratio!=0 and not ratio.free_symbols:pairs.append((i,j,ratio))
+   else:assert determinant==0,'Nonzero determinant without Saito divisibility is a defect.'
+  row=dict(name=case['name'],input_quartic=case['F'],input_marked_H=case['H'],actual_H_to_h_base_matrix=mat(G),actual_inverse_base_matrix=mat(G.inv()),base_determinant=str(G.det()),transformed_irreducible_quartic=str(F),full28x18_gradient_matrix=mat(A),gradient_rank=cert(A),full_gradient_kernel=mat(K),full_kernel_dimension=K.cols,all_kernel_to_quadratic_h_Casimir_anchors=[list(map(str,U))for U in anchors])
+  if not pairs:
+   row.update(status='NO_FULLRANK_QUADRATIC_SAITO_FRAME',all_anchor_pair_determinants_zero=True);records.append(row);continue
+  assert K.cols==2 and len(pairs)==1
+  ii,jj,ratio=pairs[0];U,V=anchors[ii],anchors[jj];det=s.expand(U[0]*V[1]-U[1]*V[0]);assert s.expand(det-ratio*F)==0
+  bracket=s.Matrix([s.expand(sum(U[j]*s.diff(V[i],(y,w)[j])-V[j]*s.diff(U[i],(y,w)[j])for j in range(2)))for i in range(2)])
+  alpha=s.cancel((bracket[0]*V[1]-bracket[1]*V[0])/det);beta=s.cancel((U[0]*bracket[1]-U[1]*bracket[0])/det)
+  assert all(v.is_polynomial(*base)and s.Poly(v,*base).total_degree()<=1 for v in [alpha,beta])
+  assert (bracket-alpha*U-beta*V).applyfunc(s.expand)==s.zeros(2,1)
+  P=s.zeros(5);R=sum(c*q for c,q in zip(r,mons))
+  for ij,v in {(1,2):U[0],(1,4):U[1],(2,3):-V[0],(3,4):V[1],(1,3):alpha*x+beta*z+R}.items():P[ij]=v;P[ij[::-1]]=-v
+  strict=jac(P);assert all(v==0 for v in strict.values())
+  projective=s.Matrix([s.Poly(s.expand(sum((-1)**i*coords[quad[i]]*strict[quad[:i]+quad[i+1:]]for i in range(4))),*coords).coeff_monomial(mon)for quad,mon in m.FOUR_VECTOR_BASIS]);assert projective==s.zeros(350,1)
+  pf=s.expand(P[1,2]*P[3,4]-P[1,3]*P[2,4]+P[1,4]*P[2,3]);assert s.expand(pf-ratio*F)==0
+  logarithms=[s.cancel(sum(T[j]*s.diff(F,(y,w)[j])for j in range(2))/F)for T in [U,V]];assert all(v.is_polynomial(*base)for v in logarithms)
+  Z=s.Matrix([s.expand(sum(s.diff(P[i,j],coords[i])for i in range(5)))for j in range(5)]);N=Z.jacobian(coords);assert Z==s.Matrix([0,-logarithms[0],0,-logarithms[1],0]);assert N*N==s.zeros(5)
+  spatial=(x,y,z,w);AZ=Z[1:,:].subs(h,1);AA=AZ.jacobian(spatial);cc=AZ.subs(dict.fromkeys(spatial,0));nr=N.rank();ar=AA.rank();cin=AA.row_join(cc).rank()==ar;h_inside=N.T.row_join(s.Matrix([1,0,0,0,0])).rank()==nr
+  effects=[s.expand(-alpha*l-sum(V[j]*s.diff(l,(y,w)[j])for j in range(2)))for l in [h,y,w]]+[s.expand(-beta*l+sum(U[j]*s.diff(l,(y,w)[j])for j in range(2)))for l in [h,y,w]]
+  T=s.Matrix([[s.Poly(v,*base).coeff_monomial(q)for v in effects]for q in mons]);Tcert=cert(T)
+  category='nil22_image_type6'if nr==ar==2 and cin else 'nil211_translation_zero_covered_type8'if nr==ar==1 and cin else 'nil211_short_translation_type9'if nr==2 and ar==1 and not cin else 'OTHER_KEEP_EXPLICIT'
+  row.update(status='ACTUAL_WHOLE_SIX_MAGNETIC_SOURCE_VERIFIED',anchor_U=list(map(str,U)),anchor_V=list(map(str,V)),Saito_determinant_ratio=str(ratio),commutator=[str(alpha),str(beta)],all6_magnetic_parameters=list(map(str,r)),all150_source_brackets=encode(P),all10_strict_Jacobi_zero=True,all350_projective_Jacobi_zero=True,actual_quintic=str(s.expand(ratio*h*F)),logarithmic_cofactors=list(map(str,logarithms)),canonical_modular_field=list(map(str,Z)),homogeneous_cofactor_matrix=mat(N),homogeneous_cofactor_power_ranks=[(N**j).rank()for j in range(1,6)],distinguished_h_in_dual_image=h_inside,affine_linear_matrix=mat(AA),affine_constant=list(map(str,cc)),affine_power_ranks=[(AA**j).rank()for j in range(1,5)],affine_constant_in_linear_image=cin,canonical_type=category,full_magnetic_translation_matrix=mat(T),full_magnetic_translation_rank=Tcert,magnetic_cokernel_basis=[list(map(str,v))for v in T.T.nullspace()],no_source_membership_or_component_claim=True)
+  records.append(row)
+ report=dict(task_id='E_reduced_nonnormal',all_passed=True,whole_geometry_input=str(inputpath),input_sha256=hashlib.sha256(inputpath.read_bytes()).hexdigest(),producer_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),old_all_FunctionDef_AST_preserved=True,all11_whole_candidates_retained=True,all2_controls_retained=True,cases=records,seconds=time.monotonic()-started,max_rss_kib=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,scope='Complete finite markedgeometry batch with actual H/inverse, full28x18kernel/Saito/6mag/Jac/Pf/cofactor. No additionalambient anchors, no Eparent/count claim; magnetic normalization/component recognition separate.')
+ assert not output.exists();output.write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(dict(all_passed=True,cases=[dict(name=v['name'],status=v['status'],type=v.get('canonical_type'),magnetic_rank=v.get('full_magnetic_translation_rank',{}).get('rank'))for v in records],seconds=report['seconds'],max_rss_kib=report['max_rss_kib'])))
+
+if __name__=='__main__':
+ import sys
+ if '--mu6-marked-sources' in sys.argv:
+  parser=argparse.ArgumentParser();parser.add_argument('--mu6-marked-sources',action='store_true');parser.add_argument('--output',type=Path,required=True);args=parser.parse_args();mu6_marked_sources(args.output)
+ elif '--d5-source' in sys.argv:
+  parser=argparse.ArgumentParser();parser.add_argument('--d5-source',action='store_true');parser.add_argument('--output',type=Path,required=True);args=parser.parse_args();d5_source_component(args.output)
+ else:main()

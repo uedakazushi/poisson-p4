@@ -14,15 +14,15 @@
     "null_values": "not catalogued or not applicable; never a claim of zero"
   },
   "coverage": {
-    "global_lower_bound": 104,
+    "global_lower_bound": 111,
     "generic_rank_two_full_components": 6,
-    "generic_rank_four_lower_bound": 98,
+    "generic_rank_four_lower_bound": 105,
     "upper_bound": null,
     "global_exhaustion_proved": false,
-    "individually_catalogued_count": 104,
+    "individually_catalogued_count": 111,
     "unexpanded_block_count": 0,
     "all_51_rank_four_ideals_in_S61_constructed": false,
-    "note_ja": "全104成分を個別同定。rank四98、rank二6。新しいirreducibleplanequintic23成分を全prior103と独立区別。全上界・一般五点・全分類は未証明。",
+    "note_ja": "全111成分を個別同定。rank四105/rank二6。explicit8平面既約自由quinticの個別全成分性と相違を独立確認。全上界と全G/Eは未証明。",
     "generic_primitive_first_jet_known_lifts_lower_bound": 5,
     "full_generic_fiber_exhaustion_proved": false,
     "known_union_over_smooth_canonical_curve": {
@@ -12141,6 +12141,643 @@
         "全fixedF/六magはactualPGL一orbit。genericorbit23、商dimension0。",
         "射影接次元24なのでsmoothとは主張しない。二次障害で被約支持成分性を証明し、横断非被約algebra詳細を要求しない。"
       ]
+    },
+    {
+      "id": "R4_PLANE_QUINTIC_A12_23",
+      "name": "A12の平面既約五次を持つ23次元成分",
+      "source_checkpoint": "v64-classification-first",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "additional_generic_rank_four_full_component_outside_MPS40",
+      "generic_rank": 4,
+      "projective_dimension": 23,
+      "meets_SNC_log_symplectic_locus": false,
+      "generic_pgl5_orbit_dimension": 23,
+      "generic_reduced_rosenlicht_quotient_dimension": 0,
+      "generic_transverse_algebra": "K",
+      "component_definition": "Reduced closure of the whole actualPGL5 orbit of the explicit free planequintic Saito cotangent source; full ambient componenthood independently proved.",
+      "generic_construction": {
+        "coordinates": [
+          "x",
+          "y",
+          "z",
+          "u",
+          "v"
+        ],
+        "quintic": "x**5 + 2*x**3*y*z - 2*x**2*y**3 + x**2*z**3 - 2*x*y**2*z**2 + y**4*z",
+        "exact_P1_parametrization": [
+          "s**4*t",
+          "-s**5 + s**2*t**3",
+          "-2*s**3*t**2 + t**5"
+        ],
+        "U": [
+          "3*x*y/13",
+          "45*x*z/52 - y**2/4",
+          "-15*x**2/26 + y*z"
+        ],
+        "V": [
+          "-3*x*z/2 + 45*y**2/26",
+          "15*x**2/4 + 8*y*z/13",
+          "90*x*y/13 + z**2"
+        ],
+        "cotangent_law": "U wedge d_u+V wedge d_v+(-div(V)*u+div(U)*v+R)d_u wedge d_v",
+        "magnetic_source": "R all homogeneous quadratics inx,y,z, all six coefficients includingzero",
+        "actual_stabilizer_identity_component": "Gm with projective semisimple multiplicities [3,2]",
+        "ambient_anchor_integer_scale": "52"
+      },
+      "generic_actual_degeneracy_divisor": {
+        "description": "Absolutely irreducible essential-three rational cuspidal quintic; configuration A12",
+        "witness_equation": "x**5 + 2*x**3*y*z - 2*x**2*y**3 + x**2*z**3 - 2*x*y**2*z**2 + y**4*z",
+        "irreducible_factor_degrees": [
+          5
+        ],
+        "corresponding_multiplicities": [
+          1
+        ],
+        "reduced": true,
+        "essential_variable_count": 3,
+        "plane_curve_singularity_configuration": "A12",
+        "total_Tjurina_number": 12,
+        "total_Milnor_number": 12
+      },
+      "claims": [
+        "R4_PLANE_QUINTIC_A12_COMPONENT_23",
+        "E_ESSENTIAL_THREE_IRREDUCIBLE_QUINTIC_FINITE_ORBITS"
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/ESSENTIAL_THREE_QUINTIC_EIGHT_COMPONENTS.md"
+        },
+        {
+          "path": "research/classification/ESSENTIAL_THREE_QUINTIC_EIGHT_SOURCE_SEPARATE_REVIEW.md"
+        },
+        {
+          "path": "research/classification/ESSENTIAL_THREE_QUINTIC_EIGHT_AMBIENT_SEPARATE_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_ESSENTIAL_THREE_QUINTIC_EIGHT_SOURCES_20261107.json",
+        "reports/CLASSIFICATION_ESSENTIAL_THREE_QUINTIC_EIGHT_AMBIENT_20261107.json",
+        "reports/CLASSIFICATION_ESSENTIAL_THREE_QUINTIC_EIGHT_SOURCE_REVIEW_20261107.json",
+        "reports/CLASSIFICATION_ESSENTIAL_THREE_QUINTIC_EIGHT_AMBIENT_REVIEW_20261107.json"
+      ],
+      "review_status": {
+        "proof": "smooth_full_componenthood_proved",
+        "independent_review": "accepted_separate_authors_Fraction_explicit_source_and_cusp_signature_plus_full150_ambient_cut_and_all_prior104_mutual_distinctness",
+        "certificates": "independent_explicit_source_cusp_and_Fraction_full150",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "notes_ja": [
+        "全fixedF/全mag源はactual23orbit、Rosenlicht商零。",
+        "全prior104と他七curve型との相違は各explicitcusp型から独立確認。",
+        "全リストの必要性/全E尽くしはこの個別成分証明に混ぜない。"
+      ]
+    },
+    {
+      "id": "R4_PLANE_QUINTIC_E8_A4_23",
+      "name": "E8+A4の平面既約五次を持つ23次元成分",
+      "source_checkpoint": "v64-classification-first",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "additional_generic_rank_four_full_component_outside_MPS40",
+      "generic_rank": 4,
+      "projective_dimension": 23,
+      "meets_SNC_log_symplectic_locus": false,
+      "generic_pgl5_orbit_dimension": 23,
+      "generic_reduced_rosenlicht_quotient_dimension": 0,
+      "generic_transverse_algebra": null,
+      "component_definition": "Reduced closure of the whole actualPGL5 orbit of the explicit free planequintic Saito cotangent source; full ambient componenthood independently proved.",
+      "generic_construction": {
+        "coordinates": [
+          "x",
+          "y",
+          "z",
+          "u",
+          "v"
+        ],
+        "quintic": "x**3*z**2 - 2*x**2*y**2*z + x*y**4 - y**5",
+        "exact_P1_parametrization": [
+          "s**5",
+          "s**3*t**2",
+          "s*t**4 + t**5"
+        ],
+        "U": [
+          "2*x**2",
+          "0",
+          "-3*x*z + y**2"
+        ],
+        "V": [
+          "8*x*y/45 - 2*x*z/3 - 2*y**2/9",
+          "2*x*z/45 - 2*y**2/45",
+          "-8*y*z/45 + z**2"
+        ],
+        "cotangent_law": "U wedge d_u+V wedge d_v+(-div(V)*u+div(U)*v+R)d_u wedge d_v",
+        "magnetic_source": "R all homogeneous quadratics inx,y,z, all six coefficients includingzero",
+        "actual_stabilizer_identity_component": "Gm with projective semisimple multiplicities [3,2]",
+        "ambient_anchor_integer_scale": "45"
+      },
+      "generic_actual_degeneracy_divisor": {
+        "description": "Absolutely irreducible essential-three rational cuspidal quintic; configuration E8+A4",
+        "witness_equation": "x**3*z**2 - 2*x**2*y**2*z + x*y**4 - y**5",
+        "irreducible_factor_degrees": [
+          5
+        ],
+        "corresponding_multiplicities": [
+          1
+        ],
+        "reduced": true,
+        "essential_variable_count": 3,
+        "plane_curve_singularity_configuration": "E8+A4",
+        "total_Tjurina_number": 12,
+        "total_Milnor_number": 12
+      },
+      "claims": [
+        "R4_PLANE_QUINTIC_E8_A4_COMPONENT_23",
+        "E_ESSENTIAL_THREE_IRREDUCIBLE_QUINTIC_FINITE_ORBITS"
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/ESSENTIAL_THREE_QUINTIC_EIGHT_COMPONENTS.md"
+        },
+        {
+          "path": "research/classification/ESSENTIAL_THREE_QUINTIC_EIGHT_SOURCE_SEPARATE_REVIEW.md"
+        },
+        {
+          "path": "research/classification/ESSENTIAL_THREE_QUINTIC_EIGHT_AMBIENT_SEPARATE_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_ESSENTIAL_THREE_QUINTIC_EIGHT_SOURCES_20261107.json",
+        "reports/CLASSIFICATION_ESSENTIAL_THREE_QUINTIC_EIGHT_AMBIENT_20261107.json",
+        "reports/CLASSIFICATION_ESSENTIAL_THREE_QUINTIC_EIGHT_SOURCE_REVIEW_20261107.json",
+        "reports/CLASSIFICATION_ESSENTIAL_THREE_QUINTIC_EIGHT_AMBIENT_REVIEW_20261107.json"
+      ],
+      "review_status": {
+        "proof": "true48cut_nonzero_quadratic_full_componenthood_proved",
+        "independent_review": "accepted_separate_authors_Fraction_explicit_source_and_cusp_signature_plus_full150_ambient_cut_and_all_prior104_mutual_distinctness",
+        "certificates": "independent_explicit_source_cusp_and_Fraction_full150",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "notes_ja": [
+        "全fixedF/全mag源はactual23orbit、Rosenlicht商零。",
+        "全prior104と他七curve型との相違は各explicitcusp型から独立確認。",
+        "全リストの必要性/全E尽くしはこの個別成分証明に混ぜない。"
+      ]
+    },
+    {
+      "id": "R4_PLANE_QUINTIC_E6_A6_23",
+      "name": "E6+A6の平面既約五次を持つ23次元成分",
+      "source_checkpoint": "v64-classification-first",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "additional_generic_rank_four_full_component_outside_MPS40",
+      "generic_rank": 4,
+      "projective_dimension": 23,
+      "meets_SNC_log_symplectic_locus": false,
+      "generic_pgl5_orbit_dimension": 23,
+      "generic_reduced_rosenlicht_quotient_dimension": 0,
+      "generic_transverse_algebra": null,
+      "component_definition": "Reduced closure of the whole actualPGL5 orbit of the explicit free planequintic Saito cotangent source; full ambient componenthood independently proved.",
+      "generic_construction": {
+        "coordinates": [
+          "x",
+          "y",
+          "z",
+          "u",
+          "v"
+        ],
+        "quintic": "x**3*z**2 + 2*x**2*y**2*z + x*y**4 - 2*x*y**3*z - 2*y**5 - y**4*z",
+        "exact_P1_parametrization": [
+          "s**5 + s**4*t",
+          "s**3*t**2",
+          "-s*t**4 + t**5"
+        ],
+        "U": [
+          "-7*x**2/3 - 2*x*y/3",
+          "-2*x*y/3 - y**2/4",
+          "7*x*z/2 + 5*y**2/2 + y*z"
+        ],
+        "V": [
+          "7*x**2/18 - 5*x*y/18 - 2*x*z/3 + 35*y**2/36",
+          "x*y/9 + 5*x*z/24 + 5*y**2/36 - y*z/4",
+          "-7*x*z/12 - 5*y**2/12 + z**2"
+        ],
+        "cotangent_law": "U wedge d_u+V wedge d_v+(-div(V)*u+div(U)*v+R)d_u wedge d_v",
+        "magnetic_source": "R all homogeneous quadratics inx,y,z, all six coefficients includingzero",
+        "actual_stabilizer_identity_component": "Gm with projective semisimple multiplicities [3,2]",
+        "ambient_anchor_integer_scale": "72"
+      },
+      "generic_actual_degeneracy_divisor": {
+        "description": "Absolutely irreducible essential-three rational cuspidal quintic; configuration E6+A6",
+        "witness_equation": "x**3*z**2 + 2*x**2*y**2*z + x*y**4 - 2*x*y**3*z - 2*y**5 - y**4*z",
+        "irreducible_factor_degrees": [
+          5
+        ],
+        "corresponding_multiplicities": [
+          1
+        ],
+        "reduced": true,
+        "essential_variable_count": 3,
+        "plane_curve_singularity_configuration": "E6+A6",
+        "total_Tjurina_number": 12,
+        "total_Milnor_number": 12
+      },
+      "claims": [
+        "R4_PLANE_QUINTIC_E6_A6_COMPONENT_23",
+        "E_ESSENTIAL_THREE_IRREDUCIBLE_QUINTIC_FINITE_ORBITS"
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/ESSENTIAL_THREE_QUINTIC_EIGHT_COMPONENTS.md"
+        },
+        {
+          "path": "research/classification/ESSENTIAL_THREE_QUINTIC_EIGHT_SOURCE_SEPARATE_REVIEW.md"
+        },
+        {
+          "path": "research/classification/ESSENTIAL_THREE_QUINTIC_EIGHT_AMBIENT_SEPARATE_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_ESSENTIAL_THREE_QUINTIC_EIGHT_SOURCES_20261107.json",
+        "reports/CLASSIFICATION_ESSENTIAL_THREE_QUINTIC_EIGHT_AMBIENT_20261107.json",
+        "reports/CLASSIFICATION_ESSENTIAL_THREE_QUINTIC_EIGHT_SOURCE_REVIEW_20261107.json",
+        "reports/CLASSIFICATION_ESSENTIAL_THREE_QUINTIC_EIGHT_AMBIENT_REVIEW_20261107.json"
+      ],
+      "review_status": {
+        "proof": "true48cut_nonzero_quadratic_full_componenthood_proved",
+        "independent_review": "accepted_separate_authors_Fraction_explicit_source_and_cusp_signature_plus_full150_ambient_cut_and_all_prior104_mutual_distinctness",
+        "certificates": "independent_explicit_source_cusp_and_Fraction_full150",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "notes_ja": [
+        "全fixedF/全mag源はactual23orbit、Rosenlicht商零。",
+        "全prior104と他七curve型との相違は各explicitcusp型から独立確認。",
+        "全リストの必要性/全E尽くしはこの個別成分証明に混ぜない。"
+      ]
+    },
+    {
+      "id": "R4_PLANE_QUINTIC_E6_A4_A2_23",
+      "name": "E6+A4+A2の平面既約五次を持つ23次元成分",
+      "source_checkpoint": "v64-classification-first",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "additional_generic_rank_four_full_component_outside_MPS40",
+      "generic_rank": 4,
+      "projective_dimension": 23,
+      "meets_SNC_log_symplectic_locus": false,
+      "generic_pgl5_orbit_dimension": 23,
+      "generic_reduced_rosenlicht_quotient_dimension": 0,
+      "generic_transverse_algebra": null,
+      "component_definition": "Reduced closure of the whole actualPGL5 orbit of the explicit free planequintic Saito cotangent source; full ambient componenthood independently proved.",
+      "generic_construction": {
+        "coordinates": [
+          "x",
+          "y",
+          "z",
+          "u",
+          "v"
+        ],
+        "quintic": "x**3*z**2 - 6*x**2*y**2*z + 9*x*y**4 - 6*x*y**3*z + 2*y**5 - y**4*z",
+        "exact_P1_parametrization": [
+          "s**5 + s**4*t",
+          "s**3*t**2",
+          "3*s*t**4 + t**5"
+        ],
+        "U": [
+          "-5*x**2/3 - 2*x*y/3",
+          "-y**2/4",
+          "5*x*z/2 - 5*y**2/2 + y*z"
+        ],
+        "V": [
+          "-25*x**2/2 + 5*x*y/2 - 2*x*z/3 + 25*y**2/12",
+          "5*x*z/8 - 15*y**2/4 - y*z/4",
+          "75*x*z/4 - 75*y**2/4 + z**2"
+        ],
+        "cotangent_law": "U wedge d_u+V wedge d_v+(-div(V)*u+div(U)*v+R)d_u wedge d_v",
+        "magnetic_source": "R all homogeneous quadratics inx,y,z, all six coefficients includingzero",
+        "actual_stabilizer_identity_component": "Gm with projective semisimple multiplicities [3,2]",
+        "ambient_anchor_integer_scale": "24"
+      },
+      "generic_actual_degeneracy_divisor": {
+        "description": "Absolutely irreducible essential-three rational cuspidal quintic; configuration E6+A4+A2",
+        "witness_equation": "x**3*z**2 - 6*x**2*y**2*z + 9*x*y**4 - 6*x*y**3*z + 2*y**5 - y**4*z",
+        "irreducible_factor_degrees": [
+          5
+        ],
+        "corresponding_multiplicities": [
+          1
+        ],
+        "reduced": true,
+        "essential_variable_count": 3,
+        "plane_curve_singularity_configuration": "E6+A4+A2",
+        "total_Tjurina_number": 12,
+        "total_Milnor_number": 12
+      },
+      "claims": [
+        "R4_PLANE_QUINTIC_E6_A4_A2_COMPONENT_23",
+        "E_ESSENTIAL_THREE_IRREDUCIBLE_QUINTIC_FINITE_ORBITS"
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/ESSENTIAL_THREE_QUINTIC_EIGHT_COMPONENTS.md"
+        },
+        {
+          "path": "research/classification/ESSENTIAL_THREE_QUINTIC_EIGHT_SOURCE_SEPARATE_REVIEW.md"
+        },
+        {
+          "path": "research/classification/ESSENTIAL_THREE_QUINTIC_EIGHT_AMBIENT_SEPARATE_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_ESSENTIAL_THREE_QUINTIC_EIGHT_SOURCES_20261107.json",
+        "reports/CLASSIFICATION_ESSENTIAL_THREE_QUINTIC_EIGHT_AMBIENT_20261107.json",
+        "reports/CLASSIFICATION_ESSENTIAL_THREE_QUINTIC_EIGHT_SOURCE_REVIEW_20261107.json",
+        "reports/CLASSIFICATION_ESSENTIAL_THREE_QUINTIC_EIGHT_AMBIENT_REVIEW_20261107.json"
+      ],
+      "review_status": {
+        "proof": "true48cut_nonzero_quadratic_full_componenthood_proved",
+        "independent_review": "accepted_separate_authors_Fraction_explicit_source_and_cusp_signature_plus_full150_ambient_cut_and_all_prior104_mutual_distinctness",
+        "certificates": "independent_explicit_source_cusp_and_Fraction_full150",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "notes_ja": [
+        "全fixedF/全mag源はactual23orbit、Rosenlicht商零。",
+        "全prior104と他七curve型との相違は各explicitcusp型から独立確認。",
+        "全リストの必要性/全E尽くしはこの個別成分証明に混ぜない。"
+      ]
+    },
+    {
+      "id": "R4_PLANE_QUINTIC_A8_A4_23",
+      "name": "A8+A4の平面既約五次を持つ23次元成分",
+      "source_checkpoint": "v64-classification-first",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "additional_generic_rank_four_full_component_outside_MPS40",
+      "generic_rank": 4,
+      "projective_dimension": 23,
+      "meets_SNC_log_symplectic_locus": false,
+      "generic_pgl5_orbit_dimension": 23,
+      "generic_reduced_rosenlicht_quotient_dimension": 0,
+      "generic_transverse_algebra": "K",
+      "component_definition": "Reduced closure of the whole actualPGL5 orbit of the explicit free planequintic Saito cotangent source; full ambient componenthood independently proved.",
+      "generic_construction": {
+        "coordinates": [
+          "x",
+          "y",
+          "z",
+          "u",
+          "v"
+        ],
+        "quintic": "x**3*z**2 + 6*x**2*y**2*z - 6*x**2*y*z**2 + x**2*z**3 + 9*x*y**4 + 4*x*y**3*z - 2*x*y**2*z**2 + 2*y**5 + y**4*z",
+        "exact_P1_parametrization": [
+          "s**5 + s**4*t",
+          "s**3*t**2 - s**2*t**3",
+          "-3*s*t**4 + t**5"
+        ],
+        "U": [
+          "-5*x**2/3 - x*y/9",
+          "25*x*z/36 - y**2/4",
+          "5*x*z/2 + 5*y**2/2 + y*z"
+        ],
+        "V": [
+          "-25*x**2/3 + 40*x*y/9 - 3*x*z/2 + 25*y**2/18",
+          "55*x*z/18 - 5*y**2/2 + 4*y*z/9",
+          "25*x*z/2 + 25*y**2/2 + z**2"
+        ],
+        "cotangent_law": "U wedge d_u+V wedge d_v+(-div(V)*u+div(U)*v+R)d_u wedge d_v",
+        "magnetic_source": "R all homogeneous quadratics inx,y,z, all six coefficients includingzero",
+        "actual_stabilizer_identity_component": "Gm with projective semisimple multiplicities [3,2]",
+        "ambient_anchor_integer_scale": "36"
+      },
+      "generic_actual_degeneracy_divisor": {
+        "description": "Absolutely irreducible essential-three rational cuspidal quintic; configuration A8+A4",
+        "witness_equation": "x**3*z**2 + 6*x**2*y**2*z - 6*x**2*y*z**2 + x**2*z**3 + 9*x*y**4 + 4*x*y**3*z - 2*x*y**2*z**2 + 2*y**5 + y**4*z",
+        "irreducible_factor_degrees": [
+          5
+        ],
+        "corresponding_multiplicities": [
+          1
+        ],
+        "reduced": true,
+        "essential_variable_count": 3,
+        "plane_curve_singularity_configuration": "A8+A4",
+        "total_Tjurina_number": 12,
+        "total_Milnor_number": 12
+      },
+      "claims": [
+        "R4_PLANE_QUINTIC_A8_A4_COMPONENT_23",
+        "E_ESSENTIAL_THREE_IRREDUCIBLE_QUINTIC_FINITE_ORBITS"
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/ESSENTIAL_THREE_QUINTIC_EIGHT_COMPONENTS.md"
+        },
+        {
+          "path": "research/classification/ESSENTIAL_THREE_QUINTIC_EIGHT_SOURCE_SEPARATE_REVIEW.md"
+        },
+        {
+          "path": "research/classification/ESSENTIAL_THREE_QUINTIC_EIGHT_AMBIENT_SEPARATE_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_ESSENTIAL_THREE_QUINTIC_EIGHT_SOURCES_20261107.json",
+        "reports/CLASSIFICATION_ESSENTIAL_THREE_QUINTIC_EIGHT_AMBIENT_20261107.json",
+        "reports/CLASSIFICATION_ESSENTIAL_THREE_QUINTIC_EIGHT_SOURCE_REVIEW_20261107.json",
+        "reports/CLASSIFICATION_ESSENTIAL_THREE_QUINTIC_EIGHT_AMBIENT_REVIEW_20261107.json"
+      ],
+      "review_status": {
+        "proof": "smooth_full_componenthood_proved",
+        "independent_review": "accepted_separate_authors_Fraction_explicit_source_and_cusp_signature_plus_full150_ambient_cut_and_all_prior104_mutual_distinctness",
+        "certificates": "independent_explicit_source_cusp_and_Fraction_full150",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "notes_ja": [
+        "全fixedF/全mag源はactual23orbit、Rosenlicht商零。",
+        "全prior104と他七curve型との相違は各explicitcusp型から独立確認。",
+        "全リストの必要性/全E尽くしはこの個別成分証明に混ぜない。"
+      ]
+    },
+    {
+      "id": "R4_PLANE_QUINTIC_THREE_A4_23",
+      "name": "3A4の平面既約五次を持つ23次元成分",
+      "source_checkpoint": "v64-classification-first",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "additional_generic_rank_four_full_component_outside_MPS40",
+      "generic_rank": 4,
+      "projective_dimension": 23,
+      "meets_SNC_log_symplectic_locus": false,
+      "generic_pgl5_orbit_dimension": 23,
+      "generic_reduced_rosenlicht_quotient_dimension": 0,
+      "generic_transverse_algebra": "K",
+      "component_definition": "Reduced closure of the whole actualPGL5 orbit of the explicit free planequintic Saito cotangent source; full ambient componenthood independently proved.",
+      "generic_construction": {
+        "coordinates": [
+          "x",
+          "y",
+          "z",
+          "u",
+          "v"
+        ],
+        "quintic": "709375*x**5 + 4800000*x**4*y - 3360000*x**4*z + 54560000*x**3*y**2 - 17664000*x**3*y*z + 4915200*x**3*z**2 - 199424000*x**2*y**3 + 18022400*x**2*y**2*z - 3932160*x**2*y*z**2 - 1048576*x**2*z**3 + 265420800*x*y**4 + 49807360*x*y**3*z + 2097152*x*y**2*z**2 - 8126464*y**5 - 1048576*y**4*z",
+        "exact_P1_parametrization": [
+          "-s**5 + s**4*t",
+          "-5*s**5/32 + s**2*t**3",
+          "-125*s**5/128 - 25*s**3*t**2/16 - 5*s*t**4 + t**5"
+        ],
+        "U": [
+          "15*x**2/8 - x*y",
+          "25*x**2/128 - 5*x*y/4 + x*z/4 - y**2/4",
+          "4625*x**2/2048 + 75*x*y/32 - 25*x*z/16 + 155*y**2/16 + y*z"
+        ],
+        "V": [
+          "-675*x**2/64 - 5*x*y/2 - 3*x*z/2 + y**2/2",
+          "-3625*x**2/4096 + 475*x*y/64 - 35*x*z/16 + 95*y**2/16",
+          "-203125*x**2/16384 - 8125*x*y/512 + 375*x*z/64 - 6625*y**2/64 + z**2"
+        ],
+        "cotangent_law": "U wedge d_u+V wedge d_v+(-div(V)*u+div(U)*v+R)d_u wedge d_v",
+        "magnetic_source": "R all homogeneous quadratics inx,y,z, all six coefficients includingzero",
+        "actual_stabilizer_identity_component": "Gm with projective semisimple multiplicities [3,2]",
+        "ambient_anchor_integer_scale": "16384"
+      },
+      "generic_actual_degeneracy_divisor": {
+        "description": "Absolutely irreducible essential-three rational cuspidal quintic; configuration 3A4",
+        "witness_equation": "709375*x**5 + 4800000*x**4*y - 3360000*x**4*z + 54560000*x**3*y**2 - 17664000*x**3*y*z + 4915200*x**3*z**2 - 199424000*x**2*y**3 + 18022400*x**2*y**2*z - 3932160*x**2*y*z**2 - 1048576*x**2*z**3 + 265420800*x*y**4 + 49807360*x*y**3*z + 2097152*x*y**2*z**2 - 8126464*y**5 - 1048576*y**4*z",
+        "irreducible_factor_degrees": [
+          5
+        ],
+        "corresponding_multiplicities": [
+          1
+        ],
+        "reduced": true,
+        "essential_variable_count": 3,
+        "plane_curve_singularity_configuration": "3A4",
+        "total_Tjurina_number": 12,
+        "total_Milnor_number": 12
+      },
+      "claims": [
+        "R4_PLANE_QUINTIC_THREE_A4_COMPONENT_23",
+        "E_ESSENTIAL_THREE_IRREDUCIBLE_QUINTIC_FINITE_ORBITS"
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/ESSENTIAL_THREE_QUINTIC_EIGHT_COMPONENTS.md"
+        },
+        {
+          "path": "research/classification/ESSENTIAL_THREE_QUINTIC_EIGHT_SOURCE_SEPARATE_REVIEW.md"
+        },
+        {
+          "path": "research/classification/ESSENTIAL_THREE_QUINTIC_EIGHT_AMBIENT_SEPARATE_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_ESSENTIAL_THREE_QUINTIC_EIGHT_SOURCES_20261107.json",
+        "reports/CLASSIFICATION_ESSENTIAL_THREE_QUINTIC_EIGHT_AMBIENT_20261107.json",
+        "reports/CLASSIFICATION_ESSENTIAL_THREE_QUINTIC_EIGHT_SOURCE_REVIEW_20261107.json",
+        "reports/CLASSIFICATION_ESSENTIAL_THREE_QUINTIC_EIGHT_AMBIENT_REVIEW_20261107.json"
+      ],
+      "review_status": {
+        "proof": "smooth_full_componenthood_proved",
+        "independent_review": "accepted_separate_authors_Fraction_explicit_source_and_cusp_signature_plus_full150_ambient_cut_and_all_prior104_mutual_distinctness",
+        "certificates": "independent_explicit_source_cusp_and_Fraction_full150",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "notes_ja": [
+        "全fixedF/全mag源はactual23orbit、Rosenlicht商零。",
+        "全prior104と他七curve型との相違は各explicitcusp型から独立確認。",
+        "全リストの必要性/全E尽くしはこの個別成分証明に混ぜない。"
+      ]
+    },
+    {
+      "id": "R4_PLANE_QUINTIC_A6_THREE_A2_23",
+      "name": "A6+3A2の平面既約五次を持つ23次元成分",
+      "source_checkpoint": "v64-classification-first",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "additional_generic_rank_four_full_component_outside_MPS40",
+      "generic_rank": 4,
+      "projective_dimension": 23,
+      "meets_SNC_log_symplectic_locus": false,
+      "generic_pgl5_orbit_dimension": 23,
+      "generic_reduced_rosenlicht_quotient_dimension": 0,
+      "generic_transverse_algebra": "K",
+      "component_definition": "Reduced closure of the whole actualPGL5 orbit of the explicit free planequintic Saito cotangent source; full ambient componenthood independently proved.",
+      "generic_construction": {
+        "coordinates": [
+          "x",
+          "y",
+          "z",
+          "u",
+          "v"
+        ],
+        "quintic": "27*x**5 - 144*x**3*y*z + 4*x**2*y**3 - 256*x**2*z**3 + 128*x*y**2*z**2 - 16*y**4*z",
+        "exact_P1_parametrization": [
+          "-2*s*t**4",
+          "4*s**3*t**2 - t**5",
+          "-2*s**5 - s**2*t**3"
+        ],
+        "U": [
+          "-3*x*y/7",
+          "15*x*z/7 - y**2/4",
+          "-45*x**2/112 + y*z"
+        ],
+        "V": [
+          "-3*x*z/2 + 15*y**2/56",
+          "-45*x**2/32 + 2*y*z/7",
+          "15*x*y/112 + z**2"
+        ],
+        "cotangent_law": "U wedge d_u+V wedge d_v+(-div(V)*u+div(U)*v+R)d_u wedge d_v",
+        "magnetic_source": "R all homogeneous quadratics inx,y,z, all six coefficients includingzero",
+        "actual_stabilizer_identity_component": "Gm with projective semisimple multiplicities [3,2]",
+        "ambient_anchor_integer_scale": "224"
+      },
+      "generic_actual_degeneracy_divisor": {
+        "description": "Absolutely irreducible essential-three rational cuspidal quintic; configuration A6+3A2",
+        "witness_equation": "27*x**5 - 144*x**3*y*z + 4*x**2*y**3 - 256*x**2*z**3 + 128*x*y**2*z**2 - 16*y**4*z",
+        "irreducible_factor_degrees": [
+          5
+        ],
+        "corresponding_multiplicities": [
+          1
+        ],
+        "reduced": true,
+        "essential_variable_count": 3,
+        "plane_curve_singularity_configuration": "A6+3A2",
+        "total_Tjurina_number": 12,
+        "total_Milnor_number": 12
+      },
+      "claims": [
+        "R4_PLANE_QUINTIC_A6_THREE_A2_COMPONENT_23",
+        "E_ESSENTIAL_THREE_IRREDUCIBLE_QUINTIC_FINITE_ORBITS"
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/ESSENTIAL_THREE_QUINTIC_EIGHT_COMPONENTS.md"
+        },
+        {
+          "path": "research/classification/ESSENTIAL_THREE_QUINTIC_EIGHT_SOURCE_SEPARATE_REVIEW.md"
+        },
+        {
+          "path": "research/classification/ESSENTIAL_THREE_QUINTIC_EIGHT_AMBIENT_SEPARATE_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_ESSENTIAL_THREE_QUINTIC_EIGHT_SOURCES_20261107.json",
+        "reports/CLASSIFICATION_ESSENTIAL_THREE_QUINTIC_EIGHT_AMBIENT_20261107.json",
+        "reports/CLASSIFICATION_ESSENTIAL_THREE_QUINTIC_EIGHT_SOURCE_REVIEW_20261107.json",
+        "reports/CLASSIFICATION_ESSENTIAL_THREE_QUINTIC_EIGHT_AMBIENT_REVIEW_20261107.json"
+      ],
+      "review_status": {
+        "proof": "smooth_full_componenthood_proved",
+        "independent_review": "accepted_separate_authors_Fraction_explicit_source_and_cusp_signature_plus_full150_ambient_cut_and_all_prior104_mutual_distinctness",
+        "certificates": "independent_explicit_source_cusp_and_Fraction_full150",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "notes_ja": [
+        "全fixedF/全mag源はactual23orbit、Rosenlicht商零。",
+        "全prior104と他七curve型との相違は各explicitcusp型から独立確認。",
+        "全リストの必要性/全E尽くしはこの個別成分証明に混ぜない。"
+      ]
     }
   ],
   "named_block_member_annotations": [
@@ -12494,5 +13131,5 @@
     "MPS40 blockを展開したらblockによる加算を止め、二重計上しない。",
     "文献上の新規性は内部成分証明とは別に確認する。"
   ],
-  "new_components_added_in_this_checkpoint": 46
+  "new_components_added_in_this_checkpoint": 53
 }

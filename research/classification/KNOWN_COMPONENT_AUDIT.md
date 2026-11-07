@@ -364,3 +364,8 @@ GA9_CUSPIDAL_QUARTIC_SEPARATE_REVIEWは全七源/全六磁気移送、D100/F49/�
 ## 平面(4,5)既約quintic成分と現行個別下界104
 
 ESSENTIAL_THREE_QUINTIC_FIRST_SEPARATE_REVIEWは全28x18gradient基底、全350/D101/M48/真正48cutの非零二次λQ、immutableprior103との全相違を独立確認。全六mag源はactual23orbit、商dimension0。下界104/rank四98/rank二6、全上界は未証明。
+
+
+## 平面自由五次の新七成分と現行下界111
+
+EIGHT_SOURCE_SEPARATE_REVIEWが全八explicit曲線のC絶対既約性、fullSaito源、各cusp型を独立認識。EIGHT_AMBIENT_SEPARATE_REVIEWは旧104再用と新七全D/M/真正48cut、四smooth23・三非零二次23を確認。内在的essential三baseと八cusp配置は全PGL5不変で、全prior104と28mutual pairに相違。個別111/rank四105/rank二6。全必要曲線リストのpureproof独立監査と全G/E上界は別未解決。

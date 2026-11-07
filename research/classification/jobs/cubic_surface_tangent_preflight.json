@@ -1,0 +1,59 @@
+{
+  "task_id": "G",
+  "target_statement": "Construct whole150/Euler24 tangent+intrinsic abelian-conormal sources for cubic scroll, and seek fixed affine Poisson dimension<=7 (full PGL image<=24).",
+  "implication_to_classification": "S(1,2) has PGL orbit18. Reduced irreducible quintic singular along a nonplane surface has generic order2. If Pi|S has rank2, its transverse first bracket must vanish because the linear Pfaffian coefficient would otherwise be nonzero; hence intrinsic conormal bracket is abelian. A whole necessary-source dimension<=7 gives image18+7-1<=24.",
+  "coefficient_ring": "QQ, sparse complete tangent and intrinsic normal-bracket equations in full150 ambient coefficients; full Euler24 quotient, all350 original quadratic Jacobi and126 actual Pfaffian coefficients.",
+  "hypotheses": "Complete standard smooth cubic scroll (and optional cone mode) ideal and dominant monomial parametrization. Tangency is E wedge Pi#dq_i|S=0. Intrinsic bracket numerator is H_ij=x0{qi,qj}-2qj{qi,x0}+2qi{qj,x0}; every ambient derivative vanishes onS. Correct Euler terms retained. No rankzero substitution.",
+  "inverted_elements": [
+    "Only x0 for proving intrinsic affine-chart necessary condition; resulting polynomial equations hold on whole integral S by density",
+    "Only nonzero rational constants in complete QQ elimination"
+  ],
+  "complements": [
+    "No assumption normal quadratic is squarefree or clean or no vertical divisor",
+    "No rankzero source substituted for tangent source",
+    "Fixed-source target7 may fail; save full source and change geometry rather than GB farm",
+    "All E membership, componenthood and full G exhaustion remain open"
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_cubic_surface_tangent.py",
+      "sha256": "8c81c74e718388473b7fae0ecd94f8260bdc9396f429cd83a7e70efe8005f5fd"
+    },
+    {
+      "path": "code/classification_projected_veronese_zero_review.py",
+      "sha256": "7fbaa04524f57287df396ff5e0ebd754ad124cd9814055820c70fdd1f863e55d"
+    },
+    {
+      "path": "code/classification_cubic_scroll_zero.py",
+      "sha256": "dadbde0a81abcfcf5af679969a4d2eff85c848f0b3746afbe91cebec1bae8347"
+    },
+    {
+      "path": "code/classification_rank3_mixed_component_review.py",
+      "sha256": "48e61e30f9d7f04fb81f1bb5eec0e18daa28c8192d6a02a251e09cf8855b9bd0"
+    },
+    {
+      "path": "research/classification/RANK_ZERO_SURFACE_GENERIC_FIRST_JET.md",
+      "sha256": "f7727b8a05cadaf7fc598c5db5d1729e9ef17aa70cbb19911843efd8902bc810"
+    },
+    {
+      "path": "research/classification/CUBIC_SCROLL_RANK_ZERO_SOURCES.md",
+      "sha256": "86044320a3842f6d67b4e569c4931ad784c98b6ffda39b7a8351704f066c9158"
+    },
+    {
+      "path": "research/classification/PROJECTED_VERONESE_TANGENT_NONDOMINANCE.md",
+      "sha256": "37cc4554111ee3e893b9091064cf812bd18f6ab2f6ef022e73ead14a580d123b"
+    },
+    {
+      "path": "research/classification/inputs/cubic_surface_tangent_preflight_job_snapshot_20261107.json",
+      "sha256": "e02d52d052cac948896060c000788100bd40fc4a4b187f3c061a2b9aa0242d62"
+    }
+  ],
+  "success_certificate": "Full sparse tangent and intrinsic firstpartial matrices/kernel/maxminor; Euler24 inclusion; complete divergence-zero canonical basis; all350 Jacobi and126 actualD rows; one exact rowspace/leading-support bound or full actualD membership. No nativeGB.",
+  "independent_check": "Separate-author full150 pullback/normal-bracket/Euler/kernel/QQ minor and all350 Jacobi/Pf reconstruction after producer proof. This first run is producer only.",
+  "resource_limit": {
+    "timeout_seconds": 120,
+    "memory_mb": 1536
+  },
+  "negative_result_next_step": "If canonical source dimension>26 stop before nonlinear; if one Jacobi rowspace bound does not close target, save exact source/certificates and seek structural restriction. At most one further structural or mathematically different weak bound, no repeated GB/point/jet sequence.",
+  "compatible_extension_current_binding_reason": "All seven original FunctionDef ASTs unchanged. Append isolated --ranktwo-open structural mode; old report embedded producer bytes and original job snapshot remain immutable. Current default preflight math unchanged."
+}

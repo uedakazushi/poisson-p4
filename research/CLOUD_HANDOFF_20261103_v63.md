@@ -1,6 +1,12 @@
 # v63 Cloud 継続記録 — 2026年11月3日
 
-現行キューはclassification/CURRENT.md・PLAN.json・NEXT_TASKS.md。個別下界104（rank四98・rank二6）、全成分数の上界・一般五点・全分類は未証明。全rank零非plane支持はT40又はG像≤24へ。rank零plane位数二のk1 rankM≥2も全像≤23、Cartan全higher源はactual Cstar/SNC/MPS40で被覆。全degree六rank二とdegree五rank二genus零は像≤24、genus一ellipticは全nef/GG型を排除した。残るGはrank零planeのglobalV nonCartan/nilnormal・位数三以上、rank二plane可約/非被約R、degree五rank二canonical index二及び他の小次数/特殊支持。全multiplicity conormal可換・全essential3既約D≤23・normalnil b非零≤22も受理。m4squarefreeleading rank一はordinary四重点の矛盾で全排除。Eはquadratic_A全七源もMPS被覆しnil22image残stable二源、short r2/3、Ga9linear-w、他の残因子型を続ける。Ga9linear-wの全六normal二次初期支持はplaneとlineで、原点根基に閉じず高次反復は停止。既存の移行用一時停止も保存checkpointも現在の終了条件にはしない。
+現行キューは [classification/CURRENT.md](classification/CURRENT.md)・PLAN.json・NEXT_TASKS.md。
+個別下界111（rank四105、rank二6）、主張931。全essential3既約退化quinticは八つの相異なる23全成分へ全点被覆した。
+今回主稿は201頁、全source/cusp・全周囲成分性・全必要curveリストを別々に独立確認。
+全m二rank零plane、scalar/zero symbol、common-image、全smoothquadric等も受理済み。
+全G/E・上界は未証明で、dependent高m・rank二plane/cone/scroll/canonical index二、Eのstable二源/markedquartic等の残余を続ける。
+詳しい全補集合と新旧証拠の区別、実行と保存の手順は [CLOUD_HANDOFF_20261107.md](CLOUD_HANDOFF_20261107.md)。
+保存checkpointも旧移行一時停止も研究の終了条件にしない。
 
 以下は11月5日UTCに完了し、11月7日に最新mainへ統合した補助研究の保存証拠。下記の58は当時の下界である。B18精密構造と旧minor探索は休止し、この歴史的キューでは再開しない。
 

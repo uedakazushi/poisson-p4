@@ -1,0 +1,127 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "mathematical_input": "ESSENTIAL_THREE_QUINTIC_FINITE_CURVES.md and its three whole-linear-series proof notes. Necessary complete eight curve classes, not eight new components.",
+  "coefficient_field": "QQ; 3A4 uses a rational constructive parametrization whose class will be checked by free(2,2) plus three simple differential roots.",
+  "candidates": [
+    {
+      "id": "C45",
+      "expected_type": "one (4,5) cusp",
+      "parametrization": [
+        "s*t**4",
+        "t**5",
+        "-s**5-s**2*t**3"
+      ],
+      "expected_complex_derivative_gcd_root_multiplicities": [
+        3
+      ],
+      "canonical_class_from_pureproof": true
+    },
+    {
+      "id": "A12",
+      "expected_type": "A12",
+      "parametrization": [
+        "s**4*t",
+        "s**2*t**3-s**5",
+        "t**5-2*s**3*t**2"
+      ],
+      "expected_complex_derivative_gcd_root_multiplicities": [
+        1
+      ],
+      "canonical_class_from_pureproof": true
+    },
+    {
+      "id": "E8_A4",
+      "expected_type": "E8+A4",
+      "parametrization": [
+        "s**5",
+        "s**3*t**2",
+        "t**5+s*t**4"
+      ],
+      "expected_complex_derivative_gcd_root_multiplicities": [
+        2,
+        1
+      ],
+      "canonical_class_from_pureproof": true
+    },
+    {
+      "id": "E6_A6",
+      "expected_type": "E6+A6",
+      "parametrization": [
+        "s**5+s**4*t",
+        "s**3*t**2",
+        "t**5-s*t**4"
+      ],
+      "expected_complex_derivative_gcd_root_multiplicities": [
+        2,
+        1
+      ],
+      "canonical_class_from_pureproof": true
+    },
+    {
+      "id": "E6_A4_A2",
+      "expected_type": "E6+A4+A2",
+      "parametrization": [
+        "s**5+s**4*t",
+        "s**3*t**2",
+        "t**5+3*s*t**4"
+      ],
+      "expected_complex_derivative_gcd_root_multiplicities": [
+        2,
+        1,
+        1
+      ],
+      "canonical_class_from_pureproof": true
+    },
+    {
+      "id": "A8_A4",
+      "expected_type": "A8+A4",
+      "parametrization": [
+        "s**5+s**4*t",
+        "s**2*t**2*(s-t)",
+        "t**5-3*s*t**4"
+      ],
+      "expected_complex_derivative_gcd_root_multiplicities": [
+        1,
+        1
+      ],
+      "canonical_class_from_pureproof": true
+    },
+    {
+      "id": "THREE_A4",
+      "expected_type": "3A4",
+      "parametrization": [
+        "s**4*t-s**5",
+        "s**2*t**3-5*s**5/32",
+        "-125*s**5/128-25*s**3*t**2/16-5*s*t**4+t**5"
+      ],
+      "expected_complex_derivative_gcd_root_multiplicities": [
+        1,
+        1,
+        1
+      ],
+      "canonical_class_from_pureproof": false
+    },
+    {
+      "id": "A6_THREE_A2",
+      "expected_type": "A6+3A2",
+      "parametrization": [
+        "-2*s*t**4",
+        "t**2*(4*s**3-t**3)",
+        "-s**2*(2*s**3+t**3)"
+      ],
+      "expected_complex_derivative_gcd_root_multiplicities": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "canonical_class_from_pureproof": true
+    }
+  ],
+  "THREE_A4_alternative_scope": {
+    "source": "Moe arXiv1511.02691v1, printed p90 (PDFpage96), formula visually read directly",
+    "PDF_sha256": "7abc47523b28e1288850b8f9b500fd914240a8fef3dbe4a7d062fe7ef759d0eb",
+    "proof_requirement": "Verify implicit degree5, absolute irreducibility, full Saito(2,2) and derivative gcd with three distinct simple complex roots. Whole freecurve theorem plus pureproof classification then identifies the unique3A4 class. If this rational parametrization fails, retain the algebraic canonical representative and do not exclude the whole3A4 class.",
+    "classification_canonical": "X=t²(s−t)²(As+t),Y=s²(s−t)²(s+Bt),Z=s²t²((−A−2)s+t), A²+A−1=0,B=−A−1"
+  }
+}

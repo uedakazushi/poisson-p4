@@ -1,6 +1,12 @@
 # 研究状態 — v63-s61 / 2026-11-05
 
-現行キューはclassification/CURRENT.md・PLAN.json・NEXT_TASKS.md。個別下界104、rank四98、rank二6。型7の全七H+quartic源を三新成分と既存成分へ独立被覆し、nil22imageのdouble_B/C全六源も実曲線で既存24成分へ被覆した。Gの未知一般実因子は既約被約非正規五次だけ。degree三・四の全非退化rank零源と全integral CI22はPGL像≤24。全smooth非plane rank零はT40又は像≤23、normal degree六rank零とdegree五六の全cone rank零は空、rank二planeの全既約cubic零divisorも空。D正規化の全導手証明で非normalを含む全degree六rank零も排除し、degree五genus零枝も像≤24。degree五genus一もT40/像≤24、quadric coneも像≤23となりrank零非plane全支持をGから排除した。rank零plane位数二k1全rank二以上を像≤23、Cartan全higher源をMPSへ被覆。全degree六rank二も像≤24、degree五rank二genus零≤24・種数一elliptic全排除を確認した。全multiplicity conormal可換、normalnil b非零全源≤22、全本質三変数既約quintic≤23とm4squarefreeleading rank一全排除も確認した。nil22image quadratic_A全七源も実symplectic曲線でMPSへ被覆。残るrank零planeのglobalV nonCartan/commuting nilnormal・位数三以上、degree五rank二canonical index二、他rank二の特異/vertical支持とEの残族は未解決で、全上界・一般五点・全分類は証明していない。全104成分と新補題を同じ日本語主原稿へ統合中。保存checkpointも旧移行用一時停止も現在の終了条件にはしない。
+現行キューは [classification/CURRENT.md](classification/CURRENT.md)・PLAN.json・NEXT_TASKS.md。
+個別下界111（rank四105、rank二6）、主張931。全essential3既約退化quinticは八つの相異なる23全成分へ全点被覆した。
+今回主稿は201頁、全source/cusp・全周囲成分性・全必要curveリストを別々に独立確認。
+全m二rank零plane、scalar/zero symbol、common-image、全smoothquadric等も受理済み。
+全G/E・上界は未証明で、dependent高m・rank二plane/cone/scroll/canonical index二、Eのstable二源/markedquartic等の残余を続ける。
+詳しい全補集合と新旧証拠の区別、実行と保存の手順は [CLOUD_HANDOFF_20261107.md](CLOUD_HANDOFF_20261107.md)。
+保存checkpointも旧移行一時停止も研究の終了条件にしない。
 
 以下は11月5日UTCに完了し、11月7日に最新mainへ統合した補助研究の保存証拠。下記の58は当時の下界である。B18精密構造と旧minor探索は休止し、この歴史的キューでは再開しない。
 
