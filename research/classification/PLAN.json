@@ -61,7 +61,7 @@
         "generic_circuit_review"
       ],
       "acceptance": "全42法線の根基所属等または未知残余の空性を証明し、適用底開・全分母・独立検証を明記する。新残余があれば分類計画を更新し、未解決のまま成功扱いしない。",
-      "first_step": "rank零planeは位数二k1 rankM≥2全源≤23、Cartan全higher源MPSを除いたglobalV nonCartan/nilnormalと位数三以上。rank二はplane可約/非被約R、degree三四及びdegree五genus一canonical index二等を処理。全degree六rank二とdegree五genus零・ellipticは閉じた。",
+      "first_step": "全重複度conormal可換と全essential3既約D≤23を受理。rank零planeはglobalVの残nonCartan/commuting normalnil、高重複度の全firstjet復活を処理。rank二planeはconcurrent特別j rank2pencil/重根/m二三/非被約R、degree五canonical index二等の残支持を続ける。",
       "fallback": "同経路の二回未決で支持幾何または境界経路に変更し、E0/Aも進める。",
       "nonclosing_attempts": 0,
       "proof": null,
@@ -118,7 +118,11 @@
         "G_DEGREE_FIVE_RANK_TWO_GENUS_ONE_ELLIPTIC_EXCLUSION",
         "G_PLANE_RANK_TWO_REDUCED_CUBIC_M4_NONSPECIAL_NONDOMINANCE",
         "G_PLANE_RANK_ZERO_M2_K1_COEFFICIENT_RANK_AT_LEAST_TWO_NONDOMINANCE",
-        "G_PLANE_RANK_ZERO_M2_CARTAN_FULL_MPS_RECOGNITION"
+        "G_PLANE_RANK_ZERO_M2_CARTAN_FULL_MPS_RECOGNITION",
+        "G_REDUCED_ZERO_SURFACE_ALL_MULTIPLICITY_ABELIAN_CONORMAL",
+        "G_PLANE_RANK_TWO_M4_SPECIAL_J_NONCONCURRENT_NONDOMINANCE",
+        "G_PLANE_RANK_ZERO_NORMAL_NILPOTENT_NONZERO_B_NONDOMINANCE",
+        "G_ESSENTIAL_THREE_IRREDUCIBLE_QUINTIC_ALL_NONDOMINANCE"
       ],
       "latest_integral_surface_reduction": "research/classification/INTEGRAL_SURFACE_LINEAR_NORMALITY.md",
       "normal_degree_six_remaining": "none for rankzero: full ruled numerics and relativeconic exclusion independently accepted",
@@ -126,7 +130,8 @@
       "degree_five_rankzero_remaining": "none for G: genus0<=24; genus1 T40 or<=24",
       "degree_six_ranktwo_remaining": "none for G: all five normalization scroll types empty or image<=24",
       "degree_five_ranktwo_remaining": "genus0<=24; genus1 elliptic empty; canonical index2 remains",
-      "plane_rankzero_m2_remaining": "globalV nonCartan semisimple or nilpotentnormalM; k1 coefficientrank>=2 closed; Cartan fullMPS"
+      "plane_rankzero_m2_remaining": "globalV nonCartan normalss and commuting normalnil b0; allnoncommuting normalnil b!=0 <=22",
+      "plane_ranktwo_m4_remaining": "rank1 squarefree leading empty for allj; nonconcurrent specialrank2 <=22; concurrent specialrank2, repeated leading and m2/m3/nonreducedR remain"
     },
     {
       "id": "G_direction",
@@ -341,13 +346,13 @@
         "bibliography"
       ],
       "acceptance": "確認した結果を主原稿の該当節へ十分な証明とともに統合し、主分類未証明を明示する。既存有用成果を削らない。",
-      "first_step": "103成分/rank四97、独立受理した904主張を164頁の同じ日本語主原稿へ統合し2pass組版済み。次の受理済み尽くしを理解順へ統合し、全G/Eの穴を保持して主定理完成まで続ける。",
+      "first_step": "103成分/rank四97、独立受理した909主張を174頁の同じ日本語主原稿へ統合し2pass組版済み。次の受理済み尽くしを理解順へ統合し、全G/Eの穴を保持して主定理完成まで続ける。",
       "fallback": "未確認主張は本文の定理に昇格せず、必要な証明義務として残す。",
       "nonclosing_attempts": 0,
       "proof": null,
       "review": null,
       "activation_reason": null,
-      "latest_main_manuscript_build": "reports/CLASSIFICATION_MAIN_MANUSCRIPT_CONDUCTOR_PLANE904_BUILD_20261107.json"
+      "latest_main_manuscript_build": "reports/CLASSIFICATION_MAIN_MANUSCRIPT_SAITO_QUADRATICA909_BUILD_20261107.json"
     },
     {
       "id": "E",
@@ -440,7 +445,7 @@
         "remaining_divisor_support"
       ],
       "acceptance": "全非被約実退化因子のうち二重以上の超平面を持つ全点を既知族または新しい証明済み成分で被覆。全affine二次Poisson条件とPf(Q)=0を保持。",
-      "first_step": "nil22image全十一源中七源は二新23成分又は五実曲線で被覆。残るstable二源、double_A、quadratic_Aとshort r=2/3等を全源認識/新成分証明で処理する。",
+      "first_step": "nil22image quadratic_A全七源もactualsymplectic曲線と全periodSNC親でMPSへ被覆。残るstable二源,double_Aとshort r2/3等を全源認識又は新成分証明で処理。",
       "fallback": "同じ経路で二回非閉鎖なら具体的障害を記録し別の支持幾何へ変更。全補集合を保持する。",
       "nonclosing_attempts": 0,
       "proof": null,
@@ -450,10 +455,10 @@
       "remaining_nil22_image_sources": [
         "stable_line_conic",
         "stable_three_lines",
-        "double_A",
-        "quadratic_A"
+        "double_A"
       ],
-      "latest_nil22_image_double_c_coverage": "E_NIL22_IMAGE_DOUBLE_C_DEPENDENT_FULL_COVERAGE"
+      "latest_nil22_image_double_c_coverage": "E_NIL22_IMAGE_DOUBLE_C_DEPENDENT_FULL_COVERAGE",
+      "latest_nil22_image_quadratic_a_coverage": "E_NIL22_IMAGE_QUADRATIC_A_FULL_MPS_COVERAGE"
     },
     {
       "id": "E_reduced_nonnormal",

@@ -1,0 +1,48 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "target_statement": "Independently audit that the full marked A3+A2 quartic/common-tangent pair locus cannot specialize over any DVR to the marked Ga9 linear-w E6 quartic/tangent pair.",
+  "implication_to_classification": "Excludes the dense Ga9 linear-w23 orbit from the known103rd24component and prevents repeated attempts at that same false E recognition. No new component, E exhaustion or boundary-point exclusion is inferred.",
+  "coefficient_ring": "Characteristic0 complete excellent DVR with algebraically closed residue C; exact polynomial identities and finite normalization of proper rational quartic curves, no CAS.",
+  "hypotheses": "Generic geometrically integral rational quartic has one A3 and one A2, markedH common tangent with order2 at both A3 branches; special is the specified integral E6 quartic and its tangentH. All regularPGL/basechanges allowed.",
+  "inverted_elements": [
+    "Only generic-fiber nonzero q(zeta) and zeta in the cusp differential calculation; the resulting identity is restored in R before specialization",
+    "Only units in R for all source/target coordinate choices"
+  ],
+  "complements": [
+    "Non-normal total quartic is retained; normalization flatness and simultaneous special normalization are proved rather than assumed",
+    "Finite extensions can be made before normalization or normalization retaken after extension; no blanket normalization-basechange commutation assumed",
+    "Unmarkedquartic adjacency is not excluded",
+    "Ga9 magnetic-zero boundary or other intersections with known103 are not excluded",
+    "Other parent components/newcomponenthood/fullE remain open"
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "research/classification/GA9_LINEAR_W_MARKED_PAIR_OBSTRUCTION.md",
+      "sha256": "63d93d812eedb7acb7b7b37d9247aa17ec5a607ca444e035fe613b08def79320"
+    },
+    {
+      "path": "reports/CLASSIFICATION_GA9_CUSPIDAL_QUARTIC_COMPONENT_20261107.json",
+      "sha256": "4b9d73769906c97c1ab5d90c658750445d3688a7e499ba47cc2324aee305fe27"
+    },
+    {
+      "path": "research/classification/GA9_CUSPIDAL_QUARTIC_SEPARATE_REVIEW.md",
+      "sha256": "c188b691528a2552d2b362bd7be7ec7ee60f5bda490f91a78882da777ea2e851"
+    },
+    {
+      "path": "research/classification/HYPERPLANE_QUARTIC_NIL211_SHORT_TRANSLATION.md",
+      "sha256": "3ebd60569e6bd737140e32391eff2b8f90368eaee9f85023f55c7a9169c4ccc7"
+    },
+    {
+      "path": "research/classification/NIL211_SHORT_TRANSLATION_REVIEW.md",
+      "sha256": "e75bdbabb7b3939b8346472136461ca5cd54c60c800b4dfcbc120b9aefa177d3"
+    }
+  ],
+  "success_certificate": "Full curve-selection/primitivefactor/essentialrank3 plane reduction; finite-normalization CM and Euler-characteristic argument giving simultaneousP1; regular source/target flags and all coordinate units; exact cusp relation forcing2W0(0)=0; precise dense-orbit-only implication.",
+  "independent_check": "Separate-author manual proof audit, with all local/global hypotheses and localization complements kept. No projection sample, privateinputs or CAS.",
+  "resource_limit": {
+    "timeout_seconds": 3600,
+    "memory_mb": 512
+  },
+  "negative_result_next_step": "If a normalization, coordinate-unit or DVR-closure step fails, preserve the exact countercondition and retain the candidate membership as open; do not repeat point/jet searches without changing the mathematics.",
+  "route_change_reason": "A new global marked-pair obstruction diagnoses the proposed parent family directly instead of repeating local quadratic or higher-jet membership attempts."
+}

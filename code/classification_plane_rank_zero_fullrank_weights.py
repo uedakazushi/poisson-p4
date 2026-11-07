@@ -366,14 +366,585 @@ def rank2_nonkernel_main():
             'seconds':time.monotonic()-started,'maximum_RSS_KiB':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss}
     destination.write_text(json.dumps(result,indent=2)+'\n')
 
+def global_lowparameter_main():
+    """Whole at-most-one-parameter global-vector symbols; no anchor sampling."""
+    import ast
+    destination=ROOT/'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_LOWPARAMETER_WEIGHTS_20261107.json'
+    if destination.exists():raise FileExistsError(destination)
+    started=time.monotonic()
+    def timeout(signum,frame):raise TimeoutError('finite whole-lowparameter operator budget180s')
+    signal.signal(signal.SIGALRM,timeout);signal.alarm(180)
+    resource.setrlimit(resource.RLIMIT_AS,(1536*1024**2,1536*1024**2))
+    previous=ROOT/'reports/CLASSIFICATION_PLANE_RANK_ZERO_RANK_TWO_NONKERNEL_WEIGHTS_20261107.json'
+    old=json.loads(previous.read_text())['producer_bytes']
+    parse=lambda value:{node.name:ast.dump(node,include_attributes=False)for node in ast.parse(value).body if isinstance(node,(ast.FunctionDef,ast.AsyncFunctionDef))}
+    before=parse(old);after=parse(Path(__file__).read_text())
+    assert all(after[name]==value for name,value in before.items())
+    x=s.Matrix(s.symbols('a b c z w'));a,b,c,z,w=x
+    En=s.Matrix([0,0,0,z,w]);ez=s.Matrix([0,0,0,1,0]);ew=s.Matrix([0,0,0,0,1])
+    Hbase=s.Matrix([a,b,-2*c,0,0]);N=s.Matrix([b,0,0,0,0]);B=s.Matrix([c,0,0,0,0]);C=s.Matrix([0,0,b,0,0])
+    J=s.Matrix([b,c,0,0,0]);J2=s.Matrix([c,0,0,0,0]);G=s.Matrix([a,0,-c,0,0])
+    I0=s.Matrix([c,0,0,0,0]);I1=s.Matrix([0,c,0,0,0])
+    normal_ss=s.Matrix([0,0,0,z,-w]);normal_nil=s.Matrix([0,0,0,0,z])
+    Drho=s.Matrix([(TAU+1)*a,TAU*b,(-1-2*TAU)*c,0,0])
+    # tuple: whole source, normal type, T,V,K, affine-symbol upper, varying parameter, excluded polynomial
+    models=[
+        ('SS_NILSQUARE','semisimple',J,J2,TAU*z*w,10,True,s.Integer(1)),
+        ('SS_COMMON_K1','semisimple',I0,I1,z*w,9,False,s.Integer(1)),
+        ('SS_COMMON_K0','semisimple',I0,I1,s.Integer(0),8,False,s.Integer(1)),
+        ('NIL_B1_REGULAR','nilpotent',G,J,z*w,11,False,s.Integer(1)),
+        ('NIL_B1_DIAGONAL','nilpotent',Drho,N,z*w,11,True,1+3*TAU),
+        ('NIL_B1_RESONANT_B','nilpotent',Drho.subs(TAU,-s.Rational(2,3))+B,N,z*w,10,False,s.Integer(1)),
+        ('NIL_B1_RESONANT_C','nilpotent',Drho.subs(TAU,-s.Rational(1,3))+C,N,z*w,10,False,s.Integer(1)),
+        ('NIL_B0_NILREG','nilpotent',J+J2,J,TAU*z*z,10,True,s.Integer(1)),
+        ('NIL_B0_TSQUARE_K1','nilpotent',J2,J,z*z,9,False,s.Integer(1)),
+        ('NIL_B0_TSQUARE_K0','nilpotent',J2,J,s.Integer(0),8,False,s.Integer(1)),
+        ('NIL_B0_VSQUARE_K1','nilpotent',J,J2,z*z,9,False,s.Integer(1)),
+        ('NIL_B0_VSQUARE_K0','nilpotent',J,J2,s.Integer(0),8,False,s.Integer(1)),
+        ('NIL_B0_COMMON_K1','nilpotent',I0,I1,z*z,8,False,s.Integer(1)),
+        ('NIL_B0_COMMON_K0','nilpotent',I0,I1,s.Integer(0),7,False,s.Integer(1)),
+        ('NIL_B0_MIX_TN','nilpotent',N,Hbase+N,TAU*z*z,10,True,s.Integer(1)),
+        ('NIL_B0_MIX_VH','nilpotent',Hbase+N,Hbase,TAU*z*z,10,True,s.Integer(1)),
+        ('NIL_B0_MIX_TN_VH','nilpotent',N,Hbase,TAU*z*z,9,True,s.Integer(1)),
+        ('NIL_B0_MIX_VN','nilpotent',Hbase+N,N,TAU*z*z,10,True,s.Integer(1)),
+        ('NIL_B0_MIX_TH','nilpotent',Hbase,Hbase+N,TAU*z*z,10,True,s.Integer(1)),
+        ('NIL_B0_MIX_TH_VN_K1','nilpotent',Hbase,N,z*z,9,False,s.Integer(1)),
+        ('NIL_B0_MIX_TH_VN_K0','nilpotent',Hbase,N,s.Integer(0),8,False,s.Integer(1))]
+    P1,source1,P2,source2=sources(x);records=[]
+    for name,normal_type,T,V,K,base_dimension,variable,excluded in models:
+        normal=normal_ss if normal_type=='semisimple' else normal_nil
+        P0=H.wedge(T,En)+H.wedge(V,normal)+K*H.wedge(ez,ew)
+        assert all(s.expand(value)==0 for value in H.projective(H.bilinear(P0,P0,x),x).values())
+        determinant=s.expand(s.det(s.Matrix.hstack(x[:3,0],T[:3,0],V[:3,0])))
+        assert determinant!=0
+        D1=operator(P0,P1,source1,x);D2=operator(P0,P2,source2,x);S=shear(P0,x)
+        assert all(s.expand(value)==0 for value in D1*S)
+        if variable:analysis=nonkernel_univariate(D1,D2,S,base_dimension+5,excluded)
+        else:
+            analysis,_=nonkernel_matrix_certificate(D1,D2,S,(),base_dimension+5)
+            analysis['all_strata_dimension_criterion']=analysis['G_dimension_criterion']
+        actual=s.expand(sum((-1)**i*x[i]*(P0[j,k]*P0[l,m]-P0[j,l]*P0[k,m]+P0[j,m]*P0[k,l])for i in range(5)for j,k,l,m in [[r for r in range(5)if r!=i]]))
+        record={'type':name,'normal_type':normal_type,'varying_parameter':str(TAU)if variable else None,
+                'affine_first_symbol_dimension_upper':base_dimension,'excluded_polynomial':str(excluded),
+                'normal_form_P0':{str((i,j)):str(s.expand(P0[i,j]))for i,j in H.PAIRS},
+                'P0_full_projective_Jacobi_zero':True,'base_determinant':str(s.factor(determinant)),
+                'actual_D':str(s.factor(actual)),
+                'complete_D1_350_by30':serial_matrix(D1),'complete_D2_350_by9':serial_matrix(D2),
+                'complete_actual_shear_30_by6':serial_matrix(S),'analysis':analysis}
+        records.append(record)
+        print(name,'higher',analysis['higher_fiber_upper_bound'],'image',analysis['PGL_image_upper_bound'],
+              'allGcriterion',analysis['all_strata_dimension_criterion'],flush=True)
+    proofs=[ROOT/'research/classification/PLANE_RANK_ZERO_GLOBAL_VECTOR_SEMISIMPLE_FIRST_JETS.md',
+            ROOT/'research/classification/PLANE_RANK_ZERO_GLOBAL_VECTOR_NILPOTENT_FIRST_JETS.md']
+    result={'task_id':'G','all_passed':all(record['analysis']['all_strata_dimension_criterion']for record in records),
+            'scope':'Twentyone complete at-most-one-parameter mD2 globalV first-symbol strata. All parameters and all exact irreducible maximal-minor root complements retained. Generic two/three-parameter mixed/Cartan/nil sources remain outside this finite packet.',
+            'cases':records,'compatible_extension_old_function_AST_unchanged':True,'old_function_names':sorted(before),
+            'complete_source1':{str((i,j)):str(P1[i,j])for i,j in H.PAIRS},
+            'complete_source2':{str((i,j)):str(P2[i,j])for i,j in H.PAIRS},
+            'producer_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'producer_bytes':Path(__file__).read_text(),
+            'input_bindings':[{'path':str(p.relative_to(ROOT)),'sha256':hashlib.sha256(p.read_bytes()).hexdigest()}for p in [HELPER,previous]+proofs],
+            'seconds':time.monotonic()-started,'maximum_RSS_KiB':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss}
+    destination.write_text(json.dumps(result,indent=2)+'\n')
+
+
+def global_onecut_main():
+    """One genuine higher-Jacobi cut suffices for each of two complete K=0 fibers."""
+    import ast
+    destination=ROOT/'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_ONECUT_20261107.json'
+    if destination.exists():raise FileExistsError(destination)
+    started=time.monotonic()
+    def timeout(signum,frame):raise TimeoutError('finite two-fiber onecut budget120s')
+    signal.signal(signal.SIGALRM,timeout);signal.alarm(120)
+    resource.setrlimit(resource.RLIMIT_AS,(1536*1024**2,1536*1024**2))
+    previous=ROOT/'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_LOWPARAMETER_WEIGHTS_20261107.json'
+    packet=json.loads(previous.read_text());old=packet['producer_bytes']
+    parse=lambda value:{node.name:ast.dump(node,include_attributes=False)for node in ast.parse(value).body if isinstance(node,(ast.FunctionDef,ast.AsyncFunctionDef))}
+    before=parse(old);after=parse(Path(__file__).read_text());assert all(after[name]==value for name,value in before.items())
+    x=s.Matrix(s.symbols('a b c z w'));environment={str(value):value for value in x};environment['tau']=TAU
+    P1,source1,P2,source2=sources(x);records=[]
+    for name in ['SS_NILSQUARE','NIL_B0_NILREG']:
+        original=next(case for case in packet['cases']if case['type']==name)
+        wall=next(row for row in original['analysis']['all_exceptional_roots']if row['parameter']=='0')
+        K1=s.Matrix([[s.sympify(value)for value in row]for row in wall['D1']['complete_kernel']])
+        K2=s.Matrix([[s.sympify(value)for value in row]for row in wall['D2']['complete_kernel']])
+        assert K1.cols==8 and K2.cols==3
+        D2=s.Matrix([[s.sympify(value,locals=environment).subs(TAU,0)for value in row]for row in original['complete_D2_350_by9']])
+        P0=s.zeros(5)
+        for i,j in H.PAIRS:
+            P0[i,j]=s.sympify(original['normal_form_P0'][str((i,j))],locals=environment).subs(TAU,0);P0[j,i]=-P0[i,j]
+        u=s.symbols('u0:8');v=s.symbols('v0:3')
+        first=P1.subs(dict(zip(source1,K1*s.Matrix(u))),simultaneous=True)
+        assert all(s.expand(value)==0 for value in H.projective(H.bilinear(P0,first,x),x).values())
+        Q=s.Matrix([s.sympify(value)/2 for value in H.all350(H.projective(H.bilinear(first,first,x),x),x)])
+        rows=wall['D2']['minor_rows'];columns=wall['D2']['minor_columns'];minor=D2.extract(rows,columns)
+        assert len(rows)==len(columns)==6 and minor.det()!=0
+        inverse=minor.inv();particular=-inverse*Q.extract(rows,[0])
+        residual=Q+D2[:,columns]*particular
+        nonzero=next((i for i,value in enumerate(residual)if s.expand(value)!=0),None)
+        record={'type':name,'full_weight1_kernel':serial_matrix(K1),'full_weight2_kernel':serial_matrix(K2),
+                'weight2_pivot_rows':rows,'weight2_pivot_columns':columns,'weight2_pivot_inverse':serial_matrix(inverse),
+                'full_Q2_350':[str(s.expand(value))for value in Q],
+                'affine_first_symbol_dimension':9,'initial_higher_linear_upper':11}
+        if nonzero is not None:
+            phi=s.zeros(1,350);phi[0,nonzero]=1
+            coefficients=D2[nonzero:nonzero+1,columns]*inverse
+            for j,row in enumerate(rows):phi[0,row]-=coefficients[j]
+            assert phi*D2==s.zeros(1,9)
+            polynomial=s.expand((phi*Q)[0]);assert polynomial!=0
+            record.update({'certificate_type':'nonzero_weight2_cokernel_obstruction',
+                           'cokernel_functional':[[i,str(value)]for i,value in enumerate(list(phi))if value!=0],
+                           'functional_times_full_D2_zero':True,'obstruction_polynomial':str(s.factor(polynomial)),
+                           'full_weight1_zero_locus_dimension_upper':7,'weight2_fiber_dimension':3,
+                           'full_higher_dimension_upper':10,'PGL_image_upper':24,'G_dimension_criterion':True})
+        else:
+            coefficients=s.zeros(9,1)
+            for i,column in enumerate(columns):coefficients[column]=particular[i]
+            coefficients+=K2*s.Matrix(v)
+            second=P2.subs(dict(zip(source2,coefficients)),simultaneous=True)
+            assert all(s.expand(value)==0 for value in D2*coefficients+Q)
+            J3=[s.sympify(value)for value in H.all350(H.projective(H.bilinear(first,second,x),x),x)]
+            J4=[s.sympify(value)/2 for value in H.all350(H.projective(H.bilinear(second,second,x),x),x)]
+            witness=next(((weight,i,s.expand(value))for weight,values in [(3,J3),(4,J4)]for i,value in enumerate(values)if s.expand(value)!=0),None)
+            record.update({'full_weight2_parametrization':[str(s.expand(value))for value in coefficients],
+                           'weight2_equations_identically_solved':True,'higher_weight3_350':[str(s.expand(value))for value in J3],
+                           'higher_weight4_350':[str(s.expand(value))for value in J4]})
+            if witness is not None:
+                weight,index,polynomial=witness
+                record.update({'certificate_type':'nonzero_higher_Jacobi_on_full_weight2_solution',
+                               'witness_weight':weight,'witness_row':index,'obstruction_polynomial':str(s.factor(polynomial)),
+                               'full_higher_dimension_upper':10,'PGL_image_upper':24,'G_dimension_criterion':True})
+            else:
+                record.update({'certificate_type':'all_higher_Jacobi_zero_on_full_11parameter_space',
+                               'full_higher_dimension_upper':11,'PGL_image_upper':25,'G_dimension_criterion':False})
+        records.append(record)
+        print(name,record['certificate_type'],'image',record['PGL_image_upper'],flush=True)
+    result={'task_id':'G','all_passed':all(case['G_dimension_criterion']for case in records),
+            'scope':'Two entire K0 higher fibers, with base9 each; a single genuine Jacobi cut suffices. No nonlinear Groebner basis or finite sample membership is used.',
+            'cases':records,'compatible_extension_old_function_AST_unchanged':True,'old_function_names':sorted(before),
+            'producer_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'producer_bytes':Path(__file__).read_text(),
+            'input_bindings':[{'path':str(path.relative_to(ROOT)),'sha256':hashlib.sha256(path.read_bytes()).hexdigest()}for path in [HELPER,previous]],
+            'seconds':time.monotonic()-started,'maximum_RSS_KiB':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss}
+    destination.write_text(json.dumps(result,indent=2)+'\n')
+
+
+def global_compatibility_main():
+    """Three small whole shear slices, using only necessary weight2 quadrics."""
+    import ast,os,subprocess,tempfile
+    destination=ROOT/'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_COMPATIBILITY_20261107.json'
+    if destination.exists():raise FileExistsError(destination)
+    started=time.monotonic()
+    def timeout(signum,frame):raise TimeoutError('finite three compatibility cores budget210s')
+    signal.signal(signal.SIGALRM,timeout);signal.alarm(210)
+    resource.setrlimit(resource.RLIMIT_AS,(1536*1024**2,1536*1024**2))
+    previous=ROOT/'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_LOWPARAMETER_WEIGHTS_20261107.json'
+    oldpath=ROOT/'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_ONECUT_20261107.json'
+    packet=json.loads(previous.read_text());old=json.loads(oldpath.read_text())['producer_bytes']
+    parse=lambda value:{node.name:ast.dump(node,include_attributes=False)for node in ast.parse(value).body if isinstance(node,(ast.FunctionDef,ast.AsyncFunctionDef))}
+    before=parse(old);after=parse(Path(__file__).read_text());assert all(after[name]==value for name,value in before.items())
+    prefix=ROOT/'work/nonsquare-v62/singular-runtime/prefix';native=prefix/'usr/bin/Singular'
+    nativeenv=dict(os.environ)
+    nativeenv['LD_LIBRARY_PATH']='/workspace/cloud-setup/prefix/usr/lib/x86_64-linux-gnu:'+str(prefix/'usr/lib/x86_64-linux-gnu')+':'+nativeenv.get('LD_LIBRARY_PATH','')
+    nativeenv['SINGULAR_PROCS_DIR']=str(prefix/'usr/lib/x86_64-linux-gnu/singular/MOD')
+    nativeenv['SINGULARPATH']='/workspace/cloud-setup/prefix/usr/share/singular/LIB'
+    x=s.Matrix(s.symbols('a b c z w'));environment={str(value):value for value in x};environment['tau']=TAU
+    P1,source1,_,_=sources(x);records=[]
+    for name in ['SS_COMMON_K0','NIL_B0_TSQUARE_K0','NIL_B0_COMMON_K0']:
+        original=next(case for case in packet['cases']if case['type']==name);analysis=original['analysis']
+        K1=s.Matrix([[s.sympify(value)for value in row]for row in analysis['D1']['complete_kernel']])
+        D1=s.Matrix([[s.sympify(value)for value in row]for row in original['complete_D1_350_by30']])
+        D2=s.Matrix([[s.sympify(value)for value in row]for row in original['complete_D2_350_by9']])
+        S=s.Matrix([[s.sympify(value)for value in row]for row in original['complete_actual_shear_30_by6']])
+        shearpivots=analysis['actual_shear']['minor_columns'];B=S[:,shearpivots];r=len(shearpivots)
+        combined=B.row_join(K1);pivots=list(DomainMatrix.from_Matrix(combined).to_field().rref()[1])
+        assert pivots[:r]==list(range(r)) and len(pivots)==K1.cols
+        complement=[column-r for column in pivots[r:]];R=K1[:,complement];basis=B.row_join(R)
+        assert D1*basis==s.zeros(350,K1.cols)
+        basis_rows=list(DomainMatrix.from_Matrix(basis.T).to_field().rref()[1]);basis_minor=basis[basis_rows,:]
+        assert basis_minor.det()!=0
+        u=s.symbols('u0:'+str(R.cols));uenv={str(value):value for value in u}
+        first=P1.subs(dict(zip(source1,R*s.Matrix(u))),simultaneous=True)
+        Q=s.Matrix([s.sympify(value)/2 for value in H.all350(H.projective(H.bilinear(first,first,x),x),x)])
+        rows=analysis['D2']['minor_rows'];columns=analysis['D2']['minor_columns'];inverse=D2.extract(rows,columns).inv()
+        residual=Q-D2[:,columns]*inverse*Q.extract(rows,[0])
+        monomials=[s.prod(u[i]**exponent for i,exponent in enumerate(powers))for powers in H.monomials(len(u),2)]
+        coefficient_matrix=s.Matrix([[s.expand(value).coeff(monomial)for monomial in monomials]for value in residual])
+        assert all(s.expand(value-sum(coefficient_matrix[i,j]*m for j,m in enumerate(monomials)))==0 for i,value in enumerate(residual))
+        selected=list(DomainMatrix.from_Matrix(coefficient_matrix.T).to_field().rref()[1])
+        generators=[s.Poly(s.expand(residual[row]),*u,domain=s.QQ)for row in selected]
+        functionals=[]
+        for row in selected:
+            phi=s.zeros(1,350);phi[0,row]=1;coefficients=D2[row:row+1,columns]*inverse
+            for j,pivotrow in enumerate(rows):phi[0,pivotrow]-=coefficients[j]
+            assert phi*D2==s.zeros(1,9) and s.expand((phi*Q)[0]-residual[row])==0
+            functionals.append([[i,str(value)]for i,value in enumerate(list(phi))if value!=0])
+        record={'type':name,'affine_first_symbol_dimension_upper':original['affine_first_symbol_dimension_upper'],
+                'full_first_weight_kernel':serial_matrix(K1),'actual_shear_rank':r,'actual_shear_selected_columns':shearpivots,
+                'complete_transverse_weight1_30_by_n':serial_matrix(R),'shear_plus_slice_basis_rows':basis_rows,
+                'shear_plus_slice_basis_minor':serial_matrix(basis_minor),'shear_plus_slice_basis_inverse':serial_matrix(basis_minor.inv()),
+                'slice_variables':list(map(str,u)),'full_Q2_350':[str(s.expand(value))for value in Q],
+                'D2_pivot_rows':rows,'D2_pivot_columns':columns,'D2_pivot_inverse':serial_matrix(inverse),
+                'selected_obstruction_rows':selected,'obstruction_cokernel_functionals':functionals,
+                'necessary_compatibility_generators':[str(value.as_expr())for value in generators],
+                'weight2_fiber_dimension':analysis['D2']['nullity']}
+        if not generators:
+            higher=r+len(u)+analysis['D2']['nullity'];ambient=original['affine_first_symbol_dimension_upper']+higher+5
+            record.update(status='all_weight2_compatibility_zero_no_improvement',compatibility_slice_dimension_upper=len(u),
+                          full_higher_dimension_upper=higher,PGL_image_upper=ambient,G_dimension_criterion=ambient<=24)
+            records.append(record)
+            print(name,record['status'],'slice',len(u),'image',ambient,flush=True)
+            continue
+        script='ring R=0,('+','.join(map(str,u))+'),dp;\nshort=0;\n'
+        script+='ideal I='+','.join(str(value.as_expr()).replace('**','^')for value in generators)+';\nmatrix T;ideal G=liftstd(I,T);\n'
+        script+='print("DIM:"+string(dim(G)));\nint i;int j;for(i=1;i<=size(G);i++){print("G:"+string(i)+":"+string(G[i]));}\n'
+        script+='for(i=1;i<=nrows(T);i++){for(j=1;j<=ncols(T);j++){if(T[i,j]!=0){print("L:"+string(i)+":"+string(j)+":"+string(T[i,j]));}}}\nquit;\n'
+        record['exact_native_input']=script
+        try:
+            with tempfile.TemporaryDirectory(prefix='plane-compatibility-')as temp:
+                task=Path(temp)/'source.sing';task.write_text(script)
+                run=subprocess.run([str(native),'-q',str(task)],env=nativeenv,capture_output=True,text=True,timeout=45,check=False)
+            if run.returncode or '?'in run.stdout:
+                record.update(status='native_failure_no_dimension_proof',returncode=run.returncode,stdout=run.stdout[-20000:],stderr=run.stderr[-20000:],G_dimension_criterion=False)
+            else:
+                lifted={};lifts=[];native_dim=None
+                for line in run.stdout.splitlines():
+                    if line.startswith('G:'):
+                        _,j,polynomial=line.split(':',2);lifted[int(j)-1]=s.Poly(s.sympify(polynomial.replace('^','**'),locals=uenv),*u,domain=s.QQ)
+                    elif line.startswith('L:'):
+                        _,i,j,polynomial=line.split(':',3);lifts.append((int(i)-1,int(j)-1,s.Poly(s.sympify(polynomial.replace('^','**'),locals=uenv),*u,domain=s.QQ)))
+                    elif line.startswith('DIM:'):native_dim=int(line.split(':',1)[1])
+                assert lifted and native_dim is not None
+                sums={j:s.Poly(0,*u,domain=s.QQ)for j in lifted}
+                for i,j,value in lifts:sums[j]+=generators[i]*value
+                assert lifted==sums
+                leading=[lifted[j].monoms(order='grevlex')[0]for j in sorted(lifted)]
+                edges=[sum(1<<i for i,exponent in enumerate(powers)if exponent)for powers in leading]
+                cover=next(indices for k in range(len(u)+1)for indices in combinations(range(len(u)),k)if all(edge&sum(1<<i for i in indices)for edge in edges))
+                height=len(cover);bound=len(u)-height;assert bound==native_dim
+                counterexamples=[]
+                if height:
+                    for indices in combinations(range(len(u)),height-1):
+                        mask=sum(1<<i for i in indices);counterexamples.append(next(i for i,edge in enumerate(edges)if not edge&mask))
+                higher=r+bound+analysis['D2']['nullity'];ambient=original['affine_first_symbol_dimension_upper']+higher+5
+                record.update(status='exact_lifted_necessary_compatibility_dimension',all_ideal_lifts_verified=True,
+                    lifted_polynomials=[str(lifted[j].as_expr())for j in sorted(lifted)],
+                    ideal_membership_lifts=[{'generator':i,'polynomial':j,'coefficient':str(value.as_expr())}for i,j,value in lifts],
+                    leading_monomial_exponents=leading,leading_support_minimum_cover=height,minimum_cover_variables=list(cover),
+                    all_size_one_less_cover_counterexample_indices=counterexamples,
+                    compatibility_slice_dimension_upper=bound,full_higher_dimension_upper=higher,
+                    PGL_image_upper=ambient,G_dimension_criterion=ambient<=24,native_stdout=run.stdout)
+        except subprocess.TimeoutExpired as error:
+            record.update(status='finite45second_native_limit_no_dimension_proof',stdout=str(error.stdout or '')[-20000:],stderr=str(error.stderr or '')[-20000:],G_dimension_criterion=False)
+        records.append(record)
+        print(name,record['status'],'slice',record.get('compatibility_slice_dimension_upper'),'image',record.get('PGL_image_upper'),flush=True)
+    result={'task_id':'G','all_passed':all(case['G_dimension_criterion']for case in records),
+            'scope':'Three entire fixed K0 globalV symbol fibers. Actual finite shears cover full first-weight source; only full-weight2 necessary compatibility quadrics on8/6/8variable transverse slices are used. No full Poisson ideal or80variable GB.',
+            'cases':records,'compatible_extension_old_function_AST_unchanged':True,'old_function_names':sorted(before),
+            'producer_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'producer_bytes':Path(__file__).read_text(),
+            'input_bindings':[{'path':str(path.relative_to(ROOT)),'sha256':hashlib.sha256(path.read_bytes()).hexdigest()}for path in [HELPER,previous,oldpath,native]],
+            'seconds':time.monotonic()-started,'maximum_RSS_KiB':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss}
+    destination.write_text(json.dumps(result,indent=2)+'\n')
+
+
+def global_residual_main():
+    """Complete original higher Jacobi on seven whole linear compatibility branches."""
+    import ast,os,subprocess,tempfile
+    destination=ROOT/'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_RESIDUAL_20261107.json'
+    if destination.exists():raise FileExistsError(destination)
+    started=time.monotonic()
+    def timeout(signum,frame):raise TimeoutError('finite original-Jacobi residual budget210s')
+    signal.signal(signal.SIGALRM,timeout);signal.alarm(210)
+    resource.setrlimit(resource.RLIMIT_AS,(1536*1024**2,1536*1024**2))
+    prior=ROOT/'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_COMPATIBILITY_20261107.json'
+    sourcepath=ROOT/'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_LOWPARAMETER_WEIGHTS_20261107.json'
+    cores=json.loads(prior.read_text());packet=json.loads(sourcepath.read_text());old=cores['producer_bytes']
+    parse=lambda value:{node.name:ast.dump(node,include_attributes=False)for node in ast.parse(value).body if isinstance(node,(ast.FunctionDef,ast.AsyncFunctionDef))}
+    before=parse(old);after=parse(Path(__file__).read_text());assert all(after[name]==value for name,value in before.items())
+    records=[];x=s.Matrix(s.symbols('a b c z w'));env={str(value):value for value in x};env['tau']=TAU
+    template1,vars1,template2,vars2=sources(x)
+    for name in ['SS_COMMON_K0','NIL_B0_COMMON_K0']:
+        core=next(case for case in cores['cases']if case['type']==name)
+        original=next(case for case in packet['cases']if case['type']==name)
+        u=s.symbols('u0:8');v=s.symbols('v0:3');R=s.Matrix([[s.sympify(value)for value in row]for row in core['complete_transverse_weight1_30_by_n']])
+        K2=s.Matrix([[s.sympify(value)for value in row]for row in original['analysis']['D2']['complete_kernel']])
+        D2=s.Matrix([[s.sympify(value)for value in row]for row in original['complete_D2_350_by9']])
+        Q=s.Matrix([s.sympify(value)for value in core['full_Q2_350']]);inverse=s.Matrix([[s.sympify(value)for value in row]for row in core['D2_pivot_inverse']])
+        particular=-inverse*Q.extract(core['D2_pivot_rows'],[0]);coefficient=s.zeros(9,1)
+        for i,column in enumerate(core['D2_pivot_columns']):coefficient[column]=particular[i]
+        coefficient+=K2*s.Matrix(v)
+        first=template1.subs(dict(zip(vars1,R*s.Matrix(u))),simultaneous=True)
+        second=template2.subs(dict(zip(vars2,coefficient)),simultaneous=True)
+        if name=='SS_COMMON_K0':
+            branches=[{u[7]:0,u[4]:0},{u[7]:0,u[1]:2*u[0]+2*u[6]},
+                      {u[3]:-2*u[2]-2*u[5],u[4]:0},{u[3]:-2*u[2]-2*u[5],u[1]:2*u[0]+2*u[6]}]
+            target_height=2
+        else:
+            branches=[{u[7]:0,u[3]:0},{u[7]:0,u[5]:0},{u[3]:-u[7],u[1]:2*u[2]+4*u[5]}]
+            target_height=1
+        for number,substitution in enumerate(branches):
+            free=tuple(value for value in u if value not in substitution)+tuple(v);assert len(free)==9
+            first_branch=first.subs(substitution,simultaneous=True);second_branch=second.subs(substitution,simultaneous=True)
+            assert all(s.expand(value)==0 for value in (D2*coefficient+Q).subs(substitution,simultaneous=True))
+            J3=[s.sympify(value)for value in H.all350(H.projective(H.bilinear(first_branch,second_branch,x),x),x)]
+            J4=[s.sympify(value)/2 for value in H.all350(H.projective(H.bilinear(second_branch,second_branch,x),x),x)]
+            nonzero=[(weight,i,s.Poly(value,*free,domain=s.QQ))for weight,values in [(3,J3),(4,J4)]for i,value in enumerate(values)if value!=0]
+            witnesses=[];gcd=None
+            for weight,i,polynomial in nonzero:
+                new_gcd=polynomial.monic()if gcd is None else s.polys.polytools.gcd(gcd,polynomial).monic()
+                if gcd is None or new_gcd!=gcd:
+                    witnesses.append({'weight':weight,'row':i,'polynomial':str(polynomial.as_expr()),'cumulative_gcd':str(new_gcd.as_expr())})
+                    gcd=new_gcd
+                if target_height==1 or gcd.total_degree()==0:break
+            height=0 if gcd is None else 1 if gcd.total_degree()!=0 else 2
+            higher=core['actual_shear_rank']+9-height;ambient=original['affine_first_symbol_dimension_upper']+higher+5
+            record={'type':name,'linear_branch':number,'substitution':{str(key):str(value)for key,value in substitution.items()},
+                    'all_weight2_solutions_parametrized':True,'free_variables':list(map(str,free)),
+                    'complete_weight1_coefficients':{str((i,j)):str(s.expand(first_branch[i,j]))for i,j in H.PAIRS},
+                    'complete_weight2_coefficients':{str((i,j)):str(s.expand(second_branch[i,j]))for i,j in H.PAIRS},
+                    'all350_weight3_Jacobi':[str(s.expand(value))for value in J3],
+                    'all350_weight4_Jacobi':[str(s.expand(value))for value in J4],
+                    'exact_nonzero_polynomial_or_gcd_chain':witnesses,'proven_height_lower_bound':height,
+                    'dimension_argument':'A nonzero ideal has height>=1; gcd1 in the polynomial UFD excludes every height1 prime, so height>=2, not unit ideal.',
+                    'normalized_full_higher_dimension_upper':9-height,'actual_shear_rank':core['actual_shear_rank'],
+                    'full_higher_dimension_upper':higher,'PGL_image_upper':ambient,'G_dimension_criterion':ambient<=24}
+            records.append(record)
+            print(name,'branch',number,'height',height,'image',ambient,flush=True)
+    # Same exact six-variable core as before; fix native rational-power serialization only.
+    core=next(case for case in cores['cases']if case['type']=='NIL_B0_TSQUARE_K0')
+    u=s.symbols('u0:6');uenv={str(value):value for value in u}
+    generators=[s.Poly(s.sympify(value),*u,domain=s.QQ)for value in core['necessary_compatibility_generators']]
+    def native_polynomial(polynomial):
+        terms=[]
+        for powers,coefficient in polynomial.terms():
+            monomial='*'.join(str(variable)+'^'+str(exponent)for variable,exponent in zip(u,powers)if exponent)
+            terms.append('('+str(coefficient)+')'+('*'+monomial if monomial else ''))
+        return '+'.join(terms)or'0'
+    script='ring R=0,('+','.join(map(str,u))+'),dp;\nshort=0;\n'
+    script+='ideal I='+','.join(native_polynomial(value)for value in generators)+';\nmatrix T;ideal G=liftstd(I,T);\n'
+    script+='print("DIM:"+string(dim(G)));\nint i;int j;for(i=1;i<=size(G);i++){print("G:"+string(i)+":"+string(G[i]));}\n'
+    script+='for(i=1;i<=nrows(T);i++){for(j=1;j<=ncols(T);j++){if(T[i,j]!=0){print("L:"+string(i)+":"+string(j)+":"+string(T[i,j]));}}}\nquit;\n'
+    # Independently parse the corrected polynomial strings back to QQ before running native.
+    assert [s.Poly(s.sympify(native_polynomial(value).replace('^','**'),locals=uenv),*u,domain=s.QQ)for value in generators]==generators
+    prefix=ROOT/'work/nonsquare-v62/singular-runtime/prefix';native=prefix/'usr/bin/Singular';nativeenv=dict(os.environ)
+    nativeenv['LD_LIBRARY_PATH']='/workspace/cloud-setup/prefix/usr/lib/x86_64-linux-gnu:'+str(prefix/'usr/lib/x86_64-linux-gnu')+':'+nativeenv.get('LD_LIBRARY_PATH','')
+    nativeenv['SINGULAR_PROCS_DIR']=str(prefix/'usr/lib/x86_64-linux-gnu/singular/MOD');nativeenv['SINGULARPATH']='/workspace/cloud-setup/prefix/usr/share/singular/LIB'
+    repaired={'type':'NIL_B0_TSQUARE_K0','same_original_core_all_coefficients_exact':True,'exact_native_input':script,
+              'necessary_compatibility_generators':core['necessary_compatibility_generators']}
+    try:
+        with tempfile.TemporaryDirectory(prefix='plane-compatibility-repair-')as temp:
+            task=Path(temp)/'source.sing';task.write_text(script)
+            run=subprocess.run([str(native),'-q',str(task)],env=nativeenv,capture_output=True,text=True,timeout=45,check=False)
+        if run.returncode or '?'in run.stdout:
+            repaired.update(status='native_failure_no_dimension_proof',stdout=run.stdout[-20000:],stderr=run.stderr[-20000:],G_dimension_criterion=False)
+        else:
+            lifted={};lifts=[]
+            for line in run.stdout.splitlines():
+                if line.startswith('G:'):
+                    _,j,value=line.split(':',2);lifted[int(j)-1]=s.Poly(s.sympify(value.replace('^','**'),locals=uenv),*u,domain=s.QQ)
+                elif line.startswith('L:'):
+                    _,i,j,value=line.split(':',3);lifts.append((int(i)-1,int(j)-1,s.Poly(s.sympify(value.replace('^','**'),locals=uenv),*u,domain=s.QQ)))
+            sums={j:s.Poly(0,*u,domain=s.QQ)for j in lifted}
+            for i,j,value in lifts:sums[j]+=generators[i]*value
+            assert lifted and lifted==sums
+            leading=[lifted[j].monoms(order='grevlex')[0]for j in sorted(lifted)]
+            edges=[sum(1<<i for i,exponent in enumerate(powers)if exponent)for powers in leading]
+            cover=next(indices for k in range(7)for indices in combinations(range(6),k)if all(edge&sum(1<<i for i in indices)for edge in edges))
+            height=len(cover);bound=6-height;higher=5+bound+3;ambient=8+higher+5
+            repaired.update(status='exact_lifted_same_core_dimension',all_ideal_lifts_verified=True,
+                lifted_polynomials=[str(lifted[j].as_expr())for j in sorted(lifted)],
+                ideal_membership_lifts=[{'generator':i,'polynomial':j,'coefficient':str(value.as_expr())}for i,j,value in lifts],
+                leading_monomial_exponents=leading,leading_support_minimum_cover=height,minimum_cover_variables=list(cover),
+                compatibility_slice_dimension_upper=bound,full_higher_dimension_upper=higher,PGL_image_upper=ambient,
+                G_dimension_criterion=ambient<=24,native_stdout=run.stdout)
+    except subprocess.TimeoutExpired as error:
+        repaired.update(status='finite45second_native_limit_no_dimension_proof',stdout=str(error.stdout or '')[-20000:],G_dimension_criterion=False)
+    records.append(repaired);print('NIL_B0_TSQUARE_K0 repair',repaired['status'],'image',repaired.get('PGL_image_upper'),flush=True)
+    result={'task_id':'G','all_passed':all(case['G_dimension_criterion']for case in records),'cases':records,
+            'scope':'Complete original weights3/4 on all four SS and three nil common compatibility branches, each with all three second-weight kernel variables, plus exact same TSQUARE compatibility core serialization repair. No new jet or changed source.',
+            'compatible_extension_old_function_AST_unchanged':True,'old_function_names':sorted(before),
+            'producer_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'producer_bytes':Path(__file__).read_text(),
+            'input_bindings':[{'path':str(path.relative_to(ROOT)),'sha256':hashlib.sha256(path.read_bytes()).hexdigest()}for path in [HELPER,prior,sourcepath,native]],
+            'seconds':time.monotonic()-started,'maximum_RSS_KiB':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss}
+    destination.write_text(json.dumps(result,indent=2)+'\n')
+
+
+def global_tsquare_main():
+    """The last compatibility support is one linear space, not a sampled chart."""
+    import ast
+    destination=ROOT/'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_TSQUARE_20261107.json'
+    if destination.exists():raise FileExistsError(destination)
+    started=time.monotonic()
+    def timeout(signum,frame):raise TimeoutError('finite whole TSQUARE original-Jacobi budget60s')
+    signal.signal(signal.SIGALRM,timeout);signal.alarm(60)
+    resource.setrlimit(resource.RLIMIT_AS,(768*1024**2,768*1024**2))
+    corepath=ROOT/'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_COMPATIBILITY_20261107.json'
+    sourcepath=ROOT/'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_LOWPARAMETER_WEIGHTS_20261107.json'
+    previous=ROOT/'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_RESIDUAL_20261107.json'
+    cores=json.loads(corepath.read_text());packet=json.loads(sourcepath.read_text());old=json.loads(previous.read_text())['producer_bytes']
+    parse=lambda value:{node.name:ast.dump(node,include_attributes=False)for node in ast.parse(value).body if isinstance(node,(ast.FunctionDef,ast.AsyncFunctionDef))}
+    before=parse(old);after=parse(Path(__file__).read_text());assert all(after[name]==value for name,value in before.items())
+    core=next(case for case in cores['cases']if case['type']=='NIL_B0_TSQUARE_K0')
+    original=next(case for case in packet['cases']if case['type']=='NIL_B0_TSQUARE_K0')
+    u=s.symbols('u0:6');v=s.symbols('v0:3');L=-u[2]+3*u[3]+u[4];difference=u[2]-u[4]
+    generators=[s.sympify(value)for value in core['necessary_compatibility_generators']]
+    assert s.expand(generators[1]+12*u[5]**2)==0
+    assert s.expand(generators[3]-u[3]*L/3)==0
+    assert s.expand(generators[5]-14*u[0]*u[5]/3-L*(2*difference+9*u[3])/6)==0
+    # At any reduced point u5=0; then g3=0 and g5=0 imply L^2=0, hence L=0.
+    assert s.expand(L**2-((s.Rational(15,2)*u[3]*L)-(s.Rational(1,2)*L*(2*difference+9*u[3]))))==0
+    substitution={u[5]:0,u[2]:3*u[3]+u[4]}
+    assert all(s.expand(value.subs(substitution,simultaneous=True))==0 for value in generators)
+    x=s.Matrix(s.symbols('a b c z w'));P1,source1,P2,source2=sources(x)
+    R=s.Matrix([[s.sympify(value)for value in row]for row in core['complete_transverse_weight1_30_by_n']])
+    K2=s.Matrix([[s.sympify(value)for value in row]for row in original['analysis']['D2']['complete_kernel']])
+    D2=s.Matrix([[s.sympify(value)for value in row]for row in original['complete_D2_350_by9']])
+    Q=s.Matrix([s.sympify(value)for value in core['full_Q2_350']]);inverse=s.Matrix([[s.sympify(value)for value in row]for row in core['D2_pivot_inverse']])
+    particular=-inverse*Q.extract(core['D2_pivot_rows'],[0]);coefficient=s.zeros(9,1)
+    for i,column in enumerate(core['D2_pivot_columns']):coefficient[column]=particular[i]
+    coefficient+=K2*s.Matrix(v)
+    assert all(s.expand(value)==0 for value in (D2*coefficient+Q).subs(substitution,simultaneous=True))
+    first=P1.subs(dict(zip(source1,R*s.Matrix(u))),simultaneous=True).subs(substitution,simultaneous=True)
+    second=P2.subs(dict(zip(source2,coefficient)),simultaneous=True).subs(substitution,simultaneous=True)
+    J3=[s.sympify(value)for value in H.all350(H.projective(H.bilinear(first,second,x),x),x)]
+    J4=[s.sympify(value)/2 for value in H.all350(H.projective(H.bilinear(second,second,x),x),x)]
+    witness=next(((weight,i,s.expand(value))for weight,values in [(3,J3),(4,J4)]for i,value in enumerate(values)if value!=0),None)
+    height=1 if witness is not None else 0;ambient=8+5+7-height+5
+    result={'task_id':'G','all_passed':ambient<=24,'type':'NIL_B0_TSQUARE_K0',
+            'scope':'Entire reduced compatibility support, one whole linear4space, all3 secondweight kernel variables; remaining original Jacobi gives one nonzero cut if present.',
+            'reduced_support_equal_linear_space':True,'support_linear_equations':['u5=0',str(L)+'=0'],
+            'support_identities':['g1=-12*u5^2','g3=u3*L/3','g5=14*u0*u5/3+L*(2*(u2-u4)+9*u3)/6','L^2=(15/2)*u3*L-(1/2)*L*(2*(u2-u4)+9*u3)'],
+            'linear_substitution':{str(key):str(value)for key,value in substitution.items()},
+            'all_secondweight_solutions_parametrized':True,'firstweight_slice_dimension':4,'secondweight_kernel_dimension':3,
+            'complete_weight1_coefficients':{str((i,j)):str(s.expand(first[i,j]))for i,j in H.PAIRS},
+            'complete_weight2_coefficients':{str((i,j)):str(s.expand(second[i,j]))for i,j in H.PAIRS},
+            'all350_weight3_Jacobi':[str(s.expand(value))for value in J3],
+            'all350_weight4_Jacobi':[str(s.expand(value))for value in J4],
+            'nonzero_witness':None if witness is None else {'weight':witness[0],'row':witness[1],'polynomial':str(s.factor(witness[2]))},
+            'proven_higher_Jacobi_height_lower_bound':height,'actual_shear_rank':5,'affine_symbol_base_dimension':8,
+            'full_higher_dimension_upper':5+7-height,'PGL_image_upper':ambient,
+            'compatible_extension_old_function_AST_unchanged':True,'old_function_names':sorted(before),
+            'producer_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'producer_bytes':Path(__file__).read_text(),
+            'input_bindings':[{'path':str(path.relative_to(ROOT)),'sha256':hashlib.sha256(path.read_bytes()).hexdigest()}for path in [HELPER,corepath,sourcepath,previous]],
+            'seconds':time.monotonic()-started,'maximum_RSS_KiB':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss}
+    destination.write_text(json.dumps(result,indent=2)+'\n');print('NIL_B0_TSQUARE_K0 whole support image',ambient,flush=True)
+
+
+def global_twoparameter_main():
+    """Four complete two-parameter families and every exact linear wall."""
+    import ast
+    destination=ROOT/'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_TWOPARAMETER_20261107.json'
+    if destination.exists():raise FileExistsError(destination)
+    started=time.monotonic()
+    def timeout(signum,frame):raise TimeoutError('finite four whole twoparameter families budget240s')
+    signal.signal(signal.SIGALRM,timeout);signal.alarm(240)
+    resource.setrlimit(resource.RLIMIT_AS,(1536*1024**2,1536*1024**2))
+    previous=ROOT/'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_TSQUARE_20261107.json'
+    old=json.loads(previous.read_text())['producer_bytes']
+    parse=lambda value:{node.name:ast.dump(node,include_attributes=False)for node in ast.parse(value).body if isinstance(node,(ast.FunctionDef,ast.AsyncFunctionDef))}
+    before=parse(old);after=parse(Path(__file__).read_text());assert all(after[name]==value for name,value in before.items())
+    x=s.Matrix(s.symbols('a b c z w'));a,b,c,z,w=x;ETA=s.Symbol('eta')
+    En=s.Matrix([0,0,0,z,w]);ez=s.Matrix([0,0,0,1,0]);ew=s.Matrix([0,0,0,0,1])
+    Hbase=s.Matrix([a,b,-2*c,0,0]);N=s.Matrix([b,0,0,0,0]);J=s.Matrix([b,c,0,0,0]);J2=s.Matrix([c,0,0,0,0])
+    normal_ss=s.Matrix([0,0,0,z,-w]);normal_nil=s.Matrix([0,0,0,0,z]);P1,source1,P2,source2=sources(x)
+    models=[('SS_MIXH',TAU*Hbase+N,Hbase,normal_ss,ETA*z*w,s.Integer(1)),
+            ('SS_MIXN',Hbase+TAU*N,N,normal_ss,ETA*z*w,s.Integer(1)),
+            ('SS_NILREG',TAU*J+J2,J,normal_ss,ETA*z*w,s.Integer(1)),
+            ('NIL_B0_MIX',Hbase+TAU*N,Hbase+N,normal_nil,ETA*z*z,TAU-1)]
+    records=[]
+    for name,T,V,normal,K,excluded in models:
+        P0=H.wedge(T,En)+H.wedge(V,normal)+K*H.wedge(ez,ew)
+        assert all(s.expand(value)==0 for value in H.projective(H.bilinear(P0,P0,x),x).values())
+        D1=operator(P0,P1,source1,x);D2=operator(P0,P2,source2,x);S=shear(P0,x)
+        assert all(s.expand(value)==0 for value in D1*S)
+        analysis,minor=nonkernel_matrix_certificate(D1,D2,S,(TAU,ETA),16)
+        factors=s.factor_list(minor)[1];lines=[];unsupported=[]
+        for factor,multiplicity in factors:
+            polynomial=s.Poly(factor,TAU,ETA)
+            if polynomial.total_degree()!=1:
+                unsupported.append({'whole_curve_equation':str(factor),'multiplicity':int(multiplicity),
+                                    'curve_dimension_upper':1,'uniform_trivial_higher_fiber_upper':39,
+                                    'coarse_restored_image_upper':54,'coarse_bound_sufficient':False,
+                                    'status':'whole_nonlinear_curve_requires_new_exact_functionfield_or_geometric_proof'})
+                continue
+            ca=polynomial.coeff_monomial(TAU);cb=polynomial.coeff_monomial(ETA);constant=polynomial.coeff_monomial(1)
+            substitution={TAU:TAU,ETA:-(ca*TAU+constant)/cb}if cb!=0 else{TAU:-constant/ca,ETA:TAU}
+            ex=s.expand(excluded.subs(substitution,simultaneous=True))
+            line={'equation':str(factor),'parameterization':{str(key):str(value)for key,value in substitution.items()},'excluded_multiplicity_higher':ex==0}
+            if ex==0:line['all_strata_dimension_criterion']=True
+            else:
+                matrices=[matrix.subs(substitution,simultaneous=True)for matrix in [D1,D2,S]]
+                line['analysis']=nonkernel_univariate(*matrices,15,ex)
+                line['all_strata_dimension_criterion']=line['analysis']['all_strata_dimension_criterion']
+            lines.append(line)
+        analysis.update({'exception_polynomial':str(minor),'all_irreducible_factors':[[str(factor),int(multiplicity)]for factor,multiplicity in factors],
+                         'all_exceptional_lines':lines,'unsupported_whole_curves':unsupported,
+                         'all_strata_dimension_criterion':analysis['G_dimension_criterion']and not unsupported and all(line['all_strata_dimension_criterion']for line in lines)})
+        actual=s.expand(sum((-1)**i*x[i]*(P0[j,k]*P0[l,m]-P0[j,l]*P0[k,m]+P0[j,m]*P0[k,l])for i in range(5)for j,k,l,m in [[r for r in range(5)if r!=i]]))
+        record={'type':name,'parameters':['tau','eta'],'affine_first_symbol_dimension_upper':11,
+                'excluded_polynomial':str(excluded),'normal_form_P0':{str((i,j)):str(s.expand(P0[i,j]))for i,j in H.PAIRS},
+                'P0_full_projective_Jacobi_zero':True,'actual_D':str(s.factor(actual)),
+                'complete_D1_350_by30':serial_matrix(D1),'complete_D2_350_by9':serial_matrix(D2),
+                'complete_actual_shear_30_by6':serial_matrix(S),'analysis':analysis}
+        records.append(record)
+        destination.write_text(json.dumps({'task_id':'G','all_passed':False,'status':'bounded_partial_completed_whole_families',
+            'cases':records,'producer_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
+            'producer_bytes':Path(__file__).read_text(),'seconds':time.monotonic()-started},indent=2)+'\n')
+        print(name,'generichigher',analysis['higher_fiber_upper_bound'],'lines',len(lines),'nonlinearcurves',len(unsupported),'allGcriterion',analysis['all_strata_dimension_criterion'],flush=True)
+    proofs=[ROOT/'research/classification/PLANE_RANK_ZERO_GLOBAL_VECTOR_SEMISIMPLE_FIRST_JETS.md',ROOT/'research/classification/PLANE_RANK_ZERO_GLOBAL_VECTOR_NILPOTENT_FIRST_JETS.md']
+    result={'task_id':'G','all_passed':all(record['analysis']['all_strata_dimension_criterion']for record in records),'cases':records,
+            'scope':'Four entire mD2/globalV two-parameter source families. Every linear maximal-minor wall is retained as a wholeline, with all exact point roots. Unsupported nonlinear curves retain explicit insufficient coarse bound and are not excluded. Generic threeparameter/wholehighmultiplicity/scalarfirstjets remain separate.',
+            'compatible_extension_old_function_AST_unchanged':True,'old_function_names':sorted(before),
+            'producer_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'producer_bytes':Path(__file__).read_text(),
+            'input_bindings':[{'path':str(path.relative_to(ROOT)),'sha256':hashlib.sha256(path.read_bytes()).hexdigest()}for path in [HELPER,previous]+proofs],
+            'seconds':time.monotonic()-started,'maximum_RSS_KiB':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss}
+    destination.write_text(json.dumps(result,indent=2)+'\n')
+
+
+def global_hyperbola_main():
+    """One whole rational maximal-minor curve; tau zero is empty on it."""
+    import ast
+    destination=ROOT/'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_HYPERBOLA_20261107.json'
+    if destination.exists():raise FileExistsError(destination)
+    started=time.monotonic();signal.alarm(90)
+    resource.setrlimit(resource.RLIMIT_AS,(1536*1024**2,1536*1024**2))
+    previous=ROOT/'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_TWOPARAMETER_20261107.json'
+    packet=json.loads(previous.read_text());old=packet['producer_bytes']
+    parse=lambda value:{node.name:ast.dump(node,include_attributes=False)for node in ast.parse(value).body if isinstance(node,(ast.FunctionDef,ast.AsyncFunctionDef))}
+    before=parse(old);after=parse(Path(__file__).read_text());assert all(after[name]==value for name,value in before.items())
+    ETA=s.Symbol('eta');environment={'tau':TAU,'eta':ETA}
+    original=next(case for case in packet['cases']if case['type']=='NIL_B0_MIX')
+    matrices=[s.Matrix([[s.sympify(value,locals=environment)for value in row]for row in original[key]])for key in ['complete_D1_350_by30','complete_D2_350_by9','complete_actual_shear_30_by6']]
+    cleared=[matrix.subs(ETA,1-3/TAU).applyfunc(lambda value:s.cancel(TAU*value))for matrix in matrices]
+    assert all(s.denom(value)==1 for matrix in cleared for value in matrix)
+    analysis=nonkernel_univariate(*cleared,15,TAU*(TAU-1))
+    result={'task_id':'G','all_passed':analysis['all_strata_dimension_criterion'],
+            'scope':'Entire NILb0MIX rational hyperbola eta*tau-tau+3=0. Its tau0 complement is empty; tau1 is excluded exactly as m>=3, all other roots and conjugates retained.',
+            'whole_parameterization':'eta=1-3/tau, tau!=0','tau_zero_curve_complement_empty':True,
+            'rank_equivalent_denominator_clearing_scalar':'tau',
+            'full_cleared_D1_350_by30':serial_matrix(cleared[0]),'full_cleared_D2_350_by9':serial_matrix(cleared[1]),
+            'full_cleared_actual_shear_30_by6':serial_matrix(cleared[2]),'analysis':analysis,
+            'compatible_extension_old_function_AST_unchanged':True,'old_function_names':sorted(before),
+            'producer_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'producer_bytes':Path(__file__).read_text(),
+            'input_bindings':[{'path':str(path.relative_to(ROOT)),'sha256':hashlib.sha256(path.read_bytes()).hexdigest()}for path in [HELPER,previous]],
+            'seconds':time.monotonic()-started,'maximum_RSS_KiB':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss}
+    destination.write_text(json.dumps(result,indent=2)+'\n')
+    print('whole NILb0MIX hyperbola image',analysis['PGL_image_upper_bound'],'allGcriterion',analysis['all_strata_dimension_criterion'],flush=True)
+
+
 if __name__=='__main__':
     try:
-        if '--rank2-nonkernel' in __import__('sys').argv:rank2_nonkernel_main()
+        if '--global-hyperbola' in __import__('sys').argv:global_hyperbola_main()
+        elif '--global-twoparameter' in __import__('sys').argv:global_twoparameter_main()
+        elif '--global-tsquare' in __import__('sys').argv:global_tsquare_main()
+        elif '--global-residual' in __import__('sys').argv:global_residual_main()
+        elif '--global-compatibility' in __import__('sys').argv:global_compatibility_main()
+        elif '--global-onecut' in __import__('sys').argv:global_onecut_main()
+        elif '--global-lowparameter' in __import__('sys').argv:global_lowparameter_main()
+        elif '--rank2-nonkernel' in __import__('sys').argv:rank2_nonkernel_main()
         elif '--rank2-kernel' in __import__('sys').argv:rank2_kernel_main()
         else:main()
     except FileExistsError:raise
     except Exception as error:
-        failure=ROOT/('reports/CLASSIFICATION_PLANE_RANK_ZERO_RANK_TWO_NONKERNEL_WEIGHTS_RUNTIME_20261107.json' if '--rank2-nonkernel' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_RANK_TWO_KERNEL_WEIGHTS_RUNTIME_20261107.json' if '--rank2-kernel' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_FULLRANK_WEIGHTS_RUNTIME_20261107.json')
+        failure=ROOT/('reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_HYPERBOLA_RUNTIME_20261107.json' if '--global-hyperbola' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_TWOPARAMETER_RUNTIME_20261107.json' if '--global-twoparameter' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_TSQUARE_RUNTIME_20261107.json' if '--global-tsquare' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_RESIDUAL_RUNTIME_20261107.json' if '--global-residual' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_COMPATIBILITY_RUNTIME_20261107.json' if '--global-compatibility' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_ONECUT_RUNTIME_20261107.json' if '--global-onecut' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_LOWPARAMETER_WEIGHTS_RUNTIME_20261107.json' if '--global-lowparameter' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_RANK_TWO_NONKERNEL_WEIGHTS_RUNTIME_20261107.json' if '--rank2-nonkernel' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_RANK_TWO_KERNEL_WEIGHTS_RUNTIME_20261107.json' if '--rank2-kernel' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_FULLRANK_WEIGHTS_RUNTIME_20261107.json')
         if not failure.exists():
             failure.write_text(json.dumps({'task_id':'G','all_passed':False,'failure':repr(error),
                 'producer_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),

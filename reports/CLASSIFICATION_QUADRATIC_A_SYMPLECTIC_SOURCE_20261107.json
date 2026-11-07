@@ -1,0 +1,1397 @@
+{
+  "task_id": "E_multiple_hyperplane",
+  "all_passed": true,
+  "status": "COMPLETE_DISTINCT_EIGEN_SOURCE_CLASSIFIED_FIXED_CONTRACTIONS_NEGATIVE",
+  "symplectic_J": {
+    "0,2": "1",
+    "1,3": "1"
+  },
+  "five_parameter_Q": {
+    "0,1": "p*u1*u2",
+    "0,2": "a*u1*v1 + q*u2*v2 + r*u2*v2",
+    "0,3": "q*u1*v2",
+    "1,2": "u2*v1*(p + q + r)",
+    "1,3": "f*u2*v2 + p*u1*v1 + q*u1*v1",
+    "2,3": "r*v1*v2"
+  },
+  "complete_Jacobi_coefficients": [
+    "-p*q - p*r - q**2 - q*r",
+    "-f*q - f*r + q**2 + 2*q*r + r**2",
+    "a*p + a*q - p**2 - 2*p*q - q**2",
+    "p*q + p*r + q**2 + q*r",
+    "-p*q - p*r - q**2 - q*r",
+    "-f*q - f*r + q**2 + 2*q*r + r**2",
+    "a*p + a*q - p**2 - 2*p*q - q**2",
+    "p*q + p*r + q**2 + q*r"
+  ],
+  "Jacobi_coefficient_labels": [
+    {
+      "triple": [
+        0,
+        1,
+        2
+      ],
+      "exponents": [
+        1,
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "triple": [
+        0,
+        1,
+        2
+      ],
+      "exponents": [
+        0,
+        2,
+        0,
+        1
+      ]
+    },
+    {
+      "triple": [
+        0,
+        1,
+        3
+      ],
+      "exponents": [
+        2,
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "triple": [
+        0,
+        1,
+        3
+      ],
+      "exponents": [
+        1,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "triple": [
+        0,
+        2,
+        3
+      ],
+      "exponents": [
+        1,
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "triple": [
+        0,
+        2,
+        3
+      ],
+      "exponents": [
+        0,
+        1,
+        0,
+        2
+      ]
+    },
+    {
+      "triple": [
+        1,
+        2,
+        3
+      ],
+      "exponents": [
+        1,
+        0,
+        2,
+        0
+      ]
+    },
+    {
+      "triple": [
+        1,
+        2,
+        3
+      ],
+      "exponents": [
+        0,
+        1,
+        1,
+        1
+      ]
+    }
+  ],
+  "three_ideal_generators": [
+    "(p + q)*(q + r)",
+    "(q + r)*(-f + q + r)",
+    "(p + q)*(-a + p + q)"
+  ],
+  "Jacobi_to_generators": [
+    [
+      "-1",
+      "0",
+      "0"
+    ],
+    [
+      "0",
+      "1",
+      "0"
+    ],
+    [
+      "0",
+      "0",
+      "-1"
+    ],
+    [
+      "1",
+      "0",
+      "0"
+    ],
+    [
+      "-1",
+      "0",
+      "0"
+    ],
+    [
+      "0",
+      "1",
+      "0"
+    ],
+    [
+      "0",
+      "0",
+      "-1"
+    ],
+    [
+      "1",
+      "0",
+      "0"
+    ]
+  ],
+  "generators_to_Jacobi": [
+    [
+      "-1",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "0",
+      "1",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "0",
+      "0",
+      "-1",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ]
+  ],
+  "whole_semisimple_source_support_union": [
+    "b=e=0",
+    "e=0,f=b",
+    "b=0,a=e"
+  ],
+  "nonregular_walls": "All distinct eigenvalues including ratio-1 andzero eigenvalue allowed in the fiveparameter source. Repeated eigenvalue scalar is a closed block condition and cannot approach nonzero Jordan target via block symplectic conjugacy. Nonsemisimple Jordan parents remain an explicit separate stratum, not classified here.",
+  "all_six_magnetic_original_source_exact": true,
+  "all_six_magnetic_normalization_exact": true,
+  "normalization_localization": "alpha*beta*I !=0; dense open of the accepted irreducible entire7source, so positive entirelambda membership returns every complement by source closure.",
+  "full_normalization_map": [
+    "(m2/(-lambda - 1/2) + m5*y/(-2*lambda - 1) + q1)/(m0 + m4)",
+    "(-m1/(lambda - 1/2) - m3*x/(2*lambda - 1) + m4*y + q2)/(m0 + m4)",
+    "x",
+    "y"
+  ],
+  "full_normalization_inverse": [
+    "m5*y/(2*lambda + 1) + (m0 + m4)*(m5*y/((-2*lambda - 1)*(m0 + m4)) + q1 + q1/(m0 + m4) - (m2/(-lambda - 1/2) + m5*y/(-2*lambda - 1) + q1)/(m0 + m4))",
+    "m3*x/(2*lambda - 1) - m4*y + (m0 + m4)*(-m3*x/((2*lambda - 1)*(m0 + m4)) + m4*y/(m0 + m4) + q2 + q2/(m0 + m4) - (-m1/(lambda - 1/2) - m3*x/(2*lambda - 1) + m4*y + q2)/(m0 + m4))",
+    "x",
+    "y"
+  ],
+  "normalization_determinant": "(m0 + m4)**(-2)",
+  "symplectic_standardization": [
+    "q1",
+    "x",
+    "y",
+    "-q2 + y"
+  ],
+  "target_standard": {
+    "0,1": "u2**2*(2*lambda - 1)/2",
+    "0,2": "-(2*lambda*u2*v1 + u2*v1 - 2)/2",
+    "0,3": "(2*lambda*u1*v1 - 2*lambda*u2*v2 + u1*v1 - 2*u2*v1 + u2*v2)/2",
+    "1,3": "(2*lambda*u2*v1 - u2*v1 + 2)/2",
+    "2,3": "-v1**2*(2*lambda + 1)/2"
+  },
+  "actual_symplectic_contraction_matrix": [
+    [
+      "1",
+      "1/epsilon",
+      "0",
+      "0"
+    ],
+    [
+      "0",
+      "1",
+      "0",
+      "0"
+    ],
+    [
+      "0",
+      "0",
+      "1",
+      "0"
+    ],
+    [
+      "0",
+      "0",
+      "-1/epsilon",
+      "1"
+    ]
+  ],
+  "actual_parent_period": "q=c0+epsilon*c1, actual single source period; no products freed",
+  "curves": [
+    {
+      "name": "separated",
+      "source_binding": {
+        "a": "-epsilon*rho",
+        "f": "-epsilon*(rho + 1)",
+        "p": "-c0 - c1*epsilon",
+        "q": "c0 + c1*epsilon",
+        "r": "-c0 - c1*epsilon"
+      },
+      "actual_source_Pfaffian": "-(epsilon*rho*u1*v1 - 1)*(epsilon*rho*u2*v2 + epsilon*u2*v2 - 1)",
+      "all_source_Jacobi_zero": true,
+      "linear_shape": [
+        18,
+        3
+      ],
+      "rank": 3,
+      "linear_matrix": [
+        [
+          "0",
+          "-1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "1",
+          "0",
+          "-1"
+        ],
+        [
+          "0",
+          "-1",
+          "0"
+        ],
+        [
+          "1",
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "-1",
+          "0",
+          "-1"
+        ],
+        [
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "-2",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "-1",
+          "0"
+        ],
+        [
+          "0",
+          "-1",
+          "0"
+        ],
+        [
+          "-1",
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "-1"
+        ],
+        [
+          "0",
+          "-1",
+          "0"
+        ],
+        [
+          "0",
+          "-1",
+          "0"
+        ]
+      ],
+      "linear_rhs": [
+        "0",
+        "lambda - 1/2",
+        "0",
+        "-lambda - 1/2",
+        "0",
+        "lambda + 1/2",
+        "0",
+        "-1",
+        "3/2 - lambda",
+        "0",
+        "1",
+        "0",
+        "0",
+        "lambda + 1/2",
+        "0",
+        "-lambda - 1/2",
+        "0",
+        "0"
+      ],
+      "row_labels": [
+        {
+          "pair": [
+            0,
+            1
+          ],
+          "epsilon_power": 0,
+          "exponents": [
+            1,
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "pair": [
+            0,
+            1
+          ],
+          "epsilon_power": 0,
+          "exponents": [
+            0,
+            2,
+            0,
+            0
+          ]
+        },
+        {
+          "pair": [
+            0,
+            1
+          ],
+          "epsilon_power": -1,
+          "exponents": [
+            0,
+            2,
+            0,
+            0
+          ]
+        },
+        {
+          "pair": [
+            0,
+            2
+          ],
+          "epsilon_power": 0,
+          "exponents": [
+            0,
+            1,
+            1,
+            0
+          ]
+        },
+        {
+          "pair": [
+            0,
+            2
+          ],
+          "epsilon_power": -1,
+          "exponents": [
+            0,
+            1,
+            1,
+            0
+          ]
+        },
+        {
+          "pair": [
+            0,
+            3
+          ],
+          "epsilon_power": 0,
+          "exponents": [
+            1,
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "pair": [
+            0,
+            3
+          ],
+          "epsilon_power": 0,
+          "exponents": [
+            1,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "pair": [
+            0,
+            3
+          ],
+          "epsilon_power": 0,
+          "exponents": [
+            0,
+            1,
+            1,
+            0
+          ]
+        },
+        {
+          "pair": [
+            0,
+            3
+          ],
+          "epsilon_power": 0,
+          "exponents": [
+            0,
+            1,
+            0,
+            1
+          ]
+        },
+        {
+          "pair": [
+            0,
+            3
+          ],
+          "epsilon_power": -1,
+          "exponents": [
+            1,
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "pair": [
+            0,
+            3
+          ],
+          "epsilon_power": -1,
+          "exponents": [
+            0,
+            1,
+            1,
+            0
+          ]
+        },
+        {
+          "pair": [
+            0,
+            3
+          ],
+          "epsilon_power": -1,
+          "exponents": [
+            0,
+            1,
+            0,
+            1
+          ]
+        },
+        {
+          "pair": [
+            1,
+            2
+          ],
+          "epsilon_power": 0,
+          "exponents": [
+            0,
+            1,
+            1,
+            0
+          ]
+        },
+        {
+          "pair": [
+            1,
+            3
+          ],
+          "epsilon_power": 0,
+          "exponents": [
+            0,
+            1,
+            1,
+            0
+          ]
+        },
+        {
+          "pair": [
+            1,
+            3
+          ],
+          "epsilon_power": -1,
+          "exponents": [
+            0,
+            1,
+            1,
+            0
+          ]
+        },
+        {
+          "pair": [
+            2,
+            3
+          ],
+          "epsilon_power": 0,
+          "exponents": [
+            0,
+            0,
+            2,
+            0
+          ]
+        },
+        {
+          "pair": [
+            2,
+            3
+          ],
+          "epsilon_power": 0,
+          "exponents": [
+            0,
+            0,
+            1,
+            1
+          ]
+        },
+        {
+          "pair": [
+            2,
+            3
+          ],
+          "epsilon_power": -1,
+          "exponents": [
+            0,
+            0,
+            2,
+            0
+          ]
+        }
+      ],
+      "status": "FIXED_ACTUAL_SOURCE_CONTRACTION_NOT_MATCHED",
+      "left_functional": {
+        "1": "-2",
+        "3": "-1",
+        "5": "1"
+      },
+      "left_rhs": "2"
+    },
+    {
+      "name": "rank3_rank5",
+      "source_binding": {
+        "a": "-epsilon*rho",
+        "f": "-epsilon*(rho + 1)/2",
+        "p": "-c0 - c1*epsilon",
+        "q": "c0 + c1*epsilon",
+        "r": "-c0 - c1*epsilon - epsilon*(rho + 1)/2"
+      },
+      "actual_source_Pfaffian": "-(epsilon*rho*u2*v2 + epsilon*u2*v2 - 2)*(2*epsilon*rho*u1*v1 + epsilon*rho*u2*v2 + epsilon*u2*v2 - 2)/4",
+      "all_source_Jacobi_zero": true,
+      "linear_shape": [
+        18,
+        3
+      ],
+      "rank": 3,
+      "linear_matrix": [
+        [
+          "0",
+          "-1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "-1"
+        ],
+        [
+          "0",
+          "-1",
+          "0"
+        ],
+        [
+          "1",
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "-1"
+        ],
+        [
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "-1/2",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "-1",
+          "0"
+        ],
+        [
+          "0",
+          "-1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "-1/2",
+          "0",
+          "-1"
+        ],
+        [
+          "0",
+          "-1",
+          "0"
+        ],
+        [
+          "0",
+          "-1",
+          "0"
+        ]
+      ],
+      "linear_rhs": [
+        "0",
+        "lambda - 1/2",
+        "0",
+        "1/2 - lambda",
+        "0",
+        "lambda + 1/2",
+        "0",
+        "-1",
+        "1/2 - lambda",
+        "0",
+        "-1/2",
+        "0",
+        "0",
+        "lambda - 1/2",
+        "0",
+        "-lambda",
+        "0",
+        "0"
+      ],
+      "row_labels": [
+        {
+          "pair": [
+            0,
+            1
+          ],
+          "epsilon_power": 0,
+          "exponents": [
+            1,
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "pair": [
+            0,
+            1
+          ],
+          "epsilon_power": 0,
+          "exponents": [
+            0,
+            2,
+            0,
+            0
+          ]
+        },
+        {
+          "pair": [
+            0,
+            1
+          ],
+          "epsilon_power": -1,
+          "exponents": [
+            0,
+            2,
+            0,
+            0
+          ]
+        },
+        {
+          "pair": [
+            0,
+            2
+          ],
+          "epsilon_power": 0,
+          "exponents": [
+            0,
+            1,
+            1,
+            0
+          ]
+        },
+        {
+          "pair": [
+            0,
+            2
+          ],
+          "epsilon_power": -1,
+          "exponents": [
+            0,
+            1,
+            1,
+            0
+          ]
+        },
+        {
+          "pair": [
+            0,
+            3
+          ],
+          "epsilon_power": 0,
+          "exponents": [
+            1,
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "pair": [
+            0,
+            3
+          ],
+          "epsilon_power": 0,
+          "exponents": [
+            1,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "pair": [
+            0,
+            3
+          ],
+          "epsilon_power": 0,
+          "exponents": [
+            0,
+            1,
+            1,
+            0
+          ]
+        },
+        {
+          "pair": [
+            0,
+            3
+          ],
+          "epsilon_power": 0,
+          "exponents": [
+            0,
+            1,
+            0,
+            1
+          ]
+        },
+        {
+          "pair": [
+            0,
+            3
+          ],
+          "epsilon_power": -1,
+          "exponents": [
+            1,
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "pair": [
+            0,
+            3
+          ],
+          "epsilon_power": -1,
+          "exponents": [
+            0,
+            1,
+            1,
+            0
+          ]
+        },
+        {
+          "pair": [
+            0,
+            3
+          ],
+          "epsilon_power": -1,
+          "exponents": [
+            0,
+            1,
+            0,
+            1
+          ]
+        },
+        {
+          "pair": [
+            1,
+            2
+          ],
+          "epsilon_power": 0,
+          "exponents": [
+            0,
+            1,
+            1,
+            0
+          ]
+        },
+        {
+          "pair": [
+            1,
+            3
+          ],
+          "epsilon_power": 0,
+          "exponents": [
+            0,
+            1,
+            1,
+            0
+          ]
+        },
+        {
+          "pair": [
+            1,
+            3
+          ],
+          "epsilon_power": -1,
+          "exponents": [
+            0,
+            1,
+            1,
+            0
+          ]
+        },
+        {
+          "pair": [
+            2,
+            3
+          ],
+          "epsilon_power": 0,
+          "exponents": [
+            0,
+            0,
+            2,
+            0
+          ]
+        },
+        {
+          "pair": [
+            2,
+            3
+          ],
+          "epsilon_power": 0,
+          "exponents": [
+            0,
+            0,
+            1,
+            1
+          ]
+        },
+        {
+          "pair": [
+            2,
+            3
+          ],
+          "epsilon_power": -1,
+          "exponents": [
+            0,
+            0,
+            2,
+            0
+          ]
+        }
+      ],
+      "status": "FIXED_ACTUAL_SOURCE_CONTRACTION_NOT_MATCHED",
+      "left_functional": {
+        "7": "1"
+      },
+      "left_rhs": "-1"
+    },
+    {
+      "name": "rank5_rank3",
+      "source_binding": {
+        "a": "-epsilon*rho/2",
+        "f": "-epsilon*(rho + 1)",
+        "p": "-c0 - c1*epsilon - epsilon*rho/2",
+        "q": "c0 + c1*epsilon",
+        "r": "-c0 - c1*epsilon"
+      },
+      "actual_source_Pfaffian": "-(epsilon*rho*u1*v1 - 2)*(epsilon*rho*u1*v1 + 2*epsilon*rho*u2*v2 + 2*epsilon*u2*v2 - 2)/4",
+      "all_source_Jacobi_zero": true,
+      "linear_shape": [
+        18,
+        3
+      ],
+      "rank": 3,
+      "linear_matrix": [
+        [
+          "0",
+          "-1",
+          "0"
+        ],
+        [
+          "1/2",
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "-1"
+        ],
+        [
+          "0",
+          "-1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "-1",
+          "0",
+          "-1"
+        ],
+        [
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "-1/2",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "-1",
+          "0"
+        ],
+        [
+          "0",
+          "-1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "-1"
+        ],
+        [
+          "0",
+          "-1",
+          "0"
+        ],
+        [
+          "0",
+          "-1",
+          "0"
+        ]
+      ],
+      "linear_rhs": [
+        "0",
+        "lambda - 1/2",
+        "0",
+        "-lambda - 1/2",
+        "0",
+        "lambda + 1/2",
+        "0",
+        "-1",
+        "3/2 - lambda",
+        "0",
+        "1",
+        "0",
+        "0",
+        "lambda + 1/2",
+        "0",
+        "-lambda - 1/2",
+        "0",
+        "0"
+      ],
+      "row_labels": [
+        {
+          "pair": [
+            0,
+            1
+          ],
+          "epsilon_power": 0,
+          "exponents": [
+            1,
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "pair": [
+            0,
+            1
+          ],
+          "epsilon_power": 0,
+          "exponents": [
+            0,
+            2,
+            0,
+            0
+          ]
+        },
+        {
+          "pair": [
+            0,
+            1
+          ],
+          "epsilon_power": -1,
+          "exponents": [
+            0,
+            2,
+            0,
+            0
+          ]
+        },
+        {
+          "pair": [
+            0,
+            2
+          ],
+          "epsilon_power": 0,
+          "exponents": [
+            0,
+            1,
+            1,
+            0
+          ]
+        },
+        {
+          "pair": [
+            0,
+            2
+          ],
+          "epsilon_power": -1,
+          "exponents": [
+            0,
+            1,
+            1,
+            0
+          ]
+        },
+        {
+          "pair": [
+            0,
+            3
+          ],
+          "epsilon_power": 0,
+          "exponents": [
+            1,
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "pair": [
+            0,
+            3
+          ],
+          "epsilon_power": 0,
+          "exponents": [
+            1,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "pair": [
+            0,
+            3
+          ],
+          "epsilon_power": 0,
+          "exponents": [
+            0,
+            1,
+            1,
+            0
+          ]
+        },
+        {
+          "pair": [
+            0,
+            3
+          ],
+          "epsilon_power": 0,
+          "exponents": [
+            0,
+            1,
+            0,
+            1
+          ]
+        },
+        {
+          "pair": [
+            0,
+            3
+          ],
+          "epsilon_power": -1,
+          "exponents": [
+            1,
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "pair": [
+            0,
+            3
+          ],
+          "epsilon_power": -1,
+          "exponents": [
+            0,
+            1,
+            1,
+            0
+          ]
+        },
+        {
+          "pair": [
+            0,
+            3
+          ],
+          "epsilon_power": -1,
+          "exponents": [
+            0,
+            1,
+            0,
+            1
+          ]
+        },
+        {
+          "pair": [
+            1,
+            2
+          ],
+          "epsilon_power": 0,
+          "exponents": [
+            0,
+            1,
+            1,
+            0
+          ]
+        },
+        {
+          "pair": [
+            1,
+            3
+          ],
+          "epsilon_power": 0,
+          "exponents": [
+            0,
+            1,
+            1,
+            0
+          ]
+        },
+        {
+          "pair": [
+            1,
+            3
+          ],
+          "epsilon_power": -1,
+          "exponents": [
+            0,
+            1,
+            1,
+            0
+          ]
+        },
+        {
+          "pair": [
+            2,
+            3
+          ],
+          "epsilon_power": 0,
+          "exponents": [
+            0,
+            0,
+            2,
+            0
+          ]
+        },
+        {
+          "pair": [
+            2,
+            3
+          ],
+          "epsilon_power": 0,
+          "exponents": [
+            0,
+            0,
+            1,
+            1
+          ]
+        },
+        {
+          "pair": [
+            2,
+            3
+          ],
+          "epsilon_power": -1,
+          "exponents": [
+            0,
+            0,
+            2,
+            0
+          ]
+        }
+      ],
+      "status": "FIXED_ACTUAL_SOURCE_CONTRACTION_NOT_MATCHED",
+      "left_functional": {
+        "7": "1"
+      },
+      "left_rhs": "-1"
+    }
+  ],
+  "input_sha256": {
+    "code/classification_quadratic_a_symplectic_source.py": "e3779b10512ab9821656b68b5deaf56750dd3ed7e466168ba85a74abca389853",
+    "reports/CLASSIFICATION_NIL22_IMAGE_REMAINING_SOURCES_20261107.json": "9ab03220144c70d70b877c7138562d854d0102bd37846eeafcbbd115170e0700",
+    "reports/CLASSIFICATION_NIL22_IMAGE_MAGNETIC_NORMALFORMS_20261107.json": "994784fc0975dfc4eee5c04c710949f94fad42405816bddb9766e68e0d06746c",
+    "research/classification/NIL22_IMAGE_SOURCES_AND_COMPONENTS.md": "d2f2f808f2b21721b65ebc55dae3864b929ca17fe2c9d81aa74277dde52264e3",
+    "research/classification/TWO_QUADRICS_SUPPORT.md": "a691372a606b5120982d5eb25d336f33c051f19dd497ec38c8985a7404b7e13b"
+  },
+  "producer_bytes": "#!/usr/bin/env python3\n\"\"\"Complete five-parameter semisimple symplectic source and genuine contractions.\n\nNo local Mora, unit elimination or jet extension. Every generic parent is one\nof three actual whole Poisson sources, with factorized H+2Q divisor.\n\"\"\"\nfrom pathlib import Path\nimport hashlib,itertools as it,json,time\nimport sympy as s\nfrom sympy.polys.matrices import DomainMatrix\nROOT=Path(__file__).resolve().parents[1]\ndef anti(entries,n=4):\n P=s.zeros(n)\n for(i,j),f in entries.items():P[i,j]=f;P[j,i]=-f\n return P\ndef jac(P,xx):return[s.expand(sum(P[i,l]*s.diff(P[j,k],xx[l])+P[j,l]*s.diff(P[k,i],xx[l])+P[k,l]*s.diff(P[i,j],xx[l])for l in range(len(xx))))for i,j,k in it.combinations(range(len(xx)),3)]\ndef encode(P):return{str(i)+','+str(j):str(s.factor(P[i,j]))for i,j in it.combinations(range(P.rows),2)if P[i,j]!=0}\ndef main():\n started=time.monotonic();u1,u2,v1,v2=xx=s.symbols('u1 u2 v1 v2');a,f,p,q,r=s.symbols('a f p q r');b=q+r;e=p+q;J=anti({(0,2):1,(1,3):1});Q=anti({(0,1):p*u1*u2,(0,2):a*u1*v1+b*u2*v2,(0,3):q*u1*v2,(1,2):(p+q+r)*u2*v1,(1,3):e*u1*v1+f*u2*v2,(2,3):r*v1*v2});P=J+Q\n assert[j1-j2 for j1,j2 in zip(jac(P,xx),jac(Q,xx))]==[0]*4\n coefficients=[];labels=[]\n for tri,expr in zip(it.combinations(range(4),3),jac(P,xx)):\n  for ex,c in s.Poly(expr,*xx).terms():\n   if c!=0:coefficients.append(c);labels.append(dict(triple=list(tri),exponents=list(ex)))\n generators=[b*e,b*(b-f),e*(e-a)];params=(a,f,p,q,r);mons=sorted(set(ex for z in coefficients+generators for ex,c in s.Poly(z,*params).terms()),reverse=True);vec=lambda z:s.Matrix([[s.Poly(z,*params).coeff_monomial(m)for m in mons]])\n C=s.Matrix.vstack(*map(vec,coefficients));G=s.Matrix.vstack(*map(vec,generators));dm=lambda M:DomainMatrix.from_Matrix(M).convert_to(s.QQ);assert len(dm(C).rref()[1])==len(dm(G).rref()[1])==len(dm(C.col_join(G)).rref()[1])==3\n # Explicit two-direction constant coefficient certificates for the ideals.\n cols=list(dm(G).rref()[1]);GC=G[:,cols]\n to_g=(C[:,cols]*GC.inv());assert to_g*G==C\n independent_rows=list(dm(C.T).rref()[1]);CB=C[independent_rows,cols];to_c_small=G[:,cols]*CB.inv();to_c=s.zeros(3,C.rows)\n for j,k in enumerate(independent_rows):to_c[:,k]=to_c_small[:,j]\n assert to_c*C==G\n pf=s.factor(P[0,1]*P[2,3]-P[0,2]*P[1,3]+P[0,3]*P[1,2]);assert s.expand(pf+1+(a+e)*u1*v1+(b+f)*u2*v2+a*e*(u1*v1)**2+a*f*u1*u2*v1*v2+b*f*(u2*v2)**2)==0\n # The entire seven-parameter target, all magnetic coefficients retained.\n lam=s.Symbol('lambda');alpha=lam-s.Rational(1,2);beta=-lam-s.Rational(1,2);q1,q2,x,y=old=s.symbols('q1 q2 x y');mag=s.symbols('m0:6');R=sum(c*m for c,m in zip(mag,[1,x,y,x*x,x*y,y*y]));target_old=anti({(0,1):R+beta*y*q1-alpha*x*q2,(0,2):alpha*x*x,(0,3):1+beta*x*y,(1,2):1+alpha*x*y,(1,3):beta*y*y})\n source_path=ROOT/'reports/CLASSIFICATION_NIL22_IMAGE_REMAINING_SOURCES_20261107.json';original=json.loads(source_path.read_text())['cases'][7];assert original['name']=='nil22_image_quadratic_A';env=dict(zip(['h','x1','x2','x3','x4'],[s.Integer(1),q1,q2,x,y]));env.update(lam=lam);env.update({str(m):m for m in mag})\n for i,j in it.combinations(range(4),2):assert s.expand(s.sympify(original['full_six_magnetic_source'].get(str(i+1)+','+str(j+1),'0'),locals=env)-target_old[i,j])==0\n I=mag[0]+mag[4];normal=s.Matrix([(q1+mag[2]/beta+mag[5]*y/(2*beta))/I,(q2-mag[1]/alpha-mag[3]*x/(2*alpha)+mag[4]*y)/I,x,y]);N=normal.jacobian(s.Matrix(old));shift=normal-N*s.Matrix(old);back=N.inv()*(s.Matrix(old)-shift);normalized=(I*N*target_old*N.T).subs(dict(zip(old,back)),simultaneous=True).applyfunc(s.cancel);expected=target_old.subs(dict(zip(mag,[1,0,0,0,0,0])));assert(normalized-expected).applyfunc(s.cancel)==s.zeros(4)\n Cmap=s.Matrix([q1,x,y,y-q2]);Cmat=Cmap.jacobian(s.Matrix(old));target=(Cmat*expected*Cmat.T).subs(dict(zip(old,Cmat.inv()*s.Matrix(xx))),simultaneous=True).applyfunc(s.expand);assert(target-J-anti({(0,1):alpha*u2*u2,(0,2):beta*u2*v1,(0,3):-u2*v1-beta*u1*v1-alpha*u2*v2,(1,3):alpha*u2*v1,(2,3):beta*v1*v1})).applyfunc(s.expand)==s.zeros(4)\n assert jac(target,xx)==[0]*4\n ep,rho,c0,c1=s.symbols('epsilon rho c0 c1');period=c0+ep*c1;G2=s.Matrix([[1,1/ep],[0,1]]);T=s.diag(G2,G2.inv().T);assert T*J*T.T==J;inverse=T.inv()*s.Matrix(xx)\n sources=[('separated',dict(a=-ep*rho,f=-ep*(rho+1),p=-period,q=period,r=-period)),('rank3_rank5',dict(a=-ep*rho,f=-ep*(rho+1)/2,p=-period,q=period,r=-ep*(rho+1)/2-period)),('rank5_rank3',dict(a=-ep*rho/2,f=-ep*(rho+1),p=-ep*rho/2-period,q=period,r=-period))];records=[]\n for name,values in sources:\n  bind={str(k):v for k,v in values.items()};sub={z:bind[str(z)]for z in params};source=P.subs(sub,simultaneous=True);assert jac(source,xx)==[0]*4;factor=s.factor((P[0,1]*P[2,3]-P[0,2]*P[1,3]+P[0,3]*P[1,2]).subs(sub,simultaneous=True));family=(T*source*T.T).subs(dict(zip(xx,inverse)),simultaneous=True).applyfunc(s.cancel);difference=(family-target).applyfunc(s.cancel);equations=[];rowlabels=[]\n  for i,j in it.combinations(range(4),2):\n   for(ex,*powers),coef in s.Poly(s.expand(ep**4*difference[i,j]),ep,*xx).terms():\n    if ex<=4:equations.append(coef);rowlabels.append(dict(pair=[i,j],epsilon_power=ex-4,exponents=powers))\n  A,v=s.linear_eq_to_matrix(equations,[rho,c0,c1]);piv=list(dm(A).rref()[1]);rows=list(dm(A[:,piv].T).rref()[1]);inv=dm(A[rows,piv]).inv().to_Matrix();res=(v-A[:,piv]*inv*v[rows,:]).applyfunc(s.cancel);bad=next((k for k,z in enumerate(res)if z!=0),None);record=dict(name=name,source_binding={str(k):str(v)for k,v in sub.items()},actual_source_Pfaffian=str(factor),all_source_Jacobi_zero=True,linear_shape=list(A.shape),rank=len(piv),linear_matrix=[[str(z)for z in row]for row in A.tolist()],linear_rhs=list(map(str,v)),row_labels=rowlabels)\n  if bad is not None:\n   L=s.zeros(1,A.rows);L[bad]=1\n   for j,k in enumerate(rows):L[k]-=(A[bad,piv]*inv)[j]\n   assert L*A==s.zeros(1,3)and(L*v)[0]!=0;record.update(status='FIXED_ACTUAL_SOURCE_CONTRACTION_NOT_MATCHED',left_functional={str(i):str(z)for i,z in enumerate(L)if z!=0},left_rhs=str((L*v)[0]))\n  else:\n   sol=s.zeros(3,1)\n   for j,k in enumerate(piv):sol[k]=(inv*v[rows,:])[j]\n   values=dict(zip([rho,c0,c1],sol));final=family.subs(values).applyfunc(s.cancel);assert all(s.denom(z).subs(ep,0)!=0 for z in final);assert(final.subs(ep,0)-target).applyfunc(s.cancel)==s.zeros(4);assert jac(final,xx)==[0]*4\n   record.update(status='ACTUAL_FULL_LAMBDA_POISSON_CURVE_FOUND',parameter_solution={str(k):str(z)for k,z in values.items()},whole_actual_regular_family=encode(final),all4_Jacobi_zero=True,full_lambda_endpoint_exact=True,generic_known_component_union='Accepted entire H+two distinct irreducible quadric locus, extended to these irreducible polynomial parent sources by closure.',independent_review_required=True)\n  records.append(record)\n input_paths=[Path(__file__),source_path,ROOT/'reports/CLASSIFICATION_NIL22_IMAGE_MAGNETIC_NORMALFORMS_20261107.json',ROOT/'research/classification/NIL22_IMAGE_SOURCES_AND_COMPONENTS.md',ROOT/'research/classification/TWO_QUADRICS_SUPPORT.md'];out=dict(task_id='E_multiple_hyperplane',all_passed=True,status='ACTUAL_WHOLE_SOURCE_CONTAINMENT_CANDIDATE'if any(r['status']=='ACTUAL_FULL_LAMBDA_POISSON_CURVE_FOUND'for r in records)else'COMPLETE_DISTINCT_EIGEN_SOURCE_CLASSIFIED_FIXED_CONTRACTIONS_NEGATIVE',symplectic_J=encode(J),five_parameter_Q=encode(Q),complete_Jacobi_coefficients=list(map(str,coefficients)),Jacobi_coefficient_labels=labels,three_ideal_generators=list(map(str,generators)),Jacobi_to_generators=[[str(z)for z in row]for row in to_g.tolist()],generators_to_Jacobi=[[str(z)for z in row]for row in to_c.tolist()],whole_semisimple_source_support_union=['b=e=0','e=0,f=b','b=0,a=e'],nonregular_walls='All distinct eigenvalues including ratio-1 andzero eigenvalue allowed in the fiveparameter source. Repeated eigenvalue scalar is a closed block condition and cannot approach nonzero Jordan target via block symplectic conjugacy. Nonsemisimple Jordan parents remain an explicit separate stratum, not classified here.',all_six_magnetic_original_source_exact=True,all_six_magnetic_normalization_exact=True,normalization_localization='alpha*beta*I !=0; dense open of the accepted irreducible entire7source, so positive entirelambda membership returns every complement by source closure.',full_normalization_map=list(map(str,normal)),full_normalization_inverse=list(map(str,back)),normalization_determinant=str(s.factor(N.det())),symplectic_standardization=list(map(str,Cmap)),target_standard=encode(target),actual_symplectic_contraction_matrix=[[str(z)for z in row]for row in T.tolist()],actual_parent_period='q=c0+epsilon*c1, actual single source period; no products freed',curves=records,input_sha256={str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest()for p in input_paths},producer_bytes=Path(__file__).read_text(),seconds=time.monotonic()-started);path=ROOT/'reports/CLASSIFICATION_QUADRATIC_A_SYMPLECTIC_SOURCE_20261107.json';assert not path.exists();path.write_text(json.dumps(out,indent=2)+'\\n');print(json.dumps(dict(status=out['status'],curves=[dict(name=r['name'],status=r['status'],solution=r.get('parameter_solution'),failure=r.get('left_rhs'))for r in records],seconds=out['seconds'])))\nif __name__=='__main__':main()\n",
+  "seconds": 0.9224324849965342
+}

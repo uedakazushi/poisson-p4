@@ -1,0 +1,43 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "date": "2026-11-07",
+  "producer": "quartic_sources",
+  "reviewer": "log_manuscript",
+  "review_verdict": "ACCEPTED: the full PGL-stable marked A3+A2 quartic/common-tangent locus cannot specialize to the marked Ga9 linear-w E6 quartic/tangent pair; hence the dense Ga9linear-w23 orbit is not in the known103rd24 component.",
+  "all_reviewed_steps_passed": true,
+  "review_method": "Separate-author manual algebraic-geometric proof and exact polynomial derivation; no CAS, curve samples, private work inputs, projection search or jets.",
+  "computational_proof_claimed": false,
+  "input_sha256": {
+    "research/classification/GA9_LINEAR_W_MARKED_PAIR_OBSTRUCTION.md": "63d93d812eedb7acb7b7b37d9247aa17ec5a607ca444e035fe613b08def79320",
+    "reports/CLASSIFICATION_GA9_CUSPIDAL_QUARTIC_COMPONENT_20261107.json": "4b9d73769906c97c1ab5d90c658750445d3688a7e499ba47cc2324aee305fe27",
+    "research/classification/GA9_CUSPIDAL_QUARTIC_SEPARATE_REVIEW.md": "c188b691528a2552d2b362bd7be7ec7ee60f5bda490f91a78882da777ea2e851",
+    "research/classification/HYPERPLANE_QUARTIC_NIL211_SHORT_TRANSLATION.md": "3ebd60569e6bd737140e32391eff2b8f90368eaee9f85023f55c7a9169c4ccc7",
+    "research/classification/NIL211_SHORT_TRANSLATION_REVIEW.md": "e75bdbabb7b3939b8346472136461ca5cd54c60c800b4dfcbc120b9aefa177d3"
+  },
+  "checks": {
+    "full_DVR_closure": "Curve selection from dense constructible actual source; proper factor multiplication extends the unique special H/quartic pair; primitive factors and scalar units retained.",
+    "regular_plane_reduction": "Essential-variable derivative matrix has generic and special rank3, hence a unit3minor and all4minorszero overR. Kernel/quotient are free direct summands, giving GL5(R) normalizer. Factors individually descend by degree additivity. No generic PGL pole is used as a regular coordinate.",
+    "non_normal_total_allowed": "Primitive integral quartic family is flat and total integral, with no normality assumption. Excellent DVR gives finite normalization.",
+    "simultaneous_normalization_proved": "Normalization is R-torsionfree/flat and normal surface CM. Special fiber is S1, genericreduced and genericiso to integralC0; finiteness removes extra components. Constant Eulercharacteristic1 and rational normalizationP1 force delta0, so special normalization itselfP1. Smoothness and Henselian sections give P1_R and degree4 bundle. No blanket normalization/basechange commutation assumed.",
+    "all_marked_sections": "After finite extension, two tacnode preimages and cusp preimage are sections. Limits are unique inverse of special E6 point. Regular midpoint coordinate gives +/-b withb in maximalideal nonzero generically, zeta also maximalideal; source infinity chosen away.",
+    "all_target_units": "Regular flag frame makes Hh0/tacnode[0:0:1]. h=lambda(r2-b2)^2 withlambda unit from order4 special h. Monic division gives y=q(Ar2+Br+C); regular shear removesA, B unit from order3 yields y=q(r+c), c in maximalideal. w0(0)nonzero. Every coordinate inverse uses only units inR.",
+    "exact_cusp_identity": "hprime*y-h*yprime=q2(r2+2cr+b2); atzeta getq=2zeta(zeta+c). Second cusp derivative givesq*wprime=4zeta*w; divide only generically by nonzeroq,zeta to obtain2w=(zeta+c)wprime. Both sides are inR before reducing; special contradiction2w0(0)nonzero.",
+    "whole_component_implication": "Actual degeneracy map regular on nonzeroPfaffianopen containing canonical Ga9. Any component membership would supply the excluded DVR family. Full Ga9 denseorbit/source-closure input used only for noncontainment, not newcomponenthood."
+  },
+  "dense_orbit_noncontainment": true,
+  "all_boundary_points_excluded": false,
+  "new_component_count": 0,
+  "whole_E_completed": false,
+  "unmarked_quartic_adjacency_claimed": false,
+  "complements": [
+    "magneticzero and other boundary intersections not classified here",
+    "other24or25 parent components",
+    "newcomponenthood",
+    "fullE membership"
+  ],
+  "main_manuscript_modified": false,
+  "global_or_git_modified": false,
+  "review_note": "research/classification/GA9_LINEAR_W_MARKED_PAIR_SEPARATE_REVIEW.md",
+  "review_note_sha256": "fa9a548ddeca73bf98d8523f9d83f99fc286653bdf44610db5575c970a692dc8",
+  "contract_gate": "PASS exact input bindings only; geometry separately manually audited."
+}
