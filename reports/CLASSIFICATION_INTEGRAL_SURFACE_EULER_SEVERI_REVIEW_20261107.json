@@ -1,0 +1,60 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "review_kind": "Independent geometric proof/primary-scope review; no new coefficient run",
+  "all_accepted": true,
+  "review_note": "research/classification/INTEGRAL_SURFACE_EULER_SEVERI_REVIEW.md",
+  "inputs": [
+    {
+      "path": "research/classification/INTEGRAL_SURFACE_LINEAR_NORMALITY.md",
+      "sha256": "1b1e64832e5acb6abffbbca132bddb5fd933566a88fbd42c98905a6337106041"
+    },
+    {
+      "path": "research/classification/RANK_ZERO_REGULAR_LINEARNORMAL_SURFACES.md",
+      "sha256": "94ea0899fa48dda28528837cb5a3962069a9e6f137d83ea3991d072a0c0f807f"
+    }
+  ],
+  "primary_read": [
+    {
+      "author": "L.Chiantini",
+      "title": "Lectures on the structure of projective embeddings",
+      "url": "https://emis.de/ft/47035",
+      "directly_read": [
+        "printed335 global assumptions",
+        "printed369-370 Theorem14 and immediate context"
+      ],
+      "access": "Connected web reader succeeded; direct shell PDF fetch returnedHTTP403. No local PDF hash claimed.",
+      "scope": "Integral nondegenerate complex surfaces; singular cases included; no added smoothness hypothesis."
+    },
+    {
+      "authors": [
+        "Wenbo Niu",
+        "Jinhyung Park"
+      ],
+      "title": "A Castelnuovo-Mumford regularity bound for threefolds with rational singularities",
+      "url": "https://arxiv.org/pdf/2203.04601v1",
+      "pdf_sha256": "475c57e6bf55948f597113c283f2a439c82052d0ce29cef659fefb6354efbdef",
+      "directly_read": [
+        "printed15-16 proof opening Proposition5.3"
+      ],
+      "scope": "The proof establishes the surface lemma for arbitrary nondegenerate surfaces before its higherdimensional proposition; explicitly uses singular Severi and cone embeddingdimension."
+    }
+  ],
+  "checks": {
+    "closed_Hilbert_two_secant_bridge": true,
+    "no_Hilbert_scheme_smoothness_or_irreducibility_assumed": true,
+    "cone_vertex_intrinsic_embedding_dimension_obstruction": true,
+    "restricted_exterior_Euler_exact_for_singularS": true,
+    "linear_field_injection_without_diagonalizability": true,
+    "fullsource_bound": "10*h0(I_S(2))+5*(h0(O_S(1))-5)+h1(O_S)",
+    "q_l_zero_full_quadratic_source": true,
+    "degree_ge_five_q_zero_irreducible_reduced_quintic_exclusion": true
+  },
+  "retained_complements": [
+    "q>0",
+    "degree<=4 other surfaces",
+    "rank2",
+    "non-normal S with rational normalization need not haveq(S)=0"
+  ],
+  "global_classification_completed": false,
+  "source_scope_warning": "Dale1985 original paper not independently read; directly checked Chiantini theorem and NiuPark proof are the two cited published inputs."
+}

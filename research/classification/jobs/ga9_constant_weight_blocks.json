@@ -1,0 +1,41 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "target_statement": "Compute COMPLETE QQ(b) fullambient D and actualwhole-source F ranks for the Ga9 nonzero-constantc family using its geometric Cstar grading.",
+  "implication_to_classification": "A matching D+F=150 proves whole-source componenthood by a genuine dimension squeeze. A lower differentialrank leaves membership unresolved, and can be combined only with an actual acceptedfamily recognition; it never authorizes highernormaljets.",
+  "coefficient_ring": "QQ(b), all350 projectiveJacobi and150 homogeneouscoefficients, all10 sourceparameters in F.",
+  "hypotheses": "At r=1,k=0,otherparameters0 and b free, the fullh-Casimir tensor is homogeneous ofweight-3 for weights(h,x,y,z,w)=(0,4,1,3,2). Verify exacthomogeneity and everyoffblock entry0; sum ALL weightblocks for D. Use allEuler/PGL/scalar and all10 actualsource derivatives for F. No scalar b specialization substitutes for genericrank.",
+  "inverted_elements": [
+    "Explicit nonzero rationalfunctions in b for exactfield rowelimination; eventualroots are exceptions if needed"
+  ],
+  "complements": [
+    "The generic bfield computation retains everyambientweightblock.",
+    "k=1 canonicalpoint differs by actual xtranslation, not nonlinear equivalence.",
+    "No componentcount without componenthood/distinctness and independentreview.",
+    "No normaljet computation."
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_ga9_constant_weight_blocks.py",
+      "sha256": "a32403718fa8a5327e5b569a91e9f0dd9c5c7026f383399d08e7290c063d6bf4"
+    },
+    {
+      "path": "reports/CLASSIFICATION_HYPERPLANE_QUARTIC_NIL211_SHORT1_CONSTANT_C_20261107.json",
+      "sha256": "a54ac0210732074be0a3de2438910ce645e78265ee774c2632ad91ede47cab16"
+    },
+    {
+      "path": "code/classification_rank3_mixed_component_review.py",
+      "sha256": "48e61e30f9d7f04fb81f1bb5eec0e18daa28c8192d6a02a251e09cf8855b9bd0"
+    },
+    {
+      "path": "research/classification/NIL211_SHORT_TRANSLATION_REVIEW.md",
+      "sha256": "e75bdbabb7b3939b8346472136461ca5cd54c60c800b4dfcbc120b9aefa177d3"
+    }
+  ],
+  "success_certificate": "Complete D/F weightdecomposition, exactQQ(b) blockranks/minors, DF0 and resulting generic dimension conclusion with everywhole-source parameter retained.",
+  "independent_check": "Separate author reconstructs weightedcanonicalfamily and eachfullambient block, and verifies any componenthood/recognition implication.",
+  "resource_limit": {
+    "timeout_seconds": 120,
+    "memory_mb": 1536
+  },
+  "negative_result_next_step": "If genericrank does not close componenthood, retain finiteexactdata and use actual geometricMPS recognition; no higherjet or arbitrary bpointscan."
+}

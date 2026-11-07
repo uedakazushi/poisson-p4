@@ -1,0 +1,2315 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "all_passed": true,
+  "input_sha256": {
+    "reports/CLASSIFICATION_HYPERPLANE_QUARTIC_NIL211_SHORT1_CONSTANT_C_20261107.json": "a54ac0210732074be0a3de2438910ce645e78265ee774c2632ad91ede47cab16",
+    "code/classification_ga9_constant_weight_blocks.py": "a32403718fa8a5327e5b569a91e9f0dd9c5c7026f383399d08e7290c063d6bf4",
+    "code/classification_rank3_mixed_component_review.py": "48e61e30f9d7f04fb81f1bb5eec0e18daa28c8192d6a02a251e09cf8855b9bd0"
+  },
+  "producer_bytes": "#!/usr/bin/env python3\n\"\"\"Complete QQ(b) ambient ranks of the weighted Ga9 c=1 canonical family.\n\nThe known (0,4,1,3,2) grading splits the whole350x150 differential,\navoiding a dense rational-function elimination. No normal jet is computed.\n\"\"\"\nfrom pathlib import Path\nimport hashlib,itertools,json,time\nimport sympy as s\nfrom sympy.polys.matrices import DomainMatrix\nfrom classification_rank3_mixed_component_review import COLUMNS,PAIRS,ROWS,jacobi\nROOT=Path(__file__).resolve().parents[1]\ndef main():\n started=time.monotonic();source_path=ROOT/'reports/CLASSIFICATION_HYPERPLANE_QUARTIC_NIL211_SHORT1_CONSTANT_C_20261107.json';source=json.loads(source_path.read_text())['nil_short_translation_constant_c']\n h,x,y,z,w=xx=s.symbols('h x y z w');b=s.Symbol('b');pp=[s.Symbol(v)for v in source['parameters']];env={str(v):v for v in pp};env.update(dict(zip(['x','y','z','w'],xx[1:])));full=s.zeros(5)\n for (i,j),f in zip(itertools.combinations(range(1,5),2),source['universal_brackets']):\n  f=s.sympify(f,locals=env);full[i,j]=s.expand(h*h*f.subs({a:a/h for a in xx[1:]},simultaneous=True));full[j,i]=-full[i,j]\n values={v:s.Integer(0)for v in pp};values.update({s.Symbol('r'):1,b:b});P=(8*full.subs(values)).applyfunc(s.expand)\n def vector(Q):return s.Matrix([s.Poly(s.expand(Q[ij]),*xx).coeff_monomial(ex)for ij,ex in COLUMNS])\n def sparse(Q):return {ij:dict(s.Poly(s.expand(Q[ij]),*xx).terms())for ij in PAIRS if Q[ij]!=0}\n weights=(0,4,1,3,2);source_weight=-3\n column_weights=[sum(a*t for a,t in zip(ex,weights))-weights[i]-weights[j]for(i,j),ex in COLUMNS]\n row_weights=[sum(a*t for a,t in zip(ex,weights))-sum(weights[i]for i in quad)for quad,ex in ROWS]\n assert all(column_weights[i]==source_weight for i,a in enumerate(vector(P))if a!=0)\n ps=sparse(P);assert jacobi(ps).applyfunc(s.expand)==s.zeros(350,1)\n DD=[]\n for ij,ex in COLUMNS:\n  variation={key:dict(val)for key,val in ps.items()};variation.setdefault(ij,{})[ex]=variation.get(ij,{}).get(ex,0)+1\n  DD.append(jacobi(variation).applyfunc(s.expand))\n D=s.Matrix.hstack(*DD)\n assert all(row_weights[i]==column_weights[j]+source_weight for i in range(350)for j in range(150)if D[i,j]!=0)\n E=s.Matrix(xx);vertical=[];orbit=[]\n for i,j in itertools.product(range(5),repeat=2):\n  A=s.zeros(5);A[i,j]=1;field=A*E;vertical.append(vector(E*field.T-field*E.T));orbit.append(vector((A*P+P*A.T-xx[j]*P.diff(xx[i])).applyfunc(s.expand)))\n V=s.Matrix.hstack(*vertical);G=V.row_join(s.Matrix.hstack(*orbit,vector(P)));directions=[8*full.diff(a).subs(values).applyfunc(s.expand)for a in pp];F=G.row_join(s.Matrix.hstack(*map(vector,directions)))\n assert (D*F).applyfunc(s.expand)==s.zeros(350,F.cols)\n field=s.QQ.frac_field(b);dm=lambda A:DomainMatrix.from_Matrix(A).convert_to(field)\n def block_certificate(A):\n  if not A.rows or not A.cols:return dict(rank=0,rows=[],columns=[],determinant='1')\n  cols=list(dm(A).rref()[1]);rows=list(dm(A[:,cols].T).rref()[1]);det=dm(A[rows,cols]).det()if cols else 1\n  assert det!=0\n  return dict(rank=len(cols),rows=rows,columns=cols,determinant=str(s.factor(s.sympify(str(det)))))\n dblocks=[]\n for wt in sorted(set(column_weights)):\n  cs=[i for i,v in enumerate(column_weights)if v==wt];rs=[i for i,v in enumerate(row_weights)if v==wt+source_weight];cert=block_certificate(D[rs,cs]);cert.update(column_weight=wt,ambient_rows=rs,ambient_columns=cs,shape=[len(rs),len(cs)]);dblocks.append(cert)\n def weighted_rank(A):\n  groups={}\n  for col in range(A.cols):\n   ws={column_weights[i]for i,a in enumerate(A[:,col])if a!=0}\n   assert len(ws)<=1,(col,ws)\n   if ws:groups.setdefault(next(iter(ws)),[]).append(col)\n  blocks=[]\n  for wt,cs in sorted(groups.items()):\n   rs=[i for i,v in enumerate(column_weights)if v==wt];cert=block_certificate(A[rs,cs]);cert.update(weight=wt,ambient_rows=rs,ambient_columns=cs,shape=[len(rs),len(cs)]);blocks.append(cert)\n  return sum(a['rank']for a in blocks),blocks\n vr,vblocks=weighted_rank(V);gr,gblocks=weighted_rank(G);fr,fblocks=weighted_rank(F);dr=sum(a['rank']for a in dblocks)\n result=dict(task_id='E_reduced_nonnormal',all_passed=True,input_sha256={str(source_path.relative_to(ROOT)):hashlib.sha256(source_path.read_bytes()).hexdigest(),str(Path(__file__).relative_to(ROOT)):hashlib.sha256(Path(__file__).read_bytes()).hexdigest(), 'code/classification_rank3_mixed_component_review.py':hashlib.sha256((ROOT/'code/classification_rank3_mixed_component_review.py').read_bytes()).hexdigest()},producer_bytes=Path(__file__).read_text(),\n  parameters='r=1,b free,alpha=p=q=A=D=G=H=k=0; k=1 point is the actual x-translation of this family.',weights=list(weights),canonical_tensor_weight=source_weight,canonical_family={str(i)+','+str(j):str(s.factor(P[i,j]))for i,j in PAIRS if P[i,j]!=0},\n  coefficient_field='QQ(b)',complete_fullambient_D_shape=[350,150],whole350_Jacobi_zero=True,whole_DF_zero=True,ranks_QQ_b=dict(D=dr,vertical=vr,orbit_Euler_scalar=gr,all_ten_source=fr),full_projective_tangent_dimension=125-dr,actual_fullsource_projective_dimension_lower=fr-25,\n  complete_D_weight_blocks=dblocks,complete_vertical_weight_blocks=vblocks,complete_orbit_weight_blocks=gblocks,complete_fullsource_weight_blocks=fblocks,\n  maximal_D_block_columns=max(c['shape'][1]for c in dblocks),component_squeeze=dr+fr==150,scope='Complete generic fullambient ranks by an exact grading decomposition, not a chosen smaller submatrix. Source membership/componenthood requires the stated squeeze or actual knownfamily recognition; no higher normaljet is inferred.',seconds=time.monotonic()-started)\n out=ROOT/'reports/CLASSIFICATION_GA9_CONSTANT_WEIGHT_BLOCKS_20261107.json'\n if out.exists():raise FileExistsError(str(out))\n out.write_text(json.dumps(result,indent=2)+'\\n');print(json.dumps(dict(ranks=result['ranks_QQ_b'],squeeze=result['component_squeeze'],max_block_cols=result['maximal_D_block_columns'],seconds=result['seconds'])))\nif __name__=='__main__':main()\n",
+  "parameters": "r=1,b free,alpha=p=q=A=D=G=H=k=0; k=1 point is the actual x-translation of this family.",
+  "weights": [
+    0,
+    4,
+    1,
+    3,
+    2
+  ],
+  "canonical_tensor_weight": -3,
+  "canonical_family": {
+    "1,2": "-2*(-4*b**2*h*w + 5*b*h*w - h*w + y**2)",
+    "1,3": "8*b**3*w**2 - 6*b**2*w**2 - 3*b*w**2 + 8*b*y*z + 8*h*x + w**2 - 8*y*z",
+    "1,4": "-4*(2*b*w*y - 2*h*z - w*y)",
+    "2,3": "8*b*h*y",
+    "2,4": "8*h**2",
+    "3,4": "8*(b*h*w + y**2)"
+  },
+  "coefficient_field": "QQ(b)",
+  "complete_fullambient_D_shape": [
+    350,
+    150
+  ],
+  "whole350_Jacobi_zero": true,
+  "whole_DF_zero": true,
+  "ranks_QQ_b": {
+    "D": 98,
+    "vertical": 24,
+    "orbit_Euler_scalar": 47,
+    "all_ten_source": 48
+  },
+  "full_projective_tangent_dimension": 27,
+  "actual_fullsource_projective_dimension_lower": 23,
+  "complete_D_weight_blocks": [
+    {
+      "rank": 0,
+      "rows": [],
+      "columns": [],
+      "determinant": "1",
+      "column_weight": -7,
+      "ambient_rows": [
+        280
+      ],
+      "ambient_columns": [
+        75
+      ],
+      "shape": [
+        1,
+        1
+      ]
+    },
+    {
+      "rank": 1,
+      "rows": [
+        0
+      ],
+      "columns": [
+        0
+      ],
+      "determinant": "-8",
+      "column_weight": -6,
+      "ambient_rows": [
+        140,
+        282
+      ],
+      "ambient_columns": [
+        77,
+        90
+      ],
+      "shape": [
+        2,
+        2
+      ]
+    },
+    {
+      "rank": 2,
+      "rows": [
+        0,
+        1
+      ],
+      "columns": [
+        0,
+        1
+      ],
+      "determinant": "128",
+      "column_weight": -5,
+      "ambient_rows": [
+        0,
+        142,
+        284,
+        289
+      ],
+      "ambient_columns": [
+        60,
+        79,
+        84,
+        92,
+        135
+      ],
+      "shape": [
+        4,
+        5
+      ]
+    },
+    {
+      "rank": 3,
+      "rows": [
+        0,
+        1,
+        3
+      ],
+      "columns": [
+        0,
+        1,
+        2
+      ],
+      "determinant": "512*(3*b - 1)",
+      "column_weight": -4,
+      "ambient_rows": [
+        2,
+        70,
+        144,
+        149,
+        283,
+        291,
+        305
+      ],
+      "ambient_columns": [
+        0,
+        62,
+        78,
+        86,
+        94,
+        99,
+        105,
+        137
+      ],
+      "shape": [
+        7,
+        8
+      ]
+    },
+    {
+      "rank": 6,
+      "rows": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "columns": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "determinant": "-1572864*(2*b**2 + 2*b - 1)",
+      "column_weight": -3,
+      "ambient_rows": [
+        4,
+        9,
+        72,
+        143,
+        151,
+        165,
+        210,
+        281,
+        290,
+        294,
+        307,
+        335
+      ],
+      "ambient_columns": [
+        2,
+        30,
+        64,
+        69,
+        76,
+        85,
+        89,
+        93,
+        101,
+        107,
+        120,
+        139,
+        144
+      ],
+      "shape": [
+        12,
+        13
+      ]
+    },
+    {
+      "rank": 8,
+      "rows": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "columns": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "determinant": "-20971520*(b - 1)*(3*b - 1)*(4*b - 1)*(2*b**2 + 3)",
+      "column_weight": -2,
+      "ambient_rows": [
+        3,
+        11,
+        25,
+        74,
+        79,
+        141,
+        150,
+        154,
+        167,
+        195,
+        212,
+        286,
+        293,
+        306,
+        310,
+        337
+      ],
+      "ambient_columns": [
+        4,
+        9,
+        32,
+        45,
+        63,
+        71,
+        81,
+        88,
+        91,
+        100,
+        104,
+        109,
+        114,
+        122,
+        138,
+        146
+      ],
+      "shape": [
+        16,
+        16
+      ]
+    },
+    {
+      "rank": 11,
+      "rows": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "columns": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "determinant": "-2147483648*(96*b**5 - 592*b**4 + 762*b**3 - 763*b**2 + 434*b - 81)",
+      "column_weight": -1,
+      "ambient_rows": [
+        1,
+        10,
+        14,
+        27,
+        55,
+        73,
+        81,
+        95,
+        146,
+        153,
+        166,
+        170,
+        197,
+        214,
+        219,
+        288,
+        292,
+        299,
+        309,
+        314,
+        336,
+        340
+      ],
+      "ambient_columns": [
+        3,
+        11,
+        15,
+        34,
+        39,
+        47,
+        61,
+        70,
+        74,
+        83,
+        87,
+        96,
+        103,
+        108,
+        116,
+        124,
+        129,
+        136,
+        145,
+        149
+      ],
+      "shape": [
+        22,
+        20
+      ]
+    },
+    {
+      "rank": 13,
+      "rows": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "columns": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        12,
+        13,
+        14
+      ],
+      "determinant": "6442450944*(b - 1)**2*(2*b + 1)*(4*b - 1)**2*(8*b - 5)*(140*b**3 - 21*b**2 - 108*b + 43)",
+      "column_weight": 0,
+      "ambient_rows": [
+        6,
+        13,
+        26,
+        30,
+        57,
+        71,
+        80,
+        84,
+        97,
+        125,
+        148,
+        152,
+        159,
+        169,
+        174,
+        196,
+        200,
+        213,
+        221,
+        235,
+        287,
+        301,
+        308,
+        313,
+        325,
+        339,
+        344
+      ],
+      "ambient_columns": [
+        1,
+        10,
+        14,
+        17,
+        33,
+        41,
+        49,
+        54,
+        66,
+        73,
+        82,
+        98,
+        102,
+        106,
+        115,
+        119,
+        123,
+        131,
+        141,
+        148
+      ],
+      "shape": [
+        27,
+        20
+      ]
+    },
+    {
+      "rank": 15,
+      "rows": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "columns": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        16
+      ],
+      "determinant": "-343597383680*(b - 1)**3*(2*b + 1)**2*(3*b - 2)*(4*b - 1)**3*(88*b**4 - 178*b**3 + 75*b**2 + 25*b - 14)",
+      "column_weight": 1,
+      "ambient_rows": [
+        8,
+        12,
+        19,
+        29,
+        34,
+        56,
+        60,
+        76,
+        83,
+        96,
+        100,
+        127,
+        147,
+        161,
+        168,
+        173,
+        185,
+        199,
+        204,
+        211,
+        220,
+        224,
+        237,
+        265,
+        285,
+        300,
+        304,
+        312,
+        327,
+        338,
+        343,
+        349
+      ],
+      "ambient_columns": [
+        6,
+        13,
+        19,
+        24,
+        31,
+        40,
+        44,
+        48,
+        56,
+        68,
+        72,
+        80,
+        97,
+        111,
+        118,
+        121,
+        130,
+        134,
+        143,
+        147
+      ],
+      "shape": [
+        32,
+        20
+      ]
+    },
+    {
+      "rank": 13,
+      "rows": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "columns": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "determinant": "-5242880*(b - 1)**5*(2*b - 1)**2*(2*b + 1)**2*(4*b - 1)**6*(160*b**3 + 178*b**2 - 391*b + 74)",
+      "column_weight": 2,
+      "ambient_rows": [
+        7,
+        21,
+        28,
+        33,
+        45,
+        59,
+        64,
+        78,
+        82,
+        89,
+        99,
+        104,
+        126,
+        130,
+        145,
+        160,
+        164,
+        172,
+        187,
+        198,
+        203,
+        209,
+        216,
+        223,
+        236,
+        240,
+        267,
+        296,
+        303,
+        311,
+        326,
+        330,
+        342,
+        348
+      ],
+      "ambient_columns": [
+        8,
+        12,
+        18,
+        26,
+        36,
+        43,
+        46,
+        55,
+        59,
+        67,
+        95,
+        113,
+        117,
+        126,
+        133,
+        142
+      ],
+      "shape": [
+        34,
+        16
+      ]
+    },
+    {
+      "rank": 11,
+      "rows": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        11
+      ],
+      "columns": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        11,
+        12
+      ],
+      "determinant": "-262144*(b - 1)**5*(2*b + 1)*(4*b - 1)**5*(78*b**2 - 9*b - 80)*(80*b**2 - 42*b + 27)",
+      "column_weight": 3,
+      "ambient_rows": [
+        5,
+        20,
+        24,
+        32,
+        47,
+        58,
+        63,
+        69,
+        77,
+        91,
+        98,
+        103,
+        115,
+        129,
+        134,
+        156,
+        163,
+        171,
+        186,
+        190,
+        202,
+        208,
+        218,
+        222,
+        229,
+        239,
+        244,
+        266,
+        270,
+        298,
+        302,
+        319,
+        329,
+        334,
+        341,
+        347
+      ],
+      "ambient_columns": [
+        7,
+        16,
+        25,
+        29,
+        38,
+        42,
+        51,
+        58,
+        65,
+        112,
+        128,
+        132,
+        140
+      ],
+      "shape": [
+        36,
+        13
+      ]
+    },
+    {
+      "rank": 7,
+      "rows": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        7
+      ],
+      "columns": [
+        0,
+        1,
+        2,
+        3,
+        5,
+        6,
+        7
+      ],
+      "determinant": "24576*b*(b - 1)**3*(2*b + 1)*(4*b - 1)**3*(8*b**3 + 14*b**2 - 53*b + 23)",
+      "column_weight": 4,
+      "ambient_rows": [
+        16,
+        23,
+        31,
+        46,
+        50,
+        62,
+        68,
+        75,
+        90,
+        94,
+        102,
+        117,
+        128,
+        133,
+        139,
+        158,
+        162,
+        179,
+        189,
+        194,
+        201,
+        207,
+        217,
+        231,
+        238,
+        243,
+        255,
+        269,
+        274,
+        297,
+        321,
+        328,
+        333,
+        346
+      ],
+      "ambient_columns": [
+        5,
+        21,
+        28,
+        37,
+        53,
+        57,
+        110,
+        127
+      ],
+      "shape": [
+        34,
+        8
+      ]
+    },
+    {
+      "rank": 5,
+      "rows": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "columns": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "determinant": "-128*(b - 3)*(b - 1)**3*(2*b - 1)*(2*b + 1)**3*(4*b - 1)**3",
+      "column_weight": 5,
+      "ambient_rows": [
+        18,
+        22,
+        39,
+        49,
+        54,
+        61,
+        67,
+        86,
+        93,
+        101,
+        116,
+        120,
+        132,
+        138,
+        157,
+        181,
+        188,
+        193,
+        206,
+        215,
+        230,
+        234,
+        242,
+        257,
+        268,
+        273,
+        279,
+        295,
+        320,
+        324,
+        332,
+        345
+      ],
+      "ambient_columns": [
+        23,
+        27,
+        35,
+        52,
+        125
+      ],
+      "shape": [
+        32,
+        5
+      ]
+    },
+    {
+      "rank": 2,
+      "rows": [
+        0,
+        1
+      ],
+      "columns": [
+        0,
+        1
+      ],
+      "determinant": "-16*(b - 3)*(b - 1)*(2*b + 1)*(4*b - 1)",
+      "column_weight": 6,
+      "ambient_rows": [
+        17,
+        41,
+        48,
+        53,
+        66,
+        88,
+        92,
+        109,
+        119,
+        124,
+        131,
+        137,
+        155,
+        180,
+        184,
+        192,
+        205,
+        226,
+        233,
+        241,
+        256,
+        260,
+        272,
+        278,
+        316,
+        323,
+        331
+      ],
+      "ambient_columns": [
+        22,
+        50
+      ],
+      "shape": [
+        27,
+        2
+      ]
+    },
+    {
+      "rank": 1,
+      "rows": [
+        0
+      ],
+      "columns": [
+        0
+      ],
+      "determinant": "-8*(b - 3)",
+      "column_weight": 7,
+      "ambient_rows": [
+        15,
+        40,
+        44,
+        52,
+        65,
+        87,
+        111,
+        118,
+        123,
+        136,
+        176,
+        183,
+        191,
+        228,
+        232,
+        249,
+        259,
+        264,
+        271,
+        277,
+        318,
+        322
+      ],
+      "ambient_columns": [
+        20
+      ],
+      "shape": [
+        22,
+        1
+      ]
+    }
+  ],
+  "complete_vertical_weight_blocks": [
+    {
+      "rank": 1,
+      "rows": [
+        0
+      ],
+      "columns": [
+        0
+      ],
+      "determinant": "1",
+      "weight": -4,
+      "ambient_rows": [
+        0,
+        62,
+        78,
+        86,
+        94,
+        99,
+        105,
+        137
+      ],
+      "ambient_columns": [
+        5
+      ],
+      "shape": [
+        8,
+        1
+      ]
+    },
+    {
+      "rank": 2,
+      "rows": [
+        0,
+        1
+      ],
+      "columns": [
+        0,
+        1
+      ],
+      "determinant": "1",
+      "weight": -3,
+      "ambient_rows": [
+        2,
+        30,
+        64,
+        69,
+        76,
+        85,
+        89,
+        93,
+        101,
+        107,
+        120,
+        139,
+        144
+      ],
+      "ambient_columns": [
+        7,
+        15
+      ],
+      "shape": [
+        13,
+        2
+      ]
+    },
+    {
+      "rank": 3,
+      "rows": [
+        0,
+        2,
+        3
+      ],
+      "columns": [
+        0,
+        1,
+        2
+      ],
+      "determinant": "1",
+      "weight": -2,
+      "ambient_rows": [
+        4,
+        9,
+        32,
+        45,
+        63,
+        71,
+        81,
+        88,
+        91,
+        100,
+        104,
+        109,
+        114,
+        122,
+        138,
+        146
+      ],
+      "ambient_columns": [
+        9,
+        17,
+        20
+      ],
+      "shape": [
+        16,
+        3
+      ]
+    },
+    {
+      "rank": 4,
+      "rows": [
+        0,
+        2,
+        3,
+        5
+      ],
+      "columns": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "determinant": "1",
+      "weight": -1,
+      "ambient_rows": [
+        3,
+        11,
+        15,
+        34,
+        39,
+        47,
+        61,
+        70,
+        74,
+        83,
+        87,
+        96,
+        103,
+        108,
+        116,
+        124,
+        129,
+        136,
+        145,
+        149
+      ],
+      "ambient_columns": [
+        8,
+        10,
+        19,
+        22
+      ],
+      "shape": [
+        20,
+        4
+      ]
+    },
+    {
+      "rank": 4,
+      "rows": [
+        0,
+        3,
+        4,
+        6
+      ],
+      "columns": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "determinant": "1",
+      "weight": 0,
+      "ambient_rows": [
+        1,
+        10,
+        14,
+        17,
+        33,
+        41,
+        49,
+        54,
+        66,
+        73,
+        82,
+        98,
+        102,
+        106,
+        115,
+        119,
+        123,
+        131,
+        141,
+        148
+      ],
+      "ambient_columns": [
+        0,
+        6,
+        12,
+        18,
+        24
+      ],
+      "shape": [
+        20,
+        5
+      ]
+    },
+    {
+      "rank": 4,
+      "rows": [
+        0,
+        2,
+        4,
+        7
+      ],
+      "columns": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "determinant": "-1",
+      "weight": 1,
+      "ambient_rows": [
+        6,
+        13,
+        19,
+        24,
+        31,
+        40,
+        44,
+        48,
+        56,
+        68,
+        72,
+        80,
+        97,
+        111,
+        118,
+        121,
+        130,
+        134,
+        143,
+        147
+      ],
+      "ambient_columns": [
+        2,
+        14,
+        16,
+        23
+      ],
+      "shape": [
+        20,
+        4
+      ]
+    },
+    {
+      "rank": 3,
+      "rows": [
+        0,
+        2,
+        6
+      ],
+      "columns": [
+        0,
+        1,
+        2
+      ],
+      "determinant": "-1",
+      "weight": 2,
+      "ambient_rows": [
+        8,
+        12,
+        18,
+        26,
+        36,
+        43,
+        46,
+        55,
+        59,
+        67,
+        95,
+        113,
+        117,
+        126,
+        133,
+        142
+      ],
+      "ambient_columns": [
+        4,
+        13,
+        21
+      ],
+      "shape": [
+        16,
+        3
+      ]
+    },
+    {
+      "rank": 2,
+      "rows": [
+        0,
+        1
+      ],
+      "columns": [
+        0,
+        1
+      ],
+      "determinant": "-1",
+      "weight": 3,
+      "ambient_rows": [
+        7,
+        16,
+        25,
+        29,
+        38,
+        42,
+        51,
+        58,
+        65,
+        112,
+        128,
+        132,
+        140
+      ],
+      "ambient_columns": [
+        3,
+        11
+      ],
+      "shape": [
+        13,
+        2
+      ]
+    },
+    {
+      "rank": 1,
+      "rows": [
+        0
+      ],
+      "columns": [
+        0
+      ],
+      "determinant": "-1",
+      "weight": 4,
+      "ambient_rows": [
+        5,
+        21,
+        28,
+        37,
+        53,
+        57,
+        110,
+        127
+      ],
+      "ambient_columns": [
+        1
+      ],
+      "shape": [
+        8,
+        1
+      ]
+    }
+  ],
+  "complete_orbit_weight_blocks": [
+    {
+      "rank": 1,
+      "rows": [
+        0
+      ],
+      "columns": [
+        0
+      ],
+      "determinant": "-8",
+      "weight": -7,
+      "ambient_rows": [
+        75
+      ],
+      "ambient_columns": [
+        30
+      ],
+      "shape": [
+        1,
+        1
+      ]
+    },
+    {
+      "rank": 1,
+      "rows": [
+        0
+      ],
+      "columns": [
+        0
+      ],
+      "determinant": "8*(b - 1)",
+      "weight": -6,
+      "ambient_rows": [
+        77,
+        90
+      ],
+      "ambient_columns": [
+        32,
+        40
+      ],
+      "shape": [
+        2,
+        2
+      ]
+    },
+    {
+      "rank": 3,
+      "rows": [
+        0,
+        1,
+        2
+      ],
+      "columns": [
+        0,
+        1,
+        2
+      ],
+      "determinant": "32*(b - 1)*(2*b - 1)*(4*b - 1)",
+      "weight": -5,
+      "ambient_rows": [
+        60,
+        79,
+        84,
+        92,
+        135
+      ],
+      "ambient_columns": [
+        34,
+        42,
+        45
+      ],
+      "shape": [
+        5,
+        3
+      ]
+    },
+    {
+      "rank": 5,
+      "rows": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "columns": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "determinant": "512*(b - 1)*(3*b - 1)*(4*b - 1)",
+      "weight": -4,
+      "ambient_rows": [
+        0,
+        62,
+        78,
+        86,
+        94,
+        99,
+        105,
+        137
+      ],
+      "ambient_columns": [
+        5,
+        33,
+        35,
+        44,
+        47
+      ],
+      "shape": [
+        8,
+        5
+      ]
+    },
+    {
+      "rank": 6,
+      "rows": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        6
+      ],
+      "columns": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "determinant": "-96*(b - 1)**2*(2*b + 1)*(4*b - 1)**2",
+      "weight": -3,
+      "ambient_rows": [
+        2,
+        30,
+        64,
+        69,
+        76,
+        85,
+        89,
+        93,
+        101,
+        107,
+        120,
+        139,
+        144
+      ],
+      "ambient_columns": [
+        7,
+        15,
+        25,
+        31,
+        37,
+        43,
+        49,
+        50
+      ],
+      "shape": [
+        13,
+        8
+      ]
+    },
+    {
+      "rank": 7,
+      "rows": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "columns": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "determinant": "-256*(b - 1)**3*(4*b - 1)",
+      "weight": -2,
+      "ambient_rows": [
+        4,
+        9,
+        32,
+        45,
+        63,
+        71,
+        81,
+        88,
+        91,
+        100,
+        104,
+        109,
+        114,
+        122,
+        138,
+        146
+      ],
+      "ambient_columns": [
+        9,
+        17,
+        20,
+        27,
+        39,
+        41,
+        48
+      ],
+      "shape": [
+        16,
+        7
+      ]
+    },
+    {
+      "rank": 7,
+      "rows": [
+        0,
+        1,
+        2,
+        3,
+        5,
+        6,
+        7
+      ],
+      "columns": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "determinant": "-32*(b - 1)*(2*b - 1)**2*(4*b - 1)",
+      "weight": -1,
+      "ambient_rows": [
+        3,
+        11,
+        15,
+        34,
+        39,
+        47,
+        61,
+        70,
+        74,
+        83,
+        87,
+        96,
+        103,
+        108,
+        116,
+        124,
+        129,
+        136,
+        145,
+        149
+      ],
+      "ambient_columns": [
+        8,
+        10,
+        19,
+        22,
+        29,
+        38,
+        46
+      ],
+      "shape": [
+        20,
+        7
+      ]
+    },
+    {
+      "rank": 6,
+      "rows": [
+        0,
+        1,
+        3,
+        4,
+        6,
+        8
+      ],
+      "columns": [
+        0,
+        1,
+        2,
+        3,
+        5,
+        6
+      ],
+      "determinant": "32*(b - 1)",
+      "weight": 0,
+      "ambient_rows": [
+        1,
+        10,
+        14,
+        17,
+        33,
+        41,
+        49,
+        54,
+        66,
+        73,
+        82,
+        98,
+        102,
+        106,
+        115,
+        119,
+        123,
+        131,
+        141,
+        148
+      ],
+      "ambient_columns": [
+        0,
+        6,
+        12,
+        18,
+        24,
+        28,
+        36
+      ],
+      "shape": [
+        20,
+        7
+      ]
+    },
+    {
+      "rank": 5,
+      "rows": [
+        0,
+        2,
+        3,
+        4,
+        7
+      ],
+      "columns": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "determinant": "2",
+      "weight": 1,
+      "ambient_rows": [
+        6,
+        13,
+        19,
+        24,
+        31,
+        40,
+        44,
+        48,
+        56,
+        68,
+        72,
+        80,
+        97,
+        111,
+        118,
+        121,
+        130,
+        134,
+        143,
+        147
+      ],
+      "ambient_columns": [
+        2,
+        14,
+        16,
+        23,
+        26
+      ],
+      "shape": [
+        20,
+        5
+      ]
+    },
+    {
+      "rank": 3,
+      "rows": [
+        0,
+        2,
+        6
+      ],
+      "columns": [
+        0,
+        1,
+        2
+      ],
+      "determinant": "-1",
+      "weight": 2,
+      "ambient_rows": [
+        8,
+        12,
+        18,
+        26,
+        36,
+        43,
+        46,
+        55,
+        59,
+        67,
+        95,
+        113,
+        117,
+        126,
+        133,
+        142
+      ],
+      "ambient_columns": [
+        4,
+        13,
+        21
+      ],
+      "shape": [
+        16,
+        3
+      ]
+    },
+    {
+      "rank": 2,
+      "rows": [
+        0,
+        1
+      ],
+      "columns": [
+        0,
+        1
+      ],
+      "determinant": "-1",
+      "weight": 3,
+      "ambient_rows": [
+        7,
+        16,
+        25,
+        29,
+        38,
+        42,
+        51,
+        58,
+        65,
+        112,
+        128,
+        132,
+        140
+      ],
+      "ambient_columns": [
+        3,
+        11
+      ],
+      "shape": [
+        13,
+        2
+      ]
+    },
+    {
+      "rank": 1,
+      "rows": [
+        0
+      ],
+      "columns": [
+        0
+      ],
+      "determinant": "-1",
+      "weight": 4,
+      "ambient_rows": [
+        5,
+        21,
+        28,
+        37,
+        53,
+        57,
+        110,
+        127
+      ],
+      "ambient_columns": [
+        1
+      ],
+      "shape": [
+        8,
+        1
+      ]
+    }
+  ],
+  "complete_fullsource_weight_blocks": [
+    {
+      "rank": 1,
+      "rows": [
+        0
+      ],
+      "columns": [
+        0
+      ],
+      "determinant": "-8",
+      "weight": -7,
+      "ambient_rows": [
+        75
+      ],
+      "ambient_columns": [
+        30,
+        60
+      ],
+      "shape": [
+        1,
+        2
+      ]
+    },
+    {
+      "rank": 1,
+      "rows": [
+        0
+      ],
+      "columns": [
+        0
+      ],
+      "determinant": "8*(b - 1)",
+      "weight": -6,
+      "ambient_rows": [
+        77,
+        90
+      ],
+      "ambient_columns": [
+        32,
+        40,
+        58
+      ],
+      "shape": [
+        2,
+        3
+      ]
+    },
+    {
+      "rank": 3,
+      "rows": [
+        0,
+        1,
+        2
+      ],
+      "columns": [
+        0,
+        1,
+        2
+      ],
+      "determinant": "32*(b - 1)*(2*b - 1)*(4*b - 1)",
+      "weight": -5,
+      "ambient_rows": [
+        60,
+        79,
+        84,
+        92,
+        135
+      ],
+      "ambient_columns": [
+        34,
+        42,
+        45,
+        54,
+        57,
+        59
+      ],
+      "shape": [
+        5,
+        6
+      ]
+    },
+    {
+      "rank": 5,
+      "rows": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "columns": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "determinant": "512*(b - 1)*(3*b - 1)*(4*b - 1)",
+      "weight": -4,
+      "ambient_rows": [
+        0,
+        62,
+        78,
+        86,
+        94,
+        99,
+        105,
+        137
+      ],
+      "ambient_columns": [
+        5,
+        33,
+        35,
+        44,
+        47,
+        53,
+        55,
+        56
+      ],
+      "shape": [
+        8,
+        8
+      ]
+    },
+    {
+      "rank": 7,
+      "rows": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "columns": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        9
+      ],
+      "determinant": "768*(b - 1)**2*(2*b + 1)*(4*b - 1)**2",
+      "weight": -3,
+      "ambient_rows": [
+        2,
+        30,
+        64,
+        69,
+        76,
+        85,
+        89,
+        93,
+        101,
+        107,
+        120,
+        139,
+        144
+      ],
+      "ambient_columns": [
+        7,
+        15,
+        25,
+        31,
+        37,
+        43,
+        49,
+        50,
+        51,
+        52
+      ],
+      "shape": [
+        13,
+        10
+      ]
+    },
+    {
+      "rank": 7,
+      "rows": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "columns": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "determinant": "-256*(b - 1)**3*(4*b - 1)",
+      "weight": -2,
+      "ambient_rows": [
+        4,
+        9,
+        32,
+        45,
+        63,
+        71,
+        81,
+        88,
+        91,
+        100,
+        104,
+        109,
+        114,
+        122,
+        138,
+        146
+      ],
+      "ambient_columns": [
+        9,
+        17,
+        20,
+        27,
+        39,
+        41,
+        48
+      ],
+      "shape": [
+        16,
+        7
+      ]
+    },
+    {
+      "rank": 7,
+      "rows": [
+        0,
+        1,
+        2,
+        3,
+        5,
+        6,
+        7
+      ],
+      "columns": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "determinant": "-32*(b - 1)*(2*b - 1)**2*(4*b - 1)",
+      "weight": -1,
+      "ambient_rows": [
+        3,
+        11,
+        15,
+        34,
+        39,
+        47,
+        61,
+        70,
+        74,
+        83,
+        87,
+        96,
+        103,
+        108,
+        116,
+        124,
+        129,
+        136,
+        145,
+        149
+      ],
+      "ambient_columns": [
+        8,
+        10,
+        19,
+        22,
+        29,
+        38,
+        46
+      ],
+      "shape": [
+        20,
+        7
+      ]
+    },
+    {
+      "rank": 6,
+      "rows": [
+        0,
+        1,
+        3,
+        4,
+        6,
+        8
+      ],
+      "columns": [
+        0,
+        1,
+        2,
+        3,
+        5,
+        6
+      ],
+      "determinant": "32*(b - 1)",
+      "weight": 0,
+      "ambient_rows": [
+        1,
+        10,
+        14,
+        17,
+        33,
+        41,
+        49,
+        54,
+        66,
+        73,
+        82,
+        98,
+        102,
+        106,
+        115,
+        119,
+        123,
+        131,
+        141,
+        148
+      ],
+      "ambient_columns": [
+        0,
+        6,
+        12,
+        18,
+        24,
+        28,
+        36
+      ],
+      "shape": [
+        20,
+        7
+      ]
+    },
+    {
+      "rank": 5,
+      "rows": [
+        0,
+        2,
+        3,
+        4,
+        7
+      ],
+      "columns": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "determinant": "2",
+      "weight": 1,
+      "ambient_rows": [
+        6,
+        13,
+        19,
+        24,
+        31,
+        40,
+        44,
+        48,
+        56,
+        68,
+        72,
+        80,
+        97,
+        111,
+        118,
+        121,
+        130,
+        134,
+        143,
+        147
+      ],
+      "ambient_columns": [
+        2,
+        14,
+        16,
+        23,
+        26
+      ],
+      "shape": [
+        20,
+        5
+      ]
+    },
+    {
+      "rank": 3,
+      "rows": [
+        0,
+        2,
+        6
+      ],
+      "columns": [
+        0,
+        1,
+        2
+      ],
+      "determinant": "-1",
+      "weight": 2,
+      "ambient_rows": [
+        8,
+        12,
+        18,
+        26,
+        36,
+        43,
+        46,
+        55,
+        59,
+        67,
+        95,
+        113,
+        117,
+        126,
+        133,
+        142
+      ],
+      "ambient_columns": [
+        4,
+        13,
+        21
+      ],
+      "shape": [
+        16,
+        3
+      ]
+    },
+    {
+      "rank": 2,
+      "rows": [
+        0,
+        1
+      ],
+      "columns": [
+        0,
+        1
+      ],
+      "determinant": "-1",
+      "weight": 3,
+      "ambient_rows": [
+        7,
+        16,
+        25,
+        29,
+        38,
+        42,
+        51,
+        58,
+        65,
+        112,
+        128,
+        132,
+        140
+      ],
+      "ambient_columns": [
+        3,
+        11
+      ],
+      "shape": [
+        13,
+        2
+      ]
+    },
+    {
+      "rank": 1,
+      "rows": [
+        0
+      ],
+      "columns": [
+        0
+      ],
+      "determinant": "-1",
+      "weight": 4,
+      "ambient_rows": [
+        5,
+        21,
+        28,
+        37,
+        53,
+        57,
+        110,
+        127
+      ],
+      "ambient_columns": [
+        1
+      ],
+      "shape": [
+        8,
+        1
+      ]
+    }
+  ],
+  "maximal_D_block_columns": 20,
+  "component_squeeze": false,
+  "scope": "Complete generic fullambient ranks by an exact grading decomposition, not a chosen smaller submatrix. Source membership/componenthood requires the stated squeeze or actual knownfamily recognition; no higher normaljet is inferred.",
+  "seconds": 6.740612164001504
+}

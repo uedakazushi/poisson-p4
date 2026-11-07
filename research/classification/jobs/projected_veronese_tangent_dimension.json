@@ -1,0 +1,38 @@
+{
+  "task_id": "G",
+  "target_statement": "Prove the WEAKEST sufficient whole fixed-PV tangent Poisson source affine dimension<=4 by exact lifts and leading monomial height; then fullPGL projective image<=24.",
+  "implication_to_classification": "A rank2 ordinary-double surface with smooth S and no vertical normal-cone component reduces geometrically to the unique projected-Veronese orbit. Whole fixed-S rank4 exclusion closes this subbranch; complements remain explicit.",
+  "coefficient_ring": "QQ[z0,...,z14], all54 independent quadrics spanning the full350 Jacobi equations.",
+  "hypotheses": "Complete15-dimensional tangent source already certified by full280x160 matrix and Euler24 quotient. Use independent54 Jacobi rows spanning all350; no rankzero restriction.",
+  "inverted_elements": [
+    "Only rational nonzero constants for linear elimination; affine x0 chart for computing actualPfaffian"
+  ],
+  "complements": [
+    "No assumption all nonnormal surfaces are smooth, ordinary-node, or have no vertical cone component",
+    "Rankzero projected-Veronese proof is not substituted for rank2 invariance",
+    "Any nonzero actualD outcome remains a full source with unresolved Jacobi/support, not a new component"
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_projected_veronese_tangent.py",
+      "sha256": "c8a85c10c3c760668e7e3ac94b5359ed702620002f3fc8856dd7e595f0736f41"
+    },
+    {
+      "path": "reports/CLASSIFICATION_PROJECTED_VERONESE_TANGENT_20261107.json",
+      "sha256": "7232b8e191be0ddb1c94ccfbba57c3acd1a3fb7adf6206bad2a7779d68aef098"
+    },
+    {
+      "path": "research/classification/IRREDUCIBLE_NONNORMAL_QUINTIC_ENTRANCE.md",
+      "sha256": "911ccd334b405058ba0f7aece9a20095d1365b94849f429a11d19c277ba795de"
+    }
+  ],
+  "success_certificate": "Exact QQ memberships of each lifted polynomial in the full Jacobi ideal, explicit grevlex leading monomials, finite minimum vertex cover proving dimension<=4, and preserving-group3/free action saturation bound.",
+  "independent_check": "Independent Fraction reconstruction of full source/all350 followed by all exact lift identities/leading monomials/cover. No second GB required.",
+  "resource_limit": {
+    "timeout_seconds": 115,
+    "memory_mb": 1536
+  },
+  "negative_result_next_step": "Save full source and finite failure. If dimension>4 or timeout, inspect the exact Poisson module/induced cubic support; no unbounded GB sequence or unsupported universal exclusion.",
+  "runtime_binding_reason": "Uses existing Cloud Singular library via explicit SINGULARPATH after the first process could not locate standard.lib; that runtime failure is preserved separately and is not a mathematical result.",
+  "rational_input_serialization_reason": "Clear denominators and primitive-normalize each selected QQ generator before Singular, avoiding its poly^number parsing of exponent-followed-by-rational-division. This only multiplies generators by nonzero rational constants and leaves the ideal unchanged."
+}

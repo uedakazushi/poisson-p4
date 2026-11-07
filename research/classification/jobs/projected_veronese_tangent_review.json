@@ -1,0 +1,47 @@
+{
+  "task_id": "G",
+  "target_statement": "Independently reconstruct the full280x160 tangent system/kernel39/Euler24 quotient15, all350Jacobi, and all10,079 exact QQ lifts/242 leading polynomials proving whole fixed source dimension<=2.",
+  "implication_to_classification": "A rank2 ordinary-double surface with smooth S and no vertical normal-cone component reduces geometrically to the unique projected-Veronese orbit. Whole fixed-S rank4 exclusion closes this subbranch; complements remain explicit.",
+  "coefficient_ring": "QQ, standard-library Fraction sparse polynomials/matrices only",
+  "hypotheses": "Complete15-dimensional tangent source already certified by full280x160 matrix and Euler24 quotient. Use independent54 Jacobi rows spanning all350; no rankzero restriction.",
+  "inverted_elements": [
+    "Only rational nonzero constants for linear elimination; affine x0 chart for computing actualPfaffian"
+  ],
+  "complements": [
+    "No assumption all nonnormal surfaces are smooth, ordinary-node, or have no vertical cone component",
+    "Rankzero projected-Veronese proof is not substituted for rank2 invariance",
+    "Any nonzero actualD outcome remains a full source with unresolved Jacobi/support, not a new component"
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_projected_veronese_tangent_review.py",
+      "sha256": "bf8a931903a2ef6b4533b525de99b86559128a6ddbfd5743bc31d64f7faec679"
+    },
+    {
+      "path": "code/classification_projected_veronese_zero_review.py",
+      "sha256": "7fbaa04524f57287df396ff5e0ebd754ad124cd9814055820c70fdd1f863e55d"
+    },
+    {
+      "path": "reports/CLASSIFICATION_PROJECTED_VERONESE_TANGENT_20261107.json",
+      "sha256": "7232b8e191be0ddb1c94ccfbba57c3acd1a3fb7adf6206bad2a7779d68aef098"
+    },
+    {
+      "path": "reports/CLASSIFICATION_PROJECTED_VERONESE_TANGENT_DIMENSION_20261107.json",
+      "sha256": "7554a6e847c3f6b64d83d89f4558f187a30ecab170952e6a834c745bf916cf96"
+    },
+    {
+      "path": "research/classification/IRREDUCIBLE_NONNORMAL_RANK2_CLEAN_SURFACE.md",
+      "sha256": "2e9fa06dfd67494228eff474d8982e48033abddfc3341c7d78acc089b049b4e5"
+    }
+  ],
+  "success_certificate": "Full tangency matrix and maximal minor, complete kernel and canonical quotient, all350 equations/all54 ideal generators/actualquintic, every exact lift, grevlex leading monomial and minimum vertex cover13, giving fullPGL image<=22.",
+  "independent_check": "This target itself is a separate Fraction implementation. It reuses only the prior independent PV arithmetic engine and imports no producer/CAS/Singular. Geometric subgroup/reduction are separate written proofs.",
+  "resource_limit": {
+    "timeout_seconds": 235,
+    "memory_mb": 1536
+  },
+  "negative_result_next_step": "Save full source and finite failure. If dimension>4 or timeout, inspect the exact Poisson module/induced cubic support; no unbounded GB sequence or unsupported universal exclusion.",
+  "runtime_binding_reason": "Uses existing Cloud Singular library via explicit SINGULARPATH after the first process could not locate standard.lib; that runtime failure is preserved separately and is not a mathematical result.",
+  "rational_input_serialization_reason": "Clear denominators and primitive-normalize each selected QQ generator before Singular, avoiding its poly^number parsing of exponent-followed-by-rational-division. This only multiplies generators by nonzero rational constants and leaves the ideal unchanged.",
+  "completed_proof_note_binding_reason": "Adds the PASS result of the exact independent reconstruction and the whole-subbranch dimension22 conclusion; original geometric hypotheses and all checked source equations are unchanged."
+}

@@ -1289,6 +1289,91 @@ def nil31_long_support(source_path):
         scope='Whole H+irreduciblequartic nil31longtop3 source is two explicit5parameter families, with all empty complements retained. E membership remains separate; dimension22 excludes its generic G dominance.')
 
 
+def nil31_short_quartic_recognition(component_path):
+    """An exact transverse Poisson curve recognizes the entire short31 source."""
+    import importlib.util
+    from sympy.polys.matrices import DomainMatrix
+    source=json.loads(component_path.read_text())['source_point_one_normal']
+    family_path=Path(source['family_report'])
+    family=json.loads(family_path.read_text())['nil31_short_quartic_support']
+    assert family['entire_source_absolutely_irreducible_quartic']
+    helper=Path('legacy/v03/code/poisson_p4_components_check.py')
+    spec=importlib.util.spec_from_file_location('short31_curve_ambient',helper)
+    ambient=importlib.util.module_from_spec(spec);spec.loader.exec_module(ambient)
+    h,x,y,z,w=coords=s.symbols('h x y z w');e,t,u=s.symbols('e t u')
+    P=s.zeros(5)
+    for pair,text in source['witness_brackets'].items():
+        i,j=map(int,pair.split(','));P[i,j]=s.sympify(text);P[j,i]=-P[i,j]
+    def unvector(encoded):
+        A=s.zeros(5)
+        for index,text in encoded.items():
+            (i,j),mon=ambient.BIVECTOR_BASIS[int(index)]
+            value=s.Rational(text)*s.prod(q**k for q,k in zip(coords,mon));A[i,j]+=value;A[j,i]-=value
+        return A.applyfunc(s.expand)
+    def vector(A):return s.Matrix([s.Poly(A[i,j],*coords).coeff_monomial(mon)for(i,j),mon in ambient.BIVECTOR_BASIS])
+    def jac(A):
+        J={ijk:s.expand(sum(A[ijk[0],l]*s.diff(A[ijk[1],ijk[2]],coords[l])+A[ijk[1],l]*s.diff(A[ijk[2],ijk[0]],coords[l])+A[ijk[2],l]*s.diff(A[ijk[0],ijk[1]],coords[l])for l in range(5)))for ijk in it.combinations(range(5),3)}
+        W={ij:s.expand(sum((-1)**k*coords[ij[k]]*J[ij[:k]+ij[k+1:]]for k in range(4)))for ij in it.combinations(range(5),4)}
+        return s.Matrix([s.Poly(W[ij],*coords).coeff_monomial(mon)for ij,mon in ambient.FOUR_VECTOR_BASIS])
+    def dm(A):return DomainMatrix.from_Matrix(A).convert_to(s.QQ)
+    R=unvector(source['independent_normal_sparse_vectors'][0]);T=unvector(source['quadratic_correction_sparse'])
+    Rvec=vector(R);A=P+e*R+e*e*T
+    assert A[0,:]==s.zeros(1,5)and jac(A)==s.zeros(350,1)
+    sparse={(i,j):{mon:int(c)for mon,c in s.Poly(P[i,j],*coords).terms()if c}for i,j in ambient.PAIRS if P[i,j]!=0}
+    D=s.Matrix(ambient.linearized_jacobi_matrix(sparse).tolist())
+    directions=[]
+    for i,j in it.product(range(5),repeat=2):
+        B=s.zeros(5);B[i,j]=1;X=B*s.Matrix(coords)
+        directions.append(vector(sum([X[k]*P.diff(coords[k])for k in range(5)],s.zeros(5))-B*P-P*B.T))
+    M=s.Matrix(ambient.vertical_bivector_matrix().tolist()).row_join(s.Matrix.hstack(*directions,vector(P)))
+    assert D*M==s.zeros(350,M.cols)and D*Rvec==s.zeros(350,1)
+    cuts=source['orbit_vertical_scale']['rows'];actions=source['orbit_vertical_scale']['columns']
+    assert len(cuts)==len(actions)==47 and Rvec[cuts,:]==s.zeros(47,1)
+    normal_coordinate=next(i for i,value in enumerate(Rvec)if value)
+    action_minor=dm(M[cuts,actions]).det();assert action_minor
+    actual=M.row_join(Rvec);actual_rows=cuts+[normal_coordinate];actual_columns=actions+[M.cols]
+    actual_minor=dm(actual[actual_rows,actual_columns]).det()
+    assert actual_minor==action_minor*s.Rational(Rvec[normal_coordinate])and actual_minor
+    dr,dc=source['derivative']['rows'],source['derivative']['columns']
+    assert len(dr)==len(dc)==102
+    derivative_minor=dm(D[dr,dc]).det();assert derivative_minor
+    Z=s.Matrix([s.expand(sum(s.diff(A[i,j],coords[i])for i in range(5)))for j in range(5)])
+    N=Z.jacobian(coords);assert Z==N*s.Matrix(coords)and s.trace(N)==0
+    characteristic=s.factor(N.charpoly(u).as_expr())
+    assert s.expand(characteristic-u*(u*u+93312*e)*(u*u+373248*e))==0
+    G=s.diag(1,t*t,t,1,t)
+    pushed=(G*A*G.T).subs(dict(zip(coords,G.inv()*s.Matrix(coords))),simultaneous=True)
+    assert (pushed-t*A.subs(e,e/t**2)).applyfunc(s.cancel)==s.zeros(5)
+    F=s.factor(A[1,2]*A[3,4]-A[1,3]*A[2,4]+A[1,4]*A[2,3])
+    parameter_values={s.Symbol(k):s.Rational(v)for k,v in source['point']['family_parameter_point'].items()}
+    source_F=s.Poly(s.sympify(family['actual_affine_pfaffian']).subs(parameter_values),x,y,z,w)
+    expected_F=sum(c*h**(4-sum(mon))*s.prod(q**k for q,k in zip((x,y,z,w),mon))for mon,c in source_F.terms())
+    assert s.expand(F.subs(e,0)-s.Rational(source['integer_scale'])**2*expected_F)==0
+    semisimple_note=Path('research/classification/HYPERPLANE_QUARTIC_SEMISIMPLE_SUPPORT.md')
+    semisimple_certificate=Path('reports/CLASSIFICATION_HYPERPLANE_QUARTIC_SEMISIMPLE_SUPPORT_V2_20261107.json')
+    return dict(input_component_report=str(component_path),input_sha256=hashlib.sha256(component_path.read_bytes()).hexdigest(),
+        full_source_report=str(family_path),full_source_sha256=hashlib.sha256(family_path.read_bytes()).hexdigest(),
+        helper_path=str(helper),helper_sha256=hashlib.sha256(helper.read_bytes()).hexdigest(),
+        exact_polynomial_Poisson_curve='P+e*R+e^2*T',all350_Jacobi_identically_zero=True,
+        P_brackets=source['witness_brackets'],R_brackets={f'{i},{j}':str(R[i,j])for i,j in ambient.PAIRS if R[i,j]!=0},
+        T_brackets={f'{i},{j}':str(T[i,j])for i,j in ambient.PAIRS if T[i,j]!=0},
+        derivative_minor=dict(rows=dr,columns=dc,determinant=str(derivative_minor),rank_lower=102),
+        actual_curve_lower_minor=dict(rows=actual_rows,columns=actual_columns,determinant=str(actual_minor),rank_lower=48),
+        all_D_actual_direction_products_zero=True,full_projective_tangent_dimension=23,
+        actual_family_projective_dimension_lower=23,smooth23_unique_ambient_component_proved=True,
+        generic_h_Casimir_preserved=True,cofactor=list(map(str,Z)),
+        homogeneous_cofactor_matrix=[[str(value)for value in N.row(i)]for i in range(5)],
+        cofactor_characteristic_polynomial=str(characteristic),generic_regular_semisimple_spectrum_ratio=[-2,-1,1,2],
+        generic_semisimple_source_type=12,actual_quartic_pfaffian=str(F),original_irreducible_quartic_exactly_reconstructed=True,
+        generic_irreducible_quartic_by_open_locus_at_e_zero=True,
+        actual_Cstar_pushforward_identity='diag(1,t^2,t,1,t)_*P(e)=t*P(e/t^2)',all_nonzero_e_actual_PGL_equivalent=True,
+        known_support_dependencies=[dict(path=str(p),sha256=hashlib.sha256(p.read_bytes()).hexdigest())for p in [semisimple_note,semisimple_certificate]],
+        complete_six_source_recognized_in_known_MPS_union=True,
+        mathematical_bridge='Genericcurvepoints haveirreduciblequartic andregularsemisimple type12cofactor, hence lieinthe establishedfiniteclosedMPSunion. ClosednessplacesP(0)there. Actualcurverank48 andfullDminor102 proveP(0)smooth23withuniqueambientcomponent. EntireGm x A5 source isirreducible andcontainsP(0), soitswholeclosure andPGLsaturation lieinthatknownMPScomponent.',
+        no_new_component_claim=True,no_higher_jet_or_nilindex_required=True,
+        scope='Whole type4 H+irreduciblequartic support is coveredby knownMPS components; theexactactualPoissoncurve andrankbounds suffice, without aformalmap-completeness claim.')
+
+
 def nil31_short_quartic_sources(source_path):
     """All short31 quartic sources after the complete nine-core-branch theorem."""
     row=json.loads(source_path.read_text())['full_nilpotent_sources'][3]
@@ -1917,6 +2002,7 @@ def main():
     ap.add_argument('--nil31-long-normalform',type=Path,help='Whole-source actual affine normalforms for both longnil31 families')
     ap.add_argument('--nil31-short-quartic-sources',type=Path,help='Finite whole shortnil31 quartic sources with all residual compatibility')
     ap.add_argument('--nil31-short-quartic-support',type=Path,help='One complete irreducible sixparameter shortnil31 quartic source')
+    ap.add_argument('--nil31-short-quartic-recognition',type=Path,help='Exact transverse Poissoncurve andcomplete type4 MPS recognition')
     ap.add_argument('--nil22-long-dimension',type=Path,help='Whole nil22top2 source dimension via lifted QQ leading monomials')
     ap.add_argument('--nil22-long-core',type=Path,help='Complete eightvariable nonlinear core of nil22top2 source')
     ap.add_argument('--nil22-long-critical-cores',type=Path,help='Complete nil22top2 core strata n14=-1,-1/2,-1/3')
@@ -1930,6 +2016,12 @@ def main():
     report = dict(task='E_reduced_nonnormal', coefficient_ring='QQ, exact symbolic polynomials',
                   source_sha256=hashlib.sha256(source).hexdigest(), source_bytes=source.decode(),
                   scope='Finite modular cofactor entrance only; residual full Jacobi sources and coverage remain open.')
+    if args.nil31_short_quartic_recognition:
+        result=nil31_short_quartic_recognition(args.nil31_short_quartic_recognition)
+        report.update(nil31_short_quartic_recognition=result,all_passed=True)
+        args.output.write_text(json.dumps(report,indent=2)+'\n')
+        print(json.dumps(dict(all_passed=True,smooth23_unique_component=True,whole_source_MPS_recognized=True)))
+        return
     if args.nil31_short_quartic_support:
         result=nil31_short_quartic_support(args.nil31_short_quartic_support)
         report.update(nil31_short_quartic_support=result,all_passed=True)

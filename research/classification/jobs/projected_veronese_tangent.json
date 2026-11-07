@@ -1,0 +1,39 @@
+{
+  "task_id": "G",
+  "target_statement": "Construct COMPLETE global bivectors tangent to smooth projected Veronese, retaining every restricted cubic bivector and full150/Euler24/all350 Jacobi; decide whole actual-Pfaffian support.",
+  "implication_to_classification": "A rank2 ordinary-double surface with smooth S and no vertical normal-cone component reduces geometrically to the unique projected-Veronese orbit. Whole fixed-S rank4 exclusion closes this subbranch; complements remain explicit.",
+  "coefficient_ring": "QQ, full280x160 tangent equations (150 ambient+10 restricted cubic), complete projective quotient and all350 Jacobi.",
+  "hypotheses": "Tangency is exactly q wedge Pi(q)=r3(a,b,c)*(dq_a wedge dq_b wedge dq_c). Retain all10 cubic coefficients r, not only the rankzero subsource. Full Euler24 inclusion and complete kernel must be verified.",
+  "inverted_elements": [
+    "Only rational nonzero constants for linear elimination; affine x0 chart for computing actualPfaffian"
+  ],
+  "complements": [
+    "No assumption all nonnormal surfaces are smooth, ordinary-node, or have no vertical cone component",
+    "Rankzero projected-Veronese proof is not substituted for rank2 invariance",
+    "Any nonzero actualD outcome remains a full source with unresolved Jacobi/support, not a new component"
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_projected_veronese_tangent.py",
+      "sha256": "c8a85c10c3c760668e7e3ac94b5359ed702620002f3fc8856dd7e595f0736f41"
+    },
+    {
+      "path": "code/classification_rank3_mixed_component_review.py",
+      "sha256": "48e61e30f9d7f04fb81f1bb5eec0e18daa28c8192d6a02a251e09cf8855b9bd0"
+    },
+    {
+      "path": "research/classification/IRREDUCIBLE_NONNORMAL_QUINTIC_ENTRANCE.md",
+      "sha256": "911ccd334b405058ba0f7aece9a20095d1365b94849f429a11d19c277ba795de"
+    }
+  ],
+  "success_certificate": "Full280x160 matrix/kernel/maxminor, complete canonical projective basis, full350 Jacobi, actual quintic and every actualD coefficient expressed by exact row functionals of fullJacobi when possible.",
+  "independent_check": "Separate Fraction reconstruction of full tangent substitution matrix/kernel/Euler quotient, all350 Jacobi and every actualD membership functional; geometric reduction reviewed separately.",
+  "resource_limit": {
+    "timeout_seconds": 120,
+    "memory_mb": 1536
+  },
+  "negative_result_next_step": "If D not in full quadratic Jacobi rowspace, retain the exact source and seek finite reduced-support/geometric classification, no unjustified rankzero inference or arbitrary point/jet escalation.",
+  "runner_extension_reason": "Append-only --dimension mode; original full-source producer_bytes and SHA remain embedded in its immutable certificate.",
+  "runtime_binding_reason": "Uses existing Cloud Singular library via explicit SINGULARPATH after the first process could not locate standard.lib; that runtime failure is preserved separately and is not a mathematical result.",
+  "rational_input_serialization_reason": "Clear denominators and primitive-normalize each selected QQ generator before Singular, avoiding its poly^number parsing of exponent-followed-by-rational-division. This only multiplies generators by nonzero rational constants and leaves the ideal unchanged."
+}

@@ -1,50 +1,59 @@
 # 次の課題 — 全被約成分の尽くし
 
-2026-11-07 / v64-classification-first。classification/PLAN.jsonが現行キュー。
+2026-11-07 / v64-classification-first。現行キューはclassification/PLAN.json。
 
 ```sh
 .venv/bin/python scripts/classification.py check
 .venv/bin/python scripts/classification.py next
 ```
 
-G、E_multiple_hyperplane、E_reduced_nonnormalを並行する。
-Gの入口はclassification/DOMINANT_COMPONENT_GEOMETRY.mdとREMAINING_DEGENERACY_DIVISOR_SUPPORT.md。
-未知beta優越成分は射影次元25〜27。正規な実退化因子の全点は既存91頁原稿の定理でT39へ分類済み。
-これを見落としてG-normalを未証明とした旧草稿のキューは撤回した。
-局所Lie補題は補足として保存し、閉じた正規分岐の再分類は行わない。
+**個別成分の下界98、一般rank四92、rank二6。上界・一般五点・全分類は未証明。**
+ユーザーの11月7日の再開指示により実作業を継続する。保存や旧移行用一時停止を終了条件にしない。
+G、E_multiple_hyperplane、E_reduced_nonnormalを並行し、意味のある進展は主原稿・引継ぎへ統合して通常main pushで保存する。
 
-全134式のnormal rank4枝とF5、有限分離忠実chart、直接splitterは利用可能だが、
-それらだけからB=0とはしない。独立reviewの五点+孤立第六点反例が限界を示す。
-五回未完了の直接GB、低次trace探索、旧compact方向graphの再包装を反復しない。
+## G：既約被約非正規quinticだけが残る
 
-E_quadricとE_quadric3は完了。実退化因子H+2Q、Q既約(rank>=3)の全支持を覆った。
-新22次元混合型と新24次元Tw0型を全周囲の真正初期障害と実源下界から証明し、独立再構成も完了。
-正規因子と二重既約二次因子を持つ全支持を再分類せず、その補集合へ進む。
-可約Qは二重超平面を持つ側へ残す。
+未知beta優越成分は射影次元25〜27。全非被約因子、全可約因子の次数分割、正規因子は
+既知成分被覆又は全source次元上界で未知一般元から排除済み。
+全1+1+3ではB0非平面8/7源を含む。全H+quarticでは型6のSaito次元論、型7の全liftを含む。
+このG排除とEの全点帰属を混同しない。入口はDOMINANT_COMPONENT_GEOMETRY.mdと
+REMAINING_DEGENERACY_DIVISOR_SUPPORT.md。
 
-E_multiple_hyperplaneは全affine二次P=J+L+Q、全Jacobi、Pf(Q)=0を保持する。
-modular場を使って全固有値/Jordan分岐を有限に扱い、既知Q45結果とSNC実変形を適用する。
-E_reduced_nonnormalは被約非正規五次因子の全支持を扱い、既知MPS成分を上界と仮定しない。
-新しい非自明な計算は該当active taskへの有限job契約を作ってから行う。
+既約非正規五次の曲面に対し、今回次を証明確認した。
 
-E_zeroとE_poly、A_rank2は完了。従前58成分のA監査と新22/24次元成分の独立証明も完了。
-旧証明書を入力にする範囲と今回の独立再計算を区別し、新候補だけを必要に応じて追加監査する。
-全97成分を個別同定し、全成分下界97、rank4下界91を記録する。上界・一般五点・全分類は未証明。
-11月7日のユーザー再開指示により、下記の残義務から研究を継続する。保存や旧一時停止を終了条件にしない。
+- smooth、generic ordinary node、normal-cone交叉にvertical divisor無しなら、rank0はT40、rank2は唯一projected Veronese。
+- 全PV tangent源は十五変数、全350Jacobi/10079 liftの独立確認で固定源次元≤2、全PGL射影像≤22。rank0PVは非零Poisson無し。
+- normal曲面のrank2枝では解消κ≥0がconormal flat moduleに矛盾し、stable楕円scrollのrank2も空。
+- hyperplane内degree≥3曲面は全rankで既約五次に不可能。smooth CI22のrank0全枝とrank2-node全vertical枝も空。
+- integral非退化曲面のlinear-normality例外は唯一smooth PV（特異Severiの一次射程確認済み）。Euler全sourceによりq=0・degree≥5の全rank0枝は空。
 
-既約Q＋既約C3の全支持は全cofactor型を尽くし、MPS40と六つの新23成分へ被覆済み。
-平面二直線＋既約三次は十三全配置へ尽くし、九23成分を証明、節点二接線の全源をMPSへ被覆し、残三配置の帰属を保持する。
-nil31 long-top六源とnil22 top八源も全被覆。nil31 image内half/thirdも二新25成分へ被覆済み。short r=2/3、nil22imageの未帰属源等は残る。
-全rank1、非零定数modular、全nilrank2型はprimitive一次像を優越しない。
-GはR13/R22/S23全閉包、実L112十六源、x³y/x²y²十境界源に加え、x²yz二源とx²q十源も全係数を独立再構成した。全対数pole型の非優越を接続したが、E3の実軌道閉包も閉nilpotent incidence・全四Jordan型と独立80係数核を使って閉じた。これでA=c=0と未知優越成分の重複H一般元を排除したが、Gには被約非正規の5、1+4、1+1+3、1+2+2が残る。
-Eは上の残支持、H＋既約quartic、他次数分割と既約非正規quinticを継続する。
+次はdegree3全二軌道と特異CI22のrank0源、q>0/特異・非normal曲面、plane/quadric、
+rank2の非node・vertical残枝を処理する。degree3の全Jacobi二次rowspaceは実Dを含まないので、
+この最初の線形判定からrank四不存在を主張しない。旧五回未決GBやjet/minor列へ自動復帰しない。
 
-H+既約quarticは全37wall→十二固有値比、半単純24・純nil十の全90線形源を独立確認済み。全半単純源はMPS又は空、regularnil4全源は新22とT39、nil31 translation零は空、nil211 translation零はMINIMAL_Mへ被覆済み。nil211top2も全三軌道を実曲線でMPSへ被覆済み。残る純nil四型(31,top1),(22,top0/2),(211,top1)を全支持ノートから続ける。short r=2/3の三次零判定を高次反復せず、実変形・幾何的帰属を調べる。
+## E：未帰属sourceの実変形又は新成分性
 
-1+2+2のplane七配置はCPLUS二源・新23二成分・secant-contactのβ零全被覆が済み、残るtan-simple/chord二源とlambda零joint半単純rank≤1を続ける。lambda非零全支持とlambda零joint半単純rank2はMPSへ被覆した。nil22image内の1+2+2は全planeかつ飽和次元≤24であり、この分岐のG一般元排除はE残二源帰属と独立に完了。
+H+2Q（Q既約）、五相異なるH、三相異なるH+既約Q、既約Q+既約C3の全支持は被覆済み。
+rank2の全支持も六成分とrank4閉包へ接続済み。これらを欠陥なく再分類しない。
 
-quartic純nil型4/5/9の全像は射影次元≤23/22/23、二quadric joint半単純rank1も≤24で、Gの未知優越一般成分から除外済み。E帰属を混同しない。既約非正規quinticのordinary-double認識はX/C滑らか・C既約・一位極の条件付きであり、その補集合は未処理。nil22 image二節点三次23成分は独立確認済み。
+H+既約quarticは全半単純24源、純nil型1/2/3/4/5/8/10を完了した。
+型4の唯一六源はliteral P+eR+e²Tでregular semisimple型12へ移り全MPS。
+型5は新22成分とT40、Ga9型9のc=1全十源は新23成分へ被覆した。
+残る三純nil型はnil22image型6、nil22long型7、Ga9型9の他四源である。
+Ga9 distinct-c源には完全正重み切片からの実cubic曲線を得たが、その帰属・成分性は未確定。
 
-全1+1+3のG一般元排除はB0非平面8/7源を含め完了。quartic型6もSaito/Milnor/Tjurina次元論でG排除済み。型7も全源≤24を独立確認済み。nil22 imageはquadratic_B/triple_C/double_Dの三全源を実Poisson曲線で既知25成分へ被覆し、未帰属六源を保持する。
+重複Hではnil31long-top六源、nil22top八源、nil31image half/third全源は被覆済み。
+nil22imageの全十一源は独立606恒等式で有限化した。triple_A/Bは二つの新23成分、
+quadratic_B/triple_C/double_Dは既知25成分への全parameter実曲線で被覆。
+残る六源はstable二源、double_A/B/C、quadratic_A。double_Aの既知候補はT36/T37/T38まで限定したが帰属未証明。
+short r=2/3も未帰属で、三次零を高次反復せず幾何又は実変形を使う。
 
-Gの残る一般実因子は既約被約非正規quinticだけに限定した。滑らかなprojected Veronese rank0曲面は非零Poisson自体が存在しない。普通二重点の条件付きT40枝の仮定外、他のrank0/rank2曲面、特異正規化・導手を続ける。E全点の未帰属源は引き続き別義務である。
+1+1+3には平面三配置と非平面nil源、1+2+2にはplane tan-simple/chordとlambda零のE残源がある。
+全G次元上界だけではこれらを被覆したことにならない。既約非正規quinticの全点帰属も残る。
+
+## 計算・保存の規律
+
+非自明計算はactive義務への矢印、全環・全補集合、有限資源と証明書をjob契約にし、gate後に実行する。
+同経路二回未決なら数学的障害を診断して変える。最弱の支持・次元・actual curveを優先し、
+正確nil指数や全非被約環を分類の隠れた前提にしない。B18 H0/T2と旧minor farmは休止。
+Mは同じ日本語主原稿へ統合する作業、F/Pは全穴が閉じるまでblockedのままとする。

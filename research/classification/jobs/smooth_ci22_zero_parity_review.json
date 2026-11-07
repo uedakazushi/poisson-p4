@@ -1,0 +1,43 @@
+{
+  "task_id": "G",
+  "target_statement": "Independently differentiate the complete20-parameter q1A+q2B source, reconstruct full350-by210 symbolicJacobi and verify every PfA/PfAB/PfB identity in allfive blocks, including denominator/Vandermonde complements.",
+  "implication_to_classification": "Positive block memberships justify a universal symbolic Vandermonde-only proof of no rank4 on any smooth CI22 rankzero surface. A negative rational diagnostic does not imply universal exclusion.",
+  "coefficient_ring": "QQ[l0,...,l4,Vandermonde^-1], complete20 bivector source and full350 Jacobi quadrics.",
+  "hypotheses": "Smooth CI22 pencil diagonalized as q1=sum xi\u00b2,q2=sum lambda_i xi\u00b2. Complete H0(E I_S)=q1 A+q2 B follows by Koszul+Bott; no rankzero ansatz beyond the entire20source.",
+  "inverted_elements": [
+    "Actual cancelled functional denominators must be products of nonzero rational constants and pairwise eigenvalue differences only"
+  ],
+  "complements": [
+    "All smooth pencils have pairwise distinct eigenvalues and are retained",
+    "Any factor beyond Vandermonde in a functional denominator must remain an explicit unhandled complement",
+    "Singular CI pencils are separate; nonzero rank2 Poisson sources remain"
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_quadric_complete_intersection_zero_review.py",
+      "sha256": "e5e840d83ec8102ef59438d7ca6364476856976e93b6c7f4540abd48c9cce24e"
+    },
+    {
+      "path": "code/classification_projected_veronese_zero_review.py",
+      "sha256": "7fbaa04524f57287df396ff5e0ebd754ad124cd9814055820c70fdd1f863e55d"
+    },
+    {
+      "path": "reports/CLASSIFICATION_SMOOTH_CI22_ZERO_PARITY_DIAGNOSTIC_20261107.json",
+      "sha256": "fe4b00fcb9b29a379cbcb51a0481b63e816863ee9ed5623677da8cfbbf9e9143"
+    },
+    {
+      "path": "reports/CLASSIFICATION_SMOOTH_CI22_ZERO_PARITY_SYMBOLIC_20261107.json",
+      "sha256": "059668864b9062bf2a317d1f32a874b3aff10b3a9c2d9695b73f65c5283914b4"
+    }
+  ],
+  "success_certificate": "Full350 universal equations, entire rational diagnostic, symbolic6minor, every cancelled denominator factor, allfive actual denominator-cleared polynomial identities and no uncovered distinct-eigenvalue tuple.",
+  "independent_check": "This is the independent standard-library Fraction implementation; no producer/CAS/Singular import. It checks real coordinate/permutation signs in every block rather than assuming representative-block symmetry.",
+  "resource_limit": {
+    "timeout_seconds": 85,
+    "memory_mb": 1024
+  },
+  "negative_result_next_step": "If any block target fails at this smooth rational pencil, save it and change from universal linear-membership to a reduced-support or geometric route; do not claim all smooth CI22 excluded.",
+  "runner_extension_reason": "Append-only --dimension mode; original full-source producer_bytes and SHA remain embedded in its immutable certificate.",
+  "runtime_binding_reason": "Uses existing Cloud Singular library via explicit SINGULARPATH after the first process could not locate standard.lib; that runtime failure is preserved separately and is not a mathematical result.",
+  "rational_input_serialization_reason": "Clear denominators and primitive-normalize each selected QQ generator before Singular, avoiding its poly^number parsing of exponent-followed-by-rational-division. This only multiplies generators by nonzero rational constants and leaves the ideal unchanged."
+}

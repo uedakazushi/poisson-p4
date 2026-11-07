@@ -1,0 +1,31 @@
+{
+  "task_id": "G",
+  "target_statement": "Test the exact full20 rankzero source on a smooth CI22 at lambda=(0,1,2,3,4), using every Jacobi equation and all five12-column parity blocks for actualPfaffian targets.",
+  "implication_to_classification": "Positive block memberships justify a universal symbolic Vandermonde-only proof of no rank4 on any smooth CI22 rankzero surface. A negative rational diagnostic does not imply universal exclusion.",
+  "coefficient_ring": "QQ, all20 Aij/Bij parameters, all350 projectiveJacobi quadrics/all210 parameter monomials.",
+  "hypotheses": "Smooth CI22 pencil diagonalized as q1=sum xi\u00b2,q2=sum lambda_i xi\u00b2. Complete H0(E I_S)=q1 A+q2 B follows by Koszul+Bott; no rankzero ansatz beyond the entire20source.",
+  "inverted_elements": [
+    "Only exact nonzero rational matrix minors at this diagnostic lambda"
+  ],
+  "complements": [
+    "No universal eigenvalue conclusion from one rational pencil",
+    "Any symbolic proof must retain all distinct lambda and handle determinant factors beyond Vandermonde",
+    "Nonzero rank2 tensors q1*A decomposable are retained; only rank4 exclusion is targeted"
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_quadric_complete_intersection_zero.py",
+      "sha256": "fb32c9e6ac12cea242b2df2c8d3daf04b8c04907c73227c46bf7d7b9daaee830"
+    }
+  ],
+  "success_certificate": "Full350x210 matrix and exact block support, all three PfA/PfAB/PfB targets represented by original350 rows in each12-column block if possible.",
+  "independent_check": "Separate Fraction reconstruction and, if diagnostic succeeds, full symbolic identities over QQ[lambda0,...,lambda4] with no extra unreviewed inversions.",
+  "resource_limit": {
+    "timeout_seconds": 60,
+    "memory_mb": 1024
+  },
+  "negative_result_next_step": "If any block target fails at this smooth rational pencil, save it and change from universal linear-membership to a reduced-support or geometric route; do not claim all smooth CI22 excluded.",
+  "runner_extension_reason": "Append-only symbolic mode; diagnostic producer_bytes remain embedded and unchanged.",
+  "runtime_binding_reason": "Uses existing Cloud Singular library via explicit SINGULARPATH after the first process could not locate standard.lib; that runtime failure is preserved separately and is not a mathematical result.",
+  "rational_input_serialization_reason": "Clear denominators and primitive-normalize each selected QQ generator before Singular, avoiding its poly^number parsing of exponent-followed-by-rational-division. This only multiplies generators by nonzero rational constants and leaves the ideal unchanged."
+}

@@ -14,12 +14,12 @@
     "null_values": "not catalogued or not applicable; never a claim of zero"
   },
   "coverage": {
-    "global_lower_bound": 97,
+    "global_lower_bound": 98,
     "generic_rank_two_full_components": 6,
-    "generic_rank_four_lower_bound": 91,
+    "generic_rank_four_lower_bound": 92,
     "upper_bound": null,
     "global_exhaustion_proved": false,
-    "individually_catalogued_count": 97,
+    "individually_catalogued_count": 98,
     "unexpanded_block_count": 0,
     "all_51_rank_four_ideals_in_S61_constructed": false,
     "note_ja": "全89成分を個別同定。一般rank4は83、rank2は6。平面conic+cubic六成分と平面二直線+cubic九成分は全て23次元。既約Q+C3全支持を被覆済み。全成分数上界・一般ファイバー尽くし・全分類は未証明。",
@@ -11552,6 +11552,103 @@
         "同じ1+4型の旧nil4成分とは唯一Hのcofactor双対flagで区別する。両者のessential数は4で、この数を相違には使わない。",
         "異次元・rank2・非被約・1+1+3の既存成分も全prior96 projectionで監査した。"
       ]
+    },
+    {
+      "id": "R4_GA9_CONSTANT_HYPERPLANE_QUARTIC_23",
+      "name": "Ga9非零定数c・唯一Hと三重平面quarticの23次元成分",
+      "source_checkpoint": "v64-classification-first",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "additional_generic_rank_four_full_component_outside_MPS40",
+      "generic_rank": 4,
+      "projective_dimension": 23,
+      "meets_SNC_log_symplectic_locus": false,
+      "generic_pgl5_orbit_dimension": null,
+      "generic_reduced_rosenlicht_quotient_dimension": null,
+      "generic_transverse_algebra": null,
+      "component_definition": "Reduced PGL5-saturated closure of the complete Ga9 c=1 source C* times A9; componenthood from a true full-ambient cut at the existing b=2 anchor.",
+      "generic_construction": {
+        "full_source": "research/classification/GA9_CONSTANT_COMPONENT.md",
+        "free_parameters": [
+          "r",
+          "b",
+          "alpha",
+          "p",
+          "q",
+          "A",
+          "D",
+          "G",
+          "H",
+          "k"
+        ],
+        "generic_condition": "r!=0",
+        "canonical_values": "r=1,b=2,all other source parameters=0 (anchor only)",
+        "coordinates": [
+          "h",
+          "x",
+          "y",
+          "z",
+          "w"
+        ],
+        "anchor_brackets_eight_times_source": [
+          "14*h*w-2*y^2",
+          "8*h*x+35*w^2+8*y*z",
+          "8*h*z-12*w*y",
+          "16*h*y",
+          "8*h^2",
+          "16*h*w+8*y^2"
+        ],
+        "bracket_order": [
+          "xy",
+          "xz",
+          "xw",
+          "yz",
+          "yw",
+          "zw"
+        ]
+      },
+      "generic_actual_degeneracy_divisor": {
+        "description": "Unique simple hyperplane and absolutely irreducible quartic; quintic vanishes to order at least three on a plane",
+        "irreducible_factor_degrees": [
+          1,
+          4
+        ],
+        "corresponding_multiplicities": [
+          1,
+          1
+        ],
+        "reduced": true,
+        "intrinsic_cofactor": "y*d_x+h*d_z",
+        "unique_hyperplane_covector_flag": "h in im(Ndual); N has Jordan type (2,2,1)"
+      },
+      "claims": [
+        "R4_GA9_CONSTANT_HYPERPLANE_QUARTIC_COMPONENT_23"
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/GA9_CONSTANT_COMPONENT.md"
+        },
+        {
+          "path": "research/classification/GA9_CONSTANT_ANCHOR_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_GA9_CONSTANT_ANCHOR_SUPPORT_20261107.json",
+        "reports/CLASSIFICATION_GA9_CONSTANT_ANCHOR_CERTIFICATE_20261107.json",
+        "reports/CLASSIFICATION_GA9_CONSTANT_ANCHOR_REVIEW_20261107.json",
+        "reports/CLASSIFICATION_GA9_CONSTANT_PRIOR97_20261107.json"
+      ],
+      "review_status": {
+        "proof": "full_ambient_componenthood_and_distinctness_proved",
+        "independent_review": "accepted_separate_author_all350_Fraction_full_cut_and_all97_distinctness",
+        "certificates": "complete_finite_weight_IFT_and_four_original_ideal_lifts",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "notes_ja": [
+        "全十源の既約閉包が23次元全成分。真正切片の四法線は全次数が有限な正重みモデルで、最弱の四liftが被約支持だけを証明する。",
+        "全源でDはある平面idealの三乗に属す閉条件を満たし、SNC/MPSと相異なる。同次元旧四1+4成分とはuniqueHのcofactor双対像flagで稠密constructible像を区別する。",
+        "射影接次元27と成分次元23を区別する。正則性・局所唯一性・generic軌道次元はここで主張しない。"
+      ]
     }
   ],
   "named_block_member_annotations": [
@@ -11905,5 +12002,5 @@
     "MPS40 blockを展開したらblockによる加算を止め、二重計上しない。",
     "文献上の新規性は内部成分証明とは別に確認する。"
   ],
-  "new_components_added_in_this_checkpoint": 39
+  "new_components_added_in_this_checkpoint": 40
 }
