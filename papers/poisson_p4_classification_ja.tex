@@ -7035,7 +7035,8 @@ Qのsmoothnessやbinary-quartic stabilizerを追加仮定する必要はない�
 \path{PROJECTED_QUARTIC_CONE_SEPARATE_REVIEW.md}にある。
 \path{CLASSIFICATION_PROJECTED_QUARTIC_CONE_REVIEW_20261107.json}は既済証拠への依存と確定数学snapshotを保持する。
 今回の全source手証明には新CAS又は点計算を必要としない。
-rank二restriction、plane、非coneな次数五・六のnonnormal支持は別に残る。
+rank二restriction、plane、非coneな次数五・六の支持はこの次数四命題では扱わない。
+次数六全体と次数五で正規化sectional genus零の枝は後の導手命題で処理する。
 
 \subsection{rank二曲面のconormal Poisson module}
 \begin{proposition}\label{prop:nonnormal-rank2-module}
@@ -7664,7 +7665,233 @@ Sの式を制限すると次数d$=-2$のline bundleのsectionだから零、従�
 \path{NORMAL_SEXTIC_RANK_ZERO_EXCLUSION.md}と別作者の
 \path{NORMAL_SEXTIC_RANK_ZERO_INTEGRATOR_REVIEW.md}で受理された証明を本文へ統合した。
 有限算術は数値恒等式と整数支持だけを確認し、この幾何の代用とはしていない。
-未読分類、Reider、特異Sへのsmooth double-point公式を使わず、非normal次数六とrank二restrictionは別に残す。
+未読分類、Reider、特異Sへのsmooth double-point公式を使わない。
+非normal次数六は次の独立した導手証明で扱い、rank二restrictionはこの命題の範囲に含めない。
+
+\subsection{正規化のsectional genus零と全次数六零曲面の排除}
+\begin{lemma}\label{lem:generic-node-poisson-lift}
+Poisson不変な非正規曲面の一般横断型がnodeなら、smoothな正規化上のrational bivectorは
+その導手の一般点でregularである。曲面上のrestrictionが零なら、導手の各branchに沿って一次以上消える。
+非分裂node又は連結な導手二重被覆を除外する必要はない。
+\end{lemma}
+\begin{proof}
+曲面一般点のresidue fieldを有限分離拡大し完成すると、局所環は
+\[
+ A=K[[u,v]]/(uv),\qquad\mathfrak m=(u,v)
+\]
+である。曲面のPoisson不変性から$\mathfrak m$はPoisson idealであり、
+Leibniz則による$\{\mathfrak m^r,A\}\subset\mathfrak m^r$からbracketはcompletionへ連続に延長する。
+有限分離拡大でもprimitive elementの方程式を微分し、unitである導関数で解けば
+derivationとbracketが一意に延長する。KをPoisson中心とは仮定しない。
+任意のHamiltonian derivation$\partial$について
+$v\partial u+u\partial v=0$を$(u)$で割ると、$K[[v]]$内でvは非零因子なので
+$\partial u\in(u)$。同様に$\partial v\in(v)$であり、各minimal primeが個別に保存される。
+従って全branch商$A/(v)=K[[u]]$、$A/(u)=K[[v]]$にregular bracketが降りる。
+
+曲面上で零なら$\{A,A\}\subset\mathfrak m$で、商bracketの全値はそれぞれ$(u)$、$(v)$に入る。
+Kの二つのseparating transcendence basisとbranch parameterを取れば、
+smooth正規化のgeneric divisorでの微分基底となり、三対の全bracketがuniformizerで割れる。
+従って接方向を含む全bivector係数が消える。
+このvaluation条件はfaithfully flatな分離拡大とcompletionから降下する。
+\end{proof}
+
+\begin{proposition}\label{prop:degree-six-rank-zero-all}
+rank四Poisson tensorの実退化因子Dが既約被約quinticなら、
+その非正規支持に次数六のintegral rank零曲面Sが現れることはない。
+Sのnormality、smoothness、ordinary-double型又はvertical divisor不存在を仮定しない。
+\end{proposition}
+\begin{proof}
+$\nu:X\to D$、$L=\nu^*\mathcal O_D(1)$とする。
+既証明の数値入口$\sum_i\delta_i\deg S_i=6-g$から、$g=0$、$\delta_S=1$となり、
+二次元の非正規支持はSだけである。finite性から全conductor primeはSへ写る。
+Lはampleかつ元の五sectionで生成され、$L^3=5$、$K_X+C_X\sim0$である。
+
+ここでgはpolarized normal threefold$(X,L)$のsectional genusでもある。
+実際、$\dim\operatorname{Sing}X\le1$で、一般planeはそのfinite imageを避ける。
+引き戻した二つのbasepoint-free hyperplaneへBertiniを順次適用すると、
+切断曲線$\Gamma$はXのsmooth locus内で滑らかである。
+Xの$S_2$性により二切断はregular sequenceでもある。
+一般plane quintic Cはintegralで、$\Gamma\to C$はfiniteかつ一般点で一対一。
+追加の曲線成分もfinite性によりC全体へ写るため存在せず、$\Gamma$はCの正規化である。
+二つのCartier完全列から
+\[
+ \Delta_t^2\chi(X,tL)=\chi(\Gamma,tL)=5t+1-g
+\]
+となるので、Hilbert多項式で定義されるsectional genusもg零である。
+X全体のsmoothness又はCM性をここでは課していない。
+
+Höringの定理\cite[Theorem 1.2及び直後, p.2]{horingsectional}は
+全normal complex varietyとnef・big Cartier divisorについて$g=0\Rightarrow\Delta=0$を与える。
+従って$h^0(X,L)=3+5=8$である。
+完全linear systemの射$\varphi:X\to\mathbb P^7$は、元の五sectionの射$\nu$をlinear projectionとして因数分解する。
+Lのample性から$\varphi$はfinite、$\nu$のbirational性から$\varphi$もbirational。
+その像は次数五・次元三・codimension四のminimal-degree varietyでありnormalなので、
+$\varphi$は同型となる。Höringの直後のnormal very ample modelの結論からも同じことが従う。
+minimal-degree分類\cite[Notation and Remark 2.1, p.4]{brodmannpark}から全型は
+\[
+ S(1,1,3),\quad S(1,2,2),\quad S(0,1,4),\quad S(0,2,3),\quad S(0,0,5)
+\]
+である。次数の違うquadric、projective space、Veroneseとそのconeは入らない。
+
+元の$\nu$はこの完全埋込みからの有限射影であり、その中心はXを避ける。
+最後の三型のvertex Vは同次元のlinear space$V'$へ単射に写り、joinの射影によりDもconeとなる。
+vertex外のchartはbase chartとaffine spaceの積なので、normalization defectもその積である。
+唯一の二次元非正規支持Sは$V'$とのjoin、従ってconeである。
+非退化なら高次数coneの全Euler源補題、hyperplane内なら次数三以上のprime-CI-square補題が適用され、
+いずれも既約quinticに反する。line vertexの場合も捨てず、その二次元joinはplaneとなって次数六に反する。
+
+残るsmooth scroll二型で、Picの自由基底をLとfiber divisor Fとすると
+\[
+ K_X=-3L+(5-2)F=-3L+3F,\qquad C_X\sim3L-3F.
+\]
+導手の公式はGorenstein quinticの$\omega_D=\mathcal O_D$と有限双対性により
+$\omega_X\simeq\operatorname{Hom}_D(\nu_*\mathcal O_X,\mathcal O_D)$を
+rank-one reflexive層として得たもので、singular XにCartier canonical classを課していない。
+上でsmooth型へ還元した後にのみPic計算を使う。
+
+S一般点のreduced plane-curve singularityは$\delta=1$なのでnode又はcuspである。
+実際、multiplicityは二、char零Weierstrass形は$v^2-u^r$で、
+$r\ge4$なら$\delta=\lfloor r/2\rfloor\ge2$となるため、r二又は三だけが残る。
+cuspなら$K[[t^2,t^3]]\subset K[[t]]$のconductorは$(t^2)$なので$C_X=2\Gamma_S$。
+smooth Xで$\Gamma_S$はCartierだが、$3L-3F$は二で割れず矛盾する。
+codimension二の特殊導手はこのWeil divisorのparityを変えない。
+
+nodeでは$C_X$はreducedである。D上のbracketをrationalにXへ移した$\pi_X$は、
+補題\ref{lem:generic-node-poisson-lift}により全conductor primeでregularかつ零となる。
+それ以外のcodimension一では$\nu$が同型でDがregularなので$\pi_X$もregular。
+smooth X上のlocally free層のHartogsから
+\[
+ \pi_X\in H^0(X,\Lambda^2T_X(-C_X))
+       =H^0(X,\Omega_X^1)
+\]
+となる。最後の同型には三次元と$K_X+C_X\sim0$を使った。
+smooth rational scrollの相対cotangent完全列と
+$H^0(\mathbb P^2,\Omega^1)=H^0(\mathbb P^1,\Omega^1)=0$から右辺は零である。
+一方、reducedな実Dのsmooth一般点では$\pi$は非零rank二である。
+全係数がD上で零ならactual PfaffianはDを二回含んでreduced性に反する。
+従って$\pi_X\ne0$であり矛盾する。
+\end{proof}
+全degree六を扱う証明は\path{RANK_ZERO_SEXTIC_CONDUCTOR_EXCLUSION.md}、別作者による
+Bertini・全射影・導手parity・非中心係数体上のbracketとHartogsの監査は
+\path{RANK_ZERO_SEXTIC_CONDUCTOR_SEPARATE_REVIEW.md}及び
+\path{CLASSIFICATION_RANK_ZERO_SEXTIC_CONDUCTOR_REVIEW_20261107.json}にある。
+これは計算による標本確認ではなく、前命題のnormal曲面のruling証明とも独立した幾何証明である。
+
+\subsection{次数五零曲面と正規化sectional genus零の全射影像}
+\begin{proposition}\label{prop:quintic-rankzero-genuszero-G}
+rank四Poisson tensorの実Dが既約被約quinticで、次数五integral曲面S上で零となるとする。
+Dの正規化$(X,L)$のsectional genusが零である分岐の全PGL射影像は24次元以下である。
+Sのnormality、smoothness、残余plane上のrestriction rank又はvertical divisorを仮定しない。
+sectional genus一の分岐はこの命題には含めない。
+\end{proposition}
+\begin{proof}
+数値入口から$\delta_S=1$、残余は$\delta_{P_0}=1$の唯一のplane$P_0$であり、
+二次元非正規支持は$S\cup P_0$だけである。$P_0$はPoisson不変で、rank零・二の双方を保持する。
+前命題のBertiniとHöringの議論からXは同じ五つのminimal-degree scrollであり、
+cone三型ではdegree五成分Sもconeとなって既済の全源排除に反する。
+従って
+\[
+ \begin{gathered}
+ X_{113}=\mathbb P_{\mathbb P^1}(\mathcal O(1)\oplus\mathcal O(1)\oplus\mathcal O(3)),\\
+ X_{122}=\mathbb P_{\mathbb P^1}(\mathcal O(1)\oplus\mathcal O(2)\oplus\mathcal O(2))
+ \end{gathered}
+\]
+だけが残る。quotient conventionでLをtautological class、Fをfiberとすると
+\[
+ C_X=C_S+C_{P_0}\sim3L-3F,\qquad L^2C_S=10,\quad L^2C_{P_0}=2.
+\]
+
+全effective divisor$A=aL+bF$で$L^2A=2$なら、一般$\mathbb P^2$ fiberへのrestrictionから$a\ge0$、
+$b=2-5a$である。$a=0$は$A\in|2F|$。
+$a\ge1$のsectionは$H^0(\mathbb P^1,\operatorname{Sym}^a\mathcal E(2-5a))$に対応し、
+その最大summand degreeは$3a+2-5a=2-2a$以下なので$a\ge2$は不可能。
+$a=1$も$X_{122}$では不可能で、$X_{113}$では唯一のsectionだけがあり、そのdivisorは
+\[
+ Q=\mathbb P(\mathcal O(1)\oplus\mathcal O(1))\sim L-3F
+\]
+というsmooth quadricである。従って全$C_{P_0}$はclass $2F$、又はこのQに尽くされる。
+$2F$のnodeは相異なる二fiber、cuspは二倍の一fiberである。
+
+Sがgeneric cuspなら$C_S$は偶数divisorである。
+$C_{P_0}\sim2F$では$C_S\sim3L-5F$のL係数が奇数なので矛盾する。
+残る可能性は$X_{113}$、$C_{P_0}=Q$、$C_S=2\Gamma_S\sim2L$だけである。
+しかし一般plane切断Cはrational integral quinticで、Sとの五つの交点はordinary cuspとなる。
+次のGauss次数の議論がこれを排除する。
+正規化$f:\mathbb P^1\to C$をdegree五の三binary formで書くと、
+tangent lineの三Wronskianはdegree八である。
+各ordinary cuspは三者に一つの共通一次因子を与えるから、五cuspがあればdual curveの次数は三以下。
+char零でGauss mapはbirationalであり、$(f\times f')\times(f\times f')'$がfの非零rational倍となる式は
+bidualityも直接与える。dualの正規化は再び$\mathbb P^1$なので、degree $e\le3$のdualを
+同じWronskianで戻したbidualの次数は$2e-2\le4$である。元の次数五と矛盾する。
+従ってSは全場合でgeneric node、$C_S$はreducedである。
+
+X上のrational bivector$\pi_X$は、補題\ref{lem:generic-node-poisson-lift}によって
+$C_S$上でregularかつ零となる。$P_0$がgeneric nodeなら同じ補題でregularである。
+generic cuspなら$A=K[[t^2,t^3]]\subset B=K[[t]]$を使う。
+$P_0$のPoisson不変性から全base function aについて
+\[
+ \{a,t^2\}\in(t^2,t^3),\qquad
+ \{a,t\}=\frac{\{a,t^2\}}{2t}\in tB.
+\]
+base同士のbracketもAにregularであり、Kを中心と仮定せず全係数がregularとなる。
+他のcodimension一では$\nu$は同型なので、smooth X上のHartogsから
+\[
+ \pi_X\in H^0(X,\Lambda^2T_X(-C_S))
+       \simeq H^0(X,\Omega_X^1(C_{P_0})).
+\]
+これでrank二の残余planeも含めた全必要源を得た。
+
+相対cotangent完全列
+\[
+ 0\longrightarrow\mathcal O_X(-2F)\longrightarrow\Omega_X^1
+   \longrightarrow\Omega_{X/\mathbb P^1}^1\longrightarrow0
+\]
+を使う。$C_{P_0}=Q=L-3F$なら、relative部分のfiber sectionは
+$H^0(\Omega_{\mathbb P^2}^1(1))=0$、base部分も
+$H^0(\mathcal O_X(L-5F))=H^0(\mathcal E(-5))=0$なので全源は零である。
+$C_{P_0}\sim2F$ならrelative部分の全sectionが零で、base部分は$\mathcal O_X$だから
+\[
+ h^0(X,\Omega_X^1(C_{P_0}))=1.
+\]
+従ってfixed projectionに対するprojective $\pi_X$のchoiceは高々一点である。
+ambient tensorも高々一つである。実際、二つのtensorがDのdense smooth locusで同じなら、
+差は$H^0(\mathbb P^4,\Lambda^2T(-5))=H^0(\mathbb P^4,\Omega^2)=0$に入る。
+$C_S$自体はprojectionの導手として一意に決まり、自由parameterに加えていない。
+
+最後に全projectionを数える。$H^0(X,L)$は八次元で、五次元部分空間Vとtarget projective frameで指定する。
+$P_0$の二linear equationはVの独立な二sectionを与え、nodeでは両branchに一次、
+cuspでは唯一のbranchに二次以上消える。よって二者は$H^0(L-C_{P_0})$に入り、
+\[
+ h^0(L-2F)=h^0(\mathcal E(-2))=2
+\]
+だからその全二次元spaceを尽くす。
+$C_{P_0}\in|2F|$のchoiceは二次元、fixed $C_{P_0}$についてそれを含むVは
+$\operatorname{Gr}(3,6)$の九次元であり、全projection supersourceは十一である。
+finite、birational、正しい導手、Poisson tensorのambientへのdescentの条件はこれを狭めるだけである。
+
+target frameの24次元を戻し、実polarized automorphismを除く。
+$h^0(\operatorname{End}\mathcal E)$は113型で十一、122型で九だから、
+bundle automorphism modulo scalarとbase PGL2を合わせた実部分群の次元は十三、十一である。
+これはframe付きfinite birational mapのparameter上でfreeに作用する。
+実際、そのmapを固定するautomorphismはdense openでidentityとなり、X全体でもidentityである。
+個々のtensorのstabilizerが零とは仮定していない。
+従って全PGL像の上界は
+\[
+ \begin{array}{c|c|c|c}
+ X&\text{frame と projection}&\text{実 automorphism}&\text{全像上界}\\ \hline
+ X_{113}&24+11&13&22\\
+ X_{122}&24+11&11&24
+ \end{array}
+\]
+となる。反復rootの$C_{P_0}$、special centre、plane上の両rankを全て含み、
+未知G成分の必要次元25--27に届かない。
+\end{proof}
+全導手divisor、Gauss補題、全projectionとactual automorphismの証明は
+\path{RANK_ZERO_QUINTIC_SURFACE_GENUS_ZERO_NONDOMINANCE.md}、別作者の全幾何監査は
+\path{RANK_ZERO_QUINTIC_SURFACE_GENUS_ZERO_REVIEW.md}及び
+\path{CLASSIFICATION_RANK_ZERO_QUINTIC_GENUS_ZERO_REVIEW_20261107.json}に置く。
+CAS、有限標本又はformal jetからの外挿ではない。
+次数五Sではlength式からgは零又は一であり、ここで閉じたのは前者の全分岐だけである。
 
 \subsection{滑らかなprojected Veronese零曲面枝の全排除}
 \begin{proposition}\label{prop:projected-veronese-zero}
@@ -8224,15 +8451,17 @@ normal-coneの実section恒等式とmobile classの全議論は
 
 \begin{proposition}[rank零曲面を持つG残余]\label{prop:G-rankzero-surface-frontier}
 未知G優越成分の一般構造がrank零非正規曲面成分Sを持つなら、Sはplane、quadric cone、
-又は次数五・六のnonnormalかつnonconeな曲面に限られる。
+又は次数五のnonnormalかつnonconeな曲面で、Dの正規化のsectional genusが一の分岐に限られる。
 この命題は一般構造が必ずrank零曲面を持つという主張ではない。
 \end{proposition}
 \begin{proof}
 次数は六以下、退化した次数三以上はhyperplane因子を生む。
 degenerate次数二ではsmooth quadricは全源で排除済みなのでconeだけが残り、次数一はplaneである。
 非退化次数三・四は全像24以下で未知Gの必要次元25--27に反する。
-次数五normalはT40、次数六normalは空である。
-次数五以上の全coneは前のEuler全源補題で排除されるので結論する。
+次数五normalはT40、次数六はnormalityによらず命題\ref{prop:degree-six-rank-zero-all}で空である。
+次数五以上の全coneは前のEuler全源補題で排除される。
+次数五について数値入口はg零又は一を与え、g零の全射影像は
+命題\ref{prop:quintic-rankzero-genuszero-G}により24次元以下なので結論する。
 \end{proof}
 rank二restrictionについては、integral cubic零divisorのplane、normalで解消の$\kappa\ge0$、
 smooth nonplaneのclean枝、smooth CI22のordinary-node枝などを処理したが、特殊横断型やvertical枝等は残る。
@@ -8250,12 +8479,13 @@ rank二全支持、正規実因子、重複超平面と二重二次曲面、
 \end{proof}
 ordinary-doubleの四仮定を満たす枝、node仮定を除いたsmooth nonplaneの全clean枝、
 normal rank二で解消のKodaira次元が非負の枝、degree五以上のq零rank零曲面、
-全normal degree五rank零曲面、全normal degree六rank零の排除、全integral CI22のrank零、smooth CI22のrank二node枝などは
+全normal degree五rank零曲面、normalityによらない全degree六rank零の排除、
+degree五rank零で正規化sectional genus零の全像24以下、全integral CI22のrank零、smooth CI22のrank二node枝などは
 上の各命題で認識又は排除した。
 さらに全smooth非plane rank零はclean条件なしにT40又はcubic-scroll像23以下へ入り、
 全非退化degree三・四rank零にはconeを含めてG非優越を得た。
 全integral reduced cubic零divisorを持つrank二planeも排除した。
-rank零ではplane、quadric cone、nonnormal nonconeの次数五・六を残す。
+rank零ではplane、quadric cone、nonnormal nonconeの次数五で正規化sectional genus一の分岐を残す。
 rank二smooth Sのvertical枝、特殊横断型及び高multiplicity planeの未処理の零divisor等も残し、
 既約非正規五次全体へ各命題の仮定を拡張してはいない。
 Gの残余はこの一型に限られるが、その空性と、特殊底の多くのE源の全成分帰属は未解決である。
@@ -8339,6 +8569,10 @@ arXiv:1507.08178v1, \S3, Proposition 3.1の証明, pp.5--6.
 \emph{On varieties of almost minimal degree I: Secant loci of rational normal scrolls},
 arXiv:0808.0090v3, Theorem 6.2(b), p.17, Remark 6.4(v), p.19.
 \url{https://arxiv.org/pdf/0808.0090v3}.
+\bibitem{horingsectional} A. H\"oring,
+\emph{The sectional genus of quasi-polarised varieties},
+Theorem 1.2及び直後, p.2.
+\url{https://math.univ-cotedazur.fr/~hoering/articles/a12-sect-genus.pdf}.
 \bibitem{pymelliptic} B. Pym,
 \emph{Elliptic singularities on log symplectic manifolds and Feigin--Odesskii Poisson brackets},
 arXiv:1507.05668, Theorem 1.3, Definition 4.2, Remark 4.4.

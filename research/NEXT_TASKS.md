@@ -31,7 +31,8 @@ normal degree五rank0はTironi/Schröer分類とEuler完全源から全T40へ認
 degree三全二軌道はabelianconormal全源と完全dimension証明でG像≤24、regular CI22全Jordan型もG像≤24を確認済み。
 all-degenerate CI22も全九型・全二十源で空と独立確認し、全integral CI22のG像≤24が完了。全smooth非plane rank零もclean/node/vertical無しにT40又は像≤23へ還元した。
 全degree四rank零は全centre/extraclassを保持した証明でG像≤24、normaldegree六も全nef数値式とrelativeconicで空となった。degree五六の全coneも全Euler sourceのQ因子で空。
-次は非normalかつ非cone degree五/六、plane/quadric cone、
+D正規化のsectional genus零→minimaldegree全scrollと全導手を独立確認し、非normalも含む全degree六rank零を空とした。degree五のgenus零（残余plane付き）も全projection像≤24。
+次は非normalかつ非cone degree五の正規化genus一、plane/quadric cone、
 rank2planeでは零R可約/非被約を、他のrank2残枝を処理する。smooth非plane cleanは全横断型を処理済みで、vertical/特異Sを残す。degree3の全Jacobi二次rowspaceは実Dを含まないので、
 この最初の線形判定からrank四不存在を主張しない。旧五回未決GBやjet/minor列へ自動復帰しない。
 

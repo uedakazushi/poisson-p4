@@ -1,0 +1,63 @@
+{
+  "task_id": "G",
+  "date": "2026-11-07",
+  "producer": "generic_exhaustion",
+  "reviewer": "log_manuscript",
+  "review_verdict": "ACCEPTED: all degree6 integral rankzero normalization-defect surface components of an actual irreducible reduced rank4 Poisson quintic are excluded.",
+  "review_method": "Separate-author manual geometric proof audit; no CAS, source search, finite-field calculation, numerical family or algorithmic verification of geometry.",
+  "all_reviewed_steps_passed": true,
+  "computational_proof_claimed": false,
+  "new_component_count": 0,
+  "exact_input_sha256": {
+    "research/classification/RANK_ZERO_SEXTIC_CONDUCTOR_EXCLUSION.md": "22b7fbd1004cd5e5972941c7e16543cbbeec5aa83864eccb4699c382f63c93af",
+    "research/classification/IRREDUCIBLE_NONNORMAL_QUINTIC_ENTRANCE.md": "911ccd334b405058ba0f7aece9a20095d1365b94849f429a11d19c277ba795de",
+    "research/classification/RANK_ZERO_HIGH_DEGREE_CONE_EXCLUSION.md": "d052e5458ee21d146cc6d2df3e5107913138ac74e5fc5dca6bb0708f67d2c2d8",
+    "research/classification/IRREDUCIBLE_NONNORMAL_DOUBLE_SURFACE_DEGREE_RESTRICTIONS.md": "ab00ee013bd8d90836491f756aeaea6148c234206c183c2bf55ef5792cec1b73"
+  },
+  "primary_sources_directly_read": [
+    {
+      "url": "https://math.univ-cotedazur.fr/~hoering/articles/a12-sect-genus.pdf",
+      "title": "The sectional genus of quasi-polarised varieties",
+      "author": "Andreas Höring",
+      "location": "Theorem 1.2 and following paragraph, printed page2",
+      "verified_scope": "Normal complex projective variety and nef big Cartier divisor; sectional genus0 implies Delta0. No smooth, terminal, klt or CM hypothesis."
+    },
+    {
+      "url": "https://arxiv.org/pdf/0808.0090v3",
+      "title": "On varieties of almost minimal degree I: Secant loci of rational normal scrolls",
+      "authors": "M. Brodmann and E. Park",
+      "location": "Notation and Remark2.1, printed page4",
+      "verified_scope": "Full minimal-degree classification; no outer-point-projection theorem is used for a higher-dimensional center."
+    }
+  ],
+  "manual_proof_checks": {
+    "bertini_and_sectional_genus": "Normal threefold singular locus has dimension<=1 and finite image; general plane avoids it. Two basepointfree pullbacks give smooth regular complete intersection Gamma, finite birational onto integral plane quintic; no extra curve component. Second Hilbert difference is5t+1-g, so g is Hoering sectional genus.",
+    "degree6_uses_all_defect": "sum delta_i degreeSi=6-g and g>=0 imply g0, deltaS1, unique2D defect support; every conductor prime maps finitely onto S.",
+    "complete_linear_system": "h0L8, ample L gives finite complete morphism; original birational normalization factors through it. Degree5 dim3 codim4 image is minimal degree and normal, so finite birational morphism is isomorphism.",
+    "all_scrolls": [
+      "S(1,1,3)",
+      "S(1,2,2)",
+      "S(0,1,4)",
+      "S(0,2,3)",
+      "S(0,0,5)"
+    ],
+    "all_singular_scrolls": "Projection center avoids X and vertex; vertex injects, D is a cone, normalization defect is a join and unique S is a cone. Whole-source highdegree-cone exclusion or degenerate degree>=3 prime-CI-square exclusion applies.",
+    "canonical_conductor": "Finite duality on Gorenstein quintic gives rank1 reflexive omegaX=conductor and KX+CX~0; Cartier/Pic arithmetic is used only after X is smooth.",
+    "delta_one_all_transverse_types": "Characteristic0 reduced plane-curve delta1 gives node or cusp, including non-split node. Cusp conductor valuation2, node conductor valuations1.",
+    "cusp_parity": "Smooth scroll Pic is free on L,F; K=-3L+3F. C=2Gamma contradicts odd L coefficient in C~3L-3F.",
+    "node_full_bracket_descent": "In K[[u,v]]/(uv), maximal ideal is rankzero Poisson ideal; completion is continuous, finite separable extension preserves it. Every Hamiltonian derivation preserves (u) and(v) individually, and both full branch quotient brackets have all values divisible by branch parameter. K is not assumed Poisson-central.",
+    "faithful_descent_and_hartogs": "Vanishing of all coefficients, including both tangent directions, descends from separable completion. Away from conductor, every codim1 point is smooth normal locus. Smooth-X locally-free Hartogs gives global Lambda2TX(-C), with no claim about extending singular-S reflexive forms to resolutions.",
+    "final_nonzero_contradiction": "Lambda2TX(-C)=Omega1X; smooth rational P2 scroll overP1 has H0Omega1=0 by relative cotangent sequence. Reduced actual D ensures nonzero rank2 restriction generically, hence lifted bivector is nonzero."
+  },
+  "complements_retained": [
+    "degree5 surfaces",
+    "plane rankzero",
+    "quadric-cone rankzero",
+    "rank2 restrictions",
+    "remaining G and E obligations"
+  ],
+  "main_manuscript_modified": false,
+  "review_note": "research/classification/RANK_ZERO_SEXTIC_CONDUCTOR_SEPARATE_REVIEW.md",
+  "review_note_sha256": "5db412f81bc05688524d85df09ec5c39ac2d9b5e3bec2c3f3a11e73ab6760748",
+  "contract_gate": "PASS: exact input bindings only; mathematics not machine-certified."
+}
