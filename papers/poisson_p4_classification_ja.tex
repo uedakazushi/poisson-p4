@@ -1823,6 +1823,181 @@ $\gamma\wedge\eta=\ell\gamma\wedge a=0$なので、$\gamma\wedge a=0$。
 従って三変数引戻し型の境界もこの命題の範囲に含まれる。
 これらの非優越結果は、対応する例外支持の全成分帰属を自動的に決めるものではない。
 
+\subsection{対数閉包の極の衝突と全低次延長}
+ここでも$P=C+L+Q$を体積形式による双対表示とし、
+$\operatorname{div}P=0$、$\operatorname{Pf}P\in\CC^\times$を課す。
+最高二形式を$\gamma$とすると$\theta=i_E\gamma/4$は三次係数のEuler水平な一形式であり、
+$d\theta=\gamma$である。対数表示のparameter写像が零になる点でも、
+閉包の最高部を素朴な代入で分類してはならない。
+
+その代わり、非零四次式Dを未知数として
+\[
+ D\,d\theta-dD\wedge\theta=0                                      \tag{\dagger}
+\]
+を用いる。二一次式と一二次式の積となるDの集合は射影空間の積からの積写像の像なので閉じる。
+この集合上の$(\dagger)$のincidenceをDについて射影した集合も閉じる。
+従って$L(1,1,1,1)$、$L(1,1,2)$の全閉包は、このincidenceに入る。
+これは、元の対数式がbase locusで零になった後の再scale極限も保持する。
+
+用いる有理閉一形式の部分分数補題は
+\[
+ \frac\theta D=\sum_i\lambda_i\frac{df_i}{f_i}+dF,
+ \qquad D=\prod_i f_i^{m_i},\quad
+ \operatorname{pole}_{f_i}F\le m_i-1,\quad
+ EF=0,\quad\sum_i\lambda_i\deg f_i=0.                         \tag{\ddagger}
+\]
+である。留数が定数であることは閉性から従う。一般の一変数で部分分数分解し、
+単純極を引いた部分を積分する。分裂に有限代数拡大を使った場合は正規化traceで下降し、
+残る閉形式には変数の数による帰納を適用する。
+$F$の極次数kは$dF$では正確に$k+1$になるため、掲示の極次数上界を得る。
+Euler水平性から$d(EF)=0$であり、scale軌道上の有理関数のEuler微分が非零定数にはならないので$EF=0$となる。
+これで$(\ddagger)$は極の非被約性と全境界を保持する。
+
+Dが被約なら実対数源である。非被約Dは
+\[
+ x^4,\quad x^3y,\quad x^2y^2,\quad x^2yz,\quad x^2q
+ \qquad(q\text{は既約二次式})                              \tag{\S}
+\]
+に尽くされ、異なる一次因子の線形独立性は仮定しない。
+$x^4$は$\gamma=4\,dx\wedge df_3$となり、命題\ref{prop:unimodular-linear-casimir}で扱える。
+実対数源、$x^3y$、$x^2y^2$の全低次延長の非優越については、
+全十六源と全十境界源を扱う既存の係数証明を入力とする。
+その完全な幾何還元、全例外residue、非優越の次元証明は
+\path{UNIMODULAR_LOGARITHMIC_SUPPORT.md}第1--6節にある。
+以下では$(\S)$の最後の二型を、これらの既済入力と区別して証明する。
+
+\begin{proposition}\label{prop:log-pole-boundaries}
+$D=x^2yz$または$D=x^2q$に属する全最高部のunimodular低次延長は、
+primitive一次底$W_{16}$を優越しない。これは極因子・分子の従属配置と全低次係数を含む。
+さらに$x,y,z,f_1$が独立な$x^2yz$型には、非退化な定数Pfaffianを持つ延長はない。
+\end{proposition}
+\begin{proof}
+まず$D=x^2yz$では、$(\ddagger)$は
+\[
+ \lambda\frac{dx}{x}+\mu\frac{dy}{y}+\nu\frac{dz}{z}
+       +d(f_1/x),\qquad\lambda+\mu+\nu=0
+\]
+となる。$x,y,z,f_1$が従属なら三変数引戻し型なので、
+この場合の非優越は命題\ref{prop:unimodular-pullback}による。
+独立なら$f_1=w$とでき、最高二ベクトルは
+\[
+ Q=(X+aN)\wedge(Y+bN),\quad
+ X=x\partial_x-2y\partial_y+w\partial_w,\quad
+ Y=y\partial_y-z\partial_z,\quad N=x\partial_w
+\]
+である。$a=2\mu-\lambda,b=\nu-\mu$は留数平面から全$(a,b)$平面への可逆線形写像で、
+三場は可換かつtrace零である。wのscaleにより$b\ne0$は$b=1,a$任意、
+$b=0,a\ne0$は$a=1$へ送れる。$a=b=0$は既済の五辺型である。
+
+全24一次係数に$\operatorname{div}L=0$と全三次Pfaffian係数を課す。
+translation $L\mapsto L+dQ(t)$の全imageを計算すると、両型で次元四である。
+真の線形sliceを取った後、全六定数係数に二次Pfaffian条件を課すと次の全源を得る。
+\begin{center}\small
+\begin{tabular}{c|c|c|c|c}
+全源&一次行列rank・minor&正常L&定数rank・minor&正常C\\\hline
+$b=1,a$任意&$20,8$&$0$&$6,-2$&$0$\\
+$b=0,a=1$&$18,-4$&$(n_0x+n_1w)\partial_y\wedge\partial_z$&$5,2$&$a_0\partial_y\wedge\partial_z$
+\end{tabular}
+\end{center}
+全minorとkernel表示の分母はaに関して非零定数で、例外値はない。
+両正常源の全Pfaffianは恒等零である。
+translationは元の非零定数Pfaffianを保つので、独立配置の全延長は空となる。
+従属配置では非優越のみを既済命題から結論する。
+
+次に$D=x^2q$では
+\[
+ \frac\theta D=\lambda\frac{dx}{x}+\mu\frac{dq}{q}+d(f_1/x),
+ \qquad\lambda+2\mu=0.
+\]
+$f_1$がxに比例すれば因子付き最高部である。独立なら$f_1=y$とし、
+直接微分して
+\[
+ d\theta=2q\,dx\wedge dy+(y+4\mu x)\,dx\wedge dq-x\,dy\wedge dq
+\]
+を得る。$\mu=0$は既済の実対数源である。
+$\mu\ne0$ではyのscaleと全体の非零scaleで
+\[
+ \gamma=2q\,dx\wedge dy+(y+x)\,dx\wedge dq-x\,dy\wedge dq.       \tag{\P}
+\]
+へ正規化できる。この式を保つJordan場は
+$V=x\partial_x+(y+x)\partial_y$であり、許される変更には
+$x'=a x,y'=a y+b x$、$a\ne0$が含まれる。
+以下ではこの中心化群と、z,wの任意線形変更・x,yを加えるshear、qと全体の非零scaleだけを使う。
+
+$q|_{x=y=0}$が階数二なら平方完成で$q=zw+Ax^2+Bxy+Cy^2$となる。
+$C\ne0$なら許されたyのshearでxyを消し、qをCで割って
+$q=zw+y^2+u x^2$、u任意を得る。
+$C=0,B\ne0$は$q=zw+xy$、$C=B=0,A\ne0$は$q=zw+x^2$、
+全て零なら$q=zw$となる。最後は可約qを余分に含むが、排除の結論を弱めない。
+
+制限階数一なら$q=z^2/2+w m(x,y)+F_2(x,y)$。
+$m=0$は三変数引戻しである。$m\ne0$ではJordan中心化群により$m=x$または$m=y$とできる。
+wへのshearで$F_2$のmで割れる部分を消すと、残りはそれぞれ$cy^2$または$cx^2$。
+$c=0$と$c\ne0$を分け、後者は非零scaleで一へ正規化する。
+従って四源
+\[
+ z^2/2+xw,\quad z^2/2+xw+y^2,\quad z^2/2+yw,\quad z^2/2+yw+x^2
+\]
+を得る。制限階数零なら$q=z m(x,y)+w n(x,y)+F_2(x,y)$。
+$m,n$が従属なら三変数引戻し、独立ならz,wの変更とshearで$q=xz+yw$となる。
+これで全quadraticと全mixed係数を尽くした。
+
+$(\P)$の全24一次係数、全translation、全六定数係数を残した結果は次の通りである。
+\begin{center}\small
+\begin{tabular}{c|r|r|r|c}
+$q$&一次rank&一次minor&定数minor&全源の帰結\\\hline
+$zw+y^2+u x^2$, $u\ne0$&18&$-256u^2$&$4u$&Pfaffian零\\
+$zw+y^2$, $u=0$&18&$-64$&2&同上\\
+$zw+xy$&18&$-16$&1&同上\\
+$zw+x^2$&18&$-256$&4&同上\\
+$zw$&18&$-16$&2&同上\\
+$z^2/2+xw$&18&54&3&同上\\
+$z^2/2+xw+y^2$&18&$-72$&3&同上\\
+$z^2/2+yw$&18&12&1&同上\\
+$z^2/2+yw+x^2$&18&192&4&同上\\
+$xz+yw$&16&$-180$&$-3$&一次評価rank$\le3$
+\end{tabular}
+\end{center}
+各型のtranslation imageは四次元で、全表示分母とminorの唯一の例外は第一行の$u=0$である。
+第二行がこの全源を別に保持する。最初の九行は正常源の全Pfaffianが恒等零となる。
+これは$\CC(u)$での完全kernelと非零minor、及び唯一の閉補集合での完全kernelによる結論である。
+
+最後の型の最高部を順序$(12,13,14,23,24,34)$で書くと
+\[
+ Q=(0,xy,-x^2,xy+y^2,-x^2-xy,wx+3wy+3xz).
+\]
+全残Pfaffianには
+\[
+ -2n_0^2/5,\qquad -(2n_0+5n_1)(12n_0+25n_1)/50
+\]
+があるため、被約支持で$n_0=n_1=0$となる。この代入後の全正常一次部は
+\[
+ L=(0,0,-n_2x/2,n_3y,-n_2y/2-(n_2/2+n_3)x,n_2z+n_3w).
+\]
+z,wの二つの評価列は同じ一方向$\partial_z\wedge\partial_w$へ入る。
+Qの最初の五成分もx,yだけに依存するので、全translation微分$dQ(t)$を戻しても同じ性質が成立する。
+よって元の全一次評価$L:V\to\wedge^2V$の階数は高々三である。
+$C\wedge L=0$から体積双対な一次二形式は既にprimitiveであり、
+Darboux変更は評価rankを保つ。命題\ref{prop:constant-modular-beta}の単射例により、
+これは$W_{16}$の真の閉条件である。定数自由係数や他の未消去残式の値によらず全像は非優越となる。
+\end{proof}
+
+\begin{remark}
+全十六実対数源、$x^3y,x^2y^2$の全十源、および上の二源・十源を合わせると、
+quartic integrating-factor incidenceが与える対数閉包全体のprimitive一次像は非優越となる。
+E3の実軌道境界、特殊底での全点被覆、目標\ref{target:main}はなお未証明である。
+\end{remark}
+
+新二極型の係数行列・完全kernel・rank minor・全定数消去は、
+\path{code/classification_unimodular_logarithmic_pole_review.py}がproducerやCASをimportせず、
+独立な有理関数体の疎演算で再構成した。
+全例外と全translationを含む証拠は
+\path{CLASSIFICATION_UNIMODULAR_LOGARITHMIC_DOUBLE_LINES_REVIEW_20261107.json}、
+\path{CLASSIFICATION_UNIMODULAR_LOGARITHMIC_DOUBLE_QUADRIC_REVIEW_20261107.json}にある。
+これらの算術証拠と、上の部分分数・Jordan中心化群・全支持の論理を区別する。
+元134式への橋には第2節及び\path{C0_S61_SLICE_SCALAR_AUDIT_20261106.md}の既存消去証明を用い、
+今回全134式を新たに再生成したという主張はしない。
+
 \section{相異なる五超平面を持つ全支持}
 \begin{proposition}\label{prop:five-hyperplanes}
 実退化因子が相異なる五超平面の和である全Poisson構造は、T01の閉包に属する。

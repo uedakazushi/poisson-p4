@@ -299,7 +299,7 @@ primitive β像も高々十五である。
 統合担当はA0のstabilizer、全源・scaleを含む次元上界、全基点での六次元評価差引を独立に読解確認した。
 以上によりx³yとx²y²の全境界源もGを優越しない。
 
-## 7. x²yzの全源：有限計算完了、独立再構成は保留
+## 7. x²yzの全源：全係数の独立再構成完了
 
 第5節のx,y,zとf₁が従属なら三変数pullbackへ入る。
 独立ならf₁=wと置き、微分した最高部は
@@ -328,31 +328,33 @@ b=0,a=1では一次行列rank18、pivot−4で、translationを除いた全源�
 \]
 
 両源の定数Pfaffianは恒等零である。
-したがってこの全型も空となる計算証明書が得られたが、**この二源の独立再構成は未実行**である。
-第1–6節の独立受理済み定理とは検証状態を区別し、再開時にこの確認を接続する。
+`CLASSIFICATION_UNIMODULAR_LOGARITHMIC_DOUBLE_LINES_REVIEW_20261107.json` は
+producerをimportせずFraction(u)と疎多項式で両源を完全再構成した。
+全kernel・rank minor・translation真slice・六定数・全Pfaffianが一致し、
+全表示分母はaについて非零定数だった。従って例外値なしにこの全型は空である。
 
-## 8. 残るx²qと再開位置
+## 8. x²qの全支持と対数閉包の非優越
 
-最後のquartic integrating factor型はD=x²q、q既約二次である。
-第5節のf₁がxの倍数なら因子付き最高部、独立ならf₁=yと置ける。
-μ=0は既済の実L(1,1,2)源であり、μ≠0は線形変更とscaleにより
+最後のquartic integrating factor型D=x²qも、全係数と全補集合を保持して閉じた。
+幾何的還元・全源表・独立算術は `UNIMODULAR_LOGARITHMIC_POLE_BOUNDARY_REVIEW.md` 第3–5節にまとめる。
+f₁がxの倍数、μ=0、restriction rank一以下のpullbackを既済の全源定理に接続し、
+残る微分二形式を
 
-\[
- \gamma=2q\,dx\wedge dy+(y+x)\,dx\wedge dq-x\,dy\wedge dq   \tag{8}
-\]
+    γ=2q dx∧dy+(y+x) dx∧dq−x dy∧dq
 
-へ規格化できる。ここからの全低次延長は**未判定**。
-再開候補は、qのz,w制限rank二を任意binary F₂付きのJordan版五辺議論で調べ、
-rank一以下を次の五固定二次式へ帰着することである。
+へ規格化する。Jordan場x∂x+(y+x)∂yのcentralizerを保つ変更で、
+restriction rank二はzw+y²+u x²、zw+xy、zw+x²、zwの四型、
+rank一はz²/2+xw、z²/2+xw+y²、z²/2+yw、z²/2+yw+x²の四型、
+rank零はxz+ywへ尽くされる。任意のbinary quadraticと全mixed係数を残している。
 
-\[
- z^2/2+xw,\quad z^2/2+xw+y^2,\quad
- z^2/2+yw,\quad z^2/2+yw+x^2,\quad xz+yw.
-\]
+producerと独立Fraction(u) checkerは、全九型と唯一のu=0例外、計十源の
+全24一次係数、完全kernel、translation真slice、六定数係数、全Pfaffian残式を再構成した。
+最初の九源は全Pfaffianが恒等零。最後のmixed源は全残式からn₀=n₁=0を得る。
+その後、元の全translationを戻してもz,wの二つの一次評価列は同じ一方向へ入るのでrank≤3。
+従ってこの全源もprimitive β像を優越しない。
 
-この還元候補ではx,y上のJordan場 `x∂x+(y+x)∂y` のcentralizerを使い、
-mixed一次式がxに比例する場合とそれ以外を分ける。
-mixed係数が零、又はrank零でmixed二本が従属する補集合はpullbackとして保持する。
-五型の全低次係数計算はまだ開始しておらず、全log閉包の非優越は未証明である。
-E(3)主軌道の全延長空性は別担当の `UNIMODULAR_EXCEPTIONAL_SUPPORT.md` で独立検証済み。
-同ノートの実Borel軌道閉包からの全境界接続は、なお別の義務として残る。
+以上と第5節の閉incidence・部分分数補題を結合すると、
+実L(1,1,1,1)、L(1,1,2)の**全閉包**の全unimodular延長はGを優越しない。
+これは未知の全rank4成分を尽くしたとの主張ではない。
+E(3)主軌道の全延長空性は `UNIMODULAR_EXCEPTIONAL_SUPPORT.md` で独立検証済みだが、
+その実軌道境界からの全接続は別の義務として残る。

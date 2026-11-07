@@ -1,0 +1,30 @@
+{
+  "task_id": "G",
+  "target_statement": "Find all low-degree extensions for D=x^2 q with independent numerator and nonzero Jordan coefficient, using all nine quadric normal forms and every exceptional parameter.",
+  "implication_to_classification": "Empty extension sources or a full-source non-dominance bound close this remaining logarithmic boundary type; a nonempty residual must be kept with its full Pfaffian equations.",
+  "coefficient_ring": "QQ(u) for q=zw+y^2+u*x^2; QQ for fixed forms and every exceptional parameter root",
+  "hypotheses": "gamma=2q dxdy+(y+x)dxdq-x dydq; q restricted to ker(x,y) has rank2,1 or0. Every rank2 residual binary quadratic is in the parameter family, xy, x^2 or0; rank1 and0 give five fixed forms. Geometric completeness is separately proved.",
+  "inverted_elements": [
+    "Nonzero Jordan coefficient in the normalization",
+    "Explicit pivot determinants and all source denominators, with every root separately retained"
+  ],
+  "complements": [
+    "Jordan coefficient zero is the proved actual L112 source",
+    "Dependent numerator and denominator are factored/pullback sources already proved non-dominant",
+    "Rank1 mixed coefficient zero and rank0 dependent mixed coefficients are pullbacks",
+    "x^2 yz is separately independently checked; E3 boundary is separate"
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_unimodular_logarithmic.py",
+      "sha256": "c1b14ba9a8d3fa8904efadde62db39915f1d09bfd9e9baed75d1ca1d5eb82e68"
+    }
+  ],
+  "success_certificate": "Full linear coefficient matrix and complete kernel, true translation slice, complete constant solve, full remaining Pfaffian equations and every exceptional parameter source.",
+  "independent_check": "Independent Fraction(u) sparse-polynomial reconstruction, plus independent geometric proof of Jordan-centralizer quadric reduction.",
+  "resource_limit": {
+    "timeout_seconds": 60,
+    "memory_mb": 768
+  },
+  "negative_result_next_step": "Retain any exceptional parameter or nonlinear residual exactly; if the finite run exceeds bounds, switch to hand representation/support arguments rather than repeat a larger Groebner probe."
+}

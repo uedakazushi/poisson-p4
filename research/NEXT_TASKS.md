@@ -36,7 +36,7 @@ E_zeroとE_poly、A_rank2は完了。従前58成分のA監査と新22/24次元�
 平面二直線＋既約三次は十三全配置へ尽くし、九23成分を証明、残四配置の帰属を保持する。
 nil31 long-top六源とnil22 top八源も全被覆。short r=2/3、image内nil源等は未被覆である。
 全rank1、非零定数modular、全nilrank2型はprimitive一次像を優越しない。
-GはR13/R22/S23全閉包、実L112十六源、x³y/x²y²十境界源、E3主軌道を処理済み。次はx²yz二源の独立再構成、x²q境界全源、E3の実Borel軌道閉包。対数・E3ノートに正確な再開位置を保存した。
+GはR13/R22/S23全閉包、実L112十六源、x³y/x²y²十境界源に加え、x²yz二源とx²q十源も全係数を独立再構成した。全対数pole型の非優越を接続したが、E3の実軌道境界は未解決。E3主軌道の空性から全閉包へは推論しない。
 Eは上の残支持、H＋既約quartic、他次数分割と既約非正規quinticを継続する。
 
 H+既約quarticの有限cofactor表はHYPERPLANE_QUARTIC_COFACTOR_ENTRANCE.mdから開始する。short r=2/3の三次零判定を高次反復せず、実変形・幾何的帰属を調べる。

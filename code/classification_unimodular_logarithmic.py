@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Whole linear extension sources of the five degenerate L112 quadric types.
+"""Whole linear extension sources of logarithmic highest-part normal forms.
 
 The generic residue field is QQ(u). All exceptional residues are recorded
 by explicit nonzero pivot minors; no specialization proves the generic case.
@@ -31,7 +31,8 @@ def main():
     def clean(p): return s.factor(s.cancel(p))
     boundary='--boundary' in sys.argv
     double_lines='--double-two-lines' in sys.argv
-    complete='--complete' in sys.argv or boundary or double_lines
+    double_quadric='--double-quadric' in sys.argv
+    complete='--complete' in sys.argv or boundary or double_lines or double_quadric
     if boundary:
         types=[('x3y_aligned_zero',z*z/2+x*w),
                ('x3y_aligned_nonzero',z*z/2+x*w+y*y),
@@ -42,6 +43,16 @@ def main():
                ('x2y2_transverse',z*z/2+(x+y)*w+u*x*x),
                ('x2y2_full_mixed',x*z+y*w)]
     if double_lines: types=[('x2yz_b_nonzero',s.Integer(0)),('x2yz_b_zero',s.Integer(0))]
+    if double_quadric:
+        types=[('x2q_rank2_binary_squarefree_family',z*w+y*y+u*x*x),
+               ('x2q_rank2_binary_mixed',z*w+x*y),
+               ('x2q_rank2_binary_eigen_square',z*w+x*x),
+               ('x2q_rank2_binary_zero',z*w),
+               ('x2q_rank1_aligned_zero',z*z/2+x*w),
+               ('x2q_rank1_aligned_nonzero',z*z/2+x*w+y*y),
+               ('x2q_rank1_transverse_zero',z*z/2+y*w),
+               ('x2q_rank1_transverse_nonzero',z*z/2+y*w+x*x),
+               ('x2q_rank0_full_mixed',x*z+y*w)]
     records=[]
     queue=[(name,q,None) for name,q in types]
     def null_basis(matrix):
@@ -63,6 +74,10 @@ def main():
                          +residue*y*(int(i==0)*dq[j]-int(j==0)*dq[i])
                          +x*(int(i==1)*dq[j]-int(j==1)*dq[i])))
         if boundary: gamma[0]+=x*x if name.startswith('x3y') else x*y
+        if double_quadric:
+            gamma=[s.expand(2*q*int(i==0 and j==1)
+                    +(y+x)*(int(i==0)*dq[j]-int(j==0)*dq[i])
+                    -x*(int(i==1)*dq[j]-int(j==1)*dq[i])) for i,j in pairs]
         Q=s.Matrix([gamma[5],-gamma[4],gamma[3],gamma[2],-gamma[1],gamma[0]])
         if double_lines:
             aa,bb=(u,s.Integer(1)) if name=='x2yz_b_nonzero' else (s.Integer(1),s.Integer(0))
@@ -120,7 +135,7 @@ def main():
             for fac,power in factors:
                 assert s.degree(fac,u)==1
                 root=s.solve(fac,u)[0]
-                if boundary or double_lines or root not in (0,1): exceptional.append(root)
+                if boundary or double_lines or double_quadric or root not in (0,1): exceptional.append(root)
             for root in sorted(set(exceptional)): queue.append((name,q,root))
         records.append({'name':name,'residue':str(value) if value is not None else 'generic u','quadric':str(q),'highest_bivector':list(map(str,Q)),
                         'full_linear_matrix':M.tolist(),'rank':rank,'pivot_rows':list(rows),'pivot_columns':list(cols),'pivot_determinant':str(pivot),
@@ -128,13 +143,13 @@ def main():
                         'normal_dimension':NK.cols,'normal_linear_bivector':list(map(str,Ln)),
                         'constant_equation_matrix':G.tolist(),'constant_pivot_rows':list(gr),'constant_pivot_columns':list(gc),'constant_minor':str(gminor),
                         'constant_source':list(map(str,Csource)),'remaining_full_Pfaffian_equations':residual,'constant_Pfaffian':str(finalpf),
-                        'exceptional_parameter_polynomial':str(bad),'already_covered_residues':['zero magnetic coefficient'] if boundary else ['u=0','u=1','t=0']})
+                        'exceptional_parameter_polynomial':str(bad),'already_covered_residues':['zero Jordan coefficient is the proved real L112 source'] if double_quadric else ['zero magnetic coefficient'] if boundary else ['u=0','u=1','t=0']})
     here=Path(__file__)
-    report={'status':'DOUBLE_AND_TWO_DISTINCT_LINEAR_FACTORS_ALL_SOURCES' if double_lines else 'TWO_QUARTIC_POLE_TYPES_ALL_DEGENERATE_QUADRICS' if boundary else 'ALL_FIVE_TYPES_AND_EVERY_EXCEPTIONAL_RESIDUE' if complete else 'WHOLE_GENERIC_SOURCES_WITH_ALL_EXCEPTIONAL_MINORS','coefficient_field':'QQ(u), and QQ at every exceptional residue' if complete else 'QQ(u)','cases':records,
+    report={'status':'DOUBLE_LINEAR_AND_QUADRIC_ALL_SOURCES' if double_quadric else 'DOUBLE_AND_TWO_DISTINCT_LINEAR_FACTORS_ALL_SOURCES' if double_lines else 'TWO_QUARTIC_POLE_TYPES_ALL_DEGENERATE_QUADRICS' if boundary else 'ALL_FIVE_TYPES_AND_EVERY_EXCEPTIONAL_RESIDUE' if complete else 'WHOLE_GENERIC_SOURCES_WITH_ALL_EXCEPTIONAL_MINORS','coefficient_field':'QQ(u), and QQ at every exceptional residue' if complete else 'QQ(u)','cases':records,
             'producer_sha256':hashlib.sha256(here.read_bytes()).hexdigest(),'producer_bytes':here.read_text(),
-            'scope':'For D=x^2 yz and independent linear numerator f=w, Q=(X+aN) wedge (Y+bN), X=diag(1,-2,0,1),Y=diag(0,1,-1,0),N=x partial_w. b nonzero normalizes to1, otherwise a nonzero normalizes to1. The zero pair is the solved five-edge log type; dependent linears are the proved pullback type.' if double_lines else 'For D=x^3 y or x^2 y^2, the complete degenerate-restriction quadric normal forms with nonzero magnetic coefficient normalized to one; all parameter-minor zeros are included. Full nondegenerate-restriction proofs and rational partial-fraction completeness are separate geometric dependencies.' if boundary else 'All five canonical quadrics with degenerate restriction to ker(x,y), at residues outside the displayed pivot minors. Exceptional residues, source equations and component-boundary limits are not discarded.',
+            'scope':'For D=x^2 q, q irreducible, independent numerator y and nonzero Jordan coefficient: gamma=2q dxdy+(y+x)dxdq-x dydq. Nine quadric normal forms include every rank of q restricted to ker(x,y) and every residual binary quadratic under the Jordan centralizer; all parameter-minor zeros are retained. Completeness of this geometric reduction is a separate proof dependency.' if double_quadric else 'For D=x^2 yz and independent linear numerator f=w, Q=(X+aN) wedge (Y+bN), X=diag(1,-2,0,1),Y=diag(0,1,-1,0),N=x partial_w. b nonzero normalizes to1, otherwise a nonzero normalizes to1. The zero pair is the solved five-edge log type; dependent linears are the proved pullback type.' if double_lines else 'For D=x^3 y or x^2 y^2, the complete degenerate-restriction quadric normal forms with nonzero magnetic coefficient normalized to one; all parameter-minor zeros are included. Full nondegenerate-restriction proofs and rational partial-fraction completeness are separate geometric dependencies.' if boundary else 'All five canonical quadrics with degenerate restriction to ker(x,y), at residues outside the displayed pivot minors. Exceptional residues, source equations and component-boundary limits are not discarded.',
             'seconds':round(time.monotonic()-started,4)}
-    output='reports/CLASSIFICATION_UNIMODULAR_LOGARITHMIC_DOUBLE_LINES_20261107.json' if double_lines else 'reports/CLASSIFICATION_UNIMODULAR_LOGARITHMIC_BOUNDARY_20261107.json' if boundary else 'reports/CLASSIFICATION_UNIMODULAR_LOGARITHMIC_COMPLETE_20261107.json' if complete else 'reports/CLASSIFICATION_UNIMODULAR_LOGARITHMIC_20261107.json'
+    output='reports/CLASSIFICATION_UNIMODULAR_LOGARITHMIC_DOUBLE_QUADRIC_20261107.json' if double_quadric else 'reports/CLASSIFICATION_UNIMODULAR_LOGARITHMIC_DOUBLE_LINES_20261107.json' if double_lines else 'reports/CLASSIFICATION_UNIMODULAR_LOGARITHMIC_BOUNDARY_20261107.json' if boundary else 'reports/CLASSIFICATION_UNIMODULAR_LOGARITHMIC_COMPLETE_20261107.json' if complete else 'reports/CLASSIFICATION_UNIMODULAR_LOGARITHMIC_20261107.json'
     Path(output).write_text(json.dumps(report,indent=2,default=str)+'\n')
     print(json.dumps({'status':report['status'],'seconds':report['seconds'],'cases':[{k:v[k] for k in ('name','residue','rank','normal_dimension','exceptional_parameter_polynomial','remaining_full_Pfaffian_equations','constant_Pfaffian')} for v in records]}))
 

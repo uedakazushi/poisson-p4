@@ -1,0 +1,36 @@
+{
+  "task_id": "G",
+  "target_statement": "Independently reconstruct all ten x^2 q extension sources, including every parameter and its unique exceptional value0.",
+  "implication_to_classification": "The complete rank2/rank1 sources have zero Pfaffian. The rank0 source has primitive evaluation rank<=3 on its full reduced support, so no source dominates the generic injective primitive first-jet base.",
+  "coefficient_ring": "QQ(u)[x,y,z,w,n0,n1,n2,n3,a0,a1], and QQ at the unique exceptional parameter0",
+  "hypotheses": "Nine geometrically exhaustive Jordan-centralizer quadric types for gamma=2q dxdy+(y+x)dxdq-x dydq; nonzero Jordan coefficient and independent numerator.",
+  "inverted_elements": [
+    "All displayed linear/translation/constant pivots and all normalized-source denominators; the only nonconstant zero is u=0 and is explicitly reconstructed"
+  ],
+  "complements": [
+    "Jordan coefficient zero is the proved actual L112 source",
+    "Dependent numerator and rank-degenerate mixed coefficients are the already proved pullback/factored sources",
+    "x^2 yz is separately reconstructed by the same checker; E3 boundary remains separate"
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_unimodular_logarithmic_pole_review.py",
+      "sha256": "42dcd35e8938f39ddf682ee8a283977effdb29160a267f9d57fa1e33ec1cc004"
+    },
+    {
+      "path": "code/classification_unimodular_logarithmic_review.py",
+      "sha256": "cc5da8f4ac53bb814e549d439d806271a81f28cacfd9656b85765eb78b21cdcf"
+    },
+    {
+      "path": "reports/CLASSIFICATION_UNIMODULAR_LOGARITHMIC_DOUBLE_QUADRIC_20261107.json",
+      "sha256": "51376d09f95f0eb04bd2b1bfd7ce09a4a55e80b8b64b306e7fdfeb6df5c917ea"
+    }
+  ],
+  "success_certificate": "All full coefficient matrices, complete kernels, translation cuts and constant source identities reconstructed; all Pfaffian residuals exact; actual square equations force n0=n1=0 and whole translation-including rank<=3; every inverse root retained.",
+  "independent_check": "Standard-library Fraction(u) and sparse polynomial arithmetic; fixed normal-form list and gamma constructed independently, no producer/CAS import. Geometric reduction is separately reviewed.",
+  "resource_limit": {
+    "timeout_seconds": 115,
+    "memory_mb": 1024
+  },
+  "negative_result_next_step": "Retain exact failed coefficient identity; correct only an actual checker defect or leave the affected source open. Do not point sample or use another Groebner probe."
+}
