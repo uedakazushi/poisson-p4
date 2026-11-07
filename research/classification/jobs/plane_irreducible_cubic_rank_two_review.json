@@ -1,0 +1,41 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "target_statement": "Independently extend the accepted smooth-cubic rank-two plane exclusion to every irreducible nodal or cuspidal cubic zero divisor.",
+  "implication_to_classification": "Closes all integral reduced cubic zero divisors on rank-two invariant planes, without ordinary-double or vertical-clean assumptions on the ambient quintic.",
+  "coefficient_ring": "QQ for complete linear stabilizer and differential-form identities; complex topology and logarithmic connection geometry are separately reviewed.",
+  "hypotheses": "S=P2 invariant and inside SingD; rank2 plane restriction, reduced irreducible cubic zero divisor. Accepted smooth connection proof and universal full30/full9 arithmetic are inputs.",
+  "inverted_elements": [
+    "f only on the complement of the nodal/cuspidal cubic",
+    "u only on the two-open intersection in the explicit cuspidal topology calculation"
+  ],
+  "complements": [
+    "Reducible or nonreduced cubic zero divisors remain open",
+    "Rankzero planes and nonplane surfaces remain open",
+    "No assertion that all nonnormal quintics satisfy the plane assumptions"
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "research/classification/PLANE_IRREDUCIBLE_CUBIC_RANK_TWO_EXCLUSION.md",
+      "sha256": "4d06e5507adcf075faa8772eee2180b4425aaf1633d9842cb7d4f357df35f37e"
+    },
+    {
+      "path": "research/classification/PLANE_SMOOTH_CUBIC_CONORMAL_CONNECTION_REVIEW.md",
+      "sha256": "1f6c4344c66fafd4245d28de852e01fc41cbdb195f84230cafc96ae21046256a"
+    },
+    {
+      "path": "reports/CLASSIFICATION_PLANE_SMOOTH_CUBIC_RANK_TWO_REVIEW_20261107.json",
+      "sha256": "c96ac5d587b8080a3e85e3993be02005af994941f0fc391c2610e3c5903e5faf"
+    },
+    {
+      "path": "code/classification_plane_irreducible_cubic_rank_two_review.py",
+      "sha256": "9b3ff3d081b846f4a5011871a5a997772e1916d89103e24bc83778d1cbef0ffc"
+    }
+  ],
+  "success_certificate": "Independent exact full9+lambda stabilizer kernels, complete logarithmic one-form source, nonclosed cuspidal generator identity, honest SL2 meridian argument, cusp van Kampen cover and nodal primary-source scope, Hartogs extension and whole-source implication.",
+  "independent_check": "Separate author Fraction identities and geometric proof audit; no producer/CAS imports or numerical family specialization.",
+  "resource_limit": {
+    "timeout_seconds": 90,
+    "memory_mb": 1536
+  },
+  "negative_result_next_step": "If topology, log-extension or complete form source fails, retain only the already accepted smooth branch and document the exact gap."
+}

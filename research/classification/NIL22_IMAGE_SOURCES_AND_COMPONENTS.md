@@ -6,7 +6,9 @@ Pfaffian が零、canonical affine modular 場が Jordan (2,2)、定数部がima
 そのうち `triple_A`,`triple_B` の全六磁気源は相異なる23次元全空間成分を与える。
 さらに `quadratic_B`,`triple_C` の全九変数源、`double_D` の全八変数源は、
 実Poisson曲線で既済half/third/CN31の25成分へ入る。
-残六源の成分帰属はここでは未解決であり、有限表示だけを被覆完成とは呼ばない。
+さらに double_B の全六磁気源は CPLUS_EXT24 へ、double_C の全六磁気源は
+従属三超平面＋quadricの24成分へ、それぞれ全パラメータを保持する実Poisson族で入る。
+残四源の成分帰属はここでは未解決であり、有限表示だけを被覆完成とは呼ばない。
 先行文献上の新規性は未確認。統合担当による計数は別作者reviewのPASS後に限る。
 
 ## 1. 全源の必要十分な二変数行列表現
@@ -328,7 +330,10 @@ a,u又は磁気parameterの非零条件は一切使わない。
 端点と次数上界を0.458秒で検証した。契約は `jobs/nil22_image_double_d_limit.json`。
 この被覆も新成分を追加せず、別作者review後に受理する。
 
-残る未被覆六源はstable二源、double_A/B/C、quadratic_Aである。
+その後、`NIL22_DOUBLE_B_CPLUS_LIMIT.md` と `NIL22_DOUBLE_C_DEPENDENT_LIMIT.md` は
+double_B/C の全六源を、それぞれ CPLUS_EXT24 と従属三超平面＋quadric24へ被覆した。
+両者とも別作者の全source・全350・全座標同値レビューが PASS した。
+残る未被覆四源は stable 二源、double_A、quadratic_A である。
 
 ## 10. quadratic_Aの磁気正規化と二つの不適合なnormalcone
 

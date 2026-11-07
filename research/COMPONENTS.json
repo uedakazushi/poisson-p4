@@ -14,15 +14,15 @@
     "null_values": "not catalogued or not applicable; never a claim of zero"
   },
   "coverage": {
-    "global_lower_bound": 99,
+    "global_lower_bound": 102,
     "generic_rank_two_full_components": 6,
-    "generic_rank_four_lower_bound": 93,
+    "generic_rank_four_lower_bound": 96,
     "upper_bound": null,
     "global_exhaustion_proved": false,
-    "individually_catalogued_count": 99,
+    "individually_catalogued_count": 102,
     "unexpanded_block_count": 0,
     "all_51_rank_four_ideals_in_S61_constructed": false,
-    "note_ja": "全89成分を個別同定。一般rank4は83、rank2は6。平面conic+cubic六成分と平面二直線+cubic九成分は全て23次元。既約Q+C3全支持を被覆済み。全成分数上界・一般ファイバー尽くし・全分類は未証明。",
+    "note_ja": "全102成分を個別同定。一般rank四96、rank二6。型7全七源のE被覆と三新成分を含む。全上界・一般五点・全分類は未証明。",
     "generic_primitive_first_jet_known_lifts_lower_bound": 5,
     "full_generic_fiber_exhaustion_proved": false,
     "known_union_over_smooth_canonical_curve": {
@@ -11739,6 +11739,225 @@
         "一般退化五次はC絶対既約・非正規。二つの特異面のrank/重複度が異なるため全ordinary-double仮定を勝手に適用しない。",
         "元Ga9二根型の全源と閉包はこの成分境界に属す。非零定数c源の別23成分及びc0三源と同一視しない。"
       ]
+    },
+    {
+      "id": "R4_NIL22_LONG_HYPERPLANE_QUARTIC_CUBIC_22",
+      "name": "nil22長translation第3源の超平面・既約四次22成分",
+      "source_checkpoint": "v64-classification-first",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "additional_generic_rank_four_full_component_outside_MPS40",
+      "generic_rank": 4,
+      "projective_dimension": 22,
+      "meets_SNC_log_symplectic_locus": false,
+      "generic_pgl5_orbit_dimension": 22,
+      "generic_reduced_rosenlicht_quotient_dimension": 0,
+      "generic_transverse_algebra": "K[e]/(e^3)",
+      "component_definition": "Reduced closure of the dense actual22 PGL5 orbit of type7 family3; complete true transverse algebra and formal action product prove full componenthood.",
+      "generic_construction": {
+        "source_index": 3,
+        "whole_source": "Entire five-parameter source and all inverse core/centering parameters from the finite seven-source theorem",
+        "homogeneous_cofactor_Jordan_type": [
+          3,
+          2
+        ],
+        "hyperplane_in_image_of_dual_cofactor_square": true
+      },
+      "generic_actual_degeneracy_divisor": {
+        "description": "Simple hyperplane plus absolutely irreducible quartic",
+        "witness_equation": "h*((h*z-w*y)^2+8*h^3*w)",
+        "irreducible_factor_degrees": [
+          1,
+          4
+        ],
+        "corresponding_multiplicities": [
+          1,
+          1
+        ],
+        "reduced": true
+      },
+      "claims": [
+        "R4_NIL22_LONG_HYPERPLANE_QUARTIC_CUBIC_COMPONENT_22"
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/HYPERPLANE_QUARTIC_NIL22_LONG_QUARTIC_SOURCES.md"
+        },
+        {
+          "path": "research/classification/HYPERPLANE_QUARTIC_NIL22_LONG_QUARTIC_ORBIT_MODELS.md"
+        },
+        {
+          "path": "research/classification/NIL22_LONG_TWO_COMPONENTS_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_HYPERPLANE_QUARTIC_NIL22_LONG_QUARTIC_SOURCES_20261107.json",
+        "reports/CLASSIFICATION_HYPERPLANE_QUARTIC_NIL22_LONG_QUARTIC_REVIEW_V2_20261107.json",
+        "reports/CLASSIFICATION_HYPERPLANE_QUARTIC_NIL22_LONG_QUARTIC_ORBIT_MODELS_20261107.json",
+        "reports/CLASSIFICATION_NIL22_LONG_TWO_COMPONENTS_REVIEW_20261107.json"
+      ],
+      "review_status": {
+        "proof": "full_ambient_componenthood_and_entire_source_containment_proved",
+        "independent_review": "accepted_separate_author_all_prior99_and_mutual_distinctness",
+        "certificates": "exact_QQ_full350_true150_and_complete_weight_bounded_IFT",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "notes_ja": [
+        "完全横断長3は二成分の識別に既存完全模型を用いるもので追加nil指数探索ではない。",
+        "dense actual orbit22、商次元0。全source閉包と同じ成分。"
+      ]
+    },
+    {
+      "id": "R4_NIL22_LONG_HYPERPLANE_QUARTIC_QUADRATIC_22",
+      "name": "nil22長translation第4源の超平面・既約四次22成分",
+      "source_checkpoint": "v64-classification-first",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "additional_generic_rank_four_full_component_outside_MPS40",
+      "generic_rank": 4,
+      "projective_dimension": 22,
+      "meets_SNC_log_symplectic_locus": false,
+      "generic_pgl5_orbit_dimension": 22,
+      "generic_reduced_rosenlicht_quotient_dimension": 0,
+      "generic_transverse_algebra": "K[e]/(e^2)",
+      "component_definition": "Reduced closure of the dense actual22 PGL5 orbit of type7 family4; complete true transverse algebra and formal action product prove full componenthood.",
+      "generic_construction": {
+        "source_index": 4,
+        "whole_source": "Entire five-parameter source and all inverse core/centering parameters from the finite seven-source theorem",
+        "homogeneous_cofactor_Jordan_type": [
+          3,
+          2
+        ],
+        "hyperplane_in_image_of_dual_cofactor_square": true
+      },
+      "generic_actual_degeneracy_divisor": {
+        "description": "Simple hyperplane plus absolutely irreducible quartic",
+        "witness_equation": "h*((h*z-w*y)^2-8*h*w^3)",
+        "irreducible_factor_degrees": [
+          1,
+          4
+        ],
+        "corresponding_multiplicities": [
+          1,
+          1
+        ],
+        "reduced": true
+      },
+      "claims": [
+        "R4_NIL22_LONG_HYPERPLANE_QUARTIC_QUADRATIC_COMPONENT_22"
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/HYPERPLANE_QUARTIC_NIL22_LONG_QUARTIC_SOURCES.md"
+        },
+        {
+          "path": "research/classification/HYPERPLANE_QUARTIC_NIL22_LONG_QUARTIC_ORBIT_MODELS.md"
+        },
+        {
+          "path": "research/classification/NIL22_LONG_TWO_COMPONENTS_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_HYPERPLANE_QUARTIC_NIL22_LONG_QUARTIC_SOURCES_20261107.json",
+        "reports/CLASSIFICATION_HYPERPLANE_QUARTIC_NIL22_LONG_QUARTIC_REVIEW_V2_20261107.json",
+        "reports/CLASSIFICATION_HYPERPLANE_QUARTIC_NIL22_LONG_QUARTIC_ORBIT_MODELS_20261107.json",
+        "reports/CLASSIFICATION_NIL22_LONG_TWO_COMPONENTS_REVIEW_20261107.json"
+      ],
+      "review_status": {
+        "proof": "full_ambient_componenthood_and_entire_source_containment_proved",
+        "independent_review": "accepted_separate_author_all_prior99_and_mutual_distinctness",
+        "certificates": "exact_QQ_full350_true150_and_complete_weight_bounded_IFT",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "notes_ja": [
+        "完全横断長2は二成分の識別に既存完全模型を用いるもので追加nil指数探索ではない。",
+        "dense actual orbit22、商次元0。全source閉包と同じ成分。"
+      ]
+    },
+    {
+      "id": "R4_NIL22_LONG_IRREDUCIBLE_QUINTIC_23",
+      "name": "nil22長translation第五源を境界に持つ既約非正規五次23成分",
+      "source_checkpoint": "v64-classification-first",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "additional_generic_rank_four_full_component_outside_MPS40",
+      "generic_rank": 4,
+      "projective_dimension": 23,
+      "meets_SNC_log_symplectic_locus": false,
+      "generic_pgl5_orbit_dimension": 23,
+      "generic_reduced_rosenlicht_quotient_dimension": 0,
+      "generic_transverse_algebra": null,
+      "component_definition": "Reduced closure of the dense actual23 PGL5 orbit of the explicit nine-bracket tensor; smooth full-ambient component from D102/G48.",
+      "generic_construction": {
+        "coordinates": [
+          "h",
+          "x",
+          "y",
+          "z",
+          "w"
+        ],
+        "canonical_brackets": {
+          "0,2": "-6*h**2",
+          "0,3": "3*h*x",
+          "0,4": "-3*h*y + 162*h*z - 45*x*y",
+          "1,2": "9*h*x",
+          "1,3": "-2*x**2",
+          "1,4": "-5*h*z + 2*x*y - 243*x*z",
+          "2,3": "-9*h*z + 3*x*y",
+          "2,4": "6*h*w - 3*y**2 + 567*y*z",
+          "3,4": "2*w*x + 7*y*z - 243*z**2"
+        },
+        "projective_stabilizer_eigenvalue_multiplicities": [
+          2,
+          2,
+          1
+        ],
+        "whole_type7_family5_containment": "Complete orbit22 source closure and literal parabola curve with all nonzero parameters in this smooth23 orbit."
+      },
+      "generic_actual_degeneracy_divisor": {
+        "description": "Absolutely irreducible reduced nonnormal quintic with three singular planes",
+        "witness_equation": "h^3*z^2+h^2*w*x^2+h^2*x*y*z+27*h*x^2*y*z+3*x^3*y^2",
+        "irreducible_factor_degrees": [
+          5
+        ],
+        "corresponding_multiplicities": [
+          1
+        ],
+        "reduced": true,
+        "singular_reduced_support": [
+          "h=x=0",
+          "h=y=0",
+          "x=z=0"
+        ]
+      },
+      "claims": [
+        "R4_NIL22_LONG_IRREDUCIBLE_QUINTIC_COMPONENT_23"
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/HYPERPLANE_QUARTIC_NIL22_LONG_QUARTIC_CURVE_RECOGNITION.md"
+        },
+        {
+          "path": "research/classification/HYPERPLANE_QUARTIC_NIL22_LONG_CURVES_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_HYPERPLANE_QUARTIC_NIL22_LONG_QUARTIC_SOURCES_20261107.json",
+        "reports/CLASSIFICATION_HYPERPLANE_QUARTIC_NIL22_LONG_QUARTIC_REVIEW_V2_20261107.json",
+        "reports/CLASSIFICATION_HYPERPLANE_QUARTIC_NIL22_LONG_QUARTIC_ORBIT_MODELS_20261107.json",
+        "reports/CLASSIFICATION_HYPERPLANE_QUARTIC_NIL22_LONG_QUARTIC_CURVE_RECOGNITION_20261107.json",
+        "reports/CLASSIFICATION_NIL22_LONG_CURVES_REVIEW_20261107.json"
+      ],
+      "review_status": {
+        "proof": "smooth_full_ambient_componenthood_and_entire_source_containment_proved",
+        "independent_review": "accepted_separate_author_all_prior99_plus_dimension_difference_from_new_two22",
+        "certificates": "exact_QQ_full350_curve_D102_G48_and_stabilizer",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "notes_ja": [
+        "一般元はsmooth Poisson scheme点、dense actual orbit23で商次元0。",
+        "旧既約五次23成分とはunique stabilizerのsemisimple multiplicities221対11111で区別。"
+      ]
     }
   ],
   "named_block_member_annotations": [
@@ -12092,5 +12311,5 @@
     "MPS40 blockを展開したらblockによる加算を止め、二重計上しない。",
     "文献上の新規性は内部成分証明とは別に確認する。"
   ],
-  "new_components_added_in_this_checkpoint": 41
+  "new_components_added_in_this_checkpoint": 44
 }

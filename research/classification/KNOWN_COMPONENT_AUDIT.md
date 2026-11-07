@@ -344,3 +344,13 @@ e一次primitive五項Fの絶対既約性・二特異P2をFractionで独立確�
 同次元MPS29の全一般period/edge源の実D因子を直接恒等式で再構成し、
 非MPS27の既存閉可約因子条件と合わせ全旧98と区別した。
 個別下界99、rank四93、rank二6。全上界・全E/G尽くしは未証明。
+
+
+## 型7の三新成分と現行下界102
+
+全七源V2の独立被覆定理、NIL22_LONG_TWO_COMPONENTS_REVIEWとNIL22_LONG_CURVES_REVIEWから、
+第三・第四の全五源閉包は相異なるdense22軌道成分、第五は新smooth23軌道成分へ入る。
+前二の全350完全正weight IFT/e³・e²と実group×true slice étale積から成分性と相互相違、
+unique H cofactor Jordan32と旧二22の41から旧成分と相違する。全prior99をimmutable blobから比較済み。
+第五のprimitive w-linear quinticは絶対既約で、unique stabilizer semisimple multiplicities221は旧既約五次23の11111と異なる。
+新三者の相違も前二対第五はdimension差で閉じる。一般rank四96、rank二6、個別下界102。上界・全尽くしは未証明。

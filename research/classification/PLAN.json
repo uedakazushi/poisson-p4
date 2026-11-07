@@ -5,15 +5,15 @@
   "baseline_commit": "a00a541b835b2bff18bafcba545ecbd4bae7175b",
   "target": "exhaustive_reduced_components_before_PGL5_and_generic_geometry",
   "mathematical_status": {
-    "global_lower_bound": 99,
-    "rank4_lower_bound": 93,
+    "global_lower_bound": 102,
+    "rank4_lower_bound": 96,
     "global_upper_bound": null,
     "generic_five_exhaustion": false,
     "global_exhaustion": false,
-    "verification_scope": "All99 components individually identified. Every reducible/nonreduced and every normal actual divisor is excluded from a generic unknown dominant component. Irreducible reduced nonnormal quintics remain; E point coverage and the global upper bound are unproved.",
+    "verification_scope": "All102 components individually identified. Every reducible/nonreduced and every normal actual divisor is excluded from a generic unknown dominant component. Irreducible reduced nonnormal quintics remain; E point coverage and the global upper bound are unproved.",
     "rank2_component_count": 6,
     "rank2_support_exhaustion": true,
-    "individually_identified_components": 99,
+    "individually_identified_components": 102,
     "additional_unidentified_components_lower_bound": 0
   },
   "source_registry": "research/classification/SOURCES.json",
@@ -61,7 +61,7 @@
         "generic_circuit_review"
       ],
       "acceptance": "全42法線の根基所属等または未知残余の空性を証明し、適用底開・全分母・独立検証を明記する。新残余があれば分類計画を更新し、未解決のまま成功扱いしない。",
-      "first_step": "全normal degree五rank0はT40、全半単純integralCI22 rank0は既約quinticに空。残るdegree3、非半単純/全退化CI22、非normal/degree六q>0曲面、plane/quadric、rank2非node・vertical残枝を処理する。",
+      "first_step": "rank零は全非退化degree三/四がG像≤24、normaldegree五はT40、normaldegree六は空、degree五六の全coneも空。残る非normalかつ非cone degree五/六、quadric cone、plane、rank二の特異/vertical支持を処理する。",
       "fallback": "同経路の二回未決で支持幾何または境界経路に変更し、E0/Aも進める。",
       "nonclosing_attempts": 0,
       "proof": null,
@@ -97,9 +97,21 @@
         "G_RANK_ZERO_REGULAR_LINEARNORMAL_QUADRATIC_SOURCE",
         "G_INTEGRAL_SURFACE_LINEAR_NORMALITY",
         "G_NORMAL_DEGREE_FIVE_RANK_ZERO_T40",
-        "G_SEMISIMPLE_CI22_RANK_ZERO_QUINTIC_EMPTY"
+        "G_SEMISIMPLE_CI22_RANK_ZERO_QUINTIC_EMPTY",
+        "G_RANK_TWO_PLANE_IRREDUCIBLE_CUBIC_EMPTY",
+        "G_NONPLANE_DOUBLE_SYMBOL_AND_FROBENIUS_TYPES",
+        "G_SMOOTH_NONPLANE_CLEAN_WITHOUT_NODE_RECOGNITION",
+        "G_NORMAL_DEGREE_SIX_RANK_ZERO_RULED_REDUCTION",
+        "G_NONDEGENERATE_DEGREE_THREE_RANK_ZERO_NONDOMINANCE",
+        "G_REGULAR_PENCIL_CI22_RANK_ZERO_NONDOMINANCE",
+        "G_ALL_DEGENERATE_CI22_RANK_ZERO_QUINTIC_EMPTY",
+        "G_SMOOTH_NONPLANE_RANK_ZERO_NONDOMINANCE",
+        "G_INTEGRAL_DEGREE_FOUR_RANK_ZERO_NONDOMINANCE",
+        "G_HIGH_DEGREE_CONE_RANK_ZERO_QUINTIC_EMPTY",
+        "G_NORMAL_DEGREE_SIX_RANK_ZERO_QUINTIC_EMPTY"
       ],
-      "latest_integral_surface_reduction": "research/classification/INTEGRAL_SURFACE_LINEAR_NORMALITY.md"
+      "latest_integral_surface_reduction": "research/classification/INTEGRAL_SURFACE_LINEAR_NORMALITY.md",
+      "normal_degree_six_remaining": "none for rankzero: full ruled numerics and relativeconic exclusion independently accepted"
     },
     {
       "id": "G_direction",
@@ -293,7 +305,7 @@
         "bibliography"
       ],
       "acceptance": "主分類に使う各族のPoisson性、成分性、相違、次元とrank2被覆の証明・一次引用を確認し、欠落を明示する。",
-      "first_step": "個別99成分を監査済み。新候補だけ全周囲成分性と相違を追加検証。",
+      "first_step": "個別102成分を監査済み。新候補の全周囲成分性と相違だけを追加検証。",
       "fallback": "依存しない結果を巻き込まず問題の影響範囲を限定し、修正課題としてC0/Fに接続する。",
       "nonclosing_attempts": 0,
       "proof": "research/classification/KNOWN_COMPONENT_AUDIT.md",
@@ -314,12 +326,13 @@
         "bibliography"
       ],
       "acceptance": "確認した結果を主原稿の該当節へ十分な証明とともに統合し、主分類未証明を明示する。既存有用成果を削らない。",
-      "first_step": "主TeXの60成分・全H+2Q被覆を基準とし、重複Hと被約非正規因子で新たに閉じた支持を同じ原稿へ統合する。",
+      "first_step": "102成分/rank四96、独立受理した892主張を142頁の同じ日本語主原稿へ統合し2pass組版済み。次の受理済み尽くしを理解順へ統合し、全G/Eの穴を保持して主定理完成まで続ける。",
       "fallback": "未確認主張は本文の定理に昇格せず、必要な証明義務として残す。",
       "nonclosing_attempts": 0,
       "proof": null,
       "review": null,
-      "activation_reason": null
+      "activation_reason": null,
+      "latest_main_manuscript_build": "reports/CLASSIFICATION_MAIN_MANUSCRIPT_NIL22_LONG102_BUILD_20261107.json"
     },
     {
       "id": "E",
@@ -412,12 +425,20 @@
         "remaining_divisor_support"
       ],
       "acceptance": "全非被約実退化因子のうち二重以上の超平面を持つ全点を既知族または新しい証明済み成分で被覆。全affine二次Poisson条件とPf(Q)=0を保持。",
-      "first_step": "nil22 imageの二新23成分と三全源実曲線を被覆済み。残るstable二源,double_A/B/C,quadratic_Aおよびshort r=2/3等を実認識で進める。",
+      "first_step": "nil22image全十一源中七源は二新23成分又は五実曲線で被覆。残るstable二源、double_A、quadratic_Aとshort r=2/3等を全源認識/新成分証明で処理する。",
       "fallback": "同じ経路で二回非閉鎖なら具体的障害を記録し別の支持幾何へ変更。全補集合を保持する。",
       "nonclosing_attempts": 0,
       "proof": null,
       "review": null,
-      "activation_reason": "全H+2Q(Q既約)被覆後に残る全rank4支持の二大分岐。"
+      "activation_reason": "全H+2Q(Q既約)被覆後に残る全rank4支持の二大分岐。",
+      "latest_nil22_image_double_b_coverage": "E_NIL22_IMAGE_DOUBLE_B_CPLUS_FULL_COVERAGE",
+      "remaining_nil22_image_sources": [
+        "stable_line_conic",
+        "stable_three_lines",
+        "double_A",
+        "quadratic_A"
+      ],
+      "latest_nil22_image_double_c_coverage": "E_NIL22_IMAGE_DOUBLE_C_DEPENDENT_FULL_COVERAGE"
     },
     {
       "id": "E_reduced_nonnormal",
@@ -435,7 +456,7 @@
         "remaining_divisor_support"
       ],
       "acceptance": "既存の正規因子T39分類とは別に、被約非正規因子の全rank4支持を閉既約族で尽くす。可約因子も含み、既知MPSを上界と仮定しない。",
-      "first_step": "Ga9二根源は新しい既約非正規quintic23成分へ全被覆、c1は別23成分。Ga9 c0三源、quartic型6/7、重複H/平面1+1+3/1+2+2の残源と既約非正規quintic全支持を続ける。",
+      "first_step": "型7全七源は三新成分とMPS/既存99へ全被覆。Hquartic残源はnil22image型6とGa9 c0三源。他の重複H/平面1+1+3/1+2+2と既約非正規quinticの全点帰属を続ける。",
       "fallback": "同じ経路で二回非閉鎖なら具体的障害を記録し別の支持幾何へ変更。全補集合を保持する。",
       "nonclosing_attempts": 0,
       "proof": null,
@@ -445,10 +466,10 @@
       "latest_quartic_type4_full_coverage": "E_HYPERPLANE_QUARTIC_NIL31_SHORT_FULL_MPS_COVERAGE",
       "remaining_quartic_pure_nilpotent_types": [
         "nil22_image_type6",
-        "nil22_long_type7",
-        "nil211_short_translation_type9_remaining_four_sources"
+        "nil211_short_translation_type9_c0_three_sources"
       ],
-      "latest_ga9_distinct_component": "R4_GA9_DISTINCT_IRREDUCIBLE_QUINTIC_COMPONENT_23"
+      "latest_ga9_distinct_component": "R4_GA9_DISTINCT_IRREDUCIBLE_QUINTIC_COMPONENT_23",
+      "latest_type7_full_coverage": "E_HYPERPLANE_QUARTIC_TYPE7_FULL_COVERAGE"
     },
     {
       "id": "P",

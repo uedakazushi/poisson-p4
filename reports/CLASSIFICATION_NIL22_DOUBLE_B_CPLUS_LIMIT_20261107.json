@@ -1,0 +1,104 @@
+{
+  "task_id": "E_multiple_hyperplane",
+  "all_passed": true,
+  "input_sha256": {
+    "code/classification_nil22_double_b_cplus_limit.py": "d1a8151aee031ee7401e31d845a2ad0c2d76b2dc937e7848bc1b01e95db33f47",
+    "reports/CLASSIFICATION_NIL22_IMAGE_REMAINING_SOURCES_20261107.json": "9ab03220144c70d70b877c7138562d854d0102bd37846eeafcbbd115170e0700",
+    "code/classification_rank3_mixed_component_review.py": "48e61e30f9d7f04fb81f1bb5eec0e18daa28c8192d6a02a251e09cf8855b9bd0",
+    "research/classification/TWO_QUADRICS_PLANE_CONIC_CONFIGURATIONS.md": "9cfb860ca0120e418ae462107eb812f620a2957017d49ddd5349d876f40f6532",
+    "reports/CLASSIFICATION_TWO_QUADRICS_PLANE_SOURCES_REVIEW_20261107.json": "3e5f5b031ce625749306daf972804c624a8b4c86b4f2f31a01226959c09d4838"
+  },
+  "producer_bytes": "#!/usr/bin/env python3\n\"\"\"Entire doubleB sixmag source is a regular CPLUS_EXT confluence.\n\nNo chosen magneticperiod, no jet: all six arbitrary coefficients are constant\nalong the exact rational Poisson curve, regular on epsilon!=2 including0.\n\"\"\"\nfrom pathlib import Path\nimport hashlib,itertools,json,time\nimport sympy as s\nfrom classification_rank3_mixed_component_review import PAIRS,jacobi as projective_jacobi\nROOT=Path(__file__).resolve().parents[1]\ndef main():\n started=time.monotonic();xx=s.symbols('h q1 q2 x y');h,q1,q2,x,y=xx;coords=xx[1:];eps=s.Symbol('epsilon');mag=s.symbols('m0:6');R=sum(a*b for a,b in zip(mag,[1,x,y,x*x,x*y,y*y]));a=(eps+2)/(eps-2)\n U=s.Matrix([-x*x/4+2/(eps-2),-x*y/2-2*a*x]);V=s.Matrix([-x*y/4-a*x,8-y*y/2+8*eps*x*x/(eps-2)]);qa=y-4+eps*x*x;qb=y+4+2*x*x;co=-y/4-a\n assert (U.jacobian(s.Matrix([x,y]))*V-V.jacobian(s.Matrix([x,y]))*U+co*U).applyfunc(s.cancel)==s.zeros(2,1)\n assert s.cancel(s.det(s.Matrix.vstack(U.T,V.T))-qa*qb/(2-eps))==0\n P=s.zeros(4);P[0,1]=R+co*q1;P[0,2],P[0,3]=U;P[1,2],P[1,3]=V\n for i,j in itertools.combinations(range(4),2):P[j,i]=-P[i,j]\n strict=[s.cancel(sum(P[i,l]*s.diff(P[j,k],coords[l])+P[j,l]*s.diff(P[k,i],coords[l])+P[k,l]*s.diff(P[i,j],coords[l])for l in range(4)))for i,j,k in itertools.combinations(range(4),3)];assert not any(strict)\n source_path=ROOT/'reports/CLASSIFICATION_NIL22_IMAGE_REMAINING_SOURCES_20261107.json';source=json.loads(source_path.read_text())['cases'][1];assert source['name']=='nil22_image_double_B';original=s.zeros(5);env=dict(zip(['h','x1','x2','x3','x4'],xx));env.update({str(m):m for m in mag})\n for ij,text in source['full_six_magnetic_source'].items():\n  i,j=map(int,ij.split(','));original[i,j]=s.sympify(text,locals=env);original[j,i]=-original[i,j]\n homogeneous=s.zeros(5)\n for i,j in itertools.combinations(range(4),2):\n  homogeneous[i+1,j+1]=sum(c*h**(2-sum(ex))*s.prod(z**n for z,n in zip(coords,ex))for ex,c in s.Poly(P[i,j],*coords).terms());homogeneous[j+1,i+1]=-homogeneous[i+1,j+1]\n assert (homogeneous.subs(eps,0)-original).applyfunc(s.expand)==s.zeros(5)\n sparse={ij:dict(s.Poly(s.expand(homogeneous[ij]),*xx).terms())for ij in PAIRS if homogeneous[ij]!=0};all350=projective_jacobi(sparse);assert all350.applyfunc(s.cancel)==s.zeros(350,1)\n pf=[]\n for missing in range(5):\n  i,j,k,l=[a for a in range(5)if a!=missing];pf.append((-1)**missing*(homogeneous[i,j]*homogeneous[k,l]-homogeneous[i,k]*homogeneous[j,l]+homogeneous[i,l]*homogeneous[j,k]))\n D=s.factor(sum(xx[i]*pf[i]for i in range(5)));QA=h*y-4*h*h+eps*x*x;QB=h*y+4*h*h+2*x*x;assert s.cancel(D+h*QA*QB/(2-eps))==0\n # All generic fibers have exactly shared_tangent_generic configuration.\n X,Y,Z=s.symbols('X Y Z');change={h:X,x:Y,y:-2*Z-4*X};standard_q=s.expand(QB.subs(change,simultaneous=True)/-2);standard_other=s.expand(QA.subs(change,simultaneous=True)/-eps);assert standard_q==X*Z-Y*Y;assert s.cancel(standard_other-(2*X*Z/eps-Y*Y+8*X*X/eps))==0\n normals=[]\n for Q in [QA,QB]:\n  A=s.hessian(Q,(h,x,y))/2;normals.append(dict(quadratic_matrix=[[str(a)for a in row]for row in A.tolist()],determinant=str(s.factor(A.det())),restriction_at_H=str(s.expand(Q.subs(h,0)))))\n assert all(s.factor(s.hessian(Q,(h,x,y)).det())!=0 for Q in [QA,QB])\n inputs=[Path(__file__),source_path,ROOT/'code/classification_rank3_mixed_component_review.py',ROOT/'research/classification/TWO_QUADRICS_PLANE_CONIC_CONFIGURATIONS.md',ROOT/'reports/CLASSIFICATION_TWO_QUADRICS_PLANE_SOURCES_REVIEW_20261107.json'];result=dict(task_id='E_multiple_hyperplane',all_passed=True,input_sha256={str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest()for p in inputs},producer_bytes=Path(__file__).read_text(),all_six_magnetic_parameters=list(map(str,mag)),source_family='nil22_image_double_B',source_case_index=1,whole_affine_brackets={str(i+1)+','+str(j+1):str(s.factor(P[i,j]))for i,j in itertools.combinations(range(4),2)if P[i,j]!=0},whole_homogeneous_brackets={str(i)+','+str(j):str(s.factor(homogeneous[i,j]))for i,j in PAIRS if homogeneous[i,j]!=0},actual_anticanonical_quintic=str(D),quadratic_factors=[str(QA),str(QB)],quadratic_rank3_certificates=normals,all4_strict_and350_projective_Jacobi_identically_zero=True,source_endpoint_all6magnetic_parameters_exact=True,family_regular_at0=True,only_family_parameter_inverted='epsilon-2',generic_family_locus='epsilon!=0,2',generic_divisor_reduced_rank4=True,generic_accepted_plane_configuration='shared_tangent_generic',configuration_linear_map='(h,x,y)=(X,Y,-2Z-4X)',configuration_original_quadric_scalar='QB=-2*(X*Z-Y^2), QA=-epsilon*((2/epsilon)*X*Z-Y^2+(8/epsilon)*X^2)',configuration_parameters=dict(u='2/epsilon',nonzero_xsquare_coefficient='8/epsilon'),fixed_H_common_tangent_point='[h:x:y]=[0:0:1]',whole_source_component_containment='R4_CPLUS_EXT',containment_proof='For everyfixed6magnetic R, P_e is regularat0, allJacobi andactualD exact. On densee!=0,2 the two rank3conics have the accepted sharedtangentgeneric configuration (u!=0,1,d!=0). The accepted ENTIREsixmagnetic free-plane theorem places P_e in CPLUS_EXT24. Closedness places P0 there, for every R without localization. Alloriginalsourceparameters andtheirboundaries retained.',new_component_added=False,independent_review_required=True,seconds=time.monotonic()-started)\n out=ROOT/'reports/CLASSIFICATION_NIL22_DOUBLE_B_CPLUS_LIMIT_20261107.json'\n if out.exists():raise FileExistsError(str(out))\n out.write_text(json.dumps(result,indent=2)+'\\n');print(json.dumps(dict(whole_double_B_CPLUS_containment=True,seconds=result['seconds'])))\nif __name__=='__main__':main()\n",
+  "all_six_magnetic_parameters": [
+    "m0",
+    "m1",
+    "m2",
+    "m3",
+    "m4",
+    "m5"
+  ],
+  "source_family": "nil22_image_double_B",
+  "source_case_index": 1,
+  "whole_affine_brackets": {
+    "1,2": "(4*epsilon*m0 + 4*epsilon*m1*x + 4*epsilon*m2*y + 4*epsilon*m3*x**2 + 4*epsilon*m4*x*y + 4*epsilon*m5*y**2 - epsilon*q1*y - 4*epsilon*q1 - 8*m0 - 8*m1*x - 8*m2*y - 8*m3*x**2 - 8*m4*x*y - 8*m5*y**2 + 2*q1*y - 8*q1)/(4*(epsilon - 2))",
+    "1,3": "-(epsilon*x**2 - 2*x**2 - 8)/(4*(epsilon - 2))",
+    "1,4": "-x*(epsilon*y + 4*epsilon - 2*y + 8)/(2*(epsilon - 2))",
+    "2,3": "-x*(epsilon*y + 4*epsilon - 2*y + 8)/(4*(epsilon - 2))",
+    "2,4": "(16*epsilon*x**2 - epsilon*y**2 + 16*epsilon + 2*y**2 - 32)/(2*(epsilon - 2))"
+  },
+  "whole_homogeneous_brackets": {
+    "1,2": "(4*epsilon*h**2*m0 + 4*epsilon*h*m1*x + 4*epsilon*h*m2*y - 4*epsilon*h*q1 + 4*epsilon*m3*x**2 + 4*epsilon*m4*x*y + 4*epsilon*m5*y**2 - epsilon*q1*y - 8*h**2*m0 - 8*h*m1*x - 8*h*m2*y - 8*h*q1 - 8*m3*x**2 - 8*m4*x*y - 8*m5*y**2 + 2*q1*y)/(4*(epsilon - 2))",
+    "1,3": "-(epsilon*x**2 - 8*h**2 - 2*x**2)/(4*(epsilon - 2))",
+    "1,4": "-x*(4*epsilon*h + epsilon*y + 8*h - 2*y)/(2*(epsilon - 2))",
+    "2,3": "-x*(4*epsilon*h + epsilon*y + 8*h - 2*y)/(4*(epsilon - 2))",
+    "2,4": "(16*epsilon*h**2 + 16*epsilon*x**2 - epsilon*y**2 - 32*h**2 + 2*y**2)/(2*(epsilon - 2))"
+  },
+  "actual_anticanonical_quintic": "h*(4*h**2 + h*y + 2*x**2)*(epsilon*x**2 - 4*h**2 + h*y)/(epsilon - 2)",
+  "quadratic_factors": [
+    "epsilon*x**2 - 4*h**2 + h*y",
+    "4*h**2 + h*y + 2*x**2"
+  ],
+  "quadratic_rank3_certificates": [
+    {
+      "quadratic_matrix": [
+        [
+          "-4",
+          "0",
+          "1/2"
+        ],
+        [
+          "0",
+          "epsilon",
+          "0"
+        ],
+        [
+          "1/2",
+          "0",
+          "0"
+        ]
+      ],
+      "determinant": "-epsilon/4",
+      "restriction_at_H": "epsilon*x**2"
+    },
+    {
+      "quadratic_matrix": [
+        [
+          "4",
+          "0",
+          "1/2"
+        ],
+        [
+          "0",
+          "2",
+          "0"
+        ],
+        [
+          "1/2",
+          "0",
+          "0"
+        ]
+      ],
+      "determinant": "-1/2",
+      "restriction_at_H": "2*x**2"
+    }
+  ],
+  "all4_strict_and350_projective_Jacobi_identically_zero": true,
+  "source_endpoint_all6magnetic_parameters_exact": true,
+  "family_regular_at0": true,
+  "only_family_parameter_inverted": "epsilon-2",
+  "generic_family_locus": "epsilon!=0,2",
+  "generic_divisor_reduced_rank4": true,
+  "generic_accepted_plane_configuration": "shared_tangent_generic",
+  "configuration_linear_map": "(h,x,y)=(X,Y,-2Z-4X)",
+  "configuration_original_quadric_scalar": "QB=-2*(X*Z-Y^2), QA=-epsilon*((2/epsilon)*X*Z-Y^2+(8/epsilon)*X^2)",
+  "configuration_parameters": {
+    "u": "2/epsilon",
+    "nonzero_xsquare_coefficient": "8/epsilon"
+  },
+  "fixed_H_common_tangent_point": "[h:x:y]=[0:0:1]",
+  "whole_source_component_containment": "R4_CPLUS_EXT",
+  "containment_proof": "For everyfixed6magnetic R, P_e is regularat0, allJacobi andactualD exact. On densee!=0,2 the two rank3conics have the accepted sharedtangentgeneric configuration (u!=0,1,d!=0). The accepted ENTIREsixmagnetic free-plane theorem places P_e in CPLUS_EXT24. Closedness places P0 there, for every R without localization. Alloriginalsourceparameters andtheirboundaries retained.",
+  "new_component_added": false,
+  "independent_review_required": true,
+  "seconds": 0.23220369599948754
+}

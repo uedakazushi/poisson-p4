@@ -1,0 +1,161 @@
+{
+  "task_id": "E_multiple_hyperplane",
+  "all_passed": true,
+  "profile": [
+    1,
+    2
+  ],
+  "inverse_bivector_pole_bound": 4,
+  "period_degree_bound": 4,
+  "no_other_profile_or_larger_degree_tried": true,
+  "linear_reduction": {
+    "status": "generic_r_full_linear_reduction_complete",
+    "matrix_shape": [
+      81,
+      34
+    ],
+    "period_rank": 21,
+    "total_augmented_rank": 22,
+    "all_r_variables": [
+      "r0",
+      "r1",
+      "r2"
+    ],
+    "all_period_coefficients": [
+      "k0",
+      "k1",
+      "k2",
+      "k3",
+      "k4",
+      "k5",
+      "k6",
+      "k7",
+      "k8",
+      "k9",
+      "k10",
+      "k11",
+      "k12",
+      "k13",
+      "k14",
+      "k15",
+      "k16",
+      "k17",
+      "k18",
+      "k19",
+      "k20",
+      "k21",
+      "k22",
+      "k23",
+      "k24",
+      "k25",
+      "k26",
+      "k27",
+      "k28",
+      "k29"
+    ],
+    "compatibility_conditions": [
+      "-1"
+    ],
+    "generic_period_solution": {
+      "k0": "0",
+      "k1": "0",
+      "k2": "(a0*r1**2 - 2*a0*r1*r2 + a0*r2**2 + a1*r0**2 - 2*a1*r0*r2 + a1*r2**2 + a2*r0**2 - 2*a2*r0*r1 + a2*r1**2)/(r0**2*r1 - r0**2*r2 - r0*r1**2 + r0*r2**2 + r1**2*r2 - r1*r2**2)",
+      "k3": "0",
+      "k4": "0",
+      "k5": "0",
+      "k6": "0",
+      "k7": "(a0 + a1)/(r0 - r1)",
+      "k8": "-a0 + a1",
+      "k9": "0",
+      "k10": "0",
+      "k11": "0",
+      "k12": "(a0 + a1)/(r0 - r1)",
+      "k13": "0",
+      "k14": "0",
+      "k15": "0",
+      "k16": "0",
+      "k17": "(a0 + a2)/(r0 - r2)",
+      "k18": "-a0 + a2",
+      "k19": "0",
+      "k20": "0",
+      "k21": "0",
+      "k22": "(a0 + a2)/(r0 - r2)",
+      "k23": "0",
+      "k24": "0",
+      "k25": "0",
+      "k26": "0",
+      "k27": "0",
+      "k28": "a0",
+      "k29": "0"
+    },
+    "full_six_bridge": {
+      "PGL_matrix": [
+        [
+          "3",
+          "0",
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "-1/3",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "-1/3",
+          "1/3",
+          "0",
+          "0"
+        ],
+        [
+          "3",
+          "0",
+          "0",
+          "0",
+          "-1"
+        ],
+        [
+          "3",
+          "0",
+          "0",
+          "-1",
+          "1"
+        ]
+      ],
+      "tensor_scale": 9,
+      "Euler_correction": [
+        "0",
+        "U/9",
+        "V/9",
+        "0",
+        "0"
+      ],
+      "canonical_magnetic_parameters": [
+        "-m0/81 - 2*m1/27 - m2/27 - 4*m3/9 - 2*m4/9 - m5/9",
+        "-m0/81 + m1/27 + 2*m2/27 - m3/9 - 2*m4/9 - 4*m5/9",
+        "-m0/81 + m1/27 - m2/27 - m3/9 + m4/9 - m5/9"
+      ],
+      "global_polynomial_fiber_translation": [
+        "-U*(-2*m0/81 + 2*m1/27 + m2/27 - 2*m3/9 - m4/9 + 4*m5/9) + 2*m0/81 + m1/27 + 2*m2/27 - 4*m3/9 + m4/9 + 2*m5/9",
+        "-2*m0/81 - m1/27 + m2/27 + 4*m3/9 + 5*m4/9 + 4*m5/9"
+      ]
+    }
+  },
+  "whole_three_magnetic_source_T01_covered": false,
+  "actual_family": null,
+  "scope": "Positive: literal regular toric Poisson family and complete six-magnetic bridge. Negative: only this full-linear-r structural profile on the generic-r open; special r or other profiles are not inferred and will not be scanned.",
+  "input_sha256": {
+    "code/classification_nil22_stable_toric_profile12.py": "8ce8d1376908336ccb9500a8b9a98736697ecb0fa42b780f1ad9ce5fe2eedca8",
+    "code/classification_nil22_image_source_review.py": "72158242b9431a36a821fbca77230c2543687611cd57b6c8a279ea7896ef57d4",
+    "reports/CLASSIFICATION_NIL22_IMAGE_SOURCE_REVIEW_V2_20261107.json": "bc945ece2d11bdd407e86681fdee5636257f801fe5c8e4f473c26a24442580eb",
+    "reports/CLASSIFICATION_NIL22_STABLE_PROJECTIVE_ACTION_V2_20261107.json": "4e188d056d865f91e19e561f5ec6d47bcc07662dccbb7034bda0b0996d24e02c",
+    "research/classification/FIVE_HYPERPLANE_SUPPORT_REVIEW.md": "c8cb1abc750563ea45f5d99c39cc1e5d20c6b3bfcdaf4a4f01be168136a10214"
+  },
+  "producer_source_bytes": "#!/usr/bin/env python3\n\"\"\"One bounded structural (1,2) toric confluence for whole stable_three.\n\nRetains the full linear r and all six regular period coefficients 0,...,4.\nNo other weighted profile or larger Taylor range is tried.\n\"\"\"\nimport argparse\nimport hashlib\nimport itertools\nimport json\nfrom pathlib import Path\nimport resource\nimport time\n\nimport sympy as s\nfrom sympy.polys.matrices import DomainMatrix\nfrom classification_nil22_image_source_review import build_P,coords,mag,x,y,q1,q2\n\nROOT=Path(__file__).resolve().parents[1]\nPAIRS=list(itertools.combinations(range(4),2))\n\n\ndef jacobi(P,variables):\n    return [s.expand(sum(P[i,l]*s.diff(P[j,k],variables[l])+P[j,l]*s.diff(P[k,i],variables[l])+P[k,l]*s.diff(P[i,j],variables[l])for l in range(4)))for i,j,k in itertools.combinations(range(4),3)]\n\n\ndef encode(P):return {f'{i},{j}':str(s.factor(P[i,j]))for i,j in PAIRS if P[i,j]!=0}\n\n\ndef main():\n    ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--output',type=Path,required=True);args=ap.parse_args();begun=time.monotonic()\n    resource.setrlimit(resource.RLIMIT_CPU,(170,175));resource.setrlimit(resource.RLIMIT_AS,(1536*1024**2,1536*1024**2))\n    h,H,Z,W,U,V,tau=s.symbols('h H Z W U V tau');r0,r1,r2=s.symbols('r0 r1 r2');a0,a1,a2=s.symbols('a0 a1 a2');variables=(Z,W,U,V);ell=1+U+V\n    # Necessary full-six-magnetic bridge, not only a desired normal-form point.\n    original,_,_=build_P(x*y*(x-y),s.Matrix([[-6,3],[3,-6]]),s.zeros(2,1),-s.eye(2)/3)\n    old=s.Matrix([h,q1,q2,x,y]);new=s.Matrix([H,Z,W,U,V]);image=s.Matrix([3*h+x,-q2/3,(q2-q1)/3,3*h-y,3*h-x+y]);G=image.jacobian(old);assert G.det()!=0\n    homogeneous=s.zeros(5)\n    for i,j in PAIRS:\n        entry=sum(c*h**(2-sum(e))*s.prod(z**k for z,k in zip(coords,e))for e,c in s.Poly(original[i,j],*coords).terms());homogeneous[i+1,j+1]=entry;homogeneous[j+1,i+1]=-entry\n    raw=(G*homogeneous*G.T).subs(dict(zip(old,G.inv()*new)),simultaneous=True).applyfunc(s.expand)\n    correction=s.Matrix([0,*[s.cancel(raw[0,j]/H)for j in range(1,5)]]);assert all(not s.denom(v).has(H)for v in correction)\n    bridged=(9*(raw-new*correction.T+correction*new.T)).subs(H,1)[1:,1:].applyfunc(s.expand)\n    target=s.zeros(4);target[0,2]=ell*U;target[1,3]=ell*V;target[0,1]=-V*Z+U*W\n    for i,j in PAIRS:target[j,i]=-target[i,j]\n    R=s.expand(bridged[0,1]-target[0,1]);assert not R.has(Z,W)\n    assert all(s.expand(bridged[i,j]-target[i,j])==0 for i,j in PAIRS if(i,j)!=(0,1))\n    poly=s.Poly(R,U,V);cU=poly.coeff_monomial(U);cV=poly.coeff_monomial(V);cUV=poly.coeff_monomial(U*V)\n    LZ=-cV-cUV*U;LW=cU;images=s.Matrix([Z+LZ,W+LW,U,V]);J=images.jacobian(s.Matrix(variables))\n    normalized=(J*bridged*J.T).subs({Z:Z-LZ,W:W-LW},simultaneous=True).applyfunc(s.expand)\n    canonical_R=s.expand(normalized[0,1]-target[0,1]);assert s.Poly(canonical_R,U,V).monoms()==[(2,0),(0,2),(0,0)]\n    A=s.Matrix([s.Poly(canonical_R,U,V).coeff_monomial(m)for m in (1,U*U,V*V)]);assert A.jacobian(mag).rank()==3\n    target[0,1]+=a0+a1*U*U+a2*V*V;target[1,0]=-target[0,1];assert not any(jacobi(target,variables))\n    # Toric affine coordinates are (U,V,L3,L4); H is its Casimir coordinate.\n    r=r0+r1*U+r2*V;forms=s.Matrix([U,V,ell+tau*Z,ell+tau*Z+tau*r+tau*tau*W]);frame=forms.jacobian(s.Matrix(variables));assert s.factor(frame.det())==tau**3\n    periods=s.symbols('k0:30');toric=s.zeros(4)\n    for index,(i,j)in enumerate(PAIRS):\n        value=sum(periods[5*index+d]*tau**d for d in range(5))*forms[i]*forms[j];toric[i,j]=value;toric[j,i]=-value\n    family=(frame.inv()*toric*frame.inv().T).applyfunc(s.expand)\n    assert all(s.denom(s.cancel(tau**4*v)).free_symbols<={r0,r1,r2}for v in family)\n    equations=[]\n    for i,j in PAIRS:\n        entry=s.expand(family[i,j])\n        for degree in range(-4,1):\n            expression=s.expand(entry.coeff(tau,degree)-(target[i,j]if degree==0 else 0))\n            equations +=[c for e,c in s.Poly(expression,*variables).terms()if c!=0]\n    C,rhs=s.linear_eq_to_matrix(equations,(*periods,a0,a1,a2));aug=C.row_join(rhs)\n    field=s.QQ.frac_field(r0,r1,r2);reduced,pivots=DomainMatrix.from_Matrix(aug).convert_to(field).rref();RR=reduced.to_Matrix()\n    period_rank=sum(p<30 for p in pivots);compatibility=[];solution=dict.fromkeys(periods,s.Integer(0))\n    for row,pivot in enumerate(pivots):\n        if pivot<30:\n            solution[periods[pivot]]=s.cancel(RR[row,33]-sum(RR[row,30+i]*a for i,a in enumerate((a0,a1,a2))))\n        else:compatibility.append(s.factor(sum(RR[row,30+i]*a for i,a in enumerate((a0,a1,a2)))-RR[row,33]))\n    progress=dict(status='generic_r_full_linear_reduction_complete',matrix_shape=list(aug.shape),period_rank=period_rank,total_augmented_rank=len(pivots),all_r_variables=list(map(str,(r0,r1,r2))),all_period_coefficients=list(map(str,periods)),compatibility_conditions=list(map(str,compatibility)),generic_period_solution={str(k):str(v)for k,v in solution.items()},full_six_bridge=dict(PGL_matrix=G.tolist(),tensor_scale=9,Euler_correction=list(map(str,correction)),canonical_magnetic_parameters=list(map(str,A)),global_polynomial_fiber_translation=list(map(str,(LZ,LW)))))\n    Path('/tmp/nil22_stable_toric_profile12_linear.json').write_text(json.dumps(progress,indent=2,default=str)+'\\n')\n    whole=not compatibility;actual=None\n    if whole:\n        denominator=s.prod(s.denom(value)for value in solution.values());assert not denominator.has(a0,a1,a2)\n        bound=max(s.degree(denominator,z)for z in (r0,r1,r2));chosen=None\n        for values in itertools.product(range(int(bound)+1),repeat=3):\n            trial=dict(zip((r0,r1,r2),values))\n            if denominator.subs(trial)!=0:chosen=trial;break\n        assert chosen is not None\n        chosen_solution={k:s.cancel(v.subs(chosen))for k,v in solution.items()}\n        regular=family.subs(chosen_solution,simultaneous=True).subs(chosen,simultaneous=True).applyfunc(s.cancel)\n        assert all(not s.denom(v).has(tau)for v in regular)\n        assert (regular.subs(tau,0)-target).applyfunc(s.cancel)==s.zeros(4)\n        assert not any(jacobi(regular,variables))\n        actual=dict(chosen_r={str(k):int(v)for k,v in chosen.items()},all_six_period_polynomials=[str(s.expand(sum(chosen_solution[periods[5*i+d]]*tau**d for d in range(5))))for i in range(6)],whole_regular_family=encode(regular),endpoint=encode(target),all_tau_strict_Jacobi_zero=True,no_negative_powers=True)\n    paths=[Path(__file__),ROOT/'code/classification_nil22_image_source_review.py',ROOT/'reports/CLASSIFICATION_NIL22_IMAGE_SOURCE_REVIEW_V2_20261107.json',ROOT/'reports/CLASSIFICATION_NIL22_STABLE_PROJECTIVE_ACTION_V2_20261107.json',ROOT/'research/classification/FIVE_HYPERPLANE_SUPPORT_REVIEW.md']\n    result=dict(task_id='E_multiple_hyperplane',all_passed=True,profile=[1,2],inverse_bivector_pole_bound=4,period_degree_bound=4,no_other_profile_or_larger_degree_tried=True,linear_reduction=progress,whole_three_magnetic_source_T01_covered=whole,actual_family=actual,\n        scope='Positive: literal regular toric Poisson family and complete six-magnetic bridge. Negative: only this full-linear-r structural profile on the generic-r open; special r or other profiles are not inferred and will not be scanned.',\n        input_sha256={str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest()for p in paths},producer_source_bytes=Path(__file__).read_text(),seconds=round(time.monotonic()-begun,6),maximum_RSS_KiB=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss)\n    with args.output.open('x')as handle:json.dump(result,handle,indent=2,default=str);handle.write('\\n')\n    print(json.dumps(dict(all_passed=True,whole_three_magnetic_source_T01_covered=whole,compatibility_conditions=list(map(str,compatibility)),seconds=result['seconds'])))\n\n\nif __name__=='__main__':main()\n",
+  "seconds": 1.024037,
+  "maximum_RSS_KiB": 53416
+}

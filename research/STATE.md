@@ -1,6 +1,6 @@
 # 研究状態 — v63-s61 / 2026-11-05
 
-現行キューはclassification/CURRENT.md・PLAN.json・NEXT_TASKS.md。個別下界99、rank4下界93、上界と全分類は未証明。Ga9 c=1全十源を新23成分と独立証明し、nil31短translation型4の全H+quarticは実曲線でMPSへ被覆した。Gの未知一般実因子は既約被約非正規五次だけ。smooth clean曲面、normal rank2のκ≥0、smoothCI22、q=0高次数rank0などの明示枝を排除し、特異・非node・vertical補集合を継続する。全99成分の台帳と証明は現行主原稿へ統合中。既存の移行用一時停止を現在の停止指示にはしない。
+現行キューはclassification/CURRENT.md・PLAN.json・NEXT_TASKS.md。個別下界102、rank四96、rank二6。型7の全七H+quartic源を三新成分と既存成分へ独立被覆し、nil22imageのdouble_B/C全六源も実曲線で既存24成分へ被覆した。Gの未知一般実因子は既約被約非正規五次だけ。degree三・四の全非退化rank零源と全integral CI22はPGL像≤24。全smooth非plane rank零はT40又は像≤23、normal degree六rank零とdegree五六の全cone rank零は空、rank二planeの全既約cubic零divisorも空。残る非normalかつ非cone degree五/六、quadric cone、plane、rank二の特異/vertical支持とEの残族は未解決で、全上界・一般五点・全分類は証明していない。全102成分と新補題を同じ日本語主原稿へ統合中。保存checkpointも旧移行用一時停止も現在の終了条件にはしない。
 
 以下は11月5日UTCに完了し、11月7日に最新mainへ統合した補助研究の保存証拠。下記の58は当時の下界である。B18精密構造と旧minor探索は休止し、この歴史的キューでは再開しない。
 

@@ -1,0 +1,279 @@
+{
+  "task_id": "E_multiple_hyperplane",
+  "all_passed": true,
+  "cases": [
+    {
+      "name": "stable_line_conic",
+      "all_original_magnetic_parameters": [
+        "m0",
+        "m1",
+        "m2",
+        "m3",
+        "m4",
+        "m5"
+      ],
+      "magnetic_action_rank": 4,
+      "invariants": [
+        "-2*m1/3 - 8*m3 + m4",
+        "-m1/12 - m2/12 - m3 + m5"
+      ],
+      "exact_parameter_polynomial_translation": [
+        "-2*m0/3 + 41*m1/2 + m2/2 + 252*m3 + x*(-2*m1 - 24*m3) + y*(-m1/4 - m2/4 - 3*m3)",
+        "3*m3*x"
+      ],
+      "no_parameter_localization": true,
+      "canonical_magnetic_polynomial": "-2*m1*x*y/3 - m1*y**2/12 - m2*y**2/12 - 8*m3*x*y - m3*y**2 + m4*x*y + m5*y**2",
+      "all_six_bracket_identity": true,
+      "entire_residual_source_brackets": {
+        "0,1": "-(8*m1*x*y + m1*y**2 + m2*y**2 + 96*m3*x*y + 12*m3*y**2 - 12*m4*x*y - 12*m5*y**2 + 18*q1 + 18*q2)/12",
+        "0,2": "-(x - 6)*(2*x - 3)/6",
+        "0,3": "-(2*x*y + 3*x + 6*y + 90)/6",
+        "1,2": "-(2*x*y - 6*x - 3*y + 90)/6",
+        "1,3": "-(y + 6)*(2*y + 3)/6"
+      },
+      "projective_Lie_action": {
+        "traceless_projective_matrices": [
+          [
+            [
+              "-1/2",
+              "1/3",
+              "0"
+            ],
+            [
+              "-3",
+              "2",
+              "0"
+            ],
+            [
+              "-15",
+              "-1/2",
+              "-3/2"
+            ]
+          ],
+          [
+            [
+              "1/2",
+              "0",
+              "1/3"
+            ],
+            [
+              "-15",
+              "3/2",
+              "1/2"
+            ],
+            [
+              "-3",
+              "0",
+              "-2"
+            ]
+          ]
+        ],
+        "usual_matrix_commutator": [
+          [
+            "0",
+            "1/2",
+            "1/2"
+          ],
+          [
+            "-27",
+            "21/4",
+            "3/4"
+          ],
+          [
+            "-27",
+            "-3/4",
+            "-21/4"
+          ]
+        ],
+        "commutator_coefficients": [
+          "3/2",
+          "3/2"
+        ],
+        "type": "Two-dimensional affine Lie algebra acting as the restriction of the three-dimensional irreducible sl2 representation to a Borel subalgebra",
+        "regular_nilpotent_commutator_index": 3,
+        "semisimple_matrix": [
+          [
+            "-1/3",
+            "2/9",
+            "0"
+          ],
+          [
+            "-2",
+            "4/3",
+            "0"
+          ],
+          [
+            "-10",
+            "-1/3",
+            "-1"
+          ]
+        ],
+        "semisimple_eigenvalues": [
+          -1,
+          0,
+          1
+        ],
+        "bracket_D_K_equals_K": true
+      },
+      "scope": "An exact whole-source normal form and projective Lie-action reduction; no ambient component or MPS membership is asserted."
+    },
+    {
+      "name": "stable_three_lines",
+      "all_original_magnetic_parameters": [
+        "m0",
+        "m1",
+        "m2",
+        "m3",
+        "m4",
+        "m5"
+      ],
+      "magnetic_action_rank": 3,
+      "invariants": [
+        "m0/27 + m1/9 + 2*m2/9 + m3",
+        "-m0/27 + 2*m1/9 - 2*m2/9 + m4",
+        "m0/27 - 2*m1/9 - m2/9 + m5"
+      ],
+      "exact_parameter_polynomial_translation": [
+        "x*(-m0/9 + 2*m1/3 - 2*m2/3) + y*(m0/9 - 2*m1/3 - m2/3)",
+        "x*(-m0/9 - m1/3 - 2*m2/3)"
+      ],
+      "no_parameter_localization": true,
+      "canonical_magnetic_polynomial": "m0*x**2/27 - m0*x*y/27 + m0*y**2/27 + m1*x**2/9 + 2*m1*x*y/9 - 2*m1*y**2/9 + 2*m2*x**2/9 - 2*m2*x*y/9 - m2*y**2/9 + m3*x**2 + m4*x*y + m5*y**2",
+      "all_six_bracket_identity": true,
+      "entire_residual_source_brackets": {
+        "0,1": "(m0*x**2 - m0*x*y + m0*y**2 + 3*m1*x**2 + 6*m1*x*y - 6*m1*y**2 + 6*m2*x**2 - 6*m2*x*y - 3*m2*y**2 + 27*m3*x**2 + 27*m4*x*y + 27*m5*y**2)/27",
+        "0,2": "-(x - 6)*(x + 3)/3",
+        "0,3": "-(x + 3)*(y - 3)/3",
+        "1,2": "-(x + 3)*(y - 3)/3",
+        "1,3": "-(y - 3)*(y + 6)/3"
+      },
+      "projective_Lie_action": {
+        "traceless_projective_matrices": [
+          [
+            [
+              "0",
+              "1/3",
+              "0"
+            ],
+            [
+              "6",
+              "1",
+              "0"
+            ],
+            [
+              "3",
+              "1",
+              "-1"
+            ]
+          ],
+          [
+            [
+              "0",
+              "0",
+              "1/3"
+            ],
+            [
+              "3",
+              "1",
+              "-1"
+            ],
+            [
+              "6",
+              "0",
+              "-1"
+            ]
+          ]
+        ],
+        "usual_matrix_commutator": [
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ]
+        ],
+        "commutator_coefficients": [
+          "0",
+          "0"
+        ],
+        "type": "Cartan: two commuting diagonalizable independent projective fields",
+        "simultaneous_base_coordinates": [
+          "3h+x",
+          "-3h+y",
+          "-3h+x-y"
+        ],
+        "base_coordinate_matrix": [
+          [
+            "3",
+            "1",
+            "0"
+          ],
+          [
+            "-3",
+            "0",
+            "1"
+          ],
+          [
+            "-3",
+            "1",
+            "-1"
+          ]
+        ],
+        "simultaneous_diagonal_matrices": [
+          [
+            [
+              "2",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "-1",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "-1"
+            ]
+          ],
+          [
+            [
+              "1",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "-2",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "1"
+            ]
+          ]
+        ]
+      },
+      "scope": "An exact whole-source normal form and projective Lie-action reduction; no ambient component or MPS membership is asserted."
+    }
+  ],
+  "input_sha256": {
+    "code/classification_nil22_stable_projective_action.py": "0b81ae327626f7c7d19a4b9d78959a70df6be7c62da4612fce1bd00daa1a3e1e",
+    "code/classification_nil22_image_source_review.py": "72158242b9431a36a821fbca77230c2543687611cd57b6c8a279ea7896ef57d4",
+    "reports/CLASSIFICATION_NIL22_IMAGE_SOURCE_REVIEW_V2_20261107.json": "bc945ece2d11bdd407e86681fdee5636257f801fe5c8e4f473c26a24442580eb",
+    "reports/CLASSIFICATION_NIL22_STABLE_INFINITY_20261107.json": "a6e227730c37a6ad8ddf43ee58bf2c08616ae0086c736957100d500a3c4a2597"
+  },
+  "producer_source_bytes": "#!/usr/bin/env python3\n\"\"\"Exact projective Lie actions and global magnetic quotients for stable2.\n\nOnly constant changes, full six-bracket identities, and exact matrix algebra\nare used; no component recognition is inferred from a divisor coincidence.\n\"\"\"\nimport argparse\nimport hashlib\nimport itertools\nimport json\nfrom pathlib import Path\nimport time\n\nimport sympy as s\nfrom classification_nil22_image_source_review import build_P,coords,mag,x,y,q1,q2\n\nROOT=Path(__file__).resolve().parents[1]\n\n\ndef encode(P):\n    return {f'{i},{j}':str(s.factor(P[i,j]))for i,j in itertools.combinations(range(P.rows),2)if P[i,j]!=0}\n\n\ndef main():\n    ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--output',type=Path,required=True);args=ap.parse_args();begun=time.monotonic()\n    specs=[('stable_line_conic',s.Matrix([[3,-15],[-15,3]]),s.Matrix([s.Rational(3,2),-s.Rational(3,2)]),(4,5)),\n        ('stable_three_lines',s.Matrix([[-6,3],[3,-6]]),s.zeros(2,1),(3,4,5))]\n    ell=s.symbols('l0:6');L=s.Matrix([ell[0]+ell[1]*x+ell[2]*y,ell[3]+ell[4]*x+ell[5]*y]);mons=[1,x,y,x*x,x*y,y*y];records=[]\n    for name,S,V0,residual_indices in specs:\n        P,M,D=build_P(x*y*(x-y),S,V0,-s.eye(2)/3)\n        images=s.Matrix([q1+L[0],q2+L[1],x,y]);J=images.jacobian(s.Matrix(coords))\n        shifted=(J*P*J.T).subs({q1:q1-L[0],q2:q2-L[1]},simultaneous=True).applyfunc(s.expand)\n        difference=s.Poly(shifted[0,1]-P[0,1],x,y);action=s.Matrix([difference.coeff_monomial(m)for m in mons]).jacobian(ell)\n        coker=action.T.nullspace();assert len(coker)==len(residual_indices)\n        Q=s.Matrix.hstack(*(s.eye(6)[:,i]for i in residual_indices));C=s.Matrix.vstack(*(v.T for v in coker))\n        assert C*Q==s.eye(len(coker));invariants=C*s.Matrix(mag);target_coefficients=Q*invariants\n        solutions=list(s.linsolve((action,target_coefficients-s.Matrix(mag)),ell));assert len(solutions)==1\n        solution=solutions[0];free=set().union(*(value.free_symbols for value in solution))&set(ell)\n        solution=s.Matrix([v.subs(dict.fromkeys(free,0))for v in solution]);translation=L.subs(dict(zip(ell,solution)),simultaneous=True)\n        actual=shifted.subs(dict(zip(ell,solution)),simultaneous=True).applyfunc(s.expand)\n        expected=P.subs(dict(zip(mag,target_coefficients)),simultaneous=True)\n        assert (actual-expected).applyfunc(s.expand)==s.zeros(4)\n        A=[]\n        for i in range(2):\n            # A projective field at h=1 is (A*p)_spatial-p*(A*p)_h.\n            matrix=s.zeros(3);matrix[0,i+1]=s.Rational(1,3)\n            for j in range(2):\n                linear=s.expand(M[i,j]+coords[i+2]*coords[j+2]/3)\n                polynomial=s.Poly(linear,x,y);assert polynomial.total_degree()<=1\n                matrix[j+1,0]=polynomial.coeff_monomial(1);matrix[j+1,1]=polynomial.coeff_monomial(x);matrix[j+1,2]=polynomial.coeff_monomial(y)\n            matrix-=s.trace(matrix)*s.eye(3)/3\n            v=matrix*s.Matrix([1,x,y]);assert all(s.expand(v[j+1]-coords[j+2]*v[0]-M[i,j])==0 for j in range(2))\n            A.append(matrix)\n        commutator=A[0]*A[1]-A[1]*A[0]\n        c1,c2=s.symbols('c1 c2');relation=list(s.linsolve(list(commutator-c1*A[0]-c2*A[1]),(c1,c2)))[0]\n        assert all(not v.free_symbols for v in relation)\n        lie=dict(traceless_projective_matrices=[v.tolist()for v in A],usual_matrix_commutator=commutator.tolist(),commutator_coefficients=list(map(str,relation)))\n        if name=='stable_three_lines':\n            R=s.Matrix([[3,1,0],[-3,0,1],[-3,1,-1]])\n            diagonal=[(R*v*R.inv()).applyfunc(s.factor)for v in A]\n            assert all(v.is_diagonal()for v in diagonal)\n            assert s.Matrix([[v[1,1]-v[0,0],v[2,2]-v[0,0]]for v in diagonal]).det()!=0\n            lie.update(type='Cartan: two commuting diagonalizable independent projective fields',simultaneous_base_coordinates=['3h+x','-3h+y','-3h+x-y'],base_coordinate_matrix=R.tolist(),simultaneous_diagonal_matrices=[v.tolist()for v in diagonal])\n        else:\n            assert commutator!=s.zeros(3) and commutator**3==s.zeros(3) and (commutator**2).rank()==1\n            semisimple=A[0]/relation[1]\n            assert (semisimple*commutator-commutator*semisimple-commutator).applyfunc(s.expand)==s.zeros(3)\n            assert sorted(semisimple.eigenvals())==[-1,0,1]\n            lie.update(type='Two-dimensional affine Lie algebra acting as the restriction of the three-dimensional irreducible sl2 representation to a Borel subalgebra',regular_nilpotent_commutator_index=3,semisimple_matrix=semisimple.tolist(),semisimple_eigenvalues=[-1,0,1],bracket_D_K_equals_K=True)\n        records.append(dict(name=name,all_original_magnetic_parameters=list(map(str,mag)),magnetic_action_rank=action.rank(),invariants=list(map(str,invariants)),\n            exact_parameter_polynomial_translation=list(map(str,translation)),no_parameter_localization=True,\n            canonical_magnetic_polynomial=str(s.expand(sum(a*b for a,b in zip(target_coefficients,mons)))),all_six_bracket_identity=True,\n            entire_residual_source_brackets=encode(expected),projective_Lie_action=lie,\n            scope='An exact whole-source normal form and projective Lie-action reduction; no ambient component or MPS membership is asserted.'))\n    paths=[Path(__file__),ROOT/'code/classification_nil22_image_source_review.py',ROOT/'reports/CLASSIFICATION_NIL22_IMAGE_SOURCE_REVIEW_V2_20261107.json',ROOT/'reports/CLASSIFICATION_NIL22_STABLE_INFINITY_20261107.json']\n    result=dict(task_id='E_multiple_hyperplane',all_passed=True,cases=records,input_sha256={str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest()for p in paths},producer_source_bytes=Path(__file__).read_text(),seconds=round(time.monotonic()-begun,6))\n    with args.output.open('x')as handle:json.dump(result,handle,indent=2,default=str);handle.write('\\n')\n    print(json.dumps(dict(all_passed=True,seconds=result['seconds'])))\n\n\nif __name__=='__main__':main()\n",
+  "seconds": 0.372632
+}

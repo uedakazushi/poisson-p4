@@ -1,0 +1,57 @@
+{
+  "task_id": "G_generic_exhaustion",
+  "review_kind": "Independent geometric proof and primary-scope review; no new finite source calculation",
+  "all_accepted": true,
+  "producer_note": "research/classification/PLANE_SMOOTH_CUBIC_CONORMAL_CONNECTION.md",
+  "reviewed_note_sha256": "0451702b7b910d6eb55b3bb9056836506681e4f3cbed337576398f2aaf4a7b4b",
+  "reviewed_note_exact_snapshot": "# rank二plane上のsmooth cubic：conormal接続のlog性を仮定せず証明する\n\n2026-11-07、主義務G。これはplane上のfirst-normal-jetを制限する補題であり、\nPoisson全deformation又は未知優越成分をまだ尽くす定理ではない。\nblowup逆形式のvertical residueが高位極を持つ可能性は別問題であり、本補題では除外しない。\n\n## 1. flat sl2接続に対する補題\n\nR⊂P2を滑らかな既約三次曲線、U=P2\\Rとする。\n`Ω∈H⁰(P²,Ω¹_P²(R))⊗sl₂` が\n`dΩ+Ω∧Ω=0` を満たすなら、**Ω=0** である。\nここでΩはRに沿い高々一位のmeromorphic matrix一形式という仮定だけであり、\n初めからlogarithmicであるとは仮定しない。\n\nRの局所方程式をx、接方向座標をyとし、\n`Ω=M(x,y) dx/x+N(x,y) dy/x`、M,N holomorphic・tracefreeと書く。\nflatnessのx^-2係数は\n\n`[M(0,y),N(0,y)]=N(0,y)`。                              (1)\n\nもしΩがlogarithmicでなければ、Rの一般点でN(0,y)≠0である。\n式(1)から `tr(N²)=0`、従ってNは非零nilpotentである。\nNをE12へ共役すると、(1)はMの下三角成分が零、二対角成分の差が一であることを強制する。\ntraceM=0なのでMの固有値は `1/2,-1/2` である。\n\nその点を通るtransverse diskでyを固定すると、接続d+Ωは\n`d+M(x,y0) dx/x` という通常のregular singular接続である。\nregular singular一次系のresidue–monodromy spectrumにより、meridian monodromyの固有値は\n`exp(±2πi/2)=−1` である。resonanceがあっても固有値のこの結論は変わらない。\n\n一方d+ΩはUの**自明rank二bundle上の全球flat SL2接続**である。\nsmooth degree三plane curveのcomplementは `π1(U)=Z/3` なので、\nmeridian monodromyの三乗はidentityでなければならない。\n固有値−1はこれに反する。\n従ってN|R=0、すなわちΩはlogarithmicである。\n\nresidue完全列\n`0→Ω¹_P²→Ω¹_P²(logR)→O_R→0`\nでは、`H⁰(O_R)=C→H¹(Ω¹_P²)=C` が1をc1(R)=3Hへ送り、単射である。\n`H⁰(Ω¹_P²)=0` と合わせて `H⁰(Ω¹_P²(logR))=0` を得る。\nよってΩ=0となる。\n\n## 2. 使ったtopology/ODE入力の射程\n\nsmooth plane curve degree dのcomplementのπ1がZ/dとなる標準定理を使う。\nこの特殊場合は次のようにも導ける。\nR={f3=0}のaffine coneは原点だけをcritical pointに持ち、\nhomogeneous Milnor fiber `{f3=1}⊂C³` はisolated hypersurface singularityのMilnor fiberと同じhomotopy typeを持つ。\nJ. Milnor, *Singular points of complex hypersurfaces*,\nAnnals of Mathematics Studies61, Princeton University Press(1968), Theorem6.5により、\nこれは二次元sphereのbouquet、従ってsimply connectedである。\n自然写像 `{f3=1}→P²\\R` は自由なμ3作用のquotientなので、π1(U)=μ3となる。\nこれは本noteにおける明記した標準topology入力であり、有限行列計算で検証した事実ではない。\n\n直接読んだ補助照合はE. Artal Bartolo–A. Dimca,\n*On fundamental groups of plane curve complements*, arXiv:1507.08178v1,\n<https://arxiv.org/pdf/1507.08178> のIntroductionと§3、Proposition3.1の証明である。\nそこには上記Milnor fiberのcyclic d-fold quotient、nodal curveのcomplementの可換性、\n及び可換な場合のmeridian relation `Σd_i μ_i=0` が明記されており、\n滑らかな既約三次の場合にZ/3と一致する。\nMilnor原著の全証明を本作業で再証明したとはしていない。\n\nもう一つの標準入力は、disc上のholomorphic residue Mを持つregular singular接続で\nmonodromyの固有値がexp(−2πi eigen(M))となる局所ODE定理である。\n非logarithmicな二変数接続全体のregular singular性は用いず、transverse diskだけに適用する。\n\n## 3. Poisson conormal接続へ適用するための一位極の証明\n\nS=P2⊂P4をsmooth Poisson invariant planeとし、π|Sがgeneric rank二とする。\nさらに**Sが実退化因子DのSingDに含まれる**と仮定する。\n本研究の非正規曲面成分はこの仮定を満たす。\nその零divisor Rをsmooth irreducible cubicと仮定する。\n`N*=I_S/I_S²=O_P²(-1)⊗C²`。\nSのgeneric rank二点ではWeinstein分解によりπは接方向symplectic二次元とnormal Poisson二次元の積となる。\n実Dの一次normal symbolはnormal-normal bracketの一次symbolそのものなので、\n`D∈I_S²` は ` {I_S,I_S}⊂I_S² ` を強制する。\nこのbundle bracketのgenericな消滅は被約Sの全域へ延長する。\n従って\n\n`∇_(df)(j)={f_tilde,j_tilde} mod I_S²`\n\nはN*上のwell-definedなcotangent Lie algebroid接続である。\n全coefficientはS上で正則で、Jacobiによりflatである。\nUではanchor π_S^sharpが可逆なので、ordinary flat connectionへ移せる。\nπSはRで一位に零となるため、そのinverseは一位極だけを持ち、\nこの接続の一形式もRに沿い高々一位の極を持つ。\n\nP(N*)=P2×P1には正準の自明projective frameがある。\nN*の二frame間のtransitionは同じO(-1)のscalarなので、\ntracefree partは全球\n\n`Ω∈H⁰(P²,Ω¹_P²(R))⊗sl₂`\n\nにglueする。projective flatnessとtracefree性から `dΩ+Ω∧Ω=0` である。\n従って§1を適用してΩ=0を得る。\n\n**Poisson系への結論。** この全plane枝のconormal接続はprojectively scalarである。\nconstant normal directionは全てprojectively horizontalとなる。\nlog性は仮定ではなく、上のglobal monodromyにより証明した。\nX、導手、Dの横断ordinary-double又はvertical divisorに関する仮定を、このfirst-jet結論では使わない。\nSがSingDに入るという仮定は必要であり、単にPoisson invariantでrank二というだけから\n`{I_S,I_S}⊂I_S²` を推論してはいない。\n\n## 4. 残る仕事と誤用を避ける境界\n\nこの補題はhigher normal-weight項の全Jacobi/Pfaffianをまだ解いていないので、G排除を意味しない。\nnormal-normal quadraticが二相異なる根を持つ場合だけ、GL2 normal変更でa*z*w型へ直せる。\n平方又は零のnormal quadraticを、generic doubleという追加仮定なしに捨ててはならない。\n\nRがsingular又はreducibleならπ1とresidue完全列が変わり、この証明を適用していない。\nπSの零divisorが非被約ならinverse接続は高位極を持ち得るため、同様に補集合である。\nblowup inverse二形式のE-residue βがvertical曲線に沿い高位極を持つ場合も、\nここで証明したconormal接続の一位極と混同していない。\n",
+  "review_note": "research/classification/PLANE_SMOOTH_CUBIC_CONORMAL_CONNECTION_REVIEW.md",
+  "hypothesis_clarification": {
+    "original_gap": "Invariant rank2plane alone does not imply abelian conormal bracket.",
+    "correct_scope": "S subset Sing(actualD), or explicitly {I,I}subset I^2. Producer note now states SingD.",
+    "local_counterexample_to_unrestricted_scope": "partialx wedge partialy+u partialu wedge partialv, S=(u=v=0)",
+    "independent_direct_proof": "Mixed coefficients lie inI; Pf pi congruent pi_xy*pi_uv modI^2. ActualD inI^2 and pi_xy genericunit imply bracket vanishes generically and hence everywhere."
+  },
+  "checks": {
+    "simple_poles_from_anchor_inverse": true,
+    "scalar_line_twist_removed_by_tracefree_transition": true,
+    "genuine_global_trivial_SL2_lift": true,
+    "flat_leading_equation": "[M0,N0]=N0",
+    "nonlog_residue_eigenvalues": [
+      "1/2",
+      "-1/2"
+    ],
+    "resonance_harmless_via_radial_monodromy_limit": true,
+    "smooth_cubic_pi1": "Z/3",
+    "log_residue_class_injective": "1 maps to3H",
+    "global_tracefree_form_zero": true
+  },
+  "primary_directly_read": [
+    {
+      "author": "John Milnor",
+      "title": "Singular points of complex hypersurfaces",
+      "year": 1968,
+      "location": "Section6 hypotheses and Theorem6.5 printed57-58",
+      "accessed_original_scan_text": "https://djvu.online/file/kCFrJq27uCPRi",
+      "scope": "Isolatedcritical point,n>1; sphericalfiber bouquet ofn-spheres. For homogeneouscubic the radial map is an explicit diffeomorphism with global f=1."
+    },
+    {
+      "authors": [
+        "Enrique Artal Bartolo",
+        "Alexandru Dimca"
+      ],
+      "url": "https://arxiv.org/pdf/1507.08178",
+      "version": "v1",
+      "location": "Introduction and Section3/Proposition3.1 proof",
+      "scope": "Cyclic globalMilnorfiber cover, nodalcomplement abelian, meridian relation under abelian hypothesis. Not arbitrary singular cubic."
+    }
+  ],
+  "retained_complements": [
+    "Singular/reducible/nonreduced R",
+    "S not contained in SingD unless abelian conormal assumed separately",
+    "Scalar line connection holonomy need not vanish",
+    "Higher normalPoisson terms and square/zero normalquadratic",
+    "Vertical blowup residue highpoles unrelated to this connection"
+  ],
+  "G_exhaustion_proved": false
+}

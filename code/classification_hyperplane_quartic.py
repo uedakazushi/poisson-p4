@@ -1374,6 +1374,244 @@ def nil31_short_quartic_recognition(component_path):
         scope='Whole type4 H+irreduciblequartic support is coveredby knownMPS components; theexactactualPoissoncurve andrankbounds suffice, without aformalmap-completeness claim.')
 
 
+def nil22_quartic_potential(source_path):
+    row=json.loads(source_path.read_text())['full_nilpotent_sources'][6]
+    n=s.symbols('n0:20');x,y,z,w=s.symbols('x y z w');t,u,v=s.symbols('t u v');old=(x,y,z,w);new=(t,u,v,w)
+    P=s.zeros(4)
+    for(i,j),text in zip(it.combinations(range(4),2),row['brackets']):P[i,j]=s.sympify(text);P[j,i]=-P[i,j]
+    forward=s.Matrix([y,x-y*y/2,z-w*y,w]);jacobian=forward.jacobian(old);assert jacobian.det()==-1
+    inverse={x:u+t*t/2,y:t,z:v+w*t,w:w}
+    transformed=(jacobian*P*jacobian.T).subs(inverse,simultaneous=True).applyfunc(s.expand)
+    assert not any(entry.has(t)for entry in transformed)
+    Phi=-n[17]*u*u-n[18]*u*v+(n[15]+(n[16]-n[13])*w+(n[19]-n[14])*w*w)*u+(-3*n[11]/4+n[19]/2+s.Rational(1,4))*v*v-(n[6]+n[7]*w+n[8]*w*w)*v+n[3]*w+(n[4]-n[0])*w*w/2+(n[5]-n[1])*w**3/3-n[2]*w**4/4
+    V=s.Matrix([(n[11]-2*n[14]-1)*u-(n[12]+3*n[8])*v-n[0]-n[1]*w-n[2]*w*w,-n[18]*u+(-n[11]+n[14])*v+n[9]+n[10]*w+n[12]*w*w,n[13]+n[14]*w])
+    assert (transformed[0,1:4]-V.T).applyfunc(s.expand)==s.zeros(1,3),(transformed[0,1:4]-V.T).applyfunc(s.expand)
+    assert s.expand(transformed[1,2]-s.diff(Phi,w))==0
+    assert s.expand(transformed[1,3]+s.diff(Phi,v))==0
+    assert s.expand(transformed[2,3]-s.diff(Phi,u))==0
+    assert sum(s.diff(V[i],q)for i,q in enumerate((u,v,w)))==-1
+    Q0=s.expand(sum(V[i]*s.diff(Phi,q)for i,q in enumerate((u,v,w)))+Phi)
+    def jac(A,coords):return[s.expand(sum(A[i,l]*s.diff(A[j,k],coords[l])+A[j,l]*s.diff(A[k,i],coords[l])+A[k,l]*s.diff(A[i,j],coords[l])for l in range(4)))for i,j,k in it.combinations(range(4),3)]
+    J=jac(transformed,new)
+    assert [s.expand(q)for q in J]==[s.diff(Q0,w),-s.diff(Q0,v),s.diff(Q0,u),0]
+    Pf=s.sympify(row['actual_affine_pfaffian']);assert s.expand(Pf.subs(inverse,simultaneous=True)+Q0-Phi)==0
+    H=s.hessian(Phi,(u,v));M=V[:2,:].jacobian((u,v));C=M.T*H+H*M+H
+    assert (s.hessian(Q0,(u,v))-C).applyfunc(s.expand)==s.zeros(2)
+    assert s.expand(s.trace(H.adjugate()*C)+2*n[14]*H.det())==0
+    # The canonical binary-quadratic semi-invariant factor identity has no denominator.
+    U,W,alpha,flow=s.symbols('U W alpha flow');p=s.Function('p')(w);q=s.Function('q')(w);r=s.Function('r')(w);beta=-1-alpha
+    F=U*W+p*U+q*W+r;b=alpha*q-flow*s.diff(q,w);d=beta*p-flow*s.diff(p,w)
+    Vcanonical=s.expand((alpha*U+b)*s.diff(F,U)+(beta*W+d)*s.diff(F,W)+flow*s.diff(F,w)+F)
+    g=r-p*q
+    assert s.simplify(Vcanonical-(flow*s.diff(g,w)+g))==0
+    result=dict(all_passed=True,source_report=str(source_path),source_sha256=hashlib.sha256(source_path.read_bytes()).hexdigest(),polynomial_straightening=list(map(str,forward)),jacobian_determinant=-1,all_six_transformed_brackets=list(map(str,[transformed[i,j]for i,j in it.combinations(range(4),2)])),potential=str(Phi),vector_field=list(map(str,V)),Q0=str(Q0),all_Jacobi_equivalent_to_dQ0_zero=True,actual_affine_pfaffian_equals_Phi_minus_Q0=True,binary_quadratic_Hessian=[[str(a)for a in H.row(i)]for i in range(2)],fiber_linear_matrix=[[str(a)for a in M.row(i)]for i in range(2)],conformal_trace_identity='trace(adj(H)*(M^t H+H M+H))=-2*n14*det(H)',rank2_forces_n14_zero=True,canonical_factor_remainder_ODE=str(flow*s.diff(g,w)+g),rank2_irreducible_quartic_empty=True,mathematical_rank2_proof='On detH!=0 the conformalidentity forcesn14=0. ConstantGL2 overC putsquadraticpartUV andMdiag(alpha,-1-alpha). WriteF=UV+p(w)U+q(w)V+r(w),Vw=constantflow. The semi-invariant equations force flow*gprime+g=0 forg=r-pq. A nonzero polynomialg cannot satisfythis byitsleadingdegree, henceg0 andF=(U+q)(V+p). The rank2complement detH0 isretained.',remaining_complement='det(H)=0: rank1 andrank0 stillrequirefullsource classification.')
+    return result
+
+def nil22_quartic_core_action(source_path):
+    row=json.loads(source_path.read_text())['full_nilpotent_sources'][6]
+    h,x,y,z,w=coords=s.symbols('h x y z w');n=s.symbols('n0:20');a,r=s.symbols('a r');pairs=list(it.combinations(range(1,5),2));mons=[coords[i]*coords[j]for i,j in it.combinations_with_replacement(range(5),2)]
+    P=s.zeros(5)
+    for(i,j),text in zip(pairs,row['brackets']):
+     f=s.Poly(s.sympify(text),x,y,z,w);P[i,j]=sum(c*h**(2-sum(e))*s.prod(v**k for v,k in zip((x,y,z,w),e))for e,c in f.terms());P[j,i]=-P[i,j]
+    G=s.Matrix([[1,0,0,0,0],[0,1,0,a,0],[0,0,1,0,a],[0,0,0,r,0],[0,0,0,0,r]])
+    N=s.zeros(5);N[1,2]=N[2,0]=N[3,4]=1;assert G*N==N*G and G.det()==r*r
+    changed=(G*P*G.T).subs(dict(zip(coords,G.inv()*s.Matrix(coords))),simultaneous=True).applyfunc(s.expand)
+    original_coefficients=[s.Poly(P[i,j],*coords).coeff_monomial(mon)for i,j in pairs for mon in mons]
+    changed_coefficients=[s.Poly(changed[i,j],*coords).coeff_monomial(mon)for i,j in pairs for mon in mons]
+    assert [original_coefficients[j]for j in row['free_coefficient_indices']]==list(n)
+    new_parameters={n[i]:s.factor(changed_coefficients[j])for i,j in enumerate(row['free_coefficient_indices'])}
+    for(i,j),text in zip(pairs,row['brackets']):
+     f=s.Poly(s.sympify(text).subs(new_parameters,simultaneous=True),x,y,z,w)
+     expected=sum(c*h**(2-sum(e))*s.prod(v**k for v,k in zip((x,y,z,w),e))for e,c in f.terms())
+     assert s.cancel(expected-changed[i,j])==0
+    assert s.cancel(new_parameters[n[14]]-n[14])==0
+    result=dict(all_passed=True,input_report=str(source_path),input_sha256=hashlib.sha256(source_path.read_bytes()).hexdigest(),actual_affine_centralizer_matrix=[[str(v)for v in G.row(i)]for i in range(5)],determinant='r^2',all_six_bracket_identities=True,cofactor_commutation=True,full_parameter_map={str(k):str(v)for k,v in new_parameters.items()},n14_invariant=True)
+    return result
+
+def nil22_quartic_rank_resonance(source_path, action_data):
+    n=s.symbols('n0:20');q=n[14];y,w=s.symbols('y w');a,r,rho=s.symbols('a r rho')
+    source=source_path;row=json.loads(source.read_text())['full_nilpotent_sources'][6]
+    indices=[2,8,11,12,14,17,18,19];corevars={n[i]for i in indices};core=[]
+    for text in row['distinct_nonzero_jacobi_coefficients']:
+     p=s.sympify(text)
+     if p.free_symbols<=corevars:
+      p=s.Poly(p,*n,domain=s.QQ).monic().as_expr()
+      if p not in core:core.append(p)
+    action={s.Symbol(k):s.sympify(v)for k,v in action_data['full_parameter_map'].items()}
+    def ideal_check(actual,expected,variables):
+     G=s.groebner(actual,*variables,domain=s.QQ);H=s.groebner(expected,*variables,domain=s.QQ)
+     assert all(H.reduce(s.expand(v))[1]==0 for v in actual)
+     assert all(G.reduce(s.expand(v))[1]==0 for v in expected)
+     return list(map(str,[v.as_expr()for v in G.polys]))
+    Uchecks=[]
+    for value in [s.Rational(1,2),-s.Rational(1,2),-s.Integer(1),-s.Rational(1,3)]:
+     sub={q:value,n[17]:1,n[18]:0,n[11]:2*value+s.Rational(1,2),n[19]:3*value+s.Rational(1,4),n[12]:-3*n[8]}
+     actual=[s.expand(v.subs(sub,simultaneous=True))for v in core]
+     expected=[n[2]+s.Rational(3,16),n[8]**2-s.Rational(1,16)]if value==-s.Rational(1,2)else[1]
+     Uchecks.append(dict(n14=str(value),core_groebner=ideal_check(actual,expected,[n[2],n[8]])))
+    Vchecks=[]
+    for value,k12,k2 in [(s.Rational(1,2),-3,4),(-s.Integer(1),-6,-8),(-s.Rational(1,3),2,24)]:
+     sub={q:value,n[17]:0,n[18]:0,n[11]:value+s.Rational(1,2)}
+     expected=[n[19]-value,n[12]-k12*n[8],n[2]-k2*n[8]**2]
+     G=ideal_check([s.expand(v.subs(sub,simultaneous=True))for v in core],expected,[n[19],n[12],n[2],n[8]])
+     old={**sub,n[19]:value,n[12]:k12*n[8],n[2]:k2*n[8]**2}
+     transformed={n[i]:s.cancel(action[n[i]].subs(old,simultaneous=True).subs({a:-4*n[8]/(2*value+1),r:1},simultaneous=True))for i in indices}
+     wanted={**sub,n[19]:value,n[2]:0,n[8]:0,n[12]:0}
+     assert all(s.cancel(transformed[n[i]]-wanted[n[i]])==0 for i in indices)
+     Vchecks.append(dict(n14=str(value),core_groebner=G,normalizing_a=str(-4*n[8]/(2*value+1)),normalizing_r='1'))
+    subhalf={q:-s.Rational(1,2),n[17]:0,n[18]:0,n[11]:0}
+    actual=[s.expand(v.subs(subhalf,simultaneous=True))for v in core]
+    expected=[(3*n[19]+1)*n[8],4*n[12]*n[8]+(4*n[19]+1)*n[2]]
+    halfG=ideal_check(actual,expected,[n[19],n[12],n[2],n[8]])
+    Kphi=-n[17]*y**4/4-n[18]*y**3*w/2+(-3*n[11]/4+q/2+s.Rational(1,4))*y*y*w*w+n[8]*y*w**3-n[2]*w**4/4
+    assert s.expand(Kphi.subs(subhalf,simultaneous=True)-w**3*(n[8]*y-n[2]*w/4))==0
+    normalizations=[]
+    old={**subhalf,n[19]:-s.Rational(1,3),n[2]:12*n[12]*n[8]}
+    new={n[i]:s.cancel(action[n[i]].subs(old,simultaneous=True).subs({a:-3*n[12],r:n[8]},simultaneous=True))for i in indices}
+    normalizations.append(dict(name='rank1_V_half_yw3',conditions=['n8!=0'],a='-3*n12',r='n8',core={str(k):str(v)for k,v in new.items()}))
+    assert new[n[2]]==new[n[12]]==0 and new[n[8]]==1
+    old={**subhalf,n[19]:-s.Rational(1,4),n[8]:0,n[2]:rho*rho}
+    new={n[i]:s.cancel(action[n[i]].subs(old,simultaneous=True).subs({a:-4*n[12],r:rho},simultaneous=True))for i in indices}
+    normalizations.append(dict(name='rank1_V_half_w4',conditions=['n8=0,n2!=0'],complex_surjective_cover='n2=rho^2,rho!=0',a='-4*n12',r='rho',core={str(k):str(v)for k,v in new.items()}))
+    assert new[n[8]]==new[n[12]]==0 and new[n[2]]==1
+    rank0checks=[]
+    for value in [-s.Integer(1),-s.Rational(1,4)]:
+     sub={q:value,n[17]:0,n[18]:0,n[19]:3*n[11]/2-s.Rational(1,2)}
+     determinant=(n[11]-2*value)*(-n[11]+value+1)
+     actual=[s.expand(v.subs(sub,simultaneous=True))for v in core]+[determinant]
+     expected=[n[11],n[12]-n[8],n[2]-4*n[8]**2]if value==-1 else[1]
+     rank0checks.append(dict(n14=str(value),core_with_primitive_eigencondition_groebner=ideal_check(actual,expected,[n[11],n[12],n[2],n[8]])))
+    rank0={q:-1,n[17]:0,n[18]:0,n[11]:0,n[19]:-s.Rational(1,2),n[12]:n[8],n[2]:4*n[8]**2}
+    new={n[i]:s.cancel(action[n[i]].subs(rank0,simultaneous=True).subs({a:-2*n[8],r:1},simultaneous=True))for i in indices}
+    assert all(new[n[i]]==0 for i in [2,8,11,12,17,18])
+    normalizations.append(dict(name='rank0_minus1',a='-2*n8',r='1',core={str(k):str(v)for k,v in new.items()}))
+    normal_cores=[]
+    def put(name,values):
+     d={n[i]:s.Integer(0)for i in indices};d.update({n[int(k)]:s.Rational(v)for k,v in values.items()})
+     assert all(s.expand(v.subs(d,simultaneous=True))==0 for v in core)
+     assert s.expand(Kphi.subs(d,simultaneous=True))!=0
+     normal_cores.append(dict(name=name,core_substitution={str(k):str(v)for k,v in d.items()},highest_quartic_Phi=str(s.factor(Kphi.subs(d,simultaneous=True)))))
+    put('rank1_U_half',{'2':'-3/16','8':'1/4','11':'-1/2','12':'-3/4','14':'-1/2','17':'1','19':'-5/4'})
+    put('rank1_V_positive_half',{'11':'1','14':'1/2','19':'1/2'})
+    put('rank1_V_minus1',{'11':'-1/2','14':'-1','19':'-1'})
+    put('rank1_V_minus_third',{'11':'1/6','14':'-1/3','19':'-1/3'})
+    for value in normalizations:put(value['name'],{k[1:]:v for k,v in value['core'].items()})
+    assert len(normal_cores)==7
+    result=dict(all_passed=True,all_core_equations=list(map(str,core)),rank1_U_finite_q_checks=Uchecks,rank1_V_three_q_checks=Vchecks,rank1_V_negative_half_core_groebner=halfG,rank1_V_negative_half_top_Phi='w^3*(n8*y-n2*w/4)',rank0_primitive_core_checks=rank0checks,all_special_normalizations=normalizations,all_seven_normalized_core_candidates=normal_cores,all_candidate_cores_satisfy_full_core=True,remaining_full_fiber_equations_retained=True,mathematical_cover_dependency='Potential rankresonance lemmas: rank2 empty; rank1 q in{1/2,-1/2,-1,-1/3}; rank0 q in{-1,-1/4}andMhas eigen-1. Actualcentralizer normalizations coverallprincipalcharts overC, includingtheone explicit surjective squarecover. Fullfiber/Jacobi/irreducibility recognition remainsseparate.')
+    return result
+
+def nil22_quartic_fiber_sources(source_path, resonance_data):
+    n=s.symbols('n0:20');x,y,z,w=s.symbols('x y z w');h,shift=s.symbols('h shift');coords=(h,x,y,z,w);u=x-y*y/2;v=z-w*y
+    sp=source_path;row=json.loads(sp.read_text())['full_nilpotent_sources'][6];core_info=resonance_data['all_seven_normalized_core_candidates'];J=list(map(s.sympify,row['distinct_nonzero_jacobi_coefficients']));Pf=s.sympify(row['actual_affine_pfaffian'])
+    # Exact affine centering of the w-flow, keeping every coreparameter unchanged.
+    mons=[coords[i]*coords[j]for i,j in it.combinations_with_replacement(range(5),2)];pairs=list(it.combinations(range(1,5),2));P=s.zeros(5)
+    for(i,j),text in zip(pairs,row['brackets']):
+     f=s.Poly(s.sympify(text),x,y,z,w);P[i,j]=sum(c*h**(2-sum(e))*s.prod(q**k for q,k in zip((x,y,z,w),e))for e,c in f.terms());P[j,i]=-P[i,j]
+    G=s.eye(5);G[3,2]=shift;G[4,0]=shift
+    N=s.zeros(5);N[1,2]=N[2,0]=N[3,4]=1;assert G*N==N*G and G.det()==1
+    changed=(G*P*G.T).subs(dict(zip(coords,G.inv()*s.Matrix(coords))),simultaneous=True).applyfunc(s.expand)
+    coeff=[s.Poly(changed[i,j],*coords).coeff_monomial(mon)for i,j in pairs for mon in mons]
+    new={n[i]:s.factor(coeff[j])for i,j in enumerate(row['free_coefficient_indices'])}
+    for(i,j),text in zip(pairs,row['brackets']):
+     f=s.Poly(s.sympify(text).subs(new,simultaneous=True),x,y,z,w);expected=sum(c*h**(2-sum(e))*s.prod(q**k for q,k in zip((x,y,z,w),e))for e,c in f.terms());assert s.cancel(changed[i,j]-expected)==0
+    assert s.expand(new[n[13]]-n[13]+n[14]*shift)==0
+    assert all(s.expand(new[n[i]]-n[i])==0 for i in [2,8,11,12,14,17,18,19])
+    results=[]
+    weights=[(0,2,1,2,1),(0,2,1,1,0),(0,2,1,-1,-2),(0,2,1,3,2),(0,2,1,2,1),(0,2,1,2,1),(0,2,1,0,-1)]
+    for index,info in enumerate(core_info):
+     core={s.Symbol(k):s.Rational(value)for k,value in info['core_substitution'].items()};base={**core,n[13]:0};mapping={**{q:q for q in n},**base};unit=None;extra=[]
+     if index==0:
+      mapping.update({n[1]:0,n[7]:0,n[6]:0,n[9]:0,n[15]:-4*n[0],n[3]:2*n[0]*n[16],n[5]:s.Rational(9,8)*n[16]-s.Rational(3,2)*n[10]});free=[n[i]for i in [0,4,10,16]]
+     elif index==1:
+      mapping.update({n[16]:0,n[10]:-2*n[7],n[9]:-n[6],n[3]:s.Rational(2,3)*n[1]*n[15]-2*n[6]*n[7],n[4]:n[0]-2*n[7]**2,n[5]:n[1]});free=[n[i]for i in [0,1,6,7,15]];unit=n[15]
+     elif index==2:
+      mapping.update({n[16]:0,n[15]:0,n[10]:-2*n[7],n[9]:2*n[6],n[4]:n[0]+4*n[7]**2,n[5]:n[1]});free=[n[i]for i in [0,1,3,6,7]];unit=n[3]-4*n[6]*n[7]
+     elif index==3:
+      mapping.update({n[16]:0,n[15]:0,n[10]:-2*n[7],n[9]:-6*n[6],n[3]:-12*n[6]*n[7],n[4]:n[0]-12*n[7]**2});free=[n[i]for i in [0,1,5,6,7]];unit=n[5]-n[1]
+     elif index==4:
+      mapping.update({n[16]:0,n[15]:0,n[10]:0,n[9]:3*n[6],n[3]:6*n[6]*n[7],n[0]:-18*n[6],n[5]:0});free=[n[i]for i in [1,4,6,7]]
+     elif index==5:
+      mapping.update({n[16]:0,n[15]:0,n[10]:0,n[9]:2*n[6],n[3]:4*n[6]*n[7],n[0]:0,n[5]:-n[1]/2});free=[n[i]for i in [1,4,6,7]]
+     else:
+      mapping.update({n[16]:0,n[15]:0,n[7]:0,n[4]:0,n[5]:n[1]/4});raw_free=[n[i]for i in [0,1,3,6,9,10]];free=[n[i]for i in [0,1,3,6,9]];unit=n[6];extra=[n[6]*n[10]]
+     remaining=[q for q in n if q not in base];forced=[q for q in remaining if mapping[q]!=q]
+     variables=forced+[q for q in remaining if q not in forced]
+     actual=[s.expand(q.subs(base,simultaneous=True))for q in J];expected=[s.expand(q-mapping[q])for q in forced]+extra
+     GB=s.groebner(actual,*variables,domain=s.QQ);EB=s.groebner(expected,*variables,domain=s.QQ)
+     assert all(EB.reduce(q)[1]==0 for q in actual),(index,'actualnotexpected')
+     assert all(GB.reduce(q)[1]==0 for q in expected),(index,'expectednotactual')
+     raw_mapping=dict(mapping);raw_pf=s.factor(Pf.subs(mapping,simultaneous=True));excluded=None
+     if index==1:
+      complement=s.factor(raw_pf.subs(n[15],0));square=-(v+2*n[6]+2*n[7]*w)**2/4;assert s.expand(complement-square)==0;excluded=dict(condition='n15=0',exact_pfaffian=str(complement),reason='square')
+     if index==2:
+      complement=s.factor(raw_pf.subs(n[3],4*n[6]*n[7]));square=(v-4*n[6]-4*n[7]*w)**2/8;assert s.expand(complement-square)==0;excluded=dict(condition='n3-4*n6*n7=0',exact_pfaffian=str(complement),reason='square')
+     if index==3:
+      complement=s.factor(raw_pf.subs(n[5],n[1]));square=-(v+12*n[6]+12*n[7]*w)**2/24;assert s.expand(complement-square)==0;excluded=dict(condition='n5-n1=0',exact_pfaffian=str(complement),reason='square')
+     if index==6:
+      complement=s.factor(raw_pf.subs(n[6],0));assert s.cancel(complement/w).is_polynomial(x,y,z,w);excluded=dict(condition='n6=0',exact_pfaffian=str(complement),reason='universalwfactor');mapping[n[10]]=0
+     assert all(s.expand(q.subs(mapping,simultaneous=True))==0 for q in J)
+     pf=s.factor(Pf.subs(mapping,simultaneous=True));brackets=[str(s.factor(s.sympify(q).subs(mapping,simultaneous=True)))for q in row['brackets']]
+     point={q:s.Integer(0)for q in free}
+     if index==1:point[n[15]]=1
+     if index==2:point[n[3]]=1
+     if index==3:point[n[5]]=1
+     if index==6:point[n[6]]=1
+     canonical=P.subs(mapping,simultaneous=True).subs(point).applyfunc(s.expand);S=s.diag(*weights[index]);X=S*s.Matrix(coords)
+     lie=sum([X[k]*canonical.diff(coords[k])for k in range(5)],s.zeros(5))-S*canonical-canonical*S
+     assert (lie+canonical).applyfunc(s.expand)==s.zeros(5),(index,'weights')
+     if unit:assert s.expand(unit.subs(point))==1
+     irreducibility={}
+     if index==0:
+      assert s.expand(s.diff(pf,z)+w*w/4)==0 and s.diff(pf,z,2)==0
+      restriction=s.factor(pf.subs(w,0));assert s.Poly(restriction,x).coeff_monomial(x*x)==-1
+      irreducibility=dict(kind='primitive linear z',coefficient='-w^2/4',restriction_at_w_zero=str(restriction),nonzero_x2_coefficient='-1')
+     elif index==1:
+      assert s.expand(s.diff(pf,x)-n[15])==0 and s.diff(pf,x,2)==0
+      irreducibility=dict(kind='linear x with constant unitcoefficient',unit='n15')
+     elif index==2:
+      expected_pf=(v-4*n[6]-4*n[7]*w)**2/8+(n[3]-4*n[6]*n[7])*w
+      assert s.expand(pf-expected_pf)==0
+      irreducibility=dict(kind='quadratic z with oddw discriminant',exact_form=str(expected_pf),odd_exponent=1,unit='n3-4*n6*n7')
+     elif index==3:
+      expected_pf=-(v+12*n[6]+12*n[7]*w)**2/24+(n[5]-n[1])*w**3/3
+      assert s.expand(pf-expected_pf)==0
+      irreducibility=dict(kind='quadratic z with oddw discriminant',exact_form=str(expected_pf),odd_exponent=3,unit='n5-n1')
+     elif index in [4,5]:
+      denominator=6 if index==4 else 4;expected_z2=s.Rational(1,12)if index==4 else s.Rational(1,8)
+      assert s.expand(s.diff(pf,x)-w*w/denominator)==0 and s.diff(pf,x,2)==0
+      restriction=s.factor(pf.subs(w,0));assert s.Poly(restriction,z).coeff_monomial(z*z)==expected_z2
+      irreducibility=dict(kind='primitive linear x',coefficient='w^2/'+str(denominator),restriction_at_w_zero=str(restriction),nonzero_z2_coefficient=str(expected_z2))
+     else:
+      assert s.expand(s.diff(pf,z)+n[6])==0 and s.diff(pf,z,2)==0
+      irreducibility=dict(kind='linear z with constant unitcoefficient',unit='n6')
+     results.append(dict(name=info['name'],core_substitution=info['core_substitution'],parameters=list(map(str,free)),localization=[str(unit)+'!=0']if unit else[],full_source_substitution={str(k):str(value)for k,value in mapping.items()},raw_source_substitution={str(k):str(value)for k,value in raw_mapping.items()},raw_residual_compatibility=list(map(str,extra)),exact_full_Jacobi_groebner=[str(q.as_expr())for q in GB.polys],expected_Jacobi_relations=list(map(str,expected)),all_four_Jacobi_identically_zero=True,universal_brackets=brackets,actual_affine_pfaffian=str(pf),highest_quartic_phi=info['highest_quartic_Phi'],excluded_zero_complement=excluded,entire_source_irreducible_quartic=True,irreducibility_certificate=irreducibility,canonical_parameter_values={str(k):str(value)for k,value in point.items()},canonical_source_values={str(k):str(s.sympify(value).subs(point))for k,value in mapping.items()},canonical_Cstar_weights=list(weights[index]),canonical_tensor_character=-1,canonical_tensor_Cstar_identity=True))
+    result=dict(all_passed=True,source_report=str(sp),source_sha256=hashlib.sha256(sp.read_bytes()).hexdigest(),w_centering_matrix=[[str(q)for q in G.row(i)]for i in range(5)],w_centering_full_parameter_map={str(k):str(value)for k,value in new.items()},all_core_parameters_unchanged_by_w_centering=True,flow_centering_rule='shift=n13/n14 setsnewn13=0; allseven n14 areconstantnonzero',all_seven_complete_families=results,full_normalized_source_Jacobi_ideals_checked_both_directions=True,whole_cover_dependency='Potential rankresonance/core normalform theorem plusactual w-centering; allunit complements explicitly excluded byPf factors.',scope='Seven complete normalized irreducibleparameter families; componentrecognition remainsseparate.')
+    return result
+
+def nil22_long_quartic_sources(source_path):
+    """Complete whole type7 irreducible-quartic source reduction with all complements."""
+    potential=nil22_quartic_potential(source_path)
+    action=nil22_quartic_core_action(source_path)
+    resonance=nil22_quartic_rank_resonance(source_path,action)
+    result=nil22_quartic_fiber_sources(source_path,resonance)
+    counts=[len(v['parameters'])for v in result['all_seven_complete_families']]
+    undo=[2,1,1,1,2,2,1]
+    assert counts==[4,5,5,5,4,4,5]and all(a+b+1==7 for a,b in zip(counts,undo))
+    row=json.loads(source_path.read_text())['full_nilpotent_sources'][6]
+    A=s.Matrix(row['field_linear_matrix']);c=s.Matrix(row['field_constant'])
+    B=s.Matrix(4,4,s.symbols('b0:16'));translation=s.Matrix(s.symbols('t0:4'))
+    orbit=s.Matrix(list(B*A-A*B)+list(B*c-A*translation)).jacobian(list(B)+list(translation))
+    assert orbit.rank()==12
+    result.update(potential_geometry=potential,actual_core_action=action,rank_resonance=resonance,
+        whole_H_irreducible_quartic_support_covered_by_seven_normalized_sources=True,
+        normalized_parameter_counts=counts,undo_core_normalization_parameter_bounds=undo,
+        undo_w_centering_parameter_bound=1,full_fixed_source_dimension_upper=7,
+        affine_cofactor_orbit_dimension=12,affine_cofactor_orbit_tangent_matrix=[[str(v)for v in orbit.row(i)]for i in range(20)],
+        hyperplane_choice_dimension=4,projective_scalar_subtracts=1,whole_saturated_projective_dimension_upper=22,
+        component_membership_unresolved=True,
+        scope='Complete type7 H+irreduciblequartic support is the PGLsaturation of seven explicit irreducible parameterfamilies. All zero/rank/normalization complements retained. Componentrecognition is separate; no newcomponent asserted.')
+    return result
+
 def nil31_short_quartic_sources(source_path):
     """All short31 quartic sources after the complete nine-core-branch theorem."""
     row=json.loads(source_path.read_text())['full_nilpotent_sources'][3]
@@ -1977,6 +2215,301 @@ def nil_short_translation_distinct_c(source_path):
                 scope='Whole n25-nonzero distinct-root source reduced to one irreducible five-parameter canonical source and invertible affine normalizers. Ambient membership remains open.')
 
 
+def nil22_long_quartic_orbit_models(family_path):
+    """Whole seven-source orbit closures and complete one-normal models 3/4."""
+    import importlib.util
+    from sympy.polys.matrices import DomainMatrix
+    family_report=json.loads(family_path.read_text())['nil22_long_quartic_sources']
+    source_path=Path(family_report['source_report'])
+    families=family_report['all_seven_complete_families']
+    helper=Path('legacy/v03/code/poisson_p4_components_check.py')
+    spec=importlib.util.spec_from_file_location('nil22_orbit_model_ambient',helper)
+    ambient=importlib.util.module_from_spec(spec);spec.loader.exec_module(ambient)
+    h,x,y,z,w=coords=s.symbols('h x y z w');e=s.Symbol('e')
+    def dm(A):return DomainMatrix.from_Matrix(A).convert_to(s.QQ)
+    def pivots(A):return list(dm(A).rref()[1])
+    def encode(v):return {str(i):str(c)for i,c in enumerate(v)if c}
+    def vector(A):return s.Matrix([s.Poly(A[i,j],*coords).coeff_monomial(mon)for(i,j),mon in ambient.BIVECTOR_BASIS])
+    def unvector(v):
+        A=s.zeros(5)
+        for c,((i,j),mon)in zip(v,ambient.BIVECTOR_BASIS):
+            a=c*s.prod(q**k for q,k in zip(coords,mon));A[i,j]+=a;A[j,i]-=a
+        return A.applyfunc(s.expand)
+    def jac(v):
+        B={}
+        for c,(pair,mon)in zip(v,ambient.BIVECTOR_BASIS):
+            if c:B.setdefault(pair,{})[mon]=c
+        J=ambient.affine_jacobi_coefficients(B);W=s.zeros(350,1)
+        for triple,poly in J.items():
+            for k in set(range(5))-set(triple):
+                sign=ambient.permutation_sign((k,)+triple);quad=tuple(sorted((k,)+triple))
+                for mon,c in poly.items():
+                    exp=list(mon);exp[k]+=1;W[ambient.FOUR_VECTOR_INDEX[(quad,tuple(exp))]]+=sign*c
+        return W
+    anchors=[];models=[]
+    for index,family in enumerate(families,1):
+        point=dict(source_report=str(source_path),source_row=6,
+            substitutions=family['canonical_source_values'],family_report=str(family_path),
+            family_result_key='nil22_long_quartic_sources',family_list_key='all_seven_complete_families',
+            family_index=index-1,family_parameter_point=family['canonical_parameter_values'],
+            structural_anchor=family['name']+'; entire finite source retained')
+        anchor=nil_regular_component(source_path,point=point)
+        assert anchor['projective_orbit_dimension']==anchor['actual_family_projective_rank']==22
+        assert family_report['whole_saturated_projective_dimension_upper']==22
+        anchor.update(source_saturation_is_actual_orbit_closure=True,
+            source_closure_reason='Irreducible source saturation contains this orbit22 and has dimension at most22; hence its closure equals the orbitclosure.')
+        anchors.append(anchor)
+        if index not in [3,4]:continue
+        P=s.zeros(5)
+        for pair,text in anchor['witness_brackets'].items():
+            i,j=map(int,pair.split(','));P[i,j]=s.sympify(text);P[j,i]=-P[i,j]
+        p=vector(P);assert jac(p)==s.zeros(350,1)
+        B={(i,j):{mon:int(c)for mon,c in s.Poly(P[i,j],*coords).terms()if c}for i,j in ambient.PAIRS if P[i,j]!=0}
+        D=s.Matrix(ambient.linearized_jacobi_matrix(B).tolist())
+        actions=[]
+        for i,j in it.product(range(5),repeat=2):
+            L=s.zeros(5);L[i,j]=1;X=L*s.Matrix(coords)
+            actions.append(vector(sum([X[k]*P.diff(coords[k])for k in range(5)],s.zeros(5))-L*P-P*L.T))
+        M=s.Matrix(ambient.vertical_bivector_matrix().tolist()).row_join(s.Matrix.hstack(*actions,p))
+        actioncols=pivots(M);assert len(actioncols)==47 and D*M==s.zeros(350,M.cols)
+        Hcols=[j for j,(pair,mon)in enumerate(ambient.BIVECTOR_BASIS)if 0 not in pair]
+        DH=D[:,Hcols];KH=dm(DH).nullspace().to_Matrix().T
+        affinecols=[25+i*5+j for i in range(1,5)for j in range(5)]+[M.cols-1]
+        MH=M[Hcols,affinecols];mc=pivots(MH);mr=pivots(MH[:,mc].T)
+        projected=KH-MH[:,mc]*dm(MH[mr,mc]).inv().matmul(dm(KH[mr,:])).to_Matrix()
+        nc=pivots(projected);assert len(nc)==1
+        RH=projected[:,nc];nr=pivots(RH.T);RH=RH*dm(RH[nr,:]).inv().to_Matrix()
+        R=s.zeros(150,1)
+        for j,at in enumerate(Hcols):R[at]=RH[j]
+        assert D*R==s.zeros(350,1)and len(pivots(M.row_join(R)))==48
+        kernel_frame=M[:,actioncols].row_join(R);kernel_rows=pivots(kernel_frame.T)
+        kernel_minor=str(dm(kernel_frame[kernel_rows,:]).det())
+        assert len(kernel_rows)==48 and s.Rational(kernel_minor)!=0
+        Z=s.Matrix([s.expand(sum(s.diff(P[i,j],coords[i])for i in range(5)))for j in range(5)])
+        N=Z.jacobian(coords);assert Z==N*s.Matrix(coords)
+        assert [len(pivots(N**j))for j in [1,2,3]]==[3,1,0]
+        hform=s.Matrix([1,0,0,0,0]);assert len(pivots((N.T**2).row_join(hform)))==1
+        sigma=family['canonical_Cstar_weights'];S=s.diag(*sigma);X=S*s.Matrix(coords)
+        assert (sum([X[k]*P.diff(coords[k])for k in range(5)],s.zeros(5))-S*P-P*S+P).applyfunc(s.expand)==s.zeros(5)
+        bw=[sum(a*b for a,b in zip(mon,sigma))-sigma[i]-sigma[j]+1 for(i,j),mon in ambient.BIVECTOR_BASIS]
+        ww=[sum(a*b for a,b in zip(mon,sigma))-sum(sigma[i]for i in quad)+2 for quad,mon in ambient.FOUR_VECTOR_BASIS]
+        assert all(not D[i,j]or ww[i]==bw[j]for i in range(350)for j in range(150))
+        weights={bw[i]for i,c in enumerate(R)if c};assert weights=={2};mu=2
+        order=Hcols+[j for j in range(150)if j not in Hcols]
+        dc=[order[j]for j in pivots(D[:,order])];dr=pivots(D[:,dc].T)
+        assert len(dc)==len(dr)==102
+        block=D[dr,dc];inverse=dm(block).inv().to_Matrix();assert block*inverse==s.eye(102)
+        maxweight=max([0]+[bw[j]for j in dc]);bound=maxweight//mu
+        assert bound=={3:4,4:3}[index]
+        coefficients={0:p,1:R};cache={}
+        def bilinear(a,b):
+            key=tuple(sorted((a,b)))
+            if key not in cache:
+                cache[key]=jac(coefficients[a])if a==b else jac(coefficients[a]+coefficients[b])-jac(coefficients[a])-jac(coefficients[b])
+            return cache[key]
+        def quadratic(degree):
+            out=s.zeros(350,1);positive=[j for j in coefficients if j]
+            for at,a in enumerate(positive):
+                for b in positive[at:]:
+                    if a+b==degree:out+=bilinear(a,b)
+            return out
+        for degree in range(2,bound+1):
+            Q=quadratic(degree);solution=-inverse*Q[dr,:];T=s.zeros(150,1)
+            for j,c in zip(dc,solution):T[j]=c
+            assert all(not c or bw[i]==degree*mu for i,c in enumerate(T))
+            assert (D*T+Q)[dr,:]==s.zeros(102,1)
+            if any(T):coefficients[degree]=T
+        residual={}
+        for degree in range(1,2*max(coefficients)+1):
+            Q=quadratic(degree)+(D*coefficients[degree]if degree in coefficients else s.zeros(350,1))
+            assert Q[dr,:]==s.zeros(102,1)
+            assert all(not c or ww[i]==degree*mu for i,c in enumerate(Q))
+            if any(Q):residual[degree]=Q
+        degrees=sorted(residual);C=s.Matrix.hstack(*[residual[j]for j in degrees]);rows=pivots(C.T)
+        generators=[s.expand(sum(C[row,j]*e**degree for j,degree in enumerate(degrees)))for row in rows]
+        GB=s.groebner(generators,e,domain=s.QQ);length={3:3,4:2}[index]
+        assert [q.as_expr()for q in GB.polys]==[e**length]
+        assert all(s.rem(s.Poly(sum(residual[j][row]*e**j for j in degrees),e),s.Poly(e**length,e)).is_zero for row in range(350))
+        graph=unvector(sum([v*e**degree for degree,v in coefficients.items()],s.zeros(150,1)))
+        models.append(dict(anchor=index,name=family['name'],full150_variables_and350_equations=True,
+            coordinate_weights=sigma,tensor_character=-1,normal_weights=[mu],normal_sparse=encode(R),
+            actual_action_columns=actioncols,actual_action_rank=47,kernel_plus_action_rank=48,
+            kernel_plus_action_minor_rows=kernel_rows,kernel_plus_action_minor=kernel_minor,
+            intrinsic_h_Casimir_cofactor_matrix=[[str(c)for c in N.row(j)]for j in range(5)],
+            homogeneous_cofactor_Jordan_partition=[3,2],cofactor_power_ranks=[3,1,0],
+            unique_hyperplane_form_in_image_dual_N_squared=True,
+            IFT_columns=dc,IFT_rows=dr,IFT_minor=str(dm(block).det()),IFT_rank=102,
+            full150_true_slice_splitting=True,all_D_weight_intertwining=True,
+            a_priori_maximum_implicit_weight=maxweight,a_priori_maximum_total_degree=bound,
+            complete_polynomial_graph_sparse={str(j):encode(v)for j,v in coefficients.items()},
+            complete_polynomial_graph_brackets={f'{i},{j}':str(graph[i,j])for i,j in ambient.PAIRS if graph[i,j]!=0},
+            all_selected_IFT_equations_zero_identically=True,
+            all350_residual_sparse={str(j):encode(v)for j,v in residual.items()},
+            independent_residual_rows=rows,residual_generators=list(map(str,generators)),
+            residual_groebner=[str(q.as_expr())for q in GB.polys],
+            reduced_slice_support_is_origin=True,existing_complete_slice_algebra_length=length,
+            local_raw_component_dimension=47,projective_component_dimension=22,
+            unique_orbitclosure_component_proved=True,
+            formal_completeness_reason='The nonzero102minor gives unique implicit coordinates on a genuine103dimensional slice. Its Cstar weights and positive normalweight2 force every implicit coordinate to be a polynomial of degree at most the stated prior bound; the displayed graph solves all selected equations identically. Thus the full remaining350 equations give the exact completed slice algebra.',
+            actual_formal_product_reason='Adding E wedge a linear field preserves all projective Jacobi equations, and GL5 acts on their zero scheme. The selected47 independent action/gauge directions and the103slice coordinates have invertible150differential. The formal action map gives a product with the exact slice; after vertical24 and scalar1, the unique component has dimension22. ConnectedPGL stabilizes each component, so every component through the anchor contains its orbitclosure22 and must equal it.'))
+    assert len(anchors)==7 and len(models)==2
+    return dict(family_report=str(family_path),family_sha256=hashlib.sha256(family_path.read_bytes()).hexdigest(),
+        helper=str(helper),helper_sha256=hashlib.sha256(helper.read_bytes()).hexdigest(),
+        all_seven_full_ambient_anchors=anchors,whole_seven_saturations_are_actual_orbit_closures=True,
+        complete_one_normal_models=models,two_orbitclosures_distinct_by_transverse_lengths=True,
+        distinctness_reason='The exact transverse completed lengths3 and2 at dense actual orbits are invariant under projective linear equivalence. Two dense orbit22 closures in one irreducible22component would be the same dense orbit, contradicting these different lengths.',
+        prior_catalogue_distinctness_separate=True,no_new_component_count=True,
+        scope='Whole-source orbitclosure recognition for all seven; complete reduced local support and intrinsic transverse lengths for cases3/4. Prior99distinctness and independent full verification are separate.')
+
+
+def nil22_long_quartic_curve_recognition(orbit_path):
+    """Literal actual curves recognize the remaining five whole source closures."""
+    import importlib.util
+    from sympy.polys.matrices import DomainMatrix
+    orbit=json.loads(orbit_path.read_text())['nil22_long_quartic_orbit_models']
+    source_path=Path(orbit['family_report'])
+    source=json.loads(source_path.read_text())['nil22_long_quartic_sources']
+    families=source['all_seven_complete_families']
+    helper=Path('legacy/v03/code/poisson_p4_components_check.py')
+    spec=importlib.util.spec_from_file_location('nil22_actual_curves_ambient',helper)
+    ambient=importlib.util.module_from_spec(spec);spec.loader.exec_module(ambient)
+    h,x,y,z,w=coords=s.symbols('h x y z w');t,u=s.symbols('t u')
+    # Literal QQ coefficients, discovered in complete positive-weight models.
+    # Runtime inputs contain no private model or work files.
+    curve_coefficients={'1': {'1': {'113': '1', '118': '-1/2', '134': '1', '143': '6', '148': '1'}, '2': {'65': '1/16', '128': '-1/8', '140': '-1/4'}}, '2': {'1': {'65': '1', '97': '1/2', '130': '1/2', '147': '-1/4'}}, '7': {'1': {'65': '1', '99': '-3', '112': '2', '128': '2', '138': '2', '146': '-2', '147': '-4'}, '2': {'95': '-1', '126': '2', '142': '2', '144': '-1'}}, '5': {'1': {'82': '1', '87': '-21/2', '98': '-1/4', '100': '3/4', '103': '-21/2', '115': '3/4', '131': '3/4', '148': '-5/4'}, '2': {'13': '-189/128', '38': '7/128', '40': '-1/16', '43': '21/32', '56': '-1/128', '59': '21/128', '67': '-441/256', '72': '-567/128', '97': '-9/64', '102': '63/256', '112': '21/256', '117': '63/32', '128': '21/256', '130': '7/256', '133': '63/32', '147': '-43/256'}, '3': {'5': '7/1024', '7': '357/1024', '12': '1323/512', '21': '7/1024', '25': '105/256', '37': '35/1024', '42': '315/1024', '55': '21/1024'}, '4': {'22': '-2205/65536', '27': '-19845/65536', '52': '-301/65536', '57': '-2709/65536'}}, '6': {'1': {'98': '1', '100': '-21/20', '113': '4/5', '115': '-9/5', '123': '-2/5', '131': '-1', '148': '9/10'}, '2': {'13': '27/50', '40': '9/200', '56': '9/200', '72': '-81/100', '97': '3/200', '112': '6/25', '128': '16/25', '130': '-21/50', '147': '-81/400'}, '3': {'5': '9/500', '12': '-243/1000', '21': '9/500', '28': '27/125', '127': '3/500'}, '4': {'27': '-243/2500'}}}
+    eigen_bases={'5': [['77', '609', '17', '-903', '7'], ['256', '10752', '256', '-21504', '256'], ['160', '0', '80', '0', '0'], ['0', '1280', '0', '-1280', '0'], ['0', '0', '0', '400', '0']], '6': [['-27', '0', '-9', '0', '0'], ['-20', '0', '-80', '0', '5'], ['22', '0', '28', '0', '2'], ['0', '-10', '0', '20', '0'], ['0', '3', '0', '9', '0']]}
+    def dm(A):return DomainMatrix.from_Matrix(A).convert_to(s.QQ)
+    def pivots(A):return list(dm(A).rref()[1])
+    def encode(A):return {f'{i},{j}':str(A[i,j])for i,j in ambient.PAIRS if A[i,j]!=0}
+    def vector(A):return s.Matrix([s.Poly(A[i,j],*coords).coeff_monomial(mon)for(i,j),mon in ambient.BIVECTOR_BASIS])
+    def unvector(v):
+        A=s.zeros(5)
+        for j,text in v.items():
+            (i,k),mon=ambient.BIVECTOR_BASIS[int(j)];c=s.Rational(text)*s.prod(q**a for q,a in zip(coords,mon));A[i,k]+=c;A[k,i]-=c
+        return A
+    def jac(A):
+        v=vector(A);B={}
+        for c,(pair,mon)in zip(v,ambient.BIVECTOR_BASIS):
+            if c:B.setdefault(pair,{})[mon]=c
+        J=ambient.affine_jacobi_coefficients(B);W=s.zeros(350,1)
+        for triple,poly in J.items():
+            for k in set(range(5))-set(triple):
+                sign=ambient.permutation_sign((k,)+triple);quad=tuple(sorted((k,)+triple))
+                for mon,c in poly.items():
+                    exp=list(mon);exp[k]+=1;W[ambient.FOUR_VECTOR_INDEX[(quad,tuple(exp))]]+=sign*c
+        return W
+    def primitive(A):
+        den=s.ilcm(1,*[c.q for f in A for c in s.Poly(f,*coords).coeffs()]);A*=den
+        gcd=s.igcd(*[abs(int(c))for f in A for c in s.Poly(f,*coords).coeffs()if c])
+        return A/gcd,s.Rational(den,gcd)
+    def minor(A):
+        columns=pivots(A);rows=pivots(A[:,columns].T);det=dm(A[rows,columns]).det();assert det
+        return dict(rank=len(columns),rows=rows,columns=columns,determinant=str(det))
+    def pf(A,indices):
+        i,j,k,l=indices;return A[i,j]*A[k,l]-A[i,k]*A[j,l]+A[i,l]*A[j,k]
+    def quintic(A):return s.expand(sum((-1)**i*coords[i]*pf(A,tuple(j for j in range(5)if j!=i))for i in range(5)))
+    results=[]
+    for index in [1,2,5,6,7]:
+        anchor=orbit['all_seven_full_ambient_anchors'][index-1];P=s.zeros(5)
+        for pair,text in anchor['witness_brackets'].items():
+            i,j=map(int,pair.split(','));P[i,j]=s.sympify(text);P[j,i]=-P[i,j]
+        A=P+sum([t**int(degree)*unvector(v)for degree,v in curve_coefficients[str(index)].items()],s.zeros(5))
+        A=A.applyfunc(s.expand);assert jac(A)==s.zeros(350,1)and A.subs(t,0)==P
+        sigma=families[index-1]['canonical_Cstar_weights'];mu=2 if index in [2,7]else 1
+        for degree,v in curve_coefficients[str(index)].items():
+            for at,text in v.items():
+                (i,j),mon=ambient.BIVECTOR_BASIS[int(at)]
+                assert sum(a*b for a,b in zip(mon,sigma))-sigma[i]-sigma[j]+1==int(degree)*mu
+        data=dict(anchor=index,name=families[index-1]['name'],literal_curve_brackets=encode(A),
+            curve_constant_is_public_anchor=True,all350_projective_Jacobi_identically_zero=True,
+            Cstar_coordinate_weights=sigma,curve_parameter_weight=mu,
+            exact_Cstar_pushforward='diag(lambda^sigma)_*P(t)=lambda*P(t/lambda^mu)',
+            all_nonzero_curve_points_one_actual_projective_orbit=True,
+            whole_source_saturation_is_anchor_orbit_closure=True)
+        if index in [1,2,7]:
+            assert A[0,:]==s.zeros(1,5)
+            Z=s.Matrix([s.expand(sum(s.diff(A[i,j],coords[i])for i in range(5)))for j in range(5)]);N=Z.jacobian(coords)
+            assert Z==N*s.Matrix(coords)
+            characteristic=s.factor(N.charpoly(u).as_expr())
+            expected={1:u*(t-u)*(t+u)*(2*t-u)*(2*t+u),2:u*(t-u*u)*(4*t-u*u),7:u*(4*t+u*u)*(16*t+u*u)}[index]
+            assert s.expand(characteristic-expected)==0
+            F=s.expand(pf(A,(1,2,3,4)));original=s.Poly(s.sympify(families[index-1]['actual_affine_pfaffian']).subs({s.Symbol(k):s.Rational(v)for k,v in families[index-1]['canonical_parameter_values'].items()}),x,y,z,w)
+            homogeneous=sum(c*h**(4-sum(mon))*s.prod(q**a for q,a in zip((x,y,z,w),mon))for mon,c in original.terms())
+            assert s.expand(F.subs(t,0)-s.Rational(anchor['integer_scale'])**2*homogeneous)==0
+            data.update(h_Casimir_preserved=True,cofactor=list(map(str,Z)),cofactor_characteristic=str(characteristic),
+                generic_semisimple_source_type=12,generic_spectrum_ratio=[-2,-1,1,2],actual_quartic_pfaffian=str(F),
+                generic_quartic_irreducible_by_open_locus_at_anchor=True,
+                whole_source_covered_by_known_closed_MPS_union=True,
+                membership_reason='Generic literal curve has H+irreduciblequartic and regular semisimple type12 cofactor. The accepted semisimple support theorem places it in the finite closed MPS union, hence the anchor too. PGL stability then contains its entire orbitclosure, equal to the whole source saturation.')
+        else:
+            point,integer_scale=primitive(A.subs(t,1));assert jac(point)==s.zeros(350,1)
+            B={(i,j):{mon:int(c)for mon,c in s.Poly(point[i,j],*coords).terms()if c}for i,j in ambient.PAIRS if point[i,j]!=0}
+            D=s.Matrix(ambient.linearized_jacobi_matrix(B).tolist());directions=[]
+            for i,j in it.product(range(5),repeat=2):
+                L=s.zeros(5);L[i,j]=1;X=L*s.Matrix(coords)
+                directions.append(vector(sum([X[k]*point.diff(coords[k])for k in range(5)],s.zeros(5))-L*point-point*L.T))
+            M=s.Matrix(ambient.vertical_bivector_matrix().tolist()).row_join(s.Matrix.hstack(*directions,vector(point)))
+            assert D*M==s.zeros(350,M.cols)
+            dcert,mcert=minor(D),minor(M);assert dcert['rank']==102 and mcert['rank']==48
+            E=s.Matrix(coords);div=s.Matrix([sum(s.diff(point[i,j],coords[i])for i in range(5))for j in range(5)])
+            canonical=(point-(E*div.T-div*E.T)/5).applyfunc(s.expand)
+            assert all(s.expand(sum(s.diff(canonical[i,j],coords[i])for i in range(5)))==0 for j in range(5))
+            stabcols=[]
+            for i,j in it.product(range(5),repeat=2):
+                L=s.zeros(5);L[i,j]=1;stabcols.append(vector(L*canonical+canonical*L.T-coords[j]*canonical.diff(coords[i])))
+            stabmatrix=s.Matrix.hstack(*stabcols,-vector(canonical));K=dm(stabmatrix).nullspace().to_Matrix().T
+            assert K.cols==2 and stabmatrix*K==s.zeros(150,2)
+            generators=[]
+            for values in K.T.tolist():
+                L=s.Matrix(5,5,values[:25]);L-=s.trace(L)*s.eye(5)/5;kappa=values[25]
+                if L==s.zeros(5):continue
+                den=s.ilcm(1,*[c.q for c in list(L)+[kappa]]);L*=den;kappa*=den
+                gcd=s.igcd(*[abs(int(c))for c in list(L)+[kappa]if c]);L/=gcd;kappa/=gcd
+                generators.append((L,kappa))
+            assert len(generators)==1
+            L,kappa=generators[0];G=s.Matrix(eigen_bases[str(index)])
+            diagonal=G.inv()*L*G;assert diagonal==s.diag(*diagonal.diagonal())and G.det()!=0
+            transformed=(G.inv()*canonical*G.inv().T).subs(dict(zip(coords,G*s.Matrix(coords))),simultaneous=True).applyfunc(s.expand)
+            normal,eigenscale=primitive(transformed);content,F=s.Poly(quintic(normal),*coords).primitive();F=F.as_expr()
+            data.update(nonzero_point_brackets=encode(point),nonzero_point_integer_scale=str(integer_scale),
+                full_derivative=dcert,actual_group_vertical_scalar=mcert,all_D_action_products_zero=True,
+                projective_orbit_dimension=23,projective_tangent_dimension=23,smooth23_unique_orbitclosure_component=True,
+                canonical_divergence_free_brackets=encode(canonical),complete_projective_stabilizer_dimension=1,
+                stabilizer_matrix=[[str(v)for v in L.row(i)]for i in range(5)],stabilizer_tensor_character=str(kappa),
+                complete_stabilizer_kernel_sparse=[{str(i):str(v)for i,v in enumerate(K[:,j])if v}for j in range(2)],
+                old_coordinates_from_eigen_coordinates=[[str(v)for v in G.row(i)]for i in range(5)],
+                stabilizer_eigenvalues=list(map(str,diagonal.diagonal())),primitive_eigen_tensor=encode(normal),
+                eigen_tensor_scale=str(eigenscale),primitive_eigen_quintic=str(F),eigen_quintic_content=str(content),
+                whole_source_in_this_23_component=True,
+                source_membership_reason='All nonzero points of the literal curve belong to the same actual projective orbit; its smooth23 orbitclosure component contains the curve origin and hence the whole accepted22source orbitclosure.')
+            if index==5:
+                expected=h**3*z*z+h*h*w*x*x+h*h*x*y*z+27*h*x*x*y*z+3*x**3*y*y
+                assert s.expand(F-expected)==0
+                coefficient=s.diff(F,w);remainder=F.subs(w,0)
+                assert coefficient==h*h*x*x and remainder.subs(h,0)==3*x**3*y*y and remainder.subs(x,0)==h**3*z*z
+                data.update(quintic_absolutely_irreducible=True,complex_Gauss_certificate=dict(linear_variable='w',coefficient=str(coefficient),remainder_at_h_zero=str(remainder.subs(h,0)),remainder_at_x_zero=str(remainder.subs(x,0))),
+                    stabilizer_eigenvalue_multiplicities=[2,2,1],prior99_distinctness_separate=True)
+            else:
+                known_path=Path('reports/CLASSIFICATION_GA9_DISTINCT_COMPONENT_AUDIT_20261107.json');known=json.loads(known_path.read_text());known_tensor=s.zeros(5)
+                us=s.symbols('u0:5')
+                for pair,text in known['canonical_eigen_coordinate_bivector'].items():
+                    i,j=map(int,pair.split(','));known_tensor[i,j]=s.sympify(text).subs(dict(zip(us,coords)),simultaneous=True);known_tensor[j,i]=-known_tensor[i,j]
+                diagonal_map=s.diag(1,1,-1,1,-s.Rational(1,48));changed=(diagonal_map*normal*diagonal_map.T).subs(dict(zip(coords,diagonal_map.inv()*s.Matrix(coords))),simultaneous=True)
+                assert (changed+known_tensor/12).applyfunc(s.expand)==s.zeros(5)
+                total=diagonal_map*G.inv()
+                data.update(known_component='R4_GA9_DISTINCT_IRREDUCIBLE_QUINTIC_23',known_component_report=str(known_path),known_component_sha256=hashlib.sha256(known_path.read_bytes()).hexdigest(),
+                    exact_map_to_known99=[[str(v)for v in total.row(i)]for i in range(5)],
+                    exact_scalar_to_known99=str(-1/(12*eigenscale)),all150_known99_conjugacy_coefficients_equal=True,
+                    whole_source_covered_by_known99=True)
+        results.append(data)
+    dependencies=[Path('research/classification/HYPERPLANE_QUARTIC_SEMISIMPLE_SUPPORT.md'),Path('reports/CLASSIFICATION_HYPERPLANE_QUARTIC_SEMISIMPLE_SUPPORT_V2_20261107.json')]
+    return dict(orbit_report=str(orbit_path),orbit_sha256=hashlib.sha256(orbit_path.read_bytes()).hexdigest(),
+        all_five_actual_curve_recognitions=results,known_MPS_source_indices=[1,2,7],known99_source_indices=[6],
+        smooth23_candidate_source_index=5,known_support_dependencies=[dict(path=str(p),sha256=hashlib.sha256(p.read_bytes()).hexdigest())for p in dependencies],
+        no_private_model_input=True,no_new_component_count=True,
+        scope='Full remaining source containment through literal actual curves. Source5 gives a smooth23 irreduciblequintic orbit component; independent review and fullprior99distinctness are separate. No complete two-normal IFT is a dependency.')
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument('--output', type=Path, required=True)
@@ -2008,6 +2541,9 @@ def main():
     ap.add_argument('--nil22-long-critical-cores',type=Path,help='Complete nil22top2 core strata n14=-1,-1/2,-1/3')
     ap.add_argument('--nil22-long-low-rank-core',type=Path,help='Complete nil22top2 n14=-1/2 low-rank-A core')
     ap.add_argument('--nil22-long-support',type=Path,help='Uniform whole nil22top2 source bound and generic non-dominance')
+    ap.add_argument('--nil22-long-quartic-sources',type=Path,help='Complete potential/rank/normalizer reduction of type7 quartic source toseven families')
+    ap.add_argument('--nil22-long-quartic-orbit-models',type=Path,help='Allseven actualorbit closures andcomplete one-normal localmodels3/4')
+    ap.add_argument('--nil22-long-quartic-curve-recognition',type=Path,help='Actualcurve recognition ofremaining sources1/2/5/6/7')
     ap.add_argument('--sources', action='store_true', help='All24 full semisimple/mixed modular sources')
     ap.add_argument('--nil-sources', action='store_true', help='All10 full purely nilpotent modular sources')
     ap.add_argument('--support',type=Path,help='Verify finite support factorizations from a frozen24source report')
@@ -2041,6 +2577,25 @@ def main():
         report.update(nil31_long_normalform=result,all_passed=True)
         args.output.write_text(json.dumps(report,indent=2)+'\n')
         print(json.dumps(dict(all_passed=True,whole_actual_orbit_normalforms=2)))
+        return
+    if args.nil22_long_quartic_curve_recognition:
+        result=nil22_long_quartic_curve_recognition(args.nil22_long_quartic_curve_recognition)
+        report.update(nil22_long_quartic_curve_recognition=result,all_passed=True)
+        args.output.write_text(json.dumps(report,indent=2)+'\n')
+        print(json.dumps(dict(all_passed=True,MPS=[1,2,7],known99=[6],smooth23_candidate=[5])))
+        return
+    if args.nil22_long_quartic_orbit_models:
+        result=nil22_long_quartic_orbit_models(args.nil22_long_quartic_orbit_models)
+        report.update(nil22_long_quartic_orbit_models=result,all_passed=True)
+        args.output.write_text(json.dumps(report,indent=2)+'\n')
+        print(json.dumps(dict(all_passed=True,all_seven_orbit_closure_dimension=22,
+            complete_slice_lengths=[v['existing_complete_slice_algebra_length']for v in result['complete_one_normal_models']])))
+        return
+    if args.nil22_long_quartic_sources:
+        result=nil22_long_quartic_sources(args.nil22_long_quartic_sources)
+        report.update(nil22_long_quartic_sources=result,all_passed=True)
+        args.output.write_text(json.dumps(report,indent=2)+'\n')
+        print(json.dumps(dict(all_passed=True,whole_irreducible_families=7,parameter_counts=result['normalized_parameter_counts'],saturated_dimension_upper=22)))
         return
     if args.nil22_long_support:
         result=nil22_long_support(args.nil22_long_support)

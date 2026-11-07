@@ -1,0 +1,64 @@
+{
+  "task_id": "G",
+  "reviewer": "plane_collision_review",
+  "producer": "root",
+  "all_passed": true,
+  "mode": "Independent geometric proof and primary-source applicability review; no CAS or new coefficient computation.",
+  "source_notes_sha256": {
+    "research/classification/RANK_ZERO_NORMAL_SEXTIC_REDUCTION.md": "142f45e98261728e5d57c7d7815ca4e625f7393b9946153b31c71db249057a48",
+    "research/classification/INTEGRAL_SURFACE_LINEAR_NORMALITY.md": "1b1e64832e5acb6abffbbca132bddb5fd933566a88fbd42c98905a6337106041",
+    "research/classification/RANK_ZERO_REGULAR_LINEARNORMAL_SURFACES.md": "94ea0899fa48dda28528837cb5a3962069a9e6f137d83ea3991d072a0c0f807f",
+    "research/classification/INTEGRAL_SURFACE_EULER_SEVERI_REVIEW.md": "a69871a5583641928e5ad365b34da120ee89dfa1bee70ca8cee4629774d114c0",
+    "research/classification/RANK_ZERO_NORMAL_SEXTIC_SEPARATE_REVIEW.md": "4bd117194982203ba0520e7989e63f0146be184ff5cad56bba513c7ccf739c93"
+  },
+  "reviewed_root_proof_snapshot": "# normal\u306a\u6b21\u6570\u516drank\u96f6\u66f2\u9762\u306b\u6b8b\u308b\u5e7e\u4f55\uff1a\u6700\u5927sectional genus\u3068\u975e\u6709\u7406\u7279\u7570\u70b9\u306e\u6392\u9664\n\n2026-11-07\u3001root\u306b\u3088\u308b\u5e7e\u4f55\u8a3c\u660e\u3002\u4e3b\u7fa9\u52d9G\u306e\u90e8\u5206\u9084\u5143\u3067\u3042\u308a\u3001\u5168\u6b21\u6570\u516d\u66f2\u9762\u306e\u5206\u985e\u3067\u306f\u306a\u3044\u3002\n\u5225\u4f5c\u8005\u306e\u78ba\u8a8d\u524d\u306b\u306fglobal\u4e3b\u5f35\u53f0\u5e33\u3078\u6607\u683c\u3057\u306a\u3044\u3002\n\n## 1. \u547d\u984c\n\nS\u2282P4\u3092normal\u30fbintegral\u30fb\u975e\u9000\u5316\u306a\u6b21\u6570\u516d\u66f2\u9762\u3068\u3059\u308b\u3002\n\u65e2\u7d04\u88ab\u7d04\u4e94\u6b21\u306e\u5b9f\u9000\u5316\u56e0\u5b50\u3092\u6301\u3064rank\u56dbPoisson\u69cb\u9020\u03c0\u304cS\u5168\u4f53\u3067\u96f6\u306a\u3089\u3001\n\n1. q(S)=h1(O_S)>0\u3002\n2. \u4e00\u822chyperplane\u66f2\u7ddaC\u306e\u7a2e\u6570g\u306f\u4e09\u4ee5\u4e0b\u3002\n3. S\u306e\u7279\u7570\u70b9\u306f\u5168\u3066rational\u3067\u3001minimal resolution\u306eKodaira\u6b21\u5143\u306f\u2212\u221e\u3002\n   \u305d\u306e\u89e3\u6d88\u306f\u6b63\u7a2e\u6570q(S)\u306e\u66f2\u7dda\u4e0a\u306eruled surface\u306eblowup\u3067\u3042\u308b\u3002\n\n\u6a2a\u65adnode\u3001clean\u4ea4\u53c9\u3001\u6b63\u898f\u5316\u53c8\u306f\u5c0e\u624b\u306esmoothness\u3092\u4eee\u5b9a\u3057\u306a\u3044\u3002\n\u3053\u306e\u6b8b\u308birregular ruled\u89e3\u6d88\u3092\u6301\u3064normal surface\u81ea\u4f53\u306e\u4e0d\u5b58\u5728\u306f\u3001\u3053\u3053\u3067\u306f\u8a3c\u660e\u3057\u306a\u3044\u3002\n\n## 2. sectional genus\u56db\u306a\u3089CI(2,3)\u3067\u3042\u308aq=0\n\nnormal surface\u306e\u7279\u7570\u70b9\u306f\u6709\u9650\u500b\u306a\u306e\u3067\u3001\u4e00\u822chyperplane\u66f2\u7ddaC\u306f\u6ed1\u3089\u304b\u3067\u975e\u9000\u5316P3\u66f2\u7dda\u3068\u306a\u308b\u3002\ndegree\u516d\u306eCastelnuovo\u4e0a\u754c\u306fg\u22644\u3067\u3042\u308b\u3002\ng=4\u3068\u4eee\u5b9a\u3059\u308b\u3002L=O_C(1)\u306fdegree\u516d\u3001Riemann\u2013Roch\u306f\n\n    h0(L)=3+h0(K_C\u2212L)\n\n\u3092\u4e0e\u3048\u308b\u3002h0(L)\u22654\u3001deg(K_C\u2212L)=0\u304b\u3089L\u2245K_C\u3001h0(L)=4\u3068\u306a\u308b\u3002\n\u7279\u306bh0(O_C(2))=12\u22124+1=9\u3002\n\nINTEGRAL_SURFACE_LINEAR_NORMALITY.md\u306b\u3088\u308a\u3001degree\u516d\u306eS\u306flinearly normal\u3067h0(O_S(1))=5\u3002\n\u5b8c\u5168\u5217\u3092\u7528\u3044\u3066\n\n    h0(O_S(2)) \u2264 h0(O_S(1))+h0(O_C(2)) \u226414\n\n\u3068\u306a\u308b\u304b\u3089\u3001S\u306f\u975e\u96f6quadric Q\u306b\u5165\u308b\u3002\nS\u306eintegral\u975e\u9000\u5316\u6027\u304b\u3089Q\u306firreducible\u3001\u5f93\u3063\u3066rank\u306f3,4,5\u306e\u3044\u305a\u308c\u304b\u3002\n\nrank\u4e94\u3067\u306fPic(Q)=Z H\u3001S\u306edegree\u516d\u304b\u3089[S]=3H\u3002\nrank\u56db\u3067\u306fCl(Q)=Z[P1]\u2295Z[P2]\u3001H=P1+P2\u3002\n\u4e00\u822chyperplane\u4e0a\u306esmooth quadric\u3078\u306e\u5236\u9650\u306f\u3001S\u306eclass(a,b)\u3092C\u306ebidegree(a,b)\u3078\u9001\u308b\u3002\ndegree\u3068genus\u304b\u3089\n\n    a+b=6, (a\u22121)(b\u22121)=4\n\n\u306a\u306e\u3067a=b=3\u3001\u3084\u306f\u308a[S]=3H\u3002\nrank\u4e09\u3067\u306fCl(Q)=Z[P]\u3001H=2P\u3001degree\u516d\u304b\u3089[S]=6P=3H\u3067\u3042\u308b\u3002\n\u3053\u306e\u4e8c\u3064\u306esingular quadric class group\u3068ruling\u306e\u8a18\u8ff0\u306f\u3001\u65e2\u306b\u4e00\u6b21\u7167\u5408\u3057\u305f\nTironi arXiv:1201.4508v1\u3001printed p.5\u306equadric cone\u306e\u8a08\u7b97\u3068\u540c\u3058\u3082\u306e\u3067\u3042\u308b\u3002\n\n\u3044\u305a\u308c\u3082S\u306fCartier divisor3H\u3068\u3057\u3066Q\u306ecubic section\u3067\u3042\u308b\u3002\nH0(P4,O(3))\u2192H0(Q,O_Q(3))\u306f\u5168\u5c04\u306a\u306e\u3067\u3001S\u306fscheme-theoretic CI(2,3)\u3068\u306a\u308b\u3002\nKoszul\u5b8c\u5168\u5217\u304b\u3089q(S)=0\u3092\u5f97\u308b\u3002\n\u3053\u3053\u3067\u306fcycle\u306e\u6b21\u6570\u3060\u3051\u3067linkage\u53c8\u306fnormalization\u3092\u540c\u4e00\u8996\u3057\u3066\u3044\u306a\u3044\u3002\n\n## 3. rank\u96f6quintic\u4eee\u5b9a\u306fq=0\u3092\u5168\u3066\u9664\u304f\n\ndegree\u516d\u30fbq=0\u306a\u3089\u3001Euler\u5168source\u88dc\u984c\u3068linear-normality\u306b\u3088\u308a\nH0(\u039b2T I_S)=I_S(2)\u2297\u039b2 C5\u3002\n\u4e8c\u3064\u306e\u72ec\u7acbquadric\u306fS\u3092\u542b\u3081\u306a\u3044\u305f\u3081\u3001\u5168\u03c0\u306e\u5b9fD\u306f\u96f6\u53c8\u306fq2\u00b2linear\u3068\u306a\u308b\u3002\n\u3053\u308c\u306f\u65e2\u7d04\u88ab\u7d04D\u306e\u4eee\u5b9a\u306b\u53cd\u3059\u308b\u3002\n\u5f93\u3063\u3066q(S)>0\u3002\u00a72\u304b\u3089g=4\u3082\u4e0d\u53ef\u80fd\u306a\u306e\u3067g\u22643\u3002\n\n## 4. \u975e\u6709\u7406\u7279\u7570\u70b9\u306fSchr\u00f6er\u306e\u5b9a\u7406\u306b\u77db\u76fe\u3059\u308b\n\nH=O_S(1)\u3068\u3057\u3001normal canonical Weil class\u3068H\u3068\u306e\u4ea4\u70b9\u3092\u53d6\u308b\u3002\nC\u306fSreg\u306b\u5165\u308a\u3001\u901a\u5e38\u306ecurve adjunction\u304b\u3089\n\n    K_S H=2g\u22122\u22126=2g\u22128\u2264\u22122\u3002\n\nH\u304cample\u306a\u306e\u3067\u3001\u5168n>0\u3067nK_S\u306feffective\u306b\u306a\u3089\u306a\u3044\u3002\nnonrational singularity\u304c\u3042\u308c\u3070\u3001S. Schr\u00f6er,\n*Normal del Pezzo surfaces containing a nonrational singularity*,\nTheorem2.2\uff08printed pp.4\u20135\uff09\u306e\u4e00\u6b21\u78ba\u8a8d\u6e08\u307f\u5b9a\u7406\u306b\u3088\u308aq(S)=0\u3068\u306a\u308a\u77db\u76fe\u3059\u308b\u3002\n\u3053\u306e\u5b9a\u7406\u306f\u305d\u306e\u540d\u524d\u3068\u306f\u7570\u306a\u308a\u3001\u5f53\u8a72statement\u306b\u306fdel Pezzo\u53c8\u306fPicard rank\u4e00\u306e\u4eee\u5b9a\u304c\u7121\u3044\u3002\nproper normal surface\u3001perfect field\u3001nonrational singularity\u3001\u5168nK ineffective\u3060\u3051\u3092\u7528\u3044\u308b\u3002\n\n\u5f93\u3063\u3066S\u306e\u5168\u7279\u7570\u70b9\u306frational\u3067\u3042\u308b\u3002\nminimal resolutionf:S\u0303\u2192S\u306b\u3064\u3044\u3066q(S\u0303)=q(S)>0\u3002\npullback f*H\u306fnef\u304b\u3064big\u3067\u3001K_S\u0303 f*H=K_S H<0\u306a\u306e\u3067\u3001\u5168pluricanonical class\u306fineffective\u3002\n\u3088\u3063\u3066\u03ba(S\u0303)=\u2212\u221e\u3001\u6a19\u6e96\u7684\u306a\u6ed1\u3089\u304b\u66f2\u9762\u306eruledness\u5b9a\u7406\u304b\u3089\u4e3b\u5f353\u3092\u5f97\u308b\u3002\n\n## 5. \u672a\u78ba\u8a8d\u6587\u732e\u3068\u6b8b\u308b\u8ab2\u984c\n\nE. Halanay, *Normal surfaces of degree 6 in Pn*,\nRev. Roumaine Math. Pures Appl.34 (1989),111\u2013116\u306e\u66f8\u8a8c\u306f\u3001\nHalanay\u306e\u5225\u8ad6\u6587\u306epublisher reference\u3067\u78ba\u8a8d\u3067\u304d\u308b\u3002\n\u672c\u6587\u306f\u307e\u3060\u53d6\u5f97\u30fb\u7cbe\u8aad\u3067\u304d\u3066\u304a\u3089\u305a\u3001\u305d\u306e\u5206\u985e\u7d50\u8ad6\u306f\u4e0a\u306e\u8a3c\u660e\u306b\u4e00\u5207\u4f7f\u3063\u3066\u3044\u306a\u3044\u3002\n\u8abf\u67fb\u3057\u305fpublic archive\u306f2007\u5e74\u4ee5\u964d\u3057\u304b\u793a\u3055\u305a\u30011989\u5e74\u672c\u6587\u3078\u306e\u5165\u53e3\u306f\u672a\u767a\u898b\u3002\nnon-normal degree5/6\u8ad6\u6587 <https://doi.org/10.1007/BF00147920> \u306epublic PDF\u3082\u53d6\u5f97\u3067\u304d\u306a\u304b\u3063\u305f\u3002\n\u5177\u4f53\u7684\u306b\u306fweb reader\u304cpublisher PDF\u3092\u53d6\u5f97\u3067\u304d\u305a\u3001\u65e2\u8a2dCloud proxy\u3092\u4f7f\u3063\u305f\u901a\u5e38curl\u3067\u3082\n`https://link.springer.com/content/pdf/10.1007/BF00147920.pdf` \u3078\u306eCONNECT\u304c403\u3067\u62d2\u5426\u3055\u308c\u305f\u3002\nTLS trust\u306f\u5909\u66f4\u305b\u305a\u3001\u975e\u516c\u958bcopy\u3084\u5225\u7d4c\u8def\u306b\u3088\u308b\u30a2\u30af\u30bb\u30b9\u5236\u9650\u56de\u907f\u306f\u884c\u3063\u3066\u3044\u306a\u3044\u3002\n\u3053\u308c\u3089\u306e\u672c\u6587\u3092\u6b63\u898f\u306e\u516c\u958bcopy\u53c8\u306f\u8a8d\u8a3c\u6e08\u307f\u8cfc\u8aad\u7d4c\u8def\u3067\u8aad\u3081\u308c\u3070\u3001\u6b8b\u308bruled\u578b\u306e\n\u5168normal-model\u5206\u985e\u3092\u7167\u5408\u3067\u304d\u308b\u53ef\u80fd\u6027\u304c\u3042\u308b\u3002abstract/reference\u3092\u8a3c\u660e\u6271\u3044\u3057\u306a\u3044\u3002\n\n\u672a\u51e6\u7406\u306frational singularities\u3092\u6301\u3064irregular ruled\u89e3\u6d88\u306enormal degree\u516d\u30e2\u30c7\u30eb\u3067\u3042\u308b\u3002\n\u6ed1\u3089\u304b\u306a\u5834\u5408\u306f\u65e2\u5b58\u306e\u5c0f\u6b21\u6570irregular\u66f2\u9762\u88dc\u984c\u3067\u6b21\u6570\u4e94\u6955\u5186scroll\u4ee5\u5916\u3092\u6392\u9664\u6e08\u307f\u3060\u304c\u3001\n\u305d\u306esmooth double-point formula\u3092\u7279\u7570S\u3078\u7121\u65ad\u9069\u7528\u3057\u306a\u3044\u3002\n\u975enormal S\u53ca\u3073rank\u4e8crestriction\u3082\u672cnote\u306e\u5c04\u7a0b\u5916\u306b\u6b8b\u3059\u3002\n",
+  "primary_sources": [
+    {
+      "author": "Stefan Schroeer",
+      "title": "Normal del Pezzo surfaces containing a nonrational singularity",
+      "url": "https://www.math.uni-duesseldorf.de/~schroeer/publications_pdf/del_pezzo.pdf",
+      "version": "Revised 28 October 2000",
+      "directly_read": [
+        "Section1 printed p2: q=dim Pic0 and equality with h1(O) when pg=0",
+        "Theorem2.2 and proof printed pp4-5: no del Pezzo or Picard-number-one hypothesis"
+      ],
+      "application": "K_S.H<0 implies all positive pluricanonical classes ineffective and pg=0; a nonrational singularity would force q(S)=0."
+    },
+    {
+      "author": "Andrea Luigi Tironi",
+      "title": "Normal projective varieties of degree 5",
+      "url": "https://arxiv.org/pdf/1201.4508v1",
+      "directly_read": [
+        "Printed p5: rank3 quadric Cl=ZP,H=2P; rank4 Cl=ZP+ZPprime,H=P+Pprime"
+      ],
+      "application": "Only the quadric class groups are used for degree6, not an extension of the degree5 classification theorem."
+    }
+  ],
+  "verified_arrows": [
+    "Smooth general hyperplane section of normal surface and Castelnuovo g<=4",
+    "g4 gives canonical degree6 curve and h0(O_C(2))=9",
+    "Accepted linear-normality and hyperplane sequence give h0(O_S(2))<=14, hence irreducible quadric",
+    "Rank4 quadric restriction Cl(Q)->Pic(general smooth Q2) is the ruling-basis isomorphism via cone minus vertex A1-bundle",
+    "Rank3/4/5 quadric classes give actual Cartier divisor3H; cubic lifting gives scheme CI(2,3), hence q0",
+    "Accepted full Euler source excludes every degree6 q0 rankzero source with irreducible reduced quintic divisor",
+    "g<=3 gives negative canonical Weil intersection by adjunction entirely on Sreg; no Q-Gorenstein hypothesis",
+    "Schroeer theorem applies to exclude all nonrational singularities; pg0 identifies the paper q with h1(O)",
+    "Rational singularities preserve q on resolution; nef pullback H excludes all pluricanonical sections; smooth classification gives irregular ruled resolution"
+  ],
+  "conclusion": "Any normal integral nondegenerate degree6 rankzero surface for an irreducible reduced quintic rank4 Poisson tensor has q>0, sectional genus<=3, only rational singularities, and a ruled resolution over a positive-genus curve.",
+  "unresolved": [
+    "Existence and full classification/recognition of the remaining normal degree6 models with irregular ruled resolution",
+    "Nonnormal surfaces",
+    "Rank2 restriction and other G branches"
+  ],
+  "not_claimed": [
+    "All normal degree6 models empty",
+    "Complete normal degree6 classification",
+    "G complete",
+    "New component count"
+  ],
+  "unread_not_used": [
+    "E.Halanay, Normal surfaces of degree6 in Pn, 1989 pp111-116",
+    "Blocked publisher nonnormal degree5/6 paper; existing403 record adopted without retrial"
+  ]
+}

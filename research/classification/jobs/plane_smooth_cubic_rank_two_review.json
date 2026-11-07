@@ -1,0 +1,38 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "target_statement": "Independently verify the complete normal-weight source reduction for a Poisson invariant plane with smooth cubic rank-two zero divisor.",
+  "implication_to_classification": "If the accepted conormal-connection input and full30/full9 identities are correct for every smooth ternary cubic and every binary quadratic K, this entire plane branch has reducible/nonreduced actual quintic or rank at most two.",
+  "coefficient_ring": "QQ with universal ternary-cubic coefficients, binary-quadratic coefficient a and independent weight-one/weight-two parameters; standard-library Fraction sparse polynomial arithmetic only",
+  "hypotheses": "Accepted conormal connection rigidity, S=P2 invariant and inside SingD, smooth ternary cubic f; the full quadratic homogeneous source and all projective Jacobi coefficients are retained.",
+  "inverted_elements": [
+    "Nonzero rational constants",
+    "a only on the two nonzero binary-quadratic normal forms"
+  ],
+  "complements": [
+    "K=0 is separately checked",
+    "All nonzero binary quadratics are covered by two GL2 normal forms",
+    "Singular/reducible/nonreduced cubic zero divisors and other surfaces remain open",
+    "No generic sample is substituted for every smooth cubic"
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "research/classification/PLANE_SMOOTH_CUBIC_RANK_TWO_EXCLUSION.md",
+      "sha256": "a8b3c6bc6ec09637282cb9310dc384ef2aa940fd02b522225f9274bf95b56b0e"
+    },
+    {
+      "path": "research/classification/PLANE_SMOOTH_CUBIC_CONORMAL_CONNECTION_REVIEW.md",
+      "sha256": "1f6c4344c66fafd4245d28de852e01fc41cbdb195f84230cafc96ae21046256a"
+    },
+    {
+      "path": "code/classification_plane_smooth_cubic_rank_two_review.py",
+      "sha256": "d812c7d7f8a15ef3c2719d9fb1bd356c4a3fbd9b7aa7cd4f694775a3f4a6af9d"
+    }
+  ],
+  "success_certificate": "Full raw36/Euler6 quotient30 and weight2 quotient9; all350 universal projective bracket identities; complete intrinsic kernel proof using only Xf=0 implies X=0; actual finite shears and full higher-weight injectivity; K=0 rank upper bound; explicit Euler-Pfaffian factorization.",
+  "independent_check": "Separate author, no producer/CAS imports or one-Hesse-sample rank inference. The already accepted connection review is an input and is not duplicated.",
+  "resource_limit": {
+    "timeout_seconds": 170,
+    "memory_mb": 1536
+  },
+  "negative_result_next_step": "Preserve an exact identity discrepancy or missing hypothesis and notify the producer/root; do not promote a partial finite sample to all smooth f."
+}

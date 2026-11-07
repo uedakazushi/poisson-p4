@@ -1,0 +1,171 @@
+{
+  "task_id": "E_multiple_hyperplane",
+  "all_passed": true,
+  "input_sha256": {
+    "code/classification_nil22_double_c_dependent_limit.py": "025602bab598d431369c07fdbc11b766751aae71e2353f9d2179585d72fb295e",
+    "reports/CLASSIFICATION_NIL22_IMAGE_REMAINING_SOURCES_20261107.json": "9ab03220144c70d70b877c7138562d854d0102bd37846eeafcbbd115170e0700",
+    "code/classification_rank3_mixed_component_review.py": "48e61e30f9d7f04fb81f1bb5eec0e18daa28c8192d6a02a251e09cf8855b9bd0",
+    "code/classification_three_hyperplanes_quadric_dependent.py": "ba44f889d9bd832bc595e697746b524c42569a84938d6da82ffebb6302033a26",
+    "research/classification/THREE_HYPERPLANES_QUADRIC_DEPENDENT.md": "64a33ff9678fe366b3d8389fb94569409b1b04089653861d56e2e7a98da65d1e",
+    "reports/CLASSIFICATION_THREE_HYPERPLANES_QUADRIC_DEPENDENT_REVIEW_20261107.json": "72286ef764a5a9928c5cb9a08239320d51310fc5c6f66a20756838f65e8cfb9d",
+    "reports/CLASSIFICATION_THREE_HYPERPLANES_QUADRIC_DEPENDENT_SOURCE_20261107.json": "94de81d69d37d7684ebab073e3b4021b50bf6756ad903ff22e6ac6ef3bdf3190"
+  },
+  "producer_bytes": "#!/usr/bin/env python3\n\"\"\"Entire doubleC sixmag source has an actual dependent3H+Q confluence.\"\"\"\nfrom pathlib import Path\nimport hashlib,itertools,json,time\nimport sympy as s\nfrom classification_rank3_mixed_component_review import PAIRS,jacobi as projective_jacobi\nfrom classification_three_hyperplanes_quadric_dependent import projective_source\nROOT=Path(__file__).resolve().parents[1]\ndef main():\n started=time.monotonic();xx=s.symbols('h q1 q2 x y');h,q1,q2,x,y=xx;aff=xx[1:];ep=s.Symbol('epsilon');mag=s.symbols('m0:6');R=sum(a*b for a,b in zip(mag,[1,x,y,x*x,x*y,y*y]));Q=x*(y+1)-1;L=x+1;K=1+ep*L;A=-(1+ep)*y-(2+3*ep)-ep*x\n U=s.Matrix([0,-Q]);V=s.Matrix([L*K,-(1+ep)*(y+1)**2-(1+2*ep)*(y+1)-ep]);P=s.zeros(4);P[0,1]=R+A*q1;P[0,2],P[0,3]=U;P[1,2],P[1,3]=V\n for i,j in itertools.combinations(range(4),2):P[j,i]=-P[i,j]\n bracket=V.jacobian(s.Matrix([x,y]))*U-U.jacobian(s.Matrix([x,y]))*V;assert(bracket-A*U).applyfunc(s.expand)==s.zeros(2,1);assert s.expand(s.det(s.Matrix.vstack(U.T,V.T))-L*K*Q)==0\n strict=[s.expand(sum(P[i,l]*s.diff(P[j,k],aff[l])+P[j,l]*s.diff(P[k,i],aff[l])+P[k,l]*s.diff(P[i,j],aff[l])for l in range(4)))for i,j,k in itertools.combinations(range(4),3)];assert strict==[0]*4\n sourcepath=ROOT/'reports/CLASSIFICATION_NIL22_IMAGE_REMAINING_SOURCES_20261107.json';source=json.loads(sourcepath.read_text())['cases'][2];assert source['name']=='nil22_image_double_C';env=dict(zip(['h','x1','x2','x3','x4'],xx));env.update({str(m):m for m in mag});target=s.zeros(5)\n for ij,text in source['full_six_magnetic_source'].items():\n  i,j=map(int,ij.split(','));target[i,j]=s.sympify(text,locals=env);target[j,i]=-target[i,j]\n Ph=s.zeros(5)\n for i,j in itertools.combinations(range(4),2):\n  Ph[i+1,j+1]=sum(c*h**(2-sum(ex))*s.prod(z**n for z,n in zip(aff,ex))for ex,c in s.Poly(P[i,j],*aff).terms());Ph[j+1,i+1]=-Ph[i+1,j+1]\n assert(Ph.subs(ep,0)-target).applyfunc(s.expand)==s.zeros(5);sparse={ij:dict(s.Poly(s.expand(Ph[ij]),*xx).terms())for ij in PAIRS if Ph[ij]!=0};assert projective_jacobi(sparse).applyfunc(s.expand)==s.zeros(350,1)\n pf=[]\n for missing in range(5):\n  i,j,k,l=[a for a in range(5)if a!=missing];pf.append((-1)**missing*(Ph[i,j]*Ph[k,l]-Ph[i,k]*Ph[j,l]+Ph[i,l]*Ph[j,k]))\n D=s.factor(sum(xx[i]*pf[i]for i in range(5)));Qh=x*y+h*x-h*h;Lh=x+h;Kh=(1+ep)*h+ep*x;assert s.expand(D+h*Lh*Kh*Qh)==0\n # Literal all-eight-source recognition, ratherthan factor resemblance.\n X,Y,Z,W=s.symbols('X Y Z W');new=s.Matrix([-ep*(x+1),y+2+ep*(x+1)/(ep+1),q2,-ep*(ep+1)*q1]);B=new.jacobian(s.Matrix(aff));shift=new-B*s.Matrix(aff);assert s.factor(B.det())==-ep**2*(ep+1);back=(B.inv()*(s.Matrix([X,Y,Z,W])-shift)).applyfunc(s.cancel);moved=(B*P*B.T).subs(dict(zip(aff,back)),simultaneous=True).applyfunc(s.cancel)\n known,knownxx,params,f,knownq=projective_source();rh=s.expand(-ep*(ep+1)*R.subs(dict(zip(aff,back)),simultaneous=True));rvalues=[s.Poly(rh,X,Y).coeff_monomial(m)for m in [1,X,Y,X*X,X*Y,Y*Y]];assert s.cancel(rh-sum(v*m for v,m in zip(rvalues,[1,X,Y,X*X,X*Y,Y*Y])))==0;binding=dict(zip(params,[ep*(ep+1),ep+1,*rvalues]));expected=known[1:,1:].subs(knownxx[0],1).subs(binding,simultaneous=True).subs(dict(zip(knownxx[1:],[X,Y,Z,W])),simultaneous=True).applyfunc(s.cancel);assert(moved-expected).applyfunc(s.cancel)==s.zeros(4)\n magmap=s.Matrix(rvalues).jacobian(mag);assert s.factor(magmap.det())==ep**2*(ep+1)**6\n inputs=[Path(__file__),sourcepath,ROOT/'code/classification_rank3_mixed_component_review.py',ROOT/'code/classification_three_hyperplanes_quadric_dependent.py',ROOT/'research/classification/THREE_HYPERPLANES_QUADRIC_DEPENDENT.md',ROOT/'reports/CLASSIFICATION_THREE_HYPERPLANES_QUADRIC_DEPENDENT_REVIEW_20261107.json',ROOT/'reports/CLASSIFICATION_THREE_HYPERPLANES_QUADRIC_DEPENDENT_SOURCE_20261107.json'];result=dict(task_id='E_multiple_hyperplane',all_passed=True,input_sha256={str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest()for p in inputs},producer_bytes=Path(__file__).read_text(),all_six_magnetic_parameters=list(map(str,mag)),source_family='nil22_image_double_C',source_case_index=2,whole_affine_family={str(i+1)+','+str(j+1):str(s.expand(P[i,j]))for i,j in itertools.combinations(range(4),2)if P[i,j]!=0},whole_homogeneous_family={str(i)+','+str(j):str(s.expand(Ph[i,j]))for i,j in PAIRS if Ph[i,j]!=0},source_endpoint_all6magnetic_exact=True,all4_strict_and350_projective_Jacobi_zero=True,actual_anticanonical_quintic=str(D),generic_three_hyperplanes=[str(h),str(Lh),str(Kh)],quadric=str(Qh),quadric_rank3_determinant=str(s.factor((s.hessian(Qh,(h,x,y))/2).det())),generic_hyperplane_span_rank=2,three_distinct_hyperplanes_condition='epsilon!=0',entire_family_polynomial_no_denominator=True,\n  accepted_full_eight_source_coordinate_map=list(map(str,new)),coordinate_jacobian=[[str(a)for a in row]for row in B.tolist()],coordinate_determinant=str(s.factor(B.det())),new_coordinates=['X','Y','Z','W'],old_coordinates=list(map(str,aff)),full_inverse_coordinate_map=list(map(str,back)),accepted_full_source_parameter_substitution={str(p):str(s.factor(v))for p,v in binding.items()},all_six_parameter_magnetic_map=[[str(z)for z in row]for row in magmap.tolist()],magnetic_map_determinant=str(s.factor(magmap.det())),full_eight_source_all6_brackets_exactly_matched=True,source_a0_times_a0_plus_a1=str(s.factor(binding[params[0]]*(binding[params[0]]+binding[params[1]]))),generic_source_chart='epsilon!=0,-1',source_parameter_localizations=[],\n  whole_double_C_in_known_finite_union=True,whole_double_C_specific_component='R4_DEPENDENT_THREE_HYPERPLANES_QUADRIC_24',containment_proof='Theactualfamily ispolynomialinall6magandep; endpointisENTIREdoubleC. For ep!=0,-1 theexplicitinvertibleaffinemap andall8parameterbinding identifyitwiththeacceptedENTIRE rank3/fiberHessian0dependent3H+Q source. Hence liesintheaccepted24component. Closednesscovers ep0 foreverymagparameter, noboundaryorperioddropped.',new_component_count=0,independent_review_required=True,seconds=time.monotonic()-started)\n out=ROOT/'reports/CLASSIFICATION_NIL22_DOUBLE_C_DEPENDENT_LIMIT_20261107.json'\n if out.exists():raise FileExistsError(str(out))\n out.write_text(json.dumps(result,indent=2)+'\\n');print(json.dumps(dict(whole_double_C_known_containment=True,exact_full8source_map=True,seconds=result['seconds'])))\nif __name__=='__main__':main()\n",
+  "all_six_magnetic_parameters": [
+    "m0",
+    "m1",
+    "m2",
+    "m3",
+    "m4",
+    "m5"
+  ],
+  "source_family": "nil22_image_double_C",
+  "source_case_index": 2,
+  "whole_affine_family": {
+    "1,2": "-epsilon*q1*x - epsilon*q1*y - 3*epsilon*q1 + m0 + m1*x + m2*y + m3*x**2 + m4*x*y + m5*y**2 - q1*y - 2*q1",
+    "1,4": "-x*y - x + 1",
+    "2,3": "epsilon*x**2 + 2*epsilon*x + epsilon + x + 1",
+    "2,4": "-epsilon*y**2 - 4*epsilon*y - 4*epsilon - y**2 - 3*y - 2"
+  },
+  "whole_homogeneous_family": {
+    "1,2": "-3*epsilon*h*q1 - epsilon*q1*x - epsilon*q1*y + h**2*m0 + h*m1*x + h*m2*y - 2*h*q1 + m3*x**2 + m4*x*y + m5*y**2 - q1*y",
+    "1,4": "h**2 - h*x - x*y",
+    "2,3": "epsilon*h**2 + 2*epsilon*h*x + epsilon*x**2 + h**2 + h*x",
+    "2,4": "-4*epsilon*h**2 - 4*epsilon*h*y - epsilon*y**2 - 2*h**2 - 3*h*y - y**2"
+  },
+  "source_endpoint_all6magnetic_exact": true,
+  "all4_strict_and350_projective_Jacobi_zero": true,
+  "actual_anticanonical_quintic": "-h*(h + x)*(-h**2 + h*x + x*y)*(epsilon*h + epsilon*x + h)",
+  "generic_three_hyperplanes": [
+    "h",
+    "h + x",
+    "epsilon*x + h*(epsilon + 1)"
+  ],
+  "quadric": "-h**2 + h*x + x*y",
+  "quadric_rank3_determinant": "1/4",
+  "generic_hyperplane_span_rank": 2,
+  "three_distinct_hyperplanes_condition": "epsilon!=0",
+  "entire_family_polynomial_no_denominator": true,
+  "accepted_full_eight_source_coordinate_map": [
+    "-epsilon*(x + 1)",
+    "epsilon*(x + 1)/(epsilon + 1) + y + 2",
+    "q2",
+    "-epsilon*q1*(epsilon + 1)"
+  ],
+  "coordinate_jacobian": [
+    [
+      "0",
+      "0",
+      "-epsilon",
+      "0"
+    ],
+    [
+      "0",
+      "0",
+      "epsilon/(epsilon + 1)",
+      "1"
+    ],
+    [
+      "0",
+      "1",
+      "0",
+      "0"
+    ],
+    [
+      "-epsilon*(epsilon + 1)",
+      "0",
+      "0",
+      "0"
+    ]
+  ],
+  "coordinate_determinant": "-epsilon**2*(epsilon + 1)",
+  "new_coordinates": [
+    "X",
+    "Y",
+    "Z",
+    "W"
+  ],
+  "old_coordinates": [
+    "q1",
+    "q2",
+    "x",
+    "y"
+  ],
+  "full_inverse_coordinate_map": [
+    "-W/(epsilon**2 + epsilon)",
+    "Z",
+    "(-X - epsilon)/epsilon",
+    "(X + Y*epsilon + Y - 2*epsilon - 2)/(epsilon + 1)"
+  ],
+  "accepted_full_source_parameter_substitution": {
+    "a0": "epsilon*(epsilon + 1)",
+    "a1": "epsilon + 1",
+    "r0": "-epsilon*(epsilon + 1)*(m0 - m1 - 2*m2 + m3 + 2*m4 + 4*m5)",
+    "r1": "epsilon*m1 - epsilon*m2 - 2*epsilon*m3 - epsilon*m4 + 4*epsilon*m5 + m1 - 2*m3 - 2*m4",
+    "r2": "-epsilon*(epsilon + 1)*(m2 - m4 - 4*m5)",
+    "r3": "-(epsilon**2*m3 - epsilon**2*m4 + epsilon**2*m5 + 2*epsilon*m3 - epsilon*m4 + m3)/(epsilon*(epsilon + 1))",
+    "r4": "epsilon*m4 - 2*epsilon*m5 + m4",
+    "r5": "-epsilon*m5*(epsilon + 1)"
+  },
+  "all_six_parameter_magnetic_map": [
+    [
+      "-epsilon**2 - epsilon",
+      "epsilon**2 + epsilon",
+      "2*epsilon**2 + 2*epsilon",
+      "-epsilon**2 - epsilon",
+      "-2*epsilon**2 - 2*epsilon",
+      "-4*epsilon**2 - 4*epsilon"
+    ],
+    [
+      "0",
+      "epsilon + 1",
+      "-epsilon",
+      "-2*epsilon - 2",
+      "-epsilon - 2",
+      "4*epsilon"
+    ],
+    [
+      "0",
+      "0",
+      "-epsilon**2 - epsilon",
+      "0",
+      "epsilon**2 + epsilon",
+      "4*epsilon**2 + 4*epsilon"
+    ],
+    [
+      "0",
+      "0",
+      "0",
+      "(-epsilon**2 - 2*epsilon - 1)/(epsilon**2 + epsilon)",
+      "1",
+      "-epsilon**2/(epsilon**2 + epsilon)"
+    ],
+    [
+      "0",
+      "0",
+      "0",
+      "0",
+      "epsilon + 1",
+      "-2*epsilon"
+    ],
+    [
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "-epsilon**2 - epsilon"
+    ]
+  ],
+  "magnetic_map_determinant": "epsilon**2*(epsilon + 1)**6",
+  "full_eight_source_all6_brackets_exactly_matched": true,
+  "source_a0_times_a0_plus_a1": "epsilon*(epsilon + 1)**3",
+  "generic_source_chart": "epsilon!=0,-1",
+  "source_parameter_localizations": [],
+  "whole_double_C_in_known_finite_union": true,
+  "whole_double_C_specific_component": "R4_DEPENDENT_THREE_HYPERPLANES_QUADRIC_24",
+  "containment_proof": "Theactualfamily ispolynomialinall6magandep; endpointisENTIREdoubleC. For ep!=0,-1 theexplicitinvertibleaffinemap andall8parameterbinding identifyitwiththeacceptedENTIRE rank3/fiberHessian0dependent3H+Q source. Hence liesintheaccepted24component. Closednesscovers ep0 foreverymagparameter, noboundaryorperioddropped.",
+  "new_component_count": 0,
+  "independent_review_required": true,
+  "seconds": 0.6447489629972551
+}

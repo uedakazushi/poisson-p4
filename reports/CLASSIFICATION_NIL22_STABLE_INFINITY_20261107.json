@@ -1,0 +1,671 @@
+{
+  "task_id": "E_multiple_hyperplane",
+  "all_passed": true,
+  "whole_source_changes_of_infinity": [
+    {
+      "name": "stable_line_conic",
+      "all_six_magnetic_parameters": [
+        "m0",
+        "m1",
+        "m2",
+        "m3",
+        "m4",
+        "m5"
+      ],
+      "actual_anticanonical_divisor": "-h**2*(-12*h + x - y)*(36*h**2 + 3*h*x - 3*h*y + 2*x*y)/2",
+      "base_D": "(-12*h + x - y)*(36*h**2 + 3*h*x - 3*h*y + 2*x*y)/2",
+      "full_magnetic_action_matrix": [
+        [
+          "3/2",
+          "15",
+          "3",
+          "3/2",
+          "-3",
+          "-15"
+        ],
+        [
+          "0",
+          "1/2",
+          "0",
+          "0",
+          "4",
+          "-1/2"
+        ],
+        [
+          "0",
+          "-1/2",
+          "4",
+          "0",
+          "0",
+          "1/2"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "-1/3",
+          "0"
+        ],
+        [
+          "0",
+          "1/3",
+          "0",
+          "0",
+          "0",
+          "-1/3"
+        ],
+        [
+          "0",
+          "0",
+          "1/3",
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "magnetic_action_rank": 4,
+      "full_magnetic_cokernel": [
+        [
+          "0",
+          "-2/3",
+          "0",
+          "-8",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "-1/12",
+          "-1/12",
+          "-1",
+          "0",
+          "1"
+        ]
+      ],
+      "simple_infinity": [
+        {
+          "simple_factor": "-12*h + x - y",
+          "other_base_coordinate": "y",
+          "actual_PGL_matrix": [
+            [
+              "-12",
+              "0",
+              "0",
+              "1",
+              "-1"
+            ],
+            [
+              "0",
+              "1",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "1",
+              "0",
+              "0"
+            ],
+            [
+              "1",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "1"
+            ]
+          ],
+          "determinant": "-1",
+          "whole_Euler_correction": [
+            "0",
+            "H/3 + 5*X + Y/3",
+            "-X + Y/3",
+            "0",
+            "0"
+          ],
+          "all150_inverse_reconstruction": true,
+          "whole_affine_six_brackets": {
+            "0,1": "(-3*Q1*X - 2*Q1*Y + 21*Q2*X + 2*Q2*Y + 2*Q2 + 6*X**2*m0 + 72*X**2*m1 + 864*X**2*m3 + 6*X*Y*m1 + 6*X*Y*m2 + 144*X*Y*m3 + 72*X*Y*m4 + 6*X*m1 + 144*X*m3 + 6*Y**2*m3 + 6*Y**2*m4 + 6*Y**2*m5 + 12*Y*m3 + 6*Y*m4 + 6*m3)/6",
+            "0,2": "X*(15*X + Y + 1)/3",
+            "0,3": "-X*(42*X + Y + 1)/2",
+            "1,2": "-X*(3*X - Y)/3",
+            "1,3": "-X*(6*X + 7*Y)/2"
+          },
+          "full_source_strict_Jacobi_zero": true,
+          "new_modular_field": [
+            "-13*X - 2*Y/3 - 2/3",
+            "5*X - 2*Y/3",
+            "0",
+            "0"
+          ],
+          "new_modular_matrix": [
+            [
+              "0",
+              "0",
+              "-13",
+              "-2/3"
+            ],
+            [
+              "0",
+              "0",
+              "5",
+              "-2/3"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0"
+            ]
+          ],
+          "new_modular_translation": [
+            "-2/3",
+            "0",
+            "0",
+            "0"
+          ],
+          "modular_characteristic_polynomial": "lambda**4",
+          "modular_rank": 2,
+          "modular_eigenspace_dimensions": {
+            "0": 2
+          },
+          "opposite_eigenvalue_pairs": false,
+          "square_scalar": "0",
+          "modular_zero": [
+            "0",
+            "0",
+            "-1/27",
+            "-5/18"
+          ],
+          "full_constant_value": {
+            "0,1": "(4*m0 - 30*m1 + 30*m2 + 225*m3 - 225*m4 + 225*m5)/2916",
+            "0,2": "-1/486",
+            "0,3": "-5/324",
+            "1,2": "1/486",
+            "1,3": "-13/324"
+          },
+          "constant_Pf_at_modular_zero": "-1/8748",
+          "accepted_whole_SS20_rank2_hypotheses": false,
+          "parameters_localized": []
+        }
+      ]
+    },
+    {
+      "name": "stable_three_lines",
+      "all_six_magnetic_parameters": [
+        "m0",
+        "m1",
+        "m2",
+        "m3",
+        "m4",
+        "m5"
+      ],
+      "actual_anticanonical_divisor": "-h**2*(-3*h + y)*(3*h + x)*(-3*h + x - y)",
+      "base_D": "(-3*h + y)*(3*h + x)*(-3*h + x - y)",
+      "full_magnetic_action_matrix": [
+        [
+          "0",
+          "-3",
+          "-6",
+          "0",
+          "6",
+          "3"
+        ],
+        [
+          "0",
+          "-1",
+          "0",
+          "0",
+          "1",
+          "1"
+        ],
+        [
+          "0",
+          "1",
+          "1",
+          "0",
+          "0",
+          "-1"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "-1/3",
+          "0"
+        ],
+        [
+          "0",
+          "1/3",
+          "0",
+          "0",
+          "0",
+          "-1/3"
+        ],
+        [
+          "0",
+          "0",
+          "1/3",
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "magnetic_action_rank": 3,
+      "full_magnetic_cokernel": [
+        [
+          "1/27",
+          "1/9",
+          "2/9",
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "-1/27",
+          "2/9",
+          "-2/9",
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "1/27",
+          "-2/9",
+          "-1/9",
+          "0",
+          "0",
+          "1"
+        ]
+      ],
+      "simple_infinity": [
+        {
+          "simple_factor": "3*h + x",
+          "other_base_coordinate": "y",
+          "actual_PGL_matrix": [
+            [
+              "3",
+              "0",
+              "0",
+              "1",
+              "0"
+            ],
+            [
+              "0",
+              "1",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "1",
+              "0",
+              "0"
+            ],
+            [
+              "1",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "1"
+            ]
+          ],
+          "determinant": "-1",
+          "whole_Euler_correction": [
+            "0",
+            "H/3 - 3*X",
+            "-X + Y/3",
+            "0",
+            "0"
+          ],
+          "all150_inverse_reconstruction": true,
+          "whole_affine_six_brackets": {
+            "0,1": "(3*Q1*X - Q1*Y - 9*Q2*X + Q2 + 3*X**2*m0 - 9*X**2*m1 + 27*X**2*m3 + 3*X*Y*m2 - 9*X*Y*m4 + 3*X*m1 - 18*X*m3 + 3*Y**2*m5 + 3*Y*m4 + 3*m3)/3",
+            "0,2": "-X*(9*X - 1)/3",
+            "0,3": "-X*(3*Y - 1)",
+            "1,2": "-X*(3*X - Y)/3",
+            "1,3": "2*X*(3*X - Y)"
+          },
+          "full_source_strict_Jacobi_zero": true,
+          "new_modular_field": [
+            "12*X - 2/3",
+            "5*X - 2*Y/3",
+            "0",
+            "0"
+          ],
+          "new_modular_matrix": [
+            [
+              "0",
+              "0",
+              "12",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "5",
+              "-2/3"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0"
+            ]
+          ],
+          "new_modular_translation": [
+            "-2/3",
+            "0",
+            "0",
+            "0"
+          ],
+          "modular_characteristic_polynomial": "lambda**4",
+          "modular_rank": 2,
+          "modular_eigenspace_dimensions": {
+            "0": 2
+          },
+          "opposite_eigenvalue_pairs": false,
+          "square_scalar": "0",
+          "modular_zero": [
+            "0",
+            "0",
+            "1/18",
+            "5/12"
+          ],
+          "full_constant_value": {
+            "0,1": "(4*m0 + 60*m1 + 30*m2 + 900*m3 + 450*m4 + 225*m5)/1296",
+            "0,2": "1/108",
+            "0,3": "-1/72",
+            "1,2": "1/216",
+            "1,3": "-1/36"
+          },
+          "constant_Pf_at_modular_zero": "1/5184",
+          "accepted_whole_SS20_rank2_hypotheses": false,
+          "parameters_localized": []
+        },
+        {
+          "simple_factor": "-3*h + y",
+          "other_base_coordinate": "x",
+          "actual_PGL_matrix": [
+            [
+              "-3",
+              "0",
+              "0",
+              "0",
+              "1"
+            ],
+            [
+              "0",
+              "1",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "1",
+              "0",
+              "0"
+            ],
+            [
+              "1",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "1",
+              "0"
+            ]
+          ],
+          "determinant": "1",
+          "whole_Euler_correction": [
+            "0",
+            "X + Y/3",
+            "H/3 + 3*X",
+            "0",
+            "0"
+          ],
+          "all150_inverse_reconstruction": true,
+          "whole_affine_six_brackets": {
+            "0,1": "(-9*Q1*X - Q1 + 3*Q2*X + Q2*Y + 3*X**2*m0 + 9*X**2*m2 + 27*X**2*m5 + 3*X*Y*m1 + 9*X*Y*m4 + 3*X*m2 + 18*X*m5 + 3*Y**2*m3 + 3*Y*m4 + 3*m5)/3",
+            "0,2": "X*(3*X + Y)/3",
+            "0,3": "2*X*(3*X + Y)",
+            "1,2": "X*(9*X + 1)/3",
+            "1,3": "X*(3*Y - 1)"
+          },
+          "full_source_strict_Jacobi_zero": true,
+          "new_modular_field": [
+            "-5*X - 2*Y/3",
+            "-12*X - 2/3",
+            "0",
+            "0"
+          ],
+          "new_modular_matrix": [
+            [
+              "0",
+              "0",
+              "-5",
+              "-2/3"
+            ],
+            [
+              "0",
+              "0",
+              "-12",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0"
+            ]
+          ],
+          "new_modular_translation": [
+            "0",
+            "-2/3",
+            "0",
+            "0"
+          ],
+          "modular_characteristic_polynomial": "lambda**4",
+          "modular_rank": 2,
+          "modular_eigenspace_dimensions": {
+            "0": 2
+          },
+          "opposite_eigenvalue_pairs": false,
+          "square_scalar": "0",
+          "modular_zero": [
+            "0",
+            "0",
+            "-1/18",
+            "5/12"
+          ],
+          "full_constant_value": {
+            "0,1": "(4*m0 - 30*m1 - 60*m2 + 225*m3 + 450*m4 + 900*m5)/1296",
+            "0,2": "-1/216",
+            "0,3": "-1/36",
+            "1,2": "-1/108",
+            "1,3": "-1/72"
+          },
+          "constant_Pf_at_modular_zero": "1/5184",
+          "accepted_whole_SS20_rank2_hypotheses": false,
+          "parameters_localized": []
+        },
+        {
+          "simple_factor": "-3*h + x - y",
+          "other_base_coordinate": "y",
+          "actual_PGL_matrix": [
+            [
+              "-3",
+              "0",
+              "0",
+              "1",
+              "-1"
+            ],
+            [
+              "0",
+              "1",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "1",
+              "0",
+              "0"
+            ],
+            [
+              "1",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "1"
+            ]
+          ],
+          "determinant": "-1",
+          "whole_Euler_correction": [
+            "0",
+            "H/3 + 2*X + Y/3",
+            "-X + Y/3",
+            "0",
+            "0"
+          ],
+          "all150_inverse_reconstruction": true,
+          "whole_affine_six_brackets": {
+            "0,1": "(3*Q1*X - Q1*Y + 6*Q2*X + Q2*Y + Q2 + 3*X**2*m0 + 9*X**2*m1 + 27*X**2*m3 + 3*X*Y*m1 + 3*X*Y*m2 + 18*X*Y*m3 + 9*X*Y*m4 + 3*X*m1 + 18*X*m3 + 3*Y**2*m3 + 3*Y**2*m4 + 3*Y**2*m5 + 6*Y*m3 + 3*Y*m4 + 3*m3)/3",
+            "0,2": "X*(6*X + Y + 1)/3",
+            "0,3": "X*(6*X + Y + 1)",
+            "1,2": "-X*(3*X - Y)/3",
+            "1,3": "2*X*(3*X - Y)"
+          },
+          "full_source_strict_Jacobi_zero": true,
+          "new_modular_field": [
+            "-7*X - 2*Y/3 - 2/3",
+            "5*X - 2*Y/3",
+            "0",
+            "0"
+          ],
+          "new_modular_matrix": [
+            [
+              "0",
+              "0",
+              "-7",
+              "-2/3"
+            ],
+            [
+              "0",
+              "0",
+              "5",
+              "-2/3"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0"
+            ]
+          ],
+          "new_modular_translation": [
+            "-2/3",
+            "0",
+            "0",
+            "0"
+          ],
+          "modular_characteristic_polynomial": "lambda**4",
+          "modular_rank": 2,
+          "modular_eigenspace_dimensions": {
+            "0": 2
+          },
+          "opposite_eigenvalue_pairs": false,
+          "square_scalar": "0",
+          "modular_zero": [
+            "0",
+            "0",
+            "-1/18",
+            "-5/12"
+          ],
+          "full_constant_value": {
+            "0,1": "(4*m0 - 30*m1 + 30*m2 + 225*m3 - 225*m4 + 225*m5)/1296",
+            "0,2": "-1/216",
+            "0,3": "-1/72",
+            "1,2": "1/216",
+            "1,3": "-1/36"
+          },
+          "constant_Pf_at_modular_zero": "-1/5184",
+          "accepted_whole_SS20_rank2_hypotheses": false,
+          "parameters_localized": []
+        }
+      ]
+    }
+  ],
+  "source_parameters_dropped": false,
+  "no_parameter_localization": true,
+  "entire_sources_MPS_covered": false,
+  "scope": "Only apply a previously proved whole-source theorem when the recorded exact modular and constant-value hypotheses hold. A negative flag is not a nonmembership conclusion.",
+  "input_sha256": {
+    "code/classification_nil22_stable_infinity.py": "680b1d604ffa9994164c800f7181b2ef24314ecf4c991e1f7b4181d30187a926",
+    "code/classification_nil22_image_source_review.py": "72158242b9431a36a821fbca77230c2543687611cd57b6c8a279ea7896ef57d4",
+    "reports/CLASSIFICATION_NIL22_IMAGE_SOURCE_REVIEW_V2_20261107.json": "bc945ece2d11bdd407e86681fdee5636257f801fe5c8e4f473c26a24442580eb",
+    "research/classification/HYPERPLANE_QUARTIC_LARGE_SEMISIMPLE_SUPPORT.md": "c6ba0d9a0ae1ba30ced7082b104d4692f665316e1283fc561abcd823fb969e15"
+  },
+  "producer_source_bytes": "#!/usr/bin/env python3\n\"\"\"Whole-source changes of infinity for both stable nil22 image sources.\n\nAll six magnetic variables, all 150 homogeneous coefficients, and every\nsimple linear factor are retained. No parameter samples or deformations.\n\"\"\"\nimport argparse\nimport hashlib\nimport itertools\nimport json\nfrom pathlib import Path\nimport resource\nimport time\n\nimport sympy as s\nfrom classification_nil22_image_source_review import build_P,coords,p,F0,mag,x,y,q1,q2\n\nROOT=Path(__file__).resolve().parents[1]\n\n\ndef jacobi(P,variables):\n    return [s.expand(sum(P[i,l]*s.diff(P[j,k],variables[l])+P[j,l]*s.diff(P[k,i],variables[l])+P[k,l]*s.diff(P[i,j],variables[l])for l in range(len(variables))))for i,j,k in itertools.combinations(range(len(variables)),3)]\n\n\ndef encode(P):\n    return {f'{i},{j}':str(s.factor(P[i,j]))for i,j in itertools.combinations(range(P.rows),2)if P[i,j]!=0}\n\n\ndef main():\n    ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--output',type=Path,required=True);args=ap.parse_args()\n    begun=time.monotonic();resource.setrlimit(resource.RLIMIT_CPU,(110,115));resource.setrlimit(resource.RLIMIT_AS,(1024*1024**2,1024*1024**2))\n    h,H,Q1,Q2,X,Y=s.symbols('h H Q1 Q2 X Y');old=s.Matrix([h,q1,q2,x,y]);new=s.Matrix([H,Q1,Q2,X,Y])\n    specs=[('stable_line_conic',s.Matrix([[3,-15],[-15,3]]),s.Matrix([s.Rational(3,2),-s.Rational(3,2)]),[(x-y-12*h,y)]),\n        ('stable_three_lines',s.Matrix([[-6,3],[3,-6]]),s.zeros(2,1),[(x+3*h,y),(y-3*h,x),(x-y-3*h,y)])]\n    records=[]\n    for name,S,V0,factors in specs:\n        P,M,D=build_P(x*y*(x-y),S,V0,-s.eye(2)/3)\n        P5=s.zeros(5)\n        for i,j in itertools.combinations(range(4),2):\n            homogeneous=sum(co*h**(2-sum(e))*s.prod(z**k for z,k in zip(coords,e))for e,co in s.Poly(P[i,j],*coords).terms())\n            P5[i+1,j+1]=homogeneous;P5[j+1,i+1]=-homogeneous\n        Dhom=s.expand(sum(co*h**(3-sum(e))*x**e[0]*y**e[1]for e,co in s.Poly(D,x,y).terms()))\n        actual_D=s.factor(-h*h*Dhom)\n        # Whole magnetic action q'=q+L(p), solved without deleting a coefficient.\n        ell=s.symbols('l0:6');L=s.Matrix([ell[0]+ell[1]*x+ell[2]*y,ell[3]+ell[4]*x+ell[5]*y])\n        moved=s.Matrix([q1+L[0],q2+L[1],x,y]);J=moved.jacobian(s.Matrix(coords))\n        shifted=(J*P*J.T).subs({q1:q1-L[0],q2:q2-L[1]},simultaneous=True).applyfunc(s.expand)\n        change=s.Poly(shifted[0,1]-P[0,1],x,y)\n        mons=[1,x,y,x*x,x*y,y*y]\n        action=s.Matrix([change.coeff_monomial(mon)for mon in mons]).jacobian(ell)\n        assert all(s.expand(shifted[i,j]-P[i,j])==0 for i,j in itertools.combinations(range(4),2)if(i,j)!=(0,1))\n        source=dict(name=name,all_six_magnetic_parameters=list(map(str,mag)),actual_anticanonical_divisor=str(actual_D),base_D=str(s.factor(Dhom)),\n            full_magnetic_action_matrix=[list(map(str,row))for row in action.tolist()],magnetic_action_rank=action.rank(),\n            full_magnetic_cokernel=[list(map(str,v))for v in action.T.nullspace()],simple_infinity=[])\n        for linear,other in factors:\n            image=s.Matrix([linear,q1,q2,h,other]);G=image.jacobian(old);assert G.det()!=0\n            raw=(G*P5*G.T).subs(dict(zip(old,G.inv()*new)),simultaneous=True).applyfunc(s.expand)\n            R=s.Matrix([0,*[s.cancel(raw[0,j]/H)for j in range(1,5)]])\n            assert all(not s.denom(value).has(H)for value in R)\n            assert all(not value.has(*mag)for value in R)\n            transformed=(raw-(new*R.T-R*new.T)).applyfunc(s.expand)\n            assert all(transformed[0,j]==0 for j in range(5))\n            # Explicit inverse reconstruction proves all 150 quotient coefficients.\n            recovered=(G.inv()*(transformed+new*R.T-R*new.T)*G.inv().T).subs(dict(zip(new,G*old)),simultaneous=True).applyfunc(s.expand)\n            assert recovered==P5\n            affine=transformed[1:,1:].subs(H,1)\n            variables=(Q1,Q2,X,Y)\n            assert not any(jacobi(affine,variables))\n            Z=s.Matrix([s.expand(sum(s.diff(affine[i,j],variables[i])for i in range(4)))for j in range(4)])\n            A=Z.jacobian(s.Matrix(variables));c=Z.subs(dict.fromkeys(variables,0))\n            assert not any(value.has(*mag,*variables)for value in A)\n            assert not any(value.has(*mag,*variables)for value in c)\n            assert (Z-A*s.Matrix(variables)-c).applyfunc(s.expand)==s.zeros(4,1)\n            polynomial=s.factor(A.charpoly(s.Symbol('lambda')).as_expr())\n            zero_set=s.linsolve(list(Z),variables)\n            zero=None;value_pf=None;C=None\n            if zero_set is not s.EmptySet and bool(zero_set):\n                representative=list(zero_set)[0]\n                free=set().union(*(z.free_symbols for z in representative))\n                zero=s.Matrix([z.subs(dict.fromkeys(free,0))for z in representative])\n                C=affine.subs(dict(zip(variables,zero)),simultaneous=True).applyfunc(s.expand)\n                value_pf=s.factor(C[0,1]*C[2,3]-C[0,2]*C[1,3]+C[0,3]*C[1,2])\n            square_scalar=s.factor(s.trace(A*A)/4)\n            opposite_pair=square_scalar!=0 and (A*A-square_scalar*s.eye(4)).applyfunc(s.expand)==s.zeros(4)\n            record=dict(simple_factor=str(linear),other_base_coordinate=str(other),actual_PGL_matrix=G.tolist(),determinant=str(G.det()),\n                whole_Euler_correction=list(map(str,R)),all150_inverse_reconstruction=True,whole_affine_six_brackets=encode(affine),\n                full_source_strict_Jacobi_zero=True,new_modular_field=list(map(str,Z)),new_modular_matrix=A.tolist(),new_modular_translation=list(map(str,c)),\n                modular_characteristic_polynomial=str(polynomial),modular_rank=A.rank(),modular_eigenspace_dimensions={str(k):4-(A-k*s.eye(4)).rank()for k in A.eigenvals()},\n                opposite_eigenvalue_pairs=bool(opposite_pair),square_scalar=str(square_scalar),\n                modular_zero=list(map(str,zero))if zero is not None else None,full_constant_value=encode(C)if C is not None else None,\n                constant_Pf_at_modular_zero=str(value_pf)if value_pf is not None else None,\n                accepted_whole_SS20_rank2_hypotheses=bool(opposite_pair and value_pf is not None and value_pf!=0),\n                parameters_localized=[])\n            source['simple_infinity'].append(record)\n        records.append(source)\n    paths=[Path(__file__),ROOT/'code/classification_nil22_image_source_review.py',ROOT/'reports/CLASSIFICATION_NIL22_IMAGE_SOURCE_REVIEW_V2_20261107.json',ROOT/'research/classification/HYPERPLANE_QUARTIC_LARGE_SEMISIMPLE_SUPPORT.md']\n    result=dict(task_id='E_multiple_hyperplane',all_passed=True,whole_source_changes_of_infinity=records,\n        source_parameters_dropped=False,no_parameter_localization=True,\n        entire_sources_MPS_covered=all(any(v['accepted_whole_SS20_rank2_hypotheses']for v in r['simple_infinity'])for r in records),\n        scope='Only apply a previously proved whole-source theorem when the recorded exact modular and constant-value hypotheses hold. A negative flag is not a nonmembership conclusion.',\n        input_sha256={str(path.relative_to(ROOT)):hashlib.sha256(path.read_bytes()).hexdigest()for path in paths},producer_source_bytes=Path(__file__).read_text(),\n        seconds=round(time.monotonic()-begun,6),maximum_RSS_KiB=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss)\n    with args.output.open('x')as handle:json.dump(result,handle,indent=2,default=str);handle.write('\\n')\n    print(json.dumps(dict(all_passed=True,entire_sources_MPS_covered=result['entire_sources_MPS_covered'],seconds=result['seconds'])))\n\n\nif __name__=='__main__':main()\n",
+  "seconds": 0.959695,
+  "maximum_RSS_KiB": 52168
+}

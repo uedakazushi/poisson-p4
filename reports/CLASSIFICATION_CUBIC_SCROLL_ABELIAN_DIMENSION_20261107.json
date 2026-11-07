@@ -1,0 +1,2722 @@
+{
+  "task_id": "G",
+  "input_report": "reports/CLASSIFICATION_CUBIC_SCROLL_ABELIAN_CONORMAL_20261107.json",
+  "input_sha256": "5285fed9aba2dc506579c7d56a6fa194e295ed5c31f06a21b10b5badc007d580",
+  "producer_sha256": "3694651be7de9bcfccb0ad5ba536175892f15e8da3c5405b56ebb53aa5d8a88b",
+  "producer_bytes": "#!/usr/bin/env python3\n\"\"\"Geometrically necessary abelian-conormal reduction of whole cubic sources.\n\nRankzero+irreducible quintic+nonplane surface forces multiplicity2 and a\nFrobenius first jet, hence {I,I} in symbolic I^2. All first partials of all\nthree generator brackets are tested on the dominant surface parametrization.\n\"\"\"\nfrom pathlib import Path\nfrom itertools import combinations,combinations_with_replacement\nfrom fractions import Fraction as Q\nimport hashlib,json,resource,signal,time,os,subprocess,tempfile,sys\nfrom functools import lru_cache\nimport sympy as s\nfrom sympy.polys.matrices import DomainMatrix\nfrom classification_projected_veronese_zero_review import plus,scale,sparse_rref\nROOT=Path(__file__).resolve().parents[1];PAIRS=list(combinations(range(5),2))\n\n\ndef compute(case,old):\n    start=time.monotonic();name=case['name'];x=s.symbols('x0:5');ss,tt,u,v,c=s.symbols('ss tt u v c')\n    if name=='smooth_scroll_12':param=(ss,tt,u,v);mapping=(ss*u,tt*u,ss*ss*v,ss*tt*v,tt*tt*v)\n    else:param=(ss,tt,c);mapping=(ss**3,ss*ss*tt,ss*tt*tt,tt**3,c)\n    env=dict(zip(map(str,x),x));quadrics=[s.sympify(t,locals=env)for t in case['quadratic_ideal_generators']];sub=dict(zip(x,mapping))\n    assert all(s.expand(q.subs(sub,simultaneous=True))==0 for q in quadrics)\n    derivatives=[[s.expand(s.diff(q,xx).subs(sub,simultaneous=True))for xx in x]for q in quadrics]\n    rowlabels=[];matrix=[]\n    for qa,qb in combinations(range(3),2):\n        for normal_derivative in range(5):\n            columns=[];exponents=set()\n            for qg in range(3):\n                for i,j in PAIRS:\n                    polynomial=s.Poly(s.expand(derivatives[qg][normal_derivative]*(derivatives[qa][i]*derivatives[qb][j]-derivatives[qa][j]*derivatives[qb][i])),*param,domain=s.QQ)\n                    terms={e:co for e,co in polynomial.terms()if co};columns.append(terms);exponents.update(terms)\n            for e in sorted(exponents,reverse=True):\n                rowlabels.append({'generator_pair':[qa,qb],'ambient_partial':normal_derivative,'parametrization_exponents':e});matrix.append([col.get(e,s.Integer(0))for col in columns])\n    M=s.Matrix(matrix);dm=lambda A:DomainMatrix.from_Matrix(A).convert_to(s.QQ)\n    red,piv=dm(M).rref();R=red.to_Matrix();piv=list(piv);free=[j for j in range(30)if j not in piv];B=s.zeros(30,len(free))\n    for k,j in enumerate(free):\n        B[j,k]=1\n        for row,p in enumerate(piv):B[p,k]=-R[row,j]\n    assert M*B==s.zeros(M.rows,B.cols)\n    selected=list(dm(M.T).rref()[1]);minor=M[selected,piv];determinant=minor.det();assert determinant!=0 and len(piv)+B.cols==30\n    d=B.cols;newcols=list(combinations_with_replacement(range(d),2));newci={a:i for i,a in enumerate(newcols)}\n    oldcols=[tuple(a)for a in old['all465_quadratic_parameter_monomials']]\n    def restrict(row):\n        out={}\n        for k,value in row.items():\n            i,j=oldcols[int(k)];value=Q(value)\n            for r in range(d):\n                if not B[i,r]:continue\n                for t in range(d):\n                    if not B[j,t]:continue\n                    col=newci[tuple(sorted((r,t)))];out[col]=out.get(col,Q(0))+value*Q(B[i,r])*Q(B[j,t])\n        return {j:c for j,c in out.items()if c}\n    J=[restrict(row)for row in case['all350_Jacobi_rows']];Drows=[restrict(row)for row in case['all126_actual_D_rows']]\n    basis,proof,chosen=sparse_rref(J,True);targetcert=[];allmember=True\n    for k,target in enumerate(Drows):\n        residual=dict(target);functional={}\n        for p in sorted(basis):\n            if p in residual:\n                coefficient=residual[p];residual=plus(residual,scale(basis[p],-coefficient));functional=plus(functional,scale(proof[p],coefficient))\n        allmember &=not residual\n        assert plus(plus(*(scale(J[i],a)for i,a in functional.items())),residual)==target\n        if target:targetcert.append({'original126_D_row':k,'full350_Jacobi_functional':functional,'residual':residual})\n    answer={'name':name,'parametrization_variables':list(map(str,param)),'dominant_surface_parametrization':list(map(str,mapping)),\n        'all_three_ideal_generators':case['quadratic_ideal_generators'],'all_generator_pair_all_firstpartial_equations':rowlabels,\n        'full_linear_matrix':[[str(c)for c in row]for row in matrix],'linear_shape':list(M.shape),'linear_rank':len(piv),\n        'rank_minor':{'rows':selected,'columns':piv,'determinant':str(determinant)},'free_original30_indices':free,\n        'complete_abelian_conormal_source_dimension':d,'complete_original30_by_reduced_source_matrix':[[str(a)for a in row]for row in B.tolist()],\n        'all_reduced_source_quadratic_monomials':newcols,'all350_reduced_Jacobi_rows':J,'all126_reduced_actual_D_rows':Drows,\n        'reduced_Jacobi_row_rank':len(basis),'all_actual_D_rows_in_reduced_full350_Jacobi_rowspace':allmember,'actual_D_certificates':targetcert,\n        'seconds':time.monotonic()-start,\n        'scope':'Complete necessary abelian-conormal source for rankzero and irreducible quintic on this nonplane surface. Positive actualD membership proves this entire geometric branch empty. It does not impose this source condition on arbitrary rank2 restrictions or on plane multiplicity>=3.'}\n    print(name,'full linear',M.shape,'rank',len(piv),'source',d,'all350 rank',len(basis),'actualD membership',allmember,flush=True)\n    return answer\n\n\ndef main():\n    destination=ROOT/'reports/CLASSIFICATION_CUBIC_SCROLL_ABELIAN_CONORMAL_20261107.json'\n    if destination.exists():raise FileExistsError(destination)\n    start=time.monotonic();signal.alarm(120);resource.setrlimit(resource.RLIMIT_AS,(1536*1024**2,1536*1024**2))\n    oldpath=ROOT/'reports/CLASSIFICATION_CUBIC_SCROLL_ZERO_JACOBI_20261107.json';old=json.loads(oldpath.read_text())\n    cases=[compute(case,old)for case in old['cases']]\n    result={'task_id':'G','all_passed':True,'input_report':str(oldpath.relative_to(ROOT)),'input_sha256':hashlib.sha256(oldpath.read_bytes()).hexdigest(),\n        'producer_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'producer_bytes':Path(__file__).read_text(),'cases':cases,\n        'both_rankzero_irreducible_quintic_cubic_surface_branches_empty':all(c['all_actual_D_rows_in_reduced_full350_Jacobi_rowspace']for c in cases),\n        'seconds':time.monotonic()-start,'maximum_RSS_KiB':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss}\n    destination.write_text(json.dumps(result,indent=2,default=str)+'\\n')\n\n\ndef dimension():\n    \"\"\"A dimension upper bound suffices; retain exact lifted leading monomials.\"\"\"\n    destination=ROOT/'reports/CLASSIFICATION_CUBIC_SCROLL_ABELIAN_DIMENSION_20261107.json'\n    if destination.exists():raise FileExistsError(destination)\n    resource.setrlimit(resource.RLIMIT_AS,(1536*1024**2,1536*1024**2));signal.alarm(165)\n    path=ROOT/'reports/CLASSIFICATION_CUBIC_SCROLL_ABELIAN_CONORMAL_20261107.json';source=json.loads(path.read_text())\n    answer={'task_id':'G','input_report':str(path.relative_to(ROOT)),'input_sha256':hashlib.sha256(path.read_bytes()).hexdigest(),\n        'producer_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'producer_bytes':Path(__file__).read_text(),'cases':[]}\n    prefix=ROOT/'work/nonsquare-v62/singular-runtime/prefix';env_run=dict(os.environ)\n    env_run['LD_LIBRARY_PATH']='/workspace/cloud-setup/prefix/usr/lib/x86_64-linux-gnu:'+str(prefix/'usr/lib/x86_64-linux-gnu')+':'+env_run.get('LD_LIBRARY_PATH','')\n    env_run['SINGULAR_PROCS_DIR']=str(prefix/'usr/lib/x86_64-linux-gnu/singular/MOD');env_run['SINGULARPATH']='/workspace/cloud-setup/prefix/usr/share/singular/LIB'\n    for case in source['cases']:\n        start=time.monotonic();d=case['complete_abelian_conormal_source_dimension'];z=s.symbols('r0:'+str(d));env={str(v):v for v in z};cols=case['all_reduced_source_quadratic_monomials']\n        rows=[{int(j):Q(c)for j,c in row.items()}for row in case['all350_reduced_Jacobi_rows']];_,_,selected=sparse_rref(rows)\n        gens=[s.Poly(sum(s.Rational(c)*z[cols[j][0]]*z[cols[j][1]]for j,c in rows[i].items()),*z,domain=s.QQ).clear_denoms()[1].primitive()[1]for i in selected]\n        packet={'name':case['name'],'all_reduced_source_parameters_retained':d,'original350_row_indices':selected,'generators':[str(g.as_expr())for g in gens],\n            'target_fixed_affine_dimension':7 if case['name']=='smooth_scroll_12'else 9}\n        script='ring R=0,('+','.join(map(str,z))+'),dp;\\nshort=0;\\nideal I='+','.join(str(g.as_expr()).replace('**','^')for g in gens)+';\\nmatrix T;ideal G=liftstd(I,T);\\n'\n        script+='print(\"DIM:\"+string(dim(G)));\\nint i;int j;for(i=1;i<=size(G);i++){print(\"G:\"+string(i)+\":\"+string(G[i]));}\\n'\n        script+='for(i=1;i<=nrows(T);i++){for(j=1;j<=ncols(T);j++){if(T[i,j]!=0){print(\"L:\"+string(i)+\":\"+string(j)+\":\"+string(T[i,j]));}}}\\nquit;\\n';packet['exact_native_input']=script\n        try:\n            with tempfile.TemporaryDirectory(prefix='cubic-abelian-dim-')as temp:\n                task=Path(temp)/'source.sing';task.write_text(script)\n                run=subprocess.run([str(prefix/'usr/bin/Singular'),'-q',str(task)],env=env_run,capture_output=True,text=True,timeout=60,check=False)\n            assert run.returncode==0 and '?'not in run.stdout,run.stdout[-20000:]+run.stderr\n            G={};lifts=[];native_dim=None\n            for line in run.stdout.splitlines():\n                if line.startswith('G:'):\n                    _,j,p=line.split(':',2);G[int(j)-1]=s.Poly(s.sympify(p.replace('^','**'),locals=env),*z,domain=s.QQ)\n                elif line.startswith('L:'):\n                    _,i,j,p=line.split(':',3);lifts.append((int(i)-1,int(j)-1,s.Poly(s.sympify(p.replace('^','**'),locals=env),*z,domain=s.QQ)))\n                elif line.startswith('DIM:'):native_dim=int(line.split(':',1)[1])\n            assert G and native_dim is not None\n            sums={j:s.Poly(0,*z,domain=s.QQ)for j in G}\n            for i,j,p in lifts:sums[j]+=gens[i]*p\n            assert sums==G\n            leading=[G[j].monoms(order='grevlex')[0]for j in sorted(G)];edges=tuple(sorted(set(sum(1<<i for i,e in enumerate(mon)if e)for mon in leading)))\n            @lru_cache(None)\n            def cover(edges):\n                if not edges:return 0\n                if 0 in edges:return d+1\n                edge=min(edges,key=int.bit_count)\n                return 1+min(cover(tuple(e for e in edges if not e&(1<<i)))for i in range(d)if edge&(1<<i))\n            height=cover(edges);bound=d-height;assert bound==native_dim\n            groupdim=6 if case['name']=='smooth_scroll_12'else 8;imagebound=24+bound-1-groupdim\n            packet.update(status='exact_lifted_leading_dimension',all_ideal_lifts_exactly_checked=True,\n                lifted_polynomials=[str(G[j].as_expr())for j in sorted(G)],ideal_membership_lifts=[{'generator':i,'polynomial':j,'coefficient':str(p.as_expr())}for i,j,p in lifts],\n                leading_monomial_exponents=leading,leading_support_minimum_vertex_cover=height,fixed_Poisson_source_dimension_upper=bound,\n                source_preserving_group_dimension=groupdim,whole_projective_PGL_image_dimension_upper=imagebound,excludes_unknown_G25_to27=imagebound<25,native_stdout=run.stdout)\n        except subprocess.TimeoutExpired as error:\n            packet.update(status='finite60second_native_limit_no_dimension_proof',partial_stdout=str(error.stdout or '')[-20000:],partial_stderr=str(error.stderr or '')[-20000:])\n        packet['seconds']=time.monotonic()-start;answer['cases'].append(packet);destination.write_text(json.dumps(answer,indent=2)+'\\n')\n        print(case['name'],packet['status'],packet.get('fixed_Poisson_source_dimension_upper'),packet.get('whole_projective_PGL_image_dimension_upper'),packet['seconds'],flush=True)\n\n\nif __name__=='__main__':\n    if '--dimension'in sys.argv:dimension()\n    else:main()\n",
+  "cases": [
+    {
+      "name": "smooth_scroll_12",
+      "all_reduced_source_parameters_retained": 12,
+      "original350_row_indices": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        20,
+        21,
+        22,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        47,
+        57,
+        59,
+        60,
+        80,
+        82,
+        83,
+        90,
+        92,
+        99
+      ],
+      "generators": [
+        "r11*r5 - 2*r2*r5",
+        "3*r1*r5 - r10*r5 + 3*r11*r4 + r11*r9 - 3*r2*r4 - r2*r9 - 4*r5**2",
+        "r1**2 - r1*r10 - r1*r5 + r10*r5 - 2*r11*r4 + 3*r2*r4 + r2*r9",
+        "3*r1*r4 - 3*r10*r4 + 4*r4*r5",
+        "r4**2 + r4*r9",
+        "-4*r1**2 + 4*r1*r10 - 2*r10*r5 + r11*r4 - 3*r11*r9 - 4*r2*r4 + 4*r5**2",
+        "-3*r1*r4 - r1*r9 + 2*r10*r4 + 2*r5*r9",
+        "-r1*r4 + r10*r4 - r4*r5",
+        "r11*r8 - 2*r2*r8",
+        "2*r0*r5 + 3*r1*r8 - r10*r8 + 2*r11*r3 + 3*r11*r7 - 2*r2*r3 - 3*r2*r7 - 8*r5*r8",
+        "-2*r0*r5 - r1*r8 + r10*r8 - 2*r11*r3 - 4*r11*r7 + 2*r2*r3 + 5*r2*r7 + 4*r5*r8",
+        "-2*r0*r4 - 2*r0*r9 + 2*r1*r3 + 3*r1*r7 - 2*r10*r3 - 2*r10*r7 + 8*r4*r8 + 2*r8*r9",
+        "r4*r7",
+        "r0*r4 + r0*r9 - r1*r3 - 2*r1*r7 + r10*r3 + r10*r7 - 3*r4*r8 + r5*r7 - r8*r9",
+        "r0*r4 + r0*r9 - r1*r3 - 3*r1*r7 + r10*r3 + r10*r7 - r4*r8 + r5*r7 + r8*r9",
+        "r0*r8 + r11*r6 - r2*r6 - 2*r8**2",
+        "-r0*r7 + r1*r6 - r10*r6 + 2*r3*r8 - 2*r5*r6 + 4*r7*r8",
+        "r3*r7 - r4*r6 - r6*r9 + r7**2",
+        "r11**2 - 3*r11*r2 + 2*r2**2",
+        "-r1*r11 + 2*r1*r2 + r10*r11 - 2*r10*r2",
+        "r1**2 - r1*r10 + 4*r1*r5 - 4*r10*r5 - 4*r11*r4 + 2*r11*r9 + 8*r2*r4 + 2*r2*r9",
+        "7*r1*r11 - 12*r1*r2 - 5*r10*r11 + 10*r10*r2 + 2*r11*r5 - 8*r2*r5",
+        "-4*r1*r5 + 4*r10*r5 - r11*r4 - 3*r11*r9 + 2*r2*r9",
+        "2*r1*r8 - r10*r8 + r2*r7 - 2*r5*r8"
+      ],
+      "target_fixed_affine_dimension": 7,
+      "exact_native_input": "ring R=0,(r0,r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11),dp;\nshort=0;\nideal I=r11*r5 - 2*r2*r5,3*r1*r5 - r10*r5 + 3*r11*r4 + r11*r9 - 3*r2*r4 - r2*r9 - 4*r5^2,r1^2 - r1*r10 - r1*r5 + r10*r5 - 2*r11*r4 + 3*r2*r4 + r2*r9,3*r1*r4 - 3*r10*r4 + 4*r4*r5,r4^2 + r4*r9,-4*r1^2 + 4*r1*r10 - 2*r10*r5 + r11*r4 - 3*r11*r9 - 4*r2*r4 + 4*r5^2,-3*r1*r4 - r1*r9 + 2*r10*r4 + 2*r5*r9,-r1*r4 + r10*r4 - r4*r5,r11*r8 - 2*r2*r8,2*r0*r5 + 3*r1*r8 - r10*r8 + 2*r11*r3 + 3*r11*r7 - 2*r2*r3 - 3*r2*r7 - 8*r5*r8,-2*r0*r5 - r1*r8 + r10*r8 - 2*r11*r3 - 4*r11*r7 + 2*r2*r3 + 5*r2*r7 + 4*r5*r8,-2*r0*r4 - 2*r0*r9 + 2*r1*r3 + 3*r1*r7 - 2*r10*r3 - 2*r10*r7 + 8*r4*r8 + 2*r8*r9,r4*r7,r0*r4 + r0*r9 - r1*r3 - 2*r1*r7 + r10*r3 + r10*r7 - 3*r4*r8 + r5*r7 - r8*r9,r0*r4 + r0*r9 - r1*r3 - 3*r1*r7 + r10*r3 + r10*r7 - r4*r8 + r5*r7 + r8*r9,r0*r8 + r11*r6 - r2*r6 - 2*r8^2,-r0*r7 + r1*r6 - r10*r6 + 2*r3*r8 - 2*r5*r6 + 4*r7*r8,r3*r7 - r4*r6 - r6*r9 + r7^2,r11^2 - 3*r11*r2 + 2*r2^2,-r1*r11 + 2*r1*r2 + r10*r11 - 2*r10*r2,r1^2 - r1*r10 + 4*r1*r5 - 4*r10*r5 - 4*r11*r4 + 2*r11*r9 + 8*r2*r4 + 2*r2*r9,7*r1*r11 - 12*r1*r2 - 5*r10*r11 + 10*r10*r2 + 2*r11*r5 - 8*r2*r5,-4*r1*r5 + 4*r10*r5 - r11*r4 - 3*r11*r9 + 2*r2*r9,2*r1*r8 - r10*r8 + r2*r7 - 2*r5*r8;\nmatrix T;ideal G=liftstd(I,T);\nprint(\"DIM:\"+string(dim(G)));\nint i;int j;for(i=1;i<=size(G);i++){print(\"G:\"+string(i)+\":\"+string(G[i]));}\nfor(i=1;i<=nrows(T);i++){for(j=1;j<=ncols(T);j++){if(T[i,j]!=0){print(\"L:\"+string(i)+\":\"+string(j)+\":\"+string(T[i,j]));}}}\nquit;\n",
+      "status": "exact_lifted_leading_dimension",
+      "all_ideal_lifts_exactly_checked": true,
+      "lifted_polynomials": [
+        "-r1*r11 - r10*r11 + 2*r10*r2 + 2*r11*r5",
+        "r11*r4 - r11*r9 + 2*r2*r9",
+        "r1*r9 + r10*r4 - 2*r5*r9",
+        "-r11*r8 + 2*r2*r8",
+        "2*r1*r8 - 2*r10*r8 + r11*r7",
+        "2*r5*r7 - 2*r8*r9",
+        "r4*r7",
+        "2*r1*r8 - r10*r8 + r2*r7 - 2*r5*r8",
+        "r1*r7 - 2*r4*r8 - 2*r8*r9",
+        "-r3*r7 + r4*r6 + r6*r9 - r7**2",
+        "-r0*r8 - r11*r6 + r2*r6 + 2*r8**2",
+        "-r0*r7 + r1*r6 - r10*r6 + 2*r3*r8 - 2*r5*r6 + 4*r7*r8",
+        "-50*r10*r5 - 6*r11*r4 + 56*r11*r9 - 62*r2*r9 + 100*r5**2",
+        "-r1*r9 - r10*r4 + 3*r4*r5 + 2*r5*r9",
+        "-r11*r5 + 2*r2*r5",
+        "4*r1*r5 - 4*r10*r5 + r11*r4 + 3*r11*r9 - 2*r2*r9",
+        "r4**2 + r4*r9",
+        "-8*r10*r5 - 9*r11*r4 + 5*r11*r9 + 12*r2*r4 - 2*r2*r9 + 16*r5**2",
+        "r1*r4 - r10*r4 + r4*r5",
+        "-2*r0*r5 - 11*r1*r8 + 6*r10*r8 - 2*r11*r3 - 4*r11*r7 + 2*r2*r3 + 14*r5*r8",
+        "-r0*r4 - r0*r9 + r1*r3 + 3*r1*r7 - r10*r3 - r10*r7 + r4*r8 - r5*r7 - r8*r9",
+        "r11**2 - 3*r11*r2 + 2*r2**2",
+        "-7*r1*r11 + 12*r1*r2 + 5*r10*r11 - 10*r10*r2 + 2*r11*r5",
+        "3*r1**2 - 3*r1*r10 + 16*r10*r5 + 3*r11*r4 - 13*r11*r9 + 16*r2*r9 - 32*r5**2",
+        "-2*r10*r11*r8 + r11**2*r7 + 4*r11*r5*r8",
+        "r11*r4*r8",
+        "-2*r11*r3*r8 + 2*r11*r5*r6 - 2*r11*r7*r8",
+        "-2*r10**2*r8 + r10*r11*r7 + 4*r10*r5*r8",
+        "2*r10*r4*r8",
+        "2*r0*r10*r8 - r0*r11*r7 - 4*r10*r8**2 + 2*r11*r3*r8 + 4*r11*r7*r8",
+        "-2*r10*r3*r8 + 2*r10*r5*r6 - 2*r10*r7*r8",
+        "4*r0*r10*r5 - 2*r0*r11*r4 - 2*r0*r11*r9 - 4*r10**2*r8 + 2*r10*r11*r7 + 4*r11*r3*r5 + 8*r11*r8*r9",
+        "-30*r10*r7*r8 + 15*r11*r7**2 + 60*r8**2*r9",
+        "-2*r10*r4*r8 - 2*r10*r8*r9 + r11*r7*r9 + 4*r5*r8*r9",
+        "2*r4*r8*r9",
+        "2*r0*r8*r9 + r11*r3*r7 + r11*r7**2 - 4*r8**2*r9",
+        "r0*r7*r9 + r10*r3*r7 + r10*r7**2 - 2*r3*r8*r9 - 4*r7*r8*r9",
+        "-2*r3*r8*r9 + 2*r5*r6*r9 - 2*r7*r8*r9",
+        "4*r0*r5*r9 - 4*r10*r8*r9 + 2*r11*r3*r4 + 2*r11*r3*r9 + 4*r11*r7*r9",
+        "2*r0*r4*r9 + 2*r0*r9**2 + 2*r10*r3*r4 + 2*r10*r3*r9 + 2*r10*r7*r9 - 4*r3*r5*r9 - 8*r8*r9**2",
+        "-2*r10*r8**2 + r11*r7*r8 + 4*r5*r8**2",
+        "-2*r10*r7*r8 + r11*r7**2 + 4*r4*r8**2 + 4*r8**2*r9",
+        "2*r0*r8**2 + r11*r6*r8 - 4*r8**3",
+        "4*r0*r7*r8 + 2*r10*r6*r8 + r11*r6*r7 - 4*r3*r8**2 - 12*r7*r8**2",
+        "2*r0*r7*r8 + r11*r6*r7 - 4*r3*r8**2 + 4*r5*r6*r8 - 8*r7*r8**2",
+        "-4*r10*r3*r8 - 10*r10*r7*r8 + 2*r11*r3*r7 + 5*r11*r7**2 + 8*r3*r5*r8 + 20*r8**2*r9",
+        "4*r0*r5*r8 - 4*r10*r8**2 + 2*r11*r3*r8 + 4*r11*r7*r8",
+        "4*r3*r4*r8",
+        "4*r0*r4*r8 - 10*r10*r7*r8 + 5*r11*r7**2 + 20*r8**2*r9",
+        "r3*r7**2 - r6*r7*r9 + r7**3",
+        "r0*r7**2 + r10*r6*r7 - 4*r3*r7*r8 + 2*r6*r8*r9 - 6*r7**2*r8",
+        "-4*r3**2*r8 + 4*r3*r5*r6 - 2*r3*r7*r8 - 2*r6*r8*r9 + 2*r7**2*r8",
+        "-8*r0*r3*r8 + 8*r0*r5*r6 + 6*r10*r6*r8 + r11*r6*r7 - 12*r3*r8**2 - 28*r7*r8**2",
+        "-2*r10*r11*r6*r8 + r11**2*r6*r7 + 4*r11*r3*r8**2 + 4*r11*r7*r8**2",
+        "2*r11*r3*r7*r8 - 2*r11*r6*r8*r9 + 2*r11*r7**2*r8",
+        "-2*r10**2*r6*r8 + r10*r11*r6*r7 + 4*r10*r3*r8**2 + 4*r10*r7*r8**2",
+        "2*r10*r3*r7*r8 - 2*r10*r6*r8*r9 + 2*r10*r7**2*r8",
+        "2*r3*r7*r8*r9 - 2*r6*r8*r9**2 + 2*r7**2*r8*r9",
+        "-2*r10*r6*r8**2 + r11*r6*r7*r8 + 4*r3*r8**3 + 4*r7*r8**3",
+        "-90*r10*r6*r7*r8 + 45*r11*r6*r7**2 + 180*r3*r7*r8**2 + 180*r7**2*r8**2",
+        "-18*r10*r3*r6*r8 + 18*r10*r6*r7*r8 + 9*r11*r3*r6*r7 - 9*r11*r6*r7**2 + 36*r3**2*r8**2 - 36*r7**2*r8**2",
+        "4*r3**2*r7*r8 - 4*r3*r6*r8*r9 + 4*r6*r7*r8*r9 - 4*r7**3*r8"
+      ],
+      "ideal_membership_lifts": [
+        {
+          "generator": 0,
+          "polynomial": 0,
+          "coefficient": "4"
+        },
+        {
+          "generator": 0,
+          "polynomial": 14,
+          "coefficient": "-1"
+        },
+        {
+          "generator": 0,
+          "polynomial": 22,
+          "coefficient": "4"
+        },
+        {
+          "generator": 0,
+          "polynomial": 24,
+          "coefficient": "8*r8"
+        },
+        {
+          "generator": 0,
+          "polynomial": 26,
+          "coefficient": "-2*r6"
+        },
+        {
+          "generator": 0,
+          "polynomial": 27,
+          "coefficient": "4*r7"
+        },
+        {
+          "generator": 0,
+          "polynomial": 29,
+          "coefficient": "4*r6"
+        },
+        {
+          "generator": 0,
+          "polynomial": 31,
+          "coefficient": "8*r3 + 28*r7"
+        },
+        {
+          "generator": 0,
+          "polynomial": 53,
+          "coefficient": "12*r6*r8"
+        },
+        {
+          "generator": 0,
+          "polynomial": 54,
+          "coefficient": "4*r3*r6"
+        },
+        {
+          "generator": 0,
+          "polynomial": 55,
+          "coefficient": "4*r6*r7"
+        },
+        {
+          "generator": 1,
+          "polynomial": 1,
+          "coefficient": "-2"
+        },
+        {
+          "generator": 1,
+          "polynomial": 12,
+          "coefficient": "-28"
+        },
+        {
+          "generator": 1,
+          "polynomial": 17,
+          "coefficient": "-4"
+        },
+        {
+          "generator": 1,
+          "polynomial": 23,
+          "coefficient": "8"
+        },
+        {
+          "generator": 1,
+          "polynomial": 25,
+          "coefficient": "-2*r8"
+        },
+        {
+          "generator": 1,
+          "polynomial": 27,
+          "coefficient": "-4*r8"
+        },
+        {
+          "generator": 1,
+          "polynomial": 28,
+          "coefficient": "-2*r7"
+        },
+        {
+          "generator": 1,
+          "polynomial": 30,
+          "coefficient": "2*r6"
+        },
+        {
+          "generator": 1,
+          "polynomial": 32,
+          "coefficient": "6*r6"
+        },
+        {
+          "generator": 1,
+          "polynomial": 35,
+          "coefficient": "-2*r6"
+        },
+        {
+          "generator": 1,
+          "polynomial": 38,
+          "coefficient": "-4*r3 - 14*r7"
+        },
+        {
+          "generator": 1,
+          "polynomial": 45,
+          "coefficient": "-4*r6"
+        },
+        {
+          "generator": 1,
+          "polynomial": 48,
+          "coefficient": "4*r6"
+        },
+        {
+          "generator": 1,
+          "polynomial": 55,
+          "coefficient": "-8*r6*r8"
+        },
+        {
+          "generator": 1,
+          "polynomial": 56,
+          "coefficient": "-4*r3*r6"
+        },
+        {
+          "generator": 1,
+          "polynomial": 59,
+          "coefficient": "12*r6**2"
+        },
+        {
+          "generator": 1,
+          "polynomial": 60,
+          "coefficient": "-30*r6**2"
+        },
+        {
+          "generator": 2,
+          "polynomial": 1,
+          "coefficient": "-10"
+        },
+        {
+          "generator": 2,
+          "polynomial": 25,
+          "coefficient": "-10*r8"
+        },
+        {
+          "generator": 2,
+          "polynomial": 27,
+          "coefficient": "-20*r8"
+        },
+        {
+          "generator": 2,
+          "polynomial": 28,
+          "coefficient": "-10*r7"
+        },
+        {
+          "generator": 2,
+          "polynomial": 30,
+          "coefficient": "4*r6"
+        },
+        {
+          "generator": 2,
+          "polynomial": 32,
+          "coefficient": "34*r6"
+        },
+        {
+          "generator": 2,
+          "polynomial": 35,
+          "coefficient": "-10*r6"
+        },
+        {
+          "generator": 2,
+          "polynomial": 38,
+          "coefficient": "-20*r3 - 70*r7"
+        },
+        {
+          "generator": 2,
+          "polynomial": 45,
+          "coefficient": "-20*r6"
+        },
+        {
+          "generator": 2,
+          "polynomial": 48,
+          "coefficient": "20*r6"
+        },
+        {
+          "generator": 2,
+          "polynomial": 55,
+          "coefficient": "-28*r6*r8"
+        },
+        {
+          "generator": 2,
+          "polynomial": 56,
+          "coefficient": "-8*r3*r6"
+        },
+        {
+          "generator": 2,
+          "polynomial": 59,
+          "coefficient": "68*r6**2"
+        },
+        {
+          "generator": 2,
+          "polynomial": 60,
+          "coefficient": "-158*r6**2"
+        },
+        {
+          "generator": 3,
+          "polynomial": 2,
+          "coefficient": "3"
+        },
+        {
+          "generator": 3,
+          "polynomial": 28,
+          "coefficient": "6*r8"
+        },
+        {
+          "generator": 3,
+          "polynomial": 33,
+          "coefficient": "-6*r8"
+        },
+        {
+          "generator": 3,
+          "polynomial": 36,
+          "coefficient": "3*r6"
+        },
+        {
+          "generator": 3,
+          "polynomial": 37,
+          "coefficient": "-2*r6"
+        },
+        {
+          "generator": 3,
+          "polynomial": 39,
+          "coefficient": "6*r3 + 18*r7"
+        },
+        {
+          "generator": 3,
+          "polynomial": 47,
+          "coefficient": "6*r6"
+        },
+        {
+          "generator": 3,
+          "polynomial": 57,
+          "coefficient": "4*r3*r6"
+        },
+        {
+          "generator": 4,
+          "polynomial": 16,
+          "coefficient": "1"
+        },
+        {
+          "generator": 5,
+          "polynomial": 1,
+          "coefficient": "-2"
+        },
+        {
+          "generator": 5,
+          "polynomial": 12,
+          "coefficient": "-3"
+        },
+        {
+          "generator": 5,
+          "polynomial": 25,
+          "coefficient": "-2*r8"
+        },
+        {
+          "generator": 5,
+          "polynomial": 27,
+          "coefficient": "-4*r8"
+        },
+        {
+          "generator": 5,
+          "polynomial": 28,
+          "coefficient": "-2*r7"
+        },
+        {
+          "generator": 5,
+          "polynomial": 30,
+          "coefficient": "r6"
+        },
+        {
+          "generator": 5,
+          "polynomial": 32,
+          "coefficient": "6*r6"
+        },
+        {
+          "generator": 5,
+          "polynomial": 35,
+          "coefficient": "-2*r6"
+        },
+        {
+          "generator": 5,
+          "polynomial": 38,
+          "coefficient": "-4*r3 - 14*r7"
+        },
+        {
+          "generator": 5,
+          "polynomial": 45,
+          "coefficient": "-4*r6"
+        },
+        {
+          "generator": 5,
+          "polynomial": 48,
+          "coefficient": "4*r6"
+        },
+        {
+          "generator": 5,
+          "polynomial": 55,
+          "coefficient": "-6*r6*r8"
+        },
+        {
+          "generator": 5,
+          "polynomial": 56,
+          "coefficient": "-2*r3*r6"
+        },
+        {
+          "generator": 5,
+          "polynomial": 59,
+          "coefficient": "12*r6**2"
+        },
+        {
+          "generator": 5,
+          "polynomial": 60,
+          "coefficient": "-30*r6**2"
+        },
+        {
+          "generator": 6,
+          "polynomial": 2,
+          "coefficient": "-1"
+        },
+        {
+          "generator": 6,
+          "polynomial": 13,
+          "coefficient": "1"
+        },
+        {
+          "generator": 6,
+          "polynomial": 28,
+          "coefficient": "-2*r8"
+        },
+        {
+          "generator": 6,
+          "polynomial": 33,
+          "coefficient": "2*r8"
+        },
+        {
+          "generator": 6,
+          "polynomial": 36,
+          "coefficient": "-r6"
+        },
+        {
+          "generator": 6,
+          "polynomial": 39,
+          "coefficient": "-2*r3 - 6*r7"
+        },
+        {
+          "generator": 6,
+          "polynomial": 47,
+          "coefficient": "-2*r6"
+        },
+        {
+          "generator": 7,
+          "polynomial": 2,
+          "coefficient": "12"
+        },
+        {
+          "generator": 7,
+          "polynomial": 13,
+          "coefficient": "-3"
+        },
+        {
+          "generator": 7,
+          "polynomial": 18,
+          "coefficient": "-1"
+        },
+        {
+          "generator": 7,
+          "polynomial": 28,
+          "coefficient": "24*r8"
+        },
+        {
+          "generator": 7,
+          "polynomial": 33,
+          "coefficient": "-24*r8"
+        },
+        {
+          "generator": 7,
+          "polynomial": 36,
+          "coefficient": "12*r6"
+        },
+        {
+          "generator": 7,
+          "polynomial": 37,
+          "coefficient": "-6*r6"
+        },
+        {
+          "generator": 7,
+          "polynomial": 39,
+          "coefficient": "24*r3 + 72*r7"
+        },
+        {
+          "generator": 7,
+          "polynomial": 47,
+          "coefficient": "24*r6"
+        },
+        {
+          "generator": 7,
+          "polynomial": 57,
+          "coefficient": "12*r3*r6"
+        },
+        {
+          "generator": 8,
+          "polynomial": 3,
+          "coefficient": "-1"
+        },
+        {
+          "generator": 8,
+          "polynomial": 24,
+          "coefficient": "2*r10"
+        },
+        {
+          "generator": 8,
+          "polynomial": 25,
+          "coefficient": "r9"
+        },
+        {
+          "generator": 8,
+          "polynomial": 26,
+          "coefficient": "2*r3 + 5*r7"
+        },
+        {
+          "generator": 8,
+          "polynomial": 27,
+          "coefficient": "2*r9"
+        },
+        {
+          "generator": 8,
+          "polynomial": 40,
+          "coefficient": "-r7"
+        },
+        {
+          "generator": 8,
+          "polynomial": 42,
+          "coefficient": "-r6"
+        },
+        {
+          "generator": 8,
+          "polynomial": 46,
+          "coefficient": "-2*r3 - 7*r7"
+        },
+        {
+          "generator": 8,
+          "polynomial": 53,
+          "coefficient": "2*r10*r6 - 4*r3*r8 - 10*r7*r8"
+        },
+        {
+          "generator": 8,
+          "polynomial": 54,
+          "coefficient": "-4*r3**2 - 10*r3*r7"
+        },
+        {
+          "generator": 8,
+          "polynomial": 55,
+          "coefficient": "2*r6*r9"
+        },
+        {
+          "generator": 8,
+          "polynomial": 58,
+          "coefficient": "-2*r6*r7"
+        },
+        {
+          "generator": 9,
+          "polynomial": 4,
+          "coefficient": "-1"
+        },
+        {
+          "generator": 9,
+          "polynomial": 24,
+          "coefficient": "-r11"
+        },
+        {
+          "generator": 9,
+          "polynomial": 26,
+          "coefficient": "-r8"
+        },
+        {
+          "generator": 9,
+          "polynomial": 27,
+          "coefficient": "-2*r10"
+        },
+        {
+          "generator": 9,
+          "polynomial": 28,
+          "coefficient": "-r9"
+        },
+        {
+          "generator": 9,
+          "polynomial": 30,
+          "coefficient": "-r3 - 3*r7"
+        },
+        {
+          "generator": 9,
+          "polynomial": 31,
+          "coefficient": "-3*r10"
+        },
+        {
+          "generator": 9,
+          "polynomial": 32,
+          "coefficient": "-10*r3 - 25*r7"
+        },
+        {
+          "generator": 9,
+          "polynomial": 33,
+          "coefficient": "-r9"
+        },
+        {
+          "generator": 9,
+          "polynomial": 38,
+          "coefficient": "-3*r9"
+        },
+        {
+          "generator": 9,
+          "polynomial": 40,
+          "coefficient": "-2*r8"
+        },
+        {
+          "generator": 9,
+          "polynomial": 41,
+          "coefficient": "-r7"
+        },
+        {
+          "generator": 9,
+          "polynomial": 43,
+          "coefficient": "r6"
+        },
+        {
+          "generator": 9,
+          "polynomial": 44,
+          "coefficient": "-r6"
+        },
+        {
+          "generator": 9,
+          "polynomial": 45,
+          "coefficient": "-4*r3 - 11*r7"
+        },
+        {
+          "generator": 9,
+          "polynomial": 46,
+          "coefficient": "-3*r8"
+        },
+        {
+          "generator": 9,
+          "polynomial": 48,
+          "coefficient": "-2*r3 - 7*r7"
+        },
+        {
+          "generator": 9,
+          "polynomial": 52,
+          "coefficient": "r6"
+        },
+        {
+          "generator": 9,
+          "polynomial": 53,
+          "coefficient": "-r11*r6 + 2*r8**2"
+        },
+        {
+          "generator": 9,
+          "polynomial": 54,
+          "coefficient": "2*r3*r8"
+        },
+        {
+          "generator": 9,
+          "polynomial": 55,
+          "coefficient": "-2*r10*r6 + 2*r3*r8 + 6*r7*r8"
+        },
+        {
+          "generator": 9,
+          "polynomial": 56,
+          "coefficient": "2*r3**2 + 6*r3*r7"
+        },
+        {
+          "generator": 9,
+          "polynomial": 58,
+          "coefficient": "-r6*r8"
+        },
+        {
+          "generator": 9,
+          "polynomial": 59,
+          "coefficient": "-20*r3*r6 - 35*r6*r7"
+        },
+        {
+          "generator": 9,
+          "polynomial": 60,
+          "coefficient": "2*r3*r6 - r6*r7"
+        },
+        {
+          "generator": 10,
+          "polynomial": 4,
+          "coefficient": "-1"
+        },
+        {
+          "generator": 10,
+          "polynomial": 19,
+          "coefficient": "1"
+        },
+        {
+          "generator": 10,
+          "polynomial": 24,
+          "coefficient": "-r11"
+        },
+        {
+          "generator": 10,
+          "polynomial": 26,
+          "coefficient": "r8"
+        },
+        {
+          "generator": 10,
+          "polynomial": 27,
+          "coefficient": "-2*r10"
+        },
+        {
+          "generator": 10,
+          "polynomial": 28,
+          "coefficient": "-r9"
+        },
+        {
+          "generator": 10,
+          "polynomial": 30,
+          "coefficient": "-r3 - 2*r7"
+        },
+        {
+          "generator": 10,
+          "polynomial": 31,
+          "coefficient": "-5*r10"
+        },
+        {
+          "generator": 10,
+          "polynomial": 32,
+          "coefficient": "-10*r3 - 25*r7"
+        },
+        {
+          "generator": 10,
+          "polynomial": 33,
+          "coefficient": "-r9"
+        },
+        {
+          "generator": 10,
+          "polynomial": 38,
+          "coefficient": "-5*r9"
+        },
+        {
+          "generator": 10,
+          "polynomial": 40,
+          "coefficient": "-2*r8"
+        },
+        {
+          "generator": 10,
+          "polynomial": 41,
+          "coefficient": "-r7"
+        },
+        {
+          "generator": 10,
+          "polynomial": 43,
+          "coefficient": "r6"
+        },
+        {
+          "generator": 10,
+          "polynomial": 44,
+          "coefficient": "-r6"
+        },
+        {
+          "generator": 10,
+          "polynomial": 45,
+          "coefficient": "-4*r3 - 9*r7"
+        },
+        {
+          "generator": 10,
+          "polynomial": 46,
+          "coefficient": "-5*r8"
+        },
+        {
+          "generator": 10,
+          "polynomial": 48,
+          "coefficient": "-2*r3 - 7*r7"
+        },
+        {
+          "generator": 10,
+          "polynomial": 52,
+          "coefficient": "-3*r6"
+        },
+        {
+          "generator": 10,
+          "polynomial": 53,
+          "coefficient": "-r11*r6 - 2*r8**2"
+        },
+        {
+          "generator": 10,
+          "polynomial": 54,
+          "coefficient": "-2*r3*r8"
+        },
+        {
+          "generator": 10,
+          "polynomial": 55,
+          "coefficient": "-2*r10*r6 + 2*r3*r8 + 4*r7*r8"
+        },
+        {
+          "generator": 10,
+          "polynomial": 56,
+          "coefficient": "2*r3**2 + 4*r3*r7"
+        },
+        {
+          "generator": 10,
+          "polynomial": 58,
+          "coefficient": "-r6*r8"
+        },
+        {
+          "generator": 10,
+          "polynomial": 59,
+          "coefficient": "-20*r3*r6 - 35*r6*r7"
+        },
+        {
+          "generator": 10,
+          "polynomial": 60,
+          "coefficient": "2*r3*r6 + 8*r6*r7"
+        },
+        {
+          "generator": 11,
+          "polynomial": 5,
+          "coefficient": "1"
+        },
+        {
+          "generator": 11,
+          "polynomial": 27,
+          "coefficient": "-r11"
+        },
+        {
+          "generator": 11,
+          "polynomial": 30,
+          "coefficient": "-2*r8"
+        },
+        {
+          "generator": 11,
+          "polynomial": 31,
+          "coefficient": "-6*r11"
+        },
+        {
+          "generator": 11,
+          "polynomial": 32,
+          "coefficient": "-10*r8"
+        },
+        {
+          "generator": 11,
+          "polynomial": 34,
+          "coefficient": "-r4"
+        },
+        {
+          "generator": 11,
+          "polynomial": 37,
+          "coefficient": "r3 + r7"
+        },
+        {
+          "generator": 11,
+          "polynomial": 39,
+          "coefficient": "-r4 + 5*r9"
+        },
+        {
+          "generator": 11,
+          "polynomial": 45,
+          "coefficient": "2*r0 - 14*r8"
+        },
+        {
+          "generator": 11,
+          "polynomial": 47,
+          "coefficient": "r7"
+        },
+        {
+          "generator": 11,
+          "polynomial": 48,
+          "coefficient": "-2*r8"
+        },
+        {
+          "generator": 11,
+          "polynomial": 50,
+          "coefficient": "-r6"
+        },
+        {
+          "generator": 11,
+          "polynomial": 51,
+          "coefficient": "-r6"
+        },
+        {
+          "generator": 11,
+          "polynomial": 54,
+          "coefficient": "-r11*r6"
+        },
+        {
+          "generator": 11,
+          "polynomial": 55,
+          "coefficient": "-r11*r6 + 4*r8**2"
+        },
+        {
+          "generator": 11,
+          "polynomial": 56,
+          "coefficient": "-r10*r6 + 4*r3*r8"
+        },
+        {
+          "generator": 11,
+          "polynomial": 57,
+          "coefficient": "-2*r3**2 - 2*r3*r7 - r6*r9"
+        },
+        {
+          "generator": 11,
+          "polynomial": 59,
+          "coefficient": "40*r6*r8"
+        },
+        {
+          "generator": 11,
+          "polynomial": 60,
+          "coefficient": "9*r0*r6 - 40*r6*r8"
+        },
+        {
+          "generator": 11,
+          "polynomial": 61,
+          "coefficient": "2*r3*r6 + r6*r7"
+        },
+        {
+          "generator": 12,
+          "polynomial": 6,
+          "coefficient": "1"
+        },
+        {
+          "generator": 12,
+          "polynomial": 28,
+          "coefficient": "-r11"
+        },
+        {
+          "generator": 12,
+          "polynomial": 34,
+          "coefficient": "2*r5"
+        },
+        {
+          "generator": 12,
+          "polynomial": 38,
+          "coefficient": "-7*r11"
+        },
+        {
+          "generator": 12,
+          "polynomial": 39,
+          "coefficient": "-6*r10 + 2*r5"
+        },
+        {
+          "generator": 12,
+          "polynomial": 47,
+          "coefficient": "2*r0 - 14*r8"
+        },
+        {
+          "generator": 12,
+          "polynomial": 49,
+          "coefficient": "r6"
+        },
+        {
+          "generator": 12,
+          "polynomial": 61,
+          "coefficient": "-2*r6*r8"
+        },
+        {
+          "generator": 13,
+          "polynomial": 5,
+          "coefficient": "3"
+        },
+        {
+          "generator": 13,
+          "polynomial": 8,
+          "coefficient": "1"
+        },
+        {
+          "generator": 13,
+          "polynomial": 27,
+          "coefficient": "-2*r11"
+        },
+        {
+          "generator": 13,
+          "polynomial": 30,
+          "coefficient": "-7*r8"
+        },
+        {
+          "generator": 13,
+          "polynomial": 31,
+          "coefficient": "-17*r11"
+        },
+        {
+          "generator": 13,
+          "polynomial": 32,
+          "coefficient": "-20*r8"
+        },
+        {
+          "generator": 13,
+          "polynomial": 34,
+          "coefficient": "-3*r4"
+        },
+        {
+          "generator": 13,
+          "polynomial": 37,
+          "coefficient": "3*r3 + 3*r7"
+        },
+        {
+          "generator": 13,
+          "polynomial": 39,
+          "coefficient": "-3*r4 + 15*r9"
+        },
+        {
+          "generator": 13,
+          "polynomial": 41,
+          "coefficient": "-2*r8"
+        },
+        {
+          "generator": 13,
+          "polynomial": 45,
+          "coefficient": "6*r0 - 42*r8"
+        },
+        {
+          "generator": 13,
+          "polynomial": 47,
+          "coefficient": "-2*r3 - 3*r7"
+        },
+        {
+          "generator": 13,
+          "polynomial": 48,
+          "coefficient": "-8*r8"
+        },
+        {
+          "generator": 13,
+          "polynomial": 50,
+          "coefficient": "-2*r6"
+        },
+        {
+          "generator": 13,
+          "polynomial": 51,
+          "coefficient": "-7*r6"
+        },
+        {
+          "generator": 13,
+          "polynomial": 54,
+          "coefficient": "-7*r11*r6"
+        },
+        {
+          "generator": 13,
+          "polynomial": 55,
+          "coefficient": "-2*r11*r6 + 14*r8**2"
+        },
+        {
+          "generator": 13,
+          "polynomial": 56,
+          "coefficient": "-7*r10*r6 + 14*r3*r8"
+        },
+        {
+          "generator": 13,
+          "polynomial": 57,
+          "coefficient": "-6*r3**2 - 6*r3*r7 - 7*r6*r9"
+        },
+        {
+          "generator": 13,
+          "polynomial": 59,
+          "coefficient": "80*r6*r8"
+        },
+        {
+          "generator": 13,
+          "polynomial": 60,
+          "coefficient": "27*r0*r6 - 98*r6*r8"
+        },
+        {
+          "generator": 13,
+          "polynomial": 61,
+          "coefficient": "6*r3*r6 + 7*r6*r7"
+        },
+        {
+          "generator": 14,
+          "polynomial": 5,
+          "coefficient": "-1"
+        },
+        {
+          "generator": 14,
+          "polynomial": 8,
+          "coefficient": "-1"
+        },
+        {
+          "generator": 14,
+          "polynomial": 20,
+          "coefficient": "-1"
+        },
+        {
+          "generator": 14,
+          "polynomial": 30,
+          "coefficient": "r8"
+        },
+        {
+          "generator": 14,
+          "polynomial": 31,
+          "coefficient": "3*r11"
+        },
+        {
+          "generator": 14,
+          "polynomial": 32,
+          "coefficient": "20*r8"
+        },
+        {
+          "generator": 14,
+          "polynomial": 34,
+          "coefficient": "r4"
+        },
+        {
+          "generator": 14,
+          "polynomial": 37,
+          "coefficient": "-r3 - r7"
+        },
+        {
+          "generator": 14,
+          "polynomial": 39,
+          "coefficient": "r4 - 3*r9"
+        },
+        {
+          "generator": 14,
+          "polynomial": 41,
+          "coefficient": "2*r8"
+        },
+        {
+          "generator": 14,
+          "polynomial": 45,
+          "coefficient": "-2*r0 + 14*r8"
+        },
+        {
+          "generator": 14,
+          "polynomial": 47,
+          "coefficient": "2*r3 + 3*r7"
+        },
+        {
+          "generator": 14,
+          "polynomial": 48,
+          "coefficient": "8*r8"
+        },
+        {
+          "generator": 14,
+          "polynomial": 51,
+          "coefficient": "3*r6"
+        },
+        {
+          "generator": 14,
+          "polynomial": 54,
+          "coefficient": "3*r11*r6"
+        },
+        {
+          "generator": 14,
+          "polynomial": 55,
+          "coefficient": "-2*r8**2"
+        },
+        {
+          "generator": 14,
+          "polynomial": 56,
+          "coefficient": "3*r10*r6 - 2*r3*r8"
+        },
+        {
+          "generator": 14,
+          "polynomial": 57,
+          "coefficient": "2*r3**2 + 2*r3*r7 + 3*r6*r9"
+        },
+        {
+          "generator": 14,
+          "polynomial": 59,
+          "coefficient": "40*r6*r8"
+        },
+        {
+          "generator": 14,
+          "polynomial": 60,
+          "coefficient": "-9*r0*r6 - 4*r6*r8"
+        },
+        {
+          "generator": 14,
+          "polynomial": 61,
+          "coefficient": "-2*r3*r6 - 3*r6*r7"
+        },
+        {
+          "generator": 15,
+          "polynomial": 10,
+          "coefficient": "-1"
+        },
+        {
+          "generator": 15,
+          "polynomial": 26,
+          "coefficient": "4*r5"
+        },
+        {
+          "generator": 15,
+          "polynomial": 29,
+          "coefficient": "2*r10"
+        },
+        {
+          "generator": 15,
+          "polynomial": 30,
+          "coefficient": "2*r4 + 2*r9"
+        },
+        {
+          "generator": 15,
+          "polynomial": 32,
+          "coefficient": "-20*r4 - 20*r9"
+        },
+        {
+          "generator": 15,
+          "polynomial": 35,
+          "coefficient": "2*r9"
+        },
+        {
+          "generator": 15,
+          "polynomial": 42,
+          "coefficient": "2*r8"
+        },
+        {
+          "generator": 15,
+          "polynomial": 43,
+          "coefficient": "2*r7"
+        },
+        {
+          "generator": 15,
+          "polynomial": 45,
+          "coefficient": "4*r9"
+        },
+        {
+          "generator": 15,
+          "polynomial": 48,
+          "coefficient": "-4*r9"
+        },
+        {
+          "generator": 15,
+          "polynomial": 52,
+          "coefficient": "-8*r3 - 14*r7"
+        },
+        {
+          "generator": 15,
+          "polynomial": 53,
+          "coefficient": "-8*r5*r8"
+        },
+        {
+          "generator": 15,
+          "polynomial": 54,
+          "coefficient": "-8*r3*r5"
+        },
+        {
+          "generator": 15,
+          "polynomial": 55,
+          "coefficient": "-4*r4*r8 - 4*r8*r9"
+        },
+        {
+          "generator": 15,
+          "polynomial": 56,
+          "coefficient": "-4*r3*r4 - 4*r3*r9"
+        },
+        {
+          "generator": 15,
+          "polynomial": 58,
+          "coefficient": "2*r7*r8"
+        },
+        {
+          "generator": 15,
+          "polynomial": 59,
+          "coefficient": "-40*r4*r6 - 40*r6*r9 + 30*r7**2"
+        },
+        {
+          "generator": 15,
+          "polynomial": 60,
+          "coefficient": "40*r4*r6 + 58*r6*r9 - 3*r7**2"
+        },
+        {
+          "generator": 16,
+          "polynomial": 11,
+          "coefficient": "1"
+        },
+        {
+          "generator": 16,
+          "polynomial": 29,
+          "coefficient": "r11"
+        },
+        {
+          "generator": 16,
+          "polynomial": 30,
+          "coefficient": "-2*r5"
+        },
+        {
+          "generator": 16,
+          "polynomial": 36,
+          "coefficient": "-r9"
+        },
+        {
+          "generator": 16,
+          "polynomial": 43,
+          "coefficient": "-2*r8"
+        },
+        {
+          "generator": 16,
+          "polynomial": 44,
+          "coefficient": "-2*r8"
+        },
+        {
+          "generator": 16,
+          "polynomial": 47,
+          "coefficient": "-2*r9"
+        },
+        {
+          "generator": 16,
+          "polynomial": 50,
+          "coefficient": "-r7"
+        },
+        {
+          "generator": 16,
+          "polynomial": 51,
+          "coefficient": "-2*r3 - 2*r7"
+        },
+        {
+          "generator": 16,
+          "polynomial": 52,
+          "coefficient": "-14*r8"
+        },
+        {
+          "generator": 16,
+          "polynomial": 54,
+          "coefficient": "-2*r11*r3 - 2*r11*r7"
+        },
+        {
+          "generator": 16,
+          "polynomial": 55,
+          "coefficient": "4*r5*r8"
+        },
+        {
+          "generator": 16,
+          "polynomial": 56,
+          "coefficient": "-2*r10*r3 - 2*r10*r7 + 4*r3*r5"
+        },
+        {
+          "generator": 16,
+          "polynomial": 57,
+          "coefficient": "-2*r3*r9 - 2*r7*r9"
+        },
+        {
+          "generator": 16,
+          "polynomial": 58,
+          "coefficient": "2*r8**2"
+        },
+        {
+          "generator": 16,
+          "polynomial": 59,
+          "coefficient": "30*r7*r8"
+        },
+        {
+          "generator": 16,
+          "polynomial": 60,
+          "coefficient": "18*r3*r8 + 15*r7*r8"
+        },
+        {
+          "generator": 16,
+          "polynomial": 61,
+          "coefficient": "2*r3*r7 + 2*r7**2"
+        },
+        {
+          "generator": 17,
+          "polynomial": 9,
+          "coefficient": "-1"
+        },
+        {
+          "generator": 17,
+          "polynomial": 30,
+          "coefficient": "r11"
+        },
+        {
+          "generator": 17,
+          "polynomial": 32,
+          "coefficient": "-10*r11"
+        },
+        {
+          "generator": 17,
+          "polynomial": 35,
+          "coefficient": "r11"
+        },
+        {
+          "generator": 17,
+          "polynomial": 36,
+          "coefficient": "r10"
+        },
+        {
+          "generator": 17,
+          "polynomial": 37,
+          "coefficient": "-2*r5"
+        },
+        {
+          "generator": 17,
+          "polynomial": 45,
+          "coefficient": "2*r11"
+        },
+        {
+          "generator": 17,
+          "polynomial": 47,
+          "coefficient": "2*r10"
+        },
+        {
+          "generator": 17,
+          "polynomial": 48,
+          "coefficient": "-2*r11"
+        },
+        {
+          "generator": 17,
+          "polynomial": 49,
+          "coefficient": "r7"
+        },
+        {
+          "generator": 17,
+          "polynomial": 50,
+          "coefficient": "-2*r8"
+        },
+        {
+          "generator": 17,
+          "polynomial": 51,
+          "coefficient": "-2*r0 + 10*r8"
+        },
+        {
+          "generator": 17,
+          "polynomial": 54,
+          "coefficient": "-2*r0*r11 + 10*r11*r8"
+        },
+        {
+          "generator": 17,
+          "polynomial": 55,
+          "coefficient": "-2*r11*r8"
+        },
+        {
+          "generator": 17,
+          "polynomial": 56,
+          "coefficient": "-2*r0*r10 + 10*r10*r8 - 2*r11*r3"
+        },
+        {
+          "generator": 17,
+          "polynomial": 57,
+          "coefficient": "-2*r0*r9 + 4*r3*r5 + 10*r8*r9"
+        },
+        {
+          "generator": 17,
+          "polynomial": 59,
+          "coefficient": "-20*r11*r6 + 120*r8**2"
+        },
+        {
+          "generator": 17,
+          "polynomial": 60,
+          "coefficient": "18*r0*r8 + 29*r11*r6 - 102*r8**2"
+        },
+        {
+          "generator": 17,
+          "polynomial": 61,
+          "coefficient": "2*r0*r7 - 12*r7*r8"
+        },
+        {
+          "generator": 18,
+          "polynomial": 21,
+          "coefficient": "1"
+        },
+        {
+          "generator": 19,
+          "polynomial": 0,
+          "coefficient": "-6"
+        },
+        {
+          "generator": 19,
+          "polynomial": 24,
+          "coefficient": "-12*r8"
+        },
+        {
+          "generator": 19,
+          "polynomial": 27,
+          "coefficient": "-6*r7"
+        },
+        {
+          "generator": 19,
+          "polynomial": 29,
+          "coefficient": "-6*r6"
+        },
+        {
+          "generator": 19,
+          "polynomial": 31,
+          "coefficient": "-12*r3 - 42*r7"
+        },
+        {
+          "generator": 19,
+          "polynomial": 53,
+          "coefficient": "-12*r6*r8"
+        },
+        {
+          "generator": 19,
+          "polynomial": 55,
+          "coefficient": "-6*r6*r7"
+        },
+        {
+          "generator": 20,
+          "polynomial": 1,
+          "coefficient": "2"
+        },
+        {
+          "generator": 20,
+          "polynomial": 12,
+          "coefficient": "-12"
+        },
+        {
+          "generator": 20,
+          "polynomial": 23,
+          "coefficient": "3"
+        },
+        {
+          "generator": 20,
+          "polynomial": 25,
+          "coefficient": "2*r8"
+        },
+        {
+          "generator": 20,
+          "polynomial": 27,
+          "coefficient": "4*r8"
+        },
+        {
+          "generator": 20,
+          "polynomial": 28,
+          "coefficient": "2*r7"
+        },
+        {
+          "generator": 20,
+          "polynomial": 32,
+          "coefficient": "-10*r6"
+        },
+        {
+          "generator": 20,
+          "polynomial": 35,
+          "coefficient": "2*r6"
+        },
+        {
+          "generator": 20,
+          "polynomial": 38,
+          "coefficient": "4*r3 + 14*r7"
+        },
+        {
+          "generator": 20,
+          "polynomial": 45,
+          "coefficient": "4*r6"
+        },
+        {
+          "generator": 20,
+          "polynomial": 48,
+          "coefficient": "-4*r6"
+        },
+        {
+          "generator": 20,
+          "polynomial": 55,
+          "coefficient": "4*r6*r8"
+        },
+        {
+          "generator": 20,
+          "polynomial": 59,
+          "coefficient": "-20*r6**2"
+        },
+        {
+          "generator": 20,
+          "polynomial": 60,
+          "coefficient": "38*r6**2"
+        },
+        {
+          "generator": 21,
+          "polynomial": 0,
+          "coefficient": "-1"
+        },
+        {
+          "generator": 21,
+          "polynomial": 22,
+          "coefficient": "-1"
+        },
+        {
+          "generator": 21,
+          "polynomial": 24,
+          "coefficient": "-2*r8"
+        },
+        {
+          "generator": 21,
+          "polynomial": 27,
+          "coefficient": "-r7"
+        },
+        {
+          "generator": 21,
+          "polynomial": 29,
+          "coefficient": "-r6"
+        },
+        {
+          "generator": 21,
+          "polynomial": 31,
+          "coefficient": "-2*r3 - 7*r7"
+        },
+        {
+          "generator": 21,
+          "polynomial": 53,
+          "coefficient": "-2*r6*r8"
+        },
+        {
+          "generator": 21,
+          "polynomial": 55,
+          "coefficient": "-r6*r7"
+        },
+        {
+          "generator": 22,
+          "polynomial": 1,
+          "coefficient": "3"
+        },
+        {
+          "generator": 22,
+          "polynomial": 12,
+          "coefficient": "-33"
+        },
+        {
+          "generator": 22,
+          "polynomial": 15,
+          "coefficient": "-1"
+        },
+        {
+          "generator": 22,
+          "polynomial": 17,
+          "coefficient": "-3"
+        },
+        {
+          "generator": 22,
+          "polynomial": 23,
+          "coefficient": "9"
+        },
+        {
+          "generator": 22,
+          "polynomial": 25,
+          "coefficient": "3*r8"
+        },
+        {
+          "generator": 22,
+          "polynomial": 27,
+          "coefficient": "6*r8"
+        },
+        {
+          "generator": 22,
+          "polynomial": 28,
+          "coefficient": "3*r7"
+        },
+        {
+          "generator": 22,
+          "polynomial": 32,
+          "coefficient": "-14*r6"
+        },
+        {
+          "generator": 22,
+          "polynomial": 35,
+          "coefficient": "3*r6"
+        },
+        {
+          "generator": 22,
+          "polynomial": 38,
+          "coefficient": "6*r3 + 21*r7"
+        },
+        {
+          "generator": 22,
+          "polynomial": 45,
+          "coefficient": "6*r6"
+        },
+        {
+          "generator": 22,
+          "polynomial": 48,
+          "coefficient": "-6*r6"
+        },
+        {
+          "generator": 22,
+          "polynomial": 55,
+          "coefficient": "6*r6*r8"
+        },
+        {
+          "generator": 22,
+          "polynomial": 59,
+          "coefficient": "-28*r6**2"
+        },
+        {
+          "generator": 22,
+          "polynomial": 60,
+          "coefficient": "55*r6**2"
+        },
+        {
+          "generator": 23,
+          "polynomial": 4,
+          "coefficient": "2"
+        },
+        {
+          "generator": 23,
+          "polynomial": 7,
+          "coefficient": "1"
+        },
+        {
+          "generator": 23,
+          "polynomial": 19,
+          "coefficient": "-5"
+        },
+        {
+          "generator": 23,
+          "polynomial": 24,
+          "coefficient": "2*r11"
+        },
+        {
+          "generator": 23,
+          "polynomial": 26,
+          "coefficient": "2*r8"
+        },
+        {
+          "generator": 23,
+          "polynomial": 27,
+          "coefficient": "2*r10"
+        },
+        {
+          "generator": 23,
+          "polynomial": 30,
+          "coefficient": "r7"
+        },
+        {
+          "generator": 23,
+          "polynomial": 31,
+          "coefficient": "2*r10"
+        },
+        {
+          "generator": 23,
+          "polynomial": 32,
+          "coefficient": "20*r3 + 50*r7"
+        },
+        {
+          "generator": 23,
+          "polynomial": 33,
+          "coefficient": "2*r9"
+        },
+        {
+          "generator": 23,
+          "polynomial": 38,
+          "coefficient": "2*r9"
+        },
+        {
+          "generator": 23,
+          "polynomial": 40,
+          "coefficient": "2*r8"
+        },
+        {
+          "generator": 23,
+          "polynomial": 41,
+          "coefficient": "2*r7"
+        },
+        {
+          "generator": 23,
+          "polynomial": 44,
+          "coefficient": "2*r6"
+        },
+        {
+          "generator": 23,
+          "polynomial": 45,
+          "coefficient": "4*r3 + 12*r7"
+        },
+        {
+          "generator": 23,
+          "polynomial": 46,
+          "coefficient": "2*r8"
+        },
+        {
+          "generator": 23,
+          "polynomial": 48,
+          "coefficient": "4*r3 + 14*r7"
+        },
+        {
+          "generator": 23,
+          "polynomial": 52,
+          "coefficient": "4*r6"
+        },
+        {
+          "generator": 23,
+          "polynomial": 53,
+          "coefficient": "2*r11*r6 - 4*r8**2"
+        },
+        {
+          "generator": 23,
+          "polynomial": 54,
+          "coefficient": "-4*r3*r8"
+        },
+        {
+          "generator": 23,
+          "polynomial": 55,
+          "coefficient": "2*r10*r6 - 2*r7*r8"
+        },
+        {
+          "generator": 23,
+          "polynomial": 56,
+          "coefficient": "-2*r3*r7"
+        },
+        {
+          "generator": 23,
+          "polynomial": 59,
+          "coefficient": "40*r3*r6 + 100*r6*r7"
+        },
+        {
+          "generator": 23,
+          "polynomial": 60,
+          "coefficient": "-22*r3*r6 - 46*r6*r7"
+        }
+      ],
+      "leading_monomial_exponents": [
+        [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          1,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          2,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          2,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          2,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          3,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          2,
+          0,
+          0,
+          0,
+          0,
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          2,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "leading_support_minimum_vertex_cover": 6,
+      "fixed_Poisson_source_dimension_upper": 6,
+      "source_preserving_group_dimension": 6,
+      "whole_projective_PGL_image_dimension_upper": 23,
+      "excludes_unknown_G25_to27": true,
+      "native_stdout": "DIM:6\nG:1:2*r2*r10-r1*r11+2*r5*r11-r10*r11\nG:2:2*r2*r9+r4*r11-r9*r11\nG:3:r1*r9-2*r5*r9+r4*r10\nG:4:2*r2*r8-r8*r11\nG:5:2*r1*r8-2*r8*r10+r7*r11\nG:6:2*r5*r7-2*r8*r9\nG:7:r4*r7\nG:8:r2*r7+2*r1*r8-2*r5*r8-r8*r10\nG:9:r1*r7-2*r4*r8-2*r8*r9\nG:10:r4*r6-r3*r7-r7^2+r6*r9\nG:11:r2*r6-r0*r8+2*r8^2-r6*r11\nG:12:r1*r6-2*r5*r6-r0*r7+2*r3*r8+4*r7*r8-r6*r10\nG:13:100*r5^2-62*r2*r9-50*r5*r10-6*r4*r11+56*r9*r11\nG:14:3*r4*r5-r1*r9+2*r5*r9-r4*r10\nG:15:2*r2*r5-r5*r11\nG:16:4*r1*r5-2*r2*r9-4*r5*r10+r4*r11+3*r9*r11\nG:17:r4^2+r4*r9\nG:18:12*r2*r4+16*r5^2-2*r2*r9-8*r5*r10-9*r4*r11+5*r9*r11\nG:19:r1*r4+r4*r5-r4*r10\nG:20:2*r2*r3-2*r0*r5-11*r1*r8+14*r5*r8+6*r8*r10-2*r3*r11-4*r7*r11\nG:21:r1*r3-r0*r4+3*r1*r7-r5*r7+r4*r8-r0*r9-r8*r9-r3*r10-r7*r10\nG:22:2*r2^2-3*r2*r11+r11^2\nG:23:12*r1*r2-10*r2*r10-7*r1*r11+2*r5*r11+5*r10*r11\nG:24:3*r1^2-32*r5^2+16*r2*r9-3*r1*r10+16*r5*r10+3*r4*r11-13*r9*r11\nG:25:4*r5*r8*r11-2*r8*r10*r11+r7*r11^2\nG:26:r4*r8*r11\nG:27:2*r5*r6*r11-2*r3*r8*r11-2*r7*r8*r11\nG:28:4*r5*r8*r10-2*r8*r10^2+r7*r10*r11\nG:29:2*r4*r8*r10\nG:30:2*r0*r8*r10-4*r8^2*r10-r0*r7*r11+2*r3*r8*r11+4*r7*r8*r11\nG:31:2*r5*r6*r10-2*r3*r8*r10-2*r7*r8*r10\nG:32:4*r0*r5*r10-4*r8*r10^2-2*r0*r4*r11+4*r3*r5*r11-2*r0*r9*r11+8*r8*r9*r11+2*r7*r10*r11\nG:33:60*r8^2*r9-30*r7*r8*r10+15*r7^2*r11\nG:34:4*r5*r8*r9-2*r4*r8*r10-2*r8*r9*r10+r7*r9*r11\nG:35:2*r4*r8*r9\nG:36:2*r0*r8*r9-4*r8^2*r9+r3*r7*r11+r7^2*r11\nG:37:r0*r7*r9-2*r3*r8*r9-4*r7*r8*r9+r3*r7*r10+r7^2*r10\nG:38:2*r5*r6*r9-2*r3*r8*r9-2*r7*r8*r9\nG:39:4*r0*r5*r9-4*r8*r9*r10+2*r3*r4*r11+2*r3*r9*r11+4*r7*r9*r11\nG:40:2*r0*r4*r9-4*r3*r5*r9+2*r0*r9^2-8*r8*r9^2+2*r3*r4*r10+2*r3*r9*r10+2*r7*r9*r10\nG:41:4*r5*r8^2-2*r8^2*r10+r7*r8*r11\nG:42:4*r4*r8^2+4*r8^2*r9-2*r7*r8*r10+r7^2*r11\nG:43:2*r0*r8^2-4*r8^3+r6*r8*r11\nG:44:4*r0*r7*r8-4*r3*r8^2-12*r7*r8^2+2*r6*r8*r10+r6*r7*r11\nG:45:4*r5*r6*r8+2*r0*r7*r8-4*r3*r8^2-8*r7*r8^2+r6*r7*r11\nG:46:8*r3*r5*r8+20*r8^2*r9-4*r3*r8*r10-10*r7*r8*r10+2*r3*r7*r11+5*r7^2*r11\nG:47:4*r0*r5*r8-4*r8^2*r10+2*r3*r8*r11+4*r7*r8*r11\nG:48:4*r3*r4*r8\nG:49:4*r0*r4*r8+20*r8^2*r9-10*r7*r8*r10+5*r7^2*r11\nG:50:r3*r7^2+r7^3-r6*r7*r9\nG:51:r0*r7^2-4*r3*r7*r8-6*r7^2*r8+2*r6*r8*r9+r6*r7*r10\nG:52:4*r3*r5*r6-4*r3^2*r8-2*r3*r7*r8+2*r7^2*r8-2*r6*r8*r9\nG:53:8*r0*r5*r6-8*r0*r3*r8-12*r3*r8^2-28*r7*r8^2+6*r6*r8*r10+r6*r7*r11\nG:54:4*r3*r8^2*r11+4*r7*r8^2*r11-2*r6*r8*r10*r11+r6*r7*r11^2\nG:55:2*r3*r7*r8*r11+2*r7^2*r8*r11-2*r6*r8*r9*r11\nG:56:4*r3*r8^2*r10+4*r7*r8^2*r10-2*r6*r8*r10^2+r6*r7*r10*r11\nG:57:2*r3*r7*r8*r10+2*r7^2*r8*r10-2*r6*r8*r9*r10\nG:58:2*r3*r7*r8*r9+2*r7^2*r8*r9-2*r6*r8*r9^2\nG:59:4*r3*r8^3+4*r7*r8^3-2*r6*r8^2*r10+r6*r7*r8*r11\nG:60:180*r3*r7*r8^2+180*r7^2*r8^2-90*r6*r7*r8*r10+45*r6*r7^2*r11\nG:61:36*r3^2*r8^2-36*r7^2*r8^2-18*r3*r6*r8*r10+18*r6*r7*r8*r10+9*r3*r6*r7*r11-9*r6*r7^2*r11\nG:62:4*r3^2*r7*r8-4*r7^3*r8-4*r3*r6*r8*r9+4*r6*r7*r8*r9\nL:1:1:4\nL:1:15:-1\nL:1:23:4\nL:1:25:8*r8\nL:1:27:-2*r6\nL:1:28:4*r7\nL:1:30:4*r6\nL:1:32:8*r3+28*r7\nL:1:54:12*r6*r8\nL:1:55:4*r3*r6\nL:1:56:4*r6*r7\nL:2:2:-2\nL:2:13:-28\nL:2:18:-4\nL:2:24:8\nL:2:26:-2*r8\nL:2:28:-4*r8\nL:2:29:-2*r7\nL:2:31:2*r6\nL:2:33:6*r6\nL:2:36:-2*r6\nL:2:39:-4*r3-14*r7\nL:2:46:-4*r6\nL:2:49:4*r6\nL:2:56:-8*r6*r8\nL:2:57:-4*r3*r6\nL:2:60:12*r6^2\nL:2:61:-30*r6^2\nL:3:2:-10\nL:3:26:-10*r8\nL:3:28:-20*r8\nL:3:29:-10*r7\nL:3:31:4*r6\nL:3:33:34*r6\nL:3:36:-10*r6\nL:3:39:-20*r3-70*r7\nL:3:46:-20*r6\nL:3:49:20*r6\nL:3:56:-28*r6*r8\nL:3:57:-8*r3*r6\nL:3:60:68*r6^2\nL:3:61:-158*r6^2\nL:4:3:3\nL:4:29:6*r8\nL:4:34:-6*r8\nL:4:37:3*r6\nL:4:38:-2*r6\nL:4:40:6*r3+18*r7\nL:4:48:6*r6\nL:4:58:4*r3*r6\nL:5:17:1\nL:6:2:-2\nL:6:13:-3\nL:6:26:-2*r8\nL:6:28:-4*r8\nL:6:29:-2*r7\nL:6:31:r6\nL:6:33:6*r6\nL:6:36:-2*r6\nL:6:39:-4*r3-14*r7\nL:6:46:-4*r6\nL:6:49:4*r6\nL:6:56:-6*r6*r8\nL:6:57:-2*r3*r6\nL:6:60:12*r6^2\nL:6:61:-30*r6^2\nL:7:3:-1\nL:7:14:1\nL:7:29:-2*r8\nL:7:34:2*r8\nL:7:37:-r6\nL:7:40:-2*r3-6*r7\nL:7:48:-2*r6\nL:8:3:12\nL:8:14:-3\nL:8:19:-1\nL:8:29:24*r8\nL:8:34:-24*r8\nL:8:37:12*r6\nL:8:38:-6*r6\nL:8:40:24*r3+72*r7\nL:8:48:24*r6\nL:8:58:12*r3*r6\nL:9:4:-1\nL:9:25:2*r10\nL:9:26:r9\nL:9:27:2*r3+5*r7\nL:9:28:2*r9\nL:9:41:-r7\nL:9:43:-r6\nL:9:47:-2*r3-7*r7\nL:9:54:-4*r3*r8-10*r7*r8+2*r6*r10\nL:9:55:-4*r3^2-10*r3*r7\nL:9:56:2*r6*r9\nL:9:59:-2*r6*r7\nL:10:5:-1\nL:10:25:-r11\nL:10:27:-r8\nL:10:28:-2*r10\nL:10:29:-r9\nL:10:31:-r3-3*r7\nL:10:32:-3*r10\nL:10:33:-10*r3-25*r7\nL:10:34:-r9\nL:10:39:-3*r9\nL:10:41:-2*r8\nL:10:42:-r7\nL:10:44:r6\nL:10:45:-r6\nL:10:46:-4*r3-11*r7\nL:10:47:-3*r8\nL:10:49:-2*r3-7*r7\nL:10:53:r6\nL:10:54:2*r8^2-r6*r11\nL:10:55:2*r3*r8\nL:10:56:2*r3*r8+6*r7*r8-2*r6*r10\nL:10:57:2*r3^2+6*r3*r7\nL:10:59:-r6*r8\nL:10:60:-20*r3*r6-35*r6*r7\nL:10:61:2*r3*r6-r6*r7\nL:11:5:-1\nL:11:20:1\nL:11:25:-r11\nL:11:27:r8\nL:11:28:-2*r10\nL:11:29:-r9\nL:11:31:-r3-2*r7\nL:11:32:-5*r10\nL:11:33:-10*r3-25*r7\nL:11:34:-r9\nL:11:39:-5*r9\nL:11:41:-2*r8\nL:11:42:-r7\nL:11:44:r6\nL:11:45:-r6\nL:11:46:-4*r3-9*r7\nL:11:47:-5*r8\nL:11:49:-2*r3-7*r7\nL:11:53:-3*r6\nL:11:54:-2*r8^2-r6*r11\nL:11:55:-2*r3*r8\nL:11:56:2*r3*r8+4*r7*r8-2*r6*r10\nL:11:57:2*r3^2+4*r3*r7\nL:11:59:-r6*r8\nL:11:60:-20*r3*r6-35*r6*r7\nL:11:61:2*r3*r6+8*r6*r7\nL:12:6:1\nL:12:28:-r11\nL:12:31:-2*r8\nL:12:32:-6*r11\nL:12:33:-10*r8\nL:12:35:-r4\nL:12:38:r3+r7\nL:12:40:-r4+5*r9\nL:12:46:2*r0-14*r8\nL:12:48:r7\nL:12:49:-2*r8\nL:12:51:-r6\nL:12:52:-r6\nL:12:55:-r6*r11\nL:12:56:4*r8^2-r6*r11\nL:12:57:4*r3*r8-r6*r10\nL:12:58:-2*r3^2-2*r3*r7-r6*r9\nL:12:60:40*r6*r8\nL:12:61:9*r0*r6-40*r6*r8\nL:12:62:2*r3*r6+r6*r7\nL:13:7:1\nL:13:29:-r11\nL:13:35:2*r5\nL:13:39:-7*r11\nL:13:40:2*r5-6*r10\nL:13:48:2*r0-14*r8\nL:13:50:r6\nL:13:62:-2*r6*r8\nL:14:6:3\nL:14:9:1\nL:14:28:-2*r11\nL:14:31:-7*r8\nL:14:32:-17*r11\nL:14:33:-20*r8\nL:14:35:-3*r4\nL:14:38:3*r3+3*r7\nL:14:40:-3*r4+15*r9\nL:14:42:-2*r8\nL:14:46:6*r0-42*r8\nL:14:48:-2*r3-3*r7\nL:14:49:-8*r8\nL:14:51:-2*r6\nL:14:52:-7*r6\nL:14:55:-7*r6*r11\nL:14:56:14*r8^2-2*r6*r11\nL:14:57:14*r3*r8-7*r6*r10\nL:14:58:-6*r3^2-6*r3*r7-7*r6*r9\nL:14:60:80*r6*r8\nL:14:61:27*r0*r6-98*r6*r8\nL:14:62:6*r3*r6+7*r6*r7\nL:15:6:-1\nL:15:9:-1\nL:15:21:-1\nL:15:31:r8\nL:15:32:3*r11\nL:15:33:20*r8\nL:15:35:r4\nL:15:38:-r3-r7\nL:15:40:r4-3*r9\nL:15:42:2*r8\nL:15:46:-2*r0+14*r8\nL:15:48:2*r3+3*r7\nL:15:49:8*r8\nL:15:52:3*r6\nL:15:55:3*r6*r11\nL:15:56:-2*r8^2\nL:15:57:-2*r3*r8+3*r6*r10\nL:15:58:2*r3^2+2*r3*r7+3*r6*r9\nL:15:60:40*r6*r8\nL:15:61:-9*r0*r6-4*r6*r8\nL:15:62:-2*r3*r6-3*r6*r7\nL:16:11:-1\nL:16:27:4*r5\nL:16:30:2*r10\nL:16:31:2*r4+2*r9\nL:16:33:-20*r4-20*r9\nL:16:36:2*r9\nL:16:43:2*r8\nL:16:44:2*r7\nL:16:46:4*r9\nL:16:49:-4*r9\nL:16:53:-8*r3-14*r7\nL:16:54:-8*r5*r8\nL:16:55:-8*r3*r5\nL:16:56:-4*r4*r8-4*r8*r9\nL:16:57:-4*r3*r4-4*r3*r9\nL:16:59:2*r7*r8\nL:16:60:-40*r4*r6+30*r7^2-40*r6*r9\nL:16:61:40*r4*r6-3*r7^2+58*r6*r9\nL:17:12:1\nL:17:30:r11\nL:17:31:-2*r5\nL:17:37:-r9\nL:17:44:-2*r8\nL:17:45:-2*r8\nL:17:48:-2*r9\nL:17:51:-r7\nL:17:52:-2*r3-2*r7\nL:17:53:-14*r8\nL:17:55:-2*r3*r11-2*r7*r11\nL:17:56:4*r5*r8\nL:17:57:4*r3*r5-2*r3*r10-2*r7*r10\nL:17:58:-2*r3*r9-2*r7*r9\nL:17:59:2*r8^2\nL:17:60:30*r7*r8\nL:17:61:18*r3*r8+15*r7*r8\nL:17:62:2*r3*r7+2*r7^2\nL:18:10:-1\nL:18:31:r11\nL:18:33:-10*r11\nL:18:36:r11\nL:18:37:r10\nL:18:38:-2*r5\nL:18:46:2*r11\nL:18:48:2*r10\nL:18:49:-2*r11\nL:18:50:r7\nL:18:51:-2*r8\nL:18:52:-2*r0+10*r8\nL:18:55:-2*r0*r11+10*r8*r11\nL:18:56:-2*r8*r11\nL:18:57:-2*r0*r10+10*r8*r10-2*r3*r11\nL:18:58:4*r3*r5-2*r0*r9+10*r8*r9\nL:18:60:120*r8^2-20*r6*r11\nL:18:61:18*r0*r8-102*r8^2+29*r6*r11\nL:18:62:2*r0*r7-12*r7*r8\nL:19:22:1\nL:20:1:-6\nL:20:25:-12*r8\nL:20:28:-6*r7\nL:20:30:-6*r6\nL:20:32:-12*r3-42*r7\nL:20:54:-12*r6*r8\nL:20:56:-6*r6*r7\nL:21:2:2\nL:21:13:-12\nL:21:24:3\nL:21:26:2*r8\nL:21:28:4*r8\nL:21:29:2*r7\nL:21:33:-10*r6\nL:21:36:2*r6\nL:21:39:4*r3+14*r7\nL:21:46:4*r6\nL:21:49:-4*r6\nL:21:56:4*r6*r8\nL:21:60:-20*r6^2\nL:21:61:38*r6^2\nL:22:1:-1\nL:22:23:-1\nL:22:25:-2*r8\nL:22:28:-r7\nL:22:30:-r6\nL:22:32:-2*r3-7*r7\nL:22:54:-2*r6*r8\nL:22:56:-r6*r7\nL:23:2:3\nL:23:13:-33\nL:23:16:-1\nL:23:18:-3\nL:23:24:9\nL:23:26:3*r8\nL:23:28:6*r8\nL:23:29:3*r7\nL:23:33:-14*r6\nL:23:36:3*r6\nL:23:39:6*r3+21*r7\nL:23:46:6*r6\nL:23:49:-6*r6\nL:23:56:6*r6*r8\nL:23:60:-28*r6^2\nL:23:61:55*r6^2\nL:24:5:2\nL:24:8:1\nL:24:20:-5\nL:24:25:2*r11\nL:24:27:2*r8\nL:24:28:2*r10\nL:24:31:r7\nL:24:32:2*r10\nL:24:33:20*r3+50*r7\nL:24:34:2*r9\nL:24:39:2*r9\nL:24:41:2*r8\nL:24:42:2*r7\nL:24:45:2*r6\nL:24:46:4*r3+12*r7\nL:24:47:2*r8\nL:24:49:4*r3+14*r7\nL:24:53:4*r6\nL:24:54:-4*r8^2+2*r6*r11\nL:24:55:-4*r3*r8\nL:24:56:-2*r7*r8+2*r6*r10\nL:24:57:-2*r3*r7\nL:24:60:40*r3*r6+100*r6*r7\nL:24:61:-22*r3*r6-46*r6*r7\n",
+      "seconds": 0.4237063840009796
+    }
+  ]
+}

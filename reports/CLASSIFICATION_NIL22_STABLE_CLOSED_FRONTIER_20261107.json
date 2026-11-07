@@ -1,0 +1,680 @@
+{
+  "task_id": "E_multiple_hyperplane",
+  "all_passed": true,
+  "cases": [
+    {
+      "name": "stable_line_conic",
+      "all_six_magnetic_parameters": [
+        "m0",
+        "m1",
+        "m2",
+        "m3",
+        "m4",
+        "m5"
+      ],
+      "simple_factor_full_cofactors": {
+        "-12*h + x - y": {
+          "full_logarithmic_Hamiltonian": [
+            "x/3 + 1",
+            "y/3 - 1",
+            "0",
+            "0"
+          ],
+          "linear_matrix": [
+            [
+              "0",
+              "0",
+              "1/3",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "1/3"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0"
+            ]
+          ],
+          "linear_rank": 2
+        }
+      },
+      "all_CPLUS_factor_assignments": [
+        {
+          "outer_H": "h",
+          "quadrics": [
+            "36*h**2 + 3*h*(x - y) + 2*x*y",
+            "h*(-12*h + x - y)"
+          ],
+          "restricted_quadrics": [
+            "2*u*v",
+            "0"
+          ],
+          "restriction_ranks": [
+            2,
+            0
+          ],
+          "proportionality_row_rank": 1,
+          "closed_common_tangent_incidence": false
+        },
+        {
+          "outer_H": "-12*h + x - y",
+          "quadrics": [
+            "36*h**2 + 3*h*(x - y) + 2*x*y",
+            "h**2"
+          ],
+          "restricted_quadrics": [
+            "u**2/2 + u*v + v**2/2",
+            "u**2/144 - u*v/72 + v**2/144"
+          ],
+          "restriction_ranks": [
+            1,
+            1
+          ],
+          "proportionality_row_rank": 2,
+          "closed_common_tangent_incidence": false
+        }
+      ],
+      "all_dependent_three_H_assignments": [
+        {
+          "selected_H": [
+            "h",
+            "h",
+            "-12*h + x - y"
+          ],
+          "linear_form_span": 2,
+          "excluded_by_collision_translation_lemma": true,
+          "limiting_double_H": "h",
+          "simple_H": "-12*h + x - y",
+          "nonzero_linear_cofactor": {
+            "full_logarithmic_Hamiltonian": [
+              "x/3 + 1",
+              "y/3 - 1",
+              "0",
+              "0"
+            ],
+            "linear_matrix": [
+              [
+                "0",
+                "0",
+                "1/3",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1/3"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0"
+              ]
+            ],
+            "linear_rank": 2
+          }
+        }
+      ],
+      "entire_source_outside_CPLUS_EXT": true,
+      "entire_source_outside_dependent_3H_Q_component": true,
+      "scope": "Uses the adopted proper common-tangent incidence and the proved regular double-plane collision lemma. No conclusion about another known component or a new component."
+    },
+    {
+      "name": "stable_three_lines",
+      "all_six_magnetic_parameters": [
+        "m0",
+        "m1",
+        "m2",
+        "m3",
+        "m4",
+        "m5"
+      ],
+      "simple_factor_full_cofactors": {
+        "3*h + x": {
+          "full_logarithmic_Hamiltonian": [
+            "x/3 - 2",
+            "y/3 - 1",
+            "0",
+            "0"
+          ],
+          "linear_matrix": [
+            [
+              "0",
+              "0",
+              "1/3",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "1/3"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0"
+            ]
+          ],
+          "linear_rank": 2
+        },
+        "-3*h + y": {
+          "full_logarithmic_Hamiltonian": [
+            "x/3 + 1",
+            "y/3 + 2",
+            "0",
+            "0"
+          ],
+          "linear_matrix": [
+            [
+              "0",
+              "0",
+              "1/3",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "1/3"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0"
+            ]
+          ],
+          "linear_rank": 2
+        },
+        "-3*h + x - y": {
+          "full_logarithmic_Hamiltonian": [
+            "x/3 + 1",
+            "y/3 - 1",
+            "0",
+            "0"
+          ],
+          "linear_matrix": [
+            [
+              "0",
+              "0",
+              "1/3",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "1/3"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0"
+            ]
+          ],
+          "linear_rank": 2
+        }
+      },
+      "all_CPLUS_factor_assignments": [
+        {
+          "outer_H": "h",
+          "quadrics": [
+            "h*(3*h + x)",
+            "(-3*h + y)*(-3*h + x - y)"
+          ],
+          "restricted_quadrics": [
+            "0",
+            "u*v - v**2"
+          ],
+          "restriction_ranks": [
+            0,
+            2
+          ],
+          "proportionality_row_rank": 1,
+          "closed_common_tangent_incidence": false
+        },
+        {
+          "outer_H": "h",
+          "quadrics": [
+            "h*(-3*h + y)",
+            "(3*h + x)*(-3*h + x - y)"
+          ],
+          "restricted_quadrics": [
+            "0",
+            "u**2 - u*v"
+          ],
+          "restriction_ranks": [
+            0,
+            2
+          ],
+          "proportionality_row_rank": 1,
+          "closed_common_tangent_incidence": false
+        },
+        {
+          "outer_H": "h",
+          "quadrics": [
+            "h*(-3*h + x - y)",
+            "(-3*h + y)*(3*h + x)"
+          ],
+          "restricted_quadrics": [
+            "0",
+            "u*v"
+          ],
+          "restriction_ranks": [
+            0,
+            2
+          ],
+          "proportionality_row_rank": 1,
+          "closed_common_tangent_incidence": false
+        },
+        {
+          "outer_H": "3*h + x",
+          "quadrics": [
+            "h**2",
+            "(-3*h + y)*(-3*h + x - y)"
+          ],
+          "restricted_quadrics": [
+            "u**2/9",
+            "2*u**2 + u*v - v**2"
+          ],
+          "restriction_ranks": [
+            1,
+            2
+          ],
+          "proportionality_row_rank": 2,
+          "closed_common_tangent_incidence": false
+        },
+        {
+          "outer_H": "3*h + x",
+          "quadrics": [
+            "h*(-3*h + y)",
+            "h*(-3*h + x - y)"
+          ],
+          "restricted_quadrics": [
+            "-u**2/3 - u*v/3",
+            "-2*u**2/3 + u*v/3"
+          ],
+          "restriction_ranks": [
+            2,
+            2
+          ],
+          "proportionality_row_rank": 2,
+          "closed_common_tangent_incidence": false
+        },
+        {
+          "outer_H": "3*h + x",
+          "quadrics": [
+            "h*(-3*h + x - y)",
+            "h*(-3*h + y)"
+          ],
+          "restricted_quadrics": [
+            "-2*u**2/3 + u*v/3",
+            "-u**2/3 - u*v/3"
+          ],
+          "restriction_ranks": [
+            2,
+            2
+          ],
+          "proportionality_row_rank": 2,
+          "closed_common_tangent_incidence": false
+        },
+        {
+          "outer_H": "-3*h + y",
+          "quadrics": [
+            "h**2",
+            "(3*h + x)*(-3*h + x - y)"
+          ],
+          "restricted_quadrics": [
+            "v**2/9",
+            "u**2 - u*v - 2*v**2"
+          ],
+          "restriction_ranks": [
+            1,
+            2
+          ],
+          "proportionality_row_rank": 2,
+          "closed_common_tangent_incidence": false
+        },
+        {
+          "outer_H": "-3*h + y",
+          "quadrics": [
+            "h*(3*h + x)",
+            "h*(-3*h + x - y)"
+          ],
+          "restricted_quadrics": [
+            "u*v/3 + v**2/3",
+            "u*v/3 - 2*v**2/3"
+          ],
+          "restriction_ranks": [
+            2,
+            2
+          ],
+          "proportionality_row_rank": 2,
+          "closed_common_tangent_incidence": false
+        },
+        {
+          "outer_H": "-3*h + y",
+          "quadrics": [
+            "h*(-3*h + x - y)",
+            "h*(3*h + x)"
+          ],
+          "restricted_quadrics": [
+            "u*v/3 - 2*v**2/3",
+            "u*v/3 + v**2/3"
+          ],
+          "restriction_ranks": [
+            2,
+            2
+          ],
+          "proportionality_row_rank": 2,
+          "closed_common_tangent_incidence": false
+        },
+        {
+          "outer_H": "-3*h + x - y",
+          "quadrics": [
+            "h**2",
+            "(-3*h + y)*(3*h + x)"
+          ],
+          "restricted_quadrics": [
+            "u**2/9 - 2*u*v/9 + v**2/9",
+            "-2*u**2 + 5*u*v - 2*v**2"
+          ],
+          "restriction_ranks": [
+            1,
+            2
+          ],
+          "proportionality_row_rank": 2,
+          "closed_common_tangent_incidence": false
+        },
+        {
+          "outer_H": "-3*h + x - y",
+          "quadrics": [
+            "h*(3*h + x)",
+            "h*(-3*h + y)"
+          ],
+          "restricted_quadrics": [
+            "2*u**2/3 - u*v + v**2/3",
+            "-u**2/3 + u*v - 2*v**2/3"
+          ],
+          "restriction_ranks": [
+            2,
+            2
+          ],
+          "proportionality_row_rank": 2,
+          "closed_common_tangent_incidence": false
+        },
+        {
+          "outer_H": "-3*h + x - y",
+          "quadrics": [
+            "h*(-3*h + y)",
+            "h*(3*h + x)"
+          ],
+          "restricted_quadrics": [
+            "-u**2/3 + u*v - 2*v**2/3",
+            "2*u**2/3 - u*v + v**2/3"
+          ],
+          "restriction_ranks": [
+            2,
+            2
+          ],
+          "proportionality_row_rank": 2,
+          "closed_common_tangent_incidence": false
+        }
+      ],
+      "all_dependent_three_H_assignments": [
+        {
+          "selected_H": [
+            "h",
+            "h",
+            "3*h + x"
+          ],
+          "linear_form_span": 2,
+          "excluded_by_collision_translation_lemma": true,
+          "limiting_double_H": "h",
+          "simple_H": "3*h + x",
+          "nonzero_linear_cofactor": {
+            "full_logarithmic_Hamiltonian": [
+              "x/3 - 2",
+              "y/3 - 1",
+              "0",
+              "0"
+            ],
+            "linear_matrix": [
+              [
+                "0",
+                "0",
+                "1/3",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1/3"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0"
+              ]
+            ],
+            "linear_rank": 2
+          }
+        },
+        {
+          "selected_H": [
+            "h",
+            "h",
+            "-3*h + y"
+          ],
+          "linear_form_span": 2,
+          "excluded_by_collision_translation_lemma": true,
+          "limiting_double_H": "h",
+          "simple_H": "-3*h + y",
+          "nonzero_linear_cofactor": {
+            "full_logarithmic_Hamiltonian": [
+              "x/3 + 1",
+              "y/3 + 2",
+              "0",
+              "0"
+            ],
+            "linear_matrix": [
+              [
+                "0",
+                "0",
+                "1/3",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1/3"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0"
+              ]
+            ],
+            "linear_rank": 2
+          }
+        },
+        {
+          "selected_H": [
+            "h",
+            "h",
+            "-3*h + x - y"
+          ],
+          "linear_form_span": 2,
+          "excluded_by_collision_translation_lemma": true,
+          "limiting_double_H": "h",
+          "simple_H": "-3*h + x - y",
+          "nonzero_linear_cofactor": {
+            "full_logarithmic_Hamiltonian": [
+              "x/3 + 1",
+              "y/3 - 1",
+              "0",
+              "0"
+            ],
+            "linear_matrix": [
+              [
+                "0",
+                "0",
+                "1/3",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1/3"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0"
+              ]
+            ],
+            "linear_rank": 2
+          }
+        },
+        {
+          "selected_H": [
+            "h",
+            "3*h + x",
+            "-3*h + y"
+          ],
+          "linear_form_span": 3,
+          "excluded_by_closed_dependence": true
+        },
+        {
+          "selected_H": [
+            "h",
+            "3*h + x",
+            "-3*h + x - y"
+          ],
+          "linear_form_span": 3,
+          "excluded_by_closed_dependence": true
+        },
+        {
+          "selected_H": [
+            "h",
+            "-3*h + y",
+            "-3*h + x - y"
+          ],
+          "linear_form_span": 3,
+          "excluded_by_closed_dependence": true
+        },
+        {
+          "selected_H": [
+            "h",
+            "3*h + x",
+            "-3*h + y"
+          ],
+          "linear_form_span": 3,
+          "excluded_by_closed_dependence": true
+        },
+        {
+          "selected_H": [
+            "h",
+            "3*h + x",
+            "-3*h + x - y"
+          ],
+          "linear_form_span": 3,
+          "excluded_by_closed_dependence": true
+        },
+        {
+          "selected_H": [
+            "h",
+            "-3*h + y",
+            "-3*h + x - y"
+          ],
+          "linear_form_span": 3,
+          "excluded_by_closed_dependence": true
+        },
+        {
+          "selected_H": [
+            "3*h + x",
+            "-3*h + y",
+            "-3*h + x - y"
+          ],
+          "linear_form_span": 3,
+          "excluded_by_closed_dependence": true
+        }
+      ],
+      "entire_source_outside_CPLUS_EXT": true,
+      "entire_source_outside_dependent_3H_Q_component": true,
+      "scope": "Uses the adopted proper common-tangent incidence and the proved regular double-plane collision lemma. No conclusion about another known component or a new component."
+    }
+  ],
+  "input_sha256": {
+    "code/classification_nil22_stable_closed_frontier.py": "5a202e5651db22c691b81ee867da569e87382655612c271a609f254dacdcd4cc",
+    "code/classification_nil22_image_source_review.py": "72158242b9431a36a821fbca77230c2543687611cd57b6c8a279ea7896ef57d4",
+    "reports/CLASSIFICATION_NIL22_IMAGE_SOURCE_REVIEW_V2_20261107.json": "bc945ece2d11bdd407e86681fdee5636257f801fe5c8e4f473c26a24442580eb",
+    "research/classification/TWO_QUADRICS_PLANE_CONIC_CONFIGURATIONS.md": "9cfb860ca0120e418ae462107eb812f620a2957017d49ddd5349d876f40f6532",
+    "research/classification/THREE_HYPERPLANES_QUADRIC_DEPENDENT.md": "64a33ff9678fe366b3d8389fb94569409b1b04089653861d56e2e7a98da65d1e"
+  },
+  "producer_source_bytes": "#!/usr/bin/env python3\n\"\"\"Finite divisor/cofactor exclusions for both whole stable magnetic sources.\n\nThe closed common-tangent incidence excludes CPLUS_EXT. A dependent-three-H\ncollision lemma excludes its known 24-dimensional component. Neither result\nis a componenthood or MPS nonmembership assertion.\n\"\"\"\nimport argparse\nimport hashlib\nimport itertools\nimport json\nfrom pathlib import Path\nimport time\n\nimport sympy as s\nfrom classification_nil22_image_source_review import build_P,coords,mag,x,y\n\nROOT=Path(__file__).resolve().parents[1]\n\n\ndef main():\n    ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--output',type=Path,required=True);args=ap.parse_args();begun=time.monotonic()\n    h,u,v=s.symbols('h u v');base=(h,x,y)\n    specs=[('stable_line_conic',s.Matrix([[3,-15],[-15,3]]),s.Matrix([s.Rational(3,2),-s.Rational(3,2)]),[h,h,x-y-12*h],[36*h*h+3*h*(x-y)+2*x*y]),\n        ('stable_three_lines',s.Matrix([[-6,3],[3,-6]]),s.zeros(2,1),[h,h,x+3*h,y-3*h,x-y-3*h],[])]\n    records=[]\n    for name,S,V0,lines,quadrics in specs:\n        P,M,D=build_P(x*y*(x-y),S,V0,-s.eye(2)/3)\n        cofactor={}\n        for L in lines[2:]:\n            affineL=L.subs(h,1);Z=s.Matrix([-s.cancel(sum(M[i,j]*s.diff(affineL,(x,y)[j])for j in range(2))/affineL)for i in range(2)]+[0,0])\n            assert all(not s.denom(z).free_symbols for z in Z)\n            assert not any(z.has(*mag)for z in Z)\n            linear=Z.jacobian(s.Matrix(coords));assert linear.rank()==2\n            assert linear*linear==s.zeros(4)\n            cofactor[str(L)]=dict(full_logarithmic_Hamiltonian=list(map(str,Z)),linear_matrix=linear.tolist(),linear_rank=2)\n        plus=[]\n        for outer_index,L in enumerate(lines):\n            if outer_index==1:continue\n            remaining=lines[:outer_index]+lines[outer_index+1:]\n            if quadrics:\n                assert len(remaining)==2;partitions=[(quadrics[0],s.prod(remaining))]\n            else:\n                assert len(remaining)==4\n                partitions=[(remaining[0]*remaining[k],s.prod([remaining[j]for j in range(1,4)if j!=k]))for k in range(1,4)]\n            row=s.Matrix([[s.diff(L,z)for z in base]]);K=s.Matrix.hstack(*row.nullspace());assert K.shape==(3,2)\n            values=dict(zip(base,K*s.Matrix([u,v])))\n            for Q1,Q2 in partitions:\n                restricted=[s.expand(Q.subs(values,simultaneous=True))for Q in (Q1,Q2)]\n                ranks=[s.hessian(Q,(u,v)).rank()for Q in restricted]\n                coefficient_rows=s.Matrix([[s.Poly(Q,u,v).coeff_monomial(mon)for mon in [u*u,u*v,v*v]]for Q in restricted])\n                common=ranks[0]<=1 and ranks[1]<=1 and coefficient_rows.rank()<=1\n                assert not common\n                plus.append(dict(outer_H=str(L),quadrics=list(map(str,(Q1,Q2))),restricted_quadrics=list(map(str,restricted)),restriction_ranks=ranks,proportionality_row_rank=coefficient_rows.rank(),closed_common_tangent_incidence=False))\n        dependent=[]\n        for indices in itertools.combinations(range(len(lines)),3):\n            chosen=[lines[i]for i in indices]\n            # Any unused degree-two factor is permitted; this only strengthens exclusion.\n            if sum(1 for i in indices if i>=2)>len(lines)-2:raise AssertionError\n            A=s.Matrix([[s.diff(L,z)for z in base]for L in chosen]);rank=A.rank()\n            record=dict(selected_H=list(map(str,chosen)),linear_form_span=rank)\n            if rank==3:record['excluded_by_closed_dependence']=True\n            else:\n                assert indices[0:2]==(0,1)\n                L=chosen[2];record.update(excluded_by_collision_translation_lemma=True,limiting_double_H=str(h),simple_H=str(L),nonzero_linear_cofactor=cofactor[str(L)])\n            dependent.append(record)\n        records.append(dict(name=name,all_six_magnetic_parameters=list(map(str,mag)),simple_factor_full_cofactors=cofactor,\n            all_CPLUS_factor_assignments=plus,all_dependent_three_H_assignments=dependent,\n            entire_source_outside_CPLUS_EXT=True,entire_source_outside_dependent_3H_Q_component=True,\n            scope='Uses the adopted proper common-tangent incidence and the proved regular double-plane collision lemma. No conclusion about another known component or a new component.'))\n    paths=[Path(__file__),ROOT/'code/classification_nil22_image_source_review.py',ROOT/'reports/CLASSIFICATION_NIL22_IMAGE_SOURCE_REVIEW_V2_20261107.json',ROOT/'research/classification/TWO_QUADRICS_PLANE_CONIC_CONFIGURATIONS.md',ROOT/'research/classification/THREE_HYPERPLANES_QUADRIC_DEPENDENT.md']\n    result=dict(task_id='E_multiple_hyperplane',all_passed=True,cases=records,input_sha256={str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest()for p in paths},producer_source_bytes=Path(__file__).read_text(),seconds=round(time.monotonic()-begun,6))\n    with args.output.open('x')as handle:json.dump(result,handle,indent=2,default=str);handle.write('\\n')\n    print(json.dumps(dict(all_passed=True,seconds=result['seconds'])))\n\n\nif __name__=='__main__':main()\n",
+  "seconds": 0.280763
+}
