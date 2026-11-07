@@ -14,15 +14,15 @@
     "null_values": "not catalogued or not applicable; never a claim of zero"
   },
   "coverage": {
-    "global_lower_bound": 124,
+    "global_lower_bound": 126,
     "generic_rank_two_full_components": 6,
-    "generic_rank_four_lower_bound": 118,
+    "generic_rank_four_lower_bound": 120,
     "upper_bound": null,
     "global_exhaustion_proved": false,
-    "individually_catalogued_count": 124,
+    "individually_catalogued_count": 126,
     "unexpanded_block_count": 0,
     "all_51_rank_four_ideals_in_S61_constructed": false,
-    "note_ja": "全124個別成分/rank四118/rank二6。markedμ六九＋μ五四新23を全geometry/source/ambient/相違で独立受理。全G/E/上界は未証明。",
+    "note_ja": "全126個別成分/rank四120/rank二6。E6smoothflex/A5smoothhyperflexを全二法線mprimary支持・全source・prior124/相互の独立確認で追加。全G/E/上界は未証明。",
     "generic_primitive_first_jet_known_lifts_lower_bound": 5,
     "full_generic_fiber_exhaustion_proved": false,
     "known_union_over_smooth_canonical_curve": {
@@ -13948,6 +13948,203 @@
         "全frame/全磁気sourceの飽和閉包と一致、零磁気不変量境界を含む。",
         "μ六九との全36pairと旧111、四相互六組を独立確認。"
       ]
+    },
+    {
+      "id": "R4_MARKED_QUARTIC_MU6_E6_SMOOTH_FLEX_23",
+      "name": "E6_smooth_flex marked平面Hquarticの23次元成分",
+      "source_checkpoint": "v64-classification-first",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "additional_generic_rank_four_full_component_outside_MPS40",
+      "generic_rank": 4,
+      "projective_dimension": 23,
+      "meets_SNC_log_symplectic_locus": false,
+      "generic_pgl5_orbit_dimension": 23,
+      "generic_reduced_rosenlicht_quotient_dimension": 0,
+      "generic_transverse_algebra": null,
+      "component_definition": "Reduced actual PGL5 canonical23 orbit closure, equal to whole six-magnetic/frame source saturation closure. Full two-normal m-primary obstruction proves ambient componenthood.",
+      "generic_construction": {
+        "coordinates": [
+          "h",
+          "x",
+          "y",
+          "z",
+          "w"
+        ],
+        "quartic": "h*w**3 + 3*w**4 - 8*w**3*y + 6*w**2*y**2 - y**4",
+        "marked_hyperplane": "h",
+        "anchor_U": [
+          "-15*h*y/94 + 45*w**2/376 + 45*w*y/188 + 1005*y**2/376",
+          "-10*h*w/47 - 15*w**2/47 + 295*w*y/94 + 10*y**2/47"
+        ],
+        "anchor_V": [
+          "15*h*y/188 + 165*w**2/188 + 165*w*y/94 - 75*y**2/188",
+          "5*h*w/47 + 125*w**2/47 - 15*w*y/47 - 5*y**2/47"
+        ],
+        "commutator": [
+          "-25*h/188 - 115*w/94 + 45*y/94",
+          "-25*h/94 - 225*w/188 + 415*y/188"
+        ],
+        "magnetic_source": "r0*h²+r1*h*y+r2*h*w+r3*y²+r4*y*w+r5*w²",
+        "canonical_R": "y**2",
+        "canonical_projective_integer_scale": "376",
+        "cotangent_law": "partial_x wedge U + partial_z wedge V + (alpha*x+beta*z+R)partial_x wedge partial_z",
+        "actual_stabilizer_identity_component": "Ga: one-dimensional kernel of magnetic shear map"
+      },
+      "generic_actual_degeneracy_divisor": {
+        "description": "Simple unique H plus absolutely irreducible rational essential-three quartic, marked case E6_smooth_flex",
+        "witness_equation": "h*(h*w**3 + 3*w**4 - 8*w**3*y + 6*w**2*y**2 - y**4)",
+        "irreducible_factor_degrees": [
+          1,
+          4
+        ],
+        "corresponding_multiplicities": [
+          1,
+          1
+        ],
+        "reduced": true,
+        "essential_variable_count": 3,
+        "marked_quartic_case": "E6_smooth_flex",
+        "quartic_Milnor_number": 6,
+        "total_divisor_Tjurina_number": 12,
+        "marked_H_contact_partition": [
+          3,
+          1
+        ]
+      },
+      "claims": [
+        "R4_MARKED_QUARTIC_MU6_E6_SMOOTH_FLEX_COMPONENT_23"
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/E6_A5_TRUE_TWO_NORMAL_OBSTRUCTION.md"
+        },
+        {
+          "path": "research/classification/E6_A5_TWO_NORMAL_COMPONENTS.md"
+        },
+        {
+          "path": "research/classification/MARKED_QUARTIC_TWO_NORMAL_SEPARATE_REVIEW.md"
+        },
+        {
+          "path": "research/classification/PLANE_HYPERPLANE_QUARTIC_MU6_SOURCE_SEPARATE_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_PLANE_HYPERPLANE_QUARTIC_TWO_NORMAL_OBSTRUCTION_20261107.json",
+        "reports/CLASSIFICATION_MARKED_QUARTIC_TWO_NORMAL_SEPARATE_REVIEW_20261107.json",
+        "reports/CLASSIFICATION_E6_A5_TWO_NORMAL_COMPONENT_DEPENDENCIES_20261107.json",
+        "research/classification/inputs/marked_quartic_two_normal_separate_review_manifest_20261107.json",
+        "reports/CLASSIFICATION_PLANE_HYPERPLANE_QUARTIC_MU6_SOURCES_20261107.json"
+      ],
+      "review_status": {
+        "proof": "true48cut_full_two_normal_mprimary_quadratic_support_full_componenthood_proved",
+        "independent_review": "accepted_separate_Fraction_all150_350_true48cut_full_source_boundaries_prior124_mutual",
+        "certificates": "full_two_normal_cokernel_squares_or_cubes_and_entire_source_distinctness",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "notes_ja": [
+        "全六磁気/sourceframeの零境界を含め同じ23orbit閉包。",
+        "全prior124と相互の相違を独立確認。",
+        "raw tangent50、orbit48。scheme smoothness又は精密nil厚みは未分類。"
+      ]
+    },
+    {
+      "id": "R4_MARKED_QUARTIC_MU5_A5_SMOOTH_HYPERFLEX_23",
+      "name": "A5_smooth_hyperflex marked平面Hquarticの23次元成分",
+      "source_checkpoint": "v64-classification-first",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "additional_generic_rank_four_full_component_outside_MPS40",
+      "generic_rank": 4,
+      "projective_dimension": 23,
+      "meets_SNC_log_symplectic_locus": false,
+      "generic_pgl5_orbit_dimension": 23,
+      "generic_reduced_rosenlicht_quotient_dimension": 0,
+      "generic_transverse_algebra": null,
+      "component_definition": "Reduced actual PGL5 canonical23 orbit closure, equal to whole six-magnetic/frame source saturation closure. Full two-normal m-primary obstruction proves ambient componenthood.",
+      "generic_construction": {
+        "coordinates": [
+          "h",
+          "x",
+          "y",
+          "z",
+          "w"
+        ],
+        "quartic": "h**2*y**2 - 2*h*w**2*y - 16*h*y**3 + w**4",
+        "marked_hyperplane": "h",
+        "anchor_U": [
+          "-5*h*y/12 + 5*w**2/36 + 20*y**2/3",
+          "-5*h*w/36 + 5*w*y"
+        ],
+        "anchor_V": [
+          "20*w*y/3",
+          "-5*h*y/3 + 5*w**2"
+        ],
+        "commutator": [
+          "-10*w/3",
+          "-5*h/18 + 5*y/3"
+        ],
+        "magnetic_source": "r0*h²+r1*h*y+r2*h*w+r3*y²+r4*y*w+r5*w²",
+        "canonical_R": "h**2",
+        "canonical_projective_integer_scale": "36",
+        "cotangent_law": "partial_x wedge U + partial_z wedge V + (alpha*x+beta*z+R)partial_x wedge partial_z",
+        "actual_stabilizer_identity_component": "Ga: one-dimensional kernel of magnetic shear map"
+      },
+      "generic_actual_degeneracy_divisor": {
+        "description": "Simple unique H plus absolutely irreducible rational essential-three quartic, marked case A5_smooth_hyperflex",
+        "witness_equation": "h*(h**2*y**2 - 2*h*w**2*y - 16*h*y**3 + w**4)",
+        "irreducible_factor_degrees": [
+          1,
+          4
+        ],
+        "corresponding_multiplicities": [
+          1,
+          1
+        ],
+        "reduced": true,
+        "essential_variable_count": 3,
+        "marked_quartic_case": "A5_smooth_hyperflex",
+        "quartic_Milnor_number": 5,
+        "total_divisor_Tjurina_number": 12,
+        "marked_H_contact_partition": [
+          4
+        ]
+      },
+      "claims": [
+        "R4_MARKED_QUARTIC_MU5_A5_SMOOTH_HYPERFLEX_COMPONENT_23"
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/E6_A5_TRUE_TWO_NORMAL_OBSTRUCTION.md"
+        },
+        {
+          "path": "research/classification/E6_A5_TWO_NORMAL_COMPONENTS.md"
+        },
+        {
+          "path": "research/classification/MARKED_QUARTIC_TWO_NORMAL_SEPARATE_REVIEW.md"
+        },
+        {
+          "path": "research/classification/PLANE_HYPERPLANE_QUARTIC_MU5_SOURCE_SEPARATE_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_PLANE_HYPERPLANE_QUARTIC_TWO_NORMAL_OBSTRUCTION_20261107.json",
+        "reports/CLASSIFICATION_MARKED_QUARTIC_TWO_NORMAL_SEPARATE_REVIEW_20261107.json",
+        "reports/CLASSIFICATION_E6_A5_TWO_NORMAL_COMPONENT_DEPENDENCIES_20261107.json",
+        "research/classification/inputs/marked_quartic_two_normal_separate_review_manifest_20261107.json",
+        "reports/CLASSIFICATION_PLANE_HYPERPLANE_QUARTIC_MU5_SOURCES_20261107.json"
+      ],
+      "review_status": {
+        "proof": "true48cut_full_two_normal_mprimary_quadratic_support_full_componenthood_proved",
+        "independent_review": "accepted_separate_Fraction_all150_350_true48cut_full_source_boundaries_prior124_mutual",
+        "certificates": "full_two_normal_cokernel_squares_or_cubes_and_entire_source_distinctness",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "notes_ja": [
+        "全六磁気/sourceframeの零境界を含め同じ23orbit閉包。",
+        "全prior124と相互の相違を独立確認。",
+        "raw tangent50、orbit48。scheme smoothness又は精密nil厚みは未分類。"
+      ]
     }
   ],
   "named_block_member_annotations": [
@@ -14301,5 +14498,5 @@
     "MPS40 blockを展開したらblockによる加算を止め、二重計上しない。",
     "文献上の新規性は内部成分証明とは別に確認する。"
   ],
-  "new_components_added_in_this_checkpoint": 66
+  "new_components_added_in_this_checkpoint": 68
 }

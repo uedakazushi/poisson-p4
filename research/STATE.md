@@ -1,12 +1,12 @@
 # 研究状態 — 現行分類 / 2026-11-07
 
 現行キューは [classification/CURRENT.md](classification/CURRENT.md)・PLAN.json・NEXT_TASKS.md。
-個別下界124（rank四118、rank二6）、主張980。全G/E・上界・分類主定理は未証明。
-直近の公開checkpointは8b46f29ddbb9f539abc7a026e492ee25bf8ad699（124/967、225頁）。
+個別下界126（rank四120、rank二6）、主張991。全G/E・上界・分類主定理は未証明。
+直近の公開checkpointは57f4b36c00071103e4288793e1e3470f2ccf8e2f（124/980、234頁）。
 その後のm二reducedR/SF全MPS、degree五canonicalindex二全G非優越・cusp空、scroll canonicalroot空等を独立受理した。
 全rank零、rank二quadric/degree四五六・plane m四、全essential三変数quintic八成分被覆は完了。
-残るrank二plane m二三、smoothcubicScroll A25/cone、Eのstable二源・E6/A5/Ga9未知親等を続ける。
-新Ore四moduleはproducer完了・独立確認中、全m三を完了扱いしない。
+残るrank二plane m二三、Eのstable二源・Ga9未知親等を続ける。
+新Ore四moduleも別作者Fraction確認0.779秒で受理し、全nonredR/m三SFのG像24以下を完了した。全m三/Eは未閉。
 Cloud復旧で旧公開版をff-only回復し、消失した非公開算術は新identityで再現した。
 詳しい全補集合・環境制約・保存状態は [CLOUD_HANDOFF_20261107.md](CLOUD_HANDOFF_20261107.md) と
 [CLOUD_RECOVERY_20261107.md](CLOUD_RECOVERY_20261107.md)。保存checkpointも旧移行一時停止も終了条件にしない。

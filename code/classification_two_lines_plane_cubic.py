@@ -286,5 +286,89 @@ def cubic_support(output):
     with output.open('x')as handle:json.dump(report,handle,indent=2);handle.write('\n')
 
 
+def cusp_tangent_secant_whole_graphs(output):
+    """One complete magnetic normal form and its entire QQ[lambda] graph locus."""
+    from s61_model import S61,X,pushforward,jacobi_projective
+    resource.setrlimit(resource.RLIMIT_CPU,(110,111))
+    resource.setrlimit(resource.RLIMIT_AS,(1536*1024**2,)*2)
+    begun=time.monotonic();old=s.symbols('h x y z w');h,x,y,z,w=old
+    params=s.symbols('r0:6');lam=s.Symbol('lam')
+    source_path='reports/CLASSIFICATION_TWO_LINES_PLANE_CUBIC_20261107.json'
+    source=next(r for r in json.loads((ROOT/source_path).read_text())['cases']if r['case']=='cusp_cusp_tangent_cusp_secant')
+    P=s.zeros(5)
+    for key,f in source['full_six_magnetic_source'].items():
+        i,j=map(int,key.strip('()').split(','));P[i,j]=s.sympify(f);P[j,i]=-P[i,j]
+    def strict(A):
+        return [s.expand(sum(A[i,l]*s.diff(A[j,k],old[l])+A[j,l]*s.diff(A[k,i],old[l])+A[k,l]*s.diff(A[i,j],old[l])for l in range(5)))for i,j,k in itertools.combinations(range(5),3)]
+    def push_old(A,G):
+        return (G*A.subs(dict(zip(old,G.inv()*s.Matrix(old))),simultaneous=True)*G.T).applyfunc(s.cancel)
+    def encode(A):
+        return {f'{i},{j}':str(A[i,j])for i,j in itertools.combinations(range(5),2)if A[i,j]}
+    assert all(f==0 for f in strict(P))
+    ell=(params[3]+params[2])*x/2+params[4]*y/4
+    kappa=(-3*params[1]-3*params[3]/2+9*params[2]/2)*x-params[2]*y
+    translation=s.eye(5)
+    for row,form in [(3,ell),(4,kappa)]:
+        for j,v in enumerate(old):translation[row,j]+=s.diff(form,v)
+    assert translation.det()==1
+    inverse=translation.inv();assert inverse*translation==s.eye(5)
+    I=params[5];J=params[0]+params[2]
+    translated=push_old(P,translation)
+    reduced=P.subs(dict(zip(params,(J,0,0,0,0,I))),simultaneous=True)
+    assert (translated-reduced).applyfunc(s.cancel)==s.zeros(5)
+    normal=P.subs(dict(zip(params,(lam,0,0,0,0,1))),simultaneous=True)
+    scale=s.diag(1,1,1,1/I,1/I)
+    assert (I*push_old(translated,scale)-normal.subs(lam,J/I)).applyfunc(s.cancel)==s.zeros(5)
+    assert all(f==0 for f in strict(normal))
+    pi=normal.subs(dict(zip(old,X)),simultaneous=True)
+    assert all(f==0 for f in jacobi_projective(pi))
+    point=dict(zip(X,(1,1,1,0,0)));value=pi.subs(point)[1:5,1:5]
+    pf=s.expand(value[0,1]*value[2,3]-value[0,2]*value[1,3]+value[0,3]*value[1,2]);assert pf==-9
+    move=s.eye(5);move[1,0]=move[2,0]=-1
+    frame=s.eye(5)
+    frame[1:5,1:5]=s.Matrix([[1,0,0,0],[0,0,-1,0],[-3,1,0,0],[(lam+1)/3,0,0,-s.Rational(1,9)]])
+    standard=s.zeros(4);standard[0,1]=standard[2,3]=1;standard[1,0]=standard[3,2]=-1
+    assert (frame[1:5,1:5]*value*frame[1:5,1:5].T-standard).applyfunc(s.expand)==s.zeros(4)
+    assert frame.det()==-s.Rational(1,9)
+    model=S61();framed=pushforward(pi,frame*move);normalized=model.normalize(framed)
+    verified=model.verify_point(normalized,check_equations=True)
+    total=normalized['matrix']*frame*move;assert total.det()==-s.Rational(1,9)
+    actual=pushforward(pi,total);reconstructed=model.reconstruct(normalized['parameters'])
+    from s61_model import quotient_coefficients
+    assert quotient_coefficients(actual)==quotient_coefficients(reconstructed)
+    difference=actual-reconstructed
+    all_coeff=[c for f in list(actual)+list(reconstructed)for c in s.Poly(f,*X).coeffs()]
+    assert all(s.denom(s.cancel(c)).free_symbols==set()for c in all_coeff)
+    us=s.symbols('u1:62');results={}
+    for name,path in [('T39','reports/Q51_UNIVERSAL_SECTION_20261101.json'),('T40','reports/Q52_UNIVERSAL_SECTION_20261101.json')]:
+        graph=json.loads((ROOT/path).read_text());indices=graph['weight2_u_indices_zero_based']
+        residual=[s.cancel(normalized['parameters'][i]-s.sympify(q).subs(dict(zip(us,normalized['parameters'])),simultaneous=True))for i,q in zip(indices,graph['quadratic_section_q'])]
+        assert len(residual)==45 and all(not s.denom(f).free_symbols for f in residual)
+        nonzero=[s.Poly(f,lam,domain=s.QQ)for f in residual if f]
+        gcd=s.S.Zero if not nonzero else s.gcd_list([p.as_expr()for p in nonzero]).as_poly(lam,domain=s.QQ).monic().as_expr()
+        results[name]=dict(all45_residuals=list(map(str,residual)),nonzero_count=len(nonzero),whole_lambda_source_in_graph=not nonzero,
+            exact_common_zero_ideal_generator=str(gcd),no_finite_lambda_in_graph=gcd==1,
+            parameter_denominators_have_no_roots=True)
+    paths=[source_path,'code/classification_two_lines_plane_cubic.py','code/s61_model.py','reports/Q51_UNIVERSAL_SECTION_20261101.json','reports/Q52_UNIVERSAL_SECTION_20261101.json']
+    paths+=['legacy/v02/data/'+p for p in ['symplectic_slice_certificate.json','symplectic_slice_equations.json','symplectic_slice_reduced_equations.json']]
+    paths+=['research/classification/TWO_LINES_CUSP_TANGENT_SECANT_MAGNETIC_NORMAL_FORM.md','research/classification/S61_GLOBAL_COMPONENT_EVALUATION_FIBER.md','research/classification/S61_GLOBAL_COMPONENT_FIBER_SEPARATE_REVIEW.md']
+    result=dict(task_id='E_reduced_nonnormal',all_passed=True,case=source['case'],all_six_magnetic_parameters_retained=True,
+        original_source_brackets=source['full_six_magnetic_source'],magnetic_translation_matrix=[[str(v)for v in row]for row in translation.tolist()],
+        magnetic_translation_inverse=[[str(v)for v in row]for row in inverse.tolist()],magnetic_invariants=dict(I=str(I),J=str(J),lam=str(J/I)),
+        magnetic_translation_full150_checked=True,fiber_scale_matrix=[[str(v)for v in row]for row in scale.tolist()],tensor_scale=str(I),
+        full_magnetic_normalizer_full150_checked=True,I_zero_complement='Kept as the closed boundary of the original irreducible A6 source. It is covered by closedness ONLY IF the whole lambda source is covered. A negative graph result for I nonzero makes no assertion at I zero.',
+        whole_lambda_brackets=encode(normal),all10_strict_Jacobi_zero=True,all350_original_projective_Jacobi_zero=True,
+        evaluation_point=[1,1,1,0,0],uniform_evaluation_Pfaffian=str(pf),Darboux_frame=[[str(v)for v in row]for row in frame.tolist()],
+        affine_translation=[[str(v)for v in row]for row in move.tolist()],perspective=list(map(str,normalized['perspective'])),
+        complete_PGL_matrix=[[str(v)for v in row]for row in total.tolist()],complete_PGL_inverse=[[str(v)for v in row]for row in total.inv().tolist()],
+        complete_PGL_determinant=str(total.det()),all61_parameters=list(map(str,normalized['parameters'])),
+        faithful_verification=verified,full150_inverse_modulo_Euler_checked=True,literal_Euler_difference=encode(difference),
+        no_nonconstant_parameter_denominators=True,graph_membership=results,other_ambient_parent_not_inferred=True,
+        input_sha256={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest()for p in paths},producer_source=Path(__file__).read_text(),
+        seconds=time.monotonic()-begun)
+    with output.open('x')as f:json.dump(result,f,indent=2);f.write('\n')
+    print(json.dumps(dict(case=source['case'],graphs=results,seconds=result['seconds'])),flush=True)
+
+
 if __name__=='__main__':
-    ap=argparse.ArgumentParser();ap.add_argument('--output',type=Path,required=True);ap.add_argument('--graphs',action='store_true');ap.add_argument('--normals',action='store_true');ap.add_argument('--candidate-pencils',action='store_true');ap.add_argument('--cubic-support',action='store_true');ap.add_argument('--normal-dimension',type=int,default=1);ap.add_argument('--case');args=ap.parse_args();cubic_support(args.output)if args.cubic_support else candidate_pencils(args.output)if args.candidate_pencils else normal_tests(args.output,args.normal_dimension)if args.normals else graphs(args.output)if args.graphs else main(args.output,args.case)
+    ap=argparse.ArgumentParser();ap.add_argument('--output',type=Path,required=True);ap.add_argument('--graphs',action='store_true');ap.add_argument('--normals',action='store_true');ap.add_argument('--candidate-pencils',action='store_true');ap.add_argument('--cubic-support',action='store_true');ap.add_argument('--cusp-whole-graphs',action='store_true');ap.add_argument('--normal-dimension',type=int,default=1);ap.add_argument('--case');args=ap.parse_args();cusp_tangent_secant_whole_graphs(args.output)if args.cusp_whole_graphs else cubic_support(args.output)if args.cubic_support else candidate_pencils(args.output)if args.candidate_pencils else normal_tests(args.output,args.normal_dimension)if args.normals else graphs(args.output)if args.graphs else main(args.output,args.case)

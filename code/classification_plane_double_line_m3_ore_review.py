@@ -1,0 +1,218 @@
+#!/usr/bin/env python3
+"""Independent full Ore-source/module review; Fraction/Laurent sparse only."""
+from fractions import Fraction as F
+from itertools import combinations
+from pathlib import Path
+from functools import lru_cache
+import ast,json,hashlib,time,resource,signal
+from classification_minimal_quartic_review import LaurentRing
+import classification_plane_m4_special_review as H
+ROOT=Path(__file__).resolve().parents[1]
+INPUT='reports/CLASSIFICATION_PLANE_DOUBLE_LINE_M3_ORE_20261107.json'
+REPLAY='reports/CLASSIFICATION_PLANE_DOUBLE_LINE_M3_SQUAREFREE_REPLAY_20261107.json'
+JOB='research/classification/jobs/plane_double_line_m3_ore_separate_review.json'
+OUT='reports/CLASSIFICATION_PLANE_DOUBLE_LINE_M3_ORE_SEPARATE_REVIEW_20261107.json'
+Y=(0,1,3,4);PAIRS=list(combinations(range(5),2))
+
+def load(p):return json.loads((ROOT/p).read_text())
+def power(R,P,k):
+ o=R.constant(1)
+ for _ in range(k):o=R.mul(o,P)
+ return o
+
+def coef(R,P,ex):return{e[:R.n]+(0,)*5:c for e,c in P.items()if e[R.n:]==tuple(ex)}
+def skew(R,d):
+ P={(i,j):{}for i in range(5)for j in range(5)}
+ for(i,j),p in d.items():P[i,j]=p;P[j,i]=R.scale(p,-1)
+ return P
+
+def fromQ(R,d):return skew(R,{(Y[i],Y[j]):R.parse(v)for key,v in d.items()for i,j in[ast.literal_eval(key)]})
+def actual(R,P):
+ out={}
+ for at in range(5):
+  i,j,k,l=[v for v in range(5)if v!=at];pf=R.add(R.mul(P[i,j],P[k,l]),R.scale(R.mul(P[i,k],P[j,l]),-1),R.mul(P[i,l],P[j,k]));out=R.add(out,R.scale(R.mul(R.variable(R.names[R.n+at]),pf),(-1)**at))
+ return out
+
+def strict(R,P):return{t:R.add(*(R.mul(P[a,l],R.derivative(P[b,c],l))for a,b,c in(t,(t[1],t[2],t[0]),(t[2],t[0],t[1]))for l in range(5)))for t in combinations(range(5),3)}
+def projective(R,P):
+ J=strict(R,P);x=[R.variable(s)for s in('a','b','c','z','w')]
+ return{quad:R.scale(R.add(*(R.scale(R.mul(x[quad[k]],J[quad[:k]+quad[k+1:]]),(-1)**k)for k in range(4))),2)for quad in combinations(range(5),4)}
+def pad(R,Q,W):
+ P={ij:p.copy()for ij,p in Q.items()}
+ for i,v in zip(Y,W):P[2,i]=v;P[i,2]=R.scale(v,-1)
+ return P
+
+def Wbasis(R):
+ p=R.parse;z=R.zero;out=[]
+ for i in range(2):
+  for s in('a*z','b*z','a*w','b*w','z**2','z*w','w**2'):
+   v=[{}for k in range(4)];v[i]=p(s);out.append(v)
+ for i,s in[(2,'z*w'),(2,'w**2'),(3,'z**2'),(3,'z*w')]:
+  v=[{}for k in range(4)];v[i]=p(s);out.append(v)
+ return out
+
+def W0(R,kind):return list(map(R.parse,('a**2','-2*a*b','-2*a*z','-2*a*w+b*z'if kind=='N'else'-2*a*w')))
+def QD(R,A,Xz,Xw,f):
+ p=R.parse;return skew(R,{(0,1):R.add(R.scale(R.mul(p('b'),A),-1),f),(0,3):R.scale(R.mul(A,p('z')),-1),(0,4):R.scale(R.mul(A,p('w')),-1),(1,3):Xz,(1,4):Xw})
+def QN(R,u,v,r,f):
+ p=R.parse;return skew(R,{(0,1):R.add(R.mul(p('b*z'),u),f),(0,3):R.mul(p('2*z**2'),u),(0,4):R.add(R.mul(p('3*z*w'),u),R.scale(R.mul(p('z**2'),v),F(-1,6))),(1,3):R.add(R.mul(p('z**2'),v),R.scale(R.mul(p('6*z*w'),u),-1)),(1,4):R.add(R.mul(p('z**2'),r),R.mul(p('2*z*w'),v),R.scale(R.mul(p('9*w**2'),u),-1))})
+
+def sub(R,P,g):
+ out={}
+ for e,c in P.items():
+  v={e[:R.n]+(0,)*5:c}
+  for k,n in enumerate(e[R.n:]):v=R.mul(v,power(R,g[k],n))
+  out=R.add(out,v)
+ return out
+
+def bracket(R,Q,f,g):return R.add(*(R.mul(Q[i,j],R.derivative(f,i),R.derivative(g,j))for i in range(5)for j in range(5)))
+def transform_identity(R,Q,g,expected,scalar=None):
+ scalar=R.constant(1)if scalar is None else scalar
+ assert all(R.mul(scalar,bracket(R,Q,g[i],g[j]))==sub(R,expected[i,j],g)for i,j in PAIRS)
+
+def universal_geometry(raw):
+ # Universal polynomial identities, including actual coordinate changes;
+ # no single-parameter specialization or producer implementation is used.
+ names=('A0','A1')+tuple('X'+str(i)for i in range(6))+('nil_u','nil_v','nil_r','f0','f1','f2','h','alpha','beta','gamma','delta','s','r0','k','l')
+ R=LaurentRing(names,('a','b','c','z','w'),invert=('s','r0','k','l'));p=R.parse;xyz=list(map(p,('a','b','c','z','w')))
+ f=p('f0*z**2+f1*z*w+f2*w**2');A=p('A0*z+A1*w');Xz=p('X0*z**2+X1*z*w+X2*w**2');Xw=p('X3*z**2+X4*z*w+X5*w**2')
+ D=QD(R,A,Xz,Xw,f);J=strict(R,D);XA=R.add(R.mul(p('A0'),Xz),R.mul(p('A1'),Xw))
+ assert J[0,1,3]==R.mul(p('z'),XA)and J[0,1,4]==R.mul(p('w'),XA)
+ assert all(not v for ijk,v in J.items()if ijk not in[(0,1,3),(0,1,4)])
+ assert all(J[tuple(Y[i]for i in ast.literal_eval(t))]==p(v)for t,v in raw['strict_D_Q_Jacobi_equals_z_w_times_XA']['full_Jacobi'].items())
+ N=QN(R,p('nil_u'),p('nil_v'),p('nil_r'),f);assert all(not v for v in strict(R,N).values())
+ pf=R.add(R.mul(N[0,1],N[3,4]),R.scale(R.mul(N[0,3],N[1,4]),-1),R.mul(N[0,4],N[1,3]));assert pf==p('-(nil_v**2+12*nil_u*nil_r)*z**4/6')
+ # Full homogeneous normal leading cubic; discriminate the binary cubic.
+ NP=pad(R,N,W0(R,'N'));ND=actual(R,NP);lead={e:c for e,c in ND.items()if e[-2]+e[-1]==3}
+ # Extract normal powers without discarding the coefficient variables a,b.
+ coeff=[]
+ for n in range(4):
+  v={}
+  for e,c in lead.items():
+   if e[-2:]==(3-n,n):ee=list(e);ee[-2:]=[0,0];v[tuple(ee)]=c
+  coeff.append(v)
+ aa,bb,cc,dd=coeff
+ disc=R.add(R.mul(power(R,bb,2),power(R,cc,2)),R.scale(R.mul(aa,power(R,cc,3)),-4),R.scale(R.mul(power(R,bb,3),dd),-4),R.scale(R.mul(power(R,aa,2),power(R,dd,2)),-27),R.scale(R.mul(aa,bb,cc,dd),18))
+ assert disc==p(raw['N_squarefree_discriminant_exact'])
+ # Normal w-shear on the full N Q (central f transforms too).
+ g=xyz.copy();g[4]=p('w+h*z');Nnew=QN(R,p('nil_u'),p('nil_v+6*h*nil_u'),p('nil_r-h*nil_v-3*h**2*nil_u'),p('f0*z**2+f1*z*(w-h*z)+f2*(w-h*z)**2'))
+ transform_identity(R,N,g,Nnew)
+ assert p('(nil_v+6*h*nil_u)**2+12*nil_u*(nil_r-h*nil_v-3*h**2*nil_u)')==p('nil_v**2+12*nil_u*nil_r')
+ transform_identity(R,pad(R,skew(R,{}),W0(R,'N')),g,pad(R,skew(R,{}),W0(R,'N')))
+ # The diagonal identities are checked at f=0, with an arbitrary f
+ # separately transformed by its announced common amplitude.
+ Nc=QN(R,p('nil_u'),{},p('nil_r'),{});g=list(map(p,('s*a','s*l*b/k','r0*c','k*z','l*w')))
+ Nexpected=QN(R,p('s**2*nil_u/(r0*k)'),{},p('s**2*l**2*nil_r/(r0*k**3)'),{})
+ transform_identity(R,Nc,g,Nexpected,p('s/r0'));transform_identity(R,pad(R,skew(R,{}),W0(R,'N')),g,pad(R,skew(R,{}),W0(R,'N')),p('s/r0'))
+ Dc=QD(R,p('z'),{},p('w*(w-z)'),f);g=list(map(p,('s*a','s*b','r0*c','s**2*z/r0','s**2*w/r0')))
+ Dexpected=QD(R,p('z'),{},p('w*(w-z)'),R.mul(p('r0/s'),f));transform_identity(R,Dc,g,Dexpected,p('s/r0'));transform_identity(R,pad(R,skew(R,{}),W0(R,'D')),g,pad(R,skew(R,{}),W0(R,'D')),p('s/r0'))
+ # Full central translations in a,b. These preserve the first symbol;
+ # their extra W terms stay in the entire eighteen-dimensional regauge.
+ g=list(map(p,('a+alpha*z+beta*w','b+gamma*z+delta*w','c','z','w')))
+ Dc=QD(R,p('z'),{},p('w*(w-z)'),f);Dexpected=QD(R,p('z'),{},p('w*(w-z)'),R.add(f,p('-beta*w*(w-z)')));transform_identity(R,Dc,g,Dexpected)
+ Nc=QN(R,p('1'),{},p('1'),f);Nexpected=QN(R,p('1'),{},p('1'),R.add(f,p('(gamma-beta)*z**2+(2*delta+6*alpha)*z*w+9*beta*w**2')));transform_identity(R,Nc,g,Nexpected)
+ assert H.det([[0,-1,1],[6,0,0],[0,9,0]])==54
+ return dict(strictD_all_four_equations=True,strictN_identically_zero=True,N_full_Pf_and_squarefree_discriminant=True,all_actual_shear_diagonal_and_central_identities=True,N_full_central_image_rank=3,source_complements_D_A0_and_N_uDelta0_retained=True)
+
+def source_coverage(row,prior):
+ kind=row['type'];base=next(r for r in prior['cases']if r['type']==('DIAGONAL_-2_-2'if kind=='D'else'NIL_SPLIT'));K=H.mat(base['weight1_certificate']['complete_kernel']);assert K==H.mat(row['full_D1_kernel']);n=len(K[0]);params=tuple('source'+kind+str(i)for i in range(n))+tuple('r'+str(i)for i in range(9));R=LaurentRing(params,('a','b','c','z','w'));p=R.parse
+ B1,B2=H.sources();B1=B1[:18]+B1[24:27]+B1[18:21]+B1[27:30]+B1[21:24];P=skew(R,{tuple(ast.literal_eval(k)):p(v)for k,v in base['full150_P0'].items()})
+ for j in range(n+9):
+  for ij in PAIRS:
+   raw={}
+   if j<n:
+    for i,Q in enumerate(B1):raw=H.add(raw,H.scale(Q.get(ij,{}),K[i][j]))
+   else:raw=B2[j-n].get(ij,{})
+   terms={}
+   for ex,c in raw.items():ee=[0]*len(params)+list(ex);ee[j]=1;terms[tuple(ee)]=c
+   P[ij]=R.add(P[ij],terms);P[ij[::-1]]=R.scale(P[ij],-1)
+ L=[R.scale(R.derivative(P[0,2],2),-1),R.scale(R.derivative(P[1,2],2),-1),{},{},{}];assert L==[p(s)for s in row['literal_Euler_gauge_L']];x=list(map(p,('a','b','c','z','w')))
+ G=skew(R,{ij:R.add(P[ij],R.scale(R.add(R.mul(x[ij[0]],L[ij[1]]),R.scale(R.mul(x[ij[1]],L[ij[0]]),-1)),-1))for ij in PAIRS});assert all(not R.derivative(G[ij],2)for ij in PAIRS)
+ Q=skew(R,{(i,j):G[i,j]for i,j in combinations(Y,2)});W=[G[2,i]for i in Y];assert all(Q[Y[i],Y[j]]==p(v)for key,v in row['full_Q'].items()for i,j in[ast.literal_eval(key)]);assert W==list(map(p,row['full_W']))
+ mons=[p(s)for s in('z**2','z*w','w**2')];mono=lambda s:next(iter(p(s)))[len(params):]
+ scalar=lambda P,e:coef(R,P,e)
+ central=R.add(*(R.mul(p('r'+str(i)),m)for i,m in enumerate(mons)))
+ if kind=='D':
+  A=R.scale(scalar(Q[0,3],mono('z**2')),-1);A1=R.scale(scalar(Q[0,3],mono('z*w')),-1);Afull=R.add(R.mul(A,p('z')),R.mul(A1,p('w')));expected=QD(R,Afull,Q[1,3],Q[1,4],central);coords=[A,A1]+[scalar(Q[1,j],next(iter(m))[len(params):])for j in(3,4)for m in mons]
+ else:
+  u=R.scale(scalar(Q[0,3],mono('z**2')),F(1,2));v=R.scale(scalar(Q[0,4],mono('z**2')),-6);r=scalar(Q[1,4],mono('z**2'));expected=QN(R,u,v,r,central);coords=[u,v,r]
+ assert all(Q[ij]==expected[ij]for ij in PAIRS);coords +=[p('r'+str(i))for i in range(3)]
+ Worig=W0(R,kind);WB=Wbasis(R)
+ for i in range(4):
+  for j in range(18):
+   if WB[j][i]:coords.append(coef(R,R.add(W[i],R.scale(Worig[i],-1)),next(iter(WB[j][i]))[len(params):]))
+ assert len(coords)==len(params);J=[]
+ for P in coords:
+  assert all(sum(ex[:len(params)])==1 and not any(ex[len(params):])for ex in P);J.append([P.get(tuple(int(i==j)for i in range(len(params)))+(0,)*5,F(0))for j in range(len(params))])
+ assert J==H.mat(row['complete_joint_source_change_matrix']);d=H.det(J);assert d==F(-1)==F(row['nonzero_constant_determinant'])
+ return dict(type=kind,all_kernel_and9P2_transferred=True,full_source_dimension=len(params),constant_bijective_QW_map_determinant=str(d),all_literal_Euler_and_c_independence=True)
+
+def detpoly(R,M):
+ n=len(M)
+ @lru_cache(None)
+ def rec(mask):
+  i=mask.bit_count()
+  if i==n:return R.constant(1)
+  out={}
+  for j in range(n):
+   if not(mask>>j&1)and M[i][j]:out=R.add(out,R.scale(R.mul(M[i][j],rec(mask|1<<j)),(-1)**((mask>>(j+1)).bit_count())))
+  return out
+ return rec(0)
+
+def matmul(R,A,B):return[[R.add(*(R.mul(a,b)for a,b in zip(row,col)))for col in zip(*B)]for row in A]
+def readmat(R,M):return[[R.parse(v)for v in row]for row in M]
+def cert(R,M,C):
+ rr,cc=C['minor_rows'],C['minor_columns'];rank=C['rank'];assert len(rr)==len(cc)==rank;d=detpoly(R,[[M[i][j]for j in cc]for i in rr]);assert d==R.parse(C['minor_determinant'])and d
+ K=readmat(R,C['complete_kernel']);null=C['nullity'];assert len(K)==len(M[0])and null==len(M[0])-rank
+ assert not any(any(row)for row in matmul(R,M,K));free=[i for i in range(len(M[0]))if i not in cc];assert[[K[i][j]for j in range(null)]for i in free]==[[R.constant(i==j)for j in range(null)]for i in range(null)]
+ return K
+
+def linmodule(R,Q,W):
+ LW={}
+ for i,j in combinations(Y,2):
+  a,b=Y.index(i),Y.index(j)
+  LW[i,j]=R.add(*(R.mul(W[k],R.derivative(Q[i,j],l))for k,l in enumerate(Y)),*(R.scale(R.add(R.mul(Q[l,j],R.derivative(W[a],l)),R.mul(Q[i,l],R.derivative(W[b],l))),-1)for l in Y))
+ out=[]
+ for i,j,k in combinations(Y,3):
+  poly=R.add(R.mul(R.variable(R.names[R.n+i]),LW[j,k]),R.scale(R.mul(R.variable(R.names[R.n+j]),LW[i,k]),-1),R.mul(R.variable(R.names[R.n+k]),LW[i,j]));out.append(poly)
+ return out
+
+def poly_sub_w_z(R,P):
+ out={}
+ for e,c in P.items():ee=list(e);ee[-2]+=ee[-1];ee[-1]=0;ee=tuple(ee);out[ee]=out.get(ee,F(0))+c
+ return{e:c for e,c in out.items()if c}
+
+def module_case(row,Qstrings=None,Wstrings=None):
+ R=LaurentRing(('tau',),('a','b','c','z','w'),invert=('tau',));p=R.parse;Q=fromQ(R,Qstrings or row['whole_Q']);kind='N'if row.get('type','').startswith('N')else'D';W=list(map(p,Wstrings or row['W0']));WB=Wbasis(R);P=pad(R,Q,W);J=projective(R,P);C=[coef(R,J[q],e)for q,e in H.ROWS];cols=[];mcols=[]
+ # Producer's degree4 monomials use combinations-with-replacement order.
+ localmons=[e for e in H.monomials(4)if e[2]==0]
+ MCpoly=linmodule(R,Q,W);MC=[coef(R,f,e)for f in MCpoly for e in localmons]
+ for V in WB:
+  W1=[R.add(a,b)for a,b in zip(W,V)];J1=projective(R,pad(R,Q,W1));cols.append([R.add(coef(R,J1[q],e),R.scale(c,-1))for(q,e),c in zip(H.ROWS,C)])
+  m1=linmodule(R,Q,W1);vals=[coef(R,pp,e)for pp in m1 for e in localmons];mcols.append([R.add(v,R.scale(c,-1))for v,c in zip(vals,MC)])
+ M=H.transpose(cols);MM=H.transpose(mcols);assert M==readmat(R,row['full350_affine_matrix']);assert C==list(map(p,row['full350_affine_constant']));assert MM==readmat(R,row['full140_module_matrix']);assert MC==list(map(p,row['full140_module_constant']))
+ # Exact affine-row equivalence, rather than a numerical rank comparison.
+ triples=list(combinations(Y,3));lm={e:i for i,e in enumerate(localmons)}
+ for r,(quad,ex)in enumerate(H.ROWS):
+  if 2 not in quad or ex[2]:assert not C[r]and not any(M[r])
+  else:
+   i=quad.index(2);j=triples.index(tuple(k for k in quad if k!=2))*35+lm[ex];fac=2*(-1)**(i+1);assert C[r]==R.scale(MC[j],fac)and M[r]==[R.scale(v,fac)for v in MM[j]]
+ K=cert(R,M,row['linear_certificate']);cert(R,[r+[c]for r,c in zip(M,C)],row['augmented_certificate']);part=list(map(p,row['particular_solution']));assert all(not R.add(c,R.add(*(R.mul(a,b)for a,b in zip(r,part))))for r,c in zip(M,C));assert len(K[0])==4
+ D0=actual(R,P);Dlin=[R.add(actual(R,pad(R,Q,[R.add(a,b)for a,b in zip(W,V)])),R.scale(D0,-1))for V in WB]
+ Dpart=R.add(D0,R.add(*(R.mul(a,b)for a,b in zip(Dlin,part))));Dkern=[R.add(*(R.mul(Dlin[i],K[i][j])for i in range(18)))for j in range(4)];assert Dpart==p(row['actual_D_particular'])and Dkern==list(map(p,row['actual_D_kernel_coefficients']))
+ for D in[Dpart]+Dkern:
+  assert all(e[-2]>=1 for e in D)
+  if kind=='D':assert all(e[-1]>=1 for e in D)and not poly_sub_w_z(R,D)
+ return dict(type=row.get('type','D_LINE_wall0'),full350_and140_affine_reconstructed=True,exact_global_rowspace_equivalence=True,rank=14,complete_kernel_dimension=4,particular_all_rows_zero=True,whole_actualD_factor='z'if kind=='N'else'z*w*(w-z)',G_irreducible_source_empty=True,minor=row['linear_certificate']['minor_determinant'])
+
+def main():
+ signal.alarm(300);t=time.monotonic();job=load(JOB);assert all(hashlib.sha256((ROOT/b['path']).read_bytes()).hexdigest()==b['sha256']for b in job['exact_inputs_and_hashes']);raw=load(INPUT);assert hashlib.sha256(raw['producer_bytes'].encode()).hexdigest()==raw['producer_sha256']=='60491daf57ddc9ff5432b3cc4080eaa7331eebb8a2539c1d3f74007e5bf78b8d';prior=load(REPLAY)
+ source=[source_coverage(row,prior)for row in raw['full_two_source_Euler_Ore_coverage']];geometry=universal_geometry(raw);cases=[]
+ for row in raw['cases']:
+  cases.append(module_case(row))
+  if row['whole_parameter_tau']:
+   T=LaurentRing(('tau',),('a','b','c','z','w'),invert=('tau',));ex=T.parse(row['all_exception_polynomial']);assert ex==T.mul(T.parse(row['linear_certificate']['minor_determinant']),T.parse(row['augmented_certificate']['minor_determinant']));assert len(ex)==1 and next(iter(ex))[0]==2 and all(not v for v in next(iter(ex))[1:]);assert row['all_exception_factors']==[['tau',2]]and set(row['factor_specialization_denominators'])<=set(['1','tau']);assert len(row['all_exceptional_fields'])==1
+   wall=row['all_exceptional_fields'][0];assert wall['minimal_polynomial']=='tau'and wall['tau']=='0';Q0={k:v.replace('tau','0')for k,v in row['whole_Q'].items()};wall=dict(wall,type='D_LINE_wall0');cases.append(module_case(wall,Q0,row['W0']))
+ out=dict(task_id='G',all_arithmetic_passed=True,no_producer_or_CAS_imports=True,whole_two_source_coverage=source,universal_geometry=geometry,all4_modules_and_tau0_wall=cases,entire_D_A0_branch_essential3_by_constant_factor_lemma=True,whole_actual_normalizer_geometry_independently_read=True,all_A_zero_nonzero_and_N_SF_complements_retained=True,all_tau_values_covered=True,all_remaining_two_Ore_sources_G_closed=True,all_nonredR_m3_SF_image_upper24_with_prior19=True,whole_E_membership_not_claimed_for_cdepG2=True,inputs=job['exact_inputs_and_hashes'],reviewer_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),reviewer_source_bytes=Path(__file__).read_text(),seconds=time.monotonic()-t,maximum_RSS_KiB=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss)
+ dest=ROOT/OUT;assert not dest.exists();dest.write_text(json.dumps(out,indent=2)+'\n');print(json.dumps({k:out[k]for k in('all_arithmetic_passed','seconds','maximum_RSS_KiB')}))
+if __name__=='__main__':main()

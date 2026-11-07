@@ -5,11 +5,12 @@
 
 ## 証明状態と保存状態
 
-個別に証明・独立確認済みの下界は **124成分（一般rank四118、一般rank二6）**。
+個別に証明・独立確認済みの下界は **126成分（一般rank四120、一般rank二6）**。
 `research/COMPONENTS.json` が唯一の加算台帳であり、全上界・全G・全E・分類主定理は未証明。
-現在の主張台帳は980件。plan/check/gateの成功は数学の認証ではない。
-最近の公開checkpointは `8b46f29ddbb9f539abc7a026e492ee25bf8ad699`（124成分・967主張、225頁）。
-その後の受理済み純証明とfresh QQ replayを同じ234頁主稿へ統合し、通常main pushで保存する。
+現在の主張台帳は991件。plan/check/gateの成功は数学の認証ではない。
+最近の公開checkpointは `57f4b36c00071103e4288793e1e3470f2ccf8e2f`（124成分・980主張、234頁）。
+126/991の受理済み証明を同じ日本語主稿へ統合し、244頁の最終二回組版・全参照・主要頁可視を確認した。
+この保存単位自身のcommit/push状態はGitとbuild receiptで確認する。
 最新commit・push・PDFの実際の状態はGit及びbuild receiptで確認する。
 
 Cloud中断後、初期snapshotへ戻ったworkspaceをfetch/ff-onlyで公開checkpointまで復元した。
@@ -22,10 +23,10 @@ exact手証明/sourceのhash復元と新算術は `../CLOUD_RECOVERY_20261107.md
 
 | 義務 | 現在の結論と残余 |
 |---|---|
-| G 一般beta尽くし | 未完了。未知beta優越成分の次元は25/26/27、一般の実Dは既約被約非正規quinticだけ。全rank零、rank二degree四/五/六・quadric、plane m四を排除。残るrank二degree三とplane m二三を処理する |
+| G 一般beta尽くし | 未完了。未知beta優越成分の次元は25/26/27、一般の実Dは既約被約非正規quinticだけ。全非plane支持と全rank零、plane m四等を排除。残るrank二plane m二三を処理する |
 | E_multiple_hyperplane | stable line-conic/three-lines二源、short nil31 r2/3等の明示残源を実変形又は新成分へ認識する |
-| E_reduced_nonnormal | E6smoothflex/A5hyperflex/Ga9linear-wの未知親、1+1+3/1+2+2の残源、他の非正規支持を全点認識する |
-| A 成分監査 | 現124件の全周囲成分性と相違は受理済み。新候補があれば監査し、下界を答えとして固定しない |
+| E_reduced_nonnormal | Ga9linear-wの未知親、1+1+3/1+2+2の残源、他の非正規支持を全点認識する |
+| A 成分監査 | 現126件の全周囲成分性と相違は受理済み。新候補があれば監査し、下界を答えとして固定しない |
 | M 主稿 | 日本語LuaLaTeX。同じ原稿へ受理済み証明を理解順に統合し、分類主定理を未証明のまま明示する |
 
 ## G：全支持から残余を選ぶ
@@ -50,8 +51,11 @@ smooth cubic scrollの全Rは負directrix C0を含む必要条件を得た。
 normal canonical q2-rootも全rank/全R/vertex境界を保ちHartogs＋Casimir/divergenceの3対2で全空。
 残るprimitive root A25=2C0+5fはrank一又は同class pairの二型だけ。
 `CUBIC_SCROLL_DIRECTRIX_SEPARATE_REVIEW.md`、`CUBIC_SCROLL_CANONICAL_ROOT_SEPARATE_REVIEW.md` を使う。
-A25 scalar connection及びquadric-net/P2-bundleは未受理の次routeで、四full-P2特殊fiberを除かない。
-**smooth cubic scrollのA25二型及びtwisted cubic coneは未閉。** 旧21源/linear kernel16を全G上界としない。
+A25 scalar connectionとquadric-net/P2-bundleの全chainをroot及び相互別著者reviewで受理、四full-P2特殊fiberを保持した。
+**smooth cubic scrollの全rank二G非優越も完了。**
+A25全node/cuspをclosedinverse residueと全P2-net境界で像24以下へ閉じ、global exceptional restriction injectivityでextension全係数を処理した。
+§8可約Ωの極位置は別reviewのscope補正を適用。twisted cubic coneも全五module/全19壁を別算術17.956秒で確認、全rank二degree三G像24以下が完了した。
+全非plane支持をGから除外し、**残るGはrank二planeのm二三の未処理源だけ**。 旧21源/linear kernel16を全G上界としない。
 
 ## rank二plane
 
@@ -67,13 +71,16 @@ projective Jacobiのcurl `(2κI+4DY-DX)C=0` とnilpotenceから全空。
 SNCに会う全ambient componentのMPS定理を使い、既知点の所属を曲線へ逆向きに外挿しない。
 入口 `PLANE_RANK_TWO_M2_SQUAREFREE_REDUCED_CUBIC_COVERAGE.md`、全33file manifest、各独立review。
 normaldouble及びnonredRはこの全点認識の補集合である。
+normaldoubleの横断conicは全空、接触conicも四whole模型/全七壁と最後h³の一元Jacobi恒等式から全G像23以下へ独立完了。
+h³全源のactualDはessential三で八23成分へ全pointwise認識。他の接触三源の全Eは未閉、triangle/concurrentとnonredRを続ける。
 
 m三R=3L squarefreeは既全rootcover/actualD3像で空。
 R=2L+M squarefreeは全十九first symbolsを独立に尽くし、十六全枝は全leading imageのdiscriminant零から空。
 c-dependent g二は実c→c+hb fiberによりB≤9、全P1十/P2 injectiveと合わせ像24以下。
 fresh19 QQ replay22.097秒と独立4.412秒を別identityで保存した。
-残DIAGscalar/NIL_SPLITはOre全Q＋Wへ数学的に変更し、全四module producerは空又はessential三まで完了、
-独立確認を待つ。この段階で全m三G/Eを完了扱いしない。
+残DIAGscalar/NIL_SPLITもOre全Q＋Wの全四moduleを別作者Fractionで確認した。
+全actualDにproper因子、又はA零essential三から、**全nonredR/m三SFのG像24以下が完了した。**
+独立算術0.779秒、wholeτ零を含む全補集合を保持。全m三G/Eは未閉。
 reduced reducible Rのm三、全repeated leading、m二double/nonredRは別の残義務。
 
 ## E：全点認識と未知親
@@ -86,7 +93,8 @@ D5cusptangent全源は旧A0、3A2cusptangent全源は旧DPM、全A3A2共通接H�
 全global T39/T40のrank四評価fiberはconnected Sp4とglobal Ga4切断で既約、S61交点は閉A16 graphと一致。
 E6smoothflex、A5smoothhyperflex、Ga9c0linear-wの同一旧pointを別Fractionで全150両方向/134/350/45確認し、
 両全global親の外まで証明した。全sourceのdense23orbitに適用し、zero-invariant境界は除外しない。
-未知親・次元・新成分性は未解決のまま保持する。
+E6smoothflex/A5hyperflexは真48cutの全二法線障害がmprimaryとなり、全source閉包が新23全成分である。
+別Fraction全150/350/余核と全prior124/相互の相違を受理し、計126へ。Ga9linear-wの未知親・次元は残す。
 
 T37の固定Lagrangian B枝は有限surjectiveとdegree20 field wallから全sourceがgenericlift閉包と一致し、
 全actual restricted divisorがLQ²。上記三source及びstable二源への**指定uniform normal-cone入口**を除外した。

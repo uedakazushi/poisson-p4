@@ -535,9 +535,121 @@ def mu5_ambient_components(output):
  output.write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(dict(all_passed=True,candidates=len(report['component_candidates']),unresolved=len(report['unresolved_frontier']),seconds=report['seconds'],max_rss_kib=report['max_rss_kib'])))
 
 
+
+def marked_normalizer_twist(output):
+ """Complete projective linear normalizer source at the two accepted points."""
+ import ast,resource
+ begun=time.monotonic();jobpath=Path('research/classification/jobs/plane_hyperplane_quartic_normalizer_twist.json');job=json.loads(jobpath.read_text());functions={n.name:hashlib.sha256(ast.dump(n,include_attributes=False).encode()).hexdigest()for n in ast.parse(Path(__file__).read_text()).body if isinstance(n,ast.FunctionDef)};assert all(functions[k]==v for k,v in job['old_function_AST_sha256'].items())
+ def cert(T):
+  cc=pivots(T);rr=pivots(T[:,cc].T);return dict(shape=list(T.shape),rank=len(cc),rows=rr,columns=cc,determinant=str(dm(T[rr,cc]).det()))
+ def jvec(T):
+  JJ=jac(T);polys={quad:s.expand(sum((-1)**k*coords[quad[k]]*JJ[quad[:k]+quad[k+1:]]for k in range(4)))for quad in it.combinations(range(5),4)}
+  return s.Matrix([s.Poly(polys[quad],*coords).coeff_monomial(mon)for quad,mon in m.FOUR_VECTOR_BASIS])
+ cases=[];report=dict(task_id='E_reduced_nonnormal',phase='RUNNING_PARTIAL',all_passed=False,cases=cases,old_all_FunctionDef_AST_preserved=True,producer_bytes=Path(__file__).read_text(),inputs=job['exact_inputs_and_hashes'],scope='CompletewholelinearWnormalizer-twistactualfamily, sameacceptedtwoanchors. No newpoint/normaljet/fullformalclassification; componentonlyifactualF50matchesfulltangent50.')
+ assert not output.exists()
+ for family,name in [('MU6','E6_smooth_flex'),('MU5','A5_smooth_hyperflex')]:
+  started=time.monotonic();path=Path('reports/CLASSIFICATION_PLANE_HYPERPLANE_QUARTIC_'+family+'_AMBIENT_20261107.json');oldcase=next(v for v in json.loads(path.read_text())['cases']if v['name']==name);P=s.zeros(5)
+  for ij,text in oldcase['canonical_brackets'].items():
+   i,j=map(int,ij.split(','));P[i,j]=s.sympify(text);P[j,i]=-P[i,j]
+  assert all(P[0,j]==0 for j in range(5))and all(v==0 for v in jac(P).values())
+  NN=s.Matrix([s.expand(sum(s.diff(P[i,j],coords[i])for i in range(5)))for j in range(5)]);A=NN.jacobian(coords);assert NN==A*s.Matrix(coords)and NN[0]==0;assert A*A==s.zeros(5)and len(pivots(A))==2
+  lieN=sum([NN[k]*P.diff(coords[k])for k in range(5)],s.zeros(5))-A*P-P*A.T;assert lieN.applyfunc(s.expand)==s.zeros(5)
+  coeff=[c for f in P for c in s.Poly(f,*coords).coeffs()];assert all(c.q==1 for c in coeff)and max(abs(c)for c in coeff)<2**55
+  bv={(i,j):{ex:int(c)for ex,c in s.Poly(P[i,j],*coords).terms()if c}for i,j in m.PAIRS if P[i,j]!=0};D=s.Matrix(m.linearized_jacobi_matrix(bv).tolist());V=s.Matrix(m.vertical_bivector_matrix().tolist());actions=[];Rcols=[];Wbasis=[];commcols=[]
+  for i,j in it.product(range(5),repeat=2):
+   B=s.zeros(5);B[i,j]=1;WW=B*s.Matrix(coords);Wbasis.append(B);actions.append(vector(sum([WW[k]*P.diff(coords[k])for k in range(5)],s.zeros(5))-B*P-P*B.T));Rcols.append(vector(NN*WW.T-WW*NN.T));commcols.append(s.Matrix(list(B*A-A*B)))
+  M=V.row_join(s.Matrix.hstack(*actions,vector(P)));mc=cert(M);assert mc['rank']==oldcase['full51_action']['rank']==48
+  RC=s.Matrix.hstack(*Rcols);comm=s.Matrix.hstack(*commcols,-s.Matrix(list(A)));constraints=comm.col_join((D*RC).row_join(s.zeros(350,1)));kk=dm(constraints).nullspace().to_Matrix().T;assert constraints*kk==s.zeros(constraints.rows,kk.cols)
+  Rall=RC*kk[:25,:];F=M.row_join(Rall);fc=cert(F);assert 48<=fc['rank']<=50;assert D*F==s.zeros(350,F.cols)
+  selected=[];current=M
+  for k in range(kk.cols):
+   trial=current.row_join(Rall[:,k])
+   if len(pivots(trial))>len(pivots(current)):selected.append(k);current=trial
+  assert len(selected)==fc['rank']-48
+  records=[]
+  for k in range(kk.cols):
+   B=sum([kk[j,k]*Wbasis[j]for j in range(25)],s.zeros(5));WW=B*s.Matrix(coords);RR=(NN*WW.T-WW*NN.T).applyfunc(s.expand);assert B*A-A*B==kk[25,k]*A;assert vector(RR)==Rall[:,k]
+   records.append(dict(index=k,W_matrix=[[str(v)for v in B.row(i)]for i in range(5)],normalizer_scalar=str(kk[25,k]),actual_twist_brackets=encode(RR),all350_compatibility_zero=True))
+  eta=s.symbols('eta0:'+str(len(selected)));actual=P.copy()
+  for parameter,k in zip(eta,selected):
+   B=sum([kk[j,k]*Wbasis[j]for j in range(25)],s.zeros(5));WW=B*s.Matrix(coords);actual+=parameter*(NN*WW.T-WW*NN.T)
+  actual=actual.applyfunc(s.expand);assert jvec(actual)==s.zeros(350,1)
+  row=dict(name=name,source_report=str(path),source_report_sha256=hashlib.sha256(path.read_bytes()).hexdigest(),canonical_brackets_exactly_old_accepted_point=True,old_integer_scale=oldcase['canonical_projective_integer_scale'],point_brackets=encode(P),N_meaning='AffinemodularfieldoftheoriginalhCasimirstrictPoissonrepresentative, extendedhomogeneouslywithhcomponentzero; NOTthedivergenceofadifferentcanonicaldivergencefreelift.',N=list(map(str,NN)),N_matrix=[[str(v)for v in A.row(i)]for i in range(5)],N_nilpotent_rank=2,N_Poisson_identity_exact=True,full350_derivative_shape=list(D.shape),accepted_same_point_full_D_rank=oldcase['full_D']['rank'],accepted_full_D_certificate=oldcase['full_D'],full_normalizer_and_compatibility_matrix_shape=list(constraints.shape),complete_constraint_rank=constraints.cols-kk.cols,complete_kernel_dimension=kk.cols,complete_kernel_basis=[[str(v)for v in kk[:,k]]for k in range(kk.cols)],all_kernel_products_zero=True,whole_basis_actual_fields=records,all_mutual_twists_Poisson_by_exact_normalizer_lemma=True,full51_actual_action=mc,full_actual_normalizer_family_image=fc,transverse_dimension=fc['rank']-48,selected_transverse_basis_indices=selected,selected_actual_full_parameter_family=encode(actual),selected_family_parameters=list(map(str,eta)),all350_actual_family_Jacobi_identically_zero=True,full_actual_tangent_products_zero=True,smooth_unique_projective25_component_proved=fc['rank']==50,whole_original6_source_in_unique25_if_smooth=fc['rank']==50,no_component_count_changed=True,seconds=time.monotonic()-started)
+  cases.append(row);report.update(seconds=time.monotonic()-begun,max_rss_kib=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss);output.write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(dict(name=name,kernel=kk.cols,F=fc['rank'],transverse=row['transverse_dimension'],seconds=row['seconds'])),flush=True)
+ report.update(phase='COMPLETE',all_passed=True,seconds=time.monotonic()-begun,max_rss_kib=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss);output.write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(dict(all_passed=True,seconds=report['seconds'],max_rss_kib=report['max_rss_kib'])))
+
+
+def marked_two_normal_obstruction(output):
+ """ONE complete Sym2(two true normals) to full350/cokerD batch."""
+ from fractions import Fraction
+ import ast,resource
+ begun=time.monotonic();jobpath=Path('research/classification/jobs/plane_hyperplane_quartic_two_normal_obstruction.json');job=json.loads(jobpath.read_text());functions={n.name:hashlib.sha256(ast.dump(n,include_attributes=False).encode()).hexdigest()for n in ast.parse(Path(__file__).read_text()).body if isinstance(n,ast.FunctionDef)};assert all(functions[k]==v for k,v in job['old_function_AST_sha256'].items())
+ def cert(T):
+  cc=pivots(T);rr=pivots(T[:,cc].T);return dict(shape=list(T.shape),rank=len(cc),rows=rr,columns=cc,determinant=str(dm(T[rr,cc]).det()))
+ def jvector(v):
+  bv={}
+  for c,((i,j),ex)in zip(v,m.BIVECTOR_BASIS):
+   if c:bv.setdefault((i,j),{})[ex]=Fraction(int(c.p),int(c.q))
+  JJ=m.affine_jacobi_coefficients(bv);result=[Fraction(0)]*350
+  for triple,poly in JJ.items():
+   for at in range(5):
+    sign=m.permutation_sign((at,)+triple)
+    if not sign:continue
+    quad=tuple(sorted((at,)+triple))
+    for ex,c in poly.items():
+     powers=list(ex);powers[at]+=1;result[m.FOUR_VECTOR_INDEX[(quad,tuple(powers))]]+=sign*c
+  return s.Matrix(result)
+ def sparse(v):return {str(i):str(c)for i,c in enumerate(v)if c}
+ records=[];report=dict(task_id='E_reduced_nonnormal',phase='RUNNING_PARTIAL',all_passed=False,cases=records,old_all_FunctionDef_AST_preserved=True,producer_bytes=Path(__file__).read_text(),inputs=job['exact_inputs_and_hashes'],scope='Exactlytwoexistingacceptedpoints, fulltrue2normal/all350quadraticmap. No newanchor/higherjet. Componentonlyifwholequadraticreducedsupportorigin.')
+ assert not output.exists()
+ for tag,name in [('MU6','E6_smooth_flex'),('MU5','A5_smooth_hyperflex')]:
+  started=time.monotonic();path=Path('reports/CLASSIFICATION_PLANE_HYPERPLANE_QUARTIC_'+tag+'_AMBIENT_20261107.json');src=next(v for v in json.loads(path.read_text())['cases']if v['name']==name);P=s.zeros(5)
+  for ij,text in src['canonical_brackets'].items():
+   i,j=map(int,ij.split(','));P[i,j]=s.sympify(text);P[j,i]=-P[i,j]
+  pv=vector(P);assert jvector(pv)==s.zeros(350,1);coeff=[c for f in P for c in s.Poly(f,*coords).coeffs()];assert all(c.q==1 for c in coeff)and max(abs(c)for c in coeff)<2**55
+  bv={(i,j):{ex:int(c)for ex,c in s.Poly(P[i,j],*coords).terms()if c}for i,j in m.PAIRS if P[i,j]!=0};D=s.Matrix(m.linearized_jacobi_matrix(bv).tolist());V=s.Matrix(m.vertical_bivector_matrix().tolist());action=[]
+  for i,j in it.product(range(5),repeat=2):
+   B=s.zeros(5);B[i,j]=1;WW=B*s.Matrix(coords);action.append(vector(sum([WW[k]*P.diff(coords[k])for k in range(5)],s.zeros(5))-B*P-P*B.T))
+  M=V.row_join(s.Matrix.hstack(*action,pv));mc=cert(M);assert mc['rank']==48;F=M[:,mc['columns']];fr=mc['rows'];fi=dm(F[fr,:]).inv().to_Matrix();K=dm(D).nullspace().to_Matrix().T;assert K.cols==50 and D*K==s.zeros(350,50)
+  reduced=K-F*fi*K[fr,:];pc=pivots(reduced);assert len(pc)==2;N=reduced[:,pc]
+  for k in range(2):N[:,k]=N[:,k]/next(c for c in N[:,k]if c)
+  assert D*N==s.zeros(350,2)and N[fr,:]==s.zeros(48,2)
+  dr,dc=src['full_D']['rows'],src['full_D']['columns'];block=D[dr,dc];det=str(dm(block).det());assert det==src['full_D']['determinant'];di=dm(block).inv().to_Matrix();I=s.eye(150)[:,dc];U=I-F*fi*I[fr,:];H=F.row_join(N).row_join(U);hc=cert(H);assert hc['rank']==150 and D*F==s.zeros(350,48)
+  Q11=jvector(N[:,0]);Q22=jvector(N[:,1]);Q12=jvector(N[:,0]+N[:,1])-Q11-Q22;Q=s.Matrix.hstack(Q11,Q12,Q22);QR=Q-D[:,dc]*di*Q[dr,:];assert QR[dr,:]==s.zeros(100,3)
+  rr=pivots(QR.T);G=QR[rr,:];rank=len(rr);functionals=[]
+  for k in rr:
+   lam=s.zeros(1,350);lam[k]=1;weights=D[k,dc]*di
+   for j,at in enumerate(dr):lam[at]-=weights[j]
+   assert lam*D==s.zeros(1,150)and lam*Q==QR[k,:];functionals.append(sparse(lam))
+  if rank:
+   cols=pivots(G);comb=QR[:,cols]*dm(G[:,cols]).inv().to_Matrix();assert comb*G==QR
+  else:comb=s.zeros(350,0)
+  row=dict(name=name,source_report=str(path),source_report_sha256=hashlib.sha256(path.read_bytes()).hexdigest(),same_old_canonical_brackets=src['canonical_brackets'],old_integer_scale=src['canonical_projective_integer_scale'],full_D_rank=100,old100minor_recomputed_det_exactly_equal=True,full_D_certificate=src['full_D'],full51_action=mc,true_cut_fixed_coordinate_rows=fr,true_normals=[sparse(N[:,j])for j in range(2)],all_normal_D_products_zero=True,full48plus2plus100_direct_sum=hc,implicit100_D_block_exactly_old_unit=True,all350_quadratic_columns={str(i):list(map(str,Q.row(i)))for i in range(350)if any(Q.row(i))},all350_cokernel_quadratic_rows={str(i):list(map(str,QR.row(i)))for i in range(350)if any(QR.row(i))},quadratic_form_span_rank=rank,complete_quadratic_basis_rows=rr,basis_quadratic_coefficients=[[str(c)for c in G.row(i)]for i in range(rank)],full_D_annihilating_functionals=functionals,all350_rows_as_basis_combinations={str(i):list(map(str,comb.row(i)))for i in range(350)if rank and any(comb.row(i))},all350_quadratic_span_identities_exact=True,reduced_quadratic_support_origin=False,whole23orbitclosure_component_proved=False,no_component_count_changed=True)
+  if rank==3:
+   inv=dm(G).inv().to_Matrix();assert inv*G==s.eye(3);row.update(reduced_quadratic_support_origin=True,whole23orbitclosure_component_proved=True,pure_square_membership_in_basis_quadratics=[[str(c)for c in inv.row(i)]for i in [0,2]],pure_square_exponents=[2,2],status='ALL_BINARY_QUADRATICS_23_COMPONENT_CANDIDATE')
+  elif rank==2:
+   columns=[]
+   for j in range(2):
+    a,b,c=G[j,:];columns.extend([s.Matrix([a,b,c,0]),s.Matrix([0,a,b,c])])
+   C=s.Matrix.hstack(*columns);det3=dm(C).det();row.update(degree3_Macaulay_matrix=[[str(c)for c in C.row(i)]for i in range(4)],homogeneous_quadratic_resultant=str(det3))
+   if det3:
+    inv=dm(C).inv().to_Matrix();assert C*inv==s.eye(4);row.update(reduced_quadratic_support_origin=True,whole23orbitclosure_component_proved=True,pure_cube_linear_multiplier_coefficients=[list(map(str,inv[:,i]))for i in [0,3]],pure_power_exponents=[3,3],status='COPRIME_BINARY_QUADRATICS_23_COMPONENT_CANDIDATE')
+   else:row['status']='COMMON_PROJECTIVE_ROOTS_STOP_NO_HIGHER_JET'
+  else:row['status']='COMMON_PROJECTIVE_ROOTS_STOP_NO_HIGHER_JET'
+  if not row['reduced_quadratic_support_origin']:
+   t=s.Symbol('t');polys=[s.Poly(sum(G[j,k]*t**(2-k)for k in range(3)),t)for j in range(rank)];gg=polys[0]if polys else s.Poly(0,t)
+   for q in polys[1:]:gg=s.gcd(gg,q)
+   row.update(full_projective_common_support=dict(v_equals1_gcd=str(gg.as_expr()),point_v_equals0_u_equals1=all(G[j,0]==0 for j in range(rank)),all_P1_if_rank_zero=rank==0),scope_after_nonclosing='Fullquadraticmaponly; commonrootsarenotactualPoissoncurves. Stopthisquadraticroute,nohigherjet/newanchor.')
+  row['seconds']=time.monotonic()-started;records.append(row);report.update(seconds=time.monotonic()-begun,max_rss_kib=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss);output.write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(dict(name=name,quadratic_rank=rank,support_origin=row['reduced_quadratic_support_origin'],status=row['status'],seconds=row['seconds'])),flush=True)
+ report.update(phase='COMPLETE',all_passed=True,seconds=time.monotonic()-begun,max_rss_kib=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss);output.write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(dict(all_passed=True,seconds=report['seconds'],max_rss_kib=report['max_rss_kib'])))
+
 if __name__=='__main__':
  import sys
- if '--mu5-ambient' in sys.argv:
+ if '--two-normal-obstruction' in sys.argv:
+  parser=argparse.ArgumentParser();parser.add_argument('--two-normal-obstruction',action='store_true');parser.add_argument('--output',type=Path,required=True);args=parser.parse_args();marked_two_normal_obstruction(args.output)
+ elif '--normalizer-twist' in sys.argv:
+  parser=argparse.ArgumentParser();parser.add_argument('--normalizer-twist',action='store_true');parser.add_argument('--output',type=Path,required=True);args=parser.parse_args();marked_normalizer_twist(args.output)
+ elif '--mu5-ambient' in sys.argv:
   parser=argparse.ArgumentParser();parser.add_argument('--mu5-ambient',action='store_true');parser.add_argument('--output',type=Path,required=True);args=parser.parse_args();mu5_ambient_components(args.output)
  elif '--e6-flex-graph' in sys.argv:
   parser=argparse.ArgumentParser();parser.add_argument('--e6-flex-graph',action='store_true');parser.add_argument('--output',type=Path,required=True);args=parser.parse_args();e6_smooth_flex_graph(args.output)

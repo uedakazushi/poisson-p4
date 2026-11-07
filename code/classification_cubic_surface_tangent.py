@@ -338,9 +338,230 @@ def normal_root_linear_replay():
     print(json.dumps(dict(all_arithmetic_passed=True,directrix=directrix['two_linear_C0_equations'],rootline_shape=records[0]['full_matrix_shape'],rootline_rank=5,combined_dimension=16,linear_G_bound=False,seconds=result['seconds'],maximum_RSS_KiB=result['maximum_RSS_KiB'])),flush=True)
 
 
+
+def cone_base_vertex():
+    """Whole cone source as base9 plus divergence-free vertex18, no GB."""
+    import classification_degenerate_quadric_q4_nil31_I_review as q
+    start=time.monotonic();signal.alarm(120)
+    resource.setrlimit(resource.RLIMIT_AS,(1536*1024**2,)*2)
+    output=ROOT/'reports/CLASSIFICATION_CUBIC_CONE_RANK_TWO_BASE_VERTEX_20261107.json'
+    if output.exists():raise FileExistsError(output)
+    job=json.loads((ROOT/'research/classification/jobs/cubic_cone_rank_two_base_vertex.json').read_text())
+    for b in job['exact_inputs_and_hashes']:
+        assert hashlib.sha256((ROOT/b['path']).read_bytes()).hexdigest()==b['sha256'],b['path']
+    source=json.loads((ROOT/'reports/CLASSIFICATION_CUBIC_SURFACE_TANGENT_TWISTED_CUBIC_CONE_03_20261107.json').read_text())
+    B=[[F(v)for v in row]for row in source['linear']['full150_by_source_basis']]
+    tensors=[]
+    for j in range(27):
+        tensor={}
+        for row,(ij,e)in enumerate(COLUMNS):
+            if B[row][j]:tensor.setdefault(ij,{})[tuple(e)+(0,0,0)]=B[row][j]
+        tensors.append(q.antisymmetric(tensor))
+    base=[j for j,P in enumerate(tensors)if any(P.get(ij,{})for ij in PAIRS if ij[1]<4)]
+    vertex=[j for j in range(27)if j not in base]
+    assert base==[0,1,2,3,4,5,6,7,16]and len(vertex)==18
+    for j,P in enumerate(tensors):
+        for k in range(5):assert not q.add(*(q.der(P.get((i,k),{}),i)for i in range(5)))
+        if j in base:
+            for i in range(4):
+                L=q.add(*(q.der(P.get((k,i),{}),k)for k in range(4)))
+                assert P.get((i,4),{})==q.mul(q.atom(1,4),L)
+            assert all(not ex[4]for ij in PAIRS if ij[1]<4 for ex in P.get(ij,{}))
+        else:
+            assert all(not ex[4]for ij in PAIRS for ex in P.get(ij,{}))
+            assert not any(q.jacobi(P).values())
+    def plus(A,B):return q.antisymmetric({ij:q.add(A.get(ij,{}),B.get(ij,{}))for ij in PAIRS})
+    def J(P):return q.jvec(q.jacobi(P))
+    def D(P):
+        out={}
+        for m in range(5):
+            i,j,k,l=[v for v in range(5)if v!=m]
+            pf=q.add(q.mul(P.get((i,j),{}),P.get((k,l),{})),q.scale(q.mul(P.get((i,k),{}),P.get((j,l),{})),-1),q.mul(P.get((i,l),{}),P.get((j,k),{})))
+            out=q.add(out,q.scale(q.mul(q.atom(1,m),pf),(-1)**m))
+        return out
+    base_tensors=[tensors[i]for i in base];v_tensors=[tensors[i]for i in vertex]
+    baseJ=[J(P)for P in base_tensors];baseD=[D(P)for P in base_tensors]
+    mons=list(combinations_with_replacement(range(9),2));purecols=[];pureD=[]
+    for i,j in mons:
+        if i==j:purecols.append(baseJ[i]);pureD.append(baseD[i])
+        else:
+            purecols.append([v-a-b for v,a,b in zip(J(plus(base_tensors[i],base_tensors[j])),baseJ[i],baseJ[j])])
+            pureD.append(q.add(D(plus(base_tensors[i],base_tensors[j])),q.scale(baseD[i],-1),q.scale(baseD[j],-1)))
+    mixedcols=[];mixedD=[]
+    for i,P in enumerate(base_tensors):
+        for V in v_tensors:
+            mixedcols.append([v-a for v,a in zip(J(plus(P,V)),baseJ[i])])
+            mixedD.append(q.add(D(plus(P,V)),q.scale(baseD[i],-1)))
+    # All V squares/crosses vanish: independent-c vector fields wedged with d/dc.
+    for V,W in combinations(v_tensors,2):assert not any(J(plus(V,W)))
+    pure_rows=[{j:c for j,c in enumerate(row)if c}for row in zip(*purecols)]
+    mixed_rows=[{j:c for j,c in enumerate(row)if c}for row in zip(*mixedcols)]
+    assert len(pure_rows)==len(mixed_rows)==350
+    assert all(not(a and b)for a,b in zip(pure_rows,mixed_rows))
+    reduced,proof,chosen=a.sparse_rref(pure_rows,True)
+    tt=s.symbols('t0:9')
+    equations=[s.factor(sum(s.Rational(c)*tt[mons[j][0]]*tt[mons[j][1]]for j,c in row.items()))for row in reduced.values()]
+    # D is quadratic in base and affine linear in vertex. Keep all coefficients.
+    dmons=a.monomials(5,5)
+    def drows(columns):return [{str(j):str(P.get(tuple(e)+(0,0,0),F(0)))for j,P in enumerate(columns)if P.get(tuple(e)+(0,0,0),F(0))}for e in dmons]
+    pure_D=drows(pureD);mixed_D=drows(mixedD)
+    cdep=[];all_cdep_in_J=True
+    for row,e in zip(pure_D,dmons):
+        if not e[4]:continue
+        residual={int(j):F(v)for j,v in row.items()}
+        for pivot in sorted(reduced):
+            if pivot in residual:residual=a.plus(residual,a.scale(reduced[pivot],-residual[pivot]))
+        all_cdep_in_J &= not residual
+        if row:cdep.append(dict(exponent=e,residual={str(j):str(v)for j,v in residual.items()}))
+    result=dict(task_id='G',all_arithmetic_passed=True,complete_source_dimension=27,base_source_indices=base,vertex_source_indices=vertex,whole_Euler_canonical_source_identity='Pi=P(x)+(c div(P)+V(x)) wedge d/dc; all V divergencefree, c-independent, whole18',all350_parameter_pure_and_mixed_rows_disjoint=True,all_vertex_quadratics_Jacobi_zero=True,base_quadratic_monomials=mons,base_all350_rows=sparse_rows(pure_rows),base_Jacobi_quadric_row_rank=len(reduced),base_exact_row_basis={str(k):{str(j):str(v)for j,v in row.items()}for k,row in reduced.items()},base_exact_original350_functionals={str(k):{str(j):str(v)for j,v in row.items()}for k,row in proof.items()},base_selected_original350_rows=chosen,base_factored_row_basis=list(map(str,equations)),mixed_parameter_columns=[(i,j)for i in range(9)for j in range(18)],mixed_all350_rows=sparse_rows(mixed_rows),actualD_spatial_monomials=dmons,actualD_pure_base_rows=pure_D,actualD_mixed_rows=mixed_D,all_actualD_cdependent_rows_in_base_Jacobi_quadric_rowspace=bool(all_cdep_in_J),cdependent_actualD_row_remainders=cdep,scope='Whole source structure and one full finite equation presentation only; no nonlinear GB, ranktwo source dimension, orbit exhaustion or global G claimed.',inputs=job['exact_inputs_and_hashes'],producer_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),producer_bytes=Path(__file__).read_text(),seconds=time.monotonic()-start,maximum_RSS_KiB=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss)
+    output.write_text(json.dumps(result,indent=2)+'\n')
+    print(json.dumps(dict(all_arithmetic_passed=True,base_quadric_rank=len(reduced),all_actualD_cdependent_rows_in_J=bool(all_cdep_in_J),seconds=result['seconds'],maximum_RSS_KiB=result['maximum_RSS_KiB'],base_equations=list(map(str,equations)))),flush=True)
+
+
+def cone_base_support():
+    """Exact three Sym2 modules and whole two-branch base support."""
+    import classification_degenerate_quadric_q4_nil31_I_review as q
+    start=time.monotonic();signal.alarm(90)
+    resource.setrlimit(resource.RLIMIT_AS,(1024*1024**2,)*2)
+    output=ROOT/'reports/CLASSIFICATION_CUBIC_CONE_RANK_TWO_BASE_SUPPORT_20261107.json'
+    if output.exists():raise FileExistsError(output)
+    job=json.loads((ROOT/'research/classification/jobs/cubic_cone_rank_two_base_support.json').read_text())
+    for b in job['exact_inputs_and_hashes']:assert hashlib.sha256((ROOT/b['path']).read_bytes()).hexdigest()==b['sha256'],b['path']
+    raw=json.loads((ROOT/'reports/CLASSIFICATION_CUBIC_SURFACE_TANGENT_TWISTED_CUBIC_CONE_03_20261107.json').read_text())
+    source=json.loads((ROOT/'reports/CLASSIFICATION_CUBIC_CONE_RANK_TWO_BASE_VERTEX_20261107.json').read_text())
+    B=s.Matrix([[s.Rational(v)for v in row]for row in raw['linear']['full150_by_source_basis']])[:,source['base_source_indices']]
+    piv=list(B.T.rref()[1]);assert len(piv)==9
+    left=B[piv,:].inv();tensors=[]
+    for j in range(9):
+        P={}
+        for row,(ij,e)in enumerate(COLUMNS):
+            if B[row,j]:P.setdefault(ij,{})[tuple(e)+(0,0,0)]=F(B[row,j])
+        tensors.append(q.antisymmetric(P))
+    def field_action(A,P):
+        fields=[q.add(*(q.atom(v,k)for k,v in enumerate(row)))for row in A]
+        Q={ij:q.add(*(q.mul(fields[k],q.der(P.get(ij,{}),k))for k in range(5)),*(q.scale(P.get((k,ij[1]),{}),-A[ij[0]][k])for k in range(5)),*(q.scale(P.get((ij[0],k),{}),-A[ij[1]][k])for k in range(5)))for ij in PAIRS}
+        v=s.Matrix([s.Rational(Q.get(ij,{}).get(tuple(e)+(0,0,0),F(0)))for ij,e in COLUMNS]);coeff=left*v[piv,:]
+        assert B*coeff==v
+        return coeff
+    mats={}
+    for name,entries in [('h',{(0,0):3,(1,1):1,(2,2):-1,(3,3):-3}),('f',{(0,1):3,(1,2):2,(2,3):1}),('e',{(1,0):1,(2,1):2,(3,2):3})]:
+        A=[[F(entries.get((i,j),0))for j in range(5)]for i in range(5)]
+        mats[name]=s.Matrix.hstack(*(field_action(A,P)for P in tensors))
+    t=s.symbols('t0:9');u=s.symbols('u0:3');v=s.symbols('v0:3');w=s.symbols('w0:3');z=(*u,*v,*w)
+    coord=s.Matrix([3*t[0]-t[5],3*t[4]-2*t[6],3*t[2]+3*t[3]-t[7],2*t[0]-t[5]-t[8],-s.Rational(4,3)*(t[1]-2*t[4]+t[6]),(3*t[2]+4*t[3]-2*t[7])/3,t[0],t[1],t[2]+t[3]])
+    T=coord.jacobian(t);Ti=T.inv();sub=dict(zip(t,Ti*s.Matrix(z)))
+    standards={'h':s.diag(2,0,-2),'f':s.Matrix([[0,0,0],[2,0,0],[0,1,0]]),'e':s.Matrix([[0,1,0],[0,0,2],[0,0,0]])}
+    for name,M in mats.items():assert T*M*Ti==s.diag(*(standards[name]for k in range(3)))
+    mon9=list(combinations_with_replacement(range(9),2));polys=[]
+    for row in source['base_exact_row_basis'].values():
+        f=sum(s.Rational(c)*t[mon9[int(j)][0]]*t[mon9[int(j)][1]]for j,c in row.items())
+        polys.append(s.expand(f.subs(sub,simultaneous=True)))
+    def vector(poly,variables):
+        P=s.Poly(poly,*variables,domain=s.QQ);return {j:F(P.coeff_monomial(variables[i]*variables[k]))for j,(i,k)in enumerate(combinations_with_replacement(range(len(variables)),2))if P.coeff_monomial(variables[i]*variables[k])}
+    allrows=[vector(f,z)for f in polys];basis,proof,chosen=a.sparse_rref(allrows,True)
+    products=[u[0]*v[0],u[0]*v[1]+u[1]*v[0],u[0]*v[2]+u[1]*v[1]+u[2]*v[0],u[1]*v[2]+u[2]*v[1],u[2]*v[2]]
+    cartan=[]
+    for f in products:
+        residual=vector(f,z);functional={}
+        for pivot in sorted(basis):
+            if pivot in residual:
+                c=residual[pivot];residual=a.plus(residual,a.scale(basis[pivot],-c));functional=a.plus(functional,a.scale(proof[pivot],c))
+        assert not residual
+        cartan.append({str(j):str(c)for j,c in functional.items()})
+    branches=[]
+    for label,vanish,variables in [('Uzero',u,(*v,*w)),('Vzero',v,(*u,*w))]:
+        eq=[s.expand(f.subs(dict.fromkeys(vanish,0)))for f in polys]
+        rows=[vector(f,variables)for f in eq];reduced,pr,sel=a.sparse_rref(rows,True);mons=list(combinations_with_replacement(range(6),2))
+        simple=[s.factor(sum(s.Rational(c)*variables[mons[j][0]]*variables[mons[j][1]]for j,c in row.items()))for row in reduced.values()]
+        branches.append(dict(name=label,parameters=list(map(str,variables)),all12_specialized_equations=list(map(str,eq)),equivalent_factored_row_basis=list(map(str,simple)),rank=len(reduced),original12_functionals={str(k):{str(j):str(c)for j,c in row.items()}for k,row in pr.items()}))
+    result=dict(task_id='G',all_arithmetic_passed=True,three_Sym2_action_matrices={name:encode_matrix(M)for name,M in mats.items()},actualSL2_base_action_all150_verified=True,complete_coordinate_change=encode_matrix(T),complete_inverse=encode_matrix(Ti),transformed_all12_quadrics=list(map(str,polys)),all5_cartan_product_original12_functionals=cartan,whole_reduced_base_support_in_two_linear6_spaces=True,geometric_implication='All5 coefficients of binary quadratic U*V vanish. Domain C[s,t] forces U=0 or V=0. All remaining equations restricted on both whole branches, not a chosen nonzero-coordinate chart.',branches=branches,G_bound_proved=False,inputs=job['exact_inputs_and_hashes'],producer_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),producer_bytes=Path(__file__).read_text(),seconds=time.monotonic()-start,maximum_RSS_KiB=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss)
+    output.write_text(json.dumps(result,indent=2)+'\n')
+    print(json.dumps(dict(all_arithmetic_passed=True,branches=branches,seconds=result['seconds'],maximum_RSS_KiB=result['maximum_RSS_KiB'])),flush=True)
+
+
+def cone_five_modules():
+    """All five actual-SL2-covered whole cone sources and every minor wall."""
+    start=time.monotonic();signal.alarm(120)
+    resource.setrlimit(resource.RLIMIT_AS,(1536*1024**2,)*2)
+    output=ROOT/'reports/CLASSIFICATION_CUBIC_CONE_RANK_TWO_FIVE_MODULES_20261107.json'
+    if output.exists():raise FileExistsError(output)
+    job=json.loads((ROOT/'research/classification/jobs/cubic_cone_rank_two_five_modules.json').read_text())
+    for b in job['exact_inputs_and_hashes']:assert hashlib.sha256((ROOT/b['path']).read_bytes()).hexdigest()==b['sha256'],b['path']
+    source=json.loads((ROOT/'reports/CLASSIFICATION_CUBIC_CONE_RANK_TWO_BASE_VERTEX_20261107.json').read_text())
+    representation=json.loads((ROOT/'reports/CLASSIFICATION_CUBIC_CONE_RANK_TWO_BASE_SUPPORT_20261107.json').read_text())
+    Ti=s.Matrix([[s.Rational(v)for v in row]for row in representation['complete_inverse']])
+    lam=s.Symbol('lam');X=s.symbols('x0:5');K=s.QQ.frac_field(lam);mons=source['actualD_spatial_monomials'];pairs=source['base_quadratic_monomials']
+    families=[('A_ss',[0,1,0,0,0,0,0,lam,0],4,True),('A_nil',[1,0,0,0,0,0,lam,0,0],3,True),('B_nil',[0,0,0,1,0,0,lam,0,0],3,True),('W_ss',[0,0,0,0,0,0,0,1,0],3,False),('W_nil',[0,0,0,0,0,0,1,0,0],2,False)]
+    records=[]
+    def matrix_and_D(t):
+        M=s.zeros(350,18)
+        for row,values in enumerate(source['mixed_all350_rows']):
+            for col,c in values.items():
+                i,j=divmod(int(col),18);M[row,j]+=s.Rational(c)*t[i]
+        M=M.applyfunc(s.expand)
+        D0=[];DV=s.zeros(126,18)
+        for row,(pure,mixed)in enumerate(zip(source['actualD_pure_base_rows'],source['actualD_mixed_rows'])):
+            D0.append(s.expand(sum(s.Rational(c)*t[pairs[int(j)][0]]*t[pairs[int(j)][1]]for j,c in pure.items())))
+            for col,c in mixed.items():
+                i,j=divmod(int(col),18);DV[row,j]+=s.Rational(c)*t[i]
+        return M,s.Matrix(D0),DV.applyfunc(s.expand)
+    def analyze(M,D0,DV,domain,base_dim,label,wall=None):
+        dm=DomainMatrix.from_Matrix(M).convert_to(domain);rr,piv=dm.rref();R=rr.to_Matrix();rankv=len(piv)
+        free=[j for j in range(18)if j not in piv];B=s.zeros(18,len(free))
+        for at,j in enumerate(free):
+            B[j,at]=1
+            for i,pivot in enumerate(piv):B[pivot,at]=-R[i,j]
+        def zero(A):return all(domain.from_sympy(s.cancel(v))==domain.zero for v in A)
+        assert zero(M*B)
+        rows=list(DomainMatrix.from_Matrix(M[:,list(piv)].T).convert_to(domain).rref()[1]);assert len(rows)==rankv
+        minor=s.factor(M[rows,list(piv)].det(method='domain-ge')) if rankv else s.Integer(1)
+        assert domain.from_sympy(minor)!=domain.zero
+        k=len(free);upper=16+base_dim+k-1
+        enough=upper<=24;common=None
+        if not enough:
+            image=D0.row_join(DV*B)
+            polynomials=[s.Poly(sum(image[i,j]*s.prod(x**e for x,e in zip(X,mons[i]))for i in range(126)),*X,domain=domain)for j in range(image.cols)]
+            common=next((v for v in polynomials if not v.is_zero),s.Poly(0,*X,domain=domain))
+            for poly in polynomials:
+                if not poly.is_zero:common=s.gcd(common,poly)
+            factor_degree=common.total_degree() if not common.is_zero else -1
+            enough=common.is_zero or 0<factor_degree<5
+            common=str(common.as_expr())
+        rec=dict(case=label,wall=wall,coefficient_field=str(domain),rank=rankv,full_kernel_dimension=k,pivot_columns=list(piv),selected_original350_rows=rows,maximal_minor=str(minor),complete_kernel=encode_matrix(B),kernel_free_rows=free,all350_times_kernel_zero=True,base_stratum_dimension=base_dim,whole_projective_image_upper=upper,whole_G_closed_by_dimension=upper<=24,all_affine_actualD_common_factor=common,whole_G_closed=bool(enough))
+        denom=s.Integer(1)
+        for value in B:
+            denom=s.lcm(denom,s.fraction(s.cancel(value))[1])
+        return rec,s.factor(minor*denom)
+    for label,uvwp,base_dim,line in families:
+        t=Ti*s.Matrix(uvwp);M,D0,DV=matrix_and_D(t)
+        # All base quadrics are zero identically on the complete canonical family.
+        for row in source['base_exact_row_basis'].values():
+            assert s.expand(sum(s.Rational(c)*t[pairs[int(j)][0]]*t[pairs[int(j)][1]]for j,c in row.items()))==0
+        rec,exception=analyze(M,D0,DV,K if line else s.QQ,base_dim,label)
+        rec['all350_module_matrix']=encode_matrix(M);rec['actualD_particular_coefficients']=list(map(str,D0));rec['actualD_vertex_matrix']=encode_matrix(DV)
+        rec['canonical_original_t']=list(map(str,t));rec['exception_polynomial']=str(exception)
+        rec['walls']=[]
+        if line:
+            num,den=s.fraction(s.cancel(exception));factors=s.factor_list(s.Poly(num*den,lam,domain=s.QQ))[1]
+            for poly,power in factors:
+                f=poly.as_expr();degree=poly.degree()
+                if degree==1:
+                    root=-poly.nth(0)/poly.nth(1);field=s.QQ
+                else:
+                    root=s.CRootOf(f,0);field=s.QQ.algebraic_field(root)
+                wallrec,_=analyze(M.subs(lam,root),D0.subs(lam,root),DV.subs(lam,root),field,base_dim-1,label,dict(irreducible_polynomial=str(f),degree=degree,exponent=power,root_field_generator=str(root),all_complex_conjugates_covered_by_irreducibility=True))
+                rec['walls'].append(wallrec)
+        records.append(rec)
+        print(json.dumps(dict(case=label,rank=rec['rank'],kernel=rec['full_kernel_dimension'],upper=rec['whole_projective_image_upper'],closed=rec['whole_G_closed'],factor=rec['all_affine_actualD_common_factor'],walls=[dict(root=w['wall']['irreducible_polynomial'],kernel=w['full_kernel_dimension'],upper=w['whole_projective_image_upper'],closed=w['whole_G_closed'])for w in rec['walls']])),flush=True)
+    result=dict(task_id='G',all_arithmetic_passed=True,whole_G_nondominance=all(c['whole_G_closed']and all(w['whole_G_closed']for w in c['walls'])for c in records),all_five_actual_SL2_sources_and_all_minor_walls_retained=True,whole_geometry_proof='research/classification/CUBIC_CONE_RANK_TWO_BASE_REPRESENTATION.md',records=records,basezero_ranktwo_only=True,global_G_E_exhaustion_claimed=False,inputs=job['exact_inputs_and_hashes'],producer_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),producer_bytes=Path(__file__).read_text(),seconds=time.monotonic()-start,maximum_RSS_KiB=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss)
+    output.write_text(json.dumps(result,indent=2)+'\n');print('COMPLETE five cone modules',result['whole_G_nondominance'],round(result['seconds'],3),flush=True)
+
 if __name__=='__main__':
-    parser=argparse.ArgumentParser();parser.add_argument('--case',choices=CASES,default='smooth_scroll_12');parser.add_argument('--ranktwo-open',action='store_true');parser.add_argument('--ranktwo-branch-support',action='store_true');parser.add_argument('--normal-root-linear-replay',action='store_true');args=parser.parse_args()
-    if args.normal_root_linear_replay:normal_root_linear_replay()
+    parser=argparse.ArgumentParser();parser.add_argument('--case',choices=CASES,default='smooth_scroll_12');parser.add_argument('--ranktwo-open',action='store_true');parser.add_argument('--ranktwo-branch-support',action='store_true');parser.add_argument('--normal-root-linear-replay',action='store_true');parser.add_argument('--cone-base-vertex',action='store_true');parser.add_argument('--cone-base-support',action='store_true');parser.add_argument('--cone-five-modules',action='store_true');args=parser.parse_args()
+    if args.cone_five_modules:cone_five_modules()
+    elif args.cone_base_support:cone_base_support()
+    elif args.cone_base_vertex:cone_base_vertex()
+    elif args.normal_root_linear_replay:normal_root_linear_replay()
     elif args.ranktwo_branch_support:ranktwo_branch_support()
     elif args.ranktwo_open:ranktwo_open()
     else:main(args.case)

@@ -7,7 +7,7 @@
 .venv/bin/python scripts/classification.py next
 ```
 
-**個別成分の下界124、一般rank四118、rank二6。上界・一般五点・全分類は未証明。**
+**個別成分の下界126、一般rank四120、rank二6。上界・一般五点・全分類は未証明。**
 ユーザーの11月7日の再開指示により実作業を継続する。保存や旧移行用一時停止を終了条件にしない。
 G、E_multiple_hyperplane、E_reduced_nonnormalを並行し、意味のある進展は主原稿・引継ぎへ統合して通常main pushで保存する。
 
@@ -21,12 +21,11 @@ m二SF/reducedRも全六rootflags/全higher係数を保持し全点MPS40へ被�
 
 1. rank二plane m二double root/nonredR、m三reduced reducible R又はrepeated leadingを全幾何で処理する。
    m三nonredR/SFの全十九source中十六空、cdep像24以下は独立受理済み。
-   残二Ore源の全四moduleはproducer完了、独立確認を終えて全nonredR/SFのG結論を登録する。
-2. smooth cubic scrollはC0⊂Rとcanonical q2root全空から、A25=2C0+5fのrank一/同class pair二型だけ。
-   scalar connection及びquadric-net/P2-bundle routeを監査し、四full-P2特殊fiberを保った全G非優越を証明する。
-   全21source/linear kernel16の粗上界を成功とせず、新GB/jet/minor列へ戻らない。
-3. twisted cubic coneのrank二支持を全vertex/全Rを含め処理する。
-   rank零coneの既全三orbit/全vertexmodule証明をrank二へ誤流用しない。
+   残二Ore源の全四moduleも独立受理し、全nonredR/SFのG像24以下を完了した。全pointwise Eは別義務。
+2. smooth cubic scrollはA25全二型のclosedinverse全境界とglobalrestriction injectivityにより全G像24以下へ完了。
+   新boundは旧21source/linear kernel16の粗値とは別証明。全pointwise Eは残す。
+3. twisted cubic coneも全27source/三Sym2/五wholemodule/十九壁の独立算術でG像24以下へ完了。
+   全rank二degree三が閉じ、残るGは上のplane m二三だけ。
 
 ## E：未帰属sourceの実変形又は新成分性
 
@@ -48,7 +47,7 @@ short r=2/3も未帰属で、三次零を高次反復せず幾何又は実変形
 本質三変数の既約自由quinticは、旧C45と新七explicit曲線の全源/各cusp型/全ambient/相違を別作者が独立確認し、全八つを個別23成分として採録した。
 全必要curveリストを八つに尽くすpureproofも別作者独立PASS、全essential3既約DのE/G支持は八つの全23成分へ被覆済み。本質四/五変数など他の残支持へ進む。
 Hquartic型6には全marked quarticのMilnor/Tjurina/contactを用いる。
-D5cusptangent全源は旧A0、3A2cusptangent全源は旧DPMへ独立全source認識済み。μ六九新23成分は採録済み。E6smoothflex・A5hyperflex・Ga9linear-wのdense23orbitは全T39/T40外とglobalfiber補題＋独立全150/134/350/45で証明、未知親を続ける。μ五四新23成分も全source/prior/相互/ambient独立監査完了、採録済み。
+D5cusptangent全源は旧A0、3A2cusptangent全源は旧DPMへ独立全source認識済み。μ六九新23成分は採録済み。E6smoothflex/A5hyperflexは全二法線mprimary支持と真48cutから二新23全成分へ独立採録。全六磁気境界とprior124/相互も確認。Ga9linear-wの未知親を続ける。μ五四新23成分も全source/prior/相互/ambient独立監査完了、採録済み。
 
 1+1+3には平面三配置と非平面nil源、1+2+2にはplane tan-simple/chordとlambda零のE残源がある。
 全G次元上界だけではこれらを被覆したことにならない。既約非正規quinticの全点帰属も残る。

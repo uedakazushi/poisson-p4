@@ -476,9 +476,268 @@ def triple_root_quintics_main():
     print(json.dumps(dict(all_arithmetic_passed=True,all_G24_closed=result['all_m4_generic31_rank2_G24_closed'],seconds=result['seconds'])))
 
 
+def m2_double_tangent_main():
+    """One bounded full-source test for three fixed and one whole tangent model."""
+    from classification_unimodular_logarithmic_review import RF,ua,um,ud,ug
+    import sympy as sy
+    ap=argparse.ArgumentParser(description=m2_double_tangent_main.__doc__)
+    ap.add_argument('--m2-double-tangent',action='store_true');ap.add_argument('--output',required=True,type=Path)
+    args=ap.parse_args();begun=time.monotonic()
+    resource.setrlimit(resource.RLIMIT_CPU,(230,235));resource.setrlimit(resource.RLIMIT_AS,(2048*1024**2,)*2)
+    jobpath=ROOT/'research/classification/jobs/plane_m2_double_tangent.json'
+    job=json.loads(jobpath.read_text())
+    for row in job['exact_inputs_and_hashes']:
+        assert hashlib.sha256((ROOT/row['path']).read_bytes()).hexdigest()==row['sha256'],row['path']
+    assert not args.output.exists()
+    def compact(v):
+        return (v.p[0]if v.p else F())if isinstance(v,RF)and v.q==(F(1),)and len(v.p)<=1 else v
+    def encode(v):
+        if isinstance(v,RF):return dict(numerator=list(map(str,v.p)),denominator=list(map(str,v.q)))
+        if isinstance(v,AF):return dict(residue=list(map(str,v.p)),modulus=list(map(str,v.mod)))
+        return str(v)
+    def polyencode(p):return [dict(exponent=e[:5],coefficient=encode(v))for e,v in sorted(p.items())]
+    def menc(M):return [[encode(v)for v in row]for row in M]
+    class AF:
+        """QQ[t]/irreducible wall, including every complex embedding at once."""
+        mod=()
+        def __init__(self,v=0):
+            if isinstance(v,AF):self.p=v.p;return
+            if isinstance(v,RF):
+                a=AF(v.p);b=AF(v.q);self.p=(a/b).p;return
+            self.p=ud(tuple(v)if isinstance(v,(list,tuple))else(F(v),),self.mod)[1]
+        def __add__(self,v):return AF(ua(self.p,AF(v).p))
+        __radd__=__add__
+        def __neg__(self):return AF(tuple(-v for v in self.p))
+        def __sub__(self,v):return self+-AF(v)
+        def __rsub__(self,v):return AF(v)+-self
+        def __mul__(self,v):return AF(um(self.p,AF(v).p))
+        __rmul__=__mul__
+        def inv(self):
+            assert self.p;a,b=self.mod,self.p;s,t=(),(F(1),)
+            while b:
+                quotient,rem=ud(a,b);a,b=b,rem;s,t=t,ua(s,tuple(-v for v in um(quotient,t)))
+            assert len(a)==1;return AF(tuple(v/a[0]for v in s))
+        def __truediv__(self,v):return self*AF(v).inv()
+        def __rtruediv__(self,v):return AF(v)*self.inv()
+        def __bool__(self):return bool(self.p)
+        def __eq__(self,v):return self.p==AF(v).p
+    def cert(M,n):
+        B=[[compact(v)for v in row]for row in M];ids=list(range(len(B)));piv=[];rows=[];det=F(1)
+        for j in range(n):
+            r=len(piv);k=next((k for k in range(r,len(B))if B[k][j]),None)
+            if k is None:continue
+            B[r],B[k]=B[k],B[r];ids[r],ids[k]=ids[k],ids[r];d=B[r][j]
+            rows.append(ids[r]);piv.append(j);det=compact(det*d)
+            B[r]=[compact(v/d)if v else F()for v in B[r]]
+            active=[l for l in range(j,n)if B[r][l]]
+            for k in range(r+1,len(B)):
+                c=B[k][j]
+                if c:
+                    for l in active:B[k][l]=compact(B[k][l]-c*B[r][l])
+        rank=len(piv)
+        for r in range(rank-1,-1,-1):
+            j=piv[r];active=[l for l in range(j+1,n)if B[r][l]]
+            for k in range(r):
+                c=B[k][j]
+                if c:
+                    for l in active:B[k][l]=compact(B[k][l]-c*B[r][l])
+                    B[k][j]=F()
+        K=[]
+        for j in range(n):
+            if j not in piv:
+                v=[F()for _ in range(n)];v[j]=F(1)
+                for row,i in zip(B,piv):v[i]=-row[j]
+                K.append(v)
+        for row in M:
+            nz=[(i,v)for i,v in enumerate(row)if v]
+            assert all(not sum((c*v[i]for i,c in nz if v[i]),F())for v in K)
+        return dict(rank=rank,rows=rows,columns=piv,minor_determinant=encode(det),nullity=n-rank,
+                    complete_kernel=menc(K),all_original_rows_annihilate_kernel=True),K,det
+    X=[q.atom(1,i)for i in range(5)];x,y,z,u,v=X
+    first=[]
+    for normal in [3,4]:
+        for ij in it.combinations(range(3),2):
+            for k in range(3):first.append(q.antisymmetric({ij:q.atom(1,normal,k)}))
+    for normal,mon in [(3,[3,4]),(3,[4,4]),(4,[3,3]),(4,[3,4])]:
+        for i in range(3):first.append(q.antisymmetric({(i,normal):q.atom(1,*mon)}))
+    second=[q.antisymmetric({ij:q.atom(1,*mon)})for ij in it.combinations(range(3),2)for mon in [[3,3],[3,4],[4,4]]]
+    assert len(first)==30 and len(second)==9
+    universal=[];basis=first+second
+    for i,j in it.combinations_with_replacement(range(39),2):
+        P=plus(basis[i],basis[j]);J=q.jvec(q.jacobi(P));D=actual(P)
+        if i==j:J=[a/4 for a in J];D=q.scale(D,F(1,4))
+        if any(J)or D:universal.append(dict(pair=[i,j],all_nonzero_Jacobi_rows={str(k):encode(a)for k,a in enumerate(J)if a},actualD=polyencode(D)))
+    f=q.mul(z,q.add(q.mul(x,z),q.scale(q.mul(y,y),-1)))
+    Pf=q.antisymmetric({(0,1):q.der(f,2),(0,2):q.scale(q.der(f,1),-1),(1,2):q.der(f,0)})
+    N=[q.scale(y,2),z,{}]
+    def fixed(name,cube,c):
+        XX=[q.scale(a,-8 if cube else-2)for a in N];YY=[q.scale(a,-5 if cube else-2)for a in N]
+        ZZ=[z,{},{}]if cube else[q.scale(a,c)for a in N]
+        P=plus(Pf,q.antisymmetric({(i,3):q.mul(u,XX[i])for i in range(3)}),
+               q.antisymmetric({(i,4):q.add(q.mul(u,ZZ[i]),q.mul(v,YY[i]))for i in range(3)}),
+               q.antisymmetric({(3,4):{}if cube else q.mul(u,u)}))
+        target=q.atom(-9,2,2,2,3,3)if cube else q.scale(q.mul(f,q.mul(u,u)),3)
+        return name,P,target
+    T=RF((F(),F(1)))
+    moving=q.antisymmetric({(0,1):q.scale(q.add(q.mul(z,x),q.scale(q.mul(y,y),-1)),3),
+        (0,3):q.add(q.scale(q.mul(y,u),2*T+3),q.scale(q.mul(z,v),-3)),
+        (0,4):q.add(q.scale(q.mul(x,u),-3),q.scale(q.mul(y,v),2*T+3)),
+        (1,3):q.scale(q.mul(z,u),T+3),(1,4):q.add(q.scale(q.mul(y,u),-3),q.scale(q.mul(z,v),T)),
+        (3,4):q.scale(q.mul(u,u),T+3)})
+    target_moving=q.scale(q.mul(z,q.mul(q.add(q.mul(y,u),q.mul(z,v)),q.add(q.mul(y,u),q.mul(z,v)))),3*T)
+    models=[fixed('constant_hf_Z0',False,0),fixed('constant_hf_ZN',False,1),fixed('constant_hcube',True,0),('moving_all_t_nonzero',moving,target_moving)]
+    eulers=[]
+    for a,b in it.product(range(5),repeat=2):
+        eulers.append(q.vec(q.antisymmetric({(i,j):q.add(q.atom(1,i,b)if j==a else{},q.atom(-1,j,b)if i==a else{})for i,j in q.PAIRS})))
+    assert cert(q.transpose(eulers),25)[0]['rank']==24
+    levi=[(a,b)for a,b in it.product(range(5),repeat=2)if(a<3)==(b<3)]
+    assert len(levi)==13
+    def operators(P):
+        J1=q.transpose([q.jvec(q.jacobi(plus(P,Q)))for Q in first]);J2=q.transpose([q.jvec(q.jacobi(plus(P,Q)))for Q in second])
+        orbit=[]
+        for a,b in levi:
+            O=q.antisymmetric({(i,j):q.add(P.get((b,j),{})if i==a else{},P.get((i,b),{})if j==a else{},q.scale(q.mul(X[b],q.der(P.get((i,j),{}),a)),-1))for i,j in q.PAIRS})
+            orbit.append(q.vec(O))
+        G=q.transpose(eulers+orbit+[q.vec(P)])
+        return J1,J2,G
+    def process(name,P,target,pdim,field='QQ',prepared=None):
+        assert all(not a for a in q.jacobi(P).values())and actual(P)==target,(name,'P0 Jacobi/actualPf mismatch')
+        J1,J2,G=prepared if prepared is not None else operators(P)
+        c1,K1,d1=cert(J1,30);c2,K2,d2=cert(J2,9);cg,_,dg=cert(G,39)
+        # Euler rank24, and projective Levi orbit rank=rank(G)-25.
+        sL=37-cg['rank'];group_fiber=sL+6
+        upper=24-group_fiber+pdim+len(K1)+len(K2)
+        u_divisible=all(e[3]for i in range(5)for e in P.get((min(i,3),max(i,3)),{})if i!=3)
+        bad_at=[at for at,Q in enumerate(first)if any(e[3]==0 for i in range(5)for e in Q.get((min(i,3),max(i,3)),{})if i!=3)]
+        u_factor=u_divisible and all(not row[j]for row in K1 for j in bad_at)
+        linD=[polyencode(q.add(actual(plus(P,Q)),q.scale(target,-1)))for Q in basis]
+        out=dict(type=name,field=field,source_parameter_dimension=pdim,full150_P0=list(map(encode,q.vec(P))),P0_full350_Jacobi_zero=True,
+            P0_actualG2=polyencode(target),full350by30_J1=menc(J1),full350by9_J2=menc(J2),weight1_certificate=c1,weight2_certificate=c2,
+            full150_Euler_Levi_scale_matrix=menc(G),normalizer_certificate=cg,graded_Levi_projective_stabilizer_dimension=sL,
+            all_six_filtered_base_shears_in_group_fiber=True,actual_filtered_group_fiber_dimension=group_fiber,
+            fixed_P0_higher_necessary_dimension_upper=len(K1)+len(K2),whole_projective_image_dimension_upper=upper,
+            all_full39_actualD_linear_terms=linD,full_actualD_quadratic_terms_in_universal_table=True,
+            all_full39_Jacobi_quadratic_terms_in_universal_table=True,all_bad_urow_coefficients_vanish=u_factor,
+            actual_u_hyperplane_factor_for_every_full_solution=u_factor,rank4_irreducible_source_empty=u_factor,G24_closed=u_factor or upper<=24)
+        print(json.dumps(dict(type=name,field=field,k1=len(K1),k2=len(K2),Levi_stabilizer=sL,group_fiber=group_fiber,pdim=pdim,image_upper=upper,actual_u_factor=u_factor,G24_closed=out['G24_closed'])),flush=True)
+        return out,(d1,d2,dg),K1+K2
+    records=[];generic_data=None
+    for name,P,target in models:
+        out,dets,ker=process(name,P,target,int(name.startswith('moving')),field='QQ(t)'if name.startswith('moving')else'QQ')
+        records.append(out)
+        if name.startswith('moving'):generic_data=(out,dets,ker,operators(P))
+    symbol=sy.Symbol('t');factors={}
+    for a in list(generic_data[1])+[v for row in generic_data[2]for v in row]:
+        r=RF(a)
+        for polynomial in (r.p,r.q):
+            if len(polynomial)>1:
+                expr=sum(sy.Rational(v.numerator,v.denominator)*symbol**i for i,v in enumerate(polynomial))
+                for fac,mult in sy.factor_list(expr,symbol)[1]:
+                    coeff=tuple(F(v)for v in reversed(sy.Poly(fac,symbol).monic().all_coeffs()))
+                    if coeff!=(F(),F(1)):factors[coeff]=str(fac)
+    walls=[]
+    for modulus,text in sorted(factors.items()):
+        if len(modulus)==2:
+            value=-modulus[0]/modulus[1];convert=lambda v:sum((c*value**i for i,c in enumerate(RF(v).p)),F())/sum((c*value**i for i,c in enumerate(RF(v).q)),F())
+            label='QQ';field_data=dict(t=str(value),minimal_polynomial=list(map(str,modulus)))
+        else:
+            AF.mod=modulus;convert=AF;label='QQ[t]/('+text+')';field_data=dict(minimal_polynomial=list(map(str,modulus)),all_complex_embeddings_covered=True)
+        P=q.antisymmetric({ij:{e:convert(c)for e,c in p.items()if convert(c)}for ij,p in moving.items()if ij[0]<ij[1]})
+        target={e:convert(c)for e,c in target_moving.items()if convert(c)}
+        prepared=tuple([[convert(v)for v in row]for row in M]for M in generic_data[3])
+        out,_,_=process('moving_wall_'+text,P,target,0,field=label,prepared=prepared);out.update(field_data);walls.append(out)
+    records[-1]['whole_nonzero_t_walls']=walls;records[-1]['generic_open_excluded_irreducible_factors']=[list(map(str,v))for v in factors]
+    records[-1]['whole_nonzero_t_G24_closed']=records[-1]['G24_closed']and all(v['G24_closed']for v in walls)
+    closed=all(c['G24_closed']for c in records[:3])and records[-1]['whole_nonzero_t_G24_closed']
+    result=dict(task_id='G',all_exact_arithmetic_passed=True,whole_tangent_double_G24_closed=closed,cases=records,
+        full30_weight1_basis=[list(map(str,q.vec(P)))for P in first],full9_weight2_basis=[list(map(str,q.vec(P)))for P in second],
+        full350_row_labels=[dict(quad=ij,monomial=e)for ij,e in q.ROWS],universal_full39_quadratic_Jacobi_and_actualD=universal,
+        source_geometry_status='Producer pureproof reduction; separate independent review required for the three fixed models. Arithmetic does not certify classification.',
+        scope='Only reduced tangent conic+line m2 normal-double; three constant-root fixed whole sources plus one whole moving-root t!=0 family. Triangle/concurrent/nonreducedR/m3 remain separate.',
+        next_if_not_closed='No further profile or automatic jet/GB. Preserve all equations and turn to structural Ore/source geometry.',
+        inputs=job['exact_inputs_and_hashes'],producer_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),producer_source_bytes=Path(__file__).read_text(),
+        seconds=round(time.monotonic()-begun,6),maximum_RSS_KiB=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss)
+    with args.output.open('x')as stream:json.dump(result,stream,indent=2);stream.write('\n')
+    print(json.dumps(dict(all_exact_arithmetic_passed=True,whole_tangent_double_G24_closed=closed,seconds=result['seconds'])))
+
+
+def m2_triangle_double_hf_main():
+    """One full150 canonical source test for the two whole triangle-hf quintics."""
+    ap=argparse.ArgumentParser(description=m2_triangle_double_hf_main.__doc__)
+    ap.add_argument('--m2-triangle-double-hf',action='store_true');ap.add_argument('--output',required=True,type=Path)
+    args=ap.parse_args();begun=time.monotonic()
+    resource.setrlimit(resource.RLIMIT_CPU,(170,175));resource.setrlimit(resource.RLIMIT_AS,(1536*1024**2,)*2)
+    job=json.loads((ROOT/'research/classification/jobs/plane_m2_triangle_double_hf.json').read_text())
+    for row in job['exact_inputs_and_hashes']:
+        assert hashlib.sha256((ROOT/row['path']).read_bytes()).hexdigest()==row['sha256'],row['path']
+    assert not args.output.exists()
+    enc=lambda p:[dict(exponent=e[:5],coefficient=str(c))for e,c in sorted(p.items())]
+    X=[q.atom(1,i)for i in range(5)];x,y,z,u,v=X
+    J=q.add(q.mul(q.mul(u,u),x),q.scale(q.mul(q.mul(v,v),v),-1))
+    mon6=[e+(0,0,0)for e in q.monomials(6)];mon1=[e+(0,0,0)for e in q.monomials(1)]
+    labels=[dict(type='Casimir',component=i,monomial=e[:5])for i in range(5)for e in mon6]
+    labels.extend(dict(type='divergence',component=i,monomial=e[:5])for i in range(5)for e in mon1)
+    def pfs(P):
+        out=[]
+        for missing in range(5):
+            i,j,k,l=[a for a in range(5)if a!=missing]
+            out.append(q.scale(q.add(q.mul(P.get((i,j),{}),P.get((k,l),{})),q.scale(q.mul(P.get((i,k),{}),P.get((j,l),{})),-1),q.mul(P.get((i,l),{}),P.get((j,k),{}))),(-1)**missing))
+        return out
+    records=[]
+    for eps in [0,1]:
+        Fp=q.add(q.mul(J,q.add(q.mul(y,z),q.scale(q.mul(u,u),eps))),q.atom(1,3,3,3,3,3));grad=[q.der(Fp,i)for i in range(5)]
+        tori=[[0,1,-1,0,0]]+([[-2,5,0,1,0]]if not eps else[])
+        for weights in tori:
+            Wf=q.add(*(q.scale(q.mul(X[i],grad[i]),weights[i])for i in range(5)))
+            char=5 if weights==[-2,5,0,1,0]else 0
+            assert Wf==q.scale(Fp,char)
+        assert q.rank([[1]*5]+tori)[0]==1+len(tori)
+        cols=[]
+        for(i,j),e in q.COLS:
+            m={e+(0,0,0):F(1)};cas=[{}for _ in range(5)];dv=[{}for _ in range(5)]
+            cas[i]=q.mul(m,grad[j]);cas[j]=q.scale(q.mul(m,grad[i]),-1)
+            dv[i]=q.scale(q.der(m,j),-1);dv[j]=q.der(m,i)
+            cols.append([cas[a].get(ex,F())for a in range(5)for ex in mon6]+[dv[a].get(ex,F())for a in range(5)for ex in mon1])
+        M=q.transpose(cols);assert len(M)==1075 and len(M[0])==150
+        K=kernel(M,150);cert=matrix_cert(M);assert len(K)==150-cert['rank']
+        basis=[]
+        for row in K:
+            P=q.antisymmetric({ij:{e+(0,0,0):c for(pair,e),c in zip(q.COLS,row)if pair==ij and c}for ij in q.PAIRS})
+            assert q.vec(P)==row;basis.append(P)
+        ownpf=[pfs(P)for P in basis];ownjac=[q.jvec(q.jacobi(P))for P in basis]
+        quadratic=[];pfzero=True
+        for i,j in it.combinations_with_replacement(range(len(K)),2):
+            if i==j:pf=ownpf[i];jac=ownjac[i]
+            else:
+                pf=[q.add(p,q.scale(a,-1),q.scale(b,-1))for p,a,b in zip(pfs(plus(basis[i],basis[j])),ownpf[i],ownpf[j])]
+                jac=[p-a-b for p,a,b in zip(q.jvec(q.jacobi(plus(basis[i],basis[j]))),ownjac[i],ownjac[j])]
+            if any(pf):pfzero=False
+            quadratic.append(dict(pair=[i,j],all_five_Pfaffian_coefficients=[enc(p)for p in pf],
+                actualEulerPfaffian=enc(q.add(*(q.mul(X[k],p)for k,p in enumerate(pf)))),
+                all_nonzero_projective_Jacobi_rows={str(k):str(a)for k,a in enumerate(jac)if a}))
+        orbit=24-len(tori);upper=orbit+len(K)-1
+        records.append(dict(epsilon=eps,actualF=enc(Fp),whole_actualD_stabilizer_tori=tori,
+            actualD_PGL_orbit_dimension_upper=orbit,full1075by150_Casimir_divergence_matrix=[[str(a)for a in row]for row in M],
+            full_rank_certificate=cert,complete150_kernel=[list(map(str,row))for row in K],canonical_strict_necessary_source_dimension=len(K),
+            all_kernel_original1075_rows_zero=True,all_quadratic_source_pairs=quadratic,entire_kernel_all_five_Pfaffians_zero=pfzero,
+            rank4_source_empty=pfzero,whole_projective_image_dimension_upper=upper,G24_closed=pfzero or upper<=24))
+        print(json.dumps(dict(epsilon=eps,LF_dimension=len(K),D_orbit_upper=orbit,image_upper=upper,all_five_Pf_zero=pfzero,G24_closed=pfzero or upper<=24)),flush=True)
+    result=dict(task_id='G',all_exact_arithmetic_passed=True,all_triangle_double_hf_G24_closed=all(c['G24_closed']for c in records),cases=records,
+        coordinates=['x','y','z','u','v'],full150_column_labels=[dict(pair=ij,monomial=e)for ij,e in q.COLS],full1075_row_labels=labels,
+        scope='Only reduced nonconcurrent triangle, m2 constant double root h=f, irreducible actualD. Canonical-divergence normalizer proof reduces every actualD to exactly F0/F1. Other h or R and m3 remain separate.',
+        whole_normalization_proof_status='Producer pureproof requires separate independent reading; exact arithmetic does not certify the global reduction.',
+        negative_result_next_step='Preserve both full necessary linear sources and all Pfaffian/Jacobi polarizations. Do not launch another point/profile/jet or Groebner sequence; return to structural mathematics.',
+        inputs=job['exact_inputs_and_hashes'],producer_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),producer_source_bytes=Path(__file__).read_text(),
+        seconds=round(time.monotonic()-begun,6),maximum_RSS_KiB=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss)
+    with args.output.open('x')as stream:json.dump(result,stream,indent=2);stream.write('\n')
+    print(json.dumps(dict(all_exact_arithmetic_passed=True,all_triangle_double_hf_G24_closed=result['all_triangle_double_hf_G24_closed'],seconds=result['seconds'])))
+
+
 if __name__=='__main__':
     import sys
-    if '--triple-root-quintics'in sys.argv:triple_root_quintics_main()
+    if '--m2-triangle-double-hf'in sys.argv:m2_triangle_double_hf_main()
+    elif '--m2-double-tangent'in sys.argv:m2_double_tangent_main()
+    elif '--triple-root-quintics'in sys.argv:triple_root_quintics_main()
     elif '--repeated-211'in sys.argv:repeated_211_main()
     elif '--concurrent'in sys.argv:concurrent_main()
     else:main()

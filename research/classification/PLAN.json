@@ -5,15 +5,15 @@
   "baseline_commit": "a00a541b835b2bff18bafcba545ecbd4bae7175b",
   "target": "exhaustive_reduced_components_before_PGL5_and_generic_geometry",
   "mathematical_status": {
-    "global_lower_bound": 124,
-    "rank4_lower_bound": 118,
+    "global_lower_bound": 126,
+    "rank4_lower_bound": 120,
     "global_upper_bound": null,
     "generic_five_exhaustion": false,
     "global_exhaustion": false,
-    "verification_scope": "All124 components individually identified. Every reducible/nonreduced and every normal actual divisor is excluded from a generic unknown dominant component. Irreducible reduced nonnormal quintics remain; E point coverage and the global upper bound are unproved.",
+    "verification_scope": "All126 components individually identified. Every reducible/nonreduced and every normal actual divisor is excluded from a generic unknown dominant component. Irreducible reduced nonnormal quintics remain; E point coverage and the global upper bound are unproved.",
     "rank2_component_count": 6,
     "rank2_support_exhaustion": true,
-    "individually_identified_components": 124,
+    "individually_identified_components": 126,
     "additional_unidentified_components_lower_bound": 0
   },
   "source_registry": "research/classification/SOURCES.json",
@@ -61,7 +61,7 @@
         "generic_circuit_review"
       ],
       "acceptance": "全42法線の根基所属等または未知残余の空性を証明し、適用底開・全分母・独立検証を明記する。新残余があれば分類計画を更新し、未解決のまま成功扱いしない。",
-      "first_step": "全rank零、rank二quadric/degree四五六、plane m四、m二SF/reducedRを除外。rank二plane m二double/nonredR・m三残型、smoothcubicScroll A25二型、twistedcubicconeを全sourceで処理。Ore四moduleの独立確認を完了する。",
+      "first_step": "Gはrank二planeのみ。m二normaldoubleの横断R空/接触R像≤23も完了。残るreduced triangle/concurrent double、nonredR/m二、reducedR/m三及びnonredR/m三repeated残全sourceを閉じる。",
       "fallback": "同経路の二回未決で支持幾何または境界経路に変更し、E0/Aも進める。",
       "nonclosing_attempts": 0,
       "proof": null,
@@ -159,7 +159,15 @@
         "G_SMOOTH_CUBIC_SCROLL_RANK_TWO_DIRECTRIX_NECESSITY",
         "G_SMOOTH_CUBIC_SCROLL_CANONICAL_NORMAL_ROOT_EMPTY",
         "G_RANK_TWO_QUINTIC_CANONICAL_INDEX_TWO_NODE_NONDOMINANCE",
-        "G_RANK_TWO_QUINTIC_CANONICAL_INDEX_TWO_CUSP_EMPTY"
+        "G_RANK_TWO_QUINTIC_CANONICAL_INDEX_TWO_CUSP_EMPTY",
+        "G_PLANE_DOUBLE_LINE_M3_SQUAREFREE_ALL_ORE_SOURCES_CLOSED",
+        "G_PLANE_RANK_TWO_NONREDUCED_ZERO_CUBIC_M3_SQUAREFREE_ALL_NONDOMINANCE",
+        "G_PLANE_RANK_TWO_M2_NORMAL_DOUBLE_TRANSVERSE_CONIC_EMPTY",
+        "G_SMOOTH_CUBIC_SCROLL_A25_ALL_NORMAL_RANKS_NONDOMINANCE",
+        "G_SMOOTH_CUBIC_SCROLL_RANK_TWO_ALL_ZERO_DIVISORS_NONDOMINANCE",
+        "G_TWISTED_CUBIC_CONE_RANK_TWO_ALL_ZERO_DIVISORS_NONDOMINANCE",
+        "G_INTEGRAL_DEGREE_THREE_RANK_TWO_ALL_NONDOMINANCE",
+        "G_PLANE_M2_TANGENT_NORMAL_DOUBLE_ALL_NONDOMINANCE"
       ],
       "latest_integral_surface_reduction": "research/classification/INTEGRAL_SURFACE_LINEAR_NORMALITY.md",
       "normal_degree_six_remaining": "none for rankzero: full ruled numerics and relativeconic exclusion independently accepted",
@@ -175,7 +183,7 @@
       "quadric_ranktwo_remaining": "none forG: smoothquadricempty andquadriccone wholeimage<=24",
       "plane_dependent_global_vector_remaining": "none forG: entire allm image<=23",
       "plane_global_vector_common_image_remaining": "none forG: both Knonzero wholeimages<=20, both Kzero rank<=2",
-      "cubic_scroll_ranktwo_remaining": "IntegralreducedR empty; reducible/nonreducedR andcubiccone remain. Full21-source andranktwo patch dimension goals were false and no GB/jet repetition.",
+      "cubic_scroll_ranktwo_remaining": "none for G: all smoothscroll A25 with explicit corrected residues and cone complete27/fivewholemodules/nineteenwalls independently proved image<=24. Epointwise remains.",
       "ci22_ranktwo_remaining": "none forG: allnormalCI22 empty; allnonnormal fiveorbit sources empty orimage<=24, allR.",
       "plane_rankzero_remaining": "none forG: fullcoHiggs/symbol/multiplicity cover MPS40 orimage<=24",
       "rankzero_surface_remaining": "none forG: allnonplane T40or<=24 plusallplane MPS40or<=24",
@@ -185,12 +193,14 @@
       "latest_plane_m2_squarefree_reduced_R_coverage": "research/classification/PLANE_RANK_TWO_M2_SQUAREFREE_REDUCED_CUBIC_COVERAGE.md",
       "latest_canonical_index_two_whole_review": "research/classification/RANK_TWO_QUINTIC_CANONICAL_INDEX_TWO_SEPARATE_REVIEW.md",
       "remaining_ranktwo_surface_sources": [
-        "smooth_cubic_scroll_A25_rankone_or_pair",
-        "twisted_cubic_cone",
-        "plane_m2_double_normal_or_nonreduced_R",
-        "plane_m3_reduced_reducible_R_or_repeated_normal_leading",
-        "plane_m3_nonreduced_R_squarefree_Ore_review_pending"
-      ]
+        "plane_m2_reduced_triangle_or_concurrent_double_normal",
+        "plane_m2_nonreduced_zero_cubic",
+        "plane_m3_reduced_reducible_zero_cubic",
+        "plane_m3_nonreduced_repeated_leading_residuals"
+      ],
+      "latest_nonredR_m3_squarefree_whole_review": "research/classification/PLANE_DOUBLE_LINE_M3_ORE_SEPARATE_REVIEW.md",
+      "latest_degree_three_ranktwo_whole_review": "research/classification/CUBIC_CONE_RANK_TWO_SEPARATE_REVIEW.md",
+      "latest_plane_m2_double_tangent_completion": "research/classification/PLANE_M2_DOUBLE_TANGENT_COMPLETION.md"
     },
     {
       "id": "G_direction",
@@ -384,7 +394,7 @@
         "bibliography"
       ],
       "acceptance": "主分類に使う各族のPoisson性、成分性、相違、次元とrank2被覆の証明・一次引用を確認し、欠落を明示する。",
-      "first_step": "全個別124の成分性と相違を独立監査済み。未知親や新whole sourceのみ追加監査。",
+      "first_step": "全個別126の成分性と相違を独立監査済み。未知親や新whole sourceのみ追加監査。",
       "fallback": "依存しない結果を巻き込まず問題の影響範囲を限定し、修正課題としてC0/Fに接続する。",
       "nonclosing_attempts": 0,
       "proof": "research/classification/KNOWN_COMPONENT_AUDIT.md",
@@ -570,14 +580,14 @@
       ],
       "accepted_D5_cusp_tangent_parent": "R4_A0",
       "accepted_threeA2_cusp_tangent_parent": "R4_DPM",
-      "mu6_remaining": "E6smoothflex otherparent unknown; outside fullT39/T40; allother r2 type6 sources covered by nine new23 or oldDPM, transverseE6 control oldMINIMALM.",
+      "mu6_remaining": "None for whole11 MU6/r2 marked cases: ten new23 plus oldDPM. E6smoothflex now full two-normal mprimary23component; Ga9 mu6/r1 is separate.",
       "accepted_mu5_marked_quartic_components": [
         "R4_MARKED_QUARTIC_MU5_A4A1_NODE_INFLEXION_COMPONENT_23",
         "R4_MARKED_QUARTIC_MU5_A4A1_SMOOTH_HYPERFLEX_COMPONENT_23",
         "R4_MARKED_QUARTIC_MU5_D5_SMOOTH_HYPERFLEX_COMPONENT_23",
         "R4_MARKED_QUARTIC_MU5_TWOA2A1_SMOOTH_HYPERFLEX_COMPONENT_23"
       ],
-      "mu5_remaining": "A5smoothhyperflex otherparent unknown; allother finite candidates in four new23, wholeA3A2inclk-1 oldcuspidal24, D5cusptangent oldA0.",
+      "mu5_remaining": "None for wholefive MU5/r1 marked cases: five new23. A5hyperflex now full two-normal mprimary23component. WholeA3A2 inclk-1 oldcuspidal24, D5cusptangent oldA0.",
       "latest_full_global_parent_exclusion": "research/classification/GA9_LINEAR_W_A5_GLOBAL_PARENT_SEPARATE_REVIEW.md",
       "latest_T37_B_whole_curve_closure": "research/classification/T37_LAGRANGIAN_CURVE_CLOSURE.md"
     },

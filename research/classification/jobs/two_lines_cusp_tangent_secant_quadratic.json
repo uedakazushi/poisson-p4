@@ -1,0 +1,60 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "target_statement": "ONE complete quadratic obstruction Sym2(C6) -> coker(full350x150 D) for the previously fixed cusp_cusp_tangent_cusp_secant source, and its complete homogeneous quadratic support.",
+  "implication_to_classification": "Only if the whole six-variable quadratic ideal is origin-supported: the literal102-dimensional cut with96 invertible implicit variables is zero-dimensional, hence Krull raw dimension <=48; the complete irreducible source has actual image48, so its projective23 closure is an ambient component. Otherwise retain whole source unresolved and stop this route without higher jets.",
+  "coefficient_ring": "QQ; original150 coefficients, all350 projective Jacobi equations, full21 quadratic normal products in six variables.",
+  "hypotheses": "Single existing point r=(1,2,3,5,7,11); old fullD96, real group47 plus source parameter span48. Old runner filters ambient_tangent_upper=29. This complete six-normal map has not previously been run; the old one/two-normal jobs excluded this case.",
+  "inverted_elements": [
+    "Only nonzero rational96x96 implicit block; no source parameter or normal chart localized away."
+  ],
+  "complements": [
+    "Complete six magnetic source and all zero-coefficient boundary retained.",
+    "All projective normal directions, including all coordinate hyperplanes, remain in the homogeneous ideal.",
+    "The source48 tangent is not claimed to be an actual group48 orbit; component proof uses a genuine linear cut and Krull inequality, not an unproved formal product.",
+    "Nonisolated quadratic support is not an actual Poisson curve and proves no membership or nonmembership.",
+    "All other residual one/two-normal sources already had complete quadratic/cubic maps, so none is rerun."
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_two_lines_plane_cubic.py",
+      "sha256": "0e188b561627bbef70610ce79aed98f8324f3a785ab92f4492330f9c39daf06e"
+    },
+    {
+      "path": "code/classification_two_hyperplanes_cubic_nilpotent.py",
+      "sha256": "aa38f89bf853c0af9926be52f7674dcacdbc6e5cba630512988babfef95d0e29"
+    },
+    {
+      "path": "code/classification_rank3_mixed_component_review.py",
+      "sha256": "48e61e30f9d7f04fb81f1bb5eec0e18daa28c8192d6a02a251e09cf8855b9bd0"
+    },
+    {
+      "path": "code/classification_three_hyperplanes_quadric_independent.py",
+      "sha256": "674ffb31d0afdf48c187780a876c8526b8acff3ff6aeca83d048f650fdbe8a7a"
+    },
+    {
+      "path": "reports/CLASSIFICATION_TWO_LINES_PLANE_CUBIC_20261107.json",
+      "sha256": "f0ec94367063e9fe85c053352672e23f9fe4c01267205bedceec2ee9ac908e3a"
+    },
+    {
+      "path": "reports/CLASSIFICATION_TWO_LINES_PLANE_CUBIC_THIRD_SECANT_20261107.json",
+      "sha256": "12165819a393c15fd4eef366c007787c4b2cfcd13eb380ed92e01583166e5431"
+    },
+    {
+      "path": "research/classification/TWO_LINES_PLANE_CUBIC_SUPPORT.md",
+      "sha256": "204db50091213bbe8454f794ba40466b6b659a3b1df54cc45137f9717a6f88f7"
+    },
+    {
+      "path": "research/classification/inputs/component126_current_replay_contracts_frozen_20261107.json",
+      "sha256": "4933f49190de6d05dece5d9af722781c90d557528de11b6236e07ad87693b94b"
+    }
+  ],
+  "success_certificate": "All six kernel representatives modulo the full source48; full21 Jacobi columns and the complete D-cokernel row span certified by full-D-annihilating rational functionals; exact homogeneous six-variable Groebner basis and origin-support result. If isolated, separately certify F48+N6+U96 direct sum and all-source/prior distinctness before registration.",
+  "independent_check": "Any new component requires separately reconstructed fullD/source/truecut/quadratic support and complete prior comparison. Negative diagnostic remains restricted to this exact whole quadratic map.",
+  "resource_limit": {
+    "timeout_seconds": 70,
+    "memory_mb": 1536
+  },
+  "negative_result_next_step": "Stop after nonisolated quadratic support or resource failure; no higher normal jets or new anchors. Return to full-source actual geometry.",
+  "command": ".venv/bin/python code/classification_two_lines_plane_cubic.py --normals --normal-dimension 6 --output reports/CLASSIFICATION_TWO_LINES_CUSP_TANGENT_SECANT_QUADRATIC_20261107.json",
+  "checkpoint126_compatible_replay_reason": "Append-only isolated modes preserve every old mathematical definition and non-dispatch module statement; old exact contracts/source bytes archived. This current replay does not replace old reports or their execution identity."
+}
