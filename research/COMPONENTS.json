@@ -14,15 +14,15 @@
     "null_values": "not catalogued or not applicable; never a claim of zero"
   },
   "coverage": {
-    "global_lower_bound": 103,
+    "global_lower_bound": 104,
     "generic_rank_two_full_components": 6,
-    "generic_rank_four_lower_bound": 97,
+    "generic_rank_four_lower_bound": 98,
     "upper_bound": null,
     "global_exhaustion_proved": false,
-    "individually_catalogued_count": 103,
+    "individually_catalogued_count": 104,
     "unexpanded_block_count": 0,
     "all_51_rank_four_ideals_in_S61_constructed": false,
-    "note_ja": "全103成分を個別同定。rank四97、rank二6。新平面quartic24成分でGa9c0二全源を被覆。全上界・一般五点・全分類は未証明。",
+    "note_ja": "全104成分を個別同定。rank四98、rank二6。新しいirreducibleplanequintic23成分を全prior103と独立区別。全上界・一般五点・全分類は未証明。",
     "generic_primitive_first_jet_known_lifts_lower_bound": 5,
     "full_generic_fiber_exhaustion_proved": false,
     "known_union_over_smooth_canonical_curve": {
@@ -12057,6 +12057,90 @@
         "一般PGLorbit23、Rosenlicht商dimension1。aが商の双有理座標であるとは主張しない。",
         "Ga9c0 power1/power3の全源はこの成分境界へ入る。linear-wは残す。"
       ]
+    },
+    {
+      "id": "R4_PLANE_UNICUSPIDAL_QUINTIC_45_23",
+      "name": "唯一(4,5)尖点の平面既約五次を持つ23次元成分",
+      "source_checkpoint": "v64-classification-first",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "additional_generic_rank_four_full_component_outside_MPS40",
+      "generic_rank": 4,
+      "projective_dimension": 23,
+      "meets_SNC_log_symplectic_locus": false,
+      "generic_pgl5_orbit_dimension": 23,
+      "generic_reduced_rosenlicht_quotient_dimension": 0,
+      "generic_transverse_algebra": null,
+      "component_definition": "Reduced closure of the actual PGL5 orbit of the full cotangent Saito source for F=x^5+x^2*y^3+y^4*z. True48cut, fullD101 and a nonzero quadratic cokernel prove full ambient componenthood.",
+      "generic_construction": {
+        "coordinates": [
+          "x",
+          "y",
+          "z",
+          "u",
+          "v"
+        ],
+        "quintic": "x^5+x^2*y^3+y^4*z",
+        "U": [
+          "0",
+          "-y^2/4",
+          "3*x^2/4+y*z"
+        ],
+        "V": [
+          "-9*y^2/80",
+          "3*x^2/16-y*z/4",
+          "9*x*y/40+z^2"
+        ],
+        "cotangent_law": "U wedge d_u + V wedge d_v + (-div(V)*u+div(U)*v+R) d_u wedge d_v",
+        "magnetic_source": "R arbitrary homogeneous quadratic in x,y,z; all six coefficients, including zero",
+        "anchor_scale": 80,
+        "actual_stabilizer_identity_component": "Gm with projective semisimple multiplicities [3,2]"
+      },
+      "generic_actual_degeneracy_divisor": {
+        "description": "Absolutely irreducible essential-three plane quintic with a unique weighted homogeneous (4,5) cusp, totalMilnor=Tjurina12",
+        "witness_equation": "x^5+x^2*y^3+y^4*z",
+        "irreducible_factor_degrees": [
+          5
+        ],
+        "corresponding_multiplicities": [
+          1
+        ],
+        "reduced": true,
+        "essential_variable_count": 3,
+        "plane_curve_cusp_Puiseux_pair": [
+          4,
+          5
+        ]
+      },
+      "claims": [
+        "R4_PLANE_UNICUSPIDAL_QUINTIC_45_COMPONENT_23",
+        "E_ESSENTIAL_THREE_IRREDUCIBLE_QUINTIC_FINITE_ORBITS"
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/ESSENTIAL_THREE_QUINTIC_FIRST_COMPONENT.md"
+        },
+        {
+          "path": "research/classification/ESSENTIAL_THREE_QUINTIC_FIRST_SEPARATE_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_ESSENTIAL_THREE_QUINTIC_FIRST_SAITO_20261107.json",
+        "reports/CLASSIFICATION_ESSENTIAL_THREE_QUINTIC_FIRST_AMBIENT_20261107.json",
+        "reports/CLASSIFICATION_ESSENTIAL_THREE_QUINTIC_FIRST_COMPONENT_SUPPORT_20261107.json",
+        "reports/CLASSIFICATION_ESSENTIAL_THREE_QUINTIC_FIRST_PRIOR103_20261107.json",
+        "reports/CLASSIFICATION_ESSENTIAL_THREE_QUINTIC_FIRST_REVIEW_20261107.json"
+      ],
+      "review_status": {
+        "proof": "full_componenthood_and_all_prior103_distinctness_proved",
+        "independent_review": "accepted_separate_author_full_QQ_Fraction_350_true48cut_nonzero_quadratic_and_all_immutable103_distinctness",
+        "certificates": "complete_Fraction_full350_truecut_quadratic_and_all103",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "notes_ja": [
+        "全fixedF/六magはactualPGL一orbit。genericorbit23、商dimension0。",
+        "射影接次元24なのでsmoothとは主張しない。二次障害で被約支持成分性を証明し、横断非被約algebra詳細を要求しない。"
+      ]
     }
   ],
   "named_block_member_annotations": [
@@ -12410,5 +12494,5 @@
     "MPS40 blockを展開したらblockによる加算を止め、二重計上しない。",
     "文献上の新規性は内部成分証明とは別に確認する。"
   ],
-  "new_components_added_in_this_checkpoint": 45
+  "new_components_added_in_this_checkpoint": 46
 }

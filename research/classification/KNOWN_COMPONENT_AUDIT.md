@@ -359,3 +359,8 @@ unique H cofactor Jordan32と旧二22の41から旧成分と相違する。全pr
 ## 平面A3+A2 quartic成分と現行下界103
 
 GA9_CUSPIDAL_QUARTIC_SEPARATE_REVIEWは全七源/全六磁気移送、D100/F49/真正49cutの非零二次101minorとKrull、全prior102相違を独立確認。一般orbit23、商1。全Ga9 power1/power3閉包を被覆する。下界103/rank四97/rank二6、全上界未証明。
+
+
+## 平面(4,5)既約quintic成分と現行個別下界104
+
+ESSENTIAL_THREE_QUINTIC_FIRST_SEPARATE_REVIEWは全28x18gradient基底、全350/D101/M48/真正48cutの非零二次λQ、immutableprior103との全相違を独立確認。全六mag源はactual23orbit、商dimension0。下界104/rank四98/rank二6、全上界は未証明。

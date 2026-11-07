@@ -5,15 +5,15 @@
   "baseline_commit": "a00a541b835b2bff18bafcba545ecbd4bae7175b",
   "target": "exhaustive_reduced_components_before_PGL5_and_generic_geometry",
   "mathematical_status": {
-    "global_lower_bound": 103,
-    "rank4_lower_bound": 97,
+    "global_lower_bound": 104,
+    "rank4_lower_bound": 98,
     "global_upper_bound": null,
     "generic_five_exhaustion": false,
     "global_exhaustion": false,
-    "verification_scope": "All103 components individually identified. Every reducible/nonreduced and every normal actual divisor is excluded from a generic unknown dominant component. Irreducible reduced nonnormal quintics remain; E point coverage and the global upper bound are unproved.",
+    "verification_scope": "All104 components individually identified. Every reducible/nonreduced and every normal actual divisor is excluded from a generic unknown dominant component. Irreducible reduced nonnormal quintics remain; E point coverage and the global upper bound are unproved.",
     "rank2_component_count": 6,
     "rank2_support_exhaustion": true,
-    "individually_identified_components": 103,
+    "individually_identified_components": 104,
     "additional_unidentified_components_lower_bound": 0
   },
   "source_registry": "research/classification/SOURCES.json",
@@ -61,7 +61,7 @@
         "generic_circuit_review"
       ],
       "acceptance": "全42法線の根基所属等または未知残余の空性を証明し、適用底開・全分母・独立検証を明記する。新残余があれば分類計画を更新し、未解決のまま成功扱いしない。",
-      "first_step": "全重複度conormal可換と全essential3既約D≤23を受理。rank零planeはglobalVの残nonCartan/commuting normalnil、高重複度の全firstjet復活を処理。rank二planeはconcurrent特別j rank2pencil/重根/m二三/非被約R、degree五canonical index二等の残支持を続ける。",
+      "first_step": "rank零planeは全k1 rankM≥2、全b非零normalnil、全scalar T非零を全m非優越。generic二三parameterの独立review、pointwise-dependent高m、T零binaryK/zero symbolを処理。rank二plane/quadricの可約非被約零曲線、degree五canonical index二も続ける。全上界・G/E未証明。",
       "fallback": "同経路の二回未決で支持幾何または境界経路に変更し、E0/Aも進める。",
       "nonclosing_attempts": 0,
       "proof": null,
@@ -122,7 +122,11 @@
         "G_REDUCED_ZERO_SURFACE_ALL_MULTIPLICITY_ABELIAN_CONORMAL",
         "G_PLANE_RANK_TWO_M4_SPECIAL_J_NONCONCURRENT_NONDOMINANCE",
         "G_PLANE_RANK_ZERO_NORMAL_NILPOTENT_NONZERO_B_NONDOMINANCE",
-        "G_ESSENTIAL_THREE_IRREDUCIBLE_QUINTIC_ALL_NONDOMINANCE"
+        "G_ESSENTIAL_THREE_IRREDUCIBLE_QUINTIC_ALL_NONDOMINANCE",
+        "G_PLANE_RANK_ZERO_K1_RANK_AT_LEAST_TWO_ALL_MULTIPLICITIES_NONDOMINANCE",
+        "G_PLANE_GLOBAL_VECTOR_TWENTYONE_LOW_PARAMETER_NONDOMINANCE",
+        "G_SMOOTH_QUADRIC_RANK_TWO_INTEGRAL_REDUCED_ZERO_CURVE_EMPTY",
+        "G_PLANE_RANK_ZERO_SCALAR_NONZERO_TRACE_ALL_MULTIPLICITIES_NONDOMINANCE"
       ],
       "latest_integral_surface_reduction": "research/classification/INTEGRAL_SURFACE_LINEAR_NORMALITY.md",
       "normal_degree_six_remaining": "none for rankzero: full ruled numerics and relativeconic exclusion independently accepted",
@@ -131,7 +135,11 @@
       "degree_six_ranktwo_remaining": "none for G: all five normalization scroll types empty or image<=24",
       "degree_five_ranktwo_remaining": "genus0<=24; genus1 elliptic empty; canonical index2 remains",
       "plane_rankzero_m2_remaining": "globalV nonCartan normalss and commuting normalnil b0; allnoncommuting normalnil b!=0 <=22",
-      "plane_ranktwo_m4_remaining": "rank1 squarefree leading empty for allj; nonconcurrent specialrank2 <=22; concurrent specialrank2, repeated leading and m2/m3/nonreducedR remain"
+      "plane_ranktwo_m4_remaining": "rank1 squarefree leading empty for allj; nonconcurrent specialrank2 <=22; concurrent specialrank2, repeated leading and m2/m3/nonreducedR remain",
+      "plane_rankzero_k1_remaining": "none for coefficientrank>=2 and anymultiplicity: whole image<=24",
+      "plane_normalnil_affine_remaining": "none for b!=0 and anymultiplicity: whole image<=22",
+      "plane_scalar_first_symbol_remaining": "T0 Knonzero and zero-symbol; Tnonzero whole source image<=23 accepted",
+      "quadric_ranktwo_remaining": "Smoothquadric integral reduced zeroR empty; reducible/nonreducedR and quadriccone remain"
     },
     {
       "id": "G_direction",
@@ -325,7 +333,7 @@
         "bibliography"
       ],
       "acceptance": "主分類に使う各族のPoisson性、成分性、相違、次元とrank2被覆の証明・一次引用を確認し、欠落を明示する。",
-      "first_step": "個別103全成分を監査済み、新候補だけ全周囲成分性と相違を確認。",
+      "first_step": "個別104全成分を監査済み、新候補だけ全周囲成分性と相違を確認。",
       "fallback": "依存しない結果を巻き込まず問題の影響範囲を限定し、修正課題としてC0/Fに接続する。",
       "nonclosing_attempts": 0,
       "proof": "research/classification/KNOWN_COMPONENT_AUDIT.md",
@@ -445,7 +453,7 @@
         "remaining_divisor_support"
       ],
       "acceptance": "全非被約実退化因子のうち二重以上の超平面を持つ全点を既知族または新しい証明済み成分で被覆。全affine二次Poisson条件とPf(Q)=0を保持。",
-      "first_step": "nil22image quadratic_A全七源もactualsymplectic曲線と全periodSNC親でMPSへ被覆。残るstable二源,double_Aとshort r2/3等を全源認識又は新成分証明で処理。",
+      "first_step": "nil22image double_A全六磁気源も既知cuspidal24の正則実境界で被覆。全十一源の残るstable二源とshort r2/3等を全源認識又は新成分証明で処理。",
       "fallback": "同じ経路で二回非閉鎖なら具体的障害を記録し別の支持幾何へ変更。全補集合を保持する。",
       "nonclosing_attempts": 0,
       "proof": null,
@@ -454,11 +462,11 @@
       "latest_nil22_image_double_b_coverage": "E_NIL22_IMAGE_DOUBLE_B_CPLUS_FULL_COVERAGE",
       "remaining_nil22_image_sources": [
         "stable_line_conic",
-        "stable_three_lines",
-        "double_A"
+        "stable_three_lines"
       ],
       "latest_nil22_image_double_c_coverage": "E_NIL22_IMAGE_DOUBLE_C_DEPENDENT_FULL_COVERAGE",
-      "latest_nil22_image_quadratic_a_coverage": "E_NIL22_IMAGE_QUADRATIC_A_FULL_MPS_COVERAGE"
+      "latest_nil22_image_quadratic_a_coverage": "E_NIL22_IMAGE_QUADRATIC_A_FULL_MPS_COVERAGE",
+      "latest_nil22_image_double_a_coverage": "E_NIL22_IMAGE_DOUBLE_A_FULL_CUSPIDAL24_COVERAGE"
     },
     {
       "id": "E_reduced_nonnormal",

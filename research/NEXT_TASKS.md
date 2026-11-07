@@ -7,7 +7,7 @@
 .venv/bin/python scripts/classification.py next
 ```
 
-**個別成分の下界103、一般rank四97、rank二6。上界・一般五点・全分類は未証明。**
+**個別成分の下界104、一般rank四98、rank二6。上界・一般五点・全分類は未証明。**
 ユーザーの11月7日の再開指示により実作業を継続する。保存や旧移行用一時停止を終了条件にしない。
 G、E_multiple_hyperplane、E_reduced_nonnormalを並行し、意味のある進展は主原稿・引継ぎへ統合して通常main pushで保存する。
 
@@ -54,7 +54,7 @@ Ga9 distinct-c全源も実cubic曲線で新しい既約非正規quinticの23次�
 重複Hではnil31long-top六源、nil22top八源、nil31image half/third全源は被覆済み。
 nil22imageの全十一源は独立606恒等式で有限化した。triple_A/Bは二つの新23成分、
 quadratic_B/triple_C/double_Dは既知25成分への全parameter実曲線で被覆。
-double_B全六源もCPLUS_EXT24へ実変形で被覆済み。double_C全六源も従属HHHQ24へ全parameter実曲線と全八源actualmapで被覆済み。残る三源はstable二源、double_A。quadratic_A全七源はactualsymplectic曲線で全MPSへ被覆済み。double_Aの既知候補はT36/T37/T38まで限定したが帰属未証明。
+double_B全六源もCPLUS_EXT24へ実変形で被覆済み。double_C全六源も従属HHHQ24へ全parameter実曲線と全八源actualmapで被覆済み。残るstable二源。double_A全六磁気源は既知cuspidal24へ被覆。quadratic_A全七源はactualsymplectic曲線で全MPSへ被覆済み。double_Aの既知候補はT36/T37/T38まで限定したが帰属未証明。
 short r=2/3も未帰属で、三次零を高次反復せず幾何又は実変形を使う。
 
 1+1+3には平面三配置と非平面nil源、1+2+2にはplane tan-simple/chordとlambda零のE残源がある。
