@@ -1,0 +1,44 @@
+#!/usr/bin/env python3
+"""One actual smooth-quadric/mixed-cofactor bridge, retaining its free period."""
+from pathlib import Path
+import hashlib,itertools,json,time
+import sympy as s
+from sympy.polys.matrices import DomainMatrix
+from classification_nil31_short_flag_confluence import PAIRS,wedge,canonical
+ROOT=Path(__file__).resolve().parents[1]
+def mixed_formula(q,B,S,N,xx):
+ E=s.Matrix(xx);V=(S*S/s.trace(S*S)*2).applyfunc(s.cancel);U=s.eye(5)-V;EU=U*E;EV=V*E;Nv=N*E;Sv=S*E;qU=s.cancel((EU.T*B*EU)[0]);qV=s.cancel((EV.T*B*EV)[0]);KN=N*B.inv();KS=S*B.inv()
+ assert(KN+KN.T).applyfunc(s.cancel)==s.zeros(5)and(KS+KS.T).applyfunc(s.cancel)==s.zeros(5)
+ P=-s.Rational(5,2)*qU*KN-2*wedge(EU,Nv)+wedge(EV,Nv)/2-wedge(EU,Sv)/3-s.Rational(5,6)*qU*KS-qV*KS/2
+ return P.applyfunc(s.cancel),wedge(Sv,Nv).applyfunc(s.cancel),qU,qV
+def valuation(f,e):
+ if f==0:return 1000
+ p,q=map(lambda a:s.Poly(a,e),s.fraction(s.cancel(f)));return min(k[0]for k,c in p.terms())-min(k[0]for k,c in q.terms())
+def main():
+ started=time.monotonic();stdpath=ROOT/'reports/CLASSIFICATION_SMOOTH_QUADRIC_RANK2_MIXED_SUPPORT_20261107.json';saved=json.loads(stdpath.read_text());xx=s.symbols('x0:5');E=s.Matrix(xx);q0=sum(a*a for a in xx[:3])+xx[3]*xx[4];B0=s.hessian(q0,xx)/2;S0=s.diag(0,0,0,1,-1);N0=s.Matrix([[0,0,-s.I,0,0],[0,0,1,0,0],[s.I,-1,0,0,0],[0,0,0,0,0],[0,0,0,0,0]]);env={str(a):a for a in xx};env.update(I=s.I,l1=-5*s.I/3,m4=-s.Rational(1,3),m7=s.Rational(5,6));std=s.zeros(5)
+ for ij,text in saved['brackets'].items():i,j=map(int,ij);std[i,j]=s.sympify(text,locals=env);std[j,i]=-std[i,j]
+ formula,direction,_,_=mixed_formula(q0,B0,S0,N0,xx);assert(formula-std).applyfunc(s.expand)==s.zeros(5)
+ h,x,y,z,w=xx;e=s.Symbol('epsilon');q=h*y-z*w+e*x*x;B=s.hessian(q,xx)/2;X=s.Matrix([[0,-2*e,0,0,0],[-15,0,1,0,0],[0,30*e,0,1,0],[0,0,0,0,0],[1,0,0,0,0]]);assert(X.T*B+B*X)==s.zeros(5);assert X**5==60*e*X**3
+ S=(X**3/(60*e)).applyfunc(s.cancel);N=(X-S).applyfunc(s.cancel);assert(S*N)==s.zeros(5)and N**3==s.zeros(5)and N**2!=s.zeros(5);part,period,qU,qV=mixed_formula(q,B,S,N,xx)
+ target=s.zeros(5);br=[h*z-h*y+2*z*w-y*y/3,h*z-2*y*z/3,h*h+y*w/3,-2*z*z/3,(h*y+z*w)/3,2*h*z/3]
+ for(i,j),a in zip(itertools.combinations(range(1,5),2),br):target[i,j]=a;target[j,i]=-a
+ # Row dq*canonical(target)=-q*(Ntarget/15-h dx), hence multiply -15.
+ target=-15*canonical(target,xx);assert(s.Matrix([s.diff(q.subs(e,0),a)for a in xx]).T*target-q.subs(e,0)*(X.subs(e,0)*E).T).applyfunc(s.expand)==s.zeros(1,5)
+ vp=min(valuation(a,e)for a in part);vb=min(valuation(a,e)for a in period);low=min(vp-vb,-vb);high=-vb;cs=s.symbols('c0:'+str(high-low+1));m=sum(c*e**k for c,k in zip(cs,range(low,high+1)));family=(part+m*period).applyfunc(s.cancel);equations=[];labels=[]
+ for i,j in PAIRS:
+  diff=s.Poly(s.expand(e**(-min(vp,low+vb))*(family-target)[i,j]),e,*xx)
+  for(ex,*powers),co in diff.terms():
+   power=ex+min(vp,low+vb)
+   if power<=0:equations.append(co);labels.append(dict(pair=[i,j],epsilon_power=power,exponents=powers))
+ A,b=s.linear_eq_to_matrix(equations,cs);dm=lambda M:DomainMatrix.from_Matrix(M).convert_to(s.QQ);piv=list(dm(A).rref()[1]);rr=list(dm(A[:,piv].T).rref()[1]);inv=dm(A[rr,piv]).inv().to_Matrix();res=(b-A[:,piv]*inv*b[rr,:]).applyfunc(s.cancel);bad=next((i for i,a in enumerate(res)if a),None)
+ out=dict(task_id='E_multiple_hyperplane',all_passed=True,source_geometry='smooth rank5Q with mixed rank2 semisimple + nil3 cofactor, known whole1parameter source; actualD H+rank3Q+rank5Q',universal_mixed_source_exactly_reconstructed=True,standard_source_period_value='m7=5/6',smoothed_quadric=str(q),quadric_Hessian_determinant=str(s.factor(s.hessian(q,xx).det())),cofactor=[[str(a)for a in row]for row in X.tolist()],semisimple=[[str(a)for a in row]for row in S.tolist()],nilpotent=[[str(a)for a in row]for row in N.tolist()],qU=str(qU),qV=str(qV),particular_family={str(i)+','+str(j):str(part[i,j])for i,j in PAIRS if part[i,j]!=0},actual_free_period_tensor={str(i)+','+str(j):str(period[i,j])for i,j in PAIRS if period[i,j]!=0},particular_valuation=vp,period_valuation=vb,complete_relevant_period_exponents=[low,high],linear_matrix=[[str(a)for a in row]for row in A.tolist()],linear_rhs=list(map(str,b)),row_labels=labels,rank=len(piv),linear_shape=list(A.shape))
+ if bad is not None:
+  lam=s.zeros(1,A.rows);lam[bad]=1
+  for j,k in enumerate(rr):lam[k]-=(A[bad,piv]*inv)[j]
+  assert lam*A==s.zeros(1,len(cs))and(lam*b)[0]!=0;out.update(status='THIS_FIXED_QUADRIC_COFACTOR_SMOOTHING_HAS_NO_TARGET_LIMIT',rank_augmented=len(piv)+1,left_functional={str(j):str(a)for j,a in enumerate(lam)if a},left_rhs=str((lam*b)[0]),whole_source_E_membership='UNKNOWN; no arbitrary quadric/cofactor smoothing excluded')
+ else:
+  values=s.zeros(len(cs),1)
+  for j,k in enumerate(piv):values[k]=(inv*b[rr,:])[j]
+  final=family.subs(dict(zip(cs,values))).applyfunc(s.cancel);assert all(s.denom(a).subs(e,0)!=0 for a in final);assert(final.subs(e,0)-target).applyfunc(s.expand)==s.zeros(5);tri={ij:s.expand(sum(final[i,l]*s.diff(final[j,k],xx[l])+final[j,l]*s.diff(final[k,i],xx[l])+final[k,l]*s.diff(final[i,j],xx[l])for l in range(5)))for ij in itertools.combinations(range(5),3)for i,j,k in[ij]};assert all(s.expand(sum((-1)**k*xx[inds[k]]*tri[inds[:k]+inds[k+1:]]for k in range(4)))==0 for inds in itertools.combinations(range(5),4));out.update(status='ACTUAL_SMOOTH_QUADRIC_MIXED_FAMILY_FOUND',period=str(m.subs(dict(zip(cs,values)))),regular_family={str(i)+','+str(j):str(final[i,j])for i,j in PAIRS if final[i,j]!=0},all350_Jacobi_zero=True,endpoint_exact=True,independent_review_required=True)
+ paths=[Path(__file__),ROOT/'code/classification_nil31_short_flag_confluence.py',stdpath,ROOT/'reports/CLASSIFICATION_NIL31_SHORT_TWO_THIRDS_CANONICAL_20261107.json'];out['input_sha256']={str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest()for p in paths};out['producer_bytes']=Path(__file__).read_text();out['seconds']=time.monotonic()-started;path=ROOT/'reports/CLASSIFICATION_NIL31_SHORT_SMOOTH_QUADRIC_BRIDGE_20261107.json';assert not path.exists();path.write_text(json.dumps(out,indent=2)+'\n');print(json.dumps({k:out[k]for k in['status','linear_shape','rank','seconds']}))
+if __name__=='__main__':main()

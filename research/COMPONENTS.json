@@ -14,15 +14,15 @@
     "null_values": "not catalogued or not applicable; never a claim of zero"
   },
   "coverage": {
-    "global_lower_bound": 102,
+    "global_lower_bound": 103,
     "generic_rank_two_full_components": 6,
-    "generic_rank_four_lower_bound": 96,
+    "generic_rank_four_lower_bound": 97,
     "upper_bound": null,
     "global_exhaustion_proved": false,
-    "individually_catalogued_count": 102,
+    "individually_catalogued_count": 103,
     "unexpanded_block_count": 0,
     "all_51_rank_four_ideals_in_S61_constructed": false,
-    "note_ja": "全102成分を個別同定。一般rank四96、rank二6。型7全七源のE被覆と三新成分を含む。全上界・一般五点・全分類は未証明。",
+    "note_ja": "全103成分を個別同定。rank四97、rank二6。新平面quartic24成分でGa9c0二全源を被覆。全上界・一般五点・全分類は未証明。",
     "generic_primitive_first_jet_known_lifts_lower_bound": 5,
     "full_generic_fiber_exhaustion_proved": false,
     "known_union_over_smooth_canonical_curve": {
@@ -11958,6 +11958,105 @@
         "一般元はsmooth Poisson scheme点、dense actual orbit23で商次元0。",
         "旧既約五次23成分とはunique stabilizerのsemisimple multiplicities221対11111で区別。"
       ]
+    },
+    {
+      "id": "R4_GA9_CUSPIDAL_PLANE_QUARTIC_24",
+      "name": "A3+A2平面四次と共通接超平面の24次元成分",
+      "source_checkpoint": "v64-classification-first",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "additional_generic_rank_four_full_component_outside_MPS40",
+      "generic_rank": 4,
+      "projective_dimension": 24,
+      "meets_SNC_log_symplectic_locus": false,
+      "generic_pgl5_orbit_dimension": 23,
+      "generic_reduced_rosenlicht_quotient_dimension": 1,
+      "generic_transverse_algebra": null,
+      "component_definition": "Reduced closure of the complete seven-parameter plane cotangent source and its actual PGL5 saturation. True49cut/D100 and a nonzero quadratic101minor prove full componenthood by Krull.",
+      "generic_construction": {
+        "coordinates": [
+          "h",
+          "x",
+          "y",
+          "z",
+          "w"
+        ],
+        "quartic_family": "(h*w+6*y^2)^2-144*y^3*(h+a*y)",
+        "magnetic_source": "r0*h^2+r1*h*y+r2*h*w+r3*y^2+r4*y*w+r5*w^2",
+        "cotangent_law": "dx^vee wedge U + dz^vee wedge V + (alpha*x+beta*z+R) dx^vee wedge dz^vee, full explicit rational frame in public producer and independent reviewer",
+        "full_source_parameters": [
+          "a",
+          "r0",
+          "r1",
+          "r2",
+          "r3",
+          "r4",
+          "r5"
+        ],
+        "canonical_anchor": {
+          "a": 1,
+          "r": [
+            1,
+            2,
+            3,
+            5,
+            7,
+            11
+          ]
+        },
+        "homogeneous_cofactor_Jordan_type": [
+          2,
+          2,
+          1
+        ],
+        "unique_hyperplane_outside_dual_cofactor_image": true
+      },
+      "generic_actual_degeneracy_divisor": {
+        "description": "Simple H and absolutely irreducible rational plane quartic with A3 tacnode and A2 cusp; H is the common tacnode tangent with total contact4",
+        "witness_equation": "h*((h*w+6*y^2)^2-144*y^3*(h+a*y))",
+        "irreducible_factor_degrees": [
+          1,
+          4
+        ],
+        "corresponding_multiplicities": [
+          1,
+          1
+        ],
+        "reduced": true,
+        "essential_variable_count": 3,
+        "quartic_singularity_types": [
+          "A3",
+          "A2"
+        ],
+        "hyperplane_contact_order": 4
+      },
+      "claims": [
+        "R4_GA9_CUSPIDAL_PLANE_QUARTIC_COMPONENT_24",
+        "E_GA9_ZERO_C_POWER_ONE_AND_THREE_COVERAGE"
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/GA9_CUSPIDAL_QUARTIC_COMPONENT.md"
+        },
+        {
+          "path": "research/classification/GA9_CUSPIDAL_QUARTIC_SEPARATE_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_GA9_CUSPIDAL_QUARTIC_COMPONENT_20261107.json",
+        "reports/CLASSIFICATION_GA9_CUSPIDAL_QUARTIC_REVIEW_20261107.json"
+      ],
+      "review_status": {
+        "proof": "full_componenthood_and_all_prior102_distinctness_proved",
+        "independent_review": "accepted_separate_author_QQa_Fraction_full7_350_true49cut_Krull_all102_and_generic_orbit",
+        "certificates": "full_QQa_Fraction_Saito_350_150_minors_truecut_and_MPS8_actualSNC",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "notes_ja": [
+        "sourceの非群作用方向一を保持。genericsmoothness・局所唯一性・一般横断algebraを主張しない。",
+        "一般PGLorbit23、Rosenlicht商dimension1。aが商の双有理座標であるとは主張しない。",
+        "Ga9c0 power1/power3の全源はこの成分境界へ入る。linear-wは残す。"
+      ]
     }
   ],
   "named_block_member_annotations": [
@@ -12311,5 +12410,5 @@
     "MPS40 blockを展開したらblockによる加算を止め、二重計上しない。",
     "文献上の新規性は内部成分証明とは別に確認する。"
   ],
-  "new_components_added_in_this_checkpoint": 44
+  "new_components_added_in_this_checkpoint": 45
 }

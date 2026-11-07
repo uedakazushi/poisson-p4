@@ -1,0 +1,44 @@
+{
+  "task_id": "E_multiple_hyperplane",
+  "target_statement": "One complete geometric chain-flag family beta: (hs,X,Y,Z,W)=(h+epsilon*y,h,z+beta*epsilon*y,y+epsilon*x,-w), exact QQ(beta) elimination with all residual/pivot exceptional roots, seeking an actual nil31 short2/3 curve.",
+  "implication_to_classification": "The whole residual six-parameter source has a dense single PGL/scalar orbit at td nonzero. An actual anchor curve in the known closed MPS union therefore covers the entire source by irreducibility and closure.",
+  "coefficient_ring": "QQ(beta)[epsilon,h,x,y,z,w,c0,...,c19]; exceptional beta roots must be checked separately.",
+  "hypotheses": "All four actual independent-three-H+quadric source coefficients are polynomial Taylor\u22644. The moving radical e_x-epsilon*e_y+beta*epsilon\u00b2*e_z follows the full length3 target cofactor chain, unlike the first stopped flag. No coefficient product is freed.",
+  "inverted_elements": [
+    "epsilon for the generic source frame",
+    "rational constants only at the target"
+  ],
+  "complements": [
+    "epsilon=0 is the target limit",
+    "t*d=0 in the irreducible target source returned by closure only after dense orbit membership proved"
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_nil31_short_chain_flag.py",
+      "sha256": "ed62ea3abf672f925d0e614955b4929d5f48beb14b8feb112dbef063a2e76449"
+    },
+    {
+      "path": "code/classification_nil31_short_flag_confluence.py",
+      "sha256": "edf4cce9d65e64b0ad928f4102572b6254d9a02a5f561d36cf5f64909a23ae0c"
+    },
+    {
+      "path": "reports/CLASSIFICATION_NIL31_SHORT_TWO_THIRDS_CANONICAL_20261107.json",
+      "sha256": "a76cb0660a898c46637c833f11f1486271de4525fdcf06c2af14d6f0f89240e0"
+    },
+    {
+      "path": "research/classification/THREE_HYPERPLANES_QUADRIC_INDEPENDENT.md",
+      "sha256": "8e28cd214fdb5795d41c5cc9cc55676c52d8c5c85660746f5f8b3dadd0ab2f2b"
+    },
+    {
+      "path": "reports/CLASSIFICATION_THREE_HYPERPLANES_QUADRIC_INDEPENDENT_REVIEW_20261107.json",
+      "sha256": "506fb310709c9265538e7f3456557f2fbe493042374d812fe361bade665e7962"
+    }
+  ],
+  "success_certificate": "Exact full150 coefficient matrix and rational-function rank minor/residual gcd plus pivot exceptions; for a positive curve explicit actual source parameters, regularity, endpoint, all350 Jacobi; separate review required for containment.",
+  "independent_check": "Independent rational reconstruction of the actual source and coordinate map before any E containment claim.",
+  "resource_limit": {
+    "timeout_seconds": 100,
+    "memory_mb": 1536
+  },
+  "negative_result_next_step": "This is the second geometric flag attempt. If it does not give a real curve, stop flag/Taylor confluence; no degree/profile increase. Return to whole-source rank4 divisor geometry or genuine new-component support."
+}

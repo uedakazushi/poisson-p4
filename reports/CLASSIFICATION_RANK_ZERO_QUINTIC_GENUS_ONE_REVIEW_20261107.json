@@ -1,0 +1,78 @@
+{
+  "task_id": "G",
+  "date": "2026-11-07",
+  "producer": "generic_exhaustion",
+  "reviewer": "log_manuscript",
+  "review_verdict": "ACCEPTED: every degree5 rankzero surface branch with normalization sectionalgenus1 is contained in T40 or a full PGL projective image of dimension<=24.",
+  "all_reviewed_steps_passed": true,
+  "review_method": "Separate-author complete geometric proof audit and direct primary-source reading; no CAS, numerical specialization, finite-field computation, formal-jet extrapolation or assumed dual-target identification.",
+  "computational_proof_claimed": false,
+  "new_component_count": 0,
+  "scope": {
+    "actual_degeneracy_divisor": "irreducible reduced quintic of a rank4 Poisson tensor on complex P4",
+    "surface": "integral degree5 normalization-defect component, rankzero restriction",
+    "normalization_sectional_genus": 1,
+    "extra_smooth_normal_node_clean_vertical_hypotheses": []
+  },
+  "exact_input_sha256": {
+    "research/classification/RANK_ZERO_QUINTIC_SURFACE_GENUS_ONE_RECOGNITION.md": "5dbc8052d4245b72d45904a0f92d479ce4e0c26a577ca2391a1f662bce35b768",
+    "research/classification/IRREDUCIBLE_NONNORMAL_QUINTIC_ENTRANCE.md": "911ccd334b405058ba0f7aece9a20095d1365b94849f429a11d19c277ba795de",
+    "research/classification/RANK_ZERO_SEXTIC_CONDUCTOR_SEPARATE_REVIEW.md": "5db412f81bc05688524d85df09ec5c39ac2d9b5e3bec2c3f3a11e73ab6760748",
+    "research/classification/RANK_ZERO_HIGH_DEGREE_CONE_EXCLUSION.md": "d052e5458ee21d146cc6d2df3e5107913138ac74e5fc5dca6bb0708f67d2c2d8",
+    "research/classification/IRREDUCIBLE_NONNORMAL_DOUBLE_SURFACE_DEGREE_RESTRICTIONS.md": "ab00ee013bd8d90836491f756aeaea6148c234206c183c2bf55ef5792cec1b73"
+  },
+  "primary_sources_directly_read": [
+    {
+      "url": "https://seminariomatematico.polito.it/rendiconti/69-1/73.pdf",
+      "author": "Y.Fukuma",
+      "location": "Definition1 printed75; Proposition3(iii) and proof printed76",
+      "verified_scope": "Smooth quasi-polarized manifolds with g1, polarized birational equivalence through equal pullbacks. Terminal Gorenstein Qfactorial K+2H~0 or elliptic P2-scroll; applied to a smooth resolution, not directly to singular X."
+    },
+    {
+      "url": "https://arxiv.org/pdf/1003.2913v4",
+      "authors": "Greb-Kebekus-Kovacs-Peternell",
+      "location": "Theorem1.4 printed3",
+      "verified_scope": "Complex quasi-projective klt variety; regular differential forms on smooth locus extend regularly to log resolution. Used only after canonical/klt of ample model is proved."
+    },
+    {
+      "url": "https://math.berkeley.edu/~nadler/atiyah.classification.pdf",
+      "author": "M.F.Atiyah",
+      "location": "Theorem7 and coprime Corollary printed434; Theorem5 printed432 also read",
+      "verified_scope": "Coprime rank/degree indecomposable bundles are uniquely determined by determinant; final comparison uses stable rank3 degree5 on the same elliptic base. Rank2 degree0 selfextension result checks all q52 normalization fibers."
+    },
+    {
+      "url": "https://arxiv.org/html/2310.18759v2",
+      "authors": "Markarian-Polishchuk",
+      "location": "Section3.2 opening, Lemmas3.2.1/3.2.3/3.2.4, Corollary3.2.5; Lemma3.4.1(i) and proof",
+      "verified_scope": "Arbitrary elliptic curve and stable rank2 degree5 bundle, smooth embedded zero scroll, plane family and off-scroll isomorphism. Full finiteness is independently derived from all middle-bundle cases, not incorrectly quoted as a separate classification theorem."
+    }
+  ],
+  "manual_proof_checks": {
+    "length_and_sectional_genus": "deltaS1 and unique2D nonnormal support. General smooth curve avoids singular and exceptional images; smooth resolution has same sectionalgenus1.",
+    "common_resolution_complete_source": "Equal polarized pullbacks and normal pushforwardO imply equal section rings for all m; GG transfers to H; original normal X is ample model with morphism f and H=f*L.",
+    "canonical_crepant_klt": "Push K gives Cartier KX~-2L; exceptional numerically trivial KV-f*KX is0 by both-sign negativity. Terminal V implies canonical X and hence klt. KV vanishing and rational singularities yield H0Omega1Z0; GKKP applies at p1.",
+    "closed_inverse_residue": "Actual reduced Pfaffian gives inverse symplectic simple-pole form; Poincare residue is closed and equals contraction(piD,dualizing generator) up to nonzero constant. Canonical-conductor gives volume divisor -C.",
+    "all_delta1_types": "Node fullbranch bracket vanishes along reduced conductor. Cusp full base-base brackets have order>=2 and mixed brackets order>=1, without centrality of coefficient field; alpha has only simple pole at unique conductor prime.",
+    "single_cusp_residue": "Closedness eliminates tangential simple poles and makes residue constant; general compact L^2 curve meets prime conductor in total degree5, so residue theorem gives5lambda0; reflexive alpha contradicts GKKP vanishing.",
+    "elliptic_nef_GG_zero_summands": "Every quotient to O splits by global evaluation. Remaining GG F with H0F*0 is ample by the contracted-curve constant-functional argument. Nonzero trivial summands give cone complete-image and actual finite projection preserves vertex, including complete section dimension>5.",
+    "elliptic_full_source": "With ample E, X=P(E) smooth, cusp excluded by odd L coefficient in C. Entire normalized source H0Omega1X=C; h0E5 so target is complete, and ambient restriction is injective.",
+    "all_unstable_types": "Only E=A_degree2 directsum F_rank2_degree3_stable; every extension splits because F tensor A^-1 stable degree-1. EndE dimension3, actual bundle Aut modulo scalar dimension2. All parameters<=3, translation adds independent1 dimensional imagefiber, fullimage<=24.",
+    "q52_all_finite_fibers": "Over zero-scroll point, middle bundle O(p)+Wprime with EndWprime2. Degree2 subline cannot enter O(p); split Wprime has exactly2 choices and indecomposable selfextension exactly1. Proper map is quasifinite hence finite globally, smooth source is full normalization.",
+    "q52_complete_ample_normalization": "Finite pullback L0 is ampleGG; rank3E0 degree5 and h0E0=5. Image actualD0 is irreducible reduced quintic and SingredD0 is the smooth nondegenerate zero scroll.",
+    "E0_stable_by_actual_polarized_automorphisms": "An unstable E0 would give faithful actual Aut2 on D0. Polarized zero-scroll Aut has simple rank2 bundle kernel0 and only finite degree5 determinant-preserving base translations and finite origin automorphisms. Nondegenerate irreducible scroll makes restriction faithful; contradiction.",
+    "every_stable_E_to_T40": "Translation on degree5 determinant is surjective5-isogeny. Atiyah uniqueness for stable rank3 degree5 gives E=t_b*E0 after determinant alignment. Polarized isomorphism identifies complete5-section images by PGL, then normalized tensor uniqueness and ambient injectivity identify actual pi with T40."
+  },
+  "unstable_full_image_dimension_upper_bound": 24,
+  "stable_full_image": "known T40 closed component image",
+  "complements_retained": [
+    "rankzero plane",
+    "rankzero quadric cone",
+    "rank2 restrictions",
+    "remaining G and E obligations"
+  ],
+  "main_manuscript_modified": false,
+  "global_catalogue_or_git_modified": false,
+  "review_note": "research/classification/RANK_ZERO_QUINTIC_SURFACE_GENUS_ONE_SEPARATE_REVIEW.md",
+  "review_note_sha256": "f5cd2db8447ca6fd814b24d9659e755bc435dca8c51d52deef2bb9934a214028",
+  "contract_gate": "PASS exact input bindings only; mathematical proof independently audited manually, not certified by gate."
+}

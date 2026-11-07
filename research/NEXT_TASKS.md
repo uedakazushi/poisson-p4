@@ -7,7 +7,7 @@
 .venv/bin/python scripts/classification.py next
 ```
 
-**個別成分の下界102、一般rank四96、rank二6。上界・一般五点・全分類は未証明。**
+**個別成分の下界103、一般rank四97、rank二6。上界・一般五点・全分類は未証明。**
 ユーザーの11月7日の再開指示により実作業を継続する。保存や旧移行用一時停止を終了条件にしない。
 G、E_multiple_hyperplane、E_reduced_nonnormalを並行し、意味のある進展は主原稿・引継ぎへ統合して通常main pushで保存する。
 
@@ -32,7 +32,8 @@ degree三全二軌道はabelianconormal全源と完全dimension証明でG像≤2
 all-degenerate CI22も全九型・全二十源で空と独立確認し、全integral CI22のG像≤24が完了。全smooth非plane rank零もclean/node/vertical無しにT40又は像≤23へ還元した。
 全degree四rank零は全centre/extraclassを保持した証明でG像≤24、normaldegree六も全nef数値式とrelativeconicで空となった。degree五六の全coneも全Euler sourceのQ因子で空。
 D正規化のsectional genus零→minimaldegree全scrollと全導手を独立確認し、非normalも含む全degree六rank零を空とした。degree五のgenus零（残余plane付き）も全projection像≤24。
-次は非normalかつ非cone degree五の正規化genus一、plane/quadric cone、
+degree五genus一もcanonical排除・全elliptic bundleのT40/像≤24認識を受理し、quadric cone全源もOreと全一変数例外処理で像≤23。これで全rank零非plane枝がGから排除された。
+次はrank零plane、
 rank2planeでは零R可約/非被約を、他のrank2残枝を処理する。smooth非plane cleanは全横断型を処理済みで、vertical/特異Sを残す。degree3の全Jacobi二次rowspaceは実Dを含まないので、
 この最初の線形判定からrank四不存在を主張しない。旧五回未決GBやjet/minor列へ自動復帰しない。
 
@@ -46,8 +47,8 @@ rank2の全支持も六成分とrank4閉包へ接続済み。これらを欠陥�
 H+既約quarticは全半単純24源、純nil型1/2/3/4/5/8/10を完了した。
 型4の唯一六源はliteral P+eR+e²Tでregular semisimple型12へ移り全MPS。
 型5は新22成分とT40、Ga9型9のc=1全十源は新23成分へ被覆した。
-型7全七源は三新成分（二22と一23）、MPS及び既存既約五次23成分へ全被覆済み。Hquarticに残るのはnil22image型6とGa9 c0三源である。
-Ga9 distinct-c全源も実cubic曲線で新しい既約非正規quinticの23次元軌道成分へ被覆済み。残るGa9はc0の三源だけ。
+型7全七源は三新成分（二22と一23）、MPS及び既存既約五次23成分へ全被覆済み。Hquarticに残るのはnil22image型6とGa9 c0 linear-w一源である。
+Ga9 distinct-c全源も実cubic曲線で新しい既約非正規quinticの23次元軌道成分へ被覆済み。Ga9c0 power1/power3全源も新平面Hquartic24成分へ被覆済み。残るGa9はc0 linear-w一源だけ。
 
 重複Hではnil31long-top六源、nil22top八源、nil31image half/third全源は被覆済み。
 nil22imageの全十一源は独立606恒等式で有限化した。triple_A/Bは二つの新23成分、

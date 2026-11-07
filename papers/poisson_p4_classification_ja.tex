@@ -25,7 +25,7 @@
 \maketitle
 \begin{abstract}
 本稿は、複素射影四空間上のPoisson構造の被約既約成分を尽くし、各成分の一般元の幾何を記述するための研究原稿である。
-分類主定理の証明は完成していない。S61の一次座標と一般切片の対応を確認し、既知三平面に沿う多項式左逆から未知残余を分離する。その空性は忠実な法線チャートの単位証明へ帰着できるが未証明である。階数2の全支持を六族と階数4の閉包で覆い、従前58成分の依存監査に加え、二重二次曲面・冪零モジュラー場・平面曲線等の全源と既約非正規五次の明示軌道から四十四の相異なる成分を証明して下界102を得る。二重の既約二次曲面、相異なる五超平面、相異なる三超平面と既約二次曲面、既約二次曲面と既約三次曲面、およびモジュラー場の複数の全分岐を被覆する。各新成分は全周囲方程式で検証し、全支持の尽くしとは区別する。被約可約な全分割の一般底排除を閉じ、Gの残余を既約非正規五次に限定する。
+分類主定理の証明は完成していない。S61の一次座標と一般切片の対応を確認し、既知三平面に沿う多項式左逆から未知残余を分離する。その空性は忠実な法線チャートの単位証明へ帰着できるが未証明である。階数2の全支持を六族と階数4の閉包で覆い、従前58成分の依存監査に加え、二重二次曲面・冪零モジュラー場・平面曲線等の全源と既約非正規五次の明示軌道から四十五の相異なる成分を証明して下界103を得る。二重の既約二次曲面、相異なる五超平面、相異なる三超平面と既約二次曲面、既約二次曲面と既約三次曲面、およびモジュラー場の複数の全分岐を被覆する。各新成分は全周囲方程式で検証し、全支持の尽くしとは区別する。被約可約な全分割の一般底排除を閉じ、Gの残余を既約非正規五次に限定する。
 既存リポジトリの全証明書を再実行したとは主張せず、原証明の読解と今回の独立検算を区別する。
 詳細なnilpotent構造や派生論文の完成を、主分類定理の前提条件に追加しない。
 \end{abstract}
@@ -47,7 +47,7 @@
 を証明する。各族が全空間の既約成分であること、相互に異なること、次元、一般階数、一般元の構成および退化因子の幾何を記述する。
 \end{target}
 
-\(N\)は未決定である。2026年11月7日に確認したリポジトリの台帳は、全成分数の下界102、一般階数4の成分数の下界96を記録している。
+\(N\)は未決定である。2026年11月7日に確認したリポジトリの台帳は、全成分数の下界103、一般階数4の成分数の下界97を記録している。
 既存証明書を入力とする成分性・相違の依存監査を行い、以下で主分類に接続する。
 全証明書を今回再実行したという意味ではない。
 この下界を答えとして固定して未知成分を排除するのではない。
@@ -579,7 +579,7 @@ B18の精密なnil指数、\(H^0\)、\(T_2\)全長、追加の接触・Betti不�
 
 \section{既知成分の下界を支える支持の証明}
 MPSの定理\cite[Theorem 1.4]{mps}はSNC locusと交わる40成分を与える。
-従前の追加十一族、positive-weight型NEW25、および今回の四十四の追加成分の射影次元は次の通りである。
+従前の追加十一族、positive-weight型NEW25、および今回の四十五の追加成分の射影次元は次の通りである。
 \begin{center}
 \begin{tabular}{lr}
 \toprule
@@ -609,10 +609,11 @@ Jordan$(3,1)$の長translation・既約四次全源&22\\
 Ga9の非零定数c・既約四次全十源&23\\
 Ga9の二根型を境界に含む既約非正規五次の軌道閉包&23\\
 Jordan22長translation・三次と二次の横断障害の二成分&22,22\\
-同じ長translation源を境界に含む既約非正規五次成分&23\\\bottomrule
+同じ長translation源を境界に含む既約非正規五次成分&23\\
+Ga9の二つの零定数源を含む平面cuspidal quartic成分&24\\\bottomrule
 \end{tabular}
 \end{center}
-一般rank四は$40+11+1+44=96$成分で、前述の六rank2成分と合わせて下界は$96+6=102$となる。
+一般rank四は$40+11+1+45=97$成分で、前述の六rank2成分と合わせて下界は$97+6=103$となる。
 以下の議論はこの下界を支えるもので、全支持の上界を与えない。
 
 \subsection{精密な横断環を要しない成分性}
@@ -5501,7 +5502,7 @@ $(-512,-512,128,128,768)$、既存99は$(-50,-25,0,25,50)$となる。
 \path{CLASSIFICATION_NIL22_LONG_CURVES_REVIEW_20261107.json}で独立再構成した。
 三MPS曲線のC* parameter weightは第一一、第二・第七二、第五・第六は一であり、全非零tは一軌道である。
 新23成分名は\texttt{R4\_NIL22\_LONG\_IRREDUCIBLE\_QUINTIC\_23}。
-七源の全E帰属は閉じたが、型6、Ga9のc零三源、他の特殊底と主分類の尽くしは未解決である。
+七源の全E帰属は閉じた。型6、後述のGa9のc零linear-w源、他の特殊底と主分類の尽くしは未解決である。
 
 \subsection{Jordan22・零translationのcotangent型と平面quartic}
 \begin{proposition}\label{prop:quartic-nil22-cotangent-bound}
@@ -5590,7 +5591,8 @@ Saito判定、低delta型、Tjurina消滅、pairと固定Dの次元論は
 \begin{proposition}\label{prop:quartic-Ga9-bound}
 型9の$Z=y\partial_x+\partial_z$で単純Hと既約quarticを持つ全支持は、
 五つの既約源の飽和閉包で覆われ、全像は射影次元23以下である。
-後の二命題で非零定数c源と相異二根源を認識し、c零の三源の周囲成分帰属は別に残す。
+後の三命題で非零定数c源、相異二根源、c零のpower1/power3源を認識し、
+c零linear-w源の周囲成分帰属は別に残す。
 \end{proposition}
 \begin{proof}
 全110線形条件のrank62から得る28係数源を用いる。
@@ -5832,7 +5834,8 @@ A0/DPMの型を名前から仮定したのではない。
 凍結97projectionはmetadataの旧headを変更せず、公開済み97 commitのimmutable catalogue blobへ
 全ID・全fieldを照合した。旧各成分の成分性はその採用済み証拠に依存する。
 新成分名は\texttt{R4\_GA9\_CONSTANT\_HYPERPLANE\_QUARTIC\_23}。
-これでGa9のc非零定数源のE帰属を閉じる。相異二根源は次命題で扱い、c零の三源は別に残す。
+これでGa9のc非零定数源のE帰属を閉じる。相異二根源とc零power1/power3源は後の命題で扱い、
+linear-w源は別に残す。
 
 \subsection{Ga9の二根型を境界に持つ既約非正規五次の23次元成分}
 \begin{proposition}\label{prop:Ga9-distinct-quintic-component}
@@ -5961,7 +5964,160 @@ producer・CASをimportせず独立Fraction算術から再構成した。
 幾何的な全源上界と成分閉包への橋は\path{GA9_DISTINCT_QUINTIC_COMPONENT.md}及び
 \path{GA9_DISTINCT_QUINTIC_COMPONENT_REVIEW.md}に置く。
 新成分名は\texttt{R4\_GA9\_DISTINCT\_IRREDUCIBLE\_QUINTIC\_23}。
-Ga9では非零定数cと二根型の全E帰属を閉じ、c零の三源は未解決のまま残る。
+Ga9では非零定数cと二根型の全E帰属を閉じた。次にc零の二源を同じ新24成分へ入れる。
+
+\subsection{Ga9の二つの零定数源を含む平面quarticの24次元成分}
+\begin{proposition}\label{prop:Ga9-cuspidal-quartic-component}
+次の全七parameter実Poisson族のPGL飽和閉包Yは、従前102成分と相異なる24次元全Poisson成分である。
+Ga9のc零power1/power3の全十一parameter源とその零磁気境界はYに含まれる。
+一般PGL軌道は23次元、商の次元は一である。
+generic smoothness、局所成分の一意性又は全型6被覆は主張しない。
+\end{proposition}
+\begin{proof}
+baseを$(h,y,w)$、fiberを$(x,z)$として
+\[
+ F_1(a)=(3hw+2y^2)^2-16y(h+ay)^3,\qquad
+ F_3(a)=(hw+6y^2)^2-144y^3(h+ay)
+\]
+と置く。以下では$D_i=hF_i$である。
+全十八quadratic gradient-syzygy係数に$\theta(D_i)=0$を課す行列は、
+行数22、20、rank16で、kernelは正確に二次元である。
+Euler部分を引き、a零でGa9 anchorへ合う定数GL2変更を取ると、$U h=V h=0$の二本を得る。
+第三族では$d=18a-7$として、全係数を次の短い式で書ける。
+\[
+ \begin{aligned}
+ U_y&=hw+4awy-18y^2,&U_w&=8aw^2-48wy+216y^2,\\
+ V_y&=\frac6d(4a^2wy+ahw+10ay^2+28hy),\\
+ V_w&=\frac{12}d(4a^2w^2+4awy+108ay^2+21hw-42y^2).
+ \end{aligned}
+\]
+$[U,V]=\alpha U+\beta V$の係数は
+\[
+ \alpha=-\frac{12(-2a^2w+6ay+7h)}d,\qquad \beta=4(-aw+3y).
+\]
+第一族も$d_1=2a^3-3$として、順序$(\partial_y,\partial_w)$で
+\[
+\begin{aligned}
+ U_y&=-\frac3{5d_1}(40a^3y^2+40a^2hy+60awy+45hw-10y^2),\\
+ U_w&=-\frac{12}{5d_1}(20a^3wy+5a^2hw+20ahy+30aw^2+10h^2-20wy),\\
+ V_y&=\frac2{d_1}(12a^2wy+9ahw+10ay^2+12hy),\\
+ V_w&=\frac4{d_1}(4a^3y^2+8a^2hy+12a^2w^2+4ah^2+4awy+3hw-6y^2),\\
+ \alpha&=-\frac{12(-2a^2w+2ay-h)}{d_1},\qquad
+ \beta=-\frac{12(-a^2h-3aw+3y)}{d_1}.
+\end{aligned}
+\]
+直接計算すると$\det(U,V)/F_i$は順に$12/d_1,252/d$である。
+従って$\det(E,U,V)$はunit倍の$hF_i$で、Saito criterionにより全logarithmic basisとなる。
+Tjurina数だけからfreenessを推測したのではない。
+
+任意の六磁気係数を残した
+\[
+ R=r_0h^2+r_1hy+r_2hw+r_3y^2+r_4yw+r_5w^2,
+ \quad
+ P_i=\partial_x\wedge U+\partial_z\wedge V+
+       (\alpha x+\beta z+R)\partial_x\wedge\partial_z
+\]
+は全十strict Jacobiを恒等的に満たす。従って全350射影式も零である。
+両源はa零でregularで、$r_5=8,72$、他のr零でGa9 power1/power3 canonical点と全150係数で一致する。
+その点でrを任意に戻しても差は任意の二次磁気項そのもので、零磁気も含む。
+
+a非零では
+\[
+ H=h,\qquad Y=-\frac{h+ay}{a^3},\qquad
+ W=\frac{9w}{a^4}-\frac{12y}{a^5}-\frac{6h}{a^6}
+\]
+がdeterminant$-9/a^6$のbase変更で、
+$F_3(a^3)(H,Y,W)=9F_1(a)/a^8$を与える。
+二anchorの定数2行列Tを全quadratic係数から求め、fiberを$T^{-T}$で変更すると、
+全150Poisson係数も一致する。六磁気の可逆線形移送のdeterminantは
+\[
+ \frac{117649a^{12}(2a^3-3)^6}{9(18a^3-7)^6}\ne0.
+\]
+generic transferで両源の閉包は同じとなり、両者自身のregularなa零へ閉性で延長する。
+a零をtransferの式で割っていない。
+各Ga9全十一源の飽和上界23とcanonical実軌道23から、全源の閉包はその軌道閉包である。
+PGL不変なYへのcanonical帰属を使えば全源が入り、零磁気を非零磁気と同じ軌道だとする必要はない。
+Saito分母$d_1,d$、primitive unit$1-4a^3,1-4a$、transferのaと$18a^3-7$は各chartの局所化である。
+除外parameterを型6全支持から捨てた証明ではない。
+
+w二次式のdiscriminantは
+\[
+ \operatorname{disc}_wF_1=576h^2y(h+ay)^3,\qquad
+ \operatorname{disc}_wF_3=576h^2y^3(h+ay).
+\]
+上のprimitive unit非零なら係数gcdは一であり、discriminantは$\mathbb C(h,y)$で平方でない。
+a零でも奇数冪因子$h^5y,h^3y^3$が残り、Gauss補題からquarticは絶対既約である。
+第三族は$Q=s_0^2-as_1^2$を使う
+\[
+ [h:y:w]=[Q^2:Qs_1^2:12s_0s_1^3-6s_1^4]
+\]
+というbirational正規化を持つ。
+a非零かつ$1-4a\ne0$で、$s_0/s_1=\pm\sqrt a$は同じ$(0:0:1)$へ写るsmooth二枝となり、
+共通接線h零での$h/y^2$の値$\pm12\sqrt a-6$が異なるためA3 tacnodeである。
+$s_1=0$はorder2,3のA2 cusp、delta$2+1=3$はquarticの算術種数を使い切る。
+Hはtacnodeの両枝に二重ずつ接し、全交点重複度は四である。
+
+成分性には$a=1$、$r=(1,2,3,5,7,11)$での整数十一倍代表を使う。
+全150係数上のJacobi微分D、Euler鉛直・GL5・scalarのM、
+さらに全七source微分を加えたAについて
+\[
+ \rank D=100,\quad\rank M=48,\quad\rank A=49,\quad DA=0.
+\]
+従って実源の飽和閉包は射影次元24以上である。
+全D核は50次元。Aの独立49列をFとし、非零49minorのcoordinate行にlinear cutを課すと、
+cut内のD核はprimitiveな一方向Rだけとなる。
+公開150係数順の零始まりcut行は
+\[
+\begin{gathered}
+ \{0,\ldots,10,14,\ldots,19,24,30,\ldots,34,45,\ldots,49,60,\ldots,64,\\
+ 66,68,69,71,74,\ldots,79,81,83,84,86,89,99\}
+\end{gathered}
+\]
+であり、Rはこの全cutを零にするD核のprimitive整数generatorで指定される。
+独立100coordinate方向Uを取り、$U'=U-F(F_{\rm cut})^{-1}U_{\rm cut}$とすれば
+\[
+ F_{49}\oplus\mathbb CR\oplus U'_{100}=\mathbb C^{150},\qquad DU'=DU
+\]
+であり、真の101次元切片を得る。
+全二次Jacobi$\mathcal J(R)$は全$\operatorname{im}D$の外で、
+$[D\mid\mathcal J(R)]$の101minorは非零である。
+保存整数minorの32003での剰余はD100で9029、追加101で22734となり、
+標数零のこの非零性を個別に検算出来る。
+選択100式を形式陰関数で解くと残りは一変数tで、非零余核classにより少なくとも一式は$t^2$とunitの積となる。
+従って切片の被約支持は原点であり、追加の三次又は完全IFTは要らない。
+49linear cutのKrull不等式から全raw局所次元は49以下、射影次元は24以下。
+Yは既約な七源とconnected PGLの像閉包なので既約で、上下界から24次元である。
+Yを含む全空間成分はこの点を通り同じ上界24を持つため、その成分はY自身となる。
+source方向は群方向だけでないので、この論理は局所唯一性又はscheme smoothnessを含まない。
+
+全源の発散Zはbaseからfiberへのlinear blockだけを持つので、$N^2=0$は構造的恒等式である。
+rank N二と$h\notin\operatorname{im}N^*$だけがanchorからの開条件であり、nilpotence自体を開条件とは呼ばない。
+一般Zは非零でprojective scalar場ではない。strict PoissonのBV恒等式$[\operatorname{div}P,P]=0$から、
+これはactual stabilizerの少なくとも一次元を与え、一般orbitは23以下となる。
+M48は23以上の開条件だから一般orbitは正確に23、Rosenlicht商の次元は一である。
+aが商のbirational座標だとは主張しない。
+
+最後にprior102全件と区別する。比較はcommit
+\path{3fdd4295f818338f23079fa6201bfae6f291e390}の102行に固定した。
+異rank又は異次元を除くと、同rank24はMPS八件と既存三件だけである。
+Y全体のactual Dは三base変数だけに依存するので、方向微分
+$\mathbb C^5\to\operatorname{Sym}^4(\mathbb C^5)^*$のrank三以下という閉条件を満たす。
+他方T02,T03,T16,T17,T21,T36,T37,T38の実sourceで全edgeを零にし、全periodを残すと
+\[
+ D=\kappa(p)x_0x_1x_2x_3x_4,\qquad\kappa(p)\ne0.
+\]
+五つのmissing-coordinate単項式を行に選んだ方向微分minorは$\kappa^5\ne0$である。
+各named MPS成分がこの実SNC点を含むという既済のsource識別から、閉rank三locusのYとは異なる。
+残る三24成分は全体がそれぞれ閉$1+2+2$、非被約五次、$1+1+1+2$ locusに入り、
+今回の単純Hと絶対既約quarticを含まない。
+従って全102と相異なる。
+\end{proof}
+成分名は\path{R4_GA9_CUSPIDAL_PLANE_QUARTIC_24}。
+全源・実移送・全150切片・二次余核・prior102の独立Fraction再構成は
+\path{GA9_CUSPIDAL_QUARTIC_SEPARATE_REVIEW.md}及び
+\path{CLASSIFICATION_GA9_CUSPIDAL_QUARTIC_REVIEW_20261107.json}に置く。
+一般fullschemeの滑らかさと精密な横断代数は未決定のまま、必要な被約成分性だけを使った。
+Ga9のc零でE帰属が残るのはlinear-w一源であり、型6の全支持も別に残る。
 
 \begin{proposition}\label{prop:hyperplane-quartic-all-G}
 単純超平面と既約quarticの全支持は、未知G優越成分の一般支持にはならない。
@@ -5977,7 +6133,8 @@ Ga9では非零定数cと二根型の全E帰属を閉じ、c零の三源は未�
 型4は命題\ref{prop:nil31-short-quartic-MPS}で全MPS、型5は命題\ref{prop:nil31-long-quartic-component}、
 型7は命題\ref{prop:nil22-long-quartic-seven}--\ref{prop:nil22-long-five-curves}で全E帰属を閉じた。
 quartic純冪零型でE帰属が残るのは型6のJordan22零、型9のJordan211短topという二型である。
-Ga9の非零定数c枝と相異二根枝は前二命題で閉じ、c零の三源は残る。G次元排除をその全成分認識と同一視しない。
+Ga9の非零定数c枝、相異二根枝、c零power1/power3枝は前の三命題で閉じ、
+c零linear-w一源は残る。G次元排除をその全成分認識と同一視しない。
 
 \section{超平面と相異なる二既約二次因子}
 実退化式$D=hq_1q_2$で、$q_1,q_2$は相異なる既約二次式とする。
@@ -7374,7 +7531,7 @@ S既約・被約なのでS全体で零となる。
 log-skew inverseの全恒等式、RR不等式とHilbert numeratorを確認する。
 導手gluing、abelian化、étale商、quadric排除と分解は上の幾何的証明であり、算術PASSから自動的に従ったとはしない。
 generic楕円parameterでのMacaulay2計算を特殊parameterへ外挿することも用いていない。
-下界102・一般rank四96は維持し、全分類は未完成である。
+下界103・一般rank四97は維持し、全分類は未完成である。
 
 \subsection{smooth rank零曲面のclean ordinary-double枝}
 \begin{proposition}\label{prop:clean-rank-zero-T40}
@@ -7893,6 +8050,250 @@ bundle automorphism modulo scalarとbase PGL2を合わせた実部分群の次�
 CAS、有限標本又はformal jetからの外挿ではない。
 次数五Sではlength式からgは零又は一であり、ここで閉じたのは前者の全分岐だけである。
 
+\subsection{次数五零曲面と正規化sectional genus一の全認識}
+\begin{proposition}\label{prop:quintic-rankzero-genusone-G}
+実Dが既約被約quinticで、次数五integral非正規曲面成分S上でrank四Poisson tensorが零となるとする。
+Dの正規化$(X,L)$のsectional genusが一なら、全構造はT40又は全PGL射影像24以下の族に含まれる。
+X、S又は導手のsmoothness、node、clean、vertical divisor不存在は仮定しない。
+\end{proposition}
+\begin{proof}
+length式から$\delta_S=1$で、二次元非正規支持はSだけである。
+前のBertini二切断をresolution$\rho:Y\to X$でも取れば、一般曲線はexceptional imageを避けるので
+$(Y,\rho^*L)$もsectional genus一のsmooth quasi-polarized threefoldである。
+Fukuma\cite[Definition 1, p.75; Proposition 3(iii), p.76]{fukumag1}により、
+polarizationを保つbirational model$(V,H)$は、次の二型に尽くされる。
+\[
+ \begin{array}{ll}
+ \text{(i)}&V\text{ は normal Gorenstein・Q-factorial・terminal},\ K_V+2H\sim0,\\
+ \text{(ii)}&V\text{ は smooth elliptic curve 上の }\mathbb P^2\text{-bundle},\ H|_{\mathbb P^2}=O(1).
+ \end{array}
+\]
+同定理はsingular Xへ直接適用したものではない。
+共通resolution上でpolarizationの引戻しが等しく、normalなXとVへの$\mathcal O$の押し出しは$\mathcal O$なので、
+全mについてsection ringが等しい。
+元のLのglobal generationもHへ移る。任意のv上の点で共通引戻しの非零sectionを取れば、
+対応するH-sectionもvで非零だからである。
+従って元のXはこのringのample modelで、$f:V\to X,H=f^*L$を得る。
+
+型(i)を全て除く。pushforwardから$K_X\sim-2L$はCartierである。
+compatible canonical divisorを選ぶと$K_V-f^*K_X$はexceptionalかつnumerically trivialなので、
+negativity lemmaの両符号により零となる。
+従ってfはcrepant、terminal VからXはcanonical、特にkltである。
+$-K_V=2H$はnef bigなのでKawamata--Viehwegから$H^1(O_V)=0$。
+terminal singularityのrationalityによりsmooth common resolution Zでも$H^1(O_Z)=0$、
+従って$H^0(\Omega_Z^1)=0$である。
+ここでGKKP\cite[Theorem 1.4, p.3]{gkkp}のklt一形式延長を適用し、
+\[
+ H^0(X,\Omega_X^{[1]})=H^0(Z,\Omega_Z^1)=0
+\]
+を得る。terminal-onlyな個別Fano分類をcanonical Xへ拡大していない。
+
+逆symplectic二形式$\sigma=\pi^{-1}$はreduced Dにsimple poleを持ち、$d\sigma=0$である。
+Dのsmooth locusでのclosed residueを$\alpha_D$とすると、inverse-Pfaffian恒等式は
+$\alpha_D=c\,i_{\pi_D}\Omega_D$、$c\ne0$を与える。
+dualizing generator$\Omega_D$のrational pullbackのdivisorは$-C_X$である。
+nodeなら補題\ref{lem:generic-node-poisson-lift}で$\pi_X$がreduced Cに沿って零となり、
+$\alpha$はdivisorial poleを持たない。
+cuspなら$C_X=2\Gamma$で、完成環$K[[t^2,t^3]]\subset K[[t]]$において
+rank零からbase同士のbracketは$(t^2,t^3)$、mixed bracketは
+$\{a,t\}=\{a,t^2\}/(2t)\in tK[[t]]$に入る。
+従って$\pi_X$は少なくとも一次零で、$\alpha$のpoleは唯一の$\Gamma$に高々一位である。
+closednessはtangential poleを排除し、$\alpha=\lambda\,dt/t+\text{regular}$、$\lambda$ constantとなる。
+一般の二$|L|$切断曲線はSingXとcodimension二bad locusを避け、$\Gamma L^2=5$。
+compact curve上のresidue theoremから$5\lambda=0$なので$\lambda=0$である。
+よってcuspでも$\alpha\in H^0(\Omega_X^{[1]})$。
+一方actual reduced Dの一般点で$\pi_D$は非零rank二だから$\alpha\ne0$となり、上の消滅に矛盾する。
+係数体のderivationを零とは仮定せず、singular Sの形式を無条件でresolutionへ延長していない。
+
+型(ii)をquotient conventionで$V=\mathbb P_B(E),H=O(1)$と書く。
+Eはrank三、degree五、globally generatedである。
+非零$E\to O_B$のimage$O_B(-Z)$はglobally generatedなのでZ零。
+評価写像$O_B^N\to O_B$の係数はconstantで一つのsectionが1へ写るため、このquotientはsplitする。
+繰り返し$E=O_B^r\oplus F$、$H^0(F^*)=0$を得る。
+Fはampleである。もしtautological morphismがcurve Tをcontractすれば、
+その正規化はBをsurjectし、引戻しFのglobally generated degree零quotientは$O_T$となる。
+全global sectionからのconstant functionalはT上のevaluation kernelを消し、
+surjectivityからBの全kernelも消すので$F\to O_B$を作って矛盾する。
+従ってそのmorphismはfiniteである。
+r正ならcomplete degree一imageは$O^r$方向をvertexとするconeであり、
+元の五sectionへのfinite projectionは中心がcomplete imageを避けるためvertexを保つ。
+唯一の次数五非正規成分Sもconeとなって全源排除に反する。
+complete section数が五を超える零summandの枝もこれで保持した。
+従ってr零、Hはample、fはfinite birationalなので$X=V$である。
+
+smooth elliptic scrollで$C_X=3L-p^*\det E$のL係数は奇数なのでcuspは不可能。
+nodeの全branch計算とHartogsから
+\[
+ \pi_X\in H^0(\Lambda^2T_X(-C_X))=H^0(\Omega_X^1)=\mathbb C.
+\]
+ample Eのdualにはsectionが無いので$h^1(E)=0$、$h^0(E)=5$であり、元の射はcomplete五sectionである。
+ambient restrictionも$H^0(\Lambda^2T_{\mathbb P^4}(-5))=0$からinjective。
+各polarized Eについてprojective tensor choiceは高々一つとなる。
+
+全unstable Eを分類する。ample/GGなrank r quotient Qは$h^0(Q)=\deg Q\ge r+1$である。
+section数rなら評価$O_B^r\to Q$が同型となりample性に反するからである。
+rank二destabilizerのdegree四以上はdegree一以下のline quotientを作るため不可能。
+rank一destabilizerはdegree二だけが残り、quotientはstable rank二degree三のFとなる。
+Fがunstableでもdegree一以下のline quotientを作るためである。
+$F\otimes A_2^{-1}$はstable degree$-1$なので
+\[
+ \operatorname{Ext}^1(F,A_2)=H^0(F\otimes A_2^{-1})^*=0,\qquad
+ E=A_2\oplus F_{2,3}.
+\]
+$h^0(\operatorname{End}E)=1+1+1=3$だからactual bundle automorphism modulo scalarは二次元。
+B、$A_2\in\operatorname{Pic}^2B$、stable Fのmoduliは各々一次元以下で全三以下。
+base translationはdegree五determinantを一次元で動かし、そのstabilizerはfiniteである。
+target frame24を戻すと、bundle automorphism二方向とtranslation一方向が実fiberを与え、
+全像は$24+3-2-1=24$以下となる。
+frame付きfinite birational mapを固定するautomorphismはdense openでidentityなので全体でidentity。
+tensor stabilizerを零とした次元計算ではない。
+
+最後に全stable Eを既知T40へ同定する。任意のelliptic $B_0$とstable rank二degree五bundle Wに対し、
+MP\cite[\S3.2, Lemmas 3.2.1,3.2.3,3.2.4]{mpq52}の$q_{5,2}$はsmooth embedded zero scroll
+$S_0=\mathbb P(W^\vee)$を持ち、そのquintic $D_0$は$\operatorname{Pic}^2(B_0)$に沿うplaneの和である。
+構成されたsmooth P2 bundle$X_0\to D_0$は$S_0$外で同型。
+$S_0$上の全fiberはmiddle bundle$O(p)\oplus W'$のdegree二sublineの選択である。
+$W'$はrank二degree四semistableで$\dim\operatorname{End}W'=2$。
+degree二から$O(p)$へのHomは零であり、$W'=L_1\oplus L_2$、$L_1\not\simeq L_2$なら選択は二つ、
+非分解自己extensionなら一つだけである。
+後者の型も同論文Lemma 3.4.1の証明とAtiyahのdegree零分類から確認出来る。
+従って全fiberはfinite、proper性から全射はfiniteであり、smooth $X_0$は全$D_0$の正規化となる。
+その$L_0$はfinite pullbackでample/GGであり、rank三degree五bundle $E_0$について
+$X_0=\mathbb P(E_0),L_0=O(1),h^0(E_0)=5$となる。
+特殊自己extensionの一点fiberを一般の二点fiberと取り違えず、targetもここでcompleteと確定した。
+
+$E_0$はstableである。もしunstableなら上の完全分類からactual polarized automorphism二次元があり、
+complete finite birational mapを通じて$\operatorname{Aut}_{\rm PGL_5}(D_0)$へfaithfulに写る。
+しかし$\operatorname{Sing}(D_0)_{\rm red}=S_0$であり、polarized $S_0$のautomorphismは零次元である。
+そのAlbanese ruling上のkernelはstable Wの$\operatorname{Aut}(W)/\mathbb C^*=0$、
+base translationはdegree五$\det W$を保存するfinite群、origin-preserving automorphismもfiniteだからである。
+$S_0$はirreducibleかつ非退化なので、そこでidentityなambient projective変換もidentity。
+従って$\operatorname{Aut}_{\rm PGL_5}(D_0)$も零次元で矛盾する。
+rank三degree五にstrictly semistableな第三の場合は無い。
+
+$\operatorname{Pic}^2(B_0)$を任意のBと同定し、degree五determinantへのtranslationの
+surjectiveな五倍isogenyで$\det(t_b^*E_0)=\det E$とする。
+Atiyah\cite[Theorem 7及びCorollary, p.434]{atiyahelliptic}のcoprime determinant一意性を
+二つのstable rank三degree五bundleへ適用すると$E\simeq t_b^*E_0$。
+polarized normalizationが同型なのでcomplete五sectionのimageも実PGL同値である。
+一意なprojective $\pi_X$とambient restriction injectivityからtensor自身もT40となる。
+rank二Wとrank三Eを同一視したり、dual-spanだけから二targetの一致を仮定したりしていない。
+\end{proof}
+外部定理の全射程、canonical residue、全elliptic源、全finite normalizationとdeterminantの橋は
+\path{RANK_ZERO_QUINTIC_SURFACE_GENUS_ONE_RECOGNITION.md}と別作者の
+\path{RANK_ZERO_QUINTIC_SURFACE_GENUS_ONE_SEPARATE_REVIEW.md}で確認した。
+\path{CLASSIFICATION_RANK_ZERO_QUINTIC_GENUS_ONE_REVIEW_20261107.json}は幾何の独立読解を記録し、
+CASによる全分類証明だとはしていない。
+
+\subsection{quadric coneの全rank零源とPoisson--Ore上界}
+\begin{proposition}\label{prop:quadric-cone-rankzero-G}
+quadric cone上で零となり、actual Dが既約被約quinticとなる全rank四Poisson構造の
+PGL飽和射影像は23次元以下である。node、clean又はvertical不存在を仮定しない。
+rank四不存在又は全E成分帰属は主張しない。
+\end{proposition}
+\begin{proof}
+座標を$(u_0,u_1,u_2,z,w)$、$q=u_0u_2-u_1^2$、$S=(w=q=0)$とする。
+Koszul/Eulerと$\Lambda^2T(-3)$のacyclic性から全源は
+$\Pi=wL+qA$、L全五十linear係数、A全十constant skew係数となる。
+raw源rank60とEuler鉛直24の合併rank79から、projective源は55次元、冗長性はL内のEuler五方向である。
+命題\ref{prop:nonplane-double-first-jet}のabelian conormalとprime CI squareのprimary性から
+$\{w,q\}\in(w,q)^2$を全係数へ課す。
+三十五三次単項式とmembership六係数の35行66列行列はrank17、完全kernel49であり、
+全raw源の十一線形条件、Aの像七次元を得る。Aへの条件は$A^{w,u_i}=0$だけである。
+
+$\lambda=A^{w,z}$、$b_i=A^{u_i,z}$、base skewをCとすると
+\[
+ D|_{w=0}=-\lambda q^2(C_{12}u_0-C_{02}u_1+C_{01}u_2).
+\]
+従って$\lambda=0$又はC零の全枝はH因子を持ち、既約Dでのみ除外する。
+残りはnormal shear$u_i'=u_i-b_iw/\lambda$でbを消す。qの変化はw linear倍で全Lへ吸収される。
+vertex scaleで$\lambda=1$とし、dual norm$\Delta=4C_{01}C_{12}-C_{02}^2$を用いる。
+SO3の直交basis又はWitt basisとtensor scaleから、全Aは
+\[
+ A_s=\partial_w\wedge\partial_z+\partial_0\wedge\partial_2,
+ \qquad A_n=\partial_w\wedge\partial_z+\partial_0\wedge\partial_1
+\]
+の二軌道となる。これは$\Delta\ne0$と$\Delta=0,C\ne0$の全coverで、Gram pivotの零補集合を捨てていない。
+元のA strataのaffine次元は七、六である。
+
+固定した各Aについて、全mod-w Jacobiとconormalの全L系はrank20、affine kernel30。
+Euler五方向を除いた完全二十五源は、$X=C\,dq$、$u=(u_0,u_1,u_2)$を使って
+\[
+\begin{aligned}
+ L_{\rm base}&=wD_0,&L^{w,\rm base}&=-X+wa,\\
+ L^{w,z}&=b\cdot u+cz,&L^{z,\rm base}&=Mu+zd+we
+\end{aligned}
+\]
+と書ける。$D_0$はconstant skew三係数、$a,b,d,e$は各三、Mは九、cは一である。
+この25方向とEuler5方向は旧全30kernelを張り、30行50列のexplicit recoveryがleft inverseとなる。
+particularの差も回収出来るので、選んだ部分源ではない。
+w一chartの正確なEuler補正は
+\[
+\begin{gathered}
+ P=B+(Y+zT)\wedge\partial_z,\qquad
+ B=qC+u\wedge X+D_0-u\wedge a,\\
+ T=t-cu-X,\quad t=a-d,\qquad
+ Y=-uq-u(b\cdot u)-Mu-e.
+\end{gathered}
+\]
+全350projective Jacobiとaffine Jacobi、さらに
+\[
+ \operatorname{Jac}(B)=0,\qquad\mathcal L_TB=0,\qquad\mathcal L_YB=Y\wedge T
+\]
+の全係数同値を二十五未定元のまま確認する。
+chartはdenseなので、元のglobal多項式式との同値にw零の追加点を捨てる操作は無い。
+
+最初の条件はDとaの六係数にrank三の線形式を与え、正確に
+$a\in\operatorname{im}C,D_0=\delta C$となる。戻した全Jacobiは零である。
+次の条件を全て解くと、s型では$a=(p_0,0,p_1)$として
+\[
+ t=((c+1)p_0,0,(1-c)p_1),\qquad c(\delta-p_0p_1)=0.
+\]
+n型では$a=(p_0,p_1,0)$として
+\[
+\begin{gathered}
+ t_1=p_1-cp_0/2,\quad t_2=0,\quad t_0\text{ は自由},\quad cp_1=0,\\
+ -4c\delta+cp_0^2-2p_0p_1+2p_1t_0=0.
+\end{gathered}
+\]
+従って全(B,T)支持は三次元以下で、固定非零cでは二以下。
+s型のc零は$p_0,p_1,\delta$全自由、n型のc零は$p_1(t_0-p_0)=0$の両閉枝と$\delta$自由を残す。
+非零cのn型は$p_1=0,\delta=p_0^2/4$である。
+定数pivotと全残式のliteral代入による両方向の解で、零baseやc零を反転していない。
+
+最後の式はYの十五未知係数b三、M九、e三についてaffine-linearである。
+空間次数三、二、一の順に解けば、各diagonal blockはquadratic Bとlinear Tだけに依存し、
+低次base値や前段の解は右辺しか変えない。
+従って三nullityの和が、全base値でのY fiber上界となる。
+非零minorは次の通りである。
+\[
+\begin{array}{c|c|c|c}
+ &b\ (30\times3)&M\ (18\times9)&e\ (9\times3)\\ \hline
+ s\text{ 型 generic rank}&2&8&3\\
+ \text{minor}&-1&(c-2)(c-1)^2(c+1)^3(c+2)^2&(c-1)(c+2)^2\\
+ n\text{ 型 generic rank}&2&8&3\\
+ \text{minor}&1&c^8&c^3
+\end{array}
+\]
+全minor因子の残りは非零定数で、複素体上の未記載の例外根は無い。
+s型の全例外$c=-2,-1,1,2$で別minorを評価するとrankは$(2,7,3)$、fiber三以下。
+c零では$(2,8,3)$、fiber二以下である。
+従ってgeneric base三とfiber二、非零例外base二とfiber三、c零base三とfiber二はいずれも五以下。
+n型の唯一の例外c零では$(2,7,3)$、fiber三以下なので、全源上界は三と三の六以下となる。
+fixed cubic項$-uq$や未使用の最高・最低次数式はfiberを小さく又は空にするだけである。
+
+A軌道を戻すと固定Sの全affine source上界はs型$5+7$、n型$6+6$で共に十二。
+Sのactual polarized automorphismはGO(q)、vertex変更、normal shearとw scaleから十二次元である。
+PGL5と非零sourceの積上で、このAutSとtensor scalarは十三次元の自由なfiber作用を持つ。
+最初のPGL factorがAutSの元を復元するので、個別tensorのstabilizer零性は不要である。
+従って全PGL射影像は$24+12-12-1=23$以下である。
+\end{proof}
+全Koszul/Euler源、全二軌道、Oreの可逆橋、全base支持と全例外minorは
+\path{QUADRIC_CONE_ORE_NONDOMINANCE.md}及び別作者の
+\path{QUADRIC_CONE_ZERO_REVIEW.md}に置く。
+\path{CLASSIFICATION_QUADRIC_CONE_ZERO_REVIEW_20261107.json}はproducer・CASをimportしない
+Fraction全係数再構成であり、25変数GBや有限標本からの一般性推論ではない。
+
 \subsection{滑らかなprojected Veronese零曲面枝の全排除}
 \begin{proposition}\label{prop:projected-veronese-zero}
 滑らかな次数四projected Veronese曲面$S\subset\mathbb P^4$上で零となるPoisson sectionは零のみである。
@@ -8400,7 +8801,8 @@ r二以上なら独立二quadricが作るdegree四CIがdegree四のSを含む。
 \path{RANK_ZERO_SMOOTH_NONPLANE_SEPARATE_REVIEW.md}で別読解した。
 確認記録は\path{CLASSIFICATION_RANK_ZERO_SMOOTH_NONPLANE_REVIEW_20261107.json}に置く。
 このrank零結論にsmooth Sのvertical又は非node補集合は残らない。
-singular S、quadric cone、rank零plane、rank二restrictionと主分類全体は別に残る。
+singular S、quadric cone、rank零plane、rank二restrictionはこのsmooth命題の範囲ではない。
+それらのG上界は別命題を用い、主分類全体の尽くしとは区別する。
 
 \subsection{rank二nodeのvertical divisorとsmooth CI22の全排除}
 \begin{proposition}\label{prop:smooth-CI22-rank2-node}
@@ -8450,18 +8852,19 @@ normal-coneの実section恒等式とmobile classの全議論は
 非node横断型、特異CI、plane・quadricのvertical枝、他のrational又は非normal曲面は別に残る。
 
 \begin{proposition}[rank零曲面を持つG残余]\label{prop:G-rankzero-surface-frontier}
-未知G優越成分の一般構造がrank零非正規曲面成分Sを持つなら、Sはplane、quadric cone、
-又は次数五のnonnormalかつnonconeな曲面で、Dの正規化のsectional genusが一の分岐に限られる。
+未知G優越成分の一般構造がrank零非正規曲面成分Sを持つなら、Sはplaneに限られる。
 この命題は一般構造が必ずrank零曲面を持つという主張ではない。
 \end{proposition}
 \begin{proof}
 次数は六以下、退化した次数三以上はhyperplane因子を生む。
-degenerate次数二ではsmooth quadricは全源で排除済みなのでconeだけが残り、次数一はplaneである。
+degenerate次数二ではsmooth quadricは全源で排除済み、coneも
+命題\ref{prop:quadric-cone-rankzero-G}により全像23以下である。次数一はplaneである。
 非退化次数三・四は全像24以下で未知Gの必要次元25--27に反する。
 次数五normalはT40、次数六はnormalityによらず命題\ref{prop:degree-six-rank-zero-all}で空である。
 次数五以上の全coneは前のEuler全源補題で排除される。
-次数五について数値入口はg零又は一を与え、g零の全射影像は
-命題\ref{prop:quintic-rankzero-genuszero-G}により24次元以下なので結論する。
+次数五について数値入口はg零又は一を与える。g零の全射影像は
+命題\ref{prop:quintic-rankzero-genuszero-G}により24次元以下、g一は
+命題\ref{prop:quintic-rankzero-genusone-G}によりT40又は全像24以下なので結論する。
 \end{proof}
 rank二restrictionについては、integral cubic零divisorのplane、normalで解消の$\kappa\ge0$、
 smooth nonplaneのclean枝、smooth CI22のordinary-node枝などを処理したが、特殊横断型やvertical枝等は残る。
@@ -8480,16 +8883,16 @@ rank二全支持、正規実因子、重複超平面と二重二次曲面、
 ordinary-doubleの四仮定を満たす枝、node仮定を除いたsmooth nonplaneの全clean枝、
 normal rank二で解消のKodaira次元が非負の枝、degree五以上のq零rank零曲面、
 全normal degree五rank零曲面、normalityによらない全degree六rank零の排除、
-degree五rank零で正規化sectional genus零の全像24以下、全integral CI22のrank零、smooth CI22のrank二node枝などは
+degree五rank零の全分岐でT40又は全像24以下、全integral CI22のrank零、smooth CI22のrank二node枝などは
 上の各命題で認識又は排除した。
 さらに全smooth非plane rank零はclean条件なしにT40又はcubic-scroll像23以下へ入り、
 全非退化degree三・四rank零にはconeを含めてG非優越を得た。
 全integral reduced cubic零divisorを持つrank二planeも排除した。
-rank零ではplane、quadric cone、nonnormal nonconeの次数五で正規化sectional genus一の分岐を残す。
+quadric coneの全rank零も全像23以下へ入り、rank零Gの未処理はplaneだけとなった。
 rank二smooth Sのvertical枝、特殊横断型及び高multiplicity planeの未処理の零divisor等も残し、
 既約非正規五次全体へ各命題の仮定を拡張してはいない。
 Gの残余はこの一型に限られるが、その空性と、特殊底の多くのE源の全成分帰属は未解決である。
-従って成分数は下界102・一般rank四96のままで、主分類の完成を主張しない。
+従って成分数は下界103・一般rank四97のままで、主分類の完成を主張しない。
 
 \section{計算・証拠の位置づけ}
 本稿の命題\ref{prop:radical}、補題\ref{lem:certificate}、補題\ref{lem:descent}、命題\ref{prop:spread}には本文で証明を与えた。
@@ -8573,6 +8976,20 @@ arXiv:0808.0090v3, Theorem 6.2(b), p.17, Remark 6.4(v), p.19.
 \emph{The sectional genus of quasi-polarised varieties},
 Theorem 1.2及び直後, p.2.
 \url{https://math.univ-cotedazur.fr/~hoering/articles/a12-sect-genus.pdf}.
+\bibitem{fukumag1} Y. Fukuma,
+\emph{A lower bound for the second sectional geometric genus of quasi-polarized manifolds and its applications},
+Rend. Sem. Mat. Univ. Politec. Torino 69(1) (2011), 73--90,
+Definition 1, p.75, Proposition 3(iii), p.76.
+\url{https://seminariomatematico.polito.it/rendiconti/69-1/73.pdf}.
+\bibitem{gkkp} D. Greb, S. Kebekus, S. J. Kov\'acs and T. Peternell,
+\emph{Differential forms on log canonical spaces},
+arXiv:1003.2913v4, Theorem 1.4, p.3.
+\url{https://arxiv.org/pdf/1003.2913v4}.
+\bibitem{atiyahelliptic} M. F. Atiyah,
+\emph{Vector bundles over an elliptic curve},
+Proc. London Math. Soc. (3) 7 (1957), 414--452,
+Theorem 5, p.432, Theorem 7及びCorollary, p.434.
+\url{https://math.berkeley.edu/~nadler/atiyah.classification.pdf}.
 \bibitem{pymelliptic} B. Pym,
 \emph{Elliptic singularities on log symplectic manifolds and Feigin--Odesskii Poisson brackets},
 arXiv:1507.05668, Theorem 1.3, Definition 4.2, Remark 4.4.

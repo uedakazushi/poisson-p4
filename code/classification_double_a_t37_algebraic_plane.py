@@ -1,0 +1,58 @@
+#!/usr/bin/env python3
+"""One complete C5-conjugate section of the missing T37 Lagrangian curve.
+
+The algebraic plane t^5=1/31104 descends to a rational plane after a
+verified diagonal C5 change. If its normalcone is a relevant cusp source,
+test the actual moving-basis endpoint Q0+(Lie_N^2 Q1)/2.
+"""
+from pathlib import Path
+import hashlib,itertools,json,time
+import sympy as s
+from sympy.polys.matrices import DomainMatrix
+from classification_rank3_mixed_component_review import PAIRS,COLUMNS,jacobi
+ROOT=Path(__file__).resolve().parents[1]
+def main():
+ started=time.monotonic();xs=s.symbols('v0:5');xx=s.symbols('A q1 q2 B C');A,q1,q2,B,C=xx;ep=s.Symbol('epsilon');path=ROOT/'reports/MPS_SMOOTHING_COMPLETION_20261103_v62/T37.json';source=json.loads(path.read_text());env=dict(zip(['x'+str(i)for i in range(5)],xs));env.update({'p0':1,**{'t'+str(i):1 for i in range(4)}});old=s.zeros(5)
+ for ij,text in source['homogeneous_bivector'].items():
+  i,j=map(int,ij.split(','));old[i,j]=s.sympify(text,locals=env);old[j,i]=-old[i,j]
+ # Xi=t^wi vi, t^5=1/31104. Every term has wt divisible5,
+ # so this actual algebraicPGL change gives a rational tensor.
+ weights=[0,3,2,4,1];P=s.zeros(5)
+ for i,j in PAIRS:
+  for ex,co in s.Poly(old[i,j],*xs).terms():
+   if co==0:continue
+   exponent=sum(e*w for e,w in zip(ex,weights))-weights[i]-weights[j];assert exponent%5==0,(i,j,ex,co,exponent);P[i,j]+=co*s.Rational(1,31104)**(exponent//5)*s.prod(v**k for v,k in zip(xs,ex))
+  P[j,i]=-P[i,j]
+ forms=s.Matrix([A,18*A-B/18-18*C+ep*q1,6*A+C+ep*q2,B,C]);T=forms.jacobian(s.Matrix(xx));assert s.factor(T.det())in[ep**2,-ep**2];Q=(ep*T.inv()*P*T.inv().T).subs(dict(zip(xs,forms)),simultaneous=True).applyfunc(s.cancel)
+ assert all(not s.denom(f).has(ep)for f in Q);Q=Q.applyfunc(s.expand);Q0=Q.subs(ep,0);pf=[]
+ for missing in range(5):
+  i,j,k,l=[a for a in range(5)if a!=missing];pf.append((-1)**missing*(Q0[i,j]*Q0[k,l]-Q0[i,k]*Q0[j,l]+Q0[i,l]*Q0[j,k]))
+ D=s.factor(sum(xx[i]*pf[i]for i in range(5)));co,factors=s.factor_list(D,A,B,C);data=[dict(factor=str(f),multiplicity=int(m),degree=int(s.Poly(f,A,B,C).total_degree()))for f,m in factors];print('normalconeD',s.factor(D),data,round(time.monotonic()-started,3),flush=True)
+ inputs=[Path(__file__),path,ROOT/'code/classification_rank3_mixed_component_review.py'];result=dict(task_id='E_multiple_hyperplane',all_passed=True,input_sha256={str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest()for p in inputs},producer_bytes=Path(__file__).read_text(),algebraic_section='a4=0,a5=t,31104t^5=1; (a0,a1,a2,a3,a4,a5)=(18t³,-1/(18t),-18t²,6t²,0,t)',diagonal_descent_weights=weights,descent_relation='oldXi=t^wi vi,t^5=1/31104, verified EVERYtensor term exponent multiple5; all5Galoisconjugate planes descend tosameQQ model.',rational_known_T37_tensor={str(i)+','+str(j):str(P[i,j])for i,j in PAIRS if P[i,j]!=0},actual_normalcone_source_forms=list(map(str,forms)),actual_frame_determinant=str(s.factor(T.det())),whole_regular_normalcone_family={str(i)+','+str(j):str(Q[i,j])for i,j in PAIRS if Q[i,j]!=0},normalcone_divisor=str(D),divisor_factors=data,whole_source_membership_claimed=False)
+ linear=[(f,m)for f,m in factors if s.Poly(f,A,B,C).total_degree()==1];rest=[(f,m)for f,m in factors if s.Poly(f,A,B,C).total_degree()>1]
+ if len(linear)==1 and len(rest)==1 and rest[0][1]==1 and linear[0][1]in[1,2]:
+  H,m=linear[0];curve=rest[0][0];row=s.Matrix([[s.diff(H,z)for z in xx]]);pivot=next(i for i,c in enumerate(row)if c!=0);others=[i for i in [0,3,4]if i!=pivot];S=s.zeros(5);S[0,:]=row;S[1,1]=S[2,2]=1;S[3,others[0]]=1;S[4,others[1]]=1;assert S.det()!=0;new=s.symbols('h q1 q2 x y');E=s.Matrix(new);QQ=(S*Q*S.T).subs(dict(zip(xx,S.inv()*E)),simultaneous=True).applyfunc(s.expand);P0=QQ.subs(ep,0);R=s.Matrix([0,*[s.cancel(P0[0,j]/new[0])for j in range(1,5)]]);assert all(not s.denom(f).has(*new)for f in R);QQ=(QQ-(E*R.T-R*E.T)).applyfunc(s.expand);P0=QQ.subs(ep,0);assert all(P0[0,j]==0 for j in range(5));aff=P0[1:,1:].subs(new[0],1);vars4=new[1:];Z=s.Matrix([s.expand(sum(s.diff(aff[i,j],vars4[i])for i in range(4)))for j in range(4)]);MA=Z.jacobian(s.Matrix(vars4));cc=Z.subs(dict.fromkeys(vars4,0));assert all(not f.has(*vars4)for f in MA);nil22=(MA*MA==s.zeros(4)and MA.rank()==2 and MA.row_join(cc).rank()==2);nil211short=(MA*MA==s.zeros(4)and MA.rank()==1 and MA*cc==s.zeros(4,1)and MA.row_join(cc).rank()==2)
+  transformedcurve=s.expand(curve.subs(dict(zip(xx,S.inv()*E)),simultaneous=True));base=(new[0],new[3],new[4]);sing=[]
+  for chart in range(3):
+   f=s.Poly(transformedcurve,*base);equations=[s.diff(f.as_expr(),z)for z in base]+[base[chart]-1]
+   solved=s.solve(equations,base,dict=True)
+   for point in solved:
+    if len(point)==3 and all(not val.free_symbols for val in point.values()):
+     vv=[s.simplify(point[z])for z in base]
+     if vv not in sing:sing.append(vv)
+  geometry=[]
+  for pt in sing:
+   hess=s.hessian(transformedcurve,base).subs(dict(zip(base,pt)));geometry.append(dict(point=list(map(str,pt)),H_value=str(pt[0]),Hessian_rank=hess.rank()))
+  result.update(H_multiplicity=int(m),H_linear_factor=str(H),base_change_to_H=[[str(v)for v in r]for r in S.tolist()],H_Casimir_Euler_correction=list(map(str,R)),zero_magnetic_anchor={str(i)+','+str(j):str(P0[i,j])for i,j in PAIRS if P0[i,j]!=0},affine_modular=list(map(str,Z)),modular_matrix=[[str(v)for v in r]for r in MA.tolist()],modular_translation=list(map(str,cc)),nil22_image=bool(nil22),nil211_short=bool(nil211short),plane_curve_singular_points=geometry)
+  candidate=(m==2 and s.Poly(curve,A,B,C).total_degree()==3 and nil22 and len(geometry)==1 and geometry[0]['Hessian_rank']==1 and geometry[0]['H_value']!='0')or(m==1 and s.Poly(curve,A,B,C).total_degree()==4 and nil211short)
+  result['relevant_doubleA_or_Ga9_boundary_candidate']=bool(candidate)
+  if candidate:
+   N=s.zeros(5);N[1:,1:]=MA;N[1:,0]=cc;assert N*N==s.zeros(5);NE=N*E
+   def lie(P):return(N*P+P*N.T-sum((NE[i]*P.diff(new[i])for i in range(5)),s.zeros(5))).applyfunc(s.expand)
+   assert lie(P0)==s.zeros(5);P1=QQ.diff(ep).subs(ep,0);magnetic=lie(lie(P1))/2;assert all(magnetic[i,j]==0 for i,j in PAIRS if(i,j)!=(1,2));mons=[1,new[3],new[4],new[3]**2,new[3]*new[4],new[4]**2];ell=s.symbols('ell0:6');f=s.Matrix([ell[0]+ell[1]*new[3]+ell[2]*new[4],ell[3]+ell[4]*new[3]+ell[5]*new[4]]);move=s.Matrix([vars4[0]+f[0],vars4[1]+f[1],vars4[2],vars4[3]]);G=move.jacobian(s.Matrix(vars4));changed=(G*aff*G.T).subs({vars4[0]:vars4[0]-f[0],vars4[1]:vars4[1]-f[1]},simultaneous=True).applyfunc(s.expand);delta=s.Poly(changed[0,1]-aff[0,1],*vars4[2:]);action=s.Matrix([delta.coeff_monomial(mon)for mon in mons]).jacobian(ell);magaff=magnetic[1,2].subs(new[0],1);coeff=s.Matrix([s.Poly(magaff,*vars4[2:]).coeff_monomial(mon)for mon in mons]);coker=action.T.nullspace();invariants=[s.factor((v.T*coeff)[0])for v in coker];result.update(modular_homogeneous_matrix=[[str(v)for v in row]for row in N.tolist()],pure_magnetic_movingbasis_endpoint=str(magnetic[1,2]),complete_fibertranslation_action=[[str(v)for v in row]for row in action.tolist()],translation_rank=action.rank(),complete_magnetic_cokernel=[list(map(str,v))for v in coker],movingbasis_magnetic_invariants=list(map(str,invariants)),nonzero_essential_magnetic_class=any(v!=0 for v in invariants))
+   if any(v!=0 for v in invariants):
+    d=s.Symbol('delta');g=s.eye(5)+N/d;flow=(g*QQ.subs(ep,d*d)*g.T).subs(dict(zip(new,(s.eye(5)-N/d)*E)),simultaneous=True).applyfunc(s.cancel);assert all(not s.denom(f).has(d)for f in flow);assert(flow.subs(d,0)-P0-magnetic).applyfunc(s.expand)==s.zeros(5);sparse={ij:dict(s.Poly(s.expand(flow[ij]),*new).terms())for ij in PAIRS if flow[ij]!=0};assert jacobi(sparse).applyfunc(s.expand)==s.zeros(350,1);result.update(actual_whole_regular_movingbasis_family={str(i)+','+str(j):str(s.expand(flow[i,j]))for i,j in PAIRS if flow[i,j]!=0},all350_actualfamily_Jacobi_zero=True,full_source_recognition_needed=True)
+ result['seconds']=time.monotonic()-started;out=ROOT/'reports/CLASSIFICATION_DOUBLE_A_T37_ALGEBRAIC_PLANE_20261107.json'
+ if out.exists():raise FileExistsError(str(out))
+ out.write_text(json.dumps(result,indent=2)+'\n');print(json.dumps({k:result.get(k)for k in ['relevant_doubleA_or_Ga9_boundary_candidate','nil22_image','nil211_short','plane_curve_singular_points','movingbasis_magnetic_invariants','seconds']}))
+if __name__=='__main__':main()

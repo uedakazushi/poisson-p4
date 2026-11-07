@@ -354,3 +354,8 @@ e一次primitive五項Fの絶対既約性・二特異P2をFractionで独立確�
 unique H cofactor Jordan32と旧二22の41から旧成分と相違する。全prior99をimmutable blobから比較済み。
 第五のprimitive w-linear quinticは絶対既約で、unique stabilizer semisimple multiplicities221は旧既約五次23の11111と異なる。
 新三者の相違も前二対第五はdimension差で閉じる。一般rank四96、rank二6、個別下界102。上界・全尽くしは未証明。
+
+
+## 平面A3+A2 quartic成分と現行下界103
+
+GA9_CUSPIDAL_QUARTIC_SEPARATE_REVIEWは全七源/全六磁気移送、D100/F49/真正49cutの非零二次101minorとKrull、全prior102相違を独立確認。一般orbit23、商1。全Ga9 power1/power3閉包を被覆する。下界103/rank四97/rank二6、全上界未証明。

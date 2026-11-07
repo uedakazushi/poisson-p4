@@ -1,0 +1,40 @@
+{
+  "task_id": "E_multiple_hyperplane",
+  "target_statement": "Find an actual independent three-hyperplane plus rank4 quadric family specializing to the canonical nil31 short r=2/3 anchor t=d=1, via the single specified moving flag.",
+  "implication_to_classification": "The whole residual six-parameter source has a dense single PGL/scalar orbit at td nonzero. An actual anchor curve in the known closed MPS union therefore covers the entire source by irreducibility and closure.",
+  "coefficient_ring": "QQ[epsilon,h,x,y,z,w,c0,...,c19]",
+  "hypotheses": "The actual source is the independent four-dimensional Poisson cone a D1 wedge D2+b Q dZ wedge dW+U N wedge D2+V D1 wedge N. The flag is (hs,X,Y,Z,W)=(h+epsilon*y,h,z,y+epsilon*x,-w). All parameters are actual source coefficients; no parameter products are freed.",
+  "inverted_elements": [
+    "epsilon for the generic source frame",
+    "rational constants only at the target"
+  ],
+  "complements": [
+    "epsilon=0 is the target limit",
+    "t*d=0 in the irreducible target source returned by closure only after dense orbit membership proved"
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_nil31_short_flag_confluence.py",
+      "sha256": "edf4cce9d65e64b0ad928f4102572b6254d9a02a5f561d36cf5f64909a23ae0c"
+    },
+    {
+      "path": "reports/CLASSIFICATION_NIL31_SHORT_TWO_THIRDS_CANONICAL_20261107.json",
+      "sha256": "a76cb0660a898c46637c833f11f1486271de4525fdcf06c2af14d6f0f89240e0"
+    },
+    {
+      "path": "research/classification/THREE_HYPERPLANES_QUADRIC_INDEPENDENT.md",
+      "sha256": "8e28cd214fdb5795d41c5cc9cc55676c52d8c5c85660746f5f8b3dadd0ab2f2b"
+    },
+    {
+      "path": "reports/CLASSIFICATION_THREE_HYPERPLANES_QUADRIC_INDEPENDENT_REVIEW_20261107.json",
+      "sha256": "506fb310709c9265538e7f3456557f2fbe493042374d812fe361bade665e7962"
+    }
+  ],
+  "success_certificate": "Exact all150 Euler canonical coefficient matching; explicit polynomial source coefficients; regular family, endpoint and all350 Jacobi. If inconsistent, one exact left functional certifies only this fixed flag class failure.",
+  "independent_check": "Independent rational reconstruction of the actual source and coordinate map before any E containment claim.",
+  "resource_limit": {
+    "timeout_seconds": 100,
+    "memory_mb": 1536
+  },
+  "negative_result_next_step": "No higher Taylor profile of this flag. Diagnose the geometric failure; change actual family or proof route, retaining UNKNOWN membership."
+}
