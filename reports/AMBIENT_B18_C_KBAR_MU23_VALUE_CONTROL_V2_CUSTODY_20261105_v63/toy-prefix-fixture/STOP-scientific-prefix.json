@@ -1,0 +1,51 @@
+{
+  "status": "STOP_SCIENTIFIC_PREFIX_NO_AUTOMATIC_RETRY",
+  "exception_type": "AssertionError",
+  "exception": "",
+  "scientific_state": {
+    "phase": "TOY_ONLY_NOT_REAL_INPUT",
+    "row": 0,
+    "dot_cursor": {
+      "term": 1,
+      "root": 2
+    },
+    "dot_accumulator": "1",
+    "pending": {
+      "operation": "parse",
+      "completed": false,
+      "token": "256"
+    },
+    "lower": [],
+    "lower_terms": [
+      {
+        "origin": [
+          [
+            1,
+            "1",
+            "1",
+            "1"
+          ]
+        ],
+        "r": []
+      }
+    ],
+    "tvalues": [],
+    "tterms": [],
+    "actions": [],
+    "action_terms": [],
+    "direct_terms": [],
+    "current_lower_values": {},
+    "current_action_two_stage": "0",
+    "minor": null,
+    "parsed_cache": {},
+    "rr_inputs": {},
+    "rank_result": null
+  },
+  "stored_bits": 1,
+  "pre_bits": 3,
+  "code_sha256": "94d50c2461dc1f9d77e62ccbf547acd9c97f0bcd93b3bc829a2829e4ab77b7e7",
+  "compiled_sha256": "317b2c5e491e7f8369e73a7578982731415ac45d77444219308dcc5cc34b0127",
+  "static_numeric_profile": 14076,
+  "traceback": "Traceback (most recent call last):\n  File \"<stdin>\", line 6, in <module>\n  File \"/workspace/poisson-p4/code/ambient_B18_C_Kbar_mu23_cached_values_v2_20261105_v63.py\", line 67, in dot\n    w=parse(c);mark('value_lookup',root=int(root));v=done(values[int(root)]);p=mul(w,v);terms.append([int(root),str(w),str(v),str(p)]);z=add(z,p);SCI['dot_accumulator']=str(z)\n      ^^^^^^^^\n  File \"/workspace/poisson-p4/code/ambient_B18_C_Kbar_mu23_cached_values_v2_20261105_v63.py\", line 49, in parse\n    assert max(abs(n).bit_length(),abs(d).bit_length())<=COMMITTED\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+  "limits": "Preservefullprefixandcode. Noauto-replayofpassedphase1, nocapraise."
+}

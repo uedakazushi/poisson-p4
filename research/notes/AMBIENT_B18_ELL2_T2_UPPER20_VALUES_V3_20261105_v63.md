@@ -1,0 +1,24 @@
+# Prepared20共有cache値bundle
+
+このworkerは全605の独立正証明による584個の零、既受理554の零、残る20個の
+実値を結ぶ準備コードである。まだ値GOはない。全ての元c0/a1を保持し、617は
+raw563を+20で含む。raw563や他のraw部分はFORMAL拡張であり基底upper零ではない。
+
+OLDの9/118-node剪定式を一度だけ計算する。48境界のうちonly79高位部分は
+全形式証明が訂正後の真の関数値への影響を殺すための任意拡張である。
+全FIRST列のnative ell-SUMとfull native92外側carryを保持する。
+
+native raw補助列は部分N拡張のFORMAL出力である。固定kernel制限後にfull
+trace S0零を検査してからACTUALと呼び、Γ/D/和それぞれのFINE上界を照合する。
+既証明fine上界零のkernelは明示的証明から零とする。raw点でS0を零としない。
+unsupported base routeを係数積の前に落とし、ν_z一次を全て保持する。
+
+全てのnative中間値に354/1063 priorを使い、最終和/QではFINE上界へ戻す。
+2×20 rankは行毎の整数格子で元minorと全factor/kernelを証明する。保存する
+minor/factorは334bit以下、501/502bit比較積はTEMPだけに使う。
+
+immutable入力・全所有数/RAW・停止codec・safehelp・custody・新しい独立code
+peerとROOTの一回GOを別に必要とする。残る12opaque関係、HF2等号・T2全長・
+元H0・torsion・nil三乗をこの値bundleだけから推測しない。
+
+V3はV2 worker8981/custodya0e3/gate7a132の全byteを保存した制御修正である。exceptではreprだけを先に保存し、traceback.clear_framesを実行、traceback/context/causeを外し、tb参照を捨てgc.collectしてからguard codecを始める。途中SUCCESS encoderの局所変数や循環をguardと同時に残さない。主計算/SUCCESS55秒、既存alarmを止めてguard専用5秒、全体60秒とする。式・源・上限354/1063と60000・scopeは変えない。

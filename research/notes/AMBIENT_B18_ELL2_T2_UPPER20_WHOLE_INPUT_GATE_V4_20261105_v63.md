@@ -1,0 +1,25 @@
+# Whole20 入力・源・寿命gate
+
+全605正証明の584零、既知554零、残る20個のpruned OLD入力とnative入力を
+同じΓ/D・九座標・二つのmonicのframeへ結ぶ。各20のnative源を固定kernel
+定義からfull128へ戻し、raw21の元c0と563/609訂正と完全に一致させる。
+617の+20raw563はOLD/FIRST/native92側だけで行い、native側の訂正を二重にしない。
+
+15kernelの実応答と16raw補助列のFORMAL部分拡張を分ける。10kernel零は
+全六正上界零という受理済み証明であり、個別raw列を真の零とはしない。
+個別FIRSTのnative ell-SUM、full L2S0を含むnative92、全ν_z carryを残す。
+
+値の全位相・変換後の配列・current Sc/NSc・FIRST全factor・全結果・rank証明を
+実寸で数え、NEW状態のcodec用二複製とpending/cursorを追加する。既知原始入力は
+hash参照に限り、72-cubed tensorや全605各回の入力複製を作らない。
+354/1063 priorとhard384/1153を保ち、FINE native出力を全体和/Qの前に検査する。
+
+rankは整数行格子でminor334bit以下、比較積・和はTEMP502bit以下。immutable
+worker/custody・safehelp・新しい独立SOURCE/code peerとROOTの一回GOは別に必要。
+このgateは20個の値、HF2等号、T2全長、元H0やnil三乗を計算しない。
+
+V1は最後の60000 forecastだけで停止し、値は一度も走っていない。V2は入力や式を変えず、success codecとguard codecの非同時性を明示する。最大success evidenceの3192以下（入力から正確に導出）、rank1000以下、report500以下はそれぞれguardのNEW7826二複製reserveに支配される。追加OUTPUT4000は同じ二複製を重ねていたため、両位相のmaxへ置き換える。実予約や60000上限を削らない。元code/失敗receipt/metadata診断はそのまま保存する。
+
+V3は例外中のSUCCESS encoder traceback/chain/cycleを、guard開始前にclear_frames・traceback/context/cause None・gc.collectで解放する実worker hashへ結ぶ。非数学の弱参照fixtureは、処理前の二codec局所objectが処理後に両方消え、active tracebackもNoneになることを確認する。これで成功とguard codecのmaxを具体的制御で正当化する。55秒主計算と5秒guard、全体60秒。V2は値GOの前提から撤回済みで、全byte・原始source数学とboundsは保存する。
+
+V4はcurrent env/qboundとrank現在状態の完全なprefixを既存work500/control1000内で追加したVALUE hashへ結ぶ。source・式・private354/1063と60000 ceilingは不変。全V2/V3生成byteとcustodyは値未実行のまま保存する。

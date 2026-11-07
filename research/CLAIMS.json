@@ -28703,7 +28703,7 @@
         "reports/AMBIENT_B18_ELL2_T2_UPPER617_OLD2_FRONTIER_SCOPE_CLARIFICATION_20261105_v63/report.json"
       ],
       "limitations_ja": [
-        "605 caseが零または計算済みとはしない。gA/gBのmixed次数三certificate、physical秒次、known-FIRST cross、native carryを保持する。",
+        "605非opaque関係の零は後続AMBIENT_B18_T2_COMPLETE605_UPPER_ZEROで独立確認済み。残る十二opaque関係では全true SECOND・third・FIRST・native carryを保持する。",
         "十二opaque関数は線形第二感度の話。D multiproduct祖先やknown-FIRST値から消えたとはしない。T2 HFと全長は未決。"
       ]
     },
@@ -29074,7 +29074,7 @@
         "reports/S61_TWO_TAIL_H_D12_NONEMPTY_GAP_20261105_v63/report.json"
       ],
       "limitations_ja": [
-        "Hの既約性は未決。固定六次modular像の可約性はQQ上の可約性を意味しない。",
+        "Hの幾何的既約分解は後続S61_TWO_TAIL_GCD_EXACT_TWO_GEOMETRIC_FACTORS_R7_THETAで解決済み。H=R7*Theta/20。固定modular像の可約性だけではchar0因子を推論していない。",
         "非空なparameter gapは選択二tailの十分条件の補集合であり、実bad FittingやJacobi schemeの新成分・実rank低下は結論しない。H全体のD12との共通因子、H上の全FULLU57/239・補集合消尽は未決。"
       ]
     },
@@ -29172,7 +29172,7 @@
         "reports/AMBIENT_B18_K_THREE_ROOT_QUOTIENT_REVIEW_20261105_v63/report.json"
       ],
       "limitations_ja": [
-        "最小生成数が二か三か、r-Jordan二候補の区別は未決。残る一scalar lambdaU*F-lambdaS*(H+C)と深い作用は未計算。",
+        "最小R0生成数は後続AMBIENT_B18_ORIGINAL_K_R0_MINIMAL_GENERATORS_EXACT3で三と解決済み。r-Jordan二候補の区別とscalar Deltaは未決。",
         "r作用とell-DVR型を区別する。D最小七生成・nil ideal最小五生成は変更せず、元Kの全形式lift・H0長・nil三乗は決めていない。"
       ]
     },
@@ -29275,7 +29275,7 @@
         "reports/AMBIENT_B18_NATIVE_SHARED72_SOURCE_FINE_20261105_v63_REVIEW/report.json"
       ],
       "limitations_ja": [
-        "正値上界の非零は実際の非零値を意味しない。全605値計算完了、全617零、T2 HF確定とはしていない。",
+        "正値上界の非零は実値非零を意味しない。残る20も後続AMBIENT_B18_T2_COMPLETE605_UPPER_ZEROで零と独立確認済み。全617やHF確定は未決。",
         "残るopaque十二行は579,580,593,594,597,598,605,606,611,613,615,616。unknown true jetを零とせず、raw563/609も個別にはFORMALのまま補正する。",
         "native coarse354bitにQを直接掛ける経路は使わず、fine254bitから全体上界257bitを用いた。元H0・nil三乗は別課題。"
       ]
@@ -30441,6 +30441,191 @@
       ],
       "limitations_ja": [
         "全成分数上界・一般五点尽くし・全分類は未証明。"
+      ]
+    },
+    {
+      "id": "S61_TWO_TAIL_GCD_EXACT_TWO_GEOMETRIC_FACTORS_R7_THETA",
+      "title_ja": "選択二tailのgcdは正確に二つの絶対既約因子R7と既存Thetaへ分解する",
+      "statement_ja": "確定したprimitive整数H全94項を直接三変数で一回因数分解し、29項・全次数七のR7と11項・全次数四のS4を得た。独立法は因子の逆順と三次元dense tensorで全350係数を元94項と照合した。H=R7*S4で、変数次数はR7が(4,6,2)、S4が(2,3,2)。S4=125a²d²−900aed+100ad−4000a−108e³d+36e²d−540e²+21ed+120e+2d+160であり、既存Thetaと全11係数でTheta=20S4が一致する。S4はaについてprimitiveな二次式で、判別式のe次数は三・先頭54000d³だからC(d)(e)で平方ではなく絶対既約。R7は同じ既存d=1,p=32003の四つの保存root jetをe七次未満まで使い、七つのproper subsetと二leading配分の十四候補の完全65係数積を全て排除した。独立実装は別のFp二次拡大積、疎root冪・逆順subset再構築と十四非零係数を確認した。a-contentと次数保持によりR7も標数零で絶対既約である。従って選択二tailの被約codimension一主因子は、完全六因子base環でも正確にV(Theta)とV(R7)の二成分となる。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_source_and_exact_formal_or_value_replay_2026_11_05",
+        "certificates": "reproduced_2026_11_05_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/V63_CP_GEOMETRIC_TAIL_FACTORS_K3_AND605_20261106.md"
+        },
+        {
+          "path": "research/notes/S61_TWO_TAIL_H_EXACT_QQ_RESULT_20261105_v63.md"
+        },
+        {
+          "path": "research/notes/S61_TWO_TAIL_H_EXACT_QQ_ROOT_DENSE_REVIEW_20261105_v63.md"
+        },
+        {
+          "path": "research/notes/S61_TWO_TAIL_S4_THETA_SOURCE_20261105_v63.md"
+        },
+        {
+          "path": "research/notes/S61_TWO_TAIL_R7_ABSOLUTE_ROOT_IDENTITY_REVIEW_20261105_v63.md"
+        }
+      ],
+      "verification_records": [
+        "reports/S61_TWO_TAIL_H_EXACT_QQ_ROOT_CODE_REVIEW_20261105_v63/report.json",
+        "reports/S61_TWO_TAIL_H_EXACT_QQ_ENTRY_20261105_v63/report.json",
+        "reports/S61_TWO_TAIL_H_EXACT_QQ_ROOT_DENSE_REVIEW_20261105_v63/report.json",
+        "reports/S61_TWO_TAIL_S4_THETA_SOURCE_20261105_v63/report.json",
+        "reports/S61_TWO_TAIL_R7_ABSOLUTE_REUSE_CUSTODY_20261105_v63/report.json",
+        "reports/S61_TWO_TAIL_R7_ABSOLUTE_ROOT_CODE_REVIEW_20261105_v63/report.json",
+        "reports/S61_TWO_TAIL_R7_ABSOLUTE_REUSE_ENTRY_20261105_v63/report.json",
+        "reports/S61_TWO_TAIL_R7_ABSOLUTE_ROOT_IDENTITY_REVIEW_20261105_v63/report.json"
+      ],
+      "limitations_ja": [
+        "a,e,d parameterにおける全次数であり、Poisson空間の成分次数や新しいPoisson成分を数えていない。",
+        "factor library内部はRAM/time制限下のopaque計算で、384bit認証とはしていない。標数零の分解恒等式、両因子の幾何的既約性は別の有限恒等式・証明で確認した。",
+        "D12追加局所化の各成分、実bad Fitting・全FULLU57/239・全補集合は未決。既存Theta枝全体のfull57を結論しない。"
+      ]
+    },
+    {
+      "id": "AMBIENT_B18_KBAR_SQUARE_R_ANNIHILATED_DIM_AT_MOST2",
+      "title_ja": "genuine Kbar二乗はrに殺され次元二以下で、H0の生成経路を除外する",
+      "statement_ja": "受理済みq2Nbar=gNbar=0とKbarの三生成を使い、Kbar二乗をU²,US,S²のRbar closureへ減らした。実際のMAX-active ordered homotopyとn2補正を保った独立SOURCE検証で、genuine cycleに必要な252列および形式拡張324列のleading射影と既知174線形倍による商が零となる。raw Pi1を全780 X1と元81 W minorから再構成し、第一headのr一次は+8/3 H27のみと確認した。真のM2補正の四行はhead0*(50z0r/3+125z4r/3)へ縮み、入力head0とH27二次は零なのでr倍のquartic dualは零。従ってKbar²はm³Tnilに入りrKbar²=0となる。m³Tnilは三次元でr像が一次元だからdim_QQ Kbar²<=2。三次元H0/ellH0をK²だけからD生成する経路は不可能である。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_source_and_exact_formal_or_value_replay_2026_11_05",
+        "certificates": "reproduced_2026_11_05_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/V63_CP_GEOMETRIC_TAIL_FACTORS_K3_AND605_20261106.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_B18_C_KBAR_Q2_BAR_ANNIHILATOR_SOURCE_20261105_v63_REVIEW.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_B18_C_KSQUARE_R_ANNIHILATOR_CORRECTED_SOURCE_20261105_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_B18_C_KSQUARE_ACTUAL_H_R_ANNIHILATOR_SOURCE_20261105_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_B18_C_KBAR_Q2_BAR_ANNIHILATOR_SOURCE_20261105_v63_REVIEW/report.json",
+        "reports/AMBIENT_B18_C_KSQUARE_R_ANNIHILATOR_CORRECTED_SOURCE_20261105_v63/report.json",
+        "reports/AMBIENT_B18_C_KSQUARE_ACTUAL_H_R_ANNIHILATOR_SOURCE_20261105_v63_REVIEW/report.json"
+      ],
+      "limitations_ja": [
+        "bar上の主張であり、元K二乗の全D型や原H0の長さ・ell消滅、nil指数は決めない。積の実値や正確な次元を計算したとはしない。",
+        "旧MIN-prefix fixture、関係側−8/3をraw側へ再用した旧edeefは未採用の履歴。証明は実MAX-prefix、raw+8/3、genuine cycle domainと独立補足に限る。",
+        "Tnil全体へ代数構造を置かず、genuine Nbarからの単射と正確なcycle productを使う。"
+      ]
+    },
+    {
+      "id": "AMBIENT_B18_ORIGINAL_K_R0_MINIMAL_GENERATORS_EXACT3",
+      "title_ja": "元kernelのR0最小生成数は正確に三、barのLoewy長も三",
+      "statement_ja": "同じ元Kbarでr像の次元は四、商Kbar/rKbarはU,S,q2の三基底を持つ。全14個のziU/ziSと既知ziq2を調べる完全SOURCEを作り、実37関係の二次callbackを既存21 root cacheの98重みへ縮めた。pure-r first-Schur最終行が零なので新しい微分やM3は不要で、全21関数のopaque-second gradientも空である。一回のcache計算は37 origin/r readbackを零と確認し、全37 r²値と十四作用を二通りに合成して、全十四作用のq2商成分が零となった。独立な共通行分母・整数和の逆順計算でも全37値と全十四零が一致した。従ってm_Rbar Kbar=rKbar、最大ideal商は三次元で、ell-Nakayamaにより元Kの最小R0生成数は正確に三。可換性から全jでm^jKbar=r^jKbar、r三乗零かつr二乗非零よりLoewy長三。Hilbert関数は(3,2,2)または(3,3,1)である。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_source_and_exact_formal_or_value_replay_2026_11_05",
+        "certificates": "reproduced_2026_11_05_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/V63_CP_GEOMETRIC_TAIL_FACTORS_K3_AND605_20261106.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_B18_C_KBAR_MU_R0_EXACT3_20261105_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_B18_C_KBAR_MU23_SOURCE_INVENTORY_20261105_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_B18_C_KBAR_MU23_CACHE_SOURCE_20261105_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_B18_C_KBAR_MU23_SOURCE_CODE_20261105_v63_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_B18_C_KBAR_MU23_SOURCE_INVENTORY_20261105_v63/report.json",
+        "reports/AMBIENT_B18_C_KBAR_MU23_CACHE_SOURCE_20261105_v63/report.json",
+        "reports/AMBIENT_B18_C_KBAR_MU23_VALUE_CONTROL_V2_CUSTODY_20261105_v63/report.json",
+        "reports/AMBIENT_B18_C_KBAR_MU23_SOURCE_CODE_20261105_v63_REVIEW/report.json",
+        "reports/AMBIENT_B18_C_KBAR_MU23_V2_ROOT_SOURCE_REVIEW_20261105_v63/report.json",
+        "reports/AMBIENT_B18_C_KBAR_MU23_CACHED_VALUES_20261105_v63/report.json",
+        "reports/AMBIENT_B18_C_KBAR_MU23_ROOT_INTEGER_POSTPEER_20261105_v63/report.json"
+      ],
+      "limitations_ja": [
+        "D上の最小七生成、nil ideal全体の最小五生成とは別の主張。元Kの形式liftは存在のみで全係数を構成していない。",
+        "二候補のr-Jordan型331/322を区別するscalar Deltaは未決。upstairsはm³KがellKへ入るだけで、元H0やnil指数へ移さない。",
+        "z5U/S二行のSOURCE保存不備は別証票でnonzero q1成分を復元した。q1はrKbar内でq2射影は零、判定重みは不変である。"
+      ]
+    },
+    {
+      "id": "AMBIENT_B18_T2_COMPLETE605_UPPER_ZERO",
+      "title_ja": "全605非opaque関係のupper二値と六classは独立確認済みで零",
+      "statement_ja": "完全617関係のうちopaque SECONDを含まない605本について、584本は完全正値SOURCE上界が零、554は独立signed計算で零と既証である。残る20本を一回の厳密cache計算で全upper二値・Q後の六classまで零と求めた。別実装は90 covector-L（pointfree68にFORMAL点項22を含む）からnative16補助と15実kernel・十SOURCE零を作り、dense OLD・全1742 FIRST因子・全raw21部分・native92 outerを再構成した。20本の全五寄与と補正・二upper・六class、固定2x20 rank零とI20 kernelが全て一致した。617のnativeは一度だけ補正済み、OLD/FIRST/outerだけにraw563の20倍を保つ。従って605本のupper行列は正確に零で、未完は指定十二本へ減った。",
+      "scope": "Exact stated parameter and scheme scope; dimensions before PGL quotient unless specified.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_independent_source_and_exact_formal_or_value_replay_2026_11_05",
+        "certificates": "reproduced_2026_11_05_v63",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/notes/V63_CP_GEOMETRIC_TAIL_FACTORS_K3_AND605_20261106.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_B18_ELL2_T2_UPPER605_POSITIVE_WHOLE_20261105_v63_REVIEW.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_B18_ELL2_T2_UPPER554_VALUES_V2_20261105_v63_REVIEW.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_B18_ELL2_T2_UPPER20_WHOLE_V4_20261105_v63_REVIEW.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_B18_ELL2_T2_UPPER20_VALUES_V4_20261105_v63.md"
+        },
+        {
+          "path": "research/notes/AMBIENT_B18_UPPER20_INDEPENDENT_POSTCHECK_V2_20261105_v63.md"
+        }
+      ],
+      "verification_records": [
+        "reports/AMBIENT_B18_ELL2_T2_UPPER605_POSITIVE_WHOLE_20261105_v63_REVIEW/report.json",
+        "reports/AMBIENT_B18_ELL2_T2_UPPER554_VALUES_V2_20261105_v63_REVIEW/report.json",
+        "reports/AMBIENT_B18_ELL2_T2_UPPER20_WHOLE_V4_20261105_v63_REVIEW/report.json",
+        "reports/AMBIENT_B18_ELL2_T2_UPPER20_V4_ROOT_SOURCE_REVIEW_20261105_v63/report.json",
+        "reports/AMBIENT_B18_ELL2_T2_UPPER20_VALUES_V4_20261105_v63/report.json",
+        "reports/AMBIENT_B18_UPPER20_POSTCHECK_V2_ROOT_CODE_REVIEW_20261105_v63/report.json",
+        "reports/AMBIENT_B18_UPPER20_INDEPENDENT_POSTCHECK_V2_20261105_v63/report.json"
+      ],
+      "limitations_ja": [
+        "残る十二本は579,580,593,594,597,598,605,606,611,613,615,616。全617零、HF2確定、T2全長を結論しない。",
+        "coefficient baseはI²で、raw33のm五乗零をT2へ移さない。HF2は2〜4、HF3は1〜4、全長17〜20のまま。",
+        "FORMAL raw16の個別高次jetを真とせず、full S0 kernelへ制限してから実応答とする。全L2S0・monic carry・OLD4 coherent消滅を保持した。"
       ]
     }
   ],

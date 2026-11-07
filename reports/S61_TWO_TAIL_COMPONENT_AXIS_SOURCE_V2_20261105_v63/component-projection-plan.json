@@ -1,0 +1,57 @@
+{
+  "prepared_source_only": true,
+  "component_values_NOT_run": true,
+  "same_fixed_axis": "e=d=0",
+  "same_prime": 32003,
+  "original_H_axis": [
+    -1025280,
+    35712000,
+    -1148800000,
+    26260000000,
+    -96000000000
+  ],
+  "factor_axis_integer_coefficients": {
+    "R7": [
+      -6408,
+      63000,
+      -5605000,
+      24000000
+    ],
+    "S4": [
+      160,
+      -4000
+    ]
+  },
+  "saved_D12_remainder": [
+    27788,
+    575,
+    7510,
+    2387
+  ],
+  "runtime_algorithm": [
+    "For each factor, invert only its nonzero constant leading coefficient modulo32003.",
+    "Reduce the saved four D12 coefficients by the resulting monic factor, highest degree first.",
+    "Save every subtraction, quotient and full product-plus-remainder identity.",
+    "Do not treat either quotient ring as a field or remove a component."
+  ],
+  "per_component_degree": {
+    "S4": 1,
+    "R7": 3
+  },
+  "total_reduction_steps_upper": 4,
+  "hard_field_products": 1000,
+  "field_temporary_bits": 30,
+  "integer_ROM_bits": 37,
+  "hard_numeric_and_metadata_owned": 4096,
+  "new_RAW_cap": 1048576,
+  "soft_seconds": 45,
+  "hard_seconds": 60,
+  "RAM": 2000000000,
+  "no_new_D12_source_evaluation": true,
+  "no_new_point_prime_GCD_or_factor": true,
+  "source_denominator_scope": "Only inherited a/B/LCD denominators; all remain units on these factor quotients because they are quotients of accepted H_axis ring.",
+  "positive_implication": "A nonzero component projection proves that component factor does not divide D12 in the complete six-factor BASE6 ring.",
+  "zero_implication": "Only this fixed image is inconclusive; it is not global divisibility.",
+  "geometric_scope": "After each component is geometrically irreducible and coprime to U6, nonzero gives a nonempty dimension2 open of that selected-tail component.",
+  "no_actual_bad_Fitting_or_full57_conclusion": true
+}

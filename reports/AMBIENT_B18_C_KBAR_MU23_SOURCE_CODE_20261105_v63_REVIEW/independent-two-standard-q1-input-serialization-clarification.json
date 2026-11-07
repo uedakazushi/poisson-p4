@@ -1,0 +1,66 @@
+{
+  "all_passed": true,
+  "source_only": true,
+  "input_sha256": {
+    "reports/AMBIENT_B18_C_KBAR_MU23_SOURCE_INVENTORY_20261105_v63/fourteen-z-actions-common37-M2-source-functionals-and-minimal-generator-criterion.json": "2907386608f40e400eb7c7f182397e057f4191e87e4880628f180fd39a5234cf",
+    "code/ambient_B18_C_Kbar_r2_initial_source_20261105_v63.py": "8c8e22188f057bca5170be02e1e01ad6ef3d43d0bca8e990a5d6c5bf14c9a90b"
+  },
+  "two_rows": [
+    {
+      "row": 5,
+      "source": [
+        5,
+        "U"
+      ],
+      "correct_nonzero_F2": [
+        [
+          4,
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            1
+          ],
+          "20578506577/69861528"
+        ]
+      ],
+      "saved_explicit_source_was_empty": true,
+      "saved_NF_matches_correct_F2": true,
+      "pi_q2_constant_still_zero": true
+    },
+    {
+      "row": 12,
+      "source": [
+        5,
+        "S"
+      ],
+      "correct_nonzero_F2": [
+        [
+          4,
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            1
+          ],
+          "-20415496345/279446112"
+        ]
+      ],
+      "saved_explicit_source_was_empty": true,
+      "saved_NF_matches_correct_F2": true,
+      "pi_q2_constant_still_zero": true
+    }
+  ],
+  "cause": "Producer reduce(p,gens) aliases its caller p until first reduction; already-standard q1 follows p.pop, mutating original F2 before it is serialized. Independent bottom-pivot reconstruction and exact normal-form/source multiplybacks used true F2 here.",
+  "unchanged_compiled_functionals": "Both corrected terms are q1, annihilated by literal pi_q2 index179. All37 and14 sourceweights and future value code are unchanged.",
+  "frozen_source_bytes_unchanged": true,
+  "no_requested_rr_or_action_values": true
+}

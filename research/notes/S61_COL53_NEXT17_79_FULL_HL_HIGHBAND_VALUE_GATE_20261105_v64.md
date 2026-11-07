@@ -1,0 +1,19 @@
+# 完全先頭HL面：旧帯を保存する増分VALUE workerの実行前ゲート
+
+これは実装済み・未実行workerのSOURCE/code/storageゲートである。新しい符号付き高次数係数は計算していない。実行には固定workerとゲートを直接pinした独立peerおよびROOTの新たなGOが必要である。
+
+対象は同じ先頭HL面 `(-5,0)` のs=7〜38全体である。各ノードの既存cap以下の係数は独立post-peerで確認済みのセルをそのまま参照し、capを超える出力係数だけを計算する。子は旧LOWと新HIGHの不交和として同じ固定qの整数係数に復元する。子が両方とも旧LOWでも出力が新HIGHなら積を保持する。新しい各係数のH・Lおよびcap超過を代入点で検査する。
+
+旧manifestと現在ノードplanを逐次読みする。旧LOWのpayload SHAを全1884ノードで照合し、旧streamと旧indexは最初と最後にも全体SHAを検査する。旧セルを書き換えず、新manifestにその正確なoffset・長さ・項数・SHAを参照として保存する。新HIGHは個別正準セルとbyte-identicalな連結streamの二世代に保存する。新HIGHのGで原始化した内容も固定qで割り戻し、旧Gと混同しない。空帯は数学G=0、codec sentinel G=1を区別する。
+
+数値所有量を正確に列挙した。不要になった部分射影用 `active_tied_HL_children` を常駐表示からのみ退避し、元の完全SLP・入力ファイル・旧capを保持する。退避量は数値3078と数値キー1884で、resident graphは62623となる。完全HLの子は元のargsと先頭HLから再構成する。
+
+combined indexはノードごとにキー、OLDのoffset・bytes・count、HIGHのoffset・bytes・count、および二つのSHAをそれぞれ数値として課す。合計9Nであり、ハッシュを無償にしない。runtime25000 + graph62623 + 残るmodeキー1884 + order1884 + index16956 + 制御4096 =112443である。二監査文書に4000、未配分margin1557を加えてMETA118000とする。全plan・元SOURCE証拠table・二つ目の旧index・支持数辞書を同時に保持しない。この実装補足は旧予算証拠を書き換えずに追加した。
+
+旧・新の子マップと新しい出力は全5指数・係数7スロットを保持する。子をanchor検査とcodecの前に明示的に解放し、中断保存でも先に解放する。1884ノードのSOURCE予算は通常143570、中断保存138668、global150000の範囲である。source majorant824bit、temporary1921bit、hard VALUE2048bit、50秒math/55秒signal/60秒hard、AS2GBを維持する。
+
+新しい二正準世代・全READ・plan・監査・失敗保存を含むfresh RAW上限は31647203Bで、32MiB以内である。manifestの各行は同じレコード生成関数から、実際のq/Mの桁数と保守的なoffset・shift・G上界を用いて計数し、最大1749Bで固定2048B上限内と確認した。gzipを使用しない。
+
+合成fixtureでは負の固定q、LOW/HIGHで異なるG、空帯とq=0、旧prefixのbyte/SHA不変、およびLOW×LOWからHIGHへの寄与を確認した。fixtureは数値βやSource点の試験ではない。workerのAST・helpとgate生成はPASSし、実VALUEは未実行である。
+
+将来計算できるのはこの完全先頭HL面だけである。面が0でも小行列式全体の0は結論しない。面が非零なら独立した符号付きpost-peerと既存prefactorの証明を経て追加pivotのSOURCE corollaryを別途作る。FULL166×13、全RHS、P290一回、F9/F10/F11と全chart補集合は保持する。

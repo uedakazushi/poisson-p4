@@ -1,0 +1,44 @@
+/workspace/poisson-p4/code/s61_two_tail_H_exact_QQ_factor_20261105_v63.cpp: In function ‘int main(int, char**)’:
+/workspace/poisson-p4/code/s61_two_tail_H_exact_QQ_factor_20261105_v63.cpp:32:69: error: ‘fmpz_init’ was not declared in this scope; did you mean ‘mpz_init’?
+   32 |  fmpz_mpoly_factor_t fac;fmpz_mpoly_factor_init(fac,ctx);fmpz_t c,g;fmpz_init(c);fmpz_init(g);
+      |                                                                     ^~~~~~~~~
+      |                                                                     mpz_init
+/workspace/poisson-p4/code/s61_two_tail_H_exact_QQ_factor_20261105_v63.cpp:35:134: error: ‘fmpz_set_str’ was not declared in this scope; did you mean ‘mpz_set_str’?
+   35 |   for(long i=0;i<n;i++){ulong e[3];string v;in>>e[0]>>e[1]>>e[2]>>v;require(bool(in)&&e[0]<=6&&e[1]<=9&&e[2]<=4,"input box");require(fmpz_set_str(c,v.c_str(),10)==0&&fmpz_bits(c)<=40,"input40bit");fmpz_mpoly_push_term_fmpz_ui(H,c,e,ctx);}
+      |                                                                                                                                      ^~~~~~~~~~~~
+      |                                                                                                                                      mpz_set_str
+/workspace/poisson-p4/code/s61_two_tail_H_exact_QQ_factor_20261105_v63.cpp:35:167: error: ‘fmpz_bits’ was not declared in this scope; did you mean ‘fmpz_t’?
+   35 |   for(long i=0;i<n;i++){ulong e[3];string v;in>>e[0]>>e[1]>>e[2]>>v;require(bool(in)&&e[0]<=6&&e[1]<=9&&e[2]<=4,"input box");require(fmpz_set_str(c,v.c_str(),10)==0&&fmpz_bits(c)<=40,"input40bit");fmpz_mpoly_push_term_fmpz_ui(H,c,e,ctx);}
+      |                                                                                                                                                                       ^~~~~~~~~
+      |                                                                                                                                                                       fmpz_t
+/workspace/poisson-p4/code/s61_two_tail_H_exact_QQ_factor_20261105_v63.cpp:53:49: error: ‘fmpz_sgn’ was not declared in this scope; did you mean ‘mpz_sgn’?
+   53 |    fmpz_mpoly_get_term_coeff_fmpz(c,B,0,ctx);if(fmpz_sgn(c)<0)fmpz_mpoly_neg(B,B,ctx);
+      |                                                 ^~~~~~~~
+      |                                                 mpz_sgn
+/workspace/poisson-p4/code/s61_two_tail_H_exact_QQ_factor_20261105_v63.cpp:59:4: error: ‘fmpz_zero’ was not declared in this scope; did you mean ‘mpn_zero’?
+   59 |    fmpz_zero(g);long fb=0;
+      |    ^~~~~~~~~
+      |    mpn_zero
+/workspace/poisson-p4/code/s61_two_tail_H_exact_QQ_factor_20261105_v63.cpp:60:84: error: ‘fmpz_bits’ was not declared in this scope; did you mean ‘fmpz_t’?
+   60 |    for(long j=0;j<nt;j++){fmpz_mpoly_get_term_coeff_fmpz(c,B,j,ctx);fb=max(fb,long(fmpz_bits(c)));require(fb<=357,"Mignotte357 output guard");fmpz_gcd(g,g,c);}
+      |                                                                                    ^~~~~~~~~
+      |                                                                                    fmpz_t
+/workspace/poisson-p4/code/s61_two_tail_H_exact_QQ_factor_20261105_v63.cpp:60:143: error: ‘fmpz_gcd’ was not declared in this scope; did you mean ‘mpz_gcd’?
+   60 |    for(long j=0;j<nt;j++){fmpz_mpoly_get_term_coeff_fmpz(c,B,j,ctx);fb=max(fb,long(fmpz_bits(c)));require(fb<=357,"Mignotte357 output guard");fmpz_gcd(g,g,c);}
+      |                                                                                                                                               ^~~~~~~~
+      |                                                                                                                                               mpz_gcd
+/workspace/poisson-p4/code/s61_two_tail_H_exact_QQ_factor_20261105_v63.cpp:61:12: error: ‘fmpz_is_one’ was not declared in this scope
+   61 |    require(fmpz_is_one(g),"primitive coefficient content");maxbits=max(maxbits,fb);
+      |            ^~~~~~~~~~~
+/workspace/poisson-p4/code/s61_two_tail_H_exact_QQ_factor_20261105_v63.cpp:64:174: error: ‘fmpz_bits’ was not declared in this scope; did you mean ‘fmpz_t’?
+   64 |     guard(visible);ulong e[3];require(fmpz_mpoly_term_exp_fits_ui(B,j,ctx),"exp ui");fmpz_mpoly_get_term_exp_ui(e,B,j,ctx);fmpz_mpoly_get_term_coeff_fmpz(c,B,j,ctx);require(fmpz_bits(c)<=357,"emission357");
+      |                                                                                                                                                                              ^~~~~~~~~
+      |                                                                                                                                                                              fmpz_t
+/workspace/poisson-p4/code/s61_two_tail_H_exact_QQ_factor_20261105_v63.cpp:65:12: error: ‘fmpz_get_str’ was not declared in this scope; did you mean ‘mpz_get_str’?
+   65 |     char*v=fmpz_get_str(nullptr,10,c);string line=(j?",":"")+string("[[")+to_string(e[0])+","+to_string(e[1])+","+to_string(e[2])+"],\""+string(v)+"\"]";flint_free(v);checkedWrite(out,line);
+      |            ^~~~~~~~~~~~
+      |            mpz_get_str
+/workspace/poisson-p4/code/s61_two_tail_H_exact_QQ_factor_20261105_v63.cpp:73:2: error: ‘fmpz_clear’ was not declared in this scope; did you mean ‘mpz_clear’?
+   73 |  fmpz_clear(c);fmpz_clear(g);fmpz_mpoly_factor_clear(fac,ctx);fmpz_mpoly_clear(B,ctx);fmpz_mpoly_clear(A,ctx);fmpz_mpoly_clear(H,ctx);fmpz_mpoly_ctx_clear(ctx);flint_cleanup();return 0;
+      |  ^~~~~~~~~~
+      |  mpz_clear

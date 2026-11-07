@@ -1,0 +1,9 @@
+# 全二十case V4のSOURCE・CODE・保持量独立監査
+
+native十六raw auxiliaryは形式的extensionであり、十五actual kernelへのfull48 point制限後にのみ実functionalになる。十個の省略kernelには両channel Gamma/D/sum正上界零の明示証明がある。二十八active係数と省略zero項を合わせた全mapを確認し、元constant source全128成分も照合する。617はnative mapに既に563を二十倍加えた補正を含み、OLD/FIRST/native92 outer側だけがraw617＋20raw563を別途使う。raw563 upperを実零としない。
+
+Boolean C0四十四、typed二百二十三、FIRST四百八十一の支持と全871 ordinary factorを独立再構成する。FIRST dictionaryのtuple keyは二つの整数なので1086 recordを課金する。native auxiliary/point/kernelの実storage上界177に対して元book355があり、そのpoint allowance余りから62 recordをFIRSTへ振り替える。合計bookは1379対1263、whole16549と58883は不変であり、個別headerの1024だけをFIRSTの証明としない。
+
+SUCCESS codecからの例外ではunwound frame・traceback/context/cause・cycleをGUARDより先に解放する。これでcodec同時保持を排除し、source budgetのmax則を満たす。拒否scalar・bound、Cramer途中numerator、kernel vector/dot、最後のbinary結果を保持する。計算55秒とcheckpoint窓に加え、ROOT runnerは外側timeout60秒を課す。354/1063、rank minor334・比較TEMP502、58883（hard60000）・RAW17545112を維持する。
+
+既存584 SOURCE零、独立554実零、二十caseは605個を正確に分割する。この監査はSOURCE/CODEだけであり、二十の応答値・rank・HF・長さは求めない。ROOTの一回GOと、その後の独立値監査が必要である。
