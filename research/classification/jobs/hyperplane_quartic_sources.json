@@ -1,0 +1,30 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "target_statement": "Construct complete affine90coefficient sources for all24 nonzero-semisimple modular affine normal forms for simple H+irreducible quartic.",
+  "implication_to_classification": "This retains all surviving cofactor sources, full Jacobi and actual Pfaffian; a whole-source reducible Pfaffian excludes irreducible quartic, while remaining sources stay open.",
+  "coefficient_ring": "QQ[n0,...][x,y,z,w]",
+  "hypotheses": "Full affine quadratic bivectors, div(P)=Z, L_Z(P)=0, and the finite12spectra/24Jordan variants from the entrance reduction. Full Jacobi must still be imposed.",
+  "inverted_elements": [],
+  "complements": [
+    "Pure nilpotent affine modular fields remain separate",
+    "All coefficient hypersurfaces of each complete source retained"
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_hyperplane_quartic.py",
+      "sha256": "45736f977302e7962b75968a01b52074f4a05407f597b039390bf9d24e72519d"
+    },
+    {
+      "path": "reports/CLASSIFICATION_HYPERPLANE_QUARTIC_ENTRANCE_V2_20261107.json",
+      "sha256": "92d1b0540a84bfc47eeb70b8127178da85974af7d65ecd23eb9e3a22bc7bd8b1"
+    }
+  ],
+  "success_certificate": "Full90coefficient linear system rank, complete affine solution, all four Jacobi polynomials, actual and highest Pfaffians for every finite type.",
+  "independent_check": "Separate exact reconstruction of coefficient systems and Pf/Jacobi identities, plus written full-source geometry; no rank sampling.",
+  "resource_limit": {
+    "timeout_seconds": 180,
+    "memory_mb": 1536
+  },
+  "negative_result_next_step": "Keep exact residuals and classify their full support; do not replace full support with a sample or endless larger jets.",
+  "reusable_runner_extension": "Backward-compatible full-source/support modes; exact executed producer source bytes remain embedded in each immutable report."
+}

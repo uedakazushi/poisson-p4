@@ -1,0 +1,35 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "target_statement": "Independently reconstruct the full H+quartic resonance entrance, including valid canonical wall witnesses and every affine Jordan type.",
+  "implication_to_classification": "Verify the exact finite cofactor reduction, exclude only the three generic low-wall strata, and keep all 24 semisimple/10 nilpotent affine types as unresolved full-source obligations.",
+  "coefficient_ring": "QQ; Fraction RREF and sparse integer Laurent polynomial arithmetic",
+  "hypotheses": "Simple hyperplane plus irreducible quartic; full affine quadratic bivector, trace-zero modular linear part; no additional localization or source restriction.",
+  "inverted_elements": [
+    "B in B-open identity",
+    "E in E-open identity",
+    "Nonzero rational scalar for projective spectra"
+  ],
+  "complements": [
+    "B=E=0 with C=D=0 and C or D nonzero",
+    "B!=0,C=0 or C!=0 with v1*v2=0",
+    "E!=0,D=0 or D!=0 with v1*v2=0",
+    "All wall intersections and all affine Jordan types retained"
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_hyperplane_quartic_review.py",
+      "sha256": "b5a5568818c80fc67a92cfd3c1caedb7e081fced702e721a522b8d4b5bc866fa"
+    },
+    {
+      "path": "reports/CLASSIFICATION_HYPERPLANE_QUARTIC_ENTRANCE_V2_20261107.json",
+      "sha256": "92d1b0540a84bfc47eeb70b8127178da85974af7d65ecd23eb9e3a22bc7bd8b1"
+    }
+  ],
+  "success_certificate": "Reconstruct all 90 monomial resonance labels with 4-dimensional orthogonal trace projection; Fraction RREF for every independent wall pair; canonical witnesses; all sparse generic Jacobi and Pfaffian identities, with direct B-open and E-open factorizations.",
+  "independent_check": "Standard library only, no producer execution/import and no CAS; geometric closed-rational-form and Jordan-centralizer arguments reviewed in accompanying note.",
+  "resource_limit": {
+    "timeout_seconds": 90,
+    "memory_mb": 1024
+  },
+  "negative_result_next_step": "Report exact counterexample, keep affected entrance open, and repair only the identified proof/certificate defect."
+}

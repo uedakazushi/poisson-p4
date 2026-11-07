@@ -1,0 +1,31 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "target_statement": "Verify the three generic low-resonance walls and enumerate the complete finite nonzero semisimple cofactor ratios for H plus irreducible quartic.",
+  "implication_to_classification": "All simple-wall generic points have reducible Pfaffian; every remaining nonzero semisimple modular field belongs to this finite arrangement-intersection table. Pure nilpotent affine types are retained, not covered.",
+  "coefficient_ring": "QQ and polynomial QQ[a,b,C,A,B,D,E,F,p,q,r,x,y,z,w]",
+  "hypotheses": "Simple H, irreducible quartic F, full affine quadratic Poisson bivector; div P=c+Ax, tr A=0; full Jacobi kept. General-wall coordinates algebraically independent.",
+  "inverted_elements": [
+    "Nonzero semisimple scalar for eigenvalue normalization",
+    "B on B-open branch; E on exchanged branch"
+  ],
+  "complements": [
+    "All independent wall intersections enumerated exactly",
+    "B=E=0 and all C,D zero/nonzero branches retained",
+    "Ten pure nilpotent affine types retained; A=0 excluded by Pf(Q) nonzero identity"
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_hyperplane_quartic.py",
+      "sha256": "45736f977302e7962b75968a01b52074f4a05407f597b039390bf9d24e72519d"
+    }
+  ],
+  "success_certificate": "All 90 coefficient-weight resonances, primitive walls and exact intersection witnesses; full generic-wall Jacobi ideal equality and Pfaffian/factorization identities.",
+  "independent_check": "Independent rational row reduction and sparse polynomial reconstruction, without producer imports; written geometric completeness and affine Jordan centralizer argument.",
+  "resource_limit": {
+    "timeout_seconds": 90,
+    "memory_mb": 1024
+  },
+  "negative_result_next_step": "Retain counteridentity, correct actual finite reduction error; do not infer coverage from the table.",
+  "prior_certificate_correction": "Original source bytes remain embedded in CLASSIFICATION_HYPERPLANE_QUARTIC_ENTRANCE_20261107.json. Independent review found its wall witnesses were not permuted to canonical spectrum labels. V2 selects incident independent walls in canonical labels; enumeration and spectra unchanged.",
+  "reusable_runner_extension": "Backward-compatible full-source/support modes; exact executed producer source bytes remain embedded in each immutable report."
+}

@@ -1,0 +1,37 @@
+{
+  "task_id": "G",
+  "target_statement": "Independently reconstruct all80-coefficient constraints and complete explicit basic-form kernels for all four nonzero nilpotent Jordan types, and all three weighted forcing identities.",
+  "implication_to_classification": "A projectively closed nilpotent tangent-symmetry incidence contains the entire actual E3 orbit closure. Kernel classification sends rank2 to closed L112, rank1 to pullback and regular rank3 to E3 main or linear Casimir, closing the actual E3 boundary without any orbit-compactification assumption.",
+  "coefficient_ring": "QQ[x,y,z,w], and QQ[b,k,r,s] for the weighted forcing operator",
+  "hypotheses": "Theta is an arbitrary Euler-horizontal cubic one-form, i_Y theta=0 and Lie_Y theta=0; Y is nonzero nilpotent. No integrability or extra coefficient slices are imposed, so the source contains every actual boundary form.",
+  "inverted_elements": [
+    "Nonzero exact rank minors only",
+    "Generic k,b,b+k,b+2k only in a dense open of the irreducible7-dimensional linear source; its entire complement is retained by closed L112 inclusion"
+  ],
+  "complements": [
+    "Y nonzero is preserved in projective P(nilpotent cone); its four Jordan types are all treated",
+    "Rank1 is pullback; regular p0=0 has linear Casimir",
+    "The entire dense-open complement of the weighted space belongs to the same closed L112 component by irreducibility, not a generic-only computation"
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_unimodular_exceptional_review.py",
+      "sha256": "19115b79f1dcc28f92520cea06c2726a6c590244a75f805cbae87794c51de9e5"
+    },
+    {
+      "path": "code/classification_unimodular_logarithmic_review.py",
+      "sha256": "cc5da8f4ac53bb814e549d439d806271a81f28cacfd9656b85765eb78b21cdcf"
+    },
+    {
+      "path": "reports/CLASSIFICATION_UNIMODULAR_EXCEPTIONAL_BOUNDARY_20261107.json",
+      "sha256": "331004a8036c04380ce3fe7832bf55813acea1038b0d49864bb8e091bfb234d1"
+    }
+  ],
+  "success_certificate": "All150 by80 constraint matrices, explicit complete mathematical kernels of dimensions3,7,7,15 with complementary nonzero minors, and exact diagonal forcing eigenvalues b,b+k,b+2k.",
+  "independent_check": "Separate Fraction/sparse-polynomial implementation reconstructs every constraint column, each mathematical basis, complementary rank minors, every Jordan type, and forcing polynomial identity; no producer/CAS imported.",
+  "resource_limit": {
+    "timeout_seconds": 115,
+    "memory_mb": 1024
+  },
+  "negative_result_next_step": "Identify the actual extra kernel vector or failed rank; keep that Jordan type open and classify its invariant quotient geometrically, with no larger repeated Groebner run."
+}

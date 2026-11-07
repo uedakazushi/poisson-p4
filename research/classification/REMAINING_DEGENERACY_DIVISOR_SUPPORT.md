@@ -479,7 +479,7 @@ B の C 保存と trace 条件は
 | rank2・冪零 | 全五 affine 型の primitive β 像は次元≤15。第13節と `MODULAR_NIL_RANK2_FIRSTJET_BOUND.md`。例外源の成分帰属は別に残る |
 | rank1・冪零 | `MULTIPLE_HYPERPLANE_LOW_RANK_MODULAR.md` 第4・5節により全 affine 型の β 像が proper。長鎖の全実同一jet曲線を独立 Fraction 検算済み |
 | A=0、c≠0 | 第14節により primitive 評価β(c)=0。非単射という真の閉条件に全像が入り、非優越 |
-| A=c=0 | 全 unimodular 二次支持が未処理。低階数ノート第6節と本ノート第10–12節の部分排除を保持 |
+| A=c=0 | 全六葉層成分閉包を接続し、全低次係数を含む非優越を証明。UNIMODULAR_EXCEPTIONAL_NILPOTENT_INCIDENCE.md 第7節 |
 
 rank2 nilpotent 型 (3,1) の新25次元成分は、
 `NIL31_PRIMITIVE_BETA_IMAGE.md` により primitive β 像が次元高々13である。
@@ -490,14 +490,16 @@ rank1 nilpotent、c=0 の b≠0 全源もこの成分への認識を通じて同
 b=0 の全源は CA/CB に認識済みで、それらの β 像が proper である既存定理を使う。
 rank2 冪零の他の全 affine 型も、第13節により一般 β を優越しない。
 rank1 の全 affine 型も、低階数ノート第5節の全源次元と実同一jet fiber により非優越が証明された。
-第14節で非零定数モジュラー場も非優越となり、G-2H の未処理は A=c=0 の一型である。
+第14節で非零定数モジュラー場も非優越となり、A=c=0の最後の全対数pole・E3実境界も閉じた。
+可逆などのMPS全被覆枝と合わせ、未知β優越成分の一般元が重複Hを持つ可能性を排除できる。
+全点が既知閉和へ入る枝では、未知既約成分の稠密開がその有限閉和へ入れば成分全体も入ることを使う。
 E の各特殊源への成分帰属は別途残る。
 
 正則半単純で対和零がない場合、C=0。
 一次共鳴もなければ P=Q となるので rank4 解は存在しない。
 一次共鳴ありの C=0 の枝も、命題6の全延長と実 Poisson 変形によって被覆した。
 
-次の像上界は**未証明**である。
+次の全incidence像上界は、今回使う結論より強い別命題である。
 
 \[
  \dim\overline{\operatorname{im}(\mathcal Z_{2H}\longrightarrow W)}\leq15.
@@ -510,8 +512,8 @@ E の各特殊源への成分帰属は別途残る。
 次数25〜27という未知成分の次元上界から、(G-2H)が自動的に従うわけではない。
 既知 CA、CB の射影次元28という事実も、この全 incidence の非優越性の証明には代用できない。
 
-本ノートでは (1) の係数計算を新しく実行していない。
-次に計算を行うなら、階数≤2の最高部の幾何を使って (G-2H) の支持像を直接制限する有限契約が必要である。
+今回の主分類には、上記の弱い未知優越成分排除で十分である。
+強い全incidence像上界を新たな必須課題として追加しない。Eの各特殊源の帰属は別に残す。
 被約非正規の表の全型と特殊 β は、引き続き別の補集合として残る。
 
 独立確認：別担当が命題2の有限 perspective、primitive β の不変性、
@@ -864,5 +866,10 @@ L(1,1,1,1)の四独立一次式の全係数は第12節で処理済み。
 ただし対数型parameter写像のbase locusで生じる極限を、単に一次式の従属配置と同一視しない。
 実L(1,1,2)源と、quartic integrating factorのx³y・x²y²境界は
 `UNIMODULAR_LOGARITHMIC_SUPPORT.md` で全source・全例外の独立確認を含め非優越を証明した。
-x²yz境界も全二源の空性のproducer証明書があるが独立再構成は未実行。
-E(3)主軌道はUNIMODULAR_EXCEPTIONAL_SUPPORT.mdの全30係数と独立再構成により空。残る義務はx²q(q既約)境界、E(3)実境界、および各外部分類との正確な全境界接続である。
+x²yz独立配置の全二源とx²qの全十源も、完全kernel・全分母補集合・全translationを独立再構成した。
+UNIMODULAR_LOGARITHMIC_POLE_BOUNDARY_REVIEW.mdにより両対数成分の全閉包を処理した。
+E(3)実閉包はUNIMODULAR_EXCEPTIONAL_NILPOTENT_INCIDENCE.mdの閉射影nilpotent incidenceと全四Jordan型へ送り、
+全80係数核を独立再構成して閉対数・pullback・一次Casimir・主軌道へ帰着した。
+Pym Theorem3.1と直後のLPT拡張を外部入力として、全六成分と共通因子付き補集合の橋も接続済み。
+従ってA=c=0の全支持のprimitive像は非優越である。
+この結論を被約非正規因子の全分岐や特殊βの被覆まで拡張しない。

@@ -1985,7 +1985,7 @@ Darboux変更は評価rankを保つ。命題\ref{prop:constant-modular-beta}の�
 \begin{remark}
 全十六実対数源、$x^3y,x^2y^2$の全十源、および上の二源・十源を合わせると、
 quartic integrating-factor incidenceが与える対数閉包全体のprimitive一次像は非優越となる。
-E3の実軌道境界、特殊底での全点被覆、目標\ref{target:main}はなお未証明である。
+E3の実軌道境界は次小節で処理する。特殊底の全点被覆と目標\ref{target:main}はなお未証明である。
 \end{remark}
 
 新二極型の係数行列・完全kernel・rank minor・全定数消去は、
@@ -1997,6 +1997,146 @@ E3の実軌道境界、特殊底での全点被覆、目標\ref{target:main}は�
 これらの算術証拠と、上の部分分数・Jordan中心化群・全支持の論理を区別する。
 元134式への橋には第2節及び\path{C0_S61_SLICE_SCALAR_AUDIT_20261106.md}の既存消去証明を用い、
 今回全134式を新たに再生成したという主張はしない。
+
+\subsection{E3の全軌道境界とunimodular支持の非優越}
+主軌道での延長空性だけを、その閉包の全点へ外挿することはできない。
+以下は実際の表現内で閉じたincidenceを用い、全境界の最高部を既済の全延長定理へ送る。
+
+\begin{proposition}\label{prop:unimodular-exceptional-boundary}
+E3成分閉包の全最高部について、unimodularな全低次延長のprimitive一次像は$W_{16}$を優越しない。
+\end{proposition}
+\begin{proof}
+閉二形式$\gamma$とEuler水平三次一形式の線形同定
+$\theta=i_E\gamma/4,d\theta=\gamma$を使う。
+非零nilpotent線形場の射影集合
+\[
+ \mathbb P\mathcal N=\{[Y]\in\mathbb P\operatorname{End}(V):Y^4=0\}
+\]
+はprojectiveである。$\theta$の射影空間との積内で
+\[
+ \mathcal I=\{([\theta],[Y]):i_E\theta=0,\ i_Y\theta=0,
+          \mathcal L_Y\theta=0,\ Y^4=0\}                         \tag{\diamondsuit}
+\]
+を定める。全条件は斉次多項式で、$\theta$空間への射影像は閉じる。
+射影化により、Yがrankを落とす極限でも$Y\ne0$は失われない。
+
+主軌道の最高二ベクトルは、六成分を$(12,13,14,23,24,34)$順にして
+\[
+ Q_0=(5x^2,5xy,5xz,y^2+3xz,yz+7xw,7yw-3z^2)
+     =Y\wedge X_0,
+\]
+\[
+ Y=x\partial_y+y\partial_z+z\partial_w,\qquad
+ X_0=-5x\partial_x-y\partial_y+3z\partial_z+7w\partial_w.
+\]
+$[X_0,Y]=-4Y,\operatorname{tr}X_0=4,\operatorname{tr}Y=0$から
+$\operatorname{div}Q_0=0,\mathcal L_YQ_0=0,Y\wedge Q_0=0$を得る。
+Yは体積形式を保ちEと可換なので、対応する$\theta_0$は$(\diamondsuit)$を満たす。
+座標変更後も同じ性質を持つため、実際の全軌道閉包が$\operatorname{pr}_\theta\mathcal I$に入る。
+これは有限個の対角一径数部分群の極限だけに境界を限定する議論ではない。
+Cartan公式から$i_Y\gamma=0,\mathcal L_Y\gamma=0$も従い、
+体積双対で正しく$Y\wedge Q=0,\mathcal L_YQ=0$となる。
+
+非零Yの全Jordan型は$(4),(3,1),(2,2),(2,1,1)$である。
+全80個の三次一形式係数に$(\diamondsuit)$の全線形条件を課した150行80列行列の
+階数と完全kernelは次の通りである。可積分性の追加条件で源を狭めていない。
+\begin{center}\small
+\begin{tabular}{c|c|r|r}
+Jordan型&Y&階数&kernel次元\\\hline
+$(3,1)$&$x\partial_y+y\partial_z$&73&7\\
+$(2,2)$&$x\partial_z+y\partial_w$&73&7\\
+$(4)$&$x\partial_y+y\partial_z+z\partial_w$&77&3\\
+$(2,1,1)$&$x\partial_w$&65&15
+\end{tabular}
+\end{center}
+以下の表示は各完全kernelの記述であり、basisの独立性と相補rank minorを独立に確認している。
+
+rank二の二型では、それぞれ
+\[
+ (r,s,F)=(x,w,y^2-2xz),\qquad (r,s,F)=(x,y,xw-yz)
+\]
+と置く。全七次元kernelは
+\[
+ \theta=F(\ell_1\,dr+\ell_2\,ds)
+       -\frac{r\ell_1+s\ell_2}{2}\,dF+H_2(s\,dr-r\,ds)          \tag{\triangle}
+\]
+である。$\ell_1,\ell_2$は任意のbinary一次式、$H_2$は任意のbinary二次式である。
+$-(r\ell_1+s\ell_2)/2$が相異なる二根を持つ稠密開では、r,sを変更してこれを$krs$、$k\ne0$とできる。
+radial条件から$\ell_1=b s,\ell_2=c r,b+c+2k=0$となる。
+binary quadratic Tに対して
+\[
+ T(bs\,dr+cr\,ds)+krs\,dT=\mathcal A(T)(s\,dr-r\,ds)
+\]
+を定義すると、$r^is^{2-i}$に対する$\mathcal A$の固有値は$b,b+k,b+2k$である。
+これらが非零の稠密開で$\mathcal A(T)=H_2$を解き、$q=F+T$と置けば
+\[
+ \theta=rsq\left(b\frac{dr}{r}+c\frac{ds}{s}+k\frac{dq}{q}\right).
+\]
+q既約という条件も非空開である。従って七次元線形空間の稠密開は実L112源に入る。
+線形空間は既約でL112成分閉包は閉なので、$(\triangle)$の全源が閉L112に入る。
+三固有値の零点、重根、radial部分零、可約qも捨てていない。
+命題\ref{prop:log-pole-boundaries}とその前の既済全源定理が、この全閉包の低次延長を処理する。
+
+regular nilpotent型の完全kernelは、NをYの行列として
+\[
+ Q=Y\wedge(a_0X_0+a_2N^2x+a_3N^3x),
+ \quad N^2x=x\partial_z+y\partial_w,\quad N^3x=x\partial_w
+\]
+である。$a_0\ne0$なら$[N^2x,X_0]=8N^2x,[N^3x,X_0]=12N^3x$で、
+$Y,N^2x,N^3x$は可換だから、後二場の指数で$a_2,a_3$を消せる。
+高次交換子は零であり、Qはscaleを除いて$Q_0$そのものとなる。
+$Q_0$の全24一次係数に発散零と三次Pfaffian条件を課す行列は階数20、
+その完全kernelは四次元translation imageに一致する。
+translation後に$L=0$とすれば、全六定数係数への二次Pfaffian行列は階数6で$C=0$となる。
+従って主軌道の全延長は非零定数Pfaffianを持てない。
+この全30係数の空性も、別のFraction実装で再構成した。
+$a_0=0$の閉補集合では三場とも$\partial_x$成分が零なので$Q^\sharp dx=0$となり、
+命題\ref{prop:unimodular-linear-casimir}の全支持定理を適用する。
+
+最後のrank一型$Y=x\partial_w$では、$i_Y\gamma=0$と整域性から$i_{\partial_w}\gamma=0$。
+$d\gamma=0$から$\mathcal L_{\partial_w}\gamma=0$も従うので、$\gamma$は三変数引戻しである。
+命題\ref{prop:unimodular-pullback}がその全低次延長を処理する。零最高部も既済である。
+以上により
+\[
+ \overline{E3}\subset E3_{\mathrm{main}}\cup\overline{L112}
+       \cup\{\text{一次Casimir}\}\cup\{\text{引戻し}\}\cup\{0\}
+\]
+を得て、各右辺の全延長に空性又は非優越を適用できる。
+\end{proof}
+
+\begin{proposition}\label{prop:all-unimodular-nondominance}
+$A=c=0$の全unimodular二次Poisson支持のprimitive一次像は$W_{16}$を優越しない。
+既済の他のモジュラー型の全源定理を合わせると、重複超平面の全分岐についても同じ非優越が従う。
+\end{proposition}
+\begin{proof}
+共通因子付き又は零最高部は既済である。
+残る閉可分解二形式は、$\theta=i_E\gamma/4$を通じて、次数二葉層の六成分
+$R13,R22,S23,L1111,L112,E3$の閉包に入る。
+ここでは\cite[Theorem 3.1及び直後の段落]{pymquantum}を外部入力とし、
+同段落のLoray--Pereira--Touzetによる拡張も用いる。
+元の特異集合の余次元条件だけで、共通因子を持つ極限を黙って除外しない。
+
+R13閉包は非零定数一形式aについて$\gamma\wedge a=0$という射影incidenceの閉像に入り、
+命題\ref{prop:unimodular-linear-casimir}を適用できる。
+R22について、$\operatorname{Gr}(2,\operatorname{Sym}^2V^*)$から
+$[f\,dg-g\,df]$への写像はbasepointを持たない。
+実際、その式が零なら$d(f/g)=0$、従ってf,gは比例してGrassmannianの点を定めない。
+写像はprojectiveなので全閉包が実二次pencil像に入り、命題\ref{prop:unimodular-quadratic-pencil}で処理できる。
+S23閉包は$i_v\gamma=0$となる非零定数vの存在という閉条件に入り、
+命題\ref{prop:unimodular-pullback}を適用できる。
+二つの対数閉包はquartic integrating-factor incidenceと全極型、
+E3閉包は命題\ref{prop:unimodular-exceptional-boundary}によって閉じる。
+各型の全低次延長を処理しており、最高部のgenericな正常形だけから結論していない。
+他のモジュラー型の主張は前の各全源・primitive像上界を入力とする。
+\end{proof}
+この結果は被約非正規な実因子の全支持を尽くすものではない。
+既約五次、$1+4$、$1+1+3$、$1+2+2$の残支持があるため、
+一般底の尽くしGと目標\ref{target:main}はなお未解決である。
+全四Jordan型の80列、全行列、数学的kernel basisと相補minor、forcing作用素の三恒等式は
+\path{CLASSIFICATION_UNIMODULAR_EXCEPTIONAL_BOUNDARY_REVIEW_20261107.json}で独立再構成した。
+閉incidenceの射影、稠密L112包含、regular型の共役操作と外部分類の接続は、
+\path{UNIMODULAR_EXCEPTIONAL_NILPOTENT_INCIDENCE.md}の幾何的証明として区別する。
+外部の積コンパクト化や境界四成分の主張は、この証明の入力ではない。
 
 \section{相異なる五超平面を持つ全支持}
 \begin{proposition}\label{prop:five-hyperplanes}
@@ -2585,7 +2725,90 @@ $q=t_0t_1^2=0$の共通零点は原点だけである。
 全六磁気源・全350行150列・実方向・真の切片・一意二次補正・余核pairingは
 \path{CLASSIFICATION_TWO_LINES_PLANE_CUBIC_CUBIC_REVIEW_20261107.json}で独立Fraction再構成した。
 証明点の群等の階数47と実族階数48を区別し、一般軌道次元は未決定のまま保持する。
-残る四平面配置と非平面nil源の帰属は未決であり、型$1+1+3$の全被覆とはしない。
+\begin{proposition}\label{prop:node-two-tangents-mps}
+節点三次とその二本の節点接線からなる配置の全六磁気源は、既知MPS40成分の和に含まれる。
+\end{proposition}
+\begin{proof}
+独立座標$(H,A,B,C,W)$上で、任意の三次斉次式fと$\lambda\ne0$に対し
+\[
+ P_f=\operatorname{Jac}(f)(A,B,C)
+       +\lambda W\partial_W\wedge(A\partial_A+B\partial_B+C\partial_C)
+\]
+を取る。Jacobian括弧の規約は
+$\{A,B\}=f_C,\{A,C\}=-f_B,\{B,C\}=f_A$で、HはCasimirである。
+三変数Euler場は二次斉次二ベクトル$\operatorname{Jac}(f)$を保つため、全fでstrict Jacobiが成立する。
+実affine Pfaffianは$-3\lambda Wf$である。
+この既約源$\mathbb G_m\times\operatorname{Sym}^3(\CC^3)^*$は、
+$\lambda=-1,f=ABC$で実因子$3HWABC$のSNC点を含む。
+その全像閉包を含む全空間成分を選べば、同成分はこのSNC点も含むので、
+採用済みMPS定理により既知40成分の一つである。
+従って補助源の全像はMPSの有限閉和に入る。SNC点での成分の唯一性は用いない。
+
+二変数三次式gと三変数三次式Gを取り
+\[
+ f_0=-\lambda ABC+g(A,C),\qquad f_\varepsilon=f_0+\varepsilon G
+\]
+と置く。$\varepsilon\ne0$で
+\[
+ H=h,\quad A=x,\quad B=y,\quad C=h+\varepsilon z,\quad W=x+\varepsilon w
+\]
+という行列式$\varepsilon^2$の射影線形変更を行い、テンソルを$\varepsilon$倍する。
+fの偏微分は$f_\varepsilon$を微分してから上式を代入するものとすると、得られる六括弧は
+\[
+\begin{aligned}
+ \{x,y\}&=\varepsilon f_C,& \{x,z\}&=-f_B,&
+ \{x,w\}&=-\lambda(x+\varepsilon w)x,\\
+ \{y,z\}&=f_A,& \{y,w\}&=-\lambda(x+\varepsilon w)y+f_C,&
+ \{z,w\}&=-\lambda hw-\lambda\varepsilon zw-G_B(x,y,h+\varepsilon z).
+\end{aligned}
+\]
+最後の式では
+\[
+ \frac{-\lambda WC-f_B}{\varepsilon}
+   =\frac{-\lambda(W-A)C-\varepsilon G_B}{\varepsilon}
+\]
+により分母が消える。従って全括弧は全源係数と$\varepsilon$の多項式で、
+任意の$\varepsilon$でstrict Jacobiを満たす実二次族である。
+その実Pfaffianは$-3\lambda(x+\varepsilon w)f_\varepsilon(x,y,h+\varepsilon z)$。
+
+節点源の三次式を
+\[
+ C_{\rm node}(h,x,y)=hxy-(x-h)^3/8
+\]
+とし、$\lambda=-1,g(A,C)=-(A-C)^3/8$を選ぶ。
+任意の磁気二次式
+$R=r_0h^2+r_1hx+r_2hy+r_3x^2+r_4xy+r_5y^2$について
+\[
+ G=3r_0C^2B+3r_1CAB+\frac32r_2CB^2
+      +3r_3A^2B+\frac32r_4AB^2+r_5B^3
+\]
+と置けば、厳密に$G_B(x,y,h)=3R$である。
+$\varepsilon=0$のfiber座標を$Z=-8z/3,V=(z+w)/8$へ変更し、テンソルを24倍する。
+この一定変更の行列式は$-1/3$で、どの$r_i$も分母に現れない。
+全括弧は
+\[
+\begin{aligned}
+ \{x,y\}&=0,& \{x,Z\}&=64hx,& \{x,V\}&=-3hx+3x^2,\\
+ \{y,Z\}&=24h^2-48hx-64hy+24x^2,&
+ \{y,V\}&=3hy+6xy,&
+ \{Z,V\}&=-64hV-3hZ+24R.
+\end{aligned}
+\]
+となり、節点二接線配置の全六磁気源と全係数で一致する。
+実Pfaffianは$-576xC_{\rm node}$で、全$r_i$に対して非零である。
+
+$\varepsilon\ne0$の全点は補助源のPGL移送と非零scaleによりMPS閉和に属す。
+各成分は連結な$\PGL_5$作用で保たれ、有限和は閉なので、
+上の多項式実族の$\varepsilon=0$も同じ閉和に入る。
+これで全六磁気係数とその全境界を保持した被覆が得られる。
+\end{proof}
+全十係数の任意三次式からのJacobiとPfaffian、五変数逆座標移送、
+分母消去後の多項式族、$G_B=3R$、一定fiber変更と全六源の一致は
+\path{CLASSIFICATION_PLANE_CUBIC_TORIC_COLLISION_REVIEW_20261107.json}で独立再構成した。
+MPSのSNC成分定理自体は既済の外部入力である。
+これにより未処理の平面配置は、節点三次の変曲接線とその変曲点を通る割線、
+尖点三次の変曲接線とその変曲点を通る割線、尖点接線と尖点割線の三配置となる。
+非平面nil源も残るため、型$1+1+3$全体の被覆はまだ主張しない。
 
 
 \section{特異二次因子と既約三次因子の有限還元}
@@ -2916,6 +3139,257 @@ MPSの尽くしにより、この未知成分はSNC点を含まない。
 これらの証明は\path{research/classification/DOMINANT_COMPONENT_GEOMETRY.md}に保持するが、
 処理済み正規分岐を再開する追加義務にはしない。
 
+\subsection{単純超平面と既約四次因子の有限入口}
+この小節では実退化式が$hF$、hは単純超平面、Fはhと異なる既約四次式の場合を扱う。
+hをCasimirにしたliftを取り、$h=1$上の全二次Poissonテンソルを
+\[
+ P=C+L+Q,\qquad Z=\operatorname{div}P=c+Ax
+\]
+と書く。モジュラー恒等式は$[Z,P]=0,\operatorname{tr}A=0$を与える。
+単純hから$Q\wedge Z=0$は従わないので、重複超平面の専用源へ制限しない。
+
+\begin{proposition}\label{prop:hyperplane-quartic-finite-entrance}
+この全支持のモジュラー場は、affine座標変更とPの非零scalar倍を除いて、
+非零半単純部を持つ二十四の被覆用代表、または純冪零部を持つ十代表のいずれかに入る。
+二十四代表のうち一組は同値で、相違型数は二十三である。
+これは各固定場上の全Poisson支持の解決、既存成分への被覆、成分数の決定を含意しない。
+\end{proposition}
+\begin{proof}
+$K=\operatorname{Pf}Q=F|_{h=0}$はhの単純性から非零である。
+従ってQは一般に非退化な二次斉次Poissonテンソルで、その逆二形式$\omega$は閉かつEuler weight零である。
+$\alpha=i_E\omega$も閉、水平、weight零だから$\PP^3$上の閉有理一形式を与える。
+非退化Qに対しEは非零なので$\alpha\ne0$であり、その極の分母はKである。
+
+Kが被約なら極は高々単純で、部分分数補題により
+\[
+ \alpha=\sum_i\lambda_i\,d\log f_i,\qquad
+ K=\prod_i f_i,\qquad \sum_i\lambda_i\deg f_i=0.
+\]
+最後の式はEuler水平性であり、対数部分を引いた正則一形式は
+$H^0(\PP^3,\Omega^1)=0$により零である。
+Kが被約既約四次式なら$4\lambda=0$、従って$\alpha=0$となり矛盾する。
+K非被約の場合も閉有理一形式は同じ対数部分に$dR$を加えたもので、
+Rはweight零、各$f_i$での極次数は$m_i-1$以下である。
+従ってRの分母の総次数は$4-\sum_i\deg f_i\le3$。
+これは最高部の制約であり、低次liftを捨てる結論ではない。
+特に$P=Q$だけでは既約Fを持てず、少なくとも一つの定数項又は一次項が必要となる。
+
+Zのaffine Jordan分解の半単純部を
+\[
+ S=\sum_{i=1}^4\lambda_i x_i\partial_i,\qquad\sum_i\lambda_i=0
+\]
+とする。非零固有値方向のtranslationは座標移動で消せる。
+次数二以下の二ベクトルの有限次元表現上でもJordan分解を使えるので、
+$[Z,P]=0$から$[S,P]=0$が従う。$x_0=h,\lambda_0=0$とすると、
+$P^{ij}$の単項式$x_kx_l$が許される条件は
+\[
+ \lambda_i+\lambda_j=\lambda_k+\lambda_l,
+ \quad1\le i<j\le4,\quad0\le k\le l\le4.                    \tag{\clubsuit}
+\]
+恒等式を除くこれらのwallは、trace零三次元空間で全部で三十七本である。
+定数・一次項が非零なら$k=0$を含む低次wallが必要で、これは十九本、
+$S_4$を法として次の三型となる。別の独立wallとの交点はここでは除き、後で全て保持する。
+
+第一はpair-zero型$(a,-a,b,-b)$である。$u=xy,v=zw$とすると全許容係数は
+\[
+\begin{gathered}
+ P^{xy}=C_0+Au+Bv,\qquad P^{zw}=D_0+Eu+F_0v,\\
+ P^{xz}=p xz,\quad P^{xw}=q xw,\quad P^{yz}=r yz,\quad P^{yw}=s yw.
+\end{gathered}
+\]
+モジュラー固有値のpair-zero条件から$p+q+r+s=0$となる。
+$v_1=p+q,v_2=p+r$と置くと、全四Jacobi式の全係数は次の五式と同じイデアルを定める。
+\[
+ BE=0,\quad v_2C_0+BD_0=0,\quad EC_0-v_1D_0=0,
+ \quad B(v_2+F_0)=0,\quad E(A-v_1)=0.                      \tag{\spadesuit}
+\]
+全Pfaffianは
+\[
+ \Phi=(C_0+Au+Bv)(D_0+Eu+F_0v)+v_1v_2uv.                 \tag{\heartsuit}
+\]
+$B=E=0,C_0=D_0=0$ならuv因子を持つ。
+$B=E=0$で$C_0$又は$D_0$が非零なら$(\spadesuit)$から$v_1v_2=0$、従って二次式の積となる。
+$B\ne0$では$E=0,D_0=-v_2C_0/B,F_0=-v_2$で、残条件は$v_1v_2C_0=0$。
+$C_0=0$なら$(\heartsuit)$はv因子を持つ。
+$C_0\ne0,v_1=0$なら
+$\Phi=-v_2(C_0+Bv)(C_0+Au+Bv)/B$、$v_2=0$なら$\Phi=0$である。
+$E\ne0$でも$B=0,C_0=v_1D_0/E,A=v_1$、残条件は$v_1v_2D_0=0$。
+$D_0=0$ならu因子を持ち、$D_0\ne0$では$v_1=0$なら零、$v_2=0$なら二次式の積となる。
+全主開と閉補集合を尽くし、hによる斉次化を戻しても既約四次Fを得ない。
+
+第二はzero-weight型$(0,a,b,-a-b)$で、全許容括弧は
+\[
+ P^{xy}=y(a_1x+b_1h),\quad P^{xz}=z(a_2x+b_2h),\quad
+ P^{xw}=w(a_3x+b_3h)
+\]
+と残る三つのlogcanonical項だけである。従って全Pfaffianはyzwで割れる。
+零固有空間上の冪零affine部$\kappa\partial_x$を保持しても、
+追加の$[N,P]=0$は許容源を狭めるだけなので、この因数分解は変わらない。
+第三のtriple-sum型$(a,b,a+b,-2a-2b)$では、六つのlogcanonical項と
+$P^{12}$の一次項$\kappa h x_3$だけが許され、全Pfaffianは$x_3x_4$で割れる。
+この型の一般点では固有値は非零かつ相異なり、残る冪零部も零である。
+以上で低次wallの一般点を全て排除した。
+
+従って$S\ne0$の残る支持は、少なくとも一つの低次wallと、それと独立な
+$(\clubsuit)$のwallの交線に限られる。
+全wallをprimitive整数係数で同一視し、全交線を$S_4$と非零scalarで割ると、次の十二比を得る。
+\begin{center}\small
+\begin{tabular}{c|r@{\qquad}c|r}
+固有値比&代表数&固有値比&代表数\\\hline
+$(-6,-1,2,5)$&1&$(-6,-1,3,4)$&1\\
+$(-6,1,2,3)$&1&$(-4,-1,2,3)$&1\\
+$(-4,1,1,2)$&2&$(-3,-1,1,3)$&1\\
+$(-3,-1,2,2)$&2&$(-3,0,1,2)$&2\\
+$(-2,-1,1,2)$&1&$(-2,0,1,1)$&4\\
+$(-1,-1,1,1)$&4&$(-1,0,0,1)$&4
+\end{tabular}
+\end{center}
+代表数は各重複固有空間の全Jordan分割と、零固有空間の全translationを含む。
+translation cは$\operatorname{im}N$を法として残す。
+長さaのJordan blockから長さbへの可換写像がcokerに非零に作用できるのは$a\ge b$のときである。
+従って最大長の非零coker成分を一つ残し、それより短い成分を中心化群で消せる。
+零と各異なるblock長が正確なtranslation代表となり、表は二十四代表を与える。
+ただし$(-1,-1,1,1)$の二固有空間のJordan分割$(2),(1,1)$と$(1,1),(2)$は、
+scalar$-1$と固有空間交換で一致する。これだけの重複を除いた相違型数は二十三である。
+
+$S=0,A\ne0$では四つの純冪零分割$(4),(3,1),(2,2),(2,1,1)$が残る。
+同じtranslationの議論から、それぞれ零及び異なるblock長のtopを残し、
+代表数は順に$2,3,2,3$、合計十となる。
+$A=0$なら$\operatorname{div}Q=0$で、Poissonのモジュラー恒等式は
+$Q^\sharp d\operatorname{Pf}Q=0$を与える。
+Qの一般非退化性から$d\operatorname{Pf}Q=0$となるが、非零四次斉次式には不可能である。
+従って定数モジュラー場も零モジュラー場も、この単純hの支持から除かれる。
+\end{proof}
+
+三十七wall・十九低次wallの全単項式ラベル、全有理交線、正規化後の二壁witness、
+全Jordan分割とtranslation代表は、producerやCASをimportしないFraction実装で独立再構成した。
+三一般wallの許容単項式、全四Jacobiと五式の一致、
+$(\heartsuit)$とB/E主開・全閉補集合の因数分解も独立疎多項式で確認した。
+証拠は\path{CLASSIFICATION_HYPERPLANE_QUARTIC_ENTRANCE_V2_20261107.json}と
+\path{CLASSIFICATION_HYPERPLANE_QUARTIC_ENTRANCE_REVIEW_20261107.json}、
+幾何と算術の射程は\path{HYPERPLANE_QUARTIC_ENTRANCE_REVIEW.md}に記す。
+各固定Z上の全90係数へ$\operatorname{div}P=Z,[Z,P]=0$を課した全線形源、
+残る全Jacobi、実Pfaffianの既約性、既存成分への帰属は別の支持証明を要する。
+この有限入口を全$H+F$の被覆、一般五点、全成分の上界に読み替えない。
+
+\subsection{最小冪零モジュラー場の定数部零における四次因子}
+\begin{proposition}\label{prop:quartic-minimal-nilpotent-support}
+前小節の実退化式$hF$で、モジュラー場のJordan型が$(2,1,1)$、
+translation類が零である全Poisson支持は、既知の23次元MINIMAL\_M成分に含まれる。
+\end{proposition}
+\begin{proof}
+場を$Z=y\partial_x$とする。全二次係数への$[Z,P]=0$を比較すると
+\[
+\begin{gathered}
+ P^{xy}=a,\quad P^{xz}=x\ell+b,\quad P^{xw}=xm+d,\\
+ P^{yz}=y\ell,\quad P^{yw}=ym,\quad P^{zw}=f
+\end{gathered}
+\]
+となる。a,b,d,fはxに依存しない二次以下の多項式、$\ell,m$は一次以下である。
+定数項・一次項を落とさず、$\operatorname{div}P=Z$を課すと
+\[
+ \ell_z+m_w=0,\quad f_w=2\ell+y\ell_y,\quad
+ f_z=-2m-ym_y,\quad -a_y-b_z-d_w=y.                       \tag{\flat}
+\]
+全Pfaffian$F=af+y(d\ell-bm)$はxに依存せず、
+規約$Z^j=\sum_i\partial_iP^{ij}$に対するモジュラー恒等式は
+\[
+ P\,\nabla F=-FZ                                                    \tag{\natural}
+\]
+である。
+
+F既約四次なら$F_0=F|_{y=0}=a_0f_0\ne0$。
+$(\natural)$のz,w成分から$f_0\partial_zF_0=f_0\partial_wF_0=0$となるので、
+$F_0$は非零定数で、$a_0,f_0=c$も非零定数である。
+$(\flat)$を$y=0$へ制限すると$\ell=\alpha y,m=\beta y$、$\alpha,\beta$は定数となり、
+\[
+ f=c+uy+vy^2+3y(\alpha w-\beta z),\qquad c\ne0.
+\]
+$\alpha=\beta=0$ではCasimir条件からFはyだけの式となり、四次斉次化はbinary quarticとして分解する。
+それ以外では$a_1\alpha+b_1\beta=1$を選び、
+$z'=a_1z+b_1w,w'=\alpha w-\beta z$と変更する。
+行列式は1でZを保ち、$\ell=y,m=0$となる。
+$\alpha\ne0$と$\beta\ne0$の二主開でこの正規化を覆い、零の補集合は既約性に反する。
+以下はprimeを外し$f=c+uy+vy^2+3yw$と書く。
+
+Casimir条件は$F_z=0$及び
+\[
+ (c+uy+vy^2+3yw)F_w-y^2F_y=0.                             \tag{\sharp}
+\]
+である。$F=\sum_j A_j(y)w^j$として最高w次数jを比較すると
+$y^2A_j'=3jyA_j$、従って$A_j$は$y^{3j}$の定数倍である。
+全次数四以下から$4j\le4$、すなわち$j\le1$。
+残る係数を積分すると$(\sharp)$の全解は
+\[
+ F=F_0+kI,\qquad I=y^3w+\frac c2y^2+\frac u3y^3+\frac v4y^4.
+\]
+これは手による完全kernel証明である。
+四次以下の全十五単項式の係数行列も独立に再構成し、
+核$\langle1,I\rangle$と階数13のminor$14929920\ne0$を得た。
+minorは非零定数で、u,v,cの特別値を除外しない。
+
+$\ell=y,m=0$だから$F=af+dy^2$であり、
+$(\natural)$のx成分は$F_y=kyf,F_w=ky^3$から
+\[
+ aF_y+dF_w=ky(af+dy^2)=kyF=-yF
+\]
+となる。整域性と$F\ne0$により、符号も含めて$k=-1$が強制される。
+同じ因子形だけを持つ余分なテンソルを残していない。
+
+$F=a_0c-I$とする。$F_z=0$から$fa_z+y^2d_z=0$。
+$\gcd(f,y)=1$で$\deg a_z\le1$なので$a_z=d_z=0$となる。
+yの零次・一次係数と$(\flat)$の残式を比較すると、全係数は正確に
+\[
+\begin{aligned}
+ a&=a_0-a_0uy/c-3a_0yw/c+A_0y^2,&
+ d&=(a_0c-I-af)/y^2,\\
+ P^{xz}&=xy+z(-y-a_y-d_w)+B_2(y,w),&
+ P^{yz}&=y^2,\quad P^{yw}=0,\quad P^{zw}=f
+\end{aligned}
+\]
+となる。掲示の商はyでの二次消去により、二次以下の多項式である。
+$B_2$は任意の二次以下六係数で、$P^{xy}=a,P^{xw}=d$。
+逆に任意の$a_0,c\ne0,u,v,A_0,B_2$に対して、全四Jacobi、
+$\operatorname{div}P=y\partial_x$、$\operatorname{Pf}P=a_0c-I$が成立する。
+従って全Poisson fiberは既約な十一変数源$(\CC^\times)^2\times\mathbb A^9$で尽くされる。
+表示分母はcだけで、$a_0=0$又は$c=0$は$F_0\ne0$に反する。
+全Fはwの原始一次式で、$y^3$と定数項を含む残部の最大公約数は1であるため既約である。
+四次斉次化にもhの因子はなく、全源で一般rank四と単純Hを保つ。
+
+最後に実際のPoissonテンソルを既存成分へ接続する。
+旧MINIMAL\_M代表を座標$(X,Y,Z,W)$で
+\[
+\begin{gathered}
+ P_M=\partial_X\wedge\partial_Y+\partial_Z\wedge\partial_W+Q_M,\\
+ Q_M=(3X^2-6XZ,0,-2X^2,3XZ-18Z^2,
+             6X^2-2XY-3XW+30ZW,6XZ)
+\end{gathered}
+\]
+と書く。実GL4変更
+\[
+ (x,y,z,w)=(Y/6,X,-W/2,Z)
+\]
+を施すと、全六括弧は上の源の点
+\[
+ a_0=-1/6,\quad c=1/2,\quad u=v=0,\quad A_0=-1/2,
+ \quad B_2=-y^2/2
+\]
+と一致する。係数・定数項・符号まで同定しており、退化因子だけの認識ではない。
+\path{legacy/v07/minimal_thickness.tex}の定理minimal-fullは、
+この点の全Poisson空間における被約既約成分が唯一で、23次元MINIMAL\_M軌道閉包であることを与える。
+その弱い被約の帰結のみを入力とし、正確な非被約指数を新たに求めない。
+十一変数源の像閉包は既約なのである全空間成分に含まれ、旧代表を含むため唯一性から同成分はMINIMAL\_Mである。
+従って源の全像がこの既知成分に入り、連結群によるGL変更・平行移動・scale・PGL飽和を戻しても同じ帰属が成立する。
+\end{proof}
+
+PDEの全19行15列、完全kernelと定数minor、全十一源の六括弧・全Jacobi・発散・
+実Pfaffian・モジュラー恒等式、旧代表との全係数一致は、
+\path{CLASSIFICATION_HYPERPLANE_QUARTIC_MINIMAL_NILPOTENT_REVIEW_20261107.json}で
+producerやCASをimportせず独立再構成した。
+またJordan$(3,1)$・translation零の全90係数源は、実Pfaffianが恒等的にzで割れるため既約四次Fを持たない。
+この恒等因子は\path{CLASSIFICATION_HYPERPLANE_QUARTIC_NILPOTENT_SOURCES_REVIEW_20261107.json}で独立に確認した。
+他の純冪零型・translation類と非零半単純型の残支持は、この命題の結論に含めず未解決として保持する。
+
 \section{計算・証拠の位置づけ}
 本稿の命題\ref{prop:radical}、補題\ref{lem:certificate}、補題\ref{lem:descent}、命題\ref{prop:spread}には本文で証明を与えた。
 これらは一般的な可換代数の論理であり、新しいPoisson分類定理ではない。
@@ -2952,6 +3426,10 @@ arXiv:1112.3871v3, Theorem 6.2.
 \emph{A local Torelli theorem for log symplectic manifolds},
 arXiv:2010.08692v2 (2021), Theorem 1.4.
 \url{https://arxiv.org/html/2010.08692v2}.
+\bibitem{pymquantum} B. Pym,
+\emph{Quantum deformations of projective three-space},
+arXiv:1403.6444v1, Theorem 3.1及び直後の段落.
+\url{https://arxiv.org/html/1403.6444v1#S3}.
 \bibitem{pymelliptic} B. Pym,
 \emph{Elliptic singularities on log symplectic manifolds and Feigin--Odesskii Poisson brackets},
 arXiv:1507.05668, Theorem 1.3, Definition 4.2, Remark 4.4.

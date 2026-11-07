@@ -5,7 +5,8 @@
 全支持を十三個の明示的な六パラメータ源のPGL飽和へ還元する。
 そのうち六源の閉包は真正一・二法線の二次障害から23次元の全Poisson成分と独立検証済みである。
 さらに三源について、固定した真の切片の三次初期式から同じ結論を得て、独立算術検証も完了した。
-残る四源の成分帰属は未完了であり、型1+1+3全体の被覆完了は主張しない。
+node_two_node_tangentsは全六磁気源の実toric衝突族と独立再構成によりMPSへ被覆した。
+残る三源の成分帰属は未完了であり、型1+1+3全体の被覆完了は主張しない。
 
 ## 1. 全係数を保持するfree平面五次曲線への還元
 
@@ -304,11 +305,11 @@ root担当が独立に読解・受理した。九源のKrull支持論は各独�
 
 ## 6. 未完了の四源を保持する
 
-残る四配置の実source次元下界は23である。全tangent上界は次の通り。
+node_two_node_tangentsはPLANE_CUBIC_TORIC_COLLISION.mdと独立REVIEWの全実族でMPSへ被覆した。
+残る三配置の実source次元下界は23である。全tangent上界は次の通り。
 
 | 源 | tangent上界 |
 |---|---:|
-| node_two_node_tangents | 30 |
 | node_flex_tangent_through_flex | 24 |
 | cusp_flex_secant_through_flex | 24 |
 | cusp_cusp_tangent_cusp_secant | 29 |

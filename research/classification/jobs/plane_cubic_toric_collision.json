@@ -1,0 +1,42 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "target_statement": "Contain the entire node_two_node_tangents plane cubic source, with all six magnetic terms, in the accepted finite MPS component union using an actual polynomial PGL collision of a cubic Jacobian/two-hyperplane source.",
+  "implication_to_classification": "This removes one of the four remaining plane cubic configurations in E_reduced_nonnormal without requiring any further normal-jet calculation. The full six-parameter target is exactly the epsilon=0 limit of verified Poisson members in an irreducible source containing an SNC toric point.",
+  "coefficient_ring": "QQ[lambda,g0,g1,g2,g3,r0,...,r5,epsilon,h,x,y,z,w], no target source coefficient inverted.",
+  "hypotheses": "Original full model H Casimir, P=Jac(f)(A,B,C)+lambda W*dW wedge Euler_ABC, f0=-lambda ABC+g(A,C), f=f0+epsilon G. Collision H=h,W=x+epsilon*w,A=x,B=y,C=h+epsilon*z and tensor scale epsilon. Match lambda=-1,f0=ABC-(A-C)^3/8 to existing source by an explicit constant fiber GL2 change and tensor scale24. Retain all full Jacobi and actual projective divisor identities.",
+  "inverted_elements": [
+    "epsilon only for the generic PGL collision matrix; final family has polynomial coefficients including epsilon=0"
+  ],
+  "complements": [
+    "epsilon=0 is included by actual polynomial family and finite-closed-union membership.",
+    "Every six magnetic coefficient and all their boundaries remain: choose G_B=3R.",
+    "The auxiliary model permits all ternary cubics, including its toric SNC point; smoothness of the individual fixed-r family is unnecessary."
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_plane_cubic_toric_collision.py",
+      "sha256": "7dd619cb278c74ed86255691ce484139c6b521c881ef3b975ac4f584af515bda"
+    },
+    {
+      "path": "reports/CLASSIFICATION_TWO_LINES_PLANE_CUBIC_20261107.json",
+      "sha256": "f0ec94367063e9fe85c053352672e23f9fe4c01267205bedceec2ee9ac908e3a"
+    },
+    {
+      "path": "research/classification/KNOWN_COMPONENT_AUDIT.md",
+      "sha256": "9ec00c6ef9007492c4c505a6f8b0b2fe47097006250b213159e7c5277b7b3ad7"
+    },
+    {
+      "path": "research/classification/TWO_LINES_PLANE_CUBIC_SUPPORT.md",
+      "sha256": "204db50091213bbe8454f794ba40466b6b659a3b1df54cc45137f9717a6f88f7"
+    }
+  ],
+  "success_certificate": "Raw universal full4 strict Jacobi identities before and after collision; exact rational-to-polynomial pushforward; all degree2 coefficients; full Pfaffian; toric SNC witness; exact equality with every coefficient of existing six-parameter target after specified fiber change, and independent proof of the finite-closed-union implication.",
+  "independent_check": "Root independently reconstructs the simple six generic collision brackets, checks G_B=3R and the fiber GL2 identity, and reviews use of the accepted MPS SNC component theorem. All raw formulas and immutable source binding are preserved.",
+  "resource_limit": {
+    "timeout_seconds": 120,
+    "memory_mb": 2048
+  },
+  "negative_result_next_step": "If any complete-source identity fails, preserve the exact counterexample and do not infer membership from the divisor type. Correct the collision or change the geometric route. No higher jets.",
+  "route_change_reason": "This is an actual all-parameter PGL degeneration from an irreducible model containing an SNC point, with a magnetic primitive, rather than repetition of vanished normal obstructions or the disproved nil31 fixed-3D modular ansatz.",
+  "proof_note_status_update": "Current mathematical note includes completed coverage/independent review status. Exact original input note bytes are preserved in CLASSIFICATION_PROOF_NOTE_SOURCE_HISTORY_20261107.json; immutable producer certificates were not changed."
+}

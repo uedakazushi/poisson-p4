@@ -1,0 +1,154 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "all_passed": true,
+  "no_producer_import": true,
+  "no_CAS_import": true,
+  "input_sha256": {
+    "code/classification_minimal_quartic_review.py": "75cbf6820a60945f053c4593363d9191cebe860f56230a0fb0bf78a1a43623fe",
+    "code/classification_quadratic_cofactor_review.py": "b77e9511bad7c8674f2d820c0d1e6022b7aa3788b795c2e55090b28e2d2dffcd",
+    "reports/CLASSIFICATION_HYPERPLANE_QUARTIC_NIL_RANK1_GEOMETRY_20261107.json": "c88ea7cfd816c4ceffbe303f9f1eb5f5127bc0aaf00b85375c870a63b35de415",
+    "reports/CLASSIFICATION_HYPERPLANE_QUARTIC_NIL_RANK1_SUPPORT_20261107.json": "6d65303ffc6bb0272a2b23708d2730fefda81a9b67a11a52eadcec324b245a46",
+    "legacy/v07/minimal_thickness.tex": "632f4f66e0dccda286b0c863af44e31022ba6fd1f0c531d9bb51c67304b3ef64"
+  },
+  "full_PDE": {
+    "full_matrix_shape": [
+      19,
+      15
+    ],
+    "every_matrix_coefficient_checked": true,
+    "independent_kernel": [
+      "1",
+      "y\u00b3t+cy\u00b2/2+uy\u00b3/3+vy\u2074/4"
+    ],
+    "rank": 13,
+    "determinant": "14929920",
+    "determinant_is_nonzero_constant": true,
+    "all_parameter_values_covered": true,
+    "output_monomial_labels": [
+      [
+        5,
+        0
+      ],
+      [
+        4,
+        1
+      ],
+      [
+        4,
+        0
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        0
+      ]
+    ]
+  },
+  "whole_source": {
+    "full_parameter_count": 11,
+    "every_source_bracket_reconstructed": true,
+    "polynomial_division_by_y_squared_exact": true,
+    "whole_divergence": [
+      "y",
+      "0",
+      "0",
+      "0"
+    ],
+    "all_four_strict_Jacobi_zero": true,
+    "all_source_Pfaffian_checked": true,
+    "complete_modular_identity_checked": true,
+    "I_derivative_identities_checked": true,
+    "all_coordinate_degrees_at_most_two": true,
+    "old_MINIMAL_M_from_legacy_formula": true,
+    "old_M_all_six_brackets_exactly_matched": true,
+    "old_M_parameter_point": {
+      "a0": "-1/6",
+      "c": "1/2",
+      "u": "0",
+      "v": "0",
+      "A": "-1/2",
+      "b0": "0",
+      "b1": "0",
+      "b2": "0",
+      "b3": "-1/2",
+      "b4": "0",
+      "b5": "0"
+    },
+    "only_display_denominator_parameter": "c"
+  },
+  "independent_mathematical_review": "IrreducibleF implies nonzero y=0 restriction. Modular z/w equations force a0*f0 constant nonzero, hence both are nonzero constants and l,m are multiples ofy. SL2 covers every nonzero(alpha,beta); zero case yields a binary reducible quartic. Complete degree4 Casimir solutions and modular x-equation force k=-1. Coprimality(f,y) and degreebounds recover all source coefficients. The eleven-parameter source is irreducible, contains the actual MINIMAL_M point, and the known unique ambient component at that point therefore contains the entire source.",
+  "inverted_elements": [
+    "c in the displayed source",
+    "a0!=0 is forced by irreducibleF restriction",
+    "alpha or beta only for the SL2 cofactor normalization"
+  ],
+  "complements": [
+    "F|y=0=0 contradicts irreducibility of quarticF",
+    "a0=0 or c=0 contradicts the nonzero restriction",
+    "alpha=beta=0 yields a polynomial in y alone and hence reducible projective quartic"
+  ],
+  "external_dependency": "Only the unique reduced ambient component consequence of legacy/v07/minimal_thickness.tex theorem minimal-full; nil exponent is not recomputed.",
+  "scope": "Whole nil211,translation0 irreducible-quartic support in MINIMAL_M; no other Jordan/translation types or global classification claimed.",
+  "seconds": 0.011323545999857743,
+  "maximum_RSS_KiB": 13056,
+  "reviewer_source_bytes": "#!/usr/bin/env python3\n\"\"\"Independent sparse verification of the complete minimal-nilpotent source.\n\nNo producer or CAS imports. The reusable cofactor reviewer's sparse arithmetic\nis extended only to Laurent monomials in the explicitly inverted parameter c.\n\"\"\"\nimport argparse\nimport ast\nfrom fractions import Fraction as Q\nfrom functools import lru_cache\nimport hashlib\nimport itertools\nimport json\nfrom pathlib import Path\nimport resource\nimport time\n\nfrom classification_quadratic_cofactor_review import Ring\n\nROOT = Path(__file__).resolve().parents[1]\nPAIRS = tuple(itertools.combinations(range(4), 2))\n\n\nclass LaurentRing(Ring):\n    def __init__(self, parameters, coordinates, invert=()):\n        self.names = tuple(parameters)+tuple(coordinates)\n        self.n = len(parameters)\n        self.zero = (0,)*len(self.names)\n        self.invert = set(invert)\n\n    def inverse_monomial(self, polynomial):\n        assert len(polynomial) == 1\n        powers, coefficient = next(iter(polynomial.items()))\n        assert all(not a or name in self.invert for name, a in zip(self.names, powers))\n        return {tuple(-a for a in powers):1/coefficient}\n\n    def parse(self, expression):\n        def read(node):\n            if isinstance(node, ast.Constant) and type(node.value) is int:\n                return self.constant(node.value)\n            if isinstance(node, ast.Name):\n                return self.variable(node.id)\n            if isinstance(node, ast.UnaryOp) and isinstance(node.op, ast.USub):\n                return self.scale(read(node.operand), -1)\n            if isinstance(node, ast.BinOp):\n                a, b = read(node.left), read(node.right)\n                if isinstance(node.op, ast.Add):\n                    return self.add(a, b)\n                if isinstance(node.op, ast.Sub):\n                    return self.add(a, self.scale(b, -1))\n                if isinstance(node.op, ast.Mult):\n                    return self.mul(a, b)\n                if isinstance(node.op, ast.Div):\n                    return self.mul(a, self.inverse_monomial(b))\n                if isinstance(node.op, ast.Pow):\n                    assert set(b) <= {self.zero}\n                    exponent = b.get(self.zero, Q(0))\n                    assert exponent.denominator == 1\n                    if exponent < 0:\n                        a = self.inverse_monomial(a)\n                    result = self.constant(1)\n                    for _ in range(abs(int(exponent))):\n                        result = self.mul(result, a)\n                    return result\n            raise ValueError(ast.dump(node))\n        return read(ast.parse(expression, mode='eval').body)\n\n\ndef determinant(ring, matrix):\n    \"\"\"Sparse Laplace expansion, choosing the least populated remaining row.\"\"\"\n    n = len(matrix)\n\n    @lru_cache(None)\n    def minor(rows, columns):\n        if not rows:\n            return ring.constant(1)\n        row_position = min(range(len(rows)), key=lambda p:sum(bool(matrix[rows[p]][j]) for j in columns))\n        i = rows[row_position]\n        reduced_rows = rows[:row_position]+rows[row_position+1:]\n        result = {}\n        for position, j in enumerate(columns):\n            if matrix[i][j]:\n                sign = (-1)**(row_position+position)\n                term = ring.mul(matrix[i][j], minor(reduced_rows, columns[:position]+columns[position+1:]))\n                result = ring.add(result, ring.scale(term, sign))\n        return result\n\n    return minor(tuple(range(n)), tuple(range(n)))\n\n\ndef check_pde(report):\n    ring = LaurentRing(('c','u','v'), ('y','t','unused1','unused2'))\n    monomials = [(i,j) for i in range(5) for j in range(5-i)]\n    # Direct action of (c+uy+vy\u00b2+3yt)d_t-y\u00b2d_y on y^i t^j.\n    columns = []\n    for i, j in monomials:\n        column = {}\n        if j:\n            column[(i,j-1)] = ring.parse(f'{j}*c')\n            column[(i+1,j-1)] = ring.parse(f'{j}*u')\n            column[(i+2,j-1)] = ring.parse(f'{j}*v')\n        if 3*j-i:\n            column[(i+1,j)] = ring.constant(3*j-i)\n        columns.append(column)\n    labels = sorted({powers for column in columns for powers in column}, reverse=True)\n    matrix = [[column.get(powers,{}) for column in columns] for powers in labels]\n    assert matrix == [[ring.parse(value) for value in row] for row in report['full_matrix']]\n    actual_monomials = [ring.parse(f'y**{i}*t**{j}') for i,j in monomials]\n    assert actual_monomials == [ring.parse(value) for value in report['all_degree_at_most_four_monomials']]\n    I = ring.parse('y**3*t+c*y**2/2+u*y**3/3+v*y**4/4')\n    kernel = [ring.constant(1), I]\n    for polynomial in kernel:\n        vector = [{e[:-4]+(0,)*4:value for e,value in polynomial.items() if e[-4:-2]==(i,j)}\n                  for i,j in monomials]\n        assert all(not ring.add(*(ring.mul(a,b) for a,b in zip(row,vector))) for row in matrix)\n    assert [ring.parse(value) for value in report['complete_kernel_basis']] == kernel\n    rows, cols = report['pivot_rows'], report['pivot_columns']\n    assert len(rows) == len(cols) == 13 and len(set(rows)) == len(set(cols)) == 13\n    value = determinant(ring, [[matrix[i][j] for j in cols] for i in rows])\n    assert value == ring.constant(14929920) == ring.parse(report['pivot_minor'])\n    # The two kernel vectors are independent for every c,u,v: the y\u00b3t\n    # coefficient of I is1, and the constant coefficient of 1 is1.\n    assert I.get((0,0,0,3,1,0,0)) == 1\n    return dict(full_matrix_shape=[len(matrix),15], every_matrix_coefficient_checked=True,\n                independent_kernel=['1','y\u00b3t+cy\u00b2/2+uy\u00b3/3+vy\u2074/4'], rank=13,\n                determinant=str(value[ring.zero]), determinant_is_nonzero_constant=True,\n                all_parameter_values_covered=True, output_monomial_labels=[list(p) for p in labels])\n\n\ndef evaluate_parameters(ring, polynomial, point):\n    result = {}\n    for e, coefficient in polynomial.items():\n        for name, power in zip(ring.names[:ring.n], e[:ring.n]):\n            coefficient *= point[name]**power\n        coordinate_powers = e[ring.n:]\n        result[coordinate_powers] = result.get(coordinate_powers,Q(0))+coefficient\n    return {e:c for e,c in result.items() if c}\n\n\ndef verify_source(report):\n    parameters = ('a0','c','u','v','A')+tuple(f'b{i}' for i in range(6))\n    ring = LaurentRing(parameters, ('x','y','z','w'), invert=('c',))\n    f = ring.parse('c+u*y+v*y**2+3*y*w')\n    I = ring.parse('y**3*w+c*y**2/2+u*y**3/3+v*y**4/4')\n    F = ring.add(ring.parse('a0*c'),ring.scale(I,-1))\n    a = ring.parse('a0+y*(-a0*u/c-3*a0*w/c)+A*y**2')\n    numerator = ring.add(F,ring.scale(ring.mul(a,f),-1))\n    d = {}\n    for e, coefficient in numerator.items():\n        assert e[ring.n+1] >= 2\n        exponents = list(e)\n        exponents[ring.n+1] -= 2\n        d[tuple(exponents)] = coefficient\n    B = ring.parse('b0+b1*y+b2*w+b3*y**2+b4*y*w+b5*w**2')\n    b = ring.add(ring.parse('x*y'), B,\n                 ring.mul(ring.variable('z'),ring.add(ring.parse('-y'),\n                            ring.scale(ring.derivative(a,1),-1),ring.scale(ring.derivative(d,3),-1))))\n    entries = [a,b,d,ring.parse('y**2'),{},f]\n    assert entries == [ring.parse(value) for value in report['brackets']]\n    assert F == ring.parse(report['actual_affine_pfaffian'])\n    assert all(sum(e[-4:]) <= 2 for value in entries for e in value)\n    P = [[{} for _ in range(4)] for _ in range(4)]\n    for (i,j),value in zip(PAIRS,entries):\n        P[i][j],P[j][i] = value,ring.scale(value,-1)\n    divergence = [ring.add(*(ring.derivative(P[i][j],i) for i in range(4))) for j in range(4)]\n    assert divergence == [ring.parse('y'),{},{},{}]\n    jacobi = [ring.add(*(ring.mul(P[a][k],ring.derivative(P[b][d],k))\n                        for a,b,d in [(i,j,l),(j,l,i),(l,i,j)] for k in range(4)))\n              for i,j,l in itertools.combinations(range(4),3)]\n    assert jacobi == [{},{},{},{}]\n    pf = ring.add(ring.mul(a,f),ring.mul(d,ring.parse('y**2')))\n    assert pf == F\n    hamiltonian = [ring.add(*(ring.mul(P[i][j],ring.derivative(F,j)) for j in range(4))) for i in range(4)]\n    assert hamiltonian == [ring.scale(ring.mul(ring.variable('y'),F),-1),{},{},{}]\n    assert ring.mul(f,ring.derivative(I,3)) == ring.mul(ring.parse('y**2'),ring.derivative(I,1))\n    assert ring.derivative(I,1) == ring.mul(ring.variable('y'),f)\n    assert ring.derivative(I,3) == ring.parse('y**3')\n\n    # Generate the old MINIMAL_M tensor from its independent legacy formula.\n    # X=y,Y=6x,Z=w,W=-2z; new coordinate rows are (Y/6,X,-W/2,Z).\n    old_ring = LaurentRing((),('X','Y','Z','W'))\n    new_ring = LaurentRing((),('x','y','z','w'))\n    old_entries = [old_ring.parse(value) for value in\n                   ['1+3*X**2-6*X*Z','0','-2*X**2','3*X*Z-18*Z**2',\n                    '6*X**2-2*X*Y-3*X*W+30*Z*W','1+6*X*Z']]\n    substitutions = [new_ring.parse(value) for value in ['y','6*x','w','-2*z']]\n    def substitute(polynomial):\n        result = {}\n        for powers, coefficient in polynomial.items():\n            term = new_ring.constant(coefficient)\n            for value,power in zip(substitutions,powers):\n                for _ in range(power):\n                    term = new_ring.mul(term,value)\n            result = new_ring.add(result,term)\n        return result\n    old_P = [[{} for _ in range(4)] for _ in range(4)]\n    for (i,j),value in zip(PAIRS,old_entries):\n        old_P[i][j],old_P[j][i] = value,old_ring.scale(value,-1)\n    order,scale = [1,0,3,2],[Q(1,6),Q(1),Q(-1,2),Q(1)]\n    transformed = [new_ring.scale(substitute(old_P[order[i]][order[j]]),scale[i]*scale[j])\n                   for i,j in PAIRS]\n    point = dict(a0=Q(-1,6),c=Q(1,2),u=Q(0),v=Q(0),A=Q(-1,2),\n                 b0=Q(0),b1=Q(0),b2=Q(0),b3=Q(-1,2),b4=Q(0),b5=Q(0))\n    assert transformed == [evaluate_parameters(ring,value,point) for value in entries]\n    assert point == {key:Q(value) for key,value in report['MINIMAL_M_source_point'].items()}\n    return dict(full_parameter_count=11, every_source_bracket_reconstructed=True,\n                polynomial_division_by_y_squared_exact=True, whole_divergence=[\"y\",\"0\",\"0\",\"0\"],\n                all_four_strict_Jacobi_zero=True, all_source_Pfaffian_checked=True,\n                complete_modular_identity_checked=True, I_derivative_identities_checked=True,\n                all_coordinate_degrees_at_most_two=True,\n                old_MINIMAL_M_from_legacy_formula=True, old_M_all_six_brackets_exactly_matched=True,\n                old_M_parameter_point={name:str(value) for name,value in point.items()},\n                only_display_denominator_parameter='c')\n\n\ndef main(output):\n    resource.setrlimit(resource.RLIMIT_CPU,(170,175))\n    resource.setrlimit(resource.RLIMIT_AS,(1024*1024**2,1024*1024**2))\n    started = time.monotonic()\n    geometry_path = ROOT/'reports/CLASSIFICATION_HYPERPLANE_QUARTIC_NIL_RANK1_GEOMETRY_20261107.json'\n    support_path = ROOT/'reports/CLASSIFICATION_HYPERPLANE_QUARTIC_NIL_RANK1_SUPPORT_20261107.json'\n    geometry = json.loads(geometry_path.read_text())\n    support = json.loads(support_path.read_text())\n    for report in [geometry,support]:\n        assert hashlib.sha256(report['source_bytes'].encode()).hexdigest() == report['source_sha256']\n    pde = check_pde(geometry['nil_rank_one_divisor_geometry'])\n    source = verify_source(support['nil_rank_one_support'])\n    dependencies = [Path(__file__),Path(__file__).with_name('classification_quadratic_cofactor_review.py'),\n                    geometry_path,support_path,ROOT/'legacy/v07/minimal_thickness.tex']\n    result = dict(task_id='E_reduced_nonnormal',all_passed=True,no_producer_import=True,no_CAS_import=True,\n                  input_sha256={str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in dependencies},\n                  full_PDE=pde,whole_source=source,\n                  independent_mathematical_review='IrreducibleF implies nonzero y=0 restriction. Modular z/w equations force a0*f0 constant nonzero, hence both are nonzero constants and l,m are multiples ofy. SL2 covers every nonzero(alpha,beta); zero case yields a binary reducible quartic. Complete degree4 Casimir solutions and modular x-equation force k=-1. Coprimality(f,y) and degreebounds recover all source coefficients. The eleven-parameter source is irreducible, contains the actual MINIMAL_M point, and the known unique ambient component at that point therefore contains the entire source.',\n                  inverted_elements=['c in the displayed source','a0!=0 is forced by irreducibleF restriction','alpha or beta only for the SL2 cofactor normalization'],\n                  complements=['F|y=0=0 contradicts irreducibility of quarticF','a0=0 or c=0 contradicts the nonzero restriction','alpha=beta=0 yields a polynomial in y alone and hence reducible projective quartic'],\n                  external_dependency='Only the unique reduced ambient component consequence of legacy/v07/minimal_thickness.tex theorem minimal-full; nil exponent is not recomputed.',\n                  scope='Whole nil211,translation0 irreducible-quartic support in MINIMAL_M; no other Jordan/translation types or global classification claimed.',\n                  seconds=time.monotonic()-started,maximum_RSS_KiB=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,\n                  reviewer_source_bytes=Path(__file__).read_text())\n    with output.open('x') as handle:\n        json.dump(result,handle,indent=2)\n        handle.write('\\n')\n    print(json.dumps({key:result[key] for key in ('all_passed','seconds','maximum_RSS_KiB')}))\n\n\nif __name__ == '__main__':\n    parser = argparse.ArgumentParser(description=__doc__)\n    parser.add_argument('--output',type=Path,required=True)\n    main(parser.parse_args().output)\n"
+}

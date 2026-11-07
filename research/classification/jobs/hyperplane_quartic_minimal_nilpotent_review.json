@@ -1,0 +1,51 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "target_statement": "Independently verify the complete nil211,translation0 irreducible-quartic source, full degree4 Casimir PDE and actual MINIMAL_M point, including the whole-source membership proof.",
+  "implication_to_classification": "Closes the entire pure-nilpotent cofactor type8 under irreducibleF in the known MINIMAL_M component, without computing any new nil exponent.",
+  "coefficient_ring": "Sparse QQ[c,u,v,y,t] for the full15-column PDE; Laurent QQ[a0,c,c^-1,u,v,A,b0..b5,x,y,z,w] for every source coefficient.",
+  "hypotheses": "Fixed cofactor y\u2202x, simple H and irreducible quarticF; retain every quadratic coefficient, all constants and magnetic B2. Apply only the known unique ambient reduced component at MINIMAL_M.",
+  "inverted_elements": [
+    "c in displayed source",
+    "a0!=0 forced by F|y=0 nonzero",
+    "alpha or beta for SL2 normalization of nonzero(l,m)"
+  ],
+  "complements": [
+    "F|y=0=0 implies y dividesF, contrary to irreducibility",
+    "a0=0 or c=0 contradicts nonzero F restriction",
+    "alpha=beta=0 gives a polynomial in y alone and a reducible homogeneous quartic"
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_minimal_quartic_review.py",
+      "sha256": "75cbf6820a60945f053c4593363d9191cebe860f56230a0fb0bf78a1a43623fe"
+    },
+    {
+      "path": "code/classification_quadratic_cofactor_review.py",
+      "sha256": "b77e9511bad7c8674f2d820c0d1e6022b7aa3788b795c2e55090b28e2d2dffcd"
+    },
+    {
+      "path": "reports/CLASSIFICATION_HYPERPLANE_QUARTIC_NIL_RANK1_GEOMETRY_20261107.json",
+      "sha256": "c88ea7cfd816c4ceffbe303f9f1eb5f5127bc0aaf00b85375c870a63b35de415"
+    },
+    {
+      "path": "reports/CLASSIFICATION_HYPERPLANE_QUARTIC_NIL_RANK1_SUPPORT_20261107.json",
+      "sha256": "6d65303ffc6bb0272a2b23708d2730fefda81a9b67a11a52eadcec324b245a46"
+    },
+    {
+      "path": "research/classification/HYPERPLANE_QUARTIC_MINIMAL_NILPOTENT_SUPPORT.md",
+      "sha256": "86382f7003f698be3ebeeb1490fc40c83e43b800036428ca4628a4a1a30cd8e8"
+    },
+    {
+      "path": "legacy/v07/minimal_thickness.tex",
+      "sha256": "632f4f66e0dccda286b0c863af44e31022ba6fd1f0c531d9bb51c67304b3ef64"
+    }
+  ],
+  "success_certificate": "All15 degree<=4 monomial columns independently generated, all PDE matrix coefficients and complete kernel checked, full13x13 polynomial determinant14929920, every11-parameter source coefficient reconstructed by exact division, allJacobi/div/Pf/modular identity, actual oldM six-bracket map.",
+  "independent_check": "No producer or CAS imports; independent sparse Laurent arithmetic using the standard-library cofactor Ring only. Completeness and irreducible-source/unique-component implication reviewed separately against the known theorem.",
+  "resource_limit": {
+    "timeout_seconds": 180,
+    "memory_mb": 1024
+  },
+  "negative_result_next_step": "Keep an exact failed coefficient or mathematical implication, leave affected support open, correct only an identified defect; no nil index or higher-jet repetitions.",
+  "proof_note_status_update": "Current mathematical note includes completed coverage/independent review status. Exact original input note bytes are preserved in CLASSIFICATION_PROOF_NOTE_SOURCE_HISTORY_20261107.json; immutable producer certificates were not changed."
+}

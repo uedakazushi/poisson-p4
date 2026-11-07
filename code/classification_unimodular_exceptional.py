@@ -1,10 +1,73 @@
 #!/usr/bin/env python3
 """All thirty low-degree coefficients over the unique E3 highest-part orbit."""
-import hashlib,itertools,json,resource,signal,time
+import hashlib,itertools,json,resource,signal,time,sys
 from pathlib import Path
 import sympy as s
 
+def nilpotent_incidence():
+    """Full horizontal/basic cubic-form spaces for every nonzero nilpotent type."""
+    start=time.monotonic();signal.alarm(60)
+    resource.setrlimit(resource.RLIMIT_AS,(768*1024**2,768*1024**2))
+    xx=s.symbols('x y z w');x,y,z,w=xx
+    def mons(degree,variables=xx):
+        return sorted({s.prod(a) for a in itertools.combinations_with_replacement(variables,degree)},key=str,reverse=True)
+    mon3,mon4=mons(3),mons(4)
+    theta_basis=[s.Matrix([mon if k==i else 0 for k in range(4)]) for i in range(4) for mon in mon3]
+    def features(theta,Y):
+        pol=[sum(a*b for a,b in zip(xx,theta)),sum(a*b for a,b in zip(Y,theta))]
+        out=[s.Poly(p,*xx).coeff_monomial(mon) for p in pol for mon in mon4]
+        lie=[sum(Y[i]*s.diff(theta[j],xx[i])+theta[i]*s.diff(Y[i],xx[j]) for i in range(4)) for j in range(4)]
+        return out+[s.Poly(p,*xx).coeff_monomial(mon) for p in lie for mon in mon3]
+    def wedge(a,b):return [s.expand(a[i]*b[j]-a[j]*b[i]) for i,j in itertools.combinations(range(4),2)]
+    def theta_of_Q(Q):
+        gam=[Q[5],-Q[4],Q[3],Q[2],-Q[1],Q[0]];g=s.zeros(4)
+        for (i,j),v in zip(itertools.combinations(range(4),2),gam):g[i,j]=v;g[j,i]=-v
+        return s.Matrix([s.expand(sum(xx[i]*g[i,j] for i in range(4))/4) for j in range(4)])
+    def weighted(r,t,P):
+        dr=s.Matrix([s.diff(r,a) for a in xx]);dt=s.Matrix([s.diff(t,a) for a in xx]);dp=s.Matrix([s.diff(P,a) for a in xx]);out=[]
+        for l1,l2,H2 in [(r,0,0),(t,0,0),(0,r,0),(0,t,0),(0,0,r*r),(0,0,r*t),(0,0,t*t)]:
+            out.append((P*(l1*dr+l2*dt)-(r*l1+t*l2)*dp/2+H2*(t*dr-r*dt)).applyfunc(s.expand))
+        return out
+    records=[]
+    for name,Y in [('31',(0,x,y,0)),('22',(0,0,x,y)),('4',(0,x,y,z)),('211',(0,0,0,x))]:
+        Y=s.Matrix(Y);M=s.Matrix.hstack(*(s.Matrix(features(theta,Y)) for theta in theta_basis))
+        _,pc=M.rref();_,pr=M.T.rref()
+        if name=='31':forms=weighted(x,w,y*y-2*x*z)
+        elif name=='22':forms=weighted(x,y,x*w-y*z)
+        elif name=='4':
+            forms=[theta_of_Q(wedge(Y,V)) for V in [s.Matrix([-5*x,-y,3*z,7*w]),s.Matrix([0,0,x,y]),s.Matrix([0,0,0,x])]]
+        else:
+            forms=[]
+            for i,j in itertools.combinations(range(3),2):
+                for mon in mons(2,xx[:3]):
+                    f=s.zeros(4,1);f[j]=xx[i]*mon;f[i]=-xx[j]*mon;forms.append(f)
+        K=s.Matrix.hstack(*(s.Matrix([s.Poly(v,*xx).coeff_monomial(mon) for v in f for mon in mon3]) for f in forms))
+        assert M*K==s.zeros(M.rows,K.cols)
+        _,kc=K.rref();_,kr=K.T.rref()
+        assert len(pc)+len(kc)==80
+        records.append({'jordan_type':name,'nilpotent_vector_field':list(map(str,Y)),
+            'cubic_monomial_basis':list(map(str,mon3)),'quartic_monomial_basis':list(map(str,mon4)),
+            'constraint_matrix':M.tolist(),'constraint_rank':len(pc),'pivot_rows':list(pr),'pivot_columns':list(pc),
+            'pivot_determinant':str(M.extract(pr,pc).det()),'expected_basic_forms':[list(map(str,f)) for f in forms],
+            'expected_basis_matrix':K.tolist(),'kernel_dimension':len(kc),'kernel_pivot_rows':list(kr),'kernel_pivot_columns':list(kc),
+            'kernel_pivot_determinant':str(K.extract(kr,kc).det()),'all_basis_forms_are_horizontal_tangent_and_invariant':True})
+    b,k=s.symbols('b k')
+    # Three monomials r^i s^(2-i), i=0,1,2; forcing operator is diagonal.
+    rr,ss=s.symbols('r s');Fmons=[ss*ss,rr*ss,rr*rr];omega=s.Matrix([ss,-rr]);alpha=s.Matrix([b*ss,(-2*k-b)*rr])
+    forcing=[]
+    for Fm in Fmons:
+        v=(Fm*alpha+k*rr*ss*s.Matrix([s.diff(Fm,rr),s.diff(Fm,ss)])).applyfunc(s.expand)
+        i=len(forcing);assert (v-(b+i*k)*Fm*omega).applyfunc(s.expand)==s.zeros(2,1);forcing.append(str(b+i*k))
+    here=Path(__file__);out={'task_id':'G','cases':records,'forcing_operator_eigenvalues':forcing,
+        'forcing_operator_determinant':str(s.factor(s.prod(b+i*k for i in range(3)))),
+        'producer_sha256':hashlib.sha256(here.read_bytes()).hexdigest(),'producer_bytes':here.read_text(),
+        'scope':'Complete 80-coefficient horizontal, nilpotent-tangent and nilpotent-invariant cubic one-form spaces for every nonzero nilpotent Jordan type; projective closed incidence and geometric classification of these spaces are separate proof obligations.',
+        'seconds':time.monotonic()-start}
+    (here.resolve().parents[1]/'reports/CLASSIFICATION_UNIMODULAR_EXCEPTIONAL_BOUNDARY_20261107.json').write_text(json.dumps(out,indent=2,default=str)+'\n')
+    print(json.dumps({'ranks':[(c['jordan_type'],c['constraint_rank'],c['kernel_dimension']) for c in records],'forcing':forcing,'seconds':out['seconds']}))
+
 def main():
+    if '--nilpotent-incidence' in sys.argv:return nilpotent_incidence()
     started=time.monotonic();signal.alarm(30);resource.setrlimit(resource.RLIMIT_AS,(768*1024**2,768*1024**2))
     x,y,z,w=s.symbols('x y z w');xx=(x,y,z,w);pairs=list(itertools.combinations(range(4),2))
     Q=s.Matrix([5*x*x,5*x*y,5*x*z,y*y+3*x*z,y*z+7*x*w,7*y*w-3*z*z])

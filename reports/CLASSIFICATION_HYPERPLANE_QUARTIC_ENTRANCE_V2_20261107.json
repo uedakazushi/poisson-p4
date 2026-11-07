@@ -1,0 +1,1761 @@
+{
+  "task": "E_reduced_nonnormal",
+  "coefficient_ring": "QQ, exact symbolic polynomials",
+  "source_sha256": "c7767cce3f66f0d4e4739cc835322a4e21218a01e213a755fdf256fead1596e7",
+  "source_bytes": "#!/usr/bin/env python3\n\"\"\"Exact modular resonance entrance for a simple hyperplane plus quartic.\n\nEnumerate the complete weight arrangement, not a bounded eigenvalue search.\nThe output is a finite reduction, not a classification of its residual sources.\n\"\"\"\nimport argparse\nimport hashlib\nimport itertools as it\nimport json\nimport math\nfrom collections import Counter\nfrom pathlib import Path\n\nimport sympy as s\n\n\ndef primitive(v):\n    d = math.gcd(*v)\n    assert d\n    w = tuple(x // d for x in v)\n    return w if next(x for x in w if x) > 0 else tuple(-x for x in w)\n\n\ndef canonical_spectrum(v):\n    d = math.gcd(*v)\n    return min(tuple(sorted(x // d for x in v)), tuple(sorted(-x // d for x in v)))\n\n\ndef partitions(n, maximum=None):\n    if not n:\n        yield ()\n    else:\n        for k in range(min(n, maximum or n), 0, -1):\n            for tail in partitions(n-k, k):\n                yield (k,) + tail\n\n\ndef resonance_table():\n    walls = {}\n    low = set()\n    for i, j in it.combinations(range(1, 5), 2):\n        for k, l in it.combinations_with_replacement(range(5), 2):\n            v = [0]*4\n            for index, sign in ((i, 1), (j, 1), (k, -1), (l, -1)):\n                if index:\n                    v[index-1] += sign\n            w = tuple(v[t]-v[3] for t in range(3))\n            if not any(w):\n                continue\n            w = primitive(w)\n            walls.setdefault(w, []).append([i, j, k, l])\n            if k == 0:\n                low.add(w)\n    spectra = {}\n    for a in sorted(low):\n        for b in sorted(walls):\n            cross = tuple(a[(t+1)%3]*b[(t+2)%3]-a[(t+2)%3]*b[(t+1)%3] for t in range(3))\n            if not any(cross):\n                continue\n            lam = canonical_spectrum(cross + (-sum(cross),))\n            spectra.setdefault(lam, [list(a), list(b)])\n    representatives = []\n    for lam in sorted(spectra):\n        # Sorting/scalar normalization changes the coordinate labels. Select\n        # witnesses in the canonical labels, rather than copying the raw pair.\n        incident = [b for b in sorted(walls) if sum(b[t]*lam[t] for t in range(3)) == 0]\n        witness = next([list(a), list(b)] for a in incident if a in low for b in incident\n                       if any(a[(t+1)%3]*b[(t+2)%3]-a[(t+2)%3]*b[(t+1)%3] for t in range(3)))\n        multiplicities = sorted(Counter(lam).items())\n        variants = []\n        for blocks in it.product(*(list(partitions(n)) for _, n in multiplicities)):\n            jordan = {str(v): list(p) for (v, _), p in zip(multiplicities, blocks)}\n            # Affine translation is reduced modulo im N. On the zero\n            # eigenspace, the centralizer orbits are indexed by the largest\n            # block length with nonzero coker component (plus zero).\n            for top in [0]+sorted(set(jordan.get('0', []))):\n                variants.append(dict(jordan_blocks=jordan, translation_top_length=top))\n        representatives.append(dict(eigenvalues=list(lam), intersecting_walls=witness,\n                                    affine_jordan_variants=variants))\n    pure_nil = []\n    for p in partitions(4):\n        if p == (1, 1, 1, 1):\n            continue\n        for top in [0]+sorted(set(p)):\n            pure_nil.append(dict(jordan_blocks=list(p), translation_top_length=top))\n    return dict(walls=[dict(normal=list(k), monomial_resonances=v, low_degree=k in low)\n                       for k, v in sorted(walls.items())],\n                wall_count=len(walls), low_degree_wall_count=len(low),\n                semisimple_spectra=representatives, semisimple_spectrum_count=len(representatives),\n                affine_semisimple_type_count=sum(len(x['affine_jordan_variants']) for x in representatives),\n                pure_nilpotent_affine_types=pure_nil)\n\n\ndef allowed_terms(weights):\n    ans = {}\n    for i, j in it.combinations(range(1, 5), 2):\n        ans[f'{i}{j}'] = [[k, l] for k, l in it.combinations_with_replacement(range(5), 2)\n                         if s.expand(weights[i]+weights[j]-weights[k]-weights[l]) == 0]\n    return ans\n\n\ndef generic_walls():\n    a, b = s.symbols('a b')\n    allowed = {\n        'pair_zero': allowed_terms([0, a, -a, b, -b]),\n        'zero_weight': allowed_terms([0, 0, a, b, -a-b]),\n        'triple_sum': allowed_terms([0, a, b, a+b, -2*a-2*b]),\n    }\n    expected = {\n        'pair_zero': {'12': [[0,0],[1,2],[3,4]], '13': [[1,3]], '14': [[1,4]],\n                      '23': [[2,3]], '24': [[2,4]], '34': [[0,0],[1,2],[3,4]]},\n        'zero_weight': {'12': [[0,2],[1,2]], '13': [[0,3],[1,3]], '14': [[0,4],[1,4]],\n                        '23': [[2,3]], '24': [[2,4]], '34': [[3,4]]},\n        'triple_sum': {'12': [[0,3],[1,2]], '13': [[1,3]], '14': [[1,4]],\n                       '23': [[2,3]], '24': [[2,4]], '34': [[3,4]]},\n    }\n    assert allowed == expected\n    x, y, z, w = coords = s.symbols('x y z w')\n    C,A,B,D,E,F,p,q,r = s.symbols('C A B D E F p q r')\n    t = -p-q-r\n    P = s.zeros(4)\n    for (i,j), value in zip(it.combinations(range(4),2),\n                           [C+A*x*y+B*z*w,p*x*z,q*x*w,r*y*z,t*y*w,D+E*x*y+F*z*w]):\n        P[i,j], P[j,i] = value, -value\n    jac = [s.expand(sum(P[i,l]*s.diff(P[j,k],coords[l])+\n                        P[j,l]*s.diff(P[k,i],coords[l])+\n                        P[k,l]*s.diff(P[i,j],coords[l]) for l in range(4)))\n           for i,j,k in it.combinations(range(4),3)]\n    v1,v2 = p+q,p+r\n    conditions = [B*E,v2*C+B*D,E*C-v1*D,B*(v2+F),E*(A-v1)]\n    coeffs = [c for f in jac for c in s.Poly(f,*coords).coeffs()]\n    variables = (C,A,B,D,E,F,p,q,r)\n    basis = s.groebner(conditions,*variables)\n    reverse = s.groebner(coeffs,*variables)\n    assert all(basis.reduce(f)[1]==0 for f in coeffs)\n    assert all(reverse.reduce(f)[1]==0 for f in conditions)\n    pf = s.expand(P[0,1]*P[2,3]-P[0,2]*P[1,3]+P[0,3]*P[1,2])\n    claimed = (C+A*x*y+B*z*w)*(D+E*x*y+F*z*w)+v1*v2*x*y*z*w\n    assert s.expand(pf-claimed)==0\n    # Check each factorization argument in the written proof, preserving all\n    # closed complements of the B or E localizations.\n    generic_factor = s.factor(pf.subs({B:0,E:0,C:0,D:0}))\n    assert s.expand(generic_factor - (A*F+v1*v2)*x*y*z*w)==0\n    # B!=0: D=-v2*C/B and F=-v2. The remaining equation is v1*v2*C=0.\n    bopen = s.factor(pf.subs({E:0,D:-v2*C/B,F:-v2}))\n    assert s.expand(bopen.subs(C,0)-v2*z*w*((v1-A)*x*y-B*z*w))==0\n    assert s.expand(bopen.subs(q,-p)-(-v2/B)*(C+B*z*w)*(C+A*x*y+B*z*w))==0\n    assert s.expand(bopen.subs(r,-p))==0\n    return dict(allowed_terms=allowed, pair_zero_jacobi=[str(f) for f in jac],\n                pair_zero_conditions=[str(f) for f in conditions],\n                jacobi_ideal_equal=True, pfaffian=str(pf), pfaffian_identity=True,\n                b_open_factorization=str(bopen),\n                factorization_complements=['B=E=0,C=D=0','B=E=0,C or D nonzero',\n                                          'B!=0,C=0','B!=0,C!=0,v1=0 or v2=0',\n                                          'E!=0: exchange (x,y) with (z,w)'])\n\n\ndef main():\n    ap = argparse.ArgumentParser(description=__doc__)\n    ap.add_argument('--output', type=Path, required=True)\n    args = ap.parse_args()\n    source = Path(__file__).read_bytes()\n    report = dict(task='E_reduced_nonnormal', coefficient_ring='QQ, exact symbolic polynomials',\n                  source_sha256=hashlib.sha256(source).hexdigest(), source_bytes=source.decode(),\n                  generic_walls=generic_walls(), resonance_table=resonance_table(), all_passed=True,\n                  scope='Finite modular cofactor entrance only; residual full Jacobi sources and coverage remain open.')\n    args.output.write_text(json.dumps(report, indent=2)+'\\n')\n    print(json.dumps({k:report['resonance_table'][k] for k in\n                      ('wall_count','low_degree_wall_count','semisimple_spectrum_count','affine_semisimple_type_count')}))\n\n\nif __name__ == '__main__':\n    main()\n",
+  "generic_walls": {
+    "allowed_terms": {
+      "pair_zero": {
+        "12": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        "13": [
+          [
+            1,
+            3
+          ]
+        ],
+        "14": [
+          [
+            1,
+            4
+          ]
+        ],
+        "23": [
+          [
+            2,
+            3
+          ]
+        ],
+        "24": [
+          [
+            2,
+            4
+          ]
+        ],
+        "34": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            3,
+            4
+          ]
+        ]
+      },
+      "zero_weight": {
+        "12": [
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "13": [
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            3
+          ]
+        ],
+        "14": [
+          [
+            0,
+            4
+          ],
+          [
+            1,
+            4
+          ]
+        ],
+        "23": [
+          [
+            2,
+            3
+          ]
+        ],
+        "24": [
+          [
+            2,
+            4
+          ]
+        ],
+        "34": [
+          [
+            3,
+            4
+          ]
+        ]
+      },
+      "triple_sum": {
+        "12": [
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "13": [
+          [
+            1,
+            3
+          ]
+        ],
+        "14": [
+          [
+            1,
+            4
+          ]
+        ],
+        "23": [
+          [
+            2,
+            3
+          ]
+        ],
+        "24": [
+          [
+            2,
+            4
+          ]
+        ],
+        "34": [
+          [
+            3,
+            4
+          ]
+        ]
+      }
+    },
+    "pair_zero_jacobi": [
+      "B*D*z + B*E*x*y*z + B*F*w*z**2 + B*p*w*z**2 + B*r*w*z**2 + C*p*z + C*r*z",
+      "-B*D*w - B*E*w*x*y - B*F*w**2*z - B*p*w**2*z - B*r*w**2*z - C*p*w - C*r*w",
+      "A*E*x**2*y + B*E*w*x*z + C*E*x - D*p*x - D*q*x - E*p*x**2*y - E*q*x**2*y",
+      "-A*E*x*y**2 - B*E*w*y*z - C*E*y + D*p*y + D*q*y + E*p*x*y**2 + E*q*x*y**2"
+    ],
+    "pair_zero_conditions": [
+      "B*E",
+      "B*D + C*(p + r)",
+      "C*E - D*(p + q)",
+      "B*(F + p + r)",
+      "E*(A - p - q)"
+    ],
+    "jacobi_ideal_equal": true,
+    "pfaffian": "A*D*x*y + A*E*x**2*y**2 + A*F*w*x*y*z + B*D*w*z + B*E*w*x*y*z + B*F*w**2*z**2 + C*D + C*E*x*y + C*F*w*z + p**2*w*x*y*z + p*q*w*x*y*z + p*r*w*x*y*z + q*r*w*x*y*z",
+    "pfaffian_identity": true,
+    "b_open_factorization": "(p + r)*(-A*B*w*x*y*z - A*C*x*y - B**2*w**2*z**2 - 2*B*C*w*z + B*p*w*x*y*z + B*q*w*x*y*z - C**2)/B",
+    "factorization_complements": [
+      "B=E=0,C=D=0",
+      "B=E=0,C or D nonzero",
+      "B!=0,C=0",
+      "B!=0,C!=0,v1=0 or v2=0",
+      "E!=0: exchange (x,y) with (z,w)"
+    ]
+  },
+  "resonance_table": {
+    "walls": [
+      {
+        "normal": [
+          0,
+          0,
+          1
+        ],
+        "monomial_resonances": [
+          [
+            1,
+            3,
+            0,
+            1
+          ],
+          [
+            2,
+            3,
+            0,
+            2
+          ],
+          [
+            3,
+            4,
+            0,
+            4
+          ]
+        ],
+        "low_degree": true
+      },
+      {
+        "normal": [
+          0,
+          1,
+          -1
+        ],
+        "monomial_resonances": [
+          [
+            1,
+            2,
+            1,
+            3
+          ],
+          [
+            1,
+            3,
+            1,
+            2
+          ],
+          [
+            2,
+            3,
+            2,
+            2
+          ],
+          [
+            2,
+            3,
+            3,
+            3
+          ],
+          [
+            2,
+            4,
+            3,
+            4
+          ],
+          [
+            3,
+            4,
+            2,
+            4
+          ]
+        ],
+        "low_degree": false
+      },
+      {
+        "normal": [
+          0,
+          1,
+          0
+        ],
+        "monomial_resonances": [
+          [
+            1,
+            2,
+            0,
+            1
+          ],
+          [
+            2,
+            3,
+            0,
+            3
+          ],
+          [
+            2,
+            4,
+            0,
+            4
+          ]
+        ],
+        "low_degree": true
+      },
+      {
+        "normal": [
+          0,
+          1,
+          1
+        ],
+        "monomial_resonances": [
+          [
+            1,
+            4,
+            0,
+            0
+          ],
+          [
+            1,
+            4,
+            2,
+            3
+          ],
+          [
+            2,
+            3,
+            0,
+            0
+          ],
+          [
+            2,
+            3,
+            1,
+            4
+          ]
+        ],
+        "low_degree": true
+      },
+      {
+        "normal": [
+          0,
+          1,
+          2
+        ],
+        "monomial_resonances": [
+          [
+            1,
+            4,
+            0,
+            3
+          ]
+        ],
+        "low_degree": true
+      },
+      {
+        "normal": [
+          0,
+          1,
+          3
+        ],
+        "monomial_resonances": [
+          [
+            1,
+            4,
+            3,
+            3
+          ]
+        ],
+        "low_degree": false
+      },
+      {
+        "normal": [
+          0,
+          2,
+          1
+        ],
+        "monomial_resonances": [
+          [
+            1,
+            4,
+            0,
+            2
+          ]
+        ],
+        "low_degree": true
+      },
+      {
+        "normal": [
+          0,
+          3,
+          1
+        ],
+        "monomial_resonances": [
+          [
+            1,
+            4,
+            2,
+            2
+          ]
+        ],
+        "low_degree": false
+      },
+      {
+        "normal": [
+          1,
+          -2,
+          1
+        ],
+        "monomial_resonances": [
+          [
+            1,
+            3,
+            2,
+            2
+          ]
+        ],
+        "low_degree": false
+      },
+      {
+        "normal": [
+          1,
+          -1,
+          -1
+        ],
+        "monomial_resonances": [
+          [
+            2,
+            3,
+            0,
+            1
+          ]
+        ],
+        "low_degree": true
+      },
+      {
+        "normal": [
+          1,
+          -1,
+          0
+        ],
+        "monomial_resonances": [
+          [
+            1,
+            2,
+            1,
+            1
+          ],
+          [
+            1,
+            2,
+            2,
+            2
+          ],
+          [
+            1,
+            3,
+            2,
+            3
+          ],
+          [
+            1,
+            4,
+            2,
+            4
+          ],
+          [
+            2,
+            3,
+            1,
+            3
+          ],
+          [
+            2,
+            4,
+            1,
+            4
+          ]
+        ],
+        "low_degree": false
+      },
+      {
+        "normal": [
+          1,
+          -1,
+          1
+        ],
+        "monomial_resonances": [
+          [
+            1,
+            3,
+            0,
+            2
+          ]
+        ],
+        "low_degree": true
+      },
+      {
+        "normal": [
+          1,
+          0,
+          -1
+        ],
+        "monomial_resonances": [
+          [
+            1,
+            2,
+            2,
+            3
+          ],
+          [
+            1,
+            3,
+            1,
+            1
+          ],
+          [
+            1,
+            3,
+            3,
+            3
+          ],
+          [
+            1,
+            4,
+            3,
+            4
+          ],
+          [
+            2,
+            3,
+            1,
+            2
+          ],
+          [
+            3,
+            4,
+            1,
+            4
+          ]
+        ],
+        "low_degree": false
+      },
+      {
+        "normal": [
+          1,
+          0,
+          0
+        ],
+        "monomial_resonances": [
+          [
+            1,
+            2,
+            0,
+            2
+          ],
+          [
+            1,
+            3,
+            0,
+            3
+          ],
+          [
+            1,
+            4,
+            0,
+            4
+          ]
+        ],
+        "low_degree": true
+      },
+      {
+        "normal": [
+          1,
+          0,
+          1
+        ],
+        "monomial_resonances": [
+          [
+            1,
+            3,
+            0,
+            0
+          ],
+          [
+            1,
+            3,
+            2,
+            4
+          ],
+          [
+            2,
+            4,
+            0,
+            0
+          ],
+          [
+            2,
+            4,
+            1,
+            3
+          ]
+        ],
+        "low_degree": true
+      },
+      {
+        "normal": [
+          1,
+          0,
+          2
+        ],
+        "monomial_resonances": [
+          [
+            2,
+            4,
+            0,
+            3
+          ]
+        ],
+        "low_degree": true
+      },
+      {
+        "normal": [
+          1,
+          0,
+          3
+        ],
+        "monomial_resonances": [
+          [
+            2,
+            4,
+            3,
+            3
+          ]
+        ],
+        "low_degree": false
+      },
+      {
+        "normal": [
+          1,
+          1,
+          -2
+        ],
+        "monomial_resonances": [
+          [
+            1,
+            2,
+            3,
+            3
+          ]
+        ],
+        "low_degree": false
+      },
+      {
+        "normal": [
+          1,
+          1,
+          -1
+        ],
+        "monomial_resonances": [
+          [
+            1,
+            2,
+            0,
+            3
+          ]
+        ],
+        "low_degree": true
+      },
+      {
+        "normal": [
+          1,
+          1,
+          0
+        ],
+        "monomial_resonances": [
+          [
+            1,
+            2,
+            0,
+            0
+          ],
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            3,
+            4,
+            0,
+            0
+          ],
+          [
+            3,
+            4,
+            1,
+            2
+          ]
+        ],
+        "low_degree": true
+      },
+      {
+        "normal": [
+          1,
+          1,
+          1
+        ],
+        "monomial_resonances": [
+          [
+            1,
+            4,
+            0,
+            1
+          ],
+          [
+            2,
+            4,
+            0,
+            2
+          ],
+          [
+            3,
+            4,
+            0,
+            3
+          ]
+        ],
+        "low_degree": true
+      },
+      {
+        "normal": [
+          1,
+          1,
+          2
+        ],
+        "monomial_resonances": [
+          [
+            1,
+            3,
+            1,
+            4
+          ],
+          [
+            1,
+            4,
+            1,
+            3
+          ],
+          [
+            2,
+            3,
+            2,
+            4
+          ],
+          [
+            2,
+            4,
+            2,
+            3
+          ],
+          [
+            3,
+            4,
+            3,
+            3
+          ],
+          [
+            3,
+            4,
+            4,
+            4
+          ]
+        ],
+        "low_degree": false
+      },
+      {
+        "normal": [
+          1,
+          2,
+          0
+        ],
+        "monomial_resonances": [
+          [
+            3,
+            4,
+            0,
+            2
+          ]
+        ],
+        "low_degree": true
+      },
+      {
+        "normal": [
+          1,
+          2,
+          1
+        ],
+        "monomial_resonances": [
+          [
+            1,
+            2,
+            1,
+            4
+          ],
+          [
+            1,
+            4,
+            1,
+            2
+          ],
+          [
+            2,
+            3,
+            3,
+            4
+          ],
+          [
+            2,
+            4,
+            2,
+            2
+          ],
+          [
+            2,
+            4,
+            4,
+            4
+          ],
+          [
+            3,
+            4,
+            2,
+            3
+          ]
+        ],
+        "low_degree": false
+      },
+      {
+        "normal": [
+          1,
+          2,
+          2
+        ],
+        "monomial_resonances": [
+          [
+            2,
+            3,
+            0,
+            4
+          ]
+        ],
+        "low_degree": true
+      },
+      {
+        "normal": [
+          1,
+          3,
+          0
+        ],
+        "monomial_resonances": [
+          [
+            3,
+            4,
+            2,
+            2
+          ]
+        ],
+        "low_degree": false
+      },
+      {
+        "normal": [
+          2,
+          -1,
+          -1
+        ],
+        "monomial_resonances": [
+          [
+            2,
+            3,
+            1,
+            1
+          ]
+        ],
+        "low_degree": false
+      },
+      {
+        "normal": [
+          2,
+          0,
+          1
+        ],
+        "monomial_resonances": [
+          [
+            2,
+            4,
+            0,
+            1
+          ]
+        ],
+        "low_degree": true
+      },
+      {
+        "normal": [
+          2,
+          1,
+          0
+        ],
+        "monomial_resonances": [
+          [
+            3,
+            4,
+            0,
+            1
+          ]
+        ],
+        "low_degree": true
+      },
+      {
+        "normal": [
+          2,
+          1,
+          1
+        ],
+        "monomial_resonances": [
+          [
+            1,
+            2,
+            2,
+            4
+          ],
+          [
+            1,
+            3,
+            3,
+            4
+          ],
+          [
+            1,
+            4,
+            1,
+            1
+          ],
+          [
+            1,
+            4,
+            4,
+            4
+          ],
+          [
+            2,
+            4,
+            1,
+            2
+          ],
+          [
+            3,
+            4,
+            1,
+            3
+          ]
+        ],
+        "low_degree": false
+      },
+      {
+        "normal": [
+          2,
+          1,
+          2
+        ],
+        "monomial_resonances": [
+          [
+            1,
+            3,
+            0,
+            4
+          ]
+        ],
+        "low_degree": true
+      },
+      {
+        "normal": [
+          2,
+          2,
+          1
+        ],
+        "monomial_resonances": [
+          [
+            1,
+            2,
+            0,
+            4
+          ]
+        ],
+        "low_degree": true
+      },
+      {
+        "normal": [
+          2,
+          3,
+          3
+        ],
+        "monomial_resonances": [
+          [
+            2,
+            3,
+            4,
+            4
+          ]
+        ],
+        "low_degree": false
+      },
+      {
+        "normal": [
+          3,
+          0,
+          1
+        ],
+        "monomial_resonances": [
+          [
+            2,
+            4,
+            1,
+            1
+          ]
+        ],
+        "low_degree": false
+      },
+      {
+        "normal": [
+          3,
+          1,
+          0
+        ],
+        "monomial_resonances": [
+          [
+            3,
+            4,
+            1,
+            1
+          ]
+        ],
+        "low_degree": false
+      },
+      {
+        "normal": [
+          3,
+          2,
+          3
+        ],
+        "monomial_resonances": [
+          [
+            1,
+            3,
+            4,
+            4
+          ]
+        ],
+        "low_degree": false
+      },
+      {
+        "normal": [
+          3,
+          3,
+          2
+        ],
+        "monomial_resonances": [
+          [
+            1,
+            2,
+            4,
+            4
+          ]
+        ],
+        "low_degree": false
+      }
+    ],
+    "wall_count": 37,
+    "low_degree_wall_count": 19,
+    "semisimple_spectra": [
+      {
+        "eigenvalues": [
+          -6,
+          -1,
+          2,
+          5
+        ],
+        "intersecting_walls": [
+          [
+            0,
+            2,
+            1
+          ],
+          [
+            1,
+            0,
+            3
+          ]
+        ],
+        "affine_jordan_variants": [
+          {
+            "jordan_blocks": {
+              "-6": [
+                1
+              ],
+              "-1": [
+                1
+              ],
+              "2": [
+                1
+              ],
+              "5": [
+                1
+              ]
+            },
+            "translation_top_length": 0
+          }
+        ]
+      },
+      {
+        "eigenvalues": [
+          -6,
+          -1,
+          3,
+          4
+        ],
+        "intersecting_walls": [
+          [
+            1,
+            0,
+            2
+          ],
+          [
+            0,
+            3,
+            1
+          ]
+        ],
+        "affine_jordan_variants": [
+          {
+            "jordan_blocks": {
+              "-6": [
+                1
+              ],
+              "-1": [
+                1
+              ],
+              "3": [
+                1
+              ],
+              "4": [
+                1
+              ]
+            },
+            "translation_top_length": 0
+          }
+        ]
+      },
+      {
+        "eigenvalues": [
+          -6,
+          1,
+          2,
+          3
+        ],
+        "intersecting_walls": [
+          [
+            1,
+            2,
+            2
+          ],
+          [
+            1,
+            0,
+            3
+          ]
+        ],
+        "affine_jordan_variants": [
+          {
+            "jordan_blocks": {
+              "-6": [
+                1
+              ],
+              "1": [
+                1
+              ],
+              "2": [
+                1
+              ],
+              "3": [
+                1
+              ]
+            },
+            "translation_top_length": 0
+          }
+        ]
+      },
+      {
+        "eigenvalues": [
+          -4,
+          -1,
+          2,
+          3
+        ],
+        "intersecting_walls": [
+          [
+            0,
+            2,
+            1
+          ],
+          [
+            1,
+            -2,
+            1
+          ]
+        ],
+        "affine_jordan_variants": [
+          {
+            "jordan_blocks": {
+              "-4": [
+                1
+              ],
+              "-1": [
+                1
+              ],
+              "2": [
+                1
+              ],
+              "3": [
+                1
+              ]
+            },
+            "translation_top_length": 0
+          }
+        ]
+      },
+      {
+        "eigenvalues": [
+          -4,
+          1,
+          1,
+          2
+        ],
+        "intersecting_walls": [
+          [
+            1,
+            2,
+            2
+          ],
+          [
+            0,
+            1,
+            -1
+          ]
+        ],
+        "affine_jordan_variants": [
+          {
+            "jordan_blocks": {
+              "-4": [
+                1
+              ],
+              "1": [
+                2
+              ],
+              "2": [
+                1
+              ]
+            },
+            "translation_top_length": 0
+          },
+          {
+            "jordan_blocks": {
+              "-4": [
+                1
+              ],
+              "1": [
+                1,
+                1
+              ],
+              "2": [
+                1
+              ]
+            },
+            "translation_top_length": 0
+          }
+        ]
+      },
+      {
+        "eigenvalues": [
+          -3,
+          -1,
+          1,
+          3
+        ],
+        "intersecting_walls": [
+          [
+            0,
+            1,
+            1
+          ],
+          [
+            1,
+            -2,
+            1
+          ]
+        ],
+        "affine_jordan_variants": [
+          {
+            "jordan_blocks": {
+              "-3": [
+                1
+              ],
+              "-1": [
+                1
+              ],
+              "1": [
+                1
+              ],
+              "3": [
+                1
+              ]
+            },
+            "translation_top_length": 0
+          }
+        ]
+      },
+      {
+        "eigenvalues": [
+          -3,
+          -1,
+          2,
+          2
+        ],
+        "intersecting_walls": [
+          [
+            0,
+            2,
+            1
+          ],
+          [
+            1,
+            -1,
+            1
+          ]
+        ],
+        "affine_jordan_variants": [
+          {
+            "jordan_blocks": {
+              "-3": [
+                1
+              ],
+              "-1": [
+                1
+              ],
+              "2": [
+                2
+              ]
+            },
+            "translation_top_length": 0
+          },
+          {
+            "jordan_blocks": {
+              "-3": [
+                1
+              ],
+              "-1": [
+                1
+              ],
+              "2": [
+                1,
+                1
+              ]
+            },
+            "translation_top_length": 0
+          }
+        ]
+      },
+      {
+        "eigenvalues": [
+          -3,
+          0,
+          1,
+          2
+        ],
+        "intersecting_walls": [
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            1,
+            0,
+            3
+          ]
+        ],
+        "affine_jordan_variants": [
+          {
+            "jordan_blocks": {
+              "-3": [
+                1
+              ],
+              "0": [
+                1
+              ],
+              "1": [
+                1
+              ],
+              "2": [
+                1
+              ]
+            },
+            "translation_top_length": 0
+          },
+          {
+            "jordan_blocks": {
+              "-3": [
+                1
+              ],
+              "0": [
+                1
+              ],
+              "1": [
+                1
+              ],
+              "2": [
+                1
+              ]
+            },
+            "translation_top_length": 1
+          }
+        ]
+      },
+      {
+        "eigenvalues": [
+          -2,
+          -1,
+          1,
+          2
+        ],
+        "intersecting_walls": [
+          [
+            0,
+            1,
+            1
+          ],
+          [
+            1,
+            -1,
+            1
+          ]
+        ],
+        "affine_jordan_variants": [
+          {
+            "jordan_blocks": {
+              "-2": [
+                1
+              ],
+              "-1": [
+                1
+              ],
+              "1": [
+                1
+              ],
+              "2": [
+                1
+              ]
+            },
+            "translation_top_length": 0
+          }
+        ]
+      },
+      {
+        "eigenvalues": [
+          -2,
+          0,
+          1,
+          1
+        ],
+        "intersecting_walls": [
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            1,
+            0,
+            2
+          ]
+        ],
+        "affine_jordan_variants": [
+          {
+            "jordan_blocks": {
+              "-2": [
+                1
+              ],
+              "0": [
+                1
+              ],
+              "1": [
+                2
+              ]
+            },
+            "translation_top_length": 0
+          },
+          {
+            "jordan_blocks": {
+              "-2": [
+                1
+              ],
+              "0": [
+                1
+              ],
+              "1": [
+                2
+              ]
+            },
+            "translation_top_length": 1
+          },
+          {
+            "jordan_blocks": {
+              "-2": [
+                1
+              ],
+              "0": [
+                1
+              ],
+              "1": [
+                1,
+                1
+              ]
+            },
+            "translation_top_length": 0
+          },
+          {
+            "jordan_blocks": {
+              "-2": [
+                1
+              ],
+              "0": [
+                1
+              ],
+              "1": [
+                1,
+                1
+              ]
+            },
+            "translation_top_length": 1
+          }
+        ]
+      },
+      {
+        "eigenvalues": [
+          -1,
+          -1,
+          1,
+          1
+        ],
+        "intersecting_walls": [
+          [
+            0,
+            1,
+            1
+          ],
+          [
+            1,
+            -1,
+            0
+          ]
+        ],
+        "affine_jordan_variants": [
+          {
+            "jordan_blocks": {
+              "-1": [
+                2
+              ],
+              "1": [
+                2
+              ]
+            },
+            "translation_top_length": 0
+          },
+          {
+            "jordan_blocks": {
+              "-1": [
+                2
+              ],
+              "1": [
+                1,
+                1
+              ]
+            },
+            "translation_top_length": 0
+          },
+          {
+            "jordan_blocks": {
+              "-1": [
+                1,
+                1
+              ],
+              "1": [
+                2
+              ]
+            },
+            "translation_top_length": 0
+          },
+          {
+            "jordan_blocks": {
+              "-1": [
+                1,
+                1
+              ],
+              "1": [
+                1,
+                1
+              ]
+            },
+            "translation_top_length": 0
+          }
+        ]
+      },
+      {
+        "eigenvalues": [
+          -1,
+          0,
+          0,
+          1
+        ],
+        "intersecting_walls": [
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            -1
+          ]
+        ],
+        "affine_jordan_variants": [
+          {
+            "jordan_blocks": {
+              "-1": [
+                1
+              ],
+              "0": [
+                2
+              ],
+              "1": [
+                1
+              ]
+            },
+            "translation_top_length": 0
+          },
+          {
+            "jordan_blocks": {
+              "-1": [
+                1
+              ],
+              "0": [
+                2
+              ],
+              "1": [
+                1
+              ]
+            },
+            "translation_top_length": 2
+          },
+          {
+            "jordan_blocks": {
+              "-1": [
+                1
+              ],
+              "0": [
+                1,
+                1
+              ],
+              "1": [
+                1
+              ]
+            },
+            "translation_top_length": 0
+          },
+          {
+            "jordan_blocks": {
+              "-1": [
+                1
+              ],
+              "0": [
+                1,
+                1
+              ],
+              "1": [
+                1
+              ]
+            },
+            "translation_top_length": 1
+          }
+        ]
+      }
+    ],
+    "semisimple_spectrum_count": 12,
+    "affine_semisimple_type_count": 24,
+    "pure_nilpotent_affine_types": [
+      {
+        "jordan_blocks": [
+          4
+        ],
+        "translation_top_length": 0
+      },
+      {
+        "jordan_blocks": [
+          4
+        ],
+        "translation_top_length": 4
+      },
+      {
+        "jordan_blocks": [
+          3,
+          1
+        ],
+        "translation_top_length": 0
+      },
+      {
+        "jordan_blocks": [
+          3,
+          1
+        ],
+        "translation_top_length": 1
+      },
+      {
+        "jordan_blocks": [
+          3,
+          1
+        ],
+        "translation_top_length": 3
+      },
+      {
+        "jordan_blocks": [
+          2,
+          2
+        ],
+        "translation_top_length": 0
+      },
+      {
+        "jordan_blocks": [
+          2,
+          2
+        ],
+        "translation_top_length": 2
+      },
+      {
+        "jordan_blocks": [
+          2,
+          1,
+          1
+        ],
+        "translation_top_length": 0
+      },
+      {
+        "jordan_blocks": [
+          2,
+          1,
+          1
+        ],
+        "translation_top_length": 1
+      },
+      {
+        "jordan_blocks": [
+          2,
+          1,
+          1
+        ],
+        "translation_top_length": 2
+      }
+    ]
+  },
+  "all_passed": true,
+  "scope": "Finite modular cofactor entrance only; residual full Jacobi sources and coverage remain open."
+}

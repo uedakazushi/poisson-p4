@@ -1,0 +1,39 @@
+{
+  "task_id": "E_multiple_hyperplane",
+  "target_statement": "Construct an actual exact quadratic Poisson deformation of the canonical whole nil31 short r=2/3 source into the already covered semisimple rank2 modular stratum.",
+  "implication_to_classification": "The t*d!=0 canonical source is one PGL/scalar orbit; an actual family through t=d=1 with semisimple rank2 generic modular field puts the entire six-parameter source in the finite closed union of known MPS components, including d=0 by polynomial-source closure.",
+  "coefficient_ring": "QQ[e,y,z,u] for exact polynomial identities; finite rational linear system in coefficients of a quadratic 3D vector field.",
+  "hypotheses": "Use the full six brackets (15), including constant d=1 and t=1. Adapt s=x,u=w+e*x, q=y-z*u+e*(y*y-u*u)/2, i_pi vol=(2*z*dq-q*dz)/3. Extend the entire Poisson derivation V, not only pi. Require exact full Jacobi, polynomial degree<=2, and generic semisimple rank2 modular field with nonimage constant term.",
+  "inverted_elements": [],
+  "complements": [
+    "e=0 is the exact target point, not discarded.",
+    "All d=0 and t=0 boundaries are retained by the canonical irreducible polynomial source; rank4 uses t!=0, while rank2 targets require no new component claim.",
+    "No finite jet or rational-coordinate recognition is used as actual membership."
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "research/classification/MODULAR_NIL31_SHORT_SUPPORT.md",
+      "sha256": "eeffac7b99c635b435e913b4401bd0842b302770879b0f9b398861cd7c5cb870"
+    },
+    {
+      "path": "research/classification/MULTIPLE_HYPERPLANE_LOW_RANK_MODULAR.md",
+      "sha256": "ba50a26afe5a5b4f240804e88ff060fee3ca3819263b15835a79d8dfea18d63c"
+    },
+    {
+      "path": "reports/CLASSIFICATION_NIL31_SHORT_TWO_THIRDS_CANONICAL_20261107.json",
+      "sha256": "a76cb0660a898c46637c833f11f1486271de4525fdcf06c2af14d6f0f89240e0"
+    },
+    {
+      "path": "code/classification_nil31_short_semisimple_candidate.py",
+      "sha256": "cb01c4a9ae7d7ed42c6924cd9f07cadde97c1d8f0201fd4cc85b90291f740e2b"
+    }
+  ],
+  "success_certificate": "Exact coefficient vector V(e), six raw brackets in original x,y,z,w, all four full Jacobi identities, Pfaffian of top quadratic part zero, modular field, minimal polynomial A*(A*A-e*e*I)=0 and generic rank2 with c outside image; independent hand proof of finite-closed-union and canonical-boundary implication.",
+  "independent_check": "Root or another reviewer independently reconstructs raw bracket Jacobi/divergence and checks the semisimple closure argument. Producer preserves explicit formulas and a standalone exact report.",
+  "resource_limit": {
+    "timeout_seconds": 120,
+    "memory_mb": 2048
+  },
+  "negative_result_next_step": "If inconsistent, preserve a rational left-kernel certificate for the full first-order Lie equation, which excludes every regular formal derivation lift of this fixed 3D family. Do not continue higher jets. Change to a genuinely different geometric construction or source.",
+  "route_change_reason": "Two old local obstruction tests were nonclosing. This switches to an exact all-orders geometric family using an integrable 3D one-form and finite Poisson-derivation extension, rather than any higher jet."
+}

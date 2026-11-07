@@ -1,0 +1,34 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "target_statement": "Independently reconstruct all 24 full affine quadratic modular sources and all actual Jacobi/Pfaffian polynomials; identify every universal coordinate factor.",
+  "implication_to_classification": "Fifteen entire sources have identically reducible quartic Pfaffian without further Jacobi restrictions, excluding these cofactor representatives from H+irreducible quartic. All remaining full sources and all residual equations stay active.",
+  "coefficient_ring": "QQ in 90 affine quadratic coefficients, then exact sparse QQ[n0,...,n18,x,y,z,w]",
+  "hypotheses": "Simple H plus irreducible quartic; source normal forms exactly the complete entrance covering table, no point sampling.",
+  "inverted_elements": [],
+  "complements": [
+    "All 24 covering representatives, including zero-eigenvalue translations, are checked",
+    "Remaining Jacobi supports are retained in full and not declared covered"
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_quadratic_cofactor_review.py",
+      "sha256": "b77e9511bad7c8674f2d820c0d1e6022b7aa3788b795c2e55090b28e2d2dffcd"
+    },
+    {
+      "path": "reports/CLASSIFICATION_HYPERPLANE_QUARTIC_SEMISIMPLE_SOURCES_20261107.json",
+      "sha256": "ea38f7517e96c633491f30b264b924f7c776cb311ea84e7af31ca9977f9afa27"
+    },
+    {
+      "path": "reports/CLASSIFICATION_HYPERPLANE_QUARTIC_ENTRANCE_V2_20261107.json",
+      "sha256": "92d1b0540a84bfc47eeb70b8127178da85974af7d65ecd23eb9e3a22bc7bd8b1"
+    }
+  ],
+  "success_certificate": "Reconstruct all110 divergence/Lie rows independently; exact Fraction elimination and all90 source coefficients; full four Jacobi polynomials and all Pfaffians; universal coordinate factors.",
+  "independent_check": "No producer or CAS import; standard-library integer exponent bookkeeping, Fraction sparse Gaussian elimination, independent AST polynomial parser and direct Jacobi/Pfaffian expansion.",
+  "resource_limit": {
+    "timeout_seconds": 180,
+    "memory_mb": 1024
+  },
+  "negative_result_next_step": "Record exact discrepant coefficient or rank and keep affected source unresolved; correct only identified defects.",
+  "shared_reviewer_extension_reason": "The shared reviewer gained --nil-sources and a nilpotent-label normal-form adapter. Original full linear-system, Fraction elimination, sparse polynomial and Jacobi/Pfaffian routines are unchanged; original bytes and hash are preserved in reports/CLASSIFICATION_QUADRATIC_COFACTOR_REVIEWER_EXTENSION_20261107.json. Frozen old reports are not rewritten. The optional factorized_pfaffian=null nil-report field is allowed, while actual and highest Pfaffians are always independently reconstructed."
+}

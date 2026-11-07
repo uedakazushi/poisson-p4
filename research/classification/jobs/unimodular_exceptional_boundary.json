@@ -1,0 +1,29 @@
+{
+  "task_id": "G",
+  "target_statement": "Compute the complete80-coefficient horizontal cubic one-form spaces tangent to and invariant under each nonzero nilpotent linear Jordan type (4),(31),(22),(211), and the weighted forcing identity.",
+  "implication_to_classification": "A projectively closed nilpotent tangent-symmetry incidence contains the entire actual E3 orbit closure. Kernel classification sends rank2 to closed L112, rank1 to pullback and regular rank3 to E3 main or linear Casimir, closing the actual E3 boundary without any orbit-compactification assumption.",
+  "coefficient_ring": "QQ[x,y,z,w], and QQ[b,k,r,s] for the weighted forcing operator",
+  "hypotheses": "Theta is an arbitrary Euler-horizontal cubic one-form, i_Y theta=0 and Lie_Y theta=0; Y is nonzero nilpotent. No integrability or extra coefficient slices are imposed, so the source contains every actual boundary form.",
+  "inverted_elements": [
+    "Nonzero exact rank minors only",
+    "Generic k,b,b+k,b+2k only in a dense open of the irreducible7-dimensional linear source; its entire complement is retained by closed L112 inclusion"
+  ],
+  "complements": [
+    "Y nonzero is preserved in projective P(nilpotent cone); its four Jordan types are all treated",
+    "Rank1 is pullback; regular p0=0 has linear Casimir",
+    "The entire dense-open complement of the weighted space belongs to the same closed L112 component by irreducibility, not a generic-only computation"
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_unimodular_exceptional.py",
+      "sha256": "637c7d254004c19abe22e4e3142d60a9388d522f6c8f5715d1737b080d1948f8"
+    }
+  ],
+  "success_certificate": "All150 by80 constraint matrices, explicit complete mathematical kernels of dimensions3,7,7,15 with complementary nonzero minors, and exact diagonal forcing eigenvalues b,b+k,b+2k.",
+  "independent_check": "Independent standard-library Fraction/sparse-polynomial reconstruction of every basis column, both rank minors and the forcing identity. Separate projective-incidence and centralizer proofs.",
+  "resource_limit": {
+    "timeout_seconds": 60,
+    "memory_mb": 768
+  },
+  "negative_result_next_step": "Identify the actual extra kernel vector or failed rank; keep that Jordan type open and classify its invariant quotient geometrically, with no larger repeated Groebner run."
+}

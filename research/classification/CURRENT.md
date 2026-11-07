@@ -19,7 +19,7 @@
 | E_quadric | 完了。実退化因子H+2Q、rank Q>=4の全点を既知閉包で被覆。rank3横断配置も余剰逆形式を含めて被覆 |
 | E_quadric3 | 完了。頂点非包含・平方・原始枝はMPS、混合型は新22次元、Tw0全源は新24次元成分へ被覆。Q既約の全H+2Qが被覆済み |
 | E_multiple_hyperplane | 未完了。重複Hを持つ全rank4支持は全affine二次P=J+L+Q、Pf(Q)=0の全支持へ還元。可逆・非冪零rank3・半単純rank2全被覆、冪零rank3五源全被覆。nilrank≤2残枝を処理 |
-| E_reduced_nonnormal | 未完了。五相異なるH、相異なる三H+既約Q全配置、既約Q+既約C3全型をMPSと新六23成分へ被覆。1+1+3の残nil源・平面四配置、他次数分割と既約非正規が残る |
+| E_reduced_nonnormal | 未完了。五相異なるH、相異なる三H+既約Q全配置、既約Q+既約C3全型をMPSと新六23成分へ被覆。1+1+3の残nil源・平面三配置、他次数分割と既約非正規が残る |
 | A_rank2 | 完了。全安定・非安定・因子付き支持、CM/LPT、六族とrank4閉包への接続 |
 | A | 完了。従前58と追加三十一成分の全周囲証明・相違を接続し個別下界89 |
 | E/F | 他の退化因子型、全例外底・全分類は未完了。未知特殊成分を既知49像の和に限定しない |
@@ -82,11 +82,11 @@ nil22 A=−1、nil31 short r=1、nil22 A=−1/3（同値short r=1/2）の全源�
 
 特異Q+C3はrank4十一、rank3二十の全cofactor代表へ有限還元した。全31源の全150線形問題・全Jacobi・Euler Pfaffianを独立Fractionで再構成。正則三型は全MPS、非正則半単純九型とrank4 Azero二型および純nil三型は既約C3条件で空。残るrank4三全源も全MPSへ被覆した。nil31 Iはliteral全三法線実族とD100/F50からsmooth25、全150商同値と全134/45T40 graphを独立Fractionで確認。IIは全実曲線のcanonical cofactorが正則比2へ移る。nil22は全四源一軌道のLaurent恒等式とsmoothQへの実曲線・非零Hessian・c0既約性を独立に再構成。これでrank4Q+既約C3全支持が閉じた。rank3 Anil3五型は全三源一軌道とT39全graph・正則cofactorへの二曲線でMPSへ被覆。A0七型は六平面配置の全磁気源へ尽くし、全源一軌道化と全D/真正二次・三次余核から六23成分を独立証明。既約Q+C3全支持が閉じた。
 
-全rank1 modular支持の非優越も全源上界と実一次fiber、既存25成分への稠密接続で閉じた。非零定数場ではβ(c)=0から一次評価非単射の真の閉条件へ入る。A=c=0でも最高部が零又は共通因子付きならprimitive二形式の全等方次元で非優越。さらに最高部に線形Casimirがあるunimodular全支持も、零点のないaffine Hamiltonianの全六対へ還元し、全45線形源・全Jacobi/Pf・15評価minorの独立Fraction再構成から非優越を証明した。全二次pencil最高部も、全Segre/Kronecker型と独立Fraction線形核検証から非優越。全pullback最高部も全一次項を保った構造証明で非優越。R13/R22/S23の成分閉包全体へ接続済み。実L112の十六源、対数閉包のx³y・x²y²の十源も独立再構成により非優越。x²yz二源を独立再構成し全Pfaffian零を確認。x²qはJordan centralizerで全九型とu=0例外へ尽くし、全十源のQQ(u)行列・kernel・分母補集合を独立再構成した。九源は全Pfaffian零、mixed一源は全残式からn0=n1=0を得て元の全一次評価rank≤3となる。これで対数integrating-factor全pole型の非優越が閉じた。E3主軌道全30低次係数の空性を独立確認したが、実境界は未解決で、未補完の外部コンパクト化は採用していない。詳細はUNIMODULAR_LOGARITHMIC_SUPPORT.md、UNIMODULAR_LOGARITHMIC_POLE_BOUNDARY_REVIEW.mdとUNIMODULAR_EXCEPTIONAL_SUPPORT.md。
+全rank1 modular支持の非優越も全源上界と実一次fiber、既存25成分への稠密接続で閉じた。非零定数場ではβ(c)=0から一次評価非単射の真の閉条件へ入る。A=c=0でも最高部が零又は共通因子付きならprimitive二形式の全等方次元で非優越。さらに最高部に線形Casimirがあるunimodular全支持も、零点のないaffine Hamiltonianの全六対へ還元し、全45線形源・全Jacobi/Pf・15評価minorの独立Fraction再構成から非優越を証明した。全二次pencil最高部も、全Segre/Kronecker型と独立Fraction線形核検証から非優越。全pullback最高部も全一次項を保った構造証明で非優越。R13/R22/S23の成分閉包全体へ接続済み。実L112の十六源、対数閉包のx³y・x²y²の十源も独立再構成により非優越。x²yz二源を独立再構成し全Pfaffian零を確認。x²qはJordan centralizerで全九型とu=0例外へ尽くし、全十源のQQ(u)行列・kernel・分母補集合を独立再構成した。九源は全Pfaffian零、mixed一源は全残式からn0=n1=0を得て元の全一次評価rank≤3となる。これで対数integrating-factor全pole型の非優越が閉じた。E3の実閉包は閉射影nilpotent incidenceと全四Jordan型へ送り、全80係数核を独立再構成した。rank2は七変数全空間が閉L112、regular型は主軌道又は一次Casimir、rank1はpullbackへ入り、全E3閉包が非優越となる。外部六葉層成分定理とLPT拡張を接続してA=c=0を閉じ、他モジュラー型のMPS全被覆／非優越と合わせ未知優越成分の重複H一般元を排除した。未補完の外部コンパクト化は用いない。詳細はUNIMODULAR_LOGARITHMIC_SUPPORT.md、UNIMODULAR_LOGARITHMIC_POLE_BOUNDARY_REVIEW.mdとUNIMODULAR_EXCEPTIONAL_SUPPORT.md、UNIMODULAR_EXCEPTIONAL_NILPOTENT_INCIDENCE.md。
 
-二直線と平面既約三次の本質三変数全支持は、fiber依存を保持するSaito還元とτ=12の接触条件で十三配置の全六磁気源へ尽くした。全D100/101・実源48・真正固定切片の二次及び三次初期支持から九つの新23成分を独立証明。一般群軌道次元は未決定。残る四配置と非平面nil源は保持する。新十五成分は本質三変数閉条件で全SNC/MPSを排除し、一般因子型と平面接触配置で全既知成分・相互の相違を証明した。
+二直線と平面既約三次の本質三変数全支持は、fiber依存を保持するSaito還元とτ=12の接触条件で十三配置の全六磁気源へ尽くした。全D100/101・実源48・真正固定切片の二次及び三次初期支持から九つの新23成分を独立証明。一般群軌道次元は未決定。節点二接線型の全六磁気源を実多項式toric衝突族でMPSへ被覆し、独立再構成を完了。残る三配置と非平面nil源は保持する。新十五成分は本質三変数閉条件で全SNC/MPSを排除し、一般因子型と平面接触配置で全既知成分・相互の相違を証明した。
 
-H+既約quarticはHYPERPLANE_QUARTIC_COFACTOR_ENTRANCE.mdに閉有理一形式と共鳴wallによる有限化の入口を保存した。共鳴全37wall・低次19wallと十二の固有値比、24の半単純被覆代表・純nil十代表を独立再構成した。各全源のJacobi・帰属は未完了であり、被覆定理には数えない。
+H+既約quarticはHYPERPLANE_QUARTIC_COFACTOR_ENTRANCE.mdに閉有理一形式と共鳴wallによる有限化の入口を保存した。共鳴全37wall・低次19wallと十二の固有値比、24の半単純被覆代表・純nil十代表を独立再構成した。全半単純24源と純nil十源の全90線形係数・全Jacobi/Pfも独立再構成した。nil31・translation零は全Pfのz因子で排除。nil211・translation零は全11変数既約源を復元し、旧MINIMAL_M点と全6括弧を一致させ、既知唯一成分へ全被覆した。全PDEとJacobi/Pfを独立再構成済み。他の個別支持は進行中で、有限表そのものを全quartic被覆定理には数えない。
 
 ## Gの現在の数学と中止した経路
 
