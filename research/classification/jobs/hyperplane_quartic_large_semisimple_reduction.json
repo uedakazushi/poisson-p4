@@ -1,0 +1,50 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "target_statement": "Close the entire type20 and23 supports: exclude reducible branches, retain all constant-rank/Jordan complements, and produce exact weighted curves to actual SNC for every surviving type20 point.",
+  "implication_to_classification": "All24 semisimple H+quartic cofactor representatives now reduce to known MPS families or empty irreducible-quartic supports, subject to independent review of this complete structural proof.",
+  "coefficient_ring": "QQ[n0,...,n18,x,y,z,w], exact sparse polynomials and Fraction linear algebra",
+  "hypotheses": "Full source23 and20 independently checked in all90 coefficients; no selected slice of their source is treated as whole support.",
+  "inverted_elements": [
+    "Nonzero gamma when g is nonzero constant in type23",
+    "Nonzero l in last type23 branch",
+    "Nonzero rank1 or rank2 pivots of the constant crossing matrix in type20"
+  ],
+  "complements": [
+    "Type23 g nonconstant, g=0, g=gamma!=0 with l=0 or l!=0 all retained",
+    "Type20 rank0,rank1,rank2 of full 2x2 constant crossing matrix retained, GL2xGL2 preserves modular field",
+    "Rank2 C: r=P34 zero,nonzero-square,distinct-two-root; r0 q nonzero swaps eigenspaces, q=r0 rank-one matrix branch included",
+    "r=tzw: t!=0,+/-1/2 generic, all exceptional +/-1/2 branches; b/c zero complements and (t-1)b,(t+1)c equations retained",
+    "Square r: g=0 with e=0 or1/2 and a=0/nonzero; g!=0 normalized by explicit invertible unipotent"
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_hyperplane_quartic_semisimple_reduction.py",
+      "sha256": "d8a46fbeeff7a327835674f7f9650b731c7caccc46fc4dacceaa9e829b220719"
+    },
+    {
+      "path": "code/classification_quadratic_cofactor_review.py",
+      "sha256": "b77e9511bad7c8674f2d820c0d1e6022b7aa3788b795c2e55090b28e2d2dffcd"
+    },
+    {
+      "path": "reports/CLASSIFICATION_HYPERPLANE_QUARTIC_SEMISIMPLE_SOURCES_20261107.json",
+      "sha256": "ea38f7517e96c633491f30b264b924f7c776cb311ea84e7af31ca9977f9afa27"
+    },
+    {
+      "path": "reports/CLASSIFICATION_HYPERPLANE_QUARTIC_LARGE_SEMISIMPLE_REDUCTION_SOURCE_20261107.json",
+      "sha256": "bf173969435c03920ad074b9222269a0a22b51c1943a2ba483a7b08cd5a7269b"
+    },
+    {
+      "path": "reports/CLASSIFICATION_HYPERPLANE_QUARTIC_LARGE_SEMISIMPLE_REDUCTION_V2_20261107.json",
+      "sha256": "146bc34a8bfc13ec4354bc908e0c7f2fe5d88782ab5f60ef7dcfe4505b1ea472"
+    }
+  ],
+  "success_certificate": "All structural Jacobi coefficient ideal and Pfaffian identities; full constant-rank source, full linear compatibility solve and every residual Jacobi coefficient.",
+  "independent_check": "Standard-library sparse arithmetic and exact rational Gaussian elimination, using independently verified source rather than producer/CAS imports; full support partition proven geometrically.",
+  "resource_limit": {
+    "timeout_seconds": 90,
+    "memory_mb": 1024
+  },
+  "negative_result_next_step": "Record exact coefficient discrepancy and retain affected branch. If rank-normalized Jacobi source remains open, change to its invariant geometry rather than higher jets.",
+  "shared_reviewer_extension_reason": "The shared reviewer gained --nil-sources and a nilpotent-label normal-form adapter. Original full linear-system, Fraction elimination, sparse polynomial and Jacobi/Pfaffian routines are unchanged; original bytes and hash are preserved in reports/CLASSIFICATION_QUADRATIC_COFACTOR_REVIEWER_EXTENSION_20261107.json. Frozen old reports are not rewritten. The optional factorized_pfaffian=null nil-report field is allowed, while actual and highest Pfaffians are always independently reconstructed.",
+  "source_extension_reason": "Exact successful old source preserved in source receipt; add rank1 universal factor witnesses and a rank2 irreducible example with full Jacobi and SNC-top recognition. Existing type23 identities and rank normalization unchanged. Full support extension: previous V2 report embeds the exact old source bytes. Add all type20 rank2 source branches, no old certificate modification."
+}

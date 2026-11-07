@@ -25,7 +25,7 @@
 \maketitle
 \begin{abstract}
 本稿は、複素射影四空間上のPoisson構造の被約既約成分を尽くし、各成分の一般元の幾何を記述するための研究原稿である。
-分類主定理の証明は完成していない。S61の一次座標と一般切片の対応を確認し、既知三平面に沿う多項式左逆から未知残余を分離する。その空性は忠実な法線チャートの単位証明へ帰着できるが未証明である。階数2の全支持を六族と階数4の閉包で覆い、従前58成分の依存監査に加え、二重二次曲面・冪零モジュラー場・平面曲線等の全源から三十一の相異なる成分を証明して下界89を得る。二重の既約二次曲面、相異なる五超平面、相異なる三超平面と既約二次曲面、既約二次曲面と既約三次曲面、およびモジュラー場の複数の全分岐を被覆する。各新成分は全周囲方程式で検証し、全支持の尽くしとは区別する。
+分類主定理の証明は完成していない。S61の一次座標と一般切片の対応を確認し、既知三平面に沿う多項式左逆から未知残余を分離する。その空性は忠実な法線チャートの単位証明へ帰着できるが未証明である。階数2の全支持を六族と階数4の閉包で覆い、従前58成分の依存監査に加え、二重二次曲面・冪零モジュラー場・平面曲線等の全源から三十二の相異なる成分を証明して下界90を得る。二重の既約二次曲面、相異なる五超平面、相異なる三超平面と既約二次曲面、既約二次曲面と既約三次曲面、およびモジュラー場の複数の全分岐を被覆する。各新成分は全周囲方程式で検証し、全支持の尽くしとは区別する。
 既存リポジトリの全証明書を再実行したとは主張せず、原証明の読解と今回の独立検算を区別する。
 詳細なnilpotent構造や派生論文の完成を、主分類定理の前提条件に追加しない。
 \end{abstract}
@@ -47,7 +47,7 @@
 を証明する。各族が全空間の既約成分であること、相互に異なること、次元、一般階数、一般元の構成および退化因子の幾何を記述する。
 \end{target}
 
-\(N\)は未決定である。2026年11月7日に確認したリポジトリの台帳は、全成分数の下界89、一般階数4の成分数の下界83を記録している。
+\(N\)は未決定である。2026年11月7日に確認したリポジトリの台帳は、全成分数の下界90、一般階数4の成分数の下界84を記録している。
 既存証明書を入力とする成分性・相違の依存監査を行い、以下で主分類に接続する。
 全証明書を今回再実行したという意味ではない。
 この下界を答えとして固定して未知成分を排除するのではない。
@@ -579,7 +579,7 @@ B18の精密なnil指数、\(H^0\)、\(T_2\)全長、追加の接触・Betti不�
 
 \section{既知成分の下界を支える支持の証明}
 MPSの定理\cite[Theorem 1.4]{mps}はSNC locusと交わる40成分を与える。
-従前の追加十一族、positive-weight型NEW25、および今回の三十一の追加成分の射影次元は次の通りである。
+従前の追加十一族、positive-weight型NEW25、および今回の三十二の追加成分の射影次元は次の通りである。
 \begin{center}
 \begin{tabular}{lr}
 \toprule
@@ -600,10 +600,11 @@ NEW25&25\\
 負の法線重みを持つ三つの軌道閉包&22,22,22\\
 二超平面と既約三次因子&22\\
 平面二次・三次曲線の六つの全源&各23\\
-平面二直線・三次曲線の九つの全源&各23\\\bottomrule
+平面二直線・三次曲線の九つの全源&各23\\
+regular nilpotent・単純超平面と既約四次因子&22\\\bottomrule
 \end{tabular}
 \end{center}
-前述の六rank2成分と合わせて下界は$74+6+9=89$となる。
+一般rank四は$40+11+1+32=84$成分で、前述の六rank2成分と合わせて下界は$84+6=90$となる。
 以下の議論はこの下界を支えるもので、全支持の上界を与えない。
 
 \subsection{精密な横断環を要しない成分性}
@@ -3388,7 +3389,291 @@ PDEの全19行15列、完全kernelと定数minor、全十一源の六括弧・�
 producerやCASをimportせず独立再構成した。
 またJordan$(3,1)$・translation零の全90係数源は、実Pfaffianが恒等的にzで割れるため既約四次Fを持たない。
 この恒等因子は\path{CLASSIFICATION_HYPERPLANE_QUARTIC_NILPOTENT_SOURCES_REVIEW_20261107.json}で独立に確認した。
-他の純冪零型・translation類と非零半単純型の残支持は、この命題の結論に含めず未解決として保持する。
+他の純冪零型・translation類は、この命題の結論に含めない。
+非零半単純部の全二十四源はMPS又は空へ被覆済みで、全分岐と実SNC曲線の証明は
+\path{HYPERPLANE_QUARTIC_SEMISIMPLE_SUPPORT.md}及び
+\path{HYPERPLANE_QUARTIC_LARGE_SEMISIMPLE_SUPPORT.md}に置く。本文への十分な証明の統合は残る。
+
+\subsection{regular nilpotent・既約四次因子の22次元成分}
+座標$(h,x,y,z,w)$でhをCasimirとし、非零六括弧を
+\[
+\begin{aligned}
+ P^{xy}&=36hw+6xz-8y^2,&P^{xz}&=6wx-10yz,&P^{xw}&=-10wy-z^2,\\
+ P^{yz}&=6wy-9z^2,&P^{yw}&=-12wz,&P^{zw}&=-12w^2
+\end{aligned}
+\]
+とする。この実Poisson点をpと書く。
+\begin{proposition}\label{prop:nil4-hyperplane-quartic-component}
+pの$\PGL_5$軌道閉包は、射影次元22、一般rank四の全空間既約成分である。
+証明点を通る被約ambient成分は唯一である。
+台帳名は\path{R4_NIL4_HYPERPLANE_QUARTIC_22}とする。
+\end{proposition}
+\begin{proof}
+全十strict Jacobiは恒等零で、実Pfaffianと退化式は
+\[
+ F=9\bigl((2wy-z^2)^2-48hw^3\bigr),\qquad D=hF.
+\]
+Fはhについて原始一次式である。係数$w^3$と定数項$(2wy-z^2)^2$は互いに素なので、
+Gauss補題により複素数体上で既約である。hもFを割らず、Dは被約の正確な次数分割$1+4$を持つ。
+F非零より一般rank四である。
+
+この点で、全150斉次二次二ベクトル係数を周囲変数とし、
+$\mathcal J(A)=E\wedge\operatorname{Jac}(A)$の全350係数を方程式に取る。
+その微分をD、Euler鉛直・実GL5作用・scaleの像をMと書くと
+\[
+ \rank D=102,\qquad\rank M=47,\qquad\dim\ker D=48.
+\]
+鉛直だけのrankは24なので、実射影軌道次元は$47-24-1=22$である。
+射影接次元23という値だけから成分性を推測しない。
+
+次のR,Tは全150方向の二ベクトルで、hを含む成分も保持する。
+未表示成分は反対称性で定める。
+\begin{center}\small
+\begin{tabular}{c|r|r}
+成分&R&T\\\hline
+$hx$&$-288h^2$&0\\
+$hy$&$-63hx$&0\\
+$hz$&$-42hy$&$-4563h^2/2$\\
+$hw$&$-21hz$&$27hx$\\
+$xy$&$9x^2-306hy$&$-14175h^2/2$\\
+$xz$&$12xy-18hz$&$-3537hx/4$\\
+$xw$&$6xz+2y^2$&$9x^2-2205hy/4$\\
+$yz$&0&$54x^2+3861hy/4$\\
+$yw$&0&$36xy$\\
+$zw$&0&$6y^2$
+\end{tabular}
+\end{center}
+全350行で$D(M,R)=0$、$\rank(M,R)=48$なので、$M\oplus\CC R$が全kernelである。
+二次項は$\mathcal J(R)$で、上のTは全350行で
+$DT+\mathcal J(R)=0$を満たす。
+偏極を$B(R,T)=\mathcal J(R+T)-\mathcal J(R)-\mathcal J(T)$とすると、
+全kernel補正に対しても
+\[
+ \rank[D\mid B(R,\ker D)]=102,\qquad
+ \rank[D\mid B(R,\ker D)\mid B(R,T)]=103.                    \tag{\star}
+\]
+となる。
+
+この三次非零性の具体的な左余核を示す。
+座標番号を$0=h,1=x,2=y,3=z,4=w$とし、Wを四次四ベクトルとすると
+\[
+\begin{aligned}
+ \Lambda(W)={}&\tfrac12[h^3y]W^{0123}+39[h^2x^2]W^{0123}
+       -\tfrac32[h^3z]W^{0124}\\
+       &+9[h^2xy]W^{0124}+234[hx^3]W^{0124}+[h^3w]W^{0134}.
+\end{aligned}
+\]
+独立な有理数演算により、$\Lambda D=0$、$\Lambda B(R,\ker D)=0$及び
+\[
+ \Lambda B(R,T)=9108855/2\ne0
+\]
+を得た。全rankは完全な行基本変形と非零minorの両側で確認しており、
+選んだ部分行列のrankを全方程式の代わりにしていない。
+
+Dの確認済み102列に対応する標準座標空間をUとするとDはU上単射で、
+\[
+ \CC^{150}=M\oplus(U\oplus\CC R).
+\]
+従って$S=U\oplus\CC R$は47本の実際の線形cutで定まる103次元切片である。
+確認済み102次minorの行を用い、選択式をUについて陰関数消去する。
+残る座標をtとすると、その解は$p+tR+t^2T+O(t^3)$である。
+全二次残式は零で、新しい三次補正の線形項はDの像に入るため$\Lambda$で消える。
+従って切片の真の残式は
+$(9108855/2)t^3+O(t^4)$を持ち、その被約支持は原点だけである。
+Tに任意の全kernelベクトルを加えた場合も$(\star)$により同じ三次非零性が保たれる。
+正確なnil指数や普遍非被約環の同定は前提にしない。
+
+47cut後の支持が零次元なのでKrull不等式から全150係数支持の局所次元は47以下。
+実軌道・鉛直・scale像が47次元なので等号となり、全射影Poisson空間の局所次元は22である。
+実22次元軌道閉包は全空間成分となる。
+さらにPGL5は連結だから、pを通る全空間成分はそれぞれこの軌道閉包を含む。
+局所次元上界22と既約成分の極大性により、全てこの一成分に一致する。
+これが証明点における被約ambient成分の唯一性を与える。
+\end{proof}
+
+\begin{proposition}\label{prop:nil4-quartic-whole-first-source}
+regular nilpotent・translation零のnormalized scalar$\delta=-1/3$に属し、
+単純Hと既約四次因子を持つ第一全源は、命題\ref{prop:nil4-hyperplane-quartic-component}の成分に含まれる。
+\end{proposition}
+\begin{proof}
+全90係数源のJacobi支持を保持した正規化では
+$n_8=-1/4,n_{12}=-1/3$、$n_{11}=n_7=n_9=n_5=n_2=0$となる。
+残る第一源は$n_{10}=n_6=n_0=0$、
+$\tau=n_1\ne0,a=n_3,b=n_4$自由である。
+36倍した斉次六括弧は、pの表示で最初の二成分だけを
+\[
+\begin{aligned}
+ P^{xy}_{\tau,a,b}&=36\tau hw+36ahz+36bwz+6xz-8y^2,\\
+ P^{xz}_{\tau,a,b}&=36ahw+36bw^2+6wx-10yz
+\end{aligned}
+\]
+へ変更したものである。全Jacobiは恒等零で、実Pfaffianは
+$9((2wy-z^2)^2-48\tau hw^3)$。
+全$\tau\ne0$で既約四次を持ち、$\tau=0$では平方となるため、
+この除外補集合はもとの既約性の仮定に反する。
+全源$\mathbb G_m\times\mathbb A^2$は既約で、$(\tau,a,b)=(1,0,0)$がpである。
+その像閉包を含む全空間成分はpを通るので、前命題の唯一性により同じ成分である。
+従って磁気係数a,bとその全境界を含む全源が被覆される。
+
+正規化前の$n_5=s$は根拠なく零にしたものではない。
+$N$を上超対角1のregular nilpotent行列とし、
+$G=I+18sN^2$による実座標変更で除去する。
+GはNと可換、行列式1で、逆は$I-18sN^2$である。
+全六括弧を$P'=(GPG^{\mathsf T})(G^{-1}x)$として実際に変換すると、
+全90係数が上のnormalized源へ一致する。
+この変更を逆に戻し、連結なaffine・PGL作用と非零scaleを加えても、全点は同成分に留まる。
+source全点が一軌道であるという、より強い主張は使わない。
+\end{proof}
+全scalar分岐と全正規化補集合は\path{HYPERPLANE_QUARTIC_NIL_REGULAR_SUPPORT.md}、
+全周囲成分性と補正曖昧さの独立証明は\path{HYPERPLANE_QUARTIC_NIL_REGULAR_COMPONENT_REVIEW.md}に記す。
+全D・実群方向・R,T・全kernel mixed列・非零102次/103次minorと上の$\Lambda$は、
+\path{CLASSIFICATION_HYPERPLANE_QUARTIC_NIL_REGULAR_COMPONENT_REVIEW_20261107.json}で
+producerやCASをimportせずFraction疎多項式演算により再構成した。
+regular nilpotentの他のscalar源とtranslation型は次小節で全て処理する。
+他のcofactor型の全$H+F$被覆と全分類は未完成である。
+
+\begin{proposition}\label{prop:nil4-quartic-distinctness}
+命題\ref{prop:nil4-hyperplane-quartic-component}の成分は、追加前の既知89成分と全て相異なる。
+従って全成分数の下界は90、一般rank四の成分数の下界は84である。
+\end{proposition}
+\begin{proof}
+MPS40成分の次元は23,24,25なので、22次元の本成分と異なる。
+六つの一般rank二成分とは一般rankが異なり、他の次元22でない成分とも次元で区別できる。
+残る一般rank四・非MPS・22次元の既登録十四項を確認する。
+そのうち十三項は、二つの$H+2Q$型、$3H+Q$型、Jordan4の四型、
+冪零定数型の短鎖一型・長鎖二型、負重み法線の三型であり、一般退化因子は全て非被約である。
+非被約五次式の集合は、二重因子と残因子のprojective積写像の有限個の閉像の和である。
+従って各旧成分の閉包も同じ閉条件を満たすが、pの$D=hF$は被約なのでそこへ入らない。
+
+唯一残る二超平面・既約三次の22次元成分の全閉包は、
+$\mathbb P(\operatorname{Sym}^1)\times\mathbb P(\operatorname{Sym}^1)
+\times\mathbb P(\operatorname{Sym}^3)$の積写像の閉像を満たす。
+pのDは正確な既約次数分割$1+4$を持つため、この像に入らない。
+これで全89成分との相違を尽くした。
+本成分は一般rank四なので、追加後は下界$89+1=90$、rank四下界$83+1=84$となる。
+\end{proof}
+全89項の次元・rank・一般因子型の監査と、全十strict Jacobi・実Pfaffian・絶対既約性の確認は
+\path{CLASSIFICATION_HYPERPLANE_QUARTIC_NIL4_DISTINCTNESS_REVIEW_20261107.json}にある。
+証明の入力は全周囲成分性とproperな因子乗算像であり、
+単なる退化因子の一致からPoissonテンソルの同値を推測していない。
+全分類、全成分数の上界、他のquartic残源の全被覆はなお未証明である。
+
+\subsection{第二regular nilpotent源のT39帰属と全型の被覆}
+\begin{proposition}\label{prop:nil4-quartic-second-t39}
+regular nilpotent・translation零の第二normalized源は、全パラメータにおいて既知25次元成分T39に属する。
+\end{proposition}
+\begin{proof}
+$\delta=n_{12}=-1/2,a=n_{10}\ne0,c=n_0,b=n_4$と置く。
+全源は$n_6=3a^2,n_1=-6ab,n_3=0$、
+$n_8=-1/4,n_{11}=n_7=n_9=n_5=n_2=0$であり、$\mathbb G_m(a)\times\mathbb A^2(c,b)$は既約である。
+12倍した全斉次六括弧は
+\[
+\begin{aligned}
+ P^{xy}&=12ch^2+24ahx-72abhw+12bwz-2y^2,\\
+ P^{xz}&=24ahy+12bw^2-4yz,\\
+ P^{xw}&=12ahz-36a^2h^2-4wy-z^2,\\
+ P^{yz}&=12ahz+36a^2h^2-3z^2,\\
+ P^{yw}&=12ahw-6wz,\qquad P^{zw}=-6w^2.
+\end{aligned}
+\]
+全十strict Jacobiは恒等零である。
+$a=1,c=b=0$の点をqとすると、全150係数・350式の微分Dは正確に階数100、
+全kernelは50次元、実軌道・鉛直・scale像は47次元である。
+非零100次minor、独立な50核方向及び全核積零を確認したので、
+射影接次元は$50-24-1=25$である。
+三法線の二次余核が零であることだけから、支持や成分性を結論しない。
+
+qをT39の全graphへ実際に移す。
+12倍前の代表の原点での交代値は非退化であり、
+Darboux変更と有限perspectiveを合成した行列を
+\[
+ M=\begin{pmatrix}
+ 1&0&0&-1/6&0\\
+ 0&1&0&0&0\\
+ 0&0&0&0&-1/3\\
+ 0&0&1&0&0\\
+ 0&0&0&1/3&0
+ \end{pmatrix}
+\]
+と取れる。Darboux後の定数値は正確に標準Jであり、perspectiveパラメータは
+$(0,0,0,-1/2)$である。Mと逆行列の両方向において、
+元の全150係数をEuler外積の全十商関係で再構成した。
+追加scalarは1であり、非可逆又は零scalarでの同定ではない。
+得られる全61座標は、非零なものだけを一始まりの番号で書くと
+\[
+ u_{13}=2/3,\quad u_{23}=1/3,\quad u_{26}=-3/2,
+ \quad u_{42}=-1/2,\quad u_{51}=5/2,\quad u_{61}=1.
+\]
+この全座標で元の134方程式が零となり、普遍Q51切断の全45graph式の残差も全て零となる。
+既存の普遍切断定理により、このgraphはT39の被約S61閉包そのものである。
+従ってqをT39が通る。一次部分だけ、又は一部のgraph式だけの一致ではない。
+
+T39は25次元全空間成分なので、qでの局所次元は25以上。
+独立に得た全周囲の射影接次元も25であるため、局所次元と埋込み次元が一致し、
+局所環は正則である。従ってqを通る唯一の全空間成分はT39である。
+既約な全源$\mathbb G_m\times\mathbb A^2$の像閉包はある成分に含まれqを通るので、全てT39に入る。
+
+元の全$n_5=s$を戻す実中心化群変更は$G=I+6sN^2$、逆は$I-6sN^2$である。
+$4\delta+1=-1$は全源で非零なので、隠れた分母零の補集合はない。
+Jacobiを課す前の全13パラメータについて、全90係数の変換と再構成が一致することを独立確認した。
+連結なaffine/PGL作用は各成分を保つので、逆正規化と全飽和を戻しても同じ帰属が成立する。
+\end{proof}
+
+\begin{proposition}\label{prop:nil4-quartic-all-support}
+モジュラー線形部がregular nilpotentで、実退化因子が単純Hと既約四次Fの積である全Poisson支持は、
+命題\ref{prop:nil4-hyperplane-quartic-component}の22次元成分とT39の和に含まれる。
+\end{proposition}
+\begin{proof}
+regular nilpotentのaffine translation類は零と長さ四のtopの二型だけである。
+非零translation型では全Jacobiが$(9n_9+1)(10n_9+1)=0$を含む。
+$n_9=-1/9$の全残支持のPfaffianは恒等零。
+$n_9=-1/10$では全残支持のPfaffianは
+\[
+ -(-20n_5-10n_8w^2+20n_8z-2wy+2x+z^2)^2/80
+\]
+となり、斉次化後も二次式の平方である。いずれも単純Hと既約四次を持たない。
+各分岐の全Jacobi理想と公開された全source条件の両方向の所属を検査しており、
+標本点での零から全支持を推測していない。
+
+translation零型では、全Jacobiから
+$(4n_8+1)(-n_{12}+5n_8+1)=0$が従い、両分岐の理想に$n_{11}^3$が属する。
+被約支持で$n_{11}=0$となる。
+$n_{12}=5n_8+1,n_8\ne-1/4$では最高四次Pfaffianが零なので除かれる。
+残る$n_8=-1/4$では$n_7=0$であり、$\delta=n_{12}=-1/4$なら全実Pfaffianに$w^2$因子がある。
+その補集合$4\delta+1\ne0$では、行列式1の実中心化群変更
+$G=I-6n_5N^2/(4\delta+1)$により$n_5$を除ける。
+全九十係数の変換を保持したこの正規化後、全残Jacobiは正確に
+\[
+\begin{gathered}
+ n_{10}(2\delta+1)=0,\qquad n_6(1-2\delta)-6n_{10}^2=0,\\
+ n_1(3\delta+1)-3n_{10}n_4=0,\qquad
+ n_0(2\delta+1)-2n_{10}n_3=0
+\end{gathered}
+\]
+の四式と同じ支持を与える。
+$I_2=2wy-z^2$とすると、$\delta\notin\{-1/2,-1/3,1/2\}$では
+Pfaffianは$-(4\delta+1)I_2^2/48$で、既約四次にはならない。
+$\delta=1/2$でも$-(I_2+4n_6)^2/16$となる。
+$\delta=-1/2,n_{10}=0$では$I_2^2/48-n_0w^2/2$で、
+斉次化後は複素数上の二つの二次式の積である。
+平方根を取ることは新たな係数反転を要求しない。
+
+従って既約四次を持ち得る全支持は、
+$\delta=-1/3,n_1\ne0$の第一源と$\delta=-1/2,n_{10}\ne0$の第二源に尽くされる。
+前者は命題\ref{prop:nil4-quartic-whole-first-source}、後者は前命題で被覆した。
+全scalar補集合と非零translationを保持して結論する。
+\end{proof}
+全source分岐と理想所属のproducer証明書は
+\path{CLASSIFICATION_HYPERPLANE_QUARTIC_NIL_REGULAR_SUPPORT_20261107.json}にある。
+第二源の全族Jacobi、全13パラメータの$N^2$変更、全350微分と50核、
+有限Darboux/perspective及び全150係数の正逆商同値、元134式とQ51の全45graph式は
+\path{CLASSIFICATION_HYPERPLANE_QUARTIC_NIL_REGULAR_GRAPH_REVIEW_20261107.json}で
+producer・S61算術engine・CASをimportせず独立再構成した。
+普遍Q51 graphと25次元T39の同定自体は既済入力であり、この点での代入だけから推測したものではない。
+これでregular nilpotentの$H+F$全支持は完了したが、
+他の純冪零型の残る六型、被約非正規因子の全被覆と主分類は未解決である。
+半単純cofactorの全支持は前記二ノートで被覆済みであり、本文への証明統合を残す。
+追加成分は生じず、下界90・一般rank四84を維持する。
 
 \section{計算・証拠の位置づけ}
 本稿の命題\ref{prop:radical}、補題\ref{lem:certificate}、補題\ref{lem:descent}、命題\ref{prop:spread}には本文で証明を与えた。

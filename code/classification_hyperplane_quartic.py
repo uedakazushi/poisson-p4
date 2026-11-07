@@ -618,17 +618,22 @@ def nil_regular_support(source_path):
                 scope='Type2 excluded entirely; type1 reduced to two complete normalized sources; their membership remains unproved.')
 
 
-def nil_regular_component(source_path):
+def nil_regular_component(source_path, second=False, point=None):
     """Full150-variable one-normal support test, through at most cubic order."""
     import importlib.util
     from sympy.polys.matrices import DomainMatrix
     helper=Path('legacy/v03/code/poisson_p4_components_check.py')
     spec=importlib.util.spec_from_file_location('quartic_ambient',helper)
     ambient=importlib.util.module_from_spec(spec);spec.loader.exec_module(ambient)
-    row=json.loads(source_path.read_text())['full_nilpotent_sources'][0]
+    row=json.loads(source_path.read_text())['full_nilpotent_sources'][point['source_row'] if point else 0]
     n=s.symbols('n0:36');h,x,y,z,w=coords=s.symbols('h x y z w')
     substitution={v:0 for v in n}
     substitution.update({n[8]:-s.Rational(1,4),n[12]:-s.Rational(1,3),n[1]:1})
+    if second:
+        substitution.update({n[12]:-s.Rational(1,2),n[1]:0,n[10]:1,n[6]:3})
+    if point:
+        substitution={v:0 for v in n}
+        substitution.update({s.Symbol(k):s.Rational(v)for k,v in point['substitutions'].items()})
     P=s.zeros(5)
     for (i,j),text in zip(it.combinations(range(1,5),2),row['brackets']):
         f=s.Poly(s.sympify(text).subs(substitution),x,y,z,w)
@@ -670,7 +675,60 @@ def nil_regular_component(source_path):
         directions.append(vector(sum([X[k]*P.diff(coords[k])for k in range(5)],s.zeros(5))-A*P-P*A.T))
     M=s.Matrix(ambient.vertical_bivector_matrix().tolist()).row_join(s.Matrix.hstack(*directions,vector(P)))
     assert D*M==s.zeros(350,M.cols)
+    if point:
+        dcert,mcert,kcert=minor(D),minor(M),minor(K)
+        assert dcert['rank']+K.cols==150 and kcert['rank']==K.cols
+        return dict(input_report=str(source_path),input_sha256=hashlib.sha256(source_path.read_bytes()).hexdigest(),
+            helper_path=str(helper),helper_sha256=hashlib.sha256(helper.read_bytes()).hexdigest(),
+            point=point,full150variables_and350rows=True,integer_scale=str(denominator),
+            witness_brackets={f'{i},{j}':str(P[i,j])for i,j in ambient.PAIRS if P[i,j]!=0},
+            derivative=dcert,orbit_vertical_scale=mcert,whole_kernel=kcert,
+            full_exact_kernel_sparse_columns=[encode(K[:,j])for j in range(K.cols)],
+            all_exact_D_kernel_products_zero=True,
+            projective_orbit_dimension=mcert['rank']-25,projective_tangent_dimension=125-dcert['rank'],
+            smooth_orbit_component_proved=dcert['rank']+mcert['rank']==150,
+            matrix_sha256=dict(D=digest(D),orbit_vertical_scale=digest(M),kernel=digest(K)))
     pivots=list(dm(M.row_join(K)).rref()[1]);extra=[j-M.cols for j in pivots if j>=M.cols]
+    if second:
+        assert len(extra)==3 and K.cols==50
+        normals=[]
+        for at in extra:
+            value=K[:,at]
+            common=s.ilcm(*[v.q for v in value]);value*=common
+            divisor=math.gcd(*(int(v)for v in value));value/=divisor
+            normals.append(value)
+        normal_matrix=s.Matrix.hstack(*normals)
+        matrices=[unvector(v)for v in normals]
+        pair_order=list(it.combinations_with_replacement(range(3),2))
+        quadratic_columns=[jac(matrices[i]) if i==j else jac(matrices[i]+matrices[j])-jac(matrices[i])-jac(matrices[j])
+                           for i,j in pair_order]
+        Q=s.Matrix.hstack(*quadratic_columns)
+        dcert,mcert,kcert=minor(D),minor(M),minor(M.row_join(normal_matrix))
+        assert dcert['rank']==100 and mcert['rank']==47 and kcert['rank']==50
+        rr,cc=dcert['rows'],dcert['columns']
+        projected=Q-D[:,cc]*dm(D[rr,cc]).inv().matmul(dm(Q[rr,:])).to_Matrix()
+        independent_rows=list(dm(projected.T).rref()[1])
+        variables=s.symbols('u v w')
+        polynomials=[s.expand(sum(projected[row,j]*variables[i]*variables[k]
+                                 for j,(i,k) in enumerate(pair_order)))for row in independent_rows]
+        basis=s.groebner(polynomials,*variables,domain=s.QQ)
+        zero_dimensional=bool(polynomials) and basis.is_zero_dimensional
+        return dict(input_report=str(source_path),input_sha256=hashlib.sha256(source_path.read_bytes()).hexdigest(),
+            helper_path=str(helper),helper_sha256=hashlib.sha256(helper.read_bytes()).hexdigest(),
+            full150variables_and350rows=True,point_substitutions={str(k):str(v)for k,v in substitution.items()if v},
+            integer_scale=str(denominator),witness_brackets={f'{i},{j}':str(P[i,j])for i,j in ambient.PAIRS if P[i,j]!=0},
+            derivative=dcert,orbit_vertical_scale=mcert,whole_kernel=kcert,
+            independent_normal_sparse_vectors=[encode(v)for v in normals],all_exact_D_kernel_products_zero=True,
+            quadratic_monomial_pair_order=[list(p)for p in pair_order],
+            full_quadratic_columns=[encode(Q[:,j])for j in range(Q.cols)],
+            full_D_projection_rows=rr,full_D_projection_columns=cc,
+            independent_cokernel_rows=independent_rows,all_quadratic_residual_generators=list(map(str,polynomials)),
+            exact_quadratic_groebner_basis=[str(p.as_expr())for p in basis.polys],
+            quadratic_initial_ideal_zero_dimensional=zero_dimensional,
+            projective_orbit_dimension=22,projective_tangent_dimension=25,
+            support_component_proved=zero_dimensional,
+            next_step=None if zero_dimensional else 'Use genuine source geometry in the surviving normal directions; do not infer support from only these quadrics or repeat higher jets.',
+            matrix_sha256=dict(D=digest(D),orbit_vertical_scale=digest(M),normals=digest(normal_matrix),quadratic=digest(Q),projected_quadratic=digest(projected)))
     assert len(extra)==1 and K.cols==48
     Rvec=K[:,extra[0]]
     common=s.ilcm(*[v.q for v in Rvec]);Rvec*=common
@@ -714,6 +772,111 @@ def nil_regular_component(source_path):
     return result
 
 
+def nil_regular_graph(source_path,point=None):
+    point_spec=point
+    """Exact whole T39/T40 graph test at the second regular-nil witness."""
+    from s61_model import S61,X,pushforward
+    rows=json.loads(source_path.read_text())['full_nilpotent_sources']
+    n=s.symbols('n0:36');coords=s.symbols('h x y z w')
+    substitution={v:0 for v in n}
+    substitution.update({n[8]:-s.Rational(1,4),n[12]:-s.Rational(1,2),n[10]:1,n[6]:3})
+    P=s.zeros(5)
+    if point:
+        substitution={v:0 for v in n}
+        substitution.update({s.Symbol(k):s.Rational(v)for k,v in point['substitutions'].items()})
+    row=rows[point['source_row'] if point else 0]
+    for (i,j),text in zip(it.combinations(range(1,5),2),row['brackets']):
+        f=s.Poly(s.sympify(text).subs(substitution),*coords[1:])
+        P[i,j]=sum(c*coords[0]**(2-sum(e))*s.prod(v**a for v,a in zip(coords[1:],e))for e,c in f.terms())
+        P[j,i]=-P[i,j]
+    P=P.subs(dict(zip(coords,X)),simultaneous=True)
+    translation=s.eye(5)
+    if point:
+        for i,value in enumerate(point.get('evaluation',[0,0,0,0]),1):translation[i,0]=-s.Rational(value)
+        P=pushforward(P,translation)
+    K=P.subs(dict(zip(X,(1,0,0,0,0))))[1:5,1:5]
+    assert K.det()!=0
+    unit=[s.eye(4)[:,i]for i in range(4)]
+    i,j=next((i,j)for i,j in it.combinations(range(4),2)if K[i,j])
+    r0=unit[i];r1=unit[j]/K[i,j];remaining=[]
+    for r in unit:
+        q=r-(r.T*K*r1)[0]*r0+(r.T*K*r0)[0]*r1
+        if q!=s.zeros(4,1) and (not remaining or s.Matrix.hstack(*remaining,q).rank()>len(remaining)):
+            remaining.append(q)
+    assert len(remaining)==2
+    r2,r3=remaining;r3=r3/(r2.T*K*r3)[0]
+    T=s.Matrix.vstack(*(r.T for r in(r0,r1,r2,r3)))
+    J=s.zeros(4);J[0,1]=J[2,3]=1;J[1,0]=J[3,2]=-1
+    assert T*K*T.T==J
+    frame=s.eye(5);frame[1:5,1:5]=T
+    model=S61();normalized=model.normalize(pushforward(P,frame))
+    model.verify_point(normalized,check_equations=True)
+    point=normalized['parameters'];us=s.symbols('u1:62');graphs={}
+    paths=[source_path,Path('code/s61_model.py')]
+    for label,path in [('T39',Path('reports/Q51_UNIVERSAL_SECTION_20261101.json')),
+                       ('T40',Path('reports/Q52_UNIVERSAL_SECTION_20261101.json'))]:
+        graph=json.loads(path.read_text());paths.append(path)
+        residual=[s.cancel(point[k]-s.sympify(q).subs(dict(zip(us,point)),simultaneous=True))
+                  for k,q in zip(graph['weight2_u_indices_zero_based'],graph['quadratic_section_q'])]
+        graphs[label]=dict(all45_residuals=list(map(str,residual)),whole_graph_membership=all(v==0 for v in residual))
+    return dict(input_sha256={str(p):hashlib.sha256(p.read_bytes()).hexdigest()for p in paths},
+                source_point=point_spec,translation=[[str(v)for v in translation.row(i)]for i in range(5)],
+                nondegenerate_constant_matrix=[[str(v)for v in K.row(i)]for i in range(4)],
+                Darboux_frame=[[str(v)for v in frame.row(i)]for i in range(5)],
+                perspective=list(map(str,normalized['perspective'])),all61_parameters=list(map(str,point)),
+                full_quotient_reconstruction_and_all134_equations_checked=True,graph_membership=graphs,
+                implication='If a known25component graph matches, combine with the separate fullambient tangent bound25 to prove local regularity/uniqueness, then use irreducibility for the complete source.')
+
+
+def nil_short_translation_geometry(source_path):
+    """Entire28-parameter nil211,translation-length1 potential reduction."""
+    row=json.loads(source_path.read_text())['full_nilpotent_sources'][8]
+    n=s.symbols('n0:36');x,y,z,w=s.symbols('x y z w');u,t=s.symbols('u t')
+    old=(x,y,z,w);new=(u,y,w,t);pairs=list(it.combinations(range(4),2));P=s.zeros(4)
+    for (i,j),text in zip(pairs,row['brackets']):P[i,j]=s.sympify(text);P[j,i]=-P[i,j]
+    transformation=s.Matrix([[1,-z,-y,0],[0,1,0,0],[0,0,0,1],[0,0,1,0]])
+    assert transformation.det()==-1
+    inverse={x:u+y*t,z:t}
+    changed=(transformation*P*transformation.T).subs(inverse,simultaneous=True).applyfunc(s.expand)
+    assert all(s.diff(changed[i,j],t)==0 for i,j in pairs)
+    c=n[18]+n[19]*y+n[20]*w-n[25]*y*y/3
+    Phi=u*c+n[0]*w+n[1]*w*w/2+n[2]*w**3/3-n[11]*y*w+(n[23]-n[13])*y*y*w/2-n[14]*y*w*w\
+        +n[26]*y**3*w/3+n[27]*y*y*w*w/2-n[9]*y-(n[10]-n[21])*y*y/2-(n[12]-n[22])*y**3/3+n[24]*y**4/4
+    yy=(u,y,w)
+    for ij,derivative in [((0,1),s.diff(Phi,w)),((0,2),-s.diff(Phi,y)),((1,2),s.diff(Phi,u))]:
+        assert s.expand(changed[ij]-derivative)==0
+    V=s.Matrix([changed[3,j]for j in range(3)])
+    assert s.expand(sum(s.diff(V[i],yy[i])for i in range(3))+1)==0
+    image=s.expand(sum(V[i]*s.diff(Phi,yy[i])for i in range(3)))
+    affine_pf=s.sympify(row['actual_affine_pfaffian']).subs(inverse,simultaneous=True)
+    assert s.expand(affine_pf-image)==0
+    Q=s.expand(image+Phi)
+    def strict(i,j,k):
+        return s.expand(sum(changed[i,l]*s.diff(changed[j,k],new[l])+changed[j,l]*s.diff(changed[k,i],new[l])+
+                            changed[k,l]*s.diff(changed[i,j],new[l])for l in range(4)))
+    assert strict(0,1,2)==0
+    for ij,derivative in [((0,1),s.diff(Q,w)),((0,2),-s.diff(Q,y)),((1,2),s.diff(Q,u))]:
+        assert s.expand(strict(*ij,3)-derivative)==0
+    for exponent,coefficient in s.Poly(Phi,u,y,w).terms():assert 2*exponent[0]+exponent[1]+exponent[2]<=4
+    point={v:0 for v in n}
+    point.update({n[0]:1,n[13]:-1,n[16]:1,n[18]:-s.Rational(3,2),n[23]:-1,n[25]:-3})
+    assert all(s.expand(s.diff(Q,v).subs(point))==0 for v in yy)
+    point_pf=s.factor(affine_pf.subs(point))
+    assert s.expand(point_pf+(y*y-s.Rational(3,2))*u+w)==0
+    return dict(input_report=str(source_path),input_sha256=hashlib.sha256(source_path.read_bytes()).hexdigest(),
+                entire28_parameter_source_preserved=True,straightened_coordinates=['u=x-y*z','y','w','t=z'],
+                inverse_coordinates=['x=u+y*t','y=y','z=t','w=w'],transformation_determinant=-1,
+                transformed_brackets=[str(changed[i,j])for i,j in pairs],all_brackets_independent_of_t=True,
+                potential=str(Phi),vector_field=list(map(str,V)),vector_field_divergence=-1,
+                weighted_degree_weights=[2,1,1],potential_weighted_degree_at_most4=True,
+                actual_affine_pfaffian_equals_V_potential=True,
+                all_jacobi_equivalent_to_three_derivatives_of=str(Q),
+                support_equation='V(Phi)+Phi=constant, equivalently originalPf=-Phi+constant',
+                retained_point_substitutions={str(k):str(v)for k,v in point.items()if v},retained_point_pfaffian=str(point_pf),
+                all_point_jacobi_zero=True,
+                scope='Complete potential reduction only; full eigenpotential support and component membership remain to classify.')
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument('--output', type=Path, required=True)
@@ -721,6 +884,11 @@ def main():
     ap.add_argument('--nil-rank1-support', action='store_true', help='Whole nil211,c0 irreducible-quartic source to MINIMAL_M')
     ap.add_argument('--nil-regular-support',type=Path,help='Whole regular-nilpotent scalar support reduction from frozen10source report')
     ap.add_argument('--nil-regular-component',type=Path,help='One-normal fullambient support test for nil4 quartic source')
+    ap.add_argument('--nil-regular-second',type=Path,help='Fullthree-normal quadratic support test for the other nil4quartic source')
+    ap.add_argument('--nil-regular-graph',type=Path,help='Exact T39/T40 wholegraph recognition at the second nil4quartic source')
+    ap.add_argument('--nil-short-translation-geometry',type=Path,help='Entire nil211translation1 potential reduction')
+    ap.add_argument('--source-point',type=Path,help='Fullambient exact D/orbit/kernel at a specified classified-source point')
+    ap.add_argument('--source-graph',type=Path,help='Exact T39/T40graph at a structurally specified sourcepoint and rank4evaluation')
     ap.add_argument('--sources', action='store_true', help='All24 full semisimple/mixed modular sources')
     ap.add_argument('--nil-sources', action='store_true', help='All10 full purely nilpotent modular sources')
     ap.add_argument('--support',type=Path,help='Verify finite support factorizations from a frozen24source report')
@@ -729,6 +897,45 @@ def main():
     report = dict(task='E_reduced_nonnormal', coefficient_ring='QQ, exact symbolic polynomials',
                   source_sha256=hashlib.sha256(source).hexdigest(), source_bytes=source.decode(),
                   scope='Finite modular cofactor entrance only; residual full Jacobi sources and coverage remain open.')
+    if args.source_graph:
+        point=json.loads(args.source_graph.read_text())
+        result=nil_regular_graph(Path(point['source_report']),point=point)
+        report.update(source_graph=result,all_passed=True,
+                      scope='Exact pointgraph recognition; whole-source membership still requires the explicit source-containment argument.')
+        args.output.write_text(json.dumps(report,indent=2)+'\n')
+        print(json.dumps(dict(all_passed=True,membership={k:v['whole_graph_membership']for k,v in result['graph_membership'].items()})))
+        return
+    if args.source_point:
+        point=json.loads(args.source_point.read_text())
+        result=nil_regular_component(Path(point['source_report']),point=point)
+        report.update(source_point=result,all_passed=True,
+                      scope='Exact fullambient point D/orbit/kernel; allsource classification and distinctness are separate.')
+        args.output.write_text(json.dumps(report,indent=2)+'\n')
+        print(json.dumps(dict(all_passed=True,tangent_dimension=result['projective_tangent_dimension'],
+                             orbit_dimension=result['projective_orbit_dimension'],
+                             smooth_orbit_component=result['smooth_orbit_component_proved'])))
+        return
+    if args.nil_short_translation_geometry:
+        result=nil_short_translation_geometry(args.nil_short_translation_geometry)
+        report.update(nil_short_translation_geometry=result,all_passed=True)
+        args.output.write_text(json.dumps(report,indent=2)+'\n')
+        print(json.dumps(dict(all_passed=True,whole_source_parameters=28)))
+        return
+    if args.nil_regular_graph:
+        result=nil_regular_graph(args.nil_regular_graph)
+        report.update(nil_regular_graph=result,all_passed=True,
+                      scope='Exact pointgraph recognition; whole-source coverage additionally uses tangent25 and irreducibility.')
+        args.output.write_text(json.dumps(report,indent=2)+'\n')
+        print(json.dumps(dict(all_passed=True,membership={k:v['whole_graph_membership']for k,v in result['graph_membership'].items()})))
+        return
+    if args.nil_regular_second:
+        result=nil_regular_component(args.nil_regular_second,second=True)
+        report.update(nil_regular_second_component=result,all_passed=True,
+                      scope='Exact fullthree-normal quadratic initial support; remaining directions are retained if not zero dimensional.')
+        args.output.write_text(json.dumps(report,indent=2)+'\n')
+        print(json.dumps(dict(all_passed=True,support_component_proved=result['support_component_proved'],
+                             quadratic_generators=result['all_quadratic_residual_generators'])))
+        return
     if args.nil_regular_component:
         result=nil_regular_component(args.nil_regular_component)
         report.update(nil_regular_component=result,all_passed=True,

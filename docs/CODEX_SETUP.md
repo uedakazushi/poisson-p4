@@ -3,6 +3,14 @@
 現行環境（2026-11-06、Debian13）は既設.venvを再利用する。元23版と必要な証明書は展開済み。
 現在の研究優先順位はRESEARCH_POLICYとclassification/PLAN.jsonを使う。
 
+2026-11-07の本Cloudでは `/workspace/cloud-setup/activate.sh` の既設環境を再利用した。
+Macaulay2 1.24.11のQQ既定GB・有理行列kernelと、日本語LuaLaTeX組版が動作した。
+下記のwork/native-cas展開pathはこのworkspaceには存在しないが、既設Singular実体は
+`work/nonsquare-v62/singular-runtime/prefix/usr/bin/Singular` にあり、既存共有library/dataを指定して
+local stdの小例が動作した。PATHの既定値だけからソフトウェア不在とは判断しない。
+研究計算はPython/SymPyと独立Fraction疎演算を主に使い、既存セットアップの再実行はしていない。
+
+
 Singular4.4.1、FLINT19、NTL44等は公開Debianパッケージをwork/native-cas/rootへ展開して使用できる。
 システムへのインストールやsudoは不要で、元パッケージURLとSHA256は
 reports/CLASSIFICATION_NATIVE_ENV_20261106.jsonに保存した。起動時は二つを設定する。
