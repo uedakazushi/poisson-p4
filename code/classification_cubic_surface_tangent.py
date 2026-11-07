@@ -261,8 +261,86 @@ def ranktwo_branch_support():
     output.write_text(json.dumps(result,indent=2)+'\n')
     print(json.dumps(dict(cases=[{k:r[k]for k in ['name','generic_rank','selected_nonzero_minor','generic_normalized_source_dimension_upper','generic_augmented_rank']}for r in records],seconds=result['seconds'])),flush=True)
 
+def normal_root_linear_replay():
+    """Fresh reconstruction of the unpublished pre-restart linear packet.
+
+    Combines the three lost isolated modes in one reusable mode. This report
+    has a fresh identity and fresh measurements; no lost report is fabricated.
+    The nine published function ASTs remain unchanged.
+    """
+    start=time.monotonic();signal.alarm(90);resource.setrlimit(resource.RLIMIT_AS,(1024*1024**2,)*2)
+    jobpath=ROOT/'research/classification/jobs/cubic_scroll_normal_root_linear_replay.json'
+    output=ROOT/'reports/CLASSIFICATION_CUBIC_SCROLL_NORMAL_ROOT_LINEAR_REPLAY_20261107.json'
+    if output.exists():raise FileExistsError(output)
+    job=json.loads(jobpath.read_text())
+    for binding in job['exact_inputs_and_hashes']:
+        assert hashlib.sha256((ROOT/binding['path']).read_bytes()).hexdigest()==binding['sha256'],binding['path']
+    raw=json.loads((ROOT/'reports/CLASSIFICATION_CUBIC_SURFACE_TANGENT_SMOOTH_SCROLL_12_20261107.json').read_text())
+    patch=json.loads((ROOT/'reports/CLASSIFICATION_CUBIC_SCROLL_RANK_TWO_OPEN_20261107.json').read_text())
+    B=s.Matrix([[s.Rational(c)for c in row]for row in raw['linear']['full150_by_source_basis']])
+    t=s.symbols('t0:21');r=s.Symbol('r');xx=s.symbols('x0:5');P=s.zeros(5)
+    for c,(ij,e)in zip(B*s.Matrix(t),COLUMNS):P[ij]+=c*s.prod(y**k for y,k in zip(xx,e))
+    restriction=s.Poly(s.expand((P[1,2]-r*P[0,2]).subs(dict(zip(xx,[1,r,0,0,0])),simultaneous=True)),r)
+    assert restriction.degree()<=1
+    equations=[s.expand(restriction.coeff_monomial(r**k))for k in range(2)]
+    assert equations==[t[18],-t[10]]
+    M0,z=s.linear_eq_to_matrix(equations,t);assert z==s.zeros(2,1)
+    K0=DomainMatrix.from_Matrix(M0).convert_to(s.QQ).nullspace().to_Matrix().T
+    assert M0*K0==s.zeros(2,K0.cols)and K0.cols==19
+    env={str(v):v for v in t}
+    sub={env[k]:s.sympify(v,locals=env)for k,v in patch['exact_full_source_parameter_substitution'].items()}
+    peq=[s.factor(f.subs(sub,simultaneous=True))for f in equations]
+    assert s.expand(peq[0]-(2*t[0]-t[17])*(2*t[0]-2*t[17]+3*t[19])/3)==0
+    directrix=dict(full_C0_restriction=str(restriction.as_expr()),two_linear_C0_equations=list(map(str,equations)),full_linear_matrix=encode_matrix(M0),rank=2,full_kernel_dimension=19,full_kernel_basis=encode_matrix(K0),complete_ranktwo_patch_C0_equations=list(map(str,peq)),all_patch_substitution={str(k):str(v)for k,v in sub.items()})
+    X=a.Ring([f'x{i}'for i in range(5)]);x=[X.var(f'x{i}')for i in range(5)]
+    q=X.parse('x2*x4-x3**2');dq=[a.derivative(q,k)for k in range(5)];rootrows={};rawrows={}
+    for col,((u,v),e)in enumerate(COLUMNS):
+        m={tuple(e):F(1)}
+        bq=[a.times(m,a.plus(a.scale(dq[u],int(v==k)),a.scale(dq[v],-int(u==k))))for k in range(5)]
+        for k in range(5):
+            for exponent,c in lift(bq[k],CASES['smooth_scroll_12']['powers']).items():
+                row=rawrows.setdefault((k,exponent),{});row[col]=row.get(col,F())+c
+        for k in range(1,5):
+            b0k=a.scale(m,int(u==0 and v==k)-int(v==0 and u==k))
+            H=a.plus(a.times(x[0],bq[k]),a.scale(a.times(x[k],bq[0]),-1),a.scale(a.times(q,b0k),-2))
+            dH=[a.derivative(H,j)for j in range(5)]
+            for i,j in PAIRS:
+                f=a.plus(a.times(dH[i],dq[j]),a.scale(a.times(dH[j],dq[i]),-1))
+                for exponent,c in lift(f,CASES['smooth_scroll_12']['powers']).items():
+                    row=rootrows.setdefault((k,i,j,exponent),{});row[col]=row.get(col,F())+c
+    matrices=[];records=[]
+    for rows in [rootrows,rawrows]:
+        labels=sorted(rows);rr=[{j:c for j,c in rows[k].items()if c}for k in labels]
+        M=s.MutableSparseMatrix(len(rr),150,{(i,j):s.Rational(c)for i,row in enumerate(rr)for j,c in row.items()})
+        A=M*B;matrices.append((M,A))
+        records.append(dict(all_row_labels=labels,full150_rows=sparse_rows(rr),full_matrix_shape=list(M.shape),complete21_restricted_matrix=encode_matrix(A)))
+    M,A=matrices[0];C=matrices[1][1]
+    K=DomainMatrix.from_Matrix(A).convert_to(s.QQ).nullspace().to_Matrix().T
+    assert A*K==s.zeros(A.rows,K.cols)and M.shape==(620,150)and K.cols==16
+    records[0].update(restricted_rank=5,complete_kernel_dimension=16,complete21_kernel_basis=encode_matrix(K),full150_kernel_basis=encode_matrix(B*K),rank_certificate=minor_certificate(A,5))
+    assert matrices[1][0].shape==(84,150)
+    total=A.col_join(M0).col_join(C);KT=DomainMatrix.from_Matrix(total).convert_to(s.QQ).nullspace().to_Matrix().T
+    assert total*KT==s.zeros(total.rows,KT.cols)and KT.cols==16
+    V=[]
+    for i in range(5):
+        for j in range(5):
+            L=s.zeros(5,1);L[i]=xx[j];VP=s.Matrix(xx)*L.T-L*s.Matrix(xx).T
+            V.append(s.Matrix([s.Poly(VP[ij],*xx).coeff_monomial(e)for ij,e in COLUMNS]))
+    V=s.Matrix.hstack(*V);assert M*V==s.zeros(M.rows,25)
+    for source in range(21):
+        PS=s.zeros(5)
+        for c,(ij,e)in zip(B[:,source],COLUMNS):PS[ij]+=c*s.prod(y**k for y,k in zip(xx,e))
+        for i,j in PAIRS:PS[j,i]=-PS[i,j]
+        assert all(s.expand(sum(s.diff(PS[i,j],xx[i])for i in range(5)))==0 for j in range(5))
+    combined=dict(full21_combined_matrix=encode_matrix(total),shape=list(total.shape),rank=5,complete_kernel_dimension=16,complete21_kernel_basis=encode_matrix(KT),full150_kernel_basis=encode_matrix(B*KT),rank_certificate=minor_certificate(total,5),all21_source_divergences_identically_zero=True,whole_projective_image_upper=33,sufficient_G_bound_from_linear_necessity=False)
+    result=dict(task_id='G',replay_provenance='Fresh reconstruction after VM replacement lost three unpublished reports; no original elapsed time or report checksum is claimed. Structural identities match the recorded tool outputs. Published nine functions were preserved.',all_arithmetic_passed=True,directrix=directrix,canonical_rootline=records[0],canonical_raw_contraction=records[1],combined_casimir_necessity=combined,all_Euler24_annihilated_by_intrinsic_rootline=True,all_G_closed=False,scope='Linear diagnostics only. Canonical-root emptiness is instead proved by the separate pure Hartogs/Casimir/divergence note; A25 two types and cubic cone remain open.',inputs=job['exact_inputs_and_hashes'],producer_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),producer_bytes=Path(__file__).read_text(),seconds=time.monotonic()-start,maximum_RSS_KiB=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss)
+    output.write_text(json.dumps(result,indent=2)+'\n')
+    print(json.dumps(dict(all_arithmetic_passed=True,directrix=directrix['two_linear_C0_equations'],rootline_shape=records[0]['full_matrix_shape'],rootline_rank=5,combined_dimension=16,linear_G_bound=False,seconds=result['seconds'],maximum_RSS_KiB=result['maximum_RSS_KiB'])),flush=True)
+
+
 if __name__=='__main__':
-    parser=argparse.ArgumentParser();parser.add_argument('--case',choices=CASES,default='smooth_scroll_12');parser.add_argument('--ranktwo-open',action='store_true');parser.add_argument('--ranktwo-branch-support',action='store_true');args=parser.parse_args()
-    if args.ranktwo_branch_support:ranktwo_branch_support()
+    parser=argparse.ArgumentParser();parser.add_argument('--case',choices=CASES,default='smooth_scroll_12');parser.add_argument('--ranktwo-open',action='store_true');parser.add_argument('--ranktwo-branch-support',action='store_true');parser.add_argument('--normal-root-linear-replay',action='store_true');args=parser.parse_args()
+    if args.normal_root_linear_replay:normal_root_linear_replay()
+    elif args.ranktwo_branch_support:ranktwo_branch_support()
     elif args.ranktwo_open:ranktwo_open()
     else:main(args.case)

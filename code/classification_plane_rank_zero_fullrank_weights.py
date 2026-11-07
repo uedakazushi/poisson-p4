@@ -1860,9 +1860,330 @@ def m4_nonreduced_squarefree_main():
     destination.write_text(json.dumps(result,indent=2)+'\n')
 
 
+def double_line_m3_squarefree_main():
+    """One whole finite classification batch for all split/1+2/3 root covers."""
+    import ast
+    destination=ROOT/'reports/CLASSIFICATION_PLANE_DOUBLE_LINE_M3_SQUAREFREE_20261107.json'
+    if destination.exists():raise FileExistsError(destination)
+    started=time.monotonic()
+    def timeout(signum,frame):raise TimeoutError('finite whole nonred m3squarefree batch budget300s')
+    signal.signal(signal.SIGALRM,timeout);signal.alarm(300)
+    resource.setrlimit(resource.RLIMIT_AS,(1536*1024**2,)*2)
+    previous=ROOT/'reports/CLASSIFICATION_PLANE_M4_NONREDUCED_SQUAREFREE_CASIMIR_20261107.json'
+    old=json.loads(previous.read_text())['producer_bytes']
+    functions=lambda text:{n.name:ast.dump(n,include_attributes=False)for n in ast.parse(text).body if isinstance(n,(ast.FunctionDef,ast.AsyncFunctionDef))}
+    before=functions(old);after=functions(Path(__file__).read_text());assert len(before)==31
+    assert all(after[name]==value for name,value in before.items())
+    x=s.Matrix(s.symbols('a b c z w'));a,b,c,z,w=x;f=a*a*b;normals=[z,w]
+    mons=lambda n,d:[tuple(t.count(i)for i in range(n))for t in __import__('itertools').combinations_with_replacement(range(n),d)]
+    monG=[base+(j,3-j)for base in mons(3,2)for j in range(4)]
+    monPDE=[base+(j,3-j)for base in mons(3,4)for j in range(4)]
+    monD2=[base+(j,2-j)for base in mons(3,3)for j in range(3)]
+    spatial=lambda mon:s.prod(t**e for t,e in zip(x,mon))
+    P1,v1,P2,v2=sources(x)
+    def actualD(P):
+        return s.expand(sum((-1)**i*x[i]*(P[j,k]*P[l,m]-P[j,l]*P[k,m]+P[j,m]*P[k,l])for i in range(5)for j,k,l,m in [[r for r in range(5)if r!=i]]))
+    def baseP():
+        P=s.zeros(5);P[0,2]=-a*a;P[2,0]=a*a;P[1,2]=2*a*b;P[2,1]=-2*a*b;return P
+    def setbr(P,i,j,value):P[i,j]=value;P[j,i]=-value
+    pairs=set();intersections=[]
+    for k,l in [(0,2),(0,3),(1,2),(1,3)]:
+        det=(k-1)*(2-l)-(2-k)*(l-1)
+        for p in range(3):
+            for q in range(3):
+                r0=4-3*p;r1=4-3*q
+                lam=s.Rational(r0*(2-l)-(2-k)*r1,det);mu=s.Rational((k-1)*r1-r0*(l-1),det)
+                assert (k-1)*lam+(2-k)*mu==r0 and(l-1)*lam+(2-l)*mu==r1
+                pairs.add(tuple(sorted([lam,mu])));intersections.append({'normal_support':[k,l],'base_powers':[p,q],'lambda_mu':[str(lam),str(mu)]})
+    models=[]
+    for lam,mu in sorted(pairs):
+        P=baseP();setbr(P,2,3,lam*a*z);setbr(P,2,4,mu*a*w)
+        models.append(('DIAGONAL_'+str(lam)+'_'+str(mu),P,5 if lam==mu else 7,'diagonal',{'lambda':str(lam),'mu':str(mu)}))
+    for name,lam,mu,Bdim in [('NIL_SPLIT',s.Integer(-2),s.Integer(-2),7),('NIL_ONE_PLUS_TWO',s.Rational(-1,2),s.Integer(-2),8)]:
+        P=baseP();setbr(P,2,3,lam*a*z);setbr(P,2,4,mu*a*w+b*z);models.append((name,P,Bdim,'nil',{}))
+    for g in [2,3,4]:
+        h=s.Rational(g,2);P=baseP();setbr(P,2,3,(4-3*h)*a*z);setbr(P,0,4,(3-h)*a*z)
+        setbr(P,1,4,-h*b*z);setbr(P,2,4,(g-3)*c*z-2*a*w)
+        models.append(('C_DEPENDENT_A2_G'+str(g),P,10,'cdependent',{'g':g}))
+    P=baseP();setbr(P,2,3,a*z);setbr(P,1,4,-3*a*z);setbr(P,2,4,4*a*w)
+    models.append(('C_DEPENDENT_B2_CANDIDATE',P,10,'cdependent_inconsistent',{}))
+    records=[];kk=s.symbols('qK0:3');gg=s.symbols('G0:24');G=sum(t*spatial(mon)for t,mon in zip(gg,monG))
+    for name,P0,Bdim,kind,metadata in models:
+        Pk=P0.copy();setbr(Pk,3,4,kk[0]*z*z+kk[1]*z*w+kk[2]*w*w)
+        Dk=actualD(Pk);poly=s.Poly(Dk,*x);rows=s.Matrix([poly.coeff_monomial(mon)for mon in monD2])
+        assert s.expand(Dk-sum(rows[i]*spatial(mon)for i,mon in enumerate(monD2)))==0
+        KM=rows.jacobian(kk);constant=rows.subs(dict.fromkeys(kk,0));assert rows==KM*s.Matrix(kk)+constant
+        kc,_,_=rank_certificate(KM,False);ka,_,_=rank_certificate(KM.row_join(-constant),False)
+        record={'type':name,'kind':kind,'metadata':metadata,'whole_fixed_plane_symbol_dimension_upper':Bdim,
+            'full30_K_global_consistency_matrix':serial_matrix(KM),'full30_K_global_consistency_constant':serial_matrix(constant),
+            'K_matrix_certificate':kc,'K_augmented_certificate':ka}
+        if ka['rank']>kc['rank']:
+            record.update(global_quadratic_P0_impossible=True,entire_squarefree_m3_source_empty=True,G_dimension_criterion=True)
+            records.append(record);print(name,'whole globalK inconsistent',flush=True);continue
+        solution=list(s.linsolve((KM,-constant),kk));assert len(solution)==1
+        Kvalue=s.expand(sum(t*m for t,m in zip(solution[0],[z*z,z*w,w*w])));setbr(P0,3,4,Kvalue)
+        assert actualD(P0)==0
+        Jac0=[s.expand(t)for t in H.all350(H.projective(H.bilinear(P0,P0,x),x),x)]
+        if any(t!=0 for t in Jac0):
+            record.update(global_quadratic_P0_impossible=True,unique_K_solution=list(map(str,solution[0])),
+                nonzero_full350_P0_Jacobi=[(i,str(t))for i,t in enumerate(Jac0)if t!=0],
+                entire_squarefree_m3_source_empty=True,G_dimension_criterion=True)
+            records.append(record);print(name,'whole P0Jacobi inconsistent',flush=True);continue
+        S=[[[0 for i in range(3)]for j in range(2)]for k in range(2)]
+        for i in range(2):
+            for j in range(2):
+                V=s.Matrix([-s.diff(P0[k,3+i],normals[j])for k in range(3)])
+                assert s.expand(sum(s.diff(V[k],x[k])for k in range(3)))==0
+                numerator=[c*V[1]-b*V[2],a*V[2]-c*V[0],b*V[0]-a*V[1]]
+                S[i][j]=[s.expand(numerator[k]+(s.diff(f,x[k])if i==j else 0))for k in range(3)]
+        expressions=[]
+        for i in range(3):
+            expr=3*f*s.diff(G,x[i])-3*s.diff(f,x[i])*G
+            expr+=sum(S[j][k][i]*normals[k]*s.diff(G,normals[j])for j in range(2)for k in range(2))
+            expr-=(S[0][0][i]+S[1][1][i])*G;expr=s.expand(expr);p=s.Poly(expr,*x)
+            expressions.extend(p.coeff_monomial(mon)for mon in monPDE)
+        PM=s.Matrix(expressions).jacobian(gg);assert s.Matrix(expressions)==PM*s.Matrix(gg)
+        pc,_,KG=rank_certificate(PM,False);assert KG.cols>0
+        Ann=s.Matrix.hstack(*KG.T.nullspace()).T;assert Ann*KG==s.zeros(Ann.rows,KG.cols)
+        D1=operator(P0,P1,v1,x);D2=operator(P0,P2,v2,x)
+        full=actualD(P0+P1+P2);p=s.Poly(full,*x);D3=s.Matrix([p.coeff_monomial(mon)for mon in monG]);L=D3.jacobian(v1)
+        assert D3==L*s.Matrix(v1)
+        M1=D1.col_join(Ann*L);c1,_,K1=rank_certificate(M1,False);c2,_,K2=rank_certificate(D2,False)
+        Sh=shear(P0,x);assert all(s.expand(t)==0 for t in M1*Sh)
+        cs,_,_=rank_certificate(Sh,False);image=L*K1;ic,_,_=rank_certificate(image,False)
+        cols=ic['minor_columns'];tt=s.symbols('I0:'+str(len(cols)))
+        gim=s.expand(sum(image[i,j]*tt[k]*spatial(monG[i])for k,j in enumerate(cols)for i in range(24)))
+        gp=s.Poly(gim,z,w);A3=gp.coeff_monomial(z**3);B3=gp.coeff_monomial(z*z*w);C3=gp.coeff_monomial(z*w*w);D3n=gp.coeff_monomial(w**3)
+        disc=s.expand(B3**2*C3**2-4*A3*C3**3-4*B3**3*D3n-27*A3**2*D3n**2+18*A3*B3*C3*D3n)
+        empty=disc==0;higher=c1['nullity']+c2['nullity'];upper=Bdim+5+higher
+        record.update(unique_global_K=str(Kvalue),full150_P0={str((i,j)):str(P0[i,j])for i,j in H.PAIRS},P0_full350_Jacobi_zero_and_actualD_zero=True,
+            full_3f_connection_numerators=[[[str(v)for v in t]for t in row]for row in S],
+            full180by24_parallel_matrix=serial_matrix(PM),parallel_certificate=pc,parallel_membership_annihilator=serial_matrix(Ann),
+            full350_weight1_operator=serial_matrix(D1),full350_weight2_operator=serial_matrix(D2),full24by30_actualD3_map=serial_matrix(L),
+            full_weight1_plus_parallel_matrix=serial_matrix(M1),weight1_certificate=c1,weight2_certificate=c2,
+            complete_actual_shear=serial_matrix(Sh),actual_shear_certificate=cs,full_leading_image_matrix=serial_matrix(image),leading_image_certificate=ic,
+            whole_leading_image_polynomial=str(gim),whole_leading_discriminant_polynomial=str(disc),
+            entire_squarefree_m3_source_empty=empty,whole_higher_source_dimension_upper=higher,whole_projective_image_upper=upper,
+            G_dimension_criterion=empty or upper<=24)
+        records.append(record);print(name,'P1/P2',c1['nullity'],c2['nullity'],'image',ic['rank'],'SFempty',empty,'upper',upper,flush=True)
+    proofs=[ROOT/'research/classification'/name for name in ['PLANE_DOUBLE_LINE_M3_SQUAREFREE_FINITE_CONNECTIONS.md','PLANE_DOUBLE_LINE_M3_CYCLIC_CUBIC_FIRST_JETS.md','PLANE_DOUBLE_LINE_M3_CANDIDATE_LIFTS.md']]
+    archive=ROOT/'research/classification/inputs/plane_double_line_m3_pre_batch_frozen_inputs_20261107.json'
+    result={'task_id':'G','all_exact_arithmetic_passed':True,'all_G24_closed':all(t['G_dimension_criterion']for t in records),
+            'all_squarefree_m3_sources_empty':all(t['entire_squarefree_m3_source_empty']for t in records),
+            'scope':'Entire R=2L+M rank2-plane multiplicity3 squarefree normal cubic, allsplit/1+2/connected3 covers. Wholefinite root/Riccati/degree classification, globalK consistency, allparallel spaces, complete30/9 and actualD3 images. R3L separate alreadyempty; m2/repeatedm3/reducedR remain outside.',
+            'all36_eigenweight_intersections':intersections,'all_normal_swap_distinct_diagonal_pairs':[[str(t)for t in pair]for pair in sorted(pairs)],
+            'all24_leading_monomials':monG,'all30_K_monomials':monD2,'all60_parallel_component_monomials':monPDE,
+            'full_source1':{str((i,j)):str(P1[i,j])for i,j in H.PAIRS},'full_source2':{str((i,j)):str(P2[i,j])for i,j in H.PAIRS},
+            'cases':records,'compatible_extension_old_function_AST_unchanged':True,'old_function_names':sorted(before),
+            'producer_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'producer_bytes':Path(__file__).read_text(),
+            'input_bindings':[{'path':str(t.relative_to(ROOT)),'sha256':hashlib.sha256(t.read_bytes()).hexdigest()}for t in [HELPER,previous,archive]+proofs],
+            'seconds':time.monotonic()-started,'maximum_RSS_KiB':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss}
+    destination.write_text(json.dumps(result,indent=2)+'\n')
+
+
+def double_line_m3_ore_main():
+    """Whole remaining two sources: exact Euler bridge and four affine modules."""
+    import ast
+    destination=ROOT/'reports/CLASSIFICATION_PLANE_DOUBLE_LINE_M3_ORE_20261107.json'
+    if destination.exists():raise FileExistsError(destination)
+    started=time.monotonic()
+    def timeout(signum,frame):raise TimeoutError('finite whole4 Ore-module budget180s')
+    signal.signal(signal.SIGALRM,timeout);signal.alarm(180)
+    resource.setrlimit(resource.RLIMIT_AS,(1536*1024**2,)*2)
+    previous=ROOT/'reports/CLASSIFICATION_PLANE_DOUBLE_LINE_M3_SQUAREFREE_REPLAY_20261107.json';packet=json.loads(previous.read_text())
+    functions=lambda text:{n.name:ast.dump(n,include_attributes=False)for n in ast.parse(text).body if isinstance(n,(ast.FunctionDef,ast.AsyncFunctionDef))}
+    before=functions(packet['producer_bytes']);after=functions(Path(__file__).read_text());assert len(before)==32
+    assert all(after[name]==value for name,value in before.items())
+    x=s.Matrix(s.symbols('a b c z w'));a,b,c,z,w=x;y=s.Matrix([a,b,z,w]);indices=[0,1,3,4]
+    P1,v1,P2,v2=sources(x);ww=s.symbols('W0:18');qv=s.symbols('q0:3');F=sum(t*m for t,m in zip(qv,[z*z,z*w,w*w]))
+    def Wbasis(W0):
+        return W0+s.Matrix([z*(ww[0]*a+ww[1]*b)+w*(ww[2]*a+ww[3]*b)+ww[4]*z*z+ww[5]*z*w+ww[6]*w*w,
+            z*(ww[7]*a+ww[8]*b)+w*(ww[9]*a+ww[10]*b)+ww[11]*z*z+ww[12]*z*w+ww[13]*w*w,
+            ww[14]*z*w+ww[15]*w*w,ww[16]*z*z+ww[17]*z*w])
+    Wd=s.Matrix([a*a,-2*a*b,-2*a*z,-2*a*w]);Wn=Wd+s.Matrix([0,0,0,b*z])
+    def QD(A,Xz,Xw,F):
+        Q=s.zeros(4)
+        for i,j,value in [(0,1,-b*A+F),(0,2,-A*z),(0,3,-A*w),(1,2,Xz),(1,3,Xw)]:Q[i,j]=value;Q[j,i]=-value
+        return Q
+    def QN(U,V,R,F):
+        Q=s.zeros(4)
+        for i,j,value in [(0,1,b*U*z+F),(0,2,2*U*z*z),(0,3,3*U*z*w-V*z*z/6),
+                          (1,2,V*z*z-6*U*z*w),(1,3,R*z*z+2*V*z*w-9*U*w*w)]:Q[i,j]=value;Q[j,i]=-value
+        return Q
+    def pad(Q,W):
+        P=s.zeros(5)
+        for i,j in combinations(range(4),2):P[indices[i],indices[j]]=Q[i,j];P[indices[j],indices[i]]=-Q[i,j]
+        for i in range(4):P[2,indices[i]]=W[i];P[indices[i],2]=-W[i]
+        return P
+    def actualD(P):
+        return s.expand(sum((-1)**i*x[i]*(P[j,k]*P[l,m]-P[j,l]*P[k,m]+P[j,m]*P[k,l])for i in range(5)for j,k,l,m in [[r for r in range(5)if r!=i]]))
+    def jac4(Q):
+        return {(i,j,k):s.expand(sum(Q[i,l]*s.diff(Q[j,k],y[l])+Q[j,l]*s.diff(Q[k,i],y[l])+Q[k,l]*s.diff(Q[i,j],y[l])for l in range(4)))for i,j,k in combinations(range(4),3)}
+    coverage=[]
+    for kind,name,W0 in [('D','DIAGONAL_-2_-2',Wd),('N','NIL_SPLIT',Wn)]:
+        old=next(row for row in packet['cases']if row['type']==name);K=s.Matrix(old['weight1_certificate']['complete_kernel'])
+        kk=s.symbols('source'+kind+'0:'+str(K.cols));P0=s.zeros(5)
+        for i,j in H.PAIRS:P0[i,j]=s.sympify(old['full150_P0'][str((i,j))],locals={str(t):t for t in x});P0[j,i]=-P0[i,j]
+        P=P0+P1.subs(dict(zip(v1,K*s.Matrix(kk))),simultaneous=True)+P2
+        L=s.Matrix([-s.diff(P[0,2],c),-s.diff(P[1,2],c),0,0,0]);gauged=(P-H.wedge(x,L)).applyfunc(s.expand)
+        assert all(s.diff(gauged[i,j],c)==0 for i,j in H.PAIRS)
+        Q=gauged.extract(indices,indices);W=s.Matrix([gauged[2,i]for i in indices]);central=P2[0,1]
+        if kind=='D':
+            A=s.cancel(-Q[0,2]/z);Xz=Q[1,2];Xw=Q[1,3];expected=QD(A,Xz,Xw,central)
+            coordinates=[s.expand(A).coeff(t)for t in [z,w]]+[s.Poly(part,z,w).coeff_monomial(mon)for part in [Xz,Xw]for mon in [z*z,z*w,w*w]]
+        else:
+            U=s.Poly(Q[0,2],z,w).coeff_monomial(z*z)/2;V=-6*s.Poly(Q[0,3],z,w).coeff_monomial(z*z);R=s.Poly(Q[1,3],z,w).coeff_monomial(z*z)
+            expected=QN(U,V,R,central);coordinates=[U,V,R]
+        assert all(s.expand(t)==0 for t in Q-expected)
+        coordinates+=[s.Poly(central,z,w).coeff_monomial(mon)for mon in [z*z,z*w,w*w]]
+        wd=W-W0;wcoords=[]
+        for i in range(2):wcoords.extend([s.Poly(wd[i],a,b,z,w).coeff_monomial(mon)for mon in [a*z,b*z,a*w,b*w,z*z,z*w,w*w]])
+        wcoords+=[s.Poly(wd[2],z,w).coeff_monomial(z*w),s.Poly(wd[2],z,w).coeff_monomial(w*w),
+                  s.Poly(wd[3],z,w).coeff_monomial(z*z),s.Poly(wd[3],z,w).coeff_monomial(z*w)]
+        assert all(s.expand(t)==0 for t in W-Wbasis(W0).subs(dict(zip(ww,wcoords)),simultaneous=True))
+        variables=list(kk)+v2;J=s.Matrix(coordinates+wcoords).jacobian(variables);det=J.det(method='domain-ge')
+        assert J.rows==J.cols and det!=0 and not s.sympify(det).free_symbols
+        coverage.append({'type':kind,'full_D1_kernel':serial_matrix(K),'literal_Euler_gauge_L':list(map(str,L)),
+            'all_full_source_c_independent':True,'full_Q':{str((i,j)):str(Q[i,j])for i,j in combinations(range(4),2)},
+            'full_W':list(map(str,W)),'complete_joint_source_change_matrix':serial_matrix(J),'nonzero_constant_determinant':str(det)})
+    ad=s.symbols('A0:2');xd=s.symbols('X0:6');A=ad[0]*z+ad[1]*w;Xz=xd[0]*z*z+xd[1]*z*w+xd[2]*w*w;Xw=xd[3]*z*z+xd[4]*z*w+xd[5]*w*w
+    JD=jac4(QD(A,Xz,Xw,F));XA=s.expand(Xz*s.diff(A,z)+Xw*s.diff(A,w))
+    assert JD[(0,1,2)]==s.expand(z*XA)and JD[(0,1,3)]==s.expand(w*XA)and JD[(0,2,3)]==0 and JD[(1,2,3)]==0
+    nu,nv,nr=s.symbols('nil_u nil_v nil_r');QNgen=QN(nu,nv,nr,F);assert all(t==0 for t in jac4(QNgen).values())
+    gp=s.Poly(actualD(pad(QN(nu,nv,nr,0),Wn)),z,w);G3=s.expand(sum(coef*z**power[0]*w**power[1]for power,coef in gp.terms()if sum(power)==3))
+    hand=z*(3*nr*a*a*z*z+nv*a*z*(3*a*w+b*z)-nu*(3*a*w+b*z)**2)
+    assert s.expand(G3-hand)==0 or s.expand(G3+hand)==0
+    coefficients=[s.Poly(G3,z,w).coeff_monomial(mon)for mon in [z**3,z*z*w,z*w*w,w**3]];AA,BB,CC,DD=coefficients
+    disc=s.expand(BB*BB*CC*CC-4*AA*CC**3-4*BB**3*DD-27*AA*AA*DD*DD+18*AA*BB*CC*DD)
+    assert s.expand(disc-729*nu*nu*(nv*nv+12*nu*nr)*a**8)==0
+    h=s.Symbol('normal_shear');M=s.eye(4);M[3,2]=h;new= M*QNgen.subs(w,w-h*z,simultaneous=True)*M.T
+    predicted=QN(nu,nv+6*h*nu,nr-h*nv-3*h*h*nu,F.subs(w,w-h*z))
+    assert all(s.expand(t)==0 for t in new-predicted)
+    assert s.expand((nv+6*h*nu)**2+12*nu*(nr-h*nv-3*h*h*nu)-nv*nv-12*nu*nr)==0
+    uz,uw,vz,vw=s.symbols('shift_uz shift_uw shift_vz shift_vw');shiftU=uz*z+uw*w;shiftV=vz*z+vw*w;M=s.eye(4);M[0,2]=uz;M[0,3]=uw;M[1,2]=vz;M[1,3]=vw
+    R2=w*(w-z);QDcan=QD(z,0,R2,F);QNcan=QN(1,0,1,F)
+    Dpush=M*QDcan.subs({a:a-shiftU,b:b-shiftV},simultaneous=True)*M.T
+    Npush=M*QNcan.subs({a:a-shiftU,b:b-shiftV},simultaneous=True)*M.T
+    Nchange=(vz-uw)*z*z+(2*vw+6*uz)*z*w+9*uw*w*w
+    assert all(s.expand(t)==0 for t in Dpush-QD(z,0,R2,F-uw*R2))
+    assert all(s.expand(t)==0 for t in Npush-QN(1,0,1,F+Nchange))
+    scaleS,scaleR,scaleK,scaleL=s.symbols('scale_s scale_r scale_k scale_l',nonzero=True)
+    def push(P,coords,M,scalar):
+        old=M.inv()*s.Matrix(coords);return (scalar*M*P.subs(dict(zip(coords,old)),simultaneous=True)*M.T).applyfunc(s.cancel)
+    kscale=scaleS**2/scaleR;scalar=scaleS/scaleR;M5=s.diag(scaleS,scaleS,scaleR,kscale,kscale);M4=s.diag(scaleS,scaleS,kscale,kscale)
+    assert all(t==0 for t in push(pad(s.zeros(4),Wd),x,M5,scalar)-pad(s.zeros(4),Wd))
+    assert all(s.cancel(t)==0 for t in push(QDcan,y,M4,scalar)-QD(z,0,R2,scaleR*F/scaleS))
+    bscale=scaleS*scaleL/scaleK;M5=s.diag(scaleS,bscale,scaleR,scaleK,scaleL);M4=s.diag(scaleS,bscale,scaleK,scaleL)
+    assert all(t==0 for t in push(pad(s.zeros(4),Wn),x,M5,scalar)-pad(s.zeros(4),Wn))
+    up=scaleS**2*nu/(scaleR*scaleK);vp=scaleS**2*scaleL*nv/(scaleR*scaleK**2);rp=scaleS**2*scaleL**2*nr/(scaleR*scaleK**3)
+    fp=scaleS*bscale*scalar*F.subs({z:z/scaleK,w:w/scaleL},simultaneous=True)
+    assert all(s.cancel(t)==0 for t in push(QNgen,y,M4,scalar)-QN(up,vp,rp,fp))
+    def cert(M,domain):
+        dm=DomainMatrix.from_Matrix(M).convert_to(domain);rr,pivots=dm.rref();rows=dm.transpose().rref()[1];R=rr.to_Matrix()
+        free=[i for i in range(M.cols)if i not in pivots];K=s.zeros(M.cols,len(free))
+        for j,column in enumerate(free):
+            K[column,j]=1
+            for i,pivot in enumerate(pivots):K[pivot,j]=-R[i,column]
+        assert (dm*DomainMatrix.from_Matrix(K).convert_to(domain)).is_zero_matrix
+        determinant=dm.extract(list(rows),list(pivots)).det();assert determinant!=domain.zero or not pivots
+        C={'rank':len(pivots),'nullity':len(free),'minor_rows':list(rows),'minor_columns':list(pivots),
+           'minor_determinant':str(domain.to_sympy(determinant)),'complete_kernel':serial_matrix(K),'kernel_substitution_zero':True}
+        return C,dm,K,domain.to_sympy(determinant)
+    def analyze(M,C,MM,MC,Dconstant,Dlinear,domain,offset):
+        cc,dm,K,minor=cert(M,domain);ac,ad,_,aminor=cert(M.row_join(C),domain)
+        m140=DomainMatrix.from_Matrix(MM.row_join(MC)).convert_to(domain);rr1=ad.rref()[0].to_Matrix();rr2=m140.rref()[0].to_Matrix()
+        assert len(m140.rref()[1])==ac['rank']and all(domain.from_sympy(t)==domain.zero for t in rr1[:ac['rank'],:]-rr2[:ac['rank'],:])
+        ri=cc['minor_rows'];ci=cc['minor_columns'];inverse=dm.extract(ri,ci).inv();cdm=DomainMatrix.from_Matrix(C).convert_to(domain)
+        solved=(-inverse*cdm.extract(ri,[0])).to_Matrix();part=s.zeros(18,1)
+        for i,j in enumerate(ci):part[j]=solved[i]
+        residual=(dm*DomainMatrix.from_Matrix(part).convert_to(domain)+cdm).to_Matrix()
+        record={'full350_affine_matrix':serial_matrix(dm.to_Matrix()),'full350_affine_constant':list(map(str,cdm.to_Matrix())),
+            'full140_module_matrix':serial_matrix(DomainMatrix.from_Matrix(MM).convert_to(domain).to_Matrix()),
+            'full140_module_constant':list(map(str,DomainMatrix.from_Matrix(MC).convert_to(domain).to_Matrix())),
+            'full350_and140_same_affine_rowspace':True,'linear_certificate':cc,'augmented_certificate':ac}
+        denominators=[]
+        if ac['rank']>cc['rank']:
+            at=next(i for i,t in enumerate(residual)if t!=0);weights=(dm.extract([at],ci)*inverse).to_Matrix();phi=s.zeros(1,M.rows);phi[0,at]=1
+            for j,i in enumerate(ri):phi[0,i]-=weights[j]
+            pd=DomainMatrix.from_Matrix(phi).convert_to(domain);assert(pd*dm).is_zero_matrix
+            contradiction=(pd*cdm).to_Matrix()[0];assert contradiction!=0
+            record.update(status='whole_affine_module_inconsistent',cokernel_witness=[[i,str(t)]for i,t in enumerate(phi)if t!=0],
+                nonzero_constant_contradiction=str(contradiction),G_empty=True,G_dimension_criterion=True)
+        else:
+            assert all(t==0 for t in residual)
+            D0=s.Poly(s.expand(Dconstant+sum(Dlinear[i]*part[i]for i in range(18))),*x,domain=domain)
+            directions=[s.Poly(s.expand(sum(Dlinear[i]*K[i,j]for i in range(18))),*x,domain=domain)for j in range(K.cols)]
+            common=D0
+            for poly in directions:
+                if not poly.is_zero:common=s.polys.polytools.gcd(common,poly).monic()
+            factor=None
+            if 0<common.total_degree()<5:factor=common.monic()
+            elif common.total_degree()==5:
+                for poly,power in common.factor_list()[1]:
+                    if 0<poly.total_degree()<5:factor=poly.monic();break
+            if factor is not None and domain==FIELD:
+                for poly in [factor]+[poly.exquo(factor)for poly in [D0]+directions]:
+                    for value in poly.coeffs():denominators.append(s.denom(s.cancel(value)))
+            upper=offset+K.cols
+            record.update(status='complete_affine_module',particular_solution=list(map(str,part)),full_W_fiber_dimension=K.cols,
+                actual_D_particular=str(D0.as_expr()),actual_D_kernel_coefficients=[str(poly.as_expr())for poly in directions],
+                common_D_polynomial_gcd=str(common.as_expr()),proper_fixed_D_factor=None if factor is None else str(factor.as_expr()),
+                whole_projective_image_upper=upper,G_empty=factor is not None,G_dimension_criterion=factor is not None or upper<=24)
+        return record,minor,aminor,denominators
+    cases=[]
+    for name,Q,W0,offset,variable in [('D_ZERO',QD(z,0,R2,0),Wd,16,False),('D_AXIS',QD(z,0,R2,z*w),Wd,17,False),
+                                     ('D_LINE',QD(z,0,R2,z*z+TAU*z*w),Wd,18,True),('N_FIXED',QN(1,0,1,0),Wn,18,False)]:
+        assert all(t==0 for t in jac4(Q).values());W=Wbasis(W0);P=pad(Q,W)
+        rows=s.Matrix([s.expand(t)for t in H.all350(H.projective(H.bilinear(P,P,x),x),x)]);C=rows.subs(dict.fromkeys(ww,0));M=rows.jacobian(ww)
+        assert rows==C+M*s.Matrix(ww)
+        LW=s.zeros(4)
+        for i,j in combinations(range(4),2):
+            LW[i,j]=s.expand(sum(W[k]*s.diff(Q[i,j],y[k])-Q[k,j]*s.diff(W[i],y[k])-Q[i,k]*s.diff(W[j],y[k])for k in range(4)));LW[j,i]=-LW[i,j]
+        module=[]
+        for i,j,k in combinations(range(4),3):
+            poly=s.Poly(s.expand(y[i]*LW[j,k]-y[j]*LW[i,k]+y[k]*LW[i,j]),*y)
+            module.extend(poly.coeff_monomial(mon)for mon in H.monomials(4,4))
+        module=s.Matrix(module);MC=module.subs(dict.fromkeys(ww,0));MM=module.jacobian(ww);assert module==MC+MM*s.Matrix(ww)
+        D=actualD(P);Dconstant=D.subs(dict.fromkeys(ww,0));Dlinear=[s.expand(D).coeff(t)for t in ww]
+        assert s.expand(D-Dconstant-sum(value*t for value,t in zip(Dlinear,ww)))==0
+        record,minor,aminor,denominators=analyze(M,C,MM,MC,Dconstant,Dlinear,FIELD if variable else s.QQ,offset)
+        record.update(type=name,whole_Q={str((i,j)):str(Q[i,j])for i,j in combinations(range(4),2)},W0=list(map(str,W0)),whole_parameter_tau=variable)
+        if variable:
+            exceptional=s.Poly(s.cancel(minor*aminor),TAU)
+            for value in denominators:exceptional=s.lcm(exceptional,s.Poly(value,TAU))
+            factors=s.factor_list(exceptional.as_expr())[1];walls=[]
+            for polynomial,power in factors:
+                p=s.Poly(polynomial,TAU)
+                if p.degree()==1:theta=-p.nth(0)/p.nth(1);domain=s.QQ
+                else:theta=s.CRootOf(p.as_expr(),0);domain=s.QQ.alg_field(theta)
+                sub=lambda expr:expr.subs(TAU,theta)
+                result,_,_,_=analyze(sub(M),sub(C),sub(MM),sub(MC),sub(Dconstant),[sub(t)for t in Dlinear],domain,17)
+                result.update(minimal_polynomial=str(polynomial),tau=str(theta),all_complex_embeddings_covered=True,minor_factor_multiplicity=int(power))
+                walls.append(result)
+            record.update(all_exception_polynomial=str(s.factor(exceptional.as_expr())),all_exception_factors=[[str(t),int(e)]for t,e in factors],
+                factor_specialization_denominators=list(map(str,denominators)),all_exceptional_fields=walls,
+                whole_line_G_closed=record['G_dimension_criterion']and all(t['G_dimension_criterion']for t in walls))
+        else:record['whole_line_G_closed']=record['G_dimension_criterion']
+        cases.append(record);print(name,record['status'],'k',record['linear_certificate']['nullity'],'Gempty',record['G_empty'],'Gclosed',record['whole_line_G_closed'],flush=True)
+    proof=ROOT/'research/classification/PLANE_DOUBLE_LINE_M3_ORE_REDUCTION.md';saito=ROOT/'research/classification/ESSENTIAL_THREE_QUINTIC_EIGHT_COMPONENTS.md'
+    archive=ROOT/'research/classification/inputs/plane_double_line_m3_ore_preappend_inputs_20261107.json'
+    result={'task_id':'G','all_exact_arithmetic_passed':True,'all_G24_closed':all(t['whole_line_G_closed']for t in cases),
+        'full_two_source_Euler_Ore_coverage':coverage,'strict_D_Q_Jacobi_equals_z_w_times_XA':{'full_Jacobi':{str(k):str(v)for k,v in JD.items()},'three_generators':[str(s.Poly(XA,z,w).coeff_monomial(mon))for mon in [z*z,z*w,w*w]]},
+        'strict_N_Q_Jacobi_identically_zero':True,'N_squarefree_discriminant_exact':str(s.factor(disc)),
+        'all_normal_shear_coboundary_diagonal_identities_zero':True,'N_central_coboundary':str(Nchange),'D_central_coboundary':str(-uw*R2),
+        'cases':cases,'scope':'Entire remaining DIAGscalar/NIL_SPLIT m3squarefree source. DIAG A0 actualDessential3; A!=0 andN SFopen reduce byactualnormalizers to twofixedD,wholeDline andonefixedN. Fulloriginal350/140 affineW18, alltauwalls andfactor-specialization denominators retained. No jet/GB/pointfarm.',
+        'compatible_extension_old_function_AST_unchanged':True,'old_function_names':sorted(before),
+        'producer_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'producer_bytes':Path(__file__).read_text(),
+        'input_bindings':[{'path':str(t.relative_to(ROOT)),'sha256':hashlib.sha256(t.read_bytes()).hexdigest()}for t in [HELPER,previous,proof,saito,archive]],
+        'seconds':time.monotonic()-started,'maximum_RSS_KiB':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss}
+    destination.write_text(json.dumps(result,indent=2)+'\n')
+
+
 if __name__=='__main__':
     try:
-        if '--m4-nonreduced-squarefree' in __import__('sys').argv:m4_nonreduced_squarefree_main()
+        if '--double-line-m3-ore' in __import__('sys').argv:double_line_m3_ore_main()
+        elif '--double-line-m3-squarefree' in __import__('sys').argv:double_line_m3_squarefree_main()
+        elif '--m4-nonreduced-squarefree' in __import__('sys').argv:m4_nonreduced_squarefree_main()
         elif '--m4-two-line-casimir' in __import__('sys').argv:m4_two_line_casimir_main()
         elif '--nonreduced-cubic-leading' in __import__('sys').argv:nonreduced_cubic_leading_main()
         elif '--nonreduced-cubic' in __import__('sys').argv:nonreduced_cubic_main()
@@ -1884,7 +2205,7 @@ if __name__=='__main__':
         else:main()
     except FileExistsError:raise
     except Exception as error:
-        failure=ROOT/('reports/CLASSIFICATION_PLANE_M4_NONREDUCED_SQUAREFREE_RUNTIME_20261107.json' if '--m4-nonreduced-squarefree' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_M4_TWO_LINE_CASIMIR_RUNTIME_20261107.json' if '--m4-two-line-casimir' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_NONREDUCED_TRIPLE_LINE_M3_LEADING_RUNTIME_20261107.json' if '--nonreduced-cubic-leading' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_NONREDUCED_TRIPLE_LINE_M3_SQUAREFREE_RUNTIME_20261107.json' if '--nonreduced-cubic' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_ORE_RUNTIME_20261107.json' if '--global-ore' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_DEPENDENT_RUNTIME_20261107.json' if '--global-dependent' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_COMMONIMAGE_RUNTIME_20261107.json' if '--global-commonimage' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_CARTAN_SURFACE_RUNTIME_20261107.json' if '--global-cartan-surface' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_THREEPARAMETER_RUNTIME_20261107.json' if '--global-threeparameter' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_NIL_LINE_RUNTIME_20261107.json' if '--global-nil-line' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_HYPERBOLA_RUNTIME_20261107.json' if '--global-hyperbola' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_TWOPARAMETER_RUNTIME_20261107.json' if '--global-twoparameter' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_TSQUARE_RUNTIME_20261107.json' if '--global-tsquare' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_RESIDUAL_RUNTIME_20261107.json' if '--global-residual' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_COMPATIBILITY_RUNTIME_20261107.json' if '--global-compatibility' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_ONECUT_RUNTIME_20261107.json' if '--global-onecut' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_LOWPARAMETER_WEIGHTS_RUNTIME_20261107.json' if '--global-lowparameter' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_RANK_TWO_NONKERNEL_WEIGHTS_RUNTIME_20261107.json' if '--rank2-nonkernel' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_RANK_TWO_KERNEL_WEIGHTS_RUNTIME_20261107.json' if '--rank2-kernel' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_FULLRANK_WEIGHTS_RUNTIME_20261107.json')
+        failure=ROOT/('reports/CLASSIFICATION_PLANE_DOUBLE_LINE_M3_ORE_RUNTIME_20261107.json' if '--double-line-m3-ore' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_DOUBLE_LINE_M3_SQUAREFREE_RUNTIME_20261107.json' if '--double-line-m3-squarefree' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_M4_NONREDUCED_SQUAREFREE_RUNTIME_20261107.json' if '--m4-nonreduced-squarefree' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_M4_TWO_LINE_CASIMIR_RUNTIME_20261107.json' if '--m4-two-line-casimir' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_NONREDUCED_TRIPLE_LINE_M3_LEADING_RUNTIME_20261107.json' if '--nonreduced-cubic-leading' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_NONREDUCED_TRIPLE_LINE_M3_SQUAREFREE_RUNTIME_20261107.json' if '--nonreduced-cubic' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_ORE_RUNTIME_20261107.json' if '--global-ore' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_DEPENDENT_RUNTIME_20261107.json' if '--global-dependent' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_COMMONIMAGE_RUNTIME_20261107.json' if '--global-commonimage' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_CARTAN_SURFACE_RUNTIME_20261107.json' if '--global-cartan-surface' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_THREEPARAMETER_RUNTIME_20261107.json' if '--global-threeparameter' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_NIL_LINE_RUNTIME_20261107.json' if '--global-nil-line' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_HYPERBOLA_RUNTIME_20261107.json' if '--global-hyperbola' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_TWOPARAMETER_RUNTIME_20261107.json' if '--global-twoparameter' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_TSQUARE_RUNTIME_20261107.json' if '--global-tsquare' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_RESIDUAL_RUNTIME_20261107.json' if '--global-residual' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_COMPATIBILITY_RUNTIME_20261107.json' if '--global-compatibility' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_ONECUT_RUNTIME_20261107.json' if '--global-onecut' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_LOWPARAMETER_WEIGHTS_RUNTIME_20261107.json' if '--global-lowparameter' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_RANK_TWO_NONKERNEL_WEIGHTS_RUNTIME_20261107.json' if '--rank2-nonkernel' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_RANK_TWO_KERNEL_WEIGHTS_RUNTIME_20261107.json' if '--rank2-kernel' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_FULLRANK_WEIGHTS_RUNTIME_20261107.json')
         if not failure.exists():
             failure.write_text(json.dumps({'task_id':'G','all_passed':False,'failure':repr(error),
                 'producer_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),

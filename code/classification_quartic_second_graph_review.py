@@ -336,7 +336,108 @@ def e6_global_parent_review():
     result=dict(task_id='E_reduced_nonnormal',all_passed=True,no_producer_S61_or_CAS_import=True,source_case='E6_smooth_flex',entire6mag_canonical_source_point_reconstructed=True,actual_rankfour_point_Pf=str(pf),actual_shift_Darboux_perspective_and_all_inverse_maps_verified=True,all150_forward_and_inverse_projective_quotient_relations=True,all134_original_equations_zero=True,all350_projective_Jacobi_zero=True,all45_residuals=residuals,both_graphs_have15_nonzero_residuals=True,global_parent_exclusion_requires_additional_geometric_theorem='research/classification/S61_GLOBAL_COMPONENT_EVALUATION_FIBER.md, independently read in separate receipt; old graph diagnostic alone does not imply this.',allzero_magnetic_boundary_not_excluded=True,inputs=job['exact_inputs_and_hashes'],reviewer_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),reviewer_source_bytes=Path(__file__).read_text(),seconds=time.monotonic()-start,maximum_RSS_KiB=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss)
     output.write_text(json.dumps(result,indent=2)+'\n');print('PASS E6 fullfaithful graph review',round(result['seconds'],3),'seconds',flush=True)
 
+
+def a5_ga9_global_parent_review():
+    """Independently reconstruct the two unchanged faithful graph witnesses."""
+    import signal
+    from classification_minimal_quartic_review import LaurentRing
+    start=time.monotonic();signal.alarm(90)
+    resource.setrlimit(resource.RLIMIT_AS,(1024*1024**2,)*2)
+    root=Path(__file__).resolve().parents[1]
+    jobpath=root/'research/classification/jobs/a5_ga9_global_parent_separate_review.json'
+    output=root/'reports/CLASSIFICATION_GA9_LINEAR_W_A5_GLOBAL_PARENT_SEPARATE_REVIEW_20261107.json'
+    if output.exists():raise FileExistsError(output)
+    job=json.loads(jobpath.read_text())
+    for b in job['exact_inputs_and_hashes']:
+        assert hashlib.sha256((root/b['path']).read_bytes()).hexdigest()==b['sha256'],b['path']
+    cert=json.loads((root/'legacy/v02/data/symplectic_slice_certificate.json').read_text())
+    model=json.loads((root/'legacy/v02/data/symplectic_slice_equations.json').read_text())
+    reduced=json.loads((root/'legacy/v02/data/symplectic_slice_reduced_equations.json').read_text())
+    resultcases=[]
+    for label in ['A5_smooth_hyperflex','Ga9_c0_linear_w']:
+        if label=='A5_smooth_hyperflex':
+            graph=json.loads((root/'reports/CLASSIFICATION_PLANE_HYPERPLANE_QUARTIC_A5_HYPERFLEX_GRAPH_20261107.json').read_text())
+            source=next(c for c in json.loads((root/'reports/CLASSIFICATION_PLANE_HYPERPLANE_QUARTIC_MU5_SOURCES_20261107.json').read_text())['cases'] if c['name']==label)
+            R=LaurentRing(tuple('r'+str(i) for i in range(6)),('h','x','y','z','w'))
+            values=[F(graph['canonical_magnetic_values']['r'+str(i)]) for i in range(6)]
+            P={}
+            for ij,s in source['all150_source_brackets'].items():
+                out={}
+                for ex,c in R.parse(s).items():
+                    for power,value in zip(ex[:6],values):c*=value**power
+                    e=ex[6:]+(0,0,0);out[e]=out.get(e,F(0))+c
+                P[tuple(map(int,ij.split(',')))]= {e:c for e,c in out.items() if c}
+            P=q.antisymmetric(P)
+            shift=[[F(v)for v in row]for row in graph['actual_shift']]
+            savedK=graph['constant_value_matrix'];savedres=graph['exact_graph_membership']
+            savedpf=F(graph['rank4_point_Pf']);expectedcounts=[11,12]
+        else:
+            graph=json.loads((root/'reports/CLASSIFICATION_HYPERPLANE_QUARTIC_NIL211_ZERO_C_LINEAR_W_GRAPH_20261107.json').read_text())['source_graph']
+            src=graph['source_point']
+            row=json.loads((root/src['source_report']).read_text())['full_nilpotent_sources'][src['source_row']]
+            R=Ring(len(row['parameters']))
+            vals=[F(src['substitutions']['n'+str(i)]) for i in range(R.n)]
+            P={}
+            for ij,s in zip(AFFINE_PAIRS,row['brackets']):
+                out={}
+                for ex,c in R.parse(s).items():
+                    for power,value in zip(ex[:-4],vals):c*=value**power
+                    e=(2-sum(ex[-4:]),)+ex[-4:]+(0,0,0)
+                    assert e[0]>=0
+                    out[e]=out.get(e,F(0))+c
+                P[ij[0]+1,ij[1]+1]={e:c for e,c in out.items()if c}
+            P=q.antisymmetric(P)
+            shift=[[F(v)for v in row]for row in graph['translation']]
+            savedK=graph['nondegenerate_constant_matrix'];savedres=graph['graph_membership']
+            savedpf=F(7,4);expectedcounts=None
+        assert not any(q.jacobi(P).values())
+        shifted=transform(P,shift)
+        K=[[shifted.get((i+1,j+1),{}).get((2,0,0,0,0,0,0,0),F(0)) for j in range(4)] for i in range(4)]
+        assert K==[[F(v)for v in row]for row in savedK]
+        pf=K[0][1]*K[2][3]-K[0][2]*K[1][3]+K[0][3]*K[1][2]
+        assert pf==savedpf and pf
+        B=[[F(v)for v in row]for row in graph['Darboux_frame']];B4=[row[1:] for row in B[1:]]
+        J=[[F((i,j)in[(0,1),(2,3)])-F((i,j)in[(1,0),(3,2)])for j in range(4)]for i in range(4)]
+        assert q.matmul(q.matmul(B4,K),q.transpose(B4))==J
+        M=q.matmul(B,shift);Mi=q.inverse(M)
+        if label=='A5_smooth_hyperflex':
+            assert M==[[F(v)for v in row]for row in graph['full_PGL_matrix']]
+            assert Mi==[[F(v)for v in row]for row in graph['full_inverse_PGL_matrix']]
+            assert q.determinant(M)==F(graph['PGL_determinant'])
+        A=[[F(i==j) for j in range(5)]for i in range(5)]
+        A[0][1:]=list(map(F,graph['perspective']))
+        final=q.matmul(A,M);inverse=q.inverse(final);pushed=transform(P,final)
+        params=list(map(F,graph['all61_parameters']));assert len(params)==61
+        def ev(data):
+            ans=F(0)
+            for mon,num,den in data:
+                value=F(num,den)
+                for i in mon:value*=params[i]
+                ans+=value
+            return ans
+        vector=q.vec({(1,2):q.atom(1,0,0),(3,4):q.atom(1,0,0)})
+        for at,v in zip(cert['raw_free_indices'],params):vector[at]=v
+        for e in model['eliminated_raw_variables']:vector[e['raw_index']]=ev(e['polynomial'])
+        represented=vector_to_poly(vector)
+        same_projective(pushed,represented);same_projective(transform(represented,inverse),P)
+        assert not any(q.jacobi(represented).values())
+        assert len(reduced['equations'])==134 and all(ev(f)==0 for f in reduced['equations'])
+        names={f'u{i+1}':v for i,v in enumerate(params)};residuals={};counts=[]
+        for parent,path in [('T39','reports/Q51_UNIVERSAL_SECTION_20261101.json'),('T40','reports/Q52_UNIVERSAL_SECTION_20261101.json')]:
+            section=json.loads((root/path).read_text())
+            res=[params[k]-q.evaluate(f,names)for k,f in zip(section['weight2_u_indices_zero_based'],section['quadratic_section_q'])]
+            expected=savedres[parent]['all45_graph_residuals' if label=='A5_smooth_hyperflex' else 'all45_residuals']
+            assert len(res)==45 and list(map(str,res))==expected
+            assert any(res)
+            residuals[parent]=list(map(str,res));counts.append(sum(bool(v)for v in res))
+        if expectedcounts is not None:assert counts==expectedcounts
+        resultcases.append(dict(source_case=label,actual_Pf=str(pf),all350_Jacobi_zero=True,all150_forward_and_inverse_projective_quotient_verified=True,all134_original_equations_zero=True,exact_normalization_matrix=[[str(v)for v in row]for row in final],exact_inverse=[[str(v)for v in row]for row in inverse],all61_parameters=list(map(str,params)),all45_residuals=residuals,nonzero_residual_counts=counts,full_T39_and_T40_exclusion_uses_separately_accepted_global_fiber_theorem=True,source_boundaries_not_excluded=True))
+    result=dict(task_id='E_reduced_nonnormal',all_passed=True,no_CAS_or_producer_import=True,no_new_anchor=True,cases=resultcases,inputs=job['exact_inputs_and_hashes'],reviewer_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),reviewer_source_bytes=Path(__file__).read_text(),seconds=time.monotonic()-start,maximum_RSS_KiB=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,scope='Two historical faithful graph witnesses independently reconstructed; geometry and fullsource normalization are separate accepted dependencies. No unknownparent/componenthood inferred.')
+    output.write_text(json.dumps(result,indent=2)+'\n')
+    print('PASS A5/Ga9 faithful graph review',round(result['seconds'],3),'seconds',flush=True)
+
 if __name__=='__main__':
     import sys
-    if '--e6-global-parent' in sys.argv:e6_global_parent_review()
+    if '--a5-ga9-global-parent' in sys.argv:a5_ga9_global_parent_review()
+    elif '--e6-global-parent' in sys.argv:e6_global_parent_review()
     else:main()

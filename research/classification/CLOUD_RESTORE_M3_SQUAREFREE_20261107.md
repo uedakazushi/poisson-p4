@@ -1,0 +1,29 @@
+# Cloud reset後のm三squarefree研究packet復旧
+
+2026-11-07。環境が一時unavailableになり、exec復帰後のworkspace HEADは公開初期snapshot
+4c3f623fb698f9adc6077015b25e2325b11072afへ戻っていた。
+rootがordinary fetchとfast-forwardで最後の保存main
+8b46f29ddbb9f539abc7a026e492ee25bf8ad699（124成分/967主張/225頁）へ復元した。
+旧SOURCE/CLAIMS等のGit更新をworkerが行っていない。
+
+未pushだったm三19-sourceの新function、job、全三proof inputsとprebatch archiveは
+conversationのexact tool argumentsから復元した。
+producer95981c680721a562462a81d1f97489e87c612e7a8ac1384fe9bcf9ef374bf0b2、
+proof e228322…/e6e6ab52…、prebatch archive46f8bc4a…が全て元hashに一致した。
+全三十一旧FunctionDef ASTも不変。
+
+元の計算receipt138f21ee8fb4c8966c90e3451617a17c06779fc5a9058becc3b5b34727ed933bは物理fileが失われた。
+元pathを旧receiptとして再作成せず、fresh bounded実行を
+`CLASSIFICATION_PLANE_DOUBLE_LINE_M3_SQUAREFREE_REPLAY_20261107.json`へ保存した。
+新hashはbf8be1a3b2aef50b2115dd8f8849f301b6ab0625a9f2f4eaaef5a46835502360。
+fresh実測22.097176112000056秒、最大124,020KiB。
+
+旧実測20.624153374999878秒/123,960KiBだけを**memory内のcopy**へ戻し、
+同じJSON serializationでhashを比較すると元138f21ee…に一致した。
+従って全matrix/kernel/leading-image/sourcebytes/inputbindingsは元receiptとbyte-equivalentである。
+fresh replay fileの実測値は変更せず、旧report pathは最終artifactとして残していない。
+この検査のreceiptは`CLASSIFICATION_PLANE_DOUBLE_LINE_M3_RECOVERY_RECEIPT_20261107.json`。
+
+full19 arithmeticとfirst-symbol geometryは独立reviewを引き続き別に行う。
+K手符号の訂正、十七閉鎖と二Ore残余は各新noteへ保存し、old false flagsを変更しない。
+復旧後もprimary研究を継続する。Macaulay2/native Singularの再setupはこのQQ batchに必要なく行っていない。

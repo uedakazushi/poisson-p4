@@ -11,43 +11,22 @@
 ユーザーの11月7日の再開指示により実作業を継続する。保存や旧移行用一時停止を終了条件にしない。
 G、E_multiple_hyperplane、E_reduced_nonnormalを並行し、意味のある進展は主原稿・引継ぎへ統合して通常main pushで保存する。
 
-## G：既約被約非正規quinticだけが残る
+## G：既約被約非正規quinticの残余を閉じる
 
-未知beta優越成分は射影次元25〜27。全非被約因子、全可約因子の次数分割、正規因子は
-既知成分被覆又は全source次元上界で未知一般元から排除済み。
-全1+1+3ではB0非平面8/7源を含む。全H+quarticでは型6のSaito次元論、型7の全liftを含む。
-このG排除とEの全点帰属を混同しない。入口はDOMINANT_COMPONENT_GEOMETRY.mdと
-REMAINING_DEGENERACY_DIVISOR_SUPPORT.md。
+未知beta優越成分は射影次元25–27。normal及び可約/非被約actualDは既受理で未知一般元から除外済み。
+全rank零支持、rank二quadric/degree四五六、plane m四全Rも完了した。
+全degree五canonicalindex二はnonterminal/全marksを保持しnode像24以下・cusp空まで独立完了。
+m二SF/reducedRも全六rootflags/全higher係数を保持し全点MPS40へ被覆した。
+既に閉じた結果を欠陥無しに再開しない。全sourceと独立receiptはclassification/CURRENT.mdを使う。
 
-既約非正規五次の曲面に対し、今回次を証明確認した。
-
-- smooth、generic ordinary node、normal-cone交叉にvertical divisor無しなら、rank0はT40、rank2は唯一projected Veronese。
-- 全PV tangent源は十五変数、全350Jacobi/10079 liftの独立確認で固定源次元≤2、全PGL射影像≤22。rank0PVは非零Poisson無し。
-- normal曲面のrank2枝では解消κ≥0がconormal flat moduleに矛盾し、stable楕円scrollのrank2も空。
-- hyperplane内degree≥3曲面は全rankで既約五次に不可能。smooth CI22のrank0全枝とrank2-node全vertical枝も空。
-- integral非退化曲面のlinear-normality例外は唯一smooth PV（特異Severiの一次射程確認済み）。Euler全sourceによりq=0・degree≥5の全rank0枝は空。
-
-normal degree五rank0はTironi/Schröer分類とEuler完全源から全T40へ認識済み。CI22の全半単純pencilも実D零又はlinear因子付きと証明済み。
-degree三全二軌道はabelianconormal全源と完全dimension証明でG像≤24、regular CI22全Jordan型もG像≤24を確認済み。
-all-degenerate CI22も全九型・全二十源で空と独立確認し、全integral CI22のG像≤24が完了。全smooth非plane rank零もclean/node/vertical無しにT40又は像≤23へ還元した。
-全degree四rank零は全centre/extraclassを保持した証明でG像≤24、normaldegree六も全nef数値式とrelativeconicで空となった。degree五六の全coneも全Euler sourceのQ因子で空。
-D正規化のsectional genus零→minimaldegree全scrollと全導手を独立確認し、非normalも含む全degree六rank零を空とした。degree五のgenus零（残余plane付き）も全projection像≤24。
-degree五genus一もcanonical排除・全elliptic bundleのT40/像≤24認識を受理し、quadric cone全源もOreと全一変数例外処理で像≤23。これで全rank零非plane枝がGから排除された。
-rank零planeの実位数二全源は全23plane/232curve/955root等の独立確認でMPS又は像24以下。
-全重複度conormal可換を使い、k1 rankM二以上、b非零normalnil、scalar/zero symbol、common-image四wholeorbitも全G非優越。
-残るdependent globalVは五fixed＋一wholelineへ必要還元済みで、その有限operatorから三型は空又は像20/21以下。
-K零三残余も全Ore/八moduleの独立確認でessential三変数又はG空となり、全rank零planeを完了した。
-旧線形上界33〜35を成功扱いしない。
-
-smoothquadricは正しい同時Euler gaugeと全conormal補正でrank零二/全R空へ強化した。
-rank二quadricconeも正しいHamiltonian pencil全源/全共鳴/唯一compatibilityを独立確認し像24以下へ閉じた。rankzeroOreのv非依存仮定がrank二で失敗したruntimeを保持し、同じprofileを反復しない。
-degree四rank二はnormalCI22空、non-normalCI22五全源像24以下、非CIscroll/coneのrank四quadricclass矛盾、PV像22により全G非優越まで独立完了。
-smoothcubic scrollのrank二integral reduced Rはnormal quadratic/primitive root/全verticalとNのc2八対九で空。
-全21源とrank二openの二回の弱いdimension goalは未閉なので、R可約非被約と実Dの既約性へ変更する。
-degree五rank二canonical index二、他のrank二特異/vertical支持、rank二planeでは全concurrent m四squarefreeも全四必要源の共通外積因子で空と独立確認した。全重根も独立全源検証によりm四 reducedR全てを閉じた。m三R3L squarefreeも全leading像から空へ閉じた。全nonredR m四も全partitionのactualD/Casimir全核/Pfで処理し、全m四G完了・nonredm四全点八成分被覆へ。m二、他m三を続ける。
-旧五回未決GBやjet/minor列へ自動復帰しない。
-
-rank二planeの既約被約Rはnode/cuspも含め全排除済み。非planeの三重以上はsecant論で不可能、rank零first Lieの全二型からconormal abelianを得る。この線形必要条件でdegree三全源を縮小しており、旧30変数GB/冪探索を繰返さない。
+1. rank二plane m二double root/nonredR、m三reduced reducible R又はrepeated leadingを全幾何で処理する。
+   m三nonredR/SFの全十九source中十六空、cdep像24以下は独立受理済み。
+   残二Ore源の全四moduleはproducer完了、独立確認を終えて全nonredR/SFのG結論を登録する。
+2. smooth cubic scrollはC0⊂Rとcanonical q2root全空から、A25=2C0+5fのrank一/同class pair二型だけ。
+   scalar connection及びquadric-net/P2-bundle routeを監査し、四full-P2特殊fiberを保った全G非優越を証明する。
+   全21source/linear kernel16の粗上界を成功とせず、新GB/jet/minor列へ戻らない。
+3. twisted cubic coneのrank二支持を全vertex/全Rを含め処理する。
+   rank零coneの既全三orbit/全vertexmodule証明をrank二へ誤流用しない。
 
 ## E：未帰属sourceの実変形又は新成分性
 
@@ -69,7 +48,7 @@ short r=2/3も未帰属で、三次零を高次反復せず幾何又は実変形
 本質三変数の既約自由quinticは、旧C45と新七explicit曲線の全源/各cusp型/全ambient/相違を別作者が独立確認し、全八つを個別23成分として採録した。
 全必要curveリストを八つに尽くすpureproofも別作者独立PASS、全essential3既約DのE/G支持は八つの全23成分へ被覆済み。本質四/五変数など他の残支持へ進む。
 Hquartic型6には全marked quarticのMilnor/Tjurina/contactを用いる。
-D5cusptangent全源は旧A0、3A2cusptangent全源は旧DPMへ独立全source認識済み。μ六九新23成分は採録済み。E6smoothflexは全T39/T40外と新globalfiber補題＋独立graphで証明、未知親を続ける。μ五四候補はambient受理済み、全source/prior独立監査を待つ。
+D5cusptangent全源は旧A0、3A2cusptangent全源は旧DPMへ独立全source認識済み。μ六九新23成分は採録済み。E6smoothflex・A5hyperflex・Ga9linear-wのdense23orbitは全T39/T40外とglobalfiber補題＋独立全150/134/350/45で証明、未知親を続ける。μ五四新23成分も全source/prior/相互/ambient独立監査完了、採録済み。
 
 1+1+3には平面三配置と非平面nil源、1+2+2にはplane tan-simple/chordとlambda零のE残源がある。
 全G次元上界だけではこれらを被覆したことにならない。既約非正規quinticの全点帰属も残る。

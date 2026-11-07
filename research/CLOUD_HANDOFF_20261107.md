@@ -1,50 +1,53 @@
 # Cloud研究引継ぎ — 現行分類を継続する
 
 2026-11-07。公開済みCloud、repository `/workspace/poisson-p4`、branch `main`。
-これは移行先で継続中の研究であり、旧ローカル移行の一時停止文を研究停止命令として扱わない。
+移行先で継続中の研究であり、旧移行一時停止を研究停止命令として扱わない。
 
-## 開始と環境
+## 保存境界と復旧
 
 最初のCloud開始SHAは `4c3f623fb698f9adc6077015b25e2325b11072af`、
-この継続区間の開始SHAは `37d56e2afb3fd467401d395e39f9c34f32bae7b3`。
-11月7日研究再開のbaselineは `a00a541b835b2bff18bafcba545ecbd4bae7175b`。
-公開済み環境と `/workspace/cloud-setup/activate.sh`、既設 `.venv` を再利用した。
-Macaulay2はCloud1.24.11、元環境1.26.05。使用するQQ行列kernel/既定GBの互換小例を確認済み。
-新しい主計算はSymPy1.14と独立Fraction疎演算であり、1.26専用APIを仮定していない。
-文献の接続・一次scopeは各専用receiptへ保持し、Saito原独語全文未取得を取得済みとしない。
-現在の全八平面quintic尽くしは、局所quasihomogeneity外部判定に必須依存しない直接証明も独立確認した。
+11月7日の数学baselineは `a00a541b835b2bff18bafcba545ecbd4bae7175b`。
+現在区間の開始SHA・直近公開保存は `8b46f29ddbb9f539abc7a026e492ee25bf8ad699`。
+同checkpointは124成分/967主張/225頁。現行主稿は受理済み追加証明を統合した234頁。Cloud中断後に初期snapshotへ戻ったworkspaceを
+fetch/ff-onlyでここまで復旧した。公開PDFのSHA256は
+`98ce53afff462fa85ec2be98809007c3ea9257843a1e8ad72b9b4ca756451a49`。
 
-Singular実体は `work/nonsquare-v62/singular-runtime/prefix/usr/bin/Singular`。
-旧 `work/native-cas` が無いことをソフト不在と誤認しない。セットアップ全体を理由なく再実行しない。
-日本語LuaLaTeX、PDF可視確認、通常GitHub fetch/pushは動作済み。network追加権限は既設proxy/TLSを保持する。
-`legacy/` はtracked原ZIPの展開入力。新しいmainへforce-addせず、必要memberのexact bytesを原ZIPから検証する。
+非公開部分の旧report実測・旧hashを捏造して復旧しない。手証明/入力/sourceは旧hash一致のものだけexact復元と呼ぶ。
+新m三算術はNEW_REPLAY（22.097秒）、独立算術4.412秒、splitreview metadataはRECOVERY_V2の別identity。
+詳しくは `CLOUD_RECOVERY_20261107.md` と各manifestを使う。
+次の意味ある受理証明を通常main commit/pushで保護し、その後もprimary数学を続ける。
+実際の最新push状態・原稿頁数はGit/build receiptで確認し、実行前に成功と記さない。
 
-## 数学と保存の境界
+## 現行数学
 
-現行個別下界124（rank四118、rank二6）、主張台帳967。
-全essential三変数既約quinticは八23成分へ全被覆、μ六markedquarticは九新23成分を独立採録。
-D5cusptangent全源は旧A0、3A2cusptangent全源は旧DPMへactual全source認識済み。
-全rank零曲面支持のG非優越、全degree四/quadric rank二、plane m四全R等も完了。
-**全G/E・全上界は未証明。** 残るrank二plane m二三、cubicScroll/cone、degree五canonicalindex二、
-Eのstable二源、A5smoothhyperflex未知親、E6smoothflex未知親、他明示残支持を続ける。
-全globalT39/T40のS61判定同値をconnectedSp4＋globalGa4切断で独立確認し、
-既E6点を別Fraction再構成して両親の外と証明した。未知親/次元はそのまま残す。
+下界は124（rank四118、rank二6）、主張980。新証明だけで成分数は増やしていない。
+全rank零、rank二degree四五六・quadric、plane m四全RをGから排除済み。
+全essential三変数既約quinticは八23成分、μ六九/μ五四markedquartic新成分も個別ambient/相違まで受理済み。
+新たにm二SF/reducedR全点をMPS40へ、degree五canonicalindex二全node像24以下/cusp空、
+scroll全RにC0必要/canonical q2root空まで別作者確認した。
+E6/A5/Ga9linear-wのdense23orbitは全globalT39/T40外、全sourcezero境界は保持。
+T37固定B曲線の全finite wall閉包/LQ²は指定uniform入口だけを排除し、全T37親は排除しない。
 
-直近の公開保存は `37d56e2afb3fd467401d395e39f9c34f32bae7b3`（111/931、201頁）。
-本保存単位は124/967、主稿225頁。受理済み全G閉鎖と十三markedquartic新成分を本文へ統合し、
-最終二回組版/全参照/主要頁可視及びpublic依存閉包を検証した。
-実際のGitHub保存状態は `git log`、`git status`、origin/mainとbuild receiptで確認する。
-最新の数学・残余は `classification/CURRENT.md` と `classification/PLAN.json` を使う。
+全G/E・上界は未証明。残るGはsmoothcubicScroll A25二型、twistedcubiccone、rank二plane m二三の残型。
+m三nonredR/SFは十九有限化の十六空＋cdep像24以下を独立受理、残Ore四moduleはproducer全算術完了・独立確認中。
+Eはstable二源、E6/A5/Ga9未知親、short r2/3、1+1+3/1+2+2の明示残源等。
+全詳細と次の依存入口は `classification/CURRENT.md`、`classification/PLAN.json`、`NEXT_TASKS.md`。
 
-mainへの通常commit/pushはユーザーが明示許可済み。root統合担当だけがGit/大域台帳を編集する。
-Libraryはupload receipt無し。生成、検証、GitHub保存、Library保存を区別する。
+## 環境と実行
 
-## 再開操作
+既設 `.venv`、`/workspace/cloud-setup/activate.sh` を再利用。
+Macaulay2 Cloud1.24.11対元1.26.05のQQkernel/既定GB互換小例は確認済み。全setupをやり直さない。
+文献接続/一次scope確認も既receiptを再利用し、未取得Saito原全文を取得済みとしない。
+独立算術はSymPy1.14又はFraction。日本語LuaLaTeX、PDF可視、通常fetch/pushは動作済み。
 
-`RESEARCH_POLICY.md` → `classification/CURRENT.md` → `classification/PLAN.md` → `NEXT_TASKS.md` を読む。
-`.venv/bin/python scripts/classification.py check` と `next` を使い、非自明runは有限job契約をgate後に実行する。
-checkerは数学を検証しない。既に閉じた結果を欠陥無しに再開しない。
-二回非閉鎖なら支持幾何/actual family等へ変更し、同じGB/jet/minor列を延長しない。
-既存FunctionDef/producer reports/certificatesを保ち、compatible拡張前の実行bytesと契約hashをsnapshotへ保存する。
-節目ごとに主稿・CURRENT/PLAN/未完了課題を更新して通常pushし、その後も有効なprimary数学を続ける。
-現時点でユーザーの追加許可が必要な環境阻害は無い。未完了の理由は記載された数学的義務である。
+**旧work内の最適化Singular実体は復帰snapshotに無かった。**
+旧任意binary SHAを要求する二legacy gateはblocked、QQ証明の失敗ではない。
+別binaryを旧SHAに見せず、必要なら既設M2又はQQでfresh identityの計算を実施する。
+既存`legacy/`はtracked原ZIPの展開入力でありforce-addしない。必要memberだけexact hashで回復する。
+
+root統合担当だけがGit/大域台帳を編集し、log_manuscript担当が同じ日本語主稿を編集する。
+旧FunctionDef/producer/report/manifestは不変、compatible追記前に旧実行bytesと全契約を凍結する。
+各finitejobは義務/矢印/全環/全補集合/有限resourceを記してgate後実行。checkerは数学を検証しない。
+二回非閉鎖なら数学routeを変え、GB/minor/jet列を増やさない。B18等secondaryは休止。
+通常main pushはユーザー許可済み。Library upload receiptは無い。
+現在の数学作業にユーザーの追加許可を要する阻害は無く、残る数学的義務を継続する。

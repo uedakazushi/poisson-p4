@@ -1,12 +1,15 @@
-# 研究状態 — v63-s61 / 2026-11-05
+# 研究状態 — 現行分類 / 2026-11-07
 
 現行キューは [classification/CURRENT.md](classification/CURRENT.md)・PLAN.json・NEXT_TASKS.md。
-個別下界124（rank四118、rank二6）、主張931。全essential3既約退化quinticは八つの相異なる23全成分へ全点被覆した。
-今回主稿は201頁、全source/cusp・全周囲成分性・全必要curveリストを別々に独立確認。
-全m二rank零plane、scalar/zero symbol、common-image、全smoothquadric等も受理済み。
-全G/E・上界は未証明で、dependent高m・rank二plane/cone/scroll/canonical index二、Eのstable二源/markedquartic等の残余を続ける。
-詳しい全補集合と新旧証拠の区別、実行と保存の手順は [CLOUD_HANDOFF_20261107.md](CLOUD_HANDOFF_20261107.md)。
-保存checkpointも旧移行一時停止も研究の終了条件にしない。
+個別下界124（rank四118、rank二6）、主張980。全G/E・上界・分類主定理は未証明。
+直近の公開checkpointは8b46f29ddbb9f539abc7a026e492ee25bf8ad699（124/967、225頁）。
+その後のm二reducedR/SF全MPS、degree五canonicalindex二全G非優越・cusp空、scroll canonicalroot空等を独立受理した。
+全rank零、rank二quadric/degree四五六・plane m四、全essential三変数quintic八成分被覆は完了。
+残るrank二plane m二三、smoothcubicScroll A25/cone、Eのstable二源・E6/A5/Ga9未知親等を続ける。
+新Ore四moduleはproducer完了・独立確認中、全m三を完了扱いしない。
+Cloud復旧で旧公開版をff-only回復し、消失した非公開算術は新identityで再現した。
+詳しい全補集合・環境制約・保存状態は [CLOUD_HANDOFF_20261107.md](CLOUD_HANDOFF_20261107.md) と
+[CLOUD_RECOVERY_20261107.md](CLOUD_RECOVERY_20261107.md)。保存checkpointも旧移行一時停止も終了条件にしない。
 
 以下は11月5日UTCに完了し、11月7日に最新mainへ統合した補助研究の保存証拠。下記の58は当時の下界である。B18精密構造と旧minor探索は休止し、この歴史的キューでは再開しない。
 
