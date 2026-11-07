@@ -1,0 +1,1086 @@
+{
+  "task_id": "E_multiple_hyperplane",
+  "all_passed": true,
+  "input_sha256": {
+    "reports/CLASSIFICATION_NIL22_IMAGE_REMAINING_SOURCES_20261107.json": "9ab03220144c70d70b877c7138562d854d0102bd37846eeafcbbd115170e0700"
+  },
+  "cases": [
+    {
+      "task_id": "E_multiple_hyperplane",
+      "source_report": "/workspace/poisson-p4/reports/CLASSIFICATION_NIL22_IMAGE_REMAINING_SOURCES_20261107.json",
+      "case": "nil22_image_double_A",
+      "full_D_rank": 100,
+      "actual_source_rank": 48,
+      "normal_count": 2,
+      "all_D_times_directions_zero": true,
+      "normal_indices": [
+        23,
+        35
+      ],
+      "normals": [
+        {
+          "0,1": "-14914749672*h**2 - 131685120*h*x1 - 55823040*h*x2 + 2213466240*h*x3 - 6279662592*h*x4 - 43799616*x1*x4 - 100195200*x3**2 + 7507447824*x3*x4 + 642394368*x4**2",
+          "0,2": "-75473106432*h**2 + 70995456*h*x2 + 240468480*h*x3 - 32017950336*h*x4 - 29199744*x2*x4 - 392192640*x3*x4 + 7098651408*x4**2",
+          "0,3": "229017600*h**2 + 182068992*h*x3 + 21899808*h*x4 - 14599872*x3*x4",
+          "0,4": "-207642624*h**2",
+          "1,2": "-124960993792*h*x1 + 39555635088*h*x2 + 297722880*x1*x2 + 3790241280*x1*x3 - 101307085888*x1*x4 + 58292136*x2**2 + 9305117632*x2*x3 - 1022563584*x2*x4",
+          "1,3": "32302927980*h**2 + 277111296*h*x1 - 13955760*h*x2 + 62541119520*h*x3 - 4795747155*h*x4 + 168327936*x1*x3 + 21899808*x1*x4 + 16961616*x2*x3 - 3118223328*x3**2 - 321197184*x4**2",
+          "1,4": "-366428160*h*x1 - 145998720*h*x2 + 22901760*x2*x3",
+          "2,3": "30535680*h*x1 + 313754112*h*x2 + 22901760*x1*x4"
+        },
+        {
+          "0,1": "55619342712*h**2 + 555367680*h*x1 + 188939520*h*x2 - 10083206400*h*x3 + 19058844672*h*x4 + 595445760*x1*x3 + 172622016*x1*x4 - 500976000*x3**2 - 28047863184*x3*x4 - 2531789568*x4**2",
+          "0,2": "231094497792*h**2 - 641249280*h*x1 - 13741056*h*x2 + 5049838080*h*x3 + 106241289216*h*x4 - 297722880*x1*x4 + 595445760*x2*x3 + 115081344*x2*x4 + 5954457600*x3**2 + 8986078080*x3*x4 - 13336917648*x4**2",
+          "0,3": "-728562240*h**2 - 571398912*h*x3 - 86311008*h*x4 + 297722880*x3**2 + 57540672*x3*x4",
+          "0,4": "1734426624*h**2 - 427499520*h*x3",
+          "1,2": "421850696192*h*x1 - 124652496048*h*x2 + 2961960960*x1**2 - 1087833600*x1*x2 - 4225374720*x1*x3 + 374031339968*x1*x4 - 206437896*x2**2 - 31387595072*x2*x3 + 9187041024*x2*x4",
+          "1,3": "-99948143700*h**2 - 1141652736*h*x1 + 47234880*h*x2 - 208336885920*h*x3 + 16411487355*h*x4 - 397345536*x1*x3 - 86311008*x1*x4 - 51314256*x2*x3 + 11700719328*x3**2 + 1265894784*x4**2",
+          "1,4": "-1099284480*h*x1 + 403643520*h*x2 + 427499520*x1*x3 - 114508800*x2*x3",
+          "2,3": "-2763479040*h*x1 - 1192609152*h*x2 - 2900889600*x1*x3",
+          "2,4": "366428160*x2*x3"
+        }
+      ],
+      "normal_monomials": [
+        "t0**2",
+        "t0*t1",
+        "t1**2"
+      ],
+      "quadratic_initial_generators": [],
+      "zero_dimensional_quadratic_support": false,
+      "grevlex_basis": [],
+      "literal_Poisson_normal_axes": [],
+      "one_normal_quadratic_cokernel_functional": null,
+      "quadratic_cokernel_functionals": [],
+      "full_initial_ideal_not_claimed": true,
+      "source_report_sha256": "9ab03220144c70d70b877c7138562d854d0102bd37846eeafcbbd115170e0700",
+      "producer_source": "#!/usr/bin/env python3\n\"\"\"Complete quadratic W sources for the eleven nilpotent cofactor normal forms.\"\"\"\nimport argparse\nimport hashlib\nimport itertools\nimport json\nimport resource\nimport time\nfrom pathlib import Path\n\nimport sympy as s\n\nROOT = Path(__file__).resolve().parents[1]\n\n\ndef main(output):\n    resource.setrlimit(resource.RLIMIT_CPU, (55, 56))\n    resource.setrlimit(resource.RLIMIT_AS, (1536 * 1024**2,) * 2)\n    start = time.monotonic()\n    h, x, u, v, w = xx = s.symbols('h x u v w')\n    mons = [xx[i] * xx[j] for i, j in itertools.combinations_with_replacement(range(5), 2)]\n    unknowns = s.symbols('a0:45')\n    forms = [('j3_zero', (v, w, 0)), ('j3_h', (v, w, h)),\n             ('j3_hx', (v, w, h + x))]\n    for name, L, M in [('zero', 0, 0), ('0_h', 0, h), ('0_hx', 0, h+x),\n                       ('h_0', h, 0), ('hx_0', h+x, 0),\n                       ('h_x', h, x), ('hx_h', h+x, h)]:\n        forms.append(('j21_' + name, (v, L, M)))\n    forms.append(('j111_rank2', (x, h, 0)))\n    records = []\n    for name, V in forms:\n        P = s.zeros(5)\n        for i, value in enumerate(V, 2):\n            P[1, i] = x * value\n        for k, (i, j) in enumerate([(2, 3), (2, 4), (3, 4)]):\n            P[i, j] = sum(a*m for a, m in zip(unknowns[15*k:15*(k+1)], mons))\n        for i, j in itertools.combinations(range(5), 2):\n            P[j, i] = -P[i, j]\n\n        def jac(i, j, k, matrix):\n            return s.expand(sum(matrix[i, l]*s.diff(matrix[j, k], xx[l]) +\n                                matrix[j, l]*s.diff(matrix[k, i], xx[l]) +\n                                matrix[k, l]*s.diff(matrix[i, j], xx[l]) for l in range(5)))\n\n        linear = []\n        for i, j in itertools.combinations(range(2, 5), 2):\n            linear += s.Poly(jac(1, i, j, P), *xx).coeffs()\n        matrix, rhs = s.linear_eq_to_matrix(linear, unknowns)\n        aug, pivots = matrix.row_join(rhs).rref()\n        if 45 in pivots:\n            records.append(dict(case=name, V=[str(f) for f in V], inconsistent=True))\n            print(json.dumps(dict(case=name, inconsistent=True)), flush=True)\n            continue\n        free = [j for j in range(45) if j not in pivots]\n        params = s.symbols('n0:' + str(len(free)))\n        solution = {unknowns[j]: z for j, z in zip(free, params)}\n        for i, pivot in enumerate(pivots):\n            solution[unknowns[pivot]] = aug[i, 45] - sum(aug[i, j]*solution[unknowns[j]] for j in free)\n        Q = P.subs(solution, simultaneous=True).applyfunc(s.expand)\n        assert all(jac(1, i, j, Q) == 0 for i, j in itertools.combinations(range(2, 5), 2))\n        residual = jac(2, 3, 4, Q)\n        equations = list(dict.fromkeys(str(s.factor(f)) for f in s.Poly(residual, *xx).coeffs() if f))\n        F = s.expand(V[0]*Q[3, 4]-V[1]*Q[2, 4]+V[2]*Q[2, 3])\n        assert s.expand(sum(V[i]*s.diff(F, xx[i+2]) for i in range(3))) == 0\n        records.append(dict(case=name, V=[str(f) for f in V], inconsistent=False,\n            linear_matrix_shape=list(matrix.shape), linear_rank=len(pivots),\n            free_parameters=list(map(str, params)), dimension=len(free),\n            original_unknown_monomials=[str(m) for m in mons], free_columns=free,\n            linear_rref=[[str(f) for f in aug.row(i)] for i in range(len(pivots))],\n            brackets={','.join(map(str, ij)): str(Q[ij]) for ij in itertools.combinations(range(1,5),2)},\n            actual_cubic=str(s.factor(F)), remaining_full_Jacobi=str(residual),\n            remaining_coefficient_equations=equations))\n        print(json.dumps(dict(case=name, dimension=len(free), equations=len(equations), F=str(s.factor(F)))), flush=True)\n    source = Path(__file__).read_text()\n    result = dict(task_id='E_reduced_nonnormal', cases=records,\n        all_45_vertical_coefficients_retained=True,\n        all_four_affine_Jacobi_equations_retained=True,\n        normal_form_exhaustion_requires_the_written_centralizer_argument=True,\n        irreducibility_and_MPS_membership_not_inferred_from_this_linear_calculation=True,\n        seconds=time.monotonic()-start, producer_source=source,\n        input_sha256={'code/classification_two_hyperplanes_cubic_nilpotent.py': hashlib.sha256(source.encode()).hexdigest()})\n    with output.open('x') as handle:\n        json.dump(result, handle, indent=2)\n        handle.write('\\n')\n\n\ndef components(input_path, output):\n    \"\"\"Use the existing full-ambient runner on analytically solved full sources.\"\"\"\n    from classification_modular_source_components import branch\n    data = json.loads(input_path.read_text())\n    source_path = ROOT / data['source_report']\n    source = json.loads(source_path.read_text())\n    adapted = {'cases': []}\n    h, x, u, v, w = s.symbols('h x u v w')\n    yy = s.symbols('x1:5')\n    for case in source['cases']:\n        if case.get('inconsistent'):\n            adapted['cases'].append({})\n            continue\n        entries = [s.sympify(case['brackets'][key]).subs({h: 1, x: yy[0], u: yy[1], v: yy[2], w: yy[3]}, simultaneous=True)\n                   for key in ['1,2', '1,3', '1,4', '2,3', '2,4', '3,4']]\n        adapted['cases'].append(dict(full_free_parameter_count=case['dimension'],\n            full_six_brackets=list(map(str, entries)),\n            all_distinct_jacobi_coefficients=case['remaining_coefficient_equations']))\n    results = [branch(adapted, spec) for spec in data['branches']]\n    result = dict(status='PASS', task_id='E_reduced_nonnormal', branches=results,\n                  source_report_sha256=hashlib.sha256(source_path.read_bytes()).hexdigest(),\n                  component_input=data, producer_source=Path(__file__).read_text(),\n                  full_source_exhaustion_requires_written_proof=True)\n    with output.open('x') as handle:\n        json.dump(result, handle, indent=2, default=int)\n        handle.write('\\n')\n    print(json.dumps([dict(name=r['name'], ranks=r['matrix_ranks_mod_prime'],\n                         upper=r['projective_tangent_dimension_upper'],\n                         lower=r['projective_family_dimension_lower']) for r in results]))\n\n\ndef normal_quadrics(report_path, case_index, output, record_override=None):\n    \"\"\"One finite genuine quadratic obstruction, with all actual source directions.\"\"\"\n    from sympy.polys.matrices import DomainMatrix\n    from classification_rank3_mixed_component_review import COLUMNS, jacobi, sparse, vector\n    start = time.monotonic()\n    resource.setrlimit(resource.RLIMIT_CPU, (55, 56))\n    resource.setrlimit(resource.RLIMIT_AS, (1536*1024**2,)*2)\n    record = record_override if record_override is not None else json.loads(report_path.read_text())['branches'][case_index]\n    x = s.symbols('h x1:5')\n    def matrix(encoded):\n        P = s.zeros(5)\n        for key, value in encoded.items():\n            i, j = map(int, key.split(',')); P[i,j] = s.sympify(value); P[j,i] = -P[i,j]\n        return P\n    P = matrix(record['witness_brackets']); ps = sparse(P, x)\n    assert jacobi(ps) == s.zeros(350, 1)\n    columns = []\n    for ij, exponent in COLUMNS:\n        variation = {key: dict(value) for key, value in ps.items()}\n        variation.setdefault(ij, {})[exponent] = variation.get(ij, {}).get(exponent, 0) + 1\n        columns.append(jacobi(variation))\n    D = s.Matrix.hstack(*columns)\n    columns = []; X = s.Matrix(x)\n    for a,b in itertools.product(range(5), repeat=2):\n        field=s.zeros(5,1); field[a]=x[b]\n        columns.append(vector(sparse(X*field.T-field*X.T,x)))\n    for a,b in itertools.product(range(5),repeat=2):\n        E=s.zeros(5); E[a,b]=1\n        columns.append(vector(sparse(E*P+P*E.T-x[b]*P.diff(x[a]),x)))\n    columns.append(vector(ps))\n    universal=matrix(record['universal_brackets'])\n    point={s.Symbol(k):s.Rational(v) for k,v in record['full_source_specification']['witness'].items()}\n    columns.extend(vector(sparse(universal.diff(s.Symbol(p)).subs(point),x))\n                   for p in record['full_source_specification']['free_parameters'])\n    F=s.Matrix.hstack(*columns); assert D*F == s.zeros(350,F.cols)\n    rr,pivots=DomainMatrix.from_Matrix(D).convert_to(s.QQ).rref(); rr=rr.to_Matrix()\n    free=[j for j in range(150) if j not in pivots]; kernel=[]\n    for j in free:\n        col=s.zeros(150,1); col[j]=1\n        for i,p in enumerate(pivots): col[p]=-rr[i,j]\n        kernel.append(col*s.ilcm(1,*[s.denom(c) for c in col]))\n    K=s.Matrix.hstack(*kernel); assert D*K == s.zeros(350,len(free))\n    basis=DomainMatrix.from_Matrix(F.row_join(K)).convert_to(s.QQ).rref()[1]\n    normal_indices=[j-F.cols for j in basis if j>=F.cols]\n    source_rank=len(basis)-len(normal_indices)\n    normals=[]\n    for j in normal_indices:\n        R=s.zeros(5)\n        for (ij,e),c in zip(COLUMNS,K[:,j]):\n            R[ij]+=c*s.prod(z**power for z,power in zip(x,e))\n        for i,k in itertools.combinations(range(5),2): R[k,i]=-R[i,k]\n        normals.append(R)\n    pairs=list(itertools.combinations_with_replacement(range(len(normals)),2))\n    squares=[jacobi(sparse(R,x)) for R in normals]\n    Q=s.Matrix.hstack(*[squares[i] if i==j else jacobi(sparse(normals[i]+normals[j],x))-squares[i]-squares[j] for i,j in pairs])\n    dind=D[:,list(pivots)]\n    rows=list(DomainMatrix.from_Matrix(dind.T).convert_to(s.QQ).rref()[1])\n    block=DomainMatrix.from_Matrix(D.extract(rows,list(pivots))).convert_to(s.QQ)\n    rhs=DomainMatrix.from_Matrix(Q.extract(rows,range(len(pairs)))).convert_to(s.QQ)\n    correction=block.inv().matmul(rhs).to_Matrix()\n    obstruction=Q-dind*correction\n    qr,qp=DomainMatrix.from_Matrix(obstruction).convert_to(s.QQ).rref();qr=qr.to_Matrix()\n    n=s.symbols('t0:'+str(len(normals)));monomials=[n[i]*n[j] for i,j in pairs]\n    quadrics=[s.expand(sum(qr[i,j]*monomials[j] for j in range(len(pairs)))) for i in range(len(qp))]\n    gb=s.groebner(quadrics,*n,order='grevlex') if quadrics else None\n    functional=None\n    all_functionals=[]\n    if qp:\n        obstruction_rows=list(DomainMatrix.from_Matrix(obstruction.T).convert_to(s.QQ).rref()[1])\n        inverse=block.inv().to_Matrix()\n        for row in obstruction_rows:\n            coefficients=D[row,list(pivots)]*inverse;ell=s.zeros(1,350);ell[row]=1\n            for k,r in enumerate(rows):ell[r]-=coefficients[k]\n            assert ell*D==s.zeros(1,150)\n            all_functionals.append(dict(nonzero_coefficients={str(i):str(a)for i,a in enumerate(ell)if a},\n                                        quadratic_pairing=list(map(str,list(ell*Q)))))\n    if len(normals)==1 and any(obstruction):\n        row=next(i for i,a in enumerate(obstruction[:,0])if a)\n        inverse=block.inv().to_Matrix();coefficients=D[row,list(pivots)]*inverse\n        ell=s.zeros(1,350);ell[row]=1\n        for k,r in enumerate(rows):ell[r]-=coefficients[k]\n        assert ell*D==s.zeros(1,150)\n        functional=dict(nonzero_coefficients={str(i):str(a)for i,a in enumerate(ell)if a},pairing=str((ell*Q)[0]))\n    result=dict(task_id='E_reduced_nonnormal',source_report=str(report_path),case=record['name'],\n        full_D_rank=len(pivots),actual_source_rank=source_rank,normal_count=len(normals),\n        all_D_times_directions_zero=True,normal_indices=normal_indices,\n        normals=[{f'{i},{j}':str(R[i,j]) for i,j in itertools.combinations(range(5),2) if R[i,j]} for R in normals],\n        normal_monomials=list(map(str,monomials)),quadratic_initial_generators=list(map(str,quadrics)),\n        zero_dimensional_quadratic_support=bool(gb and gb.is_zero_dimensional),\n        grevlex_basis=[str(g.as_expr()) for g in gb.polys] if gb else [],\n        literal_Poisson_normal_axes=[i for i,q in enumerate(squares) if q==s.zeros(350,1)],\n        one_normal_quadratic_cokernel_functional=functional,\n        quadratic_cokernel_functionals=all_functionals,\n        full_initial_ideal_not_claimed=True,source_report_sha256=hashlib.sha256(report_path.read_bytes()).hexdigest(),\n        producer_source=Path(__file__).read_text(),seconds=time.monotonic()-start)\n    if output is None:return result\n    with output.open('x') as handle:json.dump(result,handle,indent=2);handle.write('\\n')\n    print(json.dumps({k:result[k] for k in ['case','normal_count','quadratic_initial_generators','zero_dimensional_quadratic_support','literal_Poisson_normal_axes','seconds']}))\n\n\ndef universal_pencils(output):\n    \"\"\"The actual n3 modulus of the p0 source, not another ambient point probe.\"\"\"\n    from sympy.polys.matrices import DomainMatrix\n    rpath=ROOT/'reports/CLASSIFICATION_TWO_HYPERPLANES_CUBIC_NILPOTENT_COMPONENTS_20261107.json'\n    npath=ROOT/'reports/CLASSIFICATION_TWO_HYPERPLANES_CUBIC_NILPOTENT_P0_NORMALS_20261107.json'\n    record=json.loads(rpath.read_text())['branches'][0];normal=json.loads(npath.read_text())\n    x=s.symbols('h x1:5');lam,t=s.symbols('lam t')\n    def matrix(data):\n        A=s.zeros(5)\n        for key,f in data.items():\n            i,j=map(int,key.split(','));A[i,j]=s.sympify(f);A[j,i]=-A[i,j]\n        return A\n    U=matrix(record['universal_brackets'])\n    pt={s.Symbol(p):0 for p in record['full_source_specification']['free_parameters']}\n    P=U.subs(pt);T=U.diff(s.Symbol('n3')).subs(pt)\n    def projective(A):\n        J={ijk:s.expand(sum(A[i,l]*s.diff(A[j,k],x[l])+A[j,l]*s.diff(A[k,i],x[l])+A[k,l]*s.diff(A[i,j],x[l]) for l in range(5)))\n           for ijk in itertools.combinations(range(5),3) for i,j,k in [ijk]}\n        return [s.expand(sum((-1)**k*x[inds[k]]*J[inds[:k]+inds[k+1:]] for k in range(4)))\n                for inds in itertools.combinations(range(5),4)]\n    assert all(f==0 for f in projective(P+lam*T))\n    normals=list(map(matrix,normal['normals']));coeff=s.symbols('r0:'+str(len(normals)))\n    R=sum((a*A for a,A in zip(coeff,normals)),s.zeros(5))\n    mixed=[s.expand(f-g-h) for f,g,h in zip(projective(T+R),projective(T),projective(R))]\n    equations=[c for f in mixed for c in s.Poly(f,*x).coeffs() if c]\n    M,_=s.linear_eq_to_matrix(equations,coeff);kernel=M.nullspace()\n    aa=s.symbols('a0:'+str(len(kernel)))\n    combo=sum((a*K for a,K in zip(aa,kernel)),s.zeros(len(coeff),1))\n    R=R.subs(dict(zip(coeff,combo)),simultaneous=True)\n    residual=[s.factor(c) for f in projective(R) for c in s.Poly(f,*x).coeffs() if c]\n    residual=list(dict.fromkeys(residual))\n    result=dict(task_id='E_reduced_nonnormal',section_parameter='n3',\n                full_section_projective_Jacobi_zero=True,\n                modulus_compatible_normal_kernel=[list(map(str,k)) for k in kernel],\n                compatible_normal={f'{i},{j}':str(s.expand(R[i,j])) for i,j in itertools.combinations(range(5),2) if R[i,j]},\n                remaining_Poisson_equations=list(map(str,residual)),\n                whole_source_coverage_not_inferred=True,\n                producer_source=Path(__file__).read_text())\n    with output.open('x') as handle:json.dump(result,handle,indent=2);handle.write('\\n')\n    print(json.dumps({k:result[k] for k in ['modulus_compatible_normal_kernel','remaining_Poisson_equations']}))\n\n\nif __name__ == '__main__':\n    parser = argparse.ArgumentParser()\n    parser.add_argument('--output', type=Path, required=True)\n    parser.add_argument('--component-input', type=Path)\n    parser.add_argument('--normal-report', type=Path)\n    parser.add_argument('--case-index', type=int, default=0)\n    parser.add_argument('--universal-pencils', action='store_true')\n    args = parser.parse_args()\n    if args.universal_pencils:\n        universal_pencils(args.output)\n    elif args.normal_report:\n        normal_quadrics(args.normal_report,args.case_index,args.output)\n    elif args.component_input:\n        components(args.component_input, args.output)\n    else:\n        main(args.output)\n",
+      "seconds": 2.103749173000324
+    },
+    {
+      "task_id": "E_multiple_hyperplane",
+      "source_report": "/workspace/poisson-p4/reports/CLASSIFICATION_NIL22_IMAGE_REMAINING_SOURCES_20261107.json",
+      "case": "nil22_image_double_B",
+      "full_D_rank": 100,
+      "actual_source_rank": 48,
+      "normal_count": 2,
+      "all_D_times_directions_zero": true,
+      "normal_indices": [
+        18,
+        35
+      ],
+      "normals": [
+        {
+          "0,1": "8668*h**2 + 24*h*x1 - 1800*h*x3 - 1618*h*x4 + 18*x1*x4 - 845*x3**2 + 270*x3*x4 - 264*x4**2",
+          "0,2": "-1440*h**2 - 48*h*x2 + 11012*h*x3 - 2832*h*x4 + 12*x2*x4 - 725*x3*x4 + 438*x4**2",
+          "0,3": "-24*h*x3 + 6*x3*x4",
+          "1,2": "11136*h*x1 - 17384*h*x2 - 96*x1*x2 + 8700*x1*x3 - 5664*x1*x4 + 360*x2*x3 + 2247*x2*x4",
+          "1,3": "48*h*x2 - 17528*h*x3 + 1752*h*x4 - 24*x1*x3 + 773*x3*x4",
+          "1,4": "-384*h*x1 + 5408*x3**2"
+        },
+        {
+          "0,1": "73716*h**2 + 264*h*x1 + 2028*h*x2 + 20760*h*x3 + 7890*h*x4 + 1014*x1*x3 + 198*x1*x4 - 14703*x3**2 - 64292*x3*x4 - 2904*x4**2",
+          "0,2": "956924*h**2 - 38532*h*x1 - 528*h*x2 + 65700*h*x3 - 112948*h*x4 - 507*x1*x4 + 1014*x2*x3 + 132*x2*x4 + 10140*x3**2 + 813*x3*x4 - 40136*x4**2",
+          "0,3": "-2028*h**2 - 264*h*x3 - 2028*h*x4 + 507*x3**2 + 66*x3*x4",
+          "0,4": "12168*h*x3",
+          "1,2": "4872*h*x1 - 147960*h*x2 - 50700*x1**2 - 1056*x1*x2 + 156540*x1*x3 + 469708*x1*x4 - 2028*x2**2 + 191888*x2*x3 - 42207*x2*x4",
+          "1,3": "8112*h*x1 + 528*h*x2 - 279336*h*x3 - 237608*h*x4 - 264*x1*x3 - 3042*x1*x4 + 24051*x3*x4 + 44616*x4**2",
+          "1,4": "-4224*h*x1 - 8112*h*x2 - 12168*x1*x3",
+          "2,3": "-4056*h*x2 + 30420*x1*x3 - 1014*x2*x4",
+          "2,4": "8112*x2*x3"
+        }
+      ],
+      "normal_monomials": [
+        "t0**2",
+        "t0*t1",
+        "t1**2"
+      ],
+      "quadratic_initial_generators": [],
+      "zero_dimensional_quadratic_support": false,
+      "grevlex_basis": [],
+      "literal_Poisson_normal_axes": [],
+      "one_normal_quadratic_cokernel_functional": null,
+      "quadratic_cokernel_functionals": [],
+      "full_initial_ideal_not_claimed": true,
+      "source_report_sha256": "9ab03220144c70d70b877c7138562d854d0102bd37846eeafcbbd115170e0700",
+      "producer_source": "#!/usr/bin/env python3\n\"\"\"Complete quadratic W sources for the eleven nilpotent cofactor normal forms.\"\"\"\nimport argparse\nimport hashlib\nimport itertools\nimport json\nimport resource\nimport time\nfrom pathlib import Path\n\nimport sympy as s\n\nROOT = Path(__file__).resolve().parents[1]\n\n\ndef main(output):\n    resource.setrlimit(resource.RLIMIT_CPU, (55, 56))\n    resource.setrlimit(resource.RLIMIT_AS, (1536 * 1024**2,) * 2)\n    start = time.monotonic()\n    h, x, u, v, w = xx = s.symbols('h x u v w')\n    mons = [xx[i] * xx[j] for i, j in itertools.combinations_with_replacement(range(5), 2)]\n    unknowns = s.symbols('a0:45')\n    forms = [('j3_zero', (v, w, 0)), ('j3_h', (v, w, h)),\n             ('j3_hx', (v, w, h + x))]\n    for name, L, M in [('zero', 0, 0), ('0_h', 0, h), ('0_hx', 0, h+x),\n                       ('h_0', h, 0), ('hx_0', h+x, 0),\n                       ('h_x', h, x), ('hx_h', h+x, h)]:\n        forms.append(('j21_' + name, (v, L, M)))\n    forms.append(('j111_rank2', (x, h, 0)))\n    records = []\n    for name, V in forms:\n        P = s.zeros(5)\n        for i, value in enumerate(V, 2):\n            P[1, i] = x * value\n        for k, (i, j) in enumerate([(2, 3), (2, 4), (3, 4)]):\n            P[i, j] = sum(a*m for a, m in zip(unknowns[15*k:15*(k+1)], mons))\n        for i, j in itertools.combinations(range(5), 2):\n            P[j, i] = -P[i, j]\n\n        def jac(i, j, k, matrix):\n            return s.expand(sum(matrix[i, l]*s.diff(matrix[j, k], xx[l]) +\n                                matrix[j, l]*s.diff(matrix[k, i], xx[l]) +\n                                matrix[k, l]*s.diff(matrix[i, j], xx[l]) for l in range(5)))\n\n        linear = []\n        for i, j in itertools.combinations(range(2, 5), 2):\n            linear += s.Poly(jac(1, i, j, P), *xx).coeffs()\n        matrix, rhs = s.linear_eq_to_matrix(linear, unknowns)\n        aug, pivots = matrix.row_join(rhs).rref()\n        if 45 in pivots:\n            records.append(dict(case=name, V=[str(f) for f in V], inconsistent=True))\n            print(json.dumps(dict(case=name, inconsistent=True)), flush=True)\n            continue\n        free = [j for j in range(45) if j not in pivots]\n        params = s.symbols('n0:' + str(len(free)))\n        solution = {unknowns[j]: z for j, z in zip(free, params)}\n        for i, pivot in enumerate(pivots):\n            solution[unknowns[pivot]] = aug[i, 45] - sum(aug[i, j]*solution[unknowns[j]] for j in free)\n        Q = P.subs(solution, simultaneous=True).applyfunc(s.expand)\n        assert all(jac(1, i, j, Q) == 0 for i, j in itertools.combinations(range(2, 5), 2))\n        residual = jac(2, 3, 4, Q)\n        equations = list(dict.fromkeys(str(s.factor(f)) for f in s.Poly(residual, *xx).coeffs() if f))\n        F = s.expand(V[0]*Q[3, 4]-V[1]*Q[2, 4]+V[2]*Q[2, 3])\n        assert s.expand(sum(V[i]*s.diff(F, xx[i+2]) for i in range(3))) == 0\n        records.append(dict(case=name, V=[str(f) for f in V], inconsistent=False,\n            linear_matrix_shape=list(matrix.shape), linear_rank=len(pivots),\n            free_parameters=list(map(str, params)), dimension=len(free),\n            original_unknown_monomials=[str(m) for m in mons], free_columns=free,\n            linear_rref=[[str(f) for f in aug.row(i)] for i in range(len(pivots))],\n            brackets={','.join(map(str, ij)): str(Q[ij]) for ij in itertools.combinations(range(1,5),2)},\n            actual_cubic=str(s.factor(F)), remaining_full_Jacobi=str(residual),\n            remaining_coefficient_equations=equations))\n        print(json.dumps(dict(case=name, dimension=len(free), equations=len(equations), F=str(s.factor(F)))), flush=True)\n    source = Path(__file__).read_text()\n    result = dict(task_id='E_reduced_nonnormal', cases=records,\n        all_45_vertical_coefficients_retained=True,\n        all_four_affine_Jacobi_equations_retained=True,\n        normal_form_exhaustion_requires_the_written_centralizer_argument=True,\n        irreducibility_and_MPS_membership_not_inferred_from_this_linear_calculation=True,\n        seconds=time.monotonic()-start, producer_source=source,\n        input_sha256={'code/classification_two_hyperplanes_cubic_nilpotent.py': hashlib.sha256(source.encode()).hexdigest()})\n    with output.open('x') as handle:\n        json.dump(result, handle, indent=2)\n        handle.write('\\n')\n\n\ndef components(input_path, output):\n    \"\"\"Use the existing full-ambient runner on analytically solved full sources.\"\"\"\n    from classification_modular_source_components import branch\n    data = json.loads(input_path.read_text())\n    source_path = ROOT / data['source_report']\n    source = json.loads(source_path.read_text())\n    adapted = {'cases': []}\n    h, x, u, v, w = s.symbols('h x u v w')\n    yy = s.symbols('x1:5')\n    for case in source['cases']:\n        if case.get('inconsistent'):\n            adapted['cases'].append({})\n            continue\n        entries = [s.sympify(case['brackets'][key]).subs({h: 1, x: yy[0], u: yy[1], v: yy[2], w: yy[3]}, simultaneous=True)\n                   for key in ['1,2', '1,3', '1,4', '2,3', '2,4', '3,4']]\n        adapted['cases'].append(dict(full_free_parameter_count=case['dimension'],\n            full_six_brackets=list(map(str, entries)),\n            all_distinct_jacobi_coefficients=case['remaining_coefficient_equations']))\n    results = [branch(adapted, spec) for spec in data['branches']]\n    result = dict(status='PASS', task_id='E_reduced_nonnormal', branches=results,\n                  source_report_sha256=hashlib.sha256(source_path.read_bytes()).hexdigest(),\n                  component_input=data, producer_source=Path(__file__).read_text(),\n                  full_source_exhaustion_requires_written_proof=True)\n    with output.open('x') as handle:\n        json.dump(result, handle, indent=2, default=int)\n        handle.write('\\n')\n    print(json.dumps([dict(name=r['name'], ranks=r['matrix_ranks_mod_prime'],\n                         upper=r['projective_tangent_dimension_upper'],\n                         lower=r['projective_family_dimension_lower']) for r in results]))\n\n\ndef normal_quadrics(report_path, case_index, output, record_override=None):\n    \"\"\"One finite genuine quadratic obstruction, with all actual source directions.\"\"\"\n    from sympy.polys.matrices import DomainMatrix\n    from classification_rank3_mixed_component_review import COLUMNS, jacobi, sparse, vector\n    start = time.monotonic()\n    resource.setrlimit(resource.RLIMIT_CPU, (55, 56))\n    resource.setrlimit(resource.RLIMIT_AS, (1536*1024**2,)*2)\n    record = record_override if record_override is not None else json.loads(report_path.read_text())['branches'][case_index]\n    x = s.symbols('h x1:5')\n    def matrix(encoded):\n        P = s.zeros(5)\n        for key, value in encoded.items():\n            i, j = map(int, key.split(',')); P[i,j] = s.sympify(value); P[j,i] = -P[i,j]\n        return P\n    P = matrix(record['witness_brackets']); ps = sparse(P, x)\n    assert jacobi(ps) == s.zeros(350, 1)\n    columns = []\n    for ij, exponent in COLUMNS:\n        variation = {key: dict(value) for key, value in ps.items()}\n        variation.setdefault(ij, {})[exponent] = variation.get(ij, {}).get(exponent, 0) + 1\n        columns.append(jacobi(variation))\n    D = s.Matrix.hstack(*columns)\n    columns = []; X = s.Matrix(x)\n    for a,b in itertools.product(range(5), repeat=2):\n        field=s.zeros(5,1); field[a]=x[b]\n        columns.append(vector(sparse(X*field.T-field*X.T,x)))\n    for a,b in itertools.product(range(5),repeat=2):\n        E=s.zeros(5); E[a,b]=1\n        columns.append(vector(sparse(E*P+P*E.T-x[b]*P.diff(x[a]),x)))\n    columns.append(vector(ps))\n    universal=matrix(record['universal_brackets'])\n    point={s.Symbol(k):s.Rational(v) for k,v in record['full_source_specification']['witness'].items()}\n    columns.extend(vector(sparse(universal.diff(s.Symbol(p)).subs(point),x))\n                   for p in record['full_source_specification']['free_parameters'])\n    F=s.Matrix.hstack(*columns); assert D*F == s.zeros(350,F.cols)\n    rr,pivots=DomainMatrix.from_Matrix(D).convert_to(s.QQ).rref(); rr=rr.to_Matrix()\n    free=[j for j in range(150) if j not in pivots]; kernel=[]\n    for j in free:\n        col=s.zeros(150,1); col[j]=1\n        for i,p in enumerate(pivots): col[p]=-rr[i,j]\n        kernel.append(col*s.ilcm(1,*[s.denom(c) for c in col]))\n    K=s.Matrix.hstack(*kernel); assert D*K == s.zeros(350,len(free))\n    basis=DomainMatrix.from_Matrix(F.row_join(K)).convert_to(s.QQ).rref()[1]\n    normal_indices=[j-F.cols for j in basis if j>=F.cols]\n    source_rank=len(basis)-len(normal_indices)\n    normals=[]\n    for j in normal_indices:\n        R=s.zeros(5)\n        for (ij,e),c in zip(COLUMNS,K[:,j]):\n            R[ij]+=c*s.prod(z**power for z,power in zip(x,e))\n        for i,k in itertools.combinations(range(5),2): R[k,i]=-R[i,k]\n        normals.append(R)\n    pairs=list(itertools.combinations_with_replacement(range(len(normals)),2))\n    squares=[jacobi(sparse(R,x)) for R in normals]\n    Q=s.Matrix.hstack(*[squares[i] if i==j else jacobi(sparse(normals[i]+normals[j],x))-squares[i]-squares[j] for i,j in pairs])\n    dind=D[:,list(pivots)]\n    rows=list(DomainMatrix.from_Matrix(dind.T).convert_to(s.QQ).rref()[1])\n    block=DomainMatrix.from_Matrix(D.extract(rows,list(pivots))).convert_to(s.QQ)\n    rhs=DomainMatrix.from_Matrix(Q.extract(rows,range(len(pairs)))).convert_to(s.QQ)\n    correction=block.inv().matmul(rhs).to_Matrix()\n    obstruction=Q-dind*correction\n    qr,qp=DomainMatrix.from_Matrix(obstruction).convert_to(s.QQ).rref();qr=qr.to_Matrix()\n    n=s.symbols('t0:'+str(len(normals)));monomials=[n[i]*n[j] for i,j in pairs]\n    quadrics=[s.expand(sum(qr[i,j]*monomials[j] for j in range(len(pairs)))) for i in range(len(qp))]\n    gb=s.groebner(quadrics,*n,order='grevlex') if quadrics else None\n    functional=None\n    all_functionals=[]\n    if qp:\n        obstruction_rows=list(DomainMatrix.from_Matrix(obstruction.T).convert_to(s.QQ).rref()[1])\n        inverse=block.inv().to_Matrix()\n        for row in obstruction_rows:\n            coefficients=D[row,list(pivots)]*inverse;ell=s.zeros(1,350);ell[row]=1\n            for k,r in enumerate(rows):ell[r]-=coefficients[k]\n            assert ell*D==s.zeros(1,150)\n            all_functionals.append(dict(nonzero_coefficients={str(i):str(a)for i,a in enumerate(ell)if a},\n                                        quadratic_pairing=list(map(str,list(ell*Q)))))\n    if len(normals)==1 and any(obstruction):\n        row=next(i for i,a in enumerate(obstruction[:,0])if a)\n        inverse=block.inv().to_Matrix();coefficients=D[row,list(pivots)]*inverse\n        ell=s.zeros(1,350);ell[row]=1\n        for k,r in enumerate(rows):ell[r]-=coefficients[k]\n        assert ell*D==s.zeros(1,150)\n        functional=dict(nonzero_coefficients={str(i):str(a)for i,a in enumerate(ell)if a},pairing=str((ell*Q)[0]))\n    result=dict(task_id='E_reduced_nonnormal',source_report=str(report_path),case=record['name'],\n        full_D_rank=len(pivots),actual_source_rank=source_rank,normal_count=len(normals),\n        all_D_times_directions_zero=True,normal_indices=normal_indices,\n        normals=[{f'{i},{j}':str(R[i,j]) for i,j in itertools.combinations(range(5),2) if R[i,j]} for R in normals],\n        normal_monomials=list(map(str,monomials)),quadratic_initial_generators=list(map(str,quadrics)),\n        zero_dimensional_quadratic_support=bool(gb and gb.is_zero_dimensional),\n        grevlex_basis=[str(g.as_expr()) for g in gb.polys] if gb else [],\n        literal_Poisson_normal_axes=[i for i,q in enumerate(squares) if q==s.zeros(350,1)],\n        one_normal_quadratic_cokernel_functional=functional,\n        quadratic_cokernel_functionals=all_functionals,\n        full_initial_ideal_not_claimed=True,source_report_sha256=hashlib.sha256(report_path.read_bytes()).hexdigest(),\n        producer_source=Path(__file__).read_text(),seconds=time.monotonic()-start)\n    if output is None:return result\n    with output.open('x') as handle:json.dump(result,handle,indent=2);handle.write('\\n')\n    print(json.dumps({k:result[k] for k in ['case','normal_count','quadratic_initial_generators','zero_dimensional_quadratic_support','literal_Poisson_normal_axes','seconds']}))\n\n\ndef universal_pencils(output):\n    \"\"\"The actual n3 modulus of the p0 source, not another ambient point probe.\"\"\"\n    from sympy.polys.matrices import DomainMatrix\n    rpath=ROOT/'reports/CLASSIFICATION_TWO_HYPERPLANES_CUBIC_NILPOTENT_COMPONENTS_20261107.json'\n    npath=ROOT/'reports/CLASSIFICATION_TWO_HYPERPLANES_CUBIC_NILPOTENT_P0_NORMALS_20261107.json'\n    record=json.loads(rpath.read_text())['branches'][0];normal=json.loads(npath.read_text())\n    x=s.symbols('h x1:5');lam,t=s.symbols('lam t')\n    def matrix(data):\n        A=s.zeros(5)\n        for key,f in data.items():\n            i,j=map(int,key.split(','));A[i,j]=s.sympify(f);A[j,i]=-A[i,j]\n        return A\n    U=matrix(record['universal_brackets'])\n    pt={s.Symbol(p):0 for p in record['full_source_specification']['free_parameters']}\n    P=U.subs(pt);T=U.diff(s.Symbol('n3')).subs(pt)\n    def projective(A):\n        J={ijk:s.expand(sum(A[i,l]*s.diff(A[j,k],x[l])+A[j,l]*s.diff(A[k,i],x[l])+A[k,l]*s.diff(A[i,j],x[l]) for l in range(5)))\n           for ijk in itertools.combinations(range(5),3) for i,j,k in [ijk]}\n        return [s.expand(sum((-1)**k*x[inds[k]]*J[inds[:k]+inds[k+1:]] for k in range(4)))\n                for inds in itertools.combinations(range(5),4)]\n    assert all(f==0 for f in projective(P+lam*T))\n    normals=list(map(matrix,normal['normals']));coeff=s.symbols('r0:'+str(len(normals)))\n    R=sum((a*A for a,A in zip(coeff,normals)),s.zeros(5))\n    mixed=[s.expand(f-g-h) for f,g,h in zip(projective(T+R),projective(T),projective(R))]\n    equations=[c for f in mixed for c in s.Poly(f,*x).coeffs() if c]\n    M,_=s.linear_eq_to_matrix(equations,coeff);kernel=M.nullspace()\n    aa=s.symbols('a0:'+str(len(kernel)))\n    combo=sum((a*K for a,K in zip(aa,kernel)),s.zeros(len(coeff),1))\n    R=R.subs(dict(zip(coeff,combo)),simultaneous=True)\n    residual=[s.factor(c) for f in projective(R) for c in s.Poly(f,*x).coeffs() if c]\n    residual=list(dict.fromkeys(residual))\n    result=dict(task_id='E_reduced_nonnormal',section_parameter='n3',\n                full_section_projective_Jacobi_zero=True,\n                modulus_compatible_normal_kernel=[list(map(str,k)) for k in kernel],\n                compatible_normal={f'{i},{j}':str(s.expand(R[i,j])) for i,j in itertools.combinations(range(5),2) if R[i,j]},\n                remaining_Poisson_equations=list(map(str,residual)),\n                whole_source_coverage_not_inferred=True,\n                producer_source=Path(__file__).read_text())\n    with output.open('x') as handle:json.dump(result,handle,indent=2);handle.write('\\n')\n    print(json.dumps({k:result[k] for k in ['modulus_compatible_normal_kernel','remaining_Poisson_equations']}))\n\n\nif __name__ == '__main__':\n    parser = argparse.ArgumentParser()\n    parser.add_argument('--output', type=Path, required=True)\n    parser.add_argument('--component-input', type=Path)\n    parser.add_argument('--normal-report', type=Path)\n    parser.add_argument('--case-index', type=int, default=0)\n    parser.add_argument('--universal-pencils', action='store_true')\n    args = parser.parse_args()\n    if args.universal_pencils:\n        universal_pencils(args.output)\n    elif args.normal_report:\n        normal_quadrics(args.normal_report,args.case_index,args.output)\n    elif args.component_input:\n        components(args.component_input, args.output)\n    else:\n        main(args.output)\n",
+      "seconds": 1.0834411209998507
+    },
+    {
+      "task_id": "E_multiple_hyperplane",
+      "source_report": "/workspace/poisson-p4/reports/CLASSIFICATION_NIL22_IMAGE_REMAINING_SOURCES_20261107.json",
+      "case": "nil22_image_double_C",
+      "full_D_rank": 99,
+      "actual_source_rank": 48,
+      "normal_count": 3,
+      "all_D_times_directions_zero": true,
+      "normal_indices": [
+        21,
+        24,
+        25
+      ],
+      "normals": [
+        {
+          "0,1": "-909*h**2 - 48*h*x1 + 414*h*x3 - 64*h*x4 - 16*x1*x4 + 332*x3*x4 + 88*x4**2",
+          "0,2": "646*h**2 - 16*h*x2 - 40*h*x3 + 840*h*x4 - 8*x2*x4 - 40*x3*x4 + 276*x4**2",
+          "0,3": "4*h**2 - 16*h*x3 - 8*x3*x4",
+          "0,4": "8*h**2",
+          "1,2": "-742*h*x1 + 821*h*x2 + 24*x1*x2 + 80*x1*x3 - 680*x1*x4 - 22*x2*x3 - 64*x2*x4",
+          "1,3": "132*h**2 + 12*h*x1 + 1281*h*x3 - 66*h*x4 + 24*x1*x3 + 166*x3**2",
+          "1,4": "-24*h*x1 + 4*h*x2",
+          "2,3": "16*h*x2"
+        },
+        {
+          "0,1": "-77*h**2 - 66*h*x3 - 10*x1*x3",
+          "0,2": "132*h**2 + 14*h*x1 + 20*h*x3 - 30*h*x4 + 10*x1*x4 - 10*x2*x3 - 10*x3**2 - 70*x3*x4 - 110*x4**2",
+          "0,3": "-10*x3**2",
+          "0,4": "-10*h**2 + 10*h*x3",
+          "1,2": "150*h*x1 + 77*h*x2 - 18*x1**2 - 36*x1*x3 - 58*x1*x4 + 66*x2*x3",
+          "1,3": "77*h*x3 + 66*x3**2",
+          "1,4": "20*h*x1 - 2*x1*x3",
+          "2,3": "20*h*x1 + 16*x1*x3"
+        },
+        {
+          "0,1": "2573*h**2 + 40*h*x1 - 734*h*x3 + 440*h*x4 + 40*x3**2 + 12*x3*x4",
+          "0,2": "-2518*h**2 - 32*h*x2 + 40*h*x3 - 2120*h*x4 + 40*x3*x4 + 12*x4**2",
+          "0,3": "-28*h**2 - 48*h*x3",
+          "0,4": "40*h**2",
+          "1,2": "-1802*h*x1 - 3533*h*x2 - 96*x1*x2 - 560*x1*x3 - 2568*x1*x4 + 742*x2*x3 - 968*x2*x4",
+          "1,3": "-1012*h**2 - 28*h*x1 - 4313*h*x3 + 154*h*x4 - 88*x1*x3 - 1174*x3**2",
+          "1,4": "88*h*x1 + 28*h*x2 - 8*x2*x3",
+          "2,3": "32*h*x1 + 32*x1*x4"
+        }
+      ],
+      "normal_monomials": [
+        "t0**2",
+        "t0*t1",
+        "t0*t2",
+        "t1**2",
+        "t1*t2",
+        "t2**2"
+      ],
+      "quadratic_initial_generators": [
+        "t0**2",
+        "t0*t2",
+        "t2**2"
+      ],
+      "zero_dimensional_quadratic_support": false,
+      "grevlex_basis": [
+        "t0**2",
+        "t0*t2",
+        "t2**2"
+      ],
+      "literal_Poisson_normal_axes": [],
+      "one_normal_quadratic_cokernel_functional": null,
+      "quadratic_cokernel_functionals": [
+        {
+          "nonzero_coefficients": {
+            "9": "-2/5",
+            "19": "102/5",
+            "26": "-7/5",
+            "27": "6/5",
+            "40": "281/20",
+            "46": "44/5",
+            "47": "-48",
+            "48": "-7/20",
+            "49": "1/4",
+            "61": "-1/20",
+            "79": "1",
+            "97": "-1",
+            "120": "1/4",
+            "129": "1"
+          },
+          "quadratic_pairing": [
+            "32",
+            "0",
+            "-64",
+            "0",
+            "0",
+            "32"
+          ]
+        },
+        {
+          "nonzero_coefficients": {
+            "2": "-1/22",
+            "6": "133/44",
+            "9": "91/110",
+            "10": "1/44",
+            "11": "3/22",
+            "16": "-698/5",
+            "19": "-581/110",
+            "20": "127/110",
+            "21": "-311/44",
+            "26": "1193/55",
+            "27": "-713/110",
+            "28": "97/220",
+            "29": "-1/11",
+            "30": "-4/11",
+            "37": "-1287/20",
+            "38": "2107/20",
+            "40": "146127/440",
+            "41": "228821/440",
+            "43": "101/8",
+            "46": "5339/55",
+            "47": "830/11",
+            "48": "72/11",
+            "49": "443/40",
+            "53": "19/20",
+            "54": "5/22",
+            "61": "31/110",
+            "62": "117/220",
+            "63": "39/88",
+            "76": "-1/4",
+            "79": "-1",
+            "91": "1/4",
+            "97": "3",
+            "100": "-1/44",
+            "114": "-311/40",
+            "119": "87/40",
+            "120": "-17/88",
+            "124": "-19/20",
+            "142": "1"
+          },
+          "quadratic_pairing": [
+            "-7984/11",
+            "0",
+            "19072/11",
+            "0",
+            "0",
+            "-4560/11"
+          ]
+        },
+        {
+          "nonzero_coefficients": {
+            "2": "-4/33",
+            "5": "1",
+            "6": "74/11",
+            "9": "-140/11",
+            "10": "2/33",
+            "11": "4/11",
+            "15": "-13/3",
+            "16": "-2462/5",
+            "18": "-1/3",
+            "19": "31180/33",
+            "20": "-146/55",
+            "21": "-710/33",
+            "26": "120/11",
+            "27": "420/11",
+            "28": "106/165",
+            "29": "-8/33",
+            "30": "-32/33",
+            "37": "-792/5",
+            "38": "577/5",
+            "40": "24788/33",
+            "41": "270214/165",
+            "43": "40/3",
+            "46": "-2440/33",
+            "47": "-24040/11",
+            "48": "3001/165",
+            "49": "452/15",
+            "53": "22/15",
+            "54": "20/33",
+            "61": "-41/165",
+            "62": "146/165",
+            "63": "13/11",
+            "76": "-7/3",
+            "79": "40/3",
+            "91": "4",
+            "97": "-40/3",
+            "100": "-2/33",
+            "114": "-154/15",
+            "119": "6/5",
+            "120": "-24/11",
+            "124": "-22/15",
+            "141": "2/3",
+            "147": "1"
+          },
+          "quadratic_pairing": [
+            "-25856/33",
+            "0",
+            "54016/33",
+            "0",
+            "0",
+            "24064/33"
+          ]
+        }
+      ],
+      "full_initial_ideal_not_claimed": true,
+      "source_report_sha256": "9ab03220144c70d70b877c7138562d854d0102bd37846eeafcbbd115170e0700",
+      "producer_source": "#!/usr/bin/env python3\n\"\"\"Complete quadratic W sources for the eleven nilpotent cofactor normal forms.\"\"\"\nimport argparse\nimport hashlib\nimport itertools\nimport json\nimport resource\nimport time\nfrom pathlib import Path\n\nimport sympy as s\n\nROOT = Path(__file__).resolve().parents[1]\n\n\ndef main(output):\n    resource.setrlimit(resource.RLIMIT_CPU, (55, 56))\n    resource.setrlimit(resource.RLIMIT_AS, (1536 * 1024**2,) * 2)\n    start = time.monotonic()\n    h, x, u, v, w = xx = s.symbols('h x u v w')\n    mons = [xx[i] * xx[j] for i, j in itertools.combinations_with_replacement(range(5), 2)]\n    unknowns = s.symbols('a0:45')\n    forms = [('j3_zero', (v, w, 0)), ('j3_h', (v, w, h)),\n             ('j3_hx', (v, w, h + x))]\n    for name, L, M in [('zero', 0, 0), ('0_h', 0, h), ('0_hx', 0, h+x),\n                       ('h_0', h, 0), ('hx_0', h+x, 0),\n                       ('h_x', h, x), ('hx_h', h+x, h)]:\n        forms.append(('j21_' + name, (v, L, M)))\n    forms.append(('j111_rank2', (x, h, 0)))\n    records = []\n    for name, V in forms:\n        P = s.zeros(5)\n        for i, value in enumerate(V, 2):\n            P[1, i] = x * value\n        for k, (i, j) in enumerate([(2, 3), (2, 4), (3, 4)]):\n            P[i, j] = sum(a*m for a, m in zip(unknowns[15*k:15*(k+1)], mons))\n        for i, j in itertools.combinations(range(5), 2):\n            P[j, i] = -P[i, j]\n\n        def jac(i, j, k, matrix):\n            return s.expand(sum(matrix[i, l]*s.diff(matrix[j, k], xx[l]) +\n                                matrix[j, l]*s.diff(matrix[k, i], xx[l]) +\n                                matrix[k, l]*s.diff(matrix[i, j], xx[l]) for l in range(5)))\n\n        linear = []\n        for i, j in itertools.combinations(range(2, 5), 2):\n            linear += s.Poly(jac(1, i, j, P), *xx).coeffs()\n        matrix, rhs = s.linear_eq_to_matrix(linear, unknowns)\n        aug, pivots = matrix.row_join(rhs).rref()\n        if 45 in pivots:\n            records.append(dict(case=name, V=[str(f) for f in V], inconsistent=True))\n            print(json.dumps(dict(case=name, inconsistent=True)), flush=True)\n            continue\n        free = [j for j in range(45) if j not in pivots]\n        params = s.symbols('n0:' + str(len(free)))\n        solution = {unknowns[j]: z for j, z in zip(free, params)}\n        for i, pivot in enumerate(pivots):\n            solution[unknowns[pivot]] = aug[i, 45] - sum(aug[i, j]*solution[unknowns[j]] for j in free)\n        Q = P.subs(solution, simultaneous=True).applyfunc(s.expand)\n        assert all(jac(1, i, j, Q) == 0 for i, j in itertools.combinations(range(2, 5), 2))\n        residual = jac(2, 3, 4, Q)\n        equations = list(dict.fromkeys(str(s.factor(f)) for f in s.Poly(residual, *xx).coeffs() if f))\n        F = s.expand(V[0]*Q[3, 4]-V[1]*Q[2, 4]+V[2]*Q[2, 3])\n        assert s.expand(sum(V[i]*s.diff(F, xx[i+2]) for i in range(3))) == 0\n        records.append(dict(case=name, V=[str(f) for f in V], inconsistent=False,\n            linear_matrix_shape=list(matrix.shape), linear_rank=len(pivots),\n            free_parameters=list(map(str, params)), dimension=len(free),\n            original_unknown_monomials=[str(m) for m in mons], free_columns=free,\n            linear_rref=[[str(f) for f in aug.row(i)] for i in range(len(pivots))],\n            brackets={','.join(map(str, ij)): str(Q[ij]) for ij in itertools.combinations(range(1,5),2)},\n            actual_cubic=str(s.factor(F)), remaining_full_Jacobi=str(residual),\n            remaining_coefficient_equations=equations))\n        print(json.dumps(dict(case=name, dimension=len(free), equations=len(equations), F=str(s.factor(F)))), flush=True)\n    source = Path(__file__).read_text()\n    result = dict(task_id='E_reduced_nonnormal', cases=records,\n        all_45_vertical_coefficients_retained=True,\n        all_four_affine_Jacobi_equations_retained=True,\n        normal_form_exhaustion_requires_the_written_centralizer_argument=True,\n        irreducibility_and_MPS_membership_not_inferred_from_this_linear_calculation=True,\n        seconds=time.monotonic()-start, producer_source=source,\n        input_sha256={'code/classification_two_hyperplanes_cubic_nilpotent.py': hashlib.sha256(source.encode()).hexdigest()})\n    with output.open('x') as handle:\n        json.dump(result, handle, indent=2)\n        handle.write('\\n')\n\n\ndef components(input_path, output):\n    \"\"\"Use the existing full-ambient runner on analytically solved full sources.\"\"\"\n    from classification_modular_source_components import branch\n    data = json.loads(input_path.read_text())\n    source_path = ROOT / data['source_report']\n    source = json.loads(source_path.read_text())\n    adapted = {'cases': []}\n    h, x, u, v, w = s.symbols('h x u v w')\n    yy = s.symbols('x1:5')\n    for case in source['cases']:\n        if case.get('inconsistent'):\n            adapted['cases'].append({})\n            continue\n        entries = [s.sympify(case['brackets'][key]).subs({h: 1, x: yy[0], u: yy[1], v: yy[2], w: yy[3]}, simultaneous=True)\n                   for key in ['1,2', '1,3', '1,4', '2,3', '2,4', '3,4']]\n        adapted['cases'].append(dict(full_free_parameter_count=case['dimension'],\n            full_six_brackets=list(map(str, entries)),\n            all_distinct_jacobi_coefficients=case['remaining_coefficient_equations']))\n    results = [branch(adapted, spec) for spec in data['branches']]\n    result = dict(status='PASS', task_id='E_reduced_nonnormal', branches=results,\n                  source_report_sha256=hashlib.sha256(source_path.read_bytes()).hexdigest(),\n                  component_input=data, producer_source=Path(__file__).read_text(),\n                  full_source_exhaustion_requires_written_proof=True)\n    with output.open('x') as handle:\n        json.dump(result, handle, indent=2, default=int)\n        handle.write('\\n')\n    print(json.dumps([dict(name=r['name'], ranks=r['matrix_ranks_mod_prime'],\n                         upper=r['projective_tangent_dimension_upper'],\n                         lower=r['projective_family_dimension_lower']) for r in results]))\n\n\ndef normal_quadrics(report_path, case_index, output, record_override=None):\n    \"\"\"One finite genuine quadratic obstruction, with all actual source directions.\"\"\"\n    from sympy.polys.matrices import DomainMatrix\n    from classification_rank3_mixed_component_review import COLUMNS, jacobi, sparse, vector\n    start = time.monotonic()\n    resource.setrlimit(resource.RLIMIT_CPU, (55, 56))\n    resource.setrlimit(resource.RLIMIT_AS, (1536*1024**2,)*2)\n    record = record_override if record_override is not None else json.loads(report_path.read_text())['branches'][case_index]\n    x = s.symbols('h x1:5')\n    def matrix(encoded):\n        P = s.zeros(5)\n        for key, value in encoded.items():\n            i, j = map(int, key.split(',')); P[i,j] = s.sympify(value); P[j,i] = -P[i,j]\n        return P\n    P = matrix(record['witness_brackets']); ps = sparse(P, x)\n    assert jacobi(ps) == s.zeros(350, 1)\n    columns = []\n    for ij, exponent in COLUMNS:\n        variation = {key: dict(value) for key, value in ps.items()}\n        variation.setdefault(ij, {})[exponent] = variation.get(ij, {}).get(exponent, 0) + 1\n        columns.append(jacobi(variation))\n    D = s.Matrix.hstack(*columns)\n    columns = []; X = s.Matrix(x)\n    for a,b in itertools.product(range(5), repeat=2):\n        field=s.zeros(5,1); field[a]=x[b]\n        columns.append(vector(sparse(X*field.T-field*X.T,x)))\n    for a,b in itertools.product(range(5),repeat=2):\n        E=s.zeros(5); E[a,b]=1\n        columns.append(vector(sparse(E*P+P*E.T-x[b]*P.diff(x[a]),x)))\n    columns.append(vector(ps))\n    universal=matrix(record['universal_brackets'])\n    point={s.Symbol(k):s.Rational(v) for k,v in record['full_source_specification']['witness'].items()}\n    columns.extend(vector(sparse(universal.diff(s.Symbol(p)).subs(point),x))\n                   for p in record['full_source_specification']['free_parameters'])\n    F=s.Matrix.hstack(*columns); assert D*F == s.zeros(350,F.cols)\n    rr,pivots=DomainMatrix.from_Matrix(D).convert_to(s.QQ).rref(); rr=rr.to_Matrix()\n    free=[j for j in range(150) if j not in pivots]; kernel=[]\n    for j in free:\n        col=s.zeros(150,1); col[j]=1\n        for i,p in enumerate(pivots): col[p]=-rr[i,j]\n        kernel.append(col*s.ilcm(1,*[s.denom(c) for c in col]))\n    K=s.Matrix.hstack(*kernel); assert D*K == s.zeros(350,len(free))\n    basis=DomainMatrix.from_Matrix(F.row_join(K)).convert_to(s.QQ).rref()[1]\n    normal_indices=[j-F.cols for j in basis if j>=F.cols]\n    source_rank=len(basis)-len(normal_indices)\n    normals=[]\n    for j in normal_indices:\n        R=s.zeros(5)\n        for (ij,e),c in zip(COLUMNS,K[:,j]):\n            R[ij]+=c*s.prod(z**power for z,power in zip(x,e))\n        for i,k in itertools.combinations(range(5),2): R[k,i]=-R[i,k]\n        normals.append(R)\n    pairs=list(itertools.combinations_with_replacement(range(len(normals)),2))\n    squares=[jacobi(sparse(R,x)) for R in normals]\n    Q=s.Matrix.hstack(*[squares[i] if i==j else jacobi(sparse(normals[i]+normals[j],x))-squares[i]-squares[j] for i,j in pairs])\n    dind=D[:,list(pivots)]\n    rows=list(DomainMatrix.from_Matrix(dind.T).convert_to(s.QQ).rref()[1])\n    block=DomainMatrix.from_Matrix(D.extract(rows,list(pivots))).convert_to(s.QQ)\n    rhs=DomainMatrix.from_Matrix(Q.extract(rows,range(len(pairs)))).convert_to(s.QQ)\n    correction=block.inv().matmul(rhs).to_Matrix()\n    obstruction=Q-dind*correction\n    qr,qp=DomainMatrix.from_Matrix(obstruction).convert_to(s.QQ).rref();qr=qr.to_Matrix()\n    n=s.symbols('t0:'+str(len(normals)));monomials=[n[i]*n[j] for i,j in pairs]\n    quadrics=[s.expand(sum(qr[i,j]*monomials[j] for j in range(len(pairs)))) for i in range(len(qp))]\n    gb=s.groebner(quadrics,*n,order='grevlex') if quadrics else None\n    functional=None\n    all_functionals=[]\n    if qp:\n        obstruction_rows=list(DomainMatrix.from_Matrix(obstruction.T).convert_to(s.QQ).rref()[1])\n        inverse=block.inv().to_Matrix()\n        for row in obstruction_rows:\n            coefficients=D[row,list(pivots)]*inverse;ell=s.zeros(1,350);ell[row]=1\n            for k,r in enumerate(rows):ell[r]-=coefficients[k]\n            assert ell*D==s.zeros(1,150)\n            all_functionals.append(dict(nonzero_coefficients={str(i):str(a)for i,a in enumerate(ell)if a},\n                                        quadratic_pairing=list(map(str,list(ell*Q)))))\n    if len(normals)==1 and any(obstruction):\n        row=next(i for i,a in enumerate(obstruction[:,0])if a)\n        inverse=block.inv().to_Matrix();coefficients=D[row,list(pivots)]*inverse\n        ell=s.zeros(1,350);ell[row]=1\n        for k,r in enumerate(rows):ell[r]-=coefficients[k]\n        assert ell*D==s.zeros(1,150)\n        functional=dict(nonzero_coefficients={str(i):str(a)for i,a in enumerate(ell)if a},pairing=str((ell*Q)[0]))\n    result=dict(task_id='E_reduced_nonnormal',source_report=str(report_path),case=record['name'],\n        full_D_rank=len(pivots),actual_source_rank=source_rank,normal_count=len(normals),\n        all_D_times_directions_zero=True,normal_indices=normal_indices,\n        normals=[{f'{i},{j}':str(R[i,j]) for i,j in itertools.combinations(range(5),2) if R[i,j]} for R in normals],\n        normal_monomials=list(map(str,monomials)),quadratic_initial_generators=list(map(str,quadrics)),\n        zero_dimensional_quadratic_support=bool(gb and gb.is_zero_dimensional),\n        grevlex_basis=[str(g.as_expr()) for g in gb.polys] if gb else [],\n        literal_Poisson_normal_axes=[i for i,q in enumerate(squares) if q==s.zeros(350,1)],\n        one_normal_quadratic_cokernel_functional=functional,\n        quadratic_cokernel_functionals=all_functionals,\n        full_initial_ideal_not_claimed=True,source_report_sha256=hashlib.sha256(report_path.read_bytes()).hexdigest(),\n        producer_source=Path(__file__).read_text(),seconds=time.monotonic()-start)\n    if output is None:return result\n    with output.open('x') as handle:json.dump(result,handle,indent=2);handle.write('\\n')\n    print(json.dumps({k:result[k] for k in ['case','normal_count','quadratic_initial_generators','zero_dimensional_quadratic_support','literal_Poisson_normal_axes','seconds']}))\n\n\ndef universal_pencils(output):\n    \"\"\"The actual n3 modulus of the p0 source, not another ambient point probe.\"\"\"\n    from sympy.polys.matrices import DomainMatrix\n    rpath=ROOT/'reports/CLASSIFICATION_TWO_HYPERPLANES_CUBIC_NILPOTENT_COMPONENTS_20261107.json'\n    npath=ROOT/'reports/CLASSIFICATION_TWO_HYPERPLANES_CUBIC_NILPOTENT_P0_NORMALS_20261107.json'\n    record=json.loads(rpath.read_text())['branches'][0];normal=json.loads(npath.read_text())\n    x=s.symbols('h x1:5');lam,t=s.symbols('lam t')\n    def matrix(data):\n        A=s.zeros(5)\n        for key,f in data.items():\n            i,j=map(int,key.split(','));A[i,j]=s.sympify(f);A[j,i]=-A[i,j]\n        return A\n    U=matrix(record['universal_brackets'])\n    pt={s.Symbol(p):0 for p in record['full_source_specification']['free_parameters']}\n    P=U.subs(pt);T=U.diff(s.Symbol('n3')).subs(pt)\n    def projective(A):\n        J={ijk:s.expand(sum(A[i,l]*s.diff(A[j,k],x[l])+A[j,l]*s.diff(A[k,i],x[l])+A[k,l]*s.diff(A[i,j],x[l]) for l in range(5)))\n           for ijk in itertools.combinations(range(5),3) for i,j,k in [ijk]}\n        return [s.expand(sum((-1)**k*x[inds[k]]*J[inds[:k]+inds[k+1:]] for k in range(4)))\n                for inds in itertools.combinations(range(5),4)]\n    assert all(f==0 for f in projective(P+lam*T))\n    normals=list(map(matrix,normal['normals']));coeff=s.symbols('r0:'+str(len(normals)))\n    R=sum((a*A for a,A in zip(coeff,normals)),s.zeros(5))\n    mixed=[s.expand(f-g-h) for f,g,h in zip(projective(T+R),projective(T),projective(R))]\n    equations=[c for f in mixed for c in s.Poly(f,*x).coeffs() if c]\n    M,_=s.linear_eq_to_matrix(equations,coeff);kernel=M.nullspace()\n    aa=s.symbols('a0:'+str(len(kernel)))\n    combo=sum((a*K for a,K in zip(aa,kernel)),s.zeros(len(coeff),1))\n    R=R.subs(dict(zip(coeff,combo)),simultaneous=True)\n    residual=[s.factor(c) for f in projective(R) for c in s.Poly(f,*x).coeffs() if c]\n    residual=list(dict.fromkeys(residual))\n    result=dict(task_id='E_reduced_nonnormal',section_parameter='n3',\n                full_section_projective_Jacobi_zero=True,\n                modulus_compatible_normal_kernel=[list(map(str,k)) for k in kernel],\n                compatible_normal={f'{i},{j}':str(s.expand(R[i,j])) for i,j in itertools.combinations(range(5),2) if R[i,j]},\n                remaining_Poisson_equations=list(map(str,residual)),\n                whole_source_coverage_not_inferred=True,\n                producer_source=Path(__file__).read_text())\n    with output.open('x') as handle:json.dump(result,handle,indent=2);handle.write('\\n')\n    print(json.dumps({k:result[k] for k in ['modulus_compatible_normal_kernel','remaining_Poisson_equations']}))\n\n\nif __name__ == '__main__':\n    parser = argparse.ArgumentParser()\n    parser.add_argument('--output', type=Path, required=True)\n    parser.add_argument('--component-input', type=Path)\n    parser.add_argument('--normal-report', type=Path)\n    parser.add_argument('--case-index', type=int, default=0)\n    parser.add_argument('--universal-pencils', action='store_true')\n    args = parser.parse_args()\n    if args.universal_pencils:\n        universal_pencils(args.output)\n    elif args.normal_report:\n        normal_quadrics(args.normal_report,args.case_index,args.output)\n    elif args.component_input:\n        components(args.component_input, args.output)\n    else:\n        main(args.output)\n",
+      "seconds": 1.4969049519995679
+    },
+    {
+      "task_id": "E_multiple_hyperplane",
+      "source_report": "/workspace/poisson-p4/reports/CLASSIFICATION_NIL22_IMAGE_REMAINING_SOURCES_20261107.json",
+      "case": "nil22_image_double_D",
+      "full_D_rank": 99,
+      "actual_source_rank": 49,
+      "normal_count": 2,
+      "all_D_times_directions_zero": true,
+      "normal_indices": [
+        22,
+        25
+      ],
+      "normals": [
+        {
+          "0,1": "1071189*h**2 + 1649340*h*x1 + 1044820*h*x3 + 400029*h*x4 + 1335180*x1*x4 + 1499400*x3**2 + 659260*x3*x4 - 863940*x4**2",
+          "0,2": "242080*h**2 + 863940*h*x2 + 767550*h*x3 + 1650020*h*x4 + 549780*x2*x4 + 1892100*x3*x4 + 1209040*x4**2",
+          "0,3": "949620*h*x3 + 785400*x3*x4",
+          "0,4": "-207060*h**2",
+          "1,2": "-456960*h*x1 - 2449839*h*x2 - 196350*x1*x3 - 1409079*x2*x4",
+          "1,3": "-1194438*h*x3 - 42840*x1*x3 - 1170750*x3*x4",
+          "1,4": "149940*h*x1 + 149940*x2*x3",
+          "2,3": "7266*h**2"
+        },
+        {
+          "0,1": "70*h*x3 - 49*x1*x3 + 70*x3*x4",
+          "0,2": "12*h**2 + 21*h*x1 - 14*h*x3 + 68*h*x4 + 70*x1*x4 - 49*x2*x3 - 35*x3**2 - 49*x3*x4 - 7*x4**2",
+          "0,3": "-70*x3**2",
+          "0,4": "49*h*x3",
+          "1,2": "-7*h*x1 - 85*x1**2 + 14*x1*x3",
+          "1,4": "-49*x1*x3",
+          "2,3": "30*x1*x3"
+        }
+      ],
+      "normal_monomials": [
+        "t0**2",
+        "t0*t1",
+        "t1**2"
+      ],
+      "quadratic_initial_generators": [
+        "t0**2",
+        "t0*t1"
+      ],
+      "zero_dimensional_quadratic_support": false,
+      "grevlex_basis": [
+        "t0**2",
+        "t0*t1"
+      ],
+      "literal_Poisson_normal_axes": [],
+      "one_normal_quadratic_cokernel_functional": null,
+      "quadratic_cokernel_functionals": [
+        {
+          "nonzero_coefficients": {
+            "0": "16055/11101",
+            "1": "-45617/22202",
+            "2": "239657504539973/110066941120794",
+            "4": "-11115/11101",
+            "5": "22260183/3885350",
+            "6": "-856640350185087/366889803735980",
+            "8": "61369/22202",
+            "9": "3505261877931188847/237561147919047050",
+            "10": "47522/33303",
+            "11": "-55305577970763/36688980373598",
+            "14": "494/653",
+            "15": "-1478559731/116560500",
+            "16": "178808678727944633/55033470560397000",
+            "18": "-10901957/1665150",
+            "19": "-784891716901329875207/55589308613057009700",
+            "20": "-1097864766806/192505493775",
+            "21": "3492546921982667/1100669411207940",
+            "24": "-418124/166515",
+            "26": "11136910265388661/4127510292029775",
+            "27": "-31547356901380699623/3088294922947611650",
+            "28": "-152945000977/77002197510",
+            "29": "-28799/19590",
+            "30": "18435192656921/16186314870705",
+            "34": "-20254/33303",
+            "37": "26075440271567753/1122499534202025",
+            "38": "719889446807549/1603570763145750",
+            "40": "62325277459802062/801785381572875",
+            "41": "10791976353911384370779/222665421887366262000",
+            "43": "1763149971262856/160357076314575",
+            "46": "-7795875937928305144/144462860221042125",
+            "48": "339996737171871/48870728019680",
+            "49": "110167229200019/5390153825700",
+            "53": "37777415241319/3773107677990",
+            "54": "17776939/2642038",
+            "58": "3859710435737/792669680250",
+            "59": "-11136910265388661/569311764417900",
+            "62": "1682395010747/215606153028",
+            "63": "2457181/466242",
+            "64": "-462760200152998031/12972175203522150",
+            "72": "1963/1959",
+            "76": "-1548584869477/275007848250",
+            "79": "11136910265388661/1375836764009925",
+            "81": "28486/33303",
+            "91": "1910086714139/1925054937750",
+            "96": "-24642763550572/6737692282125",
+            "99": "-152945000977/179671794190",
+            "100": "-603527/333030",
+            "114": "-385268457461063/213809435086100",
+            "119": "433293187767841/146612184059040",
+            "120": "449233443777/2245897427375",
+            "124": "-6270745040057/1078030765140",
+            "143": "-31720/11101",
+            "147": "2056021/777070",
+            "153": "1"
+          },
+          "quadratic_pairing": [
+            "-298832051700/11101",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "nonzero_coefficients": {
+            "15": "139/1225",
+            "16": "179/3430",
+            "17": "2/5",
+            "37": "-122744/145775",
+            "38": "246906/204085",
+            "40": "-479974/1020425",
+            "41": "435009/793016",
+            "43": "3121/2975",
+            "48": "286393/333200",
+            "75": "36/245",
+            "88": "48/245",
+            "90": "768/1715",
+            "114": "-15672/20825",
+            "119": "-1554501/2332400",
+            "162": "1"
+          },
+          "quadratic_pairing": [
+            "0",
+            "66096",
+            "0"
+          ]
+        }
+      ],
+      "full_initial_ideal_not_claimed": true,
+      "source_report_sha256": "9ab03220144c70d70b877c7138562d854d0102bd37846eeafcbbd115170e0700",
+      "producer_source": "#!/usr/bin/env python3\n\"\"\"Complete quadratic W sources for the eleven nilpotent cofactor normal forms.\"\"\"\nimport argparse\nimport hashlib\nimport itertools\nimport json\nimport resource\nimport time\nfrom pathlib import Path\n\nimport sympy as s\n\nROOT = Path(__file__).resolve().parents[1]\n\n\ndef main(output):\n    resource.setrlimit(resource.RLIMIT_CPU, (55, 56))\n    resource.setrlimit(resource.RLIMIT_AS, (1536 * 1024**2,) * 2)\n    start = time.monotonic()\n    h, x, u, v, w = xx = s.symbols('h x u v w')\n    mons = [xx[i] * xx[j] for i, j in itertools.combinations_with_replacement(range(5), 2)]\n    unknowns = s.symbols('a0:45')\n    forms = [('j3_zero', (v, w, 0)), ('j3_h', (v, w, h)),\n             ('j3_hx', (v, w, h + x))]\n    for name, L, M in [('zero', 0, 0), ('0_h', 0, h), ('0_hx', 0, h+x),\n                       ('h_0', h, 0), ('hx_0', h+x, 0),\n                       ('h_x', h, x), ('hx_h', h+x, h)]:\n        forms.append(('j21_' + name, (v, L, M)))\n    forms.append(('j111_rank2', (x, h, 0)))\n    records = []\n    for name, V in forms:\n        P = s.zeros(5)\n        for i, value in enumerate(V, 2):\n            P[1, i] = x * value\n        for k, (i, j) in enumerate([(2, 3), (2, 4), (3, 4)]):\n            P[i, j] = sum(a*m for a, m in zip(unknowns[15*k:15*(k+1)], mons))\n        for i, j in itertools.combinations(range(5), 2):\n            P[j, i] = -P[i, j]\n\n        def jac(i, j, k, matrix):\n            return s.expand(sum(matrix[i, l]*s.diff(matrix[j, k], xx[l]) +\n                                matrix[j, l]*s.diff(matrix[k, i], xx[l]) +\n                                matrix[k, l]*s.diff(matrix[i, j], xx[l]) for l in range(5)))\n\n        linear = []\n        for i, j in itertools.combinations(range(2, 5), 2):\n            linear += s.Poly(jac(1, i, j, P), *xx).coeffs()\n        matrix, rhs = s.linear_eq_to_matrix(linear, unknowns)\n        aug, pivots = matrix.row_join(rhs).rref()\n        if 45 in pivots:\n            records.append(dict(case=name, V=[str(f) for f in V], inconsistent=True))\n            print(json.dumps(dict(case=name, inconsistent=True)), flush=True)\n            continue\n        free = [j for j in range(45) if j not in pivots]\n        params = s.symbols('n0:' + str(len(free)))\n        solution = {unknowns[j]: z for j, z in zip(free, params)}\n        for i, pivot in enumerate(pivots):\n            solution[unknowns[pivot]] = aug[i, 45] - sum(aug[i, j]*solution[unknowns[j]] for j in free)\n        Q = P.subs(solution, simultaneous=True).applyfunc(s.expand)\n        assert all(jac(1, i, j, Q) == 0 for i, j in itertools.combinations(range(2, 5), 2))\n        residual = jac(2, 3, 4, Q)\n        equations = list(dict.fromkeys(str(s.factor(f)) for f in s.Poly(residual, *xx).coeffs() if f))\n        F = s.expand(V[0]*Q[3, 4]-V[1]*Q[2, 4]+V[2]*Q[2, 3])\n        assert s.expand(sum(V[i]*s.diff(F, xx[i+2]) for i in range(3))) == 0\n        records.append(dict(case=name, V=[str(f) for f in V], inconsistent=False,\n            linear_matrix_shape=list(matrix.shape), linear_rank=len(pivots),\n            free_parameters=list(map(str, params)), dimension=len(free),\n            original_unknown_monomials=[str(m) for m in mons], free_columns=free,\n            linear_rref=[[str(f) for f in aug.row(i)] for i in range(len(pivots))],\n            brackets={','.join(map(str, ij)): str(Q[ij]) for ij in itertools.combinations(range(1,5),2)},\n            actual_cubic=str(s.factor(F)), remaining_full_Jacobi=str(residual),\n            remaining_coefficient_equations=equations))\n        print(json.dumps(dict(case=name, dimension=len(free), equations=len(equations), F=str(s.factor(F)))), flush=True)\n    source = Path(__file__).read_text()\n    result = dict(task_id='E_reduced_nonnormal', cases=records,\n        all_45_vertical_coefficients_retained=True,\n        all_four_affine_Jacobi_equations_retained=True,\n        normal_form_exhaustion_requires_the_written_centralizer_argument=True,\n        irreducibility_and_MPS_membership_not_inferred_from_this_linear_calculation=True,\n        seconds=time.monotonic()-start, producer_source=source,\n        input_sha256={'code/classification_two_hyperplanes_cubic_nilpotent.py': hashlib.sha256(source.encode()).hexdigest()})\n    with output.open('x') as handle:\n        json.dump(result, handle, indent=2)\n        handle.write('\\n')\n\n\ndef components(input_path, output):\n    \"\"\"Use the existing full-ambient runner on analytically solved full sources.\"\"\"\n    from classification_modular_source_components import branch\n    data = json.loads(input_path.read_text())\n    source_path = ROOT / data['source_report']\n    source = json.loads(source_path.read_text())\n    adapted = {'cases': []}\n    h, x, u, v, w = s.symbols('h x u v w')\n    yy = s.symbols('x1:5')\n    for case in source['cases']:\n        if case.get('inconsistent'):\n            adapted['cases'].append({})\n            continue\n        entries = [s.sympify(case['brackets'][key]).subs({h: 1, x: yy[0], u: yy[1], v: yy[2], w: yy[3]}, simultaneous=True)\n                   for key in ['1,2', '1,3', '1,4', '2,3', '2,4', '3,4']]\n        adapted['cases'].append(dict(full_free_parameter_count=case['dimension'],\n            full_six_brackets=list(map(str, entries)),\n            all_distinct_jacobi_coefficients=case['remaining_coefficient_equations']))\n    results = [branch(adapted, spec) for spec in data['branches']]\n    result = dict(status='PASS', task_id='E_reduced_nonnormal', branches=results,\n                  source_report_sha256=hashlib.sha256(source_path.read_bytes()).hexdigest(),\n                  component_input=data, producer_source=Path(__file__).read_text(),\n                  full_source_exhaustion_requires_written_proof=True)\n    with output.open('x') as handle:\n        json.dump(result, handle, indent=2, default=int)\n        handle.write('\\n')\n    print(json.dumps([dict(name=r['name'], ranks=r['matrix_ranks_mod_prime'],\n                         upper=r['projective_tangent_dimension_upper'],\n                         lower=r['projective_family_dimension_lower']) for r in results]))\n\n\ndef normal_quadrics(report_path, case_index, output, record_override=None):\n    \"\"\"One finite genuine quadratic obstruction, with all actual source directions.\"\"\"\n    from sympy.polys.matrices import DomainMatrix\n    from classification_rank3_mixed_component_review import COLUMNS, jacobi, sparse, vector\n    start = time.monotonic()\n    resource.setrlimit(resource.RLIMIT_CPU, (55, 56))\n    resource.setrlimit(resource.RLIMIT_AS, (1536*1024**2,)*2)\n    record = record_override if record_override is not None else json.loads(report_path.read_text())['branches'][case_index]\n    x = s.symbols('h x1:5')\n    def matrix(encoded):\n        P = s.zeros(5)\n        for key, value in encoded.items():\n            i, j = map(int, key.split(',')); P[i,j] = s.sympify(value); P[j,i] = -P[i,j]\n        return P\n    P = matrix(record['witness_brackets']); ps = sparse(P, x)\n    assert jacobi(ps) == s.zeros(350, 1)\n    columns = []\n    for ij, exponent in COLUMNS:\n        variation = {key: dict(value) for key, value in ps.items()}\n        variation.setdefault(ij, {})[exponent] = variation.get(ij, {}).get(exponent, 0) + 1\n        columns.append(jacobi(variation))\n    D = s.Matrix.hstack(*columns)\n    columns = []; X = s.Matrix(x)\n    for a,b in itertools.product(range(5), repeat=2):\n        field=s.zeros(5,1); field[a]=x[b]\n        columns.append(vector(sparse(X*field.T-field*X.T,x)))\n    for a,b in itertools.product(range(5),repeat=2):\n        E=s.zeros(5); E[a,b]=1\n        columns.append(vector(sparse(E*P+P*E.T-x[b]*P.diff(x[a]),x)))\n    columns.append(vector(ps))\n    universal=matrix(record['universal_brackets'])\n    point={s.Symbol(k):s.Rational(v) for k,v in record['full_source_specification']['witness'].items()}\n    columns.extend(vector(sparse(universal.diff(s.Symbol(p)).subs(point),x))\n                   for p in record['full_source_specification']['free_parameters'])\n    F=s.Matrix.hstack(*columns); assert D*F == s.zeros(350,F.cols)\n    rr,pivots=DomainMatrix.from_Matrix(D).convert_to(s.QQ).rref(); rr=rr.to_Matrix()\n    free=[j for j in range(150) if j not in pivots]; kernel=[]\n    for j in free:\n        col=s.zeros(150,1); col[j]=1\n        for i,p in enumerate(pivots): col[p]=-rr[i,j]\n        kernel.append(col*s.ilcm(1,*[s.denom(c) for c in col]))\n    K=s.Matrix.hstack(*kernel); assert D*K == s.zeros(350,len(free))\n    basis=DomainMatrix.from_Matrix(F.row_join(K)).convert_to(s.QQ).rref()[1]\n    normal_indices=[j-F.cols for j in basis if j>=F.cols]\n    source_rank=len(basis)-len(normal_indices)\n    normals=[]\n    for j in normal_indices:\n        R=s.zeros(5)\n        for (ij,e),c in zip(COLUMNS,K[:,j]):\n            R[ij]+=c*s.prod(z**power for z,power in zip(x,e))\n        for i,k in itertools.combinations(range(5),2): R[k,i]=-R[i,k]\n        normals.append(R)\n    pairs=list(itertools.combinations_with_replacement(range(len(normals)),2))\n    squares=[jacobi(sparse(R,x)) for R in normals]\n    Q=s.Matrix.hstack(*[squares[i] if i==j else jacobi(sparse(normals[i]+normals[j],x))-squares[i]-squares[j] for i,j in pairs])\n    dind=D[:,list(pivots)]\n    rows=list(DomainMatrix.from_Matrix(dind.T).convert_to(s.QQ).rref()[1])\n    block=DomainMatrix.from_Matrix(D.extract(rows,list(pivots))).convert_to(s.QQ)\n    rhs=DomainMatrix.from_Matrix(Q.extract(rows,range(len(pairs)))).convert_to(s.QQ)\n    correction=block.inv().matmul(rhs).to_Matrix()\n    obstruction=Q-dind*correction\n    qr,qp=DomainMatrix.from_Matrix(obstruction).convert_to(s.QQ).rref();qr=qr.to_Matrix()\n    n=s.symbols('t0:'+str(len(normals)));monomials=[n[i]*n[j] for i,j in pairs]\n    quadrics=[s.expand(sum(qr[i,j]*monomials[j] for j in range(len(pairs)))) for i in range(len(qp))]\n    gb=s.groebner(quadrics,*n,order='grevlex') if quadrics else None\n    functional=None\n    all_functionals=[]\n    if qp:\n        obstruction_rows=list(DomainMatrix.from_Matrix(obstruction.T).convert_to(s.QQ).rref()[1])\n        inverse=block.inv().to_Matrix()\n        for row in obstruction_rows:\n            coefficients=D[row,list(pivots)]*inverse;ell=s.zeros(1,350);ell[row]=1\n            for k,r in enumerate(rows):ell[r]-=coefficients[k]\n            assert ell*D==s.zeros(1,150)\n            all_functionals.append(dict(nonzero_coefficients={str(i):str(a)for i,a in enumerate(ell)if a},\n                                        quadratic_pairing=list(map(str,list(ell*Q)))))\n    if len(normals)==1 and any(obstruction):\n        row=next(i for i,a in enumerate(obstruction[:,0])if a)\n        inverse=block.inv().to_Matrix();coefficients=D[row,list(pivots)]*inverse\n        ell=s.zeros(1,350);ell[row]=1\n        for k,r in enumerate(rows):ell[r]-=coefficients[k]\n        assert ell*D==s.zeros(1,150)\n        functional=dict(nonzero_coefficients={str(i):str(a)for i,a in enumerate(ell)if a},pairing=str((ell*Q)[0]))\n    result=dict(task_id='E_reduced_nonnormal',source_report=str(report_path),case=record['name'],\n        full_D_rank=len(pivots),actual_source_rank=source_rank,normal_count=len(normals),\n        all_D_times_directions_zero=True,normal_indices=normal_indices,\n        normals=[{f'{i},{j}':str(R[i,j]) for i,j in itertools.combinations(range(5),2) if R[i,j]} for R in normals],\n        normal_monomials=list(map(str,monomials)),quadratic_initial_generators=list(map(str,quadrics)),\n        zero_dimensional_quadratic_support=bool(gb and gb.is_zero_dimensional),\n        grevlex_basis=[str(g.as_expr()) for g in gb.polys] if gb else [],\n        literal_Poisson_normal_axes=[i for i,q in enumerate(squares) if q==s.zeros(350,1)],\n        one_normal_quadratic_cokernel_functional=functional,\n        quadratic_cokernel_functionals=all_functionals,\n        full_initial_ideal_not_claimed=True,source_report_sha256=hashlib.sha256(report_path.read_bytes()).hexdigest(),\n        producer_source=Path(__file__).read_text(),seconds=time.monotonic()-start)\n    if output is None:return result\n    with output.open('x') as handle:json.dump(result,handle,indent=2);handle.write('\\n')\n    print(json.dumps({k:result[k] for k in ['case','normal_count','quadratic_initial_generators','zero_dimensional_quadratic_support','literal_Poisson_normal_axes','seconds']}))\n\n\ndef universal_pencils(output):\n    \"\"\"The actual n3 modulus of the p0 source, not another ambient point probe.\"\"\"\n    from sympy.polys.matrices import DomainMatrix\n    rpath=ROOT/'reports/CLASSIFICATION_TWO_HYPERPLANES_CUBIC_NILPOTENT_COMPONENTS_20261107.json'\n    npath=ROOT/'reports/CLASSIFICATION_TWO_HYPERPLANES_CUBIC_NILPOTENT_P0_NORMALS_20261107.json'\n    record=json.loads(rpath.read_text())['branches'][0];normal=json.loads(npath.read_text())\n    x=s.symbols('h x1:5');lam,t=s.symbols('lam t')\n    def matrix(data):\n        A=s.zeros(5)\n        for key,f in data.items():\n            i,j=map(int,key.split(','));A[i,j]=s.sympify(f);A[j,i]=-A[i,j]\n        return A\n    U=matrix(record['universal_brackets'])\n    pt={s.Symbol(p):0 for p in record['full_source_specification']['free_parameters']}\n    P=U.subs(pt);T=U.diff(s.Symbol('n3')).subs(pt)\n    def projective(A):\n        J={ijk:s.expand(sum(A[i,l]*s.diff(A[j,k],x[l])+A[j,l]*s.diff(A[k,i],x[l])+A[k,l]*s.diff(A[i,j],x[l]) for l in range(5)))\n           for ijk in itertools.combinations(range(5),3) for i,j,k in [ijk]}\n        return [s.expand(sum((-1)**k*x[inds[k]]*J[inds[:k]+inds[k+1:]] for k in range(4)))\n                for inds in itertools.combinations(range(5),4)]\n    assert all(f==0 for f in projective(P+lam*T))\n    normals=list(map(matrix,normal['normals']));coeff=s.symbols('r0:'+str(len(normals)))\n    R=sum((a*A for a,A in zip(coeff,normals)),s.zeros(5))\n    mixed=[s.expand(f-g-h) for f,g,h in zip(projective(T+R),projective(T),projective(R))]\n    equations=[c for f in mixed for c in s.Poly(f,*x).coeffs() if c]\n    M,_=s.linear_eq_to_matrix(equations,coeff);kernel=M.nullspace()\n    aa=s.symbols('a0:'+str(len(kernel)))\n    combo=sum((a*K for a,K in zip(aa,kernel)),s.zeros(len(coeff),1))\n    R=R.subs(dict(zip(coeff,combo)),simultaneous=True)\n    residual=[s.factor(c) for f in projective(R) for c in s.Poly(f,*x).coeffs() if c]\n    residual=list(dict.fromkeys(residual))\n    result=dict(task_id='E_reduced_nonnormal',section_parameter='n3',\n                full_section_projective_Jacobi_zero=True,\n                modulus_compatible_normal_kernel=[list(map(str,k)) for k in kernel],\n                compatible_normal={f'{i},{j}':str(s.expand(R[i,j])) for i,j in itertools.combinations(range(5),2) if R[i,j]},\n                remaining_Poisson_equations=list(map(str,residual)),\n                whole_source_coverage_not_inferred=True,\n                producer_source=Path(__file__).read_text())\n    with output.open('x') as handle:json.dump(result,handle,indent=2);handle.write('\\n')\n    print(json.dumps({k:result[k] for k in ['modulus_compatible_normal_kernel','remaining_Poisson_equations']}))\n\n\nif __name__ == '__main__':\n    parser = argparse.ArgumentParser()\n    parser.add_argument('--output', type=Path, required=True)\n    parser.add_argument('--component-input', type=Path)\n    parser.add_argument('--normal-report', type=Path)\n    parser.add_argument('--case-index', type=int, default=0)\n    parser.add_argument('--universal-pencils', action='store_true')\n    args = parser.parse_args()\n    if args.universal_pencils:\n        universal_pencils(args.output)\n    elif args.normal_report:\n        normal_quadrics(args.normal_report,args.case_index,args.output)\n    elif args.component_input:\n        components(args.component_input, args.output)\n    else:\n        main(args.output)\n",
+      "seconds": 1.8731679630000144
+    },
+    {
+      "task_id": "E_multiple_hyperplane",
+      "source_report": "/workspace/poisson-p4/reports/CLASSIFICATION_NIL22_IMAGE_REMAINING_SOURCES_20261107.json",
+      "case": "nil22_image_triple_A",
+      "full_D_rank": 101,
+      "actual_source_rank": 48,
+      "normal_count": 1,
+      "all_D_times_directions_zero": true,
+      "normal_indices": [
+        22
+      ],
+      "normals": [
+        {
+          "0,1": "-279450*h**2 + 4050*h*x1 + 283500*h*x3 - 1498569*h*x4 + 23854*x3*x4",
+          "0,2": "5533344*h**2 - 10800*h*x2 - 467124*h*x3 - 113400*h*x4 + 23854*x4**2",
+          "0,3": "12150*h**2 - 5400*h*x3",
+          "1,2": "12781332*h*x1 + 1190700*h*x2 - 21600*x1*x2 - 793872*x1*x3 - 226800*x1*x4 - 283500*x2*x3 + 2646115*x2*x4",
+          "1,3": "-3790800*h**2 + 28350*h*x1 - 789750*h*x3 + 1943502*h*x4 - 12150*x1*x3 + 689603*x3*x4",
+          "1,4": "45242550*h**2 + 20250*h*x2 - 13500*x2*x3",
+          "2,3": "24300*h*x2 + 3600*x1*x4"
+        }
+      ],
+      "normal_monomials": [
+        "t0**2"
+      ],
+      "quadratic_initial_generators": [
+        "t0**2"
+      ],
+      "zero_dimensional_quadratic_support": true,
+      "grevlex_basis": [
+        "t0**2"
+      ],
+      "literal_Poisson_normal_axes": [],
+      "one_normal_quadratic_cokernel_functional": {
+        "nonzero_coefficients": {
+          "2": "4/945",
+          "5": "-3131/4725",
+          "6": "-2/21",
+          "8": "-1/315",
+          "9": "-1922/315",
+          "15": "155084/525",
+          "16": "2160502/1575",
+          "17": "121/45",
+          "18": "65/14",
+          "19": "28554/175",
+          "20": "2",
+          "21": "29971/1575",
+          "23": "1/35",
+          "25": "355181/2625",
+          "26": "1294/1575",
+          "28": "4/105",
+          "30": "4/21",
+          "37": "1972048/525",
+          "38": "-2558195368/826875",
+          "40": "1470016622/275625",
+          "41": "3951868/2625",
+          "42": "-233627/3150",
+          "43": "-5941/42",
+          "44": "-188241/6125",
+          "46": "1661876/4375",
+          "48": "-2174/21",
+          "49": "-4292471/91875",
+          "50": "1140/7",
+          "52": "1/35",
+          "54": "20/49",
+          "58": "379436/13125",
+          "61": "12/35",
+          "63": "52/49",
+          "71": "-1/945",
+          "75": "-13/21",
+          "76": "3442/4725",
+          "77": "1/315",
+          "81": "2/315",
+          "87": "13/7",
+          "88": "-121/45",
+          "90": "-578/315",
+          "91": "-8/7",
+          "92": "1/315",
+          "97": "-15062/1575",
+          "99": "-2/35",
+          "113": "145717/3150",
+          "114": "111",
+          "119": "1168/21",
+          "120": "1937854/30625",
+          "234": "1"
+        },
+        "pairing": "48600000"
+      },
+      "quadratic_cokernel_functionals": [
+        {
+          "nonzero_coefficients": {
+            "2": "4/945",
+            "5": "-3131/4725",
+            "6": "-2/21",
+            "8": "-1/315",
+            "9": "-1922/315",
+            "15": "155084/525",
+            "16": "2160502/1575",
+            "17": "121/45",
+            "18": "65/14",
+            "19": "28554/175",
+            "20": "2",
+            "21": "29971/1575",
+            "23": "1/35",
+            "25": "355181/2625",
+            "26": "1294/1575",
+            "28": "4/105",
+            "30": "4/21",
+            "37": "1972048/525",
+            "38": "-2558195368/826875",
+            "40": "1470016622/275625",
+            "41": "3951868/2625",
+            "42": "-233627/3150",
+            "43": "-5941/42",
+            "44": "-188241/6125",
+            "46": "1661876/4375",
+            "48": "-2174/21",
+            "49": "-4292471/91875",
+            "50": "1140/7",
+            "52": "1/35",
+            "54": "20/49",
+            "58": "379436/13125",
+            "61": "12/35",
+            "63": "52/49",
+            "71": "-1/945",
+            "75": "-13/21",
+            "76": "3442/4725",
+            "77": "1/315",
+            "81": "2/315",
+            "87": "13/7",
+            "88": "-121/45",
+            "90": "-578/315",
+            "91": "-8/7",
+            "92": "1/315",
+            "97": "-15062/1575",
+            "99": "-2/35",
+            "113": "145717/3150",
+            "114": "111",
+            "119": "1168/21",
+            "120": "1937854/30625",
+            "234": "1"
+          },
+          "quadratic_pairing": [
+            "48600000"
+          ]
+        }
+      ],
+      "full_initial_ideal_not_claimed": true,
+      "source_report_sha256": "9ab03220144c70d70b877c7138562d854d0102bd37846eeafcbbd115170e0700",
+      "producer_source": "#!/usr/bin/env python3\n\"\"\"Complete quadratic W sources for the eleven nilpotent cofactor normal forms.\"\"\"\nimport argparse\nimport hashlib\nimport itertools\nimport json\nimport resource\nimport time\nfrom pathlib import Path\n\nimport sympy as s\n\nROOT = Path(__file__).resolve().parents[1]\n\n\ndef main(output):\n    resource.setrlimit(resource.RLIMIT_CPU, (55, 56))\n    resource.setrlimit(resource.RLIMIT_AS, (1536 * 1024**2,) * 2)\n    start = time.monotonic()\n    h, x, u, v, w = xx = s.symbols('h x u v w')\n    mons = [xx[i] * xx[j] for i, j in itertools.combinations_with_replacement(range(5), 2)]\n    unknowns = s.symbols('a0:45')\n    forms = [('j3_zero', (v, w, 0)), ('j3_h', (v, w, h)),\n             ('j3_hx', (v, w, h + x))]\n    for name, L, M in [('zero', 0, 0), ('0_h', 0, h), ('0_hx', 0, h+x),\n                       ('h_0', h, 0), ('hx_0', h+x, 0),\n                       ('h_x', h, x), ('hx_h', h+x, h)]:\n        forms.append(('j21_' + name, (v, L, M)))\n    forms.append(('j111_rank2', (x, h, 0)))\n    records = []\n    for name, V in forms:\n        P = s.zeros(5)\n        for i, value in enumerate(V, 2):\n            P[1, i] = x * value\n        for k, (i, j) in enumerate([(2, 3), (2, 4), (3, 4)]):\n            P[i, j] = sum(a*m for a, m in zip(unknowns[15*k:15*(k+1)], mons))\n        for i, j in itertools.combinations(range(5), 2):\n            P[j, i] = -P[i, j]\n\n        def jac(i, j, k, matrix):\n            return s.expand(sum(matrix[i, l]*s.diff(matrix[j, k], xx[l]) +\n                                matrix[j, l]*s.diff(matrix[k, i], xx[l]) +\n                                matrix[k, l]*s.diff(matrix[i, j], xx[l]) for l in range(5)))\n\n        linear = []\n        for i, j in itertools.combinations(range(2, 5), 2):\n            linear += s.Poly(jac(1, i, j, P), *xx).coeffs()\n        matrix, rhs = s.linear_eq_to_matrix(linear, unknowns)\n        aug, pivots = matrix.row_join(rhs).rref()\n        if 45 in pivots:\n            records.append(dict(case=name, V=[str(f) for f in V], inconsistent=True))\n            print(json.dumps(dict(case=name, inconsistent=True)), flush=True)\n            continue\n        free = [j for j in range(45) if j not in pivots]\n        params = s.symbols('n0:' + str(len(free)))\n        solution = {unknowns[j]: z for j, z in zip(free, params)}\n        for i, pivot in enumerate(pivots):\n            solution[unknowns[pivot]] = aug[i, 45] - sum(aug[i, j]*solution[unknowns[j]] for j in free)\n        Q = P.subs(solution, simultaneous=True).applyfunc(s.expand)\n        assert all(jac(1, i, j, Q) == 0 for i, j in itertools.combinations(range(2, 5), 2))\n        residual = jac(2, 3, 4, Q)\n        equations = list(dict.fromkeys(str(s.factor(f)) for f in s.Poly(residual, *xx).coeffs() if f))\n        F = s.expand(V[0]*Q[3, 4]-V[1]*Q[2, 4]+V[2]*Q[2, 3])\n        assert s.expand(sum(V[i]*s.diff(F, xx[i+2]) for i in range(3))) == 0\n        records.append(dict(case=name, V=[str(f) for f in V], inconsistent=False,\n            linear_matrix_shape=list(matrix.shape), linear_rank=len(pivots),\n            free_parameters=list(map(str, params)), dimension=len(free),\n            original_unknown_monomials=[str(m) for m in mons], free_columns=free,\n            linear_rref=[[str(f) for f in aug.row(i)] for i in range(len(pivots))],\n            brackets={','.join(map(str, ij)): str(Q[ij]) for ij in itertools.combinations(range(1,5),2)},\n            actual_cubic=str(s.factor(F)), remaining_full_Jacobi=str(residual),\n            remaining_coefficient_equations=equations))\n        print(json.dumps(dict(case=name, dimension=len(free), equations=len(equations), F=str(s.factor(F)))), flush=True)\n    source = Path(__file__).read_text()\n    result = dict(task_id='E_reduced_nonnormal', cases=records,\n        all_45_vertical_coefficients_retained=True,\n        all_four_affine_Jacobi_equations_retained=True,\n        normal_form_exhaustion_requires_the_written_centralizer_argument=True,\n        irreducibility_and_MPS_membership_not_inferred_from_this_linear_calculation=True,\n        seconds=time.monotonic()-start, producer_source=source,\n        input_sha256={'code/classification_two_hyperplanes_cubic_nilpotent.py': hashlib.sha256(source.encode()).hexdigest()})\n    with output.open('x') as handle:\n        json.dump(result, handle, indent=2)\n        handle.write('\\n')\n\n\ndef components(input_path, output):\n    \"\"\"Use the existing full-ambient runner on analytically solved full sources.\"\"\"\n    from classification_modular_source_components import branch\n    data = json.loads(input_path.read_text())\n    source_path = ROOT / data['source_report']\n    source = json.loads(source_path.read_text())\n    adapted = {'cases': []}\n    h, x, u, v, w = s.symbols('h x u v w')\n    yy = s.symbols('x1:5')\n    for case in source['cases']:\n        if case.get('inconsistent'):\n            adapted['cases'].append({})\n            continue\n        entries = [s.sympify(case['brackets'][key]).subs({h: 1, x: yy[0], u: yy[1], v: yy[2], w: yy[3]}, simultaneous=True)\n                   for key in ['1,2', '1,3', '1,4', '2,3', '2,4', '3,4']]\n        adapted['cases'].append(dict(full_free_parameter_count=case['dimension'],\n            full_six_brackets=list(map(str, entries)),\n            all_distinct_jacobi_coefficients=case['remaining_coefficient_equations']))\n    results = [branch(adapted, spec) for spec in data['branches']]\n    result = dict(status='PASS', task_id='E_reduced_nonnormal', branches=results,\n                  source_report_sha256=hashlib.sha256(source_path.read_bytes()).hexdigest(),\n                  component_input=data, producer_source=Path(__file__).read_text(),\n                  full_source_exhaustion_requires_written_proof=True)\n    with output.open('x') as handle:\n        json.dump(result, handle, indent=2, default=int)\n        handle.write('\\n')\n    print(json.dumps([dict(name=r['name'], ranks=r['matrix_ranks_mod_prime'],\n                         upper=r['projective_tangent_dimension_upper'],\n                         lower=r['projective_family_dimension_lower']) for r in results]))\n\n\ndef normal_quadrics(report_path, case_index, output, record_override=None):\n    \"\"\"One finite genuine quadratic obstruction, with all actual source directions.\"\"\"\n    from sympy.polys.matrices import DomainMatrix\n    from classification_rank3_mixed_component_review import COLUMNS, jacobi, sparse, vector\n    start = time.monotonic()\n    resource.setrlimit(resource.RLIMIT_CPU, (55, 56))\n    resource.setrlimit(resource.RLIMIT_AS, (1536*1024**2,)*2)\n    record = record_override if record_override is not None else json.loads(report_path.read_text())['branches'][case_index]\n    x = s.symbols('h x1:5')\n    def matrix(encoded):\n        P = s.zeros(5)\n        for key, value in encoded.items():\n            i, j = map(int, key.split(',')); P[i,j] = s.sympify(value); P[j,i] = -P[i,j]\n        return P\n    P = matrix(record['witness_brackets']); ps = sparse(P, x)\n    assert jacobi(ps) == s.zeros(350, 1)\n    columns = []\n    for ij, exponent in COLUMNS:\n        variation = {key: dict(value) for key, value in ps.items()}\n        variation.setdefault(ij, {})[exponent] = variation.get(ij, {}).get(exponent, 0) + 1\n        columns.append(jacobi(variation))\n    D = s.Matrix.hstack(*columns)\n    columns = []; X = s.Matrix(x)\n    for a,b in itertools.product(range(5), repeat=2):\n        field=s.zeros(5,1); field[a]=x[b]\n        columns.append(vector(sparse(X*field.T-field*X.T,x)))\n    for a,b in itertools.product(range(5),repeat=2):\n        E=s.zeros(5); E[a,b]=1\n        columns.append(vector(sparse(E*P+P*E.T-x[b]*P.diff(x[a]),x)))\n    columns.append(vector(ps))\n    universal=matrix(record['universal_brackets'])\n    point={s.Symbol(k):s.Rational(v) for k,v in record['full_source_specification']['witness'].items()}\n    columns.extend(vector(sparse(universal.diff(s.Symbol(p)).subs(point),x))\n                   for p in record['full_source_specification']['free_parameters'])\n    F=s.Matrix.hstack(*columns); assert D*F == s.zeros(350,F.cols)\n    rr,pivots=DomainMatrix.from_Matrix(D).convert_to(s.QQ).rref(); rr=rr.to_Matrix()\n    free=[j for j in range(150) if j not in pivots]; kernel=[]\n    for j in free:\n        col=s.zeros(150,1); col[j]=1\n        for i,p in enumerate(pivots): col[p]=-rr[i,j]\n        kernel.append(col*s.ilcm(1,*[s.denom(c) for c in col]))\n    K=s.Matrix.hstack(*kernel); assert D*K == s.zeros(350,len(free))\n    basis=DomainMatrix.from_Matrix(F.row_join(K)).convert_to(s.QQ).rref()[1]\n    normal_indices=[j-F.cols for j in basis if j>=F.cols]\n    source_rank=len(basis)-len(normal_indices)\n    normals=[]\n    for j in normal_indices:\n        R=s.zeros(5)\n        for (ij,e),c in zip(COLUMNS,K[:,j]):\n            R[ij]+=c*s.prod(z**power for z,power in zip(x,e))\n        for i,k in itertools.combinations(range(5),2): R[k,i]=-R[i,k]\n        normals.append(R)\n    pairs=list(itertools.combinations_with_replacement(range(len(normals)),2))\n    squares=[jacobi(sparse(R,x)) for R in normals]\n    Q=s.Matrix.hstack(*[squares[i] if i==j else jacobi(sparse(normals[i]+normals[j],x))-squares[i]-squares[j] for i,j in pairs])\n    dind=D[:,list(pivots)]\n    rows=list(DomainMatrix.from_Matrix(dind.T).convert_to(s.QQ).rref()[1])\n    block=DomainMatrix.from_Matrix(D.extract(rows,list(pivots))).convert_to(s.QQ)\n    rhs=DomainMatrix.from_Matrix(Q.extract(rows,range(len(pairs)))).convert_to(s.QQ)\n    correction=block.inv().matmul(rhs).to_Matrix()\n    obstruction=Q-dind*correction\n    qr,qp=DomainMatrix.from_Matrix(obstruction).convert_to(s.QQ).rref();qr=qr.to_Matrix()\n    n=s.symbols('t0:'+str(len(normals)));monomials=[n[i]*n[j] for i,j in pairs]\n    quadrics=[s.expand(sum(qr[i,j]*monomials[j] for j in range(len(pairs)))) for i in range(len(qp))]\n    gb=s.groebner(quadrics,*n,order='grevlex') if quadrics else None\n    functional=None\n    all_functionals=[]\n    if qp:\n        obstruction_rows=list(DomainMatrix.from_Matrix(obstruction.T).convert_to(s.QQ).rref()[1])\n        inverse=block.inv().to_Matrix()\n        for row in obstruction_rows:\n            coefficients=D[row,list(pivots)]*inverse;ell=s.zeros(1,350);ell[row]=1\n            for k,r in enumerate(rows):ell[r]-=coefficients[k]\n            assert ell*D==s.zeros(1,150)\n            all_functionals.append(dict(nonzero_coefficients={str(i):str(a)for i,a in enumerate(ell)if a},\n                                        quadratic_pairing=list(map(str,list(ell*Q)))))\n    if len(normals)==1 and any(obstruction):\n        row=next(i for i,a in enumerate(obstruction[:,0])if a)\n        inverse=block.inv().to_Matrix();coefficients=D[row,list(pivots)]*inverse\n        ell=s.zeros(1,350);ell[row]=1\n        for k,r in enumerate(rows):ell[r]-=coefficients[k]\n        assert ell*D==s.zeros(1,150)\n        functional=dict(nonzero_coefficients={str(i):str(a)for i,a in enumerate(ell)if a},pairing=str((ell*Q)[0]))\n    result=dict(task_id='E_reduced_nonnormal',source_report=str(report_path),case=record['name'],\n        full_D_rank=len(pivots),actual_source_rank=source_rank,normal_count=len(normals),\n        all_D_times_directions_zero=True,normal_indices=normal_indices,\n        normals=[{f'{i},{j}':str(R[i,j]) for i,j in itertools.combinations(range(5),2) if R[i,j]} for R in normals],\n        normal_monomials=list(map(str,monomials)),quadratic_initial_generators=list(map(str,quadrics)),\n        zero_dimensional_quadratic_support=bool(gb and gb.is_zero_dimensional),\n        grevlex_basis=[str(g.as_expr()) for g in gb.polys] if gb else [],\n        literal_Poisson_normal_axes=[i for i,q in enumerate(squares) if q==s.zeros(350,1)],\n        one_normal_quadratic_cokernel_functional=functional,\n        quadratic_cokernel_functionals=all_functionals,\n        full_initial_ideal_not_claimed=True,source_report_sha256=hashlib.sha256(report_path.read_bytes()).hexdigest(),\n        producer_source=Path(__file__).read_text(),seconds=time.monotonic()-start)\n    if output is None:return result\n    with output.open('x') as handle:json.dump(result,handle,indent=2);handle.write('\\n')\n    print(json.dumps({k:result[k] for k in ['case','normal_count','quadratic_initial_generators','zero_dimensional_quadratic_support','literal_Poisson_normal_axes','seconds']}))\n\n\ndef universal_pencils(output):\n    \"\"\"The actual n3 modulus of the p0 source, not another ambient point probe.\"\"\"\n    from sympy.polys.matrices import DomainMatrix\n    rpath=ROOT/'reports/CLASSIFICATION_TWO_HYPERPLANES_CUBIC_NILPOTENT_COMPONENTS_20261107.json'\n    npath=ROOT/'reports/CLASSIFICATION_TWO_HYPERPLANES_CUBIC_NILPOTENT_P0_NORMALS_20261107.json'\n    record=json.loads(rpath.read_text())['branches'][0];normal=json.loads(npath.read_text())\n    x=s.symbols('h x1:5');lam,t=s.symbols('lam t')\n    def matrix(data):\n        A=s.zeros(5)\n        for key,f in data.items():\n            i,j=map(int,key.split(','));A[i,j]=s.sympify(f);A[j,i]=-A[i,j]\n        return A\n    U=matrix(record['universal_brackets'])\n    pt={s.Symbol(p):0 for p in record['full_source_specification']['free_parameters']}\n    P=U.subs(pt);T=U.diff(s.Symbol('n3')).subs(pt)\n    def projective(A):\n        J={ijk:s.expand(sum(A[i,l]*s.diff(A[j,k],x[l])+A[j,l]*s.diff(A[k,i],x[l])+A[k,l]*s.diff(A[i,j],x[l]) for l in range(5)))\n           for ijk in itertools.combinations(range(5),3) for i,j,k in [ijk]}\n        return [s.expand(sum((-1)**k*x[inds[k]]*J[inds[:k]+inds[k+1:]] for k in range(4)))\n                for inds in itertools.combinations(range(5),4)]\n    assert all(f==0 for f in projective(P+lam*T))\n    normals=list(map(matrix,normal['normals']));coeff=s.symbols('r0:'+str(len(normals)))\n    R=sum((a*A for a,A in zip(coeff,normals)),s.zeros(5))\n    mixed=[s.expand(f-g-h) for f,g,h in zip(projective(T+R),projective(T),projective(R))]\n    equations=[c for f in mixed for c in s.Poly(f,*x).coeffs() if c]\n    M,_=s.linear_eq_to_matrix(equations,coeff);kernel=M.nullspace()\n    aa=s.symbols('a0:'+str(len(kernel)))\n    combo=sum((a*K for a,K in zip(aa,kernel)),s.zeros(len(coeff),1))\n    R=R.subs(dict(zip(coeff,combo)),simultaneous=True)\n    residual=[s.factor(c) for f in projective(R) for c in s.Poly(f,*x).coeffs() if c]\n    residual=list(dict.fromkeys(residual))\n    result=dict(task_id='E_reduced_nonnormal',section_parameter='n3',\n                full_section_projective_Jacobi_zero=True,\n                modulus_compatible_normal_kernel=[list(map(str,k)) for k in kernel],\n                compatible_normal={f'{i},{j}':str(s.expand(R[i,j])) for i,j in itertools.combinations(range(5),2) if R[i,j]},\n                remaining_Poisson_equations=list(map(str,residual)),\n                whole_source_coverage_not_inferred=True,\n                producer_source=Path(__file__).read_text())\n    with output.open('x') as handle:json.dump(result,handle,indent=2);handle.write('\\n')\n    print(json.dumps({k:result[k] for k in ['modulus_compatible_normal_kernel','remaining_Poisson_equations']}))\n\n\nif __name__ == '__main__':\n    parser = argparse.ArgumentParser()\n    parser.add_argument('--output', type=Path, required=True)\n    parser.add_argument('--component-input', type=Path)\n    parser.add_argument('--normal-report', type=Path)\n    parser.add_argument('--case-index', type=int, default=0)\n    parser.add_argument('--universal-pencils', action='store_true')\n    args = parser.parse_args()\n    if args.universal_pencils:\n        universal_pencils(args.output)\n    elif args.normal_report:\n        normal_quadrics(args.normal_report,args.case_index,args.output)\n    elif args.component_input:\n        components(args.component_input, args.output)\n    else:\n        main(args.output)\n",
+      "seconds": 2.5310294480004814
+    },
+    {
+      "task_id": "E_multiple_hyperplane",
+      "source_report": "/workspace/poisson-p4/reports/CLASSIFICATION_NIL22_IMAGE_REMAINING_SOURCES_20261107.json",
+      "case": "nil22_image_triple_B",
+      "full_D_rank": 100,
+      "actual_source_rank": 48,
+      "normal_count": 2,
+      "all_D_times_directions_zero": true,
+      "normal_indices": [
+        23,
+        24
+      ],
+      "normals": [
+        {
+          "0,1": "-5796*h**2 + 900*h*x1 - 10512*h*x3 - 16175*h*x4 - 576*x3**2 - 2244*x3*x4",
+          "0,2": "23913*h**2 - 360*h*x2 - 12150*h*x3 - 5112*h*x4 - 864*x1*x3 + 6048*x3**2 + 13680*x3*x4 - 2244*x4**2",
+          "0,3": "540*h*x3",
+          "0,4": "-864*x3**2",
+          "1,2": "35181*h*x1 + 13464*h*x2 - 900*x1*x2 + 4320*x1*x3 - 4284*x1*x4 + 12384*x2*x3 + 23440*x2*x4",
+          "1,3": "4215*h**2 - 1872*h*x3 - 540*x1*x3 + 6480*x3**2 + 10315*x3*x4",
+          "1,4": "-720*x2*x3",
+          "2,3": "180*x1*x4"
+        },
+        {
+          "0,1": "-888*h**2 + 108*h*x1 - 1116*h*x3 - 1073*h*x4 - 72*x3**2 - 268*x3*x4",
+          "0,2": "-819*h**2 - 72*h*x2 - 1350*h*x3 - 288*h*x4 - 108*x1*x3 + 756*x3**2 + 1710*x3*x4 - 268*x4**2",
+          "0,3": "72*h*x3",
+          "0,4": "-108*x3**2",
+          "1,2": "-2457*h*x1 + 1932*h*x2 - 144*x1*x2 + 900*x1*x3 + 288*x1*x4 + 1332*x2*x3 + 1552*x2*x4",
+          "1,3": "273*h**2 - 156*h*x3 - 72*x1*x3 + 792*x3**2 + 685*x3*x4",
+          "1,4": "-108*x2*x3",
+          "2,3": "36*x2*x3"
+        }
+      ],
+      "normal_monomials": [
+        "t0**2",
+        "t0*t1",
+        "t1**2"
+      ],
+      "quadratic_initial_generators": [
+        "t0**2 - 3*t1**2/124",
+        "t0*t1 + 5*t1**2/31"
+      ],
+      "zero_dimensional_quadratic_support": true,
+      "grevlex_basis": [
+        "t1**3",
+        "t0**2 - 3*t1**2/124",
+        "t0*t1 + 5*t1**2/31"
+      ],
+      "literal_Poisson_normal_axes": [],
+      "one_normal_quadratic_cokernel_functional": null,
+      "quadratic_cokernel_functionals": [
+        {
+          "nonzero_coefficients": {
+            "37": "526/3",
+            "38": "-245",
+            "42": "-35/3",
+            "43": "-15",
+            "51": "-4/3",
+            "113": "7",
+            "114": "10",
+            "122": "1"
+          },
+          "quadratic_pairing": [
+            "1492992",
+            "352512",
+            "20736"
+          ]
+        },
+        {
+          "nonzero_coefficients": {
+            "1": "3",
+            "5": "81/4",
+            "6": "-6888/17",
+            "9": "1269/2",
+            "11": "-27",
+            "15": "78291/8",
+            "16": "-122490/17",
+            "17": "99",
+            "18": "231",
+            "19": "-19351575/68",
+            "20": "18",
+            "21": "-243/2",
+            "23": "3",
+            "26": "-180",
+            "27": "-145908/17",
+            "28": "12",
+            "37": "22923/4",
+            "38": "-82032399/680",
+            "40": "-3057075/68",
+            "41": "-22625403/340",
+            "42": "-5643/2",
+            "43": "-243/8",
+            "44": "-131013/34",
+            "46": "-183144/17",
+            "47": "-5213538/85",
+            "48": "-387/8",
+            "49": "-36612/17",
+            "50": "-4077/2",
+            "54": "9",
+            "58": "-22320/17",
+            "63": "-54",
+            "72": "-2",
+            "75": "-171",
+            "76": "-27/2",
+            "79": "-16212/17",
+            "88": "-99/2",
+            "91": "177",
+            "94": "-3",
+            "96": "282",
+            "97": "90",
+            "99": "-3",
+            "113": "2565/2",
+            "114": "9/2",
+            "119": "243/8",
+            "141": "171",
+            "143": "1"
+          },
+          "quadratic_pairing": [
+            "-1772928000",
+            "-420516360",
+            "-24931800"
+          ]
+        }
+      ],
+      "full_initial_ideal_not_claimed": true,
+      "source_report_sha256": "9ab03220144c70d70b877c7138562d854d0102bd37846eeafcbbd115170e0700",
+      "producer_source": "#!/usr/bin/env python3\n\"\"\"Complete quadratic W sources for the eleven nilpotent cofactor normal forms.\"\"\"\nimport argparse\nimport hashlib\nimport itertools\nimport json\nimport resource\nimport time\nfrom pathlib import Path\n\nimport sympy as s\n\nROOT = Path(__file__).resolve().parents[1]\n\n\ndef main(output):\n    resource.setrlimit(resource.RLIMIT_CPU, (55, 56))\n    resource.setrlimit(resource.RLIMIT_AS, (1536 * 1024**2,) * 2)\n    start = time.monotonic()\n    h, x, u, v, w = xx = s.symbols('h x u v w')\n    mons = [xx[i] * xx[j] for i, j in itertools.combinations_with_replacement(range(5), 2)]\n    unknowns = s.symbols('a0:45')\n    forms = [('j3_zero', (v, w, 0)), ('j3_h', (v, w, h)),\n             ('j3_hx', (v, w, h + x))]\n    for name, L, M in [('zero', 0, 0), ('0_h', 0, h), ('0_hx', 0, h+x),\n                       ('h_0', h, 0), ('hx_0', h+x, 0),\n                       ('h_x', h, x), ('hx_h', h+x, h)]:\n        forms.append(('j21_' + name, (v, L, M)))\n    forms.append(('j111_rank2', (x, h, 0)))\n    records = []\n    for name, V in forms:\n        P = s.zeros(5)\n        for i, value in enumerate(V, 2):\n            P[1, i] = x * value\n        for k, (i, j) in enumerate([(2, 3), (2, 4), (3, 4)]):\n            P[i, j] = sum(a*m for a, m in zip(unknowns[15*k:15*(k+1)], mons))\n        for i, j in itertools.combinations(range(5), 2):\n            P[j, i] = -P[i, j]\n\n        def jac(i, j, k, matrix):\n            return s.expand(sum(matrix[i, l]*s.diff(matrix[j, k], xx[l]) +\n                                matrix[j, l]*s.diff(matrix[k, i], xx[l]) +\n                                matrix[k, l]*s.diff(matrix[i, j], xx[l]) for l in range(5)))\n\n        linear = []\n        for i, j in itertools.combinations(range(2, 5), 2):\n            linear += s.Poly(jac(1, i, j, P), *xx).coeffs()\n        matrix, rhs = s.linear_eq_to_matrix(linear, unknowns)\n        aug, pivots = matrix.row_join(rhs).rref()\n        if 45 in pivots:\n            records.append(dict(case=name, V=[str(f) for f in V], inconsistent=True))\n            print(json.dumps(dict(case=name, inconsistent=True)), flush=True)\n            continue\n        free = [j for j in range(45) if j not in pivots]\n        params = s.symbols('n0:' + str(len(free)))\n        solution = {unknowns[j]: z for j, z in zip(free, params)}\n        for i, pivot in enumerate(pivots):\n            solution[unknowns[pivot]] = aug[i, 45] - sum(aug[i, j]*solution[unknowns[j]] for j in free)\n        Q = P.subs(solution, simultaneous=True).applyfunc(s.expand)\n        assert all(jac(1, i, j, Q) == 0 for i, j in itertools.combinations(range(2, 5), 2))\n        residual = jac(2, 3, 4, Q)\n        equations = list(dict.fromkeys(str(s.factor(f)) for f in s.Poly(residual, *xx).coeffs() if f))\n        F = s.expand(V[0]*Q[3, 4]-V[1]*Q[2, 4]+V[2]*Q[2, 3])\n        assert s.expand(sum(V[i]*s.diff(F, xx[i+2]) for i in range(3))) == 0\n        records.append(dict(case=name, V=[str(f) for f in V], inconsistent=False,\n            linear_matrix_shape=list(matrix.shape), linear_rank=len(pivots),\n            free_parameters=list(map(str, params)), dimension=len(free),\n            original_unknown_monomials=[str(m) for m in mons], free_columns=free,\n            linear_rref=[[str(f) for f in aug.row(i)] for i in range(len(pivots))],\n            brackets={','.join(map(str, ij)): str(Q[ij]) for ij in itertools.combinations(range(1,5),2)},\n            actual_cubic=str(s.factor(F)), remaining_full_Jacobi=str(residual),\n            remaining_coefficient_equations=equations))\n        print(json.dumps(dict(case=name, dimension=len(free), equations=len(equations), F=str(s.factor(F)))), flush=True)\n    source = Path(__file__).read_text()\n    result = dict(task_id='E_reduced_nonnormal', cases=records,\n        all_45_vertical_coefficients_retained=True,\n        all_four_affine_Jacobi_equations_retained=True,\n        normal_form_exhaustion_requires_the_written_centralizer_argument=True,\n        irreducibility_and_MPS_membership_not_inferred_from_this_linear_calculation=True,\n        seconds=time.monotonic()-start, producer_source=source,\n        input_sha256={'code/classification_two_hyperplanes_cubic_nilpotent.py': hashlib.sha256(source.encode()).hexdigest()})\n    with output.open('x') as handle:\n        json.dump(result, handle, indent=2)\n        handle.write('\\n')\n\n\ndef components(input_path, output):\n    \"\"\"Use the existing full-ambient runner on analytically solved full sources.\"\"\"\n    from classification_modular_source_components import branch\n    data = json.loads(input_path.read_text())\n    source_path = ROOT / data['source_report']\n    source = json.loads(source_path.read_text())\n    adapted = {'cases': []}\n    h, x, u, v, w = s.symbols('h x u v w')\n    yy = s.symbols('x1:5')\n    for case in source['cases']:\n        if case.get('inconsistent'):\n            adapted['cases'].append({})\n            continue\n        entries = [s.sympify(case['brackets'][key]).subs({h: 1, x: yy[0], u: yy[1], v: yy[2], w: yy[3]}, simultaneous=True)\n                   for key in ['1,2', '1,3', '1,4', '2,3', '2,4', '3,4']]\n        adapted['cases'].append(dict(full_free_parameter_count=case['dimension'],\n            full_six_brackets=list(map(str, entries)),\n            all_distinct_jacobi_coefficients=case['remaining_coefficient_equations']))\n    results = [branch(adapted, spec) for spec in data['branches']]\n    result = dict(status='PASS', task_id='E_reduced_nonnormal', branches=results,\n                  source_report_sha256=hashlib.sha256(source_path.read_bytes()).hexdigest(),\n                  component_input=data, producer_source=Path(__file__).read_text(),\n                  full_source_exhaustion_requires_written_proof=True)\n    with output.open('x') as handle:\n        json.dump(result, handle, indent=2, default=int)\n        handle.write('\\n')\n    print(json.dumps([dict(name=r['name'], ranks=r['matrix_ranks_mod_prime'],\n                         upper=r['projective_tangent_dimension_upper'],\n                         lower=r['projective_family_dimension_lower']) for r in results]))\n\n\ndef normal_quadrics(report_path, case_index, output, record_override=None):\n    \"\"\"One finite genuine quadratic obstruction, with all actual source directions.\"\"\"\n    from sympy.polys.matrices import DomainMatrix\n    from classification_rank3_mixed_component_review import COLUMNS, jacobi, sparse, vector\n    start = time.monotonic()\n    resource.setrlimit(resource.RLIMIT_CPU, (55, 56))\n    resource.setrlimit(resource.RLIMIT_AS, (1536*1024**2,)*2)\n    record = record_override if record_override is not None else json.loads(report_path.read_text())['branches'][case_index]\n    x = s.symbols('h x1:5')\n    def matrix(encoded):\n        P = s.zeros(5)\n        for key, value in encoded.items():\n            i, j = map(int, key.split(',')); P[i,j] = s.sympify(value); P[j,i] = -P[i,j]\n        return P\n    P = matrix(record['witness_brackets']); ps = sparse(P, x)\n    assert jacobi(ps) == s.zeros(350, 1)\n    columns = []\n    for ij, exponent in COLUMNS:\n        variation = {key: dict(value) for key, value in ps.items()}\n        variation.setdefault(ij, {})[exponent] = variation.get(ij, {}).get(exponent, 0) + 1\n        columns.append(jacobi(variation))\n    D = s.Matrix.hstack(*columns)\n    columns = []; X = s.Matrix(x)\n    for a,b in itertools.product(range(5), repeat=2):\n        field=s.zeros(5,1); field[a]=x[b]\n        columns.append(vector(sparse(X*field.T-field*X.T,x)))\n    for a,b in itertools.product(range(5),repeat=2):\n        E=s.zeros(5); E[a,b]=1\n        columns.append(vector(sparse(E*P+P*E.T-x[b]*P.diff(x[a]),x)))\n    columns.append(vector(ps))\n    universal=matrix(record['universal_brackets'])\n    point={s.Symbol(k):s.Rational(v) for k,v in record['full_source_specification']['witness'].items()}\n    columns.extend(vector(sparse(universal.diff(s.Symbol(p)).subs(point),x))\n                   for p in record['full_source_specification']['free_parameters'])\n    F=s.Matrix.hstack(*columns); assert D*F == s.zeros(350,F.cols)\n    rr,pivots=DomainMatrix.from_Matrix(D).convert_to(s.QQ).rref(); rr=rr.to_Matrix()\n    free=[j for j in range(150) if j not in pivots]; kernel=[]\n    for j in free:\n        col=s.zeros(150,1); col[j]=1\n        for i,p in enumerate(pivots): col[p]=-rr[i,j]\n        kernel.append(col*s.ilcm(1,*[s.denom(c) for c in col]))\n    K=s.Matrix.hstack(*kernel); assert D*K == s.zeros(350,len(free))\n    basis=DomainMatrix.from_Matrix(F.row_join(K)).convert_to(s.QQ).rref()[1]\n    normal_indices=[j-F.cols for j in basis if j>=F.cols]\n    source_rank=len(basis)-len(normal_indices)\n    normals=[]\n    for j in normal_indices:\n        R=s.zeros(5)\n        for (ij,e),c in zip(COLUMNS,K[:,j]):\n            R[ij]+=c*s.prod(z**power for z,power in zip(x,e))\n        for i,k in itertools.combinations(range(5),2): R[k,i]=-R[i,k]\n        normals.append(R)\n    pairs=list(itertools.combinations_with_replacement(range(len(normals)),2))\n    squares=[jacobi(sparse(R,x)) for R in normals]\n    Q=s.Matrix.hstack(*[squares[i] if i==j else jacobi(sparse(normals[i]+normals[j],x))-squares[i]-squares[j] for i,j in pairs])\n    dind=D[:,list(pivots)]\n    rows=list(DomainMatrix.from_Matrix(dind.T).convert_to(s.QQ).rref()[1])\n    block=DomainMatrix.from_Matrix(D.extract(rows,list(pivots))).convert_to(s.QQ)\n    rhs=DomainMatrix.from_Matrix(Q.extract(rows,range(len(pairs)))).convert_to(s.QQ)\n    correction=block.inv().matmul(rhs).to_Matrix()\n    obstruction=Q-dind*correction\n    qr,qp=DomainMatrix.from_Matrix(obstruction).convert_to(s.QQ).rref();qr=qr.to_Matrix()\n    n=s.symbols('t0:'+str(len(normals)));monomials=[n[i]*n[j] for i,j in pairs]\n    quadrics=[s.expand(sum(qr[i,j]*monomials[j] for j in range(len(pairs)))) for i in range(len(qp))]\n    gb=s.groebner(quadrics,*n,order='grevlex') if quadrics else None\n    functional=None\n    all_functionals=[]\n    if qp:\n        obstruction_rows=list(DomainMatrix.from_Matrix(obstruction.T).convert_to(s.QQ).rref()[1])\n        inverse=block.inv().to_Matrix()\n        for row in obstruction_rows:\n            coefficients=D[row,list(pivots)]*inverse;ell=s.zeros(1,350);ell[row]=1\n            for k,r in enumerate(rows):ell[r]-=coefficients[k]\n            assert ell*D==s.zeros(1,150)\n            all_functionals.append(dict(nonzero_coefficients={str(i):str(a)for i,a in enumerate(ell)if a},\n                                        quadratic_pairing=list(map(str,list(ell*Q)))))\n    if len(normals)==1 and any(obstruction):\n        row=next(i for i,a in enumerate(obstruction[:,0])if a)\n        inverse=block.inv().to_Matrix();coefficients=D[row,list(pivots)]*inverse\n        ell=s.zeros(1,350);ell[row]=1\n        for k,r in enumerate(rows):ell[r]-=coefficients[k]\n        assert ell*D==s.zeros(1,150)\n        functional=dict(nonzero_coefficients={str(i):str(a)for i,a in enumerate(ell)if a},pairing=str((ell*Q)[0]))\n    result=dict(task_id='E_reduced_nonnormal',source_report=str(report_path),case=record['name'],\n        full_D_rank=len(pivots),actual_source_rank=source_rank,normal_count=len(normals),\n        all_D_times_directions_zero=True,normal_indices=normal_indices,\n        normals=[{f'{i},{j}':str(R[i,j]) for i,j in itertools.combinations(range(5),2) if R[i,j]} for R in normals],\n        normal_monomials=list(map(str,monomials)),quadratic_initial_generators=list(map(str,quadrics)),\n        zero_dimensional_quadratic_support=bool(gb and gb.is_zero_dimensional),\n        grevlex_basis=[str(g.as_expr()) for g in gb.polys] if gb else [],\n        literal_Poisson_normal_axes=[i for i,q in enumerate(squares) if q==s.zeros(350,1)],\n        one_normal_quadratic_cokernel_functional=functional,\n        quadratic_cokernel_functionals=all_functionals,\n        full_initial_ideal_not_claimed=True,source_report_sha256=hashlib.sha256(report_path.read_bytes()).hexdigest(),\n        producer_source=Path(__file__).read_text(),seconds=time.monotonic()-start)\n    if output is None:return result\n    with output.open('x') as handle:json.dump(result,handle,indent=2);handle.write('\\n')\n    print(json.dumps({k:result[k] for k in ['case','normal_count','quadratic_initial_generators','zero_dimensional_quadratic_support','literal_Poisson_normal_axes','seconds']}))\n\n\ndef universal_pencils(output):\n    \"\"\"The actual n3 modulus of the p0 source, not another ambient point probe.\"\"\"\n    from sympy.polys.matrices import DomainMatrix\n    rpath=ROOT/'reports/CLASSIFICATION_TWO_HYPERPLANES_CUBIC_NILPOTENT_COMPONENTS_20261107.json'\n    npath=ROOT/'reports/CLASSIFICATION_TWO_HYPERPLANES_CUBIC_NILPOTENT_P0_NORMALS_20261107.json'\n    record=json.loads(rpath.read_text())['branches'][0];normal=json.loads(npath.read_text())\n    x=s.symbols('h x1:5');lam,t=s.symbols('lam t')\n    def matrix(data):\n        A=s.zeros(5)\n        for key,f in data.items():\n            i,j=map(int,key.split(','));A[i,j]=s.sympify(f);A[j,i]=-A[i,j]\n        return A\n    U=matrix(record['universal_brackets'])\n    pt={s.Symbol(p):0 for p in record['full_source_specification']['free_parameters']}\n    P=U.subs(pt);T=U.diff(s.Symbol('n3')).subs(pt)\n    def projective(A):\n        J={ijk:s.expand(sum(A[i,l]*s.diff(A[j,k],x[l])+A[j,l]*s.diff(A[k,i],x[l])+A[k,l]*s.diff(A[i,j],x[l]) for l in range(5)))\n           for ijk in itertools.combinations(range(5),3) for i,j,k in [ijk]}\n        return [s.expand(sum((-1)**k*x[inds[k]]*J[inds[:k]+inds[k+1:]] for k in range(4)))\n                for inds in itertools.combinations(range(5),4)]\n    assert all(f==0 for f in projective(P+lam*T))\n    normals=list(map(matrix,normal['normals']));coeff=s.symbols('r0:'+str(len(normals)))\n    R=sum((a*A for a,A in zip(coeff,normals)),s.zeros(5))\n    mixed=[s.expand(f-g-h) for f,g,h in zip(projective(T+R),projective(T),projective(R))]\n    equations=[c for f in mixed for c in s.Poly(f,*x).coeffs() if c]\n    M,_=s.linear_eq_to_matrix(equations,coeff);kernel=M.nullspace()\n    aa=s.symbols('a0:'+str(len(kernel)))\n    combo=sum((a*K for a,K in zip(aa,kernel)),s.zeros(len(coeff),1))\n    R=R.subs(dict(zip(coeff,combo)),simultaneous=True)\n    residual=[s.factor(c) for f in projective(R) for c in s.Poly(f,*x).coeffs() if c]\n    residual=list(dict.fromkeys(residual))\n    result=dict(task_id='E_reduced_nonnormal',section_parameter='n3',\n                full_section_projective_Jacobi_zero=True,\n                modulus_compatible_normal_kernel=[list(map(str,k)) for k in kernel],\n                compatible_normal={f'{i},{j}':str(s.expand(R[i,j])) for i,j in itertools.combinations(range(5),2) if R[i,j]},\n                remaining_Poisson_equations=list(map(str,residual)),\n                whole_source_coverage_not_inferred=True,\n                producer_source=Path(__file__).read_text())\n    with output.open('x') as handle:json.dump(result,handle,indent=2);handle.write('\\n')\n    print(json.dumps({k:result[k] for k in ['modulus_compatible_normal_kernel','remaining_Poisson_equations']}))\n\n\nif __name__ == '__main__':\n    parser = argparse.ArgumentParser()\n    parser.add_argument('--output', type=Path, required=True)\n    parser.add_argument('--component-input', type=Path)\n    parser.add_argument('--normal-report', type=Path)\n    parser.add_argument('--case-index', type=int, default=0)\n    parser.add_argument('--universal-pencils', action='store_true')\n    args = parser.parse_args()\n    if args.universal_pencils:\n        universal_pencils(args.output)\n    elif args.normal_report:\n        normal_quadrics(args.normal_report,args.case_index,args.output)\n    elif args.component_input:\n        components(args.component_input, args.output)\n    else:\n        main(args.output)\n",
+      "seconds": 1.397190091000084
+    },
+    {
+      "task_id": "E_multiple_hyperplane",
+      "source_report": "/workspace/poisson-p4/reports/CLASSIFICATION_NIL22_IMAGE_REMAINING_SOURCES_20261107.json",
+      "case": "nil22_image_triple_C",
+      "full_D_rank": 98,
+      "actual_source_rank": 49,
+      "normal_count": 3,
+      "all_D_times_directions_zero": true,
+      "normal_indices": [
+        14,
+        24,
+        25
+      ],
+      "normals": [
+        {
+          "0,1": "150*h**2 + 836*h*x3 - 55*x3*x4",
+          "0,2": "15*h**2 + 66*h*x3 + 1661*h*x4 - 55*x4**2",
+          "1,2": "-320*h*x2 + 1705*x1*x4",
+          "1,3": "-160*h*x3 + 880*x3**2",
+          "1,4": "60*h**2"
+        },
+        {
+          "0,1": "-6900*h**2 + 117600*h*x1 - 17374*h*x3 + 62550*h*x4 + 169200*x1*x3 + 300800*x1*x4 - 102400*x2*x3 + 80800*x3**2 + 105095*x3*x4 + 211200*x4**2",
+          "0,2": "-14520*h**2 - 68880*h*x1 + 40800*h*x2 - 8034*h*x3 - 162769*h*x4 - 32400*x1*x3 - 115200*x1*x4 + 169200*x2*x3 + 96000*x2*x4 - 54000*x3**2 - 90800*x3*x4 - 148105*x4**2",
+          "0,3": "40800*h*x3 + 115200*x3**2 + 102400*x3*x4",
+          "0,4": "32160*h*x3 - 32400*x3**2",
+          "1,2": "21600*h*x1 + 93000*h*x2 - 52680*x1**2 - 36000*x1*x2 - 74525*x1*x4 + 52650*x2*x4",
+          "1,3": "27300*h*x3 - 36000*x1*x3 - 70730*x3**2",
+          "1,4": "-39840*x1*x3 - 36000*x2*x3",
+          "2,3": "39840*x1*x3"
+        },
+        {
+          "0,1": "-741780*h**2 + 3645600*h*x1 + 15287182*h*x3 + 519750*h*x4 + 4050000*x1*x3 + 6204000*x1*x4 - 2112000*x2*x3 - 151200*x3**2 - 2083935*x3*x4 + 4356000*x4**2",
+          "0,2": "491100*h**2 - 621360*h*x1 + 69600*h*x2 + 3292722*h*x3 + 28971877*h*x4 - 1004400*x1*x3 - 3571200*x1*x4 + 4647600*x2*x3 + 1980000*x2*x4 - 1674000*x3**2 - 4474800*x3*x4 - 8538735*x4**2",
+          "0,3": "468000*h*x3 + 2973600*x3**2 + 2112000*x3*x4",
+          "0,4": "159360*h**2 + 678240*h*x3 - 1004400*x3**2",
+          "1,2": "2626740*h*x1 + 3381000*h*x2 + 717480*x1**2 - 3984480*x1*x2 + 35059645*x1*x4 + 4485690*x2*x4",
+          "1,3": "935940*h*x3 - 2390880*x1*x3 + 16108870*x3**2",
+          "1,4": "478080*h*x1 + 358560*x1*x3 - 1514400*x2*x3",
+          "2,3": "79680*h**2 + 159360*h*x1 + 823360*x1*x4"
+        }
+      ],
+      "normal_monomials": [
+        "t0**2",
+        "t0*t1",
+        "t0*t2",
+        "t1**2",
+        "t1*t2",
+        "t2**2"
+      ],
+      "quadratic_initial_generators": [
+        "t1**2 + 598*t1*t2/15 + 89401*t2**2/225"
+      ],
+      "zero_dimensional_quadratic_support": false,
+      "grevlex_basis": [
+        "t1**2 + 598*t1*t2/15 + 89401*t2**2/225"
+      ],
+      "literal_Poisson_normal_axes": [],
+      "one_normal_quadratic_cokernel_functional": null,
+      "quadratic_cokernel_functionals": [
+        {
+          "nonzero_coefficients": {
+            "0": "-462/29",
+            "1": "1881/464",
+            "2": "195479408403/12144238592",
+            "4": "84/29",
+            "5": "-27927547/46088192",
+            "6": "-236713585376397/20208013017088",
+            "8": "-9/29",
+            "9": "427584796999605810293/232186248988880076800",
+            "10": "-93/29",
+            "11": "97670471661/66793312256",
+            "14": "-21/29",
+            "15": "164868640059/325935693824",
+            "16": "-1267237313877131/646656416546816",
+            "17": "-861977/59680608",
+            "18": "-814395861/5092745216",
+            "19": "1384112934412910378331/218528234342475366400",
+            "20": "2520505653/5092745216",
+            "21": "8560254576645/3473252237312",
+            "22": "-42236873/2892022796",
+            "23": "380131857/46272364736",
+            "24": "54020369511/740357835776",
+            "27": "-5947094748091815459733/1857489991911040614400",
+            "28": "380131857/46272364736",
+            "29": "441750874023/740357835776",
+            "30": "-3237850719241335/2019696175996928",
+            "34": "6/29",
+            "37": "14858313389328376025/337616268563255205888",
+            "38": "-4889090538178954887203/1897427631208545386496",
+            "40": "-412238006214103523911/525180862209508098048",
+            "41": "25531874722723042076275724563/6418466396641770649807749120",
+            "42": "472490547820031274251/101647908814743502848",
+            "43": "-1571006550343957931/11294212090527055872",
+            "44": "-628985126105791629/413854107336097792",
+            "46": "432543529208229213/901694170830602240",
+            "48": "7270294868888863621/3226917740150587392",
+            "49": "181860999958963389/2509824909006012416",
+            "50": "-6731134523465042525463/1956229243362400534528",
+            "52": "-573214705/723005699",
+            "53": "6679459773/11568091184",
+            "54": "-8410860159921/131968784227072",
+            "58": "2966069008963/2932148058112",
+            "59": "-3957921902217/2022171074560",
+            "61": "-66372229/1446011398",
+            "62": "597350061/23136182368",
+            "63": "1211864719581/8514115111424",
+            "72": "-4771/464",
+            "75": "-861977/8641536",
+            "76": "7174763/46088192",
+            "79": "106211287613235/10104006508544",
+            "81": "93/58",
+            "88": "21549425/954889728",
+            "90": "-861977/56169984",
+            "91": "4652103/21951488",
+            "92": "-168947492/6507051291",
+            "93": "42236873/2892022796",
+            "94": "-380131857/46272364736",
+            "96": "-275240085/149786624",
+            "98": "42236873/2892022796",
+            "99": "-380131857/46272364736",
+            "100": "-441750874023/740357835776",
+            "112": "-1683645502323768575/57176948708293220352",
+            "113": "-1219061875400608927/868785545425158144",
+            "118": "281648313270888253/977383738603302912",
+            "119": "-1995224976350039019/2509824909006012416",
+            "121": "675789968/19521153873",
+            "123": "742162197/1446011398",
+            "124": "-9720514629/23136182368",
+            "143": "1"
+          },
+          "quadratic_pairing": [
+            "0",
+            "0",
+            "0",
+            "-29091723750/2813",
+            "-1159790053500/2813",
+            "-11559240866550/2813"
+          ]
+        }
+      ],
+      "full_initial_ideal_not_claimed": true,
+      "source_report_sha256": "9ab03220144c70d70b877c7138562d854d0102bd37846eeafcbbd115170e0700",
+      "producer_source": "#!/usr/bin/env python3\n\"\"\"Complete quadratic W sources for the eleven nilpotent cofactor normal forms.\"\"\"\nimport argparse\nimport hashlib\nimport itertools\nimport json\nimport resource\nimport time\nfrom pathlib import Path\n\nimport sympy as s\n\nROOT = Path(__file__).resolve().parents[1]\n\n\ndef main(output):\n    resource.setrlimit(resource.RLIMIT_CPU, (55, 56))\n    resource.setrlimit(resource.RLIMIT_AS, (1536 * 1024**2,) * 2)\n    start = time.monotonic()\n    h, x, u, v, w = xx = s.symbols('h x u v w')\n    mons = [xx[i] * xx[j] for i, j in itertools.combinations_with_replacement(range(5), 2)]\n    unknowns = s.symbols('a0:45')\n    forms = [('j3_zero', (v, w, 0)), ('j3_h', (v, w, h)),\n             ('j3_hx', (v, w, h + x))]\n    for name, L, M in [('zero', 0, 0), ('0_h', 0, h), ('0_hx', 0, h+x),\n                       ('h_0', h, 0), ('hx_0', h+x, 0),\n                       ('h_x', h, x), ('hx_h', h+x, h)]:\n        forms.append(('j21_' + name, (v, L, M)))\n    forms.append(('j111_rank2', (x, h, 0)))\n    records = []\n    for name, V in forms:\n        P = s.zeros(5)\n        for i, value in enumerate(V, 2):\n            P[1, i] = x * value\n        for k, (i, j) in enumerate([(2, 3), (2, 4), (3, 4)]):\n            P[i, j] = sum(a*m for a, m in zip(unknowns[15*k:15*(k+1)], mons))\n        for i, j in itertools.combinations(range(5), 2):\n            P[j, i] = -P[i, j]\n\n        def jac(i, j, k, matrix):\n            return s.expand(sum(matrix[i, l]*s.diff(matrix[j, k], xx[l]) +\n                                matrix[j, l]*s.diff(matrix[k, i], xx[l]) +\n                                matrix[k, l]*s.diff(matrix[i, j], xx[l]) for l in range(5)))\n\n        linear = []\n        for i, j in itertools.combinations(range(2, 5), 2):\n            linear += s.Poly(jac(1, i, j, P), *xx).coeffs()\n        matrix, rhs = s.linear_eq_to_matrix(linear, unknowns)\n        aug, pivots = matrix.row_join(rhs).rref()\n        if 45 in pivots:\n            records.append(dict(case=name, V=[str(f) for f in V], inconsistent=True))\n            print(json.dumps(dict(case=name, inconsistent=True)), flush=True)\n            continue\n        free = [j for j in range(45) if j not in pivots]\n        params = s.symbols('n0:' + str(len(free)))\n        solution = {unknowns[j]: z for j, z in zip(free, params)}\n        for i, pivot in enumerate(pivots):\n            solution[unknowns[pivot]] = aug[i, 45] - sum(aug[i, j]*solution[unknowns[j]] for j in free)\n        Q = P.subs(solution, simultaneous=True).applyfunc(s.expand)\n        assert all(jac(1, i, j, Q) == 0 for i, j in itertools.combinations(range(2, 5), 2))\n        residual = jac(2, 3, 4, Q)\n        equations = list(dict.fromkeys(str(s.factor(f)) for f in s.Poly(residual, *xx).coeffs() if f))\n        F = s.expand(V[0]*Q[3, 4]-V[1]*Q[2, 4]+V[2]*Q[2, 3])\n        assert s.expand(sum(V[i]*s.diff(F, xx[i+2]) for i in range(3))) == 0\n        records.append(dict(case=name, V=[str(f) for f in V], inconsistent=False,\n            linear_matrix_shape=list(matrix.shape), linear_rank=len(pivots),\n            free_parameters=list(map(str, params)), dimension=len(free),\n            original_unknown_monomials=[str(m) for m in mons], free_columns=free,\n            linear_rref=[[str(f) for f in aug.row(i)] for i in range(len(pivots))],\n            brackets={','.join(map(str, ij)): str(Q[ij]) for ij in itertools.combinations(range(1,5),2)},\n            actual_cubic=str(s.factor(F)), remaining_full_Jacobi=str(residual),\n            remaining_coefficient_equations=equations))\n        print(json.dumps(dict(case=name, dimension=len(free), equations=len(equations), F=str(s.factor(F)))), flush=True)\n    source = Path(__file__).read_text()\n    result = dict(task_id='E_reduced_nonnormal', cases=records,\n        all_45_vertical_coefficients_retained=True,\n        all_four_affine_Jacobi_equations_retained=True,\n        normal_form_exhaustion_requires_the_written_centralizer_argument=True,\n        irreducibility_and_MPS_membership_not_inferred_from_this_linear_calculation=True,\n        seconds=time.monotonic()-start, producer_source=source,\n        input_sha256={'code/classification_two_hyperplanes_cubic_nilpotent.py': hashlib.sha256(source.encode()).hexdigest()})\n    with output.open('x') as handle:\n        json.dump(result, handle, indent=2)\n        handle.write('\\n')\n\n\ndef components(input_path, output):\n    \"\"\"Use the existing full-ambient runner on analytically solved full sources.\"\"\"\n    from classification_modular_source_components import branch\n    data = json.loads(input_path.read_text())\n    source_path = ROOT / data['source_report']\n    source = json.loads(source_path.read_text())\n    adapted = {'cases': []}\n    h, x, u, v, w = s.symbols('h x u v w')\n    yy = s.symbols('x1:5')\n    for case in source['cases']:\n        if case.get('inconsistent'):\n            adapted['cases'].append({})\n            continue\n        entries = [s.sympify(case['brackets'][key]).subs({h: 1, x: yy[0], u: yy[1], v: yy[2], w: yy[3]}, simultaneous=True)\n                   for key in ['1,2', '1,3', '1,4', '2,3', '2,4', '3,4']]\n        adapted['cases'].append(dict(full_free_parameter_count=case['dimension'],\n            full_six_brackets=list(map(str, entries)),\n            all_distinct_jacobi_coefficients=case['remaining_coefficient_equations']))\n    results = [branch(adapted, spec) for spec in data['branches']]\n    result = dict(status='PASS', task_id='E_reduced_nonnormal', branches=results,\n                  source_report_sha256=hashlib.sha256(source_path.read_bytes()).hexdigest(),\n                  component_input=data, producer_source=Path(__file__).read_text(),\n                  full_source_exhaustion_requires_written_proof=True)\n    with output.open('x') as handle:\n        json.dump(result, handle, indent=2, default=int)\n        handle.write('\\n')\n    print(json.dumps([dict(name=r['name'], ranks=r['matrix_ranks_mod_prime'],\n                         upper=r['projective_tangent_dimension_upper'],\n                         lower=r['projective_family_dimension_lower']) for r in results]))\n\n\ndef normal_quadrics(report_path, case_index, output, record_override=None):\n    \"\"\"One finite genuine quadratic obstruction, with all actual source directions.\"\"\"\n    from sympy.polys.matrices import DomainMatrix\n    from classification_rank3_mixed_component_review import COLUMNS, jacobi, sparse, vector\n    start = time.monotonic()\n    resource.setrlimit(resource.RLIMIT_CPU, (55, 56))\n    resource.setrlimit(resource.RLIMIT_AS, (1536*1024**2,)*2)\n    record = record_override if record_override is not None else json.loads(report_path.read_text())['branches'][case_index]\n    x = s.symbols('h x1:5')\n    def matrix(encoded):\n        P = s.zeros(5)\n        for key, value in encoded.items():\n            i, j = map(int, key.split(',')); P[i,j] = s.sympify(value); P[j,i] = -P[i,j]\n        return P\n    P = matrix(record['witness_brackets']); ps = sparse(P, x)\n    assert jacobi(ps) == s.zeros(350, 1)\n    columns = []\n    for ij, exponent in COLUMNS:\n        variation = {key: dict(value) for key, value in ps.items()}\n        variation.setdefault(ij, {})[exponent] = variation.get(ij, {}).get(exponent, 0) + 1\n        columns.append(jacobi(variation))\n    D = s.Matrix.hstack(*columns)\n    columns = []; X = s.Matrix(x)\n    for a,b in itertools.product(range(5), repeat=2):\n        field=s.zeros(5,1); field[a]=x[b]\n        columns.append(vector(sparse(X*field.T-field*X.T,x)))\n    for a,b in itertools.product(range(5),repeat=2):\n        E=s.zeros(5); E[a,b]=1\n        columns.append(vector(sparse(E*P+P*E.T-x[b]*P.diff(x[a]),x)))\n    columns.append(vector(ps))\n    universal=matrix(record['universal_brackets'])\n    point={s.Symbol(k):s.Rational(v) for k,v in record['full_source_specification']['witness'].items()}\n    columns.extend(vector(sparse(universal.diff(s.Symbol(p)).subs(point),x))\n                   for p in record['full_source_specification']['free_parameters'])\n    F=s.Matrix.hstack(*columns); assert D*F == s.zeros(350,F.cols)\n    rr,pivots=DomainMatrix.from_Matrix(D).convert_to(s.QQ).rref(); rr=rr.to_Matrix()\n    free=[j for j in range(150) if j not in pivots]; kernel=[]\n    for j in free:\n        col=s.zeros(150,1); col[j]=1\n        for i,p in enumerate(pivots): col[p]=-rr[i,j]\n        kernel.append(col*s.ilcm(1,*[s.denom(c) for c in col]))\n    K=s.Matrix.hstack(*kernel); assert D*K == s.zeros(350,len(free))\n    basis=DomainMatrix.from_Matrix(F.row_join(K)).convert_to(s.QQ).rref()[1]\n    normal_indices=[j-F.cols for j in basis if j>=F.cols]\n    source_rank=len(basis)-len(normal_indices)\n    normals=[]\n    for j in normal_indices:\n        R=s.zeros(5)\n        for (ij,e),c in zip(COLUMNS,K[:,j]):\n            R[ij]+=c*s.prod(z**power for z,power in zip(x,e))\n        for i,k in itertools.combinations(range(5),2): R[k,i]=-R[i,k]\n        normals.append(R)\n    pairs=list(itertools.combinations_with_replacement(range(len(normals)),2))\n    squares=[jacobi(sparse(R,x)) for R in normals]\n    Q=s.Matrix.hstack(*[squares[i] if i==j else jacobi(sparse(normals[i]+normals[j],x))-squares[i]-squares[j] for i,j in pairs])\n    dind=D[:,list(pivots)]\n    rows=list(DomainMatrix.from_Matrix(dind.T).convert_to(s.QQ).rref()[1])\n    block=DomainMatrix.from_Matrix(D.extract(rows,list(pivots))).convert_to(s.QQ)\n    rhs=DomainMatrix.from_Matrix(Q.extract(rows,range(len(pairs)))).convert_to(s.QQ)\n    correction=block.inv().matmul(rhs).to_Matrix()\n    obstruction=Q-dind*correction\n    qr,qp=DomainMatrix.from_Matrix(obstruction).convert_to(s.QQ).rref();qr=qr.to_Matrix()\n    n=s.symbols('t0:'+str(len(normals)));monomials=[n[i]*n[j] for i,j in pairs]\n    quadrics=[s.expand(sum(qr[i,j]*monomials[j] for j in range(len(pairs)))) for i in range(len(qp))]\n    gb=s.groebner(quadrics,*n,order='grevlex') if quadrics else None\n    functional=None\n    all_functionals=[]\n    if qp:\n        obstruction_rows=list(DomainMatrix.from_Matrix(obstruction.T).convert_to(s.QQ).rref()[1])\n        inverse=block.inv().to_Matrix()\n        for row in obstruction_rows:\n            coefficients=D[row,list(pivots)]*inverse;ell=s.zeros(1,350);ell[row]=1\n            for k,r in enumerate(rows):ell[r]-=coefficients[k]\n            assert ell*D==s.zeros(1,150)\n            all_functionals.append(dict(nonzero_coefficients={str(i):str(a)for i,a in enumerate(ell)if a},\n                                        quadratic_pairing=list(map(str,list(ell*Q)))))\n    if len(normals)==1 and any(obstruction):\n        row=next(i for i,a in enumerate(obstruction[:,0])if a)\n        inverse=block.inv().to_Matrix();coefficients=D[row,list(pivots)]*inverse\n        ell=s.zeros(1,350);ell[row]=1\n        for k,r in enumerate(rows):ell[r]-=coefficients[k]\n        assert ell*D==s.zeros(1,150)\n        functional=dict(nonzero_coefficients={str(i):str(a)for i,a in enumerate(ell)if a},pairing=str((ell*Q)[0]))\n    result=dict(task_id='E_reduced_nonnormal',source_report=str(report_path),case=record['name'],\n        full_D_rank=len(pivots),actual_source_rank=source_rank,normal_count=len(normals),\n        all_D_times_directions_zero=True,normal_indices=normal_indices,\n        normals=[{f'{i},{j}':str(R[i,j]) for i,j in itertools.combinations(range(5),2) if R[i,j]} for R in normals],\n        normal_monomials=list(map(str,monomials)),quadratic_initial_generators=list(map(str,quadrics)),\n        zero_dimensional_quadratic_support=bool(gb and gb.is_zero_dimensional),\n        grevlex_basis=[str(g.as_expr()) for g in gb.polys] if gb else [],\n        literal_Poisson_normal_axes=[i for i,q in enumerate(squares) if q==s.zeros(350,1)],\n        one_normal_quadratic_cokernel_functional=functional,\n        quadratic_cokernel_functionals=all_functionals,\n        full_initial_ideal_not_claimed=True,source_report_sha256=hashlib.sha256(report_path.read_bytes()).hexdigest(),\n        producer_source=Path(__file__).read_text(),seconds=time.monotonic()-start)\n    if output is None:return result\n    with output.open('x') as handle:json.dump(result,handle,indent=2);handle.write('\\n')\n    print(json.dumps({k:result[k] for k in ['case','normal_count','quadratic_initial_generators','zero_dimensional_quadratic_support','literal_Poisson_normal_axes','seconds']}))\n\n\ndef universal_pencils(output):\n    \"\"\"The actual n3 modulus of the p0 source, not another ambient point probe.\"\"\"\n    from sympy.polys.matrices import DomainMatrix\n    rpath=ROOT/'reports/CLASSIFICATION_TWO_HYPERPLANES_CUBIC_NILPOTENT_COMPONENTS_20261107.json'\n    npath=ROOT/'reports/CLASSIFICATION_TWO_HYPERPLANES_CUBIC_NILPOTENT_P0_NORMALS_20261107.json'\n    record=json.loads(rpath.read_text())['branches'][0];normal=json.loads(npath.read_text())\n    x=s.symbols('h x1:5');lam,t=s.symbols('lam t')\n    def matrix(data):\n        A=s.zeros(5)\n        for key,f in data.items():\n            i,j=map(int,key.split(','));A[i,j]=s.sympify(f);A[j,i]=-A[i,j]\n        return A\n    U=matrix(record['universal_brackets'])\n    pt={s.Symbol(p):0 for p in record['full_source_specification']['free_parameters']}\n    P=U.subs(pt);T=U.diff(s.Symbol('n3')).subs(pt)\n    def projective(A):\n        J={ijk:s.expand(sum(A[i,l]*s.diff(A[j,k],x[l])+A[j,l]*s.diff(A[k,i],x[l])+A[k,l]*s.diff(A[i,j],x[l]) for l in range(5)))\n           for ijk in itertools.combinations(range(5),3) for i,j,k in [ijk]}\n        return [s.expand(sum((-1)**k*x[inds[k]]*J[inds[:k]+inds[k+1:]] for k in range(4)))\n                for inds in itertools.combinations(range(5),4)]\n    assert all(f==0 for f in projective(P+lam*T))\n    normals=list(map(matrix,normal['normals']));coeff=s.symbols('r0:'+str(len(normals)))\n    R=sum((a*A for a,A in zip(coeff,normals)),s.zeros(5))\n    mixed=[s.expand(f-g-h) for f,g,h in zip(projective(T+R),projective(T),projective(R))]\n    equations=[c for f in mixed for c in s.Poly(f,*x).coeffs() if c]\n    M,_=s.linear_eq_to_matrix(equations,coeff);kernel=M.nullspace()\n    aa=s.symbols('a0:'+str(len(kernel)))\n    combo=sum((a*K for a,K in zip(aa,kernel)),s.zeros(len(coeff),1))\n    R=R.subs(dict(zip(coeff,combo)),simultaneous=True)\n    residual=[s.factor(c) for f in projective(R) for c in s.Poly(f,*x).coeffs() if c]\n    residual=list(dict.fromkeys(residual))\n    result=dict(task_id='E_reduced_nonnormal',section_parameter='n3',\n                full_section_projective_Jacobi_zero=True,\n                modulus_compatible_normal_kernel=[list(map(str,k)) for k in kernel],\n                compatible_normal={f'{i},{j}':str(s.expand(R[i,j])) for i,j in itertools.combinations(range(5),2) if R[i,j]},\n                remaining_Poisson_equations=list(map(str,residual)),\n                whole_source_coverage_not_inferred=True,\n                producer_source=Path(__file__).read_text())\n    with output.open('x') as handle:json.dump(result,handle,indent=2);handle.write('\\n')\n    print(json.dumps({k:result[k] for k in ['modulus_compatible_normal_kernel','remaining_Poisson_equations']}))\n\n\nif __name__ == '__main__':\n    parser = argparse.ArgumentParser()\n    parser.add_argument('--output', type=Path, required=True)\n    parser.add_argument('--component-input', type=Path)\n    parser.add_argument('--normal-report', type=Path)\n    parser.add_argument('--case-index', type=int, default=0)\n    parser.add_argument('--universal-pencils', action='store_true')\n    args = parser.parse_args()\n    if args.universal_pencils:\n        universal_pencils(args.output)\n    elif args.normal_report:\n        normal_quadrics(args.normal_report,args.case_index,args.output)\n    elif args.component_input:\n        components(args.component_input, args.output)\n    else:\n        main(args.output)\n",
+      "seconds": 2.249121930000001
+    },
+    {
+      "task_id": "E_multiple_hyperplane",
+      "source_report": "/workspace/poisson-p4/reports/CLASSIFICATION_NIL22_IMAGE_REMAINING_SOURCES_20261107.json",
+      "case": "nil22_image_quadratic_A",
+      "full_D_rank": 101,
+      "actual_source_rank": 48,
+      "normal_count": 1,
+      "all_D_times_directions_zero": true,
+      "normal_indices": [
+        26
+      ],
+      "normals": [
+        {
+          "0,1": "-976430*h**2 + 27551160*h*x1 - 163406880*h*x3 - 14605734*h*x4 - 15847650*x3**2 - 22866935*x3*x4",
+          "0,2": "737100*h**2 - 7125300*h*x2 + 10596600*h*x3 - 56527380*h*x4 - 15847650*x3*x4 - 22866935*x4**2",
+          "0,3": "20425860*h*x3",
+          "1,2": "1474200*h*x1 + 1952860*h*x2 - 27551160*x1*x2 + 10231200*x1*x3 + 14250600*x1*x4 - 746460*x2*x4",
+          "1,3": "-2139852*h**2 - 950040*x1*x3 + 206158680*x3**2",
+          "1,4": "-14250600*x2*x3 + 5481000*x3**2",
+          "2,3": "13300560*x1*x4"
+        }
+      ],
+      "normal_monomials": [
+        "t0**2"
+      ],
+      "quadratic_initial_generators": [],
+      "zero_dimensional_quadratic_support": false,
+      "grevlex_basis": [],
+      "literal_Poisson_normal_axes": [],
+      "one_normal_quadratic_cokernel_functional": null,
+      "quadratic_cokernel_functionals": [],
+      "full_initial_ideal_not_claimed": true,
+      "source_report_sha256": "9ab03220144c70d70b877c7138562d854d0102bd37846eeafcbbd115170e0700",
+      "producer_source": "#!/usr/bin/env python3\n\"\"\"Complete quadratic W sources for the eleven nilpotent cofactor normal forms.\"\"\"\nimport argparse\nimport hashlib\nimport itertools\nimport json\nimport resource\nimport time\nfrom pathlib import Path\n\nimport sympy as s\n\nROOT = Path(__file__).resolve().parents[1]\n\n\ndef main(output):\n    resource.setrlimit(resource.RLIMIT_CPU, (55, 56))\n    resource.setrlimit(resource.RLIMIT_AS, (1536 * 1024**2,) * 2)\n    start = time.monotonic()\n    h, x, u, v, w = xx = s.symbols('h x u v w')\n    mons = [xx[i] * xx[j] for i, j in itertools.combinations_with_replacement(range(5), 2)]\n    unknowns = s.symbols('a0:45')\n    forms = [('j3_zero', (v, w, 0)), ('j3_h', (v, w, h)),\n             ('j3_hx', (v, w, h + x))]\n    for name, L, M in [('zero', 0, 0), ('0_h', 0, h), ('0_hx', 0, h+x),\n                       ('h_0', h, 0), ('hx_0', h+x, 0),\n                       ('h_x', h, x), ('hx_h', h+x, h)]:\n        forms.append(('j21_' + name, (v, L, M)))\n    forms.append(('j111_rank2', (x, h, 0)))\n    records = []\n    for name, V in forms:\n        P = s.zeros(5)\n        for i, value in enumerate(V, 2):\n            P[1, i] = x * value\n        for k, (i, j) in enumerate([(2, 3), (2, 4), (3, 4)]):\n            P[i, j] = sum(a*m for a, m in zip(unknowns[15*k:15*(k+1)], mons))\n        for i, j in itertools.combinations(range(5), 2):\n            P[j, i] = -P[i, j]\n\n        def jac(i, j, k, matrix):\n            return s.expand(sum(matrix[i, l]*s.diff(matrix[j, k], xx[l]) +\n                                matrix[j, l]*s.diff(matrix[k, i], xx[l]) +\n                                matrix[k, l]*s.diff(matrix[i, j], xx[l]) for l in range(5)))\n\n        linear = []\n        for i, j in itertools.combinations(range(2, 5), 2):\n            linear += s.Poly(jac(1, i, j, P), *xx).coeffs()\n        matrix, rhs = s.linear_eq_to_matrix(linear, unknowns)\n        aug, pivots = matrix.row_join(rhs).rref()\n        if 45 in pivots:\n            records.append(dict(case=name, V=[str(f) for f in V], inconsistent=True))\n            print(json.dumps(dict(case=name, inconsistent=True)), flush=True)\n            continue\n        free = [j for j in range(45) if j not in pivots]\n        params = s.symbols('n0:' + str(len(free)))\n        solution = {unknowns[j]: z for j, z in zip(free, params)}\n        for i, pivot in enumerate(pivots):\n            solution[unknowns[pivot]] = aug[i, 45] - sum(aug[i, j]*solution[unknowns[j]] for j in free)\n        Q = P.subs(solution, simultaneous=True).applyfunc(s.expand)\n        assert all(jac(1, i, j, Q) == 0 for i, j in itertools.combinations(range(2, 5), 2))\n        residual = jac(2, 3, 4, Q)\n        equations = list(dict.fromkeys(str(s.factor(f)) for f in s.Poly(residual, *xx).coeffs() if f))\n        F = s.expand(V[0]*Q[3, 4]-V[1]*Q[2, 4]+V[2]*Q[2, 3])\n        assert s.expand(sum(V[i]*s.diff(F, xx[i+2]) for i in range(3))) == 0\n        records.append(dict(case=name, V=[str(f) for f in V], inconsistent=False,\n            linear_matrix_shape=list(matrix.shape), linear_rank=len(pivots),\n            free_parameters=list(map(str, params)), dimension=len(free),\n            original_unknown_monomials=[str(m) for m in mons], free_columns=free,\n            linear_rref=[[str(f) for f in aug.row(i)] for i in range(len(pivots))],\n            brackets={','.join(map(str, ij)): str(Q[ij]) for ij in itertools.combinations(range(1,5),2)},\n            actual_cubic=str(s.factor(F)), remaining_full_Jacobi=str(residual),\n            remaining_coefficient_equations=equations))\n        print(json.dumps(dict(case=name, dimension=len(free), equations=len(equations), F=str(s.factor(F)))), flush=True)\n    source = Path(__file__).read_text()\n    result = dict(task_id='E_reduced_nonnormal', cases=records,\n        all_45_vertical_coefficients_retained=True,\n        all_four_affine_Jacobi_equations_retained=True,\n        normal_form_exhaustion_requires_the_written_centralizer_argument=True,\n        irreducibility_and_MPS_membership_not_inferred_from_this_linear_calculation=True,\n        seconds=time.monotonic()-start, producer_source=source,\n        input_sha256={'code/classification_two_hyperplanes_cubic_nilpotent.py': hashlib.sha256(source.encode()).hexdigest()})\n    with output.open('x') as handle:\n        json.dump(result, handle, indent=2)\n        handle.write('\\n')\n\n\ndef components(input_path, output):\n    \"\"\"Use the existing full-ambient runner on analytically solved full sources.\"\"\"\n    from classification_modular_source_components import branch\n    data = json.loads(input_path.read_text())\n    source_path = ROOT / data['source_report']\n    source = json.loads(source_path.read_text())\n    adapted = {'cases': []}\n    h, x, u, v, w = s.symbols('h x u v w')\n    yy = s.symbols('x1:5')\n    for case in source['cases']:\n        if case.get('inconsistent'):\n            adapted['cases'].append({})\n            continue\n        entries = [s.sympify(case['brackets'][key]).subs({h: 1, x: yy[0], u: yy[1], v: yy[2], w: yy[3]}, simultaneous=True)\n                   for key in ['1,2', '1,3', '1,4', '2,3', '2,4', '3,4']]\n        adapted['cases'].append(dict(full_free_parameter_count=case['dimension'],\n            full_six_brackets=list(map(str, entries)),\n            all_distinct_jacobi_coefficients=case['remaining_coefficient_equations']))\n    results = [branch(adapted, spec) for spec in data['branches']]\n    result = dict(status='PASS', task_id='E_reduced_nonnormal', branches=results,\n                  source_report_sha256=hashlib.sha256(source_path.read_bytes()).hexdigest(),\n                  component_input=data, producer_source=Path(__file__).read_text(),\n                  full_source_exhaustion_requires_written_proof=True)\n    with output.open('x') as handle:\n        json.dump(result, handle, indent=2, default=int)\n        handle.write('\\n')\n    print(json.dumps([dict(name=r['name'], ranks=r['matrix_ranks_mod_prime'],\n                         upper=r['projective_tangent_dimension_upper'],\n                         lower=r['projective_family_dimension_lower']) for r in results]))\n\n\ndef normal_quadrics(report_path, case_index, output, record_override=None):\n    \"\"\"One finite genuine quadratic obstruction, with all actual source directions.\"\"\"\n    from sympy.polys.matrices import DomainMatrix\n    from classification_rank3_mixed_component_review import COLUMNS, jacobi, sparse, vector\n    start = time.monotonic()\n    resource.setrlimit(resource.RLIMIT_CPU, (55, 56))\n    resource.setrlimit(resource.RLIMIT_AS, (1536*1024**2,)*2)\n    record = record_override if record_override is not None else json.loads(report_path.read_text())['branches'][case_index]\n    x = s.symbols('h x1:5')\n    def matrix(encoded):\n        P = s.zeros(5)\n        for key, value in encoded.items():\n            i, j = map(int, key.split(',')); P[i,j] = s.sympify(value); P[j,i] = -P[i,j]\n        return P\n    P = matrix(record['witness_brackets']); ps = sparse(P, x)\n    assert jacobi(ps) == s.zeros(350, 1)\n    columns = []\n    for ij, exponent in COLUMNS:\n        variation = {key: dict(value) for key, value in ps.items()}\n        variation.setdefault(ij, {})[exponent] = variation.get(ij, {}).get(exponent, 0) + 1\n        columns.append(jacobi(variation))\n    D = s.Matrix.hstack(*columns)\n    columns = []; X = s.Matrix(x)\n    for a,b in itertools.product(range(5), repeat=2):\n        field=s.zeros(5,1); field[a]=x[b]\n        columns.append(vector(sparse(X*field.T-field*X.T,x)))\n    for a,b in itertools.product(range(5),repeat=2):\n        E=s.zeros(5); E[a,b]=1\n        columns.append(vector(sparse(E*P+P*E.T-x[b]*P.diff(x[a]),x)))\n    columns.append(vector(ps))\n    universal=matrix(record['universal_brackets'])\n    point={s.Symbol(k):s.Rational(v) for k,v in record['full_source_specification']['witness'].items()}\n    columns.extend(vector(sparse(universal.diff(s.Symbol(p)).subs(point),x))\n                   for p in record['full_source_specification']['free_parameters'])\n    F=s.Matrix.hstack(*columns); assert D*F == s.zeros(350,F.cols)\n    rr,pivots=DomainMatrix.from_Matrix(D).convert_to(s.QQ).rref(); rr=rr.to_Matrix()\n    free=[j for j in range(150) if j not in pivots]; kernel=[]\n    for j in free:\n        col=s.zeros(150,1); col[j]=1\n        for i,p in enumerate(pivots): col[p]=-rr[i,j]\n        kernel.append(col*s.ilcm(1,*[s.denom(c) for c in col]))\n    K=s.Matrix.hstack(*kernel); assert D*K == s.zeros(350,len(free))\n    basis=DomainMatrix.from_Matrix(F.row_join(K)).convert_to(s.QQ).rref()[1]\n    normal_indices=[j-F.cols for j in basis if j>=F.cols]\n    source_rank=len(basis)-len(normal_indices)\n    normals=[]\n    for j in normal_indices:\n        R=s.zeros(5)\n        for (ij,e),c in zip(COLUMNS,K[:,j]):\n            R[ij]+=c*s.prod(z**power for z,power in zip(x,e))\n        for i,k in itertools.combinations(range(5),2): R[k,i]=-R[i,k]\n        normals.append(R)\n    pairs=list(itertools.combinations_with_replacement(range(len(normals)),2))\n    squares=[jacobi(sparse(R,x)) for R in normals]\n    Q=s.Matrix.hstack(*[squares[i] if i==j else jacobi(sparse(normals[i]+normals[j],x))-squares[i]-squares[j] for i,j in pairs])\n    dind=D[:,list(pivots)]\n    rows=list(DomainMatrix.from_Matrix(dind.T).convert_to(s.QQ).rref()[1])\n    block=DomainMatrix.from_Matrix(D.extract(rows,list(pivots))).convert_to(s.QQ)\n    rhs=DomainMatrix.from_Matrix(Q.extract(rows,range(len(pairs)))).convert_to(s.QQ)\n    correction=block.inv().matmul(rhs).to_Matrix()\n    obstruction=Q-dind*correction\n    qr,qp=DomainMatrix.from_Matrix(obstruction).convert_to(s.QQ).rref();qr=qr.to_Matrix()\n    n=s.symbols('t0:'+str(len(normals)));monomials=[n[i]*n[j] for i,j in pairs]\n    quadrics=[s.expand(sum(qr[i,j]*monomials[j] for j in range(len(pairs)))) for i in range(len(qp))]\n    gb=s.groebner(quadrics,*n,order='grevlex') if quadrics else None\n    functional=None\n    all_functionals=[]\n    if qp:\n        obstruction_rows=list(DomainMatrix.from_Matrix(obstruction.T).convert_to(s.QQ).rref()[1])\n        inverse=block.inv().to_Matrix()\n        for row in obstruction_rows:\n            coefficients=D[row,list(pivots)]*inverse;ell=s.zeros(1,350);ell[row]=1\n            for k,r in enumerate(rows):ell[r]-=coefficients[k]\n            assert ell*D==s.zeros(1,150)\n            all_functionals.append(dict(nonzero_coefficients={str(i):str(a)for i,a in enumerate(ell)if a},\n                                        quadratic_pairing=list(map(str,list(ell*Q)))))\n    if len(normals)==1 and any(obstruction):\n        row=next(i for i,a in enumerate(obstruction[:,0])if a)\n        inverse=block.inv().to_Matrix();coefficients=D[row,list(pivots)]*inverse\n        ell=s.zeros(1,350);ell[row]=1\n        for k,r in enumerate(rows):ell[r]-=coefficients[k]\n        assert ell*D==s.zeros(1,150)\n        functional=dict(nonzero_coefficients={str(i):str(a)for i,a in enumerate(ell)if a},pairing=str((ell*Q)[0]))\n    result=dict(task_id='E_reduced_nonnormal',source_report=str(report_path),case=record['name'],\n        full_D_rank=len(pivots),actual_source_rank=source_rank,normal_count=len(normals),\n        all_D_times_directions_zero=True,normal_indices=normal_indices,\n        normals=[{f'{i},{j}':str(R[i,j]) for i,j in itertools.combinations(range(5),2) if R[i,j]} for R in normals],\n        normal_monomials=list(map(str,monomials)),quadratic_initial_generators=list(map(str,quadrics)),\n        zero_dimensional_quadratic_support=bool(gb and gb.is_zero_dimensional),\n        grevlex_basis=[str(g.as_expr()) for g in gb.polys] if gb else [],\n        literal_Poisson_normal_axes=[i for i,q in enumerate(squares) if q==s.zeros(350,1)],\n        one_normal_quadratic_cokernel_functional=functional,\n        quadratic_cokernel_functionals=all_functionals,\n        full_initial_ideal_not_claimed=True,source_report_sha256=hashlib.sha256(report_path.read_bytes()).hexdigest(),\n        producer_source=Path(__file__).read_text(),seconds=time.monotonic()-start)\n    if output is None:return result\n    with output.open('x') as handle:json.dump(result,handle,indent=2);handle.write('\\n')\n    print(json.dumps({k:result[k] for k in ['case','normal_count','quadratic_initial_generators','zero_dimensional_quadratic_support','literal_Poisson_normal_axes','seconds']}))\n\n\ndef universal_pencils(output):\n    \"\"\"The actual n3 modulus of the p0 source, not another ambient point probe.\"\"\"\n    from sympy.polys.matrices import DomainMatrix\n    rpath=ROOT/'reports/CLASSIFICATION_TWO_HYPERPLANES_CUBIC_NILPOTENT_COMPONENTS_20261107.json'\n    npath=ROOT/'reports/CLASSIFICATION_TWO_HYPERPLANES_CUBIC_NILPOTENT_P0_NORMALS_20261107.json'\n    record=json.loads(rpath.read_text())['branches'][0];normal=json.loads(npath.read_text())\n    x=s.symbols('h x1:5');lam,t=s.symbols('lam t')\n    def matrix(data):\n        A=s.zeros(5)\n        for key,f in data.items():\n            i,j=map(int,key.split(','));A[i,j]=s.sympify(f);A[j,i]=-A[i,j]\n        return A\n    U=matrix(record['universal_brackets'])\n    pt={s.Symbol(p):0 for p in record['full_source_specification']['free_parameters']}\n    P=U.subs(pt);T=U.diff(s.Symbol('n3')).subs(pt)\n    def projective(A):\n        J={ijk:s.expand(sum(A[i,l]*s.diff(A[j,k],x[l])+A[j,l]*s.diff(A[k,i],x[l])+A[k,l]*s.diff(A[i,j],x[l]) for l in range(5)))\n           for ijk in itertools.combinations(range(5),3) for i,j,k in [ijk]}\n        return [s.expand(sum((-1)**k*x[inds[k]]*J[inds[:k]+inds[k+1:]] for k in range(4)))\n                for inds in itertools.combinations(range(5),4)]\n    assert all(f==0 for f in projective(P+lam*T))\n    normals=list(map(matrix,normal['normals']));coeff=s.symbols('r0:'+str(len(normals)))\n    R=sum((a*A for a,A in zip(coeff,normals)),s.zeros(5))\n    mixed=[s.expand(f-g-h) for f,g,h in zip(projective(T+R),projective(T),projective(R))]\n    equations=[c for f in mixed for c in s.Poly(f,*x).coeffs() if c]\n    M,_=s.linear_eq_to_matrix(equations,coeff);kernel=M.nullspace()\n    aa=s.symbols('a0:'+str(len(kernel)))\n    combo=sum((a*K for a,K in zip(aa,kernel)),s.zeros(len(coeff),1))\n    R=R.subs(dict(zip(coeff,combo)),simultaneous=True)\n    residual=[s.factor(c) for f in projective(R) for c in s.Poly(f,*x).coeffs() if c]\n    residual=list(dict.fromkeys(residual))\n    result=dict(task_id='E_reduced_nonnormal',section_parameter='n3',\n                full_section_projective_Jacobi_zero=True,\n                modulus_compatible_normal_kernel=[list(map(str,k)) for k in kernel],\n                compatible_normal={f'{i},{j}':str(s.expand(R[i,j])) for i,j in itertools.combinations(range(5),2) if R[i,j]},\n                remaining_Poisson_equations=list(map(str,residual)),\n                whole_source_coverage_not_inferred=True,\n                producer_source=Path(__file__).read_text())\n    with output.open('x') as handle:json.dump(result,handle,indent=2);handle.write('\\n')\n    print(json.dumps({k:result[k] for k in ['modulus_compatible_normal_kernel','remaining_Poisson_equations']}))\n\n\nif __name__ == '__main__':\n    parser = argparse.ArgumentParser()\n    parser.add_argument('--output', type=Path, required=True)\n    parser.add_argument('--component-input', type=Path)\n    parser.add_argument('--normal-report', type=Path)\n    parser.add_argument('--case-index', type=int, default=0)\n    parser.add_argument('--universal-pencils', action='store_true')\n    args = parser.parse_args()\n    if args.universal_pencils:\n        universal_pencils(args.output)\n    elif args.normal_report:\n        normal_quadrics(args.normal_report,args.case_index,args.output)\n    elif args.component_input:\n        components(args.component_input, args.output)\n    else:\n        main(args.output)\n",
+      "seconds": 0.9378927709994969
+    },
+    {
+      "task_id": "E_multiple_hyperplane",
+      "source_report": "/workspace/poisson-p4/reports/CLASSIFICATION_NIL22_IMAGE_REMAINING_SOURCES_20261107.json",
+      "case": "nil22_image_quadratic_B",
+      "full_D_rank": 99,
+      "actual_source_rank": 49,
+      "normal_count": 2,
+      "all_D_times_directions_zero": true,
+      "normal_indices": [
+        23,
+        24
+      ],
+      "normals": [
+        {
+          "0,1": "-708774570*h**2 - 1064052990*h*x1 - 266920728*h*x3 - 2472068430*h*x4 - 1314759600*x1*x3 - 2747138625*x1*x4 + 886173750*x2*x3 - 804895980*x3**2 - 839877880*x3*x4 - 1949582250*x4**2",
+          "0,2": "-90701562*h**2 - 923026860*h*x1 - 386694000*h*x2 + 78939840*h*x3 - 1374589838*h*x4 + 150810660*x1*x3 + 527837310*x1*x4 - 1034406450*x2*x3 - 886173750*x2*x4 + 251351100*x3**2 + 433169310*x3*x4 + 953737790*x4**2",
+          "0,3": "-387338490*h*x3 - 808190460*x3**2 - 974791125*x3*x4",
+          "0,4": "-193991490*h**2 + 23943780*h*x3 + 150810660*x3**2",
+          "1,2": "730217700*h*x2 - 1513047690*x1**2 + 290020500*x1*x2 - 241612140*x1*x3 - 3633881500*x1*x4 + 5411112930*x2*x4",
+          "1,3": "551216880*h*x3 + 163055970*x1*x3 - 1754377480*x3**2 + 1972899720*x3*x4",
+          "1,4": "337712760*h*x1 - 185183460*x1*x3 + 1559665800*x2*x3",
+          "2,3": "19182150*h**2 + 946970640*x1*x3"
+        },
+        {
+          "0,1": "-764798790*h**2 + 1138240950*h*x1 - 405033696*h*x3 + 288927150*h*x4 - 19764360*x1*x3 - 23309055*x1*x4 + 7519050*x2*x3 - 712924660*x3**2 - 1468938480*x3*x4 - 16541910*x4**2",
+          "0,2": "565790106*h**2 + 239789340*h*x1 - 720683040*h*x2 + 401317000*h*x3 + 604316154*h*x4 + 6444900*x1*x3 + 22557150*x1*x4 - 25994430*x2*x3 - 7519050*x2*x4 + 10741500*x3**2 - 690367510*x3*x4 - 1434780510*x4**2",
+          "0,3": "-362561430*h*x3 - 16327080*x3**2 - 8270955*x3*x4",
+          "0,4": "155608530*h**2 + 239789340*h*x3 + 6444900*x3**2",
+          "1,2": "1840162620*h*x2 + 471551850*x1**2 - 3010627620*x1*x2 + 1574703900*x1*x3 + 3099299220*x1*x4 + 30923430*x2*x4",
+          "1,3": "606307440*h*x3 - 1589527170*x1*x3 + 569380320*x3**2 - 1117612320*x3*x4",
+          "1,4": "475776840*h*x1 + 943103700*x1*x3 - 649645920*x2*x3",
+          "2,3": "237562410*h**2 + 157828440*h*x1 + 789142200*x1*x4"
+        }
+      ],
+      "normal_monomials": [
+        "t0**2",
+        "t0*t1",
+        "t1**2"
+      ],
+      "quadratic_initial_generators": [
+        "t0**2 - 25*t1**2/13689",
+        "t0*t1 + 5*t1**2/117"
+      ],
+      "zero_dimensional_quadratic_support": false,
+      "grevlex_basis": [
+        "t0**2 - 25*t1**2/13689",
+        "t0*t1 + 5*t1**2/117"
+      ],
+      "literal_Poisson_normal_axes": [],
+      "one_normal_quadratic_cokernel_functional": null,
+      "quadratic_cokernel_functionals": [
+        {
+          "nonzero_coefficients": {
+            "0": "3518064/1477291",
+            "1": "4077024/1477291",
+            "2": "27816085629272/2048776591477",
+            "4": "-639648/1477291",
+            "5": "169636810/45796021",
+            "6": "-443874171088787/83999840250557",
+            "8": "-19599456/16250201",
+            "9": "-9841626391790836078/245928623206289835",
+            "10": "-20790030/16250201",
+            "11": "-52197963133546/22536542506247",
+            "14": "379791/1477291",
+            "15": "-5854773932057/259663439070",
+            "16": "1178729222955270029/79379849036776365",
+            "17": "-851680334951/57702986460",
+            "18": "777441437351/105788808510",
+            "19": "-87978798185088393032/8115644565807564555",
+            "20": "764958930251/105788808510",
+            "21": "-526913584799341/112682712531235",
+            "24": "1700074/16250201",
+            "27": "19683252783581672156/2705214855269188185",
+            "29": "38067740/113751407",
+            "30": "26516535616106/22536542506247",
+            "34": "-1186014/10341037",
+            "37": "-851680334951/27920799900",
+            "38": "5834952114499141/273252492381330",
+            "40": "1952138463769/634732851060",
+            "41": "-2934278435106725554343/453470617597424447790",
+            "42": "851680334951/57702986460",
+            "44": "-10508159640481/1851304148925",
+            "46": "-7126208145210566/1139997831971845",
+            "49": "80337222149/17631468085",
+            "50": "-588486641314313143/87779833061832065",
+            "54": "2465575676/11943897735",
+            "58": "26002963309/2518781155",
+            "59": "3579378418857826/7979984823802915",
+            "63": "184049763/568757035",
+            "72": "-4365632/1477291",
+            "76": "-105020385/45796021",
+            "79": "7398718789043191/839998402505570",
+            "81": "4539829/16250201",
+            "87": "-9368483684461/346217918760",
+            "88": "851680334951/57702986460",
+            "90": "851680334951/57702986460",
+            "91": "-764958930251/105788808510",
+            "96": "-138167060333/15112686930",
+            "100": "-76135480/113751407",
+            "112": "9368483684461/173108959380",
+            "113": "-851680334951/57702986460",
+            "118": "-851680334951/57702986460",
+            "143": "4365632/1477291",
+            "147": "105020385/45796021",
+            "153": "1"
+          },
+          "quadratic_pairing": [
+            "138223799004215358720000/1477291",
+            "11813999914890201600000/1477291",
+            "252435895617312000000/1477291"
+          ]
+        },
+        {
+          "nonzero_coefficients": {
+            "2": "-42038048/738451",
+            "5": "133/62",
+            "6": "622366477/30276491",
+            "9": "2813151230917687/15600870282480",
+            "11": "84076096/8122961",
+            "15": "348341764/3603285",
+            "16": "-1761020687161/28611283995",
+            "17": "7183531/114390",
+            "18": "-661826/19065",
+            "19": "188435797466461/4680261084744",
+            "20": "-1313689/38130",
+            "21": "802663979/40614805",
+            "27": "-255741020992517/7800435141240",
+            "30": "-49920182/8122961",
+            "37": "845666137/6199200",
+            "38": "-417525345791/3939591600",
+            "40": "-70267603/4575600",
+            "41": "178825607035809161/3268934567375400",
+            "42": "-73699711/1281168",
+            "43": "-9537/2296",
+            "44": "26512907/889700",
+            "46": "160632192589/3287161880",
+            "48": "-1615/328",
+            "49": "-529551/25420",
+            "50": "1589933460737/63277866190",
+            "58": "-1225779/25420",
+            "59": "-39215833819/5752533290",
+            "75": "51/4",
+            "76": "67/62",
+            "79": "-7925854906/151382455",
+            "87": "19311449/171585",
+            "88": "-7412311/114390",
+            "90": "-14515769/228780",
+            "91": "1313689/38130",
+            "96": "661826/19065",
+            "112": "-4611418633/19217520",
+            "113": "212368897/3202920",
+            "118": "32633893/457560",
+            "147": "-80/31",
+            "162": "1"
+          },
+          "quadratic_pairing": [
+            "-826959937152749400",
+            "-56134540773511200",
+            "-888648398253000"
+          ]
+        }
+      ],
+      "full_initial_ideal_not_claimed": true,
+      "source_report_sha256": "9ab03220144c70d70b877c7138562d854d0102bd37846eeafcbbd115170e0700",
+      "producer_source": "#!/usr/bin/env python3\n\"\"\"Complete quadratic W sources for the eleven nilpotent cofactor normal forms.\"\"\"\nimport argparse\nimport hashlib\nimport itertools\nimport json\nimport resource\nimport time\nfrom pathlib import Path\n\nimport sympy as s\n\nROOT = Path(__file__).resolve().parents[1]\n\n\ndef main(output):\n    resource.setrlimit(resource.RLIMIT_CPU, (55, 56))\n    resource.setrlimit(resource.RLIMIT_AS, (1536 * 1024**2,) * 2)\n    start = time.monotonic()\n    h, x, u, v, w = xx = s.symbols('h x u v w')\n    mons = [xx[i] * xx[j] for i, j in itertools.combinations_with_replacement(range(5), 2)]\n    unknowns = s.symbols('a0:45')\n    forms = [('j3_zero', (v, w, 0)), ('j3_h', (v, w, h)),\n             ('j3_hx', (v, w, h + x))]\n    for name, L, M in [('zero', 0, 0), ('0_h', 0, h), ('0_hx', 0, h+x),\n                       ('h_0', h, 0), ('hx_0', h+x, 0),\n                       ('h_x', h, x), ('hx_h', h+x, h)]:\n        forms.append(('j21_' + name, (v, L, M)))\n    forms.append(('j111_rank2', (x, h, 0)))\n    records = []\n    for name, V in forms:\n        P = s.zeros(5)\n        for i, value in enumerate(V, 2):\n            P[1, i] = x * value\n        for k, (i, j) in enumerate([(2, 3), (2, 4), (3, 4)]):\n            P[i, j] = sum(a*m for a, m in zip(unknowns[15*k:15*(k+1)], mons))\n        for i, j in itertools.combinations(range(5), 2):\n            P[j, i] = -P[i, j]\n\n        def jac(i, j, k, matrix):\n            return s.expand(sum(matrix[i, l]*s.diff(matrix[j, k], xx[l]) +\n                                matrix[j, l]*s.diff(matrix[k, i], xx[l]) +\n                                matrix[k, l]*s.diff(matrix[i, j], xx[l]) for l in range(5)))\n\n        linear = []\n        for i, j in itertools.combinations(range(2, 5), 2):\n            linear += s.Poly(jac(1, i, j, P), *xx).coeffs()\n        matrix, rhs = s.linear_eq_to_matrix(linear, unknowns)\n        aug, pivots = matrix.row_join(rhs).rref()\n        if 45 in pivots:\n            records.append(dict(case=name, V=[str(f) for f in V], inconsistent=True))\n            print(json.dumps(dict(case=name, inconsistent=True)), flush=True)\n            continue\n        free = [j for j in range(45) if j not in pivots]\n        params = s.symbols('n0:' + str(len(free)))\n        solution = {unknowns[j]: z for j, z in zip(free, params)}\n        for i, pivot in enumerate(pivots):\n            solution[unknowns[pivot]] = aug[i, 45] - sum(aug[i, j]*solution[unknowns[j]] for j in free)\n        Q = P.subs(solution, simultaneous=True).applyfunc(s.expand)\n        assert all(jac(1, i, j, Q) == 0 for i, j in itertools.combinations(range(2, 5), 2))\n        residual = jac(2, 3, 4, Q)\n        equations = list(dict.fromkeys(str(s.factor(f)) for f in s.Poly(residual, *xx).coeffs() if f))\n        F = s.expand(V[0]*Q[3, 4]-V[1]*Q[2, 4]+V[2]*Q[2, 3])\n        assert s.expand(sum(V[i]*s.diff(F, xx[i+2]) for i in range(3))) == 0\n        records.append(dict(case=name, V=[str(f) for f in V], inconsistent=False,\n            linear_matrix_shape=list(matrix.shape), linear_rank=len(pivots),\n            free_parameters=list(map(str, params)), dimension=len(free),\n            original_unknown_monomials=[str(m) for m in mons], free_columns=free,\n            linear_rref=[[str(f) for f in aug.row(i)] for i in range(len(pivots))],\n            brackets={','.join(map(str, ij)): str(Q[ij]) for ij in itertools.combinations(range(1,5),2)},\n            actual_cubic=str(s.factor(F)), remaining_full_Jacobi=str(residual),\n            remaining_coefficient_equations=equations))\n        print(json.dumps(dict(case=name, dimension=len(free), equations=len(equations), F=str(s.factor(F)))), flush=True)\n    source = Path(__file__).read_text()\n    result = dict(task_id='E_reduced_nonnormal', cases=records,\n        all_45_vertical_coefficients_retained=True,\n        all_four_affine_Jacobi_equations_retained=True,\n        normal_form_exhaustion_requires_the_written_centralizer_argument=True,\n        irreducibility_and_MPS_membership_not_inferred_from_this_linear_calculation=True,\n        seconds=time.monotonic()-start, producer_source=source,\n        input_sha256={'code/classification_two_hyperplanes_cubic_nilpotent.py': hashlib.sha256(source.encode()).hexdigest()})\n    with output.open('x') as handle:\n        json.dump(result, handle, indent=2)\n        handle.write('\\n')\n\n\ndef components(input_path, output):\n    \"\"\"Use the existing full-ambient runner on analytically solved full sources.\"\"\"\n    from classification_modular_source_components import branch\n    data = json.loads(input_path.read_text())\n    source_path = ROOT / data['source_report']\n    source = json.loads(source_path.read_text())\n    adapted = {'cases': []}\n    h, x, u, v, w = s.symbols('h x u v w')\n    yy = s.symbols('x1:5')\n    for case in source['cases']:\n        if case.get('inconsistent'):\n            adapted['cases'].append({})\n            continue\n        entries = [s.sympify(case['brackets'][key]).subs({h: 1, x: yy[0], u: yy[1], v: yy[2], w: yy[3]}, simultaneous=True)\n                   for key in ['1,2', '1,3', '1,4', '2,3', '2,4', '3,4']]\n        adapted['cases'].append(dict(full_free_parameter_count=case['dimension'],\n            full_six_brackets=list(map(str, entries)),\n            all_distinct_jacobi_coefficients=case['remaining_coefficient_equations']))\n    results = [branch(adapted, spec) for spec in data['branches']]\n    result = dict(status='PASS', task_id='E_reduced_nonnormal', branches=results,\n                  source_report_sha256=hashlib.sha256(source_path.read_bytes()).hexdigest(),\n                  component_input=data, producer_source=Path(__file__).read_text(),\n                  full_source_exhaustion_requires_written_proof=True)\n    with output.open('x') as handle:\n        json.dump(result, handle, indent=2, default=int)\n        handle.write('\\n')\n    print(json.dumps([dict(name=r['name'], ranks=r['matrix_ranks_mod_prime'],\n                         upper=r['projective_tangent_dimension_upper'],\n                         lower=r['projective_family_dimension_lower']) for r in results]))\n\n\ndef normal_quadrics(report_path, case_index, output, record_override=None):\n    \"\"\"One finite genuine quadratic obstruction, with all actual source directions.\"\"\"\n    from sympy.polys.matrices import DomainMatrix\n    from classification_rank3_mixed_component_review import COLUMNS, jacobi, sparse, vector\n    start = time.monotonic()\n    resource.setrlimit(resource.RLIMIT_CPU, (55, 56))\n    resource.setrlimit(resource.RLIMIT_AS, (1536*1024**2,)*2)\n    record = record_override if record_override is not None else json.loads(report_path.read_text())['branches'][case_index]\n    x = s.symbols('h x1:5')\n    def matrix(encoded):\n        P = s.zeros(5)\n        for key, value in encoded.items():\n            i, j = map(int, key.split(',')); P[i,j] = s.sympify(value); P[j,i] = -P[i,j]\n        return P\n    P = matrix(record['witness_brackets']); ps = sparse(P, x)\n    assert jacobi(ps) == s.zeros(350, 1)\n    columns = []\n    for ij, exponent in COLUMNS:\n        variation = {key: dict(value) for key, value in ps.items()}\n        variation.setdefault(ij, {})[exponent] = variation.get(ij, {}).get(exponent, 0) + 1\n        columns.append(jacobi(variation))\n    D = s.Matrix.hstack(*columns)\n    columns = []; X = s.Matrix(x)\n    for a,b in itertools.product(range(5), repeat=2):\n        field=s.zeros(5,1); field[a]=x[b]\n        columns.append(vector(sparse(X*field.T-field*X.T,x)))\n    for a,b in itertools.product(range(5),repeat=2):\n        E=s.zeros(5); E[a,b]=1\n        columns.append(vector(sparse(E*P+P*E.T-x[b]*P.diff(x[a]),x)))\n    columns.append(vector(ps))\n    universal=matrix(record['universal_brackets'])\n    point={s.Symbol(k):s.Rational(v) for k,v in record['full_source_specification']['witness'].items()}\n    columns.extend(vector(sparse(universal.diff(s.Symbol(p)).subs(point),x))\n                   for p in record['full_source_specification']['free_parameters'])\n    F=s.Matrix.hstack(*columns); assert D*F == s.zeros(350,F.cols)\n    rr,pivots=DomainMatrix.from_Matrix(D).convert_to(s.QQ).rref(); rr=rr.to_Matrix()\n    free=[j for j in range(150) if j not in pivots]; kernel=[]\n    for j in free:\n        col=s.zeros(150,1); col[j]=1\n        for i,p in enumerate(pivots): col[p]=-rr[i,j]\n        kernel.append(col*s.ilcm(1,*[s.denom(c) for c in col]))\n    K=s.Matrix.hstack(*kernel); assert D*K == s.zeros(350,len(free))\n    basis=DomainMatrix.from_Matrix(F.row_join(K)).convert_to(s.QQ).rref()[1]\n    normal_indices=[j-F.cols for j in basis if j>=F.cols]\n    source_rank=len(basis)-len(normal_indices)\n    normals=[]\n    for j in normal_indices:\n        R=s.zeros(5)\n        for (ij,e),c in zip(COLUMNS,K[:,j]):\n            R[ij]+=c*s.prod(z**power for z,power in zip(x,e))\n        for i,k in itertools.combinations(range(5),2): R[k,i]=-R[i,k]\n        normals.append(R)\n    pairs=list(itertools.combinations_with_replacement(range(len(normals)),2))\n    squares=[jacobi(sparse(R,x)) for R in normals]\n    Q=s.Matrix.hstack(*[squares[i] if i==j else jacobi(sparse(normals[i]+normals[j],x))-squares[i]-squares[j] for i,j in pairs])\n    dind=D[:,list(pivots)]\n    rows=list(DomainMatrix.from_Matrix(dind.T).convert_to(s.QQ).rref()[1])\n    block=DomainMatrix.from_Matrix(D.extract(rows,list(pivots))).convert_to(s.QQ)\n    rhs=DomainMatrix.from_Matrix(Q.extract(rows,range(len(pairs)))).convert_to(s.QQ)\n    correction=block.inv().matmul(rhs).to_Matrix()\n    obstruction=Q-dind*correction\n    qr,qp=DomainMatrix.from_Matrix(obstruction).convert_to(s.QQ).rref();qr=qr.to_Matrix()\n    n=s.symbols('t0:'+str(len(normals)));monomials=[n[i]*n[j] for i,j in pairs]\n    quadrics=[s.expand(sum(qr[i,j]*monomials[j] for j in range(len(pairs)))) for i in range(len(qp))]\n    gb=s.groebner(quadrics,*n,order='grevlex') if quadrics else None\n    functional=None\n    all_functionals=[]\n    if qp:\n        obstruction_rows=list(DomainMatrix.from_Matrix(obstruction.T).convert_to(s.QQ).rref()[1])\n        inverse=block.inv().to_Matrix()\n        for row in obstruction_rows:\n            coefficients=D[row,list(pivots)]*inverse;ell=s.zeros(1,350);ell[row]=1\n            for k,r in enumerate(rows):ell[r]-=coefficients[k]\n            assert ell*D==s.zeros(1,150)\n            all_functionals.append(dict(nonzero_coefficients={str(i):str(a)for i,a in enumerate(ell)if a},\n                                        quadratic_pairing=list(map(str,list(ell*Q)))))\n    if len(normals)==1 and any(obstruction):\n        row=next(i for i,a in enumerate(obstruction[:,0])if a)\n        inverse=block.inv().to_Matrix();coefficients=D[row,list(pivots)]*inverse\n        ell=s.zeros(1,350);ell[row]=1\n        for k,r in enumerate(rows):ell[r]-=coefficients[k]\n        assert ell*D==s.zeros(1,150)\n        functional=dict(nonzero_coefficients={str(i):str(a)for i,a in enumerate(ell)if a},pairing=str((ell*Q)[0]))\n    result=dict(task_id='E_reduced_nonnormal',source_report=str(report_path),case=record['name'],\n        full_D_rank=len(pivots),actual_source_rank=source_rank,normal_count=len(normals),\n        all_D_times_directions_zero=True,normal_indices=normal_indices,\n        normals=[{f'{i},{j}':str(R[i,j]) for i,j in itertools.combinations(range(5),2) if R[i,j]} for R in normals],\n        normal_monomials=list(map(str,monomials)),quadratic_initial_generators=list(map(str,quadrics)),\n        zero_dimensional_quadratic_support=bool(gb and gb.is_zero_dimensional),\n        grevlex_basis=[str(g.as_expr()) for g in gb.polys] if gb else [],\n        literal_Poisson_normal_axes=[i for i,q in enumerate(squares) if q==s.zeros(350,1)],\n        one_normal_quadratic_cokernel_functional=functional,\n        quadratic_cokernel_functionals=all_functionals,\n        full_initial_ideal_not_claimed=True,source_report_sha256=hashlib.sha256(report_path.read_bytes()).hexdigest(),\n        producer_source=Path(__file__).read_text(),seconds=time.monotonic()-start)\n    if output is None:return result\n    with output.open('x') as handle:json.dump(result,handle,indent=2);handle.write('\\n')\n    print(json.dumps({k:result[k] for k in ['case','normal_count','quadratic_initial_generators','zero_dimensional_quadratic_support','literal_Poisson_normal_axes','seconds']}))\n\n\ndef universal_pencils(output):\n    \"\"\"The actual n3 modulus of the p0 source, not another ambient point probe.\"\"\"\n    from sympy.polys.matrices import DomainMatrix\n    rpath=ROOT/'reports/CLASSIFICATION_TWO_HYPERPLANES_CUBIC_NILPOTENT_COMPONENTS_20261107.json'\n    npath=ROOT/'reports/CLASSIFICATION_TWO_HYPERPLANES_CUBIC_NILPOTENT_P0_NORMALS_20261107.json'\n    record=json.loads(rpath.read_text())['branches'][0];normal=json.loads(npath.read_text())\n    x=s.symbols('h x1:5');lam,t=s.symbols('lam t')\n    def matrix(data):\n        A=s.zeros(5)\n        for key,f in data.items():\n            i,j=map(int,key.split(','));A[i,j]=s.sympify(f);A[j,i]=-A[i,j]\n        return A\n    U=matrix(record['universal_brackets'])\n    pt={s.Symbol(p):0 for p in record['full_source_specification']['free_parameters']}\n    P=U.subs(pt);T=U.diff(s.Symbol('n3')).subs(pt)\n    def projective(A):\n        J={ijk:s.expand(sum(A[i,l]*s.diff(A[j,k],x[l])+A[j,l]*s.diff(A[k,i],x[l])+A[k,l]*s.diff(A[i,j],x[l]) for l in range(5)))\n           for ijk in itertools.combinations(range(5),3) for i,j,k in [ijk]}\n        return [s.expand(sum((-1)**k*x[inds[k]]*J[inds[:k]+inds[k+1:]] for k in range(4)))\n                for inds in itertools.combinations(range(5),4)]\n    assert all(f==0 for f in projective(P+lam*T))\n    normals=list(map(matrix,normal['normals']));coeff=s.symbols('r0:'+str(len(normals)))\n    R=sum((a*A for a,A in zip(coeff,normals)),s.zeros(5))\n    mixed=[s.expand(f-g-h) for f,g,h in zip(projective(T+R),projective(T),projective(R))]\n    equations=[c for f in mixed for c in s.Poly(f,*x).coeffs() if c]\n    M,_=s.linear_eq_to_matrix(equations,coeff);kernel=M.nullspace()\n    aa=s.symbols('a0:'+str(len(kernel)))\n    combo=sum((a*K for a,K in zip(aa,kernel)),s.zeros(len(coeff),1))\n    R=R.subs(dict(zip(coeff,combo)),simultaneous=True)\n    residual=[s.factor(c) for f in projective(R) for c in s.Poly(f,*x).coeffs() if c]\n    residual=list(dict.fromkeys(residual))\n    result=dict(task_id='E_reduced_nonnormal',section_parameter='n3',\n                full_section_projective_Jacobi_zero=True,\n                modulus_compatible_normal_kernel=[list(map(str,k)) for k in kernel],\n                compatible_normal={f'{i},{j}':str(s.expand(R[i,j])) for i,j in itertools.combinations(range(5),2) if R[i,j]},\n                remaining_Poisson_equations=list(map(str,residual)),\n                whole_source_coverage_not_inferred=True,\n                producer_source=Path(__file__).read_text())\n    with output.open('x') as handle:json.dump(result,handle,indent=2);handle.write('\\n')\n    print(json.dumps({k:result[k] for k in ['modulus_compatible_normal_kernel','remaining_Poisson_equations']}))\n\n\nif __name__ == '__main__':\n    parser = argparse.ArgumentParser()\n    parser.add_argument('--output', type=Path, required=True)\n    parser.add_argument('--component-input', type=Path)\n    parser.add_argument('--normal-report', type=Path)\n    parser.add_argument('--case-index', type=int, default=0)\n    parser.add_argument('--universal-pencils', action='store_true')\n    args = parser.parse_args()\n    if args.universal_pencils:\n        universal_pencils(args.output)\n    elif args.normal_report:\n        normal_quadrics(args.normal_report,args.case_index,args.output)\n    elif args.component_input:\n        components(args.component_input, args.output)\n    else:\n        main(args.output)\n",
+      "seconds": 2.287787752999975
+    }
+  ]
+}

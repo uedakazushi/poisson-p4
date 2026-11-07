@@ -173,8 +173,13 @@ producer `code/classification_two_quadrics.py` の
 `jobs/two_quadrics_mixed_normal_{symmetries,support}.json`、reports
 `CLASSIFICATION_TWO_QUADRICS_MIXED_NORMAL_{SYMMETRIES,SUPPORT}_20261107.json`
 は、全200×92源及び上記全stratumの元Jacobi/Pfaffianを検証した。
-独立Fraction全行・rank・Laurent代入レビューはまだ追加していない。
-従ってこのノートの算術は現時点ではproducerによる厳密計算、独立レビューは未完了と区別する。
+独立 `code/classification_two_quadrics_review.py --mixed-normal-support` は
+producer/CASをimportせず、全五型の全200×92行、完全kernel、非零rank minor、
+全四Jacobi・実Pfaffian及び全枝のLaurent代入を再構成してPASS（0.252秒）。
+証明書は `CLASSIFICATION_TWO_QUADRICS_MIXED_NORMAL_SUPPORT_REVIEW_20261107.json`、
+実行前gateは `jobs/two_quadrics_mixed_normal_support_review.json`。
+有限五型の幾何完全性、normal条件からの必要strata、自由K作用による次元論は
+本稿に示した別の証明入力であり、算術reviewだけが証明したとは扱わない。
 
 λ=0のjoint半単純rank零（二normal場の全nilpotent配置）は未処理である。
 rank一でのE全成分認識、及び平面tan-simple/chordのE帰属も残る。

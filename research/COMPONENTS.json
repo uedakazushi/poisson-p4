@@ -14,12 +14,12 @@
     "null_values": "not catalogued or not applicable; never a claim of zero"
   },
   "coverage": {
-    "global_lower_bound": 94,
+    "global_lower_bound": 96,
     "generic_rank_two_full_components": 6,
-    "generic_rank_four_lower_bound": 88,
+    "generic_rank_four_lower_bound": 90,
     "upper_bound": null,
     "global_exhaustion_proved": false,
-    "individually_catalogued_count": 94,
+    "individually_catalogued_count": 96,
     "unexpanded_block_count": 0,
     "all_51_rank_four_ideals_in_S61_constructed": false,
     "note_ja": "全89成分を個別同定。一般rank4は83、rank2は6。平面conic+cubic六成分と平面二直線+cubic九成分は全て23次元。既約Q+C3全支持を被覆済み。全成分数上界・一般ファイバー尽くし・全分類は未証明。",
@@ -11273,6 +11273,188 @@
         "全H³L²閉条件と内在的な三重超平面のcofactor flagにより旧92および相互と異なる。",
         "witnessのPGL軌道次元はhalf22/third23。一般軌道・商次元は未確認。"
       ]
+    },
+    {
+      "id": "R4_NIL22_IMAGE_NODAL_CUBIC_FLEX_23",
+      "name": "nil22 image内の節点三次・二重flex超平面23成分",
+      "source_checkpoint": "v64-classification-first",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "additional_generic_rank_four_full_component_outside_MPS40",
+      "generic_rank": 4,
+      "projective_dimension": 23,
+      "meets_SNC_log_symplectic_locus": false,
+      "generic_pgl5_orbit_dimension": 23,
+      "generic_reduced_rosenlicht_quotient_dimension": 0,
+      "generic_transverse_algebra": null,
+      "component_definition": "Reduced PGL5-saturated closure of the complete six-magnetic nil22-image triple_A source",
+      "generic_construction": {
+        "full_source": "research/classification/NIL22_IMAGE_SOURCES_AND_COMPONENTS.md",
+        "branch": "triple_A",
+        "coordinates": [
+          "h",
+          "q1",
+          "q2",
+          "x",
+          "y"
+        ],
+        "all_six_magnetic_parameters_retained": true,
+        "S": [
+          [
+            -18,
+            0
+          ],
+          [
+            0,
+            -6
+          ]
+        ],
+        "V": [
+          "1-x/3",
+          "-y/2"
+        ],
+        "D3": "x^3",
+        "H": "S+Hess(D3)/2",
+        "M": "-adj(H)+(x,y)^T tensor V",
+        "F0": "m0+m1*x+m2*y+m3*x^2+m4*x*y+m5*y^2",
+        "F": "F0+(y+div(M2))*q1+(-x-div(M1))*q2",
+        "source_formula": "F d_q1 wedge d_q2 + sum Mij d_qi wedge d_pj; p=(x,y)"
+      },
+      "generic_actual_degeneracy_divisor": {
+        "description": "Unique double hyperplane plus irreducible nodal cubic cone",
+        "witness_equation": "h^2*(x^3-9*h*x^2-3*h*y^2+108*h^3)",
+        "irreducible_factor_degrees": [
+          1,
+          3
+        ],
+        "corresponding_multiplicities": [
+          2,
+          1
+        ],
+        "reduced": false,
+        "essential_variables": 3,
+        "cubic_singular_plane": "x=6*h,y=0",
+        "cubic_singular_plane_contained_in_double_hyperplane": false
+      },
+      "claims": [
+        "R4_NIL22_IMAGE_TWO_COMPONENTS_23"
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/NIL22_IMAGE_SOURCES_AND_COMPONENTS.md"
+        },
+        {
+          "path": "research/classification/NIL22_IMAGE_COMPONENTS_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_NIL22_IMAGE_COMPONENTS_20261107.json",
+        "reports/CLASSIFICATION_NIL22_IMAGE_COMPONENTS_REVIEW_20261107.json",
+        "reports/CLASSIFICATION_NIL22_IMAGE_PRIOR94_20261107.json"
+      ],
+      "review_status": {
+        "proof": "full_ambient_componenthood_and_distinctness_proved",
+        "independent_review": "accepted_separate_author_full150_full350_Fraction_and_geometry_2026_11_07",
+        "certificates": "exact_QQ_reconstruction",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "notes_ja": [
+        "全6磁気源を保持し、真正102次元切片の二次最大根基と実F48で23次元全成分を証明。",
+        "全GL/Euler/scale階数48の実PGL軌道23は成分と同次元なので稠密開。全源点が同じactualorbitとは主張しない。",
+        "局所全schemeの滑らかさ・成分唯一性・精密な非被約構造は主張しない。",
+        "全H²C3閉条件、既存5H閉条件、二重Hとcubic singular planeの内在的incidenceで旧94及び相互と区別。"
+      ]
+    },
+    {
+      "id": "R4_NIL22_IMAGE_NODAL_CUBIC_NODE_TANGENT_23",
+      "name": "nil22 image内の節点三次・二重節点接超平面23成分",
+      "source_checkpoint": "v64-classification-first",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "additional_generic_rank_four_full_component_outside_MPS40",
+      "generic_rank": 4,
+      "projective_dimension": 23,
+      "meets_SNC_log_symplectic_locus": false,
+      "generic_pgl5_orbit_dimension": 23,
+      "generic_reduced_rosenlicht_quotient_dimension": 0,
+      "generic_transverse_algebra": null,
+      "component_definition": "Reduced PGL5-saturated closure of the complete six-magnetic nil22-image triple_B source",
+      "generic_construction": {
+        "full_source": "research/classification/NIL22_IMAGE_SOURCES_AND_COMPONENTS.md",
+        "branch": "triple_B",
+        "coordinates": [
+          "h",
+          "q1",
+          "q2",
+          "x",
+          "y"
+        ],
+        "all_six_magnetic_parameters_retained": true,
+        "S": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "V": [
+          "-x/3",
+          "-2*y/3"
+        ],
+        "D3": "x^3",
+        "H": "S+Hess(D3)/2",
+        "M": "-adj(H)+(x,y)^T tensor V",
+        "F0": "m0+m1*x+m2*y+m3*x^2+m4*x*y+m5*y^2",
+        "F": "F0+(y+div(M2))*q1+(-x-div(M1))*q2",
+        "source_formula": "F d_q1 wedge d_q2 + sum Mij d_qi wedge d_pj; p=(x,y)"
+      },
+      "generic_actual_degeneracy_divisor": {
+        "description": "Unique double hyperplane plus irreducible nodal cubic cone",
+        "witness_equation": "h^2*(x^3+h*x*y-h^3)",
+        "irreducible_factor_degrees": [
+          1,
+          3
+        ],
+        "corresponding_multiplicities": [
+          2,
+          1
+        ],
+        "reduced": false,
+        "essential_variables": 3,
+        "cubic_singular_plane": "h=x=0",
+        "cubic_singular_plane_contained_in_double_hyperplane": true
+      },
+      "claims": [
+        "R4_NIL22_IMAGE_TWO_COMPONENTS_23"
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/NIL22_IMAGE_SOURCES_AND_COMPONENTS.md"
+        },
+        {
+          "path": "research/classification/NIL22_IMAGE_COMPONENTS_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_NIL22_IMAGE_COMPONENTS_20261107.json",
+        "reports/CLASSIFICATION_NIL22_IMAGE_COMPONENTS_REVIEW_20261107.json",
+        "reports/CLASSIFICATION_NIL22_IMAGE_PRIOR94_20261107.json"
+      ],
+      "review_status": {
+        "proof": "full_ambient_componenthood_and_distinctness_proved",
+        "independent_review": "accepted_separate_author_full150_full350_Fraction_and_geometry_2026_11_07",
+        "certificates": "exact_QQ_reconstruction",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "notes_ja": [
+        "全6磁気源を保持し、真正102次元切片の二次最大根基と実F48で23次元全成分を証明。",
+        "全GL/Euler/scale階数48の実PGL軌道23は成分と同次元なので稠密開。全源点が同じactualorbitとは主張しない。",
+        "局所全schemeの滑らかさ・成分唯一性・精密な非被約構造は主張しない。",
+        "全H²C3閉条件、既存5H閉条件、二重Hとcubic singular planeの内在的incidenceで旧94及び相互と区別。"
+      ]
     }
   ],
   "named_block_member_annotations": [
@@ -11626,5 +11808,5 @@
     "MPS40 blockを展開したらblockによる加算を止め、二重計上しない。",
     "文献上の新規性は内部成分証明とは別に確認する。"
   ],
-  "new_components_added_in_this_checkpoint": 36
+  "new_components_added_in_this_checkpoint": 38
 }

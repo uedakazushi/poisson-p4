@@ -5,6 +5,333 @@ from pathlib import Path
 import classification_unimodular_logarithmic_review as r
 
 
+def two_lines_rank2_translation():
+    """All original21 coefficients and whole nonplane support/normalizers."""
+    from fractions import Fraction as F
+    from itertools import combinations
+    import re
+    from classification_quadratic_cofactor_review import Ring,PAIRS
+    import classification_quadratic_cofactor_review as helper
+    import classification_two_lines_plane_cubic_component_review as q
+    resource.setrlimit(resource.RLIMIT_CPU,(35,36));resource.setrlimit(resource.RLIMIT_AS,(768*1024**2,768*1024**2))
+    start=time.monotonic();root=Path(__file__).resolve().parents[1]
+    inputs=[root/'reports/CLASSIFICATION_TWO_HYPERPLANES_CUBIC_NILPOTENT_20261107.json',root/'reports/CLASSIFICATION_TWO_HYPERPLANES_CUBIC_RANK2_TRANSLATION_SUPPORT_20261107.json']
+    source=json.loads(inputs[0].read_text())['cases'][-1];assert source['case']=='j111_rank2'
+    def rename(text):return re.sub(r'\b(h|u|v)\b',lambda m:{'h':'1','u':'y','v':'z'}[m[0]],text)
+    def matrix(R,entries):
+        M=[[{} for j in range(4)] for i in range(4)]
+        for (i,j),v in zip(PAIRS,entries):M[i][j]=v;M[j][i]=R.scale(v,-1)
+        return M
+    def jac(R,E):
+        P=matrix(R,E)
+        return [R.add(*(R.mul(P[a][t],R.derivative(P[b][d],t)) for a,b,d in [(i,j,k),(j,k,i),(k,i,j)] for t in range(4))) for i,j,k in combinations(range(4),3)]
+    def pf(R,E):return R.add(R.mul(E[0],E[5]),R.scale(R.mul(E[1],E[4]),-1),R.mul(E[2],E[3]))
+    R=Ring(21);parse=lambda text:R.parse(rename(text));E=[parse(source['brackets'][str(i+1)+','+str(j+1)]) for i,j in PAIRS]
+    T=R.parse('y-x*z');a,b,c=map(R.variable,['n4','n11','n18']);L=R.add(b,R.scale(R.mul(c,R.variable('x')),-1))
+    A=R.add(E[3],R.scale(R.variable('y'),-1),R.mul(a,T));B=R.add(E[4],R.mul(b,T));C=R.add(E[5],R.mul(c,T));G=R.add(R.mul(R.variable('x'),C),R.scale(B,-1))
+    assert all(not e[22] and not e[23] for poly in [A,B,C] for e in poly)
+    cubic=R.add(R.mul(L,T),G);assert pf(R,E)==R.mul(R.variable('x'),cubic)
+    I=R.add(R.mul(R.variable('x'),R.derivative(L,0)),R.mul(c,R.derivative(G,3)),R.mul(R.derivative(C,3),L))
+    II=R.add(R.mul(R.variable('x'),R.derivative(G,0)),R.mul(A,L),R.scale(R.mul(C,R.derivative(G,3)),-1),
+        R.scale(R.mul(R.add(R.constant(1),R.scale(a,-1),R.scale(R.derivative(C,3),-1)),G),-1))
+    JJ=jac(R,E);assert not any(JJ[:3]);assert JJ[3]==R.scale(R.add(R.mul(I,T),II),-1)
+    records=[]
+    for packet in json.loads(inputs[1].read_text())['cases']:
+        R=Ring(8);parse=lambda text:R.parse(rename(text));E=list(map(parse,packet['full_brackets']))
+        assert not any(jac(R,E));assert pf(R,E)==parse(packet['full_Pfaffian'])==R.mul(R.variable('x'),parse(packet['full_irreducible_cubic']))
+        A,B,C=map(parse,[packet['A'],packet['B'],packet['C']]);a,b,c=map(parse,[packet['a'],packet['b'],packet['c']]);T=R.parse('y-x*z');L=R.add(b,R.scale(R.mul(c,R.variable('x')),-1));G=R.add(R.mul(R.variable('x'),C),R.scale(B,-1))
+        assert not R.add(R.mul(R.variable('x'),R.derivative(L,0)),R.mul(c,R.derivative(G,3)),R.mul(R.derivative(C,3),L))
+        assert not R.add(R.mul(R.variable('x'),R.derivative(G,0)),R.mul(A,L),R.scale(R.mul(C,R.derivative(G,3)),-1),R.scale(R.mul(R.add(R.constant(1),R.scale(a,-1),R.scale(R.derivative(C,3),-1)),G),-1))
+        q.N=5
+        def field(*values):return list(map(q.parse,values))
+        nil=[field('0','0',j,'0','0') for j in ['h','x','w']]+[field('0','0','0',j,'0') for j in ['h','x','w']]+[field('0','0','0','0',j) for j in ['h','x']]
+        D1=field('0','x','y','0','0');D2=field('0','0','y','z','w');N=field('0','0','x','h','0')
+        def mat(Y):return [[q.der(Y[i],j).get((0,)*5,F(0)) for j in range(5)] for i in range(5)]
+        def product(A,B):return [[sum(A[i][k]*B[k][j] for k in range(5)) for j in range(5)] for i in range(5)]
+        def comm(A,B):return [[a-b for a,b in zip(r,s)] for r,s in zip(product(A,B),product(B,A))]
+        flat=lambda M:[v for row in M for v in row]
+        NN=mat(N);nil=list(map(mat,nil));K=nil+[mat(D2)]+([mat(D1)] if packet['name']=='L_h' else []);vectors=list(map(flat,K));dim=len(K)
+        assert q.rank(q.transpose(vectors))[0]==dim==packet['preserving_projective_normalizer_dimension']
+        assert q.rank(q.transpose(vectors+[flat(comm(A,B)) for A,B in combinations(K,2)]))[0]==dim
+        assert all(not any(flat(comm(A,NN))) for A in nil)
+        assert comm(mat(D2),NN)==NN and not any(flat(comm(mat(D1),NN)))
+        order=[2,3,4,0,1];assert all(not A[order[i]][order[j]] for A in nil for i in range(5) for j in range(i+1))
+        upper=24+len(packet['free_parameters'])-dim;assert upper==22
+        records.append({'name':packet['name'],'all_passed':True,'all_full_source_Jacobi_Pfaffian_reconstructed':True,
+            'parameter_count':len(packet['free_parameters']),'nilpotent_group_dimension':8,'projective_normalizer_dimension':dim,
+            'all_Lie_closure_and_cofactor_line_conditions_reconstructed':True,'whole_projective_PGL_image_dimension_upper':upper})
+    out={'task_id':'E_reduced_nonnormal','all_passed':True,'original21_parameter_source_I_II_identity_reconstructed':True,'cases':records,
+        'input_sha256':{str(p.relative_to(root)):hashlib.sha256(p.read_bytes()).hexdigest() for p in inputs+[Path(helper.__file__),Path(q.__file__)]},
+        'reviewer_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'seconds':time.monotonic()-start,
+        'scope':'Independent original full21-coefficient source/normal-form Jacobi identities, both complete nonplane support formulas and exact preserving normalizer matrices. Necessary polynomial-division reductions, h/x exchange and free-action dimension implications are separately written proofs. No E component membership claimed.'}
+    (root/'reports/CLASSIFICATION_TWO_HYPERPLANES_CUBIC_RANK2_TRANSLATION_REVIEW_20261107.json').write_text(json.dumps(out,indent=2)+'\n')
+    print(json.dumps({'all_passed':True,'seconds':out['seconds']}))
+
+def reduced_divisor_normalizers():
+    """Whole-source dimension groups; no tangent-point inference."""
+    from fractions import Fraction as F
+    from itertools import combinations
+    import classification_two_lines_plane_cubic_component_review as q
+    resource.setrlimit(resource.RLIMIT_CPU,(25,26));resource.setrlimit(resource.RLIMIT_AS,(512*1024**2,512*1024**2))
+    start=time.monotonic();root=Path(__file__).resolve().parents[1];q.N=5;records=[]
+    names=['h','x','y','z','w'];h,x,u,v,w=names
+    def field(*data):return list(map(q.parse,data))
+    common=[field('0','0','0','0',h),field('0','0','0','0',x),field('0','0',h,'0','0'),field('0','0',x,'0','0')]
+    cases=[]
+    for name,L,M,dim in [('p0','h+x','h',5),('h_x','h','x',6)]:
+        V=field('0','0',v,L,M);K=[field('0','0',v,L,'0'),field('0','0',w,M,'0'),*common]
+        cases.append((name,V,K,[2,3,4,0,1],dim))
+    V=field('0','0',v,'0','h+x');K=[field('0','0',h,'0','0'),field('0','0',x,'0','0'),field('0','0',v,'0','0'),
+        field('0','0',w,'h+x','0'),field('0','0','0','0',h),field('0','0','0','0',x),field('0','0','0','0',v)]
+    cases.append(('translation_n6_one',V,K,[2,4,3,0,1],6))
+    def matrix(Y):return [[q.der(Y[i],j).get((0,)*5,F(0)) for j in range(5)] for i in range(5)]
+    def product(A,B):return [[sum(A[i][k]*B[k][j] for k in range(5)) for j in range(5)] for i in range(5)]
+    def bracket(A,B):return [[a-b for a,b in zip(r,s)] for r,s in zip(product(A,B),product(B,A))]
+    def flat(A):return [v for row in A for v in row]
+    for name,V,K,order,dim in cases:
+        N=matrix(V);AA=list(map(matrix,K));vectors=list(map(flat,AA));rank=q.rank(q.transpose(vectors))[0]
+        assert rank==len(K)
+        assert all(not any(flat(bracket(A,N))) for A in AA)
+        assert all(not any(A[0]) and not any(A[1]) for A in AA)
+        assert all(not A[order[i]][order[j]] for A in AA for i in range(5) for j in range(i+1))
+        BB=[bracket(A,B) for A,B in combinations(AA,2)]
+        assert q.rank(q.transpose(vectors+list(map(flat,BB))))[0]==rank
+        # Simultaneously strict upper triangular matrices integrate to a connected
+        # algebraic unipotent group by the characteristic-zero exponential map.
+        upper=24+dim-rank
+        assert upper<=24
+        records.append({'name':name,'coordinate_order':['h','x','u','v','w'],
+            'cofactor_matrix':[[str(v) for v in row] for row in N],
+            'all_generator_matrices':[[[str(v) for v in row] for row in A] for A in AA],
+            'linearly_independent_generator_count':rank,'all_commute_with_V':True,'all_fix_h_and_x_pointwise':True,
+            'all_strict_upper_triangular_in_order':order,'Lie_bracket_closure':True,
+            'connected_algebraic_unipotent_group_dimension':rank,'fixed_complete_source_dimension':dim,
+            'preserves_u_coefficient_and_determinant_one':True,
+            'whole_projective_PGL_image_dimension_upper':upper,
+            'whole_source_preservation_reason':'The complete fixed-V Jacobi support has three disjoint irreducible five-parameter components; a connected group preserves each.' if name=='p0' else
+                'The full irreducible-cubic support is contained in the unique complete six-parameter source, and the group preserves V/h/x and irreducibility.' if name=='h_x' else
+                'The group preserves V/h/x, determinant1 and the u coefficient of F; therefore it fixes n6=1 and preserves the unique complete six-parameter source.'})
+        print(name,'WHOLE NORMALIZER PASS',rank,'dimension upper',upper,flush=True)
+    paths=[root/'research/classification/TWO_HYPERPLANES_CUBIC_SUPPORT.md',
+        root/'reports/CLASSIFICATION_TWO_HYPERPLANES_CUBIC_NILPOTENT_20261107.json',
+        root/'reports/CLASSIFICATION_TWO_HYPERPLANES_CUBIC_NILPOTENT_COMPONENTS_20261107.json',
+        root/'reports/CLASSIFICATION_TWO_HYPERPLANES_CUBIC_NILPOTENT_TRANSLATION_COMPONENT_20261107.json',Path(q.__file__)]
+    out={'task_id':'E_reduced_nonnormal','all_passed':True,'cases':records,
+        'input_sha256':{str(p.relative_to(root)):hashlib.sha256(p.read_bytes()).hexdigest() for p in paths},
+        'reviewer_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'seconds':time.monotonic()-start,
+        'scope':'Independent Fraction verification of exact algebraic unipotent groups preserving the entire complete fixed-cofactor sources. Completeness of source classification and the free-action dimension argument are separate written proof inputs. No point-orbit-rank, higher-jet or E component-membership inference.'}
+    (root/'reports/CLASSIFICATION_TWO_HYPERPLANES_CUBIC_NORMALIZER_DIMENSION_REVIEW_20261107.json').write_text(json.dumps(out,indent=2)+'\n')
+
+def nilpotent_factor_reductions():
+    """New HQQ bridges; earlier complete nonlinear reductions stay explicit inputs."""
+    from fractions import Fraction as F
+    from itertools import combinations,combinations_with_replacement
+    from classification_quadratic_cofactor_review import Ring,PAIRS
+    import classification_quadratic_cofactor_review as helper
+    import classification_two_lines_plane_cubic_component_review as q
+    resource.setrlimit(resource.RLIMIT_CPU,(35,36));resource.setrlimit(resource.RLIMIT_AS,(768*1024**2,768*1024**2))
+    start=time.monotonic();root=Path(__file__).resolve().parents[1];records=[];paths=[];q.N=5
+    configs=[('nil31_long',['0','y','z','h','0'],['h*h','h*w','w*w','2*h*y-z*z']),
+        ('nil211_short',['0','y','0','h','0'],['h*h','h*y','h*w','y*y','y*w','w*w','h*x-y*z']),
+        ('nil211_long',['0','y','h','0','0'],['h*h','h*z','h*w','z*z','z*w','w*w','h*x-y*y/2'])]
+    mon=q.monomials(2)
+    for name,field,basis in configs:
+        field=list(map(q.parse,field));basis=list(map(q.parse,basis));cols=[]
+        for e in mon:
+            p={e:F(1)};cols.append(q.add(*(q.mul(field[j],q.der(p,j)) for j in range(5))))
+        M=[[p.get(e,F(0)) for p in cols] for e in mon];rank=q.rank(M)[0]
+        assert rank+len(basis)==15 and q.rank([[p.get(e,F(0)) for p in basis] for e in mon])[0]==len(basis)
+        assert all(not q.add(*(q.mul(field[j],q.der(p,j)) for j in range(5))) for p in basis)
+        records.append({'name':name,'complete_quadratic_invariant_kernel':True,'rank':rank,'dimension':len(basis)})
+    path=root/'reports/CLASSIFICATION_HYPERPLANE_QUARTIC_NILPOTENT_SOURCES_20261107.json';paths.append(path)
+    full=json.loads(path.read_text())['full_nilpotent_sources']
+    def matrix(R,entries):
+        M=[[{} for j in range(4)] for i in range(4)]
+        for (i,j),v in zip(PAIRS,entries):M[i][j]=v;M[j][i]=R.scale(v,-1)
+        return M
+    def pf(R,v):return R.add(R.mul(v[0],v[5]),R.scale(R.mul(v[1],v[4]),-1),R.mul(v[2],v[3]))
+    def substitute(R,poly,values):
+        out={}
+        for e,c in poly.items():
+            p=R.constant(c)
+            for i,d in enumerate(e):
+                for k in range(d):p=R.mul(p,values.get(R.names[i],R.variable(R.names[i])))
+            out=R.add(out,p)
+        return out
+    # Type1 canonical HQQ stratum: a full source identity, rather than a sample.
+    R=Ring(13);values={f'n{i}':{} for i in [1,2,5,6,7,9,10,11]};values['n8']=R.constant(-F(1,4));values['n12']=R.constant(-F(1,2))
+    E=[substitute(R,R.parse(v),values) for v in full[0]['brackets']];P=matrix(R,E)
+    assert all(not R.add(*(R.mul(P[a][t],R.derivative(P[b][d],t)) for a,b,d in [(i,j,k),(j,k,i),(k,i,j)] for t in range(4))) for i,j,k in combinations(range(4),3))
+    assert pf(R,E)==R.parse('(2*w*y-z*z)**2/48-n0*w*w/2')
+    records.append({'name':'nil4_c0_HQQ_stratum','all_source_Jacobi_and_Pfaffian_identity':True,'earlier_complete_nonlinear_reduction_remains_separate_input':True})
+    # Type3 exclusion holds even before Jacobi.
+    R=Ring(19);E=list(map(R.parse,full[2]['brackets']));assert all(e[21]>=1 for e in pf(R,E))
+    records.append({'name':'nil31_c0','unconditional_linear_factor_z':True})
+    # Type9: independent full28-parameter nonlinear coordinate push and potential.
+    R=Ring(28);E=list(map(R.parse,full[8]['brackets']));P=matrix(R,E);names=('x','y','w','z')
+    coords=list(map(R.parse,['x-y*z','y','w','z']));inverse={'x':R.parse('x+y*z')}
+    new=[]
+    for a,b in PAIRS:
+        v=R.add(*(R.mul(R.derivative(coords[a],i),R.derivative(coords[b],j),P[i][j]) for i in range(4) for j in range(4)))
+        new.append(substitute(R,v,inverse))
+    geometry=root/'reports/CLASSIFICATION_HYPERPLANE_QUARTIC_NIL211_SHORT1_GEOMETRY_20261107.json';paths.append(geometry)
+    data=json.loads(geometry.read_text())['nil_short_translation_geometry'];parse=lambda v:R.parse(v.replace('u','x'))
+    assert new==list(map(parse,data['transformed_brackets']))
+    Phi=parse(data['potential']);V=list(map(parse,data['vector_field']));axes=[0,1,3]
+    assert [new[0],new[1],new[3]]==[R.derivative(Phi,3),R.scale(R.derivative(Phi,1),-1),R.derivative(Phi,0)]
+    assert [new[2],new[4],new[5]]==[R.scale(v,-1) for v in V]
+    assert R.add(*(R.derivative(v,a) for v,a in zip(V,axes)))==R.constant(-1)
+    VPhi=R.add(*(R.mul(v,R.derivative(Phi,a)) for v,a in zip(V,axes)));Q=R.add(VPhi,Phi)
+    NP=matrix(R,new);logical=[0,1,3,2]
+    JJ=[R.add(*(R.mul(NP[a][t],R.derivative(NP[b][d],logical[t])) for a,b,d in [(i,j,k),(j,k,i),(k,i,j)] for t in range(4))) for i,j,k in combinations(range(4),3)]
+    assert JJ==[{},R.derivative(Q,3),R.scale(R.derivative(Q,1),-1),R.derivative(Q,0)]
+    assert pf(R,new)==R.scale(VPhi,-1)
+    u2={e[:28]+(0,0,0,0):c for e,c in Q.items() if e[28:]==(2,0,0,0)}
+    assert u2==R.parse('-n20*n25')
+    records.append({'name':'nil211_short','full28_parameter_coordinate_push_and_potential_reconstructed':True,
+        'all_Jacobi_exactly_three_derivatives_of_VPhi_plus_Phi':True,'actual_u_squared_coefficient_minus_n20n25':True,
+        'quadratic_coefficient_c_rank_at_most2_on_Jacobi_by_two_explicit_factor_branches':True})
+    # Type10 whole three-parameter family and its three-dimensional group action.
+    R=Ring(6);E=list(map(R.parse,['(x-y*y/2)/2','-y*z/2','-2*n1*z+n2*y','-z/2','n2','n0*(x-y*y/2)']));P=matrix(R,E)
+    assert all(not R.add(*(R.mul(P[a][t],R.derivative(P[b][d],t)) for a,b,d in [(i,j,k),(j,k,i),(k,i,j)] for t in range(4))) for i,j,k in combinations(range(4),3))
+    assert pf(R,E)==R.parse('n0*(x-y*y/2)**2/2+n1*z*z')
+    # Use diagonal g,d and translation f; clear inverses by comparing pullbacks.
+    coords=list(map(R.parse,['x','y','n3*z','n4*w+n5']));target_params={'n0':R.parse('n3*n4*n0'),'n1':R.parse('n4*n1'),'n2':R.parse('n4*n2')}
+    # For a'=d*a/g, multiply only its affected bracket by g before comparison.
+    for idx,(a,b) in enumerate(PAIRS):
+        pushed=R.add(*(R.mul(R.derivative(coords[a],i),R.derivative(coords[b],j),P[i][j]) for i in range(4) for j in range(4)))
+        if idx==2:expected=R.parse('-2*n4*n1*z+n4*n2*y')
+        else:expected=substitute(R,substitute(R,E[idx],target_params),dict(zip(('x','y','z','w'),coords)))
+        assert pushed==expected
+    records.append({'name':'nil211_long','whole3_parameter_Jacobi_Pfaffian_and_3dim_normalizer_action_reconstructed':True,
+        'delta_prime':'g*d*delta','a_prime':'d*a/g','kappa_prime':'d*kappa','projective_PGL_image_dimension_upper':24})
+    out={'task_id':'E_reduced_nonnormal','all_passed':True,'cases':records,
+        'input_sha256':{str(p.relative_to(root)):hashlib.sha256(p.read_bytes()).hexdigest() for p in paths+[Path(helper.__file__),Path(q.__file__)]},
+        'reviewer_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'seconds':time.monotonic()-start,
+        'scope':'New HQQ invariant-kernel/potential/full canonical-family arithmetic bridges. Earlier complete nonlinear nil4/nil31long reductions are explicit separate proof inputs; no claim that their ideal-membership calculations were newly independently reconstructed. Type7 remains separate.'}
+    (root/'reports/CLASSIFICATION_TWO_QUADRICS_PURE_NILPOTENT_FACTOR_REVIEW_20261107.json').write_text(json.dumps(out,indent=2)+'\n')
+    print(json.dumps({'all_passed':True,'seconds':out['seconds']}))
+
+def mixed_normal_support():
+    """Independent all-row sources and complete-support stratum arithmetic."""
+    import ast
+    from fractions import Fraction as F
+    from itertools import combinations, combinations_with_replacement
+    from classification_quadratic_cofactor_review import Ring,PAIRS
+    import classification_quadratic_cofactor_review as helper
+    import classification_two_lines_plane_cubic_component_review as q
+    resource.setrlimit(resource.RLIMIT_CPU,(55,56));resource.setrlimit(resource.RLIMIT_AS,(768*1024**2,768*1024**2))
+    start=time.monotonic();root=Path(__file__).resolve().parents[1]
+    paths=[root/'reports'/('CLASSIFICATION_TWO_QUADRICS_'+p+'_20261107.json') for p in ['MIXED_NORMAL_SYMMETRIES','MIXED_NORMAL_SUPPORT']]
+    sources=json.loads(paths[0].read_text())['cases'];supports={v['name']:v for v in json.loads(paths[1].read_text())['cases']}
+    R=Ring(13);xx=[R.variable(v) for v in ('x','y','z','w')];zero=F(0);records=[]
+    # Only nonzero source parameters from the written support proof are inverted.
+    def inverse_monomial(poly):
+        assert len(poly)==1
+        e,c=next(iter(poly.items()));assert not any(e[13:])
+        return {tuple(-v for v in e):1/c}
+    def parse(expression):
+        def walk(node):
+            if isinstance(node,ast.Constant) and type(node.value) is int:return R.constant(node.value)
+            if isinstance(node,ast.Name):return R.variable(node.id)
+            if isinstance(node,ast.UnaryOp) and isinstance(node.op,ast.USub):return R.scale(walk(node.operand),-1)
+            if isinstance(node,ast.BinOp):
+                a,b=walk(node.left),walk(node.right)
+                if isinstance(node.op,ast.Add):return R.add(a,b)
+                if isinstance(node.op,ast.Sub):return R.add(a,R.scale(b,-1))
+                if isinstance(node.op,ast.Mult):return R.mul(a,b)
+                if isinstance(node.op,ast.Div):return R.mul(a,inverse_monomial(b))
+                if isinstance(node.op,ast.Pow):
+                    assert set(b)<={R.zero};power=b.get(R.zero,zero);assert power.denominator==1
+                    if power<0:a=inverse_monomial(a);power=-power
+                    out=R.constant(1)
+                    for k in range(int(power)):out=R.mul(out,a)
+                    return out
+            raise AssertionError(ast.dump(node))
+        return walk(ast.parse(expression,mode='eval').body)
+    def substitute(poly,mapping):
+        out={}
+        for e,c in poly.items():
+            term=R.constant(c)
+            for i,degree in enumerate(e):
+                assert degree>=0
+                value=mapping.get(R.names[i],R.variable(R.names[i]))
+                for k in range(degree):term=R.mul(term,value)
+            out=R.add(out,term)
+        return out
+    def mons(degree):
+        out=[]
+        for d in range(degree+1):
+            for indexes in combinations_with_replacement(range(4),d):
+                e=[0]*4
+                for j in indexes:e[j]+=1
+                out.append(tuple(e))
+        return out
+    mon2,mon1=mons(2),mons(1)
+    def coefficients(poly,mon):
+        assert all(not any(e[:13]) for e in poly)
+        return [poly.get((0,)*13+e,zero) for e in mon]
+    def matrix(entries):
+        M=[[{} for j in range(4)] for i in range(4)]
+        for (i,j),v in zip(PAIRS,entries):M[i][j]=v;M[j][i]=R.scale(v,-1)
+        return M
+    def pf(v):return R.add(R.mul(v[0],v[5]),R.scale(R.mul(v[1],v[4]),-1),R.mul(v[2],v[3]))
+    for source in sources:
+        begin=time.monotonic();name=source['name'];S=list(map(parse,source['semisimple_field']));N=list(map(parse,source['nilpotent_field']))
+        def lhs(entries,ss,tt):
+            P=matrix(entries);rows=[]
+            for j in range(4):rows+=coefficients(R.add(*(R.derivative(P[i][j],i) for i in range(4)),R.scale(R.mul(ss,S[j]),-1),R.scale(R.mul(tt,N[j]),-1)),mon1)
+            for field in [S,N]:
+                for i,j in PAIRS:
+                    lie=R.add(*(R.add(R.mul(field[k],R.derivative(P[i][j],k)),R.scale(R.mul(P[k][j],R.derivative(field[i],k)),-1),R.scale(R.mul(P[i][k],R.derivative(field[j],k)),-1)) for k in range(4)))
+                    rows+=coefficients(lie,mon2)
+            assert len(rows)==200
+            return rows
+        columns=[]
+        for col in range(92):
+            entries=[{} for j in range(6)];ss=tt={}
+            if col<90:entries[col//15]={(0,)*13+mon2[col%15]:F(1)}
+            elif col==90:ss=R.constant(1)
+            else:tt=R.constant(1)
+            columns.append(lhs(entries,ss,tt))
+        rows=[{j:columns[j][i] for j in range(92) if columns[j][i]} for i in range(200)]
+        assert rows==[{int(j):F(v) for j,v in row.items()} for row in source['full_constraint_sparse_rows']]
+        coef=list(map(parse,source['all92_coefficients']));free=source['free_coefficient_indices'];count=len(free)
+        assert len(coef)==92 and count==len(source['free_parameters'])==92-source['rank']
+        assert [coef[j] for j in free]==[R.variable('n'+str(i)) for i in range(count)]
+        assert all(not R.add(*(R.scale(coef[j],a) for j,a in row.items())) for row in rows)
+        det=q.determinant([[rows[i].get(j,zero) for j in source['pivot_columns']] for i in source['pivot_rows']])
+        assert det==F(source['pivot_determinant']) and det and len(source['pivot_columns'])==92-count
+        entries=[R.add(*(R.mul(coef[15*i+j],{(0,)*13+e:F(1)}) for j,e in enumerate(mon2))) for i in range(6)]
+        assert entries==list(map(parse,source['full_brackets']));P=matrix(entries)
+        Jac=[R.add(*(R.mul(P[a][t],R.derivative(P[b][d],t)) for a,b,d in [(i,j,k),(j,k,i),(k,i,j)] for t in range(4))) for i,j,k in combinations(range(4),3)]
+        assert Jac==list(map(parse,source['all_four_Jacobi'])) and pf(entries)==parse(source['full_Pfaffian'])
+        branches=[]
+        for branch in supports[name]['branches']:
+            mapping={j:parse(v) for j,v in branch['necessary_substitutions'].items()}
+            actual=[substitute(v,mapping) for v in entries];actual_pf=pf(actual)
+            if 'full_Pfaffian_after_substitution' in branch:assert actual_pf==parse(branch['full_Pfaffian_after_substitution'])
+            if 'full_brackets_after_substitution' in branch:
+                assert actual==list(map(parse,branch['full_brackets_after_substitution']))
+                assert all(not substitute(v,mapping) for v in Jac)
+                free_names=set(branch['free_parameters']);assert len(free_names)==branch['source_dimension_upper']==branch['normalizer_dimension_lower']
+                assert branch['full_PGL_projective_image_dimension_upper']==23
+                assert all(all(not d or R.names[i] in free_names or i>=13 for i,d in enumerate(e)) for v in actual for e in v)
+            elif name=='double_pair_two_nil' and branch['name']=='ss_coefficient_nonzero':
+                assert all(e[14]>=1 and e[16]>=1 for e in actual_pf)
+            branches.append({'name':branch['name'],'all_original_stratum_Jacobi_and_Pfaffian_arithmetic_passed':True,
+                'source_dimension_upper':branch.get('source_dimension_upper'),'normalizer_dimension_lower':branch.get('normalizer_dimension_lower')})
+        if name=='double_pair_one_nil':assert all(e[14]>=1 for e in pf(entries))
+        records.append({'name':name,'all_passed':True,'full200_by92_matrix_reconstructed':True,'complete_kernel_and_rank_minor_reconstructed':True,
+            'full_four_Jacobi_and_Pfaffian_reconstructed':True,'rank':source['rank'],'free_parameters':count,'branches':branches,'seconds':time.monotonic()-begin})
+        print(name,'FULL200/92 AND LAURENT SUPPORT PASS',flush=True)
+    out={'task_id':'E_reduced_nonnormal','all_passed':True,'cases':records,
+        'input_sha256':{str(p.relative_to(root)):hashlib.sha256(p.read_bytes()).hexdigest() for p in paths+[Path(helper.__file__),Path(q.__file__)]},
+        'reviewer_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'seconds':time.monotonic()-start,
+        'scope':'Independent Fraction sparse matrix/full kernel/rank/Jacobi/Pfaffian and Laurent stratum arithmetic for all five supersources. The whole-support normal-Hamiltonian restrictions, finite normal-form completeness, and free normalizer-action dimension implication are separate proofs in TWO_QUADRICS_JOINT_SS_RANK1_SUPPORT.md. No E component recognition asserted.'}
+    (root/'reports/CLASSIFICATION_TWO_QUADRICS_MIXED_NORMAL_SUPPORT_REVIEW_20261107.json').write_text(json.dumps(out,indent=2)+'\n')
+    print(json.dumps({'all_passed':True,'seconds':out['seconds']}))
+
 def nonzero_pair_cofactor():
     """Independent all-row arithmetic and exhaustive joint-character matching."""
     from fractions import Fraction as F
@@ -380,6 +707,10 @@ def plane_sources():
 
 
 def main():
+    if '--two-lines-rank2-translation' in sys.argv:return two_lines_rank2_translation()
+    if '--reduced-divisor-normalizers' in sys.argv:return reduced_divisor_normalizers()
+    if '--nilpotent-factor-reductions' in sys.argv:return nilpotent_factor_reductions()
+    if '--mixed-normal-support' in sys.argv:return mixed_normal_support()
     if '--nonzero-pair-cofactor' in sys.argv:return nonzero_pair_cofactor()
     if '--plane-cubic-support' in sys.argv:return plane_cubic_support()
     if '--plane-components' in sys.argv:return plane_components()

@@ -25,7 +25,7 @@
 \maketitle
 \begin{abstract}
 本稿は、複素射影四空間上のPoisson構造の被約既約成分を尽くし、各成分の一般元の幾何を記述するための研究原稿である。
-分類主定理の証明は完成していない。S61の一次座標と一般切片の対応を確認し、既知三平面に沿う多項式左逆から未知残余を分離する。その空性は忠実な法線チャートの単位証明へ帰着できるが未証明である。階数2の全支持を六族と階数4の閉包で覆い、従前58成分の依存監査に加え、二重二次曲面・冪零モジュラー場・平面曲線等の全源から三十六の相異なる成分を証明して下界94を得る。二重の既約二次曲面、相異なる五超平面、相異なる三超平面と既約二次曲面、既約二次曲面と既約三次曲面、およびモジュラー場の複数の全分岐を被覆する。各新成分は全周囲方程式で検証し、全支持の尽くしとは区別する。
+分類主定理の証明は完成していない。S61の一次座標と一般切片の対応を確認し、既知三平面に沿う多項式左逆から未知残余を分離する。その空性は忠実な法線チャートの単位証明へ帰着できるが未証明である。階数2の全支持を六族と階数4の閉包で覆い、従前58成分の依存監査に加え、二重二次曲面・冪零モジュラー場・平面曲線等の全源から三十八の相異なる成分を証明して下界96を得る。二重の既約二次曲面、相異なる五超平面、相異なる三超平面と既約二次曲面、既約二次曲面と既約三次曲面、およびモジュラー場の複数の全分岐を被覆する。各新成分は全周囲方程式で検証し、全支持の尽くしとは区別する。
 既存リポジトリの全証明書を再実行したとは主張せず、原証明の読解と今回の独立検算を区別する。
 詳細なnilpotent構造や派生論文の完成を、主分類定理の前提条件に追加しない。
 \end{abstract}
@@ -47,7 +47,7 @@
 を証明する。各族が全空間の既約成分であること、相互に異なること、次元、一般階数、一般元の構成および退化因子の幾何を記述する。
 \end{target}
 
-\(N\)は未決定である。2026年11月7日に確認したリポジトリの台帳は、全成分数の下界94、一般階数4の成分数の下界88を記録している。
+\(N\)は未決定である。2026年11月7日に確認したリポジトリの台帳は、全成分数の下界96、一般階数4の成分数の下界90を記録している。
 既存証明書を入力とする成分性・相違の依存監査を行い、以下で主分類に接続する。
 全証明書を今回再実行したという意味ではない。
 この下界を答えとして固定して未知成分を排除するのではない。
@@ -579,7 +579,7 @@ B18の精密なnil指数、\(H^0\)、\(T_2\)全長、追加の接触・Betti不�
 
 \section{既知成分の下界を支える支持の証明}
 MPSの定理\cite[Theorem 1.4]{mps}はSNC locusと交わる40成分を与える。
-従前の追加十一族、positive-weight型NEW25、および今回の三十六の追加成分の射影次元は次の通りである。
+従前の追加十一族、positive-weight型NEW25、および今回の三十八の追加成分の射影次元は次の通りである。
 \begin{center}
 \begin{tabular}{lr}
 \toprule
@@ -603,10 +603,11 @@ NEW25&25\\
 平面二直線・三次曲線の九つの全源&各23\\
 regular nilpotent・単純超平面と既約四次因子&22\\
 平面二conic・一直線の二つの全磁気源&各23\\
-Jordan$(3,1)$のimage内二つの全十源&25,25\\\bottomrule
+Jordan$(3,1)$のimage内二つの全十源&25,25\\
+Jordan$(2,2)$のimage内二つの全六磁気源&23,23\\\bottomrule
 \end{tabular}
 \end{center}
-一般rank四は$40+11+1+36=88$成分で、前述の六rank2成分と合わせて下界は$88+6=94$となる。
+一般rank四は$40+11+1+38=90$成分で、前述の六rank2成分と合わせて下界は$90+6=96$となる。
 以下の議論はこの下界を支えるもので、全支持の上界を与えない。
 
 \subsection{精密な横断環を要しない成分性}
@@ -1714,6 +1715,161 @@ $10+12-6-3=13$、$14+10-6-3=15$となる。
 \end{proof}
 この命題は残源の成分帰属を含意しない。
 全式と独立確認は\path{research/classification/MODULAR_NIL_RANK2_FIRSTJET_BOUND.md}にある。
+
+\subsection{Jordan$(2,2)$のimage内から生じる二つの全磁気23成分}
+命題\ref{prop:nilrank2-beta}の行列表現は、必要条件だけでなく実際の全磁気源を作る。
+その二つから次の成分が得られる。
+\begin{proposition}\label{prop:nil22-image-two-components}
+モジュラー場$N=x\partial_{q_1}+y\partial_{q_2}$のimage内型には、
+六つの磁気係数をすべて自由に保つ二つの多項式源$\mathcal A,\mathcal B$があり、
+そのPGL飽和閉包は相異なる23次元の全Poisson空間成分である。
+両者は従前94成分とも相異なる。全image内型の被覆完成は主張しない。
+\end{proposition}
+\begin{proof}
+$p=(x,y)^t$、$M_i$をMの第i行とし、任意の六係数について
+\[
+ F_0=m_0+m_1x+m_2y+m_3x^2+m_4xy+m_5y^2,
+ \qquad
+ F=F_0+(y+\operatorname{div}M_2)q_1+(-x-\operatorname{div}M_1)q_2
+\]
+と置く。二ベクトルは
+\[
+ P=F\partial_{q_1}\wedge\partial_{q_2}
+       +\sum_{i,j}M_{ij}(p)\partial_{q_i}\wedge\partial_{p_j}.
+\]
+必要十分な行列条件を再掲すると、$D=\det M\ne0$、$D=D_0+D_2+D_3$に対し
+\[
+ \begin{gathered}
+ S=\operatorname{Hess}D_2,\qquad
+ H=S+\tfrac12\operatorname{Hess}D_3,\qquad Hp=\nabla D,\\
+ M=-\operatorname{adj}H+p\otimes V(p),\qquad V=V_0+V_1p,\\
+ D_0=\det S,\qquad D=\det H-V\cdot\nabla D.
+ \end{gathered}
+\]
+十分性も直接分かる。これらの式から$M\nabla D=-Dp$である。
+Mの二行をベクトル場$U_1,U_2$と見ると、$D\ne0$の開上で
+\[
+ \begin{aligned}
+ [U_1,U_2]
+ &=(\operatorname{div}U_2-U_2(\log D))U_1
+       +(U_1(\log D)-\operatorname{div}U_1)U_2\\
+ &=(\operatorname{div}U_2+y)U_1+(-x-\operatorname{div}U_1)U_2.
+ \end{aligned}
+\]
+これはFの二つのq微分を含む二つのJacobi式そのもので、残る二式は
+$P^{p_1p_2}=0$とMのq独立性から零である。任意の$F_0$はこの計算に残る。
+多項式恒等式ゆえ$D=0$上にも延びる。$\det H$は一度も逆にしていないので、
+H特異の補集合も失っていない。同時変換$(q',p')=(Aq,Ap)$では
+$M'=AMA^t$となり、$F_0$の任意二次式空間も可逆に移る。
+
+いま$D_3=x^3$と固定し、次の二選択を取る。
+\[
+\begin{array}{c|c|c|c}
+ &S&V&D\\\hline
+ \mathcal A&\operatorname{diag}(-18,-6)&(1-x/3,-y/2)&
+ x^3-9x^2-3y^2+108\\
+ \mathcal B&\begin{pmatrix}0&1\\1&0\end{pmatrix}&(-x/3,-2y/3)&
+ x^3+xy-1
+\end{array}
+\]
+上の必要十分式を満たすので、各々$\mathbb A^6$全体が実Poisson源である。
+磁気係数零の境界も含み、非零条件や逆元を加えていない。
+hで斉次化した実Pfaffianと射影五次式は全六係数上で
+\[
+ \begin{array}{c|c|c}
+ &\operatorname{Pf}P&\chi_P\\\hline
+ \mathcal A&-hC_A&-h^2C_A\\
+ \mathcal B&-hC_B&-h^2C_B
+ \end{array}
+ \quad
+ \begin{gathered}
+ C_A=x^3-9hx^2-3hy^2+108h^3,\\
+ C_B=x^3+hxy-h^3.
+ \end{gathered}
+\]
+従って全源でrank四であり、最高二次部分のPfaffianは零である。
+
+全空間成分性は、$m=(1,2,3,5,7,11)$における真の切片から示す。
+$\mathcal A$を六倍、$\mathcal B$を三倍した整数tensorを用いる。
+全350の射影Jacobi式の全150方向微分を$D_P$とし、Euler垂直列をE、
+その列に全GL5実微分とscalarを加えた行列をG、さらに六源の実微分を加えたものをFとする。
+\[
+\begin{array}{c|rrrrr}
+ &\operatorname{rank}D_P&\operatorname{rank}E&\operatorname{rank}G&
+ \operatorname{rank}F&\dim\ker D_P\\\hline
+ \mathcal A&101&24&48&48&49\\
+ \mathcal B&100&24&48&48&50
+\end{array}
+\]
+全350行で$D_PF=0$である。一つ、または二つの法線$N_i$は全150係数上で
+$D_PN_i=0$を満たし、$\operatorname{rank}[F,N]=49,50$となる。
+$D_P$の独立な標準座標列101本、または100本に法線を加えたLは
+\[
+ \dim L=102,\qquad\operatorname{rank}[F,L]=150
+\]
+を満たす。従ってLは48個の独立線形cutで定まる実際の切片である。
+非零minorに形式陰関数定理を適用し、切片の101、または100座標を消去する。
+残る一、または二法線を$a,b$とすると補正は二次から始まる。
+全150本の$D_P$列を消す有理左functionalに全Jacobiの二次項をpairingすると、
+正規化した初期式は正確に
+\[
+ \mathcal A:\ a^2,\qquad
+ \mathcal B:\ Q_1=a^2-\frac3{124}b^2,\quad
+ Q_2=ab+\frac5{31}b^2
+\]
+となる。左functionalが全微分像を消すため、消去補正はこれらの二次項を変えない。
+さらに
+\[
+ bQ_1-\left(a-\frac5{31}b\right)Q_2=\frac7{3844}b^3,
+ \qquad \left(\frac5{31}\right)^2-\frac3{124}=\frac7{3844}\ne0.
+\]
+双方の二次idealの根基は法線原点である。真の残idealの初期idealがこれを含むので、
+切片の完成局所環は零次元となる。全初期idealの等式は不要である。
+48cutに対するKrullの不等式から周囲局所次元は48以下、
+実Fの階数48が与える下界と一致する。
+$\mathbb A^6$、GL5、scalar、Euler垂直追加からの実像閉包は既約であり、
+その次元48は、これを含む周囲成分の同点局所次元と一致する。
+従って全六磁気源の飽和閉包自体が全空間成分となる。
+垂直24とscalar一を引くと射影Poisson空間では23次元である。
+接次元はそれぞれ24、25であり、滑らかさや局所成分一意性は主張しない。
+
+次に二者と既存成分を内在的に区別する。
+$C_A|_{h=1}=(x-6)^2(x+3)-3y^2$のy判別式は$\mathbb C(x)$の平方でなく、
+h因子もないので$C_A$は絶対既約である。
+$C_B$はyに一次で$\gcd(hx,x^3-h^3)=1$ゆえGaussの補題から絶対既約である。
+両方の三偏導関数は線形独立で、本質変数数は三。
+平面三次の唯一の特異点はそれぞれ$[h:x:y]=[1:6:0],[0:0:1]$であり、
+前者のaffine Hessian行列式は$-108$、後者の$y=1$での接錐はhxだから、双方nodeである。
+よって$\mathbb P^4$内の三次coneの特異locusは正確に
+\[
+ \Sigma_A=(x=6h,y=0),\qquad \Sigma_B=(h=x=0).
+\]
+退化因子から唯一の二重超平面$H_\infty=(h=0)$と既約三次因子を回収できる。
+$\Sigma_A$は$H_\infty$に含まれず、$\Sigma_B$は含まれる。
+この内在的incidenceは全磁気係数で一定で、PGLとscalarに不変である。
+もし両全成分が同じなら、両飽和constructible稠密像は同じ既約成分の非空開を含み、
+共通点で相反するincidenceを持つことになり矛盾する。
+
+最後に従前94成分と比較する。全新閉包はproper掛け算写像
+\[
+ \mathbb P(V^*)\times\mathbb P(\operatorname{Sym}^3V^*)
+ \longrightarrow\mathbb P(\operatorname{Sym}^5V^*),\qquad(H,C)\longmapsto H^2C
+\]
+の閉像に入り、$\chi=0$もそのaffine coneに含める。
+異なる次元の既存成分とは全空間成分性を証明済みなので区別できる。
+同じ23次元のMPS成分は被約SNCの実点を持ち、他の既存23次元成分も
+ZERO\_LOG\_5H以外は一般退化因子が被約であるため、この閉平方条件に全体が入らない。
+ZERO\_LOG\_5Hの全閉包は別のproper閉条件$\chi=H^5$に入り、
+今回の既約三次因子を持つ実点を含めない。
+従前の全94行を固定した依存表で同次元の未処理例外がないことも確認した。
+これで既存94および二者間の相違が従う。
+\end{proof}
+必要十分源の導出と全係数は\path{NIL22_IMAGE_SOURCES_AND_COMPONENTS.md}、
+別作者による全150係数・全350式・全minor・全磁気微分・相違の独立再構成は
+\path{NIL22_IMAGE_COMPONENTS_REVIEW.md}および
+\path{CLASSIFICATION_NIL22_IMAGE_COMPONENTS_REVIEW_20261107.json}に保存した。
+既存94の証明は採用済み証拠を依存として使い、この独立計算だけでその全証明を再実行したとはしない。
+ここで得たのは二つの全源の成分性であり、残るimage内型の帰属や全分類はなお別問題である。
 
 \subsection{階数一と非零定数モジュラー場の非優越}
 階数一の全affine Jordan型についてもprimitive一次像は一般底を優越しない。
@@ -3937,7 +4093,7 @@ regular nilpotentの他のscalar源とtranslation型は次小節で全て処理�
 
 \begin{proposition}\label{prop:nil4-quartic-distinctness}
 命題\ref{prop:nil4-hyperplane-quartic-component}の成分は、追加前の既知89成分と全て相異なる。
-従って全成分数の下界は90、一般rank四の成分数の下界は84である。
+この追加時点で全成分数の下界は90、一般rank四の成分数の下界は84となった。
 \end{proposition}
 \begin{proof}
 MPS40成分の次元は23,24,25なので、22次元の本成分と異なる。
@@ -4356,8 +4512,103 @@ $P^{xy}=C_0+Axy+Bzw,P^{zw}=D_0+Exy+F_0zw$と四crossのlogcanonical項だけで�
 従って全Jacobiと三分岐の実SNC証明をそのまま適用できる。
 modular場単独が追加wall上にある場合でも、二つの独立characterが全源の完全性を保証する。
 \end{proof}
-joint半単純rank一又は零の$\lambda=0$支持、特殊底の残平面二源及び一般$1+2+2$の全被覆は未解決である。
+joint半単純rank一の一般底に対する次元排除は次小節で与える。
+joint半単純rank零、特殊底の残平面二源及び一般$1+2+2$の全点被覆は未解決である。
 この二命題をG全体又は主分類の完成と同一視しない。
+
+\subsection{零log括弧のjoint半単純rank一の全像上界}
+\begin{proposition}\label{prop:two-quadrics-zero-lambda-rank1-bound}
+$\lambda=0$でjoint半単純部がrank一の$H+q_1+q_2$全支持のPGL飽和像は、
+有限個の24次元以下の像に含まれる。
+従って未知の一般底優越25,26,27次元成分の一般元にはならない。
+既知成分への全点帰属はこの命題の結論に含めない。
+\end{proposition}
+\begin{proof}
+共通半単純生成元Sはhと二quadricを保存しtrace零である。
+五weightは$0,a,-a,b,-b$であり、全て相異なれば可換nilpartは零となって二normal場が従属してしまう。
+従って非零scaleと座標交換を除き、affine weightは$(1,1,-1,-1)$又は$(1,-1,0,0)$である。
+$Z=X_1+X_2$のnilpartが非零ならそれをNとし、零なら一方の$X_i$の非零nilpartをNとする。
+有限次元表現上のJordan分解から、全Pは
+\[
+ [S,N]=0,\qquad\mathcal L_SP=\mathcal L_NP=0,
+ \qquad\operatorname{div}P=sS+tN
+\]
+を満たす。$X_i$自身が$\langle S,N\rangle$に入るとは仮定しない。
+centralizerのnilpotent型とhの位置から、必要なsupersourceは次の五つで尽くされる。
+\begin{center}\small
+\begin{tabular}{c|c|c|r|r}
+型&S&N&200行92列のrank&自由係数\\\hline
+A1&$x\partial_x+y\partial_y-z\partial_z-w\partial_w$&$y\partial_x$&81&11\\
+A2&同上&$y\partial_x+w\partial_z$&83&9\\
+B1&$x\partial_x-y\partial_y$&$w\partial_z$&80&12\\
+B2&同上&$\partial_z$&79&13\\
+B3&同上&$w\partial_z+\partial_w$&83&9
+\end{tabular}
+\end{center}
+全90係数にs,tを加えた完全kernelであり、残るJacobiと因子条件は捨てない。
+
+A1は全Pfaffianがyで割れるため空。
+A2では$s=n_7,t=n_8$で、実Jacobi係数$-(2n_5+n_7)^2$から$n_5=-n_7/2$となる。
+$s\ne0$なら$-n_3(3n_5+n_7)$から$n_3=0$、
+$-n_0n_5-n_0n_7+n_2n_3-n_3n_4+n_3n_8$から$n_0=0$で、Pfaffianはywで割れる。
+$s=0$なら$n_8\ne0$でなければ非退化Pのモジュラー恒等式からPfaffianが定数となって矛盾する。
+よってnil22-image型へ入り、命題\ref{prop:nil22-base-two-conics-plane}により全像次元は24以下である。
+
+B1では二quadricは各々$xy+b_i(h,w)$と規格化できる。
+非零weight方向のnormal条件は両$\alpha_i=n_{10}-2n_5$を与え、発散から$n_{10}=4n_5$。
+$n_5\ne0$であり、Pfaffianの$(xy)^2$係数から$n_8\ne0$も従う。
+全Jacobi係数から
+\[
+ n_2=0,\quad n_7=-n_1n_8/n_5,\quad
+ n_6=-n_0n_8/(2n_5),\quad n_0n_1=0
+\]
+及び$n_0(n_{11}+2n_9)-2n_1^2n_8/n_5=0$を得る。
+$n_1\ne0$は矛盾するので$n_1=n_7=0$。
+normal条件$-n_0+n_5wb_i'=2n_5b_i$より$b_i=A_iw^2-n_0/(2n_5)$である。
+全Pfaffianの$w^4$係数零から$A_1A_2=0$。
+$n_0=0$では一方のquadricがxyとなるため$n_0\ne0,n_{11}=-2n_9$を得る。
+従って対象全支持は六係数$n_0,n_3,n_4,n_5,n_8,n_9$、$n_0n_5n_8\ne0$の源に入る。
+
+B2でも$q_i=xy+b_i(h,w)$で、normal条件と発散から$n_{11}=2n_6,\alpha_i=n_6\ne0$、
+Pfaffianの$(xy)^2$係数から$n_9\ne0$。
+実係数$n_2=n_{10}n_6/n_9,n_1n_9=2n_{10}n_5,4n_{10}n_2=0$は
+被約支持で$n_{10}=n_1=n_2=0$を与える。
+全残Jacobiは$n_0(n_{12}+n_8)=0,n_0n_9-n_5n_8+n_6n_7=0$である。
+$n_0\ne0$では$n_{12}=-n_8,n_7=(n_5n_8-n_0n_9)/n_6$、
+$n_0=0$では$n_7=n_5n_8/n_6$で、両枝とも七係数以下となる。
+
+B3では$v=w^2-2hz$とすると全不変二次式は$axy+bv+ch^2$である。
+両qのxy係数が非零、又は両方零ならnormal場の半単純係数の和とrank一条件が矛盾する。
+従って$q_1=xy+Av+Ch^2,q_2=v+Dh^2$とできる。
+$q_2$のnormal条件から$n_2=0,\alpha_2=0$、$\alpha_1=n_7\ne0$、Jacobiから$n_5=0$となる。
+全Pfaffianは$(n_0+n_1v-n_7xy)(n_4+n_6v)$で、$n_6\ne0$。
+残式は$n_1(4n_6+n_8)=0,n_0(2n_6+n_8)+2n_1n_4=0$。
+$n_1\ne0$では$n_8=-4n_6,n_0=n_1n_4/n_6$、
+$n_1=0$では既約性から$n_0\ne0,n_8=-2n_6$となり、両源とも五係数である。
+
+最後に固定場源の次元を、そのまま全PGL像の次元と取り違えない。
+x,yの独立scaleに加え、次のaffine群KがSを固定しNの直線を保つ。
+\begin{center}\small
+\begin{tabular}{c|c|r|r}
+型&$(z',w')$&$\dim K$&対象のaffine次元上界d\\\hline
+B1&$(az+bw+e,\delta w)$、$a\delta\ne0$&6&6\\
+B2&$(az+bw+e,\delta w+f)$、$a\delta\ne0$&7&7\\
+B3&$(a^2z+abw+c,aw+b)$、$a\ne0$&5&5
+\end{tabular}
+\end{center}
+Kは実対象subset Tを保ち、$\PGL_5\times\mathbb P(T)$の像fiberに
+$(g,P)\mapsto(gk^{-1},kP)$という自由作用を持つ。
+第一因子への作用が自由だから、Pのstabilizerを別に加算せず
+\[
+ \dim\operatorname{im}\le24+(d-1)-\dim K\le23
+\]
+を得る。A2だけが既済の平面上界24を使う。
+有限五型と全閉補集合を合わせると、全像とその閉包は24次元以下である。
+\end{proof}
+全200行92列、完全kernel、非零minor、全Jacobi/Pfaffian及び全stratumのLaurent代入は
+\path{CLASSIFICATION_TWO_QUADRICS_MIXED_NORMAL_SUPPORT_REVIEW_20261107.json}で独立Fraction再構成した。
+五型の幾何完全性、normal条件からの必要strata及び自由K作用の次元論は上の数学的証明と区別する。
+$\lambda=0$のjoint半単純rank零、rank一でのE全成分認識、平面二残源の帰属は未解決である。
 
 \subsection{本質三変数の全磁気源とCPLUSへの接続}
 $D=hq_1q_2$の本質変数数が三なら、baseをh,x,y、fiberをz,wとする。
@@ -4645,6 +4896,171 @@ fiberへbase一次式を加える変更$z'=z+\ell,w'=w+m$は
 \path{CLASSIFICATION_TWO_QUADRICS_NIL22_RANK1_REVIEW_20261107.json}で独立Fraction再構成した。
 旧23次元成分の唯一性は既済監査の入力であり、今回再計算したとはしない。
 
+\section{既約非正規五次のordinary-double枝の条件付き認識}
+一般の既約非正規五次が、以下の滑らかさと極の仮定を満たすとはしていない。
+この節はその明示した枝をT40へ認識し、残る補集合を保持する。
+
+\begin{proposition}[条件付き認識]\label{prop:ordinary-double-t40}
+rank四Poisson構造$\pi$の実退化因子Dを既約・被約・非正規五次とし、
+$\nu:X\to D$を正規化、$L=\nu^*\mathcal O_D(1)$とする。次を仮定する。
+\begin{enumerate}
+\item Xは滑らかである。
+\item X上の導手divisor Cは被約・滑らか・既約である。
+\item 非正規曲面の一般点でDは横断ordinary doubleである。
+\item $\pi^{-1}$の$D_{\mathrm{reg}}$上のresidueをXへ移した閉有理一形式$\alpha$は、
+      divisorialにはCに沿う高々一位の極だけを持つ。
+\end{enumerate}
+このときCはabelian surface、導手imageSは滑らかな次数五の楕円scrollであり、
+ある楕円曲線Bとrank二・次数五のstable bundle Fについて
+\[
+ (S,\mathcal O_S(1))\simeq
+ (\mathbb P_B(F^\vee),\mathcal O_{\mathbb P(F^\vee)}(1)).
+\]
+その完全idealは
+\[
+ 0\longrightarrow\mathcal O(-5)\longrightarrow\mathcal O(-4)^5
+ \longrightarrow\mathcal O(-3)^5\longrightarrow I_S\longrightarrow0
+\]
+を持ち、$\pi$はこの同じ埋込みscrollに対応する非零$q_{5,2}$のscalar倍、従ってT40に属する。
+\end{proposition}
+\begin{proof}
+まず導手のscheme構造を確認する。
+$M=\nu_*\mathcal O_X/\mathcal O_D$と置く。
+DはCM三次元、正規化は$S_2$なので、各点の深さ補題によりMは純二次元である。
+一般二超平面切断の平面五次曲線の正規化種数をg、$d=\deg S$とする。
+M上の正則列で切断した正規化完全列と平面五次の算術種数六から、
+一般ordinary doubleの長さ一を用いて$d=6-g$を得る。
+DはGorenstein五次超曲面で$\omega_D\simeq\mathcal O_D$だから、有限双対性は$\omega_X\simeq\mathcal O_X(-C)$を与え、随伴により$K_C\sim0$である。
+
+CからSへの有限射は一般次数二である。
+Cは正規なので、その二次函数体拡大のGalois involution$\iota$はC全体で正則となる。
+$T=C/\iota$はSの正規化で、有限双有理射$T\to S$を持つ。
+導手で割った完全列は
+\[
+ 0\longrightarrow\mathcal O_S\longrightarrow\nu_{C*}\mathcal O_C
+       \longrightarrow M\longrightarrow0.
+\]
+C被約よりSも被約である。
+$\mathcal O_T/\mathcal O_S$は右端Mの部分層で、有限双有理性から支持次元は高々一。
+純二次元性により零となり、schemeとして$S=C/\iota$を得る。
+商の正規化だけを導手imageと同一視していない。
+
+一般二重点で局所式を$uv=0$、接座標をz,wとする。
+閉逆二形式のlog基底$du/u,dv/v,dz,dw$での行列は
+\[
+ W=\begin{pmatrix}
+ 0&\lambda&a&b\\-\lambda&0&c&d\\-a&-c&0&e\\-b&-d&-e&0
+ \end{pmatrix},\qquad\operatorname{Pf}W=\lambda e-ad+bc.
+\]
+Dが実際の被約退化因子なのでPfaffianは一般二重点でunitであり、
+\[
+ \pi=\operatorname{diag}(u,v,1,1)W^{-1}\operatorname{diag}(u,v,1,1)
+\]
+となる。
+二重曲面上の接成分は$-\lambda(\operatorname{Pf}W)^{-1}\partial_z\wedge\partial_w$である。
+$\alpha$のC上のresidueは、閉性と一位極により定数となるが、枝交換はその符号を反転する。
+C既約なので$\lambda=0$である。
+閉じた一位極の一形式はlogarithmicで、residue零なら極が消える。
+X滑らかゆえcodimension二に隠れた極もなく、$\alpha\in H^0(X,\Omega_X^1)$となる。
+
+$\eta=\alpha|_C$とすると二枝の接方向residueは$a\,dz+b\,dw,c\,dz+d\,dw$であり、
+$\lambda=0$とPfaffianのunit性から$\eta\wedge\iota^*\eta$は一般点で非零である。
+$K_C\sim0$なのでこのcanonical sectionは至る所非零となり、この二つの一形式は$\Omega_C^1$を自明化する。
+従って$c_2(C)=0$、Noether公式から$\chi(\mathcal O_C)=0$、$p_g(C)=1,q(C)=2$。
+Albanese射はcoframeにより至る所étale、同次元abelian surfaceへの有限étale被覆となる。
+原点を選べばC自身がabelian surfaceである。
+
+$\iota$は$H^0(C,\Omega_C^1)$上で$\eta,\iota^*\eta$を交換し、固有空間は$1+1$次元。
+固定点では接固有値が$+1,-1$なので局所商はreflection商で滑らかであり、
+固定点がなければ商はétaleで滑らかである。よってSは滑らかで$q(S)=1$。
+
+$0\to K_X\to\mathcal O_X\to\mathcal O_C\to0$とSerre双対性から
+$2=h^1(\mathcal O_C)\le2q(X)$となる。
+一般のample滑らかな切断H、さらに$\Gamma$にKodaira消滅を使うと
+\[
+ H^1(\mathcal O_X)\simeq H^1(\mathcal O_H)
+       \hookrightarrow H^1(\mathcal O_\Gamma).
+\]
+従って$g\ge q(X)\ge1$、$d=6-g\le5$である。
+Sが$\mathbb P^3$内ならhypersurface、さらに低いspanなら平面となり、
+標準完全列から$q(S)=0$となって矛盾する。
+よってSは非退化で、$\ell=\mathcal O_S(1)$について$h^0(\ell)\ge5$である。
+
+$\iota$がfreeなら、$C\to S$はétale二重被覆で、canonical characterは$-1$。
+従って$K_S$は非自明二torsion、$p_g(S)=0,\chi(\mathcal O_S)=0$である。
+$\ell\otimes K_S^{-1}$もampleなのでKodaira消滅とRRは$h^0(\ell)=d/2$を与え、
+$d\le5,h^0(\ell)\ge5$に反する。固定曲線が存在する。
+
+固定点をCの原点に取り、$\iota$の$+1,-1$ elliptic subvarietyを$E_+,E_-$とする。
+addition $E_+\times E_-\to C$はisogenyで、kernel Kの両因子への射影は単射、
+Kは各因子の二torsionに入る。
+従って$S=(E_+\times(E_-/\{\pm1\}))/K=(E_+\times\mathbb P^1)/K$。
+Kは$E_+$に非零translationで自由に作用するので、
+楕円曲線$B=E_+/\operatorname{pr}_+K$上に$\mathbb P^1$-bundle$S\to B$を得る。
+有限étale base change$E_+\to B$で積となる。
+
+cover次数をNとすると、$\ell$の引戻しは$M_B\boxtimes\mathcal O_{\mathbb P^1}(k)$、
+$m=\deg M_B>0,k\ge1$である。
+\[
+ Nd=2mk,\qquad N(\ell K_S)=-2m.
+\]
+cover上の高次cohomologyは零であり、traceにより$H^{>0}(S,\ell)=0$。
+RRから$h^0(\ell)=d(k+1)/(2k)$なので、$d\le5,h^0(\ell)\ge5$は$d=5,k=1$を強制する。
+実際$k\le d/(10-d)\le1$、次いで$d\ge5$である。
+
+$F=p_*\ell$はrank二、相対評価から$S=\mathbb P_B(F^\vee),\ell=\mathcal O(1)$である。
+étale cover上のFは$M_B\oplus M_B$なのでsemistableで、
+$\deg F=\chi(B,F)=\chi(S,\ell)=5$とrankとの互いに素性からstableとなる。
+$h^0(\ell)=5$なので元の埋込みは完全線形系である。
+任意の長さ二のbase subscheme ZについてF(-Z)はstable・次数一で、
+Serre双対性から$H^1(F(-Z))=0$。fiberの$\mathcal O(1)$と合わせて値と一jetを分離する。
+
+このscrollがquadricに入らないことを直接示す。
+rank五quadric threefoldのPicard群はhyperplane classで生成され、その上の曲面次数は偶数となり五に反する。
+rank四の場合、頂点を避ける一般ruling線は一意の最大平面に入り、
+楕円ruling底から二つの平面族の片方$\mathbb P^1$へ写像を与える。
+非定数なら次数二以上なので、二本の異なるruling線が同じ平面で交わり、埋込みに反する。
+定数ならS全体が一平面に入る。
+rank三でも、頂点線そのもの以外の各ruling線は一意の最大平面に入り同じ矛盾を得る。
+rank二以下は可約で、非退化な既約Sを含めない。従って$H^0(I_S(2))=0$である。
+
+上のétale積coverとtraceにより、全$n>0$で
+\[
+ H^{>0}(S,\ell^n)=0,\qquad h^0(\ell^n)=5n(n+1)/2.
+\]
+特に$h^0(\ell^2)=15=h^0(\mathbb P^4,\mathcal O(2))$、quadric不存在から$H^1(I_S(2))=0$。
+さらに$H^2(I_S(1))=H^1(S,\ell)=0,H^3(I_S)=H^2(\mathcal O_S)=0,H^4(I_S(-1))=0$なので、
+$I_S$は三regularである。三次generatorは$35-30=5$個。
+regularityと完全一次線形系・定数切断から全次数のprojective normalityを得て、Hilbert seriesは
+\[
+ 1+\frac{5t}{(1-t)^3}
+       =\frac{1-5t^3+5t^4-t^5}{(1-t)^5}.
+\]
+座標環のdepthはprojective normalityと$h^1(\mathcal O_S)=1$から二であり、idealの分解長は二。
+三regularityと最小性はshiftを3,4,5に限り、上のnumeratorからrankが5,5,1となる。
+よって冒頭の完全分解が得られた。任意の楕円parameterに対する幾何的証明である。
+
+$\mathcal V=\wedge^2T_{\mathbb P^4}=\Omega^2(5)$とする。
+Bottの消滅$H^0(\mathcal V(-3))=H^1(\mathcal V(-4))=0$と
+$H^2(\mathcal V(-5))=\mathbb C$を、分解の二つの短完全列へ適用すると$h^0(\mathcal V I_S)\le1$。
+Markarian--Polishchuk\cite[\S3.2, Lemmas 3.2.1,3.2.3]{mpq52}は、
+任意の楕円曲線とrank二・次数五stable bundleに対応する非零$q_{5,2}$が、
+この同じtautological scroll上で零となることを与える。
+一方、今回の$\pi$も一般ordinary-double点で$\lambda=0$からS上rank零であり、
+S既約・被約なのでS全体で零となる。
+従って$\pi$と非零$q_{5,2}$は同じ一次元空間$H^0(\mathcal V I_S)$を張り、scalar倍に一致する。
+\end{proof}
+
+仮定を満たす一般ordinary-double枝ではrank零がresidueの符号から従った。
+特異な正規化、特異又は可約な導手、高位極を持つcuspidal等の横断型はこの定理に含めない。
+それらの未知G成分への非優越や、一般の既約非正規五次全体が仮定を満たすことは証明していない。
+全chainの証明は\path{IRREDUCIBLE_NONNORMAL_ORDINARY_DOUBLE_RECOGNITION.md}に置く。
+有限証明書\path{CLASSIFICATION_IRREDUCIBLE_NONNORMAL_ORDINARY_DOUBLE_RECOGNITION_20261107.json}は
+log-skew inverseの全恒等式、RR不等式とHilbert numeratorを確認する。
+導手gluing、abelian化、étale商、quadric排除と分解は上の幾何的証明であり、算術PASSから自動的に従ったとはしない。
+generic楕円parameterでのMacaulay2計算を特殊parameterへ外挿することも用いていない。
+下界96・一般rank四90は維持し、全分類は未完成である。
+
 \section{計算・証拠の位置づけ}
 本稿の命題\ref{prop:radical}、補題\ref{lem:certificate}、補題\ref{lem:descent}、命題\ref{prop:spread}には本文で証明を与えた。
 これらは一般的な可換代数の論理であり、新しいPoisson分類定理ではない。
@@ -4685,6 +5101,10 @@ arXiv:2010.08692v2 (2021), Theorem 1.4.
 \emph{Quantum deformations of projective three-space},
 arXiv:1403.6444v1, Theorem 3.1及び直後の段落.
 \url{https://arxiv.org/html/1403.6444v1#S3}.
+\bibitem{mpq52} N. Markarian and A. Polishchuk,
+\emph{Compatible Poisson brackets associated with elliptic curves in G(2,5)},
+arXiv:2310.18759v2, \S3.2, Lemmas 3.2.1,3.2.3.
+\url{https://arxiv.org/html/2310.18759v2}.
 \bibitem{pymelliptic} B. Pym,
 \emph{Elliptic singularities on log symplectic manifolds and Feigin--Odesskii Poisson brackets},
 arXiv:1507.05668, Theorem 1.3, Definition 4.2, Remark 4.4.

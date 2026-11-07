@@ -1,0 +1,199 @@
+{
+  "task_id": "E_multiple_hyperplane",
+  "all_passed": true,
+  "input_sha256": {
+    "reports/CLASSIFICATION_NIL22_IMAGE_REMAINING_SOURCES_20261107.json": "9ab03220144c70d70b877c7138562d854d0102bd37846eeafcbbd115170e0700",
+    "reports/CLASSIFICATION_NIL31_IMAGE_ZERO_COMPONENTS_20261107.json": "c20bf6bca548406af49be3095c9bf13cb51868cfb30e1dacc5b1609056bb99ec",
+    "reports/CLASSIFICATION_MULTIPLE_HYPERPLANE_RANK2_NIL_SOURCES_20261107.json": "b67e7aed4721e751944c616b41516b24131c0823b06557f4d749a2f6f6d2476b",
+    "code/classification_nil22_image_component_limits.py": "05d19d9229fe6c9a806e709bf3c8e6ff552ca392f25b86be8b84e8388efe4297",
+    "code/classification_rank3_mixed_component_review.py": "48e61e30f9d7f04fb81f1bb5eec0e18daa28c8192d6a02a251e09cf8855b9bd0"
+  },
+  "producer_bytes": "#!/usr/bin/env python3\n\"\"\"Two whole9-parameter actual limits into the accepted nil31 half/third25.\n\nVerify the exact punctured GL/source identities and all polynomial endpoints;\nthe Laurent parameter discovery is not needed to reproduce this certificate.\n\"\"\"\nfrom pathlib import Path\nimport hashlib,itertools,json,time\nimport sympy as s\nfrom classification_rank3_mixed_component_review import PAIRS,jacobi\nROOT=Path(__file__).resolve().parents[1]\n\ndef main():\n begun=time.monotonic();h,q1,q2,x,y,e=s.symbols('h q1 q2 x y e');xx=(h,q1,q2,x,y);aff=xx[1:]\n mm=s.symbols('m0:6');n,c,d=s.symbols('n c d');params=mm+(n,c,d);env={str(z):z for z in xx+params};env.update(dict(zip(['x1','x2','x3','x4'],aff)))\n nil22_path=ROOT/'reports/CLASSIFICATION_NIL22_IMAGE_REMAINING_SOURCES_20261107.json';nil31_path=ROOT/'reports/CLASSIFICATION_NIL31_IMAGE_ZERO_COMPONENTS_20261107.json';original_path=ROOT/'reports/CLASSIFICATION_MULTIPLE_HYPERPLANE_RANK2_NIL_SOURCES_20261107.json'\n nil22=json.loads(nil22_path.read_text())['cases'];nil31=json.loads(nil31_path.read_text())['branches'];original=json.loads(original_path.read_text())['cases'][0]\n def decode(data,localenv=env):\n  P=s.zeros(5)\n  for ij,f in data.items():\n   i,j=map(int,ij.split(','));P[i,j]=s.sympify(f,locals=localenv);P[j,i]=-P[i,j]\n  return P\n def encode(P):return {str(i)+','+str(j):str(s.factor(P[i,j]))for i,j in itertools.combinations(range(P.rows),2)if P[i,j]!=0}\n def sparse(P):return {ij:dict(s.Poly(s.expand(P[ij]),*xx).terms())for ij in PAIRS if P[ij]!=0}\n def pf(P):return s.factor(P[0,1]*P[2,3]-P[0,2]*P[1,3]+P[0,3]*P[1,2])\n M0,M1,M2,M3,M4,M5=mm;records=[]\n for label,index in [('quadratic_B_to_half',8),('triple_C_to_third',6)]:\n  target_h=decode(nil22[index]['full_six_magnetic_source']);oldtarget=target_h\n  if label.startswith('triple'):\n   perm=(3,1,2,0,4);target_h=target_h.extract(perm,perm).subs({h:x,x:h},simultaneous=True)\n   R=s.Matrix([0]+[s.cancel(target_h[0,j]/h)for j in range(1,5)])\n   assert all(not s.denom(z).free_symbols.intersection(xx)for z in R)\n   target_h=(target_h-s.Matrix(xx)*R.T+R*s.Matrix(xx).T).applyfunc(s.expand)\n   infinity=dict(permutation=[3,1,2,0,4],Euler_gauge_vector=list(map(str,R)),all_identity_checked=True)\n  else:infinity=None\n  assert target_h.row(0)==s.zeros(1,5);target=target_h[1:,1:].subs(h,1)\n  if label.startswith('quadratic'):\n   X,Y,Z,W=s.symbols('X Y Z W');old=(X,Y,Z,W);ns=s.symbols('n0:15');local={str(z):z for z in ns};local.update(dict(zip(['x1','x2','x3','x4'],old)))\n   source=s.zeros(4);bind={ns[6]:0,ns[7]:0,ns[9]:0,ns[10]:-s.Rational(1,2),ns[11]:0}\n   for (i,j),f in zip(itertools.combinations(range(4),2),original['full_six_brackets']):source[i,j]=s.sympify(f,locals=local).subs(bind);source[j,i]=-source[i,j]\n   periods={ns[0]:-(e*M0+1)/e**2,ns[1]:-M3/e,ns[2]:(c-e*M4)/e**2,ns[3]:(6*d-4*e*M5+1)/(4*e**2),ns[4]:-M1/e,ns[5]:-1/e,ns[8]:-(e*M2-n)/e**2,ns[12]:n,ns[13]:c,ns[14]:d}\n   B=s.Matrix([[0,1,0,-1/e],[e,0,0,0],[0,0,1,0],[0,0,0,1]]);sub=dict(zip(old,[q2/e,q1+y/e,x,y]));expected_pf=-x*x/2;expected_mod=s.Matrix([x,y+e*q1,0,0]);component='accepted nil31-image half25 component'\n   source_recognition='Original complete15 source with n6=n7=n9=n11=0,n10=-1/2 and n5=-1/e!=0: exactly the accepted whole10-parameter half branch, with original h as its intrinsic triplehyperplane.'\n  else:\n   a,b,cc,dd=s.symbols('a b cc dd');old=(a,b,cc,dd);AA=s.symbols('A0:6');u,v,t,q=s.symbols('u v t q');local={str(z):z for z in AA+(u,v,t,q)};local.update(dict(zip(['h','x1','x2','x3','x4'],[h,a,b,cc,dd])))\n   source=decode(nil31[1]['whole_homogeneous_h_Casimir_brackets'],local)[1:,1:].subs(h,1)\n   periods={AA[0]:-M3/e,AA[1]:-(e*M1+3)/e**2,AA[2]:(c-e*M4)/e**2,AA[3]:-M0/e,AA[4]:-(e*M2-n)/e**2,AA[5]:(9*d-6*e*M5+2)/(6*e**2),u:n,v:c,t:d,q:-3/e}\n   B=s.Matrix([[0,0,1,-1/e],[0,e,0,0],[1,0,0,0],[0,0,0,1]]);sub=dict(zip(old,[x,q2/e,q1+y/e,y]));expected_pf=x*x;expected_mod=-s.Rational(2,3)*s.Matrix([1,y+e*q1,0,0]);component='accepted nil31-image third25 component'\n   source_recognition='Normalized whole10-parameter third branch of NIL31_IMAGE_ZERO_COMPONENTS, with q=-3/e!=0.'\n  assert B.det()==-e\n  family=(B*source*B.T).subs(sub,simultaneous=True).subs(periods,simultaneous=True).applyfunc(s.cancel)\n  assert (family.subs(e,0)-target).applyfunc(s.expand)==s.zeros(4)\n  for z in family:assert s.Poly(z,*aff,e,*params).total_degree()>=0;assert s.Poly(z,*aff).total_degree()<=2\n  strict=[s.expand(sum(family[i,l]*s.diff(family[j,k],aff[l])+family[j,l]*s.diff(family[k,i],aff[l])+family[k,l]*s.diff(family[i,j],aff[l])for l in range(4)))for i,j,k in itertools.combinations(range(4),3)]\n  assert strict==[0]*4;assert s.expand(pf(family)-expected_pf)==0\n  modular=s.Matrix([s.expand(sum(s.diff(family[i,j],aff[i])for i in range(4)))for j in range(4)])\n  assert (modular-expected_mod).applyfunc(s.expand)==s.zeros(4,1)\n  homogeneous=s.zeros(5)\n  for i,j in itertools.combinations(range(4),2):homogeneous[i+1,j+1]=s.expand(h*h*family[i,j].subs({z:z/h for z in aff},simultaneous=True));homogeneous[j+1,i+1]=-homogeneous[i+1,j+1]\n  assert jacobi(sparse(homogeneous)).applyfunc(s.expand)==s.zeros(350,1)\n  records.append(dict(name=label,all_nine_original_parameters=list(map(str,params)),original_source_index=index,source_component=component,source_recognition=source_recognition,\n   changed_infinity=infinity,actual_GL_matrix=[[str(z)for z in row]for row in B.tolist()],GL_determinant=str(B.det()),source_Laurent_parameters={str(z):str(s.factor(f))for z,f in periods.items()},\n   whole_regular_affine_family=encode(family),whole_regular_homogeneous_family=encode(homogeneous),whole_original_endpoint_identity=True,\n   complete_strict_Jacobi_and_projective350_zero=True,whole_family_degree_at_most_two=True,actual_affine_Pfaffian=str(expected_pf),whole_modular=list(map(str,modular)),\n   whole_source_covered_by_accepted_component=True,logic='For each fixed choice of all9 original parameters, every e!=0 tensor is an actual GL transform of the accepted half/third fullsource and has rank4. The exact tensor is polynomial in e with original source endpoint at0. Closedness gives membership at0, and the projective infinity permutation/Euler identity returns the entire original source. No uniqueness or matching-divisor inference is used.'))\n inputs=[nil22_path,nil31_path,original_path,Path(__file__),ROOT/'code/classification_rank3_mixed_component_review.py']\n result=dict(task_id='E_multiple_hyperplane',all_passed=True,input_sha256={str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest()for p in inputs},producer_bytes=Path(__file__).read_text(),cases=records,new_component_count=0,independent_review_required=True,seconds=time.monotonic()-begun)\n dest=ROOT/'reports/CLASSIFICATION_NIL22_IMAGE_COMPONENT_LIMITS_20261107.json'\n if dest.exists():raise FileExistsError(str(dest))\n dest.write_text(json.dumps(result,indent=2)+'\\n');print(json.dumps(dict(all_passed=True,whole_sources_covered=[r['name']for r in records],seconds=result['seconds'])))\nif __name__=='__main__':main()\n",
+  "cases": [
+    {
+      "name": "quadratic_B_to_half",
+      "all_nine_original_parameters": [
+        "m0",
+        "m1",
+        "m2",
+        "m3",
+        "m4",
+        "m5",
+        "n",
+        "c",
+        "d"
+      ],
+      "original_source_index": 8,
+      "source_component": "accepted nil31-image half25 component",
+      "source_recognition": "Original complete15 source with n6=n7=n9=n11=0,n10=-1/2 and n5=-1/e!=0: exactly the accepted whole10-parameter half branch, with original h as its intrinsic triplehyperplane.",
+      "changed_infinity": null,
+      "actual_GL_matrix": [
+        [
+          "0",
+          "1",
+          "0",
+          "-1/e"
+        ],
+        [
+          "e",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "1"
+        ]
+      ],
+      "GL_determinant": "-e",
+      "source_Laurent_parameters": {
+        "n0": "-(e*m0 + 1)/e**2",
+        "n1": "-m3/e",
+        "n2": "(c - e*m4)/e**2",
+        "n3": "(6*d - 4*e*m5 + 1)/(4*e**2)",
+        "n4": "-m1/e",
+        "n5": "-1/e",
+        "n8": "-(e*m2 - n)/e**2",
+        "n12": "n",
+        "n13": "c",
+        "n14": "d"
+      },
+      "whole_regular_affine_family": {
+        "0,1": "(4*c*q1*x + 2*d*e*q1**2 + 8*d*q1*y - 4*d*q2*x + e*q1**2 + 4*m0 + 4*m1*x + 4*m2*y + 4*m3*x**2 + 4*m4*x*y + 4*m5*y**2 + 4*n*q1 + 2*q1*y)/4",
+        "0,2": "-x**2/2",
+        "0,3": "x*(c*x + d*y + n)",
+        "1,2": "-x*(e*q1 + y)/2",
+        "1,3": "c*e*q1*x + c*x*y + d*e*q1*y + d*y**2 + e*n*q1 + n*y - 1"
+      },
+      "whole_regular_homogeneous_family": {
+        "1,2": "(4*c*q1*x + 2*d*e*q1**2 + 8*d*q1*y - 4*d*q2*x + e*q1**2 + 4*h**2*m0 + 4*h*m1*x + 4*h*m2*y + 4*h*n*q1 + 4*m3*x**2 + 4*m4*x*y + 4*m5*y**2 + 2*q1*y)/4",
+        "1,3": "-x**2/2",
+        "1,4": "x*(c*x + d*y + h*n)",
+        "2,3": "-x*(e*q1 + y)/2",
+        "2,4": "c*e*q1*x + c*x*y + d*e*q1*y + d*y**2 + e*h*n*q1 - h**2 + h*n*y"
+      },
+      "whole_original_endpoint_identity": true,
+      "complete_strict_Jacobi_and_projective350_zero": true,
+      "whole_family_degree_at_most_two": true,
+      "actual_affine_Pfaffian": "-x**2/2",
+      "whole_modular": [
+        "x",
+        "e*q1 + y",
+        "0",
+        "0"
+      ],
+      "whole_source_covered_by_accepted_component": true,
+      "logic": "For each fixed choice of all9 original parameters, every e!=0 tensor is an actual GL transform of the accepted half/third fullsource and has rank4. The exact tensor is polynomial in e with original source endpoint at0. Closedness gives membership at0, and the projective infinity permutation/Euler identity returns the entire original source. No uniqueness or matching-divisor inference is used."
+    },
+    {
+      "name": "triple_C_to_third",
+      "all_nine_original_parameters": [
+        "m0",
+        "m1",
+        "m2",
+        "m3",
+        "m4",
+        "m5",
+        "n",
+        "c",
+        "d"
+      ],
+      "original_source_index": 6,
+      "source_component": "accepted nil31-image third25 component",
+      "source_recognition": "Normalized whole10-parameter third branch of NIL31_IMAGE_ZERO_COMPONENTS, with q=-3/e!=0.",
+      "changed_infinity": {
+        "permutation": [
+          3,
+          1,
+          2,
+          0,
+          4
+        ],
+        "Euler_gauge_vector": [
+          "0",
+          "h/3",
+          "y/3",
+          "0",
+          "0"
+        ],
+        "all_identity_checked": true
+      },
+      "actual_GL_matrix": [
+        [
+          "0",
+          "0",
+          "1",
+          "-1/e"
+        ],
+        [
+          "0",
+          "e",
+          "0",
+          "0"
+        ],
+        [
+          "1",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "1"
+        ]
+      ],
+      "GL_determinant": "-e",
+      "source_Laurent_parameters": {
+        "A0": "-m3/e",
+        "A1": "-(e*m1 + 3)/e**2",
+        "A2": "(c - e*m4)/e**2",
+        "A3": "-m0/e",
+        "A4": "-(e*m2 - n)/e**2",
+        "A5": "(9*d - 6*e*m5 + 2)/(6*e**2)",
+        "u": "n",
+        "v": "c",
+        "t": "d",
+        "q": "-3/e"
+      },
+      "whole_regular_affine_family": {
+        "0,1": "(6*c*q1 + 3*d*e*q1**2 + 12*d*q1*y - 6*d*q2 + 6*m0*x**2 + 6*m1*x + 6*m2*x*y + 6*m3 + 6*m4*y + 6*m5*y**2 + 6*n*q1*x + 2*q1*y)/6",
+        "0,2": "x/3",
+        "0,3": "(3*c + 3*d*y + 3*n*x + y)/3",
+        "1,2": "x*(e*q1 + y)/3",
+        "1,3": "(3*c*e*q1 + 3*c*y + 3*d*e*q1*y + 3*d*y**2 + 3*e*n*q1*x + e*q1*y + 3*n*x*y - 9*x + y**2)/3"
+      },
+      "whole_regular_homogeneous_family": {
+        "1,2": "(6*c*h*q1 + 3*d*e*q1**2 - 6*d*h*q2 + 12*d*q1*y + 6*h**2*m3 + 6*h*m1*x + 6*h*m4*y + 6*m0*x**2 + 6*m2*x*y + 6*m5*y**2 + 6*n*q1*x + 2*q1*y)/6",
+        "1,3": "h*x/3",
+        "1,4": "h*(3*c*h + 3*d*y + 3*n*x + y)/3",
+        "2,3": "x*(e*q1 + y)/3",
+        "2,4": "(3*c*e*h*q1 + 3*c*h*y + 3*d*e*q1*y + 3*d*y**2 + 3*e*n*q1*x + e*q1*y - 9*h*x + 3*n*x*y + y**2)/3"
+      },
+      "whole_original_endpoint_identity": true,
+      "complete_strict_Jacobi_and_projective350_zero": true,
+      "whole_family_degree_at_most_two": true,
+      "actual_affine_Pfaffian": "x**2",
+      "whole_modular": [
+        "-2/3",
+        "-2*e*q1/3 - 2*y/3",
+        "0",
+        "0"
+      ],
+      "whole_source_covered_by_accepted_component": true,
+      "logic": "For each fixed choice of all9 original parameters, every e!=0 tensor is an actual GL transform of the accepted half/third fullsource and has rank4. The exact tensor is polynomial in e with original source endpoint at0. Closedness gives membership at0, and the projective infinity permutation/Euler identity returns the entire original source. No uniqueness or matching-divisor inference is used."
+    }
+  ],
+  "new_component_count": 0,
+  "independent_review_required": true,
+  "seconds": 0.7861107459993946
+}

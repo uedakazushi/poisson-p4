@@ -1,0 +1,123 @@
+{
+  "task_id": "E_multiple_hyperplane",
+  "all_passed": true,
+  "input_sha256": {
+    "reports/CLASSIFICATION_NIL22_IMAGE_STABLE_CUBIC_20261107.json": "aa51912b9b5d0f7bbe36299f1adfa19d33afcd03084fa90b0df070ba3a7f2131"
+  },
+  "producer_bytes": "#!/usr/bin/env python3\n\"\"\"One complete fixed-coframe T01 limit test, with all six magnetic RHS.\n\nThis decides only the prescribed hyperplane confluence, never T01 membership.\nPeriods through order2 are sufficient for its inverse-frame pole of order1.\n\"\"\"\nfrom pathlib import Path\nimport hashlib,itertools,json,time\nimport sympy as s\nfrom sympy.polys.matrices import DomainMatrix\nROOT=Path(__file__).resolve().parents[1]\n\ndef main():\n started=time.monotonic();source_path=ROOT/'reports/CLASSIFICATION_NIL22_IMAGE_STABLE_CUBIC_20261107.json'\n source=json.loads(source_path.read_text())['cases'][1]\n h,q1,q2,x,y,e=s.symbols('h x1 x2 x3 x4 e');xx=(q1,q2,x,y);mm=s.symbols('m0:6');env={str(z):z for z in(h,)+xx+mm}\n ell=s.Matrix([1+e*q1,x+3+e*q2,y-3,x-y-3]);B=ell.jacobian(xx);inverse=B.inv()\n assert s.expand(B.det()+e*e)==0\n assert all(s.Poly(s.expand(e*z),e).degree()<=1 for z in inverse)\n pairs=list(itertools.combinations(range(4),2));aa=s.symbols('a0:18');A=s.zeros(4)\n for k,(i,j) in enumerate(pairs):A[i,j]=sum(aa[6*r+k]*e**r for r in range(3))*ell[i]*ell[j];A[j,i]=-A[i,j]\n candidate=(inverse*A*inverse.T).applyfunc(s.expand)\n target=s.zeros(4)\n for ij,z in source['full_six_magnetic_source'].items():\n  i,j=map(int,ij.split(','));assert i>0\n  target[i-1,j-1]=s.sympify(z,locals=env).subs(h,1);target[j-1,i-1]=-target[i-1,j-1]\n equations=[];labels=[]\n for i,j in pairs:\n  expr=s.Poly(s.expand(e*e*(candidate[i,j]-target[i,j])),e,*xx)\n  for ex,co in expr.terms():\n   if ex[0]<=2:equations.append(co);labels.append([i,j,ex[0]-2,*ex[1:]])\n matrix,rhs=s.linear_eq_to_matrix(equations,aa)\n rhs_columns=rhs.subs(dict.fromkeys(mm,0)).row_join(s.Matrix.hstack(*[rhs.diff(m)for m in mm]))\n dm=lambda Z:DomainMatrix.from_Matrix(Z).convert_to(s.QQ)\n rank=lambda Z:len(dm(Z).rref()[1])\n ranks=[rank(matrix.row_join(rhs_columns[:,i]))for i in range(7)];r=rank(matrix)\n left=dm(matrix.T).nullspace().to_Matrix();obstruction=left*rhs_columns\n assert left*matrix==s.zeros(left.rows,18)\n witnesses=[]\n for j in range(7):\n  rows=[i for i in range(left.rows)if obstruction[i,j]!=0]\n  if rows:\n   i=rows[0];witnesses.append(dict(rhs='constant'if j==0 else str(mm[j-1]),nonzero_pairing=str(obstruction[i,j]),left_functional={str(k):str(a)for k,a in enumerate(left.row(i))if a},equation_labels={str(k):labels[k]for k,a in enumerate(left.row(i))if a}))\n all_consistent=all(z==r for z in ranks)\n result=dict(task_id='E_multiple_hyperplane',all_passed=True,input_sha256={str(source_path.relative_to(ROOT)):hashlib.sha256(source_path.read_bytes()).hexdigest()},producer_bytes=Path(__file__).read_text(),\n  coframe=list(map(str,ell)),homogeneous_coframe=['h','h+e*x1','3*h+x3+e*x2','-3*h+x4','-3*h+x3-x4'],coframe_determinant=str(B.det()),inverse_pole_order=1,\n  period_count=6,period_Taylor_max_degree=2,unknown_count=18,coefficient_equation_count=len(equations),coefficient_matrix_rank=r,constant_and_six_magnetic_augmented_ranks=ranks,\n  full_six_magnetic_target=source['full_six_magnetic_source'],whole_source_regular_limit_in_this_fixed_coframe=all_consistent,\n  exact_left_obstructions=witnesses,all_left_functionals_annihilate_complete_coefficient_matrix=True,\n  finite_order_completeness='At an off-divisor affine point, bij={ell_i,ell_j}/(ell_i ell_j) is regular in e for every regular bivector family. Thus six periods are regular. InverseB has pole at most1 and its wedge at most2; negative powers and the constant limit depend only on period Taylor coefficients0,1,2. Higher terms cannot change these equations.',\n  scope='A failed test rules out this one fixed hyperplane coframe with arbitrary regular periods. It does not exclude T01 membership, other hyperplane paths, MPS membership or fullsource componenthood.',seconds=time.monotonic()-started)\n dest=ROOT/'reports/CLASSIFICATION_NIL22_IMAGE_TORIC_CONFLUENCE_20261107.json'\n if dest.exists():raise FileExistsError(str(dest))\n dest.write_text(json.dumps(result,indent=2)+'\\n')\n print(json.dumps({k:result[k]for k in ['coefficient_matrix_rank','constant_and_six_magnetic_augmented_ranks','whole_source_regular_limit_in_this_fixed_coframe','seconds']}))\nif __name__=='__main__':main()\n",
+  "coframe": [
+    "e*x1 + 1",
+    "e*x2 + x3 + 3",
+    "x4 - 3",
+    "x3 - x4 - 3"
+  ],
+  "homogeneous_coframe": [
+    "h",
+    "h+e*x1",
+    "3*h+x3+e*x2",
+    "-3*h+x4",
+    "-3*h+x3-x4"
+  ],
+  "coframe_determinant": "-e**2",
+  "inverse_pole_order": 1,
+  "period_count": 6,
+  "period_Taylor_max_degree": 2,
+  "unknown_count": 18,
+  "coefficient_equation_count": 68,
+  "coefficient_matrix_rank": 15,
+  "constant_and_six_magnetic_augmented_ranks": [
+    16,
+    15,
+    15,
+    15,
+    16,
+    16,
+    16
+  ],
+  "full_six_magnetic_target": {
+    "1,2": "h**2*m0 + h*m1*x3 + h*m2*x4 + m3*x3**2 + m4*x3*x4 + m5*x4**2",
+    "1,3": "-(-6*h + x3)*(3*h + x3)/3",
+    "1,4": "-(-3*h + x4)*(3*h + x3)/3",
+    "2,3": "-(-3*h + x4)*(3*h + x3)/3",
+    "2,4": "-(-3*h + x4)*(6*h + x4)/3"
+  },
+  "whole_source_regular_limit_in_this_fixed_coframe": false,
+  "exact_left_obstructions": [
+    {
+      "rhs": "constant",
+      "nonzero_pairing": "-1/3",
+      "left_functional": {
+        "24": "1"
+      },
+      "equation_labels": {
+        "24": [
+          0,
+          2,
+          0,
+          0,
+          0,
+          2,
+          0
+        ]
+      }
+    },
+    {
+      "rhs": "m3",
+      "nonzero_pairing": "1",
+      "left_functional": {
+        "5": "1"
+      },
+      "equation_labels": {
+        "5": [
+          0,
+          1,
+          0,
+          0,
+          0,
+          2,
+          0
+        ]
+      }
+    },
+    {
+      "rhs": "m4",
+      "nonzero_pairing": "1",
+      "left_functional": {
+        "6": "1"
+      },
+      "equation_labels": {
+        "6": [
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "rhs": "m5",
+      "nonzero_pairing": "1",
+      "left_functional": {
+        "8": "1"
+      },
+      "equation_labels": {
+        "8": [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          2
+        ]
+      }
+    }
+  ],
+  "all_left_functionals_annihilate_complete_coefficient_matrix": true,
+  "finite_order_completeness": "At an off-divisor affine point, bij={ell_i,ell_j}/(ell_i ell_j) is regular in e for every regular bivector family. Thus six periods are regular. InverseB has pole at most1 and its wedge at most2; negative powers and the constant limit depend only on period Taylor coefficients0,1,2. Higher terms cannot change these equations.",
+  "scope": "A failed test rules out this one fixed hyperplane coframe with arbitrary regular periods. It does not exclude T01 membership, other hyperplane paths, MPS membership or fullsource componenthood.",
+  "seconds": 0.1551898199995776
+}

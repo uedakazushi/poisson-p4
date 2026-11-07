@@ -1,0 +1,36 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "target_statement": "Verify the cleared ordinary-double log-symplectic inverse, the complete RR inequality reduction d<=5,h0>=5 to d5/k1, and the elliptic-scroll Hilbert numerator.",
+  "implication_to_classification": "Together with the separate geometric proof, recognizes the conditional smooth-normalization/smooth-irreducible-conductor ordinary-double branch as T40; retains all other nonnormal quintics.",
+  "coefficient_ring": "QQ[lambda,a,b,c,d,e,u,v], Fraction integer RR inequalities",
+  "hypotheses": "D integral anticanonical quintic; normalization X smooth; conductor C smooth irreducible; generic transverse ordinary double; normalized inverse-symplectic residue has at most simple divisorial poles.",
+  "inverted_elements": [
+    "Log-symplectic Pfaffian lambda*e-a*d+b*c is a unit at a generic ordinary-double point"
+  ],
+  "complements": [
+    "Singular normalization or singular/reducible conductor retained",
+    "Higher-pole/cuspidal transverse types retained",
+    "This is conditional recognition, not all irreducible-quintic exhaustion"
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_nonnormal_quintic_entrance.py",
+      "sha256": "abc431749dafec54bda44f2721a7a5b6c663be8d0dd5b9554e99e299aa13f169"
+    },
+    {
+      "path": "code/classification_quadratic_cofactor_review.py",
+      "sha256": "b77e9511bad7c8674f2d820c0d1e6022b7aa3788b795c2e55090b28e2d2dffcd"
+    },
+    {
+      "path": "reports/CLASSIFICATION_IRREDUCIBLE_NONNORMAL_QUINTIC_ENTRANCE_20261107.json",
+      "sha256": "eb7f34353890d7f2c352a33671aae300c3bc9c19b1b430b7a7212b0523abe4d7"
+    }
+  ],
+  "success_certificate": "All32 cleared inverse product entries, actual bivector restriction, exact coframe/Pf identity, all positive-integer RR degree solutions, Hilbert numerator. Geometric proof in IRREDUCIBLE_NONNORMAL_ORDINARY_DOUBLE_RECOGNITION.md.",
+  "independent_check": "Local matrix arithmetic independently expanded with standard Fraction sparse polys; geometric lemmas require parent/independent mathematical review and are not certified by job gate.",
+  "resource_limit": {
+    "timeout_seconds": 20,
+    "memory_mb": 1536
+  },
+  "negative_result_next_step": "Preserve exact failed identity; retain the whole conditional branch until corrected. Do not identify every nonnormal quintic with T40."
+}

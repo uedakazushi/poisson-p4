@@ -29,7 +29,7 @@ E_reduced_nonnormalは被約非正規五次因子の全支持を扱い、既知M
 
 E_zeroとE_poly、A_rank2は完了。従前58成分のA監査と新22/24次元成分の独立証明も完了。
 旧証明書を入力にする範囲と今回の独立再計算を区別し、新候補だけを必要に応じて追加監査する。
-全94成分を個別同定し、全成分下界94、rank4下界88を記録する。上界・一般五点・全分類は未証明。
+全96成分を個別同定し、全成分下界96、rank4下界90を記録する。上界・一般五点・全分類は未証明。
 11月7日のユーザー再開指示により、下記の残義務から研究を継続する。保存や旧一時停止を終了条件にしない。
 
 既約Q＋既約C3の全支持は全cofactor型を尽くし、MPS40と六つの新23成分へ被覆済み。
@@ -42,3 +42,7 @@ Eは上の残支持、H＋既約quartic、他次数分割と既約非正規quint
 H+既約quarticは全37wall→十二固有値比、半単純24・純nil十の全90線形源を独立確認済み。全半単純源はMPS又は空、regularnil4全源は新22とT39、nil31 translation零は空、nil211 translation零はMINIMAL_Mへ被覆済み。nil211top2も全三軌道を実曲線でMPSへ被覆済み。残る純nil五型(31,top1/3),(22,top0/2),(211,top1)を全支持ノートから続ける。short r=2/3の三次零判定を高次反復せず、実変形・幾何的帰属を調べる。
 
 1+2+2のplane七配置はCPLUS二源・新23二成分・secant-contactのβ零全被覆が済み、残るtan-simple/chord二源とlambda零joint半単純rank≤1を続ける。lambda非零全支持とlambda零joint半単純rank2はMPSへ被覆した。nil22image内の1+2+2は全planeかつ飽和次元≤24であり、この分岐のG一般元排除はE残二源帰属と独立に完了。
+
+quartic純nil型4/5/9の全像は射影次元≤23/22/23、二quadric joint半単純rank1も≤24で、Gの未知優越一般成分から除外済み。E帰属を混同しない。既約非正規quinticのordinary-double認識はX/C滑らか・C既約・一位極の条件付きであり、その補集合は未処理。nil22 image二節点三次23成分は独立確認済み。
+
+全1+1+3のG一般元排除はB0非平面8/7源を含め完了。quartic型6もSaito/Milnor/Tjurina次元論でG排除済み。型7は独立review待ち。nil22 imageはquadratic_B/triple_C/double_Dの三全源を実Poisson曲線で既知25成分へ被覆し、未帰属六源を保持する。

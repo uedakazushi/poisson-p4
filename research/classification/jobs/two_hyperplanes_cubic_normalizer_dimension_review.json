@@ -1,0 +1,49 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "target_statement": "Independently construct full algebraic normalizer groups for each residual nonplane 1+1+3 complete source, proving projective image dimension23/24/23.",
+  "implication_to_classification": "Together with the full plane13 configurations dimension<=23 and previously covered MPS branches, all1+1+3 unknown W-dominant components are excluded independently of unresolved E source memberships.",
+  "coefficient_ring": "QQ, exact5-by5 matrices",
+  "hypotheses": "All complete fixed-V sources and all nil normal forms are retained from TWO_HYPERPLANES_CUBIC_SUPPORT: p0 fullA5, (h,x) fullA6, translation n6=1 fullA6. No representative-point inference.",
+  "inverted_elements": [
+    "Only nonzero constants; algebraic unipotent groups use global polynomial exponentials"
+  ],
+  "complements": [
+    "All factor/cofactor branches are explicitly accounted for in the written proof",
+    "No parameter minor is inverted",
+    "E component membership remains unresolved where previously open"
+  ],
+  "success_certificate": "Independent generator rank, all commutators with V, Lie closure and simultaneous strict triangularity, preservation of h/x/u coefficient/determinant, and whole-source group action dimension bounds.",
+  "independent_check": "This target itself is a standard-library Fraction reconstruction. The written completeness and free PGL\u00d7source action proof are separate mathematical inputs.",
+  "resource_limit": {
+    "timeout_seconds": 60,
+    "memory_mb": 1024
+  },
+  "negative_result_next_step": "Keep all nonlinear Jacobi/factor conditions explicitly; use structural invariant/pencil geometry and no point-only inference or arbitrary higher jet.",
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_two_quadrics_review.py",
+      "sha256": "d0583dca455befd43161fa1d99057ad2fe03b73efdcca789a395af317f0f35f6"
+    },
+    {
+      "path": "code/classification_two_lines_plane_cubic_component_review.py",
+      "sha256": "47720c5f3f8bebf96f1838f0671e5d2a6af9e6f93361edcd5d4b19e11c46a23c"
+    },
+    {
+      "path": "research/classification/TWO_HYPERPLANES_CUBIC_SUPPORT.md",
+      "sha256": "9d73aca811377586ef04a99d37e8895190507866ac50e168cd212f506f2218ea"
+    },
+    {
+      "path": "reports/CLASSIFICATION_TWO_HYPERPLANES_CUBIC_NILPOTENT_20261107.json",
+      "sha256": "29c7ce1c56096c951230cb79fde8e3b487456bb718285ff23d89bd0f010bf661"
+    },
+    {
+      "path": "reports/CLASSIFICATION_TWO_HYPERPLANES_CUBIC_NILPOTENT_COMPONENTS_20261107.json",
+      "sha256": "d3a09e83b6c7085610a5b8da35666a6a1937f04d56235d8577f9cbd80ee3b042"
+    },
+    {
+      "path": "reports/CLASSIFICATION_TWO_HYPERPLANES_CUBIC_NILPOTENT_TRANSLATION_COMPONENT_20261107.json",
+      "sha256": "cad759d9e26e9d23fedd1e767124d2bce84f28e0db89299192abeb7d3ce5185f"
+    }
+  ],
+  "runner_extension_reason": "Append-only whole reduced-divisor support review modes; prior report certificates remain immutable with their actual reviewer SHA/checkpoint. Existing modes unchanged."
+}

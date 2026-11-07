@@ -10,6 +10,37 @@ from classification_quadratic_cofactor_review import Ring,PAIRS
 
 
 
+
+def two_lines_rank2_translation():
+    """Complete nonplane B=0 residual sources of two hyperplanes plus cubic."""
+    import sympy as s
+    start=time.monotonic();signal.alarm(30)
+    resource.setrlimit(resource.RLIMIT_AS,(768*1024**2,768*1024**2))
+    here=Path(__file__);root=here.resolve().parents[1];x,u,v,w=s.symbols('x u v w');xx=(x,u,v,w);nn=s.symbols('n0:8');T=u-x*v;records=[]
+    for name in ['L_h','L_h_minus_x']:
+        if name=='L_h':
+            C=nn[0]+nn[1]*x+nn[2]*x*x;B=nn[3]+nn[4]*x+nn[5]*w+nn[6]*x*x+nn[7]*x*w;a=-nn[7]-2;b=s.Integer(1);c=s.Integer(0);free=nn;Kdim=10
+        else:
+            a=nn[4];C=nn[0]+nn[1]*x+nn[2]*x*x+nn[3]*w+(-a-nn[3])*x*w;D=nn[5]+nn[6]*x+nn[5]*x*x
+            B=C-x*w+D;b=c=s.Integer(1);free=nn[:7];Kdim=9
+        L=b-c*x;G=s.expand(x*C-B)
+        A=s.cancel((C*s.diff(G,w)+(1-a-s.diff(C,w))*G-x*s.diff(G,x))/L)
+        assert s.Poly(A,x,w).total_degree()<=2
+        entries=list(map(s.expand,[x*x,x,0,A+u-a*T,B-b*T,C-c*T]));P=s.zeros(4)
+        for (i,j),p in zip(PAIRS,entries):P[i,j]=p;P[j,i]=-p
+        jac=[s.expand(sum(P[ii,t]*s.diff(P[jj,kk],xx[t]) for ii,jj,kk in [(i,j,k),(j,k,i),(k,i,j)] for t in range(4))) for i,j,k in itertools.combinations(range(4),3)]
+        assert not any(jac)
+        pf=s.expand(entries[0]*entries[5]-entries[1]*entries[4]+entries[2]*entries[3]);F=s.expand(L*T+G)
+        assert s.expand(pf-x*F)==0
+        records.append({'name':name,'free_parameters':list(map(str,free)),'A':str(s.expand(A)),'B':str(B),'C':str(C),'a':str(a),'b':str(b),'c':str(c),
+            'full_brackets':list(map(str,entries)),'full_irreducible_cubic':str(F),'full_Pfaffian':str(pf),'all_four_Jacobi_zero':True,
+            'parameter_nonzero_for_cubic_irreducibility':['n2'] if name=='L_h' else [],'complete_source_dimension':len(free),
+            'preserving_projective_normalizer_dimension':Kdim,'whole_projective_PGL_image_dimension_upper':24+len(free)-Kdim})
+        print(name,'ALL SOURCE PASS',len(free),'image<=',24+len(free)-Kdim,flush=True)
+    out={'task_id':'E_reduced_nonnormal','cases':records,'producer_sha256':hashlib.sha256(here.read_bytes()).hexdigest(),'producer_bytes':here.read_text(),'seconds':time.monotonic()-start,
+        'scope':'Complete nonplane rank2-translation sources once the cubic T coefficient is normalized to h or h-x; h/x exchange covers x, and zero coefficient is plane. Written polynomial-division argument proves completeness. Both source closures have projective PGL image dimension<=22 via whole normalizer groups; no E component membership claimed.'}
+    (root/'reports/CLASSIFICATION_TWO_HYPERPLANES_CUBIC_RANK2_TRANSLATION_SUPPORT_20261107.json').write_text(json.dumps(out,indent=2)+'\n')
+
 def mixed_normal_support():
     """Exact necessary support covers for the five mixed-normal supersources."""
     import sympy as s
@@ -672,6 +703,7 @@ def plane_conics():
 
 
 def main():
+    if '--two-lines-rank2-translation' in sys.argv:return two_lines_rank2_translation()
     if '--mixed-normal-support' in sys.argv:return mixed_normal_support()
     if '--mixed-normal-symmetries' in sys.argv:return mixed_normal_symmetries()
     if '--nonzero-pair-cofactor' in sys.argv:return nonzero_pair_cofactor()

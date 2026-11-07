@@ -1,0 +1,39 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "target_statement": "Construct complete nonplane B=0 rank2-translation sources for all1+1+3 points with nonzero cubic T coefficient, including closed coefficient strata.",
+  "implication_to_classification": "Together with the full plane13 configurations dimension<=23 and previously covered MPS branches, all1+1+3 unknown W-dominant components are excluded independently of unresolved E source memberships.",
+  "coefficient_ring": "QQ[n0,...,x,u,v,w]",
+  "hypotheses": "Full21-coefficient fixed V=x*d_u+h*d_v source. Every cubic is F=(b*h-c*x)*(h*u-x*v)+G3(h,x,w). Nonzero L normalized to h,x,h-x; zero L remains plane.",
+  "inverted_elements": [
+    "Nonzero L coefficient normalized by allowed w scale and h/x relative scales",
+    "Only nonzero rational constants in complete source formulas",
+    "L_h has n2!=0 forced by actual cubic irreducibility"
+  ],
+  "complements": [
+    "L=0 is plane and retained",
+    "L=x covered by actual h/x exchange and h-Casimir Euler correction",
+    "Both-nonzero coefficients are the full L=h-x branch, not dropped"
+  ],
+  "success_certificate": "All universal A/B/C coefficients, all strictJacobi and Pfaffian/cubic identities, dimension8/7 with preserving normalizer10/9; written polynomial division proves necessary completeness.",
+  "independent_check": "Standard Fraction reconstruction of the original21-coefficient source and the two Jacobi I/II identities, complete stratum formulas and all-matrix normalizer group verification.",
+  "resource_limit": {
+    "timeout_seconds": 60,
+    "memory_mb": 1024
+  },
+  "negative_result_next_step": "Keep all nonlinear Jacobi/factor conditions explicitly; use structural invariant/pencil geometry and no point-only inference or arbitrary higher jet.",
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_two_quadrics.py",
+      "sha256": "7555a41cbdfdd7ac92e07e843470b0075d0acc792f62e28957e1ff89b67a4830"
+    },
+    {
+      "path": "research/classification/TWO_HYPERPLANES_CUBIC_SUPPORT.md",
+      "sha256": "9d73aca811377586ef04a99d37e8895190507866ac50e168cd212f506f2218ea"
+    },
+    {
+      "path": "reports/CLASSIFICATION_TWO_HYPERPLANES_CUBIC_NILPOTENT_20261107.json",
+      "sha256": "29c7ce1c56096c951230cb79fde8e3b487456bb718285ff23d89bd0f010bf661"
+    }
+  ],
+  "runner_extension_reason": "Append-only mixed-normal-support and pure-nilpotent-factor review modes; existing report certificates remain immutable and identify their actual reviewer SHA/checkpoint. Existing modes unchanged."
+}

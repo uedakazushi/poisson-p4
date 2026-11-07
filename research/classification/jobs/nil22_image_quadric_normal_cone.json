@@ -1,0 +1,32 @@
+{
+  "task_id": "E_multiple_hyperplane",
+  "target_statement": "Check the two geometrically distinct T36 boundary013prime1 and014prime2 Lagrangian plane normalcones with divisor H^3 times an irreducible rank3 quadric for possible nil22-image quadratic_A recognition.",
+  "implication_to_classification": "A fullsource match and actual regular PGL normalcone path imply knownMPS membership. The cubic/quadratic divisor resemblance alone is insufficient.",
+  "coefficient_ring": "QQ(t), exactfive coordinate PGL matrix and actual e parameter; sixmagnetic targetparameters retained.",
+  "hypotheses": "Use the fixed accepted T36 tensor and plane x0=x,x1=y,x2=3t^4*x/2000+t*h,x3=h,x4=-3t\u00b2*x/100-10h/t, t!=0. Verify exact Lagrangian bracket and full regular normalcone. Compute the tripleH intrinsic affine modular type before attempting sourceequivalence. If generic source typematches, verify explicit inverse magnetic normalization and real plane-motion family for the one residual class. Second plane: x0=x,x1=10t\u00b2h\u221215t^4x,x2=y,x3=h\u22123t\u00b2x,x4=t*h. Both candidate planes are exact1-parameter primecomponents of the previously solved finiteGr incidence. At mostthese2 intrinsic cofactor tests; a mismatch stops this source model.",
+  "inverted_elements": [
+    "t!=0 planechart; e!=0 punctured actualPGL path; no pole allowed in resultingtensor"
+  ],
+  "complements": [
+    "No known-family membership from matching D alone.",
+    "Uniform normalcone with residualmagneticclass0 does not cover allmagnetic.",
+    "Nonintegrable Fano tangent motion is used only through an actual finite plane embedding yielding a regular exactfamily."
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "reports/MPS_SMOOTHING_COMPLETION_20261103_v62/T36.json",
+      "sha256": "cbe11f21263e47cad99d372b6974588de115c71e105c11c9ce1d017dd628da06"
+    },
+    {
+      "path": "reports/CLASSIFICATION_NIL22_IMAGE_REMAINING_SOURCES_20261107.json",
+      "sha256": "9ab03220144c70d70b877c7138562d854d0102bd37846eeafcbbd115170e0700"
+    }
+  ],
+  "success_certificate": "Exactplane/fullPoisson pushforward and modular type, followed by whole-source inverse map plus allmagnetic parameters and closedMPS implication.",
+  "independent_check": "Separate author fullGL/source/Jacobi/Pf and allsourcecoverage audit.",
+  "resource_limit": {
+    "timeout_seconds": 120,
+    "memory_mb": 1536
+  },
+  "negative_result_next_step": "If intrinsic cofactor mismatches, save the shortest invariant mismatch and stop this plane model; no arbitrary point search or highernormaljets."
+}

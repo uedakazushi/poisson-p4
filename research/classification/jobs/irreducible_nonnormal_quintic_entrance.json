@@ -1,0 +1,46 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "target_statement": "Check exact numerical/local identities for the irreducible-nonnormal quintic entrance and compute the genericT40zero-surface minimal resolution over QQ(ell).",
+  "implication_to_classification": "Weighted singular-surface degree<=6 and rank0 ACM/syzygy constraints reduce the remaining irreduciblequintic obligation; the genericT40 resolution supplies a conditional zero-surface recognition criterion, not full exhaustion.",
+  "coefficient_ring": "QQ(ell)[x0,...,x4] in the exact Macaulay2 job; QQ sparse localPoisson identities; complexgeometric normalizations.",
+  "hypotheses": "D integral nonnormal anticanonical quintic. General plane-section/conductor results are separately proved geometrically. Genericq52 family is the already cited ORTP/MPfamily.",
+  "inverted_elements": [
+    "ell as rational-function parameter; calculations are over its whole generic field"
+  ],
+  "complements": [
+    "Special elliptic parameters remain outside this optional genericresolution computation",
+    "Singularsurface genericrank0 andrank2 both retained; no allquintics=T40 assumption",
+    "NonACM and lowdegreeACMrank0surfaces retained; logpole hypothesis is not silently imposed",
+    "The explicit cusp counterexample is local only, not claimed to occur as a global P4 bracket"
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_nonnormal_quintic_entrance.py",
+      "sha256": "abc431749dafec54bda44f2721a7a5b6c663be8d0dd5b9554e99e299aa13f169"
+    },
+    {
+      "path": "code/classification_quadratic_cofactor_review.py",
+      "sha256": "b77e9511bad7c8674f2d820c0d1e6022b7aa3788b795c2e55090b28e2d2dffcd"
+    },
+    {
+      "path": "code/elliptic_weight1_dominance.py",
+      "sha256": "02a364c3998fba86df6b704f2c4e9e7660ff9674329e6ae770c8cbf2b3342d2e"
+    },
+    {
+      "path": "reports/CLASSIFICATION_IRREDUCIBLE_NONNORMAL_QUINTIC_PRIMARY_20261107.json",
+      "sha256": "ac189c8928cf308b915cb832cd000201582d3a145f963a82c9d1016bc14d91ca"
+    }
+  ],
+  "success_certificate": "ExactquinticHilbert polynomial, allgenericT40linearization Jacobi/Pf, localcusp residue diagnostic; Macaulay2genericzeroideal codim2/degree5/smoothness and full(1,5,5,1)resolution degrees0,3,4,5 with BuchsbaumEisenbud grades.",
+  "independent_check": "Human proofs distinguish new necessary conditions from published T40rankstrata; exact CAS computation is reproducible but no independentCAS replay is claimed. No stochastic parameters/primes.",
+  "resource_limit": {
+    "timeout_seconds": 120,
+    "memory_mb": 1536
+  },
+  "negative_result_next_step": "On time/API/resourcefailure retain exact M2input and partiallog, keep genericresolution conditional, and continue the independent geometricdegree/conductor/syzygy proofs.",
+  "compatible_runner_extension": {
+    "reason": "Append isolated --ordinary-double mode; finite_checks and generic M2 input/default assertions unchanged. Original immutable report embeds complete original runner bytes and M2 input/output.",
+    "original_source_sha256": "1fcbd03274fc22be9fe8c1d31b4243f736458dc60112807ed9dd6657bcb18aa3",
+    "original_report": "reports/CLASSIFICATION_IRREDUCIBLE_NONNORMAL_QUINTIC_ENTRANCE_20261107.json"
+  }
+}

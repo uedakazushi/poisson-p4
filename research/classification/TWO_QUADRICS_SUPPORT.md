@@ -169,7 +169,16 @@ gate後の実行は0.0036秒、証明書は
 各配置の全480×90条件はrank89の一parameter完全源であり、全源の実SNC軌道極限から
 全点が既知MPS40の閉和へ入る。独立Fraction再構成は全係数と6100 matching組を確認した。
 
-λ=0内のjoint半単純rank一又は零、他の冪零modular場、線形場の零点でC=L=0となる純斉次源、
+`TWO_QUADRICS_JOINT_SS_RANK1_SUPPORT.md` はλ=0・joint半単純rank一の全支持について、
+追加nil方向を保持した五つの完全200×92supersourceを作る。
+二型は線形因子又は既済nil22-imageへ帰着し、残る三型は必要source次元6/7/5と
+同次元の明示normalizerの自由作用から全PGL像次元≤23となる。
+全五型の全行・kernel・minor・元Jacobi/Pfaffian・必要strataは独立Fractionレビュー済み。
+これはGの未知優越成分を除く弱い矢印であり、Eの全成分帰属は別である。
+
+Gについて残るのはλ=0内のjoint半単純rank零（二normal場ともnilpotent）である。
+Eについてはjoint半単純rank一の全成分認識も別に残る。
+他の冪零modular場、線形場の零点でC=L=0となる純斉次源、
 一般の二quadric pencilとHの全配置は未処理である。
 特にquartic既約型の有限24+10表を、この型へ無条件で転用しない。
 その有限表の低次wall必要性は、元のquarticの**既約性**を使っているからである。

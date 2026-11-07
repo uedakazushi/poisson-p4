@@ -1,0 +1,96 @@
+{
+  "task_id": "E_multiple_hyperplane",
+  "all_passed": true,
+  "input_sha256": {
+    "reports/CLASSIFICATION_NIL22_IMAGE_REMAINING_SOURCES_20261107.json": "9ab03220144c70d70b877c7138562d854d0102bd37846eeafcbbd115170e0700",
+    "reports/CLASSIFICATION_MULTIPLE_HYPERPLANE_RANK2_NIL_SOURCES_20261107.json": "b67e7aed4721e751944c616b41516b24131c0823b06557f4d749a2f6f6d2476b",
+    "code/classification_nil22_image_double_d_limit.py": "a69a9b84f9e4b01fd5986321ae62beef278cb288cc8ff85b1cc22f1a0c65e2bb",
+    "code/classification_rank3_mixed_component_review.py": "48e61e30f9d7f04fb81f1bb5eec0e18daa28c8192d6a02a251e09cf8855b9bd0"
+  },
+  "producer_bytes": "#!/usr/bin/env python3\n\"\"\"The entire double_D source is a regular limit in the accepted CN31_25.\"\"\"\nfrom pathlib import Path\nimport hashlib,itertools,json,time\nimport sympy as s\nfrom classification_rank3_mixed_component_review import PAIRS,jacobi\nROOT=Path(__file__).resolve().parents[1]\ndef main():\n start=time.monotonic();h,q1,q2,x,y,e=s.symbols('h q1 q2 x y e');xx=(h,q1,q2,x,y);aff=xx[1:];mm=s.symbols('m0:6');a,u=s.symbols('a u');params=mm+(a,u);env={str(z):z for z in xx+params};env.update(dict(zip(['x1','x2','x3','x4'],aff)))\n source_path=ROOT/'reports/CLASSIFICATION_NIL22_IMAGE_REMAINING_SOURCES_20261107.json';old_path=ROOT/'reports/CLASSIFICATION_MULTIPLE_HYPERPLANE_RANK2_NIL_SOURCES_20261107.json'\n source=json.loads(source_path.read_text())['cases'][3];target=s.zeros(4)\n for ij,f in source['full_six_magnetic_source'].items():\n  i,j=map(int,ij.split(','));target[i-1,j-1]=s.sympify(f,locals=env).subs(h,1);target[j-1,i-1]=-target[i-1,j-1]\n X,Y,Z,W=old=s.symbols('X Y Z W');ns=s.symbols('n0:15');local={str(z):z for z in ns};local.update(dict(zip(['x1','x2','x3','x4'],old)));P=s.zeros(4)\n for (i,j),f in zip(itertools.combinations(range(4),2),json.loads(old_path.read_text())['cases'][0]['full_six_brackets']):P[i,j]=s.sympify(f,locals=local);P[j,i]=-P[i,j]\n M0,M1,M2,M3,M4,M5=mm\n periods={ns[0]:-M0/e-u/e**2,ns[1]:-M3/e,ns[2]:-M4/e,ns[3]:-M5/e-(5*a/2+1)/e**2,ns[4]:-M1/e,ns[5]:-u/e,ns[6]:0,ns[7]:-2/e,ns[8]:-M2/e-(3+(a+s.Rational(1,2))*u)/e**2,ns[9]:0,ns[10]:a,ns[11]:0,ns[12]:-(2*a+1)*u/2,ns[13]:0,ns[14]:-1-2*a}\n # The full n7-open Jacobi branch, including all its compatibility equations.\n assert s.cancel(periods[ns[12]]+(2*a+1)*periods[ns[5]]/periods[ns[7]])==0\n assert s.cancel(periods[ns[13]]+2*(3*a+1)*periods[ns[6]]/(3*periods[ns[7]]))==0\n B=s.Matrix([[0,1,0,-1/e],[e,0,0,0],[0,0,1,0],[0,0,0,1]]);assert B.det()==-e\n family=(B*P*B.T).subs(dict(zip(old,[q2/e,q1+y/e,x,y])),simultaneous=True).subs(periods,simultaneous=True).applyfunc(s.cancel)\n assert (family.subs(e,0)-target).applyfunc(s.expand)==s.zeros(4)\n for z in family:s.Poly(z,*params,*aff,e);assert s.Poly(z,*aff).total_degree()<=2\n strict=[s.expand(sum(family[i,l]*s.diff(family[j,k],aff[l])+family[j,l]*s.diff(family[k,i],aff[l])+family[k,l]*s.diff(family[i,j],aff[l])for l in range(4)))for i,j,k in itertools.combinations(range(4),3)];assert strict==[0]*4\n pf=s.factor(family[0,1]*family[2,3]-family[0,2]*family[1,3]+family[0,3]*family[1,2]);assert s.expand(pf+x*x*(y+u/2))==0\n N=s.Matrix([s.expand(sum(s.diff(family[i,j],aff[i])for i in range(4)))for j in range(4)]);assert N==s.Matrix([x,y+e*q1,0,0])\n Q=s.zeros(5)\n for i,j in itertools.combinations(range(4),2):Q[i+1,j+1]=s.expand(h*h*family[i,j].subs({z:z/h for z in aff},simultaneous=True));Q[j+1,i+1]=-Q[i+1,j+1]\n sparse={ij:dict(s.Poly(s.expand(Q[ij]),*xx).terms())for ij in PAIRS if Q[ij]!=0};assert jacobi(sparse).applyfunc(s.expand)==s.zeros(350,1)\n encode=lambda A:{str(i)+','+str(j):str(s.factor(A[i,j]))for i,j in itertools.combinations(range(A.rows),2)if A[i,j]!=0}\n inputs=[source_path,old_path,Path(__file__),ROOT/'code/classification_rank3_mixed_component_review.py']\n result=dict(task_id='E_multiple_hyperplane',all_passed=True,input_sha256={str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest()for p in inputs},producer_bytes=Path(__file__).read_text(),all_eight_original_parameters=list(map(str,params)),source_case_index=3,\n  actual_GL_matrix=[[str(z)for z in row]for row in B.tolist()],GL_determinant=str(B.det()),whole_old_source_Laurent_parameters={str(z):str(s.factor(f))for z,f in periods.items()},\n  complete_n7_open_compatibilities_checked=True,n7_minus_two_over_e_nonzero=True,whole_regular_affine_family=encode(family),whole_regular_homogeneous_family=encode(Q),original_endpoint_equal=True,complete_strict_and_projective350_Jacobi_zero=True,\n  actual_affine_Pfaffian=str(pf),whole_modular=list(map(str,N)),whole_source_in_accepted_CN31_25=True,new_component_count=0,\n  proof='For every fixed eightparameter choice, each e!=0 tensor is an actualGL transform of the complete accepted nil31-image n7-open source. n7=-2/e never vanishes, and its Pfaffian is not identically0 for any u. The tensor is polynomial in e and its exact endpoint is the complete double_D source. Closedness of CN31_25 therefore covers all parameters, with no exceptional a/u/magnetic locus omitted.',independent_review_required=True,seconds=time.monotonic()-start)\n out=ROOT/'reports/CLASSIFICATION_NIL22_IMAGE_DOUBLE_D_LIMIT_20261107.json'\n if out.exists():raise FileExistsError(str(out))\n out.write_text(json.dumps(result,indent=2)+'\\n');print(json.dumps(dict(all_passed=True,whole_double_D_covered=True,seconds=result['seconds'])))\nif __name__=='__main__':main()\n",
+  "all_eight_original_parameters": [
+    "m0",
+    "m1",
+    "m2",
+    "m3",
+    "m4",
+    "m5",
+    "a",
+    "u"
+  ],
+  "source_case_index": 3,
+  "actual_GL_matrix": [
+    [
+      "0",
+      "1",
+      "0",
+      "-1/e"
+    ],
+    [
+      "e",
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "0",
+      "0",
+      "1",
+      "0"
+    ],
+    [
+      "0",
+      "0",
+      "0",
+      "1"
+    ]
+  ],
+  "GL_determinant": "-e",
+  "whole_old_source_Laurent_parameters": {
+    "n0": "-(e*m0 + u)/e**2",
+    "n1": "-m3/e",
+    "n2": "-m4/e",
+    "n3": "-(5*a + 2*e*m5 + 2)/(2*e**2)",
+    "n4": "-m1/e",
+    "n5": "-u/e",
+    "n6": "0",
+    "n7": "-2/e",
+    "n8": "-(2*a*u + 2*e*m2 + u + 6)/(2*e**2)",
+    "n9": "0",
+    "n10": "a",
+    "n11": "0",
+    "n12": "-u*(2*a + 1)/2",
+    "n13": "0",
+    "n14": "-2*a - 1"
+  },
+  "complete_n7_open_compatibilities_checked": true,
+  "n7_minus_two_over_e_nonzero": true,
+  "whole_regular_affine_family": {
+    "0,1": "(-a*e*q1**2 - 2*a*q1*u - 6*a*q1*y + 2*m0 + 2*m1*x + 2*m2*y + 2*m3*x**2 + 2*m4*x*y + 2*m5*y**2 - q1*u - 2*q1*y - 2*q1)/2",
+    "0,2": "a*x**2",
+    "0,3": "-x*(2*a + 1)*(u + 2*y)/2",
+    "1,2": "x*(a*e*q1 + a*y + 1)",
+    "1,3": "-(u + 2*y)*(2*a*e*q1 + 2*a*y + e*q1 + y + 2)/2"
+  },
+  "whole_regular_homogeneous_family": {
+    "1,2": "(-a*e*q1**2 - 2*a*h*q1*u - 6*a*q1*y + 2*h**2*m0 + 2*h*m1*x + 2*h*m2*y - h*q1*u - 2*h*q1 + 2*m3*x**2 + 2*m4*x*y + 2*m5*y**2 - 2*q1*y)/2",
+    "1,3": "a*x**2",
+    "1,4": "-x*(2*a + 1)*(h*u + 2*y)/2",
+    "2,3": "x*(a*e*q1 + a*y + h)",
+    "2,4": "-(h*u + 2*y)*(2*a*e*q1 + 2*a*y + e*q1 + 2*h + y)/2"
+  },
+  "original_endpoint_equal": true,
+  "complete_strict_and_projective350_Jacobi_zero": true,
+  "actual_affine_Pfaffian": "-x**2*(u + 2*y)/2",
+  "whole_modular": [
+    "x",
+    "e*q1 + y",
+    "0",
+    "0"
+  ],
+  "whole_source_in_accepted_CN31_25": true,
+  "new_component_count": 0,
+  "proof": "For every fixed eightparameter choice, each e!=0 tensor is an actualGL transform of the complete accepted nil31-image n7-open source. n7=-2/e never vanishes, and its Pfaffian is not identically0 for any u. The tensor is polynomial in e and its exact endpoint is the complete double_D source. Closedness of CN31_25 therefore covers all parameters, with no exceptional a/u/magnetic locus omitted.",
+  "independent_review_required": true,
+  "seconds": 0.4584078480002063
+}

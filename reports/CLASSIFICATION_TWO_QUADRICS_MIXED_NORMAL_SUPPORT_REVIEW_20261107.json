@@ -1,0 +1,116 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "all_passed": true,
+  "cases": [
+    {
+      "name": "double_pair_one_nil",
+      "all_passed": true,
+      "full200_by92_matrix_reconstructed": true,
+      "complete_kernel_and_rank_minor_reconstructed": true,
+      "full_four_Jacobi_and_Pfaffian_reconstructed": true,
+      "rank": 81,
+      "free_parameters": 11,
+      "branches": [],
+      "seconds": 0.04811086199879355
+    },
+    {
+      "name": "double_pair_two_nil",
+      "all_passed": true,
+      "full200_by92_matrix_reconstructed": true,
+      "complete_kernel_and_rank_minor_reconstructed": true,
+      "full_four_Jacobi_and_Pfaffian_reconstructed": true,
+      "rank": 83,
+      "free_parameters": 9,
+      "branches": [
+        {
+          "name": "ss_coefficient_nonzero",
+          "all_original_stratum_Jacobi_and_Pfaffian_arithmetic_passed": true,
+          "source_dimension_upper": null,
+          "normalizer_dimension_lower": null
+        },
+        {
+          "name": "ss_coefficient_zero",
+          "all_original_stratum_Jacobi_and_Pfaffian_arithmetic_passed": true,
+          "source_dimension_upper": null,
+          "normalizer_dimension_lower": null
+        }
+      ],
+      "seconds": 0.05527745299878006
+    },
+    {
+      "name": "single_pair_linear_nil",
+      "all_passed": true,
+      "full200_by92_matrix_reconstructed": true,
+      "complete_kernel_and_rank_minor_reconstructed": true,
+      "full_four_Jacobi_and_Pfaffian_reconstructed": true,
+      "rank": 80,
+      "free_parameters": 12,
+      "branches": [
+        {
+          "name": "all",
+          "all_original_stratum_Jacobi_and_Pfaffian_arithmetic_passed": true,
+          "source_dimension_upper": 6,
+          "normalizer_dimension_lower": 6
+        }
+      ],
+      "seconds": 0.04476060700108064
+    },
+    {
+      "name": "single_pair_translation",
+      "all_passed": true,
+      "full200_by92_matrix_reconstructed": true,
+      "complete_kernel_and_rank_minor_reconstructed": true,
+      "full_four_Jacobi_and_Pfaffian_reconstructed": true,
+      "rank": 79,
+      "free_parameters": 13,
+      "branches": [
+        {
+          "name": "n0_nonzero",
+          "all_original_stratum_Jacobi_and_Pfaffian_arithmetic_passed": true,
+          "source_dimension_upper": 7,
+          "normalizer_dimension_lower": 7
+        },
+        {
+          "name": "n0_zero",
+          "all_original_stratum_Jacobi_and_Pfaffian_arithmetic_passed": true,
+          "source_dimension_upper": 7,
+          "normalizer_dimension_lower": 7
+        }
+      ],
+      "seconds": 0.055643994999627466
+    },
+    {
+      "name": "single_pair_long_translation",
+      "all_passed": true,
+      "full200_by92_matrix_reconstructed": true,
+      "complete_kernel_and_rank_minor_reconstructed": true,
+      "full_four_Jacobi_and_Pfaffian_reconstructed": true,
+      "rank": 83,
+      "free_parameters": 9,
+      "branches": [
+        {
+          "name": "n1_nonzero",
+          "all_original_stratum_Jacobi_and_Pfaffian_arithmetic_passed": true,
+          "source_dimension_upper": 5,
+          "normalizer_dimension_lower": 5
+        },
+        {
+          "name": "n1_zero",
+          "all_original_stratum_Jacobi_and_Pfaffian_arithmetic_passed": true,
+          "source_dimension_upper": 5,
+          "normalizer_dimension_lower": 5
+        }
+      ],
+      "seconds": 0.046326784999109805
+    }
+  ],
+  "input_sha256": {
+    "reports/CLASSIFICATION_TWO_QUADRICS_MIXED_NORMAL_SYMMETRIES_20261107.json": "fbe77bc63f00ebd24f350966d61a1bd7c52751d2bc6f34ff50c60b52fbe720fb",
+    "reports/CLASSIFICATION_TWO_QUADRICS_MIXED_NORMAL_SUPPORT_20261107.json": "05f7a75d6ee6eec148557d9caf216a7b2815b5d2cbffeca79f551ed3d6abe16b",
+    "code/classification_quadratic_cofactor_review.py": "b77e9511bad7c8674f2d820c0d1e6022b7aa3788b795c2e55090b28e2d2dffcd",
+    "code/classification_two_lines_plane_cubic_component_review.py": "47720c5f3f8bebf96f1838f0671e5d2a6af9e6f93361edcd5d4b19e11c46a23c"
+  },
+  "reviewer_sha256": "f16cc8b9fe6fc4a2f1f2643392dfe29e9caf11a3118253de32c4d489d9ae9ef1",
+  "seconds": 0.25218791800034523,
+  "scope": "Independent Fraction sparse matrix/full kernel/rank/Jacobi/Pfaffian and Laurent stratum arithmetic for all five supersources. The whole-support normal-Hamiltonian restrictions, finite normal-form completeness, and free normalizer-action dimension implication are separate proofs in TWO_QUADRICS_JOINT_SS_RANK1_SUPPORT.md. No E component recognition asserted."
+}
