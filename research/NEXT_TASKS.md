@@ -33,8 +33,8 @@ all-degenerate CI22も全九型・全二十源で空と独立確認し、全inte
 全degree四rank零は全centre/extraclassを保持した証明でG像≤24、normaldegree六も全nef数値式とrelativeconicで空となった。degree五六の全coneも全Euler sourceのQ因子で空。
 D正規化のsectional genus零→minimaldegree全scrollと全導手を独立確認し、非normalも含む全degree六rank零を空とした。degree五のgenus零（残余plane付き）も全projection像≤24。
 degree五genus一もcanonical排除・全elliptic bundleのT40/像≤24認識を受理し、quadric cone全源もOreと全一変数例外処理で像≤23。これで全rank零非plane枝がGから排除された。
-次はrank零plane、
-rank2planeでは零R可約/非被約を、他のrank2残枝を処理する。smooth非plane cleanは全横断型を処理済みで、vertical/特異Sを残す。degree3の全Jacobi二次rowspaceは実Dを含まないので、
+rank零plane位数二k1 rankM≥2は全像≤23、Cartan全higher源はMPS40へ。全degree六rank二とdegree五rank二genus零は像≤24、種数一ellipticは全nef/GG型を排除。
+次はrank零planeのglobalV nonCartan/nilnormal・位数三以上、degree五rank二canonical index二、他のrank二特異/vertical支持、rank二planeの零R可約/非被約を処理する。smooth非plane cleanは全横断型を処理済みで、vertical/特異Sを残す。degree3の全Jacobi二次rowspaceは実Dを含まないので、
 この最初の線形判定からrank四不存在を主張しない。旧五回未決GBやjet/minor列へ自動復帰しない。
 
 rank二planeの既約被約Rはnode/cuspも含め全排除済み。非planeの三重以上はsecant論で不可能、rank零first Lieの全二型からconormal abelianを得る。この線形必要条件でdegree三全源を縮小しており、旧30変数GB/冪探索を繰返さない。
@@ -48,7 +48,7 @@ H+既約quarticは全半単純24源、純nil型1/2/3/4/5/8/10を完了した。
 型4の唯一六源はliteral P+eR+e²Tでregular semisimple型12へ移り全MPS。
 型5は新22成分とT40、Ga9型9のc=1全十源は新23成分へ被覆した。
 型7全七源は三新成分（二22と一23）、MPS及び既存既約五次23成分へ全被覆済み。Hquarticに残るのはnil22image型6とGa9 c0 linear-w一源である。
-Ga9 distinct-c全源も実cubic曲線で新しい既約非正規quinticの23次元軌道成分へ被覆済み。Ga9c0 power1/power3全源も新平面Hquartic24成分へ被覆済み。残るGa9はc0 linear-w一源だけ。
+Ga9 distinct-c全源も実cubic曲線で新しい既約非正規quinticの23次元軌道成分へ被覆済み。Ga9c0 power1/power3全源も新平面Hquartic24成分へ被覆済み。残るGa9はc0 linear-w一源だけ。全六normalの二次初期支持はplaneとline（height4）で原点に閉じない。診断Macaulay両包含を保存し、高次jet反復を止めactualwhole変形又は支持幾何へ切り替える。
 
 重複Hではnil31long-top六源、nil22top八源、nil31image half/third全源は被覆済み。
 nil22imageの全十一源は独立606恒等式で有限化した。triple_A/Bは二つの新23成分、

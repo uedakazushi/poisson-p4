@@ -1,0 +1,38 @@
+{
+  "task_id": "G",
+  "target_statement": "One explicit finite projection of smoothS(2,3) toP3 with a globally integral conductor divisor, proving properness of the split-conductor locus for normalization type023.",
+  "implication_to_classification": "If the witness conductor is absolutely irreducible, reducible conductors form a proper closed sublocus in the irreducible projection parameter space. The separate fixed-residue/dimension proof could then bound type023 rank2S6 G images<=24. The computation alone does not prove that final geometric implication.",
+  "coefficient_ring": "QQ exact resultants, polynomial divisions and rational linear algebra; one prescribed projection and complete global conductor class3H-3f. No GB, random projection samples or numerical irreducibility.",
+  "hypotheses": "A2=(s^2,st,t^2,0),B3=(s^3,t^3,s^2t,s^3+t^3). Verify allfiber independence/basepointfreeness and sectionrank4. AmpleH plus prime degree5 then gives finitebirational normalization. Conductor canonical formula is derived with the projective canonical frame, not an affine denominator guess.",
+  "inverted_elements": [
+    "The chart s*v*(s^3+t^3)!=0 only for initial computation; global homogenization and no-boundary-component checks must restore all conductor divisors.",
+    "The selected Jacobian minor only in a rationalfunction identity; exact global polynomial division must remove it."
+  ],
+  "complements": [
+    "Allglobal conductor boundary divisors s=0 orv=0 are checked after canonical homogenization. No denominator-zero fiber is silently excluded.",
+    "Absolute irreducibility is certified by a rational closedform matrix whose rank persists overC, not merely QQ factorization.",
+    "If the one prescribed projection fails, preserve the exact polynomials and stop for geometry; at most two nonclosing structural attempts are allowed, with no projection farm."
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_scroll23_conductor_witness.py",
+      "sha256": "6556ff002f3afe3dc8b315bf3b21f30080c296638266ce1ab8dde66a72766342"
+    },
+    {
+      "path": "research/classification/RANK_TWO_SEXTIC_SURFACE_NONCONICAL_DIVISOR_EXCLUSION.md",
+      "sha256": "3ba65bdf04947f799e3a961e8764a72502c183bef79c5fb970c2cc82280d12e6"
+    },
+    {
+      "path": "research/classification/RANK_ZERO_SEXTIC_CONDUCTOR_EXCLUSION.md",
+      "sha256": "22b7fbd1004cd5e5972941c7e16543cbbeec5aa83864eccb4699c382f63c93af"
+    }
+  ],
+  "success_certificate": "Binaryminorgcd1 and4sectionrank; degree5implicit equation with literal pullback0; F_z_hom=scalar*Jacnumerator*G; global3H-3f section without boundaryfactor; squarefreeG; complete closedform degree-bounded matrix kernel1 and nonzero rankminor, proving absoluteirreducibility.",
+  "independent_check": "The full exact matrix/kernel/minor and all polynomial identities are saved for separate replay. Geometric conductor adjunction, family closedness, residue uniqueness and parameter quotient remain separately stated proof obligations.",
+  "resource_limit": {
+    "timeout_seconds": 120,
+    "memory_mb": 1536
+  },
+  "negative_result_next_step": "Save the resultants/G/checkpoint and precise failed condition. Do not infer genericintegrality, do not discard boundarycomponents and do not launch unbounded projection searches.",
+  "route_change_reason": "Root requested a new structural properness witness for the only remaining type023 splitconductor case, rather than retrying blocked literature or repeating pointPoisson probes."
+}

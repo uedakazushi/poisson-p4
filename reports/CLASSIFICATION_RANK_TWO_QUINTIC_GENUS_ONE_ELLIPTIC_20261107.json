@@ -1,0 +1,80 @@
+{
+  "task_id": "G",
+  "status": "producer_proof_complete_pending_independent_review",
+  "proof_type": "pure_geometry_no_CAS",
+  "new_computation_performed": false,
+  "producer": "plane_collision_review",
+  "theorem": "The whole elliptic polarized-model branch for degree5 rank2 nonnormal supports and normalization sectionalgenus1 is empty.",
+  "input_sha256": {
+    "research/classification/RANK_ZERO_QUINTIC_SURFACE_GENUS_ONE_RECOGNITION.md": "5dbc8052d4245b72d45904a0f92d479ce4e0c26a577ca2391a1f662bce35b768",
+    "research/classification/RANK_ZERO_QUINTIC_SURFACE_GENUS_ONE_SEPARATE_REVIEW.md": "f5cd2db8447ca6fd814b24d9659e755bc435dca8c51d52deef2bb9934a214028",
+    "research/classification/IRREDUCIBLE_NONNORMAL_QUINTIC_ENTRANCE.md": "911ccd334b405058ba0f7aece9a20095d1365b94849f429a11d19c277ba795de",
+    "research/classification/RANK_TWO_SEXTIC_SURFACE_SEPARATE_REVIEW.md": "42c1c8ad9feb7e02aae0e5e4c376957fa7bfb15bad5efb83ba43107e24302c13",
+    "research/classification/RANK_TWO_QUINTIC_SURFACE_GENUS_ONE_ELLIPTIC_EXCLUSION.md": "1ea3d95ad56fc5f8b1792232f49208e53d68ffc197d09e3b5b7abbd9daea45b9"
+  },
+  "finite_branches": [
+    {
+      "r": 0,
+      "model": "H ample, Y=X",
+      "result": "excluded by conductor residue equations"
+    },
+    {
+      "r": 1,
+      "model": "only zero-block elliptic section contracts, small codimension2",
+      "result": "excluded by same complete conductor residue equations"
+    },
+    {
+      "r": 2,
+      "model": "actual five sections preserve linevertex",
+      "result": "all nonnormal surface components are planes, contradicting integral degree5 S"
+    }
+  ],
+  "bundle_normalization": {
+    "E_rank": 3,
+    "E_degree": 5,
+    "globally_generated": true,
+    "full_split": "O^r+F with H0(F*)=0 and F ample",
+    "contracted_curve_proof": "All degree0 globallygenerated quotients on finite covers are trivial; their evaluation coefficients are constants and descend a forbidden F->O unless they come entirely from O^r."
+  },
+  "conductor": {
+    "linear_class": "3H-p*detE",
+    "determinant_line_degree": 5,
+    "cusp": "Impossible by odd integral H coefficient in ZH+Pic(B).",
+    "node_singleprime": "Includes connected nonsplit doublecover; nonzero constant residue times 10+6n vanishes by compact curve residue theorem.",
+    "node_split": {
+      "whole_prime_classes": [
+        "H+p*M0, degM0=0",
+        "2H+p*Mminus5, degMminus5=-5"
+      ],
+      "all_Pic0_twists_retained": true,
+      "all_prime_residues_nonzero_constants": true,
+      "ample_intersection_degrees": [
+        "5+2n",
+        "5+4n"
+      ],
+      "two_consecutive_n_matrix": [
+        [
+          "5+2n",
+          "5+4n"
+        ],
+        [
+          "7+2n",
+          "9+4n"
+        ]
+      ],
+      "exact_determinant": 10,
+      "conclusion": "Both residues zero, contradicting rank2."
+    }
+  },
+  "localization_complements_preserved": true,
+  "no_exceptional_Weil_divisor": true,
+  "no_H0Omega1_vanishing_assumed": true,
+  "no_GKKP": true,
+  "no_rankzero_cone_exclusion_used": true,
+  "remaining_scope": [
+    "Canonical index2 genus1 model is not excluded by this theorem.",
+    "Other degrees, E membership and whole G/E completion are not asserted."
+  ],
+  "proof_note": "research/classification/RANK_TWO_QUINTIC_SURFACE_GENUS_ONE_ELLIPTIC_EXCLUSION.md",
+  "independent_review_required": true
+}

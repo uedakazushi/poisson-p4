@@ -1,0 +1,50 @@
+{
+  "task_id": "G",
+  "target_statement": "Independent whole-branch Cartan SNC recognition, including all periods and all higher normal weights, using actual connected Cstar action and the exact40 SNC-meeting component theorem.",
+  "implication_to_classification": "Every ambient component through any such tensor contains its actual SNC limit, hence belongs to the published exact40 SNC-meeting components. No reverse inference from membership of an arbitrary degeneration is used.",
+  "coefficient_ring": "QQ[all16 tracefree X/Y coefficients,k0,k1,k2]; QQ[all6 diagonal eigenvalues,b] for full Cartan Jacobi/Pf; all150 normal weights and entire30/9 source bases.",
+  "hypotheses": "rankzero plane, mD2, abelian conormal, nonzero constant semisimple normal sl2 symbol, simultaneous diagonalizability of trace and common vectorfield. kappa nonzero, no generic/nonresonant biresidue assumption.",
+  "inverted_elements": [
+    "kappa nonzero exactly for SNC/logsymplectic and mD2, not a generic-period localization",
+    "nonzero normal semisimple eigenvalue for GL2 normalization"
+  ],
+  "complements": [
+    "nilpotent normal matrix",
+    "commuting nonsemisimple T,V",
+    "other k1/coHiggs types",
+    "mD>=3/kappa0"
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_plane_rank_zero_cartan_snc_review.py",
+      "sha256": "3014cdf8714d75e03b1d0280c6389f1539befa538699d400e8339082bbfb5637"
+    },
+    {
+      "path": "code/classification_projected_veronese_zero_review.py",
+      "sha256": "7fbaa04524f57287df396ff5e0ebd754ad124cd9814055820c70fdd1f863e55d"
+    },
+    {
+      "path": "code/classification_plane_rank_zero_fullrank_review.py",
+      "sha256": "896aa97a2c37895d368532d7c1b9123aa34ea393343762a3022f633639aeca8b"
+    },
+    {
+      "path": "code/classification_unimodular_logarithmic_review.py",
+      "sha256": "cc5da8f4ac53bb814e549d439d806271a81f28cacfd9656b85765eb78b21cdcf"
+    },
+    {
+      "path": "research/classification/PLANE_RANK_ZERO_CARTAN_SNC_RECOGNITION.md",
+      "sha256": "6f461602532d2cfd38343469a4f8fc2d62e377f6e88c35084d9f541425649a5e"
+    },
+    {
+      "path": "research/classification/PLANE_RANK_ZERO_MULTIPLICITY_TWO_FIRST_JET.md",
+      "sha256": "fa8a5d603af21b7dc8771aa4b61b8933dbb430ccf16bed60023ce59fe76975ae"
+    }
+  ],
+  "success_certificate": "Independent general X/Y/K Jacobi identity; universal full Cartan Jacobi/Pf kappa; entire30/9 source weights and actual oneparameter PGL family. Separate primary Theorem1.4/section5.3/Example6.24 direct read and component-stability proof.",
+  "independent_check": "Separate-author Fraction checker and Japanese geometry/literature review. Imports only independent helpers, no producer or CAS. All40 theorem scope verified directly at arxiv2010.08692v2.",
+  "resource_limit": {
+    "timeout_seconds": 60,
+    "memory_mb": 768
+  },
+  "negative_result_next_step": "If source/Pf identity or published all-period theorem scope fails, preserve exact blocker; do not substitute generic periods or boundarypoint membership for the missing global argument."
+}

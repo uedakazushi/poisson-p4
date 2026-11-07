@@ -6851,6 +6851,226 @@ Mが相異二固有値なら一行目、一つのJordan blockなら二行目と�
 固有lineのmonodromy、discriminant、vertical共通因子、Sの特異点、higher normal係数は残る。
 局所Lie型を一つの大域座標又は全Poisson源の分類へ置き換えていない。
 
+\subsection{二重rank零planeの全first symbolと係数rank二以上}
+\begin{proposition}\label{prop:plane-zero-k1-rank-atleast-two-G}
+rank零plane Pに沿うactual既約被約quintic Dの一般位数が二とする。
+traceless co-Higgsの共通imageのsaturationが$O(1)$で、linear coefficient map
+$M:\mathbb C^3\to\mathfrak{sl}_2$のrankが二以上なら、全PGL射影像は23次元以下である。
+rank三は23以下、rank二で$M(p)=0$は22以下、rank二で$M(p)\ne0$は23以下となる。
+k零、rank M一以下、位数三以上又は全E帰属は主張しない。
+\end{proposition}
+\begin{proof}
+Pを$(z=w=0)$とする。零性の全源はraw90、Euler冗長十でprojective section次元80。
+位数二の非零normal Pfaffianからfirst-jet Lie代数はFrobeniusであり、
+命題\ref{prop:nonplane-double-first-jet}のLie代数部分はplaneでも同じくconormal可換性を与える。
+非plane仮定は位数二を導くsecant部分だけに使い、ここではそれを明示仮定した。
+従ってnormal-normalのlinear六係数が零となり、normal weight零35、一30、二9が全源である。
+traceless三vector fieldのpairwise wedgeはJacobiで零となる。
+共通imageをsaturateしたrank一subsheafは、quotientがtorsionfreeなためsmooth P2上でreflexive、従って$O(k)$。
+非零sectionからk非負、$H^0(T_{\mathbb P^2}(-2))=0$からk一以下である。
+
+k一のinclusionはconstant vector U、すなわちpoint pで指定される。
+base x、normal $n=(z,w)$、$E_n=z\partial_z+w\partial_w$、$q_A=\det(n,An)$とし、
+tracefree linear field Tを使うと全weight零源は
+\[
+ \Pi_0=T\wedge E_n+U\wedge(M(x)n\cdot\partial_n)+q_S(n)\partial_z\wedge\partial_w.
+\]
+$M_0=M(U),R=S+M_0/2$と置く。
+全projective Jacobiは厳密に
+\[
+ [T,U]=-tU,\qquad T(M)-tM+[R,M]=0,
+ \quad [R,M_0]=0
+\]
+となる。実際、残るstrict Jacobiのbase-vector係数は
+$q_M[T,U]+U(V_Mq_S+q_{T(M)}+\det(Mn,M_0n))$。
+$[T,U]$がUと独立ならその一定二次元空間内のvectorが全xでEulerに比例するには零となり、
+独立二係数からM零となって矛盾する。
+$V_Mq_S=q_{[S,M]}$、$\det(Mn,M_0n)=q_{[M_0,M]}/2$を用いれば上式を得、逆代入も全式を零にする。
+
+全higher源を一度明記する。base三変数とnormal z,wについて、
+\[
+ \Pi_1=zL+wN+z^2D\wedge\partial_w+zw(B\wedge\partial_z+E\wedge\partial_w)
+              +w^2C\wedge\partial_z
+\]
+でL,Nはlinear base bivector各九、B,C,D,Eはconstant base vector各三、合計三十。
+\(\Pi_2\)は各base pairに全$z^2,zw,w^2$を掛けた九方向である。
+raw weight一36をEuler六方向で商した完全basisで、weight二に追加のlinear gaugeは無い。
+全350行から$D_i=E_{\rm all}\wedge[\Pi_0,\Pi_i]$を作れば、fixed $\Pi_1$の$\Pi_2$方程式は
+D2のinhomogeneous linear systemなので、全higher fiberは一様に
+\[
+ d\le\dim\ker D_1+\dim\ker D_2
+\]
+を満たす。未解決の高weight非線形式はこの源を狭めるだけである。
+
+rank三ではMは可逆で$T=tI-M^{-1}\operatorname{ad}_RM$、traceからt零。
+$M_0\ne0$のcentralizerは一次元なので$R=\tau M_0$。
+Mのbase逆行列、normal共役と非零tensor scaleにより、$M=\bigl(\begin{smallmatrix}b&c\\a&-b\end{smallmatrix}\bigr)$の下で
+\[
+ \begin{array}{c|c|c|c}
+ &U&T&K=q_S\\ \hline
+ \mathrm{ss}&\partial_b&2\tau(a\partial_a-c\partial_c)&(1-2\tau)zw\\
+ \mathrm{nil}&\partial_a&\tau(c\partial_b-2b\partial_a)&(\tau-1/2)z^2
+ \end{array}
+\]
+の全二族に入る。$\tau=0$はleading normal Pfaffian零で位数三以上の補集合。
+generic nullityは両族で$(6,0)$。
+selected minorの全非零例外を残すと、ssは
+$1,3/10,1/4,1/6,-1/6,-3/2,3/2,-1/2$で$(6,0)$、$1/2$で$(6,1)$。
+nilは$-1/2$で$(6,0)$、$-3/2$で$(7,0)$、一で$(6,2)$、$3/2$で$(8,0)$、$1/2$で$(7,1)$。
+minor積の全因子はこれらと$\tau$に尽くされ、全rootで全350行と新minor/kernelを確認している。
+fixed planeのsymbolはp二、M九、$\tau$一でss十二、nil条件で十一。
+finite wallでは各々一減る。plane六とtensor projectivization一を戻すと、
+generic上界ss23/nil22、wallでも$16+d$又は$15+d$で全て23以下となる。
+
+rank二を扱う。Killing orthogonal lineの二whole orbitから、image planeは
+$W_{\rm nd}=\langle F,E\rangle$又は$W_B=\langle H,E\rangle$である。
+ここで$H=\operatorname{diag}(1,-1)$、E,Fは標準上・下nilpotent行列。
+$M(p)=0$ではU$=\partial_a$、$M=bM_1+cM_2$とし、
+$J=\operatorname{ad}_R|_W$について
+\[
+ R\in N_{\mathfrak{sl}_2}(W),\quad A=tI-J,\quad3t=\operatorname{tr}J,
+ \quad T=(ta+r_bb+r_cc)\partial_a+A(b,c)\cdot\partial_{(b,c)}.
+\]
+base shearはrow rを$r-\ell J$へ変える。
+$N(W_{\rm nd})=\mathbb CH$、$N(W_B)=\langle H,E\rangle$を使い、全非零scaleと逆shearを戻せる四正常形は
+\[
+\begin{array}{c|c|c|c}
+ &M&T&K\\ \hline
+ \mathrm{ND}&bF+cE&2b\partial_b-2c\partial_c&-2zw\\
+ \mathrm{BSS}_\rho&bH+cE&(2a+\rho b)\partial_a+2b\partial_b-4c\partial_c&-6zw\\
+ \mathrm{BN1}&bH+cE&c\partial_a+2b\partial_c&-w^2\\
+ \mathrm{BN0}&bH+cE&2b\partial_c&-w^2
+\end{array}
+\]
+で、全$\rho\in\mathbb C$を保つ。R零は共通因子Uを持ち位数二に反する。
+BorelのR semisimpleで消えないrowが$\rho$、nilpotentのrow零・非零がBN0/1であり、その補集合も保持した。
+generic nullityはND、BSS、BN1で$(6,0)$、BN0で$(7,0)$。
+BSSの全minor例外$\rho=-3,-1,1,3$のうち$-3$だけが$(7,0)$、他は$(6,0)$である。
+symbol次元はND/BSS十一、BSS fixed $\rho$十、BN1十、BN0九。
+fixed $\rho$はrow係数一の真正条件なので、wall上のsource次元低下も有効である。
+plane六とscale一を戻した全上界はそれぞれ22、22、21、21以下である。
+
+$M(p)\ne0$では$R=\tau M_0$。
+nondegenerate Wのnormalizerと$M_0\in W$のcentralizerの交わりは零なのでR零、
+Borelでは全$\tau$を保つ。
+kernel-coordinate shearでpのkernel方向を消し、全sourceは次の八族となる。
+$V_s=2sa\partial_a-sb\partial_b-sc\partial_c$、
+$W_{\tau,s}=2(\tau-s)a\partial_a+sb\partial_b+(s-2\tau)c\partial_c$と書く。
+\[
+\begin{array}{c|c|c|c}
+ &U&T&K\\ \hline
+ \mathrm{NDSS}(s\ne0)&\partial_b+\partial_c&V_s&-(z^2-w^2)/2\\
+ \mathrm{NDSSN}&\partial_b+\partial_c&(b-c)\partial_a&-(z^2-w^2)/2\\
+ \mathrm{NDNSS}&\partial_b&V_1&-z^2/2\\
+ \mathrm{NDN}&\partial_b&c\partial_a&-z^2/2\\
+ \mathrm{BSS}(\tau,s)&\partial_b&W_{\tau,s}&(1-2\tau)zw\\
+ \mathrm{BSSR}(\tau)&\partial_b&W_{\tau,4\tau/3}+c\partial_a&(1-2\tau)zw\\
+ \mathrm{BNS}(\tau)&\partial_c&-2a\partial_a+b\partial_b+(c+2\tau b)\partial_c&(1/2-\tau)w^2\\
+ \mathrm{BNR}(\tau)&\partial_c&b\partial_a+2\tau b\partial_c&(1/2-\tau)w^2
+\end{array}
+\]
+最初の四族は$M=bF+cE$、後四族は$M=bH+cE$である。
+BSSは$\Delta=4\tau-3s\ne0$でrowをshearにより消した全二parameter族。
+$\Delta=0$のrow非零はBSSRへ、row零はleading Pfaffian零の位数三以上へ送る。
+NDとBNSのs非零も実normal/base/tensor scaleで直し、s零row非零を別族に保った。
+normalizationとinverseはgradingを保つ実linear変換であり、全higher係数に追加制限を課していない。
+
+八族のgeneric higher dと全復元は次の通りである。
+\[
+ \begin{array}{c|c|c|c}
+ \text{族}&\text{affine symbol次元}&d_{\rm gen}&\text{全像上界}\\ \hline
+ \mathrm{NDSS}&12&6&23\\
+ \mathrm{NDSSN},\mathrm{NDNSS}&11&6&22\\
+ \mathrm{NDN}&10&7&22\\
+ \mathrm{BSS}&12&6&23\\
+ \mathrm{BSSR},\mathrm{BNS}&11&6&22\\
+ \mathrm{BNR}&10&7&23
+ \end{array}
+\]
+全finite wallを確認するため、NDSSのminor積は非零定数を除いて
+\[
+ s^9(s-1)(s+1)(3s-1)(3s+1)
+ (2s^2-1)(3s^2-1)(18s^2+1)(72s^2+1).
+\]
+四二次field$\mathbb Q(\alpha)$、$\alpha^2=1/2,1/3,-1/18,-1/72$上で全matrixとminorを厳密評価し、
+両complex embeddingを同時に保った。
+BSSRの全wallは$-3/2,1/6,3/2,1/2,-1/2$、
+BNSは$1,-1/2,-3/2,1/6,3/2,1/2$、BNRは$1,-3/2,-1/2,3/2,1/2$。
+BNRの$1,3/2,1/2$ではd九だが、fixed parameterでsymbol次元九となり、全像は$9+9+6-1=23$である。
+他の全一parameter wallも23以下である。
+
+BSSの全二parameter minor壁は次の十七lineである。
+\[
+\begin{gathered}
+ 2\tau+1,\ 2\tau+3,\ 3s+2,\ 2\tau-3,\ 2\tau-1,\ 3s-2\tau+3,\\
+ 3s+4\tau-4,\ 6s-10\tau+3,\ 3s-6\tau-1,\ 3s-4\tau-2,\ 3s-4\tau+1,\\
+ 3s-2\tau-3,\ 3s+2\tau-1,\ 6s-6\tau+1,\ 3s-2\tau-1,\ 3s-2\tau+1,\ 3s-4\tau.
+\end{gathered}
+\]
+最後は$\Delta=0$のrow零補集合で、row非零はBSSRとして処理済み。
+残る全十六lineをA1でparametrizeし、全350行のgeneric minor/kernelとそのminorの全rootを評価した。
+全142 point証明書のうち十四は$\Delta=0$、残る128はd八以下。
+十七lineの全finite pairwise intersection121組もgeneric patch、明示root又は除外$\Delta=0$へ入ることを確認した。
+lineのgeneric dは六、pointの最大八は$(\tau,s)=(3/2,4/3),(1,5/3)$だけである。
+したがって全二parameter源で、generic $12+6+6-1=23$、line $11+6+6-1=22$、
+point $10+8+6-1=23$となる。
+wallのsource次元低下はrowから独立な有限algebraic frame上で真正なparameter条件として得たもので、
+generic rankから全点へ外挿していない。以上で全三stratumを尽くす。
+\end{proof}
+全first jet、Lax必要十分性、全実normalizationとinverse、全350行・全三十/九係数・全minorの独立証明は
+\path{PLANE_RANK_ZERO_FULLRANK_REVIEW.md}、
+\path{PLANE_RANK_ZERO_RANK_TWO_KERNEL_SEPARATE_REVIEW.md}、
+\path{PLANE_RANK_ZERO_NONKERNEL_SEPARATE_REVIEW.md}にある。
+対応する独立reportは\path{CLASSIFICATION_PLANE_RANK_ZERO_FULLRANK_REVIEW_20261107.json}、
+\path{CLASSIFICATION_PLANE_RANK_ZERO_RANK_TWO_REVIEW_20261107.json}、
+\path{CLASSIFICATION_PLANE_RANK_ZERO_NONKERNEL_REVIEW_20261107.json}である。
+非線形全支持や個別成分所属を解いたのではなく、必要な全源上界でGを閉じた。
+
+\subsection{Cartan first symbolから実SNC点への到達}
+\begin{proposition}\label{prop:plane-zero-cartan-MPS}
+rank零plane・位数二のtraceless normal symbolが一つのglobal vector field Vと
+constant semisimple $\mathfrak{sl}_2$行列の積で、trace field TとVが同時対角化可能なら、
+その全higher Poisson tensorは既知MPS40成分の和に入る。
+generic eigenvalue、nonresonant period又はhigher-weight消去は仮定しない。
+\end{proposition}
+\begin{proof}
+normal GL2で対角化すると全weight零源は
+\[
+ \Pi_0=zX\wedge\partial_z+wY\wedge\partial_w+
+ (az^2+bzw+cw^2)\partial_z\wedge\partial_w,
+ \qquad X=T+V,\ Y=T-V.
+\]
+全Jacobiの非零vector係数は
+$zw[X,Y]+(az^2-cw^2)(X-Y)$である。
+$X-Y$非零projective fieldからa=c零、commutatorはscalar Eulerとなるがtrace零からそのscalarも零。
+従って$[X,Y]=0,K=bzw$である。
+同時対角化で$X=\sum\alpha_ix_i\partial_i,Y=\sum\beta_ix_i\partial_i$と書くと
+\[
+ D_0=-\kappa x_0x_1x_2zw,\qquad
+ \kappa=\det\begin{pmatrix}1&1&1\\\alpha_0&\alpha_1&\alpha_2\\\beta_0&\beta_1&\beta_2\end{pmatrix}\ne0.
+\]
+位数二はまさに$\kappa\ne0$であり、この端点はtoric logarithmic tangent bundle上で
+非退化なconstant skew tensor、すなわち実SNC log symplectic点である。
+b又は個々のbiresidue零を反転していない。
+
+全higher源は$\Pi_0+\Pi_1+\Pi_2$。
+actual PGL one-parameter群$g_t=\operatorname{diag}(1,1,1,t^{-1},t^{-1})$は
+\[
+ (g_t)_*\Pi=\Pi_0+t\Pi_1+t^2\Pi_2
+\]
+を与える。右辺は全係数で多項式で、t一が元点、t零が上のSNC点となる。
+formal jet又は未証明のflatnessを使わず、Jacobiも全tで恒等的に成立する。
+元点を含む任意の全空間既約成分Cはconnected PGLで不変なので、全非零tの点と閉性によるt零点を含む。
+従って同じC自身がSNC locusと交わる。
+MPS\cite[Theorem 1.4; \S5.3; Example 6.24]{mps}の全toric periodを含むSNC成分定理により、
+Cは四十成分の一つである。
+別の既知成分が同じboundary点を持つことから逆推論したのではなく、元点を通る全Cへ適用した。
+\end{proof}
+MPSの全period射程とP4 rigidityによる固定空間の成分対応、全記号式とactual C*族の独立確認は
+\path{PLANE_RANK_ZERO_CARTAN_SNC_REVIEW.md}及び
+\path{CLASSIFICATION_PLANE_RANK_ZERO_CARTAN_SNC_REVIEW_20261107.json}にある。
+nilpotent constant normal行列、非同時対角化のcommuting pair、他co-Higgs型、位数三以上はこの命題の補集合である。
+
 \subsection{Eulerによる全零sectionの評価}
 \begin{proposition}\label{prop:surface-Euler-bound}
 $\mathcal V=\wedge^2T_{\mathbb P^4}$、Sをintegral・非退化曲面とし、
@@ -7370,7 +7590,95 @@ node/cuspの全log形式と幾何は\path{PLANE_IRREDUCIBLE_CUBIC_RANK_TWO_REVIE
 全f十係数・全三十/九係数・全350・真の有限shearの独立Fraction確認は
 \path{CLASSIFICATION_PLANE_SMOOTH_CUBIC_RANK_TWO_REVIEW_20261107.json}、
 node/cuspの全行列と微分は\path{CLASSIFICATION_PLANE_IRREDUCIBLE_CUBIC_RANK_TWO_REVIEW_20261107.json}である。
-reducible又はnonreducedなR、rank零plane、非plane曲面はこの命題の補集合に残る。
+reducible又はnonreducedなR、rank零plane、非plane曲面はこの命題の補集合である。
+次にreduced reducible Rの特定の全leading-symbol枝を扱う。
+
+\subsection{被約可約cubic零divisorの四次leading symbolとG上界}
+\begin{proposition}\label{prop:plane-reducible-m4-scalar-G}
+rank二restrictionを持つ不変plane $S\subset\operatorname{Sing}D$で、
+零cubic Rがtransverse conicとline、tangent conicとline、又はtriangleであるとする。
+DのS沿い位数が四、leading binary quarticがsquarefreeで、そのclassical invariants I,Jがともに非零なら、
+全PGL射影像はそれぞれ24、23、23次元以下である。
+concurrent三直線、I又はJ零、重根、位数二・三、非被約Rはこの命題に含めない。
+\end{proposition}
+\begin{proof}
+normal bundleは$N=O(1)^2$である。
+全tracefree normal接続は$H^0(\Omega^1_{\mathbb P^2}(3))\otimes\mathfrak{sl}_2$の24係数を持ち、
+Rに沿うsimple poleを許す。初めからlogarithmicな部分だけを選ばない。
+Hamiltonian flowは$\pi^2$と$\pi_S$を保存する。
+normal order二以上からconormal作用はbase functionのliftに依存せず、Jacobiからflatである。
+I-adic associated gradedへ制限すると、最初のnormal symbol
+\[
+ G_4\in H^0(O_S(1))\otimes\operatorname{Sym}^4\mathbb C^2,\qquad
+ \gamma_4=G_4/f\in\operatorname{Sym}^4N^*\otimes\det N
+\]
+が$U=S\setminus R$上でparallelとなる。
+Hamiltonian場はTUを張るため全方向についてのparallel性であり、formal splittingやnode仮定を用いない。
+
+相対GL2作用のI,Jのweightは二、三なので$J^2/I^3$はconstant。
+G4係数はbase一次だからI,Jはそれぞれbase次数二、三のpolynomialである。
+UFDでdivisorを比較すると
+\[
+ I=aL^2,\qquad J=bL^3,\qquad\Delta(G_4)=cL^6,\quad abc\ne0
+\]
+となる。parallelなdiscriminantはUで零にならないので、LはRのline componentである。
+L以外のR一般点では四rootは相異なる。
+三rootを局所holomorphicに標準化するprojective frameが存在し、constant crossratioを持つ$[G_4]$の
+projective接続はそこでregularとなる。四rootのprojective stabilizerのLie algebraは零だから接続も一意。
+scalar因子$1/f$はこのprojective接続に影響しない。
+元のsimple poleとcodimension二の延長から
+\[
+ \Omega\in H^0(\Omega^1_{\mathbb P^2}(L))\otimes\mathfrak{sl}_2=0
+\]
+であり、nonlogの全源もこの指定枝では排除される。
+
+projective接続零から$G_4=L g_4$、$g_4$はconstant binary quartic。
+scalar接続を$\beta$、canonical $P_f$のものを$\beta_{\rm can}=d\log f/3$とすると、
+$\gamma_4$のscalar weight二のparallel性は
+\[
+ d\log(L/f)+2\beta=0,\qquad
+ \beta-\beta_{\rm can}=-\frac16d\log(L^3/f)
+\]
+を与える。normal二次Kは$m>2$と非零$\pi_S$のPfaffianから零となる。
+従ってweight零は$P_0=P_f+E_{\rm normal}\wedge V$の一つに固定され、追加parameterは無い。
+baseを$(x_0,x_1,x_2)$とし、各lineを$L=x_2$に選べば、Vは次の全係数である。
+\[
+ \begin{array}{c|c|c}
+ R:f=0&V&d=\dim\operatorname{Aut}^0(R)\\ \hline
+ x_2(x_0x_1-x_2^2)=0&-x_0\partial_0/2+x_1\partial_1/2&1\\
+ x_2(x_0x_2-x_1^2)=0&x_1\partial_0+x_2\partial_1/2&2\\
+ x_0x_1x_2=0&-x_0\partial_0/2+x_1\partial_1/2&2
+ \end{array}
+\]
+これはscalar一形式のnumerator$df/6-(f/L)dL/2$を全linear場へ展開し、
+base chartのprojective $P_f$が$3f$であるfactor三も保持した値である。
+各P0の全Jacobiとactual Dは零。
+Rのcomponent-lineの選択はfinite automorphismで入れ替わるため隠れた連続parameterも無い。
+
+全残源は前命題と同じweight一三十係数とweight二九係数である。
+全350式のweight一と、Dのnormal degree三が零となる全24係数を構成すると、
+各三型で完全kernelは八次元となる。
+weight二の式は全九P2を未知とする
+\[
+ D_2(P_2)+\operatorname{Jac}(P_1)=0
+\]
+であり、同じ固定operator D2のrankは六。
+従って任意のP1について解は空又は三次元affine fiberで、全fixed-P0源は$8+3=11$以下である。
+未知fiberのgeneric rankを全点へ拡張せず、同じ全operatorを各P1で使った上界である。
+高weight Jacobi、G4の追加shape条件やP1の二次compatibilityはこのsupersourceを狭めるだけ。
+
+planeとRを保存するconnected PGL subgroupは、normalGL2の四、normalからbaseへのshear六を加えて$d+10$次元。
+connected群はLも保存し、scalar接続は(R,L)の内在式なので、f係数を一へprojectively規格化した全源Xを保存する。
+PGL5とXの積上の右作用は最初のPGL factorにより自由であり、個別tensorのstabilizerに依存しない。
+従って全像は$24+11-(d+10)=24,23,23$以下となる。
+\end{proof}
+全接続入口とassociated-gradedの証明は\path{PLANE_REDUCIBLE_CUBIC_CONNECTION_ENTRANCE.md}、
+全指定枝の幾何は\path{PLANE_REDUCIBLE_CUBIC_M4_SCALAR_BOUND.md}にある。
+全24接続係数、全三十/九源、全350式、kernelとminorの別作者Fraction再構成は
+\path{PLANE_REDUCIBLE_CUBIC_M4_SCALAR_REVIEW.md}及び
+\path{CLASSIFICATION_PLANE_REDUCIBLE_CUBIC_M4_SCALAR_REVIEW_20261107.json}で確認した。
+concurrentでは同じ三角上界が31に留まり、追加leading-shape条件でもP2rank三のままである。
+これをG非優越、P1二次compatibilityの完了又は全plane分類と扱わない。
 
 \begin{proposition}[条件付き認識]\label{prop:ordinary-double-t40}
 rank四Poisson構造$\pi$の実退化因子Dを既約・被約・非正規五次とし、
@@ -8185,6 +8493,372 @@ rank二Wとrank三Eを同一視したり、dual-spanだけから二targetの一�
 \path{CLASSIFICATION_RANK_ZERO_QUINTIC_GENUS_ONE_REVIEW_20261107.json}は幾何の独立読解を記録し、
 CASによる全分類証明だとはしていない。
 
+\subsection{rank二node上の導手分裂と閉留数}
+\begin{lemma}\label{lem:ranktwo-node-conductor-split}
+非正規曲面Sの一般横断型がnodeで、$\pi|_S$が一般rank二なら、
+正規化のS上のdivisorial conductorは二つのprimeに分裂し、各々Sへbirationalに写る。
+導手のnormality又は全域で定義されたinvolutionは仮定しない。
+\end{lemma}
+\begin{proof}
+$K=\mathbb C(S)$とする。generic nodeのconductor algebraは$K\times K$、
+又はseparable quadratic extension Eの二択である。
+後者は一つのprime $\Gamma$と$E=\mathbb C(\Gamma)$を与える。
+補題\ref{lem:generic-node-poisson-lift}の全branch商から$\pi_X$はregularでconductorにtangent。
+逆symplectic二形式のclosed residueを$\alpha=i_{\pi_X}\Omega_X$とする。
+分離拡大・完成後のnode $K'[[u,v]]/(uv)$で、Sの接座標a,bをKのseparating transcendence basisに選ぶ。
+同じambient単元gを使ったdualizing generatorの二branchは
+\[
+ g_+\frac{dv}{v}\wedge da\wedge db,\qquad
+ -g_-\frac{du}{u}\wedge da\wedge db,
+ \quad g_+|_{v=0}=g_-|_{u=0}=g_0\ne0
+\]
+である。$\pi|_S=H\partial_a\wedge\partial_b$、H非零とすると、
+mixed bracketはbranch parameterで割れるため、二residueは$g_0H,-g_0H$となり、ともに非零である。
+これはnodeのdualizing residueのtrace零関係で、uniformizerのunit倍で変わらない。
+
+one-primeならE/Kのfield involution$\tau$は二residueをfunctorialに交換するので、
+そのresidue $\rho\in E$は$\tau\rho=-\rho$を満たす。
+一方closednessから$d_\Gamma\rho=0$、従って$\rho\in\mathbb C$であり、$\tau\rho=\rho$。
+char零で$\rho=0$となって非零性に反する。
+ここでg自体のGalois不変性は置かず、同じglobal formのresidueの交換だけを使った。
+global scheme上へinvolutionを延長する必要も無い。
+よって二primeの場合だけが残り、generic degreeは各一である。
+\end{proof}
+
+固定したDについて、全conductor prime上のresidueを持つclosed simple-pole一形式を考える。
+rationalなsmooth scroll、又はsmall resolutionがrational scrollの場合、
+全residue零の差はcodimension一でregular、small exceptional curve外からHartogsで延び、
+$H^0(\Omega^1)=0$により零となる。
+従ってresidueは全一形式源を単射的に決める。
+contraction$\pi_D\mapsto i_{\pi_D}\Omega_D$とambient restrictionもinjectiveなので、
+全residue源が一次元以下なら、同じDを持つprojective Poisson fiberは高々一点である。
+actual Pfaffianのscalarがtensorごとに変わってもcontraction formはclosed residueのconstant倍であり、この結論は変わらない。
+
+\subsection{一つのS(2,3)射影の全導手が絶対既約となる証明}
+\begin{lemma}\label{lem:scroll23-integral-conductor}
+$Y=S(2,3)=\mathbb F_1$、tautological class H、fiber fとする。
+次の四sectionによる有限双有理射影$Y\to T\subset\mathbb P^3$の全global conductorはintegralである。
+\[
+ (Z_0,Z_1,Z_2,Z_3)=
+ (us^2+vs^3,\ ust+vt^3,\ ut^2+vs^2t,\ v(s^3+t^3)).
+\]
+\end{lemma}
+\begin{proof}
+係数二行$A=(s^2,st,t^2,0)$、$B=(s^3,t^3,s^2t,s^3+t^3)$は全P1で独立である。
+実際、有限chartで六binary minorのgcdは一、s零でも二行は独立。
+手でも$s^3+t^3=0$の時だけ比例が問題となり、s一なら比例係数一、t$=-1$を強制した後、
+第三係数$t^2\ne t$で矛盾する。
+四sectionのcoefficient matrixはrank四。
+H ampleから射はfiniteで、像はplaneでないから$5=\deg\nu\deg T$の素数性により
+像はquintic、射はbirationalである。従ってsmooth YはTの全正規化である。
+
+s=v一chartで$T=t/s,r=u/v,d=1+T^3$とすると
+\[
+ Z=(r+1,rT+T^3,rT^2+T,d),\qquad (x,y,z)=(Z_0,Z_1,Z_2)/d.
+\]
+四変数の次数五56monomialを代入する全$H^0(5H)$の81行行列はrank55で、
+一意なprimitive relation $F_{\rm hom}$を与える。
+これは指定sectionから独立Fraction消去で再構成したもので、像のintegral性と次数から絶対既約である。
+$J=\det\partial(x,y)/\partial(T,r)$について
+\[
+ d^3J=J_{\rm num}=-T^3r-3T^3-3T^2-r,
+ \qquad F_{Z_2,\rm hom}(Z)=J_{\rm num}G
+\]
+が全係数の恒等式として成り立ち、
+\[
+\begin{aligned}
+ G={}&-T^4r^2-3T^3r^2-2T^3r-3T^2r^3-3T^2r^2-2T^2r-T^2\\
+     &-6Tr^3-6Tr^2+T-4r^3-6r^2-3r-1.
+\end{aligned}
+\]
+従って$G=dF_z/J$であり、canonical frameに必要なd因子を省略していない。
+
+有限双対性で実導手idealは可逆$\omega_Y\otimes\nu^*\omega_T^{-1}$となり、
+そのdivisorは$3H-3f=3C_0+6f$、$C_0=H-3f$である。
+frame $dx\wedge dy/F_z$は$\omega_T=O_T(1)$のsection Z3に対応する。
+$T'=1/T,r'=r/T$で$dT'\wedge dr'=-T^{-3}dT\wedge dr$、
+$\operatorname{div}(d)=F_d-3F_\infty$、$\nu^*(Z_3=0)=C_0+F_d$だから、
+実導手は$\operatorname{div}(G)+3C_0+6F_\infty$となる。
+各$r^iT^j$の正しいhomogenizationは$u^iv^{3-i}s^{6-i-j}t^j$であり、全項で指数は非負。
+境界restrictionは
+\[
+ G_{\rm glob}|_{s=0}=-t^4u^2v\ne0,\qquad
+ G_{\rm glob}|_{v=0}=-su^3(4s^2+6st+3t^2)\ne0.
+\]
+d零も上の多項式恒等式で復元され、chart境界に失った成分は無い。
+
+Gの$\mathbb Q[T][r]$でのcontentは一。
+T零ではdegree三を保ち、$-4r^3-6r^2-3r-1$とそのderivativeのgcdは一なので、Gはsquarefreeである。
+未知A,Bについて
+\[
+ \deg_r A\le2,\ \deg_T A\le4,\qquad
+ \deg_r B\le3,\ \deg_T B\le3
+\]
+を課すと、closed condition
+\[
+ G(A_T-B_r)-AG_T+BG_r=0
+\]
+は31未知、44非零行の行列となる。
+その30minorは$3486368987873280\ne0$、$(G_r,G_T)$が非零kernelなのでC上でもkernelは正確に一次元。
+もし相異なる絶対因子$G_i$が複数あれば、各$(G/G_i)dG_i$はこの全次数制限に入り、
+$d\log G_i$はprime residueで線形独立となって矛盾する。
+従ってGは絶対既約で、global境界と合わせ全conductorがintegralとなる。
+\end{proof}
+全81行56列のimplicit消去、canonical frame、境界、squarefreenessと全44行31列の再構成は
+\path{CLASSIFICATION_RANK_TWO_SEXTIC_REVIEW_20261107.json}に保持する。
+一つの処方済み射影だけであり、Poisson点の標本又はprojection探索ではない。
+
+\subsection{次数六rank二曲面の全G非優越}
+\begin{proposition}\label{prop:ranktwo-sextic-all-G}
+actual Dが既約被約quinticで、次数六integral非正規曲面S上のrestrictionが一般rank二なら、
+全PGL射影像は24次元以下である。
+smooth正規化二型及びsingular型014,005は空、残る023型に上界24を得る。
+Sのnormality、全域node、clean又はvertical不存在は仮定しない。
+\end{proposition}
+\begin{proof}
+rankに依存しないlength/Bertini/Höringから$\delta_S=1,g=0$で、二次元非正規支持はSだけ。
+正規化の全型は113,122,014,023,005である。
+005のline vertexはfinite projectionで保たれ、Dの二次元非正規支持はbase plane curveのsingular pointとvertexのjoin、
+すなわちplaneだけなので次数六Sは存在しない。
+残る型のsmooth standard model Yでは、014,023のzero-summand sectionのみが点へ縮み、
+small morphismのためexceptional divisorは無い。
+従って$\operatorname{Cl}X\simeq\operatorname{Pic}Y=\mathbb ZL\oplus\mathbb ZF$で、
+全strict conductorは$C\sim3L-3F$となる。
+cuspなら$C=2\Gamma$でL係数のparityに反する。
+nodeは補題\ref{lem:ranktwo-node-conductor-split}により二primeへ分裂する。
+single primeを直接考えてもclosed residueはconstant非零$\lambda$で、
+一般二$|L|$切断曲線のresidue theoremが$12\lambda=0$を与えて除外する。
+
+split $C=\Gamma_1+\Gamma_2$では各primeがSへdegree一、$L^2\Gamma_i=6$。
+prime vertical divisor Fのdegreeは一だから各L係数は正。
+和のL係数三と次数六から、交換を除き
+\[
+ \Gamma_1\sim L+F,\qquad\Gamma_2\sim2L-4F.
+\]
+しかし後者の全sectionは、113で$w(au+bv+q_2w)$、
+122でconstant binary quadratic $av^2+bvw+cw^2$、014で$w(au+\ell_1v+q_4w)$である。
+いずれも二つの非零divisorの積であり、double factorもprimeではない。
+small morphismはdivisorを縮めないので画像でもprimeへ戻らず、三型は空となる。
+
+023では$X$のvertexを$z_0$、base surfaceを$Y_0=S(2,3)\subset\mathbb P^6$とする。
+全basepoint-free五空間は$U\subset\operatorname{Gr}(5,8)$、irreducible openの次元15である。
+vertexで非零だから$W=V\cap H^0(Y_0,H)$は四次元。
+Wのbasepointがあればそのconeline上で最後の$z_0+a$も零に出来、Vのbasepointとなるので、
+Wもbasepoint-freeである。逆も成立する。
+よってUはbasepoint-free $U_4\subset\operatorname{Gr}(4,7)$、次元12上の三次元affine bundle。
+vertex translationでDはfinite birational射$Y_0\to T_W\subset\mathbb P^3$の像のconeとなる。
+全WでH ample、四section独立、$H^2=5$の素数性からこの射はfinite birational quinticである。
+vertex外のpolynomial extensionはnormalization/conductorを保つので、Xの導手分裂は$Y_0$上の導手分裂と同値である。
+
+全導手のvariationを確認する。
+universal degree五restrictionのkernelは全Wで一次元なのでline bundleとなり、
+相対P3内にflat universal quintic $\mathcal T$を定める。
+$Y_0\times U_4\to\mathcal T$はproperかつ全fiber finite、従ってfiniteである。
+sourceはsmooth、targetはhypersurface Gorensteinで、同次元finite sourceのmoduleはmaximal CM。
+したがって局所的に$\operatorname{Ext}_A^{>0}(B,A)=0$であり、base parameter tについて
+\[
+ \operatorname{Hom}_A(B,A)/t\simeq
+ \operatorname{Hom}_{A/t}(B/t,A/t)
+\]
+となる。全base parameterを順次使えばfinite dualityは各fiberの実導手と一致する。
+evaluation at 1によるconductor inclusionもbase changeと可換である。
+従ってcycleの候補又は仮定したnormalization-defectのflatnessではなく、全conductor ideal自体の族を得る。
+relative dualityのline bundleは
+$O_{Y_0}(-3H+3f)\otimes\text{base line}$なので、全導手は
+\[
+ U_4\longrightarrow\mathbb P H^0(Y_0,O(3H-3f))
+\]
+というmorphismで代数的に変わる。
+
+$Y_0=\mathbb F_1$で$3H-3f=3C_0+6f$。
+effective coneは$C_0,f$で生成され、二つの非零effective classへの分解は
+$0\le a\le3,0\le b\le6$の有限個である。
+各section multiplicationのprojective imageはproper、従って全nonintegral divisor locusは閉。
+補題\ref{lem:scroll23-integral-conductor}の一射影で全導手がintegralなので、そのinverse imageはproperで次元11以下。
+split conductorはここに含まれ、Uへ戻して次元14以下となる。
+
+actual polarized automorphism subgroupは$E=O\oplus O(2)\oplus O(3)$の
+$h^0(\operatorname{End}E)=12$から、scalar一を除きbase PGL2三を足して14次元である。
+作用はsmall modelのdense openでfaithfulだからXでもfaithful。
+target frame24を戻したsplit map sourceは38以下で、precompositionの14方向はDを変えない。
+frame付きfinite birational mapを固定するautomorphismはfunction field上でidentityだから全体でidentity。
+従ってDの全像は$38-14=24$以下である。
+split conductorのresidue pairは$6\lambda_1+6\lambda_2=0$なので、
+この小さなrational resolution上でfixed-D全closed form源は一次元以下である。
+冒頭のinjectivityからprojective Poisson fiberは高々一点、全Poisson像にも上界24が移る。
+\end{proof}
+全smooth二型の排除は\path{RANK_TWO_SEXTIC_SURFACE_NONCONICAL_DIVISOR_EXCLUSION.md}、
+全singular三型の族と上界は\path{RANK_TWO_SEXTIC_CONICAL_DIVISOR_NONDOMINANCE.md}、
+別作者による全式と相対双対性・全射影の監査は
+\path{RANK_TWO_SEXTIC_SURFACE_SEPARATE_REVIEW.md}にある。
+rank零cone専用の命題をrank二へ拡大してはいない。
+
+\subsection{次数五rank二・正規化種数零の全射影上界}
+\begin{proposition}\label{prop:ranktwo-quintic-genuszero-G}
+actual Dが既約被約quinticで、次数五integral非正規曲面S上のrestrictionが一般rank二、
+正規化のsectional genusが零なら、全PGL射影像は24次元以下である。
+\end{proposition}
+\begin{proof}
+length式は$\delta_S=1$、唯一の残余plane P、$\delta_P=1$を与える。
+全正規化は同じ五scroll型で、005は二次元非正規支持がplaneだけなので空。
+残る四型のstandard smooth model Yでは$C=3L-3F$、$L^2C_S=10,L^2C_P=2$である。
+次数五g零の既証明Gauss補題から、generic cuspのSは一般rational plane quinticの五ordinary cuspを生み矛盾する。
+従ってSはnode、補題\ref{lem:ranktwo-node-conductor-split}で$C_S=\Gamma_1+\Gamma_2$、
+各primeのdegreeは五となる。
+
+全effective plane導手$C_P=aL+bF$は$a\ge0,5a+b=2$を満たす。
+$H^0(\operatorname{Sym}^aE(2-5a))$の最大summand degreeは
+$a\max(E)+2-5a$なので、全場合は次表に尽くされる。
+\[
+ \begin{array}{c|l}
+ E&\text{全 }C_P\\ \hline
+ 113&2F,\quad\text{unique }Q=L-3F\\
+ 122&2F\\
+ 014&2F,\quad Q+F_b,\quad2Q,\qquad\text{unique }Q=L-4F\\
+ 023&2F,\quad\text{unique }Q=L-3F
+ \end{array}
+\]
+113/122/023ではa二以上のsectionは零。
+014だけa二のhighest-coordinate平方があり、a一はhighest-coordinateとbase一次式の積。
+二fiber又は二倍fiberの$2F$も含み、Pのrestriction rankは課していない。
+
+$C_P=2F$なら$C_S=3L-5F$なので、primeのL係数正と次数五から
+$\Gamma_1\sim L,\Gamma_2\sim2L-5F$となる。
+しかし後者の全sectionは、122で零、113ではhighest-coordinate平方とbase一次式の積、
+014では$w(cv+q_3w)$、023では$w(cv+\ell_1w)$であり、prime divisorを与えない。
+014の$C_P=2Q$も$C_S=L+5F$となって、二primeの正L係数の和を一に出来ず不可能。
+よって残るのは113/023の$C_P=Q$、014の$C_P=Q+F_b$のみ。
+全て$C_P\sim L-3F,C_S=2L$で、$\Gamma_1,\Gamma_2\in|L|$となる。
+全Cはreducedで、Pもgeneric nodeである。
+
+113/023のresidueを$\lambda_1,\lambda_2,\mu$とする。
+ample $L+nF$の一般二切断曲線上のresidue theoremは、全十分大きなnについて
+\[
+ (5+2n)(\lambda_1+\lambda_2)+(2+2n)\mu=0
+\]
+を与え、$\mu=0,\lambda_1+\lambda_2=0$となる。
+014ではS上の二residueは$\lambda,-\lambda$、P上の二prime Q,Fbもlocal nodeの符号から$\mu,-\mu$。
+$(L+nF)^2Q=1+2n$、$(L+nF)^2F_b=1$なので$2n\mu=0$である。
+同じresidueを持つ形式の差はsmooth rational Y上でholomorphicだから零となり、
+全closed一形式源は一次元以下、fixed-D projective Poisson fiberは高々一点である。
+small exceptional curve外からのHartogsを使うので、そこで追加poleを捨てていない。
+
+全三型で$K=H^0(L-C_P)\simeq H^0(3F)$は四次元、$H^0(L)$は八次元。
+plane Pの二linear equationは全$C_P$上で消えるので、projection五空間Vは$\dim(V\cap K)\ge2$を満たす。
+intersection二のstratumは$\operatorname{Gr}(2,4)$の四、quotientの$\operatorname{Gr}(3,4)$の三、
+lift $\operatorname{Hom}(\mathbb C^3,\mathbb C^2)$の六で十三次元。
+intersection三、四はそれぞれ九、三次元であり、全Schubert源上界は十三である。
+finite/birational/実導手/Poisson descent条件はこの源を狭めるだけ。
+113/023のQはunique、014だけFbの一parameterを戻す。
+
+actual polarized automorphism subgroupは$h^0(\operatorname{End}E)-1+3$から
+113で13、023で14、014で16次元。
+unique Q、fiber choiceとSchubert条件は群作用で保たれ、作用はcomplete L-image Xでもfaithfulである。
+frame付きfinite birational mapを固定するautomorphismはdense openでidentityだから全体でidentity。
+target frame24を戻して実fiberを引くと
+\[
+ \begin{array}{c|c|c|c}
+ \text{型}&\text{全 projection 源}&\text{実群}&\text{像上界}\\ \hline
+ 113&24+13&13&24\\
+ 023&24+13&14&23\\
+ 014&24+13+1&16&22
+ \end{array}
+\]
+となる。fixed-D fiberが零次元なので、同じ上界が全Poisson像へ移る。
+\end{proof}
+node分裂のGalois/単元符号、全plane導手class、全閉留数源と実Schubert/Autの証明は
+\path{RANK_TWO_QUINTIC_SURFACE_GENUS_ZERO_NONDOMINANCE.md}及び別作者の
+\path{RANK_TWO_QUINTIC_SURFACE_GENUS_ZERO_SEPARATE_REVIEW.md}にある。
+\path{CLASSIFICATION_RANK_TWO_QUINTIC_GENUS_ZERO_REVIEW_20261107.json}は全幾何の独立監査を記録する。
+genus一、他次数、全E帰属及び主分類の完成はこの命題に含めない。
+
+\subsection{次数五rank二・種数一elliptic正規化の全排除}
+\begin{proposition}\label{prop:ranktwo-quintic-genusone-elliptic-empty}
+actual Dが既約被約quinticで、次数五integral非正規曲面S上のrestrictionが一般rank二、
+正規化のsectional genusが一とする。
+Fukumaのpolarized birational分類のelliptic P2-bundle型となる全枝は存在しない。
+nefで非ampleな境界、$\operatorname{Pic}^0$ twist、single・非分裂・splitの全導手を含む。
+canonical index二型はこの命題に含めない。
+\end{proposition}
+\begin{proof}
+rankに依存しないFukuma/common-resolutionの議論から
+\[
+ Y=\mathbb P_B(E)\xrightarrow{f}X,\quad H=O_Y(1)=f^*L,
+ \qquad\rank E=3,\quad\deg E=5
+\]
+を得る。Bはsmooth elliptic curve、Eはglobally generated、Hはnef bigである。
+section ringのdegree一生成や、X自身のsmoothnessはまだ仮定しない。
+非零$E\to O_B$はglobal generationにより全射で、1へ写るglobal sectionがあるためsplitする。
+繰り返して$E=O_B^r\oplus F$、$H^0(F^*)=0$とする。次数五から$r=0,1,2$である。
+
+全H-degree零curveの正規化$T\to B$はsurjectiveで、そのtautological quotientはglobally generated degree零なので$O_T$。
+Fからこの商への非零部分があれば、全global evaluationの係数はcompact T上のconstant functionalとなる。
+TのsurjectivityからBの全evaluation kernelも消し、禁止された$F\to O_B$を与える。
+従って商は$O^r$だけから来て、curveは$B\times\{\text{one point of }\mathbb P^{r-1}\}$に含まれる。
+同じ議論でP(F)のtautological morphismはfinite、Fはampleである。
+有限cover後の新しいdegree零quotientもこの議論に含まれる。
+r零ならfはfinite birationalでnormal X上同型。
+r一なら唯一のelliptic section Bを一点へ縮めるだけである。
+正次元projective fiberはcurveを含み、proper birational mapのfiberはconnectedなので、
+section外に余分なfiberは無く、そこでfは同型となる。従ってexceptional locusはcodimension二のsmall contractionである。
+
+r二ではFはdegree五line bundle Mである。
+実五section空間$W\subset\mathbb C^2\oplus H^0(M)$のzero blockへのrestrictionはrank二でなければbasepointを持つ。
+核$W\cap H^0(M)$は三次元で、B上でbasepoint-freeである。
+同時零点があれば、そのP2 fiber内で残る二sectionも零にしてWのbasepointを作れるからである。
+従って各fiberのimageは共通vertex lineと三sectionによるplane curveの点を結ぶplane。
+実Dはline vertexを持つconeで、vertex外の局所環はbase curveとaffine spaceの積となる。
+二次元非正規支持はbase curveのsingular pointとvertexのjoin、すなわちplaneだけで、次数五Sは存在しない。
+全section ringのdegree一生成又はrank零cone排除は使っていない。
+
+以後r零又は一であり、fはdivisorを縮めない。
+dualizing generatorのpullback divisorは$-\overline C$で、全strict conductorは
+\[
+ \overline C\sim-K_Y=3H-p^*\det E,
+ \qquad\operatorname{Pic}Y=\mathbb ZH\oplus p^*\operatorname{Pic}B.
+\]
+degree零twistを数値classと同一視していない。
+length式から$\delta_S=1$、他の二次元非正規支持は無い。
+cuspなら$\overline C=2\Gamma$でH係数三のparityに反する。
+nodeの全branch商はregular Poisson bracketを持ち、conductorにtangentである。
+従ってclosed inverse-residue一形式$\alpha$は全conductor primeにsimple poleだけを持つ。
+各prime上のresidueはconstantであり、generic separabilityとrank二restrictionから非零である。
+small exceptional sectionは追加Weil divisorを作らない。
+elliptic Yにはholomorphic一形式があり、ここではその空間の消滅を使わない。
+
+degree一line bundle NをB上に選び、$A_n=H+p^*N^n$とする。
+十分大きいnでvery ample、数値classは$H+nF$である。
+一般二切断曲線は全codimension二bad locusとsmall sectionを避け、
+curve上のpoleはconductorとのtransverse intersectionだけなのでresidue theoremを適用出来る。
+single primeなら
+\[
+ \Gamma A_n^2=(3H-5F)(H+nF)^2=10+6n
+\]
+から非零のはずのresidueが零となり矛盾する。
+connected non-split nodeもこの一つのprimeのconstantを数える。
+
+splitなら$\overline C=\Gamma_1+\Gamma_2$、各primeのH二乗degreeは五。
+$\Gamma_i\sim a_iH+p^*M_i$、$b_i=\deg M_i$と書くと、prime vertical divisorはdegree一だから$a_i\ge1$。
+$a_1+a_2=3$、$5a_i+b_i=5$から、交換を除き
+\[
+ (a_1,b_1)=(1,0),\qquad(a_2,b_2)=(2,-5).
+\]
+$M_1$をtrivialとはせず全$\operatorname{Pic}^0$を保持するが、交点数は
+$\Gamma_1A_n^2=5+2n$、$\Gamma_2A_n^2=5+4n$である。
+連続する十分大きい$n,n+1$の二つのresidue theoremは
+\[
+ \begin{pmatrix}5+2n&5+4n\\7+2n&9+4n\end{pmatrix}
+ \begin{pmatrix}\lambda_1\\\lambda_2\end{pmatrix}=0
+\]
+となる。この行列のdeterminantは正確に十なので両residueは零、非零性に反する。
+これでr零・一の全node/splitとr二を尽くした。
+\end{proof}
+全nef/GG bundleの収縮、実五section、Pic零twistと二つのample classの矛盾は
+\path{RANK_TWO_QUINTIC_SURFACE_GENUS_ONE_ELLIPTIC_EXCLUSION.md}、別作者の完全幾何監査は
+\path{RANK_TWO_QUINTIC_SURFACE_GENUS_ONE_ELLIPTIC_SEPARATE_REVIEW.md}及び
+\path{CLASSIFICATION_RANK_TWO_QUINTIC_GENUS_ONE_ELLIPTIC_REVIEW_20261107.json}に置く。
+新しいCAS、未読elliptic分類、GKKP又はrank零専用のcone排除を必要としない。
+
 \subsection{quadric coneの全rank零源とPoisson--Ore上界}
 \begin{proposition}\label{prop:quadric-cone-rankzero-G}
 quadric cone上で零となり、actual Dが既約被約quinticとなる全rank四Poisson構造の
@@ -8866,8 +9540,20 @@ degenerate次数二ではsmooth quadricは全源で排除済み、coneも
 命題\ref{prop:quintic-rankzero-genuszero-G}により24次元以下、g一は
 命題\ref{prop:quintic-rankzero-genusone-G}によりT40又は全像24以下なので結論する。
 \end{proof}
+plane上で位数二なら、命題\ref{prop:plane-zero-k1-rank-atleast-two-G}により
+co-Higgs共通imageが$O(1)$かつrank M二以上の全枝は像23以下である。
+命題\ref{prop:plane-zero-cartan-MPS}のCartan全枝はMPSへ入る。
+planeの位数三以上、残るk零型及びrank M一以下の非Cartan枝を未処理として保持する。
 rank二restrictionについては、integral cubic零divisorのplane、normalで解消の$\kappa\ge0$、
 smooth nonplaneのclean枝、smooth CI22のordinary-node枝などを処理したが、特殊横断型やvertical枝等は残る。
+被約可約cubicのrank二planeも、命題\ref{prop:plane-reducible-m4-scalar-G}の
+位数四・squarefree・I,J非零の三配置ではG像24以下である。
+concurrent、special invariant、重根、位数二・三及び非被約zero cubicは残す。
+さらに命題\ref{prop:ranktwo-sextic-all-G}で次数六rank二の全正規化を空又は像24以下へ入れ、
+命題\ref{prop:ranktwo-quintic-genuszero-G}で次数五rank二・正規化種数零の全像を24以下とした。
+次数五の種数一、他の小次数及び各特殊枝へこのG上界を拡張してはいない。
+ただし次数五・種数一のelliptic polarized modelは
+命題\ref{prop:ranktwo-quintic-genusone-elliptic-empty}で全排除したため、同次数・種数の残余はcanonical index二型である。
 
 \begin{proposition}[Gの残余の限定]\label{prop:G-only-irreducible-nonnormal}
 一般底を優越する未知成分が存在するなら、その一般実退化因子は既約・被約・非正規の五次因子である。
@@ -8889,6 +9575,10 @@ degree五rank零の全分岐でT40又は全像24以下、全integral CI22のrank
 全非退化degree三・四rank零にはconeを含めてG非優越を得た。
 全integral reduced cubic零divisorを持つrank二planeも排除した。
 quadric coneの全rank零も全像23以下へ入り、rank零Gの未処理はplaneだけとなった。
+そのplaneでも位数二・k一・rank M二以上は像23以下、Cartan symbolの全higher源はMPSへ入る。
+残るplane高multiplicity、k零及びrank M一以下の非Cartan源を暗黙に除いていない。
+rank二では次数六の全型と次数五の正規化種数零をG非優越へ還元した。
+次数五・種数一のelliptic全枝も空となったが、canonical index二正規化は未解決である。
 rank二smooth Sのvertical枝、特殊横断型及び高multiplicity planeの未処理の零divisor等も残し、
 既約非正規五次全体へ各命題の仮定を拡張してはいない。
 Gの残余はこの一型に限られるが、その空性と、特殊底の多くのE源の全成分帰属は未解決である。

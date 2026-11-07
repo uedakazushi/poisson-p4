@@ -2510,6 +2510,111 @@ def nil22_long_quartic_curve_recognition(orbit_path):
         scope='Full remaining source containment through literal actual curves. Source5 gives a smooth23 irreduciblequintic orbit component; independent review and fullprior99distinctness are separate. No complete two-normal IFT is a dependency.')
 
 
+def ga9_linear_w_quadratic_support(input_path):
+    """Diagnose the already-computed six-normal quadratic ideal; no new GB/Jacobi."""
+    import importlib.util
+    from fractions import Fraction as Q
+    from sympy.polys.matrices import DomainMatrix
+    old=json.loads(input_path.read_text())['source_point_quadratic']
+    assert old['derivative']['rank']==96 and old['orbit_vertical_scale']['rank']==old['actual_full_family']['rank']==48
+    assert old['whole_kernel']['rank']==54 and old['true_normal_count']==6
+    variables=s.symbols('e0:6');e0,e1,e2,e3,e4,e5=variables
+    original=list(map(s.sympify,old['all_quadratic_residual_generators']))
+    saved=list(map(s.sympify,old['exact_quadratic_groebner_basis']))
+    assert len(original)==7 and len(saved)==16
+    def poly(expression):return {ex:Q(int(c.p),int(c.q))for ex,c in s.Poly(expression,*variables,domain=s.QQ).terms()}
+    def add(left,right,factor=Q(1)):
+        out=dict(left)
+        for key,value in right.items():out[key]=out.get(key,Q(0))+factor*value
+        return {key:value for key,value in out.items()if value}
+    def scaled(value,factor):return {key:c*factor for key,c in value.items()if c*factor}
+    def shift(value,mon):return {tuple(a+b for a,b in zip(key,mon)):c for key,c in value.items()}
+    def monomials(degree):
+        ans=[]
+        for indices in it.combinations_with_replacement(range(6),degree):ans.append(tuple(indices.count(i)for i in range(6)))
+        return ans
+    cache={}
+    def membership(generators,target):
+        degree=s.Poly(target,*variables).total_degree();key=(tuple(map(str,generators)),degree)
+        if key not in cache:
+            rows=[];labels=[]
+            for index,generator in enumerate(generators):
+                d=s.Poly(generator,*variables).total_degree()
+                if d>degree:continue
+                for mon in monomials(degree-d):rows.append(shift(poly(generator),mon));labels.append((index,mon))
+            basis={}
+            for index,row in enumerate(rows):
+                row=dict(row);lift={index:Q(1)}
+                for pivot in sorted(basis):
+                    if pivot in row:
+                        oldrow,oldlift=basis[pivot];factor=row[pivot];row=add(row,oldrow,-factor);lift=add(lift,oldlift,-factor)
+                if row:
+                    pivot=min(row);factor=row[pivot];basis[pivot]=(scaled(row,1/factor),scaled(lift,1/factor))
+            cache[key]=(basis,labels)
+        basis,labels=cache[key];left=poly(target);lift={}
+        for pivot in sorted(basis):
+            if pivot in left:
+                row,rowlift=basis[pivot];factor=left[pivot];left=add(left,row,-factor);lift=add(lift,rowlift,factor)
+        assert not left
+        multipliers=[s.Integer(0)for g in generators]
+        for index,value in lift.items():
+            at,mon=labels[index];multipliers[at]+=s.Rational(value.numerator,value.denominator)*s.prod(v**k for v,k in zip(variables,mon))
+        assert s.expand(sum(g*m for g,m in zip(generators,multipliers))-target)==0
+        return list(map(str,multipliers))
+    # Finite degree<=4 Macaulay membership, not recomputation of a GB.
+    forward=[membership(original,g)for g in saved]
+    backward=[membership(saved,g)for g in original]
+    plane={e2:0,e3:0,e4:0,e5:0}
+    line={e0:-26019*e5,e1:-s.Rational(27361807,380)*e5,e2:0,e3:-s.Rational(27,20)*e5,e4:0}
+    assert all(s.expand(g.subs(plane,simultaneous=True))==0 for g in original+saved)
+    assert all(s.expand(g.subs(line,simultaneous=True))==0 for g in original+saved)
+    assert saved[13]==e4**4 and s.expand(saved[5]-(e2+2*e4)**2)==0
+    assert s.expand(saved[9].subs(e5,0)-e3**2)==0
+    assert s.expand(saved[12]-e5**2*(e3+s.Rational(27,20)*e5))==0
+    assert s.expand(saved[4]-e5**3*(e1+s.Rational(27361807,380)*e5))==0
+    assert s.expand(saved[2].subs({e2:0,e4:0,e3:-s.Rational(27,20)*e5},simultaneous=True)-e5*(e0+26019*e5))==0
+    # Confirm the old genuine normal frame using saved full kernel only.
+    # No derivative or quadratic Jacobi column is recalculated.
+    helper=Path('legacy/v03/code/poisson_p4_components_check.py')
+    spec=importlib.util.spec_from_file_location('ga9_saved_frame_ambient',helper)
+    ambient=importlib.util.module_from_spec(spec);spec.loader.exec_module(ambient)
+    h,x,y,z,w=coords=s.symbols('h x y z w');P=s.zeros(5)
+    for pair,text in old['witness_brackets'].items():
+        i,j=map(int,pair.split(','));P[i,j]=s.sympify(text);P[j,i]=-P[i,j]
+    def vector(A):return s.Matrix([s.Poly(A[i,j],*coords).coeff_monomial(mon)for(i,j),mon in ambient.BIVECTOR_BASIS])
+    def dm(A):return DomainMatrix.from_Matrix(A).convert_to(s.QQ)
+    def columns(encoded):return s.Matrix.hstack(*[s.Matrix([s.Rational(v.get(str(i),'0'))for i in range(150)])for v in encoded])
+    actions=[]
+    for i,j in it.product(range(5),repeat=2):
+        A=s.zeros(5);A[i,j]=1;X=A*s.Matrix(coords)
+        actions.append(vector(sum([X[k]*P.diff(coords[k])for k in range(5)],s.zeros(5))-A*P-P*A.T))
+    M=s.Matrix(ambient.vertical_bivector_matrix().tolist()).row_join(s.Matrix.hstack(*actions,vector(P)))
+    K=columns(old['full_exact_kernel_sparse_columns']);N=columns(old['independent_normal_sparse_vectors'])
+    assert len(dm(M).rref()[1])==48 and len(dm(K).rref()[1])==54
+    assert len(dm(M.row_join(N)).rref()[1])==len(dm(K.row_join(M).row_join(N)).rref()[1])==54
+    actual=M.row_join(N);cc=list(dm(actual).rref()[1]);rr=list(dm(actual[:,cc].T).rref()[1]);det=dm(actual[rr,cc]).det();assert det
+    line_vector=N*s.Matrix([-26019,-s.Rational(27361807,380),0,-s.Rational(27,20),0,1])
+    return dict(input_report=str(input_path),input_sha256=hashlib.sha256(input_path.read_bytes()).hexdigest(),
+        old_full_derivative_rank=96,old_full_kernel_dimension=54,actual_action_and_whole_source_rank=48,
+        genuine_normal_count=6,saved_normal_frame_minor=dict(rows=rr,columns=cc,determinant=str(det),rank=54),
+        no_new_150_derivative_or_quadratic_Jacobi_or_GB_run=True,
+        original_quadratic_generators=list(map(str,original)),saved_sixteen_polynomials=list(map(str,saved)),
+        both_ideal_containments_verified=True,finite_Macaulay_maximum_degree=4,
+        saved_polynomials_in_original_ideal_multipliers=forward,original_generators_in_saved_ideal_multipliers=backward,
+        exact_reduced_quadratic_support=dict(plane_ideal=['e2','e3','e4','e5'],plane_dimension=2,
+            line_ideal=['e2','e4','20*e3+27*e5','380*e1+27361807*e5','e0+26019*e5'],line_dimension=1,
+            line_parameter_vector=['-26019','-27361807/380','0','-27/20','0','1'],
+            plane_and_line_meet_only_at_origin=True,quadratic_ideal_height=4,reduced_support_dimension=2,
+            cover_proof='e4^4 and (e2+2e4)^2 forcee4=e2=0. One5unitcomplement: e5=0 forcese3=0 andgives thewholeplane; e5!=0 forcese3,e1,e0 to the displayed line using three savedpolynomials. Both components annihilatealloriginal7 andsaved16, proving the fullreducedsupport overC.'),
+        maximal_ideal_primary=False,nonorigin_solution=['1','0','0','0','0','0'],
+        isolated_line_full150_tangent_vector={str(i):str(v)for i,v in enumerate(line_vector)if v},
+        actual_curve_or_component_from_initial_directions_not_claimed=True,
+        full_local_projective_dimension_upper_from_quadratic_initial_support=25,
+        local_dimension_reason='A genuine102slice to48 source/actiondirections has D96 andsixnormalvariables. Its true formal residual initialideal contains the displayedquadratics, so itsdimension is atmost2. Krull inequality gives rawlocaldimension<=48+2 andprojective<=25. Higherterms may shrinkeither conecomponent; no actualcurve follows.',
+        new23_component_criterion_failed=True,no_cubic_or_higher_continuation=True,
+        scope='Exact initialgeometry diagnosis reusing the savedcomplete quadratic computation. Ga9linear-w ambient membership remainsopen; no componentcount or fullsupport claim.')
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument('--output', type=Path, required=True)
@@ -2544,6 +2649,7 @@ def main():
     ap.add_argument('--nil22-long-quartic-sources',type=Path,help='Complete potential/rank/normalizer reduction of type7 quartic source toseven families')
     ap.add_argument('--nil22-long-quartic-orbit-models',type=Path,help='Allseven actualorbit closures andcomplete one-normal localmodels3/4')
     ap.add_argument('--nil22-long-quartic-curve-recognition',type=Path,help='Actualcurve recognition ofremaining sources1/2/5/6/7')
+    ap.add_argument('--ga9-linear-w-quadratic-support',type=Path,help='Reuse saved6normal quadratics: exactreducedplane+line support, noGB/Jacobirun')
     ap.add_argument('--sources', action='store_true', help='All24 full semisimple/mixed modular sources')
     ap.add_argument('--nil-sources', action='store_true', help='All10 full purely nilpotent modular sources')
     ap.add_argument('--support',type=Path,help='Verify finite support factorizations from a frozen24source report')
@@ -2577,6 +2683,13 @@ def main():
         report.update(nil31_long_normalform=result,all_passed=True)
         args.output.write_text(json.dumps(report,indent=2)+'\n')
         print(json.dumps(dict(all_passed=True,whole_actual_orbit_normalforms=2)))
+        return
+    if args.ga9_linear_w_quadratic_support:
+        result=ga9_linear_w_quadratic_support(args.ga9_linear_w_quadratic_support)
+        report.update(ga9_linear_w_quadratic_support=result,all_passed=True)
+        args.output.write_text(json.dumps(report,indent=2)+'\n')
+        print(json.dumps(dict(all_passed=True,m_primary=False,quadratic_support_dimension=2,
+            full_local_projective_dimension_upper=25,no_cubic_run=True)))
         return
     if args.nil22_long_quartic_curve_recognition:
         result=nil22_long_quartic_curve_recognition(args.nil22_long_quartic_curve_recognition)

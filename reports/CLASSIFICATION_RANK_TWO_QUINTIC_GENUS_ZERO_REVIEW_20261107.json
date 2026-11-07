@@ -1,0 +1,68 @@
+{
+  "task_id": "G",
+  "date": "2026-11-07",
+  "producer": "root",
+  "reviewer": "log_manuscript",
+  "review_verdict": "ACCEPTED: all degree5 rank2 genus0 branches have full projective image<=24, with empty cases and remaining113/023/014 bounds24/23/22.",
+  "all_reviewed_steps_passed": true,
+  "review_method": "Separate-author complete manual geometric proof audit; no CAS, numerical samples, GB, jets or algorithmic verification of geometry.",
+  "computational_proof_claimed": false,
+  "input_sha256": {
+    "research/classification/RANK_TWO_QUINTIC_SURFACE_GENUS_ZERO_NONDOMINANCE.md": "50b850f09d8d6f7f44e9e7de343d761db67b83e811c460b20b3c09d3d7fe5a95",
+    "research/classification/RANK_ZERO_QUINTIC_SURFACE_GENUS_ZERO_NONDOMINANCE.md": "16cd54d35a3d0657f097e052d39d8728d7d38c13a95de283be11a6ff9511ee92",
+    "research/classification/RANK_ZERO_SEXTIC_CONDUCTOR_SEPARATE_REVIEW.md": "5db412f81bc05688524d85df09ec5c39ac2d9b5e3bec2c3f3a11e73ab6760748",
+    "research/classification/RANK_TWO_SEXTIC_SURFACE_SEPARATE_REVIEW.md": "42c1c8ad9feb7e02aae0e5e4c376957fa7bfb15bad5efb83ba43107e24302c13"
+  },
+  "node_split_lemma": {
+    "all_delta1_generic_node_conductor_fields": "KxK or a separable quadratic E/K; no global smooth/normal/etale cover assumption.",
+    "dualizing_sign": "After separable completion, the same ambient unit restricts equally at S on the two branch dualizing generators, which have opposite logarithmic signs. Tangential H is shared; mixed normal brackets vanish to first order. Residues are opposite and nonzero for rank2.",
+    "unit_Galois_invariance_not_assumed": true,
+    "coordinate_independent_form": "Functorial residue and trace-zero imply tau(rho)=-rho in E; closedness gives rho in C and tau fixes C, so2rho0 contradicts rank2. A global scheme involution is not required.",
+    "conclusion": "Two birational conductor primes over S."
+  },
+  "manual_proof_checks": {
+    "whole_normalization": "Length+accepted Bertini/Hoering gives all113/122/014/023/005.005 has only plane nonnormal surfaces and is excluded directly; small resolutions014/023 have no exceptional divisor.",
+    "whole_CP_table": {
+      "113": [
+        "2F",
+        "uniqueQ=L-3F"
+      ],
+      "122": [
+        "2F"
+      ],
+      "014": [
+        "2F",
+        "uniqueQ=L-4F plus arbitraryfiber",
+        "2Q"
+      ],
+      "023": [
+        "2F",
+        "uniqueQ=L-3F"
+      ]
+    },
+    "cusp_S": "Five ordinary cusps on the general rational plane quintic contradict the accepted degree8 Wronskian/dual-bidual bound; S therefore node before applying split lemma.",
+    "all_empty_classes": "CP2F forces Gamma2 class2L-5F with zero or factored full section space in all four types.014 CP2Q leaves CS with L coefficient1, incompatible with two positive-L prime components.",
+    "all_remaining_classes": "113/023 CPQ and014 CPQ+fiber have CS2L, two Gamma in|L| and reduced whole conductor.",
+    "whole_closed_form_source": "Generic node lift and tangency give only simple conductor poles, small exceptional curves introduce no divisor. Rational-scroll H0Omega1=0 makes residue injective. Ample(L+nF)^2 curves force Q residue0 in113/023 and Q/fiber opposite residues0 in014. Whole vector source dimension<=1.",
+    "ambient_injectivity": "Generic contraction into dualizing generator injective and H0(Lambda2T_P4(-5))0; fixedD projective tensor fiber<=point.",
+    "full_Schubert_source": "V5 in H0L8, K=H0(L-CP) dimension4, intersection>=2. Strata dimensions13,9,3; no higher-intersection boundary removed.",
+    "actual_group_free_fibers": "End(E) dimensions11/12/14 give actual groups13/14/16. UniqueQ and movingfiber conditions invariant. Framed finite birational map stabilizer is identity on functionfield and whole normalization."
+  },
+  "image_dimension_upper_bounds": {
+    "113": 24,
+    "023": 23,
+    "014": 22
+  },
+  "scope_complements": [
+    "genus1 rank2 degree5",
+    "otherdegrees",
+    "plane restriction residualbranches",
+    "remaining G and E",
+    "component membership/count"
+  ],
+  "main_manuscript_modified": false,
+  "global_or_git_modified": false,
+  "review_note": "research/classification/RANK_TWO_QUINTIC_SURFACE_GENUS_ZERO_SEPARATE_REVIEW.md",
+  "review_note_sha256": "44454dc28bfa117ccc0e4ef769e334e5ea1afb935cbd86d7b72469e2110bf1a1",
+  "contract_gate": "PASS exact bindings only; mathematical reasoning separately manually audited."
+}

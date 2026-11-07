@@ -1,6 +1,6 @@
 # v63 Cloud 継続記録 — 2026年11月3日
 
-現行キューはclassification/CURRENT.md・PLAN.json・NEXT_TASKS.md。下界103、rank4下界97、上界と全分類は未証明。対数全poleとE3実閉包の全低次延長を独立確認し、A=c=0を閉じた。平面節点二接線の全六磁気源もMPSへ被覆し、平面三次の未決配置は三つ。H+quarticの全90係数入口と1+2+2を研究中。regular nil4の被約1+4型の新22成分と、平面二conicの新23成分二つを証明し、下界103/97へ更新した。既存の一時停止を現在の停止指示にはしない。
+現行キューはclassification/CURRENT.md・PLAN.json・NEXT_TASKS.md。個別下界103（rank四97・rank二6）、全成分数の上界・一般五点・全分類は未証明。全rank零非plane支持はT40又はG像≤24へ。rank零plane位数二のk1 rankM≥2も全像≤23、Cartan全higher源はactual Cstar/SNC/MPS40で被覆。全degree六rank二とdegree五rank二genus零は像≤24、genus一ellipticは全nef/GG型を排除した。残るGはrank零planeのglobalV nonCartan/nilnormal・位数三以上、rank二plane可約/非被約R、degree五rank二canonical index二及び他の小次数/特殊支持。Eはnil22image残四源、short r2/3、Ga9linear-w、他の残因子型を続ける。Ga9linear-wの全六normal二次初期支持はplaneとlineで、原点根基に閉じず高次反復は停止。既存の移行用一時停止も保存checkpointも現在の終了条件にはしない。
 
 以下は11月5日UTCに完了し、11月7日に最新mainへ統合した補助研究の保存証拠。下記の58は当時の下界である。B18精密構造と旧minor探索は休止し、この歴史的キューでは再開しない。
 
