@@ -1,0 +1,419 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "all_passed": true,
+  "scope": "Finite representation-theoretic necessary entrance for actual unipotent orbit degeneration, no generic componentmembership unless a fullPoissonQ is found. N-invariantpoints tested for the FULL finite nilpotentpower range.",
+  "input_sha256": {
+    "code/classification_ga9_unipotent_limits.py": "b7be3535ee8f9bcacb8675da6ff677180bac557ef4f85e8fb08e74cb80ba6fc5",
+    "code/classification_rank3_mixed_component_review.py": "48e61e30f9d7f04fb81f1bb5eec0e18daa28c8192d6a02a251e09cf8855b9bd0",
+    "code/classification_three_hyperplanes_quadric_independent.py": "674ffb31d0afdf48c187780a876c8526b8acff3ff6aeca83d048f650fdbe8a7a",
+    "reports/CLASSIFICATION_HYPERPLANE_QUARTIC_NIL211_ZERO_C_QUADRATIC_W_POWER1_NORMALFORM_20261107.json": "c56c53df898c4c82cd75ded3f24108ac12f03ef6a53a245a69a75ab2ef1b897d",
+    "reports/CLASSIFICATION_HYPERPLANE_QUARTIC_NIL211_ZERO_C_QUADRATIC_W_POWER3_NORMALFORM_20261107.json": "8b0e45f27b1940ef31bbc17f333044995c9963056206660310647b994c93b623",
+    "reports/CLASSIFICATION_HYPERPLANE_QUARTIC_NIL211_ZERO_C_LINEAR_W_NORMALFORM_20261107.json": "9eb03371f84de564e5c0bae259e23a5b17c431c736d021cc59f298886a43953f"
+  },
+  "producer_bytes": "#!/usr/bin/env python3\n\"\"\"Finite actual unipotent-orbit-limit entrance at three fullGa9c0 sources.\n\nNo jets: epsilon^k exp(N/epsilon)Q is a finite polynomial of bounded degree,\nand it is Poisson for all nonzero epsilon exactly when Q is Poisson.\n\"\"\"\nfrom pathlib import Path\nimport hashlib,itertools,json,time\nimport sympy as s\nfrom sympy.polys.matrices import DomainMatrix\nfrom classification_rank3_mixed_component_review import COLUMNS,PAIRS,minor_certificate\nfrom classification_three_hyperplanes_quadric_independent import ambient_matrices\nROOT=Path(__file__).resolve().parents[1]\ndef main():\n started=time.monotonic();xx=s.symbols('h x y z w');env=dict(zip(map(str,xx),xx));N=s.zeros(5);N[1,2]=1;N[3,0]=1;E=s.Matrix(xx);NX=N*E\n def vector(P):return s.Matrix([s.Poly(s.expand(P[ij]),*xx).coeff_monomial(ex)for ij,ex in COLUMNS])\n def canonical(P):\n  div=s.Matrix([sum(s.diff(P[i,j],xx[i])for i in range(5))for j in range(5)]);return(P-(E*div.T-div*E.T)/5).applyfunc(s.expand)\n columns=[];projection=[]\n for ij,ex in COLUMNS:\n  P=s.zeros(5);P[ij]=s.prod(x**a for x,a in zip(xx,ex));P[ij[1],ij[0]]=-P[ij];columns.append(vector((N*P+P*N.T-sum((NX[i]*P.diff(xx[i])for i in range(5)),s.zeros(5))).applyfunc(s.expand)));projection.append(vector(canonical(P)))\n L=s.Matrix.hstack(*columns);C=s.Matrix.hstack(*projection);dm=lambda A:DomainMatrix.from_Matrix(A).convert_to(s.QQ);rank=lambda A:len(dm(A).rref()[1]);assert L*C==C*L;assert C*C==C and rank(C)==126\n powers=[];T=L.copy()\n for k in range(1,12):\n  A=T*C;r=rank(A);powers.append((k,A,r));\n  if r==0:break\n  T=L*T\n assert powers[-1][2]==0;records=[];inputs=[Path(__file__),ROOT/'code/classification_rank3_mixed_component_review.py',ROOT/'code/classification_three_hyperplanes_quadric_independent.py']\n for label in ['QUADRATIC_W_POWER1','QUADRATIC_W_POWER3','LINEAR_W']:\n  path=ROOT/('reports/CLASSIFICATION_HYPERPLANE_QUARTIC_NIL211_ZERO_C_'+label+'_NORMALFORM_20261107.json');inputs.append(path);packet=json.loads(path.read_text())['source_magnetic_normalform'];P=s.zeros(5)\n  for ij,f in packet['canonical_brackets'].items():\n   i,j=map(int,ij.split(','));P[i,j]=s.sympify(f,locals=env);P[j,i]=-P[i,j]\n  P=canonical(P);den=s.ilcm(1,*[a.q for f in P for a in s.Poly(f,*xx).coeffs()]);P*=den;v=vector(P);assert L*v==s.zeros(150,1);data=[]\n  for k,A,r in powers:\n   ar=rank(A.row_join(v));item=dict(k=k,image_rank=r,augmented_rank=ar,point_in_image=ar==r)\n   if ar!=r:\n    left=dm(A.T).nullspace().to_Matrix();which=next(i for i in range(left.rows)if(left*v)[i]!=0);f=left.row(which);assert f*A==s.zeros(1,150);item.update(left_functional={str(i):str(a)for i,a in enumerate(f)if a},nonzero_pairing=str((f*v)[0]))\n   data.append(item)\n  D,V,G,F=ambient_matrices(P,xx,[s.zeros(5)]);A=(L*C).col_join(D*C);rhs=v.col_join(s.zeros(350,1));r,ar=rank(A),rank(A.row_join(rhs));pencil=dict(linear_system_shape=list(A.shape),rank=r,augmented_rank=ar,actual_simple_unipotent_pencil_linear_entrance=ar==r)\n  if ar!=r:\n   left=dm(A.T).nullspace().to_Matrix();which=next(i for i in range(left.rows)if(left*rhs)[i]!=0);f=left.row(which);pencil.update(left_functional={str(i):str(a)for i,a in enumerate(f)if a},nonzero_pairing=str((f*rhs)[0]))\n  else:\n   sol,pars=A.gauss_jordan_solve(rhs);image=C*sol;actualvars=sorted(set().union(*(a.free_symbols for a in image)),key=str);pencil.update(canonical_linear_solution={str(i):str(a)for i,a in enumerate(image)if a},free_actual_parameters=list(map(str,actualvars)),remaining_Poisson_problem='All350 Jacobi ofQ muststill be solved; no actualPoissonfamily or membership claimed.')\n  record=dict(name=label,canonical_point={str(i)+','+str(j):str(P[i,j])for i,j in PAIRS if P[i,j]!=0},powers=data,simple_pencil=pencil);records.append(record);print(label,[(q['k'],q['point_in_image'])for q in data],pencil['rank'],pencil['augmented_rank'],len(pencil.get('free_actual_parameters',[])),flush=True)\n result=dict(task_id='E_reduced_nonnormal',all_passed=True,scope='Finite representation-theoretic necessary entrance for actual unipotent orbit degeneration, no generic componentmembership unless a fullPoissonQ is found. N-invariantpoints tested for the FULL finite nilpotentpower range.',input_sha256={str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest()for p in inputs},producer_bytes=Path(__file__).read_text(),N_matrix=[[int(a)for a in row]for row in N.tolist()],canonical_projection_rank=126,nilpotence_index_on_projective_bivectors=powers[-1][0],power_ranks=[dict(k=k,rank=r)for k,A,r in powers],cases=records,seconds=time.monotonic()-started)\n out=ROOT/'reports/CLASSIFICATION_GA9_UNIPOTENT_LIMITS_20261107.json'\n if out.exists():raise FileExistsError(str(out))\n out.write_text(json.dumps(result,indent=2)+'\\n');print('PASS',result['seconds'])\nif __name__=='__main__':main()\n",
+  "N_matrix": [
+    [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      1,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  ],
+  "canonical_projection_rank": 126,
+  "nilpotence_index_on_projective_bivectors": 5,
+  "power_ranks": [
+    {
+      "k": 1,
+      "rank": 78
+    },
+    {
+      "k": 2,
+      "rank": 39
+    },
+    {
+      "k": 3,
+      "rank": 14
+    },
+    {
+      "k": 4,
+      "rank": 3
+    },
+    {
+      "k": 5,
+      "rank": 0
+    }
+  ],
+  "cases": [
+    {
+      "name": "QUADRATIC_W_POWER1",
+      "canonical_point": {
+        "0,1": "-8*h*y",
+        "0,3": "-8*h**2",
+        "1,2": "45*h*w - 2*y**2",
+        "1,3": "-28*h*x + 40*w**2 + 68*y*z",
+        "1,4": "40*h**2 - 72*w*y",
+        "2,3": "32*h*y",
+        "3,4": "-12*h*w + 40*y**2"
+      },
+      "powers": [
+        {
+          "k": 1,
+          "image_rank": 78,
+          "augmented_rank": 78,
+          "point_in_image": true
+        },
+        {
+          "k": 2,
+          "image_rank": 39,
+          "augmented_rank": 40,
+          "point_in_image": false,
+          "left_functional": {
+            "64": "1"
+          },
+          "nonzero_pairing": "45"
+        },
+        {
+          "k": 3,
+          "image_rank": 14,
+          "augmented_rank": 15,
+          "point_in_image": false,
+          "left_functional": {
+            "30": "1"
+          },
+          "nonzero_pairing": "-8"
+        },
+        {
+          "k": 4,
+          "image_rank": 3,
+          "augmented_rank": 4,
+          "point_in_image": false,
+          "left_functional": {
+            "2": "1"
+          },
+          "nonzero_pairing": "-8"
+        },
+        {
+          "k": 5,
+          "image_rank": 0,
+          "augmented_rank": 1,
+          "point_in_image": false,
+          "left_functional": {
+            "2": "1"
+          },
+          "nonzero_pairing": "-8"
+        }
+      ],
+      "simple_pencil": {
+        "linear_system_shape": [
+          500,
+          150
+        ],
+        "rank": 111,
+        "augmented_rank": 112,
+        "actual_simple_unipotent_pencil_linear_entrance": false,
+        "left_functional": {
+          "2": "-60",
+          "14": "640/9",
+          "41": "320/3",
+          "64": "160/9",
+          "69": "-200/3",
+          "76": "140/3",
+          "85": "220/3",
+          "90": "-40",
+          "107": "460/3",
+          "120": "-160/9",
+          "144": "-120",
+          "156": "-8/3",
+          "222": "1",
+          "234": "-4/9",
+          "247": "-2/3",
+          "293": "1"
+        },
+        "nonzero_pairing": "3600"
+      }
+    },
+    {
+      "name": "QUADRATIC_W_POWER3",
+      "canonical_point": {
+        "0,1": "-72*h*y",
+        "0,3": "-72*h**2",
+        "1,2": "5*h*w - 18*y**2",
+        "1,3": "-12*h*x + 360*w**2 + 132*y*z",
+        "1,4": "-168*w*y + 1080*y**2",
+        "2,3": "48*h*y",
+        "3,4": "-108*h*w + 360*y**2"
+      },
+      "powers": [
+        {
+          "k": 1,
+          "image_rank": 78,
+          "augmented_rank": 78,
+          "point_in_image": true
+        },
+        {
+          "k": 2,
+          "image_rank": 39,
+          "augmented_rank": 40,
+          "point_in_image": false,
+          "left_functional": {
+            "64": "1"
+          },
+          "nonzero_pairing": "5"
+        },
+        {
+          "k": 3,
+          "image_rank": 14,
+          "augmented_rank": 15,
+          "point_in_image": false,
+          "left_functional": {
+            "30": "1"
+          },
+          "nonzero_pairing": "-72"
+        },
+        {
+          "k": 4,
+          "image_rank": 3,
+          "augmented_rank": 4,
+          "point_in_image": false,
+          "left_functional": {
+            "2": "1"
+          },
+          "nonzero_pairing": "-72"
+        },
+        {
+          "k": 5,
+          "image_rank": 0,
+          "augmented_rank": 1,
+          "point_in_image": false,
+          "left_functional": {
+            "2": "1"
+          },
+          "nonzero_pairing": "-72"
+        }
+      ],
+      "simple_pencil": {
+        "linear_system_shape": [
+          500,
+          150
+        ],
+        "rank": 111,
+        "augmented_rank": 112,
+        "actual_simple_unipotent_pencil_linear_entrance": false,
+        "left_functional": {
+          "0": "-3600",
+          "2": "3240",
+          "4": "-97200",
+          "30": "8640",
+          "60": "10560",
+          "62": "7920",
+          "64": "25920",
+          "69": "15120",
+          "76": "-14040",
+          "78": "2880",
+          "85": "-1080",
+          "88": "97200",
+          "92": "160",
+          "99": "240",
+          "105": "-1440",
+          "107": "5400",
+          "109": "58320",
+          "120": "77760",
+          "135": "80",
+          "137": "60",
+          "144": "720",
+          "151": "-24",
+          "156": "144",
+          "224": "56",
+          "229": "-4/3",
+          "231": "24",
+          "234": "216",
+          "245": "-2",
+          "247": "36",
+          "291": "4/3",
+          "296": "1"
+        },
+        "nonzero_pairing": "-194400"
+      }
+    },
+    {
+      "name": "LINEAR_W",
+      "canonical_point": {
+        "0,1": "-4*h*y",
+        "0,3": "-4*h**2",
+        "1,2": "20*h**2 - y**2",
+        "1,3": "-9*h*x + 20*w**2 + 14*y*z",
+        "1,4": "80*h*y - 16*w*y",
+        "2,3": "h*y",
+        "3,4": "-16*h*w + 20*y**2"
+      },
+      "powers": [
+        {
+          "k": 1,
+          "image_rank": 78,
+          "augmented_rank": 78,
+          "point_in_image": true
+        },
+        {
+          "k": 2,
+          "image_rank": 39,
+          "augmented_rank": 39,
+          "point_in_image": true
+        },
+        {
+          "k": 3,
+          "image_rank": 14,
+          "augmented_rank": 15,
+          "point_in_image": false,
+          "left_functional": {
+            "30": "1"
+          },
+          "nonzero_pairing": "-4"
+        },
+        {
+          "k": 4,
+          "image_rank": 3,
+          "augmented_rank": 4,
+          "point_in_image": false,
+          "left_functional": {
+            "2": "1"
+          },
+          "nonzero_pairing": "-4"
+        },
+        {
+          "k": 5,
+          "image_rank": 0,
+          "augmented_rank": 1,
+          "point_in_image": false,
+          "left_functional": {
+            "2": "1"
+          },
+          "nonzero_pairing": "-4"
+        }
+      ],
+      "simple_pencil": {
+        "linear_system_shape": [
+          500,
+          150
+        ],
+        "rank": 111,
+        "augmented_rank": 111,
+        "actual_simple_unipotent_pencil_linear_entrance": true,
+        "canonical_linear_solution": {
+          "0": "tau15/20 + 3*tau19/5 - 3*tau21/5 - tau28/20 - 3*tau35/5 - 11776/175",
+          "1": "6",
+          "2": "4*tau20/15 + 4*tau30/15 + 52*tau38/15 + 52*tau8/15",
+          "4": "-512/315",
+          "9": "-tau15/80 - 3*tau19/20 + 3*tau21/20 + tau28/80 + 3*tau35/20 + 6016/1575",
+          "10": "-4",
+          "11": "-tau38 - tau8",
+          "14": "-88/9",
+          "17": "-2",
+          "30": "4*tau20/15 + 4*tau30/15 - 8*tau38/15 - 8*tau8/15",
+          "32": "-tau15/80 - 3*tau19/20 + 3*tau21/20 + tau28/80 + 3*tau35/20 + 2944/175",
+          "33": "4",
+          "34": "-tau38 - tau8",
+          "39": "tau38 + tau8",
+          "41": "128/63",
+          "49": "-8",
+          "54": "8",
+          "60": "tau12/4 - 4*tau20/3 - tau27/4 - 4*tau30/3 - tau33 - 16*tau38/3 - 16*tau8/3",
+          "62": "3*tau15/20 + 4*tau19/5 - 9*tau21/5 - 3*tau28/20 - 9*tau35/5 - 120832/1575",
+          "63": "-20",
+          "64": "3*tau38 + 3*tau8",
+          "66": "1",
+          "69": "tau20/15 + tau30/15 - 2*tau38/15 - 2*tau8/15",
+          "71": "3*tau21/16 + 3*tau35/16 - 256/105",
+          "75": "tau5",
+          "76": "3*tau20/5 + 3*tau30/5 - 16*tau38/5 - 16*tau8/5",
+          "77": "tau6",
+          "78": "-tau15/20 + 2*tau19/5 + 3*tau21/5 + tau28/20 + 3*tau35/5 + 11776/175",
+          "79": "tau7",
+          "81": "tau15/80 + 3*tau19/20 + tau21/10 - tau28/80 + tau35/10 - 3712/525",
+          "82": "-3",
+          "83": "tau38 + tau8",
+          "84": "tau9",
+          "85": "-14*tau20/15 - 14*tau30/15 + 28*tau38/15 + 28*tau8/15",
+          "86": "tau10",
+          "88": "-3*tau21/16 - 3*tau35/16 + 544/63",
+          "89": "tau11",
+          "90": "16*tau19/3 + 4*tau28/3",
+          "91": "-36",
+          "92": "tau12",
+          "94": "-5632/45",
+          "98": "8",
+          "99": "tau15",
+          "100": "-8",
+          "101": "16*tau20/15 + 16*tau30/15 + 28*tau38/15 + 28*tau8/15",
+          "104": "-176/45",
+          "105": "tau19",
+          "106": "-6",
+          "107": "-tau20/15 - tau30/15 + 32*tau38/15 + 32*tau8/15",
+          "109": "-3*tau21/16 - 3*tau35/16 + 736/105",
+          "114": "tau21/4 + tau35/4 - 1024/315",
+          "115": "7",
+          "119": "92/9",
+          "122": "36",
+          "131": "-8",
+          "135": "tau27",
+          "137": "tau28",
+          "139": "16*tau20/15 + 16*tau30/15 - 32*tau38/15 - 32*tau8/15",
+          "141": "-12",
+          "144": "tau33",
+          "146": "3*tau21/4 + 3*tau35/4 + 1024/315",
+          "148": "8"
+        },
+        "free_actual_parameters": [
+          "tau10",
+          "tau11",
+          "tau12",
+          "tau15",
+          "tau19",
+          "tau20",
+          "tau21",
+          "tau27",
+          "tau28",
+          "tau30",
+          "tau33",
+          "tau35",
+          "tau38",
+          "tau5",
+          "tau6",
+          "tau7",
+          "tau8",
+          "tau9"
+        ],
+        "remaining_Poisson_problem": "All350 Jacobi ofQ muststill be solved; no actualPoissonfamily or membership claimed."
+      }
+    }
+  ],
+  "seconds": 3.140385583999887
+}

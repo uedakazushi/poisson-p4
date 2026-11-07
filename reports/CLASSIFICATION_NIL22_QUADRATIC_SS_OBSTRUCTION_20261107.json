@@ -1,0 +1,78 @@
+{
+  "task_id": "E_multiple_hyperplane",
+  "all_passed": true,
+  "adopted_input_scope": "Complete 76x44 linear elimination, whose A projection is exactly the displayed two-parameter family.",
+  "exact_full_A": {
+    "0,1": "2*lam*q1*q2 + q1**2*r19 + q2**2*r21",
+    "0,2": "-2*lam*q1*x + 3*q1*r21*y + q1*x - 3*q2*r21*x",
+    "0,3": "q1*r19*x + q2*r21*y + q2*x",
+    "1,2": "-q1*r19*x + q1*y - q2*r21*y",
+    "1,3": "2*lam*q2*y + 3*q1*r19*y - 3*q2*r19*x + q2*y",
+    "2,3": "-2*lam*x*y + r19*x**2 + r21*y**2"
+  },
+  "recomputed_full_Jacobi_A": [
+    "4*lam*q1**2*r19*x - 8*lam*q1*q2*r21*y + 4*lam*q2**2*r21*x - 16*q1**2*r19*r21*y - q1**2*y + 16*q1*q2*r19*r21*x + q1*q2*x",
+    "-4*lam*q1**2*r19*y + 8*lam*q1*q2*r19*x - 4*lam*q2**2*r21*y - 16*q1*q2*r19*r21*y - q1*q2*y + 16*q2**2*r19*r21*x + q2**2*x",
+    "-4*lam*q1*r19*x**2 - 4*lam*q1*r21*y**2 + 8*lam*q2*r21*x*y + 16*q1*r19*r21*x*y + q1*x*y - 16*q2*r19*r21*x**2 - q2*x**2",
+    "-8*lam*q1*r19*x*y + 4*lam*q2*r19*x**2 + 4*lam*q2*r21*y**2 + 16*q1*r19*r21*y**2 + q1*y**2 - 16*q2*r19*r21*x*y - q2*x*y"
+  ],
+  "direct_three_coefficient_obstruction": [
+    {
+      "triple": [
+        0,
+        1,
+        2
+      ],
+      "exponent": [
+        2,
+        0,
+        1,
+        0
+      ],
+      "raw_coefficient": "4*lam*r19",
+      "nonzero_generic_multiplier": "4*lam",
+      "normalized_condition": "r19"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        2
+      ],
+      "exponent": [
+        1,
+        1,
+        0,
+        1
+      ],
+      "raw_coefficient": "-8*lam*r21",
+      "nonzero_generic_multiplier": "-8*lam",
+      "normalized_condition": "r21"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        2
+      ],
+      "exponent": [
+        2,
+        0,
+        0,
+        1
+      ],
+      "raw_coefficient": "-16*r19*r21 - 1",
+      "nonzero_generic_multiplier": "-16",
+      "normalized_condition": "r19*r21 + 1/16"
+    }
+  ],
+  "unit_ideal_identity": "1=16*(r19*r21+1/16)-16*r21*r19",
+  "spatial_degree_argument": "For homogeneous quadratic A,B and constant C, the spatial-degree-three part of Jac(C+tau*A+tau^2*B) at tau^2 is Jac(A). The spatial-degree-one term [C,B] cannot cancel it.",
+  "no_prescribed_actual_SS20_contraction": true,
+  "scope": "Only C+tau*A+tau^2*B with the specified H-weight-zero/divergence and Laurent endpoint conditions is ruled out. No nonmembership or higher-degree claim.",
+  "input_sha256": {
+    "reports/CLASSIFICATION_NIL22_QUADRATIC_SS_LIMIT_20261107.json": "62b1332d835b41de1a0eccb127ce6c3622ce0af21ea5e1ada7a9ffd2a2fd55f0",
+    "code/classification_nil22_quadratic_ss_obstruction.py": "07e9c9600ad7ad152632a95a70dee7580511417100a0a3cd91e7f42416902378"
+  },
+  "seconds": 0.114247
+}

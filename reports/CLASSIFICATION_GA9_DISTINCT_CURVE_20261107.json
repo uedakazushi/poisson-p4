@@ -1,0 +1,61 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "all_passed": true,
+  "input_sha256": {
+    "reports/CLASSIFICATION_GA9_DISTINCT_WEIGHT_BLOCKS_20261107.json": "bdb99ab1de7e7ac9e0b21b318f4268dacac1b044c874ce1ce993347a76cebfb7",
+    "reports/CLASSIFICATION_GA9_DISTINCT_ANCHOR_SUPPORT_20261107.json": "024b192a67c19aab07dbd9e2dba154ce613595c4d315a88d1a96adc2849eb377",
+    "code/classification_ga9_distinct_curve.py": "1706315170af893c9229c58afd7e68f150bed0a461529ba3bfefe19ef81f8a07",
+    "code/classification_rank3_mixed_component_review.py": "48e61e30f9d7f04fb81f1bb5eec0e18daa28c8192d6a02a251e09cf8855b9bd0"
+  },
+  "producer_bytes": "#!/usr/bin/env python3\n\"\"\"Actual cubicPoisson curve on a rational line of the COMPLETE Ga9 cut.\"\"\"\nfrom pathlib import Path\nimport hashlib,itertools,json,time\nimport sympy as s\nfrom classification_rank3_mixed_component_review import COLUMNS,PAIRS,jacobi\nROOT=Path(__file__).resolve().parents[1]\ndef main():\n started=time.monotonic();frame_path=ROOT/'reports/CLASSIFICATION_GA9_DISTINCT_WEIGHT_BLOCKS_20261107.json';support_path=ROOT/'reports/CLASSIFICATION_GA9_DISTINCT_ANCHOR_SUPPORT_20261107.json';frame=json.loads(frame_path.read_text());packet=json.loads(support_path.read_text());xx=s.symbols('h x y z w');tt=s.symbols('t0:6');e=s.Symbol('epsilon');env={str(z):z for z in xx+tt};line={tt[0]:0,tt[1]:-3*e,tt[2]:e,tt[3]:0,tt[4]:0,tt[5]:0};P=s.zeros(5)\n for ij,f in frame['canonical_point'].items():\n  i,j=map(int,ij.split(','));P[i,j]=s.sympify(f,locals=env);P[j,i]=-P[i,j]\n original=P.copy();v=s.zeros(150,1)\n for j,normal in enumerate(frame['true_normal_vectors']):\n  for col,a in normal.items():v[int(col)]+=s.Rational(a)*line[tt[j]]\n for item in packet['complete_weight3_implicit_polynomials']:\n  assert item['denominator_delta_power']>=1\n  value=s.sympify(item['numerator'].replace('^','**'),locals=env).subs(line,simultaneous=True);v[item['column']]+=s.expand(value)\n for (ij,ex),co in zip(COLUMNS,v):P[ij]+=co*s.prod(z**a for z,a in zip(xx,ex))\n for i,j in PAIRS:P[j,i]=-P[i,j]\n P=P.applyfunc(s.expand);assert P.subs(e,0)==original\n for item in packet['complete_all350_remaining_equations_through_weight4']:assert s.expand(s.sympify(item['numerator'].replace('^','**'),locals=env).subs(line,simultaneous=True))==0\n sparse={ij:dict(s.Poly(P[ij],*xx).terms())for ij in PAIRS if P[ij]!=0};assert jacobi(sparse).applyfunc(s.expand)==s.zeros(350,1)\n weights=frame['weights'];c=frame['canonical_tensor_weight']\n for ij in PAIRS:\n  for ex,co in s.Poly(P[ij],*xx).terms():\n   relative=sum(a*w for a,w in zip(ex,weights))-sum(weights[i]for i in ij)-c\n   assert s.expand(co-e**relative*co.subs(e,1))==0\n pf=[]\n for missing in range(5):\n  i,j,k,l=[a for a in range(5)if a!=missing];pf.append((-1)**missing*(P[i,j]*P[k,l]-P[i,k]*P[j,l]+P[i,l]*P[j,k]))\n D=s.factor(sum(xx[i]*pf[i]for i in range(5)));point=P.subs(e,1);D1=s.factor(D.subs(e,1));factorization=s.factor_list(D1);print('D1',D1,flush=True)\n encode=lambda A:{str(i)+','+str(j):str(s.factor(A[i,j]))for i,j in PAIRS if A[i,j]!=0}\n recognition=[]\n for f,m in factorization[1]:\n  if s.Poly(f,*xx).total_degree()==1:\n   row=s.Matrix([[s.diff(f,x)for x in xx]]);pivot=next(i for i,a in enumerate(row)if a!=0);T=s.zeros(5);T[0,:]=row;order=[i for i in range(5)if i!=pivot]\n   for j,i in enumerate(order,1):T[j,i]=1\n   Q=(T*point*T.T).subs(dict(zip(xx,T.inv()*s.Matrix(xx))),simultaneous=True).applyfunc(s.expand);R=s.Matrix([0]+[s.cancel(Q[0,j]/xx[0])for j in range(1,5)]);assert all(not s.denom(a).free_symbols.intersection(xx)for a in R)\n   Q=(Q-s.Matrix(xx)*R.T+R*s.Matrix(xx).T).applyfunc(s.expand);aff=Q.subs(xx[0],1);N=s.Matrix([s.expand(sum(s.diff(aff[i,j],xx[i])for i in range(1,5)))for j in range(1,5)]);A=N.jacobian(xx[1:]);cc=N.subs(dict.fromkeys(xx[1:],0))\n   print('H',f,'N',N,'char',s.factor(A.charpoly().as_expr()),flush=True)\n   recognition.append(dict(linear_factor=str(f),multiplicity=m,projective_matrix=[[str(a)for a in rr]for rr in T.tolist()],canonical_H_Casimir_brackets=encode(Q),modular=list(map(str,N)),linear_matrix=[[str(a)for a in rr]for rr in A.tolist()],constant=list(map(str,cc)),characteristic_polynomial=str(s.factor(A.charpoly().as_expr()))))\n inputs=[frame_path,support_path,Path(__file__),ROOT/'code/classification_rank3_mixed_component_review.py'];result=dict(task_id='E_reduced_nonnormal',all_passed=True,input_sha256={str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest()for p in inputs},producer_bytes=Path(__file__).read_text(),\n  complete_cut_rational_line=['0','-3*epsilon','epsilon','0','0','0'],all162_exact_cut_equations_vanish=True,all350_projective_Jacobi_identically_zero=True,original_source_anchor_at0=True,whole_actual_cubic_Poisson_curve=encode(P),nonzero_point_brackets=encode(point),actual_anticanonical_quintic=str(D),nonzero_point_actual_quintic=str(D1),nonzero_point_factorization=[dict(factor=str(f),multiplicity=m,degree=s.Poly(f,*xx).total_degree())for f,m in factorization[1]],\n  all_nonzero_parameters_one_actual_PGL_scalar_orbit=True,equivariance='For g(t)=diag(t^0,t^1,t^0,t^1,t^1), t^(-1)*g(t)_*P_e=P_(e/t), so everye!=0 is equivalentto e=1.',simple_H_recognition=recognition,\n  known_component_membership_claimed=False,scope='Exactactualcurve and cofactorrecognitiondata. Apply an acceptedwholeHquartic theorem with allhypotheses before claiming membership. The sourceorbit22 is dense in the entire5parameter sourceclosure by the separately accepted sourceupper22 and actualorbit22.',seconds=time.monotonic()-started)\n dest=ROOT/'reports/CLASSIFICATION_GA9_DISTINCT_CURVE_20261107.json'\n if dest.exists():raise FileExistsError(str(dest))\n dest.write_text(json.dumps(result,indent=2)+'\\n');print(json.dumps(dict(actual_curve=True,seconds=result['seconds'])))\nif __name__=='__main__':main()\n",
+  "complete_cut_rational_line": [
+    "0",
+    "-3*epsilon",
+    "epsilon",
+    "0",
+    "0",
+    "0"
+  ],
+  "all162_exact_cut_equations_vanish": true,
+  "all350_projective_Jacobi_identically_zero": true,
+  "original_source_anchor_at0": true,
+  "whole_actual_cubic_Poisson_curve": {
+    "0,1": "epsilon*(-1038*epsilon*w*z + 1701*epsilon*x*z + 23*h*w - 159*h*x + 118*y*z)",
+    "0,2": "-3*epsilon*(-1557*epsilon**2*w*z + 216*epsilon**2*x*z + 255*epsilon*h*w - 612*epsilon*h*x - 342*epsilon*y*z - 14*h*y)",
+    "0,3": "39*epsilon*z*(15*epsilon*z - h)",
+    "0,4": "3*epsilon*(72*epsilon*x*z - 60*h*x + 59*y*z)",
+    "1,2": "-486*epsilon**2*z**2 + 9*epsilon*h*z + 2*h**2 - 3*y**2",
+    "1,3": "3*(-23*epsilon*w*z + 36*epsilon*x*z - h*x + 2*y*z)",
+    "1,4": "3*(-18*epsilon*z**2 - h*z - w*y + x*y)",
+    "2,3": "-3*(-324*epsilon**2*w*z + 432*epsilon**2*x*z - 9*epsilon*h*x - h*y)",
+    "2,4": "3*(324*epsilon**2*z**2 - h**2 + y**2)",
+    "3,4": "3*(-h*w + 3*h*x - 3*y*z)"
+  },
+  "nonzero_point_brackets": {
+    "0,1": "23*h*w - 159*h*x - 1038*w*z + 1701*x*z + 118*y*z",
+    "0,2": "-3*(255*h*w - 612*h*x - 14*h*y - 1557*w*z + 216*x*z - 342*y*z)",
+    "0,3": "39*z*(-h + 15*z)",
+    "0,4": "3*(-60*h*x + 72*x*z + 59*y*z)",
+    "1,2": "2*h**2 + 9*h*z - 3*y**2 - 486*z**2",
+    "1,3": "3*(-h*x - 23*w*z + 36*x*z + 2*y*z)",
+    "1,4": "3*(-h*z - w*y + x*y - 18*z**2)",
+    "2,3": "-3*(-9*h*x - h*y - 324*w*z + 432*x*z)",
+    "2,4": "3*(-h**2 + y**2 + 324*z**2)",
+    "3,4": "3*(-h*w + 3*h*x - 3*y*z)"
+  },
+  "actual_anticanonical_quintic": "3*(-228879*epsilon**4*w**3*z**2 + 816480*epsilon**4*w**2*x*z**2 - 781488*epsilon**4*w*x**2*z**2 + 157464*epsilon**4*w*z**4 + 93312*epsilon**4*x**3*z**2 - 314928*epsilon**4*x*z**4 - 10143*epsilon**3*h*w**3*z + 8316*epsilon**3*h*w**2*x*z + 60912*epsilon**3*h*w*x**2*z + 14580*epsilon**3*h*w*z**3 - 77760*epsilon**3*h*x**3*z - 34992*epsilon**3*h*x*z**3 + 47817*epsilon**3*w**2*y*z**2 - 129600*epsilon**3*w*x*y*z**2 + 81648*epsilon**3*x**2*y*z**2 - 17496*epsilon**3*y*z**4 - 1323*epsilon**2*h**2*w**2*x + 4536*epsilon**2*h**2*w*x**2 - 486*epsilon**2*h**2*w*z**2 - 3888*epsilon**2*h**2*x**3 + 2289*epsilon**2*h*w**2*y*z - 3672*epsilon**2*h*w*x*y*z - 432*epsilon**2*h*x**2*y*z - 2916*epsilon**2*h*y*z**3 - 2997*epsilon**2*w*y**2*z**2 + 4320*epsilon**2*x*y**2*z**2 - 81*epsilon*h**3*w*z + 108*epsilon*h**3*x*z + 126*epsilon*h**2*w*x*y - 216*epsilon*h**2*x**2*y - 162*epsilon*h**2*y*z**2 - 149*epsilon*h*w*y**2*z + 156*epsilon*h*x*y**2*z + 59*epsilon*y**3*z**2 - 2*h**4*w + 3*h**4*x - 3*h**3*y*z - 3*h**2*x*y**2 + 3*h*y**3*z)",
+  "nonzero_point_actual_quintic": "3*(-2*h**4*w + 3*h**4*x - 81*h**3*w*z + 108*h**3*x*z - 3*h**3*y*z - 1323*h**2*w**2*x + 4536*h**2*w*x**2 + 126*h**2*w*x*y - 486*h**2*w*z**2 - 3888*h**2*x**3 - 216*h**2*x**2*y - 3*h**2*x*y**2 - 162*h**2*y*z**2 - 10143*h*w**3*z + 8316*h*w**2*x*z + 2289*h*w**2*y*z + 60912*h*w*x**2*z - 3672*h*w*x*y*z - 149*h*w*y**2*z + 14580*h*w*z**3 - 77760*h*x**3*z - 432*h*x**2*y*z + 156*h*x*y**2*z - 34992*h*x*z**3 + 3*h*y**3*z - 2916*h*y*z**3 - 228879*w**3*z**2 + 816480*w**2*x*z**2 + 47817*w**2*y*z**2 - 781488*w*x**2*z**2 - 129600*w*x*y*z**2 - 2997*w*y**2*z**2 + 157464*w*z**4 + 93312*x**3*z**2 + 81648*x**2*y*z**2 + 4320*x*y**2*z**2 - 314928*x*z**4 + 59*y**3*z**2 - 17496*y*z**4)",
+  "nonzero_point_factorization": [
+    {
+      "factor": "-2*h**4*w + 3*h**4*x - 81*h**3*w*z + 108*h**3*x*z - 3*h**3*y*z - 1323*h**2*w**2*x + 4536*h**2*w*x**2 + 126*h**2*w*x*y - 486*h**2*w*z**2 - 3888*h**2*x**3 - 216*h**2*x**2*y - 3*h**2*x*y**2 - 162*h**2*y*z**2 - 10143*h*w**3*z + 8316*h*w**2*x*z + 2289*h*w**2*y*z + 60912*h*w*x**2*z - 3672*h*w*x*y*z - 149*h*w*y**2*z + 14580*h*w*z**3 - 77760*h*x**3*z - 432*h*x**2*y*z + 156*h*x*y**2*z - 34992*h*x*z**3 + 3*h*y**3*z - 2916*h*y*z**3 - 228879*w**3*z**2 + 816480*w**2*x*z**2 + 47817*w**2*y*z**2 - 781488*w*x**2*z**2 - 129600*w*x*y*z**2 - 2997*w*y**2*z**2 + 157464*w*z**4 + 93312*x**3*z**2 + 81648*x**2*y*z**2 + 4320*x*y**2*z**2 - 314928*x*z**4 + 59*y**3*z**2 - 17496*y*z**4",
+      "multiplicity": 1,
+      "degree": 5
+    }
+  ],
+  "all_nonzero_parameters_one_actual_PGL_scalar_orbit": true,
+  "equivariance": "For g(t)=diag(t^0,t^1,t^0,t^1,t^1), t^(-1)*g(t)_*P_e=P_(e/t), so everye!=0 is equivalentto e=1.",
+  "simple_H_recognition": [],
+  "known_component_membership_claimed": false,
+  "scope": "Exactactualcurve and cofactorrecognitiondata. Apply an acceptedwholeHquartic theorem with allhypotheses before claiming membership. The sourceorbit22 is dense in the entire5parameter sourceclosure by the separately accepted sourceupper22 and actualorbit22.",
+  "seconds": 4.378566297000361
+}

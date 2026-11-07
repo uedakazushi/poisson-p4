@@ -1,0 +1,1096 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "all_passed": true,
+  "scope": "Distinctness of the smooth23 actualcurve component from every frozenprior98, CONDITIONAL only on separately checked absolute irreducibility. Exact eigencoordinates are optional readability evidence, not a new point.",
+  "input_sha256": {
+    "reports/CLASSIFICATION_GA9_DISTINCT_PRIOR98_20261107.json": "4f620a6333b6a0f913ee537b607b81fc990ece294274821eb844af85b9304f90",
+    "reports/CLASSIFICATION_GA9_DISTINCT_CURVE_ORBIT_20261107.json": "2b08b20d14d49bcb0e556919493ef8fd9c74e763d04e3dd99882d7bf485120ca",
+    "reports/CLASSIFICATION_MPS23_DIVISOR_FACTORS_20261107.json": "b671da5324bbc44599c008437e011c5fb126328ac2136da783b7186188b8a943",
+    "code/classification_ga9_distinct_component_audit.py": "55878be6b2c4b03707b3c4918c67edb8647f4a51c96ce270019c4748dee3c1d7"
+  },
+  "producer_bytes": "#!/usr/bin/env python3\n\"\"\"Frozen-prior98 distinctness audit and exact stabilizer eigen-coordinate model.\"\"\"\nfrom pathlib import Path\nimport hashlib,json,time\nimport sympy as s\nROOT=Path(__file__).resolve().parents[1]\ndef main():\n started=time.monotonic();names=['reports/CLASSIFICATION_GA9_DISTINCT_PRIOR98_20261107.json','reports/CLASSIFICATION_GA9_DISTINCT_CURVE_ORBIT_20261107.json','reports/CLASSIFICATION_MPS23_DIVISOR_FACTORS_20261107.json'];prior,orb,mps=[json.loads((ROOT/p).read_text())for p in names];assert prior['component_count']==98;assert orb['full_D_rank']==102 and orb['actual_group_Euler_scalar_rank']==48;mf={d['id']:d for d in mps['cases']};audit=[]\n for c in prior['components']:\n  if c['projective_dimension']!=23:reason='Unequal full-component dimension';data=dict(prior_projective_dimension=c['projective_dimension'])\n  elif c['id']in mf:reason='Whole accepted generic MPS source exact reducible quintic product; closed factorization locus contains whole component';data=dict(factor_report=names[2],degrees=mf[c['id']]['irreducible_coordinate_factor_degrees'])\n  else:\n   D=c['generic_actual_degeneracy_divisor'];degs=D['irreducible_factor_degrees'];mult=D['corresponding_multiplicities'];assert sum(a*b for a,b in zip(degs,mult))==5 and sum(mult)>1;reason='Accepted dense source has reducible quintic; closed factorization locus contains whole component';data=dict(degrees=degs,multiplicities=mult,proof_sources=c['proof_sources'])\n  audit.append(dict(id=c['id'],reason=reason,**data))\n xx=s.symbols('h x y z w');uu=s.symbols('u0:5');env=dict(zip(map(str,xx),xx));A=s.Matrix(orb['full_projective_stabilizer_generators'][0]['matrix']);vectors=[];eigenvalues=[]\n for ev,m,vv in sorted(A.eigenvects(),key=lambda a:a[0]):\n  assert m==len(vv)==1;v=vv[0];den=s.ilcm(1,*[a.q for a in v]);v*=den;g=s.igcd(*[abs(int(a))for a in v if a]);v/=g;vectors.append(v);eigenvalues.append(int(ev))\n B=s.Matrix.hstack(*vectors);sub=dict(zip(xx,B*s.Matrix(uu)));D=s.Poly(s.sympify(orb['actual_quintic_primitive'],locals=env).subs(sub,simultaneous=True),*uu);content,D=D.primitive();assert D.total_degree()==5\n P=s.zeros(5)\n for ij,f in orb['canonical_divergence_free_point'].items():\n  i,j=map(int,ij.split(','));P[i,j]=s.sympify(f,locals=env);P[j,i]=-P[i,j]\n P=(B.inv()*P*B.inv().T).subs(sub,simultaneous=True).applyfunc(s.expand);den=s.ilcm(1,*[a.q for f in P for a in s.Poly(f,*uu).coeffs()]);P*=den;g=s.igcd(*[abs(int(a))for f in P for a in s.Poly(f,*uu).coeffs()if a]);P/=g\n result=dict(task_id='E_reduced_nonnormal',all_passed=True,scope='Distinctness of the smooth23 actualcurve component from every frozenprior98, CONDITIONAL only on separately checked absolute irreducibility. Exact eigencoordinates are optional readability evidence, not a new point.',input_sha256={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest()for p in names+[str(Path(__file__).relative_to(ROOT))]},producer_bytes=Path(__file__).read_text(),candidate_dimension=23,candidate_generic_rank=4,all98_audit=audit,same23_MPS_count=len(mf),same23_nonMPS_count=sum(c['projective_dimension']==23 and c['id']not in mf for c in prior['components']),old_coordinates_from_eigen_coordinates=[[str(a)for a in rr]for rr in B.tolist()],eigenvalues=eigenvalues,canonical_eigen_coordinate_quintic=str(D.as_expr()),canonical_eigen_coordinate_bivector={str(i)+','+str(j):str(P[i,j])for i in range(5)for j in range(i+1,5)if P[i,j]!=0},eigen_quintic_original_scalar=str(content),bivector_original_scaling=str(den/g),seconds=time.monotonic()-started)\n out=ROOT/'reports/CLASSIFICATION_GA9_DISTINCT_COMPONENT_AUDIT_20261107.json'\n if out.exists():raise FileExistsError(str(out))\n out.write_text(json.dumps(result,indent=2)+'\\n');print(json.dumps({k:result[k]for k in ['same23_MPS_count','same23_nonMPS_count','canonical_eigen_coordinate_quintic','canonical_eigen_coordinate_bivector','seconds']}))\nif __name__=='__main__':main()\n",
+  "candidate_dimension": 23,
+  "candidate_generic_rank": 4,
+  "all98_audit": [
+    {
+      "id": "T01",
+      "reason": "Unequal full-component dimension",
+      "prior_projective_dimension": 25
+    },
+    {
+      "id": "T02",
+      "reason": "Unequal full-component dimension",
+      "prior_projective_dimension": 24
+    },
+    {
+      "id": "T03",
+      "reason": "Unequal full-component dimension",
+      "prior_projective_dimension": 24
+    },
+    {
+      "id": "T04",
+      "reason": "Whole accepted generic MPS source exact reducible quintic product; closed factorization locus contains whole component",
+      "factor_report": "reports/CLASSIFICATION_MPS23_DIVISOR_FACTORS_20261107.json",
+      "degrees": [
+        1,
+        1,
+        3
+      ]
+    },
+    {
+      "id": "T05",
+      "reason": "Whole accepted generic MPS source exact reducible quintic product; closed factorization locus contains whole component",
+      "factor_report": "reports/CLASSIFICATION_MPS23_DIVISOR_FACTORS_20261107.json",
+      "degrees": [
+        1,
+        1,
+        3
+      ]
+    },
+    {
+      "id": "T06",
+      "reason": "Whole accepted generic MPS source exact reducible quintic product; closed factorization locus contains whole component",
+      "factor_report": "reports/CLASSIFICATION_MPS23_DIVISOR_FACTORS_20261107.json",
+      "degrees": [
+        1,
+        1,
+        3
+      ]
+    },
+    {
+      "id": "T07",
+      "reason": "Whole accepted generic MPS source exact reducible quintic product; closed factorization locus contains whole component",
+      "factor_report": "reports/CLASSIFICATION_MPS23_DIVISOR_FACTORS_20261107.json",
+      "degrees": [
+        1,
+        1,
+        3
+      ]
+    },
+    {
+      "id": "T08",
+      "reason": "Whole accepted generic MPS source exact reducible quintic product; closed factorization locus contains whole component",
+      "factor_report": "reports/CLASSIFICATION_MPS23_DIVISOR_FACTORS_20261107.json",
+      "degrees": [
+        1,
+        1,
+        3
+      ]
+    },
+    {
+      "id": "T09",
+      "reason": "Whole accepted generic MPS source exact reducible quintic product; closed factorization locus contains whole component",
+      "factor_report": "reports/CLASSIFICATION_MPS23_DIVISOR_FACTORS_20261107.json",
+      "degrees": [
+        1,
+        1,
+        3
+      ]
+    },
+    {
+      "id": "T10",
+      "reason": "Whole accepted generic MPS source exact reducible quintic product; closed factorization locus contains whole component",
+      "factor_report": "reports/CLASSIFICATION_MPS23_DIVISOR_FACTORS_20261107.json",
+      "degrees": [
+        1,
+        1,
+        3
+      ]
+    },
+    {
+      "id": "T11",
+      "reason": "Whole accepted generic MPS source exact reducible quintic product; closed factorization locus contains whole component",
+      "factor_report": "reports/CLASSIFICATION_MPS23_DIVISOR_FACTORS_20261107.json",
+      "degrees": [
+        1,
+        1,
+        3
+      ]
+    },
+    {
+      "id": "T12",
+      "reason": "Whole accepted generic MPS source exact reducible quintic product; closed factorization locus contains whole component",
+      "factor_report": "reports/CLASSIFICATION_MPS23_DIVISOR_FACTORS_20261107.json",
+      "degrees": [
+        1,
+        1,
+        3
+      ]
+    },
+    {
+      "id": "T13",
+      "reason": "Whole accepted generic MPS source exact reducible quintic product; closed factorization locus contains whole component",
+      "factor_report": "reports/CLASSIFICATION_MPS23_DIVISOR_FACTORS_20261107.json",
+      "degrees": [
+        1,
+        1,
+        3
+      ]
+    },
+    {
+      "id": "T14",
+      "reason": "Whole accepted generic MPS source exact reducible quintic product; closed factorization locus contains whole component",
+      "factor_report": "reports/CLASSIFICATION_MPS23_DIVISOR_FACTORS_20261107.json",
+      "degrees": [
+        1,
+        1,
+        3
+      ]
+    },
+    {
+      "id": "T15",
+      "reason": "Whole accepted generic MPS source exact reducible quintic product; closed factorization locus contains whole component",
+      "factor_report": "reports/CLASSIFICATION_MPS23_DIVISOR_FACTORS_20261107.json",
+      "degrees": [
+        1,
+        1,
+        3
+      ]
+    },
+    {
+      "id": "T16",
+      "reason": "Unequal full-component dimension",
+      "prior_projective_dimension": 24
+    },
+    {
+      "id": "T17",
+      "reason": "Unequal full-component dimension",
+      "prior_projective_dimension": 24
+    },
+    {
+      "id": "T18",
+      "reason": "Whole accepted generic MPS source exact reducible quintic product; closed factorization locus contains whole component",
+      "factor_report": "reports/CLASSIFICATION_MPS23_DIVISOR_FACTORS_20261107.json",
+      "degrees": [
+        1,
+        2,
+        2
+      ]
+    },
+    {
+      "id": "T19",
+      "reason": "Whole accepted generic MPS source exact reducible quintic product; closed factorization locus contains whole component",
+      "factor_report": "reports/CLASSIFICATION_MPS23_DIVISOR_FACTORS_20261107.json",
+      "degrees": [
+        1,
+        2,
+        2
+      ]
+    },
+    {
+      "id": "T20",
+      "reason": "Whole accepted generic MPS source exact reducible quintic product; closed factorization locus contains whole component",
+      "factor_report": "reports/CLASSIFICATION_MPS23_DIVISOR_FACTORS_20261107.json",
+      "degrees": [
+        1,
+        2,
+        2
+      ]
+    },
+    {
+      "id": "T21",
+      "reason": "Unequal full-component dimension",
+      "prior_projective_dimension": 24
+    },
+    {
+      "id": "T22",
+      "reason": "Whole accepted generic MPS source exact reducible quintic product; closed factorization locus contains whole component",
+      "factor_report": "reports/CLASSIFICATION_MPS23_DIVISOR_FACTORS_20261107.json",
+      "degrees": [
+        1,
+        4
+      ]
+    },
+    {
+      "id": "T23",
+      "reason": "Whole accepted generic MPS source exact reducible quintic product; closed factorization locus contains whole component",
+      "factor_report": "reports/CLASSIFICATION_MPS23_DIVISOR_FACTORS_20261107.json",
+      "degrees": [
+        1,
+        4
+      ]
+    },
+    {
+      "id": "T24",
+      "reason": "Whole accepted generic MPS source exact reducible quintic product; closed factorization locus contains whole component",
+      "factor_report": "reports/CLASSIFICATION_MPS23_DIVISOR_FACTORS_20261107.json",
+      "degrees": [
+        1,
+        4
+      ]
+    },
+    {
+      "id": "T25",
+      "reason": "Whole accepted generic MPS source exact reducible quintic product; closed factorization locus contains whole component",
+      "factor_report": "reports/CLASSIFICATION_MPS23_DIVISOR_FACTORS_20261107.json",
+      "degrees": [
+        1,
+        4
+      ]
+    },
+    {
+      "id": "T26",
+      "reason": "Whole accepted generic MPS source exact reducible quintic product; closed factorization locus contains whole component",
+      "factor_report": "reports/CLASSIFICATION_MPS23_DIVISOR_FACTORS_20261107.json",
+      "degrees": [
+        1,
+        4
+      ]
+    },
+    {
+      "id": "T27",
+      "reason": "Whole accepted generic MPS source exact reducible quintic product; closed factorization locus contains whole component",
+      "factor_report": "reports/CLASSIFICATION_MPS23_DIVISOR_FACTORS_20261107.json",
+      "degrees": [
+        1,
+        4
+      ]
+    },
+    {
+      "id": "T28",
+      "reason": "Whole accepted generic MPS source exact reducible quintic product; closed factorization locus contains whole component",
+      "factor_report": "reports/CLASSIFICATION_MPS23_DIVISOR_FACTORS_20261107.json",
+      "degrees": [
+        1,
+        4
+      ]
+    },
+    {
+      "id": "T29",
+      "reason": "Whole accepted generic MPS source exact reducible quintic product; closed factorization locus contains whole component",
+      "factor_report": "reports/CLASSIFICATION_MPS23_DIVISOR_FACTORS_20261107.json",
+      "degrees": [
+        1,
+        4
+      ]
+    },
+    {
+      "id": "T30",
+      "reason": "Whole accepted generic MPS source exact reducible quintic product; closed factorization locus contains whole component",
+      "factor_report": "reports/CLASSIFICATION_MPS23_DIVISOR_FACTORS_20261107.json",
+      "degrees": [
+        1,
+        4
+      ]
+    },
+    {
+      "id": "T31",
+      "reason": "Whole accepted generic MPS source exact reducible quintic product; closed factorization locus contains whole component",
+      "factor_report": "reports/CLASSIFICATION_MPS23_DIVISOR_FACTORS_20261107.json",
+      "degrees": [
+        1,
+        4
+      ]
+    },
+    {
+      "id": "T32",
+      "reason": "Whole accepted generic MPS source exact reducible quintic product; closed factorization locus contains whole component",
+      "factor_report": "reports/CLASSIFICATION_MPS23_DIVISOR_FACTORS_20261107.json",
+      "degrees": [
+        2,
+        3
+      ]
+    },
+    {
+      "id": "T33",
+      "reason": "Whole accepted generic MPS source exact reducible quintic product; closed factorization locus contains whole component",
+      "factor_report": "reports/CLASSIFICATION_MPS23_DIVISOR_FACTORS_20261107.json",
+      "degrees": [
+        3,
+        2
+      ]
+    },
+    {
+      "id": "T34",
+      "reason": "Whole accepted generic MPS source exact reducible quintic product; closed factorization locus contains whole component",
+      "factor_report": "reports/CLASSIFICATION_MPS23_DIVISOR_FACTORS_20261107.json",
+      "degrees": [
+        2,
+        3
+      ]
+    },
+    {
+      "id": "T35",
+      "reason": "Whole accepted generic MPS source exact reducible quintic product; closed factorization locus contains whole component",
+      "factor_report": "reports/CLASSIFICATION_MPS23_DIVISOR_FACTORS_20261107.json",
+      "degrees": [
+        2,
+        3
+      ]
+    },
+    {
+      "id": "T36",
+      "reason": "Unequal full-component dimension",
+      "prior_projective_dimension": 24
+    },
+    {
+      "id": "T37",
+      "reason": "Unequal full-component dimension",
+      "prior_projective_dimension": 24
+    },
+    {
+      "id": "T38",
+      "reason": "Unequal full-component dimension",
+      "prior_projective_dimension": 24
+    },
+    {
+      "id": "T39",
+      "reason": "Unequal full-component dimension",
+      "prior_projective_dimension": 25
+    },
+    {
+      "id": "T40",
+      "reason": "Unequal full-component dimension",
+      "prior_projective_dimension": 25
+    },
+    {
+      "id": "R2_RAT113",
+      "reason": "Unequal full-component dimension",
+      "prior_projective_dimension": 36
+    },
+    {
+      "id": "R2_RAT122",
+      "reason": "Unequal full-component dimension",
+      "prior_projective_dimension": 28
+    },
+    {
+      "id": "R2_LOG1112",
+      "reason": "Unequal full-component dimension",
+      "prior_projective_dimension": 28
+    },
+    {
+      "id": "R2_LPB",
+      "reason": "Unequal full-component dimension",
+      "prior_projective_dimension": 39
+    },
+    {
+      "id": "R2_AFF5",
+      "reason": "Unequal full-component dimension",
+      "prior_projective_dimension": 22
+    },
+    {
+      "id": "R2_AFF41",
+      "reason": "Unequal full-component dimension",
+      "prior_projective_dimension": 22
+    },
+    {
+      "id": "R4_DOUBLE_SMOOTH_QUADRIC",
+      "reason": "Unequal full-component dimension",
+      "prior_projective_dimension": 22
+    },
+    {
+      "id": "R4_TRIPLE_HYPERPLANE_QUADRIC",
+      "reason": "Unequal full-component dimension",
+      "prior_projective_dimension": 22
+    },
+    {
+      "id": "R4_CA",
+      "reason": "Unequal full-component dimension",
+      "prior_projective_dimension": 28
+    },
+    {
+      "id": "R4_CB",
+      "reason": "Unequal full-component dimension",
+      "prior_projective_dimension": 28
+    },
+    {
+      "id": "R4_H_QUARTIC_ESSENTIAL5",
+      "reason": "Accepted dense source has reducible quintic; closed factorization locus contains whole component",
+      "degrees": [
+        1,
+        4
+      ],
+      "multiplicities": [
+        1,
+        1
+      ],
+      "proof_sources": [
+        {
+          "path": "legacy/v06/nilpotent22.tex",
+          "anchor": "subsec:quarticcomponent"
+        }
+      ]
+    },
+    {
+      "id": "R4_ZERO_LOG_5H",
+      "reason": "Accepted dense source has reducible quintic; closed factorization locus contains whole component",
+      "degrees": [
+        1
+      ],
+      "multiplicities": [
+        5
+      ],
+      "proof_sources": [
+        {
+          "path": "legacy/v06/zero_log_component.tex",
+          "anchor": "thm:zero_log"
+        }
+      ]
+    },
+    {
+      "id": "R4_MINIMAL_M",
+      "reason": "Accepted dense source has reducible quintic; closed factorization locus contains whole component",
+      "degrees": [
+        1,
+        4
+      ],
+      "multiplicities": [
+        1,
+        1
+      ],
+      "proof_sources": [
+        {
+          "path": "legacy/v07/minimal_thickness.tex",
+          "anchor": "thm:minimal-full"
+        }
+      ]
+    },
+    {
+      "id": "R4_A0",
+      "reason": "Accepted dense source has reducible quintic; closed factorization locus contains whole component",
+      "degrees": [
+        1,
+        4
+      ],
+      "multiplicities": [
+        1,
+        1
+      ],
+      "proof_sources": [
+        {
+          "path": "legacy/v07/nil22_v7.tex",
+          "anchor": "A0\u304b\u3089\u5f97\u3089\u308c\u308b\u5168P4\u306e\u65b0\u6210\u5206"
+        }
+      ]
+    },
+    {
+      "id": "R4_DPM",
+      "reason": "Accepted dense source has reducible quintic; closed factorization locus contains whole component",
+      "degrees": [
+        1,
+        4
+      ],
+      "multiplicities": [
+        1,
+        1
+      ],
+      "proof_sources": [
+        {
+          "path": "legacy/v07/dplus_fullp4.tex",
+          "anchor": "thm:dplus-full"
+        }
+      ]
+    },
+    {
+      "id": "R4_CPLUS_EXT",
+      "reason": "Unequal full-component dimension",
+      "prior_projective_dimension": 24
+    },
+    {
+      "id": "R4_CMINUS_MAG",
+      "reason": "Accepted dense source has reducible quintic; closed factorization locus contains whole component",
+      "degrees": [
+        1,
+        1,
+        1,
+        2
+      ],
+      "multiplicities": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "proof_sources": [
+        {
+          "path": "legacy/v08/sections/cminus_component.tex",
+          "anchor": "thm:cminusmag"
+        }
+      ]
+    },
+    {
+      "id": "R4_POSITIVE_WEIGHT6_25",
+      "reason": "Unequal full-component dimension",
+      "prior_projective_dimension": 25
+    },
+    {
+      "id": "R4_DOUBLE_RANK3_QUADRIC_MIXED_22",
+      "reason": "Unequal full-component dimension",
+      "prior_projective_dimension": 22
+    },
+    {
+      "id": "R4_DOUBLE_RANK3_QUADRIC_TWZERO_24",
+      "reason": "Unequal full-component dimension",
+      "prior_projective_dimension": 24
+    },
+    {
+      "id": "R4_NIL4_DOUBLE_H_CUBIC_22",
+      "reason": "Unequal full-component dimension",
+      "prior_projective_dimension": 22
+    },
+    {
+      "id": "R4_NIL4_DOUBLE_H_H_QUADRIC_22",
+      "reason": "Unequal full-component dimension",
+      "prior_projective_dimension": 22
+    },
+    {
+      "id": "R4_NIL4_TRIPLE_H_DOUBLE_H_OUTSIDE_22",
+      "reason": "Unequal full-component dimension",
+      "prior_projective_dimension": 22
+    },
+    {
+      "id": "R4_NIL4_TRIPLE_H_DOUBLE_H_INSIDE_22",
+      "reason": "Unequal full-component dimension",
+      "prior_projective_dimension": 22
+    },
+    {
+      "id": "R4_DEPENDENT_THREE_HYPERPLANES_QUADRIC_24",
+      "reason": "Unequal full-component dimension",
+      "prior_projective_dimension": 24
+    },
+    {
+      "id": "R4_MODULAR_NIL31_DOUBLE_DOUBLE_H_25",
+      "reason": "Unequal full-component dimension",
+      "prior_projective_dimension": 25
+    },
+    {
+      "id": "R4_NIL31_SHORT_DOUBLE_H_CUBIC_22",
+      "reason": "Unequal full-component dimension",
+      "prior_projective_dimension": 22
+    },
+    {
+      "id": "R4_NIL31_LONG_DOUBLE_H_CUBIC_22",
+      "reason": "Unequal full-component dimension",
+      "prior_projective_dimension": 22
+    },
+    {
+      "id": "R4_NIL31_LONG_TRIPLE_H_RANK3_QUADRIC_22",
+      "reason": "Unequal full-component dimension",
+      "prior_projective_dimension": 22
+    },
+    {
+      "id": "R4_INDEPENDENT_THREE_HYPERPLANES_TRITANGENT_QUADRIC_23",
+      "reason": "Accepted dense source has reducible quintic; closed factorization locus contains whole component",
+      "degrees": [
+        1,
+        1,
+        1,
+        2
+      ],
+      "multiplicities": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/THREE_HYPERPLANES_QUADRIC_INDEPENDENT.md",
+          "anchor": "section5.1"
+        },
+        {
+          "path": "research/classification/THREE_HYPERPLANES_QUADRIC_INDEPENDENT_REVIEW.md"
+        }
+      ]
+    },
+    {
+      "id": "R4_NIL22_QUADRUPLE_H_LINEAR_22",
+      "reason": "Unequal full-component dimension",
+      "prior_projective_dimension": 22
+    },
+    {
+      "id": "R4_NIL31_SHORT_QUADRUPLE_H_LINEAR_22",
+      "reason": "Unequal full-component dimension",
+      "prior_projective_dimension": 22
+    },
+    {
+      "id": "R4_NIL22_DOUBLE_H_TRIPLE_LINEAR_22",
+      "reason": "Unequal full-component dimension",
+      "prior_projective_dimension": 22
+    },
+    {
+      "id": "R4_TWO_HYPERPLANES_CUBIC_22",
+      "reason": "Unequal full-component dimension",
+      "prior_projective_dimension": 22
+    },
+    {
+      "id": "R4_PLANE_CONIC_CUBIC_CUSP_OUTSIDE_1_23",
+      "reason": "Accepted dense source has reducible quintic; closed factorization locus contains whole component",
+      "degrees": [
+        2,
+        3
+      ],
+      "multiplicities": [
+        1,
+        1
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/DEGENERATE_QUADRIC_Q3_AZERO_SUPPORT.md"
+        }
+      ]
+    },
+    {
+      "id": "R4_PLANE_CONIC_CUBIC_CUSP_OUTSIDE_3_23",
+      "reason": "Accepted dense source has reducible quintic; closed factorization locus contains whole component",
+      "degrees": [
+        2,
+        3
+      ],
+      "multiplicities": [
+        1,
+        1
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/DEGENERATE_QUADRIC_Q3_AZERO_SUPPORT.md"
+        }
+      ]
+    },
+    {
+      "id": "R4_PLANE_CONIC_CUBIC_CUSP_AT_CUSP_2_23",
+      "reason": "Accepted dense source has reducible quintic; closed factorization locus contains whole component",
+      "degrees": [
+        2,
+        3
+      ],
+      "multiplicities": [
+        1,
+        1
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/DEGENERATE_QUADRIC_Q3_AZERO_SUPPORT.md"
+        }
+      ]
+    },
+    {
+      "id": "R4_PLANE_CONIC_CUBIC_CUSP_AT_CUSP_3_23",
+      "reason": "Accepted dense source has reducible quintic; closed factorization locus contains whole component",
+      "degrees": [
+        2,
+        3
+      ],
+      "multiplicities": [
+        1,
+        1
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/DEGENERATE_QUADRIC_Q3_AZERO_SUPPORT.md"
+        }
+      ]
+    },
+    {
+      "id": "R4_PLANE_CONIC_CUBIC_NODE_SMOOTH_CONTACT_23",
+      "reason": "Accepted dense source has reducible quintic; closed factorization locus contains whole component",
+      "degrees": [
+        2,
+        3
+      ],
+      "multiplicities": [
+        1,
+        1
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/DEGENERATE_QUADRIC_Q3_AZERO_SUPPORT.md"
+        }
+      ]
+    },
+    {
+      "id": "R4_PLANE_CONIC_CUBIC_NODE_AT_NODE_23",
+      "reason": "Accepted dense source has reducible quintic; closed factorization locus contains whole component",
+      "degrees": [
+        2,
+        3
+      ],
+      "multiplicities": [
+        1,
+        1
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/DEGENERATE_QUADRIC_Q3_AZERO_SUPPORT.md"
+        }
+      ]
+    },
+    {
+      "id": "R4_PLANE_TWO_LINES_CUBIC_NODE_TANGENT_FLEX_23",
+      "reason": "Accepted dense source has reducible quintic; closed factorization locus contains whole component",
+      "degrees": [
+        1,
+        1,
+        3
+      ],
+      "multiplicities": [
+        1,
+        1,
+        1
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/TWO_LINES_PLANE_CUBIC_SUPPORT.md"
+        }
+      ]
+    },
+    {
+      "id": "R4_PLANE_TWO_LINES_CUBIC_CUSP_FLEX_TANGENT_23",
+      "reason": "Accepted dense source has reducible quintic; closed factorization locus contains whole component",
+      "degrees": [
+        1,
+        1,
+        3
+      ],
+      "multiplicities": [
+        1,
+        1,
+        1
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/TWO_LINES_PLANE_CUBIC_SUPPORT.md"
+        }
+      ]
+    },
+    {
+      "id": "R4_PLANE_TWO_LINES_CUBIC_CUSP_TWO_TANGENTS_INCIDENT_23",
+      "reason": "Accepted dense source has reducible quintic; closed factorization locus contains whole component",
+      "degrees": [
+        1,
+        1,
+        3
+      ],
+      "multiplicities": [
+        1,
+        1,
+        1
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/TWO_LINES_PLANE_CUBIC_SUPPORT.md"
+        }
+      ]
+    },
+    {
+      "id": "R4_PLANE_TWO_LINES_CUBIC_CUSP_FLEX_CUSP_SECANT_23",
+      "reason": "Accepted dense source has reducible quintic; closed factorization locus contains whole component",
+      "degrees": [
+        1,
+        1,
+        3
+      ],
+      "multiplicities": [
+        1,
+        1,
+        1
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/TWO_LINES_PLANE_CUBIC_SUPPORT.md"
+        }
+      ]
+    },
+    {
+      "id": "R4_PLANE_TWO_LINES_CUBIC_CUSP_TANGENT_CUSP_SECANT_23",
+      "reason": "Accepted dense source has reducible quintic; closed factorization locus contains whole component",
+      "degrees": [
+        1,
+        1,
+        3
+      ],
+      "multiplicities": [
+        1,
+        1,
+        1
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/TWO_LINES_PLANE_CUBIC_SUPPORT.md"
+        }
+      ]
+    },
+    {
+      "id": "R4_PLANE_TWO_LINES_CUBIC_CUSP_CUSP_TANGENT_ORDINARY_TANGENT_23",
+      "reason": "Accepted dense source has reducible quintic; closed factorization locus contains whole component",
+      "degrees": [
+        1,
+        1,
+        3
+      ],
+      "multiplicities": [
+        1,
+        1,
+        1
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/TWO_LINES_PLANE_CUBIC_SUPPORT.md"
+        }
+      ]
+    },
+    {
+      "id": "R4_PLANE_TWO_LINES_CUBIC_NODE_TWO_FLEXES_23",
+      "reason": "Accepted dense source has reducible quintic; closed factorization locus contains whole component",
+      "degrees": [
+        1,
+        1,
+        3
+      ],
+      "multiplicities": [
+        1,
+        1,
+        1
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/TWO_LINES_PLANE_CUBIC_SUPPORT.md"
+        },
+        {
+          "path": "research/classification/TWO_LINES_PLANE_CUBIC_CUBIC_REVIEW.md"
+        }
+      ]
+    },
+    {
+      "id": "R4_PLANE_TWO_LINES_CUBIC_NODE_FLEX_SECANT_23",
+      "reason": "Accepted dense source has reducible quintic; closed factorization locus contains whole component",
+      "degrees": [
+        1,
+        1,
+        3
+      ],
+      "multiplicities": [
+        1,
+        1,
+        1
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/TWO_LINES_PLANE_CUBIC_SUPPORT.md"
+        },
+        {
+          "path": "research/classification/TWO_LINES_PLANE_CUBIC_CUBIC_REVIEW.md"
+        }
+      ]
+    },
+    {
+      "id": "R4_PLANE_TWO_LINES_CUBIC_CUSP_TANGENT_CUSP_THIRD_SECANT_23",
+      "reason": "Accepted dense source has reducible quintic; closed factorization locus contains whole component",
+      "degrees": [
+        1,
+        1,
+        3
+      ],
+      "multiplicities": [
+        1,
+        1,
+        1
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/TWO_LINES_PLANE_CUBIC_SUPPORT.md"
+        },
+        {
+          "path": "research/classification/TWO_LINES_PLANE_CUBIC_CUBIC_REVIEW.md"
+        }
+      ]
+    },
+    {
+      "id": "R4_NIL4_HYPERPLANE_QUARTIC_22",
+      "reason": "Unequal full-component dimension",
+      "prior_projective_dimension": 22
+    },
+    {
+      "id": "R4_PLANE_TWO_CONICS_BITANGENT_23",
+      "reason": "Accepted dense source has reducible quintic; closed factorization locus contains whole component",
+      "degrees": [
+        1,
+        2,
+        2
+      ],
+      "multiplicities": [
+        1,
+        1,
+        1
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/TWO_QUADRICS_PLANE_CONIC_CONFIGURATIONS.md"
+        },
+        {
+          "path": "research/classification/TWO_QUADRICS_PLANE_COMPONENTS.md"
+        },
+        {
+          "path": "research/classification/TWO_QUADRICS_BITANGENT_SEPARATE_REVIEW.md"
+        },
+        {
+          "path": "research/classification/TWO_QUADRICS_OTHER_TANGENT_SEPARATE_REVIEW.md"
+        }
+      ]
+    },
+    {
+      "id": "R4_PLANE_TWO_CONICS_CONTACT4_TANGENT_23",
+      "reason": "Accepted dense source has reducible quintic; closed factorization locus contains whole component",
+      "degrees": [
+        1,
+        2,
+        2
+      ],
+      "multiplicities": [
+        1,
+        1,
+        1
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/TWO_QUADRICS_PLANE_CONIC_CONFIGURATIONS.md"
+        },
+        {
+          "path": "research/classification/TWO_QUADRICS_PLANE_COMPONENTS.md"
+        },
+        {
+          "path": "research/classification/TWO_QUADRICS_BITANGENT_SEPARATE_REVIEW.md"
+        },
+        {
+          "path": "research/classification/TWO_QUADRICS_OTHER_TANGENT_SEPARATE_REVIEW.md"
+        }
+      ]
+    },
+    {
+      "id": "R4_NIL31_IMAGE_HALF_25",
+      "reason": "Unequal full-component dimension",
+      "prior_projective_dimension": 25
+    },
+    {
+      "id": "R4_NIL31_IMAGE_THIRD_25",
+      "reason": "Unequal full-component dimension",
+      "prior_projective_dimension": 25
+    },
+    {
+      "id": "R4_NIL22_IMAGE_NODAL_CUBIC_FLEX_23",
+      "reason": "Accepted dense source has reducible quintic; closed factorization locus contains whole component",
+      "degrees": [
+        1,
+        3
+      ],
+      "multiplicities": [
+        2,
+        1
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/NIL22_IMAGE_SOURCES_AND_COMPONENTS.md"
+        },
+        {
+          "path": "research/classification/NIL22_IMAGE_COMPONENTS_REVIEW.md"
+        }
+      ]
+    },
+    {
+      "id": "R4_NIL22_IMAGE_NODAL_CUBIC_NODE_TANGENT_23",
+      "reason": "Accepted dense source has reducible quintic; closed factorization locus contains whole component",
+      "degrees": [
+        1,
+        3
+      ],
+      "multiplicities": [
+        2,
+        1
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/NIL22_IMAGE_SOURCES_AND_COMPONENTS.md"
+        },
+        {
+          "path": "research/classification/NIL22_IMAGE_COMPONENTS_REVIEW.md"
+        }
+      ]
+    },
+    {
+      "id": "R4_NIL31_LONG_HYPERPLANE_QUARTIC_22",
+      "reason": "Unequal full-component dimension",
+      "prior_projective_dimension": 22
+    },
+    {
+      "id": "R4_GA9_CONSTANT_HYPERPLANE_QUARTIC_23",
+      "reason": "Accepted dense source has reducible quintic; closed factorization locus contains whole component",
+      "degrees": [
+        1,
+        4
+      ],
+      "multiplicities": [
+        1,
+        1
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/GA9_CONSTANT_COMPONENT.md"
+        },
+        {
+          "path": "research/classification/GA9_CONSTANT_ANCHOR_REVIEW.md"
+        }
+      ]
+    }
+  ],
+  "same23_MPS_count": 29,
+  "same23_nonMPS_count": 27,
+  "old_coordinates_from_eigen_coordinates": [
+    [
+      "0",
+      "-4",
+      "0",
+      "-18",
+      "0"
+    ],
+    [
+      "6",
+      "0",
+      "4",
+      "0",
+      "2"
+    ],
+    [
+      "863",
+      "0",
+      "87",
+      "0",
+      "-9"
+    ],
+    [
+      "0",
+      "3",
+      "0",
+      "1",
+      "0"
+    ],
+    [
+      "99",
+      "0",
+      "11",
+      "0",
+      "3"
+    ]
+  ],
+  "eigenvalues": [
+    -50,
+    -25,
+    0,
+    25,
+    50
+  ],
+  "canonical_eigen_coordinate_quintic": "-80*u0**3*u3**2 - 240*u0**2*u1**2*u4 + 160*u0**2*u1*u2*u3 + 6*u0*u1**3*u3 - u1**4*u2",
+  "canonical_eigen_coordinate_bivector": {
+    "0,2": "48*u0**2",
+    "0,3": "48*u0*u1",
+    "0,4": "32*u0*u2 + u1**2",
+    "1,2": "-72*u0*u1",
+    "1,3": "-12*u1**2",
+    "1,4": "-40*u0*u3 - 8*u1*u2",
+    "2,3": "72*u0*u3 + 48*u1*u2",
+    "2,4": "-48*u0*u4 + 6*u1*u3 + 32*u2**2",
+    "3,4": "72*u1*u4 - 88*u2*u3"
+  },
+  "eigen_quintic_original_scalar": "62500000",
+  "bivector_original_scaling": "0.4",
+  "seconds": 0.4919380560004356
+}

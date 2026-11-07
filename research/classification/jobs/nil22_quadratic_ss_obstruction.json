@@ -1,0 +1,37 @@
+{
+  "task_id": "E_multiple_hyperplane",
+  "target_statement": "Replay the direct three-coefficient unit-ideal obstruction for the completed fixed degree-two SS20 contraction.",
+  "implication_to_classification": "A literal all-tau Poisson family in the accepted semisimple 20 full-rank constant source proves the generic quadratic_A tensor and then the entire irreducible seven-parameter source belong to the finite closed union of MPS components. Failure concerns only this fixed contraction ansatz.",
+  "coefficient_ring": "QQ(lambda) with full magnetic parameters m0,...,m5 and exact rational-function coefficients; four spatial variables and one polynomial deformation parameter tau.",
+  "hypotheses": "Adopt the independently accepted full eleven-source reduction and whole SS20 rank-two constant-crossing source theorem. Retain all seven source parameters and use only a degree-two SS expression C+tau*A+tau^2*B, with both quadratic tensors invariant under H=diag(-1,-1,1,1).",
+  "inverted_elements": [
+    "(lambda-1/2)*(lambda+1/2) for the explicit magnetic translation",
+    "I=m0+m4 for the generic magnetic scaling",
+    "tau only in the actual symplectic coordinate map I+N/(2*tau)",
+    "Any rational lambda denominators found by exact linear/Groebner elimination, recorded explicitly if an actual family exists"
+  ],
+  "complements": [
+    "I=0 is the literal source Poisson curve F0=t tending to F0=0 after the magnetic translation.",
+    "The lambda=+/-1/2 fibres and any additional denominator-zero fibres lie in the closure of the generic open of the original irreducible affine seven-parameter source; the target finite MPS union is closed.",
+    "No tau-degree expansion, higher-jet iteration, point sampling, or implication of nonmembership follows from failure."
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_nil22_quadratic_ss_obstruction.py",
+      "sha256": "07e9c9600ad7ad152632a95a70dee7580511417100a0a3cd91e7f42416902378"
+    },
+    {
+      "path": "reports/CLASSIFICATION_NIL22_QUADRATIC_SS_LIMIT_20261107.json",
+      "sha256": "62b1332d835b41de1a0eccb127ce6c3622ce0af21ea5e1ada7a9ffd2a2fd55f0"
+    }
+  ],
+  "success_certificate": "Recompute all cubic Jacobi coefficients of the complete two-parameter A projection and locate the three literal conditions r19,r21,r19*r21+1/16; verify their explicit unit-ideal identity.",
+  "independent_check": "No import of the contraction producer; direct SymPy derivatives of all six reported A brackets. The complete linear elimination is adopted and its scope stated explicitly.",
+  "resource_limit": {
+    "timeout_seconds": 30,
+    "memory_mb": 512
+  },
+  "negative_result_next_step": "If the direct obstruction fails, retain the original raw calculation but do not claim inconsistency until corrected. No larger ansatz or tau degree will be attempted.",
+  "route_change_reason": "The earlier full N-wedge pencils for double_A closed back into magnetic directions and were stopped. This job treats a different remaining source, quadratic_A, by a prescribed actual semisimple contraction with a priori finite Laurent bound, not another N-wedge or jet probe.",
+  "implementation_correction": "Preflight corrected simultaneous substitution of the full magnetic invariant I=m0+m4, so the canonical expression retains both coefficients. No research ansatz or tau degree changed."
+}

@@ -1,0 +1,98 @@
+{
+  "task_id": "E_multiple_hyperplane",
+  "all_passed": true,
+  "exact_fixed_ansatz_completed": true,
+  "tau_degree_not_enlarged": 2,
+  "full_seven_original_source_parameters": [
+    "m0",
+    "m1",
+    "m2",
+    "m3",
+    "m4",
+    "m5",
+    "lam"
+  ],
+  "magnetic_invariant": "I=m0+m4",
+  "exact_all_magnetic_affine_normalizer": [
+    "m2/(-lam - 1/2) - m4*x + m5*y/(-2*lam - 1)",
+    "-m1/(lam - 1/2) - m3*x/(2*lam - 1)"
+  ],
+  "normalizer_open": "(lam-1/2)*(lam+1/2)*I !=0",
+  "complement": "I0 explicitF0=tau Poissoncurve; lambda\u00b11/2 and every other genericparametercomplement lie in closure of the originalirreducible A7source.",
+  "linear_reduction": {
+    "status": "full_linear_reduction_complete",
+    "tau_degree": 2,
+    "linear_shape": [
+      76,
+      44
+    ],
+    "linear_rank": 34,
+    "remaining_variables": [
+      "r19",
+      "r21",
+      "r28",
+      "r36",
+      "r37",
+      "r39",
+      "r40",
+      "r41",
+      "r42",
+      "r43"
+    ],
+    "exact_A": {
+      "0,1": "2*lam*q1*q2 + q1**2*r19 + q2**2*r21",
+      "0,2": "-2*lam*q1*x + 3*q1*r21*y + q1*x - 3*q2*r21*x",
+      "0,3": "q1*r19*x + q2*r21*y + q2*x",
+      "1,2": "-q1*r19*x + q1*y - q2*r21*y",
+      "1,3": "2*lam*q2*y + 3*q1*r19*y - 3*q2*r19*x + q2*y",
+      "2,3": "-2*lam*x*y + r19*x**2 + r21*y**2"
+    },
+    "exact_B": {
+      "0,1": "-(6*q1**2*r39 + 15*q1**2*r41 + 3*q1*q2*r42 - 4*q1*q2 + 6*q2**2*r36 + 3*q2**2*r43)/3",
+      "0,2": "(-3*q1*r36*y + 3*q1*r40*x + 6*q1*r42*x + 6*q1*r43*y - 4*q1*x + 3*q2*r28*y + 15*q2*r36*x + 6*q2*r43*x)/3",
+      "0,3": "-(3*q1*r39*x + 3*q1*r40*y + 6*q1*r41*x + 3*q1*r42*y + 3*q2*r36*y - 3*q2*r40*x - 3*q2*r42*x + 4*q2*x)/3",
+      "1,2": "(3*q1*r39*x + 3*q1*r40*y + 6*q1*r41*x + 3*q1*r42*y + 3*q2*r36*y - 3*q2*r40*x - 3*q2*r42*x + 4*q2*x)/3",
+      "1,3": "q1*r37*x - 5*q1*r39*y - 12*q1*r41*y + q2*r39*x + q2*r40*y",
+      "2,3": "r41*x**2 + r42*x*y + r43*y**2"
+    },
+    "full_Jacobi_conditions": [
+      "r36*r37 - 2*r37*r43 + 3*r39*r40 + 6*r39*r42 - 20*r39/3 + 8*r40*r41 + 15*r41*r42 - 16*r41",
+      "r36*r39 + 12*r36*r41/5 - 8*r39*r43/5 + r40**2/5 + 2*r40*r42/5 - 19*r41*r43/5 + r42**2/5",
+      "r28*r37 - 24*r36*r39 - 56*r36*r41 - 8*r39*r43 - r40**2 - 2*r40*r42 + 4*r40/3 - 24*r41*r43 - r42**2 + 4*r42/3",
+      "r28*r39 + 12*r28*r41/5 - r36*r40/5 - 2*r36*r42/5 - 2*r40*r43/5 - r42*r43/5 + 4*r43/15",
+      "r28*r39 + 3*r36*r40 + 8*r36/3 + 2*r40*r43 + r42*r43",
+      "r28*r40 + r36**2 + 2*r36*r43 + r43**2",
+      "r19*r40 + 3*r19*r42 - 4*r19 + 3*r21*r37 + r39*(6*lam - 1) + r41*(14*lam - 3)",
+      "r19*r36 - 5*r19*r43/3 + 13*r21*r39/3 + 31*r21*r41/3 - r40/2 - r42/2",
+      "r19*r36 + r21*r39 + 2*r21*r41 - r40/8 - r42/8 + 1/12",
+      "r19*r28 + r21*r40/3 - r21*r42/3 - 4*r21/9 + r36*(1/3 - 2*lam/3) + r43*(2*lam/3 + 1/3)",
+      "r19*r28 + r21*r40/3 - r21*r42/3 + 8*r21/9 + r36*(-2*lam - 1/3) + r43*(-2*lam/3 - 1/3)",
+      "r28",
+      "r19",
+      "r19*r21 + 1/16",
+      "r21",
+      "r37*r40 + 2*r37*r42 - 4*r37/3 + r39**2 + 6*r39*r41 + 9*r41**2",
+      "r36*r37 + 2*r37*r43/5 - r39*r40/5 + 4*r39/15 - 4*r40*r41/5 - 3*r41*r42/5 + 4*r41/5",
+      "r36*r39 + 2*r36*r41/5 + 2*r39*r43/5 + r40**2/5 + 2*r40*r42/5 - 8*r40/15 + r41*r43/5 + r42**2/5 - 8*r42/15 + 16/45",
+      "r37",
+      "r19*r40 + 3*r19*r42 + 3*r21*r37 + r39*(2*lam + 1) + r41*(2*lam + 3)",
+      "r19*r36 + 5*r19*r43/13 + 3*r21*r39/13 + r21*r41/13 - 3*r40/26 - 3*r42/26 + 2/13"
+    ]
+  },
+  "Groebner_basis_over_QQ_lambda": [
+    "Poly(1, r19, r21, r28, r36, r37, r39, r40, r41, r42, r43, domain='QQ(lam)')"
+  ],
+  "actual_curve_found": false,
+  "entire_quadratic_A_source_MPS_covered": false,
+  "actual_family": null,
+  "scope": "Positive means literal all-tau Poissonfamily and wholeoriginalsource closedness; negative excludes only this specified degree2 SS20contraction, not otherfamilies or components.",
+  "input_sha256": {
+    "code/classification_nil22_quadratic_ss_limit.py": "d60ded6077267639d690b46e5d6ea371498c7cd3c7095e91ee404bec9b2158e6",
+    "code/classification_nil22_image_source_review.py": "72158242b9431a36a821fbca77230c2543687611cd57b6c8a279ea7896ef57d4",
+    "reports/CLASSIFICATION_NIL22_IMAGE_SOURCE_REVIEW_V2_20261107.json": "bc945ece2d11bdd407e86681fdee5636257f801fe5c8e4f473c26a24442580eb",
+    "research/classification/HYPERPLANE_QUARTIC_LARGE_SEMISIMPLE_SUPPORT.md": "c6ba0d9a0ae1ba30ced7082b104d4692f665316e1283fc561abcd823fb969e15"
+  },
+  "producer_source_bytes": "#!/usr/bin/env python3\n\"\"\"One finite, exact Rees-contraction ansatz for the entire quadratic_A source.\n\nThe SS expression is C+tau*A+tau\u00b2*B with H-weight-zero quadratic A,B.\nAll Laurent negative powers, endpoint and full Jacobi identities are imposed.\nNo jets are promoted to actual families, and tau degree is never enlarged.\n\"\"\"\nimport argparse\nimport hashlib\nimport itertools as it\nimport json\nfrom pathlib import Path\nimport resource\nimport time\n\nimport sympy as s\nfrom classification_nil22_image_source_review import build_P,coords,p,F0,mag,x,y,q1,q2\n\nROOT=Path(__file__).resolve().parents[1]\n\n\ndef jacobi(P):\n    return [s.expand(sum(P[i,l]*s.diff(P[j,k],coords[l])+P[j,l]*s.diff(P[k,i],coords[l])+P[k,l]*s.diff(P[i,j],coords[l])for l in range(4)))for i,j,k in it.combinations(range(4),3)]\n\n\ndef div(P):return s.Matrix([s.expand(sum(s.diff(P[i,j],coords[i])for i in range(4)))for j in range(4)])\n\n\ndef push(P,G):\n    return (G*P*G.T).subs(dict(zip(coords,G.inv()*s.Matrix(coords))),simultaneous=True).applyfunc(s.expand)\n\n\ndef equations(expressions,variables):\n    return [c for expression in expressions for e,c in s.Poly(s.expand(expression),*variables).terms()if c!=0]\n\n\ndef encode(P):return {f'{i},{j}':str(s.factor(P[i,j]))for i,j in it.combinations(range(4),2)if P[i,j]!=0}\n\n\ndef main():\n    ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--output',type=Path,required=True);args=ap.parse_args()\n    begun=time.monotonic();resource.setrlimit(resource.RLIMIT_CPU,(170,175));resource.setrlimit(resource.RLIMIT_AS,(1536*1024**2,1536*1024**2))\n    lam,tau=s.symbols('lam tau');a=lam-s.Rational(1,2);b=-lam-s.Rational(1,2)\n    P,_,_=build_P(0,s.Matrix([[0,1],[1,0]]),s.zeros(2,1),s.diag(a,b))\n    # Full magnetic affine normalizer, with its exact nonzero complement.\n    I=mag[0]+mag[4]\n    L1=mag[2]/b-mag[4]*x+mag[5]*y/(2*b);L2=-mag[1]/a-mag[3]*x/(2*a)\n    changed_coords=s.Matrix([q1+L1,q2+L2,x,y]);G=changed_coords.jacobian(s.Matrix(coords))\n    translated=(G*P*G.T).subs({q1:q1-L1,q2:q2-L2},simultaneous=True).applyfunc(s.cancel)\n    canonical=P.subs(dict(zip(mag,[I,0,0,0,0,0])),simultaneous=True)\n    assert (translated-canonical).applyfunc(s.cancel)==s.zeros(4)\n    canonical_one=P.subs(dict(zip(mag,[1,0,0,0,0,0])))\n    J=s.Symbol('I',nonzero=True);scaling=s.diag(1/J,1/J,1,1)\n    normalized=push(P.subs(dict(zip(mag,[J,0,0,0,0,0]))),scaling)*J\n    assert (normalized-canonical_one).applyfunc(s.cancel)==s.zeros(4)\n    shift=s.eye(4);shift[0,2]=1\n    target=push(canonical_one,shift)\n    C=s.zeros(4);C[0,3]=C[1,2]=1;C[3,0]=C[2,1]=-1\n    assert target.subs(dict.fromkeys(coords,0))==C\n    assert not any(jacobi(target))\n    N=s.zeros(4);N[0,2]=N[1,3]=1\n    H=s.diag(-1,-1,1,1);g=s.eye(4)+N/(2*tau)\n    assert g.det()==1 and g*C*g.T==C\n    assert (g*(tau*H)*g.inv()-N-tau*H).applyfunc(s.cancel)==s.zeros(4)\n    weights=[-1,-1,1,1];basis=[]\n    for i,j in it.combinations(range(4),2):\n        for k,l in it.combinations_with_replacement(range(4),2):\n            if weights[k]+weights[l]!=weights[i]+weights[j]:continue\n            B=s.zeros(4);B[i,j]=coords[k]*coords[l];B[j,i]=-B[i,j];basis.append(B)\n    assert len(basis)==22\n    unknown=s.symbols('r0:44');A=sum([co*B for co,B in zip(unknown[:22],basis)],s.zeros(4));B=sum([co*Q for co,Q in zip(unknown[22:],basis)],s.zeros(4))\n    ss=C+tau*A+tau*tau*B\n    family=push(ss,g)\n    # Weightzeroquadratics have at most two powers of the unipotent shear.\n    # Multiplication by tau clears every possible negative power here.\n    assert all(s.denom(s.cancel(tau*value)).free_symbols<={lam} for value in family)\n    linear_equations=equations(div(A)-H*s.Matrix(coords),coords)+equations(div(B),coords)\n    linear_equations+=equations([v-z for v,z in zip(jacobi(C+A),jacobi(A))],coords)\n    linear_equations+=equations([v-z for v,z in zip(jacobi(C+B),jacobi(B))],coords)\n    endpoint=[]\n    for value,target_value in zip(family,target):\n        endpoint +=[s.expand(value).coeff(tau,-1),s.expand(value).coeff(tau,0)-target_value]\n    linear_equations+=equations(endpoint,coords)\n    matrix,rhs=s.linear_eq_to_matrix(linear_equations,unknown)\n    solution_set=s.linsolve((matrix,rhs),unknown)\n    assert solution_set is not s.EmptySet and bool(solution_set),'This fixed degree2 contraction has no linear lift.'\n    solution=list(solution_set)[0]\n    free=sorted(set().union(*(value.free_symbols for value in solution))-{lam},key=str)\n    replacement=dict(zip(unknown,solution));A=A.subs(replacement,simultaneous=True).applyfunc(s.expand);B=B.subs(replacement,simultaneous=True).applyfunc(s.expand)\n    ss=C+tau*A+tau*tau*B\n    nonlinear=equations(jacobi(ss),(tau,*coords))\n    field=s.QQ.frac_field(lam)\n    if free:\n        nonlinear=list({str(s.Poly(value,*free,domain=field).monic().as_expr()):s.Poly(value,*free,domain=field).monic().as_expr()for value in nonlinear}.values())\n    progress=dict(status='full_linear_reduction_complete',tau_degree=2,linear_shape=list(matrix.shape),linear_rank=matrix.rank(),remaining_variables=list(map(str,free)),\n        exact_A=encode(A),exact_B=encode(B),full_Jacobi_conditions=list(map(str,nonlinear)))\n    Path('/tmp/nil22_quadratic_ss_limit_progress.json').write_text(json.dumps(progress,indent=2)+'\\n')\n    certificate=[];candidates=[]\n    if not nonlinear:candidates=[{}]\n    elif not free:certificate=['1']\n    else:\n        GB=s.groebner(nonlinear,*free,domain=field,order='grevlex');certificate=list(map(str,GB.polys))\n        if not(GB.is_zero_dimensional is False and len(GB.polys)==1 and GB.polys[0].as_expr()==1):\n            if not(len(GB.polys)==1 and GB.polys[0].as_expr()==1):\n                candidates=s.solve([v.as_expr()for v in GB.polys],free,dict=True,check=False,simplify=False)\n    accepted=None\n    for candidate in candidates:\n        values={key:s.cancel(value)for key,value in candidate.items()}\n        if any(not value.is_rational_function(lam,*free)for value in values.values()):continue\n        if any(s.cancel(value.subs(values,simultaneous=True))!=0 for value in nonlinear):continue\n        accepted=values;break\n    found=accepted is not None;result_family=None\n    if found:\n        A=A.subs(accepted,simultaneous=True).applyfunc(s.cancel);B=B.subs(accepted,simultaneous=True).applyfunc(s.cancel)\n        ss=C+tau*A+tau*tau*B;family=push(ss,g).applyfunc(s.cancel)\n        assert not any(jacobi(ss)) and not any(jacobi(family))\n        assert (div(ss)-tau*H*s.Matrix(coords)).applyfunc(s.cancel)==s.zeros(4,1)\n        assert (div(family)-(N+tau*H)*s.Matrix(coords)).applyfunc(s.cancel)==s.zeros(4,1)\n        assert (family.subs(tau,0)-target).applyfunc(s.cancel)==s.zeros(4)\n        assert all(s.denom(value).has(tau)is False for value in family)\n        assert all(s.Poly(value,tau).degree()<=2 for value in family if value!=0)\n        assert family.subs(dict.fromkeys(coords,0))==C\n        result_family=dict(source_SS_A=encode(A),source_SS_B=encode(B),whole_regular_contracted_family=encode(family),\n            exact_endpoint=encode(target),all_tau_strictJacobi_zero=True,SS_modular='tau*diag(-1,-1,1,1)',\n            contracted_modular='N+tau*diag(-1,-1,1,1)',constant_symplectic_Pfaffian='1',\n            every_nonzero_tau_in_accepted_SS20_rank2_source=True,\n            accepted_coefficient_substitution={str(k):str(v)for k,v in accepted.items()})\n    inputs=[Path(__file__),ROOT/'code/classification_nil22_image_source_review.py',ROOT/'reports/CLASSIFICATION_NIL22_IMAGE_SOURCE_REVIEW_V2_20261107.json',ROOT/'research/classification/HYPERPLANE_QUARTIC_LARGE_SEMISIMPLE_SUPPORT.md']\n    result=dict(task_id='E_multiple_hyperplane',all_passed=True,exact_fixed_ansatz_completed=True,tau_degree_not_enlarged=2,\n        full_seven_original_source_parameters=[*map(str,mag),'lam'],magnetic_invariant='I=m0+m4',\n        exact_all_magnetic_affine_normalizer=[str(L1),str(L2)],normalizer_open='(lam-1/2)*(lam+1/2)*I !=0',\n        complement='I0 explicitF0=tau Poissoncurve; lambda\u00b11/2 and every other genericparametercomplement lie in closure of the originalirreducible A7source.',\n        linear_reduction=progress,Groebner_basis_over_QQ_lambda=certificate,actual_curve_found=found,\n        entire_quadratic_A_source_MPS_covered=found,actual_family=result_family,\n        scope='Positive means literal all-tau Poissonfamily and wholeoriginalsource closedness; negative excludes only this specified degree2 SS20contraction, not otherfamilies or components.',\n        input_sha256={str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest()for p in inputs},producer_source_bytes=Path(__file__).read_text(),\n        seconds=round(time.monotonic()-begun,6),maximum_RSS_KiB=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss)\n    with args.output.open('x')as handle:json.dump(result,handle,indent=2);handle.write('\\n')\n    print(json.dumps({k:result[k]for k in ['all_passed','actual_curve_found','entire_quadratic_A_source_MPS_covered','seconds']}))\n\n\nif __name__=='__main__':main()\n",
+  "seconds": 1.801222,
+  "maximum_RSS_KiB": 54316
+}

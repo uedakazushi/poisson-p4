@@ -1,0 +1,29 @@
+{
+  "task_id": "G",
+  "target_statement": "For both integral nondegenerate degree3 surface orbits in P4, decide whether all actual anticanonical quintic coefficient rows lie in the full350 projective Jacobi rowspace on the complete30 rankzero source.",
+  "implication_to_classification": "A positive exact full-source membership certificate excludes that entire rankzero surface orbit from rank4 Poisson structures, without assumptions on normalization, conductor, ordinary double points, or vertical divisors. Negative membership closes no geometric branch.",
+  "coefficient_ring": "QQ, all30 source parameters, all465 quadratic parameter monomials.",
+  "hypotheses": "Minimal degree classification gives exactly smooth scroll S(1,2) and twisted cubic cone S(0,3); their Hilbert-Burch resolution gives q=0 and I2 dimension3; full source completeness is the proven Euler lemma.",
+  "inverted_elements": [],
+  "complements": [
+    "If any D coefficient is outside rowspace, only this linear criterion fails; retain the whole30 source, actual Pfaffian and all350 equations.",
+    "Surfaces in a hyperplane, degree4 surfaces, q>0 high-degree surfaces and generic rank2 restrictions are separate."
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_cubic_scroll_zero.py",
+      "sha256": "dadbde0a81abcfcf5af679969a4d2eff85c848f0b3746afbe91cebec1bae8347"
+    },
+    {
+      "path": "code/classification_projected_veronese_zero_review.py",
+      "sha256": "7fbaa04524f57287df396ff5e0ebd754ad124cd9814055820c70fdd1f863e55d"
+    }
+  ],
+  "success_certificate": "All350x465 integer matrices, all126 actual quintic coefficient rows, literal original350-row rational functionals for every nonzero target, or exact nonzero reduced residuals.",
+  "independent_check": "Separately reconstruct raw Jacobi and Euler wedge from polynomial differentiation and verify every recorded target identity in full matrices.",
+  "resource_limit": {
+    "timeout_seconds": 120,
+    "memory_mb": 1536
+  },
+  "negative_result_next_step": "Save exact residuals, then choose a geometric degree/normal-cone restriction or fixed-source dimension bound. Do not run open-ended Groebner probes."
+}

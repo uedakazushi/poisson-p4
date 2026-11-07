@@ -1,0 +1,34 @@
+{
+  "task_id": "G",
+  "target_statement": "Test the single scalar quartic consequence D(p0)^2 in the entire cubic-scroll Jacobi ideal, using only the finitely many torus-weight degree4 blocks that can occur; exponent is fixed2, no power search.",
+  "implication_to_classification": "The surface-preserving group has a dense open point orbit. If D(p0)^2 belongs to the full Jacobi ideal, all Poisson tensors have D(p0)=0 and group saturation forces actual D identically zero. This closes that entire rankzero surface orbit for rank4.",
+  "coefficient_ring": "QQ, full30 source parameters, all350 Jacobi equations, exact degree4 torus blocks.",
+  "hypotheses": "Source completeness and dense point orbit proof in CUBIC_SCROLL_RANK_ZERO_SOURCES.md; selected99/88 rows span all350 exactly.",
+  "inverted_elements": [],
+  "complements": [
+    "A negative degree4 scalar membership says nothing about higher ideal consequences or existence of rank4 tensors; no higher exponents will be tested.",
+    "All torus weight components of D(p0)^2 are retained, including the three cone blocks."
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_cubic_scroll_zero_square.py",
+      "sha256": "e5082a8445b401ac83fa371cb5f6bb56283cf3ca736a876ac13eb33b5c7edaa2"
+    },
+    {
+      "path": "reports/CLASSIFICATION_CUBIC_SCROLL_ZERO_JACOBI_20261107.json",
+      "sha256": "909a901389083b1db86cf626095b5c0a3a218955349ba54527d860751db4693c"
+    },
+    {
+      "path": "code/classification_projected_veronese_zero_review.py",
+      "sha256": "7fbaa04524f57287df396ff5e0ebd754ad124cd9814055820c70fdd1f863e55d"
+    }
+  ],
+  "success_certificate": "Exact original350-Jacobi rows times degree2 parameter monomials sum to each weight component of D(p0)^2, or exact nonzero reduced residuals.",
+  "independent_check": "Fraction polynomial multiplication verifies each positive membership independently of row-reduction or CAS.",
+  "resource_limit": {
+    "timeout_seconds": 100,
+    "memory_mb": 1536
+  },
+  "negative_result_next_step": "If any target fails, preserve the fixed square diagnostic and leave the computation route; no iterative power, longer jet, or fullring GB. Continue normal-cone/residue geometry or another uncovered surface degree.",
+  "route_change_reason": "Whole-source degree2 rowspace was negative; the geometrically sufficient one-patch localized native dimension job hit60seconds on each orbit without proof. Diagnosis: inverse localization mixes all multigraded degrees. Change from full localized dimension to one scalar radical certificate in a fixed finite torus block (scroll only240 columns), avoiding fullring computation. This is an indispensable primary-G support test, not a suspended nilpotence-index objective."
+}

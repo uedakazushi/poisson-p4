@@ -25,7 +25,7 @@
 \maketitle
 \begin{abstract}
 本稿は、複素射影四空間上のPoisson構造の被約既約成分を尽くし、各成分の一般元の幾何を記述するための研究原稿である。
-分類主定理の証明は完成していない。S61の一次座標と一般切片の対応を確認し、既知三平面に沿う多項式左逆から未知残余を分離する。その空性は忠実な法線チャートの単位証明へ帰着できるが未証明である。階数2の全支持を六族と階数4の閉包で覆い、従前58成分の依存監査に加え、二重二次曲面・冪零モジュラー場・平面曲線等の全源から四十の相異なる成分を証明して下界98を得る。二重の既約二次曲面、相異なる五超平面、相異なる三超平面と既約二次曲面、既約二次曲面と既約三次曲面、およびモジュラー場の複数の全分岐を被覆する。各新成分は全周囲方程式で検証し、全支持の尽くしとは区別する。被約可約な全分割の一般底排除を閉じ、Gの残余を既約非正規五次に限定する。
+分類主定理の証明は完成していない。S61の一次座標と一般切片の対応を確認し、既知三平面に沿う多項式左逆から未知残余を分離する。その空性は忠実な法線チャートの単位証明へ帰着できるが未証明である。階数2の全支持を六族と階数4の閉包で覆い、従前58成分の依存監査に加え、二重二次曲面・冪零モジュラー場・平面曲線等の全源と既約非正規五次の明示軌道から四十一の相異なる成分を証明して下界99を得る。二重の既約二次曲面、相異なる五超平面、相異なる三超平面と既約二次曲面、既約二次曲面と既約三次曲面、およびモジュラー場の複数の全分岐を被覆する。各新成分は全周囲方程式で検証し、全支持の尽くしとは区別する。被約可約な全分割の一般底排除を閉じ、Gの残余を既約非正規五次に限定する。
 既存リポジトリの全証明書を再実行したとは主張せず、原証明の読解と今回の独立検算を区別する。
 詳細なnilpotent構造や派生論文の完成を、主分類定理の前提条件に追加しない。
 \end{abstract}
@@ -47,7 +47,7 @@
 を証明する。各族が全空間の既約成分であること、相互に異なること、次元、一般階数、一般元の構成および退化因子の幾何を記述する。
 \end{target}
 
-\(N\)は未決定である。2026年11月7日に確認したリポジトリの台帳は、全成分数の下界98、一般階数4の成分数の下界92を記録している。
+\(N\)は未決定である。2026年11月7日に確認したリポジトリの台帳は、全成分数の下界99、一般階数4の成分数の下界93を記録している。
 既存証明書を入力とする成分性・相違の依存監査を行い、以下で主分類に接続する。
 全証明書を今回再実行したという意味ではない。
 この下界を答えとして固定して未知成分を排除するのではない。
@@ -579,7 +579,7 @@ B18の精密なnil指数、\(H^0\)、\(T_2\)全長、追加の接触・Betti不�
 
 \section{既知成分の下界を支える支持の証明}
 MPSの定理\cite[Theorem 1.4]{mps}はSNC locusと交わる40成分を与える。
-従前の追加十一族、positive-weight型NEW25、および今回の四十の追加成分の射影次元は次の通りである。
+従前の追加十一族、positive-weight型NEW25、および今回の四十一の追加成分の射影次元は次の通りである。
 \begin{center}
 \begin{tabular}{lr}
 \toprule
@@ -606,10 +606,11 @@ regular nilpotent・単純超平面と既約四次因子&22\\
 Jordan$(3,1)$のimage内二つの全十源&25,25\\
 Jordan$(2,2)$のimage内二つの全六磁気源&23,23\\
 Jordan$(3,1)$の長translation・既約四次全源&22\\
-Ga9の非零定数c・既約四次全十源&23\\\bottomrule
+Ga9の非零定数c・既約四次全十源&23\\
+Ga9の二根型を境界に含む既約非正規五次の軌道閉包&23\\\bottomrule
 \end{tabular}
 \end{center}
-一般rank四は$40+11+1+40=92$成分で、前述の六rank2成分と合わせて下界は$92+6=98$となる。
+一般rank四は$40+11+1+41=93$成分で、前述の六rank2成分と合わせて下界は$93+6=99$となる。
 以下の議論はこの下界を支えるもので、全支持の上界を与えない。
 
 \subsection{精密な横断環を要しない成分性}
@@ -5145,7 +5146,7 @@ Saito判定、低delta型、Tjurina消滅、pairと固定Dの次元論は
 \begin{proposition}\label{prop:quartic-Ga9-bound}
 型9の$Z=y\partial_x+\partial_z$で単純Hと既約quarticを持つ全支持は、
 五つの既約源の飽和閉包で覆われ、全像は射影次元23以下である。
-次の命題で非零定数c源を認識し、残る四源の周囲成分帰属は別に残す。
+後の二命題で非零定数c源と相異二根源を認識し、c零の三源の周囲成分帰属は別に残す。
 \end{proposition}
 \begin{proof}
 全110線形条件のrank62から得る28係数源を用いる。
@@ -5387,7 +5388,136 @@ A0/DPMの型を名前から仮定したのではない。
 凍結97projectionはmetadataの旧headを変更せず、公開済み97 commitのimmutable catalogue blobへ
 全ID・全fieldを照合した。旧各成分の成分性はその採用済み証拠に依存する。
 新成分名は\texttt{R4\_GA9\_CONSTANT\_HYPERPLANE\_QUARTIC\_23}。
-これでGa9のc非零定数源のE帰属を閉じるが、相異二根源とc零の三源の帰属は別に残る。
+これでGa9のc非零定数源のE帰属を閉じる。相異二根源は次命題で扱い、c零の三源は別に残す。
+
+\subsection{Ga9の二根型を境界に持つ既約非正規五次の23次元成分}
+\begin{proposition}\label{prop:Ga9-distinct-quintic-component}
+座標$(a,b,c,d,e)$で、記載しない$\{a,b\}$を零とする二ベクトル
+\[
+\begin{aligned}
+ \{a,c\}&=48a^2,&\{a,d\}&=48ab,\\
+ \{a,e\}&=32ac+b^2,&\{b,c\}&=-72ab,\\
+ \{b,d\}&=-12b^2,&\{b,e\}&=-40ad-8bc,\\
+ \{c,d\}&=72ad+48bc,&\{c,e\}&=-48ae+6bd+32c^2,\\
+ \{d,e\}&=72be-88cd
+\end{aligned}
+\]
+はrank四Poisson構造で、そのPGL軌道閉包は23次元の全周囲成分Cである。
+一般点は滑らかで、一般軌道次元23、商次元零となる。
+実退化式は$60F$、ただし
+\[
+ F=-80a^3d^2-240a^2b^2e+160a^2bcd+6ab^3d-b^4c
+\]
+は絶対既約・非正規である。Cは従前98成分の全てと異なる。
+またGa9の$c(y)$が相異なる二根を持つ完全源と、その正規化を戻した全支持はCに含まれる。
+\end{proposition}
+\begin{proof}
+まず実際のPoisson曲線と全周囲接空間から成分性を証明する。
+$(x_0,x_1,x_2,x_3,x_4)=(h,x,y,z,w)$として、次の十括弧を$P_\varepsilon^{ij}$とする。
+\[
+\begin{aligned}
+ P^{01}_\varepsilon={}&\varepsilon(-1038\varepsilon wz+1701\varepsilon xz+23hw-159hx+118yz),\\
+ P^{02}_\varepsilon={}&-3\varepsilon(-1557\varepsilon^2wz+216\varepsilon^2xz+255\varepsilon hw\\
+ &\hspace{29mm}-612\varepsilon hx-342\varepsilon yz-14hy),\\
+ P^{03}_\varepsilon={}&39\varepsilon z(15\varepsilon z-h),\\
+ P^{04}_\varepsilon={}&3\varepsilon(72\varepsilon xz-60hx+59yz),\\
+ P^{12}_\varepsilon={}&-486\varepsilon^2z^2+9\varepsilon hz+2h^2-3y^2,\\
+ P^{13}_\varepsilon={}&3(-23\varepsilon wz+36\varepsilon xz-hx+2yz),\\
+ P^{14}_\varepsilon={}&3(-18\varepsilon z^2-hz-wy+xy),\\
+ P^{23}_\varepsilon={}&-3(-324\varepsilon^2wz+432\varepsilon^2xz-9\varepsilon hx-hy),\\
+ P^{24}_\varepsilon={}&3(324\varepsilon^2z^2-h^2+y^2),\\
+ P^{34}_\varepsilon={}&3(-hw+3hx-3yz).
+\end{aligned}
+\]
+全350個のprojective Jacobi係数は$\mathbb Q[\varepsilon]$上で恒等零である。
+$P_1$で全150方向から構成した350行Jacobi微分Dと、実GL5・Euler鉛直・scalarを合わせたGについて、
+全行消去と非零有理minorは
+\[
+ \rank D=102,\quad\rank G=48,\quad DG=0,\quad\rank(\text{Euler鉛直})=24
+\]
+を与える。従って射影接次元$150-24-1-102=23$と実軌道次元$48-24-1=23$が一致する。
+局所次元も23なので$[P_1]$はregular point、通る全成分は唯一で、その軌道閉包がCである。
+表示した九括弧との橋も実可逆座標変換であり、
+\[
+ \begin{pmatrix}h\\x\\y\\z\\w\end{pmatrix}
+ =\begin{pmatrix}
+ 0&-4&0&-18&0\\6&0&4&0&2\\863&0&87&0&-9\\
+ 0&3&0&1&0\\99&0&11&0&3
+ \end{pmatrix}
+ \begin{pmatrix}a\\b\\c\\d\\e\end{pmatrix}
+\]
+の行列をBと書くと、$P_1^0=P_1-E\wedge\operatorname{div}(P_1)/5$に対し、
+表示した九括弧は正確に$(2/5)B^{-1}P_1^0(Bu)B^{-t}$となる。
+正しい符号付きEuler収縮$D_\Pi=\sum_i(-1)^ix_i\operatorname{Pf}(\Pi_{\widehat i})$の直接展開が$60F$を与える。
+
+Fを$\mathbb C[a,b,c,d][e]$の一次式と見ると、eの係数は$-240a^2b^2$。
+残項Rは$R|_{a=0}=-b^4c$、$R|_{b=0}=-80a^3d^2$で、先頭係数と互いに素である。
+従って原始一次式であり、Gaussの補題から絶対既約である。
+$F_e=-240a^2b^2$、$F_c=160a^2bd-b^4$、
+$F_d=-160a^3d+160a^2bc+6ab^3$を用いると、全特異支持は正確に
+\[
+ \operatorname{Sing}(F)_{\red}=S_1\cup S_2,\qquad
+ S_1=(a=b=0),\quad S_2=(b=d=0)
+\]
+となる。逆包含も全偏微分への代入で成立する。
+二平面は直線$(a=b=d=0)$で交わり、既約三次元超曲面の余次元一に特異点があるので非正規である。
+特異スキームの正確な非被約構造はここでは主張しない。
+
+両平面のPoisson rankと重複度は異なる。
+$S_1$の接座標$(c,d,e)$ではEuler外積の係数が$-120c^2d$なので一般rank二、
+normal先頭式は$80a^2d(2bc-ad)$で一般位数三である。
+$S_2$上のraw liftは$E_{S_2}\wedge(48a\partial_c+32c\partial_e)$となるので、
+射影sectionは$S_2$全体で零である。そのnormal二次symbolは
+\[
+ -80a^2(ad^2-2cbd+3eb^2).
+\]
+一般ordinary doubleだが係数は直線$a=0$で$a^2$を共通因子に持ち、blowup交叉に重複度二のvertical成分を生む。
+従って後述のclean rank零認識の仮定に矛盾せず、その補集合を具体的に与える。
+
+次に全Ga9二根源を含むことを示す。
+命題\ref{prop:quartic-Ga9-bound}の完全分類における二根型は、canonical五係数
+$(D_1,D_2,D_3,D_4,d_0)$と実normalizerで全支持を覆う。
+その既約なPGL飽和射影像閉包をSとすると、固定全源十、cofactor軌道九、H四、scalar一から
+$\dim S\le10+9+4-1=22$である。
+五係数零の源の三倍は上の$P_0$と全括弧で一致する。
+この点で実Gのrankは47、射影軌道は22次元なので、$S=\overline{\PGL_5[P_0]}$となる。
+一方、$g(t)=\operatorname{diag}(1,t,1,t,t)$について全係数恒等式
+\[
+ t^{-1}g(t)_*P_\varepsilon=P_{\varepsilon/t}
+\]
+が成り立つ。全$\varepsilon\ne0$は$P_1$と同じ軌道にあり、$P_0\in C$。
+Cの閉性とPGL安定性から$S\subset C$となる。
+これは一つのcanonical点だけでなく、全五係数とnormalizerを戻した全源、その全境界を覆う。
+全点が一軌道という主張や、原点での形式IFT又はGroebner基底の完全性は用いない。
+
+最後に凍結した全prior98と比較する。
+rank二の六成分は一般rank、rank四で異次元の三十六成分は全成分の次元で異なる。
+同次元23の既存成分はMPS二十九、非MPS二十七である。
+MPSについてはSNC点の存在から一般因子を推測せず、採用済みの全periodと全smoothing parameterを残した
+完成一般源の実Euler Pfaffianを計算し、全変数で次のproper factor積と一致することを検証した。
+\[
+\begin{array}{c|c|r}
+ \text{MPS ID}&\text{全一般源の因子次数}&\text{個数}\\\hline
+ T04\text{--}T15&1+1+3&12\\
+ T18\text{--}T20&1+2+2&3\\
+ T22\text{--}T31&1+4&10\\
+ T32\text{--}T35&2+3&4
+\end{array}
+\]
+これらの飽和閉包が対応するMPS成分であることには、既済のMPS局所Torelliと全源対応を用いる。
+非MPS二十七の既証明の稠密源も、$1+4,5H,1+1+1+2,2+3,1+1+3,1+2+2,2H+F_3$
+のいずれかの可約又は非被約因子を持つ。
+可約五次形式の集合はproper次数分割の射影乗法写像の像の有限和で閉じ、そのaffine coneは零も含む。
+従って実Pfaffian写像の引戻しは閉であり、全五十六の成分閉包はこの閉条件を満たす。
+絶対既約Fを持つCはその全てと異なる。これで全98との相違が証明された。
+\end{proof}
+literal曲線、全350式、D102/G48、$P_0$のG47、可逆変換、九括弧とF、全二十九MPS一般源の因子積、
+全prior98比較は\path{CLASSIFICATION_GA9_DISTINCT_COMPONENT_REVIEW_20261107.json}で、
+producer・CASをimportせず独立Fraction算術から再構成した。
+幾何的な全源上界と成分閉包への橋は\path{GA9_DISTINCT_QUINTIC_COMPONENT.md}及び
+\path{GA9_DISTINCT_QUINTIC_COMPONENT_REVIEW.md}に置く。
+新成分名は\texttt{R4\_GA9\_DISTINCT\_IRREDUCIBLE\_QUINTIC\_23}。
+Ga9では非零定数cと二根型の全E帰属を閉じ、c零の三源は未解決のまま残る。
 
 \begin{proposition}\label{prop:hyperplane-quartic-all-G}
 単純超平面と既約quarticの全支持は、未知G優越成分の一般支持にはならない。
@@ -5402,7 +5532,7 @@ A0/DPMの型を名前から仮定したのではない。
 \end{proof}
 型4は命題\ref{prop:nil31-short-quartic-MPS}で全MPS、型5は命題\ref{prop:nil31-long-quartic-component}で全E帰属を閉じた。
 quartic純冪零型でE帰属が残るのは型6,7のJordan22零・top2、型9のJordan211短topという三型である。
-Ga9の非零定数c枝は前命題で閉じ、他の四源は残る。G次元排除をその全成分認識と同一視しない。
+Ga9の非零定数c枝と相異二根枝は前二命題で閉じ、c零の三源は残る。G次元排除をその全成分認識と同一視しない。
 
 \section{超平面と相異なる二既約二次因子}
 実退化式$D=hq_1q_2$で、$q_1,q_2$は相異なる既約二次式とする。
@@ -6319,7 +6449,7 @@ S既約・被約なのでS全体で零となる。
 log-skew inverseの全恒等式、RR不等式とHilbert numeratorを確認する。
 導手gluing、abelian化、étale商、quadric排除と分解は上の幾何的証明であり、算術PASSから自動的に従ったとはしない。
 generic楕円parameterでのMacaulay2計算を特殊parameterへ外挿することも用いていない。
-下界98・一般rank四92は維持し、全分類は未完成である。
+下界99・一般rank四93は維持し、全分類は未完成である。
 
 \subsection{smooth rank零曲面のclean ordinary-double枝}
 \begin{proposition}\label{prop:clean-rank-zero-T40}
@@ -6417,7 +6547,72 @@ Markarian--Polishchukの同じtautological scroll上で零になる非零$q_{5,2
 全pole-support、horizontal pole消去、非零性、small-degree曲面補題と数式は
 \path{IRREDUCIBLE_NONNORMAL_CLEAN_RANK_ZERO_RECOGNITION.md}に置く。
 有限算術はlog-skew変換と交点恒等式を確認するもので、smoothnessやclean仮定の成立を保証しない。
-特異S、非node横断型、vertical divisorを持つrank零枝はこの命題に含めない。
+特異S、非node横断型、vertical divisorを持つrank零枝はこのclean命題に含めない。
+次数五normal曲面については次の別証明がこれらの仮定を除く。
+
+\subsection{normalな次数五rank零曲面の全認識}
+\begin{proposition}\label{prop:normal-degree-five-rank-zero}
+$S\subset\mathbb P^4$をintegral・非退化・normalな次数五曲面とする。
+rank四Poisson構造$\pi$がS上で零で、実退化式が既約・被約五次なら、
+Sは滑らかな次数五楕円scrollで、$\pi$は同じ埋込みの$q_{5,2}$のscalar倍、従ってT40に属する。
+Sのsmoothness、横断node性、正規化・導手のsmoothness、vertical divisor不存在は仮定しない。
+\end{proposition}
+\begin{proof}
+Tironi\cite[Proposition 2, pp.6--7]{tironi5}のnormal次数五曲面の分類を、
+ample spannedかつvery ampleな$H=\mathcal O_S(1)$に適用する。
+Hの完全写像は閉埋込みなので、次数五のP2へのcover型は除かれる。
+残る全場合は、楕円scroll、有理scroll、滑らかな有理曲線上のnormal cone、
+Gorenstein del Pezzo、CI(2,3)でplaneに直接linkされた曲面、P3内のquintic hypersurfaceである。
+最後は本件の非退化性と既に両立しないが、以下でまとめて扱える。
+
+楕円scroll以外は全て$q(S)=h^1(\mathcal O_S)=0$であることを示す。
+有理scrollは有理曲面である。
+ここに挙げたconeは滑らかな有理曲線上のものなので有理解消を持ち、
+Lerayの単射$H^1(\mathcal O_S)\hookrightarrow H^1(\mathcal O_{\widetilde S})$からq零となる。
+任意のconeを有理と仮定しているのではない。
+P3のquintic hypersurfaceも構造完全列からq零。
+planeとの直接CI(2,3)link型は、normalゆえlocally Cohen--Macaulayであり、
+planeのACM性とcodimension二Gorenstein CI liaisonのACM保存からq零となる。
+ここでは分類が与えるscheme-theoretic linkageを使い、残余cycleだけから推論しない。
+
+del Pezzo型は$\omega_S\simeq\mathcal O_S(-H)$なので、全$n>0$で$H^0(nK_S)=0$、
+normal双対性から$p_g=h^2(\mathcal O_S)=0$となる。
+非rational特異点が一つでもあれば、Schr\"oer\cite[Theorem 2.2, pp.4--5]{schroeer}
+のperfect field上のproper normal曲面定理を適用してq零を得る。
+同論文のqはPicard多様体の次元で、本件の$p_g=0$では$h^1(\mathcal O_S)$と一致する。
+全特異点がrationalなら、Gorenstein rational surface singularityはDu Valである。
+minimal resolution $f:\widetilde S\to S$はcrepantで、
+$-K_{\widetilde S}=f^*H$はnefかつbig、$K_{\widetilde S}^2=5$。
+Kがpseudo-effectiveでないので解消はrational又はruledであり、
+正種数gのruled曲面のr回blowupなら$K^2=8(1-g)-r\le0$となって矛盾する。
+従って解消は有理、Lerayから再びq零である。
+特異del Pezzoへsmooth Kodaira消滅を適用する省略はしていない。
+
+次数五のintegral非退化曲面は、既証明のsingular Severi補題によってlinearly normalである。
+次数五なので二つの独立quadricは存在しない。
+命題\ref{prop:surface-Euler-bound}の完全Euler源をq零の全場合へ適用すると、
+全$\pi$は零又は$q_2A$、Aはconstant skew tensorとなる。
+実五次は零又は$q_2^2$と一次式の積なので既約・被約Dに矛盾する。
+よって楕円scroll以外の全分類枝が排除された。
+
+残るSは楕円曲線上の滑らかなP1 bundleで、Hのfiber次数一から、
+rank二・次数五bundle Fのtautological embeddingである。
+Fが非stableなら次数二以下のline quotientを持ち、対応section上のHのvery amplenessに反する。
+従ってFはstableである。
+命題\ref{prop:clean-rank-zero-T40}の末尾で証明したquadric不存在、三regularityと全bundleの分解
+\[
+ 0\to\mathcal O(-5)\to\mathcal O(-4)^5\to\mathcal O(-3)^5\to I_S\to0
+\]
+は、このscrollと埋込みだけの性質であり、node又はclean仮定を使わない。
+$\wedge^2T=\Omega^2(5)$とtensorした分解にBottを適用すると
+$h^0(\wedge^2T\otimes I_S)\le1$。
+同じ任意のstable Fのscroll上で零になる非零$q_{5,2}$\cite[\S3.2]{mpq52}が存在するため、
+全section空間はこの一次元に等しい。今回の$\pi$もその非零scalar倍となる。
+\end{proof}
+全normal次数五分類、非rational del Pezzoの適用範囲、scheme-theoretic linkと全scrollの橋は
+\path{NORMAL_DEGREE_FIVE_RANK_ZERO_SURFACE.md}と、一次資料を別に読解した
+\path{NORMAL_DEGREE_FIVE_RANK_ZERO_SEPARATE_REVIEW.md}で監査した。
+次数六、非normal S、rank二restrictionをこの命題へ含めていない。
 
 \subsection{滑らかなprojected Veronese零曲面枝の全排除}
 \begin{proposition}\label{prop:projected-veronese-zero}
@@ -6625,7 +6820,59 @@ $\operatorname{Pf}(sA_I+tB_I)=0$である。
 Koszulによる完全sourceと全smooth pencilの幾何は
 \path{SMOOTH_QUADRIC_COMPLETE_INTERSECTION_ZERO_EXCLUSION.md}の別証明である。
 非零decomposable A、B零なら$q_1A$はrank二Poissonなので、全section零とは主張しない。
-特異CIや他の零曲面はここでは排除していない。
+特異CIの半単純pencil枝は次命題で扱う。他の零曲面まで排除したものではない。
+
+\subsection{integral半単純CI22のrank零全枝の排除}
+\begin{proposition}\label{prop:semisimple-CI22-zero}
+$S=V(q_1,q_2)\subset\mathbb P^4$をintegral・非退化なcomplete intersectionとする。
+pencilが非退化$q_1$を含み、$q_1$に関する$q_2$のselfadjoint operatorがdiagonalizableなら、
+S上で零になるrank四Poisson構造の実退化式は既約・被約五次にはならない。
+Sのsmoothness又はnormality、node性、vertical divisorの条件は要しない。
+\end{proposition}
+\begin{proof}
+regular sequenceのKoszul列とBottから、命題\ref{prop:smooth-CI22-zero}と全く同じく、
+全源は一意に$\Pi=q_1A+q_2B$となる。A,Bの全二十係数を保つことにsmoothnessは不要である。
+異なるeigenspaceは$q_1$直交し、各eigenspaceへの制限は非退化だから、半単純性により
+\[
+ q_1=\sum_i x_i^2,\qquad q_2=\sum_i\lambda_i x_i^2
+\]
+と同時対角化できる。ただし固有値の重複を許す。
+
+前命題のsymbolic parity証明書を、その実際の分母まで使う。
+$I=(0,1,2,3)$に対する六行minorは
+\[
+ -64(\lambda_0-\lambda_1)^3(\lambda_0-\lambda_2)
+       (\lambda_0-\lambda_3)(\lambda_0-\lambda_4)
+\]
+であり、三target $\operatorname{Pf}(A_I)$、mixed Pfaffian、$\operatorname{Pf}(B_I)$を
+元Jacobi行で表す全functionalの分母も、非零有理定数と$\lambda_0-\lambda_j$だけの積である。
+従って他の四固有値同士が重複しても、中心$\lambda_0$がsingletonなら恒等式は成立する。
+任意の四要素I内のsingleton index sを0へ移す全座標置換により、
+全Poisson支持でIの三targetが零、従って$\operatorname{Pf}(\Pi_I)=0$となる。
+これは分母を払った全五blockの多項式恒等式であり、数値pencilからの外挿ではない。
+
+primeな$I_S$はrank二以下の非零quadricを含まない。
+そのようなquadricは複素数体上で一次式二つの積又は平方なので、prime性から一次式も$I_S$に入り、非退化性に反する。
+固有値の重複度$m\ge3$なら$q_2-\lambda q_1$がrank$5-m\le2$となって矛盾する。
+一固有値だけの場合も$q_2$が$q_1$に比例しCIにならない。
+よって全multiplicity分割は
+\[
+ 1+1+1+1+1,\qquad2+1+1+1,\qquad2+2+1
+\]
+だけである。最初の二型では各四要素Iにsingletonがあるので、全五Pfaffianが零、全sourceはrank二以下となる。
+最後の型では唯一のsingletonをsとすると、sを含む四Pfaffianが零であり、
+実退化式は正確に
+\[
+ D_\Pi=(-1)^sx_s\operatorname{Pf}(\Pi_{\widehat s})
+\]
+となる。これは零又は一次因子付きの五次式で、既約・被約五次ではない。
+\end{proof}
+全源の完全性、中心固有値だけの分母と全multiplicity補集合は
+\path{SEMISIMPLE_QUADRIC_COMPLETE_INTERSECTION_ZERO_EXCLUSION.md}で読解した。
+算術入力は既に独立確認した\path{CLASSIFICATION_SMOOTH_CI22_ZERO_PARITY_REVIEW_20261107.json}の
+全symbolic恒等式そのもので、新しい標本計算を必要としない。
+非半単純selfadjoint pencilと、全memberが退化するpencilは残る。
+$2+2+1$型で可約Dを持つrank四tensorが存在することや、その全成分帰属はここから主張しない。
 
 \subsection{rank二nodeのvertical divisorとsmooth CI22の全排除}
 \begin{proposition}\label{prop:smooth-CI22-rank2-node}
@@ -6687,10 +6934,11 @@ rank二全支持、正規実因子、重複超平面と二重二次曲面、
 \end{proof}
 ordinary-doubleの四仮定を満たす枝、cleanなsmooth rank零・rank二枝、
 normal rank二で解消のKodaira次元が非負の枝、degree五以上のq零rank零曲面、
-smooth CI22のrank零又はrank二node枝などは上の各命題で認識又は排除した。
+全normal degree五rank零曲面、半単純integral CI22のrank零、smooth CI22のrank二node枝などは
+上の各命題で認識又は排除した。
 特異・非normal曲面、非node横断型、他のvertical枝等を残し、既約非正規五次全体へ仮定を拡張してはいない。
 Gの残余はこの一型に限られるが、その空性と、特殊底の多くのE源の全成分帰属は未解決である。
-従って成分数は下界98・一般rank四92のままで、主分類の完成を主張しない。
+従って成分数は下界99・一般rank四93のままで、主分類の完成を主張しない。
 
 \section{計算・証拠の位置づけ}
 本稿の命題\ref{prop:radical}、補題\ref{lem:certificate}、補題\ref{lem:descent}、命題\ref{prop:spread}には本文で証明を与えた。
@@ -6715,7 +6963,7 @@ lualatex -interaction=nonstopmode -halt-on-error \
 # 同じコマンドをもう一度実行して相互参照を確定する。
 \end{verbatim}
 
-\begin{thebibliography}{9}
+\begin{thebibliography}{99}
 \bibitem{cm} M. Corr\^ea and A. Muniz,
 \emph{Holomorphic foliations of degree two and arbitrary dimension},
 arXiv:2207.12880v5 (2026), Theorem 4.1.
@@ -6746,6 +6994,14 @@ Proposition 5.3の証明, pp.15--16.
 \emph{Compatible Poisson brackets associated with elliptic curves in G(2,5)},
 arXiv:2310.18759v2, \S3.2, Lemmas 3.2.1,3.2.3.
 \url{https://arxiv.org/html/2310.18759v2}.
+\bibitem{tironi5} A. L. Tironi,
+\emph{Normal projective varieties of degree 5},
+arXiv:1201.4508v1, Proposition 2, pp.6--7.
+\url{https://arxiv.org/pdf/1201.4508}.
+\bibitem{schroeer} S. Schr\"oer,
+\emph{Normal del Pezzo surfaces containing a nonrational singularity},
+revised 28 October 2000, Theorem 2.2, pp.4--5.
+\url{https://www.math.uni-duesseldorf.de/~schroeer/publications_pdf/del_pezzo.pdf}.
 \bibitem{pymelliptic} B. Pym,
 \emph{Elliptic singularities on log symplectic manifolds and Feigin--Odesskii Poisson brackets},
 arXiv:1507.05668, Theorem 1.3, Definition 4.2, Remark 4.4.

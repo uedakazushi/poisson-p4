@@ -1,0 +1,37 @@
+{
+  "task_id": "G",
+  "target_statement": "Bound the entire rank4 source on each integral degree3 surface orbit via the single exhaustive point patch D(p0)!=0: fixed affine dimensions at most7 for smooth scroll and9 for cone suffice.",
+  "implication_to_classification": "Source-preserving connected groups of dimensions6/8 have dense open point orbits. Every nonzero actual quintic moves to D(p0)!=0, so its whole PGL saturation has dimension at most24+d-1-6 or24+d-1-8. Bounds7/9 exclude unknown25-to27dim W-dominant components without classifying rank2 source components.",
+  "coefficient_ring": "QQ[z0,...,z29,inverse], all30 fixed-source parameters and all350 Jacobi equations, replaced only by exact linearly equivalent independent99/88 rows.",
+  "hypotheses": "Complete30 zero-on-S source established by Euler and Hilbert-Burch. Smooth-scroll point p0=e3 lies in q2!=0 dense orbit; cone point p0=(1,0,0,1,0) lies in binary-cubic distinct-root dense orbit.",
+  "inverted_elements": [
+    "Actual anticanonical D(p0) for the stated one point in the dense source-preserving point orbit"
+  ],
+  "complements": [
+    "Rank2 tensors have D identically zero and are intentionally outside the rank4 patch.",
+    "A rank4 tensor with initial D(p0)=0 is moved to this patch by an element of the same surface-preserving group, since its nonzero D cannot vanish on the dense open point orbit.",
+    "If localized dimension bound exceeds target or timeout occurs, no G closure follows; retain exact original30 source and equations."
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_cubic_scroll_zero_dimension.py",
+      "sha256": "0fdd9055d6f00635a97bc9c40179ad19375b41e089f20c938bd618d9b0f975cd"
+    },
+    {
+      "path": "reports/CLASSIFICATION_CUBIC_SCROLL_ZERO_JACOBI_20261107.json",
+      "sha256": "909a901389083b1db86cf626095b5c0a3a218955349ba54527d860751db4693c"
+    },
+    {
+      "path": "code/classification_projected_veronese_zero_review.py",
+      "sha256": "7fbaa04524f57287df396ff5e0ebd754ad124cd9814055820c70fdd1f863e55d"
+    }
+  ],
+  "success_certificate": "One finite native liftstd per distinct surface orbit, followed by exact QQ verification of every ideal-membership lift and an exact leading-support vertex-cover dimension upper bound. No standard-basis correctness claim is required for this upper bound.",
+  "independent_check": "Reconstruct dense orbit group actions; independently check QQ lifted polynomial identities and leading-monomial cover.",
+  "resource_limit": {
+    "timeout_seconds": 170,
+    "memory_mb": 1536
+  },
+  "negative_result_next_step": "At most60 native seconds per orbit. Save timeout/failure immediately, do not repeat the same probe. Change to first-normal-jet/conormal Poisson geometry or irreducible-D restrictions if no sufficiently small bound.",
+  "route_change_reason": "The preceding exact quadratic rowspace test was negative on both whole sources. Instead of radicalPf or fullring decomposition, use a geometrically exhaustive single rank4 localization and only the weakest required dimension."
+}

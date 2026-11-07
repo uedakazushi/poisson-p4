@@ -7,7 +7,7 @@
 .venv/bin/python scripts/classification.py next
 ```
 
-**個別成分の下界98、一般rank四92、rank二6。上界・一般五点・全分類は未証明。**
+**個別成分の下界99、一般rank四93、rank二6。上界・一般五点・全分類は未証明。**
 ユーザーの11月7日の再開指示により実作業を継続する。保存や旧移行用一時停止を終了条件にしない。
 G、E_multiple_hyperplane、E_reduced_nonnormalを並行し、意味のある進展は主原稿・引継ぎへ統合して通常main pushで保存する。
 
@@ -27,7 +27,8 @@ REMAINING_DEGENERACY_DIVISOR_SUPPORT.md。
 - hyperplane内degree≥3曲面は全rankで既約五次に不可能。smooth CI22のrank0全枝とrank2-node全vertical枝も空。
 - integral非退化曲面のlinear-normality例外は唯一smooth PV（特異Severiの一次射程確認済み）。Euler全sourceによりq=0・degree≥5の全rank0枝は空。
 
-次はdegree3全二軌道と特異CI22のrank0源、q>0/特異・非normal曲面、plane/quadric、
+normal degree五rank0はTironi/Schröer分類とEuler完全源から全T40へ認識済み。CI22の全半単純pencilも実D零又はlinear因子付きと証明済み。
+次はdegree3全二軌道、非半単純/全退化CI22のrank0源、degree六q>0/非normal曲面、plane/quadric、
 rank2の非node・vertical残枝を処理する。degree3の全Jacobi二次rowspaceは実Dを含まないので、
 この最初の線形判定からrank四不存在を主張しない。旧五回未決GBやjet/minor列へ自動復帰しない。
 
@@ -40,7 +41,7 @@ H+既約quarticは全半単純24源、純nil型1/2/3/4/5/8/10を完了した。
 型4の唯一六源はliteral P+eR+e²Tでregular semisimple型12へ移り全MPS。
 型5は新22成分とT40、Ga9型9のc=1全十源は新23成分へ被覆した。
 残る三純nil型はnil22image型6、nil22long型7、Ga9型9の他四源である。
-Ga9 distinct-c源には完全正重み切片からの実cubic曲線を得たが、その帰属・成分性は未確定。
+Ga9 distinct-c全源も実cubic曲線で新しい既約非正規quinticの23次元軌道成分へ被覆済み。残るGa9はc0の三源だけ。
 
 重複Hではnil31long-top六源、nil22top八源、nil31image half/third全源は被覆済み。
 nil22imageの全十一源は独立606恒等式で有限化した。triple_A/Bは二つの新23成分、

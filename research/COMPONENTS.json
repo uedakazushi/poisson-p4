@@ -14,12 +14,12 @@
     "null_values": "not catalogued or not applicable; never a claim of zero"
   },
   "coverage": {
-    "global_lower_bound": 98,
+    "global_lower_bound": 99,
     "generic_rank_two_full_components": 6,
-    "generic_rank_four_lower_bound": 92,
+    "generic_rank_four_lower_bound": 93,
     "upper_bound": null,
     "global_exhaustion_proved": false,
-    "individually_catalogued_count": 98,
+    "individually_catalogued_count": 99,
     "unexpanded_block_count": 0,
     "all_51_rank_four_ideals_in_S61_constructed": false,
     "note_ja": "全89成分を個別同定。一般rank4は83、rank2は6。平面conic+cubic六成分と平面二直線+cubic九成分は全て23次元。既約Q+C3全支持を被覆済み。全成分数上界・一般ファイバー尽くし・全分類は未証明。",
@@ -11649,6 +11649,96 @@
         "全源でDはある平面idealの三乗に属す閉条件を満たし、SNC/MPSと相異なる。同次元旧四1+4成分とはuniqueHのcofactor双対像flagで稠密constructible像を区別する。",
         "射影接次元27と成分次元23を区別する。正則性・局所唯一性・generic軌道次元はここで主張しない。"
       ]
+    },
+    {
+      "id": "R4_GA9_DISTINCT_IRREDUCIBLE_QUINTIC_23",
+      "name": "Ga9二根源を境界に持つ既約非正規五次の23次元軌道成分",
+      "source_checkpoint": "v64-classification-first",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "additional_generic_rank_four_full_component_outside_MPS40",
+      "generic_rank": 4,
+      "projective_dimension": 23,
+      "meets_SNC_log_symplectic_locus": false,
+      "generic_pgl5_orbit_dimension": 23,
+      "generic_reduced_rosenlicht_quotient_dimension": 0,
+      "generic_transverse_algebra": null,
+      "component_definition": "Reduced closure of the actual23-dimensional PGL5 orbit of the explicit nine-bracket tensor; smooth full-ambient component from D102/G48.",
+      "generic_construction": {
+        "coordinates": [
+          "a",
+          "b",
+          "c",
+          "d",
+          "e"
+        ],
+        "canonical_brackets": {
+          "ab": "0",
+          "ac": "48*a^2",
+          "ad": "48*a*b",
+          "ae": "32*a*c+b^2",
+          "bc": "-72*a*b",
+          "bd": "-12*b^2",
+          "be": "-40*a*d-8*b*c",
+          "cd": "72*a*d+48*b*c",
+          "ce": "-48*a*e+6*b*d+32*c^2",
+          "de": "72*b*e-88*c*d"
+        },
+        "whole_Ga9_distinct_source_containment": "Exact cubic curve with all nonzero parameters in this orbit, plus complete source saturation equal to the canonical22-orbit closure."
+      },
+      "generic_actual_degeneracy_divisor": {
+        "description": "Absolutely irreducible reduced nonnormal quintic with two singular planes, generic multiplicities3 and2",
+        "witness_equation": "-80*a^3*d^2-240*a^2*b^2*e+160*a^2*b*c*d+6*a*b^3*d-b^4*c",
+        "irreducible_factor_degrees": [
+          5
+        ],
+        "corresponding_multiplicities": [
+          1
+        ],
+        "reduced": true,
+        "singular_reduced_support": [
+          "a=b=0",
+          "b=d=0"
+        ],
+        "restriction_rank_on_singular_planes": [
+          2,
+          0
+        ],
+        "generic_divisor_multiplicities_on_singular_planes": [
+          3,
+          2
+        ]
+      },
+      "claims": [
+        "R4_GA9_DISTINCT_IRREDUCIBLE_QUINTIC_COMPONENT_23"
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/GA9_DISTINCT_QUINTIC_COMPONENT.md"
+        },
+        {
+          "path": "research/classification/GA9_DISTINCT_QUINTIC_COMPONENT_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_GA9_DISTINCT_CURVE_20261107.json",
+        "reports/CLASSIFICATION_GA9_DISTINCT_CURVE_ORBIT_20261107.json",
+        "reports/CLASSIFICATION_GA9_DISTINCT_COMPONENT_AUDIT_20261107.json",
+        "reports/CLASSIFICATION_GA9_DISTINCT_COMPONENT_REVIEW_20261107.json",
+        "reports/CLASSIFICATION_GA9_DISTINCT_PRIOR98_20261107.json",
+        "reports/CLASSIFICATION_MPS23_DIVISOR_FACTORS_20261107.json"
+      ],
+      "review_status": {
+        "proof": "smooth_full_ambient_componenthood_and_all98_distinctness_proved",
+        "independent_review": "accepted_separate_author_Fraction_all350_D102_G48_curve_and_all_generic_MPS23_divisor_factors",
+        "certificates": "exact_QQ_minors_polynomial_curve_and_product_identities",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "notes_ja": [
+        "一つの明示的PGL軌道23が成分に稠密開、商次元0。一般元は滑らかなPoisson scheme点。",
+        "一般退化五次はC絶対既約・非正規。二つの特異面のrank/重複度が異なるため全ordinary-double仮定を勝手に適用しない。",
+        "元Ga9二根型の全源と閉包はこの成分境界に属す。非零定数c源の別23成分及びc0三源と同一視しない。"
+      ]
     }
   ],
   "named_block_member_annotations": [
@@ -12002,5 +12092,5 @@
     "MPS40 blockを展開したらblockによる加算を止め、二重計上しない。",
     "文献上の新規性は内部成分証明とは別に確認する。"
   ],
-  "new_components_added_in_this_checkpoint": 40
+  "new_components_added_in_this_checkpoint": 41
 }
