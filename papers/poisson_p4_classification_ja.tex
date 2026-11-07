@@ -25,7 +25,7 @@
 \maketitle
 \begin{abstract}
 本稿は、複素射影四空間上のPoisson構造の被約既約成分を尽くし、各成分の一般元の幾何を記述するための研究原稿である。
-分類主定理の証明は完成していない。S61の一次座標と一般切片の対応を確認し、既知三平面に沿う多項式左逆から未知残余を分離する。その空性は忠実な法線チャートの単位証明へ帰着できるが未証明である。階数2の全支持を六族と階数4の閉包で覆い、従前58成分の依存監査に加え、二重二次曲面・冪零モジュラー場・平面曲線等の全源から三十四の相異なる成分を証明して下界92を得る。二重の既約二次曲面、相異なる五超平面、相異なる三超平面と既約二次曲面、既約二次曲面と既約三次曲面、およびモジュラー場の複数の全分岐を被覆する。各新成分は全周囲方程式で検証し、全支持の尽くしとは区別する。
+分類主定理の証明は完成していない。S61の一次座標と一般切片の対応を確認し、既知三平面に沿う多項式左逆から未知残余を分離する。その空性は忠実な法線チャートの単位証明へ帰着できるが未証明である。階数2の全支持を六族と階数4の閉包で覆い、従前58成分の依存監査に加え、二重二次曲面・冪零モジュラー場・平面曲線等の全源から三十六の相異なる成分を証明して下界94を得る。二重の既約二次曲面、相異なる五超平面、相異なる三超平面と既約二次曲面、既約二次曲面と既約三次曲面、およびモジュラー場の複数の全分岐を被覆する。各新成分は全周囲方程式で検証し、全支持の尽くしとは区別する。
 既存リポジトリの全証明書を再実行したとは主張せず、原証明の読解と今回の独立検算を区別する。
 詳細なnilpotent構造や派生論文の完成を、主分類定理の前提条件に追加しない。
 \end{abstract}
@@ -47,7 +47,7 @@
 を証明する。各族が全空間の既約成分であること、相互に異なること、次元、一般階数、一般元の構成および退化因子の幾何を記述する。
 \end{target}
 
-\(N\)は未決定である。2026年11月7日に確認したリポジトリの台帳は、全成分数の下界92、一般階数4の成分数の下界86を記録している。
+\(N\)は未決定である。2026年11月7日に確認したリポジトリの台帳は、全成分数の下界94、一般階数4の成分数の下界88を記録している。
 既存証明書を入力とする成分性・相違の依存監査を行い、以下で主分類に接続する。
 全証明書を今回再実行したという意味ではない。
 この下界を答えとして固定して未知成分を排除するのではない。
@@ -579,7 +579,7 @@ B18の精密なnil指数、\(H^0\)、\(T_2\)全長、追加の接触・Betti不�
 
 \section{既知成分の下界を支える支持の証明}
 MPSの定理\cite[Theorem 1.4]{mps}はSNC locusと交わる40成分を与える。
-従前の追加十一族、positive-weight型NEW25、および今回の三十四の追加成分の射影次元は次の通りである。
+従前の追加十一族、positive-weight型NEW25、および今回の三十六の追加成分の射影次元は次の通りである。
 \begin{center}
 \begin{tabular}{lr}
 \toprule
@@ -602,10 +602,11 @@ NEW25&25\\
 平面二次・三次曲線の六つの全源&各23\\
 平面二直線・三次曲線の九つの全源&各23\\
 regular nilpotent・単純超平面と既約四次因子&22\\
-平面二conic・一直線の二つの全磁気源&各23\\\bottomrule
+平面二conic・一直線の二つの全磁気源&各23\\
+Jordan$(3,1)$のimage内二つの全十源&25,25\\\bottomrule
 \end{tabular}
 \end{center}
-一般rank四は$40+11+1+34=86$成分で、前述の六rank2成分と合わせて下界は$86+6=92$となる。
+一般rank四は$40+11+1+36=88$成分で、前述の六rank2成分と合わせて下界は$88+6=94$となる。
 以下の議論はこの下界を支えるもので、全支持の上界を与えない。
 
 \subsection{精密な横断環を要しない成分性}
@@ -1303,8 +1304,8 @@ $b\ne0$、$a,r,s,c_0,\ldots,c_5$を任意とし、
 他成分とは次元で区別する。
 \end{proof}
 
-主開b非零の補集合には、全15源の別の二つの十変数枝が残る。
-これらや他のモジュラー型を上の成分へ無断に含めない。
+主開b非零の補集合に残る全15源の別の二つの十変数枝は、次小節でそれぞれ別の25次元成分として認識する。
+他のモジュラー型を上の成分へ無断に含めない。
 一方、階数1冪零モジュラー場の既存の未認識十変数源は、もう一つの二重超平面を
 無限遠へ選び直すことで本主開へ移り、その全源もこの成分で被覆される。
 全源の消去、補集合、別超平面への橋と独立証明書は
@@ -1321,6 +1322,126 @@ $b\ne0$、$a,r,s,c_0,\ldots,c_5$を任意とし、
 像の次元は$16-3=13$以下となる。
 一点での微分階数不足から非優越を推論していない。
 全源と全基点での証明は\path{research/classification/NIL31_PRIMITIVE_BETA_IMAGE.md}にある。
+
+\subsection{image内の二残源から得る相異なる25次元成分}
+\begin{proposition}\label{prop:nil31-image-two-components}
+前小節の全15源に残る$r=-1/2,-1/3$の二つの全十変数枝のPGL飽和閉包は、
+相異なる25次元全空間成分であり、追加前の既知92成分とも全て異なる。
+後者の証明点では接次元は27で、滑らかさ又は局所成分唯一性を主張しない。
+\end{proposition}
+\begin{proof}
+旧15源の変数において、half枝は$n_{10}=-1/2,n_6=n_7=n_9=n_{11}=0,p=n_5$、
+third枝は$n_{10}=-1/3,n_5=n_7=n_9=n_{11}=0,q=n_6$である。
+$n_0,n_1,n_2,n_3,n_4,n_8,n_{12},n_{13},n_{14}$とp又はqを全て自由に保つ。
+実射影置換
+\[
+ (h,a,b,c,d)=(\mathrm{old}_z,\mathrm{old}_h,
+                 \mathrm{old}_x,\mathrm{old}_y,\mathrm{old}_w)
+\]
+の行列式は$-1$である。置換後のliftから
+$E\wedge(0,0,-rc,-rh,0)$を引き、h-Casimir代表を取る。
+全150係数で恒等式を確認した変更であり、旧z零の点を捨てていない。
+
+\[
+\begin{gathered}
+ A=A_0h^2+A_1ah+A_2dh+A_3a^2+A_4ad+A_5d^2,\\
+ K=3r+t+1,\qquad S=ua+vh+(t-r)d
+\end{gathered}
+\]
+と置く。旧変数との可逆対応は
+\[
+ (n_0,n_1,n_2,n_3,n_4,n_8,n_{12},n_{13},n_{14})=(A_3,A_0,A_2,A_5,A_1,A_4,u,v,t)
+\]
+である。
+全六括弧は
+\[
+\begin{aligned}
+ P^{ab}&=rac,&P^{ac}&=rha,&P^{ad}&=0,\\
+ P^{bc}&=A+K(hb-c^2/2),&P^{bd}&=g+cS,&P^{cd}&=hS,
+\end{aligned}
+\]
+halfでは$r=-1/2,g=pa^2$、thirdでは$r=-1/3,g=qha$となる。
+全十parameterのstrict Jacobiは恒等零で、実Pfaffianと退化式は
+\[
+\begin{array}{c|c|c}
+ &\operatorname{Pf}P&D\\\hline
+ \mathrm{half}&(p/2)ha^3&(p/2)h^2a^3\\
+ \mathrm{third}&(q/3)h^2a^2&(q/3)h^3a^2
+\end{array}
+\]
+である。一般rank四の条件はp又はqが非零だけであり、他の磁気係数を制限しない。
+零parameterも同じ既約多項式源の閉境界として保持する。
+
+両枝で$A=(1,2,3,5,7,11),u=2,v=3,t=5,p/q=13$とし、tensorを12倍して整数代表を得る。
+全350射影Jacobi・150係数の微分をD、Euler鉛直をV、
+Vと実GL5・scaleの和をG、Gと全十parameterの実微分の和をFとする。
+\begin{center}\small
+\begin{tabular}{c|r|r|r|r|r|r}
+ &rank D&rank V&rank G&rank F&$\dim\ker D$&射影接次元\\\hline
+half&100&24&47&50&50&25\\
+third&98&24&48&50&52&27
+\end{tabular}
+\end{center}
+全F列について$DF=0$、非零最大minorの値、全行列係数を独立に再構成した。
+r又は補助$\kappa$の微分を実source下界へ加えていない。
+halfでは全源像下界が$50-24-1=25$、全周囲接次元も25である。
+従ってこの点は正則で唯一の25次元成分を通り、既約な全十源の飽和閉包は同成分に等しい。
+
+thirdではFに補な全kernelの二法線$N_0,N_1$を取り、
+$DN_i=0,\rank(F,N_0,N_1)=52$を確認する。
+Dの98個の独立標準座標方向と二法線が張る100次元空間LはFの真の補空間で、
+$\rank(F,L)=150$である。従ってLは全150空間にある実際の50本の線形cutで定義される。
+全Dを殺す二つの左汎関数で三つの法線二次係数を取ると、
+真の残式の初期式は、法線変数$\sigma,\tau$を使って
+\[
+ Q_1=\sigma^2-A_*\tau^2,\qquad Q_2=\sigma\tau+B_*\tau^2,
+ \quad A_*=\frac{113435}{3825851},\quad B_*=\frac{214061}{7651702}
+\]
+となる。全98次minorと全150列への左汎関数の零作用を独立に確認した。
+\[
+ B_*^2-A_*=-\frac{1690119521019}{58548543496804}\ne0,\qquad
+ \tau Q_1-(\sigma-B_*\tau)Q_2=(B_*^2-A_*)\tau^3.
+\]
+よって初期idealの根基は$(\sigma,\tau)$である。
+98式の陰関数消去で生じる補正はDの像なので二汎関数で消え、
+これらは固定因子模型の形式法線ではなく、真のcutの二次初項である。
+Lの被約支持は原点で、50cutのKrull不等式は全raw局所次元を50以下に抑える。
+実F50の下界と一致するので、全十源の既約飽和閉包は射影25次元の全空間成分となる。
+接次元27を25へ読み替えず、sourceとnormalの形式的積や局所一意性は用いない。
+
+既存92成分との相違を示す。異次元成分とは成分性と次元で異なる。
+同次元25はT01,T39,T40、positive-weight NEW25、既存nil31独立$(2,2,1)$型の五つだけである。
+両新成分の全rank四部分は、properな射影積写像$(H,L)\mapsto H^3L^2$の閉像に入る。
+零退化式を含むconeも閉じるため、全成分閉包でこの条件が保たれる。
+非零Dは全て非被約でSNC点を持たず、前三つのMPS成分とは異なる。
+NEW25の一般残二次式は滑らかなrank五quadricで、$H^3L^2$に入らない。
+既存nil31成分の一般因子は独立な$H^2L^2M$で、三重一次因子を持たない。
+一般rank二成分との相違も閉rank条件から従う。
+
+両新源同士は因子重複度だけでは識別できないので、唯一の三重超平面を使う。
+Poisson超平面Hに対するH-Casimir二次代表は一意である。
+実際、二代表の差を$E\wedge Bx$、$H=x_0$とすると、
+$x_0(Bx)_j-x_j(Bx)_0=0$からBはscalarとなり差は零である。
+従ってそのdivergenceとdual image flagは、Hとprojective classから内在的に復元される。
+
+共通のprojective cofactor方向を$N=c\partial_b+h\partial_c$とすると、
+$\rank N=2,\rank N^2=1,N^3=0$である。
+halfの三重超平面は$a=0$で、そのCasimir代表の場はN、
+$a\notin\operatorname{im}N^{\mathsf T}$でありa=1で場は零点を持つ。
+thirdの三重超平面はh=0で、場は$-2N/3$、
+$h\in\operatorname{im}(N^{\mathsf T})^2$でありh=1で場は零点を持たない。
+これらは全非零p,qの全源で成立し、三重超平面を保つaffine/PGL同値で両立しない。
+同じ成分なら両非零parameter源のPGL飽和constructible密像が非空開で交わるため矛盾する。
+よって二成分も相異なる。固定rankのimage flagが全退化で閉じるとは仮定していない。
+\end{proof}
+
+元15源からの全150係数のPGL/Euler橋、全十parameter、全D/V/G/F、
+halfの正則性、thirdの真正cut・二二次式と根基恒等式、全92及び相互の識別は
+\path{NIL31_IMAGE_ZERO_COMPONENTS_REVIEW.md}に独立証明を置く。
+算術証明書は\path{CLASSIFICATION_NIL31_IMAGE_ZERO_COMPONENTS_REVIEW_20261107.json}及び
+\path{CLASSIFICATION_NIL31_IMAGE_THIRD_COMPONENT_REVIEW_20261107.json}であり、
+producer・CAS・legacy算術をimportせずFraction疎演算で全係数を再構成した。
+全一般非被約構造、外部文献上の新規性、全分類の完成は主張しない。
 
 \subsection{定数部を持つ冪零場の三つの22次元成分}
 線形部のJordan型が$(3,1)$のとき、定数部が長い鎖または短い鎖のtopにある
@@ -4092,7 +4213,7 @@ A,Bの全曲線・定数Pfaffian・トーラス同変性・全固有値は
 producerやCASをimportせず独立再構成した。
 C曲線は全150空間の重み安定な有限切片から得たものであるが、ここでの帰属証明には
 実曲線の全parameter恒等式と半単純全支持定理という弱い十分条件を使う。
-他の純冪零型と実退化因子型、全分類は未解決であり、下界92・一般rank四86を維持する。
+他の純冪零型と実退化因子型、全分類は未解決であり、この被覆による追加成分はない。
 
 \section{超平面と相異なる二既約二次因子}
 実退化式$D=hq_1q_2$で、$q_1,q_2$は相異なる既約二次式とする。
@@ -4135,7 +4256,108 @@ $E\ne0$も全式から$B=0,C_0=v_1D_0/E,A=v_1,v_1v_2D_0=0$となり、
 対象では$D_0v_1F_0\ne0,v_2=0$。
 重み$(3,1,1,0,0)$で極限Pfaffian$v_1F_0xyzw\ne0$を得る。
 全主開と閉補集合を保持した実軌道極限なので、MPSのSNC成分定理により全点はMPS40へ入る。
-追加共鳴を持つmodular場や一般のquadric対はこの命題の対象外である。
+二normal場のjoint半単純rank二への完全な接続は、次の二小節で与える。
+
+\subsection{非零log括弧の全三配置とSNC被覆}
+\begin{proposition}\label{prop:two-quadrics-nonzero-lambda}
+二normal場の定数log括弧$\lambda=X_1(\log q_2)$が非零なら、
+実退化式$hq_1q_2$を持つ全rank四支持はMPS40の和に含まれる。
+\end{proposition}
+\begin{proof}
+Pの非零scaleで$\lambda=1$とする。
+二つの可換場のjoint-characterは$q_1$で$\tau_1=(0,-1)$、$q_2$で$\tau_2=(1,0)$、
+全traceは$\tau_1+\tau_2$である。可換Jordan分解の半単純部は同じcharacterを持ち、
+冪零部は両quadricを保存する。
+hを第一要素とするjoint-weight基底を取り、$t_0=0$、他を$t_1,\ldots,t_4$とすれば
+\[
+ \sum_{j=1}^4t_j=\tau_1+\tau_2.
+\]
+rank五のquadricを保存する線形場はtrace零でなければならず、$\lambda=1$と矛盾する。
+従って各rankは三又は四である。
+
+rank rの対称行列には非零r次principal minorがある。
+そのdeterminantの非零置換項のcycleについて、各辺のweight和は同じ$\tau$である。
+偶数cycleを隣接辺の組へ、奇数cycleを全頂点の固定点へ置き換えると、
+r座標上のinvolution matchingで$t_i+t_j=\tau$、固定点では$2t_i=\tau$を得る。
+これは重複weightと任意のradical位置を含む必要条件である。
+r四では50、r三では40のmatchingがある。
+両quadricのmatchingとtraceを合わせた全6100組を有理行消去すると、
+rank$(4,4),(4,3),(3,3)$で各24組だけが整合し、全解は一意で、
+四座標置換を除けば各一組となる。
+\begin{center}\small
+\begin{tabular}{c|c|c|c}
+rank&$(t_x,t_y,t_z,t_w)$&$q_1$&$q_2$\\\hline
+4,4&$(\tau_1,\tau_2,\tau_2-\tau_1,\tau_1-\tau_2)$&$hx+yw$&$hy+xz$\\
+4,3&$(\tau_1,\tau_2/2,\tau_1-\tau_2/2,\tau_2-\tau_1)$&$hx+yz$&$y^2+xw$\\
+3,3&$(\tau_1/2,\tau_2/2,\tau_1-\tau_2/2,\tau_2-\tau_1/2)$&$x^2+yz$&$y^2+xw$
+\end{tabular}
+\end{center}
+全五weightは相異なるので、可換冪零部は全て零である。
+各quadricの許容単項式は表の二項だけで、実rankからその二係数はともに非零。
+座標と各quadricの非零scaleで係数を一へ送れる。
+rank$(3,4)$は二因子の交換により含めており、未定weightや追加のrank補集合は残らない。
+
+各表でh=1とし、全90係数へ
+\[
+ -P\,dq_i=q_iX_i,\qquad\operatorname{div}P=X_1+X_2,
+ \qquad[X_i,P]=0
+\]
+を課す。第一添字縮約の規約により第一式に負号がある。
+全480行90列のaffine系は各型でrank89、自由係数は一つnだけで、
+独立89次minorは順に$-1,16,-1024$である。
+全解を六括弧順$(xy,xz,xw,yz,yw,zw)$で書くと
+\[
+\begin{aligned}
+ P_{44}={}&((n+1)xy,xz-ny,-(n+1)xw,\ (n+1)yz,nx-yw,nzw-n),\\
+ P_{43}={}&((1-n)xy,(n-1)xz,(2n-1)y^2+xw,\\
+           &\hspace{7mm}(1/2-n)x-yz/2,(1-n)yw,nzw+(1-2n)y),\\
+ P_{33}={}&((1-n)xy,(n-1)xz,(2n-3/2)y^2+xw/2,\\
+           &\hspace{7mm}(3/2-2n)x^2-yz/2,(1-n)yw,nzw+(3-4n)xy).
+\end{aligned}
+\]
+全Jacobiは恒等零であり、Pfaffianはそれぞれ
+$-nq_1q_2,(1/2-n)q_1q_2,(3/4-n)q_1q_2$である。
+零Pfaffianのparameterも全源に保った上で、rank四という対象条件だけでその一点を除く。
+
+hで斉次化し、座標$(h,x,y,z,w)$に、順に
+\[
+ (3,0,0,0,0),\qquad(3,0,1,0,0),\qquad(3,0,0,-1,-1)
+\]
+の整数cocharacterを作用させる。
+全源の全単項式の二ベクトルweightは非負で、weight零部分はlogcanonicalとなり、
+極限Pfaffianは順に$-nxyzw,(1/2-n)xyzw,(3/4-n)xyzw$で非零である。
+従って全rank四点が五独立超平面の実SNC軌道極限を持つ。
+元の点を含む各全空間成分は連結PGL5で不変なのでそのSNC点も含み、
+MPSのSNC成分定理から既知40成分の一つである。
+これで全$\lambda\ne0$支持を被覆した。
+\end{proof}
+全6100 matching、全480行・90係数・完全解・非零minor、全Jacobi/Pfaffianと全parameterの極限は
+\path{CLASSIFICATION_TWO_QUADRICS_NONZERO_PAIR_COFACTOR_REVIEW_20261107.json}で
+producerやCASをimportしないFraction演算により再構成した。
+matchingから幾何への橋とMPS定理は上の証明で区別する。
+
+\subsection{零log括弧のjoint半単純rank二}
+\begin{proposition}\label{prop:two-quadrics-zero-lambda-rank2}
+$\lambda=0$で、二normal場のjoint半単純部がrank二を持つ全支持もMPS40の和に含まれる。
+\end{proposition}
+\begin{proof}
+二つのtrace零場はhと両quadricを保存する。
+全五joint-weightのうちhは零であり、その和も零である。
+零weight空間が二次元以上なら、残る高々三座標上でrank三以上の不変quadricには反対weight対が必要であり、
+trace零により残るweightも零となる。全weightのspanは高々一次元となり仮定に反する。
+従って零weight空間はhの一次元だけである。
+不変quadricのrankが三以上なので非零反対weight対があり、trace零から残る二weightも反対になる。
+よって全weightは$0,u,-u,v,-v$、u,v独立である。
+全て相異なるため可換冪零部は零で、二場自身が二次元対角torusを張る。
+
+両不変性による全許容源は、前のpair-zero源
+$P^{xy}=C_0+Axy+Bzw,P^{zw}=D_0+Exy+F_0zw$と四crossのlogcanonical項だけである。
+一次項はなく、$Z=X_1+X_2$が同torusに属することから$p+q+r+s=0$も従う。
+従って全Jacobiと三分岐の実SNC証明をそのまま適用できる。
+modular場単独が追加wall上にある場合でも、二つの独立characterが全源の完全性を保証する。
+\end{proof}
+joint半単純rank一又は零の$\lambda=0$支持、特殊底の残平面二源及び一般$1+2+2$の全被覆は未解決である。
+この二命題をG全体又は主分類の完成と同一視しない。
 
 \subsection{本質三変数の全磁気源とCPLUSへの接続}
 $D=hq_1q_2$の本質変数数が三なら、baseをh,x,y、fiberをz,wとする。
@@ -4290,7 +4512,7 @@ producerや元のplane-component checkerをimportせず、別作者が独立確�
 四重接点を通るH割線の全sourceは次小節で$\beta=0$へ認識する。
 残る$3+1$の単純交点におけるH接線と$3+1$のH弦配置では、三次までの横断支持に直線が残る。
 同じ高次jet経路を反復せず、全sourceの構造的変形へ移る。
-この二成分により下界は$90+2=92$、一般rank四は$84+2=86$となる。
+既存90成分との比較では、この二成分は下界$90+2=92$、一般rank四$84+2=86$を与える。
 非平面$1+2+2$、他の純冪零quartic型、既約非正規五次因子も残り、全分類未完を維持する。
 
 \subsection{四重接点の割線配置の全源を零一次底へ送る}

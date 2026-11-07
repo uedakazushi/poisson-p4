@@ -122,7 +122,32 @@ MPS Theorem1.4により、全点は既知MPS40の閉和に入る。
 任意の因子rankやhyperplane配置を表示源内で追加除外せず、
 既約・相異なるという対象条件から必要な非零条件だけを導いた。
 
-## 4. 有限証明書と未処理範囲
+## 4. λ=0、joint半単純rank二にも同じ全源が適用する
+
+λ=0の二normal場X₁,X₂が生成する可換代数のjoint半単純部のrankを考える。
+rank二の場合は、hを含む五weightのうちhのweightは零、全traceは零であり、
+両quadricはweight零である。少なくとも一つのquadricがrank三以上なので、
+五weightは必ず
+
+`0,u,−u,v,−v`、u,vは独立                                   (8)
+
+となる。実際、零weight空間の次元が二以上なら、残りは高々三座標である。
+rank三の対称形式は少なくとも一つの反対weight対を必要とし、trace零から
+残るweightも零になるため、全weightのspanは高々一次元となって矛盾する。
+零weight空間が一次元なら、非零の反対weight対があり、残る二weightはtraceから反対になる。
+もし反対対が無ければquadricのrankは一以下である。
+
+(8)は全て相異なるので、両normal場の可換冪零部は零である。
+従ってX₁,X₂自身が二次元の対角torusを張り、両不変性からPの全許容単項式は
+`Pxy=C+Axy+Bzw`, `Pzw=D+Exy+Fzw` と四crossのlogcanonical項だけになる。
+一次項は無く、二つの独立characterを使うため、modular場単独の追加共鳴に依存しない。
+さらにZ=X₁+X₂はこのtorusに属するので、そのx,y固有値和が零であり、
+正確に `p+q+r+s=0` が従う。これは(3)の全源そのものである。
+従って第3節の全Jacobi・実SNC証明は、λ=0の**全joint半単純rank二枝**を覆う。
+特定のmodular場が追加wallに乗っていても、この二normal場の条件で全源を保つ。
+joint半単純rank一又は零はこの議論に含めない。
+
+## 5. 有限証明書と未処理範囲
 
 `code/classification_two_quadrics.py` は(3)から全四Jacobiを疎Fraction多項式で作り、
 全係数idealと(4)の一致を確認する。
@@ -132,14 +157,19 @@ CAS/producerをimportせず、独立cofactor reviewerのRing演算だけを再�
 gate後の実行は0.0036秒、証明書は
 `CLASSIFICATION_TWO_QUADRICS_PAIR_ZERO_20261107.json`、
 契約は `jobs/two_quadrics_pair_zero.json`。
-これは全共鳴arrangementの一般pair-zero枝を閉じる全支持定理である。
+これは表示源の全支持定理であり、第4節によりλ=0の全joint半単純rank二を閉じる。
 
 後続 `TWO_QUADRICS_NIL22_BASE_SUPPORT.md` はJordan(2,2),c∈im Aの全支持を扱う。
 元27係数源のglobal binary-discriminant Jacobi式と、非零平方枝の全閉源・Pfaffianにより、
 被約1+2+2は全て平面七配置となる。その全源次元は高々24なのでGの該当枝も優越しない。
-特殊Eの三平面源の帰属は残る。
+特殊Eの二平面源（tan-simple、chord）の帰属は残る。
 
-追加共鳴のスペクトル、他の冪零modular場、線形場の零点でC=L=0となる純斉次源、
+`TWO_QUADRICS_NONZERO_PAIR_COFACTOR_SUPPORT.md` はλ≠0の全支持を閉じる。
+全joint-character matchingを列挙し、rank(4,4),(4,3),(3,3)の三配置だけへ完全還元した。
+各配置の全480×90条件はrank89の一parameter完全源であり、全源の実SNC軌道極限から
+全点が既知MPS40の閉和へ入る。独立Fraction再構成は全係数と6100 matching組を確認した。
+
+λ=0内のjoint半単純rank一又は零、他の冪零modular場、線形場の零点でC=L=0となる純斉次源、
 一般の二quadric pencilとHの全配置は未処理である。
 特にquartic既約型の有限24+10表を、この型へ無条件で転用しない。
 その有限表の低次wall必要性は、元のquarticの**既約性**を使っているからである。

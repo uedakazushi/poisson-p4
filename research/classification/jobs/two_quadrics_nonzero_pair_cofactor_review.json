@@ -1,0 +1,42 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "target_statement": "Independently reconstruct all480-by90 coefficient equations, complete sources and SNC limits, and exhaust every joint-character matching for nonzero-lambda two-quadric pairs.",
+  "implication_to_classification": "Every full low-degree source in the entire lambda!=0 factor branch is then contained in MPS40; lambda0 remains separate, with nil22-image already reduced to plane sources.",
+  "coefficient_ring": "QQ[x,y,z,w,n0,...] with lambda=1 and rational joint characters",
+  "hypotheses": "Two commuting affine-linear log-Hamiltonians Xi=P#dlogqi, traces(1,-1), q1 characters(0,-1),q2(1,0); geometric joint-weight classification gives rank44,rank43,rank33 canonical quadric pairs. Full90 coefficients retained.",
+  "inverted_elements": [
+    "lambda!=0 normalized by the allowed nonzero overall tensor scale",
+    "Nonzero quadric coefficients required by actual ranks3/4 normalized by coordinate/quadric scales",
+    "Explicit constant matrix pivots and actual Pfaffian multiple kappa!=0 for rank4"
+  ],
+  "complements": [
+    "lambda=0 is a distinct full branch, not discarded",
+    "All ranks3/4 and ordered-factor swaps are included; rank5 forces lambda0",
+    "Pfaffian-zero parameter values are retained in the source but are outside rank4; they are limits of nonzero-kappa points whenever present"
+  ],
+  "success_certificate": "Fraction full-row and affine-source reconstruction, nonzero89-minors, all Jacobi/Pfaffian/SNC identities, and exhaustive rank44/43/33 involution-matching enumeration with no repeated-weight or positive-dimensional unresolved solution.",
+  "independent_check": "Separate Fraction sparse reconstruction must check every original matrix row and complete source, rank minor, full Jacobi/Pfaffian and actual SNC limit. Geometric completeness of the three character types is separately reviewed.",
+  "resource_limit": {
+    "timeout_seconds": 60,
+    "memory_mb": 1024
+  },
+  "negative_result_next_step": "Retain any inconsistent type or extra source condition exactly. If a displayed cocharacter fails, use the actual polynomial source to find a structural limit rather than dropping a parameter or another generic point.",
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_two_quadrics_review.py",
+      "sha256": "31a51f95753536a88f87fa6722b076b4fd324719e8fa3703930b599eb844e98c"
+    },
+    {
+      "path": "code/classification_quadratic_cofactor_review.py",
+      "sha256": "b77e9511bad7c8674f2d820c0d1e6022b7aa3788b795c2e55090b28e2d2dffcd"
+    },
+    {
+      "path": "code/classification_two_lines_plane_cubic_component_review.py",
+      "sha256": "47720c5f3f8bebf96f1838f0671e5d2a6af9e6f93361edcd5d4b19e11c46a23c"
+    },
+    {
+      "path": "reports/CLASSIFICATION_TWO_QUADRICS_NONZERO_PAIR_COFACTOR_20261107.json",
+      "sha256": "e5d051d77dec27c958c951da419260ee91e84396169c12c43c9a53fcf8f524ce"
+    }
+  ]
+}

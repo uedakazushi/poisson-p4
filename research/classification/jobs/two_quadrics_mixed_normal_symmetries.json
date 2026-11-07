@@ -1,0 +1,32 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "target_statement": "Reconstruct complete200-by92 supersources for every joint-semisimple-rank-one pair of tracezero commuting normal fields, with all fullJacobi and Pfaffian conditions retained.",
+  "implication_to_classification": "Provides a finite complete entrance for the lambda0 jointssrank1 residual; no MPS or component conclusion is drawn until the full Jacobi/factor support is solved.",
+  "coefficient_ring": "QQ[n0,...,x,y,z,w]",
+  "hypotheses": "Joint semisimple normal span rank1, rankqi>=3, tracezero and hfixed. Counting symmetric weight pairs gives ss weights (+,+,-,-) or (+,-,0,0); the nonzero centralizing nilpotent gives exactly five affine normal forms.",
+  "inverted_elements": [
+    "Nonzero semisimple eigenvalue and coordinate constants used to normalize S,N; no source parameters inverted"
+  ],
+  "complements": [
+    "Purely nilpotent joint normal span rank0 remains separate",
+    "All nilpotent Jordan and affine translation positions inside both semisimple centralizers included",
+    "The full Jacobi ideal and HQQ factor locus remain constraints, not conclusions"
+  ],
+  "success_certificate": "Full200-by92 matrices, all92 coefficient kernel, nonzero rank minor, exact full Jacobi polynomials/coefficients and full Pfaffian for all five finite symmetry types.",
+  "independent_check": "A later independent Fraction reconstruction must verify every source row and source completeness before a positive whole-support implication is accepted.",
+  "resource_limit": {
+    "timeout_seconds": 60,
+    "memory_mb": 1024
+  },
+  "negative_result_next_step": "Keep all nonlinear Jacobi/factor conditions explicitly; use structural invariant/pencil geometry and no point-only inference or arbitrary higher jet.",
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_two_quadrics.py",
+      "sha256": "d5330b84ca49e04c3118e7ab2b27c82f71599c58c9fe0234c1ee28446ba22fa6"
+    },
+    {
+      "path": "research/classification/TWO_QUADRICS_SUPPORT.md",
+      "sha256": "125f761e724cfc2bc098bbe21dd9bc73a837177f711a0c9dcc4bde9719caab48"
+    }
+  ]
+}

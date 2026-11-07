@@ -4,6 +4,143 @@ import hashlib,json,resource,time,sys
 from pathlib import Path
 import classification_unimodular_logarithmic_review as r
 
+
+def nonzero_pair_cofactor():
+    """Independent all-row arithmetic and exhaustive joint-character matching."""
+    from fractions import Fraction as F
+    from itertools import combinations, combinations_with_replacement, permutations
+    from classification_quadratic_cofactor_review import Ring,PAIRS,complete_solution
+    import classification_two_lines_plane_cubic_component_review as q
+    resource.setrlimit(resource.RLIMIT_CPU,(55,56));resource.setrlimit(resource.RLIMIT_AS,(768*1024**2,768*1024**2))
+    start=time.monotonic();root=Path(__file__).resolve().parents[1]
+    path=root/'reports/CLASSIFICATION_TWO_QUADRICS_NONZERO_PAIR_COFACTOR_20261107.json'
+    saved=json.loads(path.read_text());records=[];R=Ring(1);xx=[R.variable(v) for v in ('x','y','z','w')]
+    zero=F(0);e0=(0,)*4
+    def mons(degree):
+        out=[]
+        for d in range(degree+1):
+            for indexes in combinations_with_replacement(range(4),d):
+                e=[0]*4
+                for j in indexes:e[j]+=1
+                out.append(tuple(e))
+        return out
+    mon2,mon3,mon1=mons(2),mons(3),mons(1)
+    def coeffs(poly,mon):
+        assert all(not e[0] for e in poly)
+        return [poly.get((0,)+e,zero) for e in mon]
+    def polynomial(e):return {(0,)+e:F(1)}
+    def matrix(entries):
+        M=[[{} for j in range(4)] for i in range(4)]
+        for (i,j),v in zip(PAIRS,entries):M[i][j]=v;M[j][i]=R.scale(v,-1)
+        return M
+    expected={
+        'rank44':('x+y*w','y+x*z',[(0,-1),(1,0),(1,1),(-1,-1)]),
+        'rank43':('x+y*z','y*y+x*w',[(0,-1),(F(1,2),0),(-F(1,2),-1),(1,1)]),
+        'rank33':('x*x+y*z','y*y+x*w',[(0,-F(1,2)),(F(1,2),0),(-F(1,2),-1),(1,F(1,2))])}
+    for c in saved['cases']:
+        begin=time.monotonic();name=c['name'];qt1,qt2,chars=expected[name];quads=list(map(R.parse,[qt1,qt2]));chars=[tuple(map(F,t)) for t in chars]
+        assert chars==[tuple(map(F,t)) for t in c['joint_characters']]
+        fields=[[R.scale(xx[j],chars[j][a]) for j in range(4)] for a in range(2)]
+        assert fields==[list(map(R.parse,v)) for v in c['cofactor_fields']]
+        def lhs(entries):
+            P=matrix(entries);rows=[]
+            for quad in quads:
+                for i in range(4):rows+=coeffs(R.scale(R.add(*(R.mul(P[i][j],R.derivative(quad,j)) for j in range(4))),-1),mon3)
+            for j in range(4):rows+=coeffs(R.add(*(R.derivative(P[i][j],i) for i in range(4))),mon1)
+            for a in range(2):
+                for i,j in PAIRS:
+                    rows+=coeffs(R.add(*(R.mul(fields[a][k],R.derivative(P[i][j],k)) for k in range(4)),R.scale(P[i][j],-chars[i][a]-chars[j][a])),mon2)
+            assert len(rows)==480
+            return rows
+        rhs=[]
+        for quad,field in zip(quads,fields):
+            for v in field:rhs+=coeffs(R.mul(quad,v),mon3)
+        for j in range(4):rhs+=coeffs(R.add(fields[0][j],fields[1][j]),mon1)
+        rhs += [zero]*180
+        columns=[]
+        for i in range(90):
+            entries=[{} for j in range(6)];entries[i//15]=polynomial(mon2[i%15]);columns.append(lhs(entries))
+        rows=[{j:columns[j][i] for j in range(90) if columns[j][i]} for i in range(480)]
+        assert rows==[{int(j):F(v) for j,v in row.items()} for row in c['full_constraint_sparse_rows']]
+        assert rhs==list(map(F,c['full_constraint_rhs'])) and c['full_constraint_shape']==[480,90]
+        free,piv,solution=complete_solution(rows,rhs)
+        assert free==c['free_coefficient_indices'] and piv==c['pivot_columns'] and len(free)==1 and len(piv)==89
+        coefficients=list(map(R.coefficient,solution));assert coefficients==list(map(R.parse,c['all90_coefficients']))
+        det=q.determinant([[rows[i].get(j,zero) for j in c['pivot_columns']] for i in c['pivot_rows']])
+        assert det==F(c['pivot_determinant']) and det
+        entries=[R.add(*(R.mul(coefficients[15*i+j],polynomial(e)) for j,e in enumerate(mon2))) for i in range(6)]
+        assert entries==list(map(R.parse,c['full_brackets']));P=matrix(entries)
+        jac=[R.add(*(R.mul(P[a][t],R.derivative(P[b][d],t)) for a,b,d in [(i,j,k),(j,k,i),(k,i,j)] for t in range(4))) for i,j,k in combinations(range(4),3)]
+        assert not any(jac)
+        pf=lambda v:R.add(R.mul(v[0],v[5]),R.scale(R.mul(v[1],v[4]),-1),R.mul(v[2],v[3]))
+        kappa=R.parse(c['Pfaffian_multiple_of_q1q2']);assert kappa and all(not any(e[1:]) for e in kappa)
+        assert pf(entries)==R.parse(c['full_Pfaffian'])==R.mul(kappa,*quads)
+        weights=c['cocharacter_hxyzw'];limit=[]
+        for (i,j),v in zip(PAIRS,entries):
+            kept={}
+            for e,a in v.items():
+                degree=sum(e[1:]);weight=(2-degree)*weights[0]+sum(d*b for d,b in zip(e[1:],weights[1:]))-weights[i+1]-weights[j+1]
+                assert weight>=0
+                if not weight:kept[e]=a
+            target=tuple(int(t in (i,j)) for t in range(4))
+            assert all(e[1:]==target for e in kept);limit.append(kept)
+        assert limit==list(map(R.parse,c['whole_source_logcanonical_limit']))
+        assert pf(limit)==R.parse(c['limit_Pfaffian'])==R.mul(kappa,*xx)
+        records.append({'name':name,'all_passed':True,'full480_by90_reconstructed':True,'complete_affine_source_reconstructed':True,
+            'rank':89,'free_coefficients':1,'nonzero_rank_minor':str(det),'all_Jacobi_Pfaffian_and_actual_SNC_limit_reconstructed':True,'seconds':time.monotonic()-begin})
+        print(name,'FULL480/90 FRACTION PASS',flush=True)
+    # Every nondegenerate symmetric rank-r weight block has an involution matching
+    # on r coordinate weights: a self-dual block gives fixed points, opposite
+    # weight blocks pair. Enumerate all such matchings, with h coordinate zero.
+    def involutions(items):
+        if not items:yield [];return
+        i,*tail=items
+        for rest in involutions(tail):yield [(i,i)]+rest
+        for j in tail:
+            for rest in involutions([k for k in tail if k!=j]):yield [(i,j)]+rest
+    def patterns(rank):return [v for subset in combinations(range(5),rank) for v in involutions(list(subset))]
+    def solve(pattern1,pattern2):
+        eq=[]
+        for a,pattern in enumerate([pattern1,pattern2]):
+            target=(F(0),F(-1)) if a==0 else (F(1),F(0))
+            for i,j in pattern:
+                row=[F(int(k==i)+int(k==j)) for k in range(1,5)]+list(target);eq.append(row)
+        eq.append([F(1)]*4+[F(1),F(-1)])
+        row=0;piv=[]
+        for col in range(4):
+            k=next((k for k in range(row,len(eq)) if eq[k][col]),None)
+            if k is None:continue
+            eq[row],eq[k]=eq[k],eq[row];d=eq[row][col];eq[row]=[v/d for v in eq[row]]
+            for k in range(len(eq)):
+                if k!=row and eq[k][col]:
+                    d=eq[k][col];eq[k]=[a-d*b for a,b in zip(eq[k],eq[row])]
+            piv.append(col);row+=1
+        if any(not any(v[:4]) and any(v[4:]) for v in eq):return None
+        assert len(piv)==4, ('unclassified positive-dimensional weights',pattern1,pattern2,eq)
+        return [(F(0),F(0))]+[tuple(eq[piv.index(i)][4:]) for i in range(4)]
+    enumeration=[]
+    for ranks in [(4,4),(4,3),(3,3)]:
+        count=0;orbits=set()
+        for p1 in patterns(ranks[0]):
+            for p2 in patterns(ranks[1]):
+                weights=solve(p1,p2)
+                if weights is None:continue
+                count+=1;orbits.add(tuple(sorted(weights[1:])))
+        target=tuple(sorted(expected['rank'+''.join(map(str,ranks))][2]))
+        assert orbits=={target}
+        enumeration.append({'ranks':list(ranks),'matching_pairs_checked':len(patterns(ranks[0]))*len(patterns(ranks[1])),
+            'consistent_pairs':count,'joint_weight_multisets':[[list(map(str,v)) for v in orbit] for orbit in sorted(orbits)],
+            'all_solutions_unique_with_four_distinct_nonzero_weights':True})
+        print('JOINT CHARACTER',ranks,'EXHAUSTIVE MATCHING PASS',count,flush=True)
+    inputs=[path,Path(Ring.__module__.replace('.','/')+'.py')]
+    import classification_quadratic_cofactor_review as helper
+    out={'task_id':'E_reduced_nonnormal','all_passed':True,'cases':records,'full_joint_character_matching_classification':enumeration,
+        'input_sha256':{str(p.relative_to(root)):hashlib.sha256(p.read_bytes()).hexdigest() for p in [path,Path(helper.__file__),Path(q.__file__)]},
+        'reviewer_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'seconds':time.monotonic()-start,
+        'scope':'Independent all480 rows/all90 coefficients/rank/full Jacobi/Pfaffian/all-parameter SNC for the three sources, plus exhaustive symmetric-weight involution matchings including repeated weights and h=0; geometric reductions and the MPS theorem remain separately stated proof inputs.'}
+    (root/'reports/CLASSIFICATION_TWO_QUADRICS_NONZERO_PAIR_COFACTOR_REVIEW_20261107.json').write_text(json.dumps(out,indent=2)+'\n')
+    print(json.dumps({'all_passed':True,'seconds':out['seconds']}))
+
 def plane_cubic_support():
     import classification_two_lines_plane_cubic_component_review as q
     resource.setrlimit(resource.RLIMIT_CPU,(85,86));resource.setrlimit(resource.RLIMIT_AS,(1536*1024**2,1536*1024**2))
@@ -243,6 +380,7 @@ def plane_sources():
 
 
 def main():
+    if '--nonzero-pair-cofactor' in sys.argv:return nonzero_pair_cofactor()
     if '--plane-cubic-support' in sys.argv:return plane_cubic_support()
     if '--plane-components' in sys.argv:return plane_components()
     if '--plane-sources' in sys.argv:return plane_sources()

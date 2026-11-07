@@ -29,16 +29,16 @@ E_reduced_nonnormalは被約非正規五次因子の全支持を扱い、既知M
 
 E_zeroとE_poly、A_rank2は完了。従前58成分のA監査と新22/24次元成分の独立証明も完了。
 旧証明書を入力にする範囲と今回の独立再計算を区別し、新候補だけを必要に応じて追加監査する。
-全92成分を個別同定し、全成分下界92、rank4下界86を記録する。上界・一般五点・全分類は未証明。
+全94成分を個別同定し、全成分下界94、rank4下界88を記録する。上界・一般五点・全分類は未証明。
 11月7日のユーザー再開指示により、下記の残義務から研究を継続する。保存や旧一時停止を終了条件にしない。
 
 既約Q＋既約C3の全支持は全cofactor型を尽くし、MPS40と六つの新23成分へ被覆済み。
 平面二直線＋既約三次は十三全配置へ尽くし、九23成分を証明、節点二接線の全源をMPSへ被覆し、残三配置の帰属を保持する。
-nil31 long-top六源とnil22 top八源も全被覆。short r=2/3、image内nil源等は未被覆である。
+nil31 long-top六源とnil22 top八源も全被覆。nil31 image内half/thirdも二新25成分へ被覆済み。short r=2/3、nil22imageの未帰属源等は残る。
 全rank1、非零定数modular、全nilrank2型はprimitive一次像を優越しない。
 GはR13/R22/S23全閉包、実L112十六源、x³y/x²y²十境界源に加え、x²yz二源とx²q十源も全係数を独立再構成した。全対数pole型の非優越を接続したが、E3の実軌道閉包も閉nilpotent incidence・全四Jordan型と独立80係数核を使って閉じた。これでA=c=0と未知優越成分の重複H一般元を排除したが、Gには被約非正規の5、1+4、1+1+3、1+2+2が残る。
 Eは上の残支持、H＋既約quartic、他次数分割と既約非正規quinticを継続する。
 
 H+既約quarticは全37wall→十二固有値比、半単純24・純nil十の全90線形源を独立確認済み。全半単純源はMPS又は空、regularnil4全源は新22とT39、nil31 translation零は空、nil211 translation零はMINIMAL_Mへ被覆済み。nil211top2も全三軌道を実曲線でMPSへ被覆済み。残る純nil五型(31,top1/3),(22,top0/2),(211,top1)を全支持ノートから続ける。short r=2/3の三次零判定を高次反復せず、実変形・幾何的帰属を調べる。
 
-1+2+2のplane七配置はCPLUS二源・新23二成分・secant-contactのβ零全被覆が済み、残るtan-simple/chord二源と非plane支持を続ける。nil22image内の1+2+2は全planeかつ飽和次元≤24であり、この分岐のG一般元排除はE残二源帰属と独立に完了。
+1+2+2のplane七配置はCPLUS二源・新23二成分・secant-contactのβ零全被覆が済み、残るtan-simple/chord二源とlambda零joint半単純rank≤1を続ける。lambda非零全支持とlambda零joint半単純rank2はMPSへ被覆した。nil22image内の1+2+2は全planeかつ飽和次元≤24であり、この分岐のG一般元排除はE残二源帰属と独立に完了。

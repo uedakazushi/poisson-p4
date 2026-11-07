@@ -1,0 +1,136 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "all_passed": true,
+  "cases": [
+    {
+      "name": "rank44",
+      "all_passed": true,
+      "full480_by90_reconstructed": true,
+      "complete_affine_source_reconstructed": true,
+      "rank": 89,
+      "free_coefficients": 1,
+      "nonzero_rank_minor": "-1",
+      "all_Jacobi_Pfaffian_and_actual_SNC_limit_reconstructed": true,
+      "seconds": 0.04799455600004876
+    },
+    {
+      "name": "rank43",
+      "all_passed": true,
+      "full480_by90_reconstructed": true,
+      "complete_affine_source_reconstructed": true,
+      "rank": 89,
+      "free_coefficients": 1,
+      "nonzero_rank_minor": "16",
+      "all_Jacobi_Pfaffian_and_actual_SNC_limit_reconstructed": true,
+      "seconds": 0.051274067999656836
+    },
+    {
+      "name": "rank33",
+      "all_passed": true,
+      "full480_by90_reconstructed": true,
+      "complete_affine_source_reconstructed": true,
+      "rank": 89,
+      "free_coefficients": 1,
+      "nonzero_rank_minor": "-1024",
+      "all_Jacobi_Pfaffian_and_actual_SNC_limit_reconstructed": true,
+      "seconds": 0.0525318400004835
+    }
+  ],
+  "full_joint_character_matching_classification": [
+    {
+      "ranks": [
+        4,
+        4
+      ],
+      "matching_pairs_checked": 2500,
+      "consistent_pairs": 24,
+      "joint_weight_multisets": [
+        [
+          [
+            "-1",
+            "-1"
+          ],
+          [
+            "0",
+            "-1"
+          ],
+          [
+            "1",
+            "0"
+          ],
+          [
+            "1",
+            "1"
+          ]
+        ]
+      ],
+      "all_solutions_unique_with_four_distinct_nonzero_weights": true
+    },
+    {
+      "ranks": [
+        4,
+        3
+      ],
+      "matching_pairs_checked": 2000,
+      "consistent_pairs": 24,
+      "joint_weight_multisets": [
+        [
+          [
+            "-1/2",
+            "-1"
+          ],
+          [
+            "0",
+            "-1"
+          ],
+          [
+            "1/2",
+            "0"
+          ],
+          [
+            "1",
+            "1"
+          ]
+        ]
+      ],
+      "all_solutions_unique_with_four_distinct_nonzero_weights": true
+    },
+    {
+      "ranks": [
+        3,
+        3
+      ],
+      "matching_pairs_checked": 1600,
+      "consistent_pairs": 24,
+      "joint_weight_multisets": [
+        [
+          [
+            "-1/2",
+            "-1"
+          ],
+          [
+            "0",
+            "-1/2"
+          ],
+          [
+            "1/2",
+            "0"
+          ],
+          [
+            "1",
+            "1/2"
+          ]
+        ]
+      ],
+      "all_solutions_unique_with_four_distinct_nonzero_weights": true
+    }
+  ],
+  "input_sha256": {
+    "reports/CLASSIFICATION_TWO_QUADRICS_NONZERO_PAIR_COFACTOR_20261107.json": "e5d051d77dec27c958c951da419260ee91e84396169c12c43c9a53fcf8f524ce",
+    "code/classification_quadratic_cofactor_review.py": "b77e9511bad7c8674f2d820c0d1e6022b7aa3788b795c2e55090b28e2d2dffcd",
+    "code/classification_two_lines_plane_cubic_component_review.py": "47720c5f3f8bebf96f1838f0671e5d2a6af9e6f93361edcd5d4b19e11c46a23c"
+  },
+  "reviewer_sha256": "31a51f95753536a88f87fa6722b076b4fd324719e8fa3703930b599eb844e98c",
+  "seconds": 0.5107897530006085,
+  "scope": "Independent all480 rows/all90 coefficients/rank/full Jacobi/Pfaffian/all-parameter SNC for the three sources, plus exhaustive symmetric-weight involution matchings including repeated weights and h=0; geometric reductions and the MPS theorem remain separately stated proof inputs."
+}

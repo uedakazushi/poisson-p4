@@ -8,6 +8,111 @@ import hashlib,itertools,json,resource,time,sys,signal
 from pathlib import Path
 from classification_quadratic_cofactor_review import Ring,PAIRS
 
+
+
+def mixed_normal_support():
+    """Exact necessary support covers for the five mixed-normal supersources."""
+    import sympy as s
+    start=time.monotonic();signal.alarm(30)
+    resource.setrlimit(resource.RLIMIT_AS,(768*1024**2,768*1024**2))
+    here=Path(__file__);root=here.resolve().parents[1];path=root/'reports/CLASSIFICATION_TWO_QUADRICS_MIXED_NORMAL_SYMMETRIES_20261107.json'
+    source={v['name']:v for v in json.loads(path.read_text())['cases']};records=[]
+    x,y,z,w=s.symbols('x y z w');nn=s.symbols('n0:13');loc={str(v):v for v in [x,y,z,w,*nn]}
+    for name in source:
+        c=source[name];parse=lambda v:s.sympify(v,locals=loc);P=list(map(parse,c['full_brackets']));J=list(map(parse,c['all_four_Jacobi']));F=parse(c['full_Pfaffian']);branches=[]
+        if name=='double_pair_one_nil':
+            assert s.rem(F,y,x,y,z,w)==0
+            result='Excluded: the full Pfaffian has the linear factor y, incompatible with two irreducible quadrics.'
+        elif name=='double_pair_two_nil':
+            a=nn[7];restriction={nn[5]:-a/2,nn[3]:0,nn[0]:0};f=s.factor(F.subs(restriction));assert s.rem(f,y*w,x,y,z,w)==0
+            assert -(2*nn[5]+a)**2 in list(map(parse,c['distinct_nonzero_Jacobi_coefficients']))
+            branches.append({'name':'ss_coefficient_nonzero','necessary_substitutions':{str(k):str(v) for k,v in restriction.items()},'inverted':['n7'],
+                'full_Pfaffian_after_substitution':str(f),'exclusion':'linear factors y,w; rank4 HQQ impossible'})
+            branches.append({'name':'ss_coefficient_zero','necessary_substitutions':{'n7':'0','n5':'0'},'inverted':['n8'],
+                'reduction':'divP=n8*N with canonical nil22-image, hence all reduced HQQ points are plane by TWO_QUADRICS_NIL22_BASE_SUPPORT.md'})
+            result='Every target point reduces to the already-covered whole nil22-image plane source; its full image dimension is at most24.'
+        else:
+            if name=='single_pair_linear_nil':
+                defs=[('all',{nn[1]:0,nn[2]:0,nn[7]:0,nn[10]:4*nn[5],nn[6]:-nn[0]*nn[8]/(2*nn[5]),nn[11]:-2*nn[9]},[0,3,4,5,8,9],['n0','n5','n8'])];normalizer=6
+            elif name=='single_pair_translation':
+                base={nn[1]:0,nn[2]:0,nn[10]:0,nn[11]:2*nn[6]}
+                defs=[('n0_nonzero',base|{nn[12]:-nn[8],nn[7]:(nn[5]*nn[8]-nn[0]*nn[9])/nn[6]},[0,3,4,5,6,8,9],['n0','n6','n9']),
+                    ('n0_zero',base|{nn[0]:0,nn[7]:nn[5]*nn[8]/nn[6]},[3,4,5,6,8,9,12],['n6','n9'])];normalizer=7
+            else:
+                base={nn[2]:0,nn[5]:0}
+                defs=[('n1_nonzero',base|{nn[8]:-4*nn[6],nn[0]:nn[1]*nn[4]/nn[6]},[1,3,4,6,7],['n1','n6','n7']),
+                    ('n1_zero',base|{nn[1]:0,nn[8]:-2*nn[6]},[0,3,4,6,7],['n0','n6','n7'])];normalizer=5
+            for label,sub,free,inverted in defs:
+                assert all(s.cancel(v.subs(sub,simultaneous=True))==0 for v in J)
+                pp=[s.factor(v.subs(sub,simultaneous=True)) for v in P];pf=s.factor(F.subs(sub,simultaneous=True))
+                assert set().union(*(v.free_symbols for v in pp))<=set([x,y,z,w,*[nn[i] for i in free]])
+                assert len(free)==normalizer
+                branches.append({'name':label,'necessary_substitutions':{str(k):str(v) for k,v in sub.items()},'inverted':inverted,
+                    'free_parameters':[str(nn[i]) for i in free],'source_dimension_upper':len(free),'normalizer_dimension_lower':normalizer,
+                    'full_brackets_after_substitution':list(map(str,pp)),'full_Pfaffian_after_substitution':str(pf),
+                    'all_original_Jacobi_zero':True,'full_PGL_projective_image_dimension_upper':24+len(free)-1-normalizer})
+            result='Whole target subset is covered by these necessary complete-source strata; each PGL projective image has dimension<=23 and cannot be an unknown W-dominant component of dimension>=25. No component recognition is asserted.'
+        records.append({'name':name,'branches':branches,'conclusion':result})
+        print(name,'SUPPORT CERTIFIED',len(branches),flush=True)
+    out={'task_id':'E_reduced_nonnormal','cases':records,'producer_sha256':hashlib.sha256(here.read_bytes()).hexdigest(),
+        'producer_bytes':here.read_text(),'input_sha256':{str(path.relative_to(root)):hashlib.sha256(path.read_bytes()).hexdigest()},'seconds':time.monotonic()-start,
+        'scope':'Exact polynomial/rational substitutions for the necessary HQQ/cofactor support strata of all five mixed-normal supersources. Completeness of necessary restrictions and normalizer dimension argument are separate written proofs; this is a G non-dominance result, not an E component-membership assertion.'}
+    (root/'reports/CLASSIFICATION_TWO_QUADRICS_MIXED_NORMAL_SUPPORT_20261107.json').write_text(json.dumps(out,indent=2,default=str)+'\n')
+
+def mixed_normal_symmetries():
+    """Finite complete supersources for joint-semisimple-rank-one normals."""
+    import sympy as s
+    from sympy.polys.matrices import DomainMatrix
+    start=time.monotonic();signal.alarm(60)
+    resource.setrlimit(resource.RLIMIT_AS,(1024*1024**2,1024*1024**2))
+    here=Path(__file__);root=here.resolve().parents[1]
+    x,y,z,w=s.symbols('x y z w');xx=(x,y,z,w);cc=s.symbols('c0:90');ss,tt=s.symbols('ss tt')
+    mons=[s.prod(v) for degree in range(3) for v in itertools.combinations_with_replacement(xx,degree)];mon1=[s.Integer(1),*xx]
+    cases=[('double_pair_one_nil',[x,y,-z,-w],[y,0,0,0]),
+        ('double_pair_two_nil',[x,y,-z,-w],[y,0,w,0]),
+        ('single_pair_linear_nil',[x,-y,0,0],[0,0,w,0]),
+        ('single_pair_translation',[x,-y,0,0],[0,0,1,0]),
+        ('single_pair_long_translation',[x,-y,0,0],[0,0,w,1])]
+    records=[]
+    for name,S,N in cases:
+        S=s.Matrix(S);N=s.Matrix(N);entries=s.Matrix([sum(cc[15*i+j]*mon for j,mon in enumerate(mons)) for i in range(6)])
+        P=s.zeros(4)
+        for (i,j),v in zip(PAIRS,entries):P[i,j]=v;P[j,i]=-v
+        Z=ss*S+tt*N;equations=[]
+        equations += [s.Poly(sum(s.diff(P[i,j],xx[i]) for i in range(4))-Z[j],*xx).coeff_monomial(mon) for j in range(4) for mon in mon1]
+        for field in [S,N]:
+            for i,j in PAIRS:
+                lie=sum(field[k]*s.diff(P[i,j],xx[k])-P[k,j]*s.diff(field[i],xx[k])-P[i,k]*s.diff(field[j],xx[k]) for k in range(4))
+                equations +=[s.Poly(lie,*xx).coeff_monomial(mon) for mon in mons]
+        M,b=s.linear_eq_to_matrix(equations,[*cc,ss,tt]);assert M.shape==(200,92) and not any(b)
+        rr,piv=DomainMatrix.from_Matrix(M).convert_to(s.QQ).rref();rr=rr.to_Matrix()
+        free=[i for i in range(92) if i not in piv];nn=s.symbols('n0:'+str(len(free)));coef=s.zeros(92,1)
+        for j,n in zip(free,nn):coef[j]=n
+        for i,j in enumerate(piv):coef[j]=-sum(rr[i,k]*coef[k] for k in free)
+        assert not any(s.expand(v) for v in M*coef)
+        _,pr=DomainMatrix.from_Matrix(M.T).convert_to(s.QQ).rref();det=M.extract(pr,piv).det(method='domain-ge')
+        source=[s.expand(sum(coef[15*i+j]*mon for j,mon in enumerate(mons))) for i in range(6)];matrix=s.zeros(4)
+        for (i,j),v in zip(PAIRS,source):matrix[i,j]=v;matrix[j,i]=-v
+        jac=[s.expand(sum(matrix[a,t]*s.diff(matrix[b,d],xx[t]) for a,b,d in [(i,j,k),(j,k,i),(k,i,j)] for t in range(4))) for i,j,k in itertools.combinations(range(4),3)]
+        coefficients=[]
+        for poly in jac:
+            for v in s.Poly(poly,*xx).coeffs():
+                v=s.factor(v)
+                if v and v not in coefficients and -v not in coefficients:coefficients.append(v)
+        pf=s.factor(source[0]*source[5]-source[1]*source[4]+source[2]*source[3])
+        records.append({'name':name,'semisimple_field':list(map(str,S)),'nilpotent_field':list(map(str,N)),
+            'full_constraint_shape':list(M.shape),'full_constraint_sparse_rows':[{str(j):str(v) for j,v in enumerate(M.row(i)) if v} for i in range(M.rows)],
+            'rank':len(piv),'pivot_rows':list(pr),'pivot_columns':list(piv),'pivot_determinant':str(det),
+            'free_coefficient_indices':free,'free_parameters':list(map(str,nn)),'all92_coefficients':list(map(str,coef)),
+            'full_brackets':list(map(str,source)),'divergence_ss_coefficient':str(coef[90]),'divergence_nil_coefficient':str(coef[91]),
+            'all_four_Jacobi':list(map(str,jac)),'distinct_nonzero_Jacobi_coefficients':list(map(str,coefficients)),
+            'full_Pfaffian':str(pf)})
+        print(name,'rank',len(piv),'free',len(free),'Jac generators',len(coefficients),flush=True)
+    out={'task_id':'E_reduced_nonnormal','cases':records,'producer_sha256':hashlib.sha256(here.read_bytes()).hexdigest(),
+        'producer_bytes':here.read_text(),'seconds':time.monotonic()-start,
+        'scope':'Full200-by92 supersources satisfying divP in span(S,N), LieS P=LieN P=0 for all five possible commuting semisimple/nonzero-nilpotent symmetry types. No Jacobi ideal has been solved and no factor-type/component conclusion is drawn from this entrance alone. The independent normal-Hamiltonian and factor conditions are not discarded.'}
+    (root/'reports/CLASSIFICATION_TWO_QUADRICS_MIXED_NORMAL_SYMMETRIES_20261107.json').write_text(json.dumps(out,indent=2,default=str)+'\n')
+
 def nonzero_pair_cofactor():
     """Complete90-coefficient sources and SNC limits for all lambda!=0 types."""
     import sympy as s
@@ -567,6 +672,8 @@ def plane_conics():
 
 
 def main():
+    if '--mixed-normal-support' in sys.argv:return mixed_normal_support()
+    if '--mixed-normal-symmetries' in sys.argv:return mixed_normal_symmetries()
     if '--nonzero-pair-cofactor' in sys.argv:return nonzero_pair_cofactor()
     if '--plane-even' in sys.argv:return plane_even()
     if '--plane-graphs' in sys.argv:return plane_graphs()
