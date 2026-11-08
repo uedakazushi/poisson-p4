@@ -1,6 +1,6 @@
 # Eの全点被覆：G完了後の全source inventory
 
-2026-11-08、PRIMARY E、担当 /root/log_manuscript。基準は142成分／1108claimsの最終固定cut。
+2026-11-08、PRIMARY E、担当 /root/log_manuscript。基準は142成分／1125claimsの最終固定cut。
 本稿は既存の全源定理・独立receiptの**結論の射程の一覧**であり、新claim・計算・成分性証明ではない。
 主原稿・global台帳・Git・旧証明書を変更せず、数学を再実行していない。
 
@@ -8,7 +8,7 @@
 [93-file manifest](inputs/global_generic_g_exhaustion_closure_audit_manifest_20261108.json)、
 [34 accepted-claim projection](inputs/global_generic_g_exhaustion_accepted_branches_20261108.json)。
 **93は依存ファイル数であり、source族や未解決課題の数ではない。**
-snapshot後のcorrected-triple最終receipt、K22陽性、K4a/T37及びclaim1022–1084の全源認識も併用する。
+snapshot後のcorrected-triple最終receipt、K22陽性、K4a/T37及びclaim1022–1125の全源認識も併用する。
 旧note冒頭の「未了／review前」は後続の受理済みreceiptとerratumを優先して読む。
 旧52件のexceptional-base表を現在の全E表とは扱わない。
 
@@ -31,7 +31,7 @@ snapshot後のcorrected-triple最終receipt、K22陽性、K4a/T37及びclaim1022
 
 Gは完了し、一般βのexact splitter残余Bは零、一般S61代数は既知E5である。
 これは特殊β上の全点membershipや低次元成分を消さない。
-**被約既約非正規Dの全点被覆はclaim1084で完了した。残るE義務は可約・非被約Dの全源に置く。plane三源／stable二源／Ga9 linear-w／nilshortだけが全E残余という一覧にも縮めない。**
+**被約既約非正規Dの全点被覆はclaim1084で完了した。残るE義務は可約・非被約Dの全源に置く。plane三源／stable line-conic／Ga9 linear-w／nilshortだけが全E残余という一覧にも縮めない。**
 
 ## 2. 実退化五次Dの最上位全分岐
 
@@ -47,7 +47,7 @@ Gは完了し、一般βのexact splitter残余Bは零、一般S61代数は既�
 | 重複Hあり | K/B混合。§3の全modular型が必要 |
 | 被約H＋既約quartic | 大部分K、残B。§4 |
 | 被約二H＋既約cubic | 全非plane K、plane三whole六磁気B。§4 |
-| 被約H＋相異二既約Q | plane全十候補K、jointSSrank一全T16/T17、pure-nil factor-specific枝にB。§4 |
+| 被約H＋相異二既約Q | **全K/Ø**。全二normal場、全factor配置、全pure-nil十型、全五core/磁気/零境界を戻す。[1125全点合成](TWO_QUADRICS_ALL_POINTWISE_KNOWN_COVERAGE.md)と[入力scope補足](TWO_QUADRICS_ALL_COVERAGE_INPUT_SCOPE_ADDENDUM.md)。§4 |
 | 被約既約非正規quintic | **全K/Ø**。claim1084の全導手次数1..6・rank零/二・全plane位数の合成。§5–7 |
 
 ## 3. 重複Hの全modular型
@@ -66,10 +66,10 @@ symplectic基点／finite perspectiveとの橋は[REMAINING_SUPPORT §3](REMAINI
 | nil31、長いtop | K。[MODULAR_NIL31_LONG_SUPPORT](MODULAR_NIL31_LONG_SUPPORT.md)：全六源、最後r=−1も全源変形 |
 | nil31、短いtop | **r=2/3全源B**。[SHORT §§7–8](MODULAR_NIL31_SHORT_SUPPORT.md)：元六変数→(t,d)、t≠0、td≠0一actual軌道、d=0を同実源に保持。r=1/3主枝は後続§8でMPS、追加枝T01、他三源は既22。一般点の親／成分性を得れば全源へ閉性を戻せる |
 | nil22、c∉imA | K。[MODULAR_NIL22_TOP_SUPPORT](MODULAR_NIL22_TOP_SUPPORT.md)：全八源、全MPS/T19/二22。途中の古い未了文を最終状況としない |
-| nil22、c∈imA | K＋**stable二B**。[NIL22_IMAGE_SOURCE_REVIEW](NIL22_IMAGE_SOURCE_REVIEW.md)：全十一Hessian源、GL2全逆、任意F0六係数。half/third等、regular limits、doubleB/C、quadraticA、doubleAの後続陽性を合わせ、残stable_line_conic／stable_three_lines |
+| nil22、c∈imA | K＋**stable line-conic B**。[NIL22_IMAGE_SOURCE_REVIEW](NIL22_IMAGE_SOURCE_REVIEW.md)：全十一Hessian源、GL2全逆、任意F0六係数。half/third等、regular limits、doubleB/C、quadraticA、doubleAの後続陽性を合わせ、残stable_line_conicのみ。stable_three_linesの全六磁気は[T03全actual曲線](NIL22_STABLE_THREE_LINES_T03_ACTUAL_CURVE.md)と独立全scope査読でK |
 | rankA1、c∈imA | K。[LOW_RANK §4](MULTIPLE_HYPERPLANE_LOW_RANK_MODULAR.md)：b≠0は既nil31成分、b=0はCA/CB |
-| rankA1、c∉imA | **全K**。同§5長鎖/短鎖全源。[全十七源](RANK_ONE_TRANSLATION_WHOLE_FINITE_EXHAUSTION.md)の十七全てK。非定数g新25、定数g/H3零は旧NEW25、定数gのμ1/μ1/3及びg零SCは新三25、B1–B6/V1は新七25、M2/M3/M21は旧third/half/DDH25、M1/M11は新しい二25成分。全shortも同じ有限閉和へK。[閉L外の全次元上界](RANK_FOUR_OUTSIDE_LOW_MODULAR_FLAG_DIMENSION_BOUND.md)でM1/M11の成分性を得て、全17/short E完了。B1/B3/V1及びM1/M11の五族は支持による成分性のみ、smooth/unique未証明 |
-| A0、c≠0 | **K/B混合**。全P=∂t∧Y+Jac(f),divY=κ≠0,Yf=κf,degY≤2,degf≤3。degree≤2は[全有限化](CONSTANT_MODULAR_DEGREE_TWO_WHOLE_REDUCTION.md)：rank3/非零criticalvalueはØ、f=z/z²全16はCA/CB、f=zw+u全A8は[NEW25](CONSTANT_MODULAR_SOURCE_TWO_NEW25_WHOLE_COVERAGE.md)、f=zw全A10は[M11全実曲線](CONSTANT_MODULAR_SOURCE_ONE_M11_WHOLE_ACTUAL_LIMIT.md)と新M11成分性でK。残f=z²+u全A10及びdegree3未処理源はB。β(c)零をmembershipとしない |
+| rankA1、c∉imA | **multiple-H/Pf(Q)=0の全源はK**。同§5長鎖/短鎖全源。[全十七源](RANK_ONE_TRANSLATION_WHOLE_FINITE_EXHAUSTION.md)の十七全てK。非定数g新25、定数g/H3零は旧NEW25、定数gのμ1/μ1/3及びg零SCは新三25、B1–B6/V1は新七25、M2/M3/M21は旧third/half/DDH25、M1/M11は新しい二25成分。全shortも同じ有限閉和へK。[閉L外の全次元上界](RANK_FOUR_OUTSIDE_LOW_MODULAR_FLAG_DIMENSION_BOUND.md)でM1/M11の成分性を得て、全17/short E完了。標識h²|Dを仮定し、単純Hを選ぶだけの任意rank一場へ拡張しない。B1/B3/V1及びM1/M11の五族は支持による成分性のみ、smooth/unique未証明 |
+| A0、c≠0 | **K/B混合**。全P=∂t∧Y+Jac(f),divY=κ≠0,Yf=κf,degY≤2,degf≤3。degree≤2は[全有限化](CONSTANT_MODULAR_DEGREE_TWO_WHOLE_REDUCTION.md)：rank3/非零criticalvalueはØ、f=z/z²全16はCA/CB、f=zw+u全A8は[NEW25](CONSTANT_MODULAR_SOURCE_TWO_NEW25_WHOLE_COVERAGE.md)、f=zw全A10は[M11全実曲線](CONSTANT_MODULAR_SOURCE_ONE_M11_WHOLE_ACTUAL_LIMIT.md)と新M11成分性でK。f=z²+u全A10も[B1全actual曲線](CONSTANT_MODULAR_SOURCE_THREE_B1_WHOLE_ACTUAL_LIMIT.md)でK、degree≤2全源完了。degree3は[f3被約のnonconcurrent](CONSTANT_MODULAR_REDUCED_NONCONCURRENT_CUBIC_WHOLE_COVERAGE.md)／[concurrent全long曲線](CONSTANT_MODULAR_CONCURRENT_CUBIC_WHOLE_LONG_LIMIT.md)、[actual F非被約全源](CONSTANT_MODULAR_NONREDUCED_ACTUAL_CUBIC_WHOLE_COVERAGE.md)がK。残るf3非被約・actual F被約の特定全lower源はB。β(c)零をmembershipとしない |
 | A=c=0 | 以下の全symplectic延長でK/Ø/B混合。全点をbeta零／Q45に制限しない |
 | 別の横断条件[J,Q]=0 | **B**。remaining §4の全Lie4源＋全Q。固定評価β像≤12だけ。上の型と重複する必要sourceとして全係数を保持 |
 
@@ -80,9 +80,10 @@ symplectic基点／finite perspectiveとの橋は[REMAINING_SUPPORT §3](REMAINI
 
 | 最高部入口 | 現在の全源結論／E義務 |
 |---|---|
-| γ零／共通因子 | B：全低次β・非退化J。primitive評価の核という必要閉条件だけ |
-| R13／linear Casimir | ØとB。[UNIMODULAR_LINEAR_HAMILTONIAN_SUPPORT](UNIMODULAR_LINEAR_HAMILTONIAN_SUPPORT.md)：零点無しaffine Hamiltonian、semi/constantとnil六対、五つの全45係数線形源 |
-| R22／quadratic pencil | ØとB。[UNIMODULAR_REGULAR_QUADRATIC_PENCIL_SUPPORT](UNIMODULAR_REGULAR_QUADRATIC_PENCIL_SUPPORT.md)：全Segre/common-kernel/Kronecker、全24一次＋六定数 |
+| γ零 | **全K=CA**。[zero/factor全入口](UNIMODULAR_ZERO_AND_FACTOR_TOP_ENTRANCE.md)：J-primitive全等方image≤2の共通1formからconstant Hamiltonian、全C/LをCA実族へ |
+| γ共通因子 | 全linear factor＋Grassmannian二ruling。linear-Casimir枝K、三変数pullback最高部の全C/LはB。primitive評価核だけをmembershipにしない |
+| R13／linear Casimir | **全K/Ø**。[全低次membership](UNIMODULAR_LINEAR_HAMILTONIAN_WHOLE_MEMBERSHIP.md)と[別作者全scope査読](UNIMODULAR_HAMILTONIAN_PENCIL_WHOLE_SEPARATE_REVIEW.md)：constant全CA、sem全T16、nil五literal universal compatible曲線→T01/既22/M1、nil一型空。[UNIMODULAR_LINEAR_HAMILTONIAN_SUPPORT](UNIMODULAR_LINEAR_HAMILTONIAN_SUPPORT.md)：零点無しaffine Hamiltonian、semi/constantとnil六対、五つの全45係数線形源 |
+| R22／quadratic pencil | **primitive regular全K=T16/Ø**。[全pencil membership](UNIMODULAR_REGULAR_PENCIL_WHOLE_T16_MEMBERSHIP.md)：全u/v同時actualtranslation、nil[2,2]全sp/Omega odd-polynomial familyとdenseCartan。退化pencil/common-kernel fullpullbackはB。[UNIMODULAR_REGULAR_QUADRATIC_PENCIL_SUPPORT](UNIMODULAR_REGULAR_QUADRATIC_PENCIL_SUPPORT.md)：全Segre/common-kernel/Kronecker、全24一次＋六定数 |
 | S23／pullback | B又は前行へ。[REMAINING §16](REMAINING_DEGENERACY_DIVISOR_SUPPORT.md)：w dw等も保持した全低次延長 |
 | L1111/L112 | SNC開K、pole境界Ø/B。[LOGARITHMIC_BOUNDARY_REVIEW](UNIMODULAR_LOGARITHMIC_POLE_BOUNDARY_REVIEW.md)：多くのx²yz/x²qは延長無し、混合q=xz+yw全源は評価rank≤3だけ |
 | E3閉包 | Ø/Bへ還元。[EXCEPTIONAL_NILPOTENT_INCIDENCE](UNIMODULAR_EXCEPTIONAL_NILPOTENT_INCIDENCE.md)：全四Jordan・denseL112/linear Casimir/pullbackへの全延長。Bへの還元をKとしない |
@@ -107,7 +108,7 @@ f零は[COTANGENT_G_BOUND](HYPERPLANE_QUARTIC_NIL22_COTANGENT_G_BOUND.md)の全2
 μ6/r1を落とさず、[MU6_MARKED_LIST §§1–4](PLANE_HYPERPLANE_QUARTIC_MU6_MARKED_LIST.md)から
 A6 tangent／A4+A2 tangentはGa9power1／power3へ、E6 tangentはτ13空枝又はGa9linear-wへ戻る。
 3A2にr1は無い。power1/3は[全六磁気cuspidal24橋](GA9_CUSPIDAL_QUARTIC_COMPONENT.md)からK。
-nil9 Ga9の他源も既23/空へ入り、**残Ga9 c0 linear-w全源**がB。
+nil9 Ga9の他源も既23/空へ入り、**残Ga9 c0 linear-w全源**がB。[固定actualD全source二軌道定理](GA9_LINEAR_W_FIXED_DIVISOR_MAGNETIC_NORMAL_FORM.md)で、全AR2 frameと全finitefiber shearを戻し唯一w²磁気係数のunit/zero二軌道へ。固定D＋unique singular planeの一般rank二がGa9 unit認識条件だが、known parentへの陽性矢印は未解決。
 そのdense23軌道のT39/T40等への陰性を陽性被覆とはしない。
 
 ### 二H＋既約cubic
@@ -125,27 +126,29 @@ translation二22閉包、j21(h,x)、j21(0,h+x)の全n6補集合、p0→T06の全
 全括弧／Saito frameは[TWO_LINES_PLANE_CUBIC_SUPPORT](TWO_LINES_PLANE_CUBIC_SUPPORT.md)。
 旧T36–38 uniform normal-cone陰性は指定入口だけであり、whole親の不存在ではない。
 
-### H＋相異二既約Q
+### H＋相異二既約Q：全点完了
 
-λ非零・jointSSrank二・pair-zero等で実Kとした全sourceと、本質三planeの十候補→七free源はK。
-[TWO_QUADRICS_PLANE_WHOLE_COVERAGE](TWO_QUADRICS_PLANE_WHOLE_COVERAGE.md)を次の非plane/別factor源へ拡張しない。
+**全source K/Ø、Gのみの終端は残らない。**
+[全点合成](TWO_QUADRICS_ALL_POINTWISE_KNOWN_COVERAGE.md)、
+[独立aggregate査読](TWO_QUADRICS_ALL_POINTWISE_COMPOSITION_SEPARATE_REVIEW.md)、
+[pair-zero独立入力scope補足](TWO_QUADRICS_ALL_COVERAGE_INPUT_SCOPE_ADDENDUM.md)を接続する。
+全normal場X1/X2、lambda非零/零、jointSSrank2/1/0、全nil十型を尽くす。
+半単純全源のSNC実曲線、全pairzero五Jacobi、jointSSrank一の全T16/T17は既受理。
+plane全十候補→七配置は全frame/六磁気/特別配置値を保ちK。
+quartic既約性をHQQへ流用せず、型2/3/4/5/8はfactor-specific全空、6/9はplaneへ戻す。
+型一全T20、型十全T17も元全逆を保持する。
 
-jointSSrank一の全B1/B2/B3は[実全曲線](TWO_QUADRICS_JOINT_SS_RANK1_ACTUAL_CONFLUENCE.md)と別作者receiptにより**K=T16/T17**となった。B1の全六自由、B2のn0零/非零全七、B3のn1零/非零全五を戻し、全unit零はproper factor又は既planeへ送る。相異二quadric条件外のhF²を対象源として残さない。
-
-純nilの型一は[全T20曲線](TWO_QUADRICS_REGULAR_NIL_WHOLE_T20_CONFLUENCE.md)、型十は[全T17曲線](TWO_QUADRICS_TRANSLATED_MINIMAL_WHOLE_T17_CONFLUENCE.md)でK。型四は全actualPfの一次因子又は絶対既約quarticにより本HQQ対象ではØ。全C/B/kappaの零補集合を戻す。
-
-| 依然Bのpure-nil型七 | 全source／未認識代表 |
+| 型七のwhole source | 全点親とactual入口 |
 |---|---|
-| rank1/active-u | 全BはtruecoupledT17全曲線でK |
-| rank1/active-v | **全K=T18**。[全c非零/B自由のtrueT18曲線](TWO_QUADRICS_NIL22_ACTIVE_V_WHOLE_T18_CONFLUENCE.md)。period二次項がB全域を動かし、B0も同じ式で保持 |
-| rank2 | core(eta,xi)=(0,0),(-1/4,0),(1/12,xi²=−1/432)の三源。各全sはs1一actual orbitとs0閉境界。xi両符号はactual r−1で同一 |
+| rank1 active-u | 全BはtruecoupledT17 |
+| rank1 active-v | 全c単元/B自由（零含む）はT18 |
+| rank2(-1/4,0) | 全sは[T16二parabolic frame](TWO_QUADRICS_NIL22_RANK_TWO_MINUS_QUARTER_WHOLE_T16_CONFLUENCE.md) |
+| rank2(0,0) | 全sは[moving-H T18](TWO_QUADRICS_NIL22_RANK_TWO_ZERO_WHOLE_T18_CONFLUENCE.md)。generic h行非零とprojective350を保持 |
+| rank2 eta1/12,xi²−1/432 | 全sは[真Ga² T19](TWO_QUADRICS_NIL22_LAST_CORE_WHOLE_T19_CONFLUENCE.md)。quadric対保存、canonical150全pole消去、xi両符号actual逆 |
 
-[全20potential→五source](TWO_QUADRICS_NIL22_LONG_FIVE_WHOLE_SOURCES.md)／
-[別作者全源review](TWO_QUADRICS_NIL22_LONG_FIVE_SEPARATE_REVIEW.md)によりactive-vは後続1103で全T18へ入ったため、必要な未認識親はrank2三actual orbitだけである。
-Hessian0/各factorrow0/q−1/2/相異性c0は全因子条件でØ、rank2 lowerは全二factorの可逆rowから一意復元する。
-単にHquartic七源の既約性を別因子型へ外挿していない。
-A1はØ、A2はplaneK、pure-nil2/3/5/8はØ、6/9はplaneK。
-これらは可約Dのfactor-specific義務であり、以下の既約D全被覆とは別である。
+五族定理の元full20、Hessian全rank/zero補集合、全lower、全s零、GLframe正逆を戻す。
+後三源の旧D102/M47や一法線診断を陽性所属の根拠にしない。
+H＋同一quadric二乗や他の退化因子型へこの完了を拡張しない。
 
 ## 5. 非plane導手曲面：全次数・全restriction rankはK又はØ
 
@@ -226,13 +229,13 @@ claim1084により**被約既約非正規actualDは全点K**である。
 
 | 優先lane | 残るwhole source | 最弱の必要結果 |
 |---|---|---|
-| E-ORBIT | nilshort r2/3、Ga9linear-w、stable二、plane1+1+3三 | 既actual全源の陽性confluence、又は全源閉包の成分性・全prior相違。既陰性点を増殖しない |
-| E-FACTOR-TWOQ | pure-nil7のrank2三core、計三actual軌道 | 三actual orbitへの陽性親又は全成分性。型1全T20、型10全T17、型7active-u全T17/active-v全T18、型4全Ø、jointSSrank1全T16/T17を再開しない |
-| E-LOW-MODULAR | A0 degree≤2のsource IIIとdegree3残源、A=c0最高部六閉包の全低次延長、横断[J,Q]0 | 全constant/linear/quadratic源と元Jacobiの空性又は親。全rank1 c非imageのlong/short十七源は全K。新25の五支持成分に正則/uniqueを足さず、A0 sourceI/IIもKとして再開しない |
+| E-ORBIT | nilshort r2/3、Ga9linear-w、stable line-conic、plane1+1+3三 | 既actual全源の陽性confluence、又は全源閉包の成分性・全prior相違。既陰性点を増殖しない |
+| E-FACTOR-TWOQ | **全完了**。H＋相異二既約quadricは全K/Ø | 全元source/normalizer/pole/磁気を戻す1125合成を使い再開しない。同一Q平方等は別lane |
+| E-LOW-MODULAR | A0のf3非被約・actual F被約の特定全lower源、A=c0のfullpullback/logpole全延長、横断[J,Q]0 | 全constant degree≤2、f3被約、actual F非被約、全linear-Hamiltonian/primitive regularpencil/zero最高部はK。全multiple-H rank1十七/shortもK。これらを再開せず残全低次を認識する |
 | E-DEPENDENCY-AUDIT | 上表の重複する可約/nonred全源 | 一方への全包含を証明すれば重複義務を消せるが、固定β像のproper性をmembershipとしない |
 
 全nonplane、全rankzero-plane、全ranktwo-planeの既約D枝を未解決laneとして重複計上しない。
-本cutは142/1108でseal。これ以降の新成果は次cutとし、本inventoryへ自動反映しない。
+本cutは142/1125でseal。これ以降の新成果は次cutとし、本inventoryへ自動反映しない。
 
 ## 9. G93入口の全34採録recordとのcrosswalk
 
@@ -246,11 +249,11 @@ claim1084により**被約既約非正規actualDは全点K**である。
 | 3 R4_THREE_HYPERPLANES_QUADRIC_FULL_SUPPORT | §2三H+Q | K |
 | 4 G_SIMPLE_H_QUARTIC_ALL_GENERIC_EXCLUSION | §4 Hquartic | K/Ø、残Ga9linear-w B |
 | 5 G_TWO_HYPERPLANES_CUBIC_ALL_GENERIC_EXCLUSION | §4二H+cubic | 後続全非plane K、plane三B |
-| 6 G_H_TWO_QUADRICS_ALL_GENERIC_EXCLUSION | §4 H+二Q | plane/jointSSrank一K、pure-nilのB |
-| 7 G_MODULAR_NIL_RANK2_NONDOMINANCE | §3 nil31/22 | Kとshort r2/3／stable二B |
-| 8 G_MODULAR_RANK1_CONSTANT_NONDOMINANCE | §3 rank一・A0/c非零 | K/B混合 |
-| 9 G_UNIMODULAR_LINEAR_CASIMIR_NONDOMINANCE | §3 R13全延長 | Ø/B |
-| 10 G_UNIMODULAR_QUADRATIC_PENCIL_NONDOMINANCE | §3 R22全延長 | Ø/B |
+| 6 G_H_TWO_QUADRICS_ALL_GENERIC_EXCLUSION | §4 H+二Q | 後続1125により全K/Ø、全二normal場・nil十型・plane七配置・型七五源 |
+| 7 G_MODULAR_NIL_RANK2_NONDOMINANCE | §3 nil31/22 | Kとshort r2/3／stable line-conic B |
+| 8 G_MODULAR_RANK1_CONSTANT_NONDOMINANCE | §3 rank一・A0/c非零 | multiple-H rank一全K、constant deg≤2/f3被約/actual F非被約K、特定nonred最高・actual reduced残源B |
+| 9 G_UNIMODULAR_LINEAR_CASIMIR_NONDOMINANCE | §3 R13全延長 | 後続1121で全K/Ø、全linear Hamiltonian対と全低次 |
+| 10 G_UNIMODULAR_QUADRATIC_PENCIL_NONDOMINANCE | §3 R22全延長 | 後続1122でprimitive regular全K=T16/Ø、singular commonkernel fullpullback B |
 | 11 G_UNIMODULAR_PULLBACK_NONDOMINANCE | §3 S23と六閉包境界 | K/Ø/B混合 |
 | 12 G_NONDEGENERATE_DEGREE_THREE_RANK_ZERO_NONDOMINANCE | §5 cubic scroll／cone rank零 | 後続1034/1035により空／T38 |
 | 13 G_INTEGRAL_DEGREE_FOUR_RANK_ZERO_NONDOMINANCE | §5 degree四rank零 | 後続1022で全Ø |
@@ -354,7 +357,7 @@ A25とconcurrent、tangentとS5の見かけ循環は独立actualT37曲線・Quot
 
 ## 10. 公開130/1084後の受理済み全source補完
 
-最終固定cutは142成分（rank4=136,rank2=6）／1108claims。全12追加成分と24追加claimsを反映する。
+前checkpointの142成分（rank4=136,rank2=6）／1108claimsでは、全12追加成分と24追加claimsを反映した。以下はその受理時scopeの保存であり、現在の全点状況は§11の1125までを接続して読む。
 
 | claim | 全源の現在の結論 |
 |---|---|
@@ -376,7 +379,7 @@ A25とconcurrent、tangentとS5の見かけ循環は独立actualT37曲線・Quot
 | 1100 `R4_MODULAR_RANK1_GZERO_B3_25_COMPONENT` | 元全g零 B3 sourceは既約12/全飽和像25。既同一点D99の全kernelに実全source微分と全作用F50を戻し、真normal1と実50cutを構成。全350quadratic真余核とφD全150零、固定degree d+1の全monomial idealmembershipからnormal初期支持が原点。Krull rawdim上界50と全source下界50から全Zが25次元成分。全prior及び九源相互のproper不変量で相違。generic軌道22/商3は全sourcevertical場と既Mminorから。 |
 | 1101 `R4_MODULAR_RANK1_GZERO_V1_25_COMPONENT` | 元全g零 V1 sourceは既約12/全飽和像25。既同一点D99の全kernelに実全source微分と全作用F50を戻し、真normal1と実50cutを構成。全350quadratic真余核とφD全150零、固定degree d+1の全monomial idealmembershipからnormal初期支持が原点。Krull rawdim上界50と全source下界50から全Zが25次元成分。全prior及び九源相互のproper不変量で相違。generic軌道21/商4は全sourcevertical場と既Mminorから。 |
 
-1089の四軌道残余も採録時scopeであり、1103のactive-v全T18を接続した現在はrank2三coreのみが未認識である。
+1089の四軌道残余も採録時scopeであり、1103のactive-v全T18の後、1109/1110/1120で三coreも全Kとなり、1125で全HQQ全点合成が完了した。
 1088の「八closed/九残」は当時の採録時scopeであり、現在は1093–1096/1099–1101及び1105–1108を接続して全十七closedとなる。
 新normalizer/conductor-plane noteによるplane三配置の全三lambda線還元は有限入口のみ。named親の陽性被覆はなお未解決である。
 B1/B3/V1は真F50/全quadratic余核/切片支持、M1/M11は閉L外の全大域像≤25からの成分性だけで、旧接次元27/26/26/28/27は不変。全五例のsmooth/uniqueは不明。
@@ -393,4 +396,37 @@ B1/B3/V1は真F50/全quadratic余核/切片支持、M1/M11は閉L外の全大域
 | 1108 `E_MODULAR_RANKONE_TRANSLATION_WHOLE_KNOWN_COMPONENT_COVERAGE` | 元全Ug=dg,(U+1)H=Fg/F6を保持する十七源の各fullsourceは、非定数g新25、定数g/noH3旧NEW25、二共鳴/SC新三、M2/M3/M21旧third/half/DDH、binomialB1..B6/V1新七、M1/M11新二の各全閉成分に入る。全shortは分母なし実curveで同じgの有限long閉和へ、全lambda非零からlambda零を戻す。全unit/重根/zeroeig/translation/H3zero/Fを落とさずrank一c非imageの全点Eを閉じる。 |
 
 L={ある重複Hのcanonical modular Nがrank≤1}はrank4開内で閉。[全case独立査読](RANK_FOUR_OUTSIDE_LOW_MODULAR_FLAG_SEPARATE_REVIEW.md)は、nil22imageの全11源と二つのCstar自由firstfactor fiberによりfixed-source≤12を修復する。βの非優越を全像上界へ流用していない。L外全成分≤25は全E又は全space≤25を主張せず、CA/CB28はL内である。
-M1/M11の全成分採録をsourceIのredirectへ接続して初めてsourceI全点Kとなった。sourceIIIとdegree3等の残るconstant-modular／unimodular大源はL内に保ち、総上界又は分類TARGETの完成とはしない。
+M1/M11の全成分採録をsourceIのredirectへ接続して初めてsourceI全点Kとなった。sourceIIIは後続1112でB1へ入る。degree3の特定残源とunimodular大源はL内に保ち、総上界又は分類TARGETの完成とはしない。
+
+## 11. 固定1125：全HQQとconstant/unimodular全低次の新しい完了範囲
+
+142成分（rank4=136,rank2=6）は不変、採録主張は1125。以下17件だけを新規接続し、post1125のpending最高double等は含めない。
+
+| ordinal / claim | 正確な全source結論 |
+|---|---|
+| 1109 `E_TWO_QUADRICS_NIL22_MINUS_QUARTER_WHOLE_T16_COVERAGE` | 真T16全period/Euler gaugeを戻し二parabolicframeと固定actualGLで全sの全六polynomial曲線を得る。中心U=R+w²/8のexact六括弧、全actualD=−h(U²+S²/4)、全full20逆を確認し、s0も同じ閉T16へ。 |
+| 1110 `E_TWO_QUADRICS_NIL22_ZERO_WHOLE_T18_COVERAGE` | 真completedT18の補正を保ちH=h+eWの動くactualframeを使う。全rawEulerpoleをtensor全150で相殺しgeneric非零h行/projective350と全126を保つ。中心full六は全sのeta0源、period有限除外根は同じpolynomial曲線で戻し全full20逆よりwholeT18。 |
+| 1111 `E_NIL22_STABLE_THREE_LINES_WHOLE_T03_COVERAGE` | 真T03全periodとphysicalPfを戻すactual曲線でstableM全四係数と三magnetic中心を得る。固定GL/全finitefiber shearの全6parameter map det−3で元R6全部を戻し、全150/126/rawEuler/正逆を保ってwhole closedT03へ。 |
+| 1112 `E_CONSTANT_MODULAR_SOURCE_THREE_WHOLE_B1_COVERAGE` | deltaunitの全十係数sourceを可逆actualframeでB=w,K2全六係数へ。旧B1全FへLaurent六係数を入れ明示actualPGL curveを構成、全六がepsilon一次polynomial、中心exactIII、Pf=f=u+z²。元A10のdense deltaunitと閉性でdelta0全fiberを戻す。 |
+| 1113 `E_CONSTANT_MODULAR_DEGREE_TWO_WHOLE_KNOWN_COVERAGE` | 全必要十分還元のrank三/非零critical空、linearCA/centeredrank一CBと残三源を合成する。sourceI全M11、II全NEW25、III全B1の全actual極限によりA0,cunit,degf≤2の全低次/zero/unit/PGL/frameをknown有限閉和へ。 |
+| 1114 `E_CONSTANT_MODULAR_IRREDUCIBLE_SINGULAR_HIGHEST_CUBIC_WHOLE_MPS_COVERAGE` | 全quadratic syzygy node4/cusp5へdiv条件を課すと正確3Hamiltonian。actualt-linear shearでY2を消しtracezero linear stabilizerを全係数で除いてEuler3/3へ、translationで全lowerを純cubicへ。全cubic実族のSNC点と既MPS theoremより全像MPS閉和。 |
+| 1115 `E_CONSTANT_MODULAR_REDUCED_NONCONCURRENT_HIGHEST_CUBIC_WHOLE_KNOWN_COVERAGE` | smooth Koszul/node/cusp/triangle/lineconic横断接の全syzygy/divergenceを解き全Y2がlinearHamiltonian。actualt-shear後の全affineYへ真Pε=(1+εt)∂t∧Y+Jacfを適用する。squarefreeFとtraceB=εから全二H+cubic nonzeroSS定理、全3H+Q/5H定理で全εunit known、閉性で全lower/共鳴/零固有値を戻す。 |
+| 1116 `E_CONSTANT_MODULAR_CONCURRENT_HIGHEST_CUBIC_WHOLE_LONG_COVERAGE` | 全divzero syzygyを実Hamiltonian shearでμQ2∂rへ。μunitでFa,Fb,Q2独立がY1a/bのr依存とf2r²を零にし全triangular源を得る。全六actual t=−X/ε,r=Y,tensorε曲線はε²polynomial、Pf=(r−ε²t²/2)g+H。g非定数は既25、g非零定数はtrace矛盾で空、g0は全SC25へ。μ0は全affineY既知族。 |
+| 1117 `E_CONSTANT_MODULAR_REDUCED_HIGHEST_CUBIC_WHOLE_KNOWN_COVERAGE` | 被約ternary cubic全型はessential3又は三concurrent。前者の全Hamiltonian消去/affineY真pencilと後者の全triangular-long actual曲線を合成し、全lower及び全zero/unitを保持したA0,cunit,f3squarefree全sourceがknown有限閉成分和へ。 |
+| 1118 `E_GA9_LINEAR_W_WHOLE_FIXED_DIVISOR_TWO_ORBIT_RECOGNITION` | 被約D=hFのSaito syzygyを全canonical liftへ適用しbasebase0、mixed定数可逆2frame、strictJacobiのKx/Kzより全源をU/VとK=−hx+2yz+R6へ。actualfinitefiber shear全域逆で唯一Rw²係数へ、unit/zero二軌道。uniqueSingplaneの一般rank二がGa9unitの必要十分条件。 |
+| 1119 `E_CONSTANT_MODULAR_NONREDUCED_ACTUAL_CUBIC_WHOLE_KNOWN_COVERAGE` | 全F=L³/L²Mをactualaffineでcube/非平行doubleへ、平行はYf=fから空。cubeは他markedx∞のrank一cimage全源、doubleは全A10とN_x明示によりrank一c非image全long/short。唯一A0criticalは同sourceλ0曲線でclosednessへ戻し、全unknownlower/zero補集合も保持する。 |
+| 1120 `E_TWO_QUADRICS_NIL22_LAST_RANKTWO_WHOLE_T19_COVERAGE` | 真T19 coupledcompletionとquadric対保存Ga²の実linearflowを用い、r=e,v=−e+e²sigmaの全source曲線を構成する。全dchart六の負冪消去とGL-equivariantcanonicalsectionで全150polynomiallift、全rawEuler/126/350/正逆を保持。固定GLの全中心六はeta1/12,xi²−1/432全s、元full20とxi両符号も戻し全closedT19へ。 |
+| 1121 `E_UNIMODULAR_LINEAR_HAMILTONIAN_WHOLE_KNOWN_COVERAGE` | 全affineHamiltonian対constant/SS/nil六を保持し、constant全CA曲線、全product真T16binding、nil全sourceへliteralquadratic universalcompatibleBを構成。Pf=k(1+eell),D=h4(h+eell)のmarkedmultipleHを保ち、全eunitを既nil31A/nil22A−1/全rank一translation既知へ、閉性で全元C6L24Q60源を戻す。 |
+| 1122 `E_UNIMODULAR_PRIMITIVE_REGULAR_QUADRATIC_PENCIL_WHOLE_T16_COVERAGE` | 旧全Segre/全8beta kernelと全Omega空性を保持。actualtranslationが全u/vを同時消去し、残SS2blockはproductT16。nil22pencilはB=p(A)のoddpoly全sp(Omega)真symplecticfamilyをdenseCartanから戻しs0も全同族閉性へ。nondegmember/gcd1の全低次sourceはT16又は空。 |
+| 1123 `E_UNIMODULAR_ZERO_HIGHEST_WHOLE_CA_COVERAGE` | 全betaはJprimitive空間内のtotalisotropic image≤2、共通constant1form aを持つ。i_vJ=aとprimitive条件でi_vbeta0、従ってinversePにnonzero constantHamiltonian。全C/LをconstantHamiltonian全CA曲線へ、beta0も保持。 |
+| 1124 `E_UNIMODULAR_FACTOR_HIGHEST_WHOLE_LINEAR_OR_PULLBACK_REDUCTION` | 全nonconstantgcdをlinear因子へ、etaimageのGrassmannian二rulingを全rank/zero境界で適用。共通a因子はQlinearCasimir全known、三変数supportはclosednessでfullpullback最高部へ。全低次fiberを落とさず正確に有限残余へ戻す。 |
+| 1125 `E_H_TWO_DISTINCT_IRREDUCIBLE_QUADRICS_WHOLE_POINTWISE_KNOWN_COVERAGE` | 全二normal場でlambda非零/jointSSrank2/1/0を尽くす。全matching/480源SNC、全pairzero源、全rank1actualT16/T17、全十nilfactor比較とplane七全source、type1T20/type10T17/type7全五T16..T19の陽性曲線を合成する。全元90/20potential/GLframe/R6/zero/periodpoleを戻しGのみ終端を残さず全HQQ点をknown有限閉和へ。 |
+
+全曲線の同一全変数Laurent readbackと、別作者の純手scope査読を区別する。
+[全actual limits / reduced cubic査読](E_WHOLE_ACTUAL_LIMITS_AND_REDUCED_CUBIC_SEPARATE_REVIEW.md)、
+[actual F非被約査読](CONSTANT_MODULAR_NONREDUCED_ACTUAL_CUBIC_SEPARATE_REVIEW.md)、
+[Ga9固定D全源査読](GA9_LINEAR_W_FIXED_DIVISOR_SEPARATE_REVIEW.md)、
+[unimodular全membership査読](UNIMODULAR_HAMILTONIAN_PENCIL_WHOLE_SEPARATE_REVIEW.md)を使う。
+残るprimaryはstable line-conic、shortnil r2/3、Ga9 linear-wの親、plane二H+cubic三whole磁気線、
+constant-modular非被約最高f3だが被約actual Fの特定全lower、unimodular fullpullbackとpole全延長等である。
+全E/全成分上界/主分類TARGETはなお未証明。rank一全source定理は標識multiple-H/PfQ0付きであり、単純Hを選んだ全rank一場へは拡張しない。

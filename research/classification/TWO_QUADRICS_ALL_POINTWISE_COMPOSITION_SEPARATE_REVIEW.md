@@ -1,0 +1,17 @@
+# H＋相異二既約Qの全点合成：独立査読
+
+2026-11-08、integrator `/root`。元全支持の分岐と終端を独立監査した。新算術／operator／点／jetは無し。一般Gの非優越を全E包含へ置き換えない。
+
+lambda非零は二normal場のtrace characterと全matching。rank5は自己quadricを固定する場のtrace0とtrXi=±lambdaに矛盾し、rank3/4の6100全matchingから三相異weight配置のみ。nilpartは相異weight上で零。各full480×90affine源の全parameterJacobi/Pfと全単項式SNC極限、独立Fraction再構成を使い、SNC点に会う全ambientcomponent定理で全元点をMPSへ。
+
+lambda0・jointSSrank2ではweight0,±u,±vの五相異性を全rank条件から導く。両Xiのnilpart零、全pairzero源は二normal場の不変性から尽くされる。Jacobi五式の全主開B/Eと零補集合、実SNC極限を保持する。独立polynomial算術は旧ENTRANCE_REVIEWの全五式/Pf identityであり、旧Hquartic因子既約性や有限wall完全性を流用しない。MIXED_NORMALレビューはjointSSrank1専用とするaddendumを併読した。
+
+jointSSrank1は元全五200×92supersource。A1/A2factor除外とplaneへの全還元、残B1/B2/B3の全6/7/5parameterに真T16/T17実曲線を適用。元inverse、B2 n0zero/B3 n1zero、hF²除外、全periodpoleを戻す。旧dim≤23はこの全点終端の根拠にしない。
+
+jointSSrank0でAlinearZ0ならhighestQのdiv0、PfQ=Kunit quartic、BVでQ#dK0、fractionfieldでQ可逆だからdK0矛盾。従って全十nilaffine型へ入る。type2/3/5/8の全factor比較空、type6/9の全源plane、type4の全十candidateは全actual一次因子又は既約quarticで空。type1全T20/type10全T17は独立手レビュー済。type7全20potentialのHessianrank0/1/2、全lower復元、全zero/unitは五族へ尽くし、activeuT17/activevT18/eta0T18/eta−1/4T16/eta1/12T19の各全actualcurveへ。最後T19の旧D102/M47は成分証明ではなく新Ga²陽性曲線が別に親を与える。
+
+planeの全十候補中三空、七完全Saito源の全GL2frame/R6/configurationparameterを旧全点定理へ接続する。generic/contact3→CPLUS、bitangent/contact4tangent→既23二成分、contact4secant→全Kbeta、contact31chord/tangent-simple→真T16/T17全6磁気曲線。u1/2の別frame、各磁気zeroも同じfullsourceへ戻る。Kbetaは既受理Q22全22源分類＋既known閉族crosswalk、CPLUSは既唯一成分点からfullframebundle包含という入力を明記し、今回それらを再証明したとしない。
+
+全分岐の終端にG次元上界だけのlaneは残らない。したがって複素P4rank四、actualD=H Q1 Q2、Hsimple、Q相異irreducibleの全点は既known有限閉成分和Kへ。rank3/4/5各quadricと全配置は尽くされる。新加算零、H+2Q（同一quadric平方）とは別、他factor型/全E/総上界は未証明。
+
+150依存V2manifestは全現在bytesと旧四code/jobの実行時exactbytesを区別し、後者は既公開archiveからのbyteexact復元を記す。旧manifestを現hashに書き換えず、rootはbindingreadで歴史対応を確認する。計画checker/gateは数学の証明ではない。
