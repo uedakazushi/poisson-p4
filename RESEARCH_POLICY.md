@@ -34,7 +34,7 @@
 
 ## IV. 優先課題と着手方法
 
-第一にH+2Qの閉形式の全表示を有界極のKoszul補題へ置換する。線形核の既存5例を比較し、de Rhamの完全性と次数制御を分離する。
+第一にH+2Qの閉形式の核を次数制限付きde Rham/Koszul複体として説明する。rank(Q)≥4の五配置では19次元のaffine-linear primitive像で全て尽くされるが、rank(Q)=3では横断配置の余剰1次元と接触配置の余剰6次元があるため、無条件のprimitive表示は**偽**である。両者をそれぞれ補集合の非零de Rham類と高次数primitiveによる次数濾過の障害として統一的に説明する。詳細は `research/conceptual/QUADRATIC_POLE_ORDER.md`。
 次に二因子型の標準対称性のJordan・共鳴の議論を統合し、固定因子上の復元を一つの方法で扱う。
 続いて各成分を「実因子／対称性／固定因子の自由度／変形型」で再配置し、包含・境界を整理する。
 既約五次の正規化・導手とrank2のfoliationは別の構造定理として残す。詳細は `research/conceptual/NOTES.md`。

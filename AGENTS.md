@@ -33,8 +33,12 @@ Do not confuse global vector-space dimension of symmetries with pointwise rank.
 
 ## Next concrete work
 
-Replace the five H+2Q linear-kernel calculations by one bounded-pole Koszul
-lemma, keeping degree bounds and degenerate d(beta) cases explicit. Then unify
+Replace the five rank(Q)>=4 H+2Q linear-kernel computations by a
+filtered de Rham/Koszul argument, but NEVER assert affine-linear primitive
+exactness for all rank(Q)>=3. Rank-three transverse has an additional
+1-dimensional class, and tangent has six filtered classes. See
+research/conceptual/QUADRATIC_POLE_ORDER.md. Keep degree bounds, genuine
+cohomology versus filtration obstructions, and degenerate d(beta) cases distinct. Then unify
 the two-factor semisimple/nilpotent/resonance entrances using the canonical
 symmetry. Keep irreducible quintics and rank2 foliations as separate structural
 inputs. Track actual zero/unit complements and source coverage throughout.
