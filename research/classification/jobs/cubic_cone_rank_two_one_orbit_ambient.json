@@ -1,0 +1,47 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "target_statement": "ONEcanonical fullambient150/350/Euler25/actualM51 test at lambda3/5,k0=1,k5=2/others0. Thissingleanchor followsprovenwhole-sourceunitnormalization tooneactual24orbit, notpoint sampling.",
+  "implication_to_classification": "IfD101/M49, fulltangent24 equalsactualorbit24 so smoothunique24fullcomponent; parentidentity/priornewness still separate. D100recordsone normalquotient andreturnsactual structural curve, nojets. Dlowerstopslocalroute.",
+  "coefficient_ring": "QQ exactintegerclearingscale, full150quadraticcoordinates/all350projectiveequations, fullEuler25/GL25/scalar1; originalminors andcompletekernels, no smaller-source tangent subspace.",
+  "hypotheses": "Whole critical-orbit pureproof frozenbeforejob, same full27actualsource/fourcriticalreport. Allabunit canonical normalizes tolambda3/5,k0=1,k5=2. No alternativeanchor/profile/normal selected. Rootalone integration/count.",
+  "inverted_elements": [
+    "OnlyQQconstantdenominatorsclearedbyscaleLCM andnonzeroexactmaximalminors; completekernelsprovideupperrank bounds. No sourceparameter, openchart orprimes."
+  ],
+  "complements": [
+    "IfMdifferswholeorbit24expectation, diagnosemathematicsbeforedependentclaim.",
+    "D100normal1isnotcomponenthood: no jetseries ornewrankpoints.",
+    "Samecomponentmustbeknownparentorpriornewnessindependentlyaudited; no automaticnewcount."
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "reports/CLASSIFICATION_CUBIC_CONE_RANK_TWO_FOUR_CRITICAL_SOURCES_20261108.json",
+      "sha256": "8be6caa0eb7d9dad9aa4449a63586acbb5a0a2df3128db1424f9198cbd2651e6"
+    },
+    {
+      "path": "research/classification/CUBIC_CONE_RANK_TWO_CRITICAL_ORBITS.md",
+      "sha256": "bf9d8c99cf80bab4b456dec62cabd66a991b3be9b515bcb2f6a8526c9cb51e07"
+    },
+    {
+      "path": "research/classification/CUBIC_CONE_RANK_TWO_VERTEX_SHEAR_REDUCTION.md",
+      "sha256": "c2b2d3deb7a7793eb26f2eb458550e0df22983d2f8b4a62d65863e7a9fccb89b"
+    },
+    {
+      "path": "code/classification_three_hyperplanes_quadric_independent.py",
+      "sha256": "674ffb31d0afdf48c187780a876c8526b8acff3ff6aeca83d048f650fdbe8a7a"
+    },
+    {
+      "path": "code/classification_rank3_mixed_component_review.py",
+      "sha256": "48e61e30f9d7f04fb81f1bb5eec0e18daa28c8192d6a02a251e09cf8855b9bd0"
+    }
+  ],
+  "inline_source": "from pathlib import Path\nimport sys,json,hashlib,time,resource,signal,ast\nimport sympy as s\nfrom sympy.polys.matrices import DomainMatrix\nsys.path.insert(0,'code')\nfrom classification_three_hyperplanes_quadric_independent import ambient_matrices\nfrom classification_rank3_mixed_component_review import COLUMNS,ROWS\nroot=Path('.');begun=time.monotonic();signal.alarm(180);resource.setrlimit(resource.RLIMIT_AS,(3072*1024**2,)*2)\njob=json.loads((root/'research/classification/jobs/cubic_cone_rank_two_one_orbit_ambient.json').read_bytes())\nfor r in job['exact_inputs_and_hashes']:assert hashlib.sha256((root/r['path']).read_bytes()).hexdigest()==r['sha256'],r['path']\nold=json.loads((root/'reports/CLASSIFICATION_CUBIC_CONE_RANK_TWO_FOUR_CRITICAL_SOURCES_20261108.json').read_bytes())\ncase=next(c for c in old['cases']if c['case']=='A_ss'and c['lambda']=='3/5')\nx=s.symbols('x0:5');k=s.symbols('k0:6');env={str(t):t for t in (*x,*k)};values={k[0]:1,k[5]:2,**{t:0 for t in k[1:5]}}\npoint=s.zeros(5)\nfor key,text in case['all_actual_brackets'].items():\n i,j=ast.literal_eval(key);point[i,j]=s.expand(s.sympify(text,locals=env).subs(values));point[j,i]=-point[i,j]\nscale=s.ilcm(*[co.q for i in range(5)for j in range(i+1,5)for co in s.Poly(point[i,j],*x).coeffs()])\nP=point*scale;assert scale>0\n# Same all27source point, with a nonzero rational clearing only.\nq0=x[0]*x[2]-x[1]**2;q1=x[0]*x[3]-x[1]*x[2];q2=x[1]*x[3]-x[2]**2\nexpected=x[4]*q0*q2+q2*(x[2]*q2-x[3]*q1)+q0*(x[0]*q1-x[1]*q0)\nactual=s.expand(sum((-1)**i*x[i]*(P[a,b]*P[c,d]-P[a,c]*P[b,d]+P[a,d]*P[b,c])for i in range(5)for a,b,c,d in [[j for j in range(5)if j!=i]]));assert actual==s.expand(scale**2*expected)\nD,V,M,extra=ambient_matrices(P,x,[P]);assert extra==M.row_join(M[:,-1])\ndef encode(a):return {'shape':list(a.shape),'entries':{str(i)+','+str(j):str(c)for(i,j),c in a.todok().items()}}\ndef certificate(a):\n dm=DomainMatrix.from_Matrix(a).convert_to(s.QQ);rr,piv=dm.rref();rr=rr.to_Matrix();piv=list(piv);free=[j for j in range(a.cols)if j not in piv];K=s.zeros(a.cols,len(free))\n for ell,j in enumerate(free):\n  K[j,ell]=1\n  for i,p in enumerate(piv):K[p,ell]=-rr[i,j]\n assert a*K==s.zeros(a.rows,K.cols)and K[free,:]==s.eye(len(free))\n rows=list(DomainMatrix.from_Matrix(a[:,piv].T).convert_to(s.QQ).rref()[1]);det=DomainMatrix.from_Matrix(a.extract(rows,piv)).convert_to(s.QQ).det();assert det\n return {'rank':len(piv),'nullity':len(free),'minor_rows':rows,'minor_columns':piv,'minor_determinant':str(det),'full_kernel':encode(K),'free_columns':free,'all_original_rows_times_kernel_zero':True,'free_coordinate_identity':True}\nmatrices={'full350_D':D,'Euler25':V,'Euler_GL5_scalar51':M};certs={name:certificate(a)for name,a in matrices.items()};ranks={name:c['rank']for name,c in certs.items()}\nassert ranks['Euler25']==24 and D*M==s.zeros(350,51)\norbit=ranks['Euler_GL5_scalar51']-25;tangent=125-ranks['full350_D'];normal=tangent-orbit;assert normal>=0\npaths=['code/classification_three_hyperplanes_quadric_independent.py','code/classification_rank3_mixed_component_review.py']\nreport={'task_id':'E_reduced_nonnormal','all_exact_arithmetic_passed':True,\n 'same_whole_orbit_canonical_point':{'source':'A_ss lambda3/5','kernel_values':{'k0':1,'k5':2,'k1':0,'k2':0,'k3':0,'k4':0},'integer_clearing_scale':int(scale),'coordinate_order':list(map(str,x))},\n 'all_actual_point_brackets':{str((i,j)):str(P[i,j])for i in range(5)for j in range(i+1,5)},\n 'all350_original_Jacobi_zero':True,'actual_signed_Euler_Pfaffian':str(actual),'actualF_equals_canonical_primitive_quintic_times_scale_squared':True,\n 'full_original_coefficient_order':[{'pair':list(ij),'exponent':list(e)}for ij,e in COLUMNS],\n 'full_original_equation_order':[{'quad':list(ij),'exponent':list(e)}for ij,e in ROWS],\n 'complete_sparse_matrices':{name:encode(a)for name,a in matrices.items()},'complete_rank_minor_kernel_certificates':certs,\n 'ranks_QQ':ranks,'all_D_times_actual51_zero':True,\n 'actual_projective_orbit_dimension':orbit,'full_projective_tangent_dimension':tangent,'normal_quotient_dimension':normal,\n 'smooth_unique_full_component_proved':orbit==tangent,'actual_orbitclosure_full_component_proved':orbit==tangent,\n 'no_component_count_increment_before_independent_geometry_and_prior_audit':True,'new_component_count':0,\n 'next_branch':'If smooth24, knownT36/T37/T38/otherprior recognition or fullnewness audit; ifD100 one actual normal curve/knownparent geometry withoutjets; lowerstoplocalroute.',\n 'input_bindings':job['exact_inputs_and_hashes'],'inline_source':job['inline_source'],'inline_source_sha256':job['inline_source_sha256'],\n 'exact_helper_source_snapshots':[{'path':p,'sha256':hashlib.sha256((root/p).read_bytes()).hexdigest(),'source_bytes':(root/p).read_text()}for p in paths],\n 'ONE_canonical_whole_orbit_only_no_profiles_or_newanchors':True,'seconds':time.monotonic()-begun,'maximum_RSS_KiB':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss}\np=root/'reports/CLASSIFICATION_CUBIC_CONE_RANK_TWO_ONE_ORBIT_AMBIENT_20261108.json'\nwith p.open('x')as f:json.dump(report,f,ensure_ascii=False,indent=2);f.write('\\n')\nprint(json.dumps({'all_exact_arithmetic_passed':True,'ranks_QQ':ranks,'orbit':orbit,'tangent':tangent,'normal':normal,'seconds':report['seconds'],'maximum_RSS_KiB':report['maximum_RSS_KiB']}))\n",
+  "inline_source_sha256": "ba30b6511270268f923b3c9ddf45727f72780fe203a43d3f2ee788e6c4a2e5a8",
+  "success_certificate": "Samefullcanonical27point/primitiveF/full350zero, exactD350x150,V150x25,M150x51, allcompletekernels/freeidentity/nonzerominors, D*M0 andfullcoefficient/roworder. Sourcehelperexactbytesembedded.",
+  "independent_check": "AlternateauthorFraction engine reconstructsfulloriginalD/Euler/actualcolumns/allminorandkernel. Wholeactualsource/absoluteirred/orbitdimension geometry pureproof separatelyreviewed beforeacceptance.",
+  "resource_limit": {
+    "timeout_seconds": 185,
+    "memory_mb": 3072
+  },
+  "negative_result_next_step": "SaveexactD/M/support andreturnactualknownparentcurve/geometry; no extra point/profile/jetfarms.",
+  "command": ".venv/bin/python -c \"import json;exec(json.load(open('research/classification/jobs/cubic_cone_rank_two_one_orbit_ambient.json'))['inline_source'])\""
+}

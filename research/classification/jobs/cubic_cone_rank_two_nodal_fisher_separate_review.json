@@ -1,0 +1,83 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "target_statement": "Independent whole polynomial nodal-Fisher recognition of canonical cubiccone ranktwo lambda3/5 point as T39: literal5x5Phi, signed5Pf, cyclicOmega, actual5x5PGL inverse/all150/350/div/Pf/all-e, zero-e actualcanonical match; whole4critical/allmodule source geometry separately audited.",
+  "implication_to_classification": "A true linear-e family is generic smooth elliptic q5,1, central exactly2canonical. Closed T39 and accepted whole orbit inverse/kernelbundle imply ALL lambda3/5 sem/nil source belongsT39. Together2/5 wholeT38 and BW/genericA proper factors closes entire ranktwo cubiccone irreduciblequintic branch, no newcomponent.",
+  "coefficient_ring": "QQ[x0,x1,x2,x3,x4,e] exact sparse Fraction; independent cyclic formula, no CAS/producer imports.",
+  "hypotheses": "Accepted full27source/fivebase normalforms/all19walls and true constant-rank6 critical kernelbundle; smooth Fisher q5,1 theorem accepted from primary.",
+  "inverted_elements": [
+    "Only fixed nonzero rational constants in GL5 inverse and scalar2; no parameter denominator, no discriminant inverse in actual family."
+  ],
+  "complements": [
+    "All e including0 literal polynomial source",
+    "Generic smooth interpretation only e*(4+27e)!=0, e0 by genuine closedness",
+    "All ab nonzero source via actual shear/Cartan inverses; a0/b0 included by closure",
+    "Nil whole6fiber by proven rank6 bundle over all nonzero binaryquadratics",
+    "Base0 rank<=2; W source decomposable; B all lambda properfactor; genericA all walls by original rankconstant bundle",
+    "No new componenthood, no Casimir operator or localhigher jet"
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_cubic_scroll_abelian_review.py",
+      "sha256": "116dfa897adb51862d53d1a3e104a153f23d15afaf95150eb2e65c4c00f33c91"
+    },
+    {
+      "path": "reports/CLASSIFICATION_CUBIC_CONE_RANK_TWO_NODAL_FISHER_ACTUAL_20261108.json",
+      "sha256": "d55b1ceec80874c3ba3f32507c63c31fbe0b2e0ff8c26165a8f3d30568154942"
+    },
+    {
+      "path": "research/classification/jobs/cubic_cone_rank_two_nodal_fisher_actual.json",
+      "sha256": "8172c1b0edc3655f4e113ca3d95a8e4fc249d86964ed46d7e1b026e4208773b4"
+    },
+    {
+      "path": "research/classification/CUBIC_CONE_RANK_TWO_NODAL_FISHER_MODEL.md",
+      "sha256": "04e225c15cf3fe803d51ccca618f3d204919bfbd93d8c1e4f9b11cb271642811"
+    },
+    {
+      "path": "research/classification/CUBIC_CONE_RANK_TWO_NODAL_QUINTIC_T39_BRIDGE.md",
+      "sha256": "d695f52ef41f6b5186d196648c7c133130ad5b7cbbb498456f54f43df8895d87"
+    },
+    {
+      "path": "reports/CLASSIFICATION_CUBIC_CONE_RANK_TWO_ONE_ORBIT_AMBIENT_20261108.json",
+      "sha256": "a05923be43f37a90da61d7f74a468e89f8c4b5d8c551551b61158e7d2c1406b9"
+    },
+    {
+      "path": "research/classification/CUBIC_CONE_RANK_TWO_CRITICAL_ORBITS.md",
+      "sha256": "bf9d8c99cf80bab4b456dec62cabd66a991b3be9b515bcb2f6a8526c9cb51e07"
+    },
+    {
+      "path": "research/classification/CUBIC_CONE_RANK_TWO_VERTEX_SHEAR_REDUCTION.md",
+      "sha256": "c2b2d3deb7a7793eb26f2eb458550e0df22983d2f8b4a62d65863e7a9fccb89b"
+    },
+    {
+      "path": "research/classification/inputs/cubic_cone_rank_two_whole_orbit_reduction_manifest_20261108.json",
+      "sha256": "65532b57c7bd3a68b3c2f2b417e33c6594f7d3bcbbab13b9a1290c8ac709e197"
+    },
+    {
+      "path": "research/classification/CUBIC_CONE_ZERO_T38_SEPARATE_REVIEW.md",
+      "sha256": "43c1e11f0542ee7b4c4dfdbb42eaade62783b19b3b9cef7aa97843891aae289c"
+    },
+    {
+      "path": "research/notes/KNOWN_FIVE_SMOOTH_LOCUS_20261101.md",
+      "sha256": "5af6d45440154416e6bc0070d4ee19b7d04e2fc77da0bb2e7b059864267329cf"
+    },
+    {
+      "path": "research/notes/KNOWN_FIVE_SMOOTH_LOCUS_REVIEW_20261101.md",
+      "sha256": "204a860ff79a0b868c4c5046f2a57a6acd2c7dc52342a9900ba4a4a963a10fb9"
+    },
+    {
+      "path": "code/known_five_smooth_locus_review_20261101.py",
+      "sha256": "5f6235391a6b974e67c70d694b9292d494b8f613e7ad867f983fdcd43dbf071b"
+    }
+  ],
+  "inline_source": "from pathlib import Path\nfrom fractions import Fraction as Q\nimport ast,itertools as it,json,hashlib,resource,time,sys\nsys.path.insert(0,'code')\nfrom classification_cubic_scroll_abelian_review import add,scale,mul,diff,parse,determinant\nbegun=time.monotonic();resource.setrlimit(resource.RLIMIT_CPU,(170,175));resource.setrlimit(resource.RLIMIT_AS,(2048*1024**2,)*2)\njp=Path('research/classification/jobs/cubic_cone_rank_two_nodal_fisher_separate_review.json');job=json.loads(jp.read_text())\nfor v in job['exact_inputs_and_hashes']:assert hashlib.sha256(Path(v['path']).read_bytes()).hexdigest()==v['sha256'],v['path']\nr=json.loads(Path('reports/CLASSIFICATION_CUBIC_CONE_RANK_TWO_NODAL_FISHER_ACTUAL_20261108.json').read_text())\nold=json.loads(Path('reports/CLASSIFICATION_CUBIC_CONE_RANK_TWO_ONE_ORBIT_AMBIENT_20261108.json').read_text())\nN=0\ndef ck(a,b,label):\n global N\n assert a==b,label\n N+=1\ndef one(n):return {(0,)*n:Q(1)}\ndef variable(n,i):a=[0]*n;a[i]=1;return {tuple(a):Q(1)}\ndef power(p,k,n):\n out=one(n)\n for _ in range(k):out=mul(out,p)\n return out\ndef subst(p,values,n):\n out={}\n for ex,c in p.items():\n  term=scale(one(n),c)\n  for i,k in enumerate(ex):\n   if k:term=mul(term,power(values[i],k,n))\n  out=add(out,term)\n return out\ndef neg(p):return scale(p,-1)\ndef specialize(p):return {ex:c for ex,c in p.items()if not ex[5]}\ndef inverse(A):\n n=len(A);a=[[Q(v)for v in row]+[Q(i==j)for j in range(n)]for i,row in enumerate(A)]\n for i in range(n):\n  k=next(k for k in range(i,n)if a[k][i]);a[i],a[k]=a[k],a[i];c=a[i][i];a[i]=[v/c for v in a[i]]\n  for j in range(n):\n   if j!=i:\n    c=a[j][i];a[j]=[v-c*w for v,w in zip(a[j],a[i])]\n return [row[n:]for row in a]\ndef mm(A,B):return [[sum(a*B[k][j]for k,a in enumerate(row))for j in range(len(B[0]))]for row in A]\ndef pdet(A):\n n=len(A);out={}\n for p in it.permutations(range(n)):\n  term=one(6)\n  for i,j in enumerate(p):term=mul(term,A[i][j])\n  sign=(-1)**sum(p[i]>p[j]for i in range(n)for j in range(i+1,n));out=add(out,scale(term,sign))\n return out\npairs=list(it.combinations(range(5),2));triples=list(it.combinations(range(5),3));quads=list(it.combinations(range(5),4))\nzn=[f'z{i}'for i in range(5)]+['e'];xn=[f'x{i}'for i in range(5)]+['e'];z=[variable(6,i)for i in range(6)];x=z\nPhi=[[{}for _ in range(5)]for _ in range(5)]\nliteral=['-z3-e*z0','-z3','-z4','z2','z2','z3','-z1','-z1','z0','0']\nfor ij,text in zip(pairs,literal):\n i,j=ij;Phi[i][j]=parse(text,zn);Phi[j][i]=neg(Phi[i][j]);ck(Phi[i][j],parse(r['all10_model_entries'][str(ij)],zn),'literal Phi')\ndef pf4(P,omitted):\n a,b,c,d=[j for j in range(5)if j!=omitted]\n return scale(add(mul(P[a][b],P[c][d]),neg(mul(P[a][c],P[b][d])),mul(P[a][d],P[b][c])),(-1)**omitted)\npf=[pf4(Phi,i)for i in range(5)]\ng=[parse(t,zn)for t in ['z0*z3-z1**2','z0*z4-z1*z2','z1*z4-z2*z3','z2**2-z1*z3-z0*z3-e*z0**2','z2*z4-z3**2-z1*z3-e*z0*z1']]\nfor i in range(5):\n ck(pf[i],neg(g[i]),'all five signed Pf=-g');ck(g[i],parse(r['all5_quadrics'][i],zn),'all five quadrics');ck(add(*(mul(Phi[i][j],pf[j])for j in range(5))),{},'Phi*Pf')\nO=[[{}for _ in range(5)]for _ in range(5)]\ndef cyclicterm(a,b,c):\n return add(*(mul(mul(diff(pf[i],a),diff(Phi[i][j],b)),diff(pf[j],c))for i in range(5)for j in range(5)))\nfor a,b in pairs:\n c,d,f=[j for j in range(5)if j not in(a,b)];p=[a,b,c,d,f];sign=(-1)**sum(p[i]>p[j]for i in range(5)for j in range(i+1,5))\n O[a][b]=scale(add(cyclicterm(c,d,f),cyclicterm(f,c,d),cyclicterm(d,f,c)),sign);O[b][a]=neg(O[a][b]);ck(O[a][b],parse(r['Fisher_Omega_all10_entries'][str((a,b))],zn),'independent cyclic Omega')\nM=[[5,-10,10,-5,1],[-4,12,-12,4,0],[4,-4,-4,4,0],[0,-16,16,0,0],[0,16,16,0,0]];Mi=inverse(M)\nck(M,r['actual_GL5_z_from_x'],'actual GL5');ck(determinant(M),Q(16384),'actual GL determinant');ck(Mi,[[Q(a)for a in row]for row in r['GL5_inverse']],'actual inverse')\nI=[[Q(i==j)for j in range(5)]for i in range(5)];ck(mm(M,Mi),I,'GL inverse1');ck(mm(Mi,M),I,'GL inverse2')\nmx=[add(*(scale(x[j],c)for j,c in enumerate(row)))for row in M]+[x[5]]\nOsub=[[subst(v,mx,6)for v in row]for row in O];P=[[add(*(scale(Osub[a][b],Mi[i][a]*Mi[j][b])for a in range(5)for b in range(5)))for j in range(5)]for i in range(5)]\nfor i,j in pairs:\n ck(P[i][j],parse(r['all10_actual_target_family_brackets'][str((i,j))],xn),'all150 whole e pullback');ck(P[i][j],neg(P[j][i]),'skew')\n assert max((ex[5]for ex in P[i][j]),default=0)<=1\n target=parse(old['all_actual_point_brackets'][str((i,j))],xn)\n ck(specialize(P[i][j]),scale(target,2),'all150 central=2 integer canonical')\nfor j in range(5):ck(add(*(diff(P[i][j],i)for i in range(5))),{},'all canonical div')\nJ={}\nfor tri in triples:\n a,b,c=tri;J[tri]=add(*(mul(P[i][l],diff(P[j][k],l))for i,j,k in [(a,b,c),(b,c,a),(c,a,b)]for l in range(5)));ck(J[tri],{},'full ten strict Jacobi')\nfor quad in quads:ck(add(*(scale(mul(x[m],J[quad[:i]+quad[i+1:]]),(-1)**i)for i,m in enumerate(quad))),{},'full projective350')\nD=add(*(mul(x[i],pf4(P,i))for i in range(5)))\nck(D,parse(r['all126_actual_family_Euler_Pfaffian'],xn),'all126 actual Euler Pf');ck(specialize(D),scale(parse(old['actual_signed_Euler_Pfaffian'],xn),4),'central actual Pf')\ndetg=subst(pdet([[diff(p,j)for j in range(5)]for p in g]),mx,6)\nck(detg,parse(r['fullfamily_secant_Jacobian'],xn),'full smooth secant determinant');ck(D,scale(detg,Q(-25,32768)),'actual Pf constant secant ratio')\nq=[parse(t,xn)for t in ['x0*x2-x1**2','x0*x3-x1*x2','x1*x3-x2**2','x4*x1-x2*x3+x0**2','x4*x2-x3**2+x0*x1']]\nA=[[Q(v)for v in row]for row in r['all5_special_quadric_basis_change']];gx=[specialize(subst(p,mx,6))for p in g]\nfor i in range(5):ck(gx[i],add(*(scale(q[j],A[i][j])for j in range(5))),'all five quadric space maps')\nck(determinant(A),Q(1073741824),'quadric basis determinant')\nF=add(mul(x[4],mul(q[0],q[2])),mul(q[2],add(mul(x[2],q[2]),neg(mul(x[3],q[1])))),mul(q[0],add(mul(x[0],q[1]),neg(mul(x[1],q[0])))))\nck(pdet([[diff(p,j)for j in range(5)]for p in q]),scale(F,-2),'special nodal secant determinant')\nst=['s','t'];norm=[parse(t,st)for t in ['s**4*t','s**3*t**2','s**2*t**3','s*t**4','t**5-s**5']]+[{}]\nfor p in q:ck(subst(p,norm,2),{},'whole P1 normalization quadrics')\nbinary=[subst(p,norm,2)for p in mx[:5]]\nfor a,b in zip(binary,['(t-s)**5','4*s*t*(t-s)**3','4*s*t*(s+t)*(t-s)**2','16*s**2*t**2*(t-s)','16*s**2*t**2*(s+t)']):ck(a,parse(b,st),'all Weierstrass section identities')\nresult={'task_id':'E_reduced_nonnormal','all_passed':True,'method':'Independent standard-library Fraction cyclic Fisher/actual GL pullback; no producer or CAS import, no operator/point/jet','all5_model_signed_Pfaffians':True,'full_parameter_polynomial_Omega':True,'all150_actual_pullback_and_central_2canonical':True,'whole_parameter_degree_in_e':1,'all10_strict_and350_projective_Jacobi':True,'all5_divergences':True,'all126_actual_Pf_and_exact_secant_ratio':'-25/32768','GL_det':'16384','quadric_basis_det':'1073741824','whole_normalization_and_Weierstrass_sections':True,'whole_T39_membership_by_smooth_family_closedness':True,'new_component_count':0,'identity_count':N,'input_sha256':{v['path']:v['sha256']for v in job['exact_inputs_and_hashes']},'inline_source':job['inline_source'],'seconds':time.monotonic()-begun,'maximum_RSS_KiB':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss}\nout=Path('reports/CLASSIFICATION_CUBIC_CONE_RANK_TWO_NODAL_FISHER_SEPARATE_REVIEW_20261108.json')\nwith out.open('x')as f:json.dump(result,f,indent=2);f.write('\\n')\nprint(json.dumps({k:result[k]for k in ['all_passed','identity_count','seconds','maximum_RSS_KiB']}))\n",
+  "inline_source_sha256": "daa35bc81a9a6bb4613a38ee967d768c852a26c14d781e696ee4fda911a91bf0",
+  "success_certificate": "Independent full5Pf/Phi*Pf, all10cyclicOmega, genuine GL5\u00b1 inverses, whole e150/10strict/350projective/div0/Pf126; secant ratio and normalization/basis identities all literal. Pure whole-source/module/kernelbundle coverage independently read.",
+  "independent_check": "Old independent Fraction polynomial primitives only; no producer/CAS import and no new rank operator, point, minor or kernel.",
+  "resource_limit": {
+    "timeout_seconds": 180,
+    "memory_mb": 2048
+  },
+  "negative_result_next_step": "Any literal mismatch stops positive recognition without changing point/source; preserve failed receipt, no alternate graph/operator/profile automatically.",
+  "route_change_reason": "After zero one-normal quadratic obstruction, use intrinsic nodal genus1 zero curve and actual smooth Weierstrass Fisher family; not higher local jets.",
+  "command": "python3 -c 'import json;exec(json.load(open(\"research/classification/jobs/cubic_cone_rank_two_nodal_fisher_separate_review.json\"))[\"inline_source\"])'"
+}

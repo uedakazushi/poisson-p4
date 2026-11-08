@@ -1,0 +1,42 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "target_statement": "ONE genuine normal n of the proven whole actual24 orbit: full150=M49+R+U100 true49linearcut, quadratic cokernel nonzero suffices for Krull support0; ifzero saveandstop withoutcubic/othernormal/point.",
+  "implication_to_classification": "If lambdaJacR nonzero, IFT eliminates U100 and one formalnormal has nonzero n²initial, so localrawdim49/projective24. Coupled actualorbit24 this proves orbitclosure fullcomponent after independentgeometryreview. Prior-component distinctness remains separate. Ifzero no componenthood claim.",
+  "coefficient_ring": "QQ exact all150 coordinates/all350 projective Jacobi equations. Full frame inverse bothproducts, originalfullJacR/cokernelfunctional.",
+  "hypotheses": "Source is the same canonical point of the proved whole source actual24 orbit, not a new anchor. Parent explicitly permitted a single nonzero quadratic obstruction after marked-vertex T36 recognition fails; no higher jets. OldsharedCBC and reviewer7619 unchanged.",
+  "inverted_elements": [
+    "Only nonzero QQ maximal minors and exactframe determinant; no sourceparameter or openchart."
+  ],
+  "complements": [
+    "Quadraticzero returns saved frontier; noautomaticcubic/jetcontinuation.",
+    "Componenthood doesnot imply novelty: allprior fullcomponent comparison is separate."
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "reports/CLASSIFICATION_CUBIC_CONE_RANK_TWO_ONE_ORBIT_AMBIENT_20261108.json",
+      "sha256": "a05923be43f37a90da61d7f74a468e89f8c4b5d8c551551b61158e7d2c1406b9"
+    },
+    {
+      "path": "research/classification/CUBIC_CONE_RANK_TWO_ONE_ORBIT_FRONTIER.md",
+      "sha256": "4be7d0c766a9c9de285215cc3f4af831d36ae3619624bc2e0bfc937c1750cfb2"
+    },
+    {
+      "path": "research/classification/CUBIC_CONE_RANK_TWO_CRITICAL_ORBITS.md",
+      "sha256": "bf9d8c99cf80bab4b456dec62cabd66a991b3be9b515bcb2f6a8526c9cb51e07"
+    },
+    {
+      "path": "code/classification_rank3_mixed_component_review.py",
+      "sha256": "48e61e30f9d7f04fb81f1bb5eec0e18daa28c8192d6a02a251e09cf8855b9bd0"
+    }
+  ],
+  "inline_source": "from pathlib import Path\nimport sys,json,hashlib,time,resource,signal,ast\nimport sympy as s\nfrom sympy.polys.matrices import DomainMatrix\nsys.path.insert(0,'code')\nfrom classification_rank3_mixed_component_review import COLUMNS,ROWS,jacobi,sparse,vector\nbegun=time.monotonic();signal.alarm(180);resource.setrlimit(resource.RLIMIT_AS,(3072*1024**2,)*2)\nroot=Path('.');jp='research/classification/jobs/cubic_cone_rank_two_one_normal_quadratic.json';job=json.loads((root/jp).read_text())\nfor r in job['exact_inputs_and_hashes']:assert hashlib.sha256((root/r['path']).read_bytes()).hexdigest()==r['sha256'],r['path']\nold=json.loads((root/'reports/CLASSIFICATION_CUBIC_CONE_RANK_TWO_ONE_ORBIT_AMBIENT_20261108.json').read_bytes())\ndef decode(a):return s.SparseMatrix(*a['shape'],{tuple(map(int,k.split(','))):s.Rational(v)for k,v in a['entries'].items()})\ndef encode(a):return {'shape':list(a.shape),'entries':{str(i)+','+str(j):str(c)for(i,j),c in a.todok().items()}}\ndef dm(a):return DomainMatrix.from_Matrix(a).convert_to(s.QQ)\ndef rrefp(a):return list(dm(a).rref()[1])\nD=decode(old['complete_sparse_matrices']['full350_D']);M=decode(old['complete_sparse_matrices']['Euler_GL5_scalar51'])\ncert=old['complete_rank_minor_kernel_certificates'];K=decode(cert['full350_D']['full_kernel'])\nMp=cert['Euler_GL5_scalar51']['minor_columns'];M49=M[:,Mp];assert M49.shape==(150,49)\npiv=rrefp(M49.row_join(K));extra=[p-49 for p in piv if p>=49];assert len(extra)==1\nR=K[:,extra[0]];R*=s.ilcm(*[a.q for a in R]);R/=s.igcd(*[abs(int(a))for a in R if a]);assert D*R==s.zeros(350,1)\ncp=cert['full350_D']['minor_columns'];rp=cert['full350_D']['minor_rows'];U=s.eye(150)[:,cp]\nframe=M49.row_join(R).row_join(U);assert frame.shape==(150,150)\nframe_dm=dm(frame);det=frame_dm.det();assert det\ninverse=frame_dm.inv().to_Matrix();assert inverse*frame==s.eye(150)and frame*inverse==s.eye(150)\ncuts=inverse[:49,:];assert cuts*M49==s.eye(49)and cuts*frame[:,49:]==s.zeros(49,101)\nx=s.symbols('x0:5');P=s.zeros(5);RR=s.zeros(5)\nfor key,v in old['all_actual_point_brackets'].items():\n i,j=ast.literal_eval(key);P[i,j]=s.sympify(v,locals={str(t):t for t in x});P[j,i]=-P[i,j]\nfor value,(ij,e)in zip(R,COLUMNS):\n i,j=ij;mon=s.prod(x[k]**e[k]for k in range(5));RR[i,j]+=value*mon;RR[j,i]-=value*mon\nassert vector(sparse(RR,x))==R\nQ=jacobi(sparse(RR,x));assert Q.shape==(350,1)\nassert jacobi(sparse(P+RR,x))==Q\nsub=D.extract(rp,cp);inv=dm(sub).inv().to_Matrix();assert sub*inv==s.eye(100)and inv*sub==s.eye(100)\nT=-U*inv*Q[rp,:];residual=Q+D*T;assert residual[rp,:]==s.zeros(100,1)\nnonzero=[i for i,a in enumerate(residual)if a];row=nonzero[0]if nonzero else None\nfunctional=s.zeros(1,350)\nif row is not None:\n functional[0,row]=1;co=D[row,cp]*inv\n for j,r in enumerate(rp):functional[0,r]-=co[j]\n assert functional*D==s.zeros(1,150)and(functional*Q)[0]==residual[row]\nrank_aug=100+bool(nonzero);assert len(rrefp(D.row_join(Q)))==rank_aug\nreport={'task_id':'E_reduced_nonnormal','all_exact_arithmetic_passed':True,\n 'same_canonical_whole24orbit_only':old['same_whole_orbit_canonical_point'],\n 'source_49columns':{'original_M51_columns':Mp,'complete_matrix':encode(M49)},\n 'genuine_normal':{'original_Dkernel_column':extra[0],'integer_vector':encode(R),'actual_quadratic_brackets':{str((i,j)):str(RR[i,j])for i in range(5)for j in range(i+1,5)if RR[i,j]},'D_R_zero':True},\n 'U100_original_coordinate_columns':cp,'full150_directsum_frame':encode(frame),'frame_determinant':str(det),'frame_inverse':encode(inverse),'both_inverse_products_identity':True,'true49_linear_cut_rows':encode(cuts),'cut_on_source_identity_and_normal_U_zero':True,\n 'full350_quadratic_Jacobi_R':encode(Q),'quadratic_U_correction':encode(T),'full350_corrected_quadratic_residual':encode(residual),'selected100_residual_rows_zero':True,\n 'full_D_Q_rank':rank_aug,'quadratic_cokernel_nonzero':bool(nonzero),'cokernel_functional':encode(functional),'functional_D_all150_zero':row is not None,'nonzero_residual_row':row,'functional_Q':str((functional*Q)[0]),\n 'fixed_truecut_one_variable_quadratic_initial_support_radical_origin':bool(nonzero),'orbitclosure24_fullcomponent_proved_by_this_arithmetic':False,\n 'componenthood_requires_independent_IFTopenness_and_wholeorbit_bridge':True,'if_quadratic_zero_stop_no_cubic_or_jet_continuation':True,'new_component_count':0,\n 'inline_source':job['inline_source'],'inline_source_sha256':job['inline_source_sha256'],'input_bindings':job['exact_inputs_and_hashes'],\n 'seconds':time.monotonic()-begun,'maximum_RSS_KiB':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss}\np=root/'reports/CLASSIFICATION_CUBIC_CONE_RANK_TWO_ONE_NORMAL_QUADRATIC_20261108.json'\nwith p.open('x')as f:json.dump(report,f,ensure_ascii=False,indent=2);f.write('\\n')\nprint(json.dumps({'PASS':True,'frame_det':str(det),'rank_D_Q':rank_aug,'lambda_Q':report['functional_Q'],'normal_R_nonzero_entries':len(R.todok()),'quadratic_nonzero':bool(nonzero),'seconds':report['seconds'],'RSS':report['maximum_RSS_KiB']}),flush=True)\n",
+  "inline_source_sha256": "0ca5fd29c96a0fbe18c6cf5458af029c28446f55e3bac17f9417ff5fe8caa4d6",
+  "success_certificate": "Full150directsum/frameinverse/cuts, DR0, full350JacR and literal P+R Jac expansion, exact100inverse, correctionT and fullresidual, lambdaD1500/lambdaJacR!=0 or honestzero.",
+  "independent_check": "AlternateFraction reconstruct normal from fullDkernel modulo M49; replayframe/fullJac and lambda rows. PuretruecutIFT/allorbit closure bridge independent.",
+  "resource_limit": {
+    "timeout_seconds": 185,
+    "memory_mb": 3072
+  },
+  "negative_result_next_step": "Ifquadraticzero stop no cubic/highjet/profile; returnwholeactualcurve/knownparentgeometry.",
+  "command": ".venv/bin/python -c \"import json;exec(json.load(open('research/classification/jobs/cubic_cone_rank_two_one_normal_quadratic.json'))['inline_source'])\""
+}

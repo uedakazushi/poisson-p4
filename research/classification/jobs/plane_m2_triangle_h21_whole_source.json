@@ -1,0 +1,60 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "target_statement": "Whole10fixed triangle H21 complete higher sources: actual6shear image plus full residual K1 global constant inverse, FULL9 inhomogeneous P2 and original350/full actualPf; weakest whole proper factor or explicit family for structural recognition.",
+  "implication_to_classification": "Earlier pure whole finite geometry and independent ten complete kernels reduce all H21 to these ten sources. An actual global inverse preserving FULL9 transfers every original parameter including zeros; a universal proper divisor factor makes the entire rank4 irreducible-quintic source empty. Nonfactor families will be retained and require a new structural theorem, not point/profile probes.",
+  "coefficient_ring": "QQ polynomial rings in all saved kernel coefficients and all9 raw P2 coefficients simultaneously; only fixed rational constants invertible.",
+  "hypotheses": "Accepted whole H21 ten-wall necessity and complete original30/9 kernels/source order. No assumption of shear rank6; actual independent columns and all remaining kernel directions retained separately per case.",
+  "inverted_elements": [
+    "Only fixed nonzero rational determinants for each source/kernel and same saved P2 maximum minor; no higher-source coefficients inverted."
+  ],
+  "complements": [
+    "All ten r values including -1 and -1/2, all residual coefficients zero/nonzero, every homogeneous P2 parameter and every remaining original350 compatibility retained.",
+    "Raw36/Euler6 projected faithfully; finite actual shear preserves P0 modulo only explicit Euler weight1 gauge, and P2 map is globally triangular.",
+    "HF source already all150-Casimir-empty is not reopened; concurrent/nonreduced/other roots kept separate."
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "research/classification/inputs/plane_m2_triangle_h21_whole_source_20261108.json",
+      "sha256": "8dfc8c7abb56614f8d9016bf91d7db8623cd66a37a4359da52041acd2590653c"
+    },
+    {
+      "path": "code/classification_reduced_m3_whole_source.py",
+      "sha256": "c5cf8cc90a6477221dc915c3e1f5e59011f71659a1b8c2bddf550282a84c3e4f"
+    },
+    {
+      "path": "code/classification_plane_m4_special_review.py",
+      "sha256": "3c43fe85efcae39dbd0d2f8228271ce5fa291830315e62c9169ac5924b7408f8"
+    },
+    {
+      "path": "reports/CLASSIFICATION_PLANE_M2_TRIANGLE_DOUBLE_21_20261107.json",
+      "sha256": "a78ea661c0705fd923dee105a300eda0f5235607bb7a6fdbebf1553ce06cbf30"
+    },
+    {
+      "path": "reports/CLASSIFICATION_TRIANGLE_M2_DOUBLE_SEPARATE_REVIEW_20261107.json",
+      "sha256": "35ee1a4325cecc8fb71c02c7896ddcb6b795246579fb193735e8d7ef83106071"
+    },
+    {
+      "path": "research/classification/TRIANGLE_M2_DOUBLE_SEPARATE_REVIEW.md",
+      "sha256": "d0c92acf697d19ba9368cdf8fe7f292d27226e3ae8c771b88cb2cd1402aef3a7"
+    },
+    {
+      "path": "research/classification/PLANE_M2_TRIANGLE_DOUBLE_21_FINITE_WALLS.md",
+      "sha256": "5f758037863e01e6777214e4ecceb9fab201841fff34102f938928e794c94971"
+    },
+    {
+      "path": "research/classification/inputs/plane_m2_triangle_double_21_manifest_20261107.json",
+      "sha256": "539c2bdf68666565b0bd0cc5f4a2df258e1fccaaab21b46f7082c6e0b945282a"
+    }
+  ],
+  "resource_limit": {
+    "timeout_seconds": 180,
+    "memory_mb": 3072
+  },
+  "success_certificate": "Full K1=C actualshear+allresidual equality, both constant inverses, full finite6shear identity and simultaneous allK1/all9 P2 triangular inverse; same9forcing minor, all350 residuals, all150 normalized source and exact signed Pf/factor. No component count inferred.",
+  "independent_check": "Old independent full kernels/formal whole incidence are explicit inputs; new source identities will require separate Fraction replay. Current producer reuses frozen own SymPy exact polynomial utilities, not a new operator engine.",
+  "negative_result_next_step": "If any source does not universally factor, save its complete family and original equations and change to invariant hyperplane/Ore/known-family mathematics. No new M1, point, wall, ambient profile, GB or jet series.",
+  "route_change_reason": "Full saved kernels show only C_a bad column and an invariant-b candidate; special extra K1 at r=-1 and K2 at r=-1/2 are kept. This single all-source inverse/factor implication is stronger than existing G23 upper bounds.",
+  "inline_source": "from pathlib import Path\nimport json,hashlib,time,resource,signal,sys\nfrom fractions import Fraction\nimport sympy as s\nROOT=Path.cwd();sys.path.insert(0,str(ROOT/'code'))\nimport classification_reduced_m3_whole_source as C\nimport classification_plane_m4_special_review as H\nJOB='research/classification/jobs/plane_m2_triangle_h21_whole_source.json'\nOUT='reports/CLASSIFICATION_PLANE_M2_TRIANGLE_H21_WHOLE_SOURCE_20261108.json'\nstarted=time.monotonic();signal.alarm(180);resource.setrlimit(resource.RLIMIT_AS,(3072*1024**2,)*2)\ncontract=json.loads((ROOT/JOB).read_text())\nfor item in contract['exact_inputs_and_hashes']:assert hashlib.sha256((ROOT/item['path']).read_bytes()).hexdigest()==item['sha256'],item['path']\nassert not(ROOT/OUT).exists()\nx=C.x;a,b,c,u,v=x\nold=json.loads((ROOT/'reports/CLASSIFICATION_PLANE_M2_TRIANGLE_DOUBLE_21_20261107.json').read_text())\nB1=[C.from_vector(row)for row in old['full30_weight1_basis']];B2=[C.from_vector(row)for row in old['full9_weight2_basis']]\nX=[H.a(1,i)for i in range(5)];gauges=[]\nfor normal in (3,4):\n for i in range(3):\n  Y=[{}for _ in range(5)];Y[i]=H.a(1,normal);gauges.append(C.literal(H.wedge(X,Y)))\nE=s.Matrix.hstack(*(C.vec(P)for P in B1+gauges));raw1=[i for i,(ij,e)in enumerate(H.COLS)if e[3]+e[4]-sum(k>=3 for k in ij)==1]\nassert len(raw1)==36;Ei=E[raw1,:].inv();assert E[raw1,:]*Ei==s.eye(36)\ndef project1(P):return Ei*C.vec(P)[raw1,:]\ndef weight(P,k):return{ij:s.expand(sum(co*s.prod(xx**n for xx,n in zip(x,e))for e,co in s.Poly(p,*x).terms()if e[3]+e[4]-sum(at>=3 for at in ij)==k))for ij,p in P.items()}\ndef minus(P):return{ij:-p for ij,p in P.items()}\ndef enc(M):return [[str(s.factor(z))for z in row]for row in M.tolist()]\ndef emat(P):return {str(ij):str(s.factor(z))for ij,z in P.items()}\ndef basis2vals(P):\n vv=C.vec(P);ans=[]\n for Q in B2:\n  col=C.vec(Q);at=next(i for i,z in enumerate(col)if z);assert col[at]==1;ans.append(vv[at])\n assert C.vec(P)==sum((z*C.vec(Q)for z,Q in zip(ans,B2)),s.zeros(150,1));return s.Matrix(ans)\nrecords=[]\nfor item in old['cases']:\n name=item['r'];P0=C.from_vector(item['full150_P0']);K=s.Matrix(item['full30_weight1_kernel']).applyfunc(C.scalar).T\n k=K.cols;assert k in(7,8)\n unit=[]\n for j in range(6):\n  gs=[int(i==j)for i in range(6)];unit.append(project1(weight(C.push(P0,gs),1))[:30,:])\n S=s.Matrix.hstack(*unit);ind=list(S.rref()[1]);cols=[S[:,j]for j in ind];res=[]\n for j in range(k):\n  if s.Matrix.hstack(*cols,K[:,j]).rank()>len(cols):cols.append(K[:,j]);res.append(j)\n assert len(cols)==k\n free=[j for j in range(30)if j not in item['J1_certificate']['columns']]\n assert K[free,:]==s.eye(k)\n A=s.Matrix.hstack(*cols);Cmat=A[free,:];Ci=Cmat.inv();assert K*Cmat==A and Cmat*Ci==s.eye(k)\n # The entire finite six-shear push, not merely six tangent directions.\n sig=s.symbols('sigma0:6');finite=project1(weight(C.push(P0,sig),1));assert finite[:30,:]==S*s.Matrix(sig)\n # Simultaneous all original K1 coefficients and FULL9 inhomogeneous P2.\n alpha=s.symbols('alpha0:'+str(k));rawq=s.symbols('rawq0:9')\n original=C.plus(P0,{ij:sum(alpha[j]*sum(K[i,j]*B1[i][ij]for i in range(30))for j in range(k))for ij in H.PAIRS},{ij:sum(rawq[j]*B2[j][ij]for j in range(9))for ij in H.PAIRS})\n coords=Ci*s.Matrix(alpha);inverse_shear=[s.S.Zero]*6\n for at,j in enumerate(ind):inverse_shear[j]=-coords[at]\n changed=C.push(original,inverse_shear);assert weight(changed,0)==P0\n changed1=project1(weight(changed,1));expected1=sum((coords[len(ind)+n]*K[:,j]for n,j in enumerate(res)),s.zeros(30,1))\n assert changed1[:30,:]==expected1\n qnew=basis2vals(weight(changed,2));shifts=(qnew-s.Matrix(rawq)).applyfunc(s.factor)\n assert all(not z.free_symbols.intersection(set(rawq))for z in shifts)\n # Actual inverse = undo gauge and inverse shear; qnew=qraw+shift(alpha)\n # is a global polynomial triangular inverse in ALL9 variables.\n r=s.symbols('r0:'+str(len(res)));q=s.symbols('q0:9')\n P1={ij:s.expand(sum(r[n]*sum(K[i,j]*B1[i][ij]for i in range(30))for n,j in enumerate(res)))for ij in H.PAIRS}\n P=C.plus(P0,P1,{ij:sum(q[j]*B2[j][ij]for j in range(9))for ij in H.PAIRS})\n JV=C.jvector(C.jac(P));M=s.Matrix(item['full350by9_J2']).applyfunc(C.scalar);cert=item['J2_certificate'];rr,cc=cert['rows'],cert['columns'];free2=[j for j in range(9)if j not in cc]\n at=M[rr,cc];assert at.det()==C.scalar(cert['minor_determinant']);base=JV.subs(dict.fromkeys(q,0))\n assert JV[rr,:]==base[rr,:]+M[rr,:]*s.Matrix(q)\n values=at.inv()*(-base[rr,:]-(M[rr,free2]*s.Matrix([q[j]for j in free2])if free2 else s.zeros(len(rr),1)))\n sol={q[j]:s.factor(z)for j,z in zip(cc,values)}\n normalized={ij:s.expand(z.subs(sol))for ij,z in P.items()};J=JV.subs(sol).applyfunc(s.factor);D=C.actual(normalized)\n distinct=sorted({str(z)for z in J if z})\n factored=s.factor(D)\n # A proper b factor is a whole-polynomial certificate; no generic parameter\n # specialization is used. Nonfactor families remain explicit and OPEN.\n bfactor=s.expand(D.subs(b,0))==0\n case=dict(r=name,K1_dimension=k,actual_shear_rank=len(ind),independent_shear_indices=ind,residual_original_kernel_indices=res,\n  complete_shear_30by6=enc(S),K1_free_coordinate_indices=free,complete_source_change_matrix=enc(Cmat),complete_global_source_inverse=enc(Ci),constant_source_determinant=str(Cmat.det()),\n  all_alpha_parameters=list(map(str,alpha)),all_raw9_P2_parameters=list(map(str,rawq)),full_actual_inverse_shear=list(map(str,inverse_shear)),full_Euler_weight1_gauge_coefficients=list(map(str,changed1[30:,:])),\n  all9_P2_triangular_shifts=list(map(str,shifts)),all_alpha_and_raw9_simultaneous_inverse_verified=True,\n  normalized_residual_parameters=list(map(str,r)),normalized_P1=emat(P1),full_nine_P2_parameters=list(map(str,q)),P2_same_minor_rows=rr,P2_same_minor_columns=cc,P2_same_minor_determinant=str(at.det()),P2_solution={str(j):str(z)for j,z in sol.items()},P2_free_parameters=[str(q[j])for j in free2],\n  normalized_complete_source=emat(normalized),all350_original_Jacobi_after_affine_P2=list(map(str,J)),all_distinct_nonzero_remaining_Jacobi=distinct,actual_D=str(D),actual_D_factorization=str(factored),whole_b_factor=bfactor,exact_b_factor_quotient=str(s.cancel(D/b))if bfactor else None,\n  all_parameter_inverse_denominators_constant=all(not s.denom(z).free_symbols for z in list(Ci)+list(sol.values())),whole_source_status='irreducible_quintic_empty_by_b_factor'if bfactor else'FULL_FAMILY_SAVED_STRUCTURE_PENDING')\n records.append(case);print(name,'shear',len(ind),'res',res,'P2free',free2,'J',distinct,'factor',factored,flush=True)\nresult=dict(task_id='E_reduced_nonnormal',all_whole_source_arithmetic_passed=True,cases=records,scope='All10 fixed triangle H21 saved complete K1 sources; full global actual shear inverse, all9 affine P2/remaining original350/whole actualD. Factor conclusions only as explicitly certified; nonfactor families saved without parent/component claim.',no_new_M1_point_profile_wall_or_jet=True,input_bindings=contract['exact_inputs_and_hashes'],inline_source=contract['inline_source'],inline_source_sha256=contract['inline_source_sha256'],seconds=time.monotonic()-started,maximum_RSS_KiB=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss)\nwith(ROOT/OUT).open('x')as f:json.dump(result,f,indent=2);f.write('\\n')\nprint(json.dumps({k:result[k]for k in('all_whole_source_arithmetic_passed','seconds','maximum_RSS_KiB')}))\n",
+  "inline_source_sha256": "5352aae197b5f521ecd52281743bad0ff59a405c4ab7f0c01d2f8c1653dc5a06",
+  "command": ".venv/bin/python -c 'import json;exec(json.load(open(\"research/classification/jobs/plane_m2_triangle_h21_whole_source.json\"))[\"inline_source\"])'"
+}

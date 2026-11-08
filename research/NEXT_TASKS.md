@@ -7,7 +7,7 @@
 .venv/bin/python scripts/classification.py next
 ```
 
-**個別下界128（rank四122、rank二6）。一般βの既知五点尽くしGは証明完了。全E・総上界・全分類は未証明。**
+**個別下界129（rank四123、rank二6）。一般βの既知五点尽くしGは証明完了。全E・総上界・全分類は未証明。**
 ユーザーの11月7日の再開指示により実作業を継続する。保存や旧移行用一時停止を終了条件にしない。
 E_multiple_hyperplane、E_reduced_nonnormalと主稿を並行し、意味のある進展は主原稿・引継ぎへ統合して通常main pushで保存する。
 
@@ -23,11 +23,20 @@ E_multiple_hyperplane、E_reduced_nonnormalと主稿を並行し、意味のあ�
 
 ## E：未帰属sourceの実変形又は新成分性
 
-採録cutは128成分（rank四122、rank二6）・1032主張。新二23成分は全ambient/全W六/全prior126/相互を独立確認した。
-K4a親T37と全concurrent m三、corrected非被約R/m三generictriple全点（八essential三＋新二成分）を被覆済み。
-quadric-cone rank零は全SS/nil/全Yの不変H因子で空、全degree四rank零もnil32二元Jacobi係数から空へ強化。
-integral CI22導手曲面は全normal/nonnormal型とrank零/二の全sourceで既約quintic枝が空。
-rank二nil32は全九inversechartの元150/350/126を別Fraction再構成し、全rank四点もMPS/H+2Qへ被覆した。
+採録cutは129成分（rank四123、rank二6）・1044主張。
+新HA moving-simple t=2/15の全W六を一つのsmooth23全成分へ認識し、全prior128との相違を独立確認した。
+rank二planeのm三・m四は全R/root/normal/higher源を既知成分へ被覆した。
+smooth cubic scroll rank零は修正L六＋Segre五の全源で既約quintic枝が空、cubic cone rank零は全T38。
+degree四導手曲面は全rank零/二・全centre/spanで既約quintic枝が空。
+不安定elliptic rank零は全sections/frame/conductorの実曲線でT40へ被覆した。
+一般Gは完了、全E・総上界・分類主定理は未証明である。
+
+次cut用のgenus零rank零T40、cubic cone rank二T38/T39、HF八壁T36/T38、tangent m二、
+dependent-global-vector、triangle/concurrent及びquadric cone rank二等のpacketは、独立確認と台帳採録を区別して保存する。
+現1044件へ未採録のpacketを既証明の全分類へ算入しない。
+genus零の旧未コミットreview note一件は同名作成衝突でbyte消失した。旧hashを改変せず、
+`classification/inputs/genus_zero_rankzero_review_source_loss_20261108.json` に欠損と旧三記録のexact bytesを明記した。
+原証明と新別名の独立reviewは現存し、欠損旧noteを証明依存には使わない。
 
 全sourceの残余は `classification/E_POINTWISE_SOURCE_FRONTIER.md` の九laneを使う。
 新しいproducer packetは独立全源確認・台帳採録・主稿組版・通常pushを別々に完了する。

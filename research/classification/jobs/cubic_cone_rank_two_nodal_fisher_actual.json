@@ -1,0 +1,55 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "target_statement": "ONE full exactWeierstrassparameter family via explicit alternating5model and existing polynomialFisherOmega: all150 specialactualcoefficients equal samecanonicalwhole24orbit, nonzero; hence T39positiveclosure. NoCasimir150operator/noextraanchor/nojets.",
+  "implication_to_classification": "If literalidentity PASS, smoothgeneric e model gives T39q5,1 by acceptedFisher/Polishchuk; polynomialOmega extends to nodal e0 withnonzero actualtarget, so targetinclosedT39. Frozenwholeorbit/shear/Cartan/nilbundle inverse then maps ALLlambda3/5 sources toT39. Lambda2/5 alreadyT38; no componentcountincrease.",
+  "coefficient_ring": "QQ[e,z0..z4], exactconstantGL5 and all10brackets/150coefficients/350Jacobi/126actualPf.",
+  "hypotheses": "ExplicitWeierstrass cubic y²=x³+x²+e, completeL5, e(4+27e)nonzero generic only. PolynomialFisher formula uses no discriminant division. RootprefersONEOmegaidentity over redundantCasimiroperator.",
+  "inverted_elements": [
+    "Only nonzero QQ determinant of constantGL5 and constantquadricbasis matrix; genericdisc e(4+27e)only interprets smoothgeneric model, NOT inverted at special e0."
+  ],
+  "complements": [
+    "e0 is evaluated polynomially and never assumed smooth.",
+    "Ifidentityfails savefailure and doNOTsimultaneouslyrunanotheroperator orhigherjet.",
+    "Sourcea0/b0 andnilwholefibers are restored by the exactfrozenwholeorbitclosure proof; no genericpointonlyclaim."
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "research/classification/CUBIC_CONE_RANK_TWO_NODAL_FISHER_MODEL.md",
+      "sha256": "04e225c15cf3fe803d51ccca618f3d204919bfbd93d8c1e4f9b11cb271642811"
+    },
+    {
+      "path": "research/classification/CUBIC_CONE_RANK_TWO_NODAL_QUINTIC_T39_BRIDGE.md",
+      "sha256": "d695f52ef41f6b5186d196648c7c133130ad5b7cbbb498456f54f43df8895d87"
+    },
+    {
+      "path": "research/classification/CUBIC_CONE_RANK_TWO_CRITICAL_ORBITS.md",
+      "sha256": "bf9d8c99cf80bab4b456dec62cabd66a991b3be9b515bcb2f6a8526c9cb51e07"
+    },
+    {
+      "path": "reports/CLASSIFICATION_CUBIC_CONE_RANK_TWO_ONE_ORBIT_AMBIENT_20261108.json",
+      "sha256": "a05923be43f37a90da61d7f74a468e89f8c4b5d8c551551b61158e7d2c1406b9"
+    },
+    {
+      "path": "research/notes/KNOWN_FIVE_SMOOTH_LOCUS_20261101.md",
+      "sha256": "5af6d45440154416e6bc0070d4ee19b7d04e2fc77da0bb2e7b059864267329cf"
+    },
+    {
+      "path": "research/notes/KNOWN_FIVE_SMOOTH_LOCUS_REVIEW_20261101.md",
+      "sha256": "204a860ff79a0b868c4c5046f2a57a6acd2c7dc52342a9900ba4a4a963a10fb9"
+    },
+    {
+      "path": "code/known_five_smooth_locus_review_20261101.py",
+      "sha256": "5f6235391a6b974e67c70d694b9292d494b8f613e7ad867f983fdcd43dbf071b"
+    }
+  ],
+  "inline_source": "from pathlib import Path\nimport sympy as s\nimport json,hashlib,signal,resource,time,ast,itertools\nbegun=time.monotonic();signal.alarm(180);resource.setrlimit(resource.RLIMIT_AS,(3072*1024**2,)*2)\nroot=Path('.');jp='research/classification/jobs/cubic_cone_rank_two_nodal_fisher_actual.json';job=json.loads((root/jp).read_text())\nfor row in job['exact_inputs_and_hashes']:assert hashlib.sha256((root/row['path']).read_bytes()).hexdigest()==row['sha256'],row['path']\nz=s.symbols('z0:5');x=s.symbols('x0:5');e=s.Symbol('e');pairs=list(itertools.combinations(range(5),2));triples=list(itertools.combinations(range(5),3));quads=list(itertools.combinations(range(5),4))\nphi=s.zeros(5)\nentries=[-z[3]-e*z[0],-z[3],-z[4],z[2],z[2],z[3],-z[1],-z[1],z[0],0]\nfor ij,v in zip(pairs,entries):phi[ij]=v;phi[ij[::-1]]=-v\ng=s.Matrix([z[0]*z[3]-z[1]**2,z[0]*z[4]-z[1]*z[2],z[1]*z[4]-z[2]*z[3],z[2]**2-z[1]*z[3]-z[0]*z[3]-e*z[0]**2,z[2]*z[4]-z[3]**2-z[1]*z[3]-e*z[0]*z[1]])\ndef pfs(P):\n out=[]\n for j in range(5):\n  a,b,c,d=[i for i in range(5)if i!=j];out.append(s.expand((-1)**j*(P[a,b]*P[c,d]-P[a,c]*P[b,d]+P[a,d]*P[b,c])))\n return s.Matrix(out)\np=pfs(phi);assert p==-g and (phi*p).applyfunc(s.expand)==s.zeros(5,1)\nomega=s.zeros(5);dp=[p.diff(t)for t in z];dphi=[phi.diff(t)for t in z]\nfor a,b in pairs:\n c,d,f=[i for i in range(5)if i not in(a,b)];perm=[a,b,c,d,f];sign=(-1)**sum(perm[i]>perm[j]for i in range(5)for j in range(i+1,5))\n value=s.expand(sign*((dp[c].T*dphi[d]*dp[f])[0]+(dp[f].T*dphi[c]*dp[d])[0]+(dp[d].T*dphi[f]*dp[c])[0]));omega[a,b]=value;omega[b,a]=-value\nM=s.Matrix([[5,-10,10,-5,1],[-4,12,-12,4,0],[4,-4,-4,4,0],[0,-16,16,0,0],[0,16,16,0,0]])\nassert M.det();Mi=M.inv();assert M*Mi==s.eye(5)and Mi*M==s.eye(5)\nmx=M*s.Matrix(x);subs=dict(zip(z,mx));O=(Mi*omega.subs(subs,simultaneous=True)*Mi.T).applyfunc(s.expand)\ndiv=s.Matrix([s.expand(sum(s.diff(O[i,j],x[i])for i in range(5)))for j in range(5)]);assert div==s.zeros(5,1)\nJ={ijk:s.expand(sum(O[i,l]*s.diff(O[j,k],x[l])+O[j,l]*s.diff(O[k,i],x[l])+O[k,l]*s.diff(O[i,j],x[l])for l in range(5)))for ijk in triples for i,j,k in[ijk]}\nassert not any(J.values());projective={inds:s.expand(sum((-1)**at*x[l]*J[inds[:at]+inds[at+1:]]for at,l in enumerate(inds)))for inds in quads};assert not any(projective.values())\nold=json.loads((root/'reports/CLASSIFICATION_CUBIC_CONE_RANK_TWO_ONE_ORBIT_AMBIENT_20261108.json').read_text());target=s.zeros(5)\nfor key,v in old['all_actual_point_brackets'].items():\n ij=ast.literal_eval(key);target[ij]=s.sympify(v,locals={str(t):t for t in x});target[ij[::-1]]=-target[ij]\nP0=O.subs(e,0);ratio=s.cancel(s.Poly(P0[0,1],*x).coeff_monomial(x[0]*x[1])/s.Poly(target[0,1],*x).coeff_monomial(x[0]*x[1]));assert ratio and not ratio.free_symbols\nassert (P0-ratio*target).applyfunc(s.expand)==s.zeros(5)\nq0=x[0]*x[2]-x[1]**2;q1=x[0]*x[3]-x[1]*x[2];q2=x[1]*x[3]-x[2]**2\nr1=x[4]*x[1]-x[2]*x[3]+x[0]**2;r2=x[4]*x[2]-x[3]**2+x[0]*x[1];q=s.Matrix([q0,q1,q2,r1,r2])\nF=s.expand(x[4]*q0*q2+q2*(x[2]*q2-x[3]*q1)+q0*(x[0]*q1-x[1]*q0));det0=s.expand(q.jacobian(x).det());assert det0==-2*F\n# All five special quadrics are the same complete space, by an invertible constant basis change.\nmon2=[s.prod(t**n for t,n in zip(x,ee))for ee in sorted([v for v in itertools.product(range(3),repeat=5)if sum(v)==2],reverse=True)]\nQ=s.Matrix([[s.Poly(qq,*x).coeff_monomial(m)for qq in q]for m in mon2]);G=s.Matrix([[s.Poly(qq,*x).coeff_monomial(m)for qq in g.subs(e,0).subs(subs,simultaneous=True)]for m in mon2]);A=Q.gauss_jordan_solve(G)[0].T;assert A.det()and(g.subs(e,0).subs(subs,simultaneous=True)-A*q).applyfunc(s.expand)==s.zeros(5,1)\npf=s.expand((s.Matrix(x).T*pfs(O))[0]);detg=s.expand(g.jacobian(z).det().subs(subs,simultaneous=True));pf_ratio=s.cancel(pf/detg);assert pf_ratio and not pf_ratio.free_symbols\nassert s.expand(pf.subs(e,0)-ratio**2*s.sympify(old['actual_signed_Euler_Pfaffian'],locals={str(t):t for t in x}))==0\nss,tt=s.symbols('s t');param=[ss**4*tt,ss**3*tt**2,ss**2*tt**3,ss*tt**4,tt**5-ss**5]\nassert all(s.expand(qq.subs(dict(zip(x,param)),simultaneous=True))==0 for qq in q)\nZ=M*s.Matrix(param);expectedZ=s.Matrix([(tt-ss)**5,4*ss*tt*(tt-ss)**3,4*ss*tt*(tt+ss)*(tt-ss)**2,16*ss**2*tt**2*(tt-ss),16*ss**2*tt**2*(tt+ss)]);assert (Z-expectedZ).applyfunc(s.expand)==s.zeros(5,1)\nreport={'task_id':'E_reduced_nonnormal','all_exact_arithmetic_passed':True,'whole_exact_Weierstrass_family_not_a_jet':True,'one_same_canonical_whole24orbit_only':True,\n 'coordinate_order_source':list(map(str,z)),'coordinate_order_target':list(map(str,x)),'parameter':'e','Weierstrass_smooth_discriminant_nonzero_condition':'e*(4+27*e)!=0',\n 'all10_model_entries':{str(ij):str(phi[ij])for ij in pairs},'all5_quadrics':list(map(str,g)),'all5_signed_Pfaffians_equal_minus_g':True,'Phi_times_Pf_zero':True,\n 'Fisher_Omega_all10_entries':{str(ij):str(omega[ij])for ij in pairs},'actual_GL5_z_from_x':[[int(v)for v in row]for row in M.tolist()],'GL5_determinant':str(M.det()),'GL5_inverse':[[str(v)for v in row]for row in Mi.tolist()],'both_GL_inverse_products_identity':True,\n 'all10_actual_target_family_brackets':{str(ij):str(O[ij])for ij in pairs},'all5_canonical_divergences':list(map(str,div)),'all10_raw_Jacobi':{str(k):str(v)for k,v in J.items()},'all350_projective_Jacobi_coefficients_zero':True,\n 'special_scalar_relative_to_integer_canonical_target':str(ratio),'all150_special_coefficients_match':True,'all126_actual_family_Euler_Pfaffian':str(pf),'fullfamily_Euler_Pfaffian_equals_secant_Jacobian_times':str(pf_ratio),'fullfamily_secant_Jacobian':str(detg),'special_target_F_Jacobian_identity':'detJac(q0,q1,q2,r1,r2)=-2F',\n 'all5_special_quadric_basis_change':[[str(v)for v in row]for row in A.tolist()],'special_quadric_basis_det':str(A.det()),'normalization_parametrization':list(map(str,param)),'all5_normalization_quadric_pullbacks_zero':True,'all5_Weierstrass_GL_parametrization_identities':True,\n 'positive_T39_closed_component_membership_if_accepted_polynomial_Fisher_theorem':True,'full_lambda_three_fifths_source_covered_via_frozen_whole_orbit_inverse':True,'no_full150_Casimir_operator_run':True,'no_local_cubic_or_higher_jets':True,'new_component_count':0,\n 'primary_read_receipt':{'url':'https://www.dpmms.cam.ac.uk/~taf1000/papers/invenq.pdf','downloaded_pdf_sha256':'7bee46d58589dfa1de24b14ca93f34397b8f62a92dcf95e74a684dc164cca2f5','date':'2026-11-08','read_scope':'Sections9-10 printed33-37, smoothsecant/Omega only; no singularcurve extension assumed'},\n 'inline_source':job['inline_source'],'inline_source_sha256':job['inline_source_sha256'],'input_bindings':job['exact_inputs_and_hashes'],'seconds':time.monotonic()-begun,'maximum_RSS_KiB':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss}\npout=root/'reports/CLASSIFICATION_CUBIC_CONE_RANK_TWO_NODAL_FISHER_ACTUAL_20261108.json'\nwith pout.open('x')as f:json.dump(report,f,ensure_ascii=False,indent=2);f.write('\\n')\nprint(json.dumps({'PASS':True,'GLdet':str(M.det()),'target_scalar':str(ratio),'basis_det':str(A.det()),'Pf_Jacobian_ratio':str(pf_ratio),'all_e_Jacobi':True,'seconds':report['seconds'],'RSS':report['maximum_RSS_KiB']}),flush=True)\n",
+  "inline_source_sha256": "47bc29477ca80fc78861f47ecad992f8cbf685a6f52d93207c6f9bd78b0b9be6",
+  "success_certificate": "FullPhi fivePf andPhiPf0, all-e polynomialOmega, constantGL inverse bothproducts, whole-e div/Jacobi/Pfsecant identity, specialfull150nonzeroscalar actualtarget identity, allfivequadricbasisinverse andnormalizationpullbacks.",
+  "independent_check": "AlternateauthorFraction implements Pfaffian/cyclicOmega from explicitPhi; full150GL/Pf match and dense-smooth polynomialclosedT39 bridge; inspect all source inverse conditions.",
+  "resource_limit": {
+    "timeout_seconds": 185,
+    "memory_mb": 3072
+  },
+  "negative_result_next_step": "Preserve exact failure; stop this formula route before any alternativeoperator/newanchor.",
+  "command": ".venv/bin/python -c \"import json;exec(json.load(open('research/classification/jobs/cubic_cone_rank_two_nodal_fisher_actual.json'))['inline_source'])\""
+}

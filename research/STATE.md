@@ -1,16 +1,18 @@
 # 研究状態 — 現行分類 / 2026-11-08
 
 現行キューは [classification/CURRENT.md](classification/CURRENT.md)・PLAN.json・NEXT_TASKS.md。
-個別下界128（rank四122、rank二6）、主張1032。**一般β Gは完了**、全E・総上界・分類主定理は未証明。
-直前公開保存点は9468048f7a9daa051fa57054858aa8f07a1dd61d（126/1020、288頁、G完了）。
-この保存区間もGitHub mainとこのSHAの一致を確認して開始した。
-現行128/1032主稿は295頁、二回最終組版・全参照・主要頁可視を確認しPDF保存済み。Git保存はHEAD/origin/mainで確認する。
+個別下界129（rank四123、rank二6）、主張1044。**一般β Gは完了**、全E・総上界・分類主定理は未証明。
+今回の継続区間開始SHAは57f8e29db085dd43df885f9085b34ae6ea9053faで、GitHub mainとの一致を確認した。
+その公開保存点は128/1032・295頁である。現129/1044主稿は301頁、最終二回組版・全参照・主要頁可視を確認しPDF保存済み。
+この保存単位のcommit/pushはHEAD/origin/mainで確認する。
 
-採録cutは128成分（rank四122、rank二6）・1032主張。新二23成分は全ambient/全W六/全prior126/相互を独立確認した。
-K4a親T37と全concurrent m三、corrected非被約R/m三generictriple全点（八essential三＋新二成分）を被覆済み。
-quadric-cone rank零は全SS/nil/全Yの不変H因子で空、全degree四rank零もnil32二元Jacobi係数から空へ強化。
-integral CI22導手曲面は全normal/nonnormal型とrank零/二の全sourceで既約quintic枝が空。
-rank二nil32は全九inversechartの元150/350/126を別Fraction再構成し、全rank四点もMPS/H+2Qへ被覆した。
+採録cutは129成分（rank四123、rank二6）・1044主張。
+新HA moving-simple t=2/15の全W六を一つのsmooth23全成分へ認識し、全prior128との相違を独立確認した。
+rank二planeのm三・m四は全R/root/normal/higher源を既知成分へ被覆した。
+smooth cubic scroll rank零は修正L六＋Segre五の全源で既約quintic枝が空、cubic cone rank零は全T38。
+degree四導手曲面は全rank零/二・全centre/spanで既約quintic枝が空。
+不安定elliptic rank零は全sections/frame/conductorの実曲線でT40へ被覆した。
+一般Gは完了、全E・総上界・分類主定理は未証明である。
 
 全200 correctedtriple routeは正しいminus接続だけを使い、旧plus90被覆は撤回のまま。
 新二Y壁は全九P1＋一意inhomogeneous九P2の元350/actualPfを別Fraction再構成して全空。
@@ -19,9 +21,14 @@ rank二nil32は全九inversechartの元150/350/126を別Fraction再構成し、�
 [classification/E_POINTWISE_SOURCE_FRONTIER.md](classification/E_POINTWISE_SOURCE_FRONTIER.md) の九laneを使う。
 plane三源/stable二/Ga9linear-w/shortnilだけがE残余という不完全な一覧へ戻らない。
 
-smoothscroll旧four-coverは独立反例で棄却し不変保存。正しいV2二源の独立PASS等、1032後のpacketは採録待ち。
-新HA候補等は成分台帳へ未加算。解決済みGを欠陥なく再開せず、全Eの点別認識を続ける。
-B18のH0/T2/精密nil指数及び旧minor探索は主分類の不可欠な依存なしに再開しない。
+smoothscroll旧four-coverは独立反例で棄却し不変保存し、正しいV2二源だけを1044までの証明に使用した。
+次cut用のgenus零rank零T40、cubic cone rank二T38/T39、HF八壁T36/T38、tangent m二、
+dependent-global-vector、triangle/concurrent及びquadric cone rank二等のpacketは、独立確認と台帳採録を区別して保存する。
+現1044件へ未採録のpacketを既証明の全分類へ算入しない。
+genus零の旧未コミットreview note一件は同名作成衝突でbyte消失した。旧hashを改変せず、
+`classification/inputs/genus_zero_rankzero_review_source_loss_20261108.json` に欠損と旧三記録のexact bytesを明記した。
+原証明と新別名の独立reviewは現存し、欠損旧noteを証明依存には使わない。
+解決済みGを欠陥なく再開せず、全Eの点別認識を続ける。
 
 Cloud復旧・初期SHA・環境・保存境界は [CLOUD_HANDOFF_20261107.md](CLOUD_HANDOFF_20261107.md) と
 [CLOUD_RECOVERY_20261107.md](CLOUD_RECOVERY_20261107.md)。旧移行用一時停止を研究終了条件にしない。
@@ -1885,3 +1892,8 @@ $$
 次は既知三成分の一般次数・一般ファイバーの尽くし、または階数1固定fibreの正当な削減を有限目標とする。[NEXT_TASKS.md](NEXT_TASKS.md) を参照。
 
 [T01全体の明示的な飽和素イデアル](notes/TORIC_AFFINE_MODIFICATION_20261101.md)と多項式根座標の独立点検を追補した。全S61の尽くしとは区別する。
+
+HA moving-simple t2/15の全六源を独立二engine全ambient＋全prior128で新smooth23成分として採録し、現下界129/主張1044。
+公開済みmainは57f8e29db085dd43df885f9085b34ae6ea9053fa（128/1032/295頁）。追加HAは次cutへ統合する。
+
+全rank二plane m三及びm四のpointwiseEを閉じた。全degree四導手もrank零/二で既約quintic枝は空、unstable elliptic rank零全源はT40へ。

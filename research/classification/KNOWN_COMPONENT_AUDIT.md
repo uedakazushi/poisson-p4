@@ -1,7 +1,7 @@
 # 既知成分の分類への接続監査
 
 2026-11-07。対象は複素数体上の射影化Jacobiスキーム、PGL5商の前。
-現在の既知128成分について、主分類に必要な成分性・次元・相違の依存監査を完了した。
+現在の既知129成分について、主分類に必要な成分性・次元・相違の依存監査を完了した。
 rank2支持はRANK_TWO_SUPPORT.md、追加11族とNEW25の全周囲証明は下記三監査へ接続する。
 全rank4被覆・一般五点尽くし・全特殊底被覆は証明しない。
 旧証明書の再実行と今回読んだ数学的議論を区別する。
@@ -392,3 +392,10 @@ raw tangent48は実作用軌道48に一致するので、射影点はsmooth uniq
 rank二閉条件、局所次元又は軌道次元、proper因子の閉条件、essential三の閉条件と旧二dense23軌道の特異支持により全既成分との相違を確認した。
 新二者は唯一の特異plane上の内在的二jump線の一般tangentcone型が異なり、互いのdense軌道が異なる。
 全成分台帳は128、一般rank四122、一般rank二6。一般βのGは完了、全E及び総成分上界は未証明。
+
+## moving-simple2/15のsmooth23成分
+
+`PLANE_MOVING_SIMPLE_HA_AMBIENT_SEPARATE_REVIEW.md` は同じcanonical全150/350/D/Euler/M51・完全核・非零102/24/48minorと全Pfを別SymPy実装で確認した。
+`PLANE_MOVING_SIMPLE_TWO_WHOLE_ORBITS.md` の全W六の実polynomial逆とinjectiveD mapを戻し、全sourceはそのdense23軌道閉包へ入る。
+`PLANE_MOVING_SIMPLE_HA_PRIOR128_DISTINCTNESS.md` と統合側rootacceptanceは公開57f8e29の全128 ID/次元/rankと比較し、唯一Singplane・essential五・絶対既約性及びnormalroot21対旧二triple根3を用いて相違を確認した。
+全下界129、一般rank四123、rank二6。全E・総上界は未証明。

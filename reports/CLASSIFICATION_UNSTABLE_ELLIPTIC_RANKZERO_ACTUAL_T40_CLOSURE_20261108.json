@@ -1,0 +1,94 @@
+{
+  "date": "2026-11-08",
+  "status": "PRODUCER_PURE_PROOF_COMPLETE_INDEPENDENT_REVIEW_PENDING",
+  "new_arithmetic": false,
+  "classification_obligation": "E_reduced_nonnormal / unstable elliptic rankzero degree5 genus1 normalization",
+  "statement": "Every actual rankfour source point in the entire unstable normalization E=A_2 directsum F_(2,3) lies in closed T40. Together with the prior reduction all rankzero degree5 genus1 points are T40.",
+  "new_component_count": 0,
+  "source_scope": {
+    "A": {
+      "rank": 1,
+      "degree": 2
+    },
+    "F": {
+      "rank": 2,
+      "degree": 3,
+      "stable": true
+    },
+    "complete_sections": 5,
+    "all_bundle_moduli_and_target_frames": true,
+    "tensor_source": "The full one-dimensional conductor-divisible normalized bivector source, not a chosen point or subfamily."
+  },
+  "proof_note": {
+    "path": "research/classification/UNSTABLE_ELLIPTIC_RANKZERO_ACTUAL_T40_CLOSURE.md",
+    "sha256": "9758f10ae0149ff13935a49b1afa63ea3e66966737bbb8cc0b7f80ed40baf985"
+  },
+  "job": {
+    "path": "research/classification/jobs/unstable_elliptic_rankzero_actual_t40.json",
+    "sha256": "594da89bdad994c6d379f2dfcd3096b1626ebe759f73661f22ffb204383f6406"
+  },
+  "exact_inputs_and_hashes": [
+    {
+      "path": "research/classification/RANK_ZERO_QUINTIC_SURFACE_GENUS_ONE_RECOGNITION.md",
+      "sha256": "5dbc8052d4245b72d45904a0f92d479ce4e0c26a577ca2391a1f662bce35b768"
+    },
+    {
+      "path": "research/classification/RANK_ZERO_QUINTIC_SURFACE_GENUS_ONE_SEPARATE_REVIEW.md",
+      "sha256": "f5cd2db8447ca6fd814b24d9659e755bc435dca8c51d52deef2bb9934a214028"
+    },
+    {
+      "path": "research/classification/IRREDUCIBLE_NONNORMAL_QUINTIC_ENTRANCE.md",
+      "sha256": "911ccd334b405058ba0f7aece9a20095d1365b94849f429a11d19c277ba795de"
+    },
+    {
+      "path": "research/classification/RANK_ZERO_SEXTIC_CONDUCTOR_SEPARATE_REVIEW.md",
+      "sha256": "5db412f81bc05688524d85df09ec5c39ac2d9b5e3bec2c3f3a11e73ab6760748"
+    }
+  ],
+  "proof_arrows": [
+    {
+      "name": "reverse_extension",
+      "certificate": "Ext1(A,F)=C; nonsplit t!=0 stable by all destabilizing rank1/rank2 complements."
+    },
+    {
+      "name": "full_section_lift",
+      "certificate": "H1(E0)=0, cohomology/basechange and openness of ampleness/GG; complete rank5 section frame lifts with arbitrary prescribed central frame."
+    },
+    {
+      "name": "actual_normalization_family",
+      "certificate": "Proper fiberfinite map is finite. Degree L^3=5 and nondegenerate image imply every fiber birational onto an integral quintic. Total prime image is Cartier degree5, its fibers equal actual images."
+    },
+    {
+      "name": "relative_conductor",
+      "certificate": "B finite MCM over hypersurface Gorenstein A; Hom_A(B,A)=f_*omegaY/T, Ext^i=0. Evaluation-at-one conductor inclusion commutes with every t specialization using Ext1=0."
+    },
+    {
+      "name": "all_tensor_lift",
+      "certificate": "Contraction of relative conductor anticanonical section by fixed alpha_B yields Poisson bivector on Y. Its coefficients lie in conductor and descend to Lambda2TP4|D. H0/H1(Omega2P4)=0 gives unique regular ambient lift."
+    },
+    {
+      "name": "original_jacobi_and_actual_pfaffian",
+      "certificate": "Jacobi vanishes on D; H0(Lambda3T(-5))=H0Omega1=0 proves whole ambient Jacobi. Actual Pf=c(t)F_D; c(0)!=0 permits shrinking without removing central source."
+    },
+    {
+      "name": "closed_T40",
+      "certificate": "Every t!=0 bundle stable, so accepted polarized-normalization plus tensor-uniqueness theorem identifies actual Pi_t with T40. Closedness contains the arbitrary central Pi0."
+    }
+  ],
+  "not_assumed": [
+    "Normalization or conductor flatness without proof",
+    "Bundle closure implies Poisson closure",
+    "Generic or chosen source point suffices for all points",
+    "Additional node/clean/vertical assumptions before accepted source reduction",
+    "A matrix or new Jacobi operator",
+    "Source field element or bundle determinant localization"
+  ],
+  "retained_complements": [
+    "All unstable A,F and complete frames; t=0 is retained.",
+    "Canonical/zero-summand/cusp branches have prior accepted disposition.",
+    "Zero normalized tensor or zero actual Pf is outside the rankfour source and is not newly classified here.",
+    "Other degrees and ranktwo restriction remain separate."
+  ],
+  "gate": "PASS: job contract and input bindings. Mathematics NOT verified. No job was started.",
+  "independent_review": "Pending. This report records a producer proof and exact bindings, not a separate-author proof verdict."
+}

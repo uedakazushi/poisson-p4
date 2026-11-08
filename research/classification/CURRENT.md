@@ -5,13 +5,12 @@
 
 ## 証明状態と保存状態
 
-個別に証明・独立確認済みの下界は **128成分（一般rank四122、一般rank二6）**。
+個別に証明・独立確認済みの下界は **129成分（一般rank四123、一般rank二6）**。
 `research/COMPONENTS.json` が唯一の加算台帳であり、一般βのGは全分岐監査まで完了。総上界・全E・分類主定理は未証明。
-現在の主張台帳は1032件。plan/check/gateの成功は数学の認証ではない。
-直前の公開保存点は `9468048f7a9daa051fa57054858aa8f07a1dd61d`（126成分・1020主張、288頁、一般G完了）。
-公開126/1020の受理済み証明を同じ日本語主稿へ統合し、288頁の最終二回組版・全参照・主要頁可視を確認した。
-この保存単位自身のcommit/push状態はGitとbuild receiptで確認する。
-最新commit・push・PDFの実際の状態はGit及びbuild receiptで確認する。
+現在の主張台帳は1044件。plan/check/gateの成功は数学の認証ではない。
+今回の継続区間開始・直前公開保存点は `57f8e29db085dd43df885f9085b34ae6ea9053fa`（128成分・1032主張、295頁）で、GitHub mainとの一致を確認した。
+現129/1044の受理済み証明を同じ日本語主稿へ統合し、301頁の最終二回組版・全参照・主要頁可視を確認した。
+最新commit・通常push・PDFの実際の状態はGit及びbuild receiptで確認する。
 
 Cloud中断後、初期snapshotへ戻ったworkspaceをfetch/ff-onlyで公開checkpointまで復元した。
 失われた非公開reportを実測値ごと作り直さず、新REPLAY/RECOVERY_V2 identityで区別した。
@@ -26,7 +25,7 @@ exact手証明/sourceのhash復元と新算術は `../CLOUD_RECOVERY_20261107.md
 | G 一般beta尽くし | **完了**。一般係数体上の残余B=0、全幾何fiberは既知五点。全actualD/曲面rank・degree1–6/plane全multiplicity・root/sourceを独立全源定理で尽くした |
 | E_multiple_hyperplane | stable line-conic/three-lines二源、short nil31 r2/3等の明示残源を実変形又は新成分へ認識する |
 | E_reduced_nonnormal | Ga9linear-wの未知親、1+1+3/1+2+2の残源、他の非正規支持を全点認識する |
-| A 成分監査 | 現128件の全周囲成分性と相違は受理済み。新候補があれば監査し、下界を答えとして固定しない |
+| A 成分監査 | 現129件の全周囲成分性と相違は受理済み。新候補があれば監査し、下界を答えとして固定しない |
 | M 主稿 | 日本語LuaLaTeX。同じ原稿へ受理済み証明を理解順に統合し、分類主定理を未証明のまま明示する |
 
 ## G：全支持の閉鎖を完了
@@ -190,3 +189,8 @@ generic21及びreducedR/m三は正しい式/一意parallel connection/全元P0�
 公開済みGの像23上界は旧全24式の独立dimension証明を使い、誤four-coverへ依存しない。
 Cexact/moving source等の新閉鎖、cubicconeT38、PV、新HA候補は各frozenpacketを次cutで独立採録する。
 未採録候補を128成分へ混ぜず、実根拠はCLAIMS/COMPONENTSを唯一の台帳とする。
+
+HA moving-simple t2/15の全六源を独立二engine全ambient＋全prior128で新smooth23成分として採録し、現下界129/主張1044。
+公開済みmainは57f8e29db085dd43df885f9085b34ae6ea9053fa（128/1032/295頁）。追加HAは次cutへ統合する。
+
+全rank二plane m三及びm四のpointwiseEを閉じた。全degree四導手もrank零/二で既約quintic枝は空、unstable elliptic rank零全源はT40へ。

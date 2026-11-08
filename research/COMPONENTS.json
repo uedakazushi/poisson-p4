@@ -14,15 +14,15 @@
     "null_values": "not catalogued or not applicable; never a claim of zero"
   },
   "coverage": {
-    "global_lower_bound": 128,
+    "global_lower_bound": 129,
     "generic_rank_two_full_components": 6,
-    "generic_rank_four_lower_bound": 122,
+    "generic_rank_four_lower_bound": 123,
     "upper_bound": null,
     "global_exhaustion_proved": false,
-    "individually_catalogued_count": 128,
+    "individually_catalogued_count": 129,
     "unexpanded_block_count": 0,
     "all_51_rank_four_ideals_in_S61_constructed": false,
-    "note_ja": "全128個別成分/rank四122/rank二6。二triple壁23成分を全ambient smoothness・wholeW六全逆・全prior126/相互の独立確認で追加。G一般β尽くし完了、全E/上界は未証明。",
+    "note_ja": "全129個別成分/rank四123/rank二6。HA moving-simple t2/15を全ambient/wholeW六/全prior128相違で追加。一般G完了、全E/上界未証明。",
     "generic_primitive_first_jet_known_lifts_lower_bound": 5,
     "full_generic_fiber_exhaustion_proved": true,
     "known_union_over_smooth_canonical_curve": {
@@ -14353,6 +14353,105 @@
         "全prior126と相互の相違を独立確認。",
         "normal quotient零。高次jet/形式切片を成分性の代用にしていない。"
       ]
+    },
+    {
+      "id": "R4_PLANE_DOUBLE_LINE_CUBIC_M3_MOVING_SIMPLE_2_15_23",
+      "name": "rank二plane・m三moving-simple t2/15の23次元成分",
+      "source_checkpoint": "v64-classification-first",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "additional_generic_rank_four_full_component_outside_MPS40",
+      "generic_rank": 4,
+      "projective_dimension": 23,
+      "meets_SNC_log_symplectic_locus": false,
+      "generic_pgl5_orbit_dimension": 23,
+      "generic_reduced_rosenlicht_quotient_dimension": 0,
+      "generic_transverse_algebra": "K (reduced transverse point; smooth dense actual orbit)",
+      "component_definition": "Full actualPGL23 orbitclosure, equal to entire sixWsource saturationclosure; canonical point smoothunique23 in fullscheme.",
+      "generic_construction": {
+        "coordinates": [
+          "a",
+          "b",
+          "c",
+          "z",
+          "w"
+        ],
+        "core_Q": {
+          "ab": "w**2",
+          "az": "0",
+          "aw": "-9*z**2/14",
+          "bz": "z**2",
+          "bw": "2*z*w",
+          "zw": "0"
+        },
+        "W": [
+          "a**2-27*b*w/7",
+          "-2*a*b",
+          "-2*a*z-3*w**2/5",
+          "2*a*w/5+27*b*z/5"
+        ],
+        "cotangent_law": "Pi=Q+partial_c wedge W",
+        "canonical_projective_integer_scale": 70,
+        "whole_W_dimension": 6,
+        "full_ambient_ranks": {
+          "Jacobi": 102,
+          "Euler": 24,
+          "actual_GL_scale_Euler": 48
+        }
+      },
+      "generic_actual_degeneracy_divisor": {
+        "description": "Absolutely irreducible essentialfive quintic; unique ranktwo singularplane, normalorderthree with binaryrootpartition21.",
+        "witness_equation": "-3*w*(w**2+3*a*z)**2/5-27*b*w**2*z**2/14-27*a*b*z**3/5-9*c*z**4/14",
+        "irreducible_factor_degrees": [
+          5
+        ],
+        "corresponding_multiplicities": [
+          1
+        ],
+        "reduced": true,
+        "essential_variable_count": 5,
+        "singular_surface": "unique plane z=w=0",
+        "general_singular_plane_multiplicity": 3,
+        "generic_normal_root_partition": [
+          2,
+          1
+        ]
+      },
+      "claims": [
+        "R4_PLANE_DOUBLE_LINE_CUBIC_M3_MOVING_SIMPLE_2_15_23_COMPONENT"
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/PLANE_MOVING_SIMPLE_TWO_WHOLE_ORBITS.md"
+        },
+        {
+          "path": "research/classification/PLANE_MOVING_SIMPLE_HA_COMPONENT_CANDIDATE.md"
+        },
+        {
+          "path": "research/classification/PLANE_MOVING_SIMPLE_HA_AMBIENT_SEPARATE_REVIEW.md"
+        },
+        {
+          "path": "research/classification/PLANE_MOVING_SIMPLE_HA_PRIOR128_DISTINCTNESS.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_PLANE_MOVING_SIMPLE_HA_CANONICAL_AMBIENT_20261108.json",
+        "reports/CLASSIFICATION_PLANE_MOVING_SIMPLE_HA_AMBIENT_SEPARATE_REVIEW_20261108.json",
+        "research/classification/inputs/plane_moving_simple_ha_ambient_separate_review_manifest_20261108.json",
+        "research/classification/inputs/plane_moving_simple_ha_prior128_manifest_20261108.json",
+        "reports/CLASSIFICATION_PLANE_MOVING_SIMPLE_HA_ROOT_ACCEPTANCE_20261108.json"
+      ],
+      "review_status": {
+        "proof": "proved_with_explicit_hypotheses",
+        "independent_review": "accepted_separate_Fraction_SymPy_allambient_and_integrator_whole_orbit_prior128",
+        "certificates": "full150_350_126_D102_Euler24_M48_completekernels_minors_and_wholepolynomial_inverse",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "notes_ja": [
+        "全sixW actualpolynomial inverseで一軌道、sourceの零係数も除かない。",
+        "全prior128相違は固定published57f8e29 catalogueとimmutable projectionを使用。",
+        "高次normaljet/obstructionは不要。文献新規性未照合。"
+      ]
     }
   ],
   "named_block_member_annotations": [
@@ -14706,5 +14805,5 @@
     "MPS40 blockを展開したらblockによる加算を止め、二重計上しない。",
     "文献上の新規性は内部成分証明とは別に確認する。"
   ],
-  "new_components_added_in_this_checkpoint": 70
+  "new_components_added_in_this_checkpoint": 71
 }

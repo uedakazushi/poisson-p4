@@ -1,0 +1,80 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "target_statement": "Independently reconstruct saved tangentmoving m2 QQ(t)+ALL7wall completeK1/sixactualshears/Euler36 quotient/C\u00b1/all9P2 forcing/350/Pf; pure review -9/2 concurrentT37 and-3X122vertical->g0T40 wholeactualmaps.",
+  "implication_to_classification": "Generic+fivewalls properD; two fullnormalizedfamilies recognized positively T37/T40 by actualwholeorbit inverse and accepted allpointsource theorems. Closes whole tangentdouble E branch with allsourcezero complements, no newcomponent.",
+  "coefficient_ring": "Exact standard-library Fraction/RF QQ(t) coefficients in allbase/residual/full9P2 variables; no producer/CAS import.",
+  "hypotheses": "Accepted original full30/9 basis and complete8case K1/J2 certificates (allrowkernel/nonzerominors), old fixedtangent/fullsource entrance; accepted concurrentm3 wholeknowncoverage and genuszero actualT40 theorem.",
+  "inverted_elements": [
+    "Fixedconstant Euler quotient36inverse only",
+    "Generic C/Cinverse/K1/J2minor rational factors; allzeros proved supported on t0 plus original7walls and all7wall source restored",
+    "Orbit normalizations q or s units, eachzero boundary by closedness"
+  ],
+  "complements": [
+    "Allt!=0 QQ(t)+6,-3/2,-5/2,-3,-9/2,-6,-9",
+    "t=-6actualshearrank5 withtworesiduals/freeP2 and r0r1=0",
+    "All full9inhomogeneousP2 including -r0\u00b2/3 at-6 andtwofree at-9/2",
+    "All q0/s0 polynomialfamily boundary",
+    "No newM1/operator/point/rank/kernel/jet, no wholelinear source assumedPoisson"
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_cubic_scroll_abelian_review.py",
+      "sha256": "116dfa897adb51862d53d1a3e104a153f23d15afaf95150eb2e65c4c00f33c91"
+    },
+    {
+      "path": "code/classification_unimodular_logarithmic_review.py",
+      "sha256": "cc5da8f4ac53bb814e549d439d806271a81f28cacfd9656b85765eb78b21cdcf"
+    },
+    {
+      "path": "reports/CLASSIFICATION_PLANE_M2_DOUBLE_TANGENT_20261107.json",
+      "sha256": "ebcafe36961cda37f0d239daccc9a895aaad3f699991e6f7471f22a7e6c8afd7"
+    },
+    {
+      "path": "reports/CLASSIFICATION_PLANE_M2_DOUBLE_TANGENT_SEPARATE_REVIEW_20261107.json",
+      "sha256": "966a851df01668a7841c55af0f7b1c7c89f0fbef3b78053c9e525b6834fc5ebf"
+    },
+    {
+      "path": "reports/CLASSIFICATION_PLANE_M2_TANGENT_MOVING_WHOLE_SOURCE_20261108.json",
+      "sha256": "8f1918648cfb3803b0edaf493b326576cf7bd0798768f4c0084836527dd697c3"
+    },
+    {
+      "path": "research/classification/PLANE_M2_TANGENT_MOVING_WHOLE_SOURCE_REDUCTION.md",
+      "sha256": "8e49bf97b6e93ac06c7deac2c6003b1b69eaf8ca78860035a18b47a24bf3eb72"
+    },
+    {
+      "path": "research/classification/inputs/plane_m2_tangent_moving_whole_source_manifest_20261108.json",
+      "sha256": "3c8a8ca54bbb8055648ec5c9655eb83c7e29ec3e2ea3fc9c14d29740c856132d"
+    },
+    {
+      "path": "research/classification/PLANE_M2_DOUBLE_TANGENT_POINTWISE_COVERAGE.md",
+      "sha256": "3d2e345adba40e1471e9ae9069d29cb6f0657ad160457af8b47121bb001bbd50"
+    },
+    {
+      "path": "research/classification/PLANE_TANGENT_M2_MINUS_NINE_HALVES_CONCURRENT_RECOGNITION.md",
+      "sha256": "88168f1b92de3b2ae21b073cf4fd87cd5c680eca52b83e64da97a0da80bd6a68"
+    },
+    {
+      "path": "research/classification/PLANE_TANGENT_M2_MINUS_THREE_X122_NORMALIZATION.md",
+      "sha256": "6e367ce17e606fcd4cf52602fa7e7aee33d8df383af61b332f76cd9f29f4e480"
+    },
+    {
+      "path": "research/classification/PLANE_TANGENT_M2_MINUS_THREE_VERTICAL_CONDUCTOR.md",
+      "sha256": "d0baef013decc5f56d1784a92a696a7b24a80665d9a667eb9f8dc52b2e9810ef"
+    },
+    {
+      "path": "research/classification/GENUS_ZERO_RANKZERO_QUOT_CONDUCTOR_SEPARATE_REVIEW.md",
+      "sha256": "02acb785ea60f1222fe6ab22fd0b3076134dd37d04ce44150ab8cc0c4fa5161e"
+    }
+  ],
+  "inline_source": "from pathlib import Path\nfrom fractions import Fraction as Q\nimport ast,itertools as it,json,hashlib,resource,time,sys\nsys.path.insert(0,'code')\nfrom classification_cubic_scroll_abelian_review import add,mul,scale,diff,monomials\nfrom classification_unimodular_logarithmic_review import RF,roots_supported\nbegun=time.monotonic();resource.setrlimit(resource.RLIMIT_CPU,(175,179));resource.setrlimit(resource.RLIMIT_AS,(2048*1024**2,)*2)\njp=Path('research/classification/jobs/plane_m2_tangent_whole_source_separate_review.json');job=json.loads(jp.read_text())\nfor z in job['exact_inputs_and_hashes']:assert hashlib.sha256(Path(z['path']).read_bytes()).hexdigest()==z['sha256'],z['path']\nold=json.loads(Path('reports/CLASSIFICATION_PLANE_M2_DOUBLE_TANGENT_20261107.json').read_text());data=json.loads(Path('reports/CLASSIFICATION_PLANE_M2_TANGENT_MOVING_WHOLE_SOURCE_20261108.json').read_text())\nN=16;ZERO=(0,)*N;names=['a','b','c','u','v','r0','r1']+[f'q{i}'for i in range(9)];T=RF((Q(0),Q(1)));checks=0\ndef ck(a,b,label):\n global checks\n assert a==b,label\n checks+=1\ndef atom(c=1,k=None):\n e=[0]*N\n if k is not None:e[k]=1\n return {tuple(e):RF(c)}if c else{}\ndef power(p,n):\n out=atom()\n for _ in range(n):out=mul(out,p)\n return out\ndef parse(s):\n def go(z):\n  if isinstance(z,ast.Constant):return atom(Q(z.value))\n  if isinstance(z,ast.Name):return atom(T)if z.id=='t'else atom(1,names.index(z.id))\n  if isinstance(z,ast.UnaryOp):return scale(go(z.operand),-1)if isinstance(z.op,ast.USub)else go(z.operand)\n  a=go(z.left)\n  if isinstance(z.op,ast.Pow):return power(a,ast.literal_eval(z.right))\n  b=go(z.right)\n  if isinstance(z.op,ast.Add):return add(a,b)\n  if isinstance(z.op,ast.Sub):return add(a,scale(b,-1))\n  if isinstance(z.op,ast.Mult):return mul(a,b)\n  if isinstance(z.op,ast.Div):assert set(b)=={ZERO};return scale(a,1/b[ZERO])\n  raise ValueError(ast.dump(z))\n return go(ast.parse(str(s),mode='eval').body)\ndef num(s):return parse(s).get(ZERO,RF())\ndef scalar(z):return RF(tuple(map(Q,z['numerator'])),tuple(map(Q,z['denominator'])))if isinstance(z,dict)else RF(Q(z))\ndef constant(z):z=RF(z);assert len(z.p)<=1 and len(z.q)==1;return z.p[0]/z.q[0]if z else Q(0)\ndef transpose(A):return list(map(list,zip(*A)))\ndef mm(A,B):return [[sum((a*B[k][j]for k,a in enumerate(row)if a),RF())for j in range(len(B[0]))]for row in A]\ndef ident(n):return [[RF(i==j)for j in range(n)]for i in range(n)]\ndef inverse_fraction(A):\n n=len(A);a=[[constant(v)for v in row]+[Q(i==j)for j in range(n)]for i,row in enumerate(A)]\n for i in range(n):\n  k=next(k for k in range(i,n)if a[k][i]);a[i],a[k]=a[k],a[i];c=a[i][i];a[i]=[v/c for v in a[i]]\n  for j in range(n):\n   if j!=i:\n    c=a[j][i];a[j]=[v-c*w for v,w in zip(a[j],a[i])]\n return [row[n:]for row in a]\npairs=list(it.combinations(range(5),2));triples=list(it.combinations(range(5),3));quads=list(it.combinations(range(5),4));mons2=monomials(5,2);mons4=monomials(5,4);cols=[(ij,e)for ij in pairs for e in mons2];x=[atom(1,i)for i in range(5)]\ndef skew(U):\n P=[[{}for _ in range(5)]for _ in range(5)]\n for (i,j),v in U.items():P[i][j]=v;P[j][i]=scale(v,-1)\n return P\ndef tensor(v):\n U={ij:{}for ij in pairs}\n for (ij,e),c in zip(cols,v):\n  if c:U[ij][e+(0,)*(N-5)]=RF(c)\n return skew(U)\ndef plus(*Ps):return [[add(*(P[i][j]for P in Ps))for j in range(5)]for i in range(5)]\ndef times(P,c):return [[scale(v,c)for v in row]for row in P]\ndef vec(P):return [P[i][j].get(e+(0,)*(N-5),RF())for(i,j),e in cols]\ndef subst(p,vals):\n out={}\n for e,c in p.items():\n  term=atom(c)\n  for i,n in enumerate(e):\n   if n:term=mul(term,power(vals[i],n))\n  out=add(out,term)\n return out\ndef jac(P):\n J={tri:add(*(mul(P[i][l],diff(P[j][k],l))for i,j,k in [tri,(tri[1],tri[2],tri[0]),(tri[2],tri[0],tri[1])]for l in range(5)))for tri in triples}\n return [add(*(scale(mul(x[m],J[quad[:i]+quad[i+1:]]),(-1)**i)for i,m in enumerate(quad)))for quad in quads]\ndef jvec(P):\n result=[]\n for J in jac(P):\n  for e in mons4:\n   result.append({(0,)*5+f[5:]:c for f,c in J.items()if f[:5]==e})\n return result\ndef actual(P):\n out={}\n for m in range(5):\n  a,b,c,d=[i for i in range(5)if i!=m];pf=add(mul(P[a][b],P[c][d]),scale(mul(P[a][c],P[b][d]),-1),mul(P[a][d],P[b][c]));out=add(out,scale(mul(x[m],pf),(-1)**m))\n return out\nB1=[tensor(list(map(scalar,row)))for row in old['full30_weight1_basis']];B2=[tensor(list(map(scalar,row)))for row in old['full9_weight2_basis']]\nG=[]\nfor k in (3,4):\n for j in range(3):\n  V=[atom(0)for _ in range(5)];V[j]=x[k];G.append(skew({(a,b):add(mul(x[a],V[b]),scale(mul(x[b],V[a]),-1))for a,b in pairs}))\nrawone=[k for k,(ij,e)in enumerate(cols)if e[3]+e[4]-sum(i>=3 for i in ij)==1];assert len(rawone)==36\nE=transpose([vec(P)for P in B1+G]);E1=[E[i]for i in rawone];Ei=inverse_fraction(E1);ck(mm(E1,Ei),ident(36),'actual Euler quotient inverse')\ndef project(P):return [sum((a*vec(P)[rawone[k]]for k,a in enumerate(row)if a),RF())for row in Ei][:30]\ndef pushunit(P,j):\n i,k=j//2,3+j%2;vals=[atom(1,l)for l in range(N)];vals[i]=add(vals[i],scale(vals[k],-1));M=[[int(a==b)for b in range(5)]for a in range(5)];M[i][k]=1\n U=[[subst(v,vals)for v in row]for row in P]\n return [[add(*(scale(U[a][b],M[i][a]*M[j][b])for a in range(5)for b in range(5)if M[i][a]*M[j][b]))for j in range(5)]for i in range(5)]\nparent=next(c for c in old['cases']if c['type']=='moving_all_t_nonzero');oldrows=[parent]+parent['whole_nonzero_t_walls'];out=[]\nallowed={Q(0),Q(6),Q(-3,2),Q(-5,2),Q(-3),Q(-9,2),Q(-6),Q(-9)}\nfor c,o in zip(data['cases'],oldrows):\n ck(c['type'],o['type'],'same original case list');P0=tensor(list(map(scalar,o['full150_P0'])));K=transpose([[scalar(v)for v in row]for row in o['weight1_certificate']['complete_kernel']]);S=transpose([project(plus(pushunit(P0,j),times(P0,-1)))for j in range(6)])\n ck(S,[[num(v)for v in row]for row in c['complete_shear_30_by6']],'full actual sixshear plus Euler')\n C=[[num(v)for v in row]for row in c['full_shear_residual_to_K1_matrix']];Ci=[[num(v)for v in row]for row in c['global_inverse_K1_to_shear_residual']];n=len(C);ck(mm(C,Ci),ident(n),'C inverse1');ck(mm(Ci,C),ident(n),'C inverse2')\n chosen=[[S[i][j]for j in c['chosen_independent_shear_indices']]+[K[i][j]for j in c['residual_K1_indices']]for i in range(30)];ck(mm(K,C),chosen,'wholeK1 = actualshears+fullresidual')\n P1=[[{}for _ in range(5)]for _ in range(5)]\n for m,j in enumerate(c['residual_K1_indices']):\n  P1=plus(P1,skew({(a,b):mul(atom(1,5+m),add(*(scale(B1[k][a][b],K[k][j])for k in range(30))))for a,b in pairs}))\n for ij in pairs:ck(P1[ij[0]][ij[1]],parse(c['normalized_P1'][str(ij)]),'complete residualP1')\n Punknown=plus(P0,P1,skew({(a,b):add(*(mul(atom(1,7+k),B2[k][a][b])for k in range(9)))for a,b in pairs}));JU=jvec(Punknown)\n qvals=[parse(c['P2_solution'].get(f'q{k}',f'q{k}'))for k in range(9)];V=[atom(1,i)for i in range(7)]+qvals;P=[[subst(p,V)for p in row]for row in Punknown]\n ck(c['P2_pivot_rows'],o['weight2_certificate']['rows'],'old completeJ2 pivotrows');ck(c['P2_pivot_columns'],o['weight2_certificate']['columns'],'old completeJ2 pivotcols');ck(num(c['P2_pivot_minor']),scalar(o['weight2_certificate']['minor_determinant']),'old nonzeroJ2 minor reused')\n for rr in c['P2_pivot_rows']:\n  base={e:v for e,v in JU[rr].items()if not any(e[7:])};pred=add(base,*(scale(atom(1,7+k),scalar(o['full350by9_J2'][rr][k]))for k in range(9)));ck(JU[rr],pred,'selected full9 affineP2 equation');ck(subst(JU[rr],V),{},'selected equations solved with allfreeP2')\n for ij in pairs:ck(P[ij[0]][ij[1]],parse(c['normalized_complete_source'][str(ij)]),'full normalized150')\n J=jvec(P)\n for row,saved in zip(J,c['all350_after_P2_substitution']):ck(row,parse(saved),'full350 actualremainingJacobi')\n D=actual(P);ck(D,parse(c['actual_divisor']),'full126 actualPf')\n wall=None if o is parent else Q(o['t'])\n if wall==Q(-6):\n  assert any(J);assert all(all(e[5]and e[6]for e in row)for row in J)\n  Dred={e:v for e,v in D.items()if not(e[5]and e[6])};assert all(e[2]for e in Dred)\n elif wall not in(Q(-3),Q(-9,2)):\n  assert not any(J);assert D and all(e[2]for e in D)\n else:assert not any(J)\n if o is parent:\n  for z in [v for row in C+Ci+K for v in row]+[num(c['inverse_determinant']),num(c['P2_pivot_minor'])]:\n   if z:\n    roots_supported(z.p,allowed);roots_supported(z.q,allowed)\n out.append({'type':c['type'],'all_shear_C_inverse_K1_fullP2_350_Pf':True,'residual_dim':len(c['residual_parameter_names']),'free_P2':len(c['P2_free_parameters']),'five_properfactor_or_two_positive_parents_preserved':True})\nresult={'task_id':'E_reduced_nonnormal','all_passed':True,'method':'Independent Fraction/RF full8source reconstruction. Only frozen independent arithmetic helpers imported; no producer/CAS import or M1/newrank/kernel/operator','all_cases':out,'actual6shear_full_Euler_regauge_inverse':True,'all_originalK1_to_shear_residual_isomorphisms':True,'all9P2_kept_and_all350_rechecked':True,'full126_actual_Pf_rebuilt':True,'generic_all_exception_factors_supported_on_t0_and_original7walls':True,'minus6_rank5_and_r0r1_zero_complement_preserved':True,'remaining_minus3_and_minus9halves_sources_retained':True,'new_component_count':0,'identity_count':checks,'input_sha256':{v['path']:v['sha256']for v in job['exact_inputs_and_hashes']},'inline_source':job['inline_source'],'seconds':time.monotonic()-begun,'maximum_RSS_KiB':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss}\nop=Path('reports/CLASSIFICATION_PLANE_M2_TANGENT_WHOLE_SOURCE_SEPARATE_REVIEW_20261108.json');assert not op.exists()\nwith op.open('x')as f:json.dump(result,f,indent=2);f.write('\\n')\nprint(json.dumps({k:result[k]for k in ['all_passed','identity_count','seconds','maximum_RSS_KiB']}))\n",
+  "inline_source_sha256": "8617f14335a573a920d72d13641f2898d8386aefce66de6402055dd945c09110",
+  "success_certificate": "All8case actualshear30x6, C\u00b1both, K1*C exactglobalspan, selectedoldJ2fullaffine9equations solved, entire350remaining and126Pf equal; allgenericrationalroots belongfiniteoriginalwallset; pure two-positiveparent bridges.",
+  "independent_check": "Fraction/RF independent sparse implementation; prior operator rank/completeness reused and not recomputed. Actual Euler inverse and source identities separately reconstructed.",
+  "resource_limit": {
+    "timeout_seconds": 180,
+    "memory_mb": 2048
+  },
+  "negative_result_next_step": "Any mismatch stops acceptance and preserves fixedcase; no newpoint/profile/M1 retry. Implementation error may be corrected under new exactidentity if needed, preserving failure bytes.",
+  "route_change_reason": "Finite allsource shear and positiveknownparent route replaces former incomplete globalG bounds, not another point/jet.",
+  "command": "python3 -c 'import json;exec(json.load(open(\"research/classification/jobs/plane_m2_tangent_whole_source_separate_review.json\"))[\"inline_source\"])'"
+}
