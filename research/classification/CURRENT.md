@@ -1,46 +1,50 @@
-# 現在地 — 分類に必要な情報だけ
+# 現在地 — 分類を継続する
 
 2026-11-08。active queueは `PLAN.json`、研究方針は `../../RESEARCH_POLICY.md`。
-目的はPGL5商前のPoissonスキームの被約全既約成分の尽くし。全軌道と全非被約構造はsecondaryである。
+PGL5商前のPoissonスキームの被約全既約成分を尽くす。全軌道/全非被約構造はsecondary。
 
-## 証明・保存状態
+## 数学
 
-採録cutは130成分（rank四124、rank二6）・1084主張。
-rank一long非定数gの全sourceは既約25次元で、全prior129との相違と全ambient D100を別作者が確認した新成分である。generic軌道22、generic Rosenlicht商三次元も全源の二独立Poisson場から証明した。
-全被約既約・非正規actual quinticの点別既知成分被覆を完了した。全nonplane conductor、rank二plane全位数、rank零plane全coHiggs/globalV/scalar/零symbolを全source・全逆・零補集合で合成する。零symbol全39は真completedT36への全150係数実曲線で被覆した。
-全H＋相異二既約quadricのjointSSrank一も、全periodと全pole相殺を保持した実曲線でT16/T17又は既planeへ被覆した。
-一般Gは完了。可約/非被約Dの残source、全E、総上界及び分類主定理は未証明である。
+現行台帳は142成分（rank四136、rank二6）・1108主張。
+一般βのG、全被約既約・非正規actual quinticの点別被覆、rank一c非imageの全十七long源及び全short源の点別被覆を完了した。
+新しい十三25成分のうち、nonconstantg・二constantg共鳴・scalar cubic・B2/B4/B5/B6は独立全ambientD100でsmooth unique。B1/B3/V1は真F50切片のquadratic支持、M1/M11は閉low-modular旗外の全次元上界から成分の支持を証明した。後五つのsmooth性/点での局所唯一性/full横断代数は未主張。
+M1/M11の旧正次元quadratic coneを高次jetで追わず、全rank四sourceの閉旗L外dimension≤25を全case在庫とnil22-image C* fiber修復で証明した。全17源の残余・全unit/重根/translation/F6を戻す。
+全E・総成分上界・分類主定理は未証明。下界142を答えとして固定しない。
 
-`research/COMPONENTS.json` が唯一の加算台帳。checker/gateは数学を認証しない。
+唯一の加算台帳は `../COMPONENTS.json`、全主張は `../CLAIMS.json`。checker/gateは数学を認証しない。
+
+## 保存
+
 Cloud研究開始SHAは `4c3f623fb698f9adc6077015b25e2325b11072af`、数学baselineは `a00a541b835b2bff18bafcba545ecbd4bae7175b`。
-今回の保存区間開始・直前公開は `e2e718783b6811414a7f3c4b128a04a4503e5896`、HEAD=GitHub mainを確認済み（129/1054、310頁）。
-主稿 `papers/poisson_p4_classification_ja.tex` は同じ日本語原稿へ130/1084を統合済み（324頁）。
-最新PDF・最終組版・通常commit/pushの実状態はbuild receipt及びGit HEAD/origin/mainで確認する。
+最新公開mainは `d0cf13231ce539bb85f347a5391a0fef169d5474`（130成分/1084主張/324頁）で、通常push後HEAD=GitHub mainを確認した。
+その公開PDF SHAは `5f59e0450d087fba4a11547a5b634219779fba6964ef85505e34294f234f301a`、TeX SHAは `929d33aa65c8973fab61279bfaab79182af449d82611d79f25a61717b13fd033`。
+現行主稿は**142成分/1108主張、338頁**へ統合済み。最終二回組版・全参照・可視検査を完了した。post1108の新しい全点帰属は次cut採録前の独立packetとして保存する。
+最新PDFの実hash/頁/二pass/参照/可視はbuild receipt、次commit/pushの実状態はGitで確認する。
 
-## 完了した全sourceの入口
+## 証明入口
 
-- G：`GLOBAL_GENERIC_G_EXHAUSTION_CLOSURE_AUDIT.md`、93-input manifest。一般βの全幾何fiberは既知五点、残余B=0。全Eと混同せず再開しない。
-- 全被約既約nonnormalD：`IRREDUCIBLE_NONNORMAL_QUINTIC_WHOLE_POINTWISE_COVERAGE.md` と `IRREDUCIBLE_NONNORMAL_QUINTIC_WHOLE_COMPOSITION_SEPARATE_REVIEW.md`。nonplane全degree2–6、rank二plane全m、rank零plane全first symbol/allmを合成。
-- 新130：`RANK_ONE_LONG_NONCONSTANT_25_COMPONENT.md`、独立 `RANK_ONE_LONG_NONCONSTANT_AMBIENT_SEPARATE_REVIEW.md`。全S12→射影25、raw接50、全prior129相違。`RANK_ONE_LONG_ORBIT_AND_SHORT_CURVE_SEPARATE_REVIEW.md` でgeneric軌道22/商三と全short非定数gの同成分帰属。
-- 全jointSSrank一H＋二quadric：`TWO_QUADRICS_JOINT_SS_RANK1_CONFLUENCE_SEPARATE_REVIEW.md`。pure-nilは別残余。
-- 全essential三既約quinticは八23成分、全H＋重複既約quadric・三相異H＋既約Q・既約Q＋既約C3等の既証明は台帳を参照し、再計算しない。
+- G：`GLOBAL_GENERIC_G_EXHAUSTION_CLOSURE_AUDIT.md` と93-input manifest。一般fiber五点/残余B=0、再開しない。
+- 既約非正規D全点：`IRREDUCIBLE_NONNORMAL_QUINTIC_WHOLE_POINTWISE_COVERAGE.md` と独立COMPOSITION。nonplane全degree2–6、rank二plane全m、rank零plane全symbol/mを戻す。
+- rank一translation全点：`RANK_ONE_TRANSLATION_WHOLE_COMPONENT_COVERAGE.md`。全17有限源、fullsource25下界と三種の成分性証明を分ける。
+- M1/M11：`RANK_FOUR_OUTSIDE_LOW_MODULAR_FLAG_DIMENSION_BOUND.md` と `RANK_FOUR_OUTSIDE_LOW_MODULAR_FLAG_SEPARATE_REVIEW.md`。Lはproper標識旗で閉、nil22全11の全F6とC*free fiberを保持。
+- H＋二Q：型一全T20、型十全T17、型四空、型七activeu全T17/activev全T18。全period/Euler/frame正逆の実曲線であり同じDだけの認識ではない。
+- constant modular/sourceI/II：`CONSTANT_MODULAR_DEGREE_TWO_WHOLE_REDUCTION.md`、SOURCE_TWO_NEW25、SOURCE_ONE_M11の原証明と別review。Iの初期review圧縮指数表記はCLAIMSのnotation clarificationに従いtau=epsilon^(-3)。
 
 ## 次の全点被覆
 
-残るprimaryはstable nil22二源、short nil31 r2/3、Ga9linear-w、二H＋cubicのplane三配置全磁気、H＋二quadricのpure-nil残有限軌道、rank一translationの残十二whole源、A零/定数modular等の他multiple-H全支持である。
-rank一translationは非定数g・定数g/H3零・M2/M3/M21の五源を閉じ、全十七sourceの有限routingを保存した。二つの定数g共鳴とg零scalar-cubicの三つの25次元像は、各ONE固定全ambientでD100を得たが別作者samepoint全算術もPASSし、正式成分採録は次cutとする。M1/M11と残binomial等は純source入口を検討中で、現130へ加算しない。
-同一route二回非閉なら幾何へ変更する。Ga9linear-wの旧二次支持・固定N/固定1PS陰性から親所属を推測せず、高次jet反復を再開しない。
+未完primaryは、stable nil22 line_conic/three_lines、short nil31 r2/3、Ga9linear-w、二H＋cubicのplane三配置全磁気、H＋二Q pure-nil型七rank二三core、constant modular sourceIII全十係数、A0の特異f3及びunimodular h5の全低次延長等である。
+stable three_linesには全6magを戻すT03実曲線を純に得て同一曲線の有限readback中。type7二coreにもT16/T18実曲線を得たが、現1108cutには未採録。未受理のpositiveを既知K被覆として先取りしない。
+constant modularのdegf二以下ではrank三/非零critical全空、f=z全CA/f=z²全CB、sourceII全NEW25、sourceI全M11が閉じ、IIIだけが別whole残源である。plane三配置は三wholeλ線まで還元し、親は未解決。
+Ga9はfixed-D全magnetic表示を純に再構成し、親認識はT36/T37等の実全曲線を待つ。既停止のnormaljet/fixedN/constant-preconjugate1PS列は再開しない。
 
-有限source表は `E_POINTWISE_SOURCE_FRONTIER.md`、最新原稿に統合された証明と `CLAIMS.json` を優先する。
-F/Pは全支持・全包含・相違と総上界が揃うまでblocked。下界130を答えとして固定しない。
+現行 `E_POINTWISE_SOURCE_FRONTIER.md` と原稿の残余表を使い、旧source noteの当時の未了数を現在へ流用しない。F/Pは全支持被覆・全相違/包含・総上界が揃うまでblocked。
 
-## 互換性・不変入力・実制約
+## 環境・不変入力
 
-既設Cloud環境、M2 1.24.11、SymPy/Fraction、LuaLaTeXを再利用する。引継ぎ元M2 1.26.05との差は必要QQ小例で確認済み。文献接続は既receipt参照、セットアップ全体を再実行しない。
-Cloud復旧と新REPLAY identityは `../CLOUD_RECOVERY_20261107.md`。旧work内Singular実体だけは失われ二legacy gateが旧binary identityでblockedだが、現在のQQ/Fraction primaryを阻害しない。
-旧quadriccone六変数V1はFu-only欠落で撤回、全Fu復元V2だけを使う。旧scroll四coverも棄却のまま正しいV2を使う。
-旧未commit review一件のbyte消失は `inputs/genus_zero_rankzero_review_source_loss_20261108.json` にUNRECOVEREDと明記。採録は現存原証明と別名独立reviewだけを使い、旧hashを捏造しない。
-旧producer/report/job/manifest bytesは不変。新科学ファイルはexclusive-create。rootだけがglobal台帳/Git、editorだけがTeX/frontierを編集する。
-現在、追加ユーザー許可を要する現実の阻害はない。通常main commit/nonforce pushは許可済みで、意味ある保存後もprimary数学を続ける。
+既Cloud .venv/M2 1.24.11/SymPy/Fraction/LuaLaTeXを再利用。元M2 1.26.05との差は必要QQ小例で確認済み。全setupを再実行しない。文献接続/一次scopeは既receipt、未取得本文を取得済みとしない。
+復旧は `../CLOUD_RECOVERY_20261107.md`。旧work Singular binaryだけ欠落し二legacy gateがその旧identityでblockedだが、新QQ primaryは継続可能。
+旧quadric-cone V1とscroll四coverは撤回、不変保存して修正V2だけを使う。旧未commit review一件は `inputs/genus_zero_rankzero_review_source_loss_20261108.json` にUNRECOVERED、採録依存は現存別証明だけ。
+旧code/report/job/manifestは不変、新科学fileはexclusive-create。immutable routing noteの六indent blankはhash保持のため残す。rootのみ台帳/Git、editorのみ主稿/frontier。
+通常main commit/nonforce pushは許可済み。現在追加ユーザー操作を要する現実の阻害は無い。checkpoint後もprimary数学を続ける。
 
-現行324頁PDF SHA `5f59e0450d087fba4a11547a5b634219779fba6964ef85505e34294f234f301a`、TeX SHA `929d33aa65c8973fab61279bfaab79182af449d82611d79f25a61717b13fd033`。最終組版receiptは `reports/CLASSIFICATION_MAIN_MANUSCRIPT_COMPONENT130_CLAIM1084_EDITOR_BUILD_20261108.json`。通常pushは実行後Gitで確認する。
+現行338頁PDF SHA `7833485a3a683338952e3c13d63e3dc2dbde1a6c2aff4975cba8862afc780f4f`、TeX SHA `8f2153aa073dfdf641e7125a9a8074910c5d950ba93f6398801a85012ba69b1c`。組版receiptは `reports/CLASSIFICATION_MAIN_MANUSCRIPT_COMPONENT142_CLAIM1108_EDITOR_BUILD_20261108.json`。本cutの通常push実状態はGitで確認する。

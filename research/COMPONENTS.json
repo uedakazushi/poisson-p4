@@ -14,15 +14,15 @@
     "null_values": "not catalogued or not applicable; never a claim of zero"
   },
   "coverage": {
-    "global_lower_bound": 130,
+    "global_lower_bound": 142,
     "generic_rank_two_full_components": 6,
-    "generic_rank_four_lower_bound": 124,
+    "generic_rank_four_lower_bound": 136,
     "upper_bound": null,
     "global_exhaustion_proved": false,
-    "individually_catalogued_count": 130,
+    "individually_catalogued_count": 142,
     "unexpanded_block_count": 0,
     "all_51_rank_four_ideals_in_S61_constructed": false,
-    "note_ja": "全130個別成分/rank四124/rank二6。rank一long非定数gの全源既約25を全ambient及び全prior129比較で追加。一般G完了、全E/上界未証明。",
+    "note_ja": "全142個別成分/rank四136/rank二6。M1/M11全25を独立全case次元上界で追加、supportのみ。rank一c非image全long/shortの全17source被覆完了。G/irreducnonnormalcomplete、全E/上界未証明。",
     "generic_primitive_first_jet_known_lifts_lower_bound": 5,
     "full_generic_fiber_exhaustion_proved": true,
     "known_union_over_smooth_canonical_curve": {
@@ -14556,6 +14556,1262 @@
         "非線形rectificationは証明用補助のみ、実同値はPGL/affine変換だけ。",
         "generic軌道22/商三は全S上の二独立Poisson場と保存minorで証明。全非reduced分類は別。"
       ]
+    },
+    {
+      "id": "R4_MODULAR_RANK1_LONG_CONST_MU1_25",
+      "name": "modular rank一long・定数g μ一の25次元成分",
+      "source_checkpoint": "v64-classification-first",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "additional_generic_rank_four_full_component_outside_MPS40",
+      "generic_rank": 4,
+      "projective_dimension": 25,
+      "meets_SNC_log_symplectic_locus": false,
+      "generic_pgl5_orbit_dimension": 23,
+      "generic_reduced_rosenlicht_quotient_dimension": 2,
+      "generic_transverse_algebra": "K (generically smooth and reduced)",
+      "component_definition": "Irreducible25 closure of the full named fixed-long-source actual PGL saturation; independent D100 at source point proves smoothunique fullcomponent.",
+      "generic_construction": {
+        "coordinates": [
+          "h",
+          "x",
+          "y",
+          "z",
+          "w"
+        ],
+        "affine_chart": "h=1",
+        "modular_field": "partial_x+x*partial_y",
+        "r": "y-x**2/2",
+        "g": "nonzero constant",
+        "U": "affine field with centered semisimple eigenvalues +/-1",
+        "H3": "z**2*w",
+        "H_low": "arbitrary quadratic6",
+        "F": "(U+1)H/g",
+        "brackets": {
+          "xy": "-F-(1+d)*r",
+          "xz": "u",
+          "xw": "v",
+          "yz": "x*u+H_w",
+          "yw": "x*v-H_z",
+          "zw": "g"
+        },
+        "fixed_modular_source_dimension": 12,
+        "affine_saturation_cone_dimension": 22,
+        "full_ambient_ranks": {
+          "Jacobi": 100,
+          "Euler": 24,
+          "actual_GL_scale_Euler": 48
+        }
+      },
+      "generic_actual_degeneracy_divisor": {
+        "description": "2H+absolute irreducible cubic C; C is generically essential five.",
+        "irreducible_factor_degrees": [
+          1,
+          3
+        ],
+        "corresponding_multiplicities": [
+          2,
+          1
+        ],
+        "reduced": false,
+        "essential_variable_count": 5
+      },
+      "claims": [
+        "R4_MODULAR_RANK1_LONG_CONST_MU1_25_COMPONENT"
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/RANK_ONE_LONG_RESONANT_AND_BINARY_CUBIC_ENTRANCE.md"
+        },
+        {
+          "path": "research/classification/RANK_ONE_LONG_RESONANT_BINARY_CUBIC_ENTRANCE_SEPARATE_REVIEW.md"
+        },
+        {
+          "path": "research/classification/RANK_ONE_LONG_THREE_NEW_25_COMPONENTS.md"
+        },
+        {
+          "path": "research/classification/RANK_ONE_LONG_THREE_AMBIENT_SEPARATE_REVIEW.md"
+        },
+        {
+          "path": "research/classification/RANK_ONE_THREE_COMPONENTS_GENERIC_ORBITS.md"
+        }
+      ],
+      "verification_records": [
+        "research/classification/inputs/rank_one_long_resonant_binary_cubic_entrance_manifest_20261108.json",
+        "research/classification/inputs/rank_one_long_resonant_binary_cubic_entrance_separate_review_manifest_20261108.json",
+        "research/classification/inputs/rank_one_long_three_new_components_manifest_20261108.json",
+        "research/classification/inputs/rank_one_long_three_ambient_separate_review_manifest_20261108.json",
+        "reports/CLASSIFICATION_RANK_ONE_LONG_THREE_CANDIDATE_AMBIENT_20261108.json",
+        "reports/CLASSIFICATION_RANK_ONE_LONG_THREE_AMBIENT_SEPARATE_REVIEW_20261108.json"
+      ],
+      "review_status": {
+        "proof": "proved_with_explicit_hypotheses",
+        "independent_review": "accepted_separate_pure_allsource_and_full_Fraction_allambient",
+        "certificates": "full150_350_126_D100_Euler24_M48_completekernels_nonzero_minors",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "notes_ja": [
+        "全source下界25と全ambient接上界25を使用。点orbitからsource次元を推測しない。",
+        "generic orbitは全source stabilizer下界と既nonzero Mminorの開性から。",
+        "全prior129+130及び新三者相違は独立pure receipt。全orbit分類/文献新規性は別。"
+      ]
+    },
+    {
+      "id": "R4_MODULAR_RANK1_LONG_CONST_MU13_25",
+      "name": "modular rank一long・定数g μ三分の一の25次元成分",
+      "source_checkpoint": "v64-classification-first",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "additional_generic_rank_four_full_component_outside_MPS40",
+      "generic_rank": 4,
+      "projective_dimension": 25,
+      "meets_SNC_log_symplectic_locus": false,
+      "generic_pgl5_orbit_dimension": 23,
+      "generic_reduced_rosenlicht_quotient_dimension": 2,
+      "generic_transverse_algebra": "K (generically smooth and reduced)",
+      "component_definition": "Irreducible25 closure of the full named fixed-long-source actual PGL saturation; independent D100 at source point proves smoothunique fullcomponent.",
+      "generic_construction": {
+        "coordinates": [
+          "h",
+          "x",
+          "y",
+          "z",
+          "w"
+        ],
+        "affine_chart": "h=1",
+        "modular_field": "partial_x+x*partial_y",
+        "r": "y-x**2/2",
+        "g": "nonzero constant",
+        "U": "affine field with centered semisimple eigenvalues +/-1/3",
+        "H3": "z**3",
+        "H_low": "arbitrary quadratic6",
+        "F": "(U+1)H/g",
+        "brackets": {
+          "xy": "-F-(1+d)*r",
+          "xz": "u",
+          "xw": "v",
+          "yz": "x*u+H_w",
+          "yw": "x*v-H_z",
+          "zw": "g"
+        },
+        "fixed_modular_source_dimension": 12,
+        "affine_saturation_cone_dimension": 22,
+        "full_ambient_ranks": {
+          "Jacobi": 100,
+          "Euler": 24,
+          "actual_GL_scale_Euler": 48
+        }
+      },
+      "generic_actual_degeneracy_divisor": {
+        "description": "2H+absolute irreducible cubic C; C is generically essential five.",
+        "irreducible_factor_degrees": [
+          1,
+          3
+        ],
+        "corresponding_multiplicities": [
+          2,
+          1
+        ],
+        "reduced": false,
+        "essential_variable_count": 5
+      },
+      "claims": [
+        "R4_MODULAR_RANK1_LONG_CONST_MU13_25_COMPONENT"
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/RANK_ONE_LONG_RESONANT_AND_BINARY_CUBIC_ENTRANCE.md"
+        },
+        {
+          "path": "research/classification/RANK_ONE_LONG_RESONANT_BINARY_CUBIC_ENTRANCE_SEPARATE_REVIEW.md"
+        },
+        {
+          "path": "research/classification/RANK_ONE_LONG_THREE_NEW_25_COMPONENTS.md"
+        },
+        {
+          "path": "research/classification/RANK_ONE_LONG_THREE_AMBIENT_SEPARATE_REVIEW.md"
+        },
+        {
+          "path": "research/classification/RANK_ONE_THREE_COMPONENTS_GENERIC_ORBITS.md"
+        }
+      ],
+      "verification_records": [
+        "research/classification/inputs/rank_one_long_resonant_binary_cubic_entrance_manifest_20261108.json",
+        "research/classification/inputs/rank_one_long_resonant_binary_cubic_entrance_separate_review_manifest_20261108.json",
+        "research/classification/inputs/rank_one_long_three_new_components_manifest_20261108.json",
+        "research/classification/inputs/rank_one_long_three_ambient_separate_review_manifest_20261108.json",
+        "reports/CLASSIFICATION_RANK_ONE_LONG_THREE_CANDIDATE_AMBIENT_20261108.json",
+        "reports/CLASSIFICATION_RANK_ONE_LONG_THREE_AMBIENT_SEPARATE_REVIEW_20261108.json"
+      ],
+      "review_status": {
+        "proof": "proved_with_explicit_hypotheses",
+        "independent_review": "accepted_separate_pure_allsource_and_full_Fraction_allambient",
+        "certificates": "full150_350_126_D100_Euler24_M48_completekernels_nonzero_minors",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "notes_ja": [
+        "全source下界25と全ambient接上界25を使用。点orbitからsource次元を推測しない。",
+        "generic orbitは全source stabilizer下界と既nonzero Mminorの開性から。",
+        "全prior129+130及び新三者相違は独立pure receipt。全orbit分類/文献新規性は別。"
+      ]
+    },
+    {
+      "id": "R4_MODULAR_RANK1_LONG_ZERO_SCALAR_CUBIC_25",
+      "name": "modular rank一long・g零scalar binary cubicの25次元成分",
+      "source_checkpoint": "v64-classification-first",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "additional_generic_rank_four_full_component_outside_MPS40",
+      "generic_rank": 4,
+      "projective_dimension": 25,
+      "meets_SNC_log_symplectic_locus": false,
+      "generic_pgl5_orbit_dimension": 21,
+      "generic_reduced_rosenlicht_quotient_dimension": 4,
+      "generic_transverse_algebra": "K (generically smooth and reduced)",
+      "component_definition": "Irreducible25 closure of the full named fixed-long-source actual PGL saturation; independent D100 at source point proves smoothunique fullcomponent.",
+      "generic_construction": {
+        "coordinates": [
+          "h",
+          "x",
+          "y",
+          "z",
+          "w"
+        ],
+        "affine_chart": "h=1",
+        "modular_field": "partial_x+x*partial_y",
+        "r": "y-x**2/2",
+        "g": "0",
+        "U": "-( (z-z0)*partial_z+(w-w0)*partial_w )/3",
+        "H3": "T(z-z0,w-w0)",
+        "H_low": "cubic centered T, all four coefficients",
+        "F": "arbitrary quadratic6",
+        "brackets": {
+          "xy": "-F-(1+d)*r",
+          "xz": "u",
+          "xw": "v",
+          "yz": "x*u+H_w",
+          "yw": "x*v-H_z",
+          "zw": "g"
+        },
+        "fixed_modular_source_dimension": 12,
+        "affine_saturation_cone_dimension": 22,
+        "full_ambient_ranks": {
+          "Jacobi": 100,
+          "Euler": 24,
+          "actual_GL_scale_Euler": 46
+        }
+      },
+      "generic_actual_degeneracy_divisor": {
+        "description": "2H+three distinct simple hyperplanes; simple three covectors span two, adding H gives span three.",
+        "irreducible_factor_degrees": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "corresponding_multiplicities": [
+          2,
+          1,
+          1,
+          1
+        ],
+        "reduced": false,
+        "essential_variable_count": 3
+      },
+      "claims": [
+        "R4_MODULAR_RANK1_LONG_ZERO_SCALAR_CUBIC_25_COMPONENT"
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/RANK_ONE_LONG_RESONANT_AND_BINARY_CUBIC_ENTRANCE.md"
+        },
+        {
+          "path": "research/classification/RANK_ONE_LONG_RESONANT_BINARY_CUBIC_ENTRANCE_SEPARATE_REVIEW.md"
+        },
+        {
+          "path": "research/classification/RANK_ONE_LONG_THREE_NEW_25_COMPONENTS.md"
+        },
+        {
+          "path": "research/classification/RANK_ONE_LONG_THREE_AMBIENT_SEPARATE_REVIEW.md"
+        },
+        {
+          "path": "research/classification/RANK_ONE_THREE_COMPONENTS_GENERIC_ORBITS.md"
+        }
+      ],
+      "verification_records": [
+        "research/classification/inputs/rank_one_long_resonant_binary_cubic_entrance_manifest_20261108.json",
+        "research/classification/inputs/rank_one_long_resonant_binary_cubic_entrance_separate_review_manifest_20261108.json",
+        "research/classification/inputs/rank_one_long_three_new_components_manifest_20261108.json",
+        "research/classification/inputs/rank_one_long_three_ambient_separate_review_manifest_20261108.json",
+        "reports/CLASSIFICATION_RANK_ONE_LONG_THREE_CANDIDATE_AMBIENT_20261108.json",
+        "reports/CLASSIFICATION_RANK_ONE_LONG_THREE_AMBIENT_SEPARATE_REVIEW_20261108.json"
+      ],
+      "review_status": {
+        "proof": "proved_with_explicit_hypotheses",
+        "independent_review": "accepted_separate_pure_allsource_and_full_Fraction_allambient",
+        "certificates": "full150_350_126_D100_Euler24_M46_completekernels_nonzero_minors",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "notes_ja": [
+        "全source下界25と全ambient接上界25を使用。点orbitからsource次元を推測しない。",
+        "generic orbitは全source stabilizer下界と既nonzero Mminorの開性から。",
+        "全prior129+130及び新三者相違は独立pure receipt。全orbit分類/文献新規性は別。"
+      ]
+    },
+    {
+      "id": "R4_MODULAR_RANK1_GZERO_BINOMIAL_B2_25",
+      "name": "rank一long・g零binomial B2の25次元成分",
+      "source_checkpoint": "v64-classification-first",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "additional_generic_rank_four_full_component_outside_MPS40",
+      "generic_rank": 4,
+      "projective_dimension": 25,
+      "meets_SNC_log_symplectic_locus": false,
+      "generic_pgl5_orbit_dimension": 23,
+      "generic_reduced_rosenlicht_quotient_dimension": 2,
+      "generic_transverse_algebra": "K (generically smooth and reduced)",
+      "component_definition": "Closure of full actualPGL saturation of the stated original gzero binomial source; irreducible25 with independently checked fullambient smoothunique witness.",
+      "generic_construction": {
+        "coordinates": [
+          "h",
+          "x",
+          "y",
+          "z",
+          "w"
+        ],
+        "affine_chart": "h=1",
+        "modular_field": "partial_x+x*partial_y",
+        "g": "0",
+        "U": [
+          "-z",
+          "-w/3"
+        ],
+        "H": "A*z+B*w**3",
+        "parameters": "A*B nonzero; arbitrary quadratic F with six coefficients; all actual affine q frames and centers retained",
+        "r": "y-x**2/2",
+        "d": "div U",
+        "F": "arbitrary quadratic6",
+        "brackets": {
+          "xy": "-F-(1+d)*r",
+          "xz": "u",
+          "xw": "v",
+          "yz": "x*u+H_w",
+          "yw": "x*v-H_z",
+          "zw": "0"
+        },
+        "fixed_modular_source_dimension": 12,
+        "affine_saturation_cone_dimension": 22,
+        "full_ambient_ranks": {
+          "Jacobi": 100,
+          "Euler": 24,
+          "actual_GL_scale_Euler": 48
+        }
+      },
+      "generic_actual_degeneracy_divisor": {
+        "description": "2H+C, C absolutely irreducible essential-three cubic; unique singular plane of C is contained in H.",
+        "irreducible_factor_degrees": [
+          1,
+          3
+        ],
+        "corresponding_multiplicities": [
+          2,
+          1
+        ],
+        "reduced": false,
+        "essential_variable_count": 3
+      },
+      "claims": [
+        "R4_MODULAR_RANK1_GZERO_BINOMIAL_B2_25_COMPONENT"
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/RANK_ONE_LONG_GZERO_SEVEN_25_IMAGE_ENTRANCE.md"
+        },
+        {
+          "path": "research/classification/RANK_ONE_LONG_GZERO_SEVEN_ENTRANCE_SEPARATE_REVIEW.md"
+        },
+        {
+          "path": "research/classification/RANK_ONE_GZERO_FOUR_BINOMIAL_25_COMPONENTS.md"
+        },
+        {
+          "path": "research/classification/RANK_ONE_LONG_NINE_AMBIENT_SEPARATE_REVIEW.md"
+        },
+        {
+          "path": "research/classification/RANK_ONE_GZERO_VERTICAL_POISSON_FIELDS.md"
+        }
+      ],
+      "verification_records": [
+        "research/classification/inputs/rank_one_long_gzero_seven_25_image_entrance_manifest_20261108.json",
+        "research/classification/inputs/rank_one_long_gzero_seven_entrance_separate_review_manifest_20261108.json",
+        "research/classification/inputs/rank_one_long_nine_complete_four_components_manifest_20261108.json",
+        "research/classification/inputs/rank_one_long_nine_ambient_separate_review_manifest_20261108.json",
+        "research/classification/inputs/rank_one_gzero_vertical_poisson_fields_manifest_20261108.json"
+      ],
+      "review_status": {
+        "proof": "proved_with_explicit_hypotheses",
+        "independent_review": "accepted_pure_whole_source_prior133_mutual_and_samepoint_full_Fraction",
+        "certificates": "full150_350_126_D100_Euler24_M48_completekernels_and_nonzero_minors",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "notes_ja": [
+        "全原source下界25と全接上界25を使用。",
+        "全prior及び九族相互のgenericD/markedfactor条件で相違。",
+        "generic orbitは全source stabilizer上界と既Mminorの開性から。B6は同projective点の整数scale24訂正を別identityで保存。"
+      ]
+    },
+    {
+      "id": "R4_MODULAR_RANK1_GZERO_BINOMIAL_B4_25",
+      "name": "rank一long・g零binomial B4の25次元成分",
+      "source_checkpoint": "v64-classification-first",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "additional_generic_rank_four_full_component_outside_MPS40",
+      "generic_rank": 4,
+      "projective_dimension": 25,
+      "meets_SNC_log_symplectic_locus": false,
+      "generic_pgl5_orbit_dimension": 22,
+      "generic_reduced_rosenlicht_quotient_dimension": 3,
+      "generic_transverse_algebra": "K (generically smooth and reduced)",
+      "component_definition": "Closure of full actualPGL saturation of the stated original gzero binomial source; irreducible25 with independently checked fullambient smoothunique witness.",
+      "generic_construction": {
+        "coordinates": [
+          "h",
+          "x",
+          "y",
+          "z",
+          "w"
+        ],
+        "affine_chart": "h=1",
+        "modular_field": "partial_x+x*partial_y",
+        "g": "0",
+        "U": [
+          "-2*z/3",
+          "-w/3"
+        ],
+        "H": "A*z*w+B*w**3",
+        "parameters": "A*B nonzero; arbitrary quadratic F with six coefficients; all actual affine q frames and centers retained",
+        "r": "y-x**2/2",
+        "d": "div U",
+        "F": "arbitrary quadratic6",
+        "brackets": {
+          "xy": "-F-(1+d)*r",
+          "xz": "u",
+          "xw": "v",
+          "yz": "x*u+H_w",
+          "yw": "x*v-H_z",
+          "zw": "0"
+        },
+        "fixed_modular_source_dimension": 12,
+        "affine_saturation_cone_dimension": 22,
+        "full_ambient_ranks": {
+          "Jacobi": 100,
+          "Euler": 24,
+          "actual_GL_scale_Euler": 47
+        }
+      },
+      "generic_actual_degeneracy_divisor": {
+        "description": "2H+L+Q, Q rank3, restriction ranks (Q|H,Q|L)=(1,2).",
+        "irreducible_factor_degrees": [
+          1,
+          1,
+          2
+        ],
+        "corresponding_multiplicities": [
+          2,
+          1,
+          1
+        ],
+        "reduced": false,
+        "essential_variable_count": 3
+      },
+      "claims": [
+        "R4_MODULAR_RANK1_GZERO_BINOMIAL_B4_25_COMPONENT"
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/RANK_ONE_LONG_GZERO_SEVEN_25_IMAGE_ENTRANCE.md"
+        },
+        {
+          "path": "research/classification/RANK_ONE_LONG_GZERO_SEVEN_ENTRANCE_SEPARATE_REVIEW.md"
+        },
+        {
+          "path": "research/classification/RANK_ONE_GZERO_FOUR_BINOMIAL_25_COMPONENTS.md"
+        },
+        {
+          "path": "research/classification/RANK_ONE_LONG_NINE_AMBIENT_SEPARATE_REVIEW.md"
+        },
+        {
+          "path": "research/classification/RANK_ONE_GZERO_VERTICAL_POISSON_FIELDS.md"
+        }
+      ],
+      "verification_records": [
+        "research/classification/inputs/rank_one_long_gzero_seven_25_image_entrance_manifest_20261108.json",
+        "research/classification/inputs/rank_one_long_gzero_seven_entrance_separate_review_manifest_20261108.json",
+        "research/classification/inputs/rank_one_long_nine_complete_four_components_manifest_20261108.json",
+        "research/classification/inputs/rank_one_long_nine_ambient_separate_review_manifest_20261108.json",
+        "research/classification/inputs/rank_one_gzero_vertical_poisson_fields_manifest_20261108.json"
+      ],
+      "review_status": {
+        "proof": "proved_with_explicit_hypotheses",
+        "independent_review": "accepted_pure_whole_source_prior133_mutual_and_samepoint_full_Fraction",
+        "certificates": "full150_350_126_D100_Euler24_M47_completekernels_and_nonzero_minors",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "notes_ja": [
+        "全原source下界25と全接上界25を使用。",
+        "全prior及び九族相互のgenericD/markedfactor条件で相違。",
+        "generic orbitは全source stabilizer上界と既Mminorの開性から。B6は同projective点の整数scale24訂正を別identityで保存。"
+      ]
+    },
+    {
+      "id": "R4_MODULAR_RANK1_GZERO_BINOMIAL_B5_25",
+      "name": "rank一long・g零binomial B5の25次元成分",
+      "source_checkpoint": "v64-classification-first",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "additional_generic_rank_four_full_component_outside_MPS40",
+      "generic_rank": 4,
+      "projective_dimension": 25,
+      "meets_SNC_log_symplectic_locus": false,
+      "generic_pgl5_orbit_dimension": 23,
+      "generic_reduced_rosenlicht_quotient_dimension": 2,
+      "generic_transverse_algebra": "K (generically smooth and reduced)",
+      "component_definition": "Closure of full actualPGL saturation of the stated original gzero binomial source; irreducible25 with independently checked fullambient smoothunique witness.",
+      "generic_construction": {
+        "coordinates": [
+          "h",
+          "x",
+          "y",
+          "z",
+          "w"
+        ],
+        "affine_chart": "h=1",
+        "modular_field": "partial_x+x*partial_y",
+        "g": "0",
+        "U": [
+          "-z/2",
+          "-w/3"
+        ],
+        "H": "A*z**2+B*w**3",
+        "parameters": "A*B nonzero; arbitrary quadratic F with six coefficients; all actual affine q frames and centers retained",
+        "r": "y-x**2/2",
+        "d": "div U",
+        "F": "arbitrary quadratic6",
+        "brackets": {
+          "xy": "-F-(1+d)*r",
+          "xz": "u",
+          "xw": "v",
+          "yz": "x*u+H_w",
+          "yw": "x*v-H_z",
+          "zw": "0"
+        },
+        "fixed_modular_source_dimension": 12,
+        "affine_saturation_cone_dimension": 22,
+        "full_ambient_ranks": {
+          "Jacobi": 100,
+          "Euler": 24,
+          "actual_GL_scale_Euler": 48
+        }
+      },
+      "generic_actual_degeneracy_divisor": {
+        "description": "2H+C, C absolutely irreducible essential-three cubic; unique singular plane of C is not contained in H.",
+        "irreducible_factor_degrees": [
+          1,
+          3
+        ],
+        "corresponding_multiplicities": [
+          2,
+          1
+        ],
+        "reduced": false,
+        "essential_variable_count": 3
+      },
+      "claims": [
+        "R4_MODULAR_RANK1_GZERO_BINOMIAL_B5_25_COMPONENT"
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/RANK_ONE_LONG_GZERO_SEVEN_25_IMAGE_ENTRANCE.md"
+        },
+        {
+          "path": "research/classification/RANK_ONE_LONG_GZERO_SEVEN_ENTRANCE_SEPARATE_REVIEW.md"
+        },
+        {
+          "path": "research/classification/RANK_ONE_GZERO_FOUR_BINOMIAL_25_COMPONENTS.md"
+        },
+        {
+          "path": "research/classification/RANK_ONE_LONG_NINE_AMBIENT_SEPARATE_REVIEW.md"
+        },
+        {
+          "path": "research/classification/RANK_ONE_GZERO_VERTICAL_POISSON_FIELDS.md"
+        }
+      ],
+      "verification_records": [
+        "research/classification/inputs/rank_one_long_gzero_seven_25_image_entrance_manifest_20261108.json",
+        "research/classification/inputs/rank_one_long_gzero_seven_entrance_separate_review_manifest_20261108.json",
+        "research/classification/inputs/rank_one_long_nine_complete_four_components_manifest_20261108.json",
+        "research/classification/inputs/rank_one_long_nine_ambient_separate_review_manifest_20261108.json",
+        "research/classification/inputs/rank_one_gzero_vertical_poisson_fields_manifest_20261108.json"
+      ],
+      "review_status": {
+        "proof": "proved_with_explicit_hypotheses",
+        "independent_review": "accepted_pure_whole_source_prior133_mutual_and_samepoint_full_Fraction",
+        "certificates": "full150_350_126_D100_Euler24_M48_completekernels_and_nonzero_minors",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "notes_ja": [
+        "全原source下界25と全接上界25を使用。",
+        "全prior及び九族相互のgenericD/markedfactor条件で相違。",
+        "generic orbitは全source stabilizer上界と既Mminorの開性から。B6は同projective点の整数scale24訂正を別identityで保存。"
+      ]
+    },
+    {
+      "id": "R4_MODULAR_RANK1_GZERO_BINOMIAL_B6_25",
+      "name": "rank一long・g零binomial B6の25次元成分",
+      "source_checkpoint": "v64-classification-first",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "additional_generic_rank_four_full_component_outside_MPS40",
+      "generic_rank": 4,
+      "projective_dimension": 25,
+      "meets_SNC_log_symplectic_locus": false,
+      "generic_pgl5_orbit_dimension": 22,
+      "generic_reduced_rosenlicht_quotient_dimension": 3,
+      "generic_transverse_algebra": "K (generically smooth and reduced)",
+      "component_definition": "Closure of full actualPGL saturation of the stated original gzero binomial source; irreducible25 with independently checked fullambient smoothunique witness.",
+      "generic_construction": {
+        "coordinates": [
+          "h",
+          "x",
+          "y",
+          "z",
+          "w"
+        ],
+        "affine_chart": "h=1",
+        "modular_field": "partial_x+x*partial_y",
+        "g": "0",
+        "U": [
+          "-z/2",
+          "-w/4"
+        ],
+        "H": "A*z**2+B*z*w**2",
+        "parameters": "A*B nonzero; arbitrary quadratic F with six coefficients; all actual affine q frames and centers retained",
+        "r": "y-x**2/2",
+        "d": "div U",
+        "F": "arbitrary quadratic6",
+        "brackets": {
+          "xy": "-F-(1+d)*r",
+          "xz": "u",
+          "xw": "v",
+          "yz": "x*u+H_w",
+          "yw": "x*v-H_z",
+          "zw": "0"
+        },
+        "fixed_modular_source_dimension": 12,
+        "affine_saturation_cone_dimension": 22,
+        "full_ambient_ranks": {
+          "Jacobi": 100,
+          "Euler": 24,
+          "actual_GL_scale_Euler": 47
+        }
+      },
+      "generic_actual_degeneracy_divisor": {
+        "description": "2H+L+Q, Q rank3, restriction ranks (Q|H,Q|L)=(1,1).",
+        "irreducible_factor_degrees": [
+          1,
+          1,
+          2
+        ],
+        "corresponding_multiplicities": [
+          2,
+          1,
+          1
+        ],
+        "reduced": false,
+        "essential_variable_count": 3
+      },
+      "claims": [
+        "R4_MODULAR_RANK1_GZERO_BINOMIAL_B6_25_COMPONENT"
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/RANK_ONE_LONG_GZERO_SEVEN_25_IMAGE_ENTRANCE.md"
+        },
+        {
+          "path": "research/classification/RANK_ONE_LONG_GZERO_SEVEN_ENTRANCE_SEPARATE_REVIEW.md"
+        },
+        {
+          "path": "research/classification/RANK_ONE_GZERO_FOUR_BINOMIAL_25_COMPONENTS.md"
+        },
+        {
+          "path": "research/classification/RANK_ONE_LONG_NINE_AMBIENT_SEPARATE_REVIEW.md"
+        },
+        {
+          "path": "research/classification/RANK_ONE_GZERO_VERTICAL_POISSON_FIELDS.md"
+        }
+      ],
+      "verification_records": [
+        "research/classification/inputs/rank_one_long_gzero_seven_25_image_entrance_manifest_20261108.json",
+        "research/classification/inputs/rank_one_long_gzero_seven_entrance_separate_review_manifest_20261108.json",
+        "research/classification/inputs/rank_one_long_nine_complete_four_components_manifest_20261108.json",
+        "research/classification/inputs/rank_one_long_nine_ambient_separate_review_manifest_20261108.json",
+        "research/classification/inputs/rank_one_gzero_vertical_poisson_fields_manifest_20261108.json"
+      ],
+      "review_status": {
+        "proof": "proved_with_explicit_hypotheses",
+        "independent_review": "accepted_pure_whole_source_prior133_mutual_and_samepoint_full_Fraction",
+        "certificates": "full150_350_126_D100_Euler24_M47_completekernels_and_nonzero_minors",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "notes_ja": [
+        "全原source下界25と全接上界25を使用。",
+        "全prior及び九族相互のgenericD/markedfactor条件で相違。",
+        "generic orbitは全source stabilizer上界と既Mminorの開性から。B6は同projective点の整数scale24訂正を別identityで保存。"
+      ]
+    },
+    {
+      "id": "R4_MODULAR_RANK1_GZERO_B1_25",
+      "name": "rank一long・g零 B1の被約支持25次元成分",
+      "source_checkpoint": "v64-classification-first",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "additional_generic_rank_four_full_component_outside_MPS40",
+      "generic_rank": 4,
+      "projective_dimension": 25,
+      "meets_SNC_log_symplectic_locus": false,
+      "generic_pgl5_orbit_dimension": 23,
+      "generic_reduced_rosenlicht_quotient_dimension": 2,
+      "generic_transverse_algebra": "K for reduced component support; full nonreduced transverse algebra uncomputed",
+      "component_definition": "Irreducible25 fullsource saturation closure; genuine quadratic normal support and raw localdimension50 prove fullcomponent. No smoothness or localuniqueness assertion.",
+      "generic_construction": {
+        "coordinates": [
+          "h",
+          "x",
+          "y",
+          "z",
+          "w"
+        ],
+        "affine_chart": "h=1",
+        "modular_field": "partial_x+x*partial_y",
+        "g": "0",
+        "U": [
+          "-z",
+          "-w/2"
+        ],
+        "H": "A*z+B*w**2",
+        "parameters": "B1/B3: A*B nonzero; V1: A*(B**2-4*A*C) nonzero. Full quadratic F6 and all actual affine q frames retained.",
+        "r": "y-x**2/2",
+        "d": "div U",
+        "F": "arbitrary quadratic6",
+        "brackets": {
+          "xy": "-F-(1+d)*r",
+          "xz": "u",
+          "xw": "v",
+          "yz": "x*u+H_w",
+          "yw": "x*v-H_z",
+          "zw": "0"
+        },
+        "fixed_modular_source_dimension": 12,
+        "affine_saturation_cone_dimension": 22,
+        "full_ambient_ranks": {
+          "Jacobi": 98,
+          "Euler": 24,
+          "actual_GL_scale_Euler": 48,
+          "full_actual_source_tangent": 50
+        },
+        "true_normal_dimension": 2,
+        "quadratic_support": "m-primary; exact degree d+1 lifts retained"
+      },
+      "generic_actual_degeneracy_divisor": {
+        "description": "3H+Q rank3, Q|H rank1; unique tripleH tangent to residual conic.",
+        "irreducible_factor_degrees": [
+          1,
+          2
+        ],
+        "corresponding_multiplicities": [
+          3,
+          1
+        ],
+        "reduced": false,
+        "essential_variable_count": 3
+      },
+      "claims": [
+        "R4_MODULAR_RANK1_GZERO_B1_25_COMPONENT"
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/RANK_ONE_LONG_GZERO_SEVEN_25_IMAGE_ENTRANCE.md"
+        },
+        {
+          "path": "research/classification/RANK_ONE_LONG_GZERO_SEVEN_ENTRANCE_SEPARATE_REVIEW.md"
+        },
+        {
+          "path": "research/classification/RANK_ONE_GZERO_THREE_QUADRATIC_SUPPORT_COMPONENTS.md"
+        },
+        {
+          "path": "research/classification/RANK_ONE_FIVE_GENUINE_QUADRATIC_SUPPORT_ROUTE.md"
+        },
+        {
+          "path": "research/classification/RANK_ONE_FIVE_QUADRATIC_SUPPORT_SEPARATE_REVIEW.md"
+        },
+        {
+          "path": "research/classification/RANK_ONE_GZERO_VERTICAL_POISSON_FIELDS.md"
+        }
+      ],
+      "verification_records": [
+        "research/classification/inputs/rank_one_long_gzero_seven_25_image_entrance_manifest_20261108.json",
+        "research/classification/inputs/rank_one_long_gzero_seven_entrance_separate_review_manifest_20261108.json",
+        "research/classification/inputs/rank_one_five_quadratic_support_outcome_manifest_20261108.json",
+        "research/classification/inputs/rank_one_five_quadratic_support_separate_review_manifest_20261108.json"
+      ],
+      "review_status": {
+        "proof": "proved_with_explicit_hypotheses",
+        "independent_review": "accepted_separate_pure_wholeimage_prior_and_Fraction_full_F50_truecut_cokernel_Macaulay",
+        "certificates": "component_support_only_no_smooth_or_localunique_claim",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "notes_ja": [
+        "真の実50cut後のquadratic初期支持原点からKrull上界、全源下界と一致して成分性。",
+        "滑らかさ/局所唯一性は主張しない。y(y-x²)反例を保持。",
+        "全prior/九源相互のproperfactor条件と全generic orbit橋は別純証明。"
+      ]
+    },
+    {
+      "id": "R4_MODULAR_RANK1_GZERO_B3_25",
+      "name": "rank一long・g零 B3の被約支持25次元成分",
+      "source_checkpoint": "v64-classification-first",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "additional_generic_rank_four_full_component_outside_MPS40",
+      "generic_rank": 4,
+      "projective_dimension": 25,
+      "meets_SNC_log_symplectic_locus": false,
+      "generic_pgl5_orbit_dimension": 22,
+      "generic_reduced_rosenlicht_quotient_dimension": 3,
+      "generic_transverse_algebra": "K for reduced component support; full nonreduced transverse algebra uncomputed",
+      "component_definition": "Irreducible25 fullsource saturation closure; genuine quadratic normal support and raw localdimension50 prove fullcomponent. No smoothness or localuniqueness assertion.",
+      "generic_construction": {
+        "coordinates": [
+          "h",
+          "x",
+          "y",
+          "z",
+          "w"
+        ],
+        "affine_chart": "h=1",
+        "modular_field": "partial_x+x*partial_y",
+        "g": "0",
+        "U": [
+          "-z",
+          "w"
+        ],
+        "H": "A*z+B*z**2*w",
+        "parameters": "B1/B3: A*B nonzero; V1: A*(B**2-4*A*C) nonzero. Full quadratic F6 and all actual affine q frames retained.",
+        "r": "y-x**2/2",
+        "d": "div U",
+        "F": "arbitrary quadratic6",
+        "brackets": {
+          "xy": "-F-(1+d)*r",
+          "xz": "u",
+          "xw": "v",
+          "yz": "x*u+H_w",
+          "yw": "x*v-H_z",
+          "zw": "0"
+        },
+        "fixed_modular_source_dimension": 12,
+        "affine_saturation_cone_dimension": 22,
+        "full_ambient_ranks": {
+          "Jacobi": 99,
+          "Euler": 24,
+          "actual_GL_scale_Euler": 47,
+          "full_actual_source_tangent": 50
+        },
+        "true_normal_dimension": 1,
+        "quadratic_support": "m-primary; exact degree d+1 lifts retained"
+      },
+      "generic_actual_degeneracy_divisor": {
+        "description": "2H+L+Q rank3, restriction ranks(Q|H,Q|L)=(2,1).",
+        "irreducible_factor_degrees": [
+          1,
+          1,
+          2
+        ],
+        "corresponding_multiplicities": [
+          2,
+          1,
+          1
+        ],
+        "reduced": false,
+        "essential_variable_count": 3
+      },
+      "claims": [
+        "R4_MODULAR_RANK1_GZERO_B3_25_COMPONENT"
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/RANK_ONE_LONG_GZERO_SEVEN_25_IMAGE_ENTRANCE.md"
+        },
+        {
+          "path": "research/classification/RANK_ONE_LONG_GZERO_SEVEN_ENTRANCE_SEPARATE_REVIEW.md"
+        },
+        {
+          "path": "research/classification/RANK_ONE_GZERO_THREE_QUADRATIC_SUPPORT_COMPONENTS.md"
+        },
+        {
+          "path": "research/classification/RANK_ONE_FIVE_GENUINE_QUADRATIC_SUPPORT_ROUTE.md"
+        },
+        {
+          "path": "research/classification/RANK_ONE_FIVE_QUADRATIC_SUPPORT_SEPARATE_REVIEW.md"
+        },
+        {
+          "path": "research/classification/RANK_ONE_GZERO_VERTICAL_POISSON_FIELDS.md"
+        }
+      ],
+      "verification_records": [
+        "research/classification/inputs/rank_one_long_gzero_seven_25_image_entrance_manifest_20261108.json",
+        "research/classification/inputs/rank_one_long_gzero_seven_entrance_separate_review_manifest_20261108.json",
+        "research/classification/inputs/rank_one_five_quadratic_support_outcome_manifest_20261108.json",
+        "research/classification/inputs/rank_one_five_quadratic_support_separate_review_manifest_20261108.json"
+      ],
+      "review_status": {
+        "proof": "proved_with_explicit_hypotheses",
+        "independent_review": "accepted_separate_pure_wholeimage_prior_and_Fraction_full_F50_truecut_cokernel_Macaulay",
+        "certificates": "component_support_only_no_smooth_or_localunique_claim",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "notes_ja": [
+        "真の実50cut後のquadratic初期支持原点からKrull上界、全源下界と一致して成分性。",
+        "滑らかさ/局所唯一性は主張しない。y(y-x²)反例を保持。",
+        "全prior/九源相互のproperfactor条件と全generic orbit橋は別純証明。"
+      ]
+    },
+    {
+      "id": "R4_MODULAR_RANK1_GZERO_V1_25",
+      "name": "rank一long・g零 V1の被約支持25次元成分",
+      "source_checkpoint": "v64-classification-first",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "additional_generic_rank_four_full_component_outside_MPS40",
+      "generic_rank": 4,
+      "projective_dimension": 25,
+      "meets_SNC_log_symplectic_locus": false,
+      "generic_pgl5_orbit_dimension": 21,
+      "generic_reduced_rosenlicht_quotient_dimension": 4,
+      "generic_transverse_algebra": "K for reduced component support; full nonreduced transverse algebra uncomputed",
+      "component_definition": "Irreducible25 fullsource saturation closure; genuine quadratic normal support and raw localdimension50 prove fullcomponent. No smoothness or localuniqueness assertion.",
+      "generic_construction": {
+        "coordinates": [
+          "h",
+          "x",
+          "y",
+          "z",
+          "w"
+        ],
+        "affine_chart": "h=1",
+        "modular_field": "partial_x+x*partial_y",
+        "g": "0",
+        "U": [
+          "-z",
+          "0"
+        ],
+        "H": "z*(A*w**2+B*w+C)",
+        "parameters": "B1/B3: A*B nonzero; V1: A*(B**2-4*A*C) nonzero. Full quadratic F6 and all actual affine q frames retained.",
+        "r": "y-x**2/2",
+        "d": "div U",
+        "F": "arbitrary quadratic6",
+        "brackets": {
+          "xy": "-F-(1+d)*r",
+          "xz": "u",
+          "xw": "v",
+          "yz": "x*u+H_w",
+          "yw": "x*v-H_z",
+          "zw": "0"
+        },
+        "fixed_modular_source_dimension": 12,
+        "affine_saturation_cone_dimension": 22,
+        "full_ambient_ranks": {
+          "Jacobi": 99,
+          "Euler": 24,
+          "actual_GL_scale_Euler": 46,
+          "full_actual_source_tangent": 50
+        },
+        "true_normal_dimension": 1,
+        "quadratic_support": "m-primary; exact degree d+1 lifts retained"
+      },
+      "generic_actual_degeneracy_divisor": {
+        "description": "2H+three simple hyperplanes whose covectors span3; H lies in span of the two parallel affine roots.",
+        "irreducible_factor_degrees": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "corresponding_multiplicities": [
+          2,
+          1,
+          1,
+          1
+        ],
+        "reduced": false,
+        "essential_variable_count": 3
+      },
+      "claims": [
+        "R4_MODULAR_RANK1_GZERO_V1_25_COMPONENT"
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/RANK_ONE_LONG_GZERO_SEVEN_25_IMAGE_ENTRANCE.md"
+        },
+        {
+          "path": "research/classification/RANK_ONE_LONG_GZERO_SEVEN_ENTRANCE_SEPARATE_REVIEW.md"
+        },
+        {
+          "path": "research/classification/RANK_ONE_GZERO_THREE_QUADRATIC_SUPPORT_COMPONENTS.md"
+        },
+        {
+          "path": "research/classification/RANK_ONE_FIVE_GENUINE_QUADRATIC_SUPPORT_ROUTE.md"
+        },
+        {
+          "path": "research/classification/RANK_ONE_FIVE_QUADRATIC_SUPPORT_SEPARATE_REVIEW.md"
+        },
+        {
+          "path": "research/classification/RANK_ONE_GZERO_VERTICAL_POISSON_FIELDS.md"
+        }
+      ],
+      "verification_records": [
+        "research/classification/inputs/rank_one_long_gzero_seven_25_image_entrance_manifest_20261108.json",
+        "research/classification/inputs/rank_one_long_gzero_seven_entrance_separate_review_manifest_20261108.json",
+        "research/classification/inputs/rank_one_five_quadratic_support_outcome_manifest_20261108.json",
+        "research/classification/inputs/rank_one_five_quadratic_support_separate_review_manifest_20261108.json"
+      ],
+      "review_status": {
+        "proof": "proved_with_explicit_hypotheses",
+        "independent_review": "accepted_separate_pure_wholeimage_prior_and_Fraction_full_F50_truecut_cokernel_Macaulay",
+        "certificates": "component_support_only_no_smooth_or_localunique_claim",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "notes_ja": [
+        "真の実50cut後のquadratic初期支持原点からKrull上界、全源下界と一致して成分性。",
+        "滑らかさ/局所唯一性は主張しない。y(y-x²)反例を保持。",
+        "全prior/九源相互のproperfactor条件と全generic orbit橋は別純証明。"
+      ]
+    },
+    {
+      "id": "R4_MODULAR_RANK1_GZERO_M1_25",
+      "name": "rank一long・g零 M1の25次元成分",
+      "source_checkpoint": "v64-classification-first",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "additional_generic_rank_four_full_component_outside_MPS40",
+      "generic_rank": 4,
+      "projective_dimension": 25,
+      "meets_SNC_log_symplectic_locus": false,
+      "generic_pgl5_orbit_dimension": 23,
+      "generic_reduced_rosenlicht_quotient_dimension": 2,
+      "generic_transverse_algebra": "K for reduced component support; full scheme transverse algebra uncomputed",
+      "component_definition": "Full original irreducible25 image closure; unique multiple-H has canonical modular rank2, outside closed low-modular flag. Global fullcase dimension<=25 then proves fullcomponent support.",
+      "generic_construction": {
+        "coordinates": [
+          "h",
+          "x",
+          "y",
+          "z",
+          "w"
+        ],
+        "affine_chart": "h=1",
+        "modular_field": "partial_x+x*partial_y",
+        "g": "0",
+        "U": [
+          "-z",
+          "v0+vz*z+vw*w"
+        ],
+        "H": "t*z",
+        "parameters": "t nonzero; full stated canonical coefficients, quadratic F6, and all affine q frames retained",
+        "r": "y-x**2/2",
+        "d": "div U",
+        "F": "arbitrary quadratic6",
+        "brackets": {
+          "xy": "-F-(1+d)*r",
+          "xz": "u",
+          "xw": "v",
+          "yz": "x*u+H_w",
+          "yw": "x*v-H_z",
+          "zw": "0"
+        },
+        "fixed_modular_source_dimension": 12,
+        "affine_saturation_cone_dimension": 22,
+        "full_ambient_ranks": {
+          "Jacobi": 97,
+          "Euler": 24,
+          "actual_GL_scale_Euler": 48,
+          "full_actual_source_tangent": 50
+        },
+        "componenthood_route": "global closed-low-modular-flag complement dimension bound, not localquadraticmprimary"
+      },
+      "generic_actual_degeneracy_divisor": {
+        "description": "4H+L, unique quadruple H and distinct simple L.",
+        "irreducible_factor_degrees": [
+          1,
+          1
+        ],
+        "corresponding_multiplicities": [
+          4,
+          1
+        ],
+        "reduced": false,
+        "essential_variable_count": 2
+      },
+      "claims": [
+        "R4_MODULAR_RANK1_GZERO_M1_25_COMPONENT"
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/RANK_ONE_LONG_LINEAR_AND_PRODUCT_ENTRANCE.md"
+        },
+        {
+          "path": "research/classification/RANK_ONE_LONG_LINEAR_PRODUCT_ENTRANCE_SEPARATE_REVIEW.md"
+        },
+        {
+          "path": "research/classification/RANK_FOUR_OUTSIDE_LOW_MODULAR_FLAG_DIMENSION_BOUND.md"
+        },
+        {
+          "path": "research/classification/RANK_FOUR_OUTSIDE_LOW_MODULAR_FLAG_SEPARATE_REVIEW.md"
+        },
+        {
+          "path": "research/classification/RANK_ONE_GZERO_VERTICAL_POISSON_FIELDS.md"
+        },
+        {
+          "path": "research/classification/RANK_ONE_TRANSLATION_WHOLE_COMPONENT_COVERAGE.md"
+        }
+      ],
+      "verification_records": [
+        "research/classification/inputs/rank_one_long_linear_product_entrance_manifest_20261108.json",
+        "research/classification/inputs/rank_one_long_linear_product_entrance_separate_review_manifest_20261108.json",
+        "research/classification/inputs/rank_four_outside_low_modular_flag_dimension_bound_manifest_20261108.json",
+        "research/classification/inputs/rank_four_outside_low_modular_flag_separate_review_manifest_20261108.json",
+        "research/classification/inputs/rank_one_translation_whole_component_coverage_manifest_20261108.json"
+      ],
+      "review_status": {
+        "proof": "proved_with_explicit_hypotheses",
+        "independent_review": "accepted_separate_wholecase_globaldimension_and_source25_prior_mutual_audits",
+        "certificates": "component_support_via_closedflag_and_globaldimension_no_localunique_claim",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "notes_ja": [
+        "全source25とL外全component上界25を一致させる。",
+        "旧同一点D97/98と真quadratic正次元は保持。高次jet/別点無し。",
+        "genericorbitは全source stabilizer下界と旧M48/47から。全nonreducedscheme未計算。"
+      ]
+    },
+    {
+      "id": "R4_MODULAR_RANK1_GZERO_M11_25",
+      "name": "rank一long・g零 M11の25次元成分",
+      "source_checkpoint": "v64-classification-first",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "additional_generic_rank_four_full_component_outside_MPS40",
+      "generic_rank": 4,
+      "projective_dimension": 25,
+      "meets_SNC_log_symplectic_locus": false,
+      "generic_pgl5_orbit_dimension": 22,
+      "generic_reduced_rosenlicht_quotient_dimension": 3,
+      "generic_transverse_algebra": "K for reduced component support; full scheme transverse algebra uncomputed",
+      "component_definition": "Full original irreducible25 image closure; unique multiple-H has canonical modular rank2, outside closed low-modular flag. Global fullcase dimension<=25 then proves fullcomponent support.",
+      "generic_construction": {
+        "coordinates": [
+          "h",
+          "x",
+          "y",
+          "z",
+          "w"
+        ],
+        "affine_chart": "h=1",
+        "modular_field": "partial_x+x*partial_y",
+        "g": "0",
+        "U": [
+          "lambda*z",
+          "(-1-lambda)*w"
+        ],
+        "H": "t*z*w",
+        "parameters": "t nonzero; full stated canonical coefficients, quadratic F6, and all affine q frames retained",
+        "r": "y-x**2/2",
+        "d": "div U",
+        "F": "arbitrary quadratic6",
+        "brackets": {
+          "xy": "-F-(1+d)*r",
+          "xz": "u",
+          "xw": "v",
+          "yz": "x*u+H_w",
+          "yw": "x*v-H_z",
+          "zw": "0"
+        },
+        "fixed_modular_source_dimension": 12,
+        "affine_saturation_cone_dimension": 22,
+        "full_ambient_ranks": {
+          "Jacobi": 98,
+          "Euler": 24,
+          "actual_GL_scale_Euler": 47,
+          "full_actual_source_tangent": 50
+        },
+        "componenthood_route": "global closed-low-modular-flag complement dimension bound, not localquadraticmprimary"
+      },
+      "generic_actual_degeneracy_divisor": {
+        "description": "3H+two distinct simple hyperplanes; three covectors independent.",
+        "irreducible_factor_degrees": [
+          1,
+          1,
+          1
+        ],
+        "corresponding_multiplicities": [
+          3,
+          1,
+          1
+        ],
+        "reduced": false,
+        "essential_variable_count": 3
+      },
+      "claims": [
+        "R4_MODULAR_RANK1_GZERO_M11_25_COMPONENT"
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/RANK_ONE_LONG_LINEAR_AND_PRODUCT_ENTRANCE.md"
+        },
+        {
+          "path": "research/classification/RANK_ONE_LONG_LINEAR_PRODUCT_ENTRANCE_SEPARATE_REVIEW.md"
+        },
+        {
+          "path": "research/classification/RANK_FOUR_OUTSIDE_LOW_MODULAR_FLAG_DIMENSION_BOUND.md"
+        },
+        {
+          "path": "research/classification/RANK_FOUR_OUTSIDE_LOW_MODULAR_FLAG_SEPARATE_REVIEW.md"
+        },
+        {
+          "path": "research/classification/RANK_ONE_GZERO_VERTICAL_POISSON_FIELDS.md"
+        },
+        {
+          "path": "research/classification/RANK_ONE_TRANSLATION_WHOLE_COMPONENT_COVERAGE.md"
+        }
+      ],
+      "verification_records": [
+        "research/classification/inputs/rank_one_long_linear_product_entrance_manifest_20261108.json",
+        "research/classification/inputs/rank_one_long_linear_product_entrance_separate_review_manifest_20261108.json",
+        "research/classification/inputs/rank_four_outside_low_modular_flag_dimension_bound_manifest_20261108.json",
+        "research/classification/inputs/rank_four_outside_low_modular_flag_separate_review_manifest_20261108.json",
+        "research/classification/inputs/rank_one_translation_whole_component_coverage_manifest_20261108.json"
+      ],
+      "review_status": {
+        "proof": "proved_with_explicit_hypotheses",
+        "independent_review": "accepted_separate_wholecase_globaldimension_and_source25_prior_mutual_audits",
+        "certificates": "component_support_via_closedflag_and_globaldimension_no_localunique_claim",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "notes_ja": [
+        "全source25とL外全component上界25を一致させる。",
+        "旧同一点D97/98と真quadratic正次元は保持。高次jet/別点無し。",
+        "genericorbitは全source stabilizer下界と旧M48/47から。全nonreducedscheme未計算。"
+      ]
     }
   ],
   "named_block_member_annotations": [
@@ -14909,5 +16165,5 @@
     "MPS40 blockを展開したらblockによる加算を止め、二重計上しない。",
     "文献上の新規性は内部成分証明とは別に確認する。"
   ],
-  "new_components_added_in_this_checkpoint": 72
+  "new_components_added_in_this_checkpoint": 84
 }

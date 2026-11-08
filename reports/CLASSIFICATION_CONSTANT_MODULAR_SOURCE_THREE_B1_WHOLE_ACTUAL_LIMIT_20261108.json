@@ -1,0 +1,102 @@
+{
+  "task_id": "E_multiple_hyperplane",
+  "status": "PRODUCER_PURE_PROOF_COMPLETE",
+  "new_arithmetic_run": false,
+  "whole_source": "III: f=u+z^2, B=beta*u+gamma*z+delta*w+e, all K2(u,z) six coefficients",
+  "parent": "rank1 long g0 B1 known25 component",
+  "normalizer": {
+    "map": [
+      "T=delta*t",
+      "U=u",
+      "Z=z",
+      "W=beta*u+gamma*z+delta*w+e"
+    ],
+    "tensor_scalar": "1/delta",
+    "determinant": "delta^2",
+    "inverse": [
+      "t=T/delta",
+      "u=U",
+      "z=Z",
+      "w=(W-beta*U-gamma*Z-e)/delta"
+    ],
+    "K": "beta*(u+z^2)+(gamma-2*beta*z)*(beta*u+gamma*z+e)+delta*K2",
+    "all_zero_complement": "delta0 recovered by whole irreducible A10 and closed parent"
+  },
+  "curve": {
+    "epsilon_unit": "epsilon!=0 only for actual source frame; polynomial endpoint retained",
+    "a": "1/(8*epsilon^3)",
+    "b": "1/epsilon",
+    "old_F": "K(a^2*U-2*a*b*Z-b^2,a*Z+b)/(8*epsilon^3)",
+    "map": [
+      "t=-X-4*epsilon^2*Y+u/8",
+      "u=a^2*U-2*a*b*Z-b^2",
+      "z=a*Z+b",
+      "w=-2*epsilon*X+z/2"
+    ],
+    "inverse": [
+      "X=(z-2*w)/(4*epsilon)",
+      "Y=(-t-X+u/8)/(4*epsilon^2)",
+      "U=(u+2*b*z-b^2)/a^2",
+      "Z=(z-b)/a"
+    ],
+    "determinant": "-1/(64*epsilon^6)",
+    "tensor_scalar": "1",
+    "Euler": "0",
+    "all_six_brackets": [
+      "u+z^2-2*z*w+epsilon*u*(z-2*w)",
+      "w+epsilon*(z^2/2-z*w)",
+      "K(u,z)+epsilon*(t+(3*z^2-8*z*w+4*w^2-3*u)/8)",
+      "0",
+      "-2*z-2*epsilon*u",
+      "1-epsilon*z"
+    ],
+    "pairs": [
+      "tu",
+      "tz",
+      "tw",
+      "uz",
+      "uw",
+      "zw"
+    ],
+    "signed_pfaffian": "u+z^2",
+    "actual_D": "h^3*(h*u+z^2)",
+    "all_K_preserved": true,
+    "all_epsilon_Jacobi": "Actual B1 for epsilon!=0, polynomial identity gives all epsilon"
+  },
+  "conclusion": "All sourceIII whole10 including delta0 lies in closed B1 component; new count0",
+  "independent_acceptance": "pending separate/root pure read",
+  "inputs": [
+    {
+      "path": "research/classification/CONSTANT_MODULAR_DEGREE_TWO_WHOLE_REDUCTION.md",
+      "sha256": "6f39fec643c4ad322cdd9499013618a874ab2cc57eb5a1208342a450a0eb5d77"
+    },
+    {
+      "path": "research/classification/CONSTANT_MODULAR_DEGREE_TWO_SEPARATE_REVIEW.md",
+      "sha256": "fd5903504c569808c42309f2ebe2dbb74f915ccc6e88a568770ec43ee65fecb2"
+    },
+    {
+      "path": "research/classification/RANK_ONE_TRANSLATION_WHOLE_FINITE_EXHAUSTION.md",
+      "sha256": "d7c3cbc5a6a58168dfeee68a93e298f84ccd298cd9de282de0433b421fe2cc13"
+    },
+    {
+      "path": "research/classification/RANK_ONE_LONG_GZERO_SEVEN_25_IMAGE_ENTRANCE.md",
+      "sha256": "721f956e545e96bdcb48944cfd7d7596b5d2c8240b2d9958a4ff03471171f091"
+    },
+    {
+      "path": "research/classification/RANK_ONE_LONG_GZERO_SEVEN_ENTRANCE_SEPARATE_REVIEW.md",
+      "sha256": "d6dd79f2ff803acf18acafa33475d2a13cf4ab5f01a004973cbf23335ea84e70"
+    },
+    {
+      "path": "research/classification/RANK_ONE_FIVE_QUADRATIC_SUPPORT_SEPARATE_REVIEW.md",
+      "sha256": "5dc7e6d50a3572ee5f49af80ba9512e8387f63e3a1f7562b29958497abfb965e"
+    },
+    {
+      "path": "research/classification/inputs/constant_modular_degree_two_whole_reduction_manifest_20261108.json",
+      "sha256": "abdf43054949dac26d64e5dd4f02df9a86604439d14d6732dd4b887ce10bc7b9"
+    }
+  ],
+  "note": {
+    "path": "research/classification/CONSTANT_MODULAR_SOURCE_THREE_B1_WHOLE_ACTUAL_LIMIT.md",
+    "sha256": "c7126b71215d969bc0cd84586aefc30f7b54a065f3b4ea348312895f9ade956e"
+  }
+}

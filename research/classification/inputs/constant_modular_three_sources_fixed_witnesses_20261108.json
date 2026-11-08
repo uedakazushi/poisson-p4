@@ -1,0 +1,90 @@
+{
+  "task_id": "E_multiple_hyperplane",
+  "policy": "Exactly one prescribed actual source point per complete irreducible24 source. No adaptive point replacement/profile/jet continuation.",
+  "coordinates": [
+    "h",
+    "t",
+    "u",
+    "z",
+    "w"
+  ],
+  "kappa": 1,
+  "homogenization": "h is a strict Casimir. Homogenize all six affine brackets to degree2; retain all150 coordinates.",
+  "cases": [
+    {
+      "id": "I_rank2_critical_zero",
+      "f": "z*w",
+      "Y_source_dimension": 10,
+      "parameters": {
+        "alpha": 1,
+        "beta": 2,
+        "gamma": 3,
+        "delta": 5
+      },
+      "K2": {
+        "1": 7,
+        "z": 11,
+        "w": 13,
+        "z**2": 17,
+        "z*w": 19,
+        "w**2": 23
+      },
+      "A": "u*(-beta*z+gamma*w)+K2",
+      "B": "z*(alpha*u+beta*z+gamma*w+delta)",
+      "C": "w*(1-alpha*u-beta*z-gamma*w-delta)",
+      "expected_actual_F": "h**3*z*w"
+    },
+    {
+      "id": "II_rank2_noncritical",
+      "f": "z*w+u",
+      "Y_source_dimension": 8,
+      "parameters": {
+        "alpha": 1,
+        "beta": 2,
+        "gamma": 3,
+        "lambda": 5,
+        "rho": 7,
+        "sigma": 11,
+        "b": 13,
+        "c": 17
+      },
+      "L": "alpha*u+gamma*z-beta*w",
+      "A": "u+z*w-beta*u*w-gamma*u*z-rho*w**2-sigma*z**2-b*w-c*z",
+      "B": "z*L+beta*u+lambda*z+rho*w+b",
+      "C": "-w*L+gamma*u+sigma*z-lambda*w+c",
+      "expected_actual_F": "h**3*(z*w+h*u)"
+    },
+    {
+      "id": "III_rank1_noncritical",
+      "f": "z**2+u",
+      "Y_source_dimension": 10,
+      "parameters": {
+        "beta": 1,
+        "gamma": 2,
+        "delta": 3,
+        "e": 5
+      },
+      "K2": {
+        "1": 7,
+        "u": 11,
+        "z": 13,
+        "u**2": 17,
+        "u*z": 19,
+        "z**2": 23
+      },
+      "A": "u+z**2-2*z*B",
+      "B": "beta*u+gamma*z+delta*w+e",
+      "C": "(2*beta*z-gamma)*w+K2",
+      "expected_actual_F": "h**3*(z**2+h*u)"
+    }
+  ],
+  "common_affine_brackets": {
+    "t,u": "A",
+    "t,z": "B",
+    "t,w": "C",
+    "u,z": "d(f)/dw",
+    "u,w": "-d(f)/dz",
+    "z,w": "d(f)/du"
+  },
+  "point_status": "Chosen literal integer parameters, not asserted generic. No ambient calculation has been executed."
+}

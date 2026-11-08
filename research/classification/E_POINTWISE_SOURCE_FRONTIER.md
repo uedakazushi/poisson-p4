@@ -1,6 +1,6 @@
 # Eの全点被覆：G完了後の全source inventory
 
-2026-11-08、PRIMARY E、担当 /root/log_manuscript。基準は130成分／1084claimsの受理済みcut。
+2026-11-08、PRIMARY E、担当 /root/log_manuscript。基準は142成分／1108claimsの最終固定cut。
 本稿は既存の全源定理・独立receiptの**結論の射程の一覧**であり、新claim・計算・成分性証明ではない。
 主原稿・global台帳・Git・旧証明書を変更せず、数学を再実行していない。
 
@@ -68,8 +68,8 @@ symplectic基点／finite perspectiveとの橋は[REMAINING_SUPPORT §3](REMAINI
 | nil22、c∉imA | K。[MODULAR_NIL22_TOP_SUPPORT](MODULAR_NIL22_TOP_SUPPORT.md)：全八源、全MPS/T19/二22。途中の古い未了文を最終状況としない |
 | nil22、c∈imA | K＋**stable二B**。[NIL22_IMAGE_SOURCE_REVIEW](NIL22_IMAGE_SOURCE_REVIEW.md)：全十一Hessian源、GL2全逆、任意F0六係数。half/third等、regular limits、doubleB/C、quadraticA、doubleAの後続陽性を合わせ、残stable_line_conic／stable_three_lines |
 | rankA1、c∈imA | K。[LOW_RANK §4](MULTIPLE_HYPERPLANE_LOW_RANK_MODULAR.md)：b≠0は既nil31成分、b=0はCA/CB |
-| rankA1、c∉imA | **K/B混合**。同§5長鎖/短鎖全源。長鎖の全非定数affine gは新25次元成分 R4_MODULAR_RANK1_LONG_NONCONSTANT_25へK（generic orbit22/商3）。短鎖全非定数gも実lambda曲線とH=gKから同成分へK。非零定数g/H3=0は旧NEW25。短鎖全源は対応longへ還元されるが、g=0の自由F二次・定数gのH3共鳴は依然B |
-| A0、c≠0 | **B**。同§3／remaining §14。全P=∂t∧Y+Jac(f)、divY=κ、Yf=κf、degY≤2、degf≤3。β(c)=0はmembershipではない |
+| rankA1、c∉imA | **全K**。同§5長鎖/短鎖全源。[全十七源](RANK_ONE_TRANSLATION_WHOLE_FINITE_EXHAUSTION.md)の十七全てK。非定数g新25、定数g/H3零は旧NEW25、定数gのμ1/μ1/3及びg零SCは新三25、B1–B6/V1は新七25、M2/M3/M21は旧third/half/DDH25、M1/M11は新しい二25成分。全shortも同じ有限閉和へK。[閉L外の全次元上界](RANK_FOUR_OUTSIDE_LOW_MODULAR_FLAG_DIMENSION_BOUND.md)でM1/M11の成分性を得て、全17/short E完了。B1/B3/V1及びM1/M11の五族は支持による成分性のみ、smooth/unique未証明 |
+| A0、c≠0 | **K/B混合**。全P=∂t∧Y+Jac(f),divY=κ≠0,Yf=κf,degY≤2,degf≤3。degree≤2は[全有限化](CONSTANT_MODULAR_DEGREE_TWO_WHOLE_REDUCTION.md)：rank3/非零criticalvalueはØ、f=z/z²全16はCA/CB、f=zw+u全A8は[NEW25](CONSTANT_MODULAR_SOURCE_TWO_NEW25_WHOLE_COVERAGE.md)、f=zw全A10は[M11全実曲線](CONSTANT_MODULAR_SOURCE_ONE_M11_WHOLE_ACTUAL_LIMIT.md)と新M11成分性でK。残f=z²+u全A10及びdegree3未処理源はB。β(c)零をmembershipとしない |
 | A=c=0 | 以下の全symplectic延長でK/Ø/B混合。全点をbeta零／Q45に制限しない |
 | 別の横断条件[J,Q]=0 | **B**。remaining §4の全Lie4源＋全Q。固定評価β像≤12だけ。上の型と重複する必要sourceとして全係数を保持 |
 
@@ -132,15 +132,20 @@ translation二22閉包、j21(h,x)、j21(0,h+x)の全n6補集合、p0→T06の全
 
 jointSSrank一の全B1/B2/B3は[実全曲線](TWO_QUADRICS_JOINT_SS_RANK1_ACTUAL_CONFLUENCE.md)と別作者receiptにより**K=T16/T17**となった。B1の全六自由、B2のn0零/非零全七、B3のn1零/非零全五を戻し、全unit零はproper factor又は既planeへ送る。相異二quadric条件外のhF²を対象源として残さない。
 
-| 依然Bのpure-nil factor-specific入口 | fullsource／必要unit |
-|---|---|
-| 型1 regular c0 | [PURE_NIL §2](TWO_QUADRICS_PURE_NILPOTENT_SUPPORT.md)：n12=−1/2,n10=0、n0≠0、n0,n3,n4＋実N² undo n5。Pf=I2²/48−n0w²/2 |
-| 型4 | [NIL31_SHORT](HYPERPLANE_QUARTIC_NIL31_SHORT_SUPPORT.md)：全factor-twoQ源≤23。quartic既約のKを全factor枝へ外挿しない |
-| 型7 | [NIL22_LONG_SUPPORT_REVIEW](HYPERPLANE_QUARTIC_NIL22_LONG_SUPPORT_REVIEW.md)：全20potential/670lift/criticalcore、≤24 |
-| 型10 top2 | [PURE_NIL §6](TWO_QUADRICS_PURE_NILPOTENT_SUPPORT.md)：全canonical三parameterδ,a≠0,κ、Pf=δR²/2+az²、≤24 |
+純nilの型一は[全T20曲線](TWO_QUADRICS_REGULAR_NIL_WHOLE_T20_CONFLUENCE.md)、型十は[全T17曲線](TWO_QUADRICS_TRANSLATED_MINIMAL_WHOLE_T17_CONFLUENCE.md)でK。型四は全actualPfの一次因子又は絶対既約quarticにより本HQQ対象ではØ。全C/B/kappaの零補集合を戻す。
 
+| 依然Bのpure-nil型七 | 全source／未認識代表 |
+|---|---|
+| rank1/active-u | 全BはtruecoupledT17全曲線でK |
+| rank1/active-v | **全K=T18**。[全c非零/B自由のtrueT18曲線](TWO_QUADRICS_NIL22_ACTIVE_V_WHOLE_T18_CONFLUENCE.md)。period二次項がB全域を動かし、B0も同じ式で保持 |
+| rank2 | core(eta,xi)=(0,0),(-1/4,0),(1/12,xi²=−1/432)の三源。各全sはs1一actual orbitとs0閉境界。xi両符号はactual r−1で同一 |
+
+[全20potential→五source](TWO_QUADRICS_NIL22_LONG_FIVE_WHOLE_SOURCES.md)／
+[別作者全源review](TWO_QUADRICS_NIL22_LONG_FIVE_SEPARATE_REVIEW.md)によりactive-vは後続1103で全T18へ入ったため、必要な未認識親はrank2三actual orbitだけである。
+Hessian0/各factorrow0/q−1/2/相異性c0は全因子条件でØ、rank2 lowerは全二factorの可逆rowから一意復元する。
+単にHquartic七源の既約性を別因子型へ外挿していない。
 A1はØ、A2はplaneK、pure-nil2/3/5/8はØ、6/9はplaneK。
-これらは可約Dのfactor-specific義務であり、以下の既約D全被覆では消えない。
+これらは可約Dのfactor-specific義務であり、以下の既約D全被覆とは別である。
 
 ## 5. 非plane導手曲面：全次数・全restriction rankはK又はØ
 
@@ -222,12 +227,12 @@ claim1084により**被約既約非正規actualDは全点K**である。
 | 優先lane | 残るwhole source | 最弱の必要結果 |
 |---|---|---|
 | E-ORBIT | nilshort r2/3、Ga9linear-w、stable二、plane1+1+3三 | 既actual全源の陽性confluence、又は全源閉包の成分性・全prior相違。既陰性点を増殖しない |
-| E-FACTOR-TWOQ | pure-nil1/4/7/10等factor-specific H+二Q | 相異二既約Qの元条件を戻して全源認識。jointSSrank1は新T16/T17で閉じたので再開しない |
-| E-LOW-MODULAR | long g0・定数g/H3共鳴、A0/c≠0、A=c0最高部六閉包の全低次延長、横断[J,Q]0 | 全constant/linear/quadratic源と元Jacobiの空性又は親。非定数long/shortは新25で閉じ、shortの他源は対応longへ還元しただけ |
+| E-FACTOR-TWOQ | pure-nil7のrank2三core、計三actual軌道 | 三actual orbitへの陽性親又は全成分性。型1全T20、型10全T17、型7active-u全T17/active-v全T18、型4全Ø、jointSSrank1全T16/T17を再開しない |
+| E-LOW-MODULAR | A0 degree≤2のsource IIIとdegree3残源、A=c0最高部六閉包の全低次延長、横断[J,Q]0 | 全constant/linear/quadratic源と元Jacobiの空性又は親。全rank1 c非imageのlong/short十七源は全K。新25の五支持成分に正則/uniqueを足さず、A0 sourceI/IIもKとして再開しない |
 | E-DEPENDENCY-AUDIT | 上表の重複する可約/nonred全源 | 一方への全包含を証明すれば重複義務を消せるが、固定β像のproper性をmembershipとしない |
 
 全nonplane、全rankzero-plane、全ranktwo-planeの既約D枝を未解決laneとして重複計上しない。
-次候補三つの25成分、cut後の新曲線/新親は本稿へ未採用。
+本cutは142/1108でseal。これ以降の新成果は次cutとし、本inventoryへ自動反映しない。
 
 ## 9. G93入口の全34採録recordとのcrosswalk
 
@@ -346,3 +351,46 @@ Fu-onlyを落としたquadriccone旧V1及びsmoothscroll旧四族whole-coverは�
 A25とconcurrent、tangentとS5の見かけ循環は独立actualT37曲線・QuotT40曲線へ展開して解消した。
 [独立32-file合成receipt](inputs/irreducible_nonnormal_quintic_whole_composition_separate_review_manifest_20261108.json)の全入口監査を使い、G上界からEを推測していない。
 このinventoryは新数学を再実行せず、全E・総成分上界・主分類未証明を保持する。
+
+## 10. 公開130/1084後の受理済み全source補完
+
+最終固定cutは142成分（rank4=136,rank2=6）／1108claims。全12追加成分と24追加claimsを反映する。
+
+| claim | 全源の現在の結論 |
+|---|---|
+| 1085 `R4_MODULAR_RANK1_LONG_CONST_MU1_25_COMPONENT` | 全fixed-long source Sは既約12、全StabX十及びscalar/唯一doubleHから実PGL飽和射影像閉包25。全150/350の独立同一点D100/Euler24により接上界25と一致してsmooth unique全成分。全prior129+新130及び三者相違をproper factor/同次元/固有μで証明。全源stabilizer下界と保存Mminorによりgeneric orbit 23、商2。 |
+| 1086 `R4_MODULAR_RANK1_LONG_CONST_MU13_25_COMPONENT` | 全fixed-long source Sは既約12、全StabX十及びscalar/唯一doubleHから実PGL飽和射影像閉包25。全150/350の独立同一点D100/Euler24により接上界25と一致してsmooth unique全成分。全prior129+新130及び三者相違をproper factor/同次元/固有μで証明。全源stabilizer下界と保存Mminorによりgeneric orbit 23、商2。 |
+| 1087 `R4_MODULAR_RANK1_LONG_ZERO_SCALAR_CUBIC_25_COMPONENT` | 全fixed-long source Sは既約12、全StabX十及びscalar/唯一doubleHから実PGL飽和射影像閉包25。全150/350の独立同一点D100/Euler24により接上界25と一致してsmooth unique全成分。全prior129+新130及び三者相違をproper factor/同次元/固有μで証明。全源stabilizer下界と保存Mminorによりgeneric orbit 21、商4。 |
+| 1088 `E_MODULAR_RANKONE_TRANSLATION_WHOLE_SEVENTEEN_SOURCE_REDUCTION` | 全Ug=dg,(U+1)H=Fgと全F六を保持。g零は全二変数affine場の全固有/Jordan/scalar/zeroeig/translation/全nilと九monomial重み支持から十三源。M2/M3は全六括弧と全逆で旧third/half25へ、M21はotherdouble-H Casimir/BV条件から旧15源n7unitへ、critical lambdaも全F族閉性でDDH25。三新25を受理後は八sourceclosed・九source未解決。 |
+| 1089 `E_TWO_QUADRICS_PURE_NIL_TYPE_SEVEN_WHOLE_FIVE_SOURCE_REDUCTION` | 元全二十sourceのnormalHessian rank零/一/二を全因子分岐で尽くす。rank一q−1/2空、q−1/4 activeu全Bは真completedT17の全period/pole相殺実曲線で被覆、activevはunit一軌道＋零境界。rank二q零は全core二式で三源、actualx/z affine-w平行移動で全lower一意復元、各全sはunit一軌道と零閉境界。残四actual軌道の親未認識。 |
+| 1090 `E_CONSTANT_MODULAR_DEGREE_TWO_WHOLE_FINITE_REDUCTION` | 全P=partial_t wedgeY+Jacf,divY=kappa,Yf=kappafを全actual affine/尺度で正常化。Hessian rank三と非零critical valueは空、f=z²全十六potentialはrawCB全g_e曲線、f=z全十六はrawCA全g_e曲線で全帰属。残はf=zw全十、zw+u全八、z²+u全十の必要十分source。全lower/zero/critical/Jacobian補償を保持し非線形Darboux同値を使わない。 |
+| 1091 `E_TWO_QUADRICS_PURE_NIL_ONE_FOUR_TEN_WHOLE_REDUCTION` | 型四の全十candidateは全Pf一次因子又は全絶対既約quarticで本対象空。型一C全actualshear後B零は全T39境界、Bunitは全明示尺度正逆で一軌道。型十κ零は全potential実曲線でMPS、κunitは全δ/a/κ正逆で一軌道。全元sourceと零補集合を戻し、残二orbit親は別未決。 |
+| 1092 `E_TWO_QUADRICS_REGULAR_NIL_WHOLE_T20_COVERAGE` | 真completedT20 p0=e,p1=e+sigma e²,t0=p1,t1=−p1と明示h-Casimir gauge/実frameからeK+sigma e²S。厳密nilflowと二translationで全六多項式Qeを得て中心P(A,B),A=3d²/2,B=sigma d/4。全Aunit/B/C/元normalizer逆、periodpole相殺・全150/126・正逆を保持し閉T20へ全型一sourceを被覆。 |
+| 1093 `R4_MODULAR_RANK1_GZERO_BINOMIAL_B2_25_COMPONENT` | 元全g零binomial B2 sourceはUの全固有frame/中心・H二unit係数と全F六を持つ既約12。全StabX十/唯一doubleHから全飽和像閉包25。固定同一点全150/350/126を独立Fraction再構成しD100/Euler24/M48からsmooth unique全25成分を証明。全prior133・残九源相互のproperfactor/essential/rank/markedSingplane条件で相違。全verticalPoisson場と保存minorによりgeneric軌道23/商2。 |
+| 1094 `R4_MODULAR_RANK1_GZERO_BINOMIAL_B4_25_COMPONENT` | 元全g零binomial B4 sourceはUの全固有frame/中心・H二unit係数と全F六を持つ既約12。全StabX十/唯一doubleHから全飽和像閉包25。固定同一点全150/350/126を独立Fraction再構成しD100/Euler24/M47からsmooth unique全25成分を証明。全prior133・残九源相互のproperfactor/essential/rank/markedSingplane条件で相違。全verticalPoisson場と保存minorによりgeneric軌道22/商3。 |
+| 1095 `R4_MODULAR_RANK1_GZERO_BINOMIAL_B5_25_COMPONENT` | 元全g零binomial B5 sourceはUの全固有frame/中心・H二unit係数と全F六を持つ既約12。全StabX十/唯一doubleHから全飽和像閉包25。固定同一点全150/350/126を独立Fraction再構成しD100/Euler24/M48からsmooth unique全25成分を証明。全prior133・残九源相互のproperfactor/essential/rank/markedSingplane条件で相違。全verticalPoisson場と保存minorによりgeneric軌道23/商2。 |
+| 1096 `R4_MODULAR_RANK1_GZERO_BINOMIAL_B6_25_COMPONENT` | 元全g零binomial B6 sourceはUの全固有frame/中心・H二unit係数と全F六を持つ既約12。全StabX十/唯一doubleHから全飽和像閉包25。固定同一点全150/350/126を独立Fraction再構成しD100/Euler24/M47からsmooth unique全25成分を証明。全prior133・残九源相互のproperfactor/essential/rank/markedSingplane条件で相違。全verticalPoisson場と保存minorによりgeneric軌道22/商3。 |
+| 1097 `E_TWO_QUADRICS_TRANSLATED_MINIMAL_WHOLE_T17_COVERAGE` | 真coupledT17 F=pAB+uH²,G=qCD+vFの全period/gauge/frame正逆を保持した実curveは全e多項式。det2e4とF/G pole相殺、constantxshiftにより中心が全型十(δ,a,κ),ρ²=−2δaへ一致。全δaunit/κzeroも同全source曲線と全normalizer逆で閉T17へ。 |
+| 1098 `E_CONSTANT_MODULAR_SOURCE_TWO_WHOLE_NEW25_COVERAGE` | 全A8はactualparaboloid translation/t shear/torus全正逆によりgeneric一modulus mへ。旧positive-weight6全source n0zero n1s n2rから全六raw/全inverseの実affine mapでsourceIIへ移り、m=−16384/(r²s²)がC*全体を走る。全A8regular性/閉PGL親から全zero補集合と全元frameもR4_POSITIVE_WEIGHT6_25へ。 |
+| 1099 `R4_MODULAR_RANK1_GZERO_B1_25_COMPONENT` | 元全g零 B1 sourceは既約12/全飽和像25。既同一点D98の全kernelに実全source微分と全作用F50を戻し、真normal2と実50cutを構成。全350quadratic真余核とφD全150零、固定degree d+1の全monomial idealmembershipからnormal初期支持が原点。Krull rawdim上界50と全source下界50から全Zが25次元成分。全prior及び九源相互のproper不変量で相違。generic軌道23/商2は全sourcevertical場と既Mminorから。 |
+| 1100 `R4_MODULAR_RANK1_GZERO_B3_25_COMPONENT` | 元全g零 B3 sourceは既約12/全飽和像25。既同一点D99の全kernelに実全source微分と全作用F50を戻し、真normal1と実50cutを構成。全350quadratic真余核とφD全150零、固定degree d+1の全monomial idealmembershipからnormal初期支持が原点。Krull rawdim上界50と全source下界50から全Zが25次元成分。全prior及び九源相互のproper不変量で相違。generic軌道22/商3は全sourcevertical場と既Mminorから。 |
+| 1101 `R4_MODULAR_RANK1_GZERO_V1_25_COMPONENT` | 元全g零 V1 sourceは既約12/全飽和像25。既同一点D99の全kernelに実全source微分と全作用F50を戻し、真normal1と実50cutを構成。全350quadratic真余核とφD全150零、固定degree d+1の全monomial idealmembershipからnormal初期支持が原点。Krull rawdim上界50と全source下界50から全Zが25次元成分。全prior及び九源相互のproper不変量で相違。generic軌道21/商4は全sourcevertical場と既Mminorから。 |
+
+1089の四軌道残余も採録時scopeであり、1103のactive-v全T18を接続した現在はrank2三coreのみが未認識である。
+1088の「八closed/九残」は当時の採録時scopeであり、現在は1093–1096/1099–1101及び1105–1108を接続して全十七closedとなる。
+新normalizer/conductor-plane noteによるplane三配置の全三lambda線還元は有限入口のみ。named親の陽性被覆はなお未解決である。
+B1/B3/V1は真F50/全quadratic余核/切片支持、M1/M11は閉L外の全大域像≤25からの成分性だけで、旧接次元27/26/26/28/27は不変。全五例のsmooth/uniqueは不明。
+全E・総上界・主分類TARGETは未証明のまま保持する。
+
+| 最終追加claim | cut1108で使う全点結論 |
+|---|---|
+| 1102 `E_CONSTANT_MODULAR_SOURCE_ONE_WHOLE_M11_IMAGE_REDUCTION` | 全A10はαunit上の実u平行移動とt/u同時尺度でα一/βγδ零と任意Fへ。M11 λ=epsilon^(-1),τ=epsilon^(-3),Fold=F/epsilon³及びactual t=epsilon²y,u=epsilon x+epsilon^(-1)の全六polynomial曲線中心が指定I源。全F/αzero/元frameを閉像性で戻しM11実飽和閉包へ包含。 |
+| 1103 `E_TWO_QUADRICS_NIL22_ACTIVE_V_WHOLE_T18_COVERAGE` | 真T18の非monomial補正を全periodで保ち、principalnil実frameとperiod二次項で全六degree三以下のpolynomial曲線を構成。中心c=−alpha²/4,B=2alpha betaが全cunit/Bzeroも覆い、全150/126/正逆/rawEuler/period開を戻して全型七active-v族を閉T18へ。 |
+| 1104 `E_TWO_LINES_PLANE_CUBIC_THREE_WHOLE_MAGNETIC_LINE_REDUCTION` | actual有限shearの全六像と両逆を戻し、node/cuspflex全R6を独立二係数Ih²+Jhyへ正則還元。Junitは全lambda h²+hy線へ、第三接線割線は既3(lambda h²+y²)線へ。元A6regular性から各whole閉像が元全source飽和閉包を覆い、unitzero補集合も保持。 |
+| 1105 `E_RANKFOUR_OUTSIDE_LOW_MODULAR_FLAG_GLOBAL_DIMENSION_BOUND` | rank四開のL={some ell²|D,rank N_ell≤1}はcanonicaldivfree lift/全factor旗の正則除算とproper射影で閉。全被約/非重複H支持は全pointwise又は全画像≤24/MPS、重複Hは全90/PfQ0 sourceの全Jordan/cokerを保持。A0/rank1cimageをLへ、rank>=3非nilとSS2を全MPS、nil3とnil2全五型はsource+fieldorbit+H4−scale≤25。nil22image全11の9変数二源はweightedGL2のparameter-preservingC* freefirstfactorfiberで4+9−1=12へ修復。rank1coutside全17も≤25。有限全閉像からL外全component dim≤25。 |
+| 1106 `R4_MODULAR_RANK1_GZERO_M1_25_COMPONENT` | 全original M1 sourceの実飽和閉包Zは既約・正確25。genericDの唯一multipleH=hでN_h=h partial_x+x partial_yはrank二だからclosedL外。Zを含む全component Cは新全case theoremでdimC≤25=dimZ、従ってC=Z。全prior/相互相違は既properfactor/markedrank監査。全sourcePoisson場と同保存Mminorでgenericorbit23/商2。 |
+| 1107 `R4_MODULAR_RANK1_GZERO_M11_25_COMPONENT` | 全original M11 sourceの実飽和閉包Zは既約・正確25。genericDの唯一multipleH=hでN_h=h partial_x+x partial_yはrank二だからclosedL外。Zを含む全component Cは新全case theoremでdimC≤25=dimZ、従ってC=Z。全prior/相互相違は既properfactor/markedrank監査。全sourcePoisson場と同保存Mminorでgenericorbit22/商3。 |
+| 1108 `E_MODULAR_RANKONE_TRANSLATION_WHOLE_KNOWN_COMPONENT_COVERAGE` | 元全Ug=dg,(U+1)H=Fg/F6を保持する十七源の各fullsourceは、非定数g新25、定数g/noH3旧NEW25、二共鳴/SC新三、M2/M3/M21旧third/half/DDH、binomialB1..B6/V1新七、M1/M11新二の各全閉成分に入る。全shortは分母なし実curveで同じgの有限long閉和へ、全lambda非零からlambda零を戻す。全unit/重根/zeroeig/translation/H3zero/Fを落とさずrank一c非imageの全点Eを閉じる。 |
+
+L={ある重複Hのcanonical modular Nがrank≤1}はrank4開内で閉。[全case独立査読](RANK_FOUR_OUTSIDE_LOW_MODULAR_FLAG_SEPARATE_REVIEW.md)は、nil22imageの全11源と二つのCstar自由firstfactor fiberによりfixed-source≤12を修復する。βの非優越を全像上界へ流用していない。L外全成分≤25は全E又は全space≤25を主張せず、CA/CB28はL内である。
+M1/M11の全成分採録をsourceIのredirectへ接続して初めてsourceI全点Kとなった。sourceIIIとdegree3等の残るconstant-modular／unimodular大源はL内に保ち、総上界又は分類TARGETの完成とはしない。

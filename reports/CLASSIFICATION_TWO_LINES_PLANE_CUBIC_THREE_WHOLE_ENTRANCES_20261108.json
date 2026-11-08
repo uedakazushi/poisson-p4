@@ -1,0 +1,212 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "all_passed": true,
+  "status": "ONE_whole3_normalization_and_conductor_entrance_readback_PASS",
+  "exact_input_bindings": [
+    {
+      "path": "reports/CLASSIFICATION_TWO_LINES_PLANE_CUBIC_20261107.json",
+      "sha256": "f0ec94367063e9fe85c053352672e23f9fe4c01267205bedceec2ee9ac908e3a"
+    },
+    {
+      "path": "research/classification/TWO_LINES_PLANE_CUBIC_THREE_MAGNETIC_QUOTIENTS.md",
+      "sha256": "2612d288533d6986fcd3859dc3079860aea10d57098f1357c98fd4e0ad2e4f6a"
+    },
+    {
+      "path": "research/classification/TWO_LINES_PLANE_CUBIC_CONDUCTOR_PLANE_ENTRANCE.md",
+      "sha256": "05af67c9287c2d3fdb791c3d471e5ca062d163f5af9c1640ce578cf4aaae9775"
+    },
+    {
+      "path": "research/classification/TWO_LINES_CUSP_TANGENT_SECANT_MAGNETIC_NORMAL_FORM.md",
+      "sha256": "0bf27ce8f0be30fbbbc887001fc7c3776620a9f6349dce27b624006c9505ce09"
+    }
+  ],
+  "executed_job_sha256": "b93650747037db798ae34eda3d4b2476fa45142812f5ea9a1f4174686468981c",
+  "caller_source": "import sys,json,hashlib,time,resource,ast,traceback\nfrom pathlib import Path\nimport sympy as s\nresource.setrlimit(resource.RLIMIT_CPU,(85,90));resource.setrlimit(resource.RLIMIT_AS,(1024**3,1024**3))\nstart=time.monotonic();ROOT=Path.cwd();JOB=ROOT/'research/classification/jobs/two_lines_plane_cubic_three_whole_entrances.json';OUTPUT=ROOT/'reports/CLASSIFICATION_TWO_LINES_PLANE_CUBIC_THREE_WHOLE_ENTRANCES_20261108.json'\nassert not OUTPUT.exists();job=json.loads(JOB.read_text())\nfor q in job['exact_inputs_and_hashes']:assert hashlib.sha256((ROOT/q['path']).read_bytes()).hexdigest()==q['sha256']\nX=s.symbols('h x y z w');h,x,y,z,w=X;rv=s.symbols('r0:6');I,J=s.symbols('I J');lam=s.symbols('lambda');Y=s.symbols('a b c u v');a,b,c,u,v=Y\nloc={str(t):t for t in X+rv};rows=json.load(open(ROOT/'reports/CLASSIFICATION_TWO_LINES_PLANE_CUBIC_20261107.json'))['cases'];checks=[]\ndef checked(label,q):\n assert q,label\n checks.append(label)\ndef matrix(d):\n P=s.zeros(5)\n for k,f in d.items():\n  i,j=ast.literal_eval(k);P[i,j]=s.sympify(f,locals=loc);P[j,i]=-P[i,j]\n return P\ndef eq(A,B,label):\n dif=(A-B).applyfunc(s.cancel)\n checked(label,all(t==0 for t in dif));return 150\n\ndef push(P,M,old=X,new=X,inv=None):\n if inv is None:inv=M.inv()\n sub=dict(zip(old,inv*s.Matrix(new)))\n return (M*P.subs(sub,simultaneous=True)*M.T).applyfunc(s.expand)\ndef pf4(Q):return s.expand(Q[0,1]*Q[2,3]-Q[0,2]*Q[1,3]+Q[0,3]*Q[1,2])\ndef D(P,Z=X):return s.expand(sum((-1)**i*Z[i]*pf4(P.extract([j for j in range(5) if j!=i],[j for j in range(5) if j!=i])) for i in range(5)))\ndef six(U,V,d,R):\n P=s.zeros(5)\n for i in [1,2]:P[i,3]=U[i-1];P[3,i]=-U[i-1];P[i,4]=V[i-1];P[4,i]=-V[i-1]\n P[3,4]=-d*w+R;P[4,3]=-P[3,4];return P\n\ndef setpair(P,i,j,q):P[i,j]=q;P[j,i]=-q\n\ndef weightzero(P):\n Q=s.zeros(5)\n for i in range(5):\n  for j in range(i+1,5):\n   q=sum(co*s.prod(t**e for t,e in zip(Y,mon)) for mon,co in s.Poly(P[i,j],*Y).terms() if co!=0 and mon[3]+mon[4]==int(i>=3)+int(j>=3))\n   setpair(Q,i,j,q)\n return Q\n\ndef normalorder(F):\n terms=[(m,co) for m,co in s.Poly(F,*Y).terms() if co!=0];d=min(m[3]+m[4] for m,co in terms)\n leading=s.expand(sum(co*s.prod(t**e for t,e in zip(Y,m)) for m,co in terms if m[3]+m[4]==d));return d,leading\nperm=s.zeros(5)\nfor i,j in enumerate([2,3,4,0,1]):perm[i,j]=1\nE=s.Matrix(Y);W=s.Matrix([0,0,2*a,0,0]);gauge=E*W.T-W*E.T\ncommon=s.zeros(5);setpair(common,0,2,-a*a);setpair(common,1,2,2*a*b);setpair(common,3,2,2*a*u)\nrecords=[]\ntry:\n for kind in ['node','cusp']:\n  name={'node':'node_flex_tangent_through_flex','cusp':'cusp_flex_secant_through_flex'}[kind];row=next(q for q in rows if q['case']==name);original=matrix(row['full_six_magnetic_source'])\n  if kind=='node':\n   initial=s.diag(1,1,1,s.Rational(7,5),s.Rational(20,7));scale=s.Rational(1,140);factor=4\n   U=[2*x*(x-h),y*(3*x-h)];V=[-2*x*y,2*x*(h-x)-3*y*y];d=x-h;C=h*y*y-x*(x-h)**2\n  else:\n   initial=s.diag(1,1,1,s.Rational(7,5),s.Rational(30,7));scale=s.Rational(1,210);factor=6\n   U=[2*x*(x+h),3*x*y];V=[2*x*y,3*(y*y-(h+x)**2)];d=x;C=h*y*y-(x+h)**3\n  r=[factor*q for q in rv];R=sum(t*q for t,q in zip(r,[h*h,h*x,h*y,x*x,x*y,y*y]));P=scale*push(original,initial)\n  eq(P,six(U,V,d,R),kind+'_constant_frame_all150')\n  eq(push(P,initial.inv())/scale,original,kind+'_constant_frame_inverse_all150')\n  checked(kind+'_actual_signed_pf',s.expand(D(P)+factor*h*x*C)==0)\n  oldD=s.sympify(row['actual_degeneracy_quintic'],locals=loc)\n  checked(kind+'_original_signed_pf',s.expand(D(original)-oldD)==0)\n  checked(kind+'_constant_frame_pf_covariance',s.expand(D(P)-scale**2*initial.det()*oldD.subs(dict(zip(X,initial.inv()*s.Matrix(X))),simultaneous=True))==0)\n  if kind=='node':ell=r[4]*x/2+r[5]*y/3;k=-(r[1]+r[3])*h+(r[3]-2*r[5]/3)*x;ii=r[0]+r[1]+r[3]\n  else:ell=-r[4]*x/2-r[5]*y/3;k=(2*r[3]-r[1])*h+(r[3]+r[5])*x;ii=r[0]+r[5]\n  jj=r[2];M=s.eye(5)\n  for j,t in enumerate(X[:3]):M[3,j]=s.diff(ell,t);M[4,j]=s.diff(k,t)\n  inverse=2*s.eye(5)-M\n  checked(kind+'_shear_det1',s.expand(M.det())==1);checked(kind+'_both_matrix_inverse',M*inverse==s.eye(5) and inverse*M==s.eye(5))\n  Q=push(P,M,inv=inverse);target=six(U,V,d,ii*h*h+jj*h*y);eq(Q,target,kind+'_whole_shear_all150');eq(push(Q,inverse,inv=M),P,kind+'_whole_shear_inverse_all150')\n  Sc=s.diag(1,1,1,1/jj,1/jj);L=jj*push(Q,Sc,inv=s.diag(1,1,1,jj,jj));eq(L,six(U,V,d,lam*h*h+h*y).subs(lam,ii/jj),kind+'_whole_lambda_all150');eq(push(L/jj,s.diag(1,1,1,jj,jj),inv=Sc),Q,kind+'_whole_lambda_inverse_all150')\n  independent=six(U,V,d,I*h*h+J*h*y);reordered=push(independent,perm,new=Y,inv=perm.T)\n  actual=reordered+gauge if kind=='node' else -reordered+gauge\n  expected=s.zeros(5)\n  if kind=='node':pairs={(0,1):a*(3*v-u),(0,2):-a*a+2*u*v-2*v*v,(1,2):2*a*b+(u-v)*c+I*u*u+J*u*a,(3,2):2*a*u,(4,1):2*v*(v-u)}\n  else:pairs={(0,1):-3*a*v,(0,2):-a*a+3*(u+v)**2,(1,2):2*a*b+v*c-I*u*u-J*u*a,(3,2):2*a*u,(4,1):-2*v*(v+u)}\n  for ij,q in pairs.items():setpair(expected,*ij,q)\n  eq(actual,expected,kind+'_whole_Euler_reorder_all150');eq(weightzero(actual),common,kind+'_same_existing_P0')\n  dg=D(actual,Y);n,lead=normalorder(dg);checked(kind+'_conductor_m3',n==3);checked(kind+'_whole_leading',s.expand(lead+factor*a*a*u*u*v)==0)\n  checked(kind+'_Euler_keeps_signed_Pf',s.expand(dg-D(reordered,Y))==0)\n  records.append({'case':name,'all6_original_source_retained':True,'initial_frame':[[str(t) for t in Mrow] for Mrow in initial.tolist()],'tensor_scale':str(scale),'normalized_magnetic_coefficients':[str(t) for t in r],'I':str(ii),'J':str(jj),'ell':str(ell),'k':str(k),'full_shear_inverse':'2I-M','whole_lambda':str(ii/jj),'conductor_normal_order':n,'actual_leading':str(lead),'signed_actual_D':str(dg),'canonical_P0':'LOG_e2 alpha=gamma=delta=0','higher_coefficients_I_J_independent':True})\n row=next(q for q in rows if q['case']=='cusp_cusp_tangent_cusp_secant');original=matrix(row['full_six_magnetic_source']);R=sum(t*q for t,q in zip(rv,[h*h,h*x,h*y,x*x,x*y,y*y]));ell=(rv[3]+rv[2])*x/2+rv[4]*y/4;k=(-3*rv[1]-s.Rational(3,2)*rv[3]+s.Rational(9,2)*rv[2])*x-rv[2]*y\n M=s.eye(5)\n for j,t in enumerate(X[:3]):M[3,j]=s.diff(ell,t);M[4,j]=s.diff(k,t)\n inverse=2*s.eye(5)-M;Q=push(original,M,inv=inverse)\n target=six([-h*x,3*(h-x)**2-3*h*y],[3*h*x-3*x*x,-9*x*y],0,3*x*z+3*((rv[0]+rv[2])*h*h+rv[5]*y*y))\n eq(Q,target,'third_existing_whole_normalizer_all150');eq(push(Q,inverse,inv=M),original,'third_existing_whole_inverse_all150')\n independent=six([-h*x,3*(h-x)**2-3*h*y],[3*h*x-3*x*x,-9*x*y],0,3*x*z+3*(J*h*h+I*y*y))\n actual=push(independent,perm,new=Y,inv=perm.T);expected=s.zeros(5)\n pairs={(0,1):3*(u-v)**2-3*u*a,(0,2):-9*v*a,(1,2):3*v*b+3*J*u*u+3*I*a*a,(4,1):-u*v,(4,2):3*u*v-3*v*v}\n for ij,q in pairs.items():setpair(expected,*ij,q)\n eq(actual,expected,'third_whole_reorder_all150');zero=s.zeros(5);setpair(zero,1,2,3*I*a*a);eq(weightzero(actual),zero,'third_existing_TRIPLE_ZERO_P0')\n n,lead=normalorder(D(actual,Y));checked('third_whole_m4_not_m3',n==4);checked('third_whole_31_leading',s.expand(lead+9*a*u**3*v)==0);checked('third_whole_actual_Pf',s.expand(D(actual,Y)+9*u*v*(u*u*a-(u-v)**3))==0)\n records.append({'case':row['case'],'all6_original_source_retained':True,'I':str(rv[5]),'J':str(rv[0]+rv[2]),'ell':str(ell),'k':str(k),'conductor_normal_order':n,'actual_leading':str(lead),'signed_actual_D':str(D(actual,Y)),'canonical_P0':'TRIPLE_ZERO with I nonzero; I0 original source retained'})\n source=Path(__file__).read_text();data={'task_id':'E_reduced_nonnormal','all_passed':True,'status':'ONE_whole3_normalization_and_conductor_entrance_readback_PASS','exact_input_bindings':job['exact_inputs_and_hashes'],'executed_job_sha256':hashlib.sha256(JOB.read_bytes()).hexdigest(),'caller_source':source,'caller_source_sha256':hashlib.sha256(source.encode()).hexdigest(),'cases':records,'checks':checks,'new_operator_kernel_minor_point_profile_jet_GB_count':0,'new_component_or_known_parent_proved':False,'inverse_zero_complements_preserved':['first_two_J0','third_I0'],'old_sources_main_frontier_global_unchanged':True,'seconds':time.monotonic()-start,'maximum_RSS_KiB':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss}\n OUTPUT.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\\n');print('PASS',len(checks),data['seconds'],data['maximum_RSS_KiB'],flush=True)\nexcept Exception:\n fail=OUTPUT.with_name(OUTPUT.stem+'_FAILURE.json');assert not fail.exists();fail.write_text(json.dumps({'task_id':'E_reduced_nonnormal','all_passed':False,'checks_completed':checks,'traceback':traceback.format_exc(),'caller_source':Path(__file__).read_text(),'seconds':time.monotonic()-start},indent=2)+'\\n');raise\n",
+  "caller_source_sha256": "54e9d2e0ed664681c1c7439b935b7cc9b507d370ce711a32d1234f83f6d29161",
+  "cases": [
+    {
+      "case": "node_flex_tangent_through_flex",
+      "all6_original_source_retained": true,
+      "initial_frame": [
+        [
+          "1",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "7/5",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "20/7"
+        ]
+      ],
+      "tensor_scale": "1/140",
+      "normalized_magnetic_coefficients": [
+        "4*r0",
+        "4*r1",
+        "4*r2",
+        "4*r3",
+        "4*r4",
+        "4*r5"
+      ],
+      "I": "4*r0 + 4*r1 + 4*r3",
+      "J": "4*r2",
+      "ell": "2*r4*x + 4*r5*y/3",
+      "k": "h*(-4*r1 - 4*r3) + x*(4*r3 - 8*r5/3)",
+      "full_shear_inverse": "2I-M",
+      "whole_lambda": "(4*r0 + 4*r1 + 4*r3)/(4*r2)",
+      "conductor_normal_order": 3,
+      "actual_leading": "-4*a**2*u**2*v",
+      "signed_actual_D": "-4*a**2*u**2*v + 4*u**3*v**2 - 8*u**2*v**3 + 4*u*v**4",
+      "canonical_P0": "LOG_e2 alpha=gamma=delta=0",
+      "higher_coefficients_I_J_independent": true
+    },
+    {
+      "case": "cusp_flex_secant_through_flex",
+      "all6_original_source_retained": true,
+      "initial_frame": [
+        [
+          "1",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "7/5",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "30/7"
+        ]
+      ],
+      "tensor_scale": "1/210",
+      "normalized_magnetic_coefficients": [
+        "6*r0",
+        "6*r1",
+        "6*r2",
+        "6*r3",
+        "6*r4",
+        "6*r5"
+      ],
+      "I": "6*r0 + 6*r5",
+      "J": "6*r2",
+      "ell": "-3*r4*x - 2*r5*y",
+      "k": "h*(-6*r1 + 12*r3) + x*(6*r3 + 6*r5)",
+      "full_shear_inverse": "2I-M",
+      "whole_lambda": "(6*r0 + 6*r5)/(6*r2)",
+      "conductor_normal_order": 3,
+      "actual_leading": "-6*a**2*u**2*v",
+      "signed_actual_D": "-6*a**2*u**2*v + 6*u**4*v + 18*u**3*v**2 + 18*u**2*v**3 + 6*u*v**4",
+      "canonical_P0": "LOG_e2 alpha=gamma=delta=0",
+      "higher_coefficients_I_J_independent": true
+    },
+    {
+      "case": "cusp_cusp_tangent_cusp_secant",
+      "all6_original_source_retained": true,
+      "I": "r5",
+      "J": "r0 + r2",
+      "ell": "r4*y/4 + x*(r2 + r3)/2",
+      "k": "-r2*y + x*(-3*r1 + 9*r2/2 - 3*r3/2)",
+      "conductor_normal_order": 4,
+      "actual_leading": "-9*a*u**3*v",
+      "signed_actual_D": "-9*a*u**3*v + 9*u**4*v - 27*u**3*v**2 + 27*u**2*v**3 - 9*u*v**4",
+      "canonical_P0": "TRIPLE_ZERO with I nonzero; I0 original source retained"
+    }
+  ],
+  "checks": [
+    "node_constant_frame_all150",
+    "node_constant_frame_inverse_all150",
+    "node_actual_signed_pf",
+    "node_original_signed_pf",
+    "node_constant_frame_pf_covariance",
+    "node_shear_det1",
+    "node_both_matrix_inverse",
+    "node_whole_shear_all150",
+    "node_whole_shear_inverse_all150",
+    "node_whole_lambda_all150",
+    "node_whole_lambda_inverse_all150",
+    "node_whole_Euler_reorder_all150",
+    "node_same_existing_P0",
+    "node_conductor_m3",
+    "node_whole_leading",
+    "node_Euler_keeps_signed_Pf",
+    "cusp_constant_frame_all150",
+    "cusp_constant_frame_inverse_all150",
+    "cusp_actual_signed_pf",
+    "cusp_original_signed_pf",
+    "cusp_constant_frame_pf_covariance",
+    "cusp_shear_det1",
+    "cusp_both_matrix_inverse",
+    "cusp_whole_shear_all150",
+    "cusp_whole_shear_inverse_all150",
+    "cusp_whole_lambda_all150",
+    "cusp_whole_lambda_inverse_all150",
+    "cusp_whole_Euler_reorder_all150",
+    "cusp_same_existing_P0",
+    "cusp_conductor_m3",
+    "cusp_whole_leading",
+    "cusp_Euler_keeps_signed_Pf",
+    "third_existing_whole_normalizer_all150",
+    "third_existing_whole_inverse_all150",
+    "third_whole_reorder_all150",
+    "third_existing_TRIPLE_ZERO_P0",
+    "third_whole_m4_not_m3",
+    "third_whole_31_leading",
+    "third_whole_actual_Pf"
+  ],
+  "new_operator_kernel_minor_point_profile_jet_GB_count": 0,
+  "new_component_or_known_parent_proved": false,
+  "inverse_zero_complements_preserved": [
+    "first_two_J0",
+    "third_I0"
+  ],
+  "old_sources_main_frontier_global_unchanged": true,
+  "seconds": 0.5219260529993335,
+  "maximum_RSS_KiB": 50596
+}

@@ -1,0 +1,43 @@
+{
+  "task_id": "E_multiple_hyperplane",
+  "status": "PRODUCER_PURE_PROOF_COMPLETE",
+  "scope": "Whole constant nonzero modular source with irreducible singular ternary highest cubic; full lower terms retained",
+  "new_arithmetic_run": false,
+  "normal_forms": [
+    "c*(x^3+y^3+x*y*z), c!=0",
+    "c*(x^2*z-y^3), c!=0"
+  ],
+  "node": {
+    "full_quadratic_syzygy_parameters": 4,
+    "divergence": "-(c+k)*z",
+    "divzero_Hamiltonian": "gradF cross grad(h*x-b*y+c*z)",
+    "linear_stabilizer": "0"
+  },
+  "cusp": {
+    "full_quadratic_syzygy_parameters": 5,
+    "divergence": "-p*y-3*q*z",
+    "divzero_Hamiltonian": "gradF cross grad(m*x-n*y-l*z/2)",
+    "linear_stabilizer": "n*(x*d_x-2*z*d_z), trace=-n"
+  },
+  "whole_low_terms": "Actual linear t-shear by full f kills Y2; remaining trace-free stabilizer0 forces Y1=Euler/3; actual translation kills Y0, then Yf=f forces f pure degree3",
+  "known_parent_route": "Irreducible actual family (1+epsilon*t)*d_t wedge Euler/3+Jac(all ternary cubics) contains SNC5H, hence MPS40 closure",
+  "remaining": [
+    "All reducible/nonreduced highest cubics",
+    "Unimodular A=c=0 all h^5 source"
+  ],
+  "independent_acceptance": "Pending root/separate pure review",
+  "note": {
+    "path": "research/classification/CONSTANT_MODULAR_IRREDUCIBLE_SINGULAR_CUBIC_WHOLE_MPS.md",
+    "sha256": "f4386bea545ad142dd7b15a9e9bed12e8e524c5523a735df97f4105524f42365"
+  },
+  "inputs": [
+    {
+      "path": "research/classification/MULTIPLE_HYPERPLANE_LOW_RANK_MODULAR.md",
+      "sha256": "ba50a26afe5a5b4f240804e88ff060fee3ca3819263b15835a79d8dfea18d63c"
+    },
+    {
+      "path": "research/classification/REMAINING_DEGENERACY_DIVISOR_SUPPORT.md",
+      "sha256": "768caa162cad74f2fcad3a861e721f4d3d28b59226e6cedc7fcdd8272e5fdcab"
+    }
+  ]
+}

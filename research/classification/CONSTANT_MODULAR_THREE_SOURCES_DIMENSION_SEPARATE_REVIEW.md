@@ -1,0 +1,11 @@
+# constant modularの残三source：正確24次元像の独立査読
+
+2026-11-08、root、PRIMARY E。`CONSTANT_MODULAR_THREE_SOURCES_EXACT_DIMENSION.md` の全幾何次元を独立に手確認しPASSとする。新算術無し、成分性は条件付きのまま。
+
+fixed c=−∂tに対する全三sourceはtwisted Aff3作用f→det(G)f∘G−1で保存される。この作用の各f-stratumは一つの軌道である。Iは相異二affine因子の積で二つのradical-independent方向を持ち、f空間次元7。IIはquadratic Hessian rank二の5次元＋全linear三＋constant一で9、radical-linear非零を開条件として保つ。IIIはHessian rank一の3＋linear三＋constant一で7、同じ開条件を保つ。全quadraticの相対overall scaleもradical方向のGL尺度とdetで調整できるため、twisted作用によって源の一部だけを取っていない。
+
+旧全必要十分Y-fiberのdimension10/8/10は各fstratum上一定なので、全sourceは各既約17。PからYとJac(f)を復元でき、f定数差はYf=fにより零であるからsource mapはinjective。Aff4は20次元、非零constant cの軌道は4、Stab(c)は16、fixed-c全源はこの全stabilizerに不変である。各tensorのmodularを戻せばAff4×sourceのfiberは正確にStab(c)cosetなので、固定Hの全cone像は21次元。
+
+非零scalarはcも非零constantのままで全像を保つ。一般actualDはh³Q、QのrankはI/II/IIIで2/4/3、Qはhで割れないのでhは唯一triple factor。markedH incidenceのH-choice四、scalar射影化−1、markedH忘却はgeneric有限であり、各射影像閉包は正確24次元。三者が同じ24次元閉族ならgeneric Qrankが一致すべきなので相異なる像である。
+
+全150 raw liftの逆像はこのaffine cone25にEuler24を加えて49次元。各同源内固定点でD350×150のrank101が証明されれば全raw接次元49と一致してregular、smooth unique全24成分となる。D≤100ではその結論を出さず、同源の別pointへ進まず既知大きい親/全actual族認識へ戻す。現時点でその算術は未実行で、全成分性/既知成分からの相違は未証明。全E/上界未証明、新成分増分零。

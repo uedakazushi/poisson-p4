@@ -403,3 +403,19 @@ rank二閉条件、局所次元又は軌道次元、proper因子の閉条件、e
 ## rank一long非定数gの全源25次元成分
 
 `RANK_ONE_LONG_NONCONSTANT_COMPONENT_ENTRANCE.md` の全源12、Aff飽和22、唯一double-H incidenceから射影像閉包25を得る。全prior129のrank二六、次元24以下114、CA/CB二、nil31三、positive NEW25、被約generic MPS三を全proper factor条件で分離した。`RANK_ONE_LONG_NONCONSTANT_AMBIENT_SEPARATE_REVIEW.md` は同一点の全150/350/126と全D/Euler/Mを別Fractionで復元し100/24/47の上下界を確認した。全源下界25と接上界25が一致しsmooth unique全成分。`RANK_ONE_LONG_NONCONSTANT_GENERIC_ORBIT.md` は全源の二独立affine Poisson場から軌道上界22を示し、既minorでgeneric22/商三を得る。全下界130、rank四124/rank二6。一般G完了、全E/上界未証明。
+
+## rank一longの三つの追加25成分
+
+二つの非零定数g cubic共鳴mu一/三分の一及びg零scalar binary-cubicの全sourceは各既約12、全StabX十と唯一doubleHから実射影像25。`RANK_ONE_LONG_RESONANT_BINARY_CUBIC_ENTRANCE_SEPARATE_REVIEW.md` は全prior129+130/三者相違と全source逆を受理。`RANK_ONE_LONG_THREE_AMBIENT_SEPARATE_REVIEW.md` は元全sourceから同じ三点の全150/350/126/D/Euler/Mを独立Fractionで復元しD100/Euler24/M48,48,46を確認。全接上界25と下界25で各smooth unique全成分。全source stabilizerからgeneric orbit23/23/21、商2/2/4。全下界133、rank四127/rank二6。全E/上界未証明。
+
+## g零binomial B2/B4/B5/B6の四つのsmooth25成分
+
+`RANK_ONE_LONG_GZERO_SEVEN_ENTRANCE_SEPARATE_REVIEW.md` は全source12/飽和25、全prior133及び九族相互のmarkedfactor/Singplane/quadricrank/essentialrank相違を独立受理。`RANK_ONE_LONG_NINE_AMBIENT_SEPARATE_REVIEW.md` はB2/B4/B5/B6の同一点全150/350/126/D/Euler/Mを再構成し100/24/48,47,48,47を確認。全接上界25と全源下界25が一致し各smooth unique全成分。全source vertical場と既Mminorからgeneric orbit23/22/23/22、商2/3/2/3。残M1/M11/B1/B3/V1は未決として保持。全下界137/rank四131/rank二6、全E/上界未証明。
+
+## g零B1/B3/V1：真のquadratic支持から三25成分
+
+独立 `RANK_ONE_FIVE_QUADRATIC_SUPPORT_SEPARATE_REVIEW.md` は元全canonical source微分と旧actualMを戻してF50/DF零を確認し、全D kernelの実50cut/normal2,1,1/全350quadratic余核/φD全150零を再構成。B1 degree三Macaulay全4monomial、B3 q=−t²/2、V1 q=−12t²の明示liftで全初期支持原点。cut後dim零→rawdim≤50と全源下界50により各全成分。smooth/局所uniqueは主張しない。全prior/九源相違と全source stabilizerからgenericorbit23/22/21、商2/3/4。M1 normalplane/M11二C線の非閉はそのまま保存しactualhigher未決。全下界140/rank四134/rank二6、全E/上界未証明。
+
+## M1/M11：閉low-modular旗外の全次元上界から二25成分
+
+`RANK_FOUR_OUTSIDE_LOW_MODULAR_FLAG_SEPARATE_REVIEW.md` は全reduced sourceの全像上界と全nonredHの90係数/PfQ0全Jordan/coker inventoryを独立査読。低rank旗Lをproper incidenceで閉じ、nil22image両9変数源のweightedGL2 C* fiberを修復して全fixedsource≤12、L外全component≤25。M1/M11はunique multiplehのNrank2でL外、全像正確25だから各fullcomponent。旧接28/27とquadratic正次元は保持しsmooth/unique/fullnilを主張しない。全generic軌道23/22、商2/3。これで全17long/全short pointwise被覆完了。全下界142/rank四136/rank二6、全E/総上界未証明。

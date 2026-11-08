@@ -1,0 +1,34 @@
+{
+  "task_id": "E_multiple_hyperplane",
+  "target_statement": "Prove that each of the three remaining constant-modular low-degree whole sources has an irreducible PGL-saturated projective image closure of exactly dimension24, retaining all original coefficients.",
+  "implication_to_classification": "Provides a rigorous finite ambient-component criterion for one fixed witness per complete source, or a dimension-preserving known-parent problem if no tangent24 certificate is obtained. No component is claimed here.",
+  "coefficient_ring": "Pure complex affine/PGL geometry; no operator, rank, minor or point calculation.",
+  "hypotheses": "Accepted necessary-and-sufficient constant-modular degree<=2 reduction, sources I/II/III of fixed-f dimensions10/8/10, kappa nonzero, all Y/P coefficients preserved.",
+  "inverted_elements": [
+    "No new source unit. c!=0 and nonzero quadratic-rank/linear-radical domain hypotheses are retained."
+  ],
+  "complements": [
+    "Every parameter zero in the fixed normal forms remains in the full affine source.",
+    "The three f strata are the entire rank2 critical-zero, rank2 noncritical and rank1 noncritical loci, not fixed f alone.",
+    "Actual triple hyperplane is unique; tensor scaling is free; h-Casimir lift is unique.",
+    "Dimension24 alone does not imply a component or known parent; full ambient tangent test is a separate gated task."
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "research/classification/CONSTANT_MODULAR_DEGREE_TWO_WHOLE_REDUCTION.md",
+      "sha256": "6f39fec643c4ad322cdd9499013618a874ab2cc57eb5a1208342a450a0eb5d77"
+    },
+    {
+      "path": "research/classification/CONSTANT_MODULAR_DEGREE_TWO_SEPARATE_REVIEW.md",
+      "sha256": "fd5903504c569808c42309f2ebe2dbb74f915ccc6e88a568770ec43ee65fecb2"
+    }
+  ],
+  "success_certificate": "Irreducible f strata dimensions7/9/7 plus entire Y fibers10/8/10 give fixed-c17; all c choices4 give21; unique tripleH adds4; projectivization removes1. Coefficients recover all source data so no unproved presentation-fiber subtraction.",
+  "independent_check": "Root to independently audit the full-source dimension and uniqueness arrows before any finite witness run.",
+  "resource_limit": {
+    "timeout_seconds": 5400,
+    "memory_mb": 512
+  },
+  "negative_result_next_step": "Retain only a dimension upper/lower statement justified by recovered parameters; do not launch ambient tests until the exact lower bound is accepted.",
+  "route_change_reason": "Whole-source algebraic geometry prepares a finite component test, not a point/profile survey."
+}

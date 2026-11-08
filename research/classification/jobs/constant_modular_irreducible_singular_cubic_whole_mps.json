@@ -1,0 +1,43 @@
+{
+  "task_id": "E_multiple_hyperplane",
+  "target_statement": "Pure whole-source MPS coverage for constant nonzero modular sources with irreducible nodal/cuspidal highest cubic; explicit all syzygies and all lower-term inverse shears.",
+  "implication_to_classification": "Closes full singular irreducible f3 branch without extending generic smooth cubic fibers.",
+  "coefficient_ring": "Characteristic zero QQ polynomial identities in all quadratic vector coefficients; no numerical run",
+  "hypotheses": "A0 cnonzero, divY1/Yf=f, all degree≤2 Y and degree≤3 f, highest f3 irreducible singular",
+  "inverted_elements": [
+    "Nonzero highest cubic overall coefficient c",
+    "Nonzero modular kappa",
+    "Actual affine/PGL inverses only"
+  ],
+  "complements": [
+    "All lower f2/f1/f0 and Y1/Y0 retained until eliminated",
+    "Nodal and cusp full syzygies retained before divergence",
+    "Reducible/nonreduced f3 explicitly outside this theorem",
+    "A=c=0 unimodular outside theorem"
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "research/classification/MULTIPLE_HYPERPLANE_LOW_RANK_MODULAR.md",
+      "sha256": "ba50a26afe5a5b4f240804e88ff060fee3ca3819263b15835a79d8dfea18d63c"
+    },
+    {
+      "path": "research/classification/REMAINING_DEGENERACY_DIVISOR_SUPPORT.md",
+      "sha256": "768caa162cad74f2fcad3a861e721f4d3d28b59226e6cedc7fcdd8272e5fdcab"
+    },
+    {
+      "path": "research/classification/CONSTANT_MODULAR_IRREDUCIBLE_SINGULAR_CUBIC_WHOLE_MPS.md",
+      "sha256": "f4386bea545ad142dd7b15a9e9bed12e8e524c5523a735df97f4105524f42365"
+    },
+    {
+      "path": "reports/CLASSIFICATION_CONSTANT_MODULAR_IRREDUCIBLE_SINGULAR_CUBIC_WHOLE_MPS_20261108.json",
+      "sha256": "b312c20e2cf60ec2c37df73c7d5c064bd2392fd62f5f71d0d01e4e00fce443c0"
+    }
+  ],
+  "success_certificate": "Explicit full4/full5 syzygies, their divergence and trace constraints, actual inverse shears/translations and full cubic SNC family.",
+  "independent_check": "Root or separate author pure coefficient derivation; no new CAS or source operator.",
+  "resource_limit": {
+    "timeout_seconds": 60,
+    "memory_mb": 128
+  },
+  "negative_result_next_step": "Record any exact missing syzygy/trace condition; do not start profiles or generic flatness extrapolation."
+}
