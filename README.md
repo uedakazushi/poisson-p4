@@ -1,36 +1,29 @@
 # Poisson structures on projective four-space
 
-2026-11-09 / v65-publication-review
+2026-11-09 / v66-conceptual-structure
 
-対象は複素P4上の非零Poisson双ベクトルを射影化したJacobiスキームの被約既約成分であり、PGL5商前の分類である。
+## 主目標：列挙の検算から、構造・復元・変形による理解へ
 
-## 現在地
+既存分類原稿・台帳は147成分（一般rank4が141、rank2が6）を主張する。PGL5商前の射影Jacobiスキームの被約既約成分が対象である。
+現在は、個別計算を共通の構造定理へ置き換え、なぜその族・次元・境界が現れるかを説明することを主軸とする。検証はそのための補助線であり、監査報告の増加自体を目標にしない。
 
-現行分類原稿・台帳の結論は **147成分（一般階数4が141、階数2が6）**。
-主稿は `papers/poisson_p4_classification_ja.tex` と同名PDFで、既存ビルド報告では368頁・1158採録主張。
-この原稿の証明収録・リポジトリ内の監査報告と、新たな独立再検証の完了を区別する。
-**現在の作業は公表前の重点監査と説明の整理であり、全証明の独立監査は未完了。**
-今回、最後のconstant-TRIPLEからGa9への明示族について、旧producerを使わない記号計算で81項目を確認した。
-全147成分の被覆・成分性をこの検算だけで認証したとはしない。成分台帳と分類主稿は変更していない。
+最初に [研究方針](RESEARCH_POLICY.md)、次に [構造整理ノート](research/conceptual/NOTES.md)、[現在地](research/classification/CURRENT.md)、[次の課題](research/NEXT_TASKS.md) を読む。Codexの入口は [AGENTS.md](AGENTS.md)。
 
-再開は [研究方針](RESEARCH_POLICY.md) → [現在地](research/classification/CURRENT.md) →
-[公表前監査](research/publication/REVIEW.md) → [次の課題](research/NEXT_TASKS.md) の順。
-Codexの入口は [AGENTS.md](AGENTS.md)。分類構築の `research/classification/PLAN.json` は完了記録であり、現在の監査キューではない。
+## 二つの構造原理
 
-## 検証資料
+新原稿： [Poisson退化因子が生成する可換対称性](papers/poisson_divisor_symmetries_ja.tex)。日本語LuaLaTeX、現在7頁。
 
-- 主分類の論理入口：`research/classification/GLOBAL_EXACT147_COMPONENT_CLASSIFICATION_FINAL_PROOF.md`
-- 従来の再現入口：`research/classification/REPRODUCE_EXACT147.md`
-- 今回の証明ノート：`research/publication/verification_note_ja.tex`
-- 独立検算：`code/verify_final_bridge.py`、`reports/final_bridge.json`
+1. P^(2n)の一般に非退化なPoisson構造について、退化因子の被約既約因子数rから、r−1次元の標準的な可換Poisson対称性代数を作る。非被約・非SNCも許す。P4では射影線形軌道の次元は25−r以下。
+2. 固定した重複度付き反標準因子F上のrank4構造は、閉有理二形式の線形条件とPfaffian二次条件で正確に記述できる。
 
-```sh
-python code/verify_final_bridge.py --output work/publication-review/final_bridge.json
-python -m unittest discover -s tests -p test_final_bridge.py
-```
+通常の証明を原稿に収録した。基本原理自体の新規性は未確認。これだけで147成分の全分類や全独立監査を完了したとは主張しない。
+次の具体的な目標は、H+2Qの複数の線形核計算を一つの有界極・次数制御の補題へ置き換え、二因子型のJordan/共鳴の入口を統合すること。
 
-必要なのはPythonとSymPy。既設環境を再利用する。全legacy suiteやsetupの反復は不要。
-`python scripts/classification.py check` は従来の計画・参照検査であり数学定理の検証ではない。
+## 既存の数学を保持する
 
-全PGL5軌道、Jacobiスキームの全非被約厚み、全交叉・局所環の決定は主分類に含まれない。
-過去のREADME・STATE・原稿案にある下界や未完フラグを現在の結論と混同しない。
+完全分類主稿は `papers/poisson_p4_classification_ja.tex` と同名PDF。今回その368頁本文、成分・主張台帳、元証明書は変更していない。
+`research/classification/GLOBAL_EXACT147_COMPONENT_CLASSIFICATION_FINAL_PROOF.md` と `REPRODUCE_EXACT147.md` は既存分類の入口。
+`research/publication/REVIEW.md` は必要な独立監査の補助キュー、旧classification/PLAN.jsonは分類構築の完了記録である。
+TRIPLE→Ga9の独立検算は `code/verify_final_bridge.py` に保持する。具体的理由なしに全旧実験やsetupを反復しない。
+
+全PGL軌道、全非被約厚み、精密nil/H0/T2は現在の主目標に含めない。新原稿のPDFは配布・Library用に生成し、Gitには再生成可能なTeXを保存する。

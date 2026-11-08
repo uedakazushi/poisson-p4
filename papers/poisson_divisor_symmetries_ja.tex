@@ -1,0 +1,364 @@
+\documentclass[a4paper,11pt]{ltjsarticle}
+\usepackage[haranoaji]{luatexja-preset}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fix-cm}
+\usepackage{amsmath,amssymb,amsthm,mathtools,booktabs,array}
+\usepackage[unicode,hidelinks]{hyperref}
+\usepackage{xurl}
+\theoremstyle{definition}
+\newtheorem{theorem}{定理}[section]
+\newtheorem{proposition}[theorem]{命題}
+\newtheorem{lemma}[theorem]{補題}
+\newtheorem{corollary}[theorem]{系}
+\theoremstyle{definition}\newtheorem{definition}[theorem]{定義}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{注意}
+\newcommand{\PP}{\mathbf P}\newcommand{\CC}{\mathbf C}
+\newcommand{\cO}{\mathcal O}\newcommand{\cP}{\mathcal P}
+\newcommand{\Aut}{\operatorname{Aut}}\newcommand{\PGL}{\operatorname{PGL}}
+\newcommand{\Stab}{\operatorname{Stab}}\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\diver}{\operatorname{div}}\newcommand{\Pf}{\operatorname{Pf}}
+\title{Poisson退化因子が生成する可換対称性\\\large 射影四空間の成分分類を整理する二つの構造原理}
+\author{}
+\date{2026年11月9日\quad v1・構造整理原稿}
+\begin{document}\maketitle
+\begin{abstract}
+射影空間上の一般に非退化なPoisson構造について、退化因子の既約成分が生成する閉対数一形式を用い、
+$r-1$次元の標準的な可換対称性代数を構成する。退化因子の被約性や正規交叉性は仮定しない。
+射影四空間では、射影線形軌道の次元は$25-r$以下となる。
+また四次元では、退化因子を固定したPoisson構造の分類を、閉有理二形式の線形条件と
+Pfaffianの二次条件へ置き換える。これは単なる必要条件でなく、一般階数四の全点についての同値である。
+二つの原理を、トーリック型、二因子型、三因子型、重複因子型の整理に用いる。
+本稿は147成分という個数の新証明でも、その全証明の独立検証でもない。
+以下の基本原理には通常の証明を与えるが、それ自体の文献上の新規性は未確認であり、優先権を主張しない。
+\end{abstract}
+
+\section{列挙ではなく構造を中心に置く}
+一般階数四のPoisson構造$\pi$を持つ$X=\PP^4$に対し、
+\[
+ D_\pi=\operatorname{div}(\pi\wedge\pi/2)\in|-K_X|=|\cO_X(5)|
+\]
+を\emph{重複度を含む}実退化因子とする。
+$U=X\setminus D_\pi$上の逆二形式$\omega=\pi^{-1}$は閉である。
+この対応と退化因子・対数形式の基本理論は\cite[\S5]{Pym}に説明されている。
+
+本稿の整理の軸は
+\[
+ \pi\quad\longmapsto\quad
+ \bigl(D_\pi,\ \mathfrak a_\pi,\ \omega\bigr)
+\]
+である。$D_\pi$は極の幾何、$\mathfrak a_\pi$は因子から強制される射影線形対称性、
+$\omega$はその幾何の上に残る閉形式の情報を表す。
+三者が互いに独立な自由データであるという意味ではない。
+
+\section{退化因子の因子から可換対称性を作る}
+以下では$X=\PP^{2n}$、$n\ge1$とする。
+一般に非退化なPoisson構造の退化因子を
+\[
+ D=\sum_{i=1}^{r}m_iD_i,\qquad D_i=V(f_i),\qquad
+ d_i=\deg f_i,\qquad \sum_i m_id_i=2n+1
+\]
+と書く。$f_i$は互いに相異なる既約斉次式、$m_i>0$である。
+
+\begin{lemma}\label{lem:tangent}
+各$D_i$の被約イデアルはPoissonイデアルである。
+\end{lemma}
+\begin{proof}
+局所座標で$\pi^n/n!=F\partial_1\wedge\cdots\wedge\partial_{2n}$と書く。
+任意の正則関数$g$のHamiltonian場$H_g=\pi^\sharp(dg)$は$\pi$を保存する。
+従って$H_g(F)=F\diver(H_g)$であり、$(F)$はHamiltonian導分に関して安定である。
+滑らかな多様体の局所環は正則局所環なので一意分解環である。
+$F=u\prod_i g_i^{m_i}$を局所的に因数分解し、$H_g(F)/F$の各素因子上の極を比較すると
+$g_i\mid H_g(g_i)$を得る。標数零により$m_i\ne0$が使える。
+よって各既約因子のイデアルが安定である。
+\end{proof}
+
+\begin{definition}
+$D_{\mathrm{red}}$の次数関係から作るベクトル空間を
+\[
+ W_D=\left\{a=(a_1,\ldots,a_r)\in\CC^r\;\middle|\;
+              \sum_i a_id_i=0\right\}
+\]
+とし、$a\in W_D$に対して
+\[
+ \eta_a=\sum_i a_i\frac{df_i}{f_i}
+\]
+と置く。これは$X$上の閉有理一形式である。
+\end{definition}
+
+斉次座標のEuler場を$E$とすると、$\iota_E\eta_a=\sum_i a_id_i=0$であり、
+また$\eta_a$はスカラー作用に不変なので射影空間へ降下する。
+より直接には、線形式$\ell\ne0$のチャート上で$g_i=f_i/\ell^{d_i}$と置けば
+$\eta_a=\sum_i a_i\,dg_i/g_i$であり、異なるチャートで一致する。
+$f_i$を非零定数倍しても変わらない。
+
+\begin{theorem}[因子由来の標準的な可換対称性]\label{thm:abelian}
+写像
+\[
+ W_D\longrightarrow H^0(X,T_X),\qquad a\longmapsto X_a:=\pi^\sharp\eta_a
+\]
+は単射であり、その像$\mathfrak a_\pi$は$r-1$次元の可換Lie部分代数である。
+各$X_a$は$\pi$と各$D_i$を保存する。
+さらに
+\[
+ b_\pi(a,b):=\pi(\eta_a,\eta_b)
+\]
+は$X$上の定数であり、$W_D$上の交代双線形形式を定める。
+この結論には$D$の被約性、正規性、正規交叉性を仮定しない。
+\end{theorem}
+\begin{proof}
+補題\ref{lem:tangent}より$\pi^\sharp(dg_i)/g_i$は正則ベクトル場なので$X_a$は全域で正則である。
+$\eta_a$は閉であり、極のない単連結小開集合ではある正則関数の微分になる。
+従って$X_a$はそこでHamiltonianで、$\mathcal L_{X_a}\pi=0$。
+両辺は正則なので全域で成り立つ。Poisson対称性は退化因子を保存し、その各既約成分も保存する。
+
+局所的に$i\ne j$なら$\{g_i,g_j\}$は$g_i$でも$g_j$でも割れる。
+相異なる因子なので積$g_ig_j$で割れ、従って
+$\pi(dg_i/g_i,dg_j/g_j)$は正則である。$i=j$の項は零である。
+したがって$b_\pi(a,b)$は大域正則関数であり、射影空間の完備性から定数である。
+局所Hamiltonianの交換子公式により
+\[
+ [X_a,X_b]=\pi^\sharp d\bigl(b_\pi(a,b)\bigr)=0
+\]
+となる。
+
+最後に$X_a=0$とする。$\pi$は$U$上で非退化なので$\eta_a=0$。
+$D_i$の一般滑らかな点で他の因子を避けると、その留数は$a_i$である。
+従って全$a_i=0$であり、単射である。$\dim W_D=r-1$から結論を得る。
+\end{proof}
+
+\begin{remark}
+標準的であるのは対$\,(D,\pi)\,$から得るLie部分代数であり、因子$D$だけでその埋込みまで決まるわけではない。
+また$r-1$は\emph{大域ベクトル場のベクトル空間としての次元}であり、各点での評価の階数とは限らない。
+それらが生成する連結解析群の作用を、追加の確認なしに代数的なトーラスや加法群の作用と同一視しない。
+一般階数二のPoisson構造では単射性の証明が失われるため、この定理をそのまま適用しない。
+\end{remark}
+
+\begin{corollary}[軌道次元の一様上界]\label{cor:orbit}
+$X=\PP^4$について
+\[
+ \dim\Stab_{\PGL_5}([\pi])\ge r-1,\qquad
+ \dim(\PGL_5\cdot[\pi])\le 25-r.
+\]
+\end{corollary}
+\begin{proof}
+$H^0(\PP^4,T_{\PP^4})=\mathfrak{pgl}_5$であり、
+$\mathfrak a_\pi$は$\pi$そのものを保存するので、その射影類の安定化Lie代数にも入る。
+$\dim\PGL_5=24$から従う。
+\end{proof}
+
+したがって、二因子型では一つの非零な射影線形対称性が必ず存在し、軌道次元は23以下となる。
+三因子型では二次元の可換対称性が存在し、軌道次元は22以下となる。
+これで個々のJordan型を調べる\emph{前に}、対称性を用いる分類の理由が分かる。
+ただし上界の等号や族の成分性は別の証明を必要とする。
+
+\section{固定した退化因子上では線形問題と二次問題に分離する}
+この節では$X$を任意の滑らかな射影四次元多様体、$L=K_X^{-1}$とする。
+四次元の外積双対による標準同型を
+\[
+ \Phi:\wedge^2T_X\xrightarrow{\sim}\Omega_X^2\otimes L
+\]
+と書く。$\alpha\in H^0(X,\Omega_X^2\otimes L)$に対して
+\[
+ q(\alpha)=\frac12\alpha\wedge\alpha
+       \in H^0(X,K_X\otimes L^2)=H^0(X,L)
+\]
+と定める。
+
+\begin{lemma}\label{lem:inverse}
+$\alpha=\Phi(\pi)$なら$q(\alpha)=\pi\wedge\pi/2$を標準同一視の下で満たす。
+$q(\alpha)\ne0$の開集合上で$\pi$の逆形式は$\alpha/q(\alpha)$である。
+従って$\pi$が一般に非退化なら
+\[
+ [\pi,\pi]=0\quad\Longleftrightarrow\quad
+ d\left(\frac{\alpha}{q(\alpha)}\right)=0.
+\]
+\end{lemma}
+\begin{proof}
+局所体積形式を$\mu=dz_1\wedge\cdots\wedge dz_4$とし、対応する$L$の枠を固定する。
+交代形式の標準形で$\pi=a\partial_1\wedge\partial_2+b\partial_3\wedge\partial_4$なら
+$\alpha=a\,dz_3\wedge dz_4+b\,dz_1\wedge dz_2$、$q(\alpha)=ab$である。
+したがって$\alpha/q(\alpha)=a^{-1}dz_1\wedge dz_2+b^{-1}dz_3\wedge dz_4$となる。
+非退化双ベクトルのJacobi恒等式と逆形式の閉性の同値は、逆行列の微分
+$d(P^{-1})=-P^{-1}(dP)P^{-1}$を各三添字で反対称化すれば得られる。
+非退化開集合で成り立つJacobi恒等式は正則テンソルの等式として全域へ延長する。
+\end{proof}
+
+非零の$F\in H^0(X,L)$を固定し、$D=V(F)$とする。局所的に
+\[
+ d_F\alpha:=F\,d\alpha-dF\wedge\alpha
+\]
+と定める。$L$の枠を変えて$F,\alpha$が同じ可逆関数の逆数倍になると、
+追加微分項は相殺し$d_F\alpha$はその可逆関数の逆数の二乗倍になる。
+従ってこれは大域的な\emph{線形}写像
+\[
+ d_F:H^0(X,\Omega_X^2\otimes L)\longrightarrow
+       H^0(X,\Omega_X^3\otimes L^2)
+\]
+を定める。$V_F:=\ker d_F$と置く。
+
+\begin{theorem}[固定因子の線形・二次表示]\label{thm:fibre}
+実退化因子が$D$に等しい一般階数四Poisson構造の射影化された集合は、$\Phi$により
+\[
+ \left\{[\alpha]\in\PP(V_F)\;\middle|\;
+       q(\alpha)\in\CC^{\times}F\right\}                 \tag{1}
+\]
+と一対一に対応する。
+これは$\PP(V_F)$の中で、$q(\alpha)$の$H^0(X,L)/\CC F$への像を零とする
+斉次二次方程式を課し、$q(\alpha)=0$の閉部分を除いたものである。
+\end{theorem}
+\begin{proof}
+実退化因子が$D$に等しいことは、非零切断$q(\alpha)$が$F$の非零定数倍であることと同値である。
+比は零点・極を持たない大域正則関数なので定数である。
+$q(\alpha)=cF$なら補題\ref{lem:inverse}によりJacobi恒等式は
+$d(\alpha/F)=0$と同値であり、これは$d_F\alpha=0$に等しい。
+逆に(1)から同じ議論でPoisson構造を復元でき、退化因子も正確に$D$となる。
+$q$は二次写像なので最後の表示も従う。
+\end{proof}
+
+\begin{remark}
+この表示は「閉じた逆形式が得られそうだ」という必要条件ではなく、全点での同値である。
+被約因子に限らない。しかし本稿では非被約基底上の変形関手や全Jacobiスキーム構造との同値までは主張しない。
+また$D_{\mathrm{red}}$ではなく$F$の\emph{重複度}を保持することが本質的である。
+$q(\alpha)=0$を除く条件を落とすとrank二の点が混入し、固定退化因子の分類ではなくなる。
+\end{remark}
+
+\section{この二つの原理が説明する代表的な現象}
+\subsection{五つの座標超平面と25次元族}
+$D_0=V(x_0x_1x_2x_3x_4)$とし、$x_0\ne0$上で$y_i=x_i/x_0$と置く。
+任意の非退化な交代行列$A=(a_{ij})_{1\le i,j\le4}$に対し
+\[
+ \pi_A=\sum_{i<j}a_{ij}(y_i\partial_{y_i})\wedge(y_j\partial_{y_j})
+\]
+は同じ退化因子$D_0$を持つPoisson構造である。
+対数接束$T_{\PP^4}(-\log D_0)$は四つのトーラス場で自明化されるので、逆にこの因子を持つ全構造はこの形である。
+$A$の自由度は6、射影化後は5であり、$D$だけでは$\pi$は決まらない。
+$D_0$の射影自己同型群の単位成分は四次元トーラスで、すべての$\pi_A$を保存する。
+従って軌道次元は$24-4=20$であり、因子を動かした族の次元は$20+5=25$となる。
+この次元計算だけから全Poisson空間の成分性を結論するわけではない。
+
+正規交叉の退化因子を持つ射影空間の構造がトーリックであることは\cite[Proposition 5.16]{Pym}の既知結果である。
+SNC点から出るより多くの成分をsmoothing diagramと共鳴で扱うのが\cite{MPS}であり、
+同論文の40成分という結果を全Poisson空間の尽くしと読み替えない。
+
+\subsection{二因子型と三因子型}
+$D=H+Q_4$や$D=2H+C_3$は、重複度が違っても被約因子数は$r=2$である。
+定理\ref{thm:abelian}は一つの非零な線形対称性を与える。
+そのJordan分解、半単純部分の重み、冪零部分の旗をまず調べることが、個別のcofactor計算の共通の理由となる。
+一方$D=H_1+H_2+C_3$は$r=3$であり、二次元の可換対称性が強制される。
+
+軌道23次元の二因子型と、軌道22次元に一つの本質パラメータが加わる三因子型は、
+ともに23次元族になり得る。この説明は147成分台帳の個々の成分を新しく証明するものではないが、
+似た次元が反復する理由を整理する。
+追加の対称性があるか、残りのパラメータが真に非同型を与えるかは、それぞれ確認する必要がある。
+
+
+\begin{proposition}[modular場との対応]\label{prop:modular}
+アフィン四空間上の一般に非退化なPoisson双ベクトルを$P$とし、
+標準体積形式$\mu$に関して$P^2/2=F\mu^{-1}$と書く。
+$Z^j=\sum_i\partial_iP^{ij}$で定めたmodular場は
+\[
+ Z=\frac{P^\sharp(dF)}{F}.
+\]
+従って$F=c\prod_i g_i^{m_i}$なら
+$Z=\sum_i m_iP^\sharp(dg_i)/g_i$である。
+特に$D=m_0H+m_1D_1$で$H$を無限遠に取る場合、$Z$は
+定理\ref{thm:abelian}の一次元対称性代数の生成元の非零定数倍である。
+\end{proposition}
+\begin{proof}
+$H_f=P^\sharp(df)$とすると、成分を微分して
+$\diver_\mu H_f=-Z(f)$を得る。
+一方、シンプレクティック体積形式$\mu/F$はHamiltonian場で保存されるので
+$\diver_\mu H_f=H_f(F)/F=-P^\sharp(dF)(f)/F$である。
+両式を比べれば最初の恒等式となる。因数分解については対数微分を取ればよい。
+最後に$D_1$の次数を$d$とし、$H=V(h)$とする。
+$W_D$の生成元に対応する形式は$dh/h-d^{-1}df_1/f_1$である。
+$h=1$上でこれは$-d^{-1}dg_1/g_1$となり、
+$Z=m_1P^\sharp(dg_1)/g_1$と比例する。
+非零性は定理\ref{thm:abelian}の単射性から従う。
+\end{proof}
+
+\subsection{重複二次因子と共形シンプレクティック線形代数}
+実因子$D=H+2Q$で、不変超平面$H$を無限遠とする二次Poisson代表が得られたとする。
+アフィン四空間上で逆形式を$\omega=\alpha/Q^2$と書くと、定理\ref{thm:fibre}の条件は
+\[
+ Qd\alpha-2dQ\wedge\alpha=0,\qquad
+ \alpha^2/2=kQ^2\mu,\quad k\ne0.                    \tag{2}
+\]
+もし全閉形式が$\alpha=Qd\beta-dQ\wedge\beta$、$\deg\beta\le1$と表示できるなら、
+$\omega=d(\beta/Q)$である。ここで$\Omega=d\beta$が非退化なら
+$\iota_Z\Omega=\beta$によってアフィン線形場$Z$を定める。
+$\Omega^2/2=A\mu$、$A\ne0$と置けば
+\[
+ \mathcal L_Z\Omega=\Omega,\qquad
+ \alpha^2/2=AQ\bigl(Q-Z(Q)\bigr)\mu.
+\]
+従って(2)は
+\[
+ \mathcal L_Z\Omega=\Omega,\qquad
+ Z(Q)=cQ,\quad c=1-k/A\ne1                          \tag{3}
+\]
+へ還元される。
+\begin{proof}[最後の恒等式の証明]
+$\alpha=Q\Omega-dQ\wedge\beta$を二乗する。
+$(dQ\wedge\beta)^2=0$であり、
+$\Omega\wedge dQ\wedge\beta=dQ\wedge\iota_Z(\Omega^2/2)=A Z(Q)\mu$となる。
+また$\mathcal L_Z\Omega=d\beta=\Omega$である。
+\end{proof}
+
+これは90係数の方程式を、二次式を半不変量に持つ共形シンプレクティック場の分類へ置き換える仕組みである。
+ただし「全閉形式が上の$\beta$で表示できる」ことと、$d\beta$が退化する場合の処理は別の入力である。
+現行の\texttt{DOUBLE\_QUADRIC\_SUPPORT.md}はこの仕組みを用いているが、
+本稿ではそこでの有限行列階数計算を概念的に置き換え終えたとは主張しない。
+次の具体的課題は、極次数と係数次数を制御するKoszul複体の補題としてこの入力を証明することである。
+
+\section{成分分類の再構成に必要な三つの段階}
+\subsection{構造：どの幾何が可能か}
+まず一般階数四と二を分ける。階数四について$D$の次数分割と重複度を保持し、
+$\mathfrak a_\pi$の表現、$D_i$上の葉、必要なら正規化と導手を調べる。
+$r=1$では本稿の可換代数は零なので、既約五次因子の正規・非正規の幾何が別に必要となる。
+$r\ge2$では強制される対称性を先に用い、全可換部分代数の無制限な分類ではなく、
+次数五の因子と二次Poisson係数が許す表現だけを扱う。
+
+\subsection{復元：同じ幾何の上に何が残るか}
+固定$D$について$V_F$を決定し、その中のPfaffian二次条件を解く。
+この解には$D$を固定したまま変わる自由度も残るので、因子だけの分類をPoisson構造の分類と同一視しない。
+閉形式のコホモロジー類だけでも十分とは限らず、極の主要部と大域への延長条件を保持する。
+
+\subsection{変形：どれが別成分か}
+上の型が有限の閉既約族で全点を覆うことを示し、その後に重複・包含を整理する。
+一般元の因数分解型やJordan型が違っても、一方が他方の境界に入る可能性はある。
+退化族、閉incidence条件、変形の障害、葉の次数や対数留数を用いて包含・非包含を証明する。
+同じ型の境界を新成分と数えない。
+
+主稿の推奨順序は「二つの構造原理」「因子と対称性の有限型」「固定因子からの復元」
+「型の変形・包含」「rank二の支持」「全成分表」である。
+134方程式や$S_{61}$はこの構造を実装・検証する共通座標模型として保持し、
+一般読者が最初に全座標を読まなければ主定理の意味が分からない構成を避ける。
+147という個数は構造と包含関係を証明した\emph{結果}として現れるべきであり、整理の前提にしない。
+
+\section{主張の状態と先行研究}
+定理\ref{thm:abelian}、系\ref{cor:orbit}、定理\ref{thm:fibre}には本稿で完全な証明を与えた。
+これらは既存のPoisson幾何の基本的道具を組み合わせるものであり、新規性を主張しない。
+特に対数Hamiltonian場は\cite[Example 4.14]{MPS}にも現れる。
+本稿の非被約因子も許す大域的$r-1$次元表示がどこまで既述かについて、文献の完全な照合は未完了である。
+
+Pymの\cite[\S5.1]{Pym}では退化因子のPoisson性と逆対数形式、
+\cite[Propositions 5.14, 5.16]{Pym}ではSNCの場合のChern指標制約を説明する。
+MPSの\cite[\S3.1, Theorem 1.4]{MPS}はSNCに関連する変形とsmoothing diagramを扱う。
+いずれも本稿の二つの原理だけで147成分の尽くしが従うという主張を含めて引用しない。
+
+今回得た概念的整理は、現行分類のケース別全支持定理や各成分の極大性を置き換えたものではない。
+主稿全体の再構成と、同じ原理による実際の重複証明の除去は今後の課題である。
+検算はそれらの構造定理に必要な有限恒等式へ位置づけ、研究の主目標そのものとはしない。
+
+\begin{thebibliography}{9}
+\bibitem{Pym} B. Pym, \emph{Constructions and classifications of projective Poisson varieties},
+Letters in Mathematical Physics \textbf{108} (2018), 573--632.
+DOI: 10.1007/s11005-017-0984-5; arXiv:1701.08852.
+\url{https://pmc.ncbi.nlm.nih.gov/articles/PMC5818673/}.
+\bibitem{MPS} M. Matviichuk, B. Pym and T. Schedler,
+\emph{A local Torelli theorem for log symplectic manifolds},
+arXiv:2010.08692v2 (15 July 2021).
+\url{https://arxiv.org/html/2010.08692v2}.
+\end{thebibliography}
+\end{document}

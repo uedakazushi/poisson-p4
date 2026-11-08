@@ -1,69 +1,60 @@
-# Poisson P4 — publication review
+# Poisson P4 — conceptual structure first
 
-2026-11-09 / v65-publication-review
+2026-11-09 / v66-conceptual-structure
 
-## Entry and current authority
+Read RESEARCH_POLICY.md, research/conceptual/NOTES.md,
+research/classification/CURRENT.md, then research/NEXT_TASKS.md.
+The user's latest direction is to organize the classification conceptually,
+not merely verify more computations. This supersedes verification-first as the
+primary queue. Verification remains necessary and supports the structural work.
 
-Read RESEARCH_POLICY.md, research/classification/CURRENT.md,
-research/publication/REVIEW.md, then research/NEXT_TASKS.md.
-The user explicitly authorized publication-focused independent review and main
-updates on 2026-11-09. This is the new instruction that supersedes the previous
-stop-after-classification instruction. Do not interpret completed construction
-items in research/classification/PLAN.json as a prohibition on this review.
+## Primary outcome
 
-## Mathematical status
+Reconstruct the paper around geometry, reconstruction, and deformation:
+(1) the actual degeneracy divisor and its canonical commuting symmetries;
+(2) closed rational forms with bounded poles on a fixed divisor;
+(3) degeneration and noncontainment of the resulting families.
+Do not replace this by new audit receipts or renamed case tables. A useful
+structural theorem should actually replace repeated calculations or explain
+families, dimensions, or boundaries.
 
-The manuscript/catalogue assert exactly 147 reduced irreducible components of
-the projectivized Poisson scheme on complex P4 before PGL5 quotient: rank four
-141, rank two 6. Do not change that count without a mathematical reason. The
-new review has NOT independently verified the entire classification. Existing
-repository review receipts are not external peer review or formal proofs.
-The main manuscript and 147-component catalogue remain unchanged in this pass.
+## Current proved structure
 
-## Work now
+papers/poisson_divisor_symmetries_ja.tex contains full written proofs:
+- r reduced irreducible factors give a canonical (r-1)-dimensional abelian
+  subalgebra of global Poisson symmetries on P^(2n), including nonreduced D;
+- on P4, projective orbit dimension is at most 25-r;
+- fixing the full anticanonical section F turns the rank4 problem into the
+  linear kernel V_F of F d(alpha)-dF wedge alpha and Pfaffian quadrics;
+- the two-factor symmetry recovers the affine modular field.
+Novelty is NOT established. These results do NOT by themselves prove the 147
+count, all componenthood statements, or all scheme-theoretic deformation claims.
+Do not confuse global vector-space dimension of symmetries with pointwise rank.
 
-Follow the priority queue in research/publication/REVIEW.md. Inspect original
-proofs rather than repeatedly composing PASS receipts. Track each theorem's
-hypotheses, actual source, inverse maps, denominator/zero complements, and
-conclusion. Distinguish full source coverage from dense-source containment,
-componenthood from family dimension, and global components from local branches.
-Prioritize normal/nonnormal quintic coverage, stable rank-two recognition, and
-T37 dense-orbit/residue/leaf arguments. No new component search, precise nil
-indices, H0/T2, or full orbit classification without a specific dependency.
+## Next concrete work
 
-## Checked in the present review
+Replace the five H+2Q linear-kernel calculations by one bounded-pole Koszul
+lemma, keeping degree bounds and degenerate d(beta) cases explicit. Then unify
+the two-factor semisimple/nilpotent/resonance entrances using the canonical
+symmetry. Keep irreducible quintics and rank2 foliations as separate structural
+inputs. Track actual zero/unit complements and source coverage throughout.
 
-code/verify_final_bridge.py independently rebuilds the TRIPLE-to-Ga9 family
-from a product bracket and the Ga9 potential. It does not import old producers.
-reports/final_bridge.json records 81 exact checks. This verifies the displayed
-family, not the coverage of all original TRIPLE sources or Ga9 componenthood.
-research/publication/verification_note_ja.tex supplies explicit proofs of this
-bridge and the finite-cover/rank-closure/specialization mechanisms.
-Their application-specific geometric inputs remain separately reviewable.
+The existing 147-component manuscript, catalogue, certificates and valid results
+remain intact. Do not shorten the 368-page proof by deleting mathematical
+content. Integrate structural results into a comprehensible order only after
+their applications are justified. The old classification PLAN.json records
+completed construction; publication/REVIEW.md is a supporting audit queue.
+The existing TRIPLE-to-Ga9 verifier remains available; do not rerun old suites
+without a specific mathematical need.
 
-## Validation and editing
+## Workflow
 
-Use the existing Python/SymPy environment:
-
-    python code/verify_final_bridge.py --output work/publication-review/final_bridge.json
-    python -m unittest discover -s tests -p test_final_bridge.py
-
-classification.py check/next and the old tests are control-plane checks only;
-a completed queue is not a mathematical re-verification. Do not reinstall the
-whole environment or rerun every legacy experiment. No GitHub Actions.
-Write papers in Japanese LuaLaTeX. Preserve valid mathematical content. Do not
-append endless historical addenda or retain contradictory current-status text.
-Do not replace the 368-page proof by a short summary. Paper splitting comes
-after the dependency review, not before it.
-
-## Save safely
-
-Inspect the current main head and changes. Use ordinary non-force commits to
-main, or equivalent Git data API tree/commit/ref updates with an expected-head
-lease. Rebase/reconcile if main advanced; do not overwrite another session.
-Keep original proof/certificate inputs unchanged. Generate, validate, push, and
-Library upload are distinct states. Only report actual successful operations.
-The user permits current self-contained research bundles and Library saves
-without asking. Exclude old ZIPs, logs, intermediate build products and caches;
-never delete existing Library records without explicit instruction. A focused
-review package missing the main proof is not a full research-continuation bundle.
+Use Japanese LuaLaTeX, existing environments, and finite relevant calculations.
+No GitHub Actions. Do not reopen precise nil/H0/T2 or full orbit classification
+without an indispensable dependency. Preserve immutable proof inputs.
+Check current main, use non-force/expected-head updates and preserve other work.
+The user authorizes current self-contained research bundles and Library saves
+without asking. Distinguish generation, validation, GitHub update, and Library
+save. Never delete existing Library records without explicit instruction.
+A conceptual subproject package is not a replacement for the full classification
+bundle; keep its scope and any missing global assets explicit.
