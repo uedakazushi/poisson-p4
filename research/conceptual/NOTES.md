@@ -1,64 +1,89 @@
-# 概念整理の研究ノート
+# 大域構造研究ノート
 
-2026-11-09 / v1。最初に RESEARCH_POLICY.md を読む。
+2026-11-09 / v3。最初に RESEARCH_POLICY.md、次に GLOBAL_PLAN.md を読む。
 
-## 現在の数学
+## 1. 現行の証明とその場所
 
-原稿 papers/poisson_divisor_symmetries_ja.tex は独立に読める。主要な証明をここに重複しない。
+原稿 `papers/poisson_divisor_symmetries_ja.tex` は独立に読める。詳細証明をここに重複しない。
 
-- thm:abelian：P^(2n)の一般に非退化なPoisson構造で、実退化因子の被約既約因子数がrなら、次数関係Σa_i d_i=0の閉対数一形式からr−1次元の可換な大域Poisson対称性代数を得る。非被約・非正規・非SNCも許す。各因子のPoisson性、留数、完備性を用いる。
-- cor:orbit：P4ではprojective orbit dimension≤25−r。等号や成分性は別証明。
-- thm:fibre：固定した重複度付き反標準因子F上で、V_F=ker(Fdα−dF∧α)を先に求め、α²/2∈C×Fを課すと一般rank4のPoisson構造と正確に対応する。非被約基底上の全scheme同値は未主張。
-- prop:modular：アフィン四空間でZ=div P=P#dlog(Pf P)。二因子型のmodular場は標準対称性の生成元に比例する。
-- §4.3：二重二次因子で逆形式がd(β/Q)に還元でき、dβが非退化なら、L_ZΩ=ΩとZQ=cQへ帰着する。全閉形式の有界極primitive表示は本稿では未証明。
-
-通常の証明を収録し今回読解した。新CAS実験ではない。基本構造原理の新規性は未確認。
-
-## 概念的な対応表
-
-| 幾何 | 強制される構造 | 残る本質 |
+| 主張 | 仮定・結論 | 状態／所在 |
 |---|---|---|
-| 5個の座標超平面 | 4次元トーラス、交代行列 | 同一因子上の射影5パラメータ、orbit20+5=25という族次元 |
-| H+四次、2H+三次 | 1次元の非零線形Poisson対称性 | 半単純/冪零の表現、固定因子の閉形式、境界包含 |
-| H1+H2+三次 | 2次元の可換線形対称性 | 軌道≤22、残る真正パラメータと配置 |
-| H+2Q | 対称性と有界極二形式 | primitive表示の一様補題、共形シンプレクティック線形代数 |
-| 既約五次 | 因子由来対称性は零 | 正規化、導手、葉・residue |
-| 一般rank2 | Pfaffian写像の不定locus | 飽和foliation、零因子、rank4への変形 |
+| 因子由来可換対称性 | P^(2n)、generic nondegenerate、Dredがr因子 ⇒ r−1次元の可換対称性。非被約可 | 証明収録・今回再読、thm:abelian。新規性未確認 |
+| 軌道上界 | P4でorbit≤25−r。等号・成分性は別 | cor:orbit |
+| 固定因子復元 | d_Fα=0 と qα∈C×F、actual multiplicityを保持 | thm:fibre |
+| 全rank4入口 | Hあり／HなしQ+C／既約五次 | thm:three-entrances |
+| 標識超平面 | h-central lift一意、affine二次模型。mult_H D=5−deg f | thm:marked-affine |
+| modular復元 | 固定f≠0,Zでdiv P=Z、P#df=fZ、Pf P=f iff全Poisson | thm:modular-reconstruct。記号恒等式も確認 |
+| 共鳴 | Z=S+Nから[S,P]=[N,P]=0、有限な単項式共鳴型 | prop:resonance。有限な固有値比とは言わない |
+| 相対復元・持上げ | 固定Fのkernelに加え、因子も動く一次・二次式 | prop:relative, prop:lifting。全高次無障害は未主張 |
+| グラフ閉包 | rank4開のPfaffianグラフ閉包＝Rees blowup | prop:graph。純rank2成分は別 |
+| 標識の有限性 | Hまたは次数/重複度付き因子標識の忘却 | prop:finite-mark, prop:factor-mark |
+| rank2入口 | 飽和可積分rank2層Fと非零s∈det F、e=0,1,2 | prop:ranktwo。foliationの完全分類ではない |
 
-この表は新しい完全分類や排他的な成分分割を意味しない。
+新しい基本原理の証明を検討し、29項目の恒等式を独立計算した。元147成分の全証明を再検証したとはしない。
 
-## 次に実際の重複を削る
+## 2. 復元から変形への橋
 
-H+2Qについては、低次数primitiveの一様存在命題を全rankに適用できない。rank(Q)≥4五配置はaffine-linear primitiveで尽くされるが、rank(Q)=3の横断配置で余剰1次元、接触配置で余剰6次元を生じる。横断では補集合の非零de Rham類、接触では高次数primitiveの次数制限の障害が現れる。`research/conceptual/QUADRATIC_POLE_ORDER.md` がその理由と次の正確な目標をまとめる。
-全kernelを説明する次数制限付き複体を確立し、実際に従来の有限行列ランク計算を置換できた場合に限り主稿を改訂する。
+E=H0(Ω²(5)), B=H0(O(5)), d_Fα=F dα−dF∧α、qα=α²/2。
+相対incidenceはd_Fα=0、qα∈C×F。Fの層でrank d_Fが一定ならkernel束上の二次条件になる。
+rank jumpと特殊底だけにある成分を保持する。
 
-二因子H+Q4とQ2+C3で同じ標準対称性の半単純/冪零/共鳴表現を用い、既存の別々の入口を統合する。
-固定作用の不変テンソル空間を取り、実divisorとPfaffian条件を戻す。
-未分類の可換Lie部分代数全体の問題へ不用意に拡大しない。
+qα=Fと規格化し、α_t=α+ta+t²b、F_t=F+tφ+t²ψとすると、
+一次は α∧a=φ、d_Fa=dφ∧α−φdα。
+二次は α∧b=ψ−a²/2、d_Fb=dψ∧α−ψdα+dφ∧a−φda。
+この式は指定した因子変形の可解性を測り、全高次持上げの保証ではない。
+次は既存TRIPLE→Ga9と別の分裂族の実係数に適用し、必要な補正が出る理由を説明する。
 
-各成分を (実D, 因子次数/重複度, a_pi, generic stabilizer, V_Fの残自由度, 変形型) で比較する。
-r−1は大域ベクトル場の次元であって一般軌道の階数ではない。
-既約五次とrank2は別の構造定理として扱う。
+標識忘却は有限でも、閉像の重複・一般fiberのGalois結合・特殊底の成分は別に管理する。
+x²=tは全体が既約だが幾何学的一般fiberは二点。tx=0は一般fiberだけでは見えない特殊底成分を持つ。
+rank4開からのグラフ閉包を使うことと、一般的な因子の開だけへ制限することを混同しない。
 
-## 文献と既存証明への接続
+## 3. 有用な障害・反例
 
-Pym, Constructions and classifications of projective Poisson varieties, Letters in Mathematical Physics 108 (2018), 573–632, DOI 10.1007/s11005-017-0984-5, arXiv:1701.08852。§5.1、Propositions5.14/5.16。本文 https://pmc.ncbi.nlm.nih.gov/articles/PMC5818673/ を確認。
-M. Matviichuk, B. Pym, T. Schedler, A local Torelli theorem for log symplectic manifolds, arXiv:2010.08692v2 (2021-07-15)、§3.1、Example4.14、Theorem1.4。本文 https://arxiv.org/html/2010.08692v2 を確認。40成分を全空間の尽くしとして引用しない。
+**rank2への誤適用。** P=∂1∧(∂2+x1∂3)ではPf P=0、P#df=f divPは自動成立だがJacobi(1,2,3)=1。
+modular復元にf≠0は必須である。
 
-既存の適用先：research/classification/DOUBLE_QUADRIC_SUPPORT.md、HYPERPLANE_QUARTIC_COFACTOR_ENTRANCE.md、GA9_CONSTANT_COMPONENT.md、T37_SIX_TARGET_LEAF_OBSTRUCTIONS_SEPARATE_REVIEW.md。
-今回必要部分を読んだ。全caseの再検証は未実施。新基本定理の証明はこれらの旧ノートを前提にしない。
-主稿の全体再構成は未完。旧証明を本ノートの短い要約で置換しない。
+**因子数1。** Dredの因子数1には既約五次と5Hがある。後者は標識affine模型でZ=0と同値。
+標準可換代数が零というだけで全対称性がないと結論しない。
 
-## 組版
+**H+2Qの低次数primitive。** Z_Q={α:degα≤2,Qdα−2dQ∧α=0}、
+P_Q(β)=Qdβ−dQ∧β、degβ≤1 と置く。既存QQ線形計算では、rank4/5の五配置とrank3頂点回避はdim19=image19、
+rank3横断Q=1+u²+v²は20/19、rank3接触Q=w+u²は25/19。
+無条件のexactnessは偽。今回この全行列を再実行していない。
+横断のdu∧dv/QはQ=0≅Gm上の非零residue dlog aを持つ真のde Rham類。
+接触の補集合はGm×A³でH²_dR=0だが、β_r=u dr−r du、r∈Sym²⟨v,z,w⟩の二次primitiveが
+P_Q(β_r)=2w du∧dr−u dw∧dr−r du∧dwという低次数αを作る。余剰6は次数濾過に関係する。
+全独立性・尽くしは既存の有限計算入力。これは局所的な研究課題であり全分類の前提にはしない。
 
-```sh
-mkdir -p work/conceptual-build
-lualatex -interaction=nonstopmode -halt-on-error -output-directory=work/conceptual-build papers/poisson_divisor_symmetries_ja.tex
-lualatex -interaction=nonstopmode -halt-on-error -output-directory=work/conceptual-build papers/poisson_divisor_symmetries_ja.tex
-```
+**対称性と商。** 大域ベクトル場の次元は一般点での評価rankとは異なる。
+任意の複素係数半単純場が代数的Gm作用へ積分するわけではない。
+非線形座標変換は族の構成には使えても、PGL帰属の代用にはならない。
 
-今回2回成功、7頁。参照・引用の未解決とbox警告は零。全頁の縮小描画を確認した。
-luatexjaのフォントスケール・addjfontfeaturesの警告は残る。新PDFは配布/Library用で、Gitにはこの再生成可能なTeXを保存する。
-TeX SHA256 a316ad4a9a810b1b1853f0dba9656d7f8a18c0b01e98f5278c5b8f07938b075a。
-PDF SHA256 d71312953165fb82289328cdd2ea81632cbdf9fe54b8b5750e5ce241ab8f2886。
-この組版確認を数学全体の独立認証と呼ばない。
+## 4. 原証明への主な入口
+
+全支持の現行地図：`research/classification/KNOWN142_SEVEN_CANDIDATE_WHOLE_POISSON_COVER_AUDIT.md`。
+このファイルの旧142＋7は証明の入力段階で、現在の成分数へ読み替えない。
+A：HYPERPLANE_QUARTIC_COFACTOR_ENTRANCE、DOUBLE_QUADRIC_SUPPORT、RANK_THREE_QUADRIC_SUPPORT、多Hの全支持。
+B：SMOOTH_QUADRIC_CUBIC_SUPPORT、DEGENERATE_QUADRIC_CUBIC_COFACTOR_REDUCTION。
+C：papers/normal_actual_divisor_recognition_ja.tex、IRREDUCIBLE_NONNORMAL_QUINTIC_WHOLE_POINTWISE_COVERAGE、
+NONPLANE_CONDUCTOR_POINTWISE_KNOWN_COVERAGE、PLANE_RANKZERO_CONDUCTOR_WHOLE_POINTWISE_COVERAGEとrank2版。
+R2：RANK_TWO_SUPPORT、KNOWN_COMPONENT_AUDIT、独自stable_rank2の元証明。
+境界：GLOBAL_EXACT147_COMPONENT_CLASSIFICATION_FINAL_PROOF、GA9_CONSTANT_COMPONENT、T37_SIX_TARGET_LEAF_OBSTRUCTIONS_SEPARATE_REVIEW。
+以上はresearch/classification内（明記したpapersを除く）。今回読んだ合成ノートと、未読の全原証明を区別する。
+
+## 5. 一次資料の確認と射程
+
+- B. Pym, Constructions and classifications of projective Poisson varieties, LMP108(2018),573–632, DOI10.1007/s11005-017-0984-5, arXiv:1701.08852。§5.1、Propositions5.14/5.16。SNCでの対数形式・トーリック認識の射程を確認。https://doi.org/10.1007/s11005-017-0984-5
+- M. Matviichuk, B. Pym, T. Schedler, A local Torelli theorem for log symplectic manifolds, arXiv:2010.08692v2。Theorem1.4をPDF本文・頁画像で確認。SNC locusと交わる40成分であり、全成分をSNCへ退化させる定理ではない。https://arxiv.org/pdf/2010.08692v2
+- M. Corrêa, A. Muniz, Holomorphic foliations of degree two and arbitrary dimension, arXiv:2207.12880v5。本文Theorem4.1を確認。安定分岐に対する可積分性・uniruled性を固定Jacobian族への全点帰属と同一視しない。https://arxiv.org/html/2207.12880v5
+- Stacks Project, Tag01OF (Blowing up), Rees表示と局所chart。https://stacks.math.columbia.edu/tag/01OF
+- Stacks Project, Tag0553 (Irreducible components of fibres)。一般fiberと幾何学的一般fiber・基底変換を区別する参照。https://stacks.math.columbia.edu/tag/0553
+
+必要な主張の一次本文を確認した範囲であり、全先行研究の徹底照合・新規性確認完了とはしない。
+
+## 6. 再現
+
+`python code/check_global_structure.py --output work/global-structure.json`。
+普遍的な6係数と24一次微分を独立変数として検算し、標本値は使わない。
+原稿はREADMEのLuaLaTeX二回コマンド。PDFは別フォルダに出力し、中間生成物をbundleへ入れない。
+今回の生成・検証の実結果はreports/global_structure_validation.jsonを参照。

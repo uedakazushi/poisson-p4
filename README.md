@@ -1,29 +1,41 @@
 # Poisson structures on projective four-space
 
-2026-11-09 / v66-conceptual-structure
+2026-11-09 / v67-global-reconstruction
 
-## 主目標：列挙の検算から、構造・復元・変形による理解へ
+## 現在の主作業
 
-既存分類原稿・台帳は147成分（一般rank4が141、rank2が6）を主張する。PGL5商前の射影Jacobiスキームの被約既約成分が対象である。
-現在は、個別計算を共通の構造定理へ置き換え、なぜその族・次元・境界が現れるかを説明することを主軸とする。検証はそのための補助線であり、監査報告の増加自体を目標にしない。
+**全分類を「標識付き復元と持上げ可能な変形」によって再構成する。**
+H+2Qの局所補題や検算の反復を最優先にはしない。
+現行分類稿・台帳は147被約既約成分（generic rank4:141、rank2:6）を主張するが、今回全証明を独立検証したという意味ではない。
+対象は非零Poisson構造の射影化、PGL5商前。全軌道や全非被約構造は対象外。
 
-最初に [研究方針](RESEARCH_POLICY.md)、次に [構造整理ノート](research/conceptual/NOTES.md)、[現在地](research/classification/CURRENT.md)、[次の課題](research/NEXT_TASKS.md) を読む。Codexの入口は [AGENTS.md](AGENTS.md)。
+再開は [研究方針](RESEARCH_POLICY.md) → [全体計画](research/conceptual/GLOBAL_PLAN.md) →
+[構造原稿](papers/poisson_divisor_symmetries_ja.tex) → [研究ノート](research/conceptual/NOTES.md)。
+Codexへの具体的な指示は [AGENTS.md](AGENTS.md)。
 
-## 二つの構造原理
+## 全体を整理する入口
 
-新原稿： [Poisson退化因子が生成する可換対称性](papers/poisson_divisor_symmetries_ja.tex)。日本語LuaLaTeX、現在7頁。
+rank4は「超平面因子あり」「超平面なしの二次＋三次」「被約既約五次」に分かれる。
+超平面を標識した全群は一意なaffine quadratic Poisson模型に入り、f=Pf P、Z=div Pを固定すれば
+`div P=Z, P#df=fZ`（線形）と `Pf P=f != 0`（二次）で正確に復元できる。
+共通の共鳴、相対逆形式、一次・二次持上げ、グラフ閉包、因子標識の重複を統合した。
+rank2は飽和foliationと零因子として別に扱う。通常の証明を構造原稿に収録したが、新規性は未確認。
 
-1. P^(2n)の一般に非退化なPoisson構造について、退化因子の被約既約因子数rから、r−1次元の標準的な可換Poisson対称性代数を作る。非被約・非SNCも許す。P4では射影線形軌道の次元は25−r以下。
-2. 固定した重複度付き反標準因子F上のrank4構造は、閉有理二形式の線形条件とPfaffian二次条件で正確に記述できる。
+最初の実作業は、単純H+四次と重複Hの二つ以上の旧入口を共通命題へ置き換え、主稿に統合すること。
+固定因子の分類だけで終わらず、実変形と極大閉像の判定まで接続する。
+H+2Qの0/1/6余剰は必要時の局所課題として保持する。
 
-通常の証明を原稿に収録した。基本原理自体の新規性は未確認。これだけで147成分の全分類や全独立監査を完了したとは主張しない。
-次の目標は、H+2Qの次数制限付きde Rham/Koszul複体により、rank(Q)≥4の一様な消滅とrank(Q)=3の余剰1/6次元を概念的に説明すること。全rankにaffine-linear primitiveが存在するという素朴な補題は偽である（`research/conceptual/QUADRATIC_POLE_ORDER.md`）。その後に二因子型のJordan/共鳴の入口を統合する。
+## 保存済み資料と検証の射程
 
-## 既存の数学を保持する
+全分類主稿 `papers/poisson_p4_classification_ja.tex` と同名PDF、成分・主張台帳、元証明書は今回変更していない。
+`research/classification/GLOBAL_EXACT147_COMPONENT_CLASSIFICATION_FINAL_PROOF.md` は既存分類の論理入口。
+旧classification/PLAN.jsonは構築の完了記録で、現在の作業キューはGLOBAL_PLAN.md。
 
-完全分類主稿は `papers/poisson_p4_classification_ja.tex` と同名PDF。今回その368頁本文、成分・主張台帳、元証明書は変更していない。
-`research/classification/GLOBAL_EXACT147_COMPONENT_CLASSIFICATION_FINAL_PROOF.md` と `REPRODUCE_EXACT147.md` は既存分類の入口。
-`research/publication/REVIEW.md` は必要な独立監査の補助キュー、旧classification/PLAN.jsonは分類構築の完了記録である。
-TRIPLE→Ga9の独立検算は `code/verify_final_bridge.py` に保持する。具体的理由なしに全旧実験やsetupを反復しない。
+```sh
+python code/check_global_structure.py --output work/global-structure.json
+mkdir -p work/structure-build
+lualatex -interaction=nonstopmode -halt-on-error -output-directory=work/structure-build papers/poisson_divisor_symmetries_ja.tex
+lualatex -interaction=nonstopmode -halt-on-error -output-directory=work/structure-build papers/poisson_divisor_symmetries_ja.tex
+```
 
-全PGL軌道、全非被約厚み、精密nil/H0/T2は現在の主目標に含めない。新原稿のPDFは配布・Library用に生成し、Gitには再生成可能なTeXを保存する。
+恒等式検算は29項目、全分類の自動証明ではない。今回の構造研究bundleは自己完結した構造原稿・方針・ノートを含むが、全147成分の証明bundleの代替ではない。

@@ -1,23 +1,15 @@
-# 分類論文の完了状態と最終保存
+# 分類構築の状態と、現在の構造研究への入口
 
-2026-11-08 / v64-classification-plan。実行キューはPLAN.json、証拠は最終proof/manifestと各immutable元証明。
+2026-11-09 / v67-global-reconstruction
 
-## 主定理
+PLAN.jsonは147被約成分の分類構築の完了状態を記録する。記録された証明・証明書は保持する。
+そのdoneは現在の概念的研究を停止する指示ではなく、外部査読や今回の全独立検証完了を意味しない。
 
-複素P4のPoisson parameter spaceの被約支持は、正確147個の相異なる全既約成分の有限和。PGL5商前、rank四141/rank二6。全支持・全成分性・相互相違・次元・一般元構成・退化因子幾何は証明済み。全PGL軌道同型類や全scheme厚みを受入条件へ追加しない。
+**現在の実行計画は `research/conceptual/GLOBAL_PLAN.md`。**
+研究方針は `RESEARCH_POLICY.md`、Codexの指示は `AGENTS.md`、直近の課題は `research/NEXT_TASKS.md`。
+主目標は全分類にまたがる標識付き復元・実変形・極大閉像の共通証明を作り、主稿へ統合すること。
+新しい構造原稿は `papers/poisson_divisor_symmetries_ja.tex`。
 
-## 依存と完了
-
-C0、G、rank2、Eの全特殊source、既知/新成分監査A、主分類Fは完了。全case旧149被覆→P*真T19→新五23全成分→最後TRIPLE既Ga9constantでexact147。詳細はGLOBAL_EXACT147_COMPONENT_CLASSIFICATION_FINAL_PROOF.md。rank2 closure項はrank4閉被覆の後で戻す。全Jordan/coker/lowersource/unit-zeroとsimpleH/multipleHの仮定を保持する。
-
-M/Pも同じ日本語主稿の147/1158・368頁統合、先行文献比較、再現入口、独立読解・二回組版・可視確認まで完了。通常main保存の実状態はGitで別に確認する。科学的証明とplancheck/gate/tests、組版成功、GitHub保存は区別する。
-
-## 再開の規則
-
-現CURRENT/PLAN/NEXTを読み、旧STATE/歴史的未完flagをactive研究キューへ戻さない。主分類の未処理候補は零。強い旧explicitcertificate/FULLU/H/正確nil指数等のsecondaryは不要として休止を維持する。具体的proofdefect又は新ユーザー指示が無ければ別研究を始めない。
-
-新しい非自明runには対象命題・分類への必要な矢印・環/単元/補集合・exactinputhash・証明書・独立確認・有限予算・失敗時次手を付ける。二非閉鎖routeは数学を診断して変更、point/minor/jetを無期限反復しない。既immutableproducer/code/report/job/manifestは変更しない。現行方針・台帳・原稿のみ理解順に更新する。
-
-## 保存
-
-主原稿papers/poisson_p4_classification_ja.texとPDF、最終147proof/manifest・必要source/コード/証明書・引継ぎを同じmainへ通常commit/nonforcepush。remote advanceは確認し他者変更を消さない。既成功setupを再実行せず導入済Cloudを再利用。環境/接続/利用制限の実際の阻害があれば具体的状態を保存し、影響しない作業は継続する。
+元の分類主定理の入口は `GLOBAL_EXACT147_COMPONENT_CLASSIFICATION_FINAL_PROOF.md`、
+再現入口は `REPRODUCE_EXACT147.md`。具体的な数学的欠陥が見つかった場合は影響範囲を確認し、
+関連主張・要約・方針を訂正する。過去の完了フラグを根拠に検討を禁止しない。
