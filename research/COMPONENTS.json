@@ -14,15 +14,15 @@
     "null_values": "not catalogued or not applicable; never a claim of zero"
   },
   "coverage": {
-    "global_lower_bound": 142,
+    "global_lower_bound": 147,
     "generic_rank_two_full_components": 6,
-    "generic_rank_four_lower_bound": 136,
-    "upper_bound": null,
-    "global_exhaustion_proved": false,
-    "individually_catalogued_count": 142,
+    "generic_rank_four_lower_bound": 141,
+    "upper_bound": 147,
+    "global_exhaustion_proved": true,
+    "individually_catalogued_count": 147,
     "unexpanded_block_count": 0,
     "all_51_rank_four_ideals_in_S61_constructed": false,
-    "note_ja": "全142個別成分/rank四136/rank二6。M1/M11全25を独立全case次元上界で追加、supportのみ。rank一c非image全long/shortの全17source被覆完了。G/irreducnonnormalcomplete、全E/上界未証明。",
+    "note_ja": "全Poisson被約支持は個別証明済147相異成分の和。rank四141/rank二6、exact147。全source/zero-unit/chart被覆・成分性・相違・一般構成完了。全scheme厚み/PGL全軌道分類は非主張。",
     "generic_primitive_first_jet_known_lifts_lower_bound": 5,
     "full_generic_fiber_exhaustion_proved": true,
     "known_union_over_smooth_canonical_curve": {
@@ -2038,7 +2038,13 @@
     "generic_next17_79_full_HL_positive_terms": 1012,
     "generic_next17_79_full_HL_highband_VALUE_computed": false,
     "generic_beta_exhaustion_current_proof": "research/classification/GLOBAL_GENERIC_G_EXHAUSTION_CLOSURE_AUDIT.md",
-    "generic_beta_exhaustion_scope_ja": "一般係数体の全幾何fiberが既知五点。旧個別GB/certificate未完flagはその個別強主張の履歴を保持する。E全点/全成分上界と区別。"
+    "generic_beta_exhaustion_scope_ja": "一般係数体の全幾何fiberが既知五点。旧個別GB/certificate未完flagはその個別強主張の履歴を保持する。E全点/全成分上界と区別。",
+    "finite_closed_support_cover_proved": true,
+    "unresolved_closed_candidate_count": 0,
+    "uncatalogued_component_dimension_upper_bound": null,
+    "exact_component_count": 147,
+    "primary_classification_proof": "research/classification/GLOBAL_EXACT147_COMPONENT_CLASSIFICATION_FINAL_PROOF.md",
+    "primary_classification_manifest": "research/classification/inputs/global_exact147_component_classification_final_proof_manifest_20261108.json"
   },
   "blocks": [
     {
@@ -15812,6 +15818,386 @@
         "旧同一点D97/98と真quadratic正次元は保持。高次jet/別点無し。",
         "genericorbitは全source stabilizer下界と旧M48/47から。全nonreducedscheme未計算。"
       ]
+    },
+    {
+      "id": "R4_GA9_LINEAR_W_E6_CUSP_TANGENT_23",
+      "name": "E6平面四次尖点と接超平面のGa9linearw23成分",
+      "source_checkpoint": "v64-classification-first",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "additional_generic_rank_four_full_component_outside_MPS40",
+      "generic_rank": 4,
+      "projective_dimension": 23,
+      "meets_SNC_log_symplectic_locus": false,
+      "generic_pgl5_orbit_dimension": 23,
+      "generic_reduced_rosenlicht_quotient_dimension": 0,
+      "generic_transverse_algebra": null,
+      "component_definition": "Reduced PGL5-saturated closure of the whole declared source; full componenthood from independently proved finite whole support cover and all prior142 exclusions.",
+      "generic_construction": {
+        "coordinates": [
+          "h",
+          "x",
+          "y",
+          "z",
+          "w"
+        ],
+        "source_case": "Ga9linear_w",
+        "universal_brackets": {
+          "(1, 2)": "4*h**2-y**2",
+          "(1, 3)": "-h*x+2*y*z+4*w**2",
+          "(1, 4)": "16*h*y-4*w*y",
+          "(2, 3)": "h*y",
+          "(2, 4)": "0",
+          "(3, 4)": "-4*h*w+4*y**2"
+        },
+        "unprinted_brackets_zero": true
+      },
+      "generic_actual_degeneracy_divisor": {
+        "witness_equation": "-4*h*(4*h**3*w-8*h**2*y**2+y**4)",
+        "irreducible_factor_degrees": [
+          1,
+          4
+        ],
+        "corresponding_multiplicities": [
+          1,
+          1
+        ],
+        "reduced": true,
+        "essential_variable_count": 3
+      },
+      "claims": [
+        "R4_GA9_LINEAR_W_E6_CUSP_TANGENT_COMPONENT_23"
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/FIVE_CANDIDATES_FULL_COMPONENTS_AND_ONE_ORBIT_FRONTIER.md"
+        },
+        {
+          "path": "research/classification/GA9_LINEAR_W_COMPONENT_FROM_FINITE_WHOLE_COVER.md"
+        },
+        {
+          "path": "research/classification/T37_SIX_TARGET_LEAF_OBSTRUCTIONS_SEPARATE_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "research/classification/inputs/five_candidates_full_components_one_orbit_frontier_manifest_20261108.json"
+      ],
+      "review_status": {
+        "proof": "full_reduced_support_componenthood_and_all_prior142_distinctness_proved",
+        "independent_review": "accepted_root_pure_composition_with_independent_source_target_and_whole_parent_proofs",
+        "certificates": "full150_350_whole_source_certificates_and_independent_finiteclosed_cover"
+      },
+      "notes_ja": [
+        "全支持有限閉被覆と全prior比較で成分性。一般scheme厚み・smoothness・局所唯一性は未主張。",
+        "genericactualorbit/商dimensionは全source Poisson場上界と保存minor開下界（又はdenseorbit）による。新点/高次jet反復無し。"
+      ]
+    },
+    {
+      "id": "R4_PLANE_TWO_LINES_CUBIC_NODE_FLEX_TANGENT_THROUGH_FLEX_23",
+      "name": "節点三次の変曲接線と変曲点を通る通常接線の23成分",
+      "source_checkpoint": "v64-classification-first",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "additional_generic_rank_four_full_component_outside_MPS40",
+      "generic_rank": 4,
+      "projective_dimension": 23,
+      "meets_SNC_log_symplectic_locus": false,
+      "generic_pgl5_orbit_dimension": 22,
+      "generic_reduced_rosenlicht_quotient_dimension": 1,
+      "generic_transverse_algebra": null,
+      "component_definition": "Reduced PGL5-saturated closure of the whole declared source; full componenthood from independently proved finite whole support cover and all prior142 exclusions.",
+      "generic_construction": {
+        "coordinates": [
+          "h",
+          "x",
+          "y",
+          "z",
+          "w"
+        ],
+        "source_case": "node_flex_tangent_through_flex",
+        "universal_brackets": {
+          "(1, 3)": "2*x*(x-h)",
+          "(1, 4)": "-2*x*y",
+          "(2, 3)": "y*(3*x-h)",
+          "(2, 4)": "2*x*(h-x)-3*y**2",
+          "(3, 4)": "-(x-h)*w+R"
+        },
+        "unprinted_brackets_zero": true,
+        "all_six_magnetic_parameters_retained": true,
+        "R": "r0*h**2+r1*h*x+r2*h*y+r3*x**2+r4*x*y+r5*y**2",
+        "whole_source_actual_shear_normal_form": "I*h**2+J*h*y",
+        "generic_reduced_quotient_parameter": "lambda"
+      },
+      "generic_actual_degeneracy_divisor": {
+        "witness_equation": "-4*h*x*(h*y**2-x*(x-h)**2)",
+        "irreducible_factor_degrees": [
+          1,
+          1,
+          3
+        ],
+        "corresponding_multiplicities": [
+          1,
+          1,
+          1
+        ],
+        "reduced": true,
+        "essential_variable_count": 3
+      },
+      "claims": [
+        "R4_PLANE_NODE_FLEX_TANGENT_THROUGH_FLEX_COMPONENT_23"
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/FIVE_CANDIDATES_FULL_COMPONENTS_AND_ONE_ORBIT_FRONTIER.md"
+        },
+        {
+          "path": "research/classification/TWO_LINES_PLANE_CUBIC_PRIOR142_COMPONENT_COMPARISON.md"
+        },
+        {
+          "path": "research/classification/T37_SIX_TARGET_LEAF_OBSTRUCTIONS_SEPARATE_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "research/classification/inputs/five_candidates_full_components_one_orbit_frontier_manifest_20261108.json"
+      ],
+      "review_status": {
+        "proof": "full_reduced_support_componenthood_and_all_prior142_distinctness_proved",
+        "independent_review": "accepted_root_pure_composition_with_independent_source_target_and_whole_parent_proofs",
+        "certificates": "full150_350_whole_source_certificates_and_independent_finiteclosed_cover"
+      },
+      "notes_ja": [
+        "全支持有限閉被覆と全prior比較で成分性。一般scheme厚み・smoothness・局所唯一性は未主張。",
+        "genericactualorbit/商dimensionは全source Poisson場上界と保存minor開下界（又はdenseorbit）による。新点/高次jet反復無し。"
+      ]
+    },
+    {
+      "id": "R4_PLANE_TWO_LINES_CUBIC_CUSP_FLEX_SECANT_THROUGH_FLEX_23",
+      "name": "cusp-flex接線とflex割線の平面二H+cubic23成分",
+      "source_checkpoint": "v64-classification-first",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "additional_generic_rank_four_full_component_outside_MPS40",
+      "generic_rank": 4,
+      "projective_dimension": 23,
+      "meets_SNC_log_symplectic_locus": false,
+      "generic_pgl5_orbit_dimension": 22,
+      "generic_reduced_rosenlicht_quotient_dimension": 1,
+      "generic_transverse_algebra": null,
+      "component_definition": "Reduced PGL5-saturated closure of the whole declared source; full componenthood from independently proved finite whole support cover and all prior142 exclusions.",
+      "generic_construction": {
+        "coordinates": [
+          "h",
+          "x",
+          "y",
+          "z",
+          "w"
+        ],
+        "source_case": "cusp_flex_secant_through_flex",
+        "universal_brackets": {
+          "(1, 3)": "2*x*(x+h)",
+          "(1, 4)": "2*x*y",
+          "(2, 3)": "3*x*y",
+          "(2, 4)": "3*(y**2-(h+x)**2)",
+          "(3, 4)": "-x*w+R"
+        },
+        "unprinted_brackets_zero": true,
+        "all_six_magnetic_parameters_retained": true,
+        "R": "r0*h**2+r1*h*x+r2*h*y+r3*x**2+r4*x*y+r5*y**2",
+        "whole_source_actual_shear_normal_form": "I*h**2+J*h*y",
+        "generic_reduced_quotient_parameter": "lambda"
+      },
+      "generic_actual_degeneracy_divisor": {
+        "witness_equation": "-6*h*x*(h*y**2-(x+h)**3)",
+        "irreducible_factor_degrees": [
+          1,
+          1,
+          3
+        ],
+        "corresponding_multiplicities": [
+          1,
+          1,
+          1
+        ],
+        "reduced": true,
+        "essential_variable_count": 3
+      },
+      "claims": [
+        "R4_PLANE_CUSP_FLEX_SECANT_THROUGH_FLEX_COMPONENT_23"
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/FIVE_CANDIDATES_FULL_COMPONENTS_AND_ONE_ORBIT_FRONTIER.md"
+        },
+        {
+          "path": "research/classification/TWO_LINES_PLANE_CUBIC_PRIOR142_COMPONENT_COMPARISON.md"
+        },
+        {
+          "path": "research/classification/T37_SIX_TARGET_LEAF_OBSTRUCTIONS_SEPARATE_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "research/classification/inputs/five_candidates_full_components_one_orbit_frontier_manifest_20261108.json"
+      ],
+      "review_status": {
+        "proof": "full_reduced_support_componenthood_and_all_prior142_distinctness_proved",
+        "independent_review": "accepted_root_pure_composition_with_independent_source_target_and_whole_parent_proofs",
+        "certificates": "full150_350_whole_source_certificates_and_independent_finiteclosed_cover"
+      },
+      "notes_ja": [
+        "全支持有限閉被覆と全prior比較で成分性。一般scheme厚み・smoothness・局所唯一性は未主張。",
+        "genericactualorbit/商dimensionは全source Poisson場上界と保存minor開下界（又はdenseorbit）による。新点/高次jet反復無し。"
+      ]
+    },
+    {
+      "id": "R4_PLANE_TWO_LINES_CUBIC_CUSP_CUSP_TANGENT_CUSP_SECANT_23",
+      "name": "cusp接線とcusp割線の平面二H+cubic23成分",
+      "source_checkpoint": "v64-classification-first",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "additional_generic_rank_four_full_component_outside_MPS40",
+      "generic_rank": 4,
+      "projective_dimension": 23,
+      "meets_SNC_log_symplectic_locus": false,
+      "generic_pgl5_orbit_dimension": 22,
+      "generic_reduced_rosenlicht_quotient_dimension": 1,
+      "generic_transverse_algebra": null,
+      "component_definition": "Reduced PGL5-saturated closure of the whole declared source; full componenthood from independently proved finite whole support cover and all prior142 exclusions.",
+      "generic_construction": {
+        "coordinates": [
+          "h",
+          "x",
+          "y",
+          "z",
+          "w"
+        ],
+        "source_case": "cusp_cusp_tangent_cusp_secant",
+        "universal_brackets": {
+          "(1, 3)": "-h*x",
+          "(1, 4)": "3*x*(h-x)",
+          "(2, 3)": "3*(h-x)**2-3*h*y",
+          "(2, 4)": "-9*x*y",
+          "(3, 4)": "3*x*z+3*R"
+        },
+        "unprinted_brackets_zero": true,
+        "all_six_magnetic_parameters_retained": true,
+        "R": "r0*h**2+r1*h*x+r2*h*y+r3*x**2+r4*x*y+r5*y**2",
+        "whole_source_actual_shear_normal_form": "lambda*h**2+y**2 onIunit; I0retained inwholeR6",
+        "generic_reduced_quotient_parameter": "lambda"
+      },
+      "generic_actual_degeneracy_divisor": {
+        "witness_equation": "-9*h*x*(h**2*y-(h-x)**3)",
+        "irreducible_factor_degrees": [
+          1,
+          1,
+          3
+        ],
+        "corresponding_multiplicities": [
+          1,
+          1,
+          1
+        ],
+        "reduced": true,
+        "essential_variable_count": 3
+      },
+      "claims": [
+        "R4_PLANE_CUSP_CUSP_TANGENT_CUSP_SECANT_COMPONENT_23"
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/FIVE_CANDIDATES_FULL_COMPONENTS_AND_ONE_ORBIT_FRONTIER.md"
+        },
+        {
+          "path": "research/classification/TWO_LINES_PLANE_CUBIC_PRIOR142_COMPONENT_COMPARISON.md"
+        },
+        {
+          "path": "research/classification/T37_SIX_TARGET_LEAF_OBSTRUCTIONS_SEPARATE_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "research/classification/inputs/five_candidates_full_components_one_orbit_frontier_manifest_20261108.json"
+      ],
+      "review_status": {
+        "proof": "full_reduced_support_componenthood_and_all_prior142_distinctness_proved",
+        "independent_review": "accepted_root_pure_composition_with_independent_source_target_and_whole_parent_proofs",
+        "certificates": "full150_350_whole_source_certificates_and_independent_finiteclosed_cover"
+      },
+      "notes_ja": [
+        "全支持有限閉被覆と全prior比較で成分性。一般scheme厚み・smoothness・局所唯一性は未主張。",
+        "genericactualorbit/商dimensionは全source Poisson場上界と保存minor開下界（又はdenseorbit）による。新点/高次jet反復無し。"
+      ]
+    },
+    {
+      "id": "R4_CONSTANT_MODULAR_DOUBLE_LINE_CUBIC_23",
+      "name": "constant modular double-line最高部の23成分",
+      "source_checkpoint": "v64-classification-first",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "additional_generic_rank_four_full_component_outside_MPS40",
+      "generic_rank": 4,
+      "projective_dimension": 23,
+      "meets_SNC_log_symplectic_locus": false,
+      "generic_pgl5_orbit_dimension": 23,
+      "generic_reduced_rosenlicht_quotient_dimension": 0,
+      "generic_transverse_algebra": null,
+      "component_definition": "Reduced PGL5-saturated closure of the whole declared source; full componenthood from independently proved finite whole support cover and all prior142 exclusions.",
+      "generic_construction": {
+        "coordinates": [
+          "h",
+          "t",
+          "x",
+          "y",
+          "r"
+        ],
+        "source_case": "constant_modular_highest_double",
+        "universal_brackets": {
+          "(1, 2)": "h**2+h*x-2*x*y",
+          "(1, 3)": "4*y**2-h*y",
+          "(1, 4)": "(h-6*y)*r+h*x",
+          "(2, 3)": "0",
+          "(2, 4)": "-x**2",
+          "(3, 4)": "h**2+2*x*y"
+        },
+        "unprinted_brackets_zero": true
+      },
+      "generic_actual_degeneracy_divisor": {
+        "witness_equation": "h**2*(x**2*y+x*h**2+h**3)",
+        "irreducible_factor_degrees": [
+          1,
+          3
+        ],
+        "corresponding_multiplicities": [
+          2,
+          1
+        ],
+        "reduced": false,
+        "essential_variable_count": 3
+      },
+      "claims": [
+        "R4_CONSTANT_MODULAR_DOUBLE_LINE_CUBIC_COMPONENT_23"
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/FIVE_CANDIDATES_FULL_COMPONENTS_AND_ONE_ORBIT_FRONTIER.md"
+        },
+        {
+          "path": "research/classification/CONSTANT_MODULAR_DOUBLE_LINE_CUBIC_WHOLE_FINITE_REDUCTION.md"
+        },
+        {
+          "path": "research/classification/T37_SIX_TARGET_LEAF_OBSTRUCTIONS_SEPARATE_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "research/classification/inputs/five_candidates_full_components_one_orbit_frontier_manifest_20261108.json"
+      ],
+      "review_status": {
+        "proof": "full_reduced_support_componenthood_and_all_prior142_distinctness_proved",
+        "independent_review": "accepted_root_pure_composition_with_independent_source_target_and_whole_parent_proofs",
+        "certificates": "full150_350_whole_source_certificates_and_independent_finiteclosed_cover"
+      },
+      "notes_ja": [
+        "全支持有限閉被覆と全prior比較で成分性。一般scheme厚み・smoothness・局所唯一性は未主張。",
+        "genericactualorbit/商dimensionは全source Poisson場上界と保存minor開下界（又はdenseorbit）による。新点/高次jet反復無し。"
+      ]
     }
   ],
   "named_block_member_annotations": [
@@ -16165,5 +16551,5 @@
     "MPS40 blockを展開したらblockによる加算を止め、二重計上しない。",
     "文献上の新規性は内部成分証明とは別に確認する。"
   ],
-  "new_components_added_in_this_checkpoint": 84
+  "new_components_added_in_this_checkpoint": 89
 }

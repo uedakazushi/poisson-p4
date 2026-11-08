@@ -1,110 +1,23 @@
-# 分類論文への実行計画
+# 分類論文の完了状態と最終保存
 
-2026-11-08 / v64-classification-plan。
-本計画は「最短であることの数学的保証」ではなく、現在の証拠からの優先戦略である。
-新しい反例・有効な還元が出たら主目標を維持したまま経路を変える。
+2026-11-08 / v64-classification-plan。実行キューはPLAN.json、証拠は最終proof/manifestと各immutable元証明。
 
-## 1. 完了させる定理
+## 主定理
 
-P_redを既約閉族の有限和として尽くす。各族について成分性・相互識別・次元・一般階数・
-一般元の構成・退化因子の幾何を証明する。142という下界は答えとして固定しない。
-全点の被覆を主張しない「genericのみの分類」を最終成果にすり替えない。
-PGL5同型類やnilpotentの完全分類は追加の結果であって主定理の受入条件ではない。
+複素P4のPoisson parameter spaceの被約支持は、正確147個の相異なる全既約成分の有限和。PGL5商前、rank四141/rank二6。全支持・全成分性・相互相違・次元・一般元構成・退化因子幾何は証明済み。全PGL軌道同型類や全scheme厚みを受入条件へ追加しない。
 
-## 2. 実行順と担当
+## 依存と完了
 
-| ID | 成果物 | 完了条件 |
-|---|---|---|
-| C0 | 元方程式・写像・主張の依存図 | S61全rank4被覆、42法線、既知五点、六切片の各矢印の証拠／穴が特定される |
-| G | 一般ファイバーの被約尽くし（完了） | 42法線の根基所属等、または未知残余不存在の同値な厳密証明。分母の補集合を明示 |
-| G_direction | 一般方向の階数三枝の排除（完了） | 全K16の有理模型と非零交換子minorを独立確認。その後のrank四全支持も最終G監査へ接続済み |
-| A_rank2 | rank2全支持の接続（完了） | 六族とrank4閉包で全点を覆う。外部定理・既存成分証明を明記 |
-| E_poly | SNC最高部と任意低次項の被覆（完了） | 十正常形のkappa非零部分と実際のPGL飽和・閉包。全特殊底は未決 |
-| E_quadric | H+2Qの全支持被覆（完了） | rank Q>=4全配置とrank3横断配置。接触二枝の全源と実Poisson変形を保持 |
-| E_quadric3 | rank3全支持（完了） | 全19/25次元逆形式とPfaffian条件から全点をMPS、新22、新24成分へ被覆 |
-| E_multiple_hyperplane | 重複Hの全支持 | 全affine二次JacobiとPf(Q)=0の全解を既知または新成分で被覆 |
-| E_reduced_nonnormal | 被約非正規因子の全支持 | 可約・既約非正規の全実五次因子を持つrank4支持を尽くす |
-| E0 | 特殊底の準備 | 既知像と除外因子の区別、元方程式の制限方法、閉集合のキューができる |
-| E | 特殊底の全被覆 | 各既約閉層の一般部分を既知族で覆い、残りを真に小さい閉集合へ送り、最後まで閉じる |
-| A | 既知成分・rank2・引用の監査（完了） | 既知142の成分性・相違の依存と一次引用を接続。全証明書再実行とは区別 |
-| M | 主論文への統合 | 主定理未証明の表示を保ちつつ、確認済みの証明を理解順に統合する |
-| F | 主定理の完成 | G、E、AとS61被覆の穴がすべて閉じ、未知枝・未処理チャートがない |
-| P | 公表可能な分類論文 | Fの十分な証明、文献比較、最小再現資料、組版・独立確認を完了 |
+C0、G、rank2、Eの全特殊source、既知/新成分監査A、主分類Fは完了。全case旧149被覆→P*真T19→新五23全成分→最後TRIPLE既Ga9constantでexact147。詳細はGLOBAL_EXACT147_COMPONENT_CLASSIFICATION_FINAL_PROOF.md。rank2 closure項はrank4閉被覆の後で戻す。全Jordan/coker/lowersource/unit-zeroとsimpleH/multipleHの仮定を保持する。
 
-C0、一般βのG、既130成分のAは独立受理済み。
-特殊βの全点Eは `E_POINTWISE_SOURCE_FRONTIER.md` の九laneで進める。
-Gの像上界だけのsourceを、既知成分への全点包含と取り違えない。
-現在は E_multiple_hyperplane と E_reduced_nonnormal の全点帰属を並行し、別作者は実変形・成分性の証明を独立確認する。
-一人なら具体的なE源を一つずつ進め、二経路が閉じなければ数学的障害を保存して別の支持へ移る。
-Mは同じ原稿への統合であり、別論文の立上げではない。G完了を全分類完了にすり替えない。
+M/Pも同じ日本語主稿の147/1158・368頁統合、先行文献比較、再現入口、独立読解・二回組版・可視確認まで完了。通常main保存の実状態はGitで別に確認する。科学的証明とplancheck/gate/tests、組版成功、GitHub保存は区別する。
 
-## 3. G完了と、再開しない旧経路
+## 再開の規則
 
-`GLOBAL_GENERIC_G_EXHAUSTION_CLOSURE_AUDIT.md` と93入力manifestが現在の最終証明である。
-全actualDの因子分割、導手曲面のrank零/二・次数1–6、plane全m/R/root/wholehigherを全源定理で尽くす。
-exactC0 bridgeにより未知W優越成分の射影次元は25–27だが、全表は既知成分、像24以下、又はproper primitiveβ像へ入る。
-有限閉和と成分の極大性から未知優越成分を排除し、一般係数体のexactsplitter残余B=0を得た。
-一般fiberは既知五点そのもの。
+現CURRENT/PLAN/NEXTを読み、旧STATE/歴史的未完flagをactive研究キューへ戻さない。主分類の未処理候補は零。強い旧explicitcertificate/FULLU/H/正確nil指数等のsecondaryは不要として休止を維持する。具体的proofdefect又は新ユーザー指示が無ければ別研究を始めない。
 
-旧42法線の根基所属／D(n_j)単位証明、scalar delta_Eの膨張展開、FULLU57/239からの有限性は、
-現在のG証明に必要ではない。これらのexplicit certificate自体を新規構成したとはしない。
-直接GB五回、normal-only331008項への密化、同じminor/jetの反復は再開しない。
-可逆交換子・二次cross・平面五点・有限性だけでは第六点を除けない反例と、旧方法の障害は保持する。
-Gを再開するのは具体的な証明欠陥又は適用仮定の欠落を発見したときだけである。
+新しい非自明runには対象命題・分類への必要な矢印・環/単元/補集合・exactinputhash・証明書・独立確認・有限予算・失敗時次手を付ける。二非閉鎖routeは数学を診断して変更、point/minor/jetを無期限反復しない。既immutableproducer/code/report/job/manifestは変更しない。現行方針・台帳・原稿のみ理解順に更新する。
 
-correctedminus free-r全90被覆とvalid14全joint逆/18modules/原ideal因子は三phase独立確認済み。
-旧plus符号のwholecoverageは撤回のまま。二つのE1DX壁は像23以下であり、空/全E所属へ強めない。
-concurrent m三は全K0まで独立受理し、SF330候補の実列挙は全strictQ経路によりGには不要になった。
-これは実行していない列挙を成功扱いするものではない。
+## 保存
 
-## 4. 全点Eが現在の主線
-
-H+2Qでrank Q>=4の全点と、rank3横断配置は独立に被覆済みである。
-接触配置は全解の二枝を幾何的に認識し、実Poisson変形と同じ成分のPGL不変性を用いた。
-E_quadric3は頂点非包含、原始枝、平方・混合型の全支持を被覆し、混合型は新22次元成分を与えた。
-最後のT(w)=0全11源の飽和閉包も、新24次元全成分と独立に証明した。
-次は重複Hと被約非正規の全支持を並行して扱う。
-源の閉包の上に現れる任意のfiberを、源の閉包という理由だけで被覆しない。
-
-Gの大域次元上界だけでは、各sourceの全点がどの成分へ入るかは分からない。
-全Eの対象を、actualD/導手曲面の全源表と既存normalizerから漏れなく列挙し、
-既知被覆、actual parent未認識、成分性/相違未証明を区別する。
-今回のG証明は新しい一様分母f(beta)を展開していないので、そのexplicit補集合を得たと仮定しない。
-未知のfiber座標を反転したチャートは、その全補集合を別義務として保持する。
-
-各閉層Zでは元134式をZへ制限し、既知族の閉包と比較する。一般部分を証明できたら、
-その証明の不成立部分を真の閉部分Z'へ送り、次元の減少を記録する。
-有限個の層が閉じたことを確認する。Noether性は停止の論理枠組みであって、各層の分類アルゴリズムの成功保証ではない。
-新しい族を見つけた場合は、一点ではなく族の恒等式・成分性・相違を示し、表と主原稿を更新する。
-
-## 5. 計算を始める前の短いjob契約
-
-各jobに以下を一つのJSONまたはノート節として書く。
-
-    task_id / target_statement / implication_to_classification
-    coefficient_ring / hypotheses / inverted_elements / complements
-    exact_inputs_and_hashes / success_certificate / independent_check
-    resource_limit / negative_result_next_step
-
-`python3 scripts/classification.py gate path/to/job.json`で必要項目を確認できる。
-これは数学の正しさを検証するプログラムではない。
-同じrouteで二回未決ならroute_change_reasonを記して切り替える。
-「二回」は反復を抑える運用基準であり、二回で未解決問題を諦める指示ではない。
-
-## 6. いま中止すること
-
-B18の20値・opaque関係・T2・元H0・nil三乗、Hの絶対既約性、旧特定軸のminor farm、
-同一零projectionの次数だけを上げる探索を、過去のNEXT_TASKSから自動再開しない。
-B18は原則secondary。Hやrank計算は分類への矢印が確認された場合に限りprimaryの補助になる。
-純粋なコード予算・custody整備は計算を実行するための手段に限定し、独立の継続目標にしない。
-
-## 7. 証明と保存の合格条件
-
-主命題ごとに、正確な仮定、証明、元方程式との橋渡し、排除した開の補集合、
-独立確認範囲を残す。数学的証明を読んだ確認とproducer再実行を別々に記す。
-計画上doneにするには証明位置とreview位置が必要。sourceのhash一致だけではdoneにしない。
-分類が完成するまでF/Pはblocked。途中論文の投稿をprimaryの完了にしない。
-
-保存は現在版だけの自己完結したbundleへ統合する。既存sources ZIPをそのまま入れ子にする方式は、
-依存抽出が終わるまで配布用の完成bundleとは呼ばない。旧資産の削除はせず、必要な源を現行配置へ移してから整理する。
-この更新キット自体は**リポジトリに適用する制御・計画層**であり、数学の全入力を含む完全研究bundleではない。
+主原稿papers/poisson_p4_classification_ja.texとPDF、最終147proof/manifest・必要source/コード/証明書・引継ぎを同じmainへ通常commit/nonforcepush。remote advanceは確認し他者変更を消さない。既成功setupを再実行せず導入済Cloudを再利用。環境/接続/利用制限の実際の阻害があれば具体的状態を保存し、影響しない作業は継続する。

@@ -1,0 +1,44 @@
+# 六候補のproper閉親条件と相互非包含：integrator独立純査読
+
+2026-11-08。`/root`。以下のproducer本文、元印刷式、別作者証明及びfrozen projectionを独立に読解した。新CAS/point/minor/profile/局所変形jet延長無し。計算再現した範囲は別reportへ分ける。ここでは新成分加算零、T37帰属や全分類完了を結論しない。
+
+## 1. 全T36に残るmarked order二零点のquadric-pencil条件
+
+四次元tangent空間の独立二quadric F,Gから[ GdF-FdG ]を取るmapはGr(2,Sym²V*)上全域regular。零ならd(F/G)=0で独立性に反する。proper Grassの像と零を含むaffinecone C22はclosed GL4不変。order≥2 zeroではquadratic leading tensorとα=i_(E∧Q)volがintrinsicとなる。「あるqで0/1jet零、α∈C22」というincidenceをproper P4上で忘れた条件はclosed。
+true completed T36のvertexの全二次最低項は、q+=(p/5)Bu+t2v²,q-=(p/5)Cv-t3u²に対してα=(5/p)(q-dq+-q+dq-)となる。全四係数を手で照合し、t0,t1がchart correctionのcubic以上にのみ現れることも確認した。全source/PGLの稠密性からwholeT36はこの条件内。ゼロleadingも含み、任意movingframe/period boundaryを落とさない。genericT37にはorder二zeroが無いので、この旗をT37へ流用しない。
+
+## 2. Ga9とplane三つのwholeT36/T38陰性
+
+Ga9linearwの全零台はell={h=y=w=0}。全q∈ell（両fiberchart）でorder二、αは非零のbase logarithmic fieldのfoliationを与え、irreduc quartic F=4h³w-8h²y²+y⁴を保つ。degree三のαはF一般点で零にならない。C22ならquadric比がF上一定となり、degree二のF2-cG2がdegree四のprimeFを割る矛盾。全qを調べたのでwholeT36外。
+plane第一二は全I,J（J0/追加zero planesも含む）で、vertexline以外のzeroに一次項±2又は±3が残る。vertexの全qでquadratic foliationは非zeroのU/V線形結合、irreduc cubicを保ちEuler-horizontalなα。primeC3が全cubic係数を割ればconstantoneform timesC3となりhorizontal性から零、矛盾。quadric比による同じdegree矛盾で全T36外。producerの「base括弧零」は二次最低項の意味であり、fullchartのcubic Ebase∧U/Vを消した意味ではない。独立receipt122c5867にこの射程を明記。
+第三は全有限lambdaで同じvertex全q/irreducC3論法、lambda=-1の追加planeもsimple。genericlambdaの零台はdimension一。
+trueT38の全generic sourceには、explicit twisted cubic上で全raw entriesが消えるx0自由のcone surfaceがある。proper universal Zero incidenceのfiber dimension半連続性によりwholeT38はdimZero≥2。Ga9と各plane三つのgenericλでZero dimension一なので全候補閉包がT38へ含まれることは無い。planeの特殊磁気boundary一点一点のT38非所属はこれだけでは主張しない。
+
+## 3. DOUBLEの全prior142親はT37以外に無い
+
+fullD101/Euler24/M48から射影tangent24、actualorbit23（元exact証明書の再使用）。全25以上親はtangent上界で除外。frozen prior142の108行（rank二6、rank四dim22の18、dim23の84）を照合した。rank二はclosedrank、dim22はorbit23で排除。dim23親を持てばorbitclosureと同次元だから等しい。81はgenericD reducedで、DOUBLEのwholeclosureはproper multipleH条件内なので等号不可。残る5H成分は因子型違い。二nodalcubic23は既denseactual23orbitを持ち、DOUBLE cuspとnodeがPGL非同値だからdenseorbitの一意性で除外。一般reducedD成分の境界にnonredDが有り得ることを否定した論証ではない。
+全24成分はfrozen十二行。T02/T03とdependent3H+Qはproper3H+Q因子条件、T16/T17/CPLUS/HQ²はproperH+2Q条件。T21は全source二actualtorusによりwholeclosureのorbit≤22。T36/T38は全zero/全order二qを実際に調べた§1–2の障害。残るGa9cuspidal24は次節。従ってDOUBLEに残る既知親はT37だけ。未登録の23新成分である可能性は残す。
+
+## 4. DOUBLE対wholeGa9cuspidalのD5全変形
+
+全Ga9denseD=hF_aのquarticは一般aで相異なるA3とA2を持つ。全essential三変数Grassbundleとproper因子flagを用い、任意境界のDOUBLE D=h²C3をplanequartic F0=hC3へ戻す。F0はA1とD5の二singularitiesだけ。A1近傍はHessian unitなのでA3/A2は集まれず、両markはD5へ集まる必要がある。
+一次miniversal theoremにより全D5局所変形はzw²+bw+z4+a3z³+a2z²+a1z+a0をpullbackする。T1基底1,z,z²,z³,w、収束CI theoremのnormality仮定不要をprimary receiptで照合。zunitではz倍平方完成によりdegree五P5の根multiplicityがA3に四、A2に三を要求し両立不能。z0singはb=a0=0で、a1unitなら二A1、a1zero/a2unitならA3一つと既zero根を持つdegree三残式（非zero三重根無し）、a1=a2=0ならmultiplicity三かつ他根simple。全zero/unit補集合とa3全値を尽くす。従ってA3+A2同時存在不可、wholeGa9cuspidalを排除。
+外部入力はFedorchuk1007.4828v2の全miniversal式及びTyurina1969 Theorem8.1。adjacency表、Ga9の一標本D100の全source外挿を使わない。新しい全parameterの非存在部分は本文の初等的根multiplicity証明で独立に確認した。
+
+## 5. TRIPLEのwholelong及び主要既知親の純排除
+
+marked multipleHでは一意h-Casimirquadratic liftの最高Qに「全monomial coefficient bivectorsが共通constantimage-line lを含む」というproper closed line incidenceを置ける。全long17源のquadratic項はY-rowだけなのでQ=∂Y∧W2、shortも既actualcurveにより同閉包内。H²|Dとinvariance/lineをproper flagで忘れるので全movingPGL閉包でも保持。
+TRIPLEのxy,xr,x²係数imageplanesはspan(t,y),span(t,r),span(y,r)、共通交差零。D=h²C3はprimeC3かつ唯一multipleHなので別Hへ逃げられず、全longsource閉包及び対応する十三long25成分を排除。DOUBLEもxy係数rank四なので同じ旗の外。
+TRIPLE全Zero_redはline h=x=y=0、唯一order二zeroはt1,r0。そこではα=3Cdh-hdC、primeessential四Cを保つ非zerooneform。§1同じ次数論でwholeT36外。wholeT38/T40は全genericzero surfaceからproperdimZero≥2、TRIPLEzero一で外。T40はq52全ellipticscroll定理を使い、unstable一点からの逆推論ではない。
+T01は全D五linear、T21は二linear×essential≤3cubic、Ga9cuspidalはDessential≤3という各proper閉因子/Grass条件でTRIPLEを除外。T39は元fullS61 normalizerが同一orbitのactualtranslationを全150復元し全134式を満たした上でwholeQ51graphに対する残差9/2を持つため外。別作者がこの一残差を手で再計算した。T40 graphも陰性、nonzero数31/32、旧prose31/31は別erratumで訂正し旧bytes不変。
+これらはTRIPLEの全prior142監査そのものではない。残る小さい親とT37は別義務として保留し、tangent28だけで25親を除外しない。
+
+## 6. 六閉候補の全相互非包含
+
+producer96e54168の全六候補を確認した。Ga9/plane三/DOUBLEは各exact23、TRIPLEはexact22。下界は既全source/M証明、上界は全fixedD源9＋Dorbit14又は全actualGa stabilizerから得る。五つの23候補のdenseDは1+4、二H+node cubic、二H+cusp二配置、doubleH+cuspで各PGLorbitが異なる。cusp二配置は唯一cuspを通るfactorlineの数（零と二）で違う。
+同dim既約閉集合の包含は等号を強制し、regularD写像のdenseimageのorbitclosureも等しい。二densegrouporbitsはopenなので交わり同じになるが、上のD型に反する。TRIPLE essential四に対し他五つのwholeDはproperclosed essential≤3内だからTRIPLEも含まれない。逆方向はdim23>22。
+従って全offdiagonalでwholecandidate包含なし。boundary交叉無し、全source各点で非所属、又は既知親外を意味しない。全support=K142∪六候補と合わせるとexact成分数は142+#{候補のうちK142に含まれないもの}。残六の既知親判定はなお必要。
+
+## 7. 受理境界
+
+以上のproper全source条件・全priorDOUBLE監査・六候補posetを受理する。有限cover142–148は既証明、ここで新componentを登録しない。全T37の新bounded-degree leaf条件とそのtarget計算はまだこのreceiptの依存に使わず、独立に確認してから判定する。scheme厚み、smoothness、正確nil指数、orbit全分類は非主張。

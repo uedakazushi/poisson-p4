@@ -8,7 +8,7 @@
 \newtheorem{proposition}{命題}[section]
 \newtheorem{lemma}[proposition]{補題}
 \theoremstyle{definition}
-\newtheorem{target}[proposition]{目標（未証明）}
+\newtheorem{theorem}[proposition]{定理}
 \newtheorem{remark}[proposition]{注意}
 \newcommand{\PP}{\mathbf P}
 \newcommand{\CC}{\mathbf C}
@@ -18,18 +18,24 @@
 \newcommand{\PGL}{\operatorname{PGL}}
 \newcommand{\Sp}{\operatorname{Sp}}
 \title{複素射影四空間上のPoisson構造の成分分類\\[3pt]
-\large 研究原稿：分類主定理は未証明}
+\large 被約既約成分は正確に147}
 \author{}
 \date{2026年11月8日\quad v64-classification-first}
 \begin{document}
 \maketitle
 \begin{abstract}
-本稿は、複素射影四空間上のPoisson構造の被約既約成分を尽くし、各成分の一般元の幾何を記述するための研究原稿である。
-分類主定理の証明は完成していない。階数2の全支持を六族と階数4の閉包で覆い、従前58成分の依存監査に加え、二重二次曲面・冪零モジュラー場・平面曲線等の全源と既約非正規五次の明示軌道から八十四の相異なる成分を証明して下界142を得る。各新成分は全周囲方程式で検証し、全支持の尽くしとは区別する。
-一般primitive一次底に関する義務Gは完了した。実退化五次の全因子型、非正規曲面の全次数・restriction rank、planeの全零cubicと全normal位数を、既知閉和・全像24以下・底像の非優越へ入れる。未知優越成分の必要次元25--27と比較し、S61の一般係数体上のexact splitter残余Bが零であること、従って一般fiberが既知五点の有限エタール代数に等しいことを証明する。新しい一様分母や展開済みideal証明書を構成したという意味ではない。
-特殊底の全点E被覆のうち、被約既約非正規五次の全枝が完了した。導手曲面の全次数一から六、restriction rank零／二、planeの全normal位数を尽くし、全点を採録済み閉成分又は空へ送る。長鎖の十三の25次元全成分を全源で認証した。さらにH＋相異二既約quadricの全点と、constant modularの次数二以下・被約最高三次・actual非被約三次、指定unimodular全低次源を既知閉和へ送る。横断支持又は大域次元上界で成分性を得る五族では、正則性・局所唯一性は主張しない。可約・非被約退化因子の未認識源が残るため、全E及び総成分上界は未証明であり、下界142を総数とはしない。
-既存リポジトリの全証明書を再実行したとは主張せず、原証明の読解と今回の独立検算を区別する。
-詳細なnilpotent構造や派生論文の完成を、主分類定理の前提条件に追加しない。
+複素射影四空間上のPoisson構造をスカラー倍で射影化し、$PGL_5$商を取る前のJacobi schemeの被約既約成分を分類する。
+成分数は正確に147であり、一般階数四が141、一般階数二が六である。
+各成分について次元、一般元の実構成と退化因子の幾何を記述し、成分性・相互相違・全点被覆を証明する。
+全点被覆はactual退化五次の全因子分割、重複超平面の全modular型、非正規導手曲面の全次数・restriction rank、
+planeの全normal位数と全零cubicを尽くす有限閉被覆による。
+最後の五つの23次元成分には全周囲の滑らかさを要求せず、有限閉被覆の次元上界と全既知親への非包含を使う。
+whole T37の単純退化因子上に次数五以下の葉曲面が存在することを、Hilbert--Burchの次数五baseとproper Hilbert familyから示し、
+対象側の次数九の葉又は対数留数により残親を除く。
+最後にconstant modular最高triple-lineの全源を、明示的なquadratic Poisson多項式族で既知Ga9成分へ送る。
+一般primitive一次底のexact splitter残余も零となり、一般S61代数は既知五点の有限エタール代数である。
+全$PGL_5$軌道の分類、Jacobi schemeの全非被約厚み又は正確なnil指数は本定理の主張に含めない。
+原証明の読解、独立算術による再構成と幾何的な合成を区別し、全旧証明書を今回再実行したとは主張しない。
 \end{abstract}
 
 \section{目的と分類の射程}
@@ -41,24 +47,35 @@
 本論文の主目標は\(\mathcal P_{\red}\)の既約成分分類である。
 これは、特殊点を含む全\(\PGL_5\)軌道の分類や、\(\mathcal P\)の全非被約構造の決定とは異なる。
 
-\begin{target}[主分類定理]\label{target:main}
-有限個の閉既約族\(\mathcal C_1,\ldots,\mathcal C_N\)を明示し、
+\begin{theorem}[主分類定理]\label{target:main}
+複素射影四空間上のPoisson構造の被約parameter空間は、本稿で明示する相異なる147個の閉既約成分の和である。
 \[
- \mathcal P_{\red}=\bigcup_{i=1}^{N}\mathcal C_i
+ \mathcal P_{\red}=\bigcup_{i=1}^{147}\mathcal C_i.
 \]
-を証明する。各族が全空間の既約成分であること、相互に異なること、次元、一般階数、一般元の構成および退化因子の幾何を記述する。
-\end{target}
+一般階数四の成分は141個で、その次元別個数は22次元が18、23次元が89、24次元が12、25次元が20、28次元が二。
+一般階数二の成分は六個で、22次元と28次元が各二、36次元と39次元が各一である。
+各成分の一般元の構成とactual退化因子の幾何は以下の表及び対応する命題に与える。
+\end{theorem}
+\begin{proof}
+個別成分性と相違は以下の各支持証明と命題\ref{prop:five-last-full-components}による。
+全点被覆と追加成分の排除は命題\ref{prop:global-exact147}で証明する。
+\end{proof}
 
-\(N\)は未決定である。2026年11月8日に確認したリポジトリの台帳は、全成分数の下界142、一般階数4の成分数の下界136を記録している。
-既存証明書を入力とする成分性・相違の依存監査を行い、以下で主分類に接続する。
-全証明書を今回再実行したという意味ではない。
-この下界を答えとして固定して未知成分を排除するのではない。
+2026年11月8日の最終固定cutは147成分・1158採録主張である。
+この数は既存の下界を答えと仮定したものではなく、全sourceの有限閉被覆を最後の実Poisson曲線まで閉じて得る。
+各証拠の元入力・正逆・零補集合を保持し、数学的な包含と実行用gateのPASSを区別する。
+ここで全成分を尽くしても、一つの成分内の全特殊軌道又は全scheme厚みを決定したことにはならない。
 
-\subsection{先行研究との比較：未完了の執筆項目}
-Introductionの完成には、既存の40成分を扱う文献、Pymのpurely ellipticな構造の分類、rank2の葉層に関する文献等について、一次資料の仮定と本稿の主張の差を具体的に確認する必要がある。
-現在の入口は\texttt{research/REFERENCES.md}である。
-本稿では、未確認の書誌情報や新規性の断定を補わない。
-特に、実際の退化因子が正規という仮定と、その被約化が正規という仮定を区別する。
+\subsection{先行結果と本稿の追加点}
+rank二側ではdegree二foliationの全入口\cite{cm,lpt}を用い、六つの全空間成分とrank四閉包の項を区別する。
+rank四側ではsimple normal crossingsの退化因子を持つ既成分とその全変形に関する結果\cite{mps}、
+actual退化因子が正規の場合の認識、楕円曲線からの$q_{5,2}$構成\cite{mpq52,pymquantum}を入力として明示する。
+purely ellipticな構造の分類\cite{pymelliptic}だけで全Poisson構造を尽くすとはしない。
+本稿では特殊な一次底、可約及び非被約なactual退化因子、全導手支持と全normal位数を戻し、
+既成分への包含又は新たな全成分性を証明して、その全点被覆を147成分へ閉じる。
+実際の退化schemeが正規という仮定と、そのreduced supportだけが正規という仮定を区別する。
+既存名・番号との比較は本文のactual source同値によるもので、文献上の優先権を番号だけで断定しない。
+一次資料の仮定と直接読解の範囲は\texttt{research/REFERENCES.md}及び各引用receiptへ固定する。
 
 \section{既存の還元を用いるための証明義務}
 一般階数4の構造を扱う既存モデル\(S_{61}\)は、重み1の16変数と重み2の45変数、元の134方程式からなる。
@@ -338,7 +355,7 @@ Xの単射性により\(\rank A(v)=3\)なので結論を得る。
 この固定形式はSp4不変ではない。群と五切片の関数体へ引き戻したときには、一般に群変数が残る。
 群変数を恒等元へ固定して五切片だけでこの一形式の所属を示しても、命題の全\(K\)上の仮定を証明したことにはならない。
 さらに既存の五変数typed模型のpivot行は\((3,6,13)\)で、同名の法線をここへコピーできない。
-この輸送の橋と実際のunitは未証明であり、前小節の五変数底に超越元を加える正確な判定も維持する。
+この輸送の橋と実際のunitは未証明であり、主定理には用いない別の計算経路として保存する。主定理は後のGと全点有限閉被覆で証明し、前小節の五変数底に超越元を加える正確な判定も維持する。
 証明・入力・独立査読は\texttt{SYMMETRY\_FIXED\_NORMAL\_CHART.md}と対応するreviewに記録した。
 
 \begin{proposition}[一般証明の開集合への拡張]\label{prop:spread}
@@ -381,16 +398,14 @@ NEW25像には\(\Delta\ne0\)の既存の点があるので、底の特殊部分�
 未知の族が現れたら、それを元方程式で確認し、全空間での成分性と既存族との違いを証明する。
 特殊fiberの成分であることだけから、全空間の新しい成分と数えてはいけない。
 
-\section{最終証明へ向けた未解決箇所}
-本稿に未収録の主要部分を明示する。
-\begin{enumerate}
-\item S61による全rank4被覆、座標変更、元134式との同値の自己完結した証明。
-\item 一般ファイバーに対する命題\ref{prop:radical}の仮定\(L\subset\sqrt I\)、または同等の尽くしの証明。
-\item 得られた開集合の全補集合と、特殊一次部分上の未知成分の排除または追加。
-\item 一般元の幾何と有限証明書を含む、既知成分の自己完結した記述の整備。
-成分性・相互識別の必要依存の監査とrank2支持は以下で接続済みである。
-\item 主要な先行研究との一次資料に基づく比較と、主張・計算証明書の独立点検。
-\end{enumerate}
+\section{全支持証明を組み立てる論理}
+以後、S61の全rank四被覆、元134式とactual座標の対応、個別成分の支持証明を順に接続する。
+一般fiberについては命題\ref{prop:global-g-exhaustion}がexact splitter残余を排除する。
+特殊一次部分の全点には一般fiberの結論だけを適用せず、全sourceの実normalizerとその零補集合を別に戻す。
+最後の有限閉被覆は命題\ref{prop:global142-six-candidate-cover}、全成分性と相違の合成は
+命題\ref{prop:five-last-full-components}、全支持の終結は命題\ref{prop:global-exact147}に置く。
+早い段階の局所証明はそれぞれの仮定の下で用い、後の全点強化と区別する。
+全orbit及び全scheme厚みのsecondary問題を主分類の前提に追加しない。
 
 \subsection{一次部分が零の閉層についての被覆}
 \begin{proposition}[既存Q22定理を入力とする閉層被覆]\label{prop:beta-zero}
@@ -586,7 +601,7 @@ B18の精密なnil指数、\(H^0\)、\(T_2\)全長、追加の接触・Betti不�
 
 \section{既知成分の下界を支える支持の証明}
 MPSの定理\cite[Theorem 1.4]{mps}はSNC locusと交わる40成分を与える。
-従前の追加十一族、positive-weight型NEW25、および今回の八十四の追加成分の射影次元は次の通りである。
+従前の追加十一族、positive-weight型NEW25、および今回の八十九の追加成分の射影次元は次の通りである。
 \begin{center}
 \small
 \begin{tabular}{lr}
@@ -626,11 +641,14 @@ $\mu(F)=5$のmarked平面Hquarticの五つの完全源&各23\\
 二重直線零cubic・triple先頭の二つの全軌道閉包&23,23\\
 同じ二重直線・moving-simple先頭の全軌道閉包&23\\
 rank一長鎖・非定数affine係数の全飽和源&25\\
-長鎖共鳴二・SC・B1--6・V1・M1/M11の十二源&各25\\\bottomrule
+長鎖共鳴二・SC・B1--6・V1・M1/M11の十二源&各25\\
+Ga9 linear-wの全軌道閉包&23\\
+二H+cubicの残三plane磁気源の全閉像&各23\\
+constant modular最高double-lineの全軌道閉包&23\\\bottomrule
 \end{tabular}
 \end{center}
-一般rank四は$40+11+1+84=136$成分で、前述の六rank2成分と合わせて下界は$136+6=142$となる。
-以下の議論はこの下界を支えるもので、全支持の上界を与えない。
+一般rank四は$40+11+1+89=141$成分で、前述の六rank2成分と合わせて既知成分は$141+6=147$となる。
+以下は個別成分性と相違の証明である。全支持と総数147は命題\ref{prop:global-exact147}で別に証明する。
 
 \subsection{精密な横断環を要しない成分性}
 \begin{lemma}\label{lem:transverse-support}
@@ -1900,7 +1918,7 @@ ZERO\_LOG\_5Hの全閉包は別のproper閉条件$\chi=H^5$に入り、
 三源は既存25次元成分へ入り、二源は命題\ref{prop:nil22-image-two-components}の二成分を与える。
 さらに$\mathrm{double}_B,\mathrm{double}_C$の全六磁気源は後述の実曲線により既知24次元成分へ入り、
 $\mathrm{quadratic}_A$の全七源も既知MPS40の閉和に入り、$\mathrm{double}_A$全六源は既知cuspidal quartic24成分へ入る。
-この段階で残ったstable二源のうち、three-lines全源は命題\ref{prop:stable-three-lines-all-T03}でT03へ入る。line-conic全源の成分帰属は未決定である。
+stable二源はthree-lines全源が命題\ref{prop:stable-three-lines-all-T03}でT03へ、line-conic全源が後の命題\ref{prop:nil22-stable-lineconic-T17-whole}でT17へ入る。
 \end{proposition}
 \begin{proof}
 div/Lieの全110行と最高部$Q\wedge N=0$の全80行からなる190行90列のrankは71で、完全核は19次元。
@@ -1975,7 +1993,7 @@ rank零ならD零でrank四に反する。
 \[
 \begin{array}{c|r|c}
  \text{源}&\text{係数数}&\text{全源の帰属}\\\hline
- \mathrm{stable\_line\_conic},\ \mathrm{stable\_three\_lines}&6,6&\text{未決定}\\
+ \mathrm{stable\_line\_conic},\ \mathrm{stable\_three\_lines}&6,6&T17,T03\\
  \mathrm{double}_{A}&6&\text{既知cuspidal quartic}_{24}\\
  \mathrm{double}_{B}&6&\mathrm{CPLUS\_EXT}_{24}\\
  \mathrm{double}_{C}&6&\text{従属三超平面・quadric}_{24}\\
@@ -2384,7 +2402,7 @@ PGL不変性と閉性から全飽和閉包も含まれる。
 全anchorの独立線形解、全磁気正逆map、全150/350、実Pfaffianと全分母は
 \path{NIL22_DOUBLE_A_CUSPIDAL_SEPARATE_REVIEW.md}と
 \path{CLASSIFICATION_NIL22_DOUBLE_A_CUSPIDAL_REVIEW_20261107.json}でFraction再構成した。
-この段階のnil22 image残余stable二源のうち、後続の命題\ref{prop:stable-three-lines-all-T03}でthree-lines全源も閉じ、line-conicのみを残す。他の未解決E源又は全分類へ拡張しない。
+nil22 imageのstable二源も、命題\ref{prop:stable-three-lines-all-T03},\ref{prop:nil22-stable-lineconic-T17-whole}で各全源を閉じる。このquadratic-Aの局所証明だけを他の全源の認識へ拡張してはいない。
 
 \subsection{階数一と非零定数モジュラー場の非優越}
 階数一の全affine Jordan型についてもprimitive一次像は一般底を優越しない。
@@ -2783,7 +2801,7 @@ Darboux変更は評価rankを保つ。命題\ref{prop:constant-modular-beta}の�
 \begin{remark}
 全十六実対数源、$x^3y,x^2y^2$の全十源、および上の二源・十源を合わせると、
 quartic integrating-factor incidenceが与える対数閉包全体のprimitive一次像は非優越となる。
-E3の実軌道境界は次小節で処理する。特殊底の全点被覆と目標\ref{target:main}はなお未証明である。
+E3の実軌道境界は次小節で処理する。この段階の非優越だけで特殊底を覆わず、後の全点合成と命題\ref{prop:global-exact147}へ接続する。
 \end{remark}
 
 新二極型の係数行列・完全kernel・rank minor・全定数消去は、
@@ -2930,7 +2948,7 @@ E3閉包は命題\ref{prop:unimodular-exceptional-boundary}によって閉じる
 この結果は被約非正規な実因子の全支持を尽くすものではない。
 被約可約の残分割$1+4,1+1+3,1+2+2$は後述の全源次元論でGから排除する。
 この段階のG残余は命題\ref{prop:G-only-irreducible-nonnormal}の既約非正規五次である。
-後述の全曲面・全plane源の証明がそれも閉じてGを完了するが、目標\ref{target:main}の全E被覆はなお未解決である。
+後述の全曲面・全plane源の証明がそれも閉じてGを完了する。全Eは別の有限閉被覆を経て命題\ref{prop:global-exact147}で完成する。
 全四Jordan型の80列、全行列、数学的kernel basisと相補minor、forcing作用素の三恒等式は
 \path{CLASSIFICATION_UNIMODULAR_EXCEPTIONAL_BOUNDARY_REVIEW_20261107.json}で独立再構成した。
 閉incidenceの射影、稠密L112包含、regular型の共役操作と外部分類の接続は、
@@ -3605,10 +3623,10 @@ $\varepsilon\ne0$の全点は補助源のPGL移送と非零scaleによりMPS閉�
 分母消去後の多項式族、$G_B=3R$、一定fiber変更と全六源の一致は
 \path{CLASSIFICATION_PLANE_CUBIC_TORIC_COLLISION_REVIEW_20261107.json}で独立再構成した。
 MPSのSNC成分定理自体は既済の外部入力である。
-これにより未処理の平面配置は、節点三次の変曲接線とその変曲点を通る割線、
+この段階で残す平面配置は、節点三次の変曲接線とその変曲点を通る通常接線、
 尖点三次の変曲接線とその変曲点を通る割線、尖点接線と尖点割線の三配置となる。
 非平面全支持は後の実SS曲線とT06曲線で被覆する。
-型$1+1+3$全体のE未完了部分は上の三plane配置に限られる。
+この非plane認識に含めなかった三plane配置は、後の命題\ref{prop:five-last-full-components}で各全閉像を新成分へ認識する。
 
 
 \subsection{全$1+1+3$支持の一般底に対する排除}
@@ -5085,7 +5103,7 @@ source全点が一軌道であるという、より強い主張は使わない�
 \path{CLASSIFICATION_HYPERPLANE_QUARTIC_NIL_REGULAR_COMPONENT_REVIEW_20261107.json}で
 producerやCASをimportせずFraction疎多項式演算により再構成した。
 regular nilpotentの他のscalar源とtranslation型は次小節で全て処理する。
-他のcofactor型の全$H+F$被覆と全分類は未完成である。
+他のcofactor型は後続の全源認識へ送り、最後に命題\ref{prop:global-exact147}で全分類へ合成する。
 
 \begin{proposition}\label{prop:nil4-quartic-distinctness}
 命題\ref{prop:nil4-hyperplane-quartic-component}の成分は、追加前の既知89成分と全て相異なる。
@@ -5111,7 +5129,7 @@ pのDは正確な既約次数分割$1+4$を持つため、この像に入らな�
 \path{CLASSIFICATION_HYPERPLANE_QUARTIC_NIL4_DISTINCTNESS_REVIEW_20261107.json}にある。
 証明の入力は全周囲成分性とproperな因子乗算像であり、
 単なる退化因子の一致からPoissonテンソルの同値を推測していない。
-全分類、全成分数の上界、他のquartic残源の全被覆はなお未証明である。
+この命題の外のquartic源も後続で処理し、全成分数は命題\ref{prop:global-exact147}で147と確定する。
 
 \subsection{第二regular nilpotent源のT39帰属と全型の被覆}
 \begin{proposition}\label{prop:nil4-quartic-second-t39}
@@ -5227,7 +5245,7 @@ producer・S61算術engine・CASをimportせず独立再構成した。
 普遍Q51 graphと25次元T39の同定自体は既済入力であり、この点での代入だけから推測したものではない。
 これでregular nilpotentの$H+F$全支持は完了したが、
 最小冪零・長block translationは次小節でMPSへ被覆する。
-その他の純冪零型のG用次元上界と型4,5の全E帰属は後述する。全成分帰属Eと主分類は別に未解決である。
+その他の純冪零型のG用次元上界と型4,5の全E帰属は後述する。全成分帰属は個別の全源認識を経て命題\ref{prop:global-exact147}へ合成する。
 半単純cofactorの全支持も命題\ref{prop:quartic-semisimple-all}で被覆済みである。
 このregular型の被覆から追加成分は生じない。
 
@@ -5365,7 +5383,7 @@ A,Bの全曲線・定数Pfaffian・トーラス同変性・全固有値は
 producerやCASをimportせず独立再構成した。
 C曲線は全150空間の重み安定な有限切片から得たものであるが、ここでの帰属証明には
 実曲線の全parameter恒等式と半単純全支持定理という弱い十分条件を使う。
-他の純冪零型は次の全支持次元論でGから排除する。全成分帰属Eと全分類は未解決であり、この被覆による追加成分はない。
+他の純冪零型は次の全支持次元論でGから排除する。全成分帰属は後の全点強化へ送り、この次元評価だけでは追加成分を数えない。
 
 \subsection{残る純冪零quartic型の全支持次元}
 以下の型番号は十個の純冪零cofactorをJordan4の零・top4、
@@ -6075,7 +6093,7 @@ $(-512,-512,128,128,768)$、既存99は$(-50,-25,0,25,50)$となる。
 \path{CLASSIFICATION_NIL22_LONG_CURVES_REVIEW_20261107.json}で独立再構成した。
 三MPS曲線のC* parameter weightは第一一、第二・第七二、第五・第六は一であり、全非零tは一軌道である。
 新23成分名は\texttt{R4\_NIL22\_LONG\_IRREDUCIBLE\_QUINTIC\_23}。
-七源の全E帰属は閉じた。型6、後述のGa9のc零linear-w源、他の特殊底と主分類の尽くしは未解決である。
+七源の全E帰属は閉じた。型6は後の全導手支持へ、Ga9のc零linear-w源は命題\ref{prop:five-last-full-components}へ送り、最終全点被覆に含める。
 
 \subsection{Jordan22・零translationのcotangent型と平面quartic}
 \begin{proposition}\label{prop:quartic-nil22-cotangent-bound}
@@ -11732,7 +11750,7 @@ root-coverのopenと元connectionのopenの区別、六全matrix/Pfの独立確�
 \begin{proposition}\label{prop:plane-ranktwo-m4-all-G}
 rank二planeに沿うnormal位数四の全sourceは、零cubic Rの全型・全normal-root partitionについて
 未知G優越成分の一般元を与えない。nonreduced Rの全点は前命題で認識されるが、
-reduced Rの小次元源の全E帰属は未証明である。
+reduced Rの小次元源の全E帰属は後の命題\ref{prop:plane-ranktwo-m4-all-E}で別に証明する。
 \end{proposition}
 \begin{proof}
 非零cubic Rはirreducibleのsmooth/node/cusp、reduced reducibleのconic+line二型とtriangle/concurrent、
@@ -12892,7 +12910,7 @@ whole tau lineでmatrix/augmented maximal minorsの積は$4294967296\tau^2$、
 \begin{proposition}\label{prop:plane-nonreduced-m3-constant21-all-G}
 R=$2L+M$又は3L、normal位数三、generic normal cubicが21で両primitive roots constantなら、
 全rank四源のPGL射影像は24次元以下である。
-C-exact三源は次元上界だけで、全点E帰属は未証明である。
+このG段階のC-exact三源は次元上界だけを使い、後の全点強化で全空性を証明する。
 他primitive degrees又はgeneric tripleの全sourceを閉じたとはしない。
 \end{proposition}
 \begin{proof}
@@ -13082,7 +13100,7 @@ proper因子を全particularと全kernel方向に対して確認した全結果�
 \begin{proposition}\label{prop:plane-nonreduced-m3-generic21-all-G}
 非被約zero cubicを持つrank二planeで、normal位数三のgeneric normal cubicがdouble+simpleなら、
 全sourceは既知閉和又は射影像24以下へ入り、未知G優越成分へ寄与しない。
-特に後述の二つの像23境界の全E帰属は未証明のまま保持する。
+この命題だけでは二つの像23境界の全E帰属を結論せず、後の全source認識で別に閉じる。
 \end{proposition}
 \begin{proof}
 primitive degreeを$d_D,d_S$とすると$2d_D+d_S\le2$。
@@ -14429,7 +14447,7 @@ S既約・被約なのでS全体で零となる。
 log-skew inverseの全恒等式、RR不等式とHilbert numeratorを確認する。
 導手gluing、abelian化、étale商、quadric排除と分解は上の幾何的証明であり、算術PASSから自動的に従ったとはしない。
 generic楕円parameterでのMacaulay2計算を特殊parameterへ外挿することも用いていない。
-下界142・一般rank四136を与えるが、全分類は未完成である。
+このordinary-double認識の仮定外も後で処理し、命題\ref{prop:global-exact147}では全147成分を尽くす。
 
 \subsection{smooth rank零曲面のclean ordinary-double枝}
 \begin{proposition}\label{prop:clean-rank-zero-T40}
@@ -16736,7 +16754,7 @@ Euler gaugeを戻してもactual五次は不変である。全zero境界も含�
 \path{QUADRIC_CONE_ZERO_C_WHOLE_SEPARATE_REVIEW.md}。
 非零Cの全除外を与えたという旧候補は、入口で$F_u$だけの方向を落としていたため採用しない。
 ここで用いるのは正しい全三十三源とC零だけの因子証明であり、
-C非零二型の全点E帰属は未解決として残す。
+C非零二型は後の命題\ref{prop:quadric-cone-ranktwo-all-empty-E}の修正全源から別に全空性を得る。
 
 \subsection{滑らかなprojected Veronese零曲面枝の全排除}
 \begin{proposition}\label{prop:projected-veronese-zero}
@@ -17863,16 +17881,16 @@ rank二planeの全m三／四は全点既知被覆が完成している。
 D5/3A2 tangentの旧A0/DPM認識、全A3+A2の既知24成分帰属も全sourceで証明した。
 E6 smooth-flexとA5 smooth-hyperflexは二法線の全真cut支持を零と証明して新23成分にした。
 mu六のfinite十一源とmu五のfinite五源は全frame・六磁気・zero-invariant境界込みで帰属した。
-別controlであるGa9 linear-wの成分性・他親帰属は未決定で、そのdense23軌道は全global T39/T40の外と判定した。
-この親外性だけで未知の成分性又は境界全点の親外性を結論しない。
-Ga9 linear-wの残余や他のE全点へこれらの認識を拡張しない。
-二直線とcuspの接線・割線源では全I非零をC39/C40外、I零込み全源をT21外と証明したが、未知親は未決定である。
+別controlであるGa9 linear-wのdense23軌道は全global T39/T40の外と判定した。
+この親外性だけでは成分性を結論せず、後の命題\ref{prop:five-last-full-components}で全既知親と有限閉被覆を合わせて成分性を証明する。
+零磁気境界が旧成分と交わることまで否定していない。
+二直線とcuspの接線・割線源では全I非零をC39/C40外、I零込み全源をT21外と証明し、後の全親監査と有限閉被覆で新成分へ進む。
 非平面rank二translationの全八・七parameter源は、同canonical22orbit閉包と二actualSS親からMPSへ全被覆した。
 Jordan21の$(h,x)$全六源も、parameter無反転の実normalizerと全s,kの正則SS曲線からMPSへ入る。
 $(0,h+x)$のn6非零もmodularな実半単純変形でMPS、n6零はcubicのu/w微分零からplaneへ戻る。
 $(h+x,h)$のp零全五源はmoving pairの実曲線によりnamed T06へ入る。
 命題\ref{prop:two-hyperplanes-cubic-nonplane-all-E}により全非plane$1+1+3$のE被覆は完了し、
-この因子型の未解決は三つのplane全六磁気源だけである。
+三つのplane全六磁気源も、命題\ref{prop:five-last-full-components}で新しい三成分へ全点認識する。
 本質三変数のH+二相異conicは全十候補を七free源へ尽くし、全六磁気・全frame境界を
 CPLUS、既二23成分、既beta零閉和、T16/T17へ全点被覆した。
 このE完了を非plane又はlambda零pure-nilの他sourceへ外挿しない。
@@ -17887,15 +17905,14 @@ rank二cubic scrollでは全RにC0を必須とし、canonical q2-rootは全空�
 残るA25二型も全境界poleと真fiber計数により全像24以下となった。
 rank二cubic coneも全27源・全十九壁を戻し、命題\ref{prop:cubic-cone-ranktwo-whole-E}で全点T38／T39又は空へ認識した。
 これら全曲面・全planeの証明により、未知G一般元が入る全非正規支持を排除した。
-Ga9 linear-w、nil22 imageのstable line-conic、plane二超平面+cubic残三源及び各弱上界壁など、
-特殊底の多くのE全成分帰属は未解決である。
+ここまでのG上界に留めた枝は、後続のstable、shortnil、Ga9、plane三源及びconstant全sourceの定理で点ごとに認識する。
 後続の全点強化では、rank零planeの全co-Higgs・global vector・scalar・zero-symbolを
 命題\ref{prop:plane-rankzero-all-pointwise}で尽くした。rank二planeも全位数で被覆済みであり、
 quadric coneのFu-only脱落方向を戻したV2、smooth cubic scrollの全A25、canonical index二node、
 次数六split-conductorの全源は、命題\ref{prop:irreducible-nonnormal-all-pointwise}へ合成される。
 従ってこの被約既約非正規枝を現在のE未解決表へ重複して残さない。
 
-従って成分数は下界142・一般rank四136であるが、主分類の完成を主張しない。
+後節までの全点強化と最後のTRIPLE実族により、命題\ref{prop:global-exact147}で147成分の主分類が完成する。
 
 \subsection{一般一次底の全分岐閉鎖とexact splitter残余}
 \begin{proposition}[Gの完了]\label{prop:global-g-exhaustion}
@@ -18011,7 +18028,7 @@ exact splitterの既知因子は元から有限エタールであり、未知の
 全branchの仮定、次数表、normalizer/底像の全域性と最後の幾何点からB零への接続は
 \path{GLOBAL_GENERIC_G_EXHAUSTION_CLOSURE_AUDIT.md}で別作者が読解し、統合担当も受理した。
 この結論は新しい一様な全底分母、$\delta_E$の展開、又はexplicit ideal combinationの計算ではない。
-特殊底の全点E、全被約成分の総数、全orbit分類は残り、目標\ref{target:main}は未証明である。
+特殊底の全点Eと総数147は別の有限閉被覆と命題\ref{prop:global-exact147}で得る。全orbit分類は本定理の主張に含めない。
 
 \section{非正規既約五次の全点被覆と長鎖の新25次元成分}
 本節は130成分・1084採録主張のcutでの全点強化である。
@@ -18932,13 +18949,12 @@ plane tangentと次数五の依存も、rank零T40の独立Quot／部分導手�
 \end{proof}
 全入口の独立合成監査は
 \path{IRREDUCIBLE_NONNORMAL_QUINTIC_WHOLE_COMPOSITION_SEPARATE_REVIEW.md}とその32-file manifestに固定する。
-この全被約既約非正規枝のE完了は、可約・非被約Dの残源、
-Ga9 linear-w、stable line-conic、plane二H+cubic三源、
-低rank modularの未認識延長を消さない。
-主分類目標\ref{target:main}、全E及び成分数の総上界はなお未証明である。
+この全被約既約非正規枝のE完了だけで可約・非被約Dを覆わず、
+Ga9 linear-w、stable line-conic、plane二H+cubic三源と低rank modularの全延長を後節で別に処理する。
+その有限閉被覆を命題\ref{prop:global-exact147}へ合成して主分類を完成する。
 
 \section{rank一translationの全有限源と十二の追加25次元成分}
-本節の成分下界は142であり、後節までの1125採録主張の固定cutで、一般rank四136、rank二六である。
+本節の十三の長鎖25成分と従前の成分に、後節の新五成分を合わせた最終cutは147成分・1158採録主張、一般rank四141・rank二六である。
 定数$g$の三次共鳴二族、$g=0$のscalar-cubic族、六binomial族、一vertical族及びM1/M11の
 計十二個の25次元全成分を追加する。
 このうち七族の一点では全接次元が25と一致して正則性・唯一性を得る。
@@ -19803,7 +19819,7 @@ $\alpha+\beta=p$、raw period open $pq=\rho e^2\ne0$、frame determinant$2e^4$�
 \path{TWO_QUADRICS_TRANSLATED_MINIMAL_T17_SEPARATE_REVIEW.md}に独立固定する。
 
 \subsection{残三plane配置の新しい全磁気入口は陽性認識と区別する}
-二H+cubicの未帰属三配置は、本節のH＋二quadric源とは別の義務である。
+二H+cubicの三配置は、本節のH＋二quadric源とは別の入口である。後の命題\ref{prop:five-last-full-components}で各全像を新成分として認識する。
 前二配置の全六磁気は、全域actual shearでそれぞれ
 \[
  \begin{array}{c|cc}
@@ -19820,10 +19836,10 @@ Euler gaugeとcuspの尺度$-1$により旧LOG e2、$\alpha=\gamma=\delta=0$の�
 第三はgeneric磁気で$R=3L,m=4$、leading $a u^3v$であり、m三へ含めない。
 全150/Pf/逆の一回readbackはこの入口を認証するが、既約Dを仮定した旧E8／31空性は流用できない。
 $J=0$又は第三の$I=0$は元全源の閉補集合として残す。
-既知親への全点陽性曲線はまだ無く、新成分又はE完了を主張しない。
+この磁気商の計算だけでは既知親を得ない。後の全親非包含と有限閉被覆により、三つの全閉像が新成分であることを証明する。
 
 \section{可約因子の全実曲線と残る低次延長}\label{sec:whole-E-1125}
-本節は142成分・1125採録主張の固定範囲を扱う。成分数の加算はない。
+本節は採録主張1125までの全実曲線を扱う。ここで成分数は加算せず、後節で追加の全点認識と全支持の成分数上界を証明する。
 全曲線で元の自由係数、actual線形変更の逆、真のcompleted源のperiod条件とEuler差を保つ。
 全周囲の成分性を得ることと、既知閉成分への全点包含を得ることは異なる。
 以下では後者だけで足りる箇所に局所唯一性を付加しない。
@@ -20450,7 +20466,7 @@ commuting varietyの一般既約性を仮定せず、明示odd polynomial族だ�
 \begin{proposition}\label{prop:unimodular-zero-factor-E-routing}
 gamma零の全unimodular sourceはCAへ入る。
 nonconstant gcdを持つ全gammaは、前命題のlinear-Casimir全既知源又は
-三変数pullback最高部の全低次延長へ戻る。後者を全点既知と主張しない。
+三変数pullback最高部の全低次延長へ戻る。後者の全点認識は後の命題\ref{prop:unimodular-full-pullback-E}へ送り、このroutingだけでは結論しない。
 \end{proposition}
 \begin{proof}
 $\gamma=0$なら$J\wedge\beta=\beta^2=0$。
@@ -20473,19 +20489,15 @@ qは二変数binary quadraticとなり複素数上でlinearに分裂して矛盾
 第二はWを消す$v\ne0$で$i_v\gamma=0$、閉性とCartan公式から$L_v\gamma=0$、
 したがって第四変数依存の無い実pullback最高部である。
 全低image-rank・重複factor・零係数も二つのsupersourceに残した。
-全C/Lのunknown extensionをgeneric最高部の閉性だけで既知とはしない。
+全C/Lの延長は後の全pullback定理で別に処理し、generic最高部の閉性だけで既知とはしない。
 \end{proof}
 
-\begin{remark}[固定1125で残る義務]
-constant modularは次数二以下、被約最高三次式、actual非被約三次式が全knownとなった。
-未処理は最高三次式が非被約だがactual三次式は被約となる特定の全lower sourceである。
-unimodularではlinear Casimir、primitive regular pencil、零最高部の全延長を閉じたが、
-full pullback及び非empty log/poleの全低次延長は未了である。
-stableはthree-lines全T03の後、line-conicのみが残る。
-HQQは命題\ref{prop:HQQ-all-pointwise-1125}で全点完了したが、shortnil r2/3、
-Ga9 linear-w、二H+cubic plane三磁気線等は依然未解決である。
-これらの固定因子認識や有限source化は陽性親又は成分性を自動的には与えない。
-全E、総成分上界及び目標\ref{target:main}は未証明のままである。
+\begin{remark}[段階1125から最終全点合成への接続]
+ここまでの実曲線はそれぞれの全source包含だけを証明した。
+当時の補集合であるconstant modular最高非被約・actual被約の全lower源、unimodular fullpullbackと全pole延長、
+stable line--conic、shortnil r2/3、Ga9 linear-w及び二H+cubic三磁気線は、次節で全て戻す。
+したがってこの段階の部分認識を最終的な未帰属表とはしない。
+全支持は命題\ref{prop:global-exact147}で147既知成分へ閉じる。
 \end{remark}
 全constant-source実曲線と独立純査読は
 \path{E_WHOLE_ACTUAL_LIMITS_AND_REDUCED_CUBIC_SEPARATE_REVIEW.md}、
@@ -20494,6 +20506,1088 @@ Ga9 linear-w、二H+cubic plane三磁気線等は依然未解決である。
 unimodular全低次の射程は\path{UNIMODULAR_HAMILTONIAN_PENCIL_WHOLE_SEPARATE_REVIEW.md}へ固定する。
 小Laurent readbackの全150/126/350と独立な手読解を区別し、
 これらを全旧証明書の再実行とは呼ばない。
+
+\section{全点の有限閉被覆と147成分の尽くし}\label{sec:finite-whole-cover-1156}
+本節は147成分・1158採録主張の最終固定範囲を扱う。
+従前の142個の相異なる全空間成分の和を$\mathcal K_{142}$とする。
+まず全sourceを$\mathcal K_{142}$と六つの既約閉像へ戻す。
+その後、五つの像の成分性と相違を全支持の次元比較で証明する。
+残るconstant-modular最高triple-lineの一軌道も、最後の実Poisson多項式族で既知Ga9成分へ送る。
+有限閉被覆と総数上界は、各候補が全空間成分だという主張を先取りしない。
+
+\subsection{stable line--conicの全六磁気をT17へ送る}
+\begin{proposition}\label{prop:nil22-stable-lineconic-T17-whole}
+nil22 image内のstable line--conic全六磁気sourceはT17に入る。
+磁気係数零、全PGL飽和及びその閉包を含む。
+\end{proposition}
+\begin{proof}
+真completed T17の$(A,B,C,D,H)$座標で、H-Casimir代表を
+\[
+ F=kAB+tH^2,\quad G=lCD+\nu F,\quad k=s+r,
+\]
+\[
+ P_{AB}=F,\ P_{AC}=sAC,\ P_{AD}=rAD,\
+ P_{BC}=-sBC,\ P_{BD}=-rBD,\ P_{CD}=G
+\]
+と書く。raw periodの正逆は
+\[
+ \begin{aligned}
+ p_1&=k,\quad p_2=r-s,\quad p_0=l-r+s,\quad t_0=t,\quad t_1=\nu k,\\
+ s&=(p_1-p_2)/2,\quad r=(p_1+p_2)/2,\quad l=p_0+p_2.
+\end{aligned}
+\]
+rawとhelperの差は$E\wedge(0,kB,sC,rD,0)$であり、coupled項$\nu tH^2$を落とさない。
+$a=9/2$、$s=r=l=1,t=2a^2,\nu=-1/2$でplane
+$C=A-aH,D=B+aH$はcoisotropicである。
+$f=C-A+aH,g=D-B-aH$、$U=f/e,V=g/e$とし、tensorをe倍する。
+唯一のnormal-pair poleは$\{f,g\}|_{f=g=0}/e$で、中心で零となる。
+全endpointは
+\[
+\begin{aligned}
+ \{U,A\}&=-A(A-aH),&\{U,B\}&=-AB-aBH-2a^2H^2,\\
+ \{V,A\}&=AB-aAH+2a^2H^2,&\{V,B\}&=B(B+aH),\\
+ \{U,V\}&=aH(U-V),&\{A,B\}&=0.
+\end{aligned}
+\]
+$h=H,x=A+3H/2,y=B-3H/2,Q_1=U/3,Q_2=-V/3$で元の全anchorへ戻る。
+残quadricとlineは
+$Q=36h^2+3h(x-y)+2xy$、$L=x-y-12h$である。
+
+全磁気$m_0h^2+m_1hx+m_2hy+m_3x^2+m_4xy+m_5y^2$を残す。
+$s=1+eS,r=1+eR,l=1,t=2a^2+eT,\nu=-1/2+eV_0$とするとplane上の誤差は
+\[
+ eE_1+e^2E_2,\quad
+ E_1=(2V_0-(S+R)/2)AB-aRAH+aSBH+(T/2+2a^2V_0)H^2,
+\]
+$E_2=V_0(S+R)AB+V_0TH^2$となる。従って全負冪が消え、追加磁気は$-E_1/9$。
+\[
+\begin{gathered}
+ c_0=m_0-9m_3-9m_5,\quad c_1=m_1+12m_3,\quad c_2=m_2-12m_5,\\
+ a_{AB}=m_4,\ a_{AH}=c_1-3m_4/2,\ a_{BH}=c_2+3m_4/2,\\
+ a_{HH}=c_0+3c_1/2-3c_2/2-9m_4/4,\\
+ S=-2a_{BH},\quad R=2a_{AH},\quad
+ V_0=-9a_{AB}/2+(a_{AH}-a_{BH})/2,\quad T=-18a_{HH}-81V_0
+\end{gathered}
+\]
+を取った後、$Q_1\mapsto Q_1+3m_5y,Q_2\mapsto Q_2-3m_3x$とする。
+この六係数mapのdetは$-2916\ne0$、分母は有理定数だけである。
+後二shiftが$x^2,y^2$と必要な低次補正を全て戻すので、全六磁気を得る。
+全actual frameとその逆は
+\[
+\begin{aligned}
+ h&=H,&x&=A+3H/2,&y&=B-3H/2,\\
+ Q_1&=(C-A+aH)/(3e)+3m_5y,&
+ Q_2&=-(D-B-aH)/(3e)-3m_3x,
+\end{aligned}
+\]
+\[
+ A=x-3h/2,\ B=y+3h/2,\ H=h,\quad
+ C=x-6h+3e(Q_1-3m_5y),\quad D=y+6h-3e(Q_2+3m_3x).
+\]
+frameのdetは$-1/(9e^2)$、tensor scaleはe、Pf変換係数は$-1/9$。
+中心のactual Dは$-h^2LQ/2\ne0$。
+任意の固定mでperiod開$k l$は中心2だからgeneric eで単元であり、
+全curveはe零まで正則、generic eは真T17である。閉性により全mと元の全逆へ戻せる。
+\end{proof}
+
+\subsection{short nil31の最後の全源はmoving-H T19曲線で閉じる}
+\begin{proposition}\label{prop:nil31-short-two-thirds-T19-whole}
+short nil31、r=$2/3$の元全sourceはT19に入る。
+正規化後のt単元・d任意の全二parameter、特にd零を含む。
+\end{proposition}
+\begin{proof}
+$n$-Casimirの全正規形は
+\[
+\begin{aligned}
+ P_{xy}&=dnz-tny+2tzw-y^2/3,&P_{xz}&=tnz-2yz/3,\\
+ P_{xw}&=dn^2+yw/3,&P_{yz}&=-2z^2/3,\\
+ P_{yw}&=(ny+zw)/3,&P_{zw}&=2nz/3,
+\end{aligned}
+\]
+$t\ne0$、$D=-tn^2z(ny-zw)$である。
+真T19の二quadricは$q_3=cd_0-b^2,q_4=ab+d_0H$、actual Dは$-r(r-v)Hq_3q_4$。
+$t_0=(r-v)/2,u_0=r-v$という完成項込みのsourceを使い
+\[
+ r=e^2,\quad v=3e^2+e^4\sigma
+\]
+とする。中間target$(h,X,Y,Z,W)$からのactual逆frameを
+\[
+ a=eX-Z/e,\quad b=eW-h/e,\quad c=Z-2W+h/e^2,\quad
+ d_0=h,\quad H=Y+X-Z/e^2
+\]
+で与える。detは$e^2$、正逆は
+\[
+ h=d_0,\ W=b/e+h/e^2,\ Z=c+2b/e+h/e^2,\
+ X=a/e+Z/e^2,\ Y=H-X+Z/e^2.
+\]
+$q=e^2,I=Z-qW^2,J=Y-ZW+qXW$、
+$K=(2+q\sigma/2)(qW-1)(Z-qX)-q(1+q\sigma/2)J$と書く。
+全curveの六chart係数は
+\[
+\begin{aligned}
+ P_{ZW}&=(-2-q\sigma)(qW-1)I,\\
+ P_{XW}&=(qW-1)[-\sigma Z/2+(2+q\sigma)W^2-(2+q\sigma/2)X]
+                      -(1+q\sigma/2)J,\\
+ P_{YW}&=-(3+q\sigma)(qW-1)J-WK,\\
+ P_{XZ}&=(4+q\sigma)(Z-qX)(Z-W)+q(-2-q\sigma)WJ,\\
+ P_{YZ}&=qJ[-2Z+6W+q(-2W^2+2\sigma W)-q^2\sigma W^2]\\
+ &\quad -(Z-qX)[2Z+q((2W+\sigma)Z-6W^2)
+                +q^2(2W^3-2\sigma W^2)+q^3\sigma W^3],\\
+ P_{XY}&=((Z-qX)K-P_{YZ})/q+(3+q\sigma)(Z-qX)J.
+\end{aligned}
+\]
+最後の分子はq零で$-2Z^2-(-2Z^2)=0$なので厳密にqで割れ、全係数が多項式。
+固定affine chartへの全projective sectionのrestrictionはinjectiveな線形mapで閉像を持つ。
+generic eで実quadratic global tensorの像にあるため、全eで同じ閉線形像にあり、
+canonical150係数もe多項式である。
+
+中心で$Z$を新CasimirにするEuler場
+$L=(0,-4Z+4W,2Z,0,2h)$を引き、固定actual map
+\[
+ n=Z,\quad x=X/18+7Y/54,\quad y=-W/3,\quad z=h,\quad w=-Y/3
+\]
+を掛ける。そのdetは$1/162$、逆は$h=z,Z=n,W=-3y,Y=-3w,X=18x+7w$。
+全中心は上の全正規形の$t=1/27,d=-\sigma/108$である。
+全actual Dも
+\[
+ D_e=(2+e^2\sigma)(e^2(X+Y)-Z)(hZ-e^2W^2)(hY-ZW+e^2XW)
+\]
+から同frameで$-n^2z(ny-zw)/27$へ戻る。
+period開$e^4(2+e^2\sigma)$は全sigmaでgenericに単元。
+従って全sigmaの非零中心がT19に入り、元のactual torus正逆と全六source逆により全t単元・d任意へ戻る。
+\end{proof}
+
+以上と既証明の他九源を合わせるとnil22 image内も全点で閉じる。
+\begin{proposition}\label{prop:nil22-image-eleven-all}
+nil22、c image内の全十一Hessian sourceは$\mathcal K_{142}$へ入る。
+\end{proposition}
+\begin{proof}
+全190行・90係数からのHessian分類は、GL2とscaleの全逆、任意の磁気F0六係数を保つ。
+各終端は
+\[
+\begin{array}{c|l}
+ \text{stable line--conic / three-lines}&T17/T03\\
+ \text{double A/B/C/D}&\text{cuspidal24}/CPLUS/\text{dependent三H+Q24}/DDH25\\
+ \text{triple A/B/C}&\text{既二nodal-cubic23}/\text{nil31-third25}\\
+ \text{quadratic A/B}&\text{MPS40}/\text{nil31-half25}
+\end{array}
+\]
+である。stableの二つ目まで今回の命題で閉じ、他は前の全曲線・全source成分証明を使う。
+Hessian単元を零へ代入せず、全zero/critical補集合は元十一正常形の該当行へ戻す。
+自由GL2/C* fiberを引いたGの次元数を、点別帰属の根拠にはしない。
+\end{proof}
+全stable/shortの実正逆、全350/126及び独立査読は
+\path{NIL22_STABLE_LINE_CONIC_T17_ACTUAL_CURVE.md}、
+\path{NIL31_SHORT_TWO_THIRDS_T19_WHOLE_SEPARATE_REVIEW.md}、
+\path{NIL22_IMAGE_ELEVEN_WHOLE_POINTWISE_COVERAGE.md}に固定する。
+
+\subsection{constant modularの最高double-lineを一軌道へ尽くす}
+\begin{proposition}\label{prop:constant-double-whole-forced}
+$P=\partial_t\wedge Y+\operatorname{Jac}f$、$\operatorname{div}Y=1$、$Yf=f$、
+$\deg Y\le2,\deg f\le3$で$f_3=x^2y$とする。
+全sourceは$\mathcal K_{142}$と、次のactual軌道閉包$C_D$の和へ入る。
+\[
+ (P_{tx},P_{ty},P_{tr},P_{xy},P_{xr},P_{yr})
+ =(1+x-2xy,4y^2-y,(1-6y)r+x,0,-x^2,1+2xy).
+\]
+\end{proposition}
+\begin{proof}
+Y affineなら$(1+et)\partial_t\wedge Y+\operatorname{Jac}f$の全実pencilを使う。
+被約actual cubicでは全非零半単純の二H+cubic、三H+Q又は五H定理へ、
+非被約actual cubicでは前の全被覆へ入る。
+triangular $Y=(A_2(q)+(1-d)r)\partial_r+U(q)$、$f=rg(q)+H(q)$も、
+元のraw-long実曲線で全rank一translation源へ入る。
+そのPfは次数三以下でmarked hが重複するので、単純Hに全17源定理を適用したのではない。
+
+$f_3$の全二次syzygyを取り、linear-Hamiltonian t-shearで除ける三方向を除くと
+\[
+ Y_2=(by+cr)(x\partial_x-2y\partial_y)
+       +(3byr+cr^2/2+ky^2)\partial_r.
+\]
+$f_2=Ax^2+Bxy+Cxr+Dy^2+Eyr+Gr^2$の全mod-x条件は
+\[
+ cG=4bG-cE=-4cD+bE+2kG=-4bD+kE=0.
+\]
+G単元、次にE単元では$b=c=k=0$でaffineへ戻る。
+G=E零・D単元では$b=c=0$、残る全係数はtriangularへ。
+残$f_2=x(Ax+By+Cr)$でC単元ならactual $r'=Cr+Ax+By,t'=Ct$で$f_2=xr'$へ移り、
+次数三条件$c=0$の後、次数二の$r^2,yr$係数が順に$-2b,-k/2$でaffineとなる。
+C零ではx/y translationで$f_2$を全て除く。
+
+$f=x^2y+px+qy+sr+d_0$の全lower条件は
+\[
+\begin{gathered}
+ pc=cs=-2bq+ks=-2cq+3bs=0,\\
+ (a-1)p+ls=-2aq+ms=(a-1)s=0,\qquad d_0=-p^2b/2+w_0s.
+\end{gathered}
+\]
+s単元はaffine、s零でpq単元はa一/零の矛盾、p零・q単元はtriangular、
+p=q零はactual非被約、p単元・d0零もtriangularである。
+最後の$p d_0\ne0$だけが$a=1,c=0,b=-2d_0/p^2$を与える。
+actual対角$(x',y',r',t')=(px/d_0,d_0y/p^2,pr/d_0,t)$で
+\[
+ f=x^2y+x+1,\quad
+ Y=(1+x-2xy)\partial_x+(4y^2-y)\partial_y
+       +((1-6y)r+ky^2+lx+my+w_0)\partial_r
+\]
+へ戻る。全k,l,m,w0は自由。
+実変換$r'=sr+Ax+By+C,t'=st-2Ay$、tensor scale$1/s$は
+\[
+ k'=sk+10B,\quad l'=sl,\quad m'=sm-2B+6C,\quad w_0'=sw_0-A-C
+\]
+と作用する。B,C,Aで三係数を全域に除き、l単元ではs=$1/l$でl一へ。
+l零も同じ全多項式sourceの閉境界だから$C_D$へ入る。
+全式でPfは$x^2y+x+1$、actual Dは$h^2(x^2y+xh^2+h^3)$で非零。
+\end{proof}
+
+\subsection{最高triple-lineの全lowerと唯一残る軌道}
+\begin{proposition}\label{prop:constant-triple-whole-forced}
+同じ元全constant-modular sourceで$f_3=x^3$とする。
+全sourceは$\mathcal K_{142}$と、一actual軌道閉包$C_T$へ入る。
+その代表は
+\[
+ f=x^3+3xy-3y/2+r,\quad
+ Y=(x/3+y)\partial_x+(-xy+y/6-r/3)\partial_y
+   +(-3y^2+xr-5y/4+r/2)\partial_r,
+\]
+$P=\partial_t\wedge Y+\operatorname{Jac}f$である。
+\end{proposition}
+\begin{proof}
+全二次syzygyはY2x零、(y,r)成分がHamiltonian
+$H_3=xQ_2(y,r)+Q_3(y,r)$であり、t-shear後の全七係数を残す。
+各場合で$f_2=Ax^2+Bxy+Cxr+Dy^2+Eyr+Gr^2$と書き、以下の大文字はこの全係数を表す。
+Q3非cubeでdegree比較を行うと、非零のquadratic first integral Bに
+$3A\,dB-2B\,dA=0$が必要となる。
+$B^3=cA^2$とUFD valuationからAがlinear cubeとなって矛盾し、全lowerはactual cubeへ戻る。
+Q3零ではQ2 rank二をxyrへ、rank一をxy二乗へ、rank零を零へ置く。
+rank二の残f2係数E単元ではq-block trace$2/3$に対し$Yf=f$がtrace一を強制し空。
+E零の$r^2,y^2$係数はそれぞれ非零定数倍のC二乗、B二乗であり、全lowerはcubeへ。
+rank一はC単元の二補集合で$2C^2/3$又は非退化f2へのinverse-Hessian traceが矛盾し、
+残る全sourceはtriangular又はactual cubeへ入る。rank零はY affineで既知である。
+
+残Q3 cubeをy三乗とし、actual y-shiftと同じ全fのHamiltonian gaugeで
+$H_3=y^3+x(byr+cr^2)$とする。
+次数三比較から$C=2Db/3,Dc=0$。
+c単元ではD=C零の後、yr係数$-2B^2c/3$からB零となりcubeへ戻る。
+c零・b零はtriangular/cube、c零・b単元・D単元は$r^2$係数$C^2b/3$に反して空。
+D=C=B零もcubeであり、唯一bB単元だけが残る。
+全lower条件は
+\[
+ f=x^3+Bxy+px+qy+sr+d,\quad
+ s=-B^2b/9,\quad q=B/(2b)
+\]
+となる。a=$-b$、c0=$b^2B/3$、s0=$c0^3/a^2$として
+$(x\prime,y\prime,r\prime,t\prime)=(ax,c0y,c0^2r,s0t)$、tensor scale$1/s0$のactual対角で
+$f=x^3+3xy-3y/2+r$へ戻す。
+元の全四自由係数$p,d,l,L$は$r'=r+px+d,t'=t+(p/3)y$でp/dを除ける。
+残fを保つ全実変換
+\[
+ X=x+A,\quad Y_0=y-Ax,\quad
+ R_0=r-3Ax/2-3Ay-A^3,\qquad
+ T=t+\beta Y_0+\gamma R_0+\alpha X
+\]
+で$\beta=-A^2-A/2,\gamma=-A/3$とすると
+$l'=l-2A/3$、$L'=L-2A^3-2A^2-A-3\alpha$。
+$A=3l/2$と上式のalphaで全parameterを除け、全四sourceは同一actual軌道となる。
+各unitの逆とzero補集合は上の場合分けに残しており、全f2/f1/f0を零に置いた切片ではない。
+\end{proof}
+両全finite reductionの元係数及び独立査読は
+\path{CONSTANT_MODULAR_DOUBLE_LINE_FINITE_REDUCTION_SEPARATE_REVIEW.md}、
+\path{CONSTANT_MODULAR_TRIPLE_LINE_FINITE_REDUCTION_SEPARATE_REVIEW.md}に固定する。
+$C_D,C_T$の既知親や成分性をこの有限化だけで結論しない。
+
+\subsection{三変数pullback最高部の全低次延長も既知となる}
+\begin{proposition}\label{prop:unimodular-full-pullback-E}
+$\alpha=J+\beta+\gamma$が非零constant Pfを持つ全closed二形式とし、
+非零constant vについて$i_v\gamma=0$とする。この全C/L延長は$\mathcal K_{142}$に入る。
+\end{proposition}
+\begin{proof}
+$v=\partial_w$とすればclosednessからgammaは三変数pullback。
+全一次項には$w\,dw\wedge c'$もあるが、highest Pf式$c'\wedge\gamma=0$により
+$c'\ne0$は命題\ref{prop:unimodular-linear-Hamiltonian-E}の全linear-Casimir源へ戻る。
+$c'=0$の全式は
+\[
+ \alpha=\gamma+\beta_3+A+w\Omega+dw\wedge(\eta+c),\qquad\Omega=d\eta.
+\]
+$\beta_3$はbase一次二形式、A/Omegaはconstant、etaはlinear一形式。
+全Pf一定条件は$b=\eta+c$が全base点で非零、$b\wedge\Omega=0$を与える。
+Omega非零のsupportを二次元Wとすると、全eta像とcはWに入り、cはeta像の外である。
+従ってrank etaは一以下で、$\eta=\ell a$と書ける。
+最高項$\gamma\wedge\eta=0$から$\gamma\wedge a=0$、再びlinear-Casimir全延長へ入る。
+
+残Omega零では$b=dH$、Hは次数二以下でどこでも非critical。
+全Pは正確に
+\[
+ P=\partial_w\wedge B+\operatorname{Jac}H,\quad
+ \operatorname{div}B=0,\quad B(H)=k\ne0,\quad\deg B\le2
+\]
+となる。actual affine frameで$H=z+q(x,y)$、rank qは零・一・二。
+零はconstant HamiltonianでCA。一は$xB_2(x)=0$から最高部のlinear Casimirを得る。
+二では$H=z+xy$とし
+\[
+ B_e=B+eH\partial_z,\qquad P_e=\partial_w\wedge B_e+\operatorname{Jac}H
+\]
+を取る。$\operatorname{div}B_e=e,B_eH=k+eH$だから全eで真のquadratic Poisson族。
+e単元では$f_e=H+k/e$により元constant-modular source IIそのもので、全NEW25被覆を適用できる。
+元tensorはe多項式、中心Pfはk単元なので閉性でe零も同じ既知成分へ戻る。
+$1/e$を零へ代入した議論ではない。w dw項・Omega全rank・全lowerを尽くした。
+\end{proof}
+
+\subsection{全logarithmic pole源を零一次層又は一軌道へ戻す}
+\begin{proposition}\label{prop:unimodular-all-log-known-or-orbit}
+quartic integrating factorを持つ全unimodular最高部の全低次延長は、
+$\mathcal K_{142}$又は次の一actual軌道に入る。
+\[
+ P_*=(x,-x^2,xz-1,xy-1,-yz+w-y,-xw+xy+y+z).
+\]
+\end{proposition}
+\begin{proof}
+前の全pole源・全residue・全translationと全C6/L24の解を使う。
+normal一次部が零ならlinear DarbouxでJ+Qへ移り、Q22全被覆から既知閉和へ入る。
+混合L112は
+\[
+ Q_u=(0,-xy,x^2,uy^2,-uxy,(u-2)xz+(2u-1)yw)
+\]
+である。全n0=n1零後のgeneric normal部とPfは
+\[
+\begin{aligned}
+ L&=(0,0,n_2x/(u-1),n_3y,-un_2y/(u-1)-n_3x,n_2z+n_3w),\\
+ R&=a_0(u-1)+n_2n_3,\quad \operatorname{Pf}P=a_0R/[u(u-1)].
+\end{aligned}
+\]
+残式$-n_2R/(u-1)^2,-n_3R/[u(u-1)]$とPf単元から$n_2=n_3=0$。
+例外u=$3/2$も$R=a_0+2n_2n_3$を同じように使う。
+u=$1/2,2$はそれぞれ$L=n_2y\partial_z\wedge\partial_w$又は
+$n_2x\partial_z\wedge\partial_w$だけ残るが、全実族
+\[
+ P_u^y=Q_u+C_u+n_2y\partial_z\wedge\partial_w,\quad
+ P_u^x=Q_u+C_u+n_2x\partial_z\wedge\partial_w,
+\quad (C_{u,13},C_{u,24},C_{u,34})=(-a_0/u,a_0,a_1)
+\]
+のgeneric uでは、それぞれwを$n_2/(2u-1)$、zを$n_2/(u-2)$だけtranslateした零一次源である。
+族自身はwallで正則、Pfは$a_0^2/u$単元なので閉性で全wall係数を戻す。
+u零・無限遠はlinear Casimir、u一はquadratic pencilへ送る。
+
+他の全mixed源のunit-forcingは
+\[
+\begin{array}{c|c|c|c}
+ \text{極型}&R&\operatorname{Pf}P&\text{残式}\\\hline
+ x^3y&2a_0+n_2n_3&a_0R/6&n_2R,n_3R\\
+ x^2(xz+yw)&2a_0+n_2n_3&-a_0R/2&n_2R,n_3R\\
+ x^2y^2&a_0+n_0n_1&a_0R&n_0R,n_1R
+\end{array}
+\]
+で、全normal Lが零となる。
+reduced四line、実L112、x四乗、x三乗y、x二乗y二乗、x二乗yz、x二乗qの全極分割について、
+rank二restrictionとaligned/transverseの空性は前の全source恒等式を使う。
+残るfactor又はdependent配置はlinear-Casimir、regular pencil又は前命題のfullpullbackへ戻る。
+最高部だけのgeneric空性を未知lower fiberへ外挿しない。
+
+唯一のaligned-zero x二乗y二乗源では、全残式が
+$n_0^2=0$、Pf単元から$n_2\ne0$、$a_0n_2=2n_2^2n_3=0$を与える。
+従って$n_0=n_3=a_0=0,n_1n_2\ne0$、全六は
+\[
+ (n_2x,-x^2,xz-n_1n_2,xy-n_2^2,-yz+n_2(w-y),-xw+xy+n_1y+n_2z).
+\]
+actual対角$(x',y',z',w')=(ax,ay/s^2,az/s,aw/s^2)$とtensor scale sは
+$n_1'=an_1,n_2'=an_2/s$を与える。
+$a=1/n_1,s=n_2/n_1$とその全inverseで唯一P*へ戻る。
+全translationと最高GL4 normalizerも逆を保つので、これは一代表の実験でなく全sourceの一軌道還元である。
+\end{proof}
+
+\subsection{非飽和thetaを含む全h五乗source}
+\begin{lemma}\label{lem:unimodular-nonsaturated-theta}
+$\theta=i_E\gamma/4$にnonconstant gcdがある場合も、全最高部は
+上のlog integrating-factor incidence又はgamma零に入る。
+外部の六foliation閉包定理を非飽和thetaへ直接適用する必要は無い。
+\end{lemma}
+\begin{proof}
+$\theta=F_e\eta$、gcdの次数eを一・二・三に分ける。
+e二ではetaはlinearでEuler水平。定数二形式$d\eta$はrank二だから
+$\eta=x\,dy-y\,dx$と出来、$F_4=F_2xy$でtheta/F4は閉log一形式。
+e一では$\xi=d\eta$はclosed decomposableなlinear二形式。
+Grassmannianの二rulingの一方は$\xi=dx\wedge dG_2$であり、
+$\eta=(x\,dG_2-2G_2dx)/3$、$F_4=F_1xG_2$で同じlog式を得る。
+他方は三変数supportで、全etaは$\mathfrak{sl}_3$の全八次元linear像
+$i_Ei_{Ax}\mathrm{vol}_3$となる。
+相異固有値Aの稠密開では$F_4=F_1xyz$、全residue和零のlog形式となる。
+quartic F4を忘れるproper incidenceは閉なので、全Jordan、nil、零residueもその最高部入口に入る。
+この閉性は最高部だけに使い、その後に全C/Lを扱う前命題を適用する。
+e三のconstant etaはEuler水平から零で、theta零もgamma零である。
+F4はintegrating factorであり、actual五次Dとは異なる。
+\end{proof}
+
+\begin{proposition}\label{prop:unimodular-h5-known-plus-Pstar}
+rank四actual D=5Hの全点は$\mathcal K_{142}$とP*の一軌道閉包の和に入る。
+\end{proposition}
+\begin{proof}
+h-Casimir chartでPfPは非零constant、JacobiとPf恒等式からdivP零。
+全closed二形式は$\alpha=J+\beta+\gamma$で
+\[
+ J^2\ne0,\ d\beta=d\gamma=0,\ J\wedge\beta=0,\
+ 2J\wedge\gamma+\beta^2=0,\ \beta\wedge\gamma=\gamma^2=0.
+\]
+飽和thetaには既外部六foliation閉包定理を使い、全低次fiberを次の表へ戻す。
+\begin{center}\small
+\begin{tabular}{p{.18\linewidth}p{.73\linewidth}}
+\toprule
+$\gamma=0$又はfactor&命題\ref{prop:unimodular-zero-factor-E-routing}と全pullback\\
+R13&proper linear-Casimir incidence、全Hamiltonian membership\\
+R22&全実pencil、regular T16、factor又はcommon-kernel pullback、残Kronecker空\\
+S23&proper constant-vector horizontal incidence、全pullback\\
+L1111/L112&proper quartic integrating-factor incidence、前の全pole定理\\
+E3&命題\ref{prop:unimodular-exceptional-boundary}の全四Jordan境界\\\bottomrule
+\end{tabular}
+\end{center}
+E3主軌道は空、regular境界はlinear Casimir、rank二はclosed L112、rank一はfullpullback、零もgamma零へ。
+非飽和thetaは前補題で尽くす。
+各行の全C6/L24の残式とPf単元を使うので、最高部のgeneric平滑化から未知lowerを被覆していない。
+\end{proof}
+
+\subsection{P*の真T19実曲線が全unimodular支持を閉じる}
+\begin{proposition}\label{prop:unimodular-Pstar-T19}
+P*はT19に入り、従ってrank四actual D=5Hの全点は$\mathcal K_{142}$に入る。
+\end{proposition}
+\begin{proof}
+真T19のsource順$(a,b,c,d,H)$、period$(r,v)$、edges$(t_0,t_1)$に
+\[
+ r=-e^3,\quad v=2e^2-e^3,\quad t_0=-e^2,\quad t_1=-2e^2
+\]
+を入れ、coupled項$P_{ac}=2t_0t_1bH/(r-v)$も保つ。
+全actual frameは
+\[
+\begin{aligned}
+ h&=-2e^3(b+c),&x&=e^4(a-2b-4c),&y&=-e(2b+c+d),\\
+ z&=e^2(a+2b+2c),&w&=-a+2b+c+d+H.
+\end{aligned}
+\]
+detは$4e^{10}$、全inverseは
+\[
+\begin{aligned}
+ a&=h/e^3+z/e^2,&b&=x/(2e^4)-3h/(2e^3)-z/(2e^2),\\
+ c&=h/e^3-x/(2e^4)+z/(2e^2),&d&=-y/e+2h/e^3-x/(2e^4)+z/(2e^2),\\
+ H&=w+y/e+z/e^2+h/e^3.
+\end{aligned}
+\]
+e単元でperiod開$-r(r-v)=-2e^5$も単元。
+全raw pushを展開した負冪部分は正確に
+$-h(E\wedge\partial_w)/e$、そのdivergenceの負冪は$-5h\partial_w/e$である。
+従ってcanonical section
+$P_{\rm can}=P_{\rm raw}-E\wedge\operatorname{div}P_{\rm raw}/5$
+は全150係数でe多項式となる。raw lift自体が正則という主張ではない。
+
+中心の符号を全六式で確認する。
+\[
+\begin{aligned}
+ R&=(hx,-x^2,xz-h^2,xy,-yz+hw,-xw+hy),\\
+ \widetilde R&=(hx,-x^2,xz+h^2,xy,-yz+hw,-xw-hy),\\
+ B&=(0,0,0,-h^2,-hy,xy+hz).
+\end{aligned}
+\]
+固定符号$S=(h,x,-y,-z,w)$はdet一、$S^{-1}=S$で
+$S_*\widetilde R=-R,S_*B=B$。
+保存universal moment曲線の中心は$-(V/2)\widetilde R-R_0B$であり、
+同じ事前係数$(R_0,V)=(-1,2)$へSを掛けると厳密にR+B、すなわちP*となる。
+上のframeはこのSを既に合成したものである。
+限定的な自動span判定がS無しでFALSEだった旧報告を変更していない。
+固定Sの全正逆で中心を同じ一軌道へ認識したものである。
+
+全actual Dは$4e^{10}[-r(r-v)H(cd-b^2)(ab+dH)]$に上のinverseを代入したもので、
+全126係数が正則、中心は$h^5\ne0$。
+generic eは真T19のactual像、非零中心はP*だから閉性でP*もT19へ入る。
+全translation／最高GL4／unit二parameter normalizerを戻し、前命題の唯一残軌道が全て既知となる。
+\end{proof}
+全C/L合成と非飽和thetaの独立射程は
+\path{UNIMODULAR_H5_WHOLE_ONE_ORBIT_SEPARATE_REVIEW.md}、
+真T19曲線は\path{UNIMODULAR_POLE_WHOLE_T19_ACTUAL_CURVE.md}及び同じ曲線の別作者全係数査読に固定する。
+新しい一様分母、全Jacobi idealの被約性又はP*の局所smoothnessをこの包含から推論しない。
+
+\subsection{全因子分割を通る有限閉被覆}\label{subsec:global-finite-factor-cover}
+ここでは一般元に関する次元評価を、全点の所属へ読み替えない。
+全actual退化因子を持つrank四点の入口を表にし、各入口で既知閉成分へ戻るか、
+明示した有限個の全源像へ戻るかを区別する。$\mathcal K_{142}$は既に個別成分性と相違を証明した
+142閉成分の和とする。以下の閉像を新たに記号で表す。
+\[
+ G=\overline{\operatorname{PGL}_5\cdot\{\text{Ga9 linear-w全源}\}},\quad
+ X_i=\overline{\operatorname{PGL}_5\cdot\{\text{plane二H+cubic第}i\text{全源}\}}
+ \quad(1\le i\le3),
+\]
+及び命題\ref{prop:constant-double-whole-forced},\ref{prop:constant-triple-whole-forced}の
+$D_c=\overline{\operatorname{PGL}_5[P_D]},T_c=\overline{\operatorname{PGL}_5[P_T]}$である。
+閉包は常に元の全自由係数と全実frameを戻した後で取る。
+
+\begin{proposition}\label{prop:global142-six-candidate-cover}
+全Poisson被約支持は
+\[
+ \mathcal P_{\mathrm{red}}=\mathcal K_{142}\cup G\cup X_1\cup X_2\cup X_3\cup D_c\cup T_c.       \tag{FC}
+\]
+全六閉像は既約、$\dim G=\dim X_i=\dim D_c=23$、$\dim T_c=22$である。
+従って既142以外の成分があれば、その次元は23以下である。
+\end{proposition}
+\begin{proof}
+rank四ではactual $D\ne0$は五次式である。既約被約のnormal枝はT39、nonnormal枝は
+全conductor支持次数$\le6$・rank零又は二の入口と、planeを含む全点合成で既知へ戻した。
+残る被約分割は次の通りである。
+\[
+\begin{array}{c|l}
+\deg\text{の分割}&\text{全点の終端}\\\hline
+1+4&\text{半単純・全nilpotent/translation支持は既知、唯一残Ga9は }G\\
+1+1+3&\text{全非plane、plane既認識十配置は既知、残三配置は }X_1,X_2,X_3\\
+1+2+2&\text{全位相・全pure-nil core・全磁気を含め真T16--T20等へ}\\
+2+3&\text{全支持、factor零補集合を含め既知へ}\\
+1+1+1+2&\text{全三Hと既約quadric、全定数/translation補集合を含め既知へ}\\
+1+1+1+1+1&\text{全log/period源をT01等へ}
+\end{array}
+\]
+同じ次数の因子の一致は被約分割の表で捨てず、非被約側へ送る。
+重複hyperplaneを持たない非被約因子は$H Q^2$だけで、Qのrank三、四、五の全源を既知へ戻した。
+重複hyperplaneがあれば、それを$h=0$に取る。この場合に限り$h^2\mid D$、すなわち旧Pf$Q_0=0$が成り立ち、
+全cofactor $Z=c+Ax$、$\operatorname{tr}A=0$の入口を適用出来る。
+単純Hでrank一のcofactorを持つことだけからこの入口を適用してはいない。
+
+この入口の全Jordan/translation分岐は次の閉被覆で尽きる。
+\begin{center}\small
+\begin{tabular}{p{.29\linewidth}p{.62\linewidth}}
+\toprule
+$A,c$の型&全点の終端\\\midrule
+invertible、rank三SS、rank二SS&全固有wallと全源をMPS又は既知へ\\
+nilpotent 4&$c\notin\operatorname{im}A$は空、残五源は既知22へ\\
+nilpotent 31、$c\in\operatorname{im}A$&$n_7\ne0$はDDH25、$n_7=0$のhalf/thirdは全十源の二25へ\\
+31、$c\notin\operatorname{im}A$&long全六源、short全六源は既知、最後$r=2/3$はT19\\
+22、$c\in\operatorname{im}A$&命題\ref{prop:nil22-image-eleven-all}の全十一源\\
+22、$c\notin\operatorname{im}A$&全八源、最後のcoreも真T19実曲線へ\\
+211、$c\in\operatorname{im}A$&$C_A,C_B,\mathrm{DDH}_{25}$等\\
+211、$c\notin\operatorname{im}A$&multiple-Hの全十七longと全short源へ、全て既知\\
+$A=0,c\ne0$&$\deg f\le2$は既知、最高reduced cubicは既知、double/tripleは$D_c,T_c$\\
+$A=c=0$&全最高六型・非飽和theta・全C/Lを既知へ、P*もT19\\\bottomrule
+\end{tabular}
+\end{center}
+旧nil31 imageのhalf/thirdに関して、最初の一方だけを閉じた部分証明を使わず、
+後続の全十源を復元した証明を用いる。nil22 imageの11源には$GL_2\times\mathbb C^*$の自由fiberを戻し、
+$4+9-1$という射影化を含む全源の補正を使う。betaだけの次元上界は全点所属の代用でない。
+$A=0,c\ne0$は最高非被約式をactual最高部で分類するので、最高部を勝手にreducedへ置き換えない。
+最後のunimodular行は命題\ref{prop:unimodular-Pstar-T19}までの全poleとpullbackを含む。
+旧$[J,Q]=0$に対するGの部分族も、この全cofactor分類の部分集合であり新たな終端ではない。
+これで全rank四点が(FC)へ入る。
+
+rank二の既済入口は六つのrank二成分とrank四点集合の閉包の和である。
+(FC)右辺は有限個の閉集合の和だからrank四集合の閉包も含む。従ってrank二のclosure項は
+同じ右辺へ入り、rank二をgeneric rank四と同一視した循環は無い。零は射影空間の点でない。
+
+各sourceは既約parameter域の全像の閉包である。Ga9では後述の全fixed-D認識、元十一源の正逆normalizer、
+非零磁気商の一実軌道と零磁気境界を合わせてGを一23軌道閉包とする。
+単なるfixed-D上界から元十一源全体の等号を推測しない。
+plane各源は全Saito $GL_2$ frame四係数と全磁気六係数、tensor尺度の商を持つ。
+Dのessential三変数空間の選択が六次元、marked plane曲線の$PGL_3$軌道は八次元で、
+そのstabilizerは有限である。従って全像は$6+8+4+6-1=23$次元。
+全actual shearの像は四次元なので、一般元の群軌道は22次元、商は一次元である。
+$D_c$は全原Dのrank101と群rank48より23軌道を持ち、固定方向$\partial_t$のstabilizerで上界23。
+$T_c$には$\partial_t$と
+\[
+ -(x/3+y)\partial_t+\partial_y+(-3x+3/2)\partial_r
+\]
+という独立可換な実Poisson場があり、軌道は22以下。
+保存された全群rank47から22以上でもある。全forced sourceのactual normalizerにより$T_c$はこの一軌道閉包である。
+最後に未知成分Yは有限閉被覆の一項に含まれる。既142の一成分に含まれれば極大性からその成分自体であり、
+そうでなければ六候補の一つに含まれるので$\dim Y\le23$。
+\end{proof}
+ここでGの次元下界は、同じcanonical actual tensorの既存全群rank48からEuler24とscalar一を引いた23である。
+直接の係数比較でも$\operatorname{LieStab}_{PGL_5}=\mathbb C(y\partial_x+h\partial_z)$となる。
+全既約十一源の飽和像は既知上界23で、この実23軌道を含み、全normalizerを戻すので閉包が一致する。
+$X_i$の次元算定も上界だけではない。固定したDとSaito basisに対し、h-Casimir liftは一意で、
+mixed blockは全frame、fiber-fiber blockは全磁気Rを一意に復元する。
+従ってcanonical fixed-D源の写像はtensor尺度以外injectiveであり、Dの有限stabilizerを含め$14+9=23$は等号である。
+全factor/Jordanの射程、零補集合及びrank二closure項の別監査は
+\path{KNOWN142_SEVEN_CANDIDATE_GLOBAL_COVER_SEPARATE_REVIEW.md}に固定する。
+そこに現れる第七候補P*は既に命題\ref{prop:unimodular-Pstar-T19}で既知へ吸収した。
+
+\subsection{T36とT38の全閉包に対する二つの必要条件}
+\begin{lemma}\label{lem:T36-T38-whole-closed-flags}
+T36の全点には、零点で一次jetも零となり、その二次jetのEuler-horizontal三次一形式が
+二quadricのpencil $G\,dF-F\,dG$に比例するような点が存在する。零一形式も許す。
+T38の全点のPoisson零集合は次元二以上である。
+\end{lemma}
+\begin{proof}
+$\operatorname{Gr}(2,H^0(\mathcal O(2)))$から$[GdF-FdG]$への写像は正則であり、
+char零では独立F,Gに対しその一形式は零でない。proper像とそのaffine cone（零を含む）を$\mathcal R_{22}$とする。
+点qでの零次・一次jetの消滅と二次jetが$\mathcal R_{22}$に入る条件は閉じている。
+qをproperな$\mathbb P^4$へ動かして忘れる像も閉じる。
+真T36の全period $p\ne0$で、vertexの二次jetは
+\[
+ q_+=(p/5)Bu+t_2v^2,\quad q_-=(p/5)Cv-t_3u^2,\quad
+ \alpha=(5/p)(q_-dq_+-q_+dq_-)
+\]
+を持つ。元completed項を保持したdense sourceから全成分へ閉性で延長される。
+
+真T38の全五parameter源は、順序$(a,b,c,u,v)$で
+\[
+\begin{gathered}
+ P_{ab}=t_0(cv-2t_3u^2/p),\quad P_{ac}=t_1(bu+2t_2v^2/p),\\
+ P_{bc}=pbc+4t_2t_3uv/p,\quad
+ P_{bu}=pbu/2+t_2v^2,\quad P_{cv}=-pcv/2+t_3u^2.
+\end{gathered}
+\]
+$p t_2t_3uv\ne0$で$b=-2t_2v^2/(pu),c=2t_3u^2/(pv)$、a自由という二次元零集合がある。
+普遍零schemeの射影射はproperなので、fiber次元$\ge2$は閉条件。
+従って同じ条件がwhole T38に延長される。
+\end{proof}
+
+\begin{lemma}\label{lem:five-targets-T36-T38-exclusion}
+$G,X_1,X_2,X_3,D_c$はいずれもT36にもT38にも包含されない。
+\end{lemma}
+\begin{proof}
+Ga9の全fixed-D源をbase$(h,y,w)$、fiber$(x,z)$で記す。
+\[
+\begin{aligned}
+ F&=4h^3w-8h^2y^2+y^4,\quad D=-4hF,\\
+ U&=(4h^2-y^2)\partial_y+(16hy-4wy)\partial_w,\\
+ V&=-hy\partial_y+(-4hw+4y^2)\partial_w,\\
+ P_R&=\partial_x\wedge U+\partial_z\wedge V+(-hx+2yz+R)\partial_x\wedge\partial_z.
+\end{aligned}
+\]
+$[U,V]=-hU+2yV$なので全二次Rでstrict Jacobiが成り立つ。
+$E_b,U+(4y/5)E_b,V+(4h/5)E_b$のdetはD。
+被約Dの各素因子でCramer分子を割ると全log moduleのbasisとなり、
+$AR_0=AR_1=0,AR_2=\langle U+(4y/5)E_b,V+(4h/5)E_b\rangle$。
+canonical liftのbase-base blockは次数から零、mixedのfiber依存も$AR_0,AR_1=0$から零。
+rank四ではmixedの定数frameは可逆である。全fiber $GL_2$を戻しEuler gaugeを引けば上の$P_R$が全源を尽くす。
+actual shear $x'=x+\ell,z'=z+m$、
+$\ell=ah+by+cw,m=dh+ey+fw$の効果は
+\[
+ \delta R=(a+4e)h^2+(2b-2d+16f)hy+5chw-(4c+3e)y^2-6fyw.
+\]
+全五係数に定数分母だけの線形右逆があり、従って$R=rw^2$へ戻る。
+$r\ne0$はfiber尺度とtensor尺度で$r=4$へ、$r=0$はliteral族$R=4s w^2$の中心へ入る。
+元linear-w全十一源の実normalizerを戻すと、これがGの稠密23軌道と全零磁気境界である。
+
+このGa9軌道の零集合は$h=y=w=0$のline。
+各二次jetの非零horizontal一形式は既約quartic Fを不変とする。
+plane三源ではgeneric磁気で全零集合はvertex line $h=x=y=0$とsimple零点だけであり、
+二次jetを持つ点はこのlineに限る。
+有限$q=[z:w]=[1:\kappa]$で、baseのEuler項を除いた二次jetは
+$(V-\kappa U)\wedge\partial_r$、無限点では$U\wedge\partial_r$であり、
+全qで非零、各既約cubic Cを不変とする。
+有限chartにはEuler補正$\kappa dE_b$又は$-3xE_b$も現れるがhorizontal一形式を変えない。
+base-base部の\emph{二次}jetは零であり、full liftに残る三次$E_b\wedge U/V$まで零と主張しない。
+第一二のextra零planeは$x$方向の一次係数$\pm2$、無限のextra lineは$\pm3$によりsimple。
+第三$\lambda=-1$のextra planeも同じ一次係数$-1$でsimple。
+第一二のexact signed Euler-Pfはそれぞれ$-4hxC_{\rm node},-6hxC_{\rm cusp}$である。
+T38用の零次元評価には第一$\lambda\ne0$、第二$\lambda\ne\pm1$、第三$\lambda\ne-1$の稠密開だけで十分である。
+この除外を特殊磁気全点へ外挿していない。
+
+$D_c$の零集合は$h=x=y=0,h=x=r=0,h=y=t=0$の三lineであり、
+order二の零点は第一lineだけ。$r=1,t=t_0$chartで二次jetは$\partial_\tau\wedge V$、
+\[
+ V=(-h^2+6hy)\partial_h+(h^2+4xy-t_0x^2)\partial_x
+ +(10y^2-2hy+t_0h^2+2t_0xy)\partial_y.
+\]
+無限点では$V_\infty=x^2\partial_x-(h^2+2xy)\partial_y$。
+共に非radialで、$C=x^2y+xh^2+h^3$に対し
+$V(C)=(-2h+18y)C,V_\infty(C)=0$。
+
+以上の各点で$\alpha=\iota_{E_b\wedge V}\mathrm{vol}_b$は非零horizontal三次一形式である。
+quartic F上で恒等零にはなれず、既約cubic C上で恒等零なら$\alpha=C\theta$、定数一形式thetaであり、
+Euler-horizontal性から$\theta(E_b)=0$、従ってtheta零となり矛盾。
+もし$\alpha\in\mathcal R_{22}$なら一般F又はCはquadric比のlevelに入るため、
+次数二の非零式$F_2-cG_2$で割れるはずであり次数三、四と矛盾する。
+従って全order二零点がT36の必要flagを満たさない。
+また各対象のgeneric零集合は一次元なのでT38の必要条件にも反する。
+全像のT36/T38非包含が従う。
+\end{proof}
+全q、無限点とEuler補正の独立射程は
+\path{TWO_LINES_M3_WHOLE_T36_QUADRATIC_PENCIL_SEPARATE_REVIEW.md}及び
+\path{TWO_LINES_CUSP_TANGENT_SECANT_T36_T38_SEPARATE_REVIEW.md}に固定する。
+
+\subsection{whole T37の単純因子に残る次数五の葉曲面}\label{subsec:T37-simple-leaf}
+\begin{proposition}\label{prop:T37-whole-simple-leaf-degree-five}
+rank四点$\pi_0\in T37$のactual五次scheme $D_0$が、ある点$p_0$でsmooth、
+$\operatorname{rank}\pi_0(p_0)=2$なら、一般のそのような$p_0$を通るdegree五以下の
+integral Poisson不変曲面が存在する。
+特に単純prime componentの、他因子と特異点を避けた一般rank二点へ適用出来る。
+重複因子のreduced supportだけがsmoothな点へは適用しない。
+\end{proposition}
+\begin{proof}
+まず実際のdense T37 tensorを座標$(a,b,c,d,e)$で取る。
+\[
+\begin{gathered}
+ q=ac-b^2,\quad A=c^2+bd,\quad B=a^2+be,\\
+ C=c^2e+a^2d+2acb+bde-b^3,\quad
+ F=\det\begin{pmatrix}C&A&B\\A&a&b\\B&b&c\end{pmatrix},\\
+ g_1=bB-cA,\qquad g_2=bA-aB.
+\end{gathered}
+\]
+全六二形式のliteral residue恒等式は$\pi_{V(F)}$のannihilatorを$d\log(g_1/g_2)$と与える。
+このtensorは真completed T37の全period一とactual mapで一致し、
+K4aの全24親とのdet非零actual同値及びその稠密24軌道の定理から、whole T37に稠密である。
+normalizationの必要条件を十分条件へ逆用していない。
+Fの$\mathbb C[a,b,c]$上のcontentは一で、$(a,b,c)=(1,1,2)$へのspecializationは
+\[
+ -2d^2+3de-e^2-13d+10e-22.
+\]
+このconicのhomogeneous行列のdetは$1/4$で非零。generic conicは非退化であり、GaussよりFは絶対既約である。
+
+全五座標の恒等式は
+\[
+ bC=AB-q^2,\qquad bF=g_1g_2-q^3.                      \tag{HB1}
+\]
+$I=(q,g_1,g_2)$は$\bigl(\begin{smallmatrix}A&B\\a&b\\b&c\end{smallmatrix}\bigr)$のmaximal minors。
+qは既約で$g_1\notin(q)$だからgrade二で、Hilbert--Burchは
+\[
+ 0\longrightarrow\mathcal O(-4)^2\longrightarrow
+ \mathcal O(-2)\oplus\mathcal O(-3)^2\longrightarrow\mathcal I_S\longrightarrow0
+\]
+を与える。Sはsaturated・pure CM、次数五である。
+$b=0$ではreduced supportは$a=c=0$のlineだけ。
+$b\ne0$では$ac=b^2$と$g_1$のe係数$b^2$の単元性により、$b=1$chartは
+$a\in\mathbb C^*,d$自由のsmooth integral曲面。
+従ってunmixed性から全Sはintegralでgeneric multiplicity一である。
+
+一般$\kappa\ne0$で$G_\kappa=g_1-\kappa g_2$は三次式。
+$\mathrm{CI}(F,G_\kappa)$のcycle次数は15、(HB1)よりSの一般点で$F\in I^2$なので
+\[
+ [\mathrm{CI}(F,G_\kappa)]\ \ge\ 2[S],\qquad
+ \deg\bigl([\mathrm{CI}]-2[S]\bigr)\le5.                 \tag{HB2}
+\]
+Dの一般点pで$\kappa=g_1(p)/g_2(p)$を選べば、S外のresidual integral surfaceがpを通る。
+residue一形式からそのsurfaceはPoisson不変である。exact residual multiplicityは必要ない。
+
+次にwhole境界へ延ばす。curve selectionと有限base changeの後、
+complete DVR R上の正則Poisson族でgenericが上のdense軌道、specialが$\pi_0$となるものを取る。
+$D_0\ne0$だから$D_R$はrelative Cartierでflat。
+actual $D_0$自身が$p_0$でsmoothなので、完備局所環は$R[[u_1,u_2,u_3]]$。
+$u_i=\varpi\alpha_i$の一般係数を選び、genericでpencil base/bad locusを避けるsection $p_R$を取れる。
+そのgeneric点を通る一枚のintegral leaf surface $Z_K$、degree$\le5$を選ぶ。
+この一枚のHilbert polynomialを固定し、proper Hilbert schemeによりflat $Z_R$へ延長する。
+$p_R\in Z_R$、$Z_R\subset D_R$はgeneric包含とflat quotientのtorsionfree性から延びる。
+一様Hilbert polynomialの存在は仮定しない。
+
+各local Hamiltonian導分$\delta_R$に対し、$I(Z_K)$のstable性から
+$\delta_R I(Z_R)\subset I(Z_R)$も同じtorsionfree性で延びる。
+char零ではstable idealのradicalもstableである。
+実際$g^n\in I$へn回導分を作用させradicalで還元すれば$n!(\delta g)^n=0$。
+reduced環のminimal primeへ局所化すれば、そのprimeもstableとなる。
+$p_0$を含むspecial supportの不変成分はrank二のlocal Hamiltonian leafを含むので次元二以上、
+Hilbert polynomialの次数から二以下である。よってp0は曲面成分に属し、
+flat degreeの和からその次数は五以下。embedded pointや低次元成分だけへmarked pointが逃げることも排除した。
+\end{proof}
+全proper Hilbert射とsimple-component射程の別監査は
+\path{T37_WHOLE_CLOSED_LOW_DEGREE_LEAF_SURFACE_THEOREM.md}、
+\path{T37_LOW_DEGREE_LEAF_SURFACE_SIMPLE_COMPONENT_SCOPE.md}に置く。
+
+\subsection{六対象の葉を全て比較する}\label{subsec:six-target-leaf-obstructions}
+\begin{lemma}\label{lem:log-residue-no-algebraic-leaf}
+base曲線のparameter tと自由fiber qを持つrank二分布のannihilatorが
+$du+\omega(t)$で、$\omega$に非零留数があれば、一般点を通る代数的な二次元葉曲面は存在しない。
+\end{lemma}
+\begin{proof}
+分布は自由fiber方向を含む。代数的不変曲面をその方向で商すれば、
+$(t,u)$上の代数曲線で、一般t上finiteなものを得る。その正規化上でuはmeromorphicであり、
+$du=-\omega$の有限pullbackが成り立つ。exact meromorphic微分の留数は零だが、
+非零留数は有限coverでramification index倍され非零のまま。矛盾である。
+留数が整数又は有理数である場合も含む。単に有理first integralが無いと述べるより強い結論である。
+\end{proof}
+
+\begin{proposition}\label{prop:six-targets-T37-exclusion}
+$G,X_1,X_2,X_3,D_c,T_c$のいずれもT37に包含されない。
+\end{proposition}
+\begin{proof}
+Ga9の$h=1,F=0$では$w=2y^2-y^4/4$。
+全葉のfirst integralは
+\[
+ k=xy+(4-y^2)z-16y^5/5+4y^7/7-y^9/36.
+\]
+$T=(-x+yz)/4$とすると$(y,T,k)$はpolynomial座標で、各有限k葉は連結な$\mathbb A^2$。
+その閉包の次数を、有限正規化でなくscroll解消
+$Y=\mathbb P_{\mathbb P^1}(\mathcal O(4)\oplus\mathcal O\oplus\mathcal O)$上で数える。
+\[
+ (h,y,w)=\alpha(s^4,s^3t,2s^2t^2-t^4/4),\qquad x=\beta,\quad z=\gamma.
+\]
+葉の式は
+\[
+ s^4t\beta+s^3(4s^2-t^2)\gamma-
+ \alpha\bigl(16s^4t^5/5-4s^2t^7/7+t^9/36+ks^9\bigr)=0.
+\]
+fiber一次係数に共通basepointは無く、classは$L+5f$。
+$L^3=4,L^2f=1$、上の写像は$h\ne0$でbirationalなので全有限k葉の次数は九。
+従って単純quarticの一般点にdegree五以下の葉曲面は無い。
+
+plane第一の節点三次を$h=1,x=t^2,y=t(t^2-1)$で正規化し、磁気を$I+Jy$とする。
+$ f=t(t^2-1)$に対し
+\[
+ \{t,z\}=f,\quad\{t,w\}=-tf,\quad\{z,w\}=-(t^2-1)w+I+Jf.
+\]
+$u=z+(w+I)/t$を使うとannihilatorは
+\[
+ du+J\,d\log t+\tfrac I2d\log((t-1)/(t+1)).             \tag{L1}
+\]
+第一の配置は節点三次の変曲接線と、変曲点を通る\emph{通常接線}であり、第二の割線と混同しない。
+第二のcusp cubicは$h=1,x=t^2-1,y=t^3$で、$u=w/t-z+I/t$により
+\[
+ du+\tfrac{I+J}{2}d\log(t-1)+\tfrac{J-I}{2}d\log(t+1). \tag{L2}
+\]
+(L1),(L2)は$(I,J)\ne(0,0)$で必ず非零留数を持つ。
+第三は$cubic\ C=h^2y-(h-x)^3$、$h=1,t=1-x,y=t^3$、磁気$3(\lambda+y^2)$とする。
+\[
+ \{t,z\}=1-t,\quad\{t,w\}=-3t(1-t),\quad
+ \{z,w\}=3(1-t)z+3\lambda+3t^6.
+\]
+$H_6=t^6/2+3t^5/5+3t^4/4+t^3+3t^2/2+3t$、
+$u=w+3tz-H_6$によって
+\[
+ du-3(\lambda+1)d\log x.                               \tag{L3}
+\]
+$\lambda\ne-1$で補題を適用する。
+いずれもsimple cubicの一般smooth rank二点であり、(L1)--(L3)に対する例外磁気を
+一般磁気の陰性から除外したとは主張しない。全閉像のT37\emph{非包含}には稠密開で十分である。
+
+$D_c$は$h=1$で$C=x^2y+x+1=0$、従って$x\ne0,y=-(x+1)/x^2$。
+$A=(x+1)(x+2)/x,C_0=(x^2+6x+6)/x^2$とするとkernelは
+\[
+ \alpha=-x^2dt-(C_0r+x)dx+A\,dr.
+\]
+$u=t-(x+1)(x+2)r/x^3$により$\alpha/(-x^2)=du+dx/x$となり、
+一般葉は代数的曲面を持たない。
+
+$T_c$では$h=1,r=-x^3-3xy+3y/2$、
+\[
+ \{t,x\}=x/3+y,\quad\{t,y\}=(x^3-y)/3,\quad\{x,y\}=1.
+\]
+$k=t+xy/3-x^4/12+y^2/2$がfirst integralで、各葉はこのgraphの$\mathbb A^2$。
+一般plane上$t=A_0h+A_1x+A_2y,r=B_0h+B_1x+B_2y$と切ると
+\[
+\begin{aligned}
+ C_3&=x^3+3hxy+(B_2-3/2)h^2y+B_1h^2x+B_0h^3,\\
+ G_4&=-x^4+4xyh^2+6y^2h^2+12h^3(A_0h+A_1x+A_2y)-12kh^4.
+\end{aligned}
+\]
+CI次数12の無限点は$[h:x:y]=[0:0:1]$だけ。
+$y=1$でC3の二formal枝は$h=-x^2/3+O(x^3)$と$x=-(B_2-3/2)h/3+O(h^2)$。
+G4の先頭はそれぞれ$-x^4/3,6h^2$なのでintersectionは四と二である。
+一般planeは葉閉包のboundary曲線を避け、affine交点は$12-4-2=6$。
+従って全有限k葉の次数は六。
+全六対象が命題\ref{prop:T37-whole-simple-leaf-degree-five}の上界五に反する。
+\end{proof}
+第一の全磁気葉は\path{TWO_LINES_NODE_FLEX_TANGENT_NONALGEBRAIC_LEAVES.md}、
+第二第三は\path{TWO_LINES_CUSP_FLEX_AND_TANGENT_SECANT_NONALGEBRAIC_LEAVES.md}、
+全六対象とproper射の別作者合成は\path{T37_SIX_TARGET_LEAF_OBSTRUCTIONS_SEPARATE_REVIEW.md}に固定する。
+
+\subsection{全既142との相違から五つの全成分を得る}\label{subsec:five-new-full-components}
+\begin{proposition}\label{prop:five-last-full-components}
+$G,X_1,X_2,X_3,D_c$は相異なる新しい23次元被約既約成分である。
+Gと$D_c$の一般群軌道は23次元、$X_i$の一般軌道は22次元で、商次元はそれぞれ零、零、一である。
+\end{proposition}
+\begin{proof}
+全142親は固定した旧台帳の各IDを一度だけ使って比較する。
+rank二の六つはPf零という閉条件、23未満の十八は次元で除く。
+同じ23次元の親が候補を含めば、両既約閉像は等しい。
+MPS23の二十九はactual SNCでessential rank五の点を持ち、$G,X_i$の閉条件essential$\le3$と矛盾。
+その他はgeneric actual Dの分割又はmarked配置が異なる。
+二つの稠密constructible源の一般D型が異なることを使い、reduced性を閉条件とは呼ばない。
+Ga9についてはESSENTIAL5とGa9constant23のactual essential五witness、MINIMAL\_Mのunique-H cofactor rank一、
+A0/DPMの$h\notin\operatorname{im}N^*$対$h\in\operatorname{im}N^*$も用いる。
+marked quarticの十五密23軌道はA6/A4+A2/3A2等、又はE6でもHがsmooth bitangent/flexであり、
+GのE6 cusp tangentと異なる。$D_c$のprime cubicはcuspで、旧二つのnodal cubic23とも異なる。
+
+高次元親の大部分はproper factor multiplication像に全体が含まれる。
+十三の新25 longを含め、この閉条件は各dense actual源の因子恒等式から全境界へ延びる。
+$D_c$では全原D rank101による射影接次元24も全25/28親を除く。
+残る大きい親のうちT36/T38は前二補題、T37は前命題で全閉包を除外した。
+T39/T40はglobal S61評価fiber定理を用いる。
+Gの保存された同一源の全45graph残差は$-3/112,99/112$を含む。
+$X_1,X_2$は同じ旧点の全D rank101、射影接24で25成分を除き、
+$X_3$は全$\mathbb Q[\lambda]$の両graphに定数$1/4,-2/3$があり、idealは各(1)。
+磁気零boundary全体の非所属をこの稠密非包含から推論しない。
+
+T21には前のproper二H flag条件を使う。
+全sourceのEuler gaugeにより$Z_H+X$が他方H上projectively零、$Z_H+4X$がH上零で、swapで交換される。
+独立二Hとcubicのprojective factor flagはproperであり、対象が二単純Hとprime cubicを持つなら
+極限二Hは正確にその二因子である。
+$X_i$は$C|_{x=0}=c h^3,C|_{h=0}=c'x^3$という必要条件を満たさない。
+$D_c$では全T21の二独立actual torusから全群軌道$\le22$という閉rank条件と、軌道23が矛盾する。
+
+残るGa9cuspidal24には全marked contactを比較する。
+そのgeneric quarticはA3+A2、marked HはA3の両枝に二接し、
+全proper quartic flagで$H\cap F=4p$、normal二次係数$q_2\in\mathbb C H^2$、
+$G_4=B_2^2-4a_0C_4$が三重根を持つ（$a_0=0$も許す）。
+$X_1,X_2$では唯一の4p候補に$q_2=Z(X\pm Z)\notin\mathbb C H^2$、
+$X_3$では$q_2=0$だが$G_4=h^2x^2$に三重根が無い。他Hは4p条件を満たさない。
+Gへの全DVR退化はnormalizationを最初からflatと仮定せず処理する。
+integral quartic total familyのnormalizationはCM、Cartier special fiberはintegral rational curveへbirationalで、
+算術genus零により$\mathbb P^1$。したがって有限base change後にsmooth $\mathbb P^1_R$族を得る。
+A3の逆像を$\pm b\to0$、A2を$\zeta\to0$とすれば、unit sectionの選択で
+\[
+ H=(r^2-b^2)^2,\qquad Y=(r^2-b^2)(r+c),\qquad c\to0,\quad W_0(0)\ne0.
+\]
+generic cuspだけで微分二式を消去すると$2W(\zeta)=(\zeta+c)W'(\zeta)$。
+これはR内の恒等式へ戻り、specialで$2W_0(0)=0$となり矛盾する。
+regular PGLのinverseとcoordinate unitを戻した全marked pairへの議論である。
+
+$D_c$へのGa9cuspidal退化は全D5 formal変形で除く。
+中心$hC_3$は一点でD5、他方でA1。A3とA2の二markはD5へ集まるしかない。
+D5のformal versal式$zw^2+bw+R_4(z)$を使う\cite{fedorchukDn}。
+$z\ne0$で平方完成した一変数式は$zR_4(z)-b^2/4$、次数五。
+A3には四重根、A2には三重根を要し、相異なる二点では不可能。
+$z=0$がsingularなら$b=R_4(0)=0$で$z(w^2+R_3)$。
+$R_3$の一次係数がunitなら二A1、零で二次係数unitなら唯一A3だが、
+R3は既に零根を持つため他方に三重根を持てない。
+両係数零なら中心はmultiplicity三でA2/A3でなく、残根も必要な二型を作れない。
+これはformal DVRの全parameterを扱い、収束normalizationを追加仮定しない。
+
+以上で五候補の全prior142非包含が示された。
+相互にはGがreduced1+4、$X_i$がreduced1+1+3、$D_c$がnonreduced2H+prime cubicというgeneric D型で異なる。
+$X_1$はnode、$X_2,X_3$はcuspであり、後二者は二直線がcuspを通る数が零と二で異なる。
+$T_c$はgeneric essential四、他五つはessential三以下なので他候補を吸収しない。
+各候補Xを含むambient成分Yは、命題\ref{prop:global142-six-candidate-cover}により未知なら次元23以下。
+$\dim X=23$なのでY=X。よって五候補は全空間の成分であり、局所smoothnessや唯一branchを仮定していない。
+\end{proof}
+全旧142のID別監査とproper flagの射程は
+\path{GA9_LINEAR_W_PRIOR142_WHOLE_COMPONENT_EXCLUSIONS.md}及び
+\path{TWO_LINES_PLANE_CUBIC_PRIOR142_AND_COMPONENTHOOD_SEPARATE_REVIEW.md}に固定する。
+$D_c$についても全prior監査とD5全formal parameterの別読解を用いた。
+これらは一つの指定normal sliceの陰性を全親の陰性へ読み替えた証拠ではない。
+
+\begin{proposition}\label{prop:global147-one-candidate}
+既147成分の和を$\mathcal K_{147}$とすると
+$\mathcal P_{\rm red}=\mathcal K_{147}\cup T_c$、$\dim T_c=22$である。
+従って$147\le N\le148$。
+\end{proposition}
+\begin{proof}
+命題\ref{prop:global142-six-candidate-cover}の五候補を前命題の五成分として加える。
+残る一項は$T_c$だけである。これは有限閉被覆そのものの結論であり、
+一般betaの分裂子や25--27次元成分を除くGだけからの全点推測ではない。
+\end{proof}
+
+\subsection{最後のTRIPLEはGa9定数型の境界である}\label{subsec:triple-final-Ga9}
+\begin{proposition}\label{prop:constant-triple-whole-Ga9-known}
+$T_c$は既知23成分\texttt{R4\_GA9\_CONSTANT\_HYPERPLANE\_QUARTIC\_23}に含まれる。
+従ってconstant modular最高triple-lineの全源は既知閉和へ入る。
+\end{proposition}
+\begin{proof}
+補助座標$(T,x,y,s)$に直積Poisson括弧$\{x,y\}=1,\{T,s\}=s$を入れる。
+\[
+ H=x^3+3xy-3y/2,\quad a=x/3,\quad k=xy/3+y^2/2-x^4/12,
+\]
+\[
+ A=e/12,\quad B=e(15-e)/72,\quad M=Ax^2y+By^2
+\]
+としてpolynomial変換
+\[
+ r=s+eT-H,\qquad t=(1-ea)T-as-k+M
+\]
+を使う。全eでdetは一、全逆は
+\[
+ T=t+a(r+H)+k-M,\qquad s=r+H-eT.
+\]
+$1-ea$は反転しない。この\emph{非線形}変換はPoisson族を構成するためだけであり、
+既知成分へのPGL帰属は後のactual affine変換で別に証明する。
+押し出した物理座標の全六括弧は
+\[
+\begin{aligned}
+ P_{xy}&=1,&P_{xr}&=-3x+3/2,&P_{yr}&=3x^2+3y,\\
+ P_{tx}&=x/3+(1-2B)y-Ax^2,\\
+ P_{ty}&=(-1+2A)xy+y/6-r/3,\\
+ P_{tr}&=-et+(1-e/3)xr+(-3+3e/4+e^2/8-e^3/72)y^2\\
+       &\hspace{12mm}+(5e/12)xy-5y/4+r/2.
+\end{aligned}                                                    \tag{TF}
+\]
+chain ruleの高次項は$-e/4+3A=0,-e+eA-3A+6B=0$で相殺するので、
+全eでdegree二以下、Jacobiは直積から厳密に零である。
+$e=0$は命題\ref{prop:constant-triple-whole-forced}のcanonical $P_T$そのもの。
+全actual affine Pfは
+\[
+ f_e=r+H-e\{t+x(r+H)/3+k-M\}.
+\]
+divergenceは$(-1+ex/3)\partial_t-e\partial_r$。
+$e\ne0$で$f_e$はprimitiveなt一次式（係数$-e$）で、最高四次係数は$-e/4$。
+従って全actual Dは単純hと既約quarticであり、multiple-HのPf$Q_0=0$定理をここへ適用していない。
+
+$e\ne0$で真のaffine $GL_4$を
+\[
+ (X,Y,Z,w)=(t-r/e,\ ex/3,\ -r/e,\ 3y/e),\qquad\det=1/e
+\]
+と取る。逆は$(t,x,y,r)=(X-Z,3Y/e,ew/3,-eZ)$。
+modular場は$Y\partial_X+\partial_Z$、$P_{Yw}=1$となる。
+既知Ga9定数型の全十源へ
+\[
+\begin{gathered}
+ r_{\rm src}=81/e^4,\quad b=3/e,\quad\alpha=-1/2,
+ \quad p=q=D=G=k_{\rm src}=0,\\
+ A_{\rm src}=-27/e^4,\quad H_{\rm src}=1/2,\quad
+ B_{\rm src}=b-1/4,\quad E_{\rm src}=-b-1/6,\\
+ F_{2,\rm src}=e^2(e-3)(e-12)/648
+\end{gathered}
+\]
+を入れると、全六式は厳密に
+\[
+\begin{aligned}
+ P_{YZ}&=bY-1/2,&P_{Yw}&=1,&P_{Zw}&=r_{\rm src}Y^2+bw,\\
+ P_{XY}&=1/2+(1/3-b)Y-Y^2/4+2F_{2,\rm src}w,\\
+ P_{Xw}&=Z+r_{\rm src}Y^2+(1/2-b)Yw+(b+1/6)w,\\
+ P_{XZ}&=X-Z/2+(b-1)YZ+A_2,\\
+ A_2&=F_{2,\rm src}(1+2b)w^2-5Yw/12+5w/12.
+\end{aligned}
+\]
+$r_{\rm src}\ne0$は全e単元で保ち、$e=3,12$の$F_{2,\rm src}=0$も全源定理から除かれない。
+これはpotentialの形の類似でなく、元十parameterと全括弧へのliteral代入である。
+従って全$e\ne0$が名前付き既23成分へ入る。
+(TF)は全eで多項式、恒等係数$P_{xy}=1$によりprojective tensorは零にならないので、
+閉性からe零の$P_T$も同じ成分へ入る。
+全forced四parameter源のactual normalizerと逆を戻すと、元highest-tripleの全源が被覆される。
+\end{proof}
+全chain rule、全150/350/126と実正逆のroot独立再生及び別作者の全源射程は
+\path{CONSTANT_MODULAR_TRIPLE_WHOLE_GA9_CONSTANT_ACTUAL_FAMILY.md}と
+\path{GLOBAL_EXACT147_COMPONENT_CLASSIFICATION_FINAL_PROOF.md}の最終依存manifestに固定する。
+全周囲接次元28という旧診断はこの実曲線を妨げず、局所高次jetを成分性の仮定にしていない。
+
+\begin{proposition}[全支持と成分数の確定]\label{prop:global-exact147}
+\[
+ \mathcal P_{\mathrm{red}}=\bigcup_{i=1}^{147}\mathcal C_i,
+\]
+ここで$\mathcal C_i$は本稿の表と各命題で個別に記述した相異なる147既約成分である。
+一般rank四は141、一般rank二は六。次元別の内訳は
+\[
+\begin{array}{c|rrrrrrr}
+\dim&22&23&24&25&28&36&39\\\hline
+\text{rank四}&18&89&12&20&2&0&0\\
+\text{rank二}&2&0&0&0&2&1&1
+\end{array}
+\]
+である。未知成分又は未帰属のprimary sourceは残らない。
+\end{proposition}
+\begin{proof}
+命題\ref{prop:global147-one-candidate}の唯一の残項$T_c$を前命題で既知へ吸収する。
+よって全rank四点とその閉包は既147閉成分の和へ入る。
+rank二入口の六成分又はrank四閉包という全支持定理にこの閉包含を代入すれば、全rank二点も同じ和へ入る。
+全147の個別成分性と相違は既142の監査と命題\ref{prop:five-last-full-components}による。
+任意の追加成分は有限閉和の一項に含まれ、既約成分の極大性からその項に等しい。
+従って追加成分は存在せず、総数は正確に147である。
+一般元の次元・rank・actual構成・退化因子は各成分の表と命題に与えた。
+全因子入口からrank二closure項までの無条件最終合成は
+\path{FINAL_147_COMPONENT_SUPPORT_EXHAUSTION_COMPLETION_ADDENDUM.md}とそのmanifestで別作者も監査した。
+これは全$PGL_5$軌道の分類又はJacobi schemeの全nilpotent厚みの決定を含意しない。
+\end{proof}
+
+\begin{center}
+\begin{tabular}{p{.47\linewidth}ccp{.26\linewidth}}
+\toprule
+最後の五成分の一般元&次元&一般軌道&actual退化因子\\\midrule
+Ga9 linear-w&23&23&E6 cuspのquarticとcusp接H\\
+node変曲接線・変曲点を通る通常接線&23&22&二Hと節点cubic\\
+cusp変曲接線・変曲点を通る割線&23&22&二Hとcuspidal cubic\\
+cusp接線・cuspを通る割線&23&22&二Hとcuspidal cubic\\
+constant modular最高double-line&23&23&二重Hとprime cusp cubic\\\bottomrule
+\end{tabular}
+\end{center}
+ここで一般軌道はprojective tensorの$PGL_5$軌道である。
+五つのcomponent IDは順に
+\path{R4_GA9_LINEAR_W_E6_CUSP_TANGENT_23}、
+\path{R4_PLANE_TWO_LINES_CUBIC_NODE_FLEX_TANGENT_THROUGH_FLEX_23}、
+\path{R4_PLANE_TWO_LINES_CUBIC_CUSP_FLEX_SECANT_THROUGH_FLEX_23}、
+\path{R4_PLANE_TWO_LINES_CUBIC_CUSP_CUSP_TANGENT_CUSP_SECANT_23}、
+\path{R4_CONSTANT_MODULAR_DOUBLE_LINE_CUBIC_23}である。
+成分の閉像が旧成分に\emph{含まれない}ことを証明したのであり、境界で旧成分と交わらないとは述べていない。
+五つの全scheme厚み、generic smoothness又は全特殊orbitはこの支持による証明から推論しない。
+ここで「新しい五成分」は既台帳142に対する相対的な追加を意味し、文献上の初出又は優先権を未確認のまま主張しない。
 
 \section{計算・証拠の位置づけ}
 本稿の命題\ref{prop:radical}、補題\ref{lem:certificate}、補題\ref{lem:descent}、命題\ref{prop:spread}には本文で証明を与えた。
@@ -20508,7 +21602,8 @@ Poisson固有の既存結果については、収録証明、今回の証明確�
 
 基準リポジトリのcommitは
 \texttt{a00a541b835b2bff18bafcba545ecbd4bae7175b}である。
-各証拠の入口と確認範囲は\texttt{research/classification/SOURCES.json}、未解決課題は\texttt{PLAN.json}に置く。
+各証拠の入口と確認範囲は\texttt{research/classification/SOURCES.json}に置き、主分類完了の全依存と再現入口は最終manifestへ固定する。全orbitやscheme厚みのsecondary課題は主定理と区別する。
+最小の再現手順と各依存の再生範囲は\path{REPRODUCE_EXACT147.md}にまとめる。
 主原稿の再生成は、リポジトリ直下から次のとおりである。
 \begin{verbatim}
 mkdir -p build/classification
@@ -20519,6 +21614,11 @@ lualatex -interaction=nonstopmode -halt-on-error \
 \end{verbatim}
 
 \begin{thebibliography}{99}
+\bibitem{fedorchukDn} M. Fedorchuk,
+\emph{Moduli spaces of hyperelliptic curves with $A$ and $D$ singularities},
+arXiv:1007.4828v2, \S1.2.2, pp.~6--7 and Proposition~6.1, pp.~29--30.
+\url{https://arxiv.org/pdf/1007.4828v2}.
+
 \bibitem{cm} M. Corr\^ea and A. Muniz,
 \emph{Holomorphic foliations of degree two and arbitrary dimension},
 arXiv:2207.12880v5 (2026), Theorem 4.1.

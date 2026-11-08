@@ -1,0 +1,133 @@
+{
+  "id": "CONSTANT_MODULAR_DOUBLE_CUBIC_FORCED_ORBIT",
+  "one_canonical_only": true,
+  "homogeneous_coordinates": [
+    "h",
+    "t",
+    "x",
+    "y",
+    "r"
+  ],
+  "pair_labels": [
+    "tx",
+    "ty",
+    "tr",
+    "xy",
+    "xr",
+    "yr"
+  ],
+  "parameters": {
+    "k": 0,
+    "ell": 1,
+    "m": 0,
+    "w0": 0
+  },
+  "universal_affine_brackets": [
+    "1+x-2*x*y",
+    "4*y^2-y",
+    "(1-6*y)*r+k*y^2+ell*x+m*y+w0",
+    "0",
+    "-x^2",
+    "1+2*x*y"
+  ],
+  "universal_affine_pf": "x^2*y+x+1",
+  "universal_affine_divergence": [
+    "-1",
+    "0",
+    "0",
+    "0"
+  ],
+  "expected_actual_F": "h^2*(x^2*y+x*h^2+h^3)",
+  "expected_homogeneous_divergence": [
+    "0",
+    "-h",
+    "0",
+    "0",
+    "0"
+  ],
+  "parameter_recovery": {
+    "k": {
+      "pair": [
+        1,
+        4
+      ],
+      "exponent": [
+        0,
+        0,
+        0,
+        2,
+        0
+      ]
+    },
+    "ell": {
+      "pair": [
+        1,
+        4
+      ],
+      "exponent": [
+        1,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    "m": {
+      "pair": [
+        1,
+        4
+      ],
+      "exponent": [
+        1,
+        0,
+        0,
+        1,
+        0
+      ]
+    },
+    "w0": {
+      "pair": [
+        1,
+        4
+      ],
+      "exponent": [
+        2,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  "normalizers": [
+    {
+      "id": "full_magnetic_actual_normalizer",
+      "extra_parameters": [
+        "sigma",
+        "A",
+        "B",
+        "C"
+      ],
+      "forward": [
+        "sigma*t-2*A*y",
+        "x",
+        "y",
+        "sigma*r+A*x+B*y+C"
+      ],
+      "inverse": [
+        "(t+2*A*y)/sigma",
+        "x",
+        "y",
+        "(r-A*x-B*y-C)/sigma"
+      ],
+      "determinant": "sigma^2",
+      "tensor_scalar": "1/sigma",
+      "parameter_image": {
+        "k": "sigma*k+10*B",
+        "ell": "sigma*ell",
+        "m": "sigma*m-2*B+6*C",
+        "w0": "sigma*w0-A-C"
+      }
+    }
+  ]
+}

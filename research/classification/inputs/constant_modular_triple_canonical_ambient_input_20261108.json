@@ -1,0 +1,135 @@
+{
+  "id": "CONSTANT_MODULAR_TRIPLE_CUBIC_FORCED_ORBIT",
+  "one_canonical_only": true,
+  "homogeneous_coordinates": [
+    "h",
+    "t",
+    "x",
+    "y",
+    "r"
+  ],
+  "coordinate_identity": "This is the fixed same canonical of the accepted whole theorem under the single actual diagonal map (t,x,y,r)_new=(12t,x,2y,2r/3), determinant16, tensor1; no basepoint change or rank-driven point replacement.",
+  "source_parameter_identity": {
+    "p": "raw p=(4/3)*oldp",
+    "ell": "raw ell=-12*oldell",
+    "L": "raw L=8*oldL",
+    "w": "raw w=8*oldw, oldd=oldw-oldell*oldp-oldp/3-3oldell/4+oldL/2"
+  },
+  "pair_labels": [
+    "tx",
+    "ty",
+    "tr",
+    "xy",
+    "xr",
+    "yr"
+  ],
+  "parameters": {
+    "p": 0,
+    "ell": 0,
+    "L": 0,
+    "w": 0
+  },
+  "universal_affine_brackets": [
+    "4*x+6*y+ell",
+    "-12*x*y+2*y-12*r-2*ell*x+4*p-ell-L",
+    "-6*y^2+12*x*r-5*y+6*r+L*x-(3*p+ell)*y+w",
+    "2",
+    "-2*x+1",
+    "4*x^2+2*y+p"
+  ],
+  "universal_affine_pf": "16*x^3+24*x*y-12*y+24*r+12*p*x+2*w+ell*p-4*p+ell+L",
+  "universal_affine_divergence": [
+    "-12",
+    "0",
+    "0",
+    "0"
+  ],
+  "expected_actual_F": "h^2*(16*x^3+24*h*x*y-12*h^2*y+24*h^2*r)",
+  "expected_homogeneous_divergence": [
+    "0",
+    "-12*h",
+    "0",
+    "0",
+    "0"
+  ],
+  "parameter_recovery": {
+    "p": {
+      "pair": [
+        3,
+        4
+      ],
+      "exponent": [
+        2,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "ell": {
+      "pair": [
+        1,
+        2
+      ],
+      "exponent": [
+        2,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "L": {
+      "pair": [
+        1,
+        4
+      ],
+      "exponent": [
+        1,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    "w": {
+      "pair": [
+        1,
+        4
+      ],
+      "exponent": [
+        2,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  "normalizers": [
+    {
+      "id": "combined_full4_to_the_fixed_canonical",
+      "extra_parameters": [],
+      "forward": [
+        "12*(t/12+(3*p/4)*y/6+(-(3*((-ell/12)+(3*p/4)/3)/2)^2-(3*((-ell/12)+(3*p/4)/3)/2)/2)*(y/2-(3*((-ell/12)+(3*p/4)/3)/2)*x)+(-(3*((-ell/12)+(3*p/4)/3)/2)/3)*(3*r/2+(3*p/4)*x+((w/8)-(-ell/12)*(3*p/4)-(3*p/4)/3-3*(-ell/12)/4+(L/8)/2)-3*(3*((-ell/12)+(3*p/4)/3)/2)*x/2-3*(3*((-ell/12)+(3*p/4)/3)/2)*y/2-(3*((-ell/12)+(3*p/4)/3)/2)^3)+((((L/8)-((w/8)-(-ell/12)*(3*p/4)-(3*p/4)/3-3*(-ell/12)/4+(L/8)/2)-(3*p/4)/6)-2*(3*((-ell/12)+(3*p/4)/3)/2)^3-2*(3*((-ell/12)+(3*p/4)/3)/2)^2-(3*((-ell/12)+(3*p/4)/3)/2))/3)*(x+(3*((-ell/12)+(3*p/4)/3)/2)))",
+        "(x+(3*((-ell/12)+(3*p/4)/3)/2))",
+        "2*(y/2-(3*((-ell/12)+(3*p/4)/3)/2)*x)",
+        "2*(3*r/2+(3*p/4)*x+((w/8)-(-ell/12)*(3*p/4)-(3*p/4)/3-3*(-ell/12)/4+(L/8)/2)-3*(3*((-ell/12)+(3*p/4)/3)/2)*x/2-3*(3*((-ell/12)+(3*p/4)/3)/2)*y/2-(3*((-ell/12)+(3*p/4)/3)/2)^3)/3"
+      ],
+      "inverse": [
+        "12*((t/12-(-(3*((-ell/12)+(3*p/4)/3)/2)^2-(3*((-ell/12)+(3*p/4)/3)/2)/2)*y/2-(-(3*((-ell/12)+(3*p/4)/3)/2)/3)*3*r/2-((((L/8)-((w/8)-(-ell/12)*(3*p/4)-(3*p/4)/3-3*(-ell/12)/4+(L/8)/2)-(3*p/4)/6)-2*(3*((-ell/12)+(3*p/4)/3)/2)^3-2*(3*((-ell/12)+(3*p/4)/3)/2)^2-(3*((-ell/12)+(3*p/4)/3)/2))/3)*x)-(3*p/4)*(y/2+(3*((-ell/12)+(3*p/4)/3)/2)*x-(3*((-ell/12)+(3*p/4)/3)/2)^2)/3)",
+        "(x-(3*((-ell/12)+(3*p/4)/3)/2))",
+        "2*(y/2+(3*((-ell/12)+(3*p/4)/3)/2)*x-(3*((-ell/12)+(3*p/4)/3)/2)^2)",
+        "2*((3*r/2+(3*(3*((-ell/12)+(3*p/4)/3)/2)^2+3*(3*((-ell/12)+(3*p/4)/3)/2)/2)*x+3*(3*((-ell/12)+(3*p/4)/3)/2)*y/2-2*(3*((-ell/12)+(3*p/4)/3)/2)^3-3*(3*((-ell/12)+(3*p/4)/3)/2)^2/2)-(3*p/4)*(x-(3*((-ell/12)+(3*p/4)/3)/2))-((w/8)-(-ell/12)*(3*p/4)-(3*p/4)/3-3*(-ell/12)/4+(L/8)/2))/3"
+      ],
+      "determinant": "1",
+      "tensor_scalar": "1",
+      "parameter_image": {
+        "p": "0",
+        "ell": "0",
+        "L": "0",
+        "w": "0"
+      }
+    }
+  ]
+}

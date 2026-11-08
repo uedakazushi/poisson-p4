@@ -1,0 +1,514 @@
+{
+  "task_id": "E_multiple_hyperplane",
+  "all_prescribed_cases_processed": true,
+  "source_scope": "All original true source parameters; only fixed coordinate order2zero readback, no Poisson source points/operator/rank/minor/profile/Jacobi recomputation",
+  "cases": [
+    {
+      "component": "T24",
+      "source_path": "reports/MPS_SMOOTHING_COMPLETION_20261103_v62/T24.json",
+      "marked_coordinate_zero": 2,
+      "all_source_parameters_symbolic": true,
+      "order0_and1_zero_identically": true,
+      "quadratic_jet": {
+        "0,1": "p0*v0*v1 + t0*v3**2",
+        "0,2": "-2*p0*v0*v2/3",
+        "0,3": "p0*v0*v3/3",
+        "1,2": "-(2*p0*v1*v2 - 3*t2*v0*v3)/3",
+        "1,3": "-p0*v1*v3/3",
+        "2,3": "2*p0*v2*v3/3"
+      },
+      "cubic_alpha": [
+        "v3*(p0*v1*v2 + 3*t2*v0*v3)/3",
+        "p0*v0*v2*v3/3",
+        "v3*(p0*v0*v1 + 3*t0*v3**2)/3",
+        "-p0*v0*v1*v2 - t0*v2*v3**2 - t2*v0**2*v3"
+      ],
+      "Pf_Q": "p0*v3*(2*p0*v0*v1*v2 + 6*t0*v2*v3**2 + 3*t2*v0**2*v3)/9",
+      "Pf_factorization": {
+        "scalar": "p0/9",
+        "factors": [
+          "v3",
+          "2*p0*v0*v1*v2 + 6*t0*v2*v3**2 + 3*t2*v0**2*v3"
+        ],
+        "multiplicities": [
+          1,
+          1
+        ]
+      },
+      "all_log_residue_coefficient_identities_zero": true,
+      "log_residues": [
+        "-9/(2*p0)",
+        "3/(2*p0)"
+      ],
+      "residue_ratios": [
+        "1",
+        "-1/3"
+      ],
+      "status": "WHOLE_GENERIC_SOURCE_BOUNDED_RATIONAL_FIRST_INTEGRAL_CERTIFIED",
+      "integer_exponents": [
+        3,
+        -1
+      ],
+      "first_integral_numerator": "v3**3",
+      "first_integral_denominator": "2*p0*v0*v1*v2 + 6*t0*v2*v3**2 + 3*t2*v0**2*v3",
+      "fixed_homogeneous_degree": 3,
+      "all_six_alpha_wedge_first_integral_identities_zero": true,
+      "first_integral_nonconstant": true,
+      "whole_closure_method": "Proper marked order2zero plus Gr(2,Sym^d) wedge incidence, including common factors; all parameter walls retained by closure"
+    },
+    {
+      "component": "T26",
+      "source_path": "reports/MPS_S61_RAW_CATALOGUE_20261103_v62/T26.json",
+      "marked_coordinate_zero": 0,
+      "all_source_parameters_symbolic": true,
+      "order0_and1_zero_identically": true,
+      "quadratic_jet": {
+        "0,1": "p0*v0*v1",
+        "0,2": "(3*p0*v0*v2 + 4*t2*v3**2)/4",
+        "0,3": "p0*v0*v3/4",
+        "1,2": "0",
+        "1,3": "-p0*v1*v3/2",
+        "2,3": "-p0*v2*v3/4"
+      },
+      "cubic_alpha": [
+        "p0*v1*v2*v3/4",
+        "-v3*(p0*v0*v2 + 4*t2*v3**2)/4",
+        "p0*v0*v1*v3/4",
+        "-v1*(p0*v0*v2 - 4*t2*v3**2)/4"
+      ],
+      "Pf_Q": "p0*v1*v3*(p0*v0*v2 + 4*t2*v3**2)/8",
+      "Pf_factorization": {
+        "scalar": "p0/8",
+        "factors": [
+          "v1",
+          "v3",
+          "p0*v0*v2 + 4*t2*v3**2"
+        ],
+        "multiplicities": [
+          1,
+          1,
+          1
+        ]
+      },
+      "all_log_residue_coefficient_identities_zero": true,
+      "log_residues": [
+        "-2/p0",
+        "-2/p0",
+        "2/p0"
+      ],
+      "residue_ratios": [
+        "1",
+        "1",
+        "-1"
+      ],
+      "status": "WHOLE_GENERIC_SOURCE_BOUNDED_RATIONAL_FIRST_INTEGRAL_CERTIFIED",
+      "integer_exponents": [
+        1,
+        1,
+        -1
+      ],
+      "first_integral_numerator": "v1*v3",
+      "first_integral_denominator": "p0*v0*v2 + 4*t2*v3**2",
+      "fixed_homogeneous_degree": 2,
+      "all_six_alpha_wedge_first_integral_identities_zero": true,
+      "first_integral_nonconstant": true,
+      "whole_closure_method": "Proper marked order2zero plus Gr(2,Sym^d) wedge incidence, including common factors; all parameter walls retained by closure"
+    },
+    {
+      "component": "T27",
+      "source_path": "reports/MPS_SMOOTHING_COMPLETION_20261103_v62/T27.json",
+      "marked_coordinate_zero": 0,
+      "all_source_parameters_symbolic": true,
+      "order0_and1_zero_identically": true,
+      "quadratic_jet": {
+        "0,1": "p0*v0*v1",
+        "0,2": "(3*p0*v0*v2 + 7*t2*v3**2)/7",
+        "0,3": "p0*v0*v3/7",
+        "1,2": "-p0*v1*v2/7",
+        "1,3": "-4*p0*v1*v3/7",
+        "2,3": "-p0*v2*v3/7"
+      },
+      "cubic_alpha": [
+        "2*p0*v1*v2*v3/7",
+        "-v3*(p0*v0*v2 + 7*t2*v3**2)/7",
+        "2*p0*v0*v1*v3/7",
+        "-v1*(3*p0*v0*v2 - 7*t2*v3**2)/7"
+      ],
+      "Pf_Q": "4*p0*v1*v3*(p0*v0*v2 + 7*t2*v3**2)/49",
+      "Pf_factorization": {
+        "scalar": "4*p0/49",
+        "factors": [
+          "v1",
+          "v3",
+          "p0*v0*v2 + 7*t2*v3**2"
+        ],
+        "multiplicities": [
+          1,
+          1,
+          1
+        ]
+      },
+      "all_log_residue_coefficient_identities_zero": true,
+      "log_residues": [
+        "-7/(4*p0)",
+        "-21/(4*p0)",
+        "7/(2*p0)"
+      ],
+      "residue_ratios": [
+        "1",
+        "3",
+        "-2"
+      ],
+      "status": "WHOLE_GENERIC_SOURCE_BOUNDED_RATIONAL_FIRST_INTEGRAL_CERTIFIED",
+      "integer_exponents": [
+        1,
+        3,
+        -2
+      ],
+      "first_integral_numerator": "v1*v3**3",
+      "first_integral_denominator": "p0**2*v0**2*v2**2 + 14*p0*t2*v0*v2*v3**2 + 49*t2**2*v3**4",
+      "fixed_homogeneous_degree": 4,
+      "all_six_alpha_wedge_first_integral_identities_zero": true,
+      "first_integral_nonconstant": true,
+      "whole_closure_method": "Proper marked order2zero plus Gr(2,Sym^d) wedge incidence, including common factors; all parameter walls retained by closure"
+    },
+    {
+      "component": "T31",
+      "source_path": "reports/MPS_SMOOTHING_COMPLETION_20261103_v62/T31.json",
+      "marked_coordinate_zero": 0,
+      "all_source_parameters_symbolic": true,
+      "order0_and1_zero_identically": true,
+      "quadratic_jet": {
+        "0,1": "p0*v0*v1",
+        "0,2": "p0*v0*v2 + t2*v1*v3",
+        "0,3": "-p0*v0*v3/2",
+        "1,2": "0",
+        "1,3": "-p0*v1*v3",
+        "2,3": "-p0*v2*v3/2"
+      },
+      "cubic_alpha": [
+        "p0*v1*v2*v3/2",
+        "-v3*(p0*v0*v2 + t2*v1*v3)",
+        "p0*v0*v1*v3/2",
+        "t2*v1**2*v3"
+      ],
+      "Pf_Q": "p0*v1*v3*(p0*v0*v2 + 2*t2*v1*v3)/2",
+      "Pf_factorization": {
+        "scalar": "p0/2",
+        "factors": [
+          "v1",
+          "v3",
+          "p0*v0*v2 + 2*t2*v1*v3"
+        ],
+        "multiplicities": [
+          1,
+          1,
+          1
+        ]
+      },
+      "all_log_residue_coefficient_identities_zero": true,
+      "log_residues": [
+        "-2/p0",
+        "0",
+        "1/p0"
+      ],
+      "residue_ratios": [
+        "1",
+        "0",
+        "-1/2"
+      ],
+      "status": "WHOLE_GENERIC_SOURCE_BOUNDED_RATIONAL_FIRST_INTEGRAL_CERTIFIED",
+      "integer_exponents": [
+        2,
+        0,
+        -1
+      ],
+      "first_integral_numerator": "v1**2",
+      "first_integral_denominator": "p0*v0*v2 + 2*t2*v1*v3",
+      "fixed_homogeneous_degree": 2,
+      "all_six_alpha_wedge_first_integral_identities_zero": true,
+      "first_integral_nonconstant": true,
+      "whole_closure_method": "Proper marked order2zero plus Gr(2,Sym^d) wedge incidence, including common factors; all parameter walls retained by closure"
+    },
+    {
+      "component": "T32",
+      "source_path": "reports/MPS_SMOOTHING_COMPLETION_20261103_v62/T32.json",
+      "marked_coordinate_zero": 0,
+      "all_source_parameters_symbolic": true,
+      "order0_and1_zero_identically": true,
+      "quadratic_jet": {
+        "0,1": "p0*v0*v1",
+        "0,2": "0",
+        "0,3": "p0*v0*v3",
+        "1,2": "-p0*v1*v2",
+        "1,3": "0",
+        "2,3": "(p0*v2*v3 + 2*t2*v0*v1)/2"
+      },
+      "cubic_alpha": [
+        "-v1*(p0*v2*v3 - 2*t2*v0*v1)/2",
+        "v0*(p0*v2*v3 - 2*t2*v0*v1)/2",
+        "0",
+        "0"
+      ],
+      "Pf_Q": "-p0*v0*v1*(p0*v2*v3 - 2*t2*v0*v1)/2",
+      "Pf_factorization": {
+        "scalar": "p0/2",
+        "factors": [
+          "v1",
+          "v0",
+          "-p0*v2*v3 + 2*t2*v0*v1"
+        ],
+        "multiplicities": [
+          1,
+          1,
+          1
+        ]
+      },
+      "all_log_residue_coefficient_identities_zero": true,
+      "log_residues": [
+        "-1/p0",
+        "1/p0",
+        "0"
+      ],
+      "residue_ratios": [
+        "1",
+        "-1",
+        "0"
+      ],
+      "status": "WHOLE_GENERIC_SOURCE_BOUNDED_RATIONAL_FIRST_INTEGRAL_CERTIFIED",
+      "integer_exponents": [
+        1,
+        -1,
+        0
+      ],
+      "first_integral_numerator": "v1",
+      "first_integral_denominator": "v0",
+      "fixed_homogeneous_degree": 1,
+      "all_six_alpha_wedge_first_integral_identities_zero": true,
+      "first_integral_nonconstant": true,
+      "whole_closure_method": "Proper marked order2zero plus Gr(2,Sym^d) wedge incidence, including common factors; all parameter walls retained by closure"
+    },
+    {
+      "component": "T33",
+      "source_path": "reports/MPS_SMOOTHING_COMPLETION_20261103_v62/T33.json",
+      "marked_coordinate_zero": 3,
+      "all_source_parameters_symbolic": true,
+      "order0_and1_zero_identically": true,
+      "quadratic_jet": {
+        "0,1": "(2*p0*v0*v1 + 3*t0*v3**2)/3",
+        "0,2": "(p0*v0*v2 + 3*t1*v1**2)/3",
+        "0,3": "p0*v0*v3/6",
+        "1,2": "2*p0*v1*v2/3",
+        "1,3": "-p0*v1*v3/6",
+        "2,3": "-p0*v2*v3/2"
+      },
+      "cubic_alpha": [
+        "p0*v1*v2*v3/3",
+        "v3*(p0*v0*v2 - 3*t1*v1**2)/3",
+        "v3*(p0*v0*v1 + 3*t0*v3**2)/3",
+        "-p0*v0*v1*v2 - t0*v2*v3**2 + t1*v1**3"
+      ],
+      "Pf_Q": "-p0*v3*(p0*v0*v1*v2 + 3*t0*v2*v3**2 - t1*v1**3)/6",
+      "Pf_factorization": {
+        "scalar": "-p0/6",
+        "factors": [
+          "v3",
+          "p0*v0*v1*v2 + 3*t0*v2*v3**2 - t1*v1**3"
+        ],
+        "multiplicities": [
+          1,
+          1
+        ]
+      },
+      "all_log_residue_coefficient_identities_zero": true,
+      "log_residues": [
+        "6/p0",
+        "-2/p0"
+      ],
+      "residue_ratios": [
+        "1",
+        "-1/3"
+      ],
+      "status": "WHOLE_GENERIC_SOURCE_BOUNDED_RATIONAL_FIRST_INTEGRAL_CERTIFIED",
+      "integer_exponents": [
+        3,
+        -1
+      ],
+      "first_integral_numerator": "v3**3",
+      "first_integral_denominator": "p0*v0*v1*v2 + 3*t0*v2*v3**2 - t1*v1**3",
+      "fixed_homogeneous_degree": 3,
+      "all_six_alpha_wedge_first_integral_identities_zero": true,
+      "first_integral_nonconstant": true,
+      "whole_closure_method": "Proper marked order2zero plus Gr(2,Sym^d) wedge incidence, including common factors; all parameter walls retained by closure"
+    },
+    {
+      "component": "T34",
+      "source_path": "reports/MPS_SMOOTHING_COMPLETION_20261103_v62/T34.json",
+      "marked_coordinate_zero": 0,
+      "all_source_parameters_symbolic": true,
+      "order0_and1_zero_identically": true,
+      "quadratic_jet": {
+        "0,1": "p0*v0*v1",
+        "0,2": "3*p0*v0*v2",
+        "0,3": "-p0*v0*v3",
+        "1,2": "3*p0*v1*v2",
+        "1,3": "-3*p0*v1*v3",
+        "2,3": "-2*p0*v2*v3 + t2*v1**2"
+      },
+      "cubic_alpha": [
+        "v1*(4*p0*v2*v3 + t2*v1**2)",
+        "-v0*(2*p0*v2*v3 + t2*v1**2)",
+        "-p0*v0*v1*v3",
+        "-p0*v0*v1*v2"
+      ],
+      "Pf_Q": "p0*v0*v1*(4*p0*v2*v3 + t2*v1**2)",
+      "Pf_factorization": {
+        "scalar": "p0",
+        "factors": [
+          "v1",
+          "4*p0*v2*v3 + t2*v1**2",
+          "v0"
+        ],
+        "multiplicities": [
+          1,
+          1,
+          1
+        ]
+      },
+      "all_log_residue_coefficient_identities_zero": true,
+      "log_residues": [
+        "-1/(2*p0)",
+        "-1/(4*p0)",
+        "1/p0"
+      ],
+      "residue_ratios": [
+        "1",
+        "1/2",
+        "-2"
+      ],
+      "status": "WHOLE_GENERIC_SOURCE_BOUNDED_RATIONAL_FIRST_INTEGRAL_CERTIFIED",
+      "integer_exponents": [
+        2,
+        1,
+        -4
+      ],
+      "first_integral_numerator": "4*p0*v1**2*v2*v3 + t2*v1**4",
+      "first_integral_denominator": "v0**4",
+      "fixed_homogeneous_degree": 4,
+      "all_six_alpha_wedge_first_integral_identities_zero": true,
+      "first_integral_nonconstant": true,
+      "whole_closure_method": "Proper marked order2zero plus Gr(2,Sym^d) wedge incidence, including common factors; all parameter walls retained by closure"
+    },
+    {
+      "component": "T35",
+      "source_path": "reports/MPS_SMOOTHING_COMPLETION_20261103_v62/T35.json",
+      "marked_coordinate_zero": 0,
+      "all_source_parameters_symbolic": true,
+      "order0_and1_zero_identically": true,
+      "quadratic_jet": {
+        "0,1": "p0*v0*v1",
+        "0,2": "-p0*v0*v2/3",
+        "0,3": "p0*v0*v3/3",
+        "1,2": "-5*p0*v1*v2/3",
+        "1,3": "-p0*v1*v3/3",
+        "2,3": "-(2*p0*v2*v3 - 3*t2*v0**2)/3"
+      },
+      "cubic_alpha": [
+        "-v1*(2*p0*v2*v3 - t2*v0**2)",
+        "v0*(4*p0*v2*v3 - 3*t2*v0**2)/3",
+        "p0*v0*v1*v3/3",
+        "p0*v0*v1*v2/3"
+      ],
+      "Pf_Q": "-p0*v0*v1*(4*p0*v2*v3 - 3*t2*v0**2)/3",
+      "Pf_factorization": {
+        "scalar": "p0/3",
+        "factors": [
+          "v1",
+          "v0",
+          "-4*p0*v2*v3 + 3*t2*v0**2"
+        ],
+        "multiplicities": [
+          1,
+          1,
+          1
+        ]
+      },
+      "all_log_residue_coefficient_identities_zero": true,
+      "log_residues": [
+        "-1/p0",
+        "3/(2*p0)",
+        "-1/(4*p0)"
+      ],
+      "residue_ratios": [
+        "1",
+        "-3/2",
+        "1/4"
+      ],
+      "status": "WHOLE_GENERIC_SOURCE_BOUNDED_RATIONAL_FIRST_INTEGRAL_CERTIFIED",
+      "integer_exponents": [
+        4,
+        -6,
+        1
+      ],
+      "first_integral_numerator": "-4*p0*v1**4*v2*v3 + 3*t2*v0**2*v1**4",
+      "first_integral_denominator": "v0**6",
+      "fixed_homogeneous_degree": 6,
+      "all_six_alpha_wedge_first_integral_identities_zero": true,
+      "first_integral_nonconstant": true,
+      "whole_closure_method": "Proper marked order2zero plus Gr(2,Sym^d) wedge incidence, including common factors; all parameter walls retained by closure"
+    }
+  ],
+  "all_cases_certified": true,
+  "new_components": 0,
+  "independent_review_required": true,
+  "input_sha256": [
+    {
+      "path": "research/classification/UNIMODULAR_POLE_MPS_BOUNDED_RATIONAL_JET_METHOD.md",
+      "sha256": "b47a6352d7a45f8afddc01a7e305adb536dd698f325dc1bc05bb05388e870f43"
+    },
+    {
+      "path": "research/classification/UNIMODULAR_POLE_GLOBAL_MARKED_JET_AND_T36_T38_EXCLUSION.md",
+      "sha256": "56d043b50a3f8b22f85a33242e431653c4fefdf2495e7d46cfca74715ec400c4"
+    },
+    {
+      "path": "reports/CLASSIFICATION_UNIMODULAR_POLE_SINGLE_ORBIT_ONE_AMBIENT_20261108.json",
+      "sha256": "395f957f00145c956edb0e41b4f2ac12e1d7c925c01e09fec7beb2ebd7b40f0c"
+    },
+    {
+      "path": "reports/MPS_SMOOTHING_COMPLETION_20261103_v62/T24.json",
+      "sha256": "2863626b37239b17938ff091a7d73e17f842e71f96ef141d91c6c39a1e43020f"
+    },
+    {
+      "path": "reports/MPS_S61_RAW_CATALOGUE_20261103_v62/T26.json",
+      "sha256": "d3a33548f340a9b330cc86afbc08430188c0e27138aec28a471821abffb4e420"
+    },
+    {
+      "path": "reports/MPS_SMOOTHING_COMPLETION_20261103_v62/T27.json",
+      "sha256": "10278a8eddc9575e658d151fcf07c2ee73f3ae7e7ffd75f6a3204eb72203a944"
+    },
+    {
+      "path": "reports/MPS_SMOOTHING_COMPLETION_20261103_v62/T31.json",
+      "sha256": "6a7a319b50f3f4afcc7fd79ad272dfbfa4054952fec55729eabd22c236dfda8f"
+    },
+    {
+      "path": "reports/MPS_SMOOTHING_COMPLETION_20261103_v62/T32.json",
+      "sha256": "4e092583b527266c0891d3299bc0251242da2daf412d18adde03662d26697c49"
+    },
+    {
+      "path": "reports/MPS_SMOOTHING_COMPLETION_20261103_v62/T33.json",
+      "sha256": "ab28a019f49e6d0366a7d812bded4ed9c769ac23462a0923643e49046c14643b"
+    },
+    {
+      "path": "reports/MPS_SMOOTHING_COMPLETION_20261103_v62/T34.json",
+      "sha256": "b4fbec09b1b660ffb050cfec9bb991735d4afb0ca73371afc49acaa89189cb26"
+    },
+    {
+      "path": "reports/MPS_SMOOTHING_COMPLETION_20261103_v62/T35.json",
+      "sha256": "09da1cea3f56c31547764feca4f358e149904ea2a88159e107f494c3d9a6a3ad"
+    }
+  ],
+  "executed_source_bytes": "import json,hashlib,time,signal,resource,math\nfrom pathlib import Path\nfrom itertools import combinations\nimport sympy as s\nroot=Path.cwd();out=root/'reports/CLASSIFICATION_UNIMODULAR_POLE_EIGHT_MPS_FIXED_QUADRATIC_JETS_20261108.json';assert not out.exists()\nresource.setrlimit(resource.RLIMIT_AS,(1024*1024**2,1024*1024**2));signal.alarm(60)\nstart=time.monotonic();job=json.loads((root/'research/classification/jobs/unimodular_pole_eight_mps_fixed_quadratic_jets.json').read_text())\nfor rec in job['exact_inputs_and_hashes']:assert hashlib.sha256((root/rec['path']).read_bytes()).hexdigest()==rec['sha256'],rec['path']\nx=s.symbols('x0:5');v=s.symbols('v0:4');pars=s.symbols('p0 p1 p2 p3 t0 t1 t2 t3');env={str(z):z for z in x+pars}\nfixed=[('T24',2),('T26',0),('T27',0),('T31',0),('T32',0),('T33',3),('T34',0),('T35',0)]\nrecords=[]\nfor name,q in fixed:\n path='reports/MPS_SMOOTHING_COMPLETION_20261103_v62/'+name+'.json'\n if not (root/path).exists():path='reports/MPS_S61_RAW_CATALOGUE_20261103_v62/'+name+'.json'\n data=json.loads((root/path).read_text());P=s.zeros(5)\n for key,value in data['homogeneous_bivector'].items():\n  i,j=map(int,key.split(','));P[i,j]=s.sympify(value,locals=env);P[j,i]=-P[i,j]\n inds=[i for i in range(5)if i!=q];sub={x[q]:1,**dict(zip([x[i]for i in inds],v))};Q=s.zeros(4);aff=s.zeros(4)\n for a,b in combinations(range(4),2):\n  i,j=inds[a],inds[b];f=s.expand((P[i,j]-x[i]*P[q,j]+x[j]*P[q,i]).subs(sub))\n  poly=s.Poly(f,*v);low=[s.cancel(c)for ex,c in poly.terms()if sum(ex)<2];assert all(z==0 for z in low),(name,'not order2zero')\n  f2=s.Add(*(c*s.prod(z**k for z,k in zip(v,ex))for ex,c in poly.terms()if sum(ex)==2));Q[a,b]=s.factor(f2);Q[b,a]=-Q[a,b];aff[a,b]=f;aff[b,a]=-f\n alpha=[]\n for a in range(4):\n  i,j,k=[b for b in range(4)if b!=a];alpha.append(s.factor((-1)**a*(v[i]*Q[j,k]-v[j]*Q[i,k]+v[k]*Q[i,j])))\n pf=s.factor(Q[0,1]*Q[2,3]-Q[0,2]*Q[1,3]+Q[0,3]*Q[1,2])\n rec={'component':name,'source_path':path,'marked_coordinate_zero':q,'all_source_parameters_symbolic':True,'order0_and1_zero_identically':True,'quadratic_jet':{str(i)+','+str(j):str(Q[i,j])for i,j in combinations(range(4),2)},'cubic_alpha':list(map(str,alpha)),'Pf_Q':str(pf)}\n if pf==0 or all(f==0 for f in alpha):\n  rec['status']='UNRESOLVED_ZERO_PF_OR_ALPHA';records.append(rec);continue\n field=s.QQ.frac_field(*pars);coeff,fact=s.Poly(pf,*v,domain=field).factor_list();factors=[ff.as_expr()for ff,mult in fact];mults=[int(mult)for ff,mult in fact]\n rec['Pf_factorization']={'scalar':str(coeff),'factors':list(map(str,factors)),'multiplicities':mults}\n lam=s.symbols('lambda0:'+str(len(factors)));basis=[[s.cancel(pf/ff*s.diff(ff,z))for z in v]for ff in factors]\n eq=[]\n for j in range(4):\n  pol=s.Poly(s.expand(sum(lam[i]*basis[i][j]for i in range(len(factors)))-alpha[j]),*v)\n  eq.extend(c for ex,c in pol.terms()if c!=0)\n mat,rhs=s.linear_eq_to_matrix(eq,lam);sol=s.linsolve((mat,rhs),lam)\n if sol is s.EmptySet or len(sol)!=1:\n  rec['status']='UNRESOLVED_NO_LOG_RESIDUE_IDENTITY';records.append(rec);continue\n values=tuple(map(s.cancel,next(iter(sol))))\n if any(val.free_symbols.intersection(set(lam))for val in values):\n  rec['status']='UNRESOLVED_NONUNIQUE_LOG_RESIDUES';records.append(rec);continue\n assert all(s.cancel(sum(values[i]*basis[i][j]for i in range(len(factors)))-alpha[j])==0 for j in range(4))\n rec['all_log_residue_coefficient_identities_zero']=True;rec['log_residues']=list(map(str,values))\n ref=next((vv for vv in values if vv!=0),None)\n if ref is None:\n  rec['status']='UNRESOLVED_ZERO_LOG_RESIDUES';records.append(rec);continue\n ratios=[s.cancel(val/ref)for val in values];rec['residue_ratios']=list(map(str,ratios))\n if not all(rat.is_Rational for rat in ratios):\n  rec['status']='UNRESOLVED_NONRATIONAL_CONSTANT_RATIO';records.append(rec);continue\n lcm=s.ilcm(*[int(z.q)for z in ratios]);exps=[int(lcm*z)for z in ratios];g=math.gcd(*exps);exps=[i//g for i in exps]\n num=s.prod(ff**i for ff,i in zip(factors,exps)if i>0);den=s.prod(ff**(-i)for ff,i in zip(factors,exps)if i<0)\n num=s.expand(num);den=s.expand(den);dnum=s.Poly(num,*v).total_degree();dden=s.Poly(den,*v).total_degree();assert dnum==dden and dnum>=1\n om=[s.expand(den*s.diff(num,z)-num*s.diff(den,z))for z in v];assert any(z!=0 for z in om)\n wedges=[s.expand(alpha[i]*om[j]-alpha[j]*om[i])for i,j in combinations(range(4),2)];assert all(z==0 for z in wedges)\n rec.update(status='WHOLE_GENERIC_SOURCE_BOUNDED_RATIONAL_FIRST_INTEGRAL_CERTIFIED',integer_exponents=exps,first_integral_numerator=str(num),first_integral_denominator=str(den),fixed_homogeneous_degree=dnum,all_six_alpha_wedge_first_integral_identities_zero=True,first_integral_nonconstant=True,whole_closure_method='Proper marked order2zero plus Gr(2,Sym^d) wedge incidence, including common factors; all parameter walls retained by closure')\n records.append(rec)\nreport={'task_id':'E_multiple_hyperplane','all_prescribed_cases_processed':len(records)==8,'source_scope':'All original true source parameters; only fixed coordinate order2zero readback, no Poisson source points/operator/rank/minor/profile/Jacobi recomputation','cases':records,'all_cases_certified':all(rr['status']=='WHOLE_GENERIC_SOURCE_BOUNDED_RATIONAL_FIRST_INTEGRAL_CERTIFIED'for rr in records),'new_components':0,'independent_review_required':True,'input_sha256':job['exact_inputs_and_hashes'],'executed_source_bytes':job['inline_source'],'executed_source_sha256':hashlib.sha256(job['inline_source'].encode()).hexdigest(),'seconds':time.monotonic()-start,'maximum_RSS_KiB':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss}\nsignal.alarm(0)\nwith out.open('x')as f:json.dump(report,f,ensure_ascii=False,indent=2);f.write('\\n')\nprint(json.dumps({'all_cases_certified':report['all_cases_certified'],'statuses':[(rr['component'],rr['status'],rr.get('fixed_homogeneous_degree'))for rr in records],'seconds':report['seconds'],'maximum_RSS_KiB':report['maximum_RSS_KiB']}))\n",
+  "executed_source_sha256": "6a36e8e1e7fb7154d74f00bc1ccaaf2fbaea1dbcfea5eb60438fce6c8f0267ef",
+  "seconds": 0.6847082829990541,
+  "maximum_RSS_KiB": 50336
+}

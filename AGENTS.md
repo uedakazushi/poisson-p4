@@ -17,11 +17,13 @@ Read only the evidence needed for the selected task. Do not load the whole histo
 Write a paper whose main theorem EXHAUSTS the reduced irreducible components of
 Poisson structures on complex P4, before PGL5 quotient, and describes their general members.
 Prove coverage of all points by the resulting closed families, componenthood and distinctness.
-The present lower bound is 142, including 136 of generic rank four; the total is UNKNOWN.
-All142 are individually identified, including the full25 rank-one modular long nonconstant-g component.
-All reduced irreducible nonnormal actual quintics are covered pointwise by known closed components; reducible and nonreduced divisor sources still remain.
-The entire H+2Q locus with Q irreducible, three distinct hyperplanes plus an irreducible quadric, and irreducible quadric plus irreducible cubic are covered. Other degeneracy divisors remain open.
-Do not fix the lower bound as the answer. Add genuinely new components when necessary.
+The mathematical primary theorem is now PROVED: exactly 147 reduced irreducible components,
+141 of generic rank four and 6 of generic rank two, before PGL5 quotient. All points,
+componenthood, distinctness, dimensions and general constructions are covered.
+The final proof is `research/classification/GLOBAL_EXACT147_COMPONENT_CLASSIFICATION_FINAL_PROOF.md`.
+No unresolved primary source or candidate remains. The same-paper 147/1158 integration,
+368-page PDF, independent final validation and reproduction guide are complete. Save by ordinary
+main push and do not reopen solved branches or secondary work without a concrete defect or new user instruction.
 Full orbit classification and full nonreduced scheme structure are not claimed by this theorem.
 They are secondary, not prerequisites silently added to the primary target.
 
