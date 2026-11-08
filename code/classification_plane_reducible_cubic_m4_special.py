@@ -1032,9 +1032,237 @@ def m2_concurrent_double_main():
     print(json.dumps(dict(all_exact_arithmetic_passed=True,all17_G24_closed=closed,seconds=result['seconds'])))
 
 
+def m3_concurrent_nonore_main():
+    """One whole-parameter non-Ore m3 batch, including every rank/leading wall."""
+    from classification_unimodular_logarithmic_review import RF,ua,um,ud
+    import sympy as sy
+    import ast
+    ap=argparse.ArgumentParser(description=m3_concurrent_nonore_main.__doc__)
+    ap.add_argument('--m3-concurrent-nonore',action='store_true');ap.add_argument('--output',required=True,type=Path)
+    args=ap.parse_args();begun=time.monotonic()
+    resource.setrlimit(resource.RLIMIT_CPU,(710,715));resource.setrlimit(resource.RLIMIT_AS,(2048*1024**2,)*2)
+    job=json.loads((ROOT/'research/classification/jobs/plane_concurrent_m3_nonore_higher.json').read_text())
+    for item in job['exact_inputs_and_hashes']:
+        assert hashlib.sha256((ROOT/item['path']).read_bytes()).hexdigest()==item['sha256'],item['path']
+    assert not args.output.exists();checkpoint=args.output.with_suffix('.partial.json');assert not checkpoint.exists()
+    archive=json.loads((ROOT/'research/classification/inputs/plane_concurrent_m3_nonore_preappend_inputs_20261108.json').read_text())
+    oldast=archive['old_function_AST_sha256']
+    currentast={n.name:hashlib.sha256(ast.dump(n,include_attributes=False).encode()).hexdigest()for n in ast.parse(Path(__file__).read_text()).body if isinstance(n,ast.FunctionDef)}
+    assert all(currentast[k]==v for k,v in oldast.items())
+
+    class AF:
+        mod=()
+        def __init__(self,v=0):
+            if isinstance(v,AF):self.p=v.p;return
+            if isinstance(v,RF):self.p=(AF(v.p)/AF(v.q)).p;return
+            self.p=ud(tuple(v)if isinstance(v,(list,tuple))else(F(v),),self.mod)[1]
+        def __add__(self,v):return AF(ua(self.p,AF(v).p))
+        __radd__=__add__
+        def __neg__(self):return AF(tuple(-v for v in self.p))
+        def __sub__(self,v):return self+-AF(v)
+        def __rsub__(self,v):return AF(v)+-self
+        def __mul__(self,v):return AF(um(self.p,AF(v).p))
+        __rmul__=__mul__
+        def inv(self):
+            assert self.p;a,b=self.mod,self.p;s,t=(),(F(1),)
+            while b:
+                quotient,rem=ud(a,b);a,b=b,rem;s,t=t,ua(s,tuple(-v for v in um(quotient,t)))
+            assert len(a)==1;return AF(tuple(v/a[0]for v in s))
+        def __truediv__(self,v):return self*AF(v).inv()
+        def __rtruediv__(self,v):return AF(v)*self.inv()
+        def __bool__(self):return bool(self.p)
+        def __eq__(self,v):return self.p==AF(v).p
+
+    def compact(v):
+        if isinstance(v,RF)and v.q==(F(1),)and len(v.p)<=1:return v.p[0]if v.p else F()
+        if isinstance(v,AF)and len(v.p)<=1:return v.p[0]if v.p else F()
+        return v
+    def enc(v):
+        v=compact(v)
+        if isinstance(v,RF):return dict(numerator=list(map(str,v.p)),denominator=list(map(str,v.q)))
+        if isinstance(v,AF):return dict(residue=list(map(str,v.p)),modulus=list(map(str,v.mod)))
+        return str(v)
+    def mat(M):return [[enc(v)for v in row]for row in M]
+    def pol(p):return [dict(exponent=e[:5],coefficient=enc(v))for e,v in sorted(p.items())]
+    def cert(M,n):
+        B=[[compact(v)for v in row]for row in M];ids=list(range(len(B)));rows=[];piv=[];det=F(1)
+        for j in range(n):
+            r=len(piv);k=next((k for k in range(r,len(B))if B[k][j]),None)
+            if k is None:continue
+            B[r],B[k]=B[k],B[r];ids[r],ids[k]=ids[k],ids[r];d=B[r][j];rows.append(ids[r]);piv.append(j);det=compact(det*d)
+            B[r]=[compact(v/d)if v else F()for v in B[r]];active=[l for l in range(j,n)if B[r][l]]
+            for k in range(r+1,len(B)):
+                c=B[k][j]
+                if c:
+                    for l in active:B[k][l]=compact(B[k][l]-c*B[r][l])
+        for r in range(len(piv)-1,-1,-1):
+            j=piv[r];active=[l for l in range(j+1,n)if B[r][l]]
+            for k in range(r):
+                c=B[k][j]
+                if c:
+                    for l in active:B[k][l]=compact(B[k][l]-c*B[r][l])
+                    B[k][j]=F()
+        K=[]
+        for j in range(n):
+            if j not in piv:
+                v=[F()for _ in range(n)];v[j]=F(1)
+                for row,i in zip(B,piv):v[i]=-row[j]
+                K.append(v)
+        for row in M:
+            nz=[(i,v)for i,v in enumerate(row)if v]
+            assert all(not sum((c*v[i]for i,c in nz if v[i]),F())for v in K)
+        return dict(rank=len(piv),rows=rows,columns=piv,minor_determinant=enc(det),nullity=n-len(piv),complete_kernel=mat(K),all_original_rows_annihilate_kernel=True),K,det
+
+    prior=json.loads((ROOT/'reports/CLASSIFICATION_PLANE_M2_DOUBLE_TANGENT_20261107.json').read_text())
+    X=[q.atom(1,i)for i in range(5)];a,b,c,u,v=X;N=q.add(a,q.scale(b,-1));f=q.mul(q.mul(a,b),N)
+    Pf=q.antisymmetric({(0,1):{},(0,2):q.scale(q.der(f,1),-1),(1,2):q.der(f,0)})
+    first=[]
+    for normal in [3,4]:
+        for ij in it.combinations(range(3),2):
+            for k in range(3):first.append(q.antisymmetric({ij:q.atom(1,normal,k)}))
+    for normal,mon in [(3,[3,4]),(3,[4,4]),(4,[3,3]),(4,[3,4])]:
+        for i in range(3):first.append(q.antisymmetric({(i,normal):q.atom(1,*mon)}))
+    second=[q.antisymmetric({ij:q.atom(1,*mon)})for ij in it.combinations(range(3),2)for mon in [[3,3],[3,4],[4,4]]]
+    assert [list(map(str,q.vec(P)))for P in first]==prior['full30_weight1_basis']
+    assert [list(map(str,q.vec(P)))for P in second]==prior['full9_weight2_basis']
+    mons=[e for e in q.monomials(5)if e[3]+e[4]==3];assert len(mons)==24
+    eulers=[q.vec(q.antisymmetric({(i,j):q.add(q.atom(1,i,t)if j==s else{},q.atom(-1,j,t)if i==s else{})for i,j in q.PAIRS}))for s,t in it.product(range(5),repeat=2)]
+    assert cert(q.transpose(eulers),25)[0]['rank']==24
+    levi=[(s,t)for s,t in it.product(range(5),repeat=2)if(s<3)==(t<3)]
+    badmon=(0,0,0,0,2,0,0,0)
+    badmaps=[[P.get((i,3),{}).get(badmon,F())for P in first]for i in range(3)]
+    def build(XX,YY,ZZ,k):
+        return plus(Pf,q.antisymmetric({(i,3):q.mul(u,XX[i])for i in range(3)}),q.antisymmetric({(i,4):q.add(q.mul(u,ZZ[i]),q.mul(v,YY[i]))for i in range(3)}),q.antisymmetric({(3,4):q.scale(q.mul(u,u),k)}))
+    def rho_model(kind,rho,j=0,extra=0):
+        ZZ=[q.add(q.scale(a,1+rho),q.scale(b,-3)),q.scale(b,rho-2),q.scale(c,1-2*rho)]
+        if extra:ZZ[2]=q.add(ZZ[2],N if rho==0 else b)
+        if kind=='F01':XX=[{},{},q.add(a,b)];YY=[{},{},q.add(q.scale(a,1-3*rho),q.scale(b,4))];k=rho+1
+        elif kind=='F10':XX=[{},{},q.add(q.scale(a,3*rho-2),b)];YY=[{},{},q.add(q.scale(a,-2),q.scale(b,4))];k=4*rho-2
+        else:XX=[{},{},q.add(q.scale(a,3*j-3*rho-2),b)];YY=[{},{},q.add(q.scale(a,3*j-6*rho-2),q.scale(b,4))];k=3*j-2*rho-2
+        return build(XX,YY,ZZ,k)
+    def power(p,n):
+        out=q.atom(1)
+        for _ in range(n):out=q.mul(out,p)
+        return out
+    z=q.add(q.mul(c,u),q.mul(a,v))
+    def leading(kind,point=None,j=0,extra=0):
+        if kind=='F01':
+            out=[q.mul(b,q.mul(q.mul(u,u),z))]
+            if point in [F(-1),F(),F(1)]:out.append(q.mul(q.mul(power(b,1+int(point)),power(N,1-int(point))),power(u,3)))
+            if point==1:out.append(q.mul(u,q.mul(z,z)))
+            return out
+        if kind=='F10':
+            out=[q.mul(u,q.mul(z,z))]
+            if point in [F(),F(1,2),F(1)]:out.append(q.mul(q.mul(power(b,int(2*point)),power(N,2-int(2*point))),power(u,3)))
+            if point in [F(),F(1)]:out.append(q.mul(b if point==1 else N,q.mul(q.mul(u,u),z)))
+            return out
+        out=[q.mul(q.mul(power(b,j),power(N,2-j)),power(u,3))]
+        if extra:return out
+        if point in [F(j),F(j-1)]:out.append(q.mul(q.mul(power(b,j-int(point)),power(N,1-j+int(point))),q.mul(q.mul(u,u),z)))
+        if point==F(j,2):out.append(q.mul(u,q.mul(z,z)))
+        return out
+    def central(A):
+        XX=[{},{},q.add(a,q.scale(b,-2))];YY=[{},{},q.scale(XX[2],4)]
+        ZZ=[{},q.scale(q.der(A,2),-3),q.scale(q.der(A,1),3)]
+        P=build(XX,YY,ZZ,F())
+        target=[q.mul(q.mul(a,a),power(u,3)),q.mul(q.mul(u,u),q.add(q.mul(A,u),q.mul(q.mul(b,N),v)))]
+        return P,target
+    def operators(P):
+        assert all(not value for value in q.jacobi(P).values())and not actual(P),'P0 Jacobi/Pf mismatch'
+        J1=q.transpose([q.jvec(q.jacobi(plus(P,Q)))for Q in first]);J2=q.transpose([q.jvec(q.jacobi(plus(P,Q)))for Q in second])
+        L=[[actual(plus(P,Q)).get(e+(0,0,0),F())for Q in first]for e in mons]
+        orbit=[]
+        for s,t in levi:
+            O=q.antisymmetric({(i,j):q.add(P.get((t,j),{})if i==s else{},P.get((i,t),{})if j==s else{},q.scale(q.mul(X[t],q.der(P.get((i,j),{}),s)),-1))for i,j in q.PAIRS})
+            orbit.append(q.vec(O))
+        G=q.transpose(eulers+orbit+[q.vec(P)])
+        return J1,J2,L,G
+    def process(name,P,targets,pdim,field,prepared=None):
+        J1,J2,L,G=operators(P)if prepared is None else prepared
+        target_rows=[[p.get(e+(0,0,0),F())for e in mons]for p in targets]
+        ca,Ann,da=cert(target_rows,24);assert ca['rank']==len(targets)
+        constraint=[[sum((a*b for a,b in zip(row,col)),F())for col in zip(*L)]for row in Ann]
+        M1=J1+constraint;c1,K1,d1=cert(M1,30);c2,K2,d2=cert(J2,9);cg,KG,dg=cert(G,39)
+        image=[[sum((a*b for a,b in zip(row,col)),F())for row in L]for col in K1]
+        bad=[[sum((a*b for a,b in zip(row,col)),F())for row in badmaps]for col in K1]
+        assert all(not row[0]and not row[1]for row in bad),(name,'badCx/y violates whole geometry')
+        ufactor=all(not row[2]for row in bad);zeroG=all(not v for row in image for v in row)
+        sL=37-cg['rank'];group=sL+6;upper=24-group+pdim+len(K1)+len(K2)
+        record=dict(type=name,field=field,source_parameter_dimension=pdim,full150_P0=list(map(enc,q.vec(P))),all350_P0_Jacobi_zero=True,actualP0_Pfaffian_zero=True,
+            all24_D3_monomials=mons,whole_parallel_targets=[pol(p)for p in targets],target_span_certificate=ca,full_line_or_space_annihilator=mat(Ann),
+            full350by30_J1=mat(J1),full350by9_J2=mat(J2),full24by30_D3_map=mat(L),full_weight1_plus_target_matrix=mat(M1),
+            weight1_certificate=c1,weight2_certificate=c2,full150_Euler_Levi_scale_matrix=mat(G),normalizer_certificate=cg,
+            graded_Levi_projective_stabilizer_dimension=sL,actual_filtered_group_fiber_dimension=group,
+            full_bad_C_maps_on_complete_kernel=mat(bad),all_bad_Cxy_zero=True,all_bad_C_zero_for_every_solution=ufactor,
+            full_D3_image_on_complete_kernel=mat(image),whole_D3_image_zero=zeroG,
+            fixed_P0_higher_necessary_dimension_upper=len(K1)+len(K2),whole_projective_image_dimension_upper=upper,G24_closed=ufactor or zeroG or upper<=24,
+            full39_original_linear_Jacobi_and_actualD_preserved=True,
+            all_full39_actualD_linear_terms=[pol(q.add(actual(plus(P,Q)),q.scale(actual(P),-1)))for Q in first+second])
+        print(json.dumps(dict(type=name,field=field,k1=len(K1),k2=len(K2),group=group,pdim=pdim,image_upper=upper,zero_D3=zeroG,u_factor=ufactor,G24_closed=record['G24_closed'])),flush=True)
+        return record,(d1,d2,dg,da),K1+K2+KG+Ann
+
+    symbol=sy.Symbol('t');T=RF((F(),F(1)))
+    def factors_from(values):
+        out={}
+        for value in values:
+            f=RF(value)
+            for coeff in [f.p,f.q]:
+                if len(coeff)>1:
+                    expr=sum(sy.Rational(c.numerator,c.denominator)*symbol**i for i,c in enumerate(coeff))
+                    for g,m in sy.factor_list(expr,symbol)[1]:
+                        key=tuple(F(v)for v in reversed(sy.Poly(g,symbol).monic().all_coeffs()));out[key]=str(g)
+        return out
+    def convert_poly(P,cv):return q.antisymmetric({ij:{e:cv(v)for e,v in p.items()if cv(v)}for ij,p in P.items()if ij[0]<ij[1]})
+    def cvtarget(ps,cv):return [{e:cv(v)for e,v in p.items()if cv(v)}for p in ps]
+    records=[];source_bytes=Path(__file__).read_text();source_sha=hashlib.sha256(source_bytes.encode()).hexdigest()
+    def save_checkpoint():checkpoint.write_text(json.dumps(dict(task_id='G',completed_sources=records,all_sources_complete=False,producer_sha256=source_sha,producer_source_bytes=source_bytes,inputs=job['exact_inputs_and_hashes']),indent=2)+'\n')
+    for kind,j in [('F01',0),('F10',0)]+[('Tj',j)for j in range(3)]+[('J',0)]:
+        name=kind+('_'+str(j)if kind=='Tj'else'')
+        if kind=='J':P,targets=central(q.mul(c,q.add(a,q.scale(b,T))));mandatory=[F(),F(-1)]
+        else:
+            P=rho_model(kind,T,j);targets=leading(kind,None,j)
+            mandatory=({'F01':[F(-1),F(),F(1)],'F10':[F(),F(1,2),F(1)]}.get(kind,[F(),F(1),F(j),F(j-1),F(j,2)]))
+        generic,dets,K=process(name,P,targets,1,'QQ(t)');baseops=operators(P)
+        factors=factors_from(list(dets)+[v for row in K for v in row])
+        for point in mandatory:factors[(-point,F(1))]='t-('+str(point)+')'
+        walls=[]
+        for modulus,label in sorted(factors.items()):
+            if len(modulus)==2:
+                point=-modulus[0]/modulus[1]
+                def cv(v):
+                    f=RF(v);return sum((c*point**i for i,c in enumerate(f.p)),F())/sum((c*point**i for i,c in enumerate(f.q)),F())
+                meta=dict(parameter=str(point),minimal_polynomial=list(map(str,modulus)));field='QQ'
+            else:
+                point=None;AF.mod=modulus;cv=AF;meta=dict(minimal_polynomial=list(map(str,modulus)),all_complex_embeddings_covered=True);field='QQ[t]/('+label+')'
+            W=convert_poly(P,cv);wt=cvtarget(targets,cv)if kind=='J'or point is None else leading(kind,point,j)
+            prepared=tuple([[cv(v)for v in row]for row in M]for M in baseops)
+            wall,_,_=process(name+'_wall_'+label,W,wt,0,field,prepared);wall.update(meta);walls.append(wall)
+        generic.update(all_generic_minor_and_kernel_factors=[list(map(str,m))for m in factors],all_parameter_walls=walls,
+            all_leading_jump_and_normalizer_walls_restored=True,whole_parameter_source_G24_closed=generic['G24_closed']and all(w['G24_closed']for w in walls))
+        records.append(generic);save_checkpoint()
+    fixed=[]
+    for j in range(3):
+        for rho in [F(),F(1)]:fixed.append(('Tj_'+str(j)+'_Jordan_'+str(rho),rho_model('Tj',rho,j,1),leading('Tj',rho,j,1)))
+    for name,A in [('J_ell_M',q.mul(c,b)),('J_ell_M_eps1',q.add(q.mul(c,b),q.mul(N,N))),('J_ell_N_eps1',q.add(q.mul(c,N),q.mul(b,b)))]:
+        P,targets=central(A);fixed.append((name,P,targets))
+    for name,P,targets in fixed:
+        record,_,_=process(name,P,targets,0,'QQ');records.append(record);save_checkpoint()
+    closed=all(r.get('whole_parameter_source_G24_closed',r['G24_closed'])for r in records)
+    result=dict(task_id='G',all_exact_arithmetic_passed=True,all_six_whole_parameter_and_nine_fixed_sources_complete=True,
+        all_nonore_sources_G24_closed=closed,cases=records,full30_weight1_basis=prior['full30_weight1_basis'],full9_weight2_basis=prior['full9_weight2_basis'],
+        full350_row_labels=prior['full350_row_labels'],universal_full39_quadratic_Jacobi_and_actualD=prior['universal_full39_quadratic_Jacobi_and_actualD'],
+        scope='Whole concurrent reduced-R m3 NON-ORE repeated first-source cover and the two c-dependent SF specializations only. All fixed R marks/normalizers restored by pureproof. Ore branches and c-independent SF finite enumeration are separate. No global G closure or E claim unless every listed whole source closes.',
+        next_if_not_closed='Stop after this ONE whole-source batch; use strict Ore or actualD/Poisson geometry, not more profile/minor/GB/jet sequences.',
+        old_function_AST_unchanged=True,inputs=job['exact_inputs_and_hashes'],producer_sha256=source_sha,producer_source_bytes=source_bytes,
+        seconds=round(time.monotonic()-begun,6),maximum_RSS_KiB=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss)
+    with args.output.open('x')as stream:json.dump(result,stream,indent=2);stream.write('\n')
+    checkpoint.unlink();print(json.dumps(dict(all_exact_arithmetic_passed=True,all_nonore_G24_closed=closed,seconds=result['seconds'])))
+
+
 if __name__=='__main__':
     import sys
-    if '--m2-concurrent-double'in sys.argv:m2_concurrent_double_main()
+    if '--m3-concurrent-nonore'in sys.argv:m3_concurrent_nonore_main()
+    elif '--m2-concurrent-double'in sys.argv:m2_concurrent_double_main()
     elif '--m2-triangle-double-21'in sys.argv:m2_triangle_double_21_main()
     elif '--m2-triangle-double-hf'in sys.argv:m2_triangle_double_hf_main()
     elif '--m2-double-tangent'in sys.argv:m2_double_tangent_main()

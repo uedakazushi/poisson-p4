@@ -8,9 +8,9 @@
     "global_lower_bound": 126,
     "rank4_lower_bound": 120,
     "global_upper_bound": null,
-    "generic_five_exhaustion": false,
+    "generic_five_exhaustion": true,
     "global_exhaustion": false,
-    "verification_scope": "All126 components individually identified. Every reducible/nonreduced and every normal actual divisor is excluded from a generic unknown dominant component. Irreducible reduced nonnormal quintics remain; E point coverage and the global upper bound are unproved.",
+    "verification_scope": "All126 components individually identified. G COMPLETE: every additional genericbeta-dominant component excluded by fullactualD/conductor rank-degree-multiplicity closure audit; genericfiber exactlyknownE5. Exceptional all-pointE and globalcomponentupperbound remain unproved.",
     "rank2_component_count": 6,
     "rank2_support_exhaustion": true,
     "individually_identified_components": 126,
@@ -47,7 +47,7 @@
       "title": "一般betaファイバーの被約尽くし",
       "kind": "primary",
       "priority": 1,
-      "status": "ready",
+      "status": "done",
       "depends_on": [
         "C0",
         "G_direction"
@@ -61,11 +61,11 @@
         "generic_circuit_review"
       ],
       "acceptance": "全42法線の根基所属等または未知残余の空性を証明し、適用底開・全分母・独立検証を明記する。新残余があれば分類計画を更新し、未解決のまま成功扱いしない。",
-      "first_step": "Gはrank二planeのみ。reducedR m二SFと横断/接線/triangle double、全非concurrent reducedR m三、nonredR m三SF/constant21、nonredR m二movingdoubleを独立完了。全reducedR/m二Gも完了。nonredR m三moving21は独立確認を完了する。残nonredR m二SF00/01/02・constantdouble、nonredR m三triple、concurrent reducedR m三を全sourceで閉じる。",
+      "first_step": "COMPLETE: exact C0 bridge＋allactualD/conductor/rank/degree/plane source closure audit excludes every extra Wdominant25–27 component. Genericfiber exactE5, residualB=0. Continue E_multiple_hyperplane/E_reduced_nonnormal andmain integration; noG rerun absent identifieddefect.",
       "fallback": "同経路の二回未決で支持幾何または境界経路に変更し、E0/Aも進める。",
       "nonclosing_attempts": 0,
-      "proof": null,
-      "review": null,
+      "proof": "research/classification/GLOBAL_GENERIC_G_EXHAUSTION_CLOSURE_AUDIT.md",
+      "review": "research/classification/GLOBAL_GENERIC_G_EXHAUSTION_ROOT_REVIEW.md",
       "activation_reason": null,
       "last_result": "reports/CLASSIFICATION_NORMAL_LINEAR_OBSTRUCTION_REVIEW_20261107.json",
       "current_proof_reduction": "research/classification/DOMINANT_COMPONENT_GEOMETRY.md",
@@ -175,7 +175,17 @@
         "G_PLANE_REDUCED_TRIANGLE_M2_DOUBLE_NORMAL_ALL_NONDOMINANCE",
         "G_PLANE_REDUCED_NONCONCURRENT_CUBIC_M3_ALL_NONDOMINANCE",
         "G_PLANE_NONREDUCED_M2_MOVING_DOUBLE_ROOT_ALL_EMPTY",
-        "G_PLANE_REDUCED_CUBIC_M2_NORMAL_DOUBLE_ALL_NONDOMINANCE"
+        "G_PLANE_REDUCED_CUBIC_M2_NORMAL_DOUBLE_ALL_NONDOMINANCE",
+        "E_PLANE_TRIPLE_LINE_M2_NORMAL_DOUBLE_ALL_EIGHT_ESSENTIAL_THREE_COVERAGE",
+        "G_PLANE_NONREDUCED_M3_MOVING_DOUBLE_ROOT_ALL_NONDOMINANCE",
+        "G_PLANE_NONREDUCED_M3_GENERIC21_ALL_NONDOMINANCE",
+        "E_PLANE_TRIPLE_LINE_M2_ALL_EIGHT_ESSENTIAL_THREE_COVERAGE",
+        "E_PLANE_RANK_TWO_M2_SQUAREFREE_ALL_CUBICS_COVERAGE",
+        "G_PLANE_CONCURRENT_M3_NONORE_ALL_EMPTY",
+        "G_PLANE_RANK_TWO_M2_ALL_NONDOMINANCE",
+        "G_PLANE_CONCURRENT_M3_NONZERO_QUARTIC_ORE_ALL_NONDOMINANCE",
+        "G_PLANE_CONCURRENT_M3_WHOLE_NONDOMINANCE",
+        "G_PLANE_NONREDUCED_M3_CORRECTED_GENERIC_TRIPLE_ALL_NONDOMINANCE"
       ],
       "latest_integral_surface_reduction": "research/classification/INTEGRAL_SURFACE_LINEAR_NORMALITY.md",
       "normal_degree_six_remaining": "none for rankzero: full ruled numerics and relativeconic exclusion independently accepted",
@@ -196,23 +206,23 @@
       "plane_rankzero_remaining": "none forG: fullcoHiggs/symbol/multiplicity cover MPS40 orimage<=24",
       "rankzero_surface_remaining": "none forG: allnonplane T40or<=24 plusallplane MPS40or<=24",
       "degree_four_ranktwo_remaining": "none forG: wholeCI22/quadricclass projection exclusion/projectedVeronese finitecover image<=24.",
-      "plane_ranktwo_m3_remaining": "AllnonredR SF andconstant21 G<=24 accepted; moving21 allflags producerclosed/reviewpending. Allreduced nonconcurrentR m3 G<=23 accepted. Remaining: concurrentreducedR allroottypes and nonredR generictriple.",
-      "plane_ranktwo_m2_remaining": "reducedR SF allpoint MPS; double transverseempty/tangent andtriangle image<=23 independently accepted, concurrent17/all84 complexwallalgebras independentlyaccepted, whole reducedR double G<=23. NonredR SF flags03/12/11 empty, R3L SF02 empty; movingdoubleempty; constantdouble and remaining00/01/02 open.",
+      "plane_ranktwo_m3_remaining": "NONE for G: allreduced concurrent/nonconcurrent andnonreducedSF/21/correctedtriple closed. TwoE1DXwallsG<=23, Eunknown.",
+      "plane_ranktwo_m2_remaining": "ALLsquarefree fullpointcoverage MPS40oraccepted essentialthree8, entire R2LplusM SF empty. ALLreducedR normaldouble G<=23 andR3L doublefullE8; movingdoublenonredempty. Only R2LplusM constantdouble remains forG, fullgeometry reduces to bounded complete family packet in progress.",
       "latest_plane_m2_squarefree_reduced_R_coverage": "research/classification/PLANE_RANK_TWO_M2_SQUAREFREE_REDUCED_CUBIC_COVERAGE.md",
       "latest_canonical_index_two_whole_review": "research/classification/RANK_TWO_QUINTIC_CANONICAL_INDEX_TWO_SEPARATE_REVIEW.md",
-      "remaining_ranktwo_surface_sources": [
-        "plane_m2_nonreduced_SF_00_01_02_and_constant_double",
-        "plane_m3_reduced_concurrent_zero_cubic",
-        "plane_m3_nonreduced_triple_leading"
-      ],
+      "remaining_ranktwo_surface_sources": [],
       "latest_nonredR_m3_squarefree_whole_review": "research/classification/PLANE_DOUBLE_LINE_M3_ORE_SEPARATE_REVIEW.md",
       "latest_degree_three_ranktwo_whole_review": "research/classification/CUBIC_CONE_RANK_TWO_SEPARATE_REVIEW.md",
       "latest_plane_m2_double_tangent_completion": "research/classification/PLANE_M2_DOUBLE_TANGENT_COMPLETION.md",
       "latest_nonredR_m2_squarefree_firstflag_exclusion": "research/classification/PLANE_NONREDUCED_M2_SPLIT_ROOT_ENTRANCE.md",
-      "nov8_pending_independent_reviews": [
-        "nonreduced_R_m3_moving_double_and_simple_21"
-      ],
-      "nov8_completed_whole_nonconcurrent_m3": "research/classification/inputs/plane_reduced_nonconcurrent_m3_whole_nondominance_manifest_20261108.json"
+      "nov8_pending_independent_reviews": [],
+      "nov8_completed_whole_nonconcurrent_m3": "research/classification/inputs/plane_reduced_nonconcurrent_m3_whole_nondominance_manifest_20261108.json",
+      "plane_m2_whole_G": "COMPLETE: all SF known components; all normaldouble images<=23. Root independently replayed34+51 and original critical row34=-7m^2/9. FullE eight HFwalls remains separate.",
+      "plane_reduced_concurrent_m3": "COMPLETE independentfullsource: nonOreempty, nonzeroKtwoactualorbits, K0emptyorE8. Image<=24. K22known23; K4aEparentunknown.",
+      "completed_claim": "G_GENERIC_BETA_REDUCED_EXHAUSTION_COMPLETE",
+      "completion_proof": "research/classification/GLOBAL_GENERIC_G_EXHAUSTION_CLOSURE_AUDIT.md",
+      "completion_manifest": "research/classification/inputs/global_generic_g_exhaustion_closure_audit_manifest_20261108.json",
+      "completion_scope": "Genericbeta G only; allE andtotalcomponentcount open."
     },
     {
       "id": "G_direction",
@@ -557,7 +567,7 @@
         "remaining_divisor_support"
       ],
       "acceptance": "既存の正規因子T39分類とは別に、被約非正規因子の全rank4支持を閉既約族で尽くす。可約因子も含み、既知MPSを上界と仮定しない。",
-      "first_step": "Ga9c0 power1/power3の全源は新平面Hquartic24成分へ被覆。Ga9linear-w一源、型6planequarticの残支持、他1+1+3/1+2+2/既約非正規の全点被覆を続ける。",
+      "first_step": "Continue actualparent identification of K4a dense24orbit (existingT36/37/38 orprove distinct), exact3plane1+1+3/stable2/Ga9linearw/remainingweakwall sources. G is COMPLETE. Preserve fullsource andactualinverses; no profile/jetfarms.",
       "fallback": "同じ経路で二回非閉鎖なら具体的障害を記録し別の支持幾何へ変更。全補集合を保持する。",
       "nonclosing_attempts": 0,
       "proof": null,
@@ -605,9 +615,19 @@
       "nov8_accepted_source_progress": [
         "E_TWO_LINES_CUSP_TANGENT_SECANT_GLOBAL_C39_C40_T21_EXCLUSIONS",
         "E_TWO_QUADRICS_CONTACT31_CHORD_WHOLE_SNC_CONFLUENCE",
-        "E_PLANE_HYPERPLANE_TWO_DISTINCT_IRREDUCIBLE_QUADRICS_ALL_POINT_COVERAGE"
+        "E_PLANE_HYPERPLANE_TWO_DISTINCT_IRREDUCIBLE_QUADRICS_ALL_POINT_COVERAGE",
+        "E_TWO_HYPERPLANES_CUBIC_TRANSLATION_RANKTWO_NONPLANE_ALL_MPS",
+        "E_TWO_HYPERPLANES_J21_H_X_WHOLE_SIX_SOURCE_MPS",
+        "E_TWO_HYPERPLANES_J21_ZERO_HX_WHOLE_SIX_SOURCE_MPS",
+        "E_TWO_HYPERPLANES_P0_WHOLE_FIVE_SOURCE_T06",
+        "E_TWO_HYPERPLANES_CUBIC_ALL_NONPLANE_COVERAGE",
+        "E_PLANE_CONCURRENT_M3_K22_WHOLE_KNOWN_NIL22LONG23",
+        "E_PLANE_CONCURRENT_M3_K4A_COMPLETE_FINITE_SLICE_SMOOTH24_PARENT"
       ],
-      "nov8_plane_two_quadrics_whole_coverage": "research/classification/inputs/two_quadrics_plane_whole_coverage_manifest_20261108.json"
+      "nov8_plane_two_quadrics_whole_coverage": "research/classification/inputs/two_quadrics_plane_whole_coverage_manifest_20261108.json",
+      "two_hyperplanes_cubic_nonplane_status": "COMPLETE whole nonplane1+1+3 in MPS40 or existing22. All11nil types, fullthreeactualarcs and n6zero planecomplements. Remaining exactly3plane source configurations.",
+      "concurrent_m3_K22": "COMPLETE all source equal existingnil22long23 component by fulltenactualPGL/Euler identities. K4a membership/componenthood remains, one finite full350 tangent test planned.",
+      "concurrent_m3_K4a_status": "Whole K4a canonical23orbit lies on explicitactual polynomialcurve whose completeC*IFTslice is smooth24; allnonzeroeone dense24orbit, uniquecomponentthroughP0. Knownparentname/distinctness unresolved, no componentcount increase. Full350degree10 independentV2PASS."
     },
     {
       "id": "P",

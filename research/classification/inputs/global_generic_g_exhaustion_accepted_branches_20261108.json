@@ -1,0 +1,1271 @@
+{
+  "purpose": "Immutable projection of accepted branch records read by pure global G connection audit; not a new global claim catalogue.",
+  "HEAD_at_audit": "dab368089679508ae5c9016d66ba6accfe6d8fa9",
+  "source_context_at_audit": [
+    {
+      "path": "research/CLAIMS.json",
+      "sha256_at_audit": "a95906c2988712951a6a8e0fbee47971ce6d362df53b763b82cc74a46d5c3c41"
+    },
+    {
+      "path": "research/classification/CURRENT.md",
+      "sha256_at_audit": "c72e81e8c3564737b7049cfe3e51f3ed7a01472e29a9bbe2e9bdf4a9036d51e4"
+    },
+    {
+      "path": "research/classification/PLAN.md",
+      "sha256_at_audit": "f63d2cf25d497f20a45171bb493782f3dd487e501d863dadda5485a7e6ebcb55"
+    },
+    {
+      "path": "research/classification/PLAN.json",
+      "sha256_at_audit": "f5e2b9c7dab8fba39cc1f42a435723a3ae082cb90a9881a2df699783e29c86eb"
+    }
+  ],
+  "global_files_are_not_mutable_execution_dependencies": true,
+  "selected_accepted_claim_records": [
+    {
+      "id": "NORMAL_CLASSIFICATION",
+      "title_ja": "正規な実際の退化因子ならq_{5,1}",
+      "statement_ja": "実際の退化因子Dが正規なら、Sing(D)_redは滑らかな楕円正規五次曲線C、D=Sec(C)、Poisson構造はPGL5とscalarを除いてq_{5,1}型。",
+      "scope": "Complex closed-point classification; normality of D itself, not merely D_red.",
+      "status": {
+        "proof": "bundled_complete_proof_claim",
+        "independent_review": "complete_dependency_scope_and_proof_audit_2026_11_03_saved_numeric_checks_reused",
+        "certificates": "archived_not_all_rerun_in_2026_10_30_review",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "NORMAL_RECOGNITION"
+        ],
+        "external": [
+          "PYM_PURELY_ELLIPTIC"
+        ],
+        "archived_reductions": [
+          "v16-v19 smooth inactive components including lines",
+          "v20 singular inactive components and secant geometry",
+          "v20 degree/length dichotomy E6 or E8",
+          "v21 eight degree-four support types",
+          "v22 exclusion of all eight types"
+        ]
+      },
+      "proof_sources": [
+        {
+          "path": "legacy/v22/sections/setup.tex",
+          "anchor": "thm:normal"
+        },
+        {
+          "path": "legacy/v17/sections/nilpotent_isotropy.tex"
+        },
+        {
+          "path": "legacy/v19/sections/setup.tex"
+        },
+        {
+          "path": "legacy/v20/sections/inactive.tex"
+        },
+        {
+          "path": "legacy/v20/sections/e6.tex"
+        },
+        {
+          "path": "legacy/v20/sections/secant.tex"
+        },
+        {
+          "path": "legacy/v20/sections/e8.tex"
+        },
+        {
+          "path": "legacy/v21/sections/space_geometry.tex"
+        },
+        {
+          "path": "research/notes/NORMAL_ACTUAL_INACTIVE_LINE_SCOPE_AUDIT_20261103_v62.md"
+        },
+        {
+          "path": "research/notes/NORMAL_ACTUAL_E6_E8_GEOMETRY_AUDIT_20261103_v62.md"
+        },
+        {
+          "path": "research/notes/NORMAL_ACTUAL_RNC4_COVER_AUDIT_20261103_v62.md"
+        },
+        {
+          "path": "research/notes/NORMAL_ACTUAL_EIGHT_SUPPORT_AUDIT_20261103_v62.md"
+        },
+        {
+          "path": "research/notes/NORMAL_QUINTIC_RECOGNITION_AUDIT_20261103_v62.md"
+        },
+        {
+          "path": "papers/normal_actual_divisor_recognition_ja.tex"
+        }
+      ],
+      "verification_records": [
+        "audits/2026-10-30/geometry_strategy.txt",
+        "reports/NORMAL_ACTUAL_INACTIVE_LINE_SCOPE_AUDIT_20261103_v62.json",
+        "reports/NORMAL_ACTUAL_E6_E8_GEOMETRY_AUDIT_20261103_v62.json",
+        "reports/NORMAL_ACTUAL_RNC4_COVER_AUDIT_20261103_v62.json",
+        "reports/NORMAL_ACTUAL_EIGHT_SUPPORT_AUDIT_20261103_v62.json",
+        "reports/NORMAL_QUINTIC_RECOGNITION_AUDIT_20261103_v62.json",
+        "reports/NORMAL_ACTUAL_DIVISOR_PAPER_20261103.json",
+        "reports/NORMAL_MODEL_RREF_20261103_v62_REVIEW.json"
+      ],
+      "limitations_ja": [
+        "全証明と還元のscope監査を完了した。変更のない旧数値証明書は保存済み独立検証を再利用し、今回全てを再実行したとはしない。",
+        "Pym既刊定理のpurely elliptic仮定をnormalityだけに置き換えて引用しない。",
+        "5Hは対象外。",
+        "閉点分類から全モジュライのscheme同型を追加推論しない。"
+      ],
+      "current_audit_scope_ja": "証明・全分岐被覆・外部定理の仮定を監査し、全5監査341入力hashを照合。変更のない旧数値証明書は保存済み独立検証を再利用し、今回すべてを再実行したとはしない。",
+      "self_contained_manuscript_pages": 91,
+      "manuscript_integration_status": "complete_2026_11_03_v63_no_recursive_tex_inputs",
+      "publication_novelty_audit_complete": false
+    },
+    {
+      "id": "R4_QUADRIC_CUBIC_FULL_SUPPORT",
+      "title_ja": "既約二次因子と既約三次因子の全支持被覆",
+      "statement_ja": "階数5,4は全MPS。階数3二十cofactor型のうち正則二型とAnil3五型はMPS、非正則半単純六型は空、A0七型は六新23成分。従って型2+3の全支持をMPS40と新六成分で覆う。",
+      "scope": "Reduced support over C before PGL5 quotient; no global exhaustion.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_2026_11_07",
+        "certificates": "independent_exact_QQ_reconstruction_and_geometric_review",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "R4_SMOOTH_QUADRIC_CUBIC_FULL_SUPPORT",
+          "R4_RANK4_QUADRIC_CUBIC_FULL_SUPPORT",
+          "R4_Q3_ANIL3_FULL_SUPPORT",
+          "R4_PLANE_CONIC_CUBIC_SIX_COMPONENTS_23"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/classification/DEGENERATE_QUADRIC_Q3_AZERO_SUPPORT.md"
+        },
+        {
+          "path": "research/classification/DEGENERATE_QUADRIC_Q3_ANIL3_SUPPORT.md"
+        },
+        {
+          "path": "research/classification/DEGENERATE_QUADRIC_Q4_NIL_SUPPORT.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_Q3_FREE_CONIC_CUBIC_COMPONENT_REVIEW_20261107.json",
+        "reports/CLASSIFICATION_Q3_FREE_CONIC_CUBIC_THIRD_REVIEW_20261107.json",
+        "reports/CLASSIFICATION_Q3_ANIL3_SUPPORT_REVIEW_20261107.json"
+      ],
+      "limitations_ja": [
+        "全成分数上界・一般五点尽くし・全分類は未証明。"
+      ]
+    },
+    {
+      "id": "R4_THREE_HYPERPLANES_QUADRIC_FULL_SUPPORT",
+      "title_ja": "相異なる三超平面と既約二次曲面の全支持",
+      "statement_ja": "従属・独立の全配置と全パラメータはMPS40、CMINUS、従属新24、独立三接線新23の閉包和へ入る。独立a零四源のうちm=1,2,3は全六磁気方向を実Poisson族の極限とfiber平行移動で得る。",
+      "scope": "Reduced support over C before PGL5 quotient; not global exhaustion.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_2026_11_07",
+        "certificates": "independent_exact_QQ_reconstruction_and_geometric_review",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "MPS40",
+          "R4_DEPENDENT_THREE_HYPERPLANES_QUADRIC_COMPONENT_24",
+          "R4_INDEPENDENT_THREE_HYPERPLANES_QUADRIC_COMPONENT_23"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/classification/THREE_HYPERPLANES_QUADRIC_DEPENDENT.md"
+        },
+        {
+          "path": "research/classification/THREE_HYPERPLANES_QUADRIC_INDEPENDENT.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_THREE_HYPERPLANES_QUADRIC_M1_MPS_20261107.json",
+        "reports/CLASSIFICATION_THREE_HYPERPLANES_QUADRIC_M23_MPS_20261107.json",
+        "reports/CLASSIFICATION_THREE_HYPERPLANES_QUADRIC_MPS_REVIEW_20261107.json"
+      ],
+      "limitations_ja": [
+        "全成分数の上界・一般ファイバー尽くし・全分類は未証明。",
+        "文献上の新規性は未確認。"
+      ]
+    },
+    {
+      "id": "G_SIMPLE_H_QUARTIC_ALL_GENERIC_EXCLUSION",
+      "title_ja": "全H＋既約quartic支持の未知優越一般成分からの排除",
+      "statement_ja": "全cofactor有限化の半単純24源はMPS又は空、純nil十型は既存成分被覆又は全射影像≤24である。nil31短/長は≤23/22、nil22imageは非零base既知23とcotangent平面free因子≤24、nil22長は全源≤24、nil211短は全五源≤23。全型と全補集合を合わせ、未知G25〜27成分の一般因子型H＋既約quarticを排除する。Eの全点帰属をこの次元論からは主張しない。",
+      "scope": "Entire explicitly specified strata. Component counts and global exhaustion are unchanged; generic-component exclusion is separate from E point membership.",
+      "status": {
+        "proof": "proved_with_complete_support_and_exact_certificates",
+        "independent_review": "accepted_separate_author_full_exact_arithmetic_and_root_geometric_proof_read",
+        "certificates": "exact_characteristic_zero_independent_reconstruction",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "dependencies": {
+        "claims": [],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/classification/HYPERPLANE_QUARTIC_COFACTOR_ENTRANCE.md"
+        },
+        {
+          "path": "research/classification/HYPERPLANE_QUARTIC_NILPOTENT_SOURCES_REVIEW.md"
+        },
+        {
+          "path": "research/classification/HYPERPLANE_QUARTIC_NIL31_SHORT_REVIEW.md"
+        },
+        {
+          "path": "research/classification/HYPERPLANE_QUARTIC_NIL31_LONG_REVIEW.md"
+        },
+        {
+          "path": "research/classification/HYPERPLANE_QUARTIC_NIL22_COTANGENT_G_BOUND.md"
+        },
+        {
+          "path": "research/classification/HYPERPLANE_QUARTIC_NIL22_LONG_SUPPORT_REVIEW.md"
+        },
+        {
+          "path": "research/classification/NIL211_SHORT_TRANSLATION_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_HYPERPLANE_QUARTIC_NIL22_LONG_SUPPORT_REVIEW_20261107.json"
+      ],
+      "limitations_ja": [
+        "全既約非正規quintic・全特殊支持の被覆は未証明。",
+        "新たな成分数の追加はない。"
+      ]
+    },
+    {
+      "id": "G_TWO_HYPERPLANES_CUBIC_ALL_GENERIC_EXCLUSION",
+      "title_ja": "全1+1+3支持の未知優越一般成分からの排除",
+      "statement_ja": "既約三次と相異二超平面を持つ全rank4支持は、既存MPS成分と射影像次元24以下の有限全源で覆われる。残る五非plane源の全次元は23,24,23,22,22。B0 rank二translationの未記載だったnonplane枝も完全8/7源と自由normalizer10/9次元で処理した。plane十三配置は全source≤23。未知G25〜27一般元からこの全因子型を排除するがE帰属は主張しない。",
+      "scope": "Entire specified sources and every stated complement; no global exhaustion or exact nonreduced scheme claim.",
+      "status": {
+        "proof": "whole_source_proof_with_exact_certificates",
+        "independent_review": "root_full_geometric_proof_read_and_separate_Fraction_arithmetic",
+        "certificates": "exact_characteristic_zero_source_identities",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "dependencies": {
+        "claims": [],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/classification/TWO_HYPERPLANES_CUBIC_GENERIC_NONDOMINANCE.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_TWO_HYPERPLANES_CUBIC_NORMALIZER_DIMENSION_REVIEW_20261107.json",
+        "reports/CLASSIFICATION_TWO_HYPERPLANES_CUBIC_RANK2_TRANSLATION_SUPPORT_20261107.json",
+        "reports/CLASSIFICATION_TWO_HYPERPLANES_CUBIC_RANK2_TRANSLATION_REVIEW_20261107.json"
+      ],
+      "limitations_ja": [
+        "全分類上界は未証明。",
+        "残る特殊sourceのE全帰属は別義務として保持。"
+      ]
+    },
+    {
+      "id": "G_H_TWO_QUADRICS_ALL_GENERIC_EXCLUSION",
+      "title_ja": "全H＋相異二既約quadric支持の未知優越一般成分からの排除",
+      "statement_ja": "全normal Hamiltonian場のlambda非零は三完全joint-character源をMPSへ被覆し、lambda零joint半単純rank2も全pairzero定理へ入る。joint半単純rank1は五supersource及び自由normalizerから≤24。純nil全十型は空、全plane≤24、又は正確な全源像≤24に尽くされる。従って全1+2+2因子型は未知G25〜27一般元にならない。Eの未帰属plane二源等は別に保持する。",
+      "scope": "Entire explicitly specified strata. Component counts and global exhaustion are unchanged; generic-component exclusion is separate from E point membership.",
+      "status": {
+        "proof": "proved_with_complete_support_and_exact_certificates",
+        "independent_review": "accepted_separate_author_full_exact_arithmetic_and_root_geometric_proof_read",
+        "certificates": "exact_characteristic_zero_independent_reconstruction",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "dependencies": {
+        "claims": [],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/classification/TWO_QUADRICS_SUPPORT.md"
+        },
+        {
+          "path": "research/classification/TWO_QUADRICS_NONZERO_PAIR_COFACTOR_SUPPORT.md"
+        },
+        {
+          "path": "research/classification/TWO_QUADRICS_JOINT_SS_RANK1_SUPPORT.md"
+        },
+        {
+          "path": "research/classification/TWO_QUADRICS_PURE_NILPOTENT_SUPPORT.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_TWO_QUADRICS_PURE_NILPOTENT_FACTOR_REVIEW_20261107.json",
+        "reports/CLASSIFICATION_HYPERPLANE_QUARTIC_NIL22_LONG_SUPPORT_REVIEW_20261107.json"
+      ],
+      "limitations_ja": [
+        "全既約非正規quintic・全特殊支持の被覆は未証明。",
+        "新たな成分数の追加はない。"
+      ]
+    },
+    {
+      "id": "G_MODULAR_NIL_RANK2_NONDOMINANCE",
+      "title_ja": "階数二冪零モジュラー全型の一次像非優越",
+      "statement_ja": "全五affine型でprimitive beta像は15次元以下。nil22 c=0では全源のHessian表示と全rank分岐により固定源≤14、実三次元Taylor fiberから像≤15。他四型は全有限源・群軌道・固定評価で≤13。",
+      "scope": "Non-dominance over the primitive sixteen-dimensional base only; does not prove E membership of every source.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_2026_11_07",
+        "certificates": "independent_exact_QQ_reconstruction_and_geometric_review",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/classification/MODULAR_NIL_RANK2_FIRSTJET_BOUND.md"
+        }
+      ],
+      "verification_records": [],
+      "limitations_ja": [
+        "全成分数の上界・一般ファイバー尽くし・全分類は未証明。",
+        "文献上の新規性は未確認。"
+      ]
+    },
+    {
+      "id": "G_MODULAR_RANK1_CONSTANT_NONDOMINANCE",
+      "title_ja": "階数一と非零定数モジュラー全型の非優越",
+      "statement_ja": "全rank1 affine型は全固定源上界と実Taylor fiber、または既知25成分の稠密包含により非優越。A=0,c非零ではprimitive beta(c)=0となり線形評価非単射の真の閉条件に入る。A=c=0の最高部が零または共通因子付きの場合もprimitive二形式の全等方次元から同じ閉条件に入る。",
+      "scope": "Non-dominance over the primitive sixteen-dimensional base; no automatic component membership for exceptional sources.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_2026_11_07",
+        "certificates": "independent_exact_QQ_reconstruction_and_geometric_review",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/classification/MULTIPLE_HYPERPLANE_LOW_RANK_MODULAR.md"
+        },
+        {
+          "path": "research/classification/REMAINING_DEGENERACY_DIVISOR_SUPPORT.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_RANK1_LONG_ACTUAL_FIBER_REVIEW_20261107.json"
+      ],
+      "limitations_ja": [
+        "全成分数の上界・一般ファイバー尽くし・全分類は未証明。",
+        "文献上の新規性は未確認。"
+      ]
+    },
+    {
+      "id": "G_UNIMODULAR_LINEAR_CASIMIR_NONDOMINANCE",
+      "title_ja": "線形Casimirを持つ最高部の全unimodular支持非優越",
+      "statement_ja": "最高部Qの一次Casimirから零点のないaffine Hamiltonian場Vを得る。semi/constant型は平行移動対称性を持ち、nil全六対は一つ空・五つの全45係数線形源へ尽くされる。全源のprimitive評価はrank≤3。全六型の幾何と全源・全15minorを独立検証。",
+      "scope": "Reduced support over C before PGL5 quotient; only the specified full branch, not global exhaustion.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_2026_11_07",
+        "certificates": "independent_Fraction_reconstruction_and_geometric_review",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/classification/UNIMODULAR_LINEAR_HAMILTONIAN_SUPPORT.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_UNIMODULAR_AFFINE_HAMILTONIAN_20261107.json",
+        "reports/CLASSIFICATION_UNIMODULAR_AFFINE_HAMILTONIAN_REVIEW_20261107.json"
+      ],
+      "limitations_ja": [
+        "全成分数上界と全分類は未証明。"
+      ]
+    },
+    {
+      "id": "G_UNIMODULAR_QUADRATIC_PENCIL_NONDOMINANCE",
+      "title_ja": "全二次式ペンシル最高部の非優越",
+      "statement_ja": "非退化memberの全Segre型、共通kernelを持つ全退化pencil、共通kernelなしの唯一Kronecker型を尽くす。全24係数・定数六係数のkernelを独立Fraction再構成し、全低次延長の一次評価rank≤3を証明。",
+      "scope": "Reduced support over C before PGL5 quotient; no global exhaustion.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_2026_11_07",
+        "certificates": "independent_exact_QQ_reconstruction_and_geometric_review",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/classification/UNIMODULAR_REGULAR_QUADRATIC_PENCIL_SUPPORT.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_UNIMODULAR_QUADRATIC_PENCIL_REVIEW_20261107.json",
+        "reports/CLASSIFICATION_UNIMODULAR_SINGULAR_PENCIL_REVIEW_20261107.json"
+      ],
+      "limitations_ja": [
+        "全成分数上界・一般五点尽くし・全分類は未証明。"
+      ]
+    },
+    {
+      "id": "G_UNIMODULAR_PULLBACK_NONDOMINANCE",
+      "title_ja": "三変数引戻し最高部の全低次延長非優越",
+      "statement_ja": "全一次項w dw cprimeを保持し、最高部の線形Casimir又はw非依存一次評価へ帰着。Pfaffian非零定数とaffine一形式の全点非消滅から全sourceを扱い、projective incidence閉性で全境界も含む。",
+      "scope": "Reduced support over C before PGL5 quotient; no global exhaustion.",
+      "status": {
+        "proof": "proof_with_exact_certificates_and_explicit_dependencies",
+        "independent_review": "accepted_2026_11_07",
+        "certificates": "independent_geometric_proof_review",
+        "novelty": "not_independently_established"
+      },
+      "dependencies": {
+        "claims": [
+          "G_UNIMODULAR_LINEAR_CASIMIR_NONDOMINANCE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/classification/REMAINING_DEGENERACY_DIVISOR_SUPPORT.md"
+        }
+      ],
+      "verification_records": [],
+      "limitations_ja": [
+        "全成分数上界・一般五点尽くし・全分類は未証明。"
+      ]
+    },
+    {
+      "id": "G_NONDEGENERATE_DEGREE_THREE_RANK_ZERO_NONDOMINANCE",
+      "title_ja": "全非退化degree三曲面rank零枝のG非優越",
+      "statement_ja": "全非退化degree三曲面はsmooth cubic scroll又はtwisted cubic cone。全三十rank零sourceに、非plane multiplicity二とFrobeniusから得るabelianconormalの全firstpartial必要条件を課す。scroll全159×30 rank18で十二源、全350の24生成から62polynomial/342exact liftsのleadingcover六により固定源≤6、Aut6/scalarでPGL像≤23。cone全78×30 rank12で十八源、六baseと十二vertexへ分解。九base式全被約支持L3∪Q2と実SL2作用からsemisimpleL/nilL/nilQの三全strata、fiber6/6/3で固定源9/8/5。Aut8/scalarからPGL像≤24/23/20。base0はrank≤2。従って全degree三rank零枝は未知25〜27次元G一般元を優越しない。",
+      "scope": "Full explicitly stated source or geometric subbranch; no global exhaustion asserted.",
+      "status": {
+        "proof": "proved_with_explicit_hypotheses",
+        "independent_review": "accepted_separate_author_Fraction_full30_linear_kernel_all350_exact_lifts_SL2_allstrata_and_fibers",
+        "certificates": "exact_characteristic_zero_and_geometric_proof_as_stated",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "dependencies": {
+        "claims": [
+          "G_NONPLANE_DOUBLE_SYMBOL_AND_FROBENIUS_TYPES"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/classification/CUBIC_SCROLL_ABELIAN_CONORMAL_NONDOMINANCE.md"
+        },
+        {
+          "path": "research/classification/CUBIC_SCROLL_ABELIAN_CONORMAL_SEPARATE_REVIEW.md"
+        },
+        {
+          "path": "research/classification/CUBIC_CONE_ABELIAN_CONORMAL_NONDOMINANCE.md"
+        },
+        {
+          "path": "research/classification/CUBIC_CONE_ABELIAN_CONORMAL_SEPARATE_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_CUBIC_SCROLL_ABELIAN_REVIEW_20261107.json",
+        "reports/CLASSIFICATION_CUBIC_CONE_ABELIAN_REVIEW_20261107.json"
+      ],
+      "limitations_ja": [
+        "coneの初回誤semisimple labelを使わず、明示ERRATUMと正しいV2を用いる。",
+        "rank四不存在、全E帰属、他degree又はrank二restrictionを主張しない。"
+      ]
+    },
+    {
+      "id": "G_INTEGRAL_DEGREE_FOUR_RANK_ZERO_NONDOMINANCE",
+      "title_ja": "全integral非退化degree四rank零曲面のG非優越",
+      "statement_ja": "Brodmann–Park/Fujitaの全almostminimaldegree分類の一次scopeを直接照合。normal linearlynormalはACM→CI22、他はP5のminimaldegree V/S13/S22/S04のsimpleprojectionで尽くされる。Veroneseの全centreはPV又はCI22、S13/S22の全centreもACM→CI22又は四wholeorbitへ。四modelで全150→Euler24+完全11源(extra1保持)→正しいprojective abelianconormal必要条件で2/2/2/3源、全actualDにuniqueQ因子を独立Fraction確認。S04 secant内はACM→CI22、外は全Euler-weight/gaugeでΠ=QA+vertex∧Vの全源、全Vを保持した外積平方がQで割れる。全CI22の既済像≤24と他枝空により、全degree四rank零G像≤24。",
+      "scope": "Entire stated subbranch of irreducible reduced actual quintics; no global exhaustion or new component count.",
+      "status": {
+        "proof": "proved_with_explicit_hypotheses",
+        "independent_review": "accepted_separate_author_Fraction_full150_extra11_all350_allsource_factors_and_primary_allprojection_scope",
+        "certificates": "exact_characteristic_zero_and_geometric_proof_as_stated",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "dependencies": {
+        "claims": [
+          "G_ALL_DEGENERATE_CI22_RANK_ZERO_QUINTIC_EMPTY",
+          "G_REGULAR_PENCIL_CI22_RANK_ZERO_NONDOMINANCE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/classification/DEGREE_FOUR_RANK_ZERO_SURFACE_EXHAUSTION.md"
+        },
+        {
+          "path": "research/classification/PROJECTED_QUARTIC_SCROLL_ISOLATED_MODELS.md"
+        },
+        {
+          "path": "research/classification/PROJECTED_QUARTIC_SCROLL_SEPARATE_REVIEW.md"
+        },
+        {
+          "path": "research/classification/PROJECTED_QUARTIC_CONE_RANK_ZERO_EXCLUSION.md"
+        },
+        {
+          "path": "research/classification/PROJECTED_QUARTIC_CONE_SEPARATE_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_PROJECTED_QUARTIC_SCROLL_REVIEW_20261107.json",
+        "reports/CLASSIFICATION_PROJECTED_QUARTIC_SCROLL_FACTORS_20261107.json",
+        "reports/CLASSIFICATION_PROJECTED_QUARTIC_CONE_REVIEW_20261107.json"
+      ],
+      "limitations_ja": [
+        "rank二restrictionとplaneは残す。全CI22点のE帰属又は全rank四不存在を主張しない。"
+      ]
+    },
+    {
+      "id": "G_DEGREE_FIVE_RANK_ZERO_GENUS_ZERO_NONDOMINANCE",
+      "title_ja": "degree五零曲面の正規化genus零枝の全G非優越",
+      "statement_ja": "全degree五rank零S/normalizationgenus零では唯一planeP残余δ1、Dnormはsmoothscroll113/122又は既済cone空。plane上導手L²degree2をPic/全Sym^aE sectionsで分類すると2F又は113唯一Q=L−3F。SgenericcuspはPic parity又は五cusp rational planequinticのWronskian/bidualdegree矛盾で排除。Snode全branchvanishingとPの全node/cusp正規化regularityからπX∈Ω1X(CP)、Qcase空、2Fcase全source一次元。ambientπもH0E(-5)0でprojectively一意。P二linearformsはh0(L−CP)2の全空間をVへ含め、全projection supersourceはCP choice2+Gr(3,6)9=11。targetframe24とfree actual polarizedAut13/11から全PGL像≤22/24。plane rank零/二、repeatedroots、specialcentres、descend補集合を保持する。",
+      "scope": "Entire stated support branch of irreducible reduced actual quintics; generic non-dominance as specified, no global exhaustion.",
+      "status": {
+        "proof": "proved_with_explicit_hypotheses",
+        "independent_review": "accepted_integrator_independent_full_conductor_Pic_Gauss_tangent_duality_allprojection_and_free_aut_dimension_proof",
+        "certificates": "independent_complete_geometric_proof_no_new_CAS",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "dependencies": {
+        "claims": [
+          "G_DEGREE_SIX_RANK_ZERO_QUINTIC_EMPTY"
+        ],
+        "external": [
+          "Höring The sectional genus of quasi-polarised varieties, Theorem1.2 printed2; minimal-degree classification"
+        ]
+      },
+      "proof_sources": [
+        {
+          "path": "research/classification/RANK_ZERO_QUINTIC_SURFACE_GENUS_ZERO_NONDOMINANCE.md"
+        },
+        {
+          "path": "research/classification/RANK_ZERO_QUINTIC_SURFACE_GENUS_ZERO_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_RANK_ZERO_QUINTIC_GENUS_ZERO_REVIEW_20261107.json"
+      ],
+      "limitations_ja": [
+        "normalizationsectionalgenus一でdegree五Sだけを持つ分岐は残す。全degree五/全Gの完了ではない。"
+      ]
+    },
+    {
+      "id": "G_DEGREE_FIVE_RANK_ZERO_GENUS_ONE_RECOGNITION",
+      "title_ja": "次数五rank零・正規化genus一の全T40又は非優越認識",
+      "statement_ja": "全normalizationのsmooth解消にFukuma全g1分類を適用し、共通polarization/sectionringからcanonical Gorenstein amplemodel又はelliptic P2scrollへ。canonical型はcrepant/klt、rank零node/cuspのclosed inverse-residueはholomorphic（唯一cuspΓのcurve residue5λ0）、GKKP/KVでΩref1零に矛盾。elliptic nef/GGの全零summandはconeへ、ampleGG rank3degree5は全unstable A2⊕F23のactualparameter/freefiberで像≤24、stable全源は既済q52全finite normalization、有限polarizedAut、Atiyahrank3det一意性/[5]translation/complete5sectionsからT40。Snormal/非normal、全node/cusp/特殊導手/verticalを保持。",
+      "scope": "Full explicitly stated support/family before PGL5 quotient; no global exhaustion.",
+      "status": {
+        "proof": "proved_with_explicit_hypotheses",
+        "independent_review": "accepted_separate_author_primary_Fukuma_GKKP_Atiyah_and_full_q52_finite_normalization_bridge",
+        "certificates": "independent_exact_characteristic_zero_and_complete_geometric_proof",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "dependencies": {
+        "claims": [],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/classification/RANK_ZERO_QUINTIC_SURFACE_GENUS_ONE_RECOGNITION.md"
+        },
+        {
+          "path": "research/classification/RANK_ZERO_QUINTIC_SURFACE_GENUS_ONE_SEPARATE_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_RANK_ZERO_QUINTIC_GENUS_ONE_REVIEW_20261107.json"
+      ],
+      "limitations_ja": [
+        "全degree五genus零は別既済、rank二restrictionとplane/quadricconeはこの命題に含めない。"
+      ]
+    },
+    {
+      "id": "G_DEGREE_SIX_RANK_ZERO_QUINTIC_EMPTY",
+      "title_ja": "normal・非normalを含む全degree六rank零支持の排除",
+      "statement_ja": "正規化length式のdegree六が全δdegreeを使い切り、Dnormalization(X,L)のsectionalgenus零/唯一S/δ1を強制。全normal-scope Höring Thm1.2でΔ0、h0L8、ampleGG完全写像finitebirationalとminimaldegree像のnormalityからXはP7のdegree五rationalnormalscroll全五型。singular三型の任意finite線形射影はconeD/coneSで既済空。smooth二型はC=-K=3L−3F。generic cuspはC2ΓのPic parityに矛盾、nodeはrank零ideal・minimalprime不変・全branch商により正規化bivectorが全reducedCに零。非分裂node/非中心係数体/忠実下降を保持し、codim一regularityとsmoothX HartogsでπX∈Λ²TX(-C)=Ω1X=0。DreducedでπD非零に矛盾する。全normal/非normal Sをnode/clean/vertical追加仮定無しに排除。",
+      "scope": "Entire stated support branch of irreducible reduced actual quintics; generic non-dominance as specified, no global exhaustion.",
+      "status": {
+        "proof": "proved_with_explicit_hypotheses",
+        "independent_review": "accepted_separate_author_complete_Bertini_Horing_allnormal_scrolls_node_bracket_descent_and_cusp_parity",
+        "certificates": "independent_complete_geometric_proof_no_new_CAS",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "dependencies": {
+        "claims": [
+          "G_HIGH_DEGREE_CONE_RANK_ZERO_QUINTIC_EMPTY"
+        ],
+        "external": [
+          "Höring The sectional genus of quasi-polarised varieties, Theorem1.2 printed2; minimal-degree classification"
+        ]
+      },
+      "proof_sources": [
+        {
+          "path": "research/classification/RANK_ZERO_SEXTIC_CONDUCTOR_EXCLUSION.md"
+        },
+        {
+          "path": "research/classification/RANK_ZERO_SEXTIC_CONDUCTOR_SEPARATE_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_RANK_ZERO_SEXTIC_CONDUCTOR_REVIEW_20261107.json"
+      ],
+      "limitations_ja": [
+        "degree五、quadric cone、plane、rank二restrictionと全G/E尽くしは残す。",
+        "Höring/minimaldegreeは一次scopeを確認した外部入力。追加CASや未確認の一般Poisson正規化延長定理は使わない。"
+      ]
+    },
+    {
+      "id": "G_DEGREE_SIX_RANK_TWO_ALL_NONDOMINANCE",
+      "title_ja": "次数六rank二非正規支持の全G非優越",
+      "statement_ja": "length/Höringから正規化はP7の全minimaldegree scroll五型。cuspは奇Pic係数、oneprime nodeは非零closed residueで排除。splitの全prime class L+F/2L−4Fから113/122/014は空、005は全実五sectionsのlinevertexで非正規支持planesのみ。023は全finiteprojection相対conductorをMCM/Ext/有限双対性/basechangeで構成し、一つの指定S23射影の全境界を含む導手絶対既約を独立Fraction44x31rank30で確認。全split射影源はproperclosedで≤14、targetframe24−actualAut14とfixedD全projectivePi一意性で像≤24。全specialcentre/noncentralK/non-split/verticalを保持。",
+      "scope": "Full explicitly stated geometric branch before PGL5 quotient; no global exhaustion.",
+      "status": {
+        "proof": "proved_with_explicit_hypotheses",
+        "independent_review": "accepted_separate_author_whole_geometric_scope_and_independent_Fraction_conductor_certificate",
+        "certificates": "separate_author_complete_geometric_review_and_exact_characteristic_zero_where_used",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "dependencies": {
+        "claims": [],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/classification/RANK_TWO_SEXTIC_SURFACE_NONCONICAL_DIVISOR_EXCLUSION.md"
+        },
+        {
+          "path": "research/classification/RANK_TWO_SEXTIC_CONICAL_DIVISOR_NONDOMINANCE.md"
+        },
+        {
+          "path": "research/classification/SCROLL23_CONDUCTOR_WITNESS.md"
+        },
+        {
+          "path": "research/classification/RANK_TWO_SEXTIC_SURFACE_SEPARATE_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_SCROLL23_CONDUCTOR_WITNESS_20261107.json",
+        "reports/CLASSIFICATION_RANK_TWO_SEXTIC_REVIEW_20261107.json"
+      ],
+      "limitations_ja": [
+        "全degree六rank二枝のG非優越。全E帰属、他degree又は全分類の完了ではない。"
+      ]
+    },
+    {
+      "id": "G_DEGREE_FIVE_RANK_TWO_GENUS_ZERO_NONDOMINANCE",
+      "title_ja": "次数五rank二・正規化genus零の全G非優越",
+      "statement_ja": "node導手のtrace-zero符号とclosed residueの複素定数性から、rank二なら全node二sheetが二primeに分裂（quadratic field involutionがresidueを反転するがCを固定）。全normalization五型、全degree二plane導手class表を保持。S五cuspはGauss/bidualで排除、2F/2Q枝はprimeclassの積分解で空。残113/023/014の全residue源projective≤0、plane二linear equationsから全Schubert源13/9/3、actualAut13/14/16自由fiberを戻し全像24/23/22。単元Galois固定/normal導手/globalinvolution又はrank零cone排除を仮定しない。",
+      "scope": "Full explicitly stated geometric branch before PGL5 quotient; no global exhaustion.",
+      "status": {
+        "proof": "proved_with_explicit_hypotheses",
+        "independent_review": "accepted_separate_author_trace_zero_field_involution_all_effective_classes_and_actual_projection_fibers",
+        "certificates": "separate_author_complete_geometric_review_and_exact_characteristic_zero_where_used",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "dependencies": {
+        "claims": [],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/classification/RANK_TWO_QUINTIC_SURFACE_GENUS_ZERO_NONDOMINANCE.md"
+        },
+        {
+          "path": "research/classification/RANK_TWO_QUINTIC_SURFACE_GENUS_ZERO_SEPARATE_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_RANK_TWO_QUINTIC_GENUS_ZERO_REVIEW_20261107.json"
+      ],
+      "limitations_ja": [
+        "genus一canonical/ellipticは別枝、他degree及び全G/Eはこの命題から閉じない。"
+      ]
+    },
+    {
+      "id": "G_DEGREE_FIVE_RANK_TWO_GENUS_ONE_ELLIPTIC_EXCLUSION",
+      "title_ja": "次数五rank二・種数一elliptic正規化全枝の不存在",
+      "statement_ja": "Fukumaのrank非依存polarizedmodel橋からY=P_B(E),rank3degree5nefGG。全有限coverの零degree商をglobal evaluation定数functionalで処理してE=O^r+Fample、r0同型/r1small/r2actual五sectionsのlinevertexを証明。r2は支持planesのみ。r0/1は全Pic0twistsを保持し導手3H−detE、cuspは奇H係数で空、single nodeは非零constant residueと正交点で空、splitprimeの全class(1,0)/(2,−5)は二つの十分大きいample classesのresidue行列det10で両residue零となり矛盾。elliptic H0Omega1消滅やdegree一生成を使わない。",
+      "scope": "Full explicitly stated geometric branch before PGL5 quotient; no global exhaustion.",
+      "status": {
+        "proof": "proved_with_explicit_hypotheses",
+        "independent_review": "accepted_separate_author_all_nef_bundle_contractions_Pic0_twists_and_two_ample_class_residue_proof",
+        "certificates": "separate_author_complete_geometric_review_and_exact_characteristic_zero_where_used",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "dependencies": {
+        "claims": [],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/classification/RANK_TWO_QUINTIC_SURFACE_GENUS_ONE_ELLIPTIC_EXCLUSION.md"
+        },
+        {
+          "path": "research/classification/RANK_TWO_QUINTIC_SURFACE_GENUS_ONE_ELLIPTIC_SEPARATE_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_RANK_TWO_QUINTIC_GENUS_ONE_ELLIPTIC_20261107.json",
+        "reports/CLASSIFICATION_RANK_TWO_QUINTIC_GENUS_ONE_ELLIPTIC_REVIEW_20261107.json"
+      ],
+      "limitations_ja": [
+        "genus一canonical index二正規化は未解決の補集合。全G/Eと成分上界は未証明。"
+      ]
+    },
+    {
+      "id": "G_RANK_TWO_QUINTIC_CANONICAL_INDEX_TWO_NODE_NONDOMINANCE",
+      "title_ja": "degree五canonical index二node全像24以下",
+      "statement_ja": "全canonical/nonterminal正規化からACM symmetric全表示と全marksを保持。従属marksはambient nonconstant Casimir矛盾。独立node marksのAB-u1C=q²は全三monomial case/α≠0/LA,LBを持つ固定11parameter。rank3 q11+lowerframe3+固定11=25、真detone C*同一(D,[α])fiberを全域で引き実projectiveΠ像≤24。",
+      "scope": "Integral nondegenerate degree-five singular surface, generic ranktwo restriction, canonical Gorenstein normalization of actual irreducible reduced quintic with -KX=2L,L³=5; generic conductor node.",
+      "status": {
+        "proof": "proved_with_explicit_hypotheses",
+        "independent_review": "accepted_complete_separate_mathematical_review",
+        "certificates": "pure_geometric_proof_and_exact_QQ_where_explicitly_recorded",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "dependencies": {
+        "claims": [],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/classification/RANK_TWO_QUINTIC_CANONICAL_INDEX_TWO_REDUCTION.md"
+        },
+        {
+          "path": "research/classification/RANK_TWO_QUINTIC_CANONICAL_INDEX_TWO_NONDOMINANCE.md"
+        },
+        {
+          "path": "research/classification/RANK_TWO_QUINTIC_CANONICAL_INDEX_TWO_SEPARATE_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_RANK_TWO_QUINTIC_CANONICAL_INDEX_TWO_REVIEW_20261107.json"
+      ],
+      "limitations_ja": [
+        "全sourceのG非優越、node全点のE帰属ではない。",
+        "他normalization/degree、smoothcubicScroll残枝、plane残枝と全分類は未解決。"
+      ]
+    },
+    {
+      "id": "G_RANK_TWO_QUINTIC_CANONICAL_INDEX_TWO_CUSP_EMPTY",
+      "title_ja": "degree五canonical index二cusp全空性",
+      "statement_ja": "全従属marksはCasimirで空。独立marksの全weighted symmetric表示でCu2-B²=q²、B=±iu1²+u2L。導手ideal g1=∓iu1q-u2Astarからintegral非退化S上Astar=0。q,Astar独立ならdegree四CIがdegree五Sを含み不可能、従属ならD=q²linearで被約既約に反する。両sign/全extension/非terminal/非reducedvertexを保持。",
+      "scope": "Same canonical indextwo normalization hypotheses; whole generic cusp-conductor branch.",
+      "status": {
+        "proof": "proved_with_explicit_hypotheses",
+        "independent_review": "accepted_complete_separate_mathematical_review",
+        "certificates": "pure_geometric_proof_and_exact_QQ_where_explicitly_recorded",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "dependencies": {
+        "claims": [],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/classification/RANK_TWO_QUINTIC_CANONICAL_CUSP_EMPTY_SEPARATE_REVIEW.md"
+        },
+        {
+          "path": "research/classification/RANK_TWO_QUINTIC_CANONICAL_INDEX_TWO_SEPARATE_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_RANK_TWO_QUINTIC_CANONICAL_CUSP_EMPTY_REVIEW_20261107.json"
+      ],
+      "limitations_ja": [
+        "nodeは空でなく像24以下。",
+        "他support/全G/Eは未閉。"
+      ]
+    },
+    {
+      "id": "G_SMOOTH_QUADRIC_POISSON_CONORMAL_ALL_RESTRICTION_RANKS_HYPERPLANE_FACTOR",
+      "title_ja": "滑らかなquadric全支持は実hyperplane因子を強制",
+      "statement_ja": "smoothquadricS=(h,q)がPoissoninvariantでconormal可換なら、全EulerliftのnormalcontractionsはlambdaE/muE、正確なglobal O1/O2 section。q=xTQxのrank四と全restriction surjectionからW(h)=lambda,W(x)=Q^-1Bx/2で両normalcontractionを同時にIへ。local h/X,q/X²の全denominator補正はI²なのでintrinsicconormal零からstrict{h,q}inI²、primeCI powersのprimary/saturationでordinary同次membership。全degree二hrow=h*l_i+q*a_i、modh degree三対四とrank四gradientで全a_i0。H invariant、全actualEulerPf項はh因子、irreducDに矛盾。rank二旧conormal補題及びrank零全multiplicity modular補題を別適用し、全R可約非被約/vertical/squareを含む全smoothquadric supportを排除。",
+      "scope": "Entire explicitly stated support or necessary finite reduction before PGL5 quotient; globalexhaustion unknown.",
+      "status": {
+        "proof": "proved_with_explicit_hypotheses",
+        "independent_review": "accepted_separate_author_complete_geometric_proof_with_all_chart_and_inverse_complements",
+        "certificates": "pure_geometric_proof_no_new_CAS_required",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "dependencies": {
+        "claims": [],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/classification/SMOOTH_QUADRIC_POISSON_CONORMAL_HYPERPLANE_FACTOR.md"
+        },
+        {
+          "path": "research/classification/SMOOTH_QUADRIC_CONORMAL_FACTOR_SEPARATE_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_SMOOTH_QUADRIC_CONORMAL_HYPERPLANE_FACTOR_20261107.json",
+        "reports/CLASSIFICATION_SMOOTH_QUADRIC_CONORMAL_FACTOR_REVIEW_20261107.json"
+      ],
+      "limitations_ja": [
+        "quadricconeはQ radicalと同時gaugeの障害があり別残余。全G/Eと上界は未証明。"
+      ]
+    },
+    {
+      "id": "G_QUADRIC_CONE_RANK_ZERO_NONDOMINANCE",
+      "title_ja": "quadric cone全rank零源のPGL像二十三上界",
+      "statement_ja": "全Koszul六十源/Euler五冗長からconormal35×66全kernel、v0/C0のH因子枝を除き全A semi/nil二軌道へ。全modH Jacobi三十kernelを可逆25+Euler橋でPoissonOre P=B+(Y+zT)∧∂zへ移す。全350同値、全B/T支持はc0/nil両枝込みdimension3。Y十五係数の三角diagonal QQ(c)minorと全複素例外c0,±1,±2を保持しnormalizedfiber5/6。A軌道7/6とactualAutS12/scalar1を戻し全PGL像≤23。全source/例外を独立Fraction/Bareiss再構成し、GB/jet推論を用いない。",
+      "scope": "Full explicitly stated support/family before PGL5 quotient; no global exhaustion.",
+      "status": {
+        "proof": "proved_with_explicit_hypotheses",
+        "independent_review": "accepted_separate_author_Fraction_complete60_25_Ore_full350_and_all_univariate_minor_roots",
+        "certificates": "independent_exact_characteristic_zero_and_complete_geometric_proof",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "dependencies": {
+        "claims": [],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/classification/QUADRIC_CONE_ZERO_SOURCE.md"
+        },
+        {
+          "path": "research/classification/QUADRIC_CONE_ORE_NONDOMINANCE.md"
+        },
+        {
+          "path": "research/classification/QUADRIC_CONE_ZERO_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_QUADRIC_CONE_ZERO_SOURCE_20261107.json",
+        "reports/CLASSIFICATION_QUADRIC_CONE_ZERO_ORE_20261107.json",
+        "reports/CLASSIFICATION_QUADRIC_CONE_ZERO_REVIEW_20261107.json"
+      ],
+      "limitations_ja": [
+        "全E帰属又はrank四不存在を主張しない。rank零planeとrank二各残枝を保持。"
+      ]
+    },
+    {
+      "id": "G_QUADRIC_CONE_RANK_TWO_ALL_ZERO_DIVISORS_NONDOMINANCE",
+      "title_ja": "quadric cone・rank二の全源は二十四以下",
+      "statement_ja": "vertexを含む正しいEuler/conormalから全69tangent rawと全33sourceを独立Fraction復元。初回誤Ore仮定を除き全Hamiltonianpencil五block/全350を保持、最高4parameter元idealからD_pencil零を導いた後だけOreへ。全κ,s graded三角linear operators/十二semと七nil全line/全72+13複素根、C0全五根と全actual normalizerを戻す。唯一nil(0,0)の元24x12 rank九とleftidentity p1(p0+p2/2)非零でtopdim一低下、全source≤7、全freeframefiberを一度だけ引き全像≤24。全R被約非被約/node/vertical無仮定。",
+      "scope": "Whole specified support before PGL5 quotient; globalexhaustion unknown.",
+      "status": {
+        "proof": "proved_with_explicit_hypotheses",
+        "independent_review": "accepted_separate_author_complete_geometric_cover_and_exact_Fraction_source_operator_compatibility_reviews",
+        "certificates": "fullsource_characteristic_zero_and_aggregate_geometry",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "dependencies": {
+        "claims": [],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/classification/QUADRIC_CONE_RANK_TWO_NONDOMINANCE.md"
+        },
+        {
+          "path": "research/classification/QUADRIC_CONE_RANK_TWO_SEPARATE_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_QUADRIC_CONE_RANK_TWO_REVIEW_20261107.json"
+      ],
+      "limitations_ja": [
+        "全E帰属、存在/不存在、他曲面支持と全G完了を主張しない。"
+      ]
+    },
+    {
+      "id": "G_INTEGRAL_DEGREE_THREE_RANK_TWO_ALL_NONDOMINANCE",
+      "title_ja": "全degree三rank二曲面支持のG非優越",
+      "statement_ja": "非退化integraldegree三曲面はsmooth S12又はtwistedcubiccone03の全二軌道。smoothはcanonicalroot全空と残A25全二型のpuregeometry24上界、coneは全27源→五wholemodules/全19壁の24上界。全R/normalrank/vertical/vertexを保持し全rank二degree三G非優越が完了。",
+      "scope": "Actual reduced irreducible quintic, indicated nonplane integral cubic singular surface, generic ranktwo restriction, all R and parameter/vertex/fullfiber complements.",
+      "status": {
+        "proof": "proved_with_explicit_hypotheses",
+        "independent_review": "accepted_whole_geometric_cover_and_separate_Fraction_full975_150_350_126_SL2_all_modules_and_walls",
+        "certificates": "exact_QQ_QQlambda_and_fullsource_pure_geometry",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "dependencies": {
+        "claims": [],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/classification/CUBIC_SCROLL_A25_WHOLE_NONDOMINANCE.md"
+        },
+        {
+          "path": "research/classification/CUBIC_SCROLL_A25_BOUNDARY_SEPARATE_REVIEW.md"
+        },
+        {
+          "path": "research/classification/CUBIC_SCROLL_A25_COORDINATE_AND_POLE_ERRATUM.md"
+        },
+        {
+          "path": "research/classification/CUBIC_CONE_RANK_TWO_BASE_REPRESENTATION.md"
+        },
+        {
+          "path": "research/classification/CUBIC_CONE_RANK_TWO_SEPARATE_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_CUBIC_SCROLL_A25_ROOT_CHAIN_REVIEW_20261107.json",
+        "reports/CLASSIFICATION_CUBIC_CONE_RANK_TWO_REVIEW_20261107.json"
+      ],
+      "limitations_ja": [
+        "G非優越のみ。全pointwise E、全G/E・上界は未証明。",
+        "c-dependentD rowspace旧falseを成功に読み替えていない。"
+      ]
+    },
+    {
+      "id": "G_INTEGRAL_DEGREE_FOUR_RANK_TWO_ALL_NONDOMINANCE",
+      "title_ja": "degree四rank二曲面支持の全G非優越",
+      "statement_ja": "rank非依存のalmostminimaldegree全支持分類を使い、normal/non-normalCI22は全Rで空又は像≤24、全nonCIscroll/coneはrank四quadric Weilclass二重quintic矛盾、projectedVeroneseは既全tangent像≤22。全centres/全boundary/normalityと全R補集合を保持し、integraldegree4 rank二支持全てを有限閉像≤24へ尽くす。hyperplane内は既symbolic-square次数論で空。",
+      "scope": "Whole stated surface support before PGL5 quotient; allzero divisors and allnormal/nonnormal complements retained.",
+      "status": {
+        "proof": "proved_with_explicit_hypotheses",
+        "independent_review": "accepted_separate_author_complete_geometric_cover_and_exact_original_source_review",
+        "certificates": "exact_characteristic_zero_and_complete_geometric_proof",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "dependencies": {
+        "claims": [
+          "G_NORMAL_CI22_RANK_TWO_ALL_ZERO_DIVISORS_EMPTY",
+          "G_NONNORMAL_CI22_RANK_TWO_ALL_ZERO_DIVISORS_NONDOMINANCE",
+          "G_NONCI_QUARTIC_RANK_FOUR_QUADRIC_DOUBLE_QUINTIC_EMPTY"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/classification/QUARTIC_SURFACES_ON_QUADRIC_DOUBLE_QUINTIC_EXCLUSION.md"
+        },
+        {
+          "path": "research/classification/NONNORMAL_CI22_RANK_TWO_SEPARATE_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_NONNORMAL_CI22_RANK_TWO_REVIEW_20261107.json"
+      ],
+      "limitations_ja": [
+        "全E帰属、新成分数、他degree支持及び全分類上界は未解決。"
+      ]
+    },
+    {
+      "id": "G_PLANE_RANK_ZERO_ALL_SYMBOLS_ALL_MULTIPLICITIES_NONDOMINANCE",
+      "title_ja": "rank零planeの全source・全重複度G非優越",
+      "statement_ja": "全reducedD modularconormalから全35/30/9 source。coHiggs saturation k0/1、k1全rank、globalV全m二/非commuting nil/高m commonimage/全dependent、scalar全十五型/T0K非零/零symbol全39を、全normalizerと全exceptional complement保持で尽くす。各独立全source上界とactualMPS認識から、全支持はMPS40と全像≤24の有限閉和。未知G成分dim25/26/27の一般元は有限閉像のいずれにも入れず、全rank零planeをGから除外する。",
+      "scope": "Whole specified support before PGL5 quotient; globalexhaustion unknown.",
+      "status": {
+        "proof": "proved_with_explicit_hypotheses",
+        "independent_review": "accepted_separate_author_complete_geometric_cover_and_exact_Fraction_source_operator_compatibility_reviews",
+        "certificates": "fullsource_characteristic_zero_and_aggregate_geometry",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "dependencies": {
+        "claims": [],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/classification/PLANE_RANK_ZERO_WHOLE_SUPPORT_NONDOMINANCE.md"
+        },
+        {
+          "path": "research/classification/PLANE_RANK_ZERO_WHOLE_SUPPORT_SEPARATE_REVIEW.md"
+        },
+        {
+          "path": "research/classification/PLANE_DEPENDENT_ORE_SEPARATE_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_PLANE_RANK_ZERO_WHOLE_SUPPORT_REVIEW_20261107.json"
+      ],
+      "limitations_ja": [
+        "rank二plane及び全Epointwise membership、全成分数上界は未証明。"
+      ]
+    },
+    {
+      "id": "G_RANK_TWO_PLANE_IRREDUCIBLE_CUBIC_EMPTY",
+      "title_ja": "rank二plane上の全既約被約cubic零divisor枝の排除",
+      "statement_ja": "Poisson invariant plane S⊂SingDでπ|Sの零cubic Rが既約被約なら、smooth/node/cuspの全型でconormal接続のtracefree partは零。全一位極sl2接続の非log項はflat leading [M,N]=Nによりresidue±1/2、meridian固有値-1となり、補集合π1=Z3と矛盾。node全log形式0、cusp唯一log形式の非閉性により全接続はcanonical scalarと一致。全f十係数を保持したweight1三十・weight2九の全源を別作者Fractionで再構成し、K=azw/az²全a非零でkernelは実shear六だけ、有限線形変換で高次も消え実D=3fK。K=0は全rank≤2。従ってrank四の既約被約quinticはこの全枝で存在しない。",
+      "scope": "Explicit full-source support reductions with all stated complements retained; no global exhaustion or count change.",
+      "status": {
+        "proof": "proved_with_explicit_hypotheses",
+        "independent_review": "separate_author_geometry_topology_primary_scope_and_Fraction_full30_9_allf_a_all350",
+        "certificates": "exact_characteristic_zero_and_geometric_proof_as_stated",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "dependencies": {
+        "claims": [],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/classification/PLANE_SMOOTH_CUBIC_CONORMAL_CONNECTION.md"
+        },
+        {
+          "path": "research/classification/PLANE_SMOOTH_CUBIC_CONORMAL_CONNECTION_REVIEW.md"
+        },
+        {
+          "path": "research/classification/PLANE_SMOOTH_CUBIC_RANK_TWO_EXCLUSION.md"
+        },
+        {
+          "path": "research/classification/PLANE_SMOOTH_CUBIC_RANK_TWO_REVIEW.md"
+        },
+        {
+          "path": "research/classification/PLANE_IRREDUCIBLE_CUBIC_RANK_TWO_EXCLUSION.md"
+        },
+        {
+          "path": "research/classification/PLANE_IRREDUCIBLE_CUBIC_RANK_TWO_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_PLANE_SMOOTH_CUBIC_CONORMAL_CONNECTION_REVIEW_20261107.json",
+        "reports/CLASSIFICATION_PLANE_SMOOTH_CUBIC_NORMAL_WEIGHTS_20261107.json",
+        "reports/CLASSIFICATION_PLANE_SMOOTH_CUBIC_RANK_TWO_REVIEW_20261107.json",
+        "reports/CLASSIFICATION_PLANE_IRREDUCIBLE_CUBIC_RANK_TWO_REVIEW_20261107.json"
+      ],
+      "limitations_ja": [
+        "S⊂SingDが必要。単なるrank二不変planeへ拡張しない。R可約/非被約、rank零plane、plane以外は残す。"
+      ]
+    },
+    {
+      "id": "G_PLANE_RANK_TWO_M2_ALL_NONDOMINANCE",
+      "title_ja": "rank二plane m二全G非優越の完了",
+      "statement_ja": "最後のR2Lconstantdouble全34源/51allowed wallsを別q sparseエンジンで全350/30/9/150群と完全核/unitminorまで再構成。十whole線は空又は八fixedwall像23以下。残nil全pはrank19bundle上の係数恒等式からT零essential三又はm零因子へ帰着、唯一p−2/7の全十一P1＋九P2を元row34=−7m²/9で全支持排除。従ってnormaldouble全Rは像23以下、SF全Rは既知被覆済みで全m二G完了。",
+      "scope": "Full original characteristic-zero sources with all inverse normalizers, coefficient and localization complements; reduced complex support.",
+      "status": {
+        "proof": "proved_with_explicit_hypotheses",
+        "independent_review": "accepted_separate_authors_whole_geometry_and_original_equations",
+        "certificates": "immutable_exact_whole_source_certificates_and_independent_receipts",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "dependencies": {
+        "claims": [
+          "E_PLANE_RANK_TWO_M2_SQUAREFREE_ALL_CUBICS_COVERAGE",
+          "E_PLANE_TRIPLE_LINE_M2_ALL_EIGHT_ESSENTIAL_THREE_COVERAGE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/classification/PLANE_DOUBLE_LINE_M2_CONSTANT_DOUBLE_ENTRANCE.md"
+        },
+        {
+          "path": "research/classification/PLANE_DOUBLE_LINE_M2_LAST_NIL_ORE_REDUCTION.md"
+        },
+        {
+          "path": "research/classification/PLANE_DOUBLE_LINE_M2_CONSTANT_DOUBLE_SEPARATE_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_PLANE_DOUBLE_LINE_M2_CONSTANT_DOUBLE_THIRTYFOUR_SEPARATE_REVIEW_20261108.json",
+        "research/classification/inputs/plane_double_line_m2_constant_double_separate_review_manifest_20261108.json"
+      ],
+      "limitations_ja": [
+        "八HF壁等のnormaldouble全E帰属は別未了。",
+        "m三及び全G/E・成分上界は未証明。",
+        "初回checkerのcritical期待式Tm/係数二の誤りをexact失敗archiveに保持、最終別実行で全85＋正しいm²原行を再確認。"
+      ]
+    },
+    {
+      "id": "G_PLANE_RANK_TWO_MULTIPLICITY_FOUR_ALL_ZERO_DIVISORS_NONDOMINANCE",
+      "title_ja": "rank二plane m四全RのG非優越",
+      "statement_ja": "R全integralreduced empty、四reducedreducible型全SF/j/sourceと全repeated各源像≤24、全nonredRは全partition/全振幅を保持し既essential三八成分又はrank四空。有限全source閉像のdimension≤24で未知25–27G成分の一般元を排除。m五以上はactualD binaryquinticとなり既約性に反する。",
+      "scope": "Whole stated ranktwo plane source before PGL5 quotient; all root partitions and parameter complements retained.",
+      "status": {
+        "proof": "proved_with_explicit_hypotheses",
+        "independent_review": "accepted_complete_separate_geometric_cover_and_Fraction_fullsource_original_equations_Pfaffian_polarizations",
+        "certificates": "exact_characteristic_zero_and_full_geometric_support",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "dependencies": {
+        "claims": [],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/classification/PLANE_RANK_TWO_MULTIPLICITY_FOUR_NONDOMINANCE.md"
+        },
+        {
+          "path": "research/classification/PLANE_NONREDUCED_MULTIPLICITY_FOUR_EIGHT_COMPONENT_COVERAGE.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_PLANE_M4_NONREDUCED_SQUAREFREE_REVIEW_20261107.json"
+      ],
+      "limitations_ja": [
+        "m二三、reducedR全E帰属、他支持と全G/E/上界は未解決。"
+      ]
+    },
+    {
+      "id": "G_PLANE_REDUCED_NONCONCURRENT_CUBIC_M3_ALL_NONDOMINANCE",
+      "title_ja": "全非concurrent reduced R・plane m三のG像23以下",
+      "statement_ja": "全root incidence/C2/C3/pencilをprimitive content・Hodge/parity・RR及び全F2/F3 divisorで尽くす。横断conic全空、接線四＋triangle五の全first symbolsだけ。全350×30/9・24D3全target・150×39 EulerLeviを別Fractionで確認し七全源はactualu因子で空、M像22、SF C3 unused像23。全残枝のG非優越が完了。",
+      "scope": "Actual reduced irreducible quintic, ranktwo singular plane, normal multiplicitythree, reduced cubic zero curve R a transverse/tangent conic plus line or nonconcurrent triangle. All split/non-split/repeated/root-cover/nonlog/zero complements included.",
+      "status": {
+        "proof": "proved_with_explicit_hypotheses",
+        "independent_review": "accepted_separate_authors_whole_cover_geometry_and_independent_Fraction_all_matrices_kernels_minors",
+        "certificates": "immutable_whole_source_proofs_and_separate_exact_receipts",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "dependencies": {
+        "claims": [],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/classification/PLANE_REDUCED_M3_NONCONCURRENT_NINE_FULLHIGHER_BOUND.md"
+        },
+        {
+          "path": "research/classification/PLANE_REDUCED_NONCONCURRENT_M3_ROOT_COVERS_SEPARATE_REVIEW.md"
+        },
+        {
+          "path": "research/classification/PLANE_REDUCED_M3_NINE_SEPARATE_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_PLANE_REDUCED_M3_NINE_FULLHIGHER_20261108.json",
+        "reports/CLASSIFICATION_PLANE_REDUCED_M3_NINE_SEPARATE_REVIEW_20261108.json",
+        "research/classification/inputs/plane_reduced_nonconcurrent_m3_whole_nondominance_manifest_20261108.json"
+      ],
+      "limitations_ja": [
+        "MとSF C3 unused全点の既成分帰属・実解存在はこの上界から従わない。",
+        "concurrent/nonreduced R、m二及び全G/E・総上界は未完。"
+      ]
+    },
+    {
+      "id": "G_PLANE_CONCURRENT_M3_WHOLE_NONDOMINANCE",
+      "title_ja": "concurrent三直線m三全源のG非優越",
+      "statement_ja": "全SF split/C2/C3/S3・全21/tripleのfirstsource補集合を尽くす。全nonOreは56fieldの独立badC零で空。元higherを全strictbinary Q＋全Wへ戻し、全nonzeroKは二actual軌道又は空、全K0は元actualDのweight/globalquadraticW degree/criticalcentralnilpotentを別作者確認して空又はessential三八23被覆。従って全源は二actual PGL5軌道と既八23全源の和、global像24以下。330SF候補実列挙は本wholeQ経路に不要。",
+      "scope": "All rankfour reduced irreducible actualquintics with ranktwo invariant plane, reduced concurrent zero cubic and normalorderthree, every normalroot partition/monodromy, firstconnection and full higher source.",
+      "status": {
+        "proof": "proved_with_explicit_hypotheses",
+        "independent_review": "accepted_separate_full_nonOre_arithmetic_and_nonzeroK_K0_geometry",
+        "certificates": "whole_source_cover_actual_inverses_full_equations_and_three_independent_receipts",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "dependencies": {
+        "claims": [
+          "G_PLANE_CONCURRENT_M3_NONORE_ALL_EMPTY",
+          "G_PLANE_CONCURRENT_M3_NONZERO_QUARTIC_ORE_ALL_NONDOMINANCE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/classification/PLANE_CONCURRENT_M3_WHOLE_NONDOMINANCE.md"
+        },
+        {
+          "path": "research/classification/PLANE_CONCURRENT_M3_ZERO_QUARTIC_SEPARATE_REVIEW.md"
+        },
+        {
+          "path": "research/classification/PLANE_CONCURRENT_M3_NONZERO_QUARTIC_SEPARATE_REVIEW.md"
+        },
+        {
+          "path": "research/classification/PLANE_CONCURRENT_M3_NONORE_SEPARATE_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "research/classification/inputs/plane_concurrent_m3_whole_nondominance_manifest_20261108.json",
+        "research/classification/inputs/plane_concurrent_m3_zero_quartic_separate_review_manifest_20261108.json"
+      ],
+      "limitations_ja": [
+        "全K0点は八essential三成分へ被覆。K22は別actual同定で既nil22long23へ。K4aの全E親/成分性は未了。",
+        "全rank二plane m三はnonredcorrectedtripleの独立算術受理も要する。",
+        "一般底Gと例外全E/分類主定理を区別する。新成分を加算しない。"
+      ]
+    },
+    {
+      "id": "G_PLANE_RANK_TWO_NONREDUCED_ZERO_CUBIC_M3_SQUAREFREE_ALL_NONDOMINANCE",
+      "title_ja": "rank二plane非被約R・m三SF全G非優越",
+      "statement_ja": "R3Lは全leading像で空、R2L+Mは全十九symbol cover中十六空、cdep g二B9+kernel十+plane六−scalar一で24以下、最後の二Oreは空又はessential三八23成分。全有限constructible閉像の上界24から未知25–27優越成分の一般元を排除。",
+      "scope": "Actual reduced irreducible quintic singular along generic ranktwo Poisson plane, nonreduced zero cubic, normal multiplicitythree squarefree leading; all rootcovers/resonance/parameter complements retained.",
+      "status": {
+        "proof": "proved_with_explicit_hypotheses",
+        "independent_review": "accepted_whole_geometric_cover_and_separate_Fraction_all350_140_affine_modules",
+        "certificates": "exact_QQ_and_whole_tau_line_including_zero_and_full_Euler_inverse",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "dependencies": {
+        "claims": [],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/classification/PLANE_NONREDUCED_CUBIC_M3_SQUAREFREE_NONDOMINANCE.md"
+        },
+        {
+          "path": "research/classification/PLANE_DOUBLE_LINE_M3_SEPARATE_REVIEW.md"
+        },
+        {
+          "path": "research/classification/PLANE_DOUBLE_LINE_M3_ORE_SEPARATE_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_PLANE_DOUBLE_LINE_M3_ORE_20261107.json",
+        "reports/CLASSIFICATION_PLANE_DOUBLE_LINE_M3_ORE_SEPARATE_REVIEW_20261107.json",
+        "research/classification/inputs/plane_double_line_m3_ore_separate_review_manifest_20261107.json"
+      ],
+      "limitations_ja": [
+        "c-dependent g二はG像24以下のみ、全点既成分帰属は未解決。",
+        "m三repeated leading、reduced R、m二及び他support/全G/E・上界は未閉。"
+      ]
+    },
+    {
+      "id": "G_PLANE_NONREDUCED_M3_GENERIC21_ALL_NONDOMINANCE",
+      "title_ja": "非被約R・m三generic21全G像24以下",
+      "statement_ja": "全primitive degree条件2d_double+d_simple≤2の四flagsを尽くす。constant00とmovingdouble10は既独立受理。movingsimple01/02も全37源＋22壁、全Q/W joint22、全central逆と10affine modules/全壁を別Fraction再構成。一般factor又は不整合に加えHB0 t0/HA1 t2/15は全像23以下、他weak源も24以下。全generic21 G非優越を完了。",
+      "scope": "Actual reduced irreducible quintic, ranktwo singular plane, f=a³ or a²b, normal multiplicitythree, generic normal leading double+simple, all primitive degrees/irregular/nonsemisimple/resonant complements.",
+      "status": {
+        "proof": "proved_with_explicit_hypotheses",
+        "independent_review": "accepted_separate_authors_whole_geometry_original_equations_actual_inverses",
+        "certificates": "immutable_exact_whole_source_certificates_and_independent_receipts",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "dependencies": {
+        "claims": [
+          "G_PLANE_NONREDUCED_M3_CONSTANT_DOUBLE_SIMPLE_ROOTS_ALL_NONDOMINANCE",
+          "G_PLANE_NONREDUCED_M3_MOVING_DOUBLE_ROOT_ALL_NONDOMINANCE"
+        ],
+        "external": []
+      },
+      "proof_sources": [
+        {
+          "path": "research/classification/PLANE_NONREDUCED_M3_MOVING_SIMPLE_SEPARATE_REVIEW.md"
+        },
+        {
+          "path": "research/classification/NONREDUCED_M3_CONSTANT_SEPARATE_REVIEW.md"
+        },
+        {
+          "path": "research/classification/PLANE_NONREDUCED_M3_MOVING_DOUBLE_SEPARATE_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_PLANE_NONREDUCED_M3_MOVING_SIMPLE_SEPARATE_REVIEW_20261108.json",
+        "research/classification/inputs/plane_nonreduced_m3_moving_simple_separate_review_manifest_20261108.json"
+      ],
+      "limitations_ja": [
+        "二module壁の全E帰属は未解決で、全空とはしない。",
+        "generic triple自由offdiagonalの旧plus符号coverageは別erratumで撤回。generic21はparallel leadingから一意のoffdiagと元P0を全検証し、影響しない。"
+      ]
+    }
+  ],
+  "final_corrected_triple_receipt_not_yet_required_to_be_in_catalogue": {
+    "note": "research/classification/PLANE_NONREDUCED_M3_TRIPLE_CORRECTED_G_SEPARATE_REVIEW.md",
+    "sha256": "49ab6835d5f9003b70c63b35937e141d2e8c7f7c3b000de889f36552d526a4ae",
+    "all_three_exact_phases_read": true,
+    "final_documentary_gate_closed": true
+  },
+  "historical_inventory_scope": "EXCEPTIONAL_BASE52 rows are used for original40/knownfive only, never asserted to enumerate126. New whole-source dimension or primitivebeta bounds exclude later candidates."
+}

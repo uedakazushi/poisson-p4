@@ -7,14 +7,16 @@
 
 最初のCloud開始SHAは `4c3f623fb698f9adc6077015b25e2325b11072af`、
 11月7日の数学baselineは `a00a541b835b2bff18bafcba545ecbd4bae7175b`。
-11月8日の継続区間開始SHAは `136a2a3ccb459da913b5db2e274bb5389830b9a6`、GitHub mainも同SHAで確認した。
-復旧区間の開始SHAは `8b46f29ddbb9f539abc7a026e492ee25bf8ad699`、直近公開保存は
-`136a2a3ccb459da913b5db2e274bb5389830b9a6`（126成分/991主張/244頁）。
+11月8日の直前継続区間開始SHAは `136a2a3ccb459da913b5db2e274bb5389830b9a6`。
+今回の継続区間開始SHAは `dab368089679508ae5c9016d66ba6accfe6d8fa9`、GitHub mainとの一致も確認した。
+復旧区間の開始SHAは `8b46f29ddbb9f539abc7a026e492ee25bf8ad699`、直前の公開保存は
+`dab368089679508ae5c9016d66ba6accfe6d8fa9`（126成分/1002主張/256頁）。
 旧8b46は124成分/967主張/225頁、旧57f主稿は234頁。直前136aの126/991保存単位は244頁。今回126/1002主稿は256頁。Cloud中断後に初期snapshotへ戻ったworkspaceを
 fetch/ff-onlyでここまで復旧した。復旧時の8b46/PDF hashはCLOUD_RECOVERYに保持し、直前136aの244頁PDF hashは
 `1df0210441101fbd577fc6278cbaff21ff800c36a7ccb9aa3b4fcda7096fe9fa`。
 
-現行256頁PDF SHAは `5e95c800fb86f37f0cd95b6be1067e4a97bdd7f5d15f2a8058a5f91962528112`。
+直前256頁PDF SHAは `5e95c800fb86f37f0cd95b6be1067e4a97bdd7f5d15f2a8058a5f91962528112`。
+現行288頁PDF SHAは `a6482f56471bd0e75ae35a01a234a81d00ef30b7949d372cca910415da65e5ba`、TeX SHAは `9155f735d319067d99650d84159979e2572d3b939013b4f184b59d16ab6d6905`。
 公開保存の実SHAはGit HEAD/origin/mainで確認する。
 
 非公開部分の旧report実測・旧hashを捏造して復旧しない。手証明/入力/sourceは旧hash一致のものだけexact復元と呼ぶ。
@@ -25,27 +27,35 @@ fetch/ff-onlyでここまで復旧した。復旧時の8b46/PDF hashはCLOUD_REC
 
 ## 現行数学
 
-nonredR/m三21 constant roots全G像24以下、R3L/m二SF02全空、nonredR/m二moving double全P0空、
-triangle/m二double全G像23以下、全非concurrent reducedR/m三全G像23以下まで独立受理した。
-concurrent/m二double全17pencilsも別作者確認で受理、全reducedR/m二Gを完了。nonredR/m三moving21はproducer閉鎖・別review中。
-Eでは二quadric plane七配置全点を独立実衝突等で既知成分へ被覆し、cusp tangent/secantの三親陰性も独立確認。
-全G/Eは未完で、次の源はCURRENT/PLANの明示残余を使う。
+下界126（rank四120、rank二6）、主張1020。**一般β Gは完了**、全E・総上界・分類主定理は未証明。
+直前公開主稿は1002cut/256頁。現行保存単位は1020cut/288頁、G完了とK4a完全有限切片まで統合済み。
 
-下界は126（rank四120、rank二6）、主張1002。E6smoothflex/A5hyperflexの全二法線mprimary支持から二新23全成分を独立受理した。
-全rank零、rank二degree四五六・quadric、plane m四全RをGから排除済み。
-全essential三変数既約quinticは八23成分、μ六十/μ五五markedquartic新成分も個別ambient/相違まで受理済み。
-新たにm二SF/reducedR全点をMPS40へ、degree五canonicalindex二全node像24以下/cusp空、
-scroll全RにC0必要/canonical q2root空まで別作者確認した。
-E6/A5/Ga9linear-wのdense23orbitは全globalT39/T40外、全sourcezero境界は保持。
-T37固定B曲線の全finite wall閉包/LQ²は指定uniform入口だけを排除し、全T37親は排除しない。
+Gは最終 `classification/GLOBAL_GENERIC_G_EXHAUSTION_CLOSURE_AUDIT.md` と93入力manifestまで独立受理し、完了した。
+全actualDの因子分割、非正規導手曲面rank零/二・全degree1–6、plane全m/R/normalroot/全higherを尽くす。
+exactC0 bridgeの未知優越成分25–27は既知閉和、global像24以下又はproperβ像に入れず、残余B=0。
+一般係数体の全fiberは既知五点。新一様分母/単位ideal展開を実行したとはしない。
+旧plus符号90wholecoverageは撤回のまま。correctedminus新90・valid14joint逆・18modules/34walls・newfixed原ideal因子を三phase独立受理。
+二E1DX壁はconsistentW6/像23以下で、target実在とEは未知。全concurrent m三も全K0まで独立完了。
+解決済みGを欠陥なく再開せず、全E/成分帰属と主稿へ作業を進める。
 
-全G/E・上界は未証明。smoothcubicScroll A25全二型も像24以下へ完了、coneも全27source/五module/十九壁の独立確認で全G非優越が完了、残るGはrank二plane m二三の残型だけ。
-m三nonredR/SFは十九有限化の十六空＋cdep像24以下＋残Ore四moduleの独立確認を受理、全G像24以下が完了。
-Eはstable二源、Ga9未知親、short r2/3、1+1+3/1+2+2の明示残源等。
-R3L/m二SF00の全first-symbol必要還元は別作者受理済み。constantdouble全八firstsymbolsも独立受理し、
-fullhigher旧producerのNIL0 a-factor誤推論を別erratumで撤回、NEW V2で全P2九へ訂正した。
-線形演算では六sem空、二nil未閉。全P2九を保つ新Ore純証明で二nilを全essential三へ認識する候補が独立確認中。
-この次区間のproducer proofを主稿1002又は全G完了へ混ぜない。
+EではH+二相異既約quadricのplane全七配置を全磁気で既知成分へ被覆済み。
+1+1+3の全非plane支持も、全11nil表とj21(h,x)/j21(0,h+x)/p0の三actualcurve及び全n6零補集合から、
+全MPS40又は旧同22成分へ被覆した。型の残Eは正確にplane三配置全六磁気源だけ。
+他の残Eは1+2+2 nonplane/lambda零、stable二源、Ga9linear-w未知親、shortnil r2/3等。
+全essential三変数既約quinticの八23成分被覆、現126成分の全ambient成分性/相違は独立受理済み。
+新候補があれば126を答えに固定せず監査する。
+
+K22 whole一軌道は既nil22long23 denseorbitへ全十actual括弧/全逆で同定し、全E所属も完了。
+K4aは同じD101/G48からnormalizedC*全IFTgraphを次数5へ強制し、元350の全次数10零を別Fractionで確認。
+真の102切片と48実作用のétale積でsmooth unique24、整数actual曲線の全非零parameterは同一dense24軌道。
+全K4a23軌道はこの24成分境界へ。既知親名/相違は未認識、新加算零。入口 `K4A_COMPLETE_TORUS_SLICE_SEPARATE_REVIEW.md`。
+
+1020cut後のE資料は各自独立receipt付きで保存中：K4a実24親は全order二零点operatorでT36/T38を排除、T37又は別24が残る。
+二E1DX弱壁は全W6を実unipotent逆で各一23軌道へ縮約するpure証明があり、親の認識は未了。
+shortnil r2/3はmarkedSS2+c closureの新障害と、一回のSS12 spectralframe endpoint不整合を保存。
+これらを1020台帳/PDFの追加定理として黙って数えず、次のroot読解・採録を待つ。
+全G-bound sourceの全点E inventoryも並行監査中で、上記数源だけで全Eを尽くしたとはしない。
+
 全詳細と次の依存入口は `classification/CURRENT.md`、`classification/PLAN.json`、`NEXT_TASKS.md`。
 
 ## 環境と実行

@@ -1,0 +1,127 @@
+{
+  "scope": "One bounded exact existence attempt in a single rank4SS12 spectral companion frame; full9source and allseven nonlinear Poisson relations retained. Laurent truncation is a SUFFICIENT construction ansatz, NOT a proof excluding arbitrary whole formal/rational SS12 curves if it fails.",
+  "modular_companion": "y*d_x+z*d_y+(-4*epsilon^3*x+4*epsilon^2*y-epsilon*z)*d_z+(1+epsilon*w)*d_w",
+  "spectral_eigenvalues": [
+    "-2*epsilon",
+    "-epsilon",
+    "epsilon",
+    "2*epsilon"
+  ],
+  "spectral_frame": [
+    "h",
+    "z-epsilon*y-2*epsilon^2*x",
+    "z-4*epsilon^2*x",
+    "h+epsilon*w",
+    "z+3*epsilon*y+2*epsilon^2*x"
+  ],
+  "spectral_frame_determinant": "12*epsilon^4",
+  "spectral_frame_inverse": [
+    "h",
+    "(3*X+W-4*Y)/(12*epsilon^2)",
+    "(-3*X+2*Y+W)/(6*epsilon)",
+    "(3*X-Y+W)/3",
+    "(Z-h)/epsilon"
+  ],
+  "one_parameter_weights": [
+    0,
+    2,
+    1,
+    0,
+    1
+  ],
+  "constant_frame_M": [
+    [
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      -2,
+      -1,
+      1,
+      0
+    ],
+    [
+      0,
+      -4,
+      0,
+      1,
+      0
+    ],
+    [
+      1,
+      0,
+      0,
+      0,
+      1
+    ],
+    [
+      0,
+      2,
+      3,
+      1,
+      0
+    ]
+  ],
+  "constant_inverse_M": [
+    [
+      "1",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "0",
+      "1/4",
+      "-1/3",
+      "0",
+      "1/12"
+    ],
+    [
+      "0",
+      "-1/2",
+      "1/3",
+      "0",
+      "1/6"
+    ],
+    [
+      "0",
+      "1",
+      "-1/3",
+      "0",
+      "1/3"
+    ],
+    [
+      "-1",
+      "0",
+      "0",
+      "1",
+      "0"
+    ]
+  ],
+  "source9": "Immutable complete90 source report full_semisimple_sources[11], eigen(-2,-1,1,2), n0..n8. NOT entire linear space Poisson.",
+  "true_seven_source_relations": [
+    "n4*(n7+n8-1)",
+    "n2*n4",
+    "n1*n4-n3*(n7+n8)",
+    "n0*(n7-1)",
+    "n6*(n5-n8)",
+    "n2*(2*n5-1)",
+    "n0*n6+n1*(1-n5)-n2*n3"
+  ],
+  "polebudget_proof": [
+    "Frame=M*diag(1,e^2,e,1,e), both keep h coordinate. All hCasimir quadratic monomial tensor weights delta lie[-3,3].",
+    "epsilon*inverseframe_pullback basis min exponent -2,max4. Regular oldcurve forward normalized by epsilon^-1 has parent n poles at most4.",
+    "n tails of order>=3 cannot affect old negativepowers or endpoint. Range[-4,2] captures full linearendpoint information.",
+    "Actual curves may require higher nonlinear tails. This ONE finite Laurent ansatz requires allseven relations IDENTICALLY at all exponents, not only jets; failed ansatz cannot exclude allformalcurves."
+  ],
+  "target": "Full canonical Eq15 with t=d=1; no affineconstant omitted.",
+  "whole_source_bridge": "Any genuine covered parent curve through this point covers entire t*dunit orbit via existing actualdiagonal/scalar inverse; d0 follows original irreducible sixparameter polynomialsource closure. Generic parent membership hypotheses to be checked from actualPf, not inferred from field only.",
+  "finite_solver": "Exact QQ endpoint/negativepower RREF, then only linear equations or explicitly factorized linearproduct support, at most32 branches; canonical freezero as an existence choice. Unsupported irreducible nonlinear residual ->STOP. No GB, no profile/jet extension.",
+  "verification_python": "from fractions import Fraction as F\nfrom pathlib import Path\nfrom itertools import combinations\nimport sys,json,hashlib,time,resource,signal\nimport sympy as S\nsys.path.insert(0,'code')\nimport classification_plane_m4_special_review as H\n\nROOT=Path.cwd()\nIP='research/classification/inputs/nil31_short_rank_four_spectral_curve_20261108.json'\nJP='research/classification/jobs/nil31_short_rank_four_spectral_curve.json'\nOP='reports/CLASSIFICATION_NIL31_SHORT_RANK_FOUR_SPECTRAL_CURVE_20261108.json'\nstart=time.monotonic()\npacket=json.loads(Path(IP).read_text()); job=json.loads(Path(JP).read_text())\nfor b in job['exact_inputs_and_hashes']:\n    assert hashlib.sha256(Path(b['path']).read_bytes()).hexdigest()==b['sha256'],b['path']\nassert not Path(OP).exists()\nresource.setrlimit(resource.RLIMIT_AS,(1536*1024**2,)*2)\nresource.setrlimit(resource.RLIMIT_CPU,(75,76))\ndef timeout(*unused):raise TimeoutError('single bounded spectral-frame job exhausted')\nsignal.signal(signal.SIGALRM,timeout);signal.alarm(65)\neps=S.Symbol('epsilon'); ns=S.symbols('n0:9')\nout={'task_id':'E_multiple_hyperplane','scope':packet['scope'],\n     'producer_bytes':packet['verification_python'],\n     'producer_sha256':hashlib.sha256(packet['verification_python'].encode()).hexdigest(),\n     'inputs':job['exact_inputs_and_hashes'],'job_sha256':hashlib.sha256(Path(JP).read_bytes()).hexdigest(),\n     'source_parameter_bounds':[-4,2],'status':'RUNNING'}\ndef write():\n    out['seconds']=time.monotonic()-start\n    out['max_rss_kib']=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss\n    Path(OP).write_text(json.dumps(out,ensure_ascii=False,indent=2)+'\\n')\ndef enc(P):return [[list(e),str(c)] for e,c in sorted(P.items())]\ndef Psource(n):\n    return H.skew({(1,2):H.a(n[5]+n[7]-1,1,2),\n      (1,3):H.add(H.a(n[0],0,2),H.a(-n[5]+n[8]+1,1,3)),\n      (1,4):H.add(H.a(n[1],0,0),H.a(n[2],2,3),H.a(2-n[7]-n[8],1,4)),\n      (2,3):H.add(H.a(n[3],0,0),H.a(n[4],1,4),H.a(n[5],2,3)),\n      (2,4):H.add(H.a(n[6],0,3),H.a(n[7],2,4)),(3,4):H.a(n[8],3,4)})\n\ntry:\n    M=[[F(v) for v in row] for row in packet['constant_frame_M']]\n    inv=[[F(v) for v in row] for row in packet['constant_inverse_M']]\n    assert [[sum(inv[i][k]*M[k][j] for k in range(5)) for j in range(5)] for i in range(5)]==[[F(i==j) for j in range(5)] for i in range(5)]\n    coord=[H.add(*(H.a(M[i][j],j) for j in range(5))) for i in range(5)]\n    def subst(poly):\n        ans={}\n        for e,c in poly.items():\n            p=H.a(c)\n            for i,n in enumerate(e):\n                for unused in range(n):p=H.mul(p,coord[i])\n            ans=H.add(ans,p)\n        return ans\n    def pull(P):\n        ans={ij:{} for ij in H.PAIRS}\n        for k,l in H.PAIRS:\n            poly=subst(P.get((k,l),{}))\n            for i,j in H.PAIRS:\n                ans[i,j]=H.add(ans[i,j],H.scale(poly,inv[i][k]*inv[j][l]-inv[i][l]*inv[j][k]))\n        return H.skew(ans)\n    base=Psource([F(0)]*9)\n    source=[H.plus(Psource([F(k==i) for k in range(9)]),H.skew({ij:H.scale(base.get(ij,{}),-1) for ij in H.PAIRS})) for i in range(9)]\n    tensors=list(map(pull,[base]+source));weights=packet['one_parameter_weights']\n    assert all(not P.get((0,j),{}) for P in tensors for j in range(1,5))\n    def exponent(ij,e):return 1+sum(w*n for w,n in zip(weights,e))-sum(weights[i] for i in ij)\n    assert all(-2<=exponent(ij,e)<=4 for P in tensors for ij in H.PAIRS for e in P.get(ij,{}))\n    target=H.skew({(1,2):H.add(H.a(1,0,3),H.a(-1,0,2),H.a(2,3,4),H.a(F(-1,3),2,2)),\n      (1,3):H.add(H.a(1,0,3),H.a(F(-2,3),2,3)),\n      (1,4):H.add(H.a(1,0,0),H.a(F(1,3),2,4)),\n      (2,3):H.a(F(-2,3),3,3),(2,4):H.add(H.a(F(1,3),0,2),H.a(F(1,3),3,4)),(3,4):H.a(F(2,3),0,3)})\n    assert not any(H.jac(target).values())\n    columns=[(i,k) for i in range(9) for k in range(-4,3)]\n    terms={}\n    def row(key):\n        if key not in terms:terms[key]=[F(0)]*(len(columns)+1)\n        return terms[key]\n    for ij in H.PAIRS:\n        for e,c in tensors[0].get(ij,{}).items():\n            d=exponent(ij,e)\n            if d<=0:row((ij,e,d))[-1]-=c\n        for j,(i,k) in enumerate(columns):\n            for e,c in tensors[i+1].get(ij,{}).items():\n                d=k+exponent(ij,e)\n                if d<=0:row((ij,e,d))[j]+=c\n        for e,c in target.get(ij,{}).items():row((ij,e,0))[-1]+=c\n    terms={k:v for k,v in terms.items() if any(v)}\n    keys=sorted(terms); A=[terms[k] for k in keys]\n    rr,piv,unused=H.rref(A)\n    out['constant_frame_source_basis']=[[[list(ij),enc(P.get(ij,{}))] for ij in H.PAIRS] for P in tensors]\n    out['linear_endpoint']={'columns':columns,'rows':[[list(ij),list(e),d] for ij,e,d in keys],\n       'matrix_and_rhs':[[str(c) for c in r] for r in A],\n       'rref':[[str(c) for c in r] for r in rr],'pivot_columns':piv}\n    if len(columns) in piv:\n        out['status']='LINEAR_ENDPOINT_INCONSISTENT_FOR_WHOLE_DECLARED_LAURENT_WINDOW'\n        write();print(json.dumps({'status':out['status'],'seconds':out['seconds']}));sys.exit(0)\n    free=[i for i in range(len(columns)) if i not in piv]\n    us=S.symbols('u0:'+str(len(free))); vec=[S.Integer(0)]*len(columns)\n    for i,u in zip(free,us):vec[i]=u\n    for r,p in zip(rr,piv):vec[p]=S.Rational(r[-1].numerator,r[-1].denominator)-sum(S.Rational(r[i].numerator,r[i].denominator)*vec[i] for i in free)\n    expressions=[S.expand(sum(vec[j]*eps**k for j,(ii,k) in enumerate(columns) if ii==i)) for i in range(9)]\n    out['linear_endpoint'].update({'free_count':len(free),'free_symbols':list(map(str,us)),'all_n_laurent_expressions':list(map(str,expressions))})\n    def g(n):\n        n0,n1,n2,n3,n4,n5,n6,n7,n8=n\n        return [n4*(n7+n8-1),n2*n4,n1*n4-n3*(n7+n8),n0*(n7-1),n6*(n5-n8),n2*(2*n5-1),n0*n6+n1*(1-n5)-n2*n3]\n    eqs=[]\n    for value in g(expressions):\n        eqs.extend(S.Poly(S.expand(value*eps**8),eps).all_coeffs())\n    eqs=list(dict.fromkeys(S.expand(v) for v in eqs if v!=0))\n    out['full_seven_Jacobi_relations_after_endpoint']=[str(p) for p in eqs]\n    branches=0;unsupported=[]\n    def search(polys,variables,sub):\n        global branches\n        branches+=1\n        if branches>32:return None\n        polys=list(dict.fromkeys(S.expand(p.subs(sub)) for p in polys if S.expand(p.subs(sub))!=0))\n        for p in polys:\n            if not p.free_symbols:return None\n        if not polys:return {**sub,**{v:S.Integer(0) for v in variables if v not in sub}}\n        # A canonical rational choice is only a construction attempt, never support inference.\n        zero={v:S.Integer(0) for v in variables if v not in sub}\n        if all(S.expand(p.subs(zero))==0 for p in polys):return {**sub,**zero}\n        linear=[p for p in polys if S.Poly(p,*variables).total_degree()==1]\n        if linear:\n            sol=S.linsolve(linear,variables)\n            if sol is S.EmptySet or not sol:return None\n            values=next(iter(sol));more={v:S.expand(q) for v,q in zip(variables,values) if v!=q}\n            if not more:return None\n            remaining=[v for v in variables if v not in more]\n            current={k:S.expand(v.subs(more,simultaneous=True)) for k,v in sub.items()}\n            current.update(more)\n            return search([S.expand(p.subs(more,simultaneous=True)) for p in polys],remaining,current)\n        choices=[]\n        for p in polys:\n            fac=S.factor_list(p,*variables)[1]\n            if fac and all(S.Poly(q,*variables).total_degree()==1 for q,m in fac):choices.append([q for q,m in fac])\n        if not choices:\n            unsupported.append([str(p) for p in polys]);return None\n        for q in min(choices,key=len):\n            got=search(polys+[q],variables,sub.copy())\n            if got is not None:return got\n        return None\n    solution=search(eqs,list(us),{})\n    out['finite_support_search']={'linear_or_linear_factor_only':True,'branch_budget':32,'branches_visited':branches,'unsupported_irreducible_residuals':unsupported}\n    if solution is None:\n        out['status']='NO_ACTUAL_CURVE_FOUND_BOUNDED_LINEAR_FACTOR_ROUTE_STOP'\n        write();print(json.dumps({'status':out['status'],'linear_free_count':len(free),'seconds':out['seconds']}));sys.exit(0)\n    def close(v):\n        for unused in range(len(solution)+2):\n            v=S.expand(v.subs(solution,simultaneous=True))\n        return v\n    chosen=[close(p) for p in expressions]\n    assert all(not p.free_symbols-{eps} for p in chosen)\n    assert all(S.expand(v)==0 for v in g(chosen))\n    out['explicit_n_laurent']=list(map(str,chosen))\n    out['all_true_seven_relations_zero']=True\n    out['rational_free_parameter_choice']={str(k):str(close(v)) for k,v in solution.items()}\n    # Literal sixvariable Laurent sparse arithmetic, coefficients QQ, independent of SymPy identities.\n    zero=(0,)*6\n    def add(*polys):\n        ans={}\n        for p in polys:\n            for e,c in p.items():ans[e]=ans.get(e,F(0))+c\n        return {e:c for e,c in ans.items() if c}\n    def scale(p,c):return {e:v*c for e,v in p.items() if v*c}\n    def mul(p,q):\n        ans={}\n        for e,c in p.items():\n            for f,d in q.items():\n                k=tuple(a+b for a,b in zip(e,f));ans[k]=ans.get(k,F(0))+c*d\n        return {e:c for e,c in ans.items() if c}\n    def der(p,i):\n        ans={}\n        for e,c in p.items():\n            if e[i]:\n                f=list(e);f[i]-=1;ans[tuple(f)]=c*e[i]\n        return ans\n    def var(i):\n        e=list(zero);e[i]=1;return {tuple(e):F(1)}\n    laurent=[]\n    for p in chosen:\n        p=S.Poly(S.expand(p*eps**4),eps)\n        laurent.append({int(k[0])-4:F(int(v.p),int(v.q)) for k,v in p.terms()})\n    raw={ij:{} for ij in H.PAIRS}\n    for at,P in enumerate(tensors):\n        co={0:F(1)} if at==0 else laurent[at-1]\n        for ij in H.PAIRS:\n            pol={}\n            for e,c in P.get(ij,{}).items():\n                for k,v in co.items():pol=add(pol,{e+(k+exponent(ij,e),):c*v})\n            raw[ij]=add(raw[ij],pol)\n    P={**raw,**{(j,i):scale(p,-1) for (i,j),p in raw.items()}}\n    assert all(e[-1]>=0 for p in raw.values() for e in p)\n    endpoint={ij:{e[:5]:c for e,c in p.items() if e[-1]==0} for ij,p in raw.items()}\n    assert H.vector(H.skew(endpoint))==H.vector(target)\n    strict={ijk:add(*(mul(P.get((i,l),{}),der(P.get((j,k),{}),l)) for i,j,k in (ijk,(ijk[1],ijk[2],ijk[0]),(ijk[2],ijk[0],ijk[1])) for l in range(5))) for ijk in H.TRIPLES}\n    projective={quad:add(*(scale(mul(var(quad[k]),strict[quad[:k]+quad[k+1:]]),(-1)**k) for k in range(4))) for quad in H.QUADS}\n    assert not any(strict.values()) and not any(projective.values())\n    pf=add(mul(P[1,2],P[3,4]),scale(mul(P[1,3],P[2,4]),-1),mul(P[1,4],P[2,3]))\n    assert pf\n    div={j:add(*(der(P.get((i,j),{}),i) for i in range(1,5))) for j in range(1,5)}\n    def mono(c,*indices):\n        e=[0]*6\n        for i in indices:e[i]+=1\n        return {tuple(e):F(c)}\n    expected={1:mono(1,2),2:mono(1,3),3:add(mono(-4,1,5,5,5),mono(4,2,5,5),mono(-1,3,5)),4:add(mono(1,0),mono(1,4,5))}\n    assert div==expected\n    sy=S.symbols('h x y z w epsilon')\n    def expr(p):return S.expand(sum(S.Rational(c.numerator,c.denominator)*S.prod(v**k for v,k in zip(sy,e)) for e,c in p.items()))\n    out.update({'status':'SUCCESS_LITERAL_ACTUAL_POLYNOMIAL_CURVE',\n      'literal_all_ten_homogeneous_pairs':[[list(ij),enc(raw[ij])] for ij in H.PAIRS],\n      'all_150_endpoint_coefficients_match':True,'all_negative_epsilon_poles_zero':True,\n      'all_ten_strict_homogeneous_Jacobi_zero':True,'all_350_projective_Jacobi_coefficients_zero':True,\n      'exact_modular_companion_identity':True,'affine_pfaffian':str(expr(pf)),\n      'homogeneous_actual_D':str(expr(mul(var(0),pf))),\n      'QQ_polynomial_factorization_only':str(S.factor(expr(mul(var(0),pf)))),\n      'generic_parent_membership':'Actual SS12 source allseven relations certified; precise knownclosedfamily application still requires independent geometric review of generic Pfaffian.'})\n    write();print(json.dumps({'status':out['status'],'linear_free_count':len(free),'seconds':out['seconds']}))\nexcept Exception as error:\n    out['status']='STOP_ERROR_OR_RESOURCE_LIMIT';out['error']=type(error).__name__+': '+str(error)\n    write();print(json.dumps({'status':out['status'],'error':out['error'],'seconds':out['seconds']}));raise\n",
+  "verification_python_sha256": "acf97ad63eb5a989089eec24460fc567e93e0f828f1df01f63b57533a498c0f6"
+}

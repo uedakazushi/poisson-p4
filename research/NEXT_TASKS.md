@@ -7,29 +7,25 @@
 .venv/bin/python scripts/classification.py next
 ```
 
-**個別成分の下界126、一般rank四120、rank二6。上界・一般五点・全分類は未証明。**
+**個別下界126（rank四120、rank二6）。一般βの既知五点尽くしGは証明完了。全E・総上界・全分類は未証明。**
 ユーザーの11月7日の再開指示により実作業を継続する。保存や旧移行用一時停止を終了条件にしない。
 G、E_multiple_hyperplane、E_reduced_nonnormalを並行し、意味のある進展は主原稿・引継ぎへ統合して通常main pushで保存する。
 
-## G：既約被約非正規quinticの残余を閉じる
+## G：一般βの尽くしを完了
 
-未知beta優越成分は射影次元25–27。normal及び可約/非被約actualDは既受理で未知一般元から除外済み。
-全rank零支持、rank二quadric/degree四五六、plane m四全Rも完了した。
-全degree五canonicalindex二はnonterminal/全marksを保持しnode像24以下・cusp空まで独立完了。
-m二SF/reducedRも全六rootflags/全higher係数を保持し全点MPS40へ被覆した。
-既に閉じた結果を欠陥無しに再開しない。全sourceと独立receiptはclassification/CURRENT.mdを使う。
+`GLOBAL_GENERIC_G_EXHAUSTION_CLOSURE_AUDIT.md` と93入力manifestを受理した。
+全actualD因子型、導手曲面のrank零/二・次数1–6、plane全m/R/root/wholehigherを全源定理で閉じた。
+未知W優越成分25–27は既知閉和・像24以下・properβ像と矛盾し、exactsplitterの残余B=0。
+一般fiberは既知五点そのもの。欠陥なく解決済み枝や旧GB/minor/jetを再開しない。
+二correctedtriple E1DX壁はG像23以下であり、全空/全Eと誤記しない。
 
-1. nonredR/m二SFの残00/01/02とconstantdoubleを閉じる。03/12/11、R3L SF02、movingdoubleは全空まで独立完了。
-   R3L SF00は四sem固定＋translation固定＋全(t,d非零)nil族への必要還元を別作者受理。higher全源は未閉。d一へのsliceを全源としない。
-2. reducedR/m二SFは全点MPS、normaldouble横断/接線/triangle全G像23以下まで独立完了。
-   concurrent17whole pencils/全84allowed complex壁も独立確認し、全reducedR m二Gを完了した。
-3. reducedR/m三非concurrentは全coversから九whole profilesを尽くし、七因子排除＋二像22/23以下まで別作者幾何/算術とも受理。
-   concurrentのsplit/C2/C3/S3/repeated全sourceを続ける。
-4. nonredR/m三SF全枝、generic21 constant roots00は独立G非優越完了。moving01/02/10 producerも全閉鎖、独立確認を終える。
-   generic tripleの全irregular/offdiagonal sourcesが残る。最弱constant-root/canonical transverse障害から先に必要源を減らし、盲目的な多数profile計算をしない。
-5. smoothscroll/coneを含む全非plane支持、全rank零、plane m四全RはG非優越完了。欠陥なく再開しない。
+次のprimaryは特殊βの全点E、未帰属源のactual parent又は新componenthoodと相違、同じ日本語主稿への統合。
 
 ## E：未帰属sourceの実変形又は新成分性
+
+K4a全23軌道は、C*が全IFTgraphを次数5へ強制する完全有限sliceから、実dense24軌道成分の境界と証明した。
+全350の全次数10零を別Fraction V2で確認。既知親名又はprior126との相違は未認識なので新加算零。
+この24親の認識を進め、既三plane1+1+3/stable二/Ga9linearw/shortnil等の全Eを続ける。
 
 H+2Q（Q既約）、五相異なるH、三相異なるH+既約Q、既約Q+既約C3の全支持は被覆済み。
 rank2の全支持も六成分とrank4閉包へ接続済み。これらを欠陥なく再分類しない。
@@ -51,7 +47,8 @@ short r=2/3も未帰属で、三次零を高次反復せず幾何又は実変形
 Hquartic型6には全marked quarticのMilnor/Tjurina/contactを用いる。
 D5cusptangent全源は旧A0、3A2cusptangent全源は旧DPMへ独立全source認識済み。μ六九新23成分は採録済み。E6smoothflex/A5hyperflexは全二法線mprimary支持と真48cutから二新23全成分へ独立採録。全六磁気境界とprior124/相互も確認。Ga9linear-wの未知親を続ける。μ五四新23成分も全source/prior/相互/ambient独立監査完了、採録済み。
 
-1+1+3には平面三配置と非平面nil源、1+2+2にはnonplane/lambda零のE残源がある。
+1+1+3全非planeは全11nil表/三actual曲線/n6零補集合を合わせ全MPS又は既22成分へ独立被覆完了。
+同型の残Eはplane三配置全六磁気だけ。1+2+2のnonplane/lambda零等は別残義務。
 plane全七配置の全点被覆を完了。chord全源T16/tan-simple全源T17を全磁気実曲線と全named親で独立確認した。
 全G次元上界だけではこれらを被覆したことにならない。既約非正規quinticの全点帰属も残る。
 

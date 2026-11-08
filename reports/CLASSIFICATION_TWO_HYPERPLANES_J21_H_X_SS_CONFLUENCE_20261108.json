@@ -1,0 +1,339 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "all_passed": true,
+  "new_component_count": 0,
+  "source_branch": "j21_h_x_irreducible",
+  "original_six_free_parameters": [
+    "n0",
+    "n5",
+    "n7",
+    "n8",
+    "n10",
+    "n12"
+  ],
+  "complete_original_binding": {
+    "n13": "0",
+    "n4": "1/2",
+    "n9": "0",
+    "n11": "n8",
+    "n3": "-2*n12",
+    "n6": "-n10*n12",
+    "n1": "n12*n8+2*n7",
+    "n2": "n12**2/2"
+  },
+  "all_original_remaining_Jacobi_zero": true,
+  "complete_original_full_source": {
+    "1,2": "v*x",
+    "1,3": "h*x",
+    "1,4": "x**2",
+    "2,3": "h**2*n0 + h*n12*n8*x + 2*h*n12*w + 2*h*n7*x - h*u + n12**2*x**2/2 - 2*n12*v*x + v**2/2",
+    "2,4": "h**2*n5 - h*n10*n12*x + h*n10*v + n12*w*x + n7*x**2 + n8*v*x - v*w",
+    "3,4": "h**2*n10 + h*n8*x - h*w + n12*x**2"
+  },
+  "complete_canonical_two_parameter_model": {
+    "1,2": "v*x",
+    "1,3": "h*x",
+    "1,4": "x**2",
+    "2,3": "-h*u + v**2/2",
+    "2,4": "amp*h**2 + kap*v*x - v*w",
+    "3,4": "h*kap*x - h*w"
+  },
+  "canonical_actual_cubic": "-amp*h**3 + x*(-h*u + v**2/2)",
+  "canonical_actual_quintic": "h*x*(-amp*h**3 + x*(-h*u + v**2/2))",
+  "actual_source_normalizer": [
+    [
+      "1",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "0",
+      "1",
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "-n0 - n10*n12",
+      "-n12*n8 - n7",
+      "1",
+      "0",
+      "-n12"
+    ],
+    [
+      "0",
+      "-n12",
+      "0",
+      "1",
+      "0"
+    ],
+    [
+      "-n10",
+      "-n8",
+      "0",
+      "0",
+      "1"
+    ]
+  ],
+  "actual_source_inverse_normalizer": [
+    [
+      "1",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "0",
+      "1",
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "n0 + 2*n10*n12",
+      "2*n12*n8 + n7",
+      "1",
+      "0",
+      "n12"
+    ],
+    [
+      "0",
+      "n12",
+      "0",
+      "1",
+      "0"
+    ],
+    [
+      "n10",
+      "n8",
+      "0",
+      "0",
+      "1"
+    ]
+  ],
+  "source_normalizer_determinant": "1",
+  "source_normalizer_has_no_parameter_denominator": true,
+  "whole_source_forward_and_inverse_all150_equalities": true,
+  "cofactor_preserved_exactly": true,
+  "amplitude_scaling": [
+    [
+      "1",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "0",
+      "1/amp",
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "0",
+      "0",
+      "1",
+      "0",
+      "0"
+    ],
+    [
+      "0",
+      "0",
+      "0",
+      "1",
+      "0"
+    ],
+    [
+      "0",
+      "0",
+      "0",
+      "0",
+      "1/amp"
+    ]
+  ],
+  "amplitude_scale_requires_only_amp_nonzero": true,
+  "kappa_nonzero_torus": [
+    [
+      "1",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "0",
+      "t**(-2)",
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "0",
+      "0",
+      "t**2",
+      "0",
+      "0"
+    ],
+    [
+      "0",
+      "0",
+      "0",
+      "t",
+      "0"
+    ],
+    [
+      "0",
+      "0",
+      "0",
+      "0",
+      "1/t"
+    ]
+  ],
+  "torus_tensor_scale": "1/t",
+  "kappa_zero_already_covered_directly": true,
+  "whole_parent_three_parameter_brackets": {
+    "1,2": "3*U*X",
+    "1,3": "V*X",
+    "1,4": "-W*X",
+    "2,3": "U*V*period",
+    "2,4": "-U*W*period - V**2*ampB",
+    "3,4": "H**2*ampA + V*W*period"
+  },
+  "parent_all10_Jacobi_zero": true,
+  "parent_actual_quintic": "H*X*(3*H**2*U*ampA + 3*U*V*W*period + V**3*ampB)",
+  "parent_SNC_specialization": {
+    "ampA": 0,
+    "ampB": 0,
+    "period": 1,
+    "actual_quintic": "3*H*X*U*V*W"
+  },
+  "whole_parent_component_bridge": "Irreducible actual A3 parent image is contained in an ambient component containing its SNC point. The full SNC-meeting component theorem identifies that component among MPS40, covering the entire parent.",
+  "actual_parent_parameter_binding": {
+    "period": "-3*ep*kap + 1",
+    "ampA": "(-3*ep*kap + 1)/(2*ep**3)",
+    "ampB": "-8*amp*ep**4"
+  },
+  "actual_coordinate_map": [
+    [
+      "1",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "0",
+      "1",
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "0",
+      "1/(3*ep)",
+      "0",
+      "0",
+      "1"
+    ],
+    [
+      "1/(2*ep**2)",
+      "0",
+      "1",
+      "1/(2*ep)",
+      "0"
+    ],
+    [
+      "-1/ep",
+      "0",
+      "0",
+      "1",
+      "0"
+    ]
+  ],
+  "actual_inverse_coordinate_map": [
+    [
+      "1",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "0",
+      "1",
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "-1/ep**2",
+      "0",
+      "0",
+      "1",
+      "-1/(2*ep)"
+    ],
+    [
+      "1/ep",
+      "0",
+      "0",
+      "0",
+      "1"
+    ],
+    [
+      "0",
+      "-1/(3*ep)",
+      "1",
+      "0",
+      "0"
+    ]
+  ],
+  "actual_coordinate_determinant": "1",
+  "tensor_scale": "ep",
+  "complete_pole_free_actual_curve": {
+    "1,2": "ep*u*x + v*x",
+    "1,3": "-ep*v*x + h*x",
+    "1,4": "3*ep*w*x + x**2",
+    "2,3": "-3*ep**2*kap*u*v + 3*ep*h*kap*u - 3*ep*kap*v**2/2 + ep*u*v - h*u + v**2/2",
+    "2,4": "4*amp*ep**4*u**2 + 4*amp*ep**3*u*v + 4*amp*ep**2*h*u + amp*ep**2*v**2 + 2*amp*ep*h*v + amp*h**2 + 3*ep**2*kap*u*w + ep*kap*u*x + 3*ep*kap*v*w - ep*u*w + kap*v*x - v*w",
+    "3,4": "-8*amp*ep**5*u**2 - 8*amp*ep**4*u*v - 8*amp*ep**3*h*u - 2*amp*ep**3*v**2 - 4*amp*ep**2*h*v - 2*amp*ep*h**2 - 3*ep**2*kap*v*w + 3*ep*h*kap*w - ep*kap*v*x + ep*v*w + h*kap*x - h*w"
+  },
+  "all_negative_epsilon_powers_cancelled": true,
+  "all350_original_projective_Jacobi_zero": true,
+  "full_epsilon_amp_kappa_strict10_Jacobi_zero": true,
+  "all150_endpoint_equals_complete_canonical_model": true,
+  "all150_inverse_endpoint_equals_original_whole_six_source": true,
+  "actual_full_curve_quintic": "-h*x*(16*amp*ep**6*u**3 + 24*amp*ep**5*u**2*v + 24*amp*ep**4*h*u**2 + 12*amp*ep**4*u*v**2 + 24*amp*ep**3*h*u*v + 2*amp*ep**3*v**3 + 12*amp*ep**2*h**2*u + 6*amp*ep**2*h*v**2 + 6*amp*ep*h**2*v + 2*amp*h**3 + 18*ep**3*kap*u*v*w - 18*ep**2*h*kap*u*w + 6*ep**2*kap*u*v*x + 9*ep**2*kap*v**2*w - 6*ep**2*u*v*w - 6*ep*h*kap*u*x + 6*ep*h*u*w + 3*ep*kap*v**2*x - 2*ep*u*v*x - 3*ep*v**2*w + 2*h*u*x - v**2*x)/2",
+  "full_actual_Pfaffian_matches_parent_pullback": true,
+  "complete_endpoint": {
+    "1,2": "v*x",
+    "1,3": "h*x",
+    "1,4": "x**2",
+    "2,3": "-h*u + v**2/2",
+    "2,4": "amp*h**2 + kap*v*x - v*w",
+    "3,4": "h*kap*x - h*w"
+  },
+  "amp_kappa_never_inverted_by_actual_curve": true,
+  "whole_source_coverage": "All original six-source parameters, including every zero magnetic/modulus coefficient, are directly endpoints of genuine MPS-covered parent points after the invertible full-source normalizer. The entire PGL saturation closure is therefore covered; no orbit-dimension or local-uniqueness inference is needed.",
+  "complements": [
+    "amp0 lies outside the irreducible-cubic locus, but the same actual curve retains it",
+    "j21(h+x,h) p0, j21(0,h+x), plane residuals and other nilpotent sources remain separate"
+  ],
+  "no_new_anchor_or_normal_jet": true,
+  "independent_review_required": true,
+  "input_sha256": {
+    "code/classification_two_hyperplanes_cubic_nilpotent.py": "0bb2c3621c12316a93fa694443cb2270d341dbdf00b4da071c15b6e0ce8debc3",
+    "code/s61_model.py": "347fd285c5342d6e6444bf6d049a49342650a22b29857f87bbd5f4b689400fc1",
+    "reports/CLASSIFICATION_TWO_HYPERPLANES_CUBIC_NILPOTENT_20261107.json": "29c7ce1c56096c951230cb79fde8e3b487456bb718285ff23d89bd0f010bf661",
+    "code/data/classification_two_hyperplanes_cubic_nilpotent_sources.json": "40a4cd4a96bc57df4cc1f75375f29d96be35beef637c7c169027d39498507c74",
+    "research/classification/TWO_HYPERPLANES_J21_H_X_SS_CONFLUENCE.md": "43ca3f439def05ef76456df7f77646e09ea21ede1a2bf814ce8fb360d6fa458e",
+    "research/classification/TWO_HYPERPLANES_CUBIC_SUPPORT.md": "9d73aca811377586ef04a99d37e8895190507866ac50e168cd212f506f2218ea",
+    "research/classification/PLANE_CUBIC_TORIC_COLLISION_REVIEW.md": "ddd3a894cc448de63c4f60ff30177e426b5ee16c886a5efd37cfb5ff4a41d5ac",
+    "research/classification/inputs/two_hyperplanes_pre_j21_hx_ss_source_contracts_20261108.json": "73772bc045c673e43566f8d31972c9e4fdcda3548c7f154cbf548b3a9e61fe9a"
+  },
+  "producer_source": "#!/usr/bin/env python3\n\"\"\"Complete quadratic W sources for the eleven nilpotent cofactor normal forms.\"\"\"\nimport argparse\nimport hashlib\nimport itertools\nimport json\nimport resource\nimport time\nfrom pathlib import Path\n\nimport sympy as s\n\nROOT = Path(__file__).resolve().parents[1]\n\n\ndef main(output):\n    resource.setrlimit(resource.RLIMIT_CPU, (55, 56))\n    resource.setrlimit(resource.RLIMIT_AS, (1536 * 1024**2,) * 2)\n    start = time.monotonic()\n    h, x, u, v, w = xx = s.symbols('h x u v w')\n    mons = [xx[i] * xx[j] for i, j in itertools.combinations_with_replacement(range(5), 2)]\n    unknowns = s.symbols('a0:45')\n    forms = [('j3_zero', (v, w, 0)), ('j3_h', (v, w, h)),\n             ('j3_hx', (v, w, h + x))]\n    for name, L, M in [('zero', 0, 0), ('0_h', 0, h), ('0_hx', 0, h+x),\n                       ('h_0', h, 0), ('hx_0', h+x, 0),\n                       ('h_x', h, x), ('hx_h', h+x, h)]:\n        forms.append(('j21_' + name, (v, L, M)))\n    forms.append(('j111_rank2', (x, h, 0)))\n    records = []\n    for name, V in forms:\n        P = s.zeros(5)\n        for i, value in enumerate(V, 2):\n            P[1, i] = x * value\n        for k, (i, j) in enumerate([(2, 3), (2, 4), (3, 4)]):\n            P[i, j] = sum(a*m for a, m in zip(unknowns[15*k:15*(k+1)], mons))\n        for i, j in itertools.combinations(range(5), 2):\n            P[j, i] = -P[i, j]\n\n        def jac(i, j, k, matrix):\n            return s.expand(sum(matrix[i, l]*s.diff(matrix[j, k], xx[l]) +\n                                matrix[j, l]*s.diff(matrix[k, i], xx[l]) +\n                                matrix[k, l]*s.diff(matrix[i, j], xx[l]) for l in range(5)))\n\n        linear = []\n        for i, j in itertools.combinations(range(2, 5), 2):\n            linear += s.Poly(jac(1, i, j, P), *xx).coeffs()\n        matrix, rhs = s.linear_eq_to_matrix(linear, unknowns)\n        aug, pivots = matrix.row_join(rhs).rref()\n        if 45 in pivots:\n            records.append(dict(case=name, V=[str(f) for f in V], inconsistent=True))\n            print(json.dumps(dict(case=name, inconsistent=True)), flush=True)\n            continue\n        free = [j for j in range(45) if j not in pivots]\n        params = s.symbols('n0:' + str(len(free)))\n        solution = {unknowns[j]: z for j, z in zip(free, params)}\n        for i, pivot in enumerate(pivots):\n            solution[unknowns[pivot]] = aug[i, 45] - sum(aug[i, j]*solution[unknowns[j]] for j in free)\n        Q = P.subs(solution, simultaneous=True).applyfunc(s.expand)\n        assert all(jac(1, i, j, Q) == 0 for i, j in itertools.combinations(range(2, 5), 2))\n        residual = jac(2, 3, 4, Q)\n        equations = list(dict.fromkeys(str(s.factor(f)) for f in s.Poly(residual, *xx).coeffs() if f))\n        F = s.expand(V[0]*Q[3, 4]-V[1]*Q[2, 4]+V[2]*Q[2, 3])\n        assert s.expand(sum(V[i]*s.diff(F, xx[i+2]) for i in range(3))) == 0\n        records.append(dict(case=name, V=[str(f) for f in V], inconsistent=False,\n            linear_matrix_shape=list(matrix.shape), linear_rank=len(pivots),\n            free_parameters=list(map(str, params)), dimension=len(free),\n            original_unknown_monomials=[str(m) for m in mons], free_columns=free,\n            linear_rref=[[str(f) for f in aug.row(i)] for i in range(len(pivots))],\n            brackets={','.join(map(str, ij)): str(Q[ij]) for ij in itertools.combinations(range(1,5),2)},\n            actual_cubic=str(s.factor(F)), remaining_full_Jacobi=str(residual),\n            remaining_coefficient_equations=equations))\n        print(json.dumps(dict(case=name, dimension=len(free), equations=len(equations), F=str(s.factor(F)))), flush=True)\n    source = Path(__file__).read_text()\n    result = dict(task_id='E_reduced_nonnormal', cases=records,\n        all_45_vertical_coefficients_retained=True,\n        all_four_affine_Jacobi_equations_retained=True,\n        normal_form_exhaustion_requires_the_written_centralizer_argument=True,\n        irreducibility_and_MPS_membership_not_inferred_from_this_linear_calculation=True,\n        seconds=time.monotonic()-start, producer_source=source,\n        input_sha256={'code/classification_two_hyperplanes_cubic_nilpotent.py': hashlib.sha256(source.encode()).hexdigest()})\n    with output.open('x') as handle:\n        json.dump(result, handle, indent=2)\n        handle.write('\\n')\n\n\ndef components(input_path, output):\n    \"\"\"Use the existing full-ambient runner on analytically solved full sources.\"\"\"\n    from classification_modular_source_components import branch\n    data = json.loads(input_path.read_text())\n    source_path = ROOT / data['source_report']\n    source = json.loads(source_path.read_text())\n    adapted = {'cases': []}\n    h, x, u, v, w = s.symbols('h x u v w')\n    yy = s.symbols('x1:5')\n    for case in source['cases']:\n        if case.get('inconsistent'):\n            adapted['cases'].append({})\n            continue\n        entries = [s.sympify(case['brackets'][key]).subs({h: 1, x: yy[0], u: yy[1], v: yy[2], w: yy[3]}, simultaneous=True)\n                   for key in ['1,2', '1,3', '1,4', '2,3', '2,4', '3,4']]\n        adapted['cases'].append(dict(full_free_parameter_count=case['dimension'],\n            full_six_brackets=list(map(str, entries)),\n            all_distinct_jacobi_coefficients=case['remaining_coefficient_equations']))\n    results = [branch(adapted, spec) for spec in data['branches']]\n    result = dict(status='PASS', task_id='E_reduced_nonnormal', branches=results,\n                  source_report_sha256=hashlib.sha256(source_path.read_bytes()).hexdigest(),\n                  component_input=data, producer_source=Path(__file__).read_text(),\n                  full_source_exhaustion_requires_written_proof=True)\n    with output.open('x') as handle:\n        json.dump(result, handle, indent=2, default=int)\n        handle.write('\\n')\n    print(json.dumps([dict(name=r['name'], ranks=r['matrix_ranks_mod_prime'],\n                         upper=r['projective_tangent_dimension_upper'],\n                         lower=r['projective_family_dimension_lower']) for r in results]))\n\n\ndef normal_quadrics(report_path, case_index, output, record_override=None):\n    \"\"\"One finite genuine quadratic obstruction, with all actual source directions.\"\"\"\n    from sympy.polys.matrices import DomainMatrix\n    from classification_rank3_mixed_component_review import COLUMNS, jacobi, sparse, vector\n    start = time.monotonic()\n    resource.setrlimit(resource.RLIMIT_CPU, (55, 56))\n    resource.setrlimit(resource.RLIMIT_AS, (1536*1024**2,)*2)\n    record = record_override if record_override is not None else json.loads(report_path.read_text())['branches'][case_index]\n    x = s.symbols('h x1:5')\n    def matrix(encoded):\n        P = s.zeros(5)\n        for key, value in encoded.items():\n            i, j = map(int, key.split(',')); P[i,j] = s.sympify(value); P[j,i] = -P[i,j]\n        return P\n    P = matrix(record['witness_brackets']); ps = sparse(P, x)\n    assert jacobi(ps) == s.zeros(350, 1)\n    columns = []\n    for ij, exponent in COLUMNS:\n        variation = {key: dict(value) for key, value in ps.items()}\n        variation.setdefault(ij, {})[exponent] = variation.get(ij, {}).get(exponent, 0) + 1\n        columns.append(jacobi(variation))\n    D = s.Matrix.hstack(*columns)\n    columns = []; X = s.Matrix(x)\n    for a,b in itertools.product(range(5), repeat=2):\n        field=s.zeros(5,1); field[a]=x[b]\n        columns.append(vector(sparse(X*field.T-field*X.T,x)))\n    for a,b in itertools.product(range(5),repeat=2):\n        E=s.zeros(5); E[a,b]=1\n        columns.append(vector(sparse(E*P+P*E.T-x[b]*P.diff(x[a]),x)))\n    columns.append(vector(ps))\n    universal=matrix(record['universal_brackets'])\n    point={s.Symbol(k):s.Rational(v) for k,v in record['full_source_specification']['witness'].items()}\n    columns.extend(vector(sparse(universal.diff(s.Symbol(p)).subs(point),x))\n                   for p in record['full_source_specification']['free_parameters'])\n    F=s.Matrix.hstack(*columns); assert D*F == s.zeros(350,F.cols)\n    rr,pivots=DomainMatrix.from_Matrix(D).convert_to(s.QQ).rref(); rr=rr.to_Matrix()\n    free=[j for j in range(150) if j not in pivots]; kernel=[]\n    for j in free:\n        col=s.zeros(150,1); col[j]=1\n        for i,p in enumerate(pivots): col[p]=-rr[i,j]\n        kernel.append(col*s.ilcm(1,*[s.denom(c) for c in col]))\n    K=s.Matrix.hstack(*kernel); assert D*K == s.zeros(350,len(free))\n    basis=DomainMatrix.from_Matrix(F.row_join(K)).convert_to(s.QQ).rref()[1]\n    normal_indices=[j-F.cols for j in basis if j>=F.cols]\n    source_rank=len(basis)-len(normal_indices)\n    normals=[]\n    for j in normal_indices:\n        R=s.zeros(5)\n        for (ij,e),c in zip(COLUMNS,K[:,j]):\n            R[ij]+=c*s.prod(z**power for z,power in zip(x,e))\n        for i,k in itertools.combinations(range(5),2): R[k,i]=-R[i,k]\n        normals.append(R)\n    pairs=list(itertools.combinations_with_replacement(range(len(normals)),2))\n    squares=[jacobi(sparse(R,x)) for R in normals]\n    Q=s.Matrix.hstack(*[squares[i] if i==j else jacobi(sparse(normals[i]+normals[j],x))-squares[i]-squares[j] for i,j in pairs])\n    dind=D[:,list(pivots)]\n    rows=list(DomainMatrix.from_Matrix(dind.T).convert_to(s.QQ).rref()[1])\n    block=DomainMatrix.from_Matrix(D.extract(rows,list(pivots))).convert_to(s.QQ)\n    rhs=DomainMatrix.from_Matrix(Q.extract(rows,range(len(pairs)))).convert_to(s.QQ)\n    correction=block.inv().matmul(rhs).to_Matrix()\n    obstruction=Q-dind*correction\n    qr,qp=DomainMatrix.from_Matrix(obstruction).convert_to(s.QQ).rref();qr=qr.to_Matrix()\n    n=s.symbols('t0:'+str(len(normals)));monomials=[n[i]*n[j] for i,j in pairs]\n    quadrics=[s.expand(sum(qr[i,j]*monomials[j] for j in range(len(pairs)))) for i in range(len(qp))]\n    gb=s.groebner(quadrics,*n,order='grevlex') if quadrics else None\n    functional=None\n    all_functionals=[]\n    if qp:\n        obstruction_rows=list(DomainMatrix.from_Matrix(obstruction.T).convert_to(s.QQ).rref()[1])\n        inverse=block.inv().to_Matrix()\n        for row in obstruction_rows:\n            coefficients=D[row,list(pivots)]*inverse;ell=s.zeros(1,350);ell[row]=1\n            for k,r in enumerate(rows):ell[r]-=coefficients[k]\n            assert ell*D==s.zeros(1,150)\n            all_functionals.append(dict(nonzero_coefficients={str(i):str(a)for i,a in enumerate(ell)if a},\n                                        quadratic_pairing=list(map(str,list(ell*Q)))))\n    if len(normals)==1 and any(obstruction):\n        row=next(i for i,a in enumerate(obstruction[:,0])if a)\n        inverse=block.inv().to_Matrix();coefficients=D[row,list(pivots)]*inverse\n        ell=s.zeros(1,350);ell[row]=1\n        for k,r in enumerate(rows):ell[r]-=coefficients[k]\n        assert ell*D==s.zeros(1,150)\n        functional=dict(nonzero_coefficients={str(i):str(a)for i,a in enumerate(ell)if a},pairing=str((ell*Q)[0]))\n    result=dict(task_id='E_reduced_nonnormal',source_report=str(report_path),case=record['name'],\n        full_D_rank=len(pivots),actual_source_rank=source_rank,normal_count=len(normals),\n        all_D_times_directions_zero=True,normal_indices=normal_indices,\n        normals=[{f'{i},{j}':str(R[i,j]) for i,j in itertools.combinations(range(5),2) if R[i,j]} for R in normals],\n        normal_monomials=list(map(str,monomials)),quadratic_initial_generators=list(map(str,quadrics)),\n        zero_dimensional_quadratic_support=bool(gb and gb.is_zero_dimensional),\n        grevlex_basis=[str(g.as_expr()) for g in gb.polys] if gb else [],\n        literal_Poisson_normal_axes=[i for i,q in enumerate(squares) if q==s.zeros(350,1)],\n        one_normal_quadratic_cokernel_functional=functional,\n        quadratic_cokernel_functionals=all_functionals,\n        full_initial_ideal_not_claimed=True,source_report_sha256=hashlib.sha256(report_path.read_bytes()).hexdigest(),\n        producer_source=Path(__file__).read_text(),seconds=time.monotonic()-start)\n    if output is None:return result\n    with output.open('x') as handle:json.dump(result,handle,indent=2);handle.write('\\n')\n    print(json.dumps({k:result[k] for k in ['case','normal_count','quadratic_initial_generators','zero_dimensional_quadratic_support','literal_Poisson_normal_axes','seconds']}))\n\n\ndef universal_pencils(output):\n    \"\"\"The actual n3 modulus of the p0 source, not another ambient point probe.\"\"\"\n    from sympy.polys.matrices import DomainMatrix\n    rpath=ROOT/'reports/CLASSIFICATION_TWO_HYPERPLANES_CUBIC_NILPOTENT_COMPONENTS_20261107.json'\n    npath=ROOT/'reports/CLASSIFICATION_TWO_HYPERPLANES_CUBIC_NILPOTENT_P0_NORMALS_20261107.json'\n    record=json.loads(rpath.read_text())['branches'][0];normal=json.loads(npath.read_text())\n    x=s.symbols('h x1:5');lam,t=s.symbols('lam t')\n    def matrix(data):\n        A=s.zeros(5)\n        for key,f in data.items():\n            i,j=map(int,key.split(','));A[i,j]=s.sympify(f);A[j,i]=-A[i,j]\n        return A\n    U=matrix(record['universal_brackets'])\n    pt={s.Symbol(p):0 for p in record['full_source_specification']['free_parameters']}\n    P=U.subs(pt);T=U.diff(s.Symbol('n3')).subs(pt)\n    def projective(A):\n        J={ijk:s.expand(sum(A[i,l]*s.diff(A[j,k],x[l])+A[j,l]*s.diff(A[k,i],x[l])+A[k,l]*s.diff(A[i,j],x[l]) for l in range(5)))\n           for ijk in itertools.combinations(range(5),3) for i,j,k in [ijk]}\n        return [s.expand(sum((-1)**k*x[inds[k]]*J[inds[:k]+inds[k+1:]] for k in range(4)))\n                for inds in itertools.combinations(range(5),4)]\n    assert all(f==0 for f in projective(P+lam*T))\n    normals=list(map(matrix,normal['normals']));coeff=s.symbols('r0:'+str(len(normals)))\n    R=sum((a*A for a,A in zip(coeff,normals)),s.zeros(5))\n    mixed=[s.expand(f-g-h) for f,g,h in zip(projective(T+R),projective(T),projective(R))]\n    equations=[c for f in mixed for c in s.Poly(f,*x).coeffs() if c]\n    M,_=s.linear_eq_to_matrix(equations,coeff);kernel=M.nullspace()\n    aa=s.symbols('a0:'+str(len(kernel)))\n    combo=sum((a*K for a,K in zip(aa,kernel)),s.zeros(len(coeff),1))\n    R=R.subs(dict(zip(coeff,combo)),simultaneous=True)\n    residual=[s.factor(c) for f in projective(R) for c in s.Poly(f,*x).coeffs() if c]\n    residual=list(dict.fromkeys(residual))\n    result=dict(task_id='E_reduced_nonnormal',section_parameter='n3',\n                full_section_projective_Jacobi_zero=True,\n                modulus_compatible_normal_kernel=[list(map(str,k)) for k in kernel],\n                compatible_normal={f'{i},{j}':str(s.expand(R[i,j])) for i,j in itertools.combinations(range(5),2) if R[i,j]},\n                remaining_Poisson_equations=list(map(str,residual)),\n                whole_source_coverage_not_inferred=True,\n                producer_source=Path(__file__).read_text())\n    with output.open('x') as handle:json.dump(result,handle,indent=2);handle.write('\\n')\n    print(json.dumps({k:result[k] for k in ['modulus_compatible_normal_kernel','remaining_Poisson_equations']}))\n\n\ndef translation_rank_two_nonplane(output):\n    \"\"\"Two entire exact source branches, then one canonical ambient test each.\"\"\"\n    if output.exists():raise FileExistsError(str(output))\n    from sympy.polys.matrices import DomainMatrix\n    from classification_three_hyperplanes_quadric_independent import ambient_matrices\n    from classification_rank3_mixed_component_review import COLUMNS,jacobi,sparse,minor_certificate\n    resource.setrlimit(resource.RLIMIT_CPU,(150,151))\n    resource.setrlimit(resource.RLIMIT_AS,(1536*1024**2,)*2)\n    begun=time.monotonic();h,x,u,v,w=xx=s.symbols('h x u v w');ns=s.symbols('n0:21');r=s.Symbol('r');kap=s.Symbol('kap');t=s.Symbol('t')\n    source_path='reports/CLASSIFICATION_TWO_HYPERPLANES_CUBIC_NILPOTENT_20261107.json'\n    row=next(z for z in json.loads((ROOT/source_path).read_text())['cases']if z['case']=='j111_rank2')\n    env={str(z):z for z in [*xx,*ns]};raw=s.zeros(5)\n    for ij,text in row['brackets'].items():\n        i,j=map(int,ij.split(','));raw[i,j]=s.sympify(text,locals=env);raw[j,i]=-raw[i,j]\n    equations=[s.sympify(f,locals=env)for f in row['remaining_coefficient_equations']]\n    def dm(A):return DomainMatrix.from_Matrix(A).convert_to(s.QQ)\n    def piv(A):return list(dm(A).rref()[1])\n    def enc(A):return {f'{i},{j}':str(s.expand(A[i,j]))for i,j in itertools.combinations(range(5),2)if A[i,j]}\n    def mat(A):return [[str(v)for v in z]for z in A.tolist()]\n    def nz(A):return [[i,j,str(A[i,j])]for i in range(A.rows)for j in range(A.cols)if A[i,j]]\n    def strict(P):return [s.expand(sum(P[i,l]*s.diff(P[j,jj],xx[l])+P[j,l]*s.diff(P[jj,i],xx[l])+P[jj,l]*s.diff(P[i,j],xx[l])for l in range(5)))for i,j,jj in itertools.combinations(range(5),3)]\n    def push(P,G):return (G*P.subs(dict(zip(xx,G.inv()*s.Matrix(xx))),simultaneous=True)*G.T).applyfunc(s.cancel)\n    def from_vector(col):\n        A=s.zeros(5)\n        for (ij,ex),c in zip(COLUMNS,col):\n            if c:A[ij]+=c*s.prod(z**e for z,e in zip(xx,ex))\n        return A-A.T\n    records=[]\n    for branch in [0,1]:\n        started=time.monotonic();bindings={ns[11]:s.S.One,ns[18]:s.Integer(branch)};steps=[]\n        def eliminate(index,var,allowed_unit):\n            expr=s.expand(equations[index].subs(bindings,simultaneous=True));poly=s.Poly(expr,var);assert poly.degree()==1\n            coefficient=poly.nth(1);assert s.expand(coefficient/allowed_unit).free_symbols==set() and coefficient!=0\n            answer=s.cancel(-poly.nth(0)/coefficient);bindings[var]=answer\n            steps.append(dict(original_equation_index=index,pivot=str(var),previously_substituted_equation=str(expr),coefficient=str(coefficient),solution=str(answer),allowed_unit=str(allowed_unit)))\n            for rep in range(21):\n                updated={j:s.expand(f.subs(bindings,simultaneous=True))for j,f in bindings.items()}\n                if updated==bindings:break\n                bindings.clear();bindings.update(updated)\n        for idx,j in [(2,16),(5,19),(8,20),(9,6),(0,0),(3,2),(1,1),(7,5),(4,3)]:eliminate(idx,ns[j],s.S.One)\n        if branch==0:\n            partialF=s.expand((-h*raw[2,4]+x*raw[3,4]).subs(bindings,simultaneous=True))\n            assert s.expand(partialF.subs(h,0)-ns[17]*x**3)==0\n            eliminate(10,ns[12],ns[17]);eliminate(12,ns[13],ns[17]);free=[ns[j]for j in [4,7,8,9,10,14,15,17]]\n            point={z:0 for z in free};point.update({ns[8]:-1,ns[14]:-1,ns[17]:1})\n        else:\n            eliminate(14,ns[13],s.S.One);eliminate(12,ns[12],s.S.One);eliminate(10,ns[17],s.S.One)\n            free=[ns[j]for j in [4,7,8,9,10,14,15]];point={z:0 for z in free};point.update({ns[8]:-1,ns[10]:1,ns[14]:-1,ns[15]:1})\n        for rep in range(21):bindings={j:s.expand(f.subs(bindings,simultaneous=True))for j,f in bindings.items()}\n        assert set(ns)-set(bindings)==set(free)\n        assert all(s.expand(f.subs(bindings,simultaneous=True))==0 for f in equations)\n        P=raw.subs(bindings,simultaneous=True).applyfunc(s.expand);assert all(f==0 for f in strict(P))\n        F=s.expand(-h*P[2,4]+x*P[3,4]);assert s.expand(P[1,2]*P[3,4]-P[1,3]*P[2,4]+P[1,4]*P[2,3]-x*F)==0\n        normalizer=s.eye(5)\n        if branch==0:\n            normalizer[2,0]=-ns[7];normalizer[2,1]=ns[14]-ns[8];normalizer[2,4]=-ns[9]\n            normalizer[3,1]=ns[10]-ns[15];normalizer[3,4]=-ns[4]-2\n            normalF=h*h*u-h*x*v+ns[17]*x**3\n            kap_values={z:0 for z in free};kap_values.update({ns[8]:-kap,ns[14]:-kap,ns[17]:1})\n            fixed=s.eye(5);fixed[3,4]=-2;weights=[0,1,3,2,2];overall=2\n        else:\n            c0=-ns[7];c1=ns[14]-ns[8];c2=ns[15]-ns[10];c3=bindings[ns[17]]\n            normalizer[2,0]=c0;normalizer[2,4]=-ns[9]\n            normalizer[3,1]=c3;normalizer[3,4]=-ns[4]-ns[9]\n            normalizer[4,0]=c1+c0;normalizer[4,1]=c2+c3\n            normalF=(h-x)*(h*u-x*v)+h*x*w\n            kap_values={z:0 for z in free};kap_values.update({ns[8]:-kap,ns[10]:kap,ns[14]:-kap,ns[15]:kap})\n            fixed=s.eye(5);weights=[0,0,1,1,1];overall=1\n        assert normalizer.det()==1\n        assert s.expand(F.subs(dict(zip(xx,normalizer.inv()*s.Matrix(xx))),simultaneous=True)-normalF)==0\n        normalized_P=push(P,normalizer)\n        assert normalized_P[1,2]==x*x and normalized_P[1,3]==h*x and normalized_P[1,4]==0\n        model=push(P.subs(kap_values,simultaneous=True),fixed);base=model.subs(kap,0)\n        V=s.Matrix([0,0,x,h,0]);Z=s.Matrix([sum(s.diff(base[i,j],xx[i])for i in range(1,5))for j in range(5)])\n        assert V[0]==Z[0]==0\n        for field in [V,Z]:\n            lie=sum((field[j]*base.diff(xx[j])for j in range(5)),s.zeros(5))-field.jacobian(xx)*base-base*field.jacobian(xx).T\n            assert lie.applyfunc(s.expand)==s.zeros(5)\n        assert (Z.jacobian(xx)*V-V.jacobian(xx)*Z).applyfunc(s.expand)==s.zeros(5,1)\n        assert (model-base-kap*(V*Z.T-Z*V.T)).applyfunc(s.expand)==s.zeros(5)\n        gt=s.diag(*[t**j for j in weights]);assert (t**(-overall)*push(model,gt)-model.subs(kap,kap*t**overall)).applyfunc(s.cancel)==s.zeros(5)\n        pointP=P.subs(point).applyfunc(s.expand);directions=[P.diff(z).subs(point).applyfunc(s.expand)for z in free]\n        D,Vert,Orbit,Family=ambient_matrices(pointP,xx,directions)\n        matrices=dict(D=D,vertical=Vert,orbit_scale=Orbit,full_source=Family);ranks={name:len(piv(M))for name,M in matrices.items()}\n        certificates={name:minor_certificate(M,ranks[name])for name,M in matrices.items()}\n        rec=dict(branch='L_h'if branch==0 else'L_h_minus_x',all_passed=True,free_source_parameters=list(map(str,free)),source_units=['n17']if branch==0 else[],\n            necessity_triangular_unit_steps=steps,complete_original_n0_to_n20_binding={str(z):str(bindings.get(z,z))for z in ns},all_original_Jacobi_coefficients_zero=True,\n            whole_universal_brackets=enc(P),all10_strict_Jacobi_universal_zero=True,actual_cubic=str(F),actual_quintic=str(h*x*F),\n            whole_source_cubic_normalizer=mat(normalizer),whole_source_cubic_normalizer_inverse=mat(normalizer.inv()),normal_form_cubic=str(normalF),\n            normalizer_preserves_full_cofactor=True,normalizer_determinant='1',whole_source_cubic_normal_form_identity=True,\n            all_parameter_absolute_irreducibility_reason='Primitive linear polynomial in u with unit n17 preventing an h common factor'if branch==0 else'Primitive linear polynomial in u,v,w with coefficient gcd1',\n            actual_essential_variable_count=4 if branch==0 else 5,canonical_actual_kappa_model=enc(model),canonical_modular_field=list(map(str,Z)),\n            canonical_kappa_is_exact_decomposable_Poisson_twist=True,kappa_nonzero_all_one_projective_orbit=True,canonical_torus_weights=weights,canonical_tensor_weight=overall,\n            canonical_original_source_values={str(z):str(v)for z,v in point.items()},canonical_point_brackets=enc(pointP),canonical_cubic_normalizer=mat(fixed),\n            full_all_source_directions=list(map(enc,directions)),ranks_QQ=ranks,certificates=certificates,all350_D_times_real_source_zero=True,\n            full_D_sparse=nz(D),full_F_sparse=nz(Family),projective_actual_lower=ranks['full_source']-25,projective_tangent_upper=125-ranks['D'])\n        fc=piv(Family);Find=Family[:,fc];fr=piv(Find.T);Finv=dm(Find[fr,:]).inv().to_Matrix();rr,dc0=dm(D).rref();rr=rr.to_Matrix();dc=list(dc0)\n        freecols=[j for j in range(150)if j not in dc];K=s.zeros(150,len(freecols))\n        for at,j in enumerate(freecols):\n            K[j,at]=1\n            for i,col in enumerate(dc):K[col,at]=-rr[i,j]\n        projected=K-Find*Finv*K[fr,:];ni=piv(projected);N=projected[:,ni]\n        for j in range(N.cols):\n            col=N[:,j]*s.ilcm(1,*[s.denom(v)for v in N[:,j]]);g=s.igcd(0,*[abs(int(v))for v in col if v]);N[:,j]=col/g\n        assert N[fr,:]==s.zeros(len(fr),N.cols) and D*N==s.zeros(350,N.cols)\n        I=s.eye(150)[:,dc];U=I-Find*Finv*I[fr,:];total=Find.row_join(N).row_join(U)\n        assert total.shape==(150,150) and len(piv(total))==150\n        unit=dm(total).det();assert unit\n        rec.update(full_source_independent_columns=fc,true_source_cut_rows=fr,normal_count=N.cols,true_normal_columns=mat(N),\n            implicit_standard_columns=dc,true_implicit_columns=mat(U),full150_F_N_U_direct_sum_determinant=str(unit),true_cut_dimension=150-len(fc))\n        isolated=N.cols==0;support=dict(status='SMOOTH_SQUEEZE'if isolated else'MULTIPLE_NORMALS_STOP',computed=False)\n        if 1<=N.cols<=2:\n            normals=[from_vector(N[:,j])for j in range(N.cols)];pairs=list(itertools.combinations_with_replacement(range(N.cols),2))\n            sq=[jacobi(sparse(A,xx))for A in normals]\n            Q=s.Matrix.hstack(*[sq[i]if i==j else jacobi(sparse(normals[i]+normals[j],xx))-sq[i]-sq[j]for i,j in pairs])\n            Dind=D[:,dc];dr=piv(Dind.T);inv=dm(D[dr,dc]).inv().to_Matrix();obstruction=Q-Dind*inv*Q[dr,:]\n            qr,qp=dm(obstruction).rref();qr=qr.to_Matrix();variables=s.symbols('t0:'+str(N.cols));mon=[variables[i]*variables[j]for i,j in pairs]\n            forms=[s.expand(sum(qr[i,j]*mon[j]for j in range(len(mon))))for i in range(len(qp))]\n            functionals=[]\n            for rowindex in piv(obstruction.T):\n                ell=s.zeros(1,350);ell[rowindex]=1;coeff=D[rowindex,dc]*inv\n                for j,rindex in enumerate(dr):ell[rindex]-=coeff[j]\n                assert ell*D==s.zeros(1,150)\n                functionals.append(dict(nonzero_coefficients={str(i):str(v)for i,v in enumerate(ell)if v},full_quadratic_pairing=list(map(str,list(ell*Q)))))\n            support=dict(computed=True,normal_pairs=[list(z)for z in pairs],all350_quadratic_columns_sparse=nz(Q),all350_cokernel_columns_sparse=nz(obstruction),\n                implicit_rows=dr,implicit_minor_determinant=str(dm(D[dr,dc]).det()),all_cokernel_functionals=functionals,quadratic_row_space_basis=list(map(str,forms)))\n            if N.cols==1:\n                isolated=bool(forms);support.update(status='PRIMARY_QUADRATIC'if isolated else'NONPRIMARY_QUADRATIC_STOP',power_identity=None if not forms else dict(power='t0^2',generator=str(forms[0])))\n            else:\n                degree3=[variables[0]**3,variables[0]**2*variables[1],variables[0]*variables[1]**2,variables[1]**3]\n                products=[z*f for f in forms for z in variables];Mac=s.Matrix([[s.Poly(f,*variables).coeff_monomial(mon)for f in products]for mon in degree3])\n                mc=piv(Mac)if Mac.cols else[];isolated=len(mc)==4\n                support.update(status='PRIMARY_QUADRATIC'if isolated else'NONPRIMARY_QUADRATIC_STOP',degree3_macaulay_matrix=mat(Mac),degree3_macaulay_rank=len(mc))\n                if isolated:\n                    mi=dm(Mac[:,mc]).inv().to_Matrix();support.update(macaulay_columns=mc,macaulay_unit_determinant=str(dm(Mac[:,mc]).det()),all_cubic_monomial_memberships=mat(mi))\n                    assert Mac[:,mc]*mi==s.eye(4)\n        rec.update(quadratic_support=support,whole_irreducible_source_is_full_component=isolated,projective_component_dimension=ranks['full_source']-25 if isolated else None,\n            full_scheme_smooth=N.cols==0,higher_jets_not_computed=True,component_count_not_changed=True,seconds=time.monotonic()-started)\n        records.append(rec)\n        checkpoint=dict(task_id='E_reduced_nonnormal',all_passed=False,phase='SOURCE_BRANCH_CHECKPOINT',cases=records,\n            producer_source=Path(__file__).read_text(),source_report_sha256=hashlib.sha256((ROOT/source_path).read_bytes()).hexdigest(),seconds=time.monotonic()-begun)\n        output.write_text(json.dumps(checkpoint,indent=2)+'\\n')\n        print(json.dumps(dict(branch=rec['branch'],ranks=ranks,normals=N.cols,status=support['status'],component_dimension=rec['projective_component_dimension'],seconds=rec['seconds'])),flush=True)\n    paths=['code/classification_two_hyperplanes_cubic_nilpotent.py','code/classification_three_hyperplanes_quadric_independent.py','code/classification_rank3_mixed_component_review.py',source_path,\n        'research/classification/TWO_HYPERPLANES_CUBIC_TRANSLATION_RANK_TWO_NONPLANE_SOURCES.md','research/classification/TWO_HYPERPLANES_TRANSLATION_NONPLANE_CANONICAL_MODELS.md',\n        'research/classification/inputs/two_hyperplanes_translation_nonplane_preappend_source_contracts_20261108.json']\n    result=dict(task_id='E_reduced_nonnormal',all_passed=True,cases=records,exact_nonplane_source_exhaustion_replayed=True,plane_A_B_zero_branch_kept_separate=True,\n        source_swap_and_normalization_geometry_requires_pure_note_review=True,new_component_count=0,independent_ambient_and_prior_comparison_required=True,\n        input_sha256={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest()for p in paths},producer_source=Path(__file__).read_text(),seconds=time.monotonic()-begun)\n    output.write_text(json.dumps(result,indent=2)+'\\n')\n\n\ndef translation_rank_two_global_graphs(output):\n    \"\"\"Faithful parent recognition at the same two canonical source points.\"\"\"\n    from s61_model import S61,X,pushforward,jacobi_projective,quotient_coefficients\n    from classification_degenerate_quadric_q4_nil31_I_graph import darboux\n    if output.exists():raise FileExistsError(str(output))\n    resource.setrlimit(resource.RLIMIT_CPU,(70,71))\n    resource.setrlimit(resource.RLIMIT_AS,(1536*1024**2,)*2)\n    begun=time.monotonic();path='reports/CLASSIFICATION_TWO_HYPERPLANES_TRANSLATION_NONPLANE_COMPLETION_20261108.json'\n    source=json.loads((ROOT/path).read_text());assert source['all_passed']\n    old=s.symbols('h x u v w');us=s.symbols('u1:62');model=S61();records=[]\n    for row in source['cases']:\n        started=time.monotonic();P=s.zeros(5)\n        for ij,text in row['canonical_point_brackets'].items():\n            i,j=map(int,ij.split(','));P[i,j]=s.sympify(text).subs(dict(zip(old,X)),simultaneous=True);P[j,i]=-P[i,j]\n        assert all(f==0 for f in jacobi_projective(P))\n        evaluation=[1,1,0,0,0]if row['branch']=='L_h'else[1,1,0,0,1]\n        value=P.subs(dict(zip(X,evaluation)))[1:5,1:5]\n        pf=s.factor(value[0,1]*value[2,3]-value[0,2]*value[1,3]+value[0,3]*value[1,2]);assert pf==1\n        move=s.eye(5)\n        for j in range(1,5):move[j,0]=-evaluation[j]\n        frame=s.eye(5);frame[1:5,1:5]=darboux(value);pre=frame*move\n        normalized=model.normalize(pushforward(P,pre));verification=model.verify_point(normalized,check_equations=True)\n        total=normalized['matrix']*pre;inverse=total.inv();assert total*inverse==s.eye(5)\n        actual=pushforward(P,total);reconstructed=model.reconstruct(normalized['parameters'])\n        assert quotient_coefficients(actual)==quotient_coefficients(reconstructed)\n        back=pushforward(reconstructed,inverse);assert quotient_coefficients(P)==quotient_coefficients(back)\n        assert all(f==0 for f in jacobi_projective(back))\n        results={}\n        for name,gpath in [('T39','reports/Q51_UNIVERSAL_SECTION_20261101.json'),('T40','reports/Q52_UNIVERSAL_SECTION_20261101.json')]:\n            graph=json.loads((ROOT/gpath).read_text());indices=graph['weight2_u_indices_zero_based']\n            residual=[s.cancel(normalized['parameters'][i]-s.sympify(q).subs(dict(zip(us,normalized['parameters'])),simultaneous=True))for i,q in zip(indices,graph['quadratic_section_q'])]\n            assert len(residual)==45\n            results[name]=dict(canonical_point_in_entire_graph=all(v==0 for v in residual),all45_residuals=list(map(str,residual)),nonzero_count=sum(v!=0 for v in residual))\n        rec=dict(branch=row['branch'],canonical_original_brackets=row['canonical_point_brackets'],same_previously_declared_kappa_one_model=True,\n            structural_rank4_evaluation=evaluation,evaluation_Pfaffian=str(pf),actual_translation=[[str(v)for v in z]for z in move.tolist()],\n            Darboux_frame=[[str(v)for v in z]for z in frame.tolist()],perspective=list(map(str,normalized['perspective'])),\n            complete_actual_PGL=[[str(v)for v in z]for z in total.tolist()],complete_actual_inverse_PGL=[[str(v)for v in z]for z in inverse.tolist()],PGL_determinant=str(total.det()),\n            all61_parameters=list(map(str,normalized['parameters'])),full150_forward_inverse_reconstructions_modulo_Euler=True,\n            all134_original_S61_equations=True,all350_original_projective_Jacobi=True,faithful_verification=verification,\n            forward_Euler_difference={f'{i},{j}':str(s.expand((actual-reconstructed)[i,j]))for i,j in itertools.combinations(range(5),2)if actual[i,j]!=reconstructed[i,j]},\n            inverse_Euler_difference={f'{i},{j}':str(s.expand((P-back)[i,j]))for i,j in itertools.combinations(range(5),2)if P[i,j]!=back[i,j]},\n            global_graph_membership=results,whole_source_covered_if_orbit_closure_bridge_accepted=any(q['canonical_point_in_entire_graph']for q in results.values()),\n            seconds=time.monotonic()-started)\n        records.append(rec);print(json.dumps(dict(branch=row['branch'],membership={k:v['canonical_point_in_entire_graph']for k,v in results.items()},seconds=rec['seconds'])),flush=True)\n    paths=[path,'code/classification_two_hyperplanes_cubic_nilpotent.py','code/s61_model.py','code/classification_degenerate_quadric_q4_nil31_I_graph.py',\n        'reports/Q51_UNIVERSAL_SECTION_20261101.json','reports/Q52_UNIVERSAL_SECTION_20261101.json',\n        'research/classification/TWO_HYPERPLANES_TRANSLATION_NONPLANE_ORBIT_CLOSURES.md',\n        'research/classification/S61_GLOBAL_COMPONENT_EVALUATION_FIBER.md','research/classification/S61_GLOBAL_COMPONENT_FIBER_SEPARATE_REVIEW.md',\n        'research/classification/inputs/two_hyperplanes_translation_nonplane_pregraph_source_contracts_20261108.json']\n    paths+=['legacy/v02/data/'+p for p in ['symplectic_slice_certificate.json','symplectic_slice_equations.json','symplectic_slice_reduced_equations.json']]\n    result=dict(task_id='E_reduced_nonnormal',all_passed=True,cases=records,new_component_count=0,\n        scope='Same two structurally fixed kappa1 canonical source tensors only. Positive global graph membership covers the entire corresponding22 orbit closure once its source/flag dimension proof is independently accepted. Negative membership excludes that dense orbit, not every boundary and not other parents. No new anchor, normal-quadratic map, or higher jet.',\n        input_sha256={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest()for p in paths},producer_source=Path(__file__).read_text(),seconds=time.monotonic()-begun)\n    with output.open('x')as f:json.dump(result,f,indent=2);f.write('\\n')\n\n\ndef translation_perazzo_semisimple_confluence(output):\n    \"\"\"A literal full-kappa actual curve to the unchanged Perazzo canonical point.\"\"\"\n    from s61_model import X as SX,jacobi_projective\n    if output.exists():raise FileExistsError(str(output))\n    resource.setrlimit(resource.RLIMIT_CPU,(80,81))\n    resource.setrlimit(resource.RLIMIT_AS,(1536*1024**2,)*2)\n    begun=time.monotonic();H,X,U,V,W=parent=s.symbols('H X U V W');ampA,ampL,period=s.symbols('ampA ampL period')\n    h,x,u,v,w=xx=s.symbols('h x u v w');ep,kap=s.symbols('ep kap');P=s.zeros(5)\n    entries={(1,2):2*X*U,(1,3):X*V,(1,4):-X*W,(2,3):period*U*V,(2,4):-ampL*H*V-(period+2)*U*W,(3,4):ampA*H*X+period*V*W}\n    for ij,val in entries.items():P[ij]=val;P[ij[::-1]]=-val\n    def strict(A,variables):return [s.expand(sum(A[i,l]*s.diff(A[j,jj],variables[l])+A[j,l]*s.diff(A[jj,i],variables[l])+A[jj,l]*s.diff(A[i,j],variables[l])for l in range(5)))for i,j,jj in itertools.combinations(range(5),3)]\n    def pf(A):return s.expand(A[1,2]*A[3,4]-A[1,3]*A[2,4]+A[1,4]*A[2,3])\n    def enc(A):return {f'{i},{j}':str(s.expand(A[i,j]))for i,j in itertools.combinations(range(5),2)if A[i,j]}\n    def mat(A):return [[str(s.factor(v))for v in row]for row in A.tolist()]\n    assert all(f==0 for f in strict(P,parent))\n    parentF=2*ampA*H*X*U+ampL*H*V**2+2*(period+1)*U*V*W\n    assert s.expand(pf(P)-X*parentF)==0\n    assert s.expand((H*pf(P)).subs({ampA:0,ampL:0,period:1})-4*H*X*U*V*W)==0\n    shear=s.eye(5);shear[2,0]=1/ep;shear[3,1]=1/ep;shear[4,0]=1/ep;shear[4,1]=-1/ep\n    assert shear.det()==1;inverse_shear=shear.inv();assert shear*inverse_shear==s.eye(5)\n    binding={period:-2+2*kap*ep,ampA:1/ep**2-2*kap/ep,ampL:-2/ep+4*kap}\n    substituted=P.subs(binding,simultaneous=True).subs(dict(zip(parent,shear*s.Matrix(xx))),simultaneous=True)\n    internal=(ep*inverse_shear*substituted*inverse_shear.T).applyfunc(s.cancel)\n    assert all(not s.denom(f).free_symbols for f in internal)\n    G=s.Matrix([[1,0,0,0,0],[0,-2,0,0,0],[0,0,0,-2,0],[0,0,s.Rational(1,2),0,0],[0,0,s.Rational(1,2),-1,1]])\n    assert G.det()==-2;GI=G.inv();assert G*GI==s.eye(5)\n    actual=(G*internal.subs(dict(zip(xx,GI*s.Matrix(xx))),simultaneous=True)*G.T).applyfunc(s.cancel)\n    assert all(not s.denom(f).free_symbols for f in actual)\n    assert all(s.Poly(f,*xx).total_degree()<=2 for f in actual)\n    assert all(f==0 for f in strict(actual,xx))\n    assert all(f==0 for f in jacobi_projective(actual.subs(dict(zip(xx,SX)),simultaneous=True)))\n    source_path='reports/CLASSIFICATION_TWO_HYPERPLANES_TRANSLATION_NONPLANE_COMPLETION_20261108.json'\n    source=next(z for z in json.loads((ROOT/source_path).read_text())['cases']if z['branch']=='L_h_minus_x')\n    target=s.zeros(5);point=s.zeros(5)\n    for data,model in [(source['canonical_actual_kappa_model'],target),(source['canonical_point_brackets'],point)]:\n        for ij,text in data.items():\n            i,j=map(int,ij.split(','));model[i,j]=s.sympify(text);model[j,i]=-model[i,j]\n    endpoint=actual.subs(ep,0).applyfunc(s.expand)\n    assert (endpoint-target).applyfunc(s.expand)==s.zeros(5)\n    assert (endpoint.subs(kap,1)-point).applyfunc(s.expand)==s.zeros(5)\n    F0=(h-x)*(h*u-x*v)+h*x*w\n    F1=h*u*(v+w-u)+2*x*v*(w-v);F2=u*v*(2*w-2*v-u)\n    expectedD=h*x*(1-2*kap*ep)*(F0+ep*F1+ep**2*F2)\n    assert s.expand(h*pf(actual)-expectedD)==0\n    assert s.expand(h*pf(endpoint)-h*x*F0)==0\n    expected_pull=ep**2*(X*parentF).subs(binding,simultaneous=True).subs(dict(zip(parent,shear*GI*s.Matrix(xx))),simultaneous=True)*G.det()\n    assert s.cancel(pf(actual)-expected_pull)==0\n    paths=['code/classification_two_hyperplanes_cubic_nilpotent.py','code/s61_model.py',source_path,\n        'research/classification/TWO_HYPERPLANES_TRANSLATION_PERAZZO_SS_CONFLUENCE.md','research/classification/TWO_HYPERPLANES_TRANSLATION_NONPLANE_ORBIT_CLOSURES.md',\n        'research/classification/TWO_HYPERPLANES_CUBIC_SUPPORT.md','research/classification/PLANE_CUBIC_TORIC_COLLISION_REVIEW.md',\n        'research/classification/inputs/two_hyperplanes_translation_pre_ss_confluence_source_contracts_20261108.json']\n    result=dict(task_id='E_reduced_nonnormal',all_passed=True,branch='L_h_minus_x',new_component_count=0,\n        complete_parent_three_parameter_brackets=enc(P),complete_parent_parameter_order=list(map(str,[ampA,ampL,period])),\n        parent_all10_strict_Jacobi_zero=True,parent_actual_quintic=str(H*X*parentF),parent_SNC_specialization=dict(ampA=0,ampL=0,period=1,actual_quintic='4*H*X*U*V*W'),\n        parent_irreducible_source_component_bridge='The whole irreducible three-parameter parent image lies in an ambient component containing its actual SNC rank4 point; the accepted full SNC-meeting component theorem therefore covers the whole parent by MPS40. No local uniqueness or known-point reverse inference.',\n        actual_parent_parameter_binding={str(k):str(v)for k,v in binding.items()},actual_shear_matrix=mat(shear),actual_shear_inverse=mat(inverse_shear),actual_shear_determinant='1',tensor_scale=str(ep),\n        complete_pole_free_internal_curve=enc(internal),constant_target_PGL=mat(G),constant_target_inverse_PGL=mat(GI),constant_target_determinant='-2',\n        complete_actual_regular_kappa_curve=enc(actual),all_negative_epsilon_powers_cancelled=True,source_kappa_not_inverted=True,\n        full_epsilon_kappa_strict10_Jacobi_zero=True,all350_original_projective_Jacobi_zero=True,\n        endpoint_full150_equals_same_kappa_canonical_model=True,endpoint_kappa_one_full150_equals_same_previously_declared_point=True,\n        complete_endpoint=enc(endpoint),actual_full_quintic=str(expectedD),all_quintic_coefficients_and_actual_Pfaffian_identity=True,endpoint_quintic=str(h*x*F0),\n        endpoint_rank4_for_every_kappa=True,whole_nonplane_seven_source_coverage_requires_independent_orbit_bridge=True,\n        whole_source_bridge='Once the supplied13+9upper/22orbitlower proof is independently accepted, the entire Lh-minus-x source saturation is the kappa1orbit closure. The literal curve places that same point in MPS40; PGL stability and closedness cover all full source parameters and all normalization boundaries.',\n        source_complements=['Lh essential4 is not covered by this result','Plane A=B0 remains separate','All kappa zero boundary is retained directly'],\n        no_new_anchor_or_normal_jet=True,input_sha256={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest()for p in paths},producer_source=Path(__file__).read_text(),seconds=time.monotonic()-begun)\n    with output.open('x')as f:json.dump(result,f,indent=2);f.write('\\n')\n    print(json.dumps(dict(all_passed=True,whole_kappa_endpoint=True,whole_source_pending_orbit_review=True,seconds=result['seconds'])),flush=True)\n\n\ndef translation_essential_four_semisimple_confluence(output):\n    \"\"\"A second genuine full-kappa curve, to the same essential-four source.\"\"\"\n    from s61_model import X as SX,jacobi_projective\n    if output.exists():raise FileExistsError(str(output))\n    resource.setrlimit(resource.RLIMIT_CPU,(80,81))\n    resource.setrlimit(resource.RLIMIT_AS,(1536*1024**2,)*2)\n    begun=time.monotonic();H,X,U,V,W=parent=s.symbols('H X U V W');ampA,ampB,period=s.symbols('ampA ampB period')\n    h,x,u,v,w=xx=s.symbols('h x u v w');ep,kap=s.symbols('ep kap');P=s.zeros(5)\n    for ij,val in {(1,2):3*X*U,(1,3):X*V,(1,4):-X*W,(2,3):period*U*V,(2,4):-ampB*V**2-(period+3)*U*W,(3,4):ampA*H*X+period*V*W}.items():P[ij]=val;P[ij[::-1]]=-val\n    def strict(A,variables):return [s.expand(sum(A[i,l]*s.diff(A[j,jj],variables[l])+A[j,l]*s.diff(A[jj,i],variables[l])+A[jj,l]*s.diff(A[i,j],variables[l])for l in range(5)))for i,j,jj in itertools.combinations(range(5),3)]\n    def pf(A):return s.expand(A[1,2]*A[3,4]-A[1,3]*A[2,4]+A[1,4]*A[2,3])\n    def enc(A):return {f'{i},{j}':str(s.expand(A[i,j]))for i,j in itertools.combinations(range(5),2)if A[i,j]}\n    def mat(A):return [[str(s.factor(v))for v in row]for row in A.tolist()]\n    def push(A,G):return (G*A.subs(dict(zip(xx,G.inv()*s.Matrix(xx))),simultaneous=True)*G.T).applyfunc(s.cancel)\n    assert all(f==0 for f in strict(P,parent))\n    parentF=3*ampA*H*X*U+ampB*V**3+3*(period+1)*U*V*W\n    assert s.expand(pf(P)-X*parentF)==0\n    assert s.expand((H*pf(P)).subs({ampA:0,ampB:0,period:1})-6*H*X*U*V*W)==0\n    shear=s.eye(5);shear[2,0]=1/ep;shear[3,1]=1/ep;shear[4,0]=1/ep\n    assert shear.det()==1;inverse_shear=shear.inv();assert shear*inverse_shear==s.eye(5)\n    binding={period:-3+6*kap*ep,ampA:2/ep**2-6*kap/ep,ampB:-6*ep}\n    substituted=P.subs(binding,simultaneous=True).subs(dict(zip(parent,shear*s.Matrix(xx))),simultaneous=True)\n    internal=(ep*inverse_shear*substituted*inverse_shear.T).applyfunc(s.cancel)\n    assert all(not s.denom(f).free_symbols for f in internal)\n    G=s.Matrix([[1,0,0,0,0],[0,1,0,0,0],[0,0,0,1,0],[0,0,0,0,-1],[0,0,s.Rational(1,6),0,s.Rational(1,2)]])\n    assert G.det()==-s.Rational(1,6);GI=G.inv();assert G*GI==s.eye(5)\n    actual=push(internal,G)\n    assert all(not s.denom(f).free_symbols for f in actual)\n    assert all(s.Poly(f,*xx).total_degree()<=2 for f in actual)\n    assert all(f==0 for f in strict(actual,xx))\n    assert all(f==0 for f in jacobi_projective(actual.subs(dict(zip(xx,SX)),simultaneous=True)))\n    source_path='reports/CLASSIFICATION_TWO_HYPERPLANES_TRANSLATION_NONPLANE_COMPLETION_20261108.json'\n    source=next(z for z in json.loads((ROOT/source_path).read_text())['cases']if z['branch']=='L_h')\n    target=s.zeros(5);point=s.zeros(5)\n    for data,model in [(source['canonical_actual_kappa_model'],target),(source['canonical_point_brackets'],point)]:\n        for ij,text in data.items():\n            i,j=map(int,ij.split(','));model[i,j]=s.sympify(text);model[j,i]=-model[i,j]\n    endpoint=actual.subs(ep,0).applyfunc(s.expand);assert (endpoint-target).applyfunc(s.expand)==s.zeros(5)\n    fixed=s.Matrix([[s.sympify(z)for z in row]for row in source['canonical_cubic_normalizer']])\n    assert fixed.det()==1\n    assert (push(endpoint.subs(kap,1),fixed.inv())-point).applyfunc(s.expand)==s.zeros(5)\n    T=h*u-x*v\n    cubic=(1-3*kap*ep)*(h*T+ep*((3*v+6*w)*T-h*u*v)-ep**2*(3*v+6*w)*u*v)+(x+ep*u)**3\n    expectedD=h*x*cubic\n    assert s.expand(h*pf(actual)-expectedD)==0\n    assert s.expand(h*pf(endpoint)-h*x*(h*h*u-h*x*v+x**3))==0\n    pulled=ep**2*(X*parentF).subs(binding,simultaneous=True).subs(dict(zip(parent,shear*GI*s.Matrix(xx))),simultaneous=True)*G.det()\n    assert s.cancel(pf(actual)-pulled)==0\n    paths=['code/classification_two_hyperplanes_cubic_nilpotent.py','code/s61_model.py',source_path,\n        'research/classification/TWO_HYPERPLANES_TRANSLATION_ESSENTIAL_FOUR_SS_CONFLUENCE.md','research/classification/TWO_HYPERPLANES_TRANSLATION_NONPLANE_ORBIT_CLOSURES.md',\n        'research/classification/TWO_HYPERPLANES_CUBIC_SUPPORT.md','research/classification/PLANE_CUBIC_TORIC_COLLISION_REVIEW.md',\n        'research/classification/inputs/two_hyperplanes_translation_pre_essential_four_source_contracts_20261108.json']\n    result=dict(task_id='E_reduced_nonnormal',all_passed=True,branch='L_h',new_component_count=0,\n        complete_parent_three_parameter_brackets=enc(P),complete_parent_parameter_order=list(map(str,[ampA,ampB,period])),parent_all10_strict_Jacobi_zero=True,\n        parent_actual_quintic=str(H*X*parentF),parent_SNC_specialization=dict(ampA=0,ampB=0,period=1,actual_quintic='6*H*X*U*V*W'),\n        parent_irreducible_source_component_bridge='The entire irreducible three-parameter parent is contained in a component meeting its actual SNC rank4 point; the full SNC-meeting component theorem identifies that component among MPS40. Not a reverse inference from one known point.',\n        actual_parent_parameter_binding={str(k):str(v)for k,v in binding.items()},actual_shear_matrix=mat(shear),actual_shear_inverse=mat(inverse_shear),actual_shear_determinant='1',tensor_scale=str(ep),\n        complete_pole_free_internal_curve=enc(internal),constant_target_PGL=mat(G),constant_target_inverse_PGL=mat(GI),constant_target_determinant='-1/6',\n        complete_actual_regular_kappa_curve=enc(actual),all_negative_epsilon_powers_cancelled=True,source_kappa_not_inverted=True,\n        full_epsilon_kappa_strict10_Jacobi_zero=True,all350_original_projective_Jacobi_zero=True,endpoint_full150_equals_same_kappa_canonical_model=True,\n        fixed_prior_canonical_PGL=mat(fixed),fixed_prior_canonical_inverse_PGL=mat(fixed.inv()),same_previously_declared_point_recovered_in_all150_coefficients=True,\n        complete_endpoint=enc(endpoint),actual_full_quintic=str(expectedD),all_quintic_coefficients_and_actual_Pfaffian_identity=True,endpoint_quintic=str(h*x*(h*h*u-h*x*v+x**3)),\n        endpoint_rank4_for_every_kappa=True,whole_nonplane_eight_source_coverage_requires_independent_orbit_bridge=True,\n        whole_source_bridge='Once the13+9upper and22orbitlower bridge is independently accepted, the entire Lh source saturation is the kappa1orbit closure. This literal curve places that same prior point, up to its already specified fixed PGL, in MPS40 and therefore covers every source parameter and inverse normalization chart.',\n        source_complements=['Plane A=B0 remains separate','Other nilpotent/cofactor sources are not included','All kappa0 boundary is retained directly'],\n        no_new_anchor_or_normal_jet=True,input_sha256={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest()for p in paths},producer_source=Path(__file__).read_text(),seconds=time.monotonic()-begun)\n    with output.open('x')as f:json.dump(result,f,indent=2);f.write('\\n')\n    print(json.dumps(dict(all_passed=True,whole_kappa_endpoint=True,same_source_point=True,seconds=result['seconds'])),flush=True)\n\n\ndef j21_h_x_semisimple_confluence(output):\n    \"\"\"Whole original six-parameter j21(h,x) source, actual all-s/k SS arc.\"\"\"\n    from s61_model import X as SX, jacobi_projective\n    if output.exists():raise FileExistsError(str(output))\n    resource.setrlimit(resource.RLIMIT_CPU,(80,81))\n    resource.setrlimit(resource.RLIMIT_AS,(1536*1024**2,)*2)\n    begun=time.monotonic();h,x,u,v,w=xx=s.symbols('h x u v w');ep,kap,amp=s.symbols('ep kap amp')\n    H,X,U,V,W=parent=s.symbols('H X U V W');ampA,ampB,period=s.symbols('ampA ampB period')\n    def strict(P,variables):return [s.expand(sum(P[i,l]*s.diff(P[j,k],variables[l])+P[j,l]*s.diff(P[k,i],variables[l])+P[k,l]*s.diff(P[i,j],variables[l])for l in range(5)))for i,j,k in itertools.combinations(range(5),3)]\n    def pf(P):return s.expand(P[1,2]*P[3,4]-P[1,3]*P[2,4]+P[1,4]*P[2,3])\n    def enc(P):return {f'{i},{j}':str(s.expand(P[i,j]))for i,j in itertools.combinations(range(5),2)if P[i,j]}\n    def mat(P):return [[str(s.factor(z))for z in row]for row in P.tolist()]\n    def push(P,G):return (G*P.subs(dict(zip(xx,G.inv()*s.Matrix(xx))),simultaneous=True)*G.T).applyfunc(s.cancel)\n    def matrix(entries):\n        P=s.zeros(5)\n        for ij,z in entries.items():\n            if isinstance(ij,str):ij=tuple(map(int,ij.split(',')))\n            P[ij]=s.sympify(z);P[ij[::-1]]=-P[ij]\n        return P\n    source_path='reports/CLASSIFICATION_TWO_HYPERPLANES_CUBIC_NILPOTENT_20261107.json'\n    source_data_path='code/data/classification_two_hyperplanes_cubic_nilpotent_sources.json'\n    source_data=json.loads((ROOT/source_data_path).read_text());spec=next(q for q in source_data['branches']if q['name']=='j21_h_x_irreducible')\n    record=json.loads((ROOT/source_path).read_text())['cases'][spec['chart_index']]\n    ns=s.symbols('n0:14');binding={s.Symbol(k):s.sympify(z)for k,z in spec['substitution'].items()}\n    original=matrix(record['brackets']).subs(binding,simultaneous=True).applyfunc(s.expand)\n    assert all(s.expand(s.sympify(z).subs(binding,simultaneous=True))==0 for z in record['remaining_coefficient_equations'])\n    assert all(z==0 for z in strict(original,xx))\n    normalizer=s.eye(5);normalizer[2,4]=-ns[12];normalizer[2,1]=-ns[12]*ns[8]-ns[7];normalizer[2,0]=-ns[0]-ns[10]*ns[12]\n    normalizer[3,1]=-ns[12];normalizer[4,0]=-ns[10];normalizer[4,1]=-ns[8]\n    assert normalizer.det()==1;inverse=normalizer.inv();assert normalizer*inverse==s.eye(5)\n    target=matrix({(1,2):x*v,(1,3):h*x,(1,4):x*x,(2,3):v*v/2-h*u,(2,4):amp*h*h+kap*x*v-v*w,(3,4):kap*h*x-h*w})\n    normalized=push(original,normalizer)\n    assert (normalized-target.subs({amp:ns[5],kap:ns[8]},simultaneous=True)).applyfunc(s.expand)==s.zeros(5)\n    assert (push(normalized,inverse)-original).applyfunc(s.expand)==s.zeros(5)\n    assert all(z==0 for z in strict(target,xx))\n    canonicalF=-amp*h**3+x*(v*v/2-h*u);assert s.expand(pf(target)-x*canonicalF)==0\n    vf=s.Matrix([0,0,v,h,x]);assert (normalizer*vf-vf.subs(dict(zip(xx,normalizer*s.Matrix(xx))),simultaneous=True)).applyfunc(s.expand)==s.zeros(5,1)\n    scale=s.diag(1,1/amp,1,1,1/amp);assert (push(target,scale)-target.subs(amp,1)).applyfunc(s.cancel)==s.zeros(5)\n    t=s.Symbol('t');torus=s.diag(1,t**-2,t**2,t,t**-1)\n    assert (push(target,torus)/t-target.subs(kap,t*kap)).applyfunc(s.cancel)==s.zeros(5)\n    P=matrix({(1,2):3*X*U,(1,3):X*V,(1,4):-X*W,(2,3):period*U*V,(2,4):-ampB*V*V-period*U*W,(3,4):ampA*H*H+period*V*W})\n    assert all(z==0 for z in strict(P,parent))\n    parentF=3*ampA*H*H*U+ampB*V**3+3*period*U*V*W\n    assert s.expand(pf(P)-X*parentF)==0\n    assert s.expand((H*pf(P)).subs({ampA:0,ampB:0,period:1})-3*H*X*U*V*W)==0\n    shear=s.Matrix([[1,0,0,0,0],[0,1,0,0,0],[0,1/(3*ep),0,0,1],[1/(2*ep**2),0,1,1/(2*ep),0],[-1/ep,0,0,1,0]])\n    assert shear.det()==1;shear_inverse=shear.inv();assert shear*shear_inverse==s.eye(5)\n    curve_binding={period:1-3*kap*ep,ampA:(1-3*kap*ep)/(2*ep**3),ampB:-8*amp*ep**4}\n    substituted=P.subs(curve_binding,simultaneous=True).subs(dict(zip(parent,shear*s.Matrix(xx))),simultaneous=True)\n    actual=(ep*shear_inverse*substituted*shear_inverse.T).applyfunc(s.cancel)\n    assert all(not s.denom(z).free_symbols for z in actual)\n    assert all(s.Poly(z,*xx).total_degree()<=2 for z in actual)\n    assert all(z==0 for z in strict(actual,xx))\n    assert all(z==0 for z in jacobi_projective(actual.subs(dict(zip(xx,SX)),simultaneous=True)))\n    endpoint=actual.subs(ep,0).applyfunc(s.expand);assert (endpoint-target).applyfunc(s.expand)==s.zeros(5)\n    pulled=ep**2*(H*X*parentF).subs(curve_binding,simultaneous=True).subs(dict(zip(parent,shear*s.Matrix(xx))),simultaneous=True)\n    assert s.cancel(h*pf(actual)-pulled)==0\n    assert s.expand(h*pf(endpoint)-h*x*canonicalF)==0\n    assert (push(endpoint.subs({amp:ns[5],kap:ns[8]},simultaneous=True),inverse)-original).applyfunc(s.expand)==s.zeros(5)\n    paths=['code/classification_two_hyperplanes_cubic_nilpotent.py','code/s61_model.py',source_path,source_data_path,\n        'research/classification/TWO_HYPERPLANES_J21_H_X_SS_CONFLUENCE.md','research/classification/TWO_HYPERPLANES_CUBIC_SUPPORT.md',\n        'research/classification/PLANE_CUBIC_TORIC_COLLISION_REVIEW.md','research/classification/inputs/two_hyperplanes_pre_j21_hx_ss_source_contracts_20261108.json']\n    result=dict(task_id='E_reduced_nonnormal',all_passed=True,new_component_count=0,source_branch=spec['name'],original_six_free_parameters=spec['free_parameters'],\n        complete_original_binding=spec['substitution'],all_original_remaining_Jacobi_zero=True,complete_original_full_source=enc(original),\n        complete_canonical_two_parameter_model=enc(target),canonical_actual_cubic=str(canonicalF),canonical_actual_quintic=str(h*x*canonicalF),\n        actual_source_normalizer=mat(normalizer),actual_source_inverse_normalizer=mat(inverse),source_normalizer_determinant='1',source_normalizer_has_no_parameter_denominator=True,\n        whole_source_forward_and_inverse_all150_equalities=True,cofactor_preserved_exactly=True,amplitude_scaling=mat(scale),amplitude_scale_requires_only_amp_nonzero=True,\n        kappa_nonzero_torus=mat(torus),torus_tensor_scale='1/t',kappa_zero_already_covered_directly=True,\n        whole_parent_three_parameter_brackets=enc(P),parent_all10_Jacobi_zero=True,parent_actual_quintic=str(H*X*parentF),\n        parent_SNC_specialization={'ampA':0,'ampB':0,'period':1,'actual_quintic':'3*H*X*U*V*W'},\n        whole_parent_component_bridge='Irreducible actual A3 parent image is contained in an ambient component containing its SNC point. The full SNC-meeting component theorem identifies that component among MPS40, covering the entire parent.',\n        actual_parent_parameter_binding={str(k):str(z)for k,z in curve_binding.items()},actual_coordinate_map=mat(shear),actual_inverse_coordinate_map=mat(shear_inverse),actual_coordinate_determinant='1',tensor_scale='ep',\n        complete_pole_free_actual_curve=enc(actual),all_negative_epsilon_powers_cancelled=True,all350_original_projective_Jacobi_zero=True,full_epsilon_amp_kappa_strict10_Jacobi_zero=True,\n        all150_endpoint_equals_complete_canonical_model=True,all150_inverse_endpoint_equals_original_whole_six_source=True,\n        actual_full_curve_quintic=str(s.factor(h*pf(actual))),full_actual_Pfaffian_matches_parent_pullback=True,complete_endpoint=enc(endpoint),\n        amp_kappa_never_inverted_by_actual_curve=True,whole_source_coverage='All original six-source parameters, including every zero magnetic/modulus coefficient, are directly endpoints of genuine MPS-covered parent points after the invertible full-source normalizer. The entire PGL saturation closure is therefore covered; no orbit-dimension or local-uniqueness inference is needed.',\n        complements=['amp0 lies outside the irreducible-cubic locus, but the same actual curve retains it','j21(h+x,h) p0, j21(0,h+x), plane residuals and other nilpotent sources remain separate'],\n        no_new_anchor_or_normal_jet=True,independent_review_required=True,input_sha256={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest()for p in paths},producer_source=Path(__file__).read_text(),seconds=time.monotonic()-begun)\n    with output.open('x')as f:json.dump(result,f,indent=2);f.write('\\n')\n    print(json.dumps(dict(all_passed=True,whole_six_source_direct_actual_curve=True,seconds=result['seconds'])),flush=True)\n\n\nif __name__ == '__main__':\n    parser = argparse.ArgumentParser()\n    parser.add_argument('--output', type=Path, required=True)\n    parser.add_argument('--component-input', type=Path)\n    parser.add_argument('--normal-report', type=Path)\n    parser.add_argument('--case-index', type=int, default=0)\n    parser.add_argument('--universal-pencils', action='store_true')\n    parser.add_argument('--translation-nonplane', action='store_true')\n    parser.add_argument('--translation-global-graphs', action='store_true')\n    parser.add_argument('--translation-perazzo-ss', action='store_true')\n    parser.add_argument('--translation-essential-four-ss', action='store_true')\n    parser.add_argument('--j21-h-x-ss', action='store_true')\n    args = parser.parse_args()\n    if args.j21_h_x_ss:\n        j21_h_x_semisimple_confluence(args.output)\n    elif args.translation_essential_four_ss:\n        translation_essential_four_semisimple_confluence(args.output)\n    elif args.translation_perazzo_ss:\n        translation_perazzo_semisimple_confluence(args.output)\n    elif args.translation_global_graphs:\n        translation_rank_two_global_graphs(args.output)\n    elif args.translation_nonplane:\n        translation_rank_two_nonplane(args.output)\n    elif args.universal_pencils:\n        universal_pencils(args.output)\n    elif args.normal_report:\n        normal_quadrics(args.normal_report,args.case_index,args.output)\n    elif args.component_input:\n        components(args.component_input, args.output)\n    else:\n        main(args.output)\n",
+  "seconds": 0.8485227170003782
+}

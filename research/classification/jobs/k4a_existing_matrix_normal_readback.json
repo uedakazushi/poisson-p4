@@ -1,0 +1,39 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "target_statement": "Read back ONE nongroup character-1 kernel column from already certified completeDkernel49 and actualM51 using the SAME existing48row/column block; output exact fullM annihilator witness.",
+  "implication_to_classification": "Find one precise savedcocycle for a purehand literal P+epsilonN compatibility test. No higherjet, newpoint, operator, rank or minor. A true compatible Poisson pencil could reveal actualknown24parent; a nonPoissonN stops this pureone-candidate route.",
+  "coefficient_ring": "QQ fixed existing matrices only.",
+  "hypotheses": "Full350D/Euler/actualM and49kernel independently accepted; the same existingM48 certificateblock is inverted, no newrow/column search. Select the first nongroup among existing weight-1 kernel columns only.",
+  "inverted_elements": [
+    "nonzero rational determinant of already certified sameM48block"
+  ],
+  "complements": [
+    "No N selfJacobi computed in this readback",
+    "No newnormaloperator/miniversal/jet/probe/point/minor rankcalculation",
+    "If firstN is notimmediate actualcurve, geometryroute only"
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "reports/CLASSIFICATION_K4A_CANONICAL_FULL_AMBIENT_20261108.json",
+      "sha256": "476633ecb0b72dc2ef60202220aa800214abcc3b56c0c06b94ccff7e7790f967"
+    },
+    {
+      "path": "reports/CLASSIFICATION_K4A_CANONICAL_FULL_AMBIENT_SEPARATE_REVIEW_20261108.json",
+      "sha256": "8795cced71129fa47d32df5a620880b289a8e8c12cbd509850c7cc8b033302af"
+    },
+    {
+      "path": "research/classification/K4A_CANONICAL_AMBIENT_LIMITATION.md",
+      "sha256": "e655e6f315e3b509f78d4d2bfb6ec1591d55e1394b960277311203475c365631"
+    }
+  ],
+  "inline_source": "from pathlib import Path\nimport hashlib,json,time,resource\nimport sympy as s\nfrom sympy.polys.matrices import DomainMatrix\nbegun=time.monotonic();resource.setrlimit(resource.RLIMIT_CPU,(25,26));resource.setrlimit(resource.RLIMIT_AS,(768*1024**2,)*2)\nrpath=Path(\"reports/CLASSIFICATION_K4A_CANONICAL_FULL_AMBIENT_20261108.json\");data=json.load(rpath.open())\ndef matrix(record):\n A=s.zeros(*record[\"shape\"])\n for key,value in record[\"entries\"].items():\n  i,j=map(int,key.split(\",\"));A[i,j]=s.Rational(value)\n return A\nM=matrix(data[\"complete_sparse_matrices\"][\"Euler_GL5_scalar51\"]);K=matrix(data[\"full_D_kernel_sparse\"])\ncert=data[\"certificates\"][\"Euler_GL5_scalar51\"];rows=cert[\"rows\"];cols=cert[\"columns\"];block=M.extract(rows,cols)\nBI=DomainMatrix.from_Matrix(block).convert_to(s.QQ).inv().to_Matrix();assert block*BI==s.eye(48)\nweights=[2,1,1,0,0];selected=None\nfor k,free in enumerate(data[\"full_D_kernel_free_columns\"]):\n col=data[\"full_original_coefficient_order\"][free];i,j=col[\"pair\"];weight=weights[i]+weights[j]-sum(a*b for a,b in zip(weights,col[\"exponent\"]))-1\n if weight!=-1:continue\n coefficient=BI*K[rows,k];residual=K[:,k]-M[:,cols]*coefficient\n if any(residual):selected=(k,free,coefficient,residual);break\nassert selected is not None\nk,free,coefficient,residual=selected;index=next(i for i,z in enumerate(residual)if z)\nfunctional=s.zeros(1,150);functional[0,index]=1;adjust=M[index,cols]*BI\nfor a,i in enumerate(rows):functional[0,i]-=adjust[a]\nassert functional*M==s.zeros(1,51);nonzero=(functional*K[:,k])[0];assert nonzero!=0\nc,a,b,u,v=xx=s.symbols(\"c a b u v\");N=s.zeros(5)\nfor column,value in enumerate(K[:,k]):\n if not value:continue\n z=data[\"full_original_coefficient_order\"][column];i,j=z[\"pair\"];N[i,j]+=value*s.prod(t**e for t,e in zip(xx,z[\"exponent\"]));N[j,i]=N[i,j]*-1\nfor column,value in enumerate(K[:,k]):\n if value:\n  z=data[\"full_original_coefficient_order\"][column];i,j=z[\"pair\"];assert weights[i]+weights[j]-sum(a*b for a,b in zip(weights,z[\"exponent\"]))-1==-1\njob=json.load(open(\"research/classification/jobs/k4a_existing_matrix_normal_readback.json\"))\nresult={\"task_id\":\"E_reduced_nonnormal\",\"all_passed\":True,\"operation\":\"Read only already certified Dkernel/M fixed48block; no newpoint/operator/rank/minor/Jacobi calculation\", \"kernel_basis_index\":k,\"kernel_free_coefficient_column\":free,\"torus_character\":-1,\"N_brackets\":{f\"{i},{j}\":str(N[i,j])for i in range(5)for j in range(i+1,5)if N[i,j]},\"M_existing_independent_rows\":rows,\"M_existing_independent_columns\":cols,\"M_existing_block_solution_coefficients\":{str(i):str(z)for i,z in enumerate(coefficient)if z},\"full150_non_group_residual\":{str(i):str(z)for i,z in enumerate(residual)if z},\"annihilator_of_all51_actual_columns\":{str(i):str(z)for i,z in enumerate(functional)if z},\"annihilator_on_selected_N\":str(nonzero),\"one_residual_nonzero_coordinate\":index,\"input_report_sha256\":hashlib.sha256(rpath.read_bytes()).hexdigest(),\"inline_source\":job[\"inline_source\"],\"seconds\":time.monotonic()-begun,\"next_step\":\"Handcheck selectedONE N selfJacobi only; no highernormal/jet extension\"}\nout=Path(\"reports/CLASSIFICATION_K4A_EXISTING_MATRIX_NORMAL_READBACK_20261108.json\")\nwith out.open(\"x\")as f:json.dump(result,f,indent=2);f.write(\"\\n\")\nprint(json.dumps({\"kernel_basis_index\":k,\"free_column\":free,\"annihilator_N\":str(nonzero),\"N\":result[\"N_brackets\"],\"seconds\":result[\"seconds\"]}))\n",
+  "inline_source_sha256": "57e343c0add3ca2829ba2d1ca07f15074f418dccda7a5748e482a0625b9b74a1",
+  "success_certificate": "Existingblock inverse identity; full150 residue; selectedexistingN eigenweight-1; exactfunctional killsALL51 actualMcolumns and nonzero onN; allsource/inputbytes frozen.",
+  "independent_check": "The functional and fullM/N source arrays allow direct rational multiplication without this inlineimplementation.",
+  "resource_limit": {
+    "timeout_seconds": 30,
+    "memory_mb": 768
+  },
+  "negative_result_next_step": "No furthernormal/jet/completion. Handread actualknownparent geometry.",
+  "command": ".venv/bin/python -c 'import json;exec(json.load(open(\"research/classification/jobs/k4a_existing_matrix_normal_readback.json\"))[\"inline_source\"])'"
+}

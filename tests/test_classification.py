@@ -23,6 +23,8 @@ class ClassificationTests(unittest.TestCase):
                             E=['G', 'E0'], B=['C0'], F=['C0', 'G', 'E', 'A'],
                             P=['F', 'M'], S=[])
         self.plan['tasks'] = [task for task in self.plan['tasks'] if task['id'] in initial]
+        self.plan['mathematical_status'].update(generic_five_exhaustion=False,
+                                                global_exhaustion=False)
         for task in self.plan['tasks']:
             task.update(status=initial[task['id']], depends_on=dependencies[task['id']],
                         proof=None, review=None, nonclosing_attempts=0)

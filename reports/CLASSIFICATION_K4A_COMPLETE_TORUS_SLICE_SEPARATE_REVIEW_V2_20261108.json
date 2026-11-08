@@ -1,0 +1,101 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "all_independent_arithmetic_passed": true,
+  "no_producer_SymPy_or_CAS_imported": true,
+  "same_existing101_minor_reverified": "-4906140910387391358978709741655038219543731813433607893981108871544727766990494997747922171105037928927843391878217239553550320154975445975040000000",
+  "prior_full_D101_G48_kernel_certificate_reused": "reports/CLASSIFICATION_K4A_CANONICAL_FULL_AMBIENT_SEPARATE_REVIEW_20261108.json",
+  "all150_input350_output_weights_verified": true,
+  "N_kernel_and_non_group_functional_verified": "8/87",
+  "graph_all150_coefficients_and_four_weight_layers_verified": true,
+  "all101_implicit_and350_full_equations_through_degree10_zero": true,
+  "new_point_operator_rank_profile_or_jet": false,
+  "formal_full_slice": "A1",
+  "raw_smooth_local_dimension": 49,
+  "projective_smooth_unique_component_dimension": 24,
+  "orbitclosure23_is_not_full_component": true,
+  "component_name_or_new_count": "root recognition/distinctness obligation, not asserted",
+  "full_graph_sparse_verified": {
+    "6,0": "4",
+    "20,0": "27",
+    "24,0": "-2",
+    "38,0": "-6",
+    "40,0": "4",
+    "52,0": "24",
+    "56,0": "-8",
+    "68,0": "18",
+    "87,0": "18",
+    "103,0": "36",
+    "118,0": "18",
+    "132,0": "18",
+    "134,0": "36",
+    "2,1": "-12/29",
+    "16,1": "-70/29",
+    "35,1": "37/174",
+    "39,1": "-1/29",
+    "48,1": "-6/29",
+    "51,1": "2/29",
+    "65,1": "-3/2",
+    "69,1": "9/29",
+    "85,1": "6/29",
+    "112,1": "1",
+    "15,2": "6/841",
+    "31,2": "-7/1682",
+    "61,2": "-9/841",
+    "80,2": "3/3364",
+    "93,2": "-6/841",
+    "96,2": "2/841",
+    "108,2": "3/841",
+    "111,2": "1/1682",
+    "125,2": "95/10092",
+    "30,3": "1/24389",
+    "60,3": "2/24389",
+    "76,3": "-5/146334",
+    "92,3": "1/24389",
+    "107,3": "-1/146334",
+    "121,3": "1/5046",
+    "140,3": "-31/1756008",
+    "144,3": "1/292668",
+    "75,4": "1/2829124",
+    "120,4": "-13/8487372",
+    "136,4": "17/25462116",
+    "135,5": "-5/738401364"
+  },
+  "inputs": [
+    {
+      "path": "code/classification_k4a_complete_slice_review.py",
+      "sha256": "8cf3c9fa60f8276cbbdd9c3324802aed7715da37dabb5088bfece993d30269ac"
+    },
+    {
+      "path": "reports/CLASSIFICATION_K4A_COMPLETE_TORUS_SLICE_20261108.json",
+      "sha256": "545eb394fb0f6a842ca2d04e860f8665ae9ad20e736a3098fe0256406e86c177"
+    },
+    {
+      "path": "reports/CLASSIFICATION_K4A_CANONICAL_FULL_AMBIENT_20261108.json",
+      "sha256": "476633ecb0b72dc2ef60202220aa800214abcc3b56c0c06b94ccff7e7790f967"
+    },
+    {
+      "path": "reports/CLASSIFICATION_K4A_EXISTING_MATRIX_NORMAL_READBACK_20261108.json",
+      "sha256": "5bbb02bf867e72e1ec51e451f2e391902858f1b1ee867e6efe4d0cb1692ef8ad"
+    },
+    {
+      "path": "reports/CLASSIFICATION_K4A_CANONICAL_FULL_AMBIENT_SEPARATE_REVIEW_20261108.json",
+      "sha256": "8795cced71129fa47d32df5a620880b289a8e8c12cbd509850c7cc8b033302af"
+    },
+    {
+      "path": "research/classification/K4A_EQUIVARIANT_FINITE_SLICE_PROOF.md",
+      "sha256": "50b9065fbb33fb5b9225ae6d6585e113dcdf79deba56b9426e60615fcf79c383"
+    },
+    {
+      "path": "research/classification/K4A_COMPLETE_TORUS_SLICE.md",
+      "sha256": "102afe0904ad4059292dbfa8edb03b4cc28682c99794e3964d92994bb159cd9f"
+    },
+    {
+      "path": "research/classification/inputs/k4a_complete_slice_review_precontract_v2_20261108.json",
+      "sha256": "72dafb17bf44b32fe854a922e87f270bc6923d04c7cbc1ad0d823026dc8f90d6"
+    }
+  ],
+  "reviewer_sha256": "8cf3c9fa60f8276cbbdd9c3324802aed7715da37dabb5088bfece993d30269ac",
+  "reviewer_source_bytes": "#!/usr/bin/env python3\n\"\"\"Independent Fraction replay of the COMPLETE K4a one-parameter polynomial slice.\n\nNo producer, SymPy, CAS, or arithmetic helper is imported.  Existing independently\nreviewed D/G/kernel certificates are reused, and the same certified 101 minor is\nchecked.  The sole new polynomial calculation is the literal full graph, all\n350 original equations, and all degrees zero through ten.\n\"\"\"\nfrom fractions import Fraction as F\nfrom itertools import combinations\nfrom pathlib import Path\nimport ast, hashlib, json, resource, signal, time\n\nROOT=Path(__file__).resolve().parents[1]\nINPUT='reports/CLASSIFICATION_K4A_COMPLETE_TORUS_SLICE_20261108.json'\nAMBIENT='reports/CLASSIFICATION_K4A_CANONICAL_FULL_AMBIENT_20261108.json'\nNORMAL='reports/CLASSIFICATION_K4A_EXISTING_MATRIX_NORMAL_READBACK_20261108.json'\nPRIOR='reports/CLASSIFICATION_K4A_CANONICAL_FULL_AMBIENT_SEPARATE_REVIEW_20261108.json'\nPROOF='research/classification/K4A_EQUIVARIANT_FINITE_SLICE_PROOF.md'\nOUT='reports/CLASSIFICATION_K4A_COMPLETE_TORUS_SLICE_SEPARATE_REVIEW_20261108.json'\nJOB='research/classification/jobs/k4a_complete_torus_slice_separate_review.json'\nPAIRS=list(combinations(range(5),2));TRIPLES=list(combinations(range(5),3));QUADS=list(combinations(range(5),4))\nZERO=(0,)*6\n\n\ndef add(*polys):\n    out={}\n    for p in polys:\n        for e,c in p.items():out[e]=out.get(e,F())+c\n    return{e:c for e,c in out.items()if c}\ndef scale(p,c):return{e:c*z for e,z in p.items()if c*z}\ndef mul(p,q):\n    out={}\n    for e,c in p.items():\n        for f,d in q.items():\n            ef=tuple(a+b for a,b in zip(e,f));out[ef]=out.get(ef,F())+c*d\n    return{e:c for e,c in out.items()if c}\ndef der(p,i):\n    out={}\n    for e,c in p.items():\n        if e[i]:f=list(e);f[i]-=1;out[tuple(f)]=c*e[i]\n    return out\ndef coord(i):\n    e=[0]*6;e[i]=1;return{tuple(e):F(1)}\ndef parse(text,names):\n    def visit(n):\n        if isinstance(n,ast.Constant):return{ZERO:F(n.value)}if n.value else{}\n        if isinstance(n,ast.Name):return coord(names.index(n.id))\n        if isinstance(n,ast.UnaryOp):return scale(visit(n.operand),-1 if isinstance(n.op,ast.USub)else 1)\n        if isinstance(n,ast.BinOp):\n            if isinstance(n.op,ast.Add):return add(visit(n.left),visit(n.right))\n            if isinstance(n.op,ast.Sub):return add(visit(n.left),scale(visit(n.right),-1))\n            if isinstance(n.op,ast.Mult):return mul(visit(n.left),visit(n.right))\n            if isinstance(n.op,ast.Div):\n                de=visit(n.right);assert set(de)=={ZERO};return scale(visit(n.left),1/de[ZERO])\n            if isinstance(n.op,ast.Pow):\n                assert isinstance(n.right,ast.Constant)and isinstance(n.right.value,int)and n.right.value>=0\n                value={ZERO:F(1)}\n                for _ in range(n.right.value):value=mul(value,visit(n.left))\n                return value\n        raise ValueError(ast.dump(n))\n    return visit(ast.parse(text,mode='eval').body)\ndef jacobi(P):\n    strict={}\n    for triple in TRIPLES:\n        cyclic=[triple,(triple[1],triple[2],triple[0]),(triple[2],triple[0],triple[1])]\n        strict[triple]=add(*(mul(P.get((i,l),{}),der(P.get((j,k),{}),l))for i,j,k in cyclic for l in range(5)))\n    return{quad:add(*(scale(mul(coord(quad[k]),strict[quad[:k]+quad[k+1:]]),(-1)**k)for k in range(4)))for quad in QUADS}\ndef determinant(A):\n    A=[list(row)for row in A];n=len(A);value=F(1)\n    for j in range(n):\n        k=next((k for k in range(j,n)if A[k][j]),None)\n        if k is None:return F()\n        if k!=j:A[k],A[j]=A[j],A[k];value=-value\n        pivot=A[j][j];value*=pivot;active=[k for k in range(j+1,n)if A[j][k]]\n        for i in range(j+1,n):\n            z=A[i][j]\n            if z:\n                ratio=z/pivot\n                for k in active:A[i][k]-=ratio*A[j][k]\n                A[i][j]=F()\n    return value\n\n\ndef main():\n    out=ROOT/OUT\n    if out.exists():raise FileExistsError(out)\n    started=time.monotonic();resource.setrlimit(resource.RLIMIT_AS,(1024*1024**2,)*2)\n    def timeout(signum,frame):raise TimeoutError('one literal complete-slice Fraction review budget90s')\n    signal.signal(signal.SIGALRM,timeout);signal.alarm(90)\n    job=json.loads((ROOT/JOB).read_text())\n    for item in job['exact_inputs_and_hashes']:assert hashlib.sha256((ROOT/item['path']).read_bytes()).hexdigest()==item['sha256'],item['path']\n    report=json.loads((ROOT/INPUT).read_text());old=json.loads((ROOT/AMBIENT).read_text());normal=json.loads((ROOT/NORMAL).read_text());prior=json.loads((ROOT/PRIOR).read_text())\n    assert prior['all_independent_arithmetic_passed']and prior['full49dim_D_kernel_and_all51_tangent_columns_verified']\n    columns=old['full_original_coefficient_order'];rows=old['full_original_equation_order'];names=old['coordinate_order'];assert names==['c','a','b','u','v']\n    weights=[2,1,1,0,0];wc=[sum(weights[i]for i in col['pair'])-sum(a*b for a,b in zip(col['exponent'],weights))-1 for col in columns]\n    wr=[sum(weights[i]for i in row['quad'])-sum(a*b for a,b in zip(row['exponent'],weights))-2 for row in rows]\n    assert wc==report['full150_coordinate_weights']and wr==report['full350_equation_weights']and(min(wc),max(wc))==(-5,2)\n    D=old['complete_sparse_matrices']['full350_D'];ds={tuple(map(int,key.split(','))):F(z)for key,z in D['entries'].items()}\n    assert all(wr[i]==wc[j]for i,j in ds)\n    cert=old['certificates']['full350_D'];R=cert['rows'];U=cert['columns'];assert R==report['selected101_equation_rows']and U==report['selected101_coordinate_columns']\n    block=[[ds.get((i,j),F())for j in U]for i in R];det=determinant(block);assert det==F(cert['determinant'])==F(report['existing101_block_determinant'])and det\n    K=old['full_D_kernel_sparse'];nindex=normal['kernel_basis_index'];assert nindex==23\n    N=[F(K['entries'].get(str(i)+','+str(nindex),'0'))for i in range(150)];assert all(wc[i]==-1 for i,z in enumerate(N)if z)\n    assert all(not sum((value*N[j]for(i0,j),value in ds.items()if i0==i),F())for i in range(350))\n    M=old['complete_sparse_matrices']['Euler_GL5_scalar51'];ann={int(i):F(z)for i,z in normal['annihilator_of_all51_actual_columns'].items()}\n    assert all(not sum((a*F(M['entries'].get(str(i)+','+str(j),'0'))for i,a in ann.items()),F())for j in range(51))\n    annN=sum((z*N[i]for i,z in ann.items()),F());assert annN==F(8,87)==F(report['N_non_group_exact_functional_value'])\n    point={tuple(map(int,key.split(','))):parse(z,names)for key,z in old['complete_actual_brackets'].items()}\n    pvec=[point.get(tuple(col['pair']),{}).get(tuple(col['exponent'])+(0,),F())for col in columns]\n    graph={(int(i),int(j)):F(z)for key,z in report['graph_coefficients_sparse'].items()for i,j in[key.split(',')]}\n    assert report['graph_coefficient_array_shape']==[150,6]\n    assert [graph.get((i,0),F())for i in range(150)]==pvec\n    assert [graph.get((i,1),F())for i in range(150)]==N\n    assert all(not z or wc[i]==0 for i,z in enumerate(pvec))\n    for(i,j),z in graph.items():\n        assert 0<=i<150 and 0<=j<=5 and z\n        if j>=2:assert i in U and wc[i]==-j\n    for step in report['all_four_fixed_recursion_steps']:\n        degree=step['degree'];assert degree in[2,3,4,5]\n        layer={str(i):str(graph[i,degree])for i in range(150)if(i,degree)in graph};assert layer==step['entire150_layer_sparse']\n        assert all(graph.get((U[int(k)],degree),F())==F(z)for k,z in step['implicit_coefficients_sparse'].items())\n    P={ij:{}for ij in PAIRS}\n    for(i,j),z in graph.items():\n        col=columns[i];P[tuple(col['pair'])][tuple(col['exponent'])+(j,)]=z\n    for i,j in PAIRS:P[j,i]=scale(P[i,j],-1)\n    allJ=jacobi(P);full={}\n    for i,row in enumerate(rows):\n        poly=allJ[tuple(row['quad'])]\n        for degree in range(11):\n            value=poly.get(tuple(row['exponent'])+(degree,),F())\n            if value:full[i,degree]=value\n        assert all(e[5]<=10 and sum(e[:5])==4 for e in poly)\n    producerfull={tuple(map(int,key.split(','))):F(z)for key,z in report['all350_full_equation_coefficients_sparse'].items()}\n    assert full==producerfull\n    assert all(not value for(i,j),value in full.items()if i in R)\n    assert not full and report['all350_exact_literal_graph_Jacobi_zero']\n    result={'task_id':'E_reduced_nonnormal','all_independent_arithmetic_passed':True,'no_producer_SymPy_or_CAS_imported':True,'same_existing101_minor_reverified':str(det),'prior_full_D101_G48_kernel_certificate_reused':PRIOR,'all150_input350_output_weights_verified':True,'N_kernel_and_non_group_functional_verified':str(annN),'graph_all150_coefficients_and_four_weight_layers_verified':True,'all101_implicit_and350_full_equations_through_degree10_zero':True,'new_point_operator_rank_profile_or_jet':False,'formal_full_slice':'A1','raw_smooth_local_dimension':49,'projective_smooth_unique_component_dimension':24,'orbitclosure23_is_not_full_component':True,'component_name_or_new_count':'root recognition/distinctness obligation, not asserted','full_graph_sparse_verified':report['graph_coefficients_sparse'],'inputs':[{'path':item['path'],'sha256':item['sha256']}for item in job['exact_inputs_and_hashes']],'reviewer_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'reviewer_source_bytes':Path(__file__).read_text(),'seconds':time.monotonic()-started,'maximum_RSS_KiB':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss}\n    out.write_text(json.dumps(result,indent=2)+'\\n');print(json.dumps({'PASS':True,'all350_literal_polynomials_zero':True,'projective_dimension':24,'seconds':result['seconds'],'RSS_KiB':result['maximum_RSS_KiB']}))\n\n\nif __name__=='__main__':\n    if '--v2' in __import__('sys').argv:OUT='reports/CLASSIFICATION_K4A_COMPLETE_TORUS_SLICE_SEPARATE_REVIEW_V2_20261108.json'\n    main()\n",
+  "seconds": 0.03258825900047668,
+  "maximum_RSS_KiB": 13516
+}

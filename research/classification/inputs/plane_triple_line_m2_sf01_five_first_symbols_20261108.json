@@ -1,0 +1,98 @@
+{
+  "task_id": "G",
+  "status": "whole five firstsymbols independently reviewed, higher notrun",
+  "variables": [
+    "a",
+    "b",
+    "c",
+    "u",
+    "v"
+  ],
+  "f": "a**3",
+  "profiles": [
+    {
+      "name": "SF01_p_-3",
+      "raw_brackets": {
+        "a,b": "0",
+        "a,c": "0",
+        "b,c": "3*a**2",
+        "a,u": "0",
+        "b,u": "(-3)*a*u",
+        "c,u": "a*u",
+        "a,v": "a*u",
+        "b,v": "-2*b*u+(-3-3)*a*v",
+        "c,v": "(c+3*a)*u+a*v",
+        "u,v": "(-3+1)*u**2"
+      },
+      "G2": "-3*a**2*u*(b*u+a*v)"
+    },
+    {
+      "name": "SF01_p_0",
+      "raw_brackets": {
+        "a,b": "0",
+        "a,c": "0",
+        "b,c": "3*a**2",
+        "a,u": "0",
+        "b,u": "(0)*a*u",
+        "c,u": "a*u",
+        "a,v": "a*u",
+        "b,v": "-2*b*u+(0-3)*a*v",
+        "c,v": "(c+3*a)*u+a*v",
+        "u,v": "(0+1)*u**2"
+      },
+      "G2": "-3*a**2*u*(b*u+a*v)"
+    },
+    {
+      "name": "SF01_p_3",
+      "raw_brackets": {
+        "a,b": "0",
+        "a,c": "0",
+        "b,c": "3*a**2",
+        "a,u": "0",
+        "b,u": "(3)*a*u",
+        "c,u": "a*u",
+        "a,v": "a*u",
+        "b,v": "-2*b*u+(3-3)*a*v",
+        "c,v": "(c+3*a)*u+a*v",
+        "u,v": "(3+1)*u**2"
+      },
+      "G2": "-3*a**2*u*(b*u+a*v)"
+    },
+    {
+      "name": "SF01_p_-3_2",
+      "raw_brackets": {
+        "a,b": "0",
+        "a,c": "0",
+        "b,c": "3*a**2",
+        "a,u": "0",
+        "b,u": "(-3/2)*a*u",
+        "c,u": "a*u",
+        "a,v": "a*u",
+        "b,v": "-2*b*u+(-3/2-3)*a*v",
+        "c,v": "(c+3*a)*u+a*v",
+        "u,v": "(-3/2+1)*u**2"
+      },
+      "G2": "-3*a**2*u*(b*u+a*v)"
+    },
+    {
+      "name": "SF01_p_-1",
+      "raw_brackets": {
+        "a,b": "0",
+        "a,c": "0",
+        "b,c": "3*a**2",
+        "a,u": "0",
+        "b,u": "(-1)*a*u",
+        "c,u": "a*u",
+        "a,v": "a*u",
+        "b,v": "-2*b*u+(-1-3)*a*v",
+        "c,v": "(c+3*a)*u+a*v",
+        "u,v": "(-1+1)*u**2"
+      },
+      "G2": "-3*a**2*u*(b*u+a*v)"
+    }
+  ],
+  "proof": {
+    "path": "research/classification/PLANE_TRIPLE_LINE_M2_SQUAREFREE_FLAG01_FIVE_SYMBOLS.md",
+    "sha256": "b15ee914ffeb875519d66cedb703743e8ca7c0d8f5fcb44f1e0e75eead3a55ef"
+  }
+}
