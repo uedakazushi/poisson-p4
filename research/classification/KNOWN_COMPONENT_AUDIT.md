@@ -399,3 +399,7 @@ rank二閉条件、局所次元又は軌道次元、proper因子の閉条件、e
 `PLANE_MOVING_SIMPLE_TWO_WHOLE_ORBITS.md` の全W六の実polynomial逆とinjectiveD mapを戻し、全sourceはそのdense23軌道閉包へ入る。
 `PLANE_MOVING_SIMPLE_HA_PRIOR128_DISTINCTNESS.md` と統合側rootacceptanceは公開57f8e29の全128 ID/次元/rankと比較し、唯一Singplane・essential五・絶対既約性及びnormalroot21対旧二triple根3を用いて相違を確認した。
 全下界129、一般rank四123、rank二6。全E・総上界は未証明。
+
+## rank一long非定数gの全源25次元成分
+
+`RANK_ONE_LONG_NONCONSTANT_COMPONENT_ENTRANCE.md` の全源12、Aff飽和22、唯一double-H incidenceから射影像閉包25を得る。全prior129のrank二六、次元24以下114、CA/CB二、nil31三、positive NEW25、被約generic MPS三を全proper factor条件で分離した。`RANK_ONE_LONG_NONCONSTANT_AMBIENT_SEPARATE_REVIEW.md` は同一点の全150/350/126と全D/Euler/Mを別Fractionで復元し100/24/47の上下界を確認した。全源下界25と接上界25が一致しsmooth unique全成分。`RANK_ONE_LONG_NONCONSTANT_GENERIC_ORBIT.md` は全源の二独立affine Poisson場から軌道上界22を示し、既minorでgeneric22/商三を得る。全下界130、rank四124/rank二6。一般G完了、全E/上界未証明。

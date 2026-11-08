@@ -1,0 +1,46 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "target_statement": "Independent exactreadback ofwhole scalar15source completekernel residualvectors andALLdomain/root dimensions forpurewholeexclusion.",
+  "implication_to_classification": "Independentfiniteactualshear proof plus exactoldkernel direction/complementaudit closesENTIREscalarTnonzero plane source actualirreducD empty.",
+  "coefficient_ring": "QQ; old savedrationalkernels andexactroot/domainmetadata only.",
+  "hypotheses": "Acceptedoldfullsource35/30/9 andallJordan/normalizer/rootreview. Root purefinite-shear/Casimir/factor proof separatelyderived.",
+  "inverted_elements": [
+    "Onlyoldnonzero rationalconstants/maximalminor values alreadycertified."
+  ],
+  "complements": [
+    "All10fixed/4generic/20roots/2paramgeneric/12rootlinesofwhich3excluded/9lines/57roots/21outside retainJordanfallback.",
+    "No newM1/operator/kernel/rank/minor/profile/point/jet."
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "research/classification/PLANE_SCALAR_T_NONZERO_WHOLE_EXCLUSION.md",
+      "sha256": "ce1ad29727148ae13c3eaf7e8758fd75d189b018c8fdf179ee13a389f99cf125"
+    },
+    {
+      "path": "research/classification/PLANE_RANK_ZERO_SCALAR_SEPARATE_REVIEW.md",
+      "sha256": "e011225538c3949f617b057c8fb2f715ce117ed92b9ee70f484cbbd45b6077a0"
+    },
+    {
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_SCALAR_FIXED_WEIGHTS_20261107.json",
+      "sha256": "54ebb15e1add6216847ece7c7bd38bd81a8f7d0843fc50709e7bbf85c116e829"
+    },
+    {
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_SCALAR_ONE_PARAMETER_20261107.json",
+      "sha256": "fb4f557c97fe13db884294e5ba85d6888f39e7772d1d8d1be98c70ce2bea7dc8"
+    },
+    {
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_SCALAR_TWO_PARAMETER_20261107.json",
+      "sha256": "ad0055918f7b0799e3bd10729d626dd790c37f0bccf991c158156d941a42290f"
+    }
+  ],
+  "inline_source": "from pathlib import Path\nfrom fractions import Fraction as Q\nimport hashlib,itertools,json,resource,time\nresource.setrlimit(resource.RLIMIT_CPU,(59,60));resource.setrlimit(resource.RLIMIT_AS,(512*1024**2,)*2);start=time.monotonic()\njob=json.loads(Path('research/classification/jobs/plane_scalar_t_nonzero_root_readback.json').read_text())\nfor x in job['exact_inputs_and_hashes']:assert hashlib.sha256(Path(x['path']).read_bytes()).hexdigest()==x['sha256'],x['path']\nf=json.loads(Path('reports/CLASSIFICATION_PLANE_RANK_ZERO_SCALAR_FIXED_WEIGHTS_20261107.json').read_text());o=json.loads(Path('reports/CLASSIFICATION_PLANE_RANK_ZERO_SCALAR_ONE_PARAMETER_20261107.json').read_text());t=json.loads(Path('reports/CLASSIFICATION_PLANE_RANK_ZERO_SCALAR_TWO_PARAMETER_20261107.json').read_text());checks=[]\ndef dim(c):return c['D1']['nullity'],c['D2']['nullity']\ndef checkv(cert,v,label):\n K=[[Q(v)for v in row]for row in cert['complete_kernel']];n=len(K);free=[i for i in range(n)if i not in cert['minor_columns']];assert len(free)==cert['nullity'];assert all(K[free[i]][j]==Q(i==j)for i in range(len(free))for j in range(len(free)))\n assert [sum(row[j]*v[free[j]]for j in range(len(free)))for row in K]==v,label;checks.append(label)\ndef vec(n,terms):\n v=[Q(0)]*n\n for i,c in terms.items():v[i]=Q(c)\n return v\nfor i,c in enumerate(f['cases']):assert dim(c)=={0:(8,3),3:(16,6),4:(7,0)}.get(i,(6,0))\nfor offset in [0,9]:\n for label,terms in [('R0',{2:1}),('R1',{0:3,4:1}),('R2',{1:2,5:1}),('R3',{0:-2,8:1})]:checkv(f['cases'][0]['D1'],vec(30,{offset+i:c for i,c in terms.items()}),'N3 '+label+' normal'+str(offset))\nfor i in range(3):checkv(f['cases'][0]['D2'],vec(9,{i:1}),'N3 fullD2 ab'+str(i))\ncheckv(f['cases'][4]['D1'],vec(30,{1:-1,5:-1,24:1}),'N2nil extra completeR')\none_roots=0;inside_nonrigid=[]\nfor i,c in enumerate(o['cases']):\n a=c['analysis'];assert dim(a)==(6,0)\n for w in a['all_exceptional_roots']:\n  one_roots+=1\n  if w['outside_declared_Jordan_domain']:continue\n  p=Q(w['parameter'])\n  expected=(7,0)if i==0 and p in[Q(2,3),Q(-2,3)]else(8,3)if i==2 and p in[Q(0),Q(-1)]else(6,0);assert dim(w)==expected\n  if expected!=(6,0):inside_nonrigid.append(dict(source=i,parameter=str(p),kernel_dimensions=list(expected)))\n  if i==0 and p in[Q(2,3),Q(-2,3)]:checkv(w['D1'],vec(30,{20 if p>0 else29:1}),'repeatedSS extra '+str(p))\n  if i==2 and p in[Q(0),Q(-1)]:\n   r=4 if p==0 else2;pairbase=3 if p==0 else0\n   for offset in [0,9]:checkv(w['D1'],vec(30,{offset+r:1}),'zeroEigenSS extra '+str(p)+' normal'+str(offset))\n   for k in range(3):checkv(w['D2'],vec(9,{pairbase+k:1}),'zeroEigenSS fullD2 '+str(p)+' coeff'+str(k))\nassert one_roots==20\nassert dim(t['generic'])==(6,0);assert len(t['all_irreducible_linear_factors'])==12\ntworoots=outside=0;lines=0\nfor c in t['all_lines']:\n if c['outside_Jordan_domain_entire_line']:continue\n lines+=1;a=c['analysis'];assert dim(a)==(6,0)\n for w in a['all_exceptional_roots']:\n  tworoots+=1\n  if w['outside_Jordan_domain']:outside+=1\n  else:assert dim(w)==(6,0)\nassert lines==9 and tworoots==57 and outside==21\nout=dict(task_id='E_reduced_nonnormal',all_passed=True,method='Only old immutable completekernels anddomain metadata read; Fraction directmatrix-vector identities; no newoperator/kernel/rank/minor/point/jet.',explicit_kernel_memberships=checks,all_ten_fixed_kernel_dimensions_checked=True,all_four_oneparameter_generics_and20roots_checked=True,oneparameter_nonrigid_inside_domain=inside_nonrigid,all_twoparameter_generic_9lines_57roots_checked=True,twoparameter_outside_domain_roots=outside,twoparameter_inside_domain_all_kernel6_D2injective=True,new_component_count=0,whole_source_pure_argument='Integrator independentlyderived finiteactualshear injectivity, four residualstrictJac0/rationalCasimir-or-factor andall inversecomplements; readbackverifiesexactoldmetadata/nonnormaldirections.',inputs=job['exact_inputs_and_hashes'],inline_source=job['inline_source'],seconds=time.monotonic()-start,maximum_RSS_KiB=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss)\np=Path('reports/CLASSIFICATION_PLANE_SCALAR_T_NONZERO_ROOT_READBACK_20261108.json')\nwith p.open('x')as f:json.dump(out,f,indent=2);f.write('\\n')\nprint(json.dumps({k:out[k]for k in ['all_passed','seconds','maximum_RSS_KiB']}))\n",
+  "inline_source_sha256": "7ce3397bea82141d468a7047da175f3b9cb79644f855f51cd2bc38c88855704f",
+  "resource_limit": {
+    "timeout_seconds": 60,
+    "memory_mb": 512
+  },
+  "success_certificate": "Eachproposedresidualvector inOLDcompletekernel byall30rowidentity/freeidentity;D2fullresidualab/ac quadratics;wholekernel-dimdomaininventory exact.",
+  "independent_check": "Root Fraction directexistingmatrix readback andindependentpure proof; producer/code/CASnotimported.",
+  "negative_result_next_step": "Anyexplicitvector/domainmismatch stopsacceptanceandpreservesoldbytes; correctonlydistinctnewproofafter diagnosis, nonewprofile.",
+  "route_change_reason": "UpgradeoldGdimensionboundtoentireEfactor/rank proofwithminimalfixedcertificate readback."
+}

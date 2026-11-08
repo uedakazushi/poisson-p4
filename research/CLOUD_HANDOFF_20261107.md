@@ -1,76 +1,25 @@
-# Cloud研究引継ぎ — 現行分類を継続する
+# Cloud研究引継ぎ — 現行研究を継続する
 
-2026-11-08。公開済みCloud、repository `/workspace/poisson-p4`、branch `main`。
-移行先で継続中の研究であり、旧移行一時停止を研究停止命令として扱わない。
+2026-11-08。repository `/workspace/poisson-p4`、branch main。旧local→Cloud移行の一時停止は研究停止指示ではない。
+Cloud開始SHA `4c3f623fb698f9adc6077015b25e2325b11072af`、数学baseline `a00a541b835b2bff18bafcba545ecbd4bae7175b`。
+今回保存区間の開始・直前公開は `e2e718783b6811414a7f3c4b128a04a4503e5896`（129/1054、310頁）、HEAD=origin/mainを確認した。
 
-## 保存境界と復旧
+採録cutは130成分（rank四124、rank二6）・1084主張。
+rank一long非定数gの全sourceは既約25次元で、全prior129との相違と全ambient D100を別作者が確認した新成分である。generic軌道22、generic Rosenlicht商三次元も全源の二独立Poisson場から証明した。
+全被約既約・非正規actual quinticの点別既知成分被覆を完了した。全nonplane conductor、rank二plane全位数、rank零plane全coHiggs/globalV/scalar/零symbolを全source・全逆・零補集合で合成する。零symbol全39は真completedT36への全150係数実曲線で被覆した。
+全H＋相異二既約quadricのjointSSrank一も、全periodと全pole相殺を保持した実曲線でT16/T17又は既planeへ被覆した。
+一般Gは完了。可約/非被約Dの残source、全E、総上界及び分類主定理は未証明である。
 
-最初のCloud開始SHAは `4c3f623fb698f9adc6077015b25e2325b11072af`、
-11月7日の数学baselineは `a00a541b835b2bff18bafcba545ecbd4bae7175b`。
-11月8日の直前継続区間開始SHAは `136a2a3ccb459da913b5db2e274bb5389830b9a6`。
-今回の継続区間開始SHAは `dab368089679508ae5c9016d66ba6accfe6d8fa9`、GitHub mainとの一致も確認した。
-復旧区間の開始SHAは `8b46f29ddbb9f539abc7a026e492ee25bf8ad699`、直前の公開保存は
-`dab368089679508ae5c9016d66ba6accfe6d8fa9`（126成分/1002主張/256頁）。
-その後の通常main pushで `9468048f7a9daa051fa57054858aa8f07a1dd61d` を公開し、HEAD=origin/mainを確認した（126/1020/288頁、一般G完了）。
-旧8b46は124成分/967主張/225頁、旧57f主稿は234頁。直前136aの126/991保存単位は244頁。今回126/1002主稿は256頁。Cloud中断後に初期snapshotへ戻ったworkspaceを
-fetch/ff-onlyでここまで復旧した。復旧時の8b46/PDF hashはCLOUD_RECOVERYに保持し、直前136aの244頁PDF hashは
-`1df0210441101fbd577fc6278cbaff21ff800c36a7ccb9aa3b4fcda7096fe9fa`。
+残るprimaryはstable nil22二源、short nil31 r2/3、Ga9linear-w、二H＋cubicのplane三配置全磁気、H＋二quadricのpure-nil残有限軌道、rank一translationの残十二whole源、A零/定数modular等の他multiple-H全支持である。
+rank一translationは非定数g・定数g/H3零・M2/M3/M21の五源を閉じ、全十七sourceの有限routingを保存した。二つの定数g共鳴とg零scalar-cubicの三つの25次元像は、各ONE固定全ambientでD100を得たが別作者samepoint全算術もPASSし、正式成分採録は次cutとする。M1/M11と残binomial等は純source入口を検討中で、現130へ加算しない。
+同一route二回非閉なら幾何へ変更する。Ga9linear-wの旧二次支持・固定N/固定1PS陰性から親所属を推測せず、高次jet反復を再開しない。
 
-直前256頁PDF SHAは `5e95c800fb86f37f0cd95b6be1067e4a97bdd7f5d15f2a8058a5f91962528112`。
-直前288頁PDF SHAは `a6482f56471bd0e75ae35a01a234a81d00ef30b7949d372cca910415da65e5ba`、TeX SHAは `9155f735d319067d99650d84159979e2572d3b939013b4f184b59d16ab6d6905`。
-直前295頁PDF SHAは `b223a24182b809cc7dc0a2de6b5e2247bf80ea02070a72ae22d893477f43505a`、TeX SHAは `e9269978ea4239205676b1395b2e90635bddc6f8edb2a60d567d31197025bdd2`。
-今回の継続区間開始SHAは `57f8e29db085dd43df885f9085b34ae6ea9053fa`、HEAD=origin/mainを確認した。
-直前129/1044・301頁PDF SHAは `921b112e2d90aca3327317332a14420b6d19d3a51af61142c64deb3cbfb66b6b`、
-TeX SHAは `340bf6035664c3f031ef62215243f6110b0420a4a88192e7c28949715d097b97`。
-本保存区間は `a925a06ff41827e157b12aa325bcb5083855f3ef` のHEAD=origin/mainを確認して開始した。
-現行129/1054・310頁PDF SHAは `283fb4f9e6730ec8a75780b213e14ff9255861d2afe43aefb90dae87f7884edb`、
-TeX SHAは `dd72965028656743d2e25329f3a033c7595b3f1a039d3a0614b834fe05b82c94`。
-公開保存の実SHAはGit HEAD/origin/mainで確認する。
+130/1084主稿は324頁で最終二回組版・全参照・可視検証済み。直前公開310頁PDF SHA `283fb4f9e6730ec8a75780b213e14ff9255861d2afe43aefb90dae87f7884edb`、TeX SHA `dd72965028656743d2e25329f3a033c7595b3f1a039d3a0614b834fe05b82c94`。最新PDFとpushはbuild receipt/Gitで実確認する。
+現在地 `classification/CURRENT.md`、queue `classification/PLAN.json`、全加算 `COMPONENTS.json`、全依存 `CLAIMS.json`。
 
-非公開部分の旧report実測・旧hashを捏造して復旧しない。手証明/入力/sourceは旧hash一致のものだけexact復元と呼ぶ。
-新m三算術はNEW_REPLAY（22.097秒）、独立算術4.412秒、splitreview metadataはRECOVERY_V2の別identity。
-詳しくは `CLOUD_RECOVERY_20261107.md` と各manifestを使う。
-次の意味ある受理証明を通常main commit/pushで保護し、その後もprimary数学を続ける。
-実際の最新push状態・原稿頁数はGit/build receiptで確認し、実行前に成功と記さない。
+既設 `.venv`、Cloud M2 1.24.11、SymPy/Fraction、LuaLaTeXを再利用。元M2 1.26.05との差は必要QQ小例で確認済み。全setupを再実行しない。文献一次scope/接続は既receiptを使用、未取得本文を取得済みとしない。
+Cloud復旧は `CLOUD_RECOVERY_20261107.md`。旧work Singular binaryだけは欠落し二旧gateがblockedだが、新QQ primaryは継続可能。旧未commit review一件のbyte消失は `classification/inputs/genus_zero_rankzero_review_source_loss_20261108.json` にUNRECOVERED。採録は現存原証明と別名reviewを用いる。
+新科学ファイルはexclusive-create、旧code/report/manifest不変。rootのみGit/global台帳、editorのみTeX/frontier。全nontrivial jobは有限契約/gate/全補集合・失敗時停止を守る。
+通常main commit/nonforce pushは許可済み。checkpoint後もprimary研究を続ける。Library upload receiptは無い。現在ユーザーの追加操作が必要な現実の阻害はない。
 
-## 現行数学
-
-採録cutは129成分（rank四123、rank二6）・1054主張。
-直前公開a925a06fの129/1044に加え、全degree五rank零のT40、全genus零degree五rank二の空性、
-twisted-cubic cone rank二の全T38/T39、八HF壁のT36/T38、tangent m二の全T37/T40/E3を受理した。
-rank零planeのdependent globalVは全multiplicityでE3八成分又は空、common-image全四源はrank二以下。
-triangle m二normaldouble全十壁は元Jacobi一squareから全空、quadric cone rank二C零全源も二次因子で空。
-新成分加算は零。一般Gは完了、全E・総上界・分類主定理は未証明である。
-現行PDFは129/1054・310頁、最終二回組版と全参照・追加証明頁可視確認済み。
-通常Git保存はHEAD/origin/mainを確認する。
-
-採録後のdegree六rank二・二曲線留数排除、degree五canonical index二全T37、
-fullFuを復元したquadric cone rank二V2全空性は原証明と独立reviewを保存し、次cutで採録する。
-零symbol全39源の一軌道還元も独立読解済みだが、そのambient D96/M48・六法線では親が未解決である。
-concurrent m二の全二sourceは一軌道と同じsmooth24親への全有限graphまで計算確認し、actual T37同定を進める。
-smoothscroll A25全source、他のrank零plane及び重複Hの残源等は全点帰属を続ける。
-quadric cone旧SS/nil六変数入口のFu-only欠落は別erratumで撤回し、不変V1を証明依存に復帰させない。
-旧genus零review note一件のbyte消失もlossreceiptで明示し、原証明と新別名の現存reviewだけを採録依存に使う。
-
-全詳細と次の依存入口は `classification/CURRENT.md`、`classification/PLAN.json`、`NEXT_TASKS.md`。
-
-## 環境と実行
-
-既設 `.venv`、`/workspace/cloud-setup/activate.sh` を再利用。
-Macaulay2 Cloud1.24.11対元1.26.05のQQkernel/既定GB互換小例は確認済み。全setupをやり直さない。
-文献接続/一次scope確認も既receiptを再利用し、未取得Saito原全文を取得済みとしない。
-独立算術はSymPy1.14又はFraction。日本語LuaLaTeX、PDF可視、通常fetch/pushは動作済み。
-
-**旧work内の最適化Singular実体は復帰snapshotに無かった。**
-旧任意binary SHAを要求する二legacy gateはblocked、QQ証明の失敗ではない。
-別binaryを旧SHAに見せず、必要なら既設M2又はQQでfresh identityの計算を実施する。
-既存`legacy/`はtracked原ZIPの展開入力でありforce-addしない。必要memberだけexact hashで回復する。
-
-root統合担当だけがGit/大域台帳を編集し、log_manuscript担当が同じ日本語主稿を編集する。
-旧FunctionDef/producer/report/manifestは不変、compatible追記前に旧実行bytesと全契約を凍結する。
-各finitejobは義務/矢印/全環/全補集合/有限resourceを記してgate後実行。checkerは数学を検証しない。
-二回非閉鎖なら数学routeを変え、GB/minor/jet列を増やさない。B18等secondaryは休止。
-通常main pushはユーザー許可済み。Library upload receiptは無い。
-現在の数学作業にユーザーの追加許可を要する阻害は無く、残る数学的義務を継続する。
-
-全rank二plane m三及びm四のpointwiseEを閉じた。全degree四導手もrank零/二で既約quintic枝は空、unstable elliptic rank零全源はT40へ。
+現行324頁PDF SHA `5f59e0450d087fba4a11547a5b634219779fba6964ef85505e34294f234f301a`、TeX SHA `929d33aa65c8973fab61279bfaab79182af449d82611d79f25a61717b13fd033`。最終組版receiptは `reports/CLASSIFICATION_MAIN_MANUSCRIPT_COMPONENT130_CLAIM1084_EDITOR_BUILD_20261108.json`。通常pushは実行後Gitで確認する。

@@ -1,0 +1,54 @@
+{
+  "task_id": "E_multiple_hyperplane",
+  "status": "Producer pure whole-source reduction; independent review pending",
+  "new_component_count": 0,
+  "no_new_mathematical_computation": true,
+  "normalization_kappa": "nonzero tensor scale makes kappa=1",
+  "complete_remaining_sources": [
+    {
+      "f": "z*w",
+      "parameters": 10
+    },
+    {
+      "f": "z*w+u",
+      "parameters": 8
+    },
+    {
+      "f": "z**2+u",
+      "parameters": 10
+    }
+  ],
+  "whole_known_sources": [
+    {
+      "f": "z**2",
+      "potential_dimension": 16,
+      "parent": "CB",
+      "actual_family": "rawCB with g_epsilon=-z/2+epsilon*z**2, mu=4, K=-H"
+    },
+    {
+      "f": "z",
+      "potential_dimension": 16,
+      "parent": "CA",
+      "actual_family": "rawCA with g_epsilon=-z+epsilon*z**2, g0=-1, K=-H"
+    }
+  ],
+  "empty_sources": [
+    "quadratic Hessian rank3",
+    "rank1/2 radical-linear-zero with nonzero critical value",
+    "degree0 in rankfour"
+  ],
+  "all_Y2_divergence_and_lower_terms_retained": true,
+  "nonlinear_Darboux_not_used_as_actual_equivalence": true,
+  "inputs": [
+    {
+      "path": "research/classification/MULTIPLE_HYPERPLANE_LOW_RANK_MODULAR.md",
+      "sha256": "ba50a26afe5a5b4f240804e88ff060fee3ca3819263b15835a79d8dfea18d63c"
+    },
+    {
+      "path": "research/classification/KNOWN_COMPONENT_AUDIT.md",
+      "sha256": "02398596c35a1de9ee71871fb343e7afb808d82a96cacb0830e5e87d155648e9"
+    }
+  ],
+  "note_sha256": "6f39fec643c4ad322cdd9499013618a874ab2cc57eb5a1208342a450a0eb5d77",
+  "scope": "Complete degree<=2 reduction and two entire known-parent inclusions only; remaining whole8/10/10 sources and singular f3 are unresolved."
+}

@@ -1,0 +1,129 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "status": "toriccompatible_space_has_no_rankfour_Q",
+  "method": "Only seven alreadycomputed fullD columns read; exactcomplete linear compatibility space and symbolicPfaffian coefficient onitsentirekernel. No newoperator/ambientpoint/profile/jet or randompoint.",
+  "source_coefficient_columns": [
+    33,
+    49,
+    82,
+    98,
+    115,
+    131,
+    148
+  ],
+  "source_toric_entries": [
+    [
+      0,
+      3
+    ],
+    [
+      0,
+      4
+    ],
+    [
+      1,
+      3
+    ],
+    [
+      1,
+      4
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      2,
+      4
+    ],
+    [
+      3,
+      4
+    ]
+  ],
+  "saved350_rows_verified": true,
+  "linear_rref_rows": {
+    "0": {
+      "0": "1",
+      "5": "-1",
+      "6": "1"
+    },
+    "2": {
+      "2": "1",
+      "5": "-1",
+      "6": "1"
+    },
+    "3": {
+      "3": "1",
+      "5": "-1"
+    },
+    "4": {
+      "4": "1",
+      "5": "-1",
+      "6": "1"
+    },
+    "1": {
+      "1": "1",
+      "5": "-1"
+    }
+  },
+  "complete_7row_kernel": [
+    [
+      "1",
+      "-1"
+    ],
+    [
+      "1",
+      "0"
+    ],
+    [
+      "1",
+      "-1"
+    ],
+    [
+      "1",
+      "0"
+    ],
+    [
+      "1",
+      "-1"
+    ],
+    [
+      "1",
+      "0"
+    ],
+    [
+      "0",
+      "1"
+    ]
+  ],
+  "kernel_free_columns": [
+    5,
+    6
+  ],
+  "full_toric_Pfaffian": "a*b*c*z*w times C; C=Mb*Lc-Lb*Mc-Ma*Lc+La*Mc+Ma*Lb-La*Mb",
+  "whole_kernel_quadratic_C": {},
+  "actual_parent_or_membership_proved": false,
+  "fallback": "IfCidenticallyzero, retainnegativefixedCartanframe result only; no alternateframe/kernel/profile search. Returngeometricactualcurve.",
+  "inputs": [
+    {
+      "path": "reports/CLASSIFICATION_PLANE_ZERO_SYMBOL_CANONICAL_ONE_AMBIENT_20261108.json",
+      "sha256": "58e695ce5e36185567adc9e1d57df326958268ad40d3fb69ff5021c4e438fc4c"
+    },
+    {
+      "path": "research/classification/PLANE_ZERO_SYMBOL_WHOLE_SINGLE_ORBIT.md",
+      "sha256": "150f8085d666314e2d65100d69c5e73d61e285b016c85c8f7d5c21d1167516b2"
+    },
+    {
+      "path": "research/classification/PLANE_ZERO_SYMBOL_WHOLE_SINGLE_ORBIT_SEPARATE_REVIEW.md",
+      "sha256": "6b143a5db2f07801fca0faa9daf1ceb59e11ee73f415604d27f4a69194b6c118"
+    },
+    {
+      "path": "code/classification_cubic_scroll_abelian_review.py",
+      "sha256": "116dfa897adb51862d53d1a3e104a153f23d15afaf95150eb2e65c4c00f33c91"
+    }
+  ],
+  "inline_source": "from pathlib import Path\nfrom fractions import Fraction as Q\nimport hashlib,itertools as it,json,resource,sys,time\nsys.path.insert(0,'code')\nfrom classification_cubic_scroll_abelian_review import rref\nresource.setrlimit(resource.RLIMIT_CPU,(59,60));resource.setrlimit(resource.RLIMIT_AS,(512*1024**2,)*2);begun=time.monotonic()\njp=Path('research/classification/jobs/plane_zero_symbol_toric_pencil_readback.json');job=json.loads(jp.read_text())\nfor x in job['exact_inputs_and_hashes']:assert hashlib.sha256(Path(x['path']).read_bytes()).hexdigest()==x['sha256'],x['path']\nd=json.loads(Path('reports/CLASSIFICATION_PLANE_ZERO_SYMBOL_CANONICAL_ONE_AMBIENT_20261108.json').read_text());order=d['full_original_coefficient_order'];lookup={(tuple(v['pair']),tuple(v['exponent'])):i for i,v in enumerate(order)}\nspec=[(i,j)for i in range(3)for j in [3,4]]+[(3,4)];cols=[]\nfor i,j in spec:\n ex=[0]*5;ex[i]+=1;ex[j]+=1;cols.append(lookup[(i,j),tuple(ex)])\nD=d['complete_sparse_matrices']['D350x150'];assert D['shape']==[350,150];matrix=[[Q(D['entries'].get(str(i)+','+str(j),'0'))for j in cols]for i in range(350)]\nrr=rref(matrix);piv=list(rr);free=[j for j in range(7)if j not in rr];K=[[Q(int(i==j))if i in free else -rr[i].get(j,Q(0))for j in free]for i in range(7)]\nassert all(sum(matrix[i][j]*K[j][k]for j in range(7))==0 for i in range(350)for k in range(len(free)))\ndef coef(v):\n la,ma,lb,mb,lc,mc,k=v\n return mb*lc-lb*mc-ma*lc+la*mc+ma*lb-la*mb\nquadratic={}\nfor i in range(len(free)):\n v=[K[j][i]for j in range(7)];c=coef(v)\n if c:quadratic[f'{i},{i}']=str(c)\n for k in range(i+1,len(free)):\n  w=[K[j][k]for j in range(7)];c=coef([a+b for a,b in zip(v,w)])-coef(v)-coef(w)\n  if c:quadratic[f'{i},{k}']=str(c)\nstatus='nonzero_toric_fullrank_compatible_pencil_exists'if quadratic else'toriccompatible_space_has_no_rankfour_Q'\nout=dict(task_id='E_reduced_nonnormal',status=status,method='Only seven alreadycomputed fullD columns read; exactcomplete linear compatibility space and symbolicPfaffian coefficient onitsentirekernel. No newoperator/ambientpoint/profile/jet or randompoint.',source_coefficient_columns=cols,source_toric_entries=[list(p)for p in spec],saved350_rows_verified=True,linear_rref_rows={str(i):{str(j):str(v)for j,v in row.items()}for i,row in rr.items()},complete_7row_kernel=[[str(v)for v in row]for row in K],kernel_free_columns=free,full_toric_Pfaffian='a*b*c*z*w times C; C=Mb*Lc-Lb*Mc-Ma*Lc+La*Mc+Ma*Lb-La*Mb',whole_kernel_quadratic_C=quadratic,actual_parent_or_membership_proved=False,fallback='IfCidenticallyzero, retainnegativefixedCartanframe result only; no alternateframe/kernel/profile search. Returngeometricactualcurve.',inputs=job['exact_inputs_and_hashes'],inline_source=job['inline_source'],seconds=time.monotonic()-begun,maximum_RSS_KiB=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss)\np=Path('reports/CLASSIFICATION_PLANE_ZERO_SYMBOL_TORIC_PENCIL_READBACK_20261108.json')\nwith p.open('x')as f:json.dump(out,f,indent=2);f.write('\\n')\nprint(json.dumps({k:out[k]for k in ['status','kernel_free_columns','whole_kernel_quadratic_C','seconds','maximum_RSS_KiB']}))\n",
+  "seconds": 0.011260021998168668,
+  "maximum_RSS_KiB": 12160
+}

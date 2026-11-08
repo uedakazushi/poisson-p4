@@ -1,0 +1,35 @@
+{
+  "task_id": "E_multiple_hyperplane",
+  "target_statement": "Reduce the entire constant nonzero modular source with degree(f)<=2 to complete affine quadratic normal forms and preserve all polynomial Y coefficients; identify the entire degree-one and rank-one centered sources with CA/CB closures by actual quadratic families.",
+  "implication_to_classification": "Closes full large potential branches and leaves only explicit whole finite sources of dimensions8/10/10, without new point/operator/profile work.",
+  "coefficient_ring": "Complex affine polynomial geometry; hand coefficient comparison only.",
+  "hypotheses": "P=d/dt wedge Y+Jac(f) on(t,u,z,w), divY=kappa!=0,Y(f)=kappa*f, degY<=2,degf<=2; actual rankfour. Normalize kappa by nonzero tensor scalar.",
+  "inverted_elements": [
+    "kappa!=0 from the declared nonzero modular field.",
+    "Only nonzero coefficients used in standard affine quadratic-form normalization; each rank/linear-radical/critical-value zero complement retained."
+  ],
+  "complements": [
+    "Quadratic Hessian ranks3/2/1; radical linear term nonzero/zero and every constant critical value.",
+    "Degree1 and degree0, including f=0 rank-two-only case.",
+    "All Y2 syzygies, div and lower-degree conditions retained; no nonlinear Darboux equivalence asserted.",
+    "Three remaining finite entire sources are not yet asserted known or empty."
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "research/classification/MULTIPLE_HYPERPLANE_LOW_RANK_MODULAR.md",
+      "sha256": "ba50a26afe5a5b4f240804e88ff060fee3ca3819263b15835a79d8dfea18d63c"
+    },
+    {
+      "path": "research/classification/KNOWN_COMPONENT_AUDIT.md",
+      "sha256": "02398596c35a1de9ee71871fb343e7afb808d82a96cacb0830e5e87d155648e9"
+    }
+  ],
+  "success_certificate": "Explicit inverse coefficient recovery for the whole8/10/10/16 potential sources; rank3 trace contradiction and nonzero critical-value contradictions; literal all-six-bracket CA/CB matching and regular quadratic families g_epsilon=-z+epsilon*z^2 or -z/2+epsilon*z^2.",
+  "independent_check": "Separate pure proof reviewer to check signs, all coefficients, affine normalization units and full cubic potential matching. No new mathematical arithmetic run requested.",
+  "resource_limit": {
+    "timeout_seconds": 5400,
+    "memory_mb": 512
+  },
+  "negative_result_next_step": "Keep exact finite sources and identify missing coefficient/normalizer condition. Do not launch profiles, GB or jet probes.",
+  "route_change_reason": "Pure low-degree eigenfunction geometry and actual known-family limits, beyond generic beta dimension bounds."
+}

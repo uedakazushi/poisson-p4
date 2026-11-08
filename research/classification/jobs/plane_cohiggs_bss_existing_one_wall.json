@@ -1,0 +1,57 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "target_statement": "ONE fixed EXISTING whole BSS wall (tau,s)=(-3/2,-10/3), all7K1/sixactualshears/FULL9D2injective, one-normal original350/Pf and global finite inverse.",
+  "implication_to_classification": "The whole Borel m2 zero-row argument leaves exactly this old wall. Original one-normal square/whole factor/known source can close it; otherwise save exact whole model and switch geometry.",
+  "coefficient_ring": "QQ[t] and six independent global shear parameters; independent Fraction sparse primitives",
+  "hypotheses": "Accepted complete old wall of the original two-parameter cover, no new point. Every original higher coefficient and normalizer retained.",
+  "inverted_elements": [
+    "Only SAME old saved six-shear and full-nine D2 constant minors."
+  ],
+  "complements": [
+    "Any noninjective D2 would stop preserving all free P2.",
+    "A complete model with no original obstruction/whole factor/known bridge remains E unresolved.",
+    "No global E or other coHiggs stratum conclusion from a chosen point."
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_plane_cohiggs_kernel_pointwise.py",
+      "sha256": "e631f9dc2814f58586125564aa1870840456310cead44f2a9bec4f4571128521"
+    },
+    {
+      "path": "code/classification_plane_rank_zero_rank_two_review.py",
+      "sha256": "765f92b493d48c0b9d18f25d2971e6d1686d0abb4d3b8522cae3fc8d7f65dcd2"
+    },
+    {
+      "path": "code/classification_degenerate_quadric_q4_nil31_I_review.py",
+      "sha256": "f3900a3d9a77859585118cfdd00c00ecce2c491d0705a94bf42a6c2609abe915"
+    },
+    {
+      "path": "code/classification_unimodular_logarithmic_review.py",
+      "sha256": "cc5da8f4ac53bb814e549d439d806271a81f28cacfd9656b85765eb78b21cdcf"
+    },
+    {
+      "path": "code/classification_minimal_quartic_review.py",
+      "sha256": "75cbf6820a60945f053c4593363d9191cebe860f56230a0fb0bf78a1a43623fe"
+    },
+    {
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_RANK_TWO_NONKERNEL_WEIGHTS_20261107.json",
+      "sha256": "c9f62505c7edfa4469296811ed9fd8f2c92f5d9ca4c6455583a28ba3737b7ce7"
+    },
+    {
+      "path": "research/classification/PLANE_RANK_ZERO_NONKERNEL_SEPARATE_REVIEW.md",
+      "sha256": "31ef3afc6985722ed191f2aa35f30f3694dfde125e71ba2f069d89a4503a4ccb"
+    },
+    {
+      "path": "research/classification/PLANE_COHIGGS_SHEAR_EXACT_SOURCE_REDUCTION.md",
+      "sha256": "32aeb1ead62288c657166af90c720683fe39306180dbbecd671276e8dd286795"
+    }
+  ],
+  "success_certificate": "All30x7 K=SA+Nb, FULL9 unique quadratic P2, all350/Pf literal on wholet, and all six actual shear inverse/full150 roundtrip, with exact original consequence or factor when valid.",
+  "independent_check": "Root/peer can read full N,Q and original row/factor, compare to saved old finite-wall certificate.",
+  "resource_limit": {
+    "timeout_seconds": 90,
+    "memory_mb": 1024
+  },
+  "negative_result_next_step": "Freeze exact whole curve and change geometry. No new M1/rank/minor/point/jet/GB or alternative points.",
+  "inline_caller_source": "import sys,json,hashlib,resource,time\nfrom pathlib import Path\nfrom fractions import Fraction as F\nsys.path.insert(0,str(Path.cwd()/'code'))\nimport classification_plane_cohiggs_kernel_pointwise as c\nROOT=Path.cwd()\nJOB='research/classification/jobs/plane_cohiggs_bss_existing_one_wall.json'\nOUTPUT='reports/CLASSIFICATION_PLANE_COHIGGS_BSS_EXISTING_ONE_WALL_20261108.json'\nresource.setrlimit(resource.RLIMIT_CPU,(85,90))\nresource.setrlimit(resource.RLIMIT_AS,(1024**3,1024**3))\nstarted=time.monotonic()\njob=json.loads((ROOT/JOB).read_text())\nfor x in job['exact_inputs_and_hashes']:\n    assert hashlib.sha256((ROOT/x['path']).read_bytes()).hexdigest()==x['sha256']\npacket=json.loads((ROOT/'reports/CLASSIFICATION_PLANE_RANK_ZERO_RANK_TWO_NONKERNEL_WEIGHTS_20261107.json').read_text())\nold=next(x for x in packet['cases'] if x['type']=='BSS')\nline=next(x for x in old['analysis']['all_exceptional_lines'] if x['equation']=='2*tau + 3')\nassert line['parameterization']=={'tau':'-3/2','eta':'tau'}\nwall=next(x for x in line['analysis']['all_exceptional_roots'] if x['parameter']=='-10/3')\nassert not wall['excluded_multiplicity_higher']\ndef bind(x):\n    if isinstance(x,str):return x.replace('eta','(-10/3)')\n    if isinstance(x,list):return [bind(v) for v in x]\n    if isinstance(x,dict):return {k:bind(v) for k,v in x.items()}\n    return x\nrecord=bind({k:old[k] for k in ['type','normal_form_P0','complete_D2_350_by9','complete_actual_shear_30_by6']})\nrecord['type']='BSS_original_tau_minus_three_halves_eta_minus_ten_thirds'\nfirst,second=c.bases()\nresult=c.run_case(record,F(-3,2),wall,first,second)\nout=ROOT/OUTPUT;assert not out.exists()\ndata={'task_id':'E_reduced_nonnormal','status':'ONE_existing_whole_BSS_wall_batch_completed',\n      'old_exact_source_location':'cases[BSS].analysis.all_exceptional_lines[2*tau+3].analysis.all_exceptional_roots[parameter=-10/3]',\n      'source_parameters':{'tau':'-3/2','eta':'-10/3'},'all_explicit_identity_checks_passed':True,\n      'whole_source_result':result,'no_new_operator_rank_minor_point_or_jet':True,\n      'seconds':time.monotonic()-started,'maximum_RSS_KiB':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,\n      'inputs':job['exact_inputs_and_hashes'],'inline_caller_source':job['inline_caller_source'],\n      'inline_caller_source_sha256':hashlib.sha256(job['inline_caller_source'].encode()).hexdigest(),\n      'main_frontier_global_oldcode_oldreports_unchanged':True}\nout.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\\n')\nprint(result['whole_source_conclusion'],result['reduced_support_obstruction_if_any'],flush=True)\nprint('PASS explicit identities',data['seconds'],data['maximum_RSS_KiB'],flush=True)\n"
+}

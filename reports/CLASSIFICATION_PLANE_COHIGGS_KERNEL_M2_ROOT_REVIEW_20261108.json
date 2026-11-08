@@ -1,0 +1,52 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "all_passed": true,
+  "method": "Root independentFraction literalN/Q/reconstructedJacN andOLD fullD2 rows; completeoldK=S_A+N_b all30x7 directidentity. No operator/rank/minor/kernel/point/jet.",
+  "cases": [
+    {
+      "source": "BSS_rho",
+      "all30by7_oldK_equals_actualS_A_plus_N_b": true,
+      "literal_N_and_Q_all10_match": true,
+      "full_raw9_particular_passes_all9_old_selected_rows": true,
+      "original_row": 121,
+      "quadratic_parameter_coefficient": "-32/3",
+      "actual_P0_fullsignedPf_matches_proper_factor": true
+    },
+    {
+      "source": "BN0",
+      "all30by7_oldK_equals_actualS_A_plus_N_b": true,
+      "literal_N_and_Q_all10_match": true,
+      "full_raw9_particular_passes_all9_old_selected_rows": true,
+      "original_row": 122,
+      "quadratic_parameter_coefficient": "-16/9",
+      "actual_P0_fullsignedPf_matches_proper_factor": true
+    }
+  ],
+  "whole_source_pure_argument": "Independentfiniteactualshear/FULL9uniqueness/originalsquare/zero-complement proofread, withallND/BSSrho/BN1oldcover restored.",
+  "new_component_count": 0,
+  "inputs": [
+    {
+      "path": "code/classification_cubic_scroll_abelian_review.py",
+      "sha256": "116dfa897adb51862d53d1a3e104a153f23d15afaf95150eb2e65c4c00f33c91"
+    },
+    {
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_RANK_TWO_KERNEL_WEIGHTS_20261107.json",
+      "sha256": "ce13a6296477adeea413f9004fcd28e579ed4001fc40019efbb3d3a09a309d3f"
+    },
+    {
+      "path": "reports/CLASSIFICATION_PLANE_COHIGGS_KERNEL_POINTWISE_20261108.json",
+      "sha256": "2fc17b6aef1025645c072c84faf67a4d1ccfe7caec07da370fa0e44b3e8158f3"
+    },
+    {
+      "path": "research/classification/PLANE_COHIGGS_KERNEL_M2_WHOLE_EXCLUSION.md",
+      "sha256": "1ae3e2781835f093120ffba3217df976f7f0eb5fa25e543ba272e67705496867"
+    },
+    {
+      "path": "research/classification/PLANE_RANK_ZERO_RANK_TWO_KERNEL_SEPARATE_REVIEW.md",
+      "sha256": "4ef9951811325e021e96011ef0433bec60edc5954f552a0ce7c2b3c936eabc9b"
+    }
+  ],
+  "inline_source": "from pathlib import Path\nfrom fractions import Fraction as Q\nimport ast,hashlib,itertools as it,json,resource,sys,time\nsys.path.insert(0,'code')\nfrom classification_cubic_scroll_abelian_review import add,scale,mul,diff,parse\nresource.setrlimit(resource.RLIMIT_CPU,(59,60));resource.setrlimit(resource.RLIMIT_AS,(512*1024**2,)*2);start=time.monotonic()\njp=Path('research/classification/jobs/plane_cohiggs_kernel_m2_root_review.json');job=json.loads(jp.read_text())\nfor x in job['exact_inputs_and_hashes']:assert hashlib.sha256(Path(x['path']).read_bytes()).hexdigest()==x['sha256'],x['path']\nold=json.loads(Path('reports/CLASSIFICATION_PLANE_RANK_ZERO_RANK_TWO_KERNEL_WEIGHTS_20261107.json').read_text());rep=json.loads(Path('reports/CLASSIFICATION_PLANE_COHIGGS_KERNEL_POINTWISE_20261108.json').read_text());names=['a','b','c','z','w'];xs=[parse(n,names)for n in names];pairs=list(it.combinations(range(5),2));quads=list(it.combinations(range(5),4));mon4=sorted((ex for ex in it.product(range(5),repeat=5)if sum(ex)==4),reverse=True);rows=list(it.product(quads,mon4));assert rows[121]==((0,1,2,4),(0,1,0,3,0))and rows[122]==((0,1,2,4),(0,1,0,2,1))\ndef qq(v):return sum(parse(str(v),[]).values(),Q(0))\ndef ev(v,rho):return sum(c*rho**ex[0]for ex,c in parse(str(v),['tau']).items())\ndef pp(P,i,j):return P.get((i,j),{})if i<j else scale(P.get((j,i),{}),-1)if i>j else{}\ndef decode(tensor):\n out={}\n for ij,terms in tensor.items():\n  p={}\n  for r in terms:\n   ex=tuple(r['exponents']);assert all(k==0 for k in ex[5:]);p[ex[:5]]=qq(r['coefficient'])\n  out[ast.literal_eval(ij)]=p\n return out\ndef jac(P):\n J={t:add(*(mul(pp(P,i,l),diff(pp(P,j,k),l))for i,j,k in [t,(t[1],t[2],t[0]),(t[2],t[0],t[1])]for l in range(5)))for t in it.combinations(range(5),3)}\n return {quad:add(*(scale(mul(xs[k],J[quad[:i]+quad[i+1:]]),(-1)**i)for i,k in enumerate(quad)))for quad in quads}\ndef pf(P):\n out={}\n for i in range(5):\n  a,b,c,d=[j for j in range(5)if j!=i];f=add(mul(pp(P,a,b),pp(P,c,d)),scale(mul(pp(P,a,c),pp(P,b,d)),-1),mul(pp(P,a,d),pp(P,b,c)));out=add(out,scale(mul(xs[i],f),(-1)**i))\n return out\nliteralN=[['c*w/6','0','0','8*z*w/3','c*z','0','-z*w','0','-4*z**2','0'],['5*(a-c)*w/6','(a+13*c/6)*z','0','-2*z*w','8*b*z/3-5*c*w/6','-5*z*w/6','0','0','-2*z*w/3','0']]\nliteralQ=[['-z**2/18','0','0','0','0','0','0','0','0','0'],['59*z**2/108','0','0','0','5*z**2/6','0','0','0','0','0']]\nsummary=[]\nfor ci,r in enumerate(rep['cases']):\n source=next(c for c in old['cases']if c['type']==r['source']);rho=qq(r['rho']);cert=next(w['D1']for w in source['all_exceptional_roots']if qq(w['rho'])==rho)if ci==0 else source['generic_D1'];K=[[qq(v)for v in row]for row in cert['complete_kernel']];S=[[ev(v,rho)for v in row]for row in source['complete_actual_shear_30_by6']];A=[[qq(v)for v in row]for row in r['A_6_by7']];b=[qq(v)for v in r['b_7']];nv=[qq(v)for v in r['N_30']]\n assert len(K)==30 and all(len(row)==7 for row in K)\n assert all(K[i][j]==sum(S[i][k]*A[k][j]for k in range(6))+nv[i]*b[j]for i in range(30)for j in range(7))\n N={ij:parse(v,names)for ij,v in zip(pairs,literalN[ci])};QT={ij:parse(v,names)for ij,v in zip(pairs,literalQ[ci])};assert N==decode(r['N'])and QT==decode(r['Q'])\n P0=decode(r['P0']);expected=parse('-6*b*c*w*(2*b*z+c*w)'if ci==0 else'2*b**2*w*(2*b*z+c*w)',names);assert pf(P0)==expected\n JN=jac(N);forcing=[JN[q].get(ex,Q(0))for q,ex in rows];D2=[[ev(v,rho)for v in row]for row in source['complete_D2_350_by9']];q9=[qq(v)for v in r['Q_9']];res=[forcing[i]+sum(D2[i][j]*q9[j]for j in range(9))for i in range(350)]\n assert all(res[i]==0 for i in r['same_old_D2_inverse_rows']);index=121 if ci==0 else 122;expectedcoef=Q(-32,3)if ci==0 else Q(-16,9);assert res[index]==expectedcoef\n summary.append(dict(source=r['source'],all30by7_oldK_equals_actualS_A_plus_N_b=True,literal_N_and_Q_all10_match=True,full_raw9_particular_passes_all9_old_selected_rows=True,original_row=index,quadratic_parameter_coefficient=str(res[index]),actual_P0_fullsignedPf_matches_proper_factor=True))\nout=dict(task_id='E_reduced_nonnormal',all_passed=True,method='Root independentFraction literalN/Q/reconstructedJacN andOLD fullD2 rows; completeoldK=S_A+N_b all30x7 directidentity. No operator/rank/minor/kernel/point/jet.',cases=summary,whole_source_pure_argument='Independentfiniteactualshear/FULL9uniqueness/originalsquare/zero-complement proofread, withallND/BSSrho/BN1oldcover restored.',new_component_count=0,inputs=job['exact_inputs_and_hashes'],inline_source=job['inline_source'],seconds=time.monotonic()-start,maximum_RSS_KiB=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss)\np=Path('reports/CLASSIFICATION_PLANE_COHIGGS_KERNEL_M2_ROOT_REVIEW_20261108.json')\nwith p.open('x')as f:json.dump(out,f,indent=2);f.write('\\n')\nprint(json.dumps({k:out[k]for k in ['all_passed','seconds','maximum_RSS_KiB']}))\n",
+  "seconds": 0.05125658199904137,
+  "maximum_RSS_KiB": 14432
+}

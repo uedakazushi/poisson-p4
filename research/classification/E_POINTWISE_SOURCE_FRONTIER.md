@@ -1,6 +1,6 @@
 # Eの全点被覆：G完了後の全source inventory
 
-2026-11-08、PRIMARY E、担当 /root/log_manuscript。基準は129成分／1054claimsの受理済みcut。
+2026-11-08、PRIMARY E、担当 /root/log_manuscript。基準は130成分／1084claimsの受理済みcut。
 本稿は既存の全源定理・独立receiptの**結論の射程の一覧**であり、新claim・計算・成分性証明ではない。
 主原稿・global台帳・Git・旧証明書を変更せず、数学を再実行していない。
 
@@ -8,7 +8,7 @@
 [93-file manifest](inputs/global_generic_g_exhaustion_closure_audit_manifest_20261108.json)、
 [34 accepted-claim projection](inputs/global_generic_g_exhaustion_accepted_branches_20261108.json)。
 **93は依存ファイル数であり、source族や未解決課題の数ではない。**
-snapshot後のcorrected-triple最終receipt、K22陽性、K4a/T37及びclaim1022–1054の全源認識も併用する。
+snapshot後のcorrected-triple最終receipt、K22陽性、K4a/T37及びclaim1022–1084の全源認識も併用する。
 旧note冒頭の「未了／review前」は後続の受理済みreceiptとerratumを優先して読む。
 旧52件のexceptional-base表を現在の全E表とは扱わない。
 
@@ -31,7 +31,7 @@ snapshot後のcorrected-triple最終receipt、K22陽性、K4a/T37及びclaim1022
 
 Gは完了し、一般βのexact splitter残余Bは零、一般S61代数は既知E5である。
 これは特殊β上の全点membershipや低次元成分を消さない。
-**plane三源／stable二源／Ga9 linear-w／nilshortだけがE残余、という一覧は不完全である。**
+**被約既約非正規Dの全点被覆はclaim1084で完了した。残るE義務は可約・非被約Dの全源に置く。plane三源／stable二源／Ga9 linear-w／nilshortだけが全E残余という一覧にも縮めない。**
 
 ## 2. 実退化五次Dの最上位全分岐
 
@@ -47,8 +47,8 @@ Gは完了し、一般βのexact splitter残余Bは零、一般S61代数は既�
 | 重複Hあり | K/B混合。§3の全modular型が必要 |
 | 被約H＋既約quartic | 大部分K、残B。§4 |
 | 被約二H＋既約cubic | 全非plane K、plane三whole六磁気B。§4 |
-| 被約H＋相異二既約Q | plane全十候補K、jointSSrank一・pure-nil factor-specific枝にB。§4 |
-| 被約既約非正規quintic | 導手曲面次数1..6・rank零/二のK/Ø/B/P。§5–7 |
+| 被約H＋相異二既約Q | plane全十候補K、jointSSrank一全T16/T17、pure-nil factor-specific枝にB。§4 |
+| 被約既約非正規quintic | **全K/Ø**。claim1084の全導手次数1..6・rank零/二・全plane位数の合成。§5–7 |
 
 ## 3. 重複Hの全modular型
 
@@ -68,7 +68,7 @@ symplectic基点／finite perspectiveとの橋は[REMAINING_SUPPORT §3](REMAINI
 | nil22、c∉imA | K。[MODULAR_NIL22_TOP_SUPPORT](MODULAR_NIL22_TOP_SUPPORT.md)：全八源、全MPS/T19/二22。途中の古い未了文を最終状況としない |
 | nil22、c∈imA | K＋**stable二B**。[NIL22_IMAGE_SOURCE_REVIEW](NIL22_IMAGE_SOURCE_REVIEW.md)：全十一Hessian源、GL2全逆、任意F0六係数。half/third等、regular limits、doubleB/C、quadraticA、doubleAの後続陽性を合わせ、残stable_line_conic／stable_three_lines |
 | rankA1、c∈imA | K。[LOW_RANK §4](MULTIPLE_HYPERPLANE_LOW_RANK_MODULAR.md)：b≠0は既nil31成分、b=0はCA/CB |
-| rankA1、c∉imA | **K/B混合**。同§5長鎖/短鎖全源。長鎖g定数非零・H3=0はNEW25へK。g=0の自由F二次、非定数g=zの全U,K、定数gの三次共鳴H3等は同一jet fiber／β像上界のみB |
+| rankA1、c∉imA | **K/B混合**。同§5長鎖/短鎖全源。長鎖の全非定数affine gは新25次元成分 R4_MODULAR_RANK1_LONG_NONCONSTANT_25へK（generic orbit22/商3）。短鎖全非定数gも実lambda曲線とH=gKから同成分へK。非零定数g/H3=0は旧NEW25。短鎖全源は対応longへ還元されるが、g=0の自由F二次・定数gのH3共鳴は依然B |
 | A0、c≠0 | **B**。同§3／remaining §14。全P=∂t∧Y+Jac(f)、divY=κ、Yf=κf、degY≤2、degf≤3。β(c)=0はmembershipではない |
 | A=c=0 | 以下の全symplectic延長でK/Ø/B混合。全点をbeta零／Q45に制限しない |
 | 別の横断条件[J,Q]=0 | **B**。remaining §4の全Lie4源＋全Q。固定評価β像≤12だけ。上の型と重複する必要sourceとして全係数を保持 |
@@ -130,120 +130,104 @@ translation二22閉包、j21(h,x)、j21(0,h+x)の全n6補集合、p0→T06の全
 λ非零・jointSSrank二・pair-zero等で実Kとした全sourceと、本質三planeの十候補→七free源はK。
 [TWO_QUADRICS_PLANE_WHOLE_COVERAGE](TWO_QUADRICS_PLANE_WHOLE_COVERAGE.md)を次の非plane/別factor源へ拡張しない。
 
-| Bのfactor-specific入口 | fullsource／必要unit |
+jointSSrank一の全B1/B2/B3は[実全曲線](TWO_QUADRICS_JOINT_SS_RANK1_ACTUAL_CONFLUENCE.md)と別作者receiptにより**K=T16/T17**となった。B1の全六自由、B2のn0零/非零全七、B3のn1零/非零全五を戻し、全unit零はproper factor又は既planeへ送る。相異二quadric条件外のhF²を対象源として残さない。
+
+| 依然Bのpure-nil factor-specific入口 | fullsource／必要unit |
 |---|---|
-| λ0 jointSSrank一B1 | [JOINT_SS_RANK1 §3](TWO_QUADRICS_JOINT_SS_RANK1_SUPPORT.md)：六自由n0,n3,n4,n5,n8,n9、n0n5n8≠0 |
-| 同B2 | 同§4：n0非零／零の二つの全七parameter源、n6n9≠0 |
-| 同B3 | 同§5：n1非零／零の二つの全五parameter源、指定n6/n7等のunit |
-| pure-nil型1 regular c0 | [PURE_NIL §2](TWO_QUADRICS_PURE_NILPOTENT_SUPPORT.md)：n12=−1/2,n10=0、n0≠0、n0,n3,n4＋実N² undo n5。Pf=I2²/48−n0w²/2 |
-| pure-nil型4 | 同§1／[NIL31_SHORT](HYPERPLANE_QUARTIC_NIL31_SHORT_SUPPORT.md)：全factor-twoQ源≤23。quartic既約のKを全factor枝へ外挿しない |
-| pure-nil型7 | [NIL22_LONG_SUPPORT_REVIEW](HYPERPLANE_QUARTIC_NIL22_LONG_SUPPORT_REVIEW.md)：全20potential/670lift/criticalcore、≤24 |
-| pure-nil型10 top2 | [PURE_NIL §6](TWO_QUADRICS_PURE_NILPOTENT_SUPPORT.md)：全canonical三parameterδ,a≠0,κ、Pf=δR²/2+az²、≤24 |
+| 型1 regular c0 | [PURE_NIL §2](TWO_QUADRICS_PURE_NILPOTENT_SUPPORT.md)：n12=−1/2,n10=0、n0≠0、n0,n3,n4＋実N² undo n5。Pf=I2²/48−n0w²/2 |
+| 型4 | [NIL31_SHORT](HYPERPLANE_QUARTIC_NIL31_SHORT_SUPPORT.md)：全factor-twoQ源≤23。quartic既約のKを全factor枝へ外挿しない |
+| 型7 | [NIL22_LONG_SUPPORT_REVIEW](HYPERPLANE_QUARTIC_NIL22_LONG_SUPPORT_REVIEW.md)：全20potential/670lift/criticalcore、≤24 |
+| 型10 top2 | [PURE_NIL §6](TWO_QUADRICS_PURE_NILPOTENT_SUPPORT.md)：全canonical三parameterδ,a≠0,κ、Pf=δR²/2+az²、≤24 |
 
-A1はØ、A2はplaneKへ戻る。pure-nil2/3/5/8はØ、6/9はplaneK。
-残表では相異二既約Qという実factor条件を全supersourceへ戻してから親を認識する。
+A1はØ、A2はplaneK、pure-nil2/3/5/8はØ、6/9はplaneK。
+これらは可約Dのfactor-specific義務であり、以下の既約D全被覆では消えない。
 
-## 5. 既約非正規quintic：非plane導手曲面の全次数
+## 5. 非plane導手曲面：全次数・全restriction rankはK又はØ
 
-共通入口は[IRREDUCIBLE_NONNORMAL_QUINTIC_ENTRANCE](IRREDUCIBLE_NONNORMAL_QUINTIC_ENTRANCE.md)。
-Σδ_i degS_i=6−gの全支持を保持する。Sのnormality/smoothness、ordinary node、clean、
-vertical無しを表の全域に加えない。
+[全nonplane合成](NONPLANE_CONDUCTOR_POINTWISE_KNOWN_COVERAGE.md)と
+[全被約既約非正規Dの独立合成](IRREDUCIBLE_NONNORMAL_QUINTIC_WHOLE_COMPOSITION_SEPARATE_REVIEW.md)を使う。
+全normalizer逆、全零補集合、全higher、全導手multiplicityを保持する。
+Sのsmoothness/normality/clean/node/noverticalを表全体に追加しない。
 
-| degS／restriction rank | K／Ø部分 | **Bの全source**と次の認識対象 |
+| degS／全型 | rank零 | rank二と全sourceの証明入口 |
 |---|---|---|
-| hyperplane内deg≥3 | Ø | symbolic-square次数でH因子。補集合無し |
-| 2 smoothquadric、両rank | Ø | [CONORMAL_FACTOR_REVIEW](SMOOTH_QUADRIC_CONORMAL_FACTOR_SEPARATE_REVIEW.md)：全R/vertical |
-| 2 quadriccone、rank0 | **全Ø** | [ZERO_ACTUAL_FACTOR](QUADRIC_CONE_ZERO_ACTUAL_FACTOR.md)／[root独立読解](QUADRIC_CONE_CI22_AND_TRIPLE_Y_ROOT_REVIEW.md)：全semi/nil・全十五Y・全共鳴のfull affine bad-rowが一次式で割れ、全actualDにH因子。λ零/C零及び全逆も保持。可約D全源の所属とは区別する |
-| 2 同rank2 | **C零は全Ø** | [C零全源独立review](QUADRIC_CONE_ZERO_C_WHOLE_SEPARATE_REVIEW.md)：Fv零はH因子、Fv=b/cの全B curl比較からquadric因子。C非零semi/nil二型は依然B、全33源からの正しい最高symbol→Oreを使う。旧全除外入口はFu-only方向を落としていたため撤回／補正中であり、このcutでは全cone空としない |
-| 3 smoothscroll、rank0 | **全Ø** | [修正V2全支持と独立review](CUBIC_SCROLL_SEGRE_SUPPORT_SEPARATE_REVIEW.md)：元十二源の全被約支持はL6＋3×3rank一Segre五。全因子は一次×四次又は二次×二次×一次。旧四族whole-coverは棄却したままで、正しい全zero/unit補集合を保持 |
-| 3 twistedcubiccone、rank0 | **全K又はØ** | [T38全源認識](CUBIC_CONE_ZERO_T38_WHOLE_RECOGNITION.md)：L3半単純の全W六を四actual shearで真completedT38へ、全L3非零上rank六kernelbundleと閉性でnil全fiberもT38。Q2全W三はH因子、base零はrank二以下 |
-| 3 smoothscroll、rank2 | canonical dq2-root Ø | [A25 whole proof](CUBIC_SCROLL_A25_WHOLE_NONDOMINANCE.md)＋[erratum](CUBIC_SCROLL_A25_COORDINATE_AND_POLE_ERRATUM.md)：rank一/二、node nil/nil row pairとcusp固定点preserving pair、全ri・四fullP2 fibers。固定S像≤6から全≤24だけ。全pairのactual tensor正常化／親が残る |
-| 3 twistedcubiccone、rank2 | **全K又はØ** | [全T38/T39被覆](CUBIC_CONE_RANK_TWO_POINTWISE_T38_T39_COVERAGE.md)／[nodal Fisher独立review](CUBIC_CONE_RANK_TWO_NODAL_FISHER_SEPARATE_REVIEW.md)：全27・五whole族・十九壁、A lambda2/5全六T38、3/5全六T39、nilはrank六bundle閉性、他はproperfactor又はrank二以下。全eの実Fisher曲線であり旧D100/M49から親を推測しない |
-| 4 rank0 | **全Ø** | [NIL32_ROOT_REVIEW](CI22_NIL32_AND_DEGREE_FOUR_RANKZERO_ROOT_REVIEW.md)：残single-eigen J3+2全六源のJacobi二係数−2a0²/−4b0²からa0=b0=0。全actualF=−q2²(a1²x2/2+a1b1x3+b1²x4)、零補集合はrank二以下。全centre/Jordan/Kronecker前段も戻して次数四全体が空 |
-| 4 rank2、normalCI22／非CI scroll-cone | Ø | [NORMAL_CI22_REVIEW](NORMAL_CI22_RANK_TWO_SEPARATE_REVIEW.md)、rank4quadric Weil-class全排除 |
-| 4 rank2、nonnormalCI22 | **全Ø** | [ALL_CI22_EXCLUSION](INTEGRAL_CI22_RANKTWO_IRREDUCIBLE_QUINTIC_EXCLUSION.md)：regular22_1はF=0又はH+2Q、nil32は全九inversechartと元compatibilityを戻しsmoothQ*C3又はH+2Q又はF0、M1は元Jacobiideal内H因子、node/cuspは全rank四空。全10/12/10/14/16源と全零補集合を保持。distinct-Q可約Dは§4へ戻り、ここに別のE穴を残さない |
-| 4 rank2、projectedVeronese | **全Ø** | [SL2全支持の独立review](PROJECTED_VERONESE_TANGENT_SL2_SEPARATE_REVIEW.md)：全十五源Sym2+Sym4+Sym6、全Poisson cone次元二以下から全点は三Borel eigenlineへ。rank二／rank零空性／実Pf物理weight十二によるH因子で尽くす。これと全centre/CI22から次数四全rankが空 |
-| 5 g0、rank0 | **全K=T40又はØ** | [全実T40変形](GENUS_ZERO_RANKZERO_ACTUAL_T40_CLOSURE.md)／[Quot・部分導手独立review](GENUS_ZERO_RANKZERO_QUOT_CONDUCTOR_SEPARATE_REVIEW.md)：全113/122・任意V/frame・node任意phi/cusp任意Nをgenus一baseへpinch、全quotientをsmoothしMCM部分導手を正確にbasechange、元tensorを実ambient曲線へ。113は非定数linear-ratio CasimirからØ |
-| 5 g1、rank0 | **全K又はØ** | [不安定全源T40独立review](UNSTABLE_ELLIPTIC_RANKZERO_T40_SEPARATE_REVIEW.md)：任意E=A2⊕F(2,3)と全五sections/frameをstableへの逆拡大、相対MCM導手basechange、conductor係数descent＋Bottの一意ambient liftで実Poisson曲線へ。stableもunstableもT40、canonical/零summand/cusp等はØ |
-| 5 g0、rank2 | **全Ø** | [全marks独立review](QUINTIC_RANKTWO_GENUSZERO_WHOLE_EMPTY_SEPARATE_REVIEW.md)：残113/023 CP=Q、014 CP=Q+Fを、actual nodeの非零residue wedgeと反deck／同一第三lineの全factor比較の矛盾で排除。全Schubert intersection三／四もfinite imageから空 |
-| 5 g1、rank2 elliptic | Ø | [ELLIPTIC_REVIEW](RANK_TWO_QUINTIC_SURFACE_GENUS_ONE_ELLIPTIC_SEPARATE_REVIEW.md)：全零summand／Pic0twist／node/cusp |
-| 5 g1、rank2 canonicalindex2 | dependentmarks／cusp Ø | [INDEX_TWO_REVIEW](RANK_TWO_QUINTIC_CANONICAL_INDEX_TWO_SEPARATE_REVIEW.md)：全rank3q十一＋lowerframe三＋AB−u1C=q²の固定十一parameter、三monomial cases・α非零・LA/LB。真C*fiberで≤24。nodal全源の親未認識 |
-| 6 rank0 | Ø | [SEXTIC_CONDUCTOR_REVIEW](RANK_ZERO_SEXTIC_CONDUCTOR_SEPARATE_REVIEW.md)：全normal/nonnormal S、五正規化scroll |
-| 6 rank2 | 113/122/014、005非plane等Ø | [SEXTIC_RANK_TWO_REVIEW](RANK_TWO_SEXTIC_SURFACE_SEPARATE_REVIEW.md)：023全split-conductor finiteprojection proper locus、Gr(5,8)内dim≤14＋全frame、固定D closed-residue一意から≤24。proper locusの全components認識は別 |
+| hyperplane内deg≥3 | Ø | Ø、symbolic-square次数からH因子 |
+| 2 smooth quadric | Ø | Ø、[同時Euler全R](SMOOTH_QUADRIC_CONORMAL_FACTOR_SEPARATE_REVIEW.md) |
+| 2 quadric cone | Ø | **全Ø**、[V2全33の別作者review](QUADRIC_CONE_RANK_TWO_EXCLUSION_V2_SEPARATE_REVIEW.md)。Fu-only全方向・SS新σ±2・nil新κ−3/2ξunitを保持。撤回V1六係数入口だけで全空としない |
+| 3 smooth cubic scroll | Ø | **K=T37又はØ**、[全A25二留数比較](CUBIC_SCROLL_A25_WHOLE_RESIDUE_CONSTANT_REDUCTION.md)／[実T37橋](CUBIC_SCROLL_RANK_TWO_POINTWISE_T37_RECOGNITION.md)。全四P2fiber、node22/31、cusp全P,Q、同一kを保持。rank零は修正L6+Segre5のみ、旧四族coverは棄却 |
+| 3 twisted cubic cone | K=T38又はØ | K=T38/T39又はØ、[全27/五族/十九壁](CUBIC_CONE_RANK_TWO_POINTWISE_T38_T39_COVERAGE.md) |
+| 4 全CI22/nonCI/PV | Ø | Ø、[全CI22](INTEGRAL_CI22_RANKTWO_IRREDUCIBLE_QUINTIC_EXCLUSION.md)、Weil class、[PV全SL2](PROJECTED_VERONESE_TANGENT_SL2_SEPARATE_REVIEW.md)。全centre/Jordan/vertexを戻す |
+| 5 genus0 | K=T40又はØ | Ø、[全marks排除](QUINTIC_RANKTWO_GENUSZERO_WHOLE_EMPTY_SEPARATE_REVIEW.md) |
+| 5 genus1 elliptic | K=T40又はØ | Ø、全zero summands/Pic0/node/cusp |
+| 5 canonical index2 | Ø | **K=T37又はØ**、[全十一源の実軌道入口](CANONICAL_INDEX_TWO_NODE_WHOLE_ORBIT_ENTRANCE.md)／[completedT37全150正逆](CANONICAL_INDEX_TWO_NODE_WHOLE_T37_COVERAGE.md)。i1/2はplane、低vertexはbasic cone/rank≤2、残i0は一actual pair。cusp等はØ |
+| 6 全normal/nonnormal | Ø | **全Ø**、[二曲線留数](RANK_TWO_SEXTIC_TWO_CURVE_RESIDUE_EXCLUSION.md)。split二primeでL²Γi=6、ruling係数a1+a2=3、二留数和からλi0。旧S23 properprojectionをBに残さない |
 
-degree4 rank0 nil32六源とrank2 nil32十二源は別入力で、各全源証明を用いている。両restriction rankの全integral CI22は既約Dでは空。
-smooth nonplane rank零も全T40又は空。次数三全cone／rank零scroll・次数四全rank・次数五rank零全源／種数零rank二は既全点認識済みであり、G上界だけの旧表を残余へ戻さない。
-smooth cubic scroll rank零の旧四family whole-coverは独立反例で棄却のまま、正しいV2のL6＋全Segre五だけを用いる。
-cut1054以後のconcurrent m二・canonical index二node等の進行中結果はここに混ぜない。quadricconeのC非零二型はFu-only方向を落とした旧全除外を採用せず、Bのまま保持する。
+非plane支持が一つあればこの表を適用できる。同じtensorの全導手を同時に正規化しない。
+全nonplane被約既約D源のE義務は完了し、可約Dの残源へこの表を外挿しない。
 
-## 6. rank零plane：G完了が覆わない全first-symbol類
+## 6. rank零plane：全first symbol・全位数の全点被覆
 
-共通全源は[WHOLE_SUPPORT_NONDOMINANCE](PLANE_RANK_ZERO_WHOLE_SUPPORT_NONDOMINANCE.md)の35/30/9、
-全multiplicityのabelian conormal。旧m二で除いたleading零parameterを全mへ戻す。
+[全源合成](PLANE_RANKZERO_CONDUCTOR_WHOLE_POINTWISE_COVERAGE.md)は
+35/30/9、全multiplicityのabelian conormal、coHiggs共通飽和O(k), k=0/1を用いる。
+k1/rankM1及びk0はglobal Vへ戻り、下表で全零補集合を尽くす。
+**このcutではrank零planeにBを残さない。**
 
-| 全first-symbol類 | K／Ø部分 | **Bに残る全源** |
+| 全first-symbol類 | 全点結論 | 元全source／全higherの証明入口 |
 |---|---|---|
-| co-Higgs k1、rankM≥2 | M(p)=0 highmの全κopen/零はØ | [HIGH_M_REVIEW](PLANE_HIGH_M_RANK_AT_LEAST_TWO_SEPARATE_REVIEW.md)：rankM3 τ零sem/nil、rankM2 m2 kernel/nonkernelの全八family/walls、M(p)非零highm四源NDSS0/NDN0/BSS0(τ)/BN0(τ) |
-| globalV、normalss、m二 | Cartan全periodはK=MPS | [M2_COMPLETION_REVIEW](PLANE_RANK_ZERO_M2_COMPLETION_SEPARATE_REVIEW.md)：mixed/regularnil/commonkernel等の二parameter四源・三parameter二源、全23plane/232curve/955root＋別6root等。各B層の元Poisson subsetの認識が必要 |
-| normalnil b≠0 | 指定factor枝Ø | [ALL_MULTIPLICITIES_REVIEW](PLANE_NILPOTENT_AFFINE_ALL_MULTIPLICITIES_SEPARATE_REVIEW.md)：J3一orbit＋rank1全ρ/共鳴、highmρ−1/3 row零も含む。全像≤22だけ |
-| lowparameter全21 | 一部factor／不整合Ø | [LOW_PARAMETER_CLOSURE](PLANE_RANK_ZERO_GLOBAL_VECTOR_LOW_PARAMETER_CLOSURE.md)：全一parameter線／onecut／compatibility残四・三linear枝／Tsquareの≤24。全actual親は別 |
-| highm common-image（独立だが点ごと従属） | **全Ø、rank二以下** | [全四源純証明](PLANE_RANK_ZERO_COMMON_IMAGE_WHOLE_RANK_TWO.md)／[root独立読解](PLANE_COMMON_IMAGE_ROOT_WHOLE_REVIEW.md)：K零全十八共通partial-a、K非零ss六核は全shear、nil七核は六shear＋rN。全D2単射から誘導P2零、actual Eulerで三方向支持。全multiplicity・全零境界を保持 |
-| dependent T=tV | **全K=E8又はØ** | [whole pointwise](PLANE_DEPENDENT_GLOBAL_VECTOR_POINTWISE_COVERAGE.md)／[H二源独立review](PLANE_DEPENDENT_H_WHOLE_EXCLUSION_SEPARATE_REVIEW.md)：全21→六源を戻す。ss-Hは全shear後三変数Jacobian、nil-HはGL2とD2一意性で全P2を制約しrank二又はb因子。N全OreはE8／properfactor／不整合 |
-| traceless零、T≠0 | 指定F2因子枝Ø | [SCALAR_REVIEW](PLANE_RANK_ZERO_SCALAR_SEPARATE_REVIEW.md)：五Jordan×K ss/nil/zeroの十五源、全regularSS比・三δ0線・全根。≤23だけ |
-| T零、K≠0 | Ø | 全kernel九・実shear/Eulerで全rank≤2 |
-| weight零symbol全零 | anchor零／共通零はØ | [ZERO_SYMBOL_REVIEW](PLANE_RANK_ZERO_ZERO_SYMBOL_SEPARATE_REVIEW.md)：全39higher→A=O(−1)³ transitive Lie algebroid＋CE二cocycles九。aff1 kernel／P3 extension／全global cocyclesの≤24だけ。全orbit/algebroid正常形や親は未決定 |
+| coHiggs k1/rankM≥2 | K/Ø、rankM2は全Ø | [全rank/allm](PLANE_COHIGGS_RANK_AT_LEAST_TWO_WHOLE_POINTWISE_COVERAGE.md)／[65file独立review](PLANE_COHIGGS_RANK_AT_LEAST_TWO_POINTWISE_SEPARATE_REVIEW.md)。Mp0/非零、全164Borel patches、全代数的壁両embedding、FULL9自由ρを保持。rankM3正源は第二plane rank二m3へ実送致 |
+| global V normalSS独立 | Cartan MPS、他Ø又はE8 | [二parameter全剛性/critical](PLANE_NORMAL_SS_TWO_PARAMETER_WHOLE_EXCLUSION.md)／[三parameter全bad-vector恒等式](PLANE_NORMAL_SS_MIXED_THREE_PARAMETER_WHOLE_FACTOR.md) |
+| normalnil b≠0 | Ø | [全rho/highm因子](PLANE_NORMAL_NIL_AFFINE_WHOLE_ACTUAL_FACTOR.md)。唯一−2/3は全六shear/Euler/c-scaleとD2一意性、他全badC0 |
+| normalnil b0独立 | Ø又はE8 | [mixed/Cartan全277階層](PLANE_NORMAL_NIL_ZERO_B_MULTIPARAMETER_WHOLE_FACTOR.md)。274 necessary kernels badC0、三人工根とvertical/dependentは元domainへ戻す |
+| lowparameter全21 | Ø又はE8 | [全点被覆](PLANE_GLOBAL_LOWPARAMETER_POINTWISE_COVERAGE.md)。common全4+3branchesは全inhomP2/free3mag込みessential3、T-square/mixed−8はactual H因子 |
+| common-image独立det0 | Ø、rank≤2 | [全四source](PLANE_RANK_ZERO_COMMON_IMAGE_WHOLE_RANK_TWO.md)／[root review](PLANE_COMMON_IMAGE_ROOT_WHOLE_REVIEW.md) |
+| dependent T=tV | K=E8又はØ | [全源](PLANE_DEPENDENT_GLOBAL_VECTOR_POINTWISE_COVERAGE.md)／[H全二源](PLANE_DEPENDENT_H_WHOLE_EXCLUSION_SEPARATE_REVIEW.md) |
+| traceless0/T≠0 | Ø | [全十五scalar](PLANE_SCALAR_T_NONZERO_WHOLE_EXCLUSION.md)。N3/SS0はc因子、N2nil/repeatedSS±2/3はrational Casimir。全20roots/9lines57rootsを戻す |
+| T0/K≠0 | Ø、rank≤2 | [旧binary全source](PLANE_RANK_ZERO_ZERO_TRACE_BINARY_SEPARATE_REVIEW.md)、binary平方も保持 |
+| zero-symbol | **K=T36** | [全39一actual軌道](PLANE_ZERO_SYMBOL_WHOLE_SINGLE_ORBIT.md)／[真completedT36実曲線](PLANE_ZERO_SYMBOL_WHOLE_T36_ACTUAL_CURVE.md)。全CE二cocyclesをsixshearで除去し、extension三相異根だけ、一軌道の端点をfull150/126で同定 |
 
-上記finite wall数は重複込みcover record数で、成分数ではない。
-次は保存された**全linear kernel＋元二次Jacobi＋全D**を使う。
-Gに不要として解かなかったhigher compatibilityを、Eで暗黙に零又は自由としない。
+独立でdet(E,T,V)非零ならm2、零ならcommon-image、dependentなら全m theorem。
+高mをm2generic性から捨てず、scalar/zero-symbolを低21に暗黙包含しない。
 
-## 7. rank二plane：Rとmを尽くした後の弱上界源
+## 7. rank二plane：全R・全normal位数の全点被覆
 
-Rはintegral smooth/node/cusp、transverse/tangent conic+line、triangle/concurrent、2L+M、3L。
-integral R全mは[IRREDUCIBLE_CUBIC_REVIEW](PLANE_IRREDUCIBLE_CUBIC_RANK_TWO_REVIEW.md)によりØ。m五以上もØ。
+[全m2合成](PLANE_RANKTWO_M2_WHOLE_POINTWISE_COVERAGE.md)と
+[全位数合成](PLANE_RANKTWO_CONDUCTOR_WHOLE_POINTWISE_COVERAGE.md)、
+[独立全入口review](PLANE_RANKTWO_CONDUCTOR_WHOLE_COMPOSITION_SEPARATE_REVIEW.md)により全K/Ø。
 
-| 全枝 | K／Ø部分 | **B/Pに残るwhole source** |
+| 全枝 | 全点結論と必要橋 |
+|---|---|
+| integral R smooth/node/cusp | Ø、全m |
+| m2 squarefree 全flags00/01/02/03/11/12 | reducedRはMPS、nonred3LはE8、2L+MはØ |
+| m2 double transverse conic | Ø |
+| m2 double tangent conic | T37/T40/E8又はØ、全t/七壁/全inhomP2 |
+| m2 double triangle | Ø、元row279平方障害 |
+| m2 double concurrent | **T37又はØ**、[全17/84→一軌道/完全graph/T37](PLANE_M2_CONCURRENT_DOUBLE_WHOLE_T37_COVERAGE.md)。h21元−m²/10、二h3全A8/FULL9・QQsqrt(−118)正逆 |
+| m2 double nonredR | movingはØ、3LconstantはE8、2L+MはHF8T36/T38/E8又はØ |
+| m3 reducednonconcurrent | Ø、全root covers/全六shear/FULL9 |
+| m3 concurrent | T37/既nil22long23/E8又はØ、wholeK0/K22/K4a |
+| m3 nonredSF/generic21 | E8/Ga9dist/newHA又はØ、全Cexact/moving/fullmodules |
+| m3 generictriple | E8＋新二smooth23又はØ、corrected90/110全200routes。旧plus-sign coverは撤回不変 |
+| m4 allR/allpartitions | E8又はØ、最後六whole-source exactshearと31全rank2を戻す |
+| m≥5/leading0 | binary因子又はF0でØ。leading0は次mへ戻して漏らさない |
+
+Rが複数因子を持つときも、root-order/primitive flagsと全zero/infinite normalizer補集合を各源へ戻す。
+全rank二planeのE義務はこのcutで完了し、可約Dの低rank modular全源へは拡張しない。
+
+## 8. 現在のE残余を有限問題へ分ける順序
+
+claim1084により**被約既約非正規actualDは全点K**である。
+正規actualDの既T39 theoremとは別の証明で、Dredだけの正規性には拡張しない。
+全E/総上界/主分類TARGETはなお未証明。次は可約・非被約Dの元全源を対象にする。
+
+| 優先lane | 残るwhole source | 最弱の必要結果 |
 |---|---|---|
-| m二SF、全R | **全K又はØ** | reducedRはMPS、nonredRはØ又はE8。この枝へ未帰属源を足さない |
-| m二double、transverse conic | Ø | 全irregular/moving/constantroot |
-| 同tangent conic | **全K又はØ** | [全点被覆](PLANE_M2_DOUBLE_TANGENT_POINTWISE_COVERAGE.md)／[全t・七壁独立review](PLANE_M2_TANGENT_POINTWISE_SEPARATE_REVIEW.md)：h=f Z零/nilは全空、h三はE8、moving一般＋五壁は因子、t負九半全A2は第二concurrent planeからT37、t負三全A2は明示X122／Rosenlicht residue／新部分導手T40曲線。非斉次P2と全Borel逆・零境界も保持 |
-| 同triangle | **全Ø** | [元一行純証明の独立review](PLANE_TRIANGLE_M2_ROOT_PURE_REVIEW.md)：残H21十壁の全shear／raw九P2に対しrow279=4m²/(3r)。m零で全u-rowとsignedEuler五次がu因子。r負一追加n、r負半freePbcも保持。補助Fractioncrosscheckは同一作者別実装であり別作者全350再実行とは呼ばない |
-| 同concurrent | 指定first-profile空枝Ø | [CONCURRENT_DOUBLE_REVIEW](PLANE_M2_CONCURRENT_DOUBLE_SEPARATE_REVIEW.md)：全17source/全QQ(α) finite pencil、全higher必要核、≤23。全17をMPSとしない |
-| 同nonred moving／R3Lconstant | Ø／K | 全movingØ、R3L全八whole源はFULLP2九OreからE8 |
-| 同R2Lconstant | **全K=T36/T38/E8又はØ** | [八HF独立review](PLANE_M2_EIGHT_HF_SEPARATE_REVIEW.md)：六壁全空、残二A10の全飽和閉像は23anchor軌道閉包。真102slice・normal character負二で全graph次数4/3、全350係数零、étale actionからsmoothunique24。実全150/Euler gauge/全126で親T36/T38を同定。nil全pは旧E8／空。HF-B第二coneはintrinsic rank零 |
-| m三nonconcurrent reducedR | **全Ø** | [全二残源shear/P2独立review](PLANE_REDUCED_M3_WHOLE_SHEAR_FACTOR_SEPARATE_REVIEW.md)：Mの全七K1とSF-C3-unusedの全八K1を六shear＋残一/二係数へ定数全逆、元九P2・350/Pfから全D proper因子。旧七空源及び全root-cover逆を戻す |
-| m三concurrent | **全K又はØ** | K0全E8、K22既nil22long23、K4a全23軌道は**K=T37**。[実PGL全150正逆・126Pfの独立review](K4A_T37_ACTUAL_MAP_SEPARATE_REVIEW.md)とclaim1020の全actual曲線・一軌道橋から、親24成分はT37に等しい。nonOreはØ。未列挙330根候補も全strictQ theoremが覆い、このwhole枝のE義務は完了 |
-| m三SF、nonredR | **全K又はØ** | [normal-row独立review](PLANE_M3_INVARIANT_HYPERPLANE_SEPARATE_REVIEW.md)：最後のcdep C=a²,g2全十核のC三行零とFULL九P2からz因子で空。全十九first源/全Oreを戻し、他は既E8又はØ |
-| m三generic21 constant00 | **全K又はØ** | [constant全源集約](PLANE_NONREDUCED_M3_CONSTANT_ROOT_POINTWISE_COVERAGE.md)：C-exact全三＋八壁は全normal-row因子で空。十四first源・二十二module・全壁/逆を戻し、残constantvectorは全E8へ |
-| 同movingdouble10 | **全Ø** | [全源独立review](PLANE_M3_INVARIANT_HYPERPLANE_SEPARATE_REVIEW.md)：旧十一源・全壁・全Oreの補集合を保持。旧弱二源の全normal-rowと唯一τ−8/3元−2p8²行をFULL九P2 particular込みで戻してz因子、全空 |
-| 同movingsimple01/02 | **全K又はØ** | [全七HB／六HAの実逆](PLANE_MOVING_SIMPLE_TWO_WHOLE_ORBITS.md)：37源/22壁/十moduleの初期17全源はzero-row又はτ−11/3元p8²から因子で空。HB全七→既Ga9-distinct23、HA全六→新moving-simple2/15 smooth23。m零閉包を保持 |
-| m三generictriple、nonredR | **全K又はØ** | [WHOLE_POINTWISE_COVERAGE](PLANE_NONREDUCED_M3_GENERIC_TRIPLE_POINTWISE_COVERAGE.md)：90main/110wallの全200routeと全special/literal逆を戻し、八essential-three成分＋新二smooth23へ全点被覆。二Y wallも全九P1/全inhomogeneousP2から元p8² rowと全actualD因子で空。direct62だけに未帰属を残さない |
-| m四、全R／全partition | **全E8又はØ** | [最後の六全shear独立review](PLANE_M4_SIX_WHOLE_SEPARATE_REVIEW.md)：reduced RのSF三＋211三は全六actual shearの定数逆でP1零、全九P2へのglobal二次補正後に全actualDがproper因子。旧nonred／rank一／22／4／31も戻して全位数四を被覆 |
-| m四、全image-rank一／22／4 | **全K=E8**、SFならØ | [REPEATED_GEOMETRY](PLANE_M4_REPEATED_LEADING_GEOMETRY.md)：generic22/4はrank一へ必ず還元される。D=L g4+g5の全源を八essential-three成分が覆う。SFだけはordinary四重点のτ矛盾でØ |
+| E-ORBIT | nilshort r2/3、Ga9linear-w、stable二、plane1+1+3三 | 既actual全源の陽性confluence、又は全源閉包の成分性・全prior相違。既陰性点を増殖しない |
+| E-FACTOR-TWOQ | pure-nil1/4/7/10等factor-specific H+二Q | 相異二既約Qの元条件を戻して全源認識。jointSSrank1は新T16/T17で閉じたので再開しない |
+| E-LOW-MODULAR | long g0・定数g/H3共鳴、A0/c≠0、A=c0最高部六閉包の全低次延長、横断[J,Q]0 | 全constant/linear/quadratic源と元Jacobiの空性又は親。非定数long/shortは新25で閉じ、shortの他源は対応longへ還元しただけ |
+| E-DEPENDENCY-AUDIT | 上表の重複する可約/nonred全源 | 一方への全包含を証明すれば重複義務を消せるが、固定β像のproper性をmembershipとしない |
 
-corrected90のdirect62をG段階で自動的にKと読まず、全200routeの後続E集約と二Y全源因子証明を接続した。
-m四もGの次元上界だけでKとせず、最後の六源に全shear/P2因子を接続して初めて全点被覆とした。
-source名・全係数・全unit・normalizer逆は各receiptのproducer packetへexactに固定されている。
-
-## 8. 次のEを有限問題へ分ける順序
-
-これは計算指示又は新claimではない。既存の全source入口を失わず、何を証明すればその入口が閉じるかを列記する。
-既存計画の[E_multiple_hyperplane／E_reduced_nonnormal](PLAN.md)に以下を枝分けするのが自然である。
-別sourceへの全包含を証明した場合は、重複する義務を一つにまとめてよい。
-
-| 優先lane | 再利用する有限化 | このlaneを閉じる最弱の結果 |
-|---|---|---|
-| E-ORBIT | nilshort r2/3、Ga9linear-w、stable二、plane1+1+3三 | whole sourceの既知親への実confluence、又は一般actual軌道の成分性／既新成分との全相違。単一pointの陰性を追加し続けない。K4a親はclaim1021で既T37へ認識済みなので再開しない |
-| E-FINITE-SURFACE | rank二quadriccone C非零semi/nilの完全源 | Fu-only方向を含む訂正入口から全源を有限whole正常形へ戻す。C零は全空、twistedcubiccone全rankはT38/T39又は空として閉じた。未受理の旧semi/nil全除外を流用しない |
-| E-FINITE-PLANE2 | m二concurrent十七源の全QQ(parameter)必要核／壁 | 全higher必要核と非斉次particularを戻し全actual曲線又はproperfactorを証明する。tangent、triangle、HF八壁はこのcutでK/Øとなり再開しない。全m二のE完了はまだ主張しない |
-| E-PLANE0-WALLS | rankM≥2、nil b非零全rho、non-Cartan globalV、lowparameter二十一、scalar十五 | 全保存源と元compatibilityを有限正常形へ。common-image全四はrank二、dependent全六はE8／空へ閉じたので未解決laneへ残さない |
-| E-GEOMETRIC-FAMILIES | A25 root pairs＋全ri、index二node、degree6 S23 split-conductor proper locus | 全parameter／marksを既知成分へ入れるか有限strataへ。degree5rank零全T40とgenus零rank二全空は閉じた。Grassmann／bundle上界だけで全reduced componentsを分類したとはしない |
-| E-LOW-MODULAR | rank一coutside、A0/c非零、A=c0最高部六閉包の全低次延長、横断[J,Q]=0 | 全constant／linear／quadratic sourceと元Jacobiを保持して空性又は親を示す。固定β評価の核から全orbitへの橋を省かない |
-| E-ZERO-SYMBOL | plane Π0零の全Lie algebroid／CE二cocycles | 全actual algebroidとextension classの正常形、又は全tensor sourceへのknown-parent map。九cocycle係数とP3 extensionを局所anchorだけで捨てない |
-
-先に有限fixed sourceやwhole一parameter族を認識することは合理的だが、最後の幾何family／low-modular／zero-symbolを未列挙のまま「E残余は数源」と縮めない。
-E全完了の受理条件は、P_redの全分岐をK又はØに送る全点包含と、新component候補を採録する場合の成分性・全既存相違である。
-固定pointの全D判定、有限jet、接空間、GBの支持診断だけではこの条件を満たさない。
+全nonplane、全rankzero-plane、全ranktwo-planeの既約D枝を未解決laneとして重複計上しない。
+次候補三つの25成分、cut後の新曲線/新親は本稿へ未採用。
 
 ## 9. G93入口の全34採録recordとのcrosswalk
 
@@ -257,7 +241,7 @@ E全完了の受理条件は、P_redの全分岐をK又はØに送る全点包�
 | 3 R4_THREE_HYPERPLANES_QUADRIC_FULL_SUPPORT | §2三H+Q | K |
 | 4 G_SIMPLE_H_QUARTIC_ALL_GENERIC_EXCLUSION | §4 Hquartic | K/Ø、残Ga9linear-w B |
 | 5 G_TWO_HYPERPLANES_CUBIC_ALL_GENERIC_EXCLUSION | §4二H+cubic | 後続全非plane K、plane三B |
-| 6 G_H_TWO_QUADRICS_ALL_GENERIC_EXCLUSION | §4 H+二Q | plane等K、jointSSrank一／pure-nilのB |
+| 6 G_H_TWO_QUADRICS_ALL_GENERIC_EXCLUSION | §4 H+二Q | plane/jointSSrank一K、pure-nilのB |
 | 7 G_MODULAR_NIL_RANK2_NONDOMINANCE | §3 nil31/22 | Kとshort r2/3／stable二B |
 | 8 G_MODULAR_RANK1_CONSTANT_NONDOMINANCE | §3 rank一・A0/c非零 | K/B混合 |
 | 9 G_UNIMODULAR_LINEAR_CASIMIR_NONDOMINANCE | §3 R13全延長 | Ø/B |
@@ -268,19 +252,19 @@ E全完了の受理条件は、P_redの全分岐をK又はØに送る全点包�
 | 14 G_DEGREE_FIVE_RANK_ZERO_GENUS_ZERO_NONDOMINANCE | §5 degree五g0 rank零 | 後続1045/1046で全T40、113はØ |
 | 15 G_DEGREE_FIVE_RANK_ZERO_GENUS_ONE_RECOGNITION | §5 degree五g1 rank零 | 後続1042により全K=T40又はØ |
 | 16 G_DEGREE_SIX_RANK_ZERO_QUINTIC_EMPTY | §5 degree六rank零 | Ø |
-| 17 G_DEGREE_SIX_RANK_TWO_ALL_NONDOMINANCE | §5 degree六rank二 | 大部分Ø、S23 proper projection locus B |
+| 17 G_DEGREE_SIX_RANK_TWO_ALL_NONDOMINANCE | §5 degree六rank二 | 後続1056で全Ø |
 | 18 G_DEGREE_FIVE_RANK_TWO_GENUS_ZERO_NONDOMINANCE | §5 degree五g0 rank二 | 後続1051で全Ø |
 | 19 G_DEGREE_FIVE_RANK_TWO_GENUS_ONE_ELLIPTIC_EXCLUSION | §5 degree五g1 elliptic rank二 | Ø |
-| 20 G_RANK_TWO_QUINTIC_CANONICAL_INDEX_TWO_NODE_NONDOMINANCE | §5 index二node | B |
+| 20 G_RANK_TWO_QUINTIC_CANONICAL_INDEX_TWO_NODE_NONDOMINANCE | §5 index二node | 後続1057で全T37又はØ |
 | 21 G_RANK_TWO_QUINTIC_CANONICAL_INDEX_TWO_CUSP_EMPTY | 同cusp | Ø |
 | 22 G_SMOOTH_QUADRIC_POISSON_CONORMAL_ALL_RESTRICTION_RANKS_HYPERPLANE_FACTOR | §5 smoothquadric両rank | Ø |
 | 23 G_QUADRIC_CONE_RANK_ZERO_NONDOMINANCE | §5 quadriccone rank零 | 後続1025で全Ø |
-| 24 G_QUADRIC_CONE_RANK_TWO_ALL_ZERO_DIVISORS_NONDOMINANCE | §5同rank二 | 後続1054でC零全Ø、C非零二型B |
-| 25 G_INTEGRAL_DEGREE_THREE_RANK_TWO_ALL_NONDOMINANCE | §5 A25／cubiccone rank二 | canonicalrootØ、A25 B、後続1047でcubiccone全T38/T39又はØ |
+| 24 G_QUADRIC_CONE_RANK_TWO_ALL_ZERO_DIVISORS_NONDOMINANCE | §5同rank二 | 後続1055の全Fu方向V2により全Ø |
+| 25 G_INTEGRAL_DEGREE_THREE_RANK_TWO_ALL_NONDOMINANCE | §5 A25／cubiccone rank二 | canonicalrootØ、後続1060でA25全T37、cubiccone全T38/T39又はØ |
 | 26 G_INTEGRAL_DEGREE_FOUR_RANK_TWO_ALL_NONDOMINANCE | §5 degree四rank二 | 後続1041により全Ø |
-| 27 G_PLANE_RANK_ZERO_ALL_SYMBOLS_ALL_MULTIPLICITIES_NONDOMINANCE | §6全表 | 一部MPS/E8 K、factorØ、多数B |
+| 27 G_PLANE_RANK_ZERO_ALL_SYMBOLS_ALL_MULTIPLICITIES_NONDOMINANCE | §6全表 | 後続1083で全K/Ø、全firstsymbol/allm |
 | 28 G_RANK_TWO_PLANE_IRREDUCIBLE_CUBIC_EMPTY | §7 integralR | Ø |
-| 29 G_PLANE_RANK_TWO_M2_ALL_NONDOMINANCE | §7 m二全表 | SF K/Ø、doubleはtangent／triangle／HF全K/Ø、concurrent B |
+| 29 G_PLANE_RANK_TWO_M2_ALL_NONDOMINANCE | §7 m二全表 | 後続1076で全K/Ø、concurrentも1059T37 |
 | 30 G_PLANE_RANK_TWO_MULTIPLICITY_FOUR_ALL_ZERO_DIVISORS_NONDOMINANCE | §7 m四全表 | 後続1040で全E8又はØ |
 | 31 G_PLANE_REDUCED_NONCONCURRENT_CUBIC_M3_ALL_NONDOMINANCE | §7 m三nonconcurrent | 後続1043で全Ø |
 | 32 G_PLANE_CONCURRENT_M3_WHOLE_NONDOMINANCE | §7 m三concurrent | 後続claim1021により全K/Ø |
@@ -321,8 +305,44 @@ E全完了の受理条件は、P_redの全分岐をK又はØに送る全点包�
 | 1051 degree五genus零rank二全空 | §5 degree五g0 rank二 | Ø、全113/023/014 marksとnode residue wedge矛盾 |
 | 1052 common-image全rank二以下 | §6 common-image全四源 | Ø、六shear／残nilN／全誘導P2／actual Euler |
 | 1053 triangle normaldouble全空 | §7 reduced triangle m二 | Ø、十壁row279二乗係数と全u因子 |
-| 1054 quadriccone rank二C零全空 | §5 degree二rank二C零だけ | Ø、全B curl比較／quadric因子。C非零二型Bは保持 |
+| 1054 quadriccone rank二C零全空 | §5 degree二rank二C零だけ | Ø、C零全B curl比較。C非零も後続1055V2全Ø |
 
-93-file manifestに含まれない後続proofを無断採用したという意味ではなく、末尾はcut1054までに別途正式受理された補完である。
-cut後のconcurrent m二／index二node等はK/B判定へ自動反映していない。未受理のquadriccone非零C全除外も採用しない。
-旧sourceの歴史的上界やwithdrawn coverを上書きせず、各行の最終受理scopeだけを取り出した。
+
+| 追加claim番号／id | cut1084で使う全点結論 |
+|---|---|
+| 1055 `E_QUADRIC_CONE_RANKTWO_WHOLE_IRREDUCIBLE_EMPTY` | 元全33のFu-only追加項を全て復元したV2正常形を使う。全C零/SS/nilと全κ/σ/τのunit零、SS新σ±2の非正則residue、nil新κ−3/2ξunitのregularJordan4完全不変六基底まで保持し、polynomial pole/ideal/valuationと固定G5で全actualPfにproper因子又は零。 |
+| 1056 `E_DEGREE_SIX_RANKTWO_WHOLE_IRREDUCIBLE_EMPTY` | 全五minimal-scroll正規化とsmall resolutionを保つ。cusp/005/一primeは旧空性。split各Γ→Sはdegree一なのでL²Γ=6、閉residueは非零定数λi。一般L²曲線でλ1+λ2=0、一般P2 fiber内lineでa1λ1+a2λ2=0。a1+a2=3は奇数なので全residue零となりrank二に矛盾。 |
+| 1057 `E_QUINTIC_CANONICAL_INDEX_TWO_NODE_WHOLE_T37_COVERAGE` | 旧全十一源のi1/i2はconductorにplaneを含み空。低vertexrankはbasic-residue coneとdegree三対五でrank二以下。残i0は実targetbasis/fifthroot presentation正逆で一つの全(F,alpha) pair。全六restrictionと全150/350/126、truecompletedT37全period/gaugeの正逆を別Fractionで同定し全node点をT37へ。cusp/従属mark等も旧全空へ戻す。 |
+| 1058 `E_DEGREE_FIVE_RANKTWO_WHOLE_T37_COVERAGE` | 全normalization sourceをgenus零、genus一elliptic、canonical index二へ分割。genus零113/023/014全marksはresidue-wedge矛盾で空、genus一elliptic全sourceは旧空性、canonical全nodeは新actualT37/全cusp空。全五section/非terminal/vertex/Schubert補集合も戻す。 |
+| 1059 `E_PLANE_M2_CONCURRENT_DOUBLE_WHOLE_T37_COVERAGE` | 旧17/84全sourceと全u因子を戻す。残h21は元m²で空、残二A8は全六shear/全unipotent/全m-unit逆とFULL9から同一23軌道。Cstarが全completionをdegree三へ固定した完全graphで全350度六零、実曲線のdense24点をQQsqrt(-118)全150正逆Euler/Pfで真T37へ同定。全境界を閉性で戻す。 |
+| 1060 `E_SMOOTH_CUBIC_SCROLL_RANKTWO_WHOLE_T37_COVERAGE` | 旧canonical-root空性と全A25 rank一/二/pairs/四fullP2を戻す。全域同一flatfiber kのL/Ω二residue比較がnode22で矛盾、cuspはΩ重複/λ零も排除しμ3λ、実centralizerで全P,Qを消して唯一actualpair。wholeextension一意性とgenuine concurrent cusp-scroll seedの実T37曲線で全源をT37へ。 |
+| 1061 `E_DEGREE_THREE_CONDUCTOR_WHOLE_KNOWN_COVERAGE` | hyperplane内cubic支持はsymbolic-square degreeからH因子。非退化全minimaldegree surfaceはsmoothS12又はtwistedS03cone。smoothrank零は修正L6+Segre5で空、smoothrank二T37、conerank零T38、conerank二T38/T39。全source/rank/root/normalizer補集合を合成する。 |
+| 1062 `E_NONPLANE_CONDUCTOR_WHOLE_KNOWN_COVERAGE` | 元全actual支持次数/rank入口から少なくとも一つ非plane支持を選ぶ。degree二はsmoothquadric全rankとcone全rankが空、degree三はT37/38/39、degree四全rank空、degree五rank零T40/rank二T37、degree六全rank空。全非normal/nef/vertex/導手multiplicityと全Rを保持し有限閉和へ全点被覆。 |
+| 1063 `E_PLANE_SCALAR_T_NONZERO_WHOLE_IRREDUCIBLE_EMPTY` | 全十五Jordan/全20roots/九wholeline57rootsの全kernelを戻す。六actualshear単射性を全域で証明しker6/D2単射全fiberをΠ0へ。残N3/零固有値SSの全P1/P2はc因子、N2nilとrepeatedSS±2/3はstrict残N/P2一意からrationalCasimir。旧N2K0の全quadraticfactorも合わせ全空。 |
+| 1064 `E_PLANE_COHIGGS_KERNEL_RANKTWO_WHOLE_IRREDUCIBLE_EMPTY` | m二全ND/BSSrho/BN1/BN0は実shear全源剛性、残BSS−3/BN0の全K7=SA+Nb、FULL9一意Qと元row121/122非零squareでt零→properP0因子。旧M(p)零/highm全空と全multiplicity入口を合成し全位数を閉じる。 |
+| 1065 `E_PLANE_COHIGGS_FULLRANK_HIGH_M_WHOLE_EMPTY` | 旧全τzero sem/nil sourceのker8を六実shear＋二残Nへ戻す。全Nは共通constant方向/その方向非依存でstrictJac零、旧D2単射から全P2零。semは三方向support、nilも明示Eulerで三方向support、全parameter rank二以下。 |
+| 1066 `E_PLANE_COHIGGS_NONKERNEL_ZERO_LAX_WHOLE_EMPTY` | 全NDSS0/NDN0/BSS0zero/BN0zeroを固定Mε/U/T=Rzeroの実一parameter族に埋める。oldminorでD1rank22一定/ker8bundle、D2単射から全kernel上の正則quadraticQmapを得る。一般rankM3τzeroのALL K1が実Poisson/Pf零へ延びることを先に確認し、全zero-fiber kernelを密度で全rank二以下へ。 |
+| 1067 `E_PLANE_COHIGGS_BOREL_HIGH_M_NONZERO_TAU_WHOLE_EMPTY` | BSS0/BN0の二QQτgeneric＋全十既wallの完全必要kernelにおいてbad rows18..20が全零。全Π0/P1のw-rowがw倍、FULL9P2はnormal列無しなので実全signedPfにw因子。τzeroの実bad係数例外を捨てず別rank8bundle全空へ戻す。 |
+| 1068 `E_PLANE_COHIGGS_RANK_AT_LEAST_TWO_HIGH_M_WHOLE_EMPTY` | rankM三τzero、rankM二M(p)零の旧全空、M(p)非零highm全四sourceのτzero全束/τ非零w因子を合成。全m三以上の元全sourceを既約Dで空へ。 |
+| 1069 `E_PLANE_NORMAL_NIL_AFFINE_WHOLE_IRREDUCIBLE_EMPTY` | 全JordanR/NDIAGrho/NB/NC、高m−1/3と全元壁を戻す。全badC三行零なら全z-row因子。唯一rho−2/3は実六shear＋一Nの全逆、Eulerでc非依存/no-c-legへ。FULL9と旧J2単射を保持し実c-scaleで一意P2のac/bcを殺し、全actualDにc因子。 |
+| 1070 `E_PLANE_GLOBAL_LOWPARAMETER_WHOLE_KNOWN_COVERAGE` | 全generic/元壁のbadC readback、Tsquare reducedcompat、mixed−8全sixshear＋FULL9一意/c-scaleからhyperplane因子。commonK0全七compatibilitybranchと全inhomP2/free3magではPfがa,bに依存せずessential三なので、既全E3八成分 theoremへ。全normalizer/highm/domain補集合を戻す。 |
+| 1071 `E_PLANE_NIL_ZERO_B_MULTIPARAMETER_WHOLE_IRREDUCIBLE_EMPTY` | 元全277階層を辿り274selected-row kernel/freeidentity/badC零を別Fractionでも40521積で確認。旧nonzero minorから全actualP1はこのnecessary kernelに入り全z-rowがz倍、FULL9P2はnormal列無し。三人工τzero rootとdependent/vertical/normal-swapの全補集合も既別源へ戻し全空。 |
+| 1072 `E_PLANE_ZERO_SYMBOL_WHOLE_SINGLE_ACTUAL_ORBIT_REDUCTION` | 全transitive algebroid A=O(-1)3=Der(aff1bundle K)入口から、H0A0がextension binarycubicのnonreduced根を排除し全三相異根は一PGL2orbit。χ transgression=c1O(-5)非零よりglobalCE H1/H2零、全P2六cochainをactualshearで除く。両chartで明示frame/括弧/Pfを構成し全actualsourceを一essential五変数既約quintic軌道へ戻す。 |
+| 1073 `E_TWO_QUADRICS_JOINT_SS_RANKONE_WHOLE_T16_T17_COVERAGE` | 元全五型92係数と全factor-specific branchを戻す。A1/A2は空又は既plane。B1/B2は全自由係数の実frameと真completed五periodを保持したε多項式curveでT17へ。B3 n1unitは三次period/frame poleを全六括弧で相殺してT17、n1zeroは全T16曲線。全units/相異性の零補集合もfactorへ戻す。 |
+| 1074 `E_PLANE_NORMAL_SS_TWO_PARAMETER_WHOLE_IRREDUCIBLE_EMPTY` | SS_MIXH/MIXN/NILREGの全旧minoropen/全壁をactualshear剛性で処理。jump5を含む全criticalは全残P1とFULL9/P2freeを戻す。原projectivequad modc=6zwB2/C2、旧compatのsquareで必要残差を零にし、strict残N/P2全ab核からc等のinvariant hyperplane因子。 |
+| 1075 `E_PLANE_NORMAL_SS_MIXED_THREE_PARAMETER_WHOLE_IRREDUCIBLE_EMPTY` | 元first-weight mixedJacobiのlinear-in-base係数からC wedge(-T+3V+kI)x−x wedge(T−V)C=0を全P1/P2上で導出。T=tH+sN,V=H+Nに対するC/D二悪vectorの四必要support線は交差無し。各sourceでC0又はD0となり、全normalrowにz又はw因子、FULL9P2はその列を変えずactualPfにH因子。955点を再計算しない全域純証明。 |
+| 1076 `E_PLANE_RANKTWO_M2_WHOLE_POINTWISE_KNOWN_COVERAGE` | 全normalquadratic SF/double、全R reduced/nonred、全primitiveflags00/01/02/03/11/12を合成。SF全因子/essential三/actualSNC、doubleのR3L/R2L34/51+HF8+wholep、reduced conic/triangle/concurrentを全pointwise定理へ接続。元全inverse/FULL9/zero-leading m三補集合を戻し現129閉和へ。 |
+| 1077 `E_PLANE_RANKTWO_CONDUCTOR_ALL_MULTIPLICITIES_WHOLE_KNOWN_COVERAGE` | m二新全source被覆、m三採録済み全R/root/flags pointwise、m四全31後続rank二receiptとSF/211全逆、m五以上binaryD排除を合成し全sourceを既129閉和へ。少なくとも一つrank二conductor planeを持つ既約quinticの全点Eを閉じる。 |
+| 1078 `E_PLANE_COHIGGS_FULLRANK_ALL_MULTIPLICITIES_WHOLE_KNOWN_COVERAGE` | 全semisimpleτ sourceは六shear/FULL9剛性、唯一半壁の全fivePf二因子で空。全nilτはτzero三方向rank二、τ一とτ3/2及び半壁λzero面は第二planeの全rank二/m三 theoremへ。−3/2はc²factor、半壁原λμ必要式の他面は全cubic×quadricfactor。全actual逆とFULL9/freeP2を保持し全位数を閉じる。 |
+| 1079 `E_PLANE_COHIGGS_RANK_AT_LEAST_TWO_ALL_MULTIPLICITIES_WHOLE_KNOWN_COVERAGE` | 全O(1) coHiggs rankM二は全Borel/nondegenerate/unit/zeroLax/infinite向きを六shear/fullkernel/FULL9と全fivePfへ戻して空。rankM三は全位数採録済み定理で既知閉和又は空。164patches・全代数的壁両embeddingを保ち、全normal位数を閉じる。 |
+| 1080 `R4_MODULAR_RANK1_LONG_NONCONSTANT_25_COMPONENT` | 全source S=(非定数affine g, affine U with Ug=(divU)g, 任意二次K)の実PGL飽和射影閉包Zは既約25次元。元全150/350の同一点全微分rank100、Euler24により局所接次元25と全源下界が一致してsmooth unique全成分。proper factor閉条件・全既129次元/rankにより全priorと相違。全sourceの二つの独立affine Poisson場X,Ygから全軌道上界22、既47minorからgeneric軌道22、generic reduced Rosenlicht商次元三。 |
+| 1081 `E_MODULAR_RANKONE_SHORT_WHOLE_ACTUAL_LONG_CURVE` | 全short g/U/F/H二条件を保持したlambda多項式六括弧はlambda零で元source、非零で真affine frameにより全long sourceへ。全非定数gのH=gKは有限次数上(1+beta partial_w)可逆性から従い全short非定数gは新25成分。非零定数g/H3零は旧NEW25、他共鳴及びg零は対応long残余への全source還元で未閉。 |
+| 1082 `E_PLANE_ZERO_SYMBOL_WHOLE_T36_COVERAGE` | 真completedT36のp0=epsilon,t0=t1=3/epsilon,t2=t3=1と実det一shearの全150 rawLaurent pushはepsilon P0+P1へ全pole相殺。端点P1はzeroSymbolかつprimitive base-linear絶対既約actual quinticを持つrank四点。全39一actualorbit theoremの全CEcocycle/shear/frame補集合を戻し、閉T36とPGL安定性から全対象源がT36へ入る。 |
+| 1083 `E_PLANE_RANKZERO_CONDUCTOR_ALL_MULTIPLICITIES_WHOLE_KNOWN_COVERAGE` | 全conormal可換入口からk0/k1、rankM一/globalV・rankM二以上、normalSS/nil全二三parameterとlow21、高位数dependent/commonimage、scalar、零symbolを全zero/unitで尽くす。各全点定理と全Cartan-SNC/essential三八成分/zeroT36を合成し、全rank零plane・被約既約actual quintic源を既知閉和へ。 |
+| 1084 `E_IRREDUCIBLE_NONNORMAL_QUINTIC_WHOLE_POINTWISE_KNOWN_COVERAGE` | 全normalization/特異/非split/vertexを含む導手曲面degree一–六の全支持入口を用いる。任意一導手曲面Sの一般rank零/二を保ち、nonplane全T37/T38/T39/T40又は空、rank二plane全m、rank零plane全mを合成して全actual tensorを既知閉和へ。G像上界や標本点から推測せず、fullFu coneV2/scrollV2・全逆/全補集合と独立concurrentT37/QuotT40を使い循環を避ける。 |
+
+93-file manifest後の全receiptをcut1084まで別途正式受理した最終scopeで合成した。
+Fu-onlyを落としたquadriccone旧V1及びsmoothscroll旧四族whole-coverは撤回したまま、訂正V2のみを使う。
+A25とconcurrent、tangentとS5の見かけ循環は独立actualT37曲線・QuotT40曲線へ展開して解消した。
+[独立32-file合成receipt](inputs/irreducible_nonnormal_quintic_whole_composition_separate_review_manifest_20261108.json)の全入口監査を使い、G上界からEを推測していない。
+このinventoryは新数学を再実行せず、全E・総成分上界・主分類未証明を保持する。

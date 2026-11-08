@@ -1,196 +1,46 @@
 # 現在地 — 分類に必要な情報だけ
 
-2026-11-08。active queueは `PLAN.json`、選択規則は `RESEARCH_POLICY.md` と `PROOF_ROUTE.md`。
-目的はPGL5商前のPoissonスキームの被約全成分の尽くし。全軌道と全非被約構造は別段階である。
+2026-11-08。active queueは `PLAN.json`、研究方針は `../../RESEARCH_POLICY.md`。
+目的はPGL5商前のPoissonスキームの被約全既約成分の尽くし。全軌道と全非被約構造はsecondaryである。
 
-## 証明状態と保存状態
+## 証明・保存状態
 
-個別に証明・独立確認済みの下界は **129成分（一般rank四123、一般rank二6）**。
-`research/COMPONENTS.json` が唯一の加算台帳であり、一般βのGは全分岐監査まで完了。総上界・全E・分類主定理は未証明。
-現在の主張台帳は1054件。plan/check/gateの成功は数学の認証ではない。
-この保存区間の開始・直前公開保存点は `a925a06ff41827e157b12aa325bcb5083855f3ef`（129成分・1044主張、301頁）で、GitHub mainとの一致を確認した。
-現129/1054の受理済み証明を同じ日本語主稿へ統合し、310頁の最終二回組版・全参照・追加頁可視を確認した。
-最新commit・通常push・PDFの実際の状態はGit及びbuild receiptで確認する。
+採録cutは130成分（rank四124、rank二6）・1084主張。
+rank一long非定数gの全sourceは既約25次元で、全prior129との相違と全ambient D100を別作者が確認した新成分である。generic軌道22、generic Rosenlicht商三次元も全源の二独立Poisson場から証明した。
+全被約既約・非正規actual quinticの点別既知成分被覆を完了した。全nonplane conductor、rank二plane全位数、rank零plane全coHiggs/globalV/scalar/零symbolを全source・全逆・零補集合で合成する。零symbol全39は真completedT36への全150係数実曲線で被覆した。
+全H＋相異二既約quadricのjointSSrank一も、全periodと全pole相殺を保持した実曲線でT16/T17又は既planeへ被覆した。
+一般Gは完了。可約/非被約Dの残source、全E、総上界及び分類主定理は未証明である。
 
-Cloud中断後、初期snapshotへ戻ったworkspaceをfetch/ff-onlyで公開checkpointまで復元した。
-失われた非公開reportを実測値ごと作り直さず、新REPLAY/RECOVERY_V2 identityで区別した。
-exact手証明/sourceのhash復元と新算術は `../CLOUD_RECOVERY_20261107.md` と各manifestを参照。
-旧任意Singular実体は消失し、二legacy producer gateがその旧binary identityだけでblocked。
-既設M2・QQ/Fractionは動作し、影響を受けないprimary数学を続ける。セットアップ全体を再実行しない。
+`research/COMPONENTS.json` が唯一の加算台帳。checker/gateは数学を認証しない。
+Cloud研究開始SHAは `4c3f623fb698f9adc6077015b25e2325b11072af`、数学baselineは `a00a541b835b2bff18bafcba545ecbd4bae7175b`。
+今回の保存区間開始・直前公開は `e2e718783b6811414a7f3c4b128a04a4503e5896`、HEAD=GitHub mainを確認済み（129/1054、310頁）。
+主稿 `papers/poisson_p4_classification_ja.tex` は同じ日本語原稿へ130/1084を統合済み（324頁）。
+最新PDF・最終組版・通常commit/pushの実状態はbuild receipt及びGit HEAD/origin/mainで確認する。
 
-## 主義務
+## 完了した全sourceの入口
 
-| 義務 | 現在の結論と残余 |
-|---|---|
-| G 一般beta尽くし | **完了**。一般係数体上の残余B=0、全幾何fiberは既知五点。全actualD/曲面rank・degree1–6/plane全multiplicity・root/sourceを独立全源定理で尽くした |
-| E_multiple_hyperplane | stable line-conic/three-lines二源、short nil31 r2/3等の明示残源を実変形又は新成分へ認識する |
-| E_reduced_nonnormal | Ga9linear-wの未知親、1+1+3/1+2+2の残源、他の非正規支持を全点認識する |
-| A 成分監査 | 現129件の全周囲成分性と相違は受理済み。新候補があれば監査し、下界を答えとして固定しない |
-| M 主稿 | 日本語LuaLaTeX。同じ原稿へ受理済み証明を理解順に統合し、分類主定理を未証明のまま明示する |
+- G：`GLOBAL_GENERIC_G_EXHAUSTION_CLOSURE_AUDIT.md`、93-input manifest。一般βの全幾何fiberは既知五点、残余B=0。全Eと混同せず再開しない。
+- 全被約既約nonnormalD：`IRREDUCIBLE_NONNORMAL_QUINTIC_WHOLE_POINTWISE_COVERAGE.md` と `IRREDUCIBLE_NONNORMAL_QUINTIC_WHOLE_COMPOSITION_SEPARATE_REVIEW.md`。nonplane全degree2–6、rank二plane全m、rank零plane全first symbol/allmを合成。
+- 新130：`RANK_ONE_LONG_NONCONSTANT_25_COMPONENT.md`、独立 `RANK_ONE_LONG_NONCONSTANT_AMBIENT_SEPARATE_REVIEW.md`。全S12→射影25、raw接50、全prior129相違。`RANK_ONE_LONG_ORBIT_AND_SHORT_CURVE_SEPARATE_REVIEW.md` でgeneric軌道22/商三と全short非定数gの同成分帰属。
+- 全jointSSrank一H＋二quadric：`TWO_QUADRICS_JOINT_SS_RANK1_CONFLUENCE_SEPARATE_REVIEW.md`。pure-nilは別残余。
+- 全essential三既約quinticは八23成分、全H＋重複既約quadric・三相異H＋既約Q・既約Q＋既約C3等の既証明は台帳を参照し、再計算しない。
 
-## G：全支持の閉鎖を完了
+## 次の全点被覆
 
-**一般β Gを完了した。** 最終入口は `GLOBAL_GENERIC_G_EXHAUSTION_CLOSURE_AUDIT.md` と93入力manifest。
-exactC0 bridgeで未知優越成分は25–27次元、全D因子型と導手曲面の全rank/次数/plane分岐は既知閉和又は像24以下/properβ像。
-全源/全normalizer逆/全複素壁を戻した有限閉和から未知成分を除外し、exactsplitterの残余B=0を得る。
-新uniform分母又は単位ideal証明書を展開したとはしない。全Eは別未完であり、以下は完了した依存表である。
+残るprimaryはstable nil22二源、short nil31 r2/3、Ga9linear-w、二H＋cubicのplane三配置全磁気、H＋二quadricのpure-nil残有限軌道、rank一translationの残十二whole源、A零/定数modular等の他multiple-H全支持である。
+rank一translationは非定数g・定数g/H3零・M2/M3/M21の五源を閉じ、全十七sourceの有限routingを保存した。二つの定数g共鳴とg零scalar-cubicの三つの25次元像は、各ONE固定全ambientでD100を得たが別作者samepoint全算術もPASSし、正式成分採録は次cutとする。M1/M11と残binomial等は純source入口を検討中で、現130へ加算しない。
+同一route二回非閉なら幾何へ変更する。Ga9linear-wの旧二次支持・固定N/固定1PS陰性から親所属を推測せず、高次jet反復を再開しない。
 
-入口は `DOMINANT_COMPONENT_GEOMETRY.md`。全normal実Dは既全点T39へ、全可約・非被約Dも
-未知優越一般元から除外済み。これはE全点被覆とは別命題である。
+有限source表は `E_POINTWISE_SOURCE_FRONTIER.md`、最新原稿に統合された証明と `CLAIMS.json` を優先する。
+F/Pは全支持・全包含・相違と総上界が揃うまでblocked。下界130を答えとして固定しない。
 
-全rank零曲面支持は、非normal、nef境界、non-split導手、全multiplicityを含め完了した。
-非planeはT40又は像24以下、planeはMPS又は像24以下である。
-planeのcoHiggs/Cartan、scalar/zero symbol、common-image、dependent全mの全Ore八moduleを保持する。
-`PLANE_RANK_ZERO_WHOLE_SUPPORT_NONDOMINANCE.md` と全別作者reviewを使い、旧粗33–35を再計算しない。
+## 互換性・不変入力・実制約
 
-rank二の全smoothquadricは全Rで空、quadricconeは全Hamiltonianpencil/共鳴/compatibilityを含め像24以下。
-全degree四はnormal CI22空、non-normal全五源像24以下、nonCI quarticscroll/coneのWeil class矛盾、PV像22で完了。
-degree六及びdegree五genus零/elliptic全枝も空又は非優越。
-**degree五canonical index二も全node像24以下、全cusp空まで独立完了した。**
-全nonterminal/全従属marksを保持し、weighted symmetric normalization代数から全node11parameterと真C* fiberを数える。
-cuspは導手idealとdegree四CIがdegree五Sを含めない短い矛盾で空。
-入口 `RANK_TWO_QUINTIC_CANONICAL_INDEX_TWO_SEPARATE_REVIEW.md` と短cusp note。
+既設Cloud環境、M2 1.24.11、SymPy/Fraction、LuaLaTeXを再利用する。引継ぎ元M2 1.26.05との差は必要QQ小例で確認済み。文献接続は既receipt参照、セットアップ全体を再実行しない。
+Cloud復旧と新REPLAY identityは `../CLOUD_RECOVERY_20261107.md`。旧work内Singular実体だけは失われ二legacy gateが旧binary identityでblockedだが、現在のQQ/Fraction primaryを阻害しない。
+旧quadriccone六変数V1はFu-only欠落で撤回、全Fu復元V2だけを使う。旧scroll四coverも棄却のまま正しいV2を使う。
+旧未commit review一件のbyte消失は `inputs/genus_zero_rankzero_review_source_loss_20261108.json` にUNRECOVEREDと明記。採録は現存原証明と別名独立reviewだけを使い、旧hashを捏造しない。
+旧producer/report/job/manifest bytesは不変。新科学ファイルはexclusive-create。rootだけがglobal台帳/Git、editorだけがTeX/frontierを編集する。
+現在、追加ユーザー許可を要する現実の阻害はない。通常main commit/nonforce pushは許可済みで、意味ある保存後もprimary数学を続ける。
 
-smooth cubic scrollの全Rは負directrix C0を含む必要条件を得た。
-normal canonical q2-rootも全rank/全R/vertex境界を保ちHartogs＋Casimir/divergenceの3対2で全空。
-残るprimitive root A25=2C0+5fはrank一又は同class pairの二型だけ。
-`CUBIC_SCROLL_DIRECTRIX_SEPARATE_REVIEW.md`、`CUBIC_SCROLL_CANONICAL_ROOT_SEPARATE_REVIEW.md` を使う。
-A25 scalar connectionとquadric-net/P2-bundleの全chainをroot及び相互別著者reviewで受理、四full-P2特殊fiberを保持した。
-**smooth cubic scrollの全rank二G非優越も完了。**
-A25全node/cuspをclosedinverse residueと全P2-net境界で像24以下へ閉じ、global exceptional restriction injectivityでextension全係数を処理した。
-§8可約Ωの極位置は別reviewのscope補正を適用。twisted cubic coneも全五module/全19壁を別算術17.956秒で確認、全rank二degree三G像24以下が完了した。
-全非plane支持、rank二planeのm二・三・四と全補集合をGから除外した。 旧21源/linear kernel16を全G上界としない。
-
-## rank二plane
-
-全integral reduced Rはsmooth/node/cuspとも空。
-全m四は全R/root partitionを保持してG非優越まで完了し、nonredR全点はessential三の八23成分へ被覆。
-m五以上はactualDがbinaryquinticとなり既約性に反する。
-
-**m二・generic squarefree quadratic・全Rは全点既知成分へ被覆した。**
-reduced Rは全MPS40、R3Lはessential三八23成分、R2L+Mは全源空である。
-全六primitive degree flags00/01/02/03/11/12を保持。
-03/12はroot-line class矛盾、11 splitはactualPf係数矛盾、conic11は唯一marked位置のactualSNC曲線又は空。
-constant-rootのtriangle/横断conicは全higher sourceのactualweight曲線でSNCへ、tangent/concurrentは
-projective Jacobiのcurl `(2κI+4DY-DX)C=0` とnilpotenceから全空。
-SNCに会う全ambient componentのMPS定理を使い、既知点の所属を曲線へ逆向きに外挿しない。
-入口 `PLANE_RANK_TWO_M2_SQUAREFREE_REDUCED_CUBIC_COVERAGE.md`、全33file manifest、各独立review。
-normaldouble及びnonredRはこの全点認識の補集合である。
-nonredR/m二SFの03/12/11も全polebudgetと全leftU Pf整除矛盾で空へ証明確認した。残constantroot00/01/02はirregular全formsを保持して続ける。
-normaldoubleの横断conic全空、接触conic全G像23以下、triangle全G像23以下を独立完了。
-triangle h=f全源は二つのactualDと全1075×150 Casimir必要空間零で空、h=L²Mは全generic幾何と全十壁の全higher/filtered群で23以下。
-接触h³全源はactualD essential三で八23成分へ全pointwise認識。他の接触源/triangleの全E帰属は未閉。
-concurrent全17whole pencils/84allowed complex wall algebrasも別Fraction16.787秒で受理し、全reducedR/m二doubleはG像23以下が完了。
-nonredRのmoving degree一double rootは全vertex/irregular traceを保持しactualP0係数の非整除で全空。
-R3L全m二も、SF01五模型全空・SF00元badvector対とtranslationCasimirを別作者受理し、全点既essential三八23成分へ被覆した。
-R2L+M SF00/01/02も全badvector/globalPf/全ratio非共鳴を別作者受理して全空。
-**rank二plane m二の全G非優越を完了した。**
-最後のR2L+M constantdouble全34源/51全壁は別q実装8.754秒で全original maps/unitminorを再確認。
-十whole線は空又は八fixedwall像23以下、残nil全pは全十一核bundleでOre係数を全fiberへ延長。
-唯一p−2/7の元full十一P1＋九P2でoriginal row34=−7m²/9、従って全Tm-unit源は空。
-全normaldoubleは像23以下。八HF壁等の全E所属は残し、G完了と区別する。
-入口 `PLANE_DOUBLE_LINE_M2_CONSTANT_DOUBLE_SEPARATE_REVIEW.md`。
-
-m三R=3L squarefreeは既全rootcover/actualD3像で空。
-R=2L+M squarefreeは全十九first symbolsを独立に尽くし、十六全枝は全leading imageのdiscriminant零から空。
-c-dependent g二は実c→c+hb fiberによりB≤9、全P1十/P2 injectiveと合わせ像24以下。
-fresh19 QQ replay22.097秒と独立4.412秒を別identityで保存した。
-残DIAGscalar/NIL_SPLITもOre全Q＋Wの全四moduleを別作者Fractionで確認した。
-全actualDにproper因子、又はA零essential三から、**全nonredR/m三SFのG像24以下が完了した。**
-独立算術0.779秒、wholeτ零を含む全補集合を保持。m三Gは後段の全triple/concurrent receiptと合わせ完了、全Eは未閉。
-nonredR/m三generic21 constant roots00も、全十四first sources/全二十二affine Ore modulesと全alpha壁を独立確認してG像24以下を完了。
-C-exact三源は上界だけでE帰属未閉。moving-double10も全11源/全三Ore/全壁を別Fraction11.219秒で受理しG像23以下が完了、moving-simple01/02も独立受理し全nonredR/m三generic21は像24以下まで完了、generic triple corrected全源も三phase独立受理し、全nonredR/m三Gを完了。
-
-**reduced R/m三の全非concurrent型はG像23以下へ独立完了した。**
-全root incidence/C2/C3/非logを幾何で尽くし、横断conic空、接線四/triangle五の全first-symbol軌道だけとなる。
-別Fraction全350×30/9・全24D3target・全150×39 EulerLeviを確認し、七全源はactualu因子で空、残二像22/23以下。
-入口 `PLANE_REDUCED_NONCONCURRENT_M3_ROOT_COVERS_SEPARATE_REVIEW.md` と `PLANE_REDUCED_M3_NINE_SEPARATE_REVIEW.md`。
-concurrent R/m三の全nonOreは六whole線＋41壁＋九固定を独立検証し、全u因子で空まで完了。
-strictOreのnonzero binary quartic Kは全central/magnetic/全Wを保持して独立完了。
-211/31/4b空、22/4a各一actual PGL軌道なので像24以下。K0全period/centralも全actualD weight/globalquadraticW degreeを別作者受理。
-**全concurrent m三Gも完了**し、全K0点は既essential三八23成分へ。
-全sourceは二actual PGL軌道＋既八23全sourceに入り、全plane/frame次元を重複加算しない。
-入口 `PLANE_CONCURRENT_M3_NONZERO_QUARTIC_SEPARATE_REVIEW.md`。m三constant-root全source障害q(C)=0,C非零はnonredRにも有効だが、simple-pole residue corollariesはreducedRだけ。
-
-K22 whole一軌道は既nil22long23 denseorbitへ全十actual括弧/全逆で同定し、全E所属も完了。
-K4aは同じD101/G48からnormalizedC*全IFTgraphを次数5へ強制し、元350の全次数10零を別Fractionで確認。
-真の102切片と48実作用のétale積でsmooth unique24、整数actual曲線の全非零parameterは同一dense24軌道。
-全K4a23軌道はこの24成分境界へ。さらに真completedT37との実PGL/Euler全150正逆/126Pfを別Fractionで確認し、親はT37と確定。
-K22既nil22long23、K0既essential三八23、nonOre全空と合わせ**全concurrent m三の全点E被覆も完了**、新加算零。
-入口 `K4A_T37_ACTUAL_MAP_SEPARATE_REVIEW.md`。この全点認識を128/1032 cutの主稿へ統合する。
-
-## E：全点認識と未知親
-
-採録cutは128成分（rank四122、rank二6）・1032主張。新二23成分は全ambient/全W六/全prior126/相互を独立確認した。
-K4a親T37と全concurrent m三、corrected非被約R/m三generictriple全点（八essential三＋新二成分）を被覆済み。
-quadric-cone rank零は全SS/nil/全Yの不変H因子で空、全degree四rank零もnil32二元Jacobi係数から空へ強化。
-integral CI22導手曲面は全normal/nonnormal型とrank零/二の全sourceで既約quintic枝が空。
-rank二nil32は全九inversechartの元150/350/126を別Fraction再構成し、全rank四点もMPS/H+2Qへ被覆した。
-
-
-
-全源の点別課題は `E_POINTWISE_SOURCE_FRONTIER.md` の九laneを使う。G像上界を全点帰属と混同しない。
-全degree四rank零・integral非退化支持の既約quintic枝は全空まで強化した。
-唯一残ったnil32全六源は元二係数からa0=b0=0、全実Pfが−q2²ell。全rank四点は既知H+2rank3Qへ戻る。
-入口 `CI22_NIL32_AND_DEGREE_FOUR_RANKZERO_ROOT_REVIEW.md`。rank二restrictionのdegree四源は別未閉。
-correctedtriple τ4/21及び1/12の全W六源は、それぞれ一実23軌道で、D102/Euler24/M48からsmooth unique23全成分。
-別Fraction全行列/核/minorと全prior126/相互の内在的tangentcone相違を受理し、下界128へ追加。
-入口 `PLANE_TRIPLE_WEAK_WALL_COMPONENTS_SEPARATE_REVIEW.md`。他の直接次元上界sourceのEは未了。
-
-全H+2Q、三相異H+既約Q、既約Q+既約C3は全配置/全source/全magで被覆済み。
-全essential三変数の既約quinticも全必要curveリスト・source・ambient・相違を独立確認し、八23成分へ全点被覆。
-marked μ六九新23成分、μ五四新23成分とE6/A5二新成分を採録し、全下界128を保つ。
-D5cusptangent全源は旧A0、3A2cusptangent全源は旧DPM、全A3A2共通接Hはk=-1も含め既cuspidal24へ。
-
-全global T39/T40のrank四評価fiberはconnected Sp4とglobal Ga4切断で既約、S61交点は閉A16 graphと一致。
-E6smoothflex、A5smoothhyperflex、Ga9c0linear-wの同一旧pointを別Fractionで全150両方向/134/350/45確認し、
-両全global親の外まで証明した。全sourceのdense23orbitに適用し、zero-invariant境界は除外しない。
-E6smoothflex/A5hyperflexは真48cutの全二法線障害がmprimaryとなり、全source閉包が新23全成分である。
-別Fraction全150/350/余核と全prior124/相互の相違を受理し、計126へ。Ga9linear-wの未知親・次元は残す。
-
-T37の固定Lagrangian B枝は有限surjectiveとdegree20 field wallから全sourceがgenericlift閉包と一致し、
-全actual restricted divisorがLQ²。上記三source及びstable二源への**指定uniform normal-cone入口**を除外した。
-全T37 componentや他の座標縮退からの親族性は排除していない。未復元nativefactorを新再計算としない。
-
-nil22image残stable二源の全source閉包は23、generic orbitは22/21。
-T01と既23既約D親のwhole包含は排除済みだが、全E又は新成分性は未証明。
-1+1+3のB0/rank二translation非plane全二源は、全21源の有限化/全22orbitと二actualSS曲線を独立受理し全MPSへ被覆した。
-j21(h,x)全六源、j21(0,h+x)n6非零全六源、p0全五源も三actual curveを別Fraction確認しMPSへ被覆した。
-全十一nil表とn6零補集合のplane帰着を合わせ、**1+1+3全非plane支持は全MPS又は既22成分へ被覆完了**。
-全型の残Eはplane十三配置中の三sourceだけ。入口 `TWO_HYPERPLANES_CUBIC_NONPLANE_WHOLE_COVERAGE.md`。
-1+1+3のcusp tangent/secantはI非零で全C39/C40外、全六磁気でT21全境界の外まで独立確認したが、親の認識は未解決。
-1+2+2のplane chord全六磁気源は全五parameter既約SNC親からの実曲線で既MPSへ独立被覆した。
-plane tan-simpleも別作者全parameter確認0.274秒で全T17へ被覆、chordは全T16と同定。
-全ten→seven配置と全Saito frame/u1/2を合わせ、**本質三変数H+相異既約二quadricの全点被覆が完了**。nonplane/lambda0純nil、1+1+3残源、short r2/3等は残る。
-詳細は `REMAINING_DEGENERACY_DIVISOR_SUPPORT.md` と主稿。
-
-現行主稿は128/1032 cut・295頁。二回最終組版・全参照・主要頁可視を確認し、PDFを保存した。G完了・correctedtriple・全concurrent・K4a完全有限slice等の追加十八受理結果を統合済み。
-
-自由offdiagonalを持つnonredR/m三generictripleの旧90正常形coverはflatness符号誤りで撤回した。
-元のliteral90/14算術は指定部分族の証拠だけで、全generictripleの有限被覆ではない。
-`PLANE_M3_FREE_CONNECTION_SIGN_ERRATUM.md` とcorrected V2全r8被覆を使う。
-新90必要被覆と90/18modules/valid14全jointbridge/focusedfactor全算術を別作者受理。旧coverageは復権しない。
-二E1DX壁は新二23成分へ確定。旧全空誤記のweakerratumと全particular clarificationを併読する。
-generic21及びreducedR/m三は正しい式/一意parallel connection/全元P0の独立確認を使い、既受理結論は影響しない。
-
-## 再現と保存
-
-元134式/S61と全350Jacobi/150係数への同値・逆写像・全局所化補集合を維持する。
-旧source/report/manifestは不変、compatible追記は旧FunctionDef AST及び実行bytes/全契約を凍結してからcurrent bindingを更新。
-直接GB五回とnormal-only密化、旧minor/jet反復、B18 H0/T2/nil指数/別稿仕上げは休止する。
-各新finite jobをgate後実行し、負結果を証明にしない。一次文献の適用scopeは各証明で確認する。
-通常main commit/pushで保存後も有効なprimary数学を続ける。Library upload receiptは無い。
-
-## 未採録packetの扱い
-
-次cutの原資料を並行して保存している。smoothscroll旧four-source全被覆は独立反例で撤回し、
-`CUBIC_SCROLL_FOUR_SOURCE_COVER_REJECTION.md` とerratumを残した。四個別族の因子算術は有効。
-正しいL6＋3×3 Segre cone5のV2全源還元・全因子は別作者PASSだが、この1032cutではまだ加算／主張採録していない。
-公開済みGの像23上界は旧全24式の独立dimension証明を使い、誤four-coverへ依存しない。
-Cexact/moving source等の新閉鎖、cubicconeT38、PV、新HA候補は各frozenpacketを次cutで独立採録する。
-未採録候補を128成分へ混ぜず、実根拠はCLAIMS/COMPONENTSを唯一の台帳とする。
-
-HA moving-simple t2/15の全六源を独立二engine全ambient＋全prior128で新smooth23成分として採録し、現下界129/主張1054。
-公開済みmainは57f8e29db085dd43df885f9085b34ae6ea9053fa（128/1032/295頁）。追加HAは次cutへ統合する。
-
-全rank二plane m三及びm四のpointwiseEを閉じた。全degree四導手もrank零/二で既約quintic枝は空、unstable elliptic rank零全源はT40へ。
+現行324頁PDF SHA `5f59e0450d087fba4a11547a5b634219779fba6964ef85505e34294f234f301a`、TeX SHA `929d33aa65c8973fab61279bfaab79182af449d82611d79f25a61717b13fd033`。最終組版receiptは `reports/CLASSIFICATION_MAIN_MANUSCRIPT_COMPONENT130_CLAIM1084_EDITOR_BUILD_20261108.json`。通常pushは実行後Gitで確認する。

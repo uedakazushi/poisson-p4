@@ -1,0 +1,88 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "target_statement": "Verify the single explicit actual Laurent curve from the true completed T36 source to an entire-zero-symbol one-orbit endpoint, hence cover the whole accepted 39-source by T36.",
+  "implication_to_classification": "For every epsilon!=0 the exact push is in known closed T36; all poles cancel, endpoint has zero weight-zero symbol and irreducible nonzero actual Pfaffian. The accepted whole-39 single-actual-orbit theorem then transfers T36 membership to every point of that lane. No new component.",
+  "coefficient_ring": "QQ[epsilon,epsilon^(-1),A,B,C,u,v], exact rational coefficients. One fixed prescribed curve, no source/profile search.",
+  "hypotheses": "Use truecompleted T36 full homogeneous bivector including its correction 10*t2*t3*x3*x4/p0. Accepted whole zero-symbol theorem applies to every rank-four tensor with reduced irreducible actual quintic and weight-zero symbol zero.",
+  "inverted_elements": [
+    "epsilon!=0 for source parameters and actual shear; its zero complement is the polynomial endpoint under test. No other source localization."
+  ],
+  "complements": [
+    "All epsilon^-1 terms must cancel in the full raw push, not only its divisor or projective class.",
+    "The endpoint entire actual signed Pfaffian must equal the prescribed primitive linear form, proving rank four and absolute irreducibility.",
+    "Whole source/anchor/kernel/extension/cohomology zero complements are reused from the accepted single-orbit theorem, not inferred from one endpoint.",
+    "The earlier conversational claim that all four double-zero leading quartics were 22 is corrected: one 22 and three fourth powers. No parent inference depends on that claim."
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "reports/MPS_SMOOTHING_COMPLETION_20261103_v62/T36.json",
+      "sha256": "cbe11f21263e47cad99d372b6974588de115c71e105c11c9ce1d017dd628da06"
+    },
+    {
+      "path": "research/classification/PLANE_ZERO_SYMBOL_WHOLE_SINGLE_ORBIT.md",
+      "sha256": "150f8085d666314e2d65100d69c5e73d61e285b016c85c8f7d5c21d1167516b2"
+    },
+    {
+      "path": "research/classification/PLANE_ZERO_SYMBOL_WHOLE_SINGLE_ORBIT_SEPARATE_REVIEW.md",
+      "sha256": "6b143a5db2f07801fca0faa9daf1ceb59e11ee73f415604d27f4a69194b6c118"
+    },
+    {
+      "path": "research/classification/PLANE_ZERO_SYMBOL_PARENT_FRONTIER.md",
+      "sha256": "56163534bd314d85dcba8de903279be08858bef2213e01d334c92ffff03df3fc"
+    }
+  ],
+  "prescribed_source_parameters": {
+    "p0": "epsilon",
+    "t0": "3/epsilon",
+    "t1": "3/epsilon",
+    "t2": "1",
+    "t3": "1"
+  },
+  "actual_coordinate_map": {
+    "direction": "source (x0,x1,x2,x3,x4) -> target (A,B,C,u,v)",
+    "A": "x0+(x3+x4)/epsilon",
+    "B": "x1+5*(x4-x3)/epsilon",
+    "C": "x2+5*(x4-x3)/epsilon",
+    "u": "x3",
+    "v": "x4",
+    "determinant": "1",
+    "inverse": [
+      "A-(u+v)/epsilon",
+      "B-5*(v-u)/epsilon",
+      "C-5*(v-u)/epsilon",
+      "u",
+      "v"
+    ],
+    "tensor_scale": "1",
+    "Euler_gauge": "0; exact equality of raw representatives required"
+  },
+  "expected_endpoint_brackets": {
+    "A,B": "-B*(3*u+v)/5",
+    "A,C": "C*(u+3*v)/5",
+    "B,C": "B*(2*u-4*v)+C*(4*u-2*v)",
+    "A,u": "u*v/5",
+    "A,v": "-u*v/5",
+    "B,u": "3*u**2-2*u*v+v**2",
+    "B,v": "2*u*v-v**2",
+    "C,u": "-u**2+2*u*v",
+    "C,v": "u**2-2*u*v+3*v**2",
+    "u,v": "0"
+  },
+  "expected_epsilon_coefficient": {
+    "B,C": "B*C",
+    "B,u": "3*B*u/5",
+    "B,v": "B*v/5",
+    "C,u": "-C*u/5",
+    "C,v": "-3*C*v/5",
+    "u,v": "-u*v/5"
+  },
+  "expected_signed_endpoint_F": "-3*A*(u**2-u*v+v**2)**2+3*B*u**4/5-3*C*v**4/5",
+  "success_certificate": "Both actual inverse products/det1; full150 Laurent push agrees epsilon*P0+P1 with no negative poles, full126 endpoint Euler-Pfaffian equals expected F, its three base coefficients have gcd1, and source all-pass plus polynomial closedness ensures the full curve is Poisson. No new ambient/Jacobi operator.",
+  "independent_check": "Root reviews exact contract before run; separate author checks all raw coefficients/inverses and closure/whole-orbit logic without importing this producer.",
+  "resource_limit": {
+    "timeout_seconds": 120,
+    "memory_mb": 512
+  },
+  "negative_result_next_step": "Freeze the exact failed identity and retain the unresolved parent. No degree increase, new frame/profile or jet repetition.",
+  "route_change_reason": "Structural global actual T36 contraction from three fourth-power directions, changing route from the diagnosed fixed Cartan pencil and local normal probes."
+}

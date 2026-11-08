@@ -14,15 +14,15 @@
     "null_values": "not catalogued or not applicable; never a claim of zero"
   },
   "coverage": {
-    "global_lower_bound": 129,
+    "global_lower_bound": 130,
     "generic_rank_two_full_components": 6,
-    "generic_rank_four_lower_bound": 123,
+    "generic_rank_four_lower_bound": 124,
     "upper_bound": null,
     "global_exhaustion_proved": false,
-    "individually_catalogued_count": 129,
+    "individually_catalogued_count": 130,
     "unexpanded_block_count": 0,
     "all_51_rank_four_ideals_in_S61_constructed": false,
-    "note_ja": "全129個別成分/rank四123/rank二6。HA moving-simple t2/15を全ambient/wholeW六/全prior128相違で追加。一般G完了、全E/上界未証明。",
+    "note_ja": "全130個別成分/rank四124/rank二6。rank一long非定数gの全源既約25を全ambient及び全prior129比較で追加。一般G完了、全E/上界未証明。",
     "generic_primitive_first_jet_known_lifts_lower_bound": 5,
     "full_generic_fiber_exhaustion_proved": true,
     "known_union_over_smooth_canonical_curve": {
@@ -14452,6 +14452,110 @@
         "全prior128相違は固定published57f8e29 catalogueとimmutable projectionを使用。",
         "高次normaljet/obstructionは不要。文献新規性未照合。"
       ]
+    },
+    {
+      "id": "R4_MODULAR_RANK1_LONG_NONCONSTANT_25",
+      "name": "modular rank一long・非定数gの25次元成分",
+      "source_checkpoint": "v64-classification-first",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "additional_generic_rank_four_full_component_outside_MPS40",
+      "generic_rank": 4,
+      "projective_dimension": 25,
+      "meets_SNC_log_symplectic_locus": false,
+      "generic_pgl5_orbit_dimension": 22,
+      "generic_reduced_rosenlicht_quotient_dimension": 3,
+      "generic_transverse_algebra": "K (generically reduced smooth transverse support; no full orbit classification)",
+      "component_definition": "Closure of full actualPGL saturation of all nonconstant affine g, affine U with Ug=(divU)g, and all quadratic K in the original quadratic long source; irreducible25, smoothunique at independently verified fullambient point.",
+      "generic_construction": {
+        "coordinates": [
+          "h",
+          "x",
+          "y",
+          "z",
+          "w"
+        ],
+        "affine_chart": "h=1",
+        "modular_field": "partial_x+x*partial_y",
+        "parameters": "g affine nonconstant in(z,w); U=u partial_z+v partial_w affine, d=divU, Ug=dg; K arbitrary quadratic",
+        "r": "y-x**2/2",
+        "F": "(U+d+1)K",
+        "brackets": {
+          "xy": "-F-(1+d)*r",
+          "xz": "u",
+          "xw": "v",
+          "yz": "x*u+r*g_w+(g*K)_w",
+          "yw": "x*v-r*g_z-(g*K)_z",
+          "zw": "g"
+        },
+        "fixed_modular_source_dimension": 12,
+        "affine_saturation_cone_dimension": 22,
+        "full_ambient_ranks": {
+          "Jacobi": 100,
+          "Euler": 24,
+          "actual_GL_scale_Euler": 47
+        }
+      },
+      "generic_actual_degeneracy_divisor": {
+        "description": "2H+L+Q: unique double hyperplane H tangent to smooth rank-five Q at p, with distinct simple L through p and generically not tangent to Q.",
+        "witness_equation": "-4*h**2*z*(h*y-x**2/2+h**2+2*h*z+3*h*w+5*z**2+7*z*w+11*w**2)",
+        "irreducible_factor_degrees": [
+          1,
+          1,
+          2
+        ],
+        "corresponding_multiplicities": [
+          2,
+          1,
+          1
+        ],
+        "reduced": false,
+        "essential_variable_count": 5
+      },
+      "claims": [
+        "R4_MODULAR_RANK1_LONG_NONCONSTANT_25_COMPONENT"
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/RANK_ONE_LONG_NONCONSTANT_COMPONENT_ENTRANCE.md"
+        },
+        {
+          "path": "research/classification/RANK_ONE_LONG_NONCONSTANT_ENTRANCE_SEPARATE_REVIEW.md"
+        },
+        {
+          "path": "research/classification/RANK_ONE_LONG_NONCONSTANT_25_COMPONENT.md"
+        },
+        {
+          "path": "research/classification/RANK_ONE_LONG_NONCONSTANT_AMBIENT_SEPARATE_REVIEW.md"
+        },
+        {
+          "path": "research/classification/RANK_ONE_LONG_NONCONSTANT_GENERIC_ORBIT.md"
+        },
+        {
+          "path": "research/classification/RANK_ONE_LONG_ORBIT_AND_SHORT_CURVE_SEPARATE_REVIEW.md"
+        }
+      ],
+      "verification_records": [
+        "research/classification/inputs/rank_one_long_nonconstant_entrance_manifest_20261108.json",
+        "research/classification/inputs/rank_one_long_nonconstant_entrance_separate_review_manifest_20261108.json",
+        "research/classification/inputs/rank_one_long_nonconstant_25_component_manifest_20261108.json",
+        "research/classification/inputs/rank_one_long_nonconstant_ambient_separate_review_manifest_20261108.json",
+        "research/classification/inputs/rank_one_long_nonconstant_generic_orbit_manifest_20261108.json",
+        "reports/CLASSIFICATION_RANK_ONE_LONG_NONCONSTANT_ONE_AMBIENT_20261108.json",
+        "reports/CLASSIFICATION_RANK_ONE_LONG_NONCONSTANT_AMBIENT_SEPARATE_REVIEW_20261108.json",
+        "research/classification/inputs/rank_one_long_orbit_and_short_curve_separate_review_manifest_20261108.json"
+      ],
+      "review_status": {
+        "proof": "proved_with_explicit_hypotheses",
+        "independent_review": "accepted_separate_full_source_geometry_prior129_and_allambient_Fraction",
+        "certificates": "full150_350_126_D100_Euler24_M47_completekernels_nonzero_minors_and_fullsource_dimension",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "notes_ja": [
+        "全source下界と全接上界から全成分性を示す。一点orbit22からsource次元を推測しない。",
+        "非線形rectificationは証明用補助のみ、実同値はPGL/affine変換だけ。",
+        "generic軌道22/商三は全S上の二独立Poisson場と保存minorで証明。全非reduced分類は別。"
+      ]
     }
   ],
   "named_block_member_annotations": [
@@ -14805,5 +14909,5 @@
     "MPS40 blockを展開したらblockによる加算を止め、二重計上しない。",
     "文献上の新規性は内部成分証明とは別に確認する。"
   ],
-  "new_components_added_in_this_checkpoint": 71
+  "new_components_added_in_this_checkpoint": 72
 }

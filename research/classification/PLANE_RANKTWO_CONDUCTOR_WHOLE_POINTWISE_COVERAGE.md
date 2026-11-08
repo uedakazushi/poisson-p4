@@ -1,0 +1,22 @@
+# rank二conductor plane：全normal位数のpointwise被覆
+
+2026-11-08、PRIMARY E、root純合成。新計算は無い。
+actual被約既約quinticを持つrank四Poisson点が、restriction一般rank二のconductor planeを持てば、
+その全点は現129既知成分の有限閉和へ入る。
+
+normal位数は二以上。m二の全R/root/higherは
+`PLANE_RANKTWO_M2_WHOLE_POINTWISE_COVERAGE.md` の新全source合成へ戻す。
+m三は採録1044の `PLANE_RANKTWO_M3_WHOLE_POINTWISE_COVERAGE.md`：
+全integral/nonconcurrent/concurrent、nonreducedSF/generic21/generictripleと全degree flagsを含み、
+MPSのT37、nil22long、Ga9distinct、essential三八成分、既triple二23成分とHA23へ全点被覆する。
+m四は採録済み全rootpartition/Rを含むwhole theoremで、全essential三八成分又は空。
+m五以上ではactualDがbinary quinticとなりC上既約性に反する。
+
+これらは旧全位数/rootcoverの全leading零補集合を戻した有限分割である。
+全G像上界だけのsourceをmembershipと呼んでいない。
+全normalizer/inhomogeneous P2/磁気/central零と単位零壁も各whole theoremに含まれる。
+新成分を加算せず、既129の有限閉和への全包含を得る。
+
+従って既約非正規quinticの未帰属点にconductor planeがあれば、その全plane支持上のrestrictionはrank零である。
+他のnonplane支持の全被覆は別の `NONPLANE_CONDUCTOR_POINTWISE_KNOWN_COVERAGE.md`。
+このrank二plane定理をrank零planeや全classification完了へ拡張しない。

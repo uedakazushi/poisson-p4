@@ -1,0 +1,61 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "target_statement": "ONE whole-source rankM3 tau0 ss/nil readback: all8K1 -> six actual finite shears + two normals, FULL9P2 via SAME old D2 inverse, all350/Pf on the full two-parameter model.",
+  "implication_to_classification": "Obtain a complete original E source and a weakest exact original-row/factor exclusion, or preserve an explicit unclosed two-normal family. No new operator/point/jet or generic dimension inference.",
+  "coefficient_ring": "QQ[u,v] and six global shear variables; stable independent Fraction sparse primitives",
+  "hypotheses": "Accepted all-m Lax entrance restores tau0. Both saved complete K1 nullity8, actual shear rank6, D2 injective; all original normalizers and higher coefficients.",
+  "inverted_elements": [
+    "Only the SAME nonzero saved shear6 and D2-nine submatrices, constant rationals; coordinate normalization of columns already in the old kernel."
+  ],
+  "complements": [
+    "If old D2 has free directions, stop and retain them.",
+    "An explicit model without whole actual factor/known-parent is E unresolved.",
+    "All other coHiggs families outside this exact two-source batch."
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_plane_cohiggs_kernel_pointwise.py",
+      "sha256": "e631f9dc2814f58586125564aa1870840456310cead44f2a9bec4f4571128521"
+    },
+    {
+      "path": "code/classification_plane_rank_zero_rank_two_review.py",
+      "sha256": "765f92b493d48c0b9d18f25d2971e6d1686d0abb4d3b8522cae3fc8d7f65dcd2"
+    },
+    {
+      "path": "code/classification_degenerate_quadric_q4_nil31_I_review.py",
+      "sha256": "f3900a3d9a77859585118cfdd00c00ecce2c491d0705a94bf42a6c2609abe915"
+    },
+    {
+      "path": "code/classification_unimodular_logarithmic_review.py",
+      "sha256": "cc5da8f4ac53bb814e549d439d806271a81f28cacfd9656b85765eb78b21cdcf"
+    },
+    {
+      "path": "code/classification_minimal_quartic_review.py",
+      "sha256": "75cbf6820a60945f053c4593363d9191cebe860f56230a0fb0bf78a1a43623fe"
+    },
+    {
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_FULLRANK_WEIGHTS_20261107.json",
+      "sha256": "2a34cb10c44aaf9746454e5f1a0d9c3e587e23bbe1919a9037746f20f82fbd67"
+    },
+    {
+      "path": "research/classification/PLANE_HIGH_M_RANK_AT_LEAST_TWO_SEPARATE_REVIEW.md",
+      "sha256": "285461dc8820ef5784be19575019101b8d7f6c233a2d67dafb3d3a3029c7c8d6"
+    },
+    {
+      "path": "research/classification/PLANE_COHIGGS_SHEAR_EXACT_SOURCE_REDUCTION.md",
+      "sha256": "32aeb1ead62288c657166af90c720683fe39306180dbbecd671276e8dd286795"
+    },
+    {
+      "path": "research/classification/PLANE_COHIGGS_FULLRANK_TAU_ZERO_TWO_NORMAL_ENTRANCE.md",
+      "sha256": "490171fb8d775fe19149d4219228ae81a3763e4fde5d94c4de01c19a04711888"
+    }
+  ],
+  "success_certificate": "Full K=SA+N1b1+N2b2; unique global P2 quadratic; exact all350 polynomial residuals and all126 actual Pf; actual six-shear inverse and all150 roundtrip; original monomial-row forcing or proper factor if available.",
+  "independent_check": "Separate reader can check saved N/Q and original residual rows or factor identities; no old linear operators recomputed.",
+  "resource_limit": {
+    "timeout_seconds": 180,
+    "memory_mb": 3072
+  },
+  "negative_result_next_step": "Save exact complete two-variable model and change geometry; no GB/point/minor/jet sequence.",
+  "inline_caller_source": "import json, hashlib, resource, time\nfrom pathlib import Path\nfrom fractions import Fraction as F\nfrom itertools import combinations\nimport sys\nsys.path.insert(0,str(Path.cwd()/'code'))\nimport classification_plane_cohiggs_kernel_pointwise as c\nq=c.q\nROOT=Path.cwd()\nJOB='research/classification/jobs/plane_cohiggs_fullrank_tau_zero_two_normal.json'\nOUTPUT='reports/CLASSIFICATION_PLANE_COHIGGS_FULLRANK_TAU_ZERO_TWO_NORMAL_20261108.json'\nresource.setrlimit(resource.RLIMIT_CPU,(175,180))\nresource.setrlimit(resource.RLIMIT_AS,(3*1024**3,3*1024**3))\nstarted=time.monotonic()\njob=json.loads((ROOT/JOB).read_text())\nfor x in job['exact_inputs_and_hashes']:\n    assert hashlib.sha256((ROOT/x['path']).read_bytes()).hexdigest()==x['sha256']\npacket=json.loads((ROOT/'reports/CLASSIFICATION_PLANE_RANK_ZERO_FULLRANK_WEIGHTS_20261107.json').read_text())\nfirst,second=c.bases()\ndef mm(A,B): return q.matmul(A,B)\ndef addP(*Ps):\n    return q.antisymmetric({ij:q.add(*(P.get(ij,{}) for P in Ps)) for ij in c.PAIRS})\ndef scaleP(P,p):\n    return q.antisymmetric({ij:q.mul(p,P.get(ij,{})) for ij in c.PAIRS})\ndef d2solve(D2,C,rhs):\n    R,COL=C['minor_rows'],C['minor_columns']\n    inv=q.inverse([[D2[i][j] for j in COL] for i in R])\n    sol=[sum(row[k]*(-rhs[R[k]]) for k in range(9)) for row in inv]\n    out=[F(0)]*9\n    for j,v in zip(COL,sol):out[j]=v\n    return out\ndef zero_parameter(poly,index):\n    return {e:v for e,v in poly.items() if e[5+index]==0}\ndef factor(poly):\n    if not poly:return {'Pf_zero':True}\n    e=[min(x[i] for x in poly) for i in range(5)]+[0,0,0]\n    if any(e):\n        quotient={tuple(a-b for a,b in zip(x,e)):v for x,v in poly.items()}\n        assert q.mul({tuple(e):F(1)},quotient)==poly\n        return {'factor_exponents':e,'quotient':c.polynomial_records(quotient)}\n    return None\ndef universal_shear(P0,curve,S):\n    n=13;x=[c.atom_n(index=i,n=n) for i in range(n)]\n    G=list(x);H=list(x)\n    for i in range(3):\n        delta=q.add(q.mul(x[7+i],x[3]),q.mul(x[10+i],x[4]))\n        G[i]=q.add(x[i],delta);H[i]=q.add(x[i],q.scale(delta,-1))\n    assert [c.subst(v,H) for v in G]==x\n    assert [c.subst(v,G) for v in H]==x\n    P={ij:c.lift(p,n) for ij,p in P0.items()}\n    push=c.push(P,G,H)\n    residual={}\n    for ij in c.PAIRS:\n        weight1={e:v for e,v in q.add(push.get(ij,{}),q.scale(P.get(ij,{}),-1)).items()\n                 if e[3]+e[4]-sum(i>=3 for i in ij)==1}\n        expected=q.add(*(q.mul(x[7+j],c.lift(c.tensor_linear(first,[S[i][j] for i in range(30)]).get(ij,{}),n)) for j in range(6)))\n        residual[ij]=q.add(weight1,q.scale(expected,-1))\n    for i,j,k in combinations(range(5),3):\n        assert not q.add(q.mul(x[i],residual[j,k]),q.scale(q.mul(x[j],residual[i,k]),-1),q.mul(x[k],residual[i,j]))\n    C={ij:c.lift(p,n) for ij,p in curve.items()}\n    back=c.push(c.push(C,G,H),H,G)\n    assert all(C.get(ij,{})==back.get(ij,{}) for ij in c.PAIRS)\n    return {'six_independent_shear_parameters':True,'polynomial_inverse_G_minus_C':True,\n            'determinant':'1','saved_full_S_mod_Euler_verified':True,\n            'full150_whole_uv_roundtrip':True}\nresults=[]\nfor record in packet['cases']:\n    wall=next(v for v in record['all_exceptional_roots'] if v['tau']=='0')\n    K=c.mat(wall['D1']['complete_kernel'],F(0))\n    S=c.mat(record['complete_actual_shear_30_by6'],F(0))\n    D2=c.mat(record['complete_D2_350_by9'],F(0))\n    assert wall['D1']['nullity']==8 and wall['D2']['nullity']==0\n    CS=wall['actual_shear'];assert CS['rank']==6 and CS['minor_columns']==list(range(6))\n    I=CS['minor_rows'];A=mm(q.inverse([S[i] for i in I]),[K[i] for i in I])\n    R=[[K[i][j]-sum(S[i][k]*A[k][j] for k in range(6)) for j in range(8)] for i in range(30)]\n    normals=[];B=[];pivots=[]\n    remaining=[row[:] for row in R]\n    for _ in range(2):\n        j=next(j for j in range(8) if any(row[j] for row in remaining))\n        p=next(i for i in range(30) if remaining[i][j])\n        N=[row[j]/remaining[p][j] for row in remaining]\n        coeff=remaining[p][:]\n        normals.append(N);B.append(coeff);pivots.append(p)\n        remaining=[[remaining[i][j]-N[i]*coeff[j] for j in range(8)] for i in range(30)]\n    assert not any(v for row in remaining for v in row)\n    assert all(not N[i] for N in normals for i in I)\n    P0=c.constant_tensor(record['normal_form_P0'],F(0))\n    N=[c.tensor_linear(first,v) for v in normals]\n    rhs=[q.jvec(q.jacobi(N[0])),q.jvec(q.jacobi(addP(N[0],N[1]))),q.jvec(q.jacobi(N[1]))]\n    rhs[1]=[b-a-d for a,b,d in zip(rhs[0],rhs[1],rhs[2])]\n    QC=[d2solve(D2,wall['D2'],v) for v in rhs]\n    Q=[c.tensor_linear(second,v) for v in QC]\n    u,v=q.atom(1,5),q.atom(1,6)\n    curve=addP(P0,scaleP(N[0],u),scaleP(N[1],v),\n               scaleP(Q[0],q.mul(u,u)),scaleP(Q[1],q.mul(u,v)),scaleP(Q[2],q.mul(v,v)))\n    J=q.jacobi(curve)\n    powers=[(i,j) for i in range(5) for j in range(5-i)]\n    rowpolys=[]\n    for n in range(350):\n        d={f'{i},{j}':str(q.jvec(J,(i,j,0))[n]) for i,j in powers if q.jvec(J,(i,j,0))[n]}\n        rowpolys.append(d)\n    assert all(not e[7] and sum(e[5:7])<=4 for p in J.values() for e in p)\n    assert not any(q.jvec(J,(0,0,0))) and not any(q.jvec(J,(1,0,0))) and not any(q.jvec(J,(0,1,0)))\n    Factual=c.divisor(curve)\n    forcing=[];remaining_rows=[dict(r) for r in rowpolys];forced=set()\n    for _ in range(2):\n        found=None\n        for i,row in enumerate(remaining_rows):\n            if len(row)!=1:continue\n            mon,coef=next(iter(row.items()));ex=tuple(map(int,mon.split(',')))\n            active=[j for j in range(2) if ex[j]]\n            if len(active)==1 and active[0] not in forced:\n                found=(i,active[0],ex,coef);break\n        if found is None:break\n        i,j,ex,coef=found;forced.add(j)\n        forcing.append({'original350row':i,'coefficient':coef,'u_v_exponents':list(ex),'deduced_zero_parameter':j})\n        remaining_rows=[{m:a for m,a in row.items() if tuple(map(int,m.split(',')))[j]==0} for row in remaining_rows]\n    restricted=Factual\n    for j in forced:restricted=zero_parameter(restricted,j)\n    direct=factor(restricted)\n    if len(forced)==2:\n        assert not restricted\n        conclusion='both_normals_forced_zero_actual_Pf_zero__EMPTY'\n    elif direct:\n        conclusion='whole_original_support_coordinate_factor_or_Pfzero__EMPTY'\n    else:\n        conclusion='explicit_complete_two_normal_model__E_UNRESOLVED'\n    results.append({'source':record['type'],'tau':'0','all_8_kernel_6_shear_9_P2_retained':True,\n                    'saved_shear_minor_rows':I,'old_D2_inverse_rows':wall['D2']['minor_rows'],\n                    'old_D2_inverse_columns':wall['D2']['minor_columns'],\n                    'K_equals_SA_plus_NB_all30by8':True,\n                    'A_6by8':[[str(v) for v in row] for row in A],\n                    'B_2by8':[[str(v) for v in row] for row in B],\n                    'normal_coordinates_30by2':[[str(N[i]) for N in normals] for i in range(30)],\n                    'P0':c.tensor_records(P0),'N1':c.tensor_records(N[0]),'N2':c.tensor_records(N[1]),\n                    'Q20_Q11_Q02_coordinates':[[str(v) for v in row] for row in QC],\n                    'curve':c.tensor_records(curve),'full350_original_rows_as_uv_polynomials':rowpolys,\n                    'actual_Pf_all126_uv_polynomials':c.polynomial_records(Factual),\n                    'original_single_monomial_row_forcing':forcing,\n                    'restricted_actual_factor_certificate':direct,\n                    'actual_global_shear_inverse':universal_shear(P0,curve,S),\n                    'whole_source_conclusion':conclusion})\nout=ROOT/OUTPUT;assert not out.exists()\nresult={'task_id':'E_reduced_nonnormal','status':'ONE_whole_two_source_finite_batch_completed',\n        'all_explicit_identities_passed':True,'cases':results,\n        'both_whole_sources_empty_proved':all('EMPTY' in x['whole_source_conclusion'] for x in results),\n        'no_new_M1_rank_minor_point_GB_or_jet':True,\n        'seconds':time.monotonic()-started,'maximum_RSS_KiB':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,\n        'exact_inputs':job['exact_inputs_and_hashes'],\n        'inline_caller_source_sha256':hashlib.sha256(job['inline_caller_source'].encode()).hexdigest(),\n        'inline_caller_source':job['inline_caller_source'],\n        'old_code_reports_main_frontier_globals_unchanged':True}\nout.write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\\n')\nfor x in results:print(x['source'],x['whole_source_conclusion'],x['original_single_monomial_row_forcing'],flush=True)\nprint('PASS explicit whole model',result['seconds'],result['maximum_RSS_KiB'],flush=True)\n"
+}
