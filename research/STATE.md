@@ -1,33 +1,30 @@
 # 研究状態 — 現行分類 / 2026-11-08
 
 現行キューは [classification/CURRENT.md](classification/CURRENT.md)・PLAN.json・NEXT_TASKS.md。
-個別下界126（rank四120、rank二6）、主張1020。**一般β Gは完了**、全E・総上界・分類主定理は未証明。
-直前の公開保存点はdab368089679508ae5c9016d66ba6accfe6d8fa9（126/1002、256頁）。
-今回の継続区間もGitHub mainとこのSHAの一致を確認して開始した。
-現行1020cutは288頁、G完了とK4aの実24親まで二回組版・目視確認済み。公開Git状態は実HEAD/origin/mainで確認する。
+個別下界128（rank四122、rank二6）、主張1032。**一般β Gは完了**、全E・総上界・分類主定理は未証明。
+直前公開保存点は9468048f7a9daa051fa57054858aa8f07a1dd61d（126/1020、288頁、G完了）。
+この保存区間もGitHub mainとこのSHAの一致を確認して開始した。
+現行128/1032主稿は295頁、二回最終組版・全参照・主要頁可視を確認しPDF保存済み。Git保存はHEAD/origin/mainで確認する。
 
-Gは最終 `classification/GLOBAL_GENERIC_G_EXHAUSTION_CLOSURE_AUDIT.md` と93入力manifestまで独立受理し、完了した。
-全actualDの因子分割、非正規導手曲面rank零/二・全degree1–6、plane全m/R/normalroot/全higherを尽くす。
-exactC0 bridgeの未知優越成分25–27は既知閉和、global像24以下又はproperβ像に入れず、残余B=0。
-一般係数体の全fiberは既知五点。新一様分母/単位ideal展開を実行したとはしない。
-旧plus符号90wholecoverageは撤回のまま。correctedminus新90・valid14joint逆・18modules/34walls・newfixed原ideal因子を三phase独立受理。
-二E1DX壁はconsistentW6/像23以下で、target実在とEは未知。全concurrent m三も全K0まで独立完了。
-解決済みGを欠陥なく再開せず、全E/成分帰属と主稿へ作業を進める。
+採録cutは128成分（rank四122、rank二6）・1032主張。新二23成分は全ambient/全W六/全prior126/相互を独立確認した。
+K4a親T37と全concurrent m三、corrected非被約R/m三generictriple全点（八essential三＋新二成分）を被覆済み。
+quadric-cone rank零は全SS/nil/全Yの不変H因子で空、全degree四rank零もnil32二元Jacobi係数から空へ強化。
+integral CI22導手曲面は全normal/nonnormal型とrank零/二の全sourceで既約quintic枝が空。
+rank二nil32は全九inversechartの元150/350/126を別Fraction再構成し、全rank四点もMPS/H+2Qへ被覆した。
 
-Eでは1+1+3の**全非plane支持**を全11nil型/三actual曲線/n6零補集合でMPS40又は既22成分へ被覆した。
-同型の残Eはplane三配置の全六磁気源だけ。
-全H+相異二quadricのplane七配置も被覆済みだが、nonplane/lambda零等の補集合は残る。
-他にstable二源、Ga9linear-w未知親、shortnil r2/3、一般の非正規既約quinticの全点所属等を保持する。
-全essential三変数の既約quinticは八23成分へ全点被覆済み。
+全200 correctedtriple routeは正しいminus接続だけを使い、旧plus90被覆は撤回のまま。
+新二Y壁は全九P1＋一意inhomogeneous九P2の元350/actualPfを別Fraction再構成して全空。
+二E1DX壁は全particular補正を保った実在するsmooth23全成分であり、空と誤記しない。
+全rank二支持は既六成分・rank四閉包へ被覆済み。未認識の全Eは全source一覧
+[classification/E_POINTWISE_SOURCE_FRONTIER.md](classification/E_POINTWISE_SOURCE_FRONTIER.md) の九laneを使う。
+plane三源/stable二/Ga9linear-w/shortnilだけがE残余という不完全な一覧へ戻らない。
 
-K22 whole一軌道は既nil22long23 denseorbitへ全十actual括弧/全逆で同定し、全E所属も完了。
-K4aは同じD101/G48からnormalizedC*全IFTgraphを次数5へ強制し、元350の全次数10零を別Fractionで確認。
-真の102切片と48実作用のétale積でsmooth unique24、整数actual曲線の全非零parameterは同一dense24軌道。
-全K4a23軌道はこの24成分境界へ。既知親名/相違は未認識、新加算零。入口 `K4A_COMPLETE_TORUS_SLICE_SEPARATE_REVIEW.md`。
+smoothscroll旧four-coverは独立反例で棄却し不変保存。正しいV2二源の独立PASS等、1032後のpacketは採録待ち。
+新HA候補等は成分台帳へ未加算。解決済みGを欠陥なく再開せず、全Eの点別認識を続ける。
+B18のH0/T2/精密nil指数及び旧minor探索は主分類の不可欠な依存なしに再開しない。
 
-Cloud復旧で旧公開版をff-only回復し、消失した非公開算術は新identityで再現した。
-詳しい全補集合・環境・保存境界は [CLOUD_HANDOFF_20261107.md](CLOUD_HANDOFF_20261107.md) と
-[CLOUD_RECOVERY_20261107.md](CLOUD_RECOVERY_20261107.md)。保存checkpointと旧移行用一時停止を研究終了条件にしない。
+Cloud復旧・初期SHA・環境・保存境界は [CLOUD_HANDOFF_20261107.md](CLOUD_HANDOFF_20261107.md) と
+[CLOUD_RECOVERY_20261107.md](CLOUD_RECOVERY_20261107.md)。旧移行用一時停止を研究終了条件にしない。
 
 以下は11月5日UTCに完了し、11月7日に最新mainへ統合した補助研究の保存証拠。下記の58は当時の下界である。B18精密構造と旧minor探索は休止し、この歴史的キューでは再開しない。
 

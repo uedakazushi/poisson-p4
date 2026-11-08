@@ -1,0 +1,88 @@
+{
+  "task_id": "E_multiple_hyperplane",
+  "date_utc": "2026-11-08",
+  "author": "/root/quartic_review",
+  "status": "EXACT NEGATIVE DIAGNOSTIC: entire specified rank4SS12 spectralframe cannot reach canonical r2/3; wholeE stillOPEN",
+  "raw_run": {
+    "path": "reports/CLASSIFICATION_NIL31_SHORT_RANK_FOUR_SPECTRAL_CURVE_20261108.json",
+    "sha256": "baf1d03235d851a7491b1f8158384e471edfaf81ab5b1e96881242856ee4a736"
+  },
+  "proof_note": {
+    "path": "research/classification/NIL31_SHORT_RANK_FOUR_SPECTRAL_DIAGNOSTIC.md",
+    "sha256": "1d17ec772eb4e8a139a24f93f88f4efe171be476575576ae9cf5db2a57f73fb0"
+  },
+  "job": {
+    "path": "research/classification/jobs/nil31_short_rank_four_spectral_curve.json",
+    "sha256": "ba2e420803704b3155a39ddc7c1db54a90069c319361130ebc653d6b90405003"
+  },
+  "linear_endpoint_shape": [
+    298,
+    63
+  ],
+  "linear_rank": 60,
+  "augmented_rank": 61,
+  "minimal_exact_left_functionals": [
+    {
+      "row": 53,
+      "label": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          0,
+          1,
+          0,
+          0
+        ],
+        0
+      ],
+      "left_functional": {
+        "sparse_nonzero_rows": [
+          [
+            53,
+            "1"
+          ]
+        ]
+      },
+      "all63_matrix_columns_annihilated": true,
+      "RHS_pairing": "-1"
+    },
+    {
+      "row": 91,
+      "label": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          0,
+          0,
+          1,
+          0
+        ],
+        0
+      ],
+      "left_functional": {
+        "sparse_nonzero_rows": [
+          [
+            91,
+            "1"
+          ]
+        ]
+      },
+      "all63_matrix_columns_annihilated": true,
+      "RHS_pairing": "1"
+    }
+  ],
+  "all10_parent_basis_missing_monomials_verified_from_saved_packet": true,
+  "stronger_hand_proof": "SS12 long3 h terms and inverse derivative wedge make original Pxy[hy] and Pxz[hz] identicallyzero for arbitrary parentparameters, not only Laurent[-4,2]. Target has(-t,+t),tunit.",
+  "all_true7_Poisson_relations_retained_in_design": "YES; nonlinear support solver not executed because weaker endpoint matrix inconsistent.",
+  "actualcurve_all350_Pf_div_validation": "NOT EXECUTED: no candidate curve exists within thisframe.",
+  "generic_SS12_all_closure_or_E_membership": "NOT CLAIMED",
+  "next_step": "No higherorder/profile/normaljet retry within thisframe. Need a newgeometricparent that supplies missing linear monomials.",
+  "seconds": 0.13821782400191296,
+  "max_rss_kib": 47884
+}

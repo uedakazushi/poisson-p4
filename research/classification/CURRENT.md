@@ -5,11 +5,11 @@
 
 ## 証明状態と保存状態
 
-個別に証明・独立確認済みの下界は **126成分（一般rank四120、一般rank二6）**。
+個別に証明・独立確認済みの下界は **128成分（一般rank四122、一般rank二6）**。
 `research/COMPONENTS.json` が唯一の加算台帳であり、一般βのGは全分岐監査まで完了。総上界・全E・分類主定理は未証明。
-現在の主張台帳は1020件。plan/check/gateの成功は数学の認証ではない。
-直前の公開保存点は `dab368089679508ae5c9016d66ba6accfe6d8fa9`（126成分・1002主張、256頁）。
-現行126/1020の受理済み証明を同じ日本語主稿へ統合し、288頁の最終二回組版・全参照・主要頁可視を確認した。
+現在の主張台帳は1032件。plan/check/gateの成功は数学の認証ではない。
+直前の公開保存点は `9468048f7a9daa051fa57054858aa8f07a1dd61d`（126成分・1020主張、288頁、一般G完了）。
+公開126/1020の受理済み証明を同じ日本語主稿へ統合し、288頁の最終二回組版・全参照・主要頁可視を確認した。
 この保存単位自身のcommit/push状態はGitとbuild receiptで確認する。
 最新commit・push・PDFの実際の状態はGit及びbuild receiptで確認する。
 
@@ -26,7 +26,7 @@ exact手証明/sourceのhash復元と新算術は `../CLOUD_RECOVERY_20261107.md
 | G 一般beta尽くし | **完了**。一般係数体上の残余B=0、全幾何fiberは既知五点。全actualD/曲面rank・degree1–6/plane全multiplicity・root/sourceを独立全源定理で尽くした |
 | E_multiple_hyperplane | stable line-conic/three-lines二源、short nil31 r2/3等の明示残源を実変形又は新成分へ認識する |
 | E_reduced_nonnormal | Ga9linear-wの未知親、1+1+3/1+2+2の残源、他の非正規支持を全点認識する |
-| A 成分監査 | 現126件の全周囲成分性と相違は受理済み。新候補があれば監査し、下界を答えとして固定しない |
+| A 成分監査 | 現128件の全周囲成分性と相違は受理済み。新候補があれば監査し、下界を答えとして固定しない |
 | M 主稿 | 日本語LuaLaTeX。同じ原稿へ受理済み証明を理解順に統合し、分類主定理を未証明のまま明示する |
 
 ## G：全支持の閉鎖を完了
@@ -116,13 +116,31 @@ strictOreのnonzero binary quartic Kは全central/magnetic/全Wを保持して�
 K22 whole一軌道は既nil22long23 denseorbitへ全十actual括弧/全逆で同定し、全E所属も完了。
 K4aは同じD101/G48からnormalizedC*全IFTgraphを次数5へ強制し、元350の全次数10零を別Fractionで確認。
 真の102切片と48実作用のétale積でsmooth unique24、整数actual曲線の全非零parameterは同一dense24軌道。
-全K4a23軌道はこの24成分境界へ。既知親名/相違は未認識、新加算零。入口 `K4A_COMPLETE_TORUS_SLICE_SEPARATE_REVIEW.md`。
+全K4a23軌道はこの24成分境界へ。さらに真completedT37との実PGL/Euler全150正逆/126Pfを別Fractionで確認し、親はT37と確定。
+K22既nil22long23、K0既essential三八23、nonOre全空と合わせ**全concurrent m三の全点E被覆も完了**、新加算零。
+入口 `K4A_T37_ACTUAL_MAP_SEPARATE_REVIEW.md`。この全点認識を128/1032 cutの主稿へ統合する。
 
 ## E：全点認識と未知親
 
+採録cutは128成分（rank四122、rank二6）・1032主張。新二23成分は全ambient/全W六/全prior126/相互を独立確認した。
+K4a親T37と全concurrent m三、corrected非被約R/m三generictriple全点（八essential三＋新二成分）を被覆済み。
+quadric-cone rank零は全SS/nil/全Yの不変H因子で空、全degree四rank零もnil32二元Jacobi係数から空へ強化。
+integral CI22導手曲面は全normal/nonnormal型とrank零/二の全sourceで既約quintic枝が空。
+rank二nil32は全九inversechartの元150/350/126を別Fraction再構成し、全rank四点もMPS/H+2Qへ被覆した。
+
+
+
+全源の点別課題は `E_POINTWISE_SOURCE_FRONTIER.md` の九laneを使う。G像上界を全点帰属と混同しない。
+全degree四rank零・integral非退化支持の既約quintic枝は全空まで強化した。
+唯一残ったnil32全六源は元二係数からa0=b0=0、全実Pfが−q2²ell。全rank四点は既知H+2rank3Qへ戻る。
+入口 `CI22_NIL32_AND_DEGREE_FOUR_RANKZERO_ROOT_REVIEW.md`。rank二restrictionのdegree四源は別未閉。
+correctedtriple τ4/21及び1/12の全W六源は、それぞれ一実23軌道で、D102/Euler24/M48からsmooth unique23全成分。
+別Fraction全行列/核/minorと全prior126/相互の内在的tangentcone相違を受理し、下界128へ追加。
+入口 `PLANE_TRIPLE_WEAK_WALL_COMPONENTS_SEPARATE_REVIEW.md`。他の直接次元上界sourceのEは未了。
+
 全H+2Q、三相異H+既約Q、既約Q+既約C3は全配置/全source/全magで被覆済み。
 全essential三変数の既約quinticも全必要curveリスト・source・ambient・相違を独立確認し、八23成分へ全点被覆。
-marked μ六九新23成分、μ五四新23成分とE6/A5二新成分を採録し、全下界126を保つ。
+marked μ六九新23成分、μ五四新23成分とE6/A5二新成分を採録し、全下界128を保つ。
 D5cusptangent全源は旧A0、3A2cusptangent全源は旧DPM、全A3A2共通接Hはk=-1も含め既cuspidal24へ。
 
 全global T39/T40のrank四評価fiberはconnected Sp4とglobal Ga4切断で既約、S61交点は閉A16 graphと一致。
@@ -147,13 +165,13 @@ plane tan-simpleも別作者全parameter確認0.274秒で全T17へ被覆、chord
 全ten→seven配置と全Saito frame/u1/2を合わせ、**本質三変数H+相異既約二quadricの全点被覆が完了**。nonplane/lambda0純nil、1+1+3残源、short r2/3等は残る。
 詳細は `REMAINING_DEGENERACY_DIVISOR_SUPPORT.md` と主稿。
 
-主稿は126/1020 cut・288頁。G完了・correctedtriple・全concurrent・K4a完全有限slice等の追加十八受理結果を統合済み。
+現行主稿は128/1032 cut・295頁。二回最終組版・全参照・主要頁可視を確認し、PDFを保存した。G完了・correctedtriple・全concurrent・K4a完全有限slice等の追加十八受理結果を統合済み。
 
 自由offdiagonalを持つnonredR/m三generictripleの旧90正常形coverはflatness符号誤りで撤回した。
 元のliteral90/14算術は指定部分族の証拠だけで、全generictripleの有限被覆ではない。
 `PLANE_M3_FREE_CONNECTION_SIGN_ERRATUM.md` とcorrected V2全r8被覆を使う。
 新90必要被覆と90/18modules/valid14全jointbridge/focusedfactor全算術を別作者受理。旧coverageは復権しない。
-二E1DX壁は全空でなくG像23以下/E未知としてweakerratumを併読する。
+二E1DX壁は新二23成分へ確定。旧全空誤記のweakerratumと全particular clarificationを併読する。
 generic21及びreducedR/m三は正しい式/一意parallel connection/全元P0の独立確認を使い、既受理結論は影響しない。
 
 ## 再現と保存
@@ -163,3 +181,12 @@ generic21及びreducedR/m三は正しい式/一意parallel connection/全元P0�
 直接GB五回とnormal-only密化、旧minor/jet反復、B18 H0/T2/nil指数/別稿仕上げは休止する。
 各新finite jobをgate後実行し、負結果を証明にしない。一次文献の適用scopeは各証明で確認する。
 通常main commit/pushで保存後も有効なprimary数学を続ける。Library upload receiptは無い。
+
+## 未採録packetの扱い
+
+次cutの原資料を並行して保存している。smoothscroll旧four-source全被覆は独立反例で撤回し、
+`CUBIC_SCROLL_FOUR_SOURCE_COVER_REJECTION.md` とerratumを残した。四個別族の因子算術は有効。
+正しいL6＋3×3 Segre cone5のV2全源還元・全因子は別作者PASSだが、この1032cutではまだ加算／主張採録していない。
+公開済みGの像23上界は旧全24式の独立dimension証明を使い、誤four-coverへ依存しない。
+Cexact/moving source等の新閉鎖、cubicconeT38、PV、新HA候補は各frozenpacketを次cutで独立採録する。
+未採録候補を128成分へ混ぜず、実根拠はCLAIMS/COMPONENTSを唯一の台帳とする。

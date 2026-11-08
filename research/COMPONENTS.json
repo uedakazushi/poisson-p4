@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "checkpoint": "v64-classification-first",
-  "date": "2026-11-07",
+  "date": "2026-11-08",
   "base_mathematical_checkpoint": "v24",
   "new_components_added_in_this_setup": 0,
   "conventions": {
@@ -14,21 +14,21 @@
     "null_values": "not catalogued or not applicable; never a claim of zero"
   },
   "coverage": {
-    "global_lower_bound": 126,
+    "global_lower_bound": 128,
     "generic_rank_two_full_components": 6,
-    "generic_rank_four_lower_bound": 120,
+    "generic_rank_four_lower_bound": 122,
     "upper_bound": null,
     "global_exhaustion_proved": false,
-    "individually_catalogued_count": 126,
+    "individually_catalogued_count": 128,
     "unexpanded_block_count": 0,
     "all_51_rank_four_ideals_in_S61_constructed": false,
-    "note_ja": "全126個別成分/rank四120/rank二6。E6smoothflex/A5smoothhyperflexを全二法線mprimary支持・全source・prior124/相互の独立確認で追加。全G/E/上界は未証明。",
+    "note_ja": "全128個別成分/rank四122/rank二6。二triple壁23成分を全ambient smoothness・wholeW六全逆・全prior126/相互の独立確認で追加。G一般β尽くし完了、全E/上界は未証明。",
     "generic_primitive_first_jet_known_lifts_lower_bound": 5,
-    "full_generic_fiber_exhaustion_proved": false,
+    "full_generic_fiber_exhaustion_proved": true,
     "known_union_over_smooth_canonical_curve": {
       "finite_etale_degree": 5,
       "pairwise_disjoint": true,
-      "full_fiber_exhaustion": false
+      "full_fiber_exhaustion": true
     },
     "nonsquare_K_a_zero_removed_over_general_beta": true,
     "marked_nonsquare_d_zero_removed_over_general_beta": true,
@@ -734,7 +734,7 @@
     "generic_beta_sparse6_nonzero_coefficients": 10,
     "generic_beta_sparse6_terms": 13,
     "generic_beta_sparse6_cover_is_known_birational": false,
-    "generic_beta_exhaustion_proved": false,
+    "generic_beta_exhaustion_proved": true,
     "nonsquare_full_cubic57_proved_on_Delta34_chart": true,
     "nonsquare_full_cubic57_proved_on_all_FULLU": false,
     "nonsquare_global_cubic_unit_reduced_source_rows": 56,
@@ -2036,7 +2036,9 @@
     "T2_opaque12_W_rank_computed": false,
     "generic_next17_79_needed129_projection_zero_proved": true,
     "generic_next17_79_full_HL_positive_terms": 1012,
-    "generic_next17_79_full_HL_highband_VALUE_computed": false
+    "generic_next17_79_full_HL_highband_VALUE_computed": false,
+    "generic_beta_exhaustion_current_proof": "research/classification/GLOBAL_GENERIC_G_EXHAUSTION_CLOSURE_AUDIT.md",
+    "generic_beta_exhaustion_scope_ja": "一般係数体の全幾何fiberが既知五点。旧個別GB/certificate未完flagはその個別強主張の履歴を保持する。E全点/全成分上界と区別。"
   },
   "blocks": [
     {
@@ -14145,6 +14147,212 @@
         "全prior124と相互の相違を独立確認。",
         "raw tangent50、orbit48。scheme smoothness又は精密nil厚みは未分類。"
       ]
+    },
+    {
+      "id": "R4_PLANE_DOUBLE_LINE_CUBIC_M3_TRIPLE_4_21_23",
+      "name": "rank二plane・double-line cubic・m三triple τ=4/21 の23次元成分",
+      "source_checkpoint": "v64-classification-first",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "additional_generic_rank_four_full_component_outside_MPS40",
+      "generic_rank": 4,
+      "projective_dimension": 23,
+      "meets_SNC_log_symplectic_locus": false,
+      "generic_pgl5_orbit_dimension": 23,
+      "generic_reduced_rosenlicht_quotient_dimension": 0,
+      "generic_transverse_algebra": "K (reduced transverse point; smooth dense actual orbit)",
+      "component_definition": "Reduced full actual PGL5 orbit closure. Complete ambient tangent equals actual orbit at canonical point; whole six-parameter W source is one orbit.",
+      "generic_construction": {
+        "coordinates": [
+          "a",
+          "b",
+          "c",
+          "z",
+          "w"
+        ],
+        "tau": "4/21",
+        "core_Q": {
+          "ab": "-(3*tau+2)*a*z+w**2",
+          "az": "0",
+          "aw": "-3*z**2",
+          "bz": "(6*tau+1)*z**2",
+          "bw": "9*tau*z*w",
+          "zw": "0"
+        },
+        "W": [
+          "a**2+7*b*w",
+          "-2*a*b",
+          "4*a*z/7+w**2/2",
+          "a*w/7-3*b*z"
+        ],
+        "cotangent_law": "Pi=Q_tau+partial_c wedge (Wa partial_a+Wb partial_b+Wz partial_z+Ww partial_w)",
+        "whole_magnetic_source_dimension": 6,
+        "canonical_projective_integer_scale": 14,
+        "actual_stabilizer_identity_component": "Gm with coordinateweights (3,2,0,5,4) and tensor character +3",
+        "full_ambient_ranks": {
+          "Jacobi": 102,
+          "Euler": 24,
+          "actual_GL_scale_Euler": 48
+        }
+      },
+      "generic_actual_degeneracy_divisor": {
+        "description": "Absolutely irreducible essential-five quintic; unique ranktwo singular plane with normalorderthree and two intrinsic multiplicity-four jump lines",
+        "witness_equation": "K*a*b*z**3+L*a*w**3*z+M*b*w**2*z**2-K*c*z**4+E*w**5",
+        "coefficients": {
+          "K": "45/7",
+          "L": "0",
+          "M": "15/2",
+          "E": "1/2"
+        },
+        "irreducible_factor_degrees": [
+          5
+        ],
+        "corresponding_multiplicities": [
+          1
+        ],
+        "reduced": true,
+        "essential_variable_count": 5,
+        "singular_surface": "unique plane z=w=0",
+        "general_singular_plane_multiplicity": 3,
+        "multiplicity_four_jump_tangent_cone_types": [
+          "2H+irreducibleQ",
+          "3H+H"
+        ]
+      },
+      "claims": [
+        "R4_PLANE_DOUBLE_LINE_CUBIC_M3_TRIPLE_4_21_23_COMPONENT"
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/PLANE_TRIPLE_WEAK_WALL_FULL_COMPONENTS.md"
+        },
+        {
+          "path": "research/classification/PLANE_TRIPLE_WEAK_WALL_COMPONENTS_SEPARATE_REVIEW.md"
+        },
+        {
+          "path": "research/classification/PLANE_M3_TRIPLE_WEAK_WALLS_TWO_ACTUAL_ORBITS.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_PLANE_TRIPLE_WEAK_WALL_COMPONENTS_SEPARATE_REVIEW_20261108.json",
+        "research/classification/inputs/triple_weak_wall_components_separate_review_manifest_20261108.json",
+        "reports/CLASSIFICATION_PLANE_TRIPLE_WEAK_WALL_FULL_AMBIENT_20261108.json",
+        "research/classification/inputs/plane_double_line_m3_triple_two_components_prior126_20261108.json"
+      ],
+      "review_status": {
+        "proof": "proved_with_explicit_hypotheses",
+        "independent_review": "accepted_separate_full_Fraction_matrices_kernels_minors_whole_source_prior126_mutual_geometry",
+        "certificates": "complete150_350_126_and_102_24_48_minors_fullkernels_immutable_prior126_projection",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "notes_ja": [
+        "全六W係数と全normalizer inverseを含む一実軌道。",
+        "全prior126と相互の相違を独立確認。",
+        "normal quotient零。高次jet/形式切片を成分性の代用にしていない。"
+      ]
+    },
+    {
+      "id": "R4_PLANE_DOUBLE_LINE_CUBIC_M3_TRIPLE_1_12_23",
+      "name": "rank二plane・double-line cubic・m三triple τ=1/12 の23次元成分",
+      "source_checkpoint": "v64-classification-first",
+      "counted_in_global_lower_bound": true,
+      "count": 1,
+      "category": "additional_generic_rank_four_full_component_outside_MPS40",
+      "generic_rank": 4,
+      "projective_dimension": 23,
+      "meets_SNC_log_symplectic_locus": false,
+      "generic_pgl5_orbit_dimension": 23,
+      "generic_reduced_rosenlicht_quotient_dimension": 0,
+      "generic_transverse_algebra": "K (reduced transverse point; smooth dense actual orbit)",
+      "component_definition": "Reduced full actual PGL5 orbit closure. Complete ambient tangent equals actual orbit at canonical point; whole six-parameter W source is one orbit.",
+      "generic_construction": {
+        "coordinates": [
+          "a",
+          "b",
+          "c",
+          "z",
+          "w"
+        ],
+        "tau": "1/12",
+        "core_Q": {
+          "ab": "-(3*tau+2)*a*z+w**2",
+          "az": "0",
+          "aw": "-3*z**2",
+          "bz": "(6*tau+1)*z**2",
+          "bw": "9*tau*z*w",
+          "zw": "0"
+        },
+        "W": [
+          "a**2-20*b*w",
+          "-2*a*b",
+          "a*z/4-w**2",
+          "-a*w/2-3*b*z"
+        ],
+        "cotangent_law": "Pi=Q_tau+partial_c wedge (Wa partial_a+Wb partial_b+Wz partial_z+Ww partial_w)",
+        "whole_magnetic_source_dimension": 6,
+        "canonical_projective_integer_scale": 4,
+        "actual_stabilizer_identity_component": "Gm with coordinateweights (3,2,0,5,4) and tensor character +3",
+        "full_ambient_ranks": {
+          "Jacobi": 102,
+          "Euler": 24,
+          "actual_GL_scale_Euler": 48
+        }
+      },
+      "generic_actual_degeneracy_divisor": {
+        "description": "Absolutely irreducible essential-five quintic; unique ranktwo singular plane with normalorderthree and two intrinsic multiplicity-four jump lines",
+        "witness_equation": "K*a*b*z**3+L*a*w**3*z+M*b*w**2*z**2-K*c*z**4+E*w**5",
+        "coefficients": {
+          "K": "9/2",
+          "L": "9/4",
+          "M": "-15",
+          "E": "-1"
+        },
+        "irreducible_factor_degrees": [
+          5
+        ],
+        "corresponding_multiplicities": [
+          1
+        ],
+        "reduced": true,
+        "essential_variable_count": 5,
+        "singular_surface": "unique plane z=w=0",
+        "general_singular_plane_multiplicity": 3,
+        "multiplicity_four_jump_tangent_cone_types": [
+          "2H+irreducibleQ",
+          "H+irreducibleC3"
+        ]
+      },
+      "claims": [
+        "R4_PLANE_DOUBLE_LINE_CUBIC_M3_TRIPLE_1_12_23_COMPONENT"
+      ],
+      "proof_sources": [
+        {
+          "path": "research/classification/PLANE_TRIPLE_WEAK_WALL_FULL_COMPONENTS.md"
+        },
+        {
+          "path": "research/classification/PLANE_TRIPLE_WEAK_WALL_COMPONENTS_SEPARATE_REVIEW.md"
+        },
+        {
+          "path": "research/classification/PLANE_M3_TRIPLE_WEAK_WALLS_TWO_ACTUAL_ORBITS.md"
+        }
+      ],
+      "verification_records": [
+        "reports/CLASSIFICATION_PLANE_TRIPLE_WEAK_WALL_COMPONENTS_SEPARATE_REVIEW_20261108.json",
+        "research/classification/inputs/triple_weak_wall_components_separate_review_manifest_20261108.json",
+        "reports/CLASSIFICATION_PLANE_TRIPLE_WEAK_WALL_FULL_AMBIENT_20261108.json",
+        "research/classification/inputs/plane_double_line_m3_triple_two_components_prior126_20261108.json"
+      ],
+      "review_status": {
+        "proof": "proved_with_explicit_hypotheses",
+        "independent_review": "accepted_separate_full_Fraction_matrices_kernels_minors_whole_source_prior126_mutual_geometry",
+        "certificates": "complete150_350_126_and_102_24_48_minors_fullkernels_immutable_prior126_projection",
+        "novelty": "literature_novelty_unchecked"
+      },
+      "notes_ja": [
+        "全六W係数と全normalizer inverseを含む一実軌道。",
+        "全prior126と相互の相違を独立確認。",
+        "normal quotient零。高次jet/形式切片を成分性の代用にしていない。"
+      ]
     }
   ],
   "named_block_member_annotations": [
@@ -14498,5 +14706,5 @@
     "MPS40 blockを展開したらblockによる加算を止め、二重計上しない。",
     "文献上の新規性は内部成分証明とは別に確認する。"
   ],
-  "new_components_added_in_this_checkpoint": 68
+  "new_components_added_in_this_checkpoint": 70
 }

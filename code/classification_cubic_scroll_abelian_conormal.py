@@ -150,7 +150,167 @@ def dimension(localized=False):
         print(case['name'],packet['status'],packet.get('fixed_Poisson_source_dimension_upper'),packet.get('whole_projective_PGL_image_dimension_upper'),packet['seconds'],flush=True)
 
 
+
+def smooth_four_sources():
+    """ONE full actual350/Pf126 evaluation on the complete four closed sources."""
+    import ast
+    destination=ROOT/'reports/CLASSIFICATION_CUBIC_SCROLL_ZERO_FOUR_SOURCES_20261108.json'
+    if destination.exists():raise FileExistsError(destination)
+    begun=time.monotonic();signal.alarm(90);resource.setrlimit(resource.RLIMIT_AS,(1536*1024**2,)*2)
+    jobpath=ROOT/'research/classification/jobs/cubic_scroll_zero_four_sources.json';job=json.loads(jobpath.read_bytes())
+    for binding in job['exact_inputs_and_hashes']:
+        assert hashlib.sha256((ROOT/binding['path']).read_bytes()).hexdigest()==binding['sha256'],binding['path']
+    snapshot=json.loads((ROOT/'research/classification/inputs/cubic_scroll_four_sources_preappend_20261108.json').read_bytes())
+    functions=lambda text:{n.name:ast.dump(n,include_attributes=False)for n in ast.parse(text).body if isinstance(n,ast.FunctionDef)}
+    before=functions(snapshot['source_bytes']);after=functions(Path(__file__).read_text());assert len(before)==3 and all(after[k]==v for k,v in before.items())
+    source=json.loads((ROOT/'reports/CLASSIFICATION_CUBIC_SCROLL_ABELIAN_CONORMAL_20261107.json').read_bytes())['cases'][0]
+    quadsource=json.loads((ROOT/'reports/CLASSIFICATION_CUBIC_SCROLL_ABELIAN_DIMENSION_20261107.json').read_bytes())['cases'][0]
+    assert source['name']==quadsource['name']=='smooth_scroll_12'
+    x=s.symbols('x0:5');rvars=s.symbols('r0:12');env=dict(zip(map(str,x+rvars),x+rvars))
+    quadrics=[s.sympify(t,locals=env)for t in source['all_three_ideal_generators']]
+    B=s.Matrix([[s.Rational(c)for c in row]for row in source['complete_original30_by_reduced_source_matrix']]);assert B.shape==(30,12)
+    parameter_monomials=[tuple(c)for c in source['all_reduced_source_quadratic_monomials']]
+    target_monomials=monomials(5,5);assert len(target_monomials)==126
+    generators=[s.sympify(t,locals=env)for t in quadsource['generators']];assert len(generators)==24
+    records=[]
+    for name in ['L6','F_Segre4','U_Segre4','S_Segre4']:
+        if name=='L6':
+            pars=s.symbols('l0:6');p,a,ss,q,v,rr=pars
+            rmap=[p,a,ss,q,v,0,rr,0,0,-v,a,ss]
+        else:
+            pars=s.symbols('t0:5');a,b,c,d,e=pars
+            if name=='F_Segre4':rmap=[b*e,2*a*d,a*e,-b*d,0,a*d,0,0,0,c*d,2*a*d+c*e,2*a*e]
+            elif name=='U_Segre4':rmap=[b*e+2*a*d,0,a*e,-c*d,0,0,-b*d,c*d,a*d,0,c*e,2*a*e]
+            else:rmap=[b*e,0,0,b*d-a*c,0,0,b*c,a*c,0,a*d,-a*e,0]
+        sub=dict(zip(rvars,rmap));assert all(s.expand(g.subs(sub,simultaneous=True))==0 for g in generators)
+        original30=B*s.Matrix(rmap);P=s.zeros(5)
+        for g in range(3):
+            for k,(i,j)in enumerate(PAIRS):P[i,j]+=original30[10*g+k]*quadrics[g]
+        for i,j in PAIRS:P[i,j]=s.expand(P[i,j]);P[j,i]=-P[i,j]
+        strict={}
+        for i,j,k in combinations(range(5),3):
+            strict[i,j,k]=s.expand(sum(P[i,l]*s.diff(P[j,k],x[l])+P[j,l]*s.diff(P[k,i],x[l])+P[k,l]*s.diff(P[i,j],x[l])for l in range(5)))
+        full=[]
+        for ijkl in combinations(range(5),4):
+            full.append(s.expand(sum((-1)**k*x[ijkl[k]]*strict[ijkl[:k]+ijkl[k+1:]]for k in range(4))))
+        assert all(g==0 for g in full)
+        assert all(s.expand(sum(s.Rational(c)*rmap[parameter_monomials[int(j)][0]]*rmap[parameter_monomials[int(j)][1]]for j,c in row.items()))==0 for row in source['all350_reduced_Jacobi_rows'])
+        actual=s.expand(sum((-1)**i*x[i]*(P[a,b]*P[c,d]-P[a,c]*P[b,d]+P[a,d]*P[b,c])for i in range(5)for a,b,c,d in [[j for j in range(5)if j!=i]]))
+        from_rows=s.expand(sum(s.prod(z**power for z,power in zip(x,ex))*sum(s.Rational(c)*rmap[parameter_monomials[int(j)][0]]*rmap[parameter_monomials[int(j)][1]]for j,c in row.items())for ex,row in zip(target_monomials,source['all126_reduced_actual_D_rows'])))
+        assert actual==from_rows
+        fac=[];overall=s.Integer(0);physical_degree=0;count=0
+        if actual:
+            overall,factors=s.factor_list(actual)
+            assert s.expand(overall*s.prod(f**m for f,m in factors)-actual)==0
+            for f,m in factors:
+                degree=s.Poly(f,*x).total_degree();fac.append({'factor':str(f),'multiplicity':m,'physical_coordinate_degree':degree})
+                physical_degree+=m*degree
+                if degree:count+=m
+            assert physical_degree==5
+        proper=(actual==0 or count>=2)
+        dcoeff=s.Poly(actual,*x)
+        record={'source':name,'all_parameters':list(map(str,pars)),'full_original_r0_to_r11_map':list(map(str,rmap)),
+          'whole_rankone_matrix_factorization_including_zero':name!='L6','all24_original_generators_zero':True,
+          'complete_actual_brackets':{str((i,j)):str(P[i,j])for i,j in PAIRS},
+          'all350_original_projective_Jacobi_zero':True,'all350_saved_source_rows_zero':True,
+          'all126_actualD_original_Pfaffian_equals_saved_source_coefficients':True,
+          'actual_signed_Euler_Pfaffian':str(actual),'full126_actualD_coefficients_sparse':{','.join(map(str,ex)):str(co)for ex,co in dcoeff.terms()if co},
+          'factor_coefficient':str(overall),'full_polynomial_factors':fac,'exact_factor_product_identity':True,
+          'actualD_identically_zero':actual==0,'all_nonzero_specializations_have_proper_physical_factor':proper,
+          'target_reduced_irreducible_quintic_source_empty':proper,
+          'specialization_scope':'No source parameter inverted. A parameter-only factor zero gives D0. Every nonzero positive homogeneous physical factor retains its degree; vanishing factors give D0. Thus a full physical factor product excludes irreducibility at every parameter, including all rankzero matrices.'}
+        records.append(record)
+        print(name,'Dzero',actual==0,'physicalfactors',[(v['physical_coordinate_degree'],v['multiplicity'])for v in fac],'targetempty',proper,flush=True)
+    report={'task_id':'E_reduced_nonnormal','all_exact_checks_passed':True,'cases':records,
+      'whole_four_closed_source_cover':'Pure proof CUBIC_SCROLL_ZERO_FOUR_WHOLE_SOURCES.md; all rankone outer products cover every closed cone including matrix0, and L6 covers the full linear source.',
+      'whole_smooth_scroll_rankzero_irreducible_quintic_branch_empty':all(r['target_reduced_irreducible_quintic_source_empty']for r in records),
+      'wholepointwise_known_parent_claimed':False,'new_component_count':0,
+      'all_original_FunctionDef_AST_unchanged':True,'old_function_names':list(before),
+      'producer_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'producer_bytes':Path(__file__).read_text(),
+      'inputs':job['exact_inputs_and_hashes'],'seconds':time.monotonic()-begun,'maximum_RSS_KiB':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss}
+    with destination.open('x')as f:json.dump(report,f,ensure_ascii=False,indent=2);f.write('\n')
+    print(json.dumps({'all_exact_checks_passed':True,'whole_target_empty':report['whole_smooth_scroll_rankzero_irreducible_quintic_branch_empty'],'seconds':report['seconds'],'maximum_RSS_KiB':report['maximum_RSS_KiB']}))
+
+
+def smooth_two_sources_v2():
+    """Corrected L6 plus whole Segre5: reuse valid L6, evaluate full Segre5 once."""
+    import ast
+    destination=ROOT/'reports/CLASSIFICATION_CUBIC_SCROLL_ZERO_TWO_SOURCES_V2_20261108.json'
+    if destination.exists():raise FileExistsError(destination)
+    begun=time.monotonic();signal.alarm(90);resource.setrlimit(resource.RLIMIT_AS,(1536*1024**2,)*2)
+    jobpath=ROOT/'research/classification/jobs/cubic_scroll_zero_two_sources_v2.json';job=json.loads(jobpath.read_bytes())
+    for binding in job['exact_inputs_and_hashes']:
+        assert hashlib.sha256((ROOT/binding['path']).read_bytes()).hexdigest()==binding['sha256'],binding['path']
+    snapshot=json.loads((ROOT/'research/classification/inputs/cubic_scroll_two_sources_v2_preappend_20261108.json').read_bytes())
+    functions=lambda text:{n.name:ast.dump(n,include_attributes=False)for n in ast.parse(text).body if isinstance(n,ast.FunctionDef)}
+    before=functions(snapshot['source_bytes']);after=functions(Path(__file__).read_text());assert len(before)==4 and all(after[k]==v for k,v in before.items())
+    source=json.loads((ROOT/'reports/CLASSIFICATION_CUBIC_SCROLL_ABELIAN_CONORMAL_20261107.json').read_bytes())['cases'][0]
+    quadsource=json.loads((ROOT/'reports/CLASSIFICATION_CUBIC_SCROLL_ABELIAN_DIMENSION_20261107.json').read_bytes())['cases'][0]
+    assert source['name']==quadsource['name']=='smooth_scroll_12'
+    x=s.symbols('x0:5');rvars=s.symbols('r0:12');env=dict(zip(map(str,x+rvars),x+rvars))
+    quadrics=[s.sympify(t,locals=env)for t in source['all_three_ideal_generators']]
+    B=s.Matrix([[s.Rational(c)for c in row]for row in source['complete_original30_by_reduced_source_matrix']]);assert B.shape==(30,12)
+    parameter_monomials=[tuple(c)for c in source['all_reduced_source_quadratic_monomials']]
+    target_monomials=monomials(5,5);assert len(target_monomials)==126
+    generators=[s.sympify(t,locals=env)for t in quadsource['generators']];assert len(generators)==24
+    old_individual=json.loads((ROOT/'reports/CLASSIFICATION_CUBIC_SCROLL_ZERO_FOUR_SOURCES_20261108.json').read_bytes())['cases'][0]
+    assert old_individual['source']=='L6' and old_individual['all350_original_projective_Jacobi_zero']
+    records=[dict(old_individual,reused_immutable_individual_L6_arithmetic=True)]
+    for name in ['Segre5']:
+        pars=s.symbols('t0:6');a,b,c,d,e,f=pars
+        rmap=[c*d+2*a*f,2*a*e,a*d,-c*e-b*f,0,a*e,-c*f,b*f,a*f,b*e,2*a*e+b*d,2*a*d]
+        sub=dict(zip(rvars,rmap));assert all(s.expand(g.subs(sub,simultaneous=True))==0 for g in generators)
+        original30=B*s.Matrix(rmap);P=s.zeros(5)
+        for g in range(3):
+            for k,(i,j)in enumerate(PAIRS):P[i,j]+=original30[10*g+k]*quadrics[g]
+        for i,j in PAIRS:P[i,j]=s.expand(P[i,j]);P[j,i]=-P[i,j]
+        strict={}
+        for i,j,k in combinations(range(5),3):
+            strict[i,j,k]=s.expand(sum(P[i,l]*s.diff(P[j,k],x[l])+P[j,l]*s.diff(P[k,i],x[l])+P[k,l]*s.diff(P[i,j],x[l])for l in range(5)))
+        full=[]
+        for ijkl in combinations(range(5),4):
+            full.append(s.expand(sum((-1)**k*x[ijkl[k]]*strict[ijkl[:k]+ijkl[k+1:]]for k in range(4))))
+        assert all(g==0 for g in full)
+        assert all(s.expand(sum(s.Rational(c)*rmap[parameter_monomials[int(j)][0]]*rmap[parameter_monomials[int(j)][1]]for j,c in row.items()))==0 for row in source['all350_reduced_Jacobi_rows'])
+        actual=s.expand(sum((-1)**i*x[i]*(P[a,b]*P[c,d]-P[a,c]*P[b,d]+P[a,d]*P[b,c])for i in range(5)for a,b,c,d in [[j for j in range(5)if j!=i]]))
+        from_rows=s.expand(sum(s.prod(z**power for z,power in zip(x,ex))*sum(s.Rational(c)*rmap[parameter_monomials[int(j)][0]]*rmap[parameter_monomials[int(j)][1]]for j,c in row.items())for ex,row in zip(target_monomials,source['all126_reduced_actual_D_rows'])))
+        assert actual==from_rows
+        fac=[];overall=s.Integer(0);physical_degree=0;count=0
+        if actual:
+            overall,factors=s.factor_list(actual)
+            assert s.expand(overall*s.prod(f**m for f,m in factors)-actual)==0
+            for f,m in factors:
+                degree=s.Poly(f,*x).total_degree();fac.append({'factor':str(f),'multiplicity':m,'physical_coordinate_degree':degree})
+                physical_degree+=m*degree
+                if degree:count+=m
+            assert physical_degree==5
+        proper=(actual==0 or count>=2)
+        dcoeff=s.Poly(actual,*x)
+        record={'source':name,'all_parameters':list(map(str,pars)),'full_original_r0_to_r11_map':list(map(str,rmap)),
+          'whole_rankone_matrix_factorization_including_zero':name!='L6','all24_original_generators_zero':True,
+          'complete_actual_brackets':{str((i,j)):str(P[i,j])for i,j in PAIRS},
+          'all350_original_projective_Jacobi_zero':True,'all350_saved_source_rows_zero':True,
+          'all126_actualD_original_Pfaffian_equals_saved_source_coefficients':True,
+          'actual_signed_Euler_Pfaffian':str(actual),'full126_actualD_coefficients_sparse':{','.join(map(str,ex)):str(co)for ex,co in dcoeff.terms()if co},
+          'factor_coefficient':str(overall),'full_polynomial_factors':fac,'exact_factor_product_identity':True,
+          'actualD_identically_zero':actual==0,'all_nonzero_specializations_have_proper_physical_factor':proper,
+          'target_reduced_irreducible_quintic_source_empty':proper,
+          'specialization_scope':'No source parameter inverted. A parameter-only factor zero gives D0. Every nonzero positive homogeneous physical factor retains its degree; vanishing factors give D0. Thus a full physical factor product excludes irreducibility at every parameter, including all rankzero matrices.'}
+        records.append(record)
+        print(name,'Dzero',actual==0,'physicalfactors',[(v['physical_coordinate_degree'],v['multiplicity'])for v in fac],'targetempty',proper,flush=True)
+    report={'task_id':'E_reduced_nonnormal','all_exact_checks_passed':True,'cases':records,
+      'whole_corrected_two_closed_source_cover':'Pure proof CUBIC_SCROLL_ZERO_TWO_WHOLE_SOURCES_V2.md: L6 plus whole rank<=1 3x3 Segre5; all row1zero/nonzero cases and matrix0 retained. Oldfourcover withdrawn; only valid individualL6 arithmetic reused.',
+      'whole_smooth_scroll_rankzero_irreducible_quintic_branch_empty':all(r['target_reduced_irreducible_quintic_source_empty']for r in records),
+      'wholepointwise_known_parent_claimed':False,'new_component_count':0,
+      'all_original_FunctionDef_AST_unchanged':True,'old_function_names':list(before),
+      'producer_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'producer_bytes':Path(__file__).read_text(),
+      'inputs':job['exact_inputs_and_hashes'],'seconds':time.monotonic()-begun,'maximum_RSS_KiB':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss}
+    with destination.open('x')as f:json.dump(report,f,ensure_ascii=False,indent=2);f.write('\n')
+    print(json.dumps({'all_exact_checks_passed':True,'whole_target_empty':report['whole_smooth_scroll_rankzero_irreducible_quintic_branch_empty'],'seconds':report['seconds'],'maximum_RSS_KiB':report['maximum_RSS_KiB']}))
+
 if __name__=='__main__':
-    if '--cone-localized'in sys.argv:dimension(True)
+    if '--smooth-two-sources-v2'in sys.argv:smooth_two_sources_v2()
+    elif '--smooth-four-sources'in sys.argv:smooth_four_sources()
+    elif '--cone-localized'in sys.argv:dimension(True)
     elif '--dimension'in sys.argv:dimension()
     else:main()

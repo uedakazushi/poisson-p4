@@ -1,0 +1,37 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "status": "PASS",
+  "scope": "Independent alternate Fraction all350 and fullsignedEulerPf of both whole9P1/unique9P2 sources. Source completeness/fixedminor inverse relies on prior separate reviewed kernel source and full coefficient proof.",
+  "cases": [
+    {
+      "type": "E1_LOG_GENERIC_Y",
+      "all350_original_rows_independently_reconstructed_and_equal": true,
+      "rows54_279_exact_square": true,
+      "all126_actual_Pfaffian_independently_reconstructed_and_equal": true,
+      "reduced_support_factor_identity": true,
+      "full9_P1_and_unique_inhomogeneous9P2_used": true
+    },
+    {
+      "type": "E2_LOG_GENERIC_Y",
+      "all350_original_rows_independently_reconstructed_and_equal": true,
+      "rows54_279_exact_square": true,
+      "all126_actual_Pfaffian_independently_reconstructed_and_equal": true,
+      "reduced_support_factor_identity": true,
+      "full9_P1_and_unique_inhomogeneous9P2_used": true
+    }
+  ],
+  "source_bytes": "from pathlib import Path\nimport sys,ast,json,hashlib,time,resource,signal,itertools\nfrom fractions import Fraction as F\nroot=Path.cwd();sys.path.insert(0,str(root/'code'))\nimport classification_degenerate_quadric_q4_nil31_I_review as q\nstart=time.monotonic();signal.alarm(60);resource.setrlimit(resource.RLIMIT_AS,(1024**3,1024**3));q.N=14\nnames=dict(zip(['a','b','c','z','w']+['p'+str(i)for i in range(9)],range(14)))\ndef parse(t,extra={}):\n def rec(n):\n  if isinstance(n,ast.Constant):return q.atom(n.value)\n  if isinstance(n,ast.Name):return extra[n.id]if n.id in extra else q.atom(1,names[n.id])\n  if isinstance(n,ast.UnaryOp):return q.scale(rec(n.operand),-1 if isinstance(n.op,ast.USub)else 1)\n  if isinstance(n,ast.BinOp):\n   a=rec(n.left)\n   if isinstance(n.op,ast.Pow):\n    z=q.atom(1)\n    for _ in range(n.right.value):z=q.mul(z,a)\n    return z\n   b=rec(n.right)\n   if isinstance(n.op,ast.Add):return q.add(a,b)\n   if isinstance(n.op,ast.Sub):return q.add(a,q.scale(b,-1))\n   if isinstance(n.op,ast.Mult):return q.mul(a,b)\n   if isinstance(n.op,ast.Div):assert len(b)==1 and (0,)*14 in b;return q.scale(a,1/b[(0,)*14])\n  raise ValueError(ast.dump(n))\n return rec(ast.parse(t,mode='eval').body)\ndef Pf4(P,inds):\n a,b,c,d=inds\n return q.add(q.mul(P[a,b],P[c,d]),q.scale(q.mul(P[a,c],P[b,d]),-1),q.mul(P[a,d],P[b,c]))\ndef p8zero(P):return {e:c for e,c in P.items()if not e[13]}\npth=Path('reports/CLASSIFICATION_PLANE_TRIPLE_Y_WALLS_ORE_20261108.json');d=json.loads(pth.read_text());out=[]\nfor case in d['cases']:\n extra={'r'+str(i):parse(t)for i,t in enumerate(case['full9_inhomogeneous_P2_unique_particular'])}\n P=q.antisymmetric({ij:q.add(*(parse(case[k][str(ij)],extra)for k in ['saved_P0','full_P1','full_P2_before_elimination']))for ij in q.PAIRS})\n J=q.jacobi(P);exps=sorted(q.monomials(4),reverse=True)\n rows=[{(0,)*5+e[5:]:c for e,c in J[quad].items()if e[:5]==ex}for quad in q.QUADS for ex in exps]\n assert len(rows)==350 and all(row==parse(v)for row,v in zip(rows,case['all350_original_Jacobi_after_elimination']))\n square=parse('2*p8**2'if case['type'].startswith('E1')else'2*p8**2/3');assert rows[54]==rows[279]==square\n D=q.add(*(q.scale(q.mul(q.atom(1,i),Pf4(P,tuple(j for j in range(5)if j!=i))),(-1)**i)for i in range(5)))\n assert D==parse(case['full_actual_D_after_elimination'])\n target=parse('-z**3*(-4*a+p5*w+p7*z)*(-b+p3*z+p6*w)*(p0-4*p1-p7)/4'if case['type'].startswith('E1')else'z**3*(p0-p2)*(-5*a+p1*z+p5*w)**2/5')\n assert p8zero(D)==target\n out.append(dict(type=case['type'],all350_original_rows_independently_reconstructed_and_equal=True,rows54_279_exact_square=True,all126_actual_Pfaffian_independently_reconstructed_and_equal=True,reduced_support_factor_identity=True,full9_P1_and_unique_inhomogeneous9P2_used=True))\nsource=Path(__file__).read_text();res=dict(task_id='E_reduced_nonnormal',status='PASS',scope='Independent alternate Fraction all350 and fullsignedEulerPf of both whole9P1/unique9P2 sources. Source completeness/fixedminor inverse relies on prior separate reviewed kernel source and full coefficient proof.',cases=out,source_bytes=source,source_sha256=hashlib.sha256(source.encode()).hexdigest(),input_bindings=[dict(path=str(p),sha256=hashlib.sha256(p.read_bytes()).hexdigest())for p in [pth,Path(q.__file__)]],seconds=time.monotonic()-start,maximum_RSS_KiB=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss)\ndest=Path('reports/CLASSIFICATION_PLANE_TRIPLE_Y_WALLS_ROOT_REVIEW_20261108.json');assert not dest.exists();dest.write_text(json.dumps(res,indent=2)+'\\n');print(res['status'],res['seconds'],res['maximum_RSS_KiB'])\n",
+  "source_sha256": "ac2a3d41199735414db6a525ad4f3154d9b8ce87f3f082ca1544a0a4105980a1",
+  "input_bindings": [
+    {
+      "path": "reports/CLASSIFICATION_PLANE_TRIPLE_Y_WALLS_ORE_20261108.json",
+      "sha256": "881fc39a78c5e0d93a9b77ed294bc2acd12c2bc415515182bf5e98d9149b2512"
+    },
+    {
+      "path": "/workspace/poisson-p4/code/classification_degenerate_quadric_q4_nil31_I_review.py",
+      "sha256": "f3900a3d9a77859585118cfdd00c00ecce2c491d0705a94bf42a6c2609abe915"
+    }
+  ],
+  "seconds": 0.023546101998363156,
+  "maximum_RSS_KiB": 12756
+}

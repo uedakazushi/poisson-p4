@@ -1,0 +1,23 @@
+{
+  "status": "FAILED_INPUT_RF_DECODER",
+  "exit_code": 1,
+  "source_arithmetic_not_started": true,
+  "stdout": "",
+  "error": "TypeError: unhashable type: list",
+  "traceback_location": "input:program line34 matrix(K), line15 Matrix(z).applyfunc(cf); SymPy converted RF dictionary before custom decoder.",
+  "original_inputs": [
+    {
+      "path": "research/classification/inputs/plane_m2_tangent_moving_whole_source_20261108.json",
+      "sha256": "89d117bec1129de91b19129fa78cbe2cea5b08ac1fc652767f7f16ea95586c1d"
+    },
+    {
+      "path": "research/classification/jobs/plane_m2_tangent_moving_whole_source.json",
+      "sha256": "d20016bb4b2d003cef026b7b115123171646883aee6f29436a43b35ffeb9f1f0"
+    }
+  ],
+  "correction": {
+    "original_input": "research/classification/inputs/plane_m2_tangent_moving_whole_source_20261108.json",
+    "original_sha256": "89d117bec1129de91b19129fa78cbe2cea5b08ac1fc652767f7f16ea95586c1d",
+    "reason": "V1 stopped before source arithmetic: Matrix attempted SymPy conversion of raw RF dictionaries whose numerator/denominator lists are unhashable. Predecode each rational entry before Matrix. Same sources/algorithm, all input bytes preserved."
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "all_passed": true,
+  "scope": "Whole smooth cubic scroll rankzero with reduced irreducible quintic is empty; all reducible parent membership separate",
+  "corrected_whole_L6_union_Segre5_support": true,
+  "support_review": {
+    "all24_correct_eight_equations_both_directions": true,
+    "allnine_minors_and_remaining_y_plus_2x": true,
+    "reduced_support_rankone_hand_proof": "row1!=0 => row2=k row1 => y=k minor13cols13=0 =>x0; row1=0 =>x0=>y0",
+    "all_early_unit_zero_complements_retained": true,
+    "scheme_radical_or_missing_minor_literal_membership_not_claimed": true
+  },
+  "cases": [
+    {
+      "source": "L6",
+      "all_parameters": [
+        "l0",
+        "l1",
+        "l2",
+        "l3",
+        "l4",
+        "l5"
+      ],
+      "all12_original_maps": true,
+      "all24_original_generators_zero": true,
+      "full150_original_tensor_reconstructed": true,
+      "all350_direct_and_saved_rows_zero": true,
+      "all126_signed_Pfaffian_coefficients_match": true,
+      "full_factor_product_identity": true,
+      "physical_factor_degrees": [
+        1,
+        4
+      ],
+      "parameter_only_factors": [],
+      "every_nonzero_specialization_reducible": true,
+      "all_zero_parameter_complements_retained": true
+    },
+    {
+      "source": "Segre5",
+      "all_parameters": [
+        "t0",
+        "t1",
+        "t2",
+        "t3",
+        "t4",
+        "t5"
+      ],
+      "all12_original_maps": true,
+      "all24_original_generators_zero": true,
+      "full150_original_tensor_reconstructed": true,
+      "all350_direct_and_saved_rows_zero": true,
+      "all126_signed_Pfaffian_coefficients_match": true,
+      "full_factor_product_identity": true,
+      "physical_factor_degrees": [
+        2,
+        2,
+        1
+      ],
+      "parameter_only_factors": [],
+      "every_nonzero_specialization_reducible": true,
+      "all_zero_parameter_complements_retained": true
+    }
+  ],
+  "no_producer_or_CAS_import": true,
+  "no_new_rank_minor_operator_point": true,
+  "positive_degree_factor_specialization_logic": "Every specialized nonzero polynomial factor remains homogeneous of the same positive physical degree; otherwise Dzero. At least two physical factors are present at every nonzero D.",
+  "all_inverted_parameter_complements_retained": true,
+  "new_component_count": 0,
+  "independent_identity_count": 1095,
+  "input_sha256": {
+    "code/classification_cubic_scroll_segre_support_review.py": "3521e95a8d847077275a08b76efadfbb5b0f0fe8b3d3d9cfb8ef0c0c14dab922",
+    "code/classification_cubic_scroll_abelian_review.py": "116dfa897adb51862d53d1a3e104a153f23d15afaf95150eb2e65c4c00f33c91",
+    "code/classification_cubic_scroll_four_sources_review.py": "8ff3e5059cd20c4898f55ddaeab1c5de0a8abb96819f993c7d5e823181de1b82",
+    "reports/CLASSIFICATION_CUBIC_SCROLL_ABELIAN_CONORMAL_20261107.json": "5285fed9aba2dc506579c7d56a6fa194e295ed5c31f06a21b10b5badc007d580",
+    "reports/CLASSIFICATION_CUBIC_SCROLL_ABELIAN_DIMENSION_20261107.json": "dbba06f9bf04a325614e96d9a937557c2cc88ef1186824f5b6ac699e45a9ec09",
+    "reports/CLASSIFICATION_CUBIC_SCROLL_ABELIAN_REVIEW_20261107.json": "56b3407e5be6867878277855009f0e02657ae105b1e1fcfebf0875f08919750f",
+    "reports/CLASSIFICATION_CUBIC_SCROLL_ZERO_TWO_SOURCES_V2_20261108.json": "2a37ef43f6fa7d9fa398b9a9e65247027f3989857bd99e5b0045c2bac7a9f735",
+    "research/classification/CUBIC_SCROLL_ZERO_TWO_WHOLE_SOURCES_V2.md": "ec8c4f124e0acc36a7ad2fc412d203d3833d300ca5a2b9f60581965d0baba6aa",
+    "research/classification/CUBIC_SCROLL_ZERO_FOUR_COVER_ERRATUM.md": "d1613108841723ed22a600bc499552dd4662aeead0078a92bbb151fab7d5e0eb",
+    "reports/CLASSIFICATION_CUBIC_SCROLL_FOUR_SOURCES_SEPARATE_REVIEW_20261108.json": "5ccffeba451ab79e23765319da9be3056c39258d7cffacdc28006553769a7caf",
+    "research/classification/CUBIC_SCROLL_FOUR_SOURCE_COVER_REJECTION.md": "10baa51bbc579057581a55c0e9871c3192e6d4bccbf479bb340bd199dd314b39"
+  },
+  "reviewer_source_bytes": "#!/usr/bin/env python3\n\"\"\"Independent whole L6+Segre5 scroll support and actual-factor replay.\"\"\"\nimport argparse\nfrom fractions import Fraction as Q\nimport hashlib\nimport itertools as it\nimport json\nfrom pathlib import Path\nimport resource\nimport time\n\nfrom classification_cubic_scroll_abelian_review import add, scale, mul, diff, parse, monomials\nfrom classification_cubic_scroll_four_sources_review import substitute\n\nROOT=Path(__file__).resolve().parents[1]\nPAIRS=list(it.combinations(range(5),2))\nCOUNT=0\n\n\ndef check(a,b,label):\n    global COUNT\n    assert a==b,label\n    COUNT+=1\n\n\ndef audit_support(gens):\n    names=[f'r{i}'for i in range(12)]\n    R=lambda t:parse(t,names)\n    images=[R(f'r{i}')for i in range(12)]\n    images[1],images[4],images[10],images[11]=R('2*r5'),{},R('2*r5+r10'),R('2*r2')\n    gg=[substitute(g,images,12)for g in gens]\n    aa=[R(t)for t in [\n        'r2*r9-r5*r10','r2*r7-r8*r10','r8*r9-r5*r7',\n        'r5*(r0-2*r8)+r2*(r3+r7)',\n        '(r0-2*r8)*r9+r10*(r3+r7)',\n        'r8*(r0-2*r8)+r2*r6','r7*(r3+r7)-r6*r9',\n        '-((r0-2*r8)*r7+r10*r6)+2*(r8*(r3+r7)-r5*r6)']]\n    forward=['0','r0','r0','0','0','-6*r0','0','0','0',\n             '2*r3+r1','-2*r3-r1','-2*r4-2*r2','0','r4+r2','r4+3*r2',\n             'r5','r7','r6','0','0','6*r0','0','-4*r0','r1']\n    for i,t in enumerate(forward):\n        check(gg[i],substitute(R(t),aa+[{}]*4,12),f'correct24->A8 g{i+1}')\n    back=[gg[1],gg[23],scale(add(gg[14],scale(gg[13],-1)),Q(1,2)),\n          scale(add(gg[9],scale(gg[23],-1)),Q(1,2)),\n          scale(add(scale(gg[13],3),scale(gg[14],-1)),Q(1,2)),gg[15],gg[17],gg[16]]\n    for i in range(8):check(back[i],aa[i],f'A8->24 inverse{i+1}')\n    M=[[R('r2'),R('r5'),R('r8')],\n       [R('r10'),R('r9'),R('r7')],\n       [R('r0-2*r8'),R('-r3-r7'),R('-r6')]]\n    minors={(rows,cols):add(mul(M[rows[0]][cols[0]],M[rows[1]][cols[1]]),\n                          scale(mul(M[rows[0]][cols[1]],M[rows[1]][cols[0]]),-1))\n            for rows in it.combinations(range(3),2)for cols in it.combinations(range(3),2)}\n    for rows,cols,index,sign in [((0,1),(0,1),0,1),((0,1),(0,2),1,1),\n        ((0,1),(1,2),2,-1),((0,2),(0,1),3,-1),((0,2),(0,2),5,-1),\n        ((1,2),(0,1),4,-1),((1,2),(1,2),6,1)]:\n        check(minors[rows,cols],scale(aa[index],sign),'allseven known minors')\n    x=minors[(0,2),(1,2)];y=minors[(1,2),(0,2)]\n    check(add(y,scale(x,2)),aa[7],'remaining y+2x')\n    # All earlier unit reductions are checked with literal polynomial identities.\n    for i,t in [(19,'(r11-r2)*(r11-2*r2)'),(1,'(r11-2*r2)*r5'),\n                (9,'(r11-2*r2)*r8'),(20,'(r11-2*r2)*(r10-r1)'),\n                (4,'r4*(-3*(r10-r1)+4*r5)'),(8,'r4*(r10-r1-r5)'),\n                (5,'r4*(r4+r9)'),(13,'r4*r7')]:\n        check(gens[i-1],R(t),'early whole complement forcing')\n    stage=[R(f'r{i}')for i in range(12)];stage[11]=R('2*r2');stage[4]={}\n    gstage=[substitute(g,stage,12)for g in gens]\n    check(add(gstage[1],scale(gstage[2],-1)),R('(r10-r1+2*r5)*(r1-2*r5)'), 'a2f split1')\n    check(add(gstage[5],scale(gstage[2],6)),R('-2*(r1-2*r5)*(r10-r1+r5)'), 'a2f split2')\n    check(gstage[21],R('2*r2*(r1-2*r5)'),'a2f split3')\n    check(gstage[6],R('-r9*(r1-2*r5)'),'a2f split4')\n    return dict(all24_correct_eight_equations_both_directions=True,\n        allnine_minors_and_remaining_y_plus_2x=True,\n        reduced_support_rankone_hand_proof='row1!=0 => row2=k row1 => y=k minor13cols13=0 =>x0; row1=0 =>x0=>y0',\n        all_early_unit_zero_complements_retained=True,\n        scheme_radical_or_missing_minor_literal_membership_not_claimed=True)\n\n\ndef actual_source(name,pars,texts,saved,source,B,gens):\n    names=pars+[f'x{i}'for i in range(5)];np=len(pars);n=len(names)\n    r=[parse(t,names)for t in texts]\n    check(pars,saved['all_parameters'],name+' parameter order')\n    check(r,[parse(t,names)for t in saved['full_original_r0_to_r11_map']],name+' independent whole map')\n    for g in gens:check(substitute(g,r,n),{},name+' all24 generators')\n    quadrics=[parse(t,names)for t in ['x0*x3-x1*x2','x0*x4-x1*x3','x2*x4-x3**2']]\n    P=[[{}for j in range(5)]for i in range(5)]\n    for p,(i,j)in enumerate(PAIRS):\n        P[i][j]=add(*(mul(quadrics[g],add(*(scale(r[k],B[10*g+p][k])for k in range(12))))for g in range(3)))\n        P[j][i]=scale(P[i][j],-1)\n        check(P[i][j],parse(saved['complete_actual_brackets'][str((i,j))],names),name+' full150 tensor')\n    deriv=[[[diff(P[i][j],np+l)for l in range(5)]for j in range(5)]for i in range(5)]\n    J={tri:add(*(mul(P[i][l],deriv[j][k][l])for i,j,k in\n        [tri,(tri[1],tri[2],tri[0]),(tri[2],tri[0],tri[1])]for l in range(5)))\n       for tri in it.combinations(range(5),3)}\n    for quad in it.combinations(range(5),4):\n        check(add(*(scale(mul(parse(f'x{quad[i]}',names),J[quad[:i]+quad[i+1:]]),(-1)**i)\n                     for i in range(4))),{},name+' full350 direct')\n    rp=[mul(r[i],r[j])for i,j in source['all_reduced_source_quadratic_monomials']]\n    ev=lambda row:add(*(scale(rp[int(i)],Q(c))for i,c in row.items()))\n    for row in source['all350_reduced_Jacobi_rows']:check(ev(row),{},name+' full350 savedsource')\n    D={}\n    for m in range(5):\n        i,j,k,l=[i for i in range(5)if i!=m]\n        pf=add(mul(P[i][j],P[k][l]),scale(mul(P[i][k],P[j][l]),-1),mul(P[i][l],P[j][k]))\n        D=add(D,scale(mul(parse(f'x{m}',names),pf),(-1)**m))\n    check(D,parse(saved['actual_signed_Euler_Pfaffian'],names),name+' signedPfD')\n    for ex,row in zip(monomials(5,5),source['all126_reduced_actual_D_rows']):\n        check({e[:np]+(0,)*5:c for e,c in D.items()if e[np:]==ex},ev(row),name+' full126 savedD')\n    prod=parse(saved['factor_coefficient'],names);degrees=[];parameter_factors=[]\n    for item in saved['full_polynomial_factors']:\n        factor=parse(item['factor'],names);assert factor\n        degree=item['physical_coordinate_degree']\n        check({sum(e[np:])for e in factor},{degree},name+' positive homogeneous degree')\n        for _ in range(item['multiplicity']):\n            prod=mul(prod,factor)\n            if degree>0:degrees.append(degree)\n            else:parameter_factors.append(item['factor'])\n    check(prod,D,name+' whole actual factor product')\n    assert D and len(degrees)>=2 and sum(degrees)==5\n    return dict(source=name,all_parameters=pars,all12_original_maps=True,\n        all24_original_generators_zero=True,full150_original_tensor_reconstructed=True,\n        all350_direct_and_saved_rows_zero=True,all126_signed_Pfaffian_coefficients_match=True,\n        full_factor_product_identity=True,physical_factor_degrees=degrees,\n        parameter_only_factors=parameter_factors,\n        every_nonzero_specialization_reducible=True,all_zero_parameter_complements_retained=True)\n\n\ndef main():\n    ap=argparse.ArgumentParser(description=__doc__)\n    ap.add_argument('--producer',type=Path,required=True)\n    ap.add_argument('--output',type=Path,required=True)\n    ap.add_argument('--job',type=Path,required=True)\n    args=ap.parse_args();begun=time.monotonic()\n    resource.setrlimit(resource.RLIMIT_CPU,(110,115));resource.setrlimit(resource.RLIMIT_AS,(2048*1024**2,)*2)\n    contract=json.loads(args.job.read_text())\n    paths=[p['path']for p in contract['exact_inputs_and_hashes']]\n    assert all(hashlib.sha256((ROOT/p['path']).read_bytes()).hexdigest()==p['sha256']\n               for p in contract['exact_inputs_and_hashes'])\n    source=json.load(open(ROOT/'reports/CLASSIFICATION_CUBIC_SCROLL_ABELIAN_CONORMAL_20261107.json'))['cases'][0]\n    dim=json.load(open(ROOT/'reports/CLASSIFICATION_CUBIC_SCROLL_ABELIAN_DIMENSION_20261107.json'))['cases'][0]\n    oldreview=json.load(open(ROOT/'reports/CLASSIFICATION_CUBIC_SCROLL_ABELIAN_REVIEW_20261107.json'))\n    assert oldreview['all_passed'] and oldreview['all24_generators_original_Jacobi_constant_multiples']\n    gens=[parse(t,[f'r{i}'for i in range(12)])for t in dim['generators']]\n    support=audit_support(gens)\n    producer=json.loads(args.producer.read_text());records=producer['cases'];assert len(records)==2\n    B=[[Q(v)for v in row]for row in source['complete_original30_by_reduced_source_matrix']]\n    out=[]\n    for saved in records:\n        name=saved['source'];pars=saved['all_parameters'];assert len(pars)==6\n        if name=='L6':\n            A,P,S,T,V,R=pars\n            texts=[A,P,S,T,V,'0',R,'0','0',f'-{V}',P,S]\n        else:\n            A,Bb,C,D,E,F=pars\n            texts=[f'{C}*{D}+2*{A}*{F}',f'2*{A}*{E}',f'{A}*{D}',f'-{C}*{E}-{Bb}*{F}',\n                   '0',f'{A}*{E}',f'-{C}*{F}',f'{Bb}*{F}',f'{A}*{F}',f'{Bb}*{E}',\n                   f'2*{A}*{E}+{Bb}*{D}',f'2*{A}*{D}']\n        out.append(actual_source(name,pars,texts,saved,source,B,gens))\n    result=dict(task_id='E_reduced_nonnormal',all_passed=True,\n        scope='Whole smooth cubic scroll rankzero with reduced irreducible quintic is empty; all reducible parent membership separate',\n        corrected_whole_L6_union_Segre5_support=True,support_review=support,cases=out,\n        no_producer_or_CAS_import=True,no_new_rank_minor_operator_point=True,\n        positive_degree_factor_specialization_logic='Every specialized nonzero polynomial factor remains homogeneous of the same positive physical degree; otherwise Dzero. At least two physical factors are present at every nonzero D.',\n        all_inverted_parameter_complements_retained=True,new_component_count=0,\n        independent_identity_count=COUNT,\n        input_sha256={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest()for p in paths},\n        reviewer_source_bytes=Path(__file__).read_text(),seconds=time.monotonic()-begun,\n        maxrss_kb=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss)\n    with args.output.open('x')as f:json.dump(result,f,indent=2);f.write('\\n')\n    print(json.dumps({k:result[k]for k in ['all_passed','independent_identity_count','seconds','maxrss_kb']}))\n\n\nif __name__=='__main__':main()\n",
+  "seconds": 0.048644327998772496,
+  "maxrss_kb": 15832
+}

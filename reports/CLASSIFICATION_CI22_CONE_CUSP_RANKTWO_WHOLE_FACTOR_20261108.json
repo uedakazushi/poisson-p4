@@ -1,0 +1,95 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "all_exact_array_evaluations_passed": true,
+  "cases": [
+    {
+      "case": "p13_nonzero",
+      "full_parameter_map": {
+        "p0": "0",
+        "p1": "0",
+        "p2": "0",
+        "p3": "0",
+        "p4": "2*a",
+        "p5": "0",
+        "p6": "f",
+        "p7": "0",
+        "p8": "-f",
+        "p9": "b",
+        "p10": "0",
+        "p11": "g",
+        "p12": "a",
+        "p13": "h",
+        "p14": "-b",
+        "p15": "0"
+      },
+      "nonzero_condition": "h",
+      "actual_raw_brackets": {
+        "0,1": "0",
+        "0,2": "h*x1*x3 - 2*h*x2*x3",
+        "0,3": "-h*x1**2 - h*x3**2",
+        "0,4": "a*x1**2 - b*x1*x3 + g*x1*x3 - g*x2*x3 - h*x3*x4",
+        "1,2": "-2*h*x2*x3",
+        "1,3": "-h*x3**2",
+        "1,4": "-b*x1*x3 - f*x0*x3 + f*x1*x3 - g*x2*x3 - h*x3*x4",
+        "2,3": "-2*h*x2**2",
+        "2,4": "2*a*x2**2 - 2*b*x2*x3 + f*x1*x3 - f*x2*x3",
+        "3,4": "a*x2*x3 + b*x1*x2 - b*x3**2 + f*x0*x2 - f*x1**2 + g*x2**2 + h*x2*x4"
+      },
+      "all350_saved_Jacobi_vanish": true,
+      "nonzero_Jacobi_rows": [],
+      "actual_quintic": "0",
+      "factorization_scalar": "0",
+      "all_factors": [],
+      "direct_full150_signedPfaffian_matches_saved126": true
+    },
+    {
+      "case": "p15_nonzero",
+      "full_parameter_map": {
+        "p0": "0",
+        "p1": "2*a/3",
+        "p2": "0",
+        "p3": "f",
+        "p4": "4*a/3",
+        "p5": "0",
+        "p6": "0",
+        "p7": "-6*b + 9*f/2",
+        "p8": "0",
+        "p9": "0",
+        "p10": "b",
+        "p11": "0",
+        "p12": "a",
+        "p13": "0",
+        "p14": "g",
+        "p15": "h"
+      },
+      "nonzero_condition": "h",
+      "actual_raw_brackets": {
+        "0,1": "0",
+        "0,2": "0",
+        "0,3": "0",
+        "0,4": "2*a*x1*x2/3 - 2*b*x1**2 + 2*f*x1**2 + 2*g*x1*x3/3 + 2*h*x1*x4/3",
+        "1,2": "0",
+        "1,3": "0",
+        "1,4": "2*a*x1*x2/3 - 4*b*x0*x1 + 2*b*x1**2 + 3*f*x0*x1 - f*x1**2 + 2*g*x1*x3/3 + 2*h*x1*x4/3",
+        "2,3": "0",
+        "2,4": "4*a*x2**2/3 - 8*b*x0*x2 + 6*f*x0*x2 + f*x1*x2 + 4*g*x2*x3/3 + 4*h*x2*x4/3",
+        "3,4": "a*x2*x3 - 6*b*x0*x3 + b*x1*x3 + 9*f*x0*x3/2 + g*x3**2 + h*x3*x4"
+      },
+      "all350_saved_Jacobi_vanish": true,
+      "nonzero_Jacobi_rows": [],
+      "actual_quintic": "0",
+      "factorization_scalar": "0",
+      "all_factors": [],
+      "direct_full150_signedPfaffian_matches_saved126": true
+    }
+  ],
+  "full_complement": "p13=p15=0 lies in accepted fullactualDzero source",
+  "source_array_input": {
+    "path": "reports/CLASSIFICATION_NONNORMAL_CI22_TANGENT_20261107.json",
+    "sha256": "337fe8f4d62ff48a4cf70baeb1644bc877a8c39da80de5ab55e22e025f7bd75f"
+  },
+  "no_new_Jacobi_operator_or_profiles": true,
+  "inline_source": "from pathlib import Path\nimport json,time,hashlib,resource,itertools as it\nimport sympy as S\nbeg=time.perf_counter();resource.setrlimit(resource.RLIMIT_AS,(512*1024**2,)*2);resource.setrlimit(resource.RLIMIT_CPU,(55,56))\npath='reports/CLASSIFICATION_NONNORMAL_CI22_TANGENT_20261107.json';src=json.load(open(path));c=next(c for c in src['cases'] if c['model']=='cone_cusp')\nx=S.symbols('x0:5');p=S.symbols('p0:16');a,b,f,g,h=S.symbols('a b f g h')\npairs=c['parameter_pair_order'];mons5=sorted([tuple(a.count(i)for i in range(5))for a in it.combinations_with_replacement(range(5),5)],reverse=True)\nev=lambda row,sub:S.expand(sum(S.Rational(v)*sub[p[i]]*sub[p[j]]for col,v in row.items()for i,j in[pairs[int(col)]]))\nbase={v:S.Integer(0)for v in p};maps=[]\nmp=dict(base);mp.update({p[6]:f,p[9]:b,p[11]:g,p[12]:a,p[13]:h,p[4]:2*a,p[8]:-f,p[14]:-b});maps.append(('p13_nonzero',mp,'h'))\nmp=dict(base);mp.update({p[3]:f,p[10]:b,p[12]:a,p[14]:g,p[15]:h,p[1]:2*a/3,p[4]:4*a/3,p[7]:(-12*b+9*f)/2});maps.append(('p15_nonzero',mp,'h'))\nout=[]\nfor name,sub,unit in maps:\n J=[ev(row,sub)for row in c['full350_Jacobi_rows']]\n coeff=[ev(row,sub)for row in c['full126_actualPf_rows']]\n F=S.expand(sum(a*S.prod(y**d for y,d in zip(x,e))for a,e in zip(coeff,mons5)))\n fac=S.factor_list(F)\n P=S.zeros(5)\n for j,col in enumerate(c['full150_column_order']):\n  v=sum(S.Rational(c['complete_projective_source_kernel'][i][j])*sub[p[i]]for i in range(16));i,k=col['pair'];mon=S.prod(y**d for y,d in zip(x,col['monomial']));P[i,k]+=v*mon;P[k,i]-=v*mon\n P=P.applyfunc(S.expand)\n direct=0\n for i in range(5):\n  a,b,cc,d=[j for j in range(5)if j!=i];direct+=(-1)**i*x[i]*(P[a,b]*P[cc,d]-P[a,cc]*P[b,d]+P[a,d]*P[b,cc])\n assert S.expand(direct-F)==0\n fs=[]\n for f,m in fac[1]:\n  fspace=S.Poly(f,*x)\n  ds=sorted({sum(e)for e,coef in fspace.terms()})\n  fs.append({'factor':str(f),'multiplicity':int(m),'space_degrees':ds})\n rec={'case':name,'full_parameter_map':{str(a):str(b)for a,b in sub.items()},'nonzero_condition':unit,'actual_raw_brackets':{f'{i},{j}':str(P[i,j])for i,j in it.combinations(range(5),2)},'all350_saved_Jacobi_vanish':all(a==0 for a in J),'nonzero_Jacobi_rows':[(i,str(a))for i,a in enumerate(J)if a!=0],'actual_quintic':str(F),'factorization_scalar':str(fac[0]),'all_factors':fs,'direct_full150_signedPfaffian_matches_saved126':True}\n out.append(rec);print(name,'Jzero',rec['all350_saved_Jacobi_vanish'],'Ffactor',S.factor(F),flush=True)\nrpt={'task_id':'E_reduced_nonnormal','all_exact_array_evaluations_passed':True,'cases':out,'full_complement':'p13=p15=0 lies in accepted fullactualDzero source','source_array_input':{'path':path,'sha256':hashlib.sha256(Path(path).read_bytes()).hexdigest()},'no_new_Jacobi_operator_or_profiles':True,'inline_source':Path(__file__).read_text(),'seconds':time.perf_counter()-beg,'maximum_RSS_KiB':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss}\npout=Path('reports/CLASSIFICATION_CI22_CONE_CUSP_RANKTWO_WHOLE_FACTOR_20261108.json');assert not pout.exists();pout.write_text(json.dumps(rpt,ensure_ascii=False,indent=2)+'\\n')\nprint('elapsed',rpt['seconds'],'RSS',rpt['maximum_RSS_KiB'])\n",
+  "seconds": 0.16126013200118905,
+  "maximum_RSS_KiB": 51460
+}

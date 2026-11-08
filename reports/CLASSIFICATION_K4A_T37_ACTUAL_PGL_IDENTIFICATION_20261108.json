@@ -1,0 +1,129 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "all_passed": true,
+  "source": "completed T37 p0=t0=t1=t2=t3=1, coordinates(h,x,y,z,w)",
+  "target": "integer K4a actuale1, coordinates(c,a,b,u,v)",
+  "coefficient_field": "QQ(theta),theta^2=-6",
+  "theta": "sqrt(6)*I",
+  "matrix_source_to_target": [
+    [
+      "2",
+      "-6",
+      "6",
+      "3",
+      "-3"
+    ],
+    [
+      "3",
+      "-18",
+      "18",
+      "6",
+      "-6"
+    ],
+    [
+      "0",
+      "-3*sqrt(6)*I",
+      "-3*sqrt(6)*I",
+      "2*sqrt(6)*I",
+      "2*sqrt(6)*I"
+    ],
+    [
+      "0",
+      "-3*sqrt(6)*I",
+      "-3*sqrt(6)*I",
+      "sqrt(6)*I",
+      "sqrt(6)*I"
+    ],
+    [
+      "11",
+      "-54",
+      "54",
+      "18",
+      "-18"
+    ]
+  ],
+  "determinant": "2592",
+  "inverse": [
+    [
+      "0",
+      "-3/2",
+      "0",
+      "0",
+      "1/2"
+    ],
+    [
+      "1/6",
+      "1/24",
+      "-sqrt(6)*I/36",
+      "sqrt(6)*I/18",
+      "-1/24"
+    ],
+    [
+      "-1/6",
+      "-1/24",
+      "-sqrt(6)*I/36",
+      "sqrt(6)*I/18",
+      "1/24"
+    ],
+    [
+      "1/2",
+      "7/12",
+      "-sqrt(6)*I/12",
+      "sqrt(6)*I/12",
+      "-1/4"
+    ],
+    [
+      "-1/2",
+      "-7/12",
+      "-sqrt(6)*I/12",
+      "sqrt(6)*I/12",
+      "1/4"
+    ]
+  ],
+  "lambda": "-sqrt(6)*I/36",
+  "literal_identity_direction": "M * P_T37(X) * transpose(M) = lambda * P_K4a(M*X) + (M*X) wedge W(M*X)",
+  "Euler_W_in_target_coordinates": {
+    "c": "-7*sqrt(6)*I*b/9 + sqrt(6)*I*u",
+    "a": "-3*sqrt(6)*I*b + 2*sqrt(6)*I*u",
+    "b": "-13*sqrt(6)*I*a/4 + 3*sqrt(6)*I*c - 7*sqrt(6)*I*v/4",
+    "u": "5*sqrt(6)*I*a/4 + 3*sqrt(6)*I*c - 3*sqrt(6)*I*v/4",
+    "v": "-5*sqrt(6)*I*b + 7*sqrt(6)*I*u"
+  },
+  "all10_projective_trivector_identities_zero": true,
+  "all150_raw_quadratic_coefficients_with_Euler_gauge_zero": true,
+  "matrix_inverse_both_products_identity": true,
+  "all126_actual_Pfaffian_coefficients_covariant": true,
+  "Pfaffian_identity": "lambda^2*F_K4a(MX)=det(M)*F_T37(X)",
+  "actual_source_Pfaffian": "h**5/96 + h**3*w*z/8 - 3*h**3*x*y/2 + h**2*w**2*x/2 + 3*h**2*w*y**2 - 3*h**2*x**2*z - h**2*y*z**2/2 - 2*h*w**3*y + 2*h*w**2*z**2/3 + 6*h*w*x*y*z - 2*h*x*z**3 + w**5/3 - 2*w**3*x*z + 2*w*y*z**3 - z**5/3",
+  "actual_target_Pfaffian": "13056*a**5 - 36288*a**4*c - 12096*a**4*v - 5310*a**3*b**2 + 3204*a**3*b*u + 77868*a**3*c**2 + 29160*a**3*c*v + 2754*a**3*u**2 + 3564*a**3*v**2 + 2592*a**2*b**2*c + 4050*a**2*b**2*v + 5184*a**2*b*c*u - 3780*a**2*b*u*v - 6480*a**2*c**3 - 70308*a**2*c**2*v - 11664*a**2*c*u**2 - 5832*a**2*c*v**2 - 486*a**2*u**2*v - 324*a**2*v**3 + 540*a*b**4 - 648*a*b**3*u - 1944*a*b**2*c**2 - 3888*a*b**2*c*v - 324*a*b**2*u**2 - 648*a*b**2*v**2 - 15552*a*b*c**2*u + 5184*a*b*c*u*v + 432*a*b*u**3 + 648*a*b*u*v**2 - 46656*a*c**4 + 31104*a*c**3*v + 23328*a*c**2*u**2 + 15552*a*c**2*v**2 + 972*b**4*c - 324*b**4*v - 2592*b**3*c*u + 648*b**3*u*v - 27216*b**2*c**3 + 9720*b**2*c**2*v + 1944*b**2*c*u**2 - 324*b**2*u**2*v + 62208*b*c**3*u - 15552*b*c**2*u*v - 11664*c**5 + 23328*c**4*v - 34992*c**3*u**2 - 11664*c**3*v**2 + 3888*c**2*u**2*v - 324*c*u**4",
+  "seconds": 1.8965812780006672,
+  "RSS_KiB": 56920,
+  "input_sha256": {
+    "reports/CLASSIFICATION_K4A_ORDER_TWO_ZERO_LOCUS_20261108.json": "92e0b0261e13a19e1c2a4cf17fd4a5bc5f67942c0ca0ccb11616fd18c6c41dcd",
+    "reports/MPS_SMOOTHING_COMPLETION_20261103_v62/T37.json": "edc3782c7da1548e73380e1273cb4a87a2668d547dc8196cfa4c11484f7ced74"
+  },
+  "inline_source": "import sympy as s,json,time,resource,hashlib\nfrom pathlib import Path\nfrom itertools import combinations\nstart=time.perf_counter()\nth=s.sqrt(6)*s.I\nX=s.symbols('h x y z w');Y=s.symbols('c a b u v')\nM=s.Matrix([[2,-6,6,3,-3],[3,-18,18,6,-6],[0,-3*th,-3*th,2*th,2*th],[0,-3*th,-3*th,th,th],[11,-54,54,18,-18]])\nlam=-th/36\nT=s.zeros(5)\nsource=json.load(open('reports/MPS_SMOOTHING_COMPLETION_20261103_v62/T37.json'))\nloc={f'x{i}':X[i] for i in range(5)};loc.update({k:s.Integer(1) for k in ['p0','t0','t1','t2','t3']})\nfor key,value in source['homogeneous_bivector'].items():\n i,j=map(int,key.split(','));T[i,j]=s.sympify(value,locals=loc);T[j,i]=-T[i,j]\nK=s.zeros(5)\nraw=json.load(open('reports/CLASSIFICATION_K4A_ORDER_TWO_ZERO_LOCUS_20261108.json'))['generic_actual_brackets']\nlocK=dict(zip(('c','a','b','u','v'),Y))\nfor key,value in raw.items():\n i,j=map(int,key.split(','));K[i,j]=s.sympify(value,locals=locK);K[j,i]=-K[i,j]\nMinv=M.inv();N=M*s.Matrix(X);InvX=Minv*s.Matrix(Y)\ncompose=lambda p,old,new:s.expand(p.subs(dict(zip(old,new)),simultaneous=True))\nQ=M*T*M.T\nDiff=s.zeros(5)\nfor i,j in combinations(range(5),2):\n Diff[i,j]=s.expand(Q[i,j]-lam*compose(K[i,j],Y,N)); Diff[j,i]=-Diff[i,j]\ntriv={}\nfor i,j,k in combinations(range(5),3):\n triv[f'{i},{j},{k}']=s.expand(N[i]*Diff[j,k]-N[j]*Diff[i,k]+N[k]*Diff[i,j])\nassert all(a==0 for a in triv.values()),[(k,v) for k,v in triv.items() if v!=0]\nDY=s.zeros(5)\nfor i,j in combinations(range(5),2):\n DY[i,j]=compose(Diff[i,j],X,InvX);DY[j,i]=-DY[i,j]\nW=[s.expand(sum(s.diff(DY[i,j],Y[i]) for i in range(5))/5) for j in range(5)]\nEuler=s.zeros(5)\nfor i,j in combinations(range(5),2):\n Euler[i,j]=s.expand(DY[i,j]-(Y[i]*W[j]-Y[j]*W[i]));Euler[j,i]=-Euler[i,j]\nassert all(a==0 for a in Euler)\ndef F(P,Z):\n ans=0\n for i in range(5):\n  a,b,c,d=[j for j in range(5) if j!=i]\n  ans+=(-1)**i*Z[i]*(P[a,b]*P[c,d]-P[a,c]*P[b,d]+P[a,d]*P[b,c])\n return s.expand(ans)\nFT=F(T,X);FK=F(K,Y)\nPf=s.expand(lam**2*compose(FK,Y,N)-M.det()*FT)\nassert Pf==0\npacket={'task_id':'E_reduced_nonnormal','all_passed':True,'source':'completed T37 p0=t0=t1=t2=t3=1, coordinates(h,x,y,z,w)','target':'integer K4a actuale1, coordinates(c,a,b,u,v)','coefficient_field':'QQ(theta),theta^2=-6','theta':str(th),'matrix_source_to_target':[[str(a) for a in row] for row in M.tolist()],'determinant':str(s.simplify(M.det())),'inverse':[[str(s.simplify(a)) for a in row] for row in Minv.tolist()],'lambda':str(lam),'literal_identity_direction':'M * P_T37(X) * transpose(M) = lambda * P_K4a(M*X) + (M*X) wedge W(M*X)','Euler_W_in_target_coordinates':dict(zip(map(str,Y),map(str,W))),'all10_projective_trivector_identities_zero':True,'all150_raw_quadratic_coefficients_with_Euler_gauge_zero':True,'matrix_inverse_both_products_identity':M*Minv==s.eye(5) and Minv*M==s.eye(5),'all126_actual_Pfaffian_coefficients_covariant':Pf==0,'Pfaffian_identity':'lambda^2*F_K4a(MX)=det(M)*F_T37(X)','actual_source_Pfaffian':str(FT),'actual_target_Pfaffian':str(FK),'seconds':time.perf_counter()-start,'RSS_KiB':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,'input_sha256':{p:hashlib.sha256(Path(p).read_bytes()).hexdigest() for p in ['reports/CLASSIFICATION_K4A_ORDER_TWO_ZERO_LOCUS_20261108.json','reports/MPS_SMOOTHING_COMPLETION_20261103_v62/T37.json']},'inline_source':Path(__file__).read_text()}\nPath('/tmp/k4a_t37_map_verified.json').write_text(json.dumps(packet,ensure_ascii=False,indent=2)+'\\n')\nprint('ALL PASS det',packet['determinant'],'scalar',packet['lambda'],'seconds',packet['seconds'],'RSS',packet['RSS_KiB'],flush=True)\nprint('W=',W,flush=True)\n",
+  "proof_note": {
+    "path": "research/classification/K4A_T37_ACTUAL_PGL_IDENTIFICATION.md",
+    "sha256": "3241ef655f7eef3017f8e17dd8e2078ab56408cb8a9d2e4fd1e1a5f1fa76dbc0"
+  },
+  "proof_scope": "Literal one-point PGL identification of the full dense24orbit representative; previously proved actual allnonzeroe oneorbit and complete K4a source normalizer extend this to wholeK4a knownT37 containment. No global E completion or new component.",
+  "whole_K4a_parent_identified": "known T37",
+  "whole_K4a_boundary_source_covered": true,
+  "new_component_count": 0,
+  "independent_review_status": "pending separate Fraction replay, producer does not certify its own independence",
+  "intrinsic_frame_discovery": {
+    "path": "reports/CLASSIFICATION_K4A_T37_INTRINSIC_FRAME_DISCOVERY_20261108.json",
+    "sha256": "55c9d2531426ea6004cb570fed9adca82b3d4e07c4d8f0c9671a03a38dc2deb8",
+    "equation_count": 290,
+    "unit_normalized_equation_count": 226,
+    "seconds": 94.95707956900151,
+    "all226_zero_at_solution": true,
+    "full_frame_cover_not_needed_for_positive_identity_proof": true
+  },
+  "gated_contract": {
+    "path": "research/classification/jobs/k4a_t37_intrinsic_frame_identification.json",
+    "sha256": "7ccd11068ca194d91f71bf931139245799d64a355922404ef19bd8ad84656d61",
+    "gate_scope": "inputs/finitecontract only, not a mathematical proof"
+  }
+}

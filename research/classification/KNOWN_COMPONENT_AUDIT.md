@@ -1,7 +1,7 @@
 # 既知成分の分類への接続監査
 
 2026-11-07。対象は複素数体上の射影化Jacobiスキーム、PGL5商の前。
-現在の既知126成分について、主分類に必要な成分性・次元・相違の依存監査を完了した。
+現在の既知128成分について、主分類に必要な成分性・次元・相違の依存監査を完了した。
 rank2支持はRANK_TWO_SUPPORT.md、追加11族とNEW25の全周囲証明は下記三監査へ接続する。
 全rank4被覆・一般五点尽くし・全特殊底被覆は証明しない。
 旧証明書の再実行と今回読んだ数学的議論を区別する。
@@ -382,3 +382,13 @@ immutable公開8b46のprior124全行と二新成分相互の相違も全actualD/
 全μ六/r二十一源は十新23＋旧DPM、μ五/r一五源は五新23へ全点被覆した。
 D5cusptangent旧A0、全A3A2共通接H/k=-1の既cuspidal24帰属も保持。
 現下界126（rank四120、rank二6）。Ga9linear-w、stable二源、他支持の全E・全G/上界は未証明。
+
+## 位数三tripleの二つのsmooth23成分と全prior126比較
+
+`PLANE_TRIPLE_WEAK_WALL_COMPONENTS_SEPARATE_REVIEW.md` により、τ4/21と1/12の全W六源は各一actual23軌道である。
+完全particularのbw/w²補正を保持し、別Fractionで全350×150D、Euler25、実GL25+scaleの全entry・全核・非零102/24/48minorを再構成した。
+raw tangent48は実作用軌道48に一致するので、射影点はsmooth unique23。その軌道閉包が全成分となる。
+固定Git9468048/blobcd2e6c7のprior126をimmutable projectionに保存し、全IDを独立照合した。
+rank二閉条件、局所次元又は軌道次元、proper因子の閉条件、essential三の閉条件と旧二dense23軌道の特異支持により全既成分との相違を確認した。
+新二者は唯一の特異plane上の内在的二jump線の一般tangentcone型が異なり、互いのdense軌道が異なる。
+全成分台帳は128、一般rank四122、一般rank二6。一般βのGは完了、全E及び総成分上界は未証明。

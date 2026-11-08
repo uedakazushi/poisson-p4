@@ -1,0 +1,466 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "all_exact_checks_passed": true,
+  "cases": [
+    {
+      "source": "L6",
+      "all_parameters": [
+        "l0",
+        "l1",
+        "l2",
+        "l3",
+        "l4",
+        "l5"
+      ],
+      "full_original_r0_to_r11_map": [
+        "l0",
+        "l1",
+        "l2",
+        "l3",
+        "l4",
+        "0",
+        "l5",
+        "0",
+        "0",
+        "-l4",
+        "l1",
+        "l2"
+      ],
+      "whole_rankone_matrix_factorization_including_zero": false,
+      "all24_original_generators_zero": true,
+      "complete_actual_brackets": {
+        "(0, 1)": "l0*x0*x3 - l0*x1*x2 + l3*x0*x4 - l3*x1*x3 + l5*x2*x4 - l5*x3**2",
+        "(0, 2)": "-l4*x0*x3 + l4*x1*x2",
+        "(0, 3)": "-l4*x0*x4 + l4*x1*x3",
+        "(0, 4)": "l1*x0*x4 - l1*x1*x3 - l2*x0*x3 + l2*x1*x2",
+        "(1, 2)": "l1*x0*x3 - l1*x1*x2 + l4*x0*x4 - l4*x1*x3",
+        "(1, 3)": "l2*x0*x3 - l2*x1*x2",
+        "(1, 4)": "l2*x0*x4 - l2*x1*x3",
+        "(2, 3)": "-l4*x2*x4 + l4*x3**2",
+        "(2, 4)": "l1*x2*x4 - l1*x3**2",
+        "(3, 4)": "l2*x2*x4 - l2*x3**2"
+      },
+      "all350_original_projective_Jacobi_zero": true,
+      "all350_saved_source_rows_zero": true,
+      "all126_actualD_original_Pfaffian_equals_saved_source_coefficients": true,
+      "actual_signed_Euler_Pfaffian": "-l0*l1*x0*x2*x3**2*x4 + l0*l1*x0*x3**4 + l0*l1*x1*x2**2*x3*x4 - l0*l1*x1*x2*x3**3 + l0*l2*x0*x2**2*x3*x4 - l0*l2*x0*x2*x3**3 - l0*l2*x1*x2**3*x4 + l0*l2*x1*x2**2*x3**2 - l0*l4*x0*x2*x3*x4**2 + l0*l4*x0*x3**3*x4 + l0*l4*x1*x2**2*x4**2 - l0*l4*x1*x2*x3**2*x4 - l1**2*x0**2*x3**2*x4 + l1**2*x0*x1*x2*x3*x4 + l1**2*x0*x1*x3**3 - l1**2*x1**2*x2*x3**2 + l1*l2*x0**2*x2*x3*x4 + l1*l2*x0**2*x3**3 - l1*l2*x0*x1*x2**2*x4 - 3*l1*l2*x0*x1*x2*x3**2 + 2*l1*l2*x1**2*x2**2*x3 - l1*l3*x0*x2*x3*x4**2 + l1*l3*x0*x3**3*x4 + l1*l3*x1*x2*x3**2*x4 - l1*l3*x1*x3**4 - 2*l1*l4*x0**2*x3*x4**2 + l1*l4*x0*x1*x2*x4**2 + 3*l1*l4*x0*x1*x3**2*x4 - l1*l4*x1**2*x2*x3*x4 - l1*l4*x1**2*x3**3 - l1*l5*x2**2*x3*x4**2 + 2*l1*l5*x2*x3**3*x4 - l1*l5*x3**5 - l2**2*x0**2*x2*x3**2 + 2*l2**2*x0*x1*x2**2*x3 - l2**2*x1**2*x2**3 + l2*l3*x0*x2**2*x4**2 - l2*l3*x0*x2*x3**2*x4 - l2*l3*x1*x2**2*x3*x4 + l2*l3*x1*x2*x3**3 + l2*l4*x0**2*x2*x4**2 + l2*l4*x0**2*x3**2*x4 - 4*l2*l4*x0*x1*x2*x3*x4 + l2*l4*x1**2*x2**2*x4 + l2*l4*x1**2*x2*x3**2 + l2*l5*x2**3*x4**2 - 2*l2*l5*x2**2*x3**2*x4 + l2*l5*x2*x3**4 - l3*l4*x0*x2*x4**3 + l3*l4*x0*x3**2*x4**2 + l3*l4*x1*x2*x3*x4**2 - l3*l4*x1*x3**3*x4 - l4**2*x0**2*x4**3 + 2*l4**2*x0*x1*x3*x4**2 - l4**2*x1**2*x3**2*x4 - l4*l5*x2**2*x4**3 + 2*l4*l5*x2*x3**2*x4**2 - l4*l5*x3**4*x4",
+      "full126_actualD_coefficients_sparse": {
+        "2,0,1,2,0": "-l2**2",
+        "2,0,1,1,1": "l1*l2",
+        "2,0,1,0,2": "l2*l4",
+        "2,0,0,3,0": "l1*l2",
+        "2,0,0,2,1": "-l1**2 + l2*l4",
+        "2,0,0,1,2": "-2*l1*l4",
+        "2,0,0,0,3": "-l4**2",
+        "1,1,2,1,0": "2*l2**2",
+        "1,1,2,0,1": "-l1*l2",
+        "1,1,1,2,0": "-3*l1*l2",
+        "1,1,1,1,1": "l1**2 - 4*l2*l4",
+        "1,1,1,0,2": "l1*l4",
+        "1,1,0,3,0": "l1**2",
+        "1,1,0,2,1": "3*l1*l4",
+        "1,1,0,1,2": "2*l4**2",
+        "1,0,2,1,1": "l0*l2",
+        "1,0,2,0,2": "l2*l3",
+        "1,0,1,3,0": "-l0*l2",
+        "1,0,1,2,1": "-l0*l1 - l2*l3",
+        "1,0,1,1,2": "-l0*l4 - l1*l3",
+        "1,0,1,0,3": "-l3*l4",
+        "1,0,0,4,0": "l0*l1",
+        "1,0,0,3,1": "l0*l4 + l1*l3",
+        "1,0,0,2,2": "l3*l4",
+        "0,2,3,0,0": "-l2**2",
+        "0,2,2,1,0": "2*l1*l2",
+        "0,2,2,0,1": "l2*l4",
+        "0,2,1,2,0": "-l1**2 + l2*l4",
+        "0,2,1,1,1": "-l1*l4",
+        "0,2,0,3,0": "-l1*l4",
+        "0,2,0,2,1": "-l4**2",
+        "0,1,3,0,1": "-l0*l2",
+        "0,1,2,2,0": "l0*l2",
+        "0,1,2,1,1": "l0*l1 - l2*l3",
+        "0,1,2,0,2": "l0*l4",
+        "0,1,1,3,0": "-l0*l1 + l2*l3",
+        "0,1,1,2,1": "-l0*l4 + l1*l3",
+        "0,1,1,1,2": "l3*l4",
+        "0,1,0,4,0": "-l1*l3",
+        "0,1,0,3,1": "-l3*l4",
+        "0,0,3,0,2": "l2*l5",
+        "0,0,2,2,1": "-2*l2*l5",
+        "0,0,2,1,2": "-l1*l5",
+        "0,0,2,0,3": "-l4*l5",
+        "0,0,1,4,0": "l2*l5",
+        "0,0,1,3,1": "2*l1*l5",
+        "0,0,1,2,2": "2*l4*l5",
+        "0,0,0,5,0": "-l1*l5",
+        "0,0,0,4,1": "-l4*l5"
+      },
+      "factor_coefficient": "-1",
+      "full_polynomial_factors": [
+        {
+          "factor": "-l1*x3 + l2*x2 - l4*x4",
+          "multiplicity": 1,
+          "physical_coordinate_degree": 1
+        },
+        {
+          "factor": "-l0*x0*x2*x3*x4 + l0*x0*x3**3 + l0*x1*x2**2*x4 - l0*x1*x2*x3**2 - l1*x0**2*x3*x4 + l1*x0*x1*x2*x4 + l1*x0*x1*x3**2 - l1*x1**2*x2*x3 + l2*x0**2*x3**2 - 2*l2*x0*x1*x2*x3 + l2*x1**2*x2**2 - l3*x0*x2*x4**2 + l3*x0*x3**2*x4 + l3*x1*x2*x3*x4 - l3*x1*x3**3 - l4*x0**2*x4**2 + 2*l4*x0*x1*x3*x4 - l4*x1**2*x3**2 - l5*x2**2*x4**2 + 2*l5*x2*x3**2*x4 - l5*x3**4",
+          "multiplicity": 1,
+          "physical_coordinate_degree": 4
+        }
+      ],
+      "exact_factor_product_identity": true,
+      "actualD_identically_zero": false,
+      "all_nonzero_specializations_have_proper_physical_factor": true,
+      "target_reduced_irreducible_quintic_source_empty": true,
+      "specialization_scope": "No source parameter inverted. A parameter-only factor zero gives D0. Every nonzero positive homogeneous physical factor retains its degree; vanishing factors give D0. Thus a full physical factor product excludes irreducibility at every parameter, including all rankzero matrices."
+    },
+    {
+      "source": "F_Segre4",
+      "all_parameters": [
+        "t0",
+        "t1",
+        "t2",
+        "t3",
+        "t4"
+      ],
+      "full_original_r0_to_r11_map": [
+        "t1*t4",
+        "2*t0*t3",
+        "t0*t4",
+        "-t1*t3",
+        "0",
+        "t0*t3",
+        "0",
+        "0",
+        "0",
+        "t2*t3",
+        "2*t0*t3 + t2*t4",
+        "2*t0*t4"
+      ],
+      "whole_rankone_matrix_factorization_including_zero": true,
+      "all24_original_generators_zero": true,
+      "complete_actual_brackets": {
+        "(0, 1)": "-t1*t3*x0*x4 + t1*t3*x1*x3 + t1*t4*x0*x3 - t1*t4*x1*x2",
+        "(0, 2)": "t2*t3*x0*x3 - t2*t3*x1*x2",
+        "(0, 3)": "t2*t3*x0*x4/2 - t2*t3*x1*x3/2 + t2*t4*x0*x3/2 - t2*t4*x1*x2/2",
+        "(0, 4)": "t2*t4*x0*x4 - t2*t4*x1*x3",
+        "(1, 2)": "2*t0*t3*x0*x3 - 2*t0*t3*x1*x2",
+        "(1, 3)": "t0*t3*x0*x4 - t0*t3*x1*x3 + t0*t4*x0*x3 - t0*t4*x1*x2",
+        "(1, 4)": "2*t0*t4*x0*x4 - 2*t0*t4*x1*x3",
+        "(2, 3)": "t2*t3*x2*x4 - t2*t3*x3**2",
+        "(2, 4)": "2*t0*t3*x2*x4 - 2*t0*t3*x3**2 + t2*t4*x2*x4 - t2*t4*x3**2",
+        "(3, 4)": "2*t0*t4*x2*x4 - 2*t0*t4*x3**2"
+      },
+      "all350_original_projective_Jacobi_zero": true,
+      "all350_saved_source_rows_zero": true,
+      "all126_actualD_original_Pfaffian_equals_saved_source_coefficients": true,
+      "actual_signed_Euler_Pfaffian": "-2*t0**2*t3**2*x0**2*x2*x4**2 + 2*t0**2*t3**2*x0**2*x3**2*x4 + 2*t0**2*t3**2*x0*x1*x2*x3*x4 - 2*t0**2*t3**2*x0*x1*x3**3 + 2*t0**2*t3*t4*x0**2*x2*x3*x4 - 2*t0**2*t3*t4*x0**2*x3**3 - 2*t0**2*t3*t4*x0*x1*x2**2*x4 + 2*t0**2*t3*t4*x0*x1*x2*x3**2 + 2*t0*t1*t3**2*x0*x2*x3*x4**2 - 2*t0*t1*t3**2*x0*x3**3*x4 - 2*t0*t1*t3**2*x1*x2*x3**2*x4 + 2*t0*t1*t3**2*x1*x3**4 - 2*t0*t1*t3*t4*x0*x2**2*x4**2 + 2*t0*t1*t3*t4*x0*x3**4 + 4*t0*t1*t3*t4*x1*x2**2*x3*x4 - 4*t0*t1*t3*t4*x1*x2*x3**3 + 2*t0*t1*t4**2*x0*x2**2*x3*x4 - 2*t0*t1*t4**2*x0*x2*x3**3 - 2*t0*t1*t4**2*x1*x2**3*x4 + 2*t0*t1*t4**2*x1*x2**2*x3**2 + t0*t2*t3**2*x0*x1*x2*x4**2 - t0*t2*t3**2*x0*x1*x3**2*x4 - t0*t2*t3**2*x1**2*x2*x3*x4 + t0*t2*t3**2*x1**2*x3**3 + t0*t2*t3*t4*x0**2*x2*x4**2 - t0*t2*t3*t4*x0**2*x3**2*x4 - 2*t0*t2*t3*t4*x0*x1*x2*x3*x4 + 2*t0*t2*t3*t4*x0*x1*x3**3 + t0*t2*t3*t4*x1**2*x2**2*x4 - t0*t2*t3*t4*x1**2*x2*x3**2 - t0*t2*t4**2*x0**2*x2*x3*x4 + t0*t2*t4**2*x0**2*x3**3 + t0*t2*t4**2*x0*x1*x2**2*x4 - t0*t2*t4**2*x0*x1*x2*x3**2 - t1*t2*t3**2*x0*x2*x4**3 + t1*t2*t3**2*x0*x3**2*x4**2 + t1*t2*t3**2*x1*x2*x3*x4**2 - t1*t2*t3**2*x1*x3**3*x4 + 2*t1*t2*t3*t4*x0*x2*x3*x4**2 - 2*t1*t2*t3*t4*x0*x3**3*x4 - t1*t2*t3*t4*x1*x2**2*x4**2 + t1*t2*t3*t4*x1*x3**4 - t1*t2*t4**2*x0*x2*x3**2*x4 + t1*t2*t4**2*x0*x3**4 + t1*t2*t4**2*x1*x2**2*x3*x4 - t1*t2*t4**2*x1*x2*x3**3 - t2**2*t3*t4*x0*x1*x2*x4**2/2 + t2**2*t3*t4*x0*x1*x3**2*x4/2 + t2**2*t3*t4*x1**2*x2*x3*x4/2 - t2**2*t3*t4*x1**2*x3**3/2 + t2**2*t4**2*x0*x1*x2*x3*x4/2 - t2**2*t4**2*x0*x1*x3**3/2 - t2**2*t4**2*x1**2*x2**2*x4/2 + t2**2*t4**2*x1**2*x2*x3**2/2",
+      "full126_actualD_coefficients_sparse": {
+        "2,0,1,1,1": "2*t0**2*t3*t4 - t0*t2*t4**2",
+        "2,0,1,0,2": "-2*t0**2*t3**2 + t0*t2*t3*t4",
+        "2,0,0,3,0": "-2*t0**2*t3*t4 + t0*t2*t4**2",
+        "2,0,0,2,1": "2*t0**2*t3**2 - t0*t2*t3*t4",
+        "1,1,2,0,1": "-2*t0**2*t3*t4 + t0*t2*t4**2",
+        "1,1,1,2,0": "2*t0**2*t3*t4 - t0*t2*t4**2",
+        "1,1,1,1,1": "2*t0**2*t3**2 - 2*t0*t2*t3*t4 + t2**2*t4**2/2",
+        "1,1,1,0,2": "t0*t2*t3**2 - t2**2*t3*t4/2",
+        "1,1,0,3,0": "-2*t0**2*t3**2 + 2*t0*t2*t3*t4 - t2**2*t4**2/2",
+        "1,1,0,2,1": "-t0*t2*t3**2 + t2**2*t3*t4/2",
+        "1,0,2,1,1": "2*t0*t1*t4**2",
+        "1,0,2,0,2": "-2*t0*t1*t3*t4",
+        "1,0,1,3,0": "-2*t0*t1*t4**2",
+        "1,0,1,2,1": "-t1*t2*t4**2",
+        "1,0,1,1,2": "2*t0*t1*t3**2 + 2*t1*t2*t3*t4",
+        "1,0,1,0,3": "-t1*t2*t3**2",
+        "1,0,0,4,0": "2*t0*t1*t3*t4 + t1*t2*t4**2",
+        "1,0,0,3,1": "-2*t0*t1*t3**2 - 2*t1*t2*t3*t4",
+        "1,0,0,2,2": "t1*t2*t3**2",
+        "0,2,2,0,1": "t0*t2*t3*t4 - t2**2*t4**2/2",
+        "0,2,1,2,0": "-t0*t2*t3*t4 + t2**2*t4**2/2",
+        "0,2,1,1,1": "-t0*t2*t3**2 + t2**2*t3*t4/2",
+        "0,2,0,3,0": "t0*t2*t3**2 - t2**2*t3*t4/2",
+        "0,1,3,0,1": "-2*t0*t1*t4**2",
+        "0,1,2,2,0": "2*t0*t1*t4**2",
+        "0,1,2,1,1": "4*t0*t1*t3*t4 + t1*t2*t4**2",
+        "0,1,2,0,2": "-t1*t2*t3*t4",
+        "0,1,1,3,0": "-4*t0*t1*t3*t4 - t1*t2*t4**2",
+        "0,1,1,2,1": "-2*t0*t1*t3**2",
+        "0,1,1,1,2": "t1*t2*t3**2",
+        "0,1,0,4,0": "2*t0*t1*t3**2 + t1*t2*t3*t4",
+        "0,1,0,3,1": "-t1*t2*t3**2"
+      },
+      "factor_coefficient": "1/2",
+      "full_polynomial_factors": [
+        {
+          "factor": "x2*x4 - x3**2",
+          "multiplicity": 1,
+          "physical_coordinate_degree": 2
+        },
+        {
+          "factor": "-t3*x0*x4 + t3*x1*x3 + t4*x0*x3 - t4*x1*x2",
+          "multiplicity": 1,
+          "physical_coordinate_degree": 2
+        },
+        {
+          "factor": "4*t0**2*t3*x0 - 4*t0*t1*t3*x3 + 4*t0*t1*t4*x2 - 2*t0*t2*t3*x1 - 2*t0*t2*t4*x0 + 2*t1*t2*t3*x4 - 2*t1*t2*t4*x3 + t2**2*t4*x1",
+          "multiplicity": 1,
+          "physical_coordinate_degree": 1
+        }
+      ],
+      "exact_factor_product_identity": true,
+      "actualD_identically_zero": false,
+      "all_nonzero_specializations_have_proper_physical_factor": true,
+      "target_reduced_irreducible_quintic_source_empty": true,
+      "specialization_scope": "No source parameter inverted. A parameter-only factor zero gives D0. Every nonzero positive homogeneous physical factor retains its degree; vanishing factors give D0. Thus a full physical factor product excludes irreducibility at every parameter, including all rankzero matrices."
+    },
+    {
+      "source": "U_Segre4",
+      "all_parameters": [
+        "t0",
+        "t1",
+        "t2",
+        "t3",
+        "t4"
+      ],
+      "full_original_r0_to_r11_map": [
+        "2*t0*t3 + t1*t4",
+        "0",
+        "t0*t4",
+        "-t2*t3",
+        "0",
+        "0",
+        "-t1*t3",
+        "t2*t3",
+        "t0*t3",
+        "0",
+        "t2*t4",
+        "2*t0*t4"
+      ],
+      "whole_rankone_matrix_factorization_including_zero": true,
+      "all24_original_generators_zero": true,
+      "complete_actual_brackets": {
+        "(0, 1)": "2*t0*t3*x0*x3 - 2*t0*t3*x1*x2 - t1*t3*x2*x4 + t1*t3*x3**2 + t1*t4*x0*x3 - t1*t4*x1*x2 - t2*t3*x0*x4 + t2*t3*x1*x3",
+        "(0, 2)": "0",
+        "(0, 3)": "-t2*t3*x2*x4/2 + t2*t3*x3**2/2 + t2*t4*x0*x3/2 - t2*t4*x1*x2/2",
+        "(0, 4)": "-2*t0*t3*x2*x4 + 2*t0*t3*x3**2 + t2*t4*x0*x4 - t2*t4*x1*x3",
+        "(1, 2)": "t2*t3*x2*x4 - t2*t3*x3**2",
+        "(1, 3)": "t0*t3*x2*x4 - t0*t3*x3**2 + t0*t4*x0*x3 - t0*t4*x1*x2",
+        "(1, 4)": "2*t0*t4*x0*x4 - 2*t0*t4*x1*x3",
+        "(2, 3)": "0",
+        "(2, 4)": "t2*t4*x2*x4 - t2*t4*x3**2",
+        "(3, 4)": "2*t0*t4*x2*x4 - 2*t0*t4*x3**2"
+      },
+      "all350_original_projective_Jacobi_zero": true,
+      "all350_saved_source_rows_zero": true,
+      "all126_actualD_original_Pfaffian_equals_saved_source_coefficients": true,
+      "actual_signed_Euler_Pfaffian": "-2*t0**2*t3**2*x2**3*x4**2 + 4*t0**2*t3**2*x2**2*x3**2*x4 - 2*t0**2*t3**2*x2*x3**4 + 2*t0**2*t3*t4*x0*x2**2*x3*x4 - 2*t0**2*t3*t4*x0*x2*x3**3 - 2*t0**2*t3*t4*x1*x2**3*x4 + 2*t0**2*t3*t4*x1*x2**2*x3**2 - 2*t0*t1*t3*t4*x2**3*x4**2 + 4*t0*t1*t3*t4*x2**2*x3**2*x4 - 2*t0*t1*t3*t4*x2*x3**4 + 2*t0*t1*t4**2*x0*x2**2*x3*x4 - 2*t0*t1*t4**2*x0*x2*x3**3 - 2*t0*t1*t4**2*x1*x2**3*x4 + 2*t0*t1*t4**2*x1*x2**2*x3**2 + 2*t0*t2*t3**2*x2**2*x3*x4**2 - 4*t0*t2*t3**2*x2*x3**3*x4 + 2*t0*t2*t3**2*x3**5 + t0*t2*t3*t4*x0*x2**2*x4**2 - 4*t0*t2*t3*t4*x0*x2*x3**2*x4 + 3*t0*t2*t3*t4*x0*x3**4 + 2*t0*t2*t3*t4*x1*x2**2*x3*x4 - 2*t0*t2*t3*t4*x1*x2*x3**3 - t0*t2*t4**2*x0**2*x2*x3*x4 + t0*t2*t4**2*x0**2*x3**3 + t0*t2*t4**2*x0*x1*x2**2*x4 - t0*t2*t4**2*x0*x1*x2*x3**2 + t1*t2*t3*t4*x2**2*x3*x4**2 - 2*t1*t2*t3*t4*x2*x3**3*x4 + t1*t2*t3*t4*x3**5 - t1*t2*t4**2*x0*x2*x3**2*x4 + t1*t2*t4**2*x0*x3**4 + t1*t2*t4**2*x1*x2**2*x3*x4 - t1*t2*t4**2*x1*x2*x3**3 - t2**2*t3**2*x2**2*x4**3/2 + t2**2*t3**2*x2*x3**2*x4**2 - t2**2*t3**2*x3**4*x4/2 + t2**2*t3*t4*x0*x2*x3*x4**2/2 - t2**2*t3*t4*x0*x3**3*x4/2 - t2**2*t3*t4*x1*x2**2*x4**2 + 3*t2**2*t3*t4*x1*x2*x3**2*x4/2 - t2**2*t3*t4*x1*x3**4/2 + t2**2*t4**2*x0*x1*x2*x3*x4/2 - t2**2*t4**2*x0*x1*x3**3/2 - t2**2*t4**2*x1**2*x2**2*x4/2 + t2**2*t4**2*x1**2*x2*x3**2/2",
+      "full126_actualD_coefficients_sparse": {
+        "2,0,1,1,1": "-t0*t2*t4**2",
+        "2,0,0,3,0": "t0*t2*t4**2",
+        "1,1,2,0,1": "t0*t2*t4**2",
+        "1,1,1,2,0": "-t0*t2*t4**2",
+        "1,1,1,1,1": "t2**2*t4**2/2",
+        "1,1,0,3,0": "-t2**2*t4**2/2",
+        "1,0,2,1,1": "2*t0**2*t3*t4 + 2*t0*t1*t4**2",
+        "1,0,2,0,2": "t0*t2*t3*t4",
+        "1,0,1,3,0": "-2*t0**2*t3*t4 - 2*t0*t1*t4**2",
+        "1,0,1,2,1": "-4*t0*t2*t3*t4 - t1*t2*t4**2",
+        "1,0,1,1,2": "t2**2*t3*t4/2",
+        "1,0,0,4,0": "3*t0*t2*t3*t4 + t1*t2*t4**2",
+        "1,0,0,3,1": "-t2**2*t3*t4/2",
+        "0,2,2,0,1": "-t2**2*t4**2/2",
+        "0,2,1,2,0": "t2**2*t4**2/2",
+        "0,1,3,0,1": "-2*t0**2*t3*t4 - 2*t0*t1*t4**2",
+        "0,1,2,2,0": "2*t0**2*t3*t4 + 2*t0*t1*t4**2",
+        "0,1,2,1,1": "2*t0*t2*t3*t4 + t1*t2*t4**2",
+        "0,1,2,0,2": "-t2**2*t3*t4",
+        "0,1,1,3,0": "-2*t0*t2*t3*t4 - t1*t2*t4**2",
+        "0,1,1,2,1": "3*t2**2*t3*t4/2",
+        "0,1,0,4,0": "-t2**2*t3*t4/2",
+        "0,0,3,0,2": "-2*t0**2*t3**2 - 2*t0*t1*t3*t4",
+        "0,0,2,2,1": "4*t0**2*t3**2 + 4*t0*t1*t3*t4",
+        "0,0,2,1,2": "2*t0*t2*t3**2 + t1*t2*t3*t4",
+        "0,0,2,0,3": "-t2**2*t3**2/2",
+        "0,0,1,4,0": "-2*t0**2*t3**2 - 2*t0*t1*t3*t4",
+        "0,0,1,3,1": "-4*t0*t2*t3**2 - 2*t1*t2*t3*t4",
+        "0,0,1,2,2": "t2**2*t3**2",
+        "0,0,0,5,0": "2*t0*t2*t3**2 + t1*t2*t3*t4",
+        "0,0,0,4,1": "-t2**2*t3**2/2"
+      },
+      "factor_coefficient": "-1/2",
+      "full_polynomial_factors": [
+        {
+          "factor": "x2*x4 - x3**2",
+          "multiplicity": 1,
+          "physical_coordinate_degree": 2
+        },
+        {
+          "factor": "-t3*x2*x4 + t3*x3**2 + t4*x0*x3 - t4*x1*x2",
+          "multiplicity": 1,
+          "physical_coordinate_degree": 2
+        },
+        {
+          "factor": "-4*t0**2*t3*x2 - 4*t0*t1*t4*x2 + 4*t0*t2*t3*x3 + 2*t0*t2*t4*x0 + 2*t1*t2*t4*x3 - t2**2*t3*x4 - t2**2*t4*x1",
+          "multiplicity": 1,
+          "physical_coordinate_degree": 1
+        }
+      ],
+      "exact_factor_product_identity": true,
+      "actualD_identically_zero": false,
+      "all_nonzero_specializations_have_proper_physical_factor": true,
+      "target_reduced_irreducible_quintic_source_empty": true,
+      "specialization_scope": "No source parameter inverted. A parameter-only factor zero gives D0. Every nonzero positive homogeneous physical factor retains its degree; vanishing factors give D0. Thus a full physical factor product excludes irreducibility at every parameter, including all rankzero matrices."
+    },
+    {
+      "source": "S_Segre4",
+      "all_parameters": [
+        "t0",
+        "t1",
+        "t2",
+        "t3",
+        "t4"
+      ],
+      "full_original_r0_to_r11_map": [
+        "t1*t4",
+        "0",
+        "0",
+        "-t0*t2 + t1*t3",
+        "0",
+        "0",
+        "t1*t2",
+        "t0*t2",
+        "0",
+        "t0*t3",
+        "-t0*t4",
+        "0"
+      ],
+      "whole_rankone_matrix_factorization_including_zero": true,
+      "all24_original_generators_zero": true,
+      "complete_actual_brackets": {
+        "(0, 1)": "-t0*t2*x0*x4 + t0*t2*x1*x3 + t1*t2*x2*x4 - t1*t2*x3**2 + t1*t3*x0*x4 - t1*t3*x1*x3 + t1*t4*x0*x3 - t1*t4*x1*x2",
+        "(0, 2)": "t0*t3*x0*x3 - t0*t3*x1*x2",
+        "(0, 3)": "-t0*t2*x2*x4/2 + t0*t2*x3**2/2 + t0*t3*x0*x4/2 - t0*t3*x1*x3/2 - t0*t4*x0*x3/2 + t0*t4*x1*x2/2",
+        "(0, 4)": "-t0*t4*x0*x4 + t0*t4*x1*x3",
+        "(1, 2)": "t0*t2*x2*x4 - t0*t2*x3**2",
+        "(1, 3)": "0",
+        "(1, 4)": "0",
+        "(2, 3)": "t0*t3*x2*x4 - t0*t3*x3**2",
+        "(2, 4)": "-t0*t4*x2*x4 + t0*t4*x3**2",
+        "(3, 4)": "0"
+      },
+      "all350_original_projective_Jacobi_zero": true,
+      "all350_saved_source_rows_zero": true,
+      "all126_actualD_original_Pfaffian_equals_saved_source_coefficients": true,
+      "actual_signed_Euler_Pfaffian": "-t0**2*t2**2*x2**2*x4**3/2 + t0**2*t2**2*x2*x3**2*x4**2 - t0**2*t2**2*x3**4*x4/2 - t0**2*t2*t3*x0*x2*x4**3/2 + t0**2*t2*t3*x0*x3**2*x4**2/2 + t0**2*t2*t3*x1*x2*x3*x4**2/2 - t0**2*t2*t3*x1*x3**3*x4/2 - t0**2*t2*t4*x0*x2*x3*x4**2/2 + t0**2*t2*t4*x0*x3**3*x4/2 + t0**2*t2*t4*x1*x2**2*x4**2 - 3*t0**2*t2*t4*x1*x2*x3**2*x4/2 + t0**2*t2*t4*x1*x3**4/2 + t0**2*t3*t4*x0*x1*x2*x4**2/2 - t0**2*t3*t4*x0*x1*x3**2*x4/2 - t0**2*t3*t4*x1**2*x2*x3*x4/2 + t0**2*t3*t4*x1**2*x3**3/2 + t0**2*t4**2*x0*x1*x2*x3*x4/2 - t0**2*t4**2*x0*x1*x3**3/2 - t0**2*t4**2*x1**2*x2**2*x4/2 + t0**2*t4**2*x1**2*x2*x3**2/2 + t0*t1*t2*t3*x2**2*x4**3 - 2*t0*t1*t2*t3*x2*x3**2*x4**2 + t0*t1*t2*t3*x3**4*x4 + t0*t1*t2*t4*x2**2*x3*x4**2 - 2*t0*t1*t2*t4*x2*x3**3*x4 + t0*t1*t2*t4*x3**5 + t0*t1*t3**2*x0*x2*x4**3 - t0*t1*t3**2*x0*x3**2*x4**2 - t0*t1*t3**2*x1*x2*x3*x4**2 + t0*t1*t3**2*x1*x3**3*x4 + 2*t0*t1*t3*t4*x0*x2*x3*x4**2 - 2*t0*t1*t3*t4*x0*x3**3*x4 - t0*t1*t3*t4*x1*x2**2*x4**2 + t0*t1*t3*t4*x1*x3**4 + t0*t1*t4**2*x0*x2*x3**2*x4 - t0*t1*t4**2*x0*x3**4 - t0*t1*t4**2*x1*x2**2*x3*x4 + t0*t1*t4**2*x1*x2*x3**3",
+      "full126_actualD_coefficients_sparse": {
+        "1,1,1,1,1": "t0**2*t4**2/2",
+        "1,1,1,0,2": "t0**2*t3*t4/2",
+        "1,1,0,3,0": "-t0**2*t4**2/2",
+        "1,1,0,2,1": "-t0**2*t3*t4/2",
+        "1,0,1,2,1": "t0*t1*t4**2",
+        "1,0,1,1,2": "-t0**2*t2*t4/2 + 2*t0*t1*t3*t4",
+        "1,0,1,0,3": "-t0**2*t2*t3/2 + t0*t1*t3**2",
+        "1,0,0,4,0": "-t0*t1*t4**2",
+        "1,0,0,3,1": "t0**2*t2*t4/2 - 2*t0*t1*t3*t4",
+        "1,0,0,2,2": "t0**2*t2*t3/2 - t0*t1*t3**2",
+        "0,2,2,0,1": "-t0**2*t4**2/2",
+        "0,2,1,2,0": "t0**2*t4**2/2",
+        "0,2,1,1,1": "-t0**2*t3*t4/2",
+        "0,2,0,3,0": "t0**2*t3*t4/2",
+        "0,1,2,1,1": "-t0*t1*t4**2",
+        "0,1,2,0,2": "t0**2*t2*t4 - t0*t1*t3*t4",
+        "0,1,1,3,0": "t0*t1*t4**2",
+        "0,1,1,2,1": "-3*t0**2*t2*t4/2",
+        "0,1,1,1,2": "t0**2*t2*t3/2 - t0*t1*t3**2",
+        "0,1,0,4,0": "t0**2*t2*t4/2 + t0*t1*t3*t4",
+        "0,1,0,3,1": "-t0**2*t2*t3/2 + t0*t1*t3**2",
+        "0,0,2,1,2": "t0*t1*t2*t4",
+        "0,0,2,0,3": "-t0**2*t2**2/2 + t0*t1*t2*t3",
+        "0,0,1,3,1": "-2*t0*t1*t2*t4",
+        "0,0,1,2,2": "t0**2*t2**2 - 2*t0*t1*t2*t3",
+        "0,0,0,5,0": "t0*t1*t2*t4",
+        "0,0,0,4,1": "-t0**2*t2**2/2 + t0*t1*t2*t3"
+      },
+      "factor_coefficient": "1/2",
+      "full_polynomial_factors": [
+        {
+          "factor": "x2*x4 - x3**2",
+          "multiplicity": 1,
+          "physical_coordinate_degree": 2
+        },
+        {
+          "factor": "-t0*t2*x4 + t0*t4*x1 + 2*t1*t3*x4 + 2*t1*t4*x3",
+          "multiplicity": 1,
+          "physical_coordinate_degree": 1
+        },
+        {
+          "factor": "t0",
+          "multiplicity": 1,
+          "physical_coordinate_degree": 0
+        },
+        {
+          "factor": "t2*x2*x4 - t2*x3**2 + t3*x0*x4 - t3*x1*x3 + t4*x0*x3 - t4*x1*x2",
+          "multiplicity": 1,
+          "physical_coordinate_degree": 2
+        }
+      ],
+      "exact_factor_product_identity": true,
+      "actualD_identically_zero": false,
+      "all_nonzero_specializations_have_proper_physical_factor": true,
+      "target_reduced_irreducible_quintic_source_empty": true,
+      "specialization_scope": "No source parameter inverted. A parameter-only factor zero gives D0. Every nonzero positive homogeneous physical factor retains its degree; vanishing factors give D0. Thus a full physical factor product excludes irreducibility at every parameter, including all rankzero matrices."
+    }
+  ],
+  "whole_four_closed_source_cover": "Pure proof CUBIC_SCROLL_ZERO_FOUR_WHOLE_SOURCES.md; all rankone outer products cover every closed cone including matrix0, and L6 covers the full linear source.",
+  "whole_smooth_scroll_rankzero_irreducible_quintic_branch_empty": true,
+  "wholepointwise_known_parent_claimed": false,
+  "new_component_count": 0,
+  "all_original_FunctionDef_AST_unchanged": true,
+  "old_function_names": [
+    "compute",
+    "main",
+    "dimension"
+  ],
+  "producer_sha256": "cbc257cc1faf3456f967d9307acd7c8a4aa8120500aebbaf36fb4170f7f50c6a",
+  "producer_bytes": "#!/usr/bin/env python3\n\"\"\"Geometrically necessary abelian-conormal reduction of whole cubic sources.\n\nRankzero+irreducible quintic+nonplane surface forces multiplicity2 and a\nFrobenius first jet, hence {I,I} in symbolic I^2. All first partials of all\nthree generator brackets are tested on the dominant surface parametrization.\n\"\"\"\nfrom pathlib import Path\nfrom itertools import combinations,combinations_with_replacement\nfrom fractions import Fraction as Q\nimport hashlib,json,resource,signal,time,os,subprocess,tempfile,sys\nfrom functools import lru_cache\nimport sympy as s\nfrom sympy.polys.matrices import DomainMatrix\nfrom classification_projected_veronese_zero_review import plus,scale,sparse_rref,monomials\nROOT=Path(__file__).resolve().parents[1];PAIRS=list(combinations(range(5),2))\n\n\ndef compute(case,old):\n    start=time.monotonic();name=case['name'];x=s.symbols('x0:5');ss,tt,u,v,c=s.symbols('ss tt u v c')\n    if name=='smooth_scroll_12':param=(ss,tt,u,v);mapping=(ss*u,tt*u,ss*ss*v,ss*tt*v,tt*tt*v)\n    else:param=(ss,tt,c);mapping=(ss**3,ss*ss*tt,ss*tt*tt,tt**3,c)\n    env=dict(zip(map(str,x),x));quadrics=[s.sympify(t,locals=env)for t in case['quadratic_ideal_generators']];sub=dict(zip(x,mapping))\n    assert all(s.expand(q.subs(sub,simultaneous=True))==0 for q in quadrics)\n    derivatives=[[s.expand(s.diff(q,xx).subs(sub,simultaneous=True))for xx in x]for q in quadrics]\n    rowlabels=[];matrix=[]\n    for qa,qb in combinations(range(3),2):\n        for normal_derivative in range(5):\n            columns=[];exponents=set()\n            for qg in range(3):\n                for i,j in PAIRS:\n                    polynomial=s.Poly(s.expand(derivatives[qg][normal_derivative]*(derivatives[qa][i]*derivatives[qb][j]-derivatives[qa][j]*derivatives[qb][i])),*param,domain=s.QQ)\n                    terms={e:co for e,co in polynomial.terms()if co};columns.append(terms);exponents.update(terms)\n            for e in sorted(exponents,reverse=True):\n                rowlabels.append({'generator_pair':[qa,qb],'ambient_partial':normal_derivative,'parametrization_exponents':e});matrix.append([col.get(e,s.Integer(0))for col in columns])\n    M=s.Matrix(matrix);dm=lambda A:DomainMatrix.from_Matrix(A).convert_to(s.QQ)\n    red,piv=dm(M).rref();R=red.to_Matrix();piv=list(piv);free=[j for j in range(30)if j not in piv];B=s.zeros(30,len(free))\n    for k,j in enumerate(free):\n        B[j,k]=1\n        for row,p in enumerate(piv):B[p,k]=-R[row,j]\n    assert M*B==s.zeros(M.rows,B.cols)\n    selected=list(dm(M.T).rref()[1]);minor=M[selected,piv];determinant=minor.det();assert determinant!=0 and len(piv)+B.cols==30\n    d=B.cols;newcols=list(combinations_with_replacement(range(d),2));newci={a:i for i,a in enumerate(newcols)}\n    oldcols=[tuple(a)for a in old['all465_quadratic_parameter_monomials']]\n    def restrict(row):\n        out={}\n        for k,value in row.items():\n            i,j=oldcols[int(k)];value=Q(value)\n            for r in range(d):\n                if not B[i,r]:continue\n                for t in range(d):\n                    if not B[j,t]:continue\n                    col=newci[tuple(sorted((r,t)))];out[col]=out.get(col,Q(0))+value*Q(B[i,r])*Q(B[j,t])\n        return {j:c for j,c in out.items()if c}\n    J=[restrict(row)for row in case['all350_Jacobi_rows']];Drows=[restrict(row)for row in case['all126_actual_D_rows']]\n    basis,proof,chosen=sparse_rref(J,True);targetcert=[];allmember=True\n    for k,target in enumerate(Drows):\n        residual=dict(target);functional={}\n        for p in sorted(basis):\n            if p in residual:\n                coefficient=residual[p];residual=plus(residual,scale(basis[p],-coefficient));functional=plus(functional,scale(proof[p],coefficient))\n        allmember &=not residual\n        assert plus(plus(*(scale(J[i],a)for i,a in functional.items())),residual)==target\n        if target:targetcert.append({'original126_D_row':k,'full350_Jacobi_functional':functional,'residual':residual})\n    answer={'name':name,'parametrization_variables':list(map(str,param)),'dominant_surface_parametrization':list(map(str,mapping)),\n        'all_three_ideal_generators':case['quadratic_ideal_generators'],'all_generator_pair_all_firstpartial_equations':rowlabels,\n        'full_linear_matrix':[[str(c)for c in row]for row in matrix],'linear_shape':list(M.shape),'linear_rank':len(piv),\n        'rank_minor':{'rows':selected,'columns':piv,'determinant':str(determinant)},'free_original30_indices':free,\n        'complete_abelian_conormal_source_dimension':d,'complete_original30_by_reduced_source_matrix':[[str(a)for a in row]for row in B.tolist()],\n        'all_reduced_source_quadratic_monomials':newcols,'all350_reduced_Jacobi_rows':J,'all126_reduced_actual_D_rows':Drows,\n        'reduced_Jacobi_row_rank':len(basis),'all_actual_D_rows_in_reduced_full350_Jacobi_rowspace':allmember,'actual_D_certificates':targetcert,\n        'seconds':time.monotonic()-start,\n        'scope':'Complete necessary abelian-conormal source for rankzero and irreducible quintic on this nonplane surface. Positive actualD membership proves this entire geometric branch empty. It does not impose this source condition on arbitrary rank2 restrictions or on plane multiplicity>=3.'}\n    print(name,'full linear',M.shape,'rank',len(piv),'source',d,'all350 rank',len(basis),'actualD membership',allmember,flush=True)\n    return answer\n\n\ndef main():\n    destination=ROOT/'reports/CLASSIFICATION_CUBIC_SCROLL_ABELIAN_CONORMAL_20261107.json'\n    if destination.exists():raise FileExistsError(destination)\n    start=time.monotonic();signal.alarm(120);resource.setrlimit(resource.RLIMIT_AS,(1536*1024**2,1536*1024**2))\n    oldpath=ROOT/'reports/CLASSIFICATION_CUBIC_SCROLL_ZERO_JACOBI_20261107.json';old=json.loads(oldpath.read_text())\n    cases=[compute(case,old)for case in old['cases']]\n    result={'task_id':'G','all_passed':True,'input_report':str(oldpath.relative_to(ROOT)),'input_sha256':hashlib.sha256(oldpath.read_bytes()).hexdigest(),\n        'producer_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'producer_bytes':Path(__file__).read_text(),'cases':cases,\n        'both_rankzero_irreducible_quintic_cubic_surface_branches_empty':all(c['all_actual_D_rows_in_reduced_full350_Jacobi_rowspace']for c in cases),\n        'seconds':time.monotonic()-start,'maximum_RSS_KiB':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss}\n    destination.write_text(json.dumps(result,indent=2,default=str)+'\\n')\n\n\ndef dimension(localized=False):\n    \"\"\"A dimension upper bound suffices; retain exact lifted leading monomials.\"\"\"\n    destination=ROOT/('reports/CLASSIFICATION_CUBIC_CONE_ABELIAN_RANK4_DIMENSION_20261107.json'if localized else'reports/CLASSIFICATION_CUBIC_SCROLL_ABELIAN_DIMENSION_20261107.json')\n    if destination.exists():raise FileExistsError(destination)\n    resource.setrlimit(resource.RLIMIT_AS,(1536*1024**2,1536*1024**2));signal.alarm(165)\n    path=ROOT/'reports/CLASSIFICATION_CUBIC_SCROLL_ABELIAN_CONORMAL_20261107.json';source=json.loads(path.read_text())\n    answer={'task_id':'G','input_report':str(path.relative_to(ROOT)),'input_sha256':hashlib.sha256(path.read_bytes()).hexdigest(),\n        'producer_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'producer_bytes':Path(__file__).read_text(),'cases':[]}\n    prefix=ROOT/'work/nonsquare-v62/singular-runtime/prefix';env_run=dict(os.environ)\n    env_run['LD_LIBRARY_PATH']='/workspace/cloud-setup/prefix/usr/lib/x86_64-linux-gnu:'+str(prefix/'usr/lib/x86_64-linux-gnu')+':'+env_run.get('LD_LIBRARY_PATH','')\n    env_run['SINGULAR_PROCS_DIR']=str(prefix/'usr/lib/x86_64-linux-gnu/singular/MOD');env_run['SINGULARPATH']='/workspace/cloud-setup/prefix/usr/share/singular/LIB'\n    for case in source['cases']:\n        if localized and case['name']!='twisted_cubic_cone_03':continue\n        start=time.monotonic();d=case['complete_abelian_conormal_source_dimension'];parameters=s.symbols('r0:'+str(d));z=(*parameters,s.Symbol('inverse'))if localized else parameters;env={str(v):v for v in z};cols=case['all_reduced_source_quadratic_monomials']\n        rows=[{int(j):Q(c)for j,c in row.items()}for row in case['all350_reduced_Jacobi_rows']];_,_,selected=sparse_rref(rows)\n        gens=[s.Poly(sum(s.Rational(c)*z[cols[j][0]]*z[cols[j][1]]for j,c in rows[i].items()),*z,domain=s.QQ).clear_denoms()[1].primitive()[1]for i in selected]\n        packet={'name':case['name'],'all_reduced_source_parameters_retained':d,'original350_row_indices':selected,'generators':[str(g.as_expr())for g in gens],\n            'target_fixed_affine_dimension':7 if case['name']=='smooth_scroll_12'else 9}\n        if localized:\n            point=[1,0,0,1,0];Dpoint=s.expand(sum(s.prod(s.Integer(a)**e for a,e in zip(point,exponent))*sum(s.Rational(c)*parameters[cols[int(j)][0]]*parameters[cols[int(j)][1]]for j,c in row.items())for exponent,row in zip(monomials(5,5),case['all126_reduced_actual_D_rows'])))\n            assert Dpoint!=0;gens.append(s.Poly(z[-1]*Dpoint-1,*z,domain=s.QQ));packet['actual_D_at_dense_orbit_point']=str(Dpoint);packet['rank4_localization_point']=point;packet['generators']=[str(g.as_expr())for g in gens]\n        script='ring R=0,('+','.join(map(str,z))+'),dp;\\nshort=0;\\nideal I='+','.join(str(g.as_expr()).replace('**','^')for g in gens)+';\\nmatrix T;ideal G=liftstd(I,T);\\n'\n        output_limit='min(size(G),200)'if localized else'size(G)'\n        script+='print(\"DIM:\"+string(dim(G)));\\nint i;int j;int count='+output_limit+';for(i=1;i<=count;i++){print(\"G:\"+string(i)+\":\"+string(G[i]));}\\n'\n        script+='for(i=1;i<=nrows(T);i++){for(j=1;j<=count;j++){if(T[i,j]!=0){print(\"L:\"+string(i)+\":\"+string(j)+\":\"+string(T[i,j]));}}}\\nquit;\\n';packet['exact_native_input']=script\n        try:\n            with tempfile.TemporaryDirectory(prefix='cubic-abelian-dim-')as temp:\n                task=Path(temp)/'source.sing';task.write_text(script)\n                run=subprocess.run([str(prefix/'usr/bin/Singular'),'-q',str(task)],env=env_run,capture_output=True,text=True,timeout=60,check=False)\n            assert run.returncode==0 and '?'not in run.stdout,run.stdout[-20000:]+run.stderr\n            G={};lifts=[];native_dim=None\n            for line in run.stdout.splitlines():\n                if line.startswith('G:'):\n                    _,j,p=line.split(':',2);G[int(j)-1]=s.Poly(s.sympify(p.replace('^','**'),locals=env),*z,domain=s.QQ)\n                elif line.startswith('L:'):\n                    _,i,j,p=line.split(':',3);lifts.append((int(i)-1,int(j)-1,s.Poly(s.sympify(p.replace('^','**'),locals=env),*z,domain=s.QQ)))\n                elif line.startswith('DIM:'):native_dim=int(line.split(':',1)[1])\n            assert G and native_dim is not None\n            sums={j:s.Poly(0,*z,domain=s.QQ)for j in G}\n            for i,j,p in lifts:sums[j]+=gens[i]*p\n            assert sums==G\n            leading=[G[j].monoms(order='grevlex')[0]for j in sorted(G)];edges=tuple(sorted(set(sum(1<<i for i,e in enumerate(mon)if e)for mon in leading)))\n            @lru_cache(None)\n            def cover(edges):\n                if not edges:return 0\n                if 0 in edges:return len(z)+1\n                edge=min(edges,key=int.bit_count)\n                return 1+min(cover(tuple(e for e in edges if not e&(1<<i)))for i in range(len(z))if edge&(1<<i))\n            height=cover(edges);bound=len(z)-height\n            if not localized:assert bound==native_dim\n            else:assert bound>=native_dim\n            groupdim=6 if case['name']=='smooth_scroll_12'else 8;imagebound=24+bound-1-groupdim\n            packet.update(status='exact_lifted_leading_dimension',all_ideal_lifts_exactly_checked=True,\n                lifted_polynomials=[str(G[j].as_expr())for j in sorted(G)],ideal_membership_lifts=[{'generator':i,'polynomial':j,'coefficient':str(p.as_expr())}for i,j,p in lifts],\n                leading_monomial_exponents=leading,leading_support_minimum_vertex_cover=height,fixed_Poisson_source_dimension_upper=bound,\n                source_preserving_group_dimension=groupdim,whole_projective_PGL_image_dimension_upper=imagebound,excludes_unknown_G25_to27=imagebound<25,native_stdout=run.stdout)\n        except subprocess.TimeoutExpired as error:\n            packet.update(status='finite60second_native_limit_no_dimension_proof',partial_stdout=str(error.stdout or '')[-20000:],partial_stderr=str(error.stderr or '')[-20000:])\n        packet['seconds']=time.monotonic()-start;answer['cases'].append(packet);destination.write_text(json.dumps(answer,indent=2)+'\\n')\n        print(case['name'],packet['status'],packet.get('fixed_Poisson_source_dimension_upper'),packet.get('whole_projective_PGL_image_dimension_upper'),packet['seconds'],flush=True)\n\n\n\ndef smooth_four_sources():\n    \"\"\"ONE full actual350/Pf126 evaluation on the complete four closed sources.\"\"\"\n    import ast\n    destination=ROOT/'reports/CLASSIFICATION_CUBIC_SCROLL_ZERO_FOUR_SOURCES_20261108.json'\n    if destination.exists():raise FileExistsError(destination)\n    begun=time.monotonic();signal.alarm(90);resource.setrlimit(resource.RLIMIT_AS,(1536*1024**2,)*2)\n    jobpath=ROOT/'research/classification/jobs/cubic_scroll_zero_four_sources.json';job=json.loads(jobpath.read_bytes())\n    for binding in job['exact_inputs_and_hashes']:\n        assert hashlib.sha256((ROOT/binding['path']).read_bytes()).hexdigest()==binding['sha256'],binding['path']\n    snapshot=json.loads((ROOT/'research/classification/inputs/cubic_scroll_four_sources_preappend_20261108.json').read_bytes())\n    functions=lambda text:{n.name:ast.dump(n,include_attributes=False)for n in ast.parse(text).body if isinstance(n,ast.FunctionDef)}\n    before=functions(snapshot['source_bytes']);after=functions(Path(__file__).read_text());assert len(before)==3 and all(after[k]==v for k,v in before.items())\n    source=json.loads((ROOT/'reports/CLASSIFICATION_CUBIC_SCROLL_ABELIAN_CONORMAL_20261107.json').read_bytes())['cases'][0]\n    quadsource=json.loads((ROOT/'reports/CLASSIFICATION_CUBIC_SCROLL_ABELIAN_DIMENSION_20261107.json').read_bytes())['cases'][0]\n    assert source['name']==quadsource['name']=='smooth_scroll_12'\n    x=s.symbols('x0:5');rvars=s.symbols('r0:12');env=dict(zip(map(str,x+rvars),x+rvars))\n    quadrics=[s.sympify(t,locals=env)for t in source['all_three_ideal_generators']]\n    B=s.Matrix([[s.Rational(c)for c in row]for row in source['complete_original30_by_reduced_source_matrix']]);assert B.shape==(30,12)\n    parameter_monomials=[tuple(c)for c in source['all_reduced_source_quadratic_monomials']]\n    target_monomials=monomials(5,5);assert len(target_monomials)==126\n    generators=[s.sympify(t,locals=env)for t in quadsource['generators']];assert len(generators)==24\n    records=[]\n    for name in ['L6','F_Segre4','U_Segre4','S_Segre4']:\n        if name=='L6':\n            pars=s.symbols('l0:6');p,a,ss,q,v,rr=pars\n            rmap=[p,a,ss,q,v,0,rr,0,0,-v,a,ss]\n        else:\n            pars=s.symbols('t0:5');a,b,c,d,e=pars\n            if name=='F_Segre4':rmap=[b*e,2*a*d,a*e,-b*d,0,a*d,0,0,0,c*d,2*a*d+c*e,2*a*e]\n            elif name=='U_Segre4':rmap=[b*e+2*a*d,0,a*e,-c*d,0,0,-b*d,c*d,a*d,0,c*e,2*a*e]\n            else:rmap=[b*e,0,0,b*d-a*c,0,0,b*c,a*c,0,a*d,-a*e,0]\n        sub=dict(zip(rvars,rmap));assert all(s.expand(g.subs(sub,simultaneous=True))==0 for g in generators)\n        original30=B*s.Matrix(rmap);P=s.zeros(5)\n        for g in range(3):\n            for k,(i,j)in enumerate(PAIRS):P[i,j]+=original30[10*g+k]*quadrics[g]\n        for i,j in PAIRS:P[i,j]=s.expand(P[i,j]);P[j,i]=-P[i,j]\n        strict={}\n        for i,j,k in combinations(range(5),3):\n            strict[i,j,k]=s.expand(sum(P[i,l]*s.diff(P[j,k],x[l])+P[j,l]*s.diff(P[k,i],x[l])+P[k,l]*s.diff(P[i,j],x[l])for l in range(5)))\n        full=[]\n        for ijkl in combinations(range(5),4):\n            full.append(s.expand(sum((-1)**k*x[ijkl[k]]*strict[ijkl[:k]+ijkl[k+1:]]for k in range(4))))\n        assert all(g==0 for g in full)\n        assert all(s.expand(sum(s.Rational(c)*rmap[parameter_monomials[int(j)][0]]*rmap[parameter_monomials[int(j)][1]]for j,c in row.items()))==0 for row in source['all350_reduced_Jacobi_rows'])\n        actual=s.expand(sum((-1)**i*x[i]*(P[a,b]*P[c,d]-P[a,c]*P[b,d]+P[a,d]*P[b,c])for i in range(5)for a,b,c,d in [[j for j in range(5)if j!=i]]))\n        from_rows=s.expand(sum(s.prod(z**power for z,power in zip(x,ex))*sum(s.Rational(c)*rmap[parameter_monomials[int(j)][0]]*rmap[parameter_monomials[int(j)][1]]for j,c in row.items())for ex,row in zip(target_monomials,source['all126_reduced_actual_D_rows'])))\n        assert actual==from_rows\n        fac=[];overall=s.Integer(0);physical_degree=0;count=0\n        if actual:\n            overall,factors=s.factor_list(actual)\n            assert s.expand(overall*s.prod(f**m for f,m in factors)-actual)==0\n            for f,m in factors:\n                degree=s.Poly(f,*x).total_degree();fac.append({'factor':str(f),'multiplicity':m,'physical_coordinate_degree':degree})\n                physical_degree+=m*degree\n                if degree:count+=m\n            assert physical_degree==5\n        proper=(actual==0 or count>=2)\n        dcoeff=s.Poly(actual,*x)\n        record={'source':name,'all_parameters':list(map(str,pars)),'full_original_r0_to_r11_map':list(map(str,rmap)),\n          'whole_rankone_matrix_factorization_including_zero':name!='L6','all24_original_generators_zero':True,\n          'complete_actual_brackets':{str((i,j)):str(P[i,j])for i,j in PAIRS},\n          'all350_original_projective_Jacobi_zero':True,'all350_saved_source_rows_zero':True,\n          'all126_actualD_original_Pfaffian_equals_saved_source_coefficients':True,\n          'actual_signed_Euler_Pfaffian':str(actual),'full126_actualD_coefficients_sparse':{','.join(map(str,ex)):str(co)for ex,co in dcoeff.terms()if co},\n          'factor_coefficient':str(overall),'full_polynomial_factors':fac,'exact_factor_product_identity':True,\n          'actualD_identically_zero':actual==0,'all_nonzero_specializations_have_proper_physical_factor':proper,\n          'target_reduced_irreducible_quintic_source_empty':proper,\n          'specialization_scope':'No source parameter inverted. A parameter-only factor zero gives D0. Every nonzero positive homogeneous physical factor retains its degree; vanishing factors give D0. Thus a full physical factor product excludes irreducibility at every parameter, including all rankzero matrices.'}\n        records.append(record)\n        print(name,'Dzero',actual==0,'physicalfactors',[(v['physical_coordinate_degree'],v['multiplicity'])for v in fac],'targetempty',proper,flush=True)\n    report={'task_id':'E_reduced_nonnormal','all_exact_checks_passed':True,'cases':records,\n      'whole_four_closed_source_cover':'Pure proof CUBIC_SCROLL_ZERO_FOUR_WHOLE_SOURCES.md; all rankone outer products cover every closed cone including matrix0, and L6 covers the full linear source.',\n      'whole_smooth_scroll_rankzero_irreducible_quintic_branch_empty':all(r['target_reduced_irreducible_quintic_source_empty']for r in records),\n      'wholepointwise_known_parent_claimed':False,'new_component_count':0,\n      'all_original_FunctionDef_AST_unchanged':True,'old_function_names':list(before),\n      'producer_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'producer_bytes':Path(__file__).read_text(),\n      'inputs':job['exact_inputs_and_hashes'],'seconds':time.monotonic()-begun,'maximum_RSS_KiB':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss}\n    with destination.open('x')as f:json.dump(report,f,ensure_ascii=False,indent=2);f.write('\\n')\n    print(json.dumps({'all_exact_checks_passed':True,'whole_target_empty':report['whole_smooth_scroll_rankzero_irreducible_quintic_branch_empty'],'seconds':report['seconds'],'maximum_RSS_KiB':report['maximum_RSS_KiB']}))\n\n\nif __name__=='__main__':\n    if '--smooth-four-sources'in sys.argv:smooth_four_sources()\n    elif '--cone-localized'in sys.argv:dimension(True)\n    elif '--dimension'in sys.argv:dimension()\n    else:main()\n",
+  "inputs": [
+    {
+      "path": "code/classification_cubic_scroll_abelian_conormal.py",
+      "sha256": "cbc257cc1faf3456f967d9307acd7c8a4aa8120500aebbaf36fb4170f7f50c6a"
+    },
+    {
+      "path": "code/classification_projected_veronese_zero_review.py",
+      "sha256": "7fbaa04524f57287df396ff5e0ebd754ad124cd9814055820c70fdd1f863e55d"
+    },
+    {
+      "path": "reports/CLASSIFICATION_CUBIC_SCROLL_ABELIAN_CONORMAL_20261107.json",
+      "sha256": "5285fed9aba2dc506579c7d56a6fa194e295ed5c31f06a21b10b5badc007d580"
+    },
+    {
+      "path": "reports/CLASSIFICATION_CUBIC_SCROLL_ABELIAN_DIMENSION_20261107.json",
+      "sha256": "dbba06f9bf04a325614e96d9a937557c2cc88ef1186824f5b6ac699e45a9ec09"
+    },
+    {
+      "path": "research/classification/CUBIC_SCROLL_ZERO_FOUR_WHOLE_SOURCES.md",
+      "sha256": "a98f90afbd4065284302e7d323203d88fd2373fea06c7690064789b735647197"
+    },
+    {
+      "path": "research/classification/inputs/cubic_scroll_four_sources_preappend_20261108.json",
+      "sha256": "bc4688e29bb4c533e2a81002d24b8c4cd62e224cc35bb6abf06623fb4e874d14"
+    },
+    {
+      "path": "research/classification/CUBIC_SCROLL_ABELIAN_CONORMAL_NONDOMINANCE.md",
+      "sha256": "f3034fa92f4d08a84e0d9df1df05332c2a929891e2082cec3424f60d7e296b6f"
+    },
+    {
+      "path": "research/classification/CUBIC_SCROLL_ABELIAN_CONORMAL_SEPARATE_REVIEW.md",
+      "sha256": "a3330b930f155a6ef796e64ca297029b5393ea9bf8d2a73d25b94964c3e30500"
+    },
+    {
+      "path": "reports/CLASSIFICATION_CUBIC_SCROLL_ABELIAN_REVIEW_20261107.json",
+      "sha256": "56b3407e5be6867878277855009f0e02657ae105b1e1fcfebf0875f08919750f"
+    }
+  ],
+  "seconds": 1.7605805269995471,
+  "maximum_RSS_KiB": 53216
+}

@@ -1,0 +1,74 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "status": "WHOLE_SOURCE_PURE_PROOF; separate root handverification received in chat; formal independent receipt to be saved by integrator",
+  "statement": "Every full accepted quadric-cone rankzero Poisson source has a homogeneous linear actual-divisor factor, or actual D=0. Hence no rank4 reduced irreducible-quintic point exists in this whole branch.",
+  "proof_note": {
+    "path": "research/classification/QUADRIC_CONE_ZERO_ACTUAL_FACTOR.md",
+    "sha256": "6d07b4d475713ecdd40cb0bb723af079e05ff39187208696c7f96a56b746c0f5",
+    "bytes": 6687
+  },
+  "accepted_full_source_and_inverse_inputs": [
+    {
+      "path": "research/classification/QUADRIC_CONE_ZERO_REVIEW.md",
+      "sha256": "79108d86f5648b5bcd7438ce91daedb2af55bd0a627af72b44d9595a90f9d5c1",
+      "bytes": 8282
+    },
+    {
+      "path": "reports/CLASSIFICATION_QUADRIC_CONE_ZERO_REVIEW_20261107.json",
+      "sha256": "38937b7cecb7330940b137fe0568a4c4fbc8f9497907067600053d7f06ff723b",
+      "bytes": 33459
+    },
+    {
+      "path": "research/classification/QUADRIC_CONE_ZERO_SOURCE.md",
+      "sha256": "cfecce8b143e6381f537da3cd81d078f2de051a6b35b54d7032c3de17bd2cc10",
+      "bytes": 5848
+    },
+    {
+      "path": "reports/CLASSIFICATION_QUADRIC_CONE_ZERO_SOURCE_20261107.json",
+      "sha256": "ba9eeec029984bc5f2d817bd5f7fc9451d4d4da169f96abafc1071ce9cc627ff",
+      "bytes": 536287
+    },
+    {
+      "path": "research/classification/QUADRIC_CONE_ORE_NONDOMINANCE.md",
+      "sha256": "6c6e7beaf199fb6de62a8b30894c8b6850d1fe7bbc89c3659aa642bd5f6e2336",
+      "bytes": 7308
+    },
+    {
+      "path": "reports/CLASSIFICATION_QUADRIC_CONE_ZERO_ORE_20261107.json",
+      "sha256": "e0a467b81710702b5a21931a9205da37a0b25ecf171cfc9addd7a347067a27ec",
+      "bytes": 155952
+    },
+    {
+      "path": "research/classification/inputs/quadric_cone_zero_packet_manifest_20261107.json",
+      "sha256": "b05213dbf5b1f1b4f62cf6c434bc8c9d3ecc3186d6b96ad561b2382962e4d7de",
+      "bytes": 1725
+    }
+  ],
+  "semisimple": {
+    "whole_source_B_T": "Bxy=-xy,Byz=-yz,Bxz=d-xz-y²;T=(-(rho+1)x,-rho*y,(1-rho)z)",
+    "full_bad_component": "g=Y_y|y0=A*x+B*z+C",
+    "full_two_Jacobi_component_equations": [
+      "(d-xz)g_z=-(rho+2)x*g",
+      "(d-xz)g_x=(rho-2)z*g"
+    ],
+    "forcing": "(rho+2)A=(rho-1)A=0;(rho+1)B=(rho-2)B=0;(rho+2)C=(rho-2)C=0 ->3A=3B=4C=0",
+    "all_scalar_values_and_zero_complements_kept": true,
+    "homogeneous_actual_factor": "u1"
+  },
+  "nilpotent": {
+    "whole_source_B_T": "Bxy=y²-p*x+d,Bxz=2yz,Byz=z(z+p);T=(k-rho*x+2y,p-rho*y+z,-rho*z)",
+    "full_bad_component": "g=Y_z|z0=A*x+B*y+C",
+    "full_single_Jacobi_component_equation": "(y²-p*x+d)g_y=(k-rho*x+4y)g",
+    "forcing": "y²,xy,y coefficients give B=4B,0=4A-rhoB,0=kB+4C ->A=B=C=0",
+    "all_rho0_p0_and_parameter_walls_kept": true,
+    "homogeneous_actual_factor": "u2"
+  },
+  "full_projective_bridge": "All bad B-row andY+vertex*T entries vanish at invariantH; full affine4Pf vanishes. Same homogeneous u1/u2 onw1 extends to global linear factor. Euler representative changes leave actualD invariant. All original normalization inverses preserve a nonzero linear factor.",
+  "lambda0_or_C0_complement": "Already accepted actual w factor; neither branch discarded.",
+  "new_computational_run": false,
+  "new_CAS_operator_minor_point_jet_or_profile": false,
+  "no_code_jobs_global_main_or_Git_modified": true,
+  "whole_target_empty": true,
+  "rank4_with_reducible_divisor_absence_claimed": false,
+  "new_component_count": 0
+}

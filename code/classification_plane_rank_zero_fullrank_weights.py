@@ -4083,9 +4083,201 @@ def double_line_m2_nil_resonance_main():
     destination.write_text(json.dumps(result,indent=2)+'\n');print('resonance',str(pvalue),'unitclosed',closed,'inconsistent',inconsistent,'remaining',len(remaining),'factor',proper,'upper',upper,flush=True)
 
 
+def triple_weak_wall_global_graphs_main():
+    """One faithful rank-four chart per entire weak-wall orbit; global T39/T40 graphs."""
+    import ast
+    from s61_model import S61,X,pushforward
+    destination=ROOT/'reports/CLASSIFICATION_PLANE_TRIPLE_WEAK_WALL_GLOBAL_GRAPHS_20261108.json'
+    if destination.exists():raise FileExistsError(destination)
+    started=time.monotonic()
+    def timeout(signum,frame):raise TimeoutError('two whole weak-orbit globalgraph evaluations budget180s')
+    signal.signal(signal.SIGALRM,timeout);signal.alarm(180);resource.setrlimit(resource.RLIMIT_AS,(1536*1024**2,)*2)
+    archive=ROOT/'research/classification/inputs/plane_triple_weak_wall_graphs_preappend_20261108.json';snapshot=json.loads(archive.read_text())
+    functions=lambda text:{n.name:ast.dump(n,include_attributes=False)for n in ast.parse(text).body if isinstance(n,(ast.FunctionDef,ast.AsyncFunctionDef))}
+    before=functions(snapshot['runner_source']);after=functions(Path(__file__).read_text());assert len(before)==50 and all(after[name]==value for name,value in before.items())
+    previous=ROOT/'reports/CLASSIFICATION_PLANE_M3_TRIPLE_VALID_ORE_MODULES_20261108.json';packet=json.loads(previous.read_text());family=next(v for v in packet['cases']if v['type']=='E1DX_1')
+    coords=s.symbols('a b c z w');a,b,c,z,w=coords;ww=s.symbols('W0:18');y=[a,b,z,w];indices=[0,1,3,4];locals_map={str(v):v for v in list(coords)+[TAU]};parse=lambda v:s.sympify(v,locals=locals_map)
+    def divisor(P):return s.expand(sum((-1)**i*coords[i]*(P[j,k]*P[l,m]-P[j,l]*P[k,m]+P[j,m]*P[k,l])for i in range(5)for j,k,l,m in [[r for r in range(5)if r!=i]]))
+    model=S61();results=[]
+    for value in[s.Rational(4,21),s.Rational(1,12)]:
+        wall=next(v for v in family['all_exceptional_fields']if s.Rational(v['alpha'])==value);P=s.zeros(5)
+        for i,j in combinations(range(4),2):P[indices[i],indices[j]]=parse(family['full_Q'][str((i,j))]).subs(TAU,value);P[indices[j],indices[i]]=-P[indices[i],indices[j]]
+        W0=s.Matrix([parse(v).subs(TAU,value)for v in family['W0']]);W=W0+s.Matrix([z*(ww[0]*a+ww[1]*b)+w*(ww[2]*a+ww[3]*b)+ww[4]*z*z+ww[5]*z*w+ww[6]*w*w,
+            z*(ww[7]*a+ww[8]*b)+w*(ww[9]*a+ww[10]*b)+ww[11]*z*z+ww[12]*z*w+ww[13]*w*w,
+            ww[14]*z*w+ww[15]*w*w,ww[16]*z*z+ww[17]*z*w])
+        W=W.subs(dict(zip(ww,map(s.Rational,wall['particular_solution']))),simultaneous=True)
+        for i in range(4):P[2,indices[i]]=W[i];P[indices[i],2]=-W[i]
+        D=divisor(P);assert s.expand(D-parse(wall['full_actual_D_particular']))==0
+        evaluation=[0,0,0,0,1];E=D.subs(dict(zip(coords,evaluation)));assert E!=0
+        original=P.subs(dict(zip(coords,X)),simultaneous=True);permutation=s.zeros(5)
+        for i,j in enumerate([4,0,1,2,3]):permutation[i,j]=1
+        moved=pushforward(original,permutation);K=moved.subs(dict(zip(X,[1,0,0,0,0])))[1:,1:];assert K[0,1]==1 and K.det()!=0
+        unit=[s.eye(4)[:,i]for i in range(4)];r0=unit[0];r1=unit[1]/K[0,1]
+        r2=unit[2]-(unit[2].T*K*r1)[0]*r0+(unit[2].T*K*r0)[0]*r1
+        r3=unit[3]-(unit[3].T*K*r1)[0]*r0+(unit[3].T*K*r0)[0]*r1;r3=r3/s.cancel((r2.T*K*r3)[0])
+        frame=s.eye(5);frame[1:,1:]=s.Matrix.vstack(*(v.T for v in[r0,r1,r2,r3]));J=s.zeros(4);J[0,1]=J[2,3]=1;J[1,0]=J[3,2]=-1
+        assert (frame[1:,1:]*K*frame[1:,1:].T-J).applyfunc(s.cancel)==s.zeros(4)
+        G=frame*permutation;GI=G.inv();assert G*GI==s.eye(5);framed=pushforward(original,G);assert (pushforward(framed,GI)-original).applyfunc(s.cancel)==s.zeros(5)
+        normalized=model.normalize(framed);verification=model.verify_point(normalized,check_equations=True);point=normalized['parameters'];us=s.symbols('u1:62');graphs={}
+        for name,path in[('T39','reports/Q51_UNIVERSAL_SECTION_20261101.json'),('T40','reports/Q52_UNIVERSAL_SECTION_20261101.json')]:
+            data=json.loads((ROOT/path).read_text());ii=data['weight2_u_indices_zero_based'];residual=[s.factor(s.cancel(point[k]-s.sympify(v).subs(dict(zip(us,point)),simultaneous=True)))for k,v in zip(ii,data['quadratic_section_q'])];assert len(residual)==45
+            graphs[name]={'in_full_global_component':all(v==0 for v in residual),'all45_graph_residuals':list(map(str,residual)),'nonzero_residuals':{str(k):str(v)for k,v in zip(ii,residual)if v!=0}}
+        total=normalized['matrix']*G;assert total.det()!=0
+        rec={'tau':str(value),'full_original_Pi':{str((i,j)):str(P[i,j])for i,j in H.PAIRS},'actual_D':str(D),'structural_rank4_point':evaluation,'actual_D_at_point':str(E),'constant_value_matrix':serial_matrix(K),'actual_permutation':serial_matrix(permutation),'Darboux_frame':serial_matrix(frame),'full_framing_matrix':serial_matrix(G),'full_inverse_framing_matrix':serial_matrix(GI),'perspective_matrix':serial_matrix(normalized['matrix']),'full_actual_PGL_matrix':serial_matrix(total),'full_inverse_actual_PGL_matrix':serial_matrix(total.inv()),'perspective':list(map(str,normalized['perspective'])),'all61_S61_parameters':list(map(str,point)),'faithful150_full134_verification':verification,'graph_membership':graphs,'whole_source_implication':'EntirecanonicalW6isoneactualPGLorbit by separatepureproof. Positiveclosedgraph giveswholefamilycontainment; negativeexcludeswholeglobalT39/T40 by acceptedconnectedSp4/Ga4evaluation-fiber theorem. Otherparents/componenthoodseparate.'}
+        results.append(rec);print('weakwall',str(value),'globalgraphs',{name:v['in_full_global_component']for name,v in graphs.items()},flush=True)
+    proofs=[ROOT/'research/classification'/name for name in['PLANE_M3_TRIPLE_WEAK_WALLS_TWO_ACTUAL_ORBITS.md','PLANE_M3_TRIPLE_WEAK_WALL_ORBIT_DIMENSIONS.md','S61_GLOBAL_COMPONENT_EVALUATION_FIBER.md','S61_GLOBAL_COMPONENT_FIBER_SEPARATE_REVIEW.md']]
+    paths=[HELPER,ROOT/'code/s61_model.py',previous,archive,ROOT/'reports/Q51_UNIVERSAL_SECTION_20261101.json',ROOT/'reports/Q52_UNIVERSAL_SECTION_20261101.json']+proofs
+    paths.extend(ROOT/'legacy/v02/data'/name for name in['symplectic_slice_certificate.json','symplectic_slice_equations.json','symplectic_slice_reduced_equations.json'])
+    result={'task_id':'E_reduced_nonnormal','all_exact_arithmetic_passed':True,'cases':results,'scope':'Exactly2 entire weak-orbit knownparent tests, one structurallyguaranteed symplecticevaluation each, all150/PGL inverse/full134 andall45graphrows. No additionalpoint/Jacobian/operator/jet/profile batch. Global T39/T40 result uses separatelyacceptedfullcomponentfiber theorem, notgenericchartguess. Otherparent/newcomponentunresolved.',
+        'compatible_extension_old_function_AST_unchanged':True,'old_function_names':sorted(before),'producer_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'producer_bytes':Path(__file__).read_text(),'input_bindings':[{'path':str(p.relative_to(ROOT)),'sha256':hashlib.sha256(p.read_bytes()).hexdigest()}for p in paths],'seconds':time.monotonic()-started,'maximum_RSS_KiB':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss}
+    destination.write_text(json.dumps(result,indent=2)+'\n')
+
+
+def triple_weak_wall_ambient_main():
+    """One fullambient matrix per alreadyproved whole actual orbit, no new anchors."""
+    import ast
+    from collections import Counter
+    from classification_three_hyperplanes_quadric_independent import ambient_matrices
+    from classification_rank3_mixed_component_review import COLUMNS,ROWS
+    destination=ROOT/'reports/CLASSIFICATION_PLANE_TRIPLE_WEAK_WALL_FULL_AMBIENT_20261108.json'
+    if destination.exists():raise FileExistsError(destination)
+    started=time.monotonic()
+    def timeout(signum,frame):raise TimeoutError('twoentireorbits fullambient exactbudget180s')
+    signal.signal(signal.SIGALRM,timeout);signal.alarm(180);resource.setrlimit(resource.RLIMIT_AS,(3072*1024**2,)*2)
+    archive=ROOT/'research/classification/inputs/plane_triple_weak_wall_ambient_preappend_20261108.json';snapshot=json.loads(archive.read_text())
+    functions=lambda text:{n.name:ast.dump(n,include_attributes=False)for n in ast.parse(text).body if isinstance(n,(ast.FunctionDef,ast.AsyncFunctionDef))}
+    before=functions(snapshot['runner_source']);after=functions(Path(__file__).read_text());assert len(before)==51 and all(after[name]==value for name,value in before.items())
+    previous=ROOT/'reports/CLASSIFICATION_PLANE_TRIPLE_WEAK_WALL_GLOBAL_GRAPHS_20261108.json';packet=json.loads(previous.read_text());x=s.symbols('a b c z w');mapping=dict(zip(map(str,x),x));weights=[3,2,0,5,4]
+    wc=[sum(weights[i]for i in ij)-sum(v*q for v,q in zip(e,weights))+3 for ij,e in COLUMNS]
+    wr=[sum(weights[i]for i in ij)-sum(v*q for v,q in zip(e,weights))+6 for ij,e in ROWS]
+    def enc(A):return {'shape':list(A.shape),'entries':{str(i)+','+str(j):str(z)for(i,j),z in A.todok().items()}}
+    records=[]
+    for case in packet['cases']:
+        P=s.zeros(5);scale=14 if case['tau']=='4/21'else 4;assert case['tau']in['4/21','1/12']
+        for key,text in case['full_original_Pi'].items():
+            i,j=ast.literal_eval(key);P[i,j]=s.expand(scale*s.sympify(text,locals=mapping));P[j,i]=-P[i,j]
+        assert all(sum(weights[i]for i in ij)-sum(v*q for v,q in zip(e,weights))+3==0 for ij in H.PAIRS for e,z in s.Poly(P[ij],*x).terms()if z)
+        D,V,M,unused=ambient_matrices(P,x,[P]);assert unused==M.row_join(M[:,-1]);assert all(wr[i]==wc[j]for(i,j),z in D.todok().items())
+        certs={};kernels={}
+        for name,A in [('full350_D',D),('Euler25',V),('Euler_GL5_scalar51',M)]:
+            cert,det,K=rank_certificate(A,variable=False);certs[name]=cert;kernels[name]=K
+        assert certs['Euler25']['rank']==24 and D*M==s.zeros(350,51)
+        kernel=kernels['full350_D'];free=[j for j in range(150)if j not in certs['full350_D']['minor_columns']]
+        assert kernel[free,:]==s.eye(len(free))
+        assert all(wc[i]==wc[free[j]]for(i,j),z in kernel.todok().items())
+        group_weights=[]
+        for j in range(51):
+            support={wc[i]for i in range(150)if M[i,j]};assert len(support)<=1;group_weights.append(next(iter(support))if support else None)
+        kcounts=Counter(wc[j]for j in free);gcounts=Counter(group_weights[j]for j in certs['Euler_GL5_scalar51']['minor_columns']);normal={str(k):kcounts[k]-gcounts[k]for k in sorted(set(kcounts)|set(gcounts))if kcounts[k]!=gcounts[k]};assert all(v>=0 for v in normal.values())
+        ranks={name:cert['rank']for name,cert in certs.items()};orbit=ranks['Euler_GL5_scalar51']-25;tangent=125-ranks['full350_D'];assert orbit==23
+        determinant=s.expand(sum((-1)**i*x[i]*(P[j,k]*P[l,m]-P[j,l]*P[k,m]+P[j,m]*P[k,l])for i in range(5)for j,k,l,m in [[r for r in range(5)if r!=i]]));assert s.expand(determinant-scale**2*s.sympify(case['actual_D'],locals=mapping))==0
+        records.append({'tau':case['tau'],'integer_scale':scale,'coordinate_order':list(map(str,x)),'complete_actual_brackets':{str((i,j)):str(P[i,j])for i,j in H.PAIRS},'actual_signed_Euler_Pfaffian':str(determinant),'ranks_QQ':ranks,'all350_Jacobi_zero':True,'all_D_times_actual51_zero':True,'complete_sparse_matrices':{name:enc(A)for name,A in [('full350_D',D),('Euler25',V),('Euler_GL5_scalar51',M)]},'certificates':certs,'full_D_kernel_free_columns':free,'full_D_kernel_sparse':enc(kernel),'kernel_all350_substitution_and_free_identity_verified':True,'actual_projective_orbit_dimension':orbit,'projective_tangent_dimension':tangent,'smooth_unique_component_proved':orbit==tangent,'canonical_orbitclosure_full_component':orbit==tangent,'normalized_actual_torus':{'coordinate_weights':weights,'tensor_scale_exponent':3,'all150_point_identity':True},'all150_tangent_weights':wc,'all350_equation_weights':wr,'all51_group_column_weights':group_weights,'kernel_weight_dimensions':dict(sorted(kcounts.items())),'group_weight_dimensions':dict(sorted(gcounts.items())),'normal_quotient_weight_dimensions':normal,'next_mathematical_branch':'D102 smooth23candidate; D101 unique49d kernel/48actualgroup, finiteWHOLEequivariantslice possibleonlyifnormalcharacter nonzero; D<=100 stoplocalrouteforactualparentgeometry.'})
+        print('weakambient',case['tau'],ranks,'orbit',orbit,'tangent',tangent,'normal',normal,flush=True)
+    paths=[HELPER,ROOT/'code/classification_three_hyperplanes_quadric_independent.py',ROOT/'code/classification_rank3_mixed_component_review.py',previous,archive,ROOT/'research/classification/PLANE_M3_TRIPLE_WEAK_WALLS_TWO_ACTUAL_ORBITS.md',ROOT/'research/classification/PLANE_M3_TRIPLE_WEAK_WALL_ORBIT_DIMENSIONS.md',ROOT/'research/classification/PLANE_TRIPLE_WEAK_WALL_GLOBAL_PARENT_EXCLUSIONS.md']
+    result={'task_id':'E_reduced_nonnormal','all_exact_arithmetic_passed':True,'cases':records,'full_original_coefficient_order':[{'pair':list(ij),'exponent':list(e)}for ij,e in COLUMNS],'full_original_equation_order':[{'quad':list(ij),'exponent':list(e)}for ij,e in ROWS],'scope':'ONE fullambientD/Euler/full51 per TWOentirealreadyprovedactualorbits, integral scale only, fullrationalkernel/nonzerominors. No alternativepoint/profile/normal/jet. Componentdistinctness or24parentrecognition separate. CompletedGjobsreadonly.','compatible_extension_old_function_AST_unchanged':True,'old_function_names':sorted(before),'producer_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'producer_bytes':Path(__file__).read_text(),'input_bindings':[{'path':str(p.relative_to(ROOT)),'sha256':hashlib.sha256(p.read_bytes()).hexdigest()}for p in paths],'seconds':time.monotonic()-started,'maximum_RSS_KiB':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss}
+    destination.write_text(json.dumps(result,indent=2)+'\n')
+
+
+def triple_y_walls_ore_main():
+    """ExactEuler/Ore/inhomogeneousP2 from the TWO existing9dim kernels only."""
+    import ast
+    destination=ROOT/'reports/CLASSIFICATION_PLANE_TRIPLE_Y_WALLS_ORE_20261108.json'
+    if destination.exists():raise FileExistsError(destination)
+    started=time.monotonic()
+    def timeout(signum,frame):raise TimeoutError('two saved9kernelwholeYsource exactOre budget180s')
+    signal.signal(signal.SIGALRM,timeout);signal.alarm(180);resource.setrlimit(resource.RLIMIT_AS,(3072*1024**2,)*2)
+    archive=ROOT/'research/classification/inputs/plane_triple_y_walls_ore_preappend_20261108.json';snapshot=json.loads(archive.read_text())
+    functions=lambda text:{n.name:ast.dump(n,include_attributes=False)for n in ast.parse(text).body if isinstance(n,(ast.FunctionDef,ast.AsyncFunctionDef))}
+    before=functions(snapshot['runner_source']);after=functions(Path(__file__).read_text());assert len(before)==52 and all(after[name]==value for name,value in before.items())
+    previous=ROOT/'reports/CLASSIFICATION_PLANE_NONREDUCED_M3_TRIPLE_CORRECTED_V2_20261108.json';packet=json.loads(previous.read_text());x=s.Matrix(s.symbols('a b c z w'));a,b,c,z,w=x;parse=lambda v:s.sympify(v,locals={str(z):z for z in[*x,TAU]});p=s.symbols('p0:9');r=s.symbols('r0:9');P1raw,src1,P2raw,src2=sources(x);ys=[0,1,3,4]
+    records=[]
+    def jac(P):return {q:s.expand(v/2)for q,v in H.projective(H.bilinear(P,P,x),x).items()}
+    def actualD(P):return s.expand(sum((-1)**i*x[i]*(P[j,k]*P[l,m]-P[j,l]*P[k,m]+P[j,m]*P[k,l])for i in range(5)for j,k,l,m in [[t for t in range(5)if t!=i]]))
+    for name,alpha in [('E1_LOG_GENERIC_Y',s.Integer(-1)),('E2_LOG_GENERIC_Y',-s.Rational(4,3))]:
+        family=next(c for c in packet['cases']if c['type']==name);wall=next(c for c in family['all_exceptional_sources']if parse(c['alpha'])==alpha);assert wall['weight1_certificate']['nullity']==9 and wall['weight2_certificate']['nullity']==0
+        K=s.Matrix([[parse(v)for v in row]for row in wall['weight1_certificate']['complete_kernel']]);B=s.Matrix([[parse(v)for v in row]for row in wall['full350_weight2_operator']]);assert K.shape==(30,9)and B.shape==(350,9)and K[2,:]==s.zeros(1,9)and K[11,:]==s.zeros(1,9)
+        P0=s.zeros(5)
+        for key,text in wall['full150_P0'].items():i,j=ast.literal_eval(key);P0[i,j]=parse(text);P0[j,i]=-P0[i,j]
+        P1=P1raw.subs(dict(zip(src1,K*s.Matrix(p))),simultaneous=True).applyfunc(s.expand);P2=P2raw.subs(dict(zip(src2,r)),simultaneous=True);raw=P0+P1+P2
+        R=s.Matrix([s.diff(raw[2,j],c)if j!=2 else 0 for j in range(5)]);assert all(s.diff(v,c)==0 for v in R)
+        ore=(raw-H.wedge(x,R)).applyfunc(s.expand);assert all(s.diff(v,c)==0 for v in ore)
+        Q=ore.extract(ys,ys);W=s.Matrix([ore[2,j]for j in ys]);yf=[x[i]for i in ys]
+        strictQ={tri:s.expand(sum(Q[i,l]*s.diff(Q[j,k],yf[l])for i,j,k in[tri,(tri[1],tri[2],tri[0]),(tri[2],tri[0],tri[1])]for l in range(4)))for tri in combinations(range(4),3)}
+        original=jac(raw);oreJ=jac(ore);assert all(s.expand(original[q]-oreJ[q])==0 for q in original)
+        for tri in combinations(range(4),3):
+            quad=tuple(sorted([2]+[ys[i]for i in tri]));coefficient=s.expand(oreJ[quad]).coeff(c)
+            sign=(-1)**quad.index(2);assert s.expand(coefficient-sign*strictQ[tri])==0
+        # The full nine P2 variables are retained up to an exact constant invertible nine-row elimination.
+        q11=[parse(v)/2 for v in H.all350(H.projective(H.bilinear(P1,P1,x),x),x)]
+        rr=wall['weight2_certificate']['minor_rows'];cc=wall['weight2_certificate']['minor_columns'];assert cc==list(range(9))
+        block=B.extract(rr,cc);det=block.det(method='domain-ge');assert det==parse(wall['weight2_certificate']['minor_determinant'])and det!=0
+        particular=(-block.inv()*s.Matrix([q11[i]for i in rr])).applyfunc(s.expand);compat=(B*particular+s.Matrix(q11)).applyfunc(s.expand)
+        replacement=dict(zip(r,particular));full=raw.subs(replacement,simultaneous=True).applyfunc(s.expand);Qf=Q.subs(replacement,simultaneous=True).applyfunc(s.expand);Wf=W.subs(replacement,simultaneous=True).applyfunc(s.expand)
+        fullJ=H.all350(jac(full),x);remaining=list(dict.fromkeys(str(s.factor(parse(v)))for v in fullJ if parse(v)!=0));D=actualD(full)
+        pf=s.factor(Qf[0,1]*Qf[2,3]-Qf[0,2]*Qf[1,3]+Qf[0,3]*Qf[1,2])
+        qstrict=[s.factor(v.subs(replacement,simultaneous=True))for v in strictQ.values()]
+        rec={'type':name,'alpha':str(alpha),'all9_P1_parameters':list(map(str,p)),'FULL9_P2_parameters':list(map(str,r)),'saved_full30by9_kernel':serial_matrix(K),'saved_P0':{str((i,j)):str(P0[i,j])for i,j in H.PAIRS},'full_P1':{str((i,j)):str(P1[i,j])for i,j in H.PAIRS},'full_P2_before_elimination':{str((i,j)):str(P2[i,j])for i,j in H.PAIRS},'actual_Euler_gauge_R':list(map(str,R)),'complete_literal_Ore_Q_before_P2_elimination':serial_matrix(Q),'complete_literal_Ore_W_before_P2_elimination':list(map(str,W)),'whole_c_independence_and_all350_Euler_identity_verified':True,'full_strict_Q_Jacobi_before_elimination':{str(tri):str(v)for tri,v in strictQ.items()},'all_strictQ_equations_are_original_c_coefficients':True,'same_existing_P2_minor_rows':rr,'same_existing_P2_minor_determinant':str(det),'full9_inhomogeneous_P2_unique_particular':list(map(str,particular)),'all350_weight2_compatibility_polynomials':list(map(str,compat)),'all350_original_Jacobi_after_elimination':fullJ,'all_distinct_original_support_polynomials':remaining,'complete_Q_after_unique_P2_elimination':serial_matrix(Qf),'complete_W_after_unique_P2_elimination':list(map(str,Wf)),'strictQ_Jacobi_after_elimination':list(map(str,qstrict)),'full_Q_Pfaffian_after_elimination':str(pf),'full_actual_D_after_elimination':str(D),'whole_support_closed':False,'scope':'Exactwhole9P1/FULL9P2 input/equivalence andoriginalsupport, no newM1/point/Jacobian/minorprofile; support recognition requires nextpureproof.'}
+        records.append(rec);print('YwholeOre',name,str(alpha),'support',remaining,'Qpf',pf,'D',s.factor(D),flush=True)
+    paths=[HELPER,previous,archive,ROOT/'research/classification/PLANE_NONREDUCED_M3_TRIPLE_CORRECTED_CONNECTIONS_V2.md',ROOT/'research/classification/PLANE_M3_FREE_CONNECTION_SIGN_ERRATUM.md',ROOT/'research/classification/PLANE_DEPENDENT_ORE_SEPARATE_REVIEW.md']
+    result={'task_id':'E_reduced_nonnormal','all_exact_arithmetic_passed':True,'cases':records,'scope':'Twoexistingdimension-onlyYwalls, full9P1andFULL9inhomogeneousP2, actualEulerwholeOre inverse/constantP2elimination/originalall350. No newM1/normal/jet/point/minorprofiles. NoEclosureclaimeduntilwholepolynomialsupport analyzed.','compatible_extension_old_function_AST_unchanged':True,'old_function_names':sorted(before),'producer_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'producer_bytes':Path(__file__).read_text(),'input_bindings':[{'path':str(v.relative_to(ROOT)),'sha256':hashlib.sha256(v.read_bytes()).hexdigest()}for v in paths],'seconds':time.monotonic()-started,'maximum_RSS_KiB':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss}
+    destination.write_text(json.dumps(result,indent=2)+'\n')
+
+
+def constant_cexact_ore_main():
+    """ONE wholethree+eightoldwalls saved-kernel Ore/inhomP2 batch; no M1 rebuild."""
+    import ast
+    destination=ROOT/'reports/CLASSIFICATION_PLANE_M3_CONSTANT_CEXACT_ORE_20261108.json'
+    if destination.exists():raise FileExistsError(destination)
+    started=time.monotonic();records=[]
+    def timeout(signum,frame):
+        partial=ROOT/'reports/CLASSIFICATION_PLANE_M3_CONSTANT_CEXACT_ORE_RUNTIME_20261108.json'
+        if not partial.exists():partial.write_text(json.dumps({'task_id':'E_reduced_nonnormal','all_exact_arithmetic_passed':False,'failure':'180second finitebudget','completed_literal_sources':records,'producer_bytes':Path(__file__).read_text(),'seconds':time.monotonic()-started},indent=2)+'\n')
+        raise TimeoutError('threewhole/eightoldwall Cexact budget180s')
+    signal.signal(signal.SIGALRM,timeout);signal.alarm(180);resource.setrlimit(resource.RLIMIT_AS,(3072*1024**2,)*2)
+    archive=ROOT/'research/classification/inputs/plane_m3_constant_cexact_ore_preappend_20261108.json';snapshot=json.loads(archive.read_text());functions=lambda text:{n.name:ast.dump(n,include_attributes=False)for n in ast.parse(text).body if isinstance(n,(ast.FunctionDef,ast.AsyncFunctionDef))}
+    before=functions(snapshot['runner_source']);after=functions(Path(__file__).read_text());assert len(before)==53 and all(after[name]==value for name,value in before.items())
+    previous=ROOT/'reports/CLASSIFICATION_PLANE_NONREDUCED_M3_CONSTANT_ROOTS_20261107.json';packet=json.loads(previous.read_text());x=s.Matrix(s.symbols('a b c z w'));a,b,c,z,w=x;ys=[0,1,3,4];yf=[x[i]for i in ys];parse=lambda v:s.sympify(v,locals={str(t):t for t in[*x,TAU]});P1raw,src1,P2raw,src2=sources(x)
+    def jac(P):return {q:s.expand(v/2)for q,v in H.projective(H.bilinear(P,P,x),x).items()}
+    def actualD(P):return s.expand(sum((-1)**i*x[i]*(P[j,k]*P[l,m]-P[j,l]*P[k,m]+P[j,m]*P[k,l])for i in range(5)for j,k,l,m in [[t for t in range(5)if t!=i]]))
+    for family in packet['cases']:
+        if 'EXACT_C'not in family['type']:continue
+        for alpha,case in [('whole',family)]+[(v['alpha'],v)for v in family['all_exceptional_roots']]:
+            K=s.Matrix([[parse(v)for v in row]for row in case['weight1_certificate']['complete_kernel']]);K2=s.Matrix([[parse(v)for v in row]for row in case['weight2_certificate']['complete_kernel']]);B=s.Matrix([[parse(v)for v in row]for row in case['full350_weight2_matrix']]);p=s.symbols('p0:'+str(K.cols));q=s.symbols('q0:'+str(K2.cols));r=s.symbols('r0:9');assert K.rows==30 and B.shape==(350,9)and K2.rows==9 and K[2,:]==s.zeros(1,K.cols)and K[11,:]==s.zeros(1,K.cols)
+            P0=s.zeros(5)
+            for key,text in family['full150_P0'].items():
+                i,j=ast.literal_eval(key);value=parse(text);P0[i,j]=value if alpha=='whole'else value.subs(TAU,parse(alpha));P0[j,i]=-P0[i,j]
+            P1=P1raw.subs(dict(zip(src1,K*s.Matrix(p))),simultaneous=True).applyfunc(s.expand);P2=P2raw.subs(dict(zip(src2,r)),simultaneous=True);raw=P0+P1+P2
+            R=s.Matrix([s.diff(raw[2,j],c)if j!=2 else 0 for j in range(5)]);assert all(s.diff(v,c)==0 for v in R);ore=(raw-H.wedge(x,R)).applyfunc(s.expand);assert all(s.diff(v,c)==0 for v in ore)
+            original=jac(raw);oreJ=jac(ore);assert all(s.expand(original[quad]-oreJ[quad])==0 for quad in original);Q=ore.extract(ys,ys);W=s.Matrix([ore[2,j]for j in ys]);strictQ={tri:s.expand(sum(Q[i,l]*s.diff(Q[j,k],yf[l])for i,j,k in[tri,(tri[1],tri[2],tri[0]),(tri[2],tri[0],tri[1])]for l in range(4)))for tri in combinations(range(4),3)}
+            for tri in combinations(range(4),3):
+                quad=tuple(sorted([2]+[ys[i]for i in tri]));assert s.expand(s.expand(oreJ[quad]).coeff(c)-(-1)**quad.index(2)*strictQ[tri])==0
+            q11=s.Matrix([parse(v)/2 for v in H.all350(H.projective(H.bilinear(P1,P1,x),x),x)]);rows=case['weight2_certificate']['minor_rows'];cols=case['weight2_certificate']['minor_columns'];block=B.extract(rows,cols);det=s.factor(block.det(method='domain-ge'));assert s.cancel(det-parse(case['weight2_certificate']['minor_determinant']))==0 and det!=0
+            part=s.zeros(9,1);solution=(-block.inv()*q11.extract(rows,[0])).applyfunc(s.cancel)
+            for j,value in zip(cols,solution):part[j]=value
+            assert B*K2==s.zeros(350,K2.cols);total=part+K2*s.Matrix(q)if q else part;compat=(B*total+q11).applyfunc(s.cancel);replacement=dict(zip(r,total));full=raw.subs(replacement,simultaneous=True).applyfunc(s.cancel);Qf=Q.subs(replacement,simultaneous=True).applyfunc(s.cancel);Wf=W.subs(replacement,simultaneous=True).applyfunc(s.cancel)
+            allJ=[str(s.factor(parse(v)))for v in H.all350(jac(full),x)];support=list(dict.fromkeys(v for v in allJ if v!='0'));D=s.factor(actualD(full));pf=s.factor(Qf[0,1]*Qf[2,3]-Qf[0,2]*Qf[1,3]+Qf[0,3]*Qf[1,2]);factors=[]
+            if alpha=='whole':
+                allowed=parse(family['all_exception_polynomial'])
+                for value in list(K)+list(K2)+list(total):
+                    denominator=s.denom(s.cancel(value))
+                    for factor,power in s.factor_list(denominator,TAU)[1]:
+                        monic=s.Poly(factor,TAU).monic().as_expr();assert s.rem(allowed,monic,TAU)==0
+                        if str(monic)not in factors:factors.append(str(monic))
+            record={'type':family['type'],'alpha':alpha,'all_P1_parameters':list(map(str,p)),'FULL9_P2_parameters_before_elimination':list(map(str,r)),'all_homogeneous_P2_parameters_retained':list(map(str,q)),'saved_complete30byK1':serial_matrix(K),'saved_complete9byK2':serial_matrix(K2),'full_P0':{str((i,j)):str(P0[i,j])for i,j in H.PAIRS},'full_P1':{str((i,j)):str(P1[i,j])for i,j in H.PAIRS},'actual_Euler_gauge_R':list(map(str,R)),'full_Q_before_P2_elimination':serial_matrix(Q),'full_W_before_P2_elimination':list(map(str,W)),'all350_Euler_identity_and_whole_c_independence_verified':True,'all_strictQ_equations_are_original_c_coefficients':True,'same_existing_M2_minor_rows':rows,'same_existing_M2_minor_columns':cols,'same_existing_M2_minor_determinant':str(det),'all9_inhomogeneous_P2_solution':list(map(str,total)),'all350_weight2_compatibility':list(map(str,compat)),'full_Q_after_P2_elimination':serial_matrix(Qf),'full_W_after_P2_elimination':list(map(str,Wf)),'all350_original_Jacobi_after_elimination':allJ,'all_distinct_original_support_polynomials':support,'strictQ_Jacobi_after_elimination':{str(tri):str(s.factor(v.subs(replacement,simultaneous=True)))for tri,v in strictQ.items()},'full_Q_Pfaffian':str(pf),'full_actual_D':str(D),'all_new_denominators_supported_on_original_exception_set':factors,'all_original_whole_exception_polynomial':family['all_exception_polynomial'],'whole_support_recognition':'Pendingpureanalysis ofexplicitfullpolynomials; no newM1/roots/ambientprofiles.'}
+            records.append(record);print('Cexact',family['type'],alpha,'P1',K.cols,'P2free',K2.cols,'support_count',len(support),'Qpf',pf,'D',D,flush=True)
+    assert len(records)==11
+    paths=[HELPER,previous,archive,ROOT/'research/classification/PLANE_NONREDUCED_M3_DOUBLE_SIMPLE_CONSTANT_ROOTS.md',ROOT/'research/classification/NONREDUCED_M3_CONSTANT_SEPARATE_REVIEW.md',ROOT/'research/classification/PLANE_DEPENDENT_ORE_SEPARATE_REVIEW.md']
+    result={'task_id':'E_reduced_nonnormal','all_exact_arithmetic_passed':True,'cases':records,'scope':'ONEfinite11batch fromexisting3wholeQQtauand8originalwallcompletekernels only; FULL9inhomP2/allhomogeneousparameters/original350. ActualEuler/Ore/fullQ/Pf/D andoriginalsupport retained. No newM1/rootgeneration/point/profile/jet. WholeErecognition pendingpureproof.','compatible_extension_old_function_AST_unchanged':True,'old_function_names':sorted(before),'producer_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'producer_bytes':Path(__file__).read_text(),'input_bindings':[{'path':str(v.relative_to(ROOT)),'sha256':hashlib.sha256(v.read_bytes()).hexdigest()}for v in paths],'seconds':time.monotonic()-started,'maximum_RSS_KiB':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss}
+    destination.write_text(json.dumps(result,indent=2)+'\n')
+
+
 if __name__=='__main__':
     try:
-        if '--double-line-m2-nil-resonance' in __import__('sys').argv:double_line_m2_nil_resonance_main()
+        if '--constant-cexact-ore' in __import__('sys').argv:constant_cexact_ore_main()
+        elif '--triple-y-walls-ore' in __import__('sys').argv:triple_y_walls_ore_main()
+        elif '--triple-weak-wall-ambient' in __import__('sys').argv:triple_weak_wall_ambient_main()
+        elif '--triple-weak-wall-global-graphs' in __import__('sys').argv:triple_weak_wall_global_graphs_main()
+        elif '--double-line-m2-nil-resonance' in __import__('sys').argv:double_line_m2_nil_resonance_main()
         elif '--m3-triple-new-fixed-factor' in __import__('sys').argv:m3_triple_new_fixed_actual_factor_main()
         elif '--m3-triple-new-fixed-support' in __import__('sys').argv:m3_triple_new_fixed_original_support_main()
         elif '--m3-triple-valid-ore-modules' in __import__('sys').argv:m3_triple_valid_ore_modules_main()
@@ -4126,7 +4318,7 @@ if __name__=='__main__':
         else:main()
     except FileExistsError:raise
     except Exception as error:
-        failure=ROOT/('reports/CLASSIFICATION_PLANE_DOUBLE_LINE_M2_NIL_RESONANCE_RUNTIME_20261108.json' if '--double-line-m2-nil-resonance' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_M3_TRIPLE_NEW_FIXED_ACTUAL_FACTOR_RUNTIME_20261108.json' if '--m3-triple-new-fixed-factor' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_M3_TRIPLE_NEW_FIXED_ORIGINAL_SUPPORT_RUNTIME_20261108.json' if '--m3-triple-new-fixed-support' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_M3_TRIPLE_VALID_ORE_MODULES_RUNTIME_20261108.json' if '--m3-triple-valid-ore-modules' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_NONREDUCED_M3_TRIPLE_VERTEX_B_RUNTIME_20261108.json' if '--nonreduced-m3-triple-vertex-b' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_NONREDUCED_M3_TRIPLE_CORRECTED_ORE_RUNTIME_20261108.json' if '--nonreduced-m3-triple-corrected-ore' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_NONREDUCED_M3_TRIPLE_CORRECTED_V2_RUNTIME_20261108.json' if '--nonreduced-m3-triple-corrected-v2' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_NONREDUCED_M3_TRIPLE_ORE_RUNTIME_20261108.json' if '--nonreduced-m3-triple-ore' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_NONREDUCED_M3_TRIPLE_RUNTIME_20261108.json' if '--nonreduced-m3-triple' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_NONREDUCED_M3_MOVING_SIMPLE_MODULES_RUNTIME_20261108.json' if '--nonreduced-m3-moving-simple-modules' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_NONREDUCED_M3_MOVING_SIMPLE_ORE_RUNTIME_20261108.json' if '--nonreduced-m3-moving-simple-ore' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_NONREDUCED_M3_MOVING_SIMPLE_RUNTIME_20261107.json' if '--nonreduced-m3-moving-simple' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_NONREDUCED_M3_MOVING_DOUBLE_ORE_RUNTIME_20261107.json' if '--nonreduced-m3-moving-double-ore' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_NONREDUCED_M3_MOVING_DOUBLE_RUNTIME_20261107.json' if '--nonreduced-m3-moving-double' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_NONREDUCED_M3_CONSTANT_MODULES_RUNTIME_20261107.json' if '--nonreduced-m3-constant-modules' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_NONREDUCED_M3_CONSTANT_ORE_RUNTIME_20261107.json' if '--nonreduced-m3-constant-ore' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_NONREDUCED_M3_CONSTANT_ROOTS_RUNTIME_20261107.json' if '--nonreduced-m3-constant-roots' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_DOUBLE_LINE_M3_ORE_RUNTIME_20261107.json' if '--double-line-m3-ore' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_DOUBLE_LINE_M3_SQUAREFREE_RUNTIME_20261107.json' if '--double-line-m3-squarefree' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_M4_NONREDUCED_SQUAREFREE_RUNTIME_20261107.json' if '--m4-nonreduced-squarefree' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_M4_TWO_LINE_CASIMIR_RUNTIME_20261107.json' if '--m4-two-line-casimir' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_NONREDUCED_TRIPLE_LINE_M3_LEADING_RUNTIME_20261107.json' if '--nonreduced-cubic-leading' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_NONREDUCED_TRIPLE_LINE_M3_SQUAREFREE_RUNTIME_20261107.json' if '--nonreduced-cubic' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_ORE_RUNTIME_20261107.json' if '--global-ore' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_DEPENDENT_RUNTIME_20261107.json' if '--global-dependent' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_COMMONIMAGE_RUNTIME_20261107.json' if '--global-commonimage' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_CARTAN_SURFACE_RUNTIME_20261107.json' if '--global-cartan-surface' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_THREEPARAMETER_RUNTIME_20261107.json' if '--global-threeparameter' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_NIL_LINE_RUNTIME_20261107.json' if '--global-nil-line' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_HYPERBOLA_RUNTIME_20261107.json' if '--global-hyperbola' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_TWOPARAMETER_RUNTIME_20261107.json' if '--global-twoparameter' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_TSQUARE_RUNTIME_20261107.json' if '--global-tsquare' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_RESIDUAL_RUNTIME_20261107.json' if '--global-residual' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_COMPATIBILITY_RUNTIME_20261107.json' if '--global-compatibility' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_ONECUT_RUNTIME_20261107.json' if '--global-onecut' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_LOWPARAMETER_WEIGHTS_RUNTIME_20261107.json' if '--global-lowparameter' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_RANK_TWO_NONKERNEL_WEIGHTS_RUNTIME_20261107.json' if '--rank2-nonkernel' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_RANK_TWO_KERNEL_WEIGHTS_RUNTIME_20261107.json' if '--rank2-kernel' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_FULLRANK_WEIGHTS_RUNTIME_20261107.json')
+        failure=ROOT/('reports/CLASSIFICATION_PLANE_M3_CONSTANT_CEXACT_ORE_RUNTIME_20261108.json' if '--constant-cexact-ore' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_TRIPLE_Y_WALLS_ORE_RUNTIME_20261108.json' if '--triple-y-walls-ore' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_TRIPLE_WEAK_WALL_FULL_AMBIENT_RUNTIME_20261108.json' if '--triple-weak-wall-ambient' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_TRIPLE_WEAK_WALL_GLOBAL_GRAPHS_RUNTIME_20261108.json' if '--triple-weak-wall-global-graphs' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_DOUBLE_LINE_M2_NIL_RESONANCE_RUNTIME_20261108.json' if '--double-line-m2-nil-resonance' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_M3_TRIPLE_NEW_FIXED_ACTUAL_FACTOR_RUNTIME_20261108.json' if '--m3-triple-new-fixed-factor' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_M3_TRIPLE_NEW_FIXED_ORIGINAL_SUPPORT_RUNTIME_20261108.json' if '--m3-triple-new-fixed-support' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_M3_TRIPLE_VALID_ORE_MODULES_RUNTIME_20261108.json' if '--m3-triple-valid-ore-modules' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_NONREDUCED_M3_TRIPLE_VERTEX_B_RUNTIME_20261108.json' if '--nonreduced-m3-triple-vertex-b' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_NONREDUCED_M3_TRIPLE_CORRECTED_ORE_RUNTIME_20261108.json' if '--nonreduced-m3-triple-corrected-ore' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_NONREDUCED_M3_TRIPLE_CORRECTED_V2_RUNTIME_20261108.json' if '--nonreduced-m3-triple-corrected-v2' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_NONREDUCED_M3_TRIPLE_ORE_RUNTIME_20261108.json' if '--nonreduced-m3-triple-ore' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_NONREDUCED_M3_TRIPLE_RUNTIME_20261108.json' if '--nonreduced-m3-triple' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_NONREDUCED_M3_MOVING_SIMPLE_MODULES_RUNTIME_20261108.json' if '--nonreduced-m3-moving-simple-modules' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_NONREDUCED_M3_MOVING_SIMPLE_ORE_RUNTIME_20261108.json' if '--nonreduced-m3-moving-simple-ore' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_NONREDUCED_M3_MOVING_SIMPLE_RUNTIME_20261107.json' if '--nonreduced-m3-moving-simple' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_NONREDUCED_M3_MOVING_DOUBLE_ORE_RUNTIME_20261107.json' if '--nonreduced-m3-moving-double-ore' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_NONREDUCED_M3_MOVING_DOUBLE_RUNTIME_20261107.json' if '--nonreduced-m3-moving-double' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_NONREDUCED_M3_CONSTANT_MODULES_RUNTIME_20261107.json' if '--nonreduced-m3-constant-modules' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_NONREDUCED_M3_CONSTANT_ORE_RUNTIME_20261107.json' if '--nonreduced-m3-constant-ore' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_NONREDUCED_M3_CONSTANT_ROOTS_RUNTIME_20261107.json' if '--nonreduced-m3-constant-roots' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_DOUBLE_LINE_M3_ORE_RUNTIME_20261107.json' if '--double-line-m3-ore' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_DOUBLE_LINE_M3_SQUAREFREE_RUNTIME_20261107.json' if '--double-line-m3-squarefree' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_M4_NONREDUCED_SQUAREFREE_RUNTIME_20261107.json' if '--m4-nonreduced-squarefree' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_M4_TWO_LINE_CASIMIR_RUNTIME_20261107.json' if '--m4-two-line-casimir' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_NONREDUCED_TRIPLE_LINE_M3_LEADING_RUNTIME_20261107.json' if '--nonreduced-cubic-leading' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_NONREDUCED_TRIPLE_LINE_M3_SQUAREFREE_RUNTIME_20261107.json' if '--nonreduced-cubic' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_ORE_RUNTIME_20261107.json' if '--global-ore' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_DEPENDENT_RUNTIME_20261107.json' if '--global-dependent' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_COMMONIMAGE_RUNTIME_20261107.json' if '--global-commonimage' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_CARTAN_SURFACE_RUNTIME_20261107.json' if '--global-cartan-surface' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_THREEPARAMETER_RUNTIME_20261107.json' if '--global-threeparameter' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_NIL_LINE_RUNTIME_20261107.json' if '--global-nil-line' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_HYPERBOLA_RUNTIME_20261107.json' if '--global-hyperbola' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_TWOPARAMETER_RUNTIME_20261107.json' if '--global-twoparameter' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_TSQUARE_RUNTIME_20261107.json' if '--global-tsquare' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_RESIDUAL_RUNTIME_20261107.json' if '--global-residual' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_COMPATIBILITY_RUNTIME_20261107.json' if '--global-compatibility' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_ONECUT_RUNTIME_20261107.json' if '--global-onecut' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_LOWPARAMETER_WEIGHTS_RUNTIME_20261107.json' if '--global-lowparameter' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_RANK_TWO_NONKERNEL_WEIGHTS_RUNTIME_20261107.json' if '--rank2-nonkernel' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_RANK_TWO_KERNEL_WEIGHTS_RUNTIME_20261107.json' if '--rank2-kernel' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_FULLRANK_WEIGHTS_RUNTIME_20261107.json')
         if not failure.exists():
             failure.write_text(json.dumps({'task_id':'G','all_passed':False,'failure':repr(error),
                 'producer_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),

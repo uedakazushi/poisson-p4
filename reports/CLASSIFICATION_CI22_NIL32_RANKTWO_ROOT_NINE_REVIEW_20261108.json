@@ -1,0 +1,97 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "status": "PASS",
+  "scope": "Independent alternate Fraction fulloriginal150/350/126 for all nine prior inverse-cover source maps after exactly required H compatibility. Cover completeness and MPS denseopen geometry are separately handread.",
+  "cases": [
+    {
+      "case": "p10_nonzero",
+      "full150_from_original12source_reconstructed": true,
+      "all350_Jacobi_zero": true,
+      "all126_actualPf_matches_decisive_factor_formula": true,
+      "full_parameter_ring": "Laurent polynomial QQ with only original chart units",
+      "physical_Pf_terms": 101
+    },
+    {
+      "case": "p10_zero_p4_nonzero",
+      "full150_from_original12source_reconstructed": true,
+      "all350_Jacobi_zero": true,
+      "all126_actualPf_matches_decisive_factor_formula": true,
+      "full_parameter_ring": "Laurent polynomial QQ with only original chart units",
+      "physical_Pf_terms": 0
+    },
+    {
+      "case": "core_line0_nonzero",
+      "full150_from_original12source_reconstructed": true,
+      "all350_Jacobi_zero": true,
+      "all126_actualPf_matches_decisive_factor_formula": true,
+      "full_parameter_ring": "Laurent polynomial QQ with only original chart units",
+      "physical_Pf_terms": 0
+    },
+    {
+      "case": "core_line1_nonzero",
+      "full150_from_original12source_reconstructed": true,
+      "all350_Jacobi_zero": true,
+      "all126_actualPf_matches_decisive_factor_formula": true,
+      "full_parameter_ring": "Laurent polynomial QQ with only original chart units",
+      "physical_Pf_terms": 0
+    },
+    {
+      "case": "core_line2_nonzero",
+      "full150_from_original12source_reconstructed": true,
+      "all350_Jacobi_zero": true,
+      "all126_actualPf_matches_decisive_factor_formula": true,
+      "full_parameter_ring": "Laurent polynomial QQ with only original chart units",
+      "physical_Pf_terms": 15
+    },
+    {
+      "case": "core_zero_f_nonzero_g_minus_f",
+      "full150_from_original12source_reconstructed": true,
+      "all350_Jacobi_zero": true,
+      "all126_actualPf_matches_decisive_factor_formula": true,
+      "full_parameter_ring": "Laurent polynomial QQ with only original chart units",
+      "physical_Pf_terms": 0
+    },
+    {
+      "case": "core_zero_f0_g_nonzero",
+      "full150_from_original12source_reconstructed": true,
+      "all350_Jacobi_zero": true,
+      "all126_actualPf_matches_decisive_factor_formula": true,
+      "full_parameter_ring": "Laurent polynomial QQ with only original chart units",
+      "physical_Pf_terms": 0
+    },
+    {
+      "case": "all_core_zero_final_factor0",
+      "full150_from_original12source_reconstructed": true,
+      "all350_Jacobi_zero": true,
+      "all126_actualPf_matches_decisive_factor_formula": true,
+      "full_parameter_ring": "Laurent polynomial QQ with only original chart units",
+      "physical_Pf_terms": 0
+    },
+    {
+      "case": "all_core_zero_final_factor1",
+      "full150_from_original12source_reconstructed": true,
+      "all350_Jacobi_zero": true,
+      "all126_actualPf_matches_decisive_factor_formula": true,
+      "full_parameter_ring": "Laurent polynomial QQ with only original chart units",
+      "physical_Pf_terms": 6
+    }
+  ],
+  "input_bindings": [
+    {
+      "path": "reports/CLASSIFICATION_NONNORMAL_CI22_TANGENT_20261107.json",
+      "sha256": "337fe8f4d62ff48a4cf70baeb1644bc877a8c39da80de5ab55e22e025f7bd75f"
+    },
+    {
+      "path": "reports/CLASSIFICATION_CI22_NIL32_RANKTWO_NINE_SUPPORT_20261108.json",
+      "sha256": "3353b3761dbc673bc1b66a5937a543af1a2dd2d9e706a96afa07a979ddc32ffe"
+    },
+    {
+      "path": "/workspace/poisson-p4/code/classification_degenerate_quadric_q4_nil31_I_review.py",
+      "sha256": "f3900a3d9a77859585118cfdd00c00ecce2c491d0705a94bf42a6c2609abe915"
+    }
+  ],
+  "inline_source": "from pathlib import Path\nimport sys,ast,json,hashlib,time,resource,signal,re,itertools\nfrom fractions import Fraction as F\nsys.path.insert(0,str(Path.cwd()/'code'));import classification_degenerate_quadric_q4_nil31_I_review as q\nstart=time.monotonic();signal.alarm(60);resource.setrlimit(resource.RLIMIT_AS,(1024**3,1024**3))\nsourcepath=Path('reports/CLASSIFICATION_NONNORMAL_CI22_TANGENT_20261107.json');newpath=Path('reports/CLASSIFICATION_CI22_NIL32_RANKTWO_NINE_SUPPORT_20261108.json')\ns=next(c for c in json.loads(sourcepath.read_text())['cases']if c['model']=='nil32');d=json.loads(newpath.read_text());checks=[]\ndef parse(t):\n def rec(n):\n  if isinstance(n,ast.Constant):return q.atom(n.value)\n  if isinstance(n,ast.Name):return q.atom(1,names[n.id])\n  if isinstance(n,ast.UnaryOp):return q.scale(rec(n.operand),-1 if isinstance(n.op,ast.USub)else 1)\n  if isinstance(n,ast.BinOp):\n   a=rec(n.left)\n   if isinstance(n.op,ast.Pow):\n    n0=ast.literal_eval(n.right)\n    if n0<0:\n     assert len(a)==1\n     e,c=next(iter(a.items()));return {tuple(n0*v for v in e):c**n0}\n    z=q.atom(1)\n    for _ in range(n0):z=q.mul(z,a)\n    return z\n   b=rec(n.right)\n   if isinstance(n.op,ast.Add):return q.add(a,b)\n   if isinstance(n.op,ast.Sub):return q.add(a,q.scale(b,-1))\n   if isinstance(n.op,ast.Mult):return q.mul(a,b)\n   if isinstance(n.op,ast.Div):\n    assert len(b)==1\n    e,c=next(iter(b.items()));return q.mul(a,{tuple(-v for v in e):1/c})\n  raise ValueError(ast.dump(n))\n return rec(ast.parse(t,mode='eval').body)\ndef Pf4(P,inds):\n a,b,c,d0=inds\n return q.add(q.mul(P[a,b],P[c,d0]),q.scale(q.mul(P[a,c],P[b,d0]),-1),q.mul(P[a,d0],P[b,c]))\nfor case in d['cases']:\n ts=list(case['full_parameter_map_after_exact_compatibility'].values())+[case['actual_quintic_factored']]\n params=sorted(set(re.findall(r'\\b[A-Za-z_]\\w*\\b',' '.join(ts)))-{'x0','x1','x2','x3','x4'})\n names=dict(zip(['x0','x1','x2','x3','x4']+params,range(5+len(params))));q.N=len(names)\n coeff=[parse(case['full_parameter_map_after_exact_compatibility']['p'+str(i)])for i in range(12)]\n P={ij:{}for ij in q.PAIRS}\n for v,basis in zip(coeff,s['all150_source_tensors']):\n  for ij in q.PAIRS:\n   spatial={tuple(e)+(0,)*(q.N-5):F(c)for e,c in basis[str(ij)]}\n   P[ij]=q.add(P[ij],q.mul(v,spatial))\n P=q.antisymmetric(P);J=q.jacobi(P);assert all(not v for v in J.values()),case['case']\n D=q.add(*(q.scale(q.mul(q.atom(1,i),Pf4(P,tuple(j for j in range(5)if j!=i))),(-1)**i)for i in range(5)))\n assert D==parse(case['actual_quintic_factored']),case['case']\n checks.append(dict(case=case['case'],full150_from_original12source_reconstructed=True,all350_Jacobi_zero=True,all126_actualPf_matches_decisive_factor_formula=True,full_parameter_ring='Laurent polynomial QQ with only original chart units',physical_Pf_terms=len(D)))\ninline=Path(__file__).read_text();out=dict(task_id='E_reduced_nonnormal',status='PASS',scope='Independent alternate Fraction fulloriginal150/350/126 for all nine prior inverse-cover source maps after exactly required H compatibility. Cover completeness and MPS denseopen geometry are separately handread.',cases=checks,input_bindings=[dict(path=str(p),sha256=hashlib.sha256(p.read_bytes()).hexdigest())for p in [sourcepath,newpath,Path(q.__file__)]],inline_source=inline,inline_source_sha256=hashlib.sha256(inline.encode()).hexdigest(),seconds=time.monotonic()-start,maximum_RSS_KiB=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss)\np=Path('reports/CLASSIFICATION_CI22_NIL32_RANKTWO_ROOT_NINE_REVIEW_20261108.json');assert not p.exists();p.write_text(json.dumps(out,indent=2)+'\\n');print(out['status'],out['seconds'],out['maximum_RSS_KiB'])\n",
+  "inline_source_sha256": "5b4476b278ab33947c5c59c7887f1f8ca3d28c38c3e8052cf4b11740598a5d0f",
+  "seconds": 0.04801527599920519,
+  "maximum_RSS_KiB": 14792
+}

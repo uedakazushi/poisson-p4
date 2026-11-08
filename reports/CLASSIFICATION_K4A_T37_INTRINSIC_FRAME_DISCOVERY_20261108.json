@@ -1,0 +1,4640 @@
+{
+  "frame": [
+    [
+      "alpha/2 + k*(R/96 - 1/3)",
+      "k",
+      "R*k/2",
+      "-alpha/4 + 2*k/3",
+      "R*k/12 + alpha"
+    ],
+    [
+      "3*k*(R/96 - 1/3)",
+      "3*k",
+      "3*R*k/2",
+      "2*k",
+      "R*k/4"
+    ],
+    [
+      "sqrt(6)*I*(-R*k/48 + k*(R/96 - 1/3))/2",
+      "sqrt(6)*I*k/2",
+      "-sqrt(6)*I*R*k/4",
+      "sqrt(6)*I*(-alpha/2 + 2*k/3)/2",
+      "sqrt(6)*I*(-R*k/12 - 2*alpha)/2"
+    ],
+    [
+      "sqrt(6)*I*k*(-R/96 - 1/3)/2",
+      "sqrt(6)*I*k/2",
+      "-sqrt(6)*I*R*k/4",
+      "sqrt(6)*I*k/3",
+      "-sqrt(6)*I*R*k/24"
+    ],
+    [
+      "9*k*(R/96 - 1/3) - omega + rho/2 + 1",
+      "9*k",
+      "9*R*k/2",
+      "6*k + omega - rho/4",
+      "3*R*k/4 + rho"
+    ]
+  ],
+  "lambda": "-sqrt(6)*I*alpha/36",
+  "variables": [
+    "alpha",
+    "k",
+    "R",
+    "rho",
+    "omega"
+  ],
+  "d_square": "-3/2",
+  "all_nonzero_projective_coefficient_rows": [
+    {
+      "triple": [
+        0,
+        1,
+        2
+      ],
+      "monomial": [
+        3,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coefficient": "-sqrt(6)*I*R*alpha*(2*R**2*k**2*omega - R**2*k**2*rho - 2*R**2*k**2 + 288*R*alpha**2*k - 64*R*alpha*k**2 + 96*R*alpha*k*omega - 48*R*alpha*k*rho - 128*R*k**2*omega + 64*R*k**2*rho - 320*R*k**2 - 18432*alpha**3 - 9216*alpha**2*k - 3072*alpha*k*omega + 1536*alpha*k*rho + 2048*k**2*omega - 1024*k**2*rho - 2048*k**2)/12288"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        2
+      ],
+      "monomial": [
+        2,
+        1,
+        0,
+        0,
+        0
+      ],
+      "coefficient": "-sqrt(6)*I*R*alpha*k*(R*alpha*k + 2*R*k*omega - R*k*rho - 4*R*k + 144*alpha**2 + 48*alpha*omega - 24*alpha*rho - 48*alpha - 64*k*omega + 32*k*rho + 32*k)/64"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        2
+      ],
+      "monomial": [
+        2,
+        0,
+        1,
+        0,
+        0
+      ],
+      "coefficient": "-sqrt(6)*I*R**2*alpha*k*(2*R*k*omega - R*k*rho - R*k + 144*alpha**2 - 32*alpha*k + 48*alpha*omega - 24*alpha*rho - 48*alpha - 64*k*omega + 32*k*rho + 128*k)/128"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        2
+      ],
+      "monomial": [
+        2,
+        0,
+        0,
+        1,
+        0
+      ],
+      "coefficient": "sqrt(6)*I*R*alpha*(4*R**2*k**2*omega - R**2*k**2*rho + 672*R*alpha**2*k - 320*R*alpha*k**2 + 288*R*alpha*k*omega - 96*R*alpha*k*rho - 96*R*alpha*k - 768*R*k**2*omega + 320*R*k**2*rho - 448*R*k**2 - 55296*alpha**3 - 52224*alpha**2*k - 21504*alpha*k*omega + 9216*alpha*k*rho + 3072*alpha*k + 20480*k**2*omega - 9216*k**2*rho - 16384*k**2)/24576"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        2
+      ],
+      "monomial": [
+        2,
+        0,
+        0,
+        0,
+        1
+      ],
+      "coefficient": "-sqrt(6)*I*R*alpha*(16*R**2*k**2*omega - 9*R**2*k**2*rho - 16*R**2*k**2 + 1632*R*alpha**2*k - 320*R*alpha*k**2 + 480*R*alpha*k*omega - 288*R*alpha*k*rho - 96*R*alpha*k - 512*R*k**2*omega + 320*R*k**2*rho - 448*R*k**2 - 55296*alpha**3 - 21504*alpha**2*k - 3072*alpha*k*omega + 3072*alpha*k*rho + 3072*alpha*k - 1024*k**2*rho)/6144"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        2
+      ],
+      "monomial": [
+        1,
+        2,
+        0,
+        0,
+        0
+      ],
+      "coefficient": "-3*sqrt(6)*I*R*alpha*k**2*(2*omega - rho)/4"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        2
+      ],
+      "monomial": [
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      "coefficient": "-3*sqrt(6)*I*R**2*alpha*k**2*(alpha + 2*omega - rho - 1)/4"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        2
+      ],
+      "monomial": [
+        1,
+        1,
+        0,
+        1,
+        0
+      ],
+      "coefficient": "sqrt(6)*I*R*alpha*k*(R*alpha*k + 4*R*k*omega - R*k*rho - 3*R*k + 240*alpha**2 + 144*alpha*omega - 48*alpha*rho - 96*alpha - 384*k*omega + 160*k*rho + 128*k)/128"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        2
+      ],
+      "monomial": [
+        1,
+        1,
+        0,
+        0,
+        1
+      ],
+      "coefficient": "-sqrt(6)*I*R*alpha*k*(5*R*alpha*k + 8*R*k*omega - 5*R*k*rho - 15*R*k + 336*alpha**2 + 48*alpha*omega - 48*alpha*rho - 96*alpha + 32*k*rho)/32"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        2
+      ],
+      "monomial": [
+        1,
+        0,
+        2,
+        0,
+        0
+      ],
+      "coefficient": "-3*sqrt(6)*I*R**3*alpha*k**2*(2*omega - rho)/16"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        2
+      ],
+      "monomial": [
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      "coefficient": "sqrt(6)*I*R**2*alpha*k*(4*R*k*omega - R*k*rho + 336*alpha**2 - 160*alpha*k + 144*alpha*omega - 48*alpha*rho - 96*alpha - 384*k*omega + 160*k*rho + 480*k)/256"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        2
+      ],
+      "monomial": [
+        1,
+        0,
+        1,
+        0,
+        1
+      ],
+      "coefficient": "-sqrt(6)*I*R**2*alpha*k*(8*R*k*omega - 5*R*k*rho - 4*R*k + 240*alpha**2 - 32*alpha*k + 48*alpha*omega - 48*alpha*rho - 96*alpha + 32*k*rho + 96*k)/64"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        2
+      ],
+      "monomial": [
+        1,
+        0,
+        0,
+        2,
+        0
+      ],
+      "coefficient": "sqrt(6)*I*R*alpha*(-24*R*alpha**2*k + 16*R*alpha*k**2 - 12*R*alpha*k*omega + 3*R*alpha*k*rho + 64*R*k**2*omega - 16*R*k**2*rho + 64*R*k**2 + 3744*alpha**3 + 4224*alpha**2*k + 2688*alpha*k*omega - 864*alpha*k*rho - 4096*k**2*omega + 1536*k**2*rho + 2560*k**2)/3072"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        2
+      ],
+      "monomial": [
+        1,
+        0,
+        0,
+        1,
+        1
+      ],
+      "coefficient": "sqrt(6)*I*R*alpha*(4*R**2*k**2*omega - R**2*k**2*rho + 408*R*alpha**2*k - 192*R*alpha*k**2 + 168*R*alpha*k*omega - 60*R*alpha*k*rho - 96*R*alpha*k - 384*R*k**2*omega + 192*R*k**2*rho + 320*R*k**2 - 12672*alpha**3 - 13056*alpha**2*k - 2304*alpha*k*omega + 1920*alpha*k*rho + 3072*alpha*k - 1024*k**2*rho)/1536"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        2
+      ],
+      "monomial": [
+        1,
+        0,
+        0,
+        0,
+        2
+      ],
+      "coefficient": "-sqrt(6)*I*R*alpha*(4*R**2*k**2*omega - 3*R**2*k**2*rho - 5*R**2*k**2 + 264*R*alpha**2*k - 32*R*alpha*k**2 + 48*R*alpha*k*omega - 54*R*alpha*k*rho + 32*R*k**2*rho - 128*R*k**2 - 7488*alpha**3 - 1536*alpha**2*k + 192*alpha*k*rho)/384"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        2
+      ],
+      "monomial": [
+        0,
+        2,
+        0,
+        1,
+        0
+      ],
+      "coefficient": "3*sqrt(6)*I*R*alpha*k**2*(4*omega - rho)/8"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        2
+      ],
+      "monomial": [
+        0,
+        2,
+        0,
+        0,
+        1
+      ],
+      "coefficient": "3*sqrt(6)*I*R*alpha*k**2*rho/2"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        2
+      ],
+      "monomial": [
+        0,
+        1,
+        1,
+        1,
+        0
+      ],
+      "coefficient": "3*sqrt(6)*I*R**2*alpha*k**2*(alpha + 4*omega - rho - 1)/8"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        2
+      ],
+      "monomial": [
+        0,
+        1,
+        1,
+        0,
+        1
+      ],
+      "coefficient": "-3*sqrt(6)*I*R**2*alpha*k**2*(alpha - rho - 1)/2"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        2
+      ],
+      "monomial": [
+        0,
+        1,
+        0,
+        2,
+        0
+      ],
+      "coefficient": "sqrt(6)*I*R*alpha*k*(-12*alpha**2 - 12*alpha*omega + 3*alpha*rho + 64*k*omega - 16*k*rho - 16*k)/32"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        2
+      ],
+      "monomial": [
+        0,
+        1,
+        0,
+        1,
+        1
+      ],
+      "coefficient": "sqrt(6)*I*R*alpha*k*(R*alpha*k + 4*R*k*omega - R*k*rho - 2*R*k + 72*alpha**2 + 24*alpha*omega - 12*alpha*rho - 48*alpha + 32*k*rho)/16"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        2
+      ],
+      "monomial": [
+        0,
+        1,
+        0,
+        0,
+        2
+      ],
+      "coefficient": "-sqrt(6)*I*R*alpha*k*(R*alpha*k - R*k*rho - 3*R*k + 48*alpha**2 - 6*alpha*rho)/4"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        2
+      ],
+      "monomial": [
+        0,
+        0,
+        2,
+        1,
+        0
+      ],
+      "coefficient": "3*sqrt(6)*I*R**3*alpha*k**2*(4*omega - rho)/32"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        2
+      ],
+      "monomial": [
+        0,
+        0,
+        2,
+        0,
+        1
+      ],
+      "coefficient": "3*sqrt(6)*I*R**3*alpha*k**2*rho/8"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        2
+      ],
+      "monomial": [
+        0,
+        0,
+        1,
+        2,
+        0
+      ],
+      "coefficient": "sqrt(6)*I*R**2*alpha*k*(-24*alpha**2 + 16*alpha*k - 12*alpha*omega + 3*alpha*rho + 64*k*omega - 16*k*rho - 48*k)/64"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        2
+      ],
+      "monomial": [
+        0,
+        0,
+        1,
+        1,
+        1
+      ],
+      "coefficient": "sqrt(6)*I*R**2*alpha*k*(4*R*k*omega - R*k*rho + 72*alpha**2 - 32*alpha*k + 24*alpha*omega - 12*alpha*rho - 48*alpha + 32*k*rho + 64*k)/32"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        2
+      ],
+      "monomial": [
+        0,
+        0,
+        1,
+        0,
+        2
+      ],
+      "coefficient": "sqrt(6)*I*R**2*alpha*k*(R*k*rho + R*k - 24*alpha**2 + 6*alpha*rho)/8"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        2
+      ],
+      "monomial": [
+        0,
+        0,
+        0,
+        3,
+        0
+      ],
+      "coefficient": "-sqrt(6)*I*R*alpha*(3*R*k**2 + 90*alpha**3 + 96*alpha**2*k + 96*alpha*k*omega - 24*alpha*k*rho + 48*alpha*k - 256*k**2*omega + 64*k**2*rho + 128*k**2)/384"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        2
+      ],
+      "monomial": [
+        0,
+        0,
+        0,
+        2,
+        1
+      ],
+      "coefficient": "sqrt(6)*I*R*alpha*(-24*R*alpha**2*k + 16*R*alpha*k**2 - 12*R*alpha*k*omega + 3*R*alpha*k*rho + 64*R*k**2*omega - 16*R*k**2*rho - 28*R*k**2 + 792*alpha**3 + 1152*alpha**2*k + 384*alpha*k*omega - 192*alpha*k*rho - 576*alpha*k + 256*k**2*rho)/384"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        2
+      ],
+      "monomial": [
+        0,
+        0,
+        0,
+        1,
+        2
+      ],
+      "coefficient": "sqrt(6)*I*R*alpha*(4*R**2*k**2*omega - R**2*k**2*rho + 144*R*alpha**2*k - 64*R*alpha*k**2 + 48*R*alpha*k*omega - 24*R*alpha*k*rho - 72*R*alpha*k + 64*R*k**2*rho + 112*R*k**2 - 3168*alpha**3 - 3072*alpha**2*k + 384*alpha*k*rho)/384"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        2
+      ],
+      "monomial": [
+        0,
+        0,
+        0,
+        0,
+        3
+      ],
+      "coefficient": "sqrt(6)*I*R*alpha*(R**2*k**2*rho + 2*R**2*k**2 - 48*R*alpha**2*k + 12*R*alpha*k*rho - 24*R*alpha*k + 48*R*k**2 + 1440*alpha**3)/96"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        3
+      ],
+      "monomial": [
+        3,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coefficient": "-sqrt(6)*I*R*alpha*(2*R**2*k**2*omega - R**2*k**2*rho - 2*R**2*k**2 + 192*R*alpha**2*k - 64*R*alpha*k**2 - 128*R*k**2*omega + 64*R*k**2*rho - 320*R*k**2 - 13824*alpha**3 - 6144*alpha**2*k + 2048*k**2*omega - 1024*k**2*rho - 2048*k**2)/12288"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        3
+      ],
+      "monomial": [
+        2,
+        1,
+        0,
+        0,
+        0
+      ],
+      "coefficient": "-sqrt(6)*I*R*alpha*k*(R*alpha*k + 2*R*k*omega - R*k*rho - 4*R*k + 96*alpha**2 - 64*k*omega + 32*k*rho + 32*k)/64"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        3
+      ],
+      "monomial": [
+        2,
+        0,
+        1,
+        0,
+        0
+      ],
+      "coefficient": "-sqrt(6)*I*R**2*alpha*k*(2*R*k*omega - R*k*rho - R*k + 96*alpha**2 - 32*alpha*k - 64*k*omega + 32*k*rho + 128*k)/128"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        3
+      ],
+      "monomial": [
+        2,
+        0,
+        0,
+        1,
+        0
+      ],
+      "coefficient": "sqrt(6)*I*R*alpha*(4*R**2*k**2*omega - R**2*k**2*rho + 480*R*alpha**2*k - 320*R*alpha*k**2 - 768*R*k**2*omega + 320*R*k**2*rho - 448*R*k**2 - 41472*alpha**3 - 33792*alpha**2*k + 20480*k**2*omega - 9216*k**2*rho - 16384*k**2)/24576"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        3
+      ],
+      "monomial": [
+        2,
+        0,
+        0,
+        0,
+        1
+      ],
+      "coefficient": "-sqrt(6)*I*R*alpha*(16*R**2*k**2*omega - 9*R**2*k**2*rho - 16*R**2*k**2 + 1056*R*alpha**2*k - 320*R*alpha*k**2 - 512*R*k**2*omega + 320*R*k**2*rho - 448*R*k**2 - 41472*alpha**3 - 15360*alpha**2*k - 1024*k**2*rho)/6144"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        3
+      ],
+      "monomial": [
+        1,
+        2,
+        0,
+        0,
+        0
+      ],
+      "coefficient": "-3*sqrt(6)*I*R*alpha*k**2*(2*omega - rho)/4"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        3
+      ],
+      "monomial": [
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      "coefficient": "-3*sqrt(6)*I*R**2*alpha*k**2*(alpha + 2*omega - rho - 1)/4"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        3
+      ],
+      "monomial": [
+        1,
+        1,
+        0,
+        1,
+        0
+      ],
+      "coefficient": "sqrt(6)*I*R*alpha*k*(R*alpha*k + 4*R*k*omega - R*k*rho - 3*R*k + 144*alpha**2 - 384*k*omega + 160*k*rho + 128*k)/128"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        3
+      ],
+      "monomial": [
+        1,
+        1,
+        0,
+        0,
+        1
+      ],
+      "coefficient": "-sqrt(6)*I*R*alpha*k*(5*R*alpha*k + 8*R*k*omega - 5*R*k*rho - 15*R*k + 240*alpha**2 + 32*k*rho)/32"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        3
+      ],
+      "monomial": [
+        1,
+        0,
+        2,
+        0,
+        0
+      ],
+      "coefficient": "-3*sqrt(6)*I*R**3*alpha*k**2*(2*omega - rho)/16"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        3
+      ],
+      "monomial": [
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      "coefficient": "sqrt(6)*I*R**2*alpha*k*(4*R*k*omega - R*k*rho + 240*alpha**2 - 160*alpha*k - 384*k*omega + 160*k*rho + 480*k)/256"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        3
+      ],
+      "monomial": [
+        1,
+        0,
+        1,
+        0,
+        1
+      ],
+      "coefficient": "-sqrt(6)*I*R**2*alpha*k*(8*R*k*omega - 5*R*k*rho - 4*R*k + 144*alpha**2 - 32*alpha*k + 32*k*rho + 96*k)/64"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        3
+      ],
+      "monomial": [
+        1,
+        0,
+        0,
+        2,
+        0
+      ],
+      "coefficient": "sqrt(6)*I*R*alpha*(-3*R*alpha**2*k + 2*R*alpha*k**2 + 8*R*k**2*omega - 2*R*k**2*rho + 8*R*k**2 + 324*alpha**3 + 336*alpha**2*k - 512*k**2*omega + 192*k**2*rho + 320*k**2)/384"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        3
+      ],
+      "monomial": [
+        1,
+        0,
+        0,
+        1,
+        1
+      ],
+      "coefficient": "sqrt(6)*I*R*alpha*(4*R**2*k**2*omega - R**2*k**2*rho + 264*R*alpha**2*k - 192*R*alpha*k**2 - 384*R*k**2*omega + 192*R*k**2*rho + 320*R*k**2 - 10368*alpha**3 - 8448*alpha**2*k - 1024*k**2*rho)/1536"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        3
+      ],
+      "monomial": [
+        1,
+        0,
+        0,
+        0,
+        2
+      ],
+      "coefficient": "-sqrt(6)*I*R*alpha*(4*R**2*k**2*omega - 3*R**2*k**2*rho - 5*R**2*k**2 + 168*R*alpha**2*k - 32*R*alpha*k**2 + 32*R*k**2*rho - 128*R*k**2 - 5184*alpha**3 - 1536*alpha**2*k)/384"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        3
+      ],
+      "monomial": [
+        0,
+        2,
+        0,
+        1,
+        0
+      ],
+      "coefficient": "3*sqrt(6)*I*R*alpha*k**2*(4*omega - rho)/8"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        3
+      ],
+      "monomial": [
+        0,
+        2,
+        0,
+        0,
+        1
+      ],
+      "coefficient": "3*sqrt(6)*I*R*alpha*k**2*rho/2"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        3
+      ],
+      "monomial": [
+        0,
+        1,
+        1,
+        1,
+        0
+      ],
+      "coefficient": "3*sqrt(6)*I*R**2*alpha*k**2*(alpha + 4*omega - rho - 1)/8"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        3
+      ],
+      "monomial": [
+        0,
+        1,
+        1,
+        0,
+        1
+      ],
+      "coefficient": "-3*sqrt(6)*I*R**2*alpha*k**2*(alpha - rho - 1)/2"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        3
+      ],
+      "monomial": [
+        0,
+        1,
+        0,
+        2,
+        0
+      ],
+      "coefficient": "sqrt(6)*I*R*alpha*k*(-3*alpha**2 + 16*k*omega - 4*k*rho - 4*k)/8"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        3
+      ],
+      "monomial": [
+        0,
+        1,
+        0,
+        1,
+        1
+      ],
+      "coefficient": "sqrt(6)*I*R*alpha*k*(R*alpha*k + 4*R*k*omega - R*k*rho - 2*R*k + 24*alpha**2 + 32*k*rho)/16"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        3
+      ],
+      "monomial": [
+        0,
+        1,
+        0,
+        0,
+        2
+      ],
+      "coefficient": "-sqrt(6)*I*R*alpha*k*(R*alpha*k - R*k*rho - 3*R*k + 48*alpha**2)/4"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        3
+      ],
+      "monomial": [
+        0,
+        0,
+        2,
+        1,
+        0
+      ],
+      "coefficient": "3*sqrt(6)*I*R**3*alpha*k**2*(4*omega - rho)/32"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        3
+      ],
+      "monomial": [
+        0,
+        0,
+        2,
+        0,
+        1
+      ],
+      "coefficient": "3*sqrt(6)*I*R**3*alpha*k**2*rho/8"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        3
+      ],
+      "monomial": [
+        0,
+        0,
+        1,
+        2,
+        0
+      ],
+      "coefficient": "sqrt(6)*I*R**2*alpha*k*(-3*alpha**2 + 2*alpha*k + 8*k*omega - 2*k*rho - 6*k)/8"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        3
+      ],
+      "monomial": [
+        0,
+        0,
+        1,
+        1,
+        1
+      ],
+      "coefficient": "sqrt(6)*I*R**2*alpha*k*(4*R*k*omega - R*k*rho + 24*alpha**2 - 32*alpha*k + 32*k*rho + 64*k)/32"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        3
+      ],
+      "monomial": [
+        0,
+        0,
+        1,
+        0,
+        2
+      ],
+      "coefficient": "sqrt(6)*I*R**2*alpha*k*(R*k*rho + R*k - 24*alpha**2)/8"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        3
+      ],
+      "monomial": [
+        0,
+        0,
+        0,
+        3,
+        0
+      ],
+      "coefficient": "-sqrt(6)*I*R*alpha*(3*R*k**2 + 54*alpha**3 + 96*alpha**2*k - 256*k**2*omega + 64*k**2*rho + 128*k**2)/384"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        3
+      ],
+      "monomial": [
+        0,
+        0,
+        0,
+        2,
+        1
+      ],
+      "coefficient": "sqrt(6)*I*R*alpha*(-6*R*alpha**2*k + 4*R*alpha*k**2 + 16*R*k**2*omega - 4*R*k**2*rho - 7*R*k**2 + 162*alpha**3 + 96*alpha**2*k + 64*k**2*rho)/96"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        3
+      ],
+      "monomial": [
+        0,
+        0,
+        0,
+        1,
+        2
+      ],
+      "coefficient": "sqrt(6)*I*R*alpha*(4*R**2*k**2*omega - R**2*k**2*rho + 48*R*alpha**2*k - 64*R*alpha*k**2 + 64*R*k**2*rho + 112*R*k**2 - 2592*alpha**3 - 3072*alpha**2*k)/384"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        3
+      ],
+      "monomial": [
+        0,
+        0,
+        0,
+        0,
+        3
+      ],
+      "coefficient": "sqrt(6)*I*R*alpha*(R**2*k**2*rho + 2*R**2*k**2 - 48*R*alpha**2*k + 48*R*k**2 + 864*alpha**3)/96"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        4
+      ],
+      "monomial": [
+        3,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coefficient": "R*alpha*k*(2*R*alpha*omega - R*alpha*rho - 2*R*alpha + 2*R*omega + 4*R + 64*alpha*omega - 32*alpha*rho - 64*alpha - 64*omega + 128)/128"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        4
+      ],
+      "monomial": [
+        2,
+        1,
+        0,
+        0,
+        0
+      ],
+      "coefficient": "-3*R*alpha*k*(2*alpha*omega - alpha*rho - 2*alpha + 2)/4"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        4
+      ],
+      "monomial": [
+        2,
+        0,
+        1,
+        0,
+        0
+      ],
+      "coefficient": "3*R**2*alpha*k*(2*alpha*omega - alpha*rho - 2*alpha + 2)/8"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        4
+      ],
+      "monomial": [
+        2,
+        0,
+        0,
+        1,
+        0
+      ],
+      "coefficient": "-R*alpha*(R*alpha*k*omega + R*alpha*k - 288*alpha**3 - 192*alpha**2*omega + 96*alpha**2*rho + 192*alpha**2 + 288*alpha*k*omega - 128*alpha*k*rho - 224*alpha*k - 128*k*omega + 128*k)/128"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        4
+      ],
+      "monomial": [
+        2,
+        0,
+        0,
+        0,
+        1
+      ],
+      "coefficient": "R*alpha*(7*R*alpha*k*omega - 4*R*alpha*k*rho - 7*R*alpha*k + 4*R*k*omega + 4*R*k + 288*alpha**3 + 192*alpha**2*omega - 96*alpha**2*rho - 192*alpha**2 - 32*alpha*k*omega + 32*alpha*k)/32"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        4
+      ],
+      "monomial": [
+        1,
+        1,
+        0,
+        1,
+        0
+      ],
+      "coefficient": "3*R*alpha*k*(5*alpha*omega - 2*alpha*rho - 3*alpha + omega + 3)/4"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        4
+      ],
+      "monomial": [
+        1,
+        1,
+        0,
+        0,
+        1
+      ],
+      "coefficient": "3*R*alpha*k*(alpha - 1)*(omega - 1)"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        4
+      ],
+      "monomial": [
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      "coefficient": "-3*R**2*alpha*k*(alpha - 1)*(omega + 1)/8"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        4
+      ],
+      "monomial": [
+        1,
+        0,
+        1,
+        0,
+        1
+      ],
+      "coefficient": "3*R**2*alpha*k*(3*alpha*omega - 2*alpha*rho - 3*alpha - omega + 3)/2"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        4
+      ],
+      "monomial": [
+        1,
+        0,
+        0,
+        2,
+        0
+      ],
+      "coefficient": "-R*alpha*(4*R*alpha*k*omega - R*alpha*k*rho + 1152*alpha**3 + 1152*alpha**2*omega - 384*alpha**2*rho - 384*alpha**2 - 1664*alpha*k*omega + 608*alpha*k*rho + 768*alpha*k + 256*k*omega + 256*k)/512"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        4
+      ],
+      "monomial": [
+        1,
+        0,
+        0,
+        1,
+        1
+      ],
+      "coefficient": "-R*alpha*(10*R*alpha*k*omega - R*alpha*k*rho + 4*R*alpha*k - 4*R*k*omega - 8*R*k + 384*alpha**2*omega - 192*alpha*k*omega - 32*alpha*k*rho + 128*alpha*k + 128*k*omega - 256*k)/64"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        4
+      ],
+      "monomial": [
+        1,
+        0,
+        0,
+        0,
+        2
+      ],
+      "coefficient": "R*alpha*(24*R*alpha*k*omega - 19*R*alpha*k*rho - 24*R*alpha*k + 8*R*k*omega - 8*R*k + 1152*alpha**3 + 384*alpha**2*omega - 384*alpha**2*rho - 384*alpha**2 + 32*alpha*k*rho)/32"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        4
+      ],
+      "monomial": [
+        0,
+        1,
+        0,
+        2,
+        0
+      ],
+      "coefficient": "-9*R*alpha**2*k*(4*omega - rho)/16"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        4
+      ],
+      "monomial": [
+        0,
+        1,
+        0,
+        1,
+        1
+      ],
+      "coefficient": "-3*R*alpha*k*(2*alpha*omega + alpha*rho - 4*omega)/2"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        4
+      ],
+      "monomial": [
+        0,
+        1,
+        0,
+        0,
+        2
+      ],
+      "coefficient": "-3*R*alpha**2*k*rho"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        4
+      ],
+      "monomial": [
+        0,
+        0,
+        1,
+        2,
+        0
+      ],
+      "coefficient": "-3*R**2*alpha**2*k*(4*omega - rho)/32"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        4
+      ],
+      "monomial": [
+        0,
+        0,
+        1,
+        1,
+        1
+      ],
+      "coefficient": "-3*R**2*alpha*k*(6*alpha*omega - alpha*rho - 4*omega)/4"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        4
+      ],
+      "monomial": [
+        0,
+        0,
+        1,
+        0,
+        2
+      ],
+      "coefficient": "-9*R**2*alpha**2*k*rho/2"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        4
+      ],
+      "monomial": [
+        0,
+        0,
+        0,
+        3,
+        0
+      ],
+      "coefficient": "-R*alpha*(-9*alpha**3 - 12*alpha**2*omega + 3*alpha**2*rho + 24*alpha*k*omega - 6*alpha*k*rho - 4*k*omega - 12*k)/16"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        4
+      ],
+      "monomial": [
+        0,
+        0,
+        0,
+        2,
+        1
+      ],
+      "coefficient": "-R*alpha*(4*R*alpha*k*omega - R*alpha*k*rho + 144*alpha**3 - 48*alpha**2*rho + 128*alpha*k*omega + 64*alpha*k*rho - 192*k*omega + 192*k)/64"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        4
+      ],
+      "monomial": [
+        0,
+        0,
+        0,
+        1,
+        2
+      ],
+      "coefficient": "-R*alpha*(6*R*alpha*k*omega - R*alpha*k*rho - 3*R*k*omega - 3*R*k + 72*alpha**3 + 96*alpha**2*omega - 24*alpha**2*rho + 16*alpha*k*rho)/8"
+    },
+    {
+      "triple": [
+        0,
+        1,
+        4
+      ],
+      "monomial": [
+        0,
+        0,
+        0,
+        0,
+        3
+      ],
+      "coefficient": "-R*alpha*(3*R*alpha*k*rho - 2*R*k*omega + 6*R*k - 144*alpha**3 + 48*alpha**2*rho)/4"
+    },
+    {
+      "triple": [
+        0,
+        2,
+        3
+      ],
+      "monomial": [
+        3,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coefficient": "-R*alpha*k*(R + 32)*(2*R*k*omega - R*k*rho - 2*R*k - 96*alpha**2 + 48*alpha*omega - 24*alpha*rho - 96*alpha - 64*k*omega + 32*k*rho + 64*k)/6144"
+    },
+    {
+      "triple": [
+        0,
+        2,
+        3
+      ],
+      "monomial": [
+        2,
+        1,
+        0,
+        0,
+        0
+      ],
+      "coefficient": "R*alpha*k*(R*k - 24*alpha**2 + 12*alpha*omega - 6*alpha*rho + 12*alpha - 32*k*omega + 16*k*rho + 16*k)/16"
+    },
+    {
+      "triple": [
+        0,
+        2,
+        3
+      ],
+      "monomial": [
+        2,
+        0,
+        1,
+        0,
+        0
+      ],
+      "coefficient": "-R**2*alpha*k*(2*R*k*omega - R*k*rho - R*k - 48*alpha**2 + 24*alpha*omega - 12*alpha*rho + 24*alpha - 64*k)/64"
+    },
+    {
+      "triple": [
+        0,
+        2,
+        3
+      ],
+      "monomial": [
+        2,
+        0,
+        0,
+        1,
+        0
+      ],
+      "coefficient": "R*alpha*(4*R**2*k**2*omega - R**2*k**2*rho - 384*R*alpha**2*k - 64*R*alpha*k**2 + 48*R*alpha*k*omega + 48*R*alpha*k - 448*R*k**2 - 32256*alpha**3 - 12288*alpha**2*k + 13824*alpha*k*omega - 6144*alpha*k*rho - 16896*alpha*k - 20480*k**2*omega + 9216*k**2*rho + 16384*k**2)/12288"
+    },
+    {
+      "triple": [
+        0,
+        2,
+        3
+      ],
+      "monomial": [
+        2,
+        0,
+        0,
+        0,
+        1
+      ],
+      "coefficient": "-R*alpha*(16*R**2*k**2*omega - 9*R**2*k**2*rho - 16*R**2*k**2 - 384*R*alpha**2*k + 64*R*alpha*k**2 + 336*R*alpha*k*omega - 192*R*alpha*k*rho - 528*R*alpha*k + 448*R*k**2 + 32256*alpha**3 - 12288*alpha**2*k - 1536*alpha*k*omega + 1536*alpha*k + 1024*k**2*rho)/3072"
+    },
+    {
+      "triple": [
+        0,
+        2,
+        3
+      ],
+      "monomial": [
+        1,
+        2,
+        0,
+        0,
+        0
+      ],
+      "coefficient": "3*R*alpha*k**2*(2*omega - rho)/2"
+    },
+    {
+      "triple": [
+        0,
+        2,
+        3
+      ],
+      "monomial": [
+        1,
+        1,
+        0,
+        1,
+        0
+      ],
+      "coefficient": "R*alpha*k*(R*alpha*k - 3*R*k - 120*alpha*omega + 48*alpha*rho - 48*alpha + 384*k*omega - 160*k*rho - 128*k)/64"
+    },
+    {
+      "triple": [
+        0,
+        2,
+        3
+      ],
+      "monomial": [
+        1,
+        1,
+        0,
+        0,
+        1
+      ],
+      "coefficient": "R*alpha*k*(R*alpha*k + 5*R*k - 192*alpha**2 - 24*alpha*omega + 48*alpha + 32*k*rho)/16"
+    },
+    {
+      "triple": [
+        0,
+        2,
+        3
+      ],
+      "monomial": [
+        1,
+        0,
+        2,
+        0,
+        0
+      ],
+      "coefficient": "-3*R**3*alpha*k**2*(2*omega - rho)/8"
+    },
+    {
+      "triple": [
+        0,
+        2,
+        3
+      ],
+      "monomial": [
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      "coefficient": "R**2*alpha*k*(4*R*k*omega - R*k*rho - 192*alpha**2 - 32*alpha*k + 24*alpha*omega + 48*alpha - 160*k)/128"
+    },
+    {
+      "triple": [
+        0,
+        2,
+        3
+      ],
+      "monomial": [
+        1,
+        0,
+        1,
+        0,
+        1
+      ],
+      "coefficient": "-R**2*alpha*k*(8*R*k*omega - 5*R*k*rho - 4*R*k + 32*alpha*k + 72*alpha*omega - 48*alpha*rho + 48*alpha - 96*k)/32"
+    },
+    {
+      "triple": [
+        0,
+        2,
+        3
+      ],
+      "monomial": [
+        1,
+        0,
+        0,
+        2,
+        0
+      ],
+      "coefficient": "R*alpha*(24*R*alpha**2*k + 32*R*alpha*k**2 + 12*R*alpha*k*omega - 3*R*alpha*k*rho + 128*R*k**2 + 8064*alpha**3 - 768*alpha**2*k - 4992*alpha*k*omega + 1824*alpha*k*rho + 4608*alpha*k + 8192*k**2*omega - 3072*k**2*rho - 5120*k**2)/3072"
+    },
+    {
+      "triple": [
+        0,
+        2,
+        3
+      ],
+      "monomial": [
+        1,
+        0,
+        0,
+        1,
+        1
+      ],
+      "coefficient": "R*alpha*k*(4*R**2*k*omega - R**2*k*rho - 240*R*alpha**2 + 60*R*alpha*omega - 6*R*alpha*rho + 48*R*alpha - 7680*alpha**2 - 1152*alpha*omega - 192*alpha*rho + 1536*alpha + 1024*k*rho)/768"
+    },
+    {
+      "triple": [
+        0,
+        2,
+        3
+      ],
+      "monomial": [
+        1,
+        0,
+        0,
+        0,
+        2
+      ],
+      "coefficient": "-R*alpha*(4*R**2*k**2*omega - 3*R**2*k**2*rho - 5*R**2*k**2 + 24*R*alpha**2*k + 32*R*alpha*k**2 + 72*R*alpha*k*omega - 57*R*alpha*k*rho - 144*R*alpha*k + 128*R*k**2 + 8064*alpha**3 - 768*alpha**2*k + 96*alpha*k*rho)/192"
+    },
+    {
+      "triple": [
+        0,
+        2,
+        3
+      ],
+      "monomial": [
+        0,
+        2,
+        0,
+        1,
+        0
+      ],
+      "coefficient": "-3*R*alpha*k**2*(4*omega - rho)/4"
+    },
+    {
+      "triple": [
+        0,
+        2,
+        3
+      ],
+      "monomial": [
+        0,
+        2,
+        0,
+        0,
+        1
+      ],
+      "coefficient": "-3*R*alpha*k**2*rho"
+    },
+    {
+      "triple": [
+        0,
+        2,
+        3
+      ],
+      "monomial": [
+        0,
+        1,
+        1,
+        1,
+        0
+      ],
+      "coefficient": "3*R**2*alpha*k**2*(alpha - 1)/4"
+    },
+    {
+      "triple": [
+        0,
+        2,
+        3
+      ],
+      "monomial": [
+        0,
+        1,
+        1,
+        0,
+        1
+      ],
+      "coefficient": "3*R**2*alpha*k**2*(alpha - 1)"
+    },
+    {
+      "triple": [
+        0,
+        2,
+        3
+      ],
+      "monomial": [
+        0,
+        1,
+        0,
+        2,
+        0
+      ],
+      "coefficient": "-R*alpha*k*(-24*alpha**2 - 36*alpha*omega + 9*alpha*rho + 128*k*omega - 32*k*rho - 32*k)/32"
+    },
+    {
+      "triple": [
+        0,
+        2,
+        3
+      ],
+      "monomial": [
+        0,
+        1,
+        0,
+        1,
+        1
+      ],
+      "coefficient": "R*alpha*k*(R*alpha*k - 2*R*k + 48*alpha**2 + 12*alpha*omega + 6*alpha*rho - 24*alpha - 32*k*rho)/8"
+    },
+    {
+      "triple": [
+        0,
+        2,
+        3
+      ],
+      "monomial": [
+        0,
+        1,
+        0,
+        0,
+        2
+      ],
+      "coefficient": "R*alpha**2*k*(R*k - 24*alpha + 3*rho)/2"
+    },
+    {
+      "triple": [
+        0,
+        2,
+        3
+      ],
+      "monomial": [
+        0,
+        0,
+        2,
+        1,
+        0
+      ],
+      "coefficient": "3*R**3*alpha*k**2*(4*omega - rho)/16"
+    },
+    {
+      "triple": [
+        0,
+        2,
+        3
+      ],
+      "monomial": [
+        0,
+        0,
+        2,
+        0,
+        1
+      ],
+      "coefficient": "3*R**3*alpha*k**2*rho/4"
+    },
+    {
+      "triple": [
+        0,
+        2,
+        3
+      ],
+      "monomial": [
+        0,
+        0,
+        1,
+        2,
+        0
+      ],
+      "coefficient": "R**2*alpha**2*k*(24*alpha + 32*k + 12*omega - 3*rho)/64"
+    },
+    {
+      "triple": [
+        0,
+        2,
+        3
+      ],
+      "monomial": [
+        0,
+        0,
+        1,
+        1,
+        1
+      ],
+      "coefficient": "R**2*alpha*k*(4*R*k*omega - R*k*rho - 48*alpha**2 + 32*alpha*k + 36*alpha*omega - 6*alpha*rho + 24*alpha - 64*k)/16"
+    },
+    {
+      "triple": [
+        0,
+        2,
+        3
+      ],
+      "monomial": [
+        0,
+        0,
+        1,
+        0,
+        2
+      ],
+      "coefficient": "R**2*alpha*k*(R*k*rho + R*k - 24*alpha**2 + 9*alpha*rho)/4"
+    },
+    {
+      "triple": [
+        0,
+        2,
+        3
+      ],
+      "monomial": [
+        0,
+        0,
+        0,
+        3,
+        0
+      ],
+      "coefficient": "-R*alpha*(3*R*k**2 + 144*alpha**3 - 96*alpha**2*k - 144*alpha*k*omega + 36*alpha*k*rho + 120*alpha*k + 256*k**2*omega - 64*k**2*rho - 128*k**2)/192"
+    },
+    {
+      "triple": [
+        0,
+        2,
+        3
+      ],
+      "monomial": [
+        0,
+        0,
+        0,
+        2,
+        1
+      ],
+      "coefficient": "R*alpha*(24*R*alpha**2*k + 32*R*alpha*k**2 + 12*R*alpha*k*omega - 3*R*alpha*k*rho - 8*R*k**2 + 576*alpha**3 + 1536*alpha**2*k + 384*alpha*k*omega + 192*alpha*k*rho - 576*alpha*k - 512*k**2*rho)/384"
+    },
+    {
+      "triple": [
+        0,
+        2,
+        3
+      ],
+      "monomial": [
+        0,
+        0,
+        0,
+        1,
+        2
+      ],
+      "coefficient": "R*alpha*(4*R**2*k**2*omega - R**2*k**2*rho - 96*R*alpha**2*k + 64*R*alpha*k**2 + 72*R*alpha*k*omega - 12*R*alpha*k*rho + 36*R*alpha*k - 16*R*k**2 + 1152*alpha**3 - 1536*alpha**2*k + 192*alpha*k*rho)/192"
+    },
+    {
+      "triple": [
+        0,
+        2,
+        3
+      ],
+      "monomial": [
+        0,
+        0,
+        0,
+        0,
+        3
+      ],
+      "coefficient": "R*alpha*(R**2*k**2*rho + 2*R**2*k**2 - 48*R*alpha**2*k + 18*R*alpha*k*rho + 60*R*alpha*k - 48*R*k**2 - 2304*alpha**3)/48"
+    },
+    {
+      "triple": [
+        0,
+        2,
+        4
+      ],
+      "monomial": [
+        3,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coefficient": "sqrt(6)*I*R*(18*R**2*alpha*k**2*omega - 9*R**2*alpha*k**2*rho - 18*R**2*alpha*k**2 + 2304*R*alpha**3*k - 576*R*alpha**2*k**2 + 960*R*alpha**2*k*omega - 480*R*alpha**2*k*rho - 96*R*alpha**2*k - 1024*R*alpha*k**2*omega + 512*R*alpha*k**2*rho - 3008*R*alpha*k**2 + 384*R*alpha*k*omega**2 - 384*R*alpha*k*omega*rho - 672*R*alpha*k*omega + 96*R*alpha*k*rho**2 + 288*R*alpha*k*rho - 192*R*alpha*k - 896*R*k**2*omega + 448*R*k**2*rho + 1408*R*k**2 - 179712*alpha**4 - 73728*alpha**3*k - 55296*alpha**3*omega + 27648*alpha**3*rho + 55296*alpha**3 - 30720*alpha**2*k*omega + 15360*alpha**2*k*rho + 3072*alpha**2*k + 18432*alpha**2*omega**2 - 18432*alpha**2*omega*rho - 36864*alpha**2*omega + 4608*alpha**2*rho**2 + 18432*alpha**2*rho + 9216*alpha**2 + 18432*alpha*k**2*omega - 9216*alpha*k**2*rho - 18432*alpha*k**2 - 12288*alpha*k*omega**2 + 12288*alpha*k*omega*rho + 15360*alpha*k*omega - 3072*alpha*k*rho**2 - 9216*alpha*k*rho + 6144*alpha*k)/36864"
+    },
+    {
+      "triple": [
+        0,
+        2,
+        4
+      ],
+      "monomial": [
+        2,
+        1,
+        0,
+        0,
+        0
+      ],
+      "coefficient": "sqrt(6)*I*R*k*(9*R*alpha**2*k + 16*R*alpha*k*omega - 8*R*alpha*k*rho - 34*R*alpha*k - 8*R*k*omega + 2*R*k*rho + 1152*alpha**3 + 480*alpha**2*omega - 240*alpha**2*rho - 480*alpha**2 - 576*alpha*k*omega + 288*alpha*k*rho + 288*alpha*k + 192*alpha*omega**2 - 192*alpha*omega*rho - 480*alpha*omega + 48*alpha*rho**2 + 192*alpha*rho + 144*alpha + 32*k*rho)/192"
+    },
+    {
+      "triple": [
+        0,
+        2,
+        4
+      ],
+      "monomial": [
+        2,
+        0,
+        1,
+        0,
+        0
+      ],
+      "coefficient": "sqrt(6)*I*R**2*k*(18*R*alpha*k*omega - 9*R*alpha*k*rho - 9*R*alpha*k + 4*R*k*omega - R*k*rho + 1152*alpha**3 - 288*alpha**2*k + 480*alpha**2*omega - 240*alpha**2*rho - 480*alpha**2 - 512*alpha*k*omega + 256*alpha*k*rho + 1088*alpha*k + 192*alpha*omega**2 - 192*alpha*omega*rho - 288*alpha*omega + 48*alpha*rho**2 + 192*alpha*rho + 144*alpha - 64*k*rho)/384"
+    },
+    {
+      "triple": [
+        0,
+        2,
+        4
+      ],
+      "monomial": [
+        2,
+        0,
+        0,
+        1,
+        0
+      ],
+      "coefficient": "-sqrt(6)*I*R*(36*R**2*alpha*k**2*omega - 9*R**2*alpha*k**2*rho + 4896*R*alpha**3*k - 2880*R*alpha**2*k**2 + 2688*R*alpha**2*k*omega - 864*R*alpha**2*k*rho - 768*R*alpha**2*k - 6144*R*alpha*k**2*omega + 2560*R*alpha*k**2*rho - 4544*R*alpha*k**2 + 1536*R*alpha*k*omega**2 - 1152*R*alpha*k*omega*rho - 1536*R*alpha*k*omega + 192*R*alpha*k*rho**2 + 384*R*alpha*k*rho - 2816*R*k**2*omega + 960*R*k**2*rho + 2048*R*k**2 - 539136*alpha**4 - 433152*alpha**3*k - 221184*alpha**3*omega + 82944*alpha**3*rho + 110592*alpha**3 - 221184*alpha**2*k*omega + 95232*alpha**2*k*rho + 49152*alpha**2*k + 92160*alpha**2*omega**2 - 73728*alpha**2*omega*rho - 110592*alpha**2*omega + 13824*alpha**2*rho**2 + 36864*alpha**2*rho + 18432*alpha**2 + 184320*alpha*k**2*omega - 82944*alpha*k**2*rho - 147456*alpha*k**2 - 98304*alpha*k*omega**2 + 86016*alpha*k*omega*rho + 110592*alpha*k*omega - 18432*alpha*k*rho**2 - 49152*alpha*k*rho - 12288*alpha*k)/73728"
+    },
+    {
+      "triple": [
+        0,
+        2,
+        4
+      ],
+      "monomial": [
+        2,
+        0,
+        0,
+        0,
+        1
+      ],
+      "coefficient": "sqrt(6)*I*R*(144*R**2*alpha*k**2*omega - 81*R**2*alpha*k**2*rho - 144*R**2*alpha*k**2 + 13536*R*alpha**3*k - 2880*R*alpha**2*k**2 + 4992*R*alpha**2*k*omega - 2976*R*alpha**2*k*rho - 1536*R*alpha**2*k - 4096*R*alpha*k**2*omega + 2560*R*alpha*k**2*rho - 4544*R*alpha*k**2 + 1536*R*alpha*k*omega**2 - 1920*R*alpha*k*omega*rho - 2688*R*alpha*k*omega + 576*R*alpha*k*rho**2 + 1536*R*alpha*k*rho + 384*R*alpha*k - 1024*R*k**2*omega + 960*R*k**2*rho + 2048*R*k**2 - 539136*alpha**4 - 156672*alpha**3*k - 110592*alpha**3*omega + 82944*alpha**3*rho + 110592*alpha**3 - 24576*alpha**2*k*omega + 27648*alpha**2*k*rho + 24576*alpha**2*k + 18432*alpha**2*omega**2 - 36864*alpha**2*omega*rho - 36864*alpha**2*omega + 13824*alpha**2*rho**2 + 36864*alpha**2*rho + 18432*alpha**2 - 9216*alpha*k**2*rho + 12288*alpha*k*omega*rho - 6144*alpha*k*rho**2 - 12288*alpha*k*rho)/18432"
+    },
+    {
+      "triple": [
+        0,
+        2,
+        4
+      ],
+      "monomial": [
+        1,
+        2,
+        0,
+        0,
+        0
+      ],
+      "coefficient": "sqrt(6)*I*R*k**2*(18*alpha*omega - 9*alpha*rho - 2*rho)/4"
+    },
+    {
+      "triple": [
+        0,
+        2,
+        4
+      ],
+      "monomial": [
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      "coefficient": "sqrt(6)*I*R**2*k**2*(9*alpha**2 + 16*alpha*omega - 8*alpha*rho - 7*alpha + 2*omega - rho - 2)/4"
+    },
+    {
+      "triple": [
+        0,
+        2,
+        4
+      ],
+      "monomial": [
+        1,
+        1,
+        0,
+        1,
+        0
+      ],
+      "coefficient": "-sqrt(6)*I*R*k*(9*R*alpha**2*k + 32*R*alpha*k*omega - 8*R*alpha*k*rho - 27*R*alpha*k - 12*R*k*omega + 3*R*k*rho + 2160*alpha**3 + 1536*alpha**2*omega - 528*alpha**2*rho - 1008*alpha**2 - 3456*alpha*k*omega + 1440*alpha*k*rho + 1152*alpha*k + 768*alpha*omega**2 - 576*alpha*omega*rho - 1104*alpha*omega + 96*alpha*rho**2 + 240*alpha*rho + 144*alpha + 128*k*rho)/384"
+    },
+    {
+      "triple": [
+        0,
+        2,
+        4
+      ],
+      "monomial": [
+        1,
+        1,
+        0,
+        0,
+        1
+      ],
+      "coefficient": "sqrt(6)*I*R*k*(45*R*alpha**2*k + 64*R*alpha*k*omega - 40*R*alpha*k*rho - 127*R*alpha*k - 24*R*k*omega + 7*R*k*rho + 8*R*k + 2448*alpha**3 + 384*alpha**2*omega - 432*alpha**2*rho - 816*alpha**2 + 288*alpha*k*rho - 192*alpha*omega*rho - 144*alpha*omega + 96*alpha*rho**2 + 240*alpha*rho + 144*alpha)/96"
+    },
+    {
+      "triple": [
+        0,
+        2,
+        4
+      ],
+      "monomial": [
+        1,
+        0,
+        2,
+        0,
+        0
+      ],
+      "coefficient": "sqrt(6)*I*R**3*k**2*(18*alpha*omega - 9*alpha*rho + 8*omega - 2*rho)/16"
+    },
+    {
+      "triple": [
+        0,
+        2,
+        4
+      ],
+      "monomial": [
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      "coefficient": "-sqrt(6)*I*R**2*k*(36*R*alpha*k*omega - 9*R*alpha*k*rho + 2448*alpha**3 - 1440*alpha**2*k + 1344*alpha**2*omega - 432*alpha**2*rho - 816*alpha**2 - 3072*alpha*k*omega + 1280*alpha*k*rho + 4064*alpha*k + 768*alpha*omega**2 - 576*alpha*omega*rho - 816*alpha*omega + 96*alpha*rho**2 + 240*alpha*rho + 144*alpha + 128*k*omega - 224*k*rho - 256*k)/768"
+    },
+    {
+      "triple": [
+        0,
+        2,
+        4
+      ],
+      "monomial": [
+        1,
+        0,
+        1,
+        0,
+        1
+      ],
+      "coefficient": "sqrt(6)*I*R**2*k*(72*R*alpha*k*omega - 45*R*alpha*k*rho - 36*R*alpha*k + 16*R*k*omega - 4*R*k*rho + 2160*alpha**3 - 288*alpha**2*k + 576*alpha**2*omega - 528*alpha**2*rho - 1008*alpha**2 + 256*alpha*k*rho + 864*alpha*k - 192*alpha*omega*rho + 144*alpha*omega + 96*alpha*rho**2 + 240*alpha*rho + 144*alpha - 96*k*rho)/192"
+    },
+    {
+      "triple": [
+        0,
+        2,
+        4
+      ],
+      "monomial": [
+        1,
+        0,
+        0,
+        2,
+        0
+      ],
+      "coefficient": "-sqrt(6)*I*R*(-72*R*alpha**3*k + 72*R*alpha**2*k**2 - 48*R*alpha**2*k*omega + 12*R*alpha**2*k*rho + 256*R*alpha*k**2*omega - 64*R*alpha*k**2*rho + 288*R*alpha*k**2 - 48*R*alpha*k*omega**2 + 24*R*alpha*k*omega*rho - 3*R*alpha*k*rho**2 + 128*R*k**2*omega - 32*R*k**2*rho + 16848*alpha**4 + 19008*alpha**3*k + 8352*alpha**3*omega - 2448*alpha**3*rho - 1440*alpha**3 + 14592*alpha**2*k*omega - 4800*alpha**2*k*rho - 1152*alpha**2*k - 4608*alpha**2*omega**2 + 2880*alpha**2*omega*rho + 2304*alpha**2*omega - 432*alpha**2*rho**2 - 576*alpha**2*rho - 18432*alpha*k**2*omega + 6912*alpha*k**2*rho + 11520*alpha*k**2 + 7680*alpha*k*omega**2 - 5376*alpha*k*omega*rho - 4224*alpha*k*omega + 864*alpha*k*rho**2 + 1152*alpha*k*rho + 384*alpha*k - 256*k**2*rho)/4608"
+    },
+    {
+      "triple": [
+        0,
+        2,
+        4
+      ],
+      "monomial": [
+        1,
+        0,
+        0,
+        1,
+        1
+      ],
+      "coefficient": "-sqrt(6)*I*R*(36*R**2*alpha*k**2*omega - 9*R**2*alpha*k**2*rho + 3096*R*alpha**3*k - 1728*R*alpha**2*k**2 + 1632*R*alpha**2*k*omega - 552*R*alpha**2*k*rho - 816*R*alpha**2*k - 3072*R*alpha*k**2*omega + 1536*R*alpha*k**2*rho + 2624*R*alpha*k**2 + 768*R*alpha*k*omega**2 - 672*R*alpha*k*omega*rho - 816*R*alpha*k*omega + 120*R*alpha*k*rho**2 + 240*R*alpha*k*rho + 288*R*alpha*k + 128*R*k**2*omega - 64*R*k**2*rho - 384*R*k**2 - 134784*alpha**4 - 99072*alpha**3*k - 43776*alpha**3*omega + 21888*alpha**3*rho + 16128*alpha**3 - 18432*alpha**2*k*omega + 17664*alpha**2*k*rho + 26112*alpha**2*k + 9216*alpha**2*omega**2 - 13824*alpha**2*omega*rho - 9216*alpha**2*omega + 3456*alpha**2*rho**2 + 4608*alpha**2*rho + 4608*alpha**2 - 9216*alpha*k**2*rho + 9216*alpha*k*omega*rho + 4608*alpha*k*omega - 3840*alpha*k*rho**2 - 7680*alpha*k*rho - 9216*alpha*k)/4608"
+    },
+    {
+      "triple": [
+        0,
+        2,
+        4
+      ],
+      "monomial": [
+        1,
+        0,
+        0,
+        0,
+        2
+      ],
+      "coefficient": "sqrt(6)*I*R*(36*R**2*alpha*k**2*omega - 27*R**2*alpha*k**2*rho - 45*R**2*alpha*k**2 - 4*R**2*k**2*omega + R**2*k**2*rho + 2376*R*alpha**3*k - 288*R*alpha**2*k**2 + 576*R*alpha**2*k*omega - 600*R*alpha**2*k*rho - 144*R*alpha**2*k + 256*R*alpha*k**2*rho - 1152*R*alpha*k**2 - 192*R*alpha*k*omega*rho - 48*R*alpha*k*omega + 108*R*alpha*k*rho**2 + 144*R*alpha*k*rho + 48*R*alpha*k + 128*R*k**2*rho - 67392*alpha**4 - 9216*alpha**3*k - 5760*alpha**3*omega + 9792*alpha**3*rho + 5760*alpha**3 + 1536*alpha**2*k*rho - 2304*alpha**2*omega*rho + 1728*alpha**2*rho**2 + 2304*alpha**2*rho - 384*alpha*k*rho**2)/1152"
+    },
+    {
+      "triple": [
+        0,
+        2,
+        4
+      ],
+      "monomial": [
+        0,
+        2,
+        0,
+        1,
+        0
+      ],
+      "coefficient": "-9*sqrt(6)*I*R*alpha*k**2*(4*omega - rho)/8"
+    },
+    {
+      "triple": [
+        0,
+        2,
+        4
+      ],
+      "monomial": [
+        0,
+        2,
+        0,
+        0,
+        1
+      ],
+      "coefficient": "-9*sqrt(6)*I*R*alpha*k**2*rho/2"
+    },
+    {
+      "triple": [
+        0,
+        2,
+        4
+      ],
+      "monomial": [
+        0,
+        1,
+        1,
+        1,
+        0
+      ],
+      "coefficient": "-sqrt(6)*I*R**2*k**2*(9*alpha**2 + 32*alpha*omega - 8*alpha*rho - 9*alpha - 4*omega + rho)/8"
+    },
+    {
+      "triple": [
+        0,
+        2,
+        4
+      ],
+      "monomial": [
+        0,
+        1,
+        1,
+        0,
+        1
+      ],
+      "coefficient": "sqrt(6)*I*R**2*k**2*(9*alpha**2 - 8*alpha*rho - 9*alpha + rho)/2"
+    },
+    {
+      "triple": [
+        0,
+        2,
+        4
+      ],
+      "monomial": [
+        0,
+        1,
+        0,
+        2,
+        0
+      ],
+      "coefficient": "-sqrt(6)*I*R*k*(-54*alpha**3 - 72*alpha**2*omega + 18*alpha**2*rho + 288*alpha*k*omega - 72*alpha*k*rho - 72*alpha*k - 48*alpha*omega**2 + 24*alpha*omega*rho - 3*alpha*rho**2 + 8*k*rho)/48"
+    },
+    {
+      "triple": [
+        0,
+        2,
+        4
+      ],
+      "monomial": [
+        0,
+        1,
+        0,
+        1,
+        1
+      ],
+      "coefficient": "-sqrt(6)*I*R*k*(9*R*alpha**2*k + 32*R*alpha*k*omega - 8*R*alpha*k*rho - 18*R*alpha*k - 8*R*k*omega + 2*R*k*rho + 648*alpha**3 + 192*alpha**2*omega - 120*alpha**2*rho - 432*alpha**2 + 288*alpha*k*rho - 96*alpha*omega*rho - 144*alpha*omega + 24*alpha*rho**2 + 48*alpha*rho)/48"
+    },
+    {
+      "triple": [
+        0,
+        2,
+        4
+      ],
+      "monomial": [
+        0,
+        1,
+        0,
+        0,
+        2
+      ],
+      "coefficient": "sqrt(6)*I*R*k*(9*R*alpha**2*k - 8*R*alpha*k*rho - 27*R*alpha*k - 6*R*k*omega + 3*R*k*rho + 6*R*k + 288*alpha**3 - 48*alpha**2*rho + 12*alpha*rho**2)/12"
+    },
+    {
+      "triple": [
+        0,
+        2,
+        4
+      ],
+      "monomial": [
+        0,
+        0,
+        2,
+        1,
+        0
+      ],
+      "coefficient": "-9*sqrt(6)*I*R**3*alpha*k**2*(4*omega - rho)/32"
+    },
+    {
+      "triple": [
+        0,
+        2,
+        4
+      ],
+      "monomial": [
+        0,
+        0,
+        2,
+        0,
+        1
+      ],
+      "coefficient": "-9*sqrt(6)*I*R**3*alpha*k**2*rho/8"
+    },
+    {
+      "triple": [
+        0,
+        2,
+        4
+      ],
+      "monomial": [
+        0,
+        0,
+        1,
+        2,
+        0
+      ],
+      "coefficient": "-sqrt(6)*I*R**2*k*(-72*alpha**3 + 72*alpha**2*k - 48*alpha**2*omega + 12*alpha**2*rho + 256*alpha*k*omega - 64*alpha*k*rho - 216*alpha*k - 48*alpha*omega**2 + 24*alpha*omega*rho - 3*alpha*rho**2 - 48*k*omega + 24*k*rho + 48*k)/96"
+    },
+    {
+      "triple": [
+        0,
+        2,
+        4
+      ],
+      "monomial": [
+        0,
+        0,
+        1,
+        1,
+        1
+      ],
+      "coefficient": "-sqrt(6)*I*R**2*k*(36*R*alpha*k*omega - 9*R*alpha*k*rho + 648*alpha**3 - 288*alpha**2*k + 288*alpha**2*omega - 120*alpha**2*rho - 432*alpha**2 + 256*alpha*k*rho + 576*alpha*k - 96*alpha*omega*rho - 48*alpha*omega + 24*alpha*rho**2 + 48*alpha*rho - 64*k*rho)/96"
+    },
+    {
+      "triple": [
+        0,
+        2,
+        4
+      ],
+      "monomial": [
+        0,
+        0,
+        1,
+        0,
+        2
+      ],
+      "coefficient": "-sqrt(6)*I*R**2*k*(9*R*alpha*k*rho + 9*R*alpha*k + 4*R*k*omega - R*k*rho - 216*alpha**3 + 72*alpha**2*rho - 12*alpha*rho**2)/24"
+    },
+    {
+      "triple": [
+        0,
+        2,
+        4
+      ],
+      "monomial": [
+        0,
+        0,
+        0,
+        3,
+        0
+      ],
+      "coefficient": "sqrt(6)*I*R*(27*R*alpha*k**2 + 12*R*k**2*omega - 3*R*k**2*rho + 702*alpha**4 + 864*alpha**3*k + 360*alpha**3*omega - 90*alpha**3*rho + 1152*alpha**2*k*omega - 288*alpha**2*k*rho + 432*alpha**2*k - 288*alpha**2*omega**2 + 144*alpha**2*omega*rho - 18*alpha**2*rho**2 - 2304*alpha*k**2*omega + 576*alpha*k**2*rho + 1152*alpha*k**2 + 768*alpha*k*omega**2 - 384*alpha*k*omega*rho + 336*alpha*k*omega + 48*alpha*k*rho**2 - 48*alpha*k*rho - 144*alpha*k - 128*k**2*rho)/1152"
+    },
+    {
+      "triple": [
+        0,
+        2,
+        4
+      ],
+      "monomial": [
+        0,
+        0,
+        0,
+        2,
+        1
+      ],
+      "coefficient": "-sqrt(6)*I*R*(-72*R*alpha**3*k + 72*R*alpha**2*k**2 - 48*R*alpha**2*k*omega + 12*R*alpha**2*k*rho + 256*R*alpha*k**2*omega - 64*R*alpha*k**2*rho - 126*R*alpha*k**2 - 48*R*alpha*k*omega**2 + 24*R*alpha*k*omega*rho - 3*R*alpha*k*rho**2 - 32*R*k**2*omega + 14*R*k**2*rho + 48*R*k**2 + 4212*alpha**4 + 5184*alpha**3*k + 2016*alpha**3*omega - 684*alpha**3*rho + 1536*alpha**2*k*omega - 960*alpha**2*k*rho - 2592*alpha**2*k - 576*alpha**2*omega**2 + 576*alpha**2*omega*rho - 108*alpha**2*rho**2 + 1152*alpha*k**2*rho - 768*alpha*k*omega*rho - 864*alpha*k*omega + 192*alpha*k*rho**2 + 288*alpha*k*rho + 864*alpha*k)/576"
+    },
+    {
+      "triple": [
+        0,
+        2,
+        4
+      ],
+      "monomial": [
+        0,
+        0,
+        0,
+        1,
+        2
+      ],
+      "coefficient": "-sqrt(6)*I*R*(36*R**2*alpha*k**2*omega - 9*R**2*alpha*k**2*rho + 1296*R*alpha**3*k - 576*R*alpha**2*k**2 + 576*R*alpha**2*k*omega - 240*R*alpha**2*k*rho - 648*R*alpha**2*k + 512*R*alpha*k**2*rho + 1008*R*alpha*k**2 - 192*R*alpha*k*omega*rho - 72*R*alpha*k*omega + 48*R*alpha*k*rho**2 + 72*R*alpha*k*rho + 216*R*alpha*k + 192*R*k**2*omega - 112*R*k**2*rho - 384*R*k**2 - 33696*alpha**4 - 18432*alpha**3*k - 5760*alpha**3*omega + 5472*alpha**3*rho + 3072*alpha**2*k*rho - 2304*alpha**2*omega*rho + 864*alpha**2*rho**2 - 768*alpha*k*rho**2)/1152"
+    },
+    {
+      "triple": [
+        0,
+        2,
+        4
+      ],
+      "monomial": [
+        0,
+        0,
+        0,
+        0,
+        3
+      ],
+      "coefficient": "-sqrt(6)*I*R*(9*R**2*alpha*k**2*rho + 18*R**2*alpha*k**2 + 8*R**2*k**2*omega - 2*R**2*k**2*rho - 432*R*alpha**3*k + 144*R*alpha**2*k*rho - 216*R*alpha**2*k + 432*R*alpha*k**2 + 72*R*alpha*k*omega - 24*R*alpha*k*rho**2 + 24*R*alpha*k*rho + 72*R*alpha*k - 48*R*k**2*rho + 11232*alpha**4 - 1440*alpha**3*rho - 288*alpha**2*rho**2)/288"
+    },
+    {
+      "triple": [
+        0,
+        3,
+        4
+      ],
+      "monomial": [
+        3,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coefficient": "sqrt(6)*I*R*(18*R**2*alpha*k**2*omega - 9*R**2*alpha*k**2*rho - 18*R**2*alpha*k**2 + 1440*R*alpha**3*k - 576*R*alpha**2*k**2 - 288*R*alpha**2*k*omega + 144*R*alpha**2*k*rho + 288*R*alpha**2*k - 1024*R*alpha*k**2*omega + 512*R*alpha*k**2*rho - 3008*R*alpha*k**2 - 192*R*alpha*k*omega**2 + 192*R*alpha*k*omega*rho + 288*R*alpha*k*omega - 48*R*alpha*k*rho**2 - 192*R*alpha*k*rho - 384*R*alpha*k - 896*R*k**2*omega + 448*R*k**2*rho + 1408*R*k**2 - 138240*alpha**4 - 46080*alpha**3*k - 55296*alpha**3*omega + 27648*alpha**3*rho + 55296*alpha**3 + 9216*alpha**2*k*omega - 4608*alpha**2*k*rho - 9216*alpha**2*k + 18432*alpha*k**2*omega - 9216*alpha*k**2*rho - 18432*alpha*k**2 + 6144*alpha*k*omega**2 - 6144*alpha*k*omega*rho - 15360*alpha*k*omega + 1536*alpha*k*rho**2 + 6144*alpha*k*rho + 12288*alpha*k)/36864"
+    },
+    {
+      "triple": [
+        0,
+        3,
+        4
+      ],
+      "monomial": [
+        2,
+        1,
+        0,
+        0,
+        0
+      ],
+      "coefficient": "sqrt(6)*I*R*k*(9*R*alpha**2*k + 16*R*alpha*k*omega - 8*R*alpha*k*rho - 34*R*alpha*k - 8*R*k*omega + 2*R*k*rho + 720*alpha**3 - 144*alpha**2*omega + 72*alpha**2*rho + 144*alpha**2 - 576*alpha*k*omega + 288*alpha*k*rho + 288*alpha*k - 96*alpha*omega**2 + 96*alpha*omega*rho + 96*alpha*omega - 24*alpha*rho**2 - 96*alpha*rho - 48*alpha + 32*k*rho)/192"
+    },
+    {
+      "triple": [
+        0,
+        3,
+        4
+      ],
+      "monomial": [
+        2,
+        0,
+        1,
+        0,
+        0
+      ],
+      "coefficient": "sqrt(6)*I*R**2*k*(18*R*alpha*k*omega - 9*R*alpha*k*rho - 9*R*alpha*k + 4*R*k*omega - R*k*rho + 720*alpha**3 - 288*alpha**2*k - 144*alpha**2*omega + 72*alpha**2*rho + 144*alpha**2 - 512*alpha*k*omega + 256*alpha*k*rho + 1088*alpha*k - 96*alpha*omega**2 + 96*alpha*omega*rho + 288*alpha*omega - 24*alpha*rho**2 - 96*alpha*rho - 48*alpha - 64*k*rho)/384"
+    },
+    {
+      "triple": [
+        0,
+        3,
+        4
+      ],
+      "monomial": [
+        2,
+        0,
+        0,
+        1,
+        0
+      ],
+      "coefficient": "-sqrt(6)*I*R*(36*R**2*alpha*k**2*omega - 9*R**2*alpha*k**2*rho + 3168*R*alpha**3*k - 2880*R*alpha**2*k**2 - 864*R*alpha**2*k*omega + 288*R*alpha**2*k*rho + 288*R*alpha**2*k - 6144*R*alpha*k**2*omega + 2560*R*alpha*k**2*rho - 4544*R*alpha*k**2 - 768*R*alpha*k*omega**2 + 576*R*alpha*k*omega*rho + 768*R*alpha*k*omega - 96*R*alpha*k*rho**2 - 192*R*alpha*k*rho - 2816*R*k**2*omega + 960*R*k**2*rho + 2048*R*k**2 - 414720*alpha**4 - 267264*alpha**3*k - 221184*alpha**3*omega + 82944*alpha**3*rho + 110592*alpha**3 + 64512*alpha**2*k*omega - 27648*alpha**2*k*rho - 46080*alpha**2*k + 184320*alpha*k**2*omega - 82944*alpha*k**2*rho - 147456*alpha*k**2 + 49152*alpha*k*omega**2 - 43008*alpha*k*omega*rho - 86016*alpha*k*omega + 9216*alpha*k*rho**2 + 30720*alpha*k*rho + 36864*alpha*k)/73728"
+    },
+    {
+      "triple": [
+        0,
+        3,
+        4
+      ],
+      "monomial": [
+        2,
+        0,
+        0,
+        0,
+        1
+      ],
+      "coefficient": "sqrt(6)*I*R*(144*R**2*alpha*k**2*omega - 81*R**2*alpha*k**2*rho - 144*R**2*alpha*k**2 + 8352*R*alpha**3*k - 2880*R*alpha**2*k**2 - 1440*R*alpha**2*k*omega + 864*R*alpha**2*k*rho + 1440*R*alpha**2*k - 4096*R*alpha*k**2*omega + 2560*R*alpha*k**2*rho - 4544*R*alpha*k**2 - 768*R*alpha*k*omega**2 + 960*R*alpha*k*omega*rho + 1152*R*alpha*k*omega - 288*R*alpha*k*rho**2 - 960*R*alpha*k*rho - 1152*R*alpha*k - 1024*R*k**2*omega + 960*R*k**2*rho + 2048*R*k**2 - 414720*alpha**4 - 101376*alpha**3*k - 110592*alpha**3*omega + 82944*alpha**3*rho + 110592*alpha**3 + 9216*alpha**2*k*omega - 9216*alpha**2*k*rho - 9216*alpha**2*k - 9216*alpha*k**2*rho - 6144*alpha*k*omega*rho + 3072*alpha*k*rho**2 + 6144*alpha*k*rho)/18432"
+    },
+    {
+      "triple": [
+        0,
+        3,
+        4
+      ],
+      "monomial": [
+        1,
+        2,
+        0,
+        0,
+        0
+      ],
+      "coefficient": "sqrt(6)*I*R*k**2*(18*alpha*omega - 9*alpha*rho - 2*rho)/4"
+    },
+    {
+      "triple": [
+        0,
+        3,
+        4
+      ],
+      "monomial": [
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      "coefficient": "sqrt(6)*I*R**2*k**2*(9*alpha**2 + 16*alpha*omega - 8*alpha*rho - 7*alpha + 2*omega - rho - 2)/4"
+    },
+    {
+      "triple": [
+        0,
+        3,
+        4
+      ],
+      "monomial": [
+        1,
+        1,
+        0,
+        1,
+        0
+      ],
+      "coefficient": "-sqrt(6)*I*R*k*(9*R*alpha**2*k + 32*R*alpha*k*omega - 8*R*alpha*k*rho - 27*R*alpha*k - 12*R*k*omega + 3*R*k*rho + 1296*alpha**3 - 432*alpha**2*omega + 144*alpha**2*rho + 144*alpha**2 - 3456*alpha*k*omega + 1440*alpha*k*rho + 1152*alpha*k - 384*alpha*omega**2 + 288*alpha*omega*rho + 144*alpha*omega - 48*alpha*rho**2 - 96*alpha*rho - 144*alpha + 128*k*rho)/384"
+    },
+    {
+      "triple": [
+        0,
+        3,
+        4
+      ],
+      "monomial": [
+        1,
+        1,
+        0,
+        0,
+        1
+      ],
+      "coefficient": "sqrt(6)*I*R*k*(45*R*alpha**2*k + 64*R*alpha*k*omega - 40*R*alpha*k*rho - 127*R*alpha*k - 24*R*k*omega + 7*R*k*rho + 8*R*k + 1584*alpha**3 - 144*alpha**2*omega + 144*alpha**2*rho + 144*alpha**2 + 288*alpha*k*rho + 96*alpha*omega*rho - 48*alpha*omega - 48*alpha*rho**2 - 96*alpha*rho + 48*alpha)/96"
+    },
+    {
+      "triple": [
+        0,
+        3,
+        4
+      ],
+      "monomial": [
+        1,
+        0,
+        2,
+        0,
+        0
+      ],
+      "coefficient": "sqrt(6)*I*R**3*k**2*(18*alpha*omega - 9*alpha*rho + 8*omega - 2*rho)/16"
+    },
+    {
+      "triple": [
+        0,
+        3,
+        4
+      ],
+      "monomial": [
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      "coefficient": "-sqrt(6)*I*R**2*k*(36*R*alpha*k*omega - 9*R*alpha*k*rho + 1584*alpha**3 - 1440*alpha**2*k - 432*alpha**2*omega + 144*alpha**2*rho + 144*alpha**2 - 3072*alpha*k*omega + 1280*alpha*k*rho + 4064*alpha*k - 384*alpha*omega**2 + 288*alpha*omega*rho + 432*alpha*omega - 48*alpha*rho**2 - 96*alpha*rho + 48*alpha + 128*k*omega - 224*k*rho - 256*k)/768"
+    },
+    {
+      "triple": [
+        0,
+        3,
+        4
+      ],
+      "monomial": [
+        1,
+        0,
+        1,
+        0,
+        1
+      ],
+      "coefficient": "sqrt(6)*I*R**2*k*(72*R*alpha*k*omega - 45*R*alpha*k*rho - 36*R*alpha*k + 16*R*k*omega - 4*R*k*rho + 1296*alpha**3 - 288*alpha**2*k - 144*alpha**2*omega + 144*alpha**2*rho + 144*alpha**2 + 256*alpha*k*rho + 864*alpha*k + 96*alpha*omega*rho + 240*alpha*omega - 48*alpha*rho**2 - 96*alpha*rho - 144*alpha - 96*k*rho)/192"
+    },
+    {
+      "triple": [
+        0,
+        3,
+        4
+      ],
+      "monomial": [
+        1,
+        0,
+        0,
+        2,
+        0
+      ],
+      "coefficient": "-sqrt(6)*I*R*(-144*R*alpha**3*k + 144*R*alpha**2*k**2 + 36*R*alpha**2*k*omega - 9*R*alpha**2*k*rho + 512*R*alpha*k**2*omega - 128*R*alpha*k**2*rho + 576*R*alpha*k**2 + 48*R*alpha*k*omega**2 - 24*R*alpha*k*omega*rho + 3*R*alpha*k*rho**2 + 256*R*k**2*omega - 64*R*k**2*rho + 26784*alpha**4 + 24192*alpha**3*k + 17856*alpha**3*omega - 5472*alpha**3*rho - 4032*alpha**3 - 8064*alpha**2*k*omega + 2592*alpha**2*k*rho + 2304*alpha**2*k - 36864*alpha*k**2*omega + 13824*alpha*k**2*rho + 23040*alpha*k**2 - 7680*alpha*k*omega**2 + 5376*alpha*k*omega*rho + 8448*alpha*k*omega - 864*alpha*k*rho**2 - 1536*alpha*k*rho - 768*alpha*k - 512*k**2*rho)/9216"
+    },
+    {
+      "triple": [
+        0,
+        3,
+        4
+      ],
+      "monomial": [
+        1,
+        0,
+        0,
+        1,
+        1
+      ],
+      "coefficient": "-sqrt(6)*I*R*(36*R**2*alpha*k**2*omega - 9*R**2*alpha*k**2*rho + 1800*R*alpha**3*k - 1728*R*alpha**2*k**2 - 504*R*alpha**2*k*omega + 180*R*alpha**2*k*rho + 144*R*alpha**2*k - 3072*R*alpha*k**2*omega + 1536*R*alpha*k**2*rho + 2624*R*alpha*k**2 - 384*R*alpha*k*omega**2 + 336*R*alpha*k*omega*rho + 432*R*alpha*k*omega - 60*R*alpha*k*rho**2 - 96*R*alpha*k*rho + 96*R*alpha*k + 128*R*k**2*omega - 64*R*k**2*rho - 384*R*k**2 - 100224*alpha**4 - 57600*alpha**3*k - 39168*alpha**3*omega + 19584*alpha**3*rho + 11520*alpha**3 + 6912*alpha**2*k*omega - 5760*alpha**2*k*rho - 4608*alpha**2*k - 9216*alpha*k**2*rho - 4608*alpha*k*omega*rho + 1536*alpha*k*omega + 1920*alpha*k*rho**2 + 3072*alpha*k*rho - 3072*alpha*k)/4608"
+    },
+    {
+      "triple": [
+        0,
+        3,
+        4
+      ],
+      "monomial": [
+        1,
+        0,
+        0,
+        0,
+        2
+      ],
+      "coefficient": "sqrt(6)*I*R*(36*R**2*alpha*k**2*omega - 27*R**2*alpha*k**2*rho - 45*R**2*alpha*k**2 - 4*R**2*k**2*omega + R**2*k**2*rho + 1512*R*alpha**3*k - 288*R*alpha**2*k**2 - 144*R*alpha**2*k*omega + 162*R*alpha**2*k*rho + 144*R*alpha**2*k + 256*R*alpha*k**2*rho - 1152*R*alpha*k**2 + 96*R*alpha*k*omega*rho - 144*R*alpha*k*omega - 54*R*alpha*k*rho**2 - 96*R*alpha*k*rho - 48*R*alpha*k + 128*R*k**2*rho - 53568*alpha**4 - 9216*alpha**3*k - 8064*alpha**3*omega + 10944*alpha**3*rho + 8064*alpha**3 - 576*alpha**2*k*rho + 192*alpha*k*rho**2)/1152"
+    },
+    {
+      "triple": [
+        0,
+        3,
+        4
+      ],
+      "monomial": [
+        0,
+        2,
+        0,
+        1,
+        0
+      ],
+      "coefficient": "-9*sqrt(6)*I*R*alpha*k**2*(4*omega - rho)/8"
+    },
+    {
+      "triple": [
+        0,
+        3,
+        4
+      ],
+      "monomial": [
+        0,
+        2,
+        0,
+        0,
+        1
+      ],
+      "coefficient": "-9*sqrt(6)*I*R*alpha*k**2*rho/2"
+    },
+    {
+      "triple": [
+        0,
+        3,
+        4
+      ],
+      "monomial": [
+        0,
+        1,
+        1,
+        1,
+        0
+      ],
+      "coefficient": "-sqrt(6)*I*R**2*k**2*(9*alpha**2 + 32*alpha*omega - 8*alpha*rho - 9*alpha - 4*omega + rho)/8"
+    },
+    {
+      "triple": [
+        0,
+        3,
+        4
+      ],
+      "monomial": [
+        0,
+        1,
+        1,
+        0,
+        1
+      ],
+      "coefficient": "sqrt(6)*I*R**2*k**2*(9*alpha**2 - 8*alpha*rho - 9*alpha + rho)/2"
+    },
+    {
+      "triple": [
+        0,
+        3,
+        4
+      ],
+      "monomial": [
+        0,
+        1,
+        0,
+        2,
+        0
+      ],
+      "coefficient": "-sqrt(6)*I*R*k*(-108*alpha**3 + 36*alpha**2*omega - 9*alpha**2*rho + 576*alpha*k*omega - 144*alpha*k*rho - 144*alpha*k + 48*alpha*omega**2 - 24*alpha*omega*rho + 3*alpha*rho**2 + 16*k*rho)/96"
+    },
+    {
+      "triple": [
+        0,
+        3,
+        4
+      ],
+      "monomial": [
+        0,
+        1,
+        0,
+        1,
+        1
+      ],
+      "coefficient": "-sqrt(6)*I*R*k*(9*R*alpha**2*k + 32*R*alpha*k*omega - 8*R*alpha*k*rho - 18*R*alpha*k - 8*R*k*omega + 2*R*k*rho + 216*alpha**3 - 72*alpha**2*omega + 36*alpha**2*rho + 288*alpha*k*rho + 48*alpha*omega*rho - 48*alpha*omega - 12*alpha*rho**2)/48"
+    },
+    {
+      "triple": [
+        0,
+        3,
+        4
+      ],
+      "monomial": [
+        0,
+        1,
+        0,
+        0,
+        2
+      ],
+      "coefficient": "sqrt(6)*I*R*k*(9*R*alpha**2*k - 8*R*alpha*k*rho - 27*R*alpha*k - 6*R*k*omega + 3*R*k*rho + 6*R*k + 288*alpha**3 + 18*alpha**2*rho - 6*alpha*rho**2)/12"
+    },
+    {
+      "triple": [
+        0,
+        3,
+        4
+      ],
+      "monomial": [
+        0,
+        0,
+        2,
+        1,
+        0
+      ],
+      "coefficient": "-9*sqrt(6)*I*R**3*alpha*k**2*(4*omega - rho)/32"
+    },
+    {
+      "triple": [
+        0,
+        3,
+        4
+      ],
+      "monomial": [
+        0,
+        0,
+        2,
+        0,
+        1
+      ],
+      "coefficient": "-9*sqrt(6)*I*R**3*alpha*k**2*rho/8"
+    },
+    {
+      "triple": [
+        0,
+        3,
+        4
+      ],
+      "monomial": [
+        0,
+        0,
+        1,
+        2,
+        0
+      ],
+      "coefficient": "-sqrt(6)*I*R**2*k*(-144*alpha**3 + 144*alpha**2*k + 36*alpha**2*omega - 9*alpha**2*rho + 512*alpha*k*omega - 128*alpha*k*rho - 432*alpha*k + 48*alpha*omega**2 - 24*alpha*omega*rho + 3*alpha*rho**2 - 96*k*omega + 48*k*rho + 96*k)/192"
+    },
+    {
+      "triple": [
+        0,
+        3,
+        4
+      ],
+      "monomial": [
+        0,
+        0,
+        1,
+        1,
+        1
+      ],
+      "coefficient": "-sqrt(6)*I*R**2*k*(36*R*alpha*k*omega - 9*R*alpha*k*rho + 216*alpha**3 - 288*alpha**2*k - 72*alpha**2*omega + 36*alpha**2*rho + 256*alpha*k*rho + 576*alpha*k + 48*alpha*omega*rho + 48*alpha*omega - 12*alpha*rho**2 - 64*k*rho)/96"
+    },
+    {
+      "triple": [
+        0,
+        3,
+        4
+      ],
+      "monomial": [
+        0,
+        0,
+        1,
+        0,
+        2
+      ],
+      "coefficient": "-sqrt(6)*I*R**2*k*(9*R*alpha*k*rho + 9*R*alpha*k + 4*R*k*omega - R*k*rho - 216*alpha**3 - 18*alpha**2*rho + 6*alpha*rho**2)/24"
+    },
+    {
+      "triple": [
+        0,
+        3,
+        4
+      ],
+      "monomial": [
+        0,
+        0,
+        0,
+        3,
+        0
+      ],
+      "coefficient": "sqrt(6)*I*R*(27*R*alpha*k**2 + 12*R*k**2*omega - 3*R*k**2*rho + 594*alpha**4 + 864*alpha**3*k + 504*alpha**3*omega - 126*alpha**3*rho - 288*alpha**2*k*omega + 72*alpha**2*k*rho - 2304*alpha*k**2*omega + 576*alpha*k**2*rho + 1152*alpha*k**2 - 384*alpha*k*omega**2 + 192*alpha*k*omega*rho + 240*alpha*k*omega - 24*alpha*k*rho**2 + 144*alpha*k - 128*k**2*rho)/1152"
+    },
+    {
+      "triple": [
+        0,
+        3,
+        4
+      ],
+      "monomial": [
+        0,
+        0,
+        0,
+        2,
+        1
+      ],
+      "coefficient": "-sqrt(6)*I*R*(-144*R*alpha**3*k + 144*R*alpha**2*k**2 + 36*R*alpha**2*k*omega - 9*R*alpha**2*k*rho + 512*R*alpha*k**2*omega - 128*R*alpha*k**2*rho - 252*R*alpha*k**2 + 48*R*alpha*k*omega**2 - 24*R*alpha*k*omega*rho + 3*R*alpha*k*rho**2 - 64*R*k**2*omega + 28*R*k**2*rho + 96*R*k**2 + 6264*alpha**4 + 3456*alpha**3*k + 2880*alpha**3*omega - 1224*alpha**3*rho - 1152*alpha**2*k*omega + 576*alpha**2*k*rho + 2304*alpha*k**2*rho + 768*alpha*k*omega*rho - 576*alpha*k*omega - 192*alpha*k*rho**2 + 576*alpha*k)/1152"
+    },
+    {
+      "triple": [
+        0,
+        3,
+        4
+      ],
+      "monomial": [
+        0,
+        0,
+        0,
+        1,
+        2
+      ],
+      "coefficient": "-sqrt(6)*I*R*(36*R**2*alpha*k**2*omega - 9*R**2*alpha*k**2*rho + 432*R*alpha**3*k - 576*R*alpha**2*k**2 - 144*R*alpha**2*k*omega + 72*R*alpha**2*k*rho + 512*R*alpha*k**2*rho + 1008*R*alpha*k**2 + 96*R*alpha*k*omega*rho + 72*R*alpha*k*omega - 24*R*alpha*k*rho**2 + 72*R*alpha*k + 192*R*k**2*omega - 112*R*k**2*rho - 384*R*k**2 - 25056*alpha**4 - 18432*alpha**3*k - 8064*alpha**3*omega + 4896*alpha**3*rho - 1152*alpha**2*k*rho + 384*alpha*k*rho**2)/1152"
+    },
+    {
+      "triple": [
+        0,
+        3,
+        4
+      ],
+      "monomial": [
+        0,
+        0,
+        0,
+        0,
+        3
+      ],
+      "coefficient": "-sqrt(6)*I*R*(9*R**2*alpha*k**2*rho + 18*R**2*alpha*k**2 + 8*R**2*k**2*omega - 2*R**2*k**2*rho - 432*R*alpha**3*k - 36*R*alpha**2*k*rho + 432*R*alpha*k**2 + 120*R*alpha*k*omega + 12*R*alpha*k*rho**2 - 72*R*alpha*k - 48*R*k**2*rho + 9504*alpha**4 - 2016*alpha**3*rho)/288"
+    },
+    {
+      "triple": [
+        1,
+        2,
+        3
+      ],
+      "monomial": [
+        3,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coefficient": "-R*alpha*k*(R + 32)*(2*R*k*omega - R*k*rho - 2*R*k - 48*alpha**2 - 64*k*omega + 32*k*rho + 64*k)/2048"
+    },
+    {
+      "triple": [
+        1,
+        2,
+        3
+      ],
+      "monomial": [
+        2,
+        1,
+        0,
+        0,
+        0
+      ],
+      "coefficient": "3*R*alpha*k*(R*k - 12*alpha**2 - 32*k*omega + 16*k*rho + 16*k)/16"
+    },
+    {
+      "triple": [
+        1,
+        2,
+        3
+      ],
+      "monomial": [
+        2,
+        0,
+        1,
+        0,
+        0
+      ],
+      "coefficient": "-3*R**2*alpha*k*(2*R*k*omega - R*k*rho - R*k - 24*alpha**2 - 64*k)/64"
+    },
+    {
+      "triple": [
+        1,
+        2,
+        3
+      ],
+      "monomial": [
+        2,
+        0,
+        0,
+        1,
+        0
+      ],
+      "coefficient": "R*alpha*(4*R**2*k**2*omega - R**2*k**2*rho - 288*R*alpha**2*k - 64*R*alpha*k**2 - 448*R*k**2 - 13824*alpha**3 - 3072*alpha**2*k - 20480*k**2*omega + 9216*k**2*rho + 16384*k**2)/4096"
+    },
+    {
+      "triple": [
+        1,
+        2,
+        3
+      ],
+      "monomial": [
+        2,
+        0,
+        0,
+        0,
+        1
+      ],
+      "coefficient": "-R*alpha*(16*R**2*k**2*omega - 9*R**2*k**2*rho - 16*R**2*k**2 - 96*R*alpha**2*k + 64*R*alpha*k**2 + 448*R*k**2 + 13824*alpha**3 - 9216*alpha**2*k + 1024*k**2*rho)/1024"
+    },
+    {
+      "triple": [
+        1,
+        2,
+        3
+      ],
+      "monomial": [
+        1,
+        2,
+        0,
+        0,
+        0
+      ],
+      "coefficient": "9*R*alpha*k**2*(2*omega - rho)/2"
+    },
+    {
+      "triple": [
+        1,
+        2,
+        3
+      ],
+      "monomial": [
+        1,
+        1,
+        0,
+        1,
+        0
+      ],
+      "coefficient": "3*R*alpha*k*(R*alpha*k - 3*R*k - 48*alpha**2 + 384*k*omega - 160*k*rho - 128*k)/64"
+    },
+    {
+      "triple": [
+        1,
+        2,
+        3
+      ],
+      "monomial": [
+        1,
+        1,
+        0,
+        0,
+        1
+      ],
+      "coefficient": "3*R*alpha*k*(R*alpha*k + 5*R*k - 144*alpha**2 + 32*k*rho)/16"
+    },
+    {
+      "triple": [
+        1,
+        2,
+        3
+      ],
+      "monomial": [
+        1,
+        0,
+        2,
+        0,
+        0
+      ],
+      "coefficient": "-9*R**3*alpha*k**2*(2*omega - rho)/8"
+    },
+    {
+      "triple": [
+        1,
+        2,
+        3
+      ],
+      "monomial": [
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      "coefficient": "3*R**2*alpha*k*(4*R*k*omega - R*k*rho - 144*alpha**2 - 32*alpha*k - 160*k)/128"
+    },
+    {
+      "triple": [
+        1,
+        2,
+        3
+      ],
+      "monomial": [
+        1,
+        0,
+        1,
+        0,
+        1
+      ],
+      "coefficient": "-3*R**2*alpha*k*(8*R*k*omega - 5*R*k*rho - 4*R*k + 48*alpha**2 + 32*alpha*k - 96*k)/32"
+    },
+    {
+      "triple": [
+        1,
+        2,
+        3
+      ],
+      "monomial": [
+        1,
+        0,
+        0,
+        2,
+        0
+      ],
+      "coefficient": "R*alpha*(3*R*alpha**2*k + 4*R*alpha*k**2 + 16*R*k**2 + 432*alpha**3 - 288*alpha**2*k + 1024*k**2*omega - 384*k**2*rho - 640*k**2)/128"
+    },
+    {
+      "triple": [
+        1,
+        2,
+        3
+      ],
+      "monomial": [
+        1,
+        0,
+        0,
+        1,
+        1
+      ],
+      "coefficient": "R*alpha*k*(4*R**2*k*omega - R**2*k*rho - 168*R*alpha**2 - 5376*alpha**2 + 1024*k*rho)/256"
+    },
+    {
+      "triple": [
+        1,
+        2,
+        3
+      ],
+      "monomial": [
+        1,
+        0,
+        0,
+        0,
+        2
+      ],
+      "coefficient": "-R*alpha*(4*R**2*k**2*omega - 3*R**2*k**2*rho - 5*R**2*k**2 + 72*R*alpha**2*k + 32*R*alpha*k**2 + 128*R*k**2 + 3456*alpha**3 - 768*alpha**2*k)/64"
+    },
+    {
+      "triple": [
+        1,
+        2,
+        3
+      ],
+      "monomial": [
+        0,
+        2,
+        0,
+        1,
+        0
+      ],
+      "coefficient": "-9*R*alpha*k**2*(4*omega - rho)/4"
+    },
+    {
+      "triple": [
+        1,
+        2,
+        3
+      ],
+      "monomial": [
+        0,
+        2,
+        0,
+        0,
+        1
+      ],
+      "coefficient": "-9*R*alpha*k**2*rho"
+    },
+    {
+      "triple": [
+        1,
+        2,
+        3
+      ],
+      "monomial": [
+        0,
+        1,
+        1,
+        1,
+        0
+      ],
+      "coefficient": "9*R**2*alpha*k**2*(alpha - 1)/4"
+    },
+    {
+      "triple": [
+        1,
+        2,
+        3
+      ],
+      "monomial": [
+        0,
+        1,
+        1,
+        0,
+        1
+      ],
+      "coefficient": "9*R**2*alpha*k**2*(alpha - 1)"
+    },
+    {
+      "triple": [
+        1,
+        2,
+        3
+      ],
+      "monomial": [
+        0,
+        1,
+        0,
+        2,
+        0
+      ],
+      "coefficient": "-3*R*alpha*k*(-3*alpha**2 + 16*k*omega - 4*k*rho - 4*k)/4"
+    },
+    {
+      "triple": [
+        1,
+        2,
+        3
+      ],
+      "monomial": [
+        0,
+        1,
+        0,
+        1,
+        1
+      ],
+      "coefficient": "3*R*alpha*k*(R*alpha*k - 2*R*k + 24*alpha**2 - 32*k*rho)/8"
+    },
+    {
+      "triple": [
+        1,
+        2,
+        3
+      ],
+      "monomial": [
+        0,
+        1,
+        0,
+        0,
+        2
+      ],
+      "coefficient": "3*R*alpha**2*k*(R*k - 24*alpha)/2"
+    },
+    {
+      "triple": [
+        1,
+        2,
+        3
+      ],
+      "monomial": [
+        0,
+        0,
+        2,
+        1,
+        0
+      ],
+      "coefficient": "9*R**3*alpha*k**2*(4*omega - rho)/16"
+    },
+    {
+      "triple": [
+        1,
+        2,
+        3
+      ],
+      "monomial": [
+        0,
+        0,
+        2,
+        0,
+        1
+      ],
+      "coefficient": "9*R**3*alpha*k**2*rho/4"
+    },
+    {
+      "triple": [
+        1,
+        2,
+        3
+      ],
+      "monomial": [
+        0,
+        0,
+        1,
+        2,
+        0
+      ],
+      "coefficient": "3*R**2*alpha**2*k*(3*alpha + 4*k)/8"
+    },
+    {
+      "triple": [
+        1,
+        2,
+        3
+      ],
+      "monomial": [
+        0,
+        0,
+        1,
+        1,
+        1
+      ],
+      "coefficient": "3*R**2*alpha*k*(4*R*k*omega - R*k*rho - 24*alpha**2 + 32*alpha*k - 64*k)/16"
+    },
+    {
+      "triple": [
+        1,
+        2,
+        3
+      ],
+      "monomial": [
+        0,
+        0,
+        1,
+        0,
+        2
+      ],
+      "coefficient": "3*R**2*alpha*k*(R*k*rho + R*k - 24*alpha**2)/4"
+    },
+    {
+      "triple": [
+        1,
+        2,
+        3
+      ],
+      "monomial": [
+        0,
+        0,
+        0,
+        3,
+        0
+      ],
+      "coefficient": "-R*alpha*(3*R*k**2 + 54*alpha**3 - 96*alpha**2*k + 256*k**2*omega - 64*k**2*rho - 128*k**2)/64"
+    },
+    {
+      "triple": [
+        1,
+        2,
+        3
+      ],
+      "monomial": [
+        0,
+        0,
+        0,
+        2,
+        1
+      ],
+      "coefficient": "R*alpha*(3*R*alpha**2*k + 4*R*alpha*k**2 - R*k**2 + 54*alpha**3 + 96*alpha**2*k - 64*k**2*rho)/16"
+    },
+    {
+      "triple": [
+        1,
+        2,
+        3
+      ],
+      "monomial": [
+        0,
+        0,
+        0,
+        1,
+        2
+      ],
+      "coefficient": "R*alpha*(4*R**2*k**2*omega - R**2*k**2*rho - 48*R*alpha**2*k + 64*R*alpha*k**2 - 16*R*k**2 + 864*alpha**3 - 1536*alpha**2*k)/64"
+    },
+    {
+      "triple": [
+        1,
+        2,
+        3
+      ],
+      "monomial": [
+        0,
+        0,
+        0,
+        0,
+        3
+      ],
+      "coefficient": "R*alpha*(R**2*k**2*rho + 2*R**2*k**2 - 48*R*alpha**2*k - 48*R*k**2 - 864*alpha**3)/16"
+    },
+    {
+      "triple": [
+        1,
+        2,
+        4
+      ],
+      "monomial": [
+        3,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coefficient": "sqrt(6)*I*R*(-18*R*alpha**3*k + 12*R*alpha**2*k*omega - 6*R*alpha**2*k*rho - 12*R*alpha**2*k + 8*R*alpha*k**2*omega - 4*R*alpha*k**2*rho - 8*R*alpha*k**2 + 36*R*alpha*k*omega**2 - 36*R*alpha*k*omega*rho - 60*R*alpha*k*omega + 9*R*alpha*k*rho**2 + 30*R*alpha*k*rho + 12*R*alpha*k - 56*R*k**2*omega + 28*R*k**2*rho + 88*R*k**2 + 576*alpha**3*k - 2304*alpha**3*omega + 1152*alpha**3*rho + 2304*alpha**3 - 384*alpha**2*k*omega + 192*alpha**2*k*rho + 384*alpha**2*k - 1152*alpha*k*omega**2 + 1152*alpha*k*omega*rho + 1920*alpha*k*omega - 288*alpha*k*rho**2 - 960*alpha*k*rho - 384*alpha*k)/768"
+    },
+    {
+      "triple": [
+        1,
+        2,
+        4
+      ],
+      "monomial": [
+        2,
+        1,
+        0,
+        0,
+        0
+      ],
+      "coefficient": "-sqrt(6)*I*R*k*(2*R*alpha*k*omega - R*alpha*k*rho - 2*R*alpha*k + 8*R*k*omega - 2*R*k*rho + 144*alpha**3 - 96*alpha**2*omega + 48*alpha**2*rho + 96*alpha**2 - 288*alpha*omega**2 + 288*alpha*omega*rho + 576*alpha*omega - 72*alpha*rho**2 - 288*alpha*rho - 192*alpha - 32*k*rho)/64"
+    },
+    {
+      "triple": [
+        1,
+        2,
+        4
+      ],
+      "monomial": [
+        2,
+        0,
+        1,
+        0,
+        0
+      ],
+      "coefficient": "sqrt(6)*I*R**2*k*(4*R*k*omega - R*k*rho - 144*alpha**3 + 96*alpha**2*omega - 48*alpha**2*rho - 96*alpha**2 + 64*alpha*k*omega - 32*alpha*k*rho - 64*alpha*k + 288*alpha*omega**2 - 288*alpha*omega*rho - 576*alpha*omega + 72*alpha*rho**2 + 288*alpha*rho + 192*alpha - 64*k*rho)/128"
+    },
+    {
+      "triple": [
+        1,
+        2,
+        4
+      ],
+      "monomial": [
+        2,
+        0,
+        0,
+        1,
+        0
+      ],
+      "coefficient": "-sqrt(6)*I*R*(-36*R*alpha**3*k + 6*R*alpha**2*k*omega + 6*R*alpha**2*k + 24*R*alpha*k**2*omega - 10*R*alpha*k**2*rho - 16*R*alpha*k**2 + 72*R*alpha*k*omega**2 - 54*R*alpha*k*omega*rho - 72*R*alpha*k*omega + 9*R*alpha*k*rho**2 + 18*R*alpha*k*rho - 88*R*k**2*omega + 30*R*k**2*rho + 64*R*k**2 + 1152*alpha**3*k - 4608*alpha**3*omega + 1728*alpha**3*rho + 2304*alpha**3 - 1728*alpha**2*k*omega + 768*alpha**2*k*rho + 1344*alpha**2*k - 4608*alpha*k*omega**2 + 4032*alpha*k*omega*rho + 6144*alpha*k*omega - 864*alpha*k*rho**2 - 2496*alpha*k*rho - 1536*alpha*k)/768"
+    },
+    {
+      "triple": [
+        1,
+        2,
+        4
+      ],
+      "monomial": [
+        2,
+        0,
+        0,
+        0,
+        1
+      ],
+      "coefficient": "sqrt(6)*I*R*(-36*R*alpha**3*k + 42*R*alpha**2*k*omega - 24*R*alpha**2*k*rho - 42*R*alpha**2*k + 16*R*alpha*k**2*omega - 10*R*alpha*k**2*rho - 16*R*alpha*k**2 + 72*R*alpha*k*omega**2 - 90*R*alpha*k*omega*rho - 120*R*alpha*k*omega + 27*R*alpha*k*rho**2 + 78*R*alpha*k*rho + 48*R*alpha*k - 32*R*k**2*omega + 30*R*k**2*rho + 64*R*k**2 + 1152*alpha**3*k - 2304*alpha**3*omega + 1728*alpha**3*rho + 2304*alpha**3 + 192*alpha**2*k*omega - 192*alpha**2*k + 576*alpha*k*omega*rho - 288*alpha*k*rho**2 - 576*alpha*k*rho)/192"
+    },
+    {
+      "triple": [
+        1,
+        2,
+        4
+      ],
+      "monomial": [
+        1,
+        2,
+        0,
+        0,
+        0
+      ],
+      "coefficient": "-3*sqrt(6)*I*R*k**2*rho/2"
+    },
+    {
+      "triple": [
+        1,
+        2,
+        4
+      ],
+      "monomial": [
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      "coefficient": "-3*sqrt(6)*I*R**2*k**2*(alpha - 1)*(2*omega - rho - 2)/4"
+    },
+    {
+      "triple": [
+        1,
+        2,
+        4
+      ],
+      "monomial": [
+        1,
+        1,
+        0,
+        1,
+        0
+      ],
+      "coefficient": "sqrt(6)*I*R*k*(4*R*alpha*k*omega - R*alpha*k*rho + 12*R*k*omega - 3*R*k*rho - 480*alpha**2*omega + 192*alpha**2*rho + 288*alpha**2 - 1152*alpha*omega**2 + 864*alpha*omega*rho + 1248*alpha*omega - 144*alpha*rho**2 - 336*alpha*rho - 288*alpha - 128*k*rho)/128"
+    },
+    {
+      "triple": [
+        1,
+        2,
+        4
+      ],
+      "monomial": [
+        1,
+        1,
+        0,
+        0,
+        1
+      ],
+      "coefficient": "-sqrt(6)*I*R*k*(8*R*alpha*k*omega - 5*R*alpha*k*rho - 8*R*alpha*k + 24*R*k*omega - 7*R*k*rho - 8*R*k + 576*alpha**3 + 96*alpha**2*omega - 96*alpha**2 + 288*alpha*omega*rho + 96*alpha*omega - 144*alpha*rho**2 - 336*alpha*rho - 96*alpha)/32"
+    },
+    {
+      "triple": [
+        1,
+        2,
+        4
+      ],
+      "monomial": [
+        1,
+        0,
+        2,
+        0,
+        0
+      ],
+      "coefficient": "3*sqrt(6)*I*R**3*k**2*(4*omega - rho)/8"
+    },
+    {
+      "triple": [
+        1,
+        2,
+        4
+      ],
+      "monomial": [
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      "coefficient": "-sqrt(6)*I*R**2*k*(-36*alpha**3 + 6*alpha**2*omega + 6*alpha**2 + 24*alpha*k*omega - 10*alpha*k*rho - 16*alpha*k + 72*alpha*omega**2 - 54*alpha*omega*rho - 78*alpha*omega + 9*alpha*rho**2 + 21*alpha*rho + 6*alpha + 8*k*omega - 14*k*rho - 16*k)/16"
+    },
+    {
+      "triple": [
+        1,
+        2,
+        4
+      ],
+      "monomial": [
+        1,
+        0,
+        1,
+        0,
+        1
+      ],
+      "coefficient": "sqrt(6)*I*R**2*k*(4*R*k*omega - R*k*rho + 72*alpha**2*omega - 48*alpha**2*rho - 72*alpha**2 - 8*alpha*k*rho - 72*alpha*omega*rho - 24*alpha*omega + 36*alpha*rho**2 + 84*alpha*rho + 72*alpha - 24*k*rho)/16"
+    },
+    {
+      "triple": [
+        1,
+        2,
+        4
+      ],
+      "monomial": [
+        1,
+        0,
+        0,
+        2,
+        0
+      ],
+      "coefficient": "sqrt(6)*I*R*(-72*R*alpha**3*k - 24*R*alpha**2*k*omega + 6*R*alpha**2*k*rho + 64*R*alpha*k**2*omega - 16*R*alpha*k**2*rho + 144*R*alpha*k*omega**2 - 72*R*alpha*k*omega*rho + 9*R*alpha*k*rho**2 - 256*R*k**2*omega + 64*R*k**2*rho + 3456*alpha**4 - 9792*alpha**3*omega + 2592*alpha**3*rho + 576*alpha**3 - 9984*alpha**2*k*omega + 3648*alpha**2*k*rho + 4608*alpha**2*k - 23040*alpha*k*omega**2 + 16128*alpha*k*omega*rho + 16896*alpha*k*omega - 2592*alpha*k*rho**2 - 3840*alpha*k*rho - 1536*alpha*k + 512*k**2*rho)/3072"
+    },
+    {
+      "triple": [
+        1,
+        2,
+        4
+      ],
+      "monomial": [
+        1,
+        0,
+        0,
+        1,
+        1
+      ],
+      "coefficient": "-sqrt(6)*I*R*(-144*R*alpha**3*k + 60*R*alpha**2*k*omega - 6*R*alpha**2*k*rho + 24*R*alpha**2*k + 96*R*alpha*k**2*omega - 48*R*alpha*k**2*rho - 64*R*alpha*k**2 + 288*R*alpha*k*omega**2 - 252*R*alpha*k*omega*rho - 312*R*alpha*k*omega + 45*R*alpha*k*rho**2 + 84*R*alpha*k*rho + 48*R*alpha*k + 32*R*k**2*omega - 16*R*k**2*rho - 96*R*k**2 - 3456*alpha**4 + 4608*alpha**3*k - 8640*alpha**3*omega + 4320*alpha**3*rho + 4032*alpha**3 + 1152*alpha**2*k*omega + 192*alpha**2*k*rho - 768*alpha**2*k + 3456*alpha*k*omega*rho + 768*alpha*k*omega - 1440*alpha*k*rho**2 - 2688*alpha*k*rho - 1536*alpha*k)/384"
+    },
+    {
+      "triple": [
+        1,
+        2,
+        4
+      ],
+      "monomial": [
+        1,
+        0,
+        0,
+        0,
+        2
+      ],
+      "coefficient": "-sqrt(6)*I*R*(4*R**2*k**2*omega - R**2*k**2*rho - 288*R*alpha**2*k*omega + 228*R*alpha**2*k*rho + 288*R*alpha**2*k + 32*R*alpha*k**2*rho + 288*R*alpha*k*omega*rho - 96*R*alpha*k*omega - 162*R*alpha*k*rho**2 - 240*R*alpha*k*rho - 96*R*alpha*k - 128*R*k**2*rho - 6912*alpha**4 - 4608*alpha**3*k + 1152*alpha**3*omega - 5184*alpha**3*rho - 1152*alpha**3 + 384*alpha**2*k*rho + 576*alpha*k*rho**2)/384"
+    },
+    {
+      "triple": [
+        1,
+        2,
+        4
+      ],
+      "monomial": [
+        0,
+        1,
+        1,
+        1,
+        0
+      ],
+      "coefficient": "3*sqrt(6)*I*R**2*k**2*(alpha + 1)*(4*omega - rho)/8"
+    },
+    {
+      "triple": [
+        1,
+        2,
+        4
+      ],
+      "monomial": [
+        0,
+        1,
+        1,
+        0,
+        1
+      ],
+      "coefficient": "3*sqrt(6)*I*R**2*k**2*rho*(alpha + 1)/2"
+    },
+    {
+      "triple": [
+        1,
+        2,
+        4
+      ],
+      "monomial": [
+        0,
+        1,
+        0,
+        2,
+        0
+      ],
+      "coefficient": "-sqrt(6)*I*R*k*(-72*alpha**2*omega + 18*alpha**2*rho - 144*alpha*omega**2 + 72*alpha*omega*rho - 9*alpha*rho**2 + 16*k*rho)/32"
+    },
+    {
+      "triple": [
+        1,
+        2,
+        4
+      ],
+      "monomial": [
+        0,
+        1,
+        0,
+        1,
+        1
+      ],
+      "coefficient": "sqrt(6)*I*R*k*(4*R*alpha*k*omega - R*alpha*k*rho + 8*R*k*omega - 2*R*k*rho + 48*alpha**2*omega + 24*alpha**2*rho + 144*alpha*omega*rho + 96*alpha*omega - 36*alpha*rho**2 - 48*alpha*rho)/16"
+    },
+    {
+      "triple": [
+        1,
+        2,
+        4
+      ],
+      "monomial": [
+        0,
+        1,
+        0,
+        0,
+        2
+      ],
+      "coefficient": "sqrt(6)*I*R*k*(R*alpha*k*rho - 6*R*k*omega + 3*R*k*rho + 6*R*k - 144*alpha**3 + 12*alpha**2*rho + 18*alpha*rho**2)/4"
+    },
+    {
+      "triple": [
+        1,
+        2,
+        4
+      ],
+      "monomial": [
+        0,
+        0,
+        1,
+        2,
+        0
+      ],
+      "coefficient": "sqrt(6)*I*R**2*k*(-72*alpha**3 - 24*alpha**2*omega + 6*alpha**2*rho + 64*alpha*k*omega - 16*alpha*k*rho + 144*alpha*omega**2 - 72*alpha*omega*rho + 9*alpha*rho**2 + 96*k*omega - 48*k*rho - 96*k)/64"
+    },
+    {
+      "triple": [
+        1,
+        2,
+        4
+      ],
+      "monomial": [
+        0,
+        0,
+        1,
+        1,
+        1
+      ],
+      "coefficient": "sqrt(6)*I*R**2*k*(-36*alpha**2*omega + 6*alpha**2*rho + 8*alpha*k*rho + 36*alpha*omega*rho + 24*alpha*omega - 9*alpha*rho**2 - 12*alpha*rho + 16*k*rho)/8"
+    },
+    {
+      "triple": [
+        1,
+        2,
+        4
+      ],
+      "monomial": [
+        0,
+        0,
+        1,
+        0,
+        2
+      ],
+      "coefficient": "-sqrt(6)*I*R**2*k*(4*R*k*omega - R*k*rho + 36*alpha**2*rho - 18*alpha*rho**2)/8"
+    },
+    {
+      "triple": [
+        1,
+        2,
+        4
+      ],
+      "monomial": [
+        0,
+        0,
+        0,
+        3,
+        0
+      ],
+      "coefficient": "sqrt(6)*I*R*(12*R*k**2*omega - 3*R*k**2*rho - 216*alpha**4 + 72*alpha**3*omega - 18*alpha**3*rho + 576*alpha**2*k*omega - 144*alpha**2*k*rho + 1152*alpha*k*omega**2 - 576*alpha*k*omega*rho + 96*alpha*k*omega + 72*alpha*k*rho**2 - 48*alpha*k*rho - 288*alpha*k - 128*k**2*rho)/384"
+    },
+    {
+      "triple": [
+        1,
+        2,
+        4
+      ],
+      "monomial": [
+        0,
+        0,
+        0,
+        2,
+        1
+      ],
+      "coefficient": "sqrt(6)*I*R*(-72*R*alpha**3*k - 24*R*alpha**2*k*omega + 6*R*alpha**2*k*rho + 64*R*alpha*k**2*omega - 16*R*alpha*k**2*rho + 144*R*alpha*k*omega**2 - 72*R*alpha*k*omega*rho + 9*R*alpha*k*rho**2 + 64*R*k**2*omega - 28*R*k**2*rho - 96*R*k**2 - 864*alpha**4 - 4032*alpha**3*omega + 1080*alpha**3*rho + 768*alpha**2*k*omega + 384*alpha**2*k*rho + 2304*alpha*k*omega*rho + 1152*alpha*k*omega - 576*alpha*k*rho**2 - 576*alpha*k*rho - 1152*alpha*k)/384"
+    },
+    {
+      "triple": [
+        1,
+        2,
+        4
+      ],
+      "monomial": [
+        0,
+        0,
+        0,
+        1,
+        2
+      ],
+      "coefficient": "sqrt(6)*I*R*(-36*R*alpha**2*k*omega + 6*R*alpha**2*k*rho + 8*R*alpha*k**2*rho + 36*R*alpha*k*omega*rho + 18*R*alpha*k*omega - 9*R*alpha*k*rho**2 - 9*R*alpha*k*rho - 18*R*alpha*k - 24*R*k**2*omega + 14*R*k**2*rho + 48*R*k**2 + 432*alpha**4 - 1152*alpha**3*k + 144*alpha**3*omega - 540*alpha**3*rho + 96*alpha**2*k*rho + 144*alpha*k*rho**2)/48"
+    },
+    {
+      "triple": [
+        1,
+        2,
+        4
+      ],
+      "monomial": [
+        0,
+        0,
+        0,
+        0,
+        3
+      ],
+      "coefficient": "-sqrt(6)*I*R*(4*R**2*k**2*omega - R**2*k**2*rho + 36*R*alpha**2*k*rho - 24*R*alpha*k*omega - 18*R*alpha*k*rho**2 + 12*R*alpha*k*rho + 72*R*alpha*k - 24*R*k**2*rho - 1728*alpha**4 - 144*alpha**3*rho)/48"
+    },
+    {
+      "triple": [
+        1,
+        3,
+        4
+      ],
+      "monomial": [
+        3,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coefficient": "sqrt(6)*I*R*(-9*R*alpha**3*k - 6*R*alpha**2*k*omega + 3*R*alpha**2*k*rho + 6*R*alpha**2*k + 4*R*alpha*k**2*omega - 2*R*alpha*k**2*rho - 4*R*alpha*k**2 - 28*R*k**2*omega + 14*R*k**2*rho + 44*R*k**2 + 288*alpha**3*k - 864*alpha**3*omega + 432*alpha**3*rho + 864*alpha**3 + 192*alpha**2*k*omega - 96*alpha**2*k*rho - 192*alpha**2*k)/384"
+    },
+    {
+      "triple": [
+        1,
+        3,
+        4
+      ],
+      "monomial": [
+        2,
+        1,
+        0,
+        0,
+        0
+      ],
+      "coefficient": "-sqrt(6)*I*R*k*(2*R*alpha*k*omega - R*alpha*k*rho - 2*R*alpha*k + 8*R*k*omega - 2*R*k*rho + 144*alpha**3 + 96*alpha**2*omega - 48*alpha**2*rho - 96*alpha**2 - 32*k*rho)/64"
+    },
+    {
+      "triple": [
+        1,
+        3,
+        4
+      ],
+      "monomial": [
+        2,
+        0,
+        1,
+        0,
+        0
+      ],
+      "coefficient": "sqrt(6)*I*R**2*k*(4*R*k*omega - R*k*rho - 144*alpha**3 - 96*alpha**2*omega + 48*alpha**2*rho + 96*alpha**2 + 64*alpha*k*omega - 32*alpha*k*rho - 64*alpha*k - 64*k*rho)/128"
+    },
+    {
+      "triple": [
+        1,
+        3,
+        4
+      ],
+      "monomial": [
+        2,
+        0,
+        0,
+        1,
+        0
+      ],
+      "coefficient": "-sqrt(6)*I*R*(-36*R*alpha**3*k - 24*R*alpha**2*k*omega + 9*R*alpha**2*k*rho + 12*R*alpha**2*k + 24*R*alpha*k**2*omega - 10*R*alpha*k**2*rho - 16*R*alpha*k**2 - 88*R*k**2*omega + 30*R*k**2*rho + 64*R*k**2 + 1152*alpha**3*k - 3456*alpha**3*omega + 1296*alpha**3*rho + 1728*alpha**3 + 1152*alpha**2*k*omega - 480*alpha**2*k*rho - 768*alpha**2*k)/768"
+    },
+    {
+      "triple": [
+        1,
+        3,
+        4
+      ],
+      "monomial": [
+        2,
+        0,
+        0,
+        0,
+        1
+      ],
+      "coefficient": "sqrt(6)*I*R*(-36*R*alpha**3*k - 24*R*alpha**2*k*omega + 15*R*alpha**2*k*rho + 24*R*alpha**2*k + 16*R*alpha*k**2*omega - 10*R*alpha*k**2*rho - 16*R*alpha*k**2 - 32*R*k**2*omega + 30*R*k**2*rho + 64*R*k**2 + 1152*alpha**3*k - 1728*alpha**3*omega + 1296*alpha**3*rho + 1728*alpha**3 + 384*alpha**2*k*omega - 288*alpha**2*k*rho - 384*alpha**2*k)/192"
+    },
+    {
+      "triple": [
+        1,
+        3,
+        4
+      ],
+      "monomial": [
+        1,
+        2,
+        0,
+        0,
+        0
+      ],
+      "coefficient": "-3*sqrt(6)*I*R*k**2*rho/2"
+    },
+    {
+      "triple": [
+        1,
+        3,
+        4
+      ],
+      "monomial": [
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      "coefficient": "-3*sqrt(6)*I*R**2*k**2*(alpha - 1)*(2*omega - rho - 2)/4"
+    },
+    {
+      "triple": [
+        1,
+        3,
+        4
+      ],
+      "monomial": [
+        1,
+        1,
+        0,
+        1,
+        0
+      ],
+      "coefficient": "sqrt(6)*I*R*k*(4*R*alpha*k*omega - R*alpha*k*rho + 12*R*k*omega - 3*R*k*rho + 192*alpha**2*omega - 48*alpha**2*rho - 128*k*rho)/128"
+    },
+    {
+      "triple": [
+        1,
+        3,
+        4
+      ],
+      "monomial": [
+        1,
+        1,
+        0,
+        0,
+        1
+      ],
+      "coefficient": "-sqrt(6)*I*R*k*(8*R*alpha*k*omega - 5*R*alpha*k*rho - 8*R*alpha*k + 24*R*k*omega - 7*R*k*rho - 8*R*k + 576*alpha**3 + 192*alpha**2*omega - 144*alpha**2*rho - 192*alpha**2)/32"
+    },
+    {
+      "triple": [
+        1,
+        3,
+        4
+      ],
+      "monomial": [
+        1,
+        0,
+        2,
+        0,
+        0
+      ],
+      "coefficient": "3*sqrt(6)*I*R**3*k**2*(4*omega - rho)/8"
+    },
+    {
+      "triple": [
+        1,
+        3,
+        4
+      ],
+      "monomial": [
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      "coefficient": "-sqrt(6)*I*R**2*k*(-36*alpha**3 - 24*alpha**2*omega + 9*alpha**2*rho + 12*alpha**2 + 24*alpha*k*omega - 10*alpha*k*rho - 16*alpha*k + 8*k*omega - 14*k*rho - 16*k)/16"
+    },
+    {
+      "triple": [
+        1,
+        3,
+        4
+      ],
+      "monomial": [
+        1,
+        0,
+        1,
+        0,
+        1
+      ],
+      "coefficient": "sqrt(6)*I*R**2*k*(4*R*k*omega - R*k*rho + 12*alpha**2*rho - 8*alpha*k*rho - 24*k*rho)/16"
+    },
+    {
+      "triple": [
+        1,
+        3,
+        4
+      ],
+      "monomial": [
+        1,
+        0,
+        0,
+        2,
+        0
+      ],
+      "coefficient": "sqrt(6)*I*R*(-18*R*alpha**3*k - 12*R*alpha**2*k*omega + 3*R*alpha**2*k*rho + 16*R*alpha*k**2*omega - 4*R*alpha*k**2*rho - 64*R*k**2*omega + 16*R*k**2*rho - 2160*alpha**3*omega + 648*alpha**3*rho + 432*alpha**3 + 768*alpha**2*k*omega - 192*alpha**2*k*rho + 128*k**2*rho)/768"
+    },
+    {
+      "triple": [
+        1,
+        3,
+        4
+      ],
+      "monomial": [
+        1,
+        0,
+        0,
+        1,
+        1
+      ],
+      "coefficient": "-sqrt(6)*I*R*(-72*R*alpha**3*k - 48*R*alpha**2*k*omega + 21*R*alpha**2*k*rho + 24*R*alpha**2*k + 48*R*alpha*k**2*omega - 24*R*alpha*k**2*rho - 32*R*alpha*k**2 + 16*R*k**2*omega - 8*R*k**2*rho - 48*R*k**2 + 2304*alpha**3*k - 2592*alpha**3*omega + 1296*alpha**3*rho + 864*alpha**3 + 1152*alpha**2*k*omega - 672*alpha**2*k*rho - 768*alpha**2*k)/192"
+    },
+    {
+      "triple": [
+        1,
+        3,
+        4
+      ],
+      "monomial": [
+        1,
+        0,
+        0,
+        0,
+        2
+      ],
+      "coefficient": "-sqrt(6)*I*R*(4*R**2*k**2*omega - R**2*k**2*rho - 48*R*alpha**2*k*rho + 32*R*alpha*k**2*rho - 128*R*k**2*rho - 4608*alpha**3*k + 3456*alpha**3*omega - 5184*alpha**3*rho - 3456*alpha**3 + 768*alpha**2*k*rho)/384"
+    },
+    {
+      "triple": [
+        1,
+        3,
+        4
+      ],
+      "monomial": [
+        0,
+        1,
+        1,
+        1,
+        0
+      ],
+      "coefficient": "3*sqrt(6)*I*R**2*k**2*(alpha + 1)*(4*omega - rho)/8"
+    },
+    {
+      "triple": [
+        1,
+        3,
+        4
+      ],
+      "monomial": [
+        0,
+        1,
+        1,
+        0,
+        1
+      ],
+      "coefficient": "3*sqrt(6)*I*R**2*k**2*rho*(alpha + 1)/2"
+    },
+    {
+      "triple": [
+        1,
+        3,
+        4
+      ],
+      "monomial": [
+        0,
+        1,
+        0,
+        2,
+        0
+      ],
+      "coefficient": "-sqrt(6)*I*R*k**2*rho/2"
+    },
+    {
+      "triple": [
+        1,
+        3,
+        4
+      ],
+      "monomial": [
+        0,
+        1,
+        0,
+        1,
+        1
+      ],
+      "coefficient": "sqrt(6)*I*R*k*(4*omega - rho)*(R*alpha*k + 2*R*k + 24*alpha**2)/16"
+    },
+    {
+      "triple": [
+        1,
+        3,
+        4
+      ],
+      "monomial": [
+        0,
+        1,
+        0,
+        0,
+        2
+      ],
+      "coefficient": "sqrt(6)*I*R*k*(R*alpha*k*rho - 6*R*k*omega + 3*R*k*rho + 6*R*k - 144*alpha**3 + 24*alpha**2*rho)/4"
+    },
+    {
+      "triple": [
+        1,
+        3,
+        4
+      ],
+      "monomial": [
+        0,
+        0,
+        1,
+        2,
+        0
+      ],
+      "coefficient": "sqrt(6)*I*R**2*k*(-18*alpha**3 - 12*alpha**2*omega + 3*alpha**2*rho + 16*alpha*k*omega - 4*alpha*k*rho + 24*k*omega - 12*k*rho - 24*k)/16"
+    },
+    {
+      "triple": [
+        1,
+        3,
+        4
+      ],
+      "monomial": [
+        0,
+        0,
+        1,
+        1,
+        1
+      ],
+      "coefficient": "sqrt(6)*I*R**2*k*rho*(-3*alpha**2 + 4*alpha*k + 8*k)/4"
+    },
+    {
+      "triple": [
+        1,
+        3,
+        4
+      ],
+      "monomial": [
+        0,
+        0,
+        1,
+        0,
+        2
+      ],
+      "coefficient": "-sqrt(6)*I*R**3*k**2*(4*omega - rho)/8"
+    },
+    {
+      "triple": [
+        1,
+        3,
+        4
+      ],
+      "monomial": [
+        0,
+        0,
+        0,
+        3,
+        0
+      ],
+      "coefficient": "sqrt(6)*I*R*(12*R*k**2*omega - 3*R*k**2*rho + 216*alpha**3*omega - 54*alpha**3*rho - 128*k**2*rho)/384"
+    },
+    {
+      "triple": [
+        1,
+        3,
+        4
+      ],
+      "monomial": [
+        0,
+        0,
+        0,
+        2,
+        1
+      ],
+      "coefficient": "sqrt(6)*I*R*(-18*R*alpha**3*k - 12*R*alpha**2*k*omega + 3*R*alpha**2*k*rho + 16*R*alpha*k**2*omega - 4*R*alpha*k**2*rho + 16*R*k**2*omega - 7*R*k**2*rho - 24*R*k**2 - 432*alpha**3*omega + 162*alpha**3*rho + 384*alpha**2*k*omega - 96*alpha**2*k*rho)/96"
+    },
+    {
+      "triple": [
+        1,
+        3,
+        4
+      ],
+      "monomial": [
+        0,
+        0,
+        0,
+        1,
+        2
+      ],
+      "coefficient": "sqrt(6)*I*R*(-3*R*alpha**2*k*rho + 4*R*alpha*k**2*rho - 12*R*k**2*omega + 7*R*k**2*rho + 24*R*k**2 - 576*alpha**3*k + 216*alpha**3*omega - 162*alpha**3*rho + 96*alpha**2*k*rho)/24"
+    },
+    {
+      "triple": [
+        1,
+        3,
+        4
+      ],
+      "monomial": [
+        0,
+        0,
+        0,
+        0,
+        3
+      ],
+      "coefficient": "-sqrt(6)*I*R*(4*R**2*k**2*omega - R**2*k**2*rho - 24*R*k**2*rho - 432*alpha**3*rho)/48"
+    },
+    {
+      "triple": [
+        2,
+        3,
+        4
+      ],
+      "monomial": [
+        3,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coefficient": "-R*alpha*k*(R + 32)*(6*R*k*omega - 3*R*k*rho - 6*R*k - 144*alpha**2 + 64*alpha*omega - 32*alpha*rho - 64*alpha - 192*k*omega + 96*k*rho + 192*k + 32*omega**2 - 32*omega*rho - 32*omega + 8*rho**2 + 16*rho - 32)/2048"
+    },
+    {
+      "triple": [
+        2,
+        3,
+        4
+      ],
+      "monomial": [
+        2,
+        1,
+        0,
+        0,
+        0
+      ],
+      "coefficient": "3*R*alpha*k*(3*R*k - 36*alpha**2 + 16*alpha*omega - 8*alpha*rho - 16*alpha - 96*k*omega + 48*k*rho + 48*k + 8*omega**2 - 8*omega*rho - 32*omega + 2*rho**2 + 16*rho + 16)/16"
+    },
+    {
+      "triple": [
+        2,
+        3,
+        4
+      ],
+      "monomial": [
+        2,
+        0,
+        1,
+        0,
+        0
+      ],
+      "coefficient": "-3*R**2*alpha*k*(6*R*k*omega - 3*R*k*rho - 3*R*k - 72*alpha**2 + 32*alpha*omega - 16*alpha*rho - 32*alpha - 192*k + 16*omega**2 - 16*omega*rho - 64*omega + 4*rho**2 + 32*rho + 32)/64"
+    },
+    {
+      "triple": [
+        2,
+        3,
+        4
+      ],
+      "monomial": [
+        2,
+        0,
+        0,
+        1,
+        0
+      ],
+      "coefficient": "R*alpha*(12*R**2*k**2*omega - 3*R**2*k**2*rho - 864*R*alpha**2*k - 192*R*alpha*k**2 + 160*R*alpha*k*omega - 48*R*alpha*k*rho - 32*R*alpha*k - 1344*R*k**2 + 128*R*k*omega**2 - 96*R*k*omega*rho - 128*R*k*omega + 16*R*k*rho**2 + 32*R*k*rho - 46080*alpha**3 - 9216*alpha**2*k + 3072*alpha**2*omega - 1536*alpha**2*rho - 3072*alpha**2 + 15360*alpha*k*omega - 6656*alpha*k*rho - 11264*alpha*k - 61440*k**2*omega + 27648*k**2*rho + 49152*k**2 + 8192*k*omega**2 - 7168*k*omega*rho - 8192*k*omega + 1536*k*rho**2 + 3072*k*rho)/4096"
+    },
+    {
+      "triple": [
+        2,
+        3,
+        4
+      ],
+      "monomial": [
+        2,
+        0,
+        0,
+        0,
+        1
+      ],
+      "coefficient": "-R*alpha*(48*R**2*k**2*omega - 27*R**2*k**2*rho - 48*R**2*k**2 - 288*R*alpha**2*k + 192*R*alpha*k**2 + 352*R*alpha*k*omega - 208*R*alpha*k*rho - 352*R*alpha*k + 1344*R*k**2 + 128*R*k*omega**2 - 160*R*k*omega*rho - 128*R*k*omega + 48*R*k*rho**2 + 96*R*k*rho + 46080*alpha**3 - 27648*alpha**2*k - 3072*alpha**2*omega + 1536*alpha**2*rho + 3072*alpha**2 + 1024*alpha*k*omega - 1536*alpha*k*rho - 1024*alpha*k + 3072*k**2*rho - 1024*k*omega*rho + 512*k*rho**2 + 1024*k*rho)/1024"
+    },
+    {
+      "triple": [
+        2,
+        3,
+        4
+      ],
+      "monomial": [
+        1,
+        2,
+        0,
+        0,
+        0
+      ],
+      "coefficient": "27*R*alpha*k**2*(2*omega - rho)/2"
+    },
+    {
+      "triple": [
+        2,
+        3,
+        4
+      ],
+      "monomial": [
+        1,
+        1,
+        0,
+        1,
+        0
+      ],
+      "coefficient": "3*R*alpha*k*(3*R*alpha*k - 9*R*k - 144*alpha**2 - 112*alpha*omega + 40*alpha*rho + 48*alpha + 1152*k*omega - 480*k*rho - 384*k - 64*omega**2 + 48*omega*rho + 144*omega - 8*rho**2 - 56*rho - 48)/64"
+    },
+    {
+      "triple": [
+        2,
+        3,
+        4
+      ],
+      "monomial": [
+        1,
+        1,
+        0,
+        0,
+        1
+      ],
+      "coefficient": "3*R*alpha*k*(3*R*alpha*k + 15*R*k - 432*alpha**2 + 16*alpha*omega - 24*alpha*rho - 16*alpha + 96*k*rho - 16*omega*rho - 16*omega + 8*rho**2 + 24*rho + 16)/16"
+    },
+    {
+      "triple": [
+        2,
+        3,
+        4
+      ],
+      "monomial": [
+        1,
+        0,
+        2,
+        0,
+        0
+      ],
+      "coefficient": "-27*R**3*alpha*k**2*(2*omega - rho)/8"
+    },
+    {
+      "triple": [
+        2,
+        3,
+        4
+      ],
+      "monomial": [
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      "coefficient": "3*R**2*alpha*k*(12*R*k*omega - 3*R*k*rho - 432*alpha**2 - 96*alpha*k + 80*alpha*omega - 24*alpha*rho - 16*alpha - 480*k + 64*omega**2 - 48*omega*rho - 80*omega + 8*rho**2 + 24*rho + 16)/128"
+    },
+    {
+      "triple": [
+        2,
+        3,
+        4
+      ],
+      "monomial": [
+        1,
+        0,
+        1,
+        0,
+        1
+      ],
+      "coefficient": "-3*R**2*alpha*k*(24*R*k*omega - 15*R*k*rho - 12*R*k + 144*alpha**2 + 96*alpha*k + 48*alpha*omega - 40*alpha*rho - 48*alpha - 288*k - 16*omega*rho - 80*omega + 8*rho**2 + 56*rho + 48)/32"
+    },
+    {
+      "triple": [
+        2,
+        3,
+        4
+      ],
+      "monomial": [
+        1,
+        0,
+        0,
+        2,
+        0
+      ],
+      "coefficient": "R*alpha*(72*R*alpha**2*k + 96*R*alpha*k**2 - 8*R*alpha*k*omega + 2*R*alpha*k*rho + 384*R*k**2 - 16*R*k*omega**2 + 8*R*k*omega*rho - R*k*rho**2 + 11520*alpha**3 - 6912*alpha**2*k - 1152*alpha**2*omega + 384*alpha**2*rho + 384*alpha**2 - 4352*alpha*k*omega + 1472*alpha*k*rho + 1536*alpha*k + 24576*k**2*omega - 9216*k**2*rho - 15360*k**2 - 2560*k*omega**2 + 1792*k*omega*rho + 512*k*omega - 288*k*rho**2 + 256*k*rho + 512*k)/1024"
+    },
+    {
+      "triple": [
+        2,
+        3,
+        4
+      ],
+      "monomial": [
+        1,
+        0,
+        0,
+        1,
+        1
+      ],
+      "coefficient": "R*alpha*(12*R**2*k**2*omega - 3*R**2*k**2*rho - 504*R*alpha**2*k + 104*R*alpha*k*omega - 32*R*alpha*k*rho - 16*R*alpha*k + 64*R*k*omega**2 - 56*R*k*omega*rho - 80*R*k*omega + 10*R*k*rho**2 + 24*R*k*rho + 32*R*k - 16128*alpha**2*k - 768*alpha**2*omega + 768*alpha*k*omega - 1024*alpha*k*rho - 512*alpha*k + 3072*k**2*rho - 768*k*omega*rho - 512*k*omega + 320*k*rho**2 + 768*k*rho + 1024*k)/256"
+    },
+    {
+      "triple": [
+        2,
+        3,
+        4
+      ],
+      "monomial": [
+        1,
+        0,
+        0,
+        0,
+        2
+      ],
+      "coefficient": "-R*alpha*(12*R**2*k**2*omega - 9*R**2*k**2*rho - 15*R**2*k**2 + 216*R*alpha**2*k + 96*R*alpha*k**2 + 48*R*alpha*k*omega - 46*R*alpha*k*rho - 48*R*alpha*k + 384*R*k**2 - 16*R*k*omega*rho + 48*R*k*omega + 9*R*k*rho**2 - 8*R*k*rho - 16*R*k + 11520*alpha**3 - 2304*alpha**2*k - 384*alpha**2*omega + 384*alpha**2*rho + 384*alpha**2 - 64*alpha*k*rho + 32*k*rho**2)/64"
+    },
+    {
+      "triple": [
+        2,
+        3,
+        4
+      ],
+      "monomial": [
+        0,
+        2,
+        0,
+        1,
+        0
+      ],
+      "coefficient": "-27*R*alpha*k**2*(4*omega - rho)/4"
+    },
+    {
+      "triple": [
+        2,
+        3,
+        4
+      ],
+      "monomial": [
+        0,
+        2,
+        0,
+        0,
+        1
+      ],
+      "coefficient": "-27*R*alpha*k**2*rho"
+    },
+    {
+      "triple": [
+        2,
+        3,
+        4
+      ],
+      "monomial": [
+        0,
+        1,
+        1,
+        1,
+        0
+      ],
+      "coefficient": "27*R**2*alpha*k**2*(alpha - 1)/4"
+    },
+    {
+      "triple": [
+        2,
+        3,
+        4
+      ],
+      "monomial": [
+        0,
+        1,
+        1,
+        0,
+        1
+      ],
+      "coefficient": "27*R**2*alpha*k**2*(alpha - 1)"
+    },
+    {
+      "triple": [
+        2,
+        3,
+        4
+      ],
+      "monomial": [
+        0,
+        1,
+        0,
+        2,
+        0
+      ],
+      "coefficient": "-3*R*alpha*k*(-72*alpha**2 - 24*alpha*omega + 6*alpha*rho + 384*k*omega - 96*k*rho - 96*k - 16*omega**2 + 8*omega*rho - rho**2)/32"
+    },
+    {
+      "triple": [
+        2,
+        3,
+        4
+      ],
+      "monomial": [
+        0,
+        1,
+        0,
+        1,
+        1
+      ],
+      "coefficient": "3*R*alpha*k*(3*R*alpha*k - 6*R*k + 72*alpha**2 - 8*alpha*omega + 8*alpha*rho - 96*k*rho + 8*omega*rho + 16*omega - 2*rho**2 - 8*rho)/8"
+    },
+    {
+      "triple": [
+        2,
+        3,
+        4
+      ],
+      "monomial": [
+        0,
+        1,
+        0,
+        0,
+        2
+      ],
+      "coefficient": "3*R*alpha*k*(3*R*alpha*k - 72*alpha**2 - 2*alpha*rho + rho**2)/2"
+    },
+    {
+      "triple": [
+        2,
+        3,
+        4
+      ],
+      "monomial": [
+        0,
+        0,
+        2,
+        1,
+        0
+      ],
+      "coefficient": "27*R**3*alpha*k**2*(4*omega - rho)/16"
+    },
+    {
+      "triple": [
+        2,
+        3,
+        4
+      ],
+      "monomial": [
+        0,
+        0,
+        2,
+        0,
+        1
+      ],
+      "coefficient": "27*R**3*alpha*k**2*rho/4"
+    },
+    {
+      "triple": [
+        2,
+        3,
+        4
+      ],
+      "monomial": [
+        0,
+        0,
+        1,
+        2,
+        0
+      ],
+      "coefficient": "3*R**2*alpha*k*(72*alpha**2 + 96*alpha*k - 8*alpha*omega + 2*alpha*rho - 16*omega**2 + 8*omega*rho - rho**2)/64"
+    },
+    {
+      "triple": [
+        2,
+        3,
+        4
+      ],
+      "monomial": [
+        0,
+        0,
+        1,
+        1,
+        1
+      ],
+      "coefficient": "3*R**2*alpha*k*(12*R*k*omega - 3*R*k*rho - 72*alpha**2 + 96*alpha*k + 24*alpha*omega - 8*alpha*rho - 192*k - 8*omega*rho - 16*omega + 2*rho**2 + 8*rho)/16"
+    },
+    {
+      "triple": [
+        2,
+        3,
+        4
+      ],
+      "monomial": [
+        0,
+        0,
+        1,
+        0,
+        2
+      ],
+      "coefficient": "3*R**2*alpha*k*(3*R*k*rho + 3*R*k - 72*alpha**2 + 6*alpha*rho - rho**2)/4"
+    },
+    {
+      "triple": [
+        2,
+        3,
+        4
+      ],
+      "monomial": [
+        0,
+        0,
+        0,
+        3,
+        0
+      ],
+      "coefficient": "-R*alpha*(9*R*k**2 + 198*alpha**3 - 288*alpha**2*k - 24*alpha**2*omega + 6*alpha**2*rho - 96*alpha*k*omega + 24*alpha*k*rho + 768*k**2*omega - 192*k**2*rho - 384*k**2 - 64*k*omega**2 + 32*k*omega*rho - 80*k*omega - 4*k*rho**2 + 40*k*rho + 48*k)/64"
+    },
+    {
+      "triple": [
+        2,
+        3,
+        4
+      ],
+      "monomial": [
+        0,
+        0,
+        0,
+        2,
+        1
+      ],
+      "coefficient": "R*alpha*(72*R*alpha**2*k + 96*R*alpha*k**2 - 8*R*alpha*k*omega + 2*R*alpha*k*rho - 24*R*k**2 - 16*R*k*omega**2 + 8*R*k*omega*rho - R*k*rho**2 + 1008*alpha**3 + 2304*alpha**2*k + 48*alpha**2*rho - 256*alpha*k*omega + 256*alpha*k*rho - 1536*k**2*rho + 256*k*omega*rho + 384*k*omega - 64*k*rho**2 - 192*k*rho - 384*k)/128"
+    },
+    {
+      "triple": [
+        2,
+        3,
+        4
+      ],
+      "monomial": [
+        0,
+        0,
+        0,
+        1,
+        2
+      ],
+      "coefficient": "R*alpha*(12*R**2*k**2*omega - 3*R**2*k**2*rho - 144*R*alpha**2*k + 192*R*alpha*k**2 + 48*R*alpha*k*omega - 16*R*alpha*k*rho - 48*R*k**2 - 16*R*k*omega*rho - 24*R*k*omega + 4*R*k*rho**2 + 12*R*k*rho + 24*R*k + 2016*alpha**3 - 4608*alpha**2*k - 384*alpha**2*omega + 96*alpha**2*rho - 128*alpha*k*rho + 64*k*rho**2)/64"
+    },
+    {
+      "triple": [
+        2,
+        3,
+        4
+      ],
+      "monomial": [
+        0,
+        0,
+        0,
+        0,
+        3
+      ],
+      "coefficient": "R*alpha*(3*R**2*k**2*rho + 6*R**2*k**2 - 144*R*alpha**2*k + 12*R*alpha*k*rho - 144*R*k**2 - 40*R*k*omega - 2*R*k*rho**2 + 20*R*k*rho + 24*R*k - 3168*alpha**3 - 96*alpha**2*rho)/16"
+    }
+  ],
+  "unit_normalized_equations": [
+    "rho",
+    "alpha - 1",
+    "-2*omega + rho",
+    "-4*omega + rho",
+    "alpha - rho - 1",
+    "(3*alpha + 4*k)/3",
+    "alpha + 2*omega - rho - 1",
+    "alpha + 4*omega - rho - 1",
+    "(24*alpha + 32*k + 12*omega - 3*rho)/24",
+    "rho*(alpha + 1)",
+    "(alpha - 1)*(omega + 1)",
+    "(alpha - 1)*(omega - 1)",
+    "-(R*k - 24*alpha)/24",
+    "-(alpha + 1)*(4*omega - rho)",
+    "-(alpha - 1)*(2*omega - rho - 2)",
+    "-6*alpha*omega + alpha*rho + 4*omega",
+    "2*alpha*omega + alpha*rho - 4*omega",
+    "-(R*k - 24*alpha + 3*rho)/24",
+    "-2*alpha*omega + alpha*rho + 2*alpha - 2",
+    "(9*alpha**2 - 8*alpha*rho - 9*alpha + rho)/9",
+    "-(18*alpha*omega - 9*alpha*rho - 2*rho)/9",
+    "-(18*alpha*omega - 9*alpha*rho + 8*omega - 2*rho)/9",
+    "-(3*alpha*omega - 2*alpha*rho - 3*alpha - omega + 3)/2",
+    "-(5*alpha*omega - 2*alpha*rho - 3*alpha + omega + 3)/2",
+    "-(-3*alpha**2 + 16*k*omega - 4*k*rho - 4*k)/3",
+    "(9*alpha**2 + 32*alpha*omega - 8*alpha*rho - 9*alpha - 4*omega + rho)/9",
+    "-(R*k - 12*alpha**2 - 32*k*omega + 16*k*rho + 16*k)/12",
+    "(9*alpha**2 + 16*alpha*omega - 8*alpha*rho - 7*alpha + 2*omega - rho - 2)/9",
+    "-(-3*alpha**2 + 2*alpha*k + 8*k*omega - 2*k*rho - 6*k)/3",
+    "-(-12*alpha**2 - 12*alpha*omega + 3*alpha*rho + 64*k*omega - 16*k*rho - 16*k)/12",
+    "-(-24*alpha**2 - 36*alpha*omega + 9*alpha*rho + 128*k*omega - 32*k*rho - 32*k)/24",
+    "(72*alpha**2 + 96*alpha*k - 8*alpha*omega + 2*alpha*rho - 16*omega**2 + 8*omega*rho - rho**2)/72",
+    "-(-24*alpha**2 + 16*alpha*k - 12*alpha*omega + 3*alpha*rho + 64*k*omega - 16*k*rho - 48*k)/24",
+    "-(R*k - 24*alpha**2 + 12*alpha*omega - 6*alpha*rho + 12*alpha - 32*k*omega + 16*k*rho + 16*k)/24",
+    "-(-72*alpha**2 - 24*alpha*omega + 6*alpha*rho + 384*k*omega - 96*k*rho - 96*k - 16*omega**2 + 8*omega*rho - rho**2)/72",
+    "-(3*R*k - 36*alpha**2 + 16*alpha*omega - 8*alpha*rho - 16*alpha - 96*k*omega + 48*k*rho + 48*k + 8*omega**2 - 8*omega*rho - 32*omega + 2*rho**2 + 16*rho + 16)/36",
+    "-(R*k*rho + R*k - 24*alpha**2)/24",
+    "-rho*(-3*alpha**2 + 4*alpha*k + 8*k)/3",
+    "(R*alpha*k - 2*R*k + 24*alpha**2 - 32*k*rho)/24",
+    "(R*alpha*k - R*k*rho - 3*R*k + 48*alpha**2)/48",
+    "-(R*k*rho + R*k - 24*alpha**2 + 6*alpha*rho)/24",
+    "-(R*k*rho + R*k - 24*alpha**2 + 9*alpha*rho)/24",
+    "-(3*R*alpha*k - 72*alpha**2 - 2*alpha*rho + rho**2)/72",
+    "-(R*alpha*k + 5*R*k - 144*alpha**2 + 32*k*rho)/144",
+    "(4*R*k*omega - R*k*rho + 36*alpha**2*rho - 18*alpha*rho**2)/36",
+    "(R*alpha*k - R*k*rho - 3*R*k + 48*alpha**2 - 6*alpha*rho)/48",
+    "-(2*R*k*omega - R*k*rho - R*k - 24*alpha**2 - 64*k)/24",
+    "-(3*R*k*rho + 3*R*k - 72*alpha**2 + 6*alpha*rho - rho**2)/72",
+    "-(4*R*k*omega - R*k*rho - 144*alpha**2 - 32*alpha*k - 160*k)/144",
+    "-(4*R*k*omega - R*k*rho - 24*alpha**2 + 32*alpha*k - 64*k)/24",
+    "(4*R*k*omega - R*k*rho + 12*alpha**2*rho - 8*alpha*k*rho - 24*k*rho)/12",
+    "(4*R*k*omega - R*k*rho + 24*alpha**2 - 32*alpha*k + 32*k*rho + 64*k)/24",
+    "-(R*alpha*k + 5*R*k - 192*alpha**2 - 24*alpha*omega + 48*alpha + 32*k*rho)/192",
+    "-(R*alpha*k - 3*R*k - 48*alpha**2 + 384*k*omega - 160*k*rho - 128*k)/48",
+    "(8*R*k*omega - 5*R*k*rho - 4*R*k + 48*alpha**2 + 32*alpha*k - 96*k)/48",
+    "(R*alpha*k + 4*R*k*omega - R*k*rho - 2*R*k + 24*alpha**2 + 32*k*rho)/24",
+    "(R*alpha*k - 2*R*k + 48*alpha**2 + 12*alpha*omega + 6*alpha*rho - 24*alpha - 32*k*rho)/48",
+    "(4*R*k*omega - R*k*rho + 240*alpha**2 - 160*alpha*k - 384*k*omega + 160*k*rho + 480*k)/240",
+    "(5*R*alpha*k + 8*R*k*omega - 5*R*k*rho - 15*R*k + 240*alpha**2 + 32*k*rho)/240",
+    "-(4*R*k*omega - R*k*rho - 192*alpha**2 - 32*alpha*k + 24*alpha*omega + 48*alpha - 160*k)/192",
+    "R*alpha*k - 3*R*k - 120*alpha*omega + 48*alpha*rho - 48*alpha + 384*k*omega - 160*k*rho - 128*k",
+    "(3*R*k**2 + 54*alpha**3 + 96*alpha**2*k - 256*k**2*omega + 64*k**2*rho + 128*k**2)/54",
+    "(3*R*k**2 + 54*alpha**3 - 96*alpha**2*k + 256*k**2*omega - 64*k**2*rho - 128*k**2)/54",
+    "(8*R*k*omega - 5*R*k*rho - 4*R*k + 144*alpha**2 - 32*alpha*k + 32*k*rho + 96*k)/144",
+    "(-72*alpha**2*omega + 18*alpha**2*rho - 144*alpha*omega**2 + 72*alpha*omega*rho - 9*alpha*rho**2 + 16*k*rho)/18",
+    "(2*R*k*omega - R*k*rho - R*k + 96*alpha**2 - 32*alpha*k - 64*k*omega + 32*k*rho + 128*k)/96",
+    "-(2*R*k*omega - R*k*rho - R*k - 48*alpha**2 + 24*alpha*omega - 12*alpha*rho + 24*alpha - 64*k)/48",
+    "(8*R*k*omega - 5*R*k*rho - 4*R*k + 32*alpha*k + 72*alpha*omega - 48*alpha*rho + 48*alpha - 96*k)/32",
+    "(R*alpha*k + 2*R*k*omega - R*k*rho - 4*R*k + 96*alpha**2 - 64*k*omega + 32*k*rho + 32*k)/96",
+    "(R*alpha*k + 4*R*k*omega - R*k*rho - 3*R*k + 144*alpha**2 - 384*k*omega + 160*k*rho + 128*k)/144",
+    "-(4*R*k*omega - R*k*rho - 48*alpha**2 + 32*alpha*k + 36*alpha*omega - 6*alpha*rho + 24*alpha - 64*k)/48",
+    "-(-9*alpha**3 - 12*alpha**2*omega + 3*alpha**2*rho + 24*alpha*k*omega - 6*alpha*k*rho - 4*k*omega - 12*k)/9",
+    "-2*R*alpha*omega + R*alpha*rho + 2*R*alpha - 2*R*omega - 4*R - 64*alpha*omega + 32*alpha*rho + 64*alpha + 64*omega - 128",
+    "(4*R*k*omega - R*k*rho + 72*alpha**2 - 32*alpha*k + 24*alpha*omega - 12*alpha*rho - 48*alpha + 32*k*rho + 64*k)/72",
+    "(R*alpha*k + 4*R*k*omega - R*k*rho - 2*R*k + 72*alpha**2 + 24*alpha*omega - 12*alpha*rho - 48*alpha + 32*k*rho)/72",
+    "-(-18*alpha**3 - 12*alpha**2*omega + 3*alpha**2*rho + 16*alpha*k*omega - 4*alpha*k*rho + 24*k*omega - 12*k*rho - 24*k)/18",
+    "(-36*alpha**2*omega + 6*alpha**2*rho + 8*alpha*k*rho + 36*alpha*omega*rho + 24*alpha*omega - 9*alpha*rho**2 - 12*alpha*rho + 16*k*rho)/6",
+    "(3*R*alpha*k - 6*R*k + 72*alpha**2 - 8*alpha*omega + 8*alpha*rho - 96*k*rho + 8*omega*rho + 16*omega - 2*rho**2 - 8*rho)/72",
+    "(4*R*k*omega - R*k*rho + 336*alpha**2 - 160*alpha*k + 144*alpha*omega - 48*alpha*rho - 96*alpha - 384*k*omega + 160*k*rho + 480*k)/336",
+    "(5*R*alpha*k + 8*R*k*omega - 5*R*k*rho - 15*R*k + 336*alpha**2 + 48*alpha*omega - 48*alpha*rho - 96*alpha + 32*k*rho)/336",
+    "(8*R*k*omega - 5*R*k*rho - 4*R*k + 240*alpha**2 - 32*alpha*k + 48*alpha*omega - 48*alpha*rho - 96*alpha + 32*k*rho + 96*k)/240",
+    "(2*R*k*omega - R*k*rho - R*k + 144*alpha**2 - 32*alpha*k + 48*alpha*omega - 24*alpha*rho - 48*alpha - 64*k*omega + 32*k*rho + 128*k)/144",
+    "(R*alpha*k + 2*R*k*omega - R*k*rho - 4*R*k + 144*alpha**2 + 48*alpha*omega - 24*alpha*rho - 48*alpha - 64*k*omega + 32*k*rho + 32*k)/144",
+    "(R*alpha*k + 4*R*k*omega - R*k*rho - 3*R*k + 240*alpha**2 + 144*alpha*omega - 48*alpha*rho - 96*alpha - 384*k*omega + 160*k*rho + 128*k)/240",
+    "(3*R*k**2 + 144*alpha**3 - 96*alpha**2*k - 144*alpha*k*omega + 36*alpha*k*rho + 120*alpha*k + 256*k**2*omega - 64*k**2*rho - 128*k**2)/144",
+    "(3*R*k**2 + 90*alpha**3 + 96*alpha**2*k + 96*alpha*k*omega - 24*alpha*k*rho + 48*alpha*k - 256*k**2*omega + 64*k**2*rho + 128*k**2)/90",
+    "-(12*R*k*omega - 3*R*k*rho - 72*alpha**2 + 96*alpha*k + 24*alpha*omega - 8*alpha*rho - 192*k - 8*omega*rho - 16*omega + 2*rho**2 + 8*rho)/72",
+    "-(3*R*alpha*k + 15*R*k - 432*alpha**2 + 16*alpha*omega - 24*alpha*rho - 16*alpha + 96*k*rho - 16*omega*rho - 16*omega + 8*rho**2 + 24*rho + 16)/432",
+    "-(-36*alpha**3 - 24*alpha**2*omega + 9*alpha**2*rho + 12*alpha**2 + 24*alpha*k*omega - 10*alpha*k*rho - 16*alpha*k + 8*k*omega - 14*k*rho - 16*k)/36",
+    "-(4*R*k*omega - R*k*rho - 144*alpha**3 - 96*alpha**2*omega + 48*alpha**2*rho + 96*alpha**2 + 64*alpha*k*omega - 32*alpha*k*rho - 64*alpha*k - 64*k*rho)/144",
+    "(24*R*k*omega - 15*R*k*rho - 12*R*k + 144*alpha**2 + 96*alpha*k + 48*alpha*omega - 40*alpha*rho - 48*alpha - 288*k - 16*omega*rho - 80*omega + 8*rho**2 + 56*rho + 48)/144",
+    "-(-108*alpha**3 + 36*alpha**2*omega - 9*alpha**2*rho + 576*alpha*k*omega - 144*alpha*k*rho - 144*alpha*k + 48*alpha*omega**2 - 24*alpha*omega*rho + 3*alpha*rho**2 + 16*k*rho)/108",
+    "-(-54*alpha**3 - 72*alpha**2*omega + 18*alpha**2*rho + 288*alpha*k*omega - 72*alpha*k*rho - 72*alpha*k - 48*alpha*omega**2 + 24*alpha*omega*rho - 3*alpha*rho**2 + 8*k*rho)/54",
+    "-(12*R*k*omega - 3*R*k*rho - 432*alpha**2 - 96*alpha*k + 80*alpha*omega - 24*alpha*rho - 16*alpha - 480*k + 64*omega**2 - 48*omega*rho - 80*omega + 8*rho**2 + 24*rho + 16)/432",
+    "-(6*R*k*omega - 3*R*k*rho - 3*R*k - 72*alpha**2 + 32*alpha*omega - 16*alpha*rho - 32*alpha - 192*k + 16*omega**2 - 16*omega*rho - 64*omega + 4*rho**2 + 32*rho + 32)/72",
+    "-(-72*alpha**3 - 24*alpha**2*omega + 6*alpha**2*rho + 64*alpha*k*omega - 16*alpha*k*rho + 144*alpha*omega**2 - 72*alpha*omega*rho + 9*alpha*rho**2 + 96*k*omega - 48*k*rho - 96*k)/72",
+    "-(3*R*alpha*k - 9*R*k - 144*alpha**2 - 112*alpha*omega + 40*alpha*rho + 48*alpha + 1152*k*omega - 480*k*rho - 384*k - 64*omega**2 + 48*omega*rho + 144*omega - 8*rho**2 - 56*rho - 48)/144",
+    "-(4*R*k*omega - R*k*rho + 72*alpha**2*omega - 48*alpha**2*rho - 72*alpha**2 - 8*alpha*k*rho - 72*alpha*omega*rho - 24*alpha*omega + 36*alpha*rho**2 + 84*alpha*rho + 72*alpha - 24*k*rho)/48",
+    "-(-144*alpha**3 + 144*alpha**2*k + 36*alpha**2*omega - 9*alpha**2*rho + 512*alpha*k*omega - 128*alpha*k*rho - 432*alpha*k + 48*alpha*omega**2 - 24*alpha*omega*rho + 3*alpha*rho**2 - 96*k*omega + 48*k*rho + 96*k)/144",
+    "-(-72*alpha**3 + 72*alpha**2*k - 48*alpha**2*omega + 12*alpha**2*rho + 256*alpha*k*omega - 64*alpha*k*rho - 216*alpha*k - 48*alpha*omega**2 + 24*alpha*omega*rho - 3*alpha*rho**2 - 48*k*omega + 24*k*rho + 48*k)/72",
+    "-(-36*alpha**3 + 6*alpha**2*omega + 6*alpha**2 + 24*alpha*k*omega - 10*alpha*k*rho - 16*alpha*k + 72*alpha*omega**2 - 54*alpha*omega*rho - 78*alpha*omega + 9*alpha*rho**2 + 21*alpha*rho + 6*alpha + 8*k*omega - 14*k*rho - 16*k)/36",
+    "-(4*R*k*omega - R*k*rho - 144*alpha**3 + 96*alpha**2*omega - 48*alpha**2*rho - 96*alpha**2 + 64*alpha*k*omega - 32*alpha*k*rho - 64*alpha*k + 288*alpha*omega**2 - 288*alpha*omega*rho - 576*alpha*omega + 72*alpha*rho**2 + 288*alpha*rho + 192*alpha - 64*k*rho)/144",
+    "(9*R*k**2 + 198*alpha**3 - 288*alpha**2*k - 24*alpha**2*omega + 6*alpha**2*rho - 96*alpha*k*omega + 24*alpha*k*rho + 768*k**2*omega - 192*k**2*rho - 384*k**2 - 64*k*omega**2 + 32*k*omega*rho - 80*k*omega - 4*k*rho**2 + 40*k*rho + 48*k)/198",
+    "-(4*omega - rho)*(R*alpha*k + 2*R*k + 24*alpha**2)/24",
+    "-(3*R*alpha*k*rho - 2*R*k*omega + 6*R*k - 144*alpha**3 + 48*alpha**2*rho)/144",
+    "-(4*R**2*k*omega - R**2*k*rho - 168*R*alpha**2 - 5376*alpha**2 + 1024*k*rho)/168",
+    "-(12*R*k**2*omega - 3*R*k**2*rho + 216*alpha**3*omega - 54*alpha**3*rho - 128*k**2*rho)/54",
+    "-(R*alpha*k*rho - 6*R*k*omega + 3*R*k*rho + 6*R*k - 144*alpha**3 + 24*alpha**2*rho)/144",
+    "(3*R*alpha**2*k + 4*R*alpha*k**2 - R*k**2 + 54*alpha**3 + 96*alpha**2*k - 64*k**2*rho)/54",
+    "-(R + 32)*(2*R*k*omega - R*k*rho - 2*R*k - 48*alpha**2 - 64*k*omega + 32*k*rho + 64*k)/48",
+    "-(R*alpha*k*rho - 6*R*k*omega + 3*R*k*rho + 6*R*k - 144*alpha**3 + 12*alpha**2*rho + 18*alpha*rho**2)/144",
+    "-(9*R*alpha*k*rho + 9*R*alpha*k + 4*R*k*omega - R*k*rho - 216*alpha**3 + 72*alpha**2*rho - 12*alpha*rho**2)/216",
+    "-(9*R*alpha*k*rho + 9*R*alpha*k + 4*R*k*omega - R*k*rho - 216*alpha**3 - 18*alpha**2*rho + 6*alpha*rho**2)/216",
+    "(4*R*alpha*k*omega - R*alpha*k*rho + 144*alpha**3 - 48*alpha**2*rho + 128*alpha*k*omega + 64*alpha*k*rho - 192*k*omega + 192*k)/144",
+    "-(4*R*alpha*k*omega - R*alpha*k*rho + 12*R*k*omega - 3*R*k*rho + 192*alpha**2*omega - 48*alpha**2*rho - 128*k*rho)/48",
+    "(6*R*alpha*k*omega - R*alpha*k*rho - 3*R*k*omega - 3*R*k + 72*alpha**3 + 96*alpha**2*omega - 24*alpha**2*rho + 16*alpha*k*rho)/72",
+    "(3*R*alpha**2*k + 4*R*alpha*k**2 + 16*R*k**2 + 432*alpha**3 - 288*alpha**2*k + 1024*k**2*omega - 384*k**2*rho - 640*k**2)/432",
+    "-(R + 32)*(2*R*k*omega - R*k*rho - 2*R*k - 96*alpha**2 + 48*alpha*omega - 24*alpha*rho - 96*alpha - 64*k*omega + 32*k*rho + 64*k)/96",
+    "(-6*R*alpha**2*k + 4*R*alpha*k**2 + 16*R*k**2*omega - 4*R*k**2*rho - 7*R*k**2 + 162*alpha**3 + 96*alpha**2*k + 64*k**2*rho)/162",
+    "(9*R*alpha**2*k - 8*R*alpha*k*rho - 27*R*alpha*k - 6*R*k*omega + 3*R*k*rho + 6*R*k + 288*alpha**3 + 18*alpha**2*rho - 6*alpha*rho**2)/288",
+    "(9*R*alpha**2*k - 8*R*alpha*k*rho - 27*R*alpha*k - 6*R*k*omega + 3*R*k*rho + 6*R*k + 288*alpha**3 - 48*alpha**2*rho + 12*alpha*rho**2)/288",
+    "(2*R*alpha*k*omega - R*alpha*k*rho - 2*R*alpha*k + 8*R*k*omega - 2*R*k*rho + 144*alpha**3 + 96*alpha**2*omega - 48*alpha**2*rho - 96*alpha**2 - 32*k*rho)/144",
+    "-(R*alpha*k*omega + R*alpha*k - 288*alpha**3 - 192*alpha**2*omega + 96*alpha**2*rho + 192*alpha**2 + 288*alpha*k*omega - 128*alpha*k*rho - 224*alpha*k - 128*k*omega + 128*k)/288",
+    "(24*R*alpha*k*omega - 19*R*alpha*k*rho - 24*R*alpha*k + 8*R*k*omega - 8*R*k + 1152*alpha**3 + 384*alpha**2*omega - 384*alpha**2*rho - 384*alpha**2 + 32*alpha*k*rho)/1152",
+    "(4*R*alpha*k*omega - R*alpha*k*rho + 1152*alpha**3 + 1152*alpha**2*omega - 384*alpha**2*rho - 384*alpha**2 - 1664*alpha*k*omega + 608*alpha*k*rho + 768*alpha*k + 256*k*omega + 256*k)/1152",
+    "(4*R*alpha*k*omega - R*alpha*k*rho + 8*R*k*omega - 2*R*k*rho + 48*alpha**2*omega + 24*alpha**2*rho + 144*alpha*omega*rho + 96*alpha*omega - 36*alpha*rho**2 - 48*alpha*rho)/24",
+    "(8*R*alpha*k*omega - 5*R*alpha*k*rho - 8*R*alpha*k + 24*R*k*omega - 7*R*k*rho - 8*R*k + 576*alpha**3 + 192*alpha**2*omega - 144*alpha**2*rho - 192*alpha**2)/576",
+    "-(4*R**2*k*omega - R**2*k*rho - 240*R*alpha**2 + 60*R*alpha*omega - 6*R*alpha*rho + 48*R*alpha - 7680*alpha**2 - 1152*alpha*omega - 192*alpha*rho + 1536*alpha + 1024*k*rho)/240",
+    "(10*R*alpha*k*omega - R*alpha*k*rho + 4*R*alpha*k - 4*R*k*omega - 8*R*k + 384*alpha**2*omega - 192*alpha*k*omega - 32*alpha*k*rho + 128*alpha*k + 128*k*omega - 256*k)/384",
+    "(-3*R*alpha**2*k + 2*R*alpha*k**2 + 8*R*k**2*omega - 2*R*k**2*rho + 8*R*k**2 + 324*alpha**3 + 336*alpha**2*k - 512*k**2*omega + 192*k**2*rho + 320*k**2)/324",
+    "(7*R*alpha*k*omega - 4*R*alpha*k*rho - 7*R*alpha*k + 4*R*k*omega + 4*R*k + 288*alpha**3 + 192*alpha**2*omega - 96*alpha**2*rho - 192*alpha**2 - 32*alpha*k*omega + 32*alpha*k)/288",
+    "(24*R*alpha**2*k + 32*R*alpha*k**2 + 12*R*alpha*k*omega - 3*R*alpha*k*rho - 8*R*k**2 + 576*alpha**3 + 1536*alpha**2*k + 384*alpha*k*omega + 192*alpha*k*rho - 576*alpha*k - 512*k**2*rho)/576",
+    "(36*R*alpha*k*omega - 9*R*alpha*k*rho + 216*alpha**3 - 288*alpha**2*k - 72*alpha**2*omega + 36*alpha**2*rho + 256*alpha*k*rho + 576*alpha*k + 48*alpha*omega*rho + 48*alpha*omega - 12*alpha*rho**2 - 64*k*rho)/216",
+    "-(R + 32)*(6*R*k*omega - 3*R*k*rho - 6*R*k - 144*alpha**2 + 64*alpha*omega - 32*alpha*rho - 64*alpha - 192*k*omega + 96*k*rho + 192*k + 32*omega**2 - 32*omega*rho - 32*omega + 8*rho**2 + 16*rho - 32)/144",
+    "(4*R*alpha*k*omega - R*alpha*k*rho + 12*R*k*omega - 3*R*k*rho - 480*alpha**2*omega + 192*alpha**2*rho + 288*alpha**2 - 1152*alpha*omega**2 + 864*alpha*omega*rho + 1248*alpha*omega - 144*alpha*rho**2 - 336*alpha*rho - 288*alpha - 128*k*rho)/192",
+    "(8*R*alpha*k*omega - 5*R*alpha*k*rho - 8*R*alpha*k + 24*R*k*omega - 7*R*k*rho - 8*R*k + 576*alpha**3 + 96*alpha**2*omega - 96*alpha**2 + 288*alpha*omega*rho + 96*alpha*omega - 144*alpha*rho**2 - 336*alpha*rho - 96*alpha)/576",
+    "(36*R*alpha*k*omega - 9*R*alpha*k*rho + 648*alpha**3 - 288*alpha**2*k + 288*alpha**2*omega - 120*alpha**2*rho - 432*alpha**2 + 256*alpha*k*rho + 576*alpha*k - 96*alpha*omega*rho - 48*alpha*omega + 24*alpha*rho**2 + 48*alpha*rho - 64*k*rho)/648",
+    "(24*R*alpha**2*k + 32*R*alpha*k**2 + 12*R*alpha*k*omega - 3*R*alpha*k*rho + 128*R*k**2 + 8064*alpha**3 - 768*alpha**2*k - 4992*alpha*k*omega + 1824*alpha*k*rho + 4608*alpha*k + 8192*k**2*omega - 3072*k**2*rho - 5120*k**2)/8064",
+    "(9*R*alpha**2*k + 32*R*alpha*k*omega - 8*R*alpha*k*rho - 18*R*alpha*k - 8*R*k*omega + 2*R*k*rho + 216*alpha**3 - 72*alpha**2*omega + 36*alpha**2*rho + 288*alpha*k*rho + 48*alpha*omega*rho - 48*alpha*omega - 12*alpha*rho**2)/216",
+    "(-24*R*alpha**2*k + 16*R*alpha*k**2 - 12*R*alpha*k*omega + 3*R*alpha*k*rho + 64*R*k**2*omega - 16*R*k**2*rho - 28*R*k**2 + 792*alpha**3 + 1152*alpha**2*k + 384*alpha*k*omega - 192*alpha*k*rho - 576*alpha*k + 256*k**2*rho)/792",
+    "(2*R*alpha*k*omega - R*alpha*k*rho - 2*R*alpha*k + 8*R*k*omega - 2*R*k*rho + 144*alpha**3 - 96*alpha**2*omega + 48*alpha**2*rho + 96*alpha**2 - 288*alpha*omega**2 + 288*alpha*omega*rho + 576*alpha*omega - 72*alpha*rho**2 - 288*alpha*rho - 192*alpha - 32*k*rho)/144",
+    "(9*R*alpha**2*k + 32*R*alpha*k*omega - 8*R*alpha*k*rho - 18*R*alpha*k - 8*R*k*omega + 2*R*k*rho + 648*alpha**3 + 192*alpha**2*omega - 120*alpha**2*rho - 432*alpha**2 + 288*alpha*k*rho - 96*alpha*omega*rho - 144*alpha*omega + 24*alpha*rho**2 + 48*alpha*rho)/648",
+    "(-24*R*alpha**2*k + 16*R*alpha*k**2 - 12*R*alpha*k*omega + 3*R*alpha*k*rho + 64*R*k**2*omega - 16*R*k**2*rho + 64*R*k**2 + 3744*alpha**3 + 4224*alpha**2*k + 2688*alpha*k*omega - 864*alpha*k*rho - 4096*k**2*omega + 1536*k**2*rho + 2560*k**2)/3744",
+    "-(12*R*k**2*omega - 3*R*k**2*rho - 216*alpha**4 + 72*alpha**3*omega - 18*alpha**3*rho + 576*alpha**2*k*omega - 144*alpha**2*k*rho + 1152*alpha*k*omega**2 - 576*alpha*k*omega*rho + 96*alpha*k*omega + 72*alpha*k*rho**2 - 48*alpha*k*rho - 288*alpha*k - 128*k**2*rho)/216",
+    "(45*R*alpha**2*k + 64*R*alpha*k*omega - 40*R*alpha*k*rho - 127*R*alpha*k - 24*R*k*omega + 7*R*k*rho + 8*R*k + 1584*alpha**3 - 144*alpha**2*omega + 144*alpha**2*rho + 144*alpha**2 + 288*alpha*k*rho + 96*alpha*omega*rho - 48*alpha*omega - 48*alpha*rho**2 - 96*alpha*rho + 48*alpha)/1584",
+    "(45*R*alpha**2*k + 64*R*alpha*k*omega - 40*R*alpha*k*rho - 127*R*alpha*k - 24*R*k*omega + 7*R*k*rho + 8*R*k + 2448*alpha**3 + 384*alpha**2*omega - 432*alpha**2*rho - 816*alpha**2 + 288*alpha*k*rho - 192*alpha*omega*rho - 144*alpha*omega + 96*alpha*rho**2 + 240*alpha*rho + 144*alpha)/2448",
+    "(72*R*alpha*k*omega - 45*R*alpha*k*rho - 36*R*alpha*k + 16*R*k*omega - 4*R*k*rho + 1296*alpha**3 - 288*alpha**2*k - 144*alpha**2*omega + 144*alpha**2*rho + 144*alpha**2 + 256*alpha*k*rho + 864*alpha*k + 96*alpha*omega*rho + 240*alpha*omega - 48*alpha*rho**2 - 96*alpha*rho - 144*alpha - 96*k*rho)/1296",
+    "(72*R*alpha*k*omega - 45*R*alpha*k*rho - 36*R*alpha*k + 16*R*k*omega - 4*R*k*rho + 2160*alpha**3 - 288*alpha**2*k + 576*alpha**2*omega - 528*alpha**2*rho - 1008*alpha**2 + 256*alpha*k*rho + 864*alpha*k - 192*alpha*omega*rho + 144*alpha*omega + 96*alpha*rho**2 + 240*alpha*rho + 144*alpha - 96*k*rho)/2160",
+    "(36*R*alpha*k*omega - 9*R*alpha*k*rho + 1584*alpha**3 - 1440*alpha**2*k - 432*alpha**2*omega + 144*alpha**2*rho + 144*alpha**2 - 3072*alpha*k*omega + 1280*alpha*k*rho + 4064*alpha*k - 384*alpha*omega**2 + 288*alpha*omega*rho + 432*alpha*omega - 48*alpha*rho**2 - 96*alpha*rho + 48*alpha + 128*k*omega - 224*k*rho - 256*k)/1584",
+    "(36*R*alpha*k*omega - 9*R*alpha*k*rho + 2448*alpha**3 - 1440*alpha**2*k + 1344*alpha**2*omega - 432*alpha**2*rho - 816*alpha**2 - 3072*alpha*k*omega + 1280*alpha*k*rho + 4064*alpha*k + 768*alpha*omega**2 - 576*alpha*omega*rho - 816*alpha*omega + 96*alpha*rho**2 + 240*alpha*rho + 144*alpha + 128*k*omega - 224*k*rho - 256*k)/2448",
+    "(18*R*alpha*k*omega - 9*R*alpha*k*rho - 9*R*alpha*k + 4*R*k*omega - R*k*rho + 1152*alpha**3 - 288*alpha**2*k + 480*alpha**2*omega - 240*alpha**2*rho - 480*alpha**2 - 512*alpha*k*omega + 256*alpha*k*rho + 1088*alpha*k + 192*alpha*omega**2 - 192*alpha*omega*rho - 288*alpha*omega + 48*alpha*rho**2 + 192*alpha*rho + 144*alpha - 64*k*rho)/1152",
+    "(18*R*alpha*k*omega - 9*R*alpha*k*rho - 9*R*alpha*k + 4*R*k*omega - R*k*rho + 720*alpha**3 - 288*alpha**2*k - 144*alpha**2*omega + 72*alpha**2*rho + 144*alpha**2 - 512*alpha*k*omega + 256*alpha*k*rho + 1088*alpha*k - 96*alpha*omega**2 + 96*alpha*omega*rho + 288*alpha*omega - 24*alpha*rho**2 - 96*alpha*rho - 48*alpha - 64*k*rho)/720",
+    "(9*R*alpha**2*k + 16*R*alpha*k*omega - 8*R*alpha*k*rho - 34*R*alpha*k - 8*R*k*omega + 2*R*k*rho + 1152*alpha**3 + 480*alpha**2*omega - 240*alpha**2*rho - 480*alpha**2 - 576*alpha*k*omega + 288*alpha*k*rho + 288*alpha*k + 192*alpha*omega**2 - 192*alpha*omega*rho - 480*alpha*omega + 48*alpha*rho**2 + 192*alpha*rho + 144*alpha + 32*k*rho)/1152",
+    "(9*R*alpha**2*k + 16*R*alpha*k*omega - 8*R*alpha*k*rho - 34*R*alpha*k - 8*R*k*omega + 2*R*k*rho + 720*alpha**3 - 144*alpha**2*omega + 72*alpha**2*rho + 144*alpha**2 - 576*alpha*k*omega + 288*alpha*k*rho + 288*alpha*k - 96*alpha*omega**2 + 96*alpha*omega*rho + 96*alpha*omega - 24*alpha*rho**2 - 96*alpha*rho - 48*alpha + 32*k*rho)/720",
+    "(9*R*alpha**2*k + 32*R*alpha*k*omega - 8*R*alpha*k*rho - 27*R*alpha*k - 12*R*k*omega + 3*R*k*rho + 1296*alpha**3 - 432*alpha**2*omega + 144*alpha**2*rho + 144*alpha**2 - 3456*alpha*k*omega + 1440*alpha*k*rho + 1152*alpha*k - 384*alpha*omega**2 + 288*alpha*omega*rho + 144*alpha*omega - 48*alpha*rho**2 - 96*alpha*rho - 144*alpha + 128*k*rho)/1296",
+    "(9*R*alpha**2*k + 32*R*alpha*k*omega - 8*R*alpha*k*rho - 27*R*alpha*k - 12*R*k*omega + 3*R*k*rho + 2160*alpha**3 + 1536*alpha**2*omega - 528*alpha**2*rho - 1008*alpha**2 - 3456*alpha*k*omega + 1440*alpha*k*rho + 1152*alpha*k + 768*alpha*omega**2 - 576*alpha*omega*rho - 1104*alpha*omega + 96*alpha*rho**2 + 240*alpha*rho + 144*alpha + 128*k*rho)/2160",
+    "(72*R*alpha**2*k + 96*R*alpha*k**2 - 8*R*alpha*k*omega + 2*R*alpha*k*rho - 24*R*k**2 - 16*R*k*omega**2 + 8*R*k*omega*rho - R*k*rho**2 + 1008*alpha**3 + 2304*alpha**2*k + 48*alpha**2*rho - 256*alpha*k*omega + 256*alpha*k*rho - 1536*k**2*rho + 256*k*omega*rho + 384*k*omega - 64*k*rho**2 - 192*k*rho - 384*k)/1008",
+    "(27*R*alpha*k**2 + 12*R*k**2*omega - 3*R*k**2*rho + 594*alpha**4 + 864*alpha**3*k + 504*alpha**3*omega - 126*alpha**3*rho - 288*alpha**2*k*omega + 72*alpha**2*k*rho - 2304*alpha*k**2*omega + 576*alpha*k**2*rho + 1152*alpha*k**2 - 384*alpha*k*omega**2 + 192*alpha*k*omega*rho + 240*alpha*k*omega - 24*alpha*k*rho**2 + 144*alpha*k - 128*k**2*rho)/594",
+    "(72*R*alpha**2*k + 96*R*alpha*k**2 - 8*R*alpha*k*omega + 2*R*alpha*k*rho + 384*R*k**2 - 16*R*k*omega**2 + 8*R*k*omega*rho - R*k*rho**2 + 11520*alpha**3 - 6912*alpha**2*k - 1152*alpha**2*omega + 384*alpha**2*rho + 384*alpha**2 - 4352*alpha*k*omega + 1472*alpha*k*rho + 1536*alpha*k + 24576*k**2*omega - 9216*k**2*rho - 15360*k**2 - 2560*k*omega**2 + 1792*k*omega*rho + 512*k*omega - 288*k*rho**2 + 256*k*rho + 512*k)/11520",
+    "(27*R*alpha*k**2 + 12*R*k**2*omega - 3*R*k**2*rho + 702*alpha**4 + 864*alpha**3*k + 360*alpha**3*omega - 90*alpha**3*rho + 1152*alpha**2*k*omega - 288*alpha**2*k*rho + 432*alpha**2*k - 288*alpha**2*omega**2 + 144*alpha**2*omega*rho - 18*alpha**2*rho**2 - 2304*alpha*k**2*omega + 576*alpha*k**2*rho + 1152*alpha*k**2 + 768*alpha*k*omega**2 - 384*alpha*k*omega*rho + 336*alpha*k*omega + 48*alpha*k*rho**2 - 48*alpha*k*rho - 144*alpha*k - 128*k**2*rho)/702",
+    "-(4*R**2*k**2*omega - R**2*k**2*rho - 24*R*k**2*rho - 432*alpha**3*rho)/432",
+    "(R**2*k**2*rho + 2*R**2*k**2 - 48*R*alpha**2*k + 48*R*k**2 + 864*alpha**3)/864",
+    "-(R**2*k**2*rho + 2*R**2*k**2 - 48*R*alpha**2*k - 48*R*k**2 - 864*alpha**3)/864",
+    "(R**2*k**2*rho + 2*R**2*k**2 - 48*R*alpha**2*k + 12*R*alpha*k*rho - 24*R*alpha*k + 48*R*k**2 + 1440*alpha**3)/1440",
+    "(4*R**2*k**2*omega - R**2*k**2*rho - 48*R*alpha**2*k + 64*R*alpha*k**2 - 16*R*k**2 + 864*alpha**3 - 1536*alpha**2*k)/864",
+    "-(R**2*k**2*rho + 2*R**2*k**2 - 48*R*alpha**2*k + 18*R*alpha*k*rho + 60*R*alpha*k - 48*R*k**2 - 2304*alpha**3)/2304",
+    "(4*R**2*k**2*omega - 3*R**2*k**2*rho - 5*R**2*k**2 + 72*R*alpha**2*k + 32*R*alpha*k**2 + 128*R*k**2 + 3456*alpha**3 - 768*alpha**2*k)/3456",
+    "-(4*R**2*k**2*omega - R**2*k**2*rho + 48*R*alpha**2*k - 64*R*alpha*k**2 + 64*R*k**2*rho + 112*R*k**2 - 2592*alpha**3 - 3072*alpha**2*k)/2592",
+    "(16*R**2*k**2*omega - 9*R**2*k**2*rho - 16*R**2*k**2 - 96*R*alpha**2*k + 64*R*alpha*k**2 + 448*R*k**2 + 13824*alpha**3 - 9216*alpha**2*k + 1024*k**2*rho)/13824",
+    "-(-3*R*alpha**2*k*rho + 4*R*alpha*k**2*rho - 12*R*k**2*omega + 7*R*k**2*rho + 24*R*k**2 - 576*alpha**3*k + 216*alpha**3*omega - 162*alpha**3*rho + 96*alpha**2*k*rho)/576",
+    "-(4*R**2*k**2*omega - 3*R**2*k**2*rho - 5*R**2*k**2 + 168*R*alpha**2*k - 32*R*alpha*k**2 + 32*R*k**2*rho - 128*R*k**2 - 5184*alpha**3 - 1536*alpha**2*k)/5184",
+    "-(4*R**2*k**2*omega - R**2*k**2*rho - 288*R*alpha**2*k - 64*R*alpha*k**2 - 448*R*k**2 - 13824*alpha**3 - 3072*alpha**2*k - 20480*k**2*omega + 9216*k**2*rho + 16384*k**2)/13824",
+    "-(4*R**2*k**2*omega - R**2*k**2*rho + 264*R*alpha**2*k - 192*R*alpha*k**2 - 384*R*k**2*omega + 192*R*k**2*rho + 320*R*k**2 - 10368*alpha**3 - 8448*alpha**2*k - 1024*k**2*rho)/10368",
+    "-(3*R**2*k**2*rho + 6*R**2*k**2 - 144*R*alpha**2*k + 12*R*alpha*k*rho - 144*R*k**2 - 40*R*k*omega - 2*R*k*rho**2 + 20*R*k*rho + 24*R*k - 3168*alpha**3 - 96*alpha**2*rho)/3168",
+    "-(4*R**2*k**2*omega - R**2*k**2*rho - 48*R*alpha**2*k*rho + 32*R*alpha*k**2*rho - 128*R*k**2*rho - 4608*alpha**3*k + 3456*alpha**3*omega - 5184*alpha**3*rho - 3456*alpha**3 + 768*alpha**2*k*rho)/4608",
+    "(4*R**2*k**2*omega - R**2*k**2*rho - 96*R*alpha**2*k + 64*R*alpha*k**2 + 72*R*alpha*k*omega - 12*R*alpha*k*rho + 36*R*alpha*k - 16*R*k**2 + 1152*alpha**3 - 1536*alpha**2*k + 192*alpha*k*rho)/1152",
+    "-(4*R**2*k**2*omega - R**2*k**2*rho + 36*R*alpha**2*k*rho - 24*R*alpha*k*omega - 18*R*alpha*k*rho**2 + 12*R*alpha*k*rho + 72*R*alpha*k - 24*R*k**2*rho - 1728*alpha**4 - 144*alpha**3*rho)/1728",
+    "-(16*R**2*k**2*omega - 9*R**2*k**2*rho - 16*R**2*k**2 + 1056*R*alpha**2*k - 320*R*alpha*k**2 - 512*R*k**2*omega + 320*R*k**2*rho - 448*R*k**2 - 41472*alpha**3 - 15360*alpha**2*k - 1024*k**2*rho)/41472",
+    "-(4*R**2*k**2*omega - R**2*k**2*rho + 480*R*alpha**2*k - 320*R*alpha*k**2 - 768*R*k**2*omega + 320*R*k**2*rho - 448*R*k**2 - 41472*alpha**3 - 33792*alpha**2*k + 20480*k**2*omega - 9216*k**2*rho - 16384*k**2)/41472",
+    "(4*R**2*k**2*omega - 3*R**2*k**2*rho - 5*R**2*k**2 + 24*R*alpha**2*k + 32*R*alpha*k**2 + 72*R*alpha*k*omega - 57*R*alpha*k*rho - 144*R*alpha*k + 128*R*k**2 + 8064*alpha**3 - 768*alpha**2*k + 96*alpha*k*rho)/8064",
+    "-(4*R**2*k**2*omega - R**2*k**2*rho + 144*R*alpha**2*k - 64*R*alpha*k**2 + 48*R*alpha*k*omega - 24*R*alpha*k*rho - 72*R*alpha*k + 64*R*k**2*rho + 112*R*k**2 - 3168*alpha**3 - 3072*alpha**2*k + 384*alpha*k*rho)/3168",
+    "-(4*R**2*k**2*omega - 3*R**2*k**2*rho - 5*R**2*k**2 + 264*R*alpha**2*k - 32*R*alpha*k**2 + 48*R*alpha*k*omega - 54*R*alpha*k*rho + 32*R*k**2*rho - 128*R*k**2 - 7488*alpha**3 - 1536*alpha**2*k + 192*alpha*k*rho)/7488",
+    "-(2*R**2*k**2*omega - R**2*k**2*rho - 2*R**2*k**2 + 192*R*alpha**2*k - 64*R*alpha*k**2 - 128*R*k**2*omega + 64*R*k**2*rho - 320*R*k**2 - 13824*alpha**3 - 6144*alpha**2*k + 2048*k**2*omega - 1024*k**2*rho - 2048*k**2)/13824",
+    "-(-18*R*alpha**3*k - 12*R*alpha**2*k*omega + 3*R*alpha**2*k*rho + 16*R*alpha*k**2*omega - 4*R*alpha*k**2*rho + 16*R*k**2*omega - 7*R*k**2*rho - 24*R*k**2 - 432*alpha**3*omega + 162*alpha**3*rho + 384*alpha**2*k*omega - 96*alpha**2*k*rho)/18",
+    "(16*R**2*k**2*omega - 9*R**2*k**2*rho - 16*R**2*k**2 - 384*R*alpha**2*k + 64*R*alpha*k**2 + 336*R*alpha*k*omega - 192*R*alpha*k*rho - 528*R*alpha*k + 448*R*k**2 + 32256*alpha**3 - 12288*alpha**2*k - 1536*alpha*k*omega + 1536*alpha*k + 1024*k**2*rho)/32256",
+    "-(4*R**2*k**2*omega - R**2*k**2*rho - 384*R*alpha**2*k - 64*R*alpha*k**2 + 48*R*alpha*k*omega + 48*R*alpha*k - 448*R*k**2 - 32256*alpha**3 - 12288*alpha**2*k + 13824*alpha*k*omega - 6144*alpha*k*rho - 16896*alpha*k - 20480*k**2*omega + 9216*k**2*rho + 16384*k**2)/32256",
+    "-(-18*R*alpha**3*k - 12*R*alpha**2*k*omega + 3*R*alpha**2*k*rho + 16*R*alpha*k**2*omega - 4*R*alpha*k**2*rho - 64*R*k**2*omega + 16*R*k**2*rho - 2160*alpha**3*omega + 648*alpha**3*rho + 432*alpha**3 + 768*alpha**2*k*omega - 192*alpha**2*k*rho + 128*k**2*rho)/18",
+    "-(4*R**2*k**2*omega - R**2*k**2*rho + 408*R*alpha**2*k - 192*R*alpha*k**2 + 168*R*alpha*k*omega - 60*R*alpha*k*rho - 96*R*alpha*k - 384*R*k**2*omega + 192*R*k**2*rho + 320*R*k**2 - 12672*alpha**3 - 13056*alpha**2*k - 2304*alpha*k*omega + 1920*alpha*k*rho + 3072*alpha*k - 1024*k**2*rho)/12672",
+    "-(2*R**2*k**2*omega - R**2*k**2*rho - 2*R**2*k**2 + 288*R*alpha**2*k - 64*R*alpha*k**2 + 96*R*alpha*k*omega - 48*R*alpha*k*rho - 128*R*k**2*omega + 64*R*k**2*rho - 320*R*k**2 - 18432*alpha**3 - 9216*alpha**2*k - 3072*alpha*k*omega + 1536*alpha*k*rho + 2048*k**2*omega - 1024*k**2*rho - 2048*k**2)/18432",
+    "-(16*R**2*k**2*omega - 9*R**2*k**2*rho - 16*R**2*k**2 + 1632*R*alpha**2*k - 320*R*alpha*k**2 + 480*R*alpha*k*omega - 288*R*alpha*k*rho - 96*R*alpha*k - 512*R*k**2*omega + 320*R*k**2*rho - 448*R*k**2 - 55296*alpha**3 - 21504*alpha**2*k - 3072*alpha*k*omega + 3072*alpha*k*rho + 3072*alpha*k - 1024*k**2*rho)/55296",
+    "-(4*R**2*k**2*omega - R**2*k**2*rho + 672*R*alpha**2*k - 320*R*alpha*k**2 + 288*R*alpha*k*omega - 96*R*alpha*k*rho - 96*R*alpha*k - 768*R*k**2*omega + 320*R*k**2*rho - 448*R*k**2 - 55296*alpha**3 - 52224*alpha**2*k - 21504*alpha*k*omega + 9216*alpha*k*rho + 3072*alpha*k + 20480*k**2*omega - 9216*k**2*rho - 16384*k**2)/55296",
+    "(12*R**2*k**2*omega - 3*R**2*k**2*rho - 144*R*alpha**2*k + 192*R*alpha*k**2 + 48*R*alpha*k*omega - 16*R*alpha*k*rho - 48*R*k**2 - 16*R*k*omega*rho - 24*R*k*omega + 4*R*k*rho**2 + 12*R*k*rho + 24*R*k + 2016*alpha**3 - 4608*alpha**2*k - 384*alpha**2*omega + 96*alpha**2*rho - 128*alpha*k*rho + 64*k*rho**2)/2016",
+    "(-36*R*alpha**2*k*omega + 6*R*alpha**2*k*rho + 8*R*alpha*k**2*rho + 36*R*alpha*k*omega*rho + 18*R*alpha*k*omega - 9*R*alpha*k*rho**2 - 9*R*alpha*k*rho - 18*R*alpha*k - 24*R*k**2*omega + 14*R*k**2*rho + 48*R*k**2 + 432*alpha**4 - 1152*alpha**3*k + 144*alpha**3*omega - 540*alpha**3*rho + 96*alpha**2*k*rho + 144*alpha*k*rho**2)/432",
+    "-(-36*R*alpha**3*k - 24*R*alpha**2*k*omega + 15*R*alpha**2*k*rho + 24*R*alpha**2*k + 16*R*alpha*k**2*omega - 10*R*alpha*k**2*rho - 16*R*alpha*k**2 - 32*R*k**2*omega + 30*R*k**2*rho + 64*R*k**2 + 1152*alpha**3*k - 1728*alpha**3*omega + 1296*alpha**3*rho + 1728*alpha**3 + 384*alpha**2*k*omega - 288*alpha**2*k*rho - 384*alpha**2*k)/36",
+    "-(-36*R*alpha**3*k - 24*R*alpha**2*k*omega + 9*R*alpha**2*k*rho + 12*R*alpha**2*k + 24*R*alpha*k**2*omega - 10*R*alpha*k**2*rho - 16*R*alpha*k**2 - 88*R*k**2*omega + 30*R*k**2*rho + 64*R*k**2 + 1152*alpha**3*k - 3456*alpha**3*omega + 1296*alpha**3*rho + 1728*alpha**3 + 1152*alpha**2*k*omega - 480*alpha**2*k*rho - 768*alpha**2*k)/36",
+    "-(-72*R*alpha**3*k - 48*R*alpha**2*k*omega + 21*R*alpha**2*k*rho + 24*R*alpha**2*k + 48*R*alpha*k**2*omega - 24*R*alpha*k**2*rho - 32*R*alpha*k**2 + 16*R*k**2*omega - 8*R*k**2*rho - 48*R*k**2 + 2304*alpha**3*k - 2592*alpha**3*omega + 1296*alpha**3*rho + 864*alpha**3 + 1152*alpha**2*k*omega - 672*alpha**2*k*rho - 768*alpha**2*k)/72",
+    "-(-9*R*alpha**3*k - 6*R*alpha**2*k*omega + 3*R*alpha**2*k*rho + 6*R*alpha**2*k + 4*R*alpha*k**2*omega - 2*R*alpha*k**2*rho - 4*R*alpha*k**2 - 28*R*k**2*omega + 14*R*k**2*rho + 44*R*k**2 + 288*alpha**3*k - 864*alpha**3*omega + 432*alpha**3*rho + 864*alpha**3 + 192*alpha**2*k*omega - 96*alpha**2*k*rho - 192*alpha**2*k)/9",
+    "(12*R**2*k**2*omega - 9*R**2*k**2*rho - 15*R**2*k**2 + 216*R*alpha**2*k + 96*R*alpha*k**2 + 48*R*alpha*k*omega - 46*R*alpha*k*rho - 48*R*alpha*k + 384*R*k**2 - 16*R*k*omega*rho + 48*R*k*omega + 9*R*k*rho**2 - 8*R*k*rho - 16*R*k + 11520*alpha**3 - 2304*alpha**2*k - 384*alpha**2*omega + 384*alpha**2*rho + 384*alpha**2 - 64*alpha*k*rho + 32*k*rho**2)/11520",
+    "-(4*R**2*k**2*omega - R**2*k**2*rho - 288*R*alpha**2*k*omega + 228*R*alpha**2*k*rho + 288*R*alpha**2*k + 32*R*alpha*k**2*rho + 288*R*alpha*k*omega*rho - 96*R*alpha*k*omega - 162*R*alpha*k*rho**2 - 240*R*alpha*k*rho - 96*R*alpha*k - 128*R*k**2*rho - 6912*alpha**4 - 4608*alpha**3*k + 1152*alpha**3*omega - 5184*alpha**3*rho - 1152*alpha**3 + 384*alpha**2*k*rho + 576*alpha*k*rho**2)/6912",
+    "-(12*R**2*k**2*omega - 3*R**2*k**2*rho - 504*R*alpha**2*k + 104*R*alpha*k*omega - 32*R*alpha*k*rho - 16*R*alpha*k + 64*R*k*omega**2 - 56*R*k*omega*rho - 80*R*k*omega + 10*R*k*rho**2 + 24*R*k*rho + 32*R*k - 16128*alpha**2*k - 768*alpha**2*omega + 768*alpha*k*omega - 1024*alpha*k*rho - 512*alpha*k + 3072*k**2*rho - 768*k*omega*rho - 512*k*omega + 320*k*rho**2 + 768*k*rho + 1024*k)/504",
+    "-(-72*R*alpha**3*k - 24*R*alpha**2*k*omega + 6*R*alpha**2*k*rho + 64*R*alpha*k**2*omega - 16*R*alpha*k**2*rho + 144*R*alpha*k*omega**2 - 72*R*alpha*k*omega*rho + 9*R*alpha*k*rho**2 + 64*R*k**2*omega - 28*R*k**2*rho - 96*R*k**2 - 864*alpha**4 - 4032*alpha**3*omega + 1080*alpha**3*rho + 768*alpha**2*k*omega + 384*alpha**2*k*rho + 2304*alpha*k*omega*rho + 1152*alpha*k*omega - 576*alpha*k*rho**2 - 576*alpha*k*rho - 1152*alpha*k)/864",
+    "(48*R**2*k**2*omega - 27*R**2*k**2*rho - 48*R**2*k**2 - 288*R*alpha**2*k + 192*R*alpha*k**2 + 352*R*alpha*k*omega - 208*R*alpha*k*rho - 352*R*alpha*k + 1344*R*k**2 + 128*R*k*omega**2 - 160*R*k*omega*rho - 128*R*k*omega + 48*R*k*rho**2 + 96*R*k*rho + 46080*alpha**3 - 27648*alpha**2*k - 3072*alpha**2*omega + 1536*alpha**2*rho + 3072*alpha**2 + 1024*alpha*k*omega - 1536*alpha*k*rho - 1024*alpha*k + 3072*k**2*rho - 1024*k*omega*rho + 512*k*rho**2 + 1024*k*rho)/46080",
+    "(-72*R*alpha**3*k - 24*R*alpha**2*k*omega + 6*R*alpha**2*k*rho + 64*R*alpha*k**2*omega - 16*R*alpha*k**2*rho + 144*R*alpha*k*omega**2 - 72*R*alpha*k*omega*rho + 9*R*alpha*k*rho**2 - 256*R*k**2*omega + 64*R*k**2*rho + 3456*alpha**4 - 9792*alpha**3*omega + 2592*alpha**3*rho + 576*alpha**3 - 9984*alpha**2*k*omega + 3648*alpha**2*k*rho + 4608*alpha**2*k - 23040*alpha*k*omega**2 + 16128*alpha*k*omega*rho + 16896*alpha*k*omega - 2592*alpha*k*rho**2 - 3840*alpha*k*rho - 1536*alpha*k + 512*k**2*rho)/3456",
+    "(-144*R*alpha**3*k + 144*R*alpha**2*k**2 + 36*R*alpha**2*k*omega - 9*R*alpha**2*k*rho + 512*R*alpha*k**2*omega - 128*R*alpha*k**2*rho - 252*R*alpha*k**2 + 48*R*alpha*k*omega**2 - 24*R*alpha*k*omega*rho + 3*R*alpha*k*rho**2 - 64*R*k**2*omega + 28*R*k**2*rho + 96*R*k**2 + 6264*alpha**4 + 3456*alpha**3*k + 2880*alpha**3*omega - 1224*alpha**3*rho - 1152*alpha**2*k*omega + 576*alpha**2*k*rho + 2304*alpha*k**2*rho + 768*alpha*k*omega*rho - 576*alpha*k*omega - 192*alpha*k*rho**2 + 576*alpha*k)/6264",
+    "-(12*R**2*k**2*omega - 3*R**2*k**2*rho - 864*R*alpha**2*k - 192*R*alpha*k**2 + 160*R*alpha*k*omega - 48*R*alpha*k*rho - 32*R*alpha*k - 1344*R*k**2 + 128*R*k*omega**2 - 96*R*k*omega*rho - 128*R*k*omega + 16*R*k*rho**2 + 32*R*k*rho - 46080*alpha**3 - 9216*alpha**2*k + 3072*alpha**2*omega - 1536*alpha**2*rho - 3072*alpha**2 + 15360*alpha*k*omega - 6656*alpha*k*rho - 11264*alpha*k - 61440*k**2*omega + 27648*k**2*rho + 49152*k**2 + 8192*k*omega**2 - 7168*k*omega*rho - 8192*k*omega + 1536*k*rho**2 + 3072*k*rho)/46080",
+    "-(-36*R*alpha**3*k + 42*R*alpha**2*k*omega - 24*R*alpha**2*k*rho - 42*R*alpha**2*k + 16*R*alpha*k**2*omega - 10*R*alpha*k**2*rho - 16*R*alpha*k**2 + 72*R*alpha*k*omega**2 - 90*R*alpha*k*omega*rho - 120*R*alpha*k*omega + 27*R*alpha*k*rho**2 + 78*R*alpha*k*rho + 48*R*alpha*k - 32*R*k**2*omega + 30*R*k**2*rho + 64*R*k**2 + 1152*alpha**3*k - 2304*alpha**3*omega + 1728*alpha**3*rho + 2304*alpha**3 + 192*alpha**2*k*omega - 192*alpha**2*k + 576*alpha*k*omega*rho - 288*alpha*k*rho**2 - 576*alpha*k*rho)/36",
+    "-(-36*R*alpha**3*k + 6*R*alpha**2*k*omega + 6*R*alpha**2*k + 24*R*alpha*k**2*omega - 10*R*alpha*k**2*rho - 16*R*alpha*k**2 + 72*R*alpha*k*omega**2 - 54*R*alpha*k*omega*rho - 72*R*alpha*k*omega + 9*R*alpha*k*rho**2 + 18*R*alpha*k*rho - 88*R*k**2*omega + 30*R*k**2*rho + 64*R*k**2 + 1152*alpha**3*k - 4608*alpha**3*omega + 1728*alpha**3*rho + 2304*alpha**3 - 1728*alpha**2*k*omega + 768*alpha**2*k*rho + 1344*alpha**2*k - 4608*alpha*k*omega**2 + 4032*alpha*k*omega*rho + 6144*alpha*k*omega - 864*alpha*k*rho**2 - 2496*alpha*k*rho - 1536*alpha*k)/36",
+    "-(-144*R*alpha**3*k + 60*R*alpha**2*k*omega - 6*R*alpha**2*k*rho + 24*R*alpha**2*k + 96*R*alpha*k**2*omega - 48*R*alpha*k**2*rho - 64*R*alpha*k**2 + 288*R*alpha*k*omega**2 - 252*R*alpha*k*omega*rho - 312*R*alpha*k*omega + 45*R*alpha*k*rho**2 + 84*R*alpha*k*rho + 48*R*alpha*k + 32*R*k**2*omega - 16*R*k**2*rho - 96*R*k**2 - 3456*alpha**4 + 4608*alpha**3*k - 8640*alpha**3*omega + 4320*alpha**3*rho + 4032*alpha**3 + 1152*alpha**2*k*omega + 192*alpha**2*k*rho - 768*alpha**2*k + 3456*alpha*k*omega*rho + 768*alpha*k*omega - 1440*alpha*k*rho**2 - 2688*alpha*k*rho - 1536*alpha*k)/3456",
+    "-(-18*R*alpha**3*k + 12*R*alpha**2*k*omega - 6*R*alpha**2*k*rho - 12*R*alpha**2*k + 8*R*alpha*k**2*omega - 4*R*alpha*k**2*rho - 8*R*alpha*k**2 + 36*R*alpha*k*omega**2 - 36*R*alpha*k*omega*rho - 60*R*alpha*k*omega + 9*R*alpha*k*rho**2 + 30*R*alpha*k*rho + 12*R*alpha*k - 56*R*k**2*omega + 28*R*k**2*rho + 88*R*k**2 + 576*alpha**3*k - 2304*alpha**3*omega + 1152*alpha**3*rho + 2304*alpha**3 - 384*alpha**2*k*omega + 192*alpha**2*k*rho + 384*alpha**2*k - 1152*alpha*k*omega**2 + 1152*alpha*k*omega*rho + 1920*alpha*k*omega - 288*alpha*k*rho**2 - 960*alpha*k*rho - 384*alpha*k)/18",
+    "(-72*R*alpha**3*k + 72*R*alpha**2*k**2 - 48*R*alpha**2*k*omega + 12*R*alpha**2*k*rho + 256*R*alpha*k**2*omega - 64*R*alpha*k**2*rho - 126*R*alpha*k**2 - 48*R*alpha*k*omega**2 + 24*R*alpha*k*omega*rho - 3*R*alpha*k*rho**2 - 32*R*k**2*omega + 14*R*k**2*rho + 48*R*k**2 + 4212*alpha**4 + 5184*alpha**3*k + 2016*alpha**3*omega - 684*alpha**3*rho + 1536*alpha**2*k*omega - 960*alpha**2*k*rho - 2592*alpha**2*k - 576*alpha**2*omega**2 + 576*alpha**2*omega*rho - 108*alpha**2*rho**2 + 1152*alpha*k**2*rho - 768*alpha*k*omega*rho - 864*alpha*k*omega + 192*alpha*k*rho**2 + 288*alpha*k*rho + 864*alpha*k)/4212",
+    "(-144*R*alpha**3*k + 144*R*alpha**2*k**2 + 36*R*alpha**2*k*omega - 9*R*alpha**2*k*rho + 512*R*alpha*k**2*omega - 128*R*alpha*k**2*rho + 576*R*alpha*k**2 + 48*R*alpha*k*omega**2 - 24*R*alpha*k*omega*rho + 3*R*alpha*k*rho**2 + 256*R*k**2*omega - 64*R*k**2*rho + 26784*alpha**4 + 24192*alpha**3*k + 17856*alpha**3*omega - 5472*alpha**3*rho - 4032*alpha**3 - 8064*alpha**2*k*omega + 2592*alpha**2*k*rho + 2304*alpha**2*k - 36864*alpha*k**2*omega + 13824*alpha*k**2*rho + 23040*alpha*k**2 - 7680*alpha*k*omega**2 + 5376*alpha*k*omega*rho + 8448*alpha*k*omega - 864*alpha*k*rho**2 - 1536*alpha*k*rho - 768*alpha*k - 512*k**2*rho)/26784",
+    "(-72*R*alpha**3*k + 72*R*alpha**2*k**2 - 48*R*alpha**2*k*omega + 12*R*alpha**2*k*rho + 256*R*alpha*k**2*omega - 64*R*alpha*k**2*rho + 288*R*alpha*k**2 - 48*R*alpha*k*omega**2 + 24*R*alpha*k*omega*rho - 3*R*alpha*k*rho**2 + 128*R*k**2*omega - 32*R*k**2*rho + 16848*alpha**4 + 19008*alpha**3*k + 8352*alpha**3*omega - 2448*alpha**3*rho - 1440*alpha**3 + 14592*alpha**2*k*omega - 4800*alpha**2*k*rho - 1152*alpha**2*k - 4608*alpha**2*omega**2 + 2880*alpha**2*omega*rho + 2304*alpha**2*omega - 432*alpha**2*rho**2 - 576*alpha**2*rho - 18432*alpha*k**2*omega + 6912*alpha*k**2*rho + 11520*alpha*k**2 + 7680*alpha*k*omega**2 - 5376*alpha*k*omega*rho - 4224*alpha*k*omega + 864*alpha*k*rho**2 + 1152*alpha*k*rho + 384*alpha*k - 256*k**2*rho)/16848",
+    "(9*R**2*alpha*k**2*rho + 18*R**2*alpha*k**2 + 8*R**2*k**2*omega - 2*R**2*k**2*rho - 432*R*alpha**3*k - 36*R*alpha**2*k*rho + 432*R*alpha*k**2 + 120*R*alpha*k*omega + 12*R*alpha*k*rho**2 - 72*R*alpha*k - 48*R*k**2*rho + 9504*alpha**4 - 2016*alpha**3*rho)/9504",
+    "(9*R**2*alpha*k**2*rho + 18*R**2*alpha*k**2 + 8*R**2*k**2*omega - 2*R**2*k**2*rho - 432*R*alpha**3*k + 144*R*alpha**2*k*rho - 216*R*alpha**2*k + 432*R*alpha*k**2 + 72*R*alpha*k*omega - 24*R*alpha*k*rho**2 + 24*R*alpha*k*rho + 72*R*alpha*k - 48*R*k**2*rho + 11232*alpha**4 - 1440*alpha**3*rho - 288*alpha**2*rho**2)/11232",
+    "-(36*R**2*alpha*k**2*omega - 9*R**2*alpha*k**2*rho + 432*R*alpha**3*k - 576*R*alpha**2*k**2 - 144*R*alpha**2*k*omega + 72*R*alpha**2*k*rho + 512*R*alpha*k**2*rho + 1008*R*alpha*k**2 + 96*R*alpha*k*omega*rho + 72*R*alpha*k*omega - 24*R*alpha*k*rho**2 + 72*R*alpha*k + 192*R*k**2*omega - 112*R*k**2*rho - 384*R*k**2 - 25056*alpha**4 - 18432*alpha**3*k - 8064*alpha**3*omega + 4896*alpha**3*rho - 1152*alpha**2*k*rho + 384*alpha*k*rho**2)/25056",
+    "-(36*R**2*alpha*k**2*omega - 9*R**2*alpha*k**2*rho + 1296*R*alpha**3*k - 576*R*alpha**2*k**2 + 576*R*alpha**2*k*omega - 240*R*alpha**2*k*rho - 648*R*alpha**2*k + 512*R*alpha*k**2*rho + 1008*R*alpha*k**2 - 192*R*alpha*k*omega*rho - 72*R*alpha*k*omega + 48*R*alpha*k*rho**2 + 72*R*alpha*k*rho + 216*R*alpha*k + 192*R*k**2*omega - 112*R*k**2*rho - 384*R*k**2 - 33696*alpha**4 - 18432*alpha**3*k - 5760*alpha**3*omega + 5472*alpha**3*rho + 3072*alpha**2*k*rho - 2304*alpha**2*omega*rho + 864*alpha**2*rho**2 - 768*alpha*k*rho**2)/33696",
+    "-(36*R**2*alpha*k**2*omega - 27*R**2*alpha*k**2*rho - 45*R**2*alpha*k**2 - 4*R**2*k**2*omega + R**2*k**2*rho + 1512*R*alpha**3*k - 288*R*alpha**2*k**2 - 144*R*alpha**2*k*omega + 162*R*alpha**2*k*rho + 144*R*alpha**2*k + 256*R*alpha*k**2*rho - 1152*R*alpha*k**2 + 96*R*alpha*k*omega*rho - 144*R*alpha*k*omega - 54*R*alpha*k*rho**2 - 96*R*alpha*k*rho - 48*R*alpha*k + 128*R*k**2*rho - 53568*alpha**4 - 9216*alpha**3*k - 8064*alpha**3*omega + 10944*alpha**3*rho + 8064*alpha**3 - 576*alpha**2*k*rho + 192*alpha*k*rho**2)/53568",
+    "-(36*R**2*alpha*k**2*omega - 27*R**2*alpha*k**2*rho - 45*R**2*alpha*k**2 - 4*R**2*k**2*omega + R**2*k**2*rho + 2376*R*alpha**3*k - 288*R*alpha**2*k**2 + 576*R*alpha**2*k*omega - 600*R*alpha**2*k*rho - 144*R*alpha**2*k + 256*R*alpha*k**2*rho - 1152*R*alpha*k**2 - 192*R*alpha*k*omega*rho - 48*R*alpha*k*omega + 108*R*alpha*k*rho**2 + 144*R*alpha*k*rho + 48*R*alpha*k + 128*R*k**2*rho - 67392*alpha**4 - 9216*alpha**3*k - 5760*alpha**3*omega + 9792*alpha**3*rho + 5760*alpha**3 + 1536*alpha**2*k*rho - 2304*alpha**2*omega*rho + 1728*alpha**2*rho**2 + 2304*alpha**2*rho - 384*alpha*k*rho**2)/67392",
+    "-(144*R**2*alpha*k**2*omega - 81*R**2*alpha*k**2*rho - 144*R**2*alpha*k**2 + 8352*R*alpha**3*k - 2880*R*alpha**2*k**2 - 1440*R*alpha**2*k*omega + 864*R*alpha**2*k*rho + 1440*R*alpha**2*k - 4096*R*alpha*k**2*omega + 2560*R*alpha*k**2*rho - 4544*R*alpha*k**2 - 768*R*alpha*k*omega**2 + 960*R*alpha*k*omega*rho + 1152*R*alpha*k*omega - 288*R*alpha*k*rho**2 - 960*R*alpha*k*rho - 1152*R*alpha*k - 1024*R*k**2*omega + 960*R*k**2*rho + 2048*R*k**2 - 414720*alpha**4 - 101376*alpha**3*k - 110592*alpha**3*omega + 82944*alpha**3*rho + 110592*alpha**3 + 9216*alpha**2*k*omega - 9216*alpha**2*k*rho - 9216*alpha**2*k - 9216*alpha*k**2*rho - 6144*alpha*k*omega*rho + 3072*alpha*k*rho**2 + 6144*alpha*k*rho)/414720",
+    "-(36*R**2*alpha*k**2*omega - 9*R**2*alpha*k**2*rho + 1800*R*alpha**3*k - 1728*R*alpha**2*k**2 - 504*R*alpha**2*k*omega + 180*R*alpha**2*k*rho + 144*R*alpha**2*k - 3072*R*alpha*k**2*omega + 1536*R*alpha*k**2*rho + 2624*R*alpha*k**2 - 384*R*alpha*k*omega**2 + 336*R*alpha*k*omega*rho + 432*R*alpha*k*omega - 60*R*alpha*k*rho**2 - 96*R*alpha*k*rho + 96*R*alpha*k + 128*R*k**2*omega - 64*R*k**2*rho - 384*R*k**2 - 100224*alpha**4 - 57600*alpha**3*k - 39168*alpha**3*omega + 19584*alpha**3*rho + 11520*alpha**3 + 6912*alpha**2*k*omega - 5760*alpha**2*k*rho - 4608*alpha**2*k - 9216*alpha*k**2*rho - 4608*alpha*k*omega*rho + 1536*alpha*k*omega + 1920*alpha*k*rho**2 + 3072*alpha*k*rho - 3072*alpha*k)/100224",
+    "-(36*R**2*alpha*k**2*omega - 9*R**2*alpha*k**2*rho + 3168*R*alpha**3*k - 2880*R*alpha**2*k**2 - 864*R*alpha**2*k*omega + 288*R*alpha**2*k*rho + 288*R*alpha**2*k - 6144*R*alpha*k**2*omega + 2560*R*alpha*k**2*rho - 4544*R*alpha*k**2 - 768*R*alpha*k*omega**2 + 576*R*alpha*k*omega*rho + 768*R*alpha*k*omega - 96*R*alpha*k*rho**2 - 192*R*alpha*k*rho - 2816*R*k**2*omega + 960*R*k**2*rho + 2048*R*k**2 - 414720*alpha**4 - 267264*alpha**3*k - 221184*alpha**3*omega + 82944*alpha**3*rho + 110592*alpha**3 + 64512*alpha**2*k*omega - 27648*alpha**2*k*rho - 46080*alpha**2*k + 184320*alpha*k**2*omega - 82944*alpha*k**2*rho - 147456*alpha*k**2 + 49152*alpha*k*omega**2 - 43008*alpha*k*omega*rho - 86016*alpha*k*omega + 9216*alpha*k*rho**2 + 30720*alpha*k*rho + 36864*alpha*k)/414720",
+    "-(18*R**2*alpha*k**2*omega - 9*R**2*alpha*k**2*rho - 18*R**2*alpha*k**2 + 1440*R*alpha**3*k - 576*R*alpha**2*k**2 - 288*R*alpha**2*k*omega + 144*R*alpha**2*k*rho + 288*R*alpha**2*k - 1024*R*alpha*k**2*omega + 512*R*alpha*k**2*rho - 3008*R*alpha*k**2 - 192*R*alpha*k*omega**2 + 192*R*alpha*k*omega*rho + 288*R*alpha*k*omega - 48*R*alpha*k*rho**2 - 192*R*alpha*k*rho - 384*R*alpha*k - 896*R*k**2*omega + 448*R*k**2*rho + 1408*R*k**2 - 138240*alpha**4 - 46080*alpha**3*k - 55296*alpha**3*omega + 27648*alpha**3*rho + 55296*alpha**3 + 9216*alpha**2*k*omega - 4608*alpha**2*k*rho - 9216*alpha**2*k + 18432*alpha*k**2*omega - 9216*alpha*k**2*rho - 18432*alpha*k**2 + 6144*alpha*k*omega**2 - 6144*alpha*k*omega*rho - 15360*alpha*k*omega + 1536*alpha*k*rho**2 + 6144*alpha*k*rho + 12288*alpha*k)/138240",
+    "-(144*R**2*alpha*k**2*omega - 81*R**2*alpha*k**2*rho - 144*R**2*alpha*k**2 + 13536*R*alpha**3*k - 2880*R*alpha**2*k**2 + 4992*R*alpha**2*k*omega - 2976*R*alpha**2*k*rho - 1536*R*alpha**2*k - 4096*R*alpha*k**2*omega + 2560*R*alpha*k**2*rho - 4544*R*alpha*k**2 + 1536*R*alpha*k*omega**2 - 1920*R*alpha*k*omega*rho - 2688*R*alpha*k*omega + 576*R*alpha*k*rho**2 + 1536*R*alpha*k*rho + 384*R*alpha*k - 1024*R*k**2*omega + 960*R*k**2*rho + 2048*R*k**2 - 539136*alpha**4 - 156672*alpha**3*k - 110592*alpha**3*omega + 82944*alpha**3*rho + 110592*alpha**3 - 24576*alpha**2*k*omega + 27648*alpha**2*k*rho + 24576*alpha**2*k + 18432*alpha**2*omega**2 - 36864*alpha**2*omega*rho - 36864*alpha**2*omega + 13824*alpha**2*rho**2 + 36864*alpha**2*rho + 18432*alpha**2 - 9216*alpha*k**2*rho + 12288*alpha*k*omega*rho - 6144*alpha*k*rho**2 - 12288*alpha*k*rho)/539136",
+    "-(36*R**2*alpha*k**2*omega - 9*R**2*alpha*k**2*rho + 3096*R*alpha**3*k - 1728*R*alpha**2*k**2 + 1632*R*alpha**2*k*omega - 552*R*alpha**2*k*rho - 816*R*alpha**2*k - 3072*R*alpha*k**2*omega + 1536*R*alpha*k**2*rho + 2624*R*alpha*k**2 + 768*R*alpha*k*omega**2 - 672*R*alpha*k*omega*rho - 816*R*alpha*k*omega + 120*R*alpha*k*rho**2 + 240*R*alpha*k*rho + 288*R*alpha*k + 128*R*k**2*omega - 64*R*k**2*rho - 384*R*k**2 - 134784*alpha**4 - 99072*alpha**3*k - 43776*alpha**3*omega + 21888*alpha**3*rho + 16128*alpha**3 - 18432*alpha**2*k*omega + 17664*alpha**2*k*rho + 26112*alpha**2*k + 9216*alpha**2*omega**2 - 13824*alpha**2*omega*rho - 9216*alpha**2*omega + 3456*alpha**2*rho**2 + 4608*alpha**2*rho + 4608*alpha**2 - 9216*alpha*k**2*rho + 9216*alpha*k*omega*rho + 4608*alpha*k*omega - 3840*alpha*k*rho**2 - 7680*alpha*k*rho - 9216*alpha*k)/134784",
+    "-(36*R**2*alpha*k**2*omega - 9*R**2*alpha*k**2*rho + 4896*R*alpha**3*k - 2880*R*alpha**2*k**2 + 2688*R*alpha**2*k*omega - 864*R*alpha**2*k*rho - 768*R*alpha**2*k - 6144*R*alpha*k**2*omega + 2560*R*alpha*k**2*rho - 4544*R*alpha*k**2 + 1536*R*alpha*k*omega**2 - 1152*R*alpha*k*omega*rho - 1536*R*alpha*k*omega + 192*R*alpha*k*rho**2 + 384*R*alpha*k*rho - 2816*R*k**2*omega + 960*R*k**2*rho + 2048*R*k**2 - 539136*alpha**4 - 433152*alpha**3*k - 221184*alpha**3*omega + 82944*alpha**3*rho + 110592*alpha**3 - 221184*alpha**2*k*omega + 95232*alpha**2*k*rho + 49152*alpha**2*k + 92160*alpha**2*omega**2 - 73728*alpha**2*omega*rho - 110592*alpha**2*omega + 13824*alpha**2*rho**2 + 36864*alpha**2*rho + 18432*alpha**2 + 184320*alpha*k**2*omega - 82944*alpha*k**2*rho - 147456*alpha*k**2 - 98304*alpha*k*omega**2 + 86016*alpha*k*omega*rho + 110592*alpha*k*omega - 18432*alpha*k*rho**2 - 49152*alpha*k*rho - 12288*alpha*k)/539136",
+    "-(18*R**2*alpha*k**2*omega - 9*R**2*alpha*k**2*rho - 18*R**2*alpha*k**2 + 2304*R*alpha**3*k - 576*R*alpha**2*k**2 + 960*R*alpha**2*k*omega - 480*R*alpha**2*k*rho - 96*R*alpha**2*k - 1024*R*alpha*k**2*omega + 512*R*alpha*k**2*rho - 3008*R*alpha*k**2 + 384*R*alpha*k*omega**2 - 384*R*alpha*k*omega*rho - 672*R*alpha*k*omega + 96*R*alpha*k*rho**2 + 288*R*alpha*k*rho - 192*R*alpha*k - 896*R*k**2*omega + 448*R*k**2*rho + 1408*R*k**2 - 179712*alpha**4 - 73728*alpha**3*k - 55296*alpha**3*omega + 27648*alpha**3*rho + 55296*alpha**3 - 30720*alpha**2*k*omega + 15360*alpha**2*k*rho + 3072*alpha**2*k + 18432*alpha**2*omega**2 - 18432*alpha**2*omega*rho - 36864*alpha**2*omega + 4608*alpha**2*rho**2 + 18432*alpha**2*rho + 9216*alpha**2 + 18432*alpha*k**2*omega - 9216*alpha*k**2*rho - 18432*alpha*k**2 - 12288*alpha*k*omega**2 + 12288*alpha*k*omega*rho + 15360*alpha*k*omega - 3072*alpha*k*rho**2 - 9216*alpha*k*rho + 6144*alpha*k)/179712"
+  ],
+  "seconds": 94.95707956900151,
+  "RSS_KiB": 59324,
+  "exact_solution": {
+    "alpha": "1",
+    "k": "-3/4",
+    "R": "-32",
+    "rho": "0",
+    "omega": "0"
+  },
+  "all226_symbolic_frame_equations_zero_at_solution": true,
+  "frame_builder_inline_source": "import sympy as s,json,time,resource\nfrom pathlib import Path\nfrom itertools import combinations\nstart=time.perf_counter()\nh,x,y,z,w=s.symbols('h x y z w'); X=(h,x,y,z,w)\nalpha,k,R,rho,omega=s.symbols('alpha k R rho omega'); pars=(alpha,k,R,rho,omega)\nd=s.sqrt(6)*s.I/2\nC=w-z/4+h/2; J=z/2+2*w\nA=x+R*y/2+R*w/12+2*z/3+(-s.Rational(1,3)+R/96)*h\nU=y+w/6+h/48\nY=(alpha*C+k*A,3*k*A,d*(k*A-k*R*U-alpha*J),d*k*(A-R*U),h+rho*C+9*k*A+omega*(z-h))\nG=s.Matrix([[s.diff(a,b) for b in X] for a in Y])\nD37=json.load(open('reports/MPS_SMOOTHING_COMPLETION_20261103_v62/T37.json'))\nloc={f'x{i}':X[i] for i in range(5)};loc.update({'p0':s.Integer(1),'t0':s.Integer(1),'t1':s.Integer(1),'t2':R,'t3':1/R})\nT=s.zeros(5)\nfor key,value in D37['homogeneous_bivector'].items():\n i,j=map(int,key.split(','));T[i,j]=s.sympify(value,locals=loc);T[j,i]=-T[i,j]\nraw=json.load(open('reports/CLASSIFICATION_K4A_ORDER_TWO_ZERO_LOCUS_20261108.json'))['generic_actual_brackets']\ncs=s.symbols('c a b u v');locK=dict(zip(('c','a','b','u','v'),cs))\nK=s.zeros(5)\nfor key,value in raw.items():\n i,j=map(int,key.split(',')); K[i,j]=s.sympify(value,locals=locK);K[j,i]=-K[i,j]\ndef compose(p):\n out=0\n for mon,coef in s.Poly(p,*cs).terms():\n  t=coef\n  for a,e in zip(Y,mon):\n   if e:t*=a**e\n  out+=t\n return out\nQ=G*T*G.T\nlam=-d*alpha/18\nB={}\nfor i,j in combinations(range(5),2):\n B[i,j]=s.Poly(s.expand(R*(Q[i,j]-lam*compose(K[i,j]))),*X)\ndef bracket(i,j):return B[i,j].as_expr() if i<j else -B[j,i].as_expr()\nrows=[]; formal=[]\nfor i,j,l in combinations(range(5),3):\n pol=s.Poly(s.expand(Y[i]*bracket(j,l)-Y[j]*bracket(i,l)+Y[l]*bracket(i,j)),*X)\n for mon,coef in pol.terms():\n  coef=s.factor(coef)\n  if coef!=0:\n   rows.append(coef);formal.append({'triple':[i,j,l],'monomial':mon,'coefficient':str(coef)})\n# Normalize each scalar row by its parameter monomial content. These are only frame units.\ndef reduced(q):\n q=s.Poly(q,*pars,extension=d)\n terms=q.terms(); exps=[min(m[j] for m,c in terms) for j in range(5)]\n # alpha,k,R are nonzero; rho,omega are not inverted.\n exps[3]=exps[4]=0\n out=sum(c*s.prod(a**(m[j]-exps[j]) for j,a in enumerate(pars)) for m,c in terms)\n q=s.Poly(out,*pars,extension=d)\n return s.factor(q.monic().as_expr())\nunique={str(reduced(q)):reduced(q) for q in rows}\nordered=sorted(unique.values(),key=lambda a:(s.Poly(a,*pars).total_degree(),s.count_ops(a),str(a)))\nprint('Full formal rows',len(rows),'unit-normalized equations',len(ordered),'time',time.perf_counter()-start,flush=True)\nfor a in ordered[:45]: print(a,flush=True)\npacket={'frame':[[str(a) for a in row] for row in G.tolist()],'lambda':str(lam),'variables':[str(a) for a in pars],'d_square':'-3/2','all_nonzero_projective_coefficient_rows':formal,'unit_normalized_equations':[str(a) for a in ordered],'seconds':time.perf_counter()-start,'RSS_KiB':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss}\nPath('/tmp/k4a_t37_frame_equations.json').write_text(json.dumps(packet,indent=2)+'\\n')\n",
+  "discovery_not_needed_as_an_additional_proof_hypothesis": true
+}

@@ -1,0 +1,77 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "target_statement": "Independent sixwhole reducedR m4 actualshear transitivity andnormalizedFULL9P2 factors: all6x6globalinverses, full30Eulerquotient, simultaneousALLalpha6+P2nine actualpush, originalcompleteL kernels/all150/350/Pf.",
+  "implication_to_classification": "Actualglobalinverse killsentireP1 forallsix fixedsources while retaininginhomogeneousP2 asallnine shiftedvariables; normalizedsourcefullDzeroorpropernormalfactor hencewholeirreducquinticempty. Otherm4 branches aggregate separately.",
+  "coefficient_ring": "QQ Fraction sparse polynomials, fullsixP1coefficients andrawnineP2variables simultaneously; normalizedkernelparameters arbitrary.",
+  "hypotheses": "Accepted wholefixed6symbol andcompleteK1/Lsource/kerneltheorems; full30raw36/Euler6 decomposition explicit; actualpositiveweightbaseshear fixesnormals andplane, preservingnormalleadingconditions.",
+  "inverted_elements": [
+    "fixed rational constants in saved6x6C inverses only; no sourceparameter inversions"
+  ],
+  "complements": [
+    "AllP1alpha zero/nonzero andallrawP2nine arbitrary included",
+    "P2 becomeshomogeneous onlyAFTERactualP1removal; allquadraticP2shifts savedwithglobaltriangularinverse",
+    "Allleadingamplitude zeros andnormalizedkernelzeros retained",
+    "Concurrent/otherm4/Rnonreduced branches notinferred fromthese6 alone"
+  ],
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_cubic_scroll_abelian_review.py",
+      "sha256": "116dfa897adb51862d53d1a3e104a153f23d15afaf95150eb2e65c4c00f33c91"
+    },
+    {
+      "path": "code/classification_cubic_scroll_four_sources_review.py",
+      "sha256": "8ff3e5059cd20c4898f55ddaeab1c5de0a8abb96819f993c7d5e823181de1b82"
+    },
+    {
+      "path": "research/classification/PLANE_M4_SIX_WHOLE_SHEAR_FACTOR_EXCLUSION.md",
+      "sha256": "d212841ae7085d5fb2f01b58da34b843f54d90ed1c3e9fa68a30dd99718365cd"
+    },
+    {
+      "path": "reports/CLASSIFICATION_PLANE_M4_SIX_WHOLE_SHEAR_FACTORS_20261108.json",
+      "sha256": "1ce8c00ea9f16ebffb775a2078d79eb627e36cf6831ef51773b3a77dbd097393"
+    },
+    {
+      "path": "research/classification/inputs/plane_m4_six_whole_shear_factor_manifest_20261108.json",
+      "sha256": "34a2a0d1706d0fe6b3a895b5880a6ab947bc1d3d6e77d80d721acaef246f8065"
+    },
+    {
+      "path": "reports/CLASSIFICATION_PLANE_REDUCIBLE_CUBIC_M4_SPECIAL_20261107.json",
+      "sha256": "191019ce0ab5f6e734e888300132d55d8d3c610e62a56930464d25a0e947d742"
+    },
+    {
+      "path": "reports/CLASSIFICATION_PLANE_REDUCIBLE_CUBIC_M4_SPECIAL_REVIEW_20261107.json",
+      "sha256": "f2b6ae48d87bb7f88d18ecca5883238e955b275fe0ee2ab91727ceba0d02c82d"
+    },
+    {
+      "path": "reports/CLASSIFICATION_PLANE_M4_REPEATED_211_20261107.json",
+      "sha256": "0e00f1eaeb31a0051dd641704c7b8c5e27f090de1ec3764bd0fd072dd7dc590a"
+    },
+    {
+      "path": "reports/CLASSIFICATION_PLANE_M4_REPEATED_REVIEW_20261107.json",
+      "sha256": "1e571be2be38f81b27103830e25982db353965819c47eeffefc665867adcf6c3"
+    },
+    {
+      "path": "research/classification/PLANE_M4_REPEATED_LEADING_GEOMETRY.md",
+      "sha256": "e18c758206443d2f0c15916b4152466e52c480a69a50bf69b0ce7d99693a0f83"
+    },
+    {
+      "path": "research/classification/PLANE_M4_REPEATED_SEPARATE_REVIEW.md",
+      "sha256": "1eaa6efa68f6cee3d8d16e211e886f9357ca3ce95047f8ad0fa210cefadcfd07"
+    },
+    {
+      "path": "research/classification/PLANE_REDUCIBLE_CUBIC_M4_SPECIAL_SEPARATE_REVIEW.md",
+      "sha256": "707c610a669828169c119986049a2d8fb8bf26c724c33b5e9025934ef7e2284f"
+    }
+  ],
+  "inline_source": "from pathlib import Path\nfrom fractions import Fraction as Q\nimport json,hashlib,itertools as it,ast,resource,time,sys\nsys.path.insert(0,'code')\nfrom classification_cubic_scroll_abelian_review import add,scale,mul,diff,parse,monomials\nfrom classification_cubic_scroll_four_sources_review import substitute\nbegun=time.monotonic();resource.setrlimit(resource.RLIMIT_CPU,(110,115));resource.setrlimit(resource.RLIMIT_AS,(2048*1024**2,)*2)\njob=json.load(open('research/classification/jobs/plane_m4_six_whole_separate_review.json'))\nfor z in job['exact_inputs_and_hashes']:assert hashlib.sha256(Path(z['path']).read_bytes()).hexdigest()==z['sha256'],z['path']\nCOUNT=0\ndef ck(a,b,label):\n global COUNT\n assert a==b,label\n COUNT+=1\ncoords=['a','b','c','u','v'];pairs=list(it.combinations(range(5),2));mons=monomials(5,2);COLS=[(ij,e)for ij in pairs for e in mons]\ndef atom(np,i=None,c=1):\n e=[0]*(np+5)\n if i is not None:e[i]=1\n return {tuple(e):Q(c)}if c else{}\ndef pmatrix():return [[{}for j in range(5)]for i in range(5)]\ndef put(P,i,j,v):P[i][j]=v;P[j][i]=scale(v,-1)\ndef tensor150(vals,np):\n P=pmatrix()\n for ((i,j),e),co in zip(COLS,vals):\n  if Q(co):P[i][j]=add(P[i][j],{(0,)*np+e:Q(co)})\n for i,j in pairs:P[j][i]=scale(P[i][j],-1)\n return P\ndef mm(A,B):\n n=len(B[0])if B else 0\n return [[sum((x*B[k][j]for k,x in enumerate(row)if x),Q())for j in range(n)]for row in A]\ndef trans(A):return list(map(list,zip(*A)))\ndef mat(A):return [[Q(x)for x in row]for row in A]\ndef identity(n):return [[Q(i==j)for j in range(n)]for i in range(n)]\ndef wpart(P,k,np):\n out=pmatrix()\n for i,j in pairs:put(out,i,j,{e:c for e,c in P[i][j].items()if e[-2]+e[-1]-(i>=3)-(j>=3)==k})\n return out\ndef coeff(p,phys,np):return {e[:np]+(0,)*5:c for e,c in p.items()if e[np:]==phys}\ndef canonical1(P,np):\n X=[atom(np,np+i)for i in range(5)];Y=[{}for _ in range(5)]\n for i in range(3):Y[i]=scale(add(mul(coeff(P[i][3],(0,0,0,2,0),np),X[3]),mul(coeff(P[i][4],(0,0,0,0,2),np),X[4])),-1)\n out=pmatrix()\n for i,j in pairs:put(out,i,j,add(P[i][j],scale(mul(X[i],Y[j]),-1),mul(X[j],Y[i])))\n return out\nB1=[]\nfor normal in (3,4):\n for ij in it.combinations(range(3),2):\n  for k in range(3):\n   e=[0]*5;e[normal]+=1;e[k]+=1;B1.append((ij,tuple(e)))\nfor normal,ex in [(3,(3,4)),(3,(4,4)),(4,(3,3)),(4,(3,4))]:\n for i in range(3):\n  e=[0]*5\n  for k in ex:e[k]+=1\n  B1.append(((i,normal),tuple(e)))\nB2=[]\nfor ij in it.combinations(range(3),2):\n for ex in [(3,3),(3,4),(4,4)]:\n  e=[0]*5\n  for k in ex:e[k]+=1\n  B2.append((ij,tuple(e)))\ndef basisvectors(B):return [[Q(ij==jj and e==f)for jj,f in COLS]for ij,e in B]\ndef decodebasis(B,values,np):\n P=pmatrix()\n for ((i,j),e),p in zip(B,values):P[i][j]=add(P[i][j],mul(p,{(0,)*np+e:Q(1)}))\n for i,j in pairs:P[j][i]=scale(P[i][j],-1)\n return P\ndef coordinates1(P,np):\n vals=[coeff(P[i][j],e,np)for(i,j),e in B1]\n ck(decodebasis(B1,vals,np),P,'complete raw30 afterEuler exact reconstruction')\n return vals\ndef push(P,s,np):\n n=np+5;old=[atom(np,np+i)for i in range(5)]\n for i in range(3):old[i]=add(old[i],scale(mul(s[2*i],old[3]),-1),scale(mul(s[2*i+1],old[4]),-1))\n images=[atom(np,i)for i in range(np)]+old\n sub=[[substitute(P[i][j],images,n)for j in range(5)]for i in range(5)]\n G=[[atom(np,c=int(i==j))for j in range(5)]for i in range(5)]\n for i in range(3):G[i][3],G[i][4]=s[2*i],s[2*i+1]\n out=pmatrix()\n for i,j in pairs:put(out,i,j,add(*(mul(mul(G[i][k],sub[k][ell]),G[j][ell])for k in range(5)for ell in range(5)if G[i][k]and G[j][ell])))\n return out\ndef jac(P,np):\n strict={}\n for tri in it.combinations(range(5),3):strict[tri]=add(*(mul(P[i][ell],diff(P[j][k],np+ell))for i,j,k in [tri,(tri[1],tri[2],tri[0]),(tri[2],tri[0],tri[1])]for ell in range(5)))\n return [add(*(scale(mul(atom(np,np+quad[i]),strict[quad[:i]+quad[i+1:]]),(-1)**i)for i in range(4)))for quad in it.combinations(range(5),4)]\ndef actual(P,np):\n D={}\n for omit in range(5):\n  i,j,k,l=[v for v in range(5)if v!=omit]\n  pf=add(mul(P[i][j],P[k][l]),scale(mul(P[i][k],P[j][l]),-1),mul(P[i][l],P[j][k]))\n  D=add(D,scale(mul(atom(np,np+omit),pf),(-1)**omit))\n return D\noldspecial=json.load(open('reports/CLASSIFICATION_PLANE_REDUCIBLE_CUBIC_M4_SPECIAL_20261107.json'));oldrepeat=json.load(open('reports/CLASSIFICATION_PLANE_M4_REPEATED_211_20261107.json'));new=json.load(open('reports/CLASSIFICATION_PLANE_M4_SIX_WHOLE_SHEAR_FACTORS_20261108.json'))\nck(mat(oldspecial['full30_weight1_basis']),basisvectors(B1),'old complete30 basis');ck(mat(oldspecial['full9_weight2_basis']),basisvectors(B2),'old FULL9 basis')\nresults=[]\nfor saved in new['cases']:\n typ=saved['type'];old=next(c for p in [oldspecial,oldrepeat]for c in p['cases']if c['type']==typ)\n if 'full30_weight1_basis'in old:ck(mat(old['full30_weight1_basis']),basisvectors(B1),'repeat same30 basis');ck(mat(old['full9_weight2_basis']),basisvectors(B2),'repeat same9 basis')\n K=trans(mat(old['full30_weight1_kernel']));assert len(K)==30 and len(K[0])==6\n C=mat(saved['full_shear_to_K1_matrix']);Ci=mat(saved['global_inverse_K1_to_shear']);ck(mm(C,Ci),identity(6),'global C inverse1');ck(mm(Ci,C),identity(6),'global C inverse2')\n P0=tensor150(old['full150_P0'],0);unitcols=[]\n for at in range(6):\n  shear=[atom(0,c=int(i==at))for i in range(6)]\n  values=coordinates1(canonical1(wpart(push(P0,shear,0),1,0),0),0)\n  unitcols.append([v.get((0,)*5,Q())for v in values]);assert all(set(v)<={(0,)*5}for v in values)\n S=trans(unitcols);ck(S,mat(saved['shear_30_by6']),'full unit shear S');ck(S,mm(K,C),'S equals K C')\n # ALL alpha6/rawP2nine simultaneously; not unit-shear transitivity extrapolation.\n np=15;an=[f'A{i}'for i in range(6)];rn=[f'R{i}'for i in range(9)];names=an+rn+coords\n alpha=[atom(np,i)for i in range(6)];rs=[atom(np,6+i)for i in range(9)]\n p1vals=[add(*(scale(alpha[j],K[i][j])for j in range(6)))for i in range(30)]\n P0all=tensor150(old['full150_P0'],np);P1=decodebasis(B1,p1vals,np);P2=decodebasis(B2,rs,np)\n raw=[[add(P0all[i][j],P1[i][j],P2[i][j])for j in range(5)]for i in range(5)]\n s=[scale(add(*(scale(alpha[j],Ci[i][j])for j in range(6))),-1)for i in range(6)]\n changed=push(raw,s,np);ck(wpart(changed,0,np),P0all,'actual fullshear P0 unchanged')\n can=canonical1(wpart(changed,1,np),np);ck(can,pmatrix(),'ALLalpha actual inverse shear kills whole P1 moduloEuler')\n rem=wpart(changed,2,np);newrs=[coeff(rem[i][j],ex,np)for(i,j),ex in B2];ck(decodebasis(B2,newrs,np),rem,'FULL9P2 stays FULL9 afteractualshear')\n shifts=[add(x,scale(y,-1))for x,y in zip(newrs,rs)]\n assert all(not any(ex[6:15])for p in shifts for ex in p)\n # Remaining source map is triangular rnew=r+shift(alpha), hence has literal polynomial inverse.\n L=mat(old['full350_weight2_matrix'])+mat(old.get('all13_leading_shape_weight2_rows',old.get('all_leading_shape_weight2_rows')))\n ck(len(L),saved['weight2_complete_matrix_rows'],'complete old L rowcount')\n cert=old.get('full_weight2_rank_certificate',old.get('weight2_rank_certificate'))\n KL=mat(saved['normalized_P2_kernel_9_by_n']);n=9-cert['rank'];assert n==len(saved['normalized_P2_parameter_names'])\n ck(mm(L,KL),[[]if n==0 else[Q()for _ in range(n)]for _ in L],'whole oldL times normalizedkernel')\n free=[j for j in range(9)if j not in cert['columns']];ck([KL[j]for j in free],identity(n),'normalizedkernel full independent freecoordinates')\n np=n;names=saved['normalized_P2_parameter_names']+coords;t=[atom(np,i)for i in range(n)]\n vals=[add(*(scale(t[j],KL[i][j])for j in range(n)))for i in range(9)];norm2=decodebasis(B2,vals,np);norm0=tensor150(old['full150_P0'],np);norm=[[add(norm0[i][j],norm2[i][j])for j in range(5)]for i in range(5)]\n for i,j in pairs:ck(norm[i][j],parse(saved['normalized_full_brackets'][str((i,j))],names),'all150 normalized fullsource')\n for p in jac(norm,np):ck(p,{},'all350 normalized originalJac')\n D=actual(norm,np);ck(D,parse(saved['actual_quintic'],names),'whole actualPf/D')\n if saved['proper_factor_or_zero']=='0':ck(D,{},'D identicallyzero')\n else:\n  factor=parse(saved['proper_factor_or_zero'],names);quotient=parse(saved['exact_factor_quotient'],names);ck(D,mul(factor,quotient),'full actualD factor identity');assert factor and {sum(ex[np:])for ex in factor}=={sum(next(iter(factor))[np:])}and 0<sum(next(iter(factor))[np:])<5\n assert all(ex[-2]+ex[-1]==4 for ex in D)\n results.append({'type':typ,'all_constant_C_inverse_and_S_equals_KC':True,'unit_pushes_reconstructed':True,'ALLalpha6_and_FULLrawP2nine_actual_inverse_shear_verified':True,'P0_fixed_and_P1_zero_modEuler':True,'global_P2_inverse_triangular_shifts_sparse':[{','.join(map(str,e[:6])):str(co)for e,co in p.items()}for p in shifts],'no_source_parameter_inversion':True,'whole_normalized_P2_kernel_dimension':n,'old_completeL_kernel_annihilation_and_independence':True,'all150_normalized_tensor_and_all350_Jacobi':True,'full_actualPf_factor_identity':True,'whole_irreducible_quintic_empty':True})\nresult={'task_id':'E_reduced_nonnormal','all_passed':True,'scope':'Allsix specified reducedR m4 fixedsources areirreduciblequinticempty; wholem4 aggregation requiresseparate acceptedotherbranches','cases':results,'new_component_count':0,'no_new_M1_rank_kernel_point_profile_or_GB':True,'no_producer_or_CAS_import':True,'identity_count':COUNT,'input_sha256':{p['path']:hashlib.sha256(Path(p['path']).read_bytes()).hexdigest()for p in job['exact_inputs_and_hashes']},'inline_source':job['inline_source'],'seconds':time.monotonic()-begun,'maxrss_kb':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss}\nout=Path('reports/CLASSIFICATION_PLANE_M4_SIX_WHOLE_SEPARATE_REVIEW_20261108.json')\nwith out.open('x')as f:json.dump(result,f,indent=2);f.write('\\n')\nprint(json.dumps({k:result[k]for k in ['all_passed','identity_count','seconds','maxrss_kb']}))\n",
+  "inline_source_sha256": "34afc2b59a1ac768aed18616865d087cfe0d668d795e180a8b8a07851d6a0b12",
+  "success_certificate": "FullS=KC andbothCinverses; simultaneousall15param actualshear killsP1 moduloEuler andkeepsP2 globaltriangular; alloldL timeskernel andindependentfreecoords; allnormalized150/350/fullPf/factor identities.",
+  "independent_check": "No producer/CAS imports orM1/rank/kernel solving; oldindependent basicFraction primitives only, allcoordinate pushes reconstructed directly andfullsourcegeometry handaudited.",
+  "resource_limit": {
+    "timeout_seconds": 120,
+    "memory_mb": 2048
+  },
+  "negative_result_next_step": "Anyfailedidentityblocksacceptance andpreservesdata; no replacementsourcepoints, kernels orprofiles.",
+  "route_change_reason": "Wholeactual6shear transitivity with explicitglobalinverse isnewgeometricbridge fromoldGbounds toEempty; finitecheck targetsallsourceparameters, notlocaloperatorprobes.",
+  "command": "python3 -c 'import json;exec(json.load(open(\"research/classification/jobs/plane_m4_six_whole_separate_review.json\"))[\"inline_source\"])'"
+}

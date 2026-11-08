@@ -11,12 +11,14 @@
 今回の継続区間開始SHAは `dab368089679508ae5c9016d66ba6accfe6d8fa9`、GitHub mainとの一致も確認した。
 復旧区間の開始SHAは `8b46f29ddbb9f539abc7a026e492ee25bf8ad699`、直前の公開保存は
 `dab368089679508ae5c9016d66ba6accfe6d8fa9`（126成分/1002主張/256頁）。
+その後の通常main pushで `9468048f7a9daa051fa57054858aa8f07a1dd61d` を公開し、HEAD=origin/mainを確認した（126/1020/288頁、一般G完了）。
 旧8b46は124成分/967主張/225頁、旧57f主稿は234頁。直前136aの126/991保存単位は244頁。今回126/1002主稿は256頁。Cloud中断後に初期snapshotへ戻ったworkspaceを
 fetch/ff-onlyでここまで復旧した。復旧時の8b46/PDF hashはCLOUD_RECOVERYに保持し、直前136aの244頁PDF hashは
 `1df0210441101fbd577fc6278cbaff21ff800c36a7ccb9aa3b4fcda7096fe9fa`。
 
 直前256頁PDF SHAは `5e95c800fb86f37f0cd95b6be1067e4a97bdd7f5d15f2a8058a5f91962528112`。
-現行288頁PDF SHAは `a6482f56471bd0e75ae35a01a234a81d00ef30b7949d372cca910415da65e5ba`、TeX SHAは `9155f735d319067d99650d84159979e2572d3b939013b4f184b59d16ab6d6905`。
+直前288頁PDF SHAは `a6482f56471bd0e75ae35a01a234a81d00ef30b7949d372cca910415da65e5ba`、TeX SHAは `9155f735d319067d99650d84159979e2572d3b939013b4f184b59d16ab6d6905`。
+現行295頁PDF SHAは `b223a24182b809cc7dc0a2de6b5e2247bf80ea02070a72ae22d893477f43505a`、TeX SHAは `e9269978ea4239205676b1395b2e90635bddc6f8edb2a60d567d31197025bdd2`。
 公開保存の実SHAはGit HEAD/origin/mainで確認する。
 
 非公開部分の旧report実測・旧hashを捏造して復旧しない。手証明/入力/sourceは旧hash一致のものだけexact復元と呼ぶ。
@@ -27,34 +29,24 @@ fetch/ff-onlyでここまで復旧した。復旧時の8b46/PDF hashはCLOUD_REC
 
 ## 現行数学
 
-下界126（rank四120、rank二6）、主張1020。**一般β Gは完了**、全E・総上界・分類主定理は未証明。
-直前公開主稿は1002cut/256頁。現行保存単位は1020cut/288頁、G完了とK4a完全有限切片まで統合済み。
+採録cutは128成分（rank四122、rank二6）・1032主張。新二23成分は全ambient/全W六/全prior126/相互を独立確認した。
+K4a親T37と全concurrent m三、corrected非被約R/m三generictriple全点（八essential三＋新二成分）を被覆済み。
+quadric-cone rank零は全SS/nil/全Yの不変H因子で空、全degree四rank零もnil32二元Jacobi係数から空へ強化。
+integral CI22導手曲面は全normal/nonnormal型とrank零/二の全sourceで既約quintic枝が空。
+rank二nil32は全九inversechartの元150/350/126を別Fraction再構成し、全rank四点もMPS/H+2Qへ被覆した。
 
-Gは最終 `classification/GLOBAL_GENERIC_G_EXHAUSTION_CLOSURE_AUDIT.md` と93入力manifestまで独立受理し、完了した。
-全actualDの因子分割、非正規導手曲面rank零/二・全degree1–6、plane全m/R/normalroot/全higherを尽くす。
-exactC0 bridgeの未知優越成分25–27は既知閉和、global像24以下又はproperβ像に入れず、残余B=0。
-一般係数体の全fiberは既知五点。新一様分母/単位ideal展開を実行したとはしない。
-旧plus符号90wholecoverageは撤回のまま。correctedminus新90・valid14joint逆・18modules/34walls・newfixed原ideal因子を三phase独立受理。
-二E1DX壁はconsistentW6/像23以下で、target実在とEは未知。全concurrent m三も全K0まで独立完了。
-解決済みGを欠陥なく再開せず、全E/成分帰属と主稿へ作業を進める。
+一般Gは `GLOBAL_GENERIC_G_EXHAUSTION_CLOSURE_AUDIT.md` の93入力まで独立完了し、残余B=0。
+全E・総上界・分類主定理は未証明。現行queueはPLAN.json、全E sourceの一覧はE_POINTWISE_SOURCE_FRONTIER.md。
+現行PDFは128/1032・295頁、最終二回組版と全参照・主要頁可視確認済み。通常Git保存はHEAD/origin/mainを確認する。
 
-EではH+二相異既約quadricのplane全七配置を全磁気で既知成分へ被覆済み。
-1+1+3の全非plane支持も、全11nil表とj21(h,x)/j21(0,h+x)/p0の三actualcurve及び全n6零補集合から、
-全MPS40又は旧同22成分へ被覆した。型の残Eは正確にplane三配置全六磁気源だけ。
-他の残Eは1+2+2 nonplane/lambda零、stable二源、Ga9linear-w未知親、shortnil r2/3等。
-全essential三変数既約quinticの八23成分被覆、現126成分の全ambient成分性/相違は独立受理済み。
-新候補があれば126を答えに固定せず監査する。
-
-K22 whole一軌道は既nil22long23 denseorbitへ全十actual括弧/全逆で同定し、全E所属も完了。
-K4aは同じD101/G48からnormalizedC*全IFTgraphを次数5へ強制し、元350の全次数10零を別Fractionで確認。
-真の102切片と48実作用のétale積でsmooth unique24、整数actual曲線の全非零parameterは同一dense24軌道。
-全K4a23軌道はこの24成分境界へ。既知親名/相違は未認識、新加算零。入口 `K4A_COMPLETE_TORUS_SLICE_SEPARATE_REVIEW.md`。
-
-1020cut後のE資料は各自独立receipt付きで保存中：K4a実24親は全order二零点operatorでT36/T38を排除、T37又は別24が残る。
-二E1DX弱壁は全W6を実unipotent逆で各一23軌道へ縮約するpure証明があり、親の認識は未了。
-shortnil r2/3はmarkedSS2+c closureの新障害と、一回のSS12 spectralframe endpoint不整合を保存。
-これらを1020台帳/PDFの追加定理として黙って数えず、次のroot読解・採録を待つ。
-全G-bound sourceの全点E inventoryも並行監査中で、上記数源だけで全Eを尽くしたとはしない。
+全H+2Q、三相異H+既約Q、Q+C3、1+1+3非plane、全essential三quintic八成分等は既被覆済み。
+他のfactor別、rank零/二planeの全kernel/wall、degree五・六などのG-bound sourceを全点として認識する。
+Cexact/moving源、smoothscroll正しいV2、cubicconeT38、PV、新HA候補等の1032後packetはまだ台帳未採録。
+旧smoothscrollfour-coverは独立反例により撤回。旧四個別族の算術PASSと全被覆FAILを分離し、
+`CUBIC_SCROLL_FOUR_SOURCE_COVER_REJECTION.md`、`CUBIC_SCROLL_ZERO_FOUR_COVER_ERRATUM.md` を保持した。
+修正L6＋Segre5全源と全factorは別作者PASS、次cutで独立採録する。Gの旧独立dimension上界には影響しない。
+shortnilの全stabilizer/四whole23親排除、stable二源の二levelgap1障害も保存したが、全E帰属は未証明。
+候補・陰性入口・次元上界を、新成分又は全点被覆へ誤算入しない。
 
 全詳細と次の依存入口は `classification/CURRENT.md`、`classification/PLAN.json`、`NEXT_TASKS.md`。
 

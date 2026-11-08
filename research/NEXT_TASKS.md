@@ -7,9 +7,9 @@
 .venv/bin/python scripts/classification.py next
 ```
 
-**個別下界126（rank四120、rank二6）。一般βの既知五点尽くしGは証明完了。全E・総上界・全分類は未証明。**
+**個別下界128（rank四122、rank二6）。一般βの既知五点尽くしGは証明完了。全E・総上界・全分類は未証明。**
 ユーザーの11月7日の再開指示により実作業を継続する。保存や旧移行用一時停止を終了条件にしない。
-G、E_multiple_hyperplane、E_reduced_nonnormalを並行し、意味のある進展は主原稿・引継ぎへ統合して通常main pushで保存する。
+E_multiple_hyperplane、E_reduced_nonnormalと主稿を並行し、意味のある進展は主原稿・引継ぎへ統合して通常main pushで保存する。
 
 ## G：一般βの尽くしを完了
 
@@ -17,15 +17,26 @@ G、E_multiple_hyperplane、E_reduced_nonnormalを並行し、意味のある進
 全actualD因子型、導手曲面のrank零/二・次数1–6、plane全m/R/root/wholehigherを全源定理で閉じた。
 未知W優越成分25–27は既知閉和・像24以下・properβ像と矛盾し、exactsplitterの残余B=0。
 一般fiberは既知五点そのもの。欠陥なく解決済み枝や旧GB/minor/jetを再開しない。
-二correctedtriple E1DX壁はG像23以下であり、全空/全Eと誤記しない。
+二correctedtriple E1DX壁は全W六が新二23全成分へ認識済み。別の二Y壁は全higherの元二乗係数と全Pf因子で空まで独立完了。
 
 次のprimaryは特殊βの全点E、未帰属源のactual parent又は新componenthoodと相違、同じ日本語主稿への統合。
 
 ## E：未帰属sourceの実変形又は新成分性
 
+採録cutは128成分（rank四122、rank二6）・1032主張。新二23成分は全ambient/全W六/全prior126/相互を独立確認した。
+K4a親T37と全concurrent m三、corrected非被約R/m三generictriple全点（八essential三＋新二成分）を被覆済み。
+quadric-cone rank零は全SS/nil/全Yの不変H因子で空、全degree四rank零もnil32二元Jacobi係数から空へ強化。
+integral CI22導手曲面は全normal/nonnormal型とrank零/二の全sourceで既約quintic枝が空。
+rank二nil32は全九inversechartの元150/350/126を別Fraction再構成し、全rank四点もMPS/H+2Qへ被覆した。
+
+全sourceの残余は `classification/E_POINTWISE_SOURCE_FRONTIER.md` の九laneを使う。
+新しいproducer packetは独立全源確認・台帳採録・主稿組版・通常pushを別々に完了する。
+
+
 K4a全23軌道は、C*が全IFTgraphを次数5へ強制する完全有限sliceから、実dense24軌道成分の境界と証明した。
-全350の全次数10零を別Fraction V2で確認。既知親名又はprior126との相違は未認識なので新加算零。
-この24親の認識を進め、既三plane1+1+3/stable二/Ga9linearw/shortnil等の全Eを続ける。
+全350の全次数10零を別Fraction V2で確認。さらに真T37完成tensorとのactualPGL/Euler全150正逆＋126Pfを独立受理し、親はT37と同定。
+K22/K0/nonOreを合わせ全concurrent m三Eも完了。新加算零。
+このT37全源認識を入力とし、既三plane1+1+3/stable二/Ga9linearw/shortnil等の全Eを続ける。
 
 H+2Q（Q既約）、五相異なるH、三相異なるH+既約Q、既約Q+既約C3の全支持は被覆済み。
 rank2の全支持も六成分とrank4閉包へ接続済み。これらを欠陥なく再分類しない。
@@ -33,7 +44,7 @@ rank2の全支持も六成分とrank4閉包へ接続済み。これらを欠陥�
 H+既約quarticは全半単純24源、純nil型1/2/3/4/5/8/10を完了した。
 型4の唯一六源はliteral P+eR+e²Tでregular semisimple型12へ移り全MPS。
 型5は新22成分とT40、Ga9型9のc=1全十源は新23成分へ被覆した。
-型7全七源は三新成分（二22と一23）、MPS及び既存既約五次23成分へ全被覆済み。Hquarticに残るのはnil22image型6とGa9 c0 linear-w一源である。
+型7全七源は三新成分（二22と一23）、MPS及び既存既約五次23成分へ全被覆済み。Hquartic型6の全marked源も完了し、Hquarticに残るのはGa9 c0 linear-w一源である。
 Ga9 distinct-c全源も実cubic曲線で新しい既約非正規quinticの23次元軌道成分へ被覆済み。Ga9c0 power1/power3全源も新平面Hquartic24成分へ被覆済み。残るGa9はc0 linear-w一源だけ。全六normalの二次初期支持はplaneとline（height4）で原点に閉じない。診断Macaulay両包含を保存し、高次jet反復を止めactualwhole変形又は支持幾何へ切り替える。
 
 重複Hではnil31long-top六源、nil22top八源、nil31image half/third全源は被覆済み。
