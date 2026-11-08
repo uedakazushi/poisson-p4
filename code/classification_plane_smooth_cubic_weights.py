@@ -117,4 +117,212 @@ def main():
     destination.write_text(json.dumps(result,indent=2)+'\n')
 
 
-if __name__=='__main__':main()
+
+
+
+def reduced_m3_nine_main():
+    """One whole finite batch after the complete root-cover geometry."""
+    import argparse
+    from fractions import Fraction as F
+    import classification_degenerate_quadric_q4_nil31_I_review as q
+    ap=argparse.ArgumentParser();ap.add_argument('--reduced-m3-nine',action='store_true');ap.add_argument('--output',type=Path,required=True);args=ap.parse_args()
+    if args.output.exists():raise FileExistsError(args.output)
+    begun=time.monotonic();resource.setrlimit(resource.RLIMIT_CPU,(230,235));resource.setrlimit(resource.RLIMIT_AS,(2048*1024**2,)*2)
+    def addp(*Ps):return q.antisymmetric({ij:q.add(*(P.get(ij,{})for P in Ps))for ij in PAIRS})
+    def act(P):
+        terms=[]
+        for missing in range(5):
+            i,j,k,l=[a for a in range(5)if a!=missing]
+            pf=q.add(q.mul(P.get((i,j),{}),P.get((k,l),{})),q.scale(q.mul(P.get((i,k),{}),P.get((j,l),{})),-1),q.mul(P.get((i,l),{}),P.get((j,k),{})))
+            terms.append(q.scale(q.mul(q.atom(1,missing),pf),(-1)**missing))
+        return q.add(*terms)
+    def cert(M,n):
+        A=[[F(v)for v in row]for row in M];r=0;cols=[]
+        for j in range(n):
+            k=next((i for i in range(r,len(A))if A[i][j]),None)
+            if k is None:continue
+            A[r],A[k]=A[k],A[r];d=A[r][j];A[r]=[v/d for v in A[r]]
+            for i in range(len(A)):
+                if i!=r and A[i][j]:
+                    d=A[i][j];A[i]=[a-d*b for a,b in zip(A[i],A[r])]
+            cols.append(j);r+=1
+        K=[]
+        for j in range(n):
+            if j in cols:continue
+            v=[F()for _ in range(n)];v[j]=F(1)
+            for row,pivot in zip(A,cols):v[pivot]=-row[j]
+            assert all(not sum(a*b for a,b in zip(row,v))for row in M)
+            K.append(v)
+        rows=q.rank(q.transpose(M))[1] if M and n else []
+        det=q.determinant([[M[i][j]for j in cols]for i in rows]) if r else F(1)
+        assert det and len(rows)==r
+        return dict(rank=r,nullity=n-r,rows=rows,columns=cols,minor_determinant=str(det),complete_kernel=[[str(v)for v in row]for row in K],full_kernel_substitution_zero=True),K
+    def pdecode(text,names):
+        poly=s.Poly(s.sympify(text,locals=dict(zip(names,s.symbols(' '.join(names))))),*s.symbols(' '.join(names)),domain=s.QQ)
+        return {e+(0,0,0):F(int(c.p),int(c.q))for e,c in poly.terms()if c}
+    def mat(M):return [[str(v)for v in row]for row in M]
+    first=[]
+    for normal in [3,4]:
+        for ij in combinations(range(3),2):
+            for k in range(3):first.append(q.antisymmetric({ij:q.atom(1,normal,k)}))
+    for normal,mon in [(3,[3,4]),(3,[4,4]),(4,[3,3]),(4,[3,4])]:
+        for i in range(3):first.append(q.antisymmetric({(i,normal):q.atom(1,*mon)}))
+    second=[q.antisymmetric({ij:q.atom(1,*mon)})for ij in combinations(range(3),2)for mon in [[3,3],[3,4],[4,4]]]
+    assert len(first)==30 and len(second)==9
+    d3mon=[e for e in q.monomials(5)if e[3]+e[4]==3];assert len(d3mon)==24
+    euler=[]
+    for a in range(5):
+        for b in range(5):
+            euler.append(q.antisymmetric({ij:q.add(q.atom(1,ij[0],b)if ij[1]==a else {},q.atom(-1,ij[1],b)if ij[0]==a else {})for ij in PAIRS}))
+    EC,EK=cert(q.transpose([q.vec(P)for P in euler]),25);assert EC['rank']==24
+    files=['research/classification/inputs/plane_tangent_conic_m3_four_first_symbols_20261108.json','research/classification/inputs/plane_triangle_m3_five_first_symbols_20261108.json']
+    records=[]
+    for fp in files:
+        data=json.loads((ROOT/fp).read_text());names=data['variables']
+        for profile in data['profiles']:
+            P0=q.antisymmetric({tuple(names.index(v)for v in ij.split(',')):pdecode(text,names)for ij,text in profile['raw_brackets'].items()})
+            assert not any(q.jvec(q.jacobi(P0))) and not act(P0)
+            def op(P):
+                v=q.jvec(q.jacobi(addp(P0,P)));own=q.jvec(q.jacobi(P));return [a-b for a,b in zip(v,own)]
+            J1=q.transpose([op(P)for P in first]);J2=q.transpose([op(P)for P in second])
+            R1,Kraw=cert(J1,30);R2,K2=cert(J2,9)
+            D3=[[act(addp(P0,P)).get(e+(0,0,0),F())for P in first]for e in d3mon]
+            target=[pdecode(t,names)for t in profile.get('whole_parallel_G3_basis',profile.get('whole_leading_target_basis',[]))]
+            targetrows=[[t.get(e+(0,0,0),F())for e in d3mon]for t in target]
+            TC,ann=cert(targetrows,24)
+            constrained=J1+[[sum(a*b for a,b in zip(v,col))for col in zip(*D3)]for v in ann]
+            RC,K1=cert(constrained,30)
+            # Verify the entire P0 orbit in the actual Euler quotient, not a selected stabilizer.
+            orbit=[]
+            for a,b in [(a,b)for block in [range(3),range(3,5)]for a in block for b in block]:
+                out={}
+                for i,j in PAIRS:
+                    out[i,j]=q.add(q.scale(q.mul(q.atom(1,b),q.der(P0.get((i,j),{}),a)),-1),P0.get((b,j),{})if i==a else {},P0.get((i,b),{})if j==a else {})
+                orbit.append(q.antisymmetric(out))
+            GM=q.transpose([q.vec(P)for P in euler+orbit+[P0]]);GC,GK=cert(GM,39)
+            B=GC['rank']-24;assert B<=profile['first_symbol_source_dimension_upper']
+            dim=len(K1)+len(K2);badzero=all(not v[k]for v in K1 for k in range(21,24))
+            # Every P0 here preserves u=0. If every full firstweight bad row is zero,
+            # all higher u-rows have factor u, forcing a proper factor of actual D.
+            assert all(not e[3]==0 for (i,j),p in P0.items()if j==3 for e in p)
+            bound=B+dim+5
+            record=dict(input=fp,name=profile['name'],full150_P0=list(map(str,q.vec(P0))),full350_P0_Jacobi_zero=True,actual_P0_zero=True,
+                complete350x30=mat(J1),weight1_unconstrained_certificate=R1,complete350x9=mat(J2),weight2_certificate=R2,
+                full24x30_actual_D3=mat(D3),full_parallel_target_rows=mat(targetrows),target_certificate=TC,complete_target_annihilator=mat(ann),
+                constrained_weight1_matrix=mat(constrained),constrained_weight1_certificate=RC,
+                full150x39_Euler_Levi_scale=mat(GM),filtered_group_certificate=GC,first_symbol_dimension=B,proof_upper=profile['first_symbol_source_dimension_upper'],
+                full_higher_dimension_upper=dim,whole_projective_image_upper=bound,entire_bad_u_row_zero=badzero,actual_D_has_proper_u_factor=badzero,G24_closed=badzero or bound<=24)
+            records.append(record);print(profile['name'],B,len(K1),len(K2),bound,'factor',badzero,flush=True)
+            result=dict(task_id='G',one_complete_nine_profile_batch=True,cases=records,completed_profiles=len(records),all_passed=len(records)==9 and all(r['G24_closed']for r in records),
+                complete30_and9=True,no_quadratic_jet_or_GB=True,source_input_files=[dict(path=p,sha256=hashlib.sha256((ROOT/p).read_bytes()).hexdigest())for p in files],
+                producer_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),producer_source=Path(__file__).read_text(),
+                seconds=time.monotonic()-begun,maximum_RSS_KiB=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
+                scope='Whole higher necessary supersource for the nine finite first-symbol orbits. Root-cover geometric exhaustion and all-point E assignment are separate obligations. No nonclosing profile is certified as G closed.')
+            args.output.write_text(json.dumps(result,indent=2)+'\n')
+
+
+
+
+def triple_line_m2_double_main():
+    """One whole eight-symbol batch for triple-line normal-double m2."""
+    import argparse
+    from fractions import Fraction as F
+    import classification_degenerate_quadric_q4_nil31_I_review as q
+    ap=argparse.ArgumentParser();ap.add_argument('--triple-line-m2-double',action='store_true');ap.add_argument('--output',type=Path,required=True);args=ap.parse_args()
+    if args.output.exists():raise FileExistsError(args.output)
+    begun=time.monotonic();resource.setrlimit(resource.RLIMIT_CPU,(230,235));resource.setrlimit(resource.RLIMIT_AS,(2048*1024**2,)*2)
+    def addp(*Ps):return q.antisymmetric({ij:q.add(*(P.get(ij,{})for P in Ps))for ij in PAIRS})
+    def act(P):
+        terms=[]
+        for missing in range(5):
+            i,j,k,l=[a for a in range(5)if a!=missing]
+            pf=q.add(q.mul(P.get((i,j),{}),P.get((k,l),{})),q.scale(q.mul(P.get((i,k),{}),P.get((j,l),{})),-1),q.mul(P.get((i,l),{}),P.get((j,k),{})))
+            terms.append(q.scale(q.mul(q.atom(1,missing),pf),(-1)**missing))
+        return q.add(*terms)
+    def cert(M,n):
+        A=[[F(v)for v in row]for row in M];r=0;cols=[]
+        for j in range(n):
+            k=next((i for i in range(r,len(A))if A[i][j]),None)
+            if k is None:continue
+            A[r],A[k]=A[k],A[r];d=A[r][j];A[r]=[v/d for v in A[r]]
+            for i in range(len(A)):
+                if i!=r and A[i][j]:
+                    d=A[i][j];A[i]=[a-d*b for a,b in zip(A[i],A[r])]
+            cols.append(j);r+=1
+        K=[]
+        for j in range(n):
+            if j in cols:continue
+            v=[F()for _ in range(n)];v[j]=F(1)
+            for row,pivot in zip(A,cols):v[pivot]=-row[j]
+            assert all(not sum(a*b for a,b in zip(row,v))for row in M)
+            K.append(v)
+        rows=q.rank(q.transpose(M))[1] if M and n else []
+        det=q.determinant([[M[i][j]for j in cols]for i in rows]) if r else F(1)
+        assert det and len(rows)==r
+        return dict(rank=r,nullity=n-r,rows=rows,columns=cols,minor_determinant=str(det),complete_kernel=[[str(v)for v in row]for row in K],full_kernel_substitution_zero=True),K
+    def pdecode(text,names):
+        poly=s.Poly(s.sympify(text,locals=dict(zip(names,s.symbols(' '.join(names))))),*s.symbols(' '.join(names)),domain=s.QQ)
+        return {e+(0,0,0):F(int(c.p),int(c.q))for e,c in poly.terms()if c}
+    def mat(M):return [[str(v)for v in row]for row in M]
+    first=[]
+    for normal in [3,4]:
+        for ij in combinations(range(3),2):
+            for k in range(3):first.append(q.antisymmetric({ij:q.atom(1,normal,k)}))
+    for normal,mon in [(3,[3,4]),(3,[4,4]),(4,[3,3]),(4,[3,4])]:
+        for i in range(3):first.append(q.antisymmetric({(i,normal):q.atom(1,*mon)}))
+    second=[q.antisymmetric({ij:q.atom(1,*mon)})for ij in combinations(range(3),2)for mon in [[3,3],[3,4],[4,4]]]
+    assert len(first)==30 and len(second)==9
+    d3mon=[e for e in q.monomials(5)if e[3]+e[4]==3];assert len(d3mon)==24
+    euler=[]
+    for a in range(5):
+        for b in range(5):
+            euler.append(q.antisymmetric({ij:q.add(q.atom(1,ij[0],b)if ij[1]==a else {},q.atom(-1,ij[1],b)if ij[0]==a else {})for ij in PAIRS}))
+    EC,EK=cert(q.transpose([q.vec(P)for P in euler]),25);assert EC['rank']==24
+    files=['research/classification/inputs/plane_triple_line_m2_constant_double_eight_first_symbols_20261108.json']
+    records=[]
+    for fp in files:
+        data=json.loads((ROOT/fp).read_text());names=data['variables']
+        for profile in data['profiles']:
+            P0=q.antisymmetric({tuple(names.index(v)for v in ij.split(',')):pdecode(text,names)for ij,text in profile['raw_brackets'].items()})
+            assert not any(q.jvec(q.jacobi(P0))) and act(P0)==pdecode(profile['G2'],names)
+            def op(P):
+                v=q.jvec(q.jacobi(addp(P0,P)));own=q.jvec(q.jacobi(P));return [a-b for a,b in zip(v,own)]
+            J1=q.transpose([op(P)for P in first]);J2=q.transpose([op(P)for P in second])
+            R1,Kraw=cert(J1,30);R2,K2=cert(J2,9)
+            RC,K1=R1,Kraw
+            # Verify the entire P0 orbit in the actual Euler quotient, not a selected stabilizer.
+            orbit=[]
+            for a,b in [(a,b)for block in [range(3),range(3,5)]for a in block for b in block]:
+                out={}
+                for i,j in PAIRS:
+                    out[i,j]=q.add(q.scale(q.mul(q.atom(1,b),q.der(P0.get((i,j),{}),a)),-1),P0.get((b,j),{})if i==a else {},P0.get((i,b),{})if j==a else {})
+                orbit.append(q.antisymmetric(out))
+            GM=q.transpose([q.vec(P)for P in euler+orbit+[P0]]);GC,GK=cert(GM,39)
+            B=GC['rank']-24
+            dim=len(K1)+len(K2);badzero=all(not v[k]for v in K1 for k in range(21,24))
+            def combination(bs,vs):return q.antisymmetric({ij:q.add(*(q.scale(P.get(ij,{}),c)for P,c in zip(bs,vs)if c))for ij in PAIRS})
+            families=[P0]+[combination(first,v)for v in K1]+second
+            afactor=all(e[0]>0 for P in families for i in range(1,5)for e,c in P.get((0,i),{}).items()if c)
+            ufactor=all(e[3]>0 for P in families for i in [0,1,2,4]for e,c in P.get((i,3),{}).items()if c)
+            assert ufactor==badzero
+            bound=B+dim+5
+            record=dict(input=fp,name=profile['name'],full150_P0=list(map(str,q.vec(P0))),full350_P0_Jacobi_zero=True,actual_P0_zero=False,
+                complete350x30=mat(J1),weight1_unconstrained_certificate=R1,complete350x9=mat(J2),weight2_certificate=R2,
+                actual_G2=profile['G2'],constrained_weight1_certificate=RC,
+                full150x39_Euler_Levi_scale=mat(GM),filtered_group_certificate=GC,first_symbol_dimension=B,
+                full_higher_dimension_upper=dim,whole_projective_image_upper=bound,entire_bad_u_row_zero=badzero,actual_D_has_proper_u_factor=ufactor,actual_D_has_proper_a_factor=afactor,G24_closed=ufactor or afactor or bound<=24)
+            records.append(record);print(profile['name'],B,len(K1),len(K2),bound,'u_factor',ufactor,'a_factor',afactor,flush=True)
+            result=dict(task_id='G',one_complete_eight_profile_batch=True,cases=records,completed_profiles=len(records),all_passed=len(records)==8 and all(r['G24_closed']for r in records),
+                complete30_and9=True,no_quadratic_jet_or_GB=True,source_input_files=[dict(path=p,sha256=hashlib.sha256((ROOT/p).read_bytes()).hexdigest())for p in files],
+                producer_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),producer_source=Path(__file__).read_text(),
+                seconds=time.monotonic()-begun,maximum_RSS_KiB=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
+                scope='Whole higher necessary supersource for all triple-line constant-double m2 symbols. Whole geometric exhaustion is independently reviewed; all-point E assignment is separate. No nonclosing profile is certified as G closed.')
+            args.output.write_text(json.dumps(result,indent=2)+'\n')
+
+
+
+if __name__=='__main__':
+    import sys
+    if '--reduced-m3-nine' in sys.argv:reduced_m3_nine_main()
+    elif '--triple-line-m2-double' in sys.argv:triple_line_m2_double_main()
+    else:main()

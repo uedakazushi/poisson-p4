@@ -1,0 +1,187 @@
+{
+  "task_id": "G",
+  "status": "PASS: independent whole-source geometry and arithmetic",
+  "date_utc": "2026-11-08",
+  "reviewer": "/root/quartic_review",
+  "method": "Independent full-source pureproof derivation and own exact sparse/Fraction arithmetic, without producer or CAS imports.",
+  "whole_normalforms_checked": [
+    "primitive double root degree0/1, moving split-q empty",
+    "all constant marked h=f/L2M/L3",
+    "all four bad C base constraints at every period",
+    "all off-field parameters, normal and base shear/scaling inverses including E0 and c0",
+    "canonical ratio Hamiltonian including vertical Euler correction",
+    "whole normal grading over C(v/u), all translation/spectral failures",
+    "h=f equal-diagonal nilpotent full-source factor and Gauss descent"
+  ],
+  "finite_coverage": {
+    "h21_b": [
+      "-2",
+      "-5",
+      "-8",
+      "-7/2",
+      "-4"
+    ],
+    "h21_c": [
+      "0",
+      "1"
+    ],
+    "h3_b": [
+      "-14",
+      "-11",
+      "-19/2",
+      "-8",
+      "-13/2",
+      "-5",
+      "-2"
+    ],
+    "whole_a_domains_and_all_exceptions_retained": true
+  },
+  "arithmetic": {
+    "path": "reports/CLASSIFICATION_PLANE_M2_CONCURRENT_DOUBLE_SEPARATE_REVIEW_20261108.json",
+    "sha256": "122fc010335a0f98445753ec3933afe3a63e15cf8e9377efe65e095829ec0e09",
+    "generic_QQ_a_fields": 17,
+    "allowed_wall_algebras": 84,
+    "nonrational_wall_algebras": 5,
+    "all_complex_roots_covered_by_unit_minors": true,
+    "seconds": 16.786695443999633,
+    "maximum_RSS_KiB": 95692
+  },
+  "accepted_conclusions": {
+    "equal_diagonal_hf_entire_tangent_and_concurrent_source": "EMPTY",
+    "concurrent_normal_double_entire_projective_image_upper": 23,
+    "only_three_fixed_higher_sources_survive_factor_necessity": [
+      {
+        "type": "h21_b-2_c0_wall_11*a + 4",
+        "field": "QQ",
+        "K1": 9,
+        "K2": 0,
+        "filtered_group_fiber": 10,
+        "parameter_dimension": 0,
+        "image_upper": 23,
+        "entire_actual_u_factor": false,
+        "all_full350_150_maps": true,
+        "all_rank_kernel_unit_certificates": true,
+        "modulus": [
+          "4/11",
+          "1"
+        ],
+        "all_complex_roots_verified_by_unit_minors": true
+      },
+      {
+        "type": "h3_b-2_wall_2*a - 5",
+        "field": "QQ",
+        "K1": 8,
+        "K2": 0,
+        "filtered_group_fiber": 9,
+        "parameter_dimension": 0,
+        "image_upper": 23,
+        "entire_actual_u_factor": false,
+        "all_full350_150_maps": true,
+        "all_rank_kernel_unit_certificates": true,
+        "modulus": [
+          "-5/2",
+          "1"
+        ],
+        "all_complex_roots_verified_by_unit_minors": true
+      },
+      {
+        "type": "h3_b-2_wall_2*a + 1",
+        "field": "QQ",
+        "K1": 8,
+        "K2": 0,
+        "filtered_group_fiber": 9,
+        "parameter_dimension": 0,
+        "image_upper": 23,
+        "entire_actual_u_factor": false,
+        "all_full350_150_maps": true,
+        "all_rank_kernel_unit_certificates": true,
+        "modulus": [
+          "1/2",
+          "1"
+        ],
+        "all_complex_roots_verified_by_unit_minors": true
+      }
+    ]
+  },
+  "limitations": [
+    "Individual irreducible rank4 existence/E membership of the three fixed higher sources is unproved.",
+    "Nonreduced R/m3/m4/other support surfaces are separate.",
+    "Selected rank minors and kernels give exact whole linear necessary source data, not a nonreduced local scheme model."
+  ],
+  "proof_note": {
+    "path": "research/classification/PLANE_M2_CONCURRENT_DOUBLE_SEPARATE_REVIEW.md",
+    "sha256": "af7db6f9b16a25e2216bc4a9dcaace4e7b12e247179edbd240f8de7534f74868"
+  },
+  "job": {
+    "path": "research/classification/jobs/plane_m2_concurrent_double_separate_review.json",
+    "sha256": "1a2aec53059bb75b103dc14d22c0486589968e73f2721831569bb504440836a1",
+    "gate": "PASS input bindings; gate does not verify mathematics"
+  },
+  "producer_manifest_rows_verified": 16,
+  "exact_inputs_and_hashes": [
+    {
+      "path": "code/classification_plane_m2_concurrent_double_review.py",
+      "sha256": "605cfaa05da254abc72f51603b5830aadb337b3479233e7a33cd79ae517880be"
+    },
+    {
+      "path": "code/classification_plane_m2_double_tangent_review.py",
+      "sha256": "00915a7dc7f23d1dfcf2e321520f005647cd612f9b12356772790674e185d10c"
+    },
+    {
+      "path": "code/classification_plane_m4_special_review.py",
+      "sha256": "3c43fe85efcae39dbd0d2f8228271ce5fa291830315e62c9169ac5924b7408f8"
+    },
+    {
+      "path": "code/classification_unimodular_logarithmic_review.py",
+      "sha256": "cc5da8f4ac53bb814e549d439d806271a81f28cacfd9656b85765eb78b21cdcf"
+    },
+    {
+      "path": "reports/CLASSIFICATION_PLANE_M2_CONCURRENT_DOUBLE_20261108.json",
+      "sha256": "5b39d3b708e4655453bef40f6ff61c9c14424894261e0a0b7605ff6cef0f08a3"
+    },
+    {
+      "path": "research/classification/inputs/plane_m2_concurrent_double_manifest_20261108.json",
+      "sha256": "6bce852ec8812e0cb9f861002293f9bda18fd1081fa4089f453e2d0ba139aac1"
+    },
+    {
+      "path": "reports/CLASSIFICATION_PLANE_M2_DOUBLE_TANGENT_20261107.json",
+      "sha256": "ebcafe36961cda37f0d239daccc9a895aaad3f699991e6f7471f22a7e6c8afd7"
+    },
+    {
+      "path": "reports/CLASSIFICATION_PLANE_M2_DOUBLE_TANGENT_SEPARATE_REVIEW_20261107.json",
+      "sha256": "966a851df01668a7841c55af0f7b1c7c89f0fbef3b78053c9e525b6834fc5ebf"
+    },
+    {
+      "path": "research/classification/PLANE_M2_DOUBLE_ROOT_CONNECTION_GEOMETRY.md",
+      "sha256": "1636bb48e8b8c752f14dfab4bcb4ee0742a2ff2a2b29c5147ae50681485be11a"
+    },
+    {
+      "path": "research/classification/PLANE_M2_MOVING_DOUBLE_ROOT_NORMAL_FORM.md",
+      "sha256": "f5c0c5dc9eea4bbf0bcfe109acde5283f7b3224b05287b1e80343dd2bd920e1f"
+    },
+    {
+      "path": "research/classification/PLANE_M2_DOUBLE_ROOT_CONSTANT_NORMAL_FORMS.md",
+      "sha256": "fb33d82e8243de1898a4f3b66696e3d0e53e20b74748ed4d946ff8fd895a9428"
+    },
+    {
+      "path": "research/classification/PLANE_M2_DOUBLE_EQUAL_DIAGONAL_NIL_OFF_EXCLUSION.md",
+      "sha256": "cc1c403472880b2a93fc746663d052acfed29ff399eb3f70523aa0ad740546a6"
+    },
+    {
+      "path": "research/classification/PLANE_M2_CONCURRENT_DOUBLE_FINITE_PENCILS.md",
+      "sha256": "cab5015f5bc144ae2491b3989b1b8ce2014e2274745c9cb918d900c095960dbb"
+    },
+    {
+      "path": "research/classification/PLANE_M2_CONCURRENT_DOUBLE_FINITE_BOUND.md",
+      "sha256": "5d436492886e9eea27711040c587217e6b43f48088886bb643a674216aa80e92"
+    },
+    {
+      "path": "research/classification/PLANE_M2_DOUBLE_TANGENT_FINITE_BOUND.md",
+      "sha256": "a94c48d1221f8cfa23a4d3eca82704a82f7ee2f7a458ff1844479e27da11c2d2"
+    },
+    {
+      "path": "research/classification/PLANE_M2_DOUBLE_TANGENT_SEPARATE_REVIEW.md",
+      "sha256": "dc7f9f3efe5bc17f34957f03162dddb18deacb0166d4e01cca9bef58923d4157"
+    }
+  ]
+}

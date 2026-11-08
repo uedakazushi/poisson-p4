@@ -1,0 +1,129 @@
+{
+  "task_id": "G",
+  "status": "pure necessary whole source reduction; independent review pending; fullhigher NOT RUN",
+  "variables": [
+    "a",
+    "b",
+    "c",
+    "u",
+    "v"
+  ],
+  "f": "a**3",
+  "common_base_brackets": {
+    "a,b": "0",
+    "a,c": "0",
+    "b,c": "3*a**2"
+  },
+  "mixed_convention": "base,u=u*X; base,v=v*Y; u,v=kappa*u*v",
+  "whole_G2": "leading_gamma*a**3*u*v",
+  "profiles": [
+    {
+      "name": "SEM_SAME_3_2",
+      "parameters": [],
+      "X": [
+        "0",
+        "b",
+        "-c"
+      ],
+      "Y": [
+        "0",
+        "b",
+        "-c"
+      ],
+      "kappa": "3/2",
+      "leading_gamma": "3*(3/2)"
+    },
+    {
+      "name": "SEM_SAME_-3_2",
+      "parameters": [],
+      "X": [
+        "0",
+        "b",
+        "-c"
+      ],
+      "Y": [
+        "0",
+        "b",
+        "-c"
+      ],
+      "kappa": "-3/2",
+      "leading_gamma": "3*(-3/2)"
+    },
+    {
+      "name": "SEM_OPPOSITE_5_2",
+      "parameters": [],
+      "X": [
+        "0",
+        "b",
+        "-c"
+      ],
+      "Y": [
+        "0",
+        "-b",
+        "c"
+      ],
+      "kappa": "5/2",
+      "leading_gamma": "3*(5/2)"
+    },
+    {
+      "name": "SEM_OPPOSITE_-5_2",
+      "parameters": [],
+      "X": [
+        "0",
+        "b",
+        "-c"
+      ],
+      "Y": [
+        "0",
+        "-b",
+        "c"
+      ],
+      "kappa": "-5/2",
+      "leading_gamma": "3*(-5/2)"
+    },
+    {
+      "name": "TRANSLATIONS",
+      "parameters": [],
+      "X": [
+        "0",
+        "a",
+        "0"
+      ],
+      "Y": [
+        "0",
+        "0",
+        "a"
+      ],
+      "kappa": "0",
+      "leading_gamma": "-1"
+    },
+    {
+      "name": "NIL_WHOLE_TWO_PARAMETERS",
+      "parameters": [
+        "t",
+        "d"
+      ],
+      "inverted_elements": [
+        "d"
+      ],
+      "X": [
+        "0",
+        "a",
+        "b"
+      ],
+      "Y": [
+        "0",
+        "t*a",
+        "t*b+d*a"
+      ],
+      "kappa": "0",
+      "leading_gamma": "-d",
+      "scope": "Entire t in C,d in C*, not d=1 slice"
+    }
+  ],
+  "proof": {
+    "path": "research/classification/PLANE_TRIPLE_LINE_M2_SQUAREFREE_CONSTANT_ROOT_SYMBOLS.md",
+    "sha256": "cfd6f8ac453f377c65ca92006df5879cfbdf4d76aa88d47b78245ce4e585c019"
+  },
+  "new_operator_run": false
+}

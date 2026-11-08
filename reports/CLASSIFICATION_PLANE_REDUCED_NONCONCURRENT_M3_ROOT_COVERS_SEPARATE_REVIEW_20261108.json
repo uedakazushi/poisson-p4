@@ -1,0 +1,136 @@
+{
+  "status": "PASS: INDEPENDENT PURE-PROOF REVIEW",
+  "date_utc": "2026-11-08",
+  "reviewer": "/root/quartic_review",
+  "start_head": "136a2a3ccb459da913b5db2e274bb5389830b9a6",
+  "method": "Separate-author written proof reading and independent mathematical derivation. No CAS, new operator/source matrix, anchor, minor, GB, jet or producer import.",
+  "job": {
+    "path": "research/classification/jobs/plane_reduced_nonconcurrent_m3_root_covers_separate_review.json",
+    "sha256": "0c196c71599eba7fc5607b1712e478625abbf79085f6474ffcaf7b2d164c18bc",
+    "gate": "PASS: job contract and input bindings. Mathematics NOT verified. No job was started."
+  },
+  "exact_inputs_and_hashes": [
+    {
+      "path": "research/classification/PLANE_REDUCIBLE_CUBIC_CONNECTION_ENTRANCE.md",
+      "sha256": "5c1b2b2defb30262245eacb036c3c81e2c383a678a722195c71eaff3e1343d07"
+    },
+    {
+      "path": "research/classification/PLANE_REDUCED_CUBIC_M3_ROOT_GEOMETRY.md",
+      "sha256": "6c665327f312bdc371b9c099ac39b2b68fbb70e3e1467bd127a09ced7554ea24"
+    },
+    {
+      "path": "research/classification/PLANE_M3_CONSTANT_ROOT_OBSTRUCTION.md",
+      "sha256": "eb847d2c28371aa836477f713b76f5b249680389c31926f22b1794bf9994f320"
+    },
+    {
+      "path": "research/classification/PLANE_M3_CONSTANT_ROOT_SEPARATE_REVIEW.md",
+      "sha256": "49b6d1e67c69b1198fc9be8228a901aa4dbe58140320f12a5a8abcbb6be674fb"
+    },
+    {
+      "path": "research/classification/PLANE_M2_NILPOTENT_DIAGONAL_ROOTS_EXCLUSION.md",
+      "sha256": "4a27cbcd7f09e03208546b24d001c4137d211ef13f737ea62cfb5373083010c3"
+    },
+    {
+      "path": "research/classification/PLANE_CONIC_LINE_M3_ROOT_COVERS_AND_EXCLUSION.md",
+      "sha256": "9ab911206e4606d8c79bf1466aa4e8179e38011ea58f6fe463713069f46ad9b6"
+    },
+    {
+      "path": "research/classification/PLANE_TRIANGLE_M3_ROOT_COVERS_AND_FIRST_SYMBOLS.md",
+      "sha256": "81cb35e2d159ede8f024e385d0c688af3609954b7195464277b43d10b4a79a91"
+    },
+    {
+      "path": "research/classification/inputs/plane_triangle_m3_five_first_symbols_20261108.json",
+      "sha256": "37d6639f61ba948a962b93c65aa2b37bef5c3fb2758e8a1269e3c8582703bc4b"
+    },
+    {
+      "path": "research/classification/inputs/plane_conic_line_m3_root_covers_manifest_20261108.json",
+      "sha256": "b4e130f6acbfc3408d7d57b38c58b531d996002069142e1bf3d34503f8cb1637"
+    },
+    {
+      "path": "research/classification/inputs/plane_triangle_m3_root_covers_manifest_20261108.json",
+      "sha256": "89644d2251e3c11365f4a4d6fbb9d7aecf55776646cac2b8ebcea18d5fbf1e06"
+    },
+    {
+      "path": "research/classification/PLANE_REDUCED_NONCONCURRENT_M3_ROOT_COVERS_SEPARATE_REVIEW.md",
+      "sha256": "77103082f373d9b25b39a9dc82878cdb16920184e9f0f285d3bb8b3357ba2b70"
+    }
+  ],
+  "producer_manifest_rows_verified": 14,
+  "checks": [
+    {
+      "name": "Entire topology and partition cover",
+      "result": "PASS",
+      "certificate": "pi1 Z/Z/Z2 gives permutation images 1,C2,C3. Repeated21/3 remain separate; concurrent S3 is outside scope."
+    },
+    {
+      "name": "Root incidence (e,3) degree budget",
+      "result": "PASS",
+      "certificate": "On equivariant simultaneous resolution primitive generating root pairs have unit DVR content; product content is unit. eH-sumLi effective with e<=2, hence sum HLi<=2N. Ramification, content and exceptional components retained."
+    },
+    {
+      "name": "Cyclic cubic compactification, all movable pencils",
+      "result": "PASS",
+      "certificate": "Du Val cubics H=-K, H2=3, chi=1; pushed movable root pencil keeps H degree. Hodge and parity exclude degree1 and give D2=0 for degree2, removing all basepoints and multiple fibers. RR E=H-F realizes every pencil as hyperplanes through an actual line."
+    },
+    {
+      "name": "Conic-line all C2 fixed/moving roots",
+      "result": "PASS",
+      "certificate": "d=0/1 exhaustive; constant branch C=Q and T=L2Q; moving incidence P1xP1 ell class(2,1), all supported divisors give transverse empty and unique primitive tangent M. Common factors and degree/partition boundaries retained."
+    },
+    {
+      "name": "Conic-line all C3 roots",
+      "result": "PASS",
+      "certificate": "All seven transverse/one tangent cubic-surface lines enumerated via linear cube restriction. Six extra lines have outside-R discriminant. Remaining primitive norm Q u3+L2 v3 fails fullD3 gradient image."
+    },
+    {
+      "name": "All transverse profiles and tangent nonlog complements",
+      "result": "PASS",
+      "certificate": "Universal full-source curl with k11=0 and C(L)=0 excludes transverse S/N/D; moving M is already empty there. Tangent full parallel spaces S4/N1/D2/M1 and all zero amplitudes retained. Rational frames are not asserted PGL changes."
+    },
+    {
+      "name": "Triangle all C2 moving and constant roots",
+      "result": "PASS",
+      "certificate": "Incidence F2 with exceptional C0, branch fibers and third section yields only nonprimitive moving ell. Constant branches all excluded by pure-image or invertible curl."
+    },
+    {
+      "name": "Triangle C3 all-three and two-line covers",
+      "result": "PASS",
+      "certificate": "3A2 cubic has only three ramification lines and yields square-image contradiction. Two-line F3 movable degrees f/2f; all degree2 involutions compatible with no U collision give tau=-r, again square-image impossible. Degree1 unused-line full two-dimensional parallel space retained."
+    },
+    {
+      "name": "All triangle21 and triple periods/nonlog extensions",
+      "result": "PASS",
+      "certificate": "Both constant-root bad-vector tests exclude all21, including four01 period choices and all zero-residue axes. Triple curl forces q=(0,1/2,1/2) permutations, chi_i nonzero kills offdiagonal fields, and constant unipotent removes remaining extension. All four h marks retained."
+    },
+    {
+      "name": "Triangle first-symbol dimension upper only",
+      "result": "PASS",
+      "certificate": "Five diagonal toric first symbols have full leading target spaces. Fixed-plane first-symbol upper B=6+1+2=9. No higher-fiber bound inferred."
+    }
+  ],
+  "accepted_results": {
+    "transverse_conic_line_all_normal_order_three_sources": "EMPTY under the stated irreducible actual-quintic hypotheses",
+    "tangent_conic_line_entire_necessary_first_connection_cover": [
+      "S",
+      "N",
+      "D",
+      "M"
+    ],
+    "triangle_entire_necessary_first_symbol_cover": [
+      "SF_C3_UNUSED",
+      "TRIPLE_HX2",
+      "TRIPLE_HY2",
+      "TRIPLE_HYZ",
+      "TRIPLE_HXY"
+    ],
+    "whole_higher_source_dimension_or_membership_for_nine_profiles": "NOT CLAIMED"
+  },
+  "unresolved_complements": [
+    "Tangent four and triangle five full higher sources, global K consistency and E membership are separate obligations.",
+    "Concurrent, nonreduced R, m2/m4 and other surfaces remain separate."
+  ],
+  "proof_note": {
+    "path": "research/classification/PLANE_REDUCED_NONCONCURRENT_M3_ROOT_COVERS_SEPARATE_REVIEW.md",
+    "sha256": "77103082f373d9b25b39a9dc82878cdb16920184e9f0f285d3bb8b3357ba2b70"
+  }
+}

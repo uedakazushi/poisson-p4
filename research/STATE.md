@@ -1,9 +1,15 @@
-# 研究状態 — 現行分類 / 2026-11-07
+# 研究状態 — 現行分類 / 2026-11-08
 
 現行キューは [classification/CURRENT.md](classification/CURRENT.md)・PLAN.json・NEXT_TASKS.md。
-個別下界126（rank四120、rank二6）、主張991。全G/E・上界・分類主定理は未証明。
-直近の公開checkpointは57f4b36c00071103e4288793e1e3470f2ccf8e2f（124/980、234頁）。
-その後のm二reducedR/SF全MPS、degree五canonicalindex二全G非優越・cusp空、scroll canonicalroot空等を独立受理した。
+個別下界126（rank四120、rank二6）、主張1002。全G/E・上界・分類主定理は未証明。
+直前保存点は136a2a3ccb459da913b5db2e274bb5389830b9a6（126/991、244頁）。現行保存単位は126/1002、256頁。
+公開後に下記の全枝を追加受理した。
+nonredR/m三21 constant roots全G像24以下、R3L/m二SF02全空、nonredR/m二moving double全P0空、
+triangle/m二double全G像23以下、全非concurrent reducedR/m三全G像23以下まで独立受理した。
+concurrent/m二double全17pencilsも別作者確認で受理、全reducedR/m二Gを完了。nonredR/m三moving21はproducer閉鎖・別review中。
+Eでは二quadric plane七配置全点を独立実衝突等で既知成分へ被覆し、cusp tangent/secantの三親陰性も独立確認。
+全G/Eは未完で、次の源はCURRENT/PLANの明示残余を使う。
+
 全rank零、rank二quadric/degree四五六・plane m四、全essential三変数quintic八成分被覆は完了。
 残るrank二plane m二三、Eのstable二源・Ga9未知親等を続ける。
 新Ore四moduleも別作者Fraction確認0.779秒で受理し、全nonredR/m三SFのG像24以下を完了した。全m三/Eは未閉。

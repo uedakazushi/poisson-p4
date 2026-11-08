@@ -1,0 +1,71 @@
+{
+  "coordinates": [
+    "a",
+    "b",
+    "c",
+    "u",
+    "v"
+  ],
+  "f": "a*b*(a-b)",
+  "common_base_brackets": {
+    "ab": "0",
+    "ac": "-a^2+2*a*b",
+    "bc": "2*a*b-b^2"
+  },
+  "convention": "P^{i,u}=u*X_i; P^{i,v}=u*Z_i+v*Y_i; K=K20*u^2. Raw projective lift; no strict-Jacobi claim.",
+  "profiles": [
+    {
+      "name": "square",
+      "X": [
+        "0",
+        "0",
+        "a+b"
+      ],
+      "Y": [
+        "0",
+        "0",
+        "-2*a+4*b"
+      ],
+      "Z": [
+        "2*a-3*b",
+        "-b",
+        "-c"
+      ],
+      "K20": "2",
+      "whole_parallel_G3": [
+        "b^2*u^3",
+        "b*(c*u+a*v)*u^2",
+        "(c*u+a*v)^2*u"
+      ],
+      "first_source_dimension_upper": 9,
+      "sufficient_higher_dimension_upper": 10
+    },
+    {
+      "name": "nonsplit",
+      "X": [
+        "0",
+        "0",
+        "-a/2+b"
+      ],
+      "Y": [
+        "0",
+        "0",
+        "-2*a+4*b"
+      ],
+      "Z": [
+        "3*a/2-3*b",
+        "-3*b/2",
+        "0"
+      ],
+      "K20": "0",
+      "whole_parallel_G3": [
+        "b*(a-b)*u^3",
+        "(c*u+a*v)^2*u"
+      ],
+      "first_source_dimension_upper": 10,
+      "sufficient_higher_dimension_upper": 9
+    }
+  ],
+  "all_higher_sources_included": false,
+  "new_exact_computation": false
+}

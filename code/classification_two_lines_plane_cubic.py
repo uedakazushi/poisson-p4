@@ -370,5 +370,172 @@ def cusp_tangent_secant_whole_graphs(output):
     print(json.dumps(dict(case=source['case'],graphs=results,seconds=result['seconds'])),flush=True)
 
 
+def conic_chord_snc_confluence(output):
+    """The complete contact31_chord magnetic source as one actual SNC limit."""
+    from s61_model import X,jacobi_projective
+    resource.setrlimit(resource.RLIMIT_CPU,(110,111))
+    resource.setrlimit(resource.RLIMIT_AS,(1536*1024**2,)*2)
+    begun=time.monotonic();H,A,B,C,D=parent=s.symbols('H A B C D')
+    p,q,k,u,v=s.symbols('p q k u v');h,x,y,z,w=xx=s.symbols('h x y z w')
+    ep=s.Symbol('ep');ms=s.symbols('m0:6');ss,tt=s.symbols('ss tt')
+    Q1=A*B+u*H**2;Q2=C*D+v*H**2;N1=s.Matrix([0,A,-B,0,0]);N2=s.Matrix([0,0,0,C,-D])
+    P=k*(N1*N2.T-N2*N1.T);P[1,2]+=p*Q1;P[2,1]-=p*Q1;P[3,4]+=q*Q2;P[4,3]-=q*Q2
+    def jac(A,variables):
+        return [s.expand(sum(A[i,l]*s.diff(A[j,jj],variables[l])+A[j,l]*s.diff(A[jj,i],variables[l])+A[jj,l]*s.diff(A[i,j],variables[l])for l in range(5)))for i,j,jj in itertools.combinations(range(5),3)]
+    def pf(A):return s.expand(A[1,2]*A[3,4]-A[1,3]*A[2,4]+A[1,4]*A[2,3])
+    def enc(A):return {f'{i},{j}':str(s.expand(A[i,j]))for i,j in itertools.combinations(range(5),2)if A[i,j]}
+    def mat(A):return [[str(s.factor(v))for v in row]for row in A.tolist()]
+    assert all(f==0 for f in jac(P,parent));assert s.expand(pf(P)-p*q*Q1*Q2)==0
+    assert s.expand((H*pf(P)).subs({u:0,v:0})-p*q*H*A*B*C*D)==0
+    frame=s.Matrix([[1,0,0,0,0],[0,1,0,0,0],[0,0,1,0,0],[0,1,0,ep,0],[1,0,1,0,ep]])
+    assert frame.det()==ep**2;frame_inverse=frame.inv();assert frame*frame_inverse==s.eye(5)
+    parent_binding={p:-1+ep*ss,q:1,k:-1+ep*tt,u:-1,v:-1}
+    bound=P.subs(parent_binding,simultaneous=True).subs(dict(zip(parent,frame*s.Matrix(xx))),simultaneous=True)
+    curve=(ep*frame_inverse*bound*frame_inverse.T).applyfunc(s.cancel)
+    assert all(s.denom(f)==1 for f in curve)
+    assert all(s.Poly(f,*xx).total_degree()<=2 for f in curve)
+    bare=s.zeros(5)
+    for ij,val in {(1,3):-x*x,(2,3):h*h,(1,4):2*x*y+h*x-h*h,(2,4):-y*y-h*y,(3,4):(2*y+h)*z+ss*(x*y-h*h)+tt*h*x}.items():bare[ij]=val;bare[ij[::-1]]=-val
+    assert (curve.subs(ep,0)-bare).applyfunc(s.expand)==s.zeros(5)
+    assert all(f==0 for f in jac(curve,xx))
+    assert s.expand(pf(curve)-(-1+ep*ss)*(x*y-h*h)*((x+ep*z)*(y+h+ep*w)-h*h))==0
+    c=-s.Rational(5,7);aval=s.Rational(7,10)*ms[2]-s.Rational(7,15)*ms[5]
+    bval=s.Rational(7,5)*(ms[0]+ms[4])-aval;dval=s.Rational(7,15)*ms[5];eval_=-s.Rational(7,5)*ms[3]
+    sval=-s.Rational(7,5)*ms[4];tval=-s.Rational(7,5)*ms[1]
+    ell=aval*h+bval*x+dval*y;kappa=eval_*x
+    translation=s.eye(5)
+    for row,form in [(3,ell),(4,kappa)]:
+        for j,variable in enumerate(xx):translation[row,j]+=s.diff(form,variable)
+    fiber=s.diag(1,1,1,1,c);target_frame=fiber*translation;target_inverse=target_frame.inv()
+    assert target_frame.det()==c and target_inverse*target_frame==s.eye(5)
+    def push(A,G):return (G*A.subs(dict(zip(xx,G.inv()*s.Matrix(xx))),simultaneous=True)*G.T).applyfunc(s.cancel)
+    actual=push(curve.subs({ss:sval,tt:tval},simultaneous=True),target_frame)
+    assert all(not(s.denom(f).free_symbols&set([ep,*ms]))for f in actual)
+    assert all(s.Poly(f,*xx).total_degree()<=2 for f in actual)
+    assert all(f==0 for f in jac(actual,xx))
+    source_path='reports/CLASSIFICATION_TWO_QUADRICS_PLANE_SOURCES_20261107.json'
+    source=next(row for row in json.loads((ROOT/source_path).read_text())['cases']if row['name']=='contact31_chord')
+    target=s.zeros(5)
+    for ij,text in zip(itertools.combinations(range(1,5),2),source['brackets']):target[ij]=s.sympify(text);target[ij[::-1]]=-target[ij]
+    endpoint=actual.subs(ep,0).applyfunc(s.cancel);assert (endpoint-target).applyfunc(s.cancel)==s.zeros(5)
+    assert all(f==0 for f in jacobi_projective(actual.subs(dict(zip(xx,X)),simultaneous=True)))
+    endpoint_pf=s.Rational(5,7)*(x*y-h*h)*(x*y+h*x-h*h)
+    assert s.expand(pf(endpoint)-endpoint_pf)==0
+    pulled_q2=((x+ep*z)*(y+h+ep*w)-h*h).subs(dict(zip(xx,target_inverse*s.Matrix(xx))),simultaneous=True)
+    expected_pf=c*(-1+ep*sval)*(x*y-h*h)*pulled_q2
+    assert s.expand(pf(actual)-expected_pf)==0
+    magnetic_map=s.Matrix([sval,tval,aval,bval,dval,eval_]);magnetic_matrix=magnetic_map.jacobian(ms);magdet=s.factor(magnetic_matrix.det());assert magdet!=0
+    inverse_magnetic=magnetic_matrix.inv();assert magnetic_matrix*inverse_magnetic==s.eye(6)
+    monomials=[h*h,h*x,h*y,x*x,x*y,y*y]
+    U=s.Matrix([-x*x,h*h]);V=s.Matrix([2*x*y+h*x-h*h,-y*y-h*y])
+    generic=s.symbols('a b d e f g');generic_ell=generic[0]*h+generic[1]*x+generic[2]*y;generic_kap=generic[3]*h+generic[4]*x+generic[5]*y
+    shift=s.expand(-(2*y+h)*generic_ell-sum(U[j]*s.diff(generic_kap,(x,y)[j])for j in range(2))+sum(V[j]*s.diff(generic_ell,(x,y)[j])for j in range(2)))
+    shifts=s.Matrix([s.Poly(shift,h,x,y).coeff_monomial(mon)for mon in monomials]).jacobian(generic)
+    residual=s.Matrix([[s.Poly(form,h,x,y).coeff_monomial(mon)for form in [x*y-h*h,h*x]]for mon in monomials])
+    assert shifts.rank()==4 and shifts.row_join(residual).rank()==6
+    assert s.Matrix([[s.diff(endpoint[3,4],m)for m in ms]]).shape==(1,6)
+    assert [s.diff(endpoint[3,4],m)for m in ms]==monomials
+    paths=['code/classification_two_lines_plane_cubic.py','code/classification_three_hyperplanes_quadric_independent.py','code/classification_rank3_mixed_component_review.py','code/s61_model.py',source_path,'research/classification/TWO_QUADRICS_CHORD_SNC_CONFLUENCE.md','research/classification/PLANE_CUBIC_TORIC_COLLISION_REVIEW.md']
+    result=dict(task_id='E_reduced_nonnormal',all_passed=True,case=source['name'],whole_six_source_membership_in_MPS40=True,new_component_count=0,
+        parent_five_parameters=list(map(str,[p,q,k,u,v])),complete_parent_brackets=enc(P),parent_full10_Jacobi_zero=True,parent_Pfaffian=str(p*q*Q1*Q2),
+        SNC_specialization=dict(u=0,v=0,p=1,q=1,k=0,actual_quintic='H*A*B*C*D'),parent_irreducible_source_contains_SNC=True,
+        parent_source_membership_bridge='The image closure of the entire irreducible A5 source is contained in an ambient component that contains its SNC point; the accepted full SNC-meeting component theorem identifies that component as one of MPS40. No uniqueness at the SNC point or divisor-only inference is used.',
+        confluence_matrix=mat(frame),confluence_inverse=mat(frame_inverse),confluence_determinant=str(frame.det()),tensor_scale=str(ep),actual_period_and_edge_binding={str(a):str(b)for a,b in parent_binding.items()},
+        complete_pole_free_curve_before_magnetic_matching=enc(curve),all_Laurent_negative_powers_cancelled=True,bare_endpoint=enc(bare),
+        magnetic_period_translation_parameters=list(map(str,magnetic_map)),magnetic_parameter_matrix=mat(magnetic_matrix),magnetic_parameter_matrix_inverse=mat(inverse_magnetic),magnetic_parameter_determinant=str(magdet),
+        full_translation_matrix=mat(translation),full_target_frame=mat(target_frame),full_target_frame_inverse=mat(target_inverse),target_frame_determinant=str(c),
+        complete_actual_whole_magnetic_curve=enc(actual),all10_strict_Jacobi_zero=True,all350_original_projective_Jacobi_zero=True,
+        endpoint_equals_all150_original_source_coefficients=True,original_source_brackets=source['brackets'],all6_endpoint_magnetic_derivatives=list(map(str,monomials)),
+        translation_magnetic_matrix=mat(shifts),full_translation_rank=4,parent_two_period_columns=mat(residual),translation_and_period_rank=6,
+        actual_full_quintic=str(s.factor(h*pf(actual))),endpoint_full_quintic=str(h*endpoint_pf),expected_full_quintic=str(h*expected_pf),actual_Pfaffian_identity_all_coefficients=True,
+        no_source_parameter_inverted=True,all_magnetic_zero_boundaries_retained=True,only_nonconstant_inversion='ep for interpreting the genuine parent PGL transform; ep0 is the entire target source.',
+        source_complement='contact31_tangent_at_simple_intersection is not included in this theorem.',input_sha256={path:hashlib.sha256((ROOT/path).read_bytes()).hexdigest()for path in paths},producer_source=Path(__file__).read_text(),seconds=time.monotonic()-begun)
+    with output.open('x')as handle:json.dump(result,handle,indent=2);handle.write('\n')
+    print(json.dumps(dict(all_passed=True,whole_source=result['whole_six_source_membership_in_MPS40'],translation_rank=4,total_magnetic_rank=6,magnetic_determinant=str(magdet),seconds=result['seconds'])),flush=True)
+
+
+def conic_tan_simple_snc_confluence(output):
+    """The other complete six-magnetic source from a genuine coupled SNC parent."""
+    from s61_model import X,jacobi_projective
+    resource.setrlimit(resource.RLIMIT_CPU,(110,111))
+    resource.setrlimit(resource.RLIMIT_AS,(1536*1024**2,)*2)
+    begun=time.monotonic();H,A,B,C,D=parent=s.symbols('H A B C D')
+    p,q,a,u,v=s.symbols('p q a u v');b=p-a;F=p*A*B+u*H**2;G=q*C*D+v*F
+    N1=s.Matrix([0,A,-B,0,0]);N2=s.Matrix([0,0,0,a*C,b*D])
+    P=N1*N2.T-N2*N1.T;P[1,2]+=F;P[2,1]-=F;P[3,4]+=G;P[4,3]-=G
+    h,x,y,z,w=xx=s.symbols('h x y z w');ep=s.Symbol('ep');ms=s.symbols('m0:6');qa,aa=s.symbols('qa aa')
+    def jac(A,variables):
+        return [s.expand(sum(A[i,l]*s.diff(A[j,jj],variables[l])+A[j,l]*s.diff(A[jj,i],variables[l])+A[jj,l]*s.diff(A[i,j],variables[l])for l in range(5)))for i,j,jj in itertools.combinations(range(5),3)]
+    def pf(A):return s.expand(A[1,2]*A[3,4]-A[1,3]*A[2,4]+A[1,4]*A[2,3])
+    def enc(A):return {f'{i},{j}':str(s.expand(A[i,j]))for i,j in itertools.combinations(range(5),2)if A[i,j]}
+    def mat(A):return [[str(s.factor(v))for v in row]for row in A.tolist()]
+    assert all(f==0 for f in jac(P,parent));assert s.expand(pf(P)-F*G)==0
+    assert s.expand((H*pf(P)).subs({u:0,v:0})-p*q*H*A*B*C*D)==0
+    frame=s.Matrix([[1,0,0,0,0],[1,0,1,0,0],[1,1,-1,0,0],[0,1,0,ep,0],[0,0,-1,0,ep]])
+    assert frame.det()==-ep**2;frame_inverse=frame.inv();assert frame*frame_inverse==s.eye(5)
+    binding={p:1,u:-1,v:-s.Rational(1,3),q:-s.Rational(1,3)+ep*qa,a:s.Rational(2,3)+ep*aa}
+    bound=P.subs(binding,simultaneous=True).subs(dict(zip(parent,frame*s.Matrix(xx))),simultaneous=True)
+    curve=(ep*frame_inverse*bound*frame_inverse.T).applyfunc(s.cancel)
+    assert all(not s.denom(f).free_symbols for f in curve)
+    assert all(s.Poly(f,*xx).total_degree()<=2 for f in curve)
+    U=s.Matrix([2*x*(2*y-x)/3,-(h*x+x*y-3*y*y)/3]);V=s.Matrix([(y*y-2*x*y-3*h*x)/3,-y*(y+h)/3])
+    alpha=(2*h+y)/3;beta=2*y/3;bare=s.zeros(5)
+    for ij,val in {(1,3):U[0],(2,3):U[1],(1,4):V[0],(2,4):V[1],(3,4):-alpha*z-beta*w-qa*x*y-aa*(h*x+2*y*y)}.items():bare[ij]=val;bare[ij[::-1]]=-val
+    assert (curve.subs(ep,0)-bare).applyfunc(s.expand)==s.zeros(5)
+    assert all(f==0 for f in jac(curve,xx))
+    quartic1=h*x-y*y;quartic2=h*x+x*y-y*y
+    bare_expected=-quartic2*((-s.Rational(1,3)+ep*qa)*(x+ep*z)*(-y+ep*w)-quartic2/3)
+    assert s.expand(pf(curve)-bare_expected)==0
+    T=s.Matrix([[-s.Rational(5,4),0],[s.Rational(25,24),s.Rational(5,2)]]);c=T.det();assert c==-s.Rational(25,8)
+    ns=[m/c for m in ms];aval=-(ns[1]+ns[5])/3;qval=-ns[4]-ns[3]-ns[5]/3+2*ns[1]/3
+    Acoef=3*ns[0]/2;Bcoef=ns[5]-2*ns[1];Ccoef=3*ns[2]-Acoef;Ecoef=3*ns[3]/2
+    ell=Acoef*h+Bcoef*x+Ccoef*y;kappa=Ecoef*x
+    translation=s.eye(5)
+    for row,form in [(3,ell),(4,kappa)]:
+        for j,variable in enumerate(xx):translation[row,j]+=s.diff(form,variable)
+    fiber=s.eye(5);fiber[3:5,3:5]=T;target_frame=fiber*translation;target_inverse=target_frame.inv()
+    assert target_frame.det()==c and target_inverse*target_frame==s.eye(5)
+    def push(A,G):return (G*A.subs(dict(zip(xx,G.inv()*s.Matrix(xx))),simultaneous=True)*G.T).applyfunc(s.cancel)
+    actual=push(curve.subs({qa:qval,aa:aval},simultaneous=True),target_frame)
+    assert all(not(s.denom(f).free_symbols&set([ep,*ms]))for f in actual)
+    assert all(s.Poly(f,*xx).total_degree()<=2 for f in actual)
+    assert all(f==0 for f in jac(actual,xx))
+    source_path='reports/CLASSIFICATION_TWO_QUADRICS_PLANE_SOURCES_20261107.json'
+    source=next(row for row in json.loads((ROOT/source_path).read_text())['cases']if row['name']=='contact31_tangent_at_simple_intersection')
+    target=s.zeros(5)
+    for ij,text in zip(itertools.combinations(range(1,5),2),source['brackets']):target[ij]=s.sympify(text);target[ij[::-1]]=-target[ij]
+    endpoint=actual.subs(ep,0).applyfunc(s.cancel);assert (endpoint-target).applyfunc(s.cancel)==s.zeros(5)
+    assert all(f==0 for f in jacobi_projective(actual.subs(dict(zip(xx,X)),simultaneous=True)))
+    endpoint_pf=-s.Rational(25,24)*quartic1*quartic2;assert s.expand(pf(endpoint)-endpoint_pf)==0
+    expected=c*bare_expected.subs({qa:qval},simultaneous=True).subs(dict(zip(xx,target_inverse*s.Matrix(xx))),simultaneous=True)
+    assert s.expand(pf(actual)-expected)==0
+    magnetic_map=s.Matrix([qval,aval,Acoef,Bcoef,Ccoef,Ecoef]);magnetic_matrix=magnetic_map.jacobian(ms);magdet=s.factor(magnetic_matrix.det());assert magdet!=0
+    inverse_magnetic=magnetic_matrix.inv();assert magnetic_matrix*inverse_magnetic==s.eye(6)
+    monomials=[h*h,h*x,h*y,x*x,x*y,y*y];generic=s.symbols('aT bT cT dT eT fT')
+    gl=generic[0]*h+generic[1]*x+generic[2]*y;gk=generic[3]*h+generic[4]*x+generic[5]*y
+    shift=s.expand(alpha*gl+beta*gk-sum(U[j]*s.diff(gk,(x,y)[j])for j in range(2))+sum(V[j]*s.diff(gl,(x,y)[j])for j in range(2)))
+    shifts=s.Matrix([s.Poly(shift,h,x,y).coeff_monomial(mon)for mon in monomials]).jacobian(generic)
+    residual=s.Matrix([[s.Poly(form,h,x,y).coeff_monomial(mon)for form in [-x*y,-h*x-2*y*y]]for mon in monomials])
+    assert shifts.rank()==4 and shifts.row_join(residual).rank()==6
+    assert [s.diff(endpoint[3,4],m)for m in ms]==monomials
+    paths=['code/classification_two_lines_plane_cubic.py','code/classification_three_hyperplanes_quadric_independent.py','code/classification_rank3_mixed_component_review.py','code/s61_model.py',source_path,'research/classification/TWO_QUADRICS_TAN_SIMPLE_SNC_CONFLUENCE.md','research/classification/PLANE_CUBIC_TORIC_COLLISION_REVIEW.md','research/classification/inputs/two_lines_pre_tan_simple_source_contracts_20261107.json']
+    result=dict(task_id='E_reduced_nonnormal',all_passed=True,case=source['name'],whole_six_source_membership_in_MPS40=True,new_component_count=0,
+        parent_five_parameters=list(map(str,[p,q,a,u,v])),complete_parent_brackets=enc(P),coupled_parameter_relations=dict(b=str(b),F=str(F),G=str(G)),
+        parent_full10_Jacobi_zero=True,parent_Pfaffian=str(F*G),SNC_specialization=dict(u=0,v=0,p=1,q=1,a=0,actual_quintic='H*A*B*C*D'),
+        parent_irreducible_source_contains_SNC=True,parent_source_membership_bridge='The entire irreducible A5 image lies in one ambient component containing its actual SNC point. The accepted theorem exhausts all SNC-meeting components by MPS40. No specific T number or uniqueness at that point is assumed.',
+        confluence_matrix=mat(frame),confluence_inverse=mat(frame_inverse),confluence_determinant=str(frame.det()),tensor_scale=str(ep),actual_period_and_edge_binding={str(a):str(b)for a,b in binding.items()},
+        complete_pole_free_curve_before_magnetic_matching=enc(curve),all_Laurent_negative_powers_cancelled=True,bare_endpoint=enc(bare),
+        magnetic_period_translation_parameters=list(map(str,magnetic_map)),magnetic_parameter_matrix=mat(magnetic_matrix),magnetic_parameter_matrix_inverse=mat(inverse_magnetic),magnetic_parameter_determinant=str(magdet),
+        full_translation_matrix=mat(translation),constant_fiber_frame=mat(T),full_target_frame=mat(target_frame),full_target_frame_inverse=mat(target_inverse),target_frame_determinant=str(c),
+        complete_actual_whole_magnetic_curve=enc(actual),all10_strict_Jacobi_zero=True,all350_original_projective_Jacobi_zero=True,
+        endpoint_equals_all150_original_source_coefficients=True,original_source_brackets=source['brackets'],all6_endpoint_magnetic_derivatives=list(map(str,monomials)),
+        translation_magnetic_matrix=mat(shifts),full_translation_rank=4,parent_two_period_columns=mat(residual),translation_and_period_rank=6,
+        actual_full_quintic=str(s.factor(h*pf(actual))),endpoint_full_quintic=str(h*endpoint_pf),expected_full_quintic=str(h*expected),actual_Pfaffian_identity_all_coefficients=True,
+        no_source_parameter_inverted=True,all_magnetic_zero_boundaries_retained=True,only_nonconstant_inversion='ep for the actual parent PGL interpretation; all ep0 target points are preserved.',
+        input_sha256={path:hashlib.sha256((ROOT/path).read_bytes()).hexdigest()for path in paths},producer_source=Path(__file__).read_text(),seconds=time.monotonic()-begun)
+    with output.open('x')as handle:json.dump(result,handle,indent=2);handle.write('\n')
+    print(json.dumps(dict(all_passed=True,whole_source=result['whole_six_source_membership_in_MPS40'],translation_rank=4,total_magnetic_rank=6,magnetic_determinant=str(magdet),seconds=result['seconds'])),flush=True)
+
+
 if __name__=='__main__':
-    ap=argparse.ArgumentParser();ap.add_argument('--output',type=Path,required=True);ap.add_argument('--graphs',action='store_true');ap.add_argument('--normals',action='store_true');ap.add_argument('--candidate-pencils',action='store_true');ap.add_argument('--cubic-support',action='store_true');ap.add_argument('--cusp-whole-graphs',action='store_true');ap.add_argument('--normal-dimension',type=int,default=1);ap.add_argument('--case');args=ap.parse_args();cusp_tangent_secant_whole_graphs(args.output)if args.cusp_whole_graphs else cubic_support(args.output)if args.cubic_support else candidate_pencils(args.output)if args.candidate_pencils else normal_tests(args.output,args.normal_dimension)if args.normals else graphs(args.output)if args.graphs else main(args.output,args.case)
+    ap=argparse.ArgumentParser();ap.add_argument('--output',type=Path,required=True);ap.add_argument('--graphs',action='store_true');ap.add_argument('--normals',action='store_true');ap.add_argument('--candidate-pencils',action='store_true');ap.add_argument('--cubic-support',action='store_true');ap.add_argument('--cusp-whole-graphs',action='store_true');ap.add_argument('--conic-chord-snc',action='store_true');ap.add_argument('--conic-tan-simple-snc',action='store_true');ap.add_argument('--normal-dimension',type=int,default=1);ap.add_argument('--case');args=ap.parse_args();conic_tan_simple_snc_confluence(args.output)if args.conic_tan_simple_snc else conic_chord_snc_confluence(args.output)if args.conic_chord_snc else cusp_tangent_secant_whole_graphs(args.output)if args.cusp_whole_graphs else cubic_support(args.output)if args.cubic_support else candidate_pencils(args.output)if args.candidate_pencils else normal_tests(args.output,args.normal_dimension)if args.normals else graphs(args.output)if args.graphs else main(args.output,args.case)

@@ -1,6 +1,6 @@
 # 次の課題 — 全被約成分の尽くし
 
-2026-11-07 / v64-classification-first。現行キューはclassification/PLAN.json。
+2026-11-08 / v64-classification-first。現行キューはclassification/PLAN.json。
 
 ```sh
 .venv/bin/python scripts/classification.py check
@@ -19,13 +19,15 @@ G、E_multiple_hyperplane、E_reduced_nonnormalを並行し、意味のある進
 m二SF/reducedRも全六rootflags/全higher係数を保持し全点MPS40へ被覆した。
 既に閉じた結果を欠陥無しに再開しない。全sourceと独立receiptはclassification/CURRENT.mdを使う。
 
-1. rank二plane m二double root/nonredR、m三reduced reducible R又はrepeated leadingを全幾何で処理する。
-   m三nonredR/SFの全十九source中十六空、cdep像24以下は独立受理済み。
-   残二Ore源の全四moduleも独立受理し、全nonredR/SFのG像24以下を完了した。全pointwise Eは別義務。
-2. smooth cubic scrollはA25全二型のclosedinverse全境界とglobalrestriction injectivityにより全G像24以下へ完了。
-   新boundは旧21source/linear kernel16の粗値とは別証明。全pointwise Eは残す。
-3. twisted cubic coneも全27source/三Sym2/五wholemodule/十九壁の独立算術でG像24以下へ完了。
-   全rank二degree三が閉じ、残るGは上のplane m二三だけ。
+1. nonredR/m二SFの残00/01/02とconstantdoubleを閉じる。03/12/11、R3L SF02、movingdoubleは全空まで独立完了。
+   R3L SF00は四sem固定＋translation固定＋全(t,d非零)nil族への必要還元を別作者受理。higher全源は未閉。d一へのsliceを全源としない。
+2. reducedR/m二SFは全点MPS、normaldouble横断/接線/triangle全G像23以下まで独立完了。
+   concurrent17whole pencils/全84allowed complex壁も独立確認し、全reducedR m二Gを完了した。
+3. reducedR/m三非concurrentは全coversから九whole profilesを尽くし、七因子排除＋二像22/23以下まで別作者幾何/算術とも受理。
+   concurrentのsplit/C2/C3/S3/repeated全sourceを続ける。
+4. nonredR/m三SF全枝、generic21 constant roots00は独立G非優越完了。moving01/02/10 producerも全閉鎖、独立確認を終える。
+   generic tripleの全irregular/offdiagonal sourcesが残る。最弱constant-root/canonical transverse障害から先に必要源を減らし、盲目的な多数profile計算をしない。
+5. smoothscroll/coneを含む全非plane支持、全rank零、plane m四全RはG非優越完了。欠陥なく再開しない。
 
 ## E：未帰属sourceの実変形又は新成分性
 
@@ -49,7 +51,8 @@ short r=2/3も未帰属で、三次零を高次反復せず幾何又は実変形
 Hquartic型6には全marked quarticのMilnor/Tjurina/contactを用いる。
 D5cusptangent全源は旧A0、3A2cusptangent全源は旧DPMへ独立全source認識済み。μ六九新23成分は採録済み。E6smoothflex/A5hyperflexは全二法線mprimary支持と真48cutから二新23全成分へ独立採録。全六磁気境界とprior124/相互も確認。Ga9linear-wの未知親を続ける。μ五四新23成分も全source/prior/相互/ambient独立監査完了、採録済み。
 
-1+1+3には平面三配置と非平面nil源、1+2+2にはplane tan-simple/chordとlambda零のE残源がある。
+1+1+3には平面三配置と非平面nil源、1+2+2にはnonplane/lambda零のE残源がある。
+plane全七配置の全点被覆を完了。chord全源T16/tan-simple全源T17を全磁気実曲線と全named親で独立確認した。
 全G次元上界だけではこれらを被覆したことにならない。既約非正規quinticの全点帰属も残る。
 
 ## 計算・保存の規律

@@ -1,0 +1,110 @@
+{
+  "task_id": "G",
+  "status": "HAND PROOF / finite full-higher batch NOT RUN",
+  "variables": [
+    "a",
+    "b",
+    "c",
+    "u",
+    "v"
+  ],
+  "R": "c*(a*c-b**2)",
+  "profiles": [
+    {
+      "name": "S",
+      "raw_brackets": {
+        "a,b": "2*a*c-b**2",
+        "a,c": "2*b*c",
+        "b,c": "c**2",
+        "a,u": "2*b*u",
+        "b,u": "c*u",
+        "c,u": "0",
+        "a,v": "2*b*v",
+        "b,v": "c*v",
+        "c,v": "0",
+        "u,v": "0"
+      },
+      "whole_parallel_G3_basis": [
+        "(a*c-b**2)*u**3",
+        "(a*c-b**2)*u**2*v",
+        "(a*c-b**2)*u*v**2",
+        "(a*c-b**2)*v**3"
+      ],
+      "first_symbol_source_dimension_upper": 7,
+      "required_higher_dimension_upper": 12
+    },
+    {
+      "name": "N",
+      "raw_brackets": {
+        "a,b": "2*a*c-b**2",
+        "a,c": "2*b*c",
+        "b,c": "c**2",
+        "a,u": "2*b*u",
+        "b,u": "c*u",
+        "c,u": "0",
+        "a,v": "2*b*v-6*b*u",
+        "b,v": "c*v-3*c*u",
+        "c,v": "0",
+        "u,v": "0"
+      },
+      "whole_parallel_G3_basis": [
+        "(a*c-b**2)*u**3"
+      ],
+      "first_symbol_source_dimension_upper": 9,
+      "required_higher_dimension_upper": 10
+    },
+    {
+      "name": "D",
+      "raw_brackets": {
+        "a,b": "2*a*c-b**2",
+        "a,c": "2*b*c",
+        "b,c": "c**2",
+        "a,u": "-b*u",
+        "b,u": "-c*u/2",
+        "c,u": "0",
+        "a,v": "2*b*v",
+        "b,v": "c*v",
+        "c,v": "0",
+        "u,v": "0"
+      },
+      "whole_parallel_G3_basis": [
+        "c**2*u**3",
+        "(a*c-b**2)*u*v**2"
+      ],
+      "first_symbol_source_dimension_upper": 9,
+      "required_higher_dimension_upper": 10
+    },
+    {
+      "name": "M",
+      "raw_brackets": {
+        "a,b": "2*a*c-b**2",
+        "a,c": "2*b*c",
+        "b,c": "c**2",
+        "a,u": "2*b*u",
+        "b,u": "c*u",
+        "c,u": "0",
+        "a,v": "-3*a*u/2-b*v",
+        "b,v": "-c*v/2",
+        "c,v": "3*c*u/2",
+        "u,v": "3*u**2/2"
+      },
+      "whole_parallel_G3_basis": [
+        "(b*u+c*v)*(a*u**2+2*b*u*v+c*v**2)"
+      ],
+      "first_symbol_source_dimension_upper": 10,
+      "required_higher_dimension_upper": 9
+    }
+  ],
+  "proof_inputs": [
+    {
+      "path": "research/classification/PLANE_CONIC_LINE_M3_ROOT_COVERS_AND_EXCLUSION.md",
+      "sha256": "9ab911206e4606d8c79bf1466aa4e8179e38011ea58f6fe463713069f46ad9b6"
+    },
+    {
+      "path": "research/classification/PLANE_TANGENT_CONIC_M3_FOUR_FIRST_SYMBOLS.md",
+      "sha256": "6f089d3be103f863be0475a55fda5ef6329146e20fa390d0a238699ccfae66c8"
+    }
+  ],
+  "new_CAS_run": false,
+  "fullhigher_G_result": false
+}

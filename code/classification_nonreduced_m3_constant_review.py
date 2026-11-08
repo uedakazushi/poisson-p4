@@ -103,10 +103,10 @@ def Wbasis(R):
 def pad(R,Q,W):return R.skew({ij:Q.get(ij,{})for ij in H.PAIRS if 2 not in ij}|{(min(2,j),max(2,j)):H.scale(p,1 if 2<j else-1)for j,p in zip(Y,W)})
 
 def module(row,Qspec=None,Wspec=None,tau=T):
- R=Ring(tau=tau);Q=R.decode(Qspec or row['full_Q'],True);W=list(map(R.parse,Wspec or row['W0']));assert not any(R.strict(Q).values());P=pad(R,Q,W);C=R.jvec(P);wb=Wbasis(R);cols=[]
+ R=Ring(tau=tau);Q=R.decode(Qspec or row['full_Q'],True);W=list(map(R.parse,Wspec or row['W0']));assert not any(R.strict(Q).values());P=pad(R,Q,W);C=[2*v for v in R.jvec(P)];wb=Wbasis(R);cols=[]
  for V in wb:
-  P1=pad(R,Q,[H.add(a,b)for a,b in zip(W,V)]);cols.append([a-b for a,b in zip(R.jvec(P1),C)])
- M=H.transpose(cols);assert M==matrix(row['full350_affine_matrix'],R)and C==[R.scalar(s)for s in row['full350_affine_constant']];K,dm=cert(M,row['linear_certificate'],R);KA,da=cert([r+[c]for r,c in zip(M,C)],row['augmented_certificate'],R)
+  P1=pad(R,Q,[H.add(a,b)for a,b in zip(W,V)]);cols.append([2*a-b for a,b in zip(R.jvec(P1),C)])
+ M=H.transpose(cols);assert M==matrix(row['full350_affine_matrix'],R)and C==[R.scalar(s[0]if isinstance(s,list)else s)for s in row['full350_affine_constant']];K,dm=cert(M,row['linear_certificate'],R);KA,da=cert([r+[-c]for r,c in zip(M,C)],row['augmented_certificate'],R)
  if row['status']=='inconsistent':
   assert row['augmented_certificate']['rank']>row['linear_certificate']['rank'];return dict(type=row.get('type','wall'),inconsistent=True,G_empty=True),[dm,da],K+KA
  assert row['augmented_certificate']['rank']==row['linear_certificate']['rank'];part=[R.scalar(s)for s in row['particular_solution']];assert all(not sum((a*b for a,b in zip(r,part)),c)for r,c in zip(M,C))
@@ -244,11 +244,11 @@ def ore_main(raw,roots):
 
 
 def main():
- parser=argparse.ArgumentParser();parser.add_argument('--mode',choices=['all','roots','ore','modules'],default='all');parser.add_argument('--job',required=True);parser.add_argument('--output',required=True);args=parser.parse_args();signal.alarm(420);resource.setrlimit(resource.RLIMIT_AS,(1536*1024**2,)*2);t=time.monotonic();job=load(args.job);assert all(sha(b['path'])==b['sha256']for b in job['exact_inputs_and_hashes']);stages={}
+ parser=argparse.ArgumentParser();parser.add_argument('--mode',choices=['all','sources','roots','ore','modules'],default='all');parser.add_argument('--job',required=True);parser.add_argument('--output',required=True);args=parser.parse_args();signal.alarm(420);resource.setrlimit(resource.RLIMIT_AS,(1536*1024**2,)*2);t=time.monotonic();job=load(args.job);assert all(sha(b['path'])==b['sha256']for b in job['exact_inputs_and_hashes']);stages={}
  roots=load(BASE+'ROOTS_20261107.json');ore=load(BASE+'ORE_20261107.json');mods=load(BASE+'MODULES_20261107.json')
  for r in(roots,ore,mods):assert hashlib.sha256(r['producer_bytes'].encode()).hexdigest()==r['producer_sha256']
- if args.mode in('all','roots'):stages['roots']=roots_main(roots)
- if args.mode in('all','ore'):stages['ore']=ore_main(ore,roots)
+ if args.mode in('all','sources','roots'):stages['roots']=roots_main(roots);print('PASS independent14 source+allwalls',flush=True)
+ if args.mode in('all','sources','ore'):stages['ore']=ore_main(ore,roots);print('PASS independent6 Euler Q/W+allwalls',flush=True)
  if args.mode in('all','modules'):stages['modules']=modules_main(mods)
  out=dict(task_id='G',all_requested_independent_arithmetic_passed=True,mode=args.mode,stages=stages,no_producer_or_CAS_imports=True,all_whole_constant_root_G_closure_requires_all_stages_and_geometry=args.mode=='all',Cexact_only_weak_G_bound_not_E=True,other_root_degrees_and_all_G_not_claimed=True,inputs=job['exact_inputs_and_hashes'],reviewer_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),reviewer_source_bytes=Path(__file__).read_text(),seconds=time.monotonic()-t,maximum_RSS_KiB=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss);p=ROOT/args.output;assert not p.exists();p.write_text(json.dumps(out,indent=2)+'\n');print(json.dumps({k:out[k]for k in('all_requested_independent_arithmetic_passed','mode','seconds','maximum_RSS_KiB')}))
 if __name__=='__main__':main()

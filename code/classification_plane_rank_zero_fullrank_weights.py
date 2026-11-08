@@ -2646,9 +2646,656 @@ def nonreduced_m3_moving_double_main():
     destination.write_text(json.dumps(result,indent=2)+'\n')
 
 
+def nonreduced_m3_moving_double_ore_main():
+    """Whole two residual sources, exactQ/W bridge and three complete modules."""
+    import ast
+    destination=ROOT/'reports/CLASSIFICATION_PLANE_NONREDUCED_M3_MOVING_DOUBLE_ORE_20261107.json'
+    if destination.exists():raise FileExistsError(destination)
+    started=time.monotonic()
+    def timeout(signum,frame):raise TimeoutError('whole2source3module Ore finite budget180s')
+    signal.signal(signal.SIGALRM,timeout);signal.alarm(180);resource.setrlimit(resource.RLIMIT_AS,(1536*1024**2,)*2)
+    previous=ROOT/'reports/CLASSIFICATION_PLANE_NONREDUCED_M3_MOVING_DOUBLE_20261107.json';packet=json.loads(previous.read_text())
+    functions=lambda text:{n.name:ast.dump(n,include_attributes=False)for n in ast.parse(text).body if isinstance(n,(ast.FunctionDef,ast.AsyncFunctionDef))}
+    before=functions(packet['producer_bytes']);after=functions(Path(__file__).read_text());assert len(before)==37
+    assert all(after[name]==value for name,value in before.items())
+    x=s.Matrix(s.symbols('a b c z w'));a,b,c,z,w=x;y=s.Matrix([a,b,z,w]);indices=[0,1,3,4];P1,v1,P2,v2=sources(x)
+    ww=s.symbols('W0:18');qf=s.symbols('F0:3');u=s.Symbol('u');F=qf[0]*z*z+qf[1]*z*w+qf[2]*w*w;A=(2-6*TAU)/3;B=A+1
+    def makeQ(ab,az,aw,bz,bw):
+        Q=s.zeros(4)
+        for i,j,v in [(0,1,ab),(0,2,az),(0,3,aw),(1,2,bz),(1,3,bw)]:Q[i,j]=v;Q[j,i]=-v
+        return Q
+    def Qdouble(u,F):return makeQ(u*b*z+F,u*A*z*z,u*B*z*w,-u*A*z*w,-u*B*w*w)
+    def Qtriple(u,F):return makeQ(u*a*z+F,2*u*z*z,u*(-z*z+2*z*w),-2*u*z*w,u*(z*w-2*w*w))
+    Wd=s.Matrix([a*a,-2*a*b,3*TAU*a*z,-2*a*w+(1-3*TAU)*b*z]);Wt=s.Matrix([0,-3*a*a,-3*a*z,3*(a+b)*z])
+    def Wbasis(W0):
+        return W0+s.Matrix([z*(ww[0]*a+ww[1]*b)+w*(ww[2]*a+ww[3]*b)+ww[4]*z*z+ww[5]*z*w+ww[6]*w*w,
+            z*(ww[7]*a+ww[8]*b)+w*(ww[9]*a+ww[10]*b)+ww[11]*z*z+ww[12]*z*w+ww[13]*w*w,
+            ww[14]*z*w+ww[15]*w*w,ww[16]*z*z+ww[17]*z*w])
+    def pad(Q,W):
+        P=s.zeros(5)
+        for i,j in combinations(range(4),2):P[indices[i],indices[j]]=Q[i,j];P[indices[j],indices[i]]=-Q[i,j]
+        for i in range(4):P[2,indices[i]]=W[i];P[indices[i],2]=-W[i]
+        return P
+    def divisor(P):
+        return s.expand(sum((-1)**i*x[i]*(P[j,k]*P[l,m]-P[j,l]*P[k,m]+P[j,m]*P[k,l])for i in range(5)for j,k,l,m in [[r for r in range(5)if r!=i]]))
+    def parse(v):return s.sympify(v,locals={str(t):t for t in[*x,TAU]})
+    coverage=[]
+    for name,Qfun,W0,variable in [('REPEATED_LINE_INTERSECTION',Qdouble,Wd,True),('TRIPLE_LINE_EXACT_B',Qtriple,Wt,False)]:
+        old=next(v for v in packet['cases']if v['type']==name);K=s.Matrix([[parse(v)for v in row]for row in old['weight1_certificate']['complete_kernel']]);tt=s.symbols('p0:'+str(K.cols));P0=s.zeros(5)
+        for i,j in H.PAIRS:P0[i,j]=parse(old['full150_P0'][str((i,j))]);P0[j,i]=-P0[i,j]
+        P=P0+P1.subs(dict(zip(v1,K*s.Matrix(tt))),simultaneous=True)+P2
+        gauge=s.Matrix([-s.diff(P[0,2],c),-s.diff(P[1,2],c),0,0,0]);gauged=(P-H.wedge(x,gauge)).applyfunc(s.expand)
+        assert all(s.diff(gauged[i,j],c)==0 for i,j in H.PAIRS)
+        Q=gauged.extract(indices,indices);W=s.Matrix([gauged[2,i]for i in indices]);ell=-s.Poly(W[2],z,w).coeff_monomial(z*z)*z-s.Poly(W[3],z,w).coeff_monomial(w*w)*w
+        W=(W+ell*y).applyfunc(s.expand);noncommon=s.Poly(Q[0,1],a,b,z,w).coeff_monomial(b*z if variable else a*z);central=s.expand(Q[0,1]-noncommon*(b*z if variable else a*z))
+        expected=Qfun(noncommon,central);assert all(s.expand(v)==0 for v in Q-expected)
+        wd=W-W0;wc=[]
+        for i in range(2):wc.extend([s.Poly(wd[i],*y).coeff_monomial(mon)for mon in[a*z,b*z,a*w,b*w,z*z,z*w,w*w]])
+        wc.extend([s.Poly(wd[2],z,w).coeff_monomial(z*w),s.Poly(wd[2],z,w).coeff_monomial(w*w),s.Poly(wd[3],z,w).coeff_monomial(z*z),s.Poly(wd[3],z,w).coeff_monomial(z*w)])
+        assert all(s.expand(v)==0 for v in W-Wbasis(W0).subs(dict(zip(ww,wc)),simultaneous=True))
+        coords=[noncommon]+[s.Poly(central,z,w).coeff_monomial(mon)for mon in[z*z,z*w,w*w]]+wc;J=s.Matrix(coords).jacobian(list(tt)+v2);det=s.factor(J.det(method='domain-ge'))
+        assert J.rows==J.cols==22 and det!=0 and not s.sympify(det).free_symbols
+        sourceQ=Qfun(u,F);strict={(i,j,k):s.expand(sum(sourceQ[i,l]*s.diff(sourceQ[j,k],y[l])+sourceQ[j,l]*s.diff(sourceQ[k,i],y[l])+sourceQ[k,l]*s.diff(sourceQ[i,j],y[l])for l in range(4)))for i,j,k in combinations(range(4),3)}
+        assert all(v==0 for v in strict.values());D=divisor(pad(sourceQ,Wbasis(W0)));poly=s.Poly(D,*x);D3=sum(value*s.prod(v**e for v,e in zip(x,mon))for mon,value in poly.terms()if mon[3]+mon[4]==3)
+        if variable:
+            expectedD3=s.Rational(3,2)*u*A*(A-1)*z*(b*z+a*w)**2;assert s.expand(D3-expectedD3)==0
+            for wall in old['all_exceptional_sources']:
+                alpha=parse(wall['alpha'])
+                if wall['whole_m3_source_empty']:assert alpha in[-s.Rational(1,6),s.Rational(1,3)]
+                else:assert wall['weight1_certificate']['nullity']==13
+        else:assert s.expand(D3-6*u*z*(b*z+a*w)**2)==0
+        coverage.append({'type':name,'full_source_first_Euler_gauge':list(map(str,gauge)),'second_gauge_c_component':str(ell),
+            'full_c_independence_and_QW18_identity':True,'joint22by22_source_coordinate_matrix':serial_matrix(J),'joint_nonzero_constant_determinant':str(det),
+            'all_strict_Q_Jacobi_zero':True,'full_D3':str(s.factor(D3)),'all_other_old_walls_have_same_complete13_source':True})
+    aa,bb,cc,dd=s.symbols('sa sb sc sd');normalshift=s.Matrix([aa*z+bb*w,cc*z+dd*w,0,0]);S=y+normalshift;Sinv=y-normalshift;Jac=S.jacobian(y)
+    shiftdata=[]
+    for name,Qfun in [('DOUBLE',Qdouble),('TRIPLE',Qtriple)]:
+        Q=Qfun(u,F);transport=(Jac*Q.subs(dict(zip(y,Sinv)),simultaneous=True)*Jac.T).applyfunc(s.expand)
+        delta=u*((A-1)*cc*z*z+A*(aa+dd)*z*w+B*bb*w*w)if name=='DOUBLE'else u*((2*cc-dd-aa)*z*z+(2*dd+2*aa-2*bb)*z*w+2*bb*w*w)
+        assert all(s.expand(v)==0 for v in transport-Qfun(u,F+delta));shiftdata.append({'type':name,'full_actual_central_shear_verified':True,'central_change':str(delta)})
+    def certify(M,domain):
+        dm=DomainMatrix([[domain.from_sympy(v)for v in row]for row in M.tolist()],M.shape,domain);rr,cols=dm.rref();rows=dm.transpose().rref()[1]
+        free=[i for i in range(M.cols)if i not in cols];raw=rr.to_list();kernel=[[domain.zero for j in free]for i in range(M.cols)]
+        for j,k in enumerate(free):
+            kernel[k][j]=domain.one
+            for i,pivot in enumerate(cols):kernel[pivot][j]=-raw[i][k]
+        kd=DomainMatrix(kernel,(M.cols,len(free)),domain);assert not any(any(row)for row in(dm*kd).to_list());minor=dm.extract(list(rows),list(cols)).det();assert minor!=domain.zero or not cols
+        K=s.Matrix(M.cols,len(free),lambda i,j:domain.to_sympy(kernel[i][j]))
+        return {'rank':len(cols),'nullity':len(free),'minor_rows':list(rows),'minor_columns':list(cols),'minor_determinant':str(s.factor(domain.to_sympy(minor))),'complete_kernel':serial_matrix(K)},domain.to_sympy(minor),K
+    def analyze(M,C,Dc,Dl,domain,offset):
+        cm,mi,K=certify(M,domain);ca,am,KA=certify(M.row_join(-C),domain);rec={'full350_matrix':serial_matrix(M),'full350_constant':serial_matrix(C),'linear_certificate':cm,'augmented_certificate':ca,'image_offset':offset};den=[mi,am]
+        if ca['rank']>cm['rank']:rec.update(status='inconsistent',G_closed=True,G_empty=True);return rec,den
+        dm=DomainMatrix([[domain.from_sympy(v)for v in row]for row in M.row_join(-C).tolist()],(350,19),domain);rr,pivots=dm.rref();raw=rr.to_list();part=s.zeros(18,1)
+        for i,j in enumerate(pivots):part[j]=domain.to_sympy(raw[i][18])
+        assert all(domain.from_sympy(v)==domain.zero for v in M*part+C)
+        D0=s.Poly(s.expand(Dc+sum(Dl[i]*part[i]for i in range(18))),*x,domain=domain);directions=[s.Poly(s.expand(sum(Dl[i]*K[i,j]for i in range(18))),*x,domain=domain)for j in range(K.cols)]
+        common=D0
+        for poly in directions:
+            if not poly.is_zero:common=s.polys.polytools.gcd(common,poly).monic()
+        factor=None;zero=common.is_zero
+        if not zero and 0<common.total_degree()<5:factor=common.monic()
+        elif not zero and common.total_degree()==5:
+            factor=next((poly.monic()for poly,power in common.factor_list()[1]if 0<poly.total_degree()<5),None)
+        rec.update(status='complete_affine_module',particular_solution=list(map(str,part)),full_D_particular=str(D0.as_expr()),
+            full_D_kernel_coefficients=[str(poly.as_expr())for poly in directions],common_D_gcd=str(common.as_expr()),proper_D_factor=None if factor is None else str(factor.as_expr()),
+            whole_D_zero=zero,W_kernel_dimension=K.cols,whole_projective_image_upper=offset+K.cols,G_empty=zero or factor is not None,G_closed=zero or factor is not None or offset+K.cols<=24)
+        if domain==FIELD:
+            den.extend(s.denom(s.cancel(v))for v in list(K)+list(part))
+            if factor is not None:
+                for poly in[factor]+[poly.exquo(factor)for poly in[D0]+directions]:den.extend(s.denom(s.cancel(v))for v in poly.coeffs())
+        return rec,den
+    cases=[]
+    for name,Q,W0,variable,offset in [('DOUBLE_WHOLE',Qdouble(1,0),Wd,True,18),('DOUBLE_CRITICAL_F',Qdouble(1,w*w).subs(TAU,s.Rational(5,6)),Wd.subs(TAU,s.Rational(5,6)),False,17),('TRIPLE_FIXED',Qtriple(1,0),Wt,False,17)]:
+        P=pad(Q,Wbasis(W0));rows=s.Matrix([s.expand(v)for v in H.all350(H.projective(H.bilinear(P,P,x),x),x)]);C=rows.subs(dict.fromkeys(ww,0));M=rows.jacobian(ww)
+        assert all(s.expand(v)==0 for v in rows-C-M*s.Matrix(ww));D=divisor(P);Dc=D.subs(dict.fromkeys(ww,0));Dl=[s.expand(D).coeff(v)for v in ww];assert s.expand(D-Dc-sum(v*q for v,q in zip(Dl,ww)))==0
+        rec,den=analyze(M,C,Dc,Dl,FIELD if variable else s.QQ,offset);rec.update(type=name,full_Q={str((i,j)):str(Q[i,j])for i,j in combinations(range(4),2)},W0=list(map(str,W0)))
+        if variable:
+            exception=s.Poly((TAU+s.Rational(1,6))*(TAU-s.Rational(1,3)),TAU)
+            for val in den:
+                nu,de=s.fraction(s.cancel(val));exception=s.lcm(exception,s.Poly(nu,TAU));exception=s.lcm(exception,s.Poly(de,TAU))
+            walls=[]
+            for pol,power in s.factor_list(exception.as_expr())[1]:
+                p=s.Poly(pol,TAU);alpha=-p.nth(0)/p.nth(1)if p.degree()==1 else s.CRootOf(p.as_expr(),0)
+                if alpha in[-s.Rational(1,6),s.Rational(1,3)]:walls.append({'alpha':str(alpha),'source_empty_by_original_full_D3_image':True,'G_closed':True});continue
+                domain=s.QQ if p.degree()==1 else s.QQ.algebraic_field(alpha);sub=lambda v:v.subs(TAU,alpha);wall,_=analyze(sub(M),sub(C),sub(Dc),[sub(v)for v in Dl],domain,offset-1)
+                wall.update(alpha=str(alpha),minimal_polynomial=str(pol),all_complex_embeddings_covered=True);walls.append(wall)
+            rec.update(all_exception_polynomial=str(s.factor(exception.as_expr())),all_exceptional_sources=walls,all_strata_G_closed=rec['G_closed']and all(v['G_closed']for v in walls))
+        else:rec['all_strata_G_closed']=rec['G_closed']
+        cases.append(rec);print(name,rec['status'],'k',rec['linear_certificate']['nullity'],'factor',rec.get('proper_D_factor'),'G',rec['all_strata_G_closed'],flush=True)
+    proof=ROOT/'research/classification/PLANE_NONREDUCED_M3_MOVING_DOUBLE_ORE_REDUCTION.md';erratum=ROOT/'research/classification/PLANE_NONREDUCED_M3_MOVING_DOUBLE_ORE_LEADING_ERRATUM.md';archive=ROOT/'research/classification/inputs/plane_nonreduced_m3_moving_double_frozen_jobs_20261107.json'
+    result={'task_id':'G','all_exact_arithmetic_passed':True,'all_three_modules_G_closed':all(v['all_strata_G_closed']for v in cases),'full_two_source_coverage':coverage,'actual_full_central_shear_identities':shiftdata,'cases':cases,
+        'scope':'Whole2movingdouble residualsources; full22source Euler/Q/W18bijection, allcohomcentralinverse/leadingcriteria, onewholeline+criticalF+fixedmodule withfull350/actualD andallparametercomplements. Otherprimitiveflags/generictriple/m2/reducedRoutside.',
+        'compatible_extension_old_function_AST_unchanged':True,'old_function_names':sorted(before),'producer_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'producer_bytes':Path(__file__).read_text(),
+        'input_bindings':[{'path':str(v.relative_to(ROOT)),'sha256':hashlib.sha256(v.read_bytes()).hexdigest()}for v in[HELPER,previous,proof,erratum,archive]],
+        'seconds':time.monotonic()-started,'maximum_RSS_KiB':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss}
+    destination.write_text(json.dumps(result,indent=2)+'\n')
+
+
+def nonreduced_m3_moving_simple_main():
+    """Whole37 first connections forconstantdouble/movingsimple degrees1and2."""
+    import ast
+    destination=ROOT/'reports/CLASSIFICATION_PLANE_NONREDUCED_M3_MOVING_SIMPLE_20261107.json'
+    if destination.exists():raise FileExistsError(destination)
+    started=time.monotonic()
+    def timeout(signum,frame):raise TimeoutError('whole37 movingsimple finite budget300s')
+    signal.signal(signal.SIGALRM,timeout);signal.alarm(300);resource.setrlimit(resource.RLIMIT_AS,(1536*1024**2,)*2)
+    previous=ROOT/'reports/CLASSIFICATION_PLANE_NONREDUCED_M3_MOVING_DOUBLE_ORE_20261107.json';old=json.loads(previous.read_text())
+    functions=lambda text:{n.name:ast.dump(n,include_attributes=False)for n in ast.parse(text).body if isinstance(n,(ast.FunctionDef,ast.AsyncFunctionDef))}
+    before=functions(old['producer_bytes']);after=functions(Path(__file__).read_text());assert len(before)==38
+    assert all(after[name]==value for name,value in before.items())
+    x=s.Matrix(s.symbols('a b c z w'));a,b,c,z,w=x;base=[a,b,c];normals=[z,w];P1,v1,P2,v2=sources(x);kk=s.symbols('K0:3')
+    monG=[v+(j,3-j)for v in H.monomials(3,2)for j in range(4)];monK=[v+(j,2-j)for v in H.monomials(3,3)for j in range(3)]
+    def dlog(g):return s.Matrix([s.cancel(s.diff(g,t)/g)for t in base])
+    def differential(g):return s.Matrix([s.diff(g,t)for t in base])
+    def divisor(P):
+        return s.expand(sum((-1)**i*x[i]*(P[j,k]*P[l,m]-P[j,l]*P[k,m]+P[j,m]*P[k,l])for i in range(5)for j,k,l,m in [[r for r in range(5)if r!=i]]))
+    def certify(M,domain):
+        dm=DomainMatrix([[domain.from_sympy(v)for v in row]for row in M.tolist()],M.shape,domain);rr,cols=dm.rref();rows=dm.transpose().rref()[1]
+        free=[i for i in range(M.cols)if i not in cols];raw=rr.to_list();kernel=[[domain.zero for j in free]for i in range(M.cols)]
+        for j,k in enumerate(free):
+            kernel[k][j]=domain.one
+            for i,pivot in enumerate(cols):kernel[pivot][j]=-raw[i][k]
+        kd=DomainMatrix(kernel,(M.cols,len(free)),domain);assert not any(any(row)for row in(dm*kd).to_list());minor=dm.extract(list(rows),list(cols)).det()
+        assert minor!=domain.zero or not cols;K=s.Matrix(M.cols,len(free),lambda i,j:domain.to_sympy(kernel[i][j]))
+        return {'rank':len(cols),'nullity':len(free),'minor_rows':list(rows),'minor_columns':list(cols),'minor_determinant':str(s.factor(domain.to_sympy(minor))),
+            'complete_kernel':serial_matrix(K)},domain.to_sympy(minor),K
+    models=[];f=a*a*b
+    for h in[a,b]:
+        hs='A'if h==a else'B'
+        for name,C,A,Bdim in [('INTERSECTION',a,b,9),('OTHER',a,c,10)]:
+            q=dlog(f)/3+TAU*dlog(a/b);models.append(('DEG1_H'+hs+'_CA_'+name,f,A,C,h,q,Bdim,True))
+        for geom,A,offset in [('INTERSECTION',a,8),('OTHER',c,9)]:
+            for nm,gamma,dim in [('EXACT_B',1,1),('ZERO',0,0)]:
+                alpha=s.Rational(4,3)if h==a else s.Rational(7,3)
+                q=dlog(f)/3+alpha*dlog(a/b)+gamma*differential(b/a)
+                models.append(('DEG1_H'+hs+'_CB_'+geom+'_'+nm,f,A,b,h,q,offset+dim,False))
+    f=a**3
+    for nm,gamma,delta,dim in [('EXACT_C',0,1,2),('EXACT_B',1,0,1),('ZERO',0,0,0)]:
+        q=dlog(a)+gamma*differential(b/a)+delta*differential(c/a)
+        models.append(('DEG1_TRIPLE_'+nm,f,b,a,a,q,7+dim,False))
+    f=a*a*b
+    Asquare=[c*c+eps*a*b+eta*b*b for eps in[0,1]for eta in[0,1]]+[b*c,c*(a+b),a*c+b*b,b*b,a*b+b*b]
+    Across=[c*c+eps*a*a+eta*b*b for eps in[0,1]for eta in[0,1]]+[c*(a+b),a*c+b*b,b*c+a*a,a*a+b*b]
+    for j,Arow in enumerate(Asquare):models.append(('DEG2_CA2_'+str(j),f,Arow,a*a,s.Integer(1),-2*dlog(a)+3*dlog(b),12,False))
+    for j,Arow in enumerate(Across):models.append(('DEG2_CAB_'+str(j),f,Arow,a*b,s.Integer(1),2*dlog(a)-dlog(b),12,False))
+    for gamma in[0,1]:
+        q=4*dlog(a)-3*dlog(b)+gamma*differential(b/a)
+        models.append(('DEG2_CB2_'+str(gamma),f,a*a+gamma*a*b,b*b,s.Integer(1),q,8+gamma,False))
+    f=a**3
+    for j,Arow,Bdim in[(0,b*c,10),(1,b*b,8),(2,b*b+a*c,9)]:
+        models.append(('DEG2_TRIPLE_'+str(j),f,Arow,a*a,s.Integer(1),dlog(a),Bdim,False))
+    assert len(models)==37
+    records=[]
+    for name,f,A,C,h,q,Bdim,variable in models:
+        p=dlog(f/(h*C));r=(-differential(A/C)+(A/C)*(q-p)).applyfunc(s.cancel);beta=[[p,s.zeros(3,1)],[r,q]]
+        Pbase=s.zeros(5)
+        for i,j,k in [(0,1,2),(1,2,0),(2,0,1)]:Pbase[i,j]=s.diff(f,base[k]);Pbase[j,i]=-Pbase[i,j]
+        omegas=[]
+        for i in range(2):
+            for j in range(2):
+                om=(3*f*beta[i][j]-(differential(f)if i==j else s.zeros(3,1))).applyfunc(s.cancel)
+                assert s.expand(sum(base[k]*om[k]for k in range(3)))==0
+                assert all(s.denom(v)==1 for v in om)
+                V=s.Matrix([s.diff(om[2],b)-s.diff(om[1],c),s.diff(om[0],c)-s.diff(om[2],a),s.diff(om[1],a)-s.diff(om[0],b)])/3
+                assert s.expand(sum(s.diff(V[k],base[k])for k in range(3)))==0
+                inverse=s.Matrix([c*V[1]-b*V[2],a*V[2]-c*V[0],b*V[0]-a*V[1]])
+                assert all(s.expand(v)==0 for v in inverse-om)
+                for k in range(3):Pbase[k,3+i]-=V[k]*normals[j];Pbase[3+i,k]+=V[k]*normals[j]
+                omegas.append({'i':i,'j':j,'beta':list(map(str,beta[i][j])),'horizontal_polynomial_form':list(map(str,om)),'inverse_tracefree_field':list(map(str,V))})
+        target=s.expand(h*z*z*(A*z+C*w));target_vector=s.Matrix([s.Poly(target,*x).coeff_monomial(mon)for mon in monG]);idx=next(i for i,v in enumerate(target_vector)if v!=0)
+        Ann=s.zeros(23,24)
+        for row,i in enumerate(j for j in range(24)if j!=idx):Ann[row,i]=1;Ann[row,idx]=-target_vector[i]/target_vector[idx]
+        assert Ann*target_vector==s.zeros(23,1)
+        def analyze(alpha=None,domain=FIELD):
+            sub=lambda v:v if alpha is None else v.subs(TAU,alpha)
+            Pk=sub(Pbase);Pk[3,4]=kk[0]*z*z+kk[1]*z*w+kk[2]*w*w;Pk[4,3]=-Pk[3,4]
+            Dk=divisor(Pk);poly=s.Poly(Dk,*x);rows=s.Matrix([poly.coeff_monomial(mon)for mon in monK]);KM=rows.jacobian(kk);const=rows.subs(dict.fromkeys(kk,0))
+            kc,km,_=certify(KM,domain);ka,am,_=certify(KM.row_join(-const),domain);den=[km,am]
+            record={'full30_global_K_matrix':serial_matrix(KM),'full30_global_K_constant':serial_matrix(const),'K_certificate':kc,'K_augmented_certificate':ka}
+            if ka['rank']>kc['rank']:record.update(global_K_inconsistent=True,whole_m3_source_empty=True,G_closed=True);return record,den
+            sol=list(s.linsolve((KM,-const),kk));assert len(sol)==1 and kc['rank']==3
+            P0=sub(Pbase);P0[3,4]=s.expand(sum(v*m for v,m in zip(sol[0],[z*z,z*w,w*w])));P0[4,3]=-P0[3,4]
+            assert all(domain.from_sympy(v)==domain.zero for v in s.Poly(divisor(P0),*x).coeffs())
+            Jac0=[s.expand(v)for v in H.all350(H.projective(H.bilinear(P0,P0,x),x),x)];bad=[(i,v)for i,v in enumerate(Jac0)if domain.from_sympy(v)!=domain.zero]
+            record.update(unique_global_K=str(P0[3,4]),full150_P0={str((i,j)):str(P0[i,j])for i,j in H.PAIRS})
+            if bad:
+                record.update(P0_nonzero_Jacobi=[(i,str(v))for i,v in bad],whole_m3_source_empty=True,G_closed=True);den.append(bad[0][1]);return record,den
+            D1=operator(P0,P1,v1,x);D2=operator(P0,P2,v2,x);full=divisor(P0+P1+P2);pp=s.Poly(full,*x)
+            D3=s.Matrix([pp.coeff_monomial(mon)for mon in monG]);L=D3.jacobian(v1);assert all(s.expand(v)==0 for v in D3-L*s.Matrix(v1))
+            M1=D1.col_join(Ann*L);Sh=shear(P0,x);assert all(s.expand(v)==0 for v in M1*Sh)
+            c1,m1,K1=certify(M1,domain);c2,m2,K2=certify(D2,domain);cs,ms,KS=certify(Sh,domain);image=(L*K1).applyfunc(s.cancel)
+            qbad=s.cancel(3*f*sum(sub(q[i])*v1[-3+i]for i in range(3)));qbpoly=s.Poly(qbad,*base)
+            QM=s.Matrix([qbpoly.coeff_monomial(mon)for mon in H.monomials(3,2)]).jacobian(v1)
+            assert all(domain.from_sympy(v)==domain.zero for v in QM*K1)
+            assert all(domain.from_sympy(v)==domain.zero for v in Ann*image)
+            leading=[domain.from_sympy(image[idx,j]/target_vector[idx])for j in range(image.cols)];nonzero=[j for j,v in enumerate(leading)if v!=domain.zero]
+            offset=Bdim+5-(1 if alpha is not None and variable else 0);upper=offset+K1.cols+K2.cols
+            record.update(P0_full350_Jacobi_zero_and_actualD_zero=True,full350_weight1_operator=serial_matrix(D1),full350_weight2_operator=serial_matrix(D2),
+                full24by30_actual_D3_map=serial_matrix(L),full_weight1_plus_line_matrix=serial_matrix(M1),complete_actual_shear=serial_matrix(Sh),
+                weight1_certificate=c1,weight2_certificate=c2,actual_shear_certificate=cs,whole_D3_kernel_image=serial_matrix(image),
+                full6by30_constant_root_character_matrix=serial_matrix(QM),all_full_kernel_q_Cbad_zero=True,
+                nonzero_D3_line_certificate=None if not nonzero else {'kernel_column':nonzero[0],'coefficient':str(domain.to_sympy(leading[nonzero[0]]))},
+                D3_image_rank=int(bool(nonzero)),whole_m3_source_empty=not nonzero,whole_projective_image_upper=upper,G_closed=not nonzero or upper<=24)
+            den.extend([m1,m2,ms]);den.extend(s.denom(s.cancel(v))for v in list(K1)+list(K2)+list(KS)+list(sol[0]))
+            return record,den
+        result,den=analyze(domain=FIELD if variable else s.QQ);result.update(type=name,whole_alpha_line=variable,full_connection_inverse_forms=omegas,
+            whole_fixed_plane_symbol_dimension_upper=Bdim,exact_nonzero_leading_target=str(target),full_line_annihilator=serial_matrix(Ann))
+        if variable:
+            exception=s.Poly(1,TAU)
+            for val in den:
+                nu,de=s.fraction(s.cancel(val));exception=s.lcm(exception,s.Poly(nu,TAU));exception=s.lcm(exception,s.Poly(de,TAU))
+            walls=[]
+            for factor,power in s.factor_list(exception.as_expr())[1]:
+                poly=s.Poly(factor,TAU);alpha=-poly.nth(0)/poly.nth(1)if poly.degree()==1 else s.CRootOf(poly.as_expr(),0)
+                domain=s.QQ if poly.degree()==1 else s.QQ.algebraic_field(alpha);wall,_=analyze(alpha,domain)
+                wall.update(alpha=str(alpha),minimal_polynomial=str(factor),all_complex_embeddings_covered=True);walls.append(wall)
+            result.update(all_exception_polynomial=str(s.factor(exception.as_expr())),all_exceptional_sources=walls,
+                all_strata_G_closed=result['G_closed']and all(v['G_closed']for v in walls))
+        else:result['all_strata_G_closed']=result['G_closed']
+        records.append(result);print(name,'empty',result['whole_m3_source_empty'],'k',result.get('weight1_certificate',{}).get('nullity'),
+            result.get('weight2_certificate',{}).get('nullity'),'upper',result.get('whole_projective_image_upper'),
+            'walls',[(v['alpha'],v['whole_m3_source_empty'],v.get('whole_projective_image_upper'))for v in result.get('all_exceptional_sources',[])],flush=True)
+    proof=ROOT/'research/classification/PLANE_NONREDUCED_M3_MOVING_SIMPLE_FIRST_CONNECTIONS.md';obstruction=ROOT/'research/classification/PLANE_NONREDUCED_M3_CONSTANT_ROOT_OBSTRUCTION_APPLICATIONS.md';rootlemma=ROOT/'research/classification/PLANE_M3_CONSTANT_ROOT_OBSTRUCTION.md';archive=ROOT/'research/classification/inputs/plane_nonreduced_m3_moving_double_ore_frozen_jobs_20261107.json'
+    result={'task_id':'G','all_exact_arithmetic_passed':True,'all37_G_closed':all(v['all_strata_G_closed']for v in records),'cases':records,
+        'scope':'Whole nonredR m3generic21 primitive degrees(0,1)/(0,2): fourwholealpha+33fixed, allglobalclosedq/nonlog/quadraticroworbits, fullK/P0/full30/9/actualD3exactline/allqCbadkernels. Fourdelta!=0degree1sourcesalreadyemptybyuniversalcontraction. Generictriple/m2/reducedRoutside.',
+        'all24_D3_monomials':monG,'all30_K_monomials':monK,'compatible_extension_old_function_AST_unchanged':True,'old_function_names':sorted(before),
+        'producer_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'producer_bytes':Path(__file__).read_text(),
+        'input_bindings':[{'path':str(v.relative_to(ROOT)),'sha256':hashlib.sha256(v.read_bytes()).hexdigest()}for v in[HELPER,previous,proof,obstruction,rootlemma,archive]],
+        'seconds':time.monotonic()-started,'maximum_RSS_KiB':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss}
+    destination.write_text(json.dumps(result,indent=2)+'\n')
+
+
+
+def nonreduced_m3_moving_simple_ore_main():
+    """All seven residual first-symbol strata, their full vertex Euler sources."""
+    import ast
+    destination=ROOT/'reports/CLASSIFICATION_PLANE_NONREDUCED_M3_MOVING_SIMPLE_ORE_20261108.json'
+    if destination.exists():raise FileExistsError(destination)
+    started=time.monotonic()
+    def timeout(signum,frame):raise TimeoutError('whole7vertex sources finite budget180s')
+    signal.signal(signal.SIGALRM,timeout);signal.alarm(180);resource.setrlimit(resource.RLIMIT_AS,(1536*1024**2,)*2)
+    previous=ROOT/'reports/CLASSIFICATION_PLANE_NONREDUCED_M3_MOVING_SIMPLE_20261107.json';packet=json.loads(previous.read_text())
+    functions=lambda text:{n.name:ast.dump(n,include_attributes=False)for n in ast.parse(text).body if isinstance(n,(ast.FunctionDef,ast.AsyncFunctionDef))}
+    before=functions(packet['producer_bytes']);after=functions(Path(__file__).read_text());assert len(before)==39
+    assert all(after[name]==value for name,value in before.items())
+    x=s.Matrix(s.symbols('a b c z w'));a,b,c,z,w=x;P1,v1,P2,v2=sources(x);ww=s.symbols('W0:18');mons=H.monomials(4,2)
+    def parse(v):return s.sympify(v,locals={str(t):t for t in[*x,TAU]})
+    def matrix(raw):return s.Matrix([[parse(v)for v in row]for row in raw])
+    def divisor(P):
+        return s.expand(sum((-1)**i*x[i]*(P[j,k]*P[l,m]-P[j,l]*P[k,m]+P[j,m]*P[k,l])for i in range(5)for j,k,l,m in [[r for r in range(5)if r!=i]]))
+    def certify(M,domain):
+        dm=DomainMatrix([[domain.from_sympy(v)for v in row]for row in M.tolist()],M.shape,domain);rr,cols=dm.rref();rows=dm.transpose().rref()[1];free=[i for i in range(M.cols)if i not in cols];raw=rr.to_list()
+        kernel=[[domain.zero for j in free]for i in range(M.cols)]
+        for j,k in enumerate(free):
+            kernel[k][j]=domain.one
+            for i,pivot in enumerate(cols):kernel[pivot][j]=-raw[i][k]
+        kd=DomainMatrix(kernel,(M.cols,len(free)),domain);assert not any(any(row)for row in(dm*kd).to_list());mi=dm.extract(list(rows),list(cols)).det();assert mi!=domain.zero or not cols
+        K=s.Matrix(M.cols,len(free),lambda i,j:domain.to_sympy(kernel[i][j]))
+        return {'rank':len(cols),'nullity':len(free),'minor_rows':list(rows),'minor_columns':list(cols),'minor_determinant':str(s.factor(domain.to_sympy(mi))),'complete_kernel':serial_matrix(K)},domain.to_sympy(mi),K
+    selected=[]
+    for old in packet['cases']:
+        if old['all_strata_G_closed']:continue
+        if old['type'].endswith('_OTHER'):
+            bad=[v for v in old['all_exceptional_sources']if not v['G_closed']];assert len(bad)==1
+            fixed=dict(bad[0]);fixed.update(type=old['type']+'_WALL',whole_alpha_line=False,exact_nonzero_leading_target=old['exact_nonzero_leading_target'],
+                full_line_annihilator=old['full_line_annihilator'],whole_fixed_plane_symbol_dimension_upper=old['whole_fixed_plane_symbol_dimension_upper']-1)
+            selected.append(fixed)
+        else:selected.append(old)
+    assert len(selected)==7
+    def analyze(old,alpha=None,domain=FIELD):
+        sub=lambda v:v if alpha is None else v.subs(TAU,alpha);vertex=1 if old['type']=='DEG2_CA2_0'else 2;indices=[i for i in range(5)if i!=vertex];y=s.Matrix([x[i]for i in indices]);base0,base1=y[:2]
+        L0=s.zeros(5,1)
+        if old['type']=='DEG1_HA_CA_OTHER_WALL':L0[4]=-3*z
+        elif old['type']=='DEG1_HB_CA_OTHER_WALL':L0[4]=3*z
+        elif vertex==1:L0[2]=2*a
+        M1=sub(matrix(old['full_weight1_plus_line_matrix']));c1,_,K=certify(M1,domain);tt=s.symbols('p0:'+str(K.cols));P0=s.zeros(5)
+        for i,j in H.PAIRS:P0[i,j]=sub(parse(old['full150_P0'][str((i,j))]));P0[j,i]=-P0[i,j]
+        P=P0+P1.subs(dict(zip(v1,K*s.Matrix(tt))),simultaneous=True)+P2-H.wedge(x,L0)
+        L=s.Matrix([-s.diff(P[i,vertex],x[vertex])if i!=vertex else 0 for i in range(5)])
+        gauged=(P-H.wedge(x,L)).applyfunc(s.expand);bad=[(str((i,j)),str(s.diff(gauged[i,j],x[vertex])))for i,j in H.PAIRS if s.diff(gauged[i,j],x[vertex])!=0]
+        rec={'alpha':None if alpha is None else str(alpha),'vertex_index':vertex,'weight_zero_Euler_gauge':list(map(str,L0)),
+            'full_positive_weight_Euler_gauge':list(map(str,L)),'full_original_M1_certificate':c1,'all_vertex_independence':not bad}
+        if bad:rec.update(nonzero_vertex_derivatives=bad,source_covered=False,G_closed=False);return rec,[]
+        Q=gauged.extract(indices,indices);W=s.Matrix([gauged[vertex,i]for i in indices]);ell=-s.Poly(W[2],z,w).coeff_monomial(z*z)*z-s.Poly(W[3],z,w).coeff_monomial(w*w)*w
+        W=(W+ell*y).applyfunc(s.expand);variables=list(tt)+v2;Q0=Q.subs(dict.fromkeys(variables,0));W0=W.subs(dict.fromkeys(variables,0))
+        qcoords=s.Matrix([s.Poly(Q[i,j]-Q0[i,j],*y).coeff_monomial(mon)for i,j in combinations(range(4),2)for mon in mons]);J=qcoords.jacobian(variables)
+        assert all(s.expand(v)==0 for v in qcoords-J*s.Matrix(variables));qc,qminor,_=certify(J,domain);cols=qc['minor_columns'];uu=s.symbols('Q0:'+str(len(cols)));Qcan=Q0.copy()
+        for k,(i,j)in enumerate(combinations(range(4),2)):
+            Qcan[i,j]+=sum(J[10*k+r,jj]*s.prod(v**e for v,e in zip(y,mon))*q for jj,q in zip(cols,uu)for r,mon in enumerate(mons));Qcan[j,i]=-Qcan[i,j]
+        Wcan=W0+s.Matrix([z*(ww[0]*base0+ww[1]*base1)+w*(ww[2]*base0+ww[3]*base1)+ww[4]*z*z+ww[5]*z*w+ww[6]*w*w,
+            z*(ww[7]*base0+ww[8]*base1)+w*(ww[9]*base0+ww[10]*base1)+ww[11]*z*z+ww[12]*z*w+ww[13]*w*w,
+            ww[14]*z*w+ww[15]*w*w,ww[16]*z*z+ww[17]*z*w]);wc=[];wd=W-W0
+        for i in range(2):wc.extend([s.Poly(wd[i],*y).coeff_monomial(mon)for mon in[base0*z,base1*z,base0*w,base1*w,z*z,z*w,w*w]])
+        wc.extend([s.Poly(wd[2],z,w).coeff_monomial(z*w),s.Poly(wd[2],z,w).coeff_monomial(w*w),s.Poly(wd[3],z,w).coeff_monomial(z*z),s.Poly(wd[3],z,w).coeff_monomial(z*w)])
+        assert all(s.expand(v)==0 for v in W-Wcan.subs(dict(zip(ww,wc)),simultaneous=True));Wmap=s.Matrix(wc).jacobian(variables)
+        strict={(i,j,k):s.expand(sum(Qcan[i,l]*s.diff(Qcan[j,k],y[l])+Qcan[j,l]*s.diff(Qcan[k,i],y[l])+Qcan[k,l]*s.diff(Qcan[i,j],y[l])for l in range(4)))for i,j,k in combinations(range(4),3)}
+        Pi=s.zeros(5)
+        for i,j in combinations(range(4),2):Pi[indices[i],indices[j]]=Qcan[i,j];Pi[indices[j],indices[i]]=-Qcan[i,j]
+        for i in range(4):Pi[vertex,indices[i]]=Wcan[i];Pi[indices[i],vertex]=-Wcan[i]
+        D=divisor(Pi);dp=s.Poly(D,*x);D3=s.expand(sum(v*s.prod(t**e for t,e in zip(x,mon))for mon,v in dp.terms()if mon[3]+mon[4]==3))
+        Ann=matrix(old['full_line_annihilator']);leading=s.Matrix([dp.coeff_monomial(mon)for mon in packet['all24_D3_monomials']]);line=(Ann*leading).applyfunc(s.expand)
+        constant=[]
+        for v in range(4):
+            if all(s.expand(Qcan[i,j])==0 for i,j in combinations(range(4),2)if v not in[i,j])and all(s.diff(Qcan[i,j],y[v])==0 for i,j in combinations(range(4),2)):constant.append(str(y[v]))
+        rec.update(source_covered=True,remaining_Euler_c_component=str(ell),all_Q_coordinates=list(map(str,y)),full_Q0={str((i,j)):str(Q0[i,j])for i,j in combinations(range(4),2)},
+            full_W0=list(map(str,W0)),full60_Q_source_matrix=serial_matrix(J),full_W18_source_matrix=serial_matrix(Wmap),Q_space_certificate=qc,
+            full_affine_Q={str((i,j)):str(Qcan[i,j])for i,j in combinations(range(4),2)},full_strict_Q_Jacobi={str(k):str(v)for k,v in strict.items()},
+            full_W18_cover=True,full_actual_D_polynomial=str(D),full_actual_D3_polynomial=str(s.factor(D3)),
+            exact_nonzero_leading_target=old['exact_nonzero_leading_target'],full23_D3_line_equations=list(map(str,line)),
+            entire_Q_constant_factor_directions=constant,G_closed=bool(constant))
+        den=[qminor];den.extend(s.denom(s.cancel(v))for v in list(K)+list(J));return rec,den
+    results=[]
+    for old in selected:
+        variable=old['whole_alpha_line'];rec,den=analyze(old,domain=FIELD if variable else s.QQ);rec.update(type=old['type'],whole_alpha_line=variable,whole_fixed_plane_symbol_dimension_upper=old['whole_fixed_plane_symbol_dimension_upper']);walls=[]
+        if variable:
+            exception=s.Poly(parse(old['all_exception_polynomial']),TAU)
+            for val in den:
+                nu,de=s.fraction(s.cancel(val));exception=s.lcm(exception,s.Poly(nu,TAU));exception=s.lcm(exception,s.Poly(de,TAU))
+            for pol,power in s.factor_list(exception.as_expr())[1]:
+                pp=s.Poly(pol,TAU);alpha=-pp.nth(0)/pp.nth(1)if pp.degree()==1 else s.CRootOf(pp.as_expr(),0)
+                known=next((v for v in old['all_exceptional_sources']if parse(v['alpha'])==alpha),None)
+                if known is not None and known['whole_m3_source_empty']:walls.append({'alpha':str(alpha),'whole_m3_source_empty_by_original_certificate':True,'G_closed':True});continue
+                domain=s.QQ if pp.degree()==1 else s.QQ.algebraic_field(alpha);wall,_=analyze(old,alpha,domain)
+                wall.update(alpha=str(alpha),minimal_polynomial=str(pol),all_complex_embeddings_covered=True);walls.append(wall)
+            rec.update(all_exception_polynomial=str(s.factor(exception.as_expr())),all_exceptional_sources=walls,all_strata_G_closed=rec['G_closed']and all(v['G_closed']for v in walls))
+        else:rec['all_strata_G_closed']=rec['G_closed']
+        results.append(rec);print(old['type'],'covered',rec['source_covered'],'Qdim',rec.get('Q_space_certificate',{}).get('rank'),'factor',rec.get('entire_Q_constant_factor_directions'),
+            'walls',[(v['alpha'],v.get('Q_space_certificate',{}).get('rank'))for v in walls],flush=True)
+    proof=ROOT/'research/classification/PLANE_NONREDUCED_M3_MOVING_SIMPLE_ORE_ENTRANCE.md';archive=ROOT/'research/classification/inputs/plane_nonreduced_m3_moving_simple_frozen_jobs_20261107.json'
+    result={'task_id':'G','all_exact_arithmetic_passed':True,'all7_G_closed':all(v['all_strata_G_closed']for v in results),'cases':results,
+        'scope':'Whole2alpha+5fixed residualmoving-simplem3 sources: fullweightzeroEuler vertexandpositivefullkernel+FULLP2, exactQspace/W18cover/allstrictQJac/allactualD3line. No repeatednegativefactor-rowspan/jet/GB. FurthernonlinearGsupportmayremain.',
+        'compatible_extension_old_function_AST_unchanged':True,'old_function_names':sorted(before),'producer_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'producer_bytes':Path(__file__).read_text(),
+        'input_bindings':[{'path':str(v.relative_to(ROOT)),'sha256':hashlib.sha256(v.read_bytes()).hexdigest()}for v in[HELPER,previous,proof,archive]],
+        'seconds':time.monotonic()-started,'maximum_RSS_KiB':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss}
+    destination.write_text(json.dumps(result,indent=2)+'\n')
+
+
+def nonreduced_m3_moving_simple_modules_main():
+    """Three bad-column-zero exclusions, four complete source bridges, ten modules."""
+    import ast
+    destination=ROOT/'reports/CLASSIFICATION_PLANE_NONREDUCED_M3_MOVING_SIMPLE_MODULES_20261108.json'
+    if destination.exists():raise FileExistsError(destination)
+    started=time.monotonic()
+    def timeout(signum,frame):raise TimeoutError('whole10affine modules finite budget180s')
+    signal.signal(signal.SIGALRM,timeout);signal.alarm(180);resource.setrlimit(resource.RLIMIT_AS,(1536*1024**2,)*2)
+    previous=ROOT/'reports/CLASSIFICATION_PLANE_NONREDUCED_M3_MOVING_SIMPLE_ORE_20261108.json';whole=ROOT/'reports/CLASSIFICATION_PLANE_NONREDUCED_M3_MOVING_SIMPLE_20261107.json';packet=json.loads(whole.read_text());prior=json.loads(previous.read_text())
+    functions=lambda text:{n.name:ast.dump(n,include_attributes=False)for n in ast.parse(text).body if isinstance(n,(ast.FunctionDef,ast.AsyncFunctionDef))}
+    before=functions(prior['producer_bytes']);after=functions(Path(__file__).read_text());assert len(before)==40
+    assert all(after[name]==value for name,value in before.items())
+    x=s.Matrix(s.symbols('a b c z w'));a,b,c,z,w=x;y=s.Matrix([a,b,z,w]);indices=[0,1,3,4];P1,v1,P2,v2=sources(x)
+    ww=s.symbols('W0:18');qf=s.symbols('F0:3');u=s.Symbol('u');F=qf[0]*z*z+qf[1]*z*w+qf[2]*w*w
+    k=-(3*TAU+5)/(3*TAU+8);R=(3*TAU+2)/(3*TAU-4);S=-(6*TAU+1)/(3*TAU-4)
+    def makeQ(ab,az,aw,bz,bw):
+        Q=s.zeros(4)
+        for i,j,v in[(0,1,ab),(0,2,az),(0,3,aw),(1,2,bz),(1,3,bw)]:Q[i,j]=v;Q[j,i]=-v
+        return Q
+    def QHA(u,F):return makeQ(F,0,u*k*z*z,u*z*z,2*u*z*w)
+    def QHB(u,F):return makeQ(u*(R*a*w+b*z)+F,0,u*z*w,-u*R*z*w,u*S*w*w)
+    def QTR(u,F):return makeQ(F,0,-u*z*z,u*z*z,u*(2*z*w+z*z))
+    def QCB(u,F):return makeQ(F,u*z*z,2*u*z*w,0,-u*z*z)
+    WHA=s.Matrix([a*a,-2*a*b,-2*a*z,3*TAU*a*w+(3*TAU+5)*b*z]);WHB=s.Matrix([a*a,-2*a*b,a*z,3*TAU*a*w+(3*TAU+2)*b*z])
+    WTR=s.Matrix([0,-3*a*a,0,-3*a*w+3*(a-b)*z]);WCB=s.Matrix([a*a,-2*a*b,4*a*z,10*a*w-3*a*z-3*b*w])
+    def Wbasis(W0):
+        return W0+s.Matrix([z*(ww[0]*a+ww[1]*b)+w*(ww[2]*a+ww[3]*b)+ww[4]*z*z+ww[5]*z*w+ww[6]*w*w,
+            z*(ww[7]*a+ww[8]*b)+w*(ww[9]*a+ww[10]*b)+ww[11]*z*z+ww[12]*z*w+ww[13]*w*w,
+            ww[14]*z*w+ww[15]*w*w,ww[16]*z*z+ww[17]*z*w])
+    def pad(Q,W):
+        P=s.zeros(5)
+        for i,j in combinations(range(4),2):P[indices[i],indices[j]]=Q[i,j];P[indices[j],indices[i]]=-Q[i,j]
+        for i in range(4):P[2,indices[i]]=W[i];P[indices[i],2]=-W[i]
+        return P
+    def divisor(P):
+        return s.expand(sum((-1)**i*x[i]*(P[j,k]*P[l,m]-P[j,l]*P[k,m]+P[j,m]*P[k,l])for i in range(5)for j,k,l,m in [[r for r in range(5)if r!=i]]))
+    def parse(v):return s.sympify(v,locals={str(t):t for t in[*x,TAU]})
+    exclusions=[]
+    for name,alpha in[('DEG1_HA_CA_OTHER',-s.Rational(8,3)),('DEG1_HB_CA_OTHER',s.Rational(4,3)),('DEG2_CA2_0',None)]:
+        old=next(v for v in packet['cases']if v['type']==name)
+        if alpha is not None:old=next(v for v in old['all_exceptional_sources']if parse(v['alpha'])==alpha)
+        K=s.Matrix([[parse(v)for v in row]for row in old['weight1_certificate']['complete_kernel']]);assert K[-3:,:]==s.zeros(3,K.cols)
+        assert parse(old['full150_P0']['(3, 4)'])==0
+        for i in range(3):assert s.rem(s.Poly(parse(old['full150_P0'][str((i,3))]),z),s.Poly(z,z)).is_zero
+        exclusions.append({'type':name,'alpha':None if alpha is None else str(alpha),'complete_P1_kernel':serial_matrix(K),'all_three_bad_normal_rows_zero':True,'proper_D_factor':'z','whole_irreducible_source_empty':True})
+    coverage=[]
+    for name,Qfun,W0,variable,extract in[('DEG1_HA_CA_INTERSECTION',QHA,WHA,True,'bz'),('DEG1_HB_CA_INTERSECTION',QHB,WHB,True,'aw'),
+                                      ('DEG1_TRIPLE_EXACT_B',QTR,WTR,False,'bz'),('DEG2_CB2_1',QCB,WCB,False,'az')]:
+        old=next(v for v in packet['cases']if v['type']==name);K=s.Matrix([[parse(v)for v in row]for row in old['weight1_certificate']['complete_kernel']]);tt=s.symbols('p0:'+str(K.cols));P0=s.zeros(5)
+        for i,j in H.PAIRS:P0[i,j]=parse(old['full150_P0'][str((i,j))]);P0[j,i]=-P0[i,j]
+        P=P0+P1.subs(dict(zip(v1,K*s.Matrix(tt))),simultaneous=True)+P2;L=s.Matrix([-s.diff(P[0,2],c),-s.diff(P[1,2],c),0,0,0]);gauged=(P-H.wedge(x,L)).applyfunc(s.expand)
+        assert all(s.diff(gauged[i,j],c)==0 for i,j in H.PAIRS);Q=gauged.extract(indices,indices);W=s.Matrix([gauged[2,i]for i in indices])
+        ell=-s.Poly(W[2],z,w).coeff_monomial(z*z)*z-s.Poly(W[3],z,w).coeff_monomial(w*w)*w;W=(W+ell*y).applyfunc(s.expand)
+        noncommon=s.cancel(Q[1,2]/(z*z))if extract=='bz'else s.cancel(Q[0,3]/(z*w))if extract=='aw'else s.cancel(Q[0,2]/(z*z))
+        central=s.expand(Q[0,1]-(noncommon*(R*a*w+b*z)if Qfun==QHB else 0))
+        assert all(s.cancel(v)==0 for v in Q-Qfun(noncommon,central));wd=W-W0;wc=[]
+        for i in range(2):wc.extend([s.Poly(wd[i],*y).coeff_monomial(mon)for mon in[a*z,b*z,a*w,b*w,z*z,z*w,w*w]])
+        wc.extend([s.Poly(wd[2],z,w).coeff_monomial(z*w),s.Poly(wd[2],z,w).coeff_monomial(w*w),s.Poly(wd[3],z,w).coeff_monomial(z*z),s.Poly(wd[3],z,w).coeff_monomial(z*w)])
+        assert all(s.expand(v)==0 for v in W-Wbasis(W0).subs(dict(zip(ww,wc)),simultaneous=True));coords=[noncommon]+[s.Poly(central,z,w).coeff_monomial(mon)for mon in[z*z,z*w,w*w]]+wc
+        J=s.Matrix(coords).jacobian(list(tt)+v2);det=s.factor(J.det(method='domain-ge'));assert J.rows==J.cols==22 and det!=0 and not s.sympify(det).free_symbols
+        Qs=Qfun(u,F);strict={(i,j,l):s.cancel(sum(Qs[i,r]*s.diff(Qs[j,l],y[r])+Qs[j,r]*s.diff(Qs[l,i],y[r])+Qs[l,r]*s.diff(Qs[i,j],y[r])for r in range(4)))for i,j,l in combinations(range(4),3)};assert all(v==0 for v in strict.values())
+        D=divisor(pad(Qs,Wbasis(W0)));dp=s.Poly(D,*x);D3=s.Matrix([dp.coeff_monomial(mon)for mon in packet['all24_D3_monomials']]);Ann=s.Matrix([[parse(v)for v in row]for row in old['full_line_annihilator']]);assert all(s.cancel(v)==0 for v in Ann*D3)
+        target=s.Poly(parse(old['exact_nonzero_leading_target']),*x);idx=next(i for i,mon in enumerate(packet['all24_D3_monomials'])if target.coeff_monomial(mon)!=0);amplitude=s.factor(D3[idx]/target.coeff_monomial(packet['all24_D3_monomials'][idx]));assert amplitude!=0 and amplitude.free_symbols<={u,TAU}
+        if variable:assert all(wall['weight1_certificate']['nullity']==13 for wall in old['all_exceptional_sources']if not wall['whole_m3_source_empty'])
+        coverage.append({'type':name,'full_Euler_gauge':list(map(str,L)),'full_joint22_coordinate_matrix':serial_matrix(J),'nonzero_constant_joint_determinant':str(det),
+            'whole_Q_W18_bijection':True,'full_strict_Q_Jacobi_zero':True,'exact_D3_target_amplitude':str(amplitude),'all_nonempty_old_walls_same_complete13_source':True})
+    aa,bb,cc,dd=s.symbols('sa sb sc sd');shift=s.Matrix([aa*z+bb*w,cc*z+dd*w,0,0]);T=y+shift;Tinv=y-shift;Jac=T.jacobian(y);shears=[]
+    for name,Qfun,delta in[('HA',QHA,u*((k*dd-aa)*z*z-2*bb*z*w)),('HB',QHB,u*(-cc*z*z-(S+R)*bb*w*w)),
+                            ('TR',QTR,u*(-(dd+aa+bb)*z*z-2*bb*z*w)),('CB',QCB,u*((cc+bb)*z*z+2*dd*z*w))]:
+        Q=Qfun(u,F);transport=Jac*Q.subs(dict(zip(y,Tinv)),simultaneous=True)*Jac.T
+        assert all(s.cancel(v)==0 for v in transport-Qfun(u,F+delta));shears.append({'type':name,'full_actual_central_shear_identity_zero':True,'central_change':str(s.factor(delta))})
+    def certify(M,domain):
+        dm=DomainMatrix([[domain.from_sympy(v)for v in row]for row in M.tolist()],M.shape,domain);rr,cols=dm.rref();rows=dm.transpose().rref()[1]
+        free=[i for i in range(M.cols)if i not in cols];raw=rr.to_list();kernel=[[domain.zero for j in free]for i in range(M.cols)]
+        for j,k in enumerate(free):
+            kernel[k][j]=domain.one
+            for i,pivot in enumerate(cols):kernel[pivot][j]=-raw[i][k]
+        kd=DomainMatrix(kernel,(M.cols,len(free)),domain);assert not any(any(row)for row in(dm*kd).to_list());minor=dm.extract(list(rows),list(cols)).det();assert minor!=domain.zero or not cols
+        K=s.Matrix(M.cols,len(free),lambda i,j:domain.to_sympy(kernel[i][j]))
+        return {'rank':len(cols),'nullity':len(free),'minor_rows':list(rows),'minor_columns':list(cols),'minor_determinant':str(s.factor(domain.to_sympy(minor))),'complete_kernel':serial_matrix(K)},domain.to_sympy(minor),K
+    def analyze(M,C,Dc,Dl,domain,offset):
+        cm,mi,K=certify(M,domain);ca,am,KA=certify(M.row_join(-C),domain);rec={'full350_matrix':serial_matrix(M),'full350_constant':serial_matrix(C),'linear_certificate':cm,'augmented_certificate':ca,'image_offset':offset};den=[mi,am]
+        if ca['rank']>cm['rank']:rec.update(status='inconsistent',G_closed=True,G_empty=True);return rec,den
+        dm=DomainMatrix([[domain.from_sympy(v)for v in row]for row in M.row_join(-C).tolist()],(350,19),domain);rr,pivots=dm.rref();raw=rr.to_list();part=s.zeros(18,1)
+        for i,j in enumerate(pivots):part[j]=domain.to_sympy(raw[i][18])
+        assert all(domain.from_sympy(v)==domain.zero for v in M*part+C)
+        D0=s.Poly(s.expand(Dc+sum(Dl[i]*part[i]for i in range(18))),*x,domain=domain);directions=[s.Poly(s.expand(sum(Dl[i]*K[i,j]for i in range(18))),*x,domain=domain)for j in range(K.cols)]
+        common=D0
+        for poly in directions:
+            if not poly.is_zero:common=s.polys.polytools.gcd(common,poly).monic()
+        factor=None;zero=common.is_zero
+        if not zero and 0<common.total_degree()<5:factor=common.monic()
+        elif not zero and common.total_degree()==5:
+            factor=next((poly.monic()for poly,power in common.factor_list()[1]if 0<poly.total_degree()<5),None)
+        rec.update(status='complete_affine_module',particular_solution=list(map(str,part)),full_D_particular=str(D0.as_expr()),
+            full_D_kernel_coefficients=[str(poly.as_expr())for poly in directions],common_D_gcd=str(common.as_expr()),proper_D_factor=None if factor is None else str(factor.as_expr()),
+            whole_D_zero=zero,W_kernel_dimension=K.cols,whole_projective_image_upper=offset+K.cols,G_empty=zero or factor is not None,G_closed=zero or factor is not None or offset+K.cols<=24)
+        if domain==FIELD:
+            den.extend(s.denom(s.cancel(v))for v in list(K)+list(part))
+            if factor is not None:
+                for poly in[factor]+[poly.exquo(factor)for poly in[D0]+directions]:den.extend(s.denom(s.cancel(v))for v in poly.coeffs())
+        return rec,den
+    cases=[];models=[]
+    for eps in[0,1]:
+        models.extend([('HA_'+str(eps),QHA(1,eps*w*w),WHA,True,17+eps,[-s.Rational(5,3),-s.Rational(8,3)]),
+            ('HB_'+str(eps),QHB(1,eps*z*w),WHB,True,17+eps,[s.Rational(4,3),-s.Rational(2,3)]),
+            ('HB_EXTRA_'+str(eps),QHB(1,eps*z*w+w*w).subs(TAU,s.Rational(1,3)),WHB.subs(TAU,s.Rational(1,3)),False,16+eps,[]),
+            ('TRIPLE_'+str(eps),QTR(1,eps*w*w),WTR,False,16+eps,[]),('CB2_'+str(eps),QCB(1,eps*w*w),WCB,False,17+eps,[])])
+    for name,Q,W0,variable,offset,excluded in models:
+        P=pad(Q,Wbasis(W0));rows=s.Matrix([s.expand(v)for v in H.all350(H.projective(H.bilinear(P,P,x),x),x)]);C=rows.subs(dict.fromkeys(ww,0));M=rows.jacobian(ww)
+        assert all(s.cancel(v)==0 for v in rows-C-M*s.Matrix(ww));D=divisor(P);Dc=D.subs(dict.fromkeys(ww,0));Dl=[s.expand(D).coeff(v)for v in ww];assert s.expand(D-Dc-sum(v*q for v,q in zip(Dl,ww)))==0
+        rec,den=analyze(M,C,Dc,Dl,FIELD if variable else s.QQ,offset);rec.update(type=name,full_Q={str((i,j)):str(Q[i,j])for i,j in combinations(range(4),2)},W0=list(map(str,W0)))
+        if variable:
+            exception=s.Poly(s.prod(TAU-v for v in excluded),TAU)
+            for val in den:
+                nu,de=s.fraction(s.cancel(val));exception=s.lcm(exception,s.Poly(nu,TAU));exception=s.lcm(exception,s.Poly(de,TAU))
+            walls=[]
+            for pol,power in s.factor_list(exception.as_expr())[1]:
+                p=s.Poly(pol,TAU);alpha=-p.nth(0)/p.nth(1)if p.degree()==1 else s.CRootOf(p.as_expr(),0)
+                if alpha in excluded:walls.append({'alpha':str(alpha),'source_empty_by_original_full_D3_image':True,'G_closed':True});continue
+                domain=s.QQ if p.degree()==1 else s.QQ.algebraic_field(alpha);sub=lambda v:v.subs(TAU,alpha);wall,_=analyze(sub(M),sub(C),sub(Dc),[sub(v)for v in Dl],domain,offset-1)
+                wall.update(alpha=str(alpha),minimal_polynomial=str(pol),all_complex_embeddings_covered=True);walls.append(wall)
+            rec.update(all_exception_polynomial=str(s.factor(exception.as_expr())),all_exceptional_sources=walls,all_strata_G_closed=rec['G_closed']and all(v['G_closed']for v in walls))
+        else:rec['all_strata_G_closed']=rec['G_closed']
+        cases.append(rec);print(name,rec['status'],'k',rec['linear_certificate']['nullity'],'factor',rec.get('proper_D_factor'),'G',rec['all_strata_G_closed'],flush=True)
+    proof=ROOT/'research/classification/PLANE_NONREDUCED_M3_MOVING_SIMPLE_TEN_MODULE_REDUCTION.md';archive=ROOT/'research/classification/inputs/plane_nonreduced_m3_moving_simple_ore_frozen_jobs_20261108.json'
+    result={'task_id':'G','all_exact_arithmetic_passed':True,'all_ten_modules_G_closed':all(v['all_strata_G_closed']for v in cases),'three_full_bad_column_zero_sources':exclusions,
+        'full_four_source_coverage':coverage,'actual_full_central_shear_identities':shears,'cases':cases,
+        'scope':'Wholemoving-simplem3 residualseven: threefullbadcolumnzero zfactor, fourfullQ/W22bijections and10actualcanonicalW18modules withallalphawalls. Iftrue closesbothprimitive01/02 G; generictriple/m2/reducedRoutside. OldCA2vertexbfalseobstructionkeptbutnotneededforG.',
+        'compatible_extension_old_function_AST_unchanged':True,'old_function_names':sorted(before),'producer_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'producer_bytes':Path(__file__).read_text(),
+        'input_bindings':[{'path':str(v.relative_to(ROOT)),'sha256':hashlib.sha256(v.read_bytes()).hexdigest()}for v in[HELPER,previous,whole,proof,archive]],
+        'seconds':time.monotonic()-started,'maximum_RSS_KiB':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss}
+    destination.write_text(json.dumps(result,indent=2)+'\n')
+
+
+def nonreduced_m3_triple_main():
+    """Whole90 generictriple firstconnections, badnormalcolumn factor first."""
+    import ast
+    destination=ROOT/'reports/CLASSIFICATION_PLANE_NONREDUCED_M3_TRIPLE_20261108.json'
+    if destination.exists():raise FileExistsError(destination)
+    started=time.monotonic()
+    def timeout(signum,frame):raise TimeoutError('whole90 triple firstconnections finite budget600s')
+    signal.signal(signal.SIGALRM,timeout);signal.alarm(600);resource.setrlimit(resource.RLIMIT_AS,(1536*1024**2,)*2)
+    previous=ROOT/'reports/CLASSIFICATION_PLANE_NONREDUCED_M3_MOVING_SIMPLE_MODULES_20261108.json';old=json.loads(previous.read_text())
+    functions=lambda text:{n.name:ast.dump(n,include_attributes=False)for n in ast.parse(text).body if isinstance(n,(ast.FunctionDef,ast.AsyncFunctionDef))}
+    before=functions(old['producer_bytes']);after=functions(Path(__file__).read_text());assert len(before)==41
+    assert all(after[name]==value for name,value in before.items())
+    x=s.Matrix(s.symbols('a b c z w'));a,b,c,z,w=x;base=[a,b,c];normals=[z,w];P1,v1,P2,v2=sources(x);kk=s.symbols('K0:3')
+    monG=[v+(j,3-j)for v in H.monomials(3,2)for j in range(4)];monK=[v+(j,2-j)for v in H.monomials(3,3)for j in range(3)]
+    def dlog(g):return s.Matrix([s.cancel(s.diff(g,t)/g)for t in base])
+    def differential(g):return s.Matrix([s.diff(g,t)for t in base])
+    def divisor(P):
+        return s.expand(sum((-1)**i*x[i]*(P[j,k]*P[l,m]-P[j,l]*P[k,m]+P[j,m]*P[k,l])for i in range(5)for j,k,l,m in [[r for r in range(5)if r!=i]]))
+    def certify(M,domain):
+        dm=DomainMatrix([[domain.from_sympy(v)for v in row]for row in M.tolist()],M.shape,domain);rr,cols=dm.rref();rows=dm.transpose().rref()[1]
+        free=[i for i in range(M.cols)if i not in cols];raw=rr.to_list();kernel=[[domain.zero for j in free]for i in range(M.cols)]
+        for j,k in enumerate(free):
+            kernel[k][j]=domain.one
+            for i,pivot in enumerate(cols):kernel[pivot][j]=-raw[i][k]
+        kd=DomainMatrix(kernel,(M.cols,len(free)),domain);assert not any(any(row)for row in(dm*kd).to_list());minor=dm.extract(list(rows),list(cols)).det()
+        assert minor!=domain.zero or not cols;K=s.Matrix(M.cols,len(free),lambda i,j:domain.to_sympy(kernel[i][j]))
+        return {'rank':len(cols),'nullity':len(free),'minor_rows':list(rows),'minor_columns':list(cols),'minor_determinant':str(s.factor(domain.to_sympy(minor))),
+            'complete_kernel':serial_matrix(K)},domain.to_sympy(minor),K
+    models=[];xx=b/a;yy=c/a;dx=differential(xx);dy=differential(yy);lx=dlog(xx)
+    for e in range(3):
+        f=a*a*b;h=a**e*b**(2-e);eta=s.Rational(4,3)-e-TAU;p=dlog(f)/3+TAU*dlog(a/b)+dx;q=2*p-dlog(f/h)
+        for nm,rr in[('ZERO',s.zeros(3,1)),('LOG',lx)]:models.append(('E'+str(e)+'_EXACT_B_'+nm,f,h,p,q,rr,10,True,[]))
+        alpha=s.Rational(1,3)-e;pv=p.subs(TAU,alpha);qv=q.subs(TAU,alpha)
+        models.append(('E'+str(e)+'_EXACT_B_RESONANT',f,h,pv,qv,(yy*dx+dy)/xx,10,False,[]))
+        p=dlog(f)/3+TAU*dlog(a/b);q=2*p-dlog(f/h);excluded=[s.Rational(4,3)-e-v for v in[-2,-1,0,1]]
+        for nm,rr in[('ZERO',s.zeros(3,1)),('DX',dx),('Y',eta*yy*lx+dy)]:models.append(('E'+str(e)+'_LOG_GENERIC_'+nm,f,h,p,q,rr,10,True,excluded))
+        special=[(-1,[s.zeros(3,1),dx,-yy*lx+dy,-yy*lx+dy+dx],9),
+            (0,[s.zeros(3,1),dx,lx,lx+dx,dy,lx+dy],9),
+            (1,[differential(psi)/xx for psi in[xx*yy,xx*yy+yy,s.Integer(0),xx*xx,yy,xx*xx+yy]],11),
+            (-2,[xx*xx*differential(psi/(xx*xx))for psi in[xx*yy,xx*yy+yy,yy,s.Integer(0),xx]],11)]
+        for ev,rows,Bdim in special:
+            alpha=s.Rational(4,3)-e-ev;pv=p.subs(TAU,alpha);qv=q.subs(TAU,alpha)
+            for j,rr in enumerate(rows):models.append(('E'+str(e)+'_LOG_ETA'+str(ev)+'_'+str(j),f,h,pv,qv,rr,Bdim,False,[]))
+    f=a**3;h=a*a
+    for j,(psi,Bdim)in enumerate([(s.Integer(0),4),(xx,6),(xx*xx,7),(xx*xx+yy,8)]):models.append(('TRIPLE_PHI_ZERO_'+str(j),f,h,dlog(a),dlog(a),differential(psi),Bdim,False,[]))
+    for j,(rr,Bdim)in enumerate([(s.zeros(3,1),7),(xx*dx,8),(yy*dx+dy,9)]):models.append(('TRIPLE_PHI_LINEAR_'+str(j),f,h,dlog(a)+dx,dlog(a)+2*dx,rr,Bdim,False,[]))
+    for j,(rr,Bdim)in enumerate([(s.zeros(3,1),8),(dx,9)]):models.append(('TRIPLE_PHI_SQUARE_'+str(j),f,h,dlog(a)+2*xx*dx,dlog(a)+4*xx*dx,rr,Bdim,False,[]))
+    assert len(models)==90 and sum(row[-2]for row in models)==15
+    records=[]
+    checkpoint=ROOT/'reports/CLASSIFICATION_PLANE_NONREDUCED_M3_TRIPLE_CHECKPOINT_20261108.json'
+    if checkpoint.exists():raise FileExistsError(checkpoint)
+    for name,f,h,p,q,r,Bdim,variable,excluded in models:
+        beta=[[p,s.zeros(3,1)],[r,q]]
+        for i,j in combinations(range(3),2):
+            assert s.cancel(s.diff(p[j],base[i])-s.diff(p[i],base[j]))==0
+            assert s.cancel(s.diff(q[j],base[i])-s.diff(q[i],base[j]))==0
+            assert s.cancel(s.diff(r[j],base[i])-s.diff(r[i],base[j])+(q[i]-p[i])*r[j]-(q[j]-p[j])*r[i])==0
+        Pbase=s.zeros(5)
+        for i,j,k in [(0,1,2),(1,2,0),(2,0,1)]:Pbase[i,j]=s.diff(f,base[k]);Pbase[j,i]=-Pbase[i,j]
+        omegas=[]
+        for i in range(2):
+            for j in range(2):
+                om=(3*f*beta[i][j]-(differential(f)if i==j else s.zeros(3,1))).applyfunc(s.cancel)
+                assert s.expand(sum(base[k]*om[k]for k in range(3)))==0
+                assert all(s.denom(v)==1 for v in om)
+                V=s.Matrix([s.diff(om[2],b)-s.diff(om[1],c),s.diff(om[0],c)-s.diff(om[2],a),s.diff(om[1],a)-s.diff(om[0],b)])/3
+                assert s.expand(sum(s.diff(V[k],base[k])for k in range(3)))==0
+                inverse=s.Matrix([c*V[1]-b*V[2],a*V[2]-c*V[0],b*V[0]-a*V[1]])
+                assert all(s.expand(v)==0 for v in inverse-om)
+                for k in range(3):Pbase[k,3+i]-=V[k]*normals[j];Pbase[3+i,k]+=V[k]*normals[j]
+                omegas.append({'i':i,'j':j,'beta':list(map(str,beta[i][j])),'horizontal_polynomial_form':list(map(str,om)),'inverse_tracefree_field':list(map(str,V))})
+        target=s.expand(h*z**3);target_vector=s.Matrix([s.Poly(target,*x).coeff_monomial(mon)for mon in monG]);idx=next(i for i,v in enumerate(target_vector)if v!=0)
+        Ann=s.zeros(23,24)
+        for row,i in enumerate(j for j in range(24)if j!=idx):Ann[row,i]=1;Ann[row,idx]=-target_vector[i]/target_vector[idx]
+        assert Ann*target_vector==s.zeros(23,1)
+        def analyze(alpha=None,domain=FIELD):
+            sub=lambda v:v if alpha is None else v.subs(TAU,alpha)
+            Pk=sub(Pbase);Pk[3,4]=kk[0]*z*z+kk[1]*z*w+kk[2]*w*w;Pk[4,3]=-Pk[3,4]
+            Dk=divisor(Pk);poly=s.Poly(Dk,*x);rows=s.Matrix([poly.coeff_monomial(mon)for mon in monK]);KM=rows.jacobian(kk);const=rows.subs(dict.fromkeys(kk,0))
+            kc,km,_=certify(KM,domain);ka,am,_=certify(KM.row_join(-const),domain);den=[km,am]
+            record={'full30_global_K_matrix':serial_matrix(KM),'full30_global_K_constant':serial_matrix(const),'K_certificate':kc,'K_augmented_certificate':ka}
+            if ka['rank']>kc['rank']:record.update(global_K_inconsistent=True,whole_m3_source_empty=True,G_closed=True);return record,den
+            sol=list(s.linsolve((KM,-const),kk));assert len(sol)==1 and kc['rank']==3
+            P0=sub(Pbase);P0[3,4]=s.expand(sum(v*m for v,m in zip(sol[0],[z*z,z*w,w*w])));P0[4,3]=-P0[3,4]
+            assert all(domain.from_sympy(v)==domain.zero for v in s.Poly(divisor(P0),*x).coeffs())
+            Jac0=[s.expand(v)for v in H.all350(H.projective(H.bilinear(P0,P0,x),x),x)];bad=[(i,v)for i,v in enumerate(Jac0)if domain.from_sympy(v)!=domain.zero]
+            record.update(unique_global_K=str(P0[3,4]),full150_P0={str((i,j)):str(P0[i,j])for i,j in H.PAIRS})
+            if bad:
+                record.update(P0_nonzero_Jacobi=[(i,str(v))for i,v in bad],whole_m3_source_empty=True,G_closed=True);den.append(bad[0][1]);return record,den
+            D1=operator(P0,P1,v1,x);D2=operator(P0,P2,v2,x);full=divisor(P0+P1+P2);pp=s.Poly(full,*x)
+            D3=s.Matrix([pp.coeff_monomial(mon)for mon in monG]);L=D3.jacobian(v1);assert all(s.expand(v)==0 for v in D3-L*s.Matrix(v1))
+            M1=D1.col_join(Ann*L)
+            c1,m1,K1=certify(M1,domain);c2,m2,K2=certify(D2,domain);image=(L*K1).applyfunc(s.cancel)
+            qbad=s.cancel(3*f*sum(sub(q[i])*v1[-3+i]for i in range(3)));qbpoly=s.Poly(qbad,*base)
+            QM=s.Matrix([qbpoly.coeff_monomial(mon)for mon in H.monomials(3,2)]).jacobian(v1)
+            assert all(domain.from_sympy(v)==domain.zero for v in QM*K1)
+            assert all(domain.from_sympy(v)==domain.zero for v in Ann*image)
+            leading=[domain.from_sympy(image[idx,j]/target_vector[idx])for j in range(image.cols)];nonzero=[j for j,v in enumerate(leading)if v!=domain.zero]
+            offset=Bdim+5-(1 if alpha is not None and variable else 0);upper=offset+K1.cols+K2.cols
+            badzero=all(domain.from_sympy(v)==domain.zero for v in K1[-3:,:])
+            assert all(domain.from_sympy(v)==domain.zero for i in range(5)for v in s.Poly(P0[i,3].subs(z,0),*x).coeffs())
+            record.update(P0_full350_Jacobi_zero_and_actualD_zero=True,full350_weight1_operator=serial_matrix(D1),full350_weight2_operator=serial_matrix(D2),
+                full24by30_actual_D3_map=serial_matrix(L),full_weight1_plus_line_matrix=serial_matrix(M1),
+                weight1_certificate=c1,weight2_certificate=c2,whole_D3_kernel_image=serial_matrix(image),
+                all_three_bad_normal_kernel_rows_zero=badzero,proper_D_factor_by_bad_normal_rows='z'if badzero else None,
+                full6by30_constant_root_character_matrix=serial_matrix(QM),all_full_kernel_q_Cbad_zero=True,
+                nonzero_D3_line_certificate=None if not nonzero else {'kernel_column':nonzero[0],'coefficient':str(domain.to_sympy(leading[nonzero[0]]))},
+                D3_image_rank=int(bool(nonzero)),whole_m3_source_empty=not nonzero,whole_irreducible_source_empty=not nonzero or badzero,whole_projective_image_upper=upper,G_closed=not nonzero or badzero or upper<=24)
+            den.extend([m1,m2]);den.extend(s.denom(s.cancel(v))for v in list(K1)+list(K2)+list(sol[0]))
+            return record,den
+        result,den=analyze(domain=FIELD if variable else s.QQ);result.update(type=name,whole_alpha_line=variable,full_connection_inverse_forms=omegas,
+            whole_fixed_plane_symbol_dimension_upper=Bdim,exact_nonzero_leading_target=str(target),full_line_annihilator=serial_matrix(Ann))
+        if variable:
+            exception=s.Poly(s.prod(TAU-v for v in excluded),TAU)
+            for val in den:
+                nu,de=s.fraction(s.cancel(val));exception=s.lcm(exception,s.Poly(nu,TAU));exception=s.lcm(exception,s.Poly(de,TAU))
+            walls=[]
+            for factor,power in s.factor_list(exception.as_expr())[1]:
+                poly=s.Poly(factor,TAU);alpha=-poly.nth(0)/poly.nth(1)if poly.degree()==1 else s.CRootOf(poly.as_expr(),0)
+                if alpha in excluded:
+                    walls.append({'alpha':str(alpha),'whole_m3_source_empty':False,'full_special_source_elsewhere':True,'G_closed':True});continue
+                domain=s.QQ if poly.degree()==1 else s.QQ.algebraic_field(alpha);wall,_=analyze(alpha,domain)
+                wall.update(alpha=str(alpha),minimal_polynomial=str(factor),all_complex_embeddings_covered=True);walls.append(wall)
+            result.update(all_exception_polynomial=str(s.factor(exception.as_expr())),all_exceptional_sources=walls,
+                all_strata_G_closed=result['G_closed']and all(v['G_closed']for v in walls))
+        else:result['all_strata_G_closed']=result['G_closed']
+        records.append(result)
+        if len(records)%10==0:checkpoint.write_text(json.dumps({'task_id':'G','complete':False,'completed_source_count':len(records),'target_source_count':90,'cases':records,'producer_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'producer_bytes':Path(__file__).read_text()},indent=2)+'\n')
+        print(name,'empty',result.get('whole_irreducible_source_empty',result['whole_m3_source_empty']),'k',result.get('weight1_certificate',{}).get('nullity'),
+            result.get('weight2_certificate',{}).get('nullity'),'upper',result.get('whole_projective_image_upper'),
+            'walls',[(v['alpha'],v['whole_m3_source_empty'],v.get('whole_projective_image_upper'))for v in result.get('all_exceptional_sources',[])],flush=True)
+    proofs=[ROOT/'research/classification'/name for name in['PLANE_NONREDUCED_M3_TRIPLE_ROOT_FIRST_CONNECTIONS.md','PLANE_NONREDUCED_M3_TRIPLE_FINITE_NORMALFORMS.md','PLANE_NONREDUCED_M3_TRIPLE_CANONICAL_REDUCTION.md','PLANE_NONREDUCED_M3_TRIPLE_IRREGULAR_C_EXCLUSION.md','PLANE_M3_CANONICAL_TRANSVERSE_OFFDIAGONAL_OBSTRUCTION.md','PLANE_M3_CONSTANT_ROOT_OBSTRUCTION.md']]
+    archive=ROOT/'research/classification/inputs/plane_nonreduced_m3_triple_preappend_inputs_20261108.json'
+    result={'task_id':'G','all_exact_arithmetic_passed':True,'all90_G_closed':all(v['all_strata_G_closed']for v in records),'cases':records,
+        'scope':'Entiregenerictripleroot nonredR firstconnectionsafterpurefullsourceobstructions:15wholealpha+75fixed. Allglobalclosedflatconnections/inverseforms/K/P0Jac/full30/9/D3line/allbadnormalrows; fullspecialfibers retained. Badcolumnzero impliesproperzfactor. Higher/Gonlyifexplicittrue, m2/reducedRoutside.',
+        'all24_D3_monomials':monG,'all30_K_monomials':monK,'compatible_extension_old_function_AST_unchanged':True,'old_function_names':sorted(before),
+        'producer_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'producer_bytes':Path(__file__).read_text(),
+        'input_bindings':[{'path':str(v.relative_to(ROOT)),'sha256':hashlib.sha256(v.read_bytes()).hexdigest()}for v in[HELPER,previous,archive]+proofs],
+        'seconds':time.monotonic()-started,'maximum_RSS_KiB':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss}
+    destination.write_text(json.dumps(result,indent=2)+'\n')
+    if checkpoint.exists():checkpoint.unlink()
+
+
 if __name__=='__main__':
     try:
-        if '--nonreduced-m3-moving-double' in __import__('sys').argv:nonreduced_m3_moving_double_main()
+        if '--nonreduced-m3-triple' in __import__('sys').argv:nonreduced_m3_triple_main()
+        elif '--nonreduced-m3-moving-simple-modules' in __import__('sys').argv:nonreduced_m3_moving_simple_modules_main()
+        elif '--nonreduced-m3-moving-simple-ore' in __import__('sys').argv:nonreduced_m3_moving_simple_ore_main()
+        elif '--nonreduced-m3-moving-simple' in __import__('sys').argv:nonreduced_m3_moving_simple_main()
+        elif '--nonreduced-m3-moving-double-ore' in __import__('sys').argv:nonreduced_m3_moving_double_ore_main()
+        elif '--nonreduced-m3-moving-double' in __import__('sys').argv:nonreduced_m3_moving_double_main()
         elif '--nonreduced-m3-constant-modules' in __import__('sys').argv:nonreduced_m3_constant_modules_main()
         elif '--nonreduced-m3-constant-ore' in __import__('sys').argv:nonreduced_m3_constant_ore_main()
         elif '--nonreduced-m3-constant-roots' in __import__('sys').argv:nonreduced_m3_constant_roots_main()
@@ -2676,7 +3323,7 @@ if __name__=='__main__':
         else:main()
     except FileExistsError:raise
     except Exception as error:
-        failure=ROOT/('reports/CLASSIFICATION_PLANE_NONREDUCED_M3_MOVING_DOUBLE_RUNTIME_20261107.json' if '--nonreduced-m3-moving-double' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_NONREDUCED_M3_CONSTANT_MODULES_RUNTIME_20261107.json' if '--nonreduced-m3-constant-modules' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_NONREDUCED_M3_CONSTANT_ORE_RUNTIME_20261107.json' if '--nonreduced-m3-constant-ore' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_NONREDUCED_M3_CONSTANT_ROOTS_RUNTIME_20261107.json' if '--nonreduced-m3-constant-roots' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_DOUBLE_LINE_M3_ORE_RUNTIME_20261107.json' if '--double-line-m3-ore' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_DOUBLE_LINE_M3_SQUAREFREE_RUNTIME_20261107.json' if '--double-line-m3-squarefree' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_M4_NONREDUCED_SQUAREFREE_RUNTIME_20261107.json' if '--m4-nonreduced-squarefree' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_M4_TWO_LINE_CASIMIR_RUNTIME_20261107.json' if '--m4-two-line-casimir' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_NONREDUCED_TRIPLE_LINE_M3_LEADING_RUNTIME_20261107.json' if '--nonreduced-cubic-leading' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_NONREDUCED_TRIPLE_LINE_M3_SQUAREFREE_RUNTIME_20261107.json' if '--nonreduced-cubic' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_ORE_RUNTIME_20261107.json' if '--global-ore' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_DEPENDENT_RUNTIME_20261107.json' if '--global-dependent' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_COMMONIMAGE_RUNTIME_20261107.json' if '--global-commonimage' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_CARTAN_SURFACE_RUNTIME_20261107.json' if '--global-cartan-surface' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_THREEPARAMETER_RUNTIME_20261107.json' if '--global-threeparameter' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_NIL_LINE_RUNTIME_20261107.json' if '--global-nil-line' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_HYPERBOLA_RUNTIME_20261107.json' if '--global-hyperbola' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_TWOPARAMETER_RUNTIME_20261107.json' if '--global-twoparameter' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_TSQUARE_RUNTIME_20261107.json' if '--global-tsquare' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_RESIDUAL_RUNTIME_20261107.json' if '--global-residual' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_COMPATIBILITY_RUNTIME_20261107.json' if '--global-compatibility' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_ONECUT_RUNTIME_20261107.json' if '--global-onecut' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_LOWPARAMETER_WEIGHTS_RUNTIME_20261107.json' if '--global-lowparameter' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_RANK_TWO_NONKERNEL_WEIGHTS_RUNTIME_20261107.json' if '--rank2-nonkernel' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_RANK_TWO_KERNEL_WEIGHTS_RUNTIME_20261107.json' if '--rank2-kernel' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_FULLRANK_WEIGHTS_RUNTIME_20261107.json')
+        failure=ROOT/('reports/CLASSIFICATION_PLANE_NONREDUCED_M3_TRIPLE_RUNTIME_20261108.json' if '--nonreduced-m3-triple' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_NONREDUCED_M3_MOVING_SIMPLE_MODULES_RUNTIME_20261108.json' if '--nonreduced-m3-moving-simple-modules' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_NONREDUCED_M3_MOVING_SIMPLE_ORE_RUNTIME_20261108.json' if '--nonreduced-m3-moving-simple-ore' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_NONREDUCED_M3_MOVING_SIMPLE_RUNTIME_20261107.json' if '--nonreduced-m3-moving-simple' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_NONREDUCED_M3_MOVING_DOUBLE_ORE_RUNTIME_20261107.json' if '--nonreduced-m3-moving-double-ore' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_NONREDUCED_M3_MOVING_DOUBLE_RUNTIME_20261107.json' if '--nonreduced-m3-moving-double' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_NONREDUCED_M3_CONSTANT_MODULES_RUNTIME_20261107.json' if '--nonreduced-m3-constant-modules' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_NONREDUCED_M3_CONSTANT_ORE_RUNTIME_20261107.json' if '--nonreduced-m3-constant-ore' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_NONREDUCED_M3_CONSTANT_ROOTS_RUNTIME_20261107.json' if '--nonreduced-m3-constant-roots' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_DOUBLE_LINE_M3_ORE_RUNTIME_20261107.json' if '--double-line-m3-ore' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_DOUBLE_LINE_M3_SQUAREFREE_RUNTIME_20261107.json' if '--double-line-m3-squarefree' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_M4_NONREDUCED_SQUAREFREE_RUNTIME_20261107.json' if '--m4-nonreduced-squarefree' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_M4_TWO_LINE_CASIMIR_RUNTIME_20261107.json' if '--m4-two-line-casimir' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_NONREDUCED_TRIPLE_LINE_M3_LEADING_RUNTIME_20261107.json' if '--nonreduced-cubic-leading' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_NONREDUCED_TRIPLE_LINE_M3_SQUAREFREE_RUNTIME_20261107.json' if '--nonreduced-cubic' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_ORE_RUNTIME_20261107.json' if '--global-ore' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_DEPENDENT_RUNTIME_20261107.json' if '--global-dependent' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_COMMONIMAGE_RUNTIME_20261107.json' if '--global-commonimage' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_CARTAN_SURFACE_RUNTIME_20261107.json' if '--global-cartan-surface' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_THREEPARAMETER_RUNTIME_20261107.json' if '--global-threeparameter' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_NIL_LINE_RUNTIME_20261107.json' if '--global-nil-line' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_HYPERBOLA_RUNTIME_20261107.json' if '--global-hyperbola' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_TWOPARAMETER_RUNTIME_20261107.json' if '--global-twoparameter' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_TSQUARE_RUNTIME_20261107.json' if '--global-tsquare' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_RESIDUAL_RUNTIME_20261107.json' if '--global-residual' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_COMPATIBILITY_RUNTIME_20261107.json' if '--global-compatibility' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_ONECUT_RUNTIME_20261107.json' if '--global-onecut' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_LOWPARAMETER_WEIGHTS_RUNTIME_20261107.json' if '--global-lowparameter' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_RANK_TWO_NONKERNEL_WEIGHTS_RUNTIME_20261107.json' if '--rank2-nonkernel' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_RANK_TWO_KERNEL_WEIGHTS_RUNTIME_20261107.json' if '--rank2-kernel' in __import__('sys').argv else 'reports/CLASSIFICATION_PLANE_RANK_ZERO_FULLRANK_WEIGHTS_RUNTIME_20261107.json')
         if not failure.exists():
             failure.write_text(json.dumps({'task_id':'G','all_passed':False,'failure':repr(error),
                 'producer_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),

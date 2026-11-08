@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "version": "v64-classification-plan",
-  "date": "2026-11-07",
+  "date": "2026-11-08",
   "baseline_commit": "a00a541b835b2bff18bafcba545ecbd4bae7175b",
   "target": "exhaustive_reduced_components_before_PGL5_and_generic_geometry",
   "mathematical_status": {
@@ -61,7 +61,7 @@
         "generic_circuit_review"
       ],
       "acceptance": "全42法線の根基所属等または未知残余の空性を証明し、適用底開・全分母・独立検証を明記する。新残余があれば分類計画を更新し、未解決のまま成功扱いしない。",
-      "first_step": "Gはrank二planeのみ。m二normaldoubleの横断R空/接触R像≤23も完了。残るreduced triangle/concurrent double、nonredR/m二、reducedR/m三及びnonredR/m三repeated残全sourceを閉じる。",
+      "first_step": "Gはrank二planeのみ。reducedR m二SFと横断/接線/triangle double、全非concurrent reducedR m三、nonredR m三SF/constant21、nonredR m二movingdoubleを独立完了。全reducedR/m二Gも完了。nonredR m三moving21は独立確認を完了する。残nonredR m二SF00/01/02・constantdouble、nonredR m三triple、concurrent reducedR m三を全sourceで閉じる。",
       "fallback": "同経路の二回未決で支持幾何または境界経路に変更し、E0/Aも進める。",
       "nonclosing_attempts": 0,
       "proof": null,
@@ -167,14 +167,22 @@
         "G_SMOOTH_CUBIC_SCROLL_RANK_TWO_ALL_ZERO_DIVISORS_NONDOMINANCE",
         "G_TWISTED_CUBIC_CONE_RANK_TWO_ALL_ZERO_DIVISORS_NONDOMINANCE",
         "G_INTEGRAL_DEGREE_THREE_RANK_TWO_ALL_NONDOMINANCE",
-        "G_PLANE_M2_TANGENT_NORMAL_DOUBLE_ALL_NONDOMINANCE"
+        "G_PLANE_M2_TANGENT_NORMAL_DOUBLE_ALL_NONDOMINANCE",
+        "G_PLANE_NONREDUCED_ZERO_CUBIC_M2_SQUAREFREE_ROOT_FLAGS_03_12_11_EMPTY",
+        "G_PLANE_NONREDUCED_M3_CONSTANT_DOUBLE_SIMPLE_ROOTS_ALL_NONDOMINANCE",
+        "G_PLANE_TRIPLE_LINE_M2_SQUAREFREE_FLAG02_EMPTY",
+        "G_PLANE_M3_CONSTANT_NORMAL_ROOT_BAD_VECTOR_CHARACTER_OBSTRUCTION",
+        "G_PLANE_REDUCED_TRIANGLE_M2_DOUBLE_NORMAL_ALL_NONDOMINANCE",
+        "G_PLANE_REDUCED_NONCONCURRENT_CUBIC_M3_ALL_NONDOMINANCE",
+        "G_PLANE_NONREDUCED_M2_MOVING_DOUBLE_ROOT_ALL_EMPTY",
+        "G_PLANE_REDUCED_CUBIC_M2_NORMAL_DOUBLE_ALL_NONDOMINANCE"
       ],
       "latest_integral_surface_reduction": "research/classification/INTEGRAL_SURFACE_LINEAR_NORMALITY.md",
       "normal_degree_six_remaining": "none for rankzero: full ruled numerics and relativeconic exclusion independently accepted",
       "degree_six_rankzero_remaining": "none, all normal/nonnormal excluded via full normalized quintic sectionalgenus0 conductor proof",
       "degree_five_rankzero_remaining": "none for G: genus0<=24; genus1 T40 or<=24",
       "degree_six_ranktwo_remaining": "none for G: all five normalization scroll types empty or image<=24",
-      "degree_five_ranktwo_remaining": "genus0<=24; genus1 elliptic empty; canonical index2 remains",
+      "degree_five_ranktwo_remaining": "none forG: genus0 image<=24, genus1 empty, canonicalindex2 allnode image<=24/allcusp empty independently accepted",
       "plane_rankzero_m2_remaining": "none forG: entire source MPS40 or image<=24",
       "plane_ranktwo_m4_remaining": "none forG: allR wholem4 non-dominance, allnonredR fullpointcoverage in eightessential3 components. ReducedR smallsources E memberships remain separate.",
       "plane_rankzero_k1_remaining": "none for coefficientrank>=2 and anymultiplicity: whole image<=24",
@@ -188,19 +196,23 @@
       "plane_rankzero_remaining": "none forG: fullcoHiggs/symbol/multiplicity cover MPS40 orimage<=24",
       "rankzero_surface_remaining": "none forG: allnonplane T40or<=24 plusallplane MPS40or<=24",
       "degree_four_ranktwo_remaining": "none forG: wholeCI22/quadricclass projection exclusion/projectedVeronese finitecover image<=24.",
-      "plane_ranktwo_m3_remaining": "R3L squarefreeempty; repeatedleading and2L+M/reducedreducibleR othercases remain.",
-      "plane_ranktwo_m2_remaining": "ReducedR squarefree flags03/12 empty, triangleflag00 fullMPS; flags01/02/11, otherflag00, normaldouble andnonredR remain.",
+      "plane_ranktwo_m3_remaining": "AllnonredR SF andconstant21 G<=24 accepted; moving21 allflags producerclosed/reviewpending. Allreduced nonconcurrentR m3 G<=23 accepted. Remaining: concurrentreducedR allroottypes and nonredR generictriple.",
+      "plane_ranktwo_m2_remaining": "reducedR SF allpoint MPS; double transverseempty/tangent andtriangle image<=23 independently accepted, concurrent17/all84 complexwallalgebras independentlyaccepted, whole reducedR double G<=23. NonredR SF flags03/12/11 empty, R3L SF02 empty; movingdoubleempty; constantdouble and remaining00/01/02 open.",
       "latest_plane_m2_squarefree_reduced_R_coverage": "research/classification/PLANE_RANK_TWO_M2_SQUAREFREE_REDUCED_CUBIC_COVERAGE.md",
       "latest_canonical_index_two_whole_review": "research/classification/RANK_TWO_QUINTIC_CANONICAL_INDEX_TWO_SEPARATE_REVIEW.md",
       "remaining_ranktwo_surface_sources": [
-        "plane_m2_reduced_triangle_or_concurrent_double_normal",
-        "plane_m2_nonreduced_zero_cubic",
-        "plane_m3_reduced_reducible_zero_cubic",
-        "plane_m3_nonreduced_repeated_leading_residuals"
+        "plane_m2_nonreduced_SF_00_01_02_and_constant_double",
+        "plane_m3_reduced_concurrent_zero_cubic",
+        "plane_m3_nonreduced_triple_leading"
       ],
       "latest_nonredR_m3_squarefree_whole_review": "research/classification/PLANE_DOUBLE_LINE_M3_ORE_SEPARATE_REVIEW.md",
       "latest_degree_three_ranktwo_whole_review": "research/classification/CUBIC_CONE_RANK_TWO_SEPARATE_REVIEW.md",
-      "latest_plane_m2_double_tangent_completion": "research/classification/PLANE_M2_DOUBLE_TANGENT_COMPLETION.md"
+      "latest_plane_m2_double_tangent_completion": "research/classification/PLANE_M2_DOUBLE_TANGENT_COMPLETION.md",
+      "latest_nonredR_m2_squarefree_firstflag_exclusion": "research/classification/PLANE_NONREDUCED_M2_SPLIT_ROOT_ENTRANCE.md",
+      "nov8_pending_independent_reviews": [
+        "nonreduced_R_m3_moving_double_and_simple_21"
+      ],
+      "nov8_completed_whole_nonconcurrent_m3": "research/classification/inputs/plane_reduced_nonconcurrent_m3_whole_nondominance_manifest_20261108.json"
     },
     {
       "id": "G_direction",
@@ -589,7 +601,13 @@
       ],
       "mu5_remaining": "None for wholefive MU5/r1 marked cases: five new23. A5hyperflex now full two-normal mprimary23component. WholeA3A2 inclk-1 oldcuspidal24, D5cusptangent oldA0.",
       "latest_full_global_parent_exclusion": "research/classification/GA9_LINEAR_W_A5_GLOBAL_PARENT_SEPARATE_REVIEW.md",
-      "latest_T37_B_whole_curve_closure": "research/classification/T37_LAGRANGIAN_CURVE_CLOSURE.md"
+      "latest_T37_B_whole_curve_closure": "research/classification/T37_LAGRANGIAN_CURVE_CLOSURE.md",
+      "nov8_accepted_source_progress": [
+        "E_TWO_LINES_CUSP_TANGENT_SECANT_GLOBAL_C39_C40_T21_EXCLUSIONS",
+        "E_TWO_QUADRICS_CONTACT31_CHORD_WHOLE_SNC_CONFLUENCE",
+        "E_PLANE_HYPERPLANE_TWO_DISTINCT_IRREDUCIBLE_QUADRICS_ALL_POINT_COVERAGE"
+      ],
+      "nov8_plane_two_quadrics_whole_coverage": "research/classification/inputs/two_quadrics_plane_whole_coverage_manifest_20261108.json"
     },
     {
       "id": "P",
