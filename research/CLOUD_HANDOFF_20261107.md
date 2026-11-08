@@ -20,8 +20,11 @@ fetch/ff-onlyでここまで復旧した。復旧時の8b46/PDF hashはCLOUD_REC
 直前288頁PDF SHAは `a6482f56471bd0e75ae35a01a234a81d00ef30b7949d372cca910415da65e5ba`、TeX SHAは `9155f735d319067d99650d84159979e2572d3b939013b4f184b59d16ab6d6905`。
 直前295頁PDF SHAは `b223a24182b809cc7dc0a2de6b5e2247bf80ea02070a72ae22d893477f43505a`、TeX SHAは `e9269978ea4239205676b1395b2e90635bddc6f8edb2a60d567d31197025bdd2`。
 今回の継続区間開始SHAは `57f8e29db085dd43df885f9085b34ae6ea9053fa`、HEAD=origin/mainを確認した。
-現行129/1044・301頁PDF SHAは `921b112e2d90aca3327317332a14420b6d19d3a51af61142c64deb3cbfb66b6b`、
+直前129/1044・301頁PDF SHAは `921b112e2d90aca3327317332a14420b6d19d3a51af61142c64deb3cbfb66b6b`、
 TeX SHAは `340bf6035664c3f031ef62215243f6110b0420a4a88192e7c28949715d097b97`。
+本保存区間は `a925a06ff41827e157b12aa325bcb5083855f3ef` のHEAD=origin/mainを確認して開始した。
+現行129/1054・310頁PDF SHAは `283fb4f9e6730ec8a75780b213e14ff9255861d2afe43aefb90dae87f7884edb`、
+TeX SHAは `dd72965028656743d2e25329f3a033c7595b3f1a039d3a0614b834fe05b82c94`。
 公開保存の実SHAはGit HEAD/origin/mainで確認する。
 
 非公開部分の旧report実測・旧hashを捏造して復旧しない。手証明/入力/sourceは旧hash一致のものだけexact復元と呼ぶ。
@@ -32,23 +35,22 @@ TeX SHAは `340bf6035664c3f031ef62215243f6110b0420a4a88192e7c28949715d097b97`。
 
 ## 現行数学
 
-採録cutは129成分（rank四123、rank二6）・1044主張。
-新HA moving-simple t=2/15の全W六を一つのsmooth23全成分へ認識し、全prior128との相違を独立確認した。
-rank二planeのm三・m四は全R/root/normal/higher源を既知成分へ被覆した。
-smooth cubic scroll rank零は修正L六＋Segre五の全源で既約quintic枝が空、cubic cone rank零は全T38。
-degree四導手曲面は全rank零/二・全centre/spanで既約quintic枝が空。
-不安定elliptic rank零は全sections/frame/conductorの実曲線でT40へ被覆した。
-一般Gは完了、全E・総上界・分類主定理は未証明である。
-現行PDFは129/1044・301頁、最終二回組版と全参照・主要頁可視確認済み。
-通常Git保存はHEAD/origin/mainを確認する。全H+2Q、三相異H+既約Q、Q+C3、1+1+3非plane等は既被覆済み。
-旧smoothscrollfour-coverは反例により撤回、旧bytesを保存し正しい二源だけを採用した。
+採録cutは129成分（rank四123、rank二6）・1054主張。
+直前公開a925a06fの129/1044に加え、全degree五rank零のT40、全genus零degree五rank二の空性、
+twisted-cubic cone rank二の全T38/T39、八HF壁のT36/T38、tangent m二の全T37/T40/E3を受理した。
+rank零planeのdependent globalVは全multiplicityでE3八成分又は空、common-image全四源はrank二以下。
+triangle m二normaldouble全十壁は元Jacobi一squareから全空、quadric cone rank二C零全源も二次因子で空。
+新成分加算は零。一般Gは完了、全E・総上界・分類主定理は未証明である。
+現行PDFは129/1054・310頁、最終二回組版と全参照・追加証明頁可視確認済み。
+通常Git保存はHEAD/origin/mainを確認する。
 
-次cut用のgenus零rank零T40、cubic cone rank二T38/T39、HF八壁T36/T38、tangent m二、
-dependent-global-vector、triangle/concurrent及びquadric cone rank二等のpacketは、独立確認と台帳採録を区別して保存する。
-現1044件へ未採録のpacketを既証明の全分類へ算入しない。
-genus零の旧未コミットreview note一件は同名作成衝突でbyte消失した。旧hashを改変せず、
-`classification/inputs/genus_zero_rankzero_review_source_loss_20261108.json` に欠損と旧三記録のexact bytesを明記した。
-原証明と新別名の独立reviewは現存し、欠損旧noteを証明依存には使わない。
+採録後のdegree六rank二・二曲線留数排除、degree五canonical index二全T37、
+fullFuを復元したquadric cone rank二V2全空性は原証明と独立reviewを保存し、次cutで採録する。
+零symbol全39源の一軌道還元も独立読解済みだが、そのambient D96/M48・六法線では親が未解決である。
+concurrent m二の全二sourceは一軌道と同じsmooth24親への全有限graphまで計算確認し、actual T37同定を進める。
+smoothscroll A25全source、他のrank零plane及び重複Hの残源等は全点帰属を続ける。
+quadric cone旧SS/nil六変数入口のFu-only欠落は別erratumで撤回し、不変V1を証明依存に復帰させない。
+旧genus零review note一件のbyte消失もlossreceiptで明示し、原証明と新別名の現存reviewだけを採録依存に使う。
 
 全詳細と次の依存入口は `classification/CURRENT.md`、`classification/PLAN.json`、`NEXT_TASKS.md`。
 

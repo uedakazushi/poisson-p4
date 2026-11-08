@@ -7,9 +7,9 @@
 
 個別に証明・独立確認済みの下界は **129成分（一般rank四123、一般rank二6）**。
 `research/COMPONENTS.json` が唯一の加算台帳であり、一般βのGは全分岐監査まで完了。総上界・全E・分類主定理は未証明。
-現在の主張台帳は1044件。plan/check/gateの成功は数学の認証ではない。
-今回の継続区間開始・直前公開保存点は `57f8e29db085dd43df885f9085b34ae6ea9053fa`（128成分・1032主張、295頁）で、GitHub mainとの一致を確認した。
-現129/1044の受理済み証明を同じ日本語主稿へ統合し、301頁の最終二回組版・全参照・主要頁可視を確認した。
+現在の主張台帳は1054件。plan/check/gateの成功は数学の認証ではない。
+この保存区間の開始・直前公開保存点は `a925a06ff41827e157b12aa325bcb5083855f3ef`（129成分・1044主張、301頁）で、GitHub mainとの一致を確認した。
+現129/1054の受理済み証明を同じ日本語主稿へ統合し、310頁の最終二回組版・全参照・追加頁可視を確認した。
 最新commit・通常push・PDFの実際の状態はGit及びbuild receiptで確認する。
 
 Cloud中断後、初期snapshotへ戻ったworkspaceをfetch/ff-onlyで公開checkpointまで復元した。
@@ -190,7 +190,7 @@ generic21及びreducedR/m三は正しい式/一意parallel connection/全元P0�
 Cexact/moving source等の新閉鎖、cubicconeT38、PV、新HA候補は各frozenpacketを次cutで独立採録する。
 未採録候補を128成分へ混ぜず、実根拠はCLAIMS/COMPONENTSを唯一の台帳とする。
 
-HA moving-simple t2/15の全六源を独立二engine全ambient＋全prior128で新smooth23成分として採録し、現下界129/主張1044。
+HA moving-simple t2/15の全六源を独立二engine全ambient＋全prior128で新smooth23成分として採録し、現下界129/主張1054。
 公開済みmainは57f8e29db085dd43df885f9085b34ae6ea9053fa（128/1032/295頁）。追加HAは次cutへ統合する。
 
 全rank二plane m三及びm四のpointwiseEを閉じた。全degree四導手もrank零/二で既約quintic枝は空、unstable elliptic rank零全源はT40へ。

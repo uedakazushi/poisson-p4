@@ -1,0 +1,40 @@
+{
+  "task_id": "E_reduced_nonnormal",
+  "all_passed": true,
+  "method": "Independent standardlibrary Fraction, literal canonicalP/determinant/residue formulas and truecompletedT37 source; no producer/CAS imports or newoperator.",
+  "identity_count": 43,
+  "actual_GL_det": 576,
+  "both_inverse_products": true,
+  "all150_forward_and_inverse_actual_T37_Euler_match": true,
+  "all350_projective_Jacobi": true,
+  "all126_actual_Pf_scalar": 6,
+  "all_six_twoform_full_restriction_remainders_zero": true,
+  "conic_matrix_det": "1/4",
+  "whole_source_entrance": "Separately read alloldsource/i0-i2/vertexrankzero-unit and actualinverse; not inferred from this onecanonicalpositive computation.",
+  "new_component_count": 0,
+  "inputs": [
+    {
+      "path": "code/classification_cubic_scroll_abelian_review.py",
+      "sha256": "116dfa897adb51862d53d1a3e104a153f23d15afaf95150eb2e65c4c00f33c91"
+    },
+    {
+      "path": "reports/MPS_SMOOTHING_COMPLETION_20261103_v62/T37.json",
+      "sha256": "edc3782c7da1548e73380e1273cb4a87a2668d547dc8196cfa4c11484f7ced74"
+    },
+    {
+      "path": "research/classification/CANONICAL_INDEX_TWO_NODE_WHOLE_ORBIT_ENTRANCE.md",
+      "sha256": "c0ad977963a8327030548a243d84b1bd46b053fda939d902b3f29d53e5454b77"
+    },
+    {
+      "path": "research/classification/CANONICAL_INDEX_TWO_NODE_WHOLE_T37_COVERAGE.md",
+      "sha256": "5bf662223d47f04b1bfde72cf85e36346d2ab1d9417294eab48ed848a61f3f29"
+    },
+    {
+      "path": "research/classification/RANK_TWO_QUINTIC_CANONICAL_INDEX_TWO_SEPARATE_REVIEW.md",
+      "sha256": "e6a0cfdb9070aa99398a4533819f356d5d9cad4a731a4e4c0d524d7f05e35eaa"
+    }
+  ],
+  "inline_source": "from pathlib import Path\nfrom fractions import Fraction as Q\nimport ast,hashlib,itertools as it,json,re,resource,sys,time\nsys.path.insert(0,'code')\nfrom classification_cubic_scroll_abelian_review import add,scale,mul,diff,parse,determinant\nresource.setrlimit(resource.RLIMIT_CPU,(59,60));resource.setrlimit(resource.RLIMIT_AS,(512*1024**2,)*2);begun=time.monotonic()\njp=Path('research/classification/jobs/canonical_index_two_node_root_separate_review.json');job=json.loads(jp.read_text())\nfor v in job['exact_inputs_and_hashes']:assert hashlib.sha256(Path(v['path']).read_bytes()).hexdigest()==v['sha256'],v['path']\nnames=['a','b','c','d','e'];pairs=list(it.combinations(range(5),2));one={(0,)*5:Q(1)};x=[parse(n,names)for n in names];count=0\ndef ck(a,b,label):\n global count\n assert a==b,label\n count+=1\ndef powp(p,n):\n v=one\n for _ in range(n):v=mul(v,p)\n return v\ndef sub(p,cs):return add(*(scale(mul_many([powp(cs[i],k)for i,k in enumerate(ex)]),c)for ex,c in p.items()))\ndef mul_many(ps):\n v=one\n for p in ps:v=mul(v,p)\n return v\ndef pair(p,i,j):return p.get((i,j),{})if i<j else scale(p.get((j,i),{}),-1)if i>j else{}\ndef lin(m):return [add(*(scale(x[j],c)for j,c in enumerate(row)))for row in m]\ndef mp(a,b):return [[sum(a[i][k]*b[k][j]for k in range(5))for j in range(5)]for i in range(5)]\ndef pf(p):\n out={}\n for i in range(5):\n  a,b,c,d=[j for j in range(5)if j!=i];v=add(mul(pair(p,a,b),pair(p,c,d)),scale(mul(pair(p,a,c),pair(p,b,d)),-1),mul(pair(p,a,d),pair(p,b,c)));out=add(out,scale(mul(x[i],v),(-1)**i))\n return out\nliteral=['-6*a*b/5','-2*a*c/5-2*b**2','2*a*d/5+4*b*c','6*a*e/5-2*b*d-2*c**2','-6*b*c/5','3*b*d/5+3*c**2','-3*b*e/5-3*a**2','-6*c*d/5+2*a**2+2*b*e','-2*c*e/5-4*a*b','-d*e/5+2*a*c+3*b**2']\nP={ij:parse(v,names)for ij,v in zip(pairs,literal)}\nq=parse('a*c-b**2',names);A=parse('c**2+b*d',names);B=parse('a**2+b*e',names);C=parse('c**2*e+a**2*d+2*a*c*b+b*d*e-b**3',names)\nF=add(mul(q,C),scale(mul(x[2],mul(A,A)),-1),scale(mul(x[1],mul(A,B)),2),scale(mul(x[0],mul(B,B)),-1));g1=add(mul(x[1],B),scale(mul(x[2],A),-1));g2=add(mul(x[1],A),scale(mul(x[0],B),-1))\nck(pf(P),scale(F,6),'all126 actualPf=6F')\nfor j in range(5):ck(add(*(diff(pair(P,i,j),i)for i in range(5))),{},'canonical divergence')\nJ={t:add(*(mul(pair(P,i,l),diff(pair(P,j,k),l))for i,j,k in [t,(t[1],t[2],t[0]),(t[2],t[0],t[1])]for l in range(5)))for t in it.combinations(range(5),3)}\nfor quad in it.combinations(range(5),4):ck(add(*(scale(mul(x[k],J[quad[:i]+quad[i+1:]]),(-1)**i)for i,k in enumerate(quad))),{},'original350 projectiveJacobi')\nt37=json.loads(Path('reports/MPS_SMOOTHING_COMPLETION_20261103_v62/T37.json').read_text());params=set(t37['period_parameters']+t37['smoothing_parameters'])\ndef source_parse(t):\n for n in params:t=re.sub(r'\\b'+n+r'\\b','1',t)\n return parse(t,[f'x{i}'for i in range(5)])\nS={tuple(map(int,k.split(','))):source_parse(v)for k,v in t37['homogeneous_bivector'].items()}\nM=[[0,0,0,2,0],[1,0,0,0,0],[0,0,0,0,-2],[0,0,-12,0,0],[0,12,0,0,0]];Mi=[[0,1,0,0,0],[0,0,0,0,Q(1,12)],[0,0,0,Q(-1,12),0],[Q(1,2),0,0,0,0],[0,0,Q(-1,2),0,0]];eye=[[Q(i==j)for j in range(5)]for i in range(5)]\nck(determinant(M),Q(576),'actualdet576');ck(mp(M,Mi),eye,'inverse1');ck(mp(Mi,M),eye,'inverse2')\nR=lin([[Q(6,5),0,0,0,0],[0,0,0,0,0],[0,0,Q(-6,5),0,0],[0,0,0,Q(3,5),0],[0,0,0,0,Q(-3,5)]]);yy=lin(M);xx=lin(Mi)\npush={ij:add(*(scale(pair(S,k,l),M[ij[0]][k]*M[ij[1]][l])for k in range(5)for l in range(5)if M[ij[0]][k]and M[ij[1]][l]))for ij in pairs}\nfor i,j in pairs:\n ck(add(sub(push[i,j],xx),P[i,j],scale(mul(x[i],R[j]),-1),mul(x[j],R[i])),{},'all150 trueT37 actualforward')\n ck(add(push[i,j],sub(P[i,j],yy),scale(mul(yy[i],sub(R[j],yy)),-1),mul(yy[j],sub(R[i],yy))),{},'all150 actualinversecoordinates')\nck(sub(F,yy),scale(pf(S),96),'all126 F(MX)=96actualPfT37')\ncs=x[:4]+[one];fa=sub(F,cs);g1a=sub(g1,cs);g2a=sub(g2,cs);gg=mul(g1a,g2a)\nalpha=[add(mul(g2a,diff(g1a,i)),scale(mul(g1a,diff(g2a,i)),-1))for i in range(4)]\npa={(i,j):sub(add(pair(P,i,j),scale(mul(x[j],pair(P,i,4)),-1),mul(x[i],pair(P,j,4))),cs)for i,j in it.combinations(range(4),2)}\nlead=max(fa);lc=fa[lead]\ndef remainder(p):\n p=dict(p);rem={}\n while p:\n  e=max(p);c=p[e]\n  if all(e[k]>=lead[k]for k in range(5)):\n   delta=tuple(e[k]-lead[k]for k in range(5));p=add(p,scale(mul({delta:Q(1)},fa),-c/lc))\n  else:rem[e]=c;del p[e]\n return rem\nfor a,b in it.combinations(range(4),2):\n i,j=[k for k in range(4)if k not in(a,b)];lhs=scale(mul(gg,pa[i,j]),(-1)**(i+j-1));rhs=add(mul(diff(fa,a),alpha[b]),scale(mul(diff(fa,b),alpha[a]),-1));ck(remainder(add(lhs,scale(rhs,-1))),{},'all six fullrestriction twoforms modF')\n# Absolute irreducibility is checked by the complete conic, not pointwise source inference.\nco={}\nfor ex,c in F.items():\n ij=ex[3:5];ab=ex[:3]+(0,0);co[ij]=add(co.get(ij,{}),{ab:c})\nck(set(co),{(2,0),(1,1),(0,2),(1,0),(0,1),(0,0)},'completeconic coefficient support')\ndef val3(p):return sum(c*Q(2)**e[2]for e,c in p.items())\nv={ij:val3(p)for ij,p in co.items()};cm=[[v[2,0],v[1,1]/2,v[1,0]/2],[v[1,1]/2,v[0,2],v[0,1]/2],[v[1,0]/2,v[0,1]/2,v[0,0]]];ck(determinant(cm),Q(1,4),'nondegenerategenericconic')\nresult=dict(task_id='E_reduced_nonnormal',all_passed=True,method='Independent standardlibrary Fraction, literal canonicalP/determinant/residue formulas and truecompletedT37 source; no producer/CAS imports or newoperator.',identity_count=count,actual_GL_det=576,both_inverse_products=True,all150_forward_and_inverse_actual_T37_Euler_match=True,all350_projective_Jacobi=True,all126_actual_Pf_scalar=6,all_six_twoform_full_restriction_remainders_zero=True,conic_matrix_det='1/4',whole_source_entrance='Separately read alloldsource/i0-i2/vertexrankzero-unit and actualinverse; not inferred from this onecanonicalpositive computation.',new_component_count=0,inputs=job['exact_inputs_and_hashes'],inline_source=job['inline_source'],seconds=time.monotonic()-begun,maximum_RSS_KiB=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss)\nout=Path('reports/CLASSIFICATION_CANONICAL_INDEX_TWO_NODE_ROOT_SEPARATE_REVIEW_20261108.json')\nwith out.open('x')as f:json.dump(result,f,ensure_ascii=False,indent=2);f.write('\\n')\nprint(json.dumps({k:result[k]for k in ['all_passed','identity_count','seconds','maximum_RSS_KiB']}))\n",
+  "seconds": 0.01385862799725146,
+  "maximum_RSS_KiB": 12288
+}

@@ -27,7 +27,7 @@
 本稿は、複素射影四空間上のPoisson構造の被約既約成分を尽くし、各成分の一般元の幾何を記述するための研究原稿である。
 分類主定理の証明は完成していない。階数2の全支持を六族と階数4の閉包で覆い、従前58成分の依存監査に加え、二重二次曲面・冪零モジュラー場・平面曲線等の全源と既約非正規五次の明示軌道から七十一の相異なる成分を証明して下界129を得る。各新成分は全周囲方程式で検証し、全支持の尽くしとは区別する。
 一般primitive一次底に関する義務Gは完了した。実退化五次の全因子型、非正規曲面の全次数・restriction rank、planeの全零cubicと全normal位数を、既知閉和・全像24以下・底像の非優越へ入れる。未知優越成分の必要次元25--27と比較し、S61の一般係数体上のexact splitter残余Bが零であること、従って一般fiberが既知五点の有限エタール代数に等しいことを証明する。新しい一様分母や展開済みideal証明書を構成したという意味ではない。
-特殊底の全点E被覆は未完である。二重の既約二次曲面、五超平面、三超平面とquadric、quadricとcubic、平面H+二conics、非plane二超平面+cubic、rank二planeの全位数三・四を全点認識した。非plane次数四の全restriction rank及びsmooth cubic scroll rank零の既約五次枝は空、twisted cubic cone rank零はT38、次数五rank零のgenus一全源はT40である。一方、残る低次元源の既知親・成分性があるため、下界129を総数の上界とはせず、主分類定理を未証明の目標として保持する。
+特殊底の全点E被覆は未完である。二重の既約二次曲面、五超平面、三超平面とquadric、quadricとcubic、平面H+二conics、非plane二超平面+cubic、rank二planeの全位数三・四を全点認識した。非plane次数四の全restriction rank及びsmooth cubic scroll rank零の既約五次枝は空、twisted cubic coneの全rank零／二はT38／T39へ、次数五rank零の全源はT40へ入る。次数五・種数零rank二は全空、平面位数二のtangent・八HF壁も既知親へ認識し、triangle doubleは全空である。一方、残る低次元源の既知親・成分性があるため、下界129を総数の上界とはせず、主分類定理を未証明の目標として保持する。
 既存リポジトリの全証明書を再実行したとは主張せず、原証明の読解と今回の独立検算を区別する。
 詳細なnilpotent構造や派生論文の完成を、主分類定理の前提条件に追加しない。
 \end{abstract}
@@ -9097,6 +9097,48 @@ actual正規化の全逆を戻してもrank二以下である。
 \path{CLASSIFICATION_PLANE_GLOBAL_COMMONIMAGE_REVIEW_20261107.json}にある。
 旧linear-only reportの像31/30とfalseはrank二の大きな源を数えたもので、不変保存した。
 
+\subsection{common-imageの残二源も全てrank二以下となる}
+\begin{proposition}\label{prop:plane-commonimage-whole-E}
+前命題の全四源は、全重複度・全higher値で射影rank二以下である。
+従って実被約既約quinticを持つrank四源は空である。
+\end{proposition}
+\begin{proof}
+k零は前命題で既に全十八係数を含め証明した。
+k非零は同じ全actual逆でk一へ戻す。shearの順序を
+$(a_z,b_z,c_z,a_w,b_w,c_w)$とする。
+ssの全六次元D1核の座標$\alpha_0,\ldots,\alpha_5$に対し
+\[
+ s=(\alpha_3-2\alpha_5,\alpha_4,\alpha_5,
+       -\alpha_0+2\alpha_2,-\alpha_1,-\alpha_2)
+\]
+は全kernelを実shear $a'=a+s_0z+s_3w$、$b'=b+s_1z+s_4w$、
+$c'=c+s_2z+s_5w$で与える。
+逆shearを全tensorへ同時に施せばP1零、D2単射からP2も零。
+P0は$\partial_a,\partial_z,\partial_w$の三方向だけに支持され、skew rankは二以下である。
+nilの全七核では
+\[
+ s=(\alpha_0+\alpha_2,\alpha_1,\alpha_2,
+       \alpha_4+\alpha_6,\alpha_5,\alpha_6),\qquad r=\alpha_3 .
+\]
+逆shear後は$P_1=rN$だけで、
+$N=\partial_a\wedge(-bw\partial_b-cw\partial_c+zw\partial_z)$。
+Nはa非依存で$[N,N]=0$、元の全D1行もNを殺す。
+D2のrank九、非零minor$-64$からP2零。
+残tensorのbase括弧は$P_{ab}=-rbw,P_{ac}=-rcw$である。
+Euler項$E\wedge(-rw\partial_a)$を加えると正確に
+\[
+ \partial_a\wedge\{(bz+2rzw)\partial_z+
+             (bw+cz+rw^2)\partial_w\}+z^2\partial_z\wedge\partial_w
+\]
+となり、やはり三方向だけのrank二以下となる。
+全非斉次P2も一緒に変換しており、P1だけの正規化ではない。
+ssのD2 minorは$-96$、全shear／kernel恒等式とNの全350行は旧完全operatorで確認されている。
+反転はk非零に限り、k零源も先に保持したので補集合は無い。
+\end{proof}
+全源の純証明は\path{PLANE_RANK_ZERO_COMMON_IMAGE_WHOLE_RANK_TWO.md}、
+旧完全行列による独立読解は\path{PLANE_COMMON_IMAGE_ROOT_WHOLE_REVIEW.md}に置く。
+前命題の像20という旧G上界を、この点ごとのrank結論が強化する。
+
 \subsection{dependent global-V全二十一族から六whole源への必要還元}
 \begin{proposition}\label{prop:plane-dependent-six-entrance}
 rank零planeの非零traceless global-V源で$T=tV$なら、実Dが既約被約quinticとなる必要源は、
@@ -9262,6 +9304,50 @@ $W_0$はA/Bで$bz\partial_w$、S3で$b(4z\partial_z+2w\partial_w)$、S1で$2bz\p
 \path{CLASSIFICATION_PLANE_ORE_ENTRANCE_REVIEW_20261107.json}、
 \path{CLASSIFICATION_PLANE_ORE_MODULE_REVIEW_20261107.json}が全350式と真140行を独立Fractionで再構成する。
 producerの旧falseは保持し、ここでは新しい全支持証明で補った。
+
+\subsection{dependent全源の点ごとの八成分被覆}
+\begin{proposition}\label{prop:plane-dependent-whole-E}
+命題\ref{prop:plane-dependent-six-entrance}の全六源は、実Dが被約既約quinticなら
+既essential-three八成分に入る。
+\end{proposition}
+\begin{proof}
+Nの全四源は前命題のconstant-factor／八Ore moduleによって既に八成分又は空である。
+残る$H=a\partial_a+b\partial_b-2c\partial_c$のss、nil二源を全higherで調べる。
+ssでは全K1八係数の六shearが
+$(3t_a,3t_b,9t_c,-3s_a,-3s_b,-9s_c)$で、
+残二係数を$\alpha_0,\alpha_7$とする。
+$E\wedge(z\partial_z-w\partial_w)$を引いた全tensorのweight零／一は
+(c,z,w)上のJacobian bivectorで、そのpotentialは
+\[
+ F=-3czw-\alpha_0z^3/3+\alpha_7w^3/3.
+\]
+全D2単射なのでP2零、全tensorは三方向に支持されrank二以下となる。
+
+nilでは全K1十係数の六shearは
+$(3s_a/2,3s_b/2,9s_c/2,3t_a/2,3t_b/2,9t_c/2)$、
+残四係数をp,q,r,sとする。Euler項
+$E\wedge\{z\partial_w+pw\partial_a+qw\partial_b-(r/3)w\partial_c\}$を引くと
+\[
+ \Pi=\operatorname{Jac}_{c,z,w}(F)
+ +(p\partial_a+q\partial_b)\wedge W+P_2,\quad
+ F=\tfrac32cz^2+\tfrac r3zw^2+\tfrac s3w^3,\quad
+ W=w(-4c\partial_c+2z\partial_z+w\partial_w).
+\]
+全九P2を
+$A(z,w)\partial_a\wedge\partial_b+B(z,w)\partial_a\wedge\partial_c+
+C(z,w)\partial_b\wedge\partial_c$として保つ。
+GL2(a,b)はこの全源を保ち、D2単射によりP2解は各残係数上で高々一つなのでstabilizer不変である。
+p=q零なら全GL2の不変vectorは無くP2零、rank二以下。
+非零pairは二つの実可逆chartで$\partial_a$へ移せ、
+そのstabilizer $\left(\begin{smallmatrix}1&t\\0&d\end{smallmatrix}\right)$はA=C零を強制する。
+全tensorに$\partial_b$成分が無いので、Euler-signed actual五次はb因子を持つ。
+全p,q零境界も保持してH二源は空となる。
+全二十一Jordan源から六源への全逆、全tと全multiplicityを戻せば結論を得る。
+\end{proof}
+全shear、P2一意性とGL2不変性の別作者読解は
+\path{PLANE_DEPENDENT_H_WHOLE_EXCLUSION_SEPARATE_REVIEW.md}、
+全源との接続は\path{PLANE_DEPENDENT_GLOBAL_VECTOR_POINTWISE_COVERAGE.md}にある。
+一般のglobal-vector又は全rank零planeの点ごとの帰属を、このdependent命題だけから結論しない。
 
 \subsection{rank零planeの全重複度・全first symbolを戻す}
 \begin{proposition}\label{prop:plane-rankzero-all-G}
@@ -10433,6 +10519,59 @@ Bの全bracket零から$J_{xij}=\delta_iA_j-\delta_jA_i$、$J_{zuv}=0$だが、�
 旧V1の$J_{xij}=0$という誤ったstrict段階は採用しない。
 元producerの粗27という未閉reportは保存し、今回の全source認識と区別した。
 
+\subsection{tangent conicの全double源をT37・T40・八成分へ覆う}
+\begin{proposition}\label{prop:plane-tangent-m2-whole-E}
+命題\ref{prop:plane-m2-double-tangent-all-G}の全実既約五次源は、
+T37、T40及びessential-three八成分の有限閉和に入る。
+\end{proposition}
+\begin{proof}
+constant $h=f$のZ零／nil両型はequal-diagonalの全raw36と全九P2に対する
+ratio Hamiltonianのnilpotent inverseで
+$F=u^2f(\text{translated base})$を得る。
+この式は$\mathbb C(u,v)$上の必要式で、fの正base-degree二因子とGauss lemmaにより全空。
+旧Z零の像22という上界を未解決E枝と取り違えない。
+$h=L^3$は前命題の全十八源恒等式から八成分である。
+
+movingの全$\mathbb Q(t)$源では六shearと残K1を合わせたmatrixの
+$\det C=-(t+3)^2(t+6)^4$。
+逆／forcingの全分母因子は$t,t+3/2,t+3,t+9/2,t+6$であり、
+元七壁$6,-3/2,-5/2,-3,-9/2,-6,-9$は全kernelで戻す。
+t負六のshear rank五、残二係数$r_0,r_1$、
+particular $-r_0^2v^2/3$と元互換$r_0r_1=0$も保持する。
+genericと五壁では全actual Dがc因子を持つ。
+残二壁は各全二parameter族である。
+
+t負九半ではglobal polynomial Borelと逆が$p\mapsto p+10\lambda q$を与え、
+q非零をP(0,1)の一actual軌道へ戻す。q零全境界は同じ閉包に含まれる。
+その点の第二plane $\{c=u=0\}$上では
+$R'=3v(b^2-3v^2)$、normal位数三、normal cubic判別式は
+$-2916v^4(b^2-3v^2)^2$。
+全concurrent命題の点ごとの候補はT37、nil22-longの単一23軌道閉包、八成分。
+actual Dはessential五、特異支持は正確に二plane、actual軌道は23次元なので、
+essential三の八成分と三planeを持つnil22-long稠密軌道を除く。
+後者の真境界は22以下でこの23軌道を含めない。従って全族はT37へ入る。
+
+t負三ではglobal Borelと六normal-to-base shift及び全逆が
+$r\mapsto r+5\lambda s$を与え、s非零全源はP(0,1)の一軌道、
+s零も閉包で戻る。この点の実有限双有理正規化は
+\[
+ [a:b:c:u:v]=[sx:tx-s^2z:s^2y-stz:3t^2y:3t^2z]
+\]
+で、$Y=\mathbb P_{\mathbb P^1}(O(1)\oplus O(2)^2)$、
+全baseで五sectionのfiber rank三、H ample、$H^3=5$。
+plane導手は$t^2$で、first gluingはregular J3を含むcuspの全jet graphに入る。
+u一chartで$A=a-cv^2,B=b+cv+v^3/3,\eta=A/B$と置くと、
+D上で$\pi_D=-3B\partial_B\wedge\partial_v$、etaはCasimir、
+正規化双対形式は$-d\eta\wedge dB\wedge dv/(9B)$でresidueは$d\eta/3$。
+これは非零Rosenlicht generatorなので、
+命題\ref{prop:quintic-rankzero-all-T40}の部分導手による実T40変形の中心tensorに一致する。
+従ってこの全二parameter族もT40。全元normalizer逆を戻して結論を得る。
+\end{proof}
+全t／全七壁／非斉次P2の別作者算術確認は
+\path{PLANE_M2_TANGENT_POINTWISE_SEPARATE_REVIEW.md}、
+実正規化と全閉包の接続は\path{PLANE_M2_DOUBLE_TANGENT_POINTWISE_COVERAGE.md}。
+t零は位数三以上の別入口であり、この命題から捨ててはいない。
+
 \subsection{非被約零cubic・位数二の全pole budgetとmoving doubleの排除}
 \begin{proposition}\label{prop:plane-nonreduced-m2-root-exclusions}
 rank二plane、$f=a^3$又は$a^2b$、normal位数二、実D被約既約quinticとする。
@@ -10778,7 +10917,7 @@ R2L constant doubleのGは次命題で処理するが、その全E及びm三・�
 \begin{proposition}\label{prop:plane-double-line-m2-double-all-G}
 $f=a^2b$、normal位数二のgeneric double quadraticの全sourceは、既知閉和又は像23以下へ入る。
 従ってrank二planeの位数二全sourceが未知G優越一般成分を与えることは無い。
-八つのfixed HF壁などの全E帰属は、この次元結論から主張しない。
+八fixed HF壁の全Eは、このG上界と独立に命題\ref{prop:plane-HF-eight-whole-E}で認識する。
 \end{proposition}
 \begin{proof}
 moving rootは既空なので$G_2=\gamma h u^2$、$h=a^mb^{3-m}$、m=0,1,2,3の全constant根を扱う。
@@ -10898,11 +11037,73 @@ T/mのunit正規化、新profile又は高次障害を使わず全p源が閉じ�
 
 これでR2L constant doubleの全像23以下。
 全moving double空、R3L double全八成分、全RのSF既知閉和とreduced R double全上界23を合わせ、
-位数二の全G非優越が従う。八HF壁の全E帰属はまだ結論しない。
+位数二の全G非優越が従う。八HF壁の全Eは後続の命題\ref{prop:plane-HF-eight-whole-E}で認識する。
 \end{proof}
 全逆normalizer、全34＋51壁の別疎多項式エンジン再構成、rank十一bundleと元critical一行の独立確認は
 \path{PLANE_DOUBLE_LINE_M2_CONSTANT_DOUBLE_SEPARATE_REVIEW.md}。
 同reviewの初回期待値の誤りと失敗bytesを保存し、最終の元$-7m^2/9$全source実行だけを証拠に用いる。
+
+\subsection{八HF壁の二つの親を全有限equivariant sliceで認識する}
+\begin{proposition}\label{prop:plane-HF-eight-whole-E}
+命題\ref{prop:plane-double-line-m2-double-all-G}の八HF壁は、実既約五次源が空か、
+全点がT36又はT38に入る。
+\end{proposition}
+\begin{proof}
+k=$0,-1/2,-2,4$の各epsilon一では元Jacobiの平方係数がm零を強制し、
+全P2を含むu-rowがu倍となる。epsilon零のk零、四でも全Pfaffianはそれぞれ
+$-2b+p_3u+p_6v$、$-6b+p_4u+p_7v$で割れる。
+残るA=$(k,p)=(-1/2,2/5)$、B=$(-2,-1/2)$は各全$A^{10}$。
+全PGL飽和閉像は既約で像23以下、anchorのactual23軌道を含むので、
+全源の閉像はその一軌道閉包に等しい。点を選んだ部分源の包含ではない。
+
+anchorの整数scale二十／二で全Dはrank101、全群・Euler・scale Mはrank48。
+rawのnormalized torusはAで$s^{-1}\operatorname{diag}(s^2,s^{-1},s^3,1,s)_*$、
+Bで$s^{-1}\operatorname{diag}(s^2,s^2,s^3,1,s)_*$。
+全kernelを群方向で割った唯一のnormal characterは負二である。
+既存101minorのcoordinate補空間Uと実normal Nを使うと
+$\mathbb A^{150}=G_{48}\oplus U_{101}\oplus\mathbb CN$。
+一意なimplicit graphはtorus-equivariantなので、
+全raw characterの最小値負八／負六から、全completionそのものが
+\[
+ P_A+tN+t^2T_2+t^3T_3+t^4T_4,\qquad
+ P_B+tN+t^2T_2+t^3T_3
+\]
+に尽くされる。各係数を同じ101minor inverseで一度だけ解く。
+全350式の次数は高々八／六であり、その全係数は零である。
+従って真slice completionは$\mathbb C[[t]]$、
+48実群factorとの作用mapは微分が可逆なétale mapだから、全ambient点はsmooth unique24成分上にある。
+有限jetから無限graphを推測していない。
+torusの$s\mapsto s^2$は全射なのでt非零全曲線は同じactual24軌道で、親に稠密である。
+
+親の番号も実tensor等式で固定する。Aのt=144点では$\theta^2=6$として
+\[
+\begin{aligned}
+ X_0&=b-3c+2v,&X_1&=-72a+5u-15\theta(9c+v),\\
+ X_2&=-72a+5u+15\theta(9c+v),&
+ X_3&=u+\theta(v-3c),\quad X_4=u-\theta(v-3c).
+\end{aligned}
+\]
+detは$-311040$、T36全五parameterは
+$(300\theta,-1800,-1800,-300\theta,300\theta)$。
+push tensorの差は正確に$E_X\wedge M_*R$で、
+$R=(1500c+150v,144a+60u,40a,360c-240v,144a-40u)$。
+Bのt三点では
+\[
+ M=\begin{pmatrix}
+ 0&1&0&-1/6&0\\6&0&9&-1&3\\6&0&-9&-1&-3\\
+ 0&0&-1&1&1\\0&0&1&1&-1
+ \end{pmatrix},\qquad\det M=-288,
+\]
+T38 parameterは$(24,1,-1,12,-12)$、
+差は$E_X\wedge M_*R$、$R=(12c+4v,0,4a,-2c-2v,3a-4u)$。
+全150及びsigned Pfaffian全126で実等式を確認し、五次の共変係数はそれぞれdet Mである。
+親の閉性からanchor、全$A^{10}$、全元逆へ包含を戻せる。
+\end{proof}
+全characterからの有限次数証明は\path{HF_EQUIVARIANT_FINITE_WHOLE_SLICE_PROOF.md}、
+全graph／全350及び二つの実親同定の独立確認は
+\path{PLANE_M2_EIGHT_HF_SEPARATE_REVIEW.md}。
+Bに現れる第二cone上のintrinsic restrictionはrank零であり、
+raw normal括弧一成分だけを見た旧rank二の診断は用いない。
 
 \subsection{triangleの位数二double全源：canonical Casimirと十壁}
 \begin{proposition}\label{prop:plane-m2-triangle-double-all-G}
@@ -10958,7 +11159,44 @@ Euler/Levi/scale全150行39列からLevi stabilizer三、全六filtered shears�
 \end{proof}
 全actualD還元・syzygy全kernel・全1075/150・十壁と群fiberの別作者確認は
 \path{TRIANGLE_M2_DOUBLE_SEPARATE_REVIEW.md}。
-H21型の全E帰属は次元上界だけからは得られない。
+H21型の全空性は次の命題で元の単一係数から別に証明する。
+
+\subsection{triangle十壁は元の一行で全て空となる}
+\begin{proposition}\label{prop:plane-triangle-m2-double-empty-E}
+命題\ref{prop:plane-m2-triangle-double-all-G}の全実被約既約quintic源は空である。
+\end{proposition}
+\begin{proof}
+HF、fixed二型、壁外は前命題で既に空なので、残る全十壁を扱う。
+全leading括弧は
+\[
+\begin{gathered}
+ P_{ab}=ab,\quad P_{ac}=-ac,\quad P_{bc}=bc,\\
+ P_{au}=-2(r+1)au,\ P_{av}=-(2r+1)av,\quad
+ P_{bu}=(r+3)bu,\ P_{bv}=(r+1)bv,\\
+ P_{cu}=(r-1)cu,\ P_{cv}=au+rcv,\quad P_{uv}=(3r+1)uv .
+\end{gathered}
+\]
+六actual shearと全raw九P2を同時に変換する定数inverseにより、
+残mは$P_{au}$へ$mv^2$、$P_{ac}$へ$4mav/(3r)$、
+$P_{bc}$へ$mbv/(3r)$を加える。
+r負一の追加nは$P_{ab}$へ$-nav$、$P_{bc}$へ$3ncv$、
+$P_{bu}$へ$nuv$、r負半の追加$P_{bc}=q_8v^2$も保つ。
+元projective Jacobiのquad(a,c,u,v)、monomial $v^4$のrow279は、
+全P2 forcingを解く前から正確に
+\[
+ [\mathcal J_{acuv}]_{v^4}=4m^2/(3r).
+\]
+寄与は$P_{ua}\partial_aP_{ac}=(-mv^2)(4mv/(3r))$一項だけで、
+外側Eulerのv符号がこれを反転する。P2はa微分／u-rowを持たず、追加nもこの係数を変えない。
+全十rは非零なので被約支持上m零。
+すると全u-rowはu倍であり、omit-uのouter Euler項もu倍だからactual五次全体がu因子を持つ。
+全higherを保持した全空性が従う。
+\end{proof}
+定数inverseと単一行の純証明の別読解は
+\path{PLANE_TRIANGLE_M2_ROOT_PURE_REVIEW.md}。
+全係数の別Fraction実装によるcrosscheckは
+\path{PLANE_M2_TRIANGLE_H21_FRACTION_CROSSCHECK.md}に保存したが、
+この同一作者の補助再構成を別作者による全350再実行とは呼ばない。
 
 \subsection{concurrent三線のdouble quadratic：十七whole pencilsと全複素壁}
 \begin{proposition}\label{prop:plane-m2-concurrent-double-all-G}
@@ -14898,7 +15136,90 @@ actualPfaffianは$c(t)F_t$で、指定中心rank四より$c(0)\ne0$、中心を�
 全section／relative conductor／ambient descentの別作者読解は
 \path{UNSTABLE_ELLIPTIC_RANKZERO_T40_SEPARATE_REVIEW.md}、原証明は
 \path{UNSTABLE_ELLIPTIC_RANKZERO_ACTUAL_T40_CLOSURE.md}。
-genus零の正規化、rank二restriction又は他のE sourceへこの曲線を拡張しない。
+この逆extension単独をgenus零やrank二へ拡張しない。genus零の全源には次命題で別のQuot／部分導手曲線を作る。
+
+\subsection{種数零の全五sectionをpinchしてT40へ移す}
+\begin{proposition}\label{prop:quintic-rankzero-all-T40}
+次数五のintegral導手曲面上でrestrictionがrank零となる全実被約既約quintic源はT40に入る。
+正規化sectional genus零の113型は実際には空である。
+\end{proposition}
+\begin{proof}
+命題\ref{prop:quintic-rankzero-genuszero-G}の全入口では、cone三型、113のplane導手Q、
+generic cuspの次数五支持は空。残る正規化は
+$Y_0=\mathbb P_{\mathbb P^1}(\widetilde E)$、$\widetilde E=113,122$、
+plane導手は$c=p+q$又は$2p$である。
+指定された任意の五section空間Vは
+$W=H^0(\widetilde E(-c))$の全二次元を含む。
+$h^0(\widetilde E)=8,h^1(\widetilde E(-c))=0$なので、二fiber又は長さ二jetへの評価は全射である。
+nodeではV/Wが二fiberを同じtarget planeへ写す実同型phiを決める。
+局所環$A=\{(f,g):f(0)=g(0)\}$上の貼合せmodule
+$\{(u,v):v(0)=\phi u(0)\}$は$A^3$。
+cuspでは全first-jet graph $u_1=Nu_0$を保ち、
+$A=\mathbb C[[z^2,z^3]]$上のmoduleは$(I+zN)A^3$である。
+従ってbaseをpinchしたintegral genus一曲線$B_0$上にlocally free rank三bundle $E_0$ができ、
+\[
+ H^0(E_0)=V,\quad h^1(E_0)=0,\quad\deg E_0=5,\qquad
+ Y_0\longrightarrow Z_0=\mathbb P_{B_0}(E_0)\longrightarrow D_0
+\]
+と元の全section写像が因子化する。任意phi、任意N、任意frameを保持している。
+GG性はV/Wの評価同型から、amplenessは有限正規化からの下降で従う。
+$H^0(E_0^*)=0$は負summandへのpullbackから従う。
+
+指定五sectionをquotient $O_{B_0}^5\twoheadrightarrow E_0$として固定しkernelをQとする。
+genus一Gorenstein双対性と$Q\subset O^5$から
+\[
+ \operatorname{Ext}^1(Q,E_0)
+ =\operatorname{Hom}(E_0,Q)^*=0.
+\]
+$B_0$をtotal spaceがregularなplane cubic smoothingへ入れる。
+relative Quotのこの障害零性により、元のquotientを保つétale-localな実代数曲線上で
+$O_{\mathcal B}^5\twoheadrightarrow\mathcal E$へ変形できる。
+これはformal arcだけではない。locally free、ample、GGは中心を保つ開条件、
+cohomology/base changeにより全五sectionは全fiberの完全frameとなる。
+$Z=\mathbb P_{\mathcal B}(\mathcal E)$の全fiber写像はample O(1)から有限、
+$5=L_t^3=\deg(g_t)\deg(D_t)$と非退化性から有限双有理なintegral quintic像を持つ。
+total image Dはregular ambient内のhorizontal prime Cartier divisor。
+各fiberの式は非零で同次数五のintegral像に一致するため、Dはflatで$\omega_{D/T}=O$である。
+正規化のflatness又はimageのbase changeを先に仮定していない。
+
+有限双有理射の局所環を$A=O_D,B=g_*O_Z$とする。
+ZのCM性からBはA上MCMであり、有限双対性は
+\[
+ \operatorname{Hom}_A(B,A)=g_*\omega_{Z/T},\quad
+ \operatorname{Ext}^{i>0}_A(B,A)=0,\quad
+ \operatorname{Hom}_A(B,A)/\tau
+ =\operatorname{Hom}_{A/\tau}(B/\tau B,A/\tau)
+\]
+を与える。evaluation at一はこれを実ideal
+$\mathfrak c_g=\{b\in B:bB\subset A\}\subset A\subset B$へ同定し、上のbase changeと可換。
+中心で使うのは非正規$Z_0\to D_0$の\emph{部分導手}であり、
+$Y_0$の全正規化導手と混同しない。
+$\omega_{\mathcal B/T}=O$を選ぶと、その導手inclusionは
+$\omega_{Z/T}^{-1}=\Lambda^2T_{Z/\mathcal B}$のvertical bivectorとなる。
+relative dimension二なのでPoissonであり、係数は$\mathfrak c_gB\subset A$へ下降する。
+特異baseのdualizing generatorをKähler微分と同一視してはいない。
+中心pullbackは
+$H^0(\Lambda^2T_{Y_0}(-C_S))=H^0(\Omega^1_{Y_0}(C_P))=\mathbb C$
+の非零線にあるので、一つの定数で元の指定tensorに合わせられる。
+Bottの$H^0(\Omega^2)=H^1(\Omega^2)=0$からambient liftは一意かつ正則、
+$H^0(\Lambda^3T(-5))=H^0(\Omega^1)=0$から元のJacobiも零。
+actual Pfaffianは$c(t)F_t$で$c(0)\ne0$なので、中心を残して全rank四の実曲線を得る。
+一般fiberはsmooth elliptic baseのample/GG rank三degree五bundleであり、
+全導手から作ったtensorの線は$H^0(\Omega^1)=\mathbb C$。
+stableの場合の既T40同定、及び前命題のunstable逆extensionはこのbundle全体に適用できる。
+導手が一つのintegral曲面であるとの追加仮定は不要である。
+従って全一般fiberはT40、閉性で指定中心もT40となる。
+
+113ではplaneの二linear equationsのpullbackは$k(s,t)z\,s,k(s,t)z\,t$。
+vertical tensorに対しその比s/tは非定数Casimirである。
+$\ell_1\pi^\#d\ell_0-\ell_0\pi^\#d\ell_1$は$T_{\mathbb P^4}(2)$のsectionでD上零、
+$H^0(T_{\mathbb P^4}(-3))=0$によりambientでも零となりrank四に矛盾する。
+genus一の既stable／unstable認識と合わせて全次数五rank零の結論を得る。
+\end{proof}
+全quotient、任意node/cusp gluing、MCM部分導手と中心tensorの一致は
+\path{GENUS_ZERO_RANKZERO_ACTUAL_T40_CLOSURE.md}と
+\path{GENUS_ZERO_RANKZERO_QUOT_CONDUCTOR_SEPARATE_REVIEW.md}で別作者が読解した。
+失われた旧同名レビューの復元を仮定せず、新しい部分導手の証明を使っている。
 
 \subsection{rank二node上の導手分裂と閉留数}
 \begin{lemma}\label{lem:ranktwo-node-conductor-split}
@@ -15178,6 +15499,62 @@ node分裂のGalois/単元符号、全plane導手class、全閉留数源と実Sc
 \path{RANK_TWO_QUINTIC_SURFACE_GENUS_ZERO_SEPARATE_REVIEW.md}にある。
 \path{CLASSIFICATION_RANK_TWO_QUINTIC_GENUS_ZERO_REVIEW_20261107.json}は全幾何の独立監査を記録する。
 genus一、他次数、全E帰属及び主分類の完成はこの命題に含めない。
+
+\subsection{次数五・種数零rank二源の全空性}
+\begin{proposition}\label{prop:quintic-ranktwo-genuszero-empty-E}
+命題\ref{prop:ranktwo-quintic-genuszero-G}の全実被約既約quintic源は空である。
+\end{proposition}
+\begin{proof}
+同命題の全源から、005、122、全$C_P=2F$、014の$2Q$、generic cusp及びnon-split nodeは既に空。
+残るのは113/023の$C_P=Q=L-3F$、014の$C_P=Q+F_b$だけである。
+S側の二primeは$\Gamma_i=(g_i)\in|L|$で、
+全closed residue一形式は$\alpha=\lambda\,d\log(g_1/g_2)$、$\lambda\ne0$。
+P側residue零はgeneric nodeの同じdualizing generatorから$\pi|_P=0$を意味する。
+
+generic Pで有限分離拡大・完成後のDをuv零とする。
+actual Pfaffianがuvのunit倍なので、closed inverse二形式はlog coframeで
+\[
+ A\,d\log u\wedge d\log v+
+ d\log u\wedge(B\,da+C\,db)+
+ d\log v\wedge(D\,da+E\,db)+F\,da\wedge db
+\]
+と書ける。$\pi|_P=0$から$A|_P=0$、一方$AF-BE+CD$はunitである。
+従って二branchの正則restriction $\theta_+,\theta_-$は
+$\theta_+\wedge\theta_-\ne0$を満たさねばならない。
+これはgeneric nodeだけの必要条件で、全域clean crossingは仮定しない。
+
+113では$Q=\mathbb P^1\times\mathbb P^1$、$L_Q=O(1,1)$。
+全有限二重projectionの中心はQ外なので、座標でdeck involutionを二rulingの交換にできる。
+同じquintic dualizing formのQ上residueは反deckで、
+$a=g_1|_Q,b=g_2|_Q$について$\operatorname{div}(ab)$はdeck不変となる。
+非零bilinear a,bのいずれかが既約ならdeckはそのprimeを固定又は二primeを交換する。
+両方可約なら$a=l(s)m(t),b=n(s)o(t)$でlnとmoは比例。
+l,n独立ならratioは$R(s)R(t)$又は$R(s)/R(t)$、
+比例ならratioは定数である。共通又は重複rulingもこの場合分けに含まれる。
+従って全場合で$\iota^*d\log(a/b)=\pm d\log(a/b)$、必要なwedgeは零で矛盾する。
+
+023では$Q=\mathbb F_2$、$L_Q=C_0+2f$で、
+全sectionは$a_i x+B_i(s,t)y$、Bは任意binary quadraticである。
+両$a_i$非零なら二つのhorizontal既約conicをdeckが固定又は交換する。
+一方零なら唯一のhorizontal conicを固定し、残りのnegative sectionと二rulingの和も固定する。
+両方零ならratioはruling base一変数だけの関数となる。
+全反復・共通rootを含めいずれも二一形式のwedgeは零。
+deckはcone vertexを保ってminimal resolutionへ延びるので、この計算は全projectionに適用できる。
+
+014ではQのplane blowdownと$F_b$のplane同型が二sheetである。
+同じ曲線$Q\cap F_b$は両sheetで\emph{同じ}第三line ellへ写る。
+$\Gamma_i$のrestrictionをplane lines $A_i,B_i$とすると、
+同じdualizing formの反対residueから
+$A_1+A_2+\ell=B_1+B_2+\ell$。
+planeのUFDによりunordered pairsは一致し、二つのdlog ratioは比例してまたwedge零となる。
+blowdown exceptional curveはP上codimension二であり、新しいdivisorを加えない。
+最後に全有限実projectionでは$C_P$の像はplane全体だから
+$\dim(V\cap H^0(L-C_P))=2$。旧Schubert上界のintersection三／四は実源では空である。
+これで全marks、全射影、全small境界を保って残三型も排除した。
+\end{proof}
+全factor場合と反deck residueの独立読解は
+\path{QUINTIC_RANKTWO_GENUSZERO_WHOLE_EMPTY_SEPARATE_REVIEW.md}。
+genus一又は他次数のrank二源へはこの空性を外挿しない。
 
 \subsection{次数五rank二・種数一elliptic正規化の全排除}
 \begin{proposition}\label{prop:ranktwo-quintic-genusone-elliptic-empty}
@@ -15962,6 +16339,99 @@ producer importなしのFraction/厳密$\mathbb Q(\lambda)$演算で再構成し
 初回27源のdimension guardや旧c-dependent rowspace falseを成功に改変せず、
 全base supportと全linear vertex fibersの必要十分被覆によりG非優越を得た。
 
+\subsection{twisted cubic coneの全点をT38とT39へ覆う}
+\begin{proposition}\label{prop:cubic-cone-ranktwo-whole-E}
+命題\ref{prop:cubic-cone-ranktwo-all-G}の全実被約既約quintic源はT38又はT39に入る。
+零divisor Rの被約性又はclean仮定は要らない。
+\end{proposition}
+\begin{proof}
+元975行150列の全源、Euler二十四商のcanonical二十七係数、
+base九＋vertex十八と全350Jacobiを保つ。
+前命題のactual SL2逆は五whole族
+$A_{\rm ss}(\lambda),A_{\rm nil}(\lambda),B_{\rm nil}(\lambda),W_{\rm ss},W_{\rm nil}$
+及びbase零を全coverし、十九壁も保持する。
+Aの$\lambda\ne2/5,3/5$では四vertex shearを除くと全actual Dがproper因子を持つ。
+$\lambda=1/2$もrank四kernel bundleの定数rank性による稠密openの閉包で戻し、
+選択minorの分母代入だけで済ませない。
+$B_{\rm nil}$では$N=x_0\partial_1+2x_1\partial_2+3x_2\partial_3$、
+$H=x_1\partial_1+2x_2\partial_2+3x_3\partial_3$として、
+canonical Casimirの全条件$N(F)=0,H(F)=-10\lambda F$から、
+次数五の全highest vectorsは
+\[
+ x_0^5,\ x_0^3I,\ x_0^2J,\ x_0I^2,\ IJ,\ x_0\Delta .
+\]
+ここで$I=x_0x_2-x_1^2$、$J=x_0^2x_3-3x_0x_1x_2+2x_1^3$、
+$\Delta=x_0^2x_3^2-6x_0x_1x_2x_3+4x_0x_2^3+4x_1^3x_3-3x_1^2x_2^2$。
+対応SL2 moduleの次元$16,12,10,8,6,4$は合計56で全次数五kernelを尽くし、
+H固有値は相異なる$0,2,3,4,5,6$なのでFはこの一つの倍数に限る。
+各vectorはproper productなので全空。
+W二型とbase零はEulerを除くと共通$\partial_c$因子を持ってrank二以下。
+
+$\lambda=2/5$の全六vertex源は、旧rank零cone源
+$P_{02}=q_0,P_{03}=2q_1,P_{13}=q_2$、
+divergence $(-3x_0,-x_1,x_2,3x_3)$の負canonical liftと一致する。
+Euler写像の単射性と完全六核の一致で全源の等式を得るので、既T38定理が適用できる。
+$\lambda=3/5$の全六核のactual五次は正確に
+\[
+\begin{gathered}
+ F=(c+\ell)q_0q_2+a q_2C_-+b q_0C_+,\qquad
+ a=k_0,\quad b=k_5/2,\\
+ \ell=(5k_4/2)x_0-5k_1x_1-(5k_2/4)x_2-(5k_3/2)x_3 .
+\end{gathered}
+\]
+$C_-=x_2q_2-x_3q_1,C_+=x_0q_1-x_1q_0$とする。
+D写像の単射性により四c-shearはtensor自身のellを消す。
+ab非零はactual Cartanとvertex scaleの
+$(a,b)\mapsto(\gamma t^5a,\gamma t^{-5}b)$で全て(1,1)へ戻る。
+反転はabだけで、十乗根を選ぶ有限選択は複素体で常に可能である。
+
+この一代表を実nodal Fisherモデルで認識する。
+$y^2=x^3+x^2+e$の五section$(1,x,y,x^2,xy)$に対するalternating五matrixの上十entryを
+\[
+ (-z_3-ez_0,-z_3,-z_4,z_2,z_2,z_3,-z_1,-z_1,z_0,0)
+\]
+とする。そのsigned Pfaffian vectorをpとすると、pは五model quadricsの負一倍である。
+Fisherの多項式を、$a<b$の残三添字$c<d<f$と
+$\epsilon=\operatorname{sgn}(a,b,c,d,f)$に対して正確に
+\[
+\begin{aligned}
+ \Omega_{ab}=\epsilon\{&
+  (\partial_cp)^t(\partial_d\Phi)(\partial_fp)
+ +(\partial_fp)^t(\partial_c\Phi)(\partial_dp)\\
+ &+(\partial_dp)^t(\partial_f\Phi)(\partial_cp)\}
+\end{aligned}
+\]
+で定める。全model係数の多項式であり、判別式を除していない。
+smoothモデル上の$q_{5,1}$との同定は、既読のPolishchuk Theorem Aと
+\path{research/notes/KNOWN_FIVE_SMOOTH_LOCUS_20261101.md}の全Fisher規約を使う。
+$\Omega(\Phi(e))$は
+$e(4+27e)\ne0$でsmooth elliptic normal quinticの$q_{5,1}$、従ってT39。
+ここで
+\[
+ M=\begin{pmatrix}
+ 5&-10&10&-5&1\\-4&12&-12&4&0\\4&-4&-4&4&0\\
+ 0&-16&16&0&0\\0&16&16&0&0
+ \end{pmatrix},\qquad \det M=16384
+\]
+は全150係数で
+$M^{-1}\Omega(\Phi(0))(Mx)M^{-T}=2P_{\rm can}$を与える。
+Euler差すら無いliteral等式であり、singular fiberにsmooth-only定理を適用したのではない。
+全eの実曲線はeに一次、全350Jacobiとdivergenceは零、
+全126 actual Pfaffianはmodel quadricsのJacobian determinantの$-25/32768$倍。
+e零でのquadric basis changeのdetは1073741824、
+元quadric Jacobianは$-2F$なので中心は非零である。
+T39の閉性から代表、ab非零の全軌道、稠密性からab零の全六源もT39へ入る。
+
+両critical lambdaでnonzero binary U全体上のkernelはrank六vector bundle。
+baseは既約でsemisimple逆像が稠密なので、nil全六fiberも同じ閉族へ戻る。
+これで全lambda、全十九壁、全零補集合と全元逆を戻した全点包含となる。
+\end{proof}
+全源の接続は\path{CUBIC_CONE_RANK_TWO_POINTWISE_T38_T39_COVERAGE.md}、
+Fisher全係数・全e・両逆の独立確認は
+\path{CUBIC_CONE_RANK_TWO_NODAL_FISHER_SEPARATE_REVIEW.md}にある。
+旧D100／M49又は二次余核零から親を推論しておらず、
+T39の次元は25であって28という仮定を用いない。
+
 \subsection{quadric coneの全rank零源とPoisson--Ore上界}
 \begin{proposition}\label{prop:quadric-cone-rankzero-G}
 quadric cone上で零となり、actual Dが既約被約quinticとなる全rank四Poisson構造の
@@ -16223,6 +16693,44 @@ sem六、nil七、C零Fv sem五/nil六以下と押さえた後、free PGL frame 
 \path{CLASSIFICATION_QUADRIC_CONE_RANK_TWO_REVIEW_20261107.json}は
 producer/CASをimportせず全150/350/126、全minor/kernelと全根をFractionで再構成した。
 旧graded reportのcoarse25/falseを改変せず、新しい元compatibilityで補っている。
+
+\subsection{rank二quadric coneのC零全源には二次因子がある}
+\begin{proposition}\label{prop:quadric-cone-ranktwo-Czero-empty-E}
+前命題のactual正規化でconstant base bivector Cが零なら、
+全実被約既約quintic源は空である。C非零の半単純／nil源はこの命題に含めない。
+\end{proposition}
+\begin{proof}
+元highest symbolからD零を証明した後の正当なOre入口を用い、
+h一chartで$\Pi=B(a,b,c)+(Y+vT)\wedge\partial_v$、
+$q=ac-b^2$とする。C零かつ$F_v=0$は既にH因子で空。
+$F_v\ne0$はSO(q)とactual scaleの正逆でb又はcの二軌道へ尽くされる。
+全三十三源からBへ寄与する全係数を$A,C_0,D_0,r,s,t$とすると、
+$F_v=b$で
+\[
+ B_{ab}=A-rb+sa,\quad B_{ac}=C_0-rc+ta-2q,\quad B_{bc}=D_0-sc+tb .
+\]
+Jacobiの半curl積は
+$-tab-rbc+2sb^2-D_0a+Ac+sC_0-rD_0-tA$。
+ab,bc,b二乗,a,cの係数から$t=r=s=D_0=A=0$、
+従って$B=(C_0-2q)\partial_a\wedge\partial_c$である。
+$F_v=c$では全Bは
+\[
+ B_{ab}=A-rb+sa+2q,\quad B_{ac}=C_0-rc+ta,\quad B_{bc}=D_0-sc+tb .
+\]
+負半curl積は$rc^2+tac-2sbc+2D_0b-C_0c+rD_0-sC_0+tA$なので、
+$r=t=s=D_0=C_0=0$、$B=(A+2q)\partial_a\wedge\partial_b$。
+sigma、全Y、全T及びその共鳴は一つも固定していない。
+full affine Pfaffianはそれぞれ
+$(C_0-2q)(Y_b+vT_b)$、$(A+2q)(Y_c+vT_c)$。
+従ってhomogeneous actual五次は$C_0h^2-2q$又は$Ah^2+2q$という
+常に非定数のquadric因子を持つ。cofactor零ならrank四でなく、
+Euler gaugeを戻してもactual五次は不変である。全zero境界も含め結論を得る。
+\end{proof}
+全base係数とcurl積の独立確認は
+\path{QUADRIC_CONE_ZERO_C_WHOLE_SEPARATE_REVIEW.md}。
+非零Cの全除外を与えたという旧候補は、入口で$F_u$だけの方向を落としていたため採用しない。
+ここで用いるのは正しい全三十三源とC零だけの因子証明であり、
+C非零二型の全点E帰属は未解決として残す。
 
 \subsection{滑らかなprojected Veronese零曲面枝の全排除}
 \begin{proposition}\label{prop:projected-veronese-zero}
@@ -17221,14 +17729,13 @@ degenerate次数二ではsmooth quadricは全源で排除済み、coneも
 未知Gの必要次元25--27に反する。
 次数五normalはT40、次数六はnormalityによらず命題\ref{prop:degree-six-rank-zero-all}で空である。
 次数五以上の全coneは前のEuler全源補題で排除される。
-次数五について数値入口はg零又は一を与える。g零の全射影像は
-命題\ref{prop:quintic-rankzero-genuszero-G}により24次元以下、g一は
-命題\ref{prop:unstable-elliptic-rankzero-T40}により全点T40である。
+次数五について数値入口はg零又は一を与える。両方の全源は
+命題\ref{prop:quintic-rankzero-all-T40}により全点T40である。
 最後のplaneも命題\ref{prop:plane-rankzero-all-G}で全m・全first symbolをMPS既知閉和又は像24以下へ入れた。
 未知Gの必要次元25--27及び既知成分の最大性に反するので結論する。
 \end{proof}
-rank零planeの旧dependent六sourceも、命題\ref{prop:plane-dependent-all-m-G}の
-全Ore表示、constant-factor本質三認識、八whole affine moduleの因子又は不整合で閉じた。
+rank零planeの旧dependent六sourceも、命題\ref{prop:plane-dependent-whole-E}で
+H二源全空、N全Ore源の全点八成分又は空へ認識した。common-image全四源も命題\ref{prop:plane-commonimage-whole-E}でrank二以下となる。
 旧false receiptの保存と、新しい全支持の独立証明を区別する。
 rank二restrictionについては、integral cubic零divisorのplane、normalで解消の$\kappa\ge0$、
 smooth nonplaneのclean枝などを処理した。
@@ -17295,7 +17802,7 @@ rank二全支持、正規実因子、重複超平面と二重二次曲面、
 ordinary-doubleの四仮定を満たす枝、node仮定を除いたsmooth nonplaneの全clean枝、
 normal rank二で解消のKodaira次元が非負の枝、degree五以上のq零rank零曲面、
 全normal degree五rank零曲面、normalityによらない全degree六rank零の排除、
-degree五rank零の全分岐でT40又は全像24以下、全integral CI22のrank零、smooth CI22のrank二node枝などは
+degree五rank零の全分岐で命題\ref{prop:quintic-rankzero-all-T40}により全点T40、全integral CI22のrank零、smooth CI22のrank二node枝などは
 上の各命題で認識又は排除した。
 さらに全smooth非plane rank零はclean条件なしにT40又はcubic-scroll像23以下へ入り、
 全非退化degree三・四rank零にはconeを含めてG非優越を得た。
@@ -17318,7 +17825,7 @@ m三の全nonconcurrent reduced Rは全coversと九必要源からG非優越。
 HB0のt零は全七源が既Ga9-distinct23へ、HA1のt=2/15は全六源が
 命題\ref{prop:moving-simple-HA-new-component}の新smooth23成分へ入る。
 R2Lのconstant doubleも全34源／51壁とrank十一bundle・元一行の障害で全G像23以下となり、
-全位数二のGは閉じた。八HF壁の全E帰属は未決定である。
+全位数二のGは閉じた。八HF壁も命題\ref{prop:plane-HF-eight-whole-E}でT36／T38又は空へ全点認識した。
 concurrentの全非Ore源は全六直線・四十一wall・九fixedの元kernelからu因子を持つため空であり、
 全Ore源も非零quarticの全211/31/22/4と全central補集合を尽くして像24以下となった。
 K22の全点は命題\ref{prop:plane-concurrent-m3-K22-known-E}で既nil22-long23成分へ入り、
@@ -17335,7 +17842,7 @@ E1DXの$t=4/21,1/12$はG段階でconsistentなW核六・像23以下に留まっ�
 命題\ref{prop:triple-two-weak-wall-components}で各全源閉包をsmoothな新23成分と証明した。
 さらに命題\ref{prop:plane-nonreduced-m3-triple-whole-E}で全二百routeを戻し、
 corrected generic-triple全stratumを八essential-threeと新二成分へ全点被覆した。
-reduced Rのm二小次元源の全Eは別に残る。
+reduced Rのm二ではtangent全源は命題\ref{prop:plane-tangent-m2-whole-E}でT37／T40／八成分、triangleは命題\ref{prop:plane-triangle-m2-double-empty-E}で全空となり、concurrent全源のEは別に残る。
 C-exact三源及び全moving補集合は元normal-rowとcritical二乗式で、
 reduced Rのm三残二源とm四残六源は全shear正逆・全P2の実因子で閉じた。
 従って命題\ref{prop:plane-ranktwo-m3-all-E}、\ref{prop:plane-ranktwo-m4-all-E}により
@@ -17363,7 +17870,7 @@ $(h+x,h)$のp零全五源はmoving pairの実曲線によりnamed T06へ入る�
 CPLUS、既二23成分、既beta零閉和、T16/T17へ全点被覆した。
 このE完了を非plane又はlambda零pure-nilの他sourceへ外挿しない。
 次数五・種数一のelliptic全枝は空、canonical index二も全node像24以下・全cusp空であり、
-次数五rank二のG支持を全て非優越へ入れた。node全点のE帰属はこの次元上界から結論しない。
+次数五rank二のG支持を全て非優越へ入れた。種数零は命題\ref{prop:quintic-ranktwo-genuszero-empty-E}で全空、index二node全点のE帰属はなお次元上界からは結論しない。
 smooth quadricは命題\ref{prop:smooth-quadric-all-ranks-all-R-empty}の同時Euler gaugeにより、
 両restriction rankと全可約非被約零曲線・全vertical場合で空となった。
 quadric coneはrank零を全空、rank二を全RでG非優越へ入れた。
@@ -17371,10 +17878,16 @@ quadric coneはrank零を全空、rank二を全RでG非優越へ入れた。
 全次数四rank二は全非CI射影中心とPVの全SL2 moduleを含めて空であり、CI22だけの結論をPVへ流用していない。
 rank二cubic scrollでは全RにC0を必須とし、canonical q2-rootは全空、
 残るA25二型も全境界poleと真fiber計数により全像24以下となった。
-rank二cubic coneも全27源から三Sym二の全支持、五whole moduleと全十九壁を尽くして24以下である。
+rank二cubic coneも全27源・全十九壁を戻し、命題\ref{prop:cubic-cone-ranktwo-whole-E}で全点T38／T39又は空へ認識した。
 これら全曲面・全planeの証明により、未知G一般元が入る全非正規支持を排除した。
 Ga9 linear-w、nil22 imageのstable二源、plane二超平面+cubic残三源及び各弱上界壁など、
 特殊底の多くのE全成分帰属は未解決である。
+今回の全点強化は、rank零planeのcommon-image全四源をrank二以下、dependent全源を八成分又は空へ送る。
+他のco-Higgs、normalnil、lowparameter、scalar、zero-symbolの弱上界源は未認識である。
+quadric cone rank二のC零だけは命題\ref{prop:quadric-cone-ranktwo-Czero-empty-E}で全空、
+非零C二型のE、smooth cubic scroll A25全pair、canonical index二node、次数六S23の全projection locusも残る。
+これらを既に閉じた次数五rank零／種数零rank二、cubic cone全rank、HF八壁へ戻して数えない。
+
 従って成分数は下界129・一般rank四123であるが、主分類の完成を主張しない。
 
 \subsection{一般一次底の全分岐閉鎖とexact splitter残余}
@@ -17441,9 +17954,10 @@ hyperplane内e三以上は$I_S=(\ell,q_e)$と$I_S^{(2)}=I_S^2$から$\ell\mid D$
  \deg S\text{と全型}&\rank0&\rank2\\\hline
  2\text{ smooth quadric}&\text{空}&\text{空}\\
  2\text{ quadric cone}&\text{空}&\dim\le24\\
- 3\text{ scroll/cone}&\text{T38又は空}&\dim\le24\\
+ 3\text{ smooth scroll}&\text{空}&\dim\le24\\
+ 3\text{ twisted cubic cone}&T38\text{又は空}&T38/T39\text{又は空}\\
  4\text{ 全integral曲面}&\text{空}&\text{空}\\
- 5,\ g=0&\dim\le24&\dim\le24\\
+ 5,\ g=0&T40&\text{空}\\
  5,\ g=1\text{ elliptic}&T40&\text{空}\\
  5,\ g=1\text{ canonical index二}&\text{空}&\text{node}\dim\le24,\ \text{cusp空}\\
  6,\ g=0&\text{空}&\dim\le24
