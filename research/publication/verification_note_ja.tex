@@ -1,0 +1,258 @@
+\documentclass[a4paper,11pt]{ltjsarticle}
+\usepackage[haranoaji]{luatexja-preset}
+\usepackage[margin=25mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage[unicode,hidelinks]{hyperref}
+\usepackage{xurl}
+\newtheorem{proposition}{命題}[section]
+\newtheorem{lemma}[proposition]{補題}
+\theoremstyle{remark}\newtheorem{remark}[proposition]{注意}
+\newcommand{\PP}{\mathbf P}
+\newcommand{\CC}{\mathbf C}
+\newcommand{\Q}{\mathbf Q}
+\newcommand{\Pf}{\operatorname{Pf}}
+\title{射影四空間のPoisson分類における最終接続の検証}
+\author{}
+\date{2026年11月9日\quad v1・公表前検証ノート}
+\begin{document}\maketitle
+\begin{abstract}
+147成分分類の公表前監査のうち、有限閉被覆を成分分類へ変換する論理、
+constant-TRIPLE型からGa9型への明示的退化、および不変曲面の特殊化を整理する。
+明示族は積Poisson構造から再構成し、元の計算コードを呼び出さずに検算した。
+本稿は147成分の全支持被覆、各成分の成分性、安定階数二分岐の証明を再検証したものではない。
+これらは分類原稿の入力として区別する。新しい成分数または新規性を主張しない。
+\end{abstract}
+
+\section{有限閉被覆と階数二への接続}
+\begin{lemma}\label{lem:cover}
+Noether位相空間$X$が有限個の閉既約部分集合$C_1,\ldots,C_m$の和であり、
+$i\ne j$なら$C_i\not\subset C_j$であるとする。このとき$C_i$はちょうど$X$の既約成分である。
+\end{lemma}
+\begin{proof}
+$X$の既約成分$Z$について$Z=\bigcup_i(Z\cap C_i)$である。
+有限閉被覆に関する既約性から$Z\subset C_i$となる$i$があり、極大性により$Z=C_i$。
+逆に$C_i$を含む既約成分$Z=C_j$を選ぶと、非包含条件から$i=j$となる。
+接空間次元、局所環の被約性、滑らかさは必要ない。
+\end{proof}
+
+\begin{lemma}\label{lem:rank}
+$U\subset X$を開集合、$C_1,\ldots,C_m$を閉集合とする。
+$U\subset\bigcup_iC_i$かつ
+$X\setminus U\subset\bigcup_iC_i\cup\overline U$なら$X=\bigcup_iC_i$である。
+\end{lemma}
+\begin{proof}
+有限和$\bigcup_iC_i$が閉なので$\overline U$も含む。これを第二の包含へ代入する。
+\end{proof}
+
+分類への適用では$U$を一般階数四の構造の開集合とする。
+したがって階数二の支持定理に$\overline U$が現れること自体は循環ではない。
+ただし\emph{先に}階数四全点の被覆を証明する必要がある。
+有限被覆の仮定と非包含の仮定は別々に証明すべきであり、
+被覆候補の個数や台帳の整合性だけから補題\ref{lem:cover}を適用してはならない。
+
+\section{constant-TRIPLEを特殊ファイバーに持つ明示族}
+補助座標$(T,x,y,s)$上に
+\[
+ \{x,y\}=1,\qquad \{T,s\}=s
+\]
+を置き、その他の生成元の括弧を零とする。これは二つの二次元Poisson構造の積である。
+$e\in\CC$に対して
+\[
+ H=x^3+3xy-\frac32y,\quad k=\frac{xy}{3}+\frac{y^2}{2}-\frac{x^4}{12},
+ \quad A=\frac e{12},\quad B=\frac{e(15-e)}{72},\quad M=Ax^2y+By^2
+\]
+と定め、
+\begin{align*}
+ r&=s+eT-H,\\
+ t&=(1-ex/3)T-xs/3-k+M
+\end{align*}
+とする。逆写像は
+\[
+ T=t+\frac{x(r+H)}3+k-M,\qquad s=r+H-eT
+\]
+であり、両合成は恒等写像、Jacobian行列式は$1$である。
+
+\begin{proposition}\label{prop:family}
+この変換で得られる$(t,x,y,r)$上の括弧は、すべての$e$について二次以下であり、
+$\PP^4$上の非零Poisson構造の代数的族を定める。
+\end{proposition}
+\begin{proof}
+連鎖律で得られる全括弧は
+\begin{align*}
+ P_{xy}&=1,& P_{xr}&=-3x+3/2,& P_{yr}&=3x^2+3y,\\
+ P_{tx}&=x/3+(1-2B)y-Ax^2,\\
+ P_{ty}&=(-1+2A)xy+y/6-r/3,\\
+ P_{tr}&=-et+(1-e/3)xr
+       +(-3+3e/4+e^2/8-e^3/72)y^2\\
+       &\hspace{10mm}+5exy/12-5y/4+r/2.
+\end{align*}
+高次項は$-e/4+3A=0$と$-e+eA-3A+6B=0$で消える。
+積構造の多項式座標変換なのでJacobi恒等式が成り立つ。
+斉次座標を$(h,t,x,y,r)$とし、$h$をCasimirとして
+\[
+ \widetilde P_{ij}=h^2P_{ij}(t/h,x/h,y/h,r/h),\qquad
+ \widetilde P_{hi}=0
+\]
+とすれば斉次二次Poisson双ベクトルを得る。$h\ne0$でJacobiが成り立つことから、
+多項式恒等式として全空間で成り立つ。斉次性により$\PP^4$へ降下する。
+$P_{xy}=1$のため、どの$e$でも射影双ベクトルは零にならない。
+\end{proof}
+
+順序$(t,x,y,r)$に関するPfaffianと発散は
+\begin{align*}
+ F_e&=P_{tx}P_{yr}-P_{ty}P_{xr}+P_{tr}P_{xy}
+      =r+H-e\left(t+\frac{x(r+H)}3+k-M\right),\\
+ \operatorname{div}P&=(-1+ex/3)\partial_t-e\partial_r.
+\end{align*}
+実退化五次式は$D_e=h^5F_e(t/h,x/h,y/h,r/h)$である。
+特に
+\[
+ D_0=h^2(h^2r+x^3+3hxy-3h^2y/2).
+\]
+$e\ne0$では$D_e=hF_{4,e}$であり、$F_{4,e}$の$t$係数は$-eh^3$、
+$x^4$係数は$-e/4$である。$F_{4,e}$を$\CC[h,x,y,r][t]$の一次式とみると、
+その係数と定数項の共通因子はない。実際、共通因子は$h$の因子でなければならないが、
+$x^4$係数は非零である。Gaussの補題により$F_{4,e}$は既約である。
+したがって一般ファイバーの$h$は\emph{単純因子}であり、重複超平面を仮定する分類定理を適用してはならない。
+
+\section{Ga9源への全括弧の同定}
+Ga9の十パラメータ源のうち必要な部分を、ここで定義し直す。
+座標$(u,Y,Z,w)$とパラメータ$\rho\ne0,b,\alpha,a,d,g,\eta,p,q,\kappa$に対し
+\begin{align*}
+ \beta&=b-1/4,\qquad f=-\frac{(1-b)\beta}{2\rho},\\
+ \epsilon&=\alpha-\frac{(1-3b)a+q\beta}{\rho},\\
+ \phi&=\rho Y^4/4+aY^3+\beta Y^2w+dY^2+\epsilon Yw+fw^2+gY+\eta w,\\
+ V_Y&=-\alpha-bY,\qquad V_w=p+qY+bw+\rho Y^2,\\
+ A_2&=\phi+V_Y\phi_Y+V_w\phi_w-\kappa,\qquad V_u=-u-A_2.
+\end{align*}
+とする。括弧は
+\[
+ \{u,Y\}=\phi_w,\quad\{u,w\}=-\phi_Y,\quad\{Y,w\}=1,
+ \quad\{Z,u\}=V_u,\quad\{Z,Y\}=V_Y,\quad\{Z,w\}=V_w
+\]
+で与え、$X=u+YZ$へ戻す。
+本稿はこの\emph{全源}の成分性を証明せず、次の特殊化のみを検証する。
+
+\begin{proposition}\label{prop:ga9}
+$e\ne0$について、命題\ref{prop:family}の括弧は真のアフィン線形変換
+\[
+ (X,Y,Z,w)=(t-r/e,ex/3,-r/e,3y/e)
+\]
+により、上のGa9源の
+\[
+\begin{gathered}
+ \rho=81/e^4,\quad b=3/e,\quad\alpha=-1/2,\quad a=-27/e^4,\\
+ \eta=1/2,\qquad p=q=d=g=\kappa=0.
+\end{gathered}
+\]
+という特殊化に一致する。
+\end{proposition}
+\begin{proof}
+逆変換は$(t,x,y,r)=(X-Z,3Y/e,ew/3,-eZ)$、行列式は$1/e$である。
+源の関係式から
+\[
+ \epsilon=-b-1/6,\qquad f=e^2(e-3)(e-12)/648
+\]
+を得る。$X=u+YZ$を代入して計算した全六括弧は
+\begin{align*}
+ P_{YZ}&=bY-1/2,&P_{Yw}&=1,&P_{Zw}&=\rho Y^2+bw,\\
+ P_{XY}&=1/2+(1/3-b)Y-Y^2/4+2fw,\\
+ P_{Xw}&=Z+\rho Y^2+(1/2-b)Yw+(b+1/6)w,\\
+ P_{XZ}&=X-Z/2+(b-1)YZ+A_2,\\
+ A_2&=f(1+2b)w^2-5Yw/12+5w/12.
+\end{align*}
+命題\ref{prop:family}の全六括弧をアフィン線形変換した式と各項が一致する。
+これらは$\Q(e)$上の恒等式であり、非零の$e$で分母は消えない。
+とくに$e=3,12$では$f=0$となるが、$\rho\ne0$なので源の仮定から排除されない。
+\end{proof}
+
+\begin{proposition}[閉包包含の正確な射程]\label{prop:closure}
+上のGa9全源の$\mathrm{PGL}_5$飽和像の閉包を$C$とする。
+命題\ref{prop:family}の$e=0$の構造とその$\mathrm{PGL}_5$軌道閉包は$C$に含まれる。
+\end{proposition}
+\begin{proof}
+命題\ref{prop:ga9}により$e\ne0$の全像は$C$に入る。
+命題\ref{prop:family}は$\mathbb A^1\to\mathcal P$という全域で定義された射を与えるため、
+閉性から$e=0$も$C$に入る。$C$は$\mathrm{PGL}_5$不変かつ閉なので軌道閉包も含む。
+\end{proof}
+\begin{remark}
+補助の非線形変換はPoisson族の\emph{構成}にだけ用いた。
+Ga9への帰属に用いた変換はアフィン線形であり、射影線形変換に延長する。
+元のTRIPLE全源がこの一軌道閉包に入ることと、$C$の23次元成分性は別の入力である。
+この二入力を再検証しない限り、本命題を147成分分類全体の検証完了とは呼ばない。
+\end{remark}
+
+\section{低次数不変曲面を特殊化する補題}
+\begin{lemma}\label{lem:specialize}
+$R=\CC[[z]]$、$K=\CC((z))$とする。$\PP^n_R$上の相対Poisson構造と
+切断$p_R$を与える。有限拡大後の$K$上で、$p_K$を含む次数$\le d$の幾何学的整な
+不変曲面$S_K$が存在すると仮定する。
+$p_0$でのPoisson階数が二以上なら、$p_0$を含む次数$\le d$の整な不変曲面が特殊ファイバーに存在する。
+\end{lemma}
+\begin{proof}
+必要な有限拡大と正規化を施す。$S_K$の一つのHilbert多項式を固定する。
+射影空間のそのHilbertスキームの固有性により平坦閉部分スキーム$S_R$へ延長する。
+閉性から$p_R\subset S_R$である。
+アフィン局所で$I$を$S_R$のイデアル、$A$を周囲の座標環とする。
+$A/I$は$R$平坦なので$z$-torsionを持たず、$I=A\cap I_K$である。
+任意の局所Hamiltonian導分$\delta$に対し$\delta(I_K)\subset I_K$なので、
+$\delta(I)\subset I$となる。したがって特殊イデアルも不変である。
+
+標数零では導分不変イデアルの根基も不変である。
+実際、商環で$a^m=0$なら、$\delta^m(a^m)=0$を$(a)$で割ることで
+$m!(\delta a)^m\in(a)$を得るので$\delta a$も冪零である。
+さらに被約Noether環の極小素イデアル$\mathfrak p$は導分不変である。
+$a\in\mathfrak p$について$A_{\mathfrak p}$は体で$a/1=0$だから、
+ある$b\notin\mathfrak p$で$ba=0$。微分して$\mathfrak p$で割れば$\delta a\in\mathfrak p$を得る。
+よって特殊ファイバーの各被約既約成分が不変である。
+
+$p_0$を含むそのような成分$S$を選ぶ。
+Hamiltonian場の局所フローは$S$を保存し、$p_0$で二つの独立な方向を持つので$\dim S\ge2$である。
+一方、平坦性によるHilbert多項式の保存から特殊ファイバーの次元は二である。
+したがって$S$は曲面であり、有効な最高次元サイクルの次数比較から$\deg S\le d$となる。
+\end{proof}
+
+T37への適用では、一般軌道上の次数五以下の不変曲面と、
+特殊化した\emph{実退化因子自身が滑らかな点}を通る切断を別に構成する必要がある。
+単純因子の滑らかな点という仮定は、その切断を一般ファイバーの良い点へ動かす際に使う。
+重複因子の被約台が滑らかであるだけでは同じ議論は使えない。
+本稿はこの特殊化機構を証明したが、T37の稠密軌道・残差恒等式・各対象の葉次数を再検証していない。
+
+\section{引用範囲と未検証の主要入力}
+Corr\^ea--Munizの本文Theorem 4.1\cite{CM}は、安定分岐について代数的可積分性と
+uniruledな葉を与えるが、その主張だけから固定次数の二つのJacobian族への全点帰属は得られない。
+分類では独自の安定分岐証明が必要である。また同論文のCorollary Dは階数二\emph{部分空間}の
+成分数の下界であり、全Poisson空間の一般階数二成分が六つという主張とは対象が違う。
+Matviichuk--Pym--SchedlerのTheorem 1.4とExample 6.24\cite{MPS}はSNC locusと交わる40成分を扱う。
+全構造の被覆に必要な追加の幾何をこの定理へ含めて読んではならない。
+
+再開時の優先事項は、正規五次の認識、非正規五次の導手層の全点被覆、
+安定階数二分岐、T37稠密軌道と残差計算、既知全親との非包含を原証明で確認することである。
+本稿に具体的な反例または分類主定理の誤りを発見したという主張はない。
+一方、それらの入力を今回独立に検証済みとも扱わない。
+
+\section{再現手順と検証の区別}
+\texttt{code/verify\_final\_bridge.py}はSymPyのみを使い、補助の積括弧から全六括弧を構成する。
+旧producer、旧certificate、点での標本計算を使わない。
+全$e$の多項式逆変換、斉次Jacobi、実退化因子、Ga9 potentialからの全括弧一致など81項目を検査する。
+これは全分類の自動証明ではない。
+\begin{verbatim}
+python code/verify_final_bridge.py --output reports/final_bridge.json
+lualatex -output-directory=work/publication-build \
+  research/publication/verification_note_ja.tex
+\end{verbatim}
+後者は先に出力ディレクトリを作り、参照解決のため二回実行する。
+検証報告には実行時のPython/SymPy版とスクリプトSHA256を含める。
+分類本体368頁の組版と全既存テストの再実行は、このノートの検証に含まれない。
+
+\begin{thebibliography}{9}
+\bibitem{CM} M. Corr\^ea and A. Muniz,
+\emph{Holomorphic foliations of degree two and arbitrary dimension},
+arXiv:2207.12880v5 (2026年1月19日), Theorem 4.1, Corollary D.
+\url{https://arxiv.org/html/2207.12880v5}.
+\bibitem{MPS} M. Matviichuk, B. Pym and T. Schedler,
+\emph{A local Torelli theorem for log symplectic manifolds},
+arXiv:2010.08692v2 (2021年7月15日), Theorem 1.4, Example 6.24.
+\url{https://arxiv.org/html/2010.08692v2}.
+\end{thebibliography}
+\end{document}

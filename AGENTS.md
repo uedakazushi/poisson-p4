@@ -1,100 +1,69 @@
-# Poisson P4 — classification first
+# Poisson P4 — publication review
 
-Version: v64-classification-plan / 2026-11-06 (Asia/Tokyo).
-Mathematical baseline: v63 CO, a00a541b835b2bff18bafcba545ecbd4bae7175b.
+2026-11-09 / v65-publication-review
 
-## Start here
+## Entry and current authority
 
-Read `RESEARCH_POLICY.md` first, then `research/classification/CURRENT.md`,
-`research/classification/PLAN.md`, and `research/NEXT_TASKS.md`.
-Run `python3 scripts/classification.py check` and `python3 scripts/classification.py next`.
-The active queue is `research/classification/PLAN.json`.
-`research/STATE.md`, old handoffs and old reports are mathematical evidence, NOT an active queue.
-Read only the evidence needed for the selected task. Do not load the whole historical corpus.
+Read RESEARCH_POLICY.md, research/classification/CURRENT.md,
+research/publication/REVIEW.md, then research/NEXT_TASKS.md.
+The user explicitly authorized publication-focused independent review and main
+updates on 2026-11-09. This is the new instruction that supersedes the previous
+stop-after-classification instruction. Do not interpret completed construction
+items in research/classification/PLAN.json as a prohibition on this review.
 
-## Primary outcome
+## Mathematical status
 
-Write a paper whose main theorem EXHAUSTS the reduced irreducible components of
-Poisson structures on complex P4, before PGL5 quotient, and describes their general members.
-Prove coverage of all points by the resulting closed families, componenthood and distinctness.
-The mathematical primary theorem is now PROVED: exactly 147 reduced irreducible components,
-141 of generic rank four and 6 of generic rank two, before PGL5 quotient. All points,
-componenthood, distinctness, dimensions and general constructions are covered.
-The final proof is `research/classification/GLOBAL_EXACT147_COMPONENT_CLASSIFICATION_FINAL_PROOF.md`.
-No unresolved primary source or candidate remains. The same-paper 147/1158 integration,
-368-page PDF, independent final validation and reproduction guide are complete. Save by ordinary
-main push and do not reopen solved branches or secondary work without a concrete defect or new user instruction.
-Full orbit classification and full nonreduced scheme structure are not claimed by this theorem.
-They are secondary, not prerequisites silently added to the primary target.
+The manuscript/catalogue assert exactly 147 reduced irreducible components of
+the projectivized Poisson scheme on complex P4 before PGL5 quotient: rank four
+141, rank two 6. Do not change that count without a mathematical reason. The
+new review has NOT independently verified the entire classification. Existing
+repository review receipts are not external peer review or formal proofs.
+The main manuscript and 147-component catalogue remain unchanged in this pass.
 
-## Decision rule before computation
+## Work now
 
-Every nontrivial run must name an active classification obligation and the precise implication
-from its result to that obligation. Prefer the WEAKEST sufficient statement: reduced support,
-generic containment, or non-dominance, not a full completed ring or exact nilpotence exponent.
-Use `PROOF_ROUTE.md` for the generic radical, scalar, and closed-complement routes.
-A new minor, a longer jet, a smaller matrix or a new wrapper is not progress by itself.
-After two nonclosing attempts on the same route, diagnose the mathematics and change route;
-do not continue an open-ended sequence of coefficient probes.
+Follow the priority queue in research/publication/REVIEW.md. Inspect original
+proofs rather than repeatedly composing PASS receipts. Track each theorem's
+hypotheses, actual source, inverse maps, denominator/zero complements, and
+conclusion. Distinguish full source coverage from dense-source containment,
+componenthood from family dimension, and global components from local branches.
+Prioritize normal/nonnormal quintic coverage, stable rank-two recognition, and
+T37 dense-orbit/residue/leaf arguments. No new component search, precise nil
+indices, H0/T2, or full orbit classification without a specific dependency.
 
-## Work allocation
+## Checked in the present review
 
-The default mathematics worker handles generic reduced exhaustion; a second worker handles
-exceptional-base coverage/component audit. Use an independent reviewer when available.
-The integrator alone writes main. With one worker, alternate between these PRIMARY tasks
-when blocked. Do not use capacity for suspended secondary tasks merely because they are easier.
-B18 exact nil index/H0/T2, higher contact/Betti data, and separate-paper polishing are SUSPENDED.
-Reactivate only after recording an explicit indispensable dependency on the classification
-proof and why the existing weaker result is insufficient. No separate publication sprint.
+code/verify_final_bridge.py independently rebuilds the TRIPLE-to-Ga9 family
+from a product bracket and the Ga9 potential. It does not import old producers.
+reports/final_bridge.json records 81 exact checks. This verifies the displayed
+family, not the coverage of all original TRIPLE sources or Ga9 componenthood.
+research/publication/verification_note_ja.tex supplies explicit proofs of this
+bridge and the finite-cover/rank-closure/specialization mechanisms.
+Their application-specific geometric inputs remain separately reviewable.
 
-## Proof discipline
+## Validation and editing
 
-Separate repository-reported proof, proof checked in this run, exact computation reproduced,
-conditional result, conjecture and observation. The plan checker does NOT verify mathematics.
-Keep all 134 original equations, inverse maps, compatibility conditions and excluded charts.
-Never infer full support from a chosen slice, a few primes, rank of a submatrix, a formal jet,
-normalization, a quotient, or an unproved flatness assumption. Generic in FULLU need not mean
-all points above generic beta. A boundary rank theorem is not itself affine five-point exhaustion.
-Record every localization and its complement; distinguish base parameters from unknown fiber
-coordinates. A finite algebra over K[n_1,...,n_42] need not be finite over K.
-Retain the exact input hashes and a separately checkable certificate of each main claim.
-Do not alter immutable producer bytes or old certificates to make a check pass.
-Do not re-open solved results without an identified defect or missing application hypothesis.
+Use the existing Python/SymPy environment:
 
-## Autonomy and resources
+    python code/verify_final_bridge.py --output work/publication-review/final_bridge.json
+    python -m unittest discover -s tests -p test_final_bridge.py
 
-Continue useful mathematics after checkpoints without asking to continue. This instruction
-applies only within a running Codex task; it creates no daemon, scheduler or unlimited quota.
-Use finite jobs with a mathematical success/failure criterion, measured resource limits,
-checkpointable state and a fallback. Failed runs cannot be called proofs.
-Old point/prime/support limits describe old experiments, not a perpetual restriction on new
-classification methods. New primes, coordinates, algorithms and sensible resource budgets
-are allowed when justified; keep exact characteristic-zero validation separate.
-Use one reusable runner, not a growing family of guard/custody wrappers. Preserve only useful
-counterexamples, irreproducible inputs and certificates, not execution chatter.
+classification.py check/next and the old tests are control-plane checks only;
+a completed queue is not a mathematical re-verification. Do not reinstall the
+whole environment or rerun every legacy experiment. No GitHub Actions.
+Write papers in Japanese LuaLaTeX. Preserve valid mathematical content. Do not
+append endless historical addenda or retain contradictory current-status text.
+Do not replace the 368-page proof by a short summary. Paper splitting comes
+after the dependency review, not before it.
 
-## Environment and validation
+## Save safely
 
-Reuse the existing environment when it works. `docs/CODEX_SETUP.md` is an environment reference,
-not a source of research priorities. Do not reinstall dependencies or rerun every old suite.
-Relevant existing commands: `.venv/bin/python scripts/doctor.py`,
-`.venv/bin/python scripts/verify.py --suite quick`, `--suite rank2`, `--suite integrity`.
-Quick/integrity PASS does not certify the global geometric classification.
-New control-plane tests: `python3 -m unittest discover -s tests -p test_classification.py`.
-No sudo, global Codex configuration changes, unapproved service setup or GitHub Actions.
-
-## Save and publish
-
-Write mathematics and manuscript sources in Japanese LuaLaTeX unless instructed otherwise.
-Update the CURRENT/PLAN files IN PLACE; do not prepend dated progress logs. Preserve valuable
-results in current papers or mathematical notes. The new main manuscript is
-`papers/poisson_p4_classification_ja.tex`; its classification theorem remains a TARGET until proved.
-Old papers/certificates remain intact as evidence until their useful mathematics is integrated.
-
-Inspect status/diff; stage only intended files; use ordinary commits and non-force pushes to
-origin/main at substantive checkpoints. If the remote advanced, inspect and integrate without
-erasing another session's work. Do not change the claim catalogue merely to match a plan.
-The user authorizes current, self-contained research bundles and Library saves without further
-confirmation. Generate/validate/upload are separate states; report only actual receipts.
-Do not package old ZIPs, logs or versions as a substitute for a current dependency-complete bundle.
-Do not delete existing Library records without an explicit instruction.
+Inspect the current main head and changes. Use ordinary non-force commits to
+main, or equivalent Git data API tree/commit/ref updates with an expected-head
+lease. Rebase/reconcile if main advanced; do not overwrite another session.
+Keep original proof/certificate inputs unchanged. Generate, validate, push, and
+Library upload are distinct states. Only report actual successful operations.
+The user permits current self-contained research bundles and Library saves
+without asking. Exclude old ZIPs, logs, intermediate build products and caches;
+never delete existing Library records without explicit instruction. A focused
+review package missing the main proof is not a full research-continuation bundle.

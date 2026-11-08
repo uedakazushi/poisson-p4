@@ -1,0 +1,66 @@
+{
+  "date": "2026-11-09",
+  "version": "v1",
+  "status": "PASS_scoped_review_only",
+  "base_commit": "ffc178bff0a69fb0edcc99a4d8d7de98c8a2a222",
+  "exact_verification": {
+    "report": "reports/final_bridge.json",
+    "checks": 81,
+    "scope": "One displayed TRIPLE-to-Ga9 family; not global classification"
+  },
+  "unit_tests": {
+    "command": "python -m unittest discover -s tests -p test_final_bridge.py",
+    "passed": 2,
+    "failed": 0,
+    "includes_wrong_sign_mutation": true
+  },
+  "note_build": {
+    "source": "research/publication/verification_note_ja.tex",
+    "engine": "LuaLaTeX",
+    "successful_passes": 2,
+    "pages": 5,
+    "undefined_references_or_citations": 0,
+    "overfull_underfull": 0,
+    "font_package_warnings_retained": [
+      "luatexja-preset Japanese font scaling",
+      "luatexja-fontspec addjfontfeatures ignored"
+    ],
+    "visual_review": "All five rendered pages inspected; legible, no clipping",
+    "pdf_distribution": "Generated locally and included in the Library review package; not included in the Git tree. Rebuild from the committed LuaLaTeX source."
+  },
+  "scope_exclusions": [
+    "368-page classification manuscript not rebuilt",
+    "Original classification test suite not rerun",
+    "Global coverage and all 147 component proofs not independently reverified",
+    "External peer review not performed"
+  ],
+  "files": [
+    {
+      "path": "code/verify_final_bridge.py",
+      "bytes": 8650,
+      "sha256": "c8cf1f1c5b56d06dfff7a13795f1fe012eda64660c29f8d5e2163d12b249e852"
+    },
+    {
+      "path": "research/publication/verification_note_ja.tex",
+      "bytes": 13405,
+      "sha256": "cd3e943f096fe3993cc5bcc3ed8d1db8ea4da41d591c12fde17dc713bd246b0b"
+    },
+    {
+      "path": "papers/pdf/verification_note_ja.pdf",
+      "bytes": 238782,
+      "sha256": "d54af4adaed01bb5141bb8cca449805c889b45160c25c23af999e55465fa1c3a"
+    },
+    {
+      "path": "tests/test_final_bridge.py",
+      "bytes": 1367,
+      "sha256": "bcb1366df2a4e0b27ce545a07b568aed47ada3f8893b42dcee0a8b2a73981305"
+    },
+    {
+      "path": "reports/final_bridge.json",
+      "bytes": 2110,
+      "sha256": "9a042c6fa80bf87f6e27fe9e500b883ae00a43b7feb06d46d50eb3b703c423ec"
+    }
+  ],
+  "publication_state": "Local generation and scoped validation complete. GitHub ref update and Library save must be verified separately.",
+  "library_package_scope": "Focused final-bridge review only; not a complete classification continuation bundle."
+}

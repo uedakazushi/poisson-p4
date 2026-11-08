@@ -1,39 +1,36 @@
 # Poisson structures on projective four-space
 
-**2026-11-07 · v64-classification-first**
-**主目標：Poisson構造の分類を主定理とする論文。派生論文はsecondary。**
+2026-11-09 / v65-publication-review
 
-最初に [研究方針](RESEARCH_POLICY.md)、次に
-[現在地](research/classification/CURRENT.md) と [実行計画](research/classification/PLAN.md) を読む。
-Codexの入口は [AGENTS.md](AGENTS.md)。[次の課題](research/NEXT_TASKS.md) は現行キューだけを指す。
+対象は複素P4上の非零Poisson双ベクトルを射影化したJacobiスキームの被約既約成分であり、PGL5商前の分類である。
 
-## 分類の意味と現在地
+## 現在地
 
-対象は複素射影四空間上の非零Poisson双ベクトルをスカラー倍で射影化したJacobiスキームで、
-PGL5商を取る前の空間である。第一主定理は、その**被約既約成分の尽くしと一般元の幾何**。
-特殊点を含む全PGL5軌道分類や全冪零構造とは区別する。
+現行分類原稿・台帳の結論は **147成分（一般階数4が141、階数2が6）**。
+主稿は `papers/poisson_p4_classification_ja.tex` と同名PDFで、既存ビルド報告では368頁・1158採録主張。
+この原稿の証明収録・リポジトリ内の監査報告と、新たな独立再検証の完了を区別する。
+**現在の作業は公表前の重点監査と説明の整理であり、全証明の独立監査は未完了。**
+今回、最後のconstant-TRIPLEからGa9への明示族について、旧producerを使わない記号計算で81項目を確認した。
+全147成分の被覆・成分性をこの検算だけで認証したとはしない。成分台帳と分類主稿は変更していない。
 
-現行台帳の成分下界は **124（一般階数4は118）**。上界・一般一次ジェットの五点尽くし・
-全成分の尽くしは未証明。全124成分を個別同定し、既約二次因子＋既約三次因子などの全支持を被覆した。
+再開は [研究方針](RESEARCH_POLICY.md) → [現在地](research/classification/CURRENT.md) →
+[公表前監査](research/publication/REVIEW.md) → [次の課題](research/NEXT_TASKS.md) の順。
+Codexの入口は [AGENTS.md](AGENTS.md)。分類構築の `research/classification/PLAN.json` は完了記録であり、現在の監査キューではない。
 
-現在の最短候補は、一般ファイバーの未知**被約支持**を消し、得られた開集合の補集合を
-実際の方程式で尽くすこと。B18の正確なnil指数などは、必要性を示さない限り休止する。
+## 検証資料
+
+- 主分類の論理入口：`research/classification/GLOBAL_EXACT147_COMPONENT_CLASSIFICATION_FINAL_PROOF.md`
+- 従来の再現入口：`research/classification/REPRODUCE_EXACT147.md`
+- 今回の証明ノート：`research/publication/verification_note_ja.tex`
+- 独立検算：`code/verify_final_bridge.py`、`reports/final_bridge.json`
 
 ```sh
-python3 scripts/classification.py check
-python3 scripts/classification.py next
-python3 -m unittest discover -s tests -p test_classification.py
+python code/verify_final_bridge.py --output work/publication-review/final_bridge.json
+python -m unittest discover -s tests -p test_final_bridge.py
 ```
 
-初回環境構築だけは `docs/CODEX_SETUP.md` を参照する。既設環境でsetupを繰り返さない。
-数学検証は変更した依存範囲に限定する。上のcheckは計画と参照の検査で、数学の証明検証ではない。
+必要なのはPythonとSymPy。既設環境を再利用する。全legacy suiteやsetupの反復は不要。
+`python scripts/classification.py check` は従来の計画・参照検査であり数学定理の検証ではない。
 
-## 必要な資料
-
-- [証明の経路と停止基準](research/classification/PROOF_ROUTE.md)
-- [証拠・コードの入口](research/classification/SOURCES.json)
-- [主論文の日本語LuaLaTeX原稿](papers/poisson_p4_classification_ja.tex)（分類主定理は未証明）
-- 既存 `research/CLAIMS.json` / `research/COMPONENTS.json`：数学的主張・成分台帳。
-
-旧 `research/STATE.md`・過去handoff・既存五原稿は証拠資料として残るが、旧優先順位や
-過去の「未決」記載を現行方針として読み直さない。原証明・旧証明書を保持し、新たな全源と独立検証を現行原稿へ統合する。
+全PGL5軌道、Jacobiスキームの全非被約厚み、全交叉・局所環の決定は主分類に含まれない。
+過去のREADME・STATE・原稿案にある下界や未完フラグを現在の結論と混同しない。

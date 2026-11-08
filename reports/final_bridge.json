@@ -1,0 +1,61 @@
+{
+  "date": "2026-11-09",
+  "version": "v1",
+  "status": "PASS",
+  "scope": "Exact symbolic verification of one polynomial family and its Ga9 source identification. NOT a verification of global 147-component classification, source coverage, or Ga9 componenthood.",
+  "base_commit": "ffc178bff0a69fb0edcc99a4d8d7de98c8a2a222",
+  "field": "Q(e); polynomial identities checked identically, not by samples",
+  "python": "3.13.5",
+  "sympy": "1.14.0",
+  "script_sha256": "c8cf1f1c5b56d06dfff7a13795f1fe012eda64660c29f8d5e2163d12b249e852",
+  "checks": {
+    "polynomial_inverse": 8,
+    "jacobian_determinant": 1,
+    "six_brackets_from_product": 6,
+    "quadratic_degree_bounds": 6,
+    "affine_jacobi": 4,
+    "pfaffian": 1,
+    "modular_field": 4,
+    "homogeneous_strict_jacobi": 10,
+    "dehomogenization": 6,
+    "projective_pfaffian": 1,
+    "nonzero_all_parameters": 1,
+    "special_triple_divisor": 1,
+    "generic_quartic_coefficients": 2,
+    "affine_Ga9_inverse": 8,
+    "Ga9_frame_determinant": 1,
+    "Ga9_potential_full_six": 6,
+    "Ga9_parameter_identities": 2,
+    "Ga9_F2_zero_parameters": 12,
+    "Ga9_source_nonzero_rho_and_only_e_poles": 1
+  },
+  "check_count": 81,
+  "coefficient_degrees": [
+    2,
+    2,
+    2,
+    0,
+    1,
+    2
+  ],
+  "pfaffian": "-e**3*y**2/72 + e**2*x**2*y/12 + 5*e**2*y**2/24 - e*r*x/3 - e*t - e*x**4/4 - e*x**2*y + e*x*y/6 - e*y**2/2 + r + x**3 + 3*x*y - 3*y/2",
+  "homogeneous_divisor": "-e*h**4*t - e*h**3*r*x/3 - e*h*x**4/4 + h**4*r - 3*h**4*y/2 + h**3*x*y*(e/6 + 3) + h**3*y**2*(-e**3/72 + 5*e**2/24 - e/2) + h**2*x**3 + h**2*x**2*y*(e**2/12 - e)",
+  "Ga9_parameters": {
+    "rho": "81/e**4",
+    "b": "3/e",
+    "alpha": "-1/2",
+    "A": "-27/e**4",
+    "H": "1/2",
+    "p,q,D,G,k": "0",
+    "E": "(-e - 18)/(6*e)",
+    "F2": "e**2*(e - 12)*(e - 3)/648"
+  },
+  "not_checked": [
+    "Coverage by the four original TRIPLE sources",
+    "Ga9 ten-source exhaustiveness and componenthood",
+    "Prior 142 components",
+    "T37 dense-orbit residue identities",
+    "Normal and nonnormal quintic recognition",
+    "Full classification manuscript and PDF rebuild"
+  ]
+}
