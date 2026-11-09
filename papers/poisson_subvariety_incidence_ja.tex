@@ -1,0 +1,564 @@
+\documentclass[a4paper,11pt]{ltjsarticle}
+\usepackage[haranoaji]{luatexja-preset}
+\usepackage[margin=24mm]{geometry}
+\usepackage{fix-cm}
+\usepackage{amsmath,amssymb,amsthm,mathtools,booktabs,longtable,array}
+\usepackage[unicode,hidelinks]{hyperref}
+\usepackage{xurl,needspace}
+\setlength{\emergencystretch}{3em}
+\theoremstyle{definition}
+\newtheorem{theorem}{定理}[section]
+\newtheorem{proposition}[theorem]{命題}
+\newtheorem{lemma}[theorem]{補題}
+\newtheorem{corollary}[theorem]{系}
+\theoremstyle{definition}\newtheorem{definition}[theorem]{定義}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{注意}
+\newcommand{\PP}{\mathbf P}\renewcommand{\AA}{\mathbf A}\newcommand{\CC}{\mathbf C}
+\newcommand{\cO}{\mathcal O}\newcommand{\cE}{\mathcal E}\newcommand{\Pf}{\operatorname{Pf}}
+\newcommand{\rank}{\operatorname{rank}}\newcommand{\Pois}{\operatorname{Pois}}
+\newcommand{\ExtP}{\operatorname{Ext}^{\mathrm{Pois}}}
+\newcommand{\Rat}{\operatorname{Rat}}\newcommand{\Gr}{\operatorname{Gr}}
+\newcommand{\Div}{\operatorname{div}}\newcommand{\Span}{\operatorname{Span}}
+\newcommand{\Jac}{\operatorname{Jac}}
+\title{Poisson部分多様体から見る射影四空間の成分分類\\
+\large 三次超曲面の剛性・del Pezzo曲面の一般延長・超平面の横断対称性}
+\author{}
+\date{2026年11月10日\quad v1・研究原稿（新規性の確認は継続中）}
+\begin{document}\maketitle
+\begin{abstract}
+射影四空間のPoisson構造を、滑らかな不変部分多様体への制限と延長のincidenceから理解する。
+滑らかな三次超曲面のPoisson構造は階数二のambient構造へ一意に延長するので、
+階数四の退化五次因子に滑らかな三次因子は現れない。
+滑らかな二次式の完全交叉曲面と非零Poisson構造の一般の組についても、
+全延長スキームが被約な一点であり、その延長がJacobian型の階数二であることを、
+全二十係数の方程式と正確な記号証明書から示す。
+三次超曲面と四次del Pezzo曲面のincidenceの一般ファイバーはそれぞれ四次元・二次元で、
+$\Rat(1,1,3)$と$\Rat(1,2,2)$の次元$36,28$を幾何学的に説明する。
+また、超平面を単純な退化因子に持つ階数四延長の存在を、
+誘導されたPoisson構造に横断的な大域Poisson対称性の存在と同値にする。
+滑らかな二次超曲面では、同じ制限から階数二と四の延長が生じる具体例を再検証する。
+本稿は全147成分の分類を前提とせず、新しい成分数や全延長ファイバーの分類を主張しない。
+\end{abstract}
+\setcounter{tocdepth}{1}
+\tableofcontents
+\clearpage
+
+\section{問題と主張の範囲}
+基礎体を$\CC$、$V=\CC^5$、$P=\PP(V)$、$\cE=\wedge^2T_P\simeq\Omega_P^2(5)$とする。
+非零Poisson構造をスカラー倍で射影化するが、$\mathrm{PGL}_5$による商は取らない。
+閉埋込み$X\hookrightarrow P$とPoisson構造$\sigma$を固定し、
+\[
+ \ExtP_X(\sigma)=\{\pi\in H^0(P,\cE):\pi|_X=\sigma,\ [\pi,\pi]=0\}
+\]
+を考える。ここで制限は$\wedge^2T_P|_X$内での等式であり、$X$のPoisson不変性を含む。
+$\sigma\ne0$を固定すれば、射影延長の尺度もこの等式で一意に規格化される。
+このスキームの既約成分と、全ambient空間の既約成分を同一視しない。
+
+滑らかな三次元Fanoのintrinsic分類はLoray--Pereira--Touzet\cite{LPT}による。
+修正版Theorem 9.1は$\PP^3$で六成分、滑らかな$Q^3$で三成分を与える。
+滑らかな三次超曲面では、非零Poisson構造の射影空間は$\Gr(2,5)$である\cite[Theorem 1]{May}。
+これらは既知結果として使い、ambient完全分類から再び証明したとは扱わない。
+
+三次超曲面の一意延長と二次超曲面の一般延長ファイバーは、本研究の既存資料にもあった。
+本稿では必要な証明と例を現行の論理へ統合し、新しい成果として数え直さない。
+今回の主たる進展は、四次del Pezzoの\emph{一般の組}についての全延長スキームの剛性、
+incidenceの一般ファイバーによる二つの族次元の説明、単純超平面延長の対称性判定である。
+これらの文献上の新規性は未確認であり、優先権を主張しない。
+
+\section{線形な延長空間とJacobian構成}
+$\Omega=dx_0\wedge\cdots\wedge dx_4$、$E=\sum x_i\partial_i$とする。
+斉次式$F,G,H$の次数和が五なら
+\begin{equation}
+ \iota_{J(F,G,H)}\Omega=dF\wedge dG\wedge dH                 \label{eq:jacobian}
+\end{equation}
+は二次係数の双ベクトルを定める。これは階数二以下であり、$F,G,H$をstrict Casimirとする。
+閉三形式に双対なので発散零である。分解可能な双ベクトル$U\wedge W$について
+発散零は$[U,W]\in\Span(U,W)$を含意するため、\eqref{eq:jacobian}はPoissonとなる。
+同じことはJacobian括弧の直接計算でも確認できる。
+
+\begin{lemma}[線形核]\label{lem:kernel}
+滑らかな超曲面$X_d\subset P$への制限の核は
+$H^0(P,\cE(-d))=H^0(P,\Omega_P^2(5-d))$である。
+$d=1,2,3$に対する次元はそれぞれ$45,10,0$で、$d\ge3$では零である。
+滑らかな$S=V(q_0,q_1)$、$\deg q_i=2$については
+\[
+ H^0(P,I_S\cE)=q_0\wedge^2V\oplus q_1\wedge^2V
+\]
+であり、次元二十である。
+\end{lemma}
+\begin{proof}
+超曲面の主張はrestriction完全列から従う。Euler列の外積を用いると
+$H^0(\Omega_P^2(k))=0$が$k\le2$で成り立ち、$k=3,4$の次元は$10,45$である。
+完全交叉ではKoszul列を$\cE$で捻って
+\[
+0\longrightarrow\Omega_P^2(1)\longrightarrow
+\Omega_P^2(3)^{\oplus2}\longrightarrow I_S\cE\longrightarrow0
+\]
+を得る。$\Omega_P^2(1)$はacyclicであり、
+$H^0(\Omega_P^2(3))=\wedge^2V$は定数双ベクトルで表される。
+よって二つの定数双ベクトルを用いる表示は存在し、一意である。
+\end{proof}
+
+$S$の随伴公式は$-K_S=\cO_S(1)$を与え、全Poisson構造は五次元の切断空間である。
+$h\in V^*$に対し$J_h=J(q_0,q_1,h)/4$と置く。
+随伴同型の全体尺度を固定して$\sigma_h=J_h|_S$と書けば、$h\mapsto\sigma_h$は
+$V^*\simeq H^0(S,-K_S)$という線形同型になる。
+実際、coneのresidue三形式を$\eta$とすると$\iota_{J(q_0,q_1,h)}\eta=dh$であり、
+Euler収縮は$h$を与える。従って全切断が延長される。
+
+\begin{proposition}[曲面の全二十変数延長]\label{prop:full20}
+固定した$(S,\sigma_h)$の全ambient bivector延長は
+\begin{equation}
+ P=J_h+q_0A+q_1B,\qquad A,B\in\wedge^2V,               \label{eq:full20}
+\end{equation}
+で一意に表される。Poisson延長スキームは、これに全projective Jacobi条件
+$E\wedge\Jac(P)=0$を課した二十変数二次方程式スキームである。
+\end{proposition}
+\begin{proof}
+$J_h$が一つの延長を与え、差は$H^0(I_S\cE)$に属する。補題\ref{lem:kernel}を用いる。
+斉次二次liftのSchouten括弧は、Euler方向の三重ベクトルを法として射影Jacobiを表す。
+従って$E$を外積した全係数の消失が必要十分である。
+\end{proof}
+
+\section{滑らかな三次超曲面の剛性と判別式への制約}
+\begin{theorem}[三次超曲面の全点一意延長]\label{thm:cubic}
+滑らかな$C=V(F_3)\subset P$上の任意のPoisson構造は、$P$上へ一意に延長する。
+非零構造の場合、その延長は$J(F_3,L,M)$型の一般階数二であり、
+規格化した全延長スキームは被約な一点である。
+\end{theorem}
+\begin{proof}
+既知のintrinsic分類\cite{LPT,May}により、全非零構造は二次元部分空間
+$\Span(L,M)\subset V^*$に対応し、対応する一形式は$L\,dM-M\,dL$である。
+\eqref{eq:jacobian}の制限がこの構造を与えることは、residue体積形式とEuler収縮で確かめられる。
+補題\ref{lem:kernel}の核が零なので、同じ制限を持つ別のambient bivectorは存在しない。
+これは線形方程式のスキームとしても一点であり、Jacobi条件を追加しても同じ被約一点である。
+零構造についても核が零なので延長は零だけである。
+\end{proof}
+
+\begin{corollary}[退化因子の三次成分は特異]\label{cor:cubic-discriminant}
+$P$上の一般階数四Poisson構造の退化五次因子に、滑らかな三次因子は現れない。
+従って二次＋三次型における三次因子は、必ず特異又は可約である。
+\end{corollary}
+\begin{proof}
+退化因子の被約既約成分のイデアルはPoissonイデアルである。
+局所Pfaffianを$D$とすればHamiltonian場$H_f$について
+$H_f(D)=D\Div(H_f)$となり、素因子ごとの極を比較すればこの不変性が従う。
+滑らかな三次成分があれば定理\ref{thm:cubic}からambient階数は二以下となり矛盾する。
+\end{proof}
+
+\begin{proposition}[次数四以上の滑らかな超曲面]\label{prop:higher}
+$d\ge4$の滑らかな超曲面$X_d\subset P$は、非零ambient Poisson構造の
+Poisson部分多様体にはならない。
+\end{proposition}
+\begin{proof}
+$k=5-d\le1$とする。随伴により$\wedge^2T_X\simeq\Omega_X^1(k)$である。
+conormal列と$H^1(X,\cO_X(k-d))=0$から、$H^0(\Omega_X^1(k))$は
+$H^0(\Omega_P^1(k)|_X)$の商である。
+restriction列、$H^0(\Omega_P^1(k))=0$および
+$H^1(\Omega_P^1(k-d))=0$（$k-d=5-2d<0$）から後者も零となる。
+従って制限Poisson構造は零であり、補題\ref{lem:kernel}の単射性からambientも零である。
+\end{proof}
+
+\begin{corollary}[滑らかな退化因子成分の次数]\label{cor:smooth-factor}
+一般階数四の$P$上のPoisson構造の実退化因子について、滑らかな既約成分の次数は高々二である。
+従って三次・四次・五次の既約成分は必ず特異である。
+\end{corollary}
+\begin{proof}
+各既約成分のPoisson不変性と、系\ref{cor:cubic-discriminant}、命題\ref{prop:higher}を組み合わせる。
+\end{proof}
+
+\subsection{三次incidenceのファイバーと次元36}
+滑らかな三次式$[F]\in\PP\operatorname{Sym}^3V^*$と$W\in\Gr(2,V^*)$の組の空間は
+次元$34+6=40$である。これを$[J(F,L,M)]$へ写す。
+
+\begin{proposition}\label{prop:cubic-fibre}
+この写像の非空ファイバーは、$F+G(L,M)$、$G\in\operatorname{Sym}^3W$のうち
+三次式が滑らかであるものからなる四次元アフィン空間の開集合である。
+従って像の次元は$40-4=36$であり、$\Rat(1,1,3)$族に稠密である。
+\end{proposition}
+\begin{proof}
+射影双ベクトルの斉次二次liftには一意なdivergence-free代表がある。
+実際、線形場$Y$について$\delta(E\wedge Y)=5Y-(\operatorname{tr}Y)E$であり、
+任意のliftの発散はtrace零なのでこれを一意に消せる。
+Jacobian liftはこの代表である。
+
+このliftの一次Casimir空間は正確に$W$である。
+もし$N\notin W$もCasimirなら、独立な$L,M,N$を最初の三座標に取り、
+$dN\wedge dF\wedge dL\wedge dM=0$から$F$はこの三変数だけに依存する。
+これは頂点を持つ三次coneで、滑らかさに矛盾する。
+従ってambient構造から$W$を復元できる。
+同じ$W$で二つのJacobianが比例する条件は
+$d(F'-cF)\wedge dL\wedge dM=0$、すなわち
+$F'-cF\in\operatorname{Sym}^3W$である。射影尺度を規格化すれば主張の四次元開集合になる。
+全Jacobian族のパラメータ空間で滑らかな$F$は稠密開なので、最後の稠密性も従う。
+\end{proof}
+
+\section{四次del Pezzo曲面の一般の組における延長剛性}
+\begin{theorem}[一般延長の被約一点性]\label{thm:dp-rigidity}
+滑らかな完全交叉$S=V(q_0,q_1)\subset P$と
+非零$[\sigma]\in\PP H^0(S,-K_S)$の組をパラメータ化する既約空間には、
+空でないZariski開集合$\mathcal U$が存在する。
+$(S,[\sigma])\in\mathcal U$では、規格化した全ambient Poisson延長スキームは被約な一点であり、
+その点は階数二のJacobian延長である。
+\end{theorem}
+この定理は\emph{全ての}滑らかな$S$や\emph{全ての}非零$\sigma$に対する主張ではない。
+特別な組の延長ファイバーは、本稿の未解決課題として残す。
+
+\subsection{全Jacobiを150個の係数式へ還元する}
+滑らかな二次式pencilは非退化memberを持ち、同時対角化により
+\[
+q_0=\sum_{i=0}^4x_i^2,\qquad q_1=\sum_{i=0}^4\lambda_ix_i^2
+\]
+と書ける。滑らかさは$\lambda_i$が相異なることと同値である。
+自己共役行列の固有値が重複する場合、複数固有ベクトルの空間又はJordan鎖から
+等方固有ベクトルが得られ、二式の基底集合に特異点を作る。
+逆に相異なる固有値なら、Jacobianの階数低下は二式を同時に満たす固有ベクトルを要求し、存在しない。
+pencilの基底変更と座標の尺度変更により、稠密な標識chartで
+\[
+\lambda=(0,1,2,u,v),\qquad h=\sum_{i=0}^4h_ix_i
+\]
+にできる。$u,v$は$0,1,2$と互いに相異なる。
+
+$P=J_h+q_0A+q_1B$とし、循環Jacobiatorの規約を
+\[
+\Jac(P)_{ijk}=\sum_l(P_{il}\partial_lP_{jk}+P_{jl}\partial_lP_{ki}+P_{kl}\partial_lP_{ij})
+\]
+とする。定数反対称行列$C$に対して
+\[
+\begin{split}
+\ell_C(J_h)_{ijk}&=\sum_l(C_{il}\partial_l(J_h)_{jk}+
+ C_{jl}\partial_l(J_h)_{ki}+C_{kl}\partial_l(J_h)_{ij}),\\
+T_A&=\ell_A(J_h)+(A\nabla q_0)\wedge A+(A\nabla q_1)\wedge B,\\
+T_B&=\ell_B(J_h)+(B\nabla q_0)\wedge A+(B\nabla q_1)\wedge B
+\end{split}
+\]
+と置く。$J_h$は両$q_i$をCasimirとするので
+\begin{equation}
+ \Jac(P)=q_0T_A+q_1T_B.                                \label{eq:jac-factor}
+\end{equation}
+$T_A,T_B$の係数は空間変数$x$について一次である。
+
+\begin{lemma}\label{lem:150}
+projective Jacobi条件は$E\wedge T_A=E\wedge T_B=0$と同値である。
+固定した滑らかなpencilについて、両方の係数イデアルも一致する。
+\end{lemma}
+\begin{proof}
+$U=E\wedge T_A,V=E\wedge T_B$は二次係数の四重ベクトルである。
+$q_0U+q_1V=0$と互いに素な$q_0,q_1$から、$U=q_1C,V=-q_0C$となる定数四重ベクトル$C$がある。
+しかし$E\wedge U=0$だから$E\wedge C=0$であり、$C$の全定数係数は零となる。
+この推論は、$E\wedge U=E\wedge V=0$を満たす有限次元係数空間上の線形写像の単射性である。
+固定したpencilでは線形な左逆写像を取れるので、係数イデアルも一致する。
+pencilを動かす場合も可逆minorの開集合上で同じ左逆を取れる。
+\end{proof}
+
+四添字は五通り、二次単項式は十五個なので、両$T$から150本の係数式を得る。
+$A,B$の上三角成分を辞書順に並べた二十変数を$c$、その二次単項式210個を$m_2(c)$とすると、
+\begin{equation}
+ L(u,v,h)c+Q(u,v)m_2(c)=0.                            \label{eq:LQ}
+\end{equation}
+$Q$が$h$に依存しない点が重要である。
+
+\subsection{普遍的な行関係と二つの非零minor}
+$Q$の列を$x_i\mapsto\pm x_i$の文字で分けると、
+二添字文字の十blockは各$6\times6$、四添字文字の五blockは各$16\times12$である。
+これら以外に零行が十本ある。
+付属コードは各blockのpivotを指定し、\emph{$\mathbb Q(u,v)$上で恒等的に}
+非pivot行がpivot行の線形結合であることを検証する。
+二添字blockの階数は三、四添字blockの階数は六であるため、
+$Q$の一般階数は60、左核には90行の明示的な基底行列$N(u,v)$がある。
+
+$NQ=0$から、元のイデアルは線形式$NLc$を含む。
+点
+\begin{equation}
+ (u,v,h_0,h_1,h_2,h_3,h_4)=(3,4,1,1,1,1,1)             \label{eq:witness}
+\end{equation}
+において、次の二つの\emph{正確な有理数minor}を得る。
+\begin{center}
+\begin{tabular}{lll}\toprule
+段階&選ぶ行・列（零始まり）&行列式\\\midrule
+$NL$&18行、列$0,\ldots,17$&$70875/88$\\
+二変数へ代入後&行$0,1,2,4,5$、五単項式&$4443337729552/7688671875$\\\bottomrule
+\end{tabular}
+\end{center}
+最初の18行は
+\[
+1,7,8,17,18,27,28,34,40,41,47,50,53,59,60,66,69,72
+\]
+である。コードが使う行順は、$A$側、$B$側の順、四添字の辞書順、二次単項式の辞書順であり、
+$N$の行順もblock文字、非pivot行、零行の順として固定してある。
+全blockのpivotと分母・上の二つのminorは小さなJSON証明書に記録する。
+
+\begin{proof}[定理\ref{thm:dp-rigidity}の証明]
+150式の構成と補題\ref{lem:150}は、全二十変数の延長問題を尽くす。
+普遍的な$NQ=0$は、標本でなく$\mathbb Q(u,v)$上の多項式恒等式として検証されている。
+blockの分母と最初の18次minorが非零となる開集合で、
+十八変数を残る二変数$z_0,z_1$の線形式として解く。
+残る元の150式は定数項を持たず、
+$z_0,z_1,z_0^2,z_0z_1,z_1^2$の五単項式の線形結合になる。
+第二の5次minorが非零である開集合では、これらの式の線形結合に$z_0,z_1$が含まれる。
+従って元のイデアルは全$c_i$を含み、逆の包含も明らかなので、正確に$(c_0,\ldots,c_{19})$である。
+延長スキームは$A=B=0$という被約な一点となる。
+
+両minorと全blockの分母は\eqref{eq:witness}で非零であるから、得た開集合は空でない。
+この点のpencilは滑らかで$h\ne0$である。
+座標変換とpencilの基底変更は延長スキームの同型を誘導する。
+滑らかなpencilを三固有値で規格化した標識chartは、組のパラメータ空間を稠密に覆うので、
+その像は稠密構成可能集合を含み、従って空でないZariski開集合を含む。
+$J_h$は階数二である。以上で結論を得る。
+\end{proof}
+
+\begin{remark}[有限計算の射程]
+一例で零次元又は接空間零となったことだけから一般ファイバー全体の一意性を結論していない。
+$NQ=0$という普遍的な関係を先に証明し、二つの非零minorで
+\emph{全二次イデアル}が最大イデアルになる開集合を構成している。
+例外閉集合の全決定、全滑らかな曲面上の全切断、零切断は本定理の対象外である。
+\end{remark}
+
+\subsection{曲面incidenceのファイバーと次元28}
+滑らかな二次式pencil$U\in\Gr(2,\operatorname{Sym}^2V^*)$と$[h]\in\PP V^*$の組の空間は
+次元$26+4=30$である。
+
+\begin{proposition}\label{prop:dp-fibre}
+Jacobian写像$(U,[h])\mapsto[J(q_0,q_1,h)]$の一般ファイバーは
+\[
+ U_{a,b}=\Span(q_0+ah^2,q_1+bh^2),\qquad (a,b)\in\AA^2
+\]
+の滑らかな完全交叉を定める開集合である。
+従って像の次元は$30-2=28$で、$\Rat(1,2,2)$族に稠密である。
+\end{proposition}
+\begin{proof}
+一般Jacobianの一次・二次Casimir空間は
+\begin{equation}
+ A_1=\CC h,\qquad A_2=\Span(q_0,q_1,h^2).              \label{eq:centres}
+\end{equation}
+である。右辺による下界は恒等的である。
+逆の上界は\eqref{eq:witness}における二つの正確なminorで確認できる。
+次数一のCasimir線形写像は階数四で非零minorは$2$、
+次数二では階数十二で非零minorは$64$である。
+従って上半連続性により、開集合上で\eqref{eq:centres}が成り立つ。
+これらの写像・行列・minorの選択は付属コードから正確に再生成できる。
+
+同じ射影構造を与える別のJacobianも、その一意なdivergence-free liftと比例するので、
+$h$の直線と$A_2$が復元される。
+別のpencilは$A_2$の二次元部分空間である。$h^2$を含むpencilは滑らかな曲面を定めないので、
+$\CC h^2$に横断的な二次元部分空間だけが残る。
+これは$U$から$\CC h^2$への線形写像のgraphであり、上の$(a,b)$表示となる。
+反対にこの変更は$dq_0\wedge dq_1\wedge dh$を変えない。
+滑らかさは開条件で元のpencilを含むので、ファイバーは空でない二次元開集合である。
+全$\Rat(1,2,2)$源で滑らかな完全交叉は稠密開なので最後の主張も従う。
+\end{proof}
+
+\section{単純超平面延長と横断的Poisson対称性}
+$H\simeq\PP^3$を固定する。$\sigma\ne0$を$H$上のPoisson構造とする。
+$\sigma$は$\CC^4$上の水平で重み四の一形式$\alpha$、$\alpha\wedge d\alpha=0$に対応する。
+$\Omega_4$を体積形式として
+\[
+ \iota_B\Omega_4=\tfrac14d\alpha
+\]
+と定めると、$B$は一意なdivergence-free二次liftである。
+$d\alpha\wedge d\alpha=d(\alpha\wedge d\alpha)=0$なので$B$は階数二以下、発散零からPoissonである。
+一意性は$\delta(E_4\wedge V)=4V-(\operatorname{tr}V)E_4$による。
+
+\begin{theorem}[単純超平面の判定]\label{thm:hyperplane}
+次の二条件は同値である。
+\begin{enumerate}
+\item $\sigma$は、$H$を実退化因子の重複度一の成分とする$P$上の一般階数四Poisson構造へ延長する。
+\item $v\in H^0(H,T_H)$で$[v,\sigma]=0$かつ$v\wedge\sigma\not\equiv0$となるものが存在する。
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+$v$のtrace零の線形liftを$V$とする。
+$[v,\sigma]=0$から$[V,B]$はEuler鉛直である。
+また$B$は発散零で$V$の発散は定数なので$[V,B]$も発散零であり、
+上の一意性から$[V,B]=0$となる。
+従って$P_0=B+E_4\wedge V$は$\CC^4$上のPoisson構造で、
+$P_0^2/2=B\wedge E_4\wedge V\ne0$である。
+第五座標$z$をCasimirとして同じ式を$\CC^5$へ延長すると、
+$D=z\Pf(P_0)$であり$H=V(z)$は単純因子になる。
+
+逆に$H$を保つ射影Poisson構造には、$z$をCasimirとする一意な斉次二次liftがある。
+存在は、任意のliftの$\iota_{dz}$が$z=0$でEuler方向になることから、
+Euler鉛直項を引いて$\iota_{dz}=0$とすることで従う。
+二つの差$E\wedge Y$で$zY-Y(z)E=0$なら$Y$はEulerの定数倍なので差は零である。
+射影Jacobiの$\partial_z$成分から、このliftはstrict Poissonでもある。
+$z=0$での四変数部分を$P_0=B+E_4\wedge V$と書く。
+Jacobi条件は$E_4\wedge[B,V]=0$を与え、前半と同じ発散零の議論で$[B,V]=0$となる。
+$H$の重複度一は$\Pf(P_0)\ne0$と同値であり、これは$v\wedge\sigma\ne0$である。
+\end{proof}
+
+ここで求めるのは$\sigma$自体を保つ対称性であり、$[v,\sigma]=c\sigma$だけでは不十分である。
+またこの判定は\emph{単純な}$H$に限る。横断的対称性が無いことから、重複$H$を持つ全rank四延長の不存在までは結論しない。
+
+例えば$x_0,\ldots,x_3$について$Y_i=x_i\partial_i-x_3\partial_3$（$i=0,1,2$）とする。
+$B=Y_0\wedge Y_1,V=Y_2$は上の条件を満たし、第五座標をCasimirとした延長の実Pfaffianは
+$-4x_0x_1x_2x_3x_4$となる。これは五超平面型の機構を直接説明する。
+
+\section{二次超曲面：階数の違う延長が同じ制限を持つ}
+二次超曲面には補題\ref{lem:kernel}の十次元の核があり、三次とは本質的に異なる。
+ここでは既存の研究で得られていた現象を、現在の分類との橋渡しとして再導出する。
+
+\subsection{全線形延長とmodular条件}
+$q$を非退化二次式、$Q=V(q)$とする。
+$Q$に接する射影双ベクトルは、$q$をstrict Casimirとする二次liftで一意に表せる。
+定数双ベクトル$T$に対し
+\[
+ v_T=\iota_{dq}T,\qquad K_T=qT-\tfrac12E\wedge v_T
+\]
+と置くと、制限を変えない全差が$K_T$で与えられる。
+実際、射影的に$qT$と同じで、$\iota_{dq}K_T=0$である。
+$\delta K_T=-\tfrac32v_T$なので、各intrinsic双ベクトルには一意なdivergence-free代表$s(\sigma)$がある。
+その全延長は$s(\sigma)+K_T$という十次元アフィン空間である。
+
+Poisson延長であるためには$[\delta P,P]=0$が必要である。
+$[v_T,K_T]=0$を使うと、$v_T|_Q$は$\sigma$を保つ大域場でなければならない。
+この条件はJacobi係数イデアルから線形演算で得られるため、スキーム上の線形制約でもある。
+なお$q$-Casimir liftでは、射影Jacobiからstrict Jacobiが従う。
+実際、$E\wedge\Jac(P)=0$を$dq$で収縮し、$\iota_{dq}\Jac(P)=0$を使うと
+$2q\Jac(P)=0$を得る。標準代表$s$自体がPoissonであるとは限らない。
+
+\subsection{Principal affine型の二つの延長}
+\[
+\begin{split}
+q&=x_0x_4-4x_1x_3+3x_2^2,\\
+H&=2x_0\partial_0+x_1\partial_1-x_3\partial_3-2x_4\partial_4,\\
+W&=x_0\partial_1+2x_1\partial_2+3x_2\partial_3+4x_3\partial_4,\\
+T_0&=-\partial_1\wedge\partial_4+\tfrac12\partial_2\wedge\partial_3
+\end{split}
+\]
+とする。$H(q)=W(q)=0$、$[H,W]=W$、$v_{T_0}=W$である。
+$\beta=H\wedge W$の制限を$\sigma$とする。
+
+\begin{proposition}\label{prop:affine-two}
+この$\sigma$の全延長スキームは被約な二点で、
+\[
+ \beta,\qquad \beta-K_{T_0}
+\]
+で与えられる。前者はrank二、後者はrank四で、実退化因子は$2Q+V(x_0)$である。
+\end{proposition}
+\begin{proof}
+まず$\sigma$を保つ$\mathfrak{so}(q)$の部分空間は$\CC W$である。
+実際、$x_0=1$、$(a,b,c)=(x_1,x_2,x_3)$、$x_4=4ac-3b^2$上で
+\[
+\sigma^{ab}=2(b-a^2),\quad \sigma^{ac}=3(c-ab),\quad \sigma^{bc}=6(ac-b^2).
+\]
+$T=\sum s_{ij}\partial_i\wedge\partial_j$から得る場$v_T$のLie微分の係数を比較すると、
+\[
+ s_{01}=s_{02}=s_{03}=s_{04}=s_{12}=s_{13}=s_{24}=s_{34}=0,
+ \qquad s_{14}+2s_{23}=0
+\]
+となる。これらは独立な九式であり、逆向きも$[W,H\wedge W]=0$から成り立つ。
+全係数行列とその階数九は付属コードで独立に再構成する。
+上のmodular条件から全候補は$\beta+tK_{T_0}$に限られ、
+\[
+ \Jac(\beta+tK_{T_0})=-t(t+1)q(W\wedge T_0)
+\]
+である。従ってイデアルは九つの独立線形式と$t(t+1)$であり、被約な二点を得る。
+最後に
+\[
+ E\wedge(\beta-K_{T_0})^2/2=-\tfrac52x_0q^2\,\partial_0\wedge\cdots\wedge\partial_4
+\]
+を直接計算すれば階数と因子が従う。
+\end{proof}
+
+この例はLPTのAffine成分の一般軌道に対応する\cite[Example 5.1, Theorems 5.2, 9.1]{LPT}。
+滑らかな$Q$の空間の次元は14、固定$Q$のこの射影一般軌道は$10-2=8$である。
+ここで二次元の軌道安定化代数は$\Span(H,W)$であり、厳密安定化は$\CC W$である。
+従ってrank四の第二延長を持つincidenceの次元は$14+8=22$となる。
+その退化因子から二重$Q$を一意に回収できるため、像も22次元である。
+これは既存分類の滑らかな$H+2Q$型の次元を説明するが、この計数だけで成分性を証明するものではない。
+
+\subsection{同じ制限のままrankが変わる特殊ファイバー}
+座標を$(u,z_1,z_2,z_3,v)$とし、
+\[
+ q=2uv+z_1^2+z_2^2+z_3^2,\quad U_i=u\partial_{z_i}-z_i\partial_v,
+ \quad T=\tfrac12\partial_v\wedge\partial_{z_3}
+\]
+とする。$U_i$は互いに可換で$q$を保ち、$v_T=U_3$である。
+\begin{proposition}\label{prop:rankjump}
+\[
+ P_t=U_1\wedge U_2+t\bigl(qT-\tfrac12E\wedge U_3\bigr)
+\]
+は全$t$で$q$をCasimirとするPoisson構造で、同じ非零構造を$Q$上に誘導する。
+$t=0$ではrank二、$t\ne0$ではrank四で、実退化因子は$Q+3V(u)$である。
+\end{proposition}
+\begin{proof}
+$U_i$の可換性、$[U_1,T]=[U_2,T]=0$、斉次性を用いると、
+基点$U_1\wedge U_2$、方向$K_T$はいずれもPoissonで互換である。
+$K_T$は射影的に$qT$なので制限は不変で、$u\ne0$上でその制限は非零である。
+外積計算は
+\[
+ E\wedge P_t^2/2=-\tfrac t2 q u^3\,\partial_u\wedge\partial_{z_1}\wedge
+ \partial_{z_2}\wedge\partial_{z_3}\wedge\partial_v
+\]
+を与える。全$t$のJacobi・Casimir・Pfaffianは付属コードでも恒等的に確認する。
+\end{proof}
+
+従ってintrinsic Poisson成分の名前だけでambient階数を決めてはならない。
+同じ制限の延長ファイバーの中で、rank二点とrank四の開部分が同居し得る。
+滑らかな$Q$の三成分の一般ファイバーを既存資料で比較すると、
+Rat型は被約一点、Log型はrank二のみの$\AA^1$、Affine型は命題\ref{prop:affine-two}の二点である。
+最初の二つの一般性の証明は既存研究資料の
+\emph{滑らかな三次元二次超曲面上のPoisson構造の延長}（2026年11月1日、v2、§5）にあるが、
+本稿では再監査していない。本稿の主定理はこの表を使わずに証明している。
+
+\Needspace{16\baselineskip}
+\section{完全分類の幾何学的理解への帰結と未解決部分}
+得られた結論は次のように組み合わさる。
+\begin{center}
+\begin{tabular}{p{.29\textwidth}p{.61\textwidth}}\toprule
+不変な幾何&ambient分類への帰結\\\midrule
+滑らかな三次超曲面&全延長は唯一のrank二。rank四の三次因子は判別式上に強制される。\\
+一般の四次del Pezzoと非零切断&全延長は被約一点のrank二。rank四延長があるなら特別なincidenceに限られる。\\
+単純な不変超平面&intrinsic構造に葉方向と独立な大域Poisson対称性が必要十分。\\
+滑らかな二次超曲面&kernel十次元の非線形方程式が階数の異なる延長を許し、$H+2Q$、$3H+Q$を説明する。\\\bottomrule
+\end{tabular}
+\end{center}
+特に$36,28,22$という族の次元を、部分多様体の変形自由度と延長の忘却ファイバーから説明できる。
+これらはすべて射影化後・$\mathrm{PGL}_5$商前の次元である。
+147という総数の再証明、各像の新しい成分性、全147族と全subschemeの対応表は主張しない。
+
+次の本質的な問題は、四次del Pezzoの例外閉集合を幾何学的に認識することである。
+今回の二つのminorの消失集合そのものは座標選択に依存し、真の例外集合とは限らない。
+その上で全二十変数イデアルを調べ、rank四解が存在するのか、それとも一意性の普遍証明へ
+改良できるのかを区別する必要がある。
+曲面上の零因子の特異性と、pencilの五つの退化memberの配置、延長の余法線Lie作用を比較する方針が自然である。
+ただし余法線が可換であることを、滑らかな曲面という理由だけで仮定してはならない。
+
+二次超曲面では、十次元延長方程式とintrinsic対称性の次元跳躍を用い、
+上の一般ファイバーから外れるrank四延長の位置を調べることが次の課題となる。
+超平面では定理\ref{thm:hyperplane}を六つのintrinsic成分に適用し、
+単純因子型と重複因子型の境界を分けることができる。
+いずれも成分数を増やす探索ではなく、既存分類に現れる幾何の理由を説明するための研究である。
+
+\section{証明・計算・先行研究の状態と再現}
+三次超曲面と二次超曲面のintrinsic分類は\cite{LPT,May}の既知結果である。
+三次の一意延長と二次の二つの例は既存研究資料から回収し、上で必要な証明を再掲した。
+新たな計算証明書は四次del Pezzoの一般延長剛性に対するものであり、全147成分の監査ではない。
+超平面判定とincidenceファイバーの議論は通常の証明を与え、有限Casimir階数だけを正確計算で補った。
+全ての結果の文献上の優先権を確定したわけではない。
+
+付属する二つのスクリプトはPython 3とSymPyで実行できる。
+\begin{verbatim}
+python code/verify_del_pezzo_rigidity.py
+python code/check_incidence_examples.py
+\end{verbatim}
+前者は$\mathbb Q(u,v)$上の十五blockの行関係と二つのminorを検査する。
+後者は明示例のJacobi・Casimir・Pfaffian、Affine stabilizer、およびCasimir空間の階数minorを確認する。
+101という検査数は個別の恒等式・判定の項目数であり、101個の独立な定理ではない。
+出力JSONには入力式の規約、minorの選択、スクリプトのSHA256を含める。
+必要な全係数行列は生成コードで一意に再生成し、大量の展開式や計算ログを同梱しない。
+原稿はLuaLaTeXで二回組版し、計算・組版・保存の実行状態は別に報告する。
+
+\begin{thebibliography}{9}
+\bibitem{LPT} F. Loray, J. V. Pereira and F. Touzet,
+\emph{Foliations with trivial canonical bundle on Fano 3-folds},
+Mathematische Nachrichten \textbf{286} (2013), 921--940.
+DOI: 10.1002/mana.201100354; arXiv:1112.3871v3.
+特にExample 5.1、Theorems 5.2, 9.1。
+\url{https://arxiv.org/abs/1112.3871}.
+\bibitem{May} E. Mayanskiy, \emph{Poisson cohomology of two Fano threefolds},
+Journal of Algebra \textbf{424} (2015), 21--45.
+DOI: 10.1016/j.jalgebra.2014.08.049; arXiv:1303.5916, Theorem 1.
+\url{https://arxiv.org/abs/1303.5916}.
+\end{thebibliography}
+\end{document}
