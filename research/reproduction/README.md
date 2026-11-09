@@ -95,5 +95,6 @@ python UNPACK.py --parts poisson-p4-v72-part*.zip --destination poisson-p4-curre
 
 各volumeは同じmanifestを持ち、内容は重複しないcontent-addressed chunkである。
 全chunkと復元された全ファイルをSHA256で検証する。
+必要なディレクトリ参照リンクも同じ相対参照で復元し、論理パスと実体パスの一致を確認する。
 旧ZIPの入れ子、ログ、cache、旧PDFは含めない。
 論文PDFはLibraryに単独でも保存する。生成、CRC/hash確認、main保存、Library保存は別のreceiptで記録する。

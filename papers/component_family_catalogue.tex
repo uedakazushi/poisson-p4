@@ -34,7 +34,8 @@ DPMのみ定数$r=\sqrt3\in\CC$を一つ固定して用いる。他方の根を�
 $x_ax_b$ ($0\le a\le b\le4$)の辞書式順とし、対を外側に置く。
 初期値を$x_0^2(\partial_1\wedge\partial_2+\partial_3\wedge\partial_4)$の係数とする。
 \path{legacy/v02/data/symplectic_slice_certificate.json}の
-\texttt{raw\_free\_indices}の第$j$位置に$u_j$を置き、
+\texttt{raw\_free\_indices}の第$(j+1)$要素が指す係数位置に
+$u_{j+1}$ ($0\le j<61$)を置き、
 \path{legacy/v02/data/symplectic_slice_equations.json}の
 \texttt{eliminated\_raw\_variables}の各$(k,p_k)$について係数$k$を$p_k(u)$へ置換する。
 多項式の符号化$(J,a,b)$は$(a/b)\prod_{j\in J}u_{j+1}$を意味する。
