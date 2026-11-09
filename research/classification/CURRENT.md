@@ -1,46 +1,34 @@
-# 現在地 — 正規化留数による全fiberとPoisson pencil
+# 現在地と最終到達条件
 
-2026-11-09 / v71-normalization-residue-pencils
+2026-11-09 / v72-normalization-residue-integration
 
-active queueはresearch/conceptual/GLOBAL_PLAN.md。現行台帳は147成分（rank4:141、rank2:6）・1158採録主張を主張する。
-今回その全証明を独立再確認したとはしない。台帳・旧証明書は未変更。
+**全工程は未完。中間保存後もFINAL_TARGETの未達条件へ連続して進む。**
+最終仕様と継続命令の更新ad2800acを、数学チェックポイント9830a71fと統合している。
+現行稿・台帳は147成分（rank4:141、rank2:6）を主張するが、今回その全証明を独立認証したとはしない。
 
-主稿と構造稿は共通TeX五本を読み、既存の全証明を保持する。
-Aの標識/modular原始関数と二つの実持上げに加え、Bのcanonical cofactorとPfaffian復元を統合した。
-rank三・四の全31場を同じ入口へ接続し、全保存源の全自由係数・残Jacobiをexact入力として保持する。
-その全係数恒等式を再生成したが、full150線形kernelの完全性のrank証明は旧入力である。
+## 達成証拠と未達条件
 
-被約平面五次の全Saito源をA二H+C、B Q+C、C既約Fで共有する。
-磁気shearのkernelを因子の留数空間へ同型に写し、ν因子でkernel/cokernelの次元ν−1を証明した。
-二因子では非零磁気が23次元軌道、零磁気が22次元境界。既約Fでは全磁気が消え、三因子では商が二次元残る。
-六Q+C配置・二H+C・既約Fの全R6とshearの正逆を記号検算した。
-個別有限配置・全源帰属・周囲の二次/三次障害は保持し、軌道次元から成分性を推定していない。
+| 条件 | 現在の証拠と、なお必要な作業 |
+|---|---|
+| M1 全点被覆 | 主稿prop:irreducible-nonnormal-all-pointwiseの全次数/rank表を保持。thm:normalization-residue-source、prop:conductor-pole-residue、thm:curve-residue-sourceが全降下・留数とdegree5/6を共通化。R2全支持の共通接続をこれから確認する |
+| M2 極大性・相違 | 旧有限比較を保持。cor:reduced-divisor-component-imagesにより一般因子被約な別成分は同じ閉因子像を持てない。全147の必要比較・特殊底・非被約入口の依存確認は未完 |
+| M3 具体的記述 | 台帳と案内表あり。全IDの一般元・条件・次元・階数・幾何・証明と最終本文の一対一整合は未確認 |
+| M4 依存閉鎖 | Kaledin math/0310173v1 Theorem1.5/Corollary1.6を一次全文で確認。一般源の証明・37記号検算を追加。最終主定理の必要証明書依存閉包は未解消 |
+| C1/C2 概念的統合 | A/B/planeに加え正規化・導手pole bound・全B/A線形降下・scroll全留数kernelを統合。prop:partial-conductor-familyが二つの実T40曲線と023族の重複を置換。全10係数determinant境界はprop:plane-fixed-divisor-pencil。R2と全極大閉像の最終接続は未完 |
+| P1 公表原稿 | 現行主稿385頁・構造稿31頁の中間版を二回組版、追加と置換箇所をPDF画像で確認。原稿全体の理解順の再構成、主要一次引用・全一般元表の最終確認は未完 |
+| R1 再現一式 | reports/normalization_residue_checks.jsonに新37項目、既存共通29項目を再現。一般証明の代用ではない。必須旧証明書のbundle依存閉包は未収録で、最終条件未達 |
+| S1 保存 | 数学のローカル中間commit9830a71f、最終仕様remote ad2800acを非forceで統合中。最終bundle/Library保存は未達。既存Libraryファイルは削除していない |
 
-新規性未確認。検算はcode/check_quadric_residue_reconstruction.py、入力はcode/data/quadric_cofactor_sources.json。
-結果はreports/quadric_residue_checks.json、組版・目視と保存範囲はreports/quadric_residue_validation.json。
-Cの導手支持について、rank零・二の可換余法線とflat作用を共通化した。
-planeではcanonical liftの全weight源を(45,30,9)、rank零を(35,30,9)として正逆付きで復元した。
-restriction・余法線作用を固定してもbinary quadratic三係数が残る。全higherと非斉次Jacobiを保持する。
-leading Pfaffianをrestrictionで割ったsectionの平行輸送から、二次判別式と四次不変量を同じ原理で説明する。
-rank零可換性、rank二module、既約cubic零因子の全source、m2/m4輸送の重複証明を実際に置換した。
-全150係数で制約rank42、Euler24、全源84の完全性と全自由係数恒等式を記号検算した。
-新規性未確認。旧有限場合分け・共鳴・monodromy・全支持帰属・成分性は保持し、全147の独立検証ではない。
-新検算はcode/check_conductor_conormal_reconstruction.py、結果はreports/conductor_conormal_checks.json。
-組版と目視はreports/conductor_conormal_validation.json。被約な固定五次Dの全fiberは、閉逆形式の線形空間V_Fからquadric q_F=0を除いた開集合となる。
-V_F全体が互換なPoisson tensorを与え、非空のrank4 fiberは幾何学的に既約である。
-正規化上では導手次数以下の全closed一形式と、B/Aで測る全線形降下条件のkernelからV_Fを正逆付きで復元した。
-導手係数一のrank0/2留数とnode符号、scrollの全交点行列kernelを統合し、次数五源と次数六排除の重複を置換した。
-有限MCM族の部分導手・base change・一意なambient liftを共通化し、二つの実T40曲線と023射影族へ適用した。
-一般因子が被約な相異なるambient成分は同じ閉因子像を持てない。因子像の包含とrank jumpは別の比較として残す。
-平面free五次では全10係数のcompatible源となり、rank2以下境界はvertex P5を持つdet(M)=0のquadricである。
-非被約h5の反例、極次数だけでは降りないcusp、node-cusp局所族の二重導手を保持する。
-新37項目ではtoric五Hの全150列kernel、A/B/C三つの全M4+R6源、導手のmatrix factorizationを検算した。
-一般定理は本文の通常の証明であり、このCASが全147成分又は全旧有限場合分けを独立認証したとはしない。新規性未確認。
-新検算と組版・目視はreports/normalization_residue_checks.json、reports/normalization_residue_validation.json。
-次は被約因子baseのkernel-rank strataから極大閉像を認識する。Bの全31cofactor源のうち少なくとも二つを選び、
-因子baseへの全像・特殊底・標識忘却を保って同じ閉像か異なる極大像かを比較する。
-被約fixed-D fiberのGalois分裂を追加に分類する必要はなくなったが、factor markingと非被約入口の分岐は残る。
-同時にR2のfoliation全支持を、今回の明示的rank2境界と純rank2成分の区別へ接続する。
-constant rank上のirreducibilityだけをambient componenthoodとしない。rank jumpの縦rank4も残す。
+検証の正確な射程とPDF hashはreports/normalization_residue_validation.json。
+被約fixed-D fiberはthm:reduced-fibre-linearにより線形開で幾何学的既約だが、非被約h5には反例がある。
+導手次数だけでは降りないcuspのda/aと、二位極da/a2が許される実例、node-cusp相対導手を保持する。
+全ID・成分数をこの新定理だけで再認証したとはしない。優先権は未確認。
 
-GitHub、bundle生成/検証、Library保存は別状態として実結果だけを報告する。
+## 次の具体操作
+
+RANK_TWO_SUPPORT.md、KNOWN_COMPONENT_AUDIT.mdとstable_rank2原証明を読み、
+prop:ranktwoの飽和foliation・零因子から全支持へ接続する。
+六つの純rank2成分と、toric外積/Aff32等のrank4閉包項を区別し、
+全rank4被覆後に閉包項を戻す論理順を主稿に統合する。
+その後M2/M3、主稿再構成、必須証明書の全依存・bundle・main/Libraryへ直ちに進む。
+現在、数学・実行上の外的阻害を終了理由として認定していない。
