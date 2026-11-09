@@ -21,9 +21,9 @@
 \newcommand{\Div}{\operatorname{div}}\newcommand{\Span}{\operatorname{Span}}
 \newcommand{\Jac}{\operatorname{Jac}}
 \title{Poisson部分多様体から見る射影四空間の成分分類\\
-\large 三次超曲面の剛性・del Pezzo曲面の一般延長・超平面の横断対称性}
+\large 三次超曲面の剛性・quadricのmodular判定・del Pezzoの一般延長}
 \author{}
-\date{2026年11月10日\quad v1・研究原稿（新規性の確認は継続中）}
+\date{2026年11月10日\quad v2・研究原稿（新規性の確認は継続中）}
 \begin{document}\maketitle
 \begin{abstract}
 射影四空間のPoisson構造を、滑らかな不変部分多様体への制限と延長のincidenceから理解する。
@@ -36,7 +36,7 @@
 $\Rat(1,1,3)$と$\Rat(1,2,2)$の次元$36,28$を幾何学的に説明する。
 また、超平面を単純な退化因子に持つ階数四延長の存在を、
 誘導されたPoisson構造に横断的な大域Poisson対称性の存在と同値にする。
-滑らかな二次超曲面では、同じ制限から階数二と四の延長が生じる具体例を再検証する。
+滑らかな二次超曲面では、modular場が葉方向か横断方向かによって退化因子中の二次因子の重複度を判定し、一般rational型の延長一意性を導く。同じ制限から階数二と四の延長が生じる具体例も再検証する。
 本稿は全147成分の分類を前提とせず、新しい成分数や全延長ファイバーの分類を主張しない。
 \end{abstract}
 \setcounter{tocdepth}{1}
@@ -61,8 +61,10 @@ $\sigma\ne0$を固定すれば、射影延長の尺度もこの等式で一意�
 
 三次超曲面の一意延長と二次超曲面の一般延長ファイバーは、本研究の既存資料にもあった。
 本稿では必要な証明と例を現行の論理へ統合し、新しい成果として数え直さない。
-今回の主たる進展は、四次del Pezzoの\emph{一般の組}についての全延長スキームの剛性、
-incidenceの一般ファイバーによる二つの族次元の説明、単純超平面延長の対称性判定である。
+本稿の新たな統合は、四次del Pezzoの\emph{一般の組}についての全延長スキームの剛性、
+incidenceの一般ファイバーによる二つの族次元の説明、単純超平面延長の対称性判定、
+および滑らかなquadricのmodular場による退化因子の重複度判定である。
+さらに一般rational型の延長一意性を、明示的なstrict対称性の消滅によって導く。
 これらの文献上の新規性は未確認であり、優先権を主張しない。
 
 \section{線形な延長空間とJacobian構成}
@@ -416,6 +418,149 @@ $[v_T,K_T]=0$を使うと、$v_T|_Q$は$\sigma$を保つ大域場でなければ
 実際、$E\wedge\Jac(P)=0$を$dq$で収縮し、$\iota_{dq}\Jac(P)=0$を使うと
 $2q\Jac(P)=0$を得る。標準代表$s$自体がPoissonであるとは限らない。
 
+\subsection{modular場とquadric因子の重複度}
+\label{subsec:quadric-modular-multiplicity}
+次の定理は，二次超曲面のintrinsic分類からambient分類へ進む際の
+共通原理を与える。特に，実退化因子が$Q+C_3$型か$2Q+H$型かを，
+$\sigma$の無限小Poisson対称性とその葉方向から判定できる。
+
+\begin{theorem}[滑らかなquadricのmodular重複度判定]
+\label{thm:quadric-modular-multiplicity}
+$q\in\operatorname{Sym}^2V^*$を非退化，$Q=V(q)\subset\PP^4$とする。
+$Q$をPoisson不変にする$\PP^4$上のPoisson双ベクトル$\pi$をとり，
+$q$をstrict Casimirとする斉次二次lift $P$を一つ選ぶ。
+$\delta P=\sum_j(\sum_i\partial_iP^{ij})\partial_j$をその発散，
+$\sigma=\pi|_Q$をintrinsic Poisson構造とする。
+このとき次が成り立つ。
+\begin{enumerate}
+\item $P$のPfaffianに対応する一次形式は
+\[
+ \beta:=\iota_{P\wedge P/2}\Omega=f\,dq,\qquad
+ f\in\operatorname{Sym}^3V^*.
+ \tag{\(\star\)}\label{eq:quadric-beta-factor}
+\]
+従って射影的な実退化五次式は定数倍を除いて
+\[
+ D_P=\iota_E\beta=2qf.
+\]
+一般階数四ならば$Q$の退化因子としての重複度は$1$又は$2$である。
+\item $v=\delta P$は$q$を保つ線形場であり，
+\[
+ v\in\mathfrak{so}(q),\qquad [v,P]=0,\qquad[v|_Q,\sigma]=0.
+\]
+従って一般階数四ならば$\mathfrak{so}(q)$内の
+非零の\emph{strict}なPoisson対称性が必ず存在する。
+\item 一般階数四の場合，
+\[
+ \operatorname{ord}_Q(D_P)=2
+ \quad\Longleftrightarrow\quad
+ v|_Q\wedge\sigma=0\quad\text{on }Q.
+ \tag{\(\dagger\)}\label{eq:quadric-transverse-test}
+\]
+右辺が成り立たない場合は$\operatorname{ord}_Q(D_P)=1$である。
+従って横断的なmodular対称性は$Q+C_3$型を，
+葉方向のmodular対称性は$2Q+H$型を特徴づける。
+\item $v=0$ならば$P\wedge P=0$である。
+特に$\mathfrak{aut}(Q,\sigma)
+:=\{w\in\mathfrak{so}(q):[w,\sigma]=0\}=0$なら，
+$\sigma$のPoisson延長は存在しても一般階数二以下に限られ，
+しかも延長は高々一つである。
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+$q$がCasimirであるため$P^\sharp(dq)=0$である。
+従って各一般点で$P\wedge P/2$は$dq$の核の四次外積に入り，
+$\beta$は$dq$と比例する。非退化$q$の偏微分は互いに一次独立な
+一次式であり共通因子を持たないから，この比例係数$f$は多項式である。
+斉次次数から$\deg f=3$となり，Euler恒等式$E(q)=2q$で第1項を得る。
+$f\ne0$なら$q^2\mid f$は次数のため不可能なので，
+$D_P=2qf$の$q$重複度は高々二である。
+
+$P^\sharp(dq)=0$を発散すると，Hessianの対称性により
+$(\delta P)(q)=0$を得る。$v=\delta P$は一次式係数なので
+$v\in\mathfrak{so}(q)$である。Poisson恒等式$[P,P]=0$に
+発散作用素を適用すれば$[v,P]=0$となる。
+これを$Q$へ制限すれば第2項の最後の等式も従う。
+
+体積形式に関するSchouten--BV恒等式は，この符号規約では
+\[
+ d\beta=-\iota_{v\wedge P}\Omega
+ \qquad\bigl([P,P]=0\bigr).
+\]
+他方$\beta=f\,dq$から
+\[
+ \iota_Ed\beta=\iota_E(df\wedge dq)
+             =3f\,dq-2q\,df
+\]
+を得る。$Q$のaffine cone上では，
+$E\wedge v\wedge P=0$であることと
+$v|_Q\wedge\sigma=0$は同値である。
+上記二式を$Q$に制限するとこれは$f|_Q=0$と同値であり，
+$q$は既約なので$q\mid f$と同値になる。これが\eqref{eq:quadric-transverse-test}である。
+
+$v=0$なら$d\beta=0$，従って$df\wedge dq=0$となる。
+Euler収縮を$Q$上でとると$3f\,dq=0$だから$f=q\ell$と書ける。
+再び$df\wedge dq=0$を使うと$d\ell\wedge dq=0$である。
+非退化二次式$q$と一次式$\ell$に対しこれは$\ell=0$を意味し，
+$f=0$，すなわち$P\wedge P=0$となる。
+
+最後に，同じ$\sigma$を持つ二つの$q$-Casimir liftの差は，
+前小節の線形核により$K_T$で，$\delta K_T=-\frac32v_T$である。
+$q$が非退化なので$T\mapsto v_T$は
+$\wedge^2V\xrightarrow{\sim}\mathfrak{so}(q)$という同型である。
+$\mathfrak{aut}(Q,\sigma)=0$なら両方の発散が零となり，
+$T=0$を得る。従って延長は高々一つである。
+\end{proof}
+
+\begin{corollary}[一般rational型はambientでも剛性を持つ]
+\label{cor:quadric-generic-rational-rigidity}
+滑らかな$Q^3$の$\Rat(1,2)$成分には非空Zariski開集合が存在し，
+その各Poisson構造$\sigma$は，一意のambient Poisson延長を持ち，
+それはJacobian型の一般階数二である。
+\end{corollary}
+\begin{proof}
+$\Rat(1,2)$の一般元は一次式$L$と二次式$R$から得る
+$J(q,L,R)$の制限であり，この構成の源は既約である\cite{LPT}。
+ここでは$q=\sum_{i=0}^4x_i^2$，$L=x_0$として，
+\[
+\begin{split}
+R={}&3x_0^2+2x_1^2+5x_2^2+7x_3^2+11x_4^2\\
+ &+13x_1x_2+17x_2x_3+19x_3x_4+23x_1x_4
+\end{split}
+\]
+を選ぶ。この$P=J(q,L,R)$は$q$をstrict Casimirとし，$\delta P=0$である。
+$A\in\mathfrak{so}(q)$を十変数の反対称行列で表し，
+$[Ax,P]$の全二次係数の線形行列を作るとrankが$10$である。
+正確な非零$10\times10$ minorの一つは
+\[
+ 27980515917168640
+\]
+である。付属する\texttt{check\_quadric\_symmetry.py}が
+この行列・minorとJacobiを$\mathbb Q$上で再構成する。
+
+この計算はstrictなintrinsic stabilizerにも適用できる。
+実際，$A\in\mathfrak{so}(q)$が$\sigma$を保てば，
+$[Ax,P]$は発散零の$q$-Casimir liftで，$Q$への制限は零である。
+前小節の核の形$K_T$および$\delta K_T=-\frac32v_T$から
+$[Ax,P]=0$が従う。よって上のrank $10$は
+$\mathfrak{aut}(Q,\sigma)=0$を与える。
+rank条件はパラメータについて開で，rational源が既約なので
+$\Rat(1,2)$の一般元で同じ消滅が成り立つ。
+既にJacobian延長が存在するから，定理
+\ref{thm:quadric-modular-multiplicity}の第4項により
+一意性とrank二が従う。
+\end{proof}
+
+\begin{remark}
+この判定は一般の$\Rat(1,2)$に関するものであり，
+特殊rational元の非自明な延長ファイバーを排除しない。
+また$\mathfrak{aut}(Q,\sigma)\ne0$はrank四延長の必要条件に過ぎず，
+Jacobi方程式の十分条件ではない。
+付属証明書は上の一つの正確なrank $10$検算と二つのrank四例を確認する。
+定理の一般論は計算例ではなく本証明による。
+本補題の文献上の新規性は未確認である。
+\end{remark}
+
 \subsection{Principal affine型の二つの延長}
 \[
 \begin{split}
@@ -533,19 +678,23 @@ Rat型は被約一点、Log型はrank二のみの$\AA^1$、Affine型は命題\re
 \section{証明・計算・先行研究の状態と再現}
 三次超曲面と二次超曲面のintrinsic分類は\cite{LPT,May}の既知結果である。
 三次の一意延長と二次の二つの例は既存研究資料から回収し、上で必要な証明を再掲した。
-新たな計算証明書は四次del Pezzoの一般延長剛性に対するものであり、全147成分の監査ではない。
+新たな計算証明書は四次del Pezzoの一般延長剛性とquadric上のmodular判定の例・一般rationalの対称性消滅に関するもので、全147成分の監査ではない。
 超平面判定とincidenceファイバーの議論は通常の証明を与え、有限Casimir階数だけを正確計算で補った。
 全ての結果の文献上の優先権を確定したわけではない。
 
-付属する二つのスクリプトはPython 3とSymPyで実行できる。
+付属する三つのスクリプトはPython 3とSymPy 1.14.0で実行できる。
 \begin{verbatim}
-python code/verify_del_pezzo_rigidity.py
-python code/check_incidence_examples.py
+bash scripts/verify_github_source.sh incidence
 \end{verbatim}
+上記はGitHub mainの三つのproducerと保存済みJSON証明書を照合し、
+本稿をLuaLaTeXで二回組版する。具体的なproducerは
+\texttt{code/subvariety\_incidence/}以下にある。
 前者は$\mathbb Q(u,v)$上の十五blockの行関係と二つのminorを検査する。
-後者は明示例のJacobi・Casimir・Pfaffian、Affine stabilizer、およびCasimir空間の階数minorを確認する。
+第二のスクリプトは明示例のJacobi・Casimir・Pfaffian、Affine stabilizer、およびCasimir空間の階数minorを確認する。
+第三の\texttt{check\_quadric\_symmetry.py}は三つのquadric例のPfaffianと、
+一般rational型の一つの点でstrict $\mathfrak{so}(5)$ stabilizerが零となる正確なrank $10$のminorを検査する。
 101という検査数は個別の恒等式・判定の項目数であり、101個の独立な定理ではない。
-出力JSONには入力式の規約、minorの選択、スクリプトのSHA256を含める。
+各出力JSONには入力式と検証範囲を記し、del Pezzo・従来の例の二証明書にはproducerのSHA256も含める。
 必要な全係数行列は生成コードで一意に再生成し、大量の展開式や計算ログを同梱しない。
 原稿はLuaLaTeXで二回組版し、計算・組版・保存の実行状態は別に報告する。
 

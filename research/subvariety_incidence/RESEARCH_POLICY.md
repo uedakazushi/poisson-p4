@@ -1,35 +1,28 @@
-<!-- この研究固有の方針はルート RESEARCH_POLICY.md のGitHub正本・Library緊急避難原則に従う。 -->
-# Poisson不変部分多様体とambient完全分類
+# Poisson部分多様体の延長と147成分の幾何学的理解
 
-2026-11-10 / v1。現在の研究モジュール。最初に本書を読み、`papers/poisson_subvariety_incidence_ja.tex` と `research/subvariety_incidence/NOTES.md` を参照する。
+2026-11-10 / v2。研究再開：ルート `RESEARCH_POLICY.md` → `REPRODUCE_GITHUB.md` → 本方針 → `NOTES.md` → `papers/poisson_subvariety_incidence_ja.tex`。
 
-## 研究の位置付けと目標
+## 研究価値の最大化（上位原則）
 
-`poisson-p4` の147成分完全分類を改めて数え直すのではなく、滑らかな超平面、二次・三次超曲面、4次del Pezzo曲面上のintrinsic Poisson構造と、周囲P4のPoisson構造との延長incidenceを研究し、rank2/rank4成分の幾何・次元・退化因子の特異性を説明する。既存の418頁の分類主稿は置換しない。新規性の文献調査は未完了。
+数学的重要性、新規性、概念的理解、他の成分への波及、証明の正確性、実現可能性を総合して研究全体の価値を最大化する。現在の優先順位は固定のノルマではなく、新しい証拠・文献・障害によってより有望な課題が判明したら、元目標の解決点と残る問題を簡潔に整理して方針を更新する。進捗ログや旧方針の累積は不要。
 
-## 今回の主結果と証明状態
+## 現在の証明済み結果と限界
 
-- **滑らかな三次超曲面**：非零intrinsic Poisson構造のambient延長は一意でJacobian rank2型。差はH0(Ω²(2))=0を用いる。したがってrank4の実退化因子に滑らかな三次既約因子はない。既知のintrinsic分類（LPT/Mayanskiy）を使用。ambient一意性は既存研究にもあり、新規性は主張しない。
-- **滑らかな次数4以上の超曲面**：非零ambient Poisson構造が不変に保つことはない。本文の消滅・制限議論を参照。
-- **一般の滑らかなCI(2,2)曲面と非零Poisson切断の組**：全ambient延長スキームはJacobian rank2の被約一点。全20変数源、150係数式の二次部分の普遍Q(u,v)上の行関係と、非零minor 70875/88、4443337729552/7688671875を用いる。これは一般開の定理であり、全てのsmooth pairの定理ではない。検算の実行記録は同梱bundleのcertificatesにある。
-- **rational成分の次元**：滑らかな三次＋2-planeのincidenceは40次元で一般ファイバーA4、36次元のRat(1,1,3)を説明。CI(2,2)＋一次切断のincidenceは30次元で一般ファイバーA2、28次元のRat(1,2,2)を説明。
-- **単純な不変超平面**：横断的な大域Poisson対称性が存在することがrank4延長の必要十分条件。重複超平面への不存在は主張しない。
-- **滑らかな二次超曲面**：既存研究から、intrinsic Aff型の二点延長と、同一restrictionのrank2/rank4 pencilを統合。新しい成分数は主張しない。
+- **本文に一般証明**：滑らかなquadric `Q=(q=0)⊂P4` のstrict q-Casimir lift `P` に対し `β=i_(P∧P/2)Ω=f dq`（fは3次）、`D_P=2qf`、`v=div P∈so(q)`。一般rank4ならQ因子の重複度は1または2であり、`Q²|D_P ⇔ v|Q∧σ=0`。葉方向のmodular対称性が `2Q+H`、横断的対称性が `Q+C3` を区別する。さらにv=0ならrank≤2。主稿 `thm:quadric-modular-multiplicity`。
+- **新しい系、有限計算と通常の証明の合成**：一般 `Rat(1,2)` 型ではstrict `so(q)` stabilizerが0、従って唯一のambient Poisson延長はJacobian型rank2。明示例の10×10 minor `27980515917168640` を正確計算で確認し、非空開へ拡張。特殊Ratの全点を分類した意味ではない。
+- **既存結果の統合**：滑らかなcubicの延長一意性、一般CI(2,2) del Pezzoの被約一点延長、incidence次元36/28、単純Hの横断対称性、quadricのrank2/rank4の特殊例。仮定と証明は現行論文に保持。これらをすべて新規成果とは数えない。
+- **文献**：Loray–Pereira–Touzet, Math. Nachr. 286 (2013) 921–940, DOI 10.1002/mana.201100354（Q3のintrinsic Rat/Log/Aff分類）；Mayanskiy, J. Algebra 424 (2015) 21–45, DOI 10.1016/j.jalgebra.2014.08.049。新定理の文献上の優先権は未確認。今回の正確な例示検算と一般証明・外部査読は区別する。
 
-## 未解決の核心と次の具体的操作
+## 現在の研究順序
 
-1. **4次del Pezzoの真の延長例外locus**。一般開でのminor消失は計算pivotの失敗であり真の例外とは限らない。特別な反標準切断hと五退化memberを持つquadric pencilを層別し、全20変数Jacobi理想の他のpivotで覆えるか、実際にrank4解があるかを判定する。真の解はPfaffianと既存147成分への帰属を調べる。
-2. Q3の10変数延長空間をintrinsic対称性の跳躍で層別し、rank2/rank4の同時延長の一般性を説明する。
-3. P3の六intrinsic成分で横断的Poisson対称性を計算し、単純Hと重複Hを区別する。
-4. 必要な一次文献を本文と照合し、新規性が未確認な主張をIntroductionで明示する。
+1. **滑らかなQ3の全延長ファイバー**。一般Ratは解決。次にLog(1,1,1)とAffの一般元・特殊元について `aut(Q,σ)⊂so(q)` を一次線形代数で求め、`P=s(σ)+K_T` のJacobiをその小さな対称性空間で解く。ファイバーの既約成分・非被約性、rank2/4、`Q+C3` / `2Q+H`、既存147成分への帰属を調べる。旧稿のLog/Affの一般ファイバー表は再検討対象であり、今回の共通定理だけで証明済みとは呼ばない。
+2. **4次del Pezzoの真の例外集合**。一般延長剛性の消失minorと真のrank4延長を区別する。
+3. **P3の6成分の横断Poisson対称性**を分類し、単純/重複Hを幾何学的に分ける。
+4. それらの共通構造を147成分全体の幾何学的特徴づけに統合。
+5. Feigin–Odesskii互換性、特異cubic/非正規因子、一般次元は価値が高まれば優先順位を再評価。
 
-## 再現・保存
+**次の具体的着手**：Log型一般元のstrict stabilizerと全二次Jacobiを計算し、modular重複度の定理に接続する。予想外の障害が出れば、その障害を説明する一般定理へ優先順位を変更してよい。
 
-LuaLaTeX原稿：`papers/poisson_subvariety_incidence_ja.tex`。
-独立コード：`code/subvariety_incidence/verify_del_pezzo_rigidity.py`、`code/subvariety_incidence/check_incidence_examples.py`。
-Python3 / SymPy 1.14.0。コードは単体実行可能で、結果の正確なJSONはGitHubのresearch/subvariety_incidence/certificates/に収録し、手動スクリプトで再生成・照合する。
-原稿・研究方針・ノート・検証スクリプトと正確な証明書はGitHub mainで揃い、`bash scripts/verify_github_source.sh incidence` が11頁PDFを再生成する。Libraryの旧配布物は不要。
+## 再現と保存の義務
 
-## 一般原則と保存許可
-
-研究の重要性・正確性・新規性・実現可能性に応じて方針を変更し、変更理由と未解決の核心を現行方針に統合する。証明済み、条件付き、計算観察、未証明、既知と新規性未確認を明確に区別する。重要な先行研究は一次資料で確認し、文献情報を推測で補わない。論文は日本語LuaLaTeXで十分な証明を保持し、ノートは作業履歴ではなく現行知識と障害を整理する。研究再開は現行方針・ノート・論文だけで可能にする。**現在のユーザー指示によりGitHub mainが唯一の正本であり、Library保存はGitHubへの実push失敗時の緊急避難に限る。GitHub Actionsは使わない。** bundleには現行の必要ソース・PDF・コード・入力・証明書・再現手順のみを収め、旧版・ログ・cache・nested ZIP・重複を含めない。容量の固定上限より検証可能性を優先する。生成・検証・GitHub mainへの非force pushと先端読戻しを別々に報告し、既存Libraryファイルは明示指示なしに削除しない。
+唯一の正本はGitHub main。現行論文・研究ノート・方針・3つのSymPy producer・3つのexact JSON証明書・再生成手順を同一mainに置く。`bash scripts/verify_github_source.sh incidence`で手動検証。GitHub Actionsは使用しない。Libraryは実際のGitHub push失敗時の緊急避難のみ。既存Libraryファイルは削除しない。旧原稿、バックアップ、作業ログを現行bundleに積み重ねず、証明を軽量化のため削らない。

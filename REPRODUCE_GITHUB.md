@@ -22,9 +22,9 @@ bash scripts/verify_github_source.sh incidence
 ```
 
 GitHubの `papers/poisson_subvariety_incidence_ja.tex` と `code/subvariety_incidence/*.py` を用いる。
-`research/subvariety_incidence/certificates/*.json` をexactに再計算して同一内容を照合し、一般剛性の二つの非零minor（70875/88、4443337729552/7688671875）、rank60/syzygy90、101項目の明示恒等式を検証。
-LuaLaTeXを二回実行して11頁PDFを生成し、Poppler抽出テキストのSHA256
-`9b65bb4d87c9516686d68eb186a6a5618d358911f997c91f5b0e05ac274dc915` を照合する。
+`research/subvariety_incidence/certificates/*.json` をexactに再計算して同一内容を照合し、一般剛性の二つの非零minor（70875/88、4443337729552/7688671875）、rank60/syzygy90、101項目の明示恒等式を検証。第三のproducerはquadricのPfaffian二例と一般Ratのstrict so(5) stabilizerを消すrank10 minor 27980515917168640を検証。
+LuaLaTeXを二回実行して13頁PDFを生成し、Poppler抽出テキストのSHA256
+`461cfca5659da1dd3d578adf324f068e80118c3886c31d59d09104bebd71562e` を照合する。
 PDFのバイナリバイト列の同一性までは主張しない。
 出力はgitignore済みの `work/subvariety-incidence-check/` のみ。
 

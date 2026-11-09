@@ -9,7 +9,7 @@ GitHub Actionsは一切使わず、手動スクリプトで原稿と証明書を
 通常のLibrary保存は行わず、GitHub pushが実際に失敗した場合にだけ緊急避難保存します。
 
 - [GitHubのみからの再現手順](REPRODUCE_GITHUB.md)
-- [部分多様体のincidence論文](papers/poisson_subvariety_incidence_ja.tex)
+- [部分多様体incidence論文v2（modular重複度と一般Rat剛性）](papers/poisson_subvariety_incidence_ja.tex)
 - [対応する研究方針](research/subvariety_incidence/RESEARCH_POLICY.md)・[ノート](research/subvariety_incidence/NOTES.md)
 - [incidenceの正確な計算証明書](research/subvariety_incidence/certificates)
 - 再現実行: `bash scripts/verify_github_source.sh incidence`

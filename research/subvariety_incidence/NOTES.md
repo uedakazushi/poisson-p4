@@ -1,29 +1,24 @@
-# Poisson部分多様体のincidence：現行研究ノート
+# Poisson部分多様体incidence：現行研究ノート
 
-2026-11-10 / v1
+2026-11-10 / v2。証明の全文は `papers/poisson_subvariety_incidence_ja.tex`。研究再開の入口は `RESEARCH_POLICY.md`。
 
-公表原稿：`papers/poisson_subvariety_incidence_ja.tex`。以下は未解決の問題と後で役立つ区別を整理したもので、論文の証明を重複させない。
+## Quadric上のmodular場の意味
 
-## 1. 延長incidenceと幾何学的な分岐
+非退化二次qのstrict Casimir lift `P` に対し `β=i_(P∧P/2)Ω=f dq`、deg f=3、`D=2qf`。`v=div P` には `v∈so(q)` と `[v,P]=0` が成立する。`dβ=-i_(v∧P)Ω` をEuler収縮すると、Q上の `v_Q∧σ=0 ⇔ q|f` を得る。rank4ならQの重複度は1または2。v=0ならdf∧dq=0からf=0、rank≤2。一般論は論文 `thm:quadric-modular-multiplicity` を参照。
 
-固定したX⊂P4に対し、Poisson ideal条件で定まるambient incidenceの非零制限部分を考える。rank4 ambientでXが真のPoisson部分多様体ならXは実Pfaffian五次Dに含まれる。rank2 Jacobian型ではPfaffianが恒等零で、この制約はない。
+**一般Ratの新しい厳密な開条件**：q=Σxi²、L=x0、
+`R=3x0²+2x1²+5x2²+7x3²+11x4²+13x1x2+17x2x3+19x3x4+23x1x4`。
+J(q,L,R)を保存する `so(q)` の10変数線形行列はrank10、nonzero minorは27980515917168640。既約Rat(1,2)源上で開条件なので、一般元のstrict stabilizerは0。本文の核 `K_T` と `δK_T=-3/2 v_T` により延長はJacobian一点。
+exact producer `code/subvariety_incidence/check_quadric_symmetry.py` はこの行列と、`Q+C3` の `f=-t u³/4`、`2Q+H` の `f=-5x0 q/4` を検算する。標本は普遍定理の証明ではない。
 
-滑らかなcubic Xでは制限写像の全fiberが一点となるため、rank4でsmooth cubic factorを持つ枝は空。quadricでは同じintrinsic bracketにrank2/rank4が共存し得る。CI22では一般のpairでrank2の一点のみであり、特殊locusが核心となる。
+**今後の障害**：strict automorphismが非零でもJacobi条件を満たす延長が存在するとは限らない。Log、Affの一般点の `aut(Q,σ)` を求めた後、その部分空間に10変数Poisson Jacobiを制限し、非被約fiber・特殊parameter・閉包を検証する。既存Log一般A1、Aff一般二点の結果は元の証明の仮定を確認してから使用する。これが高価ならdel Pezzo例外集合へ転換する。
 
-## 2. 一般del Pezzo剛性の証明書と障害
+## Del Pezzo例外層
 
-全ambient extensionはJ_h+q0 A+q1 B、A,B∈Λ²C5、計20変数。正規化q0=Σx_i²、q1=Σλ_i x_i²、λ=(0,1,2,u,v)の稠密chartで150係数式を作る。二次部分は符号character blockに分かれ、Q(u,v)上のrank60、90個の普遍syzygyを持つ。線形部分は(u,v,h)=(3,4,1,…,1)でrank18、残二変数の線形・二次単項式5個の係数rank5を得る。二つのnonzero minorから非空開で理想がmaximalとなる。これは全smoothを証明しない。特殊h、λのcollision、余法線作用のjumpを独立に調べる必要がある。
+CI22では全延長は `J_h+q0 A+q1 B` の20係数。一般pairについて普遍二次rank60、90 syzygy、二nonzero minor `70875/88`、`4443337729552/7688671875` から被約一点。特殊条件におけるminor消失は、真の延長増加の十分条件ではない。反標準hとpencilの五つの退化memberの位置を用いて層別する。
 
-## 3. 次元の忘却
+## 全分類との接点と一次文献
 
-cubic：P34×Gr(2,5)の40次元からF3↦F3+Sym³⟨L,M⟩の4次元を引き36。
-CI22：Gr(2,15)の26次元＋P4の4次元からq_i↦q_i+a_i h²の2次元を引き28。
-ファイバーの開条件と一般中心の回収は論文を参照。
+Cubic-incidence 40→Rat113次元36（忘却fiber4）、CI22-incidence 30→Rat122次元28（忘却fiber2）の証明は現行論文にある。P3の単純H判定は横断的strict対称性が必要十分、重複Hは別。LPT published DOI 10.1002/mana.201100354とMayanskiy DOI 10.1016/j.jalgebra.2014.08.049を一次資料として使用し、今回の新主張の文献上の優先権は未確認。
 
-## 4. rank4の単純超平面
-
-横断的なPoisson対称性vは [v,σ]=0、v∧σ≠0。これが単純H延長の必要十分条件であり、重複Hの分類と同一視しない。特別なquadric pencilとhの位置を変えると、この対称性のjumpと延長rankのjumpが関係する可能性がある（未証明）。
-
-## 5. 既存資料と新規性
-
-cubic/quadric intrinsic分類：LPT（arXiv:1112.3871）、Mayanskiy（arXiv:1303.5916）。smooth quadricの正規Hamiltonian全源とCI22 rank0/rank2の排除は既存のpoisson-p4研究内にある。今回の一般CI22延長剛性の文献上の優先権は未確認。計算は147成分の全再検証ではない。
+GitHub mainのみを正本とする。GitHub Actionsは禁止、Libraryは実push失敗時の緊急退避のみ。

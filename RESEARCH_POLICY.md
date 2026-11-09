@@ -73,3 +73,9 @@ research/classification/CURRENT.md → 対象の現行原稿と元証明を読�
 原稿の必要な修正・検証・保存まで進める。実行環境の外的な上限では未完として保存する。
 通常の成果はmainへpushして先端確認する。実際のpush失敗時だけLibraryを緊急退避に利用し、成功時は保存しない。既存Library資料は削除しない。
 外部への論文投稿・公開は新たな明示指示なしに行わない。
+
+## VI. 現行研究の目標：価値最大化と幾何学的理解（2026-11-10）
+
+**最上位原則は研究価値の最大化**。数学的重要性、新規性、概念的理解、他の成分への波及、正確性、実現可能性を総合し、順位は研究進捗と一次文献に応じて柔軟に変更する。現在の優先順位は、(1) 滑らかなQ3のPoisson延長、(2) 4次del Pezzoの延長例外、(3) P3の横断的対称性、(4) 147成分の幾何学的構造定理、(5) Feigin–Odesskii互換性、(6) 特異cubic・非正規因子、(7) 一般次元。
+
+Q3については `papers/poisson_subvariety_incidence_ja.tex` にmodular場による退化因子のQ重複度判定と一般Rat(1,2)の一意rank2延長を証明したが、全延長ファイバーの分類は未完成。次はLog/Affのstrict stabilizerとPoisson Jacobiを調べる。新しい障害・定理が別の目標を有望にした場合は理由と元目標の未解決点を整理し、現行方針を更新する。詳細は `research/subvariety_incidence/RESEARCH_POLICY.md` と `NOTES.md`。GitHub mainが唯一の正本、Actions禁止、Libraryは実push失敗時の緊急退避のみ。

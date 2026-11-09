@@ -1,20 +1,16 @@
-# Poisson subvariety incidence — current GitHub module
+# Poisson subvariety incidence — current research module
 
-2026-11-10. This module studies smooth hypersurfaces and (2,2) del Pezzo surfaces with Poisson structures, their ambient extensions, and the geometry of rank-2/rank-4 components. It does not replace the 147-component classification.
+2026-11-10 / v2. Read [current research policy](RESEARCH_POLICY.md), [notes](NOTES.md), and [the paper](../../papers/poisson_subvariety_incidence_ja.tex).
 
-- Research policy: [RESEARCH_POLICY.md](RESEARCH_POLICY.md)
-- Current notes: [NOTES.md](NOTES.md)
-- Japanese LuaLaTeX paper: [poisson_subvariety_incidence_ja.tex](../../papers/poisson_subvariety_incidence_ja.tex)
-- Exact producer scripts: [code/subvariety_incidence](../../code/subvariety_incidence)
-- Exact, already checked v1 certificates: [certificates](certificates)
-- Canonical reproduction instructions: [REPRODUCE_GITHUB.md](../../REPRODUCE_GITHUB.md)
-
-From a complete GitHub checkout with pinned SymPy 1.14 and LuaLaTeX/Poppler:
+- Paper: 13-page Japanese LuaLaTeX, containing the smooth-quadric modular multiplicity criterion and generic Rat(1,2) ambient rank-two rigidity.
+- Three exact SymPy scripts: [code/subvariety_incidence](../../code/subvariety_incidence).
+- Three exact JSON certificates: [certificates](certificates).
+- Reproduction manual: [REPRODUCE_GITHUB.md](../../REPRODUCE_GITHUB.md).
 
 ```bash
 bash scripts/verify_github_source.sh incidence
 ```
 
-This regenerates both certificates and the 11-page PDF, compares JSON values, and checks the generated PDF's text SHA256. A PDF need not be committed as a binary to be fully reproducible from the canonical TeX. The v1 generic del Pezzo rigidity theorem holds for a nonempty Zariski-open set of smooth pairs, **not** for every pair. Novelty/priority are unconfirmed.
+The next problem is the Log(1,1,1) and Aff extension fibres on smooth Q3, including strict stabilizers, actual Jacobi solutions, rank 2/4, Q+C3 vs 2Q+H and the ambient 147-component relationships. Full Q3 classification and external novelty confirmation are not yet claimed. The generic del Pezzo extension rigidity and the earlier valuable results are retained.
 
-**GitHub main is the source of truth. No GitHub Actions. Library is used only if a real push fails.**
+GitHub main alone is canonical. No GitHub Actions. Library only after an actual failed GitHub push.
