@@ -1,0 +1,271 @@
+% Shared by the classification and structural manuscripts.
+\section{標識超平面の共通復元と次数境界}\label{sec:marked-common}
+\begin{theorem}[標識超平面の一意なアフィン模型]\label{thm:marked-affine}
+$H=V(h)\subset\PP^4$を固定する。$H$をPoisson不変にする射影Poisson双ベクトルと、
+$\PP^4\setminus H\simeq\mathbb A^4$上の係数次数二以下のPoisson双ベクトル$P$は自然に一対一に対応する。
+対応する斉次二次liftは$h$をCasimirとするものとして一意である。
+一般階数四なら、$f=\Pf(P)\ne0$として
+\begin{equation}
+ D_\pi=V\bigl(h^5f(x/h)\bigr),\qquad
+ \operatorname{mult}_H D_\pi=5-\deg f.                 \label{eq:marked-divisor}
+\end{equation}
+ここで$\deg f\le4$である。したがって単純$H$と重複$H$の入口は、同じ模型で
+$\deg f=4$と$\deg f\le3$を分けたものである。
+\end{theorem}
+\begin{proof}
+Euler列の二外積と$H^1(\PP^4,T)=0$により、射影双ベクトルは$\mathbb A^5$上の斉次二次lift $\Pi$を持つ。
+liftの差は$E\wedge X$（$E$はEuler場、$X$は線形場）である。
+$V=\Pi^\sharp dh$と置く。$H$の不変性は、$h=0$で$V$がEuler方向に属することを意味する。
+従って$V_i x_j-V_jx_i=0$が$h$を法として成り立つ。
+多項式環の一意分解性から、ある一次式$a$と一次式$W_i$により
+$V_i=ax_i+hW_i$（$1\le i\le4$）と書ける。
+$X(h)=-a,\ X(x_i)=W_i$とすれば
+$(E\wedge X)^\sharp dh=hX-X(h)E=V$である。
+よって$\widetilde P=\Pi-E\wedge X$は$h$をCasimirとする。
+
+別のこのようなliftとの差が$E\wedge Y$なら$hY-Y(h)E=0$であり、
+多項式性から$Y$はEuler場の定数倍、従って差は零である。
+射影Jacobi条件から$E\wedge[\widetilde P,\widetilde P]=0$。
+$\widetilde P$は$\partial_h$成分を持たないため、この等式の$\partial_h$成分は
+$h[\widetilde P,\widetilde P]=0$を与え、真のJacobi恒等式が従う。
+$h=1$で$P$を得る。
+
+逆に任意の二次以下の$P$に対し
+$\widetilde P_{ij}=h^2P_{ij}(x/h),\ \widetilde P_{hi}=0$とすれば斉次二次Poisson liftを得る。
+Jacobiは$h\ne0$で確認でき、多項式恒等式として全域に延長する。
+$\wedge^4T_{\PP^4}=\cO(5)$なので、そのPfaffian切断は式\eqref{eq:marked-divisor}である。
+最高次項が非零であることから$H$の重複度も従う。
+\end{proof}
+
+\begin{proposition}[標識を忘れる際の有限性]\label{prop:finite-mark}
+一般階数四の超平面因子を持つ構造の空間に対し、対$([\pi],H)$の標識空間からの忘却写像は有限である。
+各幾何学的ファイバーは高々五点である。
+標識された構造の射影同型類は、アフィン二次Poisson構造のアフィン座標変換と非零スカラー倍による同型類に対応する。
+\end{proposition}
+\begin{proof}
+$h\mid\Pf(\pi)$は$\pi$と$[h]$に関する閉incidence条件であり、超平面のパラメータ空間は射影的である。
+したがって忘却写像は固有である。非零五次式の一次既約因子は高々五つなので準有限でもあり、有限となる。
+$H$の$\PGL_5$安定化群は$\mathbb A^4$上のアフィン変換群であり、定理\ref{thm:marked-affine}の一意性から最後の主張が従う。
+\end{proof}
+標識の選び直しで同じ成分を重複計数し得ることは残る。
+この有限性はrank二locusには主張しない。
+
+\subsection{全超平面型に共通のmodular--Pfaffian復元}
+$P=\sum_{i<j}p_{ij}\partial_i\wedge\partial_j$、
+$Z^j=\sum_i\partial_ip_{ij}$、$\mu=dx_1\wedge\cdots\wedge dx_4$とする。
+$P^\sharp(df)^j=\sum_i p_{ij}\partial_if$という規約を用いる。
+
+\begin{proposition}[modular原始関数による全源の判定]\label{prop:modular-primitive}
+任意の多項式二ベクトル$P$に対し、$\alpha=\iota_P\mu$、$g=\Pf(P)$と置く。
+$J^{ijk}=\sum_l(p_{il}\partial_lp_{jk}+p_{jl}\partial_lp_{ki}+p_{kl}\partial_lp_{ij})$
+および$J=\sum_{i<j<k}J^{ijk}\partial_i\wedge\partial_j\wedge\partial_k$とすると
+\begin{equation}
+ d\alpha=-\iota_{\diver P}\mu,\qquad
+ dg+\iota_{\diver P}\alpha=\iota_J\mu.\label{eq:primitive-identity}
+\end{equation}
+従って、固定した$Z$と$f$（ここでは$f=0$も許す）に対し、全源は正確に
+\begin{equation}
+ d\alpha=-\iota_Z\mu,\qquad
+ \iota_Z\alpha=-df,\qquad
+ \alpha\wedge\alpha/2=f\mu                         \label{eq:primitive-source}
+\end{equation}
+である。初めの二条件は$\alpha$に関してアフィン線形で、最後だけが二次である。
+解では$\diver Z=0$、$Z(f)=0$、$\mathcal L_Z\alpha=0$、$[Z,P]=0$が従う。
+\end{proposition}
+\begin{proof}
+$\alpha=p_{12}dx_3\wedge dx_4-p_{13}dx_2\wedge dx_4
++p_{14}dx_2\wedge dx_3+p_{23}dx_1\wedge dx_4
+-p_{24}dx_1\wedge dx_3+p_{34}dx_1\wedge dx_2$を微分すると第一式を得る。
+第二式の$dx_4$係数は
+$\partial_4(p_{12}p_{34}-p_{13}p_{24}+p_{14}p_{23})
++Z^1p_{23}-Z^2p_{13}+Z^3p_{12}=J^{123}$である。
+添字の交代置換で他の三係数も得る。従ってPfaffianが零でもこの恒等式は成立し、
+$J=0$との同値から全源表示を得る。
+第一条件を微分して$\diver Z=0$、第二条件を$Z$で縮約して$Z(f)=0$を得る。
+Cartan公式から
+$\mathcal L_Z\alpha=d\iota_Z\alpha+\iota_Zd\alpha=0$であり、
+$\mathcal L_Z\mu=0$と外積双対の一意性から$[Z,P]=0$となる。
+\end{proof}
+
+この表示は単に固定因子を線形に書き直すだけでなく、以下で単純Hと重複Hの
+\emph{入口の証明}を同時に与える。$f=0$で必要なのは$\iota_Z\alpha=0$である。
+弱い式$P^\sharp df=fZ$だけでは代用できない。
+
+\begin{theorem}[固定した$f,Z$からの全点復元]\label{thm:modular-reconstruct}
+$f\ne0$を次数四以下の多項式、$Z$をアフィン線形場として固定する。
+$f=\Pf(P)$、$Z=\diver P$を満たす二次以下のPoisson構造の集合は、
+アフィン線形空間
+\begin{equation}
+ \mathcal A_{f,Z}=\{P:\deg P\le2,\ \diver P=Z,\ P^\sharp df=fZ\}
+                                                               \label{eq:marked-linear}
+\end{equation}
+に二次条件$\Pf(P)=f$を課した集合と正確に一致する。
+従って固定した$f,Z$に対して、追加のJacobi方程式は不要である。
+空でない場合には$\diver Z=0$、$Z(f)=0$、$[Z,P]=0$が成り立つ。
+\end{theorem}
+\begin{proof}
+$\alpha=\iota_P\mu$とする。成分表示から
+$d\alpha=-\iota_{\diver P}\mu$、
+$d f\wedge\alpha=-\iota_{P^\sharp df}\mu$である。
+$\Pf(P)=f\ne0$のとき、逆形式の閉性は
+\[
+ f\,d\alpha-df\wedge\alpha=0
+ \quad\Longleftrightarrow\quad P^\sharp df=f\diver P
+\]
+である。非退化双ベクトルのJacobi恒等式は逆形式の閉性と同値であるから、結論を得る。
+式\eqref{eq:marked-linear}が$P$についてアフィン線形、Pfaffianが二次であることも明らかである。
+$\diver Z=0$は交代係数への二重微分の相殺から従う。
+$df$で式\eqref{eq:marked-linear}を評価すると$fZ(f)=0$、従って$Z(f)=0$。
+また$f\ne0$上で$Z=P^\sharp(d\log f)$は局所Hamiltonian場なので$[Z,P]=0$。
+これは正則テンソルの等式として全域に成り立つ。
+\end{proof}
+
+\begin{corollary}\label{cor:unimodular}
+一般階数四の標識超平面模型において
+\[
+ Z=0\quad\Longleftrightarrow\quad f\in\CC^\times
+ \quad\Longleftrightarrow\quad D_\pi=5H.
+\]
+\end{corollary}
+\begin{proof}
+$Z=0$なら$P^\sharp df=0$。非退化開上で$df=0$なので$f$は定数である。
+逆は同じ恒等式と$f\ne0$から従い、最後の同値は式\eqref{eq:marked-divisor}である。
+\end{proof}
+
+この定理は、すべての$f,Z$を既に分類したという主張ではない。
+$f,Z$を同時に未知数に戻すと式\eqref{eq:marked-linear}はもはや$P$だけの線形問題ではない。
+スカラー倍では$(P,f,Z)\mapsto(cP,c^2f,cZ)$を同時に保つ。
+$Z$の半単純・冪零分解と$Z(f)=0$を先に利用し、
+重複超平面、$H+Q_4$、複数超平面の場合に共通の復元定理として適用することが狙いである。
+とくに$\deg f\le3$の枝でのみ$\Pf(P_2)=0$が従い、これを単純超平面へ誤用してはならない。
+
+\begin{proposition}[共通の有限共鳴層別]\label{prop:resonance}
+$Z$の半単純・冪零分解を$Z=S+N$とする。
+アフィン座標を選んで$S=\sum_{i=1}^4\lambda_i x_i\partial_i$、$[S,N]=0$とできる。
+Poisson解$P$は$[S,P]=[N,P]=0$を満たす。
+$x_0=1,\lambda_0=0$と書けば、$P_{ij}$に現れる単項式$x_kx_l$には
+\begin{equation}
+ \lambda_k+\lambda_l=\lambda_i+\lambda_j
+ \quad(1\le i<j\le4,\ 0\le k\le l\le4)              \label{eq:marked-resonance}
+\end{equation}
+が必要である。固有値一致条件も加えると、$\sum\lambda_i=0$の空間は
+許容単項式と冪零blockの組合せが一定な有限個の構成可能な層に分かれる。
+固有値比そのものが有限個になるとは主張しない。
+\end{proposition}
+\begin{proof}
+アフィン線形場を五次元拡大空間の行列として表示し、$h$を保つJordan分解を取る。
+半単純部分の固定点へ平行移動し、その固有空間で線形座標を選べば上の形になる。
+次数二以下の多項式双ベクトルの有限次元表現において$\operatorname{ad}S$は半単純、
+$\operatorname{ad}N$は冪零で可換である。$\operatorname{ad}S$の固有値$\nu\ne0$の空間では
+$\nu I+\operatorname{ad}N$が可逆なので、$[Z,P]=0$からその成分は零となる。
+残る零固有空間では$[N,P]=0$となる。式\eqref{eq:marked-resonance}は単項式の重み比較である。
+有限個の線形等式の成立・不成立による層別は有限であり、
+各重複固有空間のJordan分割も有限個である。
+translationの余核とその零・非零の分岐はこの後にも保持し、無断で捨てない。
+\end{proof}
+
+\begin{remark}[rank二での失敗を明示する]
+$P=\partial_1\wedge(\partial_2+x_1\partial_3)$は$f=0$を満たすので
+$P^\sharp df=f\diver P$は恒等的に成立するが、
+$\{x_1,\{x_2,x_3\}\}+\{x_2,\{x_3,x_1\}\}+\{x_3,\{x_1,x_2\}\}=1$でありPoissonではない。
+$f\ne0$は定理の本質的仮定である。
+\end{remark}
+
+\subsection{二つの旧入口を置き換え、第三の配置で確認する}
+$P=C+L+Q$に対応して$\alpha=\alpha_0+\alpha_1+\alpha_2$、
+$f=\sum_{k=0}^4 f_k$と係数次数で分解する。
+命題\ref{prop:modular-primitive}は、全低次項を残したまま
+\begin{align}
+ d\alpha_1&=-\iota_c\mu,&d\alpha_2&=-\iota_{Ax}\mu,\label{eq:degree-divergence}\\
+ df_k&=-\iota_c\alpha_{k-1}-\iota_{Ax}\alpha_{k-2}
+       &&(1\le k\le4)                              \label{eq:degree-primitive}
+\end{align}
+と$\alpha^2/2=f\mu$を与える。範囲外の$\alpha_j$は零とする。
+特に最高式は
+\begin{equation}
+ d\Pf(Q)=-\iota_{Ax}\alpha_2.\label{eq:highest-primitive}
+\end{equation}
+これは$Q$自体に対するJacobi式であり、$C,L$を解から消してよいという意味ではない。
+
+\paragraph{単純Hと既約四次.}
+$D=hF_4$では$\deg f=4$であり、$K=\Pf(Q)\ne0$。
+式\eqref{eq:highest-primitive}により$A=0$は不可能である。
+実際$A=0$なら$dK=0$となり、非零四次斉次式に反する。
+一方$\iota_{Ax}\alpha_2$は零ではないので、$Ax\wedge Q=0$という
+重複H専用の制約を課してはならない。
+全共鳴は命題\ref{prop:resonance}から得る。
+ここでなお必要なのは、無限遠$K$の閉有理一形式による還元、三つの一般wall上の全解排除、
+三十七wall・十九低次wallの有限列挙と、その後の全源帰属である。
+共通共鳴だけから二十四代表や各成分の極大性は従わない。
+
+\paragraph{重複H.}
+$h^2\mid D$は$\deg f\le3$、すなわち$K=0$と同値である。
+式\eqref{eq:highest-primitive}から$\iota_{Ax}\alpha_2=0$、従って
+$(Ax)\wedge Q=0$を得る。
+これが従来別々に導いた最高部のKoszul入口である。
+さらに$f_3,f_2,f_1$の式を全て残すため、最高部だけの支持への置換にはならない。
+$\rank A\ge3$でのKoszul完全性、各Jordan型の残二次条件と全零補集合、
+実変形による帰属は従来通り必要である。
+
+\paragraph{共通の正逆とtranslation.}
+両入口の逆は同じで、式\eqref{eq:primitive-source}から$P$を外積双対で戻し、
+$h^2P(x/h)$を斉次化するだけである。座標多項式や源パラメータを反転しない。
+アフィン変更$y=Mx+b$では
+$P'=M P(M^{-1}(y-b))M^{\mathsf T}$、$Z'=MZ(M^{-1}(y-b))$、
+$f'=\det(M)f(M^{-1}(y-b))$で、$\det(M)\ne0$のみを用いる。
+特に平行移動後の定数modular項は$c-Ab$（$M=I$）であり、
+$c$を消せるのはその$\operatorname{im}A$成分だけである。
+残る$\operatorname{coker}A$、異なるblock長のtop、共鳴wall、$C$の全階数を保持する。
+
+\paragraph{第三の配置：二つの単純Hと三次因子.}
+$D=hxF_3$、$F_3$既約、$h,x$相異なる場合、$h$を標識した模型では
+$P^{xi}$は$x$で割れ、全源は
+\[
+ P=x\partial_x\wedge V+W,\qquad
+ V=(By+cx+d)\cdot\partial_y,\quad \deg W\le2.
+\]
+逆は$P^{xi}/x$の\emph{係数の取り出し}とvertical blockの取り出しであり、
+開集合$x\ne0$への局所化ではない。全45係数の$W$と$c,d$を保持する。
+$F_3|_{h=1}=F$とすると$f=xF$であり、これは通常次数四を持つ単純Hの入口である。
+$Z=-x\operatorname{tr}(B)\partial_x+V+x\partial_xV+\diver_y W$を
+式\eqref{eq:primitive-source}に代入したJacobi条件は正確に
+\[
+ [V,W]+xV\wedge\partial_xV=0,\qquad
+ [W,W]/2=xV\wedge\partial_xW
+\]
+となる。これは元の四Jacobiを$x$を含む三組と残る一組へ分けたものであり、
+共通命題の正逆が第三配置でも全点を保つ。
+$F=\iota_V\iota_W(dy_1\wedge dy_2\wedge dy_3)$の既約性と次数三、
+ならびに残る全sourceの帰属は別に課す。
+
+\paragraph{置換の正確な範囲.}
+主分類稿の「重複超平面とモジュラー場」の導入と
+補題modular-koszulの$Ax\wedge Q=0$の導出、
+「単純超平面と既約四次因子の有限入口」の標識・発散・Jordan共鳴の導入を、
+本節の同じ証明へ置き換える。
+原証明は\path{HYPERPLANE_QUARTIC_COFACTOR_ENTRANCE.md}第1・3節、
+\path{KNOWN142_SEVEN_CANDIDATE_WHOLE_POISSON_COVER_AUDIT.md}第4節とそこからの全源である。
+第三配置の独自の三次式認識は\path{TWO_HYPERPLANES_CUBIC_SUPPORT.md}第1節に残る。
+閉形式の留数による認識、有限wall列挙、個別源の成分性と非包含を削除していない。
+本節の通常の証明の新規性は未確認であり、既存147成分全体の独立検証を主張しない。
+
+\subsection{定数modular場の全源を、積分定数まで復元する}
+重複Hの中でも$Z=-\partial_t$の全源は、三座標$u=(u_1,u_2,u_3)$を用いて
+\begin{equation}
+ P=\partial_t\wedge Y+\operatorname{Jac}_u(f),\qquad
+ \diver_uY=1,\quad Y(f)=f,\quad \deg Y\le2,\quad\deg f\le3
+                                                        \label{eq:constant-whole}
+\end{equation}
+と必要十分に書ける。ここで$\operatorname{Jac}(f)^{23}=f_{u_1}$、循環的に定める。
+\begin{proof}
+$[Z,P]=0$から全係数は$t$に依存しない。
+縦二ベクトルを$W$、$\Omega=du_1\wedge du_2\wedge du_3$、
+$\beta=\iota_W\Omega$とすれば
+$\alpha=\iota_Y\Omega+dt\wedge\beta$である。
+式\eqref{eq:primitive-source}の第二式は$\beta=df$を与え、
+第一式は$\diver Y=1$、最後は$\beta(Y)=f$、すなわち$Y(f)=f$を与える。
+逆にこれらを満たせば三条件が全て成立する。
+従って$f$の加法定数も自由に捨てられず、$Y(f)=f$によって固定される。
+この正逆は$f_3$の被約性、磁気係数の非零性を仮定せず、全lower sourceを保つ。
+rank四を扱うときは$f\ne0$だけを別に課す。
+\end{proof}

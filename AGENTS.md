@@ -1,6 +1,6 @@
 # Poisson P4 — global reconstruction, not a local-lemma sprint
 
-2026-11-09 / v67-global-reconstruction
+2026-11-09 / v68-marked-reconstruction
 
 ## Read first
 
@@ -44,23 +44,25 @@ factor markings, and the rank-two foliation/zero-divisor reconstruction.
 Novelty is unconfirmed. These are not already a full classification of f,Z or
 all relative fibres. Check proofs and application hypotheses before using them.
 
-## First concrete assignment
+## Completed replacement and next concrete assignment
 
-Follow GLOBAL_PLAN P0. Make one compact mapping from existing component IDs and
-main theorems to A/B/C/R2, using actual generic divisors and proof sources, not
-names guessed from IDs. Do not spend the whole task building another ledger.
-Then integrate ONE common entrance/reconstruction proof into the main manuscript
-that covers BOTH simple H+quartic AND multiple-H sources, checking a third
-marked-H configuration for reuse. Read the full old source equations, inverse
-maps, and zero/unit complements. Identify exactly which old lemmas or repeated
-arguments are replaced and which finite calculations remain indispensable.
-The first task must not end with another plan, audit receipt, or renamed table.
+P0 and the two P1 mechanisms are now integrated into the main manuscript via
+papers/marked_hyperplane_reconstruction.tex and papers/poisson_lifting_examples.tex.
+The universal modular primitive identity df + i_Z alpha = i_J mu handles degree
+boundaries without dividing by the Pfaffian. Its f=0 version is stronger than
+P#df=fZ and does not contradict the rank-two counterexample below.
+Simple H and multiple-H entrances share one proof; the third two-H+cubic source,
+constant-modular whole source, translation cokernels and all lower terms remain.
+The TRIPLE correction is forced by the quadratic coefficient bound, while the
+commuting-field collision has no higher correction. Check the displayed scope;
+this is not a new proof of componenthood or all 147 components.
 
-Next apply the moving-divisor lifting equations to the existing TRIPLE-to-Ga9
-family and one distinct splitting/collision mechanism: explain the direction,
-necessary correction terms and remaining obstruction, not just replay a PASS.
-Then unify B via its canonical symmetry in aut(Q), C via conductor/normalization/
-residue/conormal data, and connect the rank-two support theorem. See GLOBAL_PLAN.
+Next follow GLOBAL_PLAN P2: unify B using canonical symmetry in aut(Q), reading
+all 31 original representative sources, inverse maps and zero/unit complements.
+Do not move a no-hyperplane divisor to the marked-affine model. Then organize C
+using normalization/conductor/residue/conormal data and connect R2. Preserve all
+existing useful proofs. research/conceptual/component_entrances.csv is a compact
+navigation table, not an independent verification or component-closure partition.
 
 ## Non-negotiable mathematical distinctions
 

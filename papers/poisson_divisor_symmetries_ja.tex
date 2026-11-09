@@ -19,7 +19,7 @@
 \newcommand{\diver}{\operatorname{div}}\newcommand{\Pf}{\operatorname{Pf}}
 \title{射影四空間のPoisson分類の構造還元\\\large 標識因子・modular復元・相対変形}
 \author{}
-\date{2026年11月9日\quad v2・大域構造整理原稿}
+\date{2026年11月9日\quad v3・共通復元と実持上げ}
 \begin{document}\maketitle
 \begin{abstract}
 射影空間上の一般に非退化なPoisson構造について、退化因子の既約成分が生成する閉対数一形式を用い、
@@ -246,141 +246,7 @@ $d_i=1$があれば第一の場合。そうでなければ全$d_i\ge2$である�
 とくに被約因子数$r=1$には既約五次だけでなく$5H$もある。
 $\mathfrak a_\pi=0$から、他の対称性まで存在しないとは言えない。
 
-\subsection{超平面を標識すると全て同じ二次模型になる}
-\begin{theorem}[標識超平面の一意なアフィン模型]\label{thm:marked-affine}
-$H=V(h)\subset\PP^4$を固定する。$H$をPoisson不変にする射影Poisson双ベクトルと、
-$\PP^4\setminus H\simeq\mathbb A^4$上の係数次数二以下のPoisson双ベクトル$P$は自然に一対一に対応する。
-対応する斉次二次liftは$h$をCasimirとするものとして一意である。
-一般階数四なら、$f=\Pf(P)\ne0$として
-\[
- D_\pi=V\bigl(h^5f(x/h)\bigr),\qquad
- \operatorname{mult}_H D_\pi=5-\deg f.                 \tag{4.1}
-\]
-ここで$\deg f\le4$である。したがって単純$H$と重複$H$の入口は、同じ模型で
-$\deg f=4$と$\deg f\le3$を分けたものである。
-\end{theorem}
-\begin{proof}
-Euler列の二外積と$H^1(\PP^4,T)=0$により、射影双ベクトルは$\mathbb A^5$上の斉次二次lift $\Pi$を持つ。
-liftの差は$E\wedge X$（$E$はEuler場、$X$は線形場）である。
-$V=\Pi^\sharp dh$と置く。$H$の不変性は、$h=0$で$V$がEuler方向に属することを意味する。
-従って$V_i x_j-V_jx_i=0$が$h$を法として成り立つ。
-多項式環の一意分解性から、ある一次式$a$と一次式$W_i$により
-$V_i=ax_i+hW_i$（$1\le i\le4$）と書ける。
-$X(h)=-a,\ X(x_i)=W_i$とすれば
-$(E\wedge X)^\sharp dh=hX-X(h)E=V$である。
-よって$\widetilde P=\Pi-E\wedge X$は$h$をCasimirとする。
-
-別のこのようなliftとの差が$E\wedge Y$なら$hY-Y(h)E=0$であり、
-多項式性から$Y$はEuler場の定数倍、従って差は零である。
-射影Jacobi条件から$E\wedge[\widetilde P,\widetilde P]=0$。
-$\widetilde P$は$\partial_h$成分を持たないため、この等式の$\partial_h$成分は
-$h[\widetilde P,\widetilde P]=0$を与え、真のJacobi恒等式が従う。
-$h=1$で$P$を得る。
-
-逆に任意の二次以下の$P$に対し
-$\widetilde P_{ij}=h^2P_{ij}(x/h),\ \widetilde P_{hi}=0$とすれば斉次二次Poisson liftを得る。
-Jacobiは$h\ne0$で確認でき、多項式恒等式として全域に延長する。
-$\wedge^4T_{\PP^4}=\cO(5)$なので、そのPfaffian切断は(4.1)である。
-最高次項が非零であることから$H$の重複度も従う。
-\end{proof}
-
-\begin{proposition}[標識を忘れる際の有限性]\label{prop:finite-mark}
-一般階数四の超平面因子を持つ構造の空間に対し、対$([\pi],H)$の標識空間からの忘却写像は有限である。
-各幾何学的ファイバーは高々五点である。
-標識された構造の射影同型類は、アフィン二次Poisson構造のアフィン座標変換と非零スカラー倍による同型類に対応する。
-\end{proposition}
-\begin{proof}
-$h\mid\Pf(\pi)$は$\pi$と$[h]$に関する閉incidence条件であり、超平面のパラメータ空間は射影的である。
-したがって忘却写像は固有である。非零五次式の一次既約因子は高々五つなので準有限でもあり、有限となる。
-$H$の$\PGL_5$安定化群は$\mathbb A^4$上のアフィン変換群であり、定理\ref{thm:marked-affine}の一意性から最後の主張が従う。
-\end{proof}
-標識の選び直しで同じ成分を重複計数し得ることは残る。
-この有限性はrank二locusには主張しない。
-
-\subsection{全超平面型に共通のmodular--Pfaffian復元}
-$P=\sum_{i<j}p_{ij}\partial_i\wedge\partial_j$、
-$Z^j=\sum_i\partial_ip_{ij}$、$\mu=dx_1\wedge\cdots\wedge dx_4$とする。
-$P^\sharp(df)^j=\sum_i p_{ij}\partial_if$という規約を用いる。
-
-\begin{theorem}[固定した$f,Z$からの全点復元]\label{thm:modular-reconstruct}
-$f\ne0$を次数四以下の多項式、$Z$をアフィン線形場として固定する。
-$f=\Pf(P)$、$Z=\diver P$を満たす二次以下のPoisson構造の集合は、
-アフィン線形空間
-\[
- \mathcal A_{f,Z}=\{P:\deg P\le2,\ \diver P=Z,\ P^\sharp df=fZ\}
-                                                               \tag{4.2}
-\]
-に二次条件$\Pf(P)=f$を課した集合と正確に一致する。
-従って固定した$f,Z$に対して、追加のJacobi方程式は不要である。
-空でない場合には$\diver Z=0$、$Z(f)=0$、$[Z,P]=0$が成り立つ。
-\end{theorem}
-\begin{proof}
-$\alpha=\iota_P\mu$とする。成分表示から
-$d\alpha=-\iota_{\diver P}\mu$、
-$d f\wedge\alpha=-\iota_{P^\sharp df}\mu$である。
-$\Pf(P)=f\ne0$のとき、逆形式の閉性は
-\[
- f\,d\alpha-df\wedge\alpha=0
- \quad\Longleftrightarrow\quad P^\sharp df=f\diver P
-\]
-である。補題\ref{lem:inverse}より、これはJacobi恒等式と同値である。
-(4.2)が$P$についてアフィン線形、Pfaffianが二次であることも明らかである。
-$\diver Z=0$は交代係数への二重微分の相殺から従う。
-$df$で(4.2)を評価すると$fZ(f)=0$、従って$Z(f)=0$。
-また$f\ne0$上で$Z=P^\sharp(d\log f)$は局所Hamiltonian場なので$[Z,P]=0$。
-これは正則テンソルの等式として全域に成り立つ。
-\end{proof}
-
-\begin{corollary}\label{cor:unimodular}
-一般階数四の標識超平面模型において
-\[
- Z=0\quad\Longleftrightarrow\quad f\in\CC^\times
- \quad\Longleftrightarrow\quad D_\pi=5H.
-\]
-\end{corollary}
-\begin{proof}
-$Z=0$なら$P^\sharp df=0$。非退化開上で$df=0$なので$f$は定数である。
-逆は同じ恒等式と$f\ne0$から従い、最後の同値は(4.1)である。
-\end{proof}
-
-この定理は、すべての$f,Z$を既に分類したという主張ではない。
-$f,Z$を同時に未知数に戻すと(4.2)はもはや$P$だけの線形問題ではない。
-スカラー倍では$(P,f,Z)\mapsto(cP,c^2f,cZ)$を同時に保つ。
-$Z$の半単純・冪零分解と$Z(f)=0$を先に利用し、
-重複超平面、$H+Q_4$、複数超平面の場合に共通の復元定理として適用することが狙いである。
-とくに$\deg f\le3$の枝でのみ$\Pf(P_2)=0$が従い、これを単純超平面へ誤用してはならない。
-
-\begin{proposition}[共通の有限共鳴層別]\label{prop:resonance}
-$Z$の半単純・冪零分解を$Z=S+N$とする。
-アフィン座標を選んで$S=\sum_{i=1}^4\lambda_i x_i\partial_i$、$[S,N]=0$とできる。
-Poisson解$P$は$[S,P]=[N,P]=0$を満たす。
-$x_0=1,\lambda_0=0$と書けば、$P_{ij}$に現れる単項式$x_kx_l$には
-\[
- \lambda_k+\lambda_l=\lambda_i+\lambda_j
- \quad(1\le i<j\le4,\ 0\le k\le l\le4)              \tag{4.3}
-\]
-が必要である。固有値一致条件も加えると、$\sum\lambda_i=0$の空間は
-許容単項式と冪零blockの組合せが一定な有限個の構成可能な層に分かれる。
-固有値比そのものが有限個になるとは主張しない。
-\end{proposition}
-\begin{proof}
-アフィン線形場を五次元拡大空間の行列として表示し、$h$を保つJordan分解を取る。
-半単純部分の固定点へ平行移動し、その固有空間で線形座標を選べば上の形になる。
-次数二以下の多項式双ベクトルの有限次元表現において$\operatorname{ad}S$は半単純、
-$\operatorname{ad}N$は冪零で可換である。$\operatorname{ad}S$の固有値$\nu\ne0$の空間では
-$\nu I+\operatorname{ad}N$が可逆なので、$[Z,P]=0$からその成分は零となる。
-残る零固有空間では$[N,P]=0$となる。(4.3)は単項式の重み比較である。
-有限個の線形等式の成立・不成立による層別は有限であり、
-各重複固有空間のJordan分割も有限個である。
-translationの余核とその零・非零の分岐はこの後にも保持し、無断で捨てない。
-\end{proof}
-
-\begin{remark}[rank二での失敗を明示する]
-$P=\partial_1\wedge(\partial_2+x_1\partial_3)$は$f=0$を満たすので
-$P^\sharp df=f\diver P$は恒等的に成立するが、
-$\{x_1,\{x_2,x_3\}\}+\{x_2,\{x_3,x_1\}\}+\{x_3,\{x_1,x_2\}\}=1$でありPoissonではない。
-$f\ne0$は定理の本質的仮定である。
-\end{remark}
+\input{papers/marked_hyperplane_reconstruction.tex}
 
 \subsection{二次＋三次と既約五次に何を残すか}
 第二の入口では$\eta=\tfrac12d\log q-\tfrac13d\log c$により
@@ -454,7 +320,9 @@ $F\ne0$の開集合上で逆形式を使えばJacobi条件と同値である。
 である。ここで示したのは指定された方程式の線形な可解性であって、
 全高次変形のunobstructednessではない。
 因子を変形できること、Poisson構造まで持ち上がること、持上げた族が他の成分へ入ることを分離できる。
-この区別を保った上で、既存の明示曲線・二次障害計算を同じ言葉で整理する。
+この区別を保った上で、次節では実際の二つの族で補正の必要性を比較する。
+
+\input{papers/poisson_lifting_examples.tex}
 
 \subsection{閉包とrank二境界を正しく扱う}
 一般階数四の開集合を$U_4$、そのPoisson空間内の閉包を$Y$（被約構造）とする。
@@ -679,8 +547,9 @@ MPSの定理はSNC locusに交わる40成分を扱い、全成分がトーリッ
 階数二の入力についても、Corr\^ea--Munizの本文Theorem 4.1\cite{CM}が安定分岐に与えるのは
 代数的可積分性とuniruledな葉であり、これだけから固定されたJacobian族への全点帰属を引用しない。
 
-今回得た概念的整理は、現行分類のケース別全支持定理や各成分の極大性を置き換えたものではない。
-主稿全体の再構成と、同じ原理による実際の重複証明の除去は今後の課題である。
+共通ファイルを主分類稿にも読み込み、単純Hと重複Hの標識・modular・共鳴の入口の重複を置換した。
+modular原始関数の全恒等式、TRIPLEの次数補正と指定因子族の二次持上げ、可換場による分裂を確認した。
+各源の帰属・成分性・非包含の旧証明は保持し、全147成分を独立再検証したとはしない。
 検算はそれらの構造定理に必要な有限恒等式へ位置づけ、研究の主目標そのものとはしない。
 
 \begin{thebibliography}{9}

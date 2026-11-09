@@ -1,0 +1,122 @@
+% Shared applications; all coefficients below use (t,x,y,r) or (x,y,z,w).
+\section{因子変形を持ち上げる二つの機構}\label{sec:moving-examples}
+四次元で$\alpha=\iota_P\mu$、$q(\alpha)=\alpha^2/(2\mu)$とし、
+$d_f\alpha=f\,d\alpha-df\wedge\alpha$と書く。
+局所体積の下で$\alpha_\epsilon=\alpha+\epsilon a+\epsilon^2b+\cdots$、
+$f_\epsilon=f+\epsilon\varphi+\epsilon^2\psi+\cdots$なら、必要十分な二次までの式は
+\begin{align}
+ \alpha\wedge a/\mu&=\varphi,&
+ d_fa&=d\varphi\wedge\alpha-\varphi d\alpha,\label{eq:example-first}\\
+ \alpha\wedge b/\mu&=\psi-q(a),&
+ d_fb&=d\psi\wedge\alpha-\psi d\alpha
+                  +d\varphi\wedge a-\varphi da.\label{eq:example-second}
+\end{align}
+これは$q(\alpha_\epsilon)=f_\epsilon$と$d_{f_\epsilon}\alpha_\epsilon=0$の展開である。
+以下の二例はこれを全次数で満たす実族であり、任意の因子方向の無障害性は主張しない。
+
+\subsection{TRIPLEからGa9：二次補正が強制される理由}
+座標$(t,x,y,r)$、$\mu=dt\wedge dx\wedge dy\wedge dr$とし、中心を
+\[
+\begin{gathered}
+ P_0^{tx}=x/3+y,\quad P_0^{ty}=-xy+y/6-r/3,\quad
+ P_0^{tr}=-3y^2+xr-5y/4+r/2,\\
+ P_0^{xy}=1,\quad P_0^{xr}=-3x+3/2,\quad P_0^{yr}=3x^2+3y
+\end{gathered}
+\]
+とする。$H=x^3+3xy-3y/2$、$k=xy/3+y^2/2-x^4/12$、
+$K=k+x(r+H)/3$と置けば$f_0=r+H$、$Z_0=-\partial_t$である。
+直積括弧$\{x,y\}=1,\{T,s\}=s$から
+\[
+ r=s+eT-H,\qquad
+ t=(1-ex/3)T-xs/3-k+M,\qquad M=A(e)x^2y+B(e)y^2
+\]
+を取る。この写像のJacobianは全eで一で、逆は
+$T=t+x(r+H)/3+k-M$、$s=r+H-eT$。
+従って$1-ex/3$を反転する必要はない。
+ただし$M=0$のままでは$P^{tr}$に三次以上の項が現れ、二次Poisson空間を出る。
+実際
+\[
+ P^{tr}=P_0^{tr}-et-eK+eM-\{M,H\},\quad
+ \{M,H\}=-3Ax^4+(3A-6B)x^2y-3Axy-6By^2.
+\]
+$x^4,x^2y$を消す条件はそれぞれ
+$-e/4+3A=0$、$-e+eA-3A+6B=0$であり、このansatz内で一意に
+\[
+ A=e/12,\qquad B=5e/24-e^2/72
+\]
+を強制する。従って補正の理由は因子の既約化そのものではなく、
+Poissonである押出しを\emph{係数次数二以下に保つ}ことである。
+
+$P_e=P_0+eP_1+e^2P_2+e^3P_3$の非零補正成分は次の通りで、未表示成分は零である。
+\[
+\begin{array}{c|ccc}
+ &tx&ty&tr\\\hline
+ P_1&-5y/12-x^2/12&xy/6&-t-xr/3+3y^2/4+5xy/12\\
+ P_2&y/36&0&y^2/8\\
+ P_3&0&0&-y^2/72
+\end{array}
+\]
+Pfaffianとmodular場は全eで
+\begin{align*}
+ f_e&=f_0+e\varphi+e^2\psi+e^3\chi,\\
+ \varphi&=-t-K,\qquad
+ \psi=x^2y/12+5y^2/24,\qquad\chi=-y^2/72,\\
+ Z_e&=Z_0+eZ_1,\qquad Z_1=(x/3)\partial_t-\partial_r
+\end{align*}
+である。$a=\iota_{P_1}\mu,b=\iota_{P_2}\mu$とすると、
+命題\ref{prop:modular-primitive}の一次・二次式は
+\[
+ d\varphi+\iota_{Z_0}a+\iota_{Z_1}\alpha_0=0,\qquad
+ d\psi+\iota_{Z_0}b+\iota_{Z_1}a=0.
+\]
+これらとPfaffian展開は式\eqref{eq:example-first}--\eqref{eq:example-second}を満たす。
+一方$P_1$は$\partial_t$で割れるので$q(a)=0$だが$\psi\ne0$。
+従って\emph{この指定因子族と一次持上げ}に対し$b=0$は不可能であり、
+$\alpha_0\wedge b/\mu=\psi$が必要である。
+実際$P_0+eP_1$だけのJacobiの$(t,x,r)$成分には$e^2(x^2+5y)/12$が残る。
+これは全二次障害空間が非零という結論ではなく、表示した持上げの補正項を捨てられないという結論である。
+
+$f_e$のt係数は$-e$、四次係数は$-ex^4/4$である。
+従って$e\ne0$で$f_e$はtについて非零定数係数の一次式で絶対既約、$\deg f_e=4$。
+$e=0$では$\deg f_0=3$なので、actual因子は
+$2H+C_3$から単純$H+F_4$へ変わる。
+$P_e^{xy}=1$により全eで射影tensorは非零で、$f_e$も全eで非零である。
+この族がGa9成分へ入ることには、別の実アフィン変更
+\[
+ (X,Y,Z,w)=(t-r/e,ex/3,-r/e,3y/e),\qquad \det=1/e
+\]
+と既存の\emph{全十源}への係数同定を使う。
+元証明\path{CONSTANT_MODULAR_TRIPLE_WHOLE_GA9_CONSTANT_ACTUAL_FAMILY.md}第5節の
+$r_{\mathrm{src}}=81/e^4\ne0$、$F_{2,\mathrm{src}}=e^2(e-3)(e-12)/648$を用い、
+$e=3,12$の零補集合も保持する。
+非線形の積模型だけからPGL帰属を推論していない。
+残る全forced sourceへの拡張も、同ノート第1節の実normalizerによる全源から一軌道への還元を入力とする。
+
+\subsection{二重Hを分裂する可換場の族：高次補正が不要な場合}
+座標$(x,y,z,w)$で、互いに可換な線形場
+\[
+ X=x\partial_x+y\partial_y-2z\partial_z,\quad
+ Y=x\partial_x-y\partial_y,\quad D=z\partial_z
+\]
+を取り
+\[
+ P_e=X\wedge Y+(1+ew)D\wedge\partial_w
+\]
+と置く。$X,Y$は$D,\partial_w,w$を保存するから全eでJacobiは零である。
+全六係数とPfaffianは
+\[
+ P_e=(-2xy,2xz,0,-2yz,0,z(1+ew)),\qquad
+ f_e=-2xyz(1+ew).
+\]
+$a=\iota_{wD\wedge\partial_w}\mu$は分解可能なので$q(a)=0$であり、
+$[P_0,wD\wedge\partial_w]=0$と$[wD\wedge\partial_w,wD\wedge\partial_w]=0$も成立する。
+従って式\eqref{eq:example-first}の$\varphi=-2xyzw$に対して
+$b=\psi=0$が可能で、以後全ての補正も零でよい。
+actual五次式は$-2hxyz(h+ew)$で、中心は$2H+H_x+H_y+H_z$、
+$e\ne0$では五つの独立超平面に分裂する。
+このとき$w'=1+ew$は真の可逆アフィン変更で、$\partial_w=e\partial_{w'}$となり、
+$P_e$は非退化logcanonical型へ移る。従ってT01へ入り、閉性から中心もT01に入る。
+これは可換場の全源族を使う
+\path{MULTIPLE_HYPERPLANE_MODULAR_SUPPORT.md}第3節の機構の明示例である。
+TRIPLEの次数補正とは異なり、可換性と補正方向の分解可能性が全高次障害を消す。
+一般の因子分裂にもこの性質があるとは主張しない。

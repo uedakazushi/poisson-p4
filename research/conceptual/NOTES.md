@@ -1,6 +1,6 @@
 # 大域構造研究ノート
 
-2026-11-09 / v3。最初に RESEARCH_POLICY.md、次に GLOBAL_PLAN.md を読む。
+2026-11-09 / v4。最初に RESEARCH_POLICY.md、次に GLOBAL_PLAN.md を読む。
 
 ## 1. 現行の証明とその場所
 
@@ -14,13 +14,16 @@
 | 全rank4入口 | Hあり／HなしQ+C／既約五次 | thm:three-entrances |
 | 標識超平面 | h-central lift一意、affine二次模型。mult_H D=5−deg f | thm:marked-affine |
 | modular復元 | 固定f≠0,Zでdiv P=Z、P#df=fZ、Pf P=f iff全Poisson | thm:modular-reconstruct。記号恒等式も確認 |
+| modular原始関数 | df+i_Zα=i_Jμ、f零も許す強い全Jacobi判定 | 共通TeXのprop:modular-primitive、今回独立恒等式検算 |
 | 共鳴 | Z=S+Nから[S,P]=[N,P]=0、有限な単項式共鳴型 | prop:resonance。有限な固有値比とは言わない |
 | 相対復元・持上げ | 固定Fのkernelに加え、因子も動く一次・二次式 | prop:relative, prop:lifting。全高次無障害は未主張 |
 | グラフ閉包 | rank4開のPfaffianグラフ閉包＝Rees blowup | prop:graph。純rank2成分は別 |
 | 標識の有限性 | Hまたは次数/重複度付き因子標識の忘却 | prop:finite-mark, prop:factor-mark |
 | rank2入口 | 飽和可積分rank2層Fと非零s∈det F、e=0,1,2 | prop:ranktwo。foliationの完全分類ではない |
 
-新しい基本原理の証明を検討し、29項目の恒等式を独立計算した。元147成分の全証明を再検証したとはしない。
+単純Hと重複Hの入口を共通TeXへ置換し主稿にも統合した。第三の二H+三次と定数modular全源を確認した。
+旧29項目を再現し、新しい原始関数恒等式と全表示族を独立計算した。元147成分の全証明を再検証したとはしない。
+全147 IDのactual一般元と出典はcomponent_entrances.csv。A113/B10/C18/R2六は一般元の案内である。
 
 ## 2. 復元から変形への橋
 
@@ -32,7 +35,10 @@ qα=Fと規格化し、α_t=α+ta+t²b、F_t=F+tφ+t²ψとすると、
 一次は α∧a=φ、d_Fa=dφ∧α−φdα。
 二次は α∧b=ψ−a²/2、d_Fb=dψ∧α−ψdα+dφ∧a−φda。
 この式は指定した因子変形の可解性を測り、全高次持上げの保証ではない。
-次は既存TRIPLE→Ga9と別の分裂族の実係数に適用し、必要な補正が出る理由を説明する。
+共有TeX poisson_lifting_examples.tex にTRIPLE→Ga9と可換場の二重H分裂を適用した。
+TRIPLEではdegree≤2がA=e/12,B=e(15−e)/72を強制し、q(a)=0だがψ≠0なので指定因子族に二次補正bが必要。
+一次tensorだけではJacobiの(t,x,r)成分にe²(x²+5y)/12が残る。
+分裂例は可換場と分解可能方向によりb=0で全次数が閉じる。任意方向への一般化はしない。
 
 標識忘却は有限でも、閉像の重複・一般fiberのGalois結合・特殊底の成分は別に管理する。
 x²=tは全体が既約だが幾何学的一般fiberは二点。tx=0は一般fiberだけでは見えない特殊底成分を持つ。
@@ -41,7 +47,8 @@ rank4開からのグラフ閉包を使うことと、一般的な因子の開だ
 ## 3. 有用な障害・反例
 
 **rank2への誤適用。** P=∂1∧(∂2+x1∂3)ではPf P=0、P#df=f divPは自動成立だがJacobi(1,2,3)=1。
-modular復元にf≠0は必須である。
+弱いmodular復元P#df=fZにはf≠0が必須である。
+今回の強い原始関数式df+i_Zα=0はf零でも有効だが、この反例はi_Zαが非零なので除かれる。
 
 **因子数1。** Dredの因子数1には既約五次と5Hがある。後者は標識affine模型でZ=0と同値。
 標準可換代数が零というだけで全対称性がないと結論しない。
@@ -86,4 +93,6 @@ R2：RANK_TWO_SUPPORT、KNOWN_COMPONENT_AUDIT、独自stable_rank2の元証明�
 `python code/check_global_structure.py --output work/global-structure.json`。
 普遍的な6係数と24一次微分を独立変数として検算し、標本値は使わない。
 原稿はREADMEのLuaLaTeX二回コマンド。PDFは別フォルダに出力し、中間生成物をbundleへ入れない。
-今回の生成・検証の実結果はreports/global_structure_validation.jsonを参照。
+今回の生成・検証の実結果はreports/marked_reconstruction_validation.jsonを参照。
+新検算は `python code/check_marked_reconstruction.py --output work/marked-reconstruction.json`。
+組版は `bash scripts/build_structural_manuscripts.sh`。

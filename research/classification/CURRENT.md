@@ -1,19 +1,15 @@
-# 現在地 — 全分類の標識付き復元・変形による再構成
+# 現在地 — 共通復元と実持上げを主稿へ統合
 
-2026-11-09 / v67-global-reconstruction
+2026-11-09 / v68-marked-reconstruction
 
-既存分類稿・台帳は147成分（rank4:141、rank2:6）を主張する。今回368頁主稿・成分台帳・元証明書は未変更であり、全証明の独立確認完了とはしない。
-現在の主作業はユーザーの指示により、局所補題ではなく全分類の概念的再構成である。
-入口は RESEARCH_POLICY.md → research/conceptual/GLOBAL_PLAN.md。
+既存分類稿・台帳は147成分（rank4:141、rank2:6）を主張する。今回その全証明を独立再確認したとはしない。
+主分類稿の全既存証明を保持し、共通TeXを両原稿に読み込ませた。
 
-構造原稿 papers/poisson_divisor_symmetries_ja.tex は既存の対称性・固定因子復元の証明を保持し、
-全rank4の三入口、標識超平面の一意なaffine模型、modular–Pfaffian復元、共鳴、相対持上げ、
-グラフ閉包、標識の有限性、rank2のfoliation入口を証明付きで統合した。
-新規性は未確認。29項目の独立記号恒等式を検算したが、全source被覆・成分性の認証ではない。
+- marked_hyperplane_reconstruction.tex：単純H+四次・重複Hの標識、modular、共鳴と最高部次数分岐を共通化。原始関数恒等式はPfaffianで割らず、定数modular全源と第三の二H+三次模型の正逆も保持。
+- poisson_lifting_examples.tex：TRIPLE→Ga9の次数補正と二次持上げ、可換場による二重H分裂を通常の証明で説明。
+- component_entrances.csv：全147 IDのactual一般元と出典。A113/B10/C18/R2六。閉包を分割する表ではない。
 
-次の実作業は、少なくとも単純H+四次と重複Hの元の全入口を同じ証明へ置き換えて主稿へ統合すること。
-その後、実変形、二次＋三次、既約五次、rank2、極大閉像の順に接続する。
-H+2Qの余剰0/1/6は保持するが、局所補題を全体の必須前提にしない。
-
-classification/PLAN.jsonは分類構築の記録であり現在の作業キューではない。
-publication/REVIEW.mdの検証課題はGLOBAL_PLANの構造研究を支える範囲で実施する。
+新しい恒等式・全表示族・正逆をSymPyで検算し、旧29項目も再現した。
+個別源の成分性・相違・全支持は旧証明に依存し、成分・主張台帳と元証明書は未変更。新規性は未確認。
+次はGLOBAL_PLAN P2のQ+C、導手、rank2と極大閉像。H+2Qの局所補題は必須前提ではない。
+検証結果と保存範囲は reports/marked_reconstruction_validation.json およびbundle manifest。

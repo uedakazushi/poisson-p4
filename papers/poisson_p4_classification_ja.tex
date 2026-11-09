@@ -7,6 +7,7 @@
 \usepackage{xurl}
 \newtheorem{proposition}{命題}[section]
 \newtheorem{lemma}[proposition]{補題}
+\newtheorem{corollary}[proposition]{系}
 \theoremstyle{definition}
 \newtheorem{theorem}[proposition]{定理}
 \newtheorem{remark}[proposition]{注意}
@@ -17,10 +18,13 @@
 \newcommand{\rank}{\operatorname{rank}}
 \newcommand{\PGL}{\operatorname{PGL}}
 \newcommand{\Sp}{\operatorname{Sp}}
+\newcommand{\diver}{\operatorname{div}}
+\newcommand{\Pf}{\operatorname{Pf}}
+\newcommand{\cO}{\mathcal O}
 \title{複素射影四空間上のPoisson構造の成分分類\\[3pt]
 \large 被約既約成分は正確に147}
 \author{}
-\date{2026年11月8日\quad v64-classification-first}
+\date{2026年11月9日\quad v68-marked-reconstruction}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -76,6 +80,28 @@ purely ellipticな構造の分類\cite{pymelliptic}だけで全Poisson構造を�
 実際の退化schemeが正規という仮定と、そのreduced supportだけが正規という仮定を区別する。
 既存名・番号との比較は本文のactual source同値によるもので、文献上の優先権を番号だけで断定しない。
 一次資料の仮定と直接読解の範囲は\texttt{research/REFERENCES.md}及び各引用receiptへ固定する。
+
+\subsection{一般実因子による現在の成分表の読み方}
+全147 IDの短い対応表を\path{research/conceptual/component_entrances.csv}に置く。
+各行はactual因子の次数・重複度、入口、元の全支持入力、成分性・相違の出典、本文の参照位置を保持する。
+元台帳の因子記録とMPSの\emph{一般平滑化源}の次数分割を使い、ID名やtoric境界点から推測しない。
+一般元の対応は次の通りである。
+\begin{center}
+\begin{tabular}{c|l|r}
+入口&一般元のactual条件&ID数\\\hline
+A&超平面因子を持つ（重複度任意）&113\\
+B&超平面なし、既約二次＋既約三次&10\\
+C&被約既約五次、正規・非正規を含む&18\\
+R2&Pfaffian恒等零、actual五次は未定義&6
+\end{tabular}
+\end{center}
+これは\emph{一般元の案内}である。同じ成分の特殊点は別の入口にも属し、閉包の分割を意味しない。
+成分の極大性と相違は各原証明及び命題\ref{prop:global-exact147}に依存する。
+今回表を作ったことは、その全証明を独立再確認したという意味ではない。
+
+\input{papers/marked_hyperplane_reconstruction.tex}
+
+\input{papers/poisson_lifting_examples.tex}
 
 \section{既存の還元を用いるための証明義務}
 一般階数4の構造を扱う既存モデル\(S_{61}\)は、重み1の16変数と重み2の45変数、元の134方程式からなる。
@@ -1109,15 +1135,17 @@ CPLUSの一般因子$H+Q_1+Q_2$も被約なので、同じ閉条件で区別さ�
 
 
 \section{重複超平面とモジュラー場}
-重複超平面Hを無限遠へ送ると、全構造は四変数の二次以下のPoissonテンソル
-$P=C+L+Q$、$\operatorname{Pf}Q=0$で表される。
-この変更は固定symplectic基点を保つperspectiveで行え、primitive一次部分を変えない。
-全条件は
+標識・正逆・全低次項・translationは定理\ref{thm:marked-affine}と
+命題\ref{prop:modular-primitive}で既に全点について証明した。
+ここでは式\eqref{eq:highest-primitive}の次数三以下の枝、すなわち
+$P=C+L+Q$、$\Pf(Q)=0$を用いる。
+固定symplectic基点を保つperspectiveでこの標識を選ぶ際にprimitive一次部分を変えないことは、
+従来のS61還元の入力として保持する。
+全Jacobiの次数別表示
 \[
  [C,L]=0,\quad 2[C,Q]+[L,L]=0,\quad [L,Q]=0,\quad[Q,Q]=0
 \]
-であり、最高部だけを分類して低次項を捨てることはしない。
-発散を$Z=c+Ax$と書くと、$\operatorname{tr}A=0$、$[Z,P]=0$である。
+は命題\ref{prop:modular-primitive}と同値であり、以下の既存有限源計算にもこの全条件を用いる。
 
 \begin{lemma}\label{lem:modular-koszul}
 $\operatorname{rank}A\ge3$なら、最高部は$Q=(Ax)\wedge(Bx)$と書ける。
@@ -1125,7 +1153,7 @@ $\operatorname{rank}A\ge3$なら、最高部は$Q=(Ax)\wedge(Bx)$と書ける。
 Aが冪零でなければ、$AB=BA$かつ$\operatorname{tr}B=-1$となる。
 \end{lemma}
 \begin{proof}
-$\operatorname{Pf}Q=0$の発散を取ると$Ax\wedge Q=0$。
+式\eqref{eq:highest-primitive}と$\Pf(Q)=0$から$Ax\wedge Q=0$。
 Axの係数イデアルは高さ3以上なので、Koszul複体はこの次数で完全であり、
 次数から一次場Bxを得る。発散公式は表示した交換子条件を与える。
 $A^{m-1}$を掛けてtraceを取れば
@@ -3343,7 +3371,7 @@ MPS40成分の和に属する。
 
 
 \section{二超平面と既約三次因子}
-相異なる二超平面を$h=0,x=0$へ送り、h-Casimir代表を取ると、全支持は
+第\ref{sec:marked-common}節の第三配置の正逆により、相異なる二超平面を$h=0,x=0$へ送った全支持は
 \[
  P=x\partial_x\wedge V+W,\qquad
  V=(By+cx+d)\partial_y,\qquad \deg W\le2
@@ -4434,12 +4462,9 @@ MPSの尽くしにより、この未知成分はSNC点を含まない。
 
 \subsection{単純超平面と既約四次因子の有限入口}
 この小節では実退化式が$hF$、hは単純超平面、Fはhと異なる既約四次式の場合を扱う。
-hをCasimirにしたliftを取り、$h=1$上の全二次Poissonテンソルを
-\[
- P=C+L+Q,\qquad Z=\operatorname{div}P=c+Ax
-\]
-と書く。モジュラー恒等式は$[Z,P]=0,\operatorname{tr}A=0$を与える。
-単純hから$Q\wedge Z=0$は従わないので、重複超平面の専用源へ制限しない。
+標識・全二次模型・$Z=c+Ax$とその不変性・共鳴は第\ref{sec:marked-common}節で証明済みである。
+ここでは同節の$\deg f=4$の枝を用い、$\Pf(Q)=0$や$Ax\wedge Q=0$を追加しない。
+以下ではなお必要な無限遠の閉一形式、一般wallの全源排除と有限列挙を証明する。
 
 \begin{proposition}\label{prop:hyperplane-quartic-finite-entrance}
 この全支持のモジュラー場は、affine座標変更とPの非零scalar倍を除いて、
@@ -4467,14 +4492,8 @@ Rはweight零、各$f_i$での極次数は$m_i-1$以下である。
 これは最高部の制約であり、低次liftを捨てる結論ではない。
 特に$P=Q$だけでは既約Fを持てず、少なくとも一つの定数項又は一次項が必要となる。
 
-Zのaffine Jordan分解の半単純部を
-\[
- S=\sum_{i=1}^4\lambda_i x_i\partial_i,\qquad\sum_i\lambda_i=0
-\]
-とする。非零固有値方向のtranslationは座標移動で消せる。
-次数二以下の二ベクトルの有限次元表現上でもJordan分解を使えるので、
-$[Z,P]=0$から$[S,P]=0$が従う。$x_0=h,\lambda_0=0$とすると、
-$P^{ij}$の単項式$x_kx_l$が許される条件は
+命題\ref{prop:resonance}を適用し、$x_0=h,\lambda_0=0$とする。
+単項式の許容条件は式\eqref{eq:marked-resonance}、すなわち
 \[
  \lambda_i+\lambda_j=\lambda_k+\lambda_l,
  \quad1\le i<j\le4,\quad0\le k\le l\le4.                    \tag{\clubsuit}
@@ -4548,10 +4567,8 @@ scalar$-1$と固有空間交換で一致する。これだけの重複を除い�
 $S=0,A\ne0$では四つの純冪零分割$(4),(3,1),(2,2),(2,1,1)$が残る。
 同じtranslationの議論から、それぞれ零及び異なるblock長のtopを残し、
 代表数は順に$2,3,2,3$、合計十となる。
-$A=0$なら$\operatorname{div}Q=0$で、Poissonのモジュラー恒等式は
-$Q^\sharp d\operatorname{Pf}Q=0$を与える。
-Qの一般非退化性から$d\operatorname{Pf}Q=0$となるが、非零四次斉次式には不可能である。
-従って定数モジュラー場も零モジュラー場も、この単純hの支持から除かれる。
+$A=0$は式\eqref{eq:highest-primitive}と$K\ne0$から既に排除されている。
+従って定数modular場と零modular場をこの単純Hの支持に加えない。
 \end{proof}
 
 三十七wall・十九低次wallの全単項式ラベル、全有理交線、正規化後の二壁witness、
@@ -21490,7 +21507,7 @@ $1-ea$は反転しない。この\emph{非線形}変換はPoisson族を構成す
        &\hspace{12mm}+(5e/12)xy-5y/4+r/2.
 \end{aligned}                                                    \tag{TF}
 \]
-chain ruleの高次項は$-e/4+3A=0,-e+eA-3A+6B=0$で相殺するので、
+第\ref{sec:moving-examples}節で導いた補正条件$-e/4+3A=0,-e+eA-3A+6B=0$により、
 全eでdegree二以下、Jacobiは直積から厳密に零である。
 $e=0$は命題\ref{prop:constant-triple-whole-forced}のcanonical $P_T$そのもの。
 全actual affine Pfは
