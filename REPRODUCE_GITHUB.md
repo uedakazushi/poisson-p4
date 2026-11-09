@@ -37,7 +37,7 @@ PDFのバイナリバイト列の同一性までは主張しない。
 bash scripts/verify_github_source.sh full
 ```
 
-必須入力のhash監査、147成分カタログ、グローバル恒等式、分類主稿と構造稿の二回組版、
+必須入力のhash監査、147成分カタログ、グローバル恒等式、分類主稿・構造稿・正規因子稿・一次還元稿の四稿の二回組版、
 incidence研究の全検査を行う。旧223 primary claimの全てを改めて独立に証明するコマンドではない。
 既存の限定計算の原入力・producer・文献は `research/reproduction/README.md`、
 `research/publication/REFEREE_REPORT.md` と関連する証明・証明書に整理されている。

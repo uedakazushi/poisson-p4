@@ -117,18 +117,18 @@ python code/q_global_weight6_two_axes_20261103_v63.py \
 python code/q_weight6_two_axes_review_20261103_v63.py --output work/weight6-review
 ```
 
-## Library配布一式
+## GitHub main からの現行ソース配布（Library不要）
 
-生成済み又は利用者が手元に持つ現行ZIP volumeを同じフォルダに置く。
-CodexからLibraryのZIPを再ダウンロードする必要はない。
-いずれかから `UNPACK.py` を取り出し、全volumeを指定する。
+再現の唯一の入口はルートの [REPRODUCE_GITHUB.md](../../REPRODUCE_GITHUB.md)。
+`git clone` したmainに現在の原稿・証明書・コードが揃っている。
+必要なら以下の**ローカル生成のみ**を行う。
 
 ```bash
-python UNPACK.py --parts poisson-p4-v74-part*.zip --destination poisson-p4-current
+python scripts/make_structural_bundle.py --output work/current-github-source-bundle
 ```
 
-各volumeは同じmanifestを持ち、内容は重複しないcontent-addressed chunkである。
-全chunkと復元された全ファイルをSHA256で検証する。
-必要なディレクトリ参照リンクも同じ相対参照で復元し、論理パスと実体パスの一致を確認する。
-旧ZIPの入れ子、ログ、cache、旧PDFは含めない。
-論文PDFはLibraryに単独でも保存する。生成、CRC/hash確認、main保存、Library保存は別のreceiptで記録する。
+ここで生成された分割ZIPは `scripts/unpack_current_bundle.py` または同梱 `UNPACK.py`
+を用いて新しい作業ディレクトリに復元し、manifestにより全SHA256を確認できる。
+古いv74のLibrary配布一式を取得したり、その中身に依存したりする必要はない。
+**GitHub Actionsは使用せず、Libraryへの通常保存も行わない。**
+GitHubへの実際のpush失敗時に限り、現行bundleをLibraryへ緊急避難保存してよい。

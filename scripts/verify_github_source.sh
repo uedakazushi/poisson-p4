@@ -13,7 +13,7 @@ case "$MODE" in
     python3 code/audit_required_dependencies.py --output work/github-source-dependencies.json
     python3 code/check_component_catalogue.py --output work/github-component-catalogue.json
     python3 code/check_global_structure.py --output work/github-global-structure.json
-    bash scripts/build_structural_manuscripts.sh
+    bash scripts/build_structural_manuscripts.sh poisson_divisor_symmetries_ja poisson_p4_classification_ja normal_actual_divisor_recognition_ja s61_first_jet_reduction_ja
     bash scripts/reproduce_subvariety_incidence.sh
     ;;
   *)
