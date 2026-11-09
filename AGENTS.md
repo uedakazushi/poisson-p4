@@ -54,9 +54,11 @@ to keep inventing conceptual lemmas or to stop when old M1–S1 flags say PASS.
    Re-run selected exact finite certificates with independent implementations
    when feasible; do not indiscriminately replay all historical tests.
 
-6. Perform an isolated restore of all five Library ZIP volumes, check hashes,
-   references, all needed proof inputs, and rebuild the four current Japanese
-   LuaLaTeX PDFs. Check the current proof layout, introductions and primary
+6. Verify reproducibility using the complete current repository sources and
+   locally generated or already available ZIP volumes. Check input hashes,
+   references, essential proof assets, and rebuild the four current Japanese
+   LuaLaTeX PDFs. **Do not fetch or download binary ZIP files from Library.**
+   Remote Library file readback is not a condition of referee acceptance. Check the current proof layout, introductions and primary
    literature comparisons for a human referee, especially the 40 prior SNC
    components vs the alleged 147 total. Do not publish or submit externally.
 

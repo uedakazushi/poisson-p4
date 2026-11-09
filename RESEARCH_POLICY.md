@@ -34,7 +34,7 @@
 
 今回の独立導出・恒等式・再利用する有限証明と残るC1の外的制約は
 `research/publication/REFEREE_REPORT.md`、実行状態は `research/classification/CURRENT.md` に記す。
-ローカル五巻の隔離検査は、Libraryから実bytesを取得する義務を置き換えない。
+Libraryから保存済みZIPのバイナリを再取得する義務は設けない。再現性はローカルまたはリポジトリの実入力・現行ZIPから隔離復元とSHA256検査を行って判定する。Libraryについては保存時のreceipt、参照・アクセス可能なメタデータの確認を別に報告する。
 
 現在の唯一の実行指示は research/publication/REFEREE_PLAN.md に記す。
 優先順は、(1) 被約実退化因子の固定fiber全Poisson/互換性と閉因子像、

@@ -4,8 +4,8 @@
 
 **査読全体は未完。** 147成分（一般rank四141、rank二6）の分類稿について、
 高リスク定理の独立導出・全パラメータ検算・最小依存の読解と原稿訂正を行った。
-数学的反例は今回見つかっていない。Libraryの実ZIPを再取得するC1はツール制約で未達であり、
-公表準備完了とは報告しない。詳細は `research/publication/REFEREE_REPORT.md`。
+数学的反例は今回見つかっていない。以前はLibrary上のZIPのバイナリ再取得をC1の未達要件としていたが、これはユーザーの指示により査読条件から除外する。
+公表準備の最終判定は独立査読の数学的射程と現行入力による再現証拠から行い、未判定とする。詳細は `research/publication/REFEREE_REPORT.md`。
 
 ## 今回確認したこと
 
@@ -31,22 +31,15 @@ exact入力materializerは欠落bindingを黙って飛ばさず例外にする�
 既存の正確二bindingの準備成功と、欠落bindingの拒否を確認した。
 これは分類の数学的反例又は必須入力65個の欠落という意味ではない。
 
-## C1の実施状況と外的な阻害
+## C1の現在有効な再現基準
 
-既存Pageの五ZIP参照、MIME、サイズは取得できるが、実readは
-`Office reference exceeds the expanded size limit.` で拒否された。
-Library binary downloadツールは無く、選択cloud環境はrunning/connectedでも
-cua/browser操作ツールとopen_in_codexが提供されていない。
-したがって**Libraryから実bytesを取得して再現したという要件は未達**。
-
-保存時のSHA256と一致するローカル五volumeを隔離復元し、3579ファイルと相対リンク2個を検査した。
-その隔離treeでも四PDF各二回組版を完了し、全抽出テキストが同梱PDFと一致した。
-これは実Library取得の代用にはしない。
-実行・保存結果は `reports/referee_reproduction_validation.json` と
-`reports/referee_library_persistence.json` に分ける。
-
-次の必須作業は、利用可能なLibrary download経路で五実volumeを取得し、
-同じ隔離復元・SHA検査・四稿組版を実施すること。
+**Libraryの実ZIPバイナリ再取得は、ユーザーの明示指示により必要条件から除外された。**
+保存済みのローカル五volumeが保存時のSHA256と一致することを確認し、隔離復元で3579ファイルと相対リンク2個を検査した。
+隔離treeで四PDF各二回組版を完了し、抽出テキストが同梱PDFと一致した。
+この実行範囲は `reports/referee_reproduction_validation.json` にある。
+Libraryへの保存の事実は `reports/referee_library_persistence.json` の保存receiptと参照の読み戻しで別途扱う。
+Libraryバイナリの再ダウンロードを試行・要求しない。
+査読合格の最終判定では、必要な主定理の証明・runtime入力の現実的な依存と今回の独立検証の射程を評価する。
 既存の四PDF・五分割基礎bundle（source `a5f82342870b12583da0d0ca40bb5ba96c742b0e`）は保持する。
 今回の査読補足は別に保存し、基礎bundle又は査読合格版への置換とはしない。
 査読source commitは `e94cd15c4f1bad3d63d40929be32a2c1b55f5301`、main先端で照合済み。
