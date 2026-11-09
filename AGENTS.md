@@ -9,16 +9,18 @@ research/classification/CURRENT.md, research/conceptual/FINAL_TARGET.md,
 then the current main manuscript and original proof sources.
 
 The specified high-risk proof review and finite runtime-path review are now
-closed at the scope stated in REFEREE_REPORT.md. CURRENT.md records the remaining
-delivery state. Finish the current full-bundle validation and main/Library save;
-do not restart completed derivations, add speculative lemmas, or rerun all old
-experiments. Reopen a proof only for new evidence or a concrete defect.
+closed at the scope stated in REFEREE_REPORT.md. The current full bundle has
+been validated, saved to Library, and its source pushed to main. CURRENT.md and
+reports/publication_candidate_delivery.json record completion. No mandatory
+work remains for this goal. Do not restart completed derivations, add speculative
+lemmas, or rerun all old experiments. Reopen a proof only for new evidence or a
+concrete defect; a new research or external submission scope needs user direction.
 
 The 147-component classification has been DECLARED COMPLETE, with a 418-page
 main manuscript, three companion PDFs and five verified Library ZIP volumes.
-This is the starting point, not a command to stop or to believe every claim.
-The new phase is an ADVERSARIAL, theorem-level, independent referee review
-and final publication editorial pass. It supersedes the previous instruction
+The subsequent ADVERSARIAL, theorem-level, independent referee review
+and final publication editorial pass are now complete at the specified scope.
+Their retained criteria below supersede the previous instruction
 to keep inventing conceptual lemmas or to stop when old M1–S1 flags say PASS.
 
 ## Proof criteria applied in this review — retain their scope

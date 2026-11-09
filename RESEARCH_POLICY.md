@@ -27,7 +27,8 @@
 
 **公表前の反証志向の査読は指定した高リスク義務を充足し、公表候補版として可と判定した。**
 根拠と再利用した有限認識の射程は REFEREE_REPORT.md に明記した。
-現行全bundleの生成・隔離検証・main/Library保存を完了して、現在の目標を閉じる。
+現行全bundleの生成・隔離検証・main/Library保存も完了し、現在の目標を閉じた。
+配布元fdec6f8と保存receiptの範囲は CURRENT.md と reports/publication_candidate_delivery.json にある。
 新しい成分・一般補題を探索すること、旧全証明を無差別に再実行すること、完了報告を増やすことを
 主目標にしない。数学的に実在する欠陥が見つかった時だけ、必要な研究・訂正に戻る。
 成分数147は現行の証明付き主張であって、検証失敗を隠すために固定する公理ではない。
@@ -38,8 +39,8 @@
 `research/publication/REFEREE_REPORT.md`、実行状態は `research/classification/CURRENT.md` に記す。
 Libraryから保存済みZIPのバイナリを再取得する義務は設けない。再現性はローカルまたはリポジトリの実入力・現行ZIPから隔離復元とSHA256検査を行って判定する。Libraryについては保存時のreceipt、参照・アクセス可能なメタデータの確認を別に報告する。
 
-現在の唯一の実行指示は research/publication/REFEREE_PLAN.md に記す。
-優先順は、(1) 被約実退化因子の固定fiber全Poisson/互換性と閉因子像、
+適用済みの査読基準は research/publication/REFEREE_PLAN.md に記す。必須の未完作業はない。
+今回の検査順は、(1) 被約実退化因子の固定fiber全Poisson/互換性と閉因子像、
 (2) 安定rank2からのRat113/Rat122全点復元および残るrank2分岐、
 (3) 最後の五成分と既存142成分との非包含・全source、
 (4) 51族の有限有理演算一般族の全パラメータ上の正しさ・稠密性とMPS定理の射程、

@@ -1,4 +1,4 @@
-# 現在地 — 公表候補版の確定と配布検証
+# 現在地 — 公表候補版の検証・保存完了
 
 2026-11-09 / v74-publication-candidate
 
@@ -41,9 +41,20 @@ RUNTIMEという名前だけの免除は撤去し、二つの既知失敗metadat
 
 ## 配布の実行状態
 
-現行の全source・必要入力・査読報告を一つのv74全bundleへ統合する。
-旧五巻と補足のoverlayを利用者へ要求しない。
-現在は新bundleの生成・隔離復元・四稿組版・main/Library保存の最終工程。
-生成、検証、GitHub保存、Library保存は別receiptへ記録し、完了前に保存済みとは報告しない。
-既存Libraryファイルは削除しない。外部投稿・公開は行わない。
+全source・必要入力・査読報告を統合したv74全bundleを生成・検証し、五巻をLibraryへ保存した。
+配布元はmainへ保存済みの `fdec6f8bd7eb01072093c05008f11932ed628046`、
+bundle IDは `b3818c83dc41a73ae53cac9248c2e581a59c2be203b002934648984c1a4bd6e9`。
+五巻だけから3599ファイル・二相対リンクを新しい隔離treeへ復元し、全chunk/file SHA256と論理参照を確認した。
+最終復元treeでも206判定、八模型249項目、PDF無しの八支持runnerを再確認した。
+四稿二回組版の全TeX入力hashと最終bundleの入力hashが一致する。
+旧五巻と補足のoverlayは不要。
+
+Libraryの五巻は保存先SHA256・サイズが生成物と一致した。
+現行四PDFは同一hashの既存保存物を再利用し、現行九ファイルの参照・MIME・サイズを照合した。
+資料Pageはsequence 7、全17参照で、更新前の12参照をすべて保持している。
+生成・復元・限定再実行の証拠は `reports/referee_runtime_input_validation.json`、
+保存・Page読戻しのreceiptは `reports/publication_candidate_delivery.json`。
+配布元commitと、保存完了を記録する後続commitを分け、receiptの自己参照を避ける。
+現在の目標に必須の未完作業はない。新しい証拠又は具体的な誤りがあるときだけ関連する依存を再開する。
+Library ZIPのバイナリ再取得、既存Libraryファイルの削除、外部投稿・公開は行っていない。
 資料Page：https://chatgpt.com/space/page_98c9971dc7c48191a2c4b7624fd99fa0

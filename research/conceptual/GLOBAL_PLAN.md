@@ -20,7 +20,7 @@ component_family_catalogue（いずれもpapers/）。
 research/classification/GLOBAL_EXACT147_COMPONENT_CLASSIFICATION_FINAL_PROOF.md
 および必要な元証明へ接続する。
 
-全bundleの隔離検証とmain/Library保存まで完了したら、現在の目標を終了する。
+全bundleの隔離検証とmain/Library保存が完了し、現在の目標を終了した。
 新しい証拠又は具体的な誤りがある場合だけ、関連する証明依存を再開する。
 確認済みでない箇所を「既に監査済み」に変更しない。
 数学的な欠陥を見つけた場合だけ、新しい補題・一般化・訂正を開始する。

@@ -3,7 +3,8 @@
 2026-11-09 / v74-publication-candidate
 
 以下は本査読で適用した検査基準である。結論は REFEREE_REPORT.md、配布工程の状態は
-classification/CURRENT.md に記す。既済みの導出を繰り返さず、現在の全bundle検証と保存を閉じる。
+classification/CURRENT.md に記す。全bundle検証と保存も完了した。
+以下は適用済みの基準であり、既済みの導出を繰り返すための未完作業一覧ではない。
 
 ## 0. 判定：次の仕事は新分類ではなく、最も脆い証明への反証試験
 

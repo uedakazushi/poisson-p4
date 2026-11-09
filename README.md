@@ -18,7 +18,9 @@ LibraryからZIPバイナリを再取得する作業は査読条件から除外�
 65構文パス・206組の実read/writeを読解し、旧bundleに欠けていた二runnerを追加した。
 八支持runnerの不要な文献PDF依存も修正し、隔離実行で元の算術結果と一致した。
 最終依存監査は3539論理ファイル・16840記録hash、欠落・不一致・未分類パス0。
-現行全bundleの生成・隔離検証と保存の実行状態は [CURRENT.md](research/classification/CURRENT.md) にある。
+現行全bundleの生成・隔離検証・main/Library保存は完了した。
+配布元fdec6f8、3599ファイル・二相対リンク、五巻と四PDFの保存記録は
+[CURRENT.md](research/classification/CURRENT.md) と [配布receipt](reports/publication_candidate_delivery.json) にある。
 
 再開の順序：
 1. [研究方針](RESEARCH_POLICY.md)
