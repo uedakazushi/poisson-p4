@@ -2,6 +2,7 @@
 
 2026-11-09 / v73-prepublication-review
 本書は分類の現行構造を短く説明する。現在の実行計画は research/publication/REFEREE_PLAN.md。
+今回の査読結果と残るC1は research/publication/REFEREE_REPORT.md と classification/CURRENT.md にある。
 最終分類の数学的な完成仕様は FINAL_TARGET.md。読解・再開はRESEARCH_POLICY.mdを最初に読む。
 
 全点認識 → 標識付き復元 → Poisson変形 → 相異なる極大閉像、という原理で全147成分の完成を記録している。

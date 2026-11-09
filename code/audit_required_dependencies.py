@@ -109,7 +109,7 @@ def audit(output):
                 if v and v.startswith(prefixes) and v.endswith(extensions) and '\n'not in v and len(v)<512:
                     if (ROOT/v).is_file()or v in alias:put(v,f,role='static_code_path')
                     elif v.startswith(prefixes)and v.endswith(extensions):
-                        excluded.append({'origin':f,'path':v,'reason':'Absent static producer path, not a recorded input: output/resume/prototype path. No successful computation input hash is waived here.'})
+                        excluded.append({'origin':f,'path':v,'reason':'Unresolved syntactic path candidate without a recorded input hash. This scan does not determine read/write role or runtime base; inspect before treating it as an output, resume file or prototype.'})
                 if isinstance(n,(ast.Import,ast.ImportFrom)):
                     mods=[a.name for a in n.names]if isinstance(n,ast.Import)else[n.module or'']
                     for m in mods:
@@ -130,6 +130,9 @@ def audit(output):
             pending=[r for r in pending if r['path']!=logical]
     files=sorted(f for f in seen if (ROOT/f).is_file())
     result={'scope':__doc__,'primary_roots':roots['roots'],'primary_claim_count':len(claimids),'primary_claims':sorted(claimids),'direct_paths':sorted(seeds),'files':[{'path':f,'bytes':(ROOT/f).stat().st_size,'sha256':digest((ROOT/f).read_bytes())}for f in files],'edges':{k:sorted(v)for k,v in edges.items()},'recorded_hashes':integrity,'unresolved_recorded_inputs':pending,'missing':{k:sorted(v)for k,v in missing.items()},'excluded_nonpremises':excluded,'root_input_aliases':alias,'all_required_inputs_available':not missing and not pending,'mathematics_independently_certified':False}
+    result['static_path_analysis_complete']=False
+    result['availability_scope']='Recorded file hashes and paths resolved by this scan. Unresolved syntactic candidates are not certified as non-inputs; this is not an exhaustive runtime read-file analysis.'
+    result['unresolved_static_path_candidates']=sorted({r['path']for r in excluded if r.get('reason','').startswith('Unresolved syntactic path candidate')})
     output.parent.mkdir(parents=True,exist_ok=True);output.write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n')
     print(json.dumps({'files':len(files),'bytes':sum(r['bytes']for r in result['files']),'recorded_hash_checks':len(integrity),'pending_inputs':len(pending),'missing':len(missing),'output':str(output)},indent=2))
 if __name__=='__main__':

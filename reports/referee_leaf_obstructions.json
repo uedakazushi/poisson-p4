@@ -1,0 +1,36 @@
+{
+  "scope": "Independent rational-chart leaf tests; no old leaf normalizer is imported.\n\nVerifies the three full magnetic normal forms on the simple cubic components,\nand derives degrees nine/six by intersecting leaves with two general linear\nequations. Proper Hilbert extension to whole T37 is a separate written proof.\n",
+  "cubic_models": [
+    {
+      "source": "node",
+      "kernel_form": "d(z + (I + w)/t) + (I/(t**2 - 1) + J/t) dt",
+      "residues": {
+        "0": "J",
+        "1": "I/2",
+        "-1": "-I/2"
+      },
+      "all_three_Hamiltonian_contractions_zero": true
+    },
+    {
+      "source": "cusp_flex",
+      "kernel_form": "d(I/t - z + w/t) + ((I + J*t)/(t**2 - 1)) dt",
+      "residues": {
+        "1": "I/2 + J/2",
+        "-1": "-I/2 + J/2"
+      },
+      "all_three_Hamiltonian_contractions_zero": true
+    },
+    {
+      "source": "cusp_secant",
+      "kernel_form": "d(-t**6/2 - 3*t**5/5 - 3*t**4/4 - t**3 - 3*t**2/2 + 3*t*z - 3*t + w) + ((3*lambda + 3)/(1 - t)) dt",
+      "residues": {
+        "1": "-3*lambda - 3"
+      },
+      "all_three_Hamiltonian_contractions_zero": true
+    }
+  ],
+  "Ga9_general_plane_leaf_degree": 9,
+  "TRIPLE_general_plane_leaf_degree": 6,
+  "TRIPLE_plane_denominator_resultant": "3*(216*b0 - 72*b1*b2 + 108*b1 - 8*b2**3 + 36*b2**2 - 54*b2 + 27)**2/8",
+  "script_sha256": "c069e5ddde2c5f29a1365312f23c1e54f9802adbc72686f702e6c749d15f7027"
+}

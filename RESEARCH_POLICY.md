@@ -32,6 +32,10 @@
 
 ## III. 具体的な査読対象と終了基準
 
+今回の独立導出・恒等式・再利用する有限証明と残るC1の外的制約は
+`research/publication/REFEREE_REPORT.md`、実行状態は `research/classification/CURRENT.md` に記す。
+ローカル五巻の隔離検査は、Libraryから実bytesを取得する義務を置き換えない。
+
 現在の唯一の実行指示は research/publication/REFEREE_PLAN.md に記す。
 優先順は、(1) 被約実退化因子の固定fiber全Poisson/互換性と閉因子像、
 (2) 安定rank2からのRat113/Rat122全点復元および残るrank2分岐、

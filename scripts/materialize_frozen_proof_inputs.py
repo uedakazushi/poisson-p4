@@ -45,7 +45,8 @@ def main(report,destination):
     def binding(path,expected):
         if not isinstance(path,str)or not isinstance(expected,str)or len(expected)!=64:return
         src=index.get((path,expected),aliases.get(path,path));p=ROOT/src
-        if not p.is_file():return
+        if not p.is_file():
+            raise FileNotFoundError(('Missing exact requested input',path,expected,src))
         actual=hashlib.sha256(p.read_bytes()).hexdigest()
         if actual!=expected:
             if path.endswith(('.md','.tex'))or'/jobs/'in path:return

@@ -7,6 +7,19 @@
 必要な別稿の正規実因子認識91頁と一次還元118頁も、現行PDFとTeXを収録する。
 現在の達成・保存状況は `research/classification/CURRENT.md` のみを参照する。
 
+公表前査読の別実装は次の四つ。保証範囲は `research/publication/REFEREE_REPORT.md` にある。
+51演算列の標本評価とは別に、正規化前全パラメータの恒等式と小さな二次graphを検査する。
+
+```bash
+python code/referee/check_reduced_fixed_divisor.py --output work/referee-fixed-divisor.json
+python code/referee/check_universal_sources.py --output work/referee-universal.json
+python code/referee/check_serialized_maps.py --output work/referee-serialization.json
+python code/referee/check_leaf_obstructions.py --output work/referee-leaves.json
+```
+
+serialize検査は読了した元constructorの再実行であり、その独立実装ではない。
+今回のLibrary実ZIP取得はツール制約で未達で、保存SHAが一致するローカル五巻の隔離検査と区別する。
+
 ## 数学の証明と今回の検証の区別
 
 主定理は各入口の全支持証明、実Poisson変形、全周囲の成分性、有限閉像の比較を合成する。
@@ -25,6 +38,9 @@ primary claimからの依存、本文入力、正確な係数・コード・証�
 実行時間・resume記録、明示的に未採択とされた誤ったV1 proofは数学の前提に数えない。
 各除外と文章・制御情報の版差は索引に残す。
 係数・実行コードのhash不一致はこの扱いで免除せず、正確な凍結入力へ解決している。
+この走査は完全なruntime read-file解析ではない。記録hashの無い未解決構文パスは
+出力や非入力と自動判定せず、`unresolved_static_path_candidates` に明示する。
+`all_required_inputs_available` はこの記録索引の範囲で読み、動的な全入力の証明に拡張しない。
 
 必須のlegacyコード・データは個別ファイルとして同梱する。
 `legacy/v03/code/poisson_p4_components_check.py` 等を旧ZIPから取り出す操作は不要である。
