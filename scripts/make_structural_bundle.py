@@ -30,6 +30,7 @@ def main():
         'research/STATE.md','research/NEXT_TASKS.md','research/REFERENCES.md',
         'research/COMPONENTS.json','research/CLAIMS.json',
         'research/conceptual/GLOBAL_PLAN.md','research/conceptual/NOTES.md',
+        'research/conceptual/FINAL_TARGET.md',
         'research/conceptual/component_entrances.csv','research/classification/CURRENT.md',
         'papers/poisson_p4_classification_ja.tex','papers/poisson_p4_classification_ja.pdf',
         'papers/poisson_divisor_symmetries_ja.tex','papers/poisson_divisor_symmetries_ja.pdf',
@@ -67,7 +68,7 @@ def main():
         raise FileNotFoundError(missing)
     forbidden={'.zip','.gz','.xz','.bz2','.tar','.log','.aux','.out','.pyc'}
     assert all(Path(name).suffix not in forbidden for name in files)
-    manifest={'version':'v70-conductor-conormal-reconstruction','date':'2026-11-09',
+    manifest={'version':'v71-end-to-end-completion','date':'2026-11-09',
         'repository':'https://github.com/uedakazushi/poisson-p4',
         'source_commit':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),
         'scope':'Complete current main and structural manuscripts, shared proofs, original textual classification/component inputs, and standalone checks of this milestone.',
