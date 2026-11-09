@@ -18,12 +18,13 @@
 \newcommand{\rank}{\operatorname{rank}}\newcommand{\Pois}{\operatorname{Pois}}
 \newcommand{\ExtP}{\operatorname{Ext}^{\mathrm{Pois}}}
 \newcommand{\Rat}{\operatorname{Rat}}\newcommand{\Gr}{\operatorname{Gr}}
+\newcommand{\Log}{\operatorname{Log}}\newcommand{\Aff}{\operatorname{Aff}}
 \newcommand{\Div}{\operatorname{div}}\newcommand{\Span}{\operatorname{Span}}
 \newcommand{\Jac}{\operatorname{Jac}}
 \title{Poisson部分多様体から見る射影四空間の成分分類\\
-\large 三次超曲面の剛性・quadricのmodular判定・del Pezzoの一般延長}
+\large 三次超曲面の剛性・quadricの一般延長ファイバー・del Pezzoの剛性}
 \author{}
-\date{2026年11月10日\quad v2・研究原稿（新規性の確認は継続中）}
+\date{2026年11月10日\quad v4・研究原稿（新規性の確認は継続中）}
 \begin{document}\maketitle
 \begin{abstract}
 射影四空間のPoisson構造を、滑らかな不変部分多様体への制限と延長のincidenceから理解する。
@@ -36,7 +37,7 @@
 $\Rat(1,1,3)$と$\Rat(1,2,2)$の次元$36,28$を幾何学的に説明する。
 また、超平面を単純な退化因子に持つ階数四延長の存在を、
 誘導されたPoisson構造に横断的な大域Poisson対称性の存在と同値にする。
-滑らかな二次超曲面では、modular場が葉方向か横断方向かによって退化因子中の二次因子の重複度を判定し、一般rational型の延長一意性を導く。同じ制限から階数二と四の延長が生じる具体例も再検証する。
+滑らかな二次超曲面では、modular場が葉方向か横断方向かによって退化因子中の二次因子の重複度を判定する。さらに三つのintrinsic成分の一般Poisson延長ファイバーをそれぞれ一点、アフィン直線、二点と決定し、一般階数四の延長がAffine型だけで生じることを示す。一方、対数型の境界点には二直線が交叉する延長スキームが現れ、その一方にrank四延長が生じることを厳密に計算する。さらに、共鳴する対数型境界の一変数族で、quadricの重み分解への直交性が失われるとこの第二枝が消えることを示す。
 本稿は全147成分の分類を前提とせず、新しい成分数や全延長ファイバーの分類を主張しない。
 \end{abstract}
 \setcounter{tocdepth}{1}
@@ -61,10 +62,10 @@ $\sigma\ne0$を固定すれば、射影延長の尺度もこの等式で一意�
 
 三次超曲面の一意延長と二次超曲面の一般延長ファイバーは、本研究の既存資料にもあった。
 本稿では必要な証明と例を現行の論理へ統合し、新しい成果として数え直さない。
-本稿の新たな統合は、四次del Pezzoの\emph{一般の組}についての全延長スキームの剛性、
-incidenceの一般ファイバーによる二つの族次元の説明、単純超平面延長の対称性判定、
-および滑らかなquadricのmodular場による退化因子の重複度判定である。
-さらに一般rational型の延長一意性を、明示的なstrict対称性の消滅によって導く。
+本稿では四次del Pezzoの\emph{一般の組}における延長剛性と二つのrational成分のincidence次元を説明し、
+滑らかなquadric上のmodular重複度判定と三intrinsic成分の一般延長ファイバーを証明する。
+特に一般対数型の全延長が被約なアフィン直線であることと、
+その特殊境界に階数四の別枝を持つ交叉二直線ファイバーが存在することを明示する。
 これらの文献上の新規性は未確認であり、優先権を主張しない。
 
 \section{線形な延長空間とJacobian構成}
@@ -612,6 +613,9 @@ $T=\sum s_{ij}\partial_i\wedge\partial_j$から得る場$v_T$のLie微分の係�
 その退化因子から二重$Q$を一意に回収できるため、像も22次元である。
 これは既存分類の滑らかな$H+2Q$型の次元を説明するが、この計数だけで成分性を証明するものではない。
 
+
+\input{papers/quadric_log_extension.tex}
+
 \subsection{同じ制限のままrankが変わる特殊ファイバー}
 座標を$(u,z_1,z_2,z_3,v)$とし、
 \[
@@ -642,9 +646,10 @@ $K_T$は射影的に$qT$なので制限は不変で、$u\ne0$上でその制限�
 同じ制限の延長ファイバーの中で、rank二点とrank四の開部分が同居し得る。
 滑らかな$Q$の三成分の一般ファイバーを既存資料で比較すると、
 Rat型は被約一点、Log型はrank二のみの$\AA^1$、Affine型は命題\ref{prop:affine-two}の二点である。
-最初の二つの一般性の証明は既存研究資料の
-\emph{滑らかな三次元二次超曲面上のPoisson構造の延長}（2026年11月1日、v2、§5）にあるが、
-本稿では再監査していない。本稿の主定理はこの表を使わずに証明している。
+一般Ratと一般Logの延長の全てはそれぞれ系\ref{cor:quadric-generic-rational-rigidity}、
+定理\ref{thm:quadric-generic-log-line}で証明した。
+一般Affineの二点は命題\ref{prop:affine-two}が与える。
+特殊なintrinsic構造の全ファイバーについては未解決である。
 
 \Needspace{16\baselineskip}
 \section{完全分類の幾何学的理解への帰結と未解決部分}
@@ -655,22 +660,27 @@ Rat型は被約一点、Log型はrank二のみの$\AA^1$、Affine型は命題\re
 滑らかな三次超曲面&全延長は唯一のrank二。rank四の三次因子は判別式上に強制される。\\
 一般の四次del Pezzoと非零切断&全延長は被約一点のrank二。rank四延長があるなら特別なincidenceに限られる。\\
 単純な不変超平面&intrinsic構造に葉方向と独立な大域Poisson対称性が必要十分。\\
-滑らかな二次超曲面&kernel十次元の非線形方程式が階数の異なる延長を許し、$H+2Q$、$3H+Q$を説明する。\\\bottomrule
+滑らかな二次超曲面の一般Rat/Log/Aff&全延長は順に一点、$\AA^1$、二点。一般階数四はAffだけで、$2Q+H$が生じる。\\
+対数型の特殊境界&延長が二直線の交叉となり、第二枝で階数四と$Q+H+Q_2$を生じる。\\\bottomrule
 \end{tabular}
 \end{center}
 特に$36,28,22$という族の次元を、部分多様体の変形自由度と延長の忘却ファイバーから説明できる。
 これらはすべて射影化後・$\mathrm{PGL}_5$商前の次元である。
 147という総数の再証明、各像の新しい成分性、全147族と全subschemeの対応表は主張しない。
 
-次の本質的な問題は、四次del Pezzoの例外閉集合を幾何学的に認識することである。
+次の本質的な問題は、滑らかな二次超曲面上の\emph{特殊なintrinsic構造}で
+無限小Poisson対称性が跳躍する層と、そこでの延長スキームの枝・成分を幾何学的に分類することである。
+定理\ref{thm:quadric-resonant-log-wall}は対称性の次元跳躍を重み分解とquadricの直交性によって説明し、一般点と特殊点で延長ファイバーを完全に区別する。
+これを既存の147成分の退化因子型と照合する。
+次に四次del Pezzoの例外閉集合を幾何学的に認識する。
 今回の二つのminorの消失集合そのものは座標選択に依存し、真の例外集合とは限らない。
 その上で全二十変数イデアルを調べ、rank四解が存在するのか、それとも一意性の普遍証明へ
 改良できるのかを区別する必要がある。
 曲面上の零因子の特異性と、pencilの五つの退化memberの配置、延長の余法線Lie作用を比較する方針が自然である。
 ただし余法線が可換であることを、滑らかな曲面という理由だけで仮定してはならない。
 
-二次超曲面では、十次元延長方程式とintrinsic対称性の次元跳躍を用い、
-上の一般ファイバーから外れるrank四延長の位置を調べることが次の課題となる。
+二次超曲面の一般点では三成分の延長を決定したが、特殊点の全延長は未分類である。
+今後は対称性層による全線形候補の縮約と、Jacobi理想の非被約性を区別する。
 超平面では定理\ref{thm:hyperplane}を六つのintrinsic成分に適用し、
 単純因子型と重複因子型の境界を分けることができる。
 いずれも成分数を増やす探索ではなく、既存分類に現れる幾何の理由を説明するための研究である。
@@ -678,21 +688,26 @@ Rat型は被約一点、Log型はrank二のみの$\AA^1$、Affine型は命題\re
 \section{証明・計算・先行研究の状態と再現}
 三次超曲面と二次超曲面のintrinsic分類は\cite{LPT,May}の既知結果である。
 三次の一意延長と二次の二つの例は既存研究資料から回収し、上で必要な証明を再掲した。
-新たな計算証明書は四次del Pezzoの一般延長剛性とquadric上のmodular判定の例・一般rationalの対称性消滅に関するもので、全147成分の監査ではない。
+新たな計算証明書は四次del Pezzoの一般延長剛性とquadricのmodular判定・一般Rat・一般Log・特殊Log境界の検査に関するもので、全147成分の監査ではない。
 超平面判定とincidenceファイバーの議論は通常の証明を与え、有限Casimir階数だけを正確計算で補った。
 全ての結果の文献上の優先権を確定したわけではない。
 
-付属する三つのスクリプトはPython 3とSymPy 1.14.0で実行できる。
+付属する五つのスクリプトはPython 3とSymPy 1.14.0で実行できる。
 \begin{verbatim}
 bash scripts/verify_github_source.sh incidence
 \end{verbatim}
-上記はGitHub mainの三つのproducerと保存済みJSON証明書を照合し、
+上記はGitHub mainの五つのproducerと保存済みJSON証明書を照合し、
 本稿をLuaLaTeXで二回組版する。具体的なproducerは
 \texttt{code/subvariety\_incidence/}以下にある。
 前者は$\mathbb Q(u,v)$上の十五blockの行関係と二つのminorを検査する。
 第二のスクリプトは明示例のJacobi・Casimir・Pfaffian、Affine stabilizer、およびCasimir空間の階数minorを確認する。
 第三の\texttt{check\_quadric\_symmetry.py}は三つのquadric例のPfaffianと、
 一般rational型の一つの点でstrict $\mathfrak{so}(5)$ stabilizerが零となる正確なrank $10$のminorを検査する。
+第四の\texttt{check\_log\_quadric.py}は一般$q_U$・重み上のJacobi/Pfaffian恒等式、
+一般対数型のrank九の対称性行列、および特殊境界のrank八と全Jacobi理想$\bigl(v(t+2)\bigr)$を正確に照合する。
+第五の\texttt{check\_log\_wall.py}は
+$q_c=\sum x_i^2+2cx_0x_2$の全パラメータにおけるrank九を保証する
+有理関数の非零minorと、直交性wallでのrank八・二直線を検証する。
 101という検査数は個別の恒等式・判定の項目数であり、101個の独立な定理ではない。
 各出力JSONには入力式と検証範囲を記し、del Pezzo・従来の例の二証明書にはproducerのSHA256も含める。
 必要な全係数行列は生成コードで一意に再生成し、大量の展開式や計算ログを同梱しない。

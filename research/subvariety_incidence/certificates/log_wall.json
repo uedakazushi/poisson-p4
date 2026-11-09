@@ -1,0 +1,50 @@
+{
+  "status": "PASS",
+  "sympy": "1.14.0",
+  "quadric": "q_c=sum(x_i^2)+2*c*x0*x2; smooth iff c^2 != 1",
+  "intrinsic_source": "xi=x0*d0+x1*d1-2*x2*d2; fixed logarithmic boundary with x2 factor",
+  "universal_rank_two_pencil": "P_c,t=P0_c+t*(q_c*J+E wedge R)",
+  "universal_rank_two_Jacobi_and_Pfaffian": "symbolically zero over Q[c,t]",
+  "strict_stabilizer_matrix_shape": [
+    73,
+    10
+  ],
+  "strict_stabilizer_generic_rank": 9,
+  "strict_stabilizer_minor_rows": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    13,
+    33,
+    49
+  ],
+  "strict_stabilizer_minor_cols": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "strict_stabilizer_minor": "13824*c/((c - 1)**4*(c + 1)**4)",
+  "stabilizer_off_wall": "C*R for c != 0, c^2 != 1",
+  "wall": "c=0",
+  "stabilizer_on_wall": "C*R+C*S, rank 8",
+  "wall_extension_ideal": "(v*(t+2))",
+  "wall_scheme": "Spec C[t,v]/(v(t+2))",
+  "wall_nonzero_Jacobi": {
+    "013": "2*v*x4*(t + 2)*(x0**2 + x1**2 + x2**2 + x3**2 + x4**2)",
+    "014": "-2*v*x3*(t + 2)*(x0**2 + x1**2 + x2**2 + x3**2 + x4**2)",
+    "034": "2*v*x1*(t + 2)*(x0**2 + x1**2 + x2**2 + x3**2 + x4**2)",
+    "134": "-2*v*x0*(t + 2)*(x0**2 + x1**2 + x2**2 + x3**2 + x4**2)"
+  },
+  "rank4_branch": "t=-2, v != 0; f=-3*v*x2*(x2^2+x3^2+x4^2)",
+  "rank4_divisor": "q_0*x2*(x2^2+x3^2+x4^2)",
+  "scope": "complete fibre-by-fibre Poisson extension for the one-parameter resonant Log boundary q_c with c^2!=1; not a classification of all exceptional Log points"
+}

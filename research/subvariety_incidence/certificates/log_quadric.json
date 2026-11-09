@@ -1,0 +1,93 @@
+{
+  "date": "2026-11-10",
+  "status": "PASS",
+  "sympy": "1.14.0",
+  "scope": "universal rank-two Poisson pencil identity over Q[a,b,G,t]; generic strict stabilizer via one nonzero exact minor and upper-semicontinuity",
+  "general_log_form": "alpha=sum(lambda_i * prod(l_j,j != i) dl_i), sum(lambda_i)=0",
+  "quadratic_form_U": "g00*x0^2+2g01*x0*x1+2g02*x0*x2+g11*x1^2+2g12*x1*x2+g22*x2^2",
+  "pencil": "P_t=(2xi+t E_U) wedge R +(xi(q_U)+t q_U) J",
+  "parameter_weights": "xi=(a*x0,b*x1,-(a+b)*x2), R=x4*d3-x3*d4, J=d3 wedge d4",
+  "universal_jacobi_equations_checked": 10,
+  "universal_pfaffian_minors_checked": 5,
+  "universal_q_Casimir_components_checked": 5,
+  "universal_modular_field": "3*t*R",
+  "strict_so5_sample": {
+    "q": "x0^2+x1^2+x2^2+x3^2+x4^2",
+    "xi": "(-5*x0/3,4*x1/3,x2/3)",
+    "matrix_shape": [
+      69,
+      10
+    ],
+    "rank": 9,
+    "pivot_rows": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      11,
+      13,
+      33
+    ],
+    "pivot_columns": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "nonzero_minor": "10240000/243",
+    "kernel_generator": "rotation in (x3,x4) plane"
+  },
+  "mathematical_scope": "generic Log(1,1,1) has reduced A1 of rank-two lifts; one special logarithmic boundary point has a nodal two-line fibre with rank-four second branch. Other special strata not classified.",
+  "special_log_boundary": {
+    "weights": "lambda=(3,-3,0), up to common scale",
+    "q": "sum_{i=0}^4 xi^2",
+    "xi": "x0*d0+x1*d1-2*x2*d2",
+    "strict_stabilizer_dimension": 2,
+    "strict_stabilizer_matrix_shape": [
+      64,
+      10
+    ],
+    "strict_stabilizer_rank8_witness": {
+      "rows": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        12,
+        30
+      ],
+      "columns": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "determinant": "2304"
+    },
+    "strict_stabilizer_generators": [
+      "rotation (x0,x1)",
+      "rotation (x3,x4)"
+    ],
+    "full_extension_coordinates": "P0 + t*KJ + v*KS",
+    "Jacobi_scheme_ideal_generator": "v*(t+2)",
+    "scheme": "Spec C[t,v]/(v*(t+2)), two reduced affine lines meeting transversely at (-2,0)",
+    "pfaffian_cubic": "v*x2*(t*q+2*x0^2+2*x1^2-4*x2^2-4*x3^2-4*x4^2)/2",
+    "rank_four_branch_at_t_minus2": "f=-3*v*x2*(x2^2+x3^2+x4^2), v != 0",
+    "rank_four_actual_divisor": "q*x2*(x2^2+x3^2+x4^2), up to nonzero scalar",
+    "rank_two_branch": "v=0 for all t"
+  },
+  "producer_sha256": "b641a710e64c8f9baa396e9a348baf119c51bb0cebcaa8b1cdb5d3267a388cac"
+}

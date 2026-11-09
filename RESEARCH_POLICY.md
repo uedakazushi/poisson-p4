@@ -78,4 +78,4 @@ research/classification/CURRENT.md → 対象の現行原稿と元証明を読�
 
 **最上位原則は研究価値の最大化**。数学的重要性、新規性、概念的理解、他の成分への波及、正確性、実現可能性を総合し、順位は研究進捗と一次文献に応じて柔軟に変更する。現在の優先順位は、(1) 滑らかなQ3のPoisson延長、(2) 4次del Pezzoの延長例外、(3) P3の横断的対称性、(4) 147成分の幾何学的構造定理、(5) Feigin–Odesskii互換性、(6) 特異cubic・非正規因子、(7) 一般次元。
 
-Q3については `papers/poisson_subvariety_incidence_ja.tex` にmodular場による退化因子のQ重複度判定と一般Rat(1,2)の一意rank2延長を証明したが、全延長ファイバーの分類は未完成。次はLog/Affのstrict stabilizerとPoisson Jacobiを調べる。新しい障害・定理が別の目標を有望にした場合は理由と元目標の未解決点を整理し、現行方針を更新する。詳細は `research/subvariety_incidence/RESEARCH_POLICY.md` と `NOTES.md`。GitHub mainが唯一の正本、Actions禁止、Libraryは実push失敗時の緊急退避のみ。
+Q3についてはmodular重複度判定、一般Rat/Log/Affの全延長ファイバー、特殊Log点の交叉二直線、さらに一変数の直交性wallを証明した。壁を横切ってstrict stabilizerが跳躍する計算の非零minorは13824c/(c²−1)^4で、rank4枝の発生を説明する。ただしQ3の**全特殊点**の層別は未完成。次は直交性wallの幾何を他の共鳴配置へ広げ、rank4枝が生じる条件を特定する。新しい障害・先行研究により価値が変わればdel Pezzo例外やP3対称性へ方針を変更する。詳細は `research/subvariety_incidence/RESEARCH_POLICY.md` と `NOTES.md`。GitHub mainが唯一の正本、Actions禁止、Libraryは実push失敗時の緊急退避のみ。

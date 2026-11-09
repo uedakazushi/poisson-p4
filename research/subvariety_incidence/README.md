@@ -1,16 +1,13 @@
-# Poisson subvariety incidence — current research module
+# Poisson subvariety incidence — current research (v4 / 2026-11-10)
 
-2026-11-10 / v2. Read [current research policy](RESEARCH_POLICY.md), [notes](NOTES.md), and [the paper](../../papers/poisson_subvariety_incidence_ja.tex).
+GitHub main alone is authoritative. Read [research policy](RESEARCH_POLICY.md), [notes](NOTES.md), the Japanese LuaLaTeX [main paper](../../papers/poisson_subvariety_incidence_ja.tex) and the included [Log quadric proof](../../papers/quadric_log_extension.tex).
 
-- Paper: 13-page Japanese LuaLaTeX, containing the smooth-quadric modular multiplicity criterion and generic Rat(1,2) ambient rank-two rigidity.
-- Three exact SymPy scripts: [code/subvariety_incidence](../../code/subvariety_incidence).
-- Three exact JSON certificates: [certificates](certificates).
-- Reproduction manual: [REPRODUCE_GITHUB.md](../../REPRODUCE_GITHUB.md).
+Main results: smooth Q3 generic Poisson extensions for Rat(1,2), Log(1,1,1), Aff are respectively a point, A1 and two reduced points. A special Log boundary has a nodal two-line extension fibre with a rank-four branch. A nondegenerate one-parameter family q_c=Σx_i²+2c*x0*x2 has an orthogonality wall at c=0; the minor 13824c/(c²−1)^4 proves a strict stabilizer jump and the accompanying fibre jump. Full classification of all special Log and Aff fibres remains open. Generic (2,2) del Pezzo rigidity, cubic rigidity, and earlier classification work are retained.
+
+Five independent exact SymPy producer scripts in [code/subvariety_incidence](../../code/subvariety_incidence) recreate the five JSON certificates in [certificates](certificates).
 
 ```bash
 bash scripts/verify_github_source.sh incidence
 ```
 
-The next problem is the Log(1,1,1) and Aff extension fibres on smooth Q3, including strict stabilizers, actual Jacobi solutions, rank 2/4, Q+C3 vs 2Q+H and the ambient 147-component relationships. Full Q3 classification and external novelty confirmation are not yet claimed. The generic del Pezzo extension rigidity and the earlier valuable results are retained.
-
-GitHub main alone is canonical. No GitHub Actions. Library only after an actual failed GitHub push.
+The command uses LuaLaTeX twice, checks source-generated certificates and validates the resulting PDF. No GitHub Actions; Library only if an actual GitHub push fails. Do not claim that this paper independently re-verifies all 147 components.

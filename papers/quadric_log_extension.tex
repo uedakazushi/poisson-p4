@@ -1,0 +1,229 @@
+
+\subsection{一般Log型の延長ファイバー}
+\label{subsec:quadric-log-fibres}
+\begin{theorem}[一般対数型の全延長]\label{thm:quadric-generic-log-line}
+滑らかな$Q^3$上の$\Log(1,1,1)$成分の非空Zariski開集合では，
+規格化された全ambient Poisson延長スキームは被約な$\AA^1$であり，
+全延長の一般階数は二である。
+\end{theorem}
+\begin{proof}
+LPTによる一般の対数型は，三独立一次式$\ell_0,\ell_1,\ell_2$と
+$\lambda_0+\lambda_1+\lambda_2=0$から
+$\alpha=\sum_i\lambda_i\prod_{j\ne i}\ell_j\,d\ell_i$
+として得られる\cite{LPT}。
+三超平面の共通核$W$への$q$の制限が非退化という非空開条件を課す。
+$V=U\oplus W$と$q$について直交分解し，
+$U$の座標を$x_0,x_1,x_2$，$W$の座標を$x_3,x_4$と書く。
+$q=q_U(x_0,x_1,x_2)+x_3^2+x_4^2$とできる。
+$\gamma=d\alpha/3=\iota_\xi(dx_0\wedge dx_1\wedge dx_2)$，
+$\xi=ax_0\partial_0+bx_1\partial_1-(a+b)x_2\partial_2$と書く。
+$R=x_4\partial_3-x_3\partial_4$，$J=\partial_3\wedge\partial_4$，
+$E_U=\sum_{i=0}^2x_i\partial_i$と置けば，
+発散零の$q$-Casimir liftと，制限を変えない方向は
+\[
+ P_0=2\xi\wedge R+\xi(q_U)J,\qquad
+ K_R=qJ+E\wedge R=E_U\wedge R+q_UJ
+\]
+である。従って
+\[
+ P_t=(2\xi+tE_U)\wedge R+
+       \bigl(\xi(q_U)+tq_U\bigr)J.            \tag{L}\label{eq:quadric-log-line}
+\]
+任意の$U$上の線形場$A$と$U$上の二次式$g$について
+$A\wedge R+gJ$はPoissonで，外積二乗も零である。
+$q$-Casimir条件は上の式から従う。
+よって全$t$で$q$の制限は同一で，一般階数二である。
+これらの普遍恒等式は計算コードでも全パラメータで照合する。
+
+この直線が全延長であることを確認する。
+$q$と$P_0$を保存する$\mathfrak{so}(q)$のLie代数を考える。
+$A\in\mathfrak{so}(q)$が$Q$上の$\sigma=P_0|_Q$を保てば，
+$[A,P_0]$は$q$-Casimirかつ発散零で，$Q$上で零となる。
+既述の延長核$K_T$と$\delta K_T=-\tfrac32v_T$から$[A,P_0]=0$となる。
+従ってintrinsic stabilizerはstrict stabilizerに一致する。
+常に$R$が対称性である。一方，
+$q=\sum_{i=0}^4x_i^2$，$\xi=(-5x_0\partial_0+4x_1\partial_1+x_2\partial_2)/3$
+という正確な点で，$\mathfrak{so}(q)$の十変数に対する
+$[A,P_0]=0$の二次係数行列のrankは九であり，
+非零九次minorの一つは$10240000/243$である。
+行・列は\texttt{check\_log\_quadric.py}の証明書に明示する。
+対数源は既約で，$R$は常に存在するので，
+一般点のstrict stabilizerはちょうど$\CC R$である。
+
+任意のPoisson延長$P=P_0+K_T$に対して
+$[\delta P|_Q,\sigma]=0$がJacobi恒等式の線形帰結として成立する。
+$\delta P=-\tfrac32v_T$で，$T\mapsto v_T$は
+$\wedge^2V\cong\mathfrak{so}(q)$だから，$K_T=tK_R$に限られる。
+この九個の独立な線形条件はJacobi係数イデアルの帰結であり，
+全候補の直線上ではJacobi恒等式が恒等的に成立する。
+従って延長スキーム自体が被約な$\AA^1$である。
+\end{proof}
+
+\begin{corollary}[一般Log延長のambient成分]\label{cor:quadric-log-ambient-membership}
+上の$\AA^1$の全点は，$\PP^4$上の
+$\Log(1,1,1,2)$型一般階数二族の閉包に属する。
+\end{corollary}
+\begin{proof}
+$A=2\xi+tE_U=\sum_{i=0}^2d_ix_i\partial_i$と置く。
+$d=(2a+t,2b+t,-2a-2b+t)$である。
+$d$と直交する二つの線形独立な$c=(c_0,c_1,c_2)$に対して
+\[
+ \vartheta_c=\sum_{i=0}^2c_i\frac{dx_i}{x_i}
+ -\frac{c_0+c_1+c_2}{2}\frac{dq}{q}
+\]
+はEuler水平な閉対数一形式である。
+$P_t^\sharp(dx_i/x_i)=d_iR$，$P_t^\sharp(dq)=0$だから
+$P_t^\sharp(\vartheta_c)=0$となる。
+一般点では二つの$\vartheta_c$が葉の余法線を生成し，
+極因子次数は$(1,1,1,2)$となる。
+特殊な$t$ではこの一般源の閉包を取る。
+一般点の係数に共通の因子がない条件も開であり，
+既存rank二Log族への帰属が従う。
+\end{proof}
+
+\begin{corollary}[三intrinsic成分の一般延長]\label{cor:quadric-generic-fibre-trichotomy}
+滑らかな$Q^3$上のPoisson空間の三既約成分について，
+それぞれ非空Zariski開集合における規格化延長スキームは
+\[
+\begin{array}{c|c|c}
+\text{intrinsic成分}&\text{延長スキーム}&\text{一般階数}\\ \hline
+\Rat(1,2)&\operatorname{Spec}\CC&2\\
+\Log(1,1,1)&\AA^1&\text{全点で }2\\
+\Aff&\text{被約二点}&2,\ 4\ (2Q+H)
+\end{array}
+\]
+である。特に一般元にrank四延長が現れるのは$\Aff$成分のみである。
+\end{corollary}
+\begin{proof}
+第一行は系\ref{cor:quadric-generic-rational-rigidity}，第二行は
+定理\ref{thm:quadric-generic-log-line}，第三行は
+命題\ref{prop:affine-two}とLPTのAffine一般軌道による。
+\end{proof}
+
+\subsection{特殊Log境界での交叉二直線}
+\label{subsec:quadric-log-boundary-node}
+\begin{proposition}[特殊Log境界の二直線延長]\label{prop:quadric-special-log-node}
+\[
+q_0=\sum_{i=0}^4x_i^2,\quad
+\xi=x_0\partial_0+x_1\partial_1-2x_2\partial_2,\quad
+R=x_4\partial_3-x_3\partial_4,\quad
+S=x_1\partial_0-x_0\partial_1
+\]
+とし，$J=\partial_3\wedge\partial_4$，
+$J_U=\partial_0\wedge\partial_1$，
+$P_0=2\xi\wedge R+\xi(x_0^2+x_1^2+x_2^2)J$と置く。
+$P_0$が$Q_0=V(q_0)$上に誘導するPoisson構造を$\sigma_0$とすれば，
+\[
+ \ExtP_{Q_0}(\sigma_0)\cong
+ \operatorname{Spec}\CC[t,v]/\bigl(v(t+2)\bigr),
+\qquad
+ P_{t,v}=P_0+t(q_0J+E\wedge R)+v(q_0J_U+E\wedge S).
+\]
+これは二本の被約なアフィン直線が$(-2,0)$で横断的に交わるスキームである。
+$v=0$の枝は全点で一般階数二，$t=-2,\ v\ne0$の枝は一般階数四で，
+その実退化因子は
+\[
+ D=Q_0+V(x_2)+V(x_2^2+x_3^2+x_4^2).
+\]
+$\sigma_0$には因子的零点があり一般Log元ではない。
+\end{proposition}
+\begin{proof}
+$\xi$の二つの重みが一致するため，
+$S$と$R$は$q_0,P_0$を保つ。
+十変数の$A\in\mathfrak{so}(q_0)$に対する
+$[A,P_0]=0$の線形行列のrankは八である。
+九・十番目の核に対応する二場は$S,R$で，
+独立な八次minorは$2304$と正確に計算される。
+したがって上述した発散からの必要条件は
+全Poisson延長を二変数$P_{t,v}$へ制限する。
+この源上でJacobiatorの非零係数は
+\[
+\begin{aligned}
+ J_{013}&=2v(t+2)q_0x_4,&
+ J_{014}&=-2v(t+2)q_0x_3,\\
+ J_{034}&=2v(t+2)q_0x_1,&
+ J_{134}&=-2v(t+2)q_0x_0.
+\end{aligned}
+\]
+これらの係数理想は正確に$(v(t+2))$であり，
+スキームに余分な非被約成分はない。
+さらに$\iota_{P_{t,v}\wedge P_{t,v}/2}\Omega=f_{t,v}\,dq_0$において
+\[
+ f_{t,v}=\frac{vx_2}{2}
+ (tq_0+2x_0^2+2x_1^2-4x_2^2-4x_3^2-4x_4^2).
+\]
+従って$v=0$ではPfaffianが零，
+$t=-2$では$f=-3vx_2(x_2^2+x_3^2+x_4^2)$となる。
+全source・行列minor・Pfaffianを\texttt{check\_log\_quadric.py}で
+独立に計算しており，以上は一般Log開集合についての
+定理とは矛盾しない。
+\end{proof}
+
+\subsection{共鳴対数境界の直交性wall}
+\label{subsec:quadric-log-orthogonality-wall}
+重みが共鳴することと，quadricの直交分解がその重み空間に
+整合することは別の条件である。後者が延長ファイバーの枝を生むことを示す。
+
+\begin{theorem}[共鳴Log境界の一変数ファイバー]\label{thm:quadric-resonant-log-wall}
+$c\in\CC$で$c^2\ne1$とし，
+\[
+ q_c=\sum_{i=0}^4x_i^2+2cx_0x_2,\quad Q_c=V(q_c),\quad
+ \xi=x_0\partial_0+x_1\partial_1-2x_2\partial_2,
+\]
+\[
+ R=x_4\partial_3-x_3\partial_4,\quad J=\partial_3\wedge\partial_4,\quad
+ q_{U,c}=q_c-x_3^2-x_4^2
+\]
+と置く。$P_{0,c}=2\xi\wedge R+\xi(q_{U,c})J$が
+$Q_c$に誘導するPoisson構造を$\sigma_c$とする。
+各$\sigma_c$は共鳴した対数型の因子的零点を持つ境界構造である。
+\[
+ \boxed{\ExtP_{Q_c}(\sigma_c)\cong
+ \begin{cases}
+ \AA^1 & c\ne0,\quad c^2\ne1,\\
+ \operatorname{Spec}\CC[t,v]/(v(t+2)) & c=0.
+ \end{cases}}
+\]
+$c\ne0$では全延長$P_{0,c}+t(q_cJ+E\wedge R)$は一般階数二である。
+$c=0$では別のrank四枝が現れ，
+実退化因子は$Q_0+V(x_2)+V(x_2^2+x_3^2+x_4^2)$である。
+従って\emph{対数型の因子的零点だけではrank四延長を保証しない}。
+\end{theorem}
+\begin{proof}
+$c^2\ne1$だから$q_c$は非退化である。
+$P_{0,c}+t(q_cJ+E\wedge R)$は$q_c$-Casimirかつ
+Poissonで外積二乗は零となる。これは任意の$q_{U,c}$について
+\eqref{eq:quadric-log-line}の外積表示から従い，
+全パラメータの恒等式も付属コードで検算される。
+対応する対数一形式は非零定数倍を除き
+$x_2(x_1dx_0-x_0dx_1)$である。
+
+次に$G_c=\tfrac12\operatorname{Hess}(q_c)$とする。
+反対称な十変数行列$Z$を用い
+$A=G_c^{-1}Z\in\mathfrak{so}(q_c)$と表し，
+$[Ax,P_{0,c}]=0$の全二次係数行列を$M(c)$とする。
+その大きさは$73\times10$であり，
+\texttt{check\_log\_wall.py}は一つの九次minorが
+\[
+ \det M(c)_{I,J}=\frac{13824c}{(c-1)^4(c+1)^4}
+\]
+であることを$\QQ(c)$上で正確に証明する。
+$R$は常にstrict対称性なので$c\ne0,\pm1$では
+$\rank M(c)=9$でstrict stabilizerは$\CC R$に等しい。
+前小節のJacobiの発散からの線形必要条件を用い，
+全Poisson延長は$P_{0,c}+t(q_cJ+E\wedge R)$に限られる。
+この直線ではJacobiが恒等的に零なので，スキーム論的にも
+被約$\AA^1$であり，外積二乗の消滅から全点がrank二である。
+
+$c=0$では$M(0)$のrankは八となり，核は$\CC R+\CC S$である。
+このとき$\operatorname{Span}(x_0,x_1)$と$x_2$が
+$q_0$について直交する。
+前命題により全Poisson延長は二直線の交叉で，
+第二枝のrank四と退化因子も従う。
+\end{proof}
+\begin{remark}
+ここで完全に分類したのはこの\emph{一変数の共鳴境界族}の
+各延長ファイバーであり，全特殊Log点の分類ではない。
+通常のLog境界の因子的零点は全$c$に存在する一方，
+追加のstrict対称性とrank四枝は$c=0$の直交性wallでだけ現れる。
+\end{remark}

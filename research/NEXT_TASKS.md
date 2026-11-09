@@ -1,8 +1,9 @@
-# 現行研究の次の課題：Q3の延長と147成分の幾何
+# 現行研究の次の課題 — strict対称性によるQ3境界幾何
 
-2026-11-10 / v2。上位原則は数学研究価値の最大化。現在の方針は research/subvariety_incidence/RESEARCH_POLICY.md。
+2026-11-10 / v4。研究価値の最大化が上位原則。GitHub mainが唯一の正本で、GitHub Actions禁止、Libraryは実push失敗時のみ緊急退避。
 
-1. 現行論文にはsmooth Q3のmodular重複度判定、一般Rat(1,2)の一意rank2延長が証明済み。既済みの検算を無意味に繰り返さない。
-2. 次にLog(1,1,1)とAffのstrict Poisson stabilizerを計算し、全Poisson延長のJacobi方程式をその部分空間へ還元する。rank2/4、非被約ファイバー、Q+C3/2Q+H、ambient既約成分の帰属を区別する。
-3. その後del Pezzoの特殊延長、P3の横断的対称性と147成分の概念的構造定理。新しい証明・文献・障害により他の方向の価値が上回れば、理由と元目標の残る課題を明記して変更する。
-4. 全成果はGitHub mainから完全再現する。GitHub Actionsを使わず、Libraryは実push失敗時の緊急避難に限る。
+**達成済み**：Q3一般Rat一点・一般Log A1・一般Aff二点、Log境界の交叉二直線、q_c=Σxi²+2c x0 x2の直交性wall。一般rank4のquadric因子重複度はmodular場で判定する。数学の証明とexactコード/証明書は現行v4論文・別稿にある。
+
+**次の優先課題**：一般の特殊Log・Affのstrict `aut(Q,σ)` の層別、全Poisson Jacobiファイバー、rank4枝の有無、実退化因子と147成分への帰属を、今回の直交性wallの原理で説明する。因子的零点・共鳴だけでrank4を推論しない。次点は4次del Pezzoの特殊延長、P3の横断対称性、それらから147成分の概念的構造定理を得ること。新しい証拠で価値が変われば優先順位を入れ替え、未解決点を現行方針へ統合する。
+
+再開：`RESEARCH_POLICY.md` → `research/subvariety_incidence/RESEARCH_POLICY.md` → `NOTES.md` → 現行LuaLaTeX。全成果はGitHub mainへ非force pushし先端を確認する。

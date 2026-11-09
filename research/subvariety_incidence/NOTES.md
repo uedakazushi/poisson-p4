@@ -1,24 +1,34 @@
 # Poisson部分多様体incidence：現行研究ノート
 
-2026-11-10 / v2。証明の全文は `papers/poisson_subvariety_incidence_ja.tex`。研究再開の入口は `RESEARCH_POLICY.md`。
+2026-11-10 / v4。数学的証明の全文は`papers/poisson_subvariety_incidence_ja.tex`と`papers/quadric_log_extension.tex`。本書には現行の障害・具体例・次の着手方法を整理する。
 
-## Quadric上のmodular場の意味
+## strict stabilizerとJacobiによる延長の原理
 
-非退化二次qのstrict Casimir lift `P` に対し `β=i_(P∧P/2)Ω=f dq`、deg f=3、`D=2qf`。`v=div P` には `v∈so(q)` と `[v,P]=0` が成立する。`dβ=-i_(v∧P)Ω` をEuler収縮すると、Q上の `v_Q∧σ=0 ⇔ q|f` を得る。rank4ならQの重複度は1または2。v=0ならdf∧dq=0からf=0、rank≤2。一般論は論文 `thm:quadric-modular-multiplicity` を参照。
+smooth Q=V(q)に対して全延長は標準のq-central lift s(σ)から`K_T=qT-(1/2)E∧v_T`を加えた10変数源。Poisson条件から`v_T|Q`はσのPoisson自己同型を与えるので、まず`aut(Q,σ)⊂so(q)`を線形計算し、残る小次元源のJacobi理想を解く。modular場はq因子の重複度を決める。Lie代数の次元が跳ぶことは非自明な延長の**必要条件に過ぎず**、十分条件ではない。
 
-**一般Ratの新しい厳密な開条件**：q=Σxi²、L=x0、
-`R=3x0²+2x1²+5x2²+7x3²+11x4²+13x1x2+17x2x3+19x3x4+23x1x4`。
-J(q,L,R)を保存する `so(q)` の10変数線形行列はrank10、nonzero minorは27980515917168640。既約Rat(1,2)源上で開条件なので、一般元のstrict stabilizerは0。本文の核 `K_T` と `δK_T=-3/2 v_T` により延長はJacobian一点。
-exact producer `code/subvariety_incidence/check_quadric_symmetry.py` はこの行列と、`Q+C3` の `f=-t u³/4`、`2Q+H` の `f=-5x0 q/4` を検算する。標本は普遍定理の証明ではない。
+## 一般三成分と特殊Logの実例
 
-**今後の障害**：strict automorphismが非零でもJacobi条件を満たす延長が存在するとは限らない。Log、Affの一般点の `aut(Q,σ)` を求めた後、その部分空間に10変数Poisson Jacobiを制限し、非被約fiber・特殊parameter・閉包を検証する。既存Log一般A1、Aff一般二点の結果は元の証明の仮定を確認してから使用する。これが高価ならdel Pezzo例外集合へ転換する。
+- 一般Rat(1,2)：strict stabilizer 0、全延長はrank2の被約一点。非零minor 27980515917168640。
+- 一般Log(1,1,1)：universal q_U・residue weightでrank2延長のA1。strict so(q) stabilizerはrotation Rのみ（rank9、minor 10240000/243）。全Jacobi/Pfaffianの多項式恒等式と一般開条件で証明。
+- 一般Aff：被約二点。rank2とrank4 (D=2Q+H)。
+- 特殊Log境界：σの1形式はx2(x1dx0−x0dx1)（定数倍無視）。strict stabilizer R,Sの2次元。全Jacobi理想は(v(t+2))、交叉二直線。rank4第二枝のPfaffianはQ*x2*(x2²+x3²+x4²)。
 
-## Del Pezzo例外層
+## 新しい直交性wallの意味
 
-CI22では全延長は `J_h+q0 A+q1 B` の20係数。一般pairについて普遍二次rank60、90 syzygy、二nonzero minor `70875/88`、`4443337729552/7688671875` から被約一点。特殊条件におけるminor消失は、真の延長増加の十分条件ではない。反標準hとpencilの五つの退化memberの位置を用いて層別する。
+q_c=Σxi²+2c x0x2、c²≠1、共鳴重みxi=(1,1,-2)。
+c≠0では重みの二次元固有空間とx2がquadricに関して直交せず、strict stabilizerはRだけ。q_cに適合する全so(q_c) generatorをG_c^−1 Zとして構成し、[Ax,P0,c]=0の73×10係数行列の9次minor
+[
+13824c/((c-1)^4(c+1)^4)
+]
+が全非零cで非零。したがって全延長はrank2のA1。c=0では直交性によってSが新対称性として現れ、全ファイバーがノード状二直線となる。**対数一形式の零因子x2はどちらにも存在する**ので、零因子そのものでは跳躍を検出できない。本文`thm:quadric-resonant-log-wall`と`check_log_wall.py`を参照。
 
-## 全分類との接点と一次文献
+## 残る障害と方向転換基準
 
-Cubic-incidence 40→Rat113次元36（忘却fiber4）、CI22-incidence 30→Rat122次元28（忘却fiber2）の証明は現行論文にある。P3の単純H判定は横断的strict対称性が必要十分、重複Hは別。LPT published DOI 10.1002/mana.201100354とMayanskiy DOI 10.1016/j.jalgebra.2014.08.049を一次資料として使用し、今回の新主張の文献上の優先権は未確認。
+今回のwallは一変数族の完全なファイバー計算であって、全特殊Logの一般必要十分条件ではない。一般Logの重み一致、直交配置、非退化quadricの幾何を不変な条件として整理することが次の課題。一般分類が冗長な場合は、核のLie代数分解や多項式延長理想に対する概念的な補題へ切り替える。その際、解決したこと（一般Rat/Log/Affとこのwall）を保持し、全特殊層は未解決と明示する。
 
-GitHub mainのみを正本とする。GitHub Actionsは禁止、Libraryは実push失敗時の緊急退避のみ。
+旧del Pezzo一般剛性は20係数Jacobiのrank60／90 syzygyと二つの非零minorによる。特殊pencilや反標準切断での真の延長例外は未分類。P3の横断対称性の全6族への適用も未完。
+
+## 正確な資料と保存
+
+LPT: arXiv:1112.3871, DOI 10.1002/mana.201100354。Mayanskiy: arXiv:1303.5916, DOI 10.1016/j.jalgebra.2014.08.049。文献上の優先権は未確認。
+GitHub mainの5つの`code/subvariety_incidence/*.py`と5つの`research/subvariety_incidence/certificates/*.json`、`scripts/reproduce_subvariety_incidence.sh`だけから現在の論文と有限証明書を再生成する。GitHub Actions禁止、Libraryは実push失敗時の緊急退避のみ。
