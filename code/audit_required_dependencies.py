@@ -127,7 +127,13 @@ def audit(output):
                             if isinstance(target,ast.Name):env[target.id]=v
                 v=val(n)
                 if v and v.startswith(prefixes) and v.endswith(extensions) and '\n'not in v and len(v)<512:
-                    if (ROOT/v).is_file()or v in alias:put(v,f,role='static_code_path')
+                    if (f,v) in reviewed_pairs:
+                        # Output/scratch presence must not change the bundle's
+                        # input inventory. Real reviewed inputs were seeded at
+                        # their resolved paths above; generated prerequisites
+                        # are reproduced from their documented producers.
+                        excluded.append({'origin':f,'path':v,'reason':'Unresolved syntactic path candidate without a recorded input hash. This scan does not determine read/write role or runtime base; inspect before treating it as an output, resume file or prototype.'})
+                    elif (ROOT/v).is_file()or v in alias:put(v,f,role='static_code_path')
                     elif v.startswith(prefixes)and v.endswith(extensions):
                         excluded.append({'origin':f,'path':v,'reason':'Unresolved syntactic path candidate without a recorded input hash. This scan does not determine read/write role or runtime base; inspect before treating it as an output, resume file or prototype.'})
                 if isinstance(n,(ast.Import,ast.ImportFrom)):
