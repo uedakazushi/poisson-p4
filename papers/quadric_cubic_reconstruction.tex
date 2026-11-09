@@ -1,0 +1,261 @@
+% Shared structural proofs; no invariant hyperplane or affine quadratic chart.
+\section{二次＋三次のcofactor復元と平面型の磁気商}\label{sec:quadric-reconstruction}
+この節では超平面因子を仮定せず、五変数の斉次liftを用いる。
+前半は二次因子の階数三・四・五を統一し、後半は平面型を因子分割によらず復元する。
+後半で得る磁気商の次元は、単に固定因子の線形表示を与えるだけでなく、
+従来個別に計算した磁気shearの階数と零補集合、軌道次元の違いを説明する。
+
+\subsection{発散零liftとPfaffianの原始関数}
+五変数$z=(z_0,\ldots,z_4)$のEuler場を$E$、定数体積を$\Omega$とする。
+交代二次行列$P$の発散を$Z^j=\sum_i\partial_iP^{ij}$とし、
+\[
+ \mathcal C(P)=P-\tfrac15 E\wedge Z
+\]
+と置く。$\mathcal C$は同じ射影双ベクトルを表す発散零liftへの忠実な射影である。
+実際$\operatorname{div}Z=0$と
+$\operatorname{div}(E\wedge Y)=5Y-(\operatorname{tr}Y)E$から発散零となる。
+発散零な二つのliftの差が$E\wedge Y$なら$5Y=(\operatorname{tr}Y)E$なので差は零であり、一意である。
+この操作とその射影空間への降下はGL五変数の実座標変更と可換である。
+
+\begin{proposition}[斉次Pfaffianの全Jacobi判定]\label{prop:cone-pfaffian-primitive}
+$\Pi$を発散零の斉次二次二ベクトルとし、
+\[
+ \alpha=\iota_\Pi\Omega,\qquad
+ \beta=\iota_{\Pi\wedge\Pi/2}\Omega,\qquad
+ D=\iota_E\beta
+\]
+と定める。$\alpha$は閉三形式、$\beta$は係数次数四の一形式、$D$は五次式である。
+このとき次は同値である。
+\[
+ \text{射影Jacobi}\quad\Longleftrightarrow\quad
+ [\Pi,\Pi]=0\quad\Longleftrightarrow\quad
+ d\beta=0\quad\Longleftrightarrow\quad 5\beta=dD.
+\]
+$D\ne0$のとき$V(D)$はactual退化因子で、$\Pi^\sharp dD=0$である。
+$D$をJacobi前に計算できても、条件を課す前は単なるpotentialである。
+\end{proposition}
+\begin{proof}
+$J=[\Pi,\Pi]/2$とする。成分の反対称化で得る恒等式は
+\[
+ d\iota_{\Pi^2/2}\Omega+
+ \iota_{\operatorname{div}\Pi}\iota_\Pi\Omega=\iota_J\Omega.
+\]
+従って発散零なら$d\beta=\iota_J\Omega$。
+また$\mathcal L_E\beta=5\beta$から
+$dD=5\beta-\iota_Ed\beta$である。
+射影Jacobiは$E\wedge J=0$、すなわち$\iota_Ed\beta=0$なので$5\beta=dD$となり、
+もう一度微分して$d\beta=0$、従って$J=0$を得る。逆は明らかである。
+奇数次交代行列の符号付きPfaffian列はその行列の核に入るから、$\Pi^\sharp\beta=0$。
+$D$は射影外積$\pi^2/2$の切断を表し、最後の主張も従う。
+\end{proof}
+
+\begin{theorem}[全二次＋三次の標識付き復元]\label{thm:quadric-cofactor-reconstruct}
+actual因子が$D=qc$で、$q,c$はそれぞれ既約二次・既約三次とする。
+唯一の発散零liftに対し、唯一の非零線形場$X$が存在して
+\begin{equation}
+ \Pi^\sharp dq=qX,\quad Xq=Xc=0,\quad
+ \operatorname{tr}X=0,\quad [X,\Pi]=0.\label{eq:quadric-cofactor}
+\end{equation}
+射影上の因子由来の対称性
+$\pi^\sharp(\frac12d\log q-\frac13d\log c)$は$\frac56X$の降下である。
+逆に$q,c,X$を固定した全源は、斉次二次$\Pi$について正確に
+\begin{equation}
+ \operatorname{div}\Pi=0,\qquad \Pi^\sharp dq=qX,\qquad
+ \iota_{\Pi^2/2}\Omega=\tfrac15d(qc)                 \label{eq:quadric-whole-source}
+\end{equation}
+で復元される。最初の二条件はアフィン線形、最後は二次であり、追加Jacobiは不要である。
+不変性$[X,\Pi]=0$を線形源の構成時に課しても全解は変わらない。
+\end{theorem}
+\begin{proof}
+$\Pi^\sharp d(qc)=0$と$\gcd(q,c)=1$から$q$は$\Pi^\sharp dq$の全係数を割る。
+商は次数一の場$X$で、一意である。同じ式から$\Pi^\sharp dc=-cX$。
+反対称性から$Xq=0$、$\{q,qc\}=0$から$Xc=0$を得る。
+$X=0$なら$q,c$がともにCasimirとなるが、次数二・三の相異なる既約式は代数的に独立である。
+従って一般五次元で核一次元のrank四二ベクトルには不可能である。
+Hamiltonian場$qX$の発散は発散零liftでは零なので
+$q\operatorname{tr}X+X(q)=0$からtrace零となる。
+$q\ne0$上で$X$は局所Hamiltonian場$\Pi^\sharp d\log q$であり、$[X,\Pi]=0$は全域へ延長する。
+対数一形式の係数$1/2+1/3=5/6$が対称性の比例係数を与える。
+逆は命題\ref{prop:cone-pfaffian-primitive}による。
+最後の二次条件は$D=qc\ne0$を正確に規格化するのでrank四も保証される。
+全条件が多項式であり、$q$の非零開にだけある解を多項式全源と取り違えていない。
+\end{proof}
+
+補集合上の閉逆二形式を$\omega$、$\eta=\frac12d\log q-\frac13d\log c$とすると、
+本稿のsharp規約では$\iota_{(5/6)\overline X}\omega=-\eta$である。
+従ってこの復元は、因子由来の閉一形式に対応する対称性を持つ閉逆形式の復元でもある。
+固定$D$での閉有理二形式の線形・Pfaffian二次表示と式\eqref{eq:quadric-whole-source}は、
+一般rank四の同じ全構造を表す。対称性の存在だけで閉形式の全fiberを解いたとはしない。
+
+因子を非零定数倍しても$X$は変わらない。tensorを$\lambda$倍すると
+$(\Pi,D,X)$は$(\lambda\Pi,\lambda^2D,\lambda X)$となる。
+本節の$1/5$は$D=\iota_E\beta$というactual切断の規約による。
+旧sourceのpotential$\iota_E\beta/5$を使う規約とは非零定数五だけ異なり、因子・支持は同じである。
+
+\subsection{radicalの余核と全31代表を残す}
+$q$の非退化空間とradicalを$U,R$とすると、式\eqref{eq:quadric-cofactor}から
+\[
+ X=\begin{pmatrix}A&0\\ B&C\end{pmatrix},\qquad
+ A\in\mathfrak{so}(q_U),\quad C\in\mathfrak{sl}(R).
+\]
+特にrank四では$C=0$であり、radical上の一般線形場を許すのは誤りである。
+実shear$r'=r+Tu$とその逆は全域で定義され、
+\begin{equation}
+ B\longmapsto B+TA-CT.\label{eq:quadric-sylvester}
+\end{equation}
+従って残るのはSylvester写像$T\mapsto TA-CT$の余核である。
+スペクトルが交わらない層ではこの写像は可逆だが、共鳴層では余核を保持し、そのcentralizer作用で分ける。
+例えばrank三で$A=a\partial_b-b\partial_c,C=r\partial_s$の場合、全shearで
+$Xr=pc,Xs=r+qc$にでき、残る中心化群は
+$(p,q)\mapsto(\lambda p,\mu p+\lambda q)$、$\lambda\ne0$と作用する。
+従って$p\ne0$、$p=0,q\ne0$、$p=q=0$の三つを全て残す。
+これは共鳴の余核を消してよいという一般論ではない。
+
+半単純スペクトルは$(0,a,-a,b,-b)$である。
+$ab\ne0$で絶対比が二以外なら、weight零の全三次単項式は零固有座標で割れる。
+従って既約$c$は正則の絶対比二、非正則の零固有空間、純冪零の各型へ帰着する。
+rank三・四の全shear余核とcentralizerの分類は、元の全表
+\path{DEGENERATE_QUADRIC_CUBIC_COFACTOR_REDUCTION.md}第3--5節を保持する。
+\begin{center}\small
+\begin{tabular}{c|l|r|l}
+rank $q$&$X$の群&代表数&なお使う元の全支持入力\\\hline
+4&正則半単純&1&CUBIC\_REGULAR\_SUPPORT\\
+4&非正則半単純&3&CUBIC\_SEMISIMPLE\_SUPPORT\\
+4&純冪零$A\ne0$&5&Q4\_NIL\_SUPPORT\\
+4&$A=0$&2&CUBIC\_REGULAR\_SUPPORT第3節\\
+3&正則半単純&2&CUBIC\_REGULAR\_SUPPORT\\
+3&非正則半単純&6&CUBIC\_SEMISIMPLE\_SUPPORT\\
+3&純冪零$A\ne0$&5&Q3\_ANIL3\_SUPPORT\\
+3&$A=0$&7&Q3\_AZERO\_SUPPORT
+\end{tabular}
+\end{center}
+表の接頭辞は\path{DEGENERATE_QUADRIC_}、末尾は\path{.md}である。
+rank五の全Jordan型は\path{SMOOTH_QUADRIC_CUBIC_SUPPORT.md}第1・6・7節にある。
+式\eqref{eq:quadric-whole-source}は全型に同じ正逆を与えるが、各源の既約$c$条件・零補集合・実変形・
+成分帰属はこれらの元証明を必要とする。31代表を31成分と数えない。
+
+\subsection{被約平面五次の完全復元は因子分割によらない}
+以下では$S=\CC[a_0,a_1,a_2]$、$F\in S_5$を被約とし、頂点方向を$r,s$とする。
+$E_0=\sum a_i\partial_{a_i}$、$\Omega_0=da_0\wedge da_1\wedge da_2$と置く。
+\begin{theorem}[全平面五次のSaito源]\label{thm:reduced-plane-whole-source}
+actual因子が$F$であるrank四構造が存在すれば、$F$はexponents$(2,2)$のfree平面五次である。
+その全発散零源は、二次gradient syzygyの全frame$U,V$と任意の$R\in S_2$を用いた
+\begin{equation}
+ \Pi_R=U\wedge\partial_r+V\wedge\partial_s+
+ \{-(\operatorname{div}V)r+(\operatorname{div}U)s+R\}
+       \partial_r\wedge\partial_s                         \label{eq:plane-whole-source}
+\end{equation}
+で尽くされる。逆にこの自由基底を持つ全被約$F$と全$R$がrank四Poisson源を与える。
+$\det(E_0,U,V)=\kappa F$、$\kappa\ne0$ならactual切断は$-\kappa F$で、$R$に依存しない。
+定数・一次syzygyは無く、二次syzygyは正確に二次元、全Tjurina数は十二である。
+\end{theorem}
+\begin{proof}
+命題\ref{prop:cone-pfaffian-primitive}から$\Pi^\sharp dF=0$。
+baseの交代三行列をvector$b$で表せば$b\times\nabla F=0$である。
+被約性とEuler式から$\nabla F$の係数の最大公約式は一。
+従ってUFDの各primeのvaluationを比べれば$b$は$\nabla F$の多項式倍だが、
+次数二と四の差から$b=0$。頂点依存を仮定せずにbase blockが零となる。
+全二次mixed列を$U,V$、残る項を$B$とすれば
+$U(F)=V(F)=0$、$D=-\det(E_0,U,V)$である。
+$r=s=0$の$U_0,V_0$と$E_0$の行列式は非零定数倍の$F$。
+任意のlogarithmic場のCramer分子は、各reduced factorの一般滑らかな点で零となる。
+従って$F$で割れ、$\operatorname{Der}(-\log F)=SE_0\oplus SU_0\oplus SV_0$。
+$E_0(F)=5F$なので$AR(F)=SU_0\oplus SV_0$も得る。
+よって低次syzygyは無く、$U,V$の正頂点次数の係数は全て零である。
+
+行列式のLie微分から$[U,V]=(\operatorname{div}V)U-(\operatorname{div}U)V$。
+Jacobiのbase,$r,s$成分は$[U,V]+B_rU+B_sV=0$なので、
+$B_r=-\operatorname{div}V,B_s=\operatorname{div}U$となり、式\eqref{eq:plane-whole-source}を得る。
+逆にこの式では全Jacobiと発散零が成立し、Pfaffianは上の$-\kappa F$に等しい。
+全frameの正逆は定数GL二変数だけであり、六係数の$R$を捨てない。
+自由syzygy分解からJacobian idealの解像は
+$0\to S(-6)^2\to S(-4)^3\to J_F\to0$。
+$S/J_F$のHilbert分子$1-3t^4+2t^6$の二階微分の半分は十二であり、全Tjurina数を与える。
+\end{proof}
+
+\subsection{磁気商は因子の留数によって測られる}
+$F=\prod_{i=1}^{\nu}f_i$、$d_i=\deg f_i$とし、因子は相異なる既約式とする。
+全域で可逆なshear$r'=r+\ell(a),s'=s+m(a)$、$\ell,m\in S_1$は、正確に
+\[
+ R\longmapsto R+\delta_F(\ell,m),\qquad
+ \delta_F(\ell,m)=\operatorname{div}(\ell V-mU)
+\]
+と作用する。逆は$\ell,m$を引くだけであり、一次近似の作用ではない。
+\begin{theorem}[磁気shearの核と因子留数]\label{thm:magnetic-residue-quotient}
+式\eqref{eq:plane-whole-source}の全被約$F$について、自然な同型
+\begin{equation}
+ \ker\delta_F\ \simeq\
+ \{(\lambda_i)\in\CC^\nu:\textstyle\sum_i d_i\lambda_i=0\}
+                                                        \label{eq:magnetic-residues}
+\end{equation}
+がある。従って
+\[
+ \dim\ker\delta_F=\dim\operatorname{coker}\delta_F=\nu-1,
+ \qquad\rank\delta_F=7-\nu.
+\]
+核のshearは因子由来の可換Poisson対称性そのものである。
+磁気商$\mathcal M_F=S_2/\operatorname{im}\delta_F$の零点を捨ててはならない。
+\end{theorem}
+\begin{proof}
+核の$(\ell,m)$に$W=\ell V-mU$、$\theta=\iota_W\Omega_0$を対応させる。
+$\operatorname{div}W=0,W(F)=0$だから$\theta/F$は閉二形式、Euler重み零である。
+よって$\eta=\iota_{E_0}(\theta/F)$は閉・水平・重み零の一形式で、$F$に沿って高々単純極を持つ。
+各因子の一般滑らかな点で閉性は定数留数$\lambda_i$を与える。
+一般直線に制限した留数定理から$\sum_i d_i\lambda_i=0$。
+$\sum_i\lambda_i df_i/f_i$を引くと全divisorial polesが消え、
+余次元二延長と$H^0(\PP^2,\Omega^1)=0$から差は零となる。
+$\eta=0$なら$E_0,W$は関数体上平行だが$E_0(F)=5F,W(F)=0$だから$W=0$。
+自由基底の独立性から$\ell=m=0$であり、単射を得る。
+
+逆にこの次数関係を満たす対数一形式$\eta=\sum_i\lambda_i df_i/f_i$を取る。
+$\gamma=F\eta$は多項式一形式で、水平かつEuler重み五。
+\[
+ \iota_W\Omega_0=\tfrac15d\gamma
+\]
+で一意な三次場$W$を定めると、$\operatorname{div}W=0$、
+$dF\wedge d\gamma=dF\wedge dF\wedge\eta=0$から$W(F)=0$。
+Cartan公式により$\iota_{E_0}\iota_W\Omega_0=\gamma$である。
+自由分解$AR(F)_3=S_1U\oplus S_1V$から一意な$\ell,m$を回収でき、全射となる。
+定義域$S_1^2$と値域$S_2$はともに六次元なので、余核の次元も同じである。
+
+最後に因子の対数場は
+$\Pi_R^\sharp\eta=\eta(U)\partial_r+\eta(V)\partial_s$。
+各$U,V$が全因子の対数場なので係数は一次式である。
+$W_\eta=\eta(U)V-\eta(V)U$について
+$\iota_{E_0}\iota_{W_\eta}\Omega_0=\kappa F\eta$となるから、
+非零定数$\kappa$を除き上の同型と一致する。
+\end{proof}
+
+\begin{proposition}[磁気零境界と軌道次元]\label{prop:plane-magnetic-orbits}
+固定$F$の全frameをGL二変数で合わせると、残るshear商は$\mathcal M_F$であり、
+共通fiber scalarとtensor scaleの組合せは$[R]\mapsto t[R]$と作用する。
+base曲線の自己同型群は有限である。
+従って$[R]=0$の軌道次元は$24-\nu$、$[R]\ne0$の軌道次元は$25-\nu$である。
+特に$\nu=1$では磁気項は全消去でき、一つの23次元軌道となる。
+$\nu=2$では非零磁気商が一つの23次元軌道、零商が22次元の境界軌道となる。
+\end{proposition}
+\begin{proof}
+$\operatorname{Der}(-\log F)_1=\CC E_0$なのでPGL三変数の曲線安定化群は零次元、従って有限。
+本質三変数空間は$F$から内在的に決まる。
+tensor安定化群の連結部分はbaseを固定し、fiberに$M(r,s)^t+Ca$と作用する。
+anchorの独立性から射影tensorを保存する$M$はscalarであり、shearの自由度は
+式\eqref{eq:magnetic-residues}の$\nu-1$である。
+零商ではさらにfiber scalarの一次元が残り、非零商ではその連結自由度は無い。
+$\dim\PGL_5=24$から結論を得る。$\nu=2$の零商は$R_t=tR$の実極限で、全tでactual因子は同じである。
+軌道次元やこの極限だけから全Poisson空間の成分性を主張していない。
+\end{proof}
+
+\paragraph{実際に置換する旧証明と保持する計算.}
+滑らかな二次因子と特異二次因子のcofactor・trace・不変性の二つの入口を
+定理\ref{thm:quadric-cofactor-reconstruct}へ統合する。
+平面型の完全源は二H＋三次、rank三Q＋三次、既約五次の三箇所で
+定理\ref{thm:reduced-plane-whole-source}へ統合する。
+Q＋三次の六源の磁気shear階数五と、既約五次の階数六は
+定理\ref{thm:magnetic-residue-quotient}の$\nu=2,1$の同じ証明になる。
+二H＋三次では$\nu=3$なので商次元二であり、因子数を無視して全磁気消去を主張しない。
+一方、全31場の有限分類、各源の既約性・零補集合、六つの平面配置の尽くし、
+周囲の二次・三次障害と成分相違、非平面型の実変形・S61帰属は旧証明を保持する。
+因子衝突で被約性が失われる境界へ、この留数次元式を延長しない。
+固定した因子数のfree被約層では磁気写像は定数階数で、minor chart上に核・像・余核の束を作れるが、
+一般層への制限で特殊底成分を捨てる意味ではない。
+以上の統合の文献上の新規性は未確認であり、全147成分の独立検証ではない。

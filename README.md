@@ -1,6 +1,6 @@
 # Poisson structures on projective four-space
 
-2026-11-09 / v68-marked-reconstruction
+2026-11-09 / v69-quadric-residue-reconstruction
 
 ## 現在の主作業
 
@@ -26,12 +26,16 @@ rank2は飽和foliationと零因子として別に扱う。通常の証明を構
 二単純H+三次の全模型でも適用を確認した。個別源の帰属・成分性・非包含の証明は保持する。
 TRIPLE→Ga9では次数二以下を保つ補正を導き、指定因子族の二次持上げに補正が必要なことを示した。
 可換場による二重Hの分裂族では補正なしで全次数を持ち上げられる。
-次は超平面なしQ+Cのcanonical symmetryと全31代表の復元を統合する。
+超平面なしQ+Cのcofactor入口と全31代表を、発散零liftとPfaffian原始関数の共通復元に統合した。
+被約平面五次の全源も共通化し、因子数νに対し磁気shearの核・商がν−1次元であることを留数から証明した。
+これにより二因子の磁気一変数とその零境界、既約因子の全磁気消去、三因子の磁気二変数を同じ理由で説明する。
+個別の全支持・成分性・非包含の有限証明は保持する。次は非正規五次の導手・正規化を進める。
 
 ## 保存済み資料と検証の射程
 
 全分類主稿 `papers/poisson_p4_classification_ja.tex` と構造原稿は、
-`papers/marked_hyperplane_reconstruction.tex` と `papers/poisson_lifting_examples.tex` を共有する。
+`papers/marked_hyperplane_reconstruction.tex`、`papers/quadric_cubic_reconstruction.tex`、
+`papers/poisson_lifting_examples.tex` を共有する。
 主稿の既存の全証明を保持し、共通部分だけを置換した。成分・主張台帳と旧証明書は未変更。
 全147 IDの一般実因子・入口・原証明への案内は `research/conceptual/component_entrances.csv`。
 一般元はA:113 / B:10 / C:18 / R2:6であり、成分閉包の分割ではない。
@@ -41,6 +45,7 @@ TRIPLE→Ga9では次数二以下を保つ補正を導き、指定因子族の�
 ```sh
 python code/check_global_structure.py --output work/global-structure.json
 python code/check_marked_reconstruction.py --output work/marked-reconstruction.json
+python code/check_quadric_residue_reconstruction.py --output work/quadric-residue-checks.json
 python code/map_component_entrances.py --output work/component_entrances.csv
 mkdir -p work/structure-build
 lualatex -interaction=nonstopmode -halt-on-error -output-directory=work/structure-build papers/poisson_divisor_symmetries_ja.tex
@@ -49,4 +54,4 @@ lualatex -interaction=nonstopmode -halt-on-error -output-directory=work/structur
 
 既存29項目に加え、共通恒等式と表示した全パラメータ族・正逆を検算した。全分類の自動証明ではない。
 環境内にTeX一式が別展開されている場合は `scripts/build_structural_manuscripts.sh` を使う。
-今回の検証範囲と組版結果は `reports/marked_reconstruction_validation.json`。
+今回の検証範囲と組版結果は `reports/quadric_residue_validation.json`。全31源の線形完全性の階数証明は旧入力であり、今回再計算していない。

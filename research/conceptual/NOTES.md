@@ -1,6 +1,6 @@
 # 大域構造研究ノート
 
-2026-11-09 / v4。最初に RESEARCH_POLICY.md、次に GLOBAL_PLAN.md を読む。
+2026-11-09 / v5。最初に RESEARCH_POLICY.md、次に GLOBAL_PLAN.md を読む。
 
 ## 1. 現行の証明とその場所
 
@@ -19,6 +19,9 @@
 | 相対復元・持上げ | 固定Fのkernelに加え、因子も動く一次・二次式 | prop:relative, prop:lifting。全高次無障害は未主張 |
 | グラフ閉包 | rank4開のPfaffianグラフ閉包＝Rees blowup | prop:graph。純rank2成分は別 |
 | 標識の有限性 | Hまたは次数/重複度付き因子標識の忘却 | prop:finite-mark, prop:factor-mark |
+| 斉次cofactor復元 | divΠ零、Π#dq=qX、β=d(qc)/5で全rank3/4/5。Xtrace零、対数対称性は5X/6 | quadric_cubic_reconstruction.tex、thm:quadric-cofactor-reconstruct |
+| 全被約平面五次 | 自由Saito基底と全R6、隠れたfiber依存なし | thm:reduced-plane-whole-source、A/B/Cの三箇所で共有 |
+| 磁気留数 | kerδ≅{λ:Σd_iλ_i=0}、ker/coker次元ν−1 | thm:magnetic-residue-quotient、通常の全F証明と八例の記号検算 |
 | rank2入口 | 飽和可積分rank2層Fと非零s∈det F、e=0,1,2 | prop:ranktwo。foliationの完全分類ではない |
 
 単純Hと重複Hの入口を共通TeXへ置換し主稿にも統合した。第三の二H+三次と定数modular全源を確認した。
@@ -44,7 +47,21 @@ TRIPLEではdegree≤2がA=e/12,B=e(15−e)/72を強制し、q(a)=0だがψ≠0�
 x²=tは全体が既約だが幾何学的一般fiberは二点。tx=0は一般fiberだけでは見えない特殊底成分を持つ。
 rank4開からのグラフ閉包を使うことと、一般的な因子の開だけへ制限することを混同しない。
 
-## 3. 有用な障害・反例
+## 3. 磁気商と留数の統合
+
+詳細証明は共有TeXへ置く。ν個の相異なる因子を持つ被約free平面五次では、
+δ(ℓ,m)=div(ℓV−mU)のkernelからη=i_E i_WΩ/Fへ写すと、次数関係を持つ対数留数空間になる。
+逆はi_WΩ=d(Fη)/5で多項式として作れ、自由syzygyからℓ,mを一意に戻せる。
+従ってkernelとcokernelはν−1次元。両空間そのものを無根拠に同一視しない。
+ν=2で磁気一変数、非零23軌道と零22境界、ν=1で全磁気消去、ν=3では商二次元。
+これはBの六配置のrank五とCのrank六の同じ通常の証明であり、単なる行列の再実行ではない。
+因子が衝突し非被約になると適用できない。
+
+全31保存源は全自由係数と全残Jacobiを保持したexact projectionで、全係数恒等式を再生成した。
+その線形完全性のfull150 rank証明、非平面実変形・graph帰属、六平面配置の尽くしと周囲障害は旧入力として残る。
+八例の検算は六Q+C、二H+C、既約Fの全R6・shear正逆・留数kernelを含む。全147の独立検証ではない。
+
+## 4. 有用な障害・反例
 
 **rank2への誤適用。** P=∂1∧(∂2+x1∂3)ではPf P=0、P#df=f divPは自動成立だがJacobi(1,2,3)=1。
 弱いmodular復元P#df=fZにはf≠0が必須である。
@@ -66,7 +83,7 @@ P_Q(β_r)=2w du∧dr−u dw∧dr−r du∧dwという低次数αを作る。余�
 任意の複素係数半単純場が代数的Gm作用へ積分するわけではない。
 非線形座標変換は族の構成には使えても、PGL帰属の代用にはならない。
 
-## 4. 原証明への主な入口
+## 5. 原証明への主な入口
 
 全支持の現行地図：`research/classification/KNOWN142_SEVEN_CANDIDATE_WHOLE_POISSON_COVER_AUDIT.md`。
 このファイルの旧142＋7は証明の入力段階で、現在の成分数へ読み替えない。
@@ -78,7 +95,7 @@ R2：RANK_TWO_SUPPORT、KNOWN_COMPONENT_AUDIT、独自stable_rank2の元証明�
 境界：GLOBAL_EXACT147_COMPONENT_CLASSIFICATION_FINAL_PROOF、GA9_CONSTANT_COMPONENT、T37_SIX_TARGET_LEAF_OBSTRUCTIONS_SEPARATE_REVIEW。
 以上はresearch/classification内（明記したpapersを除く）。今回読んだ合成ノートと、未読の全原証明を区別する。
 
-## 5. 一次資料の確認と射程
+## 6. 一次資料の確認と射程
 
 - B. Pym, Constructions and classifications of projective Poisson varieties, LMP108(2018),573–632, DOI10.1007/s11005-017-0984-5, arXiv:1701.08852。§5.1、Propositions5.14/5.16。SNCでの対数形式・トーリック認識の射程を確認。https://doi.org/10.1007/s11005-017-0984-5
 - M. Matviichuk, B. Pym, T. Schedler, A local Torelli theorem for log symplectic manifolds, arXiv:2010.08692v2。Theorem1.4をPDF本文・頁画像で確認。SNC locusと交わる40成分であり、全成分をSNCへ退化させる定理ではない。https://arxiv.org/pdf/2010.08692v2
@@ -88,11 +105,13 @@ R2：RANK_TWO_SUPPORT、KNOWN_COMPONENT_AUDIT、独自stable_rank2の元証明�
 
 必要な主張の一次本文を確認した範囲であり、全先行研究の徹底照合・新規性確認完了とはしない。
 
-## 6. 再現
+## 7. 再現
 
 `python code/check_global_structure.py --output work/global-structure.json`。
 普遍的な6係数と24一次微分を独立変数として検算し、標本値は使わない。
 原稿はREADMEのLuaLaTeX二回コマンド。PDFは別フォルダに出力し、中間生成物をbundleへ入れない。
-今回の生成・検証の実結果はreports/marked_reconstruction_validation.jsonを参照。
+今回の生成・検証の実結果はreports/quadric_residue_validation.jsonを参照。
 新検算は `python code/check_marked_reconstruction.py --output work/marked-reconstruction.json`。
 組版は `bash scripts/build_structural_manuscripts.sh`。
+
+Bと磁気留数の検算は `python code/check_quadric_residue_reconstruction.py --output work/quadric-residue-checks.json`。

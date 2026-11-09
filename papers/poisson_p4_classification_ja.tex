@@ -24,7 +24,7 @@
 \title{複素射影四空間上のPoisson構造の成分分類\\[3pt]
 \large 被約既約成分は正確に147}
 \author{}
-\date{2026年11月9日\quad v68-marked-reconstruction}
+\date{2026年11月9日\quad v69-quadric-residue-reconstruction}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -100,6 +100,8 @@ R2&Pfaffian恒等零、actual五次は未定義&6
 今回表を作ったことは、その全証明を独立再確認したという意味ではない。
 
 \input{papers/marked_hyperplane_reconstruction.tex}
+
+\input{papers/quadric_cubic_reconstruction.tex}
 
 \input{papers/poisson_lifting_examples.tex}
 
@@ -3228,14 +3230,11 @@ MPS40、CMINUS、新従属24次元、新独立23次元の成分和で覆われ�
 
 \section{滑らかな二次因子と既約三次因子の全支持}
 実因子が$D=qc$、qは階数5の二次式、cは既約三次式とする。
-発散零lift$\Pi$についてDはCasimirなので、互いに素な因子から
-$\Pi^\sharp dq=qX$となる線形場Xを得る。
-$Xq=Xc=0$、$[X,\Pi]=0$であり、X=0なら二つの独立Casimirが生じ階数4に反する。
-従って$0\ne X\in\mathfrak{so}(q)$である。
-半単純部の固有値を$(0,a,-a,b,-b)$とすると、ab非零で$a\ne\pm2b,b\ne\pm2a$なら
-全不変三次式は零固有座標で割れ、cの既約性に反する。
-非零半単純型は、正則$(0,1,-1,2,-2)$と零固有空間が三次元の型だけとなる。
-純冪零の型$(5),(3,1,1),(2,2,1)$は別に残す。
+定理\ref{thm:quadric-cofactor-reconstruct}の$q$がrank五の場合を適用する。
+唯一の発散零lift、非零cofactor、trace零、不変性と全源の正逆は同定理に含まれる。
+半単純スペクトルの絶対比二への制約は第\ref{sec:quadric-reconstruction}節の通りであり、
+非正則の零固有空間と純冪零三型も保持する。
+以下はなお必要な各固定場の全線形源と残Jacobi、実軌道極限である。
 
 正則型で$q=x_0^2+x_1x_2+x_3x_4$とする。
 全20不変二次係数に発散零と$\Pi^\sharp dq=qX$を課す全線形系は階数15であり、
@@ -3443,16 +3442,14 @@ MPS40は全て次元23以上なので異なる。他の成分とは次元また�
 \subsection{本質三変数の二直線・三次曲線と六成分}
 実五次式が$D=hxC(h,x,y)$となる場合は、全支持を十三個の平面配置へ有限化できる。
 Cは既約なので本質変数数は正確に三である。
-h-Casimir代表のaffine平面上で、CのPoisson-normal性は$C\mid P^{xy}C_y$を与える。
-$\gcd(C,C_y)=1$と次数から$P^{xy}=0$。
-従って全構造は、初めはfiber変数z,wにも依存し得るanchor U,Vを用いて
-\[
- P=U\wedge\partial_z+V\wedge\partial_w+B\partial_z\wedge\partial_w
-\]
-と書ける。実Pfaffianは$\det(U,V)=\kappa xC$である。
-$z=w=0$へ評価したanchorとEuler場はSaito行列式$\kappa hxC$を持つ自由基底となる。
-この基底を$\CC[h,x,y,z,w]$へ拡張し全次数を比較すれば、二次anchorのU,V係数は定数、
-h成分零からEuler係数は零となり、元のanchorのfiber依存も消える。
+被約な$F=hxC$に定理\ref{thm:reduced-plane-whole-source}を適用すれば、
+全canonical源はfiber非依存の二次anchorと六磁気項で尽くされる。
+元のh-Casimir源との対応は定理\ref{thm:marked-affine}の一意性による。
+具体的にはcanonical anchor$U_0,V_0$の$U_0(h)=ah,V_0(h)=bh$を係数として取り出し、
+$E\wedge(a\partial_z+b\partial_w)$を引く。
+$h$は被約因子なのでこの割算は多項式の係数取り出しであり、$h\ne0$への局所化ではない。
+逆は$\mathcal C$によるcanonical射影で、全sourceと全磁気項を保つ。
+得られるh-central anchorを$U,V$とすると、
 全源は、$[U,V]=cU+dV$として
 \[
  P=U\wedge\partial_z+V\wedge\partial_w+
@@ -4134,17 +4131,9 @@ rank一はcubic可約、rank零はrank四にならない。
 
 \section{特異二次因子と既約三次因子の有限還元}
 実因子$D=qc$のqをrank3または4の既約二次式、cを既約三次式とする。
-発散零代表$\Pi$から$\Pi^\sharp dq=qX$を定めると、
-$Xq=Xc=0,[X,\Pi]=0$、$X\ne0$である。
-Hamiltonian場$qX$の発散零から$\operatorname{tr}X=0$も得る。
-qの非退化空間Uとradical Rで分けると
-\[
- X=\begin{pmatrix}A&0\\ B&C\end{pmatrix},\qquad
- A\in\mathfrak{so}(q_U),\quad C\in\mathfrak{sl}(R),\qquad
- B\mapsto B+TA-CT
-\]
-となる。最後はradical shearによる全同値であり、Bを勝手に零に置かない。
-半単純固有値は$(0,a,-a,b,-b)$であり、$ab\ne0$なら既約三次の存在は絶対比2を強制する。
+定理\ref{thm:quadric-cofactor-reconstruct}と式\eqref{eq:quadric-sylvester}を用いる。
+$q$のradical上のtrace零block、全Sylvester余核、共鳴の零補集合は同じ正逆で保持される。
+ここではその全31代表上の非線形支持と帰属を戻す。
 
 全centralizer作用とshearのcokernelを使うと、rank4に十一代表、rank3に二十代表を得る。
 これは線形場の被覆表であり、成分数の表ではない。
@@ -4322,20 +4311,16 @@ $a^2s+b^3+3abc$へ規格化できる。
 この全源の残る十七係数に対するCasimir線形系は階数13、拡大階数14で矛盾する。
 独立検算は全二十一行の疎な線形結合が1となる証拠を保持する。
 
-残る全支持では三変数U上のblockが零、mixed二列U,Vはbaseだけに依存する。
-実因子$F=qC$に対し
-\[
- U(F)=V(F)=0,\qquad \det(E_U,U,V)=\kappa F,\quad\kappa\ne0.
-\]
-Cramer則とFのsquarefree性により$E_U,U,V$は対数微分加群の自由基底となる。
-平面五次曲線Fは指数$(1,2,2)$の自由曲線で、全Tjurina数は12である。
-全二次syzygyは二次元なので、fiberのGL2変更後の全源は
+残る全支持では三変数base上のblockが零で、因子$F=qC$はそのbaseだけに依存する。
+定理\ref{thm:reduced-plane-whole-source}により、fiber依存の除去、自由基底、$\tau=12$、
+全六磁気項を含む正逆を一括して得る。特に全源は
 \[
  \Pi=U\wedge\partial_r+V\wedge\partial_s+
  \{-(\operatorname{div}V)r+(\operatorname{div}U)s+R_2(a,b,c)\}\partial_r\wedge\partial_s
  \tag{\dagger}
 \]
-で尽くされる。$R_2$は任意の二次式で、全六係数を保持する。
+であり、$R_2$は任意の二次式である。
+以下の有限配置の認識には、この共通復元だけでは足りず、各交点の全境界を調べる必要がある。
 
 相異なる交点数をkとするとMilnor数の積公式は
 $\sum\mu(qC)=\mu(C)+12-k$を与える。
@@ -4367,13 +4352,13 @@ node at node&同上&$7a^2+4ab+8ac+b^2+8bc$
 各成分は稠密なPGL軌道を持ち、$A=0$の全七cofactor型のrank四支持はこれらの和に含まれる。
 \end{proposition}
 \begin{proof}
-fiber shear $r'=r+L(U),s'=s+M(U)$は磁気項を
-\[
- R_2\longmapsto R_2+(V+\operatorname{div}V)L-(U+\operatorname{div}U)M
-\]
-と変える。全六源でこの線形写像は階数五であり、商座標$\mu$が一つ残る。
-fiberのscalar変更により$\mu\ne0$は一軌道となり、$\mu=0$はその実極限である。
-従って全源閉包はgeneric軌道閉包と一致する。
+ここでは$F=qC$の因子数は$\nu=2$である。
+定理\ref{thm:magnetic-residue-quotient}から、全六磁気に対するshearの階数は五、商座標$\mu$が一つ残る。
+これは六配置ごとの行列階数を前提とせず、二因子の留数によって決まる。
+命題\ref{prop:plane-magnetic-orbits}から$\mu\ne0$は一つの23次元軌道、
+$\mu=0$は同じ全源内の22次元境界軌道である。
+従って全源閉包はgeneric軌道閉包に等しいが、成分性には以下の周囲障害がなお必要となる。
+元の明示的な六源のshear逆行列は、必要時の座標入力として保持する。
 
 cusp outside 1、node smooth、node at nodeでは全350 Jacobiの微分Dの階数は101、群・Euler鉛直・scaleの階数は48。
 全kernelは49次元であり、真の法線は一つである。
@@ -13736,60 +13721,11 @@ Fはexponents$(2,2)$のfree plane quinticで、全Tjurina数は十二である�
 PGL商を取る前の全射影像は23次元以下である。
 \end{proposition}
 \begin{proof}
-座標を$(a_0,a_1,a_2,u,v)$、$S=\mathbb C[a_0,a_1,a_2]$、Euler場をE、定数volumeを$\Omega$とする。
-五変数二次liftの自由度は$E\wedge X$で、一次場Xに対して
-\[
- \operatorname{div}(E\wedge X)=5X-(\operatorname{tr}X)E.
-\]
-div Pはtrace零なので$X=-\operatorname{div}P/5$でdivergence零代表$\Pi$を取り、一意である。
-射影Jacobiから$E\wedge[\Pi,\Pi]=0$、BV恒等式からdiv$[\Pi,\Pi]=0$。
-二形式$\eta=\iota_{[\Pi,\Pi]}\Omega$はEuler重み五で$\iota_E\eta=d\eta=0$だから、Cartan公式で零。
-従って$\Pi$はstrict Poissonである。
-$\alpha=\iota_{\Pi^2/2}\Omega$も閉、Euler重み五なので、実退化式$D=\iota_E\alpha$に対し
-\[
- 5\alpha=dD,\qquad \Pi^\sharp dD=0
-\]
-となる。後者は奇数次skew行列のPfaffian核恒等式である。
-
-baseの三行三列block Aについて$A\nabla F=0$。
-符号付き三vector bで書けば$b\times\nabla F=0$なので、fraction field上$b=c\nabla F$。
-F被約から$\gcd(F_0,F_1,F_2)=1$である。
-共通primeはEuler関係でFを割るが、各reduced factorのgeneric smooth点では全微分を割れないからである。
-このprimitive性は$S[u,v]$でも成立し、各primeのvaluationからcは多項式でなければならない。
-bは次数二、$\nabla F$は次数四なのでb零。
-従ってvertex依存を初めから捨てずに
-\[
- \Pi=U\wedge\partial_u+V\wedge\partial_v+B\partial_u\wedge\partial_v,
- \qquad U(F)=V(F)=0
-\]
-を得る。U,V,Bはまだ全五変数の二次式である。
-実Pfaffianは$D=-\det(E_{\rm base},U,V)$。
-u=v零で評価した$U_0,V_0$はbaseだけの二次syzygyで
-$\det(E_{\rm base},U_0,V_0)=-F$を満たす。
-
-このdeterminantから必要なSaito判定を直接示す。
-任意のlogarithmic derivationのCramer係数の分母はFだけである。
-各reduced factorのgeneric smooth点ではcolumn行列$(E_{\rm base},U_0,V_0)$のrankは二。
-rank一以下ならdeterminantがそのfactorで二回割れ、被約性に反する。
-三columnは接平面を張り、任意のlogarithmic場もそこへ入るので、Cramerの全numeratorは同factorで割れる。
-全factorについて割ると係数はSに入り、
-\[
- \operatorname{Der}_S(-\log F)=SE_{\rm base}\oplus SU_0\oplus SV_0,
- \qquad AR(F)=SU_0\oplus SV_0.
-\]
-EulerのFへの作用は5Fだから二番目の等式も厳密である。
-次数零・一次syzygyは無く、全U,Vをvertex monomialで展開した正vertex次数の係数はbase次数一以下なので全て零。
-従って$U=U_0,V=V_0$で、隠れたvertex依存は無い。
-
-全二次syzygyの基底から$[U,V]=aU+bV$、a,bはbase一次式。
-determinant恒等式のLie微分から$a=\operatorname{div}V,b=-\operatorname{div}U$。
-strict Jacobiの$(a_i,u,v)$成分は$[U,V]+B_uU+B_vV=0$なので
-\[
- B=-(\operatorname{div}V)u+(\operatorname{div}U)v+R(a),
- \qquad R\in S_2
-\]
-である。残るJacobiは自動零で、この式はdiv$\Pi=0$も満たす。
-従って六磁気係数Rを全て残す必要十分表示である。
+定理\ref{thm:reduced-plane-whole-source}を既約$F$へ適用する。
+同定理の通常の証明は、canonical lift、全Pfaffian、Cramer基底、隠れたvertex依存の除去と
+六磁気を含む全正逆を与えるので、ここでそれらを再証明する必要はない。
+$S=\CC[a_0,a_1,a_2]$、二次syzygy基底を$U,V$、頂点変数を$u,v$とする。
+以下では、既約性に固有の種数・局所解析型と全F族の次元を証明する。
 
 gradient ideal$J_F=(F_0,F_1,F_2)$の完全syzygy基底から
 \[
@@ -13854,33 +13790,13 @@ degree五の代替一次定理の本文確認は\path{CLASSIFICATION_ESSENTIAL_T
 各閉包の全空間成分性又は具体的な全代表のリストはこの命題だけからは従わない。
 \end{proposition}
 \begin{proof}
-全sourceを$\Pi_R=U\wedge\partial_u+V\wedge\partial_v+
-\{-(\operatorname{div}V)u+(\operatorname{div}U)v+R\}\partial_u\wedge\partial_v$とする。
-任意のbase一次式$\ell,m$に対するactual unipotent変更$u'=u+\ell,v'=v+m$は全逆を持ち、
-anchor U,Vを変えず、正確に
-\[
- R'=R+\operatorname{div}(\ell V-mU)
-\]
-へ送る。base括弧零により$\{\ell,m\}=0$であり、一次近似ではなく全tensor恒等式である。
-線形写像$\delta:S_1^2\to S_2$, $\delta(\ell,m)=\operatorname{div}(\ell V-mU)$が全Fで可逆なことを示す。
-
-kernelにあるとし$W=\ell V-mU$、$\theta=\iota_W\Omega$と置く。
-Wは次数三、W(F)零、div W零だから、$\theta/F$はEuler重み零の閉二形式。
-従って$\omega=\iota_E(\theta/F)$はhorizontal、重み零、closedな$\mathbb P^2$上の有理一形式で、
-Fに沿うsimple polesだけを持つ。
-Fのsmooth点で$\omega=(A\,dz+B\,dt)/z$と書くと、closednessから$z\mid B$、$A|_{z=0}$は定数となる。
-F既約なのでresidueは一つの定数c。
-一般直線は特異点を避け五smooth点で横断し、制限した$\mathbb P^1$のresidue定理は$5c=0$を与える。
-従って全divisorial polesが消え、局所自由な一形式層のcodimension二延長から$\omega$は大域正則、ゆえに零。
-$\iota_E\iota_W\Omega=0$からE,Wは関数体上平行だが、$E(F)=5F,W(F)=0$なのでW零。
-U,Vが自由基底だからell,m零、六次元同士の$\delta$はisomorphismである。
-可約Fではcomponent別residueが相殺し得るため、この証明を可約五次へ流用しない。
-
-任意のRに一意な$(\ell,m)=-\delta^{-1}R$があり、全六Rを一度の実shearで零へ送る。
-Fを動かしてもAR2はrank二kernel bundleで、各frame chartの$\det\delta$は全閉点で非零なので、
-inverseはchart全域でregularである。未知special Fを除いたgeneric inverseではない。
-vertex GL2は全frameを互いに移し、Rをそのdet倍へ送る。
-従って固定Fの全源は一つの実軌道となる。
+$F$は既約なので$\nu=1$であり、定理\ref{thm:magnetic-residue-quotient}により
+全六磁気のshear写像は可逆である。逆は$-\delta_F^{-1}R$という実shearであり、
+固定Fの全frame・全Rを一軌道へ移す。
+命題\ref{prop:plane-magnetic-orbits}がその軌道次元を23と与える。
+Fを動かしてもrank二のsyzygy kernel束と各frame chartで$\det\delta_F\ne0$なので、
+逆はchart全域でregularであり、generic Fだけの逆写像ではない。
+可約Fでは留数空間が残るので、全磁気消去を流用しない。
 
 前命題で得た有限analytic型multisetごとのPGL3不変constructible locusを用いる。
 各locusの次元は八以下、一方$\operatorname{Der}(-\log F)_1=\mathbb CE$だからprojective curve stabilizerはfinite、
@@ -13890,15 +13806,8 @@ vertex GL2は全frameを互いに移し、Rをそのdet倍へ送る。
 有限型の成分数は有限なので、全FのPGL3軌道は有限個である。
 群不変でない任意のsmooth細分を不変と仮定していない。
 
-本質三変数空間WはDから内在的に回収できる。
-tensorのprojective stabilizerの連結部分は、finiteなbase curve stabilizerを除いて
-\[
- a'=a,\qquad (u',v')^t=M(u,v)^t+Ca
-\]
-のblock形となる。canonical divergence-zero liftはGL5-equivariantなので、sectionの射影等号をraw liftでも同じscalar倍の等号として比較できる。
-anchor U,Vの独立性からMはscalar、全磁気除去の可逆性からC零。
-逆に$M=tI$は$\Pi_0$をt倍するので、identity componentは正確に$\mathbb C^*$である。
-従ってactual orbit dimensionは$24-1=23$。
+本質三変数空間と安定化群の全block形は命題\ref{prop:plane-magnetic-orbits}で扱った。
+その$\nu=1$の場合に連結安定化群は正確に共通fiber scalarの$\CC^*$である。
 全F有限型と固定Fの全源一軌道性から結論する。
 \end{proof}
 全Fでのresidue論証、全五十二parameterのactual shear/frame正逆恒等式、finite orbitと全stabilizerの独立証明は

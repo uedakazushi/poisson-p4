@@ -1,6 +1,6 @@
 # 全分類の概念的再構成：標識付き復元と持上げ可能な変形
 
-2026-11-09 / v68-marked-reconstruction。最初に `RESEARCH_POLICY.md` を読む。
+2026-11-09 / v69-quadric-residue-reconstruction。最初に `RESEARCH_POLICY.md` を読む。
 
 ## 1. 決定した方針
 
@@ -87,9 +87,22 @@ IDからDを推測しない。不明な欄を推測で埋めない。旧1158主�
 
 ### P2：BとCをそれぞれ本質的な構造定理にする
 
-Bでは非零対称性X=π#((1/2)dlog q−(1/3)dlog c)を入口にし、aut(Q)の表現と閉形式復元を接続する。
-Aの共鳴の考え方を再利用するが、不変Hがないのにaffine二次模型へ移さない。
+Bの共通入口・全復元をv69で統合した。`papers/quadric_cubic_reconstruction.tex` は
+canonical divergence-zero liftの一意性、5β=dDによる全Jacobi、非零q-cofactorとtrace零、
+canonical対数対称性との係数5/6、全Sylvester余核を証明する。
+rank三・四の全31代表の自由係数・残Jacobiは元sourceからexactに投影して保持し、全係数恒等式を再生成した。
+線形sourceの完全性の旧full150 rank証明と、個別の全支持帰属・零補集合はそのまま依存する。
+rank五と特異qの二つの入口を共有証明へ置換した。
 
+平面型は被約Fの全Saito源を因子分割によらず復元し、A二H+C・B Q+C・C既約五次の三箇所へ適用した。
+磁気写像δ:S1²→S2のkernelは因子の次数関係を持つ留数空間に同型で、ν因子なら
+kernel/cokernelはν−1次元である。余核そのものを留数空間と同一視せず、次元とkernelの同型を区別する。
+二因子のrank五と既約Fのrank六の二つの旧証明を統合した。
+二因子の磁気零は22次元境界、非零は23次元軌道。三因子の商次元二を捨てない。
+六Q+C・二H+C・既約Fの八例で全R6、正逆、留数核の全体を検算した。
+被約性を失う因子衝突へ次元式を延長しない。非平面の実変形、有限六配置の尽くし、周囲障害はなお不可欠である。
+
+次の主作業はCの非平面導手・normal認識の接続である。
 Cのnonnormalでは、導手曲面Sを一つ標識する。一般restriction rank0/2を分け、
 cotangent Lie algebroidとconormal上の一次作用、留数、正規化への降下が元のcoHiggs/scalar/zero-symbol分岐をどう組織するかを具体化する。
 単に「Lie algebroid」と名付けて全higher jetを捨ててはならない。

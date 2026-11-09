@@ -1,11 +1,12 @@
 # 現行原稿 — 共通復元と実持上げ
 
-2026-11-09 / v68-marked-reconstruction
+2026-11-09 / v69-quadric-residue-reconstruction
 
 現行全分類稿は [poisson_p4_classification_ja.tex](poisson_p4_classification_ja.tex)、
 構造稿は [poisson_divisor_symmetries_ja.tex](poisson_divisor_symmetries_ja.tex)。
-両者は marked_hyperplane_reconstruction.tex と poisson_lifting_examples.tex を共有する。
+両者は marked_hyperplane_reconstruction.tex、quadric_cubic_reconstruction.tex、poisson_lifting_examples.tex を共有する。
 単純Hと重複Hの入口を共通証明へ置換し、TRIPLE→Ga9の強制補正と可換場の因子分裂を説明した。
+二次＋三次の共通復元、全被約平面五次の全源、因子留数による磁気商ν−1も統合した。
 個別成分の全証明は主稿に保持する。今回全147を独立検証したとはしない。
 組版は `bash scripts/build_structural_manuscripts.sh`、方針はルートRESEARCH_POLICY.md。
 

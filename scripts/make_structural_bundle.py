@@ -35,10 +35,11 @@ def main():
         'papers/poisson_divisor_symmetries_ja.tex','papers/poisson_divisor_symmetries_ja.pdf',
         'papers/marked_hyperplane_reconstruction.tex','papers/poisson_lifting_examples.tex',
         'code/check_global_structure.py','code/check_marked_reconstruction.py',
+        'code/check_quadric_residue_reconstruction.py','code/data/quadric_cofactor_sources.json',
         'code/map_component_entrances.py','code/data/mps_s61_coordinate_catalogue_20261103_v62.json',
         'research/notes/MPS40_CROSSWALK_20261031.md',
         'scripts/build_structural_manuscripts.sh','scripts/make_structural_bundle.py',
-        'reports/marked_reconstruction_validation.json','reports/marked_reconstruction_checks.json',
+        'reports/quadric_residue_validation.json','reports/quadric_residue_checks.json','reports/marked_reconstruction_checks.json',
         'reports/marked_reconstruction_base_identity_checks.json',
     }
     # Preserve all current textual classification proofs. The large finite
@@ -64,16 +65,17 @@ def main():
         raise FileNotFoundError(missing)
     forbidden={'.zip','.gz','.xz','.bz2','.tar','.log','.aux','.out','.pyc'}
     assert all(Path(name).suffix not in forbidden for name in files)
-    manifest={'version':'v68-marked-reconstruction','date':'2026-11-09',
+    manifest={'version':'v69-quadric-residue-reconstruction','date':'2026-11-09',
         'repository':'https://github.com/uedakazushi/poisson-p4',
         'source_commit':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),
         'scope':'Complete current main and structural manuscripts, shared proofs, original textual classification/component inputs, and standalone checks of this milestone.',
         'limits':['Not the full transitive closure of all 147 historical finite computation certificates.',
                   'Not an independent verification of the 147-component classification.',
                   'Legacy original TeX is evidence; rebuild the current self-contained manuscripts, not every legacy draft.'],
-        'library_save':'Not performed: no authenticated general Library upload tool was available.',
+        'library_save':'Not performed by this script. The separate Page upload receipt records Library persistence.',
         'reproduction':['python code/check_global_structure.py --output work/global-structure.json',
             'python code/check_marked_reconstruction.py --output work/marked-reconstruction.json',
+            'python code/check_quadric_residue_reconstruction.py --output work/quadric-residue-checks.json',
             'python code/map_component_entrances.py --output work/component_entrances.csv',
             'bash scripts/build_structural_manuscripts.sh'],
         'files':[]}

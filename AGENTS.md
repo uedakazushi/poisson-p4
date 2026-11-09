@@ -1,6 +1,6 @@
 # Poisson P4 — global reconstruction, not a local-lemma sprint
 
-2026-11-09 / v68-marked-reconstruction
+2026-11-09 / v69-quadric-residue-reconstruction
 
 ## Read first
 
@@ -57,12 +57,24 @@ The TRIPLE correction is forced by the quadratic coefficient bound, while the
 commuting-field collision has no higher correction. Check the displayed scope;
 this is not a new proof of componenthood or all 147 components.
 
-Next follow GLOBAL_PLAN P2: unify B using canonical symmetry in aut(Q), reading
-all 31 original representative sources, inverse maps and zero/unit complements.
-Do not move a no-hyperplane divisor to the marked-affine model. Then organize C
-using normalization/conductor/residue/conormal data and connect R2. Preserve all
-existing useful proofs. research/conceptual/component_entrances.csv is a compact
-navigation table, not an independent verification or component-closure partition.
+B now has a shared cofactor/Pfaffian reconstruction for quadric ranks 3/4/5 in
+papers/quadric_cubic_reconstruction.tex. All31 original source equations, free
+parameters and residual Jacobi are preserved in code/data/quadric_cofactor_sources.json;
+the old full150 linear-rank completeness proof remains an input, not a new claim.
+The reduced plane-quintic source is now shared by A/B/C. Its magnetic shear
+kernel is the degree-relation residue space: for nu reduced factors its kernel
+and cokernel have dimension nu-1. The cokernel is not asserted canonically equal
+to that residue space. This explains the two-factor magnetic line and zero orbit,
+the integral case's full elimination, and the three-factor two-dimensional quotient.
+Do not apply this formula to nonreduced factors or arbitrary conductor surfaces.
+
+Next follow GLOBAL_PLAN P2 for C: read all original conductor sources and inverse
+maps, and replace one repeated recognition/reconstruction proof by a common
+normalization/conductor/residue/conormal argument. Preserve restriction rank0/2,
+higher jets, zero complements, and all valuable existing proofs. Do not assume
+conductor reducedness or normalization-flatness. Normal actual-divisor recognition
+is a separate completed input. Then connect R2 and maximal closed images.
+The component_entrances.csv table is navigation, not independent verification.
 
 ## Non-negotiable mathematical distinctions
 

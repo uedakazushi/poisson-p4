@@ -1,0 +1,439 @@
+{
+  "date": "2026-11-09",
+  "version": "v69-quadric-residue-reconstruction",
+  "status": "PASS",
+  "scope": "Universal BV identity, full150 canonical projection, all31 original coefficient sources and residual Jacobi, and residue kernels/full magnetic sources in eight configurations.",
+  "checks": [
+    "universal_five_dimensional_BV_identity",
+    "full150_canonical_divergence",
+    "full150_canonical_idempotence",
+    "full25_Euler_gauge_kernel",
+    "q4_regular_ratio2_full_source_linear_equations",
+    "q4_regular_ratio2_potential_before_Jacobi",
+    "q4_semisimple2_zero_full_source_linear_equations",
+    "q4_semisimple2_zero_potential_before_Jacobi",
+    "q4_semisimple2_isotropic_full_source_linear_equations",
+    "q4_semisimple2_isotropic_potential_before_Jacobi",
+    "q4_semisimple2_nonisotropic_full_source_linear_equations",
+    "q4_semisimple2_nonisotropic_potential_before_Jacobi",
+    "q4_nil31_zero_full_source_linear_equations",
+    "q4_nil31_zero_potential_before_Jacobi",
+    "q4_nil31_short_full_source_linear_equations",
+    "q4_nil31_short_potential_before_Jacobi",
+    "q4_nil31_long_full_source_linear_equations",
+    "q4_nil31_long_potential_before_Jacobi",
+    "q4_nil22_zero_full_source_linear_equations",
+    "q4_nil22_zero_potential_before_Jacobi",
+    "q4_nil22_nonzero_full_source_linear_equations",
+    "q4_nil22_nonzero_potential_before_Jacobi",
+    "q4_Azero_isotropic_full_source_linear_equations",
+    "q4_Azero_isotropic_potential_before_Jacobi",
+    "q4_Azero_nonisotropic_full_source_linear_equations",
+    "q4_Azero_nonisotropic_potential_before_Jacobi",
+    "q3_regular_A1_C2_full_source_linear_equations",
+    "q3_regular_A1_C2_potential_before_Jacobi",
+    "q3_regular_A2_C1_full_source_linear_equations",
+    "q3_regular_A2_C1_potential_before_Jacobi",
+    "q3_Asemisimple_Czero_Bzero_full_source_linear_equations",
+    "q3_Asemisimple_Czero_Bzero_potential_before_Jacobi",
+    "q3_Asemisimple_Czero_Bnonzero_full_source_linear_equations",
+    "q3_Asemisimple_Czero_Bnonzero_potential_before_Jacobi",
+    "q3_Asemisimple_Cnil2_Bzero_full_source_linear_equations",
+    "q3_Asemisimple_Cnil2_Bzero_potential_before_Jacobi",
+    "q3_Asemisimple_Cnil2_Bnonzero_full_source_linear_equations",
+    "q3_Asemisimple_Cnil2_Bnonzero_potential_before_Jacobi",
+    "q3_Csemisimple_Azero_full_source_linear_equations",
+    "q3_Csemisimple_Azero_potential_before_Jacobi",
+    "q3_Csemisimple_Anil3_full_source_linear_equations",
+    "q3_Csemisimple_Anil3_potential_before_Jacobi",
+    "q3_Azero_Czero_rank1_isotropic_full_source_linear_equations",
+    "q3_Azero_Czero_rank1_isotropic_potential_before_Jacobi",
+    "q3_Azero_Czero_rank1_nonisotropic_full_source_linear_equations",
+    "q3_Azero_Czero_rank1_nonisotropic_potential_before_Jacobi",
+    "q3_Azero_Czero_rank2_nondegenerate_full_source_linear_equations",
+    "q3_Azero_Czero_rank2_nondegenerate_potential_before_Jacobi",
+    "q3_Azero_Czero_rank2_degenerate_full_source_linear_equations",
+    "q3_Azero_Czero_rank2_degenerate_potential_before_Jacobi",
+    "q3_Azero_Cnil2_zero_full_source_linear_equations",
+    "q3_Azero_Cnil2_zero_potential_before_Jacobi",
+    "q3_Azero_Cnil2_isotropic_full_source_linear_equations",
+    "q3_Azero_Cnil2_isotropic_potential_before_Jacobi",
+    "q3_Azero_Cnil2_nonisotropic_full_source_linear_equations",
+    "q3_Azero_Cnil2_nonisotropic_potential_before_Jacobi",
+    "q3_Anil3_Czero_zero_full_source_linear_equations",
+    "q3_Anil3_Czero_zero_potential_before_Jacobi",
+    "q3_Anil3_Czero_nonzero_full_source_linear_equations",
+    "q3_Anil3_Czero_nonzero_potential_before_Jacobi",
+    "q3_Anil3_Cnil2_zero_full_source_linear_equations",
+    "q3_Anil3_Cnil2_zero_potential_before_Jacobi",
+    "q3_Anil3_Cnil2_lower_full_source_linear_equations",
+    "q3_Anil3_Cnil2_lower_potential_before_Jacobi",
+    "q3_Anil3_Cnil2_upper_full_source_linear_equations",
+    "q3_Anil3_Cnil2_upper_potential_before_Jacobi",
+    "conic_cubic_1_residue_shear_kernel",
+    "conic_cubic_1_residue_map_inverse",
+    "conic_cubic_1_whole_magnetic_source",
+    "conic_cubic_1_all_shear_forward_and_inverse",
+    "conic_cubic_2_residue_shear_kernel",
+    "conic_cubic_2_residue_map_inverse",
+    "conic_cubic_2_whole_magnetic_source",
+    "conic_cubic_2_all_shear_forward_and_inverse",
+    "conic_cubic_3_residue_shear_kernel",
+    "conic_cubic_3_residue_map_inverse",
+    "conic_cubic_3_whole_magnetic_source",
+    "conic_cubic_3_all_shear_forward_and_inverse",
+    "conic_cubic_4_residue_shear_kernel",
+    "conic_cubic_4_residue_map_inverse",
+    "conic_cubic_4_whole_magnetic_source",
+    "conic_cubic_4_all_shear_forward_and_inverse",
+    "conic_cubic_5_residue_shear_kernel",
+    "conic_cubic_5_residue_map_inverse",
+    "conic_cubic_5_whole_magnetic_source",
+    "conic_cubic_5_all_shear_forward_and_inverse",
+    "conic_cubic_6_residue_shear_kernel",
+    "conic_cubic_6_residue_map_inverse",
+    "conic_cubic_6_whole_magnetic_source",
+    "conic_cubic_6_all_shear_forward_and_inverse",
+    "two_lines_cubic_residue_shear_kernel",
+    "two_lines_cubic_residue_map_inverse",
+    "two_lines_cubic_residue_shear_kernel",
+    "two_lines_cubic_residue_map_inverse",
+    "two_lines_cubic_whole_magnetic_source",
+    "two_lines_cubic_all_shear_forward_and_inverse",
+    "integral_quintic_whole_magnetic_source",
+    "integral_quintic_all_shear_forward_and_inverse"
+  ],
+  "quadric_sources": [
+    {
+      "case": "q4_regular_ratio2",
+      "quadric_rank": 4,
+      "source_dimension": 5,
+      "all_source_linear_equations": "PASS",
+      "all_residual_Jacobi_coefficients": "PASS",
+      "source_complete_linear_rank_independently_recomputed": false
+    },
+    {
+      "case": "q4_semisimple2_zero",
+      "quadric_rank": 4,
+      "source_dimension": 11,
+      "all_source_linear_equations": "PASS",
+      "all_residual_Jacobi_coefficients": "PASS",
+      "source_complete_linear_rank_independently_recomputed": false
+    },
+    {
+      "case": "q4_semisimple2_isotropic",
+      "quadric_rank": 4,
+      "source_dimension": 6,
+      "all_source_linear_equations": "PASS",
+      "all_residual_Jacobi_coefficients": "PASS",
+      "source_complete_linear_rank_independently_recomputed": false
+    },
+    {
+      "case": "q4_semisimple2_nonisotropic",
+      "quadric_rank": 4,
+      "source_dimension": 6,
+      "all_source_linear_equations": "PASS",
+      "all_residual_Jacobi_coefficients": "PASS",
+      "source_complete_linear_rank_independently_recomputed": false
+    },
+    {
+      "case": "q4_nil31_zero",
+      "quadric_rank": 4,
+      "source_dimension": 11,
+      "all_source_linear_equations": "PASS",
+      "all_residual_Jacobi_coefficients": "PASS",
+      "source_complete_linear_rank_independently_recomputed": false
+    },
+    {
+      "case": "q4_nil31_short",
+      "quadric_rank": 4,
+      "source_dimension": 10,
+      "all_source_linear_equations": "PASS",
+      "all_residual_Jacobi_coefficients": "PASS",
+      "source_complete_linear_rank_independently_recomputed": false
+    },
+    {
+      "case": "q4_nil31_long",
+      "quadric_rank": 4,
+      "source_dimension": 8,
+      "all_source_linear_equations": "PASS",
+      "all_residual_Jacobi_coefficients": "PASS",
+      "source_complete_linear_rank_independently_recomputed": false
+    },
+    {
+      "case": "q4_nil22_zero",
+      "quadric_rank": 4,
+      "source_dimension": 15,
+      "all_source_linear_equations": "PASS",
+      "all_residual_Jacobi_coefficients": "PASS",
+      "source_complete_linear_rank_independently_recomputed": false
+    },
+    {
+      "case": "q4_nil22_nonzero",
+      "quadric_rank": 4,
+      "source_dimension": 10,
+      "all_source_linear_equations": "PASS",
+      "all_residual_Jacobi_coefficients": "PASS",
+      "source_complete_linear_rank_independently_recomputed": false
+    },
+    {
+      "case": "q4_Azero_isotropic",
+      "quadric_rank": 4,
+      "source_dimension": 20,
+      "all_source_linear_equations": "PASS",
+      "all_residual_Jacobi_coefficients": "PASS",
+      "source_complete_linear_rank_independently_recomputed": false
+    },
+    {
+      "case": "q4_Azero_nonisotropic",
+      "quadric_rank": 4,
+      "source_dimension": 20,
+      "all_source_linear_equations": "PASS",
+      "all_residual_Jacobi_coefficients": "PASS",
+      "source_complete_linear_rank_independently_recomputed": false
+    },
+    {
+      "case": "q3_regular_A1_C2",
+      "quadric_rank": 3,
+      "source_dimension": 6,
+      "all_source_linear_equations": "PASS",
+      "all_residual_Jacobi_coefficients": "PASS",
+      "source_complete_linear_rank_independently_recomputed": false
+    },
+    {
+      "case": "q3_regular_A2_C1",
+      "quadric_rank": 3,
+      "source_dimension": 6,
+      "all_source_linear_equations": "PASS",
+      "all_residual_Jacobi_coefficients": "PASS",
+      "source_complete_linear_rank_independently_recomputed": false
+    },
+    {
+      "case": "q3_Asemisimple_Czero_Bzero",
+      "quadric_rank": 3,
+      "source_dimension": 12,
+      "all_source_linear_equations": "PASS",
+      "all_residual_Jacobi_coefficients": "PASS",
+      "source_complete_linear_rank_independently_recomputed": false
+    },
+    {
+      "case": "q3_Asemisimple_Czero_Bnonzero",
+      "quadric_rank": 3,
+      "source_dimension": 7,
+      "all_source_linear_equations": "PASS",
+      "all_residual_Jacobi_coefficients": "PASS",
+      "source_complete_linear_rank_independently_recomputed": false
+    },
+    {
+      "case": "q3_Asemisimple_Cnil2_Bzero",
+      "quadric_rank": 3,
+      "source_dimension": 7,
+      "all_source_linear_equations": "PASS",
+      "all_residual_Jacobi_coefficients": "PASS",
+      "source_complete_linear_rank_independently_recomputed": false
+    },
+    {
+      "case": "q3_Asemisimple_Cnil2_Bnonzero",
+      "quadric_rank": 3,
+      "source_dimension": 4,
+      "all_source_linear_equations": "PASS",
+      "all_residual_Jacobi_coefficients": "PASS",
+      "source_complete_linear_rank_independently_recomputed": false
+    },
+    {
+      "case": "q3_Csemisimple_Azero",
+      "quadric_rank": 3,
+      "source_dimension": 12,
+      "all_source_linear_equations": "PASS",
+      "all_residual_Jacobi_coefficients": "PASS",
+      "source_complete_linear_rank_independently_recomputed": false
+    },
+    {
+      "case": "q3_Csemisimple_Anil3",
+      "quadric_rank": 3,
+      "source_dimension": 4,
+      "all_source_linear_equations": "PASS",
+      "all_residual_Jacobi_coefficients": "PASS",
+      "source_complete_linear_rank_independently_recomputed": false
+    },
+    {
+      "case": "q3_Azero_Czero_rank1_isotropic",
+      "quadric_rank": 3,
+      "source_dimension": 22,
+      "all_source_linear_equations": "PASS",
+      "all_residual_Jacobi_coefficients": "PASS",
+      "source_complete_linear_rank_independently_recomputed": false
+    },
+    {
+      "case": "q3_Azero_Czero_rank1_nonisotropic",
+      "quadric_rank": 3,
+      "source_dimension": 21,
+      "all_source_linear_equations": "PASS",
+      "all_residual_Jacobi_coefficients": "PASS",
+      "source_complete_linear_rank_independently_recomputed": false
+    },
+    {
+      "case": "q3_Azero_Czero_rank2_nondegenerate",
+      "quadric_rank": 3,
+      "source_dimension": 17,
+      "all_source_linear_equations": "PASS",
+      "all_residual_Jacobi_coefficients": "PASS",
+      "source_complete_linear_rank_independently_recomputed": false
+    },
+    {
+      "case": "q3_Azero_Czero_rank2_degenerate",
+      "quadric_rank": 3,
+      "source_dimension": 17,
+      "all_source_linear_equations": "PASS",
+      "all_residual_Jacobi_coefficients": "PASS",
+      "source_complete_linear_rank_independently_recomputed": false
+    },
+    {
+      "case": "q3_Azero_Cnil2_zero",
+      "quadric_rank": 3,
+      "source_dimension": 21,
+      "all_source_linear_equations": "PASS",
+      "all_residual_Jacobi_coefficients": "PASS",
+      "source_complete_linear_rank_independently_recomputed": false
+    },
+    {
+      "case": "q3_Azero_Cnil2_isotropic",
+      "quadric_rank": 3,
+      "source_dimension": 13,
+      "all_source_linear_equations": "PASS",
+      "all_residual_Jacobi_coefficients": "PASS",
+      "source_complete_linear_rank_independently_recomputed": false
+    },
+    {
+      "case": "q3_Azero_Cnil2_nonisotropic",
+      "quadric_rank": 3,
+      "source_dimension": 12,
+      "all_source_linear_equations": "PASS",
+      "all_residual_Jacobi_coefficients": "PASS",
+      "source_complete_linear_rank_independently_recomputed": false
+    },
+    {
+      "case": "q3_Anil3_Czero_zero",
+      "quadric_rank": 3,
+      "source_dimension": 12,
+      "all_source_linear_equations": "PASS",
+      "all_residual_Jacobi_coefficients": "PASS",
+      "source_complete_linear_rank_independently_recomputed": false
+    },
+    {
+      "case": "q3_Anil3_Czero_nonzero",
+      "quadric_rank": 3,
+      "source_dimension": 9,
+      "all_source_linear_equations": "PASS",
+      "all_residual_Jacobi_coefficients": "PASS",
+      "source_complete_linear_rank_independently_recomputed": false
+    },
+    {
+      "case": "q3_Anil3_Cnil2_zero",
+      "quadric_rank": 3,
+      "source_dimension": 11,
+      "all_source_linear_equations": "PASS",
+      "all_residual_Jacobi_coefficients": "PASS",
+      "source_complete_linear_rank_independently_recomputed": false
+    },
+    {
+      "case": "q3_Anil3_Cnil2_lower",
+      "quadric_rank": 3,
+      "source_dimension": 9,
+      "all_source_linear_equations": "PASS",
+      "all_residual_Jacobi_coefficients": "PASS",
+      "source_complete_linear_rank_independently_recomputed": false
+    },
+    {
+      "case": "q3_Anil3_Cnil2_upper",
+      "quadric_rank": 3,
+      "source_dimension": 7,
+      "all_source_linear_equations": "PASS",
+      "all_residual_Jacobi_coefficients": "PASS",
+      "source_complete_linear_rank_independently_recomputed": false
+    }
+  ],
+  "plane_examples": [
+    {
+      "name": "conic_cubic_1",
+      "factor_count": 2,
+      "shear_rank": 5,
+      "residue_kernel_rank": 1,
+      "magnetic_quotient_dimension": 1,
+      "all_six_magnetic_parameters_retained": true,
+      "Saito_determinant_ratio": "1/492"
+    },
+    {
+      "name": "conic_cubic_2",
+      "factor_count": 2,
+      "shear_rank": 5,
+      "residue_kernel_rank": 1,
+      "magnetic_quotient_dimension": 1,
+      "all_six_magnetic_parameters_retained": true,
+      "Saito_determinant_ratio": "25/12"
+    },
+    {
+      "name": "conic_cubic_3",
+      "factor_count": 2,
+      "shear_rank": 5,
+      "residue_kernel_rank": 1,
+      "magnetic_quotient_dimension": 1,
+      "all_six_magnetic_parameters_retained": true,
+      "Saito_determinant_ratio": "75/88"
+    },
+    {
+      "name": "conic_cubic_4",
+      "factor_count": 2,
+      "shear_rank": 5,
+      "residue_kernel_rank": 1,
+      "magnetic_quotient_dimension": 1,
+      "all_six_magnetic_parameters_retained": true,
+      "Saito_determinant_ratio": "25/27"
+    },
+    {
+      "name": "conic_cubic_5",
+      "factor_count": 2,
+      "shear_rank": 5,
+      "residue_kernel_rank": 1,
+      "magnetic_quotient_dimension": 1,
+      "all_six_magnetic_parameters_retained": true,
+      "Saito_determinant_ratio": "25/12"
+    },
+    {
+      "name": "conic_cubic_6",
+      "factor_count": 2,
+      "shear_rank": 5,
+      "residue_kernel_rank": 1,
+      "magnetic_quotient_dimension": 1,
+      "all_six_magnetic_parameters_retained": true,
+      "Saito_determinant_ratio": "-225/704"
+    },
+    {
+      "name": "two_lines_cubic",
+      "factor_count": 3,
+      "shear_rank": 4,
+      "residue_kernel_rank": 2,
+      "magnetic_quotient_dimension": 2,
+      "all_six_magnetic_parameters_retained": true,
+      "Saito_determinant_ratio": "5/6"
+    },
+    {
+      "name": "integral_quintic",
+      "factor_count": 1,
+      "shear_rank": 6,
+      "residue_kernel_rank": 0,
+      "magnetic_quotient_dimension": 0,
+      "all_six_magnetic_parameters_retained": true,
+      "Saito_determinant_ratio": "-9/64"
+    }
+  ],
+  "frozen_source_sha256": "f98829c174dd012aa8a27d255f7e214c69f64f8135b47f9554d01ba24f944d35",
+  "script_sha256": "b4246fc3a40ce91bf7d1b64e041b8f18e9d5ddd27e9050eba35a05a4dcd33a3f",
+  "old_producers_imported": false,
+  "sampling_used": false,
+  "classification147_verified": false,
+  "limits": [
+    "Full150 linear rank completeness is an unchanged original proof input.",
+    "No ambient componenthood or nonlinear all-source recognition is inferred from these checks."
+  ]
+}

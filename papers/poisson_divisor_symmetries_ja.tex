@@ -19,7 +19,7 @@
 \newcommand{\diver}{\operatorname{div}}\newcommand{\Pf}{\operatorname{Pf}}
 \title{射影四空間のPoisson分類の構造還元\\\large 標識因子・modular復元・相対変形}
 \author{}
-\date{2026年11月9日\quad v3・共通復元と実持上げ}
+\date{2026年11月9日\quad v4・二次因子と磁気留数}
 \begin{document}\maketitle
 \begin{abstract}
 射影空間上の一般に非退化なPoisson構造について、退化因子の既約成分が生成する閉対数一形式を用い、
@@ -30,6 +30,9 @@ Pfaffianの二次条件へ置き換える。これは単なる必要条件でな
 さらに全階数四を三つの入口へ分け、超平面を持つ全群を一意なアフィン二次模型で統合する。
 Pfaffianとmodular場を固定した線形・二次復元、共通の共鳴層別、因子変形の一次・二次持上げ、
 Pfaffianグラフの閉包、および階数二のfoliationと零因子による入口を与える。
+二次＋三次ではcanonical cofactorと全31場を同じ斉次復元へ接続する。
+被約平面五次の全sourceと磁気shear核を因子留数で記述し、因子数$\nu$に対し
+磁気商の次元$\nu-1$、その零境界と軌道次元を導く。
 これらを全支持の認識と成分の極大性を分離する基盤とする。
 本稿は147成分という個数の新証明でも、その全証明の独立検証でもない。
 以下の基本原理には通常の証明を与えるが、それ自体の文献上の新規性は未確認であり、優先権を主張しない。
@@ -248,13 +251,9 @@ $\mathfrak a_\pi=0$から、他の対称性まで存在しないとは言えな�
 
 \input{papers/marked_hyperplane_reconstruction.tex}
 
-\subsection{二次＋三次と既約五次に何を残すか}
-第二の入口では$\eta=\tfrac12d\log q-\tfrac13d\log c$により
-非零の射影線形Poisson場$X=\pi^\sharp\eta$が得られる。
-これは$Q,C$を保存する。従って$Q$の自己同型Lie代数内の$X$の型と、
-その作用に適合する三次式・閉形式の復元へ帰着する。
-超平面が無いので、ここを定理\ref{thm:marked-affine}で扱ってはならない。
+\input{papers/quadric_cubic_reconstruction.tex}
 
+\subsection{既約五次に残る導手の認識}
 第三の入口のうち非正規の場合は、正規化の導手支持と、その上のrestriction rank零・二を使う。
 現行のケース別証明では、一般平面切断の算術種数六から得る
 $\sum_i\delta_i\deg S_i=6-g$という有界性と、
@@ -549,6 +548,8 @@ MPSの定理はSNC locusに交わる40成分を扱い、全成分がトーリッ
 
 共通ファイルを主分類稿にも読み込み、単純Hと重複Hの標識・modular・共鳴の入口の重複を置換した。
 modular原始関数の全恒等式、TRIPLEの次数補正と指定因子族の二次持上げ、可換場による分裂を確認した。
+二次＋三次の二つのcofactor入口、平面型の三つの全source復元、
+二因子と既約因子の磁気shearの次元証明も共有TeXへ統合した。
 各源の帰属・成分性・非包含の旧証明は保持し、全147成分を独立再検証したとはしない。
 検算はそれらの構造定理に必要な有限恒等式へ位置づけ、研究の主目標そのものとはしない。
 
