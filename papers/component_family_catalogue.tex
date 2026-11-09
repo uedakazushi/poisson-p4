@@ -82,6 +82,55 @@ $(x,y,z,w)$をaffine座標とし、$n_0,n_1,n_2$を任意とする。
 一般因子は$3H+Q$、$Q$は滑らかで$H$は接する。
 成分性の上界と相違は本文のNEW25の八初期式の証明による。
 
+\subsection{最後の五成分の明示源}\label{source:last-five-explicit}
+最後の五族について、参照先の全支持証明とは別に構成式をここで固定する。
+まず$(h,x,y,z,w)$でhをCasimirとし、未表示括弧を零とする。
+Ga9 linear-wの源は一点$P_G$で、
+\[
+\begin{aligned}
+ P_G^{xy}&=4h^2-y^2,&P_G^{xz}&=-hx+2yz+4w^2,\\
+ P_G^{xw}&=4y(4h-w),&P_G^{yz}&=hy,\\
+ P_G^{zw}&=4(y^2-hw).
+\end{aligned}
+\]
+次の三源では$R=\sum_{i+j+k=2}r_{ijk}h^ix^jy^k$の全六係数を任意とする。
+順にnode変曲接線・変曲点を通る通常接線、cusp変曲接線・変曲点を通る割線、
+cusp接線・cuspを通る割線のsourceである。
+\[
+\begin{aligned}
+ P_1^{xz}&=2x(x-h),&P_1^{xw}&=-2xy,\\
+ P_1^{yz}&=y(3x-h),&P_1^{yw}&=2x(h-x)-3y^2,\\
+ P_1^{zw}&=-(x-h)w+R;
+\end{aligned}
+\]
+\[
+\begin{aligned}
+ P_2^{xz}&=2x(x+h),&P_2^{xw}&=2xy,\\
+ P_2^{yz}&=3xy,&P_2^{yw}&=3(y^2-(h+x)^2),\\
+ P_2^{zw}&=-xw+R;
+\end{aligned}
+\]
+\[
+\begin{aligned}
+ P_3^{xz}&=-hx,&P_3^{xw}&=3x(h-x),\\
+ P_3^{yz}&=3(h-x)^2-3hy,&P_3^{yw}&=-9xy,\\
+ P_3^{zw}&=3xz+3R.
+\end{aligned}
+\]
+最後に$(h,t,x,y,r)$でhをCasimirとし、一点$P_D$を
+\[
+\begin{aligned}
+ P_D^{tx}&=h^2+hx-2xy,&P_D^{ty}&=y(4y-h),\\
+ P_D^{tr}&=(h-6y)r+hx,&P_D^{xr}&=-x^2,\\
+ P_D^{yr}&=h^2+2xy
+\end{aligned}
+\]
+とする。$P_G,P_D$には$S=\operatorname{Spec}\CC$、三磁気族には$S=\mathbb A^6$を用い、
+いずれも全$\mathrm{PGL}_5$飽和閉包を取る。
+全sourceでJacobiが成立し実Pfaffianが非零である。
+その全源の認識、次元、成分性・相違は命題\ref{prop:five-last-full-components}と参照する全支持証明による。
+三磁気族を一つの標本点の軌道で置き換えていない。
+
 \subsection{全IDの定義・幾何・証明}
 $D_d$は次数$d$の既約超曲面、$H_i$は相異なる超平面を意味する。
 同じ次数が複数並ぶときも相異なる因子であり、指数が重複度である。
@@ -96,7 +145,7 @@ rank二行ではactual退化五次は恒等零なので因子型を付けず、f
 源と写像は第\ref{source:circuits51}節の有理演算源$U_i$、$\rho_i$。演算列は\path{reports/MPS_S61_FULL_CIRCUITS_20261103_v62/T01.json.gz}。
 入力は\path{p0,p1,p2,p3,p4,p5,g0,g1,g2,g3,g4,g5,g6,g7,g8,g9}。全inverse節点と記載した分母の非零開を取る。
 一般実退化因子は$H_{1}+H_{2}+H_{3}+H_{4}+H_{5}$。
-構成・成分性・相違は第\ref{source:circuits51}節及びその証明を参照する。
+構成は第\ref{source:circuits51}節、成分性は第\ref{source:circuits51}節、相違は第\ref{source:circuits51}節及びその証明を参照する。
 
 \paragraph{族2}\label{catalogue:T02}
 \path{T02}。
@@ -104,7 +153,7 @@ rank二行ではactual退化五次は恒等零なので因子型を付けず、f
 源と写像は第\ref{source:circuits51}節の有理演算源$U_i$、$\rho_i$。演算列は\path{reports/MPS_S61_FULL_CIRCUITS_20261103_v62/T02.json.gz}。
 入力は\path{p0,p1,p2,p3,t0,g0,g1,g2,g3,g4,g5,g6,g7,g8,g9}。全inverse節点と記載した分母の非零開を取る。
 一般実退化因子は$D_{2,1}+H_{2}+H_{3}+H_{4}$。
-構成・成分性・相違は第\ref{source:circuits51}節及びその証明を参照する。
+構成は第\ref{source:circuits51}節、成分性は第\ref{source:circuits51}節、相違は第\ref{source:circuits51}節及びその証明を参照する。
 
 \paragraph{族3}\label{catalogue:T03}
 \path{T03}。
@@ -112,7 +161,7 @@ rank二行ではactual退化五次は恒等零なので因子型を付けず、f
 源と写像は第\ref{source:circuits51}節の有理演算源$U_i$、$\rho_i$。演算列は\path{reports/MPS_S61_FULL_CIRCUITS_20261103_v62/T03.json.gz}。
 入力は\path{p0,p1,p2,p3,t0,g0,g1,g2,g3,g4,g5,g6,g7,g8,g9}。全inverse節点と記載した分母の非零開を取る。
 一般実退化因子は$D_{2,1}+H_{2}+H_{3}+H_{4}$。
-構成・成分性・相違は第\ref{source:circuits51}節及びその証明を参照する。
+構成は第\ref{source:circuits51}節、成分性は第\ref{source:circuits51}節、相違は第\ref{source:circuits51}節及びその証明を参照する。
 
 \paragraph{族4}\label{catalogue:T04}
 \path{T04}。
@@ -120,7 +169,7 @@ rank二行ではactual退化五次は恒等零なので因子型を付けず、f
 源と写像は第\ref{source:circuits51}節の有理演算源$U_i$、$\rho_i$。演算列は\path{reports/MPS_S61_FULL_CIRCUITS_20261103_v62/T04.json.gz}。
 入力は\path{p0,p1,t0,t1,g0,g1,g2,g3,g4,g5,g6,g7,g8,g9}。全inverse節点と記載した分母の非零開を取る。
 一般実退化因子は$D_{3,1}+H_{2}+H_{3}$。
-構成・成分性・相違は第\ref{source:circuits51}節及びその証明を参照する。
+構成は第\ref{source:circuits51}節、成分性は第\ref{source:circuits51}節、相違は第\ref{source:circuits51}節及びその証明を参照する。
 
 \paragraph{族5}\label{catalogue:T05}
 \path{T05}。
@@ -128,7 +177,7 @@ rank二行ではactual退化五次は恒等零なので因子型を付けず、f
 源と写像は第\ref{source:circuits51}節の有理演算源$U_i$、$\rho_i$。演算列は\path{reports/MPS_S61_FULL_CIRCUITS_20261103_v62/T05.json.gz}。
 入力は\path{p0,p1,t0,t1,g0,g1,g2,g3,g4,g5,g6,g7,g8,g9}。全inverse節点と記載した分母の非零開を取る。
 一般実退化因子は$D_{3,1}+H_{2}+H_{3}$。
-構成・成分性・相違は第\ref{source:circuits51}節及びその証明を参照する。
+構成は第\ref{source:circuits51}節、成分性は第\ref{source:circuits51}節、相違は第\ref{source:circuits51}節及びその証明を参照する。
 
 \paragraph{族6}\label{catalogue:T06}
 \path{T06}。
@@ -136,7 +185,7 @@ rank二行ではactual退化五次は恒等零なので因子型を付けず、f
 源と写像は第\ref{source:circuits51}節の有理演算源$U_i$、$\rho_i$。演算列は\path{reports/MPS_S61_FULL_CIRCUITS_20261103_v62/T06.json.gz}。
 入力は\path{p0,p1,t0,t1,g0,g1,g2,g3,g4,g5,g6,g7,g8,g9}。全inverse節点と記載した分母の非零開を取る。
 一般実退化因子は$D_{3,1}+H_{2}+H_{3}$。
-構成・成分性・相違は第\ref{source:circuits51}節及びその証明を参照する。
+構成は第\ref{source:circuits51}節、成分性は第\ref{source:circuits51}節、相違は第\ref{source:circuits51}節及びその証明を参照する。
 
 \paragraph{族7}\label{catalogue:T07}
 \path{T07}。
@@ -144,7 +193,7 @@ rank二行ではactual退化五次は恒等零なので因子型を付けず、f
 源と写像は第\ref{source:circuits51}節の有理演算源$U_i$、$\rho_i$。演算列は\path{reports/MPS_S61_FULL_CIRCUITS_20261103_v62/T07.json.gz}。
 入力は\path{p0,p1,t0,t1,g0,g1,g2,g3,g4,g5,g6,g7,g8,g9}。全inverse節点と記載した分母の非零開を取る。
 一般実退化因子は$D_{3,1}+H_{2}+H_{3}$。
-構成・成分性・相違は第\ref{source:circuits51}節及びその証明を参照する。
+構成は第\ref{source:circuits51}節、成分性は第\ref{source:circuits51}節、相違は第\ref{source:circuits51}節及びその証明を参照する。
 
 \paragraph{族8}\label{catalogue:T08}
 \path{T08}。
@@ -152,7 +201,7 @@ rank二行ではactual退化五次は恒等零なので因子型を付けず、f
 源と写像は第\ref{source:circuits51}節の有理演算源$U_i$、$\rho_i$。演算列は\path{reports/MPS_S61_FULL_CIRCUITS_20261103_v62/T08.json.gz}。
 入力は\path{p0,p1,t0,t1,g0,g1,g2,g3,g4,g5,g6,g7,g8,g9}。全inverse節点と記載した分母の非零開を取る。
 一般実退化因子は$D_{3,1}+H_{2}+H_{3}$。
-構成・成分性・相違は第\ref{source:circuits51}節及びその証明を参照する。
+構成は第\ref{source:circuits51}節、成分性は第\ref{source:circuits51}節、相違は第\ref{source:circuits51}節及びその証明を参照する。
 
 \paragraph{族9}\label{catalogue:T09}
 \path{T09}。
@@ -160,7 +209,7 @@ rank二行ではactual退化五次は恒等零なので因子型を付けず、f
 源と写像は第\ref{source:circuits51}節の有理演算源$U_i$、$\rho_i$。演算列は\path{reports/MPS_S61_FULL_CIRCUITS_20261103_v62/T09.json.gz}。
 入力は\path{p0,p1,t0,t1,g0,g1,g2,g3,g4,g5,g6,g7,g8,g9}。全inverse節点と記載した分母の非零開を取る。
 一般実退化因子は$D_{3,1}+H_{2}+H_{3}$。
-構成・成分性・相違は第\ref{source:circuits51}節及びその証明を参照する。
+構成は第\ref{source:circuits51}節、成分性は第\ref{source:circuits51}節、相違は第\ref{source:circuits51}節及びその証明を参照する。
 
 \paragraph{族10}\label{catalogue:T10}
 \path{T10}。
@@ -168,7 +217,7 @@ rank二行ではactual退化五次は恒等零なので因子型を付けず、f
 源と写像は第\ref{source:circuits51}節の有理演算源$U_i$、$\rho_i$。演算列は\path{reports/MPS_S61_FULL_CIRCUITS_20261103_v62/T10.json.gz}。
 入力は\path{p0,p1,t0,t1,g0,g1,g2,g3,g4,g5,g6,g7,g8,g9}。全inverse節点と記載した分母の非零開を取る。
 一般実退化因子は$D_{3,1}+H_{2}+H_{3}$。
-構成・成分性・相違は第\ref{source:circuits51}節及びその証明を参照する。
+構成は第\ref{source:circuits51}節、成分性は第\ref{source:circuits51}節、相違は第\ref{source:circuits51}節及びその証明を参照する。
 
 \paragraph{族11}\label{catalogue:T11}
 \path{T11}。
@@ -176,7 +225,7 @@ rank二行ではactual退化五次は恒等零なので因子型を付けず、f
 源と写像は第\ref{source:circuits51}節の有理演算源$U_i$、$\rho_i$。演算列は\path{reports/MPS_S61_FULL_CIRCUITS_20261103_v62/T11.json.gz}。
 入力は\path{p0,p1,t0,t1,g0,g1,g2,g3,g4,g5,g6,g7,g8,g9}。全inverse節点と記載した分母の非零開を取る。
 一般実退化因子は$D_{3,1}+H_{2}+H_{3}$。
-構成・成分性・相違は第\ref{source:circuits51}節及びその証明を参照する。
+構成は第\ref{source:circuits51}節、成分性は第\ref{source:circuits51}節、相違は第\ref{source:circuits51}節及びその証明を参照する。
 
 \paragraph{族12}\label{catalogue:T12}
 \path{T12}。
@@ -184,7 +233,7 @@ rank二行ではactual退化五次は恒等零なので因子型を付けず、f
 源と写像は第\ref{source:circuits51}節の有理演算源$U_i$、$\rho_i$。演算列は\path{reports/MPS_S61_FULL_CIRCUITS_20261103_v62/T12.json.gz}。
 入力は\path{p0,p1,t0,t1,g0,g1,g2,g3,g4,g5,g6,g7,g8,g9}。全inverse節点と記載した分母の非零開を取る。
 一般実退化因子は$D_{3,1}+H_{2}+H_{3}$。
-構成・成分性・相違は第\ref{source:circuits51}節及びその証明を参照する。
+構成は第\ref{source:circuits51}節、成分性は第\ref{source:circuits51}節、相違は第\ref{source:circuits51}節及びその証明を参照する。
 
 \paragraph{族13}\label{catalogue:T13}
 \path{T13}。
@@ -192,7 +241,7 @@ rank二行ではactual退化五次は恒等零なので因子型を付けず、f
 源と写像は第\ref{source:circuits51}節の有理演算源$U_i$、$\rho_i$。演算列は\path{reports/MPS_S61_FULL_CIRCUITS_20261103_v62/T13.json.gz}。
 入力は\path{p0,p1,t0,t1,g0,g1,g2,g3,g4,g5,g6,g7,g8,g9}。全inverse節点と記載した分母の非零開を取る。
 一般実退化因子は$D_{3,1}+H_{2}+H_{3}$。
-構成・成分性・相違は第\ref{source:circuits51}節及びその証明を参照する。
+構成は第\ref{source:circuits51}節、成分性は第\ref{source:circuits51}節、相違は第\ref{source:circuits51}節及びその証明を参照する。
 
 \paragraph{族14}\label{catalogue:T14}
 \path{T14}。
@@ -200,7 +249,7 @@ rank二行ではactual退化五次は恒等零なので因子型を付けず、f
 源と写像は第\ref{source:circuits51}節の有理演算源$U_i$、$\rho_i$。演算列は\path{reports/MPS_S61_FULL_CIRCUITS_20261103_v62/T14.json.gz}。
 入力は\path{p0,p1,t0,t1,g0,g1,g2,g3,g4,g5,g6,g7,g8,g9}。全inverse節点と記載した分母の非零開を取る。
 一般実退化因子は$D_{3,1}+H_{2}+H_{3}$。
-構成・成分性・相違は第\ref{source:circuits51}節及びその証明を参照する。
+構成は第\ref{source:circuits51}節、成分性は第\ref{source:circuits51}節、相違は第\ref{source:circuits51}節及びその証明を参照する。
 
 \paragraph{族15}\label{catalogue:T15}
 \path{T15}。
@@ -208,7 +257,7 @@ rank二行ではactual退化五次は恒等零なので因子型を付けず、f
 源と写像は第\ref{source:circuits51}節の有理演算源$U_i$、$\rho_i$。演算列は\path{reports/MPS_S61_FULL_CIRCUITS_20261103_v62/T15.json.gz}。
 入力は\path{p0,p1,t0,t1,g0,g1,g2,g3,g4,g5,g6,g7,g8,g9}。全inverse節点と記載した分母の非零開を取る。
 一般実退化因子は$D_{3,1}+H_{2}+H_{3}$。
-構成・成分性・相違は第\ref{source:circuits51}節及びその証明を参照する。
+構成は第\ref{source:circuits51}節、成分性は第\ref{source:circuits51}節、相違は第\ref{source:circuits51}節及びその証明を参照する。
 
 \paragraph{族16}\label{catalogue:T16}
 \path{T16}。
@@ -216,7 +265,7 @@ rank二行ではactual退化五次は恒等零なので因子型を付けず、f
 源と写像は第\ref{source:circuits51}節の有理演算源$U_i$、$\rho_i$。演算列は\path{reports/MPS_S61_FULL_CIRCUITS_20261103_v62/T16.json.gz}。
 入力は\path{p0,p1,p2,t0,t1,g0,g1,g2,g3,g4,g5,g6,g7,g8,g9}。全inverse節点と記載した分母の非零開を取る。
 一般実退化因子は$D_{2,1}+D_{2,2}+H_{3}$。
-構成・成分性・相違は第\ref{source:circuits51}節及びその証明を参照する。
+構成は第\ref{source:circuits51}節、成分性は第\ref{source:circuits51}節、相違は第\ref{source:circuits51}節及びその証明を参照する。
 
 \paragraph{族17}\label{catalogue:T17}
 \path{T17}。
@@ -224,7 +273,7 @@ rank二行ではactual退化五次は恒等零なので因子型を付けず、f
 源と写像は第\ref{source:circuits51}節の有理演算源$U_i$、$\rho_i$。演算列は\path{reports/MPS_S61_FULL_CIRCUITS_20261103_v62/T17.json.gz}。
 入力は\path{p0,p1,p2,t0,t1,g0,g1,g2,g3,g4,g5,g6,g7,g8,g9}。全inverse節点と記載した分母の非零開を取る。
 一般実退化因子は$D_{2,1}+D_{2,2}+H_{3}$。
-構成・成分性・相違は第\ref{source:circuits51}節及びその証明を参照する。
+構成は第\ref{source:circuits51}節、成分性は第\ref{source:circuits51}節、相違は第\ref{source:circuits51}節及びその証明を参照する。
 
 \paragraph{族18}\label{catalogue:T18}
 \path{T18}。
@@ -232,7 +281,7 @@ rank二行ではactual退化五次は恒等零なので因子型を付けず、f
 源と写像は第\ref{source:circuits51}節の有理演算源$U_i$、$\rho_i$。演算列は\path{reports/MPS_S61_FULL_CIRCUITS_20261103_v62/T18.json.gz}。
 入力は\path{p0,p1,t0,t1,g0,g1,g2,g3,g4,g5,g6,g7,g8,g9}。全inverse節点と記載した分母の非零開を取る。
 一般実退化因子は$D_{2,1}+D_{2,2}+H_{3}$。
-構成・成分性・相違は第\ref{source:circuits51}節及びその証明を参照する。
+構成は第\ref{source:circuits51}節、成分性は第\ref{source:circuits51}節、相違は第\ref{source:circuits51}節及びその証明を参照する。
 
 \paragraph{族19}\label{catalogue:T19}
 \path{T19}。
@@ -240,7 +289,7 @@ rank二行ではactual退化五次は恒等零なので因子型を付けず、f
 源と写像は第\ref{source:circuits51}節の有理演算源$U_i$、$\rho_i$。演算列は\path{reports/MPS_S61_FULL_CIRCUITS_20261103_v62/T19.json.gz}。
 入力は\path{p0,p1,t0,t1,g0,g1,g2,g3,g4,g5,g6,g7,g8,g9}。全inverse節点と記載した分母の非零開を取る。
 一般実退化因子は$D_{2,1}+D_{2,2}+H_{3}$。
-構成・成分性・相違は第\ref{source:circuits51}節及びその証明を参照する。
+構成は第\ref{source:circuits51}節、成分性は第\ref{source:circuits51}節、相違は第\ref{source:circuits51}節及びその証明を参照する。
 
 \paragraph{族20}\label{catalogue:T20}
 \path{T20}。
@@ -248,7 +297,7 @@ rank二行ではactual退化五次は恒等零なので因子型を付けず、f
 源と写像は第\ref{source:circuits51}節の有理演算源$U_i$、$\rho_i$。演算列は\path{reports/MPS_S61_FULL_CIRCUITS_20261103_v62/T20.json.gz}。
 入力は\path{p0,p1,t0,t1,g0,g1,g2,g3,g4,g5,g6,g7,g8,g9}。全inverse節点と記載した分母の非零開を取る。
 一般実退化因子は$D_{2,1}+D_{2,2}+H_{3}$。
-構成・成分性・相違は第\ref{source:circuits51}節及びその証明を参照する。
+構成は第\ref{source:circuits51}節、成分性は第\ref{source:circuits51}節、相違は第\ref{source:circuits51}節及びその証明を参照する。
 
 \paragraph{族21}\label{catalogue:T21}
 \path{T21}。
@@ -256,7 +305,7 @@ rank二行ではactual退化五次は恒等零なので因子型を付けず、f
 源と写像は第\ref{source:circuits51}節の有理演算源$U_i$、$\rho_i$。演算列は\path{reports/MPS_S61_FULL_CIRCUITS_20261103_v62/T21.json.gz}。
 入力は\path{p0,p1,t0,t1,t2,g0,g1,g2,g3,g4,g5,g6,g7,g8,g9}。全inverse節点と記載した分母の非零開を取る。
 一般実退化因子は$D_{3,1}+H_{2}+H_{3}$。
-構成・成分性・相違は第\ref{source:circuits51}節及びその証明を参照する。
+構成は第\ref{source:circuits51}節、成分性は第\ref{source:circuits51}節、相違は第\ref{source:circuits51}節及びその証明を参照する。
 
 \paragraph{族22}\label{catalogue:T22}
 \path{T22}。
@@ -264,7 +313,7 @@ rank二行ではactual退化五次は恒等零なので因子型を付けず、f
 源と写像は第\ref{source:circuits51}節の有理演算源$U_i$、$\rho_i$。演算列は\path{reports/MPS_S61_FULL_CIRCUITS_20261103_v62/T22.json.gz}。
 入力は\path{p0,t0,t1,t2,g0,g1,g2,g3,g4,g5,g6,g7,g8,g9}。全inverse節点と記載した分母の非零開を取る。
 一般実退化因子は$D_{4,1}+H_{2}$。
-構成・成分性・相違は第\ref{source:circuits51}節及びその証明を参照する。
+構成は第\ref{source:circuits51}節、成分性は第\ref{source:circuits51}節、相違は第\ref{source:circuits51}節及びその証明を参照する。
 
 \paragraph{族23}\label{catalogue:T23}
 \path{T23}。
@@ -272,7 +321,7 @@ rank二行ではactual退化五次は恒等零なので因子型を付けず、f
 源と写像は第\ref{source:circuits51}節の有理演算源$U_i$、$\rho_i$。演算列は\path{reports/MPS_S61_FULL_CIRCUITS_20261103_v62/T23.json.gz}。
 入力は\path{p0,t0,t1,t2,g0,g1,g2,g3,g4,g5,g6,g7,g8,g9}。全inverse節点と記載した分母の非零開を取る。
 一般実退化因子は$D_{4,1}+H_{2}$。
-構成・成分性・相違は第\ref{source:circuits51}節及びその証明を参照する。
+構成は第\ref{source:circuits51}節、成分性は第\ref{source:circuits51}節、相違は第\ref{source:circuits51}節及びその証明を参照する。
 
 \paragraph{族24}\label{catalogue:T24}
 \path{T24}。
@@ -280,7 +329,7 @@ rank二行ではactual退化五次は恒等零なので因子型を付けず、f
 源と写像は第\ref{source:circuits51}節の有理演算源$U_i$、$\rho_i$。演算列は\path{reports/MPS_S61_FULL_CIRCUITS_20261103_v62/T24.json.gz}。
 入力は\path{p0,t0,t1,t2,g0,g1,g2,g3,g4,g5,g6,g7,g8,g9}。全inverse節点と記載した分母の非零開を取る。
 一般実退化因子は$D_{4,1}+H_{2}$。
-構成・成分性・相違は第\ref{source:circuits51}節及びその証明を参照する。
+構成は第\ref{source:circuits51}節、成分性は第\ref{source:circuits51}節、相違は第\ref{source:circuits51}節及びその証明を参照する。
 
 \paragraph{族25}\label{catalogue:T25}
 \path{T25}。
@@ -288,7 +337,7 @@ rank二行ではactual退化五次は恒等零なので因子型を付けず、f
 源と写像は第\ref{source:circuits51}節の有理演算源$U_i$、$\rho_i$。演算列は\path{reports/MPS_S61_FULL_CIRCUITS_20261103_v62/T25.json.gz}。
 入力は\path{p0,t0,t1,t2,g0,g1,g2,g3,g4,g5,g6,g7,g8,g9}。全inverse節点と記載した分母の非零開を取る。
 一般実退化因子は$D_{4,1}+H_{2}$。
-構成・成分性・相違は第\ref{source:circuits51}節及びその証明を参照する。
+構成は第\ref{source:circuits51}節、成分性は第\ref{source:circuits51}節、相違は第\ref{source:circuits51}節及びその証明を参照する。
 
 \paragraph{族26}\label{catalogue:T26}
 \path{T26}。
@@ -296,7 +345,7 @@ rank二行ではactual退化五次は恒等零なので因子型を付けず、f
 源と写像は第\ref{source:circuits51}節の有理演算源$U_i$、$\rho_i$。演算列は\path{reports/MPS_S61_FULL_CIRCUITS_20261103_v62/T26.json.gz}。
 入力は\path{p0,t0,t1,t2,g0,g1,g2,g3,g4,g5,g6,g7,g8,g9}。全inverse節点と記載した分母の非零開を取る。
 一般実退化因子は$D_{4,1}+H_{2}$。
-構成・成分性・相違は第\ref{source:circuits51}節及びその証明を参照する。
+構成は第\ref{source:circuits51}節、成分性は第\ref{source:circuits51}節、相違は第\ref{source:circuits51}節及びその証明を参照する。
 
 \paragraph{族27}\label{catalogue:T27}
 \path{T27}。
@@ -304,7 +353,7 @@ rank二行ではactual退化五次は恒等零なので因子型を付けず、f
 源と写像は第\ref{source:circuits51}節の有理演算源$U_i$、$\rho_i$。演算列は\path{reports/MPS_S61_FULL_CIRCUITS_20261103_v62/T27.json.gz}。
 入力は\path{p0,t0,t1,t2,g0,g1,g2,g3,g4,g5,g6,g7,g8,g9}。全inverse節点と記載した分母の非零開を取る。
 一般実退化因子は$D_{4,1}+H_{2}$。
-構成・成分性・相違は第\ref{source:circuits51}節及びその証明を参照する。
+構成は第\ref{source:circuits51}節、成分性は第\ref{source:circuits51}節、相違は第\ref{source:circuits51}節及びその証明を参照する。
 
 \paragraph{族28}\label{catalogue:T28}
 \path{T28}。
@@ -312,7 +361,7 @@ rank二行ではactual退化五次は恒等零なので因子型を付けず、f
 源と写像は第\ref{source:circuits51}節の有理演算源$U_i$、$\rho_i$。演算列は\path{reports/MPS_S61_FULL_CIRCUITS_20261103_v62/T28.json.gz}。
 入力は\path{p0,t0,t1,t2,g0,g1,g2,g3,g4,g5,g6,g7,g8,g9}。全inverse節点と記載した分母の非零開を取る。
 一般実退化因子は$D_{4,1}+H_{2}$。
-構成・成分性・相違は第\ref{source:circuits51}節及びその証明を参照する。
+構成は第\ref{source:circuits51}節、成分性は第\ref{source:circuits51}節、相違は第\ref{source:circuits51}節及びその証明を参照する。
 
 \paragraph{族29}\label{catalogue:T29}
 \path{T29}。
@@ -320,7 +369,7 @@ rank二行ではactual退化五次は恒等零なので因子型を付けず、f
 源と写像は第\ref{source:circuits51}節の有理演算源$U_i$、$\rho_i$。演算列は\path{reports/MPS_S61_FULL_CIRCUITS_20261103_v62/T29.json.gz}。
 入力は\path{p0,t0,t1,t2,g0,g1,g2,g3,g4,g5,g6,g7,g8,g9}。全inverse節点と記載した分母の非零開を取る。
 一般実退化因子は$D_{4,1}+H_{2}$。
-構成・成分性・相違は第\ref{source:circuits51}節及びその証明を参照する。
+構成は第\ref{source:circuits51}節、成分性は第\ref{source:circuits51}節、相違は第\ref{source:circuits51}節及びその証明を参照する。
 
 \paragraph{族30}\label{catalogue:T30}
 \path{T30}。
@@ -328,7 +377,7 @@ rank二行ではactual退化五次は恒等零なので因子型を付けず、f
 源と写像は第\ref{source:circuits51}節の有理演算源$U_i$、$\rho_i$。演算列は\path{reports/MPS_S61_FULL_CIRCUITS_20261103_v62/T30.json.gz}。
 入力は\path{p0,t0,t1,t2,g0,g1,g2,g3,g4,g5,g6,g7,g8,g9}。全inverse節点と記載した分母の非零開を取る。
 一般実退化因子は$D_{4,1}+H_{2}$。
-構成・成分性・相違は第\ref{source:circuits51}節及びその証明を参照する。
+構成は第\ref{source:circuits51}節、成分性は第\ref{source:circuits51}節、相違は第\ref{source:circuits51}節及びその証明を参照する。
 
 \paragraph{族31}\label{catalogue:T31}
 \path{T31}。
@@ -336,7 +385,7 @@ rank二行ではactual退化五次は恒等零なので因子型を付けず、f
 源と写像は第\ref{source:circuits51}節の有理演算源$U_i$、$\rho_i$。演算列は\path{reports/MPS_S61_FULL_CIRCUITS_20261103_v62/T31.json.gz}。
 入力は\path{p0,t0,t1,t2,g0,g1,g2,g3,g4,g5,g6,g7,g8,g9}。全inverse節点と記載した分母の非零開を取る。
 一般実退化因子は$D_{4,1}+H_{2}$。
-構成・成分性・相違は第\ref{source:circuits51}節及びその証明を参照する。
+構成は第\ref{source:circuits51}節、成分性は第\ref{source:circuits51}節、相違は第\ref{source:circuits51}節及びその証明を参照する。
 
 \paragraph{族32}\label{catalogue:T32}
 \path{T32}。
@@ -344,7 +393,7 @@ rank二行ではactual退化五次は恒等零なので因子型を付けず、f
 源と写像は第\ref{source:circuits51}節の有理演算源$U_i$、$\rho_i$。演算列は\path{reports/MPS_S61_FULL_CIRCUITS_20261103_v62/T32.json.gz}。
 入力は\path{p0,t0,t1,t2,g0,g1,g2,g3,g4,g5,g6,g7,g8,g9}。全inverse節点と記載した分母の非零開を取る。
 一般実退化因子は$D_{3,1}+D_{2,2}$。
-構成・成分性・相違は第\ref{source:circuits51}節及びその証明を参照する。
+構成は第\ref{source:circuits51}節、成分性は第\ref{source:circuits51}節、相違は第\ref{source:circuits51}節及びその証明を参照する。
 
 \paragraph{族33}\label{catalogue:T33}
 \path{T33}。
@@ -352,7 +401,7 @@ rank二行ではactual退化五次は恒等零なので因子型を付けず、f
 源と写像は第\ref{source:circuits51}節の有理演算源$U_i$、$\rho_i$。演算列は\path{reports/MPS_S61_FULL_CIRCUITS_20261103_v62/T33.json.gz}。
 入力は\path{p0,t0,t1,t2,g0,g1,g2,g3,g4,g5,g6,g7,g8,g9}。全inverse節点と記載した分母の非零開を取る。
 一般実退化因子は$D_{3,1}+D_{2,2}$。
-構成・成分性・相違は第\ref{source:circuits51}節及びその証明を参照する。
+構成は第\ref{source:circuits51}節、成分性は第\ref{source:circuits51}節、相違は第\ref{source:circuits51}節及びその証明を参照する。
 
 \paragraph{族34}\label{catalogue:T34}
 \path{T34}。
@@ -360,7 +409,7 @@ rank二行ではactual退化五次は恒等零なので因子型を付けず、f
 源と写像は第\ref{source:circuits51}節の有理演算源$U_i$、$\rho_i$。演算列は\path{reports/MPS_S61_FULL_CIRCUITS_20261103_v62/T34.json.gz}。
 入力は\path{p0,t0,t1,t2,g0,g1,g2,g3,g4,g5,g6,g7,g8,g9}。全inverse節点と記載した分母の非零開を取る。
 一般実退化因子は$D_{3,1}+D_{2,2}$。
-構成・成分性・相違は第\ref{source:circuits51}節及びその証明を参照する。
+構成は第\ref{source:circuits51}節、成分性は第\ref{source:circuits51}節、相違は第\ref{source:circuits51}節及びその証明を参照する。
 
 \paragraph{族35}\label{catalogue:T35}
 \path{T35}。
@@ -368,7 +417,7 @@ rank二行ではactual退化五次は恒等零なので因子型を付けず、f
 源と写像は第\ref{source:circuits51}節の有理演算源$U_i$、$\rho_i$。演算列は\path{reports/MPS_S61_FULL_CIRCUITS_20261103_v62/T35.json.gz}。
 入力は\path{p0,t0,t1,t2,g0,g1,g2,g3,g4,g5,g6,g7,g8,g9}。全inverse節点と記載した分母の非零開を取る。
 一般実退化因子は$D_{3,1}+D_{2,2}$。
-構成・成分性・相違は第\ref{source:circuits51}節及びその証明を参照する。
+構成は第\ref{source:circuits51}節、成分性は第\ref{source:circuits51}節、相違は第\ref{source:circuits51}節及びその証明を参照する。
 
 \paragraph{族36}\label{catalogue:T36}
 \path{T36}。
@@ -376,7 +425,7 @@ rank二行ではactual退化五次は恒等零なので因子型を付けず、f
 源と写像は第\ref{source:circuits51}節の有理演算源$U_i$、$\rho_i$。演算列は\path{reports/MPS_S61_FULL_CIRCUITS_20261103_v62/T36.json.gz}。
 入力は\path{p0,t0,t1,t2,t3,g0,g1,g2,g3,g4,g5,g6,g7,g8,g9}。全inverse節点と記載した分母の非零開を取る。
 一般実退化因子は$D_{5,1}$。
-構成・成分性・相違は第\ref{source:circuits51}節及びその証明を参照する。
+構成は第\ref{source:circuits51}節、成分性は第\ref{source:circuits51}節、相違は第\ref{source:circuits51}節及びその証明を参照する。
 
 \paragraph{族37}\label{catalogue:T37}
 \path{T37}。
@@ -384,7 +433,7 @@ rank二行ではactual退化五次は恒等零なので因子型を付けず、f
 源と写像は第\ref{source:circuits51}節の有理演算源$U_i$、$\rho_i$。演算列は\path{reports/MPS_S61_FULL_CIRCUITS_20261103_v62/T37.json.gz}。
 入力は\path{p0,t0,t1,t2,t3,g0,g1,g2,g3,g4,g5,g6,g7,g8,g9}。全inverse節点と記載した分母の非零開を取る。
 一般実退化因子は$D_{5,1}$。
-構成・成分性・相違は第\ref{source:circuits51}節及びその証明を参照する。
+構成は第\ref{source:circuits51}節、成分性は第\ref{source:circuits51}節、相違は第\ref{source:circuits51}節及びその証明を参照する。
 
 \paragraph{族38}\label{catalogue:T38}
 \path{T38}。
@@ -392,7 +441,7 @@ rank二行ではactual退化五次は恒等零なので因子型を付けず、f
 源と写像は第\ref{source:circuits51}節の有理演算源$U_i$、$\rho_i$。演算列は\path{reports/MPS_S61_FULL_CIRCUITS_20261103_v62/T38.json.gz}。
 入力は\path{p0,t0,t1,t2,t3,g0,g1,g2,g3,g4,g5,g6,g7,g8,g9}。全inverse節点と記載した分母の非零開を取る。
 一般実退化因子は$D_{5,1}$。
-構成・成分性・相違は第\ref{source:circuits51}節及びその証明を参照する。
+構成は第\ref{source:circuits51}節、成分性は第\ref{source:circuits51}節、相違は第\ref{source:circuits51}節及びその証明を参照する。
 
 \paragraph{族39}\label{catalogue:T39}
 \path{T39}。
@@ -400,7 +449,7 @@ rank二行ではactual退化五次は恒等零なので因子型を付けず、f
 源と写像は第\ref{source:circuits51}節の有理演算源$U_i$、$\rho_i$。演算列は\path{reports/MPS_ELLIPTIC_GRAPH_CIRCUITS_20261103_v62/T39.json.gz}。
 入力は\path{u4,u5,u12,u13,u14,u25,u26,u27,u34,u35,u36,u37,u48,u49,u50,u51}。全inverse節点と記載した分母の非零開を取る。
 一般実退化因子は$D_{5,1}$。
-構成・成分性・相違は第\ref{source:circuits51}節及びその証明を参照する。
+構成は第\ref{source:circuits51}節、成分性は第\ref{source:circuits51}節、相違は第\ref{source:circuits51}節及びその証明を参照する。
 
 \paragraph{族40}\label{catalogue:T40}
 \path{T40}。
@@ -408,43 +457,43 @@ rank二行ではactual退化五次は恒等零なので因子型を付けず、f
 源と写像は第\ref{source:circuits51}節の有理演算源$U_i$、$\rho_i$。演算列は\path{reports/MPS_ELLIPTIC_GRAPH_CIRCUITS_20261103_v62/T40.json.gz}。
 入力は\path{u4,u5,u12,u13,u14,u25,u26,u27,u34,u35,u36,u37,u48,u49,u50,u51}。全inverse節点と記載した分母の非零開を取る。
 一般実退化因子は$D_{5,1}$。
-構成・成分性・相違は第\ref{source:circuits51}節及びその証明を参照する。
+構成は第\ref{source:circuits51}節、成分性は第\ref{source:circuits51}節、相違は第\ref{source:circuits51}節及びその証明を参照する。
 
 \paragraph{族41}\label{catalogue:R2_RAT113}
 \path{R2_RAT113}。
 射影次元$36$、一般階数$2$。
 一般族は全$(L_1,L_2,G_3)$のJacobian源。第\ref{sec:rank-two-reconstruction}節の全sourceを用いる。一般零因子は空、飽和foliationは次数二である。
-構成・成分性・相違は第\ref{sec:rank-two-reconstruction}節及びその証明を参照する。
+構成は第\ref{sec:rank-two-reconstruction}節、成分性は第\ref{sec:rank-two-reconstruction}節、相違は第\ref{sec:rank-two-reconstruction}節及びその証明を参照する。
 
 \paragraph{族42}\label{catalogue:R2_RAT122}
 \path{R2_RAT122}。
 射影次元$28$、一般階数$2$。
 一般族は全$(L,Q_1,Q_2)$のJacobian源。第\ref{sec:rank-two-reconstruction}節の全sourceを用いる。一般零因子は空、飽和foliationは次数二である。
-構成・成分性・相違は第\ref{sec:rank-two-reconstruction}節及びその証明を参照する。
+構成は第\ref{sec:rank-two-reconstruction}節、成分性は第\ref{sec:rank-two-reconstruction}節、相違は第\ref{sec:rank-two-reconstruction}節及びその証明を参照する。
 
 \paragraph{族43}\label{catalogue:R2_LOG1112}
 \path{R2_LOG1112}。
 射影次元$28$、一般階数$2$。
 一般族は次数$(1,1,1,2)$の全四式と$\bigwedge^2\ker(1,1,1,2)$の留数源。第\ref{sec:rank-two-reconstruction}節の全sourceを用いる。一般零因子は空、飽和foliationは次数二である。
-構成・成分性・相違は第\ref{sec:rank-two-reconstruction}節及びその証明を参照する。
+構成は第\ref{sec:rank-two-reconstruction}節、成分性は第\ref{sec:rank-two-reconstruction}節、相違は第\ref{sec:rank-two-reconstruction}節及びその証明を参照する。
 
 \paragraph{族44}\label{catalogue:R2_LPB}
 \path{R2_LPB}。
 射影次元$39$、一般階数$2$。
 一般族は$N=\partial_4$と$x_0,\ldots,x_3$の全二次場$Y$からの$N\wedge Y$。第\ref{sec:rank-two-reconstruction}節の全sourceを用いる。一般零因子は空、飽和foliationは次数二である。
-構成・成分性・相違は第\ref{sec:rank-two-reconstruction}節及びその証明を参照する。
+構成は第\ref{sec:rank-two-reconstruction}節、成分性は第\ref{sec:rank-two-reconstruction}節、相違は第\ref{sec:rank-two-reconstruction}節及びその証明を参照する。
 
 \paragraph{族45}\label{catalogue:R2_AFF5}
 \path{R2_AFF5}。
 射影次元$22$、一般階数$2$。
 一般族はJordan分割$(5)$の$N$と全解$[N,H]=N$からの$N\wedge H$。第\ref{sec:rank-two-reconstruction}節の全sourceを用いる。一般零因子は空、飽和foliationは次数二である。
-構成・成分性・相違は第\ref{sec:rank-two-reconstruction}節及びその証明を参照する。
+構成は第\ref{sec:rank-two-reconstruction}節、成分性は第\ref{sec:rank-two-reconstruction}節、相違は第\ref{sec:rank-two-reconstruction}節及びその証明を参照する。
 
 \paragraph{族46}\label{catalogue:R2_AFF41}
 \path{R2_AFF41}。
 射影次元$22$、一般階数$2$。
 一般族はJordan分割$(4,1)$の$N$と全解$[N,H]=N$からの$N\wedge H$。第\ref{sec:rank-two-reconstruction}節の全sourceを用いる。一般零因子は空、飽和foliationは次数二である。
-構成・成分性・相違は第\ref{sec:rank-two-reconstruction}節及びその証明を参照する。
+構成は第\ref{sec:rank-two-reconstruction}節、成分性は第\ref{sec:rank-two-reconstruction}節、相違は第\ref{sec:rank-two-reconstruction}節及びその証明を参照する。
 
 \paragraph{族47}\label{catalogue:R4_DOUBLE_SMOOTH_QUADRIC}
 \path{R4_DOUBLE_SMOOTH_QUADRIC}。
@@ -453,7 +502,7 @@ rank二行ではactual退化五次は恒等零なので因子型を付けず、f
 入力は\path{scale,base1,base2,base3,base4,g0,g1,g2,g3,g4,g5,g6,g7,g8,g9}。全inverse節点と記載した分母の非零開を取る。
 一般実退化因子は$H_{1}+D_{2,2}^{2}$。
 description：H+2Q; Q smooth and H tangent to Q。
-構成・成分性・相違は第\ref{source:circuits51}節及びその証明を参照する。
+構成は第\ref{source:circuits51}節、成分性は第\ref{sec:known-component-certificates}節、相違は第\ref{sec:known-component-certificates}節及びその証明を参照する。
 
 \paragraph{族48}\label{catalogue:R4_TRIPLE_HYPERPLANE_QUADRIC}
 \path{R4_TRIPLE_HYPERPLANE_QUADRIC}。
@@ -462,7 +511,7 @@ description：H+2Q; Q smooth and H tangent to Q。
 入力は\path{scale,base1,base2,base3,base4,g0,g1,g2,g3,g4,g5,g6,g7,g8,g9}。全inverse節点と記載した分母の非零開を取る。
 一般実退化因子は$H_{1}^{3}+D_{2,2}$。
 description：3H+Q; Q has rank 4。
-構成・成分性・相違は第\ref{source:circuits51}節及びその証明を参照する。
+構成は第\ref{source:circuits51}節、成分性は第\ref{sec:known-component-certificates}節、相違は第\ref{sec:known-component-certificates}節及びその証明を参照する。
 
 \paragraph{族49}\label{catalogue:R4_CA}
 \path{R4_CA}。
@@ -471,7 +520,7 @@ description：3H+Q; Q has rank 4。
 入力は\path{a0,a1,a2,b0,b1,b2,b3,b4,b5,b6,b7,b8,b9,b10,b11,b12,b13,b14,b15,scale,base1,base2,base3,base4,g0,g1,g2,g3,g4,g5,g6,g7,g8,g9}。全inverse節点と記載した分母の非零開を取る。
 一般実退化因子は$H_{1}^{3}+H_{2}+H_{3}$。
 description：3H+H1+H2; three distinct hyperplanes in one pencil。
-構成・成分性・相違は第\ref{source:circuits51}節及びその証明を参照する。
+構成は第\ref{source:circuits51}節、成分性は第\ref{sec:known-component-certificates}節、相違は第\ref{sec:known-component-certificates}節及びその証明を参照する。
 
 \paragraph{族50}\label{catalogue:R4_CB}
 \path{R4_CB}。
@@ -480,7 +529,7 @@ description：3H+H1+H2; three distinct hyperplanes in one pencil。
 入力は\path{a0,a1,a2,b0,b1,b2,b3,b4,b5,b6,b7,b8,b9,b10,b11,b12,b13,b14,b15,scale,base1,base2,base3,base4,g0,g1,g2,g3,g4,g5,g6,g7,g8,g9}。全inverse節点と記載した分母の非零開を取る。
 一般実退化因子は$H_{1}+H_{2}^{2}+H_{3}^{2}$。
 description：H+2H1+2H2; three distinct hyperplanes in one pencil。
-構成・成分性・相違は第\ref{source:circuits51}節及びその証明を参照する。
+構成は第\ref{source:circuits51}節、成分性は第\ref{sec:known-component-certificates}節、相違は第\ref{sec:known-component-certificates}節及びその証明を参照する。
 
 \paragraph{族51}\label{catalogue:R4_H_QUARTIC_ESSENTIAL5}
 \path{R4_H_QUARTIC_ESSENTIAL5}。
@@ -489,7 +538,7 @@ description：H+2H1+2H2; three distinct hyperplanes in one pencil。
 入力は\path{scale,base1,base2,base3,base4,g0,g1,g2,g3,g4,g5,g6,g7,g8,g9}。全inverse節点と記載した分母の非零開を取る。
 一般実退化因子は$H_{1}+D_{4,2}$。
 description：H+F4; irreducible quartic with five essential variables。
-構成・成分性・相違は第\ref{source:circuits51}節及びその証明を参照する。
+構成は第\ref{source:circuits51}節、成分性は第\ref{sec:known-component-certificates}節、相違は第\ref{sec:known-component-certificates}節及びその証明を参照する。
 
 \paragraph{族52}\label{catalogue:R4_ZERO_LOG_5H}
 \path{R4_ZERO_LOG_5H}。
@@ -498,7 +547,7 @@ description：H+F4; irreducible quartic with five essential variables。
 入力は\path{a,b,scale,base1,base2,base3,base4,g0,g1,g2,g3,g4,g5,g6,g7,g8,g9}。全inverse節点と記載した分母の非零開を取る。
 一般実退化因子は$H_{1}^{5}$。
 description：5H。
-構成・成分性・相違は第\ref{source:circuits51}節及びその証明を参照する。
+構成は第\ref{source:circuits51}節、成分性は第\ref{sec:known-component-certificates}節、相違は第\ref{sec:known-component-certificates}節及びその証明を参照する。
 
 \paragraph{族53}\label{catalogue:R4_MINIMAL_M}
 \path{R4_MINIMAL_M}。
@@ -507,7 +556,7 @@ description：5H。
 入力は\path{scale,base1,base2,base3,base4,g0,g1,g2,g3,g4,g5,g6,g7,g8,g9}。全inverse節点と記載した分母の非零開を取る。
 一般実退化因子は$H_{1}+D_{4,2}$。
 description：H+F4; irreducible quartic cone with one singular plane, transverse cubic triple line。
-構成・成分性・相違は第\ref{source:circuits51}節及びその証明を参照する。
+構成は第\ref{source:circuits51}節、成分性は第\ref{sec:known-component-certificates}節、相違は第\ref{sec:known-component-certificates}節及びその証明を参照する。
 
 \paragraph{族54}\label{catalogue:R4_A0}
 \path{R4_A0}。
@@ -516,7 +565,7 @@ description：H+F4; irreducible quartic cone with one singular plane, transverse
 入力は\path{scale,base1,base2,base3,base4,g0,g1,g2,g3,g4,g5,g6,g7,g8,g9}。全inverse節点と記載した分母の非零開を取る。
 一般実退化因子は$H_{1}+D_{4,2}$。
 description：H+F4; irreducible quartic cone with one singular plane, transverse cubic type (2,1)。
-構成・成分性・相違は第\ref{source:circuits51}節及びその証明を参照する。
+構成は第\ref{source:circuits51}節、成分性は第\ref{sec:known-component-certificates}節、相違は第\ref{sec:known-component-certificates}節及びその証明を参照する。
 
 \paragraph{族55}\label{catalogue:R4_DPM}
 \path{R4_DPM}。
@@ -525,7 +574,7 @@ description：H+F4; irreducible quartic cone with one singular plane, transverse
 入力は\path{r,scale,base1,base2,base3,base4,g0,g1,g2,g3,g4,g5,g6,g7,g8,g9}。全inverse節点と記載した分母の非零開を取る。
 一般実退化因子は$H_{1}+D_{4,2}$。
 description：H+F4; irreducible quartic cone with three singular planes, generic A2 transverse cusps。
-構成・成分性・相違は第\ref{source:circuits51}節及びその証明を参照する。
+構成は第\ref{source:circuits51}節、成分性は第\ref{sec:known-component-certificates}節、相違は第\ref{sec:known-component-certificates}節及びその証明を参照する。
 
 \paragraph{族56}\label{catalogue:R4_CPLUS_EXT}
 \path{R4_CPLUS_EXT}。
@@ -534,7 +583,7 @@ description：H+F4; irreducible quartic cone with three singular planes, generic
 入力は\path{c,beta,scale,base1,base2,base3,base4,g0,g1,g2,g3,g4,g5,g6,g7,g8,g9}。全inverse節点と記載した分母の非零開を取る。
 一般実退化因子は$H_{1}+D_{2,2}+D_{2,3}$。
 description：H+Q1+Q2; distinct irreducible quadrics and at most three essential variables in the quintic。
-構成・成分性・相違は第\ref{source:circuits51}節及びその証明を参照する。
+構成は第\ref{source:circuits51}節、成分性は第\ref{sec:known-component-certificates}節、相違は第\ref{sec:known-component-certificates}節及びその証明を参照する。
 
 \paragraph{族57}\label{catalogue:R4_CMINUS_MAG}
 \path{R4_CMINUS_MAG}。
@@ -543,7 +592,7 @@ description：H+Q1+Q2; distinct irreducible quadrics and at most three essential
 入力は\path{beta,gamma,scale,base1,base2,base3,base4,g0,g1,g2,g3,g4,g5,g6,g7,g8,g9}。全inverse節点と記載した分母の非零開を取る。
 一般実退化因子は$H_{1}+H_{2}+H_{3}+D_{2,4}$。
 description：t*(t\textasciicircum{}2+x\textasciicircum{}2)*(t\textasciicircum{}2+x\textasciicircum{}2-2*z\textasciicircum{}2); three distinct hyperplanes and one rank-three quadric over C。
-構成・成分性・相違は第\ref{source:circuits51}節及びその証明を参照する。
+構成は第\ref{source:circuits51}節、成分性は第\ref{sec:known-component-certificates}節、相違は第\ref{sec:known-component-certificates}節及びその証明を参照する。
 
 \paragraph{族58}\label{catalogue:R4_POSITIVE_WEIGHT6_25}
 \path{R4_POSITIVE_WEIGHT6_25}。
@@ -552,7 +601,7 @@ description：t*(t\textasciicircum{}2+x\textasciicircum{}2)*(t\textasciicircum{}
 任意$(n_0,n_1,n_2)\in\mathbb A^3$、一般rank四の開。
 一般実退化因子は$H_{1}^{3}+D_{2,2}$。
 description：3H+Q, Q smooth rank5 and H tangent to Q。
-構成・成分性・相違は第\ref{source:new25}節及びその証明を参照する。
+構成は第\ref{source:new25}節、成分性は第\ref{sec:new25-component}節、相違は第\ref{sec:new25-component}節及びその証明を参照する。
 
 \paragraph{族59}\label{catalogue:R4_DOUBLE_RANK3_QUADRIC_MIXED_22}
 \path{R4_DOUBLE_RANK3_QUADRIC_MIXED_22}。
@@ -561,7 +610,7 @@ description：3H+Q, Q smooth rank5 and H tangent to Q。
 一般実退化因子は$H_{1}+D_{2,2}^{2}$。
 quadric\_rank：3。
 description：H+2Q; Q has rank 3 and H contains the vertex and is tangent to the quotient conic。
-構成・成分性・相違は第\ref{prop:new22}節及びその証明を参照する。
+構成は第\ref{prop:new22}節、成分性は第\ref{prop:new22}節、相違は第\ref{prop:new22}節及びその証明を参照する。
 
 \paragraph{族60}\label{catalogue:R4_DOUBLE_RANK3_QUADRIC_TWZERO_24}
 \path{R4_DOUBLE_RANK3_QUADRIC_TWZERO_24}。
@@ -571,7 +620,7 @@ description：H+2Q; Q has rank 3 and H contains the vertex and is tangent to the
 一般実退化因子は$H_{1}+D_{2,2}^{2}$。
 quadric\_rank：3。
 description：H+2Q; Q has rank3 and H contains the vertex and is tangent to the quotient conic。
-構成・成分性・相違は第\ref{prop:new24}節及びその証明を参照する。
+構成は第\ref{prop:new24}節、成分性は第\ref{prop:new24}節、相違は第\ref{prop:new24}節及びその証明を参照する。
 
 \paragraph{族61}\label{catalogue:R4_NIL4_DOUBLE_H_CUBIC_22}
 \path{R4_NIL4_DOUBLE_H_CUBIC_22}。
@@ -580,7 +629,7 @@ description：H+2Q; Q has rank3 and H contains the vertex and is tangent to the 
 枝 \path{source_parameter_s="1/3"}。
 一般実退化因子は$H_{1}^{2}+D_{3,2}$。
 description：冪零Jordan4・二重超平面と既約三次型。
-構成・成分性・相違は第\ref{prop:nil-four-components}節及びその証明を参照する。
+構成は第\ref{prop:nil-four-components}節、成分性は第\ref{prop:nil-four-components}節、相違は第\ref{prop:nil-four-components}節及びその証明を参照する。
 
 \paragraph{族62}\label{catalogue:R4_NIL4_DOUBLE_H_H_QUADRIC_22}
 \path{R4_NIL4_DOUBLE_H_H_QUADRIC_22}。
@@ -590,7 +639,7 @@ description：冪零Jordan4・二重超平面と既約三次型。
 一般実退化因子は$H_{1}^{2}+H_{2}+D_{2,3}$。
 quadric\_rank：3。
 description：冪零Jordan4・二重超平面と超平面と階数三二次型。
-構成・成分性・相違は第\ref{prop:nil-four-components}節及びその証明を参照する。
+構成は第\ref{prop:nil-four-components}節、成分性は第\ref{prop:nil-four-components}節、相違は第\ref{prop:nil-four-components}節及びその証明を参照する。
 
 \paragraph{族63}\label{catalogue:R4_NIL4_TRIPLE_H_DOUBLE_H_OUTSIDE_22}
 \path{R4_NIL4_TRIPLE_H_DOUBLE_H_OUTSIDE_22}。
@@ -599,7 +648,7 @@ description：冪零Jordan4・二重超平面と超平面と階数三二次型�
 枝 \path{source_parameter_s="1/5"}。
 一般実退化因子は$H_{1}^{3}+H_{2}^{2}$。
 description：三重超平面cofactor像の外にあるJordan4型。
-構成・成分性・相違は第\ref{prop:nil-four-components}節及びその証明を参照する。
+構成は第\ref{prop:nil-four-components}節、成分性は第\ref{prop:nil-four-components}節、相違は第\ref{prop:nil-four-components}節及びその証明を参照する。
 
 \paragraph{族64}\label{catalogue:R4_NIL4_TRIPLE_H_DOUBLE_H_INSIDE_22}
 \path{R4_NIL4_TRIPLE_H_DOUBLE_H_INSIDE_22}。
@@ -608,7 +657,7 @@ description：三重超平面cofactor像の外にあるJordan4型。
 枝 \path{source_parameter_s="1/15"}。
 一般実退化因子は$H_{1}^{3}+H_{2}^{2}$。
 description：三重超平面cofactor像に入るJordan4型。
-構成・成分性・相違は第\ref{prop:nil-four-components}節及びその証明を参照する。
+構成は第\ref{prop:nil-four-components}節、成分性は第\ref{prop:nil-four-components}節、相違は第\ref{prop:nil-four-components}節及びその証明を参照する。
 
 \paragraph{族65}\label{catalogue:R4_DEPENDENT_THREE_HYPERPLANES_QUADRIC_24}
 \path{R4_DEPENDENT_THREE_HYPERPLANES_QUADRIC_24}。
@@ -618,7 +667,7 @@ description：三重超平面cofactor像に入るJordan4型。
 一般実退化因子は$H_{1}+H_{2}+H_{3}+D_{2,4}$。
 quadric\_rank：3。
 description：three distinct dependent hyperplanes and one irreducible rank3 quadric。
-構成・成分性・相違は第\ref{prop:dependent-three-component}節及びその証明を参照する。
+構成は第\ref{prop:dependent-three-component}節、成分性は第\ref{prop:dependent-three-component}節、相違は第\ref{prop:dependent-three-component}節及びその証明を参照する。
 
 \paragraph{族66}\label{catalogue:R4_MODULAR_NIL31_DOUBLE_DOUBLE_H_25}
 \path{R4_MODULAR_NIL31_DOUBLE_DOUBLE_H_25}。
@@ -627,7 +676,7 @@ description：three distinct dependent hyperplanes and one irreducible rank3 qua
 \path{source}："A9 x Gm"。
 一般実退化因子は$H_{1}^{2}+H_{2}^{2}+H_{3}$。
 description：three independent hyperplanes with multiplicities2,2,1。
-構成・成分性・相違は第\ref{prop:nil31-component}節及びその証明を参照する。
+構成は第\ref{prop:nil31-component}節、成分性は第\ref{prop:nil31-component}節、相違は第\ref{prop:nil31-component}節及びその証明を参照する。
 
 \paragraph{族67}\label{catalogue:R4_NIL31_SHORT_DOUBLE_H_CUBIC_22}
 \path{R4_NIL31_SHORT_DOUBLE_H_CUBIC_22}。
@@ -636,7 +685,7 @@ description：three independent hyperplanes with multiplicities2,2,1。
 枝 \path{source_branch="r=-1/3"}。
 一般実退化因子は$H_{1}^{2}+D_{3,2}$。
 description：冪零短鎖定数型・二重超平面と既約三次成分。
-構成・成分性・相違は第\ref{prop:nil31-three22}節及びその証明を参照する。
+構成は第\ref{prop:nil31-three22}節、成分性は第\ref{prop:nil31-three22}節、相違は第\ref{prop:nil31-three22}節及びその証明を参照する。
 
 \paragraph{族68}\label{catalogue:R4_NIL31_LONG_DOUBLE_H_CUBIC_22}
 \path{R4_NIL31_LONG_DOUBLE_H_CUBIC_22}。
@@ -645,7 +694,7 @@ description：冪零短鎖定数型・二重超平面と既約三次成分。
 枝 \path{source_branch="E: r=2/3"}。
 一般実退化因子は$H_{1}^{2}+D_{3,2}$。
 description：冪零長鎖定数型・二重超平面と既約三次成分。
-構成・成分性・相違は第\ref{prop:nil31-three22}節及びその証明を参照する。
+構成は第\ref{prop:nil31-three22}節、成分性は第\ref{prop:nil31-three22}節、相違は第\ref{prop:nil31-three22}節及びその証明を参照する。
 
 \paragraph{族69}\label{catalogue:R4_NIL31_LONG_TRIPLE_H_RANK3_QUADRIC_22}
 \path{R4_NIL31_LONG_TRIPLE_H_RANK3_QUADRIC_22}。
@@ -655,7 +704,7 @@ description：冪零長鎖定数型・二重超平面と既約三次成分。
 一般実退化因子は$H_{1}^{3}+D_{2,2}$。
 quadric\_rank：3。
 description：冪零長鎖定数型・三重超平面と階数三二次成分。
-構成・成分性・相違は第\ref{prop:nil31-three22}節及びその証明を参照する。
+構成は第\ref{prop:nil31-three22}節、成分性は第\ref{prop:nil31-three22}節、相違は第\ref{prop:nil31-three22}節及びその証明を参照する。
 
 \paragraph{族70}\label{catalogue:R4_INDEPENDENT_THREE_HYPERPLANES_TRITANGENT_QUADRIC_23}
 \path{R4_INDEPENDENT_THREE_HYPERPLANES_TRITANGENT_QUADRIC_23}。
@@ -665,7 +714,7 @@ description：冪零長鎖定数型・三重超平面と階数三二次成分。
 quadric\_rank：3。
 essential\_variable\_count：3。
 description：three independent hyperplanes and a rank3 quadric tangent to all three coordinate sides。
-構成・成分性・相違は第\ref{prop:independent-three-component}節及びその証明を参照する。
+構成は第\ref{prop:independent-three-component}節、成分性は第\ref{prop:independent-three-component}節、相違は第\ref{prop:independent-three-component}節及びその証明を参照する。
 
 \paragraph{族71}\label{catalogue:R4_NIL22_QUADRUPLE_H_LINEAR_22}
 \path{R4_NIL22_QUADRUPLE_H_LINEAR_22}。
@@ -674,7 +723,7 @@ description：three independent hyperplanes and a rank3 quadric tangent to all t
 枝 \path{source_branch="A=-1"}。
 一般実退化因子は$H_{1}^{4}+H_{2}$。
 description：nil22定数型・四重超平面と一次因子。
-構成・成分性・相違は第\ref{prop:weighted-three22}節及びその証明を参照する。
+構成は第\ref{prop:weighted-three22}節、成分性は第\ref{prop:weighted-three22}節、相違は第\ref{prop:weighted-three22}節及びその証明を参照する。
 
 \paragraph{族72}\label{catalogue:R4_NIL31_SHORT_QUADRUPLE_H_LINEAR_22}
 \path{R4_NIL31_SHORT_QUADRUPLE_H_LINEAR_22}。
@@ -683,7 +732,7 @@ description：nil22定数型・四重超平面と一次因子。
 枝 \path{source_branch="r=1"}。
 一般実退化因子は$H_{1}^{4}+H_{2}$。
 description：nil31短鎖型・四重超平面と一次因子。
-構成・成分性・相違は第\ref{prop:weighted-three22}節及びその証明を参照する。
+構成は第\ref{prop:weighted-three22}節、成分性は第\ref{prop:weighted-three22}節、相違は第\ref{prop:weighted-three22}節及びその証明を参照する。
 
 \paragraph{族73}\label{catalogue:R4_NIL22_DOUBLE_H_TRIPLE_LINEAR_22}
 \path{R4_NIL22_DOUBLE_H_TRIPLE_LINEAR_22}。
@@ -692,7 +741,7 @@ description：nil31短鎖型・四重超平面と一次因子。
 枝 \path{source_branch="A=-1/3, equivalent nil31 short r=1/2"}。
 一般実退化因子は$H_{1}^{2}+H_{2}^{3}$。
 description：nil22共鳴型・二重超平面と三重一次因子。
-構成・成分性・相違は第\ref{prop:weighted-three22}節及びその証明を参照する。
+構成は第\ref{prop:weighted-three22}節、成分性は第\ref{prop:weighted-three22}節、相違は第\ref{prop:weighted-three22}節及びその証明を参照する。
 
 \paragraph{族74}\label{catalogue:R4_TWO_HYPERPLANES_CUBIC_22}
 \path{R4_TWO_HYPERPLANES_CUBIC_22}。
@@ -701,73 +750,73 @@ description：nil22共鳴型・二重超平面と三重一次因子。
 枝 \path{source_branches=["p=1", "p=-1"]}。
 一般実退化因子は$H_{1}+H_{2}+D_{3,3}$。
 description：two distinct hyperplanes and an irreducible cubic。
-構成・成分性・相違は第\ref{prop:two-h-cubic22}節及びその証明を参照する。
+構成は第\ref{prop:two-h-cubic22}節、成分性は第\ref{prop:two-h-cubic22}節、相違は第\ref{prop:two-h-cubic22}節及びその証明を参照する。
 
 \paragraph{族75}\label{catalogue:R4_PLANE_CONIC_CUBIC_CUSP_OUTSIDE_1_23}
 \path{R4_PLANE_CONIC_CUBIC_CUSP_OUTSIDE_1_23}。
 射影次元$23$、一般階数$4$。
-一般族は命題又は構成\ref{prop:q3-anil3}の全sourceを用いる。
+一般族は命題又は構成\ref{prop:plane-conic-cubic-six}の全sourceを用いる。
 枝 \path{source_case="cusp_outside_1"}。
 磁気項は任意二次式$R_2$の全六係数である。
 一般実退化因子は$D_{2,1}+D_{3,2}$。
 quadric\_rank：3。
 essential\_variable\_count：3。
-構成・成分性・相違は第\ref{prop:q3-anil3}節及びその証明を参照する。
+構成は第\ref{prop:plane-conic-cubic-six}節、成分性は第\ref{prop:plane-conic-cubic-six}節、相違は第\ref{prop:plane-conic-cubic-six}節及びその証明を参照する。
 
 \paragraph{族76}\label{catalogue:R4_PLANE_CONIC_CUBIC_CUSP_OUTSIDE_3_23}
 \path{R4_PLANE_CONIC_CUBIC_CUSP_OUTSIDE_3_23}。
 射影次元$23$、一般階数$4$。
-一般族は命題又は構成\ref{prop:q3-anil3}の全sourceを用いる。
+一般族は命題又は構成\ref{prop:plane-conic-cubic-six}の全sourceを用いる。
 枝 \path{source_case="cusp_outside_3"}。
 磁気項は任意二次式$R_2$の全六係数である。
 一般実退化因子は$D_{2,1}+D_{3,2}$。
 quadric\_rank：3。
 essential\_variable\_count：3。
-構成・成分性・相違は第\ref{prop:q3-anil3}節及びその証明を参照する。
+構成は第\ref{prop:plane-conic-cubic-six}節、成分性は第\ref{prop:plane-conic-cubic-six}節、相違は第\ref{prop:plane-conic-cubic-six}節及びその証明を参照する。
 
 \paragraph{族77}\label{catalogue:R4_PLANE_CONIC_CUBIC_CUSP_AT_CUSP_2_23}
 \path{R4_PLANE_CONIC_CUBIC_CUSP_AT_CUSP_2_23}。
 射影次元$23$、一般階数$4$。
-一般族は命題又は構成\ref{prop:q3-anil3}の全sourceを用いる。
+一般族は命題又は構成\ref{prop:plane-conic-cubic-six}の全sourceを用いる。
 枝 \path{source_case="cusp_at_cusp_2"}。
 磁気項は任意二次式$R_2$の全六係数である。
 一般実退化因子は$D_{2,1}+D_{3,2}$。
 quadric\_rank：3。
 essential\_variable\_count：3。
-構成・成分性・相違は第\ref{prop:q3-anil3}節及びその証明を参照する。
+構成は第\ref{prop:plane-conic-cubic-six}節、成分性は第\ref{prop:plane-conic-cubic-six}節、相違は第\ref{prop:plane-conic-cubic-six}節及びその証明を参照する。
 
 \paragraph{族78}\label{catalogue:R4_PLANE_CONIC_CUBIC_CUSP_AT_CUSP_3_23}
 \path{R4_PLANE_CONIC_CUBIC_CUSP_AT_CUSP_3_23}。
 射影次元$23$、一般階数$4$。
-一般族は命題又は構成\ref{prop:q3-anil3}の全sourceを用いる。
+一般族は命題又は構成\ref{prop:plane-conic-cubic-six}の全sourceを用いる。
 枝 \path{source_case="cusp_at_cusp_3"}。
 磁気項は任意二次式$R_2$の全六係数である。
 一般実退化因子は$D_{2,1}+D_{3,2}$。
 quadric\_rank：3。
 essential\_variable\_count：3。
-構成・成分性・相違は第\ref{prop:q3-anil3}節及びその証明を参照する。
+構成は第\ref{prop:plane-conic-cubic-six}節、成分性は第\ref{prop:plane-conic-cubic-six}節、相違は第\ref{prop:plane-conic-cubic-six}節及びその証明を参照する。
 
 \paragraph{族79}\label{catalogue:R4_PLANE_CONIC_CUBIC_NODE_SMOOTH_CONTACT_23}
 \path{R4_PLANE_CONIC_CUBIC_NODE_SMOOTH_CONTACT_23}。
 射影次元$23$、一般階数$4$。
-一般族は命題又は構成\ref{prop:q3-anil3}の全sourceを用いる。
+一般族は命題又は構成\ref{prop:plane-conic-cubic-six}の全sourceを用いる。
 枝 \path{source_case="node_smooth_contact"}。
 磁気項は任意二次式$R_2$の全六係数である。
 一般実退化因子は$D_{2,1}+D_{3,2}$。
 quadric\_rank：3。
 essential\_variable\_count：3。
-構成・成分性・相違は第\ref{prop:q3-anil3}節及びその証明を参照する。
+構成は第\ref{prop:plane-conic-cubic-six}節、成分性は第\ref{prop:plane-conic-cubic-six}節、相違は第\ref{prop:plane-conic-cubic-six}節及びその証明を参照する。
 
 \paragraph{族80}\label{catalogue:R4_PLANE_CONIC_CUBIC_NODE_AT_NODE_23}
 \path{R4_PLANE_CONIC_CUBIC_NODE_AT_NODE_23}。
 射影次元$23$、一般階数$4$。
-一般族は命題又は構成\ref{prop:q3-anil3}の全sourceを用いる。
+一般族は命題又は構成\ref{prop:plane-conic-cubic-six}の全sourceを用いる。
 枝 \path{source_case="node_at_node"}。
 磁気項は任意二次式$R_2$の全六係数である。
 一般実退化因子は$D_{2,1}+D_{3,2}$。
 quadric\_rank：3。
 essential\_variable\_count：3。
-構成・成分性・相違は第\ref{prop:q3-anil3}節及びその証明を参照する。
+構成は第\ref{prop:plane-conic-cubic-six}節、成分性は第\ref{prop:plane-conic-cubic-six}節、相違は第\ref{prop:plane-conic-cubic-six}節及びその証明を参照する。
 
 \paragraph{族81}\label{catalogue:R4_PLANE_TWO_LINES_CUBIC_NODE_TANGENT_FLEX_23}
 \path{R4_PLANE_TWO_LINES_CUBIC_NODE_TANGENT_FLEX_23}。
@@ -777,7 +826,7 @@ essential\_variable\_count：3。
 磁気項は任意二次式$R_2$の全六係数である。
 一般実退化因子は$H_{1}+H_{2}+D_{3,3}$。
 essential\_variable\_count：3。
-構成・成分性・相違は第\ref{prop:plane-two-lines-cubic-six}節及びその証明を参照する。
+構成は第\ref{prop:plane-two-lines-cubic-six}節、成分性は第\ref{prop:plane-two-lines-cubic-six}節、相違は第\ref{prop:plane-two-lines-cubic-six}節及びその証明を参照する。
 
 \paragraph{族82}\label{catalogue:R4_PLANE_TWO_LINES_CUBIC_CUSP_FLEX_TANGENT_23}
 \path{R4_PLANE_TWO_LINES_CUBIC_CUSP_FLEX_TANGENT_23}。
@@ -787,7 +836,7 @@ essential\_variable\_count：3。
 磁気項は任意二次式$R_2$の全六係数である。
 一般実退化因子は$H_{1}+H_{2}+D_{3,3}$。
 essential\_variable\_count：3。
-構成・成分性・相違は第\ref{prop:plane-two-lines-cubic-six}節及びその証明を参照する。
+構成は第\ref{prop:plane-two-lines-cubic-six}節、成分性は第\ref{prop:plane-two-lines-cubic-six}節、相違は第\ref{prop:plane-two-lines-cubic-six}節及びその証明を参照する。
 
 \paragraph{族83}\label{catalogue:R4_PLANE_TWO_LINES_CUBIC_CUSP_TWO_TANGENTS_INCIDENT_23}
 \path{R4_PLANE_TWO_LINES_CUBIC_CUSP_TWO_TANGENTS_INCIDENT_23}。
@@ -797,7 +846,7 @@ essential\_variable\_count：3。
 磁気項は任意二次式$R_2$の全六係数である。
 一般実退化因子は$H_{1}+H_{2}+D_{3,3}$。
 essential\_variable\_count：3。
-構成・成分性・相違は第\ref{prop:plane-two-lines-cubic-six}節及びその証明を参照する。
+構成は第\ref{prop:plane-two-lines-cubic-six}節、成分性は第\ref{prop:plane-two-lines-cubic-six}節、相違は第\ref{prop:plane-two-lines-cubic-six}節及びその証明を参照する。
 
 \paragraph{族84}\label{catalogue:R4_PLANE_TWO_LINES_CUBIC_CUSP_FLEX_CUSP_SECANT_23}
 \path{R4_PLANE_TWO_LINES_CUBIC_CUSP_FLEX_CUSP_SECANT_23}。
@@ -807,7 +856,7 @@ essential\_variable\_count：3。
 磁気項は任意二次式$R_2$の全六係数である。
 一般実退化因子は$H_{1}+H_{2}+D_{3,3}$。
 essential\_variable\_count：3。
-構成・成分性・相違は第\ref{prop:plane-two-lines-cubic-six}節及びその証明を参照する。
+構成は第\ref{prop:plane-two-lines-cubic-six}節、成分性は第\ref{prop:plane-two-lines-cubic-six}節、相違は第\ref{prop:plane-two-lines-cubic-six}節及びその証明を参照する。
 
 \paragraph{族85}\label{catalogue:R4_PLANE_TWO_LINES_CUBIC_CUSP_TANGENT_CUSP_SECANT_23}
 \path{R4_PLANE_TWO_LINES_CUBIC_CUSP_TANGENT_CUSP_SECANT_23}。
@@ -817,7 +866,7 @@ essential\_variable\_count：3。
 磁気項は任意二次式$R_2$の全六係数である。
 一般実退化因子は$H_{1}+H_{2}+D_{3,3}$。
 essential\_variable\_count：3。
-構成・成分性・相違は第\ref{prop:plane-two-lines-cubic-six}節及びその証明を参照する。
+構成は第\ref{prop:plane-two-lines-cubic-six}節、成分性は第\ref{prop:plane-two-lines-cubic-six}節、相違は第\ref{prop:plane-two-lines-cubic-six}節及びその証明を参照する。
 
 \paragraph{族86}\label{catalogue:R4_PLANE_TWO_LINES_CUBIC_CUSP_CUSP_TANGENT_ORDINARY_TANGENT_23}
 \path{R4_PLANE_TWO_LINES_CUBIC_CUSP_CUSP_TANGENT_ORDINARY_TANGENT_23}。
@@ -827,37 +876,37 @@ essential\_variable\_count：3。
 磁気項は任意二次式$R_2$の全六係数である。
 一般実退化因子は$H_{1}+H_{2}+D_{3,3}$。
 essential\_variable\_count：3。
-構成・成分性・相違は第\ref{prop:plane-two-lines-cubic-six}節及びその証明を参照する。
+構成は第\ref{prop:plane-two-lines-cubic-six}節、成分性は第\ref{prop:plane-two-lines-cubic-six}節、相違は第\ref{prop:plane-two-lines-cubic-six}節及びその証明を参照する。
 
 \paragraph{族87}\label{catalogue:R4_PLANE_TWO_LINES_CUBIC_NODE_TWO_FLEXES_23}
 \path{R4_PLANE_TWO_LINES_CUBIC_NODE_TWO_FLEXES_23}。
 射影次元$23$、一般階数$4$。
-一般族は命題又は構成\ref{prop:plane-two-lines-cubic-six}の全sourceを用いる。
+一般族は命題又は構成\ref{prop:plane-two-lines-cubic-three}の全sourceを用いる。
 枝 \path{source_case="node_two_flexes"}。
 磁気項は任意二次式$R_2$の全六係数である。
 一般実退化因子は$H_{1}+H_{2}+D_{3,3}$。
 essential\_variable\_count：3。
-構成・成分性・相違は第\ref{prop:plane-two-lines-cubic-six}節及びその証明を参照する。
+構成は第\ref{prop:plane-two-lines-cubic-three}節、成分性は第\ref{prop:plane-two-lines-cubic-three}節、相違は第\ref{prop:plane-two-lines-cubic-three}節及びその証明を参照する。
 
 \paragraph{族88}\label{catalogue:R4_PLANE_TWO_LINES_CUBIC_NODE_FLEX_SECANT_23}
 \path{R4_PLANE_TWO_LINES_CUBIC_NODE_FLEX_SECANT_23}。
 射影次元$23$、一般階数$4$。
-一般族は命題又は構成\ref{prop:plane-two-lines-cubic-six}の全sourceを用いる。
+一般族は命題又は構成\ref{prop:plane-two-lines-cubic-three}の全sourceを用いる。
 枝 \path{source_case="node_flex_secant"}。
 磁気項は任意二次式$R_2$の全六係数である。
 一般実退化因子は$H_{1}+H_{2}+D_{3,3}$。
 essential\_variable\_count：3。
-構成・成分性・相違は第\ref{prop:plane-two-lines-cubic-six}節及びその証明を参照する。
+構成は第\ref{prop:plane-two-lines-cubic-three}節、成分性は第\ref{prop:plane-two-lines-cubic-three}節、相違は第\ref{prop:plane-two-lines-cubic-three}節及びその証明を参照する。
 
 \paragraph{族89}\label{catalogue:R4_PLANE_TWO_LINES_CUBIC_CUSP_TANGENT_CUSP_THIRD_SECANT_23}
 \path{R4_PLANE_TWO_LINES_CUBIC_CUSP_TANGENT_CUSP_THIRD_SECANT_23}。
 射影次元$23$、一般階数$4$。
-一般族は命題又は構成\ref{prop:plane-two-lines-cubic-six}の全sourceを用いる。
+一般族は命題又は構成\ref{prop:plane-two-lines-cubic-three}の全sourceを用いる。
 枝 \path{source_case="cusp_tangent_cusp_third_secant"}。
 磁気項は任意二次式$R_2$の全六係数である。
 一般実退化因子は$H_{1}+H_{2}+D_{3,3}$。
 essential\_variable\_count：3。
-構成・成分性・相違は第\ref{prop:plane-two-lines-cubic-six}節及びその証明を参照する。
+構成は第\ref{prop:plane-two-lines-cubic-three}節、成分性は第\ref{prop:plane-two-lines-cubic-three}節、相違は第\ref{prop:plane-two-lines-cubic-three}節及びその証明を参照する。
 
 \paragraph{族90}\label{catalogue:R4_NIL4_HYPERPLANE_QUARTIC_22}
 \path{R4_NIL4_HYPERPLANE_QUARTIC_22}。
@@ -866,7 +915,7 @@ essential\_variable\_count：3。
 枝 \path{source_branch="nil4,c=0, normalized delta=-1/3,n1!=0"}。
 一般実退化因子は$H_{1}+D_{4,2}$。
 description：simple hyperplane and irreducible quartic。
-構成・成分性・相違は第\ref{prop:nil4-quartic-whole-first-source}節及びその証明を参照する。
+構成は第\ref{prop:nil4-quartic-whole-first-source}節、成分性は第\ref{prop:nil4-hyperplane-quartic-component}節、相違は第\ref{prop:nil4-quartic-distinctness}節及びその証明を参照する。
 
 \paragraph{族91}\label{catalogue:R4_PLANE_TWO_CONICS_BITANGENT_23}
 \path{R4_PLANE_TWO_CONICS_BITANGENT_23}。
@@ -876,7 +925,7 @@ description：simple hyperplane and irreducible quartic。
 磁気項は任意二次式$R_2$の全六係数である。
 一般実退化因子は$H_{1}+D_{2,2}+D_{2,3}$。
 description：line and two distinct irreducible plane conics, pulled back to P4。
-構成・成分性・相違は第\ref{prop:plane-two-conics-two-components}節及びその証明を参照する。
+構成は第\ref{prop:plane-two-conics-two-components}節、成分性は第\ref{prop:plane-two-conics-two-components}節、相違は第\ref{prop:plane-two-conics-two-components}節及びその証明を参照する。
 
 \paragraph{族92}\label{catalogue:R4_PLANE_TWO_CONICS_CONTACT4_TANGENT_23}
 \path{R4_PLANE_TWO_CONICS_CONTACT4_TANGENT_23}。
@@ -886,7 +935,7 @@ description：line and two distinct irreducible plane conics, pulled back to P4�
 磁気項は任意二次式$R_2$の全六係数である。
 一般実退化因子は$H_{1}+D_{2,2}+D_{2,3}$。
 description：line and two distinct irreducible plane conics, pulled back to P4。
-構成・成分性・相違は第\ref{prop:plane-two-conics-two-components}節及びその証明を参照する。
+構成は第\ref{prop:plane-two-conics-two-components}節、成分性は第\ref{prop:plane-two-conics-two-components}節、相違は第\ref{prop:plane-two-conics-two-components}節及びその証明を参照する。
 
 \paragraph{族93}\label{catalogue:R4_NIL31_IMAGE_HALF_25}
 \path{R4_NIL31_IMAGE_HALF_25}。
@@ -897,7 +946,7 @@ description：line and two distinct irreducible plane conics, pulled back to P4�
 \path{free_parameters}：["A0", "A1", "A2", "A3", "A4", "A5", "u", "v", "t", "p"]。
 一般実退化因子は$H_{1}^{2}+H_{2}^{3}$。
 description：Two distinct hyperplanes with multiplicities three and two。
-構成・成分性・相違は第\ref{prop:nil31-image-two-components}節及びその証明を参照する。
+構成は第\ref{prop:nil31-image-two-components}節、成分性は第\ref{prop:nil31-image-two-components}節、相違は第\ref{prop:nil31-image-two-components}節及びその証明を参照する。
 
 \paragraph{族94}\label{catalogue:R4_NIL31_IMAGE_THIRD_25}
 \path{R4_NIL31_IMAGE_THIRD_25}。
@@ -908,7 +957,7 @@ description：Two distinct hyperplanes with multiplicities three and two。
 \path{free_parameters}：["A0", "A1", "A2", "A3", "A4", "A5", "u", "v", "t", "q"]。
 一般実退化因子は$H_{1}^{3}+H_{2}^{2}$。
 description：Two distinct hyperplanes with multiplicities three and two。
-構成・成分性・相違は第\ref{prop:nil31-image-two-components}節及びその証明を参照する。
+構成は第\ref{prop:nil31-image-two-components}節、成分性は第\ref{prop:nil31-image-two-components}節、相違は第\ref{prop:nil31-image-two-components}節及びその証明を参照する。
 
 \paragraph{族95}\label{catalogue:R4_NIL22_IMAGE_NODAL_CUBIC_FLEX_23}
 \path{R4_NIL22_IMAGE_NODAL_CUBIC_FLEX_23}。
@@ -918,7 +967,7 @@ description：Two distinct hyperplanes with multiplicities three and two。
 磁気項は任意二次式$R_2$の全六係数である。
 一般実退化因子は$H_{1}^{2}+D_{3,2}$。
 description：Unique double hyperplane plus irreducible nodal cubic cone。
-構成・成分性・相違は第\ref{prop:nil22-image-two-components}節及びその証明を参照する。
+構成は第\ref{prop:nil22-image-two-components}節、成分性は第\ref{prop:nil22-image-two-components}節、相違は第\ref{prop:nil22-image-two-components}節及びその証明を参照する。
 
 \paragraph{族96}\label{catalogue:R4_NIL22_IMAGE_NODAL_CUBIC_NODE_TANGENT_23}
 \path{R4_NIL22_IMAGE_NODAL_CUBIC_NODE_TANGENT_23}。
@@ -928,7 +977,7 @@ description：Unique double hyperplane plus irreducible nodal cubic cone。
 磁気項は任意二次式$R_2$の全六係数である。
 一般実退化因子は$H_{1}^{2}+D_{3,2}$。
 description：Unique double hyperplane plus irreducible nodal cubic cone。
-構成・成分性・相違は第\ref{prop:nil22-image-two-components}節及びその証明を参照する。
+構成は第\ref{prop:nil22-image-two-components}節、成分性は第\ref{prop:nil22-image-two-components}節、相違は第\ref{prop:nil22-image-two-components}節及びその証明を参照する。
 
 \paragraph{族97}\label{catalogue:R4_NIL31_LONG_HYPERPLANE_QUARTIC_22}
 \path{R4_NIL31_LONG_HYPERPLANE_QUARTIC_22}。
@@ -938,7 +987,7 @@ description：Unique double hyperplane plus irreducible nodal cubic cone。
 \path{free_parameters}：["a", "n3", "n4", "n8", "n12"]。
 一般実退化因子は$H_{1}+D_{4,2}$。
 description：Unique simple hyperplane and irreducible binary-cubic discriminant quartic。
-構成・成分性・相違は第\ref{prop:nil31-long-quartic-component}節及びその証明を参照する。
+構成は第\ref{prop:nil31-long-quartic-component}節、成分性は第\ref{prop:nil31-long-quartic-component}節、相違は第\ref{prop:nil31-long-quartic-component}節及びその証明を参照する。
 
 \paragraph{族98}\label{catalogue:R4_GA9_CONSTANT_HYPERPLANE_QUARTIC_23}
 \path{R4_GA9_CONSTANT_HYPERPLANE_QUARTIC_23}。
@@ -948,7 +997,7 @@ description：Unique simple hyperplane and irreducible binary-cubic discriminant
 \path{free_parameters}：["r", "b", "alpha", "p", "q", "A", "D", "G", "H", "k"]。
 一般実退化因子は$H_{1}+D_{4,2}$。
 description：Unique simple hyperplane and absolutely irreducible quartic; quintic vanishes to order at least three on a plane。
-構成・成分性・相違は第\ref{prop:ga9-constant-component}節及びその証明を参照する。
+構成は第\ref{prop:ga9-constant-component}節、成分性は第\ref{prop:ga9-constant-component}節、相違は第\ref{prop:ga9-constant-component}節及びその証明を参照する。
 
 \paragraph{族99}\label{catalogue:R4_GA9_DISTINCT_IRREDUCIBLE_QUINTIC_23}
 \path{R4_GA9_DISTINCT_IRREDUCIBLE_QUINTIC_23}。
@@ -956,7 +1005,7 @@ description：Unique simple hyperplane and absolutely irreducible quartic; quint
 一般族は命題又は構成\ref{prop:Ga9-distinct-quintic-component}の全sourceを用いる。
 一般実退化因子は$D_{5,1}$。
 description：Absolutely irreducible reduced nonnormal quintic with two singular planes, generic multiplicities3 and2。
-構成・成分性・相違は第\ref{prop:Ga9-distinct-quintic-component}節及びその証明を参照する。
+構成は第\ref{prop:Ga9-distinct-quintic-component}節、成分性は第\ref{prop:Ga9-distinct-quintic-component}節、相違は第\ref{prop:Ga9-distinct-quintic-component}節及びその証明を参照する。
 
 \paragraph{族100}\label{catalogue:R4_NIL22_LONG_HYPERPLANE_QUARTIC_CUBIC_22}
 \path{R4_NIL22_LONG_HYPERPLANE_QUARTIC_CUBIC_22}。
@@ -965,7 +1014,7 @@ description：Absolutely irreducible reduced nonnormal quintic with two singular
 枝 \path{source_index=3}。
 一般実退化因子は$H_{1}+D_{4,2}$。
 description：Simple hyperplane plus absolutely irreducible quartic。
-構成・成分性・相違は第\ref{prop:nil22-long-two-components}節及びその証明を参照する。
+構成は第\ref{prop:nil22-long-two-components}節、成分性は第\ref{prop:nil22-long-two-components}節、相違は第\ref{prop:nil22-long-two-components}節及びその証明を参照する。
 
 \paragraph{族101}\label{catalogue:R4_NIL22_LONG_HYPERPLANE_QUARTIC_QUADRATIC_22}
 \path{R4_NIL22_LONG_HYPERPLANE_QUARTIC_QUADRATIC_22}。
@@ -974,7 +1023,7 @@ description：Simple hyperplane plus absolutely irreducible quartic。
 枝 \path{source_index=4}。
 一般実退化因子は$H_{1}+D_{4,2}$。
 description：Simple hyperplane plus absolutely irreducible quartic。
-構成・成分性・相違は第\ref{prop:nil22-long-two-components}節及びその証明を参照する。
+構成は第\ref{prop:nil22-long-two-components}節、成分性は第\ref{prop:nil22-long-two-components}節、相違は第\ref{prop:nil22-long-two-components}節及びその証明を参照する。
 
 \paragraph{族102}\label{catalogue:R4_NIL22_LONG_IRREDUCIBLE_QUINTIC_23}
 \path{R4_NIL22_LONG_IRREDUCIBLE_QUINTIC_23}。
@@ -982,7 +1031,7 @@ description：Simple hyperplane plus absolutely irreducible quartic。
 一般族は命題又は構成\ref{prop:nil22-long-five-curves}の全sourceを用いる。
 一般実退化因子は$D_{5,1}$。
 description：Absolutely irreducible reduced nonnormal quintic with three singular planes。
-構成・成分性・相違は第\ref{prop:nil22-long-five-curves}節及びその証明を参照する。
+構成は第\ref{prop:nil22-long-five-curves}節、成分性は第\ref{prop:nil22-long-five-curves}節、相違は第\ref{prop:nil22-long-five-curves}節及びその証明を参照する。
 
 \paragraph{族103}\label{catalogue:R4_GA9_CUSPIDAL_PLANE_QUARTIC_24}
 \path{R4_GA9_CUSPIDAL_PLANE_QUARTIC_24}。
@@ -993,7 +1042,7 @@ description：Absolutely irreducible reduced nonnormal quintic with three singul
 一般実退化因子は$H_{1}+D_{4,2}$。
 essential\_variable\_count：3。
 description：Simple H and absolutely irreducible rational plane quartic with A3 tacnode and A2 cusp; H is the common tacnode tangent with total contact4。
-構成・成分性・相違は第\ref{prop:Ga9-cuspidal-quartic-component}節及びその証明を参照する。
+構成は第\ref{prop:Ga9-cuspidal-quartic-component}節、成分性は第\ref{prop:Ga9-cuspidal-quartic-component}節、相違は第\ref{prop:Ga9-cuspidal-quartic-component}節及びその証明を参照する。
 
 \paragraph{族104}\label{catalogue:R4_PLANE_UNICUSPIDAL_QUINTIC_45_23}
 \path{R4_PLANE_UNICUSPIDAL_QUINTIC_45_23}。
@@ -1003,7 +1052,7 @@ description：Simple H and absolutely irreducible rational plane quartic with A3
 一般実退化因子は$D_{5,1}$。
 essential\_variable\_count：3。
 description：Absolutely irreducible essential-three plane quintic with a unique weighted homogeneous (4,5) cusp, totalMilnor=Tjurina12。
-構成・成分性・相違は第\ref{prop:plane-unicuspidal-quintic-45-component}節及びその証明を参照する。
+構成は第\ref{prop:plane-unicuspidal-quintic-45-component}節、成分性は第\ref{prop:plane-unicuspidal-quintic-45-component}節、相違は第\ref{prop:plane-unicuspidal-quintic-45-component}節及びその証明を参照する。
 
 \paragraph{族105}\label{catalogue:R4_PLANE_QUINTIC_A12_23}
 \path{R4_PLANE_QUINTIC_A12_23}。
@@ -1013,7 +1062,7 @@ description：Absolutely irreducible essential-three plane quintic with a unique
 一般実退化因子は$D_{5,1}$。
 essential\_variable\_count：3。
 description：Absolutely irreducible essential-three rational cuspidal quintic; configuration A12。
-構成・成分性・相違は第\ref{prop:essential-three-eight-components}節及びその証明を参照する。
+構成は第\ref{prop:essential-three-eight-components}節、成分性は第\ref{prop:essential-three-eight-components}節、相違は第\ref{prop:essential-three-eight-components}節及びその証明を参照する。
 
 \paragraph{族106}\label{catalogue:R4_PLANE_QUINTIC_E8_A4_23}
 \path{R4_PLANE_QUINTIC_E8_A4_23}。
@@ -1023,7 +1072,7 @@ description：Absolutely irreducible essential-three rational cuspidal quintic; 
 一般実退化因子は$D_{5,1}$。
 essential\_variable\_count：3。
 description：Absolutely irreducible essential-three rational cuspidal quintic; configuration E8+A4。
-構成・成分性・相違は第\ref{prop:essential-three-eight-components}節及びその証明を参照する。
+構成は第\ref{prop:essential-three-eight-components}節、成分性は第\ref{prop:essential-three-eight-components}節、相違は第\ref{prop:essential-three-eight-components}節及びその証明を参照する。
 
 \paragraph{族107}\label{catalogue:R4_PLANE_QUINTIC_E6_A6_23}
 \path{R4_PLANE_QUINTIC_E6_A6_23}。
@@ -1033,7 +1082,7 @@ description：Absolutely irreducible essential-three rational cuspidal quintic; 
 一般実退化因子は$D_{5,1}$。
 essential\_variable\_count：3。
 description：Absolutely irreducible essential-three rational cuspidal quintic; configuration E6+A6。
-構成・成分性・相違は第\ref{prop:essential-three-eight-components}節及びその証明を参照する。
+構成は第\ref{prop:essential-three-eight-components}節、成分性は第\ref{prop:essential-three-eight-components}節、相違は第\ref{prop:essential-three-eight-components}節及びその証明を参照する。
 
 \paragraph{族108}\label{catalogue:R4_PLANE_QUINTIC_E6_A4_A2_23}
 \path{R4_PLANE_QUINTIC_E6_A4_A2_23}。
@@ -1043,7 +1092,7 @@ description：Absolutely irreducible essential-three rational cuspidal quintic; 
 一般実退化因子は$D_{5,1}$。
 essential\_variable\_count：3。
 description：Absolutely irreducible essential-three rational cuspidal quintic; configuration E6+A4+A2。
-構成・成分性・相違は第\ref{prop:essential-three-eight-components}節及びその証明を参照する。
+構成は第\ref{prop:essential-three-eight-components}節、成分性は第\ref{prop:essential-three-eight-components}節、相違は第\ref{prop:essential-three-eight-components}節及びその証明を参照する。
 
 \paragraph{族109}\label{catalogue:R4_PLANE_QUINTIC_A8_A4_23}
 \path{R4_PLANE_QUINTIC_A8_A4_23}。
@@ -1053,7 +1102,7 @@ description：Absolutely irreducible essential-three rational cuspidal quintic; 
 一般実退化因子は$D_{5,1}$。
 essential\_variable\_count：3。
 description：Absolutely irreducible essential-three rational cuspidal quintic; configuration A8+A4。
-構成・成分性・相違は第\ref{prop:essential-three-eight-components}節及びその証明を参照する。
+構成は第\ref{prop:essential-three-eight-components}節、成分性は第\ref{prop:essential-three-eight-components}節、相違は第\ref{prop:essential-three-eight-components}節及びその証明を参照する。
 
 \paragraph{族110}\label{catalogue:R4_PLANE_QUINTIC_THREE_A4_23}
 \path{R4_PLANE_QUINTIC_THREE_A4_23}。
@@ -1063,7 +1112,7 @@ description：Absolutely irreducible essential-three rational cuspidal quintic; 
 一般実退化因子は$D_{5,1}$。
 essential\_variable\_count：3。
 description：Absolutely irreducible essential-three rational cuspidal quintic; configuration 3A4。
-構成・成分性・相違は第\ref{prop:essential-three-eight-components}節及びその証明を参照する。
+構成は第\ref{prop:essential-three-eight-components}節、成分性は第\ref{prop:essential-three-eight-components}節、相違は第\ref{prop:essential-three-eight-components}節及びその証明を参照する。
 
 \paragraph{族111}\label{catalogue:R4_PLANE_QUINTIC_A6_THREE_A2_23}
 \path{R4_PLANE_QUINTIC_A6_THREE_A2_23}。
@@ -1073,7 +1122,7 @@ description：Absolutely irreducible essential-three rational cuspidal quintic; 
 一般実退化因子は$D_{5,1}$。
 essential\_variable\_count：3。
 description：Absolutely irreducible essential-three rational cuspidal quintic; configuration A6+3A2。
-構成・成分性・相違は第\ref{prop:essential-three-eight-components}節及びその証明を参照する。
+構成は第\ref{prop:essential-three-eight-components}節、成分性は第\ref{prop:essential-three-eight-components}節、相違は第\ref{prop:essential-three-eight-components}節及びその証明を参照する。
 
 \paragraph{族112}\label{catalogue:R4_MARKED_QUARTIC_MU6_A6_CUSP_SECANT_BITANGENT_23}
 \path{R4_MARKED_QUARTIC_MU6_A6_CUSP_SECANT_BITANGENT_23}。
@@ -1083,7 +1132,7 @@ description：Absolutely irreducible essential-three rational cuspidal quintic; 
 一般実退化因子は$H_{1}+D_{4,2}$。
 essential\_variable\_count：3。
 description：Simple unique H plus absolutely irreducible rational essential-three plane quartic, marked case A6\_cusp\_secant\_bitangent。
-構成・成分性・相違は第\ref{prop:marked-quartic-mu6-nine-components}節及びその証明を参照する。
+構成は第\ref{prop:marked-quartic-mu6-nine-components}節、成分性は第\ref{prop:marked-quartic-mu6-nine-components}節、相違は第\ref{prop:marked-quartic-mu6-nine-components}節及びその証明を参照する。
 
 \paragraph{族113}\label{catalogue:R4_MARKED_QUARTIC_MU6_A6_SMOOTH_FLEX_23}
 \path{R4_MARKED_QUARTIC_MU6_A6_SMOOTH_FLEX_23}。
@@ -1093,7 +1142,7 @@ description：Simple unique H plus absolutely irreducible rational essential-thr
 一般実退化因子は$H_{1}+D_{4,2}$。
 essential\_variable\_count：3。
 description：Simple unique H plus absolutely irreducible rational essential-three plane quartic, marked case A6\_smooth\_flex。
-構成・成分性・相違は第\ref{prop:marked-quartic-mu6-nine-components}節及びその証明を参照する。
+構成は第\ref{prop:marked-quartic-mu6-nine-components}節、成分性は第\ref{prop:marked-quartic-mu6-nine-components}節、相違は第\ref{prop:marked-quartic-mu6-nine-components}節及びその証明を参照する。
 
 \paragraph{族114}\label{catalogue:R4_MARKED_QUARTIC_MU6_A4A2_CUSPS_JOIN_23}
 \path{R4_MARKED_QUARTIC_MU6_A4A2_CUSPS_JOIN_23}。
@@ -1103,7 +1152,7 @@ description：Simple unique H plus absolutely irreducible rational essential-thr
 一般実退化因子は$H_{1}+D_{4,2}$。
 essential\_variable\_count：3。
 description：Simple unique H plus absolutely irreducible rational essential-three plane quartic, marked case A4A2\_cusps\_join。
-構成・成分性・相違は第\ref{prop:marked-quartic-mu6-nine-components}節及びその証明を参照する。
+構成は第\ref{prop:marked-quartic-mu6-nine-components}節、成分性は第\ref{prop:marked-quartic-mu6-nine-components}節、相違は第\ref{prop:marked-quartic-mu6-nine-components}節及びその証明を参照する。
 
 \paragraph{族115}\label{catalogue:R4_MARKED_QUARTIC_MU6_A4A2_A2_TANGENT_23}
 \path{R4_MARKED_QUARTIC_MU6_A4A2_A2_TANGENT_23}。
@@ -1113,7 +1162,7 @@ description：Simple unique H plus absolutely irreducible rational essential-thr
 一般実退化因子は$H_{1}+D_{4,2}$。
 essential\_variable\_count：3。
 description：Simple unique H plus absolutely irreducible rational essential-three plane quartic, marked case A4A2\_A2\_tangent。
-構成・成分性・相違は第\ref{prop:marked-quartic-mu6-nine-components}節及びその証明を参照する。
+構成は第\ref{prop:marked-quartic-mu6-nine-components}節、成分性は第\ref{prop:marked-quartic-mu6-nine-components}節、相違は第\ref{prop:marked-quartic-mu6-nine-components}節及びその証明を参照する。
 
 \paragraph{族116}\label{catalogue:R4_MARKED_QUARTIC_MU6_A4A2_A2_SECANT_SMOOTH_TANGENT_23}
 \path{R4_MARKED_QUARTIC_MU6_A4A2_A2_SECANT_SMOOTH_TANGENT_23}。
@@ -1123,7 +1172,7 @@ description：Simple unique H plus absolutely irreducible rational essential-thr
 一般実退化因子は$H_{1}+D_{4,2}$。
 essential\_variable\_count：3。
 description：Simple unique H plus absolutely irreducible rational essential-three plane quartic, marked case A4A2\_A2\_secant\_smooth\_tangent。
-構成・成分性・相違は第\ref{prop:marked-quartic-mu6-nine-components}節及びその証明を参照する。
+構成は第\ref{prop:marked-quartic-mu6-nine-components}節、成分性は第\ref{prop:marked-quartic-mu6-nine-components}節、相違は第\ref{prop:marked-quartic-mu6-nine-components}節及びその証明を参照する。
 
 \paragraph{族117}\label{catalogue:R4_MARKED_QUARTIC_MU6_A4A2_SMOOTH_FLEX_23}
 \path{R4_MARKED_QUARTIC_MU6_A4A2_SMOOTH_FLEX_23}。
@@ -1133,7 +1182,7 @@ description：Simple unique H plus absolutely irreducible rational essential-thr
 一般実退化因子は$H_{1}+D_{4,2}$。
 essential\_variable\_count：3。
 description：Simple unique H plus absolutely irreducible rational essential-three plane quartic, marked case A4A2\_smooth\_flex。
-構成・成分性・相違は第\ref{prop:marked-quartic-mu6-nine-components}節及びその証明を参照する。
+構成は第\ref{prop:marked-quartic-mu6-nine-components}節、成分性は第\ref{prop:marked-quartic-mu6-nine-components}節、相違は第\ref{prop:marked-quartic-mu6-nine-components}節及びその証明を参照する。
 
 \paragraph{族118}\label{catalogue:R4_MARKED_QUARTIC_MU6_THREEA2_CUSPS_JOIN_23}
 \path{R4_MARKED_QUARTIC_MU6_THREEA2_CUSPS_JOIN_23}。
@@ -1143,7 +1192,7 @@ description：Simple unique H plus absolutely irreducible rational essential-thr
 一般実退化因子は$H_{1}+D_{4,2}$。
 essential\_variable\_count：3。
 description：Simple unique H plus absolutely irreducible rational essential-three plane quartic, marked case threeA2\_cusps\_join。
-構成・成分性・相違は第\ref{prop:marked-quartic-mu6-nine-components}節及びその証明を参照する。
+構成は第\ref{prop:marked-quartic-mu6-nine-components}節、成分性は第\ref{prop:marked-quartic-mu6-nine-components}節、相違は第\ref{prop:marked-quartic-mu6-nine-components}節及びその証明を参照する。
 
 \paragraph{族119}\label{catalogue:R4_MARKED_QUARTIC_MU6_THREEA2_SMOOTH_BITANGENT_23}
 \path{R4_MARKED_QUARTIC_MU6_THREEA2_SMOOTH_BITANGENT_23}。
@@ -1153,7 +1202,7 @@ description：Simple unique H plus absolutely irreducible rational essential-thr
 一般実退化因子は$H_{1}+D_{4,2}$。
 essential\_variable\_count：3。
 description：Simple unique H plus absolutely irreducible rational essential-three plane quartic, marked case threeA2\_smooth\_bitangent。
-構成・成分性・相違は第\ref{prop:marked-quartic-mu6-nine-components}節及びその証明を参照する。
+構成は第\ref{prop:marked-quartic-mu6-nine-components}節、成分性は第\ref{prop:marked-quartic-mu6-nine-components}節、相違は第\ref{prop:marked-quartic-mu6-nine-components}節及びその証明を参照する。
 
 \paragraph{族120}\label{catalogue:R4_MARKED_QUARTIC_MU6_E6_SMOOTH_BITANGENT_23}
 \path{R4_MARKED_QUARTIC_MU6_E6_SMOOTH_BITANGENT_23}。
@@ -1163,7 +1212,7 @@ description：Simple unique H plus absolutely irreducible rational essential-thr
 一般実退化因子は$H_{1}+D_{4,2}$。
 essential\_variable\_count：3。
 description：Simple unique H plus absolutely irreducible rational essential-three plane quartic, marked case E6\_smooth\_bitangent。
-構成・成分性・相違は第\ref{prop:marked-quartic-mu6-nine-components}節及びその証明を参照する。
+構成は第\ref{prop:marked-quartic-mu6-nine-components}節、成分性は第\ref{prop:marked-quartic-mu6-nine-components}節、相違は第\ref{prop:marked-quartic-mu6-nine-components}節及びその証明を参照する。
 
 \paragraph{族121}\label{catalogue:R4_MARKED_QUARTIC_MU5_A4A1_NODE_INFLEXION_23}
 \path{R4_MARKED_QUARTIC_MU5_A4A1_NODE_INFLEXION_23}。
@@ -1173,7 +1222,7 @@ description：Simple unique H plus absolutely irreducible rational essential-thr
 一般実退化因子は$H_{1}+D_{4,2}$。
 essential\_variable\_count：3。
 description：Simple unique H plus absolutely irreducible rational essential-three plane quartic, marked case A4A1\_node\_inflexion。
-構成・成分性・相違は第\ref{prop:marked-quartic-mu5-whole-list}節及びその証明を参照する。
+構成は第\ref{prop:marked-quartic-mu5-whole-list}節、成分性は第\ref{prop:marked-quartic-mu5-four-components}節、相違は第\ref{prop:marked-quartic-mu5-four-components}節及びその証明を参照する。
 
 \paragraph{族122}\label{catalogue:R4_MARKED_QUARTIC_MU5_A4A1_SMOOTH_HYPERFLEX_23}
 \path{R4_MARKED_QUARTIC_MU5_A4A1_SMOOTH_HYPERFLEX_23}。
@@ -1183,7 +1232,7 @@ description：Simple unique H plus absolutely irreducible rational essential-thr
 一般実退化因子は$H_{1}+D_{4,2}$。
 essential\_variable\_count：3。
 description：Simple unique H plus absolutely irreducible rational essential-three plane quartic, marked case A4A1\_smooth\_hyperflex。
-構成・成分性・相違は第\ref{prop:marked-quartic-mu5-whole-list}節及びその証明を参照する。
+構成は第\ref{prop:marked-quartic-mu5-whole-list}節、成分性は第\ref{prop:marked-quartic-mu5-four-components}節、相違は第\ref{prop:marked-quartic-mu5-four-components}節及びその証明を参照する。
 
 \paragraph{族123}\label{catalogue:R4_MARKED_QUARTIC_MU5_D5_SMOOTH_HYPERFLEX_23}
 \path{R4_MARKED_QUARTIC_MU5_D5_SMOOTH_HYPERFLEX_23}。
@@ -1193,7 +1242,7 @@ description：Simple unique H plus absolutely irreducible rational essential-thr
 一般実退化因子は$H_{1}+D_{4,2}$。
 essential\_variable\_count：3。
 description：Simple unique H plus absolutely irreducible rational essential-three plane quartic, marked case D5\_smooth\_hyperflex。
-構成・成分性・相違は第\ref{prop:marked-quartic-mu5-whole-list}節及びその証明を参照する。
+構成は第\ref{prop:marked-quartic-mu5-whole-list}節、成分性は第\ref{prop:marked-quartic-mu5-four-components}節、相違は第\ref{prop:marked-quartic-mu5-four-components}節及びその証明を参照する。
 
 \paragraph{族124}\label{catalogue:R4_MARKED_QUARTIC_MU5_TWOA2A1_SMOOTH_HYPERFLEX_23}
 \path{R4_MARKED_QUARTIC_MU5_TWOA2A1_SMOOTH_HYPERFLEX_23}。
@@ -1203,7 +1252,7 @@ description：Simple unique H plus absolutely irreducible rational essential-thr
 一般実退化因子は$H_{1}+D_{4,2}$。
 essential\_variable\_count：3。
 description：Simple unique H plus absolutely irreducible rational essential-three plane quartic, marked case twoA2A1\_smooth\_hyperflex。
-構成・成分性・相違は第\ref{prop:marked-quartic-mu5-whole-list}節及びその証明を参照する。
+構成は第\ref{prop:marked-quartic-mu5-whole-list}節、成分性は第\ref{prop:marked-quartic-mu5-four-components}節、相違は第\ref{prop:marked-quartic-mu5-four-components}節及びその証明を参照する。
 
 \paragraph{族125}\label{catalogue:R4_MARKED_QUARTIC_MU6_E6_SMOOTH_FLEX_23}
 \path{R4_MARKED_QUARTIC_MU6_E6_SMOOTH_FLEX_23}。
@@ -1213,7 +1262,7 @@ description：Simple unique H plus absolutely irreducible rational essential-thr
 一般実退化因子は$H_{1}+D_{4,2}$。
 essential\_variable\_count：3。
 description：Simple unique H plus absolutely irreducible rational essential-three quartic, marked case E6\_smooth\_flex。
-構成・成分性・相違は第\ref{prop:marked-quartic-two-normal-components}節及びその証明を参照する。
+構成は第\ref{prop:marked-quartic-two-normal-components}節、成分性は第\ref{prop:marked-quartic-two-normal-components}節、相違は第\ref{prop:marked-quartic-two-normal-components}節及びその証明を参照する。
 
 \paragraph{族126}\label{catalogue:R4_MARKED_QUARTIC_MU5_A5_SMOOTH_HYPERFLEX_23}
 \path{R4_MARKED_QUARTIC_MU5_A5_SMOOTH_HYPERFLEX_23}。
@@ -1223,7 +1272,7 @@ description：Simple unique H plus absolutely irreducible rational essential-thr
 一般実退化因子は$H_{1}+D_{4,2}$。
 essential\_variable\_count：3。
 description：Simple unique H plus absolutely irreducible rational essential-three quartic, marked case A5\_smooth\_hyperflex。
-構成・成分性・相違は第\ref{prop:marked-quartic-two-normal-components}節及びその証明を参照する。
+構成は第\ref{prop:marked-quartic-two-normal-components}節、成分性は第\ref{prop:marked-quartic-two-normal-components}節、相違は第\ref{prop:marked-quartic-two-normal-components}節及びその証明を参照する。
 
 \paragraph{族127}\label{catalogue:R4_PLANE_DOUBLE_LINE_CUBIC_M3_TRIPLE_4_21_23}
 \path{R4_PLANE_DOUBLE_LINE_CUBIC_M3_TRIPLE_4_21_23}。
@@ -1234,7 +1283,7 @@ description：Simple unique H plus absolutely irreducible rational essential-thr
 一般実退化因子は$D_{5,1}$。
 essential\_variable\_count：5。
 description：Absolutely irreducible essential-five quintic; unique ranktwo singular plane with normalorderthree and two intrinsic multiplicity-four jump lines。
-構成・成分性・相違は第\ref{prop:triple-two-weak-wall-components}節及びその証明を参照する。
+構成は第\ref{prop:triple-two-weak-wall-components}節、成分性は第\ref{prop:triple-two-weak-wall-components}節、相違は第\ref{prop:triple-two-weak-wall-components}節及びその証明を参照する。
 
 \paragraph{族128}\label{catalogue:R4_PLANE_DOUBLE_LINE_CUBIC_M3_TRIPLE_1_12_23}
 \path{R4_PLANE_DOUBLE_LINE_CUBIC_M3_TRIPLE_1_12_23}。
@@ -1245,7 +1294,7 @@ description：Absolutely irreducible essential-five quintic; unique ranktwo sing
 一般実退化因子は$D_{5,1}$。
 essential\_variable\_count：5。
 description：Absolutely irreducible essential-five quintic; unique ranktwo singular plane with normalorderthree and two intrinsic multiplicity-four jump lines。
-構成・成分性・相違は第\ref{prop:triple-two-weak-wall-components}節及びその証明を参照する。
+構成は第\ref{prop:triple-two-weak-wall-components}節、成分性は第\ref{prop:triple-two-weak-wall-components}節、相違は第\ref{prop:triple-two-weak-wall-components}節及びその証明を参照する。
 
 \paragraph{族129}\label{catalogue:R4_PLANE_DOUBLE_LINE_CUBIC_M3_MOVING_SIMPLE_2_15_23}
 \path{R4_PLANE_DOUBLE_LINE_CUBIC_M3_MOVING_SIMPLE_2_15_23}。
@@ -1255,7 +1304,7 @@ description：Absolutely irreducible essential-five quintic; unique ranktwo sing
 一般実退化因子は$D_{5,1}$。
 essential\_variable\_count：5。
 description：Absolutely irreducible essentialfive quintic; unique ranktwo singularplane, normalorderthree with binaryrootpartition21.。
-構成・成分性・相違は第\ref{prop:moving-simple-HA-new-component}節及びその証明を参照する。
+構成は第\ref{prop:moving-simple-HA-new-component}節、成分性は第\ref{prop:moving-simple-HA-new-component}節、相違は第\ref{prop:moving-simple-HA-new-component}節及びその証明を参照する。
 
 \paragraph{族130}\label{catalogue:R4_MODULAR_RANK1_LONG_NONCONSTANT_25}
 \path{R4_MODULAR_RANK1_LONG_NONCONSTANT_25}。
@@ -1265,7 +1314,7 @@ description：Absolutely irreducible essentialfive quintic; unique ranktwo singu
 一般実退化因子は$H_{1}^{2}+H_{2}+D_{2,3}$。
 essential\_variable\_count：5。
 description：2H+L+Q: unique double hyperplane H tangent to smooth rank-five Q at p, with distinct simple L through p and generically not tangent to Q.。
-構成・成分性・相違は第\ref{prop:rankone-long-nonconstant-25}節及びその証明を参照する。
+構成は第\ref{prop:rankone-long-nonconstant-25}節、成分性は第\ref{prop:rankone-long-nonconstant-25}節、相違は第\ref{prop:rankone-long-nonconstant-25}節及びその証明を参照する。
 
 \paragraph{族131}\label{catalogue:R4_MODULAR_RANK1_LONG_CONST_MU1_25}
 \path{R4_MODULAR_RANK1_LONG_CONST_MU1_25}。
@@ -1274,7 +1323,7 @@ description：2H+L+Q: unique double hyperplane H tangent to smooth rank-five Q a
 一般実退化因子は$H_{1}^{2}+D_{3,2}$。
 essential\_variable\_count：5。
 description：2H+absolute irreducible cubic C; C is generically essential five.。
-構成・成分性・相違は第\ref{prop:rankone-three-resonant-25}節及びその証明を参照する。
+構成は第\ref{prop:rankone-three-resonant-25}節、成分性は第\ref{prop:rankone-three-resonant-25}節、相違は第\ref{prop:rankone-three-resonant-25}節及びその証明を参照する。
 
 \paragraph{族132}\label{catalogue:R4_MODULAR_RANK1_LONG_CONST_MU13_25}
 \path{R4_MODULAR_RANK1_LONG_CONST_MU13_25}。
@@ -1283,7 +1332,7 @@ description：2H+absolute irreducible cubic C; C is generically essential five.�
 一般実退化因子は$H_{1}^{2}+D_{3,2}$。
 essential\_variable\_count：5。
 description：2H+absolute irreducible cubic C; C is generically essential five.。
-構成・成分性・相違は第\ref{prop:rankone-three-resonant-25}節及びその証明を参照する。
+構成は第\ref{prop:rankone-three-resonant-25}節、成分性は第\ref{prop:rankone-three-resonant-25}節、相違は第\ref{prop:rankone-three-resonant-25}節及びその証明を参照する。
 
 \paragraph{族133}\label{catalogue:R4_MODULAR_RANK1_LONG_ZERO_SCALAR_CUBIC_25}
 \path{R4_MODULAR_RANK1_LONG_ZERO_SCALAR_CUBIC_25}。
@@ -1292,7 +1341,7 @@ description：2H+absolute irreducible cubic C; C is generically essential five.�
 一般実退化因子は$H_{1}^{2}+H_{2}+H_{3}+H_{4}$。
 essential\_variable\_count：3。
 description：2H+three distinct simple hyperplanes; simple three covectors span two, adding H gives span three.。
-構成・成分性・相違は第\ref{prop:rankone-three-resonant-25}節及びその証明を参照する。
+構成は第\ref{prop:rankone-three-resonant-25}節、成分性は第\ref{prop:rankone-three-resonant-25}節、相違は第\ref{prop:rankone-three-resonant-25}節及びその証明を参照する。
 
 \paragraph{族134}\label{catalogue:R4_MODULAR_RANK1_GZERO_BINOMIAL_B2_25}
 \path{R4_MODULAR_RANK1_GZERO_BINOMIAL_B2_25}。
@@ -1302,7 +1351,7 @@ description：2H+three distinct simple hyperplanes; simple three covectors span 
 一般実退化因子は$H_{1}^{2}+D_{3,2}$。
 essential\_variable\_count：3。
 description：2H+C, C absolutely irreducible essential-three cubic; unique singular plane of C is contained in H.。
-構成・成分性・相違は第\ref{prop:rankone-gzero-seven-components}節及びその証明を参照する。
+構成は第\ref{prop:rankone-gzero-seven-components}節、成分性は第\ref{prop:rankone-gzero-seven-components}節、相違は第\ref{prop:rankone-gzero-seven-components}節及びその証明を参照する。
 
 \paragraph{族135}\label{catalogue:R4_MODULAR_RANK1_GZERO_BINOMIAL_B4_25}
 \path{R4_MODULAR_RANK1_GZERO_BINOMIAL_B4_25}。
@@ -1312,7 +1361,7 @@ description：2H+C, C absolutely irreducible essential-three cubic; unique singu
 一般実退化因子は$H_{1}^{2}+H_{2}+D_{2,3}$。
 essential\_variable\_count：3。
 description：2H+L+Q, Q rank3, restriction ranks (Q|H,Q|L)=(1,2).。
-構成・成分性・相違は第\ref{prop:rankone-gzero-seven-components}節及びその証明を参照する。
+構成は第\ref{prop:rankone-gzero-seven-components}節、成分性は第\ref{prop:rankone-gzero-seven-components}節、相違は第\ref{prop:rankone-gzero-seven-components}節及びその証明を参照する。
 
 \paragraph{族136}\label{catalogue:R4_MODULAR_RANK1_GZERO_BINOMIAL_B5_25}
 \path{R4_MODULAR_RANK1_GZERO_BINOMIAL_B5_25}。
@@ -1322,7 +1371,7 @@ description：2H+L+Q, Q rank3, restriction ranks (Q|H,Q|L)=(1,2).。
 一般実退化因子は$H_{1}^{2}+D_{3,2}$。
 essential\_variable\_count：3。
 description：2H+C, C absolutely irreducible essential-three cubic; unique singular plane of C is not contained in H.。
-構成・成分性・相違は第\ref{prop:rankone-gzero-seven-components}節及びその証明を参照する。
+構成は第\ref{prop:rankone-gzero-seven-components}節、成分性は第\ref{prop:rankone-gzero-seven-components}節、相違は第\ref{prop:rankone-gzero-seven-components}節及びその証明を参照する。
 
 \paragraph{族137}\label{catalogue:R4_MODULAR_RANK1_GZERO_BINOMIAL_B6_25}
 \path{R4_MODULAR_RANK1_GZERO_BINOMIAL_B6_25}。
@@ -1332,7 +1381,7 @@ description：2H+C, C absolutely irreducible essential-three cubic; unique singu
 一般実退化因子は$H_{1}^{2}+H_{2}+D_{2,3}$。
 essential\_variable\_count：3。
 description：2H+L+Q, Q rank3, restriction ranks (Q|H,Q|L)=(1,1).。
-構成・成分性・相違は第\ref{prop:rankone-gzero-seven-components}節及びその証明を参照する。
+構成は第\ref{prop:rankone-gzero-seven-components}節、成分性は第\ref{prop:rankone-gzero-seven-components}節、相違は第\ref{prop:rankone-gzero-seven-components}節及びその証明を参照する。
 
 \paragraph{族138}\label{catalogue:R4_MODULAR_RANK1_GZERO_B1_25}
 \path{R4_MODULAR_RANK1_GZERO_B1_25}。
@@ -1342,7 +1391,7 @@ description：2H+L+Q, Q rank3, restriction ranks (Q|H,Q|L)=(1,1).。
 一般実退化因子は$H_{1}^{3}+D_{2,2}$。
 essential\_variable\_count：3。
 description：3H+Q rank3, Q|H rank1; unique tripleH tangent to residual conic.。
-構成・成分性・相違は第\ref{prop:rankone-gzero-seven-components}節及びその証明を参照する。
+構成は第\ref{prop:rankone-gzero-seven-components}節、成分性は第\ref{prop:rankone-gzero-seven-components}節、相違は第\ref{prop:rankone-gzero-seven-components}節及びその証明を参照する。
 
 \paragraph{族139}\label{catalogue:R4_MODULAR_RANK1_GZERO_B3_25}
 \path{R4_MODULAR_RANK1_GZERO_B3_25}。
@@ -1352,7 +1401,7 @@ description：3H+Q rank3, Q|H rank1; unique tripleH tangent to residual conic.�
 一般実退化因子は$H_{1}^{2}+H_{2}+D_{2,3}$。
 essential\_variable\_count：3。
 description：2H+L+Q rank3, restriction ranks(Q|H,Q|L)=(2,1).。
-構成・成分性・相違は第\ref{prop:rankone-gzero-seven-components}節及びその証明を参照する。
+構成は第\ref{prop:rankone-gzero-seven-components}節、成分性は第\ref{prop:rankone-gzero-seven-components}節、相違は第\ref{prop:rankone-gzero-seven-components}節及びその証明を参照する。
 
 \paragraph{族140}\label{catalogue:R4_MODULAR_RANK1_GZERO_V1_25}
 \path{R4_MODULAR_RANK1_GZERO_V1_25}。
@@ -1362,7 +1411,7 @@ description：2H+L+Q rank3, restriction ranks(Q|H,Q|L)=(2,1).。
 一般実退化因子は$H_{1}^{2}+H_{2}+H_{3}+H_{4}$。
 essential\_variable\_count：3。
 description：2H+three simple hyperplanes whose covectors span3; H lies in span of the two parallel affine roots.。
-構成・成分性・相違は第\ref{prop:rankone-gzero-seven-components}節及びその証明を参照する。
+構成は第\ref{prop:rankone-gzero-seven-components}節、成分性は第\ref{prop:rankone-gzero-seven-components}節、相違は第\ref{prop:rankone-gzero-seven-components}節及びその証明を参照する。
 
 \paragraph{族141}\label{catalogue:R4_MODULAR_RANK1_GZERO_M1_25}
 \path{R4_MODULAR_RANK1_GZERO_M1_25}。
@@ -1372,7 +1421,7 @@ description：2H+three simple hyperplanes whose covectors span3; H lies in span 
 一般実退化因子は$H_{1}^{4}+H_{2}$。
 essential\_variable\_count：2。
 description：4H+L, unique quadruple H and distinct simple L.。
-構成・成分性・相違は第\ref{prop:rankone-M1-M11-components}節及びその証明を参照する。
+構成は第\ref{prop:rankone-M1-M11-components}節、成分性は第\ref{prop:rankone-M1-M11-components}節、相違は第\ref{prop:rankone-M1-M11-components}節及びその証明を参照する。
 
 \paragraph{族142}\label{catalogue:R4_MODULAR_RANK1_GZERO_M11_25}
 \path{R4_MODULAR_RANK1_GZERO_M11_25}。
@@ -1382,53 +1431,53 @@ description：4H+L, unique quadruple H and distinct simple L.。
 一般実退化因子は$H_{1}^{3}+H_{2}+H_{3}$。
 essential\_variable\_count：3。
 description：3H+two distinct simple hyperplanes; three covectors independent.。
-構成・成分性・相違は第\ref{prop:rankone-M1-M11-components}節及びその証明を参照する。
+構成は第\ref{prop:rankone-M1-M11-components}節、成分性は第\ref{prop:rankone-M1-M11-components}節、相違は第\ref{prop:rankone-M1-M11-components}節及びその証明を参照する。
 
 \paragraph{族143}\label{catalogue:R4_GA9_LINEAR_W_E6_CUSP_TANGENT_23}
 \path{R4_GA9_LINEAR_W_E6_CUSP_TANGENT_23}。
 射影次元$23$、一般階数$4$。
-一般族は命題又は構成\ref{prop:five-last-full-components}の全sourceを用いる。
+一般族は命題又は構成\ref{source:last-five-explicit}の全sourceを用いる。
 枝 \path{source_case="Ga9linear_w"}。
 一般実退化因子は$H_{1}+D_{4,2}$。
 essential\_variable\_count：3。
-構成・成分性・相違は第\ref{prop:five-last-full-components}節及びその証明を参照する。
+構成は第\ref{source:last-five-explicit}節、成分性は第\ref{prop:five-last-full-components}節、相違は第\ref{prop:five-last-full-components}節及びその証明を参照する。
 
 \paragraph{族144}\label{catalogue:R4_PLANE_TWO_LINES_CUBIC_NODE_FLEX_TANGENT_THROUGH_FLEX_23}
 \path{R4_PLANE_TWO_LINES_CUBIC_NODE_FLEX_TANGENT_THROUGH_FLEX_23}。
 射影次元$23$、一般階数$4$。
-一般族は命題又は構成\ref{prop:five-last-full-components}の全sourceを用いる。
+一般族は命題又は構成\ref{source:last-five-explicit}の全sourceを用いる。
 枝 \path{source_case="node_flex_tangent_through_flex"}。
 磁気項は任意二次式$R_2$の全六係数である。
 一般実退化因子は$H_{1}+H_{2}+D_{3,3}$。
 essential\_variable\_count：3。
-構成・成分性・相違は第\ref{prop:five-last-full-components}節及びその証明を参照する。
+構成は第\ref{source:last-five-explicit}節、成分性は第\ref{prop:five-last-full-components}節、相違は第\ref{prop:five-last-full-components}節及びその証明を参照する。
 
 \paragraph{族145}\label{catalogue:R4_PLANE_TWO_LINES_CUBIC_CUSP_FLEX_SECANT_THROUGH_FLEX_23}
 \path{R4_PLANE_TWO_LINES_CUBIC_CUSP_FLEX_SECANT_THROUGH_FLEX_23}。
 射影次元$23$、一般階数$4$。
-一般族は命題又は構成\ref{prop:five-last-full-components}の全sourceを用いる。
+一般族は命題又は構成\ref{source:last-five-explicit}の全sourceを用いる。
 枝 \path{source_case="cusp_flex_secant_through_flex"}。
 磁気項は任意二次式$R_2$の全六係数である。
 一般実退化因子は$H_{1}+H_{2}+D_{3,3}$。
 essential\_variable\_count：3。
-構成・成分性・相違は第\ref{prop:five-last-full-components}節及びその証明を参照する。
+構成は第\ref{source:last-five-explicit}節、成分性は第\ref{prop:five-last-full-components}節、相違は第\ref{prop:five-last-full-components}節及びその証明を参照する。
 
 \paragraph{族146}\label{catalogue:R4_PLANE_TWO_LINES_CUBIC_CUSP_CUSP_TANGENT_CUSP_SECANT_23}
 \path{R4_PLANE_TWO_LINES_CUBIC_CUSP_CUSP_TANGENT_CUSP_SECANT_23}。
 射影次元$23$、一般階数$4$。
-一般族は命題又は構成\ref{prop:five-last-full-components}の全sourceを用いる。
+一般族は命題又は構成\ref{source:last-five-explicit}の全sourceを用いる。
 枝 \path{source_case="cusp_cusp_tangent_cusp_secant"}。
 磁気項は任意二次式$R_2$の全六係数である。
 一般実退化因子は$H_{1}+H_{2}+D_{3,3}$。
 essential\_variable\_count：3。
-構成・成分性・相違は第\ref{prop:five-last-full-components}節及びその証明を参照する。
+構成は第\ref{source:last-five-explicit}節、成分性は第\ref{prop:five-last-full-components}節、相違は第\ref{prop:five-last-full-components}節及びその証明を参照する。
 
 \paragraph{族147}\label{catalogue:R4_CONSTANT_MODULAR_DOUBLE_LINE_CUBIC_23}
 \path{R4_CONSTANT_MODULAR_DOUBLE_LINE_CUBIC_23}。
 射影次元$23$、一般階数$4$。
-一般族は命題又は構成\ref{prop:five-last-full-components}の全sourceを用いる。
+一般族は命題又は構成\ref{source:last-five-explicit}の全sourceを用いる。
 枝 \path{source_case="constant_modular_highest_double"}。
 一般実退化因子は$H_{1}^{2}+D_{3,2}$。
 essential\_variable\_count：3。
-構成・成分性・相違は第\ref{prop:five-last-full-components}節及びその証明を参照する。
+構成は第\ref{source:last-five-explicit}節、成分性は第\ref{prop:five-last-full-components}節、相違は第\ref{prop:five-last-full-components}節及びその証明を参照する。
 

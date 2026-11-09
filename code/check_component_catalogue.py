@@ -20,7 +20,7 @@ def run(output):
  main='\n'.join(p.read_text()for p in (ROOT/'papers').glob('*.tex'))
  all_labels=set(re.findall(r'\\label\{([^}]+)\}',main))
  for p,c in zip(presentation,records):
-  assert p['construction_label']in all_labels and p['main_label']in all_labels
+  assert p['construction_label']in all_labels and p['component_label']in all_labels and p['distinctness_label']in all_labels and p['main_label']in all_labels
   assert p['projective_dimension']==c['projective_dimension']and p['generic_rank']==c['generic_rank']
  maps=json.loads((ROOT/'code/data/known51_rank4_s61_coordinate_catalogue_20261103_v62.json').read_text())['records']
  model=S61();results=[]

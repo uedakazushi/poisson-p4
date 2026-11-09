@@ -8,7 +8,12 @@ entr={r['id']:r for r in csv.DictReader((R/'research/conceptual/component_entran
 labels={}
 def bind(indices,label):
  for i in indices:labels[cs[i-1]['id']]=label
-bind([58],'source:new25');bind([59],'prop:new22');bind([60],'prop:new24');bind(range(61,65),'prop:nil-four-components');bind([65],'prop:dependent-three-component');bind([66],'prop:nil31-component');bind(range(67,70),'prop:nil31-three22');bind([70],'prop:independent-three-component');bind(range(71,74),'prop:weighted-three22');bind([74],'prop:two-h-cubic22');bind(range(75,81),'prop:q3-anil3');bind(range(81,90),'prop:plane-two-lines-cubic-six');bind([90],'prop:nil4-quartic-whole-first-source');bind([91,92],'prop:plane-two-conics-two-components');bind([93,94],'prop:nil31-image-two-components');bind([95,96],'prop:nil22-image-two-components');bind([97],'prop:nil31-long-quartic-component');bind([98],'prop:ga9-constant-component');bind([99],'prop:Ga9-distinct-quintic-component');bind([100,101],'prop:nil22-long-two-components');bind([102],'prop:nil22-long-five-curves');bind([103],'prop:Ga9-cuspidal-quartic-component');bind([104],'prop:plane-unicuspidal-quintic-45-component');bind(range(105,112),'prop:essential-three-eight-components');bind(range(112,121),'prop:marked-quartic-mu6-nine-components');bind(range(121,125),'prop:marked-quartic-mu5-whole-list');bind([125,126],'prop:marked-quartic-two-normal-components');bind([127,128],'prop:triple-two-weak-wall-components');bind([129],'prop:moving-simple-HA-new-component');bind([130],'prop:rankone-long-nonconstant-25');bind(range(131,134),'prop:rankone-three-resonant-25');bind(range(134,141),'prop:rankone-gzero-seven-components');bind([141,142],'prop:rankone-M1-M11-components');bind(range(143,148),'prop:five-last-full-components')
+bind([58],'source:new25');bind([59],'prop:new22');bind([60],'prop:new24');bind(range(61,65),'prop:nil-four-components');bind([65],'prop:dependent-three-component');bind([66],'prop:nil31-component');bind(range(67,70),'prop:nil31-three22');bind([70],'prop:independent-three-component');bind(range(71,74),'prop:weighted-three22');bind([74],'prop:two-h-cubic22');bind(range(75,81),'prop:plane-conic-cubic-six');bind(range(81,87),'prop:plane-two-lines-cubic-six');bind(range(87,90),'prop:plane-two-lines-cubic-three');bind([90],'prop:nil4-quartic-whole-first-source');bind([91,92],'prop:plane-two-conics-two-components');bind([93,94],'prop:nil31-image-two-components');bind([95,96],'prop:nil22-image-two-components');bind([97],'prop:nil31-long-quartic-component');bind([98],'prop:ga9-constant-component');bind([99],'prop:Ga9-distinct-quintic-component');bind([100,101],'prop:nil22-long-two-components');bind([102],'prop:nil22-long-five-curves');bind([103],'prop:Ga9-cuspidal-quartic-component');bind([104],'prop:plane-unicuspidal-quintic-45-component');bind(range(105,112),'prop:essential-three-eight-components');bind(range(112,121),'prop:marked-quartic-mu6-nine-components');bind(range(121,125),'prop:marked-quartic-mu5-whole-list');bind([125,126],'prop:marked-quartic-two-normal-components');bind([127,128],'prop:triple-two-weak-wall-components');bind([129],'prop:moving-simple-HA-new-component');bind([130],'prop:rankone-long-nonconstant-25');bind(range(131,134),'prop:rankone-three-resonant-25');bind(range(134,141),'prop:rankone-gzero-seven-components');bind([141,142],'prop:rankone-M1-M11-components');bind(range(143,148),'source:last-five-explicit')
+component_labels={cs[i-1]['id']:label for indices,label in [([58],'sec:new25-component'),([90],'prop:nil4-hyperplane-quartic-component'),(list(range(121,125)),'prop:marked-quartic-mu5-four-components')] for i in indices}
+
+component_labels.update({cid:'sec:known-component-certificates' for cid in known if cid.startswith('R4_')})
+component_labels.update({cs[i-1]['id']:'prop:five-last-full-components' for i in range(143,148)})
+
 def esc(v):
  return ''.join({'\\':r'\textbackslash{}','&':r'\&','%':r'\%','#':r'\#','_':r'\_','$':r'\$','^':r'\textasciicircum{}','~':r'\textasciitilde{}','{':r'\{','}':r'\}'}.get(c,c) for c in str(v))
 def path(v):return '\\path{'+str(v)+'}'
@@ -96,6 +101,55 @@ $(x,y,z,w)$をaffine座標とし、$n_0,n_1,n_2$を任意とする。
 一般因子は$3H+Q$、$Q$は滑らかで$H$は接する。
 成分性の上界と相違は本文のNEW25の八初期式の証明による。
 
+\subsection{最後の五成分の明示源}\label{source:last-five-explicit}
+最後の五族について、参照先の全支持証明とは別に構成式をここで固定する。
+まず$(h,x,y,z,w)$でhをCasimirとし、未表示括弧を零とする。
+Ga9 linear-wの源は一点$P_G$で、
+\[
+\begin{aligned}
+ P_G^{xy}&=4h^2-y^2,&P_G^{xz}&=-hx+2yz+4w^2,\\
+ P_G^{xw}&=4y(4h-w),&P_G^{yz}&=hy,\\
+ P_G^{zw}&=4(y^2-hw).
+\end{aligned}
+\]
+次の三源では$R=\sum_{i+j+k=2}r_{ijk}h^ix^jy^k$の全六係数を任意とする。
+順にnode変曲接線・変曲点を通る通常接線、cusp変曲接線・変曲点を通る割線、
+cusp接線・cuspを通る割線のsourceである。
+\[
+\begin{aligned}
+ P_1^{xz}&=2x(x-h),&P_1^{xw}&=-2xy,\\
+ P_1^{yz}&=y(3x-h),&P_1^{yw}&=2x(h-x)-3y^2,\\
+ P_1^{zw}&=-(x-h)w+R;
+\end{aligned}
+\]
+\[
+\begin{aligned}
+ P_2^{xz}&=2x(x+h),&P_2^{xw}&=2xy,\\
+ P_2^{yz}&=3xy,&P_2^{yw}&=3(y^2-(h+x)^2),\\
+ P_2^{zw}&=-xw+R;
+\end{aligned}
+\]
+\[
+\begin{aligned}
+ P_3^{xz}&=-hx,&P_3^{xw}&=3x(h-x),\\
+ P_3^{yz}&=3(h-x)^2-3hy,&P_3^{yw}&=-9xy,\\
+ P_3^{zw}&=3xz+3R.
+\end{aligned}
+\]
+最後に$(h,t,x,y,r)$でhをCasimirとし、一点$P_D$を
+\[
+\begin{aligned}
+ P_D^{tx}&=h^2+hx-2xy,&P_D^{ty}&=y(4y-h),\\
+ P_D^{tr}&=(h-6y)r+hx,&P_D^{xr}&=-x^2,\\
+ P_D^{yr}&=h^2+2xy
+\end{aligned}
+\]
+とする。$P_G,P_D$には$S=\operatorname{Spec}\CC$、三磁気族には$S=\mathbb A^6$を用い、
+いずれも全$\mathrm{PGL}_5$飽和閉包を取る。
+全sourceでJacobiが成立し実Pfaffianが非零である。
+その全源の認識、次元、成分性・相違は命題\ref{prop:five-last-full-components}と参照する全支持証明による。
+三磁気族を一つの標本点の軌道で置き換えていない。
+
 \subsection{全IDの定義・幾何・証明}
 $D_d$は次数$d$の既約超曲面、$H_i$は相異なる超平面を意味する。
 同じ次数が複数並ぶときも相異なる因子であり、指数が重複度である。
@@ -141,8 +195,10 @@ for i,c in enumerate(cs,1):
   # Essential details distinguishing equal factor lists belong to the model and are also retained in the source record.
   for key in ['quadric_rank','essential_variable_count','description']:
    if key in d:out.append(esc(key)+'：'+esc(d[key])+'。\n')
- out.append('構成・成分性・相違は第\\ref{'+proof+'}節及びその証明を参照する。\n\n')
- mapping.append({'id':cid,'main_label':label,'construction_label':proof,'definition':source,'projective_dimension':dim,'generic_rank':rank})
+ component_proof=component_labels.get(cid,proof)
+ distinctness='prop:nil4-quartic-distinctness' if cid=='R4_NIL4_HYPERPLANE_QUARTIC_22' else component_proof
+ out.append('構成は第\\ref{'+proof+'}節、成分性は第\\ref{'+component_proof+'}節、相違は第\\ref{'+distinctness+'}節及びその証明を参照する。\n\n')
+ mapping.append({'id':cid,'main_label':label,'construction_label':proof,'component_label':component_proof,'distinctness_label':distinctness,'definition':source,'projective_dimension':dim,'generic_rank':rank})
 (R/'papers/component_family_catalogue.tex').write_text(''.join(out))
 (R/'code/data/component_manuscript_catalogue.json').write_text(json.dumps({'scope':'Presentation crosswalk, not an independent mathematical certificate or claim ledger.','records':mapping},ensure_ascii=False,indent=2)+'\n')
 print('generated',len(mapping),'entries',len(''.join(out)),'characters')

@@ -45,7 +45,7 @@ def main():
                'B':'KNOWN142_SEVEN_CANDIDATE_WHOLE_POISSON_COVER_AUDIT.md §3.4 (all Q ranks)',
                'C':'KNOWN142_SEVEN_CANDIDATE_WHOLE_POISSON_COVER_AUDIT.md §2 (normal and nonnormal)',
                'R2':'RANK_TWO_SUPPORT.md; KNOWN142_SEVEN_CANDIDATE_WHOLE_POISSON_COVER_AUDIT.md §6'}[entrance]
-        mentions=[crosswalk[cid]['main_label'],crosswalk[cid]['construction_label']]
+        mentions=list(dict.fromkeys([crosswalk[cid]['main_label'],crosswalk[cid]['construction_label'],crosswalk[cid]['component_label'],crosswalk[cid]['distinctness_label']]))
         rows.append({'id':cid,'generic_actual_divisor':divisor,'entrance':entrance,
                      'divisor_evidence':evidence,'whole_support_input':'research/classification/'+whole,
                      'componenthood_and_distinctness_sources':' | '.join(proofs),
