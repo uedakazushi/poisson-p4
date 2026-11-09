@@ -1,7 +1,11 @@
 # 研究状態の入口
 
-2026-11-09 / v72-normalization-residue-integration
+2026-11-09 / v73-prepublication-review
 
-最終仕様はresearch/conceptual/FINAL_TARGET.md、達成証拠と未達条件はresearch/classification/CURRENT.mdに一度だけ置く。
-正規化留数・被約fixed-D線形fiber・部分導手相対lift・rank2 pencilは主稿へ統合済みの中間成果である。
-最終条件は未達。CURRENTの次の具体操作から、確認待ちを挟まず作業を続ける。
+現行の完全分類は147成分を主張し、最終成果物の完成・GitHubとLibraryの保存を報告している。
+証明の全文を第三者的に独立査読したという意味ではない。
+現在の追加フェーズは**公表前の反証志向の査読**である。
+
+再開時：RESEARCH_POLICY.md → research/publication/REFEREE_PLAN.md →
+research/classification/CURRENT.md → 検査対象の原証明。
+構造理論の原稿・カタログ・全数値的・文献的入力は保持し、指示だけで数学の完成状態を捏造しない。

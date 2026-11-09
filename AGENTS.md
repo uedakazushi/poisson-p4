@@ -1,141 +1,94 @@
-# Poisson P4 — work through the final classification deliverable
+# Poisson P4 — independent referee pass before public release
 
-2026-11-09 / v72-final-dependency-closure
+2026-11-09 / v73-prepublication-review
 
-## User mandate: one end-to-end assignment
+## Read order and current assignment
 
-The user now explicitly asks for a precise final goal and continuous execution
-until that goal is reached. Read RESEARCH_POLICY.md first, then
-research/conceptual/FINAL_TARGET.md (the terminal contract),
-research/conceptual/GLOBAL_PLAN.md (the route), and
-research/classification/CURRENT.md (the live evidence/status).
-This replaces milestone-sized stopping rules, the old stop-after-147 rule,
-and any instruction to stop after one conceptual lemma or the next manuscript section.
-Historical done/PASS fields are evidence of their stated scope, not this task's completion.
+Read RESEARCH_POLICY.md, research/publication/REFEREE_PLAN.md,
+research/classification/CURRENT.md, research/conceptual/FINAL_TARGET.md,
+then the current main manuscript and original proof sources.
 
-CONTINUE working within the available execution until M1–M4, C1–C2, P1, R1,
-and S1 in FINAL_TARGET are all satisfied. A plan, new theorem, completed case,
-passing tests, PDF, commit, push, or bundle is an intermediate checkpoint.
-After saving a checkpoint, proceed directly to the next unmet requirement.
-Do not end with “next steps”, “shall I continue?”, or a request for another user
-instruction for already-authorized work. Short progress updates are fine.
+The 147-component classification has been DECLARED COMPLETE, with a 418-page
+main manuscript, three companion PDFs and five verified Library ZIP volumes.
+This is the starting point, not a command to stop or to believe every claim.
+The new phase is an ADVERSARIAL, theorem-level, independent referee review
+and final publication editorial pass. It supersedes the previous instruction
+to keep inventing conceptual lemmas or to stop when old M1–S1 flags say PASS.
 
-## Precise outcome
+## Immediate mathematical work — prioritize downstream impact
 
-Complete a proof-bearing, publication-ready Japanese LuaLaTeX classification
-of the reduced projectivized Poisson scheme on complex P4 BEFORE PGL5 quotient.
-Construct explicit irreducible families with saturated closed images C_i,
-prove all-point coverage and pairwise noncontainment, and give each component's
-generic construction, dimension, rank, and divisor/foliation geometry.
-The current expected result is 147 components (141 rank four and 6 rank two).
-Derive the count; do not assume it. Correct actual mathematical defects and all
-dependent statements instead of fitting the proofs to 147.
+1. First challenge the reduced-fixed-divisor theorem:
+   papers/normalization_residue_reconstruction.tex,
+   lem:quintic-ambient-lift, thm:reduced-fibre-linear,
+   cor:reduced-fibre-boundary, cor:reduced-divisor-component-images.
+   Derive the theorem afresh and attempt counterexamples for singular/reducible
+   D, q_F=0, kernel rank jump, generically irreducible fibres and divisor-image
+   comparisons. Clearly distinguish all-Poisson compatibility from rank-four
+   nondegeneracy. Do not accept the PDF paragraph or a PASS receipt as proof.
 
-The exposition must derive the classification through recognition → marked
-reconstruction → actual Poisson lifting/deformation → maximal distinct closed
-images. Reusable theorems must replace repeated proofs in the current manuscript.
-Keep necessary exceptional cases and finite computations explicit and reproducible.
-No requirement to eliminate every computation or achieve an absolute minimum
-number of theorems/pages. Do not stop at a framework that leaves its applications open.
+2. Independently audit papers/rank_two_support_reconstruction.tex:
+   stable degree-two foliation -> full Rat113/Rat122 sources, five-section and
+   spinor arguments, nonstable/divisorial cases, six ambient rank-two components
+   versus rank-four boundaries. Check the actual assumptions of Correa–Muniz
+   and Loray–Pereira–Touzet. Show the rank-four support is completed BEFORE the
+   rank-two closure term is used; no circularity.
 
-## Continue from the existing mathematics; do not restart it
+3. Independently audit papers/maximal_image_synthesis.tex and
+   source:last-five-explicit in papers/component_family_catalogue.tex.
+   Check all five families including all six magnetic parameters, zero/unit,
+   proper flags, the NEW25, T36/T38 and T37 separating conditions, the actual
+   noncontainment relative to all older 142, and full pointwise source coverage.
+   A dimension or generic-divisor comparison is not enough. Try explicit
+   degeneration/collision counterexamples. If found, repair all dependent claims.
 
-The four shared files already integrate the marked-hyperplane/modular primitive
-argument, two lifting mechanisms, quadric cofactor and reduced free plane-quintic
-magnetic residue quotient, and the plane conductor/conormal reconstruction:
-- papers/marked_hyperplane_reconstruction.tex
-- papers/poisson_lifting_examples.tex
-- papers/quadric_cubic_reconstruction.tex
-- papers/conductor_conormal_reconstruction.tex
-Read their actual proofs and preserve their valid scope. Novelty is unconfirmed.
-The component navigation table is not a proof. Reuse verified inputs without
-rerunning irrelevant historical experiments or assuming old PASS is sufficient.
+4. Verify that all 51 serialized rational circuit families really define
+   irreducible DENSE generic sources with UNIVERSAL Jacobi, not just one
+   randomly chosen exact rational sample. Match the MPS40 theorem's precise
+   normal-crossings scope and all source-to-S61 coordinates. Check denominators,
+   nonempty opens, roots, branch limits and the eleven additional families.
+   Choose proof-level cross-checks, not 51 expensive symbolic explosions.
 
-The fifth shared file, papers/normalization_residue_reconstruction.tex, now
-reconstructs the entire reduced fixed-D fibre as a compatible linear Poisson
-space minus a quadric. Normalization uses all bounded-conductor closed one-forms
-and the full B/A linear descent condition, including higher principal parts.
-Coefficient-one/node residues, full scroll intersection kernels, finite MCM
-partial conductors and unique relative ambient lifts replace duplicate degree5/6
-and both actual T40 family arguments. All10 plane coefficients have an explicit
-rank2 determinant boundary. Distinct ambient components with generically reduced
-divisors cannot have the same closed divisor image; image inclusion alone still
-does not prove component inclusion at kernel-rank jumps.
-The new37 checks include one full150 toric kernel, three full M/R sources and a
-node-cusp matrix factorization. They do not certify all147 or final dependencies.
-These results are intermediate: CONTINUE through the remaining terminal contract.
+5. Independently trace the minimal proof-dependency cut set from all-rank-four
+   pointwise support through the six rank-two sources to the 147 maximal
+   noncontained images. Use the claim graph as a locator, not mathematical proof.
+   Re-run selected exact finite certificates with independent implementations
+   when feasible; do not indiscriminately replay all historical tests.
 
-The sixth shared file papers/rank_two_support_reconstruction.tex now integrates
-the complete stable-sheaf proof, all divisor/nonstable branches, compatible
-toric/Aff32 boundaries and six full-ambient component certificates. The main
-component_family_catalogue.tex defines all147 ID families; maximal_image_synthesis.tex
-composes the three componenthood mechanisms. Required frozen inputs and legacy
-files are materialized under the current dependency audit. Read CURRENT for
-the exact final validation and persistence state; these are evidence, not a
-change to the terminal conditions.
+6. Perform an isolated restore of all five Library ZIP volumes, check hashes,
+   references, all needed proof inputs, and rebuild the four current Japanese
+   LuaLaTeX PDFs. Check the current proof layout, introductions and primary
+   literature comparisons for a human referee, especially the 40 prior SNC
+   components vs the alleged 147 total. Do not publish or submit externally.
 
-Proceed through nonplane conductor recognition and normalization/descent,
-rank-two support, maximal closed images, final manuscript integration,
-primary-source comparison, scoped mathematical/computational checks, the current
-self-contained bundle, main update and Library save. GLOBAL_PLAN identifies
-starting files and dependencies. Do not stop after the nonplane stage.
-Change method or order when blocked; a failed approach is not the end of the task.
+## Deliverables and standards
 
-## Mathematical guardrails
+Maintain ONE current concise research/publication/REFEREE_REPORT.md with
+each audited theorem's exact hypothesis, proof location, independent reasoning,
+failed counterexample attempts or actual counterexample, and downstream
+dependencies. Do not write a large worklog, copy old receipts, or mark PASS
+only because scripts succeeded. Distinguish: written proof / independently
+read and checked / exactly recomputed / sample only / still open.
 
-- A/B/C/R2 are entrances for points/generic families, not disjoint component closures.
-- Weak P#df=fZ needs f!=0. Strong df+i_Z(alpha)=0 with the other primitive
-  conditions is valid also at f=0; do not confuse the two statements.
-- Simple H has deg f=4; multiple H has deg f<=3. Pf(P_2)=0 is not a simple-H assumption.
-- r=1 includes 5H as well as integral quintics. Canonical symmetry zero is not all symmetry zero.
-- Preserve translation cokernels, denominator and zero/unit complements,
-  special-base components, markings, and generic/geometric-generic fibre distinctions.
-- A divisor deformation need not lift. Nonlinear auxiliary maps do not prove PGL equivalence.
-- The magnetic nu−1 formula needs the reduced free plane-quintic hypotheses;
-  no automatic extension to nonreduced factors or arbitrary conductor surfaces.
-- Keep the hidden binary-quadratic three parameters and all higher terms in
-  the conductor source. The second Jacobi equation is inhomogeneous.
-- Do not assume conductor reducedness, normalization-flatness, or simple normalized residues.
-- Rank-three H+2Q has excess dimensions 1 and 6. Its local Koszul project is not
-  a prerequisite to finishing the global classification.
-- MPS40 concerns components meeting SNC. Dimension, a normal form, a generic
-  divisor type, or a control-plane check alone proves neither coverage nor componenthood.
+Correct actual mathematical gaps in the main theorem, companion proofs,
+catalogue, research policy, Introduction, and necessary certificates; do not
+preserve 147 by arbitrary assumptions. Keep all valuable existing results and
+proofs, and avoid making 418 pages shorter by discarding needed mathematics.
+A new general theorem is welcome ONLY if it removes a real proof dependency;
+do not restart speculative component hunting or full orbit classification.
+After hard proof gates close, finalize a reader-ready manuscript (split into
+logical papers only if it improves proof clarity), update README/POLICY/STATE,
+build a minimal current reproducible bundle, validate and save it.
 
-## Iteration, integration and completion
+The audit PASS criterion is proof-level closure of the high-risk claims,
+plus clean-room reproducibility and accurate literature comparison. There is
+no requirement to independently rerun every one of 147 original computations.
+If material uncertainty remains, state the precise blocker and do not claim
+publication readiness.
 
-Use the unmet FINAL_TARGET requirement and its shortest necessary dependency
-to choose work. Diagnose a method that repeatedly produces no structural result,
-change the route and CONTINUE; do not convert that diagnostic into a stop rule.
-Update CURRENT in place with proof labels, verification scope and remaining gaps.
-Do not accumulate worklogs or duplicate claim ledgers. Plans support research;
-revising plans alone is not a research milestone.
-
-Retain all valuable current results and sufficient proofs; replace duplicates
-by shared proofs and valid references, not by deleting content or parking old
-manuscripts in an archive. The final paper may be one coherent manuscript or
-several logically self-contained papers. Read primary references for material
-claims and distinguish established novelty from unconfirmed priority.
-Do not expand into all PGL orbits, all intersections, all nilpotent thickness,
-precise nil/H0/T2, general Pn classification, Lean formalization, or English
-translation unless indispensable to the stated target. Do not publish externally
-or submit to a journal without a separate user instruction.
-
-## Safe checkpoints, reproducibility and genuine hard limits
-
-Reuse the environment. No new GitHub Actions. Check relevant identities/tests,
-rebuild changed TeX and inspect rendered pages. Test success is not proof certification.
-Use one Git integrator, inspect main and preserve concurrent changes. Commit/push
-non-force, verify the remote head, then CONTINUE. No automatic resets or force-push.
-The user permits current research bundles and Library saves without confirmation.
-Package the current necessary proof/input/certificate dependency closure, not old
-ZIPs, histories, caches or redundant drafts. Never delete existing Library files.
-Generation, validation, main persistence and Library persistence are separate states.
-
-The only normal stop is the complete terminal contract. Genuine exceptions are
-a user stop or an actually reached runtime/resource/access/input limit that
-prevents useful authorized work. Try safe alternatives and continue unblocked
-requirements first; never bypass controls. Before an unavoidable interruption,
-save the exact remaining obligations, reproducible blocker, current commit and
-next concrete operation in CURRENT. Say incomplete, not done. Do not imply
-background continuation or automatic future resumption. These instructions do
-not enlarge the platform's execution limits or permissions.
+Use current existing environments, no GitHub Actions, no redundant installers,
+no bulk new old-version archives. Commit/push verified milestones non-force to
+main after checking head and preserving parallel changes. Library save is
+already authorized; do not delete older Library files. Report separately
+generation, mathematical checking, PDF validation, GitHub persistence and
+Library persistence. External hard limits may interrupt work, but do not claim
+asynchronous continuation or automatic future resumption.
