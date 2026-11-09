@@ -1,6 +1,6 @@
 # 研究方針 — Poisson P4全分類の構造的再構成
 
-2026-11-09 / v70-conductor-conormal-reconstruction。再開時に最初に読む。
+2026-11-09 / v71-normalization-residue-pencils。再開時に最初に読む。
 
 ## I. 一般原則・保存許可
 
@@ -53,6 +53,17 @@ rank零可換性、rank二module、既約cubic零因子の全source、m2/m4輸�
 成分対応表は元actual因子記録とMPS一般源から作った案内で、全147成分の全証明を独立再確認したとはしない。
 成分・主張台帳と旧証明書は未変更、各源の成分性・相違・全点被覆は従来の証明へ依存する。
 
+被約な固定五次Dの全fiberは、閉逆形式の線形空間V_Fからquadric q_F=0を除いた開集合となる。
+V_F全体が互換なPoisson tensorを与え、非空のrank4 fiberは幾何学的に既約である。
+正規化上では導手次数以下の全closed一形式と、B/Aで測る全線形降下条件のkernelからV_Fを正逆付きで復元した。
+導手係数一のrank0/2留数とnode符号、scrollの全交点行列kernelを統合し、次数五源と次数六排除の重複を置換した。
+有限MCM族の部分導手・base change・一意なambient liftを共通化し、二つの実T40曲線と023射影族へ適用した。
+一般因子が被約な相異なるambient成分は同じ閉因子像を持てない。因子像の包含とrank jumpは別の比較として残す。
+平面free五次では全10係数のcompatible源となり、rank2以下境界はvertex P5を持つdet(M)=0のquadricである。
+非被約h5の反例、極次数だけでは降りないcusp、node-cusp局所族の二重導手を保持する。
+新37項目ではtoric五Hの全150列kernel、A/B/C三つの全M4+R6源、導手のmatrix factorizationを検算した。
+一般定理は本文の通常の証明であり、このCASが全147成分又は全旧有限場合分けを独立認証したとはしない。新規性未確認。
+
 ## IV. 未解決の核心と優先順位
 
 核心は「各型の名称」ではなく、可能な標識データの有限な認識、全fiberの復元、
@@ -60,7 +71,13 @@ rank零可換性、rank二module、既約cubic零因子の全source、m2/m4輸�
 
 P0の共通入口とP1の二つの実持上げ機構は主稿へ統合した。
 Bの共通cofactor・Pfaffian復元と平面型の留数による磁気商を主稿へ統合した。
-Cのplane全源と余法線輸送を共通化した。次は非plane導手の認識と、正規化上の留数・降下条件を接続する。
+Cの正規化・導手・留数の全fixed-D復元と実familyの一意liftを統合した。
+次は被約因子baseのkernel-rank strataから極大閉像を認識する。Bの全31cofactor源のうち少なくとも二つを選び、
+因子baseへの全像・特殊底・標識忘却を保って同じ閉像か異なる極大像かを比較する。
+被約fixed-D fiberのGalois分裂を追加に分類する必要はなくなったが、factor markingと非被約入口の分岐は残る。
+同時にR2のfoliation全支持を、今回の明示的rank2境界と純rank2成分の区別へ接続する。
+constant rank上のirreducibilityだけをambient componenthoodとしない。rank jumpの縦rank4も残す。
+
 続いてR2のfoliationと極大閉像を接続する。
 残る個別有限計算を一般原理で消したと主張しない。詳細は `research/conceptual/GLOBAL_PLAN.md`。
 

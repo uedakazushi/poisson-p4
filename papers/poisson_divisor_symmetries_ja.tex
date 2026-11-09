@@ -19,7 +19,7 @@
 \newcommand{\diver}{\operatorname{div}}\newcommand{\Pf}{\operatorname{Pf}}
 \title{射影四空間のPoisson分類の構造還元\\\large 標識因子・modular復元・相対変形}
 \author{}
-\date{2026年11月9日\quad v5・導手と可換余法線}
+\date{2026年11月9日\quad v6・正規化留数とPoisson pencil}
 \begin{document}\maketitle
 \begin{abstract}
 射影空間上の一般に非退化なPoisson構造について、退化因子の既約成分が生成する閉対数一形式を用い、
@@ -35,7 +35,8 @@ Pfaffianグラフの閉包、および階数二のfoliationと零因子による
 磁気商の次元$\nu-1$、その零境界と軌道次元を導く。
 導手上ではrank零・二の可換余法線を共通化し、planeの全源と、作用から見えない三係数を復元する。
 leading Pfaffianの平行輸送により、二次判別式と四次不変量の議論を統一する。
-これらを全支持の認識と成分の極大性を分離する基盤とする。
+被約fixed-divisor fiberを線形空間のquadric補集合とし、正規化留数と全線形降下条件から正逆付きで復元する。
+留数の交点行列、部分導手の相対lift、階数二へのcompatible pencilにより、全支持と極大閉像の問題を接続する。
 本稿は147成分という個数の新証明でも、その全証明の独立検証でもない。
 以下の基本原理には通常の証明を与えるが、それ自体の文献上の新規性は未確認であり、優先権を主張しない。
 \end{abstract}
@@ -51,6 +52,8 @@ $U=X\setminus D_\pi$上の逆二形式$\omega=\pi^{-1}$は閉である。
 Poisson moduleとcanonical moduleについては\cite[\S4.1, Example 4.4]{GPconductor}を参照する。
 本稿ではその枠組みを用い、導手上の可換性からplaneの全係数源と隠れた三係数まで証明する。
 同文献の一般論を全source分類として引用するものではない。
+正規化のPoisson性はKaledin\cite[Theorem 1.5]{KaledinNormalization}の既知入力とし、
+本稿では導手による極次数、元の環への全降下条件、被約fiberの線形性と境界を証明する。
 
 
 本稿の整理の軸は
@@ -261,14 +264,17 @@ $\mathfrak a_\pi=0$から、他の対称性まで存在しないとは言えな�
 
 \input{papers/conductor_conormal_reconstruction.tex}
 
+\input{papers/normalization_residue_reconstruction.tex}
+
 \subsection{既約五次に残る導手の認識}
 第三の入口のうち非正規の場合は、正規化の導手支持と、その上のrestriction rank零・二を使う。
 現行のケース別証明では、一般平面切断の算術種数六から得る
 $\sum_i\delta_i\deg S_i=6-g$という有界性と、
 導手上の留数・余法線の一次記号が重要な入力になっている。
-前節は両rankの余法線を共通化し、planeの全源・隠れた三係数・高次項を復元した。
-このことから全支持認識を証明済みとはしない。正規の場合の楕円認識は主稿の独立入力として保ち、
-非planeの導手認識、正規化上の留数と降下条件、極大閉像との接続を次の課題とする。
+前の二節で両rankの余法線、planeの全源、正規化上の全principal partと線形降下を復元した。
+scrollでは交点行列が全単極形式を決め、次数五・六の源と排除を統一する。
+残るのは低次数支持と因子baseの全rank strataの認識、非被約入口、極大閉像の比較である。
+正規なactual因子の楕円認識は主稿の独立入力として保つ。
 
 \section{固定因子の復元を相対化し、変形の持上げを分ける}
 $X=\PP^4$、$L=\cO(5)$とし、
@@ -419,6 +425,9 @@ $H^0(\wedge^2T(-e))=H^0(\Omega^2(5-e))$の非零元を与える。
 rank二部分空間の成分と、全空間の一般rank二成分を区別する。
 一般rank四の閉包に入るrank二族は命題\ref{prop:graph}の側で処理し、
 純粋なrank二成分は上のfoliationの支持定理から接続する。
+被約な固定Dに対しては系\ref{cor:reduced-fibre-boundary}が明示的compatible pencilを与え、
+平面型では命題\ref{prop:plane-fixed-divisor-pencil}のdeterminantal quadricがその全境界である。
+この境界の存在だけで純rank二の全支持又は成分性を決めたとはしない。
 
 \section{構造原理が説明する代表的な現象}
 \subsection{五つの座標超平面と25次元族}
@@ -584,5 +593,9 @@ arXiv:2207.12880v5, Theorem 4.1.
 \emph{Poisson modules and degeneracy loci}, arXiv:1203.4293v1,
 \S4.1, Example 4.4, Proposition 3.11.
 DOI: 10.1112/plms/pds090. \url{https://arxiv.org/abs/1203.4293}.
+\bibitem{KaledinNormalization} D. Kaledin,
+\emph{Normalization of a Poisson algebra is Poisson},
+arXiv:math/0310173v1 (12 October 2003), Theorem 1.5, Corollary 1.6.
+\url{https://arxiv.org/abs/math/0310173}.
 \end{thebibliography}
 \end{document}

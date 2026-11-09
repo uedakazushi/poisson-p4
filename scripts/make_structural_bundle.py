@@ -36,7 +36,8 @@ def main():
         'papers/marked_hyperplane_reconstruction.tex','papers/poisson_lifting_examples.tex',
         'code/check_global_structure.py','code/check_marked_reconstruction.py',
         'code/check_quadric_residue_reconstruction.py','code/data/quadric_cofactor_sources.json',
-        'code/check_conductor_conormal_reconstruction.py',
+        'code/check_conductor_conormal_reconstruction.py','code/check_normalization_residue_reconstruction.py',
+        'reports/normalization_residue_checks.json','reports/normalization_residue_validation.json',
         'reports/conductor_conormal_validation.json','reports/conductor_conormal_checks.json',
         'code/map_component_entrances.py','code/data/mps_s61_coordinate_catalogue_20261103_v62.json',
         'research/notes/MPS40_CROSSWALK_20261031.md',
@@ -67,7 +68,7 @@ def main():
         raise FileNotFoundError(missing)
     forbidden={'.zip','.gz','.xz','.bz2','.tar','.log','.aux','.out','.pyc'}
     assert all(Path(name).suffix not in forbidden for name in files)
-    manifest={'version':'v70-conductor-conormal-reconstruction','date':'2026-11-09',
+    manifest={'version':'v71-normalization-residue-pencils','date':'2026-11-09',
         'repository':'https://github.com/uedakazushi/poisson-p4',
         'source_commit':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),
         'scope':'Complete current main and structural manuscripts, shared proofs, original textual classification/component inputs, and standalone checks of this milestone.',
@@ -79,6 +80,7 @@ def main():
             'python code/check_marked_reconstruction.py --output work/marked-reconstruction.json',
             'python code/check_quadric_residue_reconstruction.py --output work/quadric-residue-checks.json',
             'python code/check_conductor_conormal_reconstruction.py --output work/conductor-conormal-checks.json',
+            'python code/check_normalization_residue_reconstruction.py --output work/normalization-residue-checks.json',
             'python code/map_component_entrances.py --output work/component_entrances.csv',
             'bash scripts/build_structural_manuscripts.sh'],
         'files':[]}

@@ -1,6 +1,6 @@
 # 全分類の概念的再構成：標識付き復元と持上げ可能な変形
 
-2026-11-09 / v70-conductor-conormal-reconstruction。最初に `RESEARCH_POLICY.md` を読む。
+2026-11-09 / v71-normalization-residue-pencils。最初に `RESEARCH_POLICY.md` を読む。
 
 ## 1. 決定した方針
 
@@ -110,14 +110,23 @@ rank零可換性、rank二module、既約cubic零因子の全source、m2/m4輸�
 全150係数で制約rank42、Euler24、全源84の完全性と全自由係数恒等式を記号検算した。
 新規性未確認。旧有限場合分け・共鳴・monodromy・全支持帰属・成分性は保持し、全147の独立検証ではない。
 
-共有証明はpapers/conductor_conormal_reconstruction.tex。
-次の主作業は固定した正規化・導手square、Hamiltonian導分の降下、逆形式の留数を
-残る非plane導手認識と接続すること。Σδ_i deg S_i=6−gの既存証明とnormalの楕円認識を保つ。
-主な元入力はNONPLANE_CONDUCTOR_POINTWISE_KNOWN_COVERAGE、IRREDUCIBLE_NONNORMAL_QUINTIC_ENTRANCE。
-conormal接続と正規化後留数の極次数を混同しない。normalization-flatnessや導手被約性を追加しない。
+被約な固定五次Dの全fiberは、閉逆形式の線形空間V_Fからquadric q_F=0を除いた開集合となる。
+V_F全体が互換なPoisson tensorを与え、非空のrank4 fiberは幾何学的に既約である。
+正規化上では導手次数以下の全closed一形式と、B/Aで測る全線形降下条件のkernelからV_Fを正逆付きで復元した。
+導手係数一のrank0/2留数とnode符号、scrollの全交点行列kernelを統合し、次数五源と次数六排除の重複を置換した。
+有限MCM族の部分導手・base change・一意なambient liftを共通化し、二つの実T40曲線と023射影族へ適用した。
+一般因子が被約な相異なるambient成分は同じ閉因子像を持てない。因子像の包含とrank jumpは別の比較として残す。
+平面free五次では全10係数のcompatible源となり、rank2以下境界はvertex P5を持つdet(M)=0のquadricである。
+非被約h5の反例、極次数だけでは降りないcusp、node-cusp局所族の二重導手を保持する。
+新37項目ではtoric五Hの全150列kernel、A/B/C三つの全M4+R6源、導手のmatrix factorizationを検算した。
+一般定理は本文の通常の証明であり、このCASが全147成分又は全旧有限場合分けを独立認証したとはしない。新規性未確認。
 
-R2では既存のfoliation全支持をprop:ranktwoへ接続し、純rank2成分とrank4閉包を分ける。
-Corrêa–Munizの安定分岐の可積分性だけをJacobian族への全点帰属と読み替えない。
+共有証明はpapers/normalization_residue_reconstruction.tex。
+次は被約因子baseのkernel-rank strataから極大閉像を認識する。Bの全31cofactor源のうち少なくとも二つを選び、
+因子baseへの全像・特殊底・標識忘却を保って同じ閉像か異なる極大像かを比較する。
+被約fixed-D fiberのGalois分裂を追加に分類する必要はなくなったが、factor markingと非被約入口の分岐は残る。
+同時にR2のfoliation全支持を、今回の明示的rank2境界と純rank2成分の区別へ接続する。
+constant rank上のirreducibilityだけをambient componenthoodとしない。rank jumpの縦rank4も残す。
 
 ### P3：主稿の本体を再構成する
 

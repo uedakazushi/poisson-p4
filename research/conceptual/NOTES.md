@@ -1,6 +1,6 @@
 # 大域構造研究ノート
 
-2026-11-09 / v5。最初に RESEARCH_POLICY.md、次に GLOBAL_PLAN.md を読む。
+2026-11-09 / v6。最初に RESEARCH_POLICY.md、次に GLOBAL_PLAN.md を読む。
 
 ## 1. 現行の証明とその場所
 
@@ -78,6 +78,31 @@ rank二開ではG_m/ρがSym^m N*⊗detNの平行sectionで、m2判別式はcρ�
 局所cuspの留数du/(2v)=da/a²は、接続の極から正規化後留数の単極を推測できないことを示す。
 導手支持の非被約scheme構造やfamily正規化のflatnessをこの源の前提としない。
 
+## 正規化留数、全fixed-D fiberと閉包
+
+被約な固定五次Dの全fiberは、閉逆形式の線形空間V_Fからquadric q_F=0を除いた開集合となる。
+V_F全体が互換なPoisson tensorを与え、非空のrank4 fiberは幾何学的に既約である。
+正規化上では導手次数以下の全closed一形式と、B/Aで測る全線形降下条件のkernelからV_Fを正逆付きで復元した。
+導手係数一のrank0/2留数とnode符号、scrollの全交点行列kernelを統合し、次数五源と次数六排除の重複を置換した。
+有限MCM族の部分導手・base change・一意なambient liftを共通化し、二つの実T40曲線と023射影族へ適用した。
+一般因子が被約な相異なるambient成分は同じ閉因子像を持てない。因子像の包含とrank jumpは別の比較として残す。
+平面free五次では全10係数のcompatible源となり、rank2以下境界はvertex P5を持つdet(M)=0のquadricである。
+非被約h5の反例、極次数だけでは降りないcusp、node-cusp局所族の二重導手を保持する。
+新37項目ではtoric五Hの全150列kernel、A/B/C三つの全M4+R6源、導手のmatrix factorizationを検算した。
+一般定理は本文の通常の証明であり、このCASが全147成分又は全旧有限場合分けを独立認証したとはしない。新規性未確認。
+
+証明はnormalization_residue_reconstruction.tex。五次上の二重導分は
+H0(Ω2)=H1(Ω2)=0によりambientへ一意にliftし、intrinsic JacobiはH0(Ω1)=0によりambient Jacobiを与える。
+非被約Dではtangencyだけからπ²|D=0を推論しない。部分導手familyにもこの追加条件又は被約fiberを使う。
+一般normalizationのflatnessではなく、与えられたT-flat有限MCM族のHom(B,A)とevaluation at1を特殊化する。
+正規化上ではΩXのdivisorが−C、closed ηのpole≤Cから正則βを戻し、全B/A降下を検査する。
+導手cycleだけに置き換えず、非被約なA/cとB/cのgluingを保つ。
+
+smooth rational scrollではPicの曲線pairingが(d*a+b,a)でunimodular、全単極形式はそのkernelである。
+nodeのtrace-zeroと合わせて奇数L係数3の二prime導手を排除し、genus0degree5の全形式はλ dlog(g1/g2)へ戻る。
+固定Dのsourceが一線であることは、条件付きの一意性ではなく一般正逆同型の次元評価となる。
+被約baseのconstant-rank stratumでは全rank4源が既約になるが、rank jump・factor marking・非被約Fの枝は残す。
+
 ## 4. 有用な障害・反例
 
 **rank2への誤適用。** P=∂1∧(∂2+x1∂3)ではPf P=0、P#df=f divPは自動成立だがJacobi(1,2,3)=1。
@@ -130,10 +155,14 @@ Poisson module、canonical moduleと退化台保存の枠組みへの参照で�
 `python code/check_global_structure.py --output work/global-structure.json`。
 普遍的な6係数と24一次微分を独立変数として検算し、標本値は使わない。
 原稿はREADMEのLuaLaTeX二回コマンド。PDFは別フォルダに出力し、中間生成物をbundleへ入れない。
-今回の生成・検証の実結果はreports/conductor_conormal_validation.json、Bの前段はreports/quadric_residue_validation.jsonを参照。
+今回の生成・検証の実結果はreports/normalization_residue_validation.json、余法線源はreports/conductor_conormal_validation.json、Bの前段はreports/quadric_residue_validation.jsonを参照。
 新検算は `python code/check_marked_reconstruction.py --output work/marked-reconstruction.json`。
 組版は `bash scripts/build_structural_manuscripts.sh`。
 
 Bと磁気留数の検算は `python code/check_quadric_residue_reconstruction.py --output work/quadric-residue-checks.json`。
 
 Cの新検算は `python code/check_conductor_conormal_reconstruction.py --output work/conductor-conormal-checks.json`。
+
+新検算: `python code/check_normalization_residue_reconstruction.py --output work/normalization-residue-checks.json`。
+Kaledin, arXiv:math/0310173v1の全4頁、Theorem1.5とCorollary1.6を一次PDFで確認した。
+正規化延長はこの既知入力であり、全source・極次数・降下・閉像を同論文から引用したものではない。https://arxiv.org/abs/math/0310173

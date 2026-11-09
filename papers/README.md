@@ -1,10 +1,10 @@
 # 現行原稿 — 共通復元と実持上げ
 
-2026-11-09 / v70-conductor-conormal-reconstruction
+2026-11-09 / v71-normalization-residue-pencils
 
 現行全分類稿は [poisson_p4_classification_ja.tex](poisson_p4_classification_ja.tex)、
 構造稿は [poisson_divisor_symmetries_ja.tex](poisson_divisor_symmetries_ja.tex)。
-両者は marked_hyperplane_reconstruction.tex、quadric_cubic_reconstruction.tex、conductor_conormal_reconstruction.tex、poisson_lifting_examples.tex を共有する。
+両者は marked_hyperplane_reconstruction.tex、quadric_cubic_reconstruction.tex、conductor_conormal_reconstruction.tex、normalization_residue_reconstruction.tex、poisson_lifting_examples.tex を共有する。
 単純Hと重複Hの入口を共通証明へ置換し、TRIPLE→Ga9の強制補正と可換場の因子分裂を説明した。
 二次＋三次の共通復元、全被約平面五次の全源、因子留数による磁気商ν−1も統合した。
 Cの導手支持について、rank零・二の可換余法線とflat作用を共通化した。
@@ -14,6 +14,16 @@ leading Pfaffianをrestrictionで割ったsectionの平行輸送から、二次�
 rank零可換性、rank二module、既約cubic零因子の全source、m2/m4輸送の重複証明を実際に置換した。
 全150係数で制約rank42、Euler24、全源84の完全性と全自由係数恒等式を記号検算した。
 新規性未確認。旧有限場合分け・共鳴・monodromy・全支持帰属・成分性は保持し、全147の独立検証ではない。
+被約な固定五次Dの全fiberは、閉逆形式の線形空間V_Fからquadric q_F=0を除いた開集合となる。
+V_F全体が互換なPoisson tensorを与え、非空のrank4 fiberは幾何学的に既約である。
+正規化上では導手次数以下の全closed一形式と、B/Aで測る全線形降下条件のkernelからV_Fを正逆付きで復元した。
+導手係数一のrank0/2留数とnode符号、scrollの全交点行列kernelを統合し、次数五源と次数六排除の重複を置換した。
+有限MCM族の部分導手・base change・一意なambient liftを共通化し、二つの実T40曲線と023射影族へ適用した。
+一般因子が被約な相異なるambient成分は同じ閉因子像を持てない。因子像の包含とrank jumpは別の比較として残す。
+平面free五次では全10係数のcompatible源となり、rank2以下境界はvertex P5を持つdet(M)=0のquadricである。
+非被約h5の反例、極次数だけでは降りないcusp、node-cusp局所族の二重導手を保持する。
+新37項目ではtoric五Hの全150列kernel、A/B/C三つの全M4+R6源、導手のmatrix factorizationを検算した。
+一般定理は本文の通常の証明であり、このCASが全147成分又は全旧有限場合分けを独立認証したとはしない。新規性未確認。
 個別成分の全証明は主稿に保持する。今回全147を独立検証したとはしない。
 組版は `bash scripts/build_structural_manuscripts.sh`、方針はルートRESEARCH_POLICY.md。
 

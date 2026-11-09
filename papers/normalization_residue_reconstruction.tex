@@ -1,0 +1,374 @@
+% Common reduced-divisor fibres, normalization descent and actual family lifts.
+\section{被約因子の線形fiberと正規化留数による全復元}\label{sec:normalization-residue}
+この節は被約なactual五次を固定した全fiberを扱う。
+fiberと閉像は被約parameter空間又は全幾何点として考え、Jacobi schemeの全非被約厚みは主張しない。
+正規化上では導手が極次数を制御し、元の環への降下を線形条件として残す。
+さらに導手上の留数関係から、旧scrollの次数五・六の議論とrank二境界を同じ原理へ接続する。
+正規化へのPoisson bracketの延長自体はKaledin\cite[Theorem 1.5, Corollary 1.6]{KaledinNormalization}の既知結果である。
+以下の線形fiber・降下の正逆・適用の整理について新規性は未確認であり、全支持認識を引用だけで済ませない。
+
+\subsection{五次上のbracketは一意にambientへ持ち上がる}
+$P=\mathbb P^4$、$\mathcal E=\bigwedge^2T_P=\Omega_P^2(5)$と置く。
+\begin{lemma}[五次のambient lift]\label{lem:quintic-ambient-lift}
+任意の五次hypersurface $D\subset P$上の正則な二重導分は、一意な
+$\Pi\in H^0(P,\mathcal E)$へ持ち上がる。
+元のbracketがPoissonなら、liftもPoissonである。
+元のbracketがD上で定義されるので、liftはDへtangentである。
+さらに$\Pi^2|_D=0$なら$\Pi^2/2=cF$、$c\in\mathbb C$である。
+ここでFはDの固定方程式で、被約Dではこの外積平方条件は自動的である。
+Dの被約性はこの補題には不要である。
+\end{lemma}
+\begin{proof}
+$\bigwedge^2(\Omega_P^1|_D)\twoheadrightarrow\bigwedge^2\Omega_D^1$の双対により、
+二重導分は$\mathcal E|_D$のsectionである。
+完全列とBottの消滅
+\[
+ 0\longrightarrow\Omega_P^2\longrightarrow\mathcal E
+ \longrightarrow\mathcal E|_D\longrightarrow0,\qquad
+ H^0(\Omega_P^2)=H^1(\Omega_P^2)=0
+\]
+からrestrictionは同型となる。
+Jacobiatorは$\bigwedge^3T_P$のsectionで、D上のbracketがPoissonならDへ制限して零である。
+$H^0(\bigwedge^3T_P(-5))=H^0(\Omega_P^1)=0$からambientでも零となる。
+二重導分が$\mathcal O_D$上で定義されることは、$\{F,-\}\equiv0\pmod F$というtangencyそのものである。
+D上の余接加群は四つのambient生成元と関係$dF$を持ち、dense smooth locusだけを使う必要はない。
+外積平方がD上零となる追加条件の下では、$\Pi^2/2$はFで割れ、次数から商は定数となる。
+被約Dではdense smooth locusの次元三からこの零性が従う。
+一般の非被約Dについては最後の$cF$の主張に、$\Pi^2|_D=0$を別に課す。
+\end{proof}
+補題の最後の非被約の場合は、tangencyだけから外積平方の消失を推測していない。
+以下のfixed-divisor定理ではDは被約なので、この追加条件は自動的である。
+
+\begin{theorem}[被約固定因子の全fiberは線形空間の開集合]\label{thm:reduced-fibre-linear}
+$F$を被約五次とし、
+\[
+ V_F=\{\alpha\in H^0(P,\Omega_P^2(5)):d(\alpha/F)=0\}
+\]
+と置く。canonicalな線形同型$\Omega_P^2(5)\simeq\bigwedge^2T_P$で$\alpha$を$\Pi_\alpha$へ写す。
+このときある二次形式$q_F:V_F\to\mathbb C$が存在して
+\[
+ \Pi_\alpha^2/2=q_F(\alpha)F
+\]
+となり、$V_F$の\emph{全て}の$\Pi_\alpha$は互いにcompatibleなPoisson tensorである。
+actual因子が$V(F)$となる全projective fiberは正確に
+\begin{equation}
+ \mathbb P(V_F)\setminus V(q_F).\label{eq:reduced-linear-fibre}
+\end{equation}
+従って非空ならgeometrically irreducibleである。非零な$V_F$の全点をrank四としたのではない。
+\end{theorem}
+\begin{proof}
+Fの各因子の一般smooth点で局所方程式をzとする。
+$\omega=\alpha/F$は高々単極で閉じている。
+$\alpha=dz\wedge\eta+\gamma$と分けると、$z\,d\alpha=dz\wedge\alpha$から
+$\gamma$の接方向成分はzで割れ、
+\[
+ \omega=\frac{dz}{z}\wedge\eta+\gamma'
+\]
+となる。従って$\omega^2$は高々単極で、$\alpha^2$は全ての相異なる因子で割れる。
+被約性からFで割れ、次数五の切断同士なので商は定数$q_F(\alpha)$となる。
+同じ表示から$\Pi_\alpha$はDへtangentであり、そのrestrictionは
+$\eta|_D=\iota_{\Pi_D}\theta_D$に対応する。
+ここで$\theta_D$は随伴によるdualizing三形式である。
+closednessから$d_D(\eta|_D)=0$なので、三次元の恒等式
+$\Pi_D$ Poisson $\Longleftrightarrow(\iota_{\Pi_D}\theta_D)\wedge d(\iota_{\Pi_D}\theta_D)=0$
+によりDのdense smooth locus上でJacobiを満たす。
+Dが被約だからJacobiatorのrestrictionは全D上零で、補題\ref{lem:quintic-ambient-lift}からambient Jacobiも零である。
+$V_F$が線形なのでpolarizationは$[\Pi_\alpha,\Pi_\beta]=0$を与える。
+
+$q_F\ne0$ならinverseは非零定数倍の$\alpha/F$であり、actual因子はDとなる。
+逆にactual Dを持つ任意のPoisson tensorではinverseがFに沿って高々単極を持つ。
+そのnumeratorは非零定数倍の$\iota_\Pi$に対応するので$V_F$へ戻る。
+全ての構成は同じcanonical同型を用いるため正逆である。
+非空の場合のfiberはprojective linear spaceからquadricを除いた開集合であり、
+代数閉拡大後も同じ記述となる。
+\end{proof}
+
+\begin{corollary}[rank二境界と相対閉像]\label{cor:reduced-fibre-boundary}
+$q_F\not\equiv0$なら、$q_F(\alpha)=0$となる任意の非零$\alpha\in V_F$はrank二以下であり、
+actual Dを持つrank四構造の閉包に入る。
+具体的に$q_F(\beta)\ne0$を選ぶと$\Pi_\alpha+t\Pi_\beta$が互換Poisson pencilで、
+有限個のtを除きactual Dを持つ。
+また被約五次のirreducible locally closed base上で$\dim V_F$が一定かつ$q_F\not\equiv0$なら、
+この全rank四源の閉像はirreducibleである。
+\end{corollary}
+\begin{proof}
+$q_F(\alpha+t\beta)$の最高係数は非零なので、pencilの主張を得る。
+相対的には閉性条件は有限次元の写像$d_F$のkernelであり、constant rank base上でvector bundleを作る。
+そのprojectivizationからfiberwise quadricを除いた非空開はirreducibleなので、その閉像もそうなる。
+これはambient componenthoodを証明する主張ではなく、極大閉像を選ぶ前のirreducibilityである。
+rank jumpで生じる特殊底成分は別に残す。標識忘却や非被約因子のGalois分岐もこの主張では消していない。
+\end{proof}
+
+\begin{corollary}[被約因子像は全成分の重複を識別する]\label{cor:reduced-divisor-component-images}
+一般actual因子が被約である相異なるrank四ambient既約成分は、
+五次因子空間内で相異なる閉像を持つ。
+従って同じ閉因子像を持つ二つの全源を、別々のambient成分と数えることはできない。
+閉因子像の\emph{包含}だけからambient成分の包含は結論しない。
+\end{corollary}
+\begin{proof}
+rank四かつ因子被約の開集合上では、Pfaffianは因子空間への正則写像である。
+二成分の閉因子像が同じirreducible Bであるとする。
+両成分はBの全inverse imageの既約成分で、Bを支配する。
+しかしBの幾何学的一般fiberは定理\ref{thm:reduced-fibre-linear}の非空な線形開で既約である。
+一般fiberの既約成分とBを支配する全空間の既約成分の対応により、そのような成分は一つしかない。
+矛盾するので閉像は相異なる。
+一方、properなspecial baseでは$\dim V_F$が跳び、より大きいfiberから新しい成分が生じ得る。
+従ってbase像の包含を成分包含へ昇格させず、rank jumpの閉像を別に比較する。
+\end{proof}
+磁気零・非零の軌道が違うことだけで二成分としないのも、同じfull fixed-D源の線形開に両方が入るためである。
+rank二の純成分ではactual五次写像そのものが未定義なので、この識別則の対象外である。
+
+被約性は本質的である。$h=1$のaffine座標$(x,y,z,w)$で
+\[
+ \omega=(1+2x)\,dx\wedge dy+dz\wedge dw
+\]
+は閉じており、無限遠Hで高々四位極なので$F=h^5$に対し$\alpha=F\omega$は大域sectionである。
+しかし対応する$\Pi=\partial_x\wedge\partial_y+(1+2x)\partial_z\wedge\partial_w$は
+$\operatorname{Jac}(y,z,w)=-2$、Pfaffian sectionは$h^4(h+2X)$で、Fの定数倍ではない。
+従って非被約入口には従来の二次Pfaffian条件と全modular条件を残す。
+
+\subsection{導手square、極次数と全線形降下条件}
+Dを被約五次とし、$\nu:X\to D$を成分ごとの正規化とする。
+各affine chartで$A=\mathcal O_D$、$B=\nu_*\mathcal O_X$、
+$\mathfrak c=\{a\in A:aB\subset A\}$と書く。
+$\mathfrak c$はAとBの共通idealで、環として正確に
+\begin{equation}
+ A=B\mathbin{\times}_{B/\mathfrak c}A/\mathfrak c .\label{eq:conductor-square}
+\end{equation}
+Bの元は、そのmodulo導手の像が$A/\mathfrak c$に入る時かつその時だけAへ降りる。
+導手のscheme構造をreduced supportで置き換えていない。
+
+Dの固定dualizing generatorを$\theta_D$、その有理pullbackを$\theta_X$とする。
+有限双対性はcodimension一で
+\[
+ \omega_X=\mathfrak c\,\theta_X,\qquad
+ \operatorname{div}(\theta_X)=-C_X
+\]
+を与える。$C_X=\sum c_i\Gamma_i$はeffective Weil導手である。
+Xの特異点で可逆性を課さず、rank-one reflexiveな意味で用いる。
+\begin{theorem}[正規化留数からの全fixed-D復元]\label{thm:normalization-residue-source}
+$W_{C_X}$を、$d\eta=0$かつ各primeで極次数が$C_X$以下となるX上の有理一形式の空間とする。
+$\iota_{\beta_\eta}\theta_X=\eta$で定めた二重導分はX上正則かつPoissonである。
+各affine chartでAの有限代数生成元$a_i$を選び、線形写像
+\begin{equation}
+ \delta_D(\eta)=\bigl(\beta_\eta(da_i,da_j)\bmod A\bigr)_{i<j}
+       \quad\text{in }\prod_{\rm charts,\ i<j}B/A                  \label{eq:residue-descent}
+\end{equation}
+を作ると、canonicalな正逆同型
+\begin{equation}
+ V_F\simeq\ker(\delta_D:W_{C_X}\to\textstyle\prod B/A)             \label{eq:normalization-full-source}
+\end{equation}
+が存在する。右辺からのambient liftは一意で、Jacobiを追加に解く必要はない。
+actual Dの全源はここから$q_F\ne0$の開を取るだけである。
+\end{theorem}
+\begin{proof}
+Xの各codimension一で、$\theta_X=r^{-c}g\,dr\wedge ds\wedge dt$、g unitと書ける。
+$\eta$の係数のpole orderがc以下なら、逆contractionで得る$\beta_\eta$の全係数は正則である。
+Xはnormalなので、bracketの値を関数としてcodimension二の外から延長すれば全X上の二重導分となる。
+三次元の上のJacobi判定と$d\eta=0$によりPoissonである。
+$\delta_D=0$は生成元間の全bracketがAへ入ることに等しく、Leibniz則からA全体への降下と同値である。
+式\eqref{eq:conductor-square}によれば、これは全gluingをmodulo導手で検査する条件でもある。
+閉一形式や導手のcycleだけから降下を推測したのではない。
+
+降下した二重導分を補題\ref{lem:quintic-ambient-lift}で一意に持ち上げる。
+対応する有理二形式$\omega=\alpha/F$はDの各一般smooth点でlogarithmicで、そのresidueが$\eta$である。
+$d\eta=0$から$d\omega$はそこで正則となる。
+他のdivisorにもpoleはないので、smooth P上のHartogsと$H^0(P,\Omega_P^3)=0$から$d\omega=0$。
+よって$\alpha\in V_F$である。
+
+逆に$\alpha\in V_F$のambient tensorは定理\ref{thm:reduced-fibre-linear}によりPoissonである。
+DのbracketをKaledinの定理でXへ正則に延長し、$\eta=\iota_{\Pi_X}\theta_X$と置く。
+これは$\omega$のresidueに一致するので閉じており、極次数は$C_X$以下で、元から降りたので$\delta_D=0$。
+同じcontractionと一意なambient liftを用いるため二写像は互いに逆である。
+$c_i>1$のprincipal partも$W_{C_X}$と$B/A$に含まれ、零補集合や高位極を捨てていない。
+\end{proof}
+
+Hamiltonian導分$\partial$は正規化へ延び、$a\in\mathfrak c,b\in B$に対し
+$\partial(a)b=\partial(ab)-a\partial(b)\in A$なので導手を保つ。
+これはA由来のHamiltonian作用についての主張であり、B上の任意のHamiltonianがAを保つと仮定していない。
+
+\begin{proposition}[導手係数一の留数とnodeの符号]\label{prop:conductor-pole-residue}
+$\Gamma_i$が係数$c_i=1$の導手primeなら、対応するclosed一形式はそこでgenericに単極logarithmicである。
+その定数留数$\lambda_i$は、像の曲面S上のrestrictionがrank二なら非零、rank零なら零である。
+generic nodeのsplit二primeでは$\lambda_1+\lambda_2=0$。
+non-splitの一primeではrestriction rank二は不可能である。
+\end{proposition}
+\begin{proof}
+$\partial\mathfrak c\subset\mathfrak c$をgeneric DVRで使うと
+$\partial(r^{c_i})\in(r^{c_i})$、従って$\partial r\in(r)$である。
+$\Gamma_i\to S$はgenerically finite separableなので、Sからの二つの分離接座標を選べば
+$\Pi_X$のmixed係数はrで割れる。
+従って$c_i=1$では
+\[
+ \iota_{\Pi_X}\theta_X=gA\,dr/r+\text{regular tangential terms},
+ \qquad\Pi_X|_{\Gamma_i}=A|_{r=0}\partial_s\wedge\partial_t .
+\]
+閉性は$gA|_{r=0}$を定数にし、その消失はSのrestriction rank零と同値である。
+nodeを有限分離拡大・完成後に$uv=0$とすれば、同じdualizing generatorの二branchは
+$g_+\,dv/v\wedge ds\wedge dt$と$-g_-\,du/u\wedge ds\wedge dt$であり、
+$g_+|_S=g_-|_S$である。従って二留数は反対符号となる。
+一primeのquadratic function-field coverではdeck交換が留数を反転するが、
+閉性による留数は$\mathbb C$の定数なのでdeckで固定され、零となる。
+全域のinvolutionや係数体がPoisson中心という仮定は不要である。
+\end{proof}
+$c_i>1$ではこの単極結論を用いない。横断cuspでは$c_i=2$であり、
+$\Pi_X=\partial_s\wedge\partial_t$、$\theta_X=ds\wedge dt\wedge da/a^2$は
+$\eta=da/a^2$を与える。導手係数に一致する二位極を正確に保持している。
+同じcuspで$\eta'=da/a$も閉じ、極次数は導手以下であるが、対応する
+$\beta'=a\partial_s\wedge\partial_t$は
+$A=\mathbb C[s,t,a^2,a^3]\subset B=\mathbb C[s,t,a]$へ降りない。
+実際$\{s,t\}=a\notin A$で、式\eqref{eq:residue-descent}はこの非零な$a\bmod A$を検出する。
+極次数だけで降下を済ませられない具体例である。
+
+
+\subsection{交点行列が全単極留数源を決める}
+\begin{theorem}[曲線による全留数源]\label{thm:curve-residue-source}
+Yをsmooth projective varietyとし、$H^0(Y,\Omega_Y^1)=0$、$\operatorname{Pic}Y\simeq\mathbb Z^r$とする。
+$C=\sum_{i=1}^m\Gamma_i$を被約divisorとする。
+曲線$B_j$はgeneric log locusを横断し、全bad codimension二集合を避け、
+$\operatorname{Pic}Y\to\mathbb Z^s,\ A\mapsto(B_jA)_j$が単射になるものとする。
+$M_{ji}=B_j\Gamma_i$と置けば、residue写像は同型
+\begin{equation}
+ \{\eta\text{ rational}:d\eta=0,\ \operatorname{pole}(\eta)\le C\}
+       \simeq\ker(M:\mathbb C^m\to\mathbb C^s)              \label{eq:curve-residue-kernel}
+\end{equation}
+を与える。逆写像はinteger relation $n^{(k)}$と
+$\operatorname{div}(f_k)=\sum_i n_i^{(k)}\Gamma_i$から作る$\sum_k a_kd\log f_k$である。
+CがSNCであることや、$B_j$が全Yを覆うことは不要である。
+\end{theorem}
+\begin{proof}
+generic smooth divisorで閉単極一形式は$\lambda_i,dr/r+\text{regular}$で、$\lambda_i$は定数である。
+曲線の全residue和零から$M\lambda=0$を得る。
+全留数零ならdivisorial polesが全て消え、Hartogsと$H^0(\Omega_Y^1)=0$から形式は零である。
+逆にinteger matrix Mのcomplex kernelはinteger kernelのcomplex spanである。
+Picへの曲線pairingの単射性から、integer relationはlinearly trivial divisorを与え、対応する$f_k$が存在する。
+$d\log f_k$は指定された留数と単極だけを持つので逆写像を与える。
+$f_k$の定数倍は微分で消え、injectivityからbasisの選択に依存しない。
+\end{proof}
+
+Yが$\mathbb P_{\mathbb P^1}(\mathcal O(e_0)\oplus\mathcal O(e_1)\oplus\mathcal O(e_2))$で、
+$d=\sum e_i>0$、Lをtautological、Fをfiber divisorとすると
+\[
+ L^3=d,\quad L^2F=1,\quad F^2=0,\quad -K_Y=3L+(2-d)F.
+\]
+一般二L切断$B_H$と一般ruling plane内のline $B_f$により、
+$\Gamma_i=a_iL+b_iF$の列は
+\begin{equation}
+ M_i=\binom{da_i+b_i}{a_i}.\label{eq:scroll-residue-matrix}
+\end{equation}
+Picの基底に関するこのpairingの行列式は$-1$で、全単極源は二行のkernelそのものである。
+113/122/014/023のsmooth modelでは、bad curveの像を一般二hyperplaneで避けられる。
+一般ruling fiberにはbad曲線は有限点だけを残し、それを避けるlineを選べる。
+014/023のsmall exceptional curveもこの有限点に含め、exceptional divisorを仮定していない。
+
+\begin{corollary}[奇数導手の排除と残る一つの形式]\label{cor:scroll-conductor-residues}
+上のscroll modelでactual被約quinticの全導手がreducedであるとする。
+全支持のrestrictionがrank零ならclosed一形式は零となり、rank四actual源は存在しない。
+導手が一つのrank二node支持を覆う二primeだけなら、やはり存在しない。
+また$d=5$で$\Gamma_1,\Gamma_2\in|L|$がrank二支持を覆う場合、
+残余plane導手が$Q\sim L-3F$又は$Q+F_b$、$Q\sim L-4F$なら、
+全closed一形式は
+\[
+ \eta=\lambda\,d\log(g_1/g_2),\qquad\Gamma_i=(g_i),
+\]
+に限られ、残余plane上の留数は零である。
+\end{corollary}
+\begin{proof}
+rank零の場合は命題\ref{prop:conductor-pole-residue}で全留数零となり、定理の単射性を使う。
+rank二nodeの二primeでは$\lambda_2=-\lambda_1\ne0$なので、
+$M\lambda=0$は$\Gamma_1\sim\Gamma_2$を強制する。
+しかし和のL係数が三なので、整数$a_1=a_2$とは両立しない。
+non-split一primeは既に同命題で除外した。
+
+残余Q一つの場合、全行列は
+$\left(\begin{smallmatrix}5&5&2\\1&1&1\end{smallmatrix}\right)$で、kernelは$(1,-1,0)$。
+Qと$F_b$の場合は
+$\left(\begin{smallmatrix}5&5&1&1\\1&1&1&0\end{smallmatrix}\right)$に
+nodeの関係$\lambda_Q+\lambda_{F_b}=0$を加えるとkernelは$(1,-1,0,0)$となる。
+定理の逆写像が表示の$d\log(g_1/g_2)$である。
+形式を得たことだけから、式\eqref{eq:residue-descent}の全降下又はactual Pfaffianの非零性を推測していない。
+\end{proof}
+
+\subsection{部分導手のbase changeと実Poisson族}
+\begin{proposition}[有限CM族の導手と一意な相対lift]\label{prop:partial-conductor-family}
+Tをsmooth base、$\mathcal D\subset P\times T$をflatなrelative quintic、
+$f:\mathcal Z\to\mathcal D$をfinite birationalで各fiberもbirationalな射とする。
+$\mathcal Z$はT-flatかつCMで、局所的に$B=f_*\mathcal O_{\mathcal Z}$は
+Gorenstein環$A=\mathcal O_{\mathcal D}$上MCMとする。
+このときevaluation at一は
+\[
+ \operatorname{Hom}_A(B,A)=\mathfrak c_f\subset A\subset B
+\]
+を与え、regular base parameterを順次特殊化した各fiberで、実際の有限射$f_t$の部分導手と一致する。
+$\mathcal Z_t$がnormalであることや$f_t$が全正規化であることは不要である。
+
+$\mathcal Z$上のrelative Poisson bracketがAへ降りるなら、$\mathcal D$のbracketは一意な正則ambient Poisson族へ持ち上がる。
+さらに$\Pi_t^2=c(t)F_t$を満たす場合、$c(0)\ne0$なら中心を含む開でactual因子は$\mathcal D_t$である。
+\end{proposition}
+\begin{proof}
+finite birational環拡大でA線形写像$B\to A$をtotal quotient ringへ延ばすと掛算となるので、
+その全体は$\{b\in B:bB\subset A\}$である。
+Gorenstein環上MCMだから$\operatorname{Ext}^{i>0}_A(B,A)=0$。
+regular parameter tについて$0\to A\xrightarrow{t}A\to A/t\to0$をdualizeすると
+\[
+ \operatorname{Hom}_A(B,A)/t
+ \simeq\operatorname{Hom}_{A/t}(B/tB,A/t).
+\]
+A,BのT-flatnessでregular sequenceを保ち、順次同じ議論を適用できる。
+evaluation at一もこの同型と可換なので、cycleの一致だけでなく導手ideal自体が特殊化する。
+
+相対的な$H^0(\Omega_P^2)=H^1(\Omega_P^2)=H^0(\Omega_P^1)=0$を使えば、
+補題\ref{lem:quintic-ambient-lift}のrestriction同型とJacobi消失がT上でも成立する。
+$\Pi^2|_{\mathcal D}=0$を満たす場合、割った係数$c(t)$は正則で、その非零開を取ればよい。
+被約fiberではこの外積平方条件はtangencyから自動的である。
+この手順は、与えられた有限CM族についての主張であって、任意のfamilyで正規化がflat又はbase changeと可換という主張ではない。
+\end{proof}
+
+局所的なnode--cusp族では、このschemeを直接見ることもできる。
+\[
+ A=\mathbb C[\tau,u,v]/(v^2-u(u+\tau)^2),\quad
+ B=\mathbb C[\tau,a],\quad u=a^2,\ v=a(a^2+\tau).
+\]
+$B/A$は$\mathbb C[\tau]$上で$a\bmod A$を基底とする自由加群で、
+部分導手は$\mathfrak c_A=(u+\tau,v)$、$\mathfrak c_B=(a^2+\tau)$である。
+実際、任意の多項式を$f(a^2)+a g(a^2)$と書き、gを$u+\tau$で割ると、
+Aの元と$g(-\tau)a$の和に一意に分かれる。この余項を消すannihilatorが表示の導手である。
+$\tau=0$の導手は$a^2$となり、二つのnode branchが衝突する重複を保持する。
+正規化上の相対留数$da/(a^2+\tau)$は、一般fiberでは反対符号の二つの単極、
+中心では$da/a^2$となる。
+$s,t$を加えた局所Poisson族
+$\partial_s\wedge\partial_t+(v^2-u(u+\tau)^2)\partial_u\wedge\partial_v$
+は全parameterでJacobiを満たす。これは局所的な相対模型であり、global $P$上の族という主張ではない。
+
+\subsection{平面五次の全compatible源とrank二境界}
+\begin{proposition}[全十係数とdeterminant境界]\label{prop:plane-fixed-divisor-pencil}
+定理\ref{thm:reduced-plane-whole-source}の被約free平面五次FとSaito基底U,Vを固定し、
+$\det(E_0,U,V)=\kappa F$とする。
+$M=(m_{ij})\in\operatorname{Mat}_2(\mathbb C)$、$R\in\mathbb C[a_0,a_1,a_2]_2$、
+$A=m_{11}U+m_{12}V$、$B=m_{21}U+m_{22}V$に対し
+\begin{equation}
+ \Pi_{M,R}=A\wedge\partial_r+B\wedge\partial_s+
+ \bigl(-\operatorname{div}B\,r+\operatorname{div}A\,s+R\bigr)
+ \partial_r\wedge\partial_s                                 \label{eq:plane-full-pencil}
+\end{equation}
+は全parameterでPoissonであり、互いにcompatibleである。
+actual Pfaffian potentialは$-\kappa\det(M)F$である。
+従って$V_F$はこの全十係数源、全rank四fiberは$\mathbb P^9\setminus V(\det M)$である。
+そのrank二以下境界はvertexが$\mathbb P^5$のdeterminantal quadricである。
+\end{proposition}
+\begin{proof}
+$\det M\ne0$ではA,Bは全Saito基底であり、定理\ref{thm:reduced-plane-whole-source}の全源と一致する。
+全Jacobi・発散・Pfaffianの恒等式はpolynomialなので、Mの従属・零も含む全空間へ延びる。
+式\eqref{eq:plane-full-pencil}自体が線形なのでpolarizationから互換性を得る。
+全十係数は独立である。定理\ref{thm:reduced-fibre-linear}の$V_F$内でrank四開はdenseであり、
+その全点がこの十次元線形部分空間へ入るから、$V_F$全体が一致する。
+$\det M=0$はMの四変数のquadricで、Rの六変数はvertexを与える。
+任意の非零境界点から$M\mapsto M+tI$とするpencilは一般tでrank四となる。
+磁気shearの零商・非零商の軌道分類と、ここでのrank低下quadricは異なるもので、両方を残す。
+純rank二成分の一般点がこの特定の境界に入るとは主張していない。
+\end{proof}
+
+これで被約A/B/Cのfixed-divisor source、導手の全principal partと降下、
+実familyのambient lift、rank二への具体的閉包が接続された。
+残る義務は、因子baseの全rank stratumと非被約入口、個別の低次数支持認識、
+標識忘却を含む極大閉像である。有限normal formの名称をそのまま成分数と数えることはしない。

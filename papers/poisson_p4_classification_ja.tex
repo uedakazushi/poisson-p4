@@ -24,7 +24,7 @@
 \title{複素射影四空間上のPoisson構造の成分分類\\[3pt]
 \large 被約既約成分は正確に147}
 \author{}
-\date{2026年11月9日\quad v70-conductor-conormal-reconstruction}
+\date{2026年11月9日\quad v71-normalization-residue-pencils}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -86,6 +86,9 @@ Poisson moduleとcanonical moduleの枠組みは\cite[\S4.1, Example 4.4]{GPcond
 作用に見えない三係数と全higherを正逆付きで復元する。
 leading Pfaffianの平行輸送により二次判別式と四次不変量の議論も統一する。
 これらを同文献から全源の尽くしとして引用せず、旧有限認識・成分性の証明を保持する。
+正規化延長はKaledin\cite[Theorem 1.5]{KaledinNormalization}を用いるが、
+導手次数で制御した全留数からの線形降下、被約fixed-D fiberの線形開、
+部分導手と実ambient族、rank二へのcompatible pencilは以下で正逆とともに示す。
 この構造的整理の新規性は未確認である。
 
 
@@ -112,6 +115,8 @@ R2&Pfaffian恒等零、actual五次は未定義&6
 \input{papers/quadric_cubic_reconstruction.tex}
 
 \input{papers/conductor_conormal_reconstruction.tex}
+
+\input{papers/normalization_residue_reconstruction.tex}
 
 \input{papers/poisson_lifting_examples.tex}
 
@@ -8271,8 +8276,8 @@ $0\to\mathcal O_C\to\nu_*\mathcal O_\Gamma\to M|_C\to0$の右辺の長さは左�
 Cの算術種数六から式を得る。非正規性により和は正だからgは五以下。
 有限双対性と$\omega_D=\mathcal O_D$から、reflexiveな意味で
 $K_X+C_X\sim0$、$L^3=5,L^2C_X=12-2g$も得る。
-Hamiltonian導分は正規化へ延び、導手の元aに対し
-$\partial(a)b=\partial(ab)-a\partial(b)$から導手を保つ。
+正規化へのHamiltonian導分の延長と導手保存は
+定理\ref{thm:normalization-residue-source}の導手squareとKaledinの定理による。
 従って各既約支持はPoisson不変で、二次元の一般rankは零又は二である。
 \end{proof}
 
@@ -14727,20 +14732,11 @@ cuspなら$K[[t^2,t^3]]\subset K[[t]]$のconductorは$(t^2)$なので$C_X=2\Gamm
 smooth Xで$\Gamma_S$はCartierだが、$3L-3F$は二で割れず矛盾する。
 codimension二の特殊導手はこのWeil divisorのparityを変えない。
 
-nodeでは$C_X$はreducedである。D上のbracketをrationalにXへ移した$\pi_X$は、
-補題\ref{lem:generic-node-poisson-lift}により全conductor primeでregularかつ零となる。
-それ以外のcodimension一では$\nu$が同型でDがregularなので$\pi_X$もregular。
-smooth X上のlocally free層のHartogsから
-\[
- \pi_X\in H^0(X,\Lambda^2T_X(-C_X))
-       =H^0(X,\Omega_X^1)
-\]
-となる。最後の同型には三次元と$K_X+C_X\sim0$を使った。
-smooth rational scrollの相対cotangent完全列と
-$H^0(\mathbb P^2,\Omega^1)=H^0(\mathbb P^1,\Omega^1)=0$から右辺は零である。
-一方、reducedな実Dのsmooth一般点では$\pi$は非零rank二である。
-全係数がD上で零ならactual PfaffianはDを二回含んでreduced性に反する。
-従って$\pi_X\ne0$であり矛盾する。
+nodeでは$C_X$はreducedである。
+命題\ref{prop:conductor-pole-residue}によりrank零restrictionは全conductor留数を零にする。
+系\ref{cor:scroll-conductor-residues}のrank零の場合からclosed一形式は零であり、
+定理\ref{thm:normalization-residue-source}の一意な復元からambient tensorも零となる。
+これはactual rank四に反する。全codimension二の延長と導手の実scheme構造は共通復元に含まれる。
 \end{proof}
 全degree六を扱う証明は\path{RANK_ZERO_SEXTIC_CONDUCTOR_EXCLUSION.md}、別作者による
 Bertini・全射影・導手parity・非中心係数体上のbracketとHartogsの監査は
@@ -15029,28 +15025,15 @@ vertical因子が無いので各$F_t$は非零であり、既にdegree五と分�
 従ってD/Tはflat Gorenstein hypersurface、$\omega_{D/T}=O_D$。
 normalization-flatやimage-basechangeを先験的に仮定したのではない。
 局所$A=O_D,B=f_*O_Y$では、Aのparameter列は各有限B局所環でもparameter列となり、
-YのCM性からBはA上MCM。Gorenstein双対性から
-\[
- \operatorname{Ext}^{i>0}_A(B,A)=0,\qquad
- \operatorname{Hom}_A(B,A)=\mathfrak c=f_*\omega_{Y/T}\subset A\subset B.
-\]
-同一fraction field内のevaluation at一がこの実conductor inclusionである。
-$\tau=t-t_0$でdualizeするとExt一零から
-\[
- \operatorname{Hom}_A(B,A)/\tau
- =\operatorname{Hom}_{A/\tau}(B/\tau B,A/\tau),
-\]
-しかもevaluationと可換なので、全fiberで正確な導手写像となる。余分なt倍で中心を消していない。
+YのCM性からBはA上MCM。命題\ref{prop:partial-conductor-family}から
+$\operatorname{Hom}_A(B,A)=\mathfrak c=f_*\omega_{Y/T}\subset A\subset B$が
+全fiberの実導手inclusionへ特殊化する。MCMとT-flatnessを上で確認したので、
+Ext消滅とevaluation at一のbase changeが適用でき、中心に余分なt倍を掛けていない。
 このanticanonical section sと非零closed $\alpha_B$から$P_Y=i_{p^*\alpha_B}s$を作る。
 三次元FrobeniusでPoisson、中心の唯一のtensor線にscalarを合わせて指定点そのものに一致させる。
 $df(P_Y)$の全係数は$\mathfrak cB\subset A$に入り、ambient $\Lambda^2T|_D$へ正則にdescendする。
-\[
- 0\to\Lambda^2T(-5)=\Omega^2\to\Lambda^2T\to\Lambda^2T|_D\to0
-\]
-と$H^0(\Omega^2)=H^1(\Omega^2)=0$により、一意なregular relative ambient tensor Piへliftする。
-smooth D上のintrinsic bracketは零、Dのintegralityから全Dで零なので、
-$[\Pi,\Pi]$は$\Lambda^3T(-5)=\Omega^1$のsection。
-そのH0零性で元ambient Jacobiも全parameterで零となる。
+命題\ref{prop:partial-conductor-family}の一意なrelative ambient liftにより、
+元ambient Jacobiも全parameterで零である。
 actualPfaffianは$c(t)F_t$で、指定中心rank四より$c(0)\ne0$、中心を保つopenでunitに出来る。
 全t非零はstable型のT40認識と一意なnormalized tensor線・ambient liftによりT40。
 閉性で任意の中心もT40に入る。bundleの閉包だけからtensorの所属を推論していない。
@@ -15105,15 +15088,9 @@ total image Dはregular ambient内のhorizontal prime Cartier divisor。
 正規化のflatness又はimageのbase changeを先に仮定していない。
 
 有限双有理射の局所環を$A=O_D,B=g_*O_Z$とする。
-ZのCM性からBはA上MCMであり、有限双対性は
-\[
- \operatorname{Hom}_A(B,A)=g_*\omega_{Z/T},\quad
- \operatorname{Ext}^{i>0}_A(B,A)=0,\quad
- \operatorname{Hom}_A(B,A)/\tau
- =\operatorname{Hom}_{A/\tau}(B/\tau B,A/\tau)
-\]
-を与える。evaluation at一はこれを実ideal
-$\mathfrak c_g=\{b\in B:bB\subset A\}\subset A\subset B$へ同定し、上のbase changeと可換。
+ZのCM性とT-flatnessからBはA上MCMである。
+命題\ref{prop:partial-conductor-family}により、$\operatorname{Hom}_A(B,A)=g_*\omega_{Z/T}$の
+evaluation at一は実部分導手$\mathfrak c_g\subset A\subset B$で、各fiberの部分導手へ正確に特殊化する。
 中心で使うのは非正規$Z_0\to D_0$の\emph{部分導手}であり、
 $Y_0$の全正規化導手と混同しない。
 $\omega_{\mathcal B/T}=O$を選ぶと、その導手inclusionは
@@ -15123,8 +15100,7 @@ relative dimension二なのでPoissonであり、係数は$\mathfrak c_gB\subset
 中心pullbackは
 $H^0(\Lambda^2T_{Y_0}(-C_S))=H^0(\Omega^1_{Y_0}(C_P))=\mathbb C$
 の非零線にあるので、一つの定数で元の指定tensorに合わせられる。
-Bottの$H^0(\Omega^2)=H^1(\Omega^2)=0$からambient liftは一意かつ正則、
-$H^0(\Lambda^3T(-5))=H^0(\Omega^1)=0$から元のJacobiも零。
+命題\ref{prop:partial-conductor-family}の相対ambient liftは一意かつ正則で、元のJacobiも零。
 actual Pfaffianは$c(t)F_t$で$c(0)\ne0$なので、中心を残して全rank四の実曲線を得る。
 一般fiberはsmooth elliptic baseのample/GG rank三degree五bundleであり、
 全導手から作ったtensorの線は$H^0(\Omega^1)=\mathbb C$。
@@ -15150,39 +15126,17 @@ genus一の既stable／unstable認識と合わせて全次数五rank零の結論
 導手のnormality又は全域で定義されたinvolutionは仮定しない。
 \end{lemma}
 \begin{proof}
-$K=\mathbb C(S)$とする。generic nodeのconductor algebraは$K\times K$、
-又はseparable quadratic extension Eの二択である。
-後者は一つのprime $\Gamma$と$E=\mathbb C(\Gamma)$を与える。
-補題\ref{lem:generic-node-poisson-lift}の全branch商から$\pi_X$はregularでconductorにtangent。
-逆symplectic二形式のclosed residueを$\alpha=i_{\pi_X}\Omega_X$とする。
-分離拡大・完成後のnode $K'[[u,v]]/(uv)$で、Sの接座標a,bをKのseparating transcendence basisに選ぶ。
-同じambient単元gを使ったdualizing generatorの二branchは
-\[
- g_+\frac{dv}{v}\wedge da\wedge db,\qquad
- -g_-\frac{du}{u}\wedge da\wedge db,
- \quad g_+|_{v=0}=g_-|_{u=0}=g_0\ne0
-\]
-である。$\pi|_S=H\partial_a\wedge\partial_b$、H非零とすると、
-mixed bracketはbranch parameterで割れるため、二residueは$g_0H,-g_0H$となり、ともに非零である。
-これはnodeのdualizing residueのtrace零関係で、uniformizerのunit倍で変わらない。
-
-one-primeならE/Kのfield involution$\tau$は二residueをfunctorialに交換するので、
-そのresidue $\rho\in E$は$\tau\rho=-\rho$を満たす。
-一方closednessから$d_\Gamma\rho=0$、従って$\rho\in\mathbb C$であり、$\tau\rho=\rho$。
-char零で$\rho=0$となって非零性に反する。
-ここでg自体のGalois不変性は置かず、同じglobal formのresidueの交換だけを使った。
-global scheme上へinvolutionを延長する必要も無い。
-よって二primeの場合だけが残り、generic degreeは各一である。
+nodeの導手係数は一であり、命題\ref{prop:conductor-pole-residue}を用いる。
+二branchの同じdualizing generatorによる留数は非零で反対符号となる。
+一primeのseparable quadratic coverでは閉性による定数留数がdeck固定かつ反deckとなり矛盾する。
+従って二primeが各々Sへbirationalに写る。全域のinvolution又はPoisson中心係数体は仮定しない。
 \end{proof}
 
-固定したDについて、全conductor prime上のresidueを持つclosed simple-pole一形式を考える。
-rationalなsmooth scroll、又はsmall resolutionがrational scrollの場合、
-全residue零の差はcodimension一でregular、small exceptional curve外からHartogsで延び、
-$H^0(\Omega^1)=0$により零となる。
-従ってresidueは全一形式源を単射的に決める。
-contraction$\pi_D\mapsto i_{\pi_D}\Omega_D$とambient restrictionもinjectiveなので、
-全residue源が一次元以下なら、同じDを持つprojective Poisson fiberは高々一点である。
-actual Pfaffianのscalarがtensorごとに変わってもcontraction formはclosed residueのconstant倍であり、この結論は変わらない。
+固定Dでの全closed一形式源とambient tensorの正逆は、定理\ref{thm:normalization-residue-source}による。
+rational smooth scroll又はそのsmall modelでは、全単極源は定理\ref{thm:curve-residue-source}の交点行列kernelである。
+従ってnode符号も課したkernelが一次元以下なら、同じDのprojective Poisson fiberは高々一点となる。
+一般の被約fixed-D fiberそのものは定理\ref{thm:reduced-fibre-linear}の線形開であり、
+ここではさらに留数kernelの次元を評価した。actual Pfaffianのscalarの違いもこの射影的記述に含まれる。
 
 \subsection{一つのS(2,3)射影の全導手が絶対既約となる証明}
 \begin{lemma}\label{lem:scroll23-integral-conductor}
@@ -15305,14 +15259,9 @@ universal degree五restrictionのkernelは全Wで一次元なのでline bundle�
 相対P3内にflat universal quintic $\mathcal T$を定める。
 $Y_0\times U_4\to\mathcal T$はproperかつ全fiber finite、従ってfiniteである。
 sourceはsmooth、targetはhypersurface Gorensteinで、同次元finite sourceのmoduleはmaximal CM。
-したがって局所的に$\operatorname{Ext}_A^{>0}(B,A)=0$であり、base parameter tについて
-\[
- \operatorname{Hom}_A(B,A)/t\simeq
- \operatorname{Hom}_{A/t}(B/t,A/t)
-\]
-となる。全base parameterを順次使えばfinite dualityは各fiberの実導手と一致する。
-evaluation at 1によるconductor inclusionもbase changeと可換である。
-従ってcycleの候補又は仮定したnormalization-defectのflatnessではなく、全conductor ideal自体の族を得る。
+したがって命題\ref{prop:partial-conductor-family}により、finite dualityとevaluation at一は
+各fiberの実導手idealへbase changeする。仮定したnormalization-defectのflatnessではなく、
+与えられた有限MCM族の全導手自体を得る。
 relative dualityのline bundleは
 $O_{Y_0}(-3H+3f)\otimes\text{base line}$なので、全導手は
 \[
@@ -15381,17 +15330,13 @@ $\Gamma_1\sim L,\Gamma_2\sim2L-5F$となる。
 全て$C_P\sim L-3F,C_S=2L$で、$\Gamma_1,\Gamma_2\in|L|$となる。
 全Cはreducedで、Pもgeneric nodeである。
 
-113/023のresidueを$\lambda_1,\lambda_2,\mu$とする。
-ample $L+nF$の一般二切断曲線上のresidue theoremは、全十分大きなnについて
-\[
- (5+2n)(\lambda_1+\lambda_2)+(2+2n)\mu=0
-\]
-を与え、$\mu=0,\lambda_1+\lambda_2=0$となる。
-014ではS上の二residueは$\lambda,-\lambda$、P上の二prime Q,Fbもlocal nodeの符号から$\mu,-\mu$。
-$(L+nF)^2Q=1+2n$、$(L+nF)^2F_b=1$なので$2n\mu=0$である。
-同じresidueを持つ形式の差はsmooth rational Y上でholomorphicだから零となり、
-全closed一形式源は一次元以下、fixed-D projective Poisson fiberは高々一点である。
-small exceptional curve外からのHartogsを使うので、そこで追加poleを捨てていない。
+ここで全closed留数源を、系\ref{cor:scroll-conductor-residues}で同時に復元する。
+113/023の全交点行列は$\left(\begin{smallmatrix}5&5&2\\1&1&1\end{smallmatrix}\right)$、
+014では$\left(\begin{smallmatrix}5&5&1&1\\1&1&1&0\end{smallmatrix}\right)$にP側nodeの反対符号を加える。
+従ってP側留数は零、S側は$\lambda,-\lambda$で、全形式は
+$\lambda\,d\log(g_1/g_2)$となる。
+定理\ref{thm:normalization-residue-source}の正逆からfixed-D projective fiberは高々一点である。
+small exceptional curveと他のbad codimension二は、共通定理の二種類の曲線の選択で避けている。
 
 全三型で$K=H^0(L-C_P)\simeq H^0(3F)$は四次元、$H^0(L)$は八次元。
 plane Pの二linear equationは全$C_P$上で消えるので、projection五空間Vは$\dim(V\cap K)\ge2$を満たす。
@@ -18065,15 +18010,13 @@ $g=0$又は定数$g$の三次共鳴は対応する長鎖源への\emph{還元}�
 $005$は支持がplaneへ退化して空、残りは滑らかな$Y$又は余分なWeil divisorを持たないsmall resolutionで、
 $\operatorname{Pic}Y=\mathbb ZL+\mathbb ZF$、導手は$C=3L-3F$。
 cuspは$C=2\Gamma$の$L$係数が奇数となり空。
-nodeが一primeなら閉inverse-residueの非零定数留数に一般$L^2$曲線上の留数和を適用して矛盾する。
-残るsplit $\Gamma_1+\Gamma_2$は各$\Gamma_i\to S$が次数一なので$L^2\Gamma_i=6$である。
-閉留数を非零定数$\lambda_i$とする。
-一般の二$L$切断曲線は全悪いcodimension二とsmall exceptional locusを避けられ、
-留数和は$6\lambda_1+6\lambda_2=0$。
-一般ruling $\PP^2$内の一般lineでも全交点が横断的になり、
-$\Gamma_i=a_iL+b_iF$として$a_1\lambda_1+a_2\lambda_2=0$。
-$a_1+a_2=3$は奇数なので$a_1\ne a_2$、従って両留数は零となりrank二nodeに矛盾する。
-特定の射影で導手が既約という旧witnessだけを使った排除ではない。
+nodeがnon-split一primeなら命題\ref{prop:conductor-pole-residue}で空となる。
+split二primeの場合も系\ref{cor:scroll-conductor-residues}の奇数導手排除を適用する。
+各$\Gamma_i\to S$は次数一、$L^2\Gamma_i=6$、$\lambda_2=-\lambda_1\ne0$である。
+二種類の曲線の交点行列は列$(6,a_i)$を持つため$a_1=a_2$を強制するが、
+導手のL係数は$a_1+a_2=3$で矛盾する。
+全射影・small exceptional curve・generic log locusを共通定理の仮定に戻しており、
+特定の射影のwitnessや全域SNCを仮定した排除ではない。
 \end{proof}
 
 \begin{proposition}\label{prop:index-two-node-T37-E}
@@ -21622,5 +21565,9 @@ arXiv:math/0203023v2, Theorem 1.1, Remark 3.
 \emph{Poisson modules and degeneracy loci}, arXiv:1203.4293v1,
 \S4.1, Example 4.4, Proposition 3.11.
 DOI: 10.1112/plms/pds090. \url{https://arxiv.org/abs/1203.4293}.
+\bibitem{KaledinNormalization} D. Kaledin,
+\emph{Normalization of a Poisson algebra is Poisson},
+arXiv:math/0310173v1 (12 October 2003), Theorem 1.5, Corollary 1.6.
+\url{https://arxiv.org/abs/math/0310173}.
 \end{thebibliography}
 \end{document}

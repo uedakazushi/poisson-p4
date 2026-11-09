@@ -1,11 +1,11 @@
-# 現在地 — 導手の可換余法線と平面の全復元
+# 現在地 — 正規化留数による全fiberとPoisson pencil
 
-2026-11-09 / v70-conductor-conormal-reconstruction
+2026-11-09 / v71-normalization-residue-pencils
 
 active queueはresearch/conceptual/GLOBAL_PLAN.md。現行台帳は147成分（rank4:141、rank2:6）・1158採録主張を主張する。
 今回その全証明を独立再確認したとはしない。台帳・旧証明書は未変更。
 
-主稿と構造稿は共通TeX四本を読み、既存の全証明を保持する。
+主稿と構造稿は共通TeX五本を読み、既存の全証明を保持する。
 Aの標識/modular原始関数と二つの実持上げに加え、Bのcanonical cofactorとPfaffian復元を統合した。
 rank三・四の全31場を同じ入口へ接続し、全保存源の全自由係数・残Jacobiをexact入力として保持する。
 その全係数恒等式を再生成したが、full150線形kernelの完全性のrank証明は旧入力である。
@@ -26,5 +26,21 @@ rank零可換性、rank二module、既約cubic零因子の全source、m2/m4輸�
 全150係数で制約rank42、Euler24、全源84の完全性と全自由係数恒等式を記号検算した。
 新規性未確認。旧有限場合分け・共鳴・monodromy・全支持帰属・成分性は保持し、全147の独立検証ではない。
 新検算はcode/check_conductor_conormal_reconstruction.py、結果はreports/conductor_conormal_checks.json。
-組版と目視はreports/conductor_conormal_validation.json。次は非plane認識と正規化上の降下・留数を接続する。
+組版と目視はreports/conductor_conormal_validation.json。被約な固定五次Dの全fiberは、閉逆形式の線形空間V_Fからquadric q_F=0を除いた開集合となる。
+V_F全体が互換なPoisson tensorを与え、非空のrank4 fiberは幾何学的に既約である。
+正規化上では導手次数以下の全closed一形式と、B/Aで測る全線形降下条件のkernelからV_Fを正逆付きで復元した。
+導手係数一のrank0/2留数とnode符号、scrollの全交点行列kernelを統合し、次数五源と次数六排除の重複を置換した。
+有限MCM族の部分導手・base change・一意なambient liftを共通化し、二つの実T40曲線と023射影族へ適用した。
+一般因子が被約な相異なるambient成分は同じ閉因子像を持てない。因子像の包含とrank jumpは別の比較として残す。
+平面free五次では全10係数のcompatible源となり、rank2以下境界はvertex P5を持つdet(M)=0のquadricである。
+非被約h5の反例、極次数だけでは降りないcusp、node-cusp局所族の二重導手を保持する。
+新37項目ではtoric五Hの全150列kernel、A/B/C三つの全M4+R6源、導手のmatrix factorizationを検算した。
+一般定理は本文の通常の証明であり、このCASが全147成分又は全旧有限場合分けを独立認証したとはしない。新規性未確認。
+新検算と組版・目視はreports/normalization_residue_checks.json、reports/normalization_residue_validation.json。
+次は被約因子baseのkernel-rank strataから極大閉像を認識する。Bの全31cofactor源のうち少なくとも二つを選び、
+因子baseへの全像・特殊底・標識忘却を保って同じ閉像か異なる極大像かを比較する。
+被約fixed-D fiberのGalois分裂を追加に分類する必要はなくなったが、factor markingと非被約入口の分岐は残る。
+同時にR2のfoliation全支持を、今回の明示的rank2境界と純rank2成分の区別へ接続する。
+constant rank上のirreducibilityだけをambient componenthoodとしない。rank jumpの縦rank4も残す。
+
 GitHub、bundle生成/検証、Library保存は別状態として実結果だけを報告する。

@@ -1,6 +1,6 @@
 # Poisson structures on projective four-space
 
-2026-11-09 / v70-conductor-conormal-reconstruction
+2026-11-09 / v71-normalization-residue-pencils
 
 ## 現在の主作業
 
@@ -36,13 +36,23 @@ leading Pfaffianをrestrictionで割ったsectionの平行輸送から、二次�
 rank零可換性、rank二module、既約cubic零因子の全source、m2/m4輸送の重複証明を実際に置換した。
 全150係数で制約rank42、Euler24、全源84の完全性と全自由係数恒等式を記号検算した。
 新規性未確認。旧有限場合分け・共鳴・monodromy・全支持帰属・成分性は保持し、全147の独立検証ではない。
-次は非plane導手の認識と正規化上の留数・降下条件を進める。
+被約な固定五次Dの全fiberは、閉逆形式の線形空間V_Fからquadric q_F=0を除いた開集合となる。
+V_F全体が互換なPoisson tensorを与え、非空のrank4 fiberは幾何学的に既約である。
+正規化上では導手次数以下の全closed一形式と、B/Aで測る全線形降下条件のkernelからV_Fを正逆付きで復元した。
+導手係数一のrank0/2留数とnode符号、scrollの全交点行列kernelを統合し、次数五源と次数六排除の重複を置換した。
+有限MCM族の部分導手・base change・一意なambient liftを共通化し、二つの実T40曲線と023射影族へ適用した。
+一般因子が被約な相異なるambient成分は同じ閉因子像を持てない。因子像の包含とrank jumpは別の比較として残す。
+平面free五次では全10係数のcompatible源となり、rank2以下境界はvertex P5を持つdet(M)=0のquadricである。
+非被約h5の反例、極次数だけでは降りないcusp、node-cusp局所族の二重導手を保持する。
+新37項目ではtoric五Hの全150列kernel、A/B/C三つの全M4+R6源、導手のmatrix factorizationを検算した。
+一般定理は本文の通常の証明であり、このCASが全147成分又は全旧有限場合分けを独立認証したとはしない。新規性未確認。
+次は被約因子baseの全rank strataと極大閉像、非被約入口、R2の全支持を接続する。
 
 ## 保存済み資料と検証の射程
 
 全分類主稿 `papers/poisson_p4_classification_ja.tex` と構造原稿は、
 `papers/marked_hyperplane_reconstruction.tex`、`papers/quadric_cubic_reconstruction.tex`、
-`papers/conductor_conormal_reconstruction.tex`、`papers/poisson_lifting_examples.tex` を共有する。
+`papers/conductor_conormal_reconstruction.tex`、`papers/normalization_residue_reconstruction.tex`、`papers/poisson_lifting_examples.tex` を共有する。
 主稿の既存の全証明を保持し、共通部分だけを置換した。成分・主張台帳と旧証明書は未変更。
 全147 IDの一般実因子・入口・原証明への案内は `research/conceptual/component_entrances.csv`。
 一般元はA:113 / B:10 / C:18 / R2:6であり、成分閉包の分割ではない。
@@ -54,6 +64,7 @@ python code/check_global_structure.py --output work/global-structure.json
 python code/check_marked_reconstruction.py --output work/marked-reconstruction.json
 python code/check_quadric_residue_reconstruction.py --output work/quadric-residue-checks.json
 python code/check_conductor_conormal_reconstruction.py --output work/conductor-conormal-checks.json
+python code/check_normalization_residue_reconstruction.py --output work/normalization-residue-checks.json
 python code/map_component_entrances.py --output work/component_entrances.csv
 mkdir -p work/structure-build
 lualatex -interaction=nonstopmode -halt-on-error -output-directory=work/structure-build papers/poisson_divisor_symmetries_ja.tex
@@ -62,4 +73,4 @@ lualatex -interaction=nonstopmode -halt-on-error -output-directory=work/structur
 
 既存29項目に加え、共通恒等式と表示した全パラメータ族・正逆を検算した。全分類の自動証明ではない。
 環境内にTeX一式が別展開されている場合は `scripts/build_structural_manuscripts.sh` を使う。
-今回の検証範囲と組版結果は `reports/conductor_conormal_validation.json`。Bと磁気商の記録は `reports/quadric_residue_validation.json`。全31源の線形完全性の階数証明は旧入力であり、今回再計算していない。
+今回の検証範囲と組版結果は `reports/normalization_residue_validation.json`。余法線源の前段は `reports/conductor_conormal_validation.json`。Bと磁気商の記録は `reports/quadric_residue_validation.json`。全31源の線形完全性の階数証明は旧入力であり、今回再計算していない。

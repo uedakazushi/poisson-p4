@@ -1,6 +1,6 @@
 # Poisson P4 — global reconstruction, not a local-lemma sprint
 
-2026-11-09 / v70-conductor-conormal-reconstruction
+2026-11-09 / v71-normalization-residue-pencils
 
 ## Read first
 
@@ -77,11 +77,29 @@ Leading Pfaffian divided by the restriction is parallel in Sym^m(N*) tensor det 
 This replaces repeated rank0/2 module, source-completeness, and m2/m4 transport proofs.
 The new checker verifies completeness in all150 coefficients, not old finite cases.
 
-Next follow GLOBAL_PLAN P2 for C: connect the fixed normalization/conductor square,
-Hamiltonian derivation descent and inverse-form residues to the remaining nonplane
-recognition proofs. Keep the existing numeric conductor bound and normal recognition.
-Do not assume conductor reducedness, simple normalized residues, or normalization-flatness.
-Then connect R2 and maximal closed images. Component navigation is not verification.
+Reduced fixed-quintic fibres now have a stronger shared theorem in
+papers/normalization_residue_reconstruction.tex: V_F is a compatible linear Poisson
+space, and the entire rank4 fibre is P(V_F) minus one quadric. Nonempty fibres are
+geometrically irreducible. This is NOT valid for nonreduced F: h^5 has an explicit
+closed-form counterexample with nonzero Jacobi.
+Normalization gives the full source as bounded-conductor closed one-forms with
+linear B/A descent checks. Pole bounds alone do not imply descent (cusp example).
+Coefficient-one residues and full scroll intersection kernels replace repeated
+rank0/2 and degree5/6 arguments. Finite MCM partial conductors and relative lifts
+replace repetition in both actual T40 curves and the 023 projection family.
+Distinct ambient rank4 components with generically reduced divisors cannot have
+the same closed divisor image. Inclusion of divisor images does NOT imply inclusion
+of components: kernel-rank jumps can create special-base components.
+The plane free-quintic source has all10 coefficients and a determinant-quadric
+rank2 boundary. Do not confuse this with magnetic zero/nonzero orbit strata.
+
+Next follow GLOBAL_PLAN: compare maximal images over reduced-divisor base
+kernel-rank strata, using the original all31 B sources and actual factor maps.
+Replace at least one repeated closure/component-recognition argument, keeping
+special-base rank4 components and finite factor markings. Then connect R2's
+full foliation support and pure components to the explicit boundary theorem.
+Do not treat fixed-fibre irreducibility as ambient componenthood or announce
+an independent proof of all147. Nonreduced A still needs its quadratic conditions.
 
 ## Non-negotiable mathematical distinctions
 
