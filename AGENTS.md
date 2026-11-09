@@ -1,12 +1,18 @@
 # Poisson P4 — independent referee pass before public release
 
-2026-11-09 / v73-prepublication-review
+2026-11-09 / v74-publication-candidate
 
 ## Read order and current assignment
 
 Read RESEARCH_POLICY.md, research/publication/REFEREE_PLAN.md,
 research/classification/CURRENT.md, research/conceptual/FINAL_TARGET.md,
 then the current main manuscript and original proof sources.
+
+The specified high-risk proof review and finite runtime-path review are now
+closed at the scope stated in REFEREE_REPORT.md. CURRENT.md records the remaining
+delivery state. Finish the current full-bundle validation and main/Library save;
+do not restart completed derivations, add speculative lemmas, or rerun all old
+experiments. Reopen a proof only for new evidence or a concrete defect.
 
 The 147-component classification has been DECLARED COMPLETE, with a 418-page
 main manuscript, three companion PDFs and five verified Library ZIP volumes.
@@ -15,7 +21,7 @@ The new phase is an ADVERSARIAL, theorem-level, independent referee review
 and final publication editorial pass. It supersedes the previous instruction
 to keep inventing conceptual lemmas or to stop when old M1–S1 flags say PASS.
 
-## Immediate mathematical work — prioritize downstream impact
+## Proof criteria applied in this review — retain their scope
 
 1. First challenge the reduced-fixed-divisor theorem:
    papers/normalization_residue_reconstruction.tex,

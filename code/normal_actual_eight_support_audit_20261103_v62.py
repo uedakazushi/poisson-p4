@@ -18,7 +18,7 @@ ROOT=Path(__file__).resolve().parents[1]
 def spectrum(h,m):return (Q(1),-Q(h,2),-Q(m,3),Q(h,2)+Q(m,3)-1)
 
 
-def audit(output):
+def audit(output, primary_pdf=None):
     base=ROOT/'legacy/v22';inputs={}
     manifest=dict((line.split(maxsplit=1)[1].lstrip('*'),line.split(maxsplit=1)[0])
                   for line in (base/'SHA256SUMS.txt').read_text().splitlines() if line.strip())
@@ -82,7 +82,11 @@ def audit(output):
         assert nn['source_sha256'][label]['sha256']==hashlib.sha256(p.read_bytes()).hexdigest()
     two=json.loads((base/'audits/22_stdlib.json').read_text())
     assert len(two['certificates'])==4
-    primary=ROOT/'work/cloud-d0-20261103/gualtieri-pym-1203.4293.pdf'
+    # Literature provenance is separate from the finite arithmetic inputs.
+    # A disposable downloaded PDF must not be required to replay the audit.
+    primary_digest = None
+    if primary_pdf is not None:
+        primary_digest = hashlib.sha256(primary_pdf.read_bytes()).hexdigest()
     record(Path(__file__))
     report=dict(id='NORMAL_ACTUAL_EIGHT_SUPPORT_AUDIT_20261103_v62',all_passed=True,
                 support_coverage=coverage,
@@ -91,8 +95,9 @@ def audit(output):
                 certificates_22=two['certificates'],certificates_TC_SS=ss['certificates'],certificates_TC_NN=nn['certificates'],
                 archived_exact_groups=10,archived_exact_checks=3229,unchanged_old_certificates_rerun=False,
                 primary_GP_source=dict(url='https://arxiv.org/pdf/1203.4293',
-                                       sha256=hashlib.sha256(primary.read_bytes()).hexdigest(),
-                                       read='Section8 pp28-30: Theorem8.1 normality,Theorem8.3 actualdivisorequality,Proposition8.5 nonvanishingresidue'),
+                                       sha256=primary_digest,
+                                       local_pdf_bytes_read=primary_pdf is not None,
+                                       literature_reference='Section8 pp28-30: Theorem8.1 normality,Theorem8.3 actualdivisorequality,Proposition8.5 nonvanishingresidue; human review is not rerun by this script'),
                 geometric_audit_findings=['fourthjet conic obstruction is coordinate/unit invariant afterMorse elimination',
                                          'projective cubic identity applied onlyafterlinearcoordinatechanges',
                                          'allresiduenormalizations use verified nonzero coefficients andcomplete-linear-system supportautomorphisms',
@@ -109,4 +114,6 @@ def audit(output):
 
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--output',type=Path,required=True)
-    r=audit(p.parse_args().output);print('PASS',len(r['support_coverage']),len(r['input_sha256']))
+    p.add_argument('--primary-pdf',type=Path,help='Optional local PDF, recorded only as literature provenance')
+    args=p.parse_args()
+    r=audit(args.output,args.primary_pdf);print('PASS',len(r['support_coverage']),len(r['input_sha256']))

@@ -18,7 +18,7 @@ python code/referee/check_leaf_obstructions.py --output work/referee-leaves.json
 ```
 
 serialize検査は読了した元constructorの再実行であり、その独立実装ではない。
-今回のLibrary実ZIP取得はツール制約で未達で、保存SHAが一致するローカル五巻の隔離検査と区別する。
+LibraryからのZIP再取得は行わない。再現性は現行Git又は手元の現行volumeからの隔離復元で判定する。
 
 ## 数学の証明と今回の検証の区別
 
@@ -26,7 +26,7 @@ serialize検査は読了した元constructorの再実行であり、その独立
 過去の全実験や全外部定理を今回独立に再証明したという主張ではない。
 原証明を再利用した範囲、今回読んだ一次資料、今回実行した算術は
 `reports/*integration_validation.json` と各共通機構の `*validation.json` に記録した。
-96種の正確な凍結入力は、記録されたSHA256と一致するGit又は埋め込み原文から回収した。
+97種の正確な凍結入力を保持する。元96件に加え、八支持runnerの文献PDF依存を修正する前の一版を、既存証明書が要求するSHA256のまま保存した。
 旧producerの異なるbyte版は実際の証明書の入力であり、旧配布ZIPや不要なバックアップではない。
 `frozen_producer_index.json` は元パス、hash、回収元、現行保存先を対応させる。
 
@@ -38,8 +38,12 @@ primary claimからの依存、本文入力、正確な係数・コード・証�
 実行時間・resume記録、明示的に未採択とされた誤ったV1 proofは数学の前提に数えない。
 各除外と文章・制御情報の版差は索引に残す。
 係数・実行コードのhash不一致はこの扱いで免除せず、正確な凍結入力へ解決している。
-この走査は完全なruntime read-file解析ではない。記録hashの無い未解決構文パスは
-出力や非入力と自動判定せず、`unresolved_static_path_candidates` に明示する。
+この走査は完全なruntime read-file解析ではない。検出した65構文パス（206個の出典との組）を
+`static_path_review.json` と `code/referee/check_static_paths.py` で、出典のSHAとASTの実read/writeに照らして分類した。
+実入力8件は実際の相対基準へ解決し、旧bundleから欠けていたv21の二runnerも収録する。
+未レビュー又は出典が変わった組は `unresolved_static_path_candidates` に残し、可用性判定を通さない。
+RUNTIMEという名前だけで記録入力の欠落を免除しない。二つの過去の失敗実行記録だけを、
+正確なmetadata出典とhash、置換済みの係数証明書を確認して除外する。
 `all_required_inputs_available` はこの記録索引の範囲で読み、動的な全入力の証明に拡張しない。
 
 必須のlegacyコード・データは個別ファイルとして同梱する。
@@ -63,7 +67,7 @@ python code/check_conductor_conormal_reconstruction.py --output work/conductor-c
 python code/check_normalization_residue_reconstruction.py --output work/normalization-residue.json
 python code/check_rank_two_reconstruction.py --output work/rank-two.json
 python code/check_component_catalogue.py --output work/component-catalogue.json
-bash scripts/build_structural_manuscripts.sh
+bash scripts/build_structural_manuscripts.sh poisson_p4_classification_ja poisson_divisor_symmetries_ja normal_actual_divisor_recognition_ja s61_first_jet_reduction_ja
 ```
 
 51族の標本評価は有理演算の復号と座標規約の検査である。
@@ -91,6 +95,13 @@ python work/replay-mixed/code/classification_rank3_mixed_component_review.py \
 他のproducerは、対応するjobのCLI・環・反転元を確認し、同じ方法で入力を隔離する。
 native計算を含むものにはMacaulay2/Singular/FLINT等、そのjobに明記された依存が必要である。
 
+八支持の再現runnerは文献PDF無しで次のように実行できる。文献PDFをhash記録する場合だけ任意の `--primary-pdf` を指定する。
+
+```bash
+python code/normal_actual_eight_support_audit_20261103_v62.py --output work/normal-eight.json
+python code/referee/check_static_paths.py --audit reports/required_proof_dependency_closure.json --output work/static-path-review.json
+```
+
 旧weight6独立reviewのfresh実装比較用scratchは、必要時に次で生成できる。
 この一時出力を恒久的な未同梱入力として要求しない。
 
@@ -102,11 +113,12 @@ python code/q_weight6_two_axes_review_20261103_v63.py --output work/weight6-revi
 
 ## Library配布一式
 
-Libraryの全ZIP volumeを同じフォルダに置く。
+生成済み又は利用者が手元に持つ現行ZIP volumeを同じフォルダに置く。
+CodexからLibraryのZIPを再ダウンロードする必要はない。
 いずれかから `UNPACK.py` を取り出し、全volumeを指定する。
 
 ```bash
-python UNPACK.py --parts poisson-p4-v72-part*.zip --destination poisson-p4-current
+python UNPACK.py --parts poisson-p4-v74-part*.zip --destination poisson-p4-current
 ```
 
 各volumeは同じmanifestを持ち、内容は重複しないcontent-addressed chunkである。

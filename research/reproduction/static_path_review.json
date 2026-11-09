@@ -1,0 +1,1979 @@
+{
+  "scope": "Resolve the finite path candidates reported by the dependency scanner.\n\nChecks source AST sites and real target bytes. This is a bounded review of\nreported candidates, not an exhaustive analysis of arbitrary generated code.\nNo path is waived merely because its name contains RUNTIME or CHECKPOINT.\n",
+  "reported_paths": 65,
+  "origin_path_pairs": 206,
+  "unreviewed_pairs": 0,
+  "source_sha256": {
+    "code/classification_ga9_constant_anchor_certificate.py": "91b9125760f05aafc77b0c9c3192323c9f558d82f121b088c9317492261a6338",
+    "code/classification_ga9_constant_anchor_support.py": "7221dc0c2dfb3f0dfd03c5e70ffae85725aafa7ae14c0d602153f058544b278a",
+    "code/classification_ga9_distinct_anchor_support.py": "f29e22e5b80558935ea95cf77d5a7ced3e4c535d76c3e07b4cad0e288975b5e4",
+    "code/classification_ga9_distinct_curve_orbit.py": "785b6a577e4bda2152b56eda27c8a18d4b117e79b7109ec62baec3b529752cb1",
+    "code/classification_plane_quintic_saito.py": "19dc7f39e817d340f97dcf3aa4896d73538a73240f762db0b68bf7b3ef6d9d32",
+    "code/classification_plane_rank_zero_fullrank_weights.py": "6022d1136118de933f13c2f1e09cf73e403735b4e675cce629b3837f2992cf62",
+    "code/normal_actual_eight_support_audit_20261103_v62.py": "20a9aa12b9bfb9049c4dbf681f50a14ac32dead9c5c6c17c96e67d9b7c9bd8bf",
+    "code/q_weight6_two_axes_review_20261103_v63.py": "27b9034ca1820c066d65d5f5f3ac699e252c96707af84d833d2f1594fb7f0441",
+    "legacy/v02/code/build_symplectic_slice.py": "5b65a17b75c8734cb5af9ae0757001d0119bb49afd4132763213c3ef79c2fc6e",
+    "legacy/v02/code/build_universal_slice.py": "3aab2e1e464e7283bddedf7c946ac317377976a7c985bbdc8f790e271a0ebe7d",
+    "legacy/v21/code/run_checks.py": "c3bf890ff9f3ab1f2b222c647edb2f98d561fd777a11ad0e8217b93c015458f5",
+    "legacy/v22/code/audit_certificates_stdlib.py": "e7b2d6eb7a1f2e596983efb804c8f18dffe23279a8f6663b042beb22a0e0179c",
+    "research/reproduction/frozen_producers/20a3943dcdf7083ed13dd64b14b14d9aa5100a2228589b6553830905f953b490.py": "20a3943dcdf7083ed13dd64b14b14d9aa5100a2228589b6553830905f953b490",
+    "research/reproduction/frozen_producers/58c43f92c39ec16912560f8df8307847ff9e01f99615526d83d37ef1472052c7.py": "58c43f92c39ec16912560f8df8307847ff9e01f99615526d83d37ef1472052c7",
+    "research/reproduction/frozen_producers/60e84e753c93f3f43a25ee9c884514552e8adc07423a4009eae22183643b818b.py": "60e84e753c93f3f43a25ee9c884514552e8adc07423a4009eae22183643b818b",
+    "research/reproduction/frozen_producers/6ec249803ea4d0031f435781f38f391686ee67b6b0e70636da9f449a09f643db.py": "6ec249803ea4d0031f435781f38f391686ee67b6b0e70636da9f449a09f643db",
+    "research/reproduction/frozen_producers/70597a20b559cd1a88010050f91ab612fe6a83b15e64d313d5ea8ae91638fdaa.py": "70597a20b559cd1a88010050f91ab612fe6a83b15e64d313d5ea8ae91638fdaa",
+    "research/reproduction/frozen_producers/84f1b161ecbfd4dedb39a400ed1032a8bd3ee58d3da51b62aa7cf71757c623e6.py": "84f1b161ecbfd4dedb39a400ed1032a8bd3ee58d3da51b62aa7cf71757c623e6",
+    "research/reproduction/frozen_producers/bd8161901f3f45c1ddf8a1d0ec4a46a34909d4970495a7fdf4d7195b5eeb01d1.py": "bd8161901f3f45c1ddf8a1d0ec4a46a34909d4970495a7fdf4d7195b5eeb01d1",
+    "research/reproduction/frozen_producers/d4c6cd361a2fdd05ab197839ad8089ad52c1091b14cdde78fb7f653a6a86158c.py": "d4c6cd361a2fdd05ab197839ad8089ad52c1091b14cdde78fb7f653a6a86158c",
+    "research/classification/inputs/plane_m4_two_line_casimir_manifest_20261107.json": "1cc1e527fb473304500c8f9625a558ea8759532a132915e44aa5dc0e7a8e8fbc",
+    "research/classification/jobs/plane_m4_two_line_casimir.json": "efa6d332f3e54415a12950e777404e4387015e0d2aee4bae400002091fbaac8f"
+  },
+  "resolutions": [
+    {
+      "origin": "code/classification_ga9_constant_anchor_certificate.py",
+      "path": "work/ga9-constant-anchor-certificate/four-lifts.txt",
+      "disposition": "generated_native_output",
+      "reason": "The runner emits a native input, executes it, then reads its generated text output; no preexisting coefficient file is consumed at this path.",
+      "source_lines": [
+        13
+      ]
+    },
+    {
+      "origin": "code/classification_ga9_constant_anchor_support.py",
+      "path": "work/ga9-constant-anchor-support/certificate.txt",
+      "disposition": "generated_native_output",
+      "reason": "The runner emits a native input, executes it, then reads its generated text output; no preexisting coefficient file is consumed at this path.",
+      "source_lines": [
+        22
+      ]
+    },
+    {
+      "origin": "code/classification_ga9_constant_anchor_support.py",
+      "path": "work/ga9-constant-anchor-support/failure.txt",
+      "disposition": "producer_output",
+      "reason": "Diagnostic text or timeout/failure report written by this runner.",
+      "source_lines": [
+        111
+      ]
+    },
+    {
+      "origin": "code/classification_ga9_constant_anchor_support.py",
+      "path": "work/ga9-constant-anchor-support/resource.json",
+      "disposition": "producer_output",
+      "reason": "Diagnostic text or timeout/failure report written by this runner.",
+      "source_lines": [
+        108
+      ]
+    },
+    {
+      "origin": "code/classification_ga9_distinct_anchor_support.py",
+      "path": "work/ga9-distinct-anchor-support/certificate.txt",
+      "disposition": "generated_native_output",
+      "reason": "The runner emits a native input, executes it, then reads its generated text output; no preexisting coefficient file is consumed at this path.",
+      "source_lines": [
+        22
+      ]
+    },
+    {
+      "origin": "code/classification_ga9_distinct_anchor_support.py",
+      "path": "work/ga9-distinct-anchor-support/failure.txt",
+      "disposition": "producer_output",
+      "reason": "Diagnostic text or timeout/failure report written by this runner.",
+      "source_lines": [
+        111
+      ]
+    },
+    {
+      "origin": "code/classification_ga9_distinct_anchor_support.py",
+      "path": "work/ga9-distinct-anchor-support/resource.json",
+      "disposition": "producer_output",
+      "reason": "Diagnostic text or timeout/failure report written by this runner.",
+      "source_lines": [
+        108
+      ]
+    },
+    {
+      "origin": "code/classification_ga9_distinct_curve_orbit.py",
+      "path": "work/ga9-distinct-curve-orbit/singular-locus.txt",
+      "disposition": "generated_native_output",
+      "reason": "The runner emits a native input, executes it, then reads its generated text output; no preexisting coefficient file is consumed at this path.",
+      "source_lines": [
+        35
+      ]
+    },
+    {
+      "origin": "code/classification_plane_quintic_saito.py",
+      "path": "code/poisson_p4_components_check.py",
+      "disposition": "archive_locator",
+      "reason": "Only archive_member metadata; the imported helper uses the separate full legacy/v03 path.",
+      "source_lines": [
+        222
+      ]
+    },
+    {
+      "origin": "code/classification_plane_rank_zero_fullrank_weights.py",
+      "path": "reports/CLASSIFICATION_PLANE_DOUBLE_LINE_M2_NIL_RESONANCE_RUNTIME_20261108.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4321
+      ]
+    },
+    {
+      "origin": "code/classification_plane_rank_zero_fullrank_weights.py",
+      "path": "reports/CLASSIFICATION_PLANE_DOUBLE_LINE_M3_ORE_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4321
+      ]
+    },
+    {
+      "origin": "code/classification_plane_rank_zero_fullrank_weights.py",
+      "path": "reports/CLASSIFICATION_PLANE_DOUBLE_LINE_M3_SQUAREFREE_20261107.json",
+      "disposition": "producer_output",
+      "reason": "Destination of the bounded squarefree batch; checked for nonexistence, then written.",
+      "source_lines": [
+        1866
+      ]
+    },
+    {
+      "origin": "code/classification_plane_rank_zero_fullrank_weights.py",
+      "path": "reports/CLASSIFICATION_PLANE_DOUBLE_LINE_M3_SQUAREFREE_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4321
+      ]
+    },
+    {
+      "origin": "code/classification_plane_rank_zero_fullrank_weights.py",
+      "path": "reports/CLASSIFICATION_PLANE_M3_CONSTANT_CEXACT_ORE_RUNTIME_20261108.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4233,
+        4321
+      ]
+    },
+    {
+      "origin": "code/classification_plane_rank_zero_fullrank_weights.py",
+      "path": "reports/CLASSIFICATION_PLANE_M3_TRIPLE_NEW_FIXED_ACTUAL_FACTOR_RUNTIME_20261108.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4321
+      ]
+    },
+    {
+      "origin": "code/classification_plane_rank_zero_fullrank_weights.py",
+      "path": "reports/CLASSIFICATION_PLANE_M3_TRIPLE_NEW_FIXED_ORIGINAL_SUPPORT_RUNTIME_20261108.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4321
+      ]
+    },
+    {
+      "origin": "code/classification_plane_rank_zero_fullrank_weights.py",
+      "path": "reports/CLASSIFICATION_PLANE_M3_TRIPLE_VALID_ORE_MODULES_RUNTIME_20261108.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4321
+      ]
+    },
+    {
+      "origin": "code/classification_plane_rank_zero_fullrank_weights.py",
+      "path": "reports/CLASSIFICATION_PLANE_M4_NONREDUCED_SQUAREFREE_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4321
+      ]
+    },
+    {
+      "origin": "code/classification_plane_rank_zero_fullrank_weights.py",
+      "path": "reports/CLASSIFICATION_PLANE_M4_TWO_LINE_CASIMIR_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4321
+      ]
+    },
+    {
+      "origin": "code/classification_plane_rank_zero_fullrank_weights.py",
+      "path": "reports/CLASSIFICATION_PLANE_NONREDUCED_M3_CONSTANT_MODULES_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4321
+      ]
+    },
+    {
+      "origin": "code/classification_plane_rank_zero_fullrank_weights.py",
+      "path": "reports/CLASSIFICATION_PLANE_NONREDUCED_M3_CONSTANT_ORE_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4321
+      ]
+    },
+    {
+      "origin": "code/classification_plane_rank_zero_fullrank_weights.py",
+      "path": "reports/CLASSIFICATION_PLANE_NONREDUCED_M3_MOVING_DOUBLE_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4321
+      ]
+    },
+    {
+      "origin": "code/classification_plane_rank_zero_fullrank_weights.py",
+      "path": "reports/CLASSIFICATION_PLANE_NONREDUCED_M3_MOVING_SIMPLE_MODULES_RUNTIME_20261108.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4321
+      ]
+    },
+    {
+      "origin": "code/classification_plane_rank_zero_fullrank_weights.py",
+      "path": "reports/CLASSIFICATION_PLANE_NONREDUCED_M3_MOVING_SIMPLE_ORE_RUNTIME_20261108.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4321
+      ]
+    },
+    {
+      "origin": "code/classification_plane_rank_zero_fullrank_weights.py",
+      "path": "reports/CLASSIFICATION_PLANE_NONREDUCED_M3_MOVING_SIMPLE_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4321
+      ]
+    },
+    {
+      "origin": "code/classification_plane_rank_zero_fullrank_weights.py",
+      "path": "reports/CLASSIFICATION_PLANE_NONREDUCED_M3_TRIPLE_CHECKPOINT_20261108.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        3197
+      ]
+    },
+    {
+      "origin": "code/classification_plane_rank_zero_fullrank_weights.py",
+      "path": "reports/CLASSIFICATION_PLANE_NONREDUCED_M3_TRIPLE_CORRECTED_ORE_RUNTIME_20261108.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4321
+      ]
+    },
+    {
+      "origin": "code/classification_plane_rank_zero_fullrank_weights.py",
+      "path": "reports/CLASSIFICATION_PLANE_NONREDUCED_M3_TRIPLE_CORRECTED_V2_CHECKPOINT_20261108.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        3469
+      ]
+    },
+    {
+      "origin": "code/classification_plane_rank_zero_fullrank_weights.py",
+      "path": "reports/CLASSIFICATION_PLANE_NONREDUCED_M3_TRIPLE_CORRECTED_V2_RUNTIME_20261108.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4321
+      ]
+    },
+    {
+      "origin": "code/classification_plane_rank_zero_fullrank_weights.py",
+      "path": "reports/CLASSIFICATION_PLANE_NONREDUCED_M3_TRIPLE_ORE_RUNTIME_20261108.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4321
+      ]
+    },
+    {
+      "origin": "code/classification_plane_rank_zero_fullrank_weights.py",
+      "path": "reports/CLASSIFICATION_PLANE_NONREDUCED_M3_TRIPLE_RUNTIME_20261108.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4321
+      ]
+    },
+    {
+      "origin": "code/classification_plane_rank_zero_fullrank_weights.py",
+      "path": "reports/CLASSIFICATION_PLANE_NONREDUCED_M3_TRIPLE_VERTEX_B_RUNTIME_20261108.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4321
+      ]
+    },
+    {
+      "origin": "code/classification_plane_rank_zero_fullrank_weights.py",
+      "path": "reports/CLASSIFICATION_PLANE_NONREDUCED_TRIPLE_LINE_M3_LEADING_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4321
+      ]
+    },
+    {
+      "origin": "code/classification_plane_rank_zero_fullrank_weights.py",
+      "path": "reports/CLASSIFICATION_PLANE_NONREDUCED_TRIPLE_LINE_M3_SQUAREFREE_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4321
+      ]
+    },
+    {
+      "origin": "code/classification_plane_rank_zero_fullrank_weights.py",
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_CARTAN_SURFACE_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4321
+      ]
+    },
+    {
+      "origin": "code/classification_plane_rank_zero_fullrank_weights.py",
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_COMMONIMAGE_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4321
+      ]
+    },
+    {
+      "origin": "code/classification_plane_rank_zero_fullrank_weights.py",
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_COMPATIBILITY_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4321
+      ]
+    },
+    {
+      "origin": "code/classification_plane_rank_zero_fullrank_weights.py",
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_DEPENDENT_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4321
+      ]
+    },
+    {
+      "origin": "code/classification_plane_rank_zero_fullrank_weights.py",
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_HYPERBOLA_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4321
+      ]
+    },
+    {
+      "origin": "code/classification_plane_rank_zero_fullrank_weights.py",
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_LOWPARAMETER_WEIGHTS_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4321
+      ]
+    },
+    {
+      "origin": "code/classification_plane_rank_zero_fullrank_weights.py",
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_NIL_LINE_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4321
+      ]
+    },
+    {
+      "origin": "code/classification_plane_rank_zero_fullrank_weights.py",
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_ONECUT_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4321
+      ]
+    },
+    {
+      "origin": "code/classification_plane_rank_zero_fullrank_weights.py",
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_ORE_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4321
+      ]
+    },
+    {
+      "origin": "code/classification_plane_rank_zero_fullrank_weights.py",
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_RESIDUAL_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4321
+      ]
+    },
+    {
+      "origin": "code/classification_plane_rank_zero_fullrank_weights.py",
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_THREEPARAMETER_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4321
+      ]
+    },
+    {
+      "origin": "code/classification_plane_rank_zero_fullrank_weights.py",
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_TSQUARE_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4321
+      ]
+    },
+    {
+      "origin": "code/classification_plane_rank_zero_fullrank_weights.py",
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_TWOPARAMETER_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4321
+      ]
+    },
+    {
+      "origin": "code/classification_plane_rank_zero_fullrank_weights.py",
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_RANK_TWO_KERNEL_WEIGHTS_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4321
+      ]
+    },
+    {
+      "origin": "code/classification_plane_rank_zero_fullrank_weights.py",
+      "path": "reports/CLASSIFICATION_PLANE_TRIPLE_WEAK_WALL_FULL_AMBIENT_RUNTIME_20261108.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4321
+      ]
+    },
+    {
+      "origin": "code/classification_plane_rank_zero_fullrank_weights.py",
+      "path": "reports/CLASSIFICATION_PLANE_TRIPLE_WEAK_WALL_GLOBAL_GRAPHS_RUNTIME_20261108.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4321
+      ]
+    },
+    {
+      "origin": "code/classification_plane_rank_zero_fullrank_weights.py",
+      "path": "reports/CLASSIFICATION_PLANE_TRIPLE_Y_WALLS_ORE_RUNTIME_20261108.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4321
+      ]
+    },
+    {
+      "origin": "code/normal_actual_eight_support_audit_20261103_v62.py",
+      "path": "audits/22_stdlib.json",
+      "disposition": "resolved_input",
+      "reason": "The runtime base is ROOT/legacy/v22, not the repository root.",
+      "source_lines": [
+        83
+      ],
+      "required_file": {
+        "path": "legacy/v22/audits/22_stdlib.json",
+        "sha256": "619a842559b5983b4c5d63f2c8d53865715fc272917819eaffc39389fb8ce129"
+      }
+    },
+    {
+      "origin": "code/normal_actual_eight_support_audit_20261103_v62.py",
+      "path": "audits/31_nn_stdlib.json",
+      "disposition": "resolved_input",
+      "reason": "The runtime base is ROOT/legacy/v22, not the repository root.",
+      "source_lines": [
+        71
+      ],
+      "required_file": {
+        "path": "legacy/v22/audits/31_nn_stdlib.json",
+        "sha256": "7ead891850215a721ea5f93f42b410feeee1ebacbfecbbe7f528475120be7aa7"
+      }
+    },
+    {
+      "origin": "code/normal_actual_eight_support_audit_20261103_v62.py",
+      "path": "audits/31_ss_stdlib.json",
+      "disposition": "resolved_input",
+      "reason": "The runtime base is ROOT/legacy/v22, not the repository root.",
+      "source_lines": [
+        68
+      ],
+      "required_file": {
+        "path": "legacy/v22/audits/31_ss_stdlib.json",
+        "sha256": "d24838d4eadd35529b0e75cfd4196df7a5312e93afb0738233e49b62e9d36b77"
+      }
+    },
+    {
+      "origin": "code/normal_actual_eight_support_audit_20261103_v62.py",
+      "path": "audits/summary.json",
+      "disposition": "resolved_input",
+      "reason": "The runtime base is ROOT/legacy/v22, not the repository root.",
+      "source_lines": [
+        32
+      ],
+      "required_file": {
+        "path": "legacy/v22/audits/summary.json",
+        "sha256": "3696cbc0b15b40c1d09847504aa81c5ca38c95fc480fa7ac7bab23d3960eb996"
+      }
+    },
+    {
+      "origin": "code/q_weight6_two_axes_review_20261103_v63.py",
+      "path": "work/old-plane-v62/weight6-review-fresh/report.json",
+      "disposition": "generated_prerequisite",
+      "reason": "A real read input, generated by the documented weight6 producer before the review command; not an external or unrecoverable asset.",
+      "source_lines": [
+        44,
+        86,
+        88,
+        103
+      ],
+      "producer": {
+        "path": "code/q_global_weight6_two_axes_20261103_v63.py",
+        "sha256": "5ca626472dbc1066879711b35352137c51667c2eb0105ed84b7d2a77a1f15739",
+        "command": "python code/q_global_weight6_two_axes_20261103_v63.py --output work/old-plane-v62/weight6-review-fresh"
+      }
+    },
+    {
+      "origin": "legacy/v02/code/build_symplectic_slice.py",
+      "path": "legacy/v02/symplectic_slice_certificate.json",
+      "disposition": "producer_output",
+      "reason": "The path expression is written with write_text or open(w); ROOT is an output directory selected by CLI.",
+      "source_lines": [
+        154
+      ]
+    },
+    {
+      "origin": "legacy/v02/code/build_symplectic_slice.py",
+      "path": "legacy/v02/symplectic_slice_equations.json",
+      "disposition": "producer_output",
+      "reason": "The path expression is written with write_text or open(w); ROOT is an output directory selected by CLI.",
+      "source_lines": [
+        155
+      ]
+    },
+    {
+      "origin": "legacy/v02/code/build_universal_slice.py",
+      "path": "legacy/v02/universal_slice_certificate.json",
+      "disposition": "producer_output",
+      "reason": "The path expression is written with write_text or open(w); ROOT is an output directory selected by CLI.",
+      "source_lines": [
+        280
+      ]
+    },
+    {
+      "origin": "legacy/v02/code/build_universal_slice.py",
+      "path": "legacy/v02/universal_slice_equations.json",
+      "disposition": "producer_output",
+      "reason": "The path expression is written with write_text or open(w); ROOT is an output directory selected by CLI.",
+      "source_lines": [
+        282
+      ]
+    },
+    {
+      "origin": "legacy/v21/code/run_checks.py",
+      "path": "code/audit_tree_jacobi_sparse.py",
+      "disposition": "resolved_input",
+      "reason": "The subprocess script is relative to the legacy/v21 bundle root.",
+      "source_lines": [
+        36
+      ],
+      "required_file": {
+        "path": "legacy/v21/code/audit_tree_jacobi_sparse.py",
+        "sha256": "58da00fc543d5b66ad3e6eb0071a7f6610d7c2bb4536c78fd9cac9e42cc3f180"
+      }
+    },
+    {
+      "origin": "legacy/v21/code/run_checks.py",
+      "path": "code/build_p4_tree_linear.py",
+      "disposition": "resolved_input",
+      "reason": "The subprocess script is relative to the legacy/v21 bundle root.",
+      "source_lines": [
+        39
+      ],
+      "required_file": {
+        "path": "legacy/v21/code/build_p4_tree_linear.py",
+        "sha256": "918ae899e0a1f8bf0c1a54cd9b6e0870ffbbcebb4319d63973db3a10c8b3c1fd"
+      }
+    },
+    {
+      "origin": "legacy/v22/code/audit_certificates_stdlib.py",
+      "path": "legacy/v22/22_node_heisenberg.json",
+      "disposition": "resolved_input",
+      "reason": "The runtime data-directory default is legacy/v22/data/22.",
+      "source_lines": [
+        132
+      ],
+      "required_file": {
+        "path": "legacy/v22/data/22/22_node_heisenberg.json",
+        "sha256": "f99837817ef00aa8db49615b1ac177eca80db79c7594f3e9b9ad87c0d9f80d13"
+      }
+    },
+    {
+      "origin": "legacy/v22/code/audit_certificates_stdlib.py",
+      "path": "legacy/v22/22_node_spectral.json",
+      "disposition": "resolved_input",
+      "reason": "The runtime data-directory default is legacy/v22/data/22.",
+      "source_lines": [
+        132
+      ],
+      "required_file": {
+        "path": "legacy/v22/data/22/22_node_spectral.json",
+        "sha256": "d7b1547e1bbaa390146845314ca005cb27c9ea8df26a29b9a6b8b19a755c82a4"
+      }
+    },
+    {
+      "origin": "legacy/v22/code/audit_certificates_stdlib.py",
+      "path": "legacy/v22/certificate_audit_stdlib.json",
+      "disposition": "producer_output",
+      "reason": "Only the destination write; --output is required by this CLI.",
+      "source_lines": [
+        186
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/20a3943dcdf7083ed13dd64b14b14d9aa5100a2228589b6553830905f953b490.py",
+      "path": "code/poisson_p4_components_check.py",
+      "disposition": "archive_locator",
+      "reason": "Only archive_member metadata; the imported helper uses the separate full legacy/v03 path.",
+      "source_lines": [
+        222
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/58c43f92c39ec16912560f8df8307847ff9e01f99615526d83d37ef1472052c7.py",
+      "path": "reports/CLASSIFICATION_PLANE_DOUBLE_LINE_M2_NIL_RESONANCE_RUNTIME_20261108.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4226
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/58c43f92c39ec16912560f8df8307847ff9e01f99615526d83d37ef1472052c7.py",
+      "path": "reports/CLASSIFICATION_PLANE_DOUBLE_LINE_M3_ORE_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4226
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/58c43f92c39ec16912560f8df8307847ff9e01f99615526d83d37ef1472052c7.py",
+      "path": "reports/CLASSIFICATION_PLANE_DOUBLE_LINE_M3_SQUAREFREE_20261107.json",
+      "disposition": "producer_output",
+      "reason": "Destination of the bounded squarefree batch; checked for nonexistence, then written.",
+      "source_lines": [
+        1866
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/58c43f92c39ec16912560f8df8307847ff9e01f99615526d83d37ef1472052c7.py",
+      "path": "reports/CLASSIFICATION_PLANE_DOUBLE_LINE_M3_SQUAREFREE_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4226
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/58c43f92c39ec16912560f8df8307847ff9e01f99615526d83d37ef1472052c7.py",
+      "path": "reports/CLASSIFICATION_PLANE_M3_TRIPLE_NEW_FIXED_ACTUAL_FACTOR_RUNTIME_20261108.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4226
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/58c43f92c39ec16912560f8df8307847ff9e01f99615526d83d37ef1472052c7.py",
+      "path": "reports/CLASSIFICATION_PLANE_M3_TRIPLE_NEW_FIXED_ORIGINAL_SUPPORT_RUNTIME_20261108.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4226
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/58c43f92c39ec16912560f8df8307847ff9e01f99615526d83d37ef1472052c7.py",
+      "path": "reports/CLASSIFICATION_PLANE_M3_TRIPLE_VALID_ORE_MODULES_RUNTIME_20261108.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4226
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/58c43f92c39ec16912560f8df8307847ff9e01f99615526d83d37ef1472052c7.py",
+      "path": "reports/CLASSIFICATION_PLANE_M4_NONREDUCED_SQUAREFREE_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4226
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/58c43f92c39ec16912560f8df8307847ff9e01f99615526d83d37ef1472052c7.py",
+      "path": "reports/CLASSIFICATION_PLANE_M4_TWO_LINE_CASIMIR_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4226
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/58c43f92c39ec16912560f8df8307847ff9e01f99615526d83d37ef1472052c7.py",
+      "path": "reports/CLASSIFICATION_PLANE_NONREDUCED_M3_CONSTANT_MODULES_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4226
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/58c43f92c39ec16912560f8df8307847ff9e01f99615526d83d37ef1472052c7.py",
+      "path": "reports/CLASSIFICATION_PLANE_NONREDUCED_M3_CONSTANT_ORE_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4226
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/58c43f92c39ec16912560f8df8307847ff9e01f99615526d83d37ef1472052c7.py",
+      "path": "reports/CLASSIFICATION_PLANE_NONREDUCED_M3_MOVING_DOUBLE_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4226
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/58c43f92c39ec16912560f8df8307847ff9e01f99615526d83d37ef1472052c7.py",
+      "path": "reports/CLASSIFICATION_PLANE_NONREDUCED_M3_MOVING_SIMPLE_MODULES_RUNTIME_20261108.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4226
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/58c43f92c39ec16912560f8df8307847ff9e01f99615526d83d37ef1472052c7.py",
+      "path": "reports/CLASSIFICATION_PLANE_NONREDUCED_M3_MOVING_SIMPLE_ORE_RUNTIME_20261108.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4226
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/58c43f92c39ec16912560f8df8307847ff9e01f99615526d83d37ef1472052c7.py",
+      "path": "reports/CLASSIFICATION_PLANE_NONREDUCED_M3_MOVING_SIMPLE_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4226
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/58c43f92c39ec16912560f8df8307847ff9e01f99615526d83d37ef1472052c7.py",
+      "path": "reports/CLASSIFICATION_PLANE_NONREDUCED_M3_TRIPLE_CHECKPOINT_20261108.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        3197
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/58c43f92c39ec16912560f8df8307847ff9e01f99615526d83d37ef1472052c7.py",
+      "path": "reports/CLASSIFICATION_PLANE_NONREDUCED_M3_TRIPLE_CORRECTED_ORE_RUNTIME_20261108.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4226
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/58c43f92c39ec16912560f8df8307847ff9e01f99615526d83d37ef1472052c7.py",
+      "path": "reports/CLASSIFICATION_PLANE_NONREDUCED_M3_TRIPLE_CORRECTED_V2_CHECKPOINT_20261108.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        3469
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/58c43f92c39ec16912560f8df8307847ff9e01f99615526d83d37ef1472052c7.py",
+      "path": "reports/CLASSIFICATION_PLANE_NONREDUCED_M3_TRIPLE_CORRECTED_V2_RUNTIME_20261108.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4226
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/58c43f92c39ec16912560f8df8307847ff9e01f99615526d83d37ef1472052c7.py",
+      "path": "reports/CLASSIFICATION_PLANE_NONREDUCED_M3_TRIPLE_ORE_RUNTIME_20261108.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4226
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/58c43f92c39ec16912560f8df8307847ff9e01f99615526d83d37ef1472052c7.py",
+      "path": "reports/CLASSIFICATION_PLANE_NONREDUCED_M3_TRIPLE_RUNTIME_20261108.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4226
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/58c43f92c39ec16912560f8df8307847ff9e01f99615526d83d37ef1472052c7.py",
+      "path": "reports/CLASSIFICATION_PLANE_NONREDUCED_M3_TRIPLE_VERTEX_B_RUNTIME_20261108.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4226
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/58c43f92c39ec16912560f8df8307847ff9e01f99615526d83d37ef1472052c7.py",
+      "path": "reports/CLASSIFICATION_PLANE_NONREDUCED_TRIPLE_LINE_M3_LEADING_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4226
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/58c43f92c39ec16912560f8df8307847ff9e01f99615526d83d37ef1472052c7.py",
+      "path": "reports/CLASSIFICATION_PLANE_NONREDUCED_TRIPLE_LINE_M3_SQUAREFREE_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4226
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/58c43f92c39ec16912560f8df8307847ff9e01f99615526d83d37ef1472052c7.py",
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_CARTAN_SURFACE_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4226
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/58c43f92c39ec16912560f8df8307847ff9e01f99615526d83d37ef1472052c7.py",
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_COMMONIMAGE_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4226
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/58c43f92c39ec16912560f8df8307847ff9e01f99615526d83d37ef1472052c7.py",
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_COMPATIBILITY_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4226
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/58c43f92c39ec16912560f8df8307847ff9e01f99615526d83d37ef1472052c7.py",
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_DEPENDENT_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4226
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/58c43f92c39ec16912560f8df8307847ff9e01f99615526d83d37ef1472052c7.py",
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_HYPERBOLA_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4226
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/58c43f92c39ec16912560f8df8307847ff9e01f99615526d83d37ef1472052c7.py",
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_LOWPARAMETER_WEIGHTS_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4226
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/58c43f92c39ec16912560f8df8307847ff9e01f99615526d83d37ef1472052c7.py",
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_NIL_LINE_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4226
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/58c43f92c39ec16912560f8df8307847ff9e01f99615526d83d37ef1472052c7.py",
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_ONECUT_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4226
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/58c43f92c39ec16912560f8df8307847ff9e01f99615526d83d37ef1472052c7.py",
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_ORE_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4226
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/58c43f92c39ec16912560f8df8307847ff9e01f99615526d83d37ef1472052c7.py",
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_RESIDUAL_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4226
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/58c43f92c39ec16912560f8df8307847ff9e01f99615526d83d37ef1472052c7.py",
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_THREEPARAMETER_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4226
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/58c43f92c39ec16912560f8df8307847ff9e01f99615526d83d37ef1472052c7.py",
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_TSQUARE_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4226
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/58c43f92c39ec16912560f8df8307847ff9e01f99615526d83d37ef1472052c7.py",
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_TWOPARAMETER_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4226
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/58c43f92c39ec16912560f8df8307847ff9e01f99615526d83d37ef1472052c7.py",
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_RANK_TWO_KERNEL_WEIGHTS_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4226
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/58c43f92c39ec16912560f8df8307847ff9e01f99615526d83d37ef1472052c7.py",
+      "path": "reports/CLASSIFICATION_PLANE_TRIPLE_WEAK_WALL_FULL_AMBIENT_RUNTIME_20261108.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4226
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/58c43f92c39ec16912560f8df8307847ff9e01f99615526d83d37ef1472052c7.py",
+      "path": "reports/CLASSIFICATION_PLANE_TRIPLE_WEAK_WALL_GLOBAL_GRAPHS_RUNTIME_20261108.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4226
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/60e84e753c93f3f43a25ee9c884514552e8adc07423a4009eae22183643b818b.py",
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_CARTAN_SURFACE_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        1269
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/60e84e753c93f3f43a25ee9c884514552e8adc07423a4009eae22183643b818b.py",
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_COMPATIBILITY_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        1269
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/60e84e753c93f3f43a25ee9c884514552e8adc07423a4009eae22183643b818b.py",
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_HYPERBOLA_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        1269
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/60e84e753c93f3f43a25ee9c884514552e8adc07423a4009eae22183643b818b.py",
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_LOWPARAMETER_WEIGHTS_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        1269
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/60e84e753c93f3f43a25ee9c884514552e8adc07423a4009eae22183643b818b.py",
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_NIL_LINE_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        1269
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/60e84e753c93f3f43a25ee9c884514552e8adc07423a4009eae22183643b818b.py",
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_ONECUT_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        1269
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/60e84e753c93f3f43a25ee9c884514552e8adc07423a4009eae22183643b818b.py",
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_RESIDUAL_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        1269
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/60e84e753c93f3f43a25ee9c884514552e8adc07423a4009eae22183643b818b.py",
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_THREEPARAMETER_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        1269
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/60e84e753c93f3f43a25ee9c884514552e8adc07423a4009eae22183643b818b.py",
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_TSQUARE_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        1269
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/60e84e753c93f3f43a25ee9c884514552e8adc07423a4009eae22183643b818b.py",
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_TWOPARAMETER_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        1269
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/60e84e753c93f3f43a25ee9c884514552e8adc07423a4009eae22183643b818b.py",
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_RANK_TWO_KERNEL_WEIGHTS_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        1269
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/6ec249803ea4d0031f435781f38f391686ee67b6b0e70636da9f449a09f643db.py",
+      "path": "reports/CLASSIFICATION_PLANE_DOUBLE_LINE_M3_ORE_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        3326
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/6ec249803ea4d0031f435781f38f391686ee67b6b0e70636da9f449a09f643db.py",
+      "path": "reports/CLASSIFICATION_PLANE_DOUBLE_LINE_M3_SQUAREFREE_20261107.json",
+      "disposition": "producer_output",
+      "reason": "Destination of the bounded squarefree batch; checked for nonexistence, then written.",
+      "source_lines": [
+        1866
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/6ec249803ea4d0031f435781f38f391686ee67b6b0e70636da9f449a09f643db.py",
+      "path": "reports/CLASSIFICATION_PLANE_DOUBLE_LINE_M3_SQUAREFREE_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        3326
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/6ec249803ea4d0031f435781f38f391686ee67b6b0e70636da9f449a09f643db.py",
+      "path": "reports/CLASSIFICATION_PLANE_M4_NONREDUCED_SQUAREFREE_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        3326
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/6ec249803ea4d0031f435781f38f391686ee67b6b0e70636da9f449a09f643db.py",
+      "path": "reports/CLASSIFICATION_PLANE_M4_TWO_LINE_CASIMIR_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        3326
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/6ec249803ea4d0031f435781f38f391686ee67b6b0e70636da9f449a09f643db.py",
+      "path": "reports/CLASSIFICATION_PLANE_NONREDUCED_M3_CONSTANT_MODULES_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        3326
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/6ec249803ea4d0031f435781f38f391686ee67b6b0e70636da9f449a09f643db.py",
+      "path": "reports/CLASSIFICATION_PLANE_NONREDUCED_M3_CONSTANT_ORE_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        3326
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/6ec249803ea4d0031f435781f38f391686ee67b6b0e70636da9f449a09f643db.py",
+      "path": "reports/CLASSIFICATION_PLANE_NONREDUCED_M3_MOVING_DOUBLE_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        3326
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/6ec249803ea4d0031f435781f38f391686ee67b6b0e70636da9f449a09f643db.py",
+      "path": "reports/CLASSIFICATION_PLANE_NONREDUCED_M3_MOVING_SIMPLE_MODULES_RUNTIME_20261108.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        3326
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/6ec249803ea4d0031f435781f38f391686ee67b6b0e70636da9f449a09f643db.py",
+      "path": "reports/CLASSIFICATION_PLANE_NONREDUCED_M3_MOVING_SIMPLE_ORE_RUNTIME_20261108.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        3326
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/6ec249803ea4d0031f435781f38f391686ee67b6b0e70636da9f449a09f643db.py",
+      "path": "reports/CLASSIFICATION_PLANE_NONREDUCED_M3_MOVING_SIMPLE_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        3326
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/6ec249803ea4d0031f435781f38f391686ee67b6b0e70636da9f449a09f643db.py",
+      "path": "reports/CLASSIFICATION_PLANE_NONREDUCED_M3_TRIPLE_CHECKPOINT_20261108.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        3197
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/6ec249803ea4d0031f435781f38f391686ee67b6b0e70636da9f449a09f643db.py",
+      "path": "reports/CLASSIFICATION_PLANE_NONREDUCED_M3_TRIPLE_RUNTIME_20261108.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        3326
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/6ec249803ea4d0031f435781f38f391686ee67b6b0e70636da9f449a09f643db.py",
+      "path": "reports/CLASSIFICATION_PLANE_NONREDUCED_TRIPLE_LINE_M3_LEADING_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        3326
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/6ec249803ea4d0031f435781f38f391686ee67b6b0e70636da9f449a09f643db.py",
+      "path": "reports/CLASSIFICATION_PLANE_NONREDUCED_TRIPLE_LINE_M3_SQUAREFREE_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        3326
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/6ec249803ea4d0031f435781f38f391686ee67b6b0e70636da9f449a09f643db.py",
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_CARTAN_SURFACE_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        3326
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/6ec249803ea4d0031f435781f38f391686ee67b6b0e70636da9f449a09f643db.py",
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_COMMONIMAGE_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        3326
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/6ec249803ea4d0031f435781f38f391686ee67b6b0e70636da9f449a09f643db.py",
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_COMPATIBILITY_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        3326
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/6ec249803ea4d0031f435781f38f391686ee67b6b0e70636da9f449a09f643db.py",
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_DEPENDENT_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        3326
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/6ec249803ea4d0031f435781f38f391686ee67b6b0e70636da9f449a09f643db.py",
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_HYPERBOLA_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        3326
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/6ec249803ea4d0031f435781f38f391686ee67b6b0e70636da9f449a09f643db.py",
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_LOWPARAMETER_WEIGHTS_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        3326
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/6ec249803ea4d0031f435781f38f391686ee67b6b0e70636da9f449a09f643db.py",
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_NIL_LINE_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        3326
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/6ec249803ea4d0031f435781f38f391686ee67b6b0e70636da9f449a09f643db.py",
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_ONECUT_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        3326
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/6ec249803ea4d0031f435781f38f391686ee67b6b0e70636da9f449a09f643db.py",
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_ORE_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        3326
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/6ec249803ea4d0031f435781f38f391686ee67b6b0e70636da9f449a09f643db.py",
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_RESIDUAL_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        3326
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/6ec249803ea4d0031f435781f38f391686ee67b6b0e70636da9f449a09f643db.py",
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_THREEPARAMETER_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        3326
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/6ec249803ea4d0031f435781f38f391686ee67b6b0e70636da9f449a09f643db.py",
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_TSQUARE_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        3326
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/6ec249803ea4d0031f435781f38f391686ee67b6b0e70636da9f449a09f643db.py",
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_TWOPARAMETER_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        3326
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/6ec249803ea4d0031f435781f38f391686ee67b6b0e70636da9f449a09f643db.py",
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_RANK_TWO_KERNEL_WEIGHTS_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        3326
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/70597a20b559cd1a88010050f91ab612fe6a83b15e64d313d5ea8ae91638fdaa.py",
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_COMPATIBILITY_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        1060
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/70597a20b559cd1a88010050f91ab612fe6a83b15e64d313d5ea8ae91638fdaa.py",
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_HYPERBOLA_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        1060
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/70597a20b559cd1a88010050f91ab612fe6a83b15e64d313d5ea8ae91638fdaa.py",
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_LOWPARAMETER_WEIGHTS_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        1060
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/70597a20b559cd1a88010050f91ab612fe6a83b15e64d313d5ea8ae91638fdaa.py",
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_NIL_LINE_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        1060
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/70597a20b559cd1a88010050f91ab612fe6a83b15e64d313d5ea8ae91638fdaa.py",
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_ONECUT_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        1060
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/70597a20b559cd1a88010050f91ab612fe6a83b15e64d313d5ea8ae91638fdaa.py",
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_RESIDUAL_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        1060
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/70597a20b559cd1a88010050f91ab612fe6a83b15e64d313d5ea8ae91638fdaa.py",
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_TSQUARE_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        1060
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/70597a20b559cd1a88010050f91ab612fe6a83b15e64d313d5ea8ae91638fdaa.py",
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_TWOPARAMETER_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        1060
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/70597a20b559cd1a88010050f91ab612fe6a83b15e64d313d5ea8ae91638fdaa.py",
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_RANK_TWO_KERNEL_WEIGHTS_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        1060
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/84f1b161ecbfd4dedb39a400ed1032a8bd3ee58d3da51b62aa7cf71757c623e6.py",
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_COMPATIBILITY_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        843
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/84f1b161ecbfd4dedb39a400ed1032a8bd3ee58d3da51b62aa7cf71757c623e6.py",
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_LOWPARAMETER_WEIGHTS_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        843
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/84f1b161ecbfd4dedb39a400ed1032a8bd3ee58d3da51b62aa7cf71757c623e6.py",
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_ONECUT_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        843
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/84f1b161ecbfd4dedb39a400ed1032a8bd3ee58d3da51b62aa7cf71757c623e6.py",
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_RESIDUAL_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        843
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/84f1b161ecbfd4dedb39a400ed1032a8bd3ee58d3da51b62aa7cf71757c623e6.py",
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_TSQUARE_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        843
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/84f1b161ecbfd4dedb39a400ed1032a8bd3ee58d3da51b62aa7cf71757c623e6.py",
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_RANK_TWO_KERNEL_WEIGHTS_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        843
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/bd8161901f3f45c1ddf8a1d0ec4a46a34909d4970495a7fdf4d7195b5eeb01d1.py",
+      "path": "audits/22_stdlib.json",
+      "disposition": "resolved_input",
+      "reason": "The runtime base is ROOT/legacy/v22, not the repository root.",
+      "source_lines": [
+        83
+      ],
+      "required_file": {
+        "path": "legacy/v22/audits/22_stdlib.json",
+        "sha256": "619a842559b5983b4c5d63f2c8d53865715fc272917819eaffc39389fb8ce129"
+      }
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/bd8161901f3f45c1ddf8a1d0ec4a46a34909d4970495a7fdf4d7195b5eeb01d1.py",
+      "path": "audits/31_nn_stdlib.json",
+      "disposition": "resolved_input",
+      "reason": "The runtime base is ROOT/legacy/v22, not the repository root.",
+      "source_lines": [
+        71
+      ],
+      "required_file": {
+        "path": "legacy/v22/audits/31_nn_stdlib.json",
+        "sha256": "7ead891850215a721ea5f93f42b410feeee1ebacbfecbbe7f528475120be7aa7"
+      }
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/bd8161901f3f45c1ddf8a1d0ec4a46a34909d4970495a7fdf4d7195b5eeb01d1.py",
+      "path": "audits/31_ss_stdlib.json",
+      "disposition": "resolved_input",
+      "reason": "The runtime base is ROOT/legacy/v22, not the repository root.",
+      "source_lines": [
+        68
+      ],
+      "required_file": {
+        "path": "legacy/v22/audits/31_ss_stdlib.json",
+        "sha256": "d24838d4eadd35529b0e75cfd4196df7a5312e93afb0738233e49b62e9d36b77"
+      }
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/bd8161901f3f45c1ddf8a1d0ec4a46a34909d4970495a7fdf4d7195b5eeb01d1.py",
+      "path": "audits/summary.json",
+      "disposition": "resolved_input",
+      "reason": "The runtime base is ROOT/legacy/v22, not the repository root.",
+      "source_lines": [
+        32
+      ],
+      "required_file": {
+        "path": "legacy/v22/audits/summary.json",
+        "sha256": "3696cbc0b15b40c1d09847504aa81c5ca38c95fc480fa7ac7bab23d3960eb996"
+      }
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/d4c6cd361a2fdd05ab197839ad8089ad52c1091b14cdde78fb7f653a6a86158c.py",
+      "path": "reports/CLASSIFICATION_PLANE_DOUBLE_LINE_M2_NIL_RESONANCE_RUNTIME_20261108.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4272
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/d4c6cd361a2fdd05ab197839ad8089ad52c1091b14cdde78fb7f653a6a86158c.py",
+      "path": "reports/CLASSIFICATION_PLANE_DOUBLE_LINE_M3_ORE_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4272
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/d4c6cd361a2fdd05ab197839ad8089ad52c1091b14cdde78fb7f653a6a86158c.py",
+      "path": "reports/CLASSIFICATION_PLANE_DOUBLE_LINE_M3_SQUAREFREE_20261107.json",
+      "disposition": "producer_output",
+      "reason": "Destination of the bounded squarefree batch; checked for nonexistence, then written.",
+      "source_lines": [
+        1866
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/d4c6cd361a2fdd05ab197839ad8089ad52c1091b14cdde78fb7f653a6a86158c.py",
+      "path": "reports/CLASSIFICATION_PLANE_DOUBLE_LINE_M3_SQUAREFREE_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4272
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/d4c6cd361a2fdd05ab197839ad8089ad52c1091b14cdde78fb7f653a6a86158c.py",
+      "path": "reports/CLASSIFICATION_PLANE_M3_TRIPLE_NEW_FIXED_ACTUAL_FACTOR_RUNTIME_20261108.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4272
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/d4c6cd361a2fdd05ab197839ad8089ad52c1091b14cdde78fb7f653a6a86158c.py",
+      "path": "reports/CLASSIFICATION_PLANE_M3_TRIPLE_NEW_FIXED_ORIGINAL_SUPPORT_RUNTIME_20261108.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4272
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/d4c6cd361a2fdd05ab197839ad8089ad52c1091b14cdde78fb7f653a6a86158c.py",
+      "path": "reports/CLASSIFICATION_PLANE_M3_TRIPLE_VALID_ORE_MODULES_RUNTIME_20261108.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4272
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/d4c6cd361a2fdd05ab197839ad8089ad52c1091b14cdde78fb7f653a6a86158c.py",
+      "path": "reports/CLASSIFICATION_PLANE_M4_NONREDUCED_SQUAREFREE_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4272
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/d4c6cd361a2fdd05ab197839ad8089ad52c1091b14cdde78fb7f653a6a86158c.py",
+      "path": "reports/CLASSIFICATION_PLANE_M4_TWO_LINE_CASIMIR_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4272
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/d4c6cd361a2fdd05ab197839ad8089ad52c1091b14cdde78fb7f653a6a86158c.py",
+      "path": "reports/CLASSIFICATION_PLANE_NONREDUCED_M3_CONSTANT_MODULES_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4272
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/d4c6cd361a2fdd05ab197839ad8089ad52c1091b14cdde78fb7f653a6a86158c.py",
+      "path": "reports/CLASSIFICATION_PLANE_NONREDUCED_M3_CONSTANT_ORE_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4272
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/d4c6cd361a2fdd05ab197839ad8089ad52c1091b14cdde78fb7f653a6a86158c.py",
+      "path": "reports/CLASSIFICATION_PLANE_NONREDUCED_M3_MOVING_DOUBLE_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4272
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/d4c6cd361a2fdd05ab197839ad8089ad52c1091b14cdde78fb7f653a6a86158c.py",
+      "path": "reports/CLASSIFICATION_PLANE_NONREDUCED_M3_MOVING_SIMPLE_MODULES_RUNTIME_20261108.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4272
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/d4c6cd361a2fdd05ab197839ad8089ad52c1091b14cdde78fb7f653a6a86158c.py",
+      "path": "reports/CLASSIFICATION_PLANE_NONREDUCED_M3_MOVING_SIMPLE_ORE_RUNTIME_20261108.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4272
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/d4c6cd361a2fdd05ab197839ad8089ad52c1091b14cdde78fb7f653a6a86158c.py",
+      "path": "reports/CLASSIFICATION_PLANE_NONREDUCED_M3_MOVING_SIMPLE_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4272
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/d4c6cd361a2fdd05ab197839ad8089ad52c1091b14cdde78fb7f653a6a86158c.py",
+      "path": "reports/CLASSIFICATION_PLANE_NONREDUCED_M3_TRIPLE_CHECKPOINT_20261108.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        3197
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/d4c6cd361a2fdd05ab197839ad8089ad52c1091b14cdde78fb7f653a6a86158c.py",
+      "path": "reports/CLASSIFICATION_PLANE_NONREDUCED_M3_TRIPLE_CORRECTED_ORE_RUNTIME_20261108.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4272
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/d4c6cd361a2fdd05ab197839ad8089ad52c1091b14cdde78fb7f653a6a86158c.py",
+      "path": "reports/CLASSIFICATION_PLANE_NONREDUCED_M3_TRIPLE_CORRECTED_V2_CHECKPOINT_20261108.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        3469
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/d4c6cd361a2fdd05ab197839ad8089ad52c1091b14cdde78fb7f653a6a86158c.py",
+      "path": "reports/CLASSIFICATION_PLANE_NONREDUCED_M3_TRIPLE_CORRECTED_V2_RUNTIME_20261108.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4272
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/d4c6cd361a2fdd05ab197839ad8089ad52c1091b14cdde78fb7f653a6a86158c.py",
+      "path": "reports/CLASSIFICATION_PLANE_NONREDUCED_M3_TRIPLE_ORE_RUNTIME_20261108.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4272
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/d4c6cd361a2fdd05ab197839ad8089ad52c1091b14cdde78fb7f653a6a86158c.py",
+      "path": "reports/CLASSIFICATION_PLANE_NONREDUCED_M3_TRIPLE_RUNTIME_20261108.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4272
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/d4c6cd361a2fdd05ab197839ad8089ad52c1091b14cdde78fb7f653a6a86158c.py",
+      "path": "reports/CLASSIFICATION_PLANE_NONREDUCED_M3_TRIPLE_VERTEX_B_RUNTIME_20261108.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4272
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/d4c6cd361a2fdd05ab197839ad8089ad52c1091b14cdde78fb7f653a6a86158c.py",
+      "path": "reports/CLASSIFICATION_PLANE_NONREDUCED_TRIPLE_LINE_M3_LEADING_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4272
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/d4c6cd361a2fdd05ab197839ad8089ad52c1091b14cdde78fb7f653a6a86158c.py",
+      "path": "reports/CLASSIFICATION_PLANE_NONREDUCED_TRIPLE_LINE_M3_SQUAREFREE_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4272
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/d4c6cd361a2fdd05ab197839ad8089ad52c1091b14cdde78fb7f653a6a86158c.py",
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_CARTAN_SURFACE_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4272
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/d4c6cd361a2fdd05ab197839ad8089ad52c1091b14cdde78fb7f653a6a86158c.py",
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_COMMONIMAGE_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4272
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/d4c6cd361a2fdd05ab197839ad8089ad52c1091b14cdde78fb7f653a6a86158c.py",
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_COMPATIBILITY_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4272
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/d4c6cd361a2fdd05ab197839ad8089ad52c1091b14cdde78fb7f653a6a86158c.py",
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_DEPENDENT_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4272
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/d4c6cd361a2fdd05ab197839ad8089ad52c1091b14cdde78fb7f653a6a86158c.py",
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_HYPERBOLA_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4272
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/d4c6cd361a2fdd05ab197839ad8089ad52c1091b14cdde78fb7f653a6a86158c.py",
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_LOWPARAMETER_WEIGHTS_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4272
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/d4c6cd361a2fdd05ab197839ad8089ad52c1091b14cdde78fb7f653a6a86158c.py",
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_NIL_LINE_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4272
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/d4c6cd361a2fdd05ab197839ad8089ad52c1091b14cdde78fb7f653a6a86158c.py",
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_ONECUT_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4272
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/d4c6cd361a2fdd05ab197839ad8089ad52c1091b14cdde78fb7f653a6a86158c.py",
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_ORE_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4272
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/d4c6cd361a2fdd05ab197839ad8089ad52c1091b14cdde78fb7f653a6a86158c.py",
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_RESIDUAL_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4272
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/d4c6cd361a2fdd05ab197839ad8089ad52c1091b14cdde78fb7f653a6a86158c.py",
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_THREEPARAMETER_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4272
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/d4c6cd361a2fdd05ab197839ad8089ad52c1091b14cdde78fb7f653a6a86158c.py",
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_TSQUARE_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4272
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/d4c6cd361a2fdd05ab197839ad8089ad52c1091b14cdde78fb7f653a6a86158c.py",
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_GLOBAL_TWOPARAMETER_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4272
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/d4c6cd361a2fdd05ab197839ad8089ad52c1091b14cdde78fb7f653a6a86158c.py",
+      "path": "reports/CLASSIFICATION_PLANE_RANK_ZERO_RANK_TWO_KERNEL_WEIGHTS_RUNTIME_20261107.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4272
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/d4c6cd361a2fdd05ab197839ad8089ad52c1091b14cdde78fb7f653a6a86158c.py",
+      "path": "reports/CLASSIFICATION_PLANE_TRIPLE_WEAK_WALL_FULL_AMBIENT_RUNTIME_20261108.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4272
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/d4c6cd361a2fdd05ab197839ad8089ad52c1091b14cdde78fb7f653a6a86158c.py",
+      "path": "reports/CLASSIFICATION_PLANE_TRIPLE_WEAK_WALL_GLOBAL_GRAPHS_RUNTIME_20261108.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4272
+      ]
+    },
+    {
+      "origin": "research/reproduction/frozen_producers/d4c6cd361a2fdd05ab197839ad8089ad52c1091b14cdde78fb7f653a6a86158c.py",
+      "path": "reports/CLASSIFICATION_PLANE_TRIPLE_Y_WALLS_ORE_RUNTIME_20261108.json",
+      "disposition": "producer_output",
+      "reason": "All bound-variable file calls in the enclosing scope are write_text, exists or unlink; there is no read call.",
+      "source_lines": [
+        4272
+      ]
+    }
+  ],
+  "disposition_counts_by_unique_path": {
+    "resolved_input": 8,
+    "archive_locator": 1,
+    "producer_output": 51,
+    "generated_native_output": 4,
+    "generated_prerequisite": 1
+  },
+  "script_sha256": "68783df37935374eb06562ba156075cd52b3a89675da65b611d824dc01312510",
+  "diagnostic_metadata_exclusions": [
+    {
+      "path": "reports/CLASSIFICATION_PLANE_M4_TWO_LINE_CASIMIR_RUNTIME_20261107.json",
+      "sha256": "6a575fc25ad4e0fb28be3796be04c0e977526604eb1dc00b4c6aae9f12770490",
+      "origins": [
+        "research/classification/inputs/plane_m4_two_line_casimir_manifest_20261107.json",
+        "research/classification/jobs/plane_m4_two_line_casimir.json"
+      ],
+      "reason": "SymPy zero polynomial has a zero coefficient term of degree0. Skip that literal zero before degree6 coefficient indexing. Same fullmathematical source/constraints; all28 oldAST unchanged. Failed runtime producer bytes remain immutable.",
+      "replacement_certificate": {
+        "path": "reports/CLASSIFICATION_PLANE_M4_TWO_LINE_CASIMIR_20261107.json",
+        "sha256": "6bb3291dfda94fb2bd2c67b70a3208340dc0718ba3eb7e323704147d971f0aca"
+      }
+    },
+    {
+      "path": "reports/CLASSIFICATION_PLANE_M4_TWO_LINE_CASIMIR_SERIALIZATION_RUNTIME_20261107.json",
+      "sha256": "2b6c0e9966d3da0bf372a4ea6a24e6d32aa7b710370c02cab1f8ee05c65366de",
+      "origins": [
+        "research/classification/inputs/plane_m4_two_line_casimir_manifest_20261107.json",
+        "research/classification/jobs/plane_m4_two_line_casimir.json"
+      ],
+      "reason": "Cast exact SymPy minor factor multiplicity to Python int for JSON. No source matrix or mathematical computation changed; previous failed producer/contract bytes preserved, all28 oldFunctionDef ASTs unchanged.",
+      "replacement_certificate": {
+        "path": "reports/CLASSIFICATION_PLANE_M4_TWO_LINE_CASIMIR_20261107.json",
+        "sha256": "6bb3291dfda94fb2bd2c67b70a3208340dc0718ba3eb7e323704147d971f0aca"
+      }
+    }
+  ]
+}

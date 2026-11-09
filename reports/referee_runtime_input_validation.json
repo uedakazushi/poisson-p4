@@ -1,0 +1,119 @@
+{
+  "date": "2026-11-09",
+  "scope": "Finite runtime-input review and selected replays; not a complete dynamic analysis or a rerun of all historical computations.",
+  "path_review": {
+    "paths": 65,
+    "origin_path_pairs": 206,
+    "unreviewed_pairs": 0,
+    "dispositions": {
+      "resolved_input": 8,
+      "archive_locator": 1,
+      "producer_output": 51,
+      "generated_native_output": 4,
+      "generated_prerequisite": 1
+    },
+    "sha256": "a192d2197c370d2a63ca805a21492c3672d7d18cad7698d77bdf51adc1fed180"
+  },
+  "newly_recovered_bundle_inputs": [
+    "legacy/v21/code/audit_tree_jacobi_sparse.py",
+    "legacy/v21/code/build_p4_tree_linear.py"
+  ],
+  "frozen_inputs": 97,
+  "normal_eight_replay": {
+    "isolated": true,
+    "local_literature_PDF_present": false,
+    "arithmetic_and_coverage_fields_equal_original": true,
+    "support_count": 8,
+    "input_hash_count": 108,
+    "original_exact_runner_sha256": "bd8161901f3f45c1ddf8a1d0ec4a46a34909d4970495a7fdf4d7195b5eeb01d1"
+  },
+  "weight6_generated_prerequisite": {
+    "producer": "code/q_global_weight6_two_axes_20261103_v63.py",
+    "isolated": true,
+    "all_report_fields_except_timing_match": true
+  },
+  "restored_tree_checker": {
+    "method": "Independent Python standard-library sparse rational convolution; no SymPy or generator import",
+    "all_eight_models_present": true,
+    "number_of_models": 8,
+    "total_checks": 249,
+    "all_passed": true,
+    "models": [
+      {
+        "model": "1111_chain",
+        "source_sha256": "a9feb18b15b5cbee3ff9160fdf613df6e0109b80bf8c02cb300876ab95748208",
+        "linear_dimension": 42,
+        "nonzero_jacobi_coefficients": 184,
+        "distinct_monic_Jacobi_equations": 139,
+        "seconds": 0.481
+      },
+      {
+        "model": "1111_concurrent",
+        "source_sha256": "608048fe449597892e0d960c9706674b9583f1d739b532b40fa8467c9c03e64f",
+        "linear_dimension": 48,
+        "nonzero_jacobi_coefficients": 178,
+        "distinct_monic_Jacobi_equations": 139,
+        "seconds": 0.611
+      },
+      {
+        "model": "1111_triple_tail",
+        "source_sha256": "1ada06225901ec34afa2388ae39c753155d4976210bb77bd49ffdd0dd734858d",
+        "linear_dimension": 44,
+        "nonzero_jacobi_coefficients": 183,
+        "distinct_monic_Jacobi_equations": 141,
+        "seconds": 0.61
+      },
+      {
+        "model": "211_conic_center",
+        "source_sha256": "d4e3d2c33c28a50aee9f657d25b826d8991b552d0e13c5c9fec3d6abbe5efaaa",
+        "linear_dimension": 41,
+        "nonzero_jacobi_coefficients": 216,
+        "distinct_monic_Jacobi_equations": 148,
+        "seconds": 0.759
+      },
+      {
+        "model": "211_line_center",
+        "source_sha256": "f4793c6f4c50f4f4a87d7cc1151fa71ac05b78d1bc5735c988390c83ccda11ce",
+        "linear_dimension": 41,
+        "nonzero_jacobi_coefficients": 219,
+        "distinct_monic_Jacobi_equations": 149,
+        "seconds": 0.804
+      },
+      {
+        "model": "211_triple",
+        "source_sha256": "17bc03af56fa460bbf8b71d3e4e49bc055753659d3b3ca27c97ca776aaa3d472",
+        "linear_dimension": 43,
+        "nonzero_jacobi_coefficients": 211,
+        "distinct_monic_Jacobi_equations": 148,
+        "seconds": 0.798
+      },
+      {
+        "model": "22_node",
+        "source_sha256": "77af3bd7388da918f457e3ca5693e40932d514d8248a5a5488f4e811af7e9ec9",
+        "linear_dimension": 40,
+        "nonzero_jacobi_coefficients": 254,
+        "distinct_monic_Jacobi_equations": 159,
+        "seconds": 1.19
+      },
+      {
+        "model": "31_external",
+        "source_sha256": "6f4fccb6ba8d1256cd9f6994bf09cd744d1352fc07268a76807b05b968cc0ffa",
+        "linear_dimension": 40,
+        "nonzero_jacobi_coefficients": 260,
+        "distinct_monic_Jacobi_equations": 203,
+        "seconds": 2.364
+      }
+    ]
+  },
+  "RUNTIME_named_actual_read_rejected_by_output_rule": true,
+  "dependency_integrity": {
+    "files": 3539,
+    "recorded_hash_checks": 16840,
+    "pending_recorded_inputs": 0,
+    "missing": 0,
+    "all_reported_static_candidates_reviewed": true,
+    "exhaustive_dynamic_analysis": false
+  },
+  "Library_binary_download_attempted": false,
+  "manuscript_sources_changed": false
+}

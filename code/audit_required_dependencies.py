@@ -30,7 +30,7 @@ def audit(output):
     frozen=json.loads((ROOT/'research/reproduction/frozen_producer_index.json').read_text())['records']
     recovery={(r['original_path'],r['sha256']):r['materialized_path']for r in frozen}
     alias={'work/rank3-mixed-support-obstruction.json':'reports/CLASSIFICATION_RANK3_MIXED_COMPONENT_20261107.json'}
-    todo=deque(seeds);seen=set();edges=defaultdict(set);missing=defaultdict(set);integrity=[];excluded=[];pending=[]
+    todo=deque(sorted(seeds));seen=set();edges=defaultdict(set);missing=defaultdict(set);integrity=[];excluded=[];pending=[]
     prefixes=('code/','reports/','research/','legacy/','scripts/','audits/','work/','papers/')
     extensions=('.json','.json.gz','.in.gz','.py','.tex','.md','.csv','.cpp','.h','.m2','.M2','.txt')
     def put(name,origin,expected=None,role='reference'):
@@ -73,6 +73,26 @@ def audit(output):
         elif isinstance(x,list):
             for i,v in enumerate(x):walk(v,f,keypath+(str(i),))
         elif isinstance(x,str):put(x,f)
+    # A bounded, source-hash-guarded review resolves false syntactic paths and
+    # identifies real relative inputs. It is control metadata, not a new
+    # mathematical premise and not an exhaustive runtime analysis.
+    review_path=ROOT/'research/reproduction/static_path_review.json'
+    reviewed_pairs={};review_digest=None;diagnostic_metadata=[]
+    if review_path.is_file():
+        review=json.loads(review_path.read_text());review_digest=digest(review_path.read_bytes())
+        verified_origins={f for f,h in review['source_sha256'].items()
+                          if (ROOT/f).is_file() and digest((ROOT/f).read_bytes())==h}
+        for row in review['resolutions']:
+            if row['origin'] not in verified_origins:continue
+            if row.get('required_file'):
+                required=row['required_file']
+                put(required['path'],str(review_path.relative_to(ROOT)),required['sha256'],'reviewed_runtime_input')
+            reviewed_pairs[row['origin'],row['path']]=row['disposition']
+        for row in review.get('diagnostic_metadata_exclusions',[]):
+            if not set(row['origins'])<=verified_origins:continue
+            replacement=row['replacement_certificate']
+            put(replacement['path'],str(review_path.relative_to(ROOT)),replacement['sha256'],'replacement_certificate')
+            diagnostic_metadata.append(row)
     while todo:
         f=todo.popleft()
         if f in seen:continue
@@ -123,16 +143,31 @@ def audit(output):
                 elif '/'not in arg:
                     candidate='research/classification/'+arg
                     if (ROOT/candidate).is_file():put(candidate,f)
-    # No telemetry is mathematical evidence. Preserve the observation separately.
-    for logical in list(missing):
-        if '_RUNTIME_'in logical or '_CHECKPOINT_'in logical:
-            excluded.append({'path':logical,'origins':sorted(missing.pop(logical)),'reason':'Execution/resume telemetry; complete mathematical coefficient/certificate reports are included.'})
-            pending=[r for r in pending if r['path']!=logical]
+    # Only the two exact, reviewed failed-run metadata references are excluded.
+    # A filename is never enough to discard a missing recorded input.
+    for row in diagnostic_metadata:
+        logical=row['path']
+        if logical not in missing or not missing[logical]<=set(row['origins']):continue
+        bound=[r for r in pending if r['path']==logical]
+        if any(r['expected']!=row['sha256'] for r in bound):continue
+        excluded.append({'path':logical,'origins':sorted(missing.pop(logical)),
+            'reason':'Exact reviewed failed-execution metadata; replacement coefficient certificate retained.',
+            'recorded_diagnostic_sha256':row['sha256'],'replacement_certificate':row['replacement_certificate']})
+        pending=[r for r in pending if r['path']!=logical]
     files=sorted(f for f in seen if (ROOT/f).is_file())
     result={'scope':__doc__,'primary_roots':roots['roots'],'primary_claim_count':len(claimids),'primary_claims':sorted(claimids),'direct_paths':sorted(seeds),'files':[{'path':f,'bytes':(ROOT/f).stat().st_size,'sha256':digest((ROOT/f).read_bytes())}for f in files],'edges':{k:sorted(v)for k,v in edges.items()},'recorded_hashes':integrity,'unresolved_recorded_inputs':pending,'missing':{k:sorted(v)for k,v in missing.items()},'excluded_nonpremises':excluded,'root_input_aliases':alias,'all_required_inputs_available':not missing and not pending,'mathematics_independently_certified':False}
     result['static_path_analysis_complete']=False
-    result['availability_scope']='Recorded file hashes and paths resolved by this scan. Unresolved syntactic candidates are not certified as non-inputs; this is not an exhaustive runtime read-file analysis.'
-    result['unresolved_static_path_candidates']=sorted({r['path']for r in excluded if r.get('reason','').startswith('Unresolved syntactic path candidate')})
+    candidates={(r['origin'],r['path'])for r in excluded if r.get('reason','').startswith('Unresolved syntactic path candidate')}
+    unreviewed=candidates-reviewed_pairs.keys()
+    result['availability_scope']='Recorded file hashes, paths resolved by this scan, and the source-hash-guarded finite path review. This is not an exhaustive analysis of arbitrary runtime-generated paths.'
+    result['unresolved_static_path_candidates']=sorted({p for _,p in unreviewed})
+    result['unresolved_static_path_candidate_pairs']=[{'origin':f,'path':p}for f,p in sorted(unreviewed)]
+    result['recorded_inputs_available']=not missing and not pending
+    result['all_required_inputs_available']=not missing and not pending and not unreviewed
+    result['static_path_review']={'path':str(review_path.relative_to(ROOT)),'sha256':review_digest,
+        'reported_paths':len({p for _,p in candidates}),'reported_origin_path_pairs':len(candidates),
+        'reviewed_origin_path_pairs':len(candidates)-len(unreviewed),
+        'scope':'Finite reported-candidate review only; source changes invalidate the corresponding resolution.'}
     output.parent.mkdir(parents=True,exist_ok=True);output.write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n')
     print(json.dumps({'files':len(files),'bytes':sum(r['bytes']for r in result['files']),'recorded_hash_checks':len(integrity),'pending_inputs':len(pending),'missing':len(missing),'output':str(output)},indent=2))
 if __name__=='__main__':

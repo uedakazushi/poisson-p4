@@ -1,6 +1,9 @@
 # Poisson P4 完全分類：公表前の独立査読の現在計画
 
-2026-11-09 / v73-prepublication-review
+2026-11-09 / v74-publication-candidate
+
+以下は本査読で適用した検査基準である。結論は REFEREE_REPORT.md、配布工程の状態は
+classification/CURRENT.md に記す。既済みの導出を繰り返さず、現在の全bundle検証と保存を閉じる。
 
 ## 0. 判定：次の仕事は新分類ではなく、最も脆い証明への反証試験
 
@@ -86,7 +89,7 @@ smoothing diagram・period・full symplectic frame・S61正規化の
 A/B/C/rank2の全源→既存閉像→非包含という証明の
 「最小の必須依存節点」を特定して再読する。
 reports/required_proof_dependency_closure.jsonの223 primary claimや
-96凍結入力を「数学的査読済み」と読み替えない。
+凍結入力（現行97件）を「数学的査読済み」と読み替えない。
 特に最後の五成分の存在、141 rank4の全support、
 安定rank2の6成分、一般rank4閉包をrank2へ使う順序を検査する。
 全147×147の交叉表や全係数証明書の再実行は必要ない。
