@@ -1,0 +1,51 @@
+LINE-LINE INTERSECTION OBSTRUCTION (v22, corrected proof; m=2 independently audited)
+
+Hypotheses: actual normal Poisson quintic D in P4; each component of reduced singular support generically E8; L,L' distinct line components meeting at p. Modular residue vanishes at p on both. Use actual affine Poisson tensor pi and affine coordinate volume; Z=div(pi), div Z=0, [Z,pi]=0, Z(F)=0 for F=Pf(pi). The claim is that both residue slopes at p vanish. Hence any line meeting a second line at a point where its residue has simple zero is excluded.
+
+1. GLOBAL LINE FLAGS AND DEGREE BOUNDS.
+Choose homogeneous coordinates (s,t,u,v,w) with L=(u=v=w=0). The conormal bracket matrix B(s,t) is symmetric (modular tangency) and entries are linear in s,t. Generic E8 says B has rank1 and is nonzero. A symmetric rank1 matrix pencil has form ell(s,t) vv^T for constant nonzero v; proof via all matrices in pencil rank1, sum of two rank1 symmetric matrices of independent images would have rank2. Thus after constant normal-coordinate change, Hessian of F along L is H(s,t) w^2. Pfaffian differentiation gives H proportional to R(s,t) ell(s,t), where R is modular residue quadratic on P1. A choice of scale does not matter. Hence at a simple modular zero with slope alpha !=0, h=ord H is 1 or2.
+
+On the constant Hessian kernel (u,v), the cubic jet of F has coefficients homogeneous degree2 in s,t. It is a nonzero cube at the generic E8 point. Its projective cube direction defines a morphism P1->P1 after removing common zero factor; Veronese degree3 forces degree0 since total degree2<3. Thus the cube direction is also constant, and its scalar coefficient has zero order m in {0,1,2} at p.
+
+From Z(F)=0, the quadratic normal jet and cubic jet on its radical are preserved. At p, Z1 has invariant flag in normal cotangent space whose first/second one-dimensional factors have eigenvalues -h alpha/2 and -m alpha/3. This follows by comparing the leading coefficient in t in the identities R H'+2 a_H H=0 and R C'+3 a_C C=0. The remaining eigenvalue follows from div Z=0. Consequently the ambient eigenvalue multiset is
+ alpha*S(h,m), S(h,m)={1,-h/2,-m/3,h/2+m/3-1}.
+This statement uses finite jets only, no formal normal form. Intrinsic tangent and ambient eigenvalues agree.
+
+If the residue slope on a line is zero, R vanishes to order2 (nonzero R), while both flags are still defined and their scalar coefficients have finite vanishing order. The same leading-coefficient identities force both normal flag eigenvalues to be zero; trace zero forces the remaining normal eigenvalue zero. Together with tangent slope0, all ambient eigenvalues are0. Thus if one incident line has nonzero slope, so does the other.
+
+For two nonzero slopes alpha,beta, both eigenvalue multisets above must coincide. Exhaustive rational comparison of the six possible S(h,m) shows only beta/alpha=1 (same h,m) or beta/alpha=-1 with h=h'=2 and m=m'. The eigenvalue1 in every S has multiplicity1, so beta/alpha=1 contradicts the independent tangent eigenvectors of the two lines. Hence beta=-alpha, h=h'=2, and equal m in {0,1,2}. In particular both conormal pencils vanish at p, their Hessian directions at p are the other line tangent directions. Choose affine axes x,y for L,L', normal coordinates z,w. Both zero conormal brackets imply pi_1=ell(z,w) d_x wedge d_y.
+
+2. CASE m=0.
+Normal Z1 eigenvalues are0,0. If ell=0, pi_1=0, so F has order>=4 and its transverse cubic scalar vanishes at p, contradicting m=0.
+If ell!=0, the first-order coefficient of the conormal pencil along x is nonzero and centered in the other tangent direction y. Thus pi_2^{zw} has a nonzero xy coefficient i (choose normal coordinates determinant appropriately). Then F_3=ell*pi_2^{zw} contains i xy ell, producing a nonzero mixed Hessian term of order1 along L. Other terms cannot cancel this monomial because pi_1 has only its xy entry. This contradicts h=2, which means all quadratic normal Hessian coefficients vanish to order2. Thus m=0 impossible.
+
+3. CASE m=1.
+Scale alpha=3; Z1 weights are (3,-3,-1,1) on (x,y,z,w). These are distinct. Invariance [Z1,pi_1]=0 forces ell=0. Thus pi starts in degree2, [Z1,pi_2]=0 and [pi_2,pi_2]=0. The complete weight-invariant quadratic tensor is
+ Pxy=a xy+b zw,
+ Pxz=c xz+d w^2,
+ Pxw=e xw,
+ Pyz=f yz,
+ Pyw=g yw+h z^2,
+ Pzw=i xy+j zw.
+Here i!=0 because the conormal pencil vanishes simply at p. The cubic normal terms of F_4 along x and y are respectively -ch*x*z^3 and -dg*y*w^3; m=1 forces d,h nonzero. The xyz Jacobi component has coefficients bi at xyz and b(c+f+j)-2dh at wz^2. Thus bi=0 forces b=0, then dh=0. Contradiction.
+
+4. CASE m=2 (CORRECTED PROJECTIVE ARGUMENT).
+Scale alpha=3; Z1 has distinct weights (3,-3,-2,2). As above ell=0, so pi starts at degree2. Choose LINEAR eigen-coordinates preserving the two axes and their constant Hessian/cubic flags. This is possible since the four eigenvalues are distinct: Hessian directions are respectively y and x, cubic directions on their radicals are z and w. Consequently the leading transverse cubic coefficients require NONZERO x^2*z^3 and y^2*w^3 coefficients in F5. Both monomials have weight0.
+
+Projectivity rules this out. In an affine chart, the canonical divergence-free quadratic lift gives
+ pi_3=(1/5) E wedge Z_2,
+where E=sum x_i d_i and Z=div(pi). Indeed pi_ij=P_ij-x_i P_0j+x_j P_0i, and direct differentiation using delta P=0 and homogeneity gives Z_j=-5 P_0j. Take degree3/degree2 parts to obtain the identity. It remains valid after all linear coordinate changes.
+
+Since pi_1=0, [Z,pi]=0 in degree2 implies [Z1,pi2]=0. The weights (3,-3,-2,2) have NO resonant quadratic vector field: no degree2 monomial has any of these four weights. Thus Z2 has no weight0 component as a vector field. Since E has weight0, pi3 has no weight0 bivector component. Since pi2 is invariant and tr(Z1)=0, the coefficient F5 of the mixed Pfaffian pi2 wedge pi3 has no weight0 monomial. This contradicts the two necessary nonzero weight0 cubic-flag coefficients above.
+
+This proof uses no formal coordinate change and no assumption that the xyzw coefficient in F4 vanishes. That coefficient is unrestricted at this stage because it contains a Hessian variable on each line.
+
+CONCLUSION: two intersecting E8 line components cannot have nonzero modular slope at their intersection. Any such intersection has double modular zero on both lines.
+
+APPLICATIONS TO v21 EIGHT:
+- 1111_chain: each internal line has two distinct marked points, hence its nonzero residue has simple zero at both; excluded.
+- 211_line_center: central line has two distinct marked points; it meets the terminal line at one of them; excluded.
+- 1111_triple_tail: line joining the triple point and the node has simple zero at the node, where it meets another line; excluded. The proof did not require that no other branch meets p, but the ordinary node suffices here.
+No claim yet about 211_conic_center. Its conic has two marked points but each line has only one.
+
+REMAINING AUDIT POINT: ensure global constant cubic flag is indeed computed in the constant Hessian radical bundle O(1)^2, and intrinsic modular Z under coordinate volume yields invariant cubic on radical. The tensor computation is standard: nonlinear normal terms act on quadratic F but vanish on the Hessian radical, and linear normal mixing into tangent acts on F2 proportionally to w^2, also vanishing. This has been explained above, but parent should audit it before using theorem.

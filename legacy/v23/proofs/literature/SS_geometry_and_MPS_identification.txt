@@ -1,0 +1,310 @@
+V23 — SS 境界の幾何と既知 T37 成分への厳密同定
+作成日 2026-10-29
+対象体 C、a != 0。v22 の入力は変更していない。
+
+【主結論】
+
+v22 の SS 構造は独立の新しい成分ではない。横断方向 τ を加えた族
+P(a)+tτ(a) は、Matviichuk–Pym–Schedler,
+Creating quantum projective spaces by deforming q-symmetric algebras,
+arXiv:2411.10425v1, Example 5.6 の半古典極限と全10括弧で厳密に一致する。
+本研究の旧カタログ番号は T37 である。t=0 はその既知成分の境界点。
+t!=0 では4本の smoothable edge がすべて有効になる。
+
+これは因子次数や次元だけによる推測ではない。以下に座標置換、
+全パラメータ対応、半古典係数、既存カタログとの行列一致を示す。
+付属 verify_ss_geometry_mps.py は48件の有理数体上の厳密恒等式を検証し、
+ss_geometry_mps_certificate.json に結果を出力する。
+
+1. 入力と記号
+
+  Q = 3a(x2^2-x1*x3)+x0*x4,
+  C = 3a*x2(x2^2-x1*x3)+x1^2*x4,
+  R = x1^2-x0*x2,
+  q = x2^2-x1*x3,
+  F = -Q*C/(90a).
+
+P は v22/data/families/31_D_SS_m1_final_family.json の canonical,
+divergence-zero, homogeneous quadratic representative とする。
+projective bivector は P の Euler quotient であり、x0=1 上では
+  p_ij = P_ij-x_i*P_0j+x_j*P_0i (1<=i,j<=4)
+と表される。
+
+2. 退化因子の既約成分と交差
+
+det Hess(Q)=54a^3 !=0 なので Q=0 は滑らかな quadric threefold。
+
+C は x4 に関して一次で、係数 x1^2 と定数項
+3a*x2*(x2^2-x1*x3) は C[x0,x1,x2,x3] で互いに素。
+Gauss の補題により C は既約である。
+偏微分は
+  C_0=0,
+  C_1=-3a*x2*x3+2*x1*x4,
+  C_2=9a*x2^2-3a*x1*x3,
+  C_3=-3a*x1*x2,
+  C_4=x1^2.
+従って reduced singular locus は S={x1=x2=0} ~= P2。
+次元3の既約 hypersurface が次元2の特異集合を持つので C 自体が非正規。
+F が非正規である理由を「可約だから」とだけ説明するのは不十分である。
+
+恒等式 C=x2*Q+x4*R から
+  (Q=C=0)_red = A union B,
+  A={x4=0,q=0},  B={Q=R=0}.
+A は degree2 の quadric cone、頂点 e0。
+B は degree4 の完全交差面である。x0=1 上の表示は
+  [1:u:u^2:v:3a*u*(v-u^3)]。
+x0=0 上では x1=x2=0 だから、その境界は L34。
+完全交差は pure dimension2 であり、x0=0 には面成分がない。
+従って B は既約。稠密開集合が滑らかで Cohen–Macaulay なので被約。
+x0!=0 上の Jacobian は階数2、x0=0 上では dR=0 なので
+  Sing(B)_red = L34。
+従って B も非正規。
+
+以上から
+  Sing(Q*C)_red = S union A union B,
+その面成分の次数は 1,2,4。
+A intersect B の reduced support は T0123 union L03。
+ここで T0123=[s^3:s^2*t:s*t^2:t^3:0]。
+非横断交差 locus の reduced support は T0123 union L03 union L34。
+理由：dC=x2*dQ+x4*dR+R*dx4 を Q=C=0 上で用いる。
+A 上で R!=0 なら generic transverse、B 上で x4!=0 なら generic transverse。
+例外は A intersect B と Q intersect Sing(C)。後者は L03 union L34。
+
+3. 誘導 Poisson 葉の明示
+
+行列作用の符号規約をそのまま用いると
+  P*dQ = Q*V,  P*dC = -C*V,
+  V=(2x0,x1,0,-x3,-2x4)^T/10。
+従って Q,C のイデアルは Poisson ideal。
+
+Q 上の有理 Casimir は
+  f_Q=(x1^2-x0*x2)/x4^2 = R/x4^2。
+その葉は rational map Q --> P1, [R:x4^2] の generic fiber の開集合。
+closed rational 1-form は dlog(R/x4^2) である。
+これは Lima–Pereira, Theorem3.3 [LP] の一般構造を具体化している。
+global numerator x4*dR-2R*dx4 は twisted 1-form として自然である。
+
+C の稠密開集合 x0*x1!=0 上では
+  x4=3a*x2*(x1*x3-x2^2)/x1^2。
+そこでの有理 Casimir は
+  f_C=(x1*x3-x2^2)^2/[x1^2*(x1^2-x0*x2)]。
+これは homogeneous degree0 なので C 上の有理関数。
+制限された3x3 Poisson 行列による df_C の積は恒等的に0。
+両 Casimir は稠密開集合での葉を記述するものであり、特異点を含む
+全 fiber が単一の symplectic leaf だという主張ではない。
+
+特異面の各稠密 chart 上にも rank2 の誘導構造がある。
+  S: [1:0:0:u:v],       {u,v}=-u*v/6;
+  A: [1:u:u*v:u*v^2:0], {u,v}=u*(u-v)/3;
+  B: [1:u:u^2:v:3a*u*(v-u^3)], {u,v}=u*(u^3-v)/6。
+全 ambient 4x4 行列が各 parametrization の Jacobian による
+pushforward と一致することを確認済み。
+従って「退化因子の特異集合で Poisson がすべて0」という命題は
+この非正規の場合には成り立たない。
+
+4. Projective Poisson 零点の reduced support の全球証明
+
+E=sum x_i*d_i とおき、G_ijk=x_i*P_jk-x_j*P_ik+x_k*P_ij。
+projective bivector が0であることと全 G_ijk=0 は同値。
+Euler quotient の零点を homogeneous P 自体の零点と混同しない。
+
+まず x4!=0 では
+  G124=-x1*x2*x4/6,
+  G134=x4*(x1*x3-3*x2^2)/6,
+  G234=x4*(-3a*x2*x3+2*x1*x4)/(18a)
+から x1=x2=0。さらに G034=-x0*x3*x4/6 から x0*x3=0。
+従ってこの chart の零点は (L04 union L34) intersect {x4!=0}。
+
+次に x4=0 では G0j4=-a*x_j*q (j=1,2,3)。
+少なくとも一つの x1,x2,x3 が非零なら q=0、すべて零なら e0 なので
+やはり q=0。q=0 上で
+  G012=x1*R/3,
+  G013=2*x2*R/3,
+  G023=x3*R/3。
+同様に R=0。P3 内で q=R=0 の reduced support は
+twisted cubic T0123 と L03 の和である。
+逆包含は各 parametrization の代入で全 G が0になるので従う。
+
+従って全球で
+  Zero(pi)_red = T0123 union L03 union L04 union L34。
+特に、構成時に固定した T0123 union L04 は全零点支持ではなかった。
+
+三直線 L03,L04,L34 は平面 S 内の三角形であり arithmetic genus1。
+T0123 はその三角形と e0,e3 の二つの reduced point で交わる。
+従って全 reduced support は degree6, arithmetic genus2。
+これは零点スキーム全体が被約であるという主張ではない。
+
+5. 各零点曲線の一般点での divisor multiplicity
+
+  component       ord(Q)  ord(C)  ord(Q*C)
+  T0123              1       1        2
+  L03                1       2        3
+  L04                0       2        2
+  L34                1       2        3
+
+ここで ord は曲線の一般点の ambient local ring の maximal-ideal order。
+zero-scheme の長さ、Jacobi scheme の重複度とは別物。
+
+具体的な normal coordinates での先頭項は次の通り。
+T: [1:u:u^2+v:u^3+w:z] では
+  in(Q*C)=u^2*(6a*u^2*v-3a*u*w+z)^2。
+L03: [1:v:w:u:z] では
+  in(Q*C)=-3a*u*v*w*(-3a*u*v+z)。
+L04: [1:v:w:z:u] では
+  in(Q*C)=u^2*v^2。
+L34: [v:w:z:1:u] では
+  in(Q*C)=-w*(-3a*w+u*v)*(3a*z-u*w)。
+各式は general u を固定した transversal tangent cone。
+
+6. Toric degeneration
+
+g_s=diag(1,1,s^2,s^5,s^6) による pushforward をとる。
+単項式 x_k*x_l*d_i wedge d_j の exponent は
+  w_i+w_j-w_k-w_l, w=(0,0,2,5,6)。
+全対角単項式では0、全非対角単項式では正。
+したがって s->0 の極限は Pi_diag、係数行列は
+
+  30 lambda =
+  [ 0 -6 -2  2  6 ]
+  [ 6  0 -6  3 -3 ]
+  [ 2  6  0 -6 -2 ]
+  [-2 -3  6  0 -1 ]
+  [-6  3  2  1  0 ]。
+
+x0=1 の log-canonical 行列の determinant は1/36。
+従ってこれは reduced SNC boundary を持つ log symplectic 構造。
+P+tτ の新しい単項式もすべて exponent 正なので同じ極限を持つ。
+これだけで、属する成分は MPS2021 Theorem1.4 の40成分の中にある。
+
+ただし対角成分そのものではない。対角成分の閉包で非零 Pfaffian を持つ点は
+5一次式の積からなる閉じた Chow locus に Pfaffian が属する。
+SS の Pfaffian は既約2次式×既約3次式なので該当しない。
+「対角極限を持つ」と「対角成分に属する」は異なる。
+
+7. MPS Example5.6 との全係数一致
+
+文献の変数を y と書き、
+  (y0,y1,y2,y3,y4)=(x2,x3,x1,x4,x0)
+と置くと lambda は MPS2024 Example5.6 (pp.16–18) の lambda に完全一致。
+文献の4つの smoothing parameter を gamma0,...,gamma3 とする。
+半古典化 v=exp(h/30), epsilon=h で、m次補正の係数は
+  lim_{h->0} h^(m-1) C(v)
+である。その値は
+  c10^44=c43^00=2,
+  c40^22=-3,
+  c30^24=c41^02=12,
+  c31^04=-12,
+  c31^22=-162。
+
+これを一般 gamma に戻したとき、対角括弧に加える下三角成分は
+  Delta{y1,y0}=gamma0*y2*y3+2gamma0*gamma2*y4^2,
+  Delta{y2,y1}=gamma1*y0^2,
+  Delta{y3,y2}=gamma2*y4^2,
+  Delta{y4,y3}=gamma3*y1*y2+2gamma1*gamma3*y0^2,
+  Delta{y4,y0}=-3gamma0*gamma3*y2^2,
+  Delta{y3,y0}=12gamma0*gamma2*gamma3*y2*y4,
+  Delta{y4,y1}=12gamma0*gamma1*gamma3*y0*y2,
+  Delta{y3,y1}=-12gamma0*gamma1*gamma2*gamma3*y0*y4
+                 -162gamma0^2*gamma1*gamma2*gamma3^2*y2^2。
+残りは0。
+
+次の代入で SS 横断族の全括弧と厳密一致する：
+  (gamma0,gamma1,gamma2,gamma3)=(-1/(9a),-1/2,-t,-a)。
+対応する τ(a) の非零上三角成分は
+  τ14=x0^2,
+  τ23=-2*x0^2/(9a),
+  τ24=4*x0*x1/3,
+  τ34=2*x0*x2/3+x1^2。
+a=1 が独立 deformation 計算で得た方向に一致する。
+
+元座標での biresidue 行列は
+  B=
+  [ 0  1  1  1 -3 ]
+  [-1  0  1 -2  2 ]
+  [-1 -1  0  3 -1 ]
+  [-1  2 -3  0  2 ]
+  [ 3 -2  1 -2  0 ]。
+2024年文献の row-difference convention
+  theta_ij=(B_j,*-B_i,*)/B_ij
+で smoothable weight は
+  edge04: (-1,1,0,1,-1),
+  edge13: (0,-1,2,-1,0),
+  edge14: (2,-1,0,0,-1),
+  edge23: (0,1,-1,-1,1)。
+graph は 0—4—1—3—2。
+SS は edge14 の parameter が0であるため3頂点鎖と2頂点鎖に分かれる。
+これは因子型3+2と整合するが、同定の証明は上述の全係数一致による。
+
+旧カタログへの対応：
+v10/code/catalog/path5_models.json の T37.period_biresidue と
+  B[(1,4,3,0,2),(1,4,3,0,2)]
+が厳密一致。T36,T38 ではなく T37。
+MPS自身は T37 という番号を使用していない。これは研究ノート内の規約。
+
+8. 分類に関して確定したこと／未確定なこと
+
+確定：SS は既知 MPS cycle-free 4-edge chain component T37 の境界。
+この族を新しい第58成分などとして加算してはいけない。
+generic t!=0 の同型類が gamma の非零値に依らないことは
+MPS2024 Theorem7.5 の filtered-linear isomorphism でも説明される。
+本研究の full Jacobi tangent と orbit の計算は、境界点の smoothness 等の
+より精密な局所情報を与える独立の追加成果である。
+
+未主張：SS の全零点スキームの被約性、境界全体の分類、他の57成分すべての
+境界包含。このノート自体はNNとの座標変換を検証していない。
+別担当からはNN generic点とSS generic点の厳密同型が報告されており、
+その結論は別のNN証明書を参照する。
+q51/q52 の generic 楕円族とは、この4-edge chain の同定によって区別される。
+単に2+3因子型だけから q51/q52 のあらゆる特殊点との非同型を推論していない。
+
+9. 一次文献と参照場所（現行公開版を確認）
+
+[MPS24] M. Matviichuk, B. Pym, T. Schedler,
+Creating quantum projective spaces by deforming q-symmetric algebras,
+arXiv:2411.10425v1 (15 Nov 2024).
+https://arxiv.org/html/2411.10425v1
+https://arxiv.org/pdf/2411.10425
+Example5.6 pp.16–18: explicit matrix, weights, quantum relations and coefficients.
+Section4.4 / Lemma5.2: row-difference weight convention.
+Theorem7.5 p.27: Poisson filtered deformation and uniqueness.
+Theorem7.6 pp.27–28: canonical quantization and convergence.
+arXiv metadata checked 2026-10-29 lists only v1 (15 Nov 2024).
+Retrieval refs available to root: turn435view0, turn438view0, turn439view0,
+turn441view0, turn444view0, turn444view1.
+
+[MPS21] M. Matviichuk, B. Pym, T. Schedler,
+A local Torelli theorem for log symplectic manifolds,
+arXiv:2010.08692v2 (15 Jul 2021).
+https://arxiv.org/pdf/2010.08692
+Theorem1.4 p.7: 40 irreducible components intersecting SNC log symplectic locus.
+Table2 p.40: smoothing diagrams and period strata dimensions.
+Example6.24 pp.55–56: formal/global component distinction and explicit check for P4.
+This is not a complete classification of all Poisson structures on P4.
+Retrieval refs: turn430view0, turn431view0, turn433view0.
+
+[LP] R. Lima, J. V. Pereira,
+A characterization of diagonal Poisson structures,
+Bull. Lond. Math. Soc. 46 (2014), 1203–1217.
+Author-hosted manuscript https://w3.impa.br/~jvp/diagonalpoisson.pdf
+Theorem2 p.2: closure of diagonal structures is an irreducible component.
+Theorem3.3 p.6: induced foliation on a reduced irreducible degeneracy component
+is given on its smooth locus by a closed meromorphic 1-form.
+Retrieval refs: turn422view1, turn423view2.
+
+[Pym13] B. Pym, Poisson Structures and Lie Algebroids in Complex Geometry,
+PhD thesis, University of Toronto, 2013.
+https://www.math.mcgill.ca/bpym/files/bpym-thesis.pdf
+Section7.5 pp.134–136 constructs log symplectic P4 from linear free divisors.
+Its Example7.5.1 has factor type1+1+3, so it is not the same explicit SS factorization.
+This source was a useful lead, but MPS24 provides the actual exact identification.
+Retrieval refs: turn425view0, turn426view0, turn426view1.
+
+Reproduction:
+  PYTHONPATH=/tmp/p4_v6_math python3 verify_ss_geometry_mps.py
+
+The portable script needs SymPy and the two adjacent input snapshots
+ss_input.json and t37_catalog_reference.json. The latter retains the relevant
+biresidue matrix and provenance from the preserved v10 catalogue.
+Use --input and --catalog to override those files. All output is written adjacent
+to the script. The temporary PYTHONPATH above is a session-specific way of finding
+SymPy and is unnecessary when SymPy is already installed.

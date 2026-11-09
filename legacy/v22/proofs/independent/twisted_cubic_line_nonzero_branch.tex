@@ -1,0 +1,85 @@
+\section{twisted cubic と直線：直線側 bracket が非零の枝}
+
+ここでは twisted cubic $T\subset H\cong\PP^3$ と、$H$ の外へ出る直線 $L$ が
+$p$ で交わる場合を考える。両 residue の slope は非零とし、直線側を $a$、
+twisted cubic 側を $b$ とする。
+conormal center の次数に関する既存の帰着により、$T$ の bracket の零因子次数は
+一または三である。従って $T$ 側 bracket が $p$ で零なら、その次数 $k$ は $1,2,3$ のいずれか。
+本節では $T$ 側 bracket が零で、$L$ 側 bracket が非零の枝を排除する。
+
+\paragraph{有限な spectrum の比較。}
+直線側の Hessian order は $h=1$。
+node isotropy の kernel argument を直線--conic 命題と逆向きに用いると
+\[
+ -\frac{k+1}{2}b\in\{a,-a/2\},
+ \qquad \frac ba\in\left\{-\frac2{k+1},\frac1{k+1}\right\}.
+\]
+直線の六 spectrum のうち $h=1$ のものと比較すると、残るのは
+\[
+(k,b/a,m_L)=(2,-2/3,2),\quad (3,-1/2,0)
+\]
+だけである。
+
+\paragraph{$k=3$ の場合。}
+ambient modular spectrum は $a\{1,-1/2,0,-1/2\}$。
+直線 tangent を $x$、$T$ tangent を $y$、残る normal coordinates を $z,u$ とする。
+$T$ conormal は交点で abelian、直線 conormal は Heisenberg である。
+$\pi_1$ は、適切な normal basis により
+\[
+ [y,z]=u,\qquad [y,u]=0,\qquad [x,y]\in\langle z,u\rangle
+\]
+という形の isotropy bracket を与える。
+modular 線形化の半単純部分を使って固有座標を取り、weights を
+$(x,y,z,u)=(1,-1/2,0,-1/2)a$ とする。
+$[x,y]$ の weight $a/2$ は normal weights $0,-a/2$ のいずれでもないので、この括弧は零。
+従って $\pi_1$ は $u$ を因子に持つ単一の Heisenberg tensor である。
+Pfaffian の三次項 $F_3=\pi_1\wedge\pi_2$ は $u$ で割れる。
+直線側の Hessian direction は conormal center $u$ なので、その radical 上の
+cubic class は $p$ で零である。これは $m_L=0$ に反する。
+この議論は実際の hyperplane $H$ の固有性を仮定しない。
+
+\paragraph{$k=2$ の場合：射影的な三次項を使う。}
+weights を整数倍で
+\[
+(x,y,z,u)=(6,-4,1,-3)
+\]
+とする。全て相異なるので modular 線形化自体を対角化できる。
+tangent--tangent bracket の weight 二は normal weights 一、負三と異なるため、
+\[
+\pi_1=u\partial_y\wedge\partial_z
+\]
+と正規化できる。
+直線上の一定な cubic flag は $y$ の方向であり、$m_L=2$ から
+五次項 $F_5$ の $x^2y^3$ 係数は非零でなければならない。
+
+affine canonical chart では常に
+\[
+\pi_3=\frac15E\wedge Z_2,\qquad
+E=x\partial_x+y\partial_y+z\partial_z+u\partial_u.
+\]
+平面 $z=u=0$ 上で $Z_2^u=fxy+gy^2$ と書く。
+$x^2$ 項は、modular vector field が実際の直線 $L$ に接するので存在しない。
+$\pi_2$ にも、この直線上で零であることから $x^2$ 項はない。
+$T$ は一般にはこの座標で曲がっているので、$y^2$ 項は取り除かず保持する。
+
+$[Z_1,\pi_2]=-[Z_2,\pi_1]$ をこの平面に制限する。
+右辺は $-(fxy+gy^2)\partial_y\wedge\partial_z$ だけである。
+weight 比較により、$\pi_2$ の非零となり得る成分は
+\[
+\pi_2^{xy}=Axy,\qquad
+\pi_2^{yz}=(-fxy+gy^2)/5
+\]
+のみである。$xy$ と $y^2$ の weight は二と負八、$yz$ の index weight は負三なので、
+この二つの分母は五と負五であり、符号が反対になる。
+また
+\[
+\pi_3^{xu}=x(fxy+gy^2)/5,\qquad \pi_3^{zu}=0.
+\]
+従って混合 Pfaffian は
+\[
+F_5|_{z=u=0}
+=\frac{(-fxy+gy^2)x(fxy+gy^2)}{25}
+=\frac{-f^2x^3y^2+g^2xy^4}{25}.
+\]
+$x^2y^3$ 項は相殺し、その係数は零である。必要な非零 cubic coefficient と矛盾する。
+以上により、非零 slopes の場合にも直線側 bracket 非零の二枝は排除される。

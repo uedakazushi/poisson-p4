@@ -1,0 +1,63 @@
+31_EXTERNAL: COMPLETE NN EXCLUSION (v22)
+
+STATUS: all exact calculations complete; independent audits delegated to twocomponents/junctions. No normality claim from merely solving Jacobi. One exceptional two-parameter solution family is retained and excluded geometrically because its actual quintic is singular along a plane.
+
+GEOMETRIC INPUTS.
+1. Both modular residues are nonzero with a double zero at their common point p. By independent reparametrization of the two components and scalar normalization, use R_TC=t^2,R_L=t^2. In the v21 model this is z36=z38=0,z37=z39=1.
+2. Generic conormal brackets are rank1 Heisenberg. Their zero divisors are supported on modular zeros, by modular-flow invariance.
+3. TC normal bundle is O(5)^2+O(3). Its saturated center K=O(-m), m=5 or6: nonzero bracket gives13-2m>=0; projection toO(-5)^2 mustnonzero because external-only center would makeF|P3 vanish to thirdorderalongTC, hence vanish onallsecantlines (two triplezeros inquintic), andthenF|P3=0, violatingnormality. Thus m>=5.
+4. Therefore TC bracket zero order at its sole modularzero p is k=3 or1. In particular B_TC(p)=0, givingz30=z31=z25=0.
+5. Line bracket scalar hasdegree1 andsolezerop, soB_L(p)=0 givingz32=0,z22=z26,z14=-z28-z35.
+
+BASE EXACT EQUATIONS.
+Use full203 monic Jacobi equations fromv21 and all186 necessary E8 first-jet equations fromroot/e8_jets/31_external.json, imposeinputs1,4,5. This is the initialsubstitution of31_C_NN_certificate.json. No parameterdivision has yet occurred.
+
+CLOSED-POINT PARTITION (31_NN_partition_certificate.json;12 rational linear-combination targets).
+First z33^2=0 givesz33=0 atcomplexclosedpoints. After this substitution the equation span contains
+ (z17+4z27)(z17-z27),
+ z17*zj forj=21,23,24,26,28,34,
+ z18^2+z17*z9,
+ z18*(z17+4z27).
+Ifz17=0, the first andthird relations givez27=z18=0; the resulting span containsz26^2,z34^2, hencez26=z34=0. The t-coefficient ofB_TC is then diag(0,0,z21).
+
+This gives the following disjoint cases.
+- k=3: B_TC startsatdegree3; handledbelow.
+- k=1,cellIA: z17!=0, z27=z17. Thenz21,z23,z24,z26,z28,z34,z18,z9 allzero.
+- k=1,cellIB: z17!=0, z27=-z17/4. Thenz21,z23,z24,z26,z28,z34 zero andz9=-z18^2/z17.
+- k=1,cellII: z17=z27=z18=z26=z34=0, z21!=0.
+No equality witha radical ideal is asserted; square-zero implications are used only forcomplexclosedpoints.
+
+k=3 GEOMETRIC LINEAR REDUCTION.
+ordB_TC>=3 givesz17=z27=z26=z21=z18=z34=z23=0 and3z28+2z35=0. The leadingrank1 matrix hasB00=0, soB02=3z28+4z35=0; hencez28=z35=z14=0. Itsinternal2x2 block is
+ t^3*z9*[[4t^2,-2t],[-2t,1]].
+The nonexternal-center condition givesz9!=0. Rank1 crossrelations implyB02+2tB12=0, givingz20=0,z19=2z29. The line bracket firstrow hasfirstentry0, so itsrank1 condition givesz24=0.
+Impose theseconditions. 31_C_NN_k3_certificate.json records exactQQlinear stages17->16->15->14->13->12.
+In itsfinalequationlist:
+ eq61=z16^2 => z16=0;
+ eq56=(z10+5z16*z9)/5 => z10=0;
+ eq58=z9*(10z12-1)/10, z9!=0 => z12=1/10.
+Equations23and29 become, u=z29,
+ A=2u^2+13u/10+9/50,
+ B=2u^2-u/5-2/225.
+The exact Bezout identity is
+ (1098/175-972u/35)*A+(972u/35+2547/175)*B=1.
+Thus thiscell is empty. See31_NN_k3_final_certificate.json.
+
+CELL IA.
+31_NN_k1_IA_certificate.json gives a unit ideal overQQ(z17), stages19->7->4. Everydenominator factor inEVERYstoredcombination/substitution isz17 or69z17+28. z17!=0 isassumed; the onlyexception isz17=-28/69. The separate exactQQcertificate31_NN_k1_IA_rational_certificate.json isUNIT, stages19->7->4. Hence IAempty.
+
+CELL IB.
+31_NN_k1_IB_certificate.json gives UNIT overQQ(z17), stages20->11->8. Allpossible denominator factors arez17,3z17+1,621z17^2+87z17+52.
+- z17=0 excludedbycellhypothesis.
+- z17=-1/3: 31_NN_k1_IB_rational_certificate.json reduces20->11->8->6->4. Remainingequations areequivalent toz11=3z18*z20,z1=3z20^2. The resultingtwo-parameter family satisfiesallJacobiandnecessaryE8 equations. It is NOT discarded as an emptyideal. Junction agent explicitly provesF∈(x2,x3)^2 witha fixednonzero coefficient -1/120 ofx1^3*x3^2. Thus everyactualD issingularalongplane(x2=x3=0), hence notnormal. Seejunctions/31_NN_rational_family.json and31_nn_rational_exception.tex, independently35checks.
+- 621z17^2+87z17+52=0: workexactly inQQ[theta]/(theta^2+13511), z17=(-29+theta)/414. 31_NN_k1_IB_quadratic_field_certificate.json givesUNIT, stages20->11->8. Itscoefficients arepolynomialsintheta overQQ; bothcomplexembeddings arecovered. Nofurtherparameterlocalization occurs.
+Thus IB has nonemptyJacobi/E8 solutions onlyintheexplicitnonnormalfamily above.
+
+CELL II.
+31_NN_k1_II_certificate.json givesUNIT overQQ(z21), stages23->18. TheONLYdenominator factorisz21, alreadyassumednonzero, so therearenoexceptionalvalues.
+
+CONCLUSION.
+AllNNnormalactualquintics withsupportTC+external line areexcluded. The reducedJacobi/E8 equations are not universallyunit: the rationalIBexception has a concreteJacobi family, excludedbynormality. This distinction isessential.
+
+REPRODUCIBILITY.
+Allsolverinputmodels arev21 read-only. solve_31_nn*.py recordstagedQQ/rationalfunction/quadraticfield linear-combinationcertificates; no unboundedGroebner computation is used in the successfulproof. The onlyclosed-point branching isexplicitlylistedabove. 31_NN_partition_certificate.json certifieseachnecessarylow-degree relation. Genericdenominator auditJSONs recordallcriticalfactors. Independentstdlibaudits checkidentitiesseparately fromSymPygeneration.

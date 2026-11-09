@@ -1,0 +1,81 @@
+\section{標準持ち上げと局所固有値}
+
+\subsection{射影性が与える三次項の恒等式}
+$S=\CC[x_0,\ldots,x_4]$ とし、発散零の標準二次持ち上げを $P=(P_{ij})$ とする。
+\[
+ (\delta P)_j=\sum_i\partial_iP_{ij}=0,\qquad
+ b_i=(-1)^i\Pf(P_{\widehat i}),\qquad
+ F=\frac15\sum_i x_i b_i.
+\]
+Jacobi 条件の下で $\partial_iF=b_i$ である。
+アフィンチャート $x_0=1$ の座標を $y_i=x_i/x_0$ とすると
+\[
+ \pi^{ij}=P_{ij}-y_iP_{0j}+y_jP_{0i},\qquad
+ Z^j=\sum_{i=1}^4\partial_{y_i}\pi^{ij}=-5P_{0j}.
+\]
+最後の等式は $\delta P=0$ と二次の Euler 恒等式から従う。
+$E=\sum y_i\partial_{y_i}$、$\pi_k,Z_k$ を次数 $k$ の項とすると
+\begin{equation}\label{eq:radial-cubic}
+ \boxed{\pi_3=\frac15E\wedge Z_2.}
+\end{equation}
+この恒等式はアフィンの線形座標変換で保たれる。
+本稿では nonlinear な座標変換後にこの恒等式を使わない。
+また $\operatorname{div}Z=0$, $[Z,\pi]=0$ であり、アフィン Pfaffian $f=\Pf(\pi)=5F$
+に対して $Z(f)=0$ となる。
+
+\subsection{一般の elliptic 点から得る必要条件}
+第21版の帰着における残存四次曲線の各成分は、一般点で $\widetilde E_8$ 型である。
+Pym の局所標準形\cite[Theorem 4.5, Table 1]{Pym}では
+\[
+ \{w,u\}=u,\quad\{w,v\}=2v,\quad\{w,z\}=3z,
+ \qquad f=z^2+v^3+u^6+\tau uvz.
+\]
+横断括弧は $f$ の Jacobian 括弧であり、conormal Lie algebra は Heisenberg algebra。
+modular residue はこの規約で $-6\partial_w$ である。
+
+曲線のパラメータを $t$、residue を $R(t)\partial_t$ とし、
+$H(t)$ を tangent covector $dt$ の conormal 空間への adjoint action とする。
+normal covector を $dt$ に加えたときの差は Heisenberg algebra の inner derivation であり、
+中心へ写す三角行列なので固有値は変わらない。従って
+\begin{equation}\label{eq:e8-spectrum}
+ \operatorname{Spec}H=-\frac R6\{1,2,3\},\quad
+ \tr H=-R,\quad \tr(H^2)=\frac7{18}R^2,\quad \det H=-\frac1{36}R^3.
+\end{equation}
+これらは一般点での多項式恒等式であり、係数の恒等式として曲線全体へ延びる。
+特に $R=0$ の特殊点を除いて計算する必要はない。
+
+conormal bracket を、巡回的な外積基底に関する対称行列 $B$ で表す。
+$B$ は一般に階数一で、中心はその像である。$H$ は列を入力とする規約で
+\begin{equation}\label{eq:e8-center}
+ \rank B\le1,\qquad (H+RI/2)B=0
+\end{equation}
+を満たす。横断 Hessian の一次元方向はこの中心と一致する。
+Hessian の核上の三次項は非零の三乗である。
+
+\subsection{交点での leading-center weight}
+滑らかな枝を $t$ 軸とし、$R(t)=a t+O(t^2)$ とする。
+conormal bracket の零点次数が $k$、その先頭項が非零 Heisenberg bracket なら、
+modular 線形化の normal 空間への作用 $D$ は、この先頭 bracket の conformal derivation である。
+中心の固有値を $\nu$ とすると
+\[
+ \tr D-2\nu=ka,
+\]
+発散零より $\tr D=-a$ なので
+\begin{equation}\label{eq:leading-center}
+ \boxed{\nu=-\frac{k+1}{2}a.}
+\end{equation}
+この式は $D$ の半単純性を仮定しない。
+
+\subsection{正規な退化因子は錐にならない}
+前版で用いた Pfaffian 分解を再掲する。
+正規な実際の退化因子の場合、Jacobian イデアル $J_F=(b_0,\ldots,b_4)$ は高さ三であり、
+Buchsbaum--Eisenbud の複体\cite{BE}は
+\[
+ 0\longrightarrow S(-10)\longrightarrow S(-6)^5
+ \xrightarrow{P}S(-4)^5\longrightarrow S\longrightarrow S/J_F\longrightarrow0
+\]
+という最小分解である。従って五つの $b_i=\partial_iF$ は $\CC$ 上一次独立。
+具体的には、定数係数の非零な関係ベクトルは $S(-4)^5$ の kernel に入るが、
+正次数成分だけを持つ $P$ の像には入らない。
+従って線形座標変換後に $\partial_0F=0$ となる射影錐は存在しない。
+一般の正規超曲面についての主張ではなく、Poisson 退化因子のこの分解を使う補題である。

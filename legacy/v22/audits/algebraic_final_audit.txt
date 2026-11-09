@@ -1,0 +1,171 @@
+FINAL INDEPENDENT AUDIT OF THE INTEGRATED TWO-CONIC AND TC+LINE SECTIONS
+Date: 2026-10-29
+Auditor: v22_twocomponents
+
+FILES REVIEWED (not edited by this audit)
+  p4_poisson_completeness_v22/sections/two_conics.tex
+  SHA256 a6e89649397e8c753925b74db536aaf3e3f98cabef9a15f08248753df1450780
+  p4_poisson_completeness_v22/sections/twisted_cubic.tex
+  SHA256 6a98fb54c0ba22fa0c2445ba3f5b4cc2699a0dc370e1ee03a58297e884a6a88f
+
+VERDICT
+The mathematical conclusions in these two sections agree with the final exact
+certificates. No algebraic error, lost denominator exception, omitted actual
+solution family, incorrect equation count, or invalid extrapolation from a
+generic parameter value was found. The claims are exclusions of complex closed
+points satisfying the geometric hypotheses, not assertions that every original
+Jacobi ideal is radical or a unit ideal. The two surviving coefficient families
+are correctly retained and excluded by nonnormality of their actual quintic.
+
+One terminology correction and two short proof-completeness insertions are
+recommended below. These do not change any conclusion or certificate.
+
+1. TWO CONICS
+
+The section correctly assumes generic rank four, normality of the actual
+quintic, generic transverse E8 type, and active residues on both components.
+The pure conic fourth-jet lemma was checked in its integrated form as well.
+It gives the necessary nonzero conditions z30*z14 != 0; no zero branch is
+discarded solely because the algebraic solver localized at it.
+
+The two plane-Hessian identities and all seven displayed coefficient relations
+agree with the independently reconstructed model. The deductions r=w=z26=0
+use only a=z30 and b=z14 as nonzero denominators. The subsequent lambda
+normal form is correct. The simultaneous normalization a=1 and NN residues is
+justified by the displayed action: beta1->c*beta1/r, beta2->c*beta2/s,
+a->c*s^3*a/r^2. For NN, choosing r=c*beta1, s=c*beta2 leaves a multiplied by
+c^2*beta2^3/beta1^2. This is a nonzero character, so the normalization exists
+over C. For SS, the two independent residual diagonal transformations preserve
+the normalized slopes and also permit a=1.
+
+The four certificates have exactly the roles stated:
+  - slopes equal: denominators only lambda;
+  - common nonzero slope: UNIT, denominators only lambda;
+  - NN with lambda != -1: UNIT, denominators lambda and lambda+1;
+  - NN with lambda=-1: UNIT using the spectral constraints, numerical rational
+    denominators only.
+The equality-of-slopes certificate really has a four-term combination for
+z36-z38. The listed two-stage counts are correct. No extra denominator locus
+has been suppressed. The row-input H convention and its conversion to the
+column-input convention are stated correctly.
+
+The reported 228 independent stdlib checks match certificate_audit_stdlib.json:
+all_passed=true. They include reconstruction and hand-written identities,
+not merely re-reading a CAS success flag.
+
+Terminology correction:
+  The subsection title "有理数の線形結合による非存在証明書" is too narrow,
+  because the first three certificates use rational FUNCTIONS of lambda.
+  Replace it by "厳密な線形結合による非存在証明書" or
+  "有理関数による線形結合と非存在証明書".
+  The fourth certificate really does use rational numbers alone.
+
+2. TWISTED CUBIC: GEOMETRIC REDUCTION AND SS
+
+The archived full model contains exactly 203 distinct monic Jacobi equations;
+the final independently reconstructed E8 file contains exactly 186 distinct
+monic necessary first-jet equations. Both numbers in the section are correct.
+
+The center degree argument is valid: M=O(-m) has a nonzero projection to
+O(-5)^2, giving m>=5. A nonzero bracket scalar has degree13-2m>=0, giving
+m<=6. If the projection vanished, the restricted quintic on the span P3
+would vanish to order at least three along T. Its restriction to a general
+secant would have two triple zeros, forcing that quintic to vanish identically
+on P3. A quintic containing this hyperplane cannot be a normal actual divisor.
+Thus the bracket zero divisor has positive degree3 or1. Its flow invariance,
+the node proposition, and the active-residue hypothesis correctly force
+B_T(p)=0. The mixed slope cases are covered by the zero-slope nilpotency lemma.
+
+The five ratios with B_L(p)=0 are exactly
+  rho=-1,-3,3,-3/2,3/2.
+The two extra cases with B_L(p)!=0 are exactly
+  (rho,k,m_L)=(-3/2,2,2), (-2,3,0).
+There is no generic-rho computation in the final exclusion.
+
+For clarity, the second finite list can be derived explicitly as follows.
+The same isotropy-kernel argument as in the preceding node proposition gives
+  -(k+1)/2 in {rho,-rho/2},
+so rho=-(k+1)/2 or rho=k+1 with 1<=k<=3. The line h=1 spectrum leaves
+rho=-3/2,k=2,m_L=2 or rho=-2,k=3. In the latter case the common normal
+two-space has weights -rho/2 and -rho/2-1, namely1 and0. Comparing the whole
+ambient spectrum therefore gives m_L=0. This uses no invariant-hyperplane
+assumption; the earlier withdrawn argument identifying a modular eigenline
+with the actual hyperplane covector does not occur in the integrated text.
+
+Recommended insertion after the two B_L(p)!=0 possibilities:
+  k>=2 gives z33=z32=z26=z21=0 and z27=2*z17. The line rank-one condition
+  also gives z22=0. For k>=3 one additionally has
+  z17=z27=z18=z34=z23=0 and 3*z28+2*z35=3*rho/5.
+These are precisely the initial coefficient restrictions in the E2/E3
+certificates. Those certificates do not divide by a line-bracket coefficient;
+they prove UNIT even on the larger slices where B_L(p) might vanish.
+
+There are seven SS certificates: six are UNIT over Q with no parameter
+denominators; the rho=-1 D certificate has exact remaining ideal
+  (z9*z21-1/9).
+Thus a=z9!=0 is a consequence, not an extra localization. The two factors
+and scalar -1/(90a) in the displayed F are correct. Their projective common
+zero locus has dimension at least two and lies in Sing(D), so the actual
+quintic is not normal for every a!=0. The claimed actual Jacobi family was
+verified directly, including all ten full Jacobi brackets and dF=b(P).
+All1243 stdlib checks passed in31_ss_audit_stdlib.json.
+
+3. TWISTED CUBIC: NN PARTITION AND ALL EXCEPTIONS
+
+The NN residue normalization, six node-bracket conditions, twelve partition
+targets, and IA/IB/II cell restrictions agree with the final certificate.
+All uses of square-zero=>zero are correctly limited to complex closed points.
+
+Recommended insertion before claiming that the four cases exhaust NN:
+  When z17=z27=z18=z26=z34=0, the coefficient of t in B_T is
+  diag(0,0,z21). If z21=0, the order is at least two and therefore equals
+  three, since its only possible total orders are one or three.
+This supplies the short link from the algebraic partition to the geometric
+k=3 cell. It does not require an additional certificate or hypothesis.
+
+All k=3 initial restrictions match the reviewed geometric reduction. The
+internal matrix and the use of its nonzero projection to deduce z9!=0 are
+correct. The five elimination stages, subsequent z16^2,z10,z12 equations,
+both univariate quadratics, and their displayed Bezout combination are exact.
+In particular the z12=1/10 deduction uses the stated geometric z9!=0.
+
+Every factor appearing in every generic certificate denominator is accounted
+for, up to nonzero rational constants:
+  IA: z17, 69*z17+28.
+      z17!=0 is the cell hypothesis; the exceptional value -28/69 has its own
+      rational UNIT certificate.
+  IB: z17, 3*z17+1, 621*z17^2+87*z17+52.
+      z17!=0 is the cell hypothesis. At -1/3, the nonnormal actual family is
+      retained. At both quadratic roots, the exact quadratic-field UNIT
+      certificate applies.
+  II: z21 alone, already nonzero in this cell.
+
+The field Q[theta]/(theta^2+13511) and parameter
+  z17=(-29+theta)/414
+are correct. Both complex embeddings are covered by the same reduced
+polynomial identity; there is no approximate-root argument or hidden new
+parameter denominator.
+
+At z17=-1/3, the exact remaining ideal is the graph
+  z11=3*z18*z20, z1=3*z20^2.
+It is an actual two-parameter family. The actual quintic satisfies
+  F in (x2,x3)^2, coefficient[x1^3*x3^2]F=-1/120
+for every parameter value. Thus it never vanishes identically and is singular
+along the stated plane without a coordinate change. This is a valid
+normality exclusion and is not misrepresented as a UNIT certificate.
+All658 stdlib checks passed in31_nn_audit_stdlib.json.
+
+4. SCOPE AND REPRODUCTION
+
+These exclusions apply only after the v21 reduction and the hypotheses named
+above. The necessary Heisenberg/spectral equations alone do not certify an
+E8 singularity or a normal divisor; neither section uses such a converse.
+The conclusion concerns normal ACTUAL degeneracy quintics of generic-rank4
+Poisson structures. It does not classify arbitrary nonnormal degeneracy
+divisors, their reductions, or rank2 Poisson structures.
+
+The independent stdlib verifiers and their CLI reproduction instructions are
+listed in STDLIB_AUDITS_README.txt. This final textual audit did not repeat
+already completed exact arithmetic or alter any finished certificate. It
+compared the integrated exposition with those audited identities and their
+precise assumptions.

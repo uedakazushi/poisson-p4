@@ -1,0 +1,567 @@
+\section{零モジュラー層の被約完全分類}
+\label{sec:zero-boundaries}
+
+この節の対象は補助空間 $\cQ$ の零モジュラー層である。
+全 $\PP^4$ Poisson 空間の新たな成分数を、この節だけから増やすことはしない。
+座標を $(x,y,z,w)$ とし、
+\[
+ J=\partial_x\wedge\partial_y+\partial_z\wedge\partial_w,
+ \qquad \omega=\dd x\wedge\dd y+\dd z\wedge\dd w,
+ \qquad \mathrm{vol}=\dd x\wedge\dd y\wedge\dd z\wedge\dd w
+\]
+と置く。$\iota_Q\mathrm{vol}=\alpha$ を $Q=*\alpha$ と書く。
+v6 の線形還元により、零モジュラー層 $\cQ_0$ は
+\[
+ \dd\alpha=0,\qquad \alpha\wedge\alpha=0,\qquad
+ \alpha\wedge\omega=0
+ \tag{Z1}\label{eq:zero-three-conditions}
+\]
+を満たす二次係数の二形式の空間に scheme として一致する。
+$\eta=\iota_E\alpha/4$ とすれば $\dd\eta=\alpha$、
+$\iota_E\eta=0$、$\eta\wedge\dd\eta=0$ であり、
+$\PP^3$ 上の次数 $2$ の葉層の表示に移る。
+以下では $\alpha\wedge\omega=0$ を原始条件と呼ぶ。
+
+三つの既知の含有先を固定する。
+\begin{align*}
+ \mathcal R_0&=\overline{\{*(\dd L\wedge\dd G):
+                   \deg L=1,\ \deg G=3,\ \{L,G\}_J=0\}},\\
+ \mathcal C_0&=\overline{\{*(\dd F\wedge\dd G):
+                   \deg F=\deg G=2,\ \{F,G\}_J=0\}},\\
+ \mathcal L_0&=\overline{\Sp_4\cdot\{Q(a,b):a,b\in\CC\}},
+\end{align*}
+ただし
+\[
+\begin{split}
+ Q(a,b)&=V\wedge U,\qquad U=az\partial_y+bx\partial_w,\\
+ V&=-bx\partial_x+(2b-a)y\partial_y+az\partial_z+(b-2a)w\partial_w.
+\end{split}\tag{Z2}\label{eq:zero-log-family}
+\]
+v6 で、$\mathcal R_0$ は既知の $13$ 次元 $\cQ$ 成分に、
+$\mathcal C_0$ は $G_1\cap G_2$ に含まれると証明した。
+$\mathcal L_0$ は $10$ 次元の零モジュラー成分で、一般横断厚さは $3$。
+また任意の二次式 $f(x,z)$ に対して
+$Q(a,b)+f(x,z)\partial_y\wedge\partial_w\in\mathcal L_0$ である。
+
+\begin{theorem}[零モジュラー層の三つの被約成分]
+\label{thm:zero-three-components}
+零モジュラー層の underlying reduced variety は
+\[
+ (\cQ_0)_{\mathrm{red}}=\mathcal R_0\cup\mathcal C_0\cup\mathcal L_0
+\]
+であり、これらが正確に三つの既約成分である。
+affine dimensions は順に $12,9,10$。
+非零点を scalar action で projectivize した次元は $11,8,9$ であり、
+いずれも $\Sp_4$ や $\PGL$ による商の次元ではない。
+この定理は零層の reduced classification であり、全 Poisson 空間の完全分類、
+零層の embedded components や全 scheme structure は主張しない。
+\end{theorem}
+
+\begin{theorem}[二つの対数型成分の全閉包]
+\label{thm:all-log-boundaries}
+$\operatorname{Log}(1,1,1,1)$ または $\operatorname{Log}(1,1,2)$ の
+$\PP H^0(\PP^3,\Omega^1(4))$ 内の閉包に属する $[\eta]$ を取る。
+$\dd\eta$ が原始ならば
+\[
+ *\dd\eta\in\mathcal R_0\cup\mathcal C_0\cup\mathcal L_0.
+ \tag{Z3}\label{eq:log-containment}
+\]
+ここで閉包には、因子の衝突、表示の基底点、係数の共通因子が現れる
+境界をすべて含める。主張は点集合の包含であり、線形切断の
+scheme-theoretic decomposition や被約性は主張しない。
+\end{theorem}
+
+\subsection{積分因子を保った proper incidence}
+
+通常の対数型表示では、それぞれ $D=L_1L_2L_3L_4$、$D=L_1L_2q$ に対し
+$\dd(\eta/D)=0$ である。この条件は
+\[
+ D\dd\eta-\dd D\wedge\eta=0                                  \tag{Z4}
+\]
+という多項式方程式になる。
+所定の因子分解を持つ四次式 $[D]$ の集合は射影多様体からの
+multiplication map の像であり、射影的である。
+従って (Z4) の incidence の $[\eta]$ への射影は proper で、その像は閉じている。
+通常表示の全点を含むので、対数型成分の ambient closure の全点も含む。
+特に、極限で通常表示そのものが零になる場合にも、非零の積分因子 $D$ を失わない。
+
+\begin{lemma}[閉有理一形式の極の次数]
+\label{lem:closed-rational-poles}
+$D=\prod_i f_i^{m_i}$ を斉次既約分解とする。
+$\theta=\eta/D$ が閉じていて、radial weight $0$、$\iota_E\theta=0$ を満たすなら
+\[
+ \theta=\sum_i\lambda_i\frac{\dd f_i}{f_i}+\dd\!\left(\frac{F}{H}\right),
+ \qquad H=\prod_i f_i^{m_i-1},\quad \deg F=\deg H,
+ \qquad \sum_i\lambda_i\deg f_i=0.                            \tag{Z5}
+\]
+\end{lemma}
+\begin{proof}
+閉有理一形式を一変数ずつ partial fractions に分解する。
+高次の極は有理関数の微分で除去できる。
+simple-pole residue の他の変数方向への微分は閉条件により零なので、
+既約因子ごとの residue は複素定数である。
+その対数微分を差し引いた後の残部に次元について帰納法を適用すると、
+$\theta=\sum_i\lambda_i\dd f_i/f_i+\dd R$ を得る。
+
+$R$ の $f_i$ に沿う極の位数が $r>0$ なら $\dd R$ の位数は $r+1$ である。
+従って $R$ は $D$ にない divisor には極を持たず、各位数は $m_i-1$ 以下。
+よって $R=F/H$ とできる。
+$\mathcal L_E\theta=0$ より $\dd(ER)=0$ で、$ER$ は定数である。
+非零定数なら generic scaling line 上に $\log t$ が必要となり、有理性に反する。
+従って $ER=0$、$F$ は次数 $\deg H$ の斉次式とできる。
+最後の関係は $\iota_E\theta=0$ から従う。
+\end{proof}
+
+もう一つ、$\eta$ が高々三つの独立線形座標にしか依存しない場合には、
+$Q=*\dd\eta$ が定数ベクトル因子を持つことを用いる。
+その因子を $\partial_y$ に移し $Q=\partial_y\wedge Y$ と書けば、
+trace zero と divergence zero より
+\[
+ Q=\partial_y\wedge(G_w\partial_z-G_z\partial_w)
+   =*(\dd x\wedge\dd G),\qquad G=G(x,z,w).
+ \tag{Z6}
+\]
+従ってこの場合はすべて $\mathcal R_0$ に入る。
+
+\subsection{四つの線形因子の全重複型}
+
+補題 \ref{lem:closed-rational-poles} により、五つの partition を扱えばよい。
+
+\paragraph{$1+1+1+1$.}
+四つの線形因子が従属なら (Z6) を用いる。
+独立ならそれを座標 $z_1,\ldots,z_4$ とすると
+$Q=\sum_{i<j}a_{ij}z_iz_j\partial_i\wedge\partial_j$ となり、
+divergence zero は $(a_{ij})$ の row sums が零であることと同値。
+任意の非退化定数二形式 $(\omega_{ij})$ に対する原始条件は
+$a_{ij}\omega_{ij}=0$ である。
+$\Pf(\omega)\ne0$ なので、添字を換えれば $\omega_{12}\omega_{34}\ne0$。
+従って $a_{12}=a_{34}=0$ であり、row sums より
+\[
+ Q=t(z_1\partial_1-z_2\partial_2)
+       \wedge(z_3\partial_3-z_4\partial_4).
+\]
+$t\ne0$ なら残る四つの $\omega_{ij}$ は零で、二つのベクトル場は
+可換かつ symplectic。従って $Q\in\mathcal C_0$。
+
+\paragraph{$2+1+1$: $D=L^2MN$.}
+$a+b+c=0$、$F$ を線形式として
+\[
+ \eta=MN(L\dd F-F\dd L)+aLMN\dd L+bL^2N\dd M+cL^2M\dd N.
+\]
+$L,M,N,F$ が独立と仮定し $p_{AB}=\{A,B\}_J$ と書く。
+原始条件の係数比較は
+\[
+ p_{LF}=p_{LM}=p_{LN}=p_{MF}=p_{NF}=0
+\]
+を与える。残る $p_{MN}$ だけでは alternating pairing の rank は高々 $2$。
+非退化性に反するので、実際には高々三変数に依存し、(Z6) に入る。
+
+\paragraph{$3+1$: $D=L^3M$.}
+$F$ を二次式として
+\[
+ \eta=LM\dd F-2MF\dd L+\lambda(L^2M\dd L-L^3\dd M).
+\]
+$\{L,M\}\ne0$ の場合は $(L,M)=(x,y)$ とでき、原始条件は
+$3yF_y-xF_x+2F-4\lambda x^2=0$。
+係数比較は $\lambda=0,F\in\CC x^2$ を与え、$\eta=0$ となる。
+一方 $\{L,M\}=0$ の場合は $(L,M)=(x,z)$ とでき、
+\[
+ 3zF_y+xF_w=0\quad\Longleftrightarrow\quad
+ F=F_0(x,z)+t(xy-3zw).
+\]
+後半は (Z2) の $(a,b)=(3,1)$ の scalar multiple、$F_0$ と $\lambda$ は
+$f(x,z)\partial_y\wedge\partial_w$ を加えるだけなので、全点が $\mathcal L_0$ に入る。
+
+\paragraph{$2+2$: $D=L^2M^2$.}
+\[
+ \eta=LM\dd F-F\dd(LM)+\lambda(LM^2\dd L-L^2M\dd M).
+\]
+symplectic pair $(L,M)=(x,y)$ では原始条件は
+$yF_y-xF_x-2\lambda xy=0$。
+従って $\lambda=0$、$F\in\Span(xy,z^2,zw,w^2)$ となり、
+$\dd\eta=2\dd(xy)\wedge\dd F$ から $\mathcal C_0$ に入る。
+isotropic pair $(L,M)=(x,z)$ では
+\[
+ zF_y+xF_w=0\quad\Longleftrightarrow\quad
+ F=F_0(x,z)+t(xy-zw).
+\]
+これは $a=b$ の (Z2) と任意の $f(x,z)\partial_y\wedge\partial_w$ の和であり、
+$\mathcal L_0$ に入る。
+
+\paragraph{$4$: $D=L^4$.}
+この場合は $\eta=L\dd F-3F\dd L$、$\deg F=3$。
+$\dd\eta=4\dd L\wedge\dd F$ と原始条件より $\mathcal R_0$ に入る。
+
+\subsection{既約二次因子と Jordan 境界}
+
+$q$ が既約二次式として残る場合は二通りである。
+$D=LMq$、$L\ne M$ の場合には
+\[
+ \eta=aMq\dd L+bLq\dd M+cLM\dd q,\qquad a+b+2c=0.
+\]
+$(L,M)=(x,y)$ なら、原始条件の $q$ の monomials
+$x^2,y^2,xy,xz/xw,yz/yw,z^2/zw/w^2$ に対する weights は順に
+\[
+ 4b,\quad -4a,\quad 2(b-a),\quad (5b-a)/2,\quad (b-5a)/2,\quad b-a.
+\]
+既約 $q\ne0$ を許すのは $a=b\ne0$ の場合のみであり、
+$q\in\Span(xy,z^2,zw,w^2)$、従って $\mathcal C_0$ に入る。
+$(L,M)=(x,z)$ なら、$A=c-a,B=c-b$ と置いて
+\[
+ Azq_y+Bxq_w=0.
+\]
+$AB\ne0$ では $q=q_0(x,z)+t(Bxy-Azw)$ となり $\mathcal L_0$ に入る。
+$A$ または $B$ の一方が零なら三変数型で $\mathcal R_0$ に入る。
+
+残る重複型 $D=L^2q$ は、通常の semisimple 表示だけでは落とす危険がある。
+補題 \ref{lem:closed-rational-poles} より
+\[
+ \eta=Lq\dd F-Fq\dd L+c(L^2\dd q-2Lq\dd L),\qquad \deg F=1.
+ \tag{Z7}\label{eq:double-linear-form}
+\]
+$F\in\CC L$ なら $\mathcal R_0$ に入る。
+$L,F$ が独立な symplectic pair なら $(L,F)=(x,y)$ とでき、原始条件は
+\[
+ [2+x\partial_x+(y+4cx)\partial_y]q=0.
+\]
+この二次式上の operator の determinant は $2^3 3^4 4^3\ne0$ であり、
+非零解を持たない。
+isotropic pair $(L,F)=(x,z)$ の場合は
+\[
+ (z+4cx)q_y-xq_w=0\quad\Longleftrightarrow\quad
+ q=q_0(x,z)+t(xy+zw+4cxw).                                 \tag{Z8}
+\]
+
+この最後の族を閉包に入れるため、$X=(x,z)^T$、$Y=(y,w)^T$、
+$S=\left(\begin{smallmatrix}0&-1\\1&0\end{smallmatrix}\right)$ とし、任意の
+$B\in\operatorname{Mat}_2(\CC)$ に対して
+\[
+\begin{split}
+ V_B&=(BX)\cdot\partial_X-((B^T+\tr(B)I)Y)\cdot\partial_Y,\\
+ U_B&=(SBX)\cdot\partial_Y,\qquad
+ Q_{B,f}=V_B\wedge U_B+f(x,z)\partial_y\wedge\partial_w
+\end{split}\tag{Z9}\label{eq:zero-matrix-family}
+\]
+と置く。$B=\diag(-b,a)$ では $V_B\wedge U_B=-Q(a,b)$。
+$X'=TX,Y'=T^{-T}Y$ は symplectic であり、
+$T^TST=\det(T)S$ により $B$ を conjugate し、$U_B$ に非零 scalar を加えるだけである。
+対角化可能な $B$ の稠密性と $\mathcal L_0$ の閉性より、
+全 $B,f$ に対して $Q_{B,f}\in\mathcal L_0$。
+さらに (Z7)--(Z8) の $Q$ は厳密に
+\[
+ Q=tQ_{B,0}-4(q_0+cx\partial_zq_0)\partial_y\wedge\partial_w,
+ \qquad B=\begin{pmatrix}1&0\\4c&1\end{pmatrix}              \tag{Z10}
+\]
+となる。これで Jordan 境界も含めて定理 \ref{thm:all-log-boundaries} が証明された。
+\hfill$\square$
+
+\subsection{残る零層を例外成分の境界だけに限定する}
+
+\begin{theorem}[零層の残余]
+\label{thm:zero-residual-exceptional}
+零モジュラー層の任意の点は $\mathcal R_0\cup\mathcal C_0\cup\mathcal L_0$、
+または exceptional component の boundary の原始切断に属する。
+この還元は係数に共通因子を持つ cubic one-forms も含む。
+\end{theorem}
+\begin{proof}
+まず rational components の閉包を扱う。
+$\Rat(1,3)$ は $[L]\in\PP(V^*)$ の上で cubic polynomials を
+$\CC L^3$ で割った quotient bundle の projectivization から
+$[L\dd G-3G\dd L]$ へ写す proper image である。
+表示が零なら $\dd(G/L^3)=0$、すなわち $G\in\CC L^3$ となるため、基底点はない。
+従って全閉包がこの表示を持ち、原始なら $\mathcal R_0$ に入る。
+$\Rat(2,2)$ も $\operatorname{Gr}(2,\Sym^2V^*)$ から
+$\Span(F,G)\mapsto[F\dd G-G\dd F]$ への everywhere defined な proper image である。
+原始なら $\mathcal C_0$ に入る。
+LPB component は三次元部分空間 $W\subset V^*$ の Grassmannian 上の
+一形式の projective bundle の像であり、全閉包が三変数に依存するので (Z6) を用いる。
+
+次に $\eta=h\eta_0$ が非定数の最大共通因子 $h$ を持つ場合を扱う。
+$\eta_0$ も水平・可積分であり、$\deg h=1$ または $2$。
+$\deg h=2$ なら $\dd\eta_0$ は定数 decomposable two-form なので
+$\eta_0=(L\dd M-M\dd L)/2$。従って $h\eta_0$ は、二次因子 $h$ の residue を
+零にした $\operatorname{Log}(1,1,2)$ 表示に入る。
+
+$\deg h=1$ なら $\alpha_0=\dd\eta_0$ は線形係数の閉二形式で、
+$\alpha_0\wedge\alpha_0=0$。
+その coefficient map の像は Klein quadric 内の線形空間であり、
+固定 covector $\ell$ による $\ell\wedge V^*$、または固定三次元空間 $W$ による
+$\Lambda^2W$ のどちらかに含まれる。
+この elementary ruling lemma は、独立な二要素を $u\wedge v,u\wedge w$ と取ると、
+任意の support plane が $u$ を含むか $\Span(u,v,w)$ 内に入ることから従う。
+three-space の外の $u\wedge d$ があれば全 support に共通因子 $u$ が生じ、
+なければ全 support がその three-space 内に入る。
+
+共通因子の場合は閉性により $\alpha_0=\dd L\wedge\dd Q$ と書け、
+$\eta_0=(L\dd Q-2Q\dd L)/3$。従って $h\eta_0$ は $h$ の residue を零にした
+$\operatorname{Log}(1,1,2)$ 表示に入る。
+固定 three-space の場合、閉性は第四座標への依存も消す。
+三変数 volume により $\alpha_0=\iota_A\mathrm{vol}_3$ と書けば、$A$ は trace-zero
+linear vector field。対角化可能な $A$ は稠密で、その表示は
+$\operatorname{Log}(1,1,1)$ である。従って $h\eta_0$ は
+$\operatorname{Log}(1,1,1,1)$ の閉包に入る。
+全て定理 \ref{thm:all-log-boundaries} で処理できる。
+
+共通因子がない場合には Cerveau--Lins Neto の六成分定理
+\cite{CLN96} を適用する。
+上記の三成分と二つの対数型成分は処理済みなので exceptional component だけが残る。
+次の計算によりその open orbit は原始切断と交わらず、残余は boundary に限られる。
+\end{proof}
+
+\subsection{例外的開軌道の排除と検証済みの境界}
+
+$v_{ij}=z_i\dd z_j-z_j\dd z_i$、$(z_1,z_2,z_3,z_4)=(x,y,z,w)$ とし、
+例外的開軌道の通常の代表 \cite[\S3]{AC26} を
+\[
+\begin{split}
+ \eta_1&=yzv_{24}-2ywv_{23},\\
+ \eta_2&=3zwv_{13}-2z^2v_{14},\\
+ \eta_3&=ywv_{14}-3w^2v_{12},\qquad
+ \eta_{\mathrm{exc}}=\eta_1+\eta_2+\eta_3
+\end{split}\tag{Z11}
+\]
+と取る。任意の定数 alternating pairing
+$p=(p_{12},p_{13},p_{14},p_{23},p_{24},p_{34})$ に対して
+$\langle p,\dd\eta_{\mathrm{exc}}\rangle=0$ の係数行列は rank $6$ である。
+具体的には、その六行からなる minor が
+\[
+ \begin{pmatrix}
+ 0&0&0&0&0&-7\\
+ 0&0&0&0&7&0\\
+ 0&0&-3&-5&0&0\\
+ 0&0&-1&0&0&0\\
+ 0&5&0&0&0&0\\
+ -5&0&0&0&0&0
+ \end{pmatrix},\qquad \det=-6125\ne0.                       \tag{Z12}
+\]
+従って非退化 pairing に限らず、非零定数 pairing 自体が存在しない。
+任意の線形座標変換でも同じなので、exceptional open orbit 全体が排除される。
+
+三つの実際の境界点 $\eta_i+\eta_j$ は、対角一径数部分群の weights
+\[
+ (-1,-1,-1,3),\qquad(-3,1,1,1),\qquad(1,0,0,-1)
+\]
+によってそれぞれ $(i,j)=(1,2),(2,3),(1,3)$ の極限として得られる。
+前三形式はいずれも通常の $\operatorname{Log}(1,1,2)$ 表示を持つことを恒等式で確認した。
+前二つの primitive pairing kernel はすべて退化している。
+$\eta_1+\eta_3$ では kernel は
+\[
+ p=(0,u,-5v/3,v,0,0),\qquad \Pf(p)=-5v^2/3
+\]
+であり、$v\ne0$ なら原始点を持つ。その全点は $\mathcal L_0$ に入る。
+
+さらに実際の線形置換 $x\mapsto\varepsilon x+ay+bz$、$y,z,w$ 固定の
+$\varepsilon\to0$ 極限は三変数の LPB 族を与える。
+全 $a,b$ について primitive pairing の active $3\times3$ minor が
+定数 $15$ であり、kernel は $p_{23}=p_{24}=p_{34}=0$ のみ。
+従ってこの表示族自体に非退化原始点はない。
+その更なる閉包を含めても、LPB の全原始切断は既に $\mathcal R_0$ に含まれる。
+
+\begin{remark}[外部の境界網羅性を使用しない]
+上記の三軌道と LPB 族が exceptional boundary の全てを尽くすとは主張しない。
+\cite{AC26} の arbitrary compactification を実際の orbit closure と同一視する議論、
+およびそこでの境界網羅性の主張は使用していない。
+一般に $G\times_B\overline{B\cdot[\eta]}\to\overline{G\cdot[\eta]}$ は proper surjection
+として利用できるが、任意の parameter compactification から実際の orbit closure
+への射が延長されることには別の証明が必要である。
+以下では genuine orbit closure を含む $B$-stable な線形空間の全原始切断を調べ、
+この問題を独立に解消する。
+\end{remark}
+
+\subsection{例外成分の全境界を捕捉する十三次元空間}
+
+\begin{proposition}[例外成分の全原始切断]
+\label{prop:exceptional-full-primitive}
+exceptional component の ambient projective closure に属する任意の
+$[\eta]$ について、$\dd\eta$ が原始ならば
+$*\dd\eta\in\mathcal R_0\cup\mathcal C_0\cup\mathcal L_0$。
+\end{proposition}
+
+\begin{proof}
+$G=\GL_4$、$B$ を upper triangular subgroup、
+$Z=\overline{B\cdot[\eta_{\mathrm{exc}}]}$ を実際の表現内で取った閉包とする。
+$G\times^B Z$ は $G/B\times\PP H^0(\Omega^1(4))$ の閉部分に埋まり、
+第2因子への射影は proper である。
+像は $G\cdot[\eta_{\mathrm{exc}}]$ を含み、その閉包に含まれる閉集合だから
+ちょうど exceptional component に一致する。
+従って任意の点を $G$ で $Z$ に戻して考えればよい。
+
+nondegenerate alternating matrix は flag-adapted symplectic elimination により、
+$B$-congruence の下で三つの perfect matchings
+\[
+ P_1=\partial_1\wedge\partial_2+\partial_3\wedge\partial_4,
+ \quad P_2=\partial_1\wedge\partial_3+\partial_2\wedge\partial_4,
+ \quad P_3=\partial_1\wedge\partial_4+\partial_2\wedge\partial_3
+ \tag{Z13}
+\]
+のいずれかに移る。
+最初の basis vector と非零に pair する最初の相手を $j=2,3,4$ から選び、
+flag を保つ operations で cross pairings を消す。
+残る二つの vectors の pairing は非退化性により非零なので正規化できる。
+contravariant convention では basis の順を逆にして同じ操作を行う。
+$Z$ は $B$-stable なので、これら三つの切断を調べれば十分である。
+
+次の十三形式が張る空間を $W$ とする。
+\[
+\begin{array}{ll}
+ W_0=w^2v_{34},&W_1=z^2v_{34},\\
+ W_2=w^2v_{24},&W_3=w^2v_{14},\\
+ W_4=zwv_{34},&W_5=ywv_{24},\\
+ W_6=w^2v_{23},&W_7=zwv_{24},\\
+ W_8=z^2v_{24}-\tfrac32zwv_{23},&
+ W_9=zwv_{14}-3w^2v_{13},\\
+ W_{10}=z^2v_{14}-\tfrac32zwv_{13},&
+ W_{11}=ywv_{14}-3w^2v_{12},\\
+ W_{12}=yzv_{24}-2ywv_{23}.&
+\end{array}\tag{Z14}
+\]
+係数行列の rank は $13$。
+六つの $z_j\partial_{z_i}$（$i<j$）と四つの diagonal generators による
+Lie derivatives を加えても、各 augmented rank は厳密に $13$ のままである。
+従って $W$ は $B$-stable。
+$\eta_{\mathrm{exc}}=W_{12}-2W_{10}+W_{11}$ なので $Z\subset\PP(W)$。
+実際、$\eta_{\mathrm{exc}}$ からの反復 Lie generation の ranks は $8,13,13$ である。
+
+$\eta=\sum_{i=0}^{12}t_iW_i$ とする。
+三つの primitive conditions の linear ranks は $8,6,4$、従って自由変数は $5,7,9$。
+その全解は次の $t$-vectors で表される。
+\[
+\begin{aligned}
+ t^{(1)}={}&(5u_4/4,0,u_0,u_1,0,u_2,u_3/2,u_3,0,0,0,u_4,0),\\
+ t^{(2)}={}&(u_0,u_1,5u_5/4,u_2,u_3,0,-3u_4/2+5u_6/4,\\
+           &\hspace{17mm}u_4,0,u_5,u_6,0,0),\\
+ t^{(3)}={}&(u_0,u_1,u_2,-u_5/2-u_6/4,u_3,u_4,u_5,u_6,\\
+           &\hspace{17mm}-6u_7/5,u_7,0,-5u_8/3,u_8).
+\end{aligned}\tag{Z15}
+\]
+可積分条件は $\Pf(\dd\eta)=0$。
+全係数方程式の span が、以下の $2,3,4$ 本の方程式の span と一致することも
+有理数上の row reduction で確認した。
+
+\paragraph{五変数切断.}
+方程式は $u_3u_4=0$、$8u_1u_3-25u_4^2=0$。
+この切断の全一形式は、方程式によらず全係数が $w$ で割れる。
+従って全可積分点が divisorial-zero lemma に入る。
+
+\paragraph{七変数切断.}
+方程式は
+\[
+ -8u_2u_4+10u_2u_6+25u_5^2=0,\quad
+ u_6(2u_4-15u_6)=0,\quad u_5(12u_4+35u_6)=0.
+ \tag{Z16}
+\]
+$u_6\ne0$ なら $u_4=15u_6/2,u_5=u_2=0$ であり、
+\[
+ q=\frac{u_6}{2}(xz+5yw)+\frac{u_1}{2}z^2+\frac{u_3}{3}zw+\frac{u_0}{4}w^2,
+ \qquad \eta=-4wq\dd z+2zq\dd w+zw\dd q.
+\]
+従って通常の $\operatorname{Log}(1,1,2)$ 表示を持つ。
+$u_6=0$ なら、$u_5\ne0$ と仮定すると (Z16) から矛盾するので $u_5=0$。
+さらに $u_2u_4=0$。
+$u_4=0$ の branch では $\eta$ は $y,\dd y$ に依存せず、
+$u_2=0$ の branch では $x,\dd x$ に依存しない。
+従って閉 branch も全て三変数型に入る。
+
+\paragraph{九変数切断.}
+方程式を
+\[
+\begin{split}
+ E_1&=100u_0u_8+60u_2u_7-3(2u_5+u_6)^2,\\
+ E_2&=100u_3u_8-6u_5u_7+27u_6u_7,\\
+ E_3&=25u_1u_8-9u_7^2,\\
+ E_4&=12u_4u_7+(2u_5+11u_6)u_8
+\end{split}\qquad E_1=E_2=E_3=E_4=0                         \tag{Z17}
+\]
+と書く。$u_8=0$ なら $E_3$ より $u_7=0$、$E_1$ より $u_6=-2u_5$。
+この全 branch は $x,\dd x$ に依存しない。
+$u_8\ne0$ なら
+\[
+\begin{split}
+ L={}&-\frac53u_8y+u_7z+\frac{2u_5+u_6}{8}w,\\
+ q={}&xw+\frac35yz-\frac{9u_7}{25u_8}z^2-\frac{3u_4}{5u_8}yw\\
+    &+\frac{24u_4u_7-26u_5u_8-23u_6u_8}{100u_8^2}zw
+     +\frac{-20u_2u_8+6u_4u_5+3u_4u_6}{100u_8^2}w^2
+\end{split}\tag{Z18}
+\]
+と置く。$L,w$ は独立で、$q$ の $xw$ 係数は $1$。
+$\eta_{\log}=-3wq\dd L-Lq\dd w+2Lw\dd q$ に対し、次の恒等式が成り立つ。
+\[
+\begin{split}
+ 1200u_8^2(\eta-\eta_{\log})&=N(z\dd w-w\dd z),\\
+ N={}&[12u_8E_1-3(2u_5+u_6)E_4]w^2\\
+     &+[12u_8E_2-24u_7E_4]wz+48u_8E_3z^2+100u_8E_4wy.
+\end{split}\tag{Z19}
+\]
+従って全可積分点で $\eta=\eta_{\log}$。
+開 branch と閉 branch を両方処理したので、この切断にも未処理の境界はない。
+
+以上により三つの切断の全点が、divisorial-zero、三変数、または対数型に入る。
+これらの条件は $\GL_4$ で保たれる。
+genuine Borel closure の proper cover から元の固定 $J$ に戻し、
+定理 \ref{thm:all-log-boundaries} と既出の補題を適用すれば結論を得る。
+\end{proof}
+
+\subsection{三成分の次元と相互非包含}
+
+定理 \ref{thm:zero-residual-exceptional} と命題 \ref{prop:exceptional-full-primitive}
+により、零層の全点が三集合で覆われた。
+定理 \ref{thm:zero-three-components} を完成するため、これらが互いに含まれない
+閉既約集合であることを確認する。
+
+$\mathcal R_0$ は constant factor $[v]\in\PP(V)$ を固定すると (Z6) の
+rank $9$ の線形空間である。
+従って $\PP^3$ 上の rank $9$ vector bundle の像で、incidence の射影が proper
+であることから閉既約である。
+$G=z^3+w^3$ の例では共通定数因子は $\CC\partial_y$ だけなので、一般点は
+$[v]$ を一意に決め、次元は $3+9=12$。
+
+$\mathcal C_0$ は Richardson の commuting-pair theorem \cite[Theorem A]{Richardson} により Cartan wedge
+\[
+ Q_C=(x\partial_x-y\partial_y)\wedge(z\partial_z-w\partial_w)
+\]
+の $\Sp_4$ orbit と scalar multiples の閉包である。
+この $Q_C$ に tangent な全 homogeneous linear fields $X=A(x,y,z,w)^T$ は
+\[
+ X(xy)=X(zw)=0\quad\Longleftrightarrow\quad
+ A=\diag(r,-r,t,-t).                                      \tag{Z20}
+\]
+これは actual $16$ matrix entries に対する rank $14$ の計算であり、Euler field
+で割った計算ではない。
+従って stabilizer の identity component は Cartan torus の次元 $2$、orbit dimension は $8$。
+scalar parameter は独立なので $\dim\mathcal C_0=9$。
+orbit tangent rank $8$、scalar を加えた rank $9$ も独立に検証した。
+$\mathcal L_0$ の既約性と次元 $10$ は v6 の exact family/tangent proof による。
+
+$Q_C$ は定数因子を持たず、$Q(a,b)$ も $ab\ne0$ なら定数因子を持たない。
+後者は $(1,0,0,0)$ での image が $\Span(\partial_x,\partial_w)$、
+$(0,0,1,0)$ での image が $\Span(\partial_y,\partial_z)$ であることから分かる。
+従って $\mathcal C_0,\mathcal L_0$ は $\mathcal R_0$ に含まれない。
+
+最後に $\mathcal C_0\not\subset\mathcal L_0$ を示す。
+\[
+ \{([A],Q)\in\PP(\operatorname{Mat}_4)\times\cQ_0:
+        A^2=0,\ (A\mathbf x)\wedge Q=0\}
+\]
+は閉集合であり、第1因子が射影的なので、その像も閉じている。
+従って非零 square-zero homogeneous linear tangent field の存在は閉条件である。
+$\mathcal L_0$ の稠密族は $U=az\partial_y+bx\partial_w$ をそのような field に持つので、
+$\mathcal L_0$ 全体がこの閉条件を満たす。
+一方 (Z20) の平方は $\diag(r^2,r^2,t^2,t^2)$ で、square-zero は零行列のみ。
+従って $Q_C\notin\mathcal L_0$。
+残る逆向きの包含は $12>10>9$ という次元から不可能であり、
+正確に三つの被約既約成分であることが証明された。\hfill$\square$
+
+\subsection{再現証明書}
+
+\texttt{certify\_logarithmic\_boundaries.py} は全重複型の線形方程式、
+(Z9) の Jacobi・compatibility・divergence・trace・Pfaffian 恒等式、
+および Jordan 表示 (Z10) を独立に検証する。
+\texttt{certify\_exceptional\_primitive.py} は (Z11)--(Z12)、三つの実際の極限、
+対数表示、LPB 族の全パラメータでの rank を検証する。
+\texttt{certify\_exceptional\_primitive\_slices.py} は十三次元空間の $B$-stability、
+三つの全線形切断、全 Pfaffian equations、全 closed branches と (Z19) を検証する。
+\texttt{certify\_zero\_reduced\_components.py} は三成分の分離に用いた
+constant/linear tangent fields と Cartan orbit/scaling ranks を検証する。
+四本とも exit $0$、\texttt{all\_checks\_passed=true}。
+source PDF の再配布には依存せず、出典 URL、全証明、こちらの検証コードと
+JSON 証明書を保存する。

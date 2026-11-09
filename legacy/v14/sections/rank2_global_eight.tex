@@ -1,0 +1,281 @@
+% V14: Japanese section.  Requires amsmath, amssymb, amsthm, booktabs.
+% Citation keys used: CM, LPT, v13. Original component papers are given in footnotes.
+% The stable no-divisor theorem is proved in the preceding c2 section.
+\section{階数 \texorpdfstring{$\leq2$}{at most 2} の全被覆と八つの既約成分}
+\label{sec:rank2-global-eight}
+
+本節では、前節の安定な接層をもつ場合の完全被覆を、非安定な場合と
+因子的零点をもつ場合に接続する。対象を
+\[
+ \mathcal P_{\leq2}
+ =\left\{[\pi]\in
+ \mathbb P H^0(\mathbb P^4,\textstyle\bigwedge^2T_{\mathbb P^4})
+ \;\middle|\;[\pi,\pi]=0,\ \pi\wedge\pi=0\right\}_{\mathrm{red}}
+\]
+とする。射影化により零構造は除かれている。
+各点の一般階数は二であり、以下の次元はすべて
+$\operatorname{PGL}_5$ で商を取る\emph{前}の次元である。
+この節で $\operatorname{Log}(1^5)$ と書く族は、四次元 torus の Lie 代数
+$\mathfrak t$ に属する $a,b$ の外積 $a\wedge b$ から得られる、
+階数二の対数型の族を意味する。
+
+\begin{theorem}[階数二の被約空間の完全被覆]
+\label{thm:rank2-eight}
+$\mathcal P_{\leq2}$ は、次の八つの相異なる既約成分からなる：
+\begin{align*}
+ &\overline{\operatorname{Rat}(1,1,3)},\quad
+  \overline{\operatorname{Rat}(1,2,2)},\quad
+  \overline{\operatorname{Log}(1,1,1,2)},\quad
+  \overline{\operatorname{Log}(1^5)},\\
+ &\overline{\operatorname{LPB}},\quad
+  \overline{\operatorname{Aff}(5)},\quad
+  \overline{\operatorname{Aff}(4,1)},\quad
+  \overline{\operatorname{Aff}(3,2)}.
+\end{align*}
+因子的零点をもつ構造も、この和集合に含まれる。
+全 Poisson 空間の既約成分で一般階数が二となるものは、このうち
+$\operatorname{Rat}(1,1,3)$、$\operatorname{Rat}(1,2,2)$、
+$\operatorname{Log}(1,1,1,2)$、$\operatorname{LPB}$、
+$\operatorname{Aff}(5)$、$\operatorname{Aff}(4,1)$ の六つである。
+\end{theorem}
+
+\begin{table}[htbp]
+\centering
+\caption{階数二の八成分。閉包の記号は省略した。}
+\label{tab:rank2-eight}
+\begin{tabular}{lrrl}
+\toprule
+族 & 射影次元 & cone 次元 & 全 Poisson 空間での位置\\
+\midrule
+$\operatorname{Rat}(1,1,3)$ & 36 & 37 & 一般階数二の成分\\
+$\operatorname{Rat}(1,2,2)$ & 28 & 29 & 一般階数二の成分\\
+$\operatorname{Log}(1,1,1,2)$ & 28 & 29 & 一般階数二の成分\\
+$\operatorname{LPB}$ & 39 & 40 & 一般階数二の成分\\
+$\operatorname{Aff}(5)$ & 22 & 23 & 一般階数二の成分\\
+$\operatorname{Aff}(4,1)$ & 22 & 23 & 一般階数二の成分\\
+\midrule
+$\operatorname{Log}(1^5)$ & 24 & 25 & 一般階数四の成分の境界\\
+$\operatorname{Aff}(3,2)$ & 22 & 23 & 一般階数四の成分の境界\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{因子的零点のない開集合と foliation 空間}
+
+標準同型
+\[
+ \textstyle\bigwedge^2T_{\mathbb P^4}
+ \simeq\Omega^2_{\mathbb P^4}(5)
+\]
+は、因子的零点のない階数二の Poisson 構造を、次数二・次元二の
+foliation を定める可積分かつ局所分解可能な二形式に対応させる。
+逆にそのような foliation $\mathcal F$ は
+$\det T_{\mathcal F}\simeq\mathcal O$ を満たすので、
+対応する非零 bivector は定数倍を除いて一意である。
+したがって、これら二つの開集合は上の線形同型により同一視できる。
+
+接層 $T_{\mathcal F}$ が安定なら、前節の定理によって
+実際の Jacobian 表示
+\[
+ \iota_P\Omega=dL_1\wedge dL_2\wedge dG_3
+ \quad\hbox{または}\quad
+ \iota_P\Omega=dL\wedge dQ_1\wedge dQ_2
+\]
+をもつ。ここで $P$ は標準の divergence-free lift である。
+この部分の証明は、本稿の $c_2$ による場合分けと二次式の計算に依存する。
+
+残る非安定な場合には Corr\^ea--Muniz の本文の
+Theorem~4.1 を適用する \cite[Theorem~4.1]{CM}。
+厳密半安定な接層をもつ場合は、有理型、二つの対数型、または
+affine Lie 型の成分に属する。半安定でない場合は
+$\mathbb P^3$ 上の次数二の曲線 foliation の線形引戻しであり、
+$\operatorname{LPB}$ に属する。
+ここでは同論文の導入部 Theorem~A の安定分岐に関する表現を用いず、
+証明を伴う本文 Theorem~4.1 と前節の安定分岐の定理を接続している。
+
+\paragraph{次数表記の確認.}
+同論文 v5 の Theorem~4.1 の有理型、および Proposition~3.9 の対数型には、
+一般の $n$ に関する一次式の個数の添字にずれがある。
+$\mathbb P^4$ 上の余次元二・次数二の場合、有理型は三つの同次式を用い、
+その次数の和は五である。したがって該当する型は
+$(1,1,3)$ と $(1,2,2)$ である。
+対数型の次数分割は $(1,1,1,2)$ と $(1,1,1,1,1)$ となる。
+本節ではこの具体的な次数条件と、同論文の各証明に現れる写像を用いる。
+
+\subsection{Affine Lie 型のすべての分割}
+
+二次元非可換 Lie 代数を生成する一次場を $N,H$ とし、
+$[N,H]=N$ と正規化する。$N$ は nilpotent であり、
+$\pi=N\wedge H$ を得る。五の分割は
+\[
+ (5),\ (4,1),\ (3,2),\ (3,1,1),\ (2,2,1),\
+ (2,1,1,1),\ (1,1,1,1,1)
+\]
+で尽くされる。Corr\^ea--Muniz の Theorem~2.3 と Remark~2.3
+\cite[Theorem~2.3, Remark~2.3]{CM} により、最初の三つが
+affine Lie 型の既約成分を与える。
+$(3,1,1)$ と $(2,2,1)$ は
+$\overline{\operatorname{Log}(1,1,1,2)}$ に含まれる。
+この包含は同論文の Proposition~3.9 による、余次元二の固定点集合をもつ
+加法群作用の記述からも従う。
+
+残る二つは別に扱える。$(2,1,1,1)$ では適当な座標で
+$N=x_0\partial_1$ となるため、$N\wedge H$ は因子 $x_0$ をもつ。
+これは次項の因子的零点の場合に含まれる。
+全て一の分割では derived generator が零になるため、
+二次元非可換 affine Lie 作用は定まらない。
+可換な二次元作用は $\overline{\operatorname{Log}(1^5)}$ に含まれる。
+以上で、因子的零点のない開集合の全点が八族の閉包で被覆される。
+
+\subsection{因子的零点をもつ全点も階数二の閉包で被覆される}
+
+非零 $\pi$ の零点の因子的部分を $D$、その次数を $e>0$ とする。
+飽和した foliation $\mathcal F$ の次数を $d$ とすれば
+\[
+ \det T_{\mathcal F}\simeq\mathcal O(e),\qquad d=2-e.
+\]
+したがって可能性は $(e,d)=(2,0),(1,1)$ に限られる。
+Euler 場を $E$ とし、$\pi$ に双対な三次係数の二形式を $\omega$ と書く。
+
+\paragraph{次数零の foliation.}
+次数零は線形射影のファイバーの foliation なので
+\[
+ \omega=Q\,\iota_E(dL_0\wedge dL_1\wedge dL_2)
+\]
+と書ける。$Q L_0L_1L_2$ で割った二形式は、
+$d\log L_0,d\log L_1,d\log L_2$ の定数係数の外積の和であり、
+$\operatorname{Log}(1,1,1,2)$ の特殊な residue に対応する。
+
+\paragraph{次数一の有理型.}
+次数一の完全分類 \cite[Theorem~6.2, Corollary~6.3]{LPT} の
+有理型 $(1,1,2)$ では
+\[
+ \omega=H\,\iota_E(dL_0\wedge dL_1\wedge dQ)
+\]
+である。$H L_0L_1Q$ で割ると、再び
+$\operatorname{Log}(1,1,1,2)$ の特殊な residue を得る。
+これら二つの場合、四つの極因子に対する Euler 水平な residue の
+一次空間は三次元である。その二外積の全ての元は分解可能なので、
+residue を一般化する変形も階数二のまま行える。
+二次式や超平面配置の退化は、同じ既約な多項式パラメータ族の閉包で扱える。
+
+\paragraph{次数一の線形引戻し型.}
+同じ次数一の分類のもう一つの場合、射影中心を固定して
+\[
+ \pi=H\partial_4\wedge v_A(x_0,x_1,x_2,x_3)
+\]
+と書ける。$H$ は一次式、$v_A$ は任意の一次ベクトル場である。
+パラメータ空間 $(H,A)$ は既約であり、この式の全ての非零の値は
+階数二の Poisson 構造である。
+稠密開条件 $H(e_4)\ne0$ のもとで $H=x_4$ と取り直せる。
+さらに一般の $A$ は相異なる固有値をもつので、適当な座標で
+\[
+ \pi=(x_4\partial_4)\wedge
+       \left(\sum_{i=0}^{3}\lambda_i x_i\partial_i\right)
+\]
+となる。二つの対角場を同じ Cartan 部分代数の中で一般化すれば、
+外積という形を保ちつつ因子的零点を消せる。
+従ってこの稠密開集合は
+$\overline{\operatorname{Log}(1^5)}\subset\mathcal P_{\leq2}$ に含まれる。
+全ての $(H,A)$ についても同じ既約族の閉包を取ることで包含が従う。
+ここで行った変形は全て階数二の閉集合内の変形である。
+
+以上により因子的零点のある点を含む全被覆を得た。
+
+\subsection{被覆から八成分への結論と次元}
+
+八族の像の閉包はそれぞれ既約である。
+二つの有理型の成分性は Cukierman--Pereira--Vainsencher の
+Theorem~1.2\footnote{F.~Cukierman, J.~V.~Pereira, I.~Vainsencher,
+\emph{Stability of foliations induced by rational maps},
+Ann.~Fac.~Sci.~Toulouse (6) 18 (2009), 685--715.
+\url{https://doi.org/10.5802/afst.1221}.}、
+二つの対数型の成分性は Cerveau--Lins Neto の
+Theorem~1.17\footnote{D.~Cerveau, A.~Lins Neto,
+\emph{Logarithmic foliations}, Ann.~Fac.~Sci.~Toulouse (6) 30 (2021),
+561--618. \url{https://doi.org/10.5802/afst.1685}.}、
+線形引戻しの成分性は Cukierman--Pereira の
+Corollary~5.1\footnote{F.~Cukierman, J.~V.~Pereira,
+\emph{Stability of holomorphic foliations with split tangent sheaf},
+Amer.~J.~Math.~130 (2008), 413--439.
+\url{https://w3.impa.br/~jvp/splitv2.pdf}.} による。
+線形引戻しの定理の仮定は、一般の $\mathbb P^3$ 上の曲線 foliation が
+可逆な接層と孤立特異点をもつことから満たされる。
+これらの成分定理は Corr\^ea--Muniz の \S2.1 にも整理されている
+\cite[\S2.1]{CM}。
+三つの affine Lie 型には上記の Corr\^ea--Muniz の Theorem~2.3 を用いる。
+これらは次数二の foliation 空間の相異なる成分を与えるので、
+線形同型で対応する開集合の閉包も $\mathcal P_{\leq2}$ の相異なる成分である。
+全被覆と合わせて成分数はちょうど八となる。
+
+表の有理型、$\operatorname{Log}(1,1,1,2)$、$\operatorname{LPB}$、
+$\operatorname{Aff}(5)$、$\operatorname{Aff}(4,1)$ の次元は、
+既存のパラメータ微分と非零 minor による計算証明とも一致する。
+追加の二族の次元も直接確認できる。
+$\operatorname{Log}(1^5)$ では Cartan 部分代数の選択が
+$24-4=20$ 次元、$\operatorname{Gr}(2,\mathfrak t)$ が四次元なので、
+射影次元は二十四である。
+
+$\operatorname{Aff}(3,2)$ の一般点は
+\begin{align*}
+ N&=x_0\partial_1+x_1\partial_2+x_3\partial_4,\\
+ H_\beta&=x_1\partial_1+2x_2\partial_2+
+              \beta x_3\partial_3+(\beta+1)x_4\partial_4
+\end{align*}
+で表される。一般の $\beta$ で $H_\beta$ は正則半単純である。
+対 $(N,H_\beta)$ の $\operatorname{PGL}_5$ 内の中心化群は、
+二つの block の scalar の比からなる一次元群である。
+二次元 affine Lie 代数の自己同型に対応する二次元を加えると、
+対応する二次元 Lie 部分代数の正規化群は三次元になる。
+一般の tangent sheaf は $\mathcal O^{\oplus2}$ なので、
+この Lie 部分代数は foliation から復元できる。
+従って射影 bivector の orbit は $24-3=21$ 次元であり、
+$\beta$ の一次元を加えて族の射影次元は二十二となる。
+
+\subsection{全 Poisson 空間では六成分が残る}
+
+既存の六族についての厳密な接空間計算は、それぞれの一般点で
+全 Poisson scheme が滑らかであり、その像の閉包が全空間の既約成分であることを証明している
+\cite{v13}。
+残る二つの階数二成分は、一般階数四の成分に含まれる。
+
+$\operatorname{Log}(1^5)$ については
+$a\wedge b\in\bigwedge^2\mathfrak t$ を一般の交代二ベクトルに変形すればよい。
+torus の Lie 代数は可換なので変形の全てが Poisson であり、
+一般点の階数は四である。
+
+$\operatorname{Aff}(3,2)$ には既存の厳密な多項式変形
+\[
+ \Pi_{\beta,t}=N\wedge H_\beta+t\eta_\beta+t^2\vartheta_\beta
+\]
+がある。$\partial_{ij}=\partial_i\wedge\partial_j$ と書けば、その係数は
+\begin{align*}
+ \eta_\beta={}&-(2\beta^2+\beta-1)x_0x_1\partial_{01}
+ -\bigl((\beta^2+\beta-1)x_0x_2+\beta x_1^2\bigr)\partial_{02}\\
+ &-(2\beta-1)x_0x_3\partial_{03}
+ -(\beta-1)x_1x_3\partial_{04}\\
+ &+(\beta^2-4\beta+2)x_1x_2\partial_{12}
+ +(\beta-2)x_2x_4\partial_{24},\\
+ \vartheta_\beta={}&\beta(\beta-1)(\beta+1)x_1^2\partial_{01}
+ +\beta(\beta-1)^2x_1x_2\partial_{02}
+ +\beta(\beta-1)x_1x_3\partial_{03}.
+\end{align*}
+射影 Jacobi 恒等式 $E\wedge[\Pi_{\beta,t},\Pi_{\beta,t}]=0$ が恒等的に成り立ち、
+一般の $\beta,t\ne0$ の退化五次式は非零定数因子を除いて
+\[
+ x_3\bigl(2(x_0-(\beta-1)t x_1)x_2-x_1^2\bigr)
+ \bigl(x_1x_3-(x_0-\beta t x_1)x_4\bigr)
+\]
+である。従って一般点の階数は四になる。
+一般の Jordan 型 $(3,2)$ の affine Lie 作用は上の
+$(N,H_\beta)$ に共役なので、$\beta$ と座標変換を動かした $t=0$ の族は
+$\operatorname{Aff}(3,2)$ を稠密に覆う。
+この既約な変形族の閉包を含む全 Poisson 空間の成分は一般階数四であり、
+$\overline{\operatorname{Aff}(3,2)}$ 全体を含む。
+
+従って一般階数二の全空間成分は表の六つで尽くされる。
+零構造は対応する affine cone の共通の点であり、別成分を追加しない。
+この結論によって総成分数の既存の下界を増やすことはない。
+また、本節が確定するのは被約空間の既約成分と全点の被覆であり、
+各成分の交叉、埋め込み成分、非被約構造、および全点の
+$\operatorname{PGL}_5$ 同型類の分類は別の問題として残る。

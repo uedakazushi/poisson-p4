@@ -8,7 +8,6 @@ import collections
 import csv
 import json
 from pathlib import Path
-import re
 
 ROOT=Path(__file__).resolve().parents[1]
 
@@ -19,7 +18,7 @@ def main():
     args=parser.parse_args()
     components=json.loads((ROOT/'research/COMPONENTS.json').read_text())['components']
     mps={r['component_id']:r for r in json.loads((ROOT/'code/data/mps_s61_coordinate_catalogue_20261103_v62.json').read_text())['records']}
-    manuscript=(ROOT/'papers/poisson_p4_classification_ja.tex').read_text()
+    crosswalk={r['id']:r for r in json.loads((ROOT/'code/data/component_manuscript_catalogue.json').read_text())['records']}
     rows=[]
     for index,record in enumerate(components):
         cid=record['id']
@@ -46,18 +45,7 @@ def main():
                'B':'KNOWN142_SEVEN_CANDIDATE_WHOLE_POISSON_COVER_AUDIT.md §3.4 (all Q ranks)',
                'C':'KNOWN142_SEVEN_CANDIDATE_WHOLE_POISSON_COVER_AUDIT.md §2 (normal and nonnormal)',
                'R2':'RANK_TWO_SUPPORT.md; KNOWN142_SEVEN_CANDIDATE_WHOLE_POISSON_COVER_AUDIT.md §6'}[entrance]
-        mentions=[]
-        for proof in record['proof_sources']:
-            path=proof.get('path')
-            if not path:
-                continue
-            token=Path(path).name
-            at=manuscript.find(token)
-            if at>=0:
-                labels=list(re.finditer(r'\\label\{([^}]+)\}',manuscript[:at]))
-                if labels:
-                    mentions.append(labels[-1].group(1)+' (source mention: '+token+')')
-                    break
+        mentions=[crosswalk[cid]['main_label'],crosswalk[cid]['construction_label']]
         rows.append({'id':cid,'generic_actual_divisor':divisor,'entrance':entrance,
                      'divisor_evidence':evidence,'whole_support_input':'research/classification/'+whole,
                      'componenthood_and_distinctness_sources':' | '.join(proofs),

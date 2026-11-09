@@ -1,0 +1,1114 @@
+\documentclass[11pt,a4paper]{ltjsarticle}
+\usepackage[margin=24mm]{geometry}
+\usepackage[haranoaji]{luatexja-preset}
+\usepackage{amsmath,amssymb,amsthm,mathtools,bm}
+\usepackage{booktabs,longtable,array,enumitem,xcolor}
+\usepackage{hyperref,fancyhdr}
+\hypersetup{colorlinks=true,linkcolor=blue!45!black,citecolor=blue!45!black,urlcolor=blue!45!black,pdftitle={射影4空間のPoisson構造：第47成分と二次超曲面への制限},pdfauthor={研究継続ノート}}
+\pagestyle{fancy}\fancyhf{}\lhead{射影4空間の Poisson 構造：研究継続 v3}\rhead{2026年10月28日}\cfoot{\thepage}
+\setlength{\headheight}{18pt}\setlength{\emergencystretch}{3em}
+\setlist{nosep}
+\newcommand{\PP}{\mathbf P}\renewcommand{\AA}{\mathbf A}\newcommand{\CC}{\mathbf C}\newcommand{\QQ}{\mathbf Q}
+\newcommand{\OO}{\mathcal O}\newcommand{\FF}{\mathcal F}\newcommand{\cP}{\mathcal P}\newcommand{\dd}{\mathrm d}
+\newcommand{\g}{\mathfrak g}\newcommand{\borel}{\mathfrak b}\newcommand{\cQ}{\mathcal Q}
+\DeclareMathOperator{\Pois}{Pois}\DeclareMathOperator{\rank}{rank}\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Pf}{Pf}\DeclareMathOperator{\PGL}{PGL}\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\SL}{SL}\DeclareMathOperator{\Sp}{Sp}\DeclareMathOperator{\SO}{SO}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Rat}{Rat}\DeclareMathOperator{\Aff}{Aff}\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Stab}{Stab}\DeclareMathOperator{\tr}{tr}\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\htop}{ht}
+\newtheorem{theorem}{定理}[section]\newtheorem{proposition}[theorem]{命題}\newtheorem{lemma}[theorem]{補題}\newtheorem{corollary}[theorem]{系}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{注意}\renewcommand{\proofname}{証明}
+\title{射影4空間の Poisson 構造\\[3mm]\large 第47成分、二次超曲面上の構造の二つの延長、\\および二次 Casimir をもつ安定分岐の分類}
+\author{証明・厳密計算・再現データを伴う研究継続ノート v3}
+\date{2026年10月28日}
+\begin{document}\maketitle
+\begin{abstract}
+前回の下界46を47へ更新する。
+退化因子が $H+2Q$（$Q$ は滑らかな二次超曲面）の一般 rank 4 Poisson 構造は、
+$H$ が $Q$ に接する場合の一つの projective $\PGL_5$ 軌道に尽くされる。
+この22次元軌道の閉包は、全 Poisson scheme の既約成分である。
+滑らかな $Q$ 上の一般的な $\Aff(\CC)$ 型 Poisson 構造には、
+周囲の $\PP^4$ 上への延長がちょうど二つある。
+一つは前回の rank 2 成分、他方は今回の rank 4 成分に属する。
+別に、61変数 slice の二次部分について、modular vector field が正則半単純となる開集合の6成分を分類する。
+安定な rank 2 分岐では、既約な二次 Casimir があれば必ず $\Rat(1,2,2)$ 型となることを証明する。
+全成分数が47であること、61変数および78変数 ideal の最小素分解、残る安定分岐の不存在は未証明である。
+本ノートは文献上の新規性を主張しない。
+\end{abstract}
+\tableofcontents
+
+\section{対象と前回からの変更}
+基礎体は $\CC$、対象は
+\[
+ \Pois(\PP^4)=
+ \{\pi\in H^0(\PP^4,\wedge^2T_{\PP^4}):[\pi,\pi]=0\},
+ \qquad \cP=\PP\Pois(\PP^4)
+\]
+である。$\cP$ は非零 bivector の定数倍を除いた空間であり、
+$\PGL_5$ で割った同型類空間ではない。
+以下の成分次元は特記しない限り $\cP$ 内の次元を指す。
+
+前回までに確認したものは、
+Matviichuk--Pym--Schedler \cite[Theorem 1.4]{MPS} の40個の一般 rank 4 成分と、
+接空間計算で確認した6個の一般 rank 2 成分である。
+40という文献の数は、simple normal crossings（SNC）log symplectic locus と交わる成分の数である。
+本ノートの成分は非被約退化因子をもち、その locus とは交わらない。
+
+\begin{theorem}[今回の結論]\label{thm:overview}
+次の主張が成立する。
+\begin{enumerate}
+ \item $\cP$ は少なくとも47個の既約成分をもつ。
+ 今回追加する成分 $\mathcal C_{2Q+H}$ は一般 rank 4、次元22であり、
+ 一つの $\PGL_5$ 軌道が稠密開集合となる。
+ \item 滑らかな二次超曲面上の一般的な $\Aff(\CC)$ 型構造の相対族は
+ $\mathcal C_{2Q+H}$ と双有理である。
+ 固定した超曲面上の構造の ambient extension scheme は被約な二点からなる。
+ \item 二次・定数 Poisson pencil の45次元線形部分において、
+ 正則半単純 modular field をもつ開集合は、
+ 次元11の2成分と次元10の4成分に尽くされる。
+ \item 一般 rank 2、因子的零点なし、$H^0(T_\FF)=0$ の構造が
+ 既約な二次 polynomial Casimir をもてば、
+ 実際の Jacobian 表示 $\Rat(1,2,2)$ をもつ。
+\end{enumerate}
+\end{theorem}
+
+第3項の6成分は45変数部分の成分であり、$\cP$ の新たな6成分とは数えない。
+また第1項は下界であって完全分類ではない。
+前回の記録を改変せず、本 bundle の \texttt{previous\_v2/} に保存した。
+前回の「残る rank 4 成分が40個に尽くされるか」という候補は、今回の結果によって否定される。
+
+\section{明示的な第47成分}\label{sec:new}
+\subsection{二次 bracket と退化因子}
+同次座標を $(x_0,a,b,c,d)=(x_0,x_1,x_2,x_3,x_4)$ とし、
+\[
+ q=x_0d+b^2+ac,\qquad E=\sum_{i=0}^4x_i\partial_i
+\]
+と置く。$x_0$ を中心とする二次 bracket $P$ を
+\begin{align}
+ \{a,b\}&=-a^2+2x_0b,&
+ \{a,c\}&=2ab+3x_0c,\nonumber\\
+ \{a,d\}&=5x_0d+b^2+2ac,&
+ \{b,c\}&=x_0d+5b^2+4ac,\label{eq:P}\\
+ \{b,d\}&=2bc+4ad,&
+ \{c,d\}&=3c^2-8bd\nonumber
+\end{align}
+で定める。これは $\CC^5$ 上ですでに Jacobi 恒等式を満たす。
+さらに
+\[
+ \Pf(P^{ij})_{1\le i,j\le4}=5q^2,\qquad
+ E\wedge\frac{P^2}{2}=5x_0q^2\,\partial_0\wedge\cdots\wedge\partial_4.
+\]
+従って射影化した $\pi$ は一般 rank 4 で、
+\[
+ D(\pi)=H+2Q,\qquad H=(x_0=0),\quad Q=(q=0).
+\]
+$q$ の rank は5であり、$H$ は $[0:0:0:0:1]\in Q$ における接超平面である。
+
+この構造の bivector 自体には因子的零点がない。
+例えば $Q$ 上の点 $[1:1:0:0:0]$ では $\{a,b\}=-1$ である。
+$H$ 上の点 $[0:0:1:0:0]$ でも $E\wedge P\ne0$ である。
+零点の因子と、最大 rank から落ちる退化因子を区別する必要がある。
+
+\subsection{短い表示と対称性}
+一次ベクトル場と定数 bivector を
+\begin{align*}
+ H_0&=\sum_{i=0}^4i x_i\partial_i,\\
+ N&=-x_0\partial_1-x_1\partial_2+2x_2\partial_3+x_3\partial_4,\\
+ C_0&=\partial_1\wedge\partial_4+\partial_2\wedge\partial_3
+\end{align*}
+と定めると、式 \eqref{eq:P} は正確に
+\begin{equation}\label{eq:compact}
+ P=H_0\wedge N+qC_0
+\end{equation}
+と書ける。ここで $H_0$ は重みベクトル場であり、Euler 場 $E$ とは異なる。
+\[
+ [H_0,N]=-N,\quad H_0(q)=4q,\quad N(q)=0,\quad
+ [H_0,P]=-P,\quad [N,P]=0.
+\]
+
+発散を $\delta P=\sum_{i,j}\partial_iP^{ij}\partial_j$ とすれば
+\[
+ \delta P=10N,\qquad \Pi=P-2E\wedge N
+\]
+が canonical unimodular lift である。本ノートでは
+$B^\sharp(\dd f)=\sum_{i,j}B^{ij}f_i\partial_j$ の規約を用いる。
+この規約の下で
+\[
+ \Pi^\sharp\dd x_0=-2x_0N,\qquad
+ \Pi^\sharp\dd q=qN,\qquad
+ \iota_{\Pi^2/2}(\dd x_0\wedge\cdots\wedge\dd x_4)=\dd(x_0q^2).
+\]
+退化因子の各因子に付随する対称性は一つの冪零ベクトル場 $N$ によって生成される。
+
+\subsection{全 Poisson scheme の成分であること}
+二次 bivector lift の空間は150次元である。
+$E\wedge A$（$A$ は一次ベクトル場）の vertical 部分は24次元なので
+\[
+ \dim H^0(\PP^4,\wedge^2T)=126.
+\]
+$P$ における Jacobi 線形化を全 lift 空間上で
+\[
+ J:\dot P\longmapsto E\wedge[P,\dot P]
+\]
+とする。係数行列は $350\times150$ の整数行列である。
+vertical 行列を $V$、すべての一次座標変換の微分を $A_{\rm orb}$ とし、
+$M=[V\ \ A_{\rm orb}\ \ P]$ と置く。
+
+\begin{proposition}[完全な接空間証明書]\label{prop:tangent}
+整数係数で $JM=0$ が成立し、有理数体上で
+\[
+ \rank J=103,\qquad \rank V=24,\qquad \rank M=47.
+\]
+従って
+\[
+ \dim T_\pi\Pois(\PP^4)=23,\quad
+ \dim T_{[\pi]}\cP=22,\quad
+ \dim(\PGL_5\cdot[\pi])=22.
+\]
+\end{proposition}
+\begin{proof}
+\texttt{verify\_smooth\_double\_quadric.py} は全係数を組み立て、
+分数を使わない有理数体上の消去で三つの rank を求める。
+指定したサイズの小行列式が素数 $1000003$ を法として非零であることも記録する。
+後者だけを上界の根拠には用いていない。
+
+別実装 \texttt{audit\_rigid\_quadric.py} は単項式の添字から直接 Jacobi 微分と
+座標作用の行列を作り直し、同じ rank と $JM=0$ を得る。
+両者の Jacobi 行列自体が一致することも確認した。
+従って affine tangent dimension は $150-24-103=23$、
+projective tangent dimension は22である。
+軌道と scaling の次元は $47-24=23$ となる。
+\end{proof}
+
+軌道閉包は既約で次元22であり、その点の ambient tangent dimension も22である。
+従って局所環は正則で、当該点を通る成分は一意である。
+これにより
+\[
+ \mathcal C_{2Q+H}:=\overline{\PGL_5\cdot[\pi]}
+\]
+は全 $\cP$ の既約成分となる。この接空間計算は $H,Q$ を固定していない。
+
+$V=\CC^5$ とすると、形 $LQ^2$ の quintic の集合は
+$\PP(V^*)\times\PP(\Sym^2V^*)$ からの積写像の像なので閉集合である。
+従ってこの軌道閉包で一般 rank 4 を保つ点の退化因子は非被約である。
+SNC locus とは交わらず、文献の40成分と異なる。
+一般 rank 2 の6成分とも異なる。これで下界47が得られる。
+
+\section{退化因子が \texorpdfstring{$H+2Q$}{H+2Q} となる分岐の完全分類}\label{sec:quadric}
+\begin{theorem}\label{thm:quadric}
+一般 rank 4 の $\PP^4$ 上の Poisson 構造の退化因子を
+$D=H+2Q$ とし、$Q$ を滑らかな二次超曲面とする。
+このとき $H$ は $Q$ に接し、構造は座標変換と非零定数倍によって
+\eqref{eq:P} に一意に帰着する。
+\end{theorem}
+
+\subsection{逆二形式の有限次元問題への還元}
+canonical unimodular lift を $\Pi$、退化 quintic を $F=Lq^2$ とする。
+一般恒等式
+\[
+ \iota_{\Pi^2/2}\Omega_5=\frac15\dd F,\qquad \Pi^\sharp\dd F=0
+\]
+より $\Pi^\sharp\dd L=LX$ となる一次ベクトル場 $X$ が存在し、$X(L)=0$ である。
+$L=x_0$ として lift を vertical 項だけ変えると、$x_0$ を中心とする二次 lift を選べる。
+この lift を $P$ と書けば、$E\wedge[P,P]=0$ と $\partial_0$ 成分がないことから
+$[P,P]=0$ が従う。
+従って $x_0=1$ 上では次数2以下の polynomial Poisson bracket である。
+
+affine quadric の方程式を $Q(y)$ と書く。
+Pfaffian が非零定数倍の $Q^2$ なので、逆 symplectic form は
+\[
+ \omega=\frac{\alpha}{Q^2},\qquad \deg_{\rm coeff}\alpha\le2,
+ \qquad Q\dd\alpha-2\dd Q\wedge\alpha=0
+\]
+と表される。smooth projective quadric と hyperplane の対には、
+transverse と tangent の二種類の normal form
+\[
+ Q=1+y_1^2+y_2^2+y_3^2+y_4^2,\qquad
+ Q=y_4+y_1^2+y_2^2+y_3^2
+\]
+がある。
+
+\begin{lemma}[低次数 rational form の除法]\label{lem:primitive}
+上のどちらの $Q$ に対しても、$\alpha$ は
+\[
+ \alpha=Q\dd\beta-\dd Q\wedge\beta
+\]
+と書ける。ここで $\beta$ の係数は affine-linear である。
+\end{lemma}
+\begin{proof}
+$\alpha$ の係数空間は $6\cdot15=90$ 次元、
+$\beta$ の係数空間は $4\cdot5=20$ 次元である。
+二つの normal form について、写像
+\[
+ \alpha\longmapsto Q\dd\alpha-2\dd Q\wedge\alpha,\qquad
+ \beta\longmapsto Q\dd\beta-\dd Q\wedge\beta
+\]
+の有理数体上の rank はそれぞれ71、19である。
+合成は係数ごとに零であるため、第2写像の像が第1写像の核全体となる。
+全行列と消去、小行列式の選択は前節と同じ verifier で再現される。
+これは可変な Poisson 構造の有限体サンプルではなく、
+固定した二つの整数行列の完全な有限計算である。
+
+transverse の場合は手計算でも証明できる。
+$Q=1+q$、$\alpha=\alpha_0+\alpha_1+\alpha_2$ と次数分解すると
+\[
+ \dd\alpha_1=0,\quad \dd\alpha_2=2\dd q\wedge\alpha_0,\quad
+ \dd q\wedge\alpha_1=0,\quad
+ \dd q\wedge(\alpha_2-q\alpha_0)=0.
+\]
+$\dd q$ の4係数は独立な一次式なので Koszul exactness より
+$\alpha_1=\dd q\wedge a$、$\alpha_2-q\alpha_0=\dd q\wedge\gamma$。
+ここで $a$ は定数、$\gamma$ は一次係数の一形式である。
+$\dd\gamma=-\alpha_0$ が従い、$\beta=-a-\gamma$ とすればよい。
+\end{proof}
+
+\subsection{定数二形式の非退化性}
+$\Omega=\dd\beta$ とし、固定した volume form に対して
+\[
+ \frac{\Omega^2}{2}=A\,\mathrm{vol},\qquad
+ \frac{\alpha^2}{2}=kQ^2\,\mathrm{vol},\quad k\ne0
+\]
+と書く。前補題から
+\begin{equation}\label{eq:omega}
+ \Omega\wedge\dd Q\wedge\beta=(A-k)Q\,\mathrm{vol}
+\end{equation}
+を得る。$\Omega=0$ は不可能である。
+$\rank\Omega=2$ なら $\Omega=\dd y_1\wedge\dd y_2$ とでき、
+\eqref{eq:omega} の左辺の係数は二つの affine-linear な積の差となる。
+その同次化の rank は4以下であり、rank 5 の projective quadric に等しくなれない。
+従って $\Omega$ は symplectic である。
+
+$\iota_Z\Omega=\beta$ により affine-linear 場 $Z=Ly+v$ を定める。
+すると
+\[
+ \mathcal L_Z\Omega=\Omega,\qquad Z(Q)=cQ,\qquad c=1-k/A.
+\]
+前者から $\tr L=2$、後者を $\CC^5$ に同次化して
+$2\tr L=5c$ を得るので
+\begin{equation}\label{eq:c}
+ c=\frac45.
+\end{equation}
+transverse な $Q=1+\sum y_i^2$ の臨界点 $y=0$ では $Z(Q)=0$ だが $Q=1$ となり、
+\eqref{eq:c} に矛盾する。従って $H$ は接超平面である。
+
+\subsection{接する場合の一意性}
+$L$ の特性多項式を $p(t)$ とする。
+conformal symplectic 条件から $p(1-t)=p(t)$。
+$x_0$ を固定する同次化された $Z$ の特性多項式は $h(t)=tp(t)$ であり、
+rank 5 quadric に関する conformal orthogonal 条件から
+$h(\tfrac45-t)=-h(t)$ となる。
+従って
+\[
+ (t-\tfrac45)p(t+\tfrac15)=tp(t).
+\]
+$t=0,\tfrac15,\tfrac25,\tfrac35$ を順に代入すると
+\[
+ p(t)=\prod_{j=1}^4(t-j/5).
+\]
+$L$ は可逆かつ対角化可能である。$Z$ の唯一の零点を原点へ移し、
+重み $(1,2,3,4)/5$ の固有座標 $(a,b,c,d)$ を選ぶ。
+重み条件により
+\[
+ \Omega=A_1\dd a\wedge\dd d+A_2\dd b\wedge\dd c,\qquad
+ Q=r d+s b^2+t ac.
+\]
+symplectic 条件と projective smoothness から五つの係数はすべて非零である。
+座標と全体の定数を調整して
+\[
+ \Omega=\dd a\wedge\dd d+\dd b\wedge\dd c,\qquad
+ Q=d+b^2+ac
+\]
+とできる。これで逆二形式、従って Poisson 構造も一意になる。
+$\beta\mapsto\beta+\lambda\dd Q$ の曖昧さは
+$\dd(\beta/Q)$ を変えない。
+具体的には
+\[
+ \beta_0=a\,\dd d-4d\,\dd a+2b\,\dd c-3c\,\dd b,\quad
+ \dd\beta_0=5\Omega,\quad
+ \alpha_0=5Q\Omega-\dd Q\wedge\beta_0
+\]
+の complementary signed coefficients が \eqref{eq:P} である。
+これで定理 \ref{thm:quadric} を証明した。
+
+\section{二次超曲面上の \texorpdfstring{$\Aff$}{Aff} 成分と、ちょうど二つの延長}\label{sec:extension}
+\subsection{制限の同定}
+式 \eqref{eq:compact} から、$Q=(q=0)$ に誘導される Poisson 構造は
+\[
+ \rho=P|_Q=(H_0\wedge N)|_Q
+\]
+である。これは regular bivector の制限であり、residue としての対応ではない。
+$h=H_0-2E$ および
+\[
+ R=-4x_1\partial_0-6x_2\partial_1+3x_3\partial_2+4x_4\partial_3
+\]
+に対し
+\[
+ [h,R]=R,\quad [h,N]=-N,\quad [R,N]=2h,\quad
+ h(q)=R(q)=N(q)=0.
+\]
+$N$ は長さ5の一つの Jordan block をもつ。
+従ってこの $\SL_2$ 表現は $\Sym^4\CC^2$ であり、
+$\Span(h,N)$ は principal $\mathrm{PSL}_2$ の Borel 部分代数である。
+
+これは Loray--Pereira--Touzet \cite[Example 5.1, Theorem 5.2]{LPT} の
+$Q^3$ 上の $\Aff(\CC)$ 型 foliation に一致する。
+その接束は $\OO_Q^{\oplus2}$ であり、$\Aut(Q)$ の軌道は projective $\Aff(Q)$ 成分の稠密開軌道である。
+
+\subsection{固定した \texorpdfstring{$(Q,[\rho])$}{(Q,rho)} の全延長}
+\begin{theorem}[二つの ambient extensions]\label{thm:two}
+上の固定された $(Q,[\rho])$ の、$\PP^4$ 上の projective Poisson 構造への延長は
+\[
+ [W],\quad [W+qC_0],\qquad W=H_0\wedge N
+\]
+のちょうど二つである。$\rho$ そのものに制限されるよう scaling を正規化した
+extension scheme は、被約な二点からなる。
+前者は一般 rank 2、後者は一般 rank 4 である。
+\end{theorem}
+\begin{proof}
+同じ制限をもつ二つの bivector の差は
+$qH^0(\PP^4,\wedge^2T(-2))$ に属する。
+Euler sequence の exterior power を $-2$ twist した
+\[
+ 0\longrightarrow T(-2)\longrightarrow
+ \wedge^2\CC^5\otimes\OO\longrightarrow
+ \wedge^2T(-2)\longrightarrow0
+\]
+と $H^0(T(-2))=H^1(T(-2))=0$ から
+\[
+ H^0(\PP^4,\wedge^2T(-2))=\wedge^2\CC^5.
+\]
+従って、すべての正規化された延長は
+\[
+ W+qC,\qquad C=\sum_{0\le i<j\le4}c_{ij}\partial_i\wedge\partial_j
+\]
+という10変数の形をもつ。
+各式は $Q$ 上で $\rho$ に制限されるので、$Q$ に接する条件も満たす。
+
+この形の全 projective Jacobi 条件
+$E\wedge[W+qC,W+qC]=0$ の係数 ideal は正確に
+\begin{equation}\label{eq:extideal}
+\begin{split}
+ (&c_{01},c_{02},c_{03},c_{04},c_{12},c_{13},c_{24},c_{34},\\
+  &c_{14}-c_{23},\quad c_{23}^2-c_{23})
+\end{split}
+\end{equation}
+である。
+\texttt{classify\_extensions.py} は全係数を生成し、
+有理数係数の行結合により9本の一次式を得る。
+その商で残る式は $t^2-t$ の定数倍、$t=c_{23}$ であり、
+逆包含も係数ごとに確認される。
+従って係数環は $\CC[t]/(t(t-1))\simeq\CC\times\CC$ である。
+これで set-theoretic な解だけでなく、非被約構造や埋め込まれた成分も排除される。
+\end{proof}
+
+\subsection{相対族と成分の開軌道}
+$G=\PGL_5$、$K=\Aut(Q)\simeq\mathrm{PSO}_5$ とし、
+principal $\mathrm{PSL}_2$ の二次元 Borel subgroup を $B$ とする。
+飽和 foliation の $H^0(T_\FF)=\Span(H_0,N)$ は $\rho$ から内在的に決まる。
+従って $\Stab_K([\rho])$ はこの Lie algebra の normalizer である。
+
+実際、より大きな $G$ 内でもこの normalizer はちょうど $B$ である。
+derived algebra $\CC N$ を保つため、normalizer の作用は
+$N\mapsto cN,\ h\mapsto h+dN$ の形となる。
+これらは $B$ で実現でき、残った元は $h,N$ をともに中心化する。
+$h$ の固有値はすべて異なり、$N$ は隣接する固有空間をすべて結ぶので、
+両者を中心化する行列は scalar だけである。
+これは Lie algebra 次元だけでなく、有限部分も含めた stabilizer の同定である。
+
+$W$ の飽和接層も $\OO_{\PP^4}^{\oplus2}$ である（前回の $\Aff_5$ 型）。
+従って同じ normalizer の議論から $\Stab_G([W])=B$ である。
+また $P$ を保つ元は固有の重複成分 $Q$ とその制限 $\rho$ を保つので、
+$\Stab_G([P])=B$ となる。
+
+滑らかな embedded quadrics の空間は $G/K$、次元14であり、
+$\Aff(Q)^\circ=K/B$ の次元は8である。相対族
+\[
+ \mathcal R^\circ=
+ \{(Q',[\rho']):Q'\subset\PP^4\text{ smooth},
+       \ [\rho']\in\Aff(Q')^\circ\}
+\]
+は
+\begin{equation}\label{eq:relative}
+ \mathcal R^\circ\simeq G\times^K(K/B)\simeq G/B
+\end{equation}
+と同型である。
+従って制限写像は
+\[
+ G\cdot[P]\xrightarrow{\sim}\mathcal R^\circ,\qquad
+ G\cdot[W]\xrightarrow{\sim}\mathcal R^\circ
+\]
+という二つの $G$-equivariant algebraic isomorphisms を与える。
+$G\cdot[W]$ の閉包は前回確認した $\Aff_5$ 型 rank 2 成分であり、
+$G\cdot[P]$ の閉包は今回の rank 4 成分である。
+二つの成分は同じ相対族と双有理であり、共通の次元は $14+8=22$ である。
+
+固定した $Q$ 上の8次元成分そのものを、
+$\PP^4$ 上の22次元成分と同一視しているわけではない。
+また、この開集合の同型が両側のすべての境界へ延長することは主張しない。
+三次・四次超曲面について同様の対応を得たわけでもない。
+
+\section{45変数部分：正則半単純 modular field の完全分類}\label{sec:rs}
+\subsection{対象と一般恒等式}
+前回の61変数 slice の重み1の16変数を零にすると、
+$V=\CC^4$ 上の
+\[
+ J=\partial_1\wedge\partial_2+\partial_3\wedge\partial_4,\qquad
+ [J,Q]=0,\quad [Q,Q]=0
+\]
+を満たす homogeneous quadratic bivector $Q$ の scheme $\cQ$ を得る。
+compatibility $[J,Q]=0$ は45次元線形空間を定める。
+
+\[
+ s=Q^{12}+Q^{34},\qquad
+ p=\Pf Q=Q^{12}Q^{34}-Q^{13}Q^{24}+Q^{14}Q^{23}
+\]
+とすると、発散は線形 Hamiltonian field
+\[
+ \delta Q=X_s=(-s_2,s_1,-s_4,s_3)
+\]
+である。Poisson 条件から $[X_s,Q]=0$ となる。
+さらに $N_Q=QJ^{-1}$ に対して、恒等式
+\[
+ \tr N_Q=2s,\qquad N_Q^2-sN_Q+pI=0
+\]
+が成立する。compatibility の下では、Jacobi 条件は
+\[
+ (sJ-Q)^\sharp\dd s=J^\sharp\dd p
+\]
+と同値である。最初の二つの恒等式と、最後の式の左辺から右辺を引いたものが
+Jacobi 係数の固定された可逆な線形変換となる恒等式を、
+45個の自由 compatible parameter において検証した。
+modular field を用いる方法自体は既存の方法である \cite{Klinker}。
+
+\begin{theorem}\label{thm:rs}
+$X_s\in\mathfrak{sp}_4$ が正則半単純となる開集合 $\cQ^{\rm rs}$ の
+幾何学的既約成分はちょうど6個である。
+次元は $11,11,10,10,10,10$。
+各成分は一般点で $\cQ$ の滑らかな点をもち、その閉包は $\cQ$ 自体の成分である。
+\end{theorem}
+
+\subsection{normal forms}
+$u=x_1x_2,\ v=x_3x_4$ とし、$N(A,B,C,D,E;P,R)$ を
+\begin{align*}
+ Q^{12}&=Au+Bv,& Q^{34}&=Cu+Dv,\\
+ Q^{13}&=Ex_1x_3,& Q^{14}&=(C-E)x_1x_4+Px_2^2,\\
+ Q^{23}&=(-B-E)x_2x_3+Rx_1^2,&
+ Q^{24}&=(B-C+E)x_2x_4
+\end{align*}
+で定める。$P=R=0$ のとき二つの末尾引数を省略する。
+すべての表示は $J$ と compatible である。
+
+以下の閉包は $\cQ$ 内で取り、$\cQ^{\rm rs}$ の成分はその開部分である。
+11次元成分は、次の族を $\Sp_4$ で動かした像の閉包である。
+\[
+ G_1:N(A,0,0,D,E),\qquad
+ G_2:N(A,B,0,B,E).
+\]
+開集合では、それぞれ $AD(A^2-D^2)\ne0$、
+$AB(A^2-4B^2)\ne0$ を課す。
+10次元成分は次の4点の $\CC^*\times\Sp_4$ 軌道の閉包である。
+\begin{center}
+\begin{tabular}{c rrrrrrr}
+\toprule
+ & $A$ &$B$ &$C$ &$D$ &$E$ &$P$ &$R$\\
+\midrule
+$T_1$&1&0&0&3&1&1&0\\
+$T_2$&$1/2$&0&$1/2$&3&1&1&0\\
+$T_3$&1&$3/2$&0&$3/2$&$-1/2$&1&0\\
+$T_4$&$-1$&0&2&3&1&1&3\\
+\bottomrule
+\end{tabular}
+\end{center}
+$T_i$ はすべて $s=u+3v$ をもつ。$G_i$ のパラメータ全体の一意性は主張しない。
+
+\subsection{共鳴の尽くし方と ideal の分解}
+正則半単純性から $s=au+bv$、
+$ab(a^2-b^2)\ne0$ とできる。
+$X_s$ に不変な二次 bivector の単項式を60個すべて調べると、
+追加単項式の生じる固有値比は
+\[
+ b/a=0,\infty,\pm1,\pm3,\pm1/3.
+\]
+最初の四つの値は正則性により除かれ、残りは Weyl 作用と scaling により $b/a=3$ となる。
+
+非共鳴の場合、上の $P=R=0$ の形で Jacobi ideal は正確に
+\[
+ I=(BC,\ C(A-C),\ B(D-B)).
+\]
+$A'=A-C,\ D'=D-B$ とすれば squarefree monomial ideal であり、
+\[
+ I=(B,C)\cap(C,D-B)\cap(B,A-C).
+\]
+後二つは Darboux block の交換で同定されるので、$G_1,G_2$ の二族を得る。
+一般 $G_1$ の Pfaffian は4個の一次因子をもち、
+一般 $G_2$ では2個の一次因子と非退化二次因子をもつため、両族は異なる。
+
+共鳴 trace $s=u+3v$ では
+\[
+ A=1-C,\quad B=3-D,\quad E=H_1-3+D+C
+\]
+と置き、変数 $(P,R,H_1,C,D)$ を用いる。
+全 Jacobi ideal は
+\begin{equation}\label{eq:resideal}
+\begin{split}
+ ((D-3)(2D-3),\ C(D-3),\
+ R(H_1+D-2),\\
+ P(H_1+C-1),\ PR-C^2+CD/6)
+\end{split}
+\end{equation}
+である。$D=3/2$ の部分は $C=0$ となり、残る ideal は
+\[
+ (PR,\ P(H_1-1),\ R(H_1-\tfrac12))
+\]
+で、三つの affine line の被約な和である。
+$D=3$ の部分では
+\[
+ (R(H_1+1),\ P(H_1+C-1),\ PR-C(C-\tfrac12)).
+\]
+これから $C(C-\tfrac12)(C-2)=0$ を導き、
+$C=0,\tfrac12$ ではそれぞれ3本の被約な直線、
+$C=2$ では $H_1=-1,\ PR=3$ という既約 hyperbola を得る。
+従って固定 trace scheme は被約で、9本の直線と1本の hyperbola の和である。
+
+centralizer $\diag(t,t^{-1},z,z^{-1})$ は
+\[
+ P\mapsto(t^3/z)P,\qquad R\mapsto(z/t^3)R
+\]
+と作用する。非零の各 $P$-line、$R$-line と $PR=3$ はそれぞれ一軌道である。
+さらに symplectic map
+$(x_1,x_2,x_3,x_4)\mapsto(x_2,-x_1,x_4,-x_3)$ と scaling $-1$ を組み合わせると、
+対応する $P$-line と $R$-line が対になり、
+追加される軌道は $T_1,T_2,T_3,T_4$ の四つだけとなる。
+正規化された trace $s=u+3v$ を保つ $\CC^*\times\Sp_4$ の元では、
+固有値集合から scaling は $\pm1$ に限られる。
+上の torus と符号交換はいずれも $(C,D)$ を保ち、四つの型での値は
+$(0,3),(\tfrac12,3),(0,\tfrac32),(2,3)$ と相異なるため、これ以上の同定はない。
+
+\subsection{成分であることの確認}
+45次元 compatible basis 上の Jacobi 微分は $80\times45$ 行列である。
+有理数体上の rank と、実際の族の微分の rank は次の通りである。
+\begin{center}
+\begin{tabular}{lrrrr}
+\toprule
+点 & Jacobi rank & tangent 次元 & $\Sp_4$ 軌道次元 & 族の微分 rank\\
+\midrule
+$G_1:(A,D,E)=(2,5,7)$&34&11&8&11\\
+$G_2:(A,B,E)=(2,5,7)$&34&11&8&11\\
+$T_1$&35&10&9&10\\
+$2T_2$&35&10&9&10\\
+$2T_3$&35&10&9&10\\
+$T_4$&35&10&9&10\\
+\bottomrule
+\end{tabular}
+\end{center}
+因子2は分母を払うためである。
+族の微分 rank と tangent dimension の一致により、各像閉包は実際の成分である。
+上の exhaustive cover と合わせて定理 \ref{thm:rs} を得る。
+$\cQ^{\rm rs}$ 全体の scheme が被約であるとの主張はしていない。
+
+full $\PP^4$ Poisson scheme に戻した affine tangent dimension は
+$G_1,G_2,T_1,T_3$ で25、$T_2,T_4$ で24である。
+これは接空間の事実であり、full component の同定には別の族の構成が必要である。
+trace が非正則半単純、非半単純、零の場合、および重み1変数を戻す問題は残る。
+なお $s=0$ なら恒等式から $\dd p=0$、従って $p=0$、$N_Q^2=0$ となるが、
+これだけで零 trace 部分が分類されたわけではない。
+
+\section{安定な rank 2 分岐と二次 Casimir}\label{sec:stable}
+\subsection{仮定と主定理}
+この節では $\pi$ は一般 rank 2、因子的零点をもたず、
+飽和 symplectic foliation $\FF$ が $H^0(T_\FF)=0$ を満たすと仮定する。
+前回の安定分岐はこの仮定を満たす。
+canonical unimodular lift を $\Pi$、その polynomial center を $A$ とする。
+\[
+ \beta=\iota_\Pi\Omega_5
+\]
+は primitive、decomposable、closed な、二次係数の三形式である。
+前回証明した二つの性質を用いる。
+\begin{enumerate}
+ \item polynomial Darboux factor はすべて Casimir であり、
+ $A$ は $\CC[x_0,\ldots,x_4]$ の中で factorially closed である。
+ \item $\ker\beta$ にある非零一次ベクトル場は、scalar Euler 場でない限り
+ $H^0(T_\FF)$ の非零元を与える。
+ 非零の正次数 Casimir を零にする場は scalar Euler 場ではない。
+\end{enumerate}
+
+\begin{theorem}[二次 Casimir criterion]\label{thm:casimir}
+$A$ に rank $3,4,5$ の二次形式 $Q$ が存在すれば、
+一次式 $L$ と二次式 $Q'$ が存在して、非零定数倍を除き
+\[
+ \beta=\dd L\wedge\dd Q\wedge\dd Q'
+\]
+となる。従って $\pi$ は実際に Jacobian 型 $\Rat(1,2,2)$ である。
+\end{theorem}
+
+rank 5 の場合、前回の smooth-quadric argument は
+$\Rat(1,2,2)$ 成分への所属を証明している。
+ここから実際の Jacobian 表示を得るため、一次 Casimir の存在が閉条件であることを用いる。
+実際、$\Pi^\sharp(\dd L)=0$ は $\Pi,L$ に関する双斉次方程式であり、
+$[L]\in\PP((\CC^5)^*)$ を加えた incidence の射影は proper である。
+従って $\Rat(1,2,2)$ の一般点がもつ一次 Casimir は、その成分の全ての点で存在する。
+rank 5 の $Q$ とこの一次 Casimir に対しても、節末の relative-gradient の議論が適用できる。
+以下では singular quadric 上の foliation の分類を仮定せず、rank 4 と3を証明する。
+除法には de Rham--Saito lemma \cite{Saito} を用い、
+低 rank quadratic map の分類には de Bondt--Sun \cite[Theorems 2.1, 3.1]{DBS} を用いる。
+
+\subsection{使用する二つの除法原理}
+多項式一形式 $\omega_i$ の wedge の係数 ideal の depth が $p$ より大きければ、
+$p$-form $\eta$ が $\eta\wedge\omega_1\wedge\cdots\wedge\omega_k=0$ を満たすとき、
+$\eta=\sum_i\omega_i\wedge\theta_i$ と書ける。
+$k=1$ は Koszul exactness である。次数別に除法できる。
+
+また characteristic zero の homogeneous quadratic map の Jacobian rank が3なら、
+線形な source/target 変換後、その quadratic linear system は次のいずれかである。
+\begin{enumerate}
+ \item 三つ以下の target 座標、または三つ以下の source 座標に supported。
+ \item $\Span(F,p^2,pq,q^2)$。
+ \item 二つの相補的二次元空間の間の bilinear quadrics の四次元空間。
+\end{enumerate}
+rank が2以下なら、二つ以下の source または target 座標に supported となる。
+第3の場合は非零の一次式の平方を含まない。
+これらは \cite{DBS} の characteristic zero 部分を書き換えたものである。
+
+\subsection{rank 4 の二次 Casimir}
+$Q$ は $z=(z_1,\ldots,z_4)$ で非退化であり、残りの座標を $t$ とする。
+gradient ideal の depth は4なので、
+$\dd Q\wedge\beta=0$ から
+\[
+ \beta=\dd Q\wedge\gamma,\qquad
+ \gamma=\gamma_0(z)+tB+\dd t\wedge(\alpha(z)+ta)
+\]
+と書ける。$\gamma_0,\alpha$ は一次係数、$B,a$ は定数形式である。
+closedness より $\dd Q\wedge\dd\gamma=0$ である。
+定数三形式 $\dd\gamma$ は $\dd Q$ の四つの独立な係数方向すべてと wedge して零になるため、
+$\dd\gamma=0$、従って
+$\dd\gamma_0=0,\ \dd\alpha=B$。
+decomposability は
+\begin{align}
+ \dd Q\wedge\alpha\wedge\gamma_0&=0,\label{eq:d0}\\
+ \dd Q\wedge(a\wedge\gamma_0+\alpha\wedge B)&=0,\label{eq:d1}\\
+ \dd Q\wedge a\wedge B&=0.\label{eq:d2}
+\end{align}
+$\gamma\mapsto\gamma+\dd Q\wedge c$（$c$ は定数一形式）の変更は $\beta$ を変えない。
+以下、$\pmod{\dd Q}$ は $\dd Q$ を wedge 因子にもつ形式を法とする意味で用いる。
+
+\paragraph{$a=0,\ B\ne0$ の場合}
+$B$ が symplectic なら $\iota_ZB=\alpha$ で定める線形場は
+$\mathcal L_ZB=B$ により trace 2 をもつ。
+一方 \eqref{eq:d1} は $Z(Q)=0$ を意味し、非退化 $Q$ の保存から trace 0 となり矛盾する。
+従って $B=\dd u\wedge\dd v$ とできる。
+残る座標を $w,s$ とすれば $Q_w,Q_s$ は独立であり、
+\eqref{eq:d1} と互いに素であることから、$\dd Q$-gauge の後
+$\alpha=f(u,v)\dd u+g(u,v)\dd v$ とできる。
+$\dd\alpha=B$ なので $Y=g\partial_u-f\partial_v$ は trace 1 をもつ。
+非零固有値に属する不変直線 $\ell=0$ を選ぶと、係数を $\ell=0$ で還元して
+$\alpha=h\dd\ell,\ h\not\equiv0$ となる。
+\eqref{eq:d0} を対応する超平面 $\ell(u,v)=0$ 上で読むと
+$\beta\wedge\dd\ell$ は $\ell$ で割れる。
+従って $\ell$ は Darboux factor、ゆえに一次 Casimir である。
+
+\paragraph{$a=B=0$ の場合}
+$\alpha=\dd S$ と書け、$S$ は二次 Casimir である。
+$S\in\CC Q$ なら $\partial_t$ に一次式を掛けた場が tangent になり矛盾する。
+従って $Q,S$ は独立である。
+その pencil に rank 2 以下の元があれば、因数分解と factorial closure から一次 Casimir を得る。
+そうでなければ、$\dd Q,\dd S$ の従属 locus は有限本の直線の和となる。
+実際、$Q$ で同定した endomorphism の固有空間に次元2以上のものがあれば、
+対応する pencil の元の rank は2以下となる。
+depth 3 の de Rham--Saito 除法より
+$\gamma_0=\dd Q\wedge c+\dd S\wedge b$。
+従って $\beta=\dd Q\wedge\dd S\wedge(b-\dd t)$ であり、一次 Casimir を得る。
+
+\paragraph{$a\ne0$ の場合}
+\eqref{eq:d2} から $B=a\wedge b$ となる。
+$a=\dd L,\ b=\dd\ell$ と書き $t\mapsto t-\ell$ と変更すれば $B=0$ とできる。
+すると $\alpha=\dd S$。
+$\dd Q,a$ の従属 locus の depth は3なので \eqref{eq:d1} を除法し、
+closedness も用いると
+\[
+ \gamma=\dd L\wedge\dd T+\dd t\wedge\dd S+t\dd t\wedge\dd L,
+ \qquad \dd Q\wedge\dd L\wedge\dd S\wedge\dd T=0.
+\]
+$W_Q=\Span(Q,L^2,S,T)$ が3次元以下なら、直接この式を因数分解して
+$L$ または $t+\lambda L$ を一次 Casimir にできる。
+
+$\dim W_Q=4$ と仮定する。
+quadratic map $(Q,L^2,S,T)$ は Jacobian rank 3 である。
+実際、rank が2以下なら二 target 型は $\dim W_Q=4$ に、
+二 source 型は $\rank Q=4$ に反する。
+上述の分類の三 target 型は次元から、三 source 型は $\rank Q=4$ から除かれる。
+bilinear 型は平方 $L^2$ を含まないので除かれる。
+従って $W_Q=\Span(F,p^2,pq,q^2)$。
+$L^2$ に $F$ 成分があれば全体が $L,p,q$ の三変数に supported となり、
+$\rank Q=4$ に矛盾する。
+よって適切な一次式 $M$ により
+$W_Q=\Span(Q,L^2,LM,M^2)$ と書ける。
+$S,T$ から $Q$ の倍数を除くと二変数 $L,M$ の式になり、
+相補座標 $u,v$ に対して
+$Q_v\partial_u-Q_u\partial_v$ が非零 tangent 一次場となる。
+これは仮定に反する。
+従ってこの場合にも一次 Casimir が存在する。
+
+\subsection{rank 3：Koszul obstruction と radical 方向}
+今度は $Q$ が $z=(z_1,z_2,z_3)$ で非退化であり、radical 座標を $t,u$ とする。
+depth は3なので、三形式をそのまま Koszul 除法することはできない。
+しかし Koszul 第3 cohomology は
+$\CC[t,u]\,\dd z_1\wedge\dd z_2\wedge\dd z_3$ であり、
+\[
+ \beta=\dd Q\wedge\gamma+k(t,u)\dd z_1\wedge\dd z_2\wedge\dd z_3
+\]
+と書ける。$k$ は二次式である。
+closedness を係数として $z=0$ で評価すると $\dd k=0$、
+従って $k=0$ となる。これで $\beta=\dd Q\wedge\gamma$ を得る。
+
+$\dd Q\wedge\dd\gamma=0$ から、定数三形式 $\dd\gamma$ は純粋な $z$ 成分だけをもつ。
+一般形を
+\begin{align}
+ \gamma={}&\gamma_0+tB+uC
+ +\dd t\wedge(\alpha+ta+ub)\nonumber\\
+ &+\dd u\wedge(\lambda+tc+ud)+h\,\dd t\wedge\dd u \label{eq:rank3gamma}
+\end{align}
+とし、$h=\ell(z)+rt+su$ と置く。
+ここで $\gamma_0,\alpha,\lambda$ は $z$ のみを変数とする一次係数の形式であり、
+$B,C,a,b,c,d$ はいずれも $z$ 方向の定数形式である。
+$\dd\gamma$ の mixed 成分が零であることから
+\[
+ B=\dd\alpha,\quad C=\dd\lambda,\quad c=b-\dd\ell.
+\]
+$\Gamma=\gamma_0+tB+uC$、$U=\alpha+ta+ub$、$V=\lambda+tc+ud$ と置けば、
+decomposability は
+\begin{equation}\label{eq:rank3dec}
+ \dd Q\wedge(h\Gamma-U\wedge V)=0
+\end{equation}
+である。
+
+\begin{lemma}\label{lem:rank3elem}
+$Q$ は三変数の非退化二次形式とする。
+\begin{enumerate}
+ \item 非零一次式 $h$ と一次係数の一形式 $\lambda$ について
+ $\dd Q\wedge(h\dd\lambda-\dd h\wedge\lambda)=0$ なら、
+ $\lambda=c_0\dd Q+h b_0$（$c_0$ は定数、$b_0$ は定数一形式）である。
+ \item $\dd Q\wedge\dd S\wedge\dd R=0$ となる二次式 $S,R$ に対し
+ $\dim\Span(Q,S,R)\le2$。
+ 特に非零一次式 $C_1$ に対し
+ $\dd Q\wedge\dd S\wedge\dd C_1=0$ なら
+ $S\in\Span(Q,C_1^2)$。
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+第1項は $(Q,h)=(x^2+y^2+z^2,x)$ または $(xy+z^2,x)$ に帰着する。
+$\lambda=(Ax+By+Cz)\dd x+(Dx+Ey+Fz)\dd y+(Gx+Hy+Iz)\dd z$
+を代入すると、前者は $B=C=F=H=0,\ E=I$、
+後者は $C=E=F=H=0,\ B=I/2$ となり、結論を得る。
+第2項は \cite[Theorem 2.1]{DBS} による。
+二 source 型は $\rank Q=3$ に反するので二 target 型となる。
+最後の主張では三つの二次式 $Q,S,C_1^2$ に適用すればよい。
+\end{proof}
+
+まず $h=0$ は不可能である。
+このとき lift は
+$\Pi=V_0\wedge\partial_t+W_0\wedge\partial_u+f\partial_t\wedge\partial_u$
+と書け、rank 2 より $V_0\wedge W_0=0$。
+$V_0,W_0$ の少なくとも一方が非零なら、primitive な polynomial vector field $Z$ によって
+$V_0=gZ,\ W_0=kZ$ と因数分解する。
+$Z(Q)=0$ かつ $Q$ が三変数で非退化なので $\deg Z\ge1$、
+従って $\deg g,\deg k\le1$。
+$g\partial_t+k\partial_u$ は非零 tangent 場であり、
+必要なら一次式を掛けて非零一次場となる。
+$V_0=W_0=0$ の場合も radical 方向に同様の場がある。いずれも仮定に反する。
+
+\subsection{rank 3：\texorpdfstring{$h$}{h} が radical 方向を含む場合}
+線形変換と $z$ による shift により $h=t$ とできる。
+\eqref{eq:rank3dec} の係数比較から
+\[
+ B=a\wedge b,\quad C=a\wedge d,\quad b\wedge d=0,\quad
+ \gamma_0=a\wedge\lambda+\alpha\wedge b\pmod{\dd Q}.
+\]
+一次式 $A,B_1,D$ を用いて $a=\dd A,\ b=\dd B_1,\ d=\dd D$ と書き
+$v=u+A,\ w=t-B_1$ と置く。
+二次式 $S,R$ によって $\lambda-A\dd D=\dd S,\ \alpha-A\dd B_1=\dd R$ と積分でき、
+正確な代入で
+\begin{equation}\label{eq:rank3normal}
+ \gamma=\dd v\wedge\dd(S+vD)
+       +\dd w\wedge\dd(R+vB_1)+w\dd w\wedge\dd v
+       \pmod{\dd Q}
+\end{equation}
+となる。decomposability は
+\[
+ \dd Q\wedge(\dd S+v\dd D)\wedge(\dd R+v\dd B_1)=0.
+\]
+補題 \ref{lem:rank3elem} により $\dim\Span(Q,S,R)\le2$。
+
+$S\in\CC Q$ ならこれを除く。
+$D=0$ の場合、\eqref{eq:rank3normal} は $\dd w$ を因子にもつ。
+$D\ne0$ の場合、$R\in\Span(Q,D^2)$ で、
+$b\wedge d=0$ から $B_1$ も $D$ の倍数となる。
+すると $\gamma$ は $\dd D,\dd v,\dd w$ だけを用い、
+座標 $(D,x,y,v,w)$ において $Q_y\partial_x-Q_x\partial_y$ が
+非零 tangent 一次場になり矛盾する。
+
+$S\notin\CC Q$ なら $R=c_0Q+kS$ と書く。
+$C_1=B_1-kD$ に対して
+$\dd Q\wedge\dd S\wedge\dd C_1=0$ である。
+$C_1=0$ なら $L=v+kw$ と置いて
+\[
+ \gamma=\dd L\wedge\{\dd S+v\dd D-(kD+w)\dd w\}\pmod{\dd Q}
+\]
+となり、$L$ は一次 Casimir。
+$C_1\ne0$ なら $S\in\Span(Q,C_1^2)$ かつ $B_1,D$ は $C_1$ の倍数であり、
+同様の tangent 一次場が生じて矛盾する。
+
+\subsection{rank 3：\texorpdfstring{$h$}{h} が \texorpdfstring{$z$}{z} の一次式の場合}
+$e=\dd h$ と置くと $c=b-e$ である。
+\eqref{eq:rank3dec} の $t^2,tu,u^2$ の係数から
+\[
+ a\wedge c=0,\quad a\wedge d+b\wedge c=0,\quad b\wedge d=0.
+\]
+従って二行 $ta+ub,\ tc+ud$ は $\CC(t,u)$ 上従属である。
+ある行の係数が二つ独立なら、必要に応じて $t,u$ を交換し、
+変換後の非零一次式も改めて $h$ と書くことで $a,b$ を独立とでき、
+$c=ka,\ d=kb$ となる。
+$t\mapsto t+ku$ により $b=e,\ c=d=0$ とできる。
+係数比較と補題 \ref{lem:rank3elem} から
+$\lambda=h b_0$、$B=a\wedge b_0$、
+$\gamma_0=\alpha\wedge b_0\pmod{\dd Q}$。
+従って
+\[
+ \gamma=(\dd t-b_0)\wedge(\alpha+ta+ue+h\dd u)\pmod{\dd Q}
+\]
+となり、一次 Casimir を得る。
+
+残る場合は $a,b,c,d$ がすべて $e$ の倍数である。
+$a=Ae,\ b=B_0e,\ c=(B_0-1)e,\ d=D_0e$ と書き、
+$\Delta=AD_0+B_0(1-B_0)$ とする。
+$t,u$ の係数を商環 $\CC[z]/(h)$ で読むと
+\[
+ \begin{pmatrix}1-B_0&A\\-D_0&B_0\end{pmatrix}
+ \begin{pmatrix}\dd Q\wedge e\wedge\alpha\\
+                 \dd Q\wedge e\wedge\lambda\end{pmatrix}=0\pmod h.
+\]
+$\Delta\ne0$ なら $\beta\wedge\dd h$ は $h$ で割れるため、
+$h$ は Darboux factor、従って一次 Casimir である。
+
+$\Delta=0$ なら
+\[
+ N_0=\begin{pmatrix}1-B_0&-D_0\\ A&B_0\end{pmatrix}
+\]
+は trace 1、determinant 0 なので $\diag(1,0)$ に共役である。
+$(t,u)$ の determinant 1 の線形変換で $A=B_0=D_0=0$ とできる。
+この共役作用は、行列 $N_0$ をもつ線形場 $Z_0$ を用いて該当項を
+$h\dd t\wedge\dd u+\dd h\wedge\iota_{Z_0}(\dd t\wedge\dd u)$
+と書けば確認できる。すると $a=b=d=0,\ c=-e$ となる。
+係数比較、補題 \ref{lem:rank3elem}、除法から
+$\alpha=h b_0,\ \lambda=\dd S,\ \gamma_0=b_0\wedge\dd S\pmod{\dd Q}$。
+従って
+\[
+ \gamma=(\dd u+b_0)\wedge\dd(S-ht)\pmod{\dd Q}
+\]
+であり、やはり一次 Casimir を得る。
+以上ですべての rank 3 の場合を尽くした。
+
+\subsection{一次 Casimir から実際の \texorpdfstring{$(1,2,2)$}{(1,2,2)} 表示へ}
+得られた一次 Casimir を $L$ とし、座標 $(L,y_1,\ldots,y_4)$ で
+$\beta=\dd L\wedge\eta$ と書く。
+ここで $\eta$ は $\dd y_i$ のみを含み、
+$\dd_y\eta=0$ および $\dd_yQ\wedge\eta=0$ を満たす。
+四つの一次式 $Q_{y_i}$ が張る空間の次元を $r$ とすると、
+relative gradient ideal
+$(Q_{y_1},\ldots,Q_{y_4})\subset\CC[L,y]$ の height も $r$ である。
+$r\ge3$ なら、
+relative Koszul exactness から $\eta=\dd_yQ\wedge\theta$。
+$\theta$ は一次係数であり、closedness から
+$\dd_yQ\wedge\dd_y\theta=0$ を得る。
+定数二形式 $\dd_y\theta$ と三つ以上の独立係数方向から
+$\dd_y\theta=0$ となる。
+relative polynomial Poincaré lemma で $\theta=\dd_yQ'$ と積分でき、
+$\beta=\dd L\wedge\dd Q\wedge\dd Q'$ を得る。
+
+rank 4 の $Q$ では Hessian の一行を除いても rank は3以上なので適用できる。
+rank 5 なら同じ操作の後も rank は4である。
+rank 3 の $Q$ では relative rank は少なくとも2であり、2の場合だけを排除すればよい。
+その場合、relative 座標 $(u,v,z,w)$ を選び
+$\dd_yQ=a\dd u+b\dd v$（$a,b$ は独立な一次式）と書く。
+互いに素な $a,b$ の syzygy を用いて
+\[
+ \eta=F\dd u\wedge\dd v+
+       \dd_yQ\wedge(G\dd z+H\dd w)
+\]
+となる。$F$ は二次、$G,H$ は一次である。
+$H\partial_z-G\partial_w$ が非零なら tangent 一次場になり矛盾する。
+$G=H=0$ なら $\beta$ の全係数に二次式 $F$ が共通因子となり、
+因子的零点がないという仮定に反する。
+従って relative rank 2 は起こらない。
+ここで depth を考えている環は $\CC[L,y]$ 全体であり、
+個々の $L$-fibre で同じ rank を主張していない。
+定理 \ref{thm:casimir} の証明が完了した。
+
+\begin{corollary}[不変な既約二次超曲面]\label{cor:invariantquadric}
+この節の仮定の下で、不変な既約二次超曲面 $X=(Q=0)$ をもつ $\pi$ は
+$\Rat(1,2,2)$ 型である。$X$ の滑らかさは仮定しない。
+\end{corollary}
+\begin{proof}
+因子的零点がないので $X$ の一般点で $\pi$ の rank は2である。
+そこで canonical lift も rank 2 をもち、Euler 場 $E$ は $\operatorname{im}\Pi$ に入らない。
+射影的な不変性から $\Pi^\sharp(\dd Q)$ は $Q$ を法として Euler 方向になるが、
+同時に $\operatorname{im}\Pi$ に属するので零になる。
+従って $Q$ は polynomial Darboux factor、ゆえに Casimir である。
+既約な複素二次形式の rank は3以上なので、定理 \ref{thm:casimir} が適用できる。
+\end{proof}
+
+\section{完全分類へ残る問題の更新}\label{sec:remaining}
+\subsection{安定分岐に残る center の形}
+$A_d$ を center の次数 $d$ 部分とする。
+前回、二つの独立な一次 Casimir があれば $\Rat(1,1,3)$ であること、
+center 自体が polynomial ring なら
+$\Rat(1,1,3)$ または $\Rat(1,2,2)$ となることを証明した。
+今回の定理と factorial closure を合わせると、次を得る。
+
+\begin{corollary}\label{cor:center}
+既知の $\Rat(1,1,3)\cup\Rat(1,2,2)$ の外にある安定な候補は、
+次のいずれかを満たす。
+\[
+ A_1=A_2=0,\qquad\text{または}\qquad
+ A_1=\CC L,\quad A_2=\CC L^2.
+\]
+\end{corollary}
+\begin{proof}
+rank 3以上の二次式は今回の定理で除かれる。
+rank 2以下の二次式は一次式へ因数分解し、その因子も center に入る。
+$A_1=0$ なら二次式は存在せず、$\dim A_1=1$ ならその平方以外は存在しない。
+$\dim A_1\ge2$ は前回の結果で除かれる。
+\end{proof}
+
+さらに $A_1=\CC L$ の未解決分岐では、
+次数 $d\ge3$ の任意の homogeneous Casimir $F$ について
+\[
+ \htop(F_{y_1},\ldots,F_{y_4})\le2
+ \quad\text{in }\CC[L,y_1,\ldots,y_4].
+\]
+もし height が3以上なら
+$\beta=\dd L\wedge\eta,\ \eta=\dd_yF\wedge\theta$ と除法できる。
+$\theta$ の係数次数は $3-d$ であり、
+$d=3$ では定数一形式から第二の一次 Casimir を得、
+$d\ge4$ では負次数となって矛盾する。
+従って relative polar locus
+$\Sigma_L(F)=\{[x]\in\PP^4\mid \dd F(x)\text{ が }\dd L\text{ に比例する}\}$
+の次元は少なくとも2である。
+この主張は polar locus 自体の特異性を要求するものではない。
+
+前回の比較環
+\[
+ B=\CC[u,v,x,y]/(uv+x^2+y^3),\qquad
+ \deg(u,v,x,y)=(3,3,3,2)
+\]
+は、有限生成性、factoriality、Cohen--Macaulay 性および $a(B)=-5$ だけでは
+多項式環であることが従わない例として引き続き有効である。
+一方、$B_1=0,\ \dim B_2=1$ なので、今回の強化された低次数条件によって
+追加の安定成分の center からは除外される。
+
+\subsection{61変数・78変数 ideal の目標}
+前回の exact slice を用いると、全一般 rank 4 成分は61変数 ideal $I_{61}$ の
+最小素成分と対応する。その ideal の生成は134本、変数重みは $1^{16},2^{45}$ である。
+full projective component と slice component の次元差は9である。
+今回の成分に対応する slice dimension は13となる。
+確認済みの rank 4 成分の次元分布は
+\begin{center}
+\begin{tabular}{crrrr}
+\toprule
+$\cP$ 内の次元&22&23&24&25\\
+個数&1&29&8&3\\
+$S_{61}$ 内の次元&13&14&15&16\\
+\bottomrule
+\end{tabular}
+\end{center}
+従って $I_{61}$ の最小素成分数は少なくとも41である。
+40を完全性の目標にすることはできない。
+
+全成分に対応する78変数 ideal $I_{78}$ では、
+projective component との次元差は8である。
+rank 2 の既知6成分も合わせた分布は
+\begin{center}
+\begin{tabular}{crrrrrrr}
+\toprule
+$S_{78}$ 内の次元&14&15&16&17&20&28&31\\
+確認済み個数&3&29&8&3&2&1&1\\
+\bottomrule
+\end{tabular}
+\end{center}
+合計は47である。これは最小素分解を完遂した表ではなく、
+すでに構成・検証した成分が満たす必要な分布である。
+
+残る仕事は、$I_{61}$ の未同定成分、非被約あるいは特異な退化因子をもつ他の分岐、
+45変数部分の非正則 modular locus、そして系 \ref{cor:center} の安定 rank 2 分岐である。
+特に $\mathcal C_{2Q+H}$ の存在は、SNC 成分への退化だけに基づく完全性の証明では
+十分でないことを示す。
+
+\section{再現性と証拠の所在}
+本ノートの numerical-looking な rank は浮動小数点近似ではなく、
+有理数体上の exact elimination で計算したものである。
+full tangent matrix は独立した実装で再構成している。
+rank 3 Casimir の式変形は、独立した証明査読に加えて symbolic identities でも確認した。
+ただし有限個の式の確認が、書かれていない分類の完全性まで証明するとはしていない。
+
+\begin{longtable}{p{.43\textwidth}p{.51\textwidth}}
+\toprule
+ファイル・場所 & 内容\\
+\midrule
+\endhead
+\path{code/verify_smooth_double_quadric.py}
+& bracket、Pfaffian、canonical lift、$\mathfrak{sl}_2$、rational form lemma、全 tangent/orbit rank。\\
+\path{code/audit_rigid_quadric.py}
+& 独立な単項式添字計算による全 Jacobi 微分・軌道行列の監査。\\
+\path{code/classify_extensions.py}
+& 固定した $\Aff(Q)$ 構造の全10変数延長 ideal と被約二点の証明。\\
+\path{code/semisimple_quadratic.py}
+& 全共鳴、非共鳴および共鳴 Jacobi ideal の exact coefficient 計算。\\
+\path{code/verify_trace_reduction.py}
+& 45自由変数における modular・Pfaffian・Jacobi 恒等式。\\
+\path{code/tangent_quadratic_points.py}
+& 6族の tangent dimension と実際の族の微分 rank。\\
+\path{code/check_rank3_form_identities.py}
+& rank 3 Casimir 証明中の座標代入、因数分解、二つの一形式補題。\\
+\texttt{data/}
+& 上記の exact JSON certificates、実行記録、PDF 検査記録。\\
+\texttt{proofs/}
+& 詳細な原証明、cross-audit、補足計算の説明。\\
+\texttt{previous\_v2/}
+& 前回の46成分と61/78変数 slice の完全な checkpoint。\\
+\bottomrule
+\end{longtable}
+
+依存関係と実行手順は \texttt{README.txt} に記載した。
+将来の継続点は \texttt{HANDOFF.txt} にまとめた。
+文献の定理、本ノートで証明した結果、未解決の目標をそこで再び区別している。
+
+\begin{thebibliography}{9}
+\bibitem{MPS}
+M.~Matviichuk, B.~Pym and T.~Schedler,
+\emph{A local Torelli theorem for log symplectic manifolds},
+arXiv:2010.08692. 特に Theorem 1.4、Example 6.24.
+\url{https://arxiv.org/abs/2010.08692}
+\bibitem{LPT}
+F.~Loray, J.~V.~Pereira and F.~Touzet,
+\emph{Foliations with trivial canonical bundle on Fano 3-folds},
+arXiv:1112.3871. 特に Example 5.1、Theorem 5.2.
+\url{https://arxiv.org/abs/1112.3871}
+\bibitem{Saito}
+K.~Saito, \emph{On a generalization of de Rham lemma},
+Ann. Inst. Fourier \textbf{26} (1976), no.~2, 165--170.
+\url{https://numdam.org/articles/10.5802/aif.620/}
+\bibitem{DBS}
+M.~de Bondt and X.~Sun,
+\emph{Quadratic homogeneous polynomial maps $H$ and Keller maps $x+H$ with $\rank JH=3$},
+arXiv:1804.09033, Theorems 2.1 and 3.1.
+出版題名：\emph{Quadratic tame generators problem of rank three},
+Linear Algebra Appl. \textbf{587} (2020), 1--22.
+\url{https://arxiv.org/abs/1804.09033}
+\bibitem{Klinker}
+F.~Klinker, \emph{Quadratic Poisson structures in dimension four},
+2009年4月7日付著者原稿.
+\url{https://frank-klinker.de/Paper/Notiz_PoissonQuadraticFour-Klinker.pdf}
+\end{thebibliography}
+\end{document}

@@ -1,0 +1,36 @@
+CONIC + TWO LINES AT ONE ORDINARY TRIPLE POINT: PURE JET EXCLUSION
+
+Use homogeneous coordinates (x0,x1,x2,x3,x4). Conic A012 has q=x0*x2-x1^2=0 in plane x3=x4=0; lines L03 and L04 meet it at p=e0. Assume actual D normal, all branches generically E8, all modular residues nonzero. Input: conic internal conormal coefficient B00 is a nonzero constant (root conic-plane lemma); line-line intersection theorem (corrected m2 proof) and general zero-slope nilpotency lemma.
+
+STEP 1. All three residues have double zero at p.
+The two lines intersect, so their residue slopes vanish by line-line theorem. Each has a nonzero P1 vector field, so its zero divisor is 2p. Zero-slope nilpotency says ambient Z1 atp has only zero eigenvalues; hence the conic residue slope is zero also. Its nonzero vector field likewise has zero divisor 2p. In affine conic parameter t, R_conic=beta*t^2 with beta !=0.
+
+STEP 2. Line Hessian and cubic scalars have orders3 and2.
+The conormal bracket zero divisor and the cubic-on-radical zero divisor are invariant under modular flow. Indeed [Z,pi]=0 and Z(F)=0 preserve the bracket, Hessian flag and radical cubic. A finite invariant divisor cannot contain a point with nonzero modular vector field (its local flow orbit would be open). Each line's bracket scalar has degree1 and cube scalar has degree2. Their zero divisors are therefore p and2p respectively. Since the Hessian scalar is R times the bracket scalar, its zero order at p is3 on each line; the cubic scalar has order2.
+
+STEP 3. Determine cubic term and both line Hessian directions.
+Write affine variables xi=x1,u=x2,v=x3,w=x4 in x0=1, and F=F3+F4+F5+possiblyhigher/lower (actualdegree<=5; F has no terms degree<3 by sing andHessianatp). Restriction to the conic plane is q^2*L. The q-q Hessian along the conic is a nonzero constant multiple of R_conic*B00. Thus L(1,t,t^2)=c*t^2, c!=0; hence L=c*x2. It follows that the homogeneous cubic part of the plane restriction is c*u^3.
+
+In fact F3=c*u^3 globally. Here is the elementary justification, avoiding any assumption on uncomputed transverse terms. For the v-axis, singularity along that axis eliminates all monomials of F3 having normal degree0 or1. Every remaining monomial of F3 containing v has normal degree2 and contributes an order1 term to a normal Hessian coefficient. The Hessian order on this line is3, so all such coefficients vanish. Thus F3 is independent of v. The same argument on the w-axis makes F3 independent of w. Its plane restriction therefore determines it completely.
+
+Each line has a constant Hessian covector direction ell. Its cubic-on-radical scalar vanishes atp, so F3 restricted to its Hessian kernel is zero. Since c!=0 and F3=c*u^3, the linear form u vanishes on that two-dimensional kernel. Hence ell is proportional to u. BOTH line Hessian matrices have only their u-u entry nonzero, everywhere along each line.
+
+Alternative STEP3 if desired: because both line conormal brackets vanish atp and conic B00!=0, pi1 is a nonzero multiple ofu*d_v wedge d_w. Each limiting line conormalcenter is preserved by ad(line tangent), hence lies in span(dxi,du). Restrict F3 and its vanishing-on-Hessian-kernel condition to the plane of the conic; ell dividesc*u^3, soell=u. This avoids deriving the full F3 first.
+
+STEP 4. Both line cubic directions are xi.
+On L03, the Hessian kernel is u=0, with normal coordinates xi,w. The cubic scalar is homogeneous degree2 onL03 and has divisor2p, so its expression is
+ lambda*x3^2*(a*x1+b*x4)^3, lambda!=0, (a,b)!=(0,0).
+If b!=0 then F has a nonzero coefficient lambda*b^3 at x3^2*x4^3. It gives a nonzero x3-x3 normal Hessian coefficient along the other line L04, contradicting that its Hessian direction is u=x2. Thus b=0 and a!=0. Therefore
+ k=[x1^3*x3^2]F !=0.
+Similarly the cubic direction on L04 is x1.
+
+STEP 5. Conic Hessian forces the same coefficient to vanish.
+Use conic-adapted normal coordinates (q,v,w). Its symmetric conormal bracket matrix B(t) has B00=b0!=0 constant. Because pi vanishes along the v and w axes through p, the corresponding columns in B(0) vanish; symmetry gives B0v(0)=B0w(0)=0. Rank1 gives
+ Bvv(t)=B0v(t)^2/b0=O(t^2).
+Since R_conic(t)=beta*t^2, the Hessian relation gives
+ F_{33}(1,t,t^2,0,0)=O(t^4).
+The only homogeneous degree5 monomials contributing to the t^3 coefficient of this expression are
+ x1^3*x3^2 and x0*x1*x2*x3^2.
+The second has coefficient zero: along L03 it would contribute a nonzero mixed x1-x2 Hessian coefficient, forbidden because that line's Hessian direction is exactly x2. Consequently the t^3 coefficient ofF33 is2k. Thus k=0, contradicting STEP4.
+
+CONCLUSION: 211_triple is impossible for a normal actual Poisson quintic. This proof uses only conic B00!=0, line flags, modular-flow invariance, the line-line slope theorem, and polynomial coefficient comparison. It can replace or supplement the exact unit-ideal certificate.

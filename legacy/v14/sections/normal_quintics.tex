@@ -1,0 +1,309 @@
+\section{正規な退化五次超曲面の存在判定と一意復元}
+\label{sec:normal}
+
+この節では一般階数4の構造を扱う。
+$S=\CC[x_0,\ldots,x_4]$、$S_d$ をその次数 $d$ の部分とする。
+非零な $F\in S_5$ に対して
+\[
+ f=\nabla F=(F_0,\ldots,F_4)^{\mathsf T},\qquad
+ J_F=(F_0,\ldots,F_4),\qquad F_i=\partial_iF
+\]
+と置く。$D_F=(F=0)\subset\PP^4$ が\emph{正規}であると仮定する。
+正規性と単純正規交差性は異なる条件である。
+ここで正規な五次超曲面は既約かつ被約であり、その特異集合は高々曲線である。
+
+\subsection{固定した五次式に対する線形空間}
+
+\[
+ K_F=\{P\in\operatorname{Alt}_5(S_2):P\nabla F=0\}
+\]
+と定める。$\operatorname{Alt}_5(S_2)$ は二次係数の交代行列の150次元空間である。
+行列 $P$ の Jacobi 条件も発散零条件も、$K_F$ の定義には入れていない。
+
+\begin{theorem}[正規五次式の同値な判定条件]\label{thm:normal}
+$D_F$ が正規であるとする。次は同値である。
+\begin{enumerate}
+\item $D_F$ は $\PP^4$ 上の一般階数4の Poisson 構造の退化因子である。
+\item $\operatorname{ht}J_F=3$、$S/J_F$ は Gorenstein であり、五つの偏微分 $F_i$ は $\CC$ 上一次独立である。
+\item $K_F$ は $\operatorname{Frac}(S)$ 上の階数が4となる行列を含む。
+\item $\dim K_F=1$ であり、その生成元の4次 Pfaffian ベクトルは非零である。
+\end{enumerate}
+成立する場合、定数倍を除いた Poisson 構造は一意であり、その canonical lift は $K_F$ の直線として復元される。
+\end{theorem}
+
+この判定は特異集合の\emph{被約台}だけから行うものではない。
+条件(2)は実際の斉次 Jacobian イデアル $J_F$ と、その商環に対する条件である。
+特異曲線が局所的に Gorenstein であることだけを条件(2)へ置き換えてはいけない。
+Pfaffian 分解と Gorenstein 特異スキームの関係は
+Gualtieri--Pym \cite{GP}、楕円正規五次曲線の secant の場合は Fisher \cite[\S10]{Fisher}
+に現れる。以下では、それらの構造を任意の正規五次式に対する逆向きの判定にも用いる。
+
+\subsection{Canonical lift と二つの恒等式}
+
+$\Omega=\dd x_0\wedge\cdots\wedge\dd x_4$、$E=\sum x_i\partial_i$ とする。
+二次 bivector $P$ の発散を
+\[
+ (\delta P)^j=\sum_i\partial_iP^{ij}
+\]
+と定める。一次ベクトル場 $A$ に対して
+$\delta(E\wedge A)=5A-\tr(A)E$ なので、射影 bivector の一意な発散零 lift は
+\[
+                  P_{\mathrm{can}}=P-\frac15 E\wedge\delta P
+\]
+である。この lift は射影 Poisson 構造を実際の affine Poisson 構造へ持ち上げる。
+この基本対応は第1版以来の設定である。
+
+\[
+ p_i(P)=(-1)^i\Pf(P_{\widehat i}),\qquad
+ \alpha_P=\sum_i p_i(P)\dd x_i=\iota_{P\wedge P/2}\Omega
+\]
+と置く。任意の交代行列について $Pp(P)=0$ であり、BV 恒等式は本ノートの規約で
+\begin{equation}\label{eq:BV}
+ \dd\alpha_P=\iota_{\operatorname{Jac}(P)-\delta P\wedge P}\Omega,
+ \qquad \operatorname{Jac}(P)=\frac12[P,P]
+\end{equation}
+となる。従って発散零のとき、Jacobi 条件は $\dd\alpha_P=0$ と同値である。
+閉じている場合、Euler の公式から
+\[
+       F_P=\frac15\sum_i x_i p_i(P),\qquad \dd F_P=\alpha_P
+\]
+を得る。射影退化因子は $(F_P=0)$ である。
+
+もう一つの恒等式は、$P\nabla F=0$ を微分して得られる
+\begin{equation}\label{eq:div-syzygy}
+               \sum_j(\delta P)^jF_j=0
+\end{equation}
+である。Hessian の対称性により $\sum_{ij}P^{ij}F_{ij}=0$ となることを使った。
+すなわち、中心条件があれば発散は勾配に対する\emph{一次係数の syzygy}になる。
+
+\subsection{必要条件と純粋自由分解}
+
+まず定理の(1)を仮定する。Canonical lift の Pfaffian ベクトルは $\nabla F$ の非零定数倍である。
+正規性より $\operatorname{ht}J_F\ge3$ である。
+一方、$5\times5$ 交代行列の submaximal Pfaffian イデアルの高さは高々3なので、等号となる。
+Buchsbaum--Eisenbud の定理 \cite{BE} により
+\begin{equation}\label{eq:BE-resolution}
+ 0\longrightarrow S(-10)\xrightarrow{f}
+ S(-6)^5\xrightarrow{P}S(-4)^5\xrightarrow{f^{\mathsf T}}S
+ \longrightarrow S/J_F\longrightarrow0
+\end{equation}
+が完全である。外側の写像には符号と非零定数倍の調整を許す。
+各行列成分は正次数なので、この分解は最小である。
+従って $J_F$ は五つの四次式を最小生成元としてもち、$S/J_F$ は Gorenstein である。
+特に、五次式が五つの変数を本質的に使うことも結論される。
+
+この分解から $\operatorname{depth}S/J_F=2$ であり、$J_F$ は飽和している。
+$C_F=\operatorname{Proj}(S/J_F)$ は arithmetically Gorenstein な曲線スキームで、
+\begin{align*}
+ \operatorname{Hilb}_{S/J_F}(z)
+ &=\frac{1-5z^4+5z^6-z^{10}}{(1-z)^5}\\
+ &=\frac{1+3z+6z^2+10z^3+10z^4+6z^5+3z^6+z^7}{(1-z)^2}.
+\end{align*}
+従って
+\begin{equation}\label{eq:jacobian-invariants}
+ \deg C_F=40,\qquad p_a(C_F)=101,\qquad
+ \omega_{C_F}\simeq\OO_{C_F}(5),\qquad
+ P_{C_F}(m)=40m-100.
+\end{equation}
+これは $C_F$ 全体の数値である。楕円正規五次曲線の secant の例では、
+被約台の次数は5であり、40ではない。
+
+\subsection{Gorenstein 条件から Jacobi 条件へ戻る}
+
+次に定理の(2)を仮定する。五つの四次式で最小生成される高さ3の Gorenstein イデアルの
+自己双対な最小分解は、最後の次数シフトを $c$ として
+\[
+ 0\longrightarrow S(-c)\longrightarrow S(4-c)^5
+ \longrightarrow S(-4)^5\longrightarrow S
+\]
+となる。Hilbert 分子の $z=1$ における一階微分が零であることから
+\[
+                         -20+5(c-4)-c=0,
+\]
+従って $c=10$ である。Buchsbaum--Eisenbud の交代行列 $P$ の成分はすべて二次になる。
+その Pfaffian は $J_{F,4}$ の基底をなす。
+定数行列による congruence と非零定数倍により
+\[
+                              p(P)=\nabla F
+\]
+と正規化できる。実際、$p(CPC^{\mathsf T})=\det(C)C^{-\mathsf T}p(P)$ を用いればよい。
+
+このとき $P\nabla F=0$ である。
+式\eqref{eq:div-syzygy}と分解\eqref{eq:BE-resolution}を合わせると、
+一次 syzygy が存在しないため $\delta P=0$ となる。
+さらに $\alpha_P=\dd F$ は閉じているので、式\eqref{eq:BV}から $[P,P]=0$ を得る。
+これは一般階数4の射影 Poisson 構造へ降り、その退化式は $F$ である。
+これで(2)$\Rightarrow$(1)が示された。
+
+\subsection{線形判定の十分性と一意性}
+
+$P\in K_F$ が階数4であるとする。分数体上の $\ker P$ は一次元なので
+$p(P)=h\nabla F$ となる有理函数 $h$ がある。
+正規性から偏微分の最大公約因子は1であるため、$h$ の分母は定数である。
+両辺の次数は4なので、$h$ は非零定数である。
+従って上と同じ Pfaffian 分解が使え、$P$ は発散零かつ Poisson となる。
+
+この $P$ に対し、任意の $R\in K_F$ を取る。$R$ の各列は $f$ に対する二次 syzygy なので
+\[
+                          R=PA,\qquad A\in\operatorname{Mat}_5(\CC)
+\]
+と書ける。$R$ の交代性と $Rf=0$ より $PAf=0$ である。
+分解の完全性により $\ker P=Sf$ だから、次数を比較して $Af=cf$、$c\in\CC$ となる。
+五つの $F_i$ は一次独立なので $A=cI$、従って $R=cP$ である。
+これで $K_F=\CC P$、定理の全同値、および一意性が証明された。
+
+\begin{corollary}[存在しない正規五次式と有限安定化群]
+滑らかな五次式、特異点が有限個だけの五次式、正規な五次錐はいずれもこの退化因子にならない。
+実現される正規五次式について $\Aut(\PP^4,D_F)$ は有限であり、
+対応する $\PGL_5$ 軌道の次元は24である。
+\end{corollary}
+\begin{proof}
+最初の二つは $\operatorname{ht}J_F=3$ に反し、錐は五つの偏微分の独立性に反する。
+無限小自己同型 $A$ は $A(F)=\lambda F$ を満たす。
+$A-(\lambda/5)E$ は一次 syzygy なので零であり、射影 Lie 代数は零となる。
+標数0で有限型の代数群であることから安定化群は有限である。
+\end{proof}
+
+\begin{remark}[五生成元という仮定を落とせない]
+$F=x_0^5+x_1^5+x_2^5$ は特異直線をもつ正規な五次錐である。
+$J_F=(x_0^4,x_1^4,x_2^4)$ は高さ3の Gorenstein 完全交差だが、最小生成元は三つである。
+従って「高さ3かつ Gorenstein」だけでは十分でない。
+\end{remark}
+
+\section{正規退化因子をもつ部分の全スキーム表示}
+\label{sec:normal-scheme}
+
+定理\ref{thm:normal}は個々の閉点に対する判定である。
+本節では冪零元を含む基底上でも復元が成立することを示す。
+\[
+ L_F:\operatorname{Alt}_5(S_2)\longrightarrow S_6^5,
+ \qquad P\longmapsto P\nabla F
+\]
+の係数行列を $M(F)$ とする。
+\[
+        \dim\operatorname{Alt}_5(S_2)=150,
+        \quad \dim S_6^5=5\binom{10}{4}=1050.
+\]
+従って $M(F)$ は、$F$ の126係数に線形に依存する $1050\times150$ 行列である。
+
+\subsection{対象となる determinantal subscheme}
+
+正規五次超曲面を表す開集合を $U_{\mathrm{nor}}\subset\PP S_5$ とする。
+この上で、$M(F)$ のすべての $150\times150$ minor で定義される\emph{実際の} determinantal subscheme を取る。
+さらに、少なくとも一つの $149\times149$ minor が可逆な開部分へ制限する。
+そこでは $M(F)$ の核は直線束である。
+最後に、その核の局所生成元 $P$ の Pfaffian ベクトルが非零となる開部分へ制限し、これを $Z^{\mathrm{nor}}$ と呼ぶ。
+
+\begin{theorem}[全スキームの同型]\label{thm:normal-scheme}
+全射影 Poisson スキームのうち退化因子が正規となる開部分を $\cP^{\mathrm{nor}}$ とすると、
+退化因子の写像と核直線の復元により
+\[
+                    \cP^{\mathrm{nor}}\simeq Z^{\mathrm{nor}}
+\]
+を得る。この同型は被約化を取らずに成立する。
+\end{theorem}
+
+\subsection{非被約な基底上の Pfaffian 分解}
+
+局所 Noether 環 $A$ 上で、$Z^{\mathrm{nor}}$ の一つの chart を考える。
+可逆な149次 minor を使って核を解き、ある係数を1に正規化した二次交代行列 $P$ を得る。
+このとき $P\nabla F=0$ は $A$ 上の恒等式である。
+$b=p(P)$ と置き、Pfaffian complex
+\begin{equation}\label{eq:relative-BE}
+ 0\longrightarrow S_A(-10)\xrightarrow{b}S_A(-6)^5
+ \xrightarrow{P}S_A(-4)^5\xrightarrow{b^{\mathsf T}}S_A,
+ \qquad S_A=A[x_0,\ldots,x_4]
+\end{equation}
+を考える。各 residue field 上では、正規性、非零 Pfaffian、定理\ref{thm:normal}の証明によって
+$b$ は $\nabla F$ の非零定数倍であり、そのイデアルの高さは3である。
+従って Buchsbaum--Eisenbud によりこの complex は次数0の cokernel を除いて完全である。
+
+必要な基底変更の議論を明記する。
+固定した斉次次数における\eqref{eq:relative-BE}は有限自由 $A$ 加群の有界 complex である。
+その residue field 上の complex が正のホモロジー次数で完全なら、左端の写像の可逆 minor を使って
+可縮な直和因子を分離できる。同じ操作を順に繰り返せば、正の次数はすべて split exact となり、
+最後の cokernel も自由になる。これは局所環上での有限次元 Gaussian elimination と同じ議論であり、
+$A$ の被約性を必要としない。
+各斉次次数へ適用することにより\eqref{eq:relative-BE}の完全性が $A$ 上で従う。
+
+いま $P\nabla F=0$ であり、$\nabla F$ の成分は四次である。
+完全性と次数から
+\[
+                        \nabla F=c\,b,\qquad c\in A
+\]
+となる。各 residue field で $c\ne0$ なので $c\in A^\times$ である。
+また、一次 syzygy が存在しないことも同じ分解から $A$ 上で従う。
+式\eqref{eq:div-syzygy}を使って $\delta P=0$、さらに\eqref{eq:BV}で $[P,P]=0$ を得る。
+
+逆に、正規退化因子をもつ Poisson 族では $M(F)P=0$ が成り立つ。
+局所的に $P$ の一係数を可逆に取れるので、150次 minor はすべて零となる。
+閉点で階数149であるため149次 minor の可逆な chart で被覆でき、核直線は元の $P$ と一致する。
+以上の二つの構成は基底変更と両立し互いに逆なので、定理\ref{thm:normal-scheme}が証明された。
+
+\subsection{固定した退化因子の無限小剛性}
+
+固定 Pfaffian ベクトルをもつ一次変形 $P+\epsilon R$ を考える。
+恒等式 $Pp(P)=0$ を微分すると $R\nabla F=0$ となる。
+従って $R=cP$ であり、Pfaffian の微分は $2c\nabla F$ なので $c=0$ である。
+退化式を射影的に固定する場合には、まず対応する定数倍の方向を引けば同じ結論となる。
+従って退化因子写像の接写像は全点で単射で、固定因子の fiber は被約な一点である。
+この主張は Poisson スキーム全体が被約という意味ではない。
+もし非被約な方向があれば、それは上記 determinantal subscheme 側にも記録される。
+
+\section{正規五次式の厳密計算例}
+\label{sec:witness}
+
+添字を $\mathbb Z/5\mathbb Z$ で読み、
+\begin{align*}
+ P_{i,i+1}&=-2x_ix_{i+1}-10x_{i+2}x_{i+4}+5x_{i+3}^2,\\
+ P_{i,i+2}&=-4x_ix_{i+2}+10x_{i+3}x_{i+4}+5x_{i+1}^2
+\end{align*}
+とし、交代性で残りを定める。
+これは Fisher \cite[(38)--(39)]{Fisher} の $a=b=1$ に一致する。
+五次式を $F=\frac15\sum x_i p_i(P)$ と定めると、
+\[
+         p(P)=\nabla F,\qquad \delta P=0,\qquad [P,P]=0
+\]
+が整数・有理数係数の恒等式として成立する。
+全係数は添付 JSON に記録した。
+
+正規性も外部の幾何学的同定に依存せず確認した。
+$x_3=x_4=0$ に制限した五つの偏微分が生成する三変数イデアルについて、
+次数 $0,\ldots,8$ の Hilbert 函数は
+\[
+                 (1,3,6,10,10,6,3,1,0)
+\]
+となる。特に次数8の45単項式はすべてこのイデアルに入る。
+従ってこの線形切断は零次元であり、$\operatorname{ht}J_F\ge3$ である。
+Pfaffian の高さの上界から等号となる。
+可約または非被約な五次式なら Jacobian イデアルの高さは高々2なので、$F$ は既約であり、
+超曲面の $S_2$ と特異集合の余次元から正規となる。
+
+$M(F)$ の階数149は、別々の二実装で確認した。
+一方は $\QQ$ 上の直接の核計算である。
+他方は Python 標準ライブラリだけを用い、整数行列の149次 minor が
+\[
+                      385341\pmod {1000003}
+\]
+で非零となることと、明示した $P$ が\emph{有理数上の実際の核元}であることを組み合わせる。
+前者が階数の下界149、後者が上界149を与える。
+有限体の標本から成分の完全性を推測しているのではない。
+
+\begin{center}
+\begin{tabular}{lrrl}
+\toprule
+五次式 & $\rank M(F)$ & $\dim K_F$ & 判定\\
+\midrule
+上の Fisher の例 &149&1& 正規な退化因子\\
+$\sum_{i=0}^4x_i^5$ &150&0& 存在しない\\
+$x_0^5+x_1^5+x_2^5$ &135&15& 正規だが存在しない\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{remark}[この節で残る分類問題]
+定理\ref{thm:normal-scheme}は正規退化因子をもつ領域を全スキームとして記述するが、
+$Z^{\mathrm{nor}}$ の既約成分を列挙する定理ではない。
+特に正規性だけから全構造が Feigin--Odesskii の $q_{5,1}$ 族に属するとは結論していない。
+Pym \cite[Theorem 1.3]{PymElliptic} の分類には purely elliptic という、より強い局所条件がある。
+\end{remark}

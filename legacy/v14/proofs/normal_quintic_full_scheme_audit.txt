@@ -1,0 +1,117 @@
+V14 FINAL INDEPENDENT AUDIT: NORMAL-QUINTIC FULL SCHEME ISOMORPHISM
+================================================================
+Audited manuscript: sections/normal_quintics.tex, especially the section
+"正規退化因子をもつ部分の全スキーム表示" and Theorem thm:normal-scheme.
+Conclusion: the stated isomorphism is valid on the specified open loci WITHOUT
+reduction, including over nonreduced local Artinian C-algebras. No mathematical
+gap was found in the finite-free-strand argument. Details follow so that the
+nilpotent-base justification is independently reviewable.
+
+1. The determinantal chart is genuinely a rank149 chart over an arbitrary ring
+---------------------------------------------------------------------------
+Let M be the1050x150 centrality matrix over a local ring A. Suppose a149x149
+minor is invertible and all150x150 minors vanish. Gaussian row/column operations
+over A put M into the form diag(I149, residual_column), with the residual column
+in the remaining901 rows. Each entry of that column is, up to a unit, one of
+the150x150 minors obtained by adjoining one row to the chosen149-row block.
+Consequently the residual column is zero over A itself, not only modulo the
+nilradical. The kernel is a free rank-one direct summand. Its generator P can
+be normalized to have one coefficient equal to1. The equation M(F)P=0 is exact.
+All these operations commute with base change on the selected minor chart.
+
+2. Finite-free complex lemma, including nilpotent bases
+------------------------------------------------------
+Let (A,m,k) be a local ring and C_n→...→C_1→C_0 a bounded complex of finite
+free A-modules. Assume the reduced complex over k has H_i=0 for every i>0.
+Then C is homotopy equivalent to a finite free A-module concentrated in degree0.
+In particular it is exact in positive degrees and H_0(C) is finite free.
+
+Proof: at the largest index n with C_n!=0, the reduced differential is
+injective. A full-column-size minor is nonzero modulo m and therefore a unit
+in A. Elementary operations split the map as an identity onto a direct summand
+of C_(n-1). The complex relation makes the next differential zero on this
+summand, so this is a contractible direct summand of the entire complex.
+Remove it and repeat. Reduction of the remaining complex is still acyclic in
+positive degrees. At the end only a free degree-zero module remains. If a
+source has rank zero, that stage is simply omitted. This proof requires no
+reducedness, no flatness hypothesis on an initially specified cokernel, and
+no assumption that A is a domain.
+
+3. Application to every graded Buchsbaum–Eisenbud strand
+-------------------------------------------------------
+For b=p(P), the Pfaffian identities make
+ 0→S_A(-10) --b--> S_A(-6)^5 --P--> S_A(-4)^5 --b^t--> S_A
+an actual complex over A[x0,...,x4]. Each homogeneous strand is a bounded
+complex of finite free A-modules. On the residue field, the prescribed normal
+quintic / nonzero-Pfaffian conditions give a height-three Pfaffian ideal.
+The field-level theorem and Buchsbaum–Eisenbud therefore make every residue
+strand exact in positive homological degrees. The lemma applies separately
+to every strand. Their direct sum is the required exact graded complex over A.
+There is no passage from a finite jet to all orders here: every degree is
+covered by the same finite-free lemma.
+
+For a residue field not algebraically closed, one may first extend it to its
+algebraic closure, apply the field theorem there, and descend exactness along
+that faithfully flat extension. The normal-hypersurface open locus means
+geometric normality of these fibers. Thus closed complex points are not an
+unstated restriction on the family argument.
+
+4. Unit proportionality is exact over the base
+----------------------------------------------
+Write f=gradient(F). The equation Pf=0 places the vector f, whose entries have
+degree4, in degree10 of the kernel at S_A(-6)^5. Exactness identifies that
+kernel with the image of S_A(-10); the degree10 part of its source is A.
+Therefore f=c b for c in A. Modulo m this is the nonzero proportionality
+constant from the field theorem, so c is a unit. This avoids fraction-field
+arguments over a ring with zero divisors. It also does not require taking a
+square root of c: the desired objects and the degeneracy map are projective.
+
+5. Divergence and Jacobi impose no hidden additional equations on this chart
+---------------------------------------------------------------------------
+Differentiating Pf=0 in the polynomial coordinates, the symmetric Hessian
+cancels against P and gives (div P) dot f=0 over A. Since f=c b and c is a unit,
+div P is a syzygy among b with coefficients of degree1. Exactness in degree5
+at S_A(-4)^5 says that no such syzygy exists: its preceding module
+S_A(-6)^5 has degree5 part zero. Hence div P=0 over A, including nilpotents.
+
+All derivatives here are relative polynomial derivatives d_x, so elements
+of A are constants. Thus alpha_P=sum b_i dx_i=c^(-1)d_xF is closed. The BV
+identity, which is a polynomial identity with rational coefficients, now gives
+[P,P]=0 over A. Euler's formula gives
+ F_P=(1/5)sum x_i b_i=c^(-1)F.
+The recovered projective degeneration form is therefore exactly [F].
+
+6. The converse over nonreduced bases
+-------------------------------------
+The canonical divergence-free lift is defined by a linear splitting with
+constant rational coefficients, so it is available after every base change.
+Its equivalence with the projective Poisson equations also persists over A:
+if a divergence-free lift has Jacobiator E wedge Q, applying divergence gives
+5Q-E wedge divQ=0, and wedging with E forces E wedge Q=0. Thus its Jacobiator
+vanishes. Conversely affine Jacobi plainly implies the projective equations.
+
+For a Poisson family whose degeneracy hypersurface is normal, p(P)=gradient(F_P)
+and Pp(P)=0 are polynomial identities. Locally some coefficient of the
+projective lift P is a unit. Elementary column operations can therefore make
+P a standard basis vector; M(F)P=0 then forces all maximal150-minors to vanish
+over A, not just at points. On every residue field the centrality matrix has
+rank149 by the field theorem, so some149-minor is locally invertible. These
+charts cover the family, and their kernel line is the original Poisson line.
+
+7. Gluing, projective scaling, and scope
+---------------------------------------
+Replacing F by a unit multiple does not change the kernel line of M(F).
+Replacing P by a unit u multiplies its Pfaffian vector and F_P by u^2; this
+does not change the corresponding point of projective quintic space. The two
+constructions thus glue, commute with base change, and are mutually inverse
+as morphisms of the stated open schemes. No additional square-root choice or
+reduction operation is involved.
+
+The theorem describes the full normal-degeneracy locus as the open part of
+the ACTUAL maximal-minor determinantal scheme, further restricted by the
+149-minor and nonzero-Pfaffian open conditions. It is not a statement about
+the reduced determinantal variety and it does not assert that this scheme
+is reduced. Nor does it enumerate the irreducible components of that locus.
+The later tangent-injectivity assertion is compatible with this: fixing the
+degeneration form leaves a reduced point, while nilpotent directions that
+move the degeneration form are retained on both sides of the isomorphism.

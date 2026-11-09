@@ -1,0 +1,138 @@
+\section{三直線の独立三重点における slope 消滅}
+
+\paragraph{入力となる line-pencil 補題。}
+射影直線 $L$ の conormal は $\OO_L(-1)^3$ なので、その Lie bracket は
+定数三次元空間上の一次式係数の bracket である。
+一般点で Heisenberg なら、unimodular bracket を表す対称三次行列は階数一であり、
+行列 pencil の全二次小行列式が零である。
+従って $B(s,t)=\ell(s,t)vv^t$、$v$ は定数ベクトルとなる。
+その零点は高々一つで、零点での消滅次数は一。
+中心の方向も直線上で一定である。
+
+\paragraph{leading-center weight 補題。}
+軸 $L_i$ 上で residue を $R_i(t)=\alpha_i t+O(t^2)$、conormal bracket を
+$B_i(t)=t^k B_i^0+O(t^{k+1})$ とする。$B_i^0$ は非零 Heisenberg bracket とする。
+$Z_1$ が normal 空間に誘導する作用を $D_i$ とすると、$[Z,\pi]=0$ の先頭項より
+$D_i$ は $B_i^0$ の conformal derivation で、その conformal factor は $k\alpha_i$。
+中心の weight を $\nu_i$ とすると、二次元 abelian quotient の trace との差は
+\[
+ \operatorname{tr}(D_i)-2\nu_i=k\alpha_i.
+\]
+modular vector field の発散は零なので $\operatorname{tr}(D_i)=-\alpha_i$。
+従って
+\[
+ \boxed{\nu_i=-(k+1)\alpha_i/2.}
+ \tag{LC}
+\]
+これは中心が一次元であることを使うだけで、$D_i$ の半単純性を仮定しない。
+
+\begin{proposition}
+正規な実際の退化因子を持つ $\PP^4$ 上の Poisson 構造を考える。
+被約特異支持の三本の射影直線が一点で独立な接線方向を持って交わり、
+各直線の一般点の横断型が $\widetilde E_8$ であるとする。
+この三重点における三枝の modular residue の一次係数は全て零である。
+\end{proposition}
+
+\begin{proof}
+共通点近傍で三軸を $x_1,x_2,x_3$、残る normal coordinate を $u$ とする。
+$\pi$ は三軸上で零なので、一次項は $u\beta$ と書ける。
+modular residue は三枝に接し共通点で零だから $\delta\pi_1=0$、従って
+\[
+ \beta\in\bigwedge^2\langle\partial_1,\partial_2,\partial_3\rangle.
+\]
+各枝の slope を $a,b,c$、$Z_1$ の normal eigenvalue を $\lambda$ とする。
+$Z_1$ は tangent 三軸を保存し、normal から tangent への off-diagonal 項は許す。
+発散零より $a+b+c+\lambda=0$。
+
+\emph{まず $\beta\ne0$ の場合。}
+conormal bracket が原点で非零の枝では中心は $du$、$k=0$ なので
+(LC) よりその slope は $-2\lambda$ である。
+三つの $\beta_{12},\beta_{13},\beta_{23}$ が全て非零なら、
+$a=b=c=-2\lambda$ と trace 条件から全て零となる。
+
+二つが非零の場合は、添字を替えて $\beta_{12},\beta_{13}\ne0$ とする。
+すると $b=c=-2\lambda$、$a=3\lambda$。
+第1枝は conormal bracket が零なので $k=1$、その中心 weight は $-a=-3\lambda$。
+normal eigenvalues は $-2\lambda,-2\lambda,\lambda$ なので、$\lambda\ne0$ は不可能。
+
+一つだけ非零の場合は $\beta_{12}\ne0$ とする。
+$c=-2\lambda$、$a+b=\lambda$。
+第1,2枝の leading center は、原点の Hamiltonian adjoint action の核
+$\langle dx_3,du\rangle$ に入る。
+$k=1$ と (LC) より
+\[
+ a,b\in\{2\lambda,-\lambda\}.
+\]
+$\lambda=0$ なら既に全て零。そうでなければ、入れ替えて
+$(a,b,c,\lambda)=(2,-1,-2,1)\lambda$ とできる。
+四固有値が相異なるので、三軸を保つ線形座標変換で $Z_1$ を対角化できる。
+
+第1枝の conormal center は (LC) より $dx_3$ の方向であり、line-pencil 補題により
+その方向は直線上で一定。$\widetilde E_8$ の中心 weight は $3/6$ だから、
+$Q=\pi_2$ の $Q_{13}$ の $x_1x_3$ 係数は $c_{13}=-a/2=-\lambda$。
+従って $c_{31}=\lambda$。
+
+第3枝では tangent Hamiltonian の原点での作用は零である。
+その $t$ の係数行列 $A_3$ は $\widetilde E_8$ の spectrum 条件から
+\[
+ \operatorname{Spec}(A_3)=\{\lambda/3,2\lambda/3,\lambda\}
+\]
+を満たす。中心 $du$ の eigenvalue は $\lambda$ である。
+一方、$[Z_1,Q]+[Z_2,\pi_1]=0$ において、添字 $31,32$ の後半項は
+$u$ で割れ、添字 $3u$ の後半項は零。
+weight 比較により、normal 基底 $(dx_1,dx_2,du)$ で $A_3$ は三角行列となる。
+その $dx_1$ 対角成分は $c_{31}=\lambda$ であり、$du$ 対角成分も $\lambda$。
+固有値 $\lambda$ が二重になるため、上の三つの相異なる固有値と矛盾する。
+これで $\beta\ne0$ の全場合が終わる。
+
+\emph{次に $\beta=0$ の場合。}
+このとき $\pi_1=0$ なので $[Z_1,Q]=0$。
+$Z_1$ の半単純部分 $D$ も $Q$ を保存する。
+三軸を固有軸として保ち、残る normal 固有ベクトルを選んで
+$D=\operatorname{diag}(a,b,c,\lambda)$ とできる。
+各枝では $k=1$ なので、非零 slope $a_i$ に対し、その負 $-a_i$ が
+normal の三つの weight のいずれかに現れる。
+
+第 $i$ 軸の tangent Hamiltonian の leading matrix を $A_i$ とすると
+\[
+ \operatorname{Spec}(A_i)=-\frac{a_i}{6}\{1,2,3\}.
+ \tag{E8}
+\]
+$[D,Q]=0$ により $A_i$ は等しい weight ごとの block に分かれる。
+$Q_{ij}$ の $x_ix_j$ 係数 $c_{ij}$ は交代的である。
+normal index を含まない、同じ非零 weight を持つ tangent indices の群に
+二つ以上の index があると、群内部の block trace を全 index で足して
+$\sum c_{ij}=0$ を得る一方、(E8) は非零 weight の同符号の有理数倍を与え、矛盾する。
+
+normal weight $\lambda$ が非零 tangent weight $a$ と等しいとする。
+その weight を持つ tangent index が二つなら、残る slope は $-3a$ であり、
+中心 weight 条件が要求する $3a$ が存在しない。
+一つなら、その枝の中心 weight $-a$ が他の枝に必要で、trace 条件から
+残る二枝がともに $-a$ となり、直前の群内部 trace の矛盾になる。
+三つなら trace が $4a\ne0$。従って非零 tangent weights は互いに相異なり、
+normal weight とも異なる。
+
+非零 tangent slope が三つなら、それぞれの他の tangent index は singleton block
+なので $c_{ij}=-a_iw_{ij}/6$、$w_{ij}\in\{1,2,3\}$。
+交代性は全ての比 $a_j/a_i$ が負の有理数であることを強制し、三つの比で矛盾する。
+一つだけなら、二つの零 slope の $A_j$ は冪零であり、非零 weight の singleton block
+から $c_{ji}=0$。従って非零 slope の $A_i$ の零 weight 二次元 block は trace 零となり、
+(E8) の固有値の正の有理数倍の和と矛盾する。
+
+二つだけ非零なら、零 slope の第3枝の中心 weight は零なので、normal weight も零。
+従って $(a,b,c,\lambda)=(a,-a,0,0)$、$a\ne0$ とできる。
+第3枝の normal weight は $(a,-a,0)$ と相異なるため、冪零行列 $A_3$ は零。
+従って $c_{13}=c_{23}=0$。
+第3枝の中心は $du$ なので、$Q_{1u}$ の $x_3x_1$ 係数と
+$Q_{2u}$ の $x_3x_2$ 係数はいずれも零である。
+第1枝の零 weight block $(dx_3,du)$ は、従って三角行列で、$dx_3$ の対角成分が零。
+これは (E8) が非零固有値しか許さないことと矛盾する。
+従って三つの tangent slope は全て零である。
+\end{proof}
+
+\paragraph{四直線 triple-tail の排除。}
+$C=L_{01}\cup L_{02}\cup L_{03}\cup L_{14}$ では、中央の $L_{01}$ は
+三重点 $e_0$ と節点 $e_1$ の二つの異なる点で modular residue が零になる。
+非零の $\PP^1$ 上の vector field は零因子の次数が二なので、両点で単純零でなければならない。
+上の命題は $e_0$ で二重以上の零を与え、矛盾する。
+従ってこの支持も正規な実際の退化因子から排除される。

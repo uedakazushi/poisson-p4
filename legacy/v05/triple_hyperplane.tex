@@ -1,0 +1,157 @@
+\section{三重超平面をもつ22次元成分}\label{sec:new}
+\subsection{明示的な二ベクトルと Jacobi 恒等式}
+$\AA^5$ の座標を $(x_0,x_1,x_2,x_3,x_4)$ とし、$\partial_i=\partial/\partial x_i$ と書く。
+\begin{align*}
+ J&=\partial_1\wedge\partial_2+\partial_3\wedge\partial_4,\\
+ H&=3x_1\partial_1-3x_2\partial_2+x_3\partial_3-x_4\partial_4,\\
+ N&=x_4\partial_2-x_1\partial_3+x_3\partial_4.
+\end{align*}
+第一添字で縮約する規約
+$(P^\sharp\dd f)^j=\sum_iP^{ij}\partial_i f$ を用いる。
+$H,N$ はそれぞれ $-3x_1x_2-x_3x_4$、$x_1x_4+x_3^2/2$ の $J$-Hamiltonian 場であり、
+\[
+                 [H,J]=[N,J]=0,\qquad [H,N]=2N.
+\]
+従って
+\begin{equation}\label{eq:newP}
+                            P=x_0^2J+H\wedge N
+\end{equation}
+は Poisson である。実際、$H\wedge N$ の Schouten 自己括弧は
+$H\wedge N\wedge[H,N]$ の定数倍なので零であり、
+$J$ との compatibility は $H,N$ が $J$ を保存することから従う。
+$x_0$ は全項の Casimir なので、$J$ の係数を $x_0^2$ にしても括弧は零である。
+係数次数2と二ベクトル次数2が一致するため、$P$ は $\PP^4$ 上の構造 $\pi$ を定める。
+
+非零な括弧を展開すると
+\begin{equation}\label{eq:brackets}
+\begin{aligned}
+ P^{12}&=x_0^2+3x_1x_4,& P^{13}&=-3x_1^2,&P^{14}&=3x_1x_3,\\
+ P^{23}&=3x_1x_2-x_3x_4,&P^{24}&=-3x_2x_3+x_4^2,&
+ P^{34}&=x_0^2-x_1x_4+x_3^2.
+\end{aligned}
+\end{equation}
+$P^{0i}=0$ である。
+
+\subsection{退化因子と Poisson 超曲面}
+Euler 場を $E=\sum_{i=0}^4x_i\partial_i$ とし、
+\[
+                    q=x_0^2+2x_1x_4+x_3^2
+\]
+と置く。四変数部分の Pfaffian と全空間の top wedge は
+\begin{align}
+ \Pf(P_{1234})&=P^{12}P^{34}-P^{13}P^{24}+P^{14}P^{23}=x_0^2q,\label{eq:pf}\\
+ \frac12E\wedge P\wedge P&=x_0^3q\,
+ \partial_0\wedge\partial_1\wedge\partial_2\wedge\partial_3\wedge\partial_4.
+ \label{eq:quintic}
+\end{align}
+最後の $x_0$ を落とすと射影的退化因子の重複度を誤る。
+$\wedge^4T_{\PP^4}\simeq\OO_{\PP^4}(5)$ の切断として
+\[
+                D(\pi)=3H_0+Q_4,\qquad
+ H_0=(x_0=0),\quad Q_4=(q=0)
+\]
+となる。$q$ の対称行列は rank 4 で、$Q_4$ は既約、
+頂点は $[0:0:1:0:0]$ である。$H_0$ はその頂点を通る。
+$[1:0:0:0:0]$ では Pfaffian が1なので、一般 rank は4である。
+
+発散の規約を $(\delta P)^j=\sum_i\partial_iP^{ij}$ とすると
+$\delta P=2N$ であり、canonical unimodular representative は
+\[
+                         \Pi=P-\frac25E\wedge N
+\]
+である。$\delta(E\wedge N)=5N$ を使って発散が零になることを確認できる。
+直接計算により
+\begin{equation}\label{eq:cofactors}
+ \Pi^\sharp\dd x_0=-\frac25x_0N,\qquad
+ \Pi^\sharp\dd q=\frac65qN.
+\end{equation}
+従って $H_0,Q_4$ はいずれも Poisson 超曲面である。
+さらに $\Pi^\sharp\dd(x_0^3q)=0$ であり、重複度と cofactor の整合性も確認できる。
+
+\subsection{全接空間の厳密な次元計算}
+ここでは特別な標準形の中だけの変形を計算しない。
+$\AA^5$ 上のすべての homogeneous quadratic bivector を含む空間
+\[
+ V=\Sym^2(\CC^5)^*\otimes\wedge^2\CC^5,\qquad \dim V=15\cdot10=150
+\]
+を用いる。射影化で消える vertical space は
+\[
+ V_{\mathrm{vert}}=\{E\wedge(Ax):A\in\operatorname{End}(\CC^5)\}.
+\]
+$A$ が scalar のとき、かつそのときに限って $E\wedge Ax=0$ なので、
+$\dim V_{\mathrm{vert}}=24$、$h^0(\wedge^2T_{\PP^4})=126$ である。
+
+射影的 Jacobi 条件の線形化は
+\[
+                   \mathsf J_P:R\longmapsto E\wedge[P,R]
+\]
+の係数行列である。標的は係数次数4の四ベクトルの空間で、
+次元は $5\binom84=350$ である。
+$\mathsf V$ を25本の vertical columns、$\mathsf O$ を25本の線形座標変換の微分とし、
+\[
+                   \mathsf M=[\mathsf V\mid\mathsf O\mid P]
+\]
+とする。厳密計算の結果は
+\begin{equation}\label{eq:rankcert}
+ \rank_{\QQ}\mathsf J_P=103,\qquad
+ \rank_{\QQ}\mathsf V=24,\qquad
+ \rank_{\QQ}\mathsf M=47,\qquad \mathsf J_P\mathsf M=0.
+\end{equation}
+これらは有理数上の消去であり、有限体上の rank だけから上界を推測していない。
+独立な monomial-index 実装、過去の helper を使わない多項式辞書実装でも同じ結果になる。
+係数・minor の検証結果と、pivot を再計算するコードを同梱した。
+
+よって
+\begin{align*}
+ \dim T_\pi\Pois(\PP^4)&=150-24-103=23,\\
+ \dim T_{[\pi]}\cP&=23-1=22,\\
+ \dim(\PGL_5\cdot[\pi])&=47-24-1=22.
+\end{align*}
+
+\begin{proof}[定理 \ref{thm:main} の成分性の証明]
+局所次元は軌道次元22以上、接空間次元22以下であるから22である。
+局所次元と embedding dimension が一致するので、$[\pi]$ の局所環は正則である。
+従ってこの点を通る既約成分は一つで、その次元は22となる。
+$\PGL_5$ は既約であるから軌道閉包も既約であり、同次元なのでその成分に一致する。
+軌道は閉包の稠密開集合となる。
+\end{proof}
+
+特にこれは $\cQ$ の9次元成分を形式的に持ち上げただけの主張ではない。
+全150係数を使った $\cP$ の接空間によって、周囲の別方向の変形も含めて成分性を証明している。
+
+\subsection{既存47成分との区別}
+rank 4 の開集合 $\cP^{(4)}$ 上では $\pi\mapsto[\pi\wedge\pi]$ が
+五次式の射影空間への morphism を定める。
+五次式が一次式の三乗で割れる条件は閉条件である。実際、これは projective morphism
+\[
+ \PP((\CC^5)^*)\times\PP(\Sym^2(\CC^5)^*)
+ \longrightarrow\PP(\Sym^5(\CC^5)^*),\quad
+ ([L],[q'])\longmapsto[L^3q']
+\]
+の像である。式 \eqref{eq:quintic} から、$\Cnew\cap\cP^{(4)}$ のすべての点は
+この閉条件を満たす。
+
+SNC log symplectic な退化因子は被約なので、三乗の一次因子をもたない。
+従って $\Cnew$ は \cite[Theorem 1.4]{MPS} の40成分のいずれでもない。
+一般 rank 2 の六成分は閉集合 $(\pi\wedge\pi=0)$ に含まれ、今回の rank 4 成分とは異なる。
+前回の残る成分の開軌道は $LQ_{\mathrm{smooth}}^2$ を退化五次式としてもち、
+これも三乗の一次因子をもたない。
+以上で48成分が互いに異なることが分かる。
+rank 2 点では退化五次式が恒等的に零になるため、上の morphism は必ず rank 4 開集合に制限して用いる。
+
+\subsection{同型を除いた一般元と一つの境界}
+$\widetilde H=x_0\partial_0+H$ と置くと
+\[
+ [N,P]=0,\quad [\widetilde H,P]=2P,\quad [\widetilde H,N]=2N.
+\]
+射影安定化群の Lie algebra は次元 $24-22=2$ であり、この二つの場で張られる。
+従って一般元は定数倍と射影座標変換を除けば一つの同型類である。
+22は固定座標をもつ構造のパラメータ空間の次元であり、
+座標変換を除いた22個の自由パラメータという意味ではない。
+
+また $P_t=t x_0^2J+H\wedge N$ はすべての $t$ で Poisson であり、
+$t\ne0$ なら $x_0$ の rescaling によって \eqref{eq:newP} と同値である。
+$t=0$ では rank 2 の $H\wedge N$ に退化する。
+$N$ の五次元表現上の Jordan 型は $(4,1)$ なので、これは
+$\Aff(4,1)$ 族の特別点との交叉を与える。
+この一つの退化から、どちらかの全成分が他方に含まれるとは結論しない。

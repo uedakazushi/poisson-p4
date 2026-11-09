@@ -1,0 +1,238 @@
+\section{\texorpdfstring{$C_+$}{Cplus} の斉次化を含む24次元二重成分}
+\label{sec:cplus-family}
+
+補助空間 $\cQ$ における $C_+$ 成分の斉次化は、全射影 Poisson scheme
+$\cP$ の中でさらに変形する。本節では二つの実パラメータを持つ普遍族を構成し、
+その $\PGL_5$ 飽和が24次元成分を与えることを証明する。
+一般点の横断環は長さ2であり、補助空間内で得た長さ4とは異なる。
+以下で使う接空間は全150係数の行列から計算する。
+
+\begin{theorem}\label{thm:cplus-family}
+$C_+$ の斉次化像を含む、全 $\cP$ の24次元既約成分
+$\mathcal C_+^{\mathrm{ext}}$ が存在する。一般閉点での完成局所環は
+\begin{equation}
+ \CC[[a_1,\ldots,a_{24},\varepsilon]]/(\varepsilon^2).
+ \label{eq:cplus-local-ring}
+\end{equation}
+したがって一般射影接空間の次元は25、一般横断長さは2である。
+一般 $\PGL_5$ 軌道は22次元、被約有理商は2次元である。
+この成分は v7 までに得た55成分のいずれとも異なる。
+\end{theorem}
+
+ここで有理商の次元とは Rosenlicht 商の次元を意味する。
+不変体が二変数の純超越拡大であることは主張しない。
+また元の特殊な斉次化点については本成分への包含を結論するが、
+その点を通る全成分や完成局所環の分類まで主張するものではない。
+
+\subsection{二つの実パラメータを持つ族}
+
+同次座標を $(h,x,y,z,w)$ とする。まず
+\begin{align}
+ P_0={}&(h^2+x^2+8xz-z^2)\partial_x\wedge\partial_y
+ +(5x^2-4xz-z^2)\partial_x\wedge\partial_w\notag\\
+ &+(x^2+4xz-5z^2)\partial_y\wedge\partial_z
+ +\bigl(x^2+2(z-x)(y+w)\bigr)\partial_y\wedge\partial_w\notag\\
+ &+(h^2-x^2+8xz+z^2)\partial_z\wedge\partial_w
+ \label{eq:cplus-special-point}
+\end{align}
+と置く。次の二次式とベクトル場を用いる。
+\begin{align*}
+ H&=h+4x-4z,\\
+ A&=3hx-5hz+7x^2-12xz+5z^2,\\
+ B&=5hx-3hz+5x^2-12xz+7z^2,\\
+ L&=2h+18(x-z),\qquad
+ U=2hH\partial_h-A\partial_x+B\partial_z.
+\end{align*}
+二つのパラメータ $c,\beta$ に対して
+\begin{equation}
+ \begin{split}
+ P_{c,\beta}=P_0+\frac{c+1}{5}\bigl(&U\wedge(\partial_w-\partial_y)
+                  +L(y+w)\partial_y\wedge\partial_w\bigr)\\
+                  &+\beta hx\partial_y\wedge\partial_w
+ \end{split}
+ \label{eq:cplus-universal-family}
+\end{equation}
+と定める。これはパラメータについても多項式の族であり、
+$P_{-1,0}=P_0$ である。
+
+\paragraph{Jacobi 恒等式の構成による証明}
+三次元の底空間 $(t,u,v)$ 上で
+\begin{align*}
+ V={}&-8tu\partial_t+(5t^2+2u^2)\partial_u
+                      +(-10tu+12uv)\partial_v,\\
+ W={}&2t((c-1)t-4cv)\partial_t
+      -u((3c+2)t-2cv)\partial_u\\
+    &+(-8(c-1)tv+12cv^2+10u^2)\partial_v
+\end{align*}
+と置く。直接計算によって
+\begin{align}
+ [V,W]&=aV+bW,\qquad a=(2-7c)t+18cv,\quad b=-8u,
+ \label{eq:cplus-bracket}\\
+ \det(E_{\mathrm{base}},V,W)
+ &=100t(u^2+tv)\bigl(u^2+ctv+(1-c)t^2/2\bigr)
+ \label{eq:cplus-determinant}
+\end{align}
+を得る。したがって底空間上の任意の同次二次式 $G$ に対して
+\[
+ \Pi=V\wedge\partial_y+W\wedge\partial_w
+            +(-ay-bw+G)\partial_y\wedge\partial_w
+\]
+は $\AA^5$ 上で Poisson である。Jacobi 式は
+\eqref{eq:cplus-bracket} に帰着する。$G$ が $y,w$ に依存しないため、
+この二次式を任意に選んでも恒等式を保つ。
+
+底空間の固定座標変更
+\[
+ (t,u,v)=(h,x+z,x-z+h/2)
+\]
+と生成元の固定行列
+\[
+ M=\frac15\begin{pmatrix}1&1\\1&-1\end{pmatrix}
+\]
+を適用し、磁気項を $x^2+\beta hx$ とする。さらに固定された vertical 項
+$E\wedge X$、$X=-\frac{16}{5}(z\partial_y+x\partial_w)$ を引くと、
+\eqref{eq:cplus-universal-family} を得る。
+したがってこれは全パラメータで射影 Poisson 恒等式を満たす。
+構成・座標変更・式 \eqref{eq:cplus-universal-family} の完全な一致を
+証明コードでも確認する。
+
+\subsection{補助空間の元の成分との関係}
+
+式 \eqref{eq:cplus-special-point} は $h^2J+16Q$ であり、
+$Q$ は v7 の $C_+$ 正規形の磁気係数
+$(p_3,p_4,p_5)=(1/16,0,0)$ に対応する。
+この点と v7 の標本 $(1,2,3)$ で、$\Sp_4$ 軌道の次元はともに9、
+$\Sp_4\times\mathbf G_m$ 軌道の次元はともに10である。
+両者は既知の同じ既約10次元 $C_+$ 成分に属するので、
+どちらの軌道も開軌道であり、従って同じ軌道である。
+
+$Q$ の非零スカラー倍は、斉次化後には $h$ のスカラー変更と
+双ベクトル全体のスカラー倍で吸収される。
+よって $P_0$ は v7 の斉次化標本と射影同値である。
+稠密開軌道を閉包に移すことで、元の $C_+$ 全成分の斉次化像閉包が
+$\mathcal C_+^{\mathrm{ext}}$ に含まれることも従う。
+
+\subsection{全150係数の階数と普遍法線}
+
+$\AA^5$ 上の同次二次双ベクトルの150係数を使い、
+射影 Jacobi 方程式を $F(P)=E\wedge\operatorname{Jac}(P)$ と書く。
+これは350個の係数方程式であり、その微分を $D_P$ とする。
+vertical 部分空間 $E\wedge\{\text{一次ベクトル場}\}$ は24次元である。
+その線形商の次元は126、さらに非零スカラーを正規化した射影 chart は125次元となる。
+
+全パラメータで次の二つの一次ベクトル場が $P_{c,\beta}$ を固定する。
+\begin{align*}
+ X_1&=h(-\partial_y+\partial_w),\\
+ X_2&=((c+1)x+(1-c)z)\partial_y
+                +((1-c)x+(c+1)z)\partial_w.
+\end{align*}
+これらは Euler 場を法として独立なので、射影軌道は22次元以下である。
+実パラメータが二つであるため、族の飽和像は24次元以下となる。
+
+有理点 $(c,\beta)=(-1,1)$ における厳密計算は次の通りである。
+\begin{center}
+\begin{tabular}{lr}
+\toprule
+行列または接方向&階数\\\midrule
+$D_P$&100\\
+vertical&24\\
+vertical、$\GL_5$、スカラー&47\\
+上記と $c,\beta$ の実変形&49\\
+実変形と普遍法線 $R$&50\\
+$D_P$ と法線の二次 Jacobi 障害&101\\\bottomrule
+\end{tabular}
+\end{center}
+従って射影像の次元は正確に24、一般軌道の次元は正確に22である。
+
+一般の Jacobi 階数の上界には、有限個の標本計算とは別の証明が必要である。
+実変形49方向だけから従う上界は101であって100ではない。
+そこで $(c,\beta)$ に関する二重次数 $(2,1)$ の多項式法線 $R(c,\beta)$ を構成した。
+その150係数を \path{universal_normal.json} に全て収録し、
+\[
+ D_{P_{c,\beta}}R(c,\beta)=0
+\]
+の350係数を多項式恒等式として検証する。
+標本で実変形49方向と $R$ の階数が50であるから、
+稠密開集合で $\rank D_P\le100$ を得る。
+一方、標本の非零100次小行列式は一般階数の下界100を与える。
+よって一般階数は正確に100、一般射影接空間は25次元である。
+
+標本において全核から実変形に対する法線 $R_0$ を選ぶと
+\begin{equation}
+ \rank[\,D_P,\ E\wedge\operatorname{Jac}(R_0)\,]=101>100.
+ \label{eq:cplus-quadratic-obstruction}
+\end{equation}
+この非消滅も稠密開条件である。
+普遍恒等式と標本の厳密階数を組み合わせることで、
+一般点の法線が正確に一方向であり、その二次障害が非零であることを得る。
+
+\subsection{形式局所環と成分性}
+
+\begin{proof}[定理\ref{thm:cplus-family}の証明]
+実際の飽和像の滑らかな稠密開集合を選ぶ。
+その次元は24、全接空間の次元は25で一定である。
+上で得た普遍核の法線は、その開集合上の一次 jet を与える。
+
+実際の24次元族を形式座標で直線化し、独立な100個の線形化方程式で
+補空間を消去すると、残余イデアルは
+\[
+ I\subset\CC[[a_1,\ldots,a_{24},\varepsilon]]
+\]
+に入る。実際の族の存在によって $I\subset(\varepsilon)$、
+普遍一次 jet によってさらに $I\subset(\varepsilon^2)$ となる。
+式 \eqref{eq:cplus-quadratic-obstruction} は、残余方程式の一つが
+$\varepsilon^2$ の単元倍であることを意味する。
+従って $I=(\varepsilon^2)$ であり、\eqref{eq:cplus-local-ring} を得る。
+その被約環は24変数の正則局所環であるから、
+24次元の既約像閉包は全 $\cP$ の既約成分である。
+また一般点を通る他の被約成分は存在しない。
+
+同じ議論を150係数上で行えば、実際の族49、法線1、補空間100となる。
+vertical 方向の平行移動は単なる一次計算ではなく、実際に $F$ を保存する。
+実際、同次性によって $[E,P]=[E,X]=0$ なので
+$E\wedge\operatorname{Jac}(P+E\wedge X)=E\wedge\operatorname{Jac}(P)$ である。
+従って24次元の vertical 商とスカラー正規化は scheme の議論と両立する。
+
+一般軌道22次元と成分24次元の差から、被約有理商の次元は2である。
+既知成分との区別は次項で行う。
+\end{proof}
+
+\subsection{退化因子、既知成分との区別、特殊点で残る問題}
+
+全五次退化式は
+\begin{equation}
+ D_c=h\bigl(h^2+2h(x-z)+2(x+z)^2\bigr)
+          \bigl(h^2+2ch(x-z)+2(x+z)^2\bigr).
+ \label{eq:cplus-degeneracy}
+\end{equation}
+一般の $c$ では、一つの超平面と異なる二つの rank3 二次超曲面からなる。
+$\beta$ は退化式に現れない。
+
+式 \eqref{eq:cplus-degeneracy} は高々三つの本質的変数に依存する。
+五つの四次偏微分の係数行列の階数が3以下であることは射影不変な閉条件なので、
+同じ性質は飽和像の閉包全体に成り立つ。
+一方、$\PP^4$ 上の被約 SNC 五次因子はこの条件を満たさない。
+三変数だけに依存するなら全既約因子は共通の頂点 $\PP^1$ を持つ錐となる。
+二次以上の因子はそこで特異となるため SNC の滑らかな成分ではなく、
+全て一次因子なら五つの異なる超平面がその頂点を含み、正規交叉ではない。
+よって新成分の rank4 部分は SNC locus と交わらず、SNC locus に交わる
+既知40成分のいずれとも異なる。
+
+一般 rank4 であることから既知の rank2 六成分とも異なる。
+v7 までに数えた残りの成分は22、23、28次元なので、24次元という成分次元で
+区別される。従って本成分は55成分に対する新しい一成分である。
+
+元の点 $P_0=P_{-1,0}$ では $\rank D_{P_0}=99$、射影接空間は26次元である。
+したがって一般点の式 \eqref{eq:cplus-local-ring} をそのまま適用してはならない。
+本節の成分への包含は明示族と開軌道によって証明済みであるが、
+この特殊点を通る全成分の一意的帰属や全完成局所環は未決定とする。
+
+\paragraph{再現と独立監査}
+\path{certify_cplus_component.py} は普遍 Poisson 恒等式、二つの安定化子、
+普遍法線、全150係数の標本階数、二次障害、退化式を検証する。
+出力は \path{cplus_component_certificate.json} である。
+\path{synthesize_normal.py} は次数 $(2,1)$ の法線を有理数上の線形系から
+再構成する任意の補助検証である。
+別実装の \path{audit_cplus_component.py} により、元の計算モジュールを
+読み込まずに普遍族・普遍法線・階数・障害・開軌道を再検証した。
+

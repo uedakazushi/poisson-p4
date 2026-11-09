@@ -1,0 +1,54 @@
+Independent audit of the 31 NN k=3 initial reduction
+===================================================
+
+Audited against the raw matrices in root/e8_jets/31_external.json.
+The normal-coordinate ordering for the twisted cubic is (x2,x3,x4).
+This audit concerns the geometric initial slice, not the later exact linear
+certificate (which is audited separately).
+
+Input: the two modular residues are normalized to t^2, both conormal brackets
+vanish at the node, and the twisted-cubic bracket vanishes there to order 3.
+Use the already-established node substitutions
+z36=z38=z30=z31=z25=z32=z22=z33=0,
+z37=z39=1, z14=-z35.
+
+1. Coefficients below order 3 of the twisted-cubic bracket give:
+ B01[t^2]=3 z17                 => z17=0;
+ B11[t]=-2 z17+z27              => z27=0;
+ B11[t^2]=-3 z18                => z18=0;
+ B02[t^2]=z34                   => z34=0;
+ B12[t]=-z26                    => z26=0;
+ B12[t^2]=-3 z28-2 z35          => 3 z28+2 z35=0;
+ B22[t]=z21, B22[t^2]=3 z23      => z21=z23=0.
+
+2. The leading symmetric rank-one matrix B/t^3 has entry00=0 and
+ entry02=3 z28+4 z35. Its 2x2 minor on indices(0,2) is minus the
+ square of entry02. At a complex closed point, this forces
+ 3 z28+4 z35=0. Combined with step1: z28=z35=0 and hence z14=0.
+
+3. The internal 2x2 block becomes
+ t^3 z9 [[4t^2,-2t],[-2t,1]].
+ If z9=0, rank one forces both internal rows/columns to be zero, so
+ the conormal center is purely the external hyperplane covector along
+ the entire twisted cubic. Then the Hessian of F|H vanishes along T,
+ F|H has multiplicity at least3 along T, and every secant line lies in
+ V(F|H) because 2*3>5. Since secants fill H, F|H=0, contradicting
+ normality of the actual quintic. Therefore z9!=0.
+
+4. Rank one with the displayed nonzero internal block implies
+ row0+2t row1=0. Its final-column entry is exactly
+ B02+2t B12 = t^4(z19-2 z29)+t^5 z20.
+ Hence z20=0 and z19=2 z29.
+
+5. The line bracket has entry00=t z21=0, entry01=t z23=0,
+ and entry02=t z24. Rank one gives z24=0.
+
+These are precisely the initial reductions recorded in
+chains/31_C_NN_k3_certificate.json. No parameter division occurs except
+using the geometrically proved nonzero z9 to identify the row direction;
+equivalently the row relation follows after localization at this required
+nonzero scalar. No branch with z9=0 is discarded without the separate
+hyperplane/secant exclusion in step3.
+
+Audit result: PASS. No assumption that the actual hyperplane covector is
+an eigenvector of the modular linearization is used.

@@ -1,0 +1,222 @@
+V14 INDEPENDENT AUDIT: STABLE RANK-TWO EXHAUSTION
+===============================================
+All varieties and sheaves are over C. The statement audited is:
+
+Let pi be a rank-two Poisson structure on P4 without a divisorial zero, and
+let F be its saturated rank-two symplectic foliation. If H0(T_F)=0, then pi
+has an ACTUAL Rat(1,1,3) or Rat(1,2,2) Jacobian presentation.
+
+This result concerns the stable branch and does not by itself classify all
+rank-two foliations with H0(T_F)!=0 or all rank-four components. It is stronger
+than the historical low-degree-Casimir filters and makes the old stable
+essential-five quartic / unbounded-minimal-degree frontier obsolete.
+
+A. Canonical lift and five sections
+----------------------------------
+The canonical homogeneous quadratic divergence-free lift Pi is Poisson and
+has affine rank2. Its rank2 follows from alpha=i_(Pi^2/2)Omega: alpha is closed,
+has Euler weight5, and i_E alpha=0 because projective pi^2=0. Cartan gives
+5alpha=d(i_E alpha)=0. Let G be saturated im(Pi:O(-1)^5→O(1)^5).
+G is reflexive: the quotient of a locally free sheaf is torsion-free, and the
+depth lemma makes the kernel S2. Since Pi is primitive, detG=O. Euler projection
+identifies G with T_F outside codimension>=2, and thus globally by reflexivity.
+Dualizing this embedding and using rank2 self-duality gives
+ O^5→E=T_F(1), generating E in codimension1.
+Let W be the image of these five sections. Its constant kernel is exactly
+the space A1 of linear polynomial Casimirs. Thus dimW=5-dimA1.
+
+B. A global section and a degree bound
+--------------------------------------
+A general section s in W has no divisorial zero and gives
+ 0→O→E→I_Z(2)→0.
+The codimension-two scheme Z is unmixed. Locally at ambient codimension>=3,
+reflexivity gives depthE>=2, hence depthI_Z>=2 and depthO_Z>=1, excluding
+embedded associated primes. At codimension2 the sheaf is locally free.
+Twisting by-1 and using H0(T_F)=0, H1(O(-1))=0 gives H0(I_Z(1))=0.
+Determinants s wedge s_i are quadrics vanishing scheme-theoretically on Z;
+they have no common divisor, because the five sections generate in codimension1
+and s has no divisorial zero. Choose two coprime such quadrics q1,q2.
+Then Z⊂Y=V(q1,q2), a (2,2) complete intersection. Thus degZ<=4.
+If degZ=0, unmixedness gives Z empty and the extension splits O⊕O(2), violating
+stability. If degZ=1, unmixedness makes Z a plane, violating H0(I_Z(1))=0.
+Therefore degZ=2,3,4; equivalently c2(T_F)=1,2,3. No Bogomolov equality theorem
+or stability of the restriction to a linear plane is needed.
+
+C. Degree4 and degree3 branches
+-------------------------------
+If degZ=4, Z=Y: same generic lengths inside the unmixed complete intersection
+force equality (the difference would be a smaller-dimensional submodule of
+O_Y). Resolving I_Z and the extension gives
+ 0→O(-2)→O^3→E→0,
+so h0(E)=3. Hence dimA1>=2, and the previously proved exact low-center lemma
+gives actual Rat113.
+
+If degZ=3, the residual colon in Y has degree1 and is an unmixed plane H.
+This linkage does not require prior local Cohen–Macaulayness of Z. In the
+Gorenstein complete-intersection local ring A, the quotients by annihilator
+ideals embed in finite direct sums of A and are unmixed. At minimal primes,
+Artinian-Gorenstein double-annihilator duality holds. Since unmixed ideals are
+determined by those localizations, Ann Ann(I_Z/I_Y)=I_Z/I_Y globally.
+Writing H=(L1,L2) and qi=Ai L1+Bi L2 gives the reverse colon explicitly:
+ I_Z=(q1,q2,A1 B2-A2 B1).
+This is the Hilbert–Burch ideal, with resolution
+ 0→O(-3)^2→O(-2)^3→I_Z→0.
+Lifting its twist by2 into the extension yields
+ 0→O(-1)^2→O^4→E→0.
+Thus h0(E)=4 and dimA1>=1. If dimA1>=2, use Rat113 as before. Otherwise choose
+L=t as the unique linear center. The four actual sections span all H0(E), so
+dualizing the Steiner presentation identifies T_F inside O(1)^4 as the kernel
+of a two-by-four matrix of homogeneous linear forms. Consequently
+ beta=i_Pi Omega = constant * dt wedge theta1 wedge theta2,
+where theta_i are vertical one-forms on four variables with coefficients linear
+in those variables and t. No scalar polynomial factor is present because both
+the primitive bivector and the minimal minors have determinant degree zero.
+
+Closed-form lemma (independently audited): Put A=d_y theta1, B=d_y theta2.
+These are constant two-forms and closedness says A wedge theta2=theta1 wedge B.
+If their pencil contains a rank4 form, change basis to make A nondegenerate.
+Define the homogeneous linear vertical field X by i_X A=theta1. Contracting
+the identity gives
+ theta2(X) A = -theta1 wedge (i_X B+theta2).
+The right side has rank at most2; A has rank4, so theta2(X)=0. Also theta1(X)=0.
+Thus X is a nonzero global tangent linear field, contradicting H0(T_F)=0.
+If A,B are independent but every member has rank<=2, their decomposable forms
+share a factor; choose A=dx wedge dy, B=dx wedge dz. The same identity forces
+both theta_i to have no dw component, giving tangent constant field partial_w
+(multiply by t for a global linear field). If B is proportional to A!=0,
+replace theta2 to make B=0 and take A=dx wedge dy. Then theta2 involves only
+dx,dy, and X=(theta1)_w partial_z-(theta1)_z partial_w is tangent. If X=0,
+partial_z is tangent instead. Both contradict stability. Therefore A=B=0.
+Integrating their linear coefficients gives homogeneous quadrics Q1,Q2 with
+theta_i=d_y Qi. Thus this branch has actual Rat122 presentation.
+
+D. Degree2: why the zero surface is reduced
+------------------------------------------
+The rank-zero locus of W⊗O→E cannot contain a surface S. Near its generic point
+E is locally free and all five sections vanish, so every quadratic Plücker
+coefficient of Pi vanishes to second order along S. Each linear derivative of
+each coefficient then vanishes on S. The coefficients lie in the symmetric
+square of the linear ideal of span(S). Since dimS=2, primitiveness forces spanS
+to be a plane and Pi to depend on only two linear variables u,v.
+Its ten primitive binary quadrics have no common point of P1, so they define
+a map P1→Gr(2,5) of Plücker degree2. The pulled-back tautological bundle splits
+O(-a)⊕O(-b), a,b>=0, a+b=2. Pulling back to P4 outside (u=v=0), twisting by1,
+and extending reflexively makes T_F split O(1-a)⊕O(1-b), contradicting stability.
+Thus rank-zero locus has dimension<=1.
+
+A general section has no surface zero component inside the rank-one locus:
+that locus has finitely many surface components, and vanishing identically
+on one imposes a proper linear condition on W. Every surface component of Z
+therefore meets the rank-two evaluation open set. There E is a vector bundle
+generated by W, so generic-section Bertini makes Z generically smooth and
+reduced. Unmixedness then makes Z reduced everywhere.
+A reduced pure surface of degree2 not contained in a hyperplane is exactly
+two planes meeting at one point. An irreducible degree2 surface spans P3;
+two planes meeting in a line also span P3. Thus, after coordinates,
+ Z=V(a,b) union V(c,d) in P4_(a,b,c,d,t).
+
+E. All reflexive extensions are null-correlation models
+------------------------------------------------------
+For this Z, Mayer–Vietoris and duality give
+ sheaf Ext1(I_Z(2),O)=O_(V(a,b)) directsum O_(V(c,d)).
+The higher cohomology of Hom(I_Z(2),O)=O(-2) vanishes in the relevant degrees,
+so global Ext1(I_Z(2),O)=C^2. A reflexive extension must have both components
+nonzero, since on each plane's generic codimension2 point the middle sheaf
+must be locally free. Block-diagonal coordinate scalings change the two local
+normal determinants independently, so the open set of such extension pairs
+is one orbit up to coordinate changes and extension rescaling.
+
+One representative is the null-correlation monad:
+ 0→O(-1) --v--> O^4 --v^t J--> O(1)→0,
+where v=(a,b,c,d)^t and J12=J34=1 is symplectic. Let Ntilde denote its middle
+cohomology, and E=Ntilde(1). It is reflexive (the only possible non-bundle point
+is a=b=c=d=0 and the local Koszul depths are at least2). The section represented
+by (a,b,0,0) has precisely zero scheme Z; the determinant quadrics generate
+(ac,ad,bc,bd). It has nonzero extension class on both planes and so represents
+all reflexive extensions up to the indicated changes. The linear syzygies of
+v^tJ have dimension6; quotienting by the radial section leaves h0(E)=5.
+
+F. Complete-section Plücker normal form and changes of basis
+-----------------------------------------------------------
+Use primitive alternating forms on C4 with basis
+ F0=e12-e34, F1=e13, F2=e14, F3=e23, F4=e24;
+put K_i=J^-1 F_i. Their Clifford relations are
+ K_i K_j+K_j K_i=2 q_ij I,
+where q00=1, q14=q41=1/2, q23=q32=-1/2 and all other entries vanish.
+The five complete sections of E evaluate as K_w v modulo C v in v^perp/C v.
+The matrix B(v) of w→K_wv is
+ [ a, 0,0,-c,-d;
+   b, c,d, 0, 0;
+  -c, 0,a, 0, b;
+  -d,-a,0,-b, 0 ].
+It has rank3 for every v!=0: its3x3 minors span all20 cubic monomials.
+Clifford anticommutation shows that kerB(v) is the q-orthogonal complement of
+the kernel of the five-section evaluation map. Thus q identifies it with
+the dual-image plane of E. Its Plücker bivector has pair-order
+ 01,02,03,04,12,13,14,23,24,34
+and entries
+ P0(v)=(bd,-bc,-ad,ac,b^2,d^2,-ab-cd,ab-cd,c^2,a^2).
+All Pfaffians vanish and P0^t q P0=0. These ten quadrics span Sym^2 C4^*, so
+P3→OGr(2,5) is the2-Veronese map in Plücker coordinates and an isomorphism
+onto OGr(2,5) (both are irreducible dimension3). Any orthogonal change of q
+therefore induces a projective linear change of v, since Aut(P3)=PGL4.
+
+The original five sections need not span all h0(E). In complete-section bases,
+the actual canonical bivector has form C P0(Ax) C^t, with rankA=4 and C a
+constant5x5 matrix of rank dimW. RankC<=3 gives dimA1>=2 and Rat113. If rankC5,
+an ambient coordinate change absorbs C. If rankC4, its kernel line in the
+orthogonal five-space is isotropic or nonisotropic. Orthogonal transformations
+(absorbed by a linear change of spinor variables) and ambient coordinate
+changes normalize C to diag(0,1,1,1,1) in the nonisotropic case or
+diag(1,0,1,1,1) in the isotropic case. No other rank4 case exists.
+
+G. Exact divergence audit and the two universal quadratic centers
+----------------------------------------------------------------
+All results below were independently computed with exact rational arithmetic.
+For v=A x with A4x5 and rankA4, write
+ div_x P0(Ax) = D(A) v.
+D is a linear map from the20 matrix entries of A to20 coefficients. Its matrix
+has determinant16, so the rank5 complete-section case cannot be divergence-free.
+
+For the nonisotropic rank4 projection, the corresponding linear system has
+rank16. Its kernel has only column0 nonzero, giving rankA<=1; impossible.
+
+For the isotropic rank4 projection (drop row/column1), the system has rank12.
+Its full eight-parameter kernel is
+ A=[ 0, r0,  0, 0,-r4;
+    -r6,r1,-r4, 0, r2;
+     0, r3,  0, 0, r6;
+     r4,r5,  0,r6, r7 ].
+Put t=x1. Two homogeneous quadratic Casimirs are
+ Q1=r0*t*x0-r4*x0*x4-r3*t*x3-r6*x3*x4-r5*t*x4-r7*x4^2/2,
+ Q2=-r3*t*x0-r6*x0*x4+r0*t*x2-r4*x2*x4+r1*t*x4+r2*x4^2/2.
+Let a,b,c,d be the four rows of A x. Then
+ d_yQ1=a dx0-c dx3-d dx4,
+ d_yQ2=-c dx0+a dx2+b dx4.
+The complementary3x3 Jacobian minors of (t,Q1,Q2) are exactly -Pdrop1(Ax).
+The code verifies every entry and all centrality equations polynomially in
+all eight parameters, without any nonvanishing assumption. For rankA4 the
+bivector is nonzero, hence this is an actual Rat122 presentation.
+
+Certificates/scripts in the sibling spinor/ directory:
+ construct_spinor.py / spinor_certificate.json:
+  Clifford relations, nondegenerate q(det1/16), all cubic-minor rank20,
+  rank2/isotropy/unique quadratic Plücker kernel, full divergence det16.
+ rank4_projection.py / rank4_projection_certificate.json:
+  the complete two rank4-projection linear kernels, ranks16 and12,
+  all maximal minors of A, and universal centers plus Jacobian equality.
+ isotropic_sample.py is an exploratory sample and is NOT needed for the proof.
+
+H. Consequences for the old frontier
+-----------------------------------
+The three possible degrees of Z are exhausted. Every stable, no-divisorial-zero
+rank2 Poisson structure has an actual Rat113 or Rat122 representation.
+In particular A1!=0; the graded center-field gcd m is1, not5. The hypothetical
+stable branches A1=A2=A3=0, or only powers of one linear center through degree3,
+produce no additional Poisson structures. The historical quartic/higher-degree
+center searches are superseded for the purpose of classifying this branch.
+Polynomiality of the ENTIRE center ring at every special rational member is
+not asserted by this proof, but no longer obstructs this Poisson classification.
+The six full generic-rank2 components and the total lower bound57 are unchanged
+by this stable exhaustion alone; the nonstable rank2 alternatives and full
+rank4 S61 must still be audited separately.

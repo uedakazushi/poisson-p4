@@ -1,0 +1,61 @@
+\section{Modular 零点と直線上の jet の次数}
+
+\subsection{零 slope と modular 線形化}
+
+\begin{lemma}\label{lem:zero-slope-nilpotent}
+滑らかな零曲線の枝 $\Gamma$ 上で、一般点が $\widetilde E_8$ 型 elliptic point
+であるとする。$p\in\Gamma$ で modular residue が零で、その一次係数も零なら、
+ambient modular vector field の $p$ での線形化は全ての固有値が零である。
+\end{lemma}
+
+\begin{proof}
+枝を $t$ 軸に取り、$Z|_\Gamma=R(t)\partial_t$、$\operatorname{ord}_0R\ge2$ とする。
+体積形式に対応する affine Pfaffian を $F$ とすれば $Z(F)=0$。
+normal 二次 jet は一般点で階数一なので、一変数の局所環上で共通因子を除き
+\[
+ F_2=H(t)\ell(t)^2
+\]
+と書ける。$\ell(t)$ は primitive な normal covector、$H$ は非零の正則関数。
+必要なら単元の平方根を局所的に取ればよい。
+$\ell(t)$ の核は $t=0$ まで延びる階数二の bundle である。
+その上の三次 jet は一般に非零の cube なので、同様に primitive な線形形式
+$m(t)$ と非零 scalar $C(t)$ を用いて $C(t)m(t)^3$ と書ける。
+これにより normal 空間の flag が $p$ まで延びる。
+
+$Z(F)=0$ の二次 jet は、$\ell$ の方向の作用係数 $\eta_H(t)$ について
+\[
+ RH'+2\eta_H H=0
+\]
+を与える。primitive generator の $t$ 微分に由来する項は $R$ を因子に持ち、
+$t=0$ での固有値には影響しない。$\operatorname{ord}R\ge2$ と
+$\operatorname{ord}H<\infty$ から $\eta_H(0)=0$。
+二次 jet の核上の三次 class も同様に
+$RC'+3\eta_C C=0$ を与え、$\eta_C(0)=0$。
+normal に沿う nonlinear 項が二次 jet に作用した項は Hessian radical 上では零なので、
+この三次 class の式に補正を加えない。
+残る normal eigenvalue は $\operatorname{div}Z=0$ と tangent eigenvalue 零から零となる。
+従って四つの ambient eigenvalues は全て零である。
+\end{proof}
+
+\subsection{直線上の六つの可能な spectrum}
+
+一般に $\widetilde E_8$ 型である射影直線 $L$ の conormal bracket は
+対称 rank-one pencil $B=\ell(s,t)vv^t$ と書け、中心方向は一定である。
+五次式 $F$ の Hessian scalar は modular residue $R$ と pencil scalar $\ell$ の積に
+比例する。従って単純 modular 零点では Hessian scalar の零点次数 $h$ は一または二。
+一定な Hessian radical 上の cubic は $\OO_{\PP^1}(2)$ 係数の binary cubic であり、
+一般に cube なのでその方向も一定である。実際、cube direction の非定数写像は
+三次 Veronese により次数が少なくとも三となり、係数の次数二に反する。
+cubic scalar の零点次数は $m\in\{0,1,2\}$。
+
+residue slope が $a\ne0$ なら、$Z(F)=0$ と発散零から ambient spectrum は
+\begin{equation}\label{eq:line-spectrum-node}
+ a\left\{1,-\frac h2,-\frac m3,\frac h2+\frac m3-1\right\}.
+\end{equation}
+どの六つの可能性でも固有値 $a$ の重複度は一である。
+conormal bracket が交点で零なら $h=2$ なので
+\[
+ \operatorname{Spec}(Z_1)=a\{1,-1,-m/3,m/3\}.
+ \tag{LS2}
+\]
+

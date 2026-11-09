@@ -1,0 +1,156 @@
+\section{冪零型 \texorpdfstring{$(2,2)$}{(2,2)} と超平面・四次超曲面の成分}\label{sec:22}
+\subsection{固定 trace の全方程式}
+補助空間
+\[
+ \cQ=\{Q\text{ on }\AA^4:[J,Q]=[Q,Q]=0\},\qquad
+ J=\partial_1\wedge\partial_2+\partial_3\wedge\partial_4
+\]
+で $s=Q^{12}+Q^{34}=x_1x_3$ を固定する。
+modular field は $N=x_3\partial_2+x_1\partial_4$ で、Jordan 型は $(2,2)$。
+compatibility、trace、$[N,Q]=0$ の線形条件は全60係数に対して rank49であり、
+11変数 $(a,b,p_3,p_4,p_5,c,v,d,A,B,u)$ が残る。
+$[N,Q]=0$ を先に課してよいことは、v5の恒等式
+$\delta\operatorname{Jac}(Q)=\mathcal L_{\delta Q}Q$ による。
+各式を非零有理数倍して整理すると、全 Jacobi ideal は次の九式で生成される：
+\begin{align*}
+ &6Bb-cA+5dA-2A,\quad AB,\quad Bv-uA,\quad6aA+Bc+3Bd-2B,\\
+ &4ub-p_4A+2cv-4vd+2v,\\
+ &-4ab-4Bp_3-56uv-4Ap_5+c^2-2cd+c+d^2-d,\\
+ &4av-Bp_4-2uc,\quad-2ac-2ad+a+4Bp_5-4u^2,\\
+ &2bc-6bd+3b+4Ap_3-4v^2.
+\end{align*}
+全11変数の二ベクトル表示は証明書に収録した。
+独立実装は60係数の線形行列を再構築し、rank49、表示のパラメータ rank11、
+全 Jacobi 係数と上の九式の係数線形包の一致を確認した。
+
+\begin{theorem}\label{thm:22fiber}
+固定 trace fiber の被約台は、ちょうど17個の4次元既約成分をもつ。
+中心化群による成分の同定後、modular orbit 上では11個の10次元既約部分になる。
+その一つの閉包は、全 $\cQ$ の10次元既約成分である。
+\end{theorem}
+
+\subsection{被約台の17成分を尽くす場合分け}
+$AB=0$ から始める。$A\ne0$ では
+\begin{gather*}
+ B=u=a=0,\qquad c=5d-2,\\
+ p_3=\frac{4v^2-(4d-1)b}{4A},\quad
+ p_4=\frac{2v(3d-1)}{A},\quad
+ p_5=\frac{(4d-2)(4d-1)}{4A}.
+\end{gather*}
+従ってこの開部分は $\mathbf G_m\times\AA^3$ である。
+二つの Darboux block を交換する symplectic map は $N$ を保ち、
+$A\ne0$ と $B\ne0$ を交換するので、もう一つの開成分を得る。
+
+$A=B=0$ では $p_3,p_4,p_5$ が自由となり、残る式は
+\begin{align}
+ 2ub+v(c-2d+1)&=0,&2av-uc&=0,\notag\\
+ -4ab-56uv+(c-d)(c-d+1)&=0,\label{eq:22core}\\
+ a(1-2c-2d)-4u^2&=0,&b(2c-6d+3)-4v^2&=0.\notag
+\end{align}
+$uv\ne0$ なら
+\[
+ a=\frac{uc}{2v},\qquad b=-\frac{v(c-2d+1)}{2u},
+\]
+を代入して
+\[
+ (2d-1)(2c-2d+1)=0,\qquad
+ 16c^2+10cd-5c+d^2-d=0
+\]
+となる。解は
+\[
+ (d,c,uv)=\left(\frac12,\pm\frac18,-\frac1{256}\right),
+ \quad
+ \left(\frac12+c,\pm\frac{\sqrt3}{18},-\frac1{216}\right)
+\]
+の四本の $\mathbf G_m$ である。
+$u\ne0,v=0$ では
+\[
+ (a,b,c,d)=(4u^2,0,0,0),\quad(-4u^2,0,0,1),
+\]
+$u=0,v\ne0$ では
+\[
+ (a,b,c,d)=(0,4v^2,-1,0),\quad(0,-4v^2,1,1)
+\]
+を得る。それぞれ零での極限を加えた二本ずつの $\AA^1$ である。
+最後に $u=v=0$ では、次の七本に尽きる。
+\begin{center}\small
+\begin{tabular}{ccccc}
+\toprule
+型&$a$&$b$&$c$&$d$\\\midrule
+$L_0$&0&0&$\lambda$&$\lambda$\\
+$L_1$&0&0&$\lambda-1$&$\lambda$\\
+$A_0$&$\lambda$&0&$1/4$&$1/4$\\
+$A_1$&$\lambda$&0&$-1/4$&$3/4$\\
+$B_0$&0&$\lambda$&$3/4$&$3/4$\\
+$B_1$&0&$\lambda$&$-3/4$&$1/4$\\
+$AB$&$\lambda$&$-1/(16\lambda)$&0&$1/2$\\\bottomrule
+\end{tabular}
+\end{center}
+最後の行のみ $\lambda\ne0$ とする。
+従って閉部分は、相異なる $4+4+7=15$ 本の既約曲線と自由な $\AA^3$ との積。
+二つの開部分の閉包も加えて17成分となる。
+すべて4次元なので、閉部分の成分が開部分の閉包に含まれるなら等しくなるが、
+$A,B$ の消滅条件からこれは不可能である。
+この場合分けは点集合の全体を尽くす。元の fiber scheme の被約性は主張しない。
+
+\subsection{中心化群と一つの全二次成分}
+$(x_1,x_3;x_2,x_4)$ の順に座標を並べると
+$N=\left(\begin{smallmatrix}0&0\\K&0\end{smallmatrix}\right)$、
+$K=\left(\begin{smallmatrix}0&1\\1&0\end{smallmatrix}\right)$ である。
+symplectic な中心化群は
+\[
+ \begin{pmatrix}A&0\\C&A^{-T}\end{pmatrix},
+ \qquad A^TKA=K,\quad A^TC\text{ が対称}
+\]
+で、$\operatorname O_2\ltimes\AA^3$、次元4、成分群 $\mathbf Z/2$ となる。
+非連結部分による17成分の置換を係数比較すると11軌道を得る。
+modular orbit は $10-4=6$ 次元だから、各 saturation の次元は $6+4=10$。
+二つの開枝は同じ saturation を与える。
+
+$A=1,b=0,v=1,d=0$ の点で、全45変数 Jacobi 微分の rank は35、
+$\Sp_4$ 軌道次元は9、四つの実際の族方向を加えた次元は10である。
+よってこの点は全 $\cQ$ で滑らかで、その saturation の閉包が10次元成分になる。
+閉包全体で modular field は冪零なので、非冪零開集合に交わる既存10成分とは異なる。
+次元から、正則冪零9次元成分、最小冪零13次元二成分とも異なる。
+他の十個の saturation が ambient のどの成分に入るかは未解決である。
+
+\subsection{全射影空間の23次元成分}\label{subsec:quarticcomponent}
+同じ点の二次部分を $Q_*$ と書くと、
+\begin{align*}
+ Q_*^{12}&=-x_1^2+x_1x_3-x_1x_4,&Q_*^{13}&=-x_1^2,&Q_*^{14}&=0,\\
+ Q_*^{23}&=3x_1x_2-4x_1x_3+x_3^2-3x_3x_4,\\
+ Q_*^{24}&=x_1^2+x_1x_2-2x_1x_3+2x_1x_4
+                  +\tfrac12x_3^2-2x_3x_4+x_4^2,\\
+ Q_*^{34}&=x_1^2+x_1x_4.
+\end{align*}
+$P_*=x_0^2J+Q_*$、$P_*^{0i}=0$ とする。退化因子は $D=H+F_4$ であり、
+\begin{equation}\label{eq:quarticF}
+ F=x_0^4+x_0^2x_1x_3+x_1^3x_2-x_1^3x_3
+           +\tfrac12x_1^2x_3^2-x_1^2x_3x_4,
+ \qquad H=(x_0=0),\quad F_4=(F=0).
+\end{equation}
+$F$ は $x_2$ に関する一次式で、係数 $x_1^3$ と定数項は互いに素なので既約。
+全150係数から独立な二つの実装で
+\[
+ \rank\mathsf J_{P_*}=102,\qquad
+ \rank\mathsf V=24,\qquad\rank[\mathsf V,\mathsf O,P_*]=48
+\]
+を確認した。射影接空間と軌道の次元はともに23である。
+従って軌道閉包 $\mathcal C_{H+F_4}$ は全 $\cP$ の23次元既約成分であり、
+一般元は一つの $\PGL_5$ 軌道となる。
+
+$F\in(x_0,x_1)^2$ なので、退化五次式は $x_0F\in(x_0,x_1)^3$。
+「ある $\PP^2$ に沿って三重以上に消える五次式」の集合は、
+$\operatorname{Gr}(3,5)$ 上の空間 $H^0(I_L^3(5))$ の射影束の像として閉である。
+SNC 因子は余次元2の一般点で二枝までしか交わらないので、この条件を満たさない。
+従って本成分は40個の SNC 成分と異なる。
+一般 rank と次元により、六つの rank2 成分、旧22次元二成分、今回の28次元二成分とも異なる。
+
+最後に $\delta P_*=N$ なので、canonical representative は
+$\Pi_*=P_*-E\wedge N/5$ であり、
+\[
+ \Pi_*^\sharp\dd x_0=-\frac15x_0N,\qquad
+ \Pi_*^\sharp\dd F=\frac15FN.
+\]
+超平面と既約四次超曲面はいずれも Poisson 超曲面である。
+固定四次超曲面上の全 Poisson moduli の分類を、この成分から結論しているわけではない。

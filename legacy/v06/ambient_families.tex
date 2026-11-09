@@ -1,0 +1,136 @@
+\section{三つの超平面をもつ二つの28次元成分}\label{sec:ambient}
+\subsection{普遍族の定義と Jacobi 恒等式}
+$\AA^5$ の座標を $(x_0,x,y,z,w)$ とし、
+\[
+ J_{xy}=\partial_x\wedge\partial_y,\qquad
+ J_{zw}=\partial_z\wedge\partial_w,\qquad
+ E_{zw}=z\partial_z+w\partial_w
+\]
+と置く。$h=h(x_0,x,z,w)$ を三次斉次式として
+$X_h=-h_w\partial_z+h_z\partial_w$ とする。
+$f=f(x_0,x)$ は任意の二次斉次式である。次の二族を考える。
+\begin{align}
+ P_A(f,h)&=fJ_{xy}+x_0^2J_{zw}+\partial_y\wedge X_h,
+ \label{eq:PA}\\
+ P_B(f,h)&=f(J_{xy}+J_{zw})
+       +\partial_y\wedge\left(-\frac12f_xE_{zw}+X_h\right).
+ \label{eq:PB}
+\end{align}
+$h$ に $x_0,x$ のみの三次式を加えても構造は変わらない。
+従って、表示した族のパラメータ空間は
+\[
+ \Sym^2\CC^2{}^*\ \oplus\
+ \left(\Sym^3\CC^4{}^*/\Sym^3\CC^2{}^*\right),
+ \qquad 3+(20-4)=19
+\]
+次元である。$P_A$ はこの空間の affine な像、$P_B$ は線形な像である。
+後者を射影化するときは零構造を除く。
+
+両者に $\partial_0$ 成分はなく、係数は $y$ に依存しない。
+一般に
+\[
+ P=f(x_0,x)J_{xy}+g(x_0,x)J_{zw}
+                 +\partial_y\wedge(Y^z\partial_z+Y^w\partial_w)
+\]
+では、唯一残りうる Jacobi 係数は
+\[
+             -f g_x-g(\partial_zY^z+\partial_wY^w)
+\]
+である。$P_A$ では $g=x_0^2$、$\operatorname{div}_{zw}X_h=0$ なので零。
+$P_B$ では $g=f$、$\operatorname{div}_{zw}Y=-f_x$ なので零となる。
+従って両族は全パラメータで Poisson であり、$\PP^4$ 上に降りる。
+
+Euler 場を $E=x_0\partial_0+x\partial_x+y\partial_y+z\partial_z+w\partial_w$
+とすると
+\begin{align}
+ \Pf(P_{A,xyzw})&=x_0^2f,&
+ \tfrac12E\wedge P_A^2&=x_0^3f\,\partial_{0xyzw},\label{eq:DA}\\
+ \Pf(P_{B,xyzw})&=f^2,&
+ \tfrac12E\wedge P_B^2&=x_0f^2\,\partial_{0xyzw}.
+ \label{eq:DB}
+\end{align}
+一般の binary quadratic は異なる一次因子 $L_1L_2$ に分解し、
+$x_0,L_1,L_2$ は同じ二次元一次式空間に属する。よって一般退化因子は
+\[
+ D_A=3H+H_1+H_2,\qquad D_B=H+2H_1+2H_2.
+\]
+三つの超平面は共通の $\PP^2$ を含む。
+
+\begin{theorem}\label{thm:AB}
+$P_A$、$P_B$ が定める射影構造を $\PGL_5$ で動かした像の閉包
+$\mathcal C_A,\mathcal C_B$ は、全 $\cP$ の相異なる28次元既約成分である。
+両者は一般点で被約かつ滑らかで、一般軌道次元は22。
+被約成分の Rosenlicht 商の次元はそれぞれ6である。
+\end{theorem}
+
+\subsection{全150係数による成分性の証明}
+両族に共通して
+\begin{equation}\label{eq:ABpoint}
+                  f=x_0^2+x^2,\qquad h=xzw+z^3+w^3
+\end{equation}
+という整数係数の点を用いる。すべての二次斉次二ベクトルの空間 $V$ は150次元。
+射影化で消える $V_{\rm vert}=\{E\wedge Ax\}$ は24次元である。
+全 Jacobi 線形化 $\mathsf J_P:R\mapsto E\wedge[P,R]$ は $350\times150$ 行列。
+25本の vertical columns を $\mathsf V$、25本の座標変換微分を $\mathsf O$、
+上の19パラメータの実際の微分を $\mathsf F$ とする。
+\[
+ \mathsf M=[\mathsf V\mid\mathsf O\mid P],\qquad
+ \mathsf K=[\mathsf M\mid\mathsf F].
+\]
+二つの点で共通に、厳密計算は
+\begin{equation}\label{eq:ABranks}
+ \rank\mathsf J_P=97,\quad \rank\mathsf V=24,\quad
+ \rank\mathsf M=47,\quad\rank\mathsf K=53,
+ \qquad \mathsf J_P\mathsf K=0
+\end{equation}
+を与える。過去の Poisson helper を import しない別実装でも、
+全行列を単項式から再構築して同じ有理数上の階数を確認した。
+これにより
+\[
+ \dim T_{[P]}\cP=150-97-24-1=28,
+ \qquad \rank\dd(\text{実際の族と軌道})=53-24-1=28.
+\]
+像閉包は既約であり、局所次元は28以上、接空間次元は28以下だから、
+局所環は28次元の正則局所環である。その点を通る成分は一意で、
+像閉包と同じ次元なので両者が一致する。
+この議論は族の形を保つ変形だけでなく、全 $\cP$ の変形を含む。
+
+\subsection{一般軌道と相互の区別}
+すべての $f,h$ で
+\[
+ \mathcal L_{x_0\partial_y}P_A=\mathcal L_{x\partial_y}P_A=0,
+ \qquad
+ \mathcal L_{x_0\partial_y}P_B=\mathcal L_{x\partial_y}P_B=0.
+\]
+従って射影安定化群の Lie algebra の次元は少なくとも2である。
+式 \eqref{eq:ABranks} の軌道次元は $47-24-1=22$ なので、一般点ではちょうど2。
+一般軌道次元は22、従って有理商の次元は $28-22=6$ となる。
+商空間の全体の構成や全軌道の分類までは主張しない。
+
+rank4 の開集合では、退化五次式の射影類への写像が morphism になる。
+五次式が $L^3q$ と書ける条件、また $Lq^2$ と書ける条件は、
+いずれも射影的掛け算写像の像なので閉である。
+前者は $\mathcal C_A$ 全体の rank4 部分で成立するが、
+一般 $\mathcal C_B$ の因子重複度は $1,2,2$ なので成立しない。
+従って両成分は異なる。
+どちらの閉条件も被約な退化因子を排除するので、SNC locus と交わる40成分
+\cite[Theorem 1.4]{MPS} とは異なる。
+一般 rank4 により rank2 の六成分と異なり、次元28により前回の22次元二成分とも異なる。
+
+\subsection{前回の最小冪零二平面との関係}
+v5の最小冪零固定 fiber の二つの9次元平面では、二次部分の
+$Q^{13}=Q^{14}=0$ で、全係数は $y$ に依存しない。
+一方は
+\[
+ Q^{12}=x^2/2,\quad Q^{34}=0,\quad
+ Q^{23}\partial_z+Q^{24}\partial_w=X_h,
+\]
+他方は
+\[
+ Q^{12}=Q^{34}=x^2/4,\quad
+ Q^{23}\partial_z+Q^{24}\partial_w=-xE_{zw}/4+X_h
+\]
+となる。ここで $h=h(x,z,w)$ は三次式である。
+従ってその homogenization はそれぞれ \eqref{eq:PA}、\eqref{eq:PB} の部分族である。
+今回、$x_0$ を含む三次ポテンシャルも許すことで、全成分を与える実際の変形族を得た。
+補助空間の13次元成分を形式的に ambient の成分と数えたわけではない。

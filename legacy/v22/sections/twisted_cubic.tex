@@ -1,0 +1,209 @@
+\section{Twisted cubic と外側の直線の排除}\label{sec:31}
+
+最後の支持は $C=T_{0123}\cup L_{04}$ である。
+第21版の40パラメータ模型を用い、residue を
+\[
+ R_T=(z_{36}t+z_{37}t^2)\partial_t,\qquad
+ R_L=(z_{38}t+z_{39}t^2)\partial_t
+\]
+と書く。以下では全203本の Jacobi 二次式に加え、両成分上の全186本の
+必要 $\widetilde E_8$ first-jet 係数式を用いる。
+一般パラメータで得た結論を例外値へ延長することはせず、全ての例外を分けて処理する。
+
+\subsection{中心線束と有限個の residue の型}
+Twisted cubic の normal bundle は
+\[
+ N_{T/\PP^4}=\OO_{\PP^1}(5)^2\oplus\OO_{\PP^1}(3).
+\]
+conormal bracket の飽和した中心線束を $M=\OO(-m)$ とすると、対称 rank-one bracket は
+$M^{\otimes2}\otimes\det N$ の非零切断を係数とする。
+その零因子の次数は $13-2m$ である。
+
+中心が $N^*_{\PP^3/\PP^4}|_T=\OO(-3)$ に含まれるなら、
+$F|_{\PP^3}$ の横断 Hessian は零であり、$F|_{\PP^3}$ は $T$ に沿って三重に消える。
+一般の割線は二つの点でそれぞれ三重零を持つので、五次式はその割線全体で零となる。
+Twisted cubic の割線は $\PP^3$ を満たすから $F|_{\PP^3}=0$。
+これは $D$ の正規性に反する。
+従って $M\to N^*_{T/\PP^3}=\OO(-5)^2$ は非零であり、
+\begin{equation}\label{eq:tc-center-degrees}
+ m\in\{5,6\},\qquad \deg\operatorname{div}(B_T)\in\{3,1\}.
+\end{equation}
+
+bracket の零因子は modular flow で保存されるので、その台は residue の零点に含まれる。
+交点で $B_T\ne0$ なら、前節の直線と非零 Heisenberg bracket を持つ枝の議論から、
+両 slope は零となる。ところがその場合、$T$ の residue の唯一の零点は交点であり、
+正次数を持つ bracket 零因子もそこに支持されなければならない。
+従って $B_T\ne0$ という仮定と矛盾する。よって常に
+\[
+ B_T(p)=0,\qquad z_{30}=z_{31}=z_{25}=0.
+\]
+
+一方の slope が零なら補題\ref{lem:zero-slope-nilpotent}により両方とも零。
+支持の二つの成分の標点を固定する自己同型は、完全線形系による埋め込みを通じて
+支持安定化群に延びる。従って残る residue は
+\[
+ \mathrm{NN}:\ (t^2\partial_t,t^2\partial_t),\qquad
+ \mathrm{SS}:\ (t\partial_t,\rho t\partial_t),\quad\rho\ne0
+\]
+に標準化できる。
+
+\subsection{SS 型の七つの有限な場合}
+$B_L(p)=0$ なら、直線の spectrum と $T$ の tangent eigenvalue が1であることから
+\[
+ \rho\in\{-1,-3,3,-3/2,3/2\}.
+\]
+この場合の初期線形条件は
+\[
+ z_{32}=0,\quad z_{22}=z_{26},\quad
+ z_{14}=-z_{28}-z_{35}-(2-\rho)/5.
+\]
+$B_L(p)\ne0$ なら、$T$ の接方向の weight を1、直線の weight を $\rho$ とし、
+二つの conormal ideals の共通の二次元 ideal を $N$ と置く。
+$T$ 側の conormal algebra は abelian、直線側は Heisenberg なので、
+$\operatorname{ad}(dt)|_N$ は非零の二次冪零行列である。
+その中心の weight は $\nu=-\rho/2$、$N$ の中心による商の weight は $\nu-1$。
+従って ambient spectrum は
+\[
+ \{1,\rho,-\rho/2,-\rho/2-1\}.
+\]
+一方、$k=\operatorname{ord}_p B_T\le3$ の leading center は
+$\ker\operatorname{ad}(dt)$ に入り、その weight $-(k+1)/2$ は
+$\{\rho,-\rho/2\}$ のいずれかである。
+この二条件を直線の $h=1$ spectrum と比較して
+\[
+ (\rho,k,m_L)=(-3/2,2,2)\quad\text{または}\quad(-2,3,0)
+\]
+に限られる。これで全 SS 型が七つの有理数上の係数問題になる。
+
+後二場合の証明書に入れる初期条件も明記する。
+$k\ge2$ から $z_{33}=z_{32}=z_{26}=z_{21}=0$、$z_{27}=2z_{17}$ を得て、
+直線側の rank-one 条件から $z_{22}=0$ を得る。
+$k\ge3$ なら、さらに
+\[
+ z_{17}=z_{27}=z_{18}=z_{34}=z_{23}=0,\qquad
+ 3z_{28}+2z_{35}=3\rho/5
+\]
+となる。このうち前者は $\rho=-3/2$、後者は $\rho=-2$ に特殊化して用いる。
+
+全七場合の完全な係数証明書を保存した。
+$B_L(p)=0,\rho=-1$ を除く六場合では、全 Jacobi と E8 係数の有理数線形結合、
+および得られた一次式の消去によって $1$ が得られる。
+係数体は $\QQ$ で、変数を分母にする操作はない。
+
+残る $\rho=-1$ では、係数イデアルは線形消去後に
+\[
+ z_9z_{21}=1/9
+\]
+となる。$a=z_9\ne0$ を用いた全 Poisson 行列を保存した。
+その退化五次式は正確に
+\begin{equation}\label{eq:ss-factor-family}
+ F=-\frac{\bigl(3a(x_2^2-x_1x_3)+x_0x_4\bigr)
+ \bigl(3a x_2(x_2^2-x_1x_3)+x_1^2x_4\bigr)}{90a}.
+\end{equation}
+従って actual divisor は二次因子と三次因子を持ち、正規でない。
+これは空な係数イデアルとして処理していない。
+全 Jacobi 方程式を満たす具体的な一般階数四の族であり、正規性によって排除される。
+
+\subsection{NN 型の閉点に関する場合分け}
+NN では $R_T=R_L=t^2\partial_t$。
+bracket の零因子は交点だけに支持されるため、\eqref{eq:tc-center-degrees}より
+$k=\operatorname{ord}_p B_T$ は三または一である。
+直線の bracket も交点で零となるので
+\[
+ z_{36}=z_{38}=0,\quad z_{37}=z_{39}=1,\quad
+ z_{30}=z_{31}=z_{25}=z_{32}=0,
+\]
+\[
+ z_{22}=z_{26},\qquad z_{14}=-z_{28}-z_{35}.
+\]
+
+まず係数式の有理数線形結合が $z_{33}^2$ を与えるので、複素閉点では $z_{33}=0$。
+その後、同じく線形結合で
+\[
+ (z_{17}+4z_{27})(z_{17}-z_{27}),\qquad
+ z_{17}z_j\quad(j=21,23,24,26,28,34),
+\]
+\[
+ z_{18}^2+z_{17}z_9,\qquad z_{18}(z_{17}+4z_{27})
+\]
+を得る。$z_{17}=0$ の枝では、さらに $z_{26}^2,z_{34}^2$ を得る。
+これらを証明する12個の線形結合を別添した。
+従って次の四場合で尽きる。
+
+\begin{center}\small
+\begin{tabular}{@{}lll@{}}\toprule
+場合 & 条件 & 追加の必要条件\\\midrule
+$k=3$ & $\operatorname{ord}_pB_T=3$ & 下記の幾何学的線形条件\\
+IA & $s=z_{17}\ne0,\ z_{27}=s$ & $z_{18}=z_9=0$\\
+IB & $s=z_{17}\ne0,\ z_{27}=-s/4$ & $z_9=-z_{18}^2/s$\\
+II & $z_{17}=z_{27}=z_{18}=z_{26}=z_{34}=0$ & $z_{21}\ne0$\\\bottomrule
+\end{tabular}\end{center}
+IA, IB では上の六つの $z_j$ も零である。
+$s=z_{27}=z_{18}=z_{26}=z_{34}=0$ の下では、$B_T$ の $t$ 係数は
+$\diag(0,0,z_{21})$ である。従ってさらに $z_{21}=0$ の場合は一次項も零となるので、
+既に判明した $k\in\{1,3\}$ により $k=3$ の場合へ入る。
+ここで二乗が零なら変数が零という推論は複素閉点に用いている。
+元の Jacobi イデアルとその根基を同一視するものではない。
+
+\subsection{\texorpdfstring{$k=3$}{k=3} と一変数 B\'ezout 証明書}
+$B_T$ の二次までの係数が零であることから、
+$z_{17}=z_{27}=z_{26}=z_{21}=z_{18}=z_{34}=z_{23}=0$ と $3z_{28}+2z_{35}=0$ を得る。
+先頭行列の rank-one 条件は $3z_{28}+4z_{35}=0$ も与えるので、
+$z_{28}=z_{35}=z_{14}=0$。
+内部二成分の行列は
+\[
+ t^3z_9\begin{pmatrix}4t^2&-2t\\-2t&1\end{pmatrix}.
+\]
+中心が完全に外部へ入る場合は既に排除したので $z_9\ne0$。
+rank-one の交差関係は $z_{20}=0,z_{19}=2z_{29}$ を与え、直線の rank-one 条件は
+$z_{24}=0$ を与える。
+
+この下で、有理数の線形結合と一次式の消去を五段行う。
+最終方程式から順に $z_{16}=0,z_{10}=0,z_{12}=1/10$ を得る。
+$u=z_{29}$ とすると残る二式は
+\[
+ A=2u^2+13u/10+9/50,\qquad
+ B=2u^2-u/5-2/225.
+\]
+しかし
+\[
+ \left(\frac{1098}{175}-\frac{972}{35}u\right)A+
+ \left(\frac{972}{35}u+\frac{2547}{175}\right)B=1.
+\]
+従ってこの場合は存在しない。
+
+\subsection{IA, IB, II と全ての分母の例外}
+一般パラメータの線形消去で使った全ての分母を因数分解した結果は次の通りである。
+記載したもの以外の因子は現れない。
+
+\begin{center}\small
+\begin{tabular}{@{}lll@{}}\toprule
+場合 & 一般計算の分母の因子 & 例外値の処理\\\midrule
+IA & $s,\ 69s+28$ & $s=-28/69$ も $\QQ$ 上で $1$ を得る\\
+IB & $s,\ 3s+1,\ 621s^2+87s+52$ & 下記の二処理\\
+II & $z_{21}$ & 既に非零なので例外なし\\\bottomrule
+\end{tabular}\end{center}
+一般値の三場合はすべて単位イデアルとなる。
+
+IB の二次方程式の根では
+\[
+ \QQ[\theta]/(\theta^2+13511),\qquad s=(-29+\theta)/414
+\]
+上で三段の厳密な線形消去を行い、$1$ を得る。
+証明書の係数は $\theta$ の有理係数多項式である。
+二つの複素埋め込みの両方に同じ恒等式を適用でき、どちらか一方だけを数値的に調べたものではない。
+
+最後の例外 $s=-1/3$ は単位イデアルではない。
+四変数までの消去後、残る方程式は
+\[
+ z_{11}=3z_{18}z_{20},\qquad z_1=3z_{20}^2
+\]
+と同値であり、二つの自由変数 $a=z_{18},b=z_{20}$ を持つ実際の Poisson 族となる。
+その五次式は全ての $a,b$ で
+\begin{equation}\label{eq:nn-singular-plane}
+ F\in(x_2,x_3)^2,\qquad [x_1^3x_3^2]F=-1/120.
+\end{equation}
+従って $F\ne0$ だが、平面 $V(x_2,x_3)$ 全体で特異になり、正規でない。
+全 Poisson 行列と $F$ は保存してあり、Jacobi と\eqref{eq:nn-singular-plane}を独立に直接検証した。
+
+以上で SS と NN の全場合が排除され、最後の $31$ 支持も正規な実際の退化因子には現れない。

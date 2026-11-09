@@ -1,0 +1,36 @@
+{
+  "name": "31 NN kTC3 closed-point exclusion",
+  "base_certificate": "31_C_NN_k3_certificate.json",
+  "steps": [
+    {
+      "type": "square_zero",
+      "equation_index": 61,
+      "conclusion": "z16=0"
+    },
+    {
+      "type": "linear",
+      "conclusion": "z10=0",
+      "equation_index": 56
+    },
+    {
+      "type": "nonzero_geometric_parameter",
+      "assumption": "z9!=0 (nonzero internal center projection)",
+      "conclusion": "z12=1/10",
+      "equation_index": 58
+    }
+  ],
+  "univariate_equations": [
+    "2*z29**2 + 13*z29/10 + 9/50",
+    "2*z29**2 - z29/5 - 2/225"
+  ],
+  "bezout_coefficients": [
+    "1098/175 - 972*z29/35",
+    "972*z29/35 + 2547/175"
+  ],
+  "bezout_result": "1",
+  "verified": true,
+  "univariate_equation_indices": [
+    23,
+    29
+  ]
+}

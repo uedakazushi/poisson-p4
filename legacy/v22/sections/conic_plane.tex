@@ -1,0 +1,80 @@
+\section{Conic の張る平面と四次 jet の障害}
+
+\begin{lemma}[平面内 normal 方向の Hessian は消えない]\label{lem:conic-plane}
+$F$ を $\PP^4$ 上の五次式、$D=V(F)$ を正規な超曲面とする。
+滑らかな conic $C\subset\Pi\cong\PP^2$ に沿って $D$ は特異であり、
+$C$ の一般点の横断型は $\widetilde E_8$ であると仮定する。
+このとき、横断 Hessian を $N_{C/\Pi}$ の方向に制限した二次形式は
+恒等的には零でない。
+\end{lemma}
+
+\begin{proof}
+$\Pi=V(z,w)$、$C=V(z,w,q)$ とし、$q$ は平面上の既約二次式とする。
+反対に、平面内 normal 方向で Hessian が消えると仮定する。
+$F$ とその一階微分は $C$ 上零なので $q^2\mid F|_\Pi$。
+Hessian の仮定からさらに $q^3\mid F|_\Pi$。
+次数が $5<6$ なので $F|_\Pi=0$ である。
+
+従って全 transverse Hessian の平面内 normal 方向の対角成分は零。
+一般点で Hessian は階数一だから、その方向に対応する行と列も零である。
+よって $F_z|_\Pi$ と $F_w|_\Pi$ は $q$ に沿って二重に消える。
+これらは四次式なので
+\[
+ F_z|_\Pi=a q^2,\qquad F_w|_\Pi=b q^2,\qquad a,b\in\CC.
+\]
+$a=b=0$ なら平面 $\Pi$ 全体が $\operatorname{Sing}(D)$ に入るので正規性に反する。
+従って $(a,b)\ne(0,0)$ とし、$z,w$ の定数係数線形変換とスカラー倍で
+$F_z|_\Pi=q^2$, $F_w|_\Pi=0$ とできる。
+
+$C$ の一般点の横断座標を $u=q,z,w$ とする。
+ここからは $C$ の関数体上で Taylor 展開してよい。
+二次項は $z,w$ の階数一形式、三次項は
+\[
+ F_2=A\ell(z,w)^2,\qquad
+ F_3=z u^2+u Q_2(z,w)+Q_3(z,w),\qquad A\ne0
+\]
+の形である。Hessian の核で $\ell=0$ と置くと、三次式には $u^3$ 項がない。
+$\widetilde E_8$ の条件はこの三次式が非零の三乗であることだから、
+$u^2v$ の係数は零でなければならない。従って $z$ は $\ell$ に比例する。
+座標を調整すると
+\[
+ F_2=A z^2,\qquad F_3|_{z=0}=c w^3,\qquad A c\ne0.
+\]
+
+非退化な $z$ 方向を形式的に分離する。
+方程式 $F_z=0$ の解を $z=\psi(u,w)$ とし、$g(u,w)=F(u,\psi(u,w),w)$ とする。
+$F(u,0,0)=0$ と $F_z(u,0,0)=u^2$ から
+\[
+ \psi(u,0)=-\frac{u^2}{2A}+O(u^3),\qquad
+ g(u,0)=-\frac{u^4}{4A}+O(u^5).
+\]
+一方、$\widetilde E_8$ の標準形
+$z^2+w^3+u^6+\tau uwz$ で $z$ を分離すると
+\[
+ g_{\mathrm{std}}(u,w)=w^3+u^6-\frac{\tau^2}{4}u^2w^2.
+\]
+その四次項は三次項の radical $w=0$ 上で零である。
+この消滅は座標変換と単元倍に不変である。
+実際、三次項が $c w^3$ のとき、二次の座標補正による四次項の変化は
+$w^2$ で割れ、単元の一次項による変化は $w^3$ で割れる。
+線形変換は三次項の radical をその radical に移す。
+従って上の非零な $-u^4/(4A)$ と矛盾する。
+\end{proof}
+
+\paragraph{Conormal 行列への翻訳。}
+正規な Poisson 退化因子の場合、modular residue が非零の一般点では
+横断 Hessian は、conormal Heisenberg bracket を表す対称行列 $B$ の
+非零スカラー倍である。conic の内部 normal を第0成分として取ると、
+この補題は $B_{00}\ne0$ を要求する。
+第21版の $22$ モデルでは、二つの conic に対してそれぞれ
+$B_{00}=-z_{30}$ および $B_{00}=-z_{14}$ なので、正規な実際の退化因子には
+必ず $z_{30}z_{14}\ne0$ が必要である。
+
+\paragraph{四次 jet の計算式。}
+一般に $F=Az^2+F_3+F_4+O(5)$ で $A\ne0$ のとき、
+$z$ を分離した関数の四次項は
+\[
+ g_4=F_4|_{z=0}-\frac{1}{4A}\left(F_{3,z}|_{z=0}\right)^2.
+\]
+上の議論では cubic radical 上で第一項が零、第二項が $-u^4/(4A)$ となる。
+これは $\widetilde E_8$ の三次項だけでは見えない障害である。

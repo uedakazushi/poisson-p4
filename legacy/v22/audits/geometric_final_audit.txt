@@ -1,0 +1,244 @@
+FINAL V22 MATHEMATICAL AUDIT — JUNCTIONS AGENT
+Date: 2026-10-29
+
+Scope
+-----
+Read the integrated files local.tex, line_flags.tex, line_conic.tex,
+conic_plane.tex, fourfold.tex, conic_triple_certificate.tex and
+twisted_cubic.tex. Also read their immediate dependencies line_nodes.tex and
+setup.tex, and compared the inherited hypotheses against the v20/v21 setup
+sections. This is a mathematical audit of the v22 deductions. It does not
+independently reprove all the archived v14--v21 results, which the new theorem
+explicitly takes as inputs.
+
+Verdict
+-------
+The new geometric arguments pass. Two requested explanatory insertions were
+applied by the parent and their integrated text was reread: the SS finite-case
+reduction now includes the isotropy derivation relation and kernel weights,
+and the two-line proof now explicitly chooses the linear Hessian coordinates.
+The line/branch proposition now also explicitly requires generic E8 type on
+BOTH branches. None of these changes alters a conclusion or requires a new
+coefficient computation. I find no unresolved mathematical gap in the
+audited v22 deductions, conditional on the expressly inherited v20/v21 inputs.
+The two insertion discussions below record the identified issues and repairs.
+
+Applied insertion 1: SS with B_T(p)=0 and B_L(p) nonzero
+-------------------------------------------------------
+Location: twisted_cubic.tex, immediately before the two possibilities
+(rho,k,m_L)=(-3/2,2,2),(-2,3,0).
+
+Comparing just the line h=1 spectrum with the TC tangent eigenvalue and the
+leading centre weight leaves FOUR formal possibilities:
+  (-2,3,0), (-2,3,1), (-3/2,2,2), (-2,3,2).
+Thus the present phrase "leading-center weight ... spectrum comparison" is
+too compressed to justify the two-case list on its own.
+
+The needed relation is already proved by the isotropy argument in line_conic:
+let the TC tangent weight be 1, the line tangent weight rho, H_T abelian and
+H_L Heisenberg, with common two-dimensional abelian ideal N. The nonzero
+nilpotent map ad(dt)|_N has centre K of weight nu=-rho/2. Since dt has weight
+1 modulo N, its nonzero map N/K -> K shifts weight by 1. Hence N/K has weight
+nu-1, and the ambient spectrum is
+  {1,rho,-rho/2,-rho/2-1}.
+Also ker(ad(dt):H_T->H_T) has only weights rho and -rho/2. The leading TC
+centre lies in that kernel and has weight -(k+1)/2. Compare these relations
+with the line h=1 spectrum, with 1<=k<=3 and 0<=m_L<=2. Exactly the two stated
+possibilities remain. No semisimplicity or identification of the centre with
+the actual external hyperplane conormal is used.
+
+Exact rational finite comparison saved as final_ss_reduction_audit.json.
+The comparison records the extra weak candidates and the two correct strong
+candidates, so it specifically tests the missing justification.
+
+Applied clarification 2: two-line Hessian coordinates
+------------------------------------------------------
+Location: line_nodes.tex, before the m=0/1/2 split.
+
+After b=-a and h=h'=2, the limiting conormal centres have weights -a and a.
+Those two ambient eigenvalues are simple, including the m=0 case. Choose
+linear coordinates preserving the two axes so that the constant Hessian
+centre forms are dy on the x-axis and dx on the y-axis. The normal 2x2 block
+can still be nilpotent when m=0; no diagonalization of that block is needed.
+The present sentence saying the Hessian directions are the other line
+directions is valid in these chosen coordinates, not arbitrary axis
+coordinates. This linear coordinate choice preserves the projective cubic
+identity and the straight line parametrizations.
+
+Detailed checks
+---------------
+1. local.tex
+   - Affine Pfaffian equals 5F, and Z=-5P_0j gives pi_3=(E wedge Z_2)/5.
+   - Adding a conormal covector to the tangent covector adds a Heisenberg
+     inner derivation. The latter has image in the centre and is zero on the
+     centre, so it does not change the eigenvalues of a derivation preserving
+     the centre flag. The E8 spectrum identities extend as polynomial
+     identities over the curve, including modular zeroes.
+   - The leading-centre formula nu=-(k+1)a/2 is a conformal-derivation identity
+     and does not require diagonalizability.
+   - The no-cone lemma correctly uses the inherited height-three Pfaffian
+     ideal and minimal Buchsbaum--Eisenbud resolution. It is not inferred
+     from normality of an arbitrary hypersurface. A constant relation among
+     the five quartic generators cannot be in the image of a quadratic matrix.
+     It is correctly presented as an old input rather than new v22 work.
+
+2. line_flags.tex: zero-slope nilpotence
+   - Over a DVR, the rank-one Hessian has a primitive linear generator after
+     removing its scalar factor. Its kernel extends as a rank-two bundle.
+     The generic pure cube on that kernel likewise has a primitive generator.
+   - Z(F)=0 gives R H'+2 eta_H H=0 and R C'+3 eta_C C=0 in moving frames.
+     If ord R>=2, both eigenvalues at the closed point vanish.
+   - The tangent component of Z that is linear in normal variables acts on
+     F_2 only in normal degree three. Its contribution contains the Hessian
+     linear factor and vanishes on the Hessian radical. The normal nonlinear
+     action has the same property. Thus no omitted term affects the cubic
+     flag equation.
+   - Since Z(p)=0, divergence with respect to the original volume form gives
+     trace Z_1=0 after any coordinate change, even if the volume acquires a
+     density. This forces the last eigenvalue to vanish.
+   - Optional wording: retain a fixed local volume mu, put f=i_(pi^2)mu,
+     and use Z(f)=0. After straightening a curved branch, f is a unit times
+     the coordinate Pfaffian. This avoids silently assuming that a nonlinear
+     straightening preserves constant volume. The present phrase "Pfaffian
+     corresponding to the volume form" is consistent with this reading.
+
+3. line_flags.tex: global degrees
+   - A symmetric rank-one matrix pencil has constant image: a nonconstant
+     direction would give a Veronese image of degree at least two.
+   - On a projective line N=O(1)^3, the Hessian scalar has degree three and is
+     proportional to residue (degree two) times bracket scalar (degree one).
+   - On its constant radical, cubic coefficients have degree two. A varying
+     pure-cube direction would have degree at least three. Hence the cubic
+     direction is constant, and its scalar vanishing order is 0,1 or2.
+   - The six displayed spectra and simplicity of the tangent eigenvalue
+     follow without any assumption about distinctness of other eigenvalues.
+
+4. line_nodes.tex dependency
+   - The m=0 mixed Hessian term cannot cancel because pi_1 has only its xy
+     entry. This works even with a nilpotent normal block of Z_1.
+   - The m=1 weighted quadratic template is complete; the quoted Jacobi
+     coefficients give B=0 and then DI=0 against the cubic nonvanishing.
+   - The m=2 proof is the REPAIRED projective proof. Weights (3,-3,-2,2) have
+     no quadratic vector-field resonances. pi_2 has weight zero and pi_3 has
+     no weight-zero component, by pi_3=(E wedge Z_2)/5. The trace is zero, so
+     the mixed Pfaffian has no weight-zero monomial, contradicting the two
+     forced fifth-degree cube monomials. It does not use the previously
+     withdrawn claim that the xyzw coefficient of F_4 must vanish.
+   - Other support branches through the node are harmless: the proof uses
+     only two straight projective lines and generic E8 conditions along them.
+
+5. line_conic.tex
+   - N is abelian by unimodularity, because the entire derived algebra lies
+     in N. Its adjoint trace on the ambient algebra equals the trace on N.
+   - In the nonzero/nonzero case, the two nonzero commuting nilpotent 2x2
+     endomorphisms share image and kernel. Their centre weights force a=b,
+     contradicting simplicity of the line tangent eigenvalue.
+   - In the zero/nonzero case the kernel argument covers filiform isotropy;
+     it does not assume the full isotropy is a pure Heisenberg algebra.
+     The kernel is D-stable because the zero-bracket conormal ideal is
+     abelian. Its possible weights yield b/a in {-1,2}; the remaining weight
+     shift on N excludes the second case and then the first via the line
+     cubic degrees. No unjustified external-hyperplane eigenvector is used.
+
+6. conic_plane.tex: quartic invariance
+   - If the internal normal Hessian vanishes, F|_Pi is divisible by q^3 and
+     hence zero. Rank-one Hessian then forces F_z|_Pi=a q^2 and F_w|_Pi=b q^2.
+   - If both constants vanish, the plane is in Sing D, contrary to normality.
+     Otherwise normalize the derivatives to q^2 and0.
+   - On the Hessian radical, the cubic has no u^3 term. Being a nonzero pure
+     cube therefore forces its u^2 term to vanish as well, so the original
+     z is the Hessian direction. No coordinate change is actually necessary
+     at this point: absorb the proportionality into A.
+   - Morse elimination gives the nonzero quartic -u^4/(4A) on the cubic-kernel
+     line. For E8 the corresponding restriction is zero.
+   - The restriction is invariant under binary quadratic coordinate changes
+     because d(c w^3) is divisible by w^2; multiplication by a unit adds a
+     multiple of w^3 at degree four. Linear changes transport the kernel line.
+   - One can also verify the full three-variable/contact invariance directly
+     from the formula already displayed at the end of the section:
+       g_4=F_4|_{z=0}-(F_{3,z}|_{z=0})^2/(4A).
+     Evaluate on a tangent vector v in both the Hessian kernel and the cubic
+     kernel. Quadratic changes in kernel directions contribute zero because
+     d(c w^3)(v)=0; changes in the Morse direction cancel by completing the
+     square. Unit multiplication changes the value only by its nonzero
+     constant. Thus the proof does not depend on an unproved choice of Morse
+     splitting or on preserving the plane during analytic normal-form changes.
+   - N_conic=O(4)+O(2)^2 makes B_00 a section of O(0); its generic nonvanishing
+     therefore implies the whole bracket is nonzero at every conic point.
+
+7. fourfold.tex
+   - The spectrum-block trace proof works for complex slopes: each relevant
+     trace is a nonzero complex slope times a positive rational number.
+   - At the four coordinate axes, pi_1=0 and Z_1 is diagonal. The argument
+     treats repeated nonzero weights, mixed zero/nonzero weights and all
+     distinct nonzero weights, so it exhausts all possibilities.
+   - To justify the last paragraph explicitly, Z=-5P_0j and tangency imply
+     P_0j vanishes on every other coordinate line. Hence the projective
+     vanishing of pi makes each P_ab (a,b>=1) vanish on all four lines.
+     Vanishing slopes remove the only possible x0*x_i terms in P_0i.
+     Thus all P entries are independent of x0, giving b0=0 and the no-cone
+     contradiction. The current text is correct but can add this explanation.
+
+8. conic_triple_certificate.tex
+   - The two-line proposition forces the two line slopes to vanish; the
+     zero-slope lemma then forces the conic slope to vanish too.
+   - The four normalizations use only nonzero active residue coefficients
+     and the nonzero conic internal bracket entry; the specified diagonal
+     projective transformation and Poisson scaling accomplish them jointly.
+   - The conic rank-one identities, both line matrices, H_i(0)=+/-E_23,
+     the centre elimination and the three final coefficient formulas agree
+     with the independently audited saved data (36 exact checks).
+   - z20,z18 are nonzero because the two line brackets are generically
+     Heisenberg. The short combination equals -3*z20/10 with the stated
+     signs. It is a closed-point contradiction, not a claim that the raw
+     Jacobi scheme is reduced.
+
+9. twisted_cubic.tex
+   - The normal splitting and symmetric bracket give centre degree m in
+     {5,6}, bracket divisor degree in {3,1}, provided the centre is not wholly
+     external. The external case is correctly excluded by threefold
+     vanishing along T and the secant-line degree argument in its P3 span.
+   - No step in the integrated text identifies an arbitrary eigen-covector
+     with the actual external hyperplane conormal. The earlier projection
+     gap is absent.
+   - The positive bracket divisor is invariant under the modular flow. This
+     proves B_T(p)=0 and, in NN, k=1 or3 with all zeros at the marked point.
+   - Marked automorphisms of the two rational normal components extend to
+     the support stabilizer. Since the TC span and external line meet only
+     in p, the two component automorphisms can be extended simultaneously.
+     Thus NN/SS normalization does not drop projective moduli.
+   - The NN four-way branching covers all complex closed points after the
+     recorded square-zero reductions. The k=3 geometric initial conditions
+     were independently checked earlier against raw B coefficients; they
+     do not discard a parameter root.
+   - The IA and IB denominator exceptions are all recorded. The quadratic
+     exception field has both complex embeddings covered by the same exact
+     identity. The s=-1/3 exception is correctly retained as an actual
+     two-parameter Jacobi family and excluded by a singular plane.
+   - The SS rho=-1 family is correctly retained and excluded by its actual
+     quadratic-times-cubic degeneracy polynomial. Neither genuine family
+     is falsely described as an empty or unit-ideal case.
+   - The final added SS initial conditions were checked directly against the
+     raw saved B matrices. For k>=2, the t coefficients give
+     z33=z32=z26=z21=0 and z27=2*z17; line rank one then gives z22=0.
+     For k>=3, the t^2 coefficients additionally give z17=z27=z18=z34=z23=0
+     and 3*z28+2*z35=3*rho/5, with exactly the sign printed in the manuscript.
+
+10. General theorem and inherited hypotheses
+    - The theorem explicitly concerns generic rank four, the actual normal
+      degeneracy divisor, and complex closed points. It does not replace D
+      by D_red or claim to determine the nonreduced Jacobi scheme.
+    - The five enumerated inputs match the v20/v21 setup statements: pure
+      one-dimensional CM Jacobian scheme of degree40; vanishing of pi on C;
+      no inactive component; all-E6 q51 versus all-E8 degree4 alternatives;
+      rational normalizations; singular preimages marked by residue zeroes;
+      hyperplane/irreducible support exclusions; and eight projective types.
+    - The eight exclusions therefore imply the stated normal-divisor result
+      conditional on those archived proofs. The manuscript properly avoids
+      attributing this general-normal-D conclusion directly to Pym's purely
+      elliptic classification theorem.
+    - Full P4 classification, nonnormal/nonreduced divisors, generic rank two,
+      scheme structure and global irreducible-component counts remain outside
+      the new theorem, as the setup states.
+
+Main manuscript files were NOT modified by this audit.

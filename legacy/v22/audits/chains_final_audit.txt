@@ -1,0 +1,231 @@
+V22 FINAL MATHEMATICAL AUDIT — CHAINS AGENT
+Date: 2026-10-29
+Auditor: /root/v22_chains
+
+Scope
+-----
+The requested integrated files were read in full:
+  p4_poisson_completeness_v22/sections/line_nodes.tex
+  p4_poisson_completeness_v22/sections/twisted_cubic.tex
+  p4_poisson_completeness_v22/sections/conic_triple_certificate.tex
+
+Supporting integrated sections read in full:
+  local.tex, line_flags.tex, line_conic.tex, setup.tex.
+
+The logical bridge from previous versions was checked by reading:
+  previous_v21/sections/setup.tex, space_geometry.tex, trees.tex;
+  previous_v21/previous_v20/sections/setup.tex, inactive.tex, secant.tex,
+  e6.tex, e8.tex.
+
+The v21 P3 exclusion certificates and the complete v14–19 input chain were
+not independently rerun in this final audit. The main theorem explicitly
+treats their established results as inputs. The present report must not be
+described as a fresh verification of every previous-version theorem.
+
+Overall assessment
+------------------
+No new mathematical obstruction or uncovered closed-point branch was found
+in the three requested sections. Their combination is compatible with the
+v20–21 reduction to eight P4-spanning E8 support configurations. The main
+normal-divisor theorem is properly stated for complex closed points, with
+the actual divisor normal, and does not claim the Jacobi scheme is reduced
+or that all Poisson structures on P4 have now been classified.
+
+Concrete corrections and status
+------------------------------
+1. In twisted_cubic.tex, eq:nn-singular-plane formerly contained
+   '^2,qquad'. It has now been corrected to '^2,\qquad'.
+2. The k=3 elimination consists of FIVE rounds, with variable counts
+   17 -> 16 -> 15 -> 14 -> 13 -> 12. The former 'six stages' has now been
+   corrected to 'five stages' in the integrated text.
+3. The former conic-only statement of prop:line-conic-slopes has been
+   generalized to a smooth branch with nonzero conormal bracket. This is
+   the correct scope of its existing proof and justifies its use for the
+   twisted cubic.
+4. One minor wording refinement remains advisable: explicitly state that
+   BOTH L and Gamma are generically of transverse type E8. The current
+   Japanese wording can be read as applying that hypothesis only to L.
+   The proof uses the zero-slope lemma and the center-weight formula for
+   Gamma. This hypothesis already holds in every application to the eight
+   remaining supports, so this is a statement clarification, not a gap in
+   the main theorem's application.
+5. Optional clarification in setup.tex: begin input item 4 with
+   '四次の場合' so that '既約な支持は排除済み' unambiguously refers to the E8
+   quartic alternative, not the surviving E6 elliptic normal quintic.
+
+I did not edit any integrated section.
+
+1. Audit of line_nodes.tex
+-------------------------
+The zero/nonzero slope dichotomy is covered: one zero slope forces the
+ambient linearization nilpotent, hence the other tangent slope is also
+zero. The proof therefore correctly reduces to a,b nonzero.
+
+The six possible line spectra are
+  a {1,-h/2,-m/3,h/2+m/3-1}, h in {1,2}, m in {0,1,2}.
+The common-spectrum comparison gives only equal tangent eigenvalues or
+b=-a, h=h'=2, m=m'. Equal nonzero slopes are impossible because the tangent
+eigenvalue a has multiplicity one in each of the six spectra. Independent
+tangent directions would give two eigenvectors.
+
+With both conormal brackets zero at the point, the linear Poisson tensor
+is ell(z,w) d/dx wedge d/dy. This follows from the two abelian conormal
+hyperplanes, the vanishing of pi on both axes, and the fact that the
+linear tensor must vanish on those axes. It remains valid when additional
+support branches pass through the point.
+
+m=0: The simple zero of the global rank-one line pencil supplies a nonzero
+xy coefficient in pi_2^{zw}. Multiplication by ell produces an order-one
+mixed Hessian term along a line. No other linear Poisson component can
+cancel it. This contradicts h=2. If ell=0, the Pfaffian starts in degree
+four, contradicting the nonvanishing cubic scalar at the point.
+
+m=1: For weights (3,-3,-1,1), the six displayed quadratic components form
+the complete weight-zero template. The coefficients BJ and
+B(C+G+K)-2DI are indeed the xyz and wz^2 coefficients of the xyz Jacobi
+component, with the displayed sign conventions. J is nonzero from the
+line pencil. Both cubic flags force D and I nonzero. Hence the two Jacobi
+coefficients contradict one another. No exceptional coefficient cell was
+discarded.
+
+m=2: The integrated proof uses ONLY the corrected projective argument.
+The obsolete assertion that the xyzw coefficient of F_4 must vanish is
+absent. For weights (3,-3,-2,2), no quadratic monomial has one of the four
+coordinate weights. Thus Z_2 has no weight-zero part. The correctly signed
+identity pi_3=(1/5)E wedge Z_2 implies the same for pi_3. Since pi_2 has
+weight zero and the total volume weight is zero, the mixed Pfaffian F_5
+has no weight-zero monomial. The nonzero x^2 z^3 and y^2 w^3 coefficients
+required by the two double cubic zeros both have weight zero. This is a
+valid contradiction using only linear changes of coordinates; no formal
+coordinate change has invalidated the projective degree identity.
+
+The applications to the four-line chain, triple-tail, and conic-line-line
+chain use only the degree-two zero divisor of a nonzero vector field on
+P1. The central component has two distinct marked points, so both zeros
+must be simple. This is incompatible with the intersection theorem.
+
+2. Audit of conic_triple_certificate.tex
+--------------------------------------
+The conic-plane input supplies z31 nonzero. The line-line theorem and the
+zero-slope lemma imply all three residue slopes vanish, including the
+conic slope. Activity then makes all three quadratic residue coefficients
+nonzero. The stated normalization is valid:
+  r=c beta_c, s=c beta_1, t=c beta_2,
+  z31'=c beta_1 beta_2 z31 / beta_c^2.
+Taking c=beta_c^2/(beta_1 beta_2 z31) imposes all four normalizations.
+
+The rank-one consequences are closed-point statements. A symmetric
+rank-one matrix with a zero diagonal entry has the corresponding row and
+column zero over C; applying this to polynomial matrices is legitimate
+because the minors vanish identically along each component. No claim of
+scheme-theoretic radical equality is made.
+
+The raw model matrices give exactly
+  H1(0)=-E23, H2(0)=E23,
+  B1(t)=-t z20 E22, B2(t)=-t z18 E22
+after the stated initial restrictions. The signs match the integrated
+text. Generic Heisenberg type makes z20,z18 nonzero.
+
+The specialized Jacobi coefficients and center coefficient are
+  J19=z29/5,
+  J143=z5-z29 z34,
+  E3=z20(z5-3/10).
+Their polynomial combination is exactly
+  E3-z20 J143-5 z20 z34 J19 = -(3/10)z20.
+This forces z20=0 and contradicts generic Heisenberg type. The certificate
+uses no inversion of an unexamined parameter. The only nonzero hypotheses
+are explicitly supplied by the geometric assumptions and normalization.
+
+3. Audit of twisted_cubic.tex
+----------------------------
+The normal splitting O(5)^2+O(3) and the symmetric-bracket realization
+Sym^2(N*) tensor det(N) give bracket divisor degree 13-2m for a saturated
+center O(-m). If the center projects trivially to the internal O(-5)^2,
+the quintic restricts to a function vanishing to order at least three
+along the twisted cubic in P3. Every general secant then has six zeros
+counted with multiplicity, forcing the quintic to vanish on all of P3.
+Thus the projection is nonzero, m>=5, and nonzero bracket implies m<=6.
+Only m=5,6 and divisor degree 3,1 are possible.
+
+The modular-flow argument correctly shows that bracket zeros are
+supported at residue zeros. Together with the general line/branch
+intersection proposition, it excludes B_T(p) nonzero. If both slopes
+vanish, the nonzero P1 residue has its unique double zero at p, whereas
+the positive-degree bracket divisor must then be supported there.
+
+The mixed slope cases NS and SN are ruled out by the zero-slope lemma.
+Normalizations NN and SS use automorphisms of the abstract rational tree
+which extend to the embedding: the multidegree (3,1) line bundle is unique
+on the genus-zero tree, h0=5, and the embedding is its complete linear
+system. There is no omitted gluing modulus.
+
+SS: The five ratios with B_L(p)=0 and the two (rho,k,m_L) cases with
+B_L(p) nonzero exhaust the possible line spectra and center weights.
+The known seven-cell exact certificate audit is consistent with this
+geometric partition. The rho=-1 residual case is rightly retained as an
+actual family, and its nonzero quadratic-times-cubic factorization rules
+out normality. It is not incorrectly called an empty Jacobi solution set.
+
+NN: The twelve partition identities are used only on closed points.
+With z17 nonzero, the two factors give IA or IB and the six products give
+the six further zeros. With z17=0, the displayed quadratic identities give
+z27=z18=z26=z34=0. The leading t coefficient of B_T is then diagonal with
+only z21 potentially nonzero. Thus z21 nonzero is II; if it is zero,
+k cannot be one, so the earlier divisor-degree dichotomy gives k=3.
+This accounts for all closed points; there is no missing k=2 branch.
+
+k=3: The raw bracket's order-three restrictions and leading rank-one
+conditions give the stated linear conditions. Internal bracket zero
+would force the center entirely external, already excluded. Hence z9
+nonzero is justified, as are z20=0, z19=2z29 and z24=0. The five recorded
+elimination rounds lead to z16=0, z10=0 and z12=1/10. The displayed Bezout
+combination of the two remaining quadratic polynomials is exactly 1.
+
+Generic IA, IB, II: All recorded denominator factors are included in the
+exception table; this covers the intermediate row reductions and
+substitutions, not just the final stage. IA's rational exception is unit.
+IB's quadratic exception is handled over Q[theta]/(theta^2+13511), with
+s=(-29+theta)/414; this is precisely the quadratic 621s^2+87s+52=0 and
+covers both complex embeddings. II's only denominator is already assumed
+nonzero. The supplied independent 658-check NN audit passed.
+
+IB's rational exception s=-1/3 is an actual two-parameter family, not an
+empty cell. Its full Jacobi equations hold and
+  F in (x2,x3)^2, coefficient[x1^3 x3^2] F = -1/120
+hold uniformly. Therefore its quintic is nonzero and has a singular plane
+for every parameter value. This is sufficient to exclude normality,
+without requiring an unproved factorization or genericity condition.
+
+4. Bridge from v20 and v21
+-------------------------
+The v20 input distinguishes the Jacobian scheme Y (degree 40) from its
+reduced support C. Activity of every component permits the elliptic local
+forms and gives 8a6+9a7+10a8=40; the only nonnegative solutions are pure
+E6 of reduced degree five and pure E8 of reduced degree four. The E6
+argument covers reducible supports before concluding elliptic normal
+quintic/q51. In particular, it does not assume irreducibility beforehand.
+
+The singular-directrix lemma uses the full Zariski tangent space at the
+singular point, not the image of the normalization differential. Its
+dominant projection/generic smoothness argument correctly handles cusps
+as well as nodes. Triple-secant arguments use generic vanishing and do not
+replace symbolic powers with ordinary powers at singular curve points.
+
+The v21 setup clearly imports the earlier inactive-component exclusion
+and local-form results. Its hyperplane exclusion handles all residual
+P3 supports, not only irreducible curves. The nondegenerate quartic
+argument gives arithmetic genus zero from the hyperplane Hilbert function
+and connectedness. Equality in the normalization delta formula forces
+ordinary independent multiple points and an incidence tree. The count
+of at most two marked points per component then gives exactly the eight
+listed arrangements. Complete-linear-system uniqueness removes remaining
+projective configuration parameters.
+
+Consequently the v22 exclusion of all eight arrangements completes the
+normal-actual-divisor CLOSED-POINT alternative conditional on the stated
+v20–21 inputs. It does not classify the generic-rank-two stratum,
+nonnormal reduced divisors, nonreduced divisors, infinitesimal scheme
+structure, or the total irreducible-component count. The integrated
+setup.tex explicitly retains these limits.
+
+End of audit.

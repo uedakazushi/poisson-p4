@@ -1,6 +1,6 @@
 # Poisson P4 — work through the final classification deliverable
 
-2026-11-09 / v72-normalization-residue-integration
+2026-11-09 / v72-final-dependency-closure
 
 ## User mandate: one end-to-end assignment
 
@@ -64,6 +64,15 @@ does not prove component inclusion at kernel-rank jumps.
 The new37 checks include one full150 toric kernel, three full M/R sources and a
 node-cusp matrix factorization. They do not certify all147 or final dependencies.
 These results are intermediate: CONTINUE through the remaining terminal contract.
+
+The sixth shared file papers/rank_two_support_reconstruction.tex now integrates
+the complete stable-sheaf proof, all divisor/nonstable branches, compatible
+toric/Aff32 boundaries and six full-ambient component certificates. The main
+component_family_catalogue.tex defines all147 ID families; maximal_image_synthesis.tex
+composes the three componenthood mechanisms. Required frozen inputs and legacy
+files are materialized under the current dependency audit. Read CURRENT for
+the exact final validation and persistence state; these are evidence, not a
+change to the terminal conditions.
 
 Proceed through nonplane conductor recognition and normalization/descent,
 rank-two support, maximal closed images, final manuscript integration,

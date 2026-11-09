@@ -1,0 +1,206 @@
+\section{\texorpdfstring{$C_-$}{Cminus} の斉次化を含む23次元成分}
+\label{sec:cminusmag}
+
+補助空間 $\cQ$ の成分を斉次化した像は、全射影 Poisson scheme
+$\cP$ の成分より小さい場合がある。ここでは $C_-$ の22次元の斉次化像を
+実際に拡張し、一般横断環の長さが4である23次元成分を得る。
+元の斉次化像上の特殊点については、以下で得る成分への包含を主張する。
+その点を通る全成分や完成局所環の分類は別の問題として残す。
+
+同次座標を $(t,x,y,z,w)$ とし、二つのパラメータ $\beta,\gamma$ に対して
+\begin{align}
+ P_{\beta,\gamma}={}&(t^2+x^2)\partial_x\wedge\partial_y
+ -xz\partial_y\wedge\partial_z\notag\\
+ &-(xw+z^2+\beta xz+\gamma tz)\partial_y\wedge\partial_w
+ +(t^2+x^2-2z^2)\partial_z\wedge\partial_w
+ \label{eq:cminusmag-family}
+\end{align}
+と置く。これは全てのパラメータで $\AA^5$ 上ですでに Poisson である。
+
+\begin{theorem}\label{thm:cminusmag}
+族 \eqref{eq:cminusmag-family} の $\PGL_5$ 飽和の像閉包
+$\mathcal C_-^{\mathrm{mag}}$ は、全 $\cP$ の23次元既約成分である。
+一般 $\PGL_5$ 軌道は21次元、被約有理商は2次元である。一般閉点の完成局所環は
+\begin{equation}
+ \CC[[a_1,\ldots,a_{23},u,v]]/(uv,v^2,u^3).
+ \label{eq:cminusmag-ring}
+\end{equation}
+従って一般横断環は長さ4、Hilbert関数は $(1,2,1)$、
+一般射影接空間の次元は25である。
+補助空間の $C_-$ 成分の斉次化像は、この成分に含まれる。
+\end{theorem}
+
+\subsection{元の代表と拡張族の関係}
+
+v7 の $C_-$ コアのポテンシャルを $ax^2+bxz+cz^2$ とする。
+\[
+ X=x+z,\quad Z=x-z,\quad Y=(y+w)/2,\quad W=(y-w)/2
+\]
+というシンプレクティック座標変更を行い、双ベクトル全体を8倍し、
+$t$ を $\sqrt8\,t$ に変更する。記号を戻すと、非零成分は
+\[
+ P^{xy}=t^2+x^2,\quad P^{yz}=-xz,\quad
+ P^{yw}=-xw-Ax^2-Bxz-Cz^2,\quad P^{zw}=t^2+x^2-2z^2,
+\]
+ただし $A=a+b+c$, $B=2a-2c$, $C=a-b+c$ となる。
+$y'=y+Az$, $w'=w+Ax$ によりポテンシャルは
+$Bxz+(C+2A)z^2$ に変わる。$\kappa=C+2A\ne0$ で $y,w$ を $\kappa$ で割り、
+双ベクトルを $\kappa$ 倍すると $P_{\beta,0}$、$\beta=B/\kappa$ を得る。
+v7 の標本 $(a,b,c)=(1,2,3)$ は $\beta=-2/7$ に対応する。
+
+一般に \eqref{eq:cminusmag-family} の $z^2+\beta xz+\gamma tz$ を
+任意の二次式 $B(t,x,z)$ に置き換えても Poisson 恒等式は成立する。
+$B$ の $x^2,t^2,tx$ 項は $y,w$ の一次式による座標変更で除け、
+残る $z^2$ 係数が非零の開集合は \eqref{eq:cminusmag-family} に正規化される。
+これが元の二変数ポテンシャルを全二次式へ拡張する実変形である。
+$\kappa\ne0$ は元のコア族の稠密開条件なので、元の $C_-$ 全成分の斉次化の
+像閉包も $\mathcal C_-^{\mathrm{mag}}$ に含まれる。
+
+\subsection{全係数での接空間と普遍的な二次jet}
+
+150係数表示で $F(P)=E\wedge\operatorname{Jac}(P)$ とし、
+$D_P(R)=E\wedge L(P,R)$ をその微分とする。$L$ は Jacobi 式の極化である。
+vertical 部分空間 $E\wedge X$ は24次元で、この平行移動は $F$ を厳密に保存する。
+さらに非零スカラーを正規化した全射影 chart の ambient 次元は125である。
+
+族の全ての点で
+\[
+ t\partial_y,\qquad x\partial_y,\qquad z\partial_w
+\]
+が $P$ を固定する。従って $\PGL_5$ 軌道は21次元以下である。
+標本 $(\beta,\gamma)=(0,1)$ における有理数上の厳密計算は次の通りである。
+\begin{center}
+\begin{tabular}{lr}
+\toprule
+行列または接方向&階数\\\midrule
+$D_P$&100\\
+vertical&24\\
+vertical、$\GL_5$、スカラー&46\\
+上記と $\beta,\gamma$ の実変形&48\\
+実変形と以下の $R,S$&50\\\bottomrule
+\end{tabular}
+\end{center}
+したがって実際の射影像は23次元、一般軌道は21次元である。
+
+$\gamma\ne0$ で次の二つの法線を用いる。列挙しない成分は0とする。
+\begin{align*}
+ R^{ty}&=-x(2y-z),& R^{tw}&=2\gamma tz+x^2+2\beta xz,\\
+ R^{xy}&=t(2y-z),& R^{xw}&=-tx-2\beta tz+2\gamma xz;\\
+ S^{ty}&=-tw,&S^{tz}&=-4tw,\\
+ S^{xy}&=-xw,&S^{xz}&=-4xw,\\
+ S^{yz}&=w(2\gamma t+2\beta x-4y+3z).&&
+\end{align*}
+恒等的に $D_P(R)=D_P(S)=0$ であり、上表の独立性から、
+稠密開集合で $\rank D_P=100$、実際の族に対する法線は正確に二方向である。
+
+二次補正 $T$ を $\widehat T=4\gamma T$ で記すと
+\begin{align*}
+ \widehat T^{ty}&=-\beta\gamma tz-\gamma^2xz+2xy-xz,\\
+ \widehat T^{tz}&=-\gamma tx,\\
+ \widehat T^{tw}&=-2\beta\gamma tx-2\beta xz-2\gamma^2t^2-\gamma^2x^2
+                 +2\gamma^2z^2-4\gamma ty-x^2,\\
+ \widehat T^{xy}&=t(2\gamma^2z-2y+z),\qquad
+ \widehat T^{xz}=\gamma t^2,\\
+ \widehat T^{xw}&=-2\beta\gamma x^2+2\beta\gamma z^2+2\beta tz
+                 -\gamma^2tx-4\gamma xy+tx.
+\end{align*}
+これは全パラメータ上で
+\begin{equation}
+ D_P(T)+E\wedge\operatorname{Jac}(R)=0
+ \label{eq:cminusmag-secondjet}
+\end{equation}
+を満たす。従って $P+uR+u^2T$ は $u^3$ を法として Poisson である。
+$T$ は選択した100個の係数座標軸からなる一定の implicit complement に属する。
+その座標番号は証明書に収録する。
+
+\subsection{独立な三次障害と形式局所環}
+
+標本で $\operatorname{im}D_P$ を法として
+\[
+ B=E\wedge L(R,S),\qquad H=E\wedge\operatorname{Jac}(S),\qquad
+ O=E\wedge L(R,T)
+\]
+を考える。独立な100列と100行を用いた残余射影において、
+$(B,H,O)$ の三つの行は
+\[
+ \begin{pmatrix}-6&0&3/2\\1&0&0\\0&8&0\end{pmatrix},
+ \qquad\det=12
+\]
+となる。従って $\rank[D_P,B,H]=102$、
+$\rank[D_P,B,H,O]=103$ である。
+二次初期式は $uv,v^2$、これらとは独立な三次初期式は $u^3$ である。
+
+二次補正の曖昧さも全て取り込むと
+\begin{align*}
+ \rank[D_P,L(R,\text{実変形})]&=100,\\
+ \rank[D_P,L(R,\ker D_P)]&=101,\\
+ \rank[D_P,L(R,\ker D_P),O]&=102.
+\end{align*}
+従って $T\mapsto T+K$、$K\in\ker D_P$ によって三次障害を除くことはできない。
+上の行列式はさらに、$O$ が $H$ に吸収される cusp 型の可能性も排除する。
+
+\begin{lemma}\label{lem:cminusmag-formal}
+滑らかな実際の族の完成局所環を $A$ とし、法線を $u,v$ とする。
+形式的陰関数定理による補空間の消去後の残余イデアルを
+$I\subset A[[u,v]]$ とする。全族上で $I\subset(u,v)^2$、二次部分が
+正確に $\Span\{uv,v^2\}$ であり、これらを消した三次部分が単元倍の
+$u^3$ を持つと仮定する。普遍二次jetにより $I(u,0)\subset(u^3)$ が
+成立するならば $I=(uv,v^2,u^3)$ である。
+\end{lemma}
+
+\begin{proof}
+$\mathfrak m=(u,v)$ と置く。二次初期式を $u,v$ 倍することで
+$u^2v,uv^2,v^3\in I+\mathfrak m^4$、独立な三次式で
+$u^3\in I+\mathfrak m^4$ を得る。従って
+$\mathfrak m^3\subset I+\mathfrak m^4$。
+有限生成加群 $(\mathfrak m^3+I)/I$ に Nakayama を適用すると
+$\mathfrak m^3\subset I$ である。最初の二次式から $uv,v^2\in I$ も従う。
+逆に、全ての残余式は一次項を持たず、二次の $u^2$ 係数は普遍二次jetによって
+恒等的に0である。三次以上の項は全て $(uv,v^2,u^3)$ に入るので逆包含も成り立つ。
+
+長さの上界だけを使っているわけではない。普遍二次jetは残余環から
+$A[u]/(u^3)$ への写像を与えるので、$u^2$ は実際に生き残る。
+法線接空間の次元2により $v$ の独立な一次類も残り、横断長さは正確に4となる。
+\end{proof}
+
+\begin{proof}[定理\ref{thm:cminusmag}の証明]
+独立な46方向の群・vertical・スカラーの局所パラメータに
+$\beta,\gamma$ を加え、実際の48次元の族を形式的に直線化する。
+$R,S$ と100次元の補空間を加えた写像の微分は可逆なので形式座標を与える。
+100個の方程式で補空間を消去すると、残余イデアルは $(u,v)^2$ に入る。
+普遍二次jetと行列式12により、補題\ref{lem:cminusmag-formal}が適用できる。
+
+vertical の24次元の線形商と非零スカラーの正規化を行った125次元の
+射影 chart にも同じ議論を直接適用できる。この chart では実際の族23、
+法線2、補空間100であり、\eqref{eq:cminusmag-ring}を得る。
+その被約環は23変数の正則局所環なので、一般点を通る被約成分は一つである。
+23次元の既約像閉包がこの成分となる。軌道21、像23という階数から
+被約有理商の次元は2である。
+\end{proof}
+
+\subsection{退化因子と主張の範囲}
+
+族の退化五次式はパラメータに依存せず
+\[
+ D=t(t^2+x^2)(t^2+x^2-2z^2).
+\]
+三つの異なる単超平面と rank3 の既約二次超曲面からなり、
+三つの超平面は平面 $\{t=x=0\}$ に沿って交わる。
+「ある $\PP^2$ に沿って三重以上に消える五次式」は Grassmannian 上の
+proper incidence の像であるから閉条件である。
+この条件は SNC 退化因子を排除するので、本成分は既知の SNC locus に交わる
+40成分と異なる。一般 rank、成分次元、および退化因子の因数分解型によって、
+v7 で数えた残り15成分とも区別される。
+
+一方、元の標本に対応する $(\beta,\gamma)=(-2/7,0)$ では
+$\rank D_P=99$、射影接空間は26次元である。二変数ポテンシャルの斉次化像は
+22次元、磁気項を全て許した像は23次元となる。
+この特殊部分に一般横断環 \eqref{eq:cminusmag-ring} を適用してはならない。
+ここでの結論は、明示的な実変形により元の $C_-$ 斉次化像が
+$\mathcal C_-^{\mathrm{mag}}$ に含まれることである。
+
+\paragraph{再現用資料}
+\path{certify_cminus_component.py} は二パラメータ全体の恒等式、
+標本の全150係数階数、二次補正の全曖昧さ、残余小行列式を検証する。
+出力は \path{cminus_component_certificate.json}。
+補助空間 $\cQ$ の接空間を全射影 scheme の接空間と取り違えた計算は用いない。

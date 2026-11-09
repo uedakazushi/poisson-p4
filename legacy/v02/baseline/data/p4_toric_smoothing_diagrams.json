@@ -1,0 +1,4466 @@
+{
+  "scope": "The 40 irreducible components meeting the toric log-symplectic locus; not a full classification of Pois(P4).",
+  "references": [
+    "https://arxiv.org/abs/2010.08692",
+    "https://arxiv.org/abs/2310.05284",
+    "https://arxiv.org/abs/2411.10425"
+  ],
+  "conventions": {
+    "P_r": "a path with r vertices; P_1 is an isolated vertex",
+    "C_r": "a cycle with r vertices",
+    "period_coordinates": "b12,b13,b14,b23,b24,b34; the remaining entries are determined by skew symmetry and zero row sums",
+    "edge_order": "theta_ijk=(b_jk+b_ki)/b_ij",
+    "component_dimension": "The affine Poisson space includes scaling, the projective space divides by scaling; neither divides by PGL(5).",
+    "dimension_derivation": "At a toric point the PGL(5) orbit has dimension 20. A stratum of periods has dimension s and a smoothing graph with e edges has e smoothing parameters. Thus the affine component dimension is 20+s+e, projective dimension 19+s+e."
+  },
+  "count": 40,
+  "graph_type_histogram": {
+    "P1+P1+P1+P1+P1": 1,
+    "P2+P1+P1+P1": 2,
+    "P3+P1+P1": 12,
+    "P2+P2+P1": 5,
+    "C3+P1+P1": 1,
+    "P4+P1": 10,
+    "P3+P2": 4,
+    "P5": 3,
+    "C5": 2
+  },
+  "period_dimension_histogram": {
+    "1": 19,
+    "2": 16,
+    "3": 2,
+    "4": 2,
+    "6": 1
+  },
+  "projective_component_dimension_histogram": {
+    "23": 29,
+    "24": 8,
+    "25": 3
+  },
+  "generic_degeneracy_degree_partition_histogram": {
+    "1+1+1+1+1": 1,
+    "2+1+1+1": 2,
+    "3+1+1": 13,
+    "2+2+1": 5,
+    "4+1": 10,
+    "3+2": 4,
+    "5": 5
+  },
+  "diagrams": [
+    {
+      "graph_type": "P1+P1+P1+P1+P1",
+      "generic_degeneracy_degree_partition": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "edges": [],
+      "period_dimension": 6,
+      "edge_count": 0,
+      "smoothing_weight_rank": 0,
+      "generic_torus_stabilizer_dimension": 4,
+      "period_basis_coordinates": [
+        "b12",
+        "b13",
+        "b14",
+        "b23",
+        "b24",
+        "b34"
+      ],
+      "period_basis": [
+        [
+          "1",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "1"
+        ]
+      ],
+      "forced_zero_entries": [],
+      "biresidue_example": [
+        [
+          0,
+          7,
+          23,
+          22,
+          -52
+        ],
+        [
+          -7,
+          0,
+          1,
+          2,
+          4
+        ],
+        [
+          -23,
+          -1,
+          0,
+          8,
+          16
+        ],
+        [
+          -22,
+          -2,
+          -8,
+          0,
+          32
+        ],
+        [
+          52,
+          -4,
+          -16,
+          -32,
+          0
+        ]
+      ],
+      "affine_component_dimension": 26,
+      "projective_component_dimension": 25,
+      "coarse_affine_moduli_dimension": 6,
+      "id": "T01"
+    },
+    {
+      "graph_type": "P2+P1+P1+P1",
+      "generic_degeneracy_degree_partition": [
+        2,
+        1,
+        1,
+        1
+      ],
+      "edges": [
+        {
+          "edge": [
+            0,
+            1
+          ],
+          "orders": {
+            "2": 0,
+            "3": 0,
+            "4": 2
+          }
+        }
+      ],
+      "period_dimension": 4,
+      "edge_count": 1,
+      "smoothing_weight_rank": 1,
+      "generic_torus_stabilizer_dimension": 3,
+      "period_basis_coordinates": [
+        "b12",
+        "b13",
+        "b14",
+        "b23",
+        "b24",
+        "b34"
+      ],
+      "period_basis": [
+        [
+          "0",
+          "0",
+          "1",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "1/2",
+          "-1/2",
+          "0",
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "1/2",
+          "0",
+          "0",
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "1/2",
+          "0",
+          "0",
+          "0",
+          "1"
+        ]
+      ],
+      "forced_zero_entries": [],
+      "biresidue_example": [
+        [
+          0,
+          19,
+          6,
+          12,
+          -37
+        ],
+        [
+          -19,
+          0,
+          6,
+          12,
+          1
+        ],
+        [
+          -6,
+          -6,
+          0,
+          3,
+          9
+        ],
+        [
+          -12,
+          -12,
+          -3,
+          0,
+          27
+        ],
+        [
+          37,
+          -1,
+          -9,
+          -27,
+          0
+        ]
+      ],
+      "affine_component_dimension": 25,
+      "projective_component_dimension": 24,
+      "coarse_affine_moduli_dimension": 4,
+      "id": "T02"
+    },
+    {
+      "graph_type": "P2+P1+P1+P1",
+      "generic_degeneracy_degree_partition": [
+        2,
+        1,
+        1,
+        1
+      ],
+      "edges": [
+        {
+          "edge": [
+            0,
+            1
+          ],
+          "orders": {
+            "2": 0,
+            "3": 1,
+            "4": 1
+          }
+        }
+      ],
+      "period_dimension": 4,
+      "edge_count": 1,
+      "smoothing_weight_rank": 1,
+      "generic_torus_stabilizer_dimension": 3,
+      "period_basis_coordinates": [
+        "b12",
+        "b13",
+        "b14",
+        "b23",
+        "b24",
+        "b34"
+      ],
+      "period_basis": [
+        [
+          "0",
+          "1",
+          "1",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "1/2",
+          "-1/2",
+          "0",
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "1/2",
+          "1/2",
+          "0",
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "1",
+          "0",
+          "0",
+          "0",
+          "1"
+        ]
+      ],
+      "forced_zero_entries": [],
+      "biresidue_example": [
+        [
+          0,
+          14,
+          3,
+          -4,
+          -13
+        ],
+        [
+          -14,
+          0,
+          3,
+          10,
+          1
+        ],
+        [
+          -3,
+          -3,
+          0,
+          2,
+          4
+        ],
+        [
+          4,
+          -10,
+          -2,
+          0,
+          8
+        ],
+        [
+          13,
+          -1,
+          -4,
+          -8,
+          0
+        ]
+      ],
+      "affine_component_dimension": 25,
+      "projective_component_dimension": 24,
+      "coarse_affine_moduli_dimension": 4,
+      "id": "T03"
+    },
+    {
+      "graph_type": "P3+P1+P1",
+      "generic_degeneracy_degree_partition": [
+        3,
+        1,
+        1
+      ],
+      "edges": [
+        {
+          "edge": [
+            0,
+            1
+          ],
+          "orders": {
+            "2": 0,
+            "3": 0,
+            "4": 2
+          }
+        },
+        {
+          "edge": [
+            0,
+            2
+          ],
+          "orders": {
+            "1": 0,
+            "3": 0,
+            "4": 2
+          }
+        }
+      ],
+      "period_dimension": 2,
+      "edge_count": 2,
+      "smoothing_weight_rank": 2,
+      "generic_torus_stabilizer_dimension": 2,
+      "period_basis_coordinates": [
+        "b12",
+        "b13",
+        "b14",
+        "b23",
+        "b24",
+        "b34"
+      ],
+      "period_basis": [
+        [
+          "1/2",
+          "0",
+          "-1",
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "1/6",
+          "1/3",
+          "-2/3",
+          "1/3",
+          "0",
+          "1"
+        ]
+      ],
+      "forced_zero_entries": [],
+      "biresidue_example": [
+        [
+          0,
+          -5,
+          5,
+          4,
+          -4
+        ],
+        [
+          5,
+          0,
+          5,
+          4,
+          -14
+        ],
+        [
+          -5,
+          -5,
+          0,
+          4,
+          6
+        ],
+        [
+          -4,
+          -4,
+          -4,
+          0,
+          12
+        ],
+        [
+          4,
+          14,
+          -6,
+          -12,
+          0
+        ]
+      ],
+      "affine_component_dimension": 24,
+      "projective_component_dimension": 23,
+      "coarse_affine_moduli_dimension": 2,
+      "id": "T04"
+    },
+    {
+      "graph_type": "P3+P1+P1",
+      "generic_degeneracy_degree_partition": [
+        3,
+        1,
+        1
+      ],
+      "edges": [
+        {
+          "edge": [
+            0,
+            1
+          ],
+          "orders": {
+            "2": 0,
+            "3": 0,
+            "4": 2
+          }
+        },
+        {
+          "edge": [
+            0,
+            2
+          ],
+          "orders": {
+            "1": 0,
+            "3": 1,
+            "4": 1
+          }
+        }
+      ],
+      "period_dimension": 2,
+      "edge_count": 2,
+      "smoothing_weight_rank": 2,
+      "generic_torus_stabilizer_dimension": 2,
+      "period_basis_coordinates": [
+        "b12",
+        "b13",
+        "b14",
+        "b23",
+        "b24",
+        "b34"
+      ],
+      "period_basis": [
+        [
+          "3/4",
+          "-1/4",
+          "-5/4",
+          "1/2",
+          "1",
+          "0"
+        ],
+        [
+          "1/4",
+          "1/4",
+          "-3/4",
+          "1/2",
+          "0",
+          "1"
+        ]
+      ],
+      "forced_zero_entries": [],
+      "biresidue_example": [
+        [
+          0,
+          -5,
+          5,
+          1,
+          -1
+        ],
+        [
+          5,
+          0,
+          5,
+          1,
+          -11
+        ],
+        [
+          -5,
+          -5,
+          0,
+          6,
+          4
+        ],
+        [
+          -1,
+          -1,
+          -6,
+          0,
+          8
+        ],
+        [
+          1,
+          11,
+          -4,
+          -8,
+          0
+        ]
+      ],
+      "affine_component_dimension": 24,
+      "projective_component_dimension": 23,
+      "coarse_affine_moduli_dimension": 2,
+      "id": "T05"
+    },
+    {
+      "graph_type": "P3+P1+P1",
+      "generic_degeneracy_degree_partition": [
+        3,
+        1,
+        1
+      ],
+      "edges": [
+        {
+          "edge": [
+            0,
+            1
+          ],
+          "orders": {
+            "2": 0,
+            "3": 0,
+            "4": 2
+          }
+        },
+        {
+          "edge": [
+            0,
+            2
+          ],
+          "orders": {
+            "1": 0,
+            "3": 2,
+            "4": 0
+          }
+        }
+      ],
+      "period_dimension": 2,
+      "edge_count": 2,
+      "smoothing_weight_rank": 2,
+      "generic_torus_stabilizer_dimension": 2,
+      "period_basis_coordinates": [
+        "b12",
+        "b13",
+        "b14",
+        "b23",
+        "b24",
+        "b34"
+      ],
+      "period_basis": [
+        [
+          "3/2",
+          "-1",
+          "-2",
+          "2",
+          "1",
+          "0"
+        ],
+        [
+          "1/2",
+          "0",
+          "-1",
+          "1",
+          "0",
+          "1"
+        ]
+      ],
+      "forced_zero_entries": [],
+      "biresidue_example": [
+        [
+          0,
+          -5,
+          5,
+          -2,
+          2
+        ],
+        [
+          5,
+          0,
+          5,
+          -2,
+          -8
+        ],
+        [
+          -5,
+          -5,
+          0,
+          8,
+          2
+        ],
+        [
+          2,
+          2,
+          -8,
+          0,
+          4
+        ],
+        [
+          -2,
+          8,
+          -2,
+          -4,
+          0
+        ]
+      ],
+      "affine_component_dimension": 24,
+      "projective_component_dimension": 23,
+      "coarse_affine_moduli_dimension": 2,
+      "id": "T06"
+    },
+    {
+      "graph_type": "P3+P1+P1",
+      "generic_degeneracy_degree_partition": [
+        3,
+        1,
+        1
+      ],
+      "edges": [
+        {
+          "edge": [
+            0,
+            1
+          ],
+          "orders": {
+            "2": 0,
+            "3": 0,
+            "4": 2
+          }
+        },
+        {
+          "edge": [
+            0,
+            2
+          ],
+          "orders": {
+            "1": 1,
+            "3": 0,
+            "4": 1
+          }
+        }
+      ],
+      "period_dimension": 2,
+      "edge_count": 2,
+      "smoothing_weight_rank": 2,
+      "generic_torus_stabilizer_dimension": 2,
+      "period_basis_coordinates": [
+        "b12",
+        "b13",
+        "b14",
+        "b23",
+        "b24",
+        "b34"
+      ],
+      "period_basis": [
+        [
+          "1/2",
+          "0",
+          "-3/2",
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "1/6",
+          "1/3",
+          "-5/6",
+          "1/3",
+          "0",
+          "1"
+        ]
+      ],
+      "forced_zero_entries": [],
+      "biresidue_example": [
+        [
+          0,
+          -10,
+          5,
+          4,
+          1
+        ],
+        [
+          10,
+          0,
+          5,
+          4,
+          -19
+        ],
+        [
+          -5,
+          -5,
+          0,
+          4,
+          6
+        ],
+        [
+          -4,
+          -4,
+          -4,
+          0,
+          12
+        ],
+        [
+          -1,
+          19,
+          -6,
+          -12,
+          0
+        ]
+      ],
+      "affine_component_dimension": 24,
+      "projective_component_dimension": 23,
+      "coarse_affine_moduli_dimension": 2,
+      "id": "T07"
+    },
+    {
+      "graph_type": "P3+P1+P1",
+      "generic_degeneracy_degree_partition": [
+        3,
+        1,
+        1
+      ],
+      "edges": [
+        {
+          "edge": [
+            0,
+            1
+          ],
+          "orders": {
+            "2": 0,
+            "3": 0,
+            "4": 2
+          }
+        },
+        {
+          "edge": [
+            0,
+            2
+          ],
+          "orders": {
+            "1": 1,
+            "3": 1,
+            "4": 0
+          }
+        }
+      ],
+      "period_dimension": 2,
+      "edge_count": 2,
+      "smoothing_weight_rank": 2,
+      "generic_torus_stabilizer_dimension": 2,
+      "period_basis_coordinates": [
+        "b12",
+        "b13",
+        "b14",
+        "b23",
+        "b24",
+        "b34"
+      ],
+      "period_basis": [
+        [
+          "3/4",
+          "-1/4",
+          "-2",
+          "1/2",
+          "1",
+          "0"
+        ],
+        [
+          "1/4",
+          "1/4",
+          "-1",
+          "1/2",
+          "0",
+          "1"
+        ]
+      ],
+      "forced_zero_entries": [],
+      "biresidue_example": [
+        [
+          0,
+          -10,
+          5,
+          1,
+          4
+        ],
+        [
+          10,
+          0,
+          5,
+          1,
+          -16
+        ],
+        [
+          -5,
+          -5,
+          0,
+          6,
+          4
+        ],
+        [
+          -1,
+          -1,
+          -6,
+          0,
+          8
+        ],
+        [
+          -4,
+          16,
+          -4,
+          -8,
+          0
+        ]
+      ],
+      "affine_component_dimension": 24,
+      "projective_component_dimension": 23,
+      "coarse_affine_moduli_dimension": 2,
+      "id": "T08"
+    },
+    {
+      "graph_type": "P3+P1+P1",
+      "generic_degeneracy_degree_partition": [
+        3,
+        1,
+        1
+      ],
+      "edges": [
+        {
+          "edge": [
+            0,
+            1
+          ],
+          "orders": {
+            "2": 0,
+            "3": 0,
+            "4": 2
+          }
+        },
+        {
+          "edge": [
+            0,
+            2
+          ],
+          "orders": {
+            "1": 2,
+            "3": 0,
+            "4": 0
+          }
+        }
+      ],
+      "period_dimension": 2,
+      "edge_count": 2,
+      "smoothing_weight_rank": 2,
+      "generic_torus_stabilizer_dimension": 2,
+      "period_basis_coordinates": [
+        "b12",
+        "b13",
+        "b14",
+        "b23",
+        "b24",
+        "b34"
+      ],
+      "period_basis": [
+        [
+          "1/2",
+          "0",
+          "-2",
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "1/6",
+          "1/3",
+          "-1",
+          "1/3",
+          "0",
+          "1"
+        ]
+      ],
+      "forced_zero_entries": [],
+      "biresidue_example": [
+        [
+          0,
+          -15,
+          5,
+          4,
+          6
+        ],
+        [
+          15,
+          0,
+          5,
+          4,
+          -24
+        ],
+        [
+          -5,
+          -5,
+          0,
+          4,
+          6
+        ],
+        [
+          -4,
+          -4,
+          -4,
+          0,
+          12
+        ],
+        [
+          -6,
+          24,
+          -6,
+          -12,
+          0
+        ]
+      ],
+      "affine_component_dimension": 24,
+      "projective_component_dimension": 23,
+      "coarse_affine_moduli_dimension": 2,
+      "id": "T09"
+    },
+    {
+      "graph_type": "P3+P1+P1",
+      "generic_degeneracy_degree_partition": [
+        3,
+        1,
+        1
+      ],
+      "edges": [
+        {
+          "edge": [
+            0,
+            1
+          ],
+          "orders": {
+            "2": 0,
+            "3": 1,
+            "4": 1
+          }
+        },
+        {
+          "edge": [
+            0,
+            2
+          ],
+          "orders": {
+            "1": 0,
+            "3": 1,
+            "4": 1
+          }
+        }
+      ],
+      "period_dimension": 2,
+      "edge_count": 2,
+      "smoothing_weight_rank": 2,
+      "generic_torus_stabilizer_dimension": 2,
+      "period_basis_coordinates": [
+        "b12",
+        "b13",
+        "b14",
+        "b23",
+        "b24",
+        "b34"
+      ],
+      "period_basis": [
+        [
+          "1",
+          "-1",
+          "-1",
+          "1",
+          "1",
+          "0"
+        ],
+        [
+          "1/3",
+          "0",
+          "-2/3",
+          "2/3",
+          "0",
+          "1"
+        ]
+      ],
+      "forced_zero_entries": [],
+      "biresidue_example": [
+        [
+          0,
+          -4,
+          4,
+          1,
+          -1
+        ],
+        [
+          4,
+          0,
+          4,
+          -3,
+          -5
+        ],
+        [
+          -4,
+          -4,
+          0,
+          5,
+          3
+        ],
+        [
+          -1,
+          3,
+          -5,
+          0,
+          3
+        ],
+        [
+          1,
+          5,
+          -3,
+          -3,
+          0
+        ]
+      ],
+      "affine_component_dimension": 24,
+      "projective_component_dimension": 23,
+      "coarse_affine_moduli_dimension": 2,
+      "id": "T10"
+    },
+    {
+      "graph_type": "P3+P1+P1",
+      "generic_degeneracy_degree_partition": [
+        3,
+        1,
+        1
+      ],
+      "edges": [
+        {
+          "edge": [
+            0,
+            1
+          ],
+          "orders": {
+            "2": 0,
+            "3": 1,
+            "4": 1
+          }
+        },
+        {
+          "edge": [
+            0,
+            2
+          ],
+          "orders": {
+            "1": 1,
+            "3": 0,
+            "4": 1
+          }
+        }
+      ],
+      "period_dimension": 2,
+      "edge_count": 2,
+      "smoothing_weight_rank": 2,
+      "generic_torus_stabilizer_dimension": 2,
+      "period_basis_coordinates": [
+        "b12",
+        "b13",
+        "b14",
+        "b23",
+        "b24",
+        "b34"
+      ],
+      "period_basis": [
+        [
+          "3/4",
+          "-1",
+          "-5/4",
+          "1/2",
+          "1",
+          "0"
+        ],
+        [
+          "1/4",
+          "0",
+          "-3/4",
+          "1/2",
+          "0",
+          "1"
+        ]
+      ],
+      "forced_zero_entries": [],
+      "biresidue_example": [
+        [
+          0,
+          -10,
+          5,
+          6,
+          -1
+        ],
+        [
+          10,
+          0,
+          5,
+          -4,
+          -11
+        ],
+        [
+          -5,
+          -5,
+          0,
+          6,
+          4
+        ],
+        [
+          -6,
+          4,
+          -6,
+          0,
+          8
+        ],
+        [
+          1,
+          11,
+          -4,
+          -8,
+          0
+        ]
+      ],
+      "affine_component_dimension": 24,
+      "projective_component_dimension": 23,
+      "coarse_affine_moduli_dimension": 2,
+      "id": "T11"
+    },
+    {
+      "graph_type": "P3+P1+P1",
+      "generic_degeneracy_degree_partition": [
+        3,
+        1,
+        1
+      ],
+      "edges": [
+        {
+          "edge": [
+            0,
+            1
+          ],
+          "orders": {
+            "2": 0,
+            "3": 1,
+            "4": 1
+          }
+        },
+        {
+          "edge": [
+            0,
+            2
+          ],
+          "orders": {
+            "1": 2,
+            "3": 0,
+            "4": 0
+          }
+        }
+      ],
+      "period_dimension": 2,
+      "edge_count": 2,
+      "smoothing_weight_rank": 2,
+      "generic_torus_stabilizer_dimension": 2,
+      "period_basis_coordinates": [
+        "b12",
+        "b13",
+        "b14",
+        "b23",
+        "b24",
+        "b34"
+      ],
+      "period_basis": [
+        [
+          "1",
+          "-2",
+          "-2",
+          "1",
+          "1",
+          "0"
+        ],
+        [
+          "1/3",
+          "-1/3",
+          "-1",
+          "2/3",
+          "0",
+          "1"
+        ]
+      ],
+      "forced_zero_entries": [],
+      "biresidue_example": [
+        [
+          0,
+          -12,
+          4,
+          5,
+          3
+        ],
+        [
+          12,
+          0,
+          4,
+          -7,
+          -9
+        ],
+        [
+          -4,
+          -4,
+          0,
+          5,
+          3
+        ],
+        [
+          -5,
+          7,
+          -5,
+          0,
+          3
+        ],
+        [
+          -3,
+          9,
+          -3,
+          -3,
+          0
+        ]
+      ],
+      "affine_component_dimension": 24,
+      "projective_component_dimension": 23,
+      "coarse_affine_moduli_dimension": 2,
+      "id": "T12"
+    },
+    {
+      "graph_type": "P3+P1+P1",
+      "generic_degeneracy_degree_partition": [
+        3,
+        1,
+        1
+      ],
+      "edges": [
+        {
+          "edge": [
+            0,
+            1
+          ],
+          "orders": {
+            "2": 1,
+            "3": 0,
+            "4": 1
+          }
+        },
+        {
+          "edge": [
+            0,
+            2
+          ],
+          "orders": {
+            "1": 1,
+            "3": 0,
+            "4": 1
+          }
+        }
+      ],
+      "period_dimension": 2,
+      "edge_count": 2,
+      "smoothing_weight_rank": 2,
+      "generic_torus_stabilizer_dimension": 2,
+      "period_basis_coordinates": [
+        "b12",
+        "b13",
+        "b14",
+        "b23",
+        "b24",
+        "b34"
+      ],
+      "period_basis": [
+        [
+          "0",
+          "0",
+          "-1",
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "1/3",
+          "-2/3",
+          "1/3",
+          "0",
+          "1"
+        ]
+      ],
+      "forced_zero_entries": [
+        [
+          1,
+          2
+        ]
+      ],
+      "biresidue_example": [
+        [
+          0,
+          -4,
+          4,
+          1,
+          -1
+        ],
+        [
+          4,
+          0,
+          0,
+          1,
+          -5
+        ],
+        [
+          -4,
+          0,
+          0,
+          1,
+          3
+        ],
+        [
+          -1,
+          -1,
+          -1,
+          0,
+          3
+        ],
+        [
+          1,
+          5,
+          -3,
+          -3,
+          0
+        ]
+      ],
+      "affine_component_dimension": 24,
+      "projective_component_dimension": 23,
+      "coarse_affine_moduli_dimension": 2,
+      "id": "T13"
+    },
+    {
+      "graph_type": "P3+P1+P1",
+      "generic_degeneracy_degree_partition": [
+        3,
+        1,
+        1
+      ],
+      "edges": [
+        {
+          "edge": [
+            0,
+            1
+          ],
+          "orders": {
+            "2": 1,
+            "3": 0,
+            "4": 1
+          }
+        },
+        {
+          "edge": [
+            0,
+            2
+          ],
+          "orders": {
+            "1": 1,
+            "3": 1,
+            "4": 0
+          }
+        }
+      ],
+      "period_dimension": 2,
+      "edge_count": 2,
+      "smoothing_weight_rank": 2,
+      "generic_torus_stabilizer_dimension": 2,
+      "period_basis_coordinates": [
+        "b12",
+        "b13",
+        "b14",
+        "b23",
+        "b24",
+        "b34"
+      ],
+      "period_basis": [
+        [
+          "0",
+          "-1",
+          "-2",
+          "2",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "-1",
+          "1",
+          "0",
+          "1"
+        ]
+      ],
+      "forced_zero_entries": [
+        [
+          1,
+          2
+        ]
+      ],
+      "biresidue_example": [
+        [
+          0,
+          -4,
+          4,
+          -1,
+          1
+        ],
+        [
+          4,
+          0,
+          0,
+          -1,
+          -3
+        ],
+        [
+          -4,
+          0,
+          0,
+          3,
+          1
+        ],
+        [
+          1,
+          1,
+          -3,
+          0,
+          1
+        ],
+        [
+          -1,
+          3,
+          -1,
+          -1,
+          0
+        ]
+      ],
+      "affine_component_dimension": 24,
+      "projective_component_dimension": 23,
+      "coarse_affine_moduli_dimension": 2,
+      "id": "T14"
+    },
+    {
+      "graph_type": "P3+P1+P1",
+      "generic_degeneracy_degree_partition": [
+        3,
+        1,
+        1
+      ],
+      "edges": [
+        {
+          "edge": [
+            0,
+            1
+          ],
+          "orders": {
+            "2": 1,
+            "3": 0,
+            "4": 1
+          }
+        },
+        {
+          "edge": [
+            0,
+            2
+          ],
+          "orders": {
+            "1": 2,
+            "3": 0,
+            "4": 0
+          }
+        }
+      ],
+      "period_dimension": 2,
+      "edge_count": 2,
+      "smoothing_weight_rank": 2,
+      "generic_torus_stabilizer_dimension": 2,
+      "period_basis_coordinates": [
+        "b12",
+        "b13",
+        "b14",
+        "b23",
+        "b24",
+        "b34"
+      ],
+      "period_basis": [
+        [
+          "-1",
+          "0",
+          "-2",
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "-1/3",
+          "1/3",
+          "-1",
+          "1/3",
+          "0",
+          "1"
+        ]
+      ],
+      "forced_zero_entries": [],
+      "biresidue_example": [
+        [
+          0,
+          -12,
+          8,
+          1,
+          3
+        ],
+        [
+          12,
+          0,
+          -4,
+          1,
+          -9
+        ],
+        [
+          -8,
+          4,
+          0,
+          1,
+          3
+        ],
+        [
+          -1,
+          -1,
+          -1,
+          0,
+          3
+        ],
+        [
+          -3,
+          9,
+          -3,
+          -3,
+          0
+        ]
+      ],
+      "affine_component_dimension": 24,
+      "projective_component_dimension": 23,
+      "coarse_affine_moduli_dimension": 2,
+      "id": "T15"
+    },
+    {
+      "graph_type": "P2+P2+P1",
+      "generic_degeneracy_degree_partition": [
+        2,
+        2,
+        1
+      ],
+      "edges": [
+        {
+          "edge": [
+            0,
+            1
+          ],
+          "orders": {
+            "2": 0,
+            "3": 0,
+            "4": 2
+          }
+        },
+        {
+          "edge": [
+            2,
+            3
+          ],
+          "orders": {
+            "0": 0,
+            "1": 0,
+            "4": 2
+          }
+        }
+      ],
+      "period_dimension": 3,
+      "edge_count": 2,
+      "smoothing_weight_rank": 2,
+      "generic_torus_stabilizer_dimension": 2,
+      "period_basis_coordinates": [
+        "b12",
+        "b13",
+        "b14",
+        "b23",
+        "b24",
+        "b34"
+      ],
+      "period_basis": [
+        [
+          "0",
+          "0",
+          "1",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "1/4",
+          "1/4",
+          "0",
+          "-1/2",
+          "1",
+          "0"
+        ],
+        [
+          "1/4",
+          "1/4",
+          "0",
+          "1/2",
+          "0",
+          "1"
+        ]
+      ],
+      "forced_zero_entries": [],
+      "biresidue_example": [
+        [
+          0,
+          8,
+          3,
+          3,
+          -14
+        ],
+        [
+          -8,
+          0,
+          3,
+          3,
+          2
+        ],
+        [
+          -3,
+          -3,
+          0,
+          2,
+          4
+        ],
+        [
+          -3,
+          -3,
+          -2,
+          0,
+          8
+        ],
+        [
+          14,
+          -2,
+          -4,
+          -8,
+          0
+        ]
+      ],
+      "affine_component_dimension": 25,
+      "projective_component_dimension": 24,
+      "coarse_affine_moduli_dimension": 3,
+      "id": "T16"
+    },
+    {
+      "graph_type": "P2+P2+P1",
+      "generic_degeneracy_degree_partition": [
+        2,
+        2,
+        1
+      ],
+      "edges": [
+        {
+          "edge": [
+            0,
+            1
+          ],
+          "orders": {
+            "2": 0,
+            "3": 0,
+            "4": 2
+          }
+        },
+        {
+          "edge": [
+            2,
+            3
+          ],
+          "orders": {
+            "0": 1,
+            "1": 1,
+            "4": 0
+          }
+        }
+      ],
+      "period_dimension": 3,
+      "edge_count": 2,
+      "smoothing_weight_rank": 2,
+      "generic_torus_stabilizer_dimension": 2,
+      "period_basis_coordinates": [
+        "b12",
+        "b13",
+        "b14",
+        "b23",
+        "b24",
+        "b34"
+      ],
+      "period_basis": [
+        [
+          "0",
+          "0",
+          "1",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "1/2",
+          "-1/2",
+          "0",
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "1/2",
+          "1/2",
+          "0",
+          "0",
+          "1",
+          "1"
+        ]
+      ],
+      "forced_zero_entries": [],
+      "biresidue_example": [
+        [
+          0,
+          5,
+          3,
+          1,
+          -9
+        ],
+        [
+          -5,
+          0,
+          3,
+          1,
+          1
+        ],
+        [
+          -3,
+          -3,
+          0,
+          2,
+          4
+        ],
+        [
+          -1,
+          -1,
+          -2,
+          0,
+          4
+        ],
+        [
+          9,
+          -1,
+          -4,
+          -4,
+          0
+        ]
+      ],
+      "affine_component_dimension": 25,
+      "projective_component_dimension": 24,
+      "coarse_affine_moduli_dimension": 3,
+      "id": "T17"
+    },
+    {
+      "graph_type": "P2+P2+P1",
+      "generic_degeneracy_degree_partition": [
+        2,
+        2,
+        1
+      ],
+      "edges": [
+        {
+          "edge": [
+            0,
+            1
+          ],
+          "orders": {
+            "2": 0,
+            "3": 1,
+            "4": 1
+          }
+        },
+        {
+          "edge": [
+            2,
+            3
+          ],
+          "orders": {
+            "0": 0,
+            "1": 1,
+            "4": 1
+          }
+        }
+      ],
+      "period_dimension": 2,
+      "edge_count": 2,
+      "smoothing_weight_rank": 2,
+      "generic_torus_stabilizer_dimension": 2,
+      "period_basis_coordinates": [
+        "b12",
+        "b13",
+        "b14",
+        "b23",
+        "b24",
+        "b34"
+      ],
+      "period_basis": [
+        [
+          "0",
+          "1",
+          "0",
+          "-1",
+          "1",
+          "0"
+        ],
+        [
+          "1/2",
+          "-1/2",
+          "-1",
+          "1",
+          "0",
+          "1"
+        ]
+      ],
+      "forced_zero_entries": [],
+      "biresidue_example": [
+        [
+          0,
+          -4,
+          3,
+          3,
+          -2
+        ],
+        [
+          4,
+          0,
+          3,
+          -1,
+          -6
+        ],
+        [
+          -3,
+          -3,
+          0,
+          4,
+          2
+        ],
+        [
+          -3,
+          1,
+          -4,
+          0,
+          6
+        ],
+        [
+          2,
+          6,
+          -2,
+          -6,
+          0
+        ]
+      ],
+      "affine_component_dimension": 24,
+      "projective_component_dimension": 23,
+      "coarse_affine_moduli_dimension": 2,
+      "id": "T18"
+    },
+    {
+      "graph_type": "P2+P2+P1",
+      "generic_degeneracy_degree_partition": [
+        2,
+        2,
+        1
+      ],
+      "edges": [
+        {
+          "edge": [
+            0,
+            1
+          ],
+          "orders": {
+            "2": 0,
+            "3": 1,
+            "4": 1
+          }
+        },
+        {
+          "edge": [
+            2,
+            3
+          ],
+          "orders": {
+            "0": 0,
+            "1": 2,
+            "4": 0
+          }
+        }
+      ],
+      "period_dimension": 2,
+      "edge_count": 2,
+      "smoothing_weight_rank": 2,
+      "generic_torus_stabilizer_dimension": 2,
+      "period_basis_coordinates": [
+        "b12",
+        "b13",
+        "b14",
+        "b23",
+        "b24",
+        "b34"
+      ],
+      "period_basis": [
+        [
+          "1/2",
+          "-3/2",
+          "-1",
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "1/2",
+          "1/2",
+          "-1",
+          "0",
+          "1",
+          "1"
+        ]
+      ],
+      "forced_zero_entries": [],
+      "biresidue_example": [
+        [
+          0,
+          -4,
+          3,
+          3,
+          -2
+        ],
+        [
+          4,
+          0,
+          3,
+          -1,
+          -6
+        ],
+        [
+          -3,
+          -3,
+          0,
+          2,
+          4
+        ],
+        [
+          -3,
+          1,
+          -2,
+          0,
+          4
+        ],
+        [
+          2,
+          6,
+          -4,
+          -4,
+          0
+        ]
+      ],
+      "affine_component_dimension": 24,
+      "projective_component_dimension": 23,
+      "coarse_affine_moduli_dimension": 2,
+      "id": "T19"
+    },
+    {
+      "graph_type": "P2+P2+P1",
+      "generic_degeneracy_degree_partition": [
+        2,
+        2,
+        1
+      ],
+      "edges": [
+        {
+          "edge": [
+            0,
+            1
+          ],
+          "orders": {
+            "2": 0,
+            "3": 2,
+            "4": 0
+          }
+        },
+        {
+          "edge": [
+            2,
+            3
+          ],
+          "orders": {
+            "0": 0,
+            "1": 2,
+            "4": 0
+          }
+        }
+      ],
+      "period_dimension": 2,
+      "edge_count": 2,
+      "smoothing_weight_rank": 2,
+      "generic_torus_stabilizer_dimension": 2,
+      "period_basis_coordinates": [
+        "b12",
+        "b13",
+        "b14",
+        "b23",
+        "b24",
+        "b34"
+      ],
+      "period_basis": [
+        [
+          "1/2",
+          "-3/2",
+          "0",
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "1/2",
+          "1/2",
+          "-1",
+          "0",
+          "1",
+          "1"
+        ]
+      ],
+      "forced_zero_entries": [],
+      "biresidue_example": [
+        [
+          0,
+          -2,
+          3,
+          3,
+          -4
+        ],
+        [
+          2,
+          0,
+          3,
+          -1,
+          -4
+        ],
+        [
+          -3,
+          -3,
+          0,
+          2,
+          4
+        ],
+        [
+          -3,
+          1,
+          -2,
+          0,
+          4
+        ],
+        [
+          4,
+          4,
+          -4,
+          -4,
+          0
+        ]
+      ],
+      "affine_component_dimension": 24,
+      "projective_component_dimension": 23,
+      "coarse_affine_moduli_dimension": 2,
+      "id": "T20"
+    },
+    {
+      "graph_type": "C3+P1+P1",
+      "generic_degeneracy_degree_partition": [
+        3,
+        1,
+        1
+      ],
+      "edges": [
+        {
+          "edge": [
+            0,
+            1
+          ],
+          "orders": {
+            "2": 2,
+            "3": 0,
+            "4": 0
+          }
+        },
+        {
+          "edge": [
+            0,
+            2
+          ],
+          "orders": {
+            "1": 2,
+            "3": 0,
+            "4": 0
+          }
+        },
+        {
+          "edge": [
+            1,
+            2
+          ],
+          "orders": {
+            "0": 2,
+            "3": 0,
+            "4": 0
+          }
+        }
+      ],
+      "period_dimension": 2,
+      "edge_count": 3,
+      "smoothing_weight_rank": 2,
+      "generic_torus_stabilizer_dimension": 2,
+      "period_basis_coordinates": [
+        "b12",
+        "b13",
+        "b14",
+        "b23",
+        "b24",
+        "b34"
+      ],
+      "period_basis": [
+        [
+          "1",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1/3",
+          "-1/3",
+          "1/3",
+          "-1/3",
+          "1"
+        ]
+      ],
+      "forced_zero_entries": [],
+      "biresidue_example": [
+        [
+          0,
+          3,
+          -3,
+          1,
+          -1
+        ],
+        [
+          -3,
+          0,
+          3,
+          1,
+          -1
+        ],
+        [
+          3,
+          -3,
+          0,
+          1,
+          -1
+        ],
+        [
+          -1,
+          -1,
+          -1,
+          0,
+          3
+        ],
+        [
+          1,
+          1,
+          1,
+          -3,
+          0
+        ]
+      ],
+      "affine_component_dimension": 25,
+      "projective_component_dimension": 24,
+      "coarse_affine_moduli_dimension": 3,
+      "id": "T21"
+    },
+    {
+      "graph_type": "P4+P1",
+      "generic_degeneracy_degree_partition": [
+        4,
+        1
+      ],
+      "edges": [
+        {
+          "edge": [
+            0,
+            1
+          ],
+          "orders": {
+            "2": 0,
+            "3": 0,
+            "4": 2
+          }
+        },
+        {
+          "edge": [
+            0,
+            2
+          ],
+          "orders": {
+            "1": 0,
+            "3": 0,
+            "4": 2
+          }
+        },
+        {
+          "edge": [
+            1,
+            3
+          ],
+          "orders": {
+            "0": 0,
+            "2": 0,
+            "4": 2
+          }
+        }
+      ],
+      "period_dimension": 1,
+      "edge_count": 3,
+      "smoothing_weight_rank": 3,
+      "generic_torus_stabilizer_dimension": 1,
+      "period_basis_coordinates": [
+        "b12",
+        "b13",
+        "b14",
+        "b23",
+        "b24",
+        "b34"
+      ],
+      "period_basis": [
+        [
+          "-1/3",
+          "1/3",
+          "1/3",
+          "1/3",
+          "-1",
+          "1"
+        ]
+      ],
+      "forced_zero_entries": [],
+      "biresidue_example": [
+        [
+          0,
+          1,
+          -1,
+          1,
+          -1
+        ],
+        [
+          -1,
+          0,
+          -1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          0,
+          1,
+          -3
+        ],
+        [
+          -1,
+          -1,
+          -1,
+          0,
+          3
+        ],
+        [
+          1,
+          -1,
+          3,
+          -3,
+          0
+        ]
+      ],
+      "affine_component_dimension": 24,
+      "projective_component_dimension": 23,
+      "coarse_affine_moduli_dimension": 1,
+      "id": "T22"
+    },
+    {
+      "graph_type": "P4+P1",
+      "generic_degeneracy_degree_partition": [
+        4,
+        1
+      ],
+      "edges": [
+        {
+          "edge": [
+            0,
+            1
+          ],
+          "orders": {
+            "2": 0,
+            "3": 0,
+            "4": 2
+          }
+        },
+        {
+          "edge": [
+            0,
+            2
+          ],
+          "orders": {
+            "1": 0,
+            "3": 0,
+            "4": 2
+          }
+        },
+        {
+          "edge": [
+            1,
+            3
+          ],
+          "orders": {
+            "0": 1,
+            "2": 1,
+            "4": 0
+          }
+        }
+      ],
+      "period_dimension": 1,
+      "edge_count": 3,
+      "smoothing_weight_rank": 3,
+      "generic_torus_stabilizer_dimension": 1,
+      "period_basis_coordinates": [
+        "b12",
+        "b13",
+        "b14",
+        "b23",
+        "b24",
+        "b34"
+      ],
+      "period_basis": [
+        [
+          "-2/3",
+          "1/3",
+          "1",
+          "1/3",
+          "-5/3",
+          "1"
+        ]
+      ],
+      "forced_zero_entries": [],
+      "biresidue_example": [
+        [
+          0,
+          2,
+          -2,
+          1,
+          -1
+        ],
+        [
+          -2,
+          0,
+          -2,
+          1,
+          3
+        ],
+        [
+          2,
+          2,
+          0,
+          1,
+          -5
+        ],
+        [
+          -1,
+          -1,
+          -1,
+          0,
+          3
+        ],
+        [
+          1,
+          -3,
+          5,
+          -3,
+          0
+        ]
+      ],
+      "affine_component_dimension": 24,
+      "projective_component_dimension": 23,
+      "coarse_affine_moduli_dimension": 1,
+      "id": "T23"
+    },
+    {
+      "graph_type": "P4+P1",
+      "generic_degeneracy_degree_partition": [
+        4,
+        1
+      ],
+      "edges": [
+        {
+          "edge": [
+            0,
+            1
+          ],
+          "orders": {
+            "2": 0,
+            "3": 0,
+            "4": 2
+          }
+        },
+        {
+          "edge": [
+            0,
+            2
+          ],
+          "orders": {
+            "1": 1,
+            "3": 0,
+            "4": 1
+          }
+        },
+        {
+          "edge": [
+            1,
+            3
+          ],
+          "orders": {
+            "0": 1,
+            "2": 0,
+            "4": 1
+          }
+        }
+      ],
+      "period_dimension": 1,
+      "edge_count": 3,
+      "smoothing_weight_rank": 3,
+      "generic_torus_stabilizer_dimension": 1,
+      "period_basis_coordinates": [
+        "b12",
+        "b13",
+        "b14",
+        "b23",
+        "b24",
+        "b34"
+      ],
+      "period_basis": [
+        [
+          "-1/3",
+          "1/3",
+          "2/3",
+          "1/3",
+          "-1",
+          "1"
+        ]
+      ],
+      "forced_zero_entries": [],
+      "biresidue_example": [
+        [
+          0,
+          2,
+          -1,
+          1,
+          -2
+        ],
+        [
+          -2,
+          0,
+          -1,
+          1,
+          2
+        ],
+        [
+          1,
+          1,
+          0,
+          1,
+          -3
+        ],
+        [
+          -1,
+          -1,
+          -1,
+          0,
+          3
+        ],
+        [
+          2,
+          -2,
+          3,
+          -3,
+          0
+        ]
+      ],
+      "affine_component_dimension": 24,
+      "projective_component_dimension": 23,
+      "coarse_affine_moduli_dimension": 1,
+      "id": "T24"
+    },
+    {
+      "graph_type": "P4+P1",
+      "generic_degeneracy_degree_partition": [
+        4,
+        1
+      ],
+      "edges": [
+        {
+          "edge": [
+            0,
+            1
+          ],
+          "orders": {
+            "2": 0,
+            "3": 0,
+            "4": 2
+          }
+        },
+        {
+          "edge": [
+            0,
+            2
+          ],
+          "orders": {
+            "1": 2,
+            "3": 0,
+            "4": 0
+          }
+        },
+        {
+          "edge": [
+            1,
+            3
+          ],
+          "orders": {
+            "0": 2,
+            "2": 0,
+            "4": 0
+          }
+        }
+      ],
+      "period_dimension": 1,
+      "edge_count": 3,
+      "smoothing_weight_rank": 3,
+      "generic_torus_stabilizer_dimension": 1,
+      "period_basis_coordinates": [
+        "b12",
+        "b13",
+        "b14",
+        "b23",
+        "b24",
+        "b34"
+      ],
+      "period_basis": [
+        [
+          "-1/3",
+          "1/3",
+          "1",
+          "1/3",
+          "-1",
+          "1"
+        ]
+      ],
+      "forced_zero_entries": [],
+      "biresidue_example": [
+        [
+          0,
+          3,
+          -1,
+          1,
+          -3
+        ],
+        [
+          -3,
+          0,
+          -1,
+          1,
+          3
+        ],
+        [
+          1,
+          1,
+          0,
+          1,
+          -3
+        ],
+        [
+          -1,
+          -1,
+          -1,
+          0,
+          3
+        ],
+        [
+          3,
+          -3,
+          3,
+          -3,
+          0
+        ]
+      ],
+      "affine_component_dimension": 24,
+      "projective_component_dimension": 23,
+      "coarse_affine_moduli_dimension": 1,
+      "id": "T25"
+    },
+    {
+      "graph_type": "P4+P1",
+      "generic_degeneracy_degree_partition": [
+        4,
+        1
+      ],
+      "edges": [
+        {
+          "edge": [
+            0,
+            1
+          ],
+          "orders": {
+            "2": 0,
+            "3": 1,
+            "4": 1
+          }
+        },
+        {
+          "edge": [
+            0,
+            2
+          ],
+          "orders": {
+            "1": 0,
+            "3": 0,
+            "4": 2
+          }
+        },
+        {
+          "edge": [
+            1,
+            3
+          ],
+          "orders": {
+            "0": 0,
+            "2": 0,
+            "4": 2
+          }
+        }
+      ],
+      "period_dimension": 1,
+      "edge_count": 3,
+      "smoothing_weight_rank": 3,
+      "generic_torus_stabilizer_dimension": 1,
+      "period_basis_coordinates": [
+        "b12",
+        "b13",
+        "b14",
+        "b23",
+        "b24",
+        "b34"
+      ],
+      "period_basis": [
+        [
+          "-1/4",
+          "1/2",
+          "0",
+          "1/4",
+          "-3/4",
+          "1"
+        ]
+      ],
+      "forced_zero_entries": [
+        [
+          1,
+          4
+        ]
+      ],
+      "biresidue_example": [
+        [
+          0,
+          1,
+          -1,
+          1,
+          -1
+        ],
+        [
+          -1,
+          0,
+          -1,
+          2,
+          0
+        ],
+        [
+          1,
+          1,
+          0,
+          1,
+          -3
+        ],
+        [
+          -1,
+          -2,
+          -1,
+          0,
+          4
+        ],
+        [
+          1,
+          0,
+          3,
+          -4,
+          0
+        ]
+      ],
+      "affine_component_dimension": 24,
+      "projective_component_dimension": 23,
+      "coarse_affine_moduli_dimension": 1,
+      "id": "T26"
+    },
+    {
+      "graph_type": "P4+P1",
+      "generic_degeneracy_degree_partition": [
+        4,
+        1
+      ],
+      "edges": [
+        {
+          "edge": [
+            0,
+            1
+          ],
+          "orders": {
+            "2": 0,
+            "3": 1,
+            "4": 1
+          }
+        },
+        {
+          "edge": [
+            0,
+            2
+          ],
+          "orders": {
+            "1": 1,
+            "3": 1,
+            "4": 0
+          }
+        },
+        {
+          "edge": [
+            1,
+            3
+          ],
+          "orders": {
+            "0": 0,
+            "2": 0,
+            "4": 2
+          }
+        }
+      ],
+      "period_dimension": 1,
+      "edge_count": 3,
+      "smoothing_weight_rank": 3,
+      "generic_torus_stabilizer_dimension": 1,
+      "period_basis_coordinates": [
+        "b12",
+        "b13",
+        "b14",
+        "b23",
+        "b24",
+        "b34"
+      ],
+      "period_basis": [
+        [
+          "-1/7",
+          "4/7",
+          "-1/7",
+          "1/7",
+          "-3/7",
+          "1"
+        ]
+      ],
+      "forced_zero_entries": [],
+      "biresidue_example": [
+        [
+          0,
+          2,
+          -1,
+          2,
+          -3
+        ],
+        [
+          -2,
+          0,
+          -1,
+          4,
+          -1
+        ],
+        [
+          1,
+          1,
+          0,
+          1,
+          -3
+        ],
+        [
+          -2,
+          -4,
+          -1,
+          0,
+          7
+        ],
+        [
+          3,
+          1,
+          3,
+          -7,
+          0
+        ]
+      ],
+      "affine_component_dimension": 24,
+      "projective_component_dimension": 23,
+      "coarse_affine_moduli_dimension": 1,
+      "id": "T27"
+    },
+    {
+      "graph_type": "P4+P1",
+      "generic_degeneracy_degree_partition": [
+        4,
+        1
+      ],
+      "edges": [
+        {
+          "edge": [
+            0,
+            1
+          ],
+          "orders": {
+            "2": 0,
+            "3": 2,
+            "4": 0
+          }
+        },
+        {
+          "edge": [
+            0,
+            2
+          ],
+          "orders": {
+            "1": 1,
+            "3": 1,
+            "4": 0
+          }
+        },
+        {
+          "edge": [
+            1,
+            3
+          ],
+          "orders": {
+            "0": 0,
+            "2": 0,
+            "4": 2
+          }
+        }
+      ],
+      "period_dimension": 1,
+      "edge_count": 3,
+      "smoothing_weight_rank": 3,
+      "generic_torus_stabilizer_dimension": 1,
+      "period_basis_coordinates": [
+        "b12",
+        "b13",
+        "b14",
+        "b23",
+        "b24",
+        "b34"
+      ],
+      "period_basis": [
+        [
+          "-1/9",
+          "2/3",
+          "-1/3",
+          "1/9",
+          "-1/3",
+          "1"
+        ]
+      ],
+      "forced_zero_entries": [],
+      "biresidue_example": [
+        [
+          0,
+          2,
+          -1,
+          2,
+          -3
+        ],
+        [
+          -2,
+          0,
+          -1,
+          6,
+          -3
+        ],
+        [
+          1,
+          1,
+          0,
+          1,
+          -3
+        ],
+        [
+          -2,
+          -6,
+          -1,
+          0,
+          9
+        ],
+        [
+          3,
+          3,
+          3,
+          -9,
+          0
+        ]
+      ],
+      "affine_component_dimension": 24,
+      "projective_component_dimension": 23,
+      "coarse_affine_moduli_dimension": 1,
+      "id": "T28"
+    },
+    {
+      "graph_type": "P4+P1",
+      "generic_degeneracy_degree_partition": [
+        4,
+        1
+      ],
+      "edges": [
+        {
+          "edge": [
+            0,
+            1
+          ],
+          "orders": {
+            "2": 1,
+            "3": 1,
+            "4": 0
+          }
+        },
+        {
+          "edge": [
+            0,
+            2
+          ],
+          "orders": {
+            "1": 0,
+            "3": 0,
+            "4": 2
+          }
+        },
+        {
+          "edge": [
+            1,
+            3
+          ],
+          "orders": {
+            "0": 0,
+            "2": 0,
+            "4": 2
+          }
+        }
+      ],
+      "period_dimension": 1,
+      "edge_count": 3,
+      "smoothing_weight_rank": 3,
+      "generic_torus_stabilizer_dimension": 1,
+      "period_basis_coordinates": [
+        "b12",
+        "b13",
+        "b14",
+        "b23",
+        "b24",
+        "b34"
+      ],
+      "period_basis": [
+        [
+          "-1/4",
+          "1/2",
+          "0",
+          "1/4",
+          "-1",
+          "1"
+        ]
+      ],
+      "forced_zero_entries": [
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          4
+        ]
+      ],
+      "biresidue_example": [
+        [
+          0,
+          1,
+          -2,
+          1,
+          0
+        ],
+        [
+          -1,
+          0,
+          -1,
+          2,
+          0
+        ],
+        [
+          2,
+          1,
+          0,
+          1,
+          -4
+        ],
+        [
+          -1,
+          -2,
+          -1,
+          0,
+          4
+        ],
+        [
+          0,
+          0,
+          4,
+          -4,
+          0
+        ]
+      ],
+      "affine_component_dimension": 24,
+      "projective_component_dimension": 23,
+      "coarse_affine_moduli_dimension": 1,
+      "id": "T29"
+    },
+    {
+      "graph_type": "P4+P1",
+      "generic_degeneracy_degree_partition": [
+        4,
+        1
+      ],
+      "edges": [
+        {
+          "edge": [
+            0,
+            1
+          ],
+          "orders": {
+            "2": 1,
+            "3": 1,
+            "4": 0
+          }
+        },
+        {
+          "edge": [
+            0,
+            2
+          ],
+          "orders": {
+            "1": 0,
+            "3": 0,
+            "4": 2
+          }
+        },
+        {
+          "edge": [
+            1,
+            3
+          ],
+          "orders": {
+            "0": 1,
+            "2": 1,
+            "4": 0
+          }
+        }
+      ],
+      "period_dimension": 1,
+      "edge_count": 3,
+      "smoothing_weight_rank": 3,
+      "generic_torus_stabilizer_dimension": 1,
+      "period_basis_coordinates": [
+        "b12",
+        "b13",
+        "b14",
+        "b23",
+        "b24",
+        "b34"
+      ],
+      "period_basis": [
+        [
+          "-1",
+          "1",
+          "1",
+          "0",
+          "-3",
+          "1"
+        ]
+      ],
+      "forced_zero_entries": [
+        [
+          0,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "biresidue_example": [
+        [
+          0,
+          1,
+          -2,
+          0,
+          1
+        ],
+        [
+          -1,
+          0,
+          -1,
+          1,
+          1
+        ],
+        [
+          2,
+          1,
+          0,
+          0,
+          -3
+        ],
+        [
+          0,
+          -1,
+          0,
+          0,
+          1
+        ],
+        [
+          -1,
+          -1,
+          3,
+          -1,
+          0
+        ]
+      ],
+      "affine_component_dimension": 24,
+      "projective_component_dimension": 23,
+      "coarse_affine_moduli_dimension": 1,
+      "id": "T30"
+    },
+    {
+      "graph_type": "P4+P1",
+      "generic_degeneracy_degree_partition": [
+        4,
+        1
+      ],
+      "edges": [
+        {
+          "edge": [
+            0,
+            1
+          ],
+          "orders": {
+            "2": 1,
+            "3": 1,
+            "4": 0
+          }
+        },
+        {
+          "edge": [
+            0,
+            2
+          ],
+          "orders": {
+            "1": 0,
+            "3": 1,
+            "4": 1
+          }
+        },
+        {
+          "edge": [
+            1,
+            3
+          ],
+          "orders": {
+            "0": 0,
+            "2": 1,
+            "4": 1
+          }
+        }
+      ],
+      "period_dimension": 1,
+      "edge_count": 3,
+      "smoothing_weight_rank": 3,
+      "generic_torus_stabilizer_dimension": 1,
+      "period_basis_coordinates": [
+        "b12",
+        "b13",
+        "b14",
+        "b23",
+        "b24",
+        "b34"
+      ],
+      "period_basis": [
+        [
+          "-1/2",
+          "1",
+          "0",
+          "-1/2",
+          "-1",
+          "1"
+        ]
+      ],
+      "forced_zero_entries": [
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          4
+        ]
+      ],
+      "biresidue_example": [
+        [
+          0,
+          1,
+          -2,
+          1,
+          0
+        ],
+        [
+          -1,
+          0,
+          -1,
+          2,
+          0
+        ],
+        [
+          2,
+          1,
+          0,
+          -1,
+          -2
+        ],
+        [
+          -1,
+          -2,
+          1,
+          0,
+          2
+        ],
+        [
+          0,
+          0,
+          2,
+          -2,
+          0
+        ]
+      ],
+      "affine_component_dimension": 24,
+      "projective_component_dimension": 23,
+      "coarse_affine_moduli_dimension": 1,
+      "id": "T31"
+    },
+    {
+      "graph_type": "P3+P2",
+      "generic_degeneracy_degree_partition": [
+        3,
+        2
+      ],
+      "edges": [
+        {
+          "edge": [
+            0,
+            1
+          ],
+          "orders": {
+            "2": 0,
+            "3": 0,
+            "4": 2
+          }
+        },
+        {
+          "edge": [
+            0,
+            2
+          ],
+          "orders": {
+            "1": 0,
+            "3": 2,
+            "4": 0
+          }
+        },
+        {
+          "edge": [
+            3,
+            4
+          ],
+          "orders": {
+            "0": 0,
+            "1": 1,
+            "2": 1
+          }
+        }
+      ],
+      "period_dimension": 1,
+      "edge_count": 3,
+      "smoothing_weight_rank": 3,
+      "generic_torus_stabilizer_dimension": 1,
+      "period_basis_coordinates": [
+        "b12",
+        "b13",
+        "b14",
+        "b23",
+        "b24",
+        "b34"
+      ],
+      "period_basis": [
+        [
+          "1/2",
+          "0",
+          "-1",
+          "1",
+          "0",
+          "1"
+        ]
+      ],
+      "forced_zero_entries": [
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          4
+        ]
+      ],
+      "biresidue_example": [
+        [
+          0,
+          -1,
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          1,
+          0,
+          -2
+        ],
+        [
+          -1,
+          -1,
+          0,
+          2,
+          0
+        ],
+        [
+          0,
+          0,
+          -2,
+          0,
+          2
+        ],
+        [
+          0,
+          2,
+          0,
+          -2,
+          0
+        ]
+      ],
+      "affine_component_dimension": 24,
+      "projective_component_dimension": 23,
+      "coarse_affine_moduli_dimension": 1,
+      "id": "T32"
+    },
+    {
+      "graph_type": "P3+P2",
+      "generic_degeneracy_degree_partition": [
+        3,
+        2
+      ],
+      "edges": [
+        {
+          "edge": [
+            0,
+            1
+          ],
+          "orders": {
+            "2": 0,
+            "3": 0,
+            "4": 2
+          }
+        },
+        {
+          "edge": [
+            0,
+            2
+          ],
+          "orders": {
+            "1": 2,
+            "3": 0,
+            "4": 0
+          }
+        },
+        {
+          "edge": [
+            3,
+            4
+          ],
+          "orders": {
+            "0": 1,
+            "1": 0,
+            "2": 1
+          }
+        }
+      ],
+      "period_dimension": 1,
+      "edge_count": 3,
+      "smoothing_weight_rank": 3,
+      "generic_torus_stabilizer_dimension": 1,
+      "period_basis_coordinates": [
+        "b12",
+        "b13",
+        "b14",
+        "b23",
+        "b24",
+        "b34"
+      ],
+      "period_basis": [
+        [
+          "-1/6",
+          "1/3",
+          "1/3",
+          "1/3",
+          "-2/3",
+          "1"
+        ]
+      ],
+      "forced_zero_entries": [],
+      "biresidue_example": [
+        [
+          0,
+          3,
+          -1,
+          2,
+          -4
+        ],
+        [
+          -3,
+          0,
+          -1,
+          2,
+          2
+        ],
+        [
+          1,
+          1,
+          0,
+          2,
+          -4
+        ],
+        [
+          -2,
+          -2,
+          -2,
+          0,
+          6
+        ],
+        [
+          4,
+          -2,
+          4,
+          -6,
+          0
+        ]
+      ],
+      "affine_component_dimension": 24,
+      "projective_component_dimension": 23,
+      "coarse_affine_moduli_dimension": 1,
+      "id": "T33"
+    },
+    {
+      "graph_type": "P3+P2",
+      "generic_degeneracy_degree_partition": [
+        3,
+        2
+      ],
+      "edges": [
+        {
+          "edge": [
+            0,
+            1
+          ],
+          "orders": {
+            "2": 0,
+            "3": 1,
+            "4": 1
+          }
+        },
+        {
+          "edge": [
+            0,
+            2
+          ],
+          "orders": {
+            "1": 1,
+            "3": 0,
+            "4": 1
+          }
+        },
+        {
+          "edge": [
+            3,
+            4
+          ],
+          "orders": {
+            "0": 0,
+            "1": 0,
+            "2": 2
+          }
+        }
+      ],
+      "period_dimension": 1,
+      "edge_count": 3,
+      "smoothing_weight_rank": 3,
+      "generic_torus_stabilizer_dimension": 1,
+      "period_basis_coordinates": [
+        "b12",
+        "b13",
+        "b14",
+        "b23",
+        "b24",
+        "b34"
+      ],
+      "period_basis": [
+        [
+          "-2",
+          "3",
+          "3",
+          "-1",
+          "-3",
+          "1"
+        ]
+      ],
+      "forced_zero_entries": [],
+      "biresidue_example": [
+        [
+          0,
+          4,
+          -2,
+          -1,
+          -1
+        ],
+        [
+          -4,
+          0,
+          -2,
+          3,
+          3
+        ],
+        [
+          2,
+          2,
+          0,
+          -1,
+          -3
+        ],
+        [
+          1,
+          -3,
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          -3,
+          3,
+          -1,
+          0
+        ]
+      ],
+      "affine_component_dimension": 24,
+      "projective_component_dimension": 23,
+      "coarse_affine_moduli_dimension": 1,
+      "id": "T34"
+    },
+    {
+      "graph_type": "P3+P2",
+      "generic_degeneracy_degree_partition": [
+        3,
+        2
+      ],
+      "edges": [
+        {
+          "edge": [
+            0,
+            1
+          ],
+          "orders": {
+            "2": 1,
+            "3": 0,
+            "4": 1
+          }
+        },
+        {
+          "edge": [
+            0,
+            2
+          ],
+          "orders": {
+            "1": 2,
+            "3": 0,
+            "4": 0
+          }
+        },
+        {
+          "edge": [
+            3,
+            4
+          ],
+          "orders": {
+            "0": 0,
+            "1": 2,
+            "2": 0
+          }
+        }
+      ],
+      "period_dimension": 1,
+      "edge_count": 3,
+      "smoothing_weight_rank": 3,
+      "generic_torus_stabilizer_dimension": 1,
+      "period_basis_coordinates": [
+        "b12",
+        "b13",
+        "b14",
+        "b23",
+        "b24",
+        "b34"
+      ],
+      "period_basis": [
+        [
+          "-2/3",
+          "1/3",
+          "-5/3",
+          "1/3",
+          "1/3",
+          "1"
+        ]
+      ],
+      "forced_zero_entries": [],
+      "biresidue_example": [
+        [
+          0,
+          -6,
+          4,
+          1,
+          1
+        ],
+        [
+          6,
+          0,
+          -2,
+          1,
+          -5
+        ],
+        [
+          -4,
+          2,
+          0,
+          1,
+          1
+        ],
+        [
+          -1,
+          -1,
+          -1,
+          0,
+          3
+        ],
+        [
+          -1,
+          5,
+          -1,
+          -3,
+          0
+        ]
+      ],
+      "affine_component_dimension": 24,
+      "projective_component_dimension": 23,
+      "coarse_affine_moduli_dimension": 1,
+      "id": "T35"
+    },
+    {
+      "graph_type": "P5",
+      "generic_degeneracy_degree_partition": [
+        5
+      ],
+      "edges": [
+        {
+          "edge": [
+            0,
+            1
+          ],
+          "orders": {
+            "2": 0,
+            "3": 2,
+            "4": 0
+          }
+        },
+        {
+          "edge": [
+            0,
+            2
+          ],
+          "orders": {
+            "1": 0,
+            "3": 0,
+            "4": 2
+          }
+        },
+        {
+          "edge": [
+            1,
+            3
+          ],
+          "orders": {
+            "0": 0,
+            "2": 0,
+            "4": 2
+          }
+        },
+        {
+          "edge": [
+            2,
+            4
+          ],
+          "orders": {
+            "0": 0,
+            "1": 0,
+            "3": 2
+          }
+        }
+      ],
+      "period_dimension": 1,
+      "edge_count": 4,
+      "smoothing_weight_rank": 4,
+      "generic_torus_stabilizer_dimension": 0,
+      "period_basis_coordinates": [
+        "b12",
+        "b13",
+        "b14",
+        "b23",
+        "b24",
+        "b34"
+      ],
+      "period_basis": [
+        [
+          "-1/5",
+          "3/5",
+          "-1/5",
+          "1/5",
+          "-3/5",
+          "1"
+        ]
+      ],
+      "forced_zero_entries": [],
+      "biresidue_example": [
+        [
+          0,
+          1,
+          -1,
+          1,
+          -1
+        ],
+        [
+          -1,
+          0,
+          -1,
+          3,
+          -1
+        ],
+        [
+          1,
+          1,
+          0,
+          1,
+          -3
+        ],
+        [
+          -1,
+          -3,
+          -1,
+          0,
+          5
+        ],
+        [
+          1,
+          1,
+          3,
+          -5,
+          0
+        ]
+      ],
+      "affine_component_dimension": 25,
+      "projective_component_dimension": 24,
+      "coarse_affine_moduli_dimension": 1,
+      "id": "T36"
+    },
+    {
+      "graph_type": "P5",
+      "generic_degeneracy_degree_partition": [
+        5
+      ],
+      "edges": [
+        {
+          "edge": [
+            0,
+            1
+          ],
+          "orders": {
+            "2": 0,
+            "3": 2,
+            "4": 0
+          }
+        },
+        {
+          "edge": [
+            0,
+            2
+          ],
+          "orders": {
+            "1": 0,
+            "3": 0,
+            "4": 2
+          }
+        },
+        {
+          "edge": [
+            1,
+            3
+          ],
+          "orders": {
+            "0": 1,
+            "2": 1,
+            "4": 0
+          }
+        },
+        {
+          "edge": [
+            2,
+            4
+          ],
+          "orders": {
+            "0": 1,
+            "1": 1,
+            "3": 0
+          }
+        }
+      ],
+      "period_dimension": 1,
+      "edge_count": 4,
+      "smoothing_weight_rank": 4,
+      "generic_torus_stabilizer_dimension": 0,
+      "period_basis_coordinates": [
+        "b12",
+        "b13",
+        "b14",
+        "b23",
+        "b24",
+        "b34"
+      ],
+      "period_basis": [
+        [
+          "-2",
+          "3",
+          "1",
+          "-1",
+          "-3",
+          "1"
+        ]
+      ],
+      "forced_zero_entries": [],
+      "biresidue_example": [
+        [
+          0,
+          2,
+          -2,
+          -1,
+          1
+        ],
+        [
+          -2,
+          0,
+          -2,
+          3,
+          1
+        ],
+        [
+          2,
+          2,
+          0,
+          -1,
+          -3
+        ],
+        [
+          1,
+          -3,
+          1,
+          0,
+          1
+        ],
+        [
+          -1,
+          -1,
+          3,
+          -1,
+          0
+        ]
+      ],
+      "affine_component_dimension": 25,
+      "projective_component_dimension": 24,
+      "coarse_affine_moduli_dimension": 1,
+      "id": "T37"
+    },
+    {
+      "graph_type": "P5",
+      "generic_degeneracy_degree_partition": [
+        5
+      ],
+      "edges": [
+        {
+          "edge": [
+            0,
+            1
+          ],
+          "orders": {
+            "2": 1,
+            "3": 0,
+            "4": 1
+          }
+        },
+        {
+          "edge": [
+            0,
+            2
+          ],
+          "orders": {
+            "1": 1,
+            "3": 1,
+            "4": 0
+          }
+        },
+        {
+          "edge": [
+            1,
+            3
+          ],
+          "orders": {
+            "0": 0,
+            "2": 0,
+            "4": 2
+          }
+        },
+        {
+          "edge": [
+            2,
+            4
+          ],
+          "orders": {
+            "0": 0,
+            "1": 0,
+            "3": 2
+          }
+        }
+      ],
+      "period_dimension": 1,
+      "edge_count": 4,
+      "smoothing_weight_rank": 4,
+      "generic_torus_stabilizer_dimension": 0,
+      "period_basis_coordinates": [
+        "b12",
+        "b13",
+        "b14",
+        "b23",
+        "b24",
+        "b34"
+      ],
+      "period_basis": [
+        [
+          "0",
+          "1/2",
+          "0",
+          "0",
+          "-1/2",
+          "1"
+        ]
+      ],
+      "forced_zero_entries": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "biresidue_example": [
+        [
+          0,
+          1,
+          -1,
+          1,
+          -1
+        ],
+        [
+          -1,
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          0,
+          -1
+        ],
+        [
+          -1,
+          -1,
+          0,
+          0,
+          2
+        ],
+        [
+          1,
+          0,
+          1,
+          -2,
+          0
+        ]
+      ],
+      "affine_component_dimension": 25,
+      "projective_component_dimension": 24,
+      "coarse_affine_moduli_dimension": 1,
+      "id": "T38"
+    },
+    {
+      "graph_type": "C5",
+      "generic_degeneracy_degree_partition": [
+        5
+      ],
+      "edges": [
+        {
+          "edge": [
+            0,
+            1
+          ],
+          "orders": {
+            "2": 0,
+            "3": 0,
+            "4": 2
+          }
+        },
+        {
+          "edge": [
+            0,
+            2
+          ],
+          "orders": {
+            "1": 0,
+            "3": 2,
+            "4": 0
+          }
+        },
+        {
+          "edge": [
+            1,
+            3
+          ],
+          "orders": {
+            "0": 0,
+            "2": 2,
+            "4": 0
+          }
+        },
+        {
+          "edge": [
+            2,
+            4
+          ],
+          "orders": {
+            "0": 0,
+            "1": 2,
+            "3": 0
+          }
+        },
+        {
+          "edge": [
+            3,
+            4
+          ],
+          "orders": {
+            "0": 2,
+            "1": 0,
+            "2": 0
+          }
+        }
+      ],
+      "period_dimension": 1,
+      "edge_count": 5,
+      "smoothing_weight_rank": 4,
+      "generic_torus_stabilizer_dimension": 0,
+      "period_basis_coordinates": [
+        "b12",
+        "b13",
+        "b14",
+        "b23",
+        "b24",
+        "b34"
+      ],
+      "period_basis": [
+        [
+          "-1",
+          "1",
+          "1",
+          "-1",
+          "-1",
+          "1"
+        ]
+      ],
+      "forced_zero_entries": [],
+      "biresidue_example": [
+        [
+          0,
+          1,
+          -1,
+          1,
+          -1
+        ],
+        [
+          -1,
+          0,
+          -1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          0,
+          -1,
+          -1
+        ],
+        [
+          -1,
+          -1,
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          -1,
+          1,
+          -1,
+          0
+        ]
+      ],
+      "affine_component_dimension": 26,
+      "projective_component_dimension": 25,
+      "coarse_affine_moduli_dimension": 2,
+      "named_family": "q_5,1",
+      "id": "T39"
+    },
+    {
+      "graph_type": "C5",
+      "generic_degeneracy_degree_partition": [
+        5
+      ],
+      "edges": [
+        {
+          "edge": [
+            0,
+            1
+          ],
+          "orders": {
+            "2": 1,
+            "3": 1,
+            "4": 0
+          }
+        },
+        {
+          "edge": [
+            0,
+            2
+          ],
+          "orders": {
+            "1": 1,
+            "3": 0,
+            "4": 1
+          }
+        },
+        {
+          "edge": [
+            1,
+            3
+          ],
+          "orders": {
+            "0": 1,
+            "2": 0,
+            "4": 1
+          }
+        },
+        {
+          "edge": [
+            2,
+            4
+          ],
+          "orders": {
+            "0": 1,
+            "1": 0,
+            "3": 1
+          }
+        },
+        {
+          "edge": [
+            3,
+            4
+          ],
+          "orders": {
+            "0": 0,
+            "1": 1,
+            "2": 1
+          }
+        }
+      ],
+      "period_dimension": 1,
+      "edge_count": 5,
+      "smoothing_weight_rank": 4,
+      "generic_torus_stabilizer_dimension": 0,
+      "period_basis_coordinates": [
+        "b12",
+        "b13",
+        "b14",
+        "b23",
+        "b24",
+        "b34"
+      ],
+      "period_basis": [
+        [
+          "0",
+          "1",
+          "0",
+          "0",
+          "-1",
+          "1"
+        ]
+      ],
+      "forced_zero_entries": [
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "biresidue_example": [
+        [
+          0,
+          1,
+          -1,
+          0,
+          0
+        ],
+        [
+          -1,
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          0,
+          -1
+        ],
+        [
+          0,
+          -1,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          -1,
+          0
+        ]
+      ],
+      "affine_component_dimension": 26,
+      "projective_component_dimension": 25,
+      "coarse_affine_moduli_dimension": 2,
+      "named_family": "q_5,2",
+      "id": "T40"
+    }
+  ]
+}

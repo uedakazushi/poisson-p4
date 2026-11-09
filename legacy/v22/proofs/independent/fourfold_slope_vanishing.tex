@@ -1,0 +1,107 @@
+\section{独立な四重点における modular 一次項の消滅}
+
+\begin{proposition}
+滑らかな複素四次元多様体上の Poisson 構造 $\pi$ が、原点を通る四つの
+座標軸上で零であるとする。各軸の原点を除く一般点は、正規な退化因子の
+$\widetilde E_8$ 型 elliptic point であると仮定する。
+局所体積形式に関する modular vector field を $Z$ とすると、$Z$ の原点における
+一次項は零である。
+\end{proposition}
+
+\begin{proof}
+四軸上で $\pi$ が零なので $\pi_0=\pi_1=0$。
+$Q=\pi_2$ と置く。modular residue は四軸に接するので
+\[
+ Z_1=\sum_{i=1}^4\alpha_i y_i\partial_{y_i}.
+\]
+体積形式を変えたときの差は Hamiltonian vector field であり、$\pi$ が
+二次以上なのでこの一次項には影響しない。modular vector field は Poisson
+vector field なので $[Z_1,Q]=0$。
+
+第 $i$ 軸上の点 $t e_i$ において、Hamiltonian $y_i$ の conormal 空間
+$\langle dy_j:j\ne i\rangle$ への adjoint action を $H_i(t)$ とする。
+局所括弧の Taylor 展開により
+\[
+ H_i(t)=t A_i+O(t^2).
+\]
+また $Z|_{L_i}=R_i(t)\partial_t$ と書けば
+$R_i(t)=\alpha_i t+O(t^2)$ である。
+
+Pym の elliptic normal form theorem（Theorem 4.5, Table 1）を用いる。
+$\widetilde E_8$ 型の isotropy Lie algebra では、normal Heisenberg ideal に
+作用する任意の tangent covector の固有値は
+\[
+ -\frac{R_i(t)}6\{1,2,3\}
+\]
+である。具体的に $\{w,x\}=x$, $\{w,y\}=2y$, $\{w,z\}=3z$ で、
+$Z=-6\partial_w$。tangent covector に normal covector を加えても、
+Heisenberg ideal の inner derivation が加わるだけであり、同じ三角基底で
+対角成分は変わらない。
+従って characteristic polynomial の恒等式を $t=0$ に延長して
+\[
+ \operatorname{Spec}(A_i)
+ =-\frac{\alpha_i}{6}\{1,2,3\}.
+ \tag{*}
+\]
+特に $\alpha_i=0$ の場合も $A_i$ は冪零である。
+
+$Q_{ij}$ の $y_i y_j$ の係数を $c_{ij}$ とすれば $c_{ji}=-c_{ij}$。
+$A_i$ の $j$ 番目の対角成分は $c_{ij}$ である。
+$[Z_1,Q]=0$ より、$Q_{ij}$ の $y_i y_k$ の係数は
+$\alpha_j=\alpha_k$ のときにしか非零にならない。
+従って $A_i$ は normal indices の $\alpha_j$ の等値群ごとの block に分かれる。
+
+非零の共通値 $\alpha$ を持つ index 集合 $G$ の大きさが二以上なら、
+各 $i\in G$ に対する block $G\setminus\{i\}$ の trace は $(*)$ により
+$-\alpha$ の正の有理数倍である。一方、それらの総和は
+\[
+ \sum_{i\in G}\sum_{j\in G\setminus\{i\}}c_{ij}=0
+\]
+となり矛盾する。従って非零の $\alpha_i$ はすべて相異なる。
+
+非零の $\alpha_i$ と零の $\alpha_j$ が共存するとする。
+$A_j$ は冪零であり、$i$ の属する block は一次元なので $c_{ji}=0$。
+従って $A_i$ の零 weight block の trace は零であるが、その固有値は
+$(*)$ の非零の固有値の空でない部分集合なので trace は零にならない。
+これも矛盾である。
+
+最後に、すべての $\alpha_i$ が非零ならすべて相異なるので各 $A_i$ は対角行列。
+ある $w_{ij}\in\{1,2,3\}$ により
+\[
+ c_{ij}=-\alpha_i w_{ij}/6.
+\]
+交代性から、任意の異なる $i,j$ について
+$\alpha_j/\alpha_i=-w_{ij}/w_{ji}$ は負の有理数となる。
+三つの index を取ると、二つの比の積が正となる一方、残る比は負であり矛盾。
+従って全ての $\alpha_i$ は零である。
+\end{proof}
+
+\paragraph{四直線同時交点への応用。}
+$C=L_{01}\cup L_{02}\cup L_{03}\cup L_{04}$ の場合、
+全成分で active な residue は $R_i(t)=\beta_i t^2$、$\beta_i\ne0$ となる。
+対角射影座標変換 $y_i'=\beta_i y_i$ で四つとも係数を一にできる。
+（$t'=s_i t$ に対し $\beta_i'=\beta_i/s_i$。）
+第21版のモデルでは
+\[
+ z_{42}=z_{44}=z_{46}=0,
+ \qquad z_{41}=z_{43}=z_{45}=z_{47}=1.
+\]
+従って全48パラメータから41パラメータの affine slice に帰着できる。
+これは全ての active な normal-$D$ 解を射影同値まで含むが、この slice の
+Jacobi 解の存在・正規性をまだ主張するものではない。
+
+\paragraph{錐への帰着。}
+$\alpha_i=0$ のとき、標準二次持ち上げ $P$ は $x_0$ に依存しない。
+Jacobi 条件による $\partial_i b_0=\partial_0b_i=0$ と斉次性から $b_0=0$。
+従って $\partial_0F=0$ であり、退化五次超曲面は四重点を頂点とする錐である。
+第20版の no-cone lemma と矛盾する。具体的には、正規な実際の退化因子では
+Pfaffian ideal $I=(b_0,\ldots,b_4)$ の grade が三であり、
+Buchsbaum--Eisenbud complex
+\[
+0\longrightarrow S(-10)\longrightarrow S(-6)^5
+\xrightarrow{P}S(-4)^5\xrightarrow{(b_0,\ldots,b_4)}S
+\longrightarrow S/I\longrightarrow0
+\]
+が完全である。$b_0=0$ なら単位基底ベクトル $e_0$ が最後から二番目の写像の
+核に入るが、$P$ の全成分は二次式なのでその像は極大斉次イデアル倍に含まれ、
+$e_0$ を含めない。従って四直線同時交点は正規な退化因子の支持にならない。

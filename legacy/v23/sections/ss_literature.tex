@@ -1,0 +1,230 @@
+\section{SS 境界の幾何と既知成分への厳密同定}
+
+この節では $a\ne0$ とし、v22 の SS 構造の canonical quadratic lift を
+$P(a)$ と書く。次の多項式を固定する：
+\[
+ q=x_2^2-x_1x_3,\qquad R=x_1^2-x_0x_2,\qquad
+ Q=3aq+x_0x_4,\qquad C=3ax_2q+x_1^2x_4.
+\]
+退化因子は $D=V(QC)$ である。
+
+\subsection{滑らかな二次成分と非正規な三次成分}
+
+$\det\operatorname{Hess}(Q)=54a^3\ne0$ なので $V(Q)$ は滑らかな三次元二次曲面。
+一方 $C$ を $x_4$ の一次式と見ると、係数 $x_1^2$ と定数項
+$3ax_2(x_2^2-x_1x_3)$ は互いに素である。Gauss の補題から $C$ は既約。
+その偏微分は
+\[
+ \left(0,-3ax_2x_3+2x_1x_4,9ax_2^2-3ax_1x_3,
+ -3ax_1x_2,x_1^2\right)
+\]
+なので
+\[
+ \operatorname{Sing}(V(C))_{\mathrm{red}}
+ =S:=V(x_1,x_2)\simeq\mathbb P^2.
+\]
+従って三次成分自体が非正規である。
+
+恒等式
+\[
+ \boxed{C=x_2Q+x_4R}
+\]
+は交差を
+\[
+ (V(Q)\cap V(C))_{\mathrm{red}}=A\cup B,
+ \quad A=V(x_4,q),\quad B=V(Q,R)
+\]
+に分解する。$A$ は頂点 $e_0$ の二次錐面。
+$B$ は二つの二次式の完全交差であり、$x_0=1$ 上では
+\[
+ [1:u:u^2:v:3au(v-u^3)]
+\]
+と表示できる。$x_0=0$ 上の部分は $L_{34}$ のみだから、
+完全交差の純次元性から $B$ は既約。稠密開集合が被約であり
+Cohen--Macaulay なので $B$ 全体も被約である。
+$x_0\ne0$ 上では Jacobian が階数2、$L_{34}$ 上では $dR=0$ なので
+\[
+ \operatorname{Sing}(B)_{\mathrm{red}}=L_{34}.
+\]
+従って $B$ は次数4の非正規な面である。以上から
+\[
+ \operatorname{Sing}(D)_{\mathrm{red}}=S\cup A\cup B,
+ \qquad (\deg S,\deg A,\deg B)=(1,2,4).
+\]
+また $A\cap B$ の被約支持は $T_{0123}\cup L_{03}$、
+$V(Q)$ と $V(C)$ が非横断的に交わる部分の被約支持は
+$T_{0123}\cup L_{03}\cup L_{34}$ である。
+ここで
+$T_{0123}=[s^3:s^2r:sr^2:r^3:0]$ は twisted cubic。
+
+\subsection{全 projective 零点支持}
+
+$E=\sum_i x_i\partial_i$ とし
+\[
+ G_{ijk}=x_iP_{jk}-x_jP_{ik}+x_kP_{ij}
+\]
+とおく。projective bivector の零点は全 $G_{ijk}$ の零点であり、
+homogeneous lift $P$ 自体の零点とは区別する。
+$x_4\ne0$ では
+\[
+ G_{124}=-\frac{x_1x_2x_4}{6},\quad
+ G_{134}=\frac{x_4(x_1x_3-3x_2^2)}6,\quad
+ G_{234}=\frac{x_4(-3ax_2x_3+2x_1x_4)}{18a}
+\]
+から $x_1=x_2=0$。さらに
+$G_{034}=-x_0x_3x_4/6$ から $x_0x_3=0$ となる。
+
+$x_4=0$ では $G_{0j4}=-ax_jq$ $(j=1,2,3)$ なので $q=0$。
+$q=0$ 上で残る式は
+\[
+ G_{012}=\frac{x_1R}{3},\qquad
+ G_{013}=\frac{2x_2R}{3},\qquad
+ G_{023}=\frac{x_3R}{3}
+\]
+となり $R=0$。$V(q,R)\subset\mathbb P^3$ の被約支持は
+$T_{0123}\cup L_{03}$ である。逆包含は代入で確認できるので、全球で
+\[
+ \boxed{\operatorname{Zero}(\pi)_{\mathrm{red}}
+ =T_{0123}\cup L_{03}\cup L_{04}\cup L_{34}.}
+\]
+これは構成時に固定した $T_{0123}\cup L_{04}$ より大きい。
+三直線は平面 $S$ 内の三角形をなし、$T_{0123}$ はそれと
+$e_0,e_3$ の二つの被約点で交わる。従ってこの被約曲線の次数は6、
+算術種数は2。零点スキーム全体の被約性はここでは主張しない。
+
+各曲線の一般点での ambient local ring における次数は次の通り。
+\[
+\begin{array}{c|ccc}
+ &\operatorname{ord}(Q)&\operatorname{ord}(C)&\operatorname{ord}(QC)\\\hline
+ T_{0123}&1&1&2\\
+ L_{03}&1&2&3\\
+ L_{04}&0&2&2\\
+ L_{34}&1&2&3
+\end{array}
+\]
+これは divisor の局所次数であり、Poisson 零点スキームの長さや
+Jacobi スキームの重複度ではない。
+
+\subsection{既知の4辺鎖成分との同定}
+
+非零成分が
+\[
+ \tau_{14}=x_0^2,\quad
+ \tau_{23}=-\frac{2x_0^2}{9a},\quad
+ \tau_{24}=\frac{4x_0x_1}{3},\quad
+ \tau_{34}=\frac{2x_0x_2}{3}+x_1^2
+\]
+である bivector $\tau(a)$ を考える。
+以下の同定は族 $P(a)+t\tau(a)$ の全括弧を照合するものである。
+
+まず $g_s=\operatorname{diag}(1,1,s^2,s^5,s^6)$ による pushforward をとると、
+対角項以外の全単項式の $s$ 次数が正となり、$s\to0$ の極限は
+log-canonical tensor となる。その係数行列は
+\[
+ \lambda=\frac1{30}
+ \begin{pmatrix}
+ 0&-6&-2&2&6\\
+ 6&0&-6&3&-3\\
+ 2&6&0&-6&-2\\
+ -2&-3&6&0&-1\\
+ -6&3&2&1&0
+ \end{pmatrix}.
+\]
+$x_0=1$ 上の log-canonical 行列の行列式は $1/36$ なので、
+これは SNC log symplectic 極限である。従ってこの族の成分は
+MPS の40成分に含まれる\cite[Theorem 1.4]{MPStorelli}。
+
+さらに変数を
+\[
+ (y_0,y_1,y_2,y_3,y_4)=(x_2,x_3,x_1,x_4,x_0)
+\]
+と置換すると、$\lambda$ は MPS の明示例
+\cite[Example 5.6]{MPSquantum} の行列に完全一致する。
+文献の四つの smoothing parameter を
+$\gamma_0,\ldots,\gamma_3$ と書く。
+$v=\exp(\hbar/30)$、$\varepsilon=\hbar$ とする半古典極限では、
+$m$ 次の補正係数 $C(v)$ は
+$\lim_{\hbar\to0}\hbar^{m-1}C(v)$ となり、値は
+\[
+ c_{10}^{44}=c_{43}^{00}=2,\quad c_{40}^{22}=-3,\quad
+ c_{30}^{24}=c_{41}^{02}=12,\quad c_{31}^{04}=-12,\quad c_{31}^{22}=-162.
+\]
+従って対角括弧に加える下三角成分は
+\begin{align*}
+ \Delta\{y_1,y_0\}&=\gamma_0y_2y_3+2\gamma_0\gamma_2y_4^2,\\
+ \Delta\{y_2,y_1\}&=\gamma_1y_0^2,\\
+ \Delta\{y_3,y_2\}&=\gamma_2y_4^2,\\
+ \Delta\{y_4,y_3\}&=\gamma_3y_1y_2+2\gamma_1\gamma_3y_0^2,\\
+ \Delta\{y_4,y_0\}&=-3\gamma_0\gamma_3y_2^2,\\
+ \Delta\{y_3,y_0\}&=12\gamma_0\gamma_2\gamma_3y_2y_4,\\
+ \Delta\{y_4,y_1\}&=12\gamma_0\gamma_1\gamma_3y_0y_2,\\
+ \Delta\{y_3,y_1\}&=-12\gamma_0\gamma_1\gamma_2\gamma_3y_0y_4
+                  -162\gamma_0^2\gamma_1\gamma_2\gamma_3^2y_2^2.
+\end{align*}
+ここに
+\[
+ \boxed{(\gamma_0,\gamma_1,\gamma_2,\gamma_3)
+ =\left(-\frac1{9a},-\frac12,-t,-a\right)}
+\]
+を代入したものが、$P(a)+t\tau(a)$ と全10括弧で一致する。
+これは体 $\mathbb Q(a,t)$ 上の恒等式として検証される。
+
+元座標での smoothable edge とその weight は
+\[
+\begin{array}{c|c}
+04&(-1,1,0,1,-1)\\
+13&(0,-1,2,-1,0)\\
+14&(2,-1,0,0,-1)\\
+23&(0,1,-1,-1,1)
+\end{array}
+\]
+であり、graph は $0-4-1-3-2$。
+$t=0$ では edge $14$ の smoothing parameter が0となるため、
+有効な辺は3頂点鎖と2頂点鎖に分かれる。
+$t\ne0$ では4辺がすべて有効であり、
+\cite[Theorem 7.5]{MPSquantum} によって非零 parameter の選択に依らず
+filtered linear automorphism のもとで同型になる。
+
+本研究の旧カタログ番号は $T_{37}$ である。具体的には biresidue 行列
+\[
+ B=\begin{pmatrix}
+ 0&1&1&1&-3\\
+ -1&0&1&-2&2\\
+ -1&-1&0&3&-1\\
+ -1&2&-3&0&2\\
+ 3&-2&1&-2&0
+ \end{pmatrix}
+\]
+を添字順 $(1,4,3,0,2)$ に置換した行列が、保存された v10 の
+\texttt{path5\_models.json} の $T_{37}$ の行列と一致する。
+$T_{37}$ という番号は本研究内の規約であり、文献中の番号ではない。
+この同定により、SS 族を成分数の下界へ新たに加算しない。
+
+\subsection{補足：二つの因子上の有理 Casimir}
+
+行列作用の規約で
+\[
+ P\,dQ=QV,\qquad P\,dC=-CV,\qquad
+ V=\frac1{10}(2x_0,x_1,0,-x_3,-2x_4)^T
+\]
+である。従って両因子は Poisson 部分空間を定める。
+それぞれの有理 Casimir は
+\[
+ f_Q=\frac{x_1^2-x_0x_2}{x_4^2},\qquad
+ f_C=\frac{(x_1x_3-x_2^2)^2}{x_1^2(x_1^2-x_0x_2)}.
+\]
+$f_Q$ の場合は $x_0=1$、$x_4=3a(x_1x_3-x_2^2)$ を代入し、
+制限行列に $df_Q$ を掛ければ0。
+$f_C$ の場合は稠密開集合 $x_0x_1\ne0$ 上で
+$x_4=3ax_2(x_1x_3-x_2^2)/x_1^2$ として同様に確認する。
+従って一般の symplectic leaf は、これらの有理写像のファイバーの既約成分の開集合である。
+特異 fiber 全体が単一の葉であるとは主張しない。
+特に $V(Q)$ 上の閉有理1形式は $d\log(R/x_4^2)$ であり、
+Lima--Pereira の一般結果\cite[Theorem 3.3]{LP}を具体化する。
+
+\paragraph{検証資料.}
+\texttt{verify\_ss\_geometry\_mps.py} は局所式、全球零点証明に使う恒等式、
+Casimir、toric weight、半古典係数、MPS の全括弧、旧番号との行列一致を
+48件の厳密確認で検証する。入力は同じフォルダ内の
+\texttt{ss\_input.json} と \texttt{t37\_catalog\_reference.json}。
+有限体での階数計算や数値 sampling は用いていない。

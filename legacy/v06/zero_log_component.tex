@@ -1,0 +1,251 @@
+\section{五重超平面と三次の横断厚さ}\label{sec:zero_log}
+
+本節では、modular field が恒等的に零となる二次部分から、全 $\PP^4$ の
+新たな23次元既約成分を得る。一般元の退化因子は五重超平面であり、
+Poisson scheme はこの成分に沿って一般に非被約となる。
+単なる接空間の次元差ではなく、二次までの普遍変形と三次の obstruction によって、
+横断方向の局所環が $\CC[\epsilon]/(\epsilon^3)$ であることを証明する。
+
+\subsection{明示的な族と退化因子}
+$\AA^4$ の座標を $(x,y,z,w)$ とし、
+\[
+ J=\partial_x\wedge\partial_y+\partial_z\wedge\partial_w
+\]
+と置く。二つのパラメータ $a,b$ に対して
+\begin{align*}
+ U&=az\partial_y+bx\partial_w,\\
+ V&=-bx\partial_x+(2b-a)y\partial_y
+      +az\partial_z+(b-2a)w\partial_w,\\
+ Q(a,b)&=V\wedge U
+\end{align*}
+と定める。その六つの括弧は
+\begin{equation}\label{eq:zeroQ}
+\begin{aligned}
+ Q^{xy}&=-abxz,&Q^{xz}&=0,&Q^{xw}&=-b^2x^2,\\
+ Q^{yz}&=-a^2z^2,&Q^{yw}&=b(2b-a)xy-a(b-2a)zw,&Q^{zw}&=abxz.
+\end{aligned}
+\end{equation}
+$[V,U]=2(a-b)U$、$\operatorname{div}V=2(b-a)$、$\operatorname{div}U=0$ であるから、
+$Q$ は Poisson で $\delta Q=0$ である。さらに
+\[
+ [J,Q]=0,\qquad Q^{xy}+Q^{zw}=0,\qquad \Pf(Q)=0
+\]
+が成り立つ。これらは全パラメータで係数ごとに検証される。
+
+$\AA^5$ の座標を $(x_0,x,y,z,w)$ として
+\[
+ P(a,b)=x_0^2J+Q(a,b),\qquad P^{0i}=0
+\]
+と置くと、$P$ は $\PP^4$ 上の Poisson 構造 $\pi(a,b)$ を定める。
+trace と Pfaffian の二つの消滅により
+\[
+ \Pf(P_{xyzw})=x_0^4,\qquad
+ \frac12E_5\wedge P\wedge P
+ =x_0^5\,\partial_0\wedge\partial_x\wedge\partial_y\wedge\partial_z\wedge\partial_w.
+\]
+従って退化因子は $5H$、$H=(x_0=0)$ である。
+また $x_0=1$ 上の $J+Q(a,b)$ は、Pfaffian が恒等的に1なので至る所 symplectic である。
+
+\begin{theorem}\label{thm:zero_log}
+次の二つの閉包は、それぞれ記した\textbf{全空間}の既約成分である。
+\begin{align*}
+ Z_0&=\overline{\Sp_4\cdot\{Q(a,b)\}}\subset\cQ,
+      &\dim Z_0&=10,\\
+ \mathcal C_{5H}&=\overline{\PGL_5\cdot\{[\pi(a,b)]\}}\subset\cP,
+      &\dim\mathcal C_{5H}&=23.
+\end{align*}
+$(a,b)=(5,7)$ において、完成局所環はそれぞれ
+\begin{align}
+ \widehat{\OO}_{\cQ,Q(5,7)}
+ &\simeq\CC[[u_1,\ldots,u_{10},\epsilon]]/(\epsilon^3),\label{eq:zeroQlocal}\\
+ \widehat{\OO}_{\cP,[\pi(5,7)]}
+ &\simeq\CC[[u_1,\ldots,u_{23},\epsilon]]/(\epsilon^3)\label{eq:zeroPlocal}
+\end{align}
+となる。両成分の被約台はこの点で滑らかであり、元の Poisson scheme の一般横断長は3である。
+$\mathcal C_{5H}$ の一般 $\PGL_5$ 軌道は22次元なので、座標変換と定数倍を除いた一般元には
+一次元のパラメータが残る。
+\end{theorem}
+
+最後の軌道次元には普遍的な上界もある。
+\[
+ H=x\partial_x-y\partial_y-z\partial_z+w\partial_w,
+ \qquad K=y\partial_y+w\partial_w
+\]
+はすべての $a,b$ で
+\[
+ \mathcal L_H P=0,\qquad \mathcal L_KP=-P
+\]
+を満たす。射影安定化群の二つの独立な方向なので軌道次元は22以下であり、
+後述の一点での階数計算により一般に22となる。
+
+\subsection{二次までの普遍変形}
+$ab(a-b)\ne0$ 上で、trace を $xy-zw$ に正規化した二次テンソル $R(a,b)$ を
+\begin{equation}\label{eq:zeroR}
+\begin{aligned}
+ R^{xy}&=\frac{2(a+b)xy-3azw}{3a},
+ &R^{xz}&=\frac{2(a-2b)xz}{3(a-b)},\\
+ R^{xw}&=-\frac{(a-2b)(a+b)xw}{3a(a-b)},
+ &R^{yz}&=\frac{(a+b)yz}{3(a-b)},\\
+ R^{yw}&=-\frac{2(a^2-ab+b^2)yw}{3a(a-b)},
+ &R^{zw}&=\frac{(a-2b)xy}{3a}
+\end{aligned}
+\end{equation}
+で与える。このとき
+\[
+ [J,R]=[Q,R]=0,\qquad \tr R=xy-zw.
+\]
+さらに、分母が $180a^2b^2(a-b)^2$ を割る明示的な二次テンソル $T(a,b)$ が存在して
+\begin{equation}\label{eq:zero2jet}
+ [J,T]=0,\quad\tr T=0,\quad
+ \operatorname{Jac}(Q+\epsilon R+\epsilon^2T)=0\pmod{\epsilon^3}
+\end{equation}
+となる。六つの係数の全式は
+\path{code/certify_zero_log_component.py} と JSON 証明書に収録した。
+これらは数値補間で得た式ではなく、$a,b$ を未定元とした有理関数恒等式として検証している。
+
+$B(A,B)=\operatorname{Jac}(A+B)-\operatorname{Jac}(A)-\operatorname{Jac}(B)$ と書けば、
+式 \eqref{eq:zero2jet} は
+\[
+ B(Q,T)+\operatorname{Jac}(R)=0
+\]
+を含む。三次の係数は $B(R,T)$ である。
+$J$ との compatibility により、$Q$ を $P=x_0^2J+Q$ に置き換えても同じ二次 jet が使える。
+$\Sp_4$、または全 $\GL_5$、scaling、vertical 方向に沿って変換することにより、
+これらの jet は実際の族全体に沿って延長する。
+
+\subsection{全接空間と、補正の選択によらない三次 obstruction}
+まず45変数の compatible quadratic ambient space を用いる。
+$D_Q$ を Jacobi 条件の微分、$F_Q$ を $\Sp_4$ 軌道と $a,b$ の微分方向とする。
+$(a,b)=(5,7)$ における厳密な階数は
+\begin{center}\small
+\begin{tabular}{lc}
+\toprule
+行列または空間 & 階数・次元\\
+\midrule
+$D_Q$ &34\\
+$\Sp_4$ 軌道 &9\\
+$F_Q$ &10\\
+$[F_Q\mid R]$ &11\\
+$D_Q$ と trace 条件を合わせた微分 &35\\
+$[D_Q\mid B(R,\ker D_Q)]$ &34\\
+$[D_Q\mid B(R,\ker D_Q)\mid B(R,T)]$ &35\\
+\bottomrule
+\end{tabular}
+\end{center}
+$45-34=11$ なので、$F_Q$ と $R$ は kernel 全体を張る。
+また二次補正を $T+W$、$W\in\ker D_Q$ に変更したときの三次項の変化は
+$B(R,W)$ であり、表の最後の二行から、その変化は像の中に入り、
+三次 obstruction 自体は像の外にあることが分かる。
+
+全 $\PP^4$ では、すべての二次斉次二ベクトルを含む150係数を使う。
+$D_P:S\mapsto E_5\wedge[P,S]$ は $350\times150$ 行列である。
+$F_P$ は vertical、$\GL_5$ 軌道、$P$ 自身、$\partial_aQ,\partial_bQ$ の列を並べた行列とする。
+計算結果は
+\begin{center}\small
+\begin{tabular}{lc}
+\toprule
+行列 & 階数\\
+\midrule
+$D_P$ &101\\
+$[\mathrm{vertical}\mid\mathrm{orbit}\mid P]$ &47\\
+$F_P$ &48\\
+$[F_P\mid R]$ &49\\
+$[D_P\mid E_5\wedge B(R,\ker D_P)]$ &101\\
+$[D_P\mid E_5\wedge B(R,\ker D_P)\mid E_5\wedge B(R,T)]$ &102\\
+\bottomrule
+\end{tabular}
+\end{center}
+$150-101=49$ なので、ここでも表示した列が kernel 全体を張る。
+従って invariant な ansatz の内部だけでなく、\textbf{全150係数の任意の二次補正}を許しても、
+三次 obstruction は消えない。
+vertical の24次元と scaling の1次元を除くと、実際の族の次元は23、接空間次元は24となる。
+有理数上の階数と非零 minor の検査を行い、独立実装でもこれらの値が一致する。
+
+\subsection{完成局所環を決める補題}
+接空間の次元差だけでは、非被約性と成分の交叉を区別できない。
+ここでは普遍 jet を使って局所環を決める。
+
+\begin{lemma}[実際の族に沿う普遍 jet]\label{lem:jet_length_three}
+滑らかな affine ambient space $W$ の中の scheme $X=(F=0)$ を考え、
+$p$ を通る滑らかな実際の $d$ 次元局所族を $\phi:Y\to X$ とする。
+次を仮定する。
+\begin{enumerate}
+\item $\dim\ker\dd F_p=d+1$ で、$\phi$ の接写像は単射である。
+\item $Y$ に沿う正則または形式的な場 $R(y),T(y)$ が存在して
+\[
+ F\bigl(\phi(y)+\epsilon R(y)+\epsilon^2T(y)\bigr)
+       =0\pmod{\epsilon^3}
+\]
+が $y$ に関して普遍的に成立する。
+\item $R(p)$ は $T_pY$ に横断的であり、三次の係数は
+$\operatorname{coker}\dd F_p$ で非零である。
+\end{enumerate}
+このとき
+\[
+ \widehat{\OO}_{X,p}\simeq\CC[[u_1,\ldots,u_d,\epsilon]]/(\epsilon^3).
+\]
+\end{lemma}
+
+\begin{proof}
+$\ker\dd F_p$ に横断する $r=\dim W-d-1$ 個の法方向 $z$ を選ぶ。
+\[
+ (y,\epsilon,z)\longmapsto
+ \phi(y)+\epsilon R(y)+\epsilon^2T(y)+\operatorname{normal}(z)
+\]
+の微分は可逆なので、これは形式的な座標系となる。
+$F$ の成分から $z$ に関する微分が可逆となる $r$ 本を選ぶと、形式的陰関数定理により
+$z=\psi(y,\epsilon)$ と解ける。仮定2から $\psi$ は $\epsilon^3$ で割れる。
+従って消去後の残りの全方程式は $\epsilon^3$ で割れる。
+仮定3により、そのうち少なくとも一本の $\epsilon^3$ の係数は $p$ で非零であり、
+完成局所環では単元となる。残余 ideal はちょうど $(\epsilon^3)$ である。
+\end{proof}
+
+\begin{proof}[定理 \ref{thm:zero_log} の証明]
+実際のパラメータ族の微分から独立な列を選ぶことにより、補題の $Y$ を取れる。
+普遍的な $R,T$ は式 \eqref{eq:zeroR}, \eqref{eq:zero2jet} と群作用から得られる。
+全接空間、横断性、三次 obstruction は上の階数表で検証されている。
+$\cQ$ では $d=10$ として補題を適用する。
+trace は $Y$ 上で零、$R$ 上で $xy-zw\ne0$ であるため、固定零 trace fiber は
+局所的に $\epsilon=0$ となり、滑らかかつ被約である。
+
+全150係数の射影 Jacobi 表示には $d=48$ として補題を適用する。
+24次元の vertical factor と、非零点での1次元の scalar factor を除くと
+式 \eqref{eq:zeroPlocal} を得る。
+局所環は唯一の極小素 ideal をもち、その被約台の次元は実際の族の次元と一致する。
+群とパラメータ空間は既約なので、各像閉包は既約である。
+従って像閉包はそれぞれ全空間の既約成分に一致する。
+普遍 jet と階数 minor は開集合上で有効であり、横断長3も一般点で成立する。
+\end{proof}
+
+\subsection{logarithmic な表示と成分の区別}
+$q=bxy-azw$ と置くと、$\Omega=\dd x\wedge\dd y\wedge\dd z\wedge\dd w$ に対して
+\[
+ \iota_Q\Omega=\dd\eta,\qquad
+ \eta=\frac{xzq}{4}\left(
+ (b-3a)\frac{\dd x}{x}+(a-3b)\frac{\dd z}{z}+(a+b)\frac{\dd q}{q}
+ \right).
+\]
+留数の関係 $(b-3a)+(a-3b)+2(a+b)=0$ により $\eta$ は horizontal である。
+従って境界超平面上には logarithmic $(1,1,2)$ 型の構造が現れる。
+
+任意の二次式 $f(x,z)$ を加えた
+\[
+ Q(a,b)+f(x,z)\partial_y\wedge\partial_w
+\]
+も同じ閉包に入る。実際、symplectic shear
+\[
+ (x,y,z,w)\longmapsto(x,y+px+qz,z,w+qx+rz)
+\]
+は $Q^{yw}$ だけを変え、そこに
+\[
+ b(a-3b)p\,x^2-2(a-b)^2q\,xz+a(b-3a)r\,z^2
+\]
+を加える。一般の $a,b$ では三つの係数が非零なので任意の $f$ を吸収でき、
+閉包を取れば特殊なパラメータも含まれる。
+
+五次式が一次式の五乗である条件は五次 Veronese 写像の像なので閉条件である。
+従って $\mathcal C_{5H}$ の rank 4 部分は、すべてこの条件を満たす。
+一般退化因子が五重超平面でない既存の成分とは一致しない。
+この論証は rank 4 開集合上の退化五次式の写像を使う。
+本節は零 modular 層の一つの成分とその全 $\PP^4$ への持ち上げを決定したものであり、
+零 modular 層全体の網羅性は主張しない。

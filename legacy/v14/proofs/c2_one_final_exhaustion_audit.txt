@@ -1,0 +1,199 @@
+FINAL INDEPENDENT AUDIT: c2=1 AND TOTAL RANK-AT-MOST-TWO COVERAGE
+================================================================
+2026-10-29. This is a proof audit, not an assertion of novelty.
+
+A. Extension classification (sections 4--5 of the rank2 draft)
+-------------------------------------------------------------
+The displayed S,w resolve I_Z(2) for Z=V(a,b) union V(c,d). Direct
+verification gives (ac,ad,bc,bd) S=0 and S w=0. This is the tensor-product
+resolution of the two disjoint-variable ideals (a,b) and (c,d).
+
+The global extension group is computed by applying Hom(-,O) to that
+locally free resolution. All relevant positive-degree line bundles have
+no higher cohomology on P4. Thus Ext1 is the kernel of the linear-form
+syzygy map f -> f w, modulo the four constant combinations of rows of S.
+The dimensions are 6 and 4, respectively. The two displayed representatives
+  (a,0,0,b), (0,c,d,0)
+are independent modulo those rows, so all extensions have
+  f=(lambda a, mu c, mu d, lambda b).
+
+There is a particularly transparent local check of reflexivity. Where
+c is a unit, eliminate the second and fourth generators using the first
+and fourth relations. The local presentation becomes three generators
+with the single relation
+  (b,-a,mu c).
+At the generic point of V(a,b), this module is free exactly when mu!=0.
+For mu=0 it is O direct-sum (a,b), which is not reflexive over the
+regular local ring of dimension two. Similarly, where a is a unit the
+remaining relation is (d,-c,lambda a), forcing lambda!=0 at the generic
+point of V(c,d). Hence reflexivity implies lambda*mu!=0.
+
+Conversely, when both parameters are nonzero the sheaf is free away from
+the common point. The length-two free resolution gives depth two at that
+point; together with torsion-freeness this proves reflexivity. Necessity
+alone already suffices for the exhaustion argument.
+
+Under (a,b)->r(a,b), (c,d)->s(c,d), the columns of S are multiplied by
+(s,r,r,s). Dividing the relation columns by these factors restores S and
+changes the extension parameters to
+  (lambda r/s, mu s/r).
+Scaling the fifth generator scales both parameters together. Nonzero
+lambda,mu can therefore both be normalized to one over C.
+
+The extension gives h0(E)=1+h0(I_Z(2))=5. Dualizing and twisting yields
+F=ker(T^t:O(1)^5 -> O(2)^4). Direct calculation confirms T^t P_geo=0,
+and all five Pfaffians of P_geo vanish. Its ten entries form a basis of
+Sym^2(C4)^*, with basis determinant 2 in the monomial order of the script.
+In particular they have no common divisor. Thus P_geo is the primitive
+Plucker generator of det(F)=O, up to scalar.
+
+B. Why the spinor model and its two projection orbits are exhaustive
+-------------------------------------------------------------------
+The exact metric equations P^t Q P=0 have one-dimensional solution spaces
+for both P_geo and P_spin. Convenient representatives are
+
+  Q_geo = [[0,0,0,1/2,0],
+           [0,0,-1/2,0,0],
+           [0,-1/2,0,0,0],
+           [1/2,0,0,0,0],
+           [0,0,0,0,1]],             det=1/16,
+
+  Q_spin = [[-2,0,0,0,0],
+            [0,0,0,0,-1],
+            [0,0,0,1,0],
+            [0,0,1,0,0],
+            [0,-1,0,0,0]],           det=-2.
+
+For every nonzero input v, either P(v) has rank exactly two, since it has
+nonzero Veronese coordinates and zero maximal Pfaffians. Its image is a
+Q-isotropic 2-plane. Since the ten Plucker coordinates are a full basis
+of quadrics in four variables, the map P3 -> P9 is a Veronese embedding.
+Its closed image lies in OGr(2,5), which is irreducible of dimension three;
+therefore it equals OGr(2,5).
+
+Any congruence identifying the two nondegenerate metrics consequently
+identifies their two Veronese images. The induced automorphism of P3 is
+projectively linear. Equality of the quadratic vector polynomials then
+holds up to one constant scalar, since both are primitive of equal degree.
+This proves the asserted equivalence under CONSTANT input and output
+changes, without assuming an unsupported coordinate-dependent operation.
+
+Moreover every g in O(Q_spin) induces such a linear input change, since
+it acts on OGr(2,5)=P3. An original canonical section map C gives output
+map D=C^t in the bivector expression D P_spin(Ax) D^t. Here A has rank four.
+If D has rank four, its KERNEL LINE in the five-dimensional output space
+is the object to normalize. O(5) has exactly two line orbits: isotropic and
+nonisotropic. They are represented by e1 and e0 for the displayed metric.
+After this right orthogonal normalization, a left GL5 change makes D the
+coordinate projection killing that representative line. The left change
+is an ambient coordinate change and its effect is absorbed in A, which
+remains rank four. This justifies the two calculations in rank4_projection.
+
+C. Independent exact divergence and integration checks
+------------------------------------------------------
+For P_spin(Ax), comparison of coefficients in the four independent
+variables Ax gives a 20x20 divergence system. Its rank is 20, excluding
+invertible original section maps.
+
+Killing the nonisotropic e0 gives rank 16. The kernel matrices A have
+only their zeroth column nonzero, hence rank <=1, excluded by rank(A)=4.
+
+Killing isotropic e1 gives rank 12, and exactly the eight-parameter kernel
+displayed in audit/spinor/rank4_projection_certificate.json. The quadratic
+Q1,Q2 displayed there satisfy, identically in all eight parameters,
+  P_projected(Ax) = -Jac(x1,Q1,Q2)
+with the script's complementary-minor convention. All three Casimir
+identities were checked independently. No division by a parameter is
+used, so this includes all parameter specializations compatible with
+the original rank-four input and nonzero bivector.
+
+If rank(D)<=3, two independent constant covectors annihilate the canonical
+bivector. Closedness then integrates it to Jac(L1,L2,G3), as already proved.
+Thus EVERY stable c2=1 point is covered by actual Rat113 or Rat122.
+
+Independent exact verification files:
+  rank4/audit_c2_one.py
+  rank4/audit_c2_one.json
+
+D. Total rank-at-most-two coverage, including divisorial zeros
+-------------------------------------------------------------
+For nonzero rank-two pi with no divisorial zero, det(T_F)=O and the linear
+bundle isomorphism wedge2 T(P4)=Omega^2(P4)(5) identifies its projective
+class with its degree-two, dimension-two foliation. Integrability and
+decomposability on the foliation side are exactly the rank-two Poisson
+conditions. There is no extra multiplier: H0(det(T_F))=C.
+
+The stable branch has now been exhausted by the new sheaf proof above
+and the c2=2,3 proof. Corrrea--Muniz Theorem 4.1 treats the remaining
+strictly semistable and unstable cases. Its affine-Lie branch is reduced
+by Theorem 2.3 and Remark 2.3 to the three nonexceptional partitions of 5:
+  (5), (4,1), (3,2).
+The partitions (3,1,1) and (2,2,1) are in Log1112. Partition (2,1,1,1)
+has a rank-one nilpotent field x0 partial1, so its wedge has a divisorial
+factor. The all-ones partition does not define an affine-Lie family;
+commutative actions are covered by Log11111.
+
+Source: https://arxiv.org/html/2207.12880v5
+Relevant root-openable refs: turn271view0, turn271view1, turn271view2.
+The paper has off-by-one printed indices in the Rat labels in Theorem4.1
+and in the Log labels in Proposition3.9. For P4 the correct types follow
+from the number of defining polynomials and total degree five: Rat113,
+Rat122, Log1112, Log11111. Do not copy the erroneous general exponents.
+
+Now let pi have a divisorial zero of degree e>0. The saturated foliation
+has degree d=2-e, so (e,d) is (2,0) or (1,1). The standard degree-zero and
+degree-one foliation classification gives the three cases below.
+
+(i) d=0: its dual form is
+  omega=Q i_E(dL0 wedge dL1 wedge dL2).
+Dividing by Q L0 L1 L2 gives a horizontal decomposable logarithmic 2-form
+with poles among L0,L1,L2,Q. This is a special residue point in Log1112.
+
+(ii) d=1 rational type112: its dual form is
+  omega=H i_E(dL0 wedge dL1 wedge dQ).
+Dividing by H L0 L1 Q again gives a special Log1112 residue point. In each
+case, horizontal residues lie in wedge2(C3), hence all are decomposable;
+perturbing residues preserves rank <=2. Degenerate quadrics or arrangements
+are allowed by closure of the same irreducible polynomial parameter family.
+
+(iii) d=1 linear pullback: with fixed projection center e, write
+  pi=H partial_e wedge v_A,
+where A is an arbitrary linear endomorphism of C5/Ce. The parameter space
+(H,A) is irreducible, and EVERY member is rank <=2 and Poisson. On its
+dense open H(e)!=0, A regular semisimple, a coordinate change gives
+  pi=(x4 partial4) wedge sum_{i<4}(lambda_i xi partial_i).
+This is in the rank-two toric family. Its special divisorial zero can be
+removed by varying the two diagonal fields in the same Cartan subalgebra,
+while keeping their wedge decomposable. Thus these points lie in the
+closure of Log11111 WITHIN the rank-at-most-two locus. All (H,A) follow
+by closure of the same irreducible family. No rank-four toric deformation
+is used for this coverage statement.
+
+Consequently the reduced projective rank-at-most-two locus is the union
+of the eight irreducible family closures
+  Rat113, Rat122, Log1112, Log11111, LPB, Aff5, Aff41, Aff32.
+There is no uncovered divisorial stratum. The zero affine bivector is
+included separately, or automatically by taking the affine cones.
+
+E. Exact scope of the conclusion
+--------------------------------
+The argument gives set-theoretic / reduced exhaustion. It does NOT compute
+embedded components, nilpotents, intersections, or PGL orbit normal forms.
+To state EXACTLY EIGHT irreducible components of the reduced rank-two locus,
+also use the established component/distinctness results for these families:
+the six archived full-Poisson component certificates plus the logarithmic
+foliation component theorem and CM Theorem2.3 for Aff32. This is not a
+consequence of eight-set coverage alone.
+
+The two extra rank-two components are not additional components of the
+FULL Poisson scheme. Toric rank-two structures deform to rank four inside
+their toric family. For Aff32, the archived beta,t polynomial family is
+rank four for general beta,t and contains the full generic Aff32 family
+at t=0: generic H is semisimple with five distinct eigenvalues, so the
+pair with N of Jordan type32 has the displayed H_beta form. Conjugation
+and beta then dominate Aff32. The irreducible deformation family therefore
+puts its entire closure in a full component of generic rank four.
+Combining that with the six archived smooth-point certificates gives
+EXACTLY SIX full-Poisson components of generic rank two, conditional only
+on those already established certificates. No increase of the overall
+57 lower bound follows from completing this rank-two exhaustion.

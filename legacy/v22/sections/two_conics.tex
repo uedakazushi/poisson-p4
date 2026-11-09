@@ -1,0 +1,97 @@
+\section{二つの conic が一節点で交わる配置の排除}
+
+本節は一般階数四、実際の退化因子の正規性、および両成分上の一般
+横断型が $\widetilde E_8$ であることを仮定する。
+支持を $C=A_{012}\cup A_{034}$ とする。
+第21版の固定支持モデルの係数を $z_0,\ldots,z_{39}$ と書く。
+両成分の residue は
+\[
+R_1=(z_{36}t+z_{37}t^2)\partial_t,\qquad
+R_2=(z_{38}t+z_{39}t^2)\partial_t.
+\]
+以下の排除は複素閉点の非存在であり、根基と元の係数イデアルを同一視しない。
+
+\subsection{非零な平面 Hessian}
+補題\ref{lem:conic-plane}を両 conic に適用する。
+第一 conic のアフィン座標を
+$(t,u,v,w)=(x_1,x_2-x_1^2,x_3,x_4)$ とする。
+$P_{01}|_C=-R_1/5$ と $\partial_uP_{34}|_C=-z_{30}$、
+$b_2=P_{01}P_{34}-P_{03}P_{14}+P_{04}P_{13}$ から
+\[
+F_{uu}|_C=R_1z_{30}/5.
+\]
+第二 conic でも同様に $F_{uu}|_C=R_2z_{14}/5$。
+従って両 residue が一般に非零である以上、正規性には
+\[
+z_{30}z_{14}\ne0
+\]
+が必要である。
+
+\subsection{非零な二つの係数の標準形}
+
+$a=z_{30},b=z_{14},d=z_{25},k=z_{35},u=z_{31},v=z_{21},w=z_{27},r=z_{28}$ と置く。
+両 conic の Heisenberg 行列の階数一条件と、二本の Jacobi 係数から
+\[
+ad=k^2,\quad av=uk,\quad a z_{26}=0,\quad a(3r+4k)=u^2,
+\]
+\[
+b(r+2k)=d(v+w),\quad ab=du/2,\quad a(v+w)=uk
+\]
+を得る。
+$a,b\ne0$ なので $w=0,r=0,z_{26}=0$。
+$a=1$ と標準化し、$u=-2\lambda$ と置けば
+\[
+\lambda\ne0,\quad
+z_{14}=-\lambda^5,\ z_{35}=\lambda^2,\ z_{25}=\lambda^4,\
+z_{31}=-2\lambda,\ z_{21}=-2\lambda^3,\ z_{26}=z_{27}=z_{28}=0.
+\]
+この帰着に使用した分母は非零と仮定した $a,b$ のみである。
+
+各 conic の標点を固定する自己同型は独立に $\mathrm{PGL}_5$ の支持安定化群に延びる。
+$R=t(\alpha+\beta t)\partial_t$ は $\alpha\ne0$ なら
+$\alpha t\partial_t$、$\alpha=0,\beta\ne0$ なら $t^2\partial_t$ に標準化できる。
+対角変換
+\[
+(x_1,x_2,x_3,x_4)\mapsto(rx_1,r^2x_2,sx_3,s^2x_4)
+\]
+と Poisson 構造の $c$ 倍は
+\[
+\beta_1\mapsto c\beta_1/r,\quad
+\beta_2\mapsto c\beta_2/s,\quad
+z_{30}\mapsto cs^3z_{30}/r^2
+\]
+を与える。特に両 residue が nilpotent の場合は
+$r=c\beta_1,s=c\beta_2$ として、残る $c$ により
+$c^2\beta_2^3z_{30}/\beta_1^2=1$ とできる。
+従って residue を同時に $(t^2\partial_t,t^2\partial_t)$ としつつ $z_{30}=1$ としてよい。
+semisimple の場合も、residue を変えない二つの対角変換で $z_{30}=1$ にできる。
+
+\subsection{有理関数による厳密な非存在証明書}
+
+上の標準形で全 Jacobi 係数と両 Heisenberg 行列の全二次小行列式を用いる。
+保存した四つの証明書は次を与える。
+\begin{enumerate}
+\item 全 residue を残したまま、四つの係数の線形結合で
+$z_{36}-z_{38}=0$ を得る。分母の因子は $\lambda$ のみ。
+\item この共通値が非零なら、residue は $(t\partial_t,t\partial_t)$ に標準化される。
+二段の線形結合と線形消去で $1$ を得る。分母の因子は $\lambda$ のみ。
+\item 共通値が零なら、両 residue の非零性から
+$(t^2\partial_t,t^2\partial_t)$ としてよい。
+$\lambda\ne-1$ では二段で $1$ を得る。分母の因子は $\lambda,\lambda+1$ のみ。
+\item $\lambda=-1$ では、一般 $\widetilde E_8$ の接方向作用 $H$ と
+conormal 括弧行列 $B$ に対する
+\[
+\operatorname{tr}(H^2)=7R^2/18,\qquad B(H+R I/2)=0
+\]
+も加えると、二段の有理数線形結合で $1$ を得る。
+この証明書には変数の分母はない。
+\end{enumerate}
+ここでは $H$ の行が入力 conormal 生成元であるという規約を用いる。
+$H$ の列を入力とする規約では中心の式は $(H+RI/2)B=0$ となる。
+
+各段の入力式、線形結合の全係数、消去した一次式と代入写像を保存した。
+Python 標準ライブラリのみの独立実装が、元の $P$ からの両局所行列の再構成、
+全局所方程式、七つの係数関係、二つの消去恒等式、二つの平面 Hessian 恒等式、
+および全証明書の計228項目を確認した。
+行列自体も独立生成した行列と、第二成分の巡回的な基底順序の変更を除いて一致する。
+これで残る開集合も空となり、$22$ 配置全体が排除される。

@@ -1,0 +1,82 @@
+{
+  "all_passed": true,
+  "checks": 658,
+  "certificates": [
+    {
+      "name": "31_C_NN_k3_certificate",
+      "checks": 23,
+      "outcome": "closed-point contradiction via square and Bezout",
+      "denominator_factors": [],
+      "passed": true
+    },
+    {
+      "name": "31_NN_k1_II_certificate",
+      "checks": 24,
+      "outcome": "unit",
+      "denominator_factors": [
+        "z21"
+      ],
+      "passed": true
+    },
+    {
+      "name": "31_NN_k1_IA_certificate",
+      "checks": 37,
+      "outcome": "unit",
+      "denominator_factors": [
+        "69*z17+28",
+        "z17"
+      ],
+      "passed": true
+    },
+    {
+      "name": "31_NN_k1_IB_certificate",
+      "checks": 33,
+      "outcome": "unit",
+      "denominator_factors": [
+        "3*z17+1",
+        "621*z17**2+87*z17+52",
+        "z17"
+      ],
+      "passed": true
+    },
+    {
+      "name": "31_NN_k1_IA_rational_certificate",
+      "checks": 37,
+      "outcome": "unit",
+      "denominator_factors": [],
+      "passed": true
+    },
+    {
+      "name": "31_NN_k1_IB_quadratic_field_certificate",
+      "checks": 35,
+      "outcome": "unit",
+      "denominator_factors": [],
+      "passed": true
+    },
+    {
+      "name": "31_NN_k1_IB_rational_certificate",
+      "checks": 454,
+      "outcome": "actual nonnormal quintic family with singular plane",
+      "denominator_factors": [],
+      "passed": true
+    },
+    {
+      "name": "31_NN_partition_certificate",
+      "checks": 15,
+      "target_count": 12,
+      "passed": true
+    }
+  ],
+  "source_sha256": {
+    "model": {
+      "filename": "31_external.json",
+      "sha256": "6f4fccb6ba8d1256cd9f6994bf09cd744d1352fc07268a76807b05b968cc0ffa"
+    },
+    "jets": {
+      "filename": "31_external.json",
+      "sha256": "317e49ce9eba648f61ece958f35967f4fa51332e4b9eac2f7d73b343499c1feb"
+    }
+  },
+  "scope": "full NN algebraic certificate coverage conditional on geometric reductions; k3 uses closed-point square-zero and geometric z9!=0; every generic denominator exception covered; quadratic field checked modulo theta\u00b2+13511 for both conjugates; rational family has a singular plane",
+  "implementation": "stdlib ast/Fraction sparse arithmetic overQ(lambda), exact Euclidean polynomial normalization, no CAS/no sampling"
+}

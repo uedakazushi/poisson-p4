@@ -1,0 +1,104 @@
+v7：零モジュラー fiber の被約既約成分は正確に三つ
+================================================
+
+設定：全て C 上。Q0 は A4 の homogeneous quadratic Poisson bivectors のうち
+J=∂x∧∂y+∂z∧∂w と compatible で trace/modular field が零の affine scheme。
+PGL quotient、projectivization、full P4 Poisson scheme とは区別する。
+
+定理。
+Q0 の underlying reduced variety は、正確に三つの irreducible components
+  R0 (dimension 12), C0 (dimension 9), L0 (dimension 10)
+を持つ。定義は logarithmic_boundaries_theorem.txt §0 に従う。
+これらの非零点を scalar quotient で projectivize した成分の次元は
+それぞれ11,8,9。ここで Sp4 や PGL による quotient は取っていない。
+
+全点の包含 Q0=R0∪C0∪L0 は、zero_fiber_residual_reduction.txt と
+exceptional_primitive_exhaustion_theorem.txt の組合せによる。
+以下では closedness、irreducibility、dimensions、相互非包含を示す。
+
+1. R0：constant-vector factor の全 locus、dimension 12
+------------------------------------------------------
+非零 constant vector v の projective class [v]∈P(V)=P3 を固定する。
+Q∈Q0 で v∧Q=0 の全解は、Sp4 で v=∂y に移せば
+  Q=∂y∧(Gw∂z-Gz∂w), G∈Sym³ span(x,z,w), modulo C x³.
+従って fiber は dimension 10-1=9 の linear space。
+Sp4 は P(V) に推移的なのでこれらは P3 上の rank9 vector bundle を作る。
+incidence は P3×(quadratic bivector space) 内で closed であり、projection
+は proper。像 R0 は closed irreducible。
+
+generic Q は constant factor [v] を一意に決める。
+実例 G=z³+w³ に対して、点 (x,y,z,w)=(0,0,1,0) の tangent plane は
+span(∂y,∂w)、点 (0,0,0,1) の tangent plane は span(∂y,∂z)。
+共通 constant direction は正確に C∂y である。
+constant-factor kernel の dimension は upper-semicontinuous なので、
+これは generic member でも一意。従って image dimension は3+9=12。
+
+2. C0：Cartan wedge の cone saturation、dimension 9
+--------------------------------------------------
+quadratic functions と sp4 の Hamiltonian linear vector fields を同一視する。
+Richardson commuting-pair theorem により、全 commuting pairs は Cartan
+pairs の極限である。rank(sp4)=2 なので C0 は
+  Qc=(x∂x-y∂y)∧(z∂z-w∂w)
+の Sp4 orbit の scalar multiples の閉包。従って irreducible。
+
+Qc に tangent な全 homogeneous linear vector fields X=A(x,y,z,w)^T
+を、actual matrix A∈Mat4 について調べる（Euler field で割らない）。
+Qc の generic image は H1=x∂x-y∂y、H2=z∂z-w∂w が張り、
+common first integrals は F=xy,G=zw。従って
+  X∧Qc=0 iff X(F)=X(G)=0.
+係数比較により
+  A=diag(r,-r,t,-t)
+のみが残る。非 diagonal entries は全て零であり、Euler field は含まれない。
+certificate では16 actual entries に対する rank14を検証した。
+
+Qc を scalar multiple に移す symplectic matrix はこの tangent Lie algebra
+span(H1,H2) を normalize する。従ってその identity component は Cartan
+torus、dimension2である。逆にその torus は Qc を固定する。
+Sp4 orbit dimension は10-2=8。
+normalizer の residual Weyl group は有限なので scalar multiples を加えると
+次元が一つ増え、dim C0=9。
+certificate も orbit tangent rank8、scalingを加えたrank9を独立確認する。
+
+3. L0：既に証明済みの dimension10 irreducible component
+--------------------------------------------------------
+v6 の exact tangent/family proof により、L0 は dimension10 の irreducible
+closed variety（実際には full auxiliary Q の被約既約成分）である。
+本 v7 の全点包含はこの既存証明を変更しない。
+
+4. 相互非包含
+-------------
+R0 は constant-factor incidence の proper image として closed。
+Qc は constant factor を持たない：その linear constant tangent equations
+の rank は4、kernelは零。
+L0 も R0 に含まれない。Q(a,b) で ab≠0 を取ると、点 (1,0,0,0) では
+image=span(∂x,∂w)、点 (0,0,1,0) では image=span(∂y,∂z)。
+両者の交わりが零なので共通 constant vector はない。
+
+C0 が L0 に含まれないことは、nilpotent linear tangent field の closed
+条件で区別する。projective nilpotent matrix locus
+  N={ [A]∈P(Mat4) : A²=0 }
+を取り、incidence
+  I={([A],Q) : A²=0, (A·x)∧Q=0}
+を考える。N は projective、I は closed なので、その Q-space への像は
+closed。従って「非零 square-zero homogeneous linear tangent field が存在する」
+ことは閉条件である。
+
+L0 の dense family は U=az∂y+bx∂w を tangent field に持ち、その actual
+matrix は U²=0 かつ U≠0。Sp4 conjugationもこの性質を保つため、L0全体が
+上記 closed locus に含まれる。
+一方、Qc の全 homogeneous linear tangent fields は既に求めた通り
+diag(r,-r,t,-t)。その平方は diag(r²,r²,t²,t²) なので、square-zero は
+r=t=0 のみ。projective nonzero field は存在しない。
+従って Qc∉L0、C0⊄L0。
+
+dim R0=12>dim L0=10>dim C0=9 なので、残る逆向きの包含も不可能。
+三つの closed irreducible subsets が全零 fiber を覆い、どれも他に含まれない
+ことが分かったので、正確に三つの reduced irreducible componentsである。
+
+5. Scheme structure に関する限定
+--------------------------------
+ここで分類したのは Q0 の reduced irreducible components。
+full Q の L0 に沿う一般横断厚さ3（v6）とは異なる主張であり、同じ厚さを
+Q0 自体へ自動的に移してはならない。
+Q0 の全 nilpotent structure、embedded components、三成分の scheme-theoretic
+intersections は本定理からは決まらず、引き続き別途検討を要する。

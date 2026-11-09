@@ -1,0 +1,117 @@
+\section{最小冪零型の残存成分と全射影成分}\label{sec:minimal-v7}
+\subsection{代表式と退化因子}
+二重ベクトルの成分を $(xy,xz,xw,yz,yw,zw)$ の順に並べ、
+\[
+ Q_M=\bigl(3x^2-6xz,\ 0,\ -2x^2,\ 3xz-18z^2,
+            \ 6x^2-2xy-3xw+30zw,\ 6xz\bigr)
+\]
+と置く。直接計算により
+\[
+ [J,Q_M]=[Q_M,Q_M]=0,\quad s=Q_M^{12}+Q_M^{34}=3x^2,
+ \quad\delta Q_M=6x\partial_y
+\]
+である。従ってモジュラー場は最小非零冪零型 $(2,1,1)$ である。
+$\AA^5$ 上で $P_M=x_0^2J+Q_M$、$P_M^{0i}=0$ と置けば、$\PP^4$ 上の Poisson 構造へ降りる。
+その退化五次因子は
+\[
+ D_M=x_0F_M,\qquad F_M=x_0^4+3x_0^2x^2+12x^3z.
+\]
+$F_M$ は $z$ について原始一次式であり、$12x^3$ と $x_0^2(x_0^2+3x^2)$ は互いに素なので既約である。
+本質変数は $x_0,x,z$ の三つで、頂点 $\{x_0=x=z=0\}\simeq\PP^1$ を持つ錐になる。
+
+\begin{theorem}\label{thm:minimal-full}
+$Q_M$ の $\Sp_4\times\CC^*$ 軌道閉包は $\cQ$ の10次元成分である。
+また $[P_M]$ の $\PGL_5$ 軌道閉包は $\cP$ の23次元成分であり、
+\[
+ \widehat\OO_{\cQ,Q_M}\simeq
+ \CC[[u_1,\ldots,u_{10},\varepsilon]]/(\varepsilon^3),
+ \qquad
+ \widehat\OO_{\cP,[P_M]}\simeq
+ \CC[[v_1,\ldots,v_{23},\varepsilon]]/(\varepsilon^3).
+\]
+\end{theorem}
+
+\subsection{全係数での二次 jet と第三次障害}
+$\Jac$ を座標 Jacobi 式とし、
+$\pol(A,B)=\Jac(A+B)-\Jac(A)-\Jac(B)$ とする。
+コード \path{minimal_thickness.py} は有理係数の $R,T$ を構成して
+\[
+ [J,R]=[J,T]=0,\qquad
+ \pol(Q_M,R)=0,\qquad
+ \pol(Q_M,T)+\Jac(R)=0
+\]
+を検証する。$R$ のトレースは $zw$ である。
+従って $Q_M+\varepsilon R+\varepsilon^2T$ は $\varepsilon^3$ を法として Poisson であり、
+第三次係数は $\pol(R,T)$ となる。
+全係数は JSON 証明書に保存し、大きな有理数の式を省略したことによって再現性を失わないようにしている。
+
+\begin{center}\small
+\begin{tabular}{p{0.58\linewidth}cc}
+\toprule
+階数の対象&全 $\cQ$&全150係数表示\\\midrule
+Jacobi 微分 $D$&34&101\\
+実際の軌道・スカラー・垂直方向 $A$&10&48\\
+$A$ に $R$ を追加&11&49\\
+$D$ に全二次補正の曖昧さを追加&34&101\\
+さらに第三次係数を追加&35&102\\\bottomrule
+\end{tabular}
+\end{center}
+150係数表示の方程式は $E\wedge\Jac(P)=0$ の350係数である。
+垂直方向 $E\wedge Ax$ の階数は24であり、これを除き、さらに非零スカラーを除くと、
+全射影接空間の次元は24、実際の $\PGL_5$ 軌道の次元は23になる。
+$x_0$ を含む係数を固定する制限は課していない。
+
+第三次障害を検出する具体的な余核汎関数も短く書ける。
+$C=E\wedge\pol(R,T)$ とすると、証明書の符号規約で
+\[
+ \ell(C)=[x_0xw^2]C^{0xyz}-\frac34[x_0xyw]C^{0xyz}
+          =\frac1{216},\qquad \ell(D S)=0\quad\text{for all }S.
+\]
+さらに $\pol(R,\ker D)$ をすべて追加しても微分の像は増えない。
+従って特定の二次補正の選び方だけに依存する見かけの障害ではない。
+
+\subsection{形式局所環を決定する議論}
+ここでは実際の群軌道が補正の普遍化を保証する。
+$\cQ$ では $\Sp_4\times\CC^*$ の10次元軌道上へ $R,T$ を同時に運ぶ。
+全射影空間では $\PGL_5$ の23次元軌道を用い、射影 chart で規格化して運ぶ。
+150係数表示で論じる場合も、群作用・スカラー・垂直平行移動は実際の解を与える。
+最後の作用については斉次性から
+\[
+ E\wedge\Jac(P+E\wedge Ax)=E\wedge\Jac(P)
+\]
+が成り立つ。
+
+\begin{lemma}[実際の族に沿う普遍二次 jet]\label{lem:universal-two-jet-v7}
+滑らかな $d$ 次元の実際の解の族 $Y$ に沿って、全接空間の余剰方向が一つであり、
+その方向の普遍二次 jet が存在するとする。
+第三次係数の全微分の余核への像が一点で非零なら、その点での完成局所環は
+$\CC[[t_1,\ldots,t_d,\varepsilon]]/(\varepsilon^3)$ である。
+\end{lemma}
+\begin{proof}
+形式座標を $\phi(t)+\varepsilon R(t)+\varepsilon^2T(t)+N(z)$ と選ぶ。
+全接空間の補空間 $N$ 上で独立な線形方程式を取り、形式陰関数定理で $z$ を消去する。
+二次 jet の恒等式により解は $\varepsilon^3$ で割れ、残るすべての方程式も
+$\varepsilon^3$ で割れる。非零の第三次余核係数は単元倍の $\varepsilon^3$ を与える。
+従って残余イデアルは正確に $(\varepsilon^3)$ である。
+\end{proof}
+この補題と階数表により定理\ref{thm:minimal-full}が従う。
+唯一の局所最小素が実際の軌道を台に持つため、軌道閉包は全空間の成分である。
+
+\subsection{固定 fiber 全体の帰属と既存成分との区別}
+v5 の最小冪零固定 fiber の被約成分は9、9、6次元の三つであった。
+前二者の飽和は13次元成分であり、残る6次元部分の飽和は
+モジュラー軌道の4次元を加えて10次元である。
+$Q_M$ はその中にあり、今回得た唯一の ambient 成分も10次元なので、
+その飽和閉包全体が新成分に等しい。
+また密な $\Sp_4\times\CC^*$ 軌道上の斉次化は $x_0$ の再尺度化によって $[P_M]$ と射影同値になる。
+閉包を取れば、この固定 fiber からの斉次化全体の帰属も従う。
+
+$F_M$ の特異 locus は正確に平面 $\Pi=\{x_0=x=0\}$ で、
+その一般点における法線三次は $12zx^3$ である。
+$D_M\in I_\Pi^4$ であり、ある平面に沿う4次以上の消滅は Grassmannian 上の
+proper incidence による閉条件である。
+SNC 因子は余次元2の一般点で重複度が高々2なので、この成分は SNC locus と交わらない。
+これで MPS の40成分と区別できる。
+一般 rank 4、次元23、退化因子の既約分解により、v6 までの他の成分とも区別できる。
+v6 の $H+F_4$ の23次元成分では $F_4$ が本質五変数であり、
+Poisson scheme が一般に正則である点でも異なる。

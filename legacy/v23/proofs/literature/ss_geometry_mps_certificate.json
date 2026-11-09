@@ -1,0 +1,483 @@
+{
+  "title": "SS geometry and exact MPS Example 5.6 / catalogue T37 identification",
+  "field": "C, parameter a nonzero; identities computed over Q(a,t)",
+  "input": "/workspace/scratch/c3751cea5784/p4_poisson_completeness_v23/proofs/literature/ss_input.json",
+  "checks": {
+    "actual_Pfaffian_factor": true,
+    "Q_Hessian_determinant": true,
+    "intersection_identity": true,
+    "P_dQ": true,
+    "P_dC": true,
+    "Q_rational_Casimir": true,
+    "C_rational_Casimir": true,
+    "induced_surface_S": true,
+    "induced_surface_A": true,
+    "induced_surface_B": true,
+    "zero_on_T": true,
+    "zero_on_L03": true,
+    "zero_on_L04": true,
+    "zero_on_L34": true,
+    "x4_chart_G124": true,
+    "x4_chart_G134": true,
+    "x4_chart_G234": true,
+    "x4_chart_G034_on_S": true,
+    "x4_zero_q_1": true,
+    "x4_zero_q_2": true,
+    "x4_zero_q_3": true,
+    "x4_zero_R_012": true,
+    "x4_zero_R_013": true,
+    "x4_zero_R_023": true,
+    "divisor_orders": true,
+    "weight_01_(1, 1, 0, 0, 0)": true,
+    "weight_02_(1, 0, 1, 0, 0)": true,
+    "weight_02_(0, 2, 0, 0, 0)": true,
+    "weight_03_(1, 0, 0, 1, 0)": true,
+    "weight_03_(0, 1, 1, 0, 0)": true,
+    "weight_04_(1, 0, 0, 0, 1)": true,
+    "weight_04_(0, 1, 0, 1, 0)": true,
+    "weight_04_(0, 0, 2, 0, 0)": true,
+    "weight_12_(0, 1, 1, 0, 0)": true,
+    "weight_13_(0, 1, 0, 1, 0)": true,
+    "weight_13_(0, 0, 2, 0, 0)": true,
+    "weight_14_(0, 1, 0, 0, 1)": true,
+    "weight_23_(0, 1, 0, 0, 1)": true,
+    "weight_23_(0, 0, 1, 1, 0)": true,
+    "weight_24_(0, 0, 1, 0, 1)": true,
+    "weight_34_(0, 0, 0, 1, 1)": true,
+    "toric_limit_nondegenerate": true,
+    "smoothable_edges": true,
+    "semiclassical_limits": true,
+    "diagonal_permutation": true,
+    "full_MPS_identification_all_a_t": true,
+    "new_transversal_has_positive_weights": true,
+    "old_catalog_T37_biresidue": true
+  },
+  "check_count": 48,
+  "all_passed": true,
+  "Q": "3*a*(-x1*x3 + x2**2) + x0*x4",
+  "C": "3*a*x2*(-x1*x3 + x2**2) + x1**2*x4",
+  "R": "-x0*x2 + x1**2",
+  "Q_Casimir": "(x1**2-x0*x2)/x4**2",
+  "C_Casimir": "(x1*x3-x2**2)**2/(x1**2*(x1**2-x0*x2))",
+  "global_zero_cubics": {
+    "012": "-x1*(x0*x2 - x1**2)/3",
+    "013": "-(x0*x1*x3 + 3*x0*x2**2 - 4*x1**2*x2)/6",
+    "014": "-x1*(-2*a*x1*x3 + 2*a*x2**2 + x0*x4)/2",
+    "023": "(-3*a*x0*x2*x3 - 3*a*x1**2*x3 + 6*a*x1*x2**2 + x0*x1*x4)/(9*a)",
+    "024": "-(-3*a*x1*x2*x3 + 3*a*x2**3 + x0*x2*x4 + x1**2*x4)/3",
+    "034": "-(-6*a*x1*x3**2 + 6*a*x2**2*x3 + x0*x3*x4 + 4*x1*x2*x4)/6",
+    "123": "(-9*a*x1*x2*x3 + 9*a*x2**3 + 2*x1**2*x4)/(18*a)",
+    "124": "-x1*x2*x4/6",
+    "134": "x4*(x1*x3 - 3*x2**2)/6",
+    "234": "x4*(-3*a*x2*x3 + 2*x1*x4)/(18*a)"
+  },
+  "reduced_projective_zero_support": "T0123 union L03 union L04 union L34",
+  "divisor_orders": {
+    "T": {
+      "Q": {
+        "order": 1,
+        "leading_form": "6*a*u**2*v - 3*a*u*w + z"
+      },
+      "C": {
+        "order": 1,
+        "leading_form": "u**2*(6*a*u**2*v - 3*a*u*w + z)"
+      },
+      "QC": {
+        "order": 2,
+        "leading_form": "u**2*(6*a*u**2*v - 3*a*u*w + z)**2"
+      }
+    },
+    "L03": {
+      "Q": {
+        "order": 1,
+        "leading_form": "-3*a*u*v + z"
+      },
+      "C": {
+        "order": 2,
+        "leading_form": "-3*a*u*v*w"
+      },
+      "QC": {
+        "order": 3,
+        "leading_form": "-3*a*u*v*w*(-3*a*u*v + z)"
+      }
+    },
+    "L04": {
+      "Q": {
+        "order": 0,
+        "leading_form": "u"
+      },
+      "C": {
+        "order": 2,
+        "leading_form": "u*v**2"
+      },
+      "QC": {
+        "order": 2,
+        "leading_form": "u**2*v**2"
+      }
+    },
+    "L34": {
+      "Q": {
+        "order": 1,
+        "leading_form": "-3*a*w + u*v"
+      },
+      "C": {
+        "order": 2,
+        "leading_form": "-w*(3*a*z - u*w)"
+      },
+      "QC": {
+        "order": 3,
+        "leading_form": "-w*(-3*a*w + u*v)*(3*a*z - u*w)"
+      }
+    }
+  },
+  "toric_pushforward_weights": [
+    {
+      "entry": "01",
+      "monomial": [
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "pushforward_weight": 0
+    },
+    {
+      "entry": "02",
+      "monomial": [
+        1,
+        0,
+        1,
+        0,
+        0
+      ],
+      "pushforward_weight": 0
+    },
+    {
+      "entry": "02",
+      "monomial": [
+        0,
+        2,
+        0,
+        0,
+        0
+      ],
+      "pushforward_weight": 2
+    },
+    {
+      "entry": "03",
+      "monomial": [
+        1,
+        0,
+        0,
+        1,
+        0
+      ],
+      "pushforward_weight": 0
+    },
+    {
+      "entry": "03",
+      "monomial": [
+        0,
+        1,
+        1,
+        0,
+        0
+      ],
+      "pushforward_weight": 3
+    },
+    {
+      "entry": "04",
+      "monomial": [
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "pushforward_weight": 0
+    },
+    {
+      "entry": "04",
+      "monomial": [
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
+      "pushforward_weight": 1
+    },
+    {
+      "entry": "04",
+      "monomial": [
+        0,
+        0,
+        2,
+        0,
+        0
+      ],
+      "pushforward_weight": 2
+    },
+    {
+      "entry": "12",
+      "monomial": [
+        0,
+        1,
+        1,
+        0,
+        0
+      ],
+      "pushforward_weight": 0
+    },
+    {
+      "entry": "13",
+      "monomial": [
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
+      "pushforward_weight": 0
+    },
+    {
+      "entry": "13",
+      "monomial": [
+        0,
+        0,
+        2,
+        0,
+        0
+      ],
+      "pushforward_weight": 1
+    },
+    {
+      "entry": "14",
+      "monomial": [
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "pushforward_weight": 0
+    },
+    {
+      "entry": "23",
+      "monomial": [
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "pushforward_weight": 1
+    },
+    {
+      "entry": "23",
+      "monomial": [
+        0,
+        0,
+        1,
+        1,
+        0
+      ],
+      "pushforward_weight": 0
+    },
+    {
+      "entry": "24",
+      "monomial": [
+        0,
+        0,
+        1,
+        0,
+        1
+      ],
+      "pushforward_weight": 0
+    },
+    {
+      "entry": "34",
+      "monomial": [
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "pushforward_weight": 0
+    }
+  ],
+  "lambda": [
+    [
+      "0",
+      "-1/5",
+      "-1/15",
+      "1/15",
+      "1/5"
+    ],
+    [
+      "1/5",
+      "0",
+      "-1/5",
+      "1/10",
+      "-1/10"
+    ],
+    [
+      "1/15",
+      "1/5",
+      "0",
+      "-1/5",
+      "-1/15"
+    ],
+    [
+      "-1/15",
+      "-1/10",
+      "1/5",
+      "0",
+      "-1/30"
+    ],
+    [
+      "-1/5",
+      "1/10",
+      "1/15",
+      "1/30",
+      "0"
+    ]
+  ],
+  "biresidues": [
+    [
+      "0",
+      "1",
+      "1",
+      "1",
+      "-3"
+    ],
+    [
+      "-1",
+      "0",
+      "1",
+      "-2",
+      "2"
+    ],
+    [
+      "-1",
+      "-1",
+      "0",
+      "3",
+      "-1"
+    ],
+    [
+      "-1",
+      "2",
+      "-3",
+      "0",
+      "2"
+    ],
+    [
+      "3",
+      "-2",
+      "1",
+      "-2",
+      "0"
+    ]
+  ],
+  "smoothable_weights": [
+    {
+      "edge": [
+        0,
+        4
+      ],
+      "weight": [
+        "-1",
+        "1",
+        "0",
+        "1",
+        "-1"
+      ]
+    },
+    {
+      "edge": [
+        1,
+        3
+      ],
+      "weight": [
+        "0",
+        "-1",
+        "2",
+        "-1",
+        "0"
+      ]
+    },
+    {
+      "edge": [
+        1,
+        4
+      ],
+      "weight": [
+        "2",
+        "-1",
+        "0",
+        "0",
+        "-1"
+      ]
+    },
+    {
+      "edge": [
+        2,
+        3
+      ],
+      "weight": [
+        "0",
+        "1",
+        "-1",
+        "-1",
+        "1"
+      ]
+    }
+  ],
+  "MPS_coordinate_order": [
+    2,
+    3,
+    1,
+    4,
+    0
+  ],
+  "MPS_gamma": [
+    "-1/(9*a)",
+    "-1/2",
+    "-t",
+    "-a"
+  ],
+  "semiclassical_limits": {
+    "c2": "2",
+    "c2b": "-3",
+    "c3": "12",
+    "c4": "-12",
+    "c6": "-162"
+  },
+  "MPS_all_brackets_match": true,
+  "catalogue_id": "T37",
+  "catalogue_biresidue_coordinate_order": [
+    1,
+    4,
+    3,
+    0,
+    2
+  ],
+  "primary_sources": [
+    {
+      "url": "https://arxiv.org/html/2411.10425v1",
+      "location": "Example 5.6; Section 4.4 and Lemma 5.2 for weight conventions; Theorem 7.6"
+    },
+    {
+      "url": "https://arxiv.org/pdf/2010.08692",
+      "location": "Theorem 1.4, Table 2, Example 6.24"
+    },
+    {
+      "url": "https://w3.impa.br/~jvp/diagonalpoisson.pdf",
+      "location": "Theorems 2 and 3.3"
+    }
+  ],
+  "caveat": "Reduced zero support is proved in the note, not by asserting that the zero scheme is reduced. Generic divisor orders are not zero-scheme lengths."
+}

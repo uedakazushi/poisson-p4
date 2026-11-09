@@ -8,7 +8,12 @@ if ! kpsewhich ltjsarticle.cls >/dev/null 2>&1 && [[ -d "$local_tex" ]]; then
   export TEXMFVAR="$PWD/work/tex-cache/var"
   export TEXMFCONFIG="$PWD/work/tex-cache/config"
 fi
-for manuscript in poisson_divisor_symmetries_ja poisson_p4_classification_ja; do
+if (( $# )); then
+  manuscripts=("$@")
+else
+  manuscripts=(poisson_divisor_symmetries_ja poisson_p4_classification_ja)
+fi
+for manuscript in "${manuscripts[@]}"; do
   build_dir="work/tex-build/$manuscript"
   mkdir -p "$build_dir"
   for pass in 1 2; do
