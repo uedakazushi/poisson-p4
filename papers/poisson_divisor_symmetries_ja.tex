@@ -19,7 +19,7 @@
 \newcommand{\diver}{\operatorname{div}}\newcommand{\Pf}{\operatorname{Pf}}
 \title{射影四空間のPoisson分類の構造還元\\\large 標識因子・modular復元・相対変形}
 \author{}
-\date{2026年11月9日\quad v6・正規化留数とPoisson pencil}
+\date{2026年11月9日\quad v7・全rank二支持までの構造的復元}
 \begin{document}\maketitle
 \begin{abstract}
 射影空間上の一般に非退化なPoisson構造について、退化因子の既約成分が生成する閉対数一形式を用い、
@@ -389,45 +389,7 @@ $\CC(S)$上の一般ファイバーの既約成分と対応する。
 \emph{その中の極大な相異なる閉像}を成分として数える。
 これは全軌道分類や全成分対の交叉計算を要求しない。
 
-\section{階数二はfoliationと零因子から復元する}
-\begin{proposition}[階数二の構造的入口]\label{prop:ranktwo}
-$\PP^4$上の非零で一般階数二のPoisson構造は、飽和した階数二の可積分部分層
-$\mathcal F\subset T_{\PP^4}$と、非零切断
-$s\in H^0(\PP^4,\det\mathcal F)$の組として一意に記述される。
-ここで$\det\mathcal F=(\wedge^2\mathcal F)^{**}$、
-$\det\mathcal F=\cO(e)$なら$0\le e\le2$である。
-$s$の零因子の次数は$e$、foliationの次数を$d=2-e$とすれば$d+e=2$となる。
-射影化されたPoisson構造では$s$の非零スカラー倍を同一視する。
-\end{proposition}
-\begin{proof}
-$\pi^\sharp$の像を$T$内で飽和して$\mathcal F$を得る。
-一般点で$\pi$は分解可能であり、Jacobi恒等式から像分布は可積分である。
-Lie括弧を$T/\mathcal F$へ写す障害は一般点で零で、商はtorsion-freeなので全域で零となる。
-飽和部分層$\mathcal F$は反射的であり、余次元一では局所自由な部分束となる。
-その外積は余次元一で原始的なので、$\pi$は$\det\mathcal F$の正則切断$s$を定める。
-余次元二以上へは反射性によって延長し、零因子も一致する。
-
-逆に飽和した可積分$\mathcal F$について、余次元一の外積写像
-$\det\mathcal F\to\wedge^2T$は反射性により全域へ延長する。
-非零$s$の像$\pi$は一般階数二であり、局所自由な開で$\pi=aX\wedge Y$と書けば
-$[X,Y]\in\mathcal F$から$[\pi,\pi]=0$が従う。正則テンソルの等式として全域へ延長する。
-両構成は一般点で互いに逆であり、飽和性・反射性から全域でも逆である。
-
-$s\ne0$から$e\ge0$。外積写像は
-$H^0(\wedge^2T(-e))=H^0(\Omega^2(5-e))$の非零元を与える。
-射影空間上の二形式の同次水平表示では、$H^0(\Omega^2(k))=0$が$k\le2$で成り立つ。
-実際、$k<2$なら係数次数$k-2$が負であり、$k=2$なら定数二形式のEuler収縮が零になるのは零形式だけである。
-従って$5-e\ge3$、すなわち$e\le2$である。
-\end{proof}
-
-この命題はrank二の全入口を$d=0,1,2$のfoliationと零因子へ分けるが、
-各foliation族の認識や全Poisson空間内での成分性は証明していない。
-rank二部分空間の成分と、全空間の一般rank二成分を区別する。
-一般rank四の閉包に入るrank二族は命題\ref{prop:graph}の側で処理し、
-純粋なrank二成分は上のfoliationの支持定理から接続する。
-被約な固定Dに対しては系\ref{cor:reduced-fibre-boundary}が明示的compatible pencilを与え、
-平面型では命題\ref{prop:plane-fixed-divisor-pencil}のdeterminantal quadricがその全境界である。
-この境界の存在だけで純rank二の全支持又は成分性を決めたとはしない。
+\input{papers/rank_two_support_reconstruction.tex}
 
 \section{構造原理が説明する代表的な現象}
 \subsection{五つの座標超平面と25次元族}
@@ -597,5 +559,8 @@ DOI: 10.1112/plms/pds090. \url{https://arxiv.org/abs/1203.4293}.
 \emph{Normalization of a Poisson algebra is Poisson},
 arXiv:math/0310173v1 (12 October 2003), Theorem 1.5, Corollary 1.6.
 \url{https://arxiv.org/abs/math/0310173}.
+\bibitem{LPT} F. Loray, J. V. Pereira and F. Touzet,
+\emph{Foliations with trivial canonical bundle on Fano 3-folds}, arXiv:1112.3871v3,
+Theorem 6.2, printed pp.17--18. \url{https://arxiv.org/pdf/1112.3871v3}.
 \end{thebibliography}
 \end{document}

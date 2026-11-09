@@ -37,6 +37,8 @@ def main():
         'code/check_global_structure.py','code/check_marked_reconstruction.py',
         'code/check_quadric_residue_reconstruction.py','code/data/quadric_cofactor_sources.json',
         'code/check_conductor_conormal_reconstruction.py','code/check_normalization_residue_reconstruction.py',
+        'code/check_rank_two_reconstruction.py','reports/rank_two_reconstruction_checks.json',
+        'reports/rank_two_component_recheck.json',
         'reports/normalization_residue_checks.json','reports/normalization_residue_validation.json',
         'reports/conductor_conormal_validation.json','reports/conductor_conormal_checks.json',
         'code/map_component_entrances.py','code/data/mps_s61_coordinate_catalogue_20261103_v62.json',
@@ -81,6 +83,7 @@ def main():
             'python code/check_quadric_residue_reconstruction.py --output work/quadric-residue-checks.json',
             'python code/check_conductor_conormal_reconstruction.py --output work/conductor-conormal-checks.json',
             'python code/check_normalization_residue_reconstruction.py --output work/normalization-residue-checks.json',
+            'python code/check_rank_two_reconstruction.py --output work/rank-two-checks.json',
             'python code/map_component_entrances.py --output work/component_entrances.csv',
             'bash scripts/build_structural_manuscripts.sh'],
         'files':[]}

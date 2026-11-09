@@ -24,7 +24,7 @@
 \title{複素射影四空間上のPoisson構造の成分分類\\[3pt]
 \large 被約既約成分は正確に147}
 \author{}
-\date{2026年11月9日\quad v71-normalization-residue-pencils}
+\date{2026年11月9日\quad v72-end-to-end-integration}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -71,7 +71,7 @@ whole T37の単純退化因子上に次数五以下の葉曲面が存在する�
 ここで全成分を尽くしても、一つの成分内の全特殊軌道又は全scheme厚みを決定したことにはならない。
 
 \subsection{先行結果と本稿の追加点}
-rank二側ではdegree二foliationの全入口\cite{cm,lpt}を用い、六つの全空間成分とrank四閉包の項を区別する。
+rank二側ではdegree二foliationの全入口\cite{CM,LPT}を用い、六つの全空間成分とrank四閉包の項を区別する。
 rank四側ではsimple normal crossingsの退化因子を持つ既成分とその全変形に関する結果\cite{mps}、
 actual退化因子が正規の場合の認識、楕円曲線からの$q_{5,2}$構成\cite{mpq52,pymquantum}を入力として明示する。
 purely ellipticな構造の分類\cite{pymelliptic}だけで全Poisson構造を尽くすとはしない。
@@ -531,116 +531,9 @@ Qの閉包の上に新たに現れる低次項の全fiberを覆ったとは推�
 全重み、四Jacobi係数、primitive正規化は正確に検査し、別担当も重みを独立に確認した。
 詳細は\path{research/classification/LOWER_DEGREE_SNC_COVERAGE.md}にある。
 
-\subsection{階数二の全支持の接続}
-六つの既知全空間成分の和を\(C^{(2)}\)、一般階数4の開を\(\mathcal P^{(4)}\)とする。
-\begin{proposition}\label{prop:rank2-support}
-以下の安定接層の証明と、非安定分岐についての\cite{cm}本文Theorem4.1、
-次数1の葉層についての\cite{lpt}Theorem6.2を用いると、
-\[
- \mathcal P_{\le2}\subset C^{(2)}\cup\overline{\mathcal P^{(4)}}
-\]
-が成り立つ。従って一般階数2の全空間既約成分は、次小節の六族に尽くされる。
-\end{proposition}
-\begin{proof}
-まず因子的零点がない場合を扱う。飽和接層\(\mathcal F\)が安定なら、
-発散零の正準二次lift\(P\)は実際に階数2のPoissonテンソルとなる。
-これは鉛直Jacobiatorに対するBV恒等式と、Euler水平かつ閉な
-\(\iota_{P^2/2}\Omega\)の全重み5に対するCartan公式から従う。
-反射層\(E=\mathcal F(1)\)を五切断が余次元1で生成する。
-一般切断の列\(0\to\mathcal O\to E\to\mathcal I_Z(2)\to0\)で、深さ補題により
-\(Z\)はunmixedであり、\((2,2)\)完全交叉に含まれる。安定性から\(2\le\deg Z\le4\)となる。
-
-\(\deg Z=4\)では完全交叉と一致し、\(h^0(E)=3\)から二つの一次Casimirを得てRat113となる。
-\(\deg Z=3\)では残余平面と二重annihilatorの議論から
-\(0\to\mathcal O(-1)^2\to\mathcal O^4\to E\to0\)となる。
-実切断像が三次元以下ならRat113、四次元なら閉三形式を\(dt\wedge\theta_1\wedge\theta_2\)と書ける。
-\(d_y\theta_i\)の非零pencilは非零大域接線形場を与え、安定性に反する。
-従って\(\theta_i=d_yQ_i\)となりRat122を得る。
-
-\(\deg Z=2\)では、五切断の階数零集合に曲面があるとPlücker二次式がbinaryとなり、
-\(\PP^1\to\operatorname{Gr}(2,5)\)の束分解が\(\mathcal F\)の非安定性を与える。
-よってその集合は次元1以下である。階数1のincidenceと生成開のBertiniから\(Z\)は一般点で被約、
-unmixed性から被約となり、一点で交わる二平面に限られる。
-全反射拡大を二つの非零拡大係数で表すと、完全五切断は\(\operatorname{OGr}(2,5)\simeq\PP^3\)のspinor模型になる。
-元の五切断の出力rankが3以下ならRat113、rank5およびrank4非等方射影は発散条件と矛盾する。
-rank4等方射影の全八パラメータkernelは\(\operatorname{Jac}(t,Q_1,Q_2)\)に一致し、Rat122となる。
-ここでは局所CM性や全切断を元の五切断が張ることを仮定していない。
-全場合分けはv14の原証明を二人で読み、二つの独立spinor恒等式を再現した。
-
-非安定分岐は\cite{cm}の本文定理により、有理型、対数型、affine Lie型または線形引戻し型となる。
-\(\PP^4\)の次数条件から有理型はRat113/Rat122、対数型はLog1112またはtoric外積族である。
-affine Lie型は\((5),(4,1),(3,2)\)を残し、他の分割は対数型または因子付きに帰着する。
-安定分岐の具体的Jacobian表示を同文献から引用しているのではない。
-
-因子的零点がある場合、因子次数\(e\)と飽和葉層次数\(d\)は\(e+d=2\)を満たす。
-\((e,d)=(2,0)\)の線形射影と、\((1,1)\)の有理型\((1,1,2)\)はLog1112の特殊residueに入る。
-\cite{lpt}により残る次数1の型は線形引戻しであり、\(H\partial_4\wedge v_A\)と書ける。
-その全パラメータ族の稠密開で\(H=x_4\)、Aを対角化できるので、全族はtoric外積族の閉包に入る。
-
-最後にtoric外積を可換四次元Lie代数上の一般交代テンソルへ変形すればrank4となる。
-Aff32には既存の全パラメータPoisson変形\(\Pi_{b,t}\)があり、そのPfaffian sectionは
-\[
-2(b-1)t x_3\{2(x_0-(b-1)tx_1)x_2-x_1^2\}
-\{x_1x_3-(x_0-btx_1)x_4\}
-\]
-で、一般に非零である。Jacobiとこの因数分解を全係数で再確認した。
-\([N,H]=N\)、Jordan型\((3,2)\)の一般Hは正則半単純で、二鎖の固有値差を一つのbが表す。
-従ってbとPGL作用がAff32を稠密に覆い、その全閉包もrank4閉包に入る。
-これで支持包含を得る。
-
-\(\overline{\mathcal P^{(4)}}\)は一般rank4の既約成分の和である。
-一般rank2の全空間成分がその和に含まれることは、既約成分の極大性に反する。
-従って上の有限閉和に含まれるrank2成分は六族のいずれかに等しい。
-逆は次小節の全空間成分性による。
-\end{proof}
-
-完全な支持証明と独立査読の入口は\path{research/classification/RANK_TWO_SUPPORT.md}である。
-外部定理の証明自体を再証明したとはせず、原証明の読解・有限恒等式の再実行・六成分の既存証明を区別する。
-rank4の全点を有限個の閉族で覆えば、その閉包も覆うので、上の命題で全支持へ接続できる。
-
-\subsection{rank2側の六つの全空間成分}
-既存の正確な族と全Jacobi微分の証明書を用いる六成分の表は次の通りである。
-ここではPGL商を取る前の射影次元を示す。
-\begin{center}
-\begin{tabular}{lll}
-\toprule
-族&次元&一般構成\\
-\midrule
-Rat113&36&次数$(1,1,3)$の有理Jacobian族\\
-Rat122&28&次数$(1,2,2)$の有理Jacobian族\\
-Log1112&28&三一次式と一二次式による対数型族\\
-LPB&39&$\PP^3$上の二次ベクトル場の線形引戻し\\
-Aff5&22&二次元affine Lie代数、derived nilpotentの分割$(5)$\\
-Aff41&22&同上、derived nilpotentの分割$(4,1)$\\
-\bottomrule
-\end{tabular}
-\end{center}
-
-成分性の有限証明の仕組みを記す。150係数表示の鉛直像Vは24次元、
-Jacobi微分Jと族微分Aは整数上で$JV=JA=0$を満たす。
-有理数体上で$\rank J\ge r$、$\rank[V\ A]\ge s$を与える非零minorに対し、
-\[
- s-24\le\dim\overline{\mathrm{image}(\mathrm{family})}
- \le\dim_{\mathrm{local}}(\mathcal P_{\mathrm{cone}})\le126-r.
-\]
-六例の$(r,s)$は順に$(89,61),(97,53),(97,53),(86,64),(103,47),(103,47)$で、両端が一致する。
-族が既約かつPoissonであるという元の正確な恒等式と合わせると、全空間の成分性が従う。
-証拠はv14の\texttt{six\_rank2\_components.json}である。
-この回は推論と証明書の作用域を確認し、全行列の再実行はしていない。
-
-同次元のRat122とLog1112は、葉に接する非零大域線形場の存在で区別できる。
-前者では$L=x_0$、$Q_1=\sum x_i^2$、$Q_2=\sum(i+1)x_i^2$の実点で、
-$L XQ_j-2Q_jXL=0$から$XL=cL$を得る。
-$c$倍のEuler場を引くと、異なる対角固有値を持つ二二次形式を同時に保つ交代行列は零となる。
-後者では三一次式を$x_0,x_1,x_2$とすると、
-$(\partial_4Q)\partial_3-(\partial_3Q)\partial_4$が非零の接線形場である。
-その存在は係数行列のrank降下という閉条件なので、二成分は異なる。
-Aff5とAff41は一般の飽和接層$\mathcal O^2$が復元する二次元Lie部分代数のderived直線のJordan分割で区別する。
-因子的零点がないという入力と反射性を保ってこの復元を使う。
-
-全FULLUでの三次57・四次239や選択tailのgcdの絶対既約性は、上記のどの箇所を閉じるかが明確な場合にだけ補助課題とする。
-B18の精密なnil指数、\(H^0\)、\(T_2\)全長、追加の接触・Betti不変量は原則secondaryであり、主分類定理の受入条件にはしない。
-既存の価値ある証明と結果は破棄せず、必要な箇所へ統合する。
+階数二は第\ref{sec:rank-two-reconstruction}節で、飽和foliationと零因子から全sourceへ戻す。
+安定分岐の元の五切断を追う完全証明、非安定・因子付きの全支持、
+toric及びAff32のrank四閉包への実変形を収録し、rank四有限閉被覆の後で代入する。
 
 \section{既知成分の下界を支える支持の証明}
 MPSの定理\cite[Theorem 1.4]{mps}はSNC locusと交わる40成分を与える。
@@ -20348,6 +20241,8 @@ unimodular全低次の射程は\path{UNIMODULAR_HAMILTONIAN_PENCIL_WHOLE_SEPARAT
 小Laurent readbackの全150/126/350と独立な手読解を区別し、
 これらを全旧証明書の再実行とは呼ばない。
 
+\input{papers/rank_two_support_reconstruction.tex}
+
 \section{全点の有限閉被覆と147成分の尽くし}\label{sec:finite-whole-cover-1156}
 本節は147成分・1158採録主張の最終固定範囲を扱う。
 従前の142個の相異なる全空間成分の和を$\mathcal K_{142}$とする。
@@ -21460,11 +21355,11 @@ lualatex -interaction=nonstopmode -halt-on-error \
 arXiv:1007.4828v2, \S1.2.2, pp.~6--7 and Proposition~6.1, pp.~29--30.
 \url{https://arxiv.org/pdf/1007.4828v2}.
 
-\bibitem{cm} M. Corr\^ea and A. Muniz,
+\bibitem{CM} M. Corr\^ea and A. Muniz,
 \emph{Holomorphic foliations of degree two and arbitrary dimension},
 arXiv:2207.12880v5 (2026), Theorem 4.1.
 \url{https://arxiv.org/html/2207.12880v5}.
-\bibitem{lpt} F. Loray, J. V. Pereira and F. Touzet,
+\bibitem{LPT} F. Loray, J. V. Pereira and F. Touzet,
 \emph{Foliations with trivial canonical bundle on Fano 3-folds},
 arXiv:1112.3871v3, Theorem 6.2.
 \url{https://arxiv.org/pdf/1112.3871v3}.

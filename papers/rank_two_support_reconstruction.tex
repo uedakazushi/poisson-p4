@@ -1,0 +1,828 @@
+\section{階数二の全復元と全空間成分への接続}\label{sec:rank-two-reconstruction}
+\begin{proposition}[階数二の構造的入口]\label{prop:ranktwo}
+$\PP^4$上の非零で一般階数二のPoisson構造は、飽和した階数二の可積分部分層
+$\mathcal F\subset T_{\PP^4}$と、非零切断
+$s\in H^0(\PP^4,\det\mathcal F)$の組として一意に記述される。
+ここで$\det\mathcal F=(\wedge^2\mathcal F)^{**}$、
+$\det\mathcal F=\cO(e)$なら$0\le e\le2$である。
+$s$の零因子の次数は$e$、foliationの次数を$d=2-e$とすれば$d+e=2$となる。
+射影化されたPoisson構造では$s$の非零スカラー倍を同一視する。
+\end{proposition}
+\begin{proof}
+$\pi^\sharp$の像を$T$内で飽和して$\mathcal F$を得る。
+一般点で$\pi$は分解可能であり、Jacobi恒等式から像分布は可積分である。
+Lie括弧を$T/\mathcal F$へ写す障害は一般点で零で、商はtorsion-freeなので全域で零となる。
+飽和部分層$\mathcal F$は反射的であり、余次元一では局所自由な部分束となる。
+その外積は余次元一で原始的なので、$\pi$は$\det\mathcal F$の正則切断$s$を定める。
+余次元二以上へは反射性によって延長し、零因子も一致する。
+
+逆に飽和した可積分$\mathcal F$について、余次元一の外積写像
+$\det\mathcal F\to\wedge^2T$は反射性により全域へ延長する。
+非零$s$の像$\pi$は一般階数二であり、局所自由な開で$\pi=aX\wedge Y$と書けば
+$[X,Y]\in\mathcal F$から$[\pi,\pi]=0$が従う。正則テンソルの等式として全域へ延長する。
+両構成は一般点で互いに逆であり、飽和性・反射性から全域でも逆である。
+
+$s\ne0$から$e\ge0$。外積写像は
+$H^0(\wedge^2T(-e))=H^0(\Omega^2(5-e))$の非零元を与える。
+射影空間上の二形式の同次水平表示では、$H^0(\Omega^2(k))=0$が$k\le2$で成り立つ。
+実際、$k<2$なら係数次数$k-2$が負であり、$k=2$なら定数二形式のEuler収縮が零になるのは零形式だけである。
+従って$5-e\ge3$、すなわち$e\le2$である。
+\end{proof}
+
+以下ではこの正逆から全sourceへ進み、rank四閉包へ入る項と六つの純rank二成分を分ける。
+
+\subsection{全支持に用いる既約sourceと具体的な一般元}
+以下のsourceは非零な出力の開を取り、$\mathrm{PGL}_5$の全座標変更を含める。
+線形式・二次式・三次式の係数空間又は行列のaffine空間から作るので既約である。
+有理表示の分母を除いたまま特殊点を捨てず、示した多項式source全体の閉包で扱う。
+\begin{enumerate}
+\item Rat113は全$(L_1,L_2,G_3)$から$\iota_P\Omega=dL_1\wedge dL_2\wedge dG_3$で作る。
+Rat122は全$(L,Q_1,Q_2)$から$\iota_P\Omega=dL\wedge dQ_1\wedge dQ_2$で作る。
+非零な三外積の開では一般rank二であり、閉三形式の分解可能性からPoissonである。
+\item Log1112は次数$(1,1,1,2)$の四式$f_i$、$F=\prod f_i$、
+$d=(1,1,1,2)$に対する$\lambda\in\bigwedge^2\ker(d:\mathbb C^4\to\mathbb C)$を用い、
+$\alpha=F\sum_{i<j}\lambda_{ij}d\log f_i\wedge d\log f_j$に双対なbivectorとする。
+三次元空間の二外積なので$\lambda$は分解可能で、全sourceはrank二以下である。
+式は分母を払うと係数の多項式となり、式や配置の退化も同じ閉包に入る。
+\item LPBは$N=\partial_4$と、$x_0,\ldots,x_3$だけに依存する全homogeneous quadratic場Yから
+$P=N\wedge Y$で作る。$[N,Y]=0$なので全sourceでPoissonとなる。
+$Y$のradialな部分と$N$方向は射影sectionで消え、非零出力の開を取る。
+\item Aff$(\lambda)$は固定Jordan分割$\lambda$のnilpotent線形場Nと
+$[N,H]=N$を満たす全線形場Hから$N\wedge H$で作る。
+固定NのHは非空affine空間で、全座標変更を戻したsourceも既約である。
+必要な三分割は$(5),(4,1),(3,2)$である。
+\end{enumerate}
+この六つの純rank二候補に、toricな二場の外積とAff32をrank四閉包項として加える。
+前者の全源は四次元Cartan Lie代数$\mathfrak t$の分解可能な二外積であり、
+一般の$\bigwedge^2\mathfrak t$へ動かすとrank四となる。
+これは系\ref{cor:reduced-fibre-boundary}の被約五Hでの具体例でもある。
+
+\subsection{安定な零因子なし分岐の全Jacobian復元}
+\label{sec:stable-rank-two-complete}
+
+この節では基礎体を $\CC$ とし、$\PP^4$ 上の一般階数二の
+Poisson 構造 $\pi$ を考える。$\mathcal F\subset T_{\PP^4}$ はその葉方向の
+飽和部分層とする。ここでの安定性は $\mathcal O(1)$ に関する傾き安定性である。
+射影化した Poisson 空間の点を分類し、座標変換による商は取らない。
+元の完全証明を以下に収録する。安定分岐の具体的Jacobian表示を外部定理の可積分性だけから引用しない。新規性は未確認である。
+
+\begin{theorem}[安定・零因子なしの階数二部分]
+\label{thm:stable-rank-two-actual-rational}
+$\pi$ が因子に沿って恒等的には消えず、$\mathcal F$ が安定であるとする。
+このとき、正準な発散零の二次 lift $P$ と定数体積形式
+$\Omega$ に対し、非零定数倍の違いを除いて、次のいずれかが成り立つ。
+\begin{align}
+ \iota_P\Omega&=\mathrm{d} L_1\wedge\mathrm{d} L_2\wedge\mathrm{d} G,
+ & (\deg L_1,\deg L_2,\deg G)&=(1,1,3),
+ \label{eq:stable-rat113}\\
+ \iota_P\Omega&=\mathrm{d} L\wedge\mathrm{d} Q_1\wedge\mathrm{d} Q_2,
+ & (\deg L,\deg Q_1,\deg Q_2)&=(1,2,2).
+ \label{eq:stable-rat122}
+\end{align}
+右辺の三つの微分は一般点で独立である。
+したがって $\pi$ は実際の $\operatorname{Rat}(1,1,3)$ 型または
+$\operatorname{Rat}(1,2,2)$ 型の構成から得られる。
+単にこれらの族の閉包に属するという主張ではない。
+\end{theorem}
+
+以下で $\operatorname{Rat}(d_1,d_2,d_3)$ 型という語は、
+$d_1+d_2+d_3=5$ を満たす同次多項式 $f_i$ から
+$\iota_P\Omega=\mathrm{d} f_1\wedge\mathrm{d} f_2\wedge\mathrm{d} f_3$ として作る
+二次 bivector の射影化を指す。定理の仮定には一般階数二、
+因子に沿う零の不存在、安定性がすべて含まれる。
+
+\subsubsection{正準な五切断と零点スキーム}
+
+因子に沿う零がないので $\det\mathcal F\simeq\mathcal O$ である。
+階数二反射層のこの場合、安定性は
+\begin{equation}
+ H^0(\PP^4,\mathcal F)=0
+ \label{eq:stable-no-linear-tangent}
+\end{equation}
+と同値である。実際、不安定化する階数一部分層の反射包は
+$\mathcal O(k)$、$k\geq0$ であり、その写像は反射性により $\mathcal F$ に延長する。
+これを次数 $k$ の多項式で掛ければ $\mathcal F$ の非零切断を得る。
+逆向きは非零切断が与える傾き零の部分層から従う。
+
+命題\ref{prop:cone-pfaffian-primitive}により$D=0$なら$5\beta=dD=0$なので、
+正準liftの外積平方も零である。従ってこの安定な場合の $P$ は
+$\CC^5$ 上で階数二であり、
+\begin{equation}
+ \beta:=\iota_P\Omega,\qquad \mathrm{d}\beta=0
+ \label{eq:canonical-beta}
+\end{equation}
+は分解可能な多項式三形式である。その係数は二次同次式で、
+共通の非定数因子を持たない。この原始性と、射影化した
+$\pi$ 自体に因子状の零がないことは区別して用いる。
+
+\begin{lemma}[五切断と一次 Casimir]
+\label{lem:canonical-five-sections}
+$E:=\mathcal F(1)$ とおく。正準 lift は自然な写像
+\[
+ \CC^{5*}\longrightarrow H^0(\PP^4,E)
+\]
+を与え、その像 $W$ は余次元一で $E$ を生成する。
+五切断の二つずつの行列式は、共通の非零定数倍と符号を除いて
+$P$ の十個の係数である。また、一次同次 Casimir の空間を $A_1$ とすると
+\begin{equation}
+ \ker\{\CC^{5*}\longrightarrow H^0(E)\}=A_1,
+ \qquad \dim A_1=5-\dim W.
+ \label{eq:linear-casimir-evaluation}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+$P$ の像を $\mathcal O(1)^5$ の中で飽和して得る階数二部分層を $G$ とする。
+飽和部分層なので $G$ は反射的である。$P$ の原始性から
+$\det G\simeq\mathcal O$ であり、Euler 列による射影
+$G\longrightarrow T_{\PP^4}$ の像は一般点で $\mathcal F$ である。
+因子上でこの写像の階数が落ちれば $\pi$ もその因子上で消えるので、
+この写像は余次元一で $G\simeq\mathcal F$ を与える。
+両者は反射的であるから、この同型は全体に延長する。
+
+$G\hookrightarrow\mathcal O(1)^5$ を双対化して $\mathcal O(1)$ で捻り、
+$\mathcal F^*\simeq\mathcal F$ を用いると所要の五切断が得られる。
+余次元一では飽和な部分束の双対写像なので全射である。
+二切断の行列式が $P$ の係数になることは、階数二の
+交代同型 $\mathcal F\simeq\mathcal F^*$ を局所基底で書けば分かる。
+最後に定数共変ベクトル $\alpha$ がこの写像の核にあることは、
+$\alpha$ が $G$ を消すこと、すなわち $P^\sharp(\alpha)=0$ と同値である。
+定数共変ベクトルを一次式の微分と同一視すれば
+\eqref{eq:linear-casimir-evaluation} を得る。
+\end{proof}
+
+\begin{lemma}[一般切断の零点と Chern 数の上限]
+\label{lem:chern-bound-stable-rank-two}
+一般の $s\in W$ に対し
+\begin{equation}
+ 0\longrightarrow\mathcal O\xrightarrow{s}E
+ \longrightarrow\mathcal I_Z(2)\longrightarrow0
+ \label{eq:section-extension}
+\end{equation}
+が成り立つ。$Z$ は余次元二の unmixed なスキームであり、
+\begin{equation}
+ 2\leq\deg Z=c_2(E)=c_2(\mathcal F)+1\leq4.
+ \label{eq:chern-bound}
+\end{equation}
+特に $c_2(\mathcal F)\in\{1,2,3\}$ である。
+\end{lemma}
+
+\begin{proof}
+五切断は余次元一で生成するので、一般の $s$ は因子状の零を持たない。
+具体的には、評価写像の階数二の開集合では零点の incidence は
+切断の空間に対して余次元二であり、階数一以下の集合自身も
+余次元二以上である。
+
+$E/\mathcal O s$ は階数一の torsion-free 層である。
+これを局所的に確かめるには、$E$ の中の有理倍 $f s$ を考えればよい。
+高さ一のどの点でも $s$ は原始的なので、$f s$ が正則なら
+$f$ もそこで正則である。正規性から $f$ は正則であり、
+$\mathcal O s$ は飽和している。商の反射包は $\det E=\mathcal O(2)$ なので
+\eqref{eq:section-extension} を得る。
+
+$Z$ が空でないとする。余次元 $r\geq3$ の点では
+$\operatorname{depth}E\geq2$、$\operatorname{depth}\mathcal O=r$ である。
+深さ補題を二回用いると
+\[
+ \operatorname{depth}\mathcal I_Z\geq2,
+ \qquad \operatorname{depth}\mathcal O_Z\geq1
+\]
+となる。したがって余次元三以上の随伴点はない。
+余次元二では $E$ は局所自由で、切断の二成分は零点があれば
+正則列を成す。ゆえに $Z$ は純余次元二で、埋込み成分を持たない。
+この議論は $Z$ のすべての点での Cohen--Macaulay 性までは主張しない。
+
+五切断を $s_i$ とし、$q_i=\det(s,s_i)$ とおく。
+これらは $H^0(\mathcal I_Z(2))$ の元で、共通因子を持たない。
+実際、因子の一般点では $s_i$ は $E$ を生成し、$s$ はその因子で
+割れない。したがって $q_i$ の二つの適切な線形結合 $q,q'$ を
+互いに素に選べる。よって
+\[
+ Z\subset Y:=V(q,q'),\qquad \deg Y=4,
+\]
+となり、$0\leq\deg Z\leq4$ である。
+
+$Z$ が空なら $H^1(\mathcal O(-2))=0$ により
+$E\simeq\mathcal O\oplus\mathcal O(2)$ で、$H^0(\mathcal F)\neq0$ となる。
+$\deg Z=1$ なら unmixed 性から $Z$ は線形平面である。
+このとき $H^0(\mathcal I_Z(1))\neq0$ であり、
+\eqref{eq:section-extension} を $\mathcal O(-1)$ で捻って
+$H^1(\mathcal O(-1))=0$ を用いると、やはり $H^0(\mathcal F)\neq0$ となる。
+いずれも安定性に反する。最後に $c_1(\mathcal F)=0$ なので
+$c_2(E)=c_2(\mathcal F)+1$ である。
+\end{proof}
+
+\begin{lemma}[二つの一次 Casimir]
+\label{lem:two-linear-casimirs-rat113}
+$\dim A_1\geq2$ なら \eqref{eq:stable-rat113} が成り立つ。
+\end{lemma}
+
+\begin{proof}
+独立な $L_1,L_2\in A_1$ を座標の一部に選ぶ。
+$P$ の像は両微分の核に含まれるので
+\[
+ \beta=\mathrm{d} L_1\wedge\mathrm{d} L_2\wedge\theta
+\]
+と書ける。ここで $\theta$ は残る三変数方向の、二次係数を持つ
+一形式である。$\mathrm{d}\beta=0$ は $\theta$ の相対的閉性を意味する。
+多項式の相対 Poincar\'e 補題により、同次三次式 $G$ を用いて
+$\theta=\mathrm{d}_{\mathrm{rel}}G$ と書ける。これは各単項式を積分しても、
+残る三変数についての Euler 作用素を用いても確かめられる。
+したがって \eqref{eq:stable-rat113} を得る。
+なお独立な一次 Casimir が三つあれば $\beta$ は定数三形式と
+二次式の積になり、原始性に反する。
+\end{proof}
+
+\subsubsection{第二 Chern 数が三または二の場合}
+
+\begin{proposition}
+\label{prop:chern-two-three}
+$c_2(\mathcal F)=3$ なら \eqref{eq:stable-rat113} が成り立つ。
+$c_2(\mathcal F)=2$ なら \eqref{eq:stable-rat113} または
+\eqref{eq:stable-rat122} が成り立つ。
+\end{proposition}
+
+\begin{proof}
+まず $c_2(\mathcal F)=3$ では $\deg Z=4$ である。
+$Z\subset Y=V(q,q')$ は同じ次数なので、各既約成分の一般点で
+両者の長さは一致する。$\mathcal I_Z/\mathcal I_Y$ は
+$\mathcal O_Y$ のイデアル部分層で、すべての極小点を避けて支えられる。
+完全交叉 $Y$ は埋込み随伴点を持たないから、この部分層は零である。
+したがって $Z=Y$ がスキームとして成り立つ。
+Koszul 分解を \eqref{eq:section-extension} に持ち上げると
+\[
+ 0\longrightarrow\mathcal O(-2)\longrightarrow\mathcal O^3
+ \longrightarrow E\longrightarrow0
+\]
+を得る。ゆえに $h^0(E)=3$、$\dim A_1\geq2$ であり、
+補題 \ref{lem:two-linear-casimirs-rat113} が適用できる。
+
+次に $c_2(\mathcal F)=2$ とすると $\deg Z=3$ である。
+完全交叉 $Y$ における residual scheme を
+\[
+ I_\Lambda=I_Y:I_Z
+\]
+で定める。ここで $Z$ の局所 Cohen--Macaulay 性は仮定しない。
+必要な linkage の事実は次のように直接確認できる。
+同次座標環を $R$、$A=R/(q,q')$、$J=I_Z/(q,q')$ とおくと、
+$A$ は Gorenstein かつ Cohen--Macaulay で、$A/J$ は unmixed である。
+乗法写像から
+\[
+ A/\operatorname{Ann}_A(J)
+ \hookrightarrow\operatorname{Hom}_A(J,A)\hookrightarrow A^m
+\]
+となるので、左辺の随伴点はすべて $A$ の極小点である。
+極小点への局所化は Artin Gorenstein 環であり、そこで
+二重 annihilator の等式と長さの相補性が成り立つ。
+したがって residual scheme は unmixed で次数一、すなわち平面である。
+さらに $A/J$ が unmixed なので、極小点で成立する
+$\operatorname{Ann}\operatorname{Ann}(J)=J$ は全体でも成立する。
+これにより $I_Z=I_Y:I_\Lambda$ も得られる。
+
+$I_\Lambda=(u,v)$ と書き、一次式 $A,B,C,D$ を用いて
+\[
+ q=uA+vB,\qquad q'=uC+vD
+\]
+とする。二重 colon は
+$I_Z=(q,q',AD-BC)$ であり、これは
+\[
+ \begin{pmatrix}u&v\\-D&C\\B&-A\end{pmatrix}
+\]
+の最大小行列式のイデアルである。
+この等式は colon を直接計算しても確認できる。
+あるいは、表示された小行列式のイデアルは高さ二で、
+Hilbert--Burch 分解から次数三かつ unmixed となることを使えばよい。
+したがって
+\[
+ 0\longrightarrow\mathcal O(-3)^2\longrightarrow\mathcal O(-2)^3
+ \longrightarrow\mathcal I_Z\longrightarrow0.
+\]
+三つの生成元を \eqref{eq:section-extension} に持ち上げて
+\begin{equation}
+ 0\longrightarrow\mathcal O(-1)^2\longrightarrow\mathcal O^4
+ \longrightarrow E\longrightarrow0
+ \label{eq:steiner-E}
+\end{equation}
+を得る。特に $h^0(E)=4$ である。
+
+ここで元の五切断が $H^0(E)$ 全体を張るとはまだ限らない。
+$\dim W\leq3$ なら $\dim A_1\geq2$ で、既に処理した。
+$\dim W=4$ なら $A_1=\CC t$ となる一次座標 $t$ を選び、
+残る四座標の評価切断を $H^0(E)$ の基底にできる。
+\eqref{eq:steiner-E} を双対化して $\mathcal O(1)$ で捻ると
+\[
+ 0\longrightarrow\mathcal F\longrightarrow\mathcal O(1)^4
+ \longrightarrow\mathcal O(2)^2
+\]
+となる。最後の写像の二行を、残る四座標 $y$ 方向の
+一次係数一形式 $\theta_1,\theta_2$ と読む。
+これらの共通核は正準 lift の像なので
+\begin{equation}
+ \beta=\mathrm{d} t\wedge\theta_1\wedge\theta_2
+ \label{eq:steiner-beta}
+\end{equation}
+とできる。比例係数が非零定数であることも必要である。
+双対化した列は余次元一で部分束の完全列であるから、
+二行の最大小行列式に共通因子はない。
+両辺は同じ一般核を持つ原始的な二次係数三形式なので、
+その比例係数には因子状の零も極もなく、同次次数も零である。
+よって比例係数は非零定数で、一方の行に吸収できる。
+
+次の補題から $\theta_i=\mathrm{d}_y Q_i$、$\deg Q_i=2$ が従う。
+$\mathrm{d} t$ との外積では $\mathrm{d}_y Q_i$ を $\mathrm{d} Q_i$ に置き換えられるので、
+\eqref{eq:stable-rat122} を得る。
+\end{proof}
+
+\begin{lemma}[閉な二つの一次係数一形式]
+\label{lem:closed-linear-oneforms}
+$\theta_1,\theta_2$ を四変数 $y$ 方向の一形式とし、その係数は
+$(t,y)$ の一次同次式とする。$\mathrm{d} t\wedge\theta_1\wedge\theta_2$
+が閉であり、その核に対応する射影葉層に非零の大域接ベクトル場が
+ないなら、$\mathrm{d}_y\theta_1=\mathrm{d}_y\theta_2=0$ である。
+\end{lemma}
+
+\begin{proof}
+$A=\mathrm{d}_y\theta_1$、$B=\mathrm{d}_y\theta_2$ は定数二形式で、閉性は
+\begin{equation}
+ A\wedge\theta_2=\theta_1\wedge B
+ \label{eq:alternating-pencil-closure}
+\end{equation}
+と同値である。$\langle A,B\rangle\neq0$ と仮定して矛盾を導く。
+
+この pencil が階数四の元を含めば、二行の定数基底変換により
+$A$ を非退化にできる。$\iota_XA=\theta_1$ で定まる $X$ は
+$t$ 成分を持たない非零の一次同次ベクトル場で、
+$\theta_1(X)=0$ である。
+\eqref{eq:alternating-pencil-closure} に $\theta_1$ を外積すると
+$\theta_1\wedge A\wedge\theta_2=0$ を得る。
+四次元 symplectic 空間ではこれは $\theta_2(X)=0$ と同値である。
+例えば $\iota_X(A\wedge A)=2\theta_1\wedge A$ から確認できる。
+よって $X$ は所要の核に接する。
+
+pencil のすべての元の階数が二以下で、$A,B$ が独立なら、
+分解可能性と $A\wedge B=0$ から適当な座標で
+$A=\mathrm{d} x\wedge\mathrm{d} y$、$B=\mathrm{d} x\wedge\mathrm{d} z$ と書ける。
+残る座標を $w$ とする。
+\eqref{eq:alternating-pencil-closure} の
+$\mathrm{d} x\wedge\mathrm{d} y\wedge\mathrm{d} w$ と
+$\mathrm{d} x\wedge\mathrm{d} z\wedge\mathrm{d} w$ の係数を比較すると、
+両方の $\theta_i$ の $\mathrm{d} w$ 係数が零となる。
+したがって $t\partial_w$ が非零の一次同次接ベクトル場である。
+
+pencil が一次元なら $B=0$ とできる。前の場合を除いて
+$A=\mathrm{d} x\wedge\mathrm{d} y$ と書け、閉性から $\theta_2$ は
+$\mathrm{d} x,\mathrm{d} y$ 成分しか持たない。
+$\theta_1$ の $\mathrm{d} z,\mathrm{d} w$ 係数を $f,g$ とすると
+$g\partial_z-f\partial_w$ が両形式を消す。
+これが零なら $f=g=0$ で、代わりに $t\partial_z$ を使える。
+
+いずれの一次同次ベクトル場も $t$ 成分が零なので、非零の Euler
+ベクトル場の倍ではない。その射影化は非零の大域ベクトル場である。
+一般点での接性は $\mathcal F$ の飽和性によって全体に延長し、
+\eqref{eq:stable-no-linear-tangent} に反する。
+したがって $A=B=0$ である。
+最後に $\theta_i=(M_i y+t c_i)\cdot\mathrm{d} y$ と書くと $M_i$ は対称であり、
+\[
+ Q_i=\tfrac12 y^{\mathsf T}M_i y+t c_i^{\mathsf T}y
+\]
+を取れば $\mathrm{d}_yQ_i=\theta_i$ となる。
+\end{proof}
+
+\subsubsection{第二 Chern 数が一の場合の零点スキームを尽くす}
+
+この場合の反射層を局所自由と仮定してはいけない。
+また、切断の零点スキームを最初から局所 Cohen--Macaulay と
+仮定することもできない。以下でその両方を避ける。
+
+\begin{lemma}[評価の階数零の集合と被約性]
+\label{lem:rank-zero-and-reduced-section}
+一般の $s\in W$ による \eqref{eq:section-extension} の $Z$ は被約である。
+特に $c_2(\mathcal F)=1$ なら、$Z$ は一点で交わる二つの線形平面の和である。
+\end{lemma}
+
+\begin{proof}
+まず $E$ が局所自由な開集合で、評価写像が階数零となる集合に
+曲面 $B$ が含まれると仮定する。
+$B$ の一般点では五切断はすべて $\mathfrak m_B E$ に入るので、
+その行列式である二次式 $P_{ij}$ は $\mathfrak m_B^2$ に入る。
+よって各 $P_{ij}$ のすべての一次偏微分は $B$ 上で零である。
+これらの偏微分は一次式だから、その共通零線形空間は
+$B$ の射影線形包を含む。その線形包の次元は少なくとも二なので、
+十個の $P_{ij}$ は高々二つの一次式 $u,v$ のみに依存する。
+一つ以下なら原始性に反するので、二変数の場合だけを考えればよい。
+
+共通因子を持たない二変数二次式は $\PP^1$ 上で基点を持たない。
+したがって $P_{ij}$ は Pl\"ucker 次数二の射
+$\varphi:\PP^1\longrightarrow\operatorname{Gr}(2,\CC^5)$ を定める。
+tautological bundle の引き戻しを
+$\varphi^*\mathcal U=\mathcal O(-a)\oplus\mathcal O(-b)$ と書くと、
+$\mathcal U\subset\mathcal O^5$ から $a,b\geq0$ で、行列式から $a+b=2$ である。
+$\PP^4\setminus V(u,v)$ 上で正準像の層は
+$\mathcal O(1-a)\oplus\mathcal O(1-b)$ に同型である。
+反射層の同型は余次元二の $V(u,v)$ を越えて延長するので、
+$\mathcal F$ 自身もこの直和となる。しかし三つの可能性
+$(a,b)=(0,2),(1,1),(2,0)$ はすべて $H^0(\mathcal F)\neq0$ を与える。
+これは矛盾である。ゆえに評価の階数零の集合の次元は高々一である。
+$E$ の非局所自由点も反射性により次元一以下である。
+
+評価の階数一の集合は次元二以下であり、そこで $s(p)=0$ は
+$W$ 上の一つの独立な線形条件である。
+incidence の次元計算により、一般の $s$ の零点との共通部分は
+次元一以下となる。階数零の集合も同様である。
+階数二で $E$ が局所自由な開集合では、生成されたベクトル束に対する
+Bertini の定理により一般切断の零点は滑らかである。
+したがって $Z$ の各曲面成分は一般点で被約である。
+既に証明した unmixed 性と合わせると $Z$ 全体が被約になる。
+
+$c_2(\mathcal F)=1$ の場合は $\deg Z=2$ である。
+\eqref{eq:section-extension} を $\mathcal O(-1)$ で捻ると、安定性から
+$H^0(\mathcal I_Z(1))=0$ を得る。
+非退化既約多様体の最小次数不等式
+$\deg X\geq\operatorname{codim}X+1$ により、被約既約な次数二曲面は
+高々 $\PP^3$ を張るので、これは既約ではない。
+従って $Z$ は二つの異なる線形平面の和である。
+二平面が直線で交わればその和は $\PP^3$ に含まれるので、
+交点はちょうど一点でなければならない。
+\end{proof}
+
+\begin{lemma}[二平面からの拡大をすべて書く]
+\label{lem:two-planes-extensions}
+$c_2(\mathcal F)=1$ の場合、適当な独立な一次式 $a,b,c,d,t$ により
+\[
+ Z=V(a,b)\cup V(c,d),\qquad I_Z=(ac,ad,bc,bd)
+\]
+と書ける。$E$ は以下の表示に同型であり、$h^0(E)=5$ である。
+\begin{equation}
+ 0\longrightarrow\mathcal O(-2)\xrightarrow{w}\mathcal O(-1)^4
+ \xrightarrow{T}\mathcal O^5\longrightarrow E\longrightarrow0,
+ \label{eq:two-plane-E-resolution}
+\end{equation}
+ここで
+\[
+ S=\begin{pmatrix}
+ d&b&0&0\\-c&0&b&0\\0&-a&0&d\\0&0&-a&-c
+ \end{pmatrix},\qquad
+ w=\begin{pmatrix}b\\-d\\c\\-a\end{pmatrix},\qquad
+ T=\begin{pmatrix}S\\ a\quad c\quad d\quad b\end{pmatrix}.
+\]
+\end{lemma}
+
+\begin{proof}
+二平面のイデアルの分解は
+\[
+ 0\longrightarrow\mathcal O(-2)\xrightarrow{w}\mathcal O(-1)^4
+ \xrightarrow{S}\mathcal O^4\longrightarrow\mathcal I_Z(2)
+ \longrightarrow0
+\]
+である。$H^1(\mathcal O)=0$ により四つの生成元を $E$ に持ち上げると、
+四つの関係は $\mathcal O\subset E$ に値を取る。
+従って拡大は一次式の列 $f=(f_1,f_2,f_3,f_4)$ で表され、
+その条件は
+\begin{equation}
+ bf_1-df_2+cf_3-af_4=0
+ \label{eq:extension-f-relation}
+\end{equation}
+である。持ち上げを変えると $f$ は $S$ の四行の定数線形結合だけ変わる。
+\eqref{eq:extension-f-relation} の一次 syzygy の空間は六次元である。
+実際、$t$ 係数はすべて零で、残るものは四つの独立な一次式の
+Koszul syzygy である。$S$ の四行は独立であり、商の二次元は
+\begin{equation}
+ f=(\lambda a,\mu c,\mu d,\lambda b)
+ \label{eq:two-extension-parameters}
+\end{equation}
+で代表できる。これで $\operatorname{Ext}^1(\mathcal I_Z(2),\mathcal O)$
+そのものを計算したことになる。必要な中間コホモロジーは
+$\PP^4$ 上の直線束について消えている。
+
+反射性から $\lambda\mu\neq0$ である。
+例えば $V(a,b)$ の一般点では $\mu$ が局所的な拡大成分となり、
+これが零なら局所的に $E\simeq\mathcal O\oplus\mathcal I_Z(2)$ となる。
+これは高さ二の点で局所自由ではなく、反射性に反する。
+もう一方の平面では $\lambda$ に対して同じ議論が成り立つ。
+二組の座標 $(a,b)$、$(c,d)$ の尺度変更と $\mathcal O\hookrightarrow E$
+の尺度変更によって、非零の二成分を $\lambda=\mu=1$ に正規化できる。
+この操作は各二次元ブロックの行列式による尺度変更としても書ける。
+以上から \eqref{eq:two-plane-E-resolution} を得る。
+また \eqref{eq:section-extension} により
+$h^0(E)=1+h^0(\mathcal I_Z(2))=1+4=5$ である。
+
+なお、この $Z$ は二平面の交点で局所 Cohen--Macaulay ではない。
+上の計算はその点を除外せず、反射層を局所自由とも仮定していない。
+\end{proof}
+
+\subsubsection{五切断の二次モデルと直交 Grassmannian}
+
+\eqref{eq:two-plane-E-resolution} の双対を $\mathcal O(1)$ で捻ると、
+$\mathcal F$ は $T^{\mathsf T}$ の核である。
+その行列式を張る原始的な二次 bivector $P_{\mathrm{geo}}$ は、
+添字を $01,02,03,04,12,13,14,23,24,34$ の順に並べると
+\begin{equation}
+ \begin{split}
+ &(a^2,\ c^2,\ ab+cd,\ ac,\ -ab+cd,\ d^2,\ ad,\ b^2,\ bc,\ bd).
+ \end{split}
+ \label{eq:geometric-ten-quadrics}
+\end{equation}
+そのまま掛け算すれば $T^{\mathsf T}P_{\mathrm{geo}}=0$ と五つの
+Pfaffian の消滅を確かめられる。
+
+\begin{lemma}[直交作用による標準化]
+\label{lem:spinor-orthogonal-normalization}
+\eqref{eq:geometric-ten-quadrics} の二次モデルは、定数の出力基底変換と
+四入力変数の可逆線形変換により、次のモデルに同値である。
+\begin{equation}
+ \begin{split}
+ P_{\mathrm{sp}}(a,b,c,d)=
+ (bd,\,-bc,\,-ad,\,ac,\,b^2,\,d^2,\,-ab-cd,\,ab-cd,\,c^2,\,a^2).
+ \end{split}
+ \label{eq:spinor-ten-quadrics}
+\end{equation}
+この出力空間には非退化対称形式があり、その直交変換は入力の
+可逆線形変換で実現できる。従って、出力の階数四の線形射影の核は
+非等方的直線と等方的直線の二場合に標準化できる。
+\end{lemma}
+
+\begin{proof}
+まず幾何的モデルに対し、対称形式を
+\[
+ q_{\mathrm{geo}}(z)=2z_0z_3-2z_1z_2+2z_4^2
+\]
+とする。その行列 $M$ は $\det M=2$ を満たし、直接計算で
+$P_{\mathrm{geo}}^{\mathsf T}M P_{\mathrm{geo}}=0$ となる。
+十個の二次式 \eqref{eq:geometric-ten-quadrics} は
+$\operatorname{Sym}^2(\CC^{4*})$ の基底である。
+例えば単項式順を
+\[
+ a^2,ab,ac,ad,b^2,bc,bd,c^2,cd,d^2
+\]
+とした係数行列の行列式は $2$ である。
+従って対応する $\PP^3\to\operatorname{Gr}(2,5)$ は
+完全な二次 Veronese 埋込みに出力線形変換を施したものである。
+その像は非退化五次元二次形式の最大等方二平面の空間
+$\operatorname{OGr}(2,M)$ に含まれる。
+この直交 Grassmannian は既約三次元なので、閉な三次元埋込み像は
+その全体である。
+
+直交出力変換は従ってこの $\PP^3$ の自己同型を与え、
+それは $\operatorname{PGL}_4$ の元である。
+二つの原始的同次二次表示の違いは非零定数倍だけなので、
+同次式のレベルでも入力の可逆線形変換として実現できる。
+
+\eqref{eq:spinor-ten-quadrics} も完全な二次 Veronese 表示であり、
+対応する対称形式は
+\begin{equation}
+ q_{\mathrm{sp}}(z)=-2z_0^2-2z_1z_4+2z_2z_3,
+ \qquad \det q_{\mathrm{sp}}=-2
+ \label{eq:spinor-metric}
+\end{equation}
+である。直接 $P_{\mathrm{sp}}^{\mathsf T}q_{\mathrm{sp}}P_{\mathrm{sp}}=0$
+を確認できる。二つの対称形式の間の等長同型で直交 Grassmannian を
+同一視すると、二つの $\PP^3$ パラメータ表示は $\operatorname{PGL}_4$
+の元だけ異なる。これでモデルの同値性を得る。
+最後に複素非退化二次形式の直交群の直線上の軌道は、
+等方的か否かの二種類である。
+\eqref{eq:spinor-metric} では $\CC e_0$ と $\CC e_1$ を代表にできる。
+\end{proof}
+
+ここで重要なのは $h^0(E)=5$ という事実と、\emph{元の}五切断が
+この空間を張るという主張を区別することである。
+元の切断写像を完全な五切断の基底で書いた行列の双対を $B$ とすると、
+元の lift は非零定数倍を除いて
+\begin{equation}
+ P(x)=B\,P_{\mathrm{sp}}(Ax)\,B^{\mathsf T},
+ \qquad \operatorname{rank}A=4
+ \label{eq:original-versus-complete-evaluation}
+\end{equation}
+と書ける。$A$ は四つの独立な入力一次式を表し、
+$B$ の階数は $\dim W$ である。
+
+\subsubsection{発散零条件による最後の階数分け}
+
+\begin{proposition}[二次モデルの発散零部分]
+\label{prop:spinor-divergence-classification}
+\eqref{eq:original-versus-complete-evaluation} が発散零なら、
+$\operatorname{rank}B=5$ は起こらない。
+$\operatorname{rank}B=4$ の非等方的核の場合も起こらない。
+等方的核の場合は実際に \eqref{eq:stable-rat122} と書ける。
+\end{proposition}
+
+\begin{proof}
+可逆な出力変換は同時に周囲の座標変換として吸収できる。
+その際 $A$ は別の階数四行列になるだけで、発散零性は保たれる。
+直交出力変換は補題 \ref{lem:spinor-orthogonal-normalization} により
+入力変換に吸収できる。従って階数五の場合は $B=I$、
+階数四の場合は $B$ の一つの対角成分だけを零にした表示でよい。
+非等方的場合は添字 $0$、等方的場合は添字 $1$ を消す。
+
+まず $B=I$ とする。四つの入力一次式の係数を
+\[
+ a=\sum_{i=0}^4a_i x_i,\quad b=\sum_{i=0}^4b_i x_i,\quad
+ c=\sum_{i=0}^4c_i x_i,\quad d=\sum_{i=0}^4d_i x_i
+\]
+と書く。$a,b,c,d$ は独立なので、発散をこれらの一次結合に展開した
+二十個の係数がすべて零でなければならない。
+\eqref{eq:spinor-ten-quadrics} を微分するとまず
+\[
+ b_4=d_4=b_3=c_3=a_2=d_2=a_1=c_1=0
+\]
+を得る。残る十二変数は次の四組に分かれる。
+\[
+ (b_2,a_4,d_0),\quad (b_1,a_3,c_0),\quad
+ (c_4,d_3,b_0),\quad (c_2,d_1,a_0).
+\]
+第一組に対する三式は
+\[
+ b_2-a_4=0,\qquad -2b_2+d_0+a_4=0,\qquad b_2-d_0-2a_4=0
+\]
+であり、すべて零となる。他の三組の係数比較もそれぞれ
+\[
+ b_1=a_3=c_0,\ 2a_3=0;\qquad
+ c_4=d_3=b_0,\ 2c_4=0;\qquad
+ c_2=d_1=a_0,\ 2c_2=0
+\]
+を与える。全体の二十次線形方程式の係数行列の行列式の絶対値は $16$ である。
+よって $A=0$ となり、$\operatorname{rank}A=4$ に反する。
+
+非等方的射影では第 $0$ 行と第 $0$ 列を消す。
+同じ八つの係数は零になり、残る能動的な係数は
+\[
+ (b_2,a_4),\quad(b_1,a_3),\quad(c_4,d_3),\quad(c_2,d_1)
+\]
+の四組である。各二元方程式の行列式は $\pm3$ なので、これらも零となる。
+自由なのは $a_0,b_0,c_0,d_0$ のみで、$A$ の階数は高々一となる。
+従ってこの場合も不可能である。
+
+最後に等方的射影では第 $1$ 行と第 $1$ 列を消す。
+$t=x_1$、$z=x_4$ とおく。発散零方程式を解くと、その全解は
+八個の定数 $r_0,\ldots,r_7$ を用いて
+\begin{align}
+ a&=r_0t-r_4z,&
+ b&=-r_6x_0+r_1t-r_4x_2+r_2z,\notag\\
+ c&=r_3t+r_6z,&
+ d&=r_4x_0+r_5t+r_6x_3+r_7z
+ \label{eq:isotropic-input-linear-forms}
+\end{align}
+となる。これは例えば係数比較により
+\[
+ a_0=a_2=a_3=b_3=c_0=c_2=c_3=d_2=0,
+ \quad d_3=c_4,\ b_2=a_4,\ b_0=-c_4,\ d_0=-a_4
+\]
+を得れば分かる。中心列の四係数と残る四係数が自由である。
+
+このとき次の二次式を取る。
+\begin{align}
+ Q_1={}&r_0x_0t-r_3tx_3-r_4x_0z-r_5tz-r_6x_3z-\tfrac12r_7z^2,
+ \label{eq:isotropic-Q1}\\
+ Q_2={}&r_0tx_2+r_1tz+\tfrac12r_2z^2-r_3x_0t-r_4x_2z-r_6x_0z.
+ \label{eq:isotropic-Q2}
+\end{align}
+$t$ 以外の四変数方向で微分すると、簡単な形
+\[
+ \mathrm{d}_yQ_1=a\,\mathrm{d} x_0-c\,\mathrm{d} x_3-d\,\mathrm{d} z,
+ \qquad
+ \mathrm{d}_yQ_2=-c\,\mathrm{d} x_0+a\,\mathrm{d} x_2+b\,\mathrm{d} z
+\]
+になる。これらを外積すると、\eqref{eq:spinor-ten-quadrics} の
+第 $1$ 行・列を消した bivector の相補小行列式に、すべて同じ符号で一致する。
+標準体積形式 $\Omega=\mathrm{d} x_0\wedge\cdots\wedge\mathrm{d} x_4$ なら
+\begin{equation}
+ \mathrm{d} t\wedge\mathrm{d} Q_1\wedge\mathrm{d} Q_2=-\iota_P\Omega.
+ \label{eq:universal-isotropic-jacobian-identity}
+\end{equation}
+従って $t,Q_1,Q_2$ は実際の Casimir で、所要の
+$\operatorname{Rat}(1,2,2)$ 表示を与える。
+右辺は元の非零 bivector なので、三つの微分は一般点で独立である。
+\end{proof}
+
+\begin{proof}[定理 \ref{thm:stable-rank-two-actual-rational} の証明の完結]
+補題 \ref{lem:chern-bound-stable-rank-two} により Chern 数は三通りしかない。
+$c_2(\mathcal F)=3,2$ は命題 \ref{prop:chern-two-three} で処理した。
+$c_2(\mathcal F)=1$ では補題 \ref{lem:rank-zero-and-reduced-section} と
+\ref{lem:two-planes-extensions} により完全な五切断の二次モデルが得られる。
+元の五切断の像 $W$ の次元が三以下なら、
+\eqref{eq:linear-casimir-evaluation} と補題
+\ref{lem:two-linear-casimirs-rat113} により
+$\operatorname{Rat}(1,1,3)$ 型となる。
+残る次元五と四の場合は命題 \ref{prop:spinor-divergence-classification}
+で尽くされ、許される場合は $\operatorname{Rat}(1,2,2)$ 型である。
+これですべての場合を尽くした。
+\end{proof}
+
+\subsection{全点の支持とrank四閉包への正しい代入順}
+$C^{(2)}$をRat113、Rat122、Log1112、LPB、Aff5、Aff41の像閉包の和とする。
+\begin{proposition}[階数二の全支持]\label{prop:rank2-support}
+\[
+ \mathcal P_{\le2}\subset C^{(2)}\cup\overline{\mathcal P^{(4)}}.
+\]
+したがってrank四開の有限閉被覆を得た\emph{後で}その閉包項を代入すれば、全Poisson空間の有限閉被覆となる。
+\end{proposition}
+\begin{proof}
+命題\ref{prop:ranktwo}の飽和foliationと零因子の正逆を使う。
+零因子なしで接層が安定なら、定理\ref{thm:stable-rank-two-actual-rational}により実Rat113又はRat122に入る。
+非安定分岐にはCorr\^ea--Muniz\cite[本文Theorem 4.1]{CM}を適用する。
+厳密半安定は有理・対数・affine Lie型、非半安定はLPBとなる。
+ここでは同論文の安定分岐の代数的可積分性をJacobian型の全認識と読み替えていない。
+$P^4$の三つの式の次数和は五なので、有理型は113又は122、対数型は1112又はtoric外積である。
+一般nに対する印刷された添字をそのまま代入せず、同論文の構成とこの次数条件を使う。
+affine Lie作用では$[N^k,H]=kN^k$から$\operatorname{tr}N^k=0$、$1\le k\le5$なのでNはnilpotentである。
+五の全分割を取ると5、41、32の他に311、221、2111、11111だけがある。
+311、221では加法群の固定locusが余次元二なので同文献Proposition 3.9によりLog1112へ入る。
+2111は$N=x_0\partial_1$の因子付き外積、11111はderived場零なので非可換作用ではない。
+
+零因子次数$e>0$では$(e,d)=(2,0),(1,1)$である。
+次数零foliationは線形射影なので、双対二形式は
+$Q\iota_E(dL_0\wedge dL_1\wedge dL_2)$と書ける。
+$QL_0L_1L_2$で割ればLog1112の特殊な水平residueである。
+次数一はLoray--Pereira--Touzet\cite[Theorem 6.2, printed pp.17--18]{LPT}を余次元二で用いる。
+有理型の双対二形式$H\iota_E(dL_0\wedge dL_1\wedge dQ)$も、$HL_0L_1Q$で割ると同じ全Log1112源へ入る。
+水平residue空間は三次元なので、その二外積を一般化してもrank二以下を保つ。
+残る線形引戻し型は$H\partial_4\wedge v_A$で、H一次、$v_A$は全base線形場である。
+全$(H,A)$は既約なPoisson族をなし、稠密開$H(e_4)\ne0$で$H=x_4$、一般Aを対角化すればtoric外積となる。
+座標変更で生じる$\partial_4$成分は外積で消える。閉性により$H(e_4)=0$、非半単純Aも同じ閉包に入る。
+これで六族とtoric外積・Aff32の閉包による全支持を得る。
+
+後二族をrank四閉包へ送る。toricは上記のcompatible pencilを用いる。
+Aff32には以下の全parameterの実変形を用いる。中心は
+\[
+ N=x_0\partial_1+x_1\partial_2+x_3\partial_4,\qquad
+ H_b=x_1\partial_1+2x_2\partial_2+bx_3\partial_3+(b+1)x_4\partial_4
+\]
+の外積である。
+$\operatorname{Aff}(3,2)$ には既存の厳密な多項式変形
+\[
+ \Pi_{b,t}=N\wedge H_b+t\eta_b+t^2\vartheta_b
+\]
+がある。$\partial_{ij}=\partial_i\wedge\partial_j$ と書けば、その係数は
+\begin{align*}
+ \eta_b={}&-(2b^2+b-1)x_0x_1\partial_{01}
+ -\bigl((b^2+b-1)x_0x_2+b x_1^2\bigr)\partial_{02}\\
+ &-(2b-1)x_0x_3\partial_{03}
+ -(b-1)x_1x_3\partial_{04}\\
+ &+(b^2-4b+2)x_1x_2\partial_{12}
+ +(b-2)x_2x_4\partial_{24},\\
+ \vartheta_b={}&b(b-1)(b+1)x_1^2\partial_{01}
+ +b(b-1)^2x_1x_2\partial_{02}
+ +b(b-1)x_1x_3\partial_{03}.
+\end{align*}
+射影 Jacobi 恒等式 $E\wedge[\Pi_{b,t},\Pi_{b,t}]=0$ が恒等的に成り立ち、
+一般の $b,t\ne0$ の退化五次式は非零定数因子を除いて
+\[
+ x_3\bigl(2(x_0-(b-1)t x_1)x_2-x_1^2\bigr)
+ \bigl(x_1x_3-(x_0-b t x_1)x_4\bigr)
+\]
+である。従って一般点の階数は四になる。
+一般のJordan型$(3,2)$のaffine Lie作用は、次の理由で上の$(N,H_b)$へ戻る。
+固定Nの全Hは非空affine空間で、正則半単純なHは稠密開をなす。
+固有値基底で$[N,H]=N$を読むと長さ三・二の鎖となり、鎖の尺度を合わせ、
+一方の先頭固有値のEuler倍を引けば$H_b$となる。従って、$b$ と座標変換を動かした $t=0$ の族は
+$\operatorname{Aff}(3,2)$ を稠密に覆う。
+この既約な変形族の閉包を含む全 Poisson 空間の成分は一般階数四であり、
+$\overline{\operatorname{Aff}(3,2)}$ 全体を含む。
+
+
+以上から支持包含を得る。rank四開の閉包はそれと交わるambient既約成分の和であり、
+各々の一般rankは四である。従って純rank二ambient成分がその和へ真に含まれることはない。
+六族の全空間成分性を下で証明すれば、有限閉被覆と極大性により純rank二成分は正確にその六つとなる。
+rank四の総数又は全軌道の分類をこの段階で仮定していない。
+\end{proof}
+
+\subsection{rank2側の六つの全空間成分}
+既存の正確な族と全Jacobi微分の証明書を用いる六成分の表は次の通りである。
+ここではPGL商を取る前の射影次元を示す。
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+族&次元&一般構成\\
+\midrule
+Rat113&36&次数$(1,1,3)$の有理Jacobian族\\
+Rat122&28&次数$(1,2,2)$の有理Jacobian族\\
+Log1112&28&三一次式と一二次式による対数型族\\
+LPB&39&$\PP^3$上の二次ベクトル場の線形引戻し\\
+Aff5&22&二次元affine Lie代数、derived nilpotentの分割$(5)$\\
+Aff41&22&同上、derived nilpotentの分割$(4,1)$\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+成分性の有限証明の仕組みを記す。150係数表示の鉛直像Vは24次元、
+Jacobi微分Jと族微分Aは整数上で$JV=JA=0$を満たす。
+有理数体上で$\rank J\ge r$、$\rank[V\ A]\ge s$を与える非零minorに対し、
+\[
+ s-24\le\dim\overline{\mathrm{image}(\mathrm{family})}
+ \le\dim_{\mathrm{local}}(\mathcal P_{\mathrm{cone}})\le126-r.
+\]
+六例の$(r,s)$は順に$(89,61),(97,53),(97,53),(86,64),(103,47),(103,47)$で、両端が一致する。
+族が既約かつPoissonであるという元の正確な恒等式と合わせると、全空間の成分性が従う。
+証拠はv14の\texttt{six\_rank2\_components.json}である。
+元の六行の全行列・minorを再現するコードと正確な入力を同時配布する。
+本節の有限式の再生成と、元の成分性の六点の証明書は区別する。
+
+同次元のRat122とLog1112は、葉に接する非零大域線形場の存在で区別できる。
+前者では$L=x_0$、$Q_1=\sum x_i^2$、$Q_2=\sum(i+1)x_i^2$の実点で、
+$L XQ_j-2Q_jXL=0$から$XL=cL$を得る。
+$c$倍のEuler場を引くと、異なる対角固有値を持つ二二次形式を同時に保つ交代行列は零となる。
+後者では三一次式を$x_0,x_1,x_2$とすると、
+$(\partial_4Q)\partial_3-(\partial_3Q)\partial_4$が非零の接線形場である。
+その存在は係数行列のrank降下という閉条件なので、二成分は異なる。
+Aff5とAff41は一般の飽和接層$\mathcal O^2$が復元する二次元Lie部分代数のderived直線のJordan分割で区別する。
+因子的零点がないという入力と反射性を保ってこの復元を使う。
+
