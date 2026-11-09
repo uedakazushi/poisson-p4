@@ -49,7 +49,13 @@ cua/browser操作ツールとopen_in_codexが提供されていない。
 同じ隔離復元・SHA検査・四稿組版を実施すること。
 既存の四PDF・五分割基礎bundle（source `a5f82342870b12583da0d0ca40bb5ba96c742b0e`）は保持する。
 今回の査読補足は別に保存し、基礎bundle又は査読合格版への置換とはしない。
-Gitの最後の保存commitとLibrary追加の成否は各receiptで確認する。無人の継続は約束しない。
+査読source commitは `e94cd15c4f1bad3d63d40929be32a2c1b55f5301`、main先端で照合済み。
+その28ファイル補足を隔離treeへ適用し、四検算の全JSON一致を確認した。
+改訂PDF二つと補足ZIPはLibraryへ追加し、Page sequence6で全十二参照（既存九＋追加三）を照合した。
+主稿のPDF本文readbackは抽出テキスト1MiB上限で拒否されたが、uploadのdigest/accessは確認済み。
+生成・隔離再実行・保存のreceiptは `reports/referee_delivery_validation.json` と
+`reports/referee_library_persistence.json`。この保存receipt自体はsourceの次のcommitへ保存する。
+無人の継続は約束しない。
 
 資料Page：https://chatgpt.com/space/page_98c9971dc7c48191a2c4b7624fd99fa0
 外部投稿・新たな外部公開、既存Libraryファイルの削除は行っていない。
