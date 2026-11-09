@@ -1,3 +1,5 @@
+**Current persistence rule (2026-11-10):** GitHub main only; Library emergency only after failed push. No GitHub Actions. The operative reproduction contract is REPRODUCE_GITHUB.md, and the ongoing incidence study is governed by research/subvariety_incidence/RESEARCH_POLICY.md.
+
 # 完全分類の数学的構造と現在の研究課題
 
 2026-11-09 / v74-publication-candidate

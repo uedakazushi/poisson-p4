@@ -3,14 +3,14 @@
 The symbolic quadratic row relations are checked over Q(u,v), not sampled.
 Only the two nonvanishing rank witnesses are specialized, to prove a nonempty
 Zariski open set. No claim about every smooth surface/section is made.
-Run from the bundle root: python code/verify_del_pezzo_rigidity.py
+Run from the bundle root: python code/subvariety_incidence/verify_del_pezzo_rigidity.py
 Requires Python 3 and SymPy. Produces a small deterministic JSON certificate.
 """
 import argparse, hashlib, itertools, json
 from pathlib import Path
 import sympy as s
 parser=argparse.ArgumentParser(description=__doc__)
-parser.add_argument('--output',type=Path,default=Path(__file__).resolve().parents[1]/'certificates/del_pezzo_generic_rigidity.json')
+parser.add_argument('--output',type=Path,default=Path(__file__).resolve().parents[2]/'certificates/del_pezzo_generic_rigidity.json')
 args=parser.parse_args()
 x=s.symbols('x0:5'); u,v=s.symbols('u v'); h=s.symbols('h0:5'); c=s.symbols('a0:10')+s.symbols('b0:10')
 pairs=list(itertools.combinations(range(5),2)); triples=list(itertools.combinations(range(5),3)); quads=list(itertools.combinations(range(5),4)); xm=[x[i]*x[j]for i in range(5)for j in range(i,5)]; cm=[c[i]*c[j]for i in range(20)for j in range(i,20)];lam=[0,1,2,u,v]
@@ -38,6 +38,7 @@ for C in (A,B):
   for mon in xm:rows.append(s.Poly(pol.coeff_monomial(mon),*c)); labels.append((0 if C==A else 1,ijkl,str(mon)))
 assert all(p.total_degree() <= 2 and p.coeff_monomial(1) == 0 for p in rows)
 L=s.Matrix([[p.coeff_monomial(z)for z in c]for p in rows]); Q=s.Matrix([[p.coeff_monomial(z)for z in cm]for p in rows]);Q0=Q.subs({u:3,v:4});L0=L.subs({u:3,v:4,**{z:1 for z in h}})
+# Parameter monomials split by the (Z/2)^5 sign character.
 groups={}
 for j,mon in enumerate(cm):
  if not any(Q[:,j]):continue
@@ -64,6 +65,7 @@ for char,cols in sorted(groups.items()):
   N.append(row)
  block_records.append({'character':char,'rows':len(ri),'columns':len(cols),'rank':len(rp),'pivot_rows':[ri[z]for z in rp],'pivot_columns':[cols[z]for z in cp],'pivot_determinant':str(det)})
  print('block',char,len(ri),len(cols),len(rp),det,flush=True)
+# any all-zero Q row provides another syzygy.
 for i in range(150):
  if not any(Q[i,:]):
   row=s.zeros(1,150);row[i]=1;N.append(row)

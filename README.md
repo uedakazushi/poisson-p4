@@ -2,6 +2,21 @@
 
 2026-11-09 / v74-publication-candidate
 
+## 最新の正本と再現方法（2026-11-10）
+
+**GitHub mainが唯一の研究正本です。** 過去のLibrary ZIPや会話は必要ありません。
+GitHub Actionsは一切使わず、手動スクリプトで原稿と証明書を再現します。
+通常のLibrary保存は行わず、GitHub pushが実際に失敗した場合にだけ緊急避難保存します。
+
+- [GitHubのみからの再現手順](REPRODUCE_GITHUB.md)
+- [部分多様体のincidence論文](papers/poisson_subvariety_incidence_ja.tex)
+- [対応する研究方針](research/subvariety_incidence/RESEARCH_POLICY.md)・[ノート](research/subvariety_incidence/NOTES.md)
+- [incidenceの正確な計算証明書](research/subvariety_incidence/certificates)
+- 再現実行: `bash scripts/verify_github_source.sh incidence`
+- 既存分類を含む検査: `bash scripts/verify_github_source.sh full`
+
+この現在の方針が以下の過去の保存報告に優先します。
+
 ## 現在の状態と次の研究
 
 複素P4の射影Poissonスキーム（PGL5商前）の被約成分の**完全分類を記した現行稿**がある。

@@ -54,7 +54,7 @@ def centre_rank(P,x,degree):
 
 def main():
     p=argparse.ArgumentParser(description=__doc__)
-    p.add_argument('--output',type=Path,default=Path(__file__).resolve().parents[1]/'certificates/incidence_examples.json')
+    p.add_argument('--output',type=Path,default=Path(__file__).resolve().parents[2]/'certificates/incidence_examples.json')
     args=p.parse_args(); checks={}
     def zero(name,exprs):
         values=list(exprs)
@@ -72,6 +72,7 @@ def main():
     zero('cubic_Jacobi',jacobi(P3,x).values());zero('cubic_projective_rank_two',[projective_pfaffian(P3,x)])
     centre['cubic_degree1']=centre_rank(P3,x,1);centre['cubic_degree3']=centre_rank(P3,x,3)
     assert centre['cubic_degree1']['dimension']==2 and centre['cubic_degree3']['dimension']==5
+    # Same smooth quadric, same restricted bracket, varying ambient rank.
     u,a,b,c,v=x;q=2*u*v+a*a+b*b+c*c
     E=s.Matrix(x);U=[s.Matrix([0,u if k==0 else 0,u if k==1 else 0,u if k==2 else 0,-x[k+1]])for k in range(3)]
     beta=wedge_vectors(U[0],U[1]);T=s.zeros(5);T[4,3]=s.Rational(1,2);T[3,4]=-s.Rational(1,2)
@@ -80,6 +81,7 @@ def main():
     zero('quadric_family_Casimir',Pt*s.Matrix([s.diff(q,z)for z in x]))
     zero('quadric_family_Pfaffian',[projective_pfaffian(Pt,x)+t*q*u**3/2])
     zero('quadric_family_same_restriction',list(K-q*T+wedge_vectors(E,U[2])/2))
+    # Principal affine source: the two extensions and the full stabilizer.
     qaff=x[0]*x[4]-4*x[1]*x[3]+3*x[2]**2
     H=s.Matrix([2*x[0],x[1],0,-x[3],-2*x[4]])
     W=s.Matrix([0,x[0],2*x[1],3*x[2],4*x[3]])
@@ -107,6 +109,7 @@ def main():
     tcoeff=s.Matrix([T0[i,j]for i,j in pairs])
     assert stabilizer_matrix*tcoeff==s.zeros(stabilizer_matrix.rows,1)
     checks['quadric_affine_stabilizer_rank9']=1
+    # Simple invariant hyperplane obtained from a transverse commuting symmetry.
     Y=[]
     for i in range(3):
         vec=s.zeros(5,1);vec[i]=x[i];vec[3]=-x[3];Y.append(vec)

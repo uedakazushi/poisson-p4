@@ -1,3 +1,6 @@
+## 2026-11-10 GitHub正本規則
+GitHub mainが研究の唯一の正本。再生成入口 REPRODUCE_GITHUB.md。新しい部分多様体incidenceは research/subvariety_incidence/RESEARCH_POLICY.md → NOTES.md → papers/poisson_subvariety_incidence_ja.tex。LibraryはGitHub push失敗時の緊急避難のみ、GitHub Actionsは禁止。下記は既存の147成分分類の完成状態。
+
 # 研究状態の入口
 
 2026-11-09 / v74-publication-candidate

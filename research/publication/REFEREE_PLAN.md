@@ -147,7 +147,7 @@ Libraryについては既にある保存receiptとファイル参照・メタデ
 - research/publication/REFEREE_REPORT.md：高リスク項目の合否・根拠・未解決事項・推奨の簡潔な現行版（作業ログではない）。
 - 必要な箇所を訂正した現行LuaLaTeX論文・共有TeX・研究ノートと、実行した独立検算の最小再現資産。
 - 公表用の独立した証明依存関係とIntroductionの先行研究比較、再生成可能な現行bundle。
-- mainのnonforce pushと先端確認、Libraryの追加承認不要の保存。既存Libraryファイルを削除しない。
+- mainのnonforce pushと先端確認、GitHub mainへの再現可能な保存（Libraryはpush失敗時のみ緊急退避）。既存Libraryファイルを削除しない。
 
 査読の**合格**には、A1–A3およびB1/B2の証明上重要な義務が
 原稿中の通常の証明・正確な一次文献・検証可能な証明書によって閉じていること、

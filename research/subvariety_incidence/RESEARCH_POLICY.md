@@ -1,3 +1,4 @@
+<!-- この研究固有の方針はルート RESEARCH_POLICY.md のGitHub正本・Library緊急避難原則に従う。 -->
 # Poisson不変部分多様体とambient完全分類
 
 2026-11-10 / v1。現在の研究モジュール。最初に本書を読み、`papers/poisson_subvariety_incidence_ja.tex` と `research/subvariety_incidence/NOTES.md` を参照する。
@@ -26,12 +27,9 @@
 
 LuaLaTeX原稿：`papers/poisson_subvariety_incidence_ja.tex`。
 独立コード：`code/subvariety_incidence/verify_del_pezzo_rigidity.py`、`code/subvariety_incidence/check_incidence_examples.py`。
-Python3 / SymPy 1.14.0。コードは単体実行可能で、結果のJSONは既存の現行研究bundle内にある。
-原稿PDF（11頁）と小さな証明書を含む現行一式はLibraryの
-`/poisson-p4-incidence-20261110-v1(1).zip`、PDFは`/poisson_subvariety_incidence_ja_20261110_v1.pdf`。
-GitHubへのソース保存、組版検証、Library保存は別々の事実である。
-LibraryのZIPバイナリ再取得を検証の条件にしない。
+Python3 / SymPy 1.14.0。コードは単体実行可能で、結果の正確なJSONはGitHubのresearch/subvariety_incidence/certificates/に収録し、手動スクリプトで再生成・照合する。
+原稿・研究方針・ノート・検証スクリプトと正確な証明書はGitHub mainで揃い、`bash scripts/verify_github_source.sh incidence` が11頁PDFを再生成する。Libraryの旧配布物は不要。
 
 ## 一般原則と保存許可
 
-研究の重要性・正確性・新規性・実現可能性に応じて方針を変更し、変更理由と未解決の核心を現行方針に統合する。証明済み、条件付き、計算観察、未証明、既知と新規性未確認を明確に区別する。重要な先行研究は一次資料で確認し、文献情報を推測で補わない。論文は日本語LuaLaTeXで十分な証明を保持し、ノートは作業履歴ではなく現行知識と障害を整理する。研究再開は現行方針・ノート・論文だけで可能にする。**研究区切りごとの現行bundle作成と、追加確認なしのLibrary保存をユーザーは許可している。** bundleには現行の必要ソース・PDF・コード・入力・証明書・再現手順のみを収め、旧版・ログ・cache・nested ZIP・重複を含めない。容量の固定上限より検証可能性を優先する。生成・検証・GitHub保存・Library保存を別々に報告し、既存Libraryファイルは明示指示なしに削除しない。
+研究の重要性・正確性・新規性・実現可能性に応じて方針を変更し、変更理由と未解決の核心を現行方針に統合する。証明済み、条件付き、計算観察、未証明、既知と新規性未確認を明確に区別する。重要な先行研究は一次資料で確認し、文献情報を推測で補わない。論文は日本語LuaLaTeXで十分な証明を保持し、ノートは作業履歴ではなく現行知識と障害を整理する。研究再開は現行方針・ノート・論文だけで可能にする。**現在のユーザー指示によりGitHub mainが唯一の正本であり、Library保存はGitHubへの実push失敗時の緊急避難に限る。GitHub Actionsは使わない。** bundleには現行の必要ソース・PDF・コード・入力・証明書・再現手順のみを収め、旧版・ログ・cache・nested ZIP・重複を含めない。容量の固定上限より検証可能性を優先する。生成・検証・GitHub mainへの非force pushと先端読戻しを別々に報告し、既存Libraryファイルは明示指示なしに削除しない。

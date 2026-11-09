@@ -1,3 +1,5 @@
+**Current rule (2026-11-10):** GitHub main is the sole canonical source. Read [REPRODUCE_GITHUB.md](../../REPRODUCE_GITHUB.md) first. The old Library-delivery instructions below document previous distribution only; no Library ZIP is needed for a fresh clone, and future Library saves are permitted solely as emergency fallback after an actual failed GitHub push. GitHub Actions are forbidden.
+
 # 現行分類の証明・入力・証明書を再現する
 
 対象は複素P4の射影Poissonスキームの被約成分であり、PGL5商は取らない。

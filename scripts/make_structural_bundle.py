@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Package the current necessary proof/input/certificate closure in Library volumes.
+"""Package the current necessary proof/input/certificate closure as locally generated source volumes.
 
 Content-addressed chunks deduplicate exact bytes. JSON.gz and native .in.gz are
 individual exact data inputs, not historical ZIP snapshots or nested bundles.
@@ -8,8 +8,8 @@ from pathlib import Path
 import argparse,hashlib,json,subprocess,zipfile,zlib
 ROOT=Path(__file__).resolve().parents[1]
 CHUNK=4*1024*1024;LIMIT=9*1024*1024
-VERSION='v74-publication-candidate'
-PREFIX='poisson-p4-v74'
+VERSION='v75-github-canonical'
+PREFIX='poisson-p4-v75'
 
 def sha(b):return hashlib.sha256(b).hexdigest()
 def main(output):
@@ -18,6 +18,7 @@ def main(output):
     audit=json.loads((ROOT/'reports/required_proof_dependency_closure.json').read_text());assert audit['all_required_inputs_available']
     paths={r['path']for r in audit['files']}
     paths.update(['README.md','AGENTS.md','RESEARCH_POLICY.md','requirements.txt','research/CLAIMS.json','research/COMPONENTS.json','research/REFERENCES.md','research/STATE.md','research/conceptual/FINAL_TARGET.md','research/conceptual/GLOBAL_PLAN.md','research/classification/CURRENT.md','research/conceptual/component_entrances.csv','code/data/component_manuscript_catalogue.json','code/build_component_catalogue.py','code/map_component_entrances.py','code/check_component_catalogue.py','code/audit_required_dependencies.py','scripts/build_structural_manuscripts.sh','scripts/make_structural_bundle.py','scripts/materialize_frozen_proof_inputs.py','scripts/unpack_current_bundle.py','research/reproduction/classification_roots.json','research/reproduction/frozen_producer_index.json','research/reproduction/README.md','reports/required_proof_dependency_closure.json','reports/dependency_reconstruction_checks.json','reports/final_manuscript_validation.json','reports/catalogue_reference_review.json','reports/component_catalogue_integration_validation.json','reports/rank_two_integration_validation.json','reports/normalization_residue_validation.json','reports/conductor_conormal_validation.json','reports/quadric_residue_validation.json','code/check_global_structure.py','code/check_marked_reconstruction.py','code/check_quadric_residue_reconstruction.py','code/check_conductor_conormal_reconstruction.py','code/check_normalization_residue_reconstruction.py','code/check_rank_two_reconstruction.py','reports/marked_reconstruction_checks.json','reports/quadric_residue_checks.json','reports/conductor_conormal_checks.json','reports/normalization_residue_checks.json'])
+    paths.update(['REPRODUCE_GITHUB.md','scripts/reproduce_subvariety_incidence.sh','scripts/verify_github_source.sh','research/subvariety_incidence/RESEARCH_POLICY.md','research/subvariety_incidence/NOTES.md','research/subvariety_incidence/README.md','research/subvariety_incidence/certificates/del_pezzo_generic_rigidity.json','research/subvariety_incidence/certificates/incidence_examples.json','code/subvariety_incidence/verify_del_pezzo_rigidity.py','code/subvariety_incidence/check_incidence_examples.py','papers/poisson_subvariety_incidence_ja.tex'])
     paths.update(str(p.relative_to(ROOT))for p in (ROOT/'papers').glob('*.tex'))
     paths.update(str(p.relative_to(ROOT))for p in (ROOT/'code/referee').glob('*.py'))
     paths.update(str(p.relative_to(ROOT))for p in (ROOT/'reports').glob('referee_*.json'))
@@ -50,10 +51,10 @@ def main(output):
         if size+r['compressed_estimate']>LIMIT:parts.append([]);size=0
         parts[-1].append(h);size+=r['compressed_estimate'];r['part']=len(parts)
     commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip()
-    manifest={'version':VERSION,'source_commit':commit,'repository':'https://github.com/uedakazushi/poisson-p4','scope':'Current main/structural manuscripts and necessary primary proof, exact input, code and certificate closure.','mathematical_verification':'Integrity checks do not independently certify the classification theorem. See the scoped proof/read/reexecution reports.','part_count':len(parts),'files':files,'symlinks':symlinks,'logical_paths':logical_paths,'chunks':{h:{k:r[k]for k in ['bytes','part']}for h,r in chunks.items()},'reproduction':'Read research/reproduction/README.md after reconstruction. Run UNPACK.py with all ZIP volumes and a new destination.'}
+    manifest={'version':VERSION,'source_commit':commit,'repository':'https://github.com/uedakazushi/poisson-p4','scope':'Current classification and incidence manuscripts, primary proofs, exact input, code, certificates, and GitHub-only reconstruction instructions.','mathematical_verification':'Integrity checks do not independently certify the classification theorem. See the scoped proof/read/reexecution reports.','part_count':len(parts),'files':files,'symlinks':symlinks,'logical_paths':logical_paths,'chunks':{h:{k:r[k]for k in ['bytes','part']}for h,r in chunks.items()},'reproduction':'Read research/reproduction/README.md after reconstruction. Run UNPACK.py with all ZIP volumes and a new destination.'}
     manifest['bundle_id']=sha(json.dumps(manifest,sort_keys=True,separators=(',',':')).encode())
     encoded=(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n').encode();receipts=[]
-    readme='All volumes are disjoint parts of ONE current research bundle. They contain no nested ZIP.\nExtract UNPACK.py from any volume, then run:\npython UNPACK.py --parts poisson-p4-v74-part*.zip --destination poisson-p4-current\nAll chunks and reconstructed files are checked by SHA256.\n'
+    readme='All volumes are disjoint parts of ONE current research bundle. They contain no nested ZIP.\nExtract UNPACK.py from any volume, then run:\npython UNPACK.py --parts poisson-p4-v75-part*.zip --destination poisson-p4-current\nAll chunks and reconstructed files are checked by SHA256.\n'
     for number,ids in enumerate(parts,1):
         path=output/f'{PREFIX}-part{number:02d}-of{len(parts):02d}.zip'
         with zipfile.ZipFile(path,'x',compression=zipfile.ZIP_DEFLATED,compresslevel=6)as z:
@@ -65,7 +66,7 @@ def main(output):
         assert path.stat().st_size<10*1024*1024
         with zipfile.ZipFile(path)as z:assert z.testzip()is None
         receipts.append({'path':str(path),'bytes':path.stat().st_size,'sha256':sha(path.read_bytes())});print(json.dumps(receipts[-1]),flush=True)
-    result={'source_commit':commit,'bundle_id':manifest['bundle_id'],'files':len(files),'symlinks':len(symlinks),'logical_paths':len(logical_paths),'unique_chunks':len(chunks),'uncompressed_file_bytes':sum(r['bytes']for r in files),'parts':receipts,'zip_crc':'PASS','nested_archives':False,'library_save':'Separate persistence receipt required.'}
+    result={'source_commit':commit,'bundle_id':manifest['bundle_id'],'files':len(files),'symlinks':len(symlinks),'logical_paths':len(logical_paths),'unique_chunks':len(chunks),'uncompressed_file_bytes':sum(r['bytes']for r in files),'parts':receipts,'zip_crc':'PASS','nested_archives':False,'library_save':'NOT PERFORMED: emergency only after a real GitHub push failure.'}
     (output/'VALIDATION.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n')
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--output',type=Path,required=True);main(p.parse_args().output)

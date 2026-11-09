@@ -1,3 +1,7 @@
+## 2026-11-10：全研究の最新保存規則・次の研究
+
+GitHub mainを唯一の正本とする。新しいsubvariety incidence研究は論文原稿・二つの正確な証明書・計算コード・再生成スクリプトをmainに収録する。次は一般CI22延長剛性が破れる特殊 locusの研究と、quadric/超平面のincidenceとの成分対応。再開は RESEARCH_POLICY.md と REPRODUCE_GITHUB.md を最初に読む。GitHub Actionsは禁止。Libraryは実際のpush失敗時の緊急避難のみ。以下のv74分類完了記録は現行incidence研究の停止命令ではない。
+
 # 現在の作業状態 — 公表候補版の保存完了
 
 2026-11-09 / v74-publication-candidate。判定の根拠は research/publication/REFEREE_REPORT.md。

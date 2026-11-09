@@ -1,3 +1,15 @@
+# CURRENT OVERRIDING RULE: GITHUB MAIN IS THE ONLY SOURCE OF TRUTH (2026-11-10)
+
+These rules override every older Library persistence/packaging instruction in this repository and apply to all modules, including the 147-component classification and Poisson subvariety incidence.
+
+* **GitHub main is canonical.** Every new proof, current Japanese LuaLaTeX manuscript, active research policy/notes, exact input, certificate, script and build recipe must be committed to main before a milestone is called saved. Neither Library, a previous ZIP, an untracked work/ directory, nor a previous conversation may be required to resume or reproduce current work.
+* **NO GITHUB ACTIONS.** Never create, configure, dispatch, or run GitHub Actions or hosted CI workflows. Use manual local/Cloud Codex shell scripts only. Do not install actions/workflows as a convenience.
+* **Library is emergency-only.** Do not upload/save to ChatGPT Library on the normal path. Only when an actual GitHub push fails may the current small self-contained bundle be saved there as emergency fallback (if possible). Clearly mark GitHub push failure and restore main as canonical at the next opportunity. Do not delete old Library assets without explicit permission.
+* **Pre-push and post-push requirements:** prove or scope-check mathematical changes; run the relevant code/TeX manually; check complete tracked-input closure; ensure no essential source lives only in work/ or Library; non-force commit/push with expected remote head; re-read main and verify its new SHA. GitHub write success, mathematical verification, PDF generation, and Library fallback are distinct outcomes.
+* Read RESEARCH_POLICY.md -> REPRODUCE_GITHUB.md -> current module research policy -> notes -> paper. Keep current documents self-contained, preserve existing valid results and proof certificates, avoid histories and duplicate bundles. Record unverified external claims/newness as unverified.
+* Manual reproduction: bash scripts/verify_github_source.sh incidence ; for classification preflight and current papers: bash scripts/verify_github_source.sh full . No Library retrieval and no Actions.
+
+---
 # Poisson P4 — independent referee pass before public release
 
 2026-11-09 / v74-publication-candidate
@@ -97,8 +109,5 @@ publication readiness.
 
 Use current existing environments, no GitHub Actions, no redundant installers,
 no bulk new old-version archives. Commit/push verified milestones non-force to
-main after checking head and preserving parallel changes. Library save is
-already authorized; do not delete older Library files. Report separately
-generation, mathematical checking, PDF validation, GitHub persistence and
-Library persistence. External hard limits may interrupt work, but do not claim
+main after checking head and preserving parallel changes. Library is only an emergency fallback after an actual failed GitHub push. Do not delete old Library files. Report mathematical, PDF and verified GitHub-main persistence separately. External hard limits may interrupt work, but do not claim
 asynchronous continuation or automatic future resumption.
