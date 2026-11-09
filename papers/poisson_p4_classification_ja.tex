@@ -24,7 +24,7 @@
 \title{複素射影四空間上のPoisson構造の成分分類\\[3pt]
 \large 被約既約成分は正確に147}
 \author{}
-\date{2026年11月9日\quad v69-quadric-residue-reconstruction}
+\date{2026年11月9日\quad v70-conductor-conormal-reconstruction}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -81,6 +81,14 @@ purely ellipticな構造の分類\cite{pymelliptic}だけで全Poisson構造を�
 既存名・番号との比較は本文のactual source同値によるもので、文献上の優先権を番号だけで断定しない。
 一次資料の仮定と直接読解の範囲は\texttt{research/REFERENCES.md}及び各引用receiptへ固定する。
 
+Poisson moduleとcanonical moduleの枠組みは\cite[\S4.1, Example 4.4]{GPconductor}に従う。
+本稿の共通化では、導手上のrank零・二の可換余法線を証明し、planeの全二次源、
+作用に見えない三係数と全higherを正逆付きで復元する。
+leading Pfaffianの平行輸送により二次判別式と四次不変量の議論も統一する。
+これらを同文献から全源の尽くしとして引用せず、旧有限認識・成分性の証明を保持する。
+この構造的整理の新規性は未確認である。
+
+
 \subsection{一般実因子による現在の成分表の読み方}
 全147 IDの短い対応表を\path{research/conceptual/component_entrances.csv}に置く。
 各行はactual因子の次数・重複度、入口、元の全支持入力、成分性・相違の出典、本文の参照位置を保持する。
@@ -102,6 +110,8 @@ R2&Pfaffian恒等零、actual五次は未定義&6
 \input{papers/marked_hyperplane_reconstruction.tex}
 
 \input{papers/quadric_cubic_reconstruction.tex}
+
+\input{papers/conductor_conormal_reconstruction.tex}
 
 \input{papers/poisson_lifting_examples.tex}
 
@@ -8285,35 +8295,9 @@ $\{I_S,I_S\}\subset I_S^2$、すなわちconormal Lie bracketは零である。
 DのS沿い位数二、ordinary double又はFrobenius first jetを仮定しない。
 \end{proposition}
 \begin{proof}
-rank零被約台がhypersurface Yを含むとする。
-Yの一般点ではそのidealは正則局所環の一元gで生成され、全六Poisson係数はgで割れる。
-従って$\pi=g\rho$、$\pi^2=g^2\rho^2$となり、Dの被約性に反する。
-rank零被約台の次元は二以下なので、Sはその既約成分である。
-Sの一般smooth点の近傍を縮め、他の成分を避ける。
-
-局所nonvanishing volumeを選び、Hamiltonian場$X_f$について$Z(f)=\operatorname{div}X_f$とする。
-反対称性で二階微分が消え、Leibnizの交差項も消えるためZはvector fieldである。
-Jacobiと
-\[
- \operatorname{div}[X_f,X_g]
-   =X_f(\operatorname{div}X_g)-X_g(\operatorname{div}X_f)
-\]
-からZはPoisson derivation、すなわち$L_Z\pi=0$。
-その局所holomorphic flowはrank零被約台を保存し、上のopenでSを保存する。
-従ってZはSへtangentである。connected flowが有限個の既約成分を置換することはない。
-volumeをunit倍したときのZの差はHamiltonian場で、S上零だからnormal成分の結論はvolumeによらない。
-
-Sのsmooth一般点でcoordinatesを$(a,b,z,w)$、$I_S=(z,w)$と取り、
-$\{z,w\}=l_1(a,b)z+l_2(a,b)w\pmod {I_S^2}$と書く。
-全mixed係数はS上恒等零なので、そのa,b微分もSで零。
-$Z^j=\sum_i\partial_i\pi^{ij}$という符号規約では正確に
-\[
- Z^z|_S=-l_2,\qquad Z^w|_S=l_1
-\]
-である。tangencyから$l_1=l_2=0$。
-I内の任意の二関数にLeibniz則を適用すると他のmixed項もIを二因子持つので、所望の包含を得る。
-conormal bracketはsmooth locus上のvector-bundle morphismであり、Sのintegralityから全smooth locusへ延びる。
-Sの特異点のconormal torsionについて追加の主張をしない。
+命題\ref{prop:conductor-abelian-module}のrank零の場合の証明を用いる。
+そこではDの被約性からrank零台の余次元一成分を除き、局所modular場のtangencyから
+normal-normal一次項を零とした。従って位数二の仮定は不要である。
 \end{proof}
 全局所modular証明と別作者の手による確認は
 \path{REDUCED_DEGENERACY_ZERO_SURFACE_ABELIAN_CONORMAL.md}、
@@ -8390,7 +8374,7 @@ Pを$(z=w=0)$とする。零性の全源はraw90、Euler冗長十でprojective s
 命題\ref{prop:reduced-zero-surface-abelian-conormal}からconormalは可換である。
 位数二の非零normal PfaffianによるFrobenius first jetからも同じ結論を得るが、
 全source入口の可換性自体には位数二を要しない。
-従ってnormal-normalのlinear六係数が零となり、normal weight零35、一30、二9が全源である。
+従って定理\ref{thm:conductor-plane-reconstruction}の$\rho=0$から、normal weight零35、一30、二9が全源である。
 traceless三vector fieldのpairwise wedgeはJacobiで零となる。
 共通imageをsaturateしたrank一subsheafは、quotientがtorsionfreeなためsmooth P2上でreflexive、従って$O(k)$。
 非零sectionからk非負、$H^0(T_{\mathbb P^2}(-2))=0$からk一以下である。
@@ -10068,15 +10052,8 @@ ordinary node、導手又は正規化の滑らかさは仮定しない。
 またstable次数五楕円scroll上のrank二restrictionは存在しない。
 \end{proposition}
 \begin{proof}
-Sの滑らかな一般点でnormal座標u,v、接座標s,tを取る。
-$\pi^{st}$はunit、mixed項は$I_S$に入り、実Pfは$I_S^2$に入るので
-normal-normal項の一次部分も零となる。従って$\{I_S,I_S\}\subset I_S^2$。
-conormalの誘導bracketは$S_{\rm reg}$上のbundle間の線形写像だから、一般点で零なら全域で零である。
-このため
-\[
- \nabla_{df}(j\bmod I_S^2)=\{\widetilde f,j\}\bmod I_S^2
-\]
-はliftに依存せず、Jacobiによりflatなcotangent algebroid connectionとなる。
+命題\ref{prop:conductor-abelian-module}により、$S_{\rm reg}$のconormalは可換で、
+式\eqref{eq:conductor-connection}のflat cotangent algebroid moduleを持つ。
 restrictionがsymplecticならanchorで通常のflat connectionへ移り、
 任意の滑らかなprojective curve $C\subset S_{\rm reg}$で$\deg\det(N|_C)=0$となる。
 一方、随伴は$\det N=\omega_{S_{\rm reg}}\otimes\mathcal O_S(5)$を与える。
@@ -10109,10 +10086,8 @@ Rのsmoothness、Dの横断ordinary node、vertical divisor不存在は仮定し
 \end{proposition}
 \begin{proof}
 まず接続を完全に固定する。
-S上のrank二開で$\operatorname{Pf}\pi\equiv\pi_{xy}\pi_{uv}\pmod{I_S^2}$であり、
-$D\in I_S^2$から$\{I_S,I_S\}\subset I_S^2$を得る。
-conormal bracketは正則なのでS全体で零となり、cotangent algebroidは
-$N^*=\mathcal O_{\mathbb P^2}(-1)\otimes\mathbb C^2$上のflat接続を与える。
+命題\ref{prop:conductor-abelian-module}によりconormal bracketはS全体で零であり、
+$N^*=\mathcal O_{\mathbb P^2}(-1)\otimes\mathbb C^2$はflat cotangent algebroid moduleを持つ。
 $U=S\setminus R$でanchorを反転すればordinary接続となり、係数はRに高々一位の極を持つ。
 line factorのframe変更はscalarなのでtracefree部分は全球
 \[
@@ -10176,23 +10151,21 @@ smooth/nodeでは全log形式零、cuspでは唯一の$\alpha$が非閉なので
 従ってconormal接続全体がcanonical接続に一致する。
 元の$\mathcal O(-1)$のscalar接続自体を零としたのではない。
 
-次に全global二次源を扱う。normal dilationのraw weight $-2,-1,0,1,2$の寸法は
-$6,42,57,36,9$である。
-全150列にinvarianceと$\{I,I\}\subset I^2$を課すchart条件はrank42、kernel108。
-非負raw102と負weightのEuler六列がkernelを完全に張るので、商に負weightはない。
-weight零のrestriction・接続を固定した差はraw57上のkernel15で、Euler十二列とbinary quadratic三列で尽くされる。
-よって全weight零代表は
+次に全global二次源を扱う。
+定理\ref{thm:conductor-plane-reconstruction}により負weightはEuler方向だけで、
+restriction・接続を固定したweight零の差は命題\ref{prop:conductor-hidden-quadratic}のbinary quadratic三係数である。
+以下では発散零liftをEuler外積だけ変えた、計算しやすい射影代表を用いる。
+従って全weight零代表は
 \[
  P_0=P_f+K(z,w)\partial_z\wedge\partial_w
 \]
-である。weight一はraw36をEuler六列で商した完全三十係数源
+である。全weight一は式\eqref{eq:conductor-weight-one}のraw三十係数代表
 \[
  P_1=zL+wM+z^2D\wedge\partial_w
-       +zw(B\wedge\partial_z+E\wedge\partial_w)+w^2C\wedge\partial_z
+       +zw(B\wedge\partial_z+E\wedge\partial_w)+w^2C\wedge\partial_z,
 \]
-で、L,Mは各九係数のbase linear bivector、B,C,D,Eは各三係数のconstant base vectorである。
-weight二にはEuler方向が無く、全九係数源は$P_2=z^2A+zwA'+w^2A''$、各Aはconstant base bivectorとなる。
-chartでの全多項式恒等式はdense chart上でのsectionの一致なので、chartの閉補集合を捨てていない。
+全weight二は$P_2=z^2A+zwA'+w^2A''$で各Aはconstant base bivectorである。
+canonical化とこのraw補空間は互いに逆なので、零・共鳴・chart補集合の枝を捨てていない。
 
 constant Xについて$U_X=[P_f,X]=-P_{Xf}$と置く。
 既約ternary cubicが$Xf=0$を満たす非零Xを持てば二変数のbinary cubicとなり、複素数体上で可約となって矛盾する。
@@ -10247,7 +10220,8 @@ flag$(0,0)$でRがnonconcurrent triangleなら全源は既知MPS四十閉和に�
 他flags又は非被約Rをこの命題から閉じない。
 \end{proposition}
 \begin{proof}
-associated-gradedの判別式恒等式は$\Delta(G_2)=cf^2$、$c\ne0$。
+命題\ref{prop:conductor-leading-transport}の判別式恒等式は$\Delta(G_2)=cf^2$であり、
+squarefree仮定から$c\ne0$。
 UFD/Gaussから$G_2=h\ell m$、primitive homogeneous root rowsを持つ二行二列Mで
 $h\det M=f$と出来る。row degrees$d_1\le d_2$は
 \[
@@ -11313,15 +11287,13 @@ concurrent三直線、I又はJ零、重根、位数二・三、非被約Rはこ�
 normal bundleは$N=O(1)^2$である。
 全tracefree normal接続は$H^0(\Omega^1_{\mathbb P^2}(3))\otimes\mathfrak{sl}_2$の24係数を持ち、
 Rに沿うsimple poleを許す。初めからlogarithmicな部分だけを選ばない。
-Hamiltonian flowは$\pi^2$と$\pi_S$を保存する。
-normal order二以上からconormal作用はbase functionのliftに依存せず、Jacobiからflatである。
-I-adic associated gradedへ制限すると、最初のnormal symbol
+命題\ref{prop:conductor-leading-transport}から、最初のnormal symbol
 \[
  G_4\in H^0(O_S(1))\otimes\operatorname{Sym}^4\mathbb C^2,\qquad
  \gamma_4=G_4/f\in\operatorname{Sym}^4N^*\otimes\det N
 \]
-が$U=S\setminus R$上でparallelとなる。
-Hamiltonian場はTUを張るため全方向についてのparallel性であり、formal splittingやnode仮定を用いない。
+は$U=S\setminus R$上でparallelである。
+この共通の輸送則はformal splittingやnode仮定を用いず、全normal位数に適用される。
 
 相対GL2作用のI,Jのweightは二、三なので$J^2/I^3$はconstant。
 G4係数はbase一次だからI,Jはそれぞれbase次数二、三のpolynomialである。
@@ -21646,5 +21618,9 @@ arXiv:math/0203023v2, Theorem 1.1, Remark 3.
 \emph{The Stacks Project}, Tag 0H3Y, Generic flatness stratification.
 \url{https://stacks.math.columbia.edu/tag/0H3Y}.
 2026年11月6日本文確認。
+\bibitem{GPconductor} M. Gualtieri and B. Pym,
+\emph{Poisson modules and degeneracy loci}, arXiv:1203.4293v1,
+\S4.1, Example 4.4, Proposition 3.11.
+DOI: 10.1112/plms/pds090. \url{https://arxiv.org/abs/1203.4293}.
 \end{thebibliography}
 \end{document}

@@ -1,0 +1,212 @@
+% Shared proofs for the nonnormal integral-divisor entrance.
+\section{導手上の可換余法線と平面の全復元}\label{sec:conductor-reconstruction}
+非正規な既約退化因子では、導手の二次元支持を標識する。
+この節はその支持上のrank零・二を同じ余法線作用で扱い、planeの場合には
+作用から見えない二次項と全高次項まで復元する。
+導手schemeの被約性、横断node、正規化のfamilyでのflatnessは仮定しない。
+一般非plane支持の認識と全閉像の極大性は、この復元とは別の問題である。
+Poisson moduleとcanonical moduleの基本的枠組みはGualtieri--Pym\cite[\S4.1, Example 4.4]{GPconductor}、
+退化台のstrong Poisson性は同文献Proposition 3.11を参照する。
+本節ではこの枠組みだけから全源の尽くしを引用せず、可換性、全係数の正逆、leading symbolの輸送を以下で証明する。
+
+
+\subsection{rank零・二に共通する可換余法線}
+\begin{proposition}[可換余法線とflat作用]\label{prop:conductor-abelian-module}
+$X$をsmooth complex fourfold、$\pi$をgenerically symplectic Poisson tensor、
+$D$をその被約なactual退化因子とする。
+$S\subset\operatorname{Sing}D$がPoisson不変なintegral surfaceなら、
+$S_{\rm reg}$上で$\{I_S,I_S\}\subset I_S^2$である。
+従って$N^*=I_S/I_S^2$は
+\begin{equation}
+ \nabla_{df}(j\bmod I_S^2)=\{\widetilde f,j\}\bmod I_S^2
+ \label{eq:conductor-connection}
+\end{equation}
+というflatなcotangent Lie algebroid moduleを持つ。
+restriction rank零ではanchor零のco-Higgs作用となり、rank二開ではanchorを反転して通常のflat接続となる。
+\end{proposition}
+\begin{proof}
+まずrestrictionが一般rank二とする。接座標$s,t$とnormal座標$u,v$を取り、
+$\pi^{st}$をunitとすれば、mixed成分は$I_S$に入り、
+Pfaffianの一次normal項は$\pi^{st}\pi^{uv}$の一次項だけである。
+$S\subset\operatorname{Sing}D$からそれは零なので、$\pi^{uv}\in I_S^2$を得る。
+
+一般rank零の場合、rank零台にdivisorがあれば、その一般点で全Poisson係数が局所方程式gで割れ、
+Pfaffianが$g^2$で割れてDの被約性に反する。従ってSはrank零台の既約成分である。
+局所体積に関するmodular場$Z^j=\sum_i\partial_i\pi^{ij}$はPoisson場であり、
+その局所flowはrank零台の各既約成分を保つ。よってZはSへtangentである。
+$\{u,v\}=a(s,t)u+b(s,t)v\pmod {I_S^2}$と書くと、
+mixed係数の接方向微分はS上零だから$Z^u|_S=-b$、$Z^v|_S=a$。
+tangencyから$a=b=0$を得る。modular場のPoisson性はJacobiと
+$\operatorname{div}[X_f,X_g]=X_f\operatorname{div}X_g-X_g\operatorname{div}X_f$から従う。
+体積変更による差はHamiltonian場で、rank零台で零なので結論は変わらない。
+
+いずれの場合もconormal bracketというbundle間写像がdense openで零となるため、
+$S_{\rm reg}$全体で零である。
+この包含は式\eqref{eq:conductor-connection}の二つのliftへの独立性を与え、
+Leibniz則がanchor則、Jacobiがflatnessを与える。
+Sの特異点のconormal torsionについては追加の主張をしない。
+\end{proof}
+
+\subsection{平面の全二次源と、作用に見えない三係数}
+$S=(u=v=0)\subset\mathbb P^4$を固定する。
+cone座標を$(x_0,x_1,x_2,u,v)$、$E_0=\sum x_i\partial_i$、
+$E=E_0+u\partial_u+v\partial_v$、normal dilationを$H=u\partial_u+v\partial_v$とする。
+以下のweightは$[H,P]=kP$のkである。
+三次式$\rho(x)$に対し
+\[
+ Q_\rho=\tfrac13(\rho_0\partial_1\wedge\partial_2+
+ \rho_1\partial_2\wedge\partial_0+\rho_2\partial_0\wedge\partial_1)
+\]
+と置く。$Q_\rho$のplane上のrestrictionは三次切断$\rho$である。
+
+\begin{theorem}[planeの全normal weight復元]\label{thm:conductor-plane-reconstruction}
+SがPoisson不変でconormalが可換な射影二次二ベクトルの全源は、
+命題\ref{prop:cone-pfaffian-primitive}の唯一の発散零liftで
+$\Pi=\Pi_0+\Pi_1+\Pi_2$と一意に表される。
+weight零の全45係数は、$\operatorname{tr}T=0$のbase線形場Tと任意のbase線形場A,B,Cを用いて
+\begin{align}
+ \Pi_0={}&Q_\rho+E_0\wedge T
+ +(uA+vB)\wedge\partial_u
+ +(uC+v(3T-A))\wedge\partial_v\notag\\
+ &+\bigl(-\tfrac12\operatorname{tr}C\,u^2+
+ \operatorname{tr}A\,uv+\tfrac12\operatorname{tr}B\,v^2\bigr)
+ \partial_u\wedge\partial_v .\label{eq:conductor-weight-zero}
+\end{align}
+weight一は次の全30係数代表の$\mathcal C$像である。
+\begin{equation}
+ \Pi_1=\mathcal C\bigl(uL+vM+u^2D_0\wedge\partial_v
+ +uv(B_0\wedge\partial_u+F_0\wedge\partial_v)
+ +v^2C_0\wedge\partial_u\bigr).\label{eq:conductor-weight-one}
+\end{equation}
+L,Mは各九係数のbase線形二ベクトル、$B_0,C_0,D_0,F_0$は各三係数のbase定数場である。
+weight二は既に発散零な全九係数
+\begin{equation}
+ \Pi_2=u^2A_0+uvA_1+v^2A_2,\qquad A_i\in\bigwedge^2\mathbb C^3
+ \label{eq:conductor-weight-two}
+\end{equation}
+である。restriction rank零は正確に$\rho=0$で、寸法は$(35,30,9)$となる。
+ここまでの線形源はJacobiをまだ課していない。
+\end{theorem}
+\begin{proof}
+raw weight $-2,-1,0,1,2$はそれぞれ$6,42,57,36,9$次元である。
+planeの不変性からweight $-2$は零である。
+weight $-1$のmixed項は、cone上でplaneへtangentという条件から
+$x_i\ell_u(x),x_i\ell_v(x)$に限られる。
+射影chartでconormal bracketが零という条件は、そのvertical一次項を
+$u\ell_v-v\ell_u$とする。従って負weight全体は
+$E\wedge(\ell_u\partial_u+\ell_v\partial_v)$で、$\mathcal C$で消える。
+
+weight零のbase二ベクトルは一意に$Q_\rho+E_0\wedge T$、$\operatorname{tr}T=0$と書ける。
+実際、三変数でEulerを外積した三ベクトルが$\rho$を定め、
+残りの発散の三分の一がTを定める。一般mixed項を
+$(uA+vB)\wedge\partial_u+(uC+vD_0')\wedge\partial_v$と書くと、
+base発散零は$A+D_0'=3T$、normal発散零は表示のvertical二次式を強制する。
+従って逆写像も明示され、寸法は$10+8+27=45$となる。
+
+weight一のraw36係数を、$E\wedge(ua+vb)$という六係数で商する。
+$u^2\partial_u$のbase混合三係数と$v^2\partial_v$の三係数がそれぞれa,bを一意に決めるので、
+それらを零にした式\eqref{eq:conductor-weight-one}が完全な補空間である。
+$\mathcal C$はこの補空間上単射であり、Euler方向を落とした唯一の発散零代表を与える。
+weight二にはEuler方向がなく、表示の九係数を得る。
+全操作は定数二・三・五による除算だけなので、source parameterの零や共鳴で失われる枝はない。
+\end{proof}
+
+\begin{proposition}[固定restriction・余法線作用のfiber]\label{prop:conductor-hidden-quadratic}
+$\rho$と余法線作用全体を固定しても、weight零にはbinary quadratic三係数が残る。
+とくに作用が零であることからweight零全体の消失を結論してはならない。
+\end{proposition}
+\begin{proof}
+$Q_\rho$が与える作用との差を、$N^*=\mathcal O(-1)\otimes\mathbb C^2$の二つのnormal生成元で表す。
+線形場の射影像を上線で表すと、そのvector-field行列は
+\[
+ \Theta_\rho=\begin{pmatrix}
+ \overline{A+T}&\overline B\\
+ \overline C&\overline{4T-A}
+ \end{pmatrix},\qquad \operatorname{tr}\Theta_\rho=5\overline T.
+\]
+これは$x_0\ne0$で$y_i=x_i/x_0,z=u/x_0,w=v/x_0$の括弧を取れば直接得られる。
+固定$\rho$で作用の差が零なら、tracefreeなTは零、
+$A=\alpha E_0,B=\beta E_0,C=\gamma E_0$に限られる。
+式\eqref{eq:conductor-weight-zero}への代入から、その差は正確に
+\[
+ \mathcal C\bigl(K(u,v)\partial_u\wedge\partial_v\bigr),\qquad
+ K=-\tfrac52\gamma u^2+5\alpha uv+\tfrac52\beta v^2
+\]
+となる。従ってkernelは三次元である。
+非負weightを持つ一般の二ベクトルについて、余法線作用はweight零だけから決まるので、
+この三係数に加えて式\eqref{eq:conductor-weight-one}、\eqref{eq:conductor-weight-two}も保持する。
+\end{proof}
+
+\subsection{Jacobi、重複度、leading symbolの輸送}
+\begin{proposition}[全高次項を含む正逆]\label{prop:conductor-master-equations}
+定理\ref{thm:conductor-plane-reconstruction}の全源に対するJacobiは正確に
+\begin{align*}
+ [\Pi_0,\Pi_0]&=0,&[\Pi_0,\Pi_1]&=0,\\
+ 2[\Pi_0,\Pi_2]+[\Pi_1,\Pi_1]&=0,&[\Pi_1,\Pi_2]&=0
+\end{align*}
+である。$[\Pi_2,\Pi_2]=0$は恒等的に成立する。
+$\mathcal P(B)=\iota_E\iota_B\Omega$と置くと、actual五次の全normal次数は
+\begin{align*}
+ D_2&=\mathcal P(\Pi_0^2/2),&
+ D_3&=\mathcal P(\Pi_0\wedge\Pi_1),\\
+ D_4&=\mathcal P(\Pi_0\wedge\Pi_2+\Pi_1^2/2),&
+ D_5&=\mathcal P(\Pi_1\wedge\Pi_2).
+\end{align*}
+全式を満たし$D=\sum_{i=2}^5D_i$が非零既約である点は、Sを導手支持に持つ全rank四構造を正確に復元する。
+そのnormal位数は二・三・四のいずれかである。
+\end{proposition}
+\begin{proof}
+Schouten bracketと外積のweightを比較すれば全式が得られる。
+$\Pi_2$はnormal変数だけを係数とするbase二ベクトルなので自己bracketと平方は零である。
+$\mathcal P$はweight kの四ベクトルをnormal次数$k+2$の五次式へ送る。
+よって列挙した以外の次数はない。
+$D_2=D_3=D_4=0$なら、残る$D_5$はbase変数を含まないbinary quinticであり、複素数体上で既約ではない。
+逆に全Jacobiと非零Dはrank四Poisson構造を与え、$D\in I_S^2$なのでSは$\operatorname{Sing}D$の曲面である。
+integral hypersurfaceの余次元一特異点は非正規であり、Sは導手支持に含まれる。
+順写像と逆写像は唯一のcanonical liftと前定理の係数抽出で互いに逆となる。
+これはJacobiを解いて全閉像の極大性を決めたという主張ではない。
+特に二次の式は固定$\Pi_1$に対して$\Pi_2$の\emph{非斉次}線形方程式であり、
+右辺$-[\Pi_1,\Pi_1]$を落としてkernelに置き換えてはならない。
+\end{proof}
+
+\begin{proposition}[leading Pfaffianの平行輸送]\label{prop:conductor-leading-transport}
+命題\ref{prop:conductor-abelian-module}のrank二開$U\subset S_{\rm reg}$で、
+Dのnormal位数を$m\ge2$、そのleading symbolを
+$\sigma_m\in\operatorname{Sym}^mN^*\otimes K_X^{-1}|_U$とする。
+restriction $\pi_S\in K_S^{-1}|_U$で割ると
+\[
+ \gamma_m=\sigma_m/\pi_S\in\operatorname{Sym}^mN^*\otimes\det N
+\]
+は誘導flat接続に関して平行である。
+planeで$\rho\ne0$なら$\gamma_m=G_m/\rho$であり、
+$m=2$ではある定数$c\in\mathbb C$について
+\begin{equation}
+ \operatorname{disc}(G_2)=c\rho^2 .\label{eq:conductor-discriminant}
+\end{equation}
+$c=0$の退化枝も含む。
+\end{proposition}
+\begin{proof}
+任意のHamiltonian場は$\pi$、従ってactual切断$\pi^2/2$を保つ。
+Sとそのideal filtrationを保つので、associated graded上の$\sigma_m$も保つ。
+同じ場のSへのrestrictionは$\pi_S$を保ち、随伴
+$K_X^{-1}|_S=K_S^{-1}\otimes\det N$で割った作用は、
+式\eqref{eq:conductor-connection}の双対・対称冪・行列式の誘導作用に等しい。
+Hamiltonian場はUの接束を張るので平行性を得る。
+これはformal productへの分解や、higher jetの消去を仮定する議論ではない。
+
+planeでは$N^*=\mathcal O(-1)\otimes\mathbb C^2$だから
+$\operatorname{Sym}^mN^*\otimes\det N=\mathcal O(2-m)\otimes\operatorname{Sym}^m\mathbb C^2$。
+二次の場合、その判別式はframe変更のdeterminant因子が相殺するcanonical scalarである。
+平行sectionの判別式は連結なU上定数なので、分母を払って式\eqref{eq:conductor-discriminant}を得る。
+\end{proof}
+anchorの反転で得る接続の極はrestriction三次式$\rho$の重複度により制御されるが、
+正規化後の逆二形式の留数が単極であることは別の条件である。
+例えば局所Poisson構造
+$\partial_s\wedge\partial_t+(v^2-u^3)\partial_u\wedge\partial_v$では、
+横断cuspの正規化$u=a^2,v=a^3$により留数$du/(2v)=da/a^2$は二位極を持つ。
+これは局所的な区別であり、$\mathbb P^4$のglobal反例を主張していない。
+
+本節の共通源はrank零・二の両方と全normal位数を含む。
+旧証明のco-Higgs共通line、共鳴、全higher operator、monodromy、非plane認識、
+有限個の閉像への帰属は必要な入力として残す。
+新規性は未確認で、全147成分の成分性又は全点被覆を本節だけで再証明したとはしない。

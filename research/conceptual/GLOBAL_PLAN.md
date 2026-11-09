@@ -1,6 +1,6 @@
 # 全分類の概念的再構成：標識付き復元と持上げ可能な変形
 
-2026-11-09 / v69-quadric-residue-reconstruction。最初に `RESEARCH_POLICY.md` を読む。
+2026-11-09 / v70-conductor-conormal-reconstruction。最初に `RESEARCH_POLICY.md` を読む。
 
 ## 1. 決定した方針
 
@@ -102,13 +102,19 @@ kernel/cokernelはν−1次元である。余核そのものを留数空間と�
 六Q+C・二H+C・既約Fの八例で全R6、正逆、留数核の全体を検算した。
 被約性を失う因子衝突へ次元式を延長しない。非平面の実変形、有限六配置の尽くし、周囲障害はなお不可欠である。
 
-次の主作業はCの非平面導手・normal認識の接続である。
-Cのnonnormalでは、導手曲面Sを一つ標識する。一般restriction rank0/2を分け、
-cotangent Lie algebroidとconormal上の一次作用、留数、正規化への降下が元のcoHiggs/scalar/zero-symbol分岐をどう組織するかを具体化する。
-単に「Lie algebroid」と名付けて全higher jetを捨ててはならない。
-Σδ_i deg S_i=6−gという有界性の仮定を確認し、有限個の低次数曲面の認識へ進む。
-主な元入力はNONPLANE_CONDUCTOR_POINTWISE_KNOWN_COVERAGE、PLANE_RANKZERO_CONDUCTOR_WHOLE_POINTWISE_COVERAGEとrank2版。
-normalの楕円認識は別の完成した命題として接続する。normalization-flatnessや導手の被約性を暗黙に追加しない。
+Cの導手支持について、rank零・二の可換余法線とflat作用を共通化した。
+planeではcanonical liftの全weight源を(45,30,9)、rank零を(35,30,9)として正逆付きで復元した。
+restriction・余法線作用を固定してもbinary quadratic三係数が残る。全higherと非斉次Jacobiを保持する。
+leading Pfaffianをrestrictionで割ったsectionの平行輸送から、二次判別式と四次不変量を同じ原理で説明する。
+rank零可換性、rank二module、既約cubic零因子の全source、m2/m4輸送の重複証明を実際に置換した。
+全150係数で制約rank42、Euler24、全源84の完全性と全自由係数恒等式を記号検算した。
+新規性未確認。旧有限場合分け・共鳴・monodromy・全支持帰属・成分性は保持し、全147の独立検証ではない。
+
+共有証明はpapers/conductor_conormal_reconstruction.tex。
+次の主作業は固定した正規化・導手square、Hamiltonian導分の降下、逆形式の留数を
+残る非plane導手認識と接続すること。Σδ_i deg S_i=6−gの既存証明とnormalの楕円認識を保つ。
+主な元入力はNONPLANE_CONDUCTOR_POINTWISE_KNOWN_COVERAGE、IRREDUCIBLE_NONNORMAL_QUINTIC_ENTRANCE。
+conormal接続と正規化後留数の極次数を混同しない。normalization-flatnessや導手被約性を追加しない。
 
 R2では既存のfoliation全支持をprop:ranktwoへ接続し、純rank2成分とrank4閉包を分ける。
 Corrêa–Munizの安定分岐の可積分性だけをJacobian族への全点帰属と読み替えない。

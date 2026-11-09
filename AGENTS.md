@@ -1,6 +1,6 @@
 # Poisson P4 — global reconstruction, not a local-lemma sprint
 
-2026-11-09 / v69-quadric-residue-reconstruction
+2026-11-09 / v70-conductor-conormal-reconstruction
 
 ## Read first
 
@@ -68,13 +68,20 @@ to that residue space. This explains the two-factor magnetic line and zero orbit
 the integral case's full elimination, and the three-factor two-dimensional quotient.
 Do not apply this formula to nonreduced factors or arbitrary conductor surfaces.
 
-Next follow GLOBAL_PLAN P2 for C: read all original conductor sources and inverse
-maps, and replace one repeated recognition/reconstruction proof by a common
-normalization/conductor/residue/conormal argument. Preserve restriction rank0/2,
-higher jets, zero complements, and all valuable existing proofs. Do not assume
-conductor reducedness or normalization-flatness. Normal actual-divisor recognition
-is a separate completed input. Then connect R2 and maximal closed images.
-The component_entrances.csv table is navigation, not independent verification.
+C now has a shared abelian conormal/flat-module theorem for rank0/2 and an
+explicit complete marked-plane source in papers/conductor_conormal_reconstruction.tex.
+Its canonical weight dimensions are (45,30,9), or (35,30,9) for rank0.
+Fixing restriction and full conormal action leaves a binary quadratic of dimension3;
+retain it and all higher jets, including the inhomogeneous second Jacobi equation.
+Leading Pfaffian divided by the restriction is parallel in Sym^m(N*) tensor det N.
+This replaces repeated rank0/2 module, source-completeness, and m2/m4 transport proofs.
+The new checker verifies completeness in all150 coefficients, not old finite cases.
+
+Next follow GLOBAL_PLAN P2 for C: connect the fixed normalization/conductor square,
+Hamiltonian derivation descent and inverse-form residues to the remaining nonplane
+recognition proofs. Keep the existing numeric conductor bound and normal recognition.
+Do not assume conductor reducedness, simple normalized residues, or normalization-flatness.
+Then connect R2 and maximal closed images. Component navigation is not verification.
 
 ## Non-negotiable mathematical distinctions
 

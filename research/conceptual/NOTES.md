@@ -61,6 +61,23 @@ rank4開からのグラフ閉包を使うことと、一般的な因子の開だ
 その線形完全性のfull150 rank証明、非平面実変形・graph帰属、六平面配置の尽くしと周囲障害は旧入力として残る。
 八例の検算は六Q+C、二H+C、既約Fの全R6・shear正逆・留数kernelを含む。全147の独立検証ではない。
 
+## 導手上の共通復元
+
+Cの導手支持について、rank零・二の可換余法線とflat作用を共通化した。
+planeではcanonical liftの全weight源を(45,30,9)、rank零を(35,30,9)として正逆付きで復元した。
+restriction・余法線作用を固定してもbinary quadratic三係数が残る。全higherと非斉次Jacobiを保持する。
+leading Pfaffianをrestrictionで割ったsectionの平行輸送から、二次判別式と四次不変量を同じ原理で説明する。
+rank零可換性、rank二module、既約cubic零因子の全source、m2/m4輸送の重複証明を実際に置換した。
+全150係数で制約rank42、Euler24、全源84の完全性と全自由係数恒等式を記号検算した。
+新規性未確認。旧有限場合分け・共鳴・monodromy・全支持帰属・成分性は保持し、全147の独立検証ではない。
+
+共有証明はconductor_conormal_reconstruction.tex。全パラメータの抽出は定数2/3/5の除算のみで、
+parameter零・共鳴の除外を伴わない。余法線作用のtraceは5T、作用kernelは三係数Kである。
+作用零でもKを捨てず、全weight零が零のときだけ三十九higher源となる。
+rank二開ではG_m/ρがSym^m N*⊗detNの平行sectionで、m2判別式はcρ²、c零も残す。
+局所cuspの留数du/(2v)=da/a²は、接続の極から正規化後留数の単極を推測できないことを示す。
+導手支持の非被約scheme構造やfamily正規化のflatnessをこの源の前提としない。
+
 ## 4. 有用な障害・反例
 
 **rank2への誤適用。** P=∂1∧(∂2+x1∂3)ではPf P=0、P#df=f divPは自動成立だがJacobi(1,2,3)=1。
@@ -103,6 +120,9 @@ R2：RANK_TWO_SUPPORT、KNOWN_COMPONENT_AUDIT、独自stable_rank2の元証明�
 - Stacks Project, Tag01OF (Blowing up), Rees表示と局所chart。https://stacks.math.columbia.edu/tag/01OF
 - Stacks Project, Tag0553 (Irreducible components of fibres)。一般fiberと幾何学的一般fiber・基底変換を区別する参照。https://stacks.math.columbia.edu/tag/0553
 
+Gualtieri–Pym, arXiv:1203.4293v1、§4.1・Example4.4・Proposition3.11の一次PDF本文を確認した。
+Poisson module、canonical moduleと退化台保存の枠組みへの参照であり、planeの全係数源を引用したものではない。https://arxiv.org/abs/1203.4293
+
 必要な主張の一次本文を確認した範囲であり、全先行研究の徹底照合・新規性確認完了とはしない。
 
 ## 7. 再現
@@ -110,8 +130,10 @@ R2：RANK_TWO_SUPPORT、KNOWN_COMPONENT_AUDIT、独自stable_rank2の元証明�
 `python code/check_global_structure.py --output work/global-structure.json`。
 普遍的な6係数と24一次微分を独立変数として検算し、標本値は使わない。
 原稿はREADMEのLuaLaTeX二回コマンド。PDFは別フォルダに出力し、中間生成物をbundleへ入れない。
-今回の生成・検証の実結果はreports/quadric_residue_validation.jsonを参照。
+今回の生成・検証の実結果はreports/conductor_conormal_validation.json、Bの前段はreports/quadric_residue_validation.jsonを参照。
 新検算は `python code/check_marked_reconstruction.py --output work/marked-reconstruction.json`。
 組版は `bash scripts/build_structural_manuscripts.sh`。
 
 Bと磁気留数の検算は `python code/check_quadric_residue_reconstruction.py --output work/quadric-residue-checks.json`。
+
+Cの新検算は `python code/check_conductor_conormal_reconstruction.py --output work/conductor-conormal-checks.json`。

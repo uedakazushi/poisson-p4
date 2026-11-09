@@ -1,0 +1,70 @@
+{
+  "version": "v70-conductor-conormal-reconstruction",
+  "date": "2026-11-09",
+  "base_commit": "222abd1705b566e1aa029a69805327a2ff0dc698",
+  "mathematics": [
+    "Shared abelian conormal and flat cotangent module for ranks zero and two.",
+    "Explicit full plane source: dimensions (45,30,9), or (35,30,9) for rank zero; inverse coefficient extraction.",
+    "Three hidden binary quadratic parameters when restriction and conormal action are fixed.",
+    "Full higher Jacobi with its inhomogeneous second equation and actual Pfaffian degrees 2 through 5.",
+    "Parallel leading Pfaffian divided by restriction; m2 discriminant including c=0; common input for the retained m4 proof."
+  ],
+  "replaced_proofs": [
+    "Rank-zero abelian conormal modular proof moved into common rank0/2 proof.",
+    "Rank-two conormal module construction.",
+    "Integral cubic rank-two plane full-source reconstruction.",
+    "Rank-zero plane weight-source dimensions.",
+    "m2 discriminant and m4 leading-symbol transport."
+  ],
+  "preserved_inputs": [
+    "Conductor numeric bound, general curve and adjunction proof.",
+    "Monodromy, co-Higgs common line, Lax equations, resonance, higher operators, zero complements and all finite-case/componenthood arguments."
+  ],
+  "checks": {
+    "new": "reports/conductor_conormal_checks.json",
+    "new_check_count": 21,
+    "global": "work/global-structure-v70.json",
+    "global_check_count": 29,
+    "new_source_completeness": "All150 cone coefficients: condition rank42, kernel108 = canonical source84 + Euler24; no sampling.",
+    "old_B_and_magnetic_checker": "Unchanged previous report; not rerun in this milestone."
+  },
+  "pdfs": [
+    {
+      "path": "papers/poisson_divisor_symmetries_ja.pdf",
+      "pages": 24,
+      "sha256": "7b88875a83d12dbf19a7380ba863aff384475b3410b660d405f0ab047240da02",
+      "passes": 2,
+      "box_warnings": 0,
+      "unresolved_or_multiply_defined_references": 0,
+      "other_warnings": "Existing LuaTeX/font scaling/hyperref warnings remain; no claim of a warning-free build."
+    },
+    {
+      "path": "papers/poisson_p4_classification_ja.pdf",
+      "pages": 380,
+      "sha256": "d178cb445e12f88e7d69069ce8296b98ef84dfe803c46765fee4f3675fd0a1cf",
+      "passes": 2,
+      "box_warnings": 0,
+      "unresolved_or_multiply_defined_references": 0,
+      "other_warnings": "Existing LuaTeX/font scaling/hyperref warnings remain; no claim of a warning-free build."
+    }
+  ],
+  "visual_inspection": {
+    "performed": true,
+    "scope": "Shared section in structural PDF pages13-16, main source theorem page12, rank-two module page183, full source page185 and m2 application page186; final shared transport page14. Rendered PDF pages inspected as images.",
+    "page_preview": "Library Page was read back as structured content; no rendered Page screenshot claimed."
+  },
+  "literature": {
+    "primary": "https://arxiv.org/abs/1203.4293",
+    "read": "Primary PDF section4.1, Example4.4, Proposition3.11; general Poisson-module framework only.",
+    "novelty": "Unconfirmed."
+  },
+  "limits": [
+    "Not an independent verification of all147 components or old finite cases.",
+    "No normalization-flatness, reduced conductor, simple normalized residues, or classification of maximal closed images is inferred."
+  ],
+  "persistence": {
+    "repository": "Recorded separately by the resulting Git commit and remote check.",
+    "bundle": "Built and checked separately after commit by scripts/make_structural_bundle.py.",
+    "Library": "Separate upload receipt; not implied by PDF generation."
+  }
+}

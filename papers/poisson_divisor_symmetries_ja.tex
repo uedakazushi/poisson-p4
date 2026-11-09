@@ -19,7 +19,7 @@
 \newcommand{\diver}{\operatorname{div}}\newcommand{\Pf}{\operatorname{Pf}}
 \title{射影四空間のPoisson分類の構造還元\\\large 標識因子・modular復元・相対変形}
 \author{}
-\date{2026年11月9日\quad v4・二次因子と磁気留数}
+\date{2026年11月9日\quad v5・導手と可換余法線}
 \begin{document}\maketitle
 \begin{abstract}
 射影空間上の一般に非退化なPoisson構造について、退化因子の既約成分が生成する閉対数一形式を用い、
@@ -33,6 +33,8 @@ Pfaffianグラフの閉包、および階数二のfoliationと零因子による
 二次＋三次ではcanonical cofactorと全31場を同じ斉次復元へ接続する。
 被約平面五次の全sourceと磁気shear核を因子留数で記述し、因子数$\nu$に対し
 磁気商の次元$\nu-1$、その零境界と軌道次元を導く。
+導手上ではrank零・二の可換余法線を共通化し、planeの全源と、作用から見えない三係数を復元する。
+leading Pfaffianの平行輸送により、二次判別式と四次不変量の議論を統一する。
 これらを全支持の認識と成分の極大性を分離する基盤とする。
 本稿は147成分という個数の新証明でも、その全証明の独立検証でもない。
 以下の基本原理には通常の証明を与えるが、それ自体の文献上の新規性は未確認であり、優先権を主張しない。
@@ -46,6 +48,10 @@ Pfaffianグラフの閉包、および階数二のfoliationと零因子による
 を\emph{重複度を含む}実退化因子とする。
 $U=X\setminus D_\pi$上の逆二形式$\omega=\pi^{-1}$は閉である。
 この対応と退化因子・対数形式の基本理論は\cite[\S5]{Pym}に説明されている。
+Poisson moduleとcanonical moduleについては\cite[\S4.1, Example 4.4]{GPconductor}を参照する。
+本稿ではその枠組みを用い、導手上の可換性からplaneの全係数源と隠れた三係数まで証明する。
+同文献の一般論を全source分類として引用するものではない。
+
 
 本稿の整理の軸は
 \[
@@ -253,13 +259,16 @@ $\mathfrak a_\pi=0$から、他の対称性まで存在しないとは言えな�
 
 \input{papers/quadric_cubic_reconstruction.tex}
 
+\input{papers/conductor_conormal_reconstruction.tex}
+
 \subsection{既約五次に残る導手の認識}
 第三の入口のうち非正規の場合は、正規化の導手支持と、その上のrestriction rank零・二を使う。
 現行のケース別証明では、一般平面切断の算術種数六から得る
 $\sum_i\delta_i\deg S_i=6-g$という有界性と、
 導手上の留数・余法線の一次記号が重要な入力になっている。
-これらの全支持認識を本稿の基本定理で証明済みとはしない。
-正規の場合の楕円認識、非正規の場合の導手認識を、それぞれ独立した構造定理として再構成する。
+前節は両rankの余法線を共通化し、planeの全源・隠れた三係数・高次項を復元した。
+このことから全支持認識を証明済みとはしない。正規の場合の楕円認識は主稿の独立入力として保ち、
+非planeの導手認識、正規化上の留数と降下条件、極大閉像との接続を次の課題とする。
 
 \section{固定因子の復元を相対化し、変形の持上げを分ける}
 $X=\PP^4$、$L=\cO(5)$とし、
@@ -550,6 +559,7 @@ MPSの定理はSNC locusに交わる40成分を扱い、全成分がトーリッ
 modular原始関数の全恒等式、TRIPLEの次数補正と指定因子族の二次持上げ、可換場による分裂を確認した。
 二次＋三次の二つのcofactor入口、平面型の三つの全source復元、
 二因子と既約因子の磁気shearの次元証明も共有TeXへ統合した。
+rank零・二の余法線、planeの全係数源、m2/m4の輸送も共通化した。
 各源の帰属・成分性・非包含の旧証明は保持し、全147成分を独立再検証したとはしない。
 検算はそれらの構造定理に必要な有限恒等式へ位置づけ、研究の主目標そのものとはしない。
 
@@ -570,5 +580,9 @@ arXiv:2207.12880v5, Theorem 4.1.
 \url{https://stacks.math.columbia.edu/tag/01OF}.
 \bibitem{StacksFibres} The Stacks Project, Tag 0553, Irreducible components of fibres.
 \url{https://stacks.math.columbia.edu/tag/0553}.
+\bibitem{GPconductor} M. Gualtieri and B. Pym,
+\emph{Poisson modules and degeneracy loci}, arXiv:1203.4293v1,
+\S4.1, Example 4.4, Proposition 3.11.
+DOI: 10.1112/plms/pds090. \url{https://arxiv.org/abs/1203.4293}.
 \end{thebibliography}
 \end{document}

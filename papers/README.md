@@ -1,12 +1,19 @@
 # 現行原稿 — 共通復元と実持上げ
 
-2026-11-09 / v69-quadric-residue-reconstruction
+2026-11-09 / v70-conductor-conormal-reconstruction
 
 現行全分類稿は [poisson_p4_classification_ja.tex](poisson_p4_classification_ja.tex)、
 構造稿は [poisson_divisor_symmetries_ja.tex](poisson_divisor_symmetries_ja.tex)。
-両者は marked_hyperplane_reconstruction.tex、quadric_cubic_reconstruction.tex、poisson_lifting_examples.tex を共有する。
+両者は marked_hyperplane_reconstruction.tex、quadric_cubic_reconstruction.tex、conductor_conormal_reconstruction.tex、poisson_lifting_examples.tex を共有する。
 単純Hと重複Hの入口を共通証明へ置換し、TRIPLE→Ga9の強制補正と可換場の因子分裂を説明した。
 二次＋三次の共通復元、全被約平面五次の全源、因子留数による磁気商ν−1も統合した。
+Cの導手支持について、rank零・二の可換余法線とflat作用を共通化した。
+planeではcanonical liftの全weight源を(45,30,9)、rank零を(35,30,9)として正逆付きで復元した。
+restriction・余法線作用を固定してもbinary quadratic三係数が残る。全higherと非斉次Jacobiを保持する。
+leading Pfaffianをrestrictionで割ったsectionの平行輸送から、二次判別式と四次不変量を同じ原理で説明する。
+rank零可換性、rank二module、既約cubic零因子の全source、m2/m4輸送の重複証明を実際に置換した。
+全150係数で制約rank42、Euler24、全源84の完全性と全自由係数恒等式を記号検算した。
+新規性未確認。旧有限場合分け・共鳴・monodromy・全支持帰属・成分性は保持し、全147の独立検証ではない。
 個別成分の全証明は主稿に保持する。今回全147を独立検証したとはしない。
 組版は `bash scripts/build_structural_manuscripts.sh`、方針はルートRESEARCH_POLICY.md。
 
