@@ -45,6 +45,10 @@ primary claimからの依存、本文入力、正確な係数・コード・証�
 RUNTIMEという名前だけで記録入力の欠落を免除しない。二つの過去の失敗実行記録だけを、
 正確なmetadata出典とhash、置換済みの係数証明書を確認して除外する。
 `all_required_inputs_available` はこの記録索引の範囲で読み、動的な全入力の証明に拡張しない。
+旧証明書の絶対パスは `classification_roots.json` の記録済み元ルートから相対化する。
+未知の絶対パス付きhash入力は黙って落とさず未解決にする。
+読解済みの生成物は、手元に存在しても恒久的な必須入力へ昇格させない。
+異なる復元先とscratch有無の下でも、全16840照合を含む監査JSONのbyte一致を確認した。
 
 必須のlegacyコード・データは個別ファイルとして同梱する。
 `legacy/v03/code/poisson_p4_components_check.py` 等を旧ZIPから取り出す操作は不要である。

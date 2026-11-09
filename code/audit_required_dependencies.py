@@ -35,7 +35,13 @@ def audit(output):
     extensions=('.json','.json.gz','.in.gz','.py','.tex','.md','.csv','.cpp','.h','.m2','.M2','.txt')
     def put(name,origin,expected=None,role='reference'):
         name=name.replace('\\_','_').strip().removeprefix('./')
-        if name.startswith(str(ROOT)+'/'):name=name[len(str(ROOT))+1:]
+        for recorded_root in [str(ROOT),*roots.get('recorded_repository_roots',[])]:
+            if name.startswith(recorded_root.rstrip('/')+'/'):
+                name=name[len(recorded_root.rstrip('/'))+1:];break
+        if name.startswith('/') and expected and re.fullmatch('[0-9a-f]{64}',expected) and name.endswith(extensions):
+            pending.append({'origin':origin,'path':name,'expected':expected,'actual':None,
+                'role':role,'reason':'Unresolved absolute recorded input; declare its original repository root explicitly.'})
+            return
         if not name.startswith(prefixes)or not name.endswith(extensions)or any(q in name for q in ['{','}','*','?','__pycache__']):return
         logical=name;name=alias.get(name,name)
         # Legacy records use paths relative to their own unpacked source root.
@@ -163,6 +169,7 @@ def audit(output):
     files=sorted(f for f in seen if (ROOT/f).is_file())
     result={'scope':__doc__,'primary_roots':roots['roots'],'primary_claim_count':len(claimids),'primary_claims':sorted(claimids),'direct_paths':sorted(seeds),'files':[{'path':f,'bytes':(ROOT/f).stat().st_size,'sha256':digest((ROOT/f).read_bytes())}for f in files],'edges':{k:sorted(v)for k,v in edges.items()},'recorded_hashes':integrity,'unresolved_recorded_inputs':pending,'missing':{k:sorted(v)for k,v in missing.items()},'excluded_nonpremises':excluded,'root_input_aliases':alias,'all_required_inputs_available':not missing and not pending,'mathematics_independently_certified':False}
     result['static_path_analysis_complete']=False
+    result['recorded_repository_roots']=roots.get('recorded_repository_roots',[])
     candidates={(r['origin'],r['path'])for r in excluded if r.get('reason','').startswith('Unresolved syntactic path candidate')}
     unreviewed=candidates-reviewed_pairs.keys()
     result['availability_scope']='Recorded file hashes, paths resolved by this scan, and the source-hash-guarded finite path review. This is not an exhaustive analysis of arbitrary runtime-generated paths.'
