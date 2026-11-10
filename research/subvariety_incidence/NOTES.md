@@ -1,6 +1,20 @@
 # Poisson部分多様体incidence：現行研究ノート
 
-2026-11-10 / v16。再開時はRESEARCH_POLICY.md。詳しい証明は新接錐原稿と同伴incidence原稿を参照。
+2026-11-11 / v18。再開時はRESEARCH_POLICY.md。詳しい証明は新接錐原稿と同伴incidence原稿を参照。
+
+## 第一課題：四次del Pezzoの例外的rank4延長
+
+滑らかなS=V(q0,q1)⊂P4、0≠σ_h∈H0(S,-K_S)の全ambient延長はP=J_h+q0A+q1B（A,Bは定数反対称行列、全20係数）。一般の(S,σ_h)ではJacobiイデアルが全A,Bを消す被約一点。特殊点でのrank4延長は未確認で、一般剛性を普遍剛性に読み替えない。
+
+C=S∩V(h)は(2,2,1)、次数4・算術種数1の反標準零曲線。v17の普遍必要条件はDπ∈I_S I_C⊂I_C²、h0(I_S I_C(5))=41、h0(I_S(5))=65、差24（C上の法線一次ジェット）。固定Cが滑らかな楕円四次ならCのHilbert次元20、同じCを切断に持つ滑らかなSのファイバーはA10開。
+
+**v18の幾何的精密化**：Poisson不変Sの conormal N*=I_S/I_S²≅O_S(-2)^2 はPoisson括弧からκ:∧²N*→N*を持つ。κ∈H0(O_S(2)^2)。局所正則座標(u,v,x,y)でS=(u,v)、π^{xy}=f+O(I)、π^{uv}=ua+vb+O(I²)、混合成分はIに入るので Pf(π)≡f(ua+vb) mod I²。従って全SでDπ∈I_S² ⇔ κ=0。可換型の必要五次空間はh0(I_S²(5))=15、非可換型では一般S点でDが一次消滅。41−15=26=h0(O_S(2)^2)。これは必要条件でありrank4の存在や20変数Jacobiに独立26式を加えるものではない。
+
+**非可換型の退化集合**：U=S＼C上のPoisson構造はsymplectic。Hamiltonian流が余法線Lieファイバーを同型に運ぶのでκが一箇所で非零ならU全体で非零。よってZ(κ)⊂C。Cが滑らかならκはC全体で零、またはZ(κ)は0次元で長さc2(O_S(2)^2)=(2H)^2=16。一般Poisson部分多様体一次近傍の理論はFernandes–Mărcuț 2026にあるがPfaffian積公式とdel Pezzo帰結は本稿に証明。外部新規性調査は未完了。
+
+最優先：既存rank4 141族のうちPoisson零曲線Cと余法線κの「非可換・16点」「非可換・C全体」「可換」の型を実現し得るものを探し、滑らかなSを保存する全20変数Jacobi解と照合する。単なるPfaffian因子の一致は包含の証明でない。特殊対角pencilでminorが消えてもrank4解の存在とは言えない。精密定理：papers/del_pezzo_pfaffian_incidence.tex。数値検算：code/subvariety_incidence/check_dp_pfaffian_conormal.py、check_dp_conormal_lie_pfaffian.py、対応JSON。
+
+## 保持する副成果：完全等方Log点の局所Poissonスキーム
 
 ## 模型と完全な二次障害
 

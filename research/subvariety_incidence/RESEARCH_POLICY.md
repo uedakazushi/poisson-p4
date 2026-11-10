@@ -1,6 +1,6 @@
 # Poisson部分多様体incidence：現行研究方針
 
-2026-11-11 / v17。再開順：ルートRESEARCH_POLICY.md → 本方針 → NOTES.md → papers/poisson_subvariety_incidence_ja.tex → 関連共有TeX。
+2026-11-11 / v18。再開順：ルートRESEARCH_POLICY.md → 本方針 → NOTES.md → papers/poisson_subvariety_incidence_ja.tex → 関連共有TeX。
 
 ## 一般原則と保存許可
 
@@ -15,16 +15,17 @@
 ## 証明された幾何的な検査基準
 
 - **v17の必要条件**：C=S∩V(h)は(2,2,1)の反標準曲線、次数4、算術種数1、一般には滑らかな楕円曲線。Sを保存するambient Poisson πはC上で零となり、Pfaffian五次式 Dπ∈I_S I_C⊂I_C²。rank4ならその退化五次超曲面はCに沿って特異。H0(I_S(5))は65次元、H0(I_S I_C(5))は41次元で、C上の法線一次ジェットに24本の独立条件。楕円四次Cの族は20次元、固定Cを超平面切断に持つ滑らかなSのファイバーはA10の非空開。普遍的な証明は papers/del_pezzo_pfaffian_incidence.tex、独立数値検算は code/subvariety_incidence/check_dp_pfaffian_conormal.py および certificates/dp_pfaffian_conormal.json。**これはrank4延長の十分条件ではなく、双ベクトル全20変数のJacobi方程式に追加の24本の独立な式を課すものでもない。**
+- **v18の余法線Lie判定（証明付き）**：κ_π:∧²N*→N*はO_S(2)^2の切断。Poisson不変Sに沿うPfaffian一次法線ジェットはσ_h·κ_πなので、Dπ∈I_S²(5)とκ_π=0は同値。前者は退化五次式がS全体で二重になる「可換」型で、五次必要空間は15次元（従来の41次元から26少ない）。後者の「非可換」型はSの一般点で一次消滅。S＼Cは連結シンプレクティック葉で、Hamiltonian流が余法線Lie代数を同型に運ぶので、非可換ならκ≠0はS＼Cの全点で成立。Cが滑らかな楕円四次ならκの消失はC全体またはC上の長さ16の零次元スキーム。普遍証明はpapers/del_pezzo_pfaffian_incidence.tex、独立局所係数検算とHilbert数値はcheck_dp_conormal_lie_pfaffian.py。Fernandes–Mărcuț 2026の一次近傍理論を一般枠組みとして引用し、この具体的適用の新規性・優先権は未確認。存在条件ではない。
 - **従来の結果**：smooth cubicは既知intrinsic分類から全点rank2一意延長（36次元Rat113 incidence）、smooth degree≥4 hypersurfaceの非零ambient不変性なし、一般del Pezzo被約一点と28次元Rat122、smooth quadric一般Rat/Log/Affの一点/A1/二点と特殊Log境界、単純hyperplaneの横断対称性。
 - **分類との関係**：141 rank4・6 rank2という既存147成分リストを照合対象とするが、構造定理の証明で完全分類を循環的に仮定しない。文献上の完全な優先権と外部査読は未確認。
 
 ## 次に行う具体的研究
 
-1. 反標準楕円四次零曲線Cを先に固定し、長さ10の滑らかなdel Pezzo liftとrank4 Poisson源の不変性を比較。147源の実PfaffianだけでなくPoisson**零スキーム**を照合する。一般元での不成立は特殊元の排除にならない。
+1. 反標準楕円四次零曲線Cと余法線Lie括弧κを先に固定し、長さ10の滑らかなdel Pezzo liftとrank4 Poisson源の不変性を比較。147源の実PfaffianだけでなくPoisson**零スキーム**を照合する。一般元での不成立は特殊元の排除にならない。
 2. 対角形 q0=Σx_i²、q1=Σλ_i x_i²（λ_i相異なる）で特殊hの全20変数Jacobiイデアルを検査。特別な線形化minorと実rank4解を区別する。観察にとどまる標本は証明済みと称しない。
 3. 次にspecial quadric Q3の制限形式・直交性・strict stabilizer・modular場・全Jacobiファイバーを層別し、147源の説明へつなぐ。
 4. Fano hypersurface、hyperplaneとdel Pezzoのincidenceを統合する幾何学的構造定理を目指す。一般次元FanoとP5の(2,2)Fano threefoldは未解決の長期目標。
 
 ## 保持する副成果と再現
 
-完全等方Log点の非被約接錐・局所次元28・23/24交叉等の有効な成果は papers/isotropic_log_tangent_cone_ja.tex に保持し、主課題の実行を妨げる単なる三次計算の継続は優先しない。数値証明書は厳密な有限計算、普遍論証は本文。手動再現は bash scripts/verify_github_source.sh incidence。組版、計算、GitHubへの保存は別状態として報告する。一次文献ではLoray–Pereira–Touzet、Mayanskiy、Pym surveyおよびNasu 2026を適用範囲付きで比較する。
+完全等方Log点の非被約接錐・局所次元28・23/24交叉等の有効な成果は papers/isotropic_log_tangent_cone_ja.tex に保持し、主課題の実行を妨げる単なる三次計算の継続は優先しない。数値証明書は厳密な有限計算、普遍論証は本文。手動再現は bash scripts/verify_github_source.sh incidence（13 producer／小証明書の照合）。組版、計算、GitHubへの保存は別状態として報告する。一次文献ではLoray–Pereira–Touzet、Mayanskiy、Pym surveyおよびNasu 2026を適用範囲付きで比較する。

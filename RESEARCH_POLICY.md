@@ -1,6 +1,6 @@
 # 研究方針 — 射影四空間Poisson成分の幾何学的構造
 
-2026-11-11 / v17。**研究再開時に最初に読む。**
+2026-11-11 / v18。**研究再開時に最初に読む。**
 正本はGitHub main。次に research/subvariety_incidence/RESEARCH_POLICY.md、NOTES.md、papers/poisson_subvariety_incidence_ja.tex を読む。
 
 ## I. 恒常的原則と保存許可
@@ -26,16 +26,17 @@
 
 - smooth cubicの一意延長とRat113の36次元、一般四次del Pezzoの被約一点性とRat122の28次元、quadricの一般三型・特殊Log、hyperplane判定の既存の証明はincidence主稿と共有TeXに保持する。
 - **新しい幾何補題（v17）**：四次del Pezzoの反標準零曲線Cは(2,2,1)、次数4・算術種数1。rank4延長の実Pfaffian Dは I_S I_C に属し、Cに沿って退化五次は特異。五次線形空間は dim H0(I_S(5))=65、dim H0(I_S I_C(5))=41、したがって24個の法線一次ジェット条件。楕円四次零曲線の空間は20次元、同じCを超平面切断として持つ滑らかなdel Pezzoのファイバーはアフィン10次元開。papers/del_pezzo_pfaffian_incidence.texに普遍証明、SymPy producerとJSON証明書。条件は**必要だが十分でなく**、全20変数双ベクトル延長には自動的に成立するためJacobi理想に新たな24本の独立方程式を加えた意味ではない。
+- **v18の新しい構造定理（証明付き）**：滑らかな四次del PezzoのPoisson不変S上に一般rank4 Poisson構造πが制限される場合、余法線Lie括弧 κ:∧²N*→N* はO_S(2)^⊕2の切断。Pfaffian DπのS法線一次ジェットはσ_h·κと等しい。σ_hが一般非零なのでDπ∈I_S²(5) ⇔ κ=0。非可換な余法線ならDπはSの一般点で一次消滅、可換ならS全体で二重消滅してPfaffian必要線形空間が41次元から15次元へ縮む（差26）。Hamiltonian流により非可換型はS＼C上で非零のままなので、可換化集合は反標準零曲線C上に限られる。Cが滑らかな楕円四次なら、κはC全体で消えるか、長さ16の有限可換化スキームを持つ。一般の余法線Lie一次近傍の理論はFernandes–Mărcuț 2026の既知枠組み；本研究の貢献はPfaffianへの積公式とdel Pezzoでの幾何的帰結。証明papers/del_pezzo_pfaffian_incidence.tex、局所係数計算check_dp_conormal_lie_pfaffian.py、JSON証明書。いずれもrank4延長の存在や完全分類を示す十分条件ではない。
 - **既存147成分分類**：被約141 rank4 + 6 rank2の原稿・証明・内部査読報告を保持する。ただし外部査読・新規性は未確定で、今回全147件を再検算していない。構造定理の仮定として分類の完全性を循環的に使わない。
 - **保持すべき独立の副成果**：完全等方Log点の接空間30、局所次元28、真の非被約接錐、二次初期関係7本、rank2/rank4成分交叉23/24、冪零対称性と重み分解。papers/isotropic_log_tangent_cone_ja.tex に証明を保持。主優先度はincidenceへ変更し、元のPoisson局所環の非被約性は未証明とする。
 
 ## IV. 次の具体的着手と達成基準
 
-1. **最優先：del Pezzoの例外的延長の有無。** Cを含むPoisson零スキームから既存rank4源を比較し、固定Cに対する滑らかな曲面liftの10変数にPoisson不変条件を課す。対角pencilと特殊hの全20変数Jacobiイデアルも検査する。単なるminor消失を真の例外と同一視せず、全解とrank4条件を確認する。普遍剛性、または明示rank4例と幾何的特徴づけの確立を達成基準とする。
+1. **最優先：余法線Lie代数の二層に分けたdel Pezzoの例外的延長の有無。** Cを含むPoisson零スキームと余法線Lie括弧κ（可換／非可換、可換化集合Cまたは長さ16）から既存rank4源を比較し、固定Cに対する滑らかな曲面liftの10変数にPoisson不変条件を課す。対角pencilと特殊hの全20変数Jacobiイデアルも検査する。単なるminor消失を真の例外と同一視せず、全解とrank4条件を確認する。普遍剛性、または明示rank4例と幾何的特徴づけの確立を達成基準とする。
 2. **次点：特殊quadricの幾何層別。** 制限形式、直交性、stabilizer、modular因子重複と既存147源を対応させ、全ファイバーとscheme構造を調べる。
 3. **構造的統合：** cubic・quadric・del Pezzo・hyperplaneを、法線Lie作用・Poisson零スキーム・忘却ファイバーの原理で結び、既存成分を幾何学的に説明する定理へまとめる。
 4. 手法が大量場合分けに陥る場合、数学的価値・概念的明瞭さを優先して方針を再評価する。
 
 ## V. 再現と保存
 
-bash scripts/verify_github_source.sh incidence が主研究の現行12 producerと原稿の手動検証入口。旧接錐は tangent-cone、全分類の既存preflightは full。新しい有限計算のPASSは人手による普遍証明・外部査読と区別する。GitHub mainのpushとremote SHAを独立に確認する。
+bash scripts/verify_github_source.sh incidence が主研究の現行13 producerと原稿の手動検証入口。旧接錐は tangent-cone、全分類の既存preflightは full。新しい有限計算のPASSは人手による普遍証明・外部査読と区別する。GitHub mainのpushとremote SHAを独立に確認する。

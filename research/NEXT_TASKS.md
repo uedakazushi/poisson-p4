@@ -1,11 +1,15 @@
-# 現行研究課題 — Poisson接錐の三次初期関係と成分交叉
+# 最優先 — Poisson部分多様体から射影四空間の成分分類を構造的に説明する
 
-2026-11-10 / v16。再開はRESEARCH_POLICY.mdから。GitHub main正本、生成PDF非追跡、GitHub Actions不使用、Libraryは実push失敗時の緊急退避のみ。
+2026-11-11 / v18。再開：RESEARCH_POLICY.md → research/subvariety_incidence/RESEARCH_POLICY.md → NOTES.md → papers/poisson_subvariety_incidence_ja.tex。GitHub main唯一正本、TeX・コード・入力・証明書追跡、生成PDF非追跡、GitHub Actions禁止、Libraryは実push失敗時の緊急退避のみ。
 
-**証明付きの到達点**：完全等方Log点pの接空間30次元、局所次元28、真の接錐に非零平方零元h=a(s2+c)、二次初期イデアルは7生成元、Hilbert–Samuel重複度1。最大次元の28次元Log1112成分はpで滑らか。25次元long rank4成分との共通23次元Poisson族を明示し、交叉の局所次元は23か24。固定Aを保つ5パラメータの滑らかな二次式には普遍Poisson延長があり、Aと基底三形式直線を保つ二次形式はrank(q|W)=0/1の二軌道。g_ρ=diag(1,1,ρ,1,ρ^-1)は(η,λ)→(ρ²η,ρλ)と作用し、rank2完全等方型へ退化する。
+**上位目標**：Poisson不変超曲面・完全交叉・葉層・退化五次因子・余法線Lie構造を通じた幾何学的構造定理によって、既存147被約成分の由来・境界・交叉を説明する。分類の完全性を定理の仮定に使わず、既知文献と本研究の貢献を分離する。
 
-**新しい同変分解**：30接方向の重み(-2,-1,0,1,2)別次元は(1,5,12,10,2)。95正規方向の重み(-2,-1,0,1,2,3,4)別次元は(2,7,17,26,28,12,3)。7二次初期関係の重みは(2,1,2,3,1,1,1)、平方零hは重み2。30固有ベクトルと重み表はコードcheck_nilpotent_tangent_weights.pyで独立検算。
+**証明済み**：smooth cubic三次Fanoの任意Poisson構造はrank2に一意延長。smooth degree≥4 hypersurfaceは非零ambient Poisson不変にならず、rank4退化五次因子の滑らかな既約成分次数は≤2。四次del Pezzo (2,2)の一般(S,σ_h)はrank2の被約一点延長、20変数Jacobi表示と28次元Rat122 incidence。smooth quadric一般Rat/Log/Aff延長(一点/A1/二点)と特殊Log境界。
 
-**次に着手**：95正規方向を重みブロックごとに二次まで消去し、三次残差と7本の二次関係のsyzygyを組み合わせて全初期イデアルの三次部分を求める。同時に固定A・三形式の対称性を破る共通Poisson変形の有無を調べ、交叉次元23/24を決定する。26/24次元の二次模型成分は実接錐の成分と未同定。ambient局所環の被約性も未解決で、接錐の非被約性から推論しない。
+**新しい構造定理 v18**：C=Z(σ_h)は反標準零曲線。rank4延長のPfaffian DはI_S I_Cに属し、法線一次ジェットはσ_h·κ（κは余法線Lie括弧、O_S(2)^2切断）。可換κ=0 ⇔ D∈I_S²（必要五次線形空間15次元）、非可換κ≠0ならDはSの一般点で一次消滅（従来必要空間41次元）。非可換κの消滅集合はCに含まれ、Cが滑らかな楕円四次ならC全体または長さ16の零次元集合。存在・十分性は未証明。
 
-原稿：papers/isotropic_log_tangent_cone_ja.tex と共有 papers/isotropic_nilpotent_pencil.tex。計算：code/subvariety_incidence/check_isotropic_quadratic_cone.py、check_nilpotent_torus_attraction.py、check_nilpotent_tangent_weights.py 等と各certificates。手動入口：bash scripts/verify_github_source.sh tangent-cone。厳密計算、LuaLaTeX組版、GitHub保存は別々に検証する。
+**具体的な一手**：既存141階数4源の零スキーム・PfaffianのS沿い重複度と余法線Lie括弧κを使い、滑らかな(2,2)曲面保存の候補を絞る。最初に(1)固定C楕円四次のA10 lift、(2)Pfaffian I_S²かI_S I_C＼I_S²か、(3)κの非可換化と16点条件、(4)20係数Jacobiの全解、を検査。一般点だけで特殊点を排除しない。次点は特殊smooth quadricの全scheme延長と既存147源の対応。
+
+**重要な未解決**：特別なsmooth del Pezzoのrank4延長の存在／普遍非存在、特殊quadricの全分類、幾何構造から147を再構成する定理、一般次元Fano。副成果の完全等方Log点の非被約接錐・局所次元28・交叉23/24等は papers/isotropic_log_tangent_cone_ja.tex と旧現行計算証明書に保持し、削除しない。元のambient局所環の被約性は未証明。
+
+手動再生成：bash scripts/verify_github_source.sh incidence（13 producer＋保存JSON＋LuaLaTeX）。組版と全計算は実行した分のみ報告する。最新の数学証明はpapers/del_pezzo_pfaffian_incidence.tex。研究一式に旧ZIP・作業ログ・PDF中間物は含めない。

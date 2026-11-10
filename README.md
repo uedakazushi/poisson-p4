@@ -1,10 +1,13 @@
 # Poisson structures on projective four-space
 
-2026-11-10 / v16-local-geometry + v74-classification.
+2026-11-11 / v18-incidence + v74-classification.
 
 **GitHub main is canonical.** Current Japanese LuaLaTeX sources, exact code, inputs and certificates suffice to restart the research. Generated PDFs are not tracked. No GitHub Actions. Library is used only after an actual failed GitHub push; no Library download or old ZIP is required.
 
 ## Current research
+
+**Top priority: geometric structural theorems via Poisson-invariant subvarieties.** Start with [the incidence manuscript](papers/poisson_subvariety_incidence_ja.tex) and [the del Pezzo conormal/Pfaffian theorem](papers/del_pezzo_pfaffian_incidence.tex). A rank-four Poisson structure preserving a smooth degree-four del Pezzo surface S with anticanonical zero curve C must have Pfaffian D in I_S I_C. The first normal jet of D is the intrinsic Poisson bivector times the conormal isotropy Lie bracket kappa in H0(S,O_S(2)^2). Hence D belongs to I_S^2 if and only if kappa is abelian (the necessary quintic space has dimension 15 versus the earlier 41). If kappa is nonabelian, it stays nonabelian on S minus C; for smooth elliptic C its vanishing occurs along the entire C or a length-16 zero scheme on C. These are necessary structural conditions, not rank-four extension existence. The general first-order conormal framework is known (Fernandes–Mărcuț 2026); the concrete Pfaffian criterion is proved here. [Exact local arithmetic check](code/subvariety_incidence/check_dp_conormal_lie_pfaffian.py) and [certificate](research/subvariety_incidence/certificates/dp_conormal_lie_pfaffian.json) are tracked. Next classify exceptional smooth del Pezzo extensions and relate them to the 147 component sources.
+
 
 Start with [RESEARCH_POLICY.md](RESEARCH_POLICY.md), then the [module policy](research/subvariety_incidence/RESEARCH_POLICY.md) and [current notes](research/subvariety_incidence/NOTES.md).
 
