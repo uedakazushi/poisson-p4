@@ -1,0 +1,185 @@
+\subsection{反標準零曲線とPfaffianの法線一次ジェット}
+\label{subsec:dp-pfaffian-conormal}
+四次del Pezzoの一般Poisson延長は被約な一点だが、特別な組に
+一般階数四の延長があるかは未解決である。
+全二十係数のJacobiイデアルを直接解く前に、
+反標準零曲線と退化五次式の関係を幾何学的に制約する。
+以下の必要条件は一般延長剛性と独立の幾何的論証によるもので、
+階数四延長の存在も非存在も保証しない。
+
+\begin{proposition}[反標準零曲線への二重消滅]
+\label{prop:ci-anticanonical-zero-pfaffian}
+$S\subset\PP^4$を滑らかな完全交叉曲面で、
+$-K_S\simeq\cO_S(m)$、$m>0$とする。
+$0\ne\sigma\in H^0(S,\wedge^2T_S)$の零Cartier因子を
+$C=Z(\sigma)$とする。
+$S$をPoisson部分多様体として保存し、$\sigma$を誘導する
+$\pi\in H^0(\PP^4,\wedge^2T_{\PP^4})$について
+\begin{equation}\label{eq:ci-pfaffian-product-ideal}
+ \pi|_C=0,\qquad
+ D_\pi:=\pi\wedge\pi/2\in
+ H^0\left(\PP^4,\mathcal I_S\mathcal I_C(5)\right)
+\end{equation}
+が成り立つ。$D_\pi\ne0$、すなわち$\pi$が一般階数四なら、
+その退化五次超曲面は$C$に沿って特異である。
+\end{proposition}
+\begin{proof}
+Poissonイデアル$\mathcal I_S$の余法線は
+$\pi^\sharp$で零に写るため、
+$\pi|_S\in\wedge^2T_S$であり、制限は$\sigma$である。
+従って$\pi|_C=0$はスキームとして成立し、
+$D_\pi\in\mathcal I_C^2$となる。
+また$\wedge^4T_S=0$から$D_\pi\in\mathcal I_S$である。
+$S$は滑らかな余次元二完全交叉で、
+$C$は$S$上の非零因子で定義される。
+局所的に$\mathcal I_S=(u,v)$、
+$\mathcal I_C=(u,v,t)$と書けば
+$t$は$\cO_S$上の非零因子である。
+$t^2f\in(u,v)$なら$f\in(u,v)$だから
+\[
+ (u,v)\cap(u,v,t)^2=(u,v)(u,v,t).
+\]
+ゆえに$\mathcal I_S\cap\mathcal I_C^2
+ =\mathcal I_S\mathcal I_C$が従う。
+さらに$D_\pi\in\mathcal I_C^2$は
+$D_\pi$の全一次微分が$C$に沿って零であることを意味する。
+\end{proof}
+
+\begin{theorem}[四次del Pezzoにおける24本のPfaffian必要条件]
+\label{thm:dp-24-pfaffian-conditions}
+$S=V(q_0,q_1)\subset\PP^4$を滑らかな四次del Pezzo曲面、
+$0\ne h\in H^0(S,-K_S)\simeq H^0(S,\cO_S(1))$とし、
+$C=S\cap V(h)$とする。
+$C$は次数四・算術種数一の反標準曲線で、
+一般の$h$に対し滑らかな楕円四次曲線である。
+$S$を保存して$\sigma_h$を誘導する一般階数四の
+Poisson構造の退化五次式は
+\begin{equation}\label{eq:dp-pfaffian-expansion}
+ \boxed{\quad
+ D_\pi=h(q_0A_2+q_1B_2)
+       +L_0q_0^2+L_1q_0q_1+L_2q_1^2,\quad}
+\end{equation}
+と書ける。$A_2,B_2$は斉次二次式、
+$L_0,L_1,L_2$は斉次一次式である。
+さらに全ての滑らかな$S$と非零$h$について
+\begin{equation}\label{eq:dp-pfaffian-dimension41}
+ \boxed{\quad
+ \dim H^0(\mathcal I_S\mathcal I_C(5))=41,\qquad
+ \dim H^0(\mathcal I_S(5))=65,\qquad
+ \operatorname{codim}=24.\quad}
+\end{equation}
+\end{theorem}
+\begin{proof}
+随伴公式より$-K_S=\cO_S(1)$で、
+$C$は型$(2,2,1)$の完全交叉だから
+$\deg C=4$、$\omega_C\simeq\cO_C$、$p_a(C)=1$となる。
+一般の$h$ではBertiniにより滑らかである。
+命題\ref{prop:ci-anticanonical-zero-pfaffian}により
+$D_\pi\in\mathcal I_S\mathcal I_C$。
+$\mathcal I_S=(q_0,q_1)$、
+$\mathcal I_C=(q_0,q_1,h)$なので
+\[
+ \mathcal I_S\mathcal I_C
+ =(q_0^2,q_0q_1,q_1^2,hq_0,hq_1)
+\]
+であり、次数五を取れば表示式が従う。
+
+$R=\CC[x_0,\ldots,x_4]$、$I=(q_0,q_1)$と置く。
+正則列であることから
+\[
+\dim I_5=2\dim R_3-\dim R_1=65,\quad
+\dim(I^2)_5=3\dim R_1=15,
+\]
+\[
+ \dim I_4=2\dim R_2-\dim R_0=29,\qquad
+ \dim(I^2)_4=3
+\]
+である。$I/I^2\simeq(R/I)(-2)^{\oplus2}$で、
+$h$は$R/I$と$I/I^2$の双方の非零因子だから
+$R/I^2$上でも非零因子であり、
+$hI_4\cap(I^2)_5=h(I^2)_4$となる。
+ゆえに
+\[
+ \dim(I\,I_C)_5=15+29-3=41.
+\]
+以上は正則列とHilbert函数による普遍的な計算である。
+独立した付属の$\mathbb Q$係数producerは、
+滑らかな対角pencilを用いて126個の五次単項式に対する
+行列階数が$65$、$41$となることを再検算する。
+\end{proof}
+
+\begin{remark}[法線一次ジェットの幾何]
+\label{rem:dp-normal-jet}
+この24条件は$S$を含む五次式の法線一次ジェットが
+$C$上で零になる条件である。自然な完全列
+\[
+0\longrightarrow\mathcal I_S\mathcal I_C(5)
+\longrightarrow\mathcal I_S(5)
+\longrightarrow
+ (\mathcal I_S/\mathcal I_S^2)(5)|_C
+ \simeq\cO_C(3)^{\oplus2}\longrightarrow0
+\]
+の右端は二つの法線一次ジェットを表す。
+$C$は次数四・算術種数一の完全交叉曲線なので
+$h^0(C,\cO_C(3))=12$である。
+$\PP^4$の三次式から$C$への制限は全射するため、
+全24切断へ$H^0(\mathcal I_S(5))$が全射する。
+従って式\eqref{eq:dp-pfaffian-dimension41}の差$24$は
+独立な法線一次ジェットの消滅条件である。
+\end{remark}
+
+\begin{proposition}[反標準楕円四次曲線を中心とするincidence]
+\label{prop:dp-elliptic-quartic-fibres}
+$\mathcal H_{\mathrm{ell},4}(\PP^4)$を、
+ある超平面に含まれる滑らかな楕円四次曲線のHilbert軌跡とする。
+この軌跡は既約な20次元の滑らかなパラメータ空間である。
+滑らかな四次del Pezzo曲面$S$と
+滑らかな超平面切断$C=S\cap H$の組から$C$への忘却写像は、
+各ファイバーが$\AA^{10}$の非空Zariski開集合と同型である。
+従ってこのincidenceの次元は30である。
+\end{proposition}
+\begin{proof}
+滑らかな楕円四次曲線$C$はその線形包
+$H\simeq\PP^3$を一意に定め、
+$H$内で二つの二次式の完全交叉である。
+従って$H$の選択は4次元、
+$H$内の二次式pencilは$\operatorname{Gr}(2,10)$の
+16次元の開集合であり、曲線の空間は20次元となる。
+$H=V(h)$とし、$C$を切り出す二次式の基底
+$(\bar q_0,\bar q_1)$を選ぶ。
+その$\PP^4$への任意のliftを$(q_0,q_1)$とする。
+同じ$C$を超平面切断として持つ$(2,2)$完全交叉は、
+二次式の基底を$H$への制限で規格化すると、一意に
+\[
+ S_{\ell_0,\ell_1}=
+ V(q_0+h\ell_0,\ q_1+h\ell_1),\quad
+ (\ell_0,\ell_1)\in
+ H^0(\PP^4,\cO(1))^{\oplus2}\simeq\AA^{10}
+\]
+と書ける。$C$上では二つの勾配の$H$方向成分が
+独立なので$S_{\ell_0,\ell_1}$は滑らかであり、
+$C$の外ではBertiniによって一般のliftが滑らかである。
+従って滑らかな完全交叉を与えるパラメータは
+空でないZariski開集合をなす。
+\end{proof}
+
+\begin{remark}[147成分の幾何学的判定へ]
+固定した$(S,[h])$の退化五次式の必要な線形空間は
+41次元であり、30次元の$(S,[h])$の底の上の
+候補Pfaffian空間は射影$\PP^{40}$束として次元70である。
+これは\emph{必要条件}であって階数四のPoisson延長の
+存在を保証しない。また全20変数の双ベクトル延長には
+既に自動的に成立するため、Jacobi理想へ24本の
+独立方程式を追加したという意味ではない。
+次の課題は既存147成分の実sourceの零スキームが
+この反標準楕円四次曲線を含み得るか、
+その曲線を持つ滑らかな$(2,2)$曲面をPoisson不変に
+できるかを調べることである。
+一般元での非存在だけから特殊元の非存在は結論しない。
+
+零集合と退化因子の一般的背景は\cite{PymSurvey}を参照する。
+四次del Pezzo上の曲線のHilbert変形は\cite{Nasu2026}でも研究されるが、
+同文献の主定理は主に次数$>8$の曲線を扱い、
+本稿の次数四の零曲線のPoisson延長問題を解決するものではない。
+新規性・優先権の網羅的確認は未完了である。
+\end{remark}
