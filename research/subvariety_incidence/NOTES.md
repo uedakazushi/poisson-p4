@@ -4,7 +4,7 @@
 
 ## 完全等方Log点の既知の構造
 
-q=u0²+2u1w0+2zw1、i_(P0)Ω=dq∧i_ξ(du0∧du1∧dz)、ξ=(1,1,-2)。固定Q,σ延長ファイバーはSpec C[a,b,c]/(ac,c²)。cの埋込み接方向はfull ambientでも二次までPoissonに持ち上がらず、五係数Λの値は-9。全150係数の一次Jacobi階数95、射影接空間30次元。さらに二つの独立消滅汎関数が30次元接空間上に9*t21*t29と-4*t25*t27を与える。Log(1,1,1,2)パラメータ源の28次minorは-57177414000000で、局所次元28を確定。証明はpapers/quadric_ambient_quadratic_obstruction.texとpapers/quadric_log_component_intersection.tex。
+q=u0²+2u1w0+2zw1、i_(P0)Ω=dq∧i_ξ(du0∧du1∧dz)、ξ=(1,1,-2)。固定Q,σ延長ファイバーはSpec C[a,b,c]/(ac,c²)。cの埋込み接方向はfull ambientでも二次までPoissonに持ち上がらず、五係数Λの値は-9。全150係数の一次Jacobi階数95、射影接空間30次元。さらに二つの独立消滅汎関数が30次元接空間上に9*t21*t29と-4*t25*t27を与える。 この二次完全交叉の被約台は四つの28次元座標平面の和であり、実接錐の最大次元成分はその四候補のいずれか、Hilbert--Samuel重複度は高々4。いずれの平面が実際に現れるかは未確定。Log(1,1,1,2)パラメータ源の28次minorは-57177414000000で、局所次元28を確定。証明はpapers/quadric_ambient_quadratic_obstruction.texとpapers/quadric_log_component_intersection.tex。
 
 ## 階数四成分への明示同定（検算済み）
 

@@ -82,7 +82,7 @@ research/classification/CURRENT.md → 対象の現行原稿と元証明を読�
 
 数学的重要性、新規性、理解の深化、正確性、応用可能性、実現可能性を総合する上位原則はI節に従う。現行の具体的重点は、射影四空間のPoissonスキームが異なる次元の既約成分で交叉する現象を理解すること。
 
-**今回証明した局所構造**：完全等方Log点p=[P0]の接空間は30次元で、二つの互いに素なSchouten二次障害（9*t21*t29、-4*t25*t27）とLog(1,1,1,2)族の非零28次minorから局所次元は正確に28。この局所次元定理自体は147成分の完全分類に依存しない。さらにP0+aK1 (a≠0) は、明示的なアフィン線形＝PGL5変換によりR4_MODULAR_RANK1_LONG_NONCONSTANT_25の実際の全源と同定される。従ってpは28次元rank2対数型成分と25次元rank4長鎖成分の交点にある。既存カタログにおける両者の成分性定理を用いると、pの局所環は非等次元でCohen--Macaulayではなく、Gorensteinでも局所完全交叉でもない。これはambient非被約性を意味しない。modular冪零Jordan型は曲線の一般点で(3,1,1)、中心で(2,2,1)となる。
+**今回証明した局所構造**：完全等方Log点p=[P0]の接空間は30次元で、二つの互いに素なSchouten二次障害（9*t21*t29、-4*t25*t27）とLog(1,1,1,2)族の非零28次minorから局所次元は正確に28。 接錐の28次元成分は対応する四つの28次元座標平面のいずれかに一致し、Hilbert--Samuel重複度は4以下。この局所次元定理自体は147成分の完全分類に依存しない。さらにP0+aK1 (a≠0) は、明示的なアフィン線形＝PGL5変換によりR4_MODULAR_RANK1_LONG_NONCONSTANT_25の実際の全源と同定される。従ってpは28次元rank2対数型成分と25次元rank4長鎖成分の交点にある。既存カタログにおける両者の成分性定理を用いると、pの局所環は非等次元でCohen--Macaulayではなく、深さは25以下（局所次元28との差は3以上）、Gorensteinでも局所完全交叉でもない。被約化についても同じ深さ上界が成立する。これはambient非被約性を意味しない。modular冪零Jordan型は曲線の一般点で(3,1,1)、中心で(2,2,1)となる。
 
 **証明の所在**：局所次元の証明は papers/quadric_log_component_intersection.tex、長鎖成分への明示帰属・非CM性は papers/rank_four_long_component_membership.tex、従来の二次障害・固定Q,σ延長ファイバーは papers/quadric_ambient_quadratic_obstruction.tex と papers/quadric_log_isotropic_boundary.tex。新しい計算は code/subvariety_incidence/check_rank4_long_nonconstant_membership.py と対応するJSON証明書を含む。これらを現行日本語LuaLaTeX主稿にincludeする。147成分分類の成分性は既存の原証明を入力とし、今回全147を独立に再監査したわけではない。文献優先権・外部査読は未確定。
 

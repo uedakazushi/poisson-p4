@@ -15,8 +15,8 @@ GitHub Actionsは一切使わず、手動スクリプトで原稿と証明書を
 - [部分多様体incidence現行論文v11（Q3・Log交叉・非Cohen–Macaulay性）](papers/poisson_subvariety_incidence_ja.tex)
 - [対応する研究方針](research/subvariety_incidence/RESEARCH_POLICY.md)・[ノート](research/subvariety_incidence/NOTES.md)
 - [incidenceの正確な計算証明書](research/subvariety_incidence/certificates)
-- [完全等方Log点の局所次元28・rank2/rank4成分交叉](papers/quadric_log_component_intersection.tex)：二つの互いに素なSchouten二次障害式と28次元対数型源による局所次元の独立証明。
-- [rank4既約成分のexplicitな同定・非Cohen–Macaulay性](papers/rank_four_long_component_membership.tex)：実際のPGL5変換でR4_MODULAR_RANK1_LONG_NONCONSTANT_25へ帰属。次元28と25の既約成分交叉から局所環は非等次元・非CM。成分性は既存カタログの証明を入力とする。ambient非被約性・全接錐分解は未解決。
+- [完全等方Log点の局所次元28・四つの接錐平面候補](papers/quadric_log_component_intersection.tex)：二つの互いに素なSchouten二次障害式と28次元対数型源による局所次元の独立証明。28次元接錐成分の候補は四つの線形空間、Hilbert--Samuel重複度は4以下。
+- [rank4既約成分のexplicitな同定・非Cohen–Macaulay性](papers/rank_four_long_component_membership.tex)：実際のPGL5変換でR4_MODULAR_RANK1_LONG_NONCONSTANT_25へ帰属。次元28と25の既約成分交叉から局所環は非等次元・非CM、局所depth≤25（CM欠損≥3）。成分性は既存カタログの証明を入力とする。ambient非被約性・全接錐分解は未解決。
 - 再現実行: `bash scripts/verify_github_source.sh incidence`
 - 既存分類を含む検査: `bash scripts/verify_github_source.sh full`
 
