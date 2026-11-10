@@ -31,6 +31,9 @@ assert got['24x24_minor_determinant']=='10871635968'
 assert got['gauge_plus_family_rank']==48
 print('PASS: 23-dimensional explicit Poisson intersection family')
 PY
+python3 code/subvariety_incidence/check_universal_nilpotent_pencil.py \
+  --output "$OUT/universal_nilpotent_pencil.json" \
+  --check research/subvariety_incidence/certificates/universal_nilpotent_pencil.json
 for pass in 1 2; do
   lualatex -interaction=nonstopmode -halt-on-error -output-directory="$OUT/latex" \
     papers/isotropic_log_tangent_cone_ja.tex > "$OUT/latex/pass${pass}.log" 2>&1 || {
