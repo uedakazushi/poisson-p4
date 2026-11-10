@@ -1,13 +1,13 @@
-# Poisson subvariety incidence — current v6
+# Poisson subvariety incidence — current v7
 
-GitHub main is canonical. Start with [research policy](RESEARCH_POLICY.md), [notes](NOTES.md) and the [Japanese LuaLaTeX manuscript](../../papers/poisson_subvariety_incidence_ja.tex), which includes [Log fibre proofs](../../papers/quadric_log_extension.tex) and [the invariant orthogonality classification](../../papers/quadric_log_orthogonality.tex).
+GitHub main is the only canonical source. Read [research policy](RESEARCH_POLICY.md), [notes](NOTES.md), and [Japanese LuaLaTeX manuscript](../../papers/poisson_subvariety_incidence_ja.tex). Shared proofs: [general Log](../../papers/quadric_log_extension.tex), [nondegenerate resonant blocks](../../papers/quadric_log_orthogonality.tex), [isotropic restriction boundary](../../papers/quadric_log_isotropic_boundary.tex).
 
-New theorem: **the entire family of resonant Log Poisson extensions with nondegenerate 3-variable quadratic qU is classified**. For rank(H)=2, a rank-four branch exists exactly when the cross-term b vanishes (fibre Spec C[t,v]/(v(t+2))). For rank(H)=1, a rank-four branch exists exactly when c vanishes in the adapted normal form qU=u0²+2u1z+cz² (fibre Spec C[t,v]/(v(t-1))). Other fibres are reduced A1 with rank-two Poisson extensions. This is NOT a classification of every special Log Poisson structure.
+New result: for three explicit smooth quadrics with degenerate q|W, full normalized ambient Poisson extension schemes are respectively A², two reduced transverse lines, and nonreduced Spec C[a,b,c]/(ac,c²). The latter has a rank-four dense open of its reduced A² and an embedded nilpotent direction on a line. rank(q|W) alone cannot classify extension fibres. This is NOT a classification of all special Log points or all q|W degenerations.
 
-Seven exact SymPy producers and seven matched JSON certificates are tracked; run:
+Eight exact SymPy producers and eight matched JSON certificates are tracked; run:
 
 ```bash
 bash scripts/verify_github_source.sh incidence
 ```
 
-No tracked PDF, no GitHub Actions, and no routine Library use.
+No tracked PDFs, no GitHub Actions, and no routine Library use.

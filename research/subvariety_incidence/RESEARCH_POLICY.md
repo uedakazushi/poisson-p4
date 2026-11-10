@@ -1,23 +1,28 @@
-# Poisson不変部分多様体と147成分分類の幾何
+# Poisson不変部分多様体による147成分の幾何学的理解
 
-2026-11-10 / v6。再開順序：ルートRESEARCH_POLICY.md → REPRODUCE_GITHUB.md → 本方針 → NOTES.md → papers/poisson_subvariety_incidence_ja.tex。
+2026-11-10 / v7。再開順序：ルート RESEARCH_POLICY.md → REPRODUCE_GITHUB.md → 本書 → NOTES.md → papers/poisson_subvariety_incidence_ja.tex。
 
-## 価値最大化の原則
+## 上位原則：研究価値の最大化
 
-研究方針の上位原則は数学的重要性・新規性・概念的説明力・他成分への波及・正確性・実現可能性の総合的な最大化。新しい証拠や文献に応じて研究目標を柔軟に変更する。元目標の解決点・残る課題と変更理由を現行文書へ整理するが、履歴は蓄積しない。
+数学的重要性、新規性、理解の深化、他の成分への波及、正確性、実現可能性を総合して現在の目標を柔軟に見直す。重要な方向転換は元の目標の達成点と残存点を短く整理して現行方針を書き直す。作業履歴を蓄積しない。
 
-## 主要結果と証明状態
+## 現行の数学的成果
 
-- smooth Q3の一般Rat/Log/Aff intrinsic三型のPoisson延長ファイバーは、それぞれ被約一点（rank2）、被約A1（全rank2）、被約二点（rank2とrank4）。一般元の結論であり、特殊元の全分類ではない。
-- 一般rank4のsmooth Q因子の重複度は、strict q-Casimir liftのmodular場がintrinsic葉に接するかどうかで判定できる。q²|D ⇔ v|Q∧σ=0。Q+C3と2Q+Hの幾何学的な違いを説明する。
-- **新しい統一定理**：共鳴Log型 `P0=2ξ∧R+ξ(qU)J`（ξの重みは1,1,-2、q=qU+w0²+w1²）を考え、qUを非退化とする。重み1部分Hの階数は2か1に限られる。階数2なら、交差一次式b≠0の全延長は被約A1（rank2のみ）、b=0ならSpec C[t,v]/(v(t+2))（rank4枝）。階数1なら標準形qU=u0²+2u1z+cz²で、c≠0なら被約A1（rank2）、c=0ならSpec C[t,v]/(v(t-1))（rank4枝）。rank4の実退化因子は階数2型がQ+V(z)+V(cz²+w0²+w1²)、階数1型がQ+V(u0)+V(u0²+w0²+w1²)。この二種類の余次元二特殊層が非退化qUの全場合を尽くす。数学的証明は `papers/quadric_log_orthogonality.tex`（現行主稿からinclude）に保存し、零スキームの幾何とstrict stabilizer、全Jacobi理想を用いる。
-- 一般4次del Pezzoの延長剛性、滑らかな三次の一意延長、rational成分の次元36/28、単純超平面の横断対称性の必要十分条件と既存147成分分類も保持。
-- 計算は既存五実例とrank1の二正規形のJacobi/Groebner/Pfaffianを独立SymPyコードで厳密検査。標本計算を一般証明と同一視しない。新規性は一次資料による網羅調査が未完了であり、既知結果の再取得と本研究の貢献を区別する。
+- **既存の一般Q3分類からの延長**：一般Rat(1,2)の全延長は被約一点（rank2）、一般Log(1,1,1)は被約A1（全rank2）、一般Affは被約二点（rank2とrank4）。特別なintrinsic Poisson元の全分類は未完成。
+- **modular因子重複度定理**：strict q-Casimir lift Pのmodular場vがQ上のPoisson葉に接するとき、かつそのときに限って、一般rank4のPfaffian五次DにQが二重因子となる。通常の一般証明は現行主稿。
+- **共鳴Logの非退化ブロック**：q=qU+w0²+w1²でqUが非退化なら、rank H=2/1の全源を直交性で判定。追加rank4枝の全JacobiイデアルとPfaffianを論文共有稿に保持。
+- **今回の新しい境界：smooth Qでもq|Wが退化する**。非退化qUを直交分解したまま退化させればQも特異になるため、研究対象をq|W（Wは対数三線形形式の共通核）の退化に変更。三つの非退化qによる正確な全延長例を得た。rank(q|W)=1でA²と交叉二直線の両方が現れ、rank(q|W)=0では非被約Spec C[a,b,c]/(ac,c²)となり、被約台のA²には一般rank4延長が存在する。通常の制限空間・発散と全線形stabilizer計算を使う証明は papers/quadric_log_isotropic_boundary.tex（主稿にinput）。10変数の正確な係数行列・Jacobi ideal・Pfaffianはcode/subvariety_incidence/check_isotropic_log_boundaries.pyと同名JSONで再現。これらは三明示例の全延長を証明するもので、全特異制限層の完全分類ではない。
+- 価値のある既存成果（cubic一意性、一般CI22 del Pezzo剛性、rational型次元36/28、単純H対称性、既存147成分定理）は現行TeXと正確な証明資産に保持。新規性の一次文献による全面確認は未完了。
 
-## 未解決の核心と優先順位
+## 現在の優先順位
 
-今回、**共鳴Log源のqU非退化域**をrank1/2 Hを含め全分類した。これは特殊Log全体、Aff特殊ファイバー、147成分との一対一対応の完全分類ではない。次はqU退化の境界やspecial Affとの交叉を研究し、rank4枝の所属と退化限界の機構を理解する。個別の複雑な場合分けが価値を下げると判断したら、4次del Pezzoの真の例外延長、P3横断Poisson対称性、147成分の概念的統一を優先する。
+1. **延長スキームのscheme構造とambient147成分の接続**。新しい被約A²/交叉二直線/非被約厚みのrank4開部分が、既存のどの成分に属するかを実Poisson変形・退化因子の分割と比較し、非被約のembedded線がどのような一次・二次障害を表すか解明する。
+2. smooth Qでrank(q|W)=1,0の全特殊Log源を、重みの二次形式とJacobiの小さな可解Lie代数により層別する。rankだけではファイバーは決まらないので、rankのみの表は作らない。
+3. special Aff、4次del Pezzoの真の例外延長、P3横断Poisson対称性へ波及する一般定理を優先する。複雑な有限場合分けが理解を深めなければ、目標を変更する。
+4. 最終的に147成分の幾何的特徴づけへ統合。新規性・先行研究の精査は並行する。
+
+次の着手はSpec C[a,b,c]/(ac,c²)のembedded一次方向の幾何と、被約なrank4開部分の既存成分への帰属を調べる。Poissonスキーム全体の非被約性や新しい全空間成分を直ちに主張しない。
 
 ## 再現・保存
 
-GitHub mainを唯一の正本とし、TeX原稿・共有TeX・7本の正確なSymPy producerと7つのJSON証明書・再現手順を保持。手動 `bash scripts/verify_github_source.sh incidence`。PDFはGit追跡しない、LuaLaTeX/latexmkで生成。GitHub Actions禁止。Libraryは実際にGitHub pushが失敗した場合の緊急退避に限り、通常保存しない。
+GitHub mainが唯一の正本。現行日本語LuaLaTeX（主稿・共有TeX）、方針・ノート、8つのSymPy producerと8つの正確なJSON証明書をmainに保持。PDFは追跡せずlatexmkで生成。GitHub Actionsは使わず、Libraryは実push失敗時の緊急避難だけに使用。数学の通常証明、今回の有限検算、外部査読、新規性を区別する。

@@ -1,9 +1,9 @@
-# 現行研究の次の課題：共鳴Log完全層別の幾何学的応用
+# 現行研究の次の課題 — Poisson延長スキームの厚みと147成分
 
-2026-11-10 / v6。上位原則は研究価値の最大化。GitHub main正本・PDF非追跡・Actions禁止・Libraryは実push失敗時のみ。
+2026-11-10 / v7。研究価値の最大化が上位原則。GitHub mainのみ正本、PDF非追跡、Actionsなし、Libraryは実push失敗時のみ緊急退避。
 
-完了した範囲：非退化qUを持つ共鳴Log型Poisson源の全延長スキームを、rank(H)=2/1の二つの場合に分けて分類。各々追加rank4枝が出る必要十分条件とJacobi ideal、実Pfaffian因子を得た。従来の一変数直交性wallも含まれる。一般Q3 Rat/Log/Affの延長は一点/A1/二点。
+**今回到達した結果**：滑らかなquadricで、対数構造の共通核Wへの二次形式の制限q|Wが退化すると、共鳴Logの全延長ファイバーにA²、交叉二直線、非被約Spec C[a,b,c]/(ac,c²)が実際に現れる。これらは全Jacobiイデアル・Pfaffianまで正確に証明。rank(q|W)単独では判定できない。従来の「直交分解したq_Uを退化させる」課題はQの滑らかさを保たないので置き換えた。
 
-次の最重要課題：qU退化境界、special Affファイバー、今回のrank4枝と147成分の正確な関係を調べる。細分化が数学的重要性・実現可能性に見合わなければ、4次del Pezzoの例外的延長、P3横断対称性、147成分の構造定理へ切り替える。新規性は一次資料で検討し、未確認なら明記。
+**次の最重要課題**：新しい非被約ファイバーのembedded方向をambient Poissonスキームの一次・二次障害として解釈し、そのrank4開部分が既存147成分のどこに属するかを調べる。高価な個別分類になればspecial Aff、del Pezzo例外、P3対称性や統一定理へ優先順位を変更する。
 
-再開：RESEARCH_POLICY.md → research/subvariety_incidence/RESEARCH_POLICY.md → NOTES.md → 現行TeX。検証は手動の scripts/verify_github_source.sh incidence。
+再開：RESEARCH_POLICY.md → research/subvariety_incidence/RESEARCH_POLICY.md → NOTES.md → 現行TeX。再現：bash scripts/verify_github_source.sh incidence。

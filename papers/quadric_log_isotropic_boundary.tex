@@ -1,0 +1,135 @@
+\subsection{滑らかな二次超曲面における等方的なLog境界と非被約延長}
+\label{subsec:quadric-log-isotropic}
+先の共鳴Log模型で$q=q_U+w_0^2+w_1^2$と直交分解している限り，
+$q_U$の退化は$q$そのものの退化を意味する。従って滑らかな
+$Q=V(q)$の新しい境界は，対数構造の三線形形式
+$(u_0,u_1,z)$の共通核$W=\operatorname{Span}(w_0,w_1)$に
+\emph{制限した}二次形式$q|_W$の退化として調べる必要がある。
+この層では$Q$が滑らかなまま，延長ファイバーの既約成分だけでなく
+scheme構造まで跳躍することを次に示す。
+
+$V=\CC^5$の座標を$(u_0,u_1,z,w_0,w_1)$とし，
+$\xi=u_0\partial_{u_0}+u_1\partial_{u_1}-2z\partial_z$，
+$\gamma=\iota_\xi(du_0\wedge du_1\wedge dz)$と置く。
+非退化二次式$q$ごとに
+\begin{equation}
+ \iota_{P_0(q)}(du_0\wedge du_1\wedge dz\wedge dw_0\wedge dw_1)
+  =dq\wedge\gamma                                         \label{eq:isotropic-log-p0}
+\end{equation}
+と定める。$P_0(q)$は$q$をstrict Casimirとする
+発散零の階数二Poisson双ベクトルであり，$Q=V(q)$に
+非零の共鳴対数型Poisson構造$\sigma_q$を誘導する。
+
+\begin{theorem}[制限二次形式の退化に伴う三種類の延長ファイバー]
+\label{thm:quadric-isotropic-log-fibres}
+以下の三つの非退化二次式について，固定された
+$\sigma_q=P_0(q)|_Q$の\emph{全}ambient Poisson延長スキームは
+次の表の通りである。すべて$Q$は滑らかであり，
+$W$は同一の二次元部分空間である。
+\[
+\begin{array}{c|l|c|c}
+ &q&\operatorname{rank}(q|_W)&\ExtP_Q(\sigma_q)\\ \hline
+ \mathrm{I}&u_0^2+u_1^2+z^2+2u_0w_0+w_1^2&1&\AA^2_{a,b}\\
+ \mathrm{II}&u_0^2+2u_1w_0+2zw_1+w_0^2&1&
+     \operatorname{Spec}\CC[a,b]/(a(b-4))\\
+ \mathrm{III}&u_0^2+2u_1w_0+2zw_1&0&
+     \operatorname{Spec}\CC[a,b,c]/(ac,c^2)
+\end{array}
+\]
+Iでは$a\ne0$の延長は一般階数四で，その実退化因子は
+$Q+2V(u_0)+V(z)$である。IIでは$b=4,\ a\ne0$の枝が
+一般階数四で，その実退化因子は
+\[
+ Q+V(z)+V\bigl((u_1+w_0)^2+2zw_1\bigr)
+\]
+である。IIIでは被約台は$\AA^2_{a,b}$で，$a\ne0$が一般階数四，
+実退化因子は$Q+2V(u_1)+V(z)$である。しかしファイバー自身は
+非被約であり，$a=c=0$の直線上に$c$という平方零方向を持つ。
+特に$\operatorname{rank}(q|_W)$だけでは
+Poisson延長ファイバーのscheme構造を決定できない。
+\end{theorem}
+\begin{proof}
+$\gamma$は三次元空間の二形式で，$d\gamma=0$である。
+従って\eqref{eq:isotropic-log-p0}は閉じた分解可能三形式を与え，
+対応する双ベクトルは$q$をCasimirとし，発散零でPoissonである。
+$q$の非退化性は，座標順$(u_0,u_1,z,w_0,w_1)$で
+半Hessian行列$G=\operatorname{Hess}(q)/2$の行列式が順に
+$-1,1,1$となることから従う。
+
+任意の$q$-Casimir延長は$P_0(q)$との差を，一意に
+\[
+ K_A=qT_A+\tfrac12 E\wedge(Ax),\qquad
+ T_A=\tfrac12 A G^{-1},\qquad A^tG+GA=0
+ \tag{K}\label{eq:isotropic-K}
+\]
+と書ける。ここでは$T_A$を定数反対称双ベクトルと見なし，
+$E$はEuler場である。$K_A$の$q$への制限は零で，
+$\delta K_A=\tfrac32 Ax$となる。これは前小節の全延長核と
+定数双ベクトルの規約を揃えた書き方である。
+
+$P_0(q)$は発散零なので，延長$P_0(q)+K_A$がPoissonなら，
+発散を取ったJacobi恒等式と$Q$への制限から
+$[Ax|_Q,\sigma_q]=0$が必要である。
+逆に$q$を保つ線形場$Ax$が$\sigma_q$を保てば，
+$[Ax,P_0(q)]$は$q$-Casimirかつ発散零で，$Q$上で零となる。
+前小節の核の発散写像は単射だから，$[Ax,P_0(q)]=0$である。
+従って\emph{全}Poisson延長の候補空間は
+$\mathfrak{so}(q)$内のstrict stabilizerのアフィン空間へ
+scheme論的な線形方程式で埋め込まれる。
+
+三例のstrict stabilizerはそれぞれ次の線形場により張られる。
+\[
+\begin{array}{c|l}
+\mathrm I&-u_0\partial_{u_1}+u_1\partial_{w_0},\quad
+               w_1\partial_{w_0}-u_0\partial_{w_1}\\
+\mathrm{II}&u_1\partial_{u_0}+u_0\partial_{u_1}-u_0\partial_{w_0},\quad
+               -z\partial_{w_0}+(u_1+w_0)\partial_{w_1}\\
+\mathrm{III}&u_1\partial_{u_0}-u_0\partial_{w_0},\quad
+               z\partial_{w_0}-u_1\partial_{w_1},\quad
+               u_1\partial_{u_1}-z\partial_z-w_0\partial_{w_0}+w_1\partial_{w_1}
+\end{array}
+\]
+実際$A=G^{-1}Z$，$Z$を十変数の反対称行列とし，
+$[Ax,P_0(q)]$の全二次係数に対応する線形行列を作ると，
+行列サイズと階数は順に$(68\times10,8)$，$(68\times10,8)$，
+$(47\times10,7)$である。非零の階数最大小行列式は
+順に$2304,-2304,3456$となる。これらの行・列位置と
+式は\texttt{check\_isotropic\_log\_boundaries.py}が
+前提とする既存producerをimportせず再構成する。
+
+表の各場に\eqref{eq:isotropic-K}を適用し，その順に
+パラメータ$a,b$または$a,b,c$を掛けて$P_0$に加える。
+得られた候補に対する\emph{全}Jacobi係数の生成イデアルは
+\[
+ I_{\mathrm I}=(0),\qquad
+ I_{\mathrm{II}}=(a(b-4)),\qquad
+ I_{\mathrm{III}}=(ac,c^2).
+\]
+第IIIの場合，例えば$(0,2,3)$成分は
+$\frac12 ac\,z\,q$，$(1,2,3)$成分は
+$\frac12 c^2 z\,q$であり，残りも
+これら二式のイデアルに属する。
+従って上記は零集合の比較ではなく，Jacobiイデアルの等式である。
+
+$\beta=\iota_{P\wedge P/2}\Omega=f\,dq$と書くと，
+Iでは$f=\frac32a u_0^2z$となる。
+IIの第二枝$b=4$では
+$f=\frac32a z((u_1+w_0)^2+2zw_1)$である。
+IIIの被約台$c=0$では$f=\frac32a u_1^2z$となる。
+$q$のEuler次数は二なので，実Pfaffianは$2qf$である。
+これで各階数四の開部分と実退化因子を得る。
+IIIでは$(ac,c^2)=(c)\cap(a,c)^2$であり，
+被約台の平面に，直線$a=c=0$に沿うembeddedな
+平方零方向が付く。すべての等式は有理数係数の恒等式として
+付属証明書で再現した。
+\end{proof}
+
+\begin{remark}
+この結果は特定の三つの\emph{滑らかな}二次超曲面と
+同一の共鳴Log構成に関する全延長ファイバーの分類であり，
+$q|_W$が退化する全ての滑らかなquadricの分類ではない。
+特にIIIの非被約方向は新しい被約既約成分を意味しない。
+この現象は，これまでの147成分という\emph{被約}分類と，
+Poissonスキームのembedded構造の違いを示す。
+原稿の通常の論証と有限の正確係数計算を区別し，文献上の新規性は未確認とする。
+\end{remark}

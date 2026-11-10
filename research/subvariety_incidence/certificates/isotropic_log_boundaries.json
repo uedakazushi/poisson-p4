@@ -1,0 +1,202 @@
+{
+  "date": "2026-11-10",
+  "version": "v7",
+  "status": "PASS",
+  "sympy": "1.14.0",
+  "setup": "smooth Q in P4; resonant logarithmic alpha with xi=(1,1,-2) on (u0,u1,z); W=span(w0,w1)",
+  "models": [
+    {
+      "name": "rank_one_W_compatible_plane",
+      "q": "u0**2 + 2*u0*w0 + u1**2 + w1**2 + z**2",
+      "determinant_of_quadric_matrix": "-1",
+      "rank_q_restriction_to_W": 1,
+      "strict_stabilizer_matrix_shape": [
+        68,
+        10
+      ],
+      "strict_stabilizer_matrix_rank": 8,
+      "rank_witness": {
+        "rows": [
+          0,
+          1,
+          2,
+          3,
+          5,
+          8,
+          28,
+          41
+        ],
+        "columns": [
+          1,
+          2,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "minor": "2304"
+      },
+      "strict_stabilizer_fields": [
+        [
+          "0",
+          "-u0",
+          "0",
+          "u1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "w1",
+          "-u0"
+        ]
+      ],
+      "extension_parameters": [
+        "a",
+        "b"
+      ],
+      "all_Jacobi_polynomial_coefficients": 0,
+      "exact_Jacobi_Groebner_basis": [],
+      "pfaffian_cofactor_f": "3*a*u0**2*z/2",
+      "rank4_reduced_equation": "f != 0",
+      "scheme_reducedness": "reduced",
+      "nonzero_P0_on_Q": true
+    },
+    {
+      "name": "rank_one_W_transverse_lines",
+      "q": "u0**2 + 2*u1*w0 + w0**2 + 2*w1*z",
+      "determinant_of_quadric_matrix": "1",
+      "rank_q_restriction_to_W": 1,
+      "strict_stabilizer_matrix_shape": [
+        68,
+        10
+      ],
+      "strict_stabilizer_matrix_rank": 8,
+      "rank_witness": {
+        "rows": [
+          0,
+          1,
+          3,
+          4,
+          6,
+          10,
+          13,
+          32
+        ],
+        "columns": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          8,
+          9
+        ],
+        "minor": "-2304"
+      },
+      "strict_stabilizer_fields": [
+        [
+          "u1",
+          "u0",
+          "0",
+          "-u0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "-z",
+          "u1 + w0"
+        ]
+      ],
+      "extension_parameters": [
+        "a",
+        "b"
+      ],
+      "all_Jacobi_polynomial_coefficients": 5,
+      "exact_Jacobi_Groebner_basis": [
+        "a*b - 4*a"
+      ],
+      "pfaffian_cofactor_f": "a*z*(b*u0**2 + 2*b*u1*w0 + b*w0**2 + 2*b*w1*z - 4*u0**2 + 12*u1**2 + 16*u1*w0 + 8*w0**2 + 16*w1*z)/8",
+      "rank4_reduced_equation": "f != 0",
+      "scheme_reducedness": "reduced",
+      "nonzero_P0_on_Q": true
+    },
+    {
+      "name": "totally_isotropic_W",
+      "q": "u0**2 + 2*u1*w0 + 2*w1*z",
+      "determinant_of_quadric_matrix": "1",
+      "rank_q_restriction_to_W": 0,
+      "strict_stabilizer_matrix_shape": [
+        47,
+        10
+      ],
+      "strict_stabilizer_matrix_rank": 7,
+      "rank_witness": {
+        "rows": [
+          0,
+          1,
+          2,
+          6,
+          9,
+          22,
+          29
+        ],
+        "columns": [
+          1,
+          2,
+          3,
+          5,
+          6,
+          7,
+          9
+        ],
+        "minor": "3456"
+      },
+      "strict_stabilizer_fields": [
+        [
+          "u1",
+          "0",
+          "0",
+          "-u0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "z",
+          "-u1"
+        ],
+        [
+          "0",
+          "u1",
+          "-z",
+          "-w0",
+          "w1"
+        ]
+      ],
+      "extension_parameters": [
+        "a",
+        "b",
+        "c"
+      ],
+      "all_Jacobi_polynomial_coefficients": 8,
+      "exact_Jacobi_Groebner_basis": [
+        "a*c",
+        "c**2"
+      ],
+      "pfaffian_cofactor_f": "-(-a*u1 + c*u0)*(-c*u0**2 - 2*c*u1*w0 - 2*c*w1*z + 12*u1*z)/8",
+      "rank4_reduced_equation": "f != 0",
+      "scheme_reducedness": "nonreduced",
+      "nonzero_P0_on_Q": true
+    }
+  ],
+  "interpretation": "The totally-isotropic case has the nonreduced scheme Spec C[a,b,c]/(a*c,c*c), with reduced rank-four affine plane c=0, a != 0, and an embedded square-zero direction along a=c=0. Two rank-one W examples have different extension schemes; rank(q|W) alone does not determine the fibre.",
+  "verification_scope": "Exact finite coefficient calculations with SymPy; general restriction-space theory is proved in the current manuscript, not by this certificate; classification of all q with degenerate restriction is NOT claimed."
+}

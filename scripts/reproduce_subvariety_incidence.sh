@@ -24,10 +24,12 @@ python3 code/subvariety_incidence/check_log_orthogonality.py \
   --output "$OUT/certificates/log_orthogonality.json" > "$OUT/log_orthogonality_stdout.log"
 python3 code/subvariety_incidence/check_log_rankone.py \
   --output "$OUT/certificates/log_rankone.json" > "$OUT/log_rankone_stdout.log"
+python3 code/subvariety_incidence/check_isotropic_log_boundaries.py \
+  --output "$OUT/certificates/isotropic_log_boundaries.json" > "$OUT/isotropic_log_boundaries_stdout.log"
 python3 - "$OUT" <<'PY'
 import json, pathlib, sys
 out=pathlib.Path(sys.argv[1]);root=pathlib.Path.cwd()
-for name in ('del_pezzo_generic_rigidity.json','incidence_examples.json','quadric_symmetry.json','log_quadric.json','log_wall.json','log_orthogonality.json','log_rankone.json'):
+for name in ('del_pezzo_generic_rigidity.json','incidence_examples.json','quadric_symmetry.json','log_quadric.json','log_wall.json','log_orthogonality.json','log_rankone.json','isotropic_log_boundaries.json'):
     a=json.loads((root/'research/subvariety_incidence/certificates'/name).read_text())
     b=json.loads((out/'certificates'/name).read_text())
     assert a==b, f'certificate mismatch: {name}'
@@ -49,7 +51,10 @@ rankone=json.loads((out/'certificates/log_rankone.json').read_text())
 assert rankone['status']=='PASS'
 assert [r['strict_stabilizer_dimension'] for r in rankone['cases']]==[2,1]
 assert rankone['cases'][0]['two_parameter_Jacobi_ideal']=='(v*(t-1))'
-print('EXACT CERTIFICATES: PASS (7 exact producers and seven certificates)')
+isotropic=json.loads((out/'certificates/isotropic_log_boundaries.json').read_text())
+assert [x['exact_Jacobi_Groebner_basis'] for x in isotropic['models']] == [[], ['a*b - 4*a'], ['a*c','c**2']]
+assert [x['rank_q_restriction_to_W'] for x in isotropic['models']] == [1,1,0]
+print('EXACT CERTIFICATES: PASS (8 exact producers and eight certificates)')
 PY
 for pass in 1 2; do
   lualatex -interaction=nonstopmode -halt-on-error \
