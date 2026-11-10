@@ -1,0 +1,157 @@
+{
+  "date": "2026-11-11",
+  "version": "v19",
+  "status": "PASS",
+  "sympy": "1.14.0",
+  "pencil": "q0=sum_i x_i^2; q1=sum_i lambda_i*x_i^2 (lambda0=0)",
+  "anticanonical_section": "h=x0 (one of the five discriminant eigen-hyperplanes)",
+  "hypothesis": "lambda1,..,lambda4 distinct from each other and from lambda0",
+  "strict_poisson_casimir_check": "Jacobian J(q0,q1,x0)/4 is divergence-free and q0,q1 Casimirs",
+  "linear_map": "constant bivector T -> [J(q0,q1,x0)/4,T], linear triple-vector coefficients",
+  "matrix_dimensions": [
+    50,
+    10
+  ],
+  "minor_row_indices_zero_based": [
+    3,
+    4,
+    9,
+    19,
+    31,
+    32,
+    33,
+    36,
+    37,
+    41
+  ],
+  "minor_rows": [
+    [
+      [
+        0,
+        1,
+        2
+      ],
+      3
+    ],
+    [
+      [
+        0,
+        1,
+        2
+      ],
+      4
+    ],
+    [
+      [
+        0,
+        1,
+        3
+      ],
+      4
+    ],
+    [
+      [
+        0,
+        2,
+        3
+      ],
+      4
+    ],
+    [
+      [
+        1,
+        2,
+        3
+      ],
+      1
+    ],
+    [
+      [
+        1,
+        2,
+        3
+      ],
+      2
+    ],
+    [
+      [
+        1,
+        2,
+        3
+      ],
+      3
+    ],
+    [
+      [
+        1,
+        2,
+        4
+      ],
+      1
+    ],
+    [
+      [
+        1,
+        2,
+        4
+      ],
+      2
+    ],
+    [
+      [
+        1,
+        3,
+        4
+      ],
+      1
+    ]
+  ],
+  "minor_column_pairs": [
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      2
+    ],
+    [
+      0,
+      3
+    ],
+    [
+      0,
+      4
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      1,
+      3
+    ],
+    [
+      1,
+      4
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      2,
+      4
+    ],
+    [
+      3,
+      4
+    ]
+  ],
+  "minor_factorization": "-(l1 - l2)*(l1 - l3)*(l1 - l4)**2*(l2 - l3)*(l2 - l4)**2*(l3 - l4)**3",
+  "minor_at_lambda_1_2_3_4": "-72",
+  "universal_rank_of_constant_bivector_map": 10,
+  "projective_Jacobi_full_extension_linearization_rank": 20,
+  "scheme_conclusion": "The Jacobian extension is a reduced isolated point of the full 20-parameter Poisson extension scheme for all smooth diagonal pencils and any eigen-hyperplane; other disconnected solutions are not ruled out.",
+  "scope": "The implication from constant-bivector injectivity to all 20 extension directions uses q0,q1 coprime and divergence-free Koszul exactness, proved in accompanying Japanese TeX."
+}
