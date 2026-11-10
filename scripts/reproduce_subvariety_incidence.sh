@@ -36,10 +36,14 @@ python3 code/subvariety_incidence/check_dp_pfaffian_conormal.py \
   --output "$OUT/certificates/dp_pfaffian_conormal.json" \
   --check research/subvariety_incidence/certificates/dp_pfaffian_conormal.json \
   > "$OUT/dp_pfaffian_conormal_stdout.log"
+python3 code/subvariety_incidence/check_dp_conormal_lie_pfaffian.py \
+  --output "$OUT/certificates/dp_conormal_lie_pfaffian.json" \
+  --check research/subvariety_incidence/certificates/dp_conormal_lie_pfaffian.json \
+  > "$OUT/dp_conormal_lie_stdout.log"
 python3 - "$OUT" <<'PY'
 import json, pathlib, sys
 out=pathlib.Path(sys.argv[1]);root=pathlib.Path.cwd()
-for name in ('del_pezzo_generic_rigidity.json','incidence_examples.json','quadric_symmetry.json','log_quadric.json','log_wall.json','log_orthogonality.json','log_rankone.json','isotropic_log_boundaries.json','ambient_quadratic_obstruction.json','local_dimension28.json','rank4_long_nonconstant_membership.json','dp_pfaffian_conormal.json'):
+for name in ('del_pezzo_generic_rigidity.json','incidence_examples.json','quadric_symmetry.json','log_quadric.json','log_wall.json','log_orthogonality.json','log_rankone.json','isotropic_log_boundaries.json','ambient_quadratic_obstruction.json','local_dimension28.json','rank4_long_nonconstant_membership.json','dp_pfaffian_conormal.json','dp_conormal_lie_pfaffian.json'):
     a=json.loads((root/'research/subvariety_incidence/certificates'/name).read_text())
     b=json.loads((out/'certificates'/name).read_text())
     assert a==b, f'certificate mismatch: {name}'
@@ -86,7 +90,7 @@ pf=json.loads((out/'certificates/dp_pfaffian_conormal.json').read_text())
 assert (pf['degree5_ideal_S_dimension'],pf['degree5_ideal_S_times_ideal_C_dimension'])==(65,41)
 assert pf['degree5_extra_linear_conditions_on_quintics_containing_S']==24
 assert pf['smooth_del_pezzo_S_with_fixed_C_affine_fibre_dimension']==10
-print('EXACT CERTIFICATES: PASS (12 exact producers and twelve certificates)')
+print('EXACT CERTIFICATES: PASS (13 exact producers and thirteen certificates)')
 PY
 for pass in 1 2; do
   lualatex -interaction=nonstopmode -halt-on-error \
