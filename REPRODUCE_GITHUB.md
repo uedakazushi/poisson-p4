@@ -40,6 +40,10 @@ source .venv/bin/activate
 
 Python3、SymPy 1.14.0、NumPy 2.3.5、mpmath 1.3.0（root requirements.txt）、LuaLaTeX（ltjsarticle、luatexja、HaranoAji、amsmath、mathtools、geometry、hyperref、xurl、needspace等）、Popplerのpdfinfo/pdftotextが必要。一部の既存分類の有限証明書を完全再生成する場合には、各producerに指定されたMacaulay2/Singular/FLINT等のCASも手動で用意する。Actionsや自動CI環境は使わない。
 
+## 完全等方Log点の正確な局所次元28と成分交叉（v10）
+
+`code/subvariety_incidence/check_local_dimension28.py` はSymPy 1.14.0と正確な有理数演算により、150個の斉次二次双ベクトル方向に関する二つのSchouten/Jacobi線形化消滅汎関数、30個のZariski接方向、二次式 `9*t21*t29` と `-4*t25*t27`、Log(1,1,1,2)源の28次元像を保証する28×28小行列式 `-57177414000000`、rank4退化曲線と対数二形式の恒等式を検算する。結果は `research/subvariety_incidence/certificates/local_dimension28.json`。従来のrank95線形化証明書と合わせ局所次元28を得る。この結論は147成分の完全性を仮定しないが、rank4成分IDとambient非被約性はなお未証明。手動再現は従来通り `bash scripts/verify_github_source.sh incidence`（現在10 producer）。GitHub Actionsは使わず、PDFも追跡しない。
+
 ## 新しい部分多様体incidence：完全な手動再生成
 
 ```bash
@@ -47,9 +51,9 @@ bash scripts/verify_github_source.sh incidence
 ```
 
 GitHubの `papers/poisson_subvariety_incidence_ja.tex`、`papers/quadric_log_extension.tex`、`papers/quadric_log_orthogonality.tex` と `code/subvariety_incidence/*.py` を用いる。
-`research/subvariety_incidence/certificates/*.json` （現行8種）をexactに再計算して同一内容を照合し、一般剛性の二つの非零minor（70875/88、4443337729552/7688671875）、rank60/syzygy90、101項目の明示恒等式を検証。第3のproducerはquadricのPfaffian二例と一般Ratのstrict so(5) stabilizerを消すrank10 minor 27980515917168640を検証。追加のLog証明書には直交性wallの全パラメータJacobi計算、5つのrank2 H例（c=0・等方bを含む）、さらにrank1 Hの2つの正規形（c=0,1）のstrict stabilizerと全Jacobi/Pfaffian検算を収録する。全8 JSONを8 producerから再計算・照合する。追加のisotropic境界証明書はq|Wが階数1/0の三例のstrict stabilizer、全Jacobi理想(0)、(a(b-4))、(ac,c²)、Pfaffianを検査し、scheme非被約性と被約階数4枝を区別する。
+`research/subvariety_incidence/certificates/*.json` （現行10種）をexactに再計算して同一内容を照合し、一般剛性の二つの非零minor（70875/88、4443337729552/7688671875）、rank60/syzygy90、101項目の明示恒等式を検証。第3のproducerはquadricのPfaffian二例と一般Ratのstrict so(5) stabilizerを消すrank10 minor 27980515917168640を検証。追加のLog証明書には直交性wallの全パラメータJacobi計算、5つのrank2 H例（c=0・等方bを含む）、さらにrank1 Hの2つの正規形（c=0,1）のstrict stabilizerと全Jacobi/Pfaffian検算を収録する。全10 JSONを10 producerから再計算・照合する。追加のisotropic境界証明書はq|Wが階数1/0の三例のstrict stabilizer、全Jacobi理想(0)、(a(b-4))、(ac,c²)、Pfaffianを検査し、scheme非被約性と被約階数4枝を区別する。
 LuaLaTeXを二回実行して現行の論文PDFを生成し、15頁以上であること、未解決参照やOverfullがないこと、抽出テキストが空でないことを検証する。抽出テキストのSHA256を出力し、PDFバイナリのbitwise再現を要求しない。
-さらに第9のproducer `code/subvariety_incidence/check_ambient_quadratic_obstruction.py` は、全150個の周囲斉次二次方向の射影Jacobi線形化と5係数の二次障害汎関数を独立に構成する。rank95／augmented rank96、障害9、接空間次元30を `research/subvariety_incidence/certificates/ambient_quadratic_obstruction.json` と照合する。これはambient非被約性の証明ではない。
+さらに9番目のproducer `code/subvariety_incidence/check_ambient_quadratic_obstruction.py` は、全150個の周囲斉次二次方向の射影Jacobi線形化と5係数の二次障害汎関数を独立に構成する。rank95／augmented rank96、障害9、接空間次元30を `research/subvariety_incidence/certificates/ambient_quadratic_obstruction.json` と照合する。これはambient非被約性の証明ではない。
 PDFのバイナリバイト列の同一性までは主張しない。
 出力はgitignore済みの `work/subvariety-incidence-check/` のみ。
 
