@@ -78,13 +78,14 @@ research/classification/CURRENT.md → 対象の現行原稿と元証明を読�
 通常の成果はmainへpushして先端確認する。実際のpush失敗時だけLibraryを緊急退避に利用し、成功時は保存しない。既存Library資料は削除しない。
 外部への論文投稿・公開は新たな明示指示なしに行わない。
 
-## VI. 現行研究の目標：価値最大化とambient Poisson変形の幾何（2026-11-10）
+## VI. 現行研究の目標：局所Poissonスキームの成分交叉と非CM性（2026-11-10 / v11）
 
-最上位原則は数学的重要性、新規性、理解の深化、他成分への波及、正確性、実現可能性を総合した研究価値の最大化である。現在のQ3 Poisson延長研究は、一般Rat/Log/Affの延長、共鳴Logの直交性wall、固定smooth Qの等方的Log境界の三種類のscheme型へ到達した。**さらに、非被約延長Spec C[a,b,c]/(ac,c²)のembedded c方向は、固定制限を外した全ambient P4のPoisson方程式でも二次まで持ち上がらないことを証明した。** 5係数の普遍消滅関係と全150係数のrank95/96検算を `papers/quadric_ambient_quadratic_obstruction.tex` に収録し、現行主稿から共有TeXとして取り込む。対応するambient Poisson点は特異だが、ambient非被約性や全147成分のscheme厚みの分類までは主張しない。
+数学的重要性、新規性、理解の深化、正確性、応用可能性、実現可能性を総合する上位原則はI節に従う。現行の具体的重点は、射影四空間のPoissonスキームが異なる次元の既約成分で交叉する現象を理解すること。
 
-優先目標は周囲Poissonスキームの局所二次接錐と既存147成分への帰属を比較すること。特殊Q3延長の全層別は未解決。研究が局所場合分けに偏って概念的価値を下げるなら、4次del Pezzo例外・P3横断対称性・147成分の幾何学的構造定理へ切り替える。現在有効な方針・未解決点と正確な証明の所在は `research/subvariety_incidence/RESEARCH_POLICY.md` にまとめる。GitHub main正本、PDF非追跡、Actions不使用、Libraryは実push失敗時のみ。
+**今回証明した局所構造**：完全等方Log点p=[P0]の接空間は30次元で、二つの互いに素なSchouten二次障害（9*t21*t29、-4*t25*t27）とLog(1,1,1,2)族の非零28次minorから局所次元は正確に28。この局所次元定理自体は147成分の完全分類に依存しない。さらにP0+aK1 (a≠0) は、明示的なアフィン線形＝PGL5変換によりR4_MODULAR_RANK1_LONG_NONCONSTANT_25の実際の全源と同定される。従ってpは28次元rank2対数型成分と25次元rank4長鎖成分の交点にある。既存カタログにおける両者の成分性定理を用いると、pの局所環は非等次元でCohen--Macaulayではなく、Gorensteinでも局所完全交叉でもない。これはambient非被約性を意味しない。modular冪零Jordan型は曲線の一般点で(3,1,1)、中心で(2,2,1)となる。
 
+**証明の所在**：局所次元の証明は papers/quadric_log_component_intersection.tex、長鎖成分への明示帰属・非CM性は papers/rank_four_long_component_membership.tex、従来の二次障害・固定Q,σ延長ファイバーは papers/quadric_ambient_quadratic_obstruction.tex と papers/quadric_log_isotropic_boundary.tex。新しい計算は code/subvariety_incidence/check_rank4_long_nonconstant_membership.py と対応するJSON証明書を含む。これらを現行日本語LuaLaTeX主稿にincludeする。147成分分類の成分性は既存の原証明を入力とし、今回全147を独立に再監査したわけではない。文献優先権・外部査読は未確定。
 
-### 現行の二次接錐と成分帰属
+**未解決の核心・優先順位**：第一にpを通る他のrank4既約成分の有無と全二次接錐の既約分解、第二に二つの既知成分のscheme論的交叉・局所深さ、第三にambient局所環の被約性および固定ファイバーのac関係の周囲障害性を調べる。特殊Q3の全延長ファイバーや4次del Pezzo例外、P3対称性、147成分の構造的整理への波及も価値に応じて再評価する。現行の正確な研究方針と再開手順は research/subvariety_incidence/RESEARCH_POLICY.md を先に読む。
 
-完全等方Log点で二つのSchouten二次障害汎関数は、30次元Zariski接空間に互いに素な9*t21*t29と-4*t25*t27を与える。独立に算出したLog(1,1,1,2)族の28次元像と合わせ、局所次元は正確に28。P0はrank2対数型閉包と少なくとも一つのrank4成分の交点である。147成分の完全性はこの局所次元の決定に必要ない。従来の五係数汎関数による-9c²の二次障害も有効。36次元R2_RAT113・39次元R2_LPBはこの点を含まない。主結果の証明はpapers/quadric_log_component_intersection.tex、元の二次障害はpapers/quadric_ambient_quadratic_obstruction.tex、詳細方針はresearch/subvariety_incidence/RESEARCH_POLICY.md。残る核心はrank4成分のID、全接錐の既約分解、ac方向のambient障害、ambient非被約性である。ここでの局所次元上界は全147成分の独立再検証を意味しない。先述のGitHub正本・非追跡PDF・Actions禁止・Library緊急時のみという原則は変わらない。
+正本はGitHub main、TeXソースと厳密計算入力を追跡する。生成PDFは原則追跡しない。Actions不使用、Libraryは実push失敗時のみ緊急退避というI節の現行ルールを維持する。

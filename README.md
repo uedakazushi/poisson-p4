@@ -3,7 +3,7 @@
 **Source policy (2026-11-10):** Standalone papers and research notes are tracked as **TeX, not PDFs**. The 7 previously tracked PDFs have corresponding TeX sources and reproducible build instructions; use `.latexmkrc` with `latexmk papers/poisson_p4_classification_ja.tex` or `bash scripts/build_papers_latexmk.sh`. Generated PDFs are ignored in `work/latexmk/`. Primary proofs, exact calculation inputs and certificates remain tracked. No GitHub Actions; GitHub main is canonical; ChatGPT Library only on an actual failed push.
 
 
-2026-11-10 / v10-incidence + v74-classification
+2026-11-10 / v11-incidence + v74-classification
 
 ## 最新の正本と再現方法（2026-11-10）
 
@@ -12,10 +12,11 @@ GitHub Actionsは一切使わず、手動スクリプトで原稿と証明書を
 通常のLibrary保存は行わず、GitHub pushが実際に失敗した場合にだけ緊急避難保存します。
 
 - [GitHubのみからの再現手順](REPRODUCE_GITHUB.md)
-- [部分多様体incidence現行論文v4（Q3一般三成分と対数境界の直交性wall）](papers/poisson_subvariety_incidence_ja.tex)
+- [部分多様体incidence現行論文v11（Q3・Log交叉・非Cohen–Macaulay性）](papers/poisson_subvariety_incidence_ja.tex)
 - [対応する研究方針](research/subvariety_incidence/RESEARCH_POLICY.md)・[ノート](research/subvariety_incidence/NOTES.md)
 - [incidenceの正確な計算証明書](research/subvariety_incidence/certificates)
-- [完全等方Log点の局所次元28・rank2/rank4成分交叉](papers/quadric_log_component_intersection.tex)：rank30の接空間上の二つの互いに素な障害式と、28次元対数型源の非零minorで独立に証明。rank4成分IDとambient非被約性は未解決。
+- [完全等方Log点の局所次元28・rank2/rank4成分交叉](papers/quadric_log_component_intersection.tex)：二つの互いに素なSchouten二次障害式と28次元対数型源による局所次元の独立証明。
+- [rank4既約成分のexplicitな同定・非Cohen–Macaulay性](papers/rank_four_long_component_membership.tex)：実際のPGL5変換でR4_MODULAR_RANK1_LONG_NONCONSTANT_25へ帰属。次元28と25の既約成分交叉から局所環は非等次元・非CM。成分性は既存カタログの証明を入力とする。ambient非被約性・全接錐分解は未解決。
 - 再現実行: `bash scripts/verify_github_source.sh incidence`
 - 既存分類を含む検査: `bash scripts/verify_github_source.sh full`
 
