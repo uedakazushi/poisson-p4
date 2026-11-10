@@ -1,9 +1,9 @@
-# 現行研究課題 — 非Cohen--MacaulayなPoisson成分交叉の局所構造
+# 次の課題 — 非被約接錐の高次初期方程式
 
-2026-11-10 / v11。GitHub mainのみ正本、TeX・計算コード・証明書を追跡。生成PDF非追跡、Actions不使用、Libraryは実際のpush失敗時のみ緊急退避。
+2026-11-10 / v12。再開はRESEARCH_POLICY.mdから。GitHub main正本、PDF非追跡、Actions不使用、Libraryは実push失敗時のみ。
 
-**現行定理**：完全等方Log点p=[P0]の周囲PoissonスキームのZariski接空間30次元・局所次元28（分類の完全性を仮定しない）。同点はLog1112の28次元rank2成分とR4_MODULAR_RANK1_LONG_NONCONSTANT_25の25次元rank4成分との交点である。後者はPoisson曲線P0+aK1の実PGL5源同定により確認。二つの既約成分の次元が異なるため、局所環は非等次元・非CM・非Gorenstein・非局所完全交叉。結論の成分性入力は現行分類の証明に依存する。ambient非被約性は未証明。
+証明済み：30次元接空間、全7本の二次初期関係、h=a(s2+c)による真の接錐の非被約性、唯一の最大次元接錐V(a,c)、局所次元28と重複度1、混合ac障害の明示的な周囲二次補正。新原稿 papers/isotropic_log_tangent_cone_ja.tex と自己完結producer check_isotropic_quadratic_cone.py。
 
-**最優先**：他のrank4成分もpを通るか、二つの既知成分のscheme論的交叉と全接錐を定めること。既知の二つの障害式9*t21*t29、-4*t25*t27が定める四つの28次元座標平面（Hilbert--Samuel重複度上界4）のうち、真の接錐成分となるものを、追加二次式・分類カタログ閉包源から決定する。次に固定Qファイバーのac障害、ambient局所環の被約性を研究。論文はpapers/quadric_log_component_intersection.texとpapers/rank_four_long_component_membership.tex。計算はcode/subvariety_incidenceの新しい11番目のproducer。
+最優先：微分の95 normal変数を二次まで解き、三次残差を二次関係のsyzygyと合わせて全初期イデアルへ進む。二次障害模型の26/24次元成分が真の接錐で何になるか、hのannihilatorと台がどこまで縮むかを決める。その後、既知25次元長鎖成分との交叉、元の局所環Rの被約性、全次数の変形を研究する。接錐非被約とR非被約、二次模型と真の接錐、混合acの二次消去と全次数の持上げを混同しない。
 
-再開：RESEARCH_POLICY.md → research/subvariety_incidence/RESEARCH_POLICY.md → NOTES.md → 現行TeX。手動再現：bash scripts/verify_github_source.sh incidence。
+手動検証：bash scripts/verify_github_source.sh tangent-cone。

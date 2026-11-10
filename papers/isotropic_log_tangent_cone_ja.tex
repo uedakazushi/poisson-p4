@@ -1,0 +1,360 @@
+\documentclass[a4paper,11pt]{ltjsarticle}
+\usepackage[haranoaji]{luatexja-preset}
+\usepackage[margin=24mm]{geometry}
+\usepackage{fix-cm}
+\usepackage{amsmath,amssymb,amsthm,mathtools,booktabs,array}
+\usepackage[unicode,hidelinks]{hyperref}
+\usepackage{xurl}
+\setlength{\emergencystretch}{3em}
+\newtheorem{theorem}{定理}[section]
+\newtheorem{proposition}[theorem]{命題}
+\newtheorem{lemma}[theorem]{補題}
+\newtheorem{corollary}[theorem]{系}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{注意}
+\newcommand{\PP}{\mathbf P}\newcommand{\CC}{\mathbf C}\newcommand{\QQ}{\mathbf Q}
+\newcommand{\Jac}{\operatorname{Jac}}\newcommand{\gr}{\operatorname{gr}}
+\newcommand{\Spec}{\operatorname{Spec}}\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\Span}{\operatorname{Span}}
+\title{完全等方Log点におけるPoisson接錐の非被約性\\
+\large 二次障害の完全計算・重複度一・混合障害の消去}
+\author{}
+\date{2026年11月10日\quad v12・研究原稿}
+\begin{document}\maketitle
+\begin{abstract}
+複素射影四空間のPoissonスキームの一つの階数二点について、最小局所埋込みの二次初期方程式を完全に計算する。
+接空間は30次元で、独立な二次方程式は7本である。
+その二次障害スキームの被約台は次元28、26、24の三既約成分を持ち、
+非零の二次式が平方零元を与える。この二次式は真の接錐でも消えないため、
+\emph{真の接錐自体が非被約}である。一方、最大次元の接錐成分は単一の28次元線形空間で、
+その一般点での長さは一である。従って局所次元は28、Hilbert--Samuel重複度は一となる。
+さらに、固定二次超曲面上の延長ファイバーに現れた混合関係式$ac=0$は、
+全周囲Poisson変形では明示的な二次補正により消去できることを示す。
+二次初期イデアルと全初期イデアル、接錐の非被約性と元の局所環の非被約性は区別する。
+\end{abstract}
+
+\section{問題設定と先行研究との関係}
+非零Poissonテンソルを尺度で射影化したスキームを
+$\mathcal P\subset\PP H^0(\PP^4,\wedge^2T_{\PP^4})$とする。
+$\mathrm{PGL}_5$による商は取らない。
+本稿の対象は、階数二の対数型構造と階数四の構造が交わる具体的な点である。
+この点の固定二次超曲面に関する延長スキーム、局所次元、既知の階数四成分への帰属は
+同伴原稿\cite{Incidence}で研究した。本稿は接錐のscheme構造に焦点を当て、
+局所次元の計算に必要な係数証明書も独立に再構成する。
+
+Matviichuk--Pym--Schedler\cite{MPS}は、正規交叉極因子を持つ
+log symplectic構造の近傍の変形空間を研究する。
+ここで扱う中心点は一般階数二であり、一般階数四のlog symplectic点そのものではない。
+従って同論文の局所模型をそのまま本点に適用するのではなく、
+全周囲Jacobi方程式から障害写像を直接計算する。
+先行研究全体に対する新規性・優先権の確認は未完了であり、
+以下の具体的恒等式の証明と、新規性の主張を混同しない。
+重複度の可換環論には\cite{StacksMult}の加法性・結合公式を用いる。
+
+\section{模型と接空間の座標}
+同次座標を$X=(u_0,u_1,z,w_0,w_1)$、体積形式を$\Omega$、Euler場を$E$とする。
+\begin{equation}\label{eq:model}
+ q=u_0^2+2u_1w_0+2zw_1,\qquad
+ \xi=u_0\partial_{u_0}+u_1\partial_{u_1}-2z\partial_z,
+ \qquad
+ \iota_{P_0}\Omega=dq\wedge\iota_\xi(du_0\wedge du_1\wedge dz).
+\end{equation}
+この$P_0$は非零の階数二Poisson双ベクトルである。
+$p=[P_0]$、$R=\mathcal O_{\mathcal P,p}$、極大イデアルを$\mathfrak m$とする。
+斉次二次双ベクトル$B$のJacobiatorを
+\[
+ J(B)_{ijk}=\sum_{\ell=0}^4
+ (B_{i\ell}\partial_\ell B_{jk}+B_{j\ell}\partial_\ell B_{ki}
+                              +B_{k\ell}\partial_\ell B_{ij})
+\]
+と書く。射影Poisson方程式は$\mathcal F(B)=E\wedge J(B)=0$である。
+二次双ベクトルには150係数があり、$\mathcal F$には350個の四次係数がある。
+Eulerゲージ$E\wedge$一次場の像は24次元である。
+
+以下に接空間の基底を固定する。添字は$X=(X_0,\ldots,X_4)$の順で、全て0始まりとする。
+$D_{ij}=[X_j\partial_{X_i},P_0]$について、$5i+j$が
+\[
+ (0,1,2,3,4,5,6,7,8,9,10,11,13,14,16,17,19,20,22,23)
+\]
+である20元をこの順に取る。続いて式\eqref{eq:model}で$q$を
+\[
+ u_0w_1,\quad w_0^2,\quad w_0w_1,\quad w_1^2
+\]
+の方向に変える4元、$\xi$を
+\[
+ u_1\partial_{u_0},\quad u_0\partial_{u_1},\quad
+ u_0\partial_{u_0}-z\partial_z
+\]
+の方向に変える3元を取る。最後の3元を次で定める。
+$G=\operatorname{Hess}(q)/2$とし、$A$を$A^tG+GA=0$を満たす行列とするとき
+\begin{equation}\label{eq:K}
+ K_A=\frac q2AG^{-1}+\frac12E\wedge(AX).
+\end{equation}
+\[
+ A_1X=u_1\partial_{u_0}-u_0\partial_{w_0},\quad
+ A_2X=z\partial_{w_0}-u_1\partial_{w_1},\quad
+ A_3X=u_1\partial_{u_1}-z\partial_z-w_0\partial_{w_0}+w_1\partial_{w_1}
+\]
+に対応する$K_1,K_2,K_3$を加える。場とその成分ベクトルはここで同一視する。
+この30元を$B_0,\ldots,B_{29}$、対応する接座標を$t_0,\ldots,t_{29}$とする。
+\begin{equation}\label{eq:coords}
+ s_i=t_{20+i}\ (0\le i\le6),\qquad a=t_{27},\ b=t_{28},\ c=t_{29}.
+\end{equation}
+最初の20個の軌道方向と$b$は、下記の二次関係に現れない。
+
+\section{全二次初期イデアル}
+$S=\CC[t_0,\ldots,t_{29}]$とする。
+$\gr_{\mathfrak m}R=S/\mathcal I$という接空間からの表示において、
+$\mathcal I$の次数二部分が生成するイデアルを$I_2$と書く。
+$I_2$と全初期イデアル$\mathcal I$は一般には異なる。
+
+\begin{theorem}[二次方程式の完全性]\label{thm:quadrics}
+$\dim T_p\mathcal P=30$であり、上記の座標において
+\begin{equation}\label{eq:seven}
+\boxed{\quad
+ I_2=(s_0c-s_2a,\ s_1c,\ c(s_2+c),\ s_3c,
+             \ s_4c+s_6a,\ s_5a,\ s_5c).\quad}
+\end{equation}
+特に$\dim_\CC\mathcal I_2=7$である。これは全接錐が二次式だけで定義されるという主張ではない。
+\end{theorem}
+\begin{proof}
+$M=d\mathcal F_{P_0}$を全350係数、全150二次双ベクトル方向について作る。
+有理数体上の階数は95である。
+上述の30元は全て$M$の核に入り、Eulerゲージ24元および$P_0$を加えた行列は階数55を持つ。
+従って尺度も割った接空間で30元は基底をなす。
+
+$M$の像に写る95個の補空間座標を選び、線形項が独立な95個の方程式を形式的に解く。
+残る最小局所表示は30変数で、全定義方程式は二次以上から始まる。
+その二次部分は、$M$の全左核$\Lambda M=0$に対する
+\begin{equation}\label{eq:obmap}
+ \Lambda\!\left(\mathcal F\!\left(\sum_{i=0}^{29}t_iB_i\right)\right)
+\end{equation}
+が張る空間に正確に等しい。高次の係数を掛ける操作や方程式間の消去は、
+この次数二部分に新しい独立な関係を加えない。
+
+この有限係数計算を明示的に特定する。
+添字対は辞書式、次数$d$単項式は$0\le i_1\le\cdots\le i_d\le4$の辞書式で並べる。
+$M^t$の被約行階段形のピボット列を$p_0,\ldots,p_{94}$とする。
+各非ピボット列$j$に対し
+$\lambda_j=e_j-\sum_k\operatorname{rref}(M^t)_{kj}e_{p_k}$と置けば、
+これら255元は全左核の基底である。
+30個の対角項と435個の異なる基底対に式\eqref{eq:obmap}を評価する。
+得られる$255\times465$行列の階数は7で、非零の被約行階段形は式\eqref{eq:seven}である。
+非ピボット列を昇順に番号付けたとき、次の7行と倍率で正規化された7式を直接回収できる。
+\[
+\begin{array}{c|rrrrrrr}
+ \text{式の順番}&1&2&3&4&5&6&7\\\hline
+ \text{左核の行番号}&140&52&47&145&110&95&88\\
+ \text{倍率}&-1/12&1/9&-10/9&-2/33&1/2&-1/4&1/2
+\end{array}
+\]
+全350係数、全150方向、全465組の検算と左核汎関数の疎な全表示を、付属する
+\path{code/subvariety_incidence/check_isotropic_quadratic_cone.py}
+および対応するJSON証明書で、外部入力なしに再生成する。
+従ってこれは標本点や一部の接方向だけについての計算ではない。
+\end{proof}
+
+\section{二次障害スキームと真の接錐の非被約性}
+\begin{theorem}[被約台と平方零部分]\label{thm:radical}
+$h=a(s_2+c)$と置く。このとき
+\begin{align}
+ \sqrt{I_2}=I_2+(h)&=P_{28}\cap P_{26}\cap P_{24},\label{eq:radical}\\
+ P_{28}&=(a,c),\nonumber\\
+ P_{26}&=(c,s_2,s_6,s_5),\nonumber\\
+ P_{24}&=(s_1,s_3,s_5,s_2+c,s_0+a,s_4c+s_6a).\nonumber
+\end{align}
+添字は対応する$S$上の既約成分の次元である。
+$S/I_2$のnilradicalは$\bar h$により生成され、
+\begin{equation}\label{eq:nil}
+ \bar h\ne0,\quad\bar h^2=0,\qquad
+ I_2:h=(s_1,s_2,s_3,s_5,s_6,c).
+\end{equation}
+さらに、\emph{真の接錐}$\Spec\gr_{\mathfrak m}R$にも$h$の像は非零の平方零元として残る。
+従って真の接錐は非被約である。
+\end{theorem}
+\begin{proof}
+三つの表示イデアルは素である。$P_{24}$の場合は5個の独立な一次式を除いた後に
+既約二次式$s_4c+s_6a$が残るからである。
+三素イデアルの交叉の生成元は
+\[
+\begin{split}
+ &as_6(s_0+a),\ c(s_0+a),\ as_6s_1,\ cs_1,\ a(s_2+c),\ c(s_2+c),\\
+ &as_6s_3,\ cs_3,\ s_4c+s_6a,\ as_5,\ cs_5.
+\end{split}
+\]
+これは$I_2+(h)$と一致する。
+例えば$P_{28}\cap P_{26}=(c,as_2,as_6,as_5)$から残りの交叉を計算できる。
+各包含は上の生成元への直接代入でも確認でき、付属コードは両方向のGr\"obner剰余を検査する。
+
+第1式を$g_1=s_0c-s_2a$、第3式を$g_3=c(s_2+c)$と書けば、恒等的に
+\begin{equation}\label{eq:h-square}
+ h=c(s_0+a)-g_1,\qquad
+ h^2=a(s_0+a)g_3-hg_1.
+\end{equation}
+よって$h^2\in I_2$である。
+一方、$h$の単項式$ac$の係数は1であり、式\eqref{eq:seven}のどの生成元にも$ac$は現れない。
+次数二により$h\notin I_2$となる。
+これと式\eqref{eq:radical}からnilradicalの記述が従う。
+
+式\eqref{eq:h-square}と7式を使うと$s_1,s_2,s_3,s_5,s_6,c$は全て$\bar h$を殺す。
+逆包含は$\CC(s_0,s_4,a)$上の双対数への写像
+\[
+ c\mapsto\varepsilon,\quad s_2\mapsto(s_0/a)\varepsilon,\quad
+ s_6\mapsto-(s_4/a)\varepsilon,\quad s_1,s_3,s_5\mapsto0,
+ \qquad\varepsilon^2=0
+\]
+で確認できる。ここで$h\mapsto(s_0+a)\varepsilon$であり、
+$s_0,s_4,a$および残る自由変数の非零多項式はこれを殺さない。
+
+最後に定理\ref{thm:quadrics}は、単に7式が真の接錐を消すというだけでなく、
+\emph{真の初期イデアルの次数二部分全体}を決定している。
+従って$h\notin\mathcal I_2$であり、その像は$S/\mathcal I$でも非零である。
+式\eqref{eq:h-square}からその平方は零である。
+高次の初期方程式が追加されても、この次数二の非零性は失われない。
+\end{proof}
+
+\begin{remark}[区別すべき三つのスキーム]
+$\Spec(S/I_2)$は二次障害スキームであり、真の接錐はその閉部分スキームである。
+次元26、24の二次障害成分が、そのまま真の接錐や元のPoissonスキームの成分になるとは限らない。
+接錐の非被約性は証明したが、元の局所環$R$の非被約性は未証明である。
+真の接錐に残る$\bar h$の台は、式\eqref{eq:nil}の6一次式で定まる次元24の空間に含まれる。
+その台の正確な次元は本稿からは決まらない。
+\end{remark}
+
+\section{局所次元と重複度一}
+\begin{lemma}[独立な28次元下界]\label{lem:lower}
+$p$を含む階数二対数型Poisson族の閉包は28次元である。
+\end{lemma}
+\begin{proof}
+$\omega_0=\iota_E\iota_{P_0}\Omega$は
+\[
+ \omega_0=qu_0u_1z\,d\log(u_0/u_1)\wedge d\log(q^3/(u_1^4z^2))
+\]
+と書ける。留数は$(1,-1,0,0)$と$(0,-4,-2,3)$で、どちらも$(1,1,1,2)$と直交する。
+一般の対数型源は、三一次式$f_0,f_1,f_2$と一二次式$f_3$、
+$c\in\PP\wedge^2\ker(1,1,1,2)\simeq\PP^2$から
+\[
+ \omega(f,c)=\sum_{i<j}c_{ij}\prod_{k\ne i,j}f_k\,df_i\wedge df_j
+\]
+を作るもので、源の次元は$12+14+2=28$である。
+三次元空間の二重外積の元は分解可能である。二つの閉対数一形式の共通核は可積分であり、対応する分解可能双ベクトルはPoissonである。
+
+像の次元に関する下界を正確な微分の小行列式で確認する。
+$f_0=u_0,f_1=u_1,f_2=z$、
+\[
+\begin{split}
+f_3={}&u_0^2+u_1^2+z^2+w_0^2+w_1^2+u_0u_1+u_0w_0+u_0w_1\\
+     &+2u_1w_0+u_1w_1+zw_0+2zw_1+w_0w_1
+\end{split}
+\]
+とする。$r_1=(1,-1,0,0)$、$r_2=(1,0,-1,0)$、$r_3=(2,0,0,-1)$により
+$c=r_1\wedge r_2+2r_1\wedge r_3+5r_2\wedge r_3$と置く。
+$f_0,f_1,f_2$のそれぞれの主係数を固定した12変数、$f_3$の$w_1^2$係数を固定した14変数、
+$c$の第1係数を固定した2変数で微分する。
+350個の三次二形式係数を前節と同じ辞書式順で並べた微分行列の行
+\[
+\begin{split}
+(2,3,4,6,7,8,9,10,11,16,19,20,21,25,26,27,28,29,\\
+30,38,39,42,43,45,46,52,53,55)
+\end{split}
+\]
+の小行列式は$-57177414000000\ne0$である。
+基点$\omega(f,c)$の係数列も加えると階数29なので、射影化しても微分階数28を持つ。
+付属コードはこの小行列式と$p$の対数型表示を独立に再計算する。
+従って像の閉包は28次元であり、表示式から$p$を含む。
+\end{proof}
+
+\begin{theorem}[最大次元接錐とHilbert--Samuel重複度]\label{thm:mult}
+\[
+ \dim R=28,\qquad (C_p\mathcal P)_{\mathrm{top,red}}=V(a,c)\simeq\mathbf A^{28},
+ \qquad e(R)=1.
+\]
+$\mathrm{top,red}$は最大次元既約成分の被約な台を意味する。
+\end{theorem}
+\begin{proof}
+真の接錐は$\Spec(S/I_2)$に含まれ、後者の最大次元は28である。
+補題\ref{lem:lower}により逆の下界も成立し、$\dim R=28$となる。
+定理\ref{thm:radical}の三素イデアルのうち28次元なのは$P_{28}=(a,c)$のみだから、
+真の接錐の28次元の被約台はこの線形空間に一致する。
+この素イデアルで局所化すると$s_1,s_5$は単元であり、$s_1c$と$s_5a$から
+$(I_2)_{P_{28}}=(P_{28})_{P_{28}}$を得る。
+従って真の接錐のこの一般点での長さは一である。
+局所環の重複度は接錐の次数に等しく、最大次元成分への結合公式
+\cite[Lemma 43.15.3]{StacksMult}により、長さ一と線形空間の次数一の積、すなわち一となる。
+\end{proof}
+
+\begin{remark}[元の非Cohen--Macaulay性との関係]
+同伴原稿\cite{Incidence}で示した25次元の階数四長鎖成分への帰属と、
+28次元対数型成分の成分性を用いると、$R$は非等次元で、深さは25以下である。
+その成分性入力は本稿の二次計算だけの帰結ではない。
+本稿の$e(R)=1$はそれと矛盾せず、低次元成分や低次元に支持されるnilpotent構造は
+最高次のHilbert--Samuel係数に寄与しない。
+\end{remark}
+
+\section{混合\texorpdfstring{$ac$}{ac}障害の周囲での消去}
+固定された$Q=V(q)$と$P_0|_Q$への延長ファイバーは、同伴原稿で
+$\Spec\CC[a,b,c]/(ac,c^2)$と計算されている。
+$c^2$の障害は全周囲でも残るが、$ac$には異なる挙動がある。
+
+\begin{proposition}[明示的な混合補正]\label{prop:mixed}
+二次双ベクトル$R_{ac}$の非零係数を座標順$(u_0,u_1,z,w_0,w_1)$で
+\[
+\begin{aligned}
+ (R_{ac})_{02}&=-\tfrac12(u_0^2-u_1w_0+2zw_1),&
+ (R_{ac})_{03}&=-\tfrac32w_0w_1,\\
+ (R_{ac})_{12}&=-\tfrac34u_0u_1,&
+ (R_{ac})_{13}&=\tfrac34u_0w_1,&
+ (R_{ac})_{23}&=\tfrac34u_0w_0
+\end{aligned}
+\]
+とし、反対称性で残りを定める。このとき
+\[
+ P_0+aK_1+cK_3+acR_{ac}
+\]
+は係数環$A=\CC[a,c]/\bigl((a,c)^3+(c^2)\bigr)$上で射影Poissonテンソルを定める。
+\end{proposition}
+\begin{proof}
+$M=d\mathcal F_{P_0}$、
+$\mathcal F(B,C)=\mathcal F(B+C)-\mathcal F(B)-\mathcal F(C)$と書く。
+全350係数についての正確な恒等式
+\[
+ M(R_{ac})=-\mathcal F(K_1,K_3)
+\]
+が成立する。さらに$M(K_1)=M(K_3)=0$および$\mathcal F(K_1)=0$である。
+従って全二次までの残差は$c^2\mathcal F(K_3)$だけとなり、$A$上では零である。
+これらの恒等式は同じ独立producerで全係数を照合した。
+これは$ac$項の障害の消去であり、$c$方向そのものの二次持上げや全次数の変形の存在ではない。
+\end{proof}
+
+\section{再現・依存関係・未解決箇所}
+計算環はPython 3、SymPy 1.14.0、有理数体である。
+前のproducerをimportせず、全行列・全二次障害・対数型源の小行列式・混合補正を再構成する。
+\begin{verbatim}
+python code/subvariety_incidence/check_isotropic_quadratic_cone.py \
+  --output work/isotropic_quadratic_cone.json \
+  --check research/subvariety_incidence/certificates/\
+isotropic_quadratic_cone.json
+latexmk papers/isotropic_log_tangent_cone_ja.tex
+\end{verbatim}
+検算済みの結果と、本稿からは決まらない部分を分ける。
+全二次初期イデアル、真の接錐の非被約性、局所次元28、重複度一、混合$ac$補正は証明済みである。
+全初期イデアル、接錐の低次元成分の正確な分解、$R$そのものの被約性、
+$p$を通る全既約成分の列挙および全次数のPoisson変形は未解決である。
+二次障害スキームの次元26、24を新しいPoisson成分として数えてはならない。
+
+\begin{thebibliography}{9}
+\bibitem{MPS} M. Matviichuk, B. Pym and T. Schedler,
+\emph{A local Torelli theorem for log symplectic manifolds},
+arXiv:2010.08692v2 (2021), \url{https://arxiv.org/abs/2010.08692v2}.
+正規交叉極因子を持つlog symplectic領域の局所変形理論を背景として参照。
+本点への直接適用は行わない。
+\bibitem{StacksMult} The Stacks Project Authors,
+\emph{The Stacks Project}, Section 43.15, especially Lemmas 43.15.2--43.15.3,
+\url{https://stacks.math.columbia.edu/tag/0AZU}.
+\bibitem{Incidence} 本研究の同伴原稿、
+\emph{Poisson部分多様体から見る射影四空間の成分分類}、2026年11月10日、現行研究原稿。
+\path{papers/poisson_subvariety_incidence_ja.tex}、共有証明
+\path{papers/quadric_log_component_intersection.tex}、
+\path{papers/rank_four_long_component_membership.tex}。
+外部公表・査読済みの文献としては扱わない。
+\end{thebibliography}
+\end{document}

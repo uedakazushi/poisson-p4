@@ -1,22 +1,30 @@
-# Poisson部分多様体と射影四空間の成分交叉：研究方針
+# 完全等方Log点：非被約接錐と周囲障害
 
-2026-11-10 / v11。再開順：ルートRESEARCH_POLICY.md → REPRODUCE_GITHUB.md → 本方針 → NOTES.md → papers/poisson_subvariety_incidence_ja.tex。
+2026-11-10 / v12。再開：ルートRESEARCH_POLICY.md → 本方針 → NOTES.md → papers/isotropic_log_tangent_cone_ja.tex。
 
-## 恒常的原則と保存許可
+## 一般原則・保存許可
 
-数学的重要性・新規性・理解の深化・正確性・実現可能性・他成分への応用価値を総合し、研究目標を柔軟に調整する。主要結果の仮定、証明、計算検証、未完成箇所、先行研究との差を分ける。公表原稿は日本語LuaLaTeX、ノートは非重複の研究知識のみとし、価値のある内容・再取得困難な入力・証明書は軽量化で失わない。履歴や旧版を蓄積せず現在の一式だけから再開できるようにする。ユーザーの継続保存許可の現行運用は**GitHub mainを唯一の正本**とし、非force push後にremote先端を確認する。ChatGPT Libraryへの保存は実際のpush失敗時の緊急退避に限る。GitHub Actionsは使わず、生成PDFは原則Git追跡しない。Library上の既存ファイルは明示的指示なしには削除しない。
+研究価値、正確性、理解の深化、新規性、実現可能性を総合して方針を変更する。証明付き・今回の検算・未証明・既知の入力・新規性未確認を区別する。日本語LuaLaTeXの現行原稿と必要な入力を保持し、ノートに証明全文・旧版・実況を重複させない。ユーザーの保存許可の現行運用はGitHub mainを唯一の正本とし、非force更新後に先端を確認する。PDF非追跡、Actions不使用、Libraryは実際のpush失敗時のみ緊急退避。既存Libraryファイルは無断削除しない。生成・検算・組版・保存を分けて報告する。
 
-## 現在の中心成果とその確実性
+## 現在の中心定理
 
-- **局所次元28（今回の独立証明）**：完全等方Log点p=[P0]、q=u0²+2u1w0+2zw1について全ambient Poissonスキームの接空間は30次元、局所Krull次元は正確に28。二つの互いに素な二次障害式9*t21*t29と-4*t25*t27が接錐を拘束し、Log(1,1,1,2)源の28次minor（-57177414000000）で下界を得る。 接錐の28次元の既約成分はV(t21,t25)、V(t21,t27)、V(t29,t25)、V(t29,t27)の四候補に限られ、局所Hilbert--Samuel重複度≤4。全147成分の完全性はこの次元決定に用いない。
-- **25次元rank4既約成分の明示帰属（今回の独立同定＋既存成分性）**：P_a=P0+aK1 (a≠0) の六つのアフィンPoisson括弧は、実際のPGL5座標変更によって既存rank一長鎖・非定数g源に完全に一致する。g=6Z、U=60Z/a² ∂W、K=-ZW/a²+50Z²/a⁴。従ってpはカタログのR4_MODULAR_RANK1_LONG_NONCONSTANT_25に属する。modular冪零Jordan型はa≠0で(3,1,1)、a=0で(2,2,1)。
-- **非等次元・非Cohen--Macaulay（既存成分性に依存する系）**：pはrank2 Log1112（28次元）と上記rank4（25次元）の相異なる既約成分の交点。局所環には異なる次元の極小成分が存在するので非等次元、非CM、非Gorenstein、非局所完全交叉。さらに25次元の極小associated primeに対する深さ不等式（Stacks Project Tag 0BK4）からdepth≤25、局所次元28との差は少なくとも3。被約化しても同じ結論。ambient局所環の非被約性は証明していない。
-- **保持する以前の有効な数学**：固定smooth Qとσの非被約延長ファイバーSpec C[a,b,c]/(ac,c²)、全ambientでも消えないc方向の二次障害、一般Q3 Rat/Log/Affの延長（一点／A¹／二点）、共鳴Log直交性wallと等方的境界、smooth cubic一意延長、一般CI(2,2) del Pezzo剛性、P3横断対称性、全147既約成分分類の現行証明と計算入力。新規性・優先権の全面確認と外部査読は未完了。
+q=u0²+2u1w0+2zw1、i_(P0)Ω=dq∧i_ξ(du0∧du1∧dz)、ξ=(1,1,-2)。30次元接空間の基底は新原稿第2節とproducerに明記。
 
-## 次の核心と具体的着手
+s_i=t_(20+i), a=t27, b=t28, c=t29として、**全次数二初期イデアル**は
+I2=(s0*c-s2*a, s1*c, c*(s2+c), s3*c, s4*c+s6*a, s5*a, s5*c)。
+この7次元性は全150一次方向・350係数・465組の二次項により厳密に確認した。h=a*(s2+c)は次数二関係に入らず、h²はI2に入る。そのため**真の接錐でもh≠0、h²=0**であり、接錐は非被約。
 
-第一に**pを通るrank4成分が長鎖25次元成分だけか**を判定し、二つの既知成分の接錐・交叉スキームを同定する。接空間上の二つの単項式二次障害が与える四つの線形平面候補のうち、どれが真の最大次元接錐成分となるかを追加二次関係とカタログ源の実退化の両側から検査する。第二に局所環の深さ、embeddedな部分、固定Qファイバーのac方向がambientで真の障害かを独立に検証する。ambient非被約性は二次障害・非CM性だけから推論しない。研究価値が局所場合分けによって低下すれば、del Pezzo例外・P3対称性やより普遍的なPoissonスキームの非CM機構へ切り替える。
+二次障害スキームの被約台は次元28/26/24の三成分。最大次元成分だけは実接錐でもV(a,c)で、一般長さ1。対数型源の独立な28次minorと合わせ局所次元28、Hilbert–Samuel重複度1。これらは147成分完全性を仮定しない。
 
-## 論文・再現
+固定Q,σ延長のac関係は全周囲では明示R_acにより二次まで消去可能。P0+aK1+cK3+acR_acはC[a,c]/((a,c)^3+(c²))上でPoisson。ただし純c方向のc²障害は消えず、全次数への持上げも未証明。
 
-main原稿 papers/poisson_subvariety_incidence_ja.tex に二つの主証明 papers/quadric_log_component_intersection.tex、papers/rank_four_long_component_membership.tex をinclude。従来の障害は papers/quadric_ambient_quadratic_obstruction.tex、固定ファイバーは papers/quadric_log_isotropic_boundary.tex。今回の正確なproducer code/subvariety_incidence/check_rank4_long_nonconstant_membership.py、証明書 research/subvariety_incidence/certificates/rank4_long_nonconstant_membership.json。手動全再現：bash scripts/verify_github_source.sh incidence（11 producer/11 JSON、LuaLaTeX）。GitHub正本の確認と計算・組版の実行状況は分けて報告する。
+既存の25次元長鎖rank4成分へのPGL5同定、28次元Log1112成分との交叉、非等次元・非CM・depth≤25は同伴原稿v11に保持。これらの成分性入力と新しい独立接錐計算を区別する。Q3一般三型、共鳴境界、cubic・del Pezzo剛性、P3対称性、147分類の必要数学資産は削除しない。
+
+## 次の核心・着手方法
+
+最優先は全初期イデアルの三次以上。線形化の95 normal方向を二次まで解き、30 tangent方向上の三次残差とI2のsyzygyを計算する。二次模型の26・24次元成分は真の成分と未同定であり、新しいPoisson成分として数えない。
+次にhの実接錐上の台・annihilator、既知25次元成分の接錐とscheme交叉を調べる。元の局所環Rの被約性と全成分の分類は未解決。接錐非被約からR非被約を推論しない。局所分類の価値に応じてより一般的な障害機構やdel Pezzo例外へ方針を変更する。文献上の優先権は未確認。
+
+## 再現
+
+新原稿 papers/isotropic_log_tangent_cone_ja.tex は独立6頁。コード code/subvariety_incidence/check_isotropic_quadratic_cone.py、証明書 certificates/isotropic_quadratic_cone.json。新しい手動入口 bash scripts/verify_github_source.sh tangent-cone。SymPy 1.14.0の全有理計算と6頁LuaLaTeX二回組版を実行済み。旧11証明書・147分類の全面再実行は今回行っていない。

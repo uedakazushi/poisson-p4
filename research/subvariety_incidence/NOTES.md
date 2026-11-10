@@ -1,21 +1,33 @@
 # Poisson部分多様体incidence：現行研究ノート
 
-2026-11-10 / v11。再開時にはRESEARCH_POLICY.mdを先に読む。原稿にある証明の全文は重複させない。
+2026-11-10 / v12。再開時はRESEARCH_POLICY.md。詳しい証明は新接錐原稿と同伴incidence原稿を参照。
 
-## 完全等方Log点の既知の構造
+## 模型と完全な二次障害
 
-q=u0²+2u1w0+2zw1、i_(P0)Ω=dq∧i_ξ(du0∧du1∧dz)、ξ=(1,1,-2)。固定Q,σ延長ファイバーはSpec C[a,b,c]/(ac,c²)。cの埋込み接方向はfull ambientでも二次までPoissonに持ち上がらず、五係数Λの値は-9。全150係数の一次Jacobi階数95、射影接空間30次元。さらに二つの独立消滅汎関数が30次元接空間上に9*t21*t29と-4*t25*t27を与える。 この二次完全交叉の被約台は四つの28次元座標平面の和であり、実接錐の最大次元成分はその四候補のいずれか、Hilbert--Samuel重複度は高々4。いずれの平面が実際に現れるかは未確定。Log(1,1,1,2)パラメータ源の28次minorは-57177414000000で、局所次元28を確定。証明はpapers/quadric_ambient_quadratic_obstruction.texとpapers/quadric_log_component_intersection.tex。
+q=u0²+2u1w0+2zw1、i_(P0)Ω=dq∧i_ξ(du0∧du1∧dz)、ξ=(1,1,-2)。固定Q,σファイバーはSpec C[a,b,c]/(ac,c²)。全150二次双ベクトル係数の射影Jacobi350方程式の微分はrank95、Eulerゲージ24と尺度1を除く接空間は30次元。
 
-## 階数四成分への明示同定（検算済み）
+既存30基底のs_i=t_(20+i), a=t27, b=t28, c=t29で、全二次初期イデアルは
+I2=(s0*c-s2*a, s1*c, c*(s2+c), s3*c, s4*c+s6*a, s5*a, s5*c)。軌道20方向とbは二次関係に現れない。全255左核×465接方向対の行列はrank7。新producerは旧producerをimportせず全行列を再構成する。
 
-H=u1=0のaffine chartでx=u0/u1、y=-w0/u1、z=z_hom/u1、w=w1/u1とする。P_a=P0+aK1の括弧は
-{x,y}=a(y-x²/2-zw)、{x,z}={x,w}=0、{y,z}=-6z²、{y,w}=2zw-2x²+4y、{z,w}=6z。
-modular場はM_a=-a∂x+(-a*x+10z)∂y+10∂w。a≠0でJordan(3,1,1)、a=0でJordan(2,2,1)。
+## 平方零元と被約台
 
-a≠0では**アフィン線形**変換X=-x/a+10z/a²、Y=y/a²、Z=z、W=w+10x/a（Jacobian=-a^-3）で長鎖源の
-g=6Z、U=(60Z/a²)∂W、d=0、K=-ZW/a²+50Z²/a⁴、F=-ZW/a²-10Z²/a⁴
-に六括弧全部が一致する。残余二次式Q=hY-X²/2-ZW/a²+50Z²/a⁴の半Hessian行列式は-1/(32a⁴)≠0。したがってa≠0の全PoissonテンソルはR4_MODULAR_RANK1_LONG_NONCONSTANT_25の実sourceに属し、閉包でpも属する。**同じPfaffian因子型だけから帰属を推測したのではない**。本帰属を確認する独立SymPyコードと証明書はcheck_rank4_long_nonconstant_membership.py、rank4_long_nonconstant_membership.json。通常の日本語の証明はpapers/rank_four_long_component_membership.tex。
+h=a*(s2+c)。g1=s0*c-s2*a、g3=c*(s2+c)とすると
+h=c*(s0+a)-g1、h²=a*(s0+a)*g3-h*g1。
+hはac単項式を含み、7式のどれもacを含まないため二次関係に属さない。全次数二初期関係を尽くしたので、**真の接錐でもhは非零平方零元**。単に二次近似の非被約性を観察したのではない。
 
-## 幾何学的意味と未解決箇所
+sqrt(I2)=I2+(h)=P28∩P26∩P24、
+P28=(a,c)、P26=(c,s2,s6,s5)、P24=(s1,s3,s5,s2+c,s0+a,s4*c+s6*a)。
+I2:h=(s1,s2,s3,s5,s6,c)。二次模型のnilradicalは24次元線形空間上の平方零の巡回加群。真の接錐では高次初期式によりhのannihilatorや台がさらに小さくなり得るが、次数二のhは消えない。
 
-既存カタログのrank2 Log1112（28次元）と長鎖非定数rank4（25次元）の双方がpを通るという二つの**成分性定理を入力**として、局所環は非等次元・非Cohen--Macaulay。25次元極小associated primeについてStacks Project Lemma 10.72.9（Tag 0BK4）からdepth≤25（局所次元28との差≥3）が従い、被約化にも同じ上界が成立する。これはambientのnilradical非零と同値ではない。すでに完全なrank4帰属の一例は分かったが、pを通る他の成分、全接錐の分解、ac障害、ambientの非被約性、特殊Q3の全層別は未解決。次は二つの既知成分のscheme論的交叉と、全ambientの追加二次障害を照合する。既知のその他のQ3・cubic・del Pezzo・P3の有効な成果は現行原稿に保持。新規性の一次文献調査は未完了。GitHub main正本、Actions不使用、PDF非追跡、Libraryはpush失敗時のみ。
+## 重複度一と混合acの消去
+
+対数型表示ω0=q*u0*u1*z*dlog(u0/u1)∧dlog(q³/(u1⁴z²))と、源の非零28次minor -57177414000000 を再計算した。局所次元28。唯一の28次元接錐候補はP28で、そこではs1,s5が単元になりc,aが消えるので一般長さ1、Hilbert–Samuel重複度1。低次元nilpotent構造はこの最高次係数に寄与しない。
+
+混合acについて、明示されたR_ac（新原稿第6節）がdF_(P0)(R_ac)=-F(K1,K3)を全350係数で満たす。従ってC[a,c]/((a,c)^3+(c²))上の二次補正は存在する。固定ファイバーのac関係が周囲でも障害だという予想はここで否定される。純c方向のc²障害と全次数の持上げは別問題。
+
+## 保持する成分帰属と注意点
+
+H=u1=0のaffine chartでx=u0/u1、y=-w0/u1、z=z_hom/u1、w=w1/u1。
+P_a=P0+aK1はa≠0でアフィン線形変換X=-x/a+10z/a²、Y=y/a²、Z=z、W=w+10x/a（det=-a^-3）により長鎖源g=6Z、U=(60Z/a²)∂W、K=-ZW/a²+50Z²/a⁴へ全六括弧が一致する。残余quadricの半Hessian det=-1/(32a⁴)。modular Jordan型は(3,1,1)→(2,2,1)。したがってR4_MODULAR_RANK1_LONG_NONCONSTANT_25に帰属。既存の成分性定理を入力に、28次元Log1112との交叉は非等次元・非CM、depth≤25。この結論は接錐計算そのものとは別の依存を持つ。
+
+未解決：全初期イデアル、低次元接錐の真の成分、hの正確な支持、元の局所環の被約性、他のrank4成分、全次数変形。次元26/24をambient Poisson成分と呼ばない。新規性・優先権の網羅確認は未完了。先行Q3・cubic・del Pezzo・P3の数学は同伴原稿に保持。GitHub main正本、PDF非追跡、Actions不使用、Libraryは実push失敗時のみ。
