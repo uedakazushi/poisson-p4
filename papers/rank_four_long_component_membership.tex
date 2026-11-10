@@ -1,0 +1,141 @@
+
+\subsection{完全等方Log点を通る長鎖・非定数modular成分}
+\label{subsec:isotropic-long-rankfour-membership}
+
+前小節の階数四曲線を既存のrank一長鎖源へ直接同定する。
+退化因子の一致だけで成分帰属を推測するのではなく、実際の
+\(\PGL_5\)座標変換と全六Poisson括弧を与える。
+
+\begin{theorem}[階数四成分への明示的な帰属]
+\label{thm:isotropic-long-rankfour-membership}
+定理\ref{thm:quadric-isotropic-dimension28}の
+\(p=[P_0]\)と\(P_a=P_0+aK_1\)を用いる。
+現行成分カタログで
+\(\mathcal Z_{\mathrm{long}}=
+\overline{\mathrm{R4\_MODULAR\_RANK1\_LONG\_NONCONSTANT\_25}}\)
+と表す一般階数四、次元\(25\)の既約成分に対して
+\[
+ [P_a]\in\mathcal Z_{\mathrm{long}}\quad(a\ne0),
+ \qquad [P_0]\in\mathcal Z_{\mathrm{long}}
+\]
+が成り立つ。従って\(p\)は次元\(28\)の階数二成分
+\(\mathrm{R2\_LOG1112}\)と、この具体的に同定された
+次元\(25\)の階数四成分との交点にある。
+この同定には退化五次式の因子型だけでなく、
+\(\PGL_5\)による全Poisson括弧の一致を用いる。
+
+さらに、固定超平面\(u_1=0\)のaffine chartで
+\(P_a\)のmodular場の射影斉次化の冪零Jordan型は、
+\(a\ne0\)で\((3,1,1)\)、\(a=0\)で\((2,2,1)\)である。
+\end{theorem}
+
+\begin{proof}
+同次座標を\((u_0,u_1,z,w_0,w_1)\)とし、
+\(h=u_1\)のchartで
+\[
+ x=u_0/h,\qquad y=-w_0/h,\qquad
+ z_{\mathrm{af}}=z/h,\qquad w=w_1/h
+\]
+と書く。以後\(z_{\mathrm{af}}\)を\(z\)と略記する。
+定義\eqref{eq:isotropic-log-p0}と
+\eqref{eq:isotropic-K}に代入すれば、
+\(P_a=P_0+aK_1\)の非零括弧は厳密に
+\begin{equation}\label{eq:isotropic-long-original-brackets}
+\begin{aligned}
+\{x,y\}&=a(y-x^2/2-zw),&
+\{y,z\}&=-6z^2,\\
+\{y,w\}&=2zw-2x^2+4y,&
+\{z,w\}&=6z,
+\end{aligned}
+\qquad \{x,z\}=\{x,w\}=0.
+\end{equation}
+従って標準体積形式に関するmodular場は
+\[
+ M_a=-a\partial_x+(-ax+10z)\partial_y+10\partial_w.
+\]
+座標を\((h,x,y,z,w)\)の順に斉次化した線形作用素\(N_a\)は
+\[
+ N_a(h)=-ax+10w,\qquad N_a(x)=-ay,\qquad
+ N_a(z)=10y,\qquad N_a(y)=N_a(w)=0.
+\]
+\(a\ne0\)では\(\rank N_a=2,\ \rank N_a^2=1,\
+N_a^3=0\)、\(a=0\)では\(\rank N_0=2,\ N_0^2=0\)。
+従ってJordan型は述べた通りである。
+
+\(a\ne0\)では次の\emph{アフィン線形}座標変換を施す：
+\begin{equation}\label{eq:isotropic-long-projective-change}
+ X=-x/a+10z/a^2,\quad Y=y/a^2,\quad
+ Z=z,\quad W=w+10x/a.
+\end{equation}
+この変換のJacobianは\(-a^{-3}\ne0\)だから
+射影線形自己同型へ延長する。とくに
+\(y-zw\)のような\emph{非線形}座標変更を利用していない。
+
+\(r=Y-X^2/2\)とし、
+\[
+ g=6Z,\qquad
+ U=\frac{60Z}{a^2}\partial_W,\qquad d=\operatorname{div}U=0,
+\quad
+ K=-\frac{ZW}{a^2}+\frac{50Z^2}{a^4},\qquad
+ F=(U+d+1)K=-\frac{ZW}{a^2}-\frac{10Z^2}{a^4}
+\]
+と置く。このとき\(U(g)=dg=0\)であり、
+\(g\)は非定数一次式で、\(K\)は次数二以下である。
+式\eqref{eq:isotropic-long-original-brackets}を
+\eqref{eq:isotropic-long-projective-change}で変換した
+\emph{全六括弧}は
+\begin{equation}\label{eq:isotropic-long-source-brackets}
+\begin{aligned}
+ \{X,Y\}&=-F-(1+d)r,&
+ \{X,Z\}&=U_Z=0,&
+ \{X,W\}&=U_W=\frac{60Z}{a^2},\\
+ \{Y,Z\}&=XU_Z+r\,g_W+(gK)_W=-\frac{6Z^2}{a^2},\\
+ \{Y,W\}&=XU_W-r\,g_Z-(gK)_Z
+   =\frac{60XZ}{a^2}-6r+\frac{12ZW}{a^2}
+      -\frac{900Z^2}{a^4},\\
+ \{Z,W\}&=g=6Z .
+\end{aligned}
+\end{equation}
+これは既存の
+\texttt{RANK\_ONE\_LONG\_NONCONSTANT\_COMPONENT\_ENTRANCE.md}
+第1節にある全源の式(1)と、一つの係数も省略せず一致する。
+
+実際、そのsourceのPfaffianは
+\[
+ \operatorname{Pf}(P_a)=-g(r+K)
+   =-6Z\left(Y-\frac{X^2}{2}-\frac{ZW}{a^2}
+                           +\frac{50Z^2}{a^4}\right).
+\]
+二次因子の斉次化
+\[
+ Q_a=hY-\frac{X^2}{2}-\frac{ZW}{a^2}
+                              +\frac{50Z^2}{a^4}
+\]
+の半Hessianの行列式は\(-1/(32a^4)\ne0\)なので
+一般階数四源の滑らかな二次因子という開条件も満たす。
+その二重超平面\(h=0\)は\(Q_a=0\)に接し、
+単純超平面\(Z=0\)は接点を通る。
+従って全\(a\ne0\)に対して、実際の長鎖非定数\(g\)源の
+\(\PGL_5\)飽和に属する。
+
+既存のカタログでこの源の既約閉包
+\(\mathcal Z_{\mathrm{long}}\)が次元\(25\)の
+Poisson既約成分であるという結果を用いれば
+\([P_a]\in\mathcal Z_{\mathrm{long}}\)となる。
+元の同次座標で\(P_a=P_0+aK_1\)は\(a=0\)まで
+多項式的なPoisson曲線であり、\(\mathcal Z_{\mathrm{long}}\)
+は閉だから\([P_0]\)もこれに含まれる。
+階数二対数型成分への帰属とその次元\(28\)は
+定理\ref{thm:quadric-isotropic-dimension28}で既に証明した。
+\end{proof}
+
+\begin{remark}[既知の成分性と今回の同定の分離]
+\texttt{R4\_MODULAR\_RANK1\_LONG\_NONCONSTANT\_25}が
+既約成分であるという入力は、本リポジトリの先行する
+全源成分証明
+\texttt{research/classification/RANK\_ONE\_LONG\_NONCONSTANT\_25\_COMPONENT.md}
+に依存する。本節が新たに証明するのは
+\(P_0+aK_1\)のこの\emph{特定の}源への明示同定である。
+\(p\)を通る他の階数四成分の不存在、
+全接錐の分解、ambient局所環の被約性は示していない。
+\end{remark}
