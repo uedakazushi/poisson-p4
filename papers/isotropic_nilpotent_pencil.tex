@@ -1,0 +1,187 @@
+
+\section{冪零対称性を保つ二次形式の普遍Poisson延長}
+\label{sec:universal-nilpotent-pencil}
+前節の共通族がどの程度一般的かを明確にする。
+ここでは固定した冪零場のもとで二次式を自由に動かすが、
+最終的にはその変形の大部分が射影線形座標の選択であることを示す。
+
+\begin{theorem}[冪零対称性に沿う普遍延長と二次式の規格化]
+\label{thm:universal-nilpotent-pencil}
+$X=(u_0,u_1,z,w_0,w_1)$、$E=\sum X_i\partial_{X_i}$、
+$A=u_1\partial_{u_0}-u_0\partial_{w_0}$とし、
+\[
+\begin{split}
+q={}&u_0^2+2u_1w_0+2zw_1+
+\alpha u_1^2+\beta u_1z+\gamma u_1w_1
++\delta z^2+\eta w_1^2,\\
+\xi_t={}&(u_0+tu_1)\partial_{u_0}
+             +u_1\partial_{u_1}-2z\partial_z,
+\qquad G_q=\tfrac12\operatorname{Hess}(q).
+\end{split}
+\]
+$\delta\eta\ne1$とする。
+\[
+ \iota_{P(q,\xi_t)}\Omega
+ =dq\wedge\iota_{\xi_t}(du_0\wedge du_1\wedge dz),\qquad
+ K_A(q)=\frac q2AG_q^{-1}+\frac12E\wedge(AX)
+\]
+に対し、任意の$\lambda$について
+$P_\lambda=P(q,\xi_t)+\lambda K_A(q)$と置く。
+\begin{enumerate}
+\item $P_\lambda$は全パラメータについて斉次二次の
+\emph{strict} Poisson双ベクトルで、$q$をCasimirに持ち、
+\begin{equation}\label{eq:universal-nilpotent-pfaffian}
+ \iota_{P_\lambda\wedge P_\lambda/2}\Omega
+   =\frac{3\lambda}{2}u_1^2z\,dq
+\end{equation}
+となる。$\lambda=0$では一般階数二、
+$\lambda\ne0$では一般階数四で、
+実退化因子は$V(q)+2V(u_1)+V(z)$である。
+\item $\lambda=0$の全点は
+$\overline{\operatorname{Log}(1,1,1,2)}$に属する。
+$\lambda\ne0$の全点は、現行分類で
+$\mathrm{R4\_MODULAR\_RANK1\_LONG\_NONCONSTANT\_25}$
+と呼ぶ一般階数四成分に属する。
+後半の帰属には、同成分について既に確立した
+\emph{長鎖・非定数$g$全源の成分性定理}を用いる。
+\item 二次式の表示にある五つの係数
+$(\alpha,\beta,\gamma,\delta,\eta)$は、
+$A$と$du_0\wedge du_1\wedge dz$を保つ射影線形座標変換で
+\begin{equation}\label{eq:universal-nilpotent-qnormal}
+ q_{\eta'}=u_0^2+2u_1w_0+2zw_1+\eta'w_1^2,
+ \qquad \eta'=\frac{\eta}{1-\delta\eta}
+\end{equation}
+へ移せる。対応する$\lambda$は非零スカラーで
+再規格化される。
+従って、固定した$A$を保つこの滑らかな二次形式の
+切片は、射影線形同値を除くと
+既存の$q_{\eta'}$という一変数模型で尽くされる。
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+まず$A(q)=0$、$A^tG_q+G_qA=0$および
+$\det G_q=1-\delta\eta$を直接確認する。
+$P(q,\xi_t)$、$K_A(q)$の各十個のJacobi係数は零で、
+混合Jacobi係数も零である。これらは
+$G_q^{-1}$を有理関数として取り、
+$\mathbb Q(\alpha,\beta,\gamma,\delta,\eta,t)$上で
+二次双ベクトルの全係数を展開した恒等式である。
+五つの四次Pfaffian係数はそれぞれ
+$(3\lambda/2)u_1^2z\,\partial_iq$に等しく、
+式\eqref{eq:universal-nilpotent-pfaffian}が従う。
+この全係数検証は付属の独立producerで再現できる。
+
+$\lambda=0$の対数型帰属を具体的に示す。
+$\varepsilon\ne0$で
+\[
+ \xi_{t,\varepsilon}=
+ (u_0+tu_1)\partial_{u_0}
+ +(1+\varepsilon)u_1\partial_{u_1}
+ -(2+\varepsilon)z\partial_z
+\]
+とし、四つの極因子を
+\[
+ (f_0,f_1,f_2,f_3)
+ =(u_0-tu_1/\varepsilon,\ u_1,\ z,\ q)
+\]
+と取る。次数$(1,1,1,2)$の留数核の基底
+\[
+ r_1=(1,-1,0,0),\quad r_2=(1,0,-1,0),
+ \quad r_3=(2,0,0,-1)
+\]
+を用い、
+\[
+ C_\varepsilon=2r_1\wedge r_2
+ -(3+\varepsilon)r_1\wedge r_3
+ -\varepsilon r_2\wedge r_3
+\]
+とすれば
+\[
+ \sum_{i<j}(C_\varepsilon)_{ij}
+  \prod_{k\ne i,j}f_k\,df_i\wedge df_j
+ =\iota_E\iota_{P(q,\xi_{t,\varepsilon})}\Omega .
+\]
+全十個の二形式係数が恒等的に等しい。
+$\varepsilon\to0$で$P(q,\xi_{t,\varepsilon})$
+は$P(q,\xi_t)$に収束するため、
+階数二の帰属が従う。
+
+階数四側について、$u_1\ne0$で
+$x=u_0/u_1$、$y=-w_0/u_1$、
+$z_{\rm af}=z/u_1$、$w=w_1/u_1$と置き、
+以下$z_{\rm af}$を$z$と書く。
+\[
+ D=\lambda^2+100\eta,\quad
+ X=\frac{-\lambda x+10(z+\eta w)+5\gamma}{D},\quad
+ Y=\frac yD,\quad Z=z,\quad W=w+\frac{10x}{\lambda}
+\]
+は$\lambda D\ne0$でJacobian $-1/(\lambda D)$の
+\emph{アフィン線形}座標変換であり、
+この座標でmodular場は$\partial_X+X\partial_Y$、
+$\{Z,W\}=6Z$となる。
+\[
+ U_Z=-\frac{60\eta Z}{D},\quad
+ U_W=\frac{2t}{\lambda}+\frac{60Z}{D},\quad
+ d=\operatorname{div}U=-\frac{60\eta}{D}
+\]
+と置けば、$U(6Z)=d(6Z)$である。
+さらに
+\[
+ \begin{split}
+ K_{\rm src}=-\frac1{2D^2}\Bigl(
+ &\lambda^2(\eta W^2+2ZW+\gamma W+
+          \delta Z^2+\beta Z+\alpha)\\
+ &+100((\delta\eta-1)Z^2+
+          (\beta\eta-\gamma)Z+\alpha\eta)
+          -25\gamma^2\Bigr)
+ \end{split}
+\]
+は$Z,W$だけの次数二以下の多項式である。
+$r=Y-X^2/2$、$g=6Z$、
+$F=(U+d+1)K_{\rm src}$と置けば、
+変換後の六括弧は厳密に
+\[
+\begin{aligned}
+ \{X,Y\}&=-F-(1+d)r,&
+ \{X,Z\}&=U_Z,&\{X,W\}&=U_W,\\
+ \{Y,Z\}&=XU_Z+r g_W+(gK_{\rm src})_W,&
+ \{Y,W\}&=XU_W-rg_Z-(gK_{\rm src})_Z,&
+ \{Z,W\}&=g .
+\end{aligned}
+\]
+これは既存の長鎖・非定数$g$源の\emph{全六括弧}であり、
+非線形Poisson座標変更による帰属推論ではない。
+$\lambda D=0$の境界は同じ既約なパラメータ族からの
+閉包により含まれる。
+
+最後に二次形式の規格化を示す。
+\[
+ w_0'=w_0+\tfrac12(\alpha u_1+\beta z+\gamma w_1)
+\]
+とすると、$q=u_0^2+2u_1w_0'+2zw_1+
+\delta z^2+\eta w_1^2$となる。
+$\eta\kappa^2-2\kappa+\delta=0$を満たす
+$\kappa$を選び、$s=1-\eta\kappa$とする。
+$s^2=1-\delta\eta\ne0$であり、
+\[
+ w_1'=s(w_1+\kappa z)
+\]
+と置けば、式\eqref{eq:universal-nilpotent-qnormal}
+の$q_{\eta'}$となる。
+この変換は$u_0,u_1,z$を固定し、$A$と
+$du_0\wedge du_1\wedge dz$を保つ。
+体積形式の変化は定数$s$だけであり、
+$P$と$K_A$の相対係数は非零スカラーで調整できる。
+局所的には$s$の平方根の枝を原点近くで選べばよく、
+大域的な単一の有理座標規格化を主張しない。
+\end{proof}
+
+\begin{remark}[研究上の射程]
+この定理のJacobi・Pfaffian・対数型表示・長鎖源一致は
+$\mathbb Q$上の記号恒等式である。
+長鎖源の\emph{既約成分性}は既存分類稿からの入力であり、
+本定理が分類を再証明したものではない。
+また五係数を動かしても射影線形同値では
+既存の一変数二次形式に戻るため、
+交叉次元$23$か$24$かの未解決問題自体はここでは解かれない。
+\end{remark}
