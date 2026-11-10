@@ -1,0 +1,176 @@
+
+\subsection{完全等方Log点での既約成分交叉と局所次元の決定}
+\label{subsec:quadric-isotropic-local-dimension}
+
+前節の二次障害は、射影Poissonスキームの接錐を二つの互いに素な
+二次方程式で制約することにより、より正確な局所幾何を与える。
+ここでの次元決定には147成分の完全性を仮定しない。
+
+\begin{theorem}[対数型・一般階数四成分の交叉と局所次元]
+\label{thm:quadric-isotropic-dimension28}
+前節の
+\[
+ q=u_0^2+2u_1w_0+2zw_1,\qquad
+ \xi=u_0\partial_{u_0}+u_1\partial_{u_1}-2z\partial_z,\qquad
+ \iota_{P_0}\Omega=dq\wedge\iota_\xi(du_0\wedge du_1\wedge dz)
+\]
+で定まる$p=[P_0]\in\mathcal P=\PP\operatorname{Pois}(\PP^4)$
+について、次が成り立つ。
+\begin{enumerate}
+\item $p$は次数$(1,1,1,2)$の階数二対数型Poisson族の
+28次元既約閉包に属する（現行成分台帳の\texttt{R2\_LOG1112}）。
+\item $p$を通る非定数のPoisson曲線が存在し、その一般点は
+階数四である。従って$p$は階数二対数型既約成分と、
+少なくとも一つの一般階数四既約成分との交点に属する。
+\item $p$におけるZariski接空間と局所Krull次元は
+\[
+ \boxed{\dim T_p\mathcal P=30,\qquad \dim_p\mathcal P=28.}
+\]
+この局所次元は、二つの互いに素な二次接錐方程式と
+対数型族の明示的な次元下界により決定される。
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+まず対数型帰属を示す。
+$\omega_0=\iota_E\iota_{P_0}\Omega$とおくと直接計算により
+\begin{equation}\label{eq:isotropic-log-form}
+ \boxed{\quad
+ \omega_0=q\,u_0u_1z\
+ d\log\frac{u_0}{u_1}\wedge
+ d\log\frac{q^3}{u_1^4z^2}.\quad}
+\end{equation}
+二つの対数一形式の留数ベクトルは、順に
+$(1,-1,0,0)$、$(0,-4,-2,3)$で、
+いずれも次数ベクトル$(1,1,1,2)$との内積が零である。
+従って$\omega_0$は三つの一次式$(u_0,u_1,z)$と一つの
+非退化二次式$q$から作る対数型二形式である。
+一般の次数$(1,1,1,2)$対数型の源は
+\[
+ (\PP V^*)^3\times\PP(\operatorname{Sym}^2V^*)
+ \times\PP\bigl(\wedge^2\ker(1,1,1,2)\bigr)
+\]
+であり、最後の因子は$\PP^2$なので源は既約かつ次元
+$3\cdot4+14+2=28$である。
+
+この像も28次元であることは次の一つの厳密なJacobian
+証明書で確かめられる。
+$f=(f_0,f_1,f_2,f_3)$と留数$c=(c_{ij})$に対する写像は
+\begin{equation}\label{eq:logarithmic-source-map}
+ (f,c)\longmapsto
+ \omega(f,c)=\sum_{i<j}c_{ij}
+ \prod_{k\ne i,j}f_k\,df_i\wedge df_j.
+\end{equation}
+$f_0=u_0,f_1=u_1,f_2=z$とし、
+\[
+ \begin{split}
+ f_3={}&u_0^2+u_1^2+z^2+w_0^2+w_1^2
+ +u_0u_1+u_0w_0+u_0w_1\\
+ &+2u_1w_0+u_1w_1+zw_0+2zw_1+w_0w_1.
+ \end{split}
+\]
+$\ker(1,1,1,2)$の基底を
+$r_1=(1,-1,0,0)$、$r_2=(1,0,-1,0)$、
+$r_3=(2,0,0,-1)$とし、
+$c=r_1\wedge r_2+2r_1\wedge r_3+5r_2\wedge r_3$とする。
+三一次式の規格化された12方向、二次式$f_3$の
+$w_1^2$係数を固定した14方向、留数の2方向による
+微分は$350\times28$の係数行列となる。
+二形式の添字対と次数三単項式を辞書式順に並べると、
+行番号（$0$始まり）
+\[
+\begin{split}
+(2,3,4,6,7,8,9,10,11,16,19,20,21,25,26,27,28,29,\\
+30,38,39,42,43,45,46,52,53,55)
+\end{split}
+\]
+を抜き出した$28\times28$行列の行列式は
+$-57177414000000\ne0$である。
+基点の$\omega(f,c)$を付け加えると行列階数は$29$となり、
+射影化しても微分階数は$28$である。
+この有理数係数の証明書は
+\texttt{check\_local\_dimension28.py}で全式を再生成できる。
+よって対数型族の閉包は28次元であり$p$を含む。
+
+次に前節の核場
+$A_1=u_1\partial_{u_0}-u_0\partial_{w_0}$と、
+式\eqref{eq:isotropic-K}の$K_1=K_{A_1}$を取る。
+\[
+ P_a=P_0+aK_1
+\]
+は全$a$でJacobi恒等式を満たし、
+\begin{equation}\label{eq:isotropic-rankfour-curve}
+ \iota_{P_a\wedge P_a/2}\Omega
+   =\frac{3a}{2}u_1^2z\,dq .
+\end{equation}
+したがって$a\ne0$では一般階数四であり、
+$a=0$で$p$に退化する。階数二条件は閉条件なので、
+階数二の対数型成分がこの階数四曲線を含むことはない。
+有限個の既約成分のどれかにこの曲線が含まれ、
+その成分の一般階数は四であるから、交叉が従う。
+
+最後に接錐の上界を強化する。
+$\mathcal F(B)=E\wedge J(B)$の二次式の四重ベクトル成分を
+$F_{ijkl}$と書く。前節とは別に
+\[
+ \begin{split}
+ \Lambda_1(F)={}&[u_0z^2w_1]F_{0124}
+       -[u_0^3z]F_{0124}
+       +[u_0u_1zw_0]F_{0124},\\
+ \Lambda_2(F)={}&[u_0u_1^2w_0]F_{0134}
+       -\frac23[u_0u_1^2z]F_{0124}
+ \end{split}
+\]
+を取る。どちらも全$150$個の二次双ベクトル基底上で
+$\Lambda_i(d\mathcal F_{P_0}(R))=0$を満たす。
+従って$\Lambda_i(\mathcal F(P_0+B))$は
+Zariski接空間上の二次形式を与える。
+
+その接空間の明示的な30元の基底を次の順に取る。
+まず$D_{ij}=[x_j\partial_{x_i},P_0]$のうち、
+$5i+j$が
+\[
+ S=(0,1,2,3,4,5,6,7,8,9,10,11,13,14,16,17,19,20,22,23)
+\]
+である20個。次に$q$を
+$(u_0w_1,w_0^2,w_0w_1,w_1^2)$の各方向に動かす4個。
+次に$\xi$を
+$(u_1\partial_{u_0},u_0\partial_{u_1},
+  u_0\partial_{u_0}-z\partial_z)$
+の各方向に動かす3個。
+最後に$K_1,K_2,K_3$の3個である。
+ここで$K_2$は
+$A_2=z\partial_{w_0}-u_1\partial_{w_1}$、
+$K_3$は前節の$C$に対応する。
+これらはすべて一次Jacobi条件を満たす。
+Eulerゲージの24元と$P_0$自身を追加した
+$150\times55$行列は$\QQ$上で階数55を持ち、
+先に計算したJacobi線形化の階数95と合わせて、
+これら30元は接空間の基底となる。
+
+対応する接空間座標を$t_0,\ldots,t_{29}$とすると、
+この基底の全組合せについて厳密に
+\begin{equation}\label{eq:isotropic-two-tangent-quadrics}
+ \boxed{\quad
+ \Lambda_1\bigl(\mathcal F(P_0+\textstyle\sum t_iB_i)\bigr)
+      =9t_{21}t_{29},\qquad
+ \Lambda_2\bigl(\mathcal F(P_0+\textstyle\sum t_iB_i)\bigr)
+      =-4t_{25}t_{27}.\quad}
+\end{equation}
+$30$個の対角項と$435$個の相異なる基底対を
+それぞれ全て正確に検算したものである。
+二つの二次式は異なる四変数から成る単項式で
+共通の既約因子を持たない。
+従って接錐を含む二次式の零集合のKrull次元は$28$で、
+$\dim_p\mathcal P\le28$となる。
+上で示した対数型族の28次元下界と合わせて
+$\dim_p\mathcal P=28$である。
+\end{proof}
+
+\begin{remark}[成分の帰属とscheme構造]
+局所次元の決定と階数二・四の成分交叉は、
+ambient局所環の被約性を証明しない。
+また$p$を含む一般階数四成分のIDを一意に特定したわけではない。
+ここで参照した現行成分台帳は帰属名の照合にのみ用い、
+147成分の完全分類を局所次元定理の入力にはしていない。
+\end{remark}
