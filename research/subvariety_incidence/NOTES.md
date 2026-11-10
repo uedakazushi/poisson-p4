@@ -54,6 +54,14 @@ normal form：w0'=w0+(αu1+βz+γw1)/2、ηκ²−2κ+δ=0、s=1−ηκ（s²=1�
 
 ψ=du0∧du1∧dz、W=kerψ=span(w0,w1)。q_η|W=ηw1²でη=0のrank0とη≠0のrank1がある。Wは[ψ]を保つ群の固有部分空間なので両者は別軌道。一方、前節のw0,w1 shearsが五係数qをq_ηへ変え、任意のη≠0は適当なρでη=1にできる。従ってAと[ψ]を保つ二次形式そのものは二軌道で尽くされる。これはPoisson pencilの全PGL軌道が二つという意味ではない。証明はpapers/isotropic_nilpotent_pencil.texの定理thm:nilpotent-torus-attraction、計算資産はcheck_nilpotent_torus_attraction.pyとnilpotent_torus_attraction.json。
 
+## 完全等方点の同変接空間と正規消去
+
+g_ρ=diag(1,1,ρ,1,ρ^-1)によるp=[P0]の作用を、同次二次双ベクトル上でρ(g_ρ)_*としてP0が固定されるように規格化する。x_a x_b ∂i∧∂jの重みは1+w_i+w_j−w_a−w_b（w=(0,0,1,0,−1)）。
+
+重みk=(-2,-1,0,1,2,3,4)の順で、全150方向は(3,13,36,46,36,13,3)、Eulerゲージ24は(0,1,6,10,6,1,0)、尺度1は(0,0,1,0,0,0,0)、30接方向は(1,5,12,10,2,0,0)。既存の線形化rank95から正規方向95は(2,7,17,26,28,12,3)に分かれる。独立producerで全30接方向が各重みの固有ベクトルであることを正確に検査した。
+
+(s0,...,s6,a,b,c)の重みは(1,0,1,2,0,0,0,1,0,1)。七つの二次初期関係は(2,1,2,3,1,1,1)、nilpotent h=a(s2+c)は重み2。次の三次正規消去とsyzygyを重み別に構築する。負重みが存在するので、全局所環が正重み収縮作用を持つとは主張しない。証明papers/isotropic_nilpotent_pencil.tex、コードcheck_nilpotent_tangent_weights.pyと証明書nilpotent_tangent_weights.json。
+
 ## 保持する成分帰属と注意点
 
 H=u1=0のaffine chartでx=u0/u1、y=-w0/u1、z=z_hom/u1、w=w1/u1。
