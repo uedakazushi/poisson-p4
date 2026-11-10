@@ -1,53 +1,48 @@
 # GitHub mainからの手動再現
 
-2026-11-10 / v15。GitHub mainのみ正本。Actions不使用、Library・旧ZIP・未追跡workは入力にしない。生成PDFはGit追跡しない。
+2026-11-11 / v18。GitHub mainが唯一の正本。生成PDF、LaTeX中間生成物、旧ZIP、キャッシュをGit追跡せず、GitHub Actionsも利用しない。Library保存は実際のpush失敗時のみ緊急退避とする。
 
 ## 環境
 
-Python 3、SymPy 1.14.0、LuaLaTeX（ltjsarticle、luatexja-preset、HaranoAji、amsmath、mathtools、fix-cm、geometry、hyperref、xurl）、Poppler（pdfinfo、pdftotext）。既存全分類の再現にはroot requirements.txtおよび各producerが指定するCAS等の依存も必要。新しい接錐producerはSymPyだけで完結し、旧producer、外部データ、ネットワークを使わない。
+Python 3、SymPy 1.14.0、LuaLaTeX（ltjsarticle、luatexja-preset、HaranoAji、amsmath、mathtools、geometry、hyperref、xurl、needspace）、Poppler（pdfinfo、pdftotext）を要する。VS Code LaTeX Workshopはrootの `.latexmkrc` と `.vscode/settings.json` を使用。追加の147成分分類検算にはrootの依存設定と各producerで指定するCAS・入力が必要。外部資料PDFやLibraryの古いbundleは現行incidence検証の入力には使わない。
 
-## v12：非被約接錐の全検算とPDF
+## 最優先：Poisson不変部分多様体incidence
+
+```bash
+bash scripts/verify_github_source.sh incidence
+```
+
+`scripts/reproduce_subvariety_incidence.sh` は現在の **13 producerと13保存JSON** を照合し、`papers/poisson_subvariety_incidence_ja.tex` をLuaLaTeXで二回組版する。出力はGit非追跡の `work/` のみ。
+
+最も新しい証明は `papers/del_pezzo_pfaffian_incidence.tex`。反標準零曲線Cに沿うPfaffianの二重消滅（必要五次空間41次元）、余法線Lie括弧κとPfaffianの法線一次ジェットとの積公式、κ=0とD∈I_S²の同値、可換型の必要五次空間15次元、非可換型の可換化集合がCに含まれること、滑らかなCで有限可換化スキーム長16という幾何学的主張は本文に証明する。
+
+`code/subvariety_incidence/check_dp_pfaffian_conormal.py` と `check_dp_conormal_lie_pfaffian.py` はそれぞれHilbert空間のrankおよびPfaffianの局所一次ジェット・次数数値を正確に検査する。最新の保存証明書は `research/subvariety_incidence/certificates/dp_pfaffian_conormal.json` と `dp_conormal_lie_pfaffian.json`。これらの計算は幾何学的な全域的証明の代替でも、rank4延長存在の証明でもない。
+
+```bash
+python3 code/subvariety_incidence/check_dp_conormal_lie_pfaffian.py \
+  --output work/dp_conormal_lie_pfaffian.json \
+  --check research/subvariety_incidence/certificates/dp_conormal_lie_pfaffian.json
+latexmk papers/poisson_subvariety_incidence_ja.tex
+```
+
+## 独立副研究：完全等方Log点
 
 ```bash
 bash scripts/verify_github_source.sh tangent-cone
 ```
 
-check_isotropic_quadratic_cone.pyは有理数体上で次を構成・照合する：全350×150 Jacobi線形化のrank95、Eulerゲージ・尺度・30接方向のrank55、全255左核×465接方向対の二次写像のrank7、正規化された7式と疎な左核証明書、二次イデアルのradical分解、平方零元とcolon、対数型源の28次minor・augmented rank29、混合ac補正の全350係数。
-保存先 research/subvariety_incidence/certificates/isotropic_quadratic_cone.json と完全照合する。任意の出力先を指定した直接実行も可能：
+現行日本語稿は `papers/isotropic_log_tangent_cone_ja.tex`、その共有TeXは `papers/isotropic_nilpotent_pencil.tex`。全二次初期関係7本、真の非被約接錐、局所次元28、交叉次元23/24、冪零場・C*重みの独立producerと証明書を検査する。元の局所環の被約性や三次以上の完全初期イデアルは未解決であり、主incidence研究より優先しない。
+
+## 全147成分分類の既存preflight
 
 ```bash
-python3 code/subvariety_incidence/check_isotropic_quadratic_cone.py \
-  --output work/isotropic_quadratic_cone.json \
-  --check research/subvariety_incidence/certificates/isotropic_quadratic_cone.json
-```
-
-続いて新稿 papers/isotropic_log_tangent_cone_ja.tex をLuaLaTeX二回で組版し、参照・Citation未解決、Overfull、空のPDF抽出がないことを確認する。出力はwork/isotropic-tangent-cone-check/以下のみ。通常の組版はrootの.latexmkrcにより latexmk papers/isotropic_log_tangent_cone_ja.tex でも可能。
-
-## 既存incidenceと分類
-
-```bash
-bash scripts/verify_github_source.sh incidence
 bash scripts/verify_github_source.sh full
 ```
 
-incidenceは旧11 producer/11証明書と同伴incidence原稿の再生成に加え、新しい接錐検査も実行する。fullは既存依存hash、147カタログ、global structure、四つの分類原稿の組版とincidenceを行う。これを全147の原証明の自動認証と呼ばない。既存有限証明の射程は research/publication/REFEREE_REPORT.md、research/reproduction/README.md と各元証明を参照。
+分類の現行原稿・既存厳密計算資産、指定された高リスク内部査読の範囲は `research/classification/CURRENT.md`、`research/publication/REFEREE_REPORT.md`、`research/reproduction/README.md` を参照。fullスクリプトの成功のみで全分類の原証明・新規性・外部査読が完了したとは扱わない。
 
-必要なら python scripts/make_structural_bundle.py --output work/current-github-source-bundle で旧分類用の現行一式を生成できる。新接錐結果の最小再現単位は新TeX、単独producer、JSON、verify_isotropic_tangent_cone.shおよび現在の方針・ノートであり、旧bundleへの依存はない。将来bundle generatorを使う場合には新稿も含まれることを別途確認する。
+## 実行状態の記録方法
 
-## 今回の実行範囲
-
-新producerを実行して全有理計算PASS、再実行で保存JSONに一致。別の直接SymPy Jacobi実装で二つのテンソルの全350係数も照合した。新6頁原稿を二回組版し、未解決参照・Overfullなし、全6頁を画像で確認した。旧11 producerの一括再実行、147分類全体の再監査、旧incidence全稿の今回の組版、fresh cloneからの完全再現は未実行。
-
-GitHub保存は期待したmain先端に対する非force更新後、remote SHAと変更ファイルを読み戻して確認する。GitHub書込み、数学的検証、PDF生成、Library退避は別々の状態。通常Library保存はせず、実push失敗時のみ緊急退避する。既存Libraryファイルは無断削除しない。原稿に公表価値のある既存証明を失わせず、TeXにないPDF-onlyの数学入力は削除しない。
-## 完全等方Log点の明示23次元交叉族（2026-11-10 / v14）
-
-`code/subvariety_incidence/check_isotropic_intersection_dim23.py` はSymPy 1.14.0で独立に4パラメータPoisson構造を構築し、全Jacobi、rank2 Log1112のepsilon族に対する全10二形式係数恒等式、rank4非定数g長鎖源に対する射影線形変換と全六括弧、24次minor 10871635968、Euler gaugeとの独立性を検証する。保存JSONは `research/subvariety_incidence/certificates/isotropic_intersection_dim23.json`。手動入口 `bash scripts/verify_github_source.sh tangent-cone` で従来の接錐・軌道の証明書と同時に再計算・照合する。数値下界23は一般交叉次元不等式からも出るが、両成分への具体的な源レベルの構成を新しく与えた。交叉の正確な次元23/24、全接錐初期イデアル、ambient局所環の被約性は未解決。
-
-
-## 冪零不変二次形式のPoisson延長の再現（v15）
-
-現行接錐主稿に `papers/isotropic_nilpotent_pencil.tex` をinput。SymPy 1.14.0の独立producer `code/subvariety_incidence/check_universal_nilpotent_pencil.py` は、滑らかな五パラメータ二次形式qについてJacobi全10係数、Pfaffian全5係数、rank2 Log1112極限の10二形式係数、rank4長鎖非定数g源の6括弧およびPGL二次式規格化を有理関数係数で検査する。保存証明書は `research/subvariety_incidence/certificates/universal_nilpotent_pencil.json`。手動入口 `bash scripts/verify_github_source.sh tangent-cone` は `--check` によってこの証明書も再生成・比較する。GitHub ActionsもLibraryも不要。数値23/24の交叉次元判定は未解決。
-
-## 重み別Jacobi線形化と正規消去（v16）
-
-`code/subvariety_incidence/check_nilpotent_tangent_weights.py` はSymPy 1.14.0で同次二次双ベクトルの全30接方向に対する `diag(1,1,rho,1,rho^-1)` 固有値恒等式を検算する。全150方向、Euler gauge24、尺度1、接空間30、線形化正規方向95の各重み別次元と、七つの二次初期関係の重みを照合する。保存証明書は `research/subvariety_incidence/certificates/nilpotent_tangent_weights.json`。手動再現 `bash scripts/verify_github_source.sh tangent-cone` にて `--check` で再生成・比較する。三次初期イデアルの計算・決定は未実施であり、新しい重み分解はその作業方針である。
+- 本文に証明があること、独立に今回検証したこと、SymPyで確認したこと、LuaLaTeXの現行稿を組版したこと、GitHub mainへpushしてリモート読戻ししたことは異なる状態として扱う。
+- 数学的主張に誤りが判明したら関連する論文・方針・ノート・証明書を一貫して修正する。未実行の全producerや全稿の組版を実行済みと報告しない。
+- 作業履歴や古いbundleをこの現行再現手順に蓄積しない。
