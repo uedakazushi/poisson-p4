@@ -108,6 +108,149 @@ $hI_4\cap(I^2)_5=h(I^2)_4$となる。
 行列階数が$65$、$41$となることを再検算する。
 \end{proof}
 
+
+\begin{theorem}[余法線Lie代数による退化五次因子の重複度判定]
+\label{thm:dp-conormal-lie-pfaffian}
+$S\subset\PP^4$を滑らかな四次del Pezzo曲面、
+$0\ne\sigma_h\in H^0(S,\wedge^2T_S)$を非零Poisson構造とし、
+$S$をPoisson部分多様体として保存し$\sigma_h$を誘導する
+一般階数四のPoisson双ベクトル$\pi$を取る。
+$\mathcal N^*=\mathcal I_S/\mathcal I_S^2
+\simeq\cO_S(-2)^{\oplus2}$と置く。
+\begin{enumerate}
+\item Poisson括弧は$\cO_S$線形なLie代数束の括弧
+\begin{equation}\label{eq:dp-conormal-lie}
+ \kappa_\pi:\wedge^2\mathcal N^*
+   \longrightarrow\mathcal N^*,\qquad
+ \overline{f}\wedge\overline{g}
+   \longmapsto\overline{\{f,g\}_\pi}
+\end{equation}
+を定める。これは
+\[
+ \kappa_\pi\in
+ H^0\bigl(S,\mathcal N^*\otimes
+              (\wedge^2\mathcal N^*)^\vee\bigr)
+ \simeq H^0(S,\cO_S(2))^{\oplus2}
+\]
+である。
+\item 退化五次因子$D_\pi=\pi\wedge\pi/2$の
+$S$に沿う法線一次ジェットは、自然な自明化のもとで
+\begin{equation}\label{eq:dp-pfaffian-normal-lie}
+ \boxed{\quad
+ [D_\pi]_{\mathcal I_S/\mathcal I_S^2}
+    =\sigma_h\cdot\kappa_\pi.\quad}
+\end{equation}
+より正確には、右辺の積は
+$\wedge^2T_S\otimes(\mathcal N^*\otimes\det\mathcal N)
+\simeq\mathcal N^*\otimes\det T_{\PP^4}|_S$
+による自然な収縮である。
+$\sigma_h$は$S$の一般点で非零なので
+\begin{equation}\label{eq:dp-double-vs-abelian}
+ \boxed{\quad
+ D_\pi\in H^0(\PP^4,\mathcal I_S^2(5))
+ \quad\Longleftrightarrow\quad
+ \kappa_\pi=0.\quad}
+\end{equation}
+$\kappa_\pi\ne0$なら$D_\pi$は$S$の一般点で
+ちょうど一次に消え、$\kappa_\pi=0$なら
+$S$全体に沿って少なくとも二次に消える。
+\item 従来のPfaffian必要条件の線形空間の内部で
+\[
+ \dim H^0(\mathcal I_S^2(5))=15,\qquad
+ \dim H^0(\mathcal I_S\mathcal I_C(5))=41
+\]
+である。したがって余法線Lie代数が可換な候補では、
+Pfaffianの必要な線形空間が次元$41$から
+次元$15$へと狭まる。その差$26$は
+\[
+ H^0(S,\mathcal N^*\otimes\cO_S(4))
+ \simeq H^0(S,\cO_S(2))^{\oplus2}
+\]
+の次元に等しい。
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+Poisson部分多様体の条件は
+$\{\mathcal I_S,\cO_{\PP^4}\}\subset\mathcal I_S$
+である。従って$\{f,g\}\in\mathcal I_S$であり、
+$f,g\in\mathcal I_S$の別の代表を取っても
+括弧の$\mathcal I_S/\mathcal I_S^2$での類は変わらない。
+また$f,g\in\mathcal I_S$、$a,b\in\cO_{\PP^4}$について
+\[
+ \{af,bg\}=ab\{f,g\}
+ +a\{f,b\}g+b\{a,g\}f+\{a,b\}fg
+ \equiv ab\{f,g\}\pmod{\mathcal I_S^2}.
+\]
+従って括弧は$\cO_S$双線形である。
+Jacobi恒等式から各ファイバーでLie括弧となり、
+式\eqref{eq:dp-conormal-lie}を得る。
+$\mathcal N^*\simeq\cO_S(-2)^2$を代入すれば
+その切断空間は$\cO_S(2)^2$となる。
+
+法線一次ジェットを求めるため、$S$の局所正則座標を
+$(u,v,x,y)$として$\mathcal I_S=(u,v)$とする。
+$S$がPoisson部分多様体なので$\pi$の
+法線成分および法線・接方向混合成分は
+$S$上で消える。従って局所的に
+\[
+\begin{aligned}
+ \pi^{xy}&=f(x,y)+O(u,v),\\
+ \pi^{uv}&=u\,a(x,y)+v\,b(x,y)+O((u,v)^2),\\
+ \pi^{ux},\pi^{uy},\pi^{vx},\pi^{vy}&\in(u,v).
+\end{aligned}
+\]
+体積形式$du\wedge dv\wedge dx\wedge dy$のもとで
+\[
+ \operatorname{Pf}(\pi)
+ =\pi^{uv}\pi^{xy}
+   -\pi^{ux}\pi^{vy}+\pi^{uy}\pi^{vx}
+ \equiv f(ua+vb)\pmod{(u,v)^2}.
+\]
+ここで$f\,\partial_x\wedge\partial_y$は
+$\sigma_h$の局所表示であり、
+$(ua+vb)\bmod(u,v)^2$は
+$\kappa_\pi(du\wedge dv)$である。
+これは座標変換に対し自然なので
+\eqref{eq:dp-pfaffian-normal-lie}を与える。
+
+$S$は既約かつ$\sigma_h\ne0$であるため、
+$\sigma_h$は稠密開集合で零でない。
+従ってPfaffianの法線一次ジェットが恒等零
+であることと$\kappa_\pi=0$は同値であり、
+\eqref{eq:dp-double-vs-abelian}が従う。
+非零の$\kappa_\pi$は一般点で非零となるので、
+局所Pfaffianはそこでちょうど一次に消える。
+
+次元について、$I_S=(q_0,q_1)$を
+次数二正則列として
+$\dim(I_S^2)_5=3\dim R_1=15$となる。
+他方、定理\ref{thm:dp-24-pfaffian-conditions}で
+$\dim(I_S I_C)_5=41$を示した。
+$\dim H^0(S,\cO_S(2))
+ =\dim R_2-2=13$なので
+$2\cdot13=26$である。
+さらに$\mathcal I_S I_C/\mathcal I_S^2
+\simeq\mathcal N^*\otimes\cO_S(-C)$と
+$\cO_S(C)=\cO_S(1)$から、次数五の差は
+$\mathcal N^*\otimes\cO_S(4)$の切断である。
+従って$41-15=26$と一致する。
+\end{proof}
+
+\begin{remark}[分類への使い方と限界]
+この定理は、一般階数四の延長の実退化五次式を
+\emph{余法線Lie代数が可換か非可換か}で
+一次型・二次型へ分ける、曲面上の内在的な判定である。
+階数二の余法線Lie代数はファイバーごとに
+可換または非可換な二次元Lie代数であるが、
+この層別だけからどちらの型の延長が
+実際に存在するかは結論できない。
+$\dim=15$や$\dim=41$はPfaffianの必要な
+\emph{線形空間}の次元であり、Poisson延長の
+パラメータ空間の次元ではない。
+また一般$\sigma_h$の被約一点性から
+特殊$(S,\sigma_h)$を排除してはならない。
+\end{remark}
+
 \begin{remark}[法線一次ジェットの幾何]
 \label{rem:dp-normal-jet}
 この24条件は$S$を含む五次式の法線一次ジェットが
