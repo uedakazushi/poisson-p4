@@ -4,16 +4,16 @@
 
 前小節の階数四曲線を既存のrank一長鎖源へ直接同定する。
 退化因子の一致だけで成分帰属を推測するのではなく、実際の
-\(\PGL_5\)座標変換と全六Poisson括弧を与える。
+\(\mathrm{PGL}_5\)座標変換と全六Poisson括弧を与える。
 
 \begin{theorem}[階数四成分への明示的な帰属]
 \label{thm:isotropic-long-rankfour-membership}
 定理\ref{thm:quadric-isotropic-dimension28}の
 \(p=[P_0]\)と\(P_a=P_0+aK_1\)を用いる。
-現行成分カタログで
-\(\mathcal Z_{\mathrm{long}}=
-\overline{\mathrm{R4\_MODULAR\_RANK1\_LONG\_NONCONSTANT\_25}}\)
-と表す一般階数四、次元\(25\)の既約成分に対して
+現行成分カタログの
+\texttt{R4\_MODULAR\_RANK1\_LONG\_NONCONSTANT\_25}が定める
+一般階数四、次元\(25\)の既約成分を
+\(\mathcal Z_{\mathrm{long}}\)とする。このとき
 \[
  [P_a]\in\mathcal Z_{\mathrm{long}}\quad(a\ne0),
  \qquad [P_0]\in\mathcal Z_{\mathrm{long}}
@@ -22,7 +22,7 @@
 \(\mathrm{R2\_LOG1112}\)と、この具体的に同定された
 次元\(25\)の階数四成分との交点にある。
 この同定には退化五次式の因子型だけでなく、
-\(\PGL_5\)による全Poisson括弧の一致を用いる。
+\(\mathrm{PGL}_5\)による全Poisson括弧の一致を用いる。
 
 さらに、固定超平面\(u_1=0\)のaffine chartで
 \(P_a\)のmodular場の射影斉次化の冪零Jordan型は、
@@ -116,7 +116,7 @@ N_a^3=0\)、\(a=0\)では\(\rank N_0=2,\ N_0^2=0\)。
 その二重超平面\(h=0\)は\(Q_a=0\)に接し、
 単純超平面\(Z=0\)は接点を通る。
 従って全\(a\ne0\)に対して、実際の長鎖非定数\(g\)源の
-\(\PGL_5\)飽和に属する。
+\(\mathrm{PGL}_5\)飽和に属する。
 
 既存のカタログでこの源の既約閉包
 \(\mathcal Z_{\mathrm{long}}\)が次元\(25\)の
@@ -138,4 +138,40 @@ Poisson既約成分であるという結果を用いれば
 \(P_0+aK_1\)のこの\emph{特定の}源への明示同定である。
 \(p\)を通る他の階数四成分の不存在、
 全接錐の分解、ambient局所環の被約性は示していない。
+\end{remark}
+
+
+\begin{corollary}[Poissonスキームの非等次元性と非Cohen--Macaulay性]
+\label{cor:poisson-p4-not-cm-at-isotropic-log}
+定理\ref{thm:quadric-isotropic-dimension28}と
+定理\ref{thm:isotropic-long-rankfour-membership}の点
+\(p=[P_0]\in\mathcal P\)について、
+\(\mathcal O_{\mathcal P,p}\)は非等次元である。
+従ってCohen--Macaulayではなく、
+特にGorensteinでも局所完全交叉でもない。
+\end{corollary}
+\begin{proof}
+階数二対数型既約成分\(\mathcal Z_{\mathrm{log}}\)は
+次元\(28\)、長鎖非定数型の
+\(\mathcal Z_{\mathrm{long}}\)は次元\(25\)であり、
+両者は\(p\)を含む相異なる\emph{既約成分}である。
+\(p\)は複素射影スキームの閉点なので、
+それぞれの局所環の次元も\(28\)、\(25\)であり、
+\(\mathcal O_{\mathcal P,p}\)の極小素イデアルのうち
+少なくとも二つは異なる次元の商を与える。
+従って局所環は非等次元である。
+複素数体上有限型の局所環は正則局所環の商であり、
+そのようなCohen--Macaulay局所環には
+unmixedness（全極小成分の等次元性）が成立する。
+よってここではCohen--Macaulay性が成立しない。
+Gorenstein局所環と局所完全交叉環は
+Cohen--Macaulayであるので、これらでもない。
+\end{proof}
+
+\begin{remark}
+非等次元性は被約台にも見られる。
+従ってこの系はambient Poissonスキームの
+非被約性を仮定も証明もしない。
+二つ以外の既約成分が\(p\)を通るか、
+全接錐の既約分解がどうなるかは未解決である。
 \end{remark}

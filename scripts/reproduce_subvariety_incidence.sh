@@ -30,10 +30,12 @@ python3 code/subvariety_incidence/check_ambient_quadratic_obstruction.py \
   --output "$OUT/certificates/ambient_quadratic_obstruction.json" > "$OUT/ambient_obstruction_stdout.log"
 python3 code/subvariety_incidence/check_local_dimension28.py \
   --output "$OUT/certificates/local_dimension28.json" > "$OUT/local_dimension28_stdout.log"
+python3 code/subvariety_incidence/check_rank4_long_nonconstant_membership.py \
+  --output "$OUT/certificates/rank4_long_nonconstant_membership.json" > "$OUT/rank4_long_membership_stdout.log"
 python3 - "$OUT" <<'PY'
 import json, pathlib, sys
 out=pathlib.Path(sys.argv[1]);root=pathlib.Path.cwd()
-for name in ('del_pezzo_generic_rigidity.json','incidence_examples.json','quadric_symmetry.json','log_quadric.json','log_wall.json','log_orthogonality.json','log_rankone.json','isotropic_log_boundaries.json','ambient_quadratic_obstruction.json','local_dimension28.json'):
+for name in ('del_pezzo_generic_rigidity.json','incidence_examples.json','quadric_symmetry.json','log_quadric.json','log_wall.json','log_orthogonality.json','log_rankone.json','isotropic_log_boundaries.json','ambient_quadratic_obstruction.json','local_dimension28.json','rank4_long_nonconstant_membership.json'):
     a=json.loads((root/'research/subvariety_incidence/certificates'/name).read_text())
     b=json.loads((out/'certificates'/name).read_text())
     assert a==b, f'certificate mismatch: {name}'
@@ -69,7 +71,14 @@ assert loc['logarithmic_projective_augmented_rank']==29
 assert loc['logarithmic_minor_det']=='-57177414000000'
 assert loc['tangent_quadrics']==['9*t21*t29','-4*t25*t27']
 assert loc['ambient_tangent_frame_rank_with_gauge_and_scale']==55
-print('EXACT CERTIFICATES: PASS (10 exact producers and ten certificates)')
+long=json.loads((out/'certificates/rank4_long_nonconstant_membership.json').read_text())
+assert long['status']=='PASS'
+assert long['component']=='R4_MODULAR_RANK1_LONG_NONCONSTANT_25'
+assert long['source_bracket_match']=='all six exact over QQ(a)'
+assert long['quadric_Hessian_det']=='-1/(32*a**4)'
+assert long['affine_change_det']=='-1/a**3'
+assert long['modular_Jordan_a_nonzero']==[3,1,1] and long['modular_Jordan_a_zero']==[2,2,1]
+print('EXACT CERTIFICATES: PASS (11 exact producers and eleven certificates)')
 PY
 for pass in 1 2; do
   lualatex -interaction=nonstopmode -halt-on-error \
