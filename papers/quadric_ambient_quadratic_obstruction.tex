@@ -1,0 +1,142 @@
+\subsection{非被約延長ファイバーからのambient Poisson二次障害}
+\label{subsec:quadric-ambient-second-order-obstruction}
+前節の完全等方Log例では，固定されたquadricとその上の
+Poisson構造への延長ファイバーが
+$\operatorname{Spec}\CC[a,b,c]/(ac,c^2)$となった。
+$c$の平方零方向について，この二次障害が固定制限を外しても
+残ることを示す。これは$\PP^4$上の\emph{全}Poisson変形の問題であり，
+単なる相対延長イデアルの再計算ではない。
+
+\begin{theorem}[ambientでも消えない二次障害]
+\label{thm:isotropic-ambient-second-order-obstruction}
+座標を$X=(u_0,u_1,z,w_0,w_1)$とし，
+\[
+ q=u_0^2+2u_1w_0+2zw_1,\qquad
+ \xi=u_0\partial_{u_0}+u_1\partial_{u_1}-2z\partial_z,
+\]
+\[
+ \iota_{P_0}\Omega=dq\wedge
+ \iota_\xi(du_0\wedge du_1\wedge dz)
+\]
+とする。$E=\sum x_i\partial_{x_i}$，$G=\operatorname{Hess}(q)/2$，
+\[
+ C=u_1\partial_{u_1}-z\partial_z-w_0\partial_{w_0}
+ +w_1\partial_{w_1},\qquad
+ A=\operatorname{diag}(0,1,-1,-1,1),
+\]
+\[
+ T=\tfrac12 AG^{-1},\qquad
+ K=qT+\tfrac12 E\wedge C
+\]
+と置く。$[P_0]$を$\PP^4$のPoissonスキーム$\mathcal P$の点とすると，
+次が成り立つ。
+\begin{enumerate}
+\item $K$は$\mathcal P$の$[P_0]$における非零の一次Poisson変形を与える。
+これは前節の延長ファイバーのembeddedな$c$方向である。
+\item 任意の斉次二次双ベクトル$R$について
+\[
+ P_0+\varepsilon K+\varepsilon^2R
+ \quad\pmod{\varepsilon^3}
+\]
+が$\PP^4$上のPoisson構造になることはない。
+従って$c$方向は，制限quadricや誘導Poisson構造を変えることまで
+許しても二次まで延長できない。
+\item 特に$\mathcal P$は$[P_0]$で滑らかではない。
+全150個の斉次二次双ベクトル係数から計算した
+射影Jacobi線形化の階数は$95$であり，
+$T_{[P_0]}\mathcal P$の次元は$30$である。
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+二次式$q$は非退化で，$A^tG+GA=0$となる。
+従って$T$は反対称で，$K$は$q$をstrict Casimirとする
+双ベクトルである。前節の全延長の式から，$K$は零でない
+$c$方向を表し，$P_0+\varepsilon K$は
+$\CC[\varepsilon]/(\varepsilon^2)$上のPoisson構造となる。
+
+一般の斉次二次双ベクトル$B$に対して
+\[
+ J(B)_{ijk}=\sum_{\ell=0}^4
+ \bigl(B_{i\ell}\partial_\ell B_{jk}
+ +B_{j\ell}\partial_\ell B_{ki}
+ +B_{k\ell}\partial_\ell B_{ij}\bigr)
+\]
+と定義する。この符号規約では$\PP^4$上の射影Jacobi方程式は
+$\mathcal F(B)=E\wedge J(B)=0$である。
+$J(P_0)=0$および$J(P_0+K)=J(K)$は直接確認できる。
+従って二次補正$R$の存在は
+\begin{equation}
+ E\wedge\bigl(dJ_{P_0}(R)+J(K)\bigr)=0
+ \label{eq:isotropic-ambient-second-obstruction}
+\end{equation}
+を必要とする。ここで$R$は\emph{固定quadricや固定制限の条件を
+一切課していない}任意の150係数の双ベクトルである。
+
+\noindent
+次数四の四重ベクトル$F$の成分を$F_{ijkl}$と書き，
+$[m]F_{ijkl}$を単項式$m$の係数とする。次の五係数汎関数を取る。
+\[
+\begin{split}
+ \Lambda(F)={}&2[u_0^3z]F_{0123}
+ +[u_0u_1zw_0]F_{0123}+[u_0z^2w_1]F_{0123}\\
+ &+4[u_0^3u_1]F_{0124}
+ +10[u_0u_1^2w_0]F_{0124}.
+\end{split}
+\]
+任意の$R$に対し
+\begin{equation}
+ \Lambda\bigl(E\wedge dJ_{P_0}(R)\bigr)=0
+ \label{eq:isotropic-five-term-cancellation}
+\end{equation}
+となる。実際，150個の基底
+$x_ax_b\partial_i\wedge\partial_j$上で計算すると，
+この五係数に現れる非零列は六列だけで，係数行列は
+\[
+\begin{pmatrix}
+ 2&0&-12&0&2&0\\
+ -2&12&0&-12&4&-6\\
+ -2&0&0&0&-8&6\\
+ 0&2&6&-2&0&0\\
+ 0&-2&0&2&0&0
+\end{pmatrix}.
+\]
+その左から$(2,1,1,4,10)$を掛けると零になる。
+これは有限標本ではなく，\emph{全150係数}に対する係数恒等式である。
+一方，$J(K)$の非零成分は
+\[
+\begin{aligned}
+ J(K)_{123}&=\tfrac12zq,&
+ J(K)_{124}&=-\tfrac12u_1q,\\
+ J(K)_{134}&=\tfrac12w_1q,&
+ J(K)_{234}&=-\tfrac12w_0q.
+\end{aligned}
+\]
+従って，上の五係数に対する$E\wedge J(K)$の値は順に
+$(\frac12,1,1,-\frac12,-1)$であり，
+\[
+ \Lambda\bigl(E\wedge J(K)\bigr)
+ =2\cdot\tfrac12+1+1+4\cdot(-\tfrac12)+10\cdot(-1)=-9\ne0.
+\]
+式\eqref{eq:isotropic-ambient-second-obstruction}は
+\eqref{eq:isotropic-five-term-cancellation}と矛盾する。
+これで第2項が示された。
+
+全350個の射影Jacobi係数を150個の斉次二次係数で線形化すると
+階数$95$となる。$E\wedge$一次ベクトル場の24次元のゲージと
+射影尺度の一次元を引けば，接空間次元は$150-95-24-1=30$である。
+この係数階数と五係数恒等式は，付属する独立の
+\texttt{check\_ambient\_quadratic\_obstruction.py}で$\mathbb Q$上に再構成できる。
+滑らかなスキームでは任意の一次変形が
+$\CC[\varepsilon]/(\varepsilon^3)$まで持ち上がるので，
+上の非持上げ性は$[P_0]$の非滑らかさを含意する。
+\end{proof}
+
+\begin{remark}[非被約性と特異性の区別]
+\label{rem:ambient-obstruction-not-nonreduced}
+本定理はambient Poissonスキームの\emph{二次障害が非零}であることを
+証明するが，ambientの局所環が非被約であることは証明しない。
+被約な特異スキームにも二次まで持ち上がらない接方向はある。
+固定quadricの延長ファイバーの非被約性は前節の別の定理であり，
+両者を混同しない。なお，被約台上の一般rank四点が
+既存147成分のどれに属するかは，ここでは決定していない。
+\end{remark}

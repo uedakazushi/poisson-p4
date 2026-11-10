@@ -78,8 +78,8 @@ research/classification/CURRENT.md → 対象の現行原稿と元証明を読�
 通常の成果はmainへpushして先端確認する。実際のpush失敗時だけLibraryを緊急退避に利用し、成功時は保存しない。既存Library資料は削除しない。
 外部への論文投稿・公開は新たな明示指示なしに行わない。
 
-## VI. 現行研究の目標：価値最大化と幾何学的理解（2026-11-10）
+## VI. 現行研究の目標：価値最大化とambient Poisson変形の幾何（2026-11-10）
 
-**最上位原則は研究価値の最大化**。数学的重要性、新規性、概念的理解、他の成分への波及、正確性、実現可能性を総合し、順位は研究進捗と一次文献に応じて柔軟に変更する。現在の優先順位は、(1) 滑らかなQ3のPoisson延長、(2) 4次del Pezzoの延長例外、(3) P3の横断的対称性、(4) 147成分の幾何学的構造定理、(5) Feigin–Odesskii互換性、(6) 特異cubic・非正規因子、(7) 一般次元。
+最上位原則は数学的重要性、新規性、理解の深化、他成分への波及、正確性、実現可能性を総合した研究価値の最大化である。現在のQ3 Poisson延長研究は、一般Rat/Log/Affの延長、共鳴Logの直交性wall、固定smooth Qの等方的Log境界の三種類のscheme型へ到達した。**さらに、非被約延長Spec C[a,b,c]/(ac,c²)のembedded c方向は、固定制限を外した全ambient P4のPoisson方程式でも二次まで持ち上がらないことを証明した。** 5係数の普遍消滅関係と全150係数のrank95/96検算を `papers/quadric_ambient_quadratic_obstruction.tex` に収録し、現行主稿から共有TeXとして取り込む。対応するambient Poisson点は特異だが、ambient非被約性や全147成分のscheme厚みの分類までは主張しない。
 
-Q3についてはmodular重複度判定、一般Rat/Log/Affの全延長ファイバー、特殊Log点の交叉二直線、さらに一変数の直交性wallを証明した。壁を横切ってstrict stabilizerが跳躍する計算の非零minorは13824c/(c²−1)^4で、rank4枝の発生を説明する。ただしQ3の**全特殊点**の層別は未完成。次は直交性wallの幾何を他の共鳴配置へ広げ、rank4枝が生じる条件を特定する。新しい障害・先行研究により価値が変わればdel Pezzo例外やP3対称性へ方針を変更する。詳細は `research/subvariety_incidence/RESEARCH_POLICY.md` と `NOTES.md`。GitHub mainが唯一の正本、Actions禁止、Libraryは実push失敗時の緊急退避のみ。
+優先目標は周囲Poissonスキームの局所二次接錐と既存147成分への帰属を比較すること。特殊Q3延長の全層別は未解決。研究が局所場合分けに偏って概念的価値を下げるなら、4次del Pezzo例外・P3横断対称性・147成分の幾何学的構造定理へ切り替える。現在有効な方針・未解決点と正確な証明の所在は `research/subvariety_incidence/RESEARCH_POLICY.md` にまとめる。GitHub main正本、PDF非追跡、Actions不使用、Libraryは実push失敗時のみ。

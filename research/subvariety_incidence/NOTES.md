@@ -1,22 +1,25 @@
 # Poisson部分多様体incidence：現行研究ノート
 
-2026-11-10 / v7。研究方針は RESEARCH_POLICY.md、全証明は現行 papers/poisson_subvariety_incidence_ja.tex と共有TeXにある。
+2026-11-10 / v8。証明の本文は papers/poisson_subvariety_incidence_ja.tex とその共有TeX。再開時は RESEARCH_POLICY.md を先に読む。
 
-## 共鳴Logの新しい等方的境界
+## 完全等方Log点での周囲二次障害
 
-$V=U\oplus W$（dim U=3, dim W=2）、重み(1,1,-2)のLog源を$\gamma=\iota_\xi(du_0\wedge du_1\wedge dz)$、$\iota_{P_0}\Omega=dq\wedge\gamma$で作る。従来の直交分解$q=q_U+w_0^2+w_1^2$の$q_U$退化は$q$自体の退化である。滑らかなQを保つ境界は$q|_W$の退化で調べる必要がある。
+q=u0²+2u1 w0+2z w1, P0 は i_(P0)Ω=dq∧i_ξ(du0∧du1∧dz) (ξ=(1,1,-2))。
+既存の固定Q・σ延長ファイバーは Spec C[a,b,c]/(ac,c²)。a=b=c=0の方向cを、C=u1∂u1−z∂z−w0∂w0+w1∂w1 として K=q(AG^-1)/2+E∧C/2 で代表する。
 
-三つの確定した全延長ファイバー：
-- q1=u0²+u1²+z²+2u0w0+w1²、rank(q|W)=1：全延長A²_(a,b)、全Jacobi ideal 0、rank4ならa≠0、Pfaffian実因子Q+2H(u0)+H(z)。
-- q2=u0²+2u1w0+2zw1+w0²、rank(q|W)=1：全延長Spec C[a,b]/(a(b−4))、rank4枝b=4,a≠0、因子Q+H(z)+Q2((u1+w0)²+2zw1)。
-- q3=u0²+2u1w0+2zw1、rank(q|W)=0：全延長Spec C[a,b,c]/(ac,c²)、被約台A²_(a,b)、a≠0でrank4、因子Q+2H(u1)+H(z)。nilradical (c)はa=c=0に沿う非零の平方零方向を持つ。被約147成分の追加を意味しない。
+**新しい証明**：全ambientのPoisson条件はF(P)=E∧Jac(P)=0。一次方向KではdJac_(P0)K=0だが、二次補正Rがあるには E∧(dJac_(P0)R+Jac(K))=0 が必要。
+四重ベクトルFの係数抽出
+Λ(F)=2[u0³z]F0123+[u0u1zw0]F0123+[u0z²w1]F0123+4[u0³u1]F0124+10[u0u1²w0]F0124
+は任意の斉次二次双ベクトルR（150係数）に対しΛ(E∧dJac_(P0)R)=0。一方Λ(E∧Jac(K))=-9。よってどのambient二次補正も不可能。5係数の縮約行列（5×6）は現行TeXに表示。全射影Jacobi線形化のrank=95、augmented rank=96、接空間次元=30は厳密なQQ計算で確認。コードと証明書：check_ambient_quadratic_obstruction.py、ambient_quadratic_obstruction.json。
 
-qの半Hessianの行列式は(-1,1,1)、strict stabilizerの係数行列rankは(8,8,7)、minorは(2304,-2304,3456)。これを発散Jacobiの必要条件と合わせ全延長候補に還元し、正確な全Jacobiイデアルを計算する。生成コードとJSONはそれぞれcode/subvariety_incidence/check_isotropic_log_boundaries.py、research/subvariety_incidence/certificates/isotropic_log_boundaries.json。既存の8 producer/certificateと主稿を同じGitHub mainから再現する。
+**重要な論理的区別**：固定ファイバーの非被約性は証明済み。ambientの二次障害が非零なのでambient Poissonスキームはこの点で特異だが、ambientのnilradicalが非零とはまだ言えない。被約特異スキームでも接方向が二次まで延長できない例はある。
 
-## 現在残る数学的課題
+## 幾何学的な意味と残る障害
 
-rank(q|W)単独ではファイバーを特徴づけられない。rank1の二例がA²とノードを与えるため、必要なのはLog重み空間と二次形式の混合配置・Lie stabilizerとJacobi障害である。特に非被約の例に現れるembedded方向の一次・二次障害を、既存のambient147成分のscheme局所構造と比較することを優先する。
+既存147成分分類は被約成分の分類。新しい結果はSchouten/Kuranishi obstructionが相対条件を外しても残るというscheme側の現象。次にrank4が稠密な被約A²成分が147成分のどれに属するか、P0でのtangent coneおよび各成分の接空間との関係を調べる。証明済みの主張と探索すべき仮説を区別する。
 
-次点：special Aff、4次del Pezzo例外層、P3横断対称性、147成分の幾何学的特徴づけ。新規性の一次資料による包括確認は未完了。既存一般Q3三型、smooth cubic、del Pezzo一般剛性の成果は主稿から再取得できる。
+前の成果：一般Q3 Rat/Log/Aff（被約一点/A¹/被約二点）、共鳴Log非退化ブロックの直交壁、q|Wが退化する三つの滑らかなQ上の正確な全延長、滑らかなcubicの一意延長、一般del Pezzo剛性、単純HのPoisson横断対称性を現行原稿・共有TeXに保持。文献上の新規性は全面未確認。
 
-GitHub main正本、TeXと正確な入力・証明書のみ追跡、PDF非追跡、Actionsなし、Libraryは実push失敗時の緊急退避のみ。
+次点は特殊Log/Aff、del Pezzo例外、P3の六成分の横断対称性。有限場合分けが価値を下げれば構造定理やより有望な応用へ切り替える。
+
+GitHub mainだけが正本。9本のproducer/9件の証明書、TeX、再生成手順を揃え、PDF非追跡、Actions不使用、Libraryは実push失敗時のみ緊急退避。
