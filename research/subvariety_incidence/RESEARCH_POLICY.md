@@ -1,6 +1,6 @@
 # 完全等方Log点：非被約接錐と周囲障害
 
-2026-11-10 / v13。再開：ルートRESEARCH_POLICY.md → 本方針 → NOTES.md → papers/isotropic_log_tangent_cone_ja.tex。
+2026-11-10 / v14。再開：ルートRESEARCH_POLICY.md → 本方針 → NOTES.md → papers/isotropic_log_tangent_cone_ja.tex。
 
 ## 一般原則・保存許可
 
@@ -20,13 +20,13 @@ I2=(s0*c-s2*a, s1*c, c*(s2+c), s3*c, s4*c+s6*a, s5*a, s5*c)。
 
 既存の25次元長鎖rank4成分へのPGL5同定、28次元Log1112成分との交叉、非等次元・非CM・depth≤25は同伴原稿v11に保持。これらの成分性入力と新しい独立接錐計算を区別する。Q3一般三型、共鳴境界、cubic・del Pezzo剛性、P3対称性、147分類の必要数学資産は削除しない。
 
-**新しい構造定理（v13）**：唯一の28次元rank2 Log1112成分はpで滑らか。e(R)=1の最大次元成分への結合公式でその成分自身の重複度が1となり、excellentな局所整域にNagata判定を適用。T_p Zlog=V(a,c)、形式局所環は28変数冪級数環。20次元のPGL5軌道はrank2とrank4の両成分に含まれ、交叉局所次元は20以上24以下。コード check_isotropic_orbit20.py と証明書 certificates/isotropic_orbit20.json は全25個のgl5微分を独立検算する。このsmoothnessは概念的帰結であり機械計算だけから推論していない。
+**新しい構造定理（v13）**：唯一の28次元rank2 Log1112成分はpで滑らか。e(R)=1の最大次元成分への結合公式でその成分自身の重複度が1となり、excellentな局所整域にNagata判定を適用。T_p Zlog=V(a,c)、形式局所環は28変数冪級数環。20次元のPGL5軌道はrank2とrank4の両成分に含まれ、交叉局所次元は23以上24以下。コード check_isotropic_orbit20.py と証明書 certificates/isotropic_orbit20.json は全25個のgl5微分を独立検算する。このsmoothnessは概念的帰結であり機械計算だけから推論していない。数値下界23は局所30変数の一般交叉次元不等式からも従うが、q_vとxi_tとb核方向を使った明示的な3パラメータPoisson共通族を構成した。rank2はLog1112のepsilon留数極限、rank4は非定数g長鎖源とアフィン線形座標変換で全六括弧が一致。gl5と三追加方向のrank24、非零小行列式10871635968、Eulerゲージと合わせたrank48が源像の23次元を保証する。原稿thm:log-long-intersection23、独立producer check_isotropic_intersection_dim23.py。交叉の正確な次元23/24、scheme構造は未解決。
 
 ## 次の核心・着手方法
 
-最優先は交叉次元の厳密値と全初期イデアルの三次以上。線形化の95 normal方向を二次まで解き、30 tangent方向上の三次残差とI2のsyzygyを計算する。二次模型の26・24次元成分は真の成分と未同定であり、新しいPoisson成分として数えない。
+最優先は交叉次元23/24の厳密な判定と全初期イデアルの三次以上。線形化の95 normal方向を二次まで解き、30 tangent方向上の三次残差とI2のsyzygyを計算する。二次模型の26・24次元成分は真の成分と未同定であり、新しいPoisson成分として数えない。
 次にhの実接錐上の台・annihilator、既知25次元成分の接錐とscheme交叉を調べる。元の局所環Rの被約性と全成分の分類は未解決。接錐非被約からR非被約を推論しない。局所分類の価値に応じてより一般的な障害機構やdel Pezzo例外へ方針を変更する。文献上の優先権は未確認。
 
 ## 再現
 
-新原稿 papers/isotropic_log_tangent_cone_ja.tex は独立6頁。コード code/subvariety_incidence/check_isotropic_quadratic_cone.py、証明書 certificates/isotropic_quadratic_cone.json。新しい手動入口 bash scripts/verify_github_source.sh tangent-cone。SymPy 1.14.0の全有理計算と6頁LuaLaTeX二回組版を実行済み。旧11証明書・147分類の全面再実行は今回行っていない。
+新原稿 papers/isotropic_log_tangent_cone_ja.tex は独立6頁。コード code/subvariety_incidence/check_isotropic_quadratic_cone.py と check_isotropic_intersection_dim23.py、証明書 certificates/isotropic_quadratic_cone.json と certificates/isotropic_intersection_dim23.json。新しい手動入口 bash scripts/verify_github_source.sh tangent-cone。SymPy 1.14.0の全有理計算と6頁LuaLaTeX二回組版を実行済み。旧11証明書・147分類の全面再実行は今回行っていない。

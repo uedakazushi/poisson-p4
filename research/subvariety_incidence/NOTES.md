@@ -1,6 +1,6 @@
 # Poisson部分多様体incidence：現行研究ノート
 
-2026-11-10 / v13。再開時はRESEARCH_POLICY.md。詳しい証明は新接錐原稿と同伴incidence原稿を参照。
+2026-11-10 / v14。再開時はRESEARCH_POLICY.md。詳しい証明は新接錐原稿と同伴incidence原稿を参照。
 
 ## 模型と完全な二次障害
 
@@ -27,7 +27,15 @@ I2:h=(s1,s2,s3,s5,s6,c)。二次模型のnilradicalは24次元線形空間上の
 
 ## 最大次元対数型成分の滑らかさと交叉
 
-e(R)=1の結合公式より、唯一の28次元既約成分Zlogの局所整域はe=1。複素数体上有限型でexcellent・formally unmixedなのでNagata重複度一判定から正則。T_p Zlog=V(a,c)で、完備局所環はC[[t0,...,t26,b]]。その滑らかさと全Poissonスキームの特異性・接錐の非被約性は両立する。全25 gl5作用の斉次双ベクトル係数行列はQQ-rank21、スケールP0は像にあるためPGL軌道次元20。軌道はLog1112とlong rank4の共通部分にある。25次元long成分はLogに含まれないので局所交叉次元20〜24（上下限、正確な値は未決定）。証明は現行papers/isotropic_log_tangent_cone_ja.texの局所重複度定理の直後。新producer check_isotropic_orbit20.pyでGL微分を検算。
+e(R)=1の結合公式より、唯一の28次元既約成分Zlogの局所整域はe=1。複素数体上有限型でexcellent・formally unmixedなのでNagata重複度一判定から正則。T_p Zlog=V(a,c)で、完備局所環はC[[t0,...,t26,b]]。その滑らかさと全Poissonスキームの特異性・接錐の非被約性は両立する。全25 gl5作用の斉次双ベクトル係数行列はQQ-rank21、スケールP0は像にあるためPGL軌道次元20。軌道はLog1112とlong rank4の共通部分にある。25次元long成分はLogに含まれないので局所交叉次元23〜24（上下限、正確な値は未決定）。証明は現行papers/isotropic_log_tangent_cone_ja.texの局所重複度定理の直後。新producer check_isotropic_orbit20.pyでGL微分を検算。
+
+## 共通23次元族の具体的な構造
+
+q_v=u0²+2u1w0+2zw1+v w1²、xi_t=(u0+t u1,u1,-2z)、A1=u1∂u0−u0∂w0、A2_v=(z+v w1)∂w0−u1∂w1に対し、P(λ,v,t,b)=P(q_v,xi_t)+λK_A1(q_v)+bK_A2_v(q_v)は全パラメータでstrict Jacobi零。h=u1のchartでPf=-3λ z(x²−2y+2zw+v w²)、modular場は−λ∂x+[−λx+(10+b)(z+vw)]∂y+(10+b)∂w。
+
+λ≠0、D=λ²+(10+b)²v≠0なら、X=(−λx+(10+b)(z+vw))/D、Y=y/D、Z=z、W=w+(10+b)x/λは非線形ではなくアフィン線形。modular=∂X+X∂Y、g={Z,W}=6Z。全六括弧は長鎖非定数g源に一致する。λ=0の族は、epsilon≠0でxi_(t,eps)=(u0+t u1,(1+eps)u1,(-2-eps)z)、f=(u0−t u1/eps,u1,z,q_v)とresidue (2+b/2)r1∧r2−(3+eps)r1∧r3−eps r2∧r3のLog1112源に含まれ、epsilon→0で戻る。全10二形式係数の恒等式を確認。
+
+gl5作用25方向と(v,t,b)の3方向の150×28係数行列はrank24、24次minor=10871635968、Euler gauge24方向との合計rank48。尺度を除く23次元の共通像が実際に存在する。数値下界23だけなら埋込み次元30におけるKrull交叉次元不等式でも分かるため、数学的貢献は具体的な両源への接続である。コード check_isotropic_intersection_dim23.py と同名JSON証明書に全入力を保持。
 
 ## 保持する成分帰属と注意点
 
