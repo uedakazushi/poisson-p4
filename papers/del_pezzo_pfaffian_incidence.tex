@@ -251,6 +251,57 @@ $\dim=15$や$\dim=41$はPfaffianの必要な
 特殊$(S,\sigma_h)$を排除してはならない。
 \end{remark}
 
+
+\begin{corollary}[余法線Lie代数の可換化集合と16点条件]
+\label{cor:dp-conormal-degeneration16}
+定理\ref{thm:dp-conormal-lie-pfaffian}の仮定のもとで
+$U=S\setminus C$と置く。$U$は連結なシンプレクティック
+曲面である。余法線Lie代数の括弧$\kappa_\pi$は、
+$U$上で恒等零であるか、全点で非零であるかの
+いずれかである。
+
+特に$\kappa_\pi\not\equiv0$なら、
+可換化集合$Z(\kappa_\pi)$は$C$に含まれる。
+$C$が滑らかな楕円四次曲線である場合、
+次の二通りのいずれかが成り立つ。
+\begin{enumerate}
+\item $\kappa_\pi$が$C$上で恒等的に零となる。
+\item $Z(\kappa_\pi)$は$C$上の零次元閉スキームで、
+その全長は$16$である。
+\end{enumerate}
+\end{corollary}
+\begin{proof}
+$U$上では$\sigma_h$が非退化なので、
+局所Hamiltonianベクトル場は$TU$を張る。
+$U$の局所関数$f$を周囲の局所関数$\widetilde f$へ
+持ち上げたHamiltonian場は$S$に接し、
+その局所流はPoisson構造を保つ。
+従って流は余法線Lie代数のファイバーを
+Lie代数として同型に移す。
+局所Hamiltonian場が$TU$を張り$U$は連結なので、
+余法線Lie代数のファイバーの同型類は
+$U$全体で一定である。
+二次元Lie代数は可換か非可換かで
+括弧が零か非零かを判定できるから、
+最初の主張が従う。
+
+$\kappa_\pi$は
+$\mathcal E=\cO_S(2)^{\oplus2}$の切断である。
+その零集合は$C$に含まれる。
+$C$が滑らかな既約曲線なら、零集合に
+正次元成分があれば$C$全体で切断が零となる。
+そうでなければ切断の零スキームは零次元であり、
+rank二のベクトル束の正則切断の零サイクル公式から
+\[
+ \operatorname{length}Z(\kappa_\pi)
+   =\int_S c_2(\mathcal E)
+   =\int_S c_1(\cO_S(2))^2
+   =4\,H^2=4\deg S=16.
+\]
+非零切断の零集合が空であることも$c_2(\mathcal E)=16$
+に矛盾するので、二番目の場合には長さが正確に16である。
+\end{proof}
+
 \begin{remark}[法線一次ジェットの幾何]
 \label{rem:dp-normal-jet}
 この24条件は$S$を含む五次式の法線一次ジェットが
