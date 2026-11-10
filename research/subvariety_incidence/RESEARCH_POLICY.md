@@ -1,39 +1,30 @@
-# 完全等方Log点：非被約接錐と周囲障害
+# Poisson部分多様体incidence：現行研究方針
 
-2026-11-10 / v16。再開：ルートRESEARCH_POLICY.md → 本方針 → NOTES.md → papers/isotropic_log_tangent_cone_ja.tex。
+2026-11-11 / v17。再開順：ルートRESEARCH_POLICY.md → 本方針 → NOTES.md → papers/poisson_subvariety_incidence_ja.tex → 関連共有TeX。
 
-## 一般原則・保存許可
+## 一般原則と保存許可
 
-研究価値、正確性、理解の深化、新規性、実現可能性を総合して方針を変更する。証明付き・今回の検算・未証明・既知の入力・新規性未確認を区別する。日本語LuaLaTeXの現行原稿と必要な入力を保持し、ノートに証明全文・旧版・実況を重複させない。ユーザーの保存許可の現行運用はGitHub mainを唯一の正本とし、非force更新後に先端を確認する。PDF非追跡、Actions不使用、Libraryは実際のpush失敗時のみ緊急退避。既存Libraryファイルは無断削除しない。生成・検算・組版・保存を分けて報告する。
+研究価値・正確性・理解の深化・新規性・実現可能性を総合し、現行の証明と課題を優先する。証明済み／計算確認／条件付き／予想／新規性未確認を区別する。詳細な証明は現行日本語LuaLaTeX原稿に保持し、研究ノートに全文を重複しない。GitHub mainが唯一の正本、非force pushと先端読戻し、GitHub Actions不使用、生成PDF非追跡、Libraryは実push失敗時の緊急退避のみ。旧版・履歴・中間生成物は保存しないが数学的内容や検証可能性は削らない。全面先行研究調査と外部査読は未完了。
 
-## 現在の中心定理
+## 上位目標と第一の課題
 
-q=u0²+2u1w0+2zw1、i_(P0)Ω=dq∧i_ξ(du0∧du1∧dz)、ξ=(1,1,-2)。30次元接空間の基底は新原稿第2節とproducerに明記。
+**上位目標**：Poisson不変部分多様体の幾何学的incidenceからP4の147被約Poisson成分の源・退化・交叉を構造的に説明する。
 
-s_i=t_(20+i), a=t27, b=t28, c=t29として、**全次数二初期イデアル**は
-I2=(s0*c-s2*a, s1*c, c*(s2+c), s3*c, s4*c+s6*a, s5*a, s5*c)。
-この7次元性は全150一次方向・350係数・465組の二次項により厳密に確認した。h=a*(s2+c)は次数二関係に入らず、h²はI2に入る。そのため**真の接錐でもh≠0、h²=0**であり、接錐は非被約。
+**第一課題**：滑らかな四次del Pezzo S=V(q0,q1)上の非零Poisson切断σ_hの全ambient延長を特殊な組まで調べる。一般の(S,σ_h)の全延長がrank2の被約一点であることは証明済み。全候補は P=J(q0,q1,h)/4+q0 A+q1 B、A,Bが定数反対称行列の20変数二次Jacobiスキーム。特殊な組でrank4が存在するか、普遍剛性か例外分類かは未解決。
 
-二次障害スキームの被約台は次元28/26/24の三成分。最大次元成分だけは実接錐でもV(a,c)で、一般長さ1。対数型源の独立な28次minorと合わせ局所次元28、Hilbert–Samuel重複度1。これらは147成分完全性を仮定しない。
+## 証明された幾何的な検査基準
 
-固定Q,σ延長のac関係は全周囲では明示R_acにより二次まで消去可能。P0+aK1+cK3+acR_acはC[a,c]/((a,c)^3+(c²))上でPoisson。ただし純c方向のc²障害は消えず、全次数への持上げも未証明。
+- **v17の必要条件**：C=S∩V(h)は(2,2,1)の反標準曲線、次数4、算術種数1、一般には滑らかな楕円曲線。Sを保存するambient Poisson πはC上で零となり、Pfaffian五次式 Dπ∈I_S I_C⊂I_C²。rank4ならその退化五次超曲面はCに沿って特異。H0(I_S(5))は65次元、H0(I_S I_C(5))は41次元で、C上の法線一次ジェットに24本の独立条件。楕円四次Cの族は20次元、固定Cを超平面切断に持つ滑らかなSのファイバーはA10の非空開。普遍的な証明は papers/del_pezzo_pfaffian_incidence.tex、独立数値検算は code/subvariety_incidence/check_dp_pfaffian_conormal.py および certificates/dp_pfaffian_conormal.json。**これはrank4延長の十分条件ではなく、双ベクトル全20変数のJacobi方程式に追加の24本の独立な式を課すものでもない。**
+- **従来の結果**：smooth cubicは既知intrinsic分類から全点rank2一意延長（36次元Rat113 incidence）、smooth degree≥4 hypersurfaceの非零ambient不変性なし、一般del Pezzo被約一点と28次元Rat122、smooth quadric一般Rat/Log/Affの一点/A1/二点と特殊Log境界、単純hyperplaneの横断対称性。
+- **分類との関係**：141 rank4・6 rank2という既存147成分リストを照合対象とするが、構造定理の証明で完全分類を循環的に仮定しない。文献上の完全な優先権と外部査読は未確認。
 
-既存の25次元長鎖rank4成分へのPGL5同定、28次元Log1112成分との交叉、非等次元・非CM・depth≤25は同伴原稿v11に保持。これらの成分性入力と新しい独立接錐計算を区別する。Q3一般三型、共鳴境界、cubic・del Pezzo剛性、P3対称性、147分類の必要数学資産は削除しない。
+## 次に行う具体的研究
 
-**新しい構造定理（v13）**：唯一の28次元rank2 Log1112成分はpで滑らか。e(R)=1の最大次元成分への結合公式でその成分自身の重複度が1となり、excellentな局所整域にNagata判定を適用。T_p Zlog=V(a,c)、形式局所環は28変数冪級数環。20次元のPGL5軌道はrank2とrank4の両成分に含まれ、交叉局所次元は23以上24以下。コード check_isotropic_orbit20.py と証明書 certificates/isotropic_orbit20.json は全25個のgl5微分を独立検算する。このsmoothnessは概念的帰結であり機械計算だけから推論していない。数値下界23は局所30変数の一般交叉次元不等式からも従うが、q_vとxi_tとb核方向を使った明示的な3パラメータPoisson共通族を構成した。rank2はLog1112のepsilon留数極限、rank4は非定数g長鎖源とアフィン線形座標変換で全六括弧が一致。gl5と三追加方向のrank24、非零小行列式10871635968、Eulerゲージと合わせたrank48が源像の23次元を保証する。原稿thm:log-long-intersection23、独立producer check_isotropic_intersection_dim23.py。交叉の正確な次元23/24、scheme構造は未解決。
+1. 反標準楕円四次零曲線Cを先に固定し、長さ10の滑らかなdel Pezzo liftとrank4 Poisson源の不変性を比較。147源の実PfaffianだけでなくPoisson**零スキーム**を照合する。一般元での不成立は特殊元の排除にならない。
+2. 対角形 q0=Σx_i²、q1=Σλ_i x_i²（λ_i相異なる）で特殊hの全20変数Jacobiイデアルを検査。特別な線形化minorと実rank4解を区別する。観察にとどまる標本は証明済みと称しない。
+3. 次にspecial quadric Q3の制限形式・直交性・strict stabilizer・modular場・全Jacobiファイバーを層別し、147源の説明へつなぐ。
+4. Fano hypersurface、hyperplaneとdel Pezzoのincidenceを統合する幾何学的構造定理を目指す。一般次元FanoとP5の(2,2)Fano threefoldは未解決の長期目標。
 
+## 保持する副成果と再現
 
-**新しい普遍延長（v15）**：A=u1∂u0−u0∂w0の下で滑らかなq=u0²+2u1w0+2zw1+αu1²+βu1z+γu1w1+δz²+ηw1²を動かしても、P(q,ξ_t)+λK_A(q)は全パラメータでstrict Poisson、Pfaffianは(3λ/2)u1²z dq。λ=0のLog1112対数留数表示とλ≠0の長鎖非定数gのアフィン線形正規化も全係数で確認。さらにw0'=w0+(αu1+βz+γw1)/2、w1'=s(w1+κz)、ηκ²−2κ+δ=0、s=1−ηκ≠0によりqは一変数q_η'（η'=η/(1−δη)）に帰着する。したがって固定Aの五係数を探索し直す価値は低く、24次元交叉方向があれば固定Aを破る必要がある。証明papers/isotropic_nilpotent_pencil.tex、独立検算check_universal_nilpotent_pencil.pyとcertificates/universal_nilpotent_pencil.json。これは分類済みの長鎖成分性を入力にし、元の局所環の被約性は解決しない。
-
-**固定冪零場の二軌道と収縮（v16）**：q_η=u0²+2u1w0+2zw1+ηw1²、P_(η,t)=P(q_η,ξ_t)に対し、g_ρ=diag(1,1,ρ,1,ρ^-1)はAと可換、det=1、射影等式g_ρ·[P_(η,t)+λK_η]=[P_(ρ²η,t)+ρλK_(ρ²η)]を全10係数で証明。ρ→0で完全等方rank2点[P_(0,t)]に収縮。基底三形式の共通核Wへの制限はrank(q|W)=0（η=0）または1（η≠0）で、Aと基底三形式の直線を保つqは二軌道に分かれる。λ≠0のη/λ²はこのC*群の不変量だが全PGL完全不変量とは未確認。証明thm:nilpotent-torus-attraction、独立producer check_nilpotent_torus_attraction.py、certificates/nilpotent_torus_attraction.json。
-
-**同変Jacobi線形化（v16）**：30次元射影接空間の重み(-2,-1,0,1,2)の次元は(1,5,12,10,2)。150双ベクトルの重み分解は(3,13,36,46,36,13,3)、Euler gaugeは(0,1,6,10,6,1,0)、P0尺度は重み0に1。従ってlinearization rank95を正規方向の重み(-2〜4)に分けると(2,7,17,26,28,12,3)。全7二次初期関係の重みは(2,1,2,3,1,1,1)、nilpotent hは重み2。全30固有ベクトルをチェックした。原稿thm:nilpotent-tangent-weight-tableとproducer check_nilpotent_tangent_weights.py、certificates/nilpotent_tangent_weights.jsonに保存。
-
-## 次の核心・着手方法
-
-最優先は固定Aと三形式の直線を保つ二軌道の外の変形による交叉次元23/24の判定と、全初期イデアルの三次以上。上記の七重みブロックごとに線形化の95 normal方向を二次まで解き、30 tangent方向上の三次残差とI2のsyzygyを計算する。二次模型の26・24次元成分は真の成分と未同定であり、新しいPoisson成分として数えない。
-次にhの実接錐上の台・annihilator、既知25次元成分の接錐とscheme交叉を調べる。元の局所環Rの被約性と全成分の分類は未解決。接錐非被約からR非被約を推論しない。局所分類の価値に応じてより一般的な障害機構やdel Pezzo例外へ方針を変更する。文献上の優先権は未確認。
-
-## 再現
-
-新原稿 papers/isotropic_log_tangent_cone_ja.tex は独立6頁。コード code/subvariety_incidence/check_isotropic_quadratic_cone.py と check_isotropic_intersection_dim23.py、証明書 certificates/isotropic_quadratic_cone.json と certificates/isotropic_intersection_dim23.json。新しい手動入口 bash scripts/verify_github_source.sh tangent-cone。SymPy 1.14.0の全有理計算と6頁LuaLaTeX二回組版を実行済み。旧11証明書・147分類の全面再実行は今回行っていない。
+完全等方Log点の非被約接錐・局所次元28・23/24交叉等の有効な成果は papers/isotropic_log_tangent_cone_ja.tex に保持し、主課題の実行を妨げる単なる三次計算の継続は優先しない。数値証明書は厳密な有限計算、普遍論証は本文。手動再現は bash scripts/verify_github_source.sh incidence。組版、計算、GitHubへの保存は別状態として報告する。一次文献ではLoray–Pereira–Touzet、Mayanskiy、Pym surveyおよびNasu 2026を適用範囲付きで比較する。
