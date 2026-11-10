@@ -1,4 +1,8 @@
-## 2026-11-10 GitHub正本規則
+## 現行v11研究入口（2026-11-10）
+
+Poisson部分多様体incidenceの最新版は`research/subvariety_incidence/RESEARCH_POLICY.md` → `NOTES.md` → `papers/poisson_subvariety_incidence_ja.tex`。完全等方Log点p=[P0]の局所次元は28、接空間は30次元。pは28次元rank2 Log1112成分と25次元rank4長鎖非定数g成分（R4_MODULAR_RANK1_LONG_NONCONSTANT_25）の交点である。後者はPGL5の明示源同定による。既存の両成分性定理から局所環は非等次元・非CM。ambient非被約性および他のrank4成分は未決定。再現は`bash scripts/verify_github_source.sh incidence`（11 producer / 11 JSON）。GitHub main正本、PDF非追跡、Actions禁止、Libraryはpush失敗時のみ。
+
+## GitHub正本規則
 GitHub mainが研究の唯一の正本。再生成入口 REPRODUCE_GITHUB.md。新しい部分多様体incidenceは research/subvariety_incidence/RESEARCH_POLICY.md → NOTES.md → papers/poisson_subvariety_incidence_ja.tex。LibraryはGitHub push失敗時の緊急避難のみ、GitHub Actionsは禁止。下記は既存の147成分分類の完成状態。
 
 # 研究状態の入口

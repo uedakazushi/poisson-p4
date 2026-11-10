@@ -40,9 +40,13 @@ source .venv/bin/activate
 
 Python3、SymPy 1.14.0、NumPy 2.3.5、mpmath 1.3.0（root requirements.txt）、LuaLaTeX（ltjsarticle、luatexja、HaranoAji、amsmath、mathtools、geometry、hyperref、xurl、needspace等）、Popplerのpdfinfo/pdftotextが必要。一部の既存分類の有限証明書を完全再生成する場合には、各producerに指定されたMacaulay2/Singular/FLINT等のCASも手動で用意する。Actionsや自動CI環境は使わない。
 
-## 完全等方Log点の正確な局所次元28と成分交叉（v10）
+## 完全等方Log点の局所次元・長鎖成分同定・非CM性（v11）
 
-`code/subvariety_incidence/check_local_dimension28.py` はSymPy 1.14.0と正確な有理数演算により、150個の斉次二次双ベクトル方向に関する二つのSchouten/Jacobi線形化消滅汎関数、30個のZariski接方向、二次式 `9*t21*t29` と `-4*t25*t27`、Log(1,1,1,2)源の28次元像を保証する28×28小行列式 `-57177414000000`、rank4退化曲線と対数二形式の恒等式を検算する。結果は `research/subvariety_incidence/certificates/local_dimension28.json`。従来のrank95線形化証明書と合わせ局所次元28を得る。この結論は147成分の完全性を仮定しないが、rank4成分IDとambient非被約性はなお未証明。手動再現は従来通り `bash scripts/verify_github_source.sh incidence`（現在10 producer）。GitHub Actionsは使わず、PDFも追跡しない。
+`code/subvariety_incidence/check_local_dimension28.py` はSymPy 1.14.0の有理数演算で、全150一次Jacobi方向を消す二つのSchouten汎関数、30接方向の独立性、二次式 `9*t21*t29`・`-4*t25*t27`、Log(1,1,1,2)族の微分階数28を示す小行列式 `-57177414000000`、rank4曲線を検証する。証明書は `research/subvariety_incidence/certificates/local_dimension28.json`、本文は `papers/quadric_log_component_intersection.tex`。局所次元28は147成分完全性を使わずに得られる。
+
+**新しい11番目のproducer** `code/subvariety_incidence/check_rank4_long_nonconstant_membership.py` は同次五変数の全Jacobi、アフィン六Poisson括弧、modular場のJordan型、`a != 0`の実アフィン線形（従ってPGL5）座標変換を `QQ(a)` 上で検証する。変換先は従来の `RANK_ONE_LONG_NONCONSTANT_COMPONENT_ENTRANCE.md` の非定数g全sourceに一致し、残余二次式の半Hessian determinantは `-1/(32*a**4)`。計算のJSONは `research/subvariety_incidence/certificates/rank4_long_nonconstant_membership.json`、日本語証明は `papers/rank_four_long_component_membership.tex`。既存の25次元rank4成分性および28次元rank2成分性の原証明を入力として、pの局所環が非等次元・非Cohen--Macaulay・非Gorenstein・非局所完全交叉と結論する。ambient非被約性、全接錐分解、他のrank4成分の有無は未証明。
+
+全11 producerは `bash scripts/verify_github_source.sh incidence` で手動再生成・保存済JSON照合する。GitHub Actionsは使わない。生成PDFはgitignoreされ、Library取得は再現の前提でない。
 
 ## 新しい部分多様体incidence：完全な手動再生成
 
@@ -51,7 +55,7 @@ bash scripts/verify_github_source.sh incidence
 ```
 
 GitHubの `papers/poisson_subvariety_incidence_ja.tex`、`papers/quadric_log_extension.tex`、`papers/quadric_log_orthogonality.tex` と `code/subvariety_incidence/*.py` を用いる。
-`research/subvariety_incidence/certificates/*.json` （現行10種）をexactに再計算して同一内容を照合し、一般剛性の二つの非零minor（70875/88、4443337729552/7688671875）、rank60/syzygy90、101項目の明示恒等式を検証。第3のproducerはquadricのPfaffian二例と一般Ratのstrict so(5) stabilizerを消すrank10 minor 27980515917168640を検証。追加のLog証明書には直交性wallの全パラメータJacobi計算、5つのrank2 H例（c=0・等方bを含む）、さらにrank1 Hの2つの正規形（c=0,1）のstrict stabilizerと全Jacobi/Pfaffian検算を収録する。全10 JSONを10 producerから再計算・照合する。追加のisotropic境界証明書はq|Wが階数1/0の三例のstrict stabilizer、全Jacobi理想(0)、(a(b-4))、(ac,c²)、Pfaffianを検査し、scheme非被約性と被約階数4枝を区別する。
+`research/subvariety_incidence/certificates/*.json` （現行11種）をexactに再計算して同一内容を照合し、一般剛性の二つの非零minor（70875/88、4443337729552/7688671875）、rank60/syzygy90、101項目の明示恒等式を検証。第3のproducerはquadricのPfaffian二例と一般Ratのstrict so(5) stabilizerを消すrank10 minor 27980515917168640を検証。追加のLog証明書には直交性wallの全パラメータJacobi計算、5つのrank2 H例（c=0・等方bを含む）、さらにrank1 Hの2つの正規形（c=0,1）のstrict stabilizerと全Jacobi/Pfaffian検算を収録する。全11 JSONを11 producerから再計算・照合する。追加のisotropic境界証明書はq|Wが階数1/0の三例のstrict stabilizer、全Jacobi理想(0)、(a(b-4))、(ac,c²)、Pfaffianを検査し、scheme非被約性と被約階数4枝を区別する。
 LuaLaTeXを二回実行して現行の論文PDFを生成し、15頁以上であること、未解決参照やOverfullがないこと、抽出テキストが空でないことを検証する。抽出テキストのSHA256を出力し、PDFバイナリのbitwise再現を要求しない。
 さらに9番目のproducer `code/subvariety_incidence/check_ambient_quadratic_obstruction.py` は、全150個の周囲斉次二次方向の射影Jacobi線形化と5係数の二次障害汎関数を独立に構成する。rank95／augmented rank96、障害9、接空間次元30を `research/subvariety_incidence/certificates/ambient_quadratic_obstruction.json` と照合する。これはambient非被約性の証明ではない。
 PDFのバイナリバイト列の同一性までは主張しない。
@@ -96,8 +100,4 @@ ZIPの旧版・キャッシュ・入れ子ZIPを正本として扱わない。
    次にmainへの復旧を優先する。既存Libraryファイルを勝手に削除しない。
 7. 過去の版、バックアップ、作業ログを現行一式に蓄積せず、今の研究内容だけで再開可能にする。
 
-**今回確認した範囲**：新しいincidence原稿と2本の正確な計算コードは元の局所実行資産と一致し、
-証明書の再生成・LuaLaTeX11頁・PDF抽出テキスト一致を局所で確認した。
-一方、本実行環境ではgithub.comのDNS接続ができずfresh `git clone`で147分類の
-全preflightを今このセッションで改めて実行したとは主張しない。
-既存v74の検査記録はその射程で再利用する。
+**今回の検証範囲**：長鎖成分同定の全六括弧・同次Jacobi・Jordan型・Jacobian・二次因子のQQ(a)恒等式は独立のSymPy 1.14.0局所実行でPASS。既存の局所次元28コードも再実行でPASS。一方、GitHubへの直接DNS接続ができず、fresh cloneからの全11 producer照合や主稿全体のLuaLaTeX組版はこの作業時に再実行していない。過去のv74の分類監査や従来PDF組版receiptを今回実行したものとして扱わない。GitHub mainの実SHAを読み戻して保存を確認する。
