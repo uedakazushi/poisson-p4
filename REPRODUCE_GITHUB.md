@@ -1,6 +1,6 @@
 # GitHub mainからの手動再現
 
-2026-11-10 / v12。GitHub mainのみ正本。Actions不使用、Library・旧ZIP・未追跡workは入力にしない。生成PDFはGit追跡しない。
+2026-11-10 / v15。GitHub mainのみ正本。Actions不使用、Library・旧ZIP・未追跡workは入力にしない。生成PDFはGit追跡しない。
 
 ## 環境
 
@@ -43,3 +43,7 @@ GitHub保存は期待したmain先端に対する非force更新後、remote SHA�
 
 `code/subvariety_incidence/check_isotropic_intersection_dim23.py` はSymPy 1.14.0で独立に4パラメータPoisson構造を構築し、全Jacobi、rank2 Log1112のepsilon族に対する全10二形式係数恒等式、rank4非定数g長鎖源に対する射影線形変換と全六括弧、24次minor 10871635968、Euler gaugeとの独立性を検証する。保存JSONは `research/subvariety_incidence/certificates/isotropic_intersection_dim23.json`。手動入口 `bash scripts/verify_github_source.sh tangent-cone` で従来の接錐・軌道の証明書と同時に再計算・照合する。数値下界23は一般交叉次元不等式からも出るが、両成分への具体的な源レベルの構成を新しく与えた。交叉の正確な次元23/24、全接錐初期イデアル、ambient局所環の被約性は未解決。
 
+
+## 冪零不変二次形式のPoisson延長の再現（v15）
+
+現行接錐主稿に `papers/isotropic_nilpotent_pencil.tex` をinput。SymPy 1.14.0の独立producer `code/subvariety_incidence/check_universal_nilpotent_pencil.py` は、滑らかな五パラメータ二次形式qについてJacobi全10係数、Pfaffian全5係数、rank2 Log1112極限の10二形式係数、rank4長鎖非定数g源の6括弧およびPGL二次式規格化を有理関数係数で検査する。保存証明書は `research/subvariety_incidence/certificates/universal_nilpotent_pencil.json`。手動入口 `bash scripts/verify_github_source.sh tangent-cone` は `--check` によってこの証明書も再生成・比較する。GitHub ActionsもLibraryも不要。数値23/24の交叉次元判定は未解決。

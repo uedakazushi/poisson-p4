@@ -1,6 +1,6 @@
 # Poisson structures on projective four-space
 
-2026-11-10 / v14-local-geometry + v74-classification.
+2026-11-10 / v15-local-geometry + v74-classification.
 
 **GitHub main is canonical.** Current Japanese LuaLaTeX sources, exact code, inputs and certificates suffice to restart the research. Generated PDFs are not tracked. No GitHub Actions. Library is used only after an actual failed GitHub push; no Library download or old ZIP is required.
 
@@ -11,6 +11,8 @@ Start with [RESEARCH_POLICY.md](RESEARCH_POLICY.md), then the [module policy](re
 The new standalone manuscript [isotropic_log_tangent_cone_ja.tex](papers/isotropic_log_tangent_cone_ja.tex) proves the complete seven quadratic initial equations at the isotropic Log point, a nonzero square-zero degree-two class in the **true tangent cone**, local dimension 28, Hilbert–Samuel multiplicity 1, **smoothness of the 28-dimensional logarithmic component at the intersection** and the 23–24 bound for its intersection with the 25-dimensional rank-four component, and cancellation of the mixed ac obstruction in the full ambient second-order deformation. Ambient reducedness and the full higher initial ideal remain open. The 26-/24-dimensional components of the quadratic approximation are NOT counted as new Poisson components.
 
 The explicit common three-parameter Poisson family is independently verified by [check_isotropic_intersection_dim23.py](code/subvariety_incidence/check_isotropic_intersection_dim23.py). Its logarithmic epsilon specialization and affine-linear long-source rectification give an actual 23-dimensional family in the component intersection. The numerical lower bound 23 also follows from the ordinary dimension inequality (28+25-30); the explicit geometry is the added result. The exact intersection dimension (23 or 24) remains open.
+
+The [universal invariant-quadratic pencil](papers/isotropic_nilpotent_pencil.tex) proves a strict rank-four smoothing for a five-parameter smooth quadratic slice preserved by a nilpotent symmetry. Its rank-two fibres belong to Log1112 and its rank-four fibres to the long nonconstant-g 25-dimensional component, via an actual affine-linear source map. An explicit PGL5 shear reduces the five quadratic coefficients to a single residual parameter eta/(1-delta*eta); this does not determine whether the entire component intersection has dimension 23 or 24. The [exact producer](code/subvariety_incidence/check_universal_nilpotent_pencil.py) and [tracked certificate](research/subvariety_incidence/certificates/universal_nilpotent_pencil.json) are included in the manual tangent-cone verification.
 
 The [incidence companion](papers/poisson_subvariety_incidence_ja.tex), [local dimension proof](papers/quadric_log_component_intersection.tex) and [long rank-four membership proof](papers/rank_four_long_component_membership.tex) retain generic quadric extensions, cubic/del Pezzo rigidity, the explicit 25-dimensional rank-four component through the 28-dimensional logarithmic component, and the non-Cohen–Macaulay consequence at their stated dependencies.
 

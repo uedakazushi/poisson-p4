@@ -1,6 +1,6 @@
 # Poisson部分多様体incidence：現行研究ノート
 
-2026-11-10 / v14。再開時はRESEARCH_POLICY.md。詳しい証明は新接錐原稿と同伴incidence原稿を参照。
+2026-11-10 / v15。再開時はRESEARCH_POLICY.md。詳しい証明は新接錐原稿と同伴incidence原稿を参照。
 
 ## 模型と完全な二次障害
 
@@ -36,6 +36,17 @@ q_v=u0²+2u1w0+2zw1+v w1²、xi_t=(u0+t u1,u1,-2z)、A1=u1∂u0−u0∂w0、A2_v
 λ≠0、D=λ²+(10+b)²v≠0なら、X=(−λx+(10+b)(z+vw))/D、Y=y/D、Z=z、W=w+(10+b)x/λは非線形ではなくアフィン線形。modular=∂X+X∂Y、g={Z,W}=6Z。全六括弧は長鎖非定数g源に一致する。λ=0の族は、epsilon≠0でxi_(t,eps)=(u0+t u1,(1+eps)u1,(-2-eps)z)、f=(u0−t u1/eps,u1,z,q_v)とresidue (2+b/2)r1∧r2−(3+eps)r1∧r3−eps r2∧r3のLog1112源に含まれ、epsilon→0で戻る。全10二形式係数の恒等式を確認。
 
 gl5作用25方向と(v,t,b)の3方向の150×28係数行列はrank24、24次minor=10871635968、Euler gauge24方向との合計rank48。尺度を除く23次元の共通像が実際に存在する。数値下界23だけなら埋込み次元30におけるKrull交叉次元不等式でも分かるため、数学的貢献は具体的な両源への接続である。コード check_isotropic_intersection_dim23.py と同名JSON証明書に全入力を保持。
+
+
+## 冪零不変二次形式と相対延長の普遍公式
+
+q=u0²+2u1w0+2zw1+αu1²+βu1z+γu1w1+δz²+ηw1²、ξ_t=(u0+t u1,u1,−2z)、A=u1∂u0−u0∂w0とする。det(Hess(q)/2)=1−δη。Pλ=P(q,ξ_t)+λK_A(q)はstrict Poisson、i_(Pλ²/2)Ω=(3λ/2)u1²z dq（全Jacobi10成分・Pfaffian5成分の厳密計算）。
+
+λ=0のLog1112極限はf=(u0−t u1/ε,u1,z,q)、留数2r1∧r2−(3+ε)r1∧r3−εr2∧r3で全10二形式係数が一致。λ≠0にはD=λ²+100ηとしてX=(−λx+10(z+ηw)+5γ)/D、Y=y/D、Z=z、W=w+10x/λ（Jacobian −1/(λD)）を取る。modular=∂X+X∂Y、g=6Z、U_Z=−60ηZ/D、U_W=2t/λ+60Z/D、divU=−60η/D。Ksrc=−q_aff,new/(2D)−(Y−X²/2)はZ,Wだけの二次式なので、既存長鎖非定数g全六括弧へ一致する。D=0は閉包で処理する。
+
+normal form：w0'=w0+(αu1+βz+γw1)/2、ηκ²−2κ+δ=0、s=1−ηκ（s²=1−δη≠0）、w1'=s(w1+κz)でq=u0²+2u1w0'+2zw1'+(η/s²)w1'²。Aと三変数の閉二形式を保つ線形変換であり、Poissonの相対尺度だけ変える。従って固定Aの五係数は一変数η'=η/(1−δη)に縮約する。24次元の交叉源があるならAを保つq変形では見つからない。これは全交叉次元23/24を確定しない。
+
+詳しい証明はpapers/isotropic_nilpotent_pencil.tex、コードcode/subvariety_incidence/check_universal_nilpotent_pencil.py、証明書certificates/universal_nilpotent_pencil.json。先行研究での既知性は未確認。
 
 ## 保持する成分帰属と注意点
 
