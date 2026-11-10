@@ -18,6 +18,19 @@ assert got==stored, 'isotropic orbit certificate mismatch'
 assert (got['GL5_affine_orbit_rank'],got['with_P0_scale_rank'],got['PGL5_projective_orbit_dimension'])==(21,21,20)
 print('PASS: exact orbit rank and tracked certificate')
 PY
+python3 code/subvariety_incidence/check_isotropic_intersection_dim23.py \
+  --output "$OUT/isotropic_intersection_dim23.json"
+python3 - "$OUT/isotropic_intersection_dim23.json" <<'PY'
+import json,sys
+from pathlib import Path
+got=json.loads(Path(sys.argv[1]).read_text())
+expected=json.loads(Path('research/subvariety_incidence/certificates/isotropic_intersection_dim23.json').read_text())
+assert got==expected,'isotropic intersection certificate mismatch'
+assert got['intersection_dimension_bounds']==[23,24]
+assert got['24x24_minor_determinant']=='10871635968'
+assert got['gauge_plus_family_rank']==48
+print('PASS: 23-dimensional explicit Poisson intersection family')
+PY
 for pass in 1 2; do
   lualatex -interaction=nonstopmode -halt-on-error -output-directory="$OUT/latex" \
     papers/isotropic_log_tangent_cone_ja.tex > "$OUT/latex/pass${pass}.log" 2>&1 || {

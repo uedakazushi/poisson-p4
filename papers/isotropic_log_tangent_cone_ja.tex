@@ -512,12 +512,12 @@ $U(g)=dg$である。全六括弧は
 \]
 に正確に一致する。これは同伴の既存分類で証明した
 長鎖・非定数$g$の\emph{元のアフィン座標}における
-全源式である。非線形Poisson正規化を$\PGL_5$同定に
+全源式である。非線形Poisson正規化を$\mathrm{PGL}_5$同定に
 すり替えていない。従って一般$\lambda\ne0$の像は
 $Z_{\mathrm{long}}$に入り、その閉性により
 全$P_{0,v,t,b}$も同成分に入る。
 
-最後に三パラメータ$(v,t,b)$と$\PGL_5$作用の像の
+最後に三パラメータ$(v,t,b)$と$\mathrm{PGL}_5$作用の像の
 次元を求める。$(v,t,b)=(0,0,0)$における
 $25$個の$\mathfrak{gl}_5$方向、三つの追加微分方向を
 全$150$同次二次双ベクトル係数で並べた
@@ -533,12 +533,25 @@ JSON証明書に全て記載した。
 和は階数$48$を持ち、交叉は零である。
 さらに$P_0$の尺度方向は$\mathfrak{gl}_5$像に含まれる。
 従って射影Poisson空間で三パラメータ族を
-$\PGL_5$飽和した写像の微分階数は$23$であり、
+$\mathrm{PGL}_5$飽和した写像の微分階数は$23$であり、
 その像の閉包は少なくとも$23$次元である。
 基点を含む既約パラメータ空間からの像なので、
 この閉包は$p$を含み、両成分の交叉に含まれる。
 上界$24$は系\ref{cor:log-long-intersection-orbit}で既に示した。
 \end{proof}
+
+\begin{remark}[数値下界と明示族の役割]
+接空間次元$30$なので、完備局所表示
+$\widehat R\simeq\CC[[t_0,\ldots,t_{29}]]/I$からも、
+$28$次元と$25$次元の二成分の交叉次元は
+一般の交叉次元不等式により少なくとも
+$28+25-30=23$と分かる
+\cite[Section 43.13]{StacksIntersect}。
+従って数値$23$自体の下界は一般定理の帰結でもある。
+上の構成の追加内容は、この下界を実現する
+\emph{具体的な三パラメータPoisson族とその両成分への
+源レベルの帰属}である。
+\end{remark}
 
 \begin{remark}[全交叉の未決定性]
 この定理は交叉の局所次元を$23$か$24$の二択に絞るが、
@@ -601,6 +614,10 @@ $p$を通る全既約成分の列挙および全次数のPoisson変形は未解�
 \bibitem{NagataLocal} M. Nagata, \emph{Local Rings},
 Interscience Tracts in Pure and Applied Mathematics, No.~13,
 Interscience Publishers, 1962, Theorem 40.6.
+\bibitem{StacksIntersect} The Stacks Project Authors,
+\emph{The Stacks Project}, Section 43.13, especially
+Lemma 43.13.4 (Tag 0AZP),
+\url{https://stacks.math.columbia.edu/tag/0AZP}.
 \bibitem{MPS} M. Matviichuk, B. Pym and T. Schedler,
 \emph{A local Torelli theorem for log symplectic manifolds},
 arXiv:2010.08692v2 (2021), \url{https://arxiv.org/abs/2010.08692v2}.

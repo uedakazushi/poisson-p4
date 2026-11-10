@@ -1,0 +1,118 @@
+{
+  "date": "2026-11-10",
+  "version": "v14",
+  "status": "PASS",
+  "sympy": "1.14.0",
+  "family": "P(v,t,b,lambda)=P(q_v,xi_t)+b*K_A2(v)(q_v)+lambda*K_A1(q_v)",
+  "q_v": "u0**2+2*u1*w0+2*z*w1+v*w1**2",
+  "xi_t": [
+    "u0+t*u1",
+    "u1",
+    "-2*z"
+  ],
+  "A1": "u1*d/du0-u0*d/dw0",
+  "A2_v": "(z+v*w1)*d/dw0-u1*d/dw1",
+  "full_strict_Jacobi": "identically zero over QQ(v,t,b,lambda)",
+  "affine_Pfaffian": "-3*lambda*z*(x**2-2*y+2*z*w+v*w**2)",
+  "affine_modular": [
+    "-lambda",
+    "-lambda*x+(10+b)*(z+v*w)",
+    "0",
+    "10+b"
+  ],
+  "affine_linear_rectification": [
+    "X=(-lambda*x+(10+b)*(z+v*w))/D",
+    "Y=y/D",
+    "Z=z",
+    "W=w+(10+b)*x/lambda",
+    "D=lambda**2+(10+b)**2*v"
+  ],
+  "rectification_Jacobian": "-1/(lambda*D)",
+  "normalized_modular": [
+    "1",
+    "X",
+    "0",
+    "0"
+  ],
+  "normalized_g": "6*Z (nonconstant)",
+  "source_bracket_match": "all six exact polynomial identities over QQ(v,t,b,lambda)",
+  "rank2_log_semisimple_residue_basis": [
+    "(1,-1,0,0)^(1,0,-1,0)",
+    "(1,-1,0,0)^(2,0,0,-1)",
+    "(1,0,-1,0)^(2,0,0,-1)"
+  ],
+  "rank2_log_semisimple_residue_coefficients": [
+    "2+b/2",
+    "-3-eps",
+    "-eps"
+  ],
+  "rank2_log_F_source": [
+    "u0-(t/eps)*u1",
+    "u1",
+    "z",
+    "q_v"
+  ],
+  "rank2_log_identity": "all ten 2-form coefficients agree identically over QQ(v,t,b,eps)",
+  "linearized_affine_GL5_and_three_parameters_rank": 24,
+  "projective_PGL5_and_three_parameters_rank": 23,
+  "gauge_rank": 24,
+  "gauge_plus_family_rank": 48,
+  "24x24_minor_row_indices": [
+    1,
+    2,
+    5,
+    6,
+    16,
+    17,
+    30,
+    31,
+    32,
+    34,
+    36,
+    39,
+    45,
+    46,
+    47,
+    84,
+    111,
+    114,
+    135,
+    136,
+    137,
+    140,
+    141,
+    144
+  ],
+  "24x24_minor_column_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    16,
+    17,
+    19,
+    20,
+    22,
+    23,
+    25,
+    26,
+    27
+  ],
+  "24x24_minor_determinant": "10871635968",
+  "intersection_dimension_bounds": [
+    23,
+    24
+  ],
+  "scope": "Uses prior long-source classification and both component theorems. Does not identify the exact dimension (23 or 24), the scheme intersection, or ambient reducedness."
+}
