@@ -37,6 +37,9 @@ python3 code/subvariety_incidence/check_universal_nilpotent_pencil.py \
 python3 code/subvariety_incidence/check_nilpotent_torus_attraction.py \
   --output "$OUT/nilpotent_torus_attraction.json" \
   --check research/subvariety_incidence/certificates/nilpotent_torus_attraction.json
+python3 code/subvariety_incidence/check_nilpotent_tangent_weights.py \
+  --output "$OUT/nilpotent_tangent_weights.json" \
+  --check research/subvariety_incidence/certificates/nilpotent_tangent_weights.json
 for pass in 1 2; do
   lualatex -interaction=nonstopmode -halt-on-error -output-directory="$OUT/latex" \
     papers/isotropic_log_tangent_cone_ja.tex > "$OUT/latex/pass${pass}.log" 2>&1 || {

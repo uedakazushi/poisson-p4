@@ -27,9 +27,11 @@ I2=(s0*c-s2*a, s1*c, c*(s2+c), s3*c, s4*c+s6*a, s5*a, s5*c)。
 
 **固定冪零場の二軌道と収縮（v16）**：q_η=u0²+2u1w0+2zw1+ηw1²、P_(η,t)=P(q_η,ξ_t)に対し、g_ρ=diag(1,1,ρ,1,ρ^-1)はAと可換、det=1、射影等式g_ρ·[P_(η,t)+λK_η]=[P_(ρ²η,t)+ρλK_(ρ²η)]を全10係数で証明。ρ→0で完全等方rank2点[P_(0,t)]に収縮。基底三形式の共通核Wへの制限はrank(q|W)=0（η=0）または1（η≠0）で、Aと基底三形式の直線を保つqは二軌道に分かれる。λ≠0のη/λ²はこのC*群の不変量だが全PGL完全不変量とは未確認。証明thm:nilpotent-torus-attraction、独立producer check_nilpotent_torus_attraction.py、certificates/nilpotent_torus_attraction.json。
 
+**同変Jacobi線形化（v16）**：30次元射影接空間の重み(-2,-1,0,1,2)の次元は(1,5,12,10,2)。150双ベクトルの重み分解は(3,13,36,46,36,13,3)、Euler gaugeは(0,1,6,10,6,1,0)、P0尺度は重み0に1。従ってlinearization rank95を正規方向の重み(-2〜4)に分けると(2,7,17,26,28,12,3)。全7二次初期関係の重みは(2,1,2,3,1,1,1)、nilpotent hは重み2。全30固有ベクトルをチェックした。原稿thm:nilpotent-tangent-weight-tableとproducer check_nilpotent_tangent_weights.py、certificates/nilpotent_tangent_weights.jsonに保存。
+
 ## 次の核心・着手方法
 
-最優先は固定Aと三形式の直線を保つ二軌道の外の変形による交叉次元23/24の判定と、全初期イデアルの三次以上。線形化の95 normal方向を二次まで解き、30 tangent方向上の三次残差とI2のsyzygyを計算する。二次模型の26・24次元成分は真の成分と未同定であり、新しいPoisson成分として数えない。
+最優先は固定Aと三形式の直線を保つ二軌道の外の変形による交叉次元23/24の判定と、全初期イデアルの三次以上。上記の七重みブロックごとに線形化の95 normal方向を二次まで解き、30 tangent方向上の三次残差とI2のsyzygyを計算する。二次模型の26・24次元成分は真の成分と未同定であり、新しいPoisson成分として数えない。
 次にhの実接錐上の台・annihilator、既知25次元成分の接錐とscheme交叉を調べる。元の局所環Rの被約性と全成分の分類は未解決。接錐非被約からR非被約を推論しない。局所分類の価値に応じてより一般的な障害機構やdel Pezzo例外へ方針を変更する。文献上の優先権は未確認。
 
 ## 再現
