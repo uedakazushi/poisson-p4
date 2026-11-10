@@ -18,4 +18,4 @@ g=6Z、U=(60Z/a²)∂W、d=0、K=-ZW/a²+50Z²/a⁴、F=-ZW/a²-10Z²/a⁴
 
 ## 幾何学的意味と未解決箇所
 
-既存カタログのrank2 Log1112（28次元）と長鎖非定数rank4（25次元）の双方がpを通るという二つの**成分性定理を入力**として、局所環は非等次元・非Cohen--Macaulay。これはambientのnilradical非零と同値ではない。すでに完全なrank4帰属の一例は分かったが、pを通る他の成分、全接錐の分解、ac障害、ambientの非被約性、特殊Q3の全層別は未解決。次は二つの既知成分のscheme論的交叉と、全ambientの追加二次障害を照合する。既知のその他のQ3・cubic・del Pezzo・P3の有効な成果は現行原稿に保持。新規性の一次文献調査は未完了。GitHub main正本、Actions不使用、PDF非追跡、Libraryはpush失敗時のみ。
+既存カタログのrank2 Log1112（28次元）と長鎖非定数rank4（25次元）の双方がpを通るという二つの**成分性定理を入力**として、局所環は非等次元・非Cohen--Macaulay。25次元極小associated primeについてStacks Project Lemma 10.72.9（Tag 0BK4）からdepth≤25（局所次元28との差≥3）が従い、被約化にも同じ上界が成立する。これはambientのnilradical非零と同値ではない。すでに完全なrank4帰属の一例は分かったが、pを通る他の成分、全接錐の分解、ac障害、ambientの非被約性、特殊Q3の全層別は未解決。次は二つの既知成分のscheme論的交叉と、全ambientの追加二次障害を照合する。既知のその他のQ3・cubic・del Pezzo・P3の有効な成果は現行原稿に保持。新規性の一次文献調査は未完了。GitHub main正本、Actions不使用、PDF非追跡、Libraryはpush失敗時のみ。

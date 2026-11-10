@@ -149,9 +149,15 @@ Poisson既約成分であるという結果を用いれば
 定理\ref{thm:quadric-isotropic-dimension28}と
 定理\ref{thm:isotropic-long-rankfour-membership}の点
 \(p=[P_0]\in\mathcal P\)について、
-\(\mathcal O_{\mathcal P,p}\)は非等次元である。
-従ってCohen--Macaulayではなく、
-特にGorensteinでも局所完全交叉でもない。
+\(\mathcal O_{\mathcal P,p}\)は非等次元であり、
+\[
+ \dim\mathcal O_{\mathcal P,p}=28,\qquad
+ \operatorname{depth}\mathcal O_{\mathcal P,p}\le25.
+\]
+従ってCohen--Macaulay欠損
+\(\dim-\operatorname{depth}\)は少なくとも\(3\)であり、
+Gorensteinでも局所完全交叉でもない。
+被約化した局所環についても同じ深さの上界が成立する。
 \end{corollary}
 \begin{proof}
 階数二対数型既約成分\(\mathcal Z_{\mathrm{log}}\)は
@@ -163,10 +169,17 @@ Poisson既約成分であるという結果を用いれば
 \(\mathcal O_{\mathcal P,p}\)の極小素イデアルのうち
 少なくとも二つは異なる次元の商を与える。
 従って局所環は非等次元である。
-複素数体上有限型の局所環は正則局所環の商であり、
-そのようなCohen--Macaulay局所環には
-unmixedness（全極小成分の等次元性）が成立する。
-よってここではCohen--Macaulay性が成立しない。
+この\(25\)次元成分に対応する極小素イデアル
+\(\mathfrak p_{\mathrm{long}}\)は
+Noether局所環のassociated primeでもある。
+associated primeに対する一般の深さ不等式
+\(\operatorname{depth}R\le\dim(R/\mathfrak p)\)
+（\cite{StacksDepth}, Lemma 10.72.9）より
+\(\operatorname{depth}\mathcal O_{\mathcal P,p}\le25\)。
+局所次元は\(28\)であるから、
+Cohen--Macaulay欠損は少なくとも\(3\)である。
+被約化しても二つの極小素イデアルと商次元は変わらず、
+同じ深さ上界が成立する。
 Gorenstein局所環と局所完全交叉環は
 Cohen--Macaulayであるので、これらでもない。
 \end{proof}
