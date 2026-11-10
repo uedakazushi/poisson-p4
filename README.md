@@ -1,6 +1,6 @@
 # Poisson structures on projective four-space
 
-2026-11-10 / v15-local-geometry + v74-classification.
+2026-11-10 / v16-local-geometry + v74-classification.
 
 **GitHub main is canonical.** Current Japanese LuaLaTeX sources, exact code, inputs and certificates suffice to restart the research. Generated PDFs are not tracked. No GitHub Actions. Library is used only after an actual failed GitHub push; no Library download or old ZIP is required.
 
@@ -13,6 +13,8 @@ The new standalone manuscript [isotropic_log_tangent_cone_ja.tex](papers/isotrop
 The explicit common three-parameter Poisson family is independently verified by [check_isotropic_intersection_dim23.py](code/subvariety_incidence/check_isotropic_intersection_dim23.py). Its logarithmic epsilon specialization and affine-linear long-source rectification give an actual 23-dimensional family in the component intersection. The numerical lower bound 23 also follows from the ordinary dimension inequality (28+25-30); the explicit geometry is the added result. The exact intersection dimension (23 or 24) remains open.
 
 The [universal invariant-quadratic pencil](papers/isotropic_nilpotent_pencil.tex) proves a strict rank-four smoothing for a five-parameter smooth quadratic slice preserved by a nilpotent symmetry. Its rank-two fibres belong to Log1112 and its rank-four fibres to the long nonconstant-g 25-dimensional component, via an actual affine-linear source map. An explicit PGL5 shear reduces the five quadratic coefficients to a single residual parameter eta/(1-delta*eta); this does not determine whether the entire component intersection has dimension 23 or 24. The [exact producer](code/subvariety_incidence/check_universal_nilpotent_pencil.py) and [tracked certificate](research/subvariety_incidence/certificates/universal_nilpotent_pencil.json) are included in the manual tangent-cone verification.
+
+An explicit [attracting PGL5 cocharacter](papers/isotropic_nilpotent_pencil.tex), diag(1,1,rho,1,rho^-1), sends the normalized nilpotent pencil parameters (eta,lambda) to (rho² eta,rho lambda); its rho→0 limit is a rank-two fully isotropic Log point. Invariant quadratic forms have precisely two rank strata, rank(q|W)=0/1, under the subgroup preserving A and the base three-form line. This does not classify full PGL orbits or resolve the global 23/24 component intersection. The [exact cocharacter producer](code/subvariety_incidence/check_nilpotent_torus_attraction.py) and [certificate](research/subvariety_incidence/certificates/nilpotent_torus_attraction.json) are part of manual reproduction.
 
 The [incidence companion](papers/poisson_subvariety_incidence_ja.tex), [local dimension proof](papers/quadric_log_component_intersection.tex) and [long rank-four membership proof](papers/rank_four_long_component_membership.tex) retain generic quadric extensions, cubic/del Pezzo rigidity, the explicit 25-dimensional rank-four component through the 28-dimensional logarithmic component, and the non-Cohen–Macaulay consequence at their stated dependencies.
 

@@ -1,6 +1,6 @@
 # Poisson部分多様体incidence：現行研究ノート
 
-2026-11-10 / v15。再開時はRESEARCH_POLICY.md。詳しい証明は新接錐原稿と同伴incidence原稿を参照。
+2026-11-10 / v16。再開時はRESEARCH_POLICY.md。詳しい証明は新接錐原稿と同伴incidence原稿を参照。
 
 ## 模型と完全な二次障害
 
@@ -47,6 +47,12 @@ q=u0²+2u1w0+2zw1+αu1²+βu1z+γu1w1+δz²+ηw1²、ξ_t=(u0+t u1,u1,−2z)、A
 normal form：w0'=w0+(αu1+βz+γw1)/2、ηκ²−2κ+δ=0、s=1−ηκ（s²=1−δη≠0）、w1'=s(w1+κz)でq=u0²+2u1w0'+2zw1'+(η/s²)w1'²。Aと三変数の閉二形式を保つ線形変換であり、Poissonの相対尺度だけ変える。従って固定Aの五係数は一変数η'=η/(1−δη)に縮約する。24次元の交叉源があるならAを保つq変形では見つからない。これは全交叉次元23/24を確定しない。
 
 詳しい証明はpapers/isotropic_nilpotent_pencil.tex、コードcode/subvariety_incidence/check_universal_nilpotent_pencil.py、証明書certificates/universal_nilpotent_pencil.json。先行研究での既知性は未確認。
+
+## 冪零場を保つ二軌道と1パラメータ極限
+
+正規形q_η=u0²+2u1w0+2zw1+ηw1²、P_(η,t)=P(q_η,ξ_t)、K_η=K_A(q_η)。g_ρ=diag(1,1,ρ,1,ρ^-1)はdet=1かつAと可換。全10の同次二次双ベクトル係数でg_ρ P_(η,t)=ρ^-1 P_(ρ²η,t)、g_ρ K_η=K_(ρ²η)。射影Poissonでは(η,λ)↦(ρ²η,ρλ)、ρ→0で[P_(0,t)]へ収縮する。λ≠0ならη/λ²がこのC*作用の不変量であるが、全PGL軌道の完全不変量とは証明していない。
+
+ψ=du0∧du1∧dz、W=kerψ=span(w0,w1)。q_η|W=ηw1²でη=0のrank0とη≠0のrank1がある。Wは[ψ]を保つ群の固有部分空間なので両者は別軌道。一方、前節のw0,w1 shearsが五係数qをq_ηへ変え、任意のη≠0は適当なρでη=1にできる。従ってAと[ψ]を保つ二次形式そのものは二軌道で尽くされる。これはPoisson pencilの全PGL軌道が二つという意味ではない。証明はpapers/isotropic_nilpotent_pencil.texの定理thm:nilpotent-torus-attraction、計算資産はcheck_nilpotent_torus_attraction.pyとnilpotent_torus_attraction.json。
 
 ## 保持する成分帰属と注意点
 
