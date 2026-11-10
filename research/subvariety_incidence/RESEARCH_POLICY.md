@@ -1,6 +1,6 @@
 # 完全等方Log点：非被約接錐と周囲障害
 
-2026-11-10 / v15。再開：ルートRESEARCH_POLICY.md → 本方針 → NOTES.md → papers/isotropic_log_tangent_cone_ja.tex。
+2026-11-10 / v16。再開：ルートRESEARCH_POLICY.md → 本方針 → NOTES.md → papers/isotropic_log_tangent_cone_ja.tex。
 
 ## 一般原則・保存許可
 
@@ -25,9 +25,11 @@ I2=(s0*c-s2*a, s1*c, c*(s2+c), s3*c, s4*c+s6*a, s5*a, s5*c)。
 
 **新しい普遍延長（v15）**：A=u1∂u0−u0∂w0の下で滑らかなq=u0²+2u1w0+2zw1+αu1²+βu1z+γu1w1+δz²+ηw1²を動かしても、P(q,ξ_t)+λK_A(q)は全パラメータでstrict Poisson、Pfaffianは(3λ/2)u1²z dq。λ=0のLog1112対数留数表示とλ≠0の長鎖非定数gのアフィン線形正規化も全係数で確認。さらにw0'=w0+(αu1+βz+γw1)/2、w1'=s(w1+κz)、ηκ²−2κ+δ=0、s=1−ηκ≠0によりqは一変数q_η'（η'=η/(1−δη)）に帰着する。したがって固定Aの五係数を探索し直す価値は低く、24次元交叉方向があれば固定Aを破る必要がある。証明papers/isotropic_nilpotent_pencil.tex、独立検算check_universal_nilpotent_pencil.pyとcertificates/universal_nilpotent_pencil.json。これは分類済みの長鎖成分性を入力にし、元の局所環の被約性は解決しない。
 
+**固定冪零場の二軌道と収縮（v16）**：q_η=u0²+2u1w0+2zw1+ηw1²、P_(η,t)=P(q_η,ξ_t)に対し、g_ρ=diag(1,1,ρ,1,ρ^-1)はAと可換、det=1、射影等式g_ρ·[P_(η,t)+λK_η]=[P_(ρ²η,t)+ρλK_(ρ²η)]を全10係数で証明。ρ→0で完全等方rank2点[P_(0,t)]に収縮。基底三形式の共通核Wへの制限はrank(q|W)=0（η=0）または1（η≠0）で、Aと基底三形式の直線を保つqは二軌道に分かれる。λ≠0のη/λ²はこのC*群の不変量だが全PGL完全不変量とは未確認。証明thm:nilpotent-torus-attraction、独立producer check_nilpotent_torus_attraction.py、certificates/nilpotent_torus_attraction.json。
+
 ## 次の核心・着手方法
 
-最優先は固定Aを破る変形による交叉次元23/24の判定と、全初期イデアルの三次以上。線形化の95 normal方向を二次まで解き、30 tangent方向上の三次残差とI2のsyzygyを計算する。二次模型の26・24次元成分は真の成分と未同定であり、新しいPoisson成分として数えない。
+最優先は固定Aと三形式の直線を保つ二軌道の外の変形による交叉次元23/24の判定と、全初期イデアルの三次以上。線形化の95 normal方向を二次まで解き、30 tangent方向上の三次残差とI2のsyzygyを計算する。二次模型の26・24次元成分は真の成分と未同定であり、新しいPoisson成分として数えない。
 次にhの実接錐上の台・annihilator、既知25次元成分の接錐とscheme交叉を調べる。元の局所環Rの被約性と全成分の分類は未解決。接錐非被約からR非被約を推論しない。局所分類の価値に応じてより一般的な障害機構やdel Pezzo例外へ方針を変更する。文献上の優先権は未確認。
 
 ## 再現
