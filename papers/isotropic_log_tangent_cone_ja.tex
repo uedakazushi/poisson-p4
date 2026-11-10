@@ -18,7 +18,7 @@
 \title{完全等方Log点におけるPoisson接錐の非被約性\\
 \large 二次障害の完全計算・重複度一・混合障害の消去}
 \author{}
-\date{2026年11月10日\quad v13・研究原稿}
+\date{2026年11月10日\quad v14・研究原稿}
 \begin{document}\maketitle
 \begin{abstract}
 複素射影四空間のPoissonスキームの一つの階数二点について、最小局所埋込みの二次初期方程式を完全に計算する。
@@ -26,7 +26,7 @@
 その二次障害スキームの被約台は次元28、26、24の三既約成分を持ち、
 非零の二次式が平方零元を与える。この二次式は真の接錐でも消えないため、
 \emph{真の接錐自体が非被約}である。一方、最大次元の接錐成分は単一の28次元線形空間で、
-その一般点での長さは一である。従って局所次元は28、Hilbert--Samuel重複度は一となる。これを用いて28次元の階数二対数型成分が交点でも滑らかであることを導き、25次元の階数四長鎖成分との交叉次元を20以上24以下と評価する。
+その一般点での長さは一である。従って局所次元は28、Hilbert--Samuel重複度は一となる。これを用いて28次元の階数二対数型成分が交点でも滑らかであることを導き、25次元の階数四長鎖成分との交叉次元を明示的な共通Poisson変形族によって23以上24以下と評価する。
 さらに、固定二次超曲面上の延長ファイバーに現れた混合関係式$ac=0$は、
 全周囲Poisson変形では明示的な二次補正により消去できることを示す。
 二次初期イデアルと全初期イデアル、接錐の非被約性と元の局所環の非被約性は区別する。
@@ -378,6 +378,172 @@ $R=\mathcal O_{\mathcal P,p}$の滑らかさや被約性を意味しない。
 $R$には別の25次元成分が通り、
 真の接錐には非零平方零元が残る。
 また、交叉の正確な次元やそのscheme構造も未決定である。
+\end{remark}
+
+
+\begin{theorem}[対数型成分と長鎖成分の23次元共通族]
+\label{thm:log-long-intersection23}
+前定理の$28$次元対数型成分$Z_{\mathrm{log}}$と、
+同伴原稿で同定した$25$次元の長鎖・非定数$g$成分
+$Z_{\mathrm{long}}$の交叉について
+\begin{equation}\label{eq:log-long-dim23}
+ \boxed{\quad
+ 23\le\dim_p(Z_{\mathrm{log}}\cap Z_{\mathrm{long}})\le24.
+ \quad}
+\end{equation}
+この下界は、両成分に実際に含まれる既約な
+$23$次元の局所族を構成して得られる。
+\end{theorem}
+\begin{proof}
+座標を$(u_0,u_1,z,w_0,w_1)$の順に取り、
+$G_v=\operatorname{Hess}(q_v)/2$として
+\[
+ q_v=u_0^2+2u_1w_0+2zw_1+vw_1^2,\qquad
+ \xi_t=(u_0+tu_1)\partial_{u_0}
+             +u_1\partial_{u_1}-2z\partial_z
+\]
+と置く。$\iota_{P(q,\xi)}\Omega
+=dq\wedge\iota_\xi(du_0\wedge du_1\wedge dz)$と定義し、
+\[
+ A_1=u_1\partial_{u_0}-u_0\partial_{w_0},\qquad
+ A_{2,v}=(z+vw_1)\partial_{w_0}-u_1\partial_{w_1},
+ \qquad
+ K_A(q)=\frac q2 A G_q^{-1}+\frac12E\wedge(AX)
+\]
+を用いる。$A_1,A_{2,v}$はどちらも$q_v$を保ち、
+$\det G_v=1$である。四パラメータ族
+\begin{equation}\label{eq:intersection-four-param}
+ P_{\lambda,v,t,b}
+  =P(q_v,\xi_t)+\lambda K_{A_1}(q_v)
+                  +bK_{A_{2,v}}(q_v)
+\end{equation}
+は、全パラメータについて射影だけでなく
+同次二次双ベクトルとして厳密にJacobi恒等式を満たす。
+この普遍恒等式は係数を展開することで証明でき、
+全十Jacobi成分の展開は下記の独立計算でも検証する。
+
+$u_1\ne0$のアフィン座標を
+\[
+ x=u_0/u_1,\quad y=-w_0/u_1,\quad
+ z_{\mathrm{af}}=z/u_1,\quad w=w_1/u_1
+\]
+とし、以下$z_{\mathrm{af}}$を$z$と書く。
+そのPfaffianとmodular場は
+\begin{align}
+ \operatorname{Pf}(P_{\lambda,v,t,b})
+   &=-3\lambda z(x^2-2y+2zw+vw^2),\label{eq:intersection-pf}\\
+ M_{\lambda,v,t,b}
+   &=-\lambda\partial_x
+     +\bigl(-\lambda x+(10+b)(z+vw)\bigr)\partial_y
+     +(10+b)\partial_w.\label{eq:intersection-mod}
+\end{align}
+従って$\lambda=0$は全て階数二、$\lambda\ne0$は
+一般階数四の開集合である。
+
+まず$\lambda=0$の全像が$Z_{\mathrm{log}}$に入ることを示す。
+$\epsilon\ne0$に対し
+\[
+ \xi_{t,\epsilon}=(u_0+tu_1)\partial_{u_0}
+ +(1+\epsilon)u_1\partial_{u_1}
+ -(2+\epsilon)z\partial_z,\quad
+ (f_0,f_1,f_2,f_3)
+ =(u_0-tu_1/\epsilon,\ u_1,\ z,\ q_v)
+\]
+とする。次数ベクトルを$d=(1,1,1,2)$とすると
+\[
+ r_1=(1,-1,0,0),\quad
+ r_2=(1,0,-1,0),\quad
+ r_3=(2,0,0,-1)
+\]
+は$d$の核の基底である。留数二形式
+\[
+ C_{\epsilon,b}=(2+b/2)r_1\wedge r_2
+ -(3+\epsilon)r_1\wedge r_3
+ -\epsilon r_2\wedge r_3
+\]
+から作る対数型の三次二形式
+\begin{equation}\label{eq:intersection-log-source}
+ \sum_{i<j}(C_{\epsilon,b})_{ij}
+       \prod_{k\ne i,j}f_k\,df_i\wedge df_j
+\end{equation}
+は、$\iota_E\iota_{P(q_v,\xi_{t,\epsilon})
+          +bK_{A_{2,v}}(q_v)}\Omega$に恒等的に一致する。
+全十個の二形式係数についての多項式恒等式である。
+$\epsilon\to0$で後者のPoissonテンソルは
+$P_{0,v,t,b}$に収束する。
+従って$\mathrm{Log}(1,1,1,2)$の閉包は
+$P_{0,v,t,b}$を全て含む。
+
+次に一般$\lambda\ne0$について、
+$C=10+b,\ D=\lambda^2+C^2v$と置く。
+$\lambda D\ne0$ならば
+\begin{equation}\label{eq:intersection-linear-change}
+ X=\frac{-\lambda x+C(z+vw)}D,\quad
+ Y=\frac yD,\quad Z=z,\quad
+ W=w+\frac C\lambda x
+\end{equation}
+はJacobian $-1/(\lambda D)$の
+\emph{アフィン線形変換}であり、
+$M_{\lambda,v,t,b}=\partial_X+X\partial_Y$、
+$\{Z,W\}=6Z$を与える。
+この変換後の括弧を$\widetilde P$とし、
+$r=Y-X^2/2$、
+\[
+ g=6Z,\quad
+ U=\widetilde P^{XZ}\partial_Z
+    +\widetilde P^{XW}\partial_W,\quad
+ d=\operatorname{div}U,\quad
+ K=-\frac{q_v^{\mathrm{af}}}{2D}-r,\quad
+ F=(U+d+1)K
+\]
+と置く（$q_v^{\mathrm{af}}$は式
+\eqref{eq:intersection-linear-change}後の二次式）。
+$K$は$Z,W$だけの二次以下の多項式、
+$U$は$Z,W$のアフィン場で、
+$U(g)=dg$である。全六括弧は
+\[
+\begin{aligned}
+ \{X,Y\}&=-F-(1+d)r,&
+ \{X,Z\}&=U_Z,& \{X,W\}&=U_W,\\
+ \{Y,Z\}&=XU_Z+r g_W+(gK)_W,&
+ \{Y,W\}&=XU_W-rg_Z-(gK)_Z,&
+ \{Z,W\}&=g
+\end{aligned}
+\]
+に正確に一致する。これは同伴の既存分類で証明した
+長鎖・非定数$g$の\emph{元のアフィン座標}における
+全源式である。非線形Poisson正規化を$\PGL_5$同定に
+すり替えていない。従って一般$\lambda\ne0$の像は
+$Z_{\mathrm{long}}$に入り、その閉性により
+全$P_{0,v,t,b}$も同成分に入る。
+
+最後に三パラメータ$(v,t,b)$と$\PGL_5$作用の像の
+次元を求める。$(v,t,b)=(0,0,0)$における
+$25$個の$\mathfrak{gl}_5$方向、三つの追加微分方向を
+全$150$同次二次双ベクトル係数で並べた
+$150\times28$行列の階数は$24$である。
+その$24$次minorの一つは
+\[
+ \boxed{10871635968\ne0}.
+\]
+行・列番号は付属の
+\texttt{check\_isotropic\_intersection\_dim23.py}と
+JSON証明書に全て記載した。
+この$24$次元像と$24$次元Eulerゲージ空間の
+和は階数$48$を持ち、交叉は零である。
+さらに$P_0$の尺度方向は$\mathfrak{gl}_5$像に含まれる。
+従って射影Poisson空間で三パラメータ族を
+$\PGL_5$飽和した写像の微分階数は$23$であり、
+その像の閉包は少なくとも$23$次元である。
+基点を含む既約パラメータ空間からの像なので、
+この閉包は$p$を含み、両成分の交叉に含まれる。
+上界$24$は系\ref{cor:log-long-intersection-orbit}で既に示した。
+\end{proof}
+
+\begin{remark}[全交叉の未決定性]
+この定理は交叉の局所次元を$23$か$24$の二択に絞るが、
+全交叉の既約成分やscheme構造を決定しない。
+また周囲Poisson局所環の非被約性を導かない。
 \end{remark}
 
 \section{混合\texorpdfstring{$ac$}{ac}障害の周囲での消去}
