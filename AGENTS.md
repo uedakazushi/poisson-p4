@@ -1,8 +1,12 @@
 # Poisson P4 — current execution instructions
 
-2026-11-10 / v14. Read RESEARCH_POLICY.md first, then research/subvariety_incidence/RESEARCH_POLICY.md, NOTES.md, and papers/isotropic_log_tangent_cone_ja.tex. Japanese LuaLaTeX is the manuscript format.
+2026-11-10 / v15. Read RESEARCH_POLICY.md first, then research/subvariety_incidence/RESEARCH_POLICY.md, NOTES.md, and papers/isotropic_log_tangent_cone_ja.tex. Japanese LuaLaTeX is the manuscript format.
 
-## Current active priority (v14)
+## Current active priority (v15)
+
+The five-parameter smooth A-invariant quadratic q with A=u1*d/du0-u0*d/dw0 admits a strict universal Poisson pencil P(q,xi_t)+lambda*K_A(q), with Pfaffian cofactor 3*lambda*u1^2*z/2. The lambda=0 points are in Log1112 and lambda!=0 points in the long nonconstant-g 25-dimensional rank-four component by an actual affine-linear six-bracket identification. All but one of the five quadratic coefficients are removable by a PGL5 shear, with residual eta/(1-delta*eta). Read papers/isotropic_nilpotent_pencil.tex and the independent exact producer code/subvariety_incidence/check_universal_nilpotent_pencil.py, whose tracked certificate is checked in scripts/verify_isotropic_tangent_cone.sh. Further fixed-A quadratic casework is low priority: look for symmetry-breaking deformations or higher tangent-cone initial equations to resolve intersection dimension 23 or 24. Never infer ambient nonreducedness from the nonreduced tangent cone; no Actions, generated PDFs or routine Library copying.
+
+## Previous explicit intersection priority (v14)
 
 The 28-dimensional logarithmic component and 25-dimensional long nonconstant-g rank-four component have an explicit common 23-dimensional family at the isotropic Log point. The universal strict four-parameter Poisson family has a logarithmic epsilon-source and an actual affine-linear long-source identification, with all six brackets exactly checked. The GL5+3 derivative has rank24 and nonzero minor 10871635968; Euler gauge plus family rank48 leaves projective rank23. The numerical lower bound 23 also follows from the standard dimension theorem; the new content is the explicit source family. Exact intersection dimension 23 versus 24 is open, as are the full higher initial ideal and ambient reducedness. Read papers/isotropic_log_tangent_cone_ja.tex and code/subvariety_incidence/check_isotropic_intersection_dim23.py. No Actions, routine Library copies, or generated PDF tracking.
 
