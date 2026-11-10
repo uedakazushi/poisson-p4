@@ -1,6 +1,6 @@
 # Poisson不変部分多様体と147成分分類の幾何
 
-2026-11-10 / v8。研究再開：ルート RESEARCH_POLICY.md → REPRODUCE_GITHUB.md → 本方針 → NOTES.md → papers/poisson_subvariety_incidence_ja.tex。
+2026-11-10 / v9。研究再開：ルート RESEARCH_POLICY.md → REPRODUCE_GITHUB.md → 本方針 → NOTES.md → papers/poisson_subvariety_incidence_ja.tex。
 
 ## 上位原則：研究価値の最大化
 

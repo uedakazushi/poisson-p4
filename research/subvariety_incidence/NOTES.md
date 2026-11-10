@@ -1,6 +1,6 @@
 # Poisson部分多様体incidence：現行研究ノート
 
-2026-11-10 / v8。証明の本文は papers/poisson_subvariety_incidence_ja.tex とその共有TeX。再開時は RESEARCH_POLICY.md を先に読む。
+2026-11-10 / v9。証明の本文は papers/poisson_subvariety_incidence_ja.tex とその共有TeX。再開時は RESEARCH_POLICY.md を先に読む。
 
 ## 完全等方Log点での周囲二次障害
 
