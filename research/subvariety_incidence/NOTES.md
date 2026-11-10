@@ -1,21 +1,19 @@
-# Poisson部分多様体のincidence：現行研究ノート
+# Poisson部分多様体incidence：現行研究ノート
 
-2026-11-10 / v5。研究方針はRESEARCH_POLICY.md、証明全文はpapers/poisson_subvariety_incidence_ja.texとその共有TeXにある。
+2026-11-10 / v6。数学的証明の全文はpapers/poisson_subvariety_incidence_ja.texと共有papers/quadric_log_orthogonality.tex。再開時はRESEARCH_POLICY.mdを最初に読む。
 
-## 共鳴Logの直交性：何が機構か
+## 非退化三次元qUの共鳴Log全層別
 
-V=U1⊕L⊕W (2,1,2)、q=H(u)+2zb(u)+cz²+w0²+w1²、HおよびqU非退化とする。重みξ=(1,1,-2)とW回転RからP0=2ξ∧R+ξ(qU)Jを作る。affine斉次P0の零スキームはP(W)という直線とP(U1⊕L)内の平面二次曲線C=(ξ(qU)=0)の非交和である。Cは非被約でもスキーム論的な線形包がP(U1⊕L)となる。したがってstrict so(q) stabilizerは二ブロックを保存する。
+V=U1⊕L⊕W、ξ=(1,1,-2)としたPoisson源 P0=2ξ∧R+ξ(qU)J。qU非退化の場合、H=qU|U1は階数2か1（階数0ならqU退化）。
 
-U1⊕L上で[ B, ξ ]=0を課すとB=diag(D,d)。直交性はDᵗH+HD=0, Dᵗb+db=0, 2cd=0。Hが非退化な2次元のためso(H)は一次元、非零生成元は可逆。c≠0ならb≠0でD=0。c=0でもqU非退化性はbᵗH⁻¹b≠0を強制し、bがskewなDᵗの非零固有値ベクトルになることは不可能。このため全非退化域でstrict stabilizerがb≠0ならCR、b=0ならCR⊕so(H)。
+- rankH=2: qU=H(u)+2zb(u)+cz²、b≠0ならstrict stabilizerはCRだけで全延長A1（rank2）、b=0ならCR⊕so(H)でJacobi理想(v(t+2))、rank4因子Q+V(z)+V(cz²+w0²+w1²)。c=0でもqU非退化ならb非等方となり、追加対称性はない。
+- rankH=1: 重みと可換なGL(U1)でqU=u0²+2u1z+cz²へ正規化できる。c≠0ならstabilizer CRで全延長A1、c=0なら追加場A=-u1∂u1+z∂zが現れる。KA=-q∂u1∧∂z+E∧A、全Jacobi idealは(v(t-1))、rank4因子はQ+V(u0)+V(u0²+w0²+w1²)。他の未確認な厚みはない。
+- 直交性wall b=0 と階数1の等方性wall c=0 はこのmarked二次形式族でいずれも余次元2。個別の147成分同一視や非包含をこれだけで主張しない。
 
-発散がintrinsic対称性へ入る線形Jacobi制約を使うと、b≠0では全延長がP0+tKRでrank2。b=0では重みと可換な座標変換で標準二直線模型に帰り、全延長Spec C[t,v]/(v(t+2))、rank4の実因子はQ+V(z)+V(cz²+w0²+w1²)。元の一変数q_λのminor 13824λ/(λ²−1)^4も保持する。今回の定理を特別なLogの全分類と同一視しない。
+厳密なrank1算術はcode/subvariety_incidence/check_log_rankone.py（c=0,1でstrict so5 rank8/9、Jacobi GB=(v(t-1))、Pfaffian）。一般定理の証明は零スキームZ(P0)の線形包がWとUを回復すること、so(qU)とξのcentralizerの線形代数、qU正規形にある。
 
-## 次に調べる特別な境界
+## 残課題と方向転換条件
 
-Hが退化する場合、あるいはqUが退化する場合には、零スキームの成分と直交代数の層別を見直す必要がある。特にHの核方向とbの位置を不変条件とし、c=0や非等方・等方の分岐を調べる。追加のLie対称性があるだけでPoisson rank4延長が生じると判断しない。実JacobiとPfaffianの厳密計算で確認し、概念的説明へ戻す。
+qU退化の共鳴Log境界、special Affとの交叉とrank4枝の147成分への帰属は未解決。これらが不必要に細かい分類へ向かうなら、4次del Pezzoの延長例外、P3の横断的Poisson対称性、147成分の共通幾何へ方向を変更する。元の一般Q3 Rat/Log/Affの延長、smooth cubic一意剛性、一般del Pezzo剛性は現行原稿に保存。新しい主張の文献上の優先権は未確認。
 
-## 他の残課題と文献
-
-一般4次del Pezzoの延長剛性は証明済みだが真の例外locusは未分類。P3の6 intrinsic成分の横断対称性も未分類。滑らかなQ3の一般Rat/Log/Affは一点/A1/二点の延長を持つ。LPT (DOI 10.1002/mana.201100354) はintrinsic分類、Mayanskiy (DOI 10.1016/j.jalgebra.2014.08.049) はsmooth cubic。新定理の文献上の優先権は未確認。
-
-再現：code/subvariety_incidence/check_log_orthogonality.pyは五実例のstrict stabilizer rankとPoisson恒等式を実行し、research/subvariety_incidence/certificates/log_orthogonality.jsonと照合する。これは一般定理の証明の代わりではない。正本はGitHub main、生成PDFは非追跡、Actionsなし、Libraryは実push失敗時のみ緊急避難。
+保存・再現：正本GitHub main、TeX＋7 producer/7 JSON、PDF非追跡、GitHub Actionsなし、Libraryはpush失敗時だけ。

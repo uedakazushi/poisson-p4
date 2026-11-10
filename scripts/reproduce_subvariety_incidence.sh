@@ -22,10 +22,12 @@ python3 code/subvariety_incidence/check_log_wall.py \
   --output "$OUT/certificates/log_wall.json" > "$OUT/log_wall_stdout.log"
 python3 code/subvariety_incidence/check_log_orthogonality.py \
   --output "$OUT/certificates/log_orthogonality.json" > "$OUT/log_orthogonality_stdout.log"
+python3 code/subvariety_incidence/check_log_rankone.py \
+  --output "$OUT/certificates/log_rankone.json" > "$OUT/log_rankone_stdout.log"
 python3 - "$OUT" <<'PY'
 import json, pathlib, sys
 out=pathlib.Path(sys.argv[1]);root=pathlib.Path.cwd()
-for name in ('del_pezzo_generic_rigidity.json','incidence_examples.json','quadric_symmetry.json','log_quadric.json','log_wall.json','log_orthogonality.json'):
+for name in ('del_pezzo_generic_rigidity.json','incidence_examples.json','quadric_symmetry.json','log_quadric.json','log_wall.json','log_orthogonality.json','log_rankone.json'):
     a=json.loads((root/'research/subvariety_incidence/certificates'/name).read_text())
     b=json.loads((out/'certificates'/name).read_text())
     assert a==b, f'certificate mismatch: {name}'
@@ -43,7 +45,11 @@ assert wall['wall_scheme']=='Spec C[t,v]/(v(t+2))'
 ortho=json.loads((out/'certificates/log_orthogonality.json').read_text())
 assert ortho['status']=='PASS' and len(ortho['samples'])==5
 assert [r['strict_stabilizer_dimension'] for r in ortho['samples']]==[2,1,1,1,1]
-print('EXACT CERTIFICATES: PASS (6 exact producers and six certificates)')
+rankone=json.loads((out/'certificates/log_rankone.json').read_text())
+assert rankone['status']=='PASS'
+assert [r['strict_stabilizer_dimension'] for r in rankone['cases']]==[2,1]
+assert rankone['cases'][0]['two_parameter_Jacobi_ideal']=='(v*(t-1))'
+print('EXACT CERTIFICATES: PASS (7 exact producers and seven certificates)')
 PY
 for pass in 1 2; do
   lualatex -interaction=nonstopmode -halt-on-error \

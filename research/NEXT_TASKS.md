@@ -1,9 +1,9 @@
-# 現行研究の次の課題 — 共鳴Logと147成分の幾何学
+# 現行研究の次の課題：共鳴Log完全層別の幾何学的応用
 
-2026-11-10 / v5。上位原則は研究価値の最大化。正本GitHub main、GitHub Actions禁止、Library保存は実push失敗時のみ。
+2026-11-10 / v6。上位原則は研究価値の最大化。GitHub main正本・PDF非追跡・Actions禁止・Libraryは実push失敗時のみ。
 
-**達成済み**：smooth Q3上の一般Rat/Log/AffのPoisson延長はそれぞれ一点・被約A1・二点。modular場はQ因子の重複度を決める。特殊Log境界の一変数wallを、HとqUが非退化な六係数二次式の余次元二直交性条件b=0へ一般化し、全延長ファイバーをスキームとして決定した（論文thm:quadric-log-block-orthogonality）。c=0もqU非退化なら含む。
+完了した範囲：非退化qUを持つ共鳴Log型Poisson源の全延長スキームを、rank(H)=2/1の二つの場合に分けて分類。各々追加rank4枝が出る必要十分条件とJacobi ideal、実Pfaffian因子を得た。従来の一変数直交性wallも含まれる。一般Q3 Rat/Log/Affの延長は一点/A1/二点。
 
-**未解決・次の優先**：H退化またはqU退化の共鳴Log・特殊Aff境界でstrict stabilizer/全Jacobiを層別し、rank4枝と既存147成分への帰属を調べる。概念的な効果が薄ければ4次del Pezzoの例外locus、P3横断対称性、147成分の構造定理へ移る。新規性は一次資料で調査し未確認なら明示する。
+次の最重要課題：qU退化境界、special Affファイバー、今回のrank4枝と147成分の正確な関係を調べる。細分化が数学的重要性・実現可能性に見合わなければ、4次del Pezzoの例外的延長、P3横断対称性、147成分の構造定理へ切り替える。新規性は一次資料で検討し、未確認なら明記。
 
-すべての原稿・計算コード・正確な証明書はGitHub mainに保持する。手動再現は bash scripts/verify_github_source.sh incidence、PDFはlatexmkで再生成しGit追跡しない。
+再開：RESEARCH_POLICY.md → research/subvariety_incidence/RESEARCH_POLICY.md → NOTES.md → 現行TeX。検証は手動の scripts/verify_github_source.sh incidence。

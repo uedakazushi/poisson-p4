@@ -1,15 +1,13 @@
-# Poisson subvariety incidence — current v5 research
+# Poisson subvariety incidence — current v6
 
-Source of truth: GitHub main. Read [policy](RESEARCH_POLICY.md), [notes](NOTES.md) and [the main Japanese LuaLaTeX paper](../../papers/poisson_subvariety_incidence_ja.tex).
+GitHub main is canonical. Start with [research policy](RESEARCH_POLICY.md), [notes](NOTES.md) and the [Japanese LuaLaTeX manuscript](../../papers/poisson_subvariety_incidence_ja.tex), which includes [Log fibre proofs](../../papers/quadric_log_extension.tex) and [the invariant orthogonality classification](../../papers/quadric_log_orthogonality.tex).
 
-The full common Log extension proof is [quadric_log_extension.tex](../../papers/quadric_log_extension.tex), which includes [quadric_log_orthogonality.tex](../../papers/quadric_log_orthogonality.tex).
+New theorem: **the entire family of resonant Log Poisson extensions with nondegenerate 3-variable quadratic qU is classified**. For rank(H)=2, a rank-four branch exists exactly when the cross-term b vanishes (fibre Spec C[t,v]/(v(t+2))). For rank(H)=1, a rank-four branch exists exactly when c vanishes in the adapted normal form qU=u0²+2u1z+cz² (fibre Spec C[t,v]/(v(t-1))). Other fibres are reduced A1 with rank-two Poisson extensions. This is NOT a classification of every special Log Poisson structure.
 
-**New result:** For resonant Log structures with nondegenerate H (2-dimensional weight-one form) and nondegenerate qU, the full ambient extension fibre is A1 (rank 2) when the cross-term b is nonzero; precisely when b=0 the fibre is Spec C[t,v]/(v(t+2)) with a rank-four branch. The orthogonality locus is codimension two in this quadric family, not merely the previous one-parameter wall. The case c=0 is included if qU is nondegenerate. Degenerate H or qU remains open.
-
-Six tracked SymPy scripts reconstruct six exact JSON certificates. The general classification theorem is proved geometrically, not inferred from the five sample tests.
+Seven exact SymPy producers and seven matched JSON certificates are tracked; run:
 
 ```bash
 bash scripts/verify_github_source.sh incidence
 ```
 
-No PDF tracking, no GitHub Actions, no routine Library storage; all sources and proof inputs remain on GitHub main.
+No tracked PDF, no GitHub Actions, and no routine Library use.

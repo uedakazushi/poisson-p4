@@ -119,6 +119,82 @@ $P_0$と制限・延長ファイバーを先の標準模型へ移す。
 $(v(t+2))$を適用すれば、二直線交叉とrank四の因子の式を得る。
 \end{proof}
 
+\begin{proposition}[重み一ブロックが階数一の場合]
+\label{prop:quadric-log-rankone-block}
+$H$が階数一で$q_U$が非退化なとき、重みと可換な一次変数変換によって
+\[
+ q_U=u_0^2+2u_1z+cz^2
+\]
+と書ける。この正規形では、前定理と同じ$P_0,\sigma,K_R$について
+\[
+ \boxed{\quad\ExtP_Q(\sigma)\cong
+ \begin{cases}
+ \AA^1,&c\ne0,\\
+ \operatorname{Spec}\CC[t,v]/(v(t-1)),&c=0.
+ \end{cases}\quad}
+\]
+$c\ne0$で全延長は階数二であり、$c=0$の第二枝には
+一般階数四の延長が存在する。その実退化因子は
+\[
+ Q+V(u_0)+V(u_0^2+w_0^2+w_1^2).
+\]
+\end{proposition}
+\begin{proof}
+$H$の核上で$b$が消えると$q_U$は退化してしまうので、
+$b|_{\ker H}\ne0$である。二次形式の階数一を正規化し、
+$U_1$内の変数変換で$b(u)=u_1$と置けば上の形を得る。
+この変換は$\xi$と可換なので、$P_0$とPoisson延長ファイバーを保つ。
+
+前定理の零スキームの議論は$g=\xi(q_U)\ne0$ならそのまま使える。
+$U_1\oplus L$で$[B,\xi]=0$と置き、
+$H=\operatorname{diag}(1,0)$、$b=(0,1)^t$とすると、
+$B=\operatorname{diag}(D,d)$に対する$q_U$-直交条件は
+\[
+ D^tH+HD=0,\qquad D^tb+db=0,\qquad 2cd=0.
+\]
+初めの二式を解くと$D=\operatorname{diag}(0,-d)$となる。
+従って$c\ne0$のstrict stabilizerは$\CC R$、
+$c=0$のそれは$\CC R\oplus\CC A$、
+$A=-u_1\partial_{u_1}+z\partial_z$である。
+$c\ne0$では一般の発散からの線形Jacobi条件とPoisson pencilの存在から
+全延長は被約な直線$P_0+tK_R$となる。
+
+$c=0$では$J_{1z}=\partial_{u_1}\wedge\partial_z$および
+$K_A=-qJ_{1z}+E\wedge A$と置くと、全候補が
+$P_{t,v}=P_0+tK_R+vK_A$である。この上でJacobiatorの全非零成分は
+（添字を$(u_0,u_1,z,w_0,w_1)=(0,1,2,3,4)$の順に取って）
+\[
+\begin{aligned}
+ \Jac_{123}&=-2v(t-1)q w_1,&
+ \Jac_{124}&=2v(t-1)q w_0,\\
+ \Jac_{134}&=-2v(t-1)q u_1,&
+ \Jac_{234}&=2v(t-1)q z.
+\end{aligned}
+\]
+従って全Jacobi係数イデアルは$(v(t-1))$であり、
+非被約な隠れた枝はない。さらに
+\[
+ \iota_{P_{t,v}\wedge P_{t,v}/2}\Omega=f_{t,v}\,dq,
+ \quad f_{t,v}=-\frac{vu_0}{2}
+ \bigl(tq+2u_0^2-2u_1z+2w_0^2+2w_1^2\bigr).
+\]
+$t=1$で$f_{1,v}=-3vu_0(u_0^2+w_0^2+w_1^2)/2$となり、
+階数と実退化因子の表示を与える。全係数は
+\texttt{check\_log\_rankone.py}で正確に再計算できる。
+\end{proof}
+
+\begin{corollary}[非退化な共鳴Log二次形式の層別]
+\label{cor:quadric-log-nondegenerate-stratification}
+$\det(q_U)\ne0$の共鳴Log源は、$\operatorname{rank}H=2$の場合には
+定理\ref{thm:quadric-log-block-orthogonality}、
+$\operatorname{rank}H=1$の場合には
+命題\ref{prop:quadric-log-rankone-block}で全て尽くされる。
+$\operatorname{rank}H=0$なら$q_U$は退化するので起こらない。
+特に、追加のrank四Poisson延長が現れる層は、
+階数二では$b=0$、階数一では上記正規形の$c=0$という
+二つの明示的な余次元二の層である。
+\end{corollary}
+
 \begin{corollary}[一変数の直交性wall]\label{cor:quadric-resonant-log-wall}
 一変数族$q_c=\sum x_i^2+2cx_0x_2$は$H=u_0^2+u_1^2$、
 $b(u)=cu_0$、$z=x_2$、二次係数$1$の場合であり、
@@ -135,7 +211,9 @@ $c^2\ne1$なら
 \end{corollary}
 \begin{remark}
 より一般の二次形式の族では直交性条件$b=0$は余次元二である。
-$H$の退化を許す層、または$q_U$が退化する層は本定理の射程外である。
+階数一の$H$は命題\ref{prop:quadric-log-rankone-block}で別途処理した。
+従って非退化な$q_U$は系\ref{cor:quadric-log-nondegenerate-stratification}の
+二つの分岐で尽くされる。$q_U$自体が退化する配置は対象外である。
 $c=0$自体は除外しない。$q_U$が非退化なら$c=0$でも$b$は非等方となり、
 追加のstrict対称性は存在しない。
 今回の独立計算は五つの正確な二次形式についてstrict stabilizerの階数と全$P_t$の
