@@ -28,10 +28,12 @@ python3 code/subvariety_incidence/check_isotropic_log_boundaries.py \
   --output "$OUT/certificates/isotropic_log_boundaries.json" > "$OUT/isotropic_log_boundaries_stdout.log"
 python3 code/subvariety_incidence/check_ambient_quadratic_obstruction.py \
   --output "$OUT/certificates/ambient_quadratic_obstruction.json" > "$OUT/ambient_obstruction_stdout.log"
+python3 code/subvariety_incidence/check_local_dimension28.py \
+  --output "$OUT/certificates/local_dimension28.json" > "$OUT/local_dimension28_stdout.log"
 python3 - "$OUT" <<'PY'
 import json, pathlib, sys
 out=pathlib.Path(sys.argv[1]);root=pathlib.Path.cwd()
-for name in ('del_pezzo_generic_rigidity.json','incidence_examples.json','quadric_symmetry.json','log_quadric.json','log_wall.json','log_orthogonality.json','log_rankone.json','isotropic_log_boundaries.json','ambient_quadratic_obstruction.json'):
+for name in ('del_pezzo_generic_rigidity.json','incidence_examples.json','quadric_symmetry.json','log_quadric.json','log_wall.json','log_orthogonality.json','log_rankone.json','isotropic_log_boundaries.json','ambient_quadratic_obstruction.json','local_dimension28.json'):
     a=json.loads((root/'research/subvariety_incidence/certificates'/name).read_text())
     b=json.loads((out/'certificates'/name).read_text())
     assert a==b, f'certificate mismatch: {name}'
@@ -60,7 +62,14 @@ amb=json.loads((out/'certificates/ambient_quadratic_obstruction.json').read_text
 assert (amb['linearization_rank'],amb['augmented_rank'])==(95,96)
 assert amb['projective_tangent_dimension']==30
 assert amb['obstruction_on_negative_Jacobi']=='9'
-print('EXACT CERTIFICATES: PASS (9 exact producers and nine certificates)')
+loc=json.loads((out/'certificates/local_dimension28.json').read_text())
+assert loc['exact_local_dimension']==28
+assert loc['logarithmic_derivative_rank']==28
+assert loc['logarithmic_projective_augmented_rank']==29
+assert loc['logarithmic_minor_det']=='-57177414000000'
+assert loc['tangent_quadrics']==['9*t21*t29','-4*t25*t27']
+assert loc['ambient_tangent_frame_rank_with_gauge_and_scale']==55
+print('EXACT CERTIFICATES: PASS (10 exact producers and ten certificates)')
 PY
 for pass in 1 2; do
   lualatex -interaction=nonstopmode -halt-on-error \

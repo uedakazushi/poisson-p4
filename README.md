@@ -3,7 +3,7 @@
 **Source policy (2026-11-10):** Standalone papers and research notes are tracked as **TeX, not PDFs**. The 7 previously tracked PDFs have corresponding TeX sources and reproducible build instructions; use `.latexmkrc` with `latexmk papers/poisson_p4_classification_ja.tex` or `bash scripts/build_papers_latexmk.sh`. Generated PDFs are ignored in `work/latexmk/`. Primary proofs, exact calculation inputs and certificates remain tracked. No GitHub Actions; GitHub main is canonical; ChatGPT Library only on an actual failed push.
 
 
-2026-11-09 / v74-publication-candidate
+2026-11-10 / v10-incidence + v74-classification
 
 ## 最新の正本と再現方法（2026-11-10）
 
@@ -15,6 +15,7 @@ GitHub Actionsは一切使わず、手動スクリプトで原稿と証明書を
 - [部分多様体incidence現行論文v4（Q3一般三成分と対数境界の直交性wall）](papers/poisson_subvariety_incidence_ja.tex)
 - [対応する研究方針](research/subvariety_incidence/RESEARCH_POLICY.md)・[ノート](research/subvariety_incidence/NOTES.md)
 - [incidenceの正確な計算証明書](research/subvariety_incidence/certificates)
+- [完全等方Log点の局所次元28・rank2/rank4成分交叉](papers/quadric_log_component_intersection.tex)：rank30の接空間上の二つの互いに素な障害式と、28次元対数型源の非零minorで独立に証明。rank4成分IDとambient非被約性は未解決。
 - ambient二次接錐：完全等方Log点では接空間が30次元、局所次元は29以下。固定Q延長三方向の二次障害は-9c²。現行カタログの36次元・39次元rank2成分はこの点を含まない（証明はpapers/quadric_ambient_quadratic_obstruction.tex）。ambient非被約性は未解決。
 - 再現実行: `bash scripts/verify_github_source.sh incidence`
 - 既存分類を含む検査: `bash scripts/verify_github_source.sh full`
