@@ -39,3 +39,7 @@ incidenceは旧11 producer/11証明書と同伴incidence原稿の再生成に加
 新producerを実行して全有理計算PASS、再実行で保存JSONに一致。別の直接SymPy Jacobi実装で二つのテンソルの全350係数も照合した。新6頁原稿を二回組版し、未解決参照・Overfullなし、全6頁を画像で確認した。旧11 producerの一括再実行、147分類全体の再監査、旧incidence全稿の今回の組版、fresh cloneからの完全再現は未実行。
 
 GitHub保存は期待したmain先端に対する非force更新後、remote SHAと変更ファイルを読み戻して確認する。GitHub書込み、数学的検証、PDF生成、Library退避は別々の状態。通常Library保存はせず、実push失敗時のみ緊急退避する。既存Libraryファイルは無断削除しない。原稿に公表価値のある既存証明を失わせず、TeXにないPDF-onlyの数学入力は削除しない。
+## 完全等方Log点の明示23次元交叉族（2026-11-10 / v14）
+
+`code/subvariety_incidence/check_isotropic_intersection_dim23.py` はSymPy 1.14.0で独立に4パラメータPoisson構造を構築し、全Jacobi、rank2 Log1112のepsilon族に対する全10二形式係数恒等式、rank4非定数g長鎖源に対する射影線形変換と全六括弧、24次minor 10871635968、Euler gaugeとの独立性を検証する。保存JSONは `research/subvariety_incidence/certificates/isotropic_intersection_dim23.json`。手動入口 `bash scripts/verify_github_source.sh tangent-cone` で従来の接錐・軌道の証明書と同時に再計算・照合する。数値下界23は一般交叉次元不等式からも出るが、両成分への具体的な源レベルの構成を新しく与えた。交叉の正確な次元23/24、全接錐初期イデアル、ambient局所環の被約性は未解決。
+

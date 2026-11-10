@@ -1,6 +1,10 @@
 # Poisson P4 — current execution instructions
 
-2026-11-10 / v12. Read RESEARCH_POLICY.md first, then research/subvariety_incidence/RESEARCH_POLICY.md, NOTES.md, and papers/isotropic_log_tangent_cone_ja.tex. Japanese LuaLaTeX is the manuscript format.
+2026-11-10 / v14. Read RESEARCH_POLICY.md first, then research/subvariety_incidence/RESEARCH_POLICY.md, NOTES.md, and papers/isotropic_log_tangent_cone_ja.tex. Japanese LuaLaTeX is the manuscript format.
+
+## Current active priority (v14)
+
+The 28-dimensional logarithmic component and 25-dimensional long nonconstant-g rank-four component have an explicit common 23-dimensional family at the isotropic Log point. The universal strict four-parameter Poisson family has a logarithmic epsilon-source and an actual affine-linear long-source identification, with all six brackets exactly checked. The GL5+3 derivative has rank24 and nonzero minor 10871635968; Euler gauge plus family rank48 leaves projective rank23. The numerical lower bound 23 also follows from the standard dimension theorem; the new content is the explicit source family. Exact intersection dimension 23 versus 24 is open, as are the full higher initial ideal and ambient reducedness. Read papers/isotropic_log_tangent_cone_ja.tex and code/subvariety_incidence/check_isotropic_intersection_dim23.py. No Actions, routine Library copies, or generated PDF tracking.
 
 ## Mathematical status
 
