@@ -17,6 +17,11 @@
 
 ## 次の優先順位と具体的着手
 
+## 二次接錐の現行結果と残る問題
+
+既存の五係数消滅汎関数はambient Poissonスキームの30次元Zariski接空間上に非零二次式を与え、完全等方Log点の局所次元を29以下に抑える。固定quadric延長の三方向(a,b,c)への制限は正確に -9c²。36次元のR2_RAT113と39次元のR2_LPBはこの点を含まない。証明はpapers/quadric_ambient_quadratic_obstruction.texの系cor:ambient-isotropic-tangent-cone-bound。三方向の直接展開は今回独立に検算した。全接錐の成分分解、局所次元の確定、固定ファイバーのacのambient障害、ambient非被約性は未解決。次はカタログの次元29以下の族と退化因子Q+2H+H'を照合し、帰属を特定する。
+
+
 1. **ambient二次障害と既存147成分の局所幾何を比較**：P0を含む既約成分を現行カタログの実源・退化因子型から特定し、全ambient tangent coneのquadratic idealと既知成分の局所切片を比較する。非被約性の証明には局所環のnilradicalを独立に示す必要がある。単に二次障害が非零・接空間が過大という理由で非被約と主張しない。
 2. Q3の特殊Log/Aff延長のより普遍的な幾何層別：重み空間とqの直交・等方配置、strict stabilizer、Jacobi二次障害をまとめる。無意味な有限場合分けが増えるだけなら優先度を下げる。
 3. 4次del Pezzoの例外的rank4延長、P3の六成分の横断対称性、147成分の概念的特徴づけへ波及する定理を探す。研究価値が高ければ方向変更する。

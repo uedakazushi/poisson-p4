@@ -140,3 +140,72 @@ $\CC[\varepsilon]/(\varepsilon^3)$まで持ち上がるので，
 両者を混同しない。なお，被約台上の一般rank四点が
 既存147成分のどれに属するかは，ここでは決定していない。
 \end{remark}
+
+
+\begin{corollary}[完全等方Log点での二次接錐と局所次元]
+\label{cor:ambient-isotropic-tangent-cone-bound}
+定理\ref{thm:isotropic-ambient-second-order-obstruction}の
+$p=[P_0]\in\mathcal P=\mathbb P\operatorname{Pois}(\PP^4)$に対し、
+既述の五係数汎関数$\Lambda$から定まる二次式
+\[
+ \mathcal Q_\Lambda(B)=\Lambda\bigl(E\wedge J(B)\bigr)
+\]
+は$30$次元のZariski接空間$T_p\mathcal P$上の非零二次形式を定め、
+$p$での接錐はその零集合に含まれる。従って
+\[
+ \boxed{\dim T_p\mathcal P=30,\qquad\dim_p\mathcal P\le29.}
+\]
+特に$p$を含む既約成分の次元はすべて$29$以下である。
+現行カタログの次元$36$の\texttt{R2\_RAT113}と
+次元$39$の\texttt{R2\_LPB}は$p$を含まない。
+
+さらに完全等方Logの固定$Q$延長ファイバーを表す場
+\[
+ A_1=u_1\partial_{u_0}-u_0\partial_{w_0},\quad
+ A_2=z\partial_{w_0}-u_1\partial_{w_1},\quad A_3=C
+\]
+に対応する式\eqref{eq:isotropic-K}の核双ベクトルを
+$K_1,K_2,K_3$とすると、
+\[
+ \mathcal Q_\Lambda(P_0+aK_1+bK_2+cK_3)=-9c^2
+ \label{eq:isotropic-tangent-slice}
+\]
+が$a,b,c$の恒等式として成立する。
+\end{corollary}
+\begin{proof}
+全$150$係数で成立する五係数消滅恒等式
+\eqref{eq:isotropic-five-term-cancellation}は
+$\Lambda(d\mathcal F_{P_0}(B))=0$を意味する。
+$\mathcal F$は二次で$\mathcal F(P_0)=0$なので、
+局所座標$P_0+B$では
+$\Lambda(\mathcal F(P_0+B))=\mathcal Q_\Lambda(B)$となる。
+
+任意の線形ベクトル場$V$に対し、
+$[E,B]=[E,V]=0$とSchouten括弧のLeibniz則から
+$E\wedge J(B+E\wedge V)=E\wedge J(B)$である。
+また上述の線形化の消滅から
+$\mathcal Q_\Lambda(B+\lambda P_0)=\mathcal Q_\Lambda(B)$となる。
+従ってこの二次式はEulerゲージおよび射影尺度の商である
+$T_p\mathcal P$に降りる。
+前定理の接方向$K=K_3$で
+$\mathcal Q_\Lambda(K)=-9\ne0$なので、
+接錐の定義イデアルには接空間上の非零二次式が含まれる。
+局所環と接錐のKrull次元は同じであるから
+$\dim_p\mathcal P\le30-1=29$を得る。
+カタログの二成分は次元がこの上界を超えるので$p$を含まない。
+
+最後に$A_1,A_2,A_3$を式\eqref{eq:isotropic-K}に代入し、
+$E\wedge J(P_0+aK_1+bK_2+cK_3)$の
+$\Lambda$で抽出する五係数を直接展開すると
+\[
+ (c^2/2,\ c^2,\ c^2,\ -c^2/2,\ -c^2)
+\]
+となる。これに重み$(2,1,1,4,10)$を掛ければ$-9c^2$。
+この恒等式は元の障害producerとは独立にSymPyで再計算した。
+\end{proof}
+\begin{remark}[未解決の局所幾何]
+この系は局所次元の等号成立、接錐の既約分解、
+$p$を含む残る成分の特定、ambient局所環の非被約性を意味しない。
+表示した二次式が検出するのは固定ファイバーの$c^2$関係であり、
+$ac$関係のambient障害性も未確認である。
+\end{remark}

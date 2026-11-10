@@ -83,3 +83,8 @@ research/classification/CURRENT.md → 対象の現行原稿と元証明を読�
 最上位原則は数学的重要性、新規性、理解の深化、他成分への波及、正確性、実現可能性を総合した研究価値の最大化である。現在のQ3 Poisson延長研究は、一般Rat/Log/Affの延長、共鳴Logの直交性wall、固定smooth Qの等方的Log境界の三種類のscheme型へ到達した。**さらに、非被約延長Spec C[a,b,c]/(ac,c²)のembedded c方向は、固定制限を外した全ambient P4のPoisson方程式でも二次まで持ち上がらないことを証明した。** 5係数の普遍消滅関係と全150係数のrank95/96検算を `papers/quadric_ambient_quadratic_obstruction.tex` に収録し、現行主稿から共有TeXとして取り込む。対応するambient Poisson点は特異だが、ambient非被約性や全147成分のscheme厚みの分類までは主張しない。
 
 優先目標は周囲Poissonスキームの局所二次接錐と既存147成分への帰属を比較すること。特殊Q3延長の全層別は未解決。研究が局所場合分けに偏って概念的価値を下げるなら、4次del Pezzo例外・P3横断対称性・147成分の幾何学的構造定理へ切り替える。現在有効な方針・未解決点と正確な証明の所在は `research/subvariety_incidence/RESEARCH_POLICY.md` にまとめる。GitHub main正本、PDF非追跡、Actions不使用、Libraryは実push失敗時のみ。
+
+
+## VII. 二次接錐と成分帰属の現行課題
+
+完全等方Log点で、既存のambient障害汎関数は30次元Zariski接空間上の非零二次式を与え、局所次元を29以下に抑える。固定延長三方向への制限は-9c²。したがって36次元R2_RAT113と39次元R2_LPBはその点を含まない。現行共有証明はpapers/quadric_ambient_quadratic_obstruction.tex、詳細方針はresearch/subvariety_incidence/RESEARCH_POLICY.md。残る核心は次元29以下のどの被約成分がこの点を通るか、全二次接錐、ac方向のambient障害、ambient非被約性である。ここでの局所次元上界は全147成分の独立再検証を意味しない。先述のGitHub正本・非追跡PDF・Actions禁止・Library緊急時のみという原則は変わらない。
