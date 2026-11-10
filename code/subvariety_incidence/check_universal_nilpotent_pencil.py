@@ -92,6 +92,13 @@ for ij,val in src.items():assert s.cancel(T[ij]-val)==0,ij
 kap=s.symbols('kap')
 eq=eta*kap**2-2*kap+delta
 assert s.expand((1-eta*kap)**2-(1-delta*eta)-eta*eq)==0
+w0new,w1new=s.symbols('w0new w1new')
+scale=1-eta*kap
+wold=w1new/scale-kap*z
+transformed=s.cancel(q.subs({w0:w0new-(alpha*u1+beta*z+gamma*wold)/2,
+                             w1:wold},simultaneous=True))
+target=u0**2+2*u1*w0new+2*z*w1new+eta*w1new**2/scale**2+eq*z**2
+assert s.cancel(transformed-target)==0
 result={
  'date':'2026-11-10','version':'v15','status':'PASS','sympy':'1.14.0',
  'A':'u1*d/du0-u0*d/dw0','quadratic_parameters':5,
