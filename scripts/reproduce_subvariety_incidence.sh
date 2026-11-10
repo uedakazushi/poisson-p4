@@ -32,10 +32,14 @@ python3 code/subvariety_incidence/check_local_dimension28.py \
   --output "$OUT/certificates/local_dimension28.json" > "$OUT/local_dimension28_stdout.log"
 python3 code/subvariety_incidence/check_rank4_long_nonconstant_membership.py \
   --output "$OUT/certificates/rank4_long_nonconstant_membership.json" > "$OUT/rank4_long_membership_stdout.log"
+python3 code/subvariety_incidence/check_dp_pfaffian_conormal.py \
+  --output "$OUT/certificates/dp_pfaffian_conormal.json" \
+  --check research/subvariety_incidence/certificates/dp_pfaffian_conormal.json \
+  > "$OUT/dp_pfaffian_conormal_stdout.log"
 python3 - "$OUT" <<'PY'
 import json, pathlib, sys
 out=pathlib.Path(sys.argv[1]);root=pathlib.Path.cwd()
-for name in ('del_pezzo_generic_rigidity.json','incidence_examples.json','quadric_symmetry.json','log_quadric.json','log_wall.json','log_orthogonality.json','log_rankone.json','isotropic_log_boundaries.json','ambient_quadratic_obstruction.json','local_dimension28.json','rank4_long_nonconstant_membership.json'):
+for name in ('del_pezzo_generic_rigidity.json','incidence_examples.json','quadric_symmetry.json','log_quadric.json','log_wall.json','log_orthogonality.json','log_rankone.json','isotropic_log_boundaries.json','ambient_quadratic_obstruction.json','local_dimension28.json','rank4_long_nonconstant_membership.json','dp_pfaffian_conormal.json'):
     a=json.loads((root/'research/subvariety_incidence/certificates'/name).read_text())
     b=json.loads((out/'certificates'/name).read_text())
     assert a==b, f'certificate mismatch: {name}'
@@ -78,7 +82,11 @@ assert long['source_bracket_match']=='all six exact over QQ(a)'
 assert long['quadric_Hessian_det']=='-1/(32*a**4)'
 assert long['affine_change_det']=='-1/a**3'
 assert long['modular_Jordan_a_nonzero']==[3,1,1] and long['modular_Jordan_a_zero']==[2,2,1]
-print('EXACT CERTIFICATES: PASS (11 exact producers and eleven certificates)')
+pf=json.loads((out/'certificates/dp_pfaffian_conormal.json').read_text())
+assert (pf['degree5_ideal_S_dimension'],pf['degree5_ideal_S_times_ideal_C_dimension'])==(65,41)
+assert pf['degree5_extra_linear_conditions_on_quintics_containing_S']==24
+assert pf['smooth_del_pezzo_S_with_fixed_C_affine_fibre_dimension']==10
+print('EXACT CERTIFICATES: PASS (12 exact producers and twelve certificates)')
 PY
 for pass in 1 2; do
   lualatex -interaction=nonstopmode -halt-on-error \

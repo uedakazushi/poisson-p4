@@ -24,7 +24,7 @@
 \title{Poisson部分多様体から見る射影四空間の成分分類\\
 \large 三次超曲面の剛性・quadricの一般延長ファイバー・del Pezzoの剛性}
 \author{}
-\date{2026年11月10日\quad v11・研究原稿（新規性の確認は継続中）}
+\date{2026年11月10日\quad v17・研究原稿（新規性の確認は継続中）}
 \begin{document}\maketitle
 \begin{abstract}
 射影四空間のPoisson構造を、滑らかな不変部分多様体への制限と延長のincidenceから理解する。
@@ -33,6 +33,7 @@
 滑らかな二次式の完全交叉曲面と非零Poisson構造の一般の組についても、
 全延長スキームが被約な一点であり、その延長がJacobian型の階数二であることを、
 全二十係数の方程式と正確な記号証明書から示す。
+さらに四次del Pezzoの反標準零曲線が楕円四次曲線となり、一般階数四延長があるなら退化五次式は零曲線に沿って二重消滅することを示す。固定された曲面と切断に対し、五次Pfaffianの候補空間は41次元で、曲面を含む全五次式より24次元小さい。反標準楕円四次曲線の空間は20次元、その曲線を超平面切断として持つ滑らかな四次del Pezzo曲面のファイバーはアフィン10次元開集合である。これらは階数四延長の必要な幾何条件であって、例外の存在は未解決である。
 三次超曲面と四次del Pezzo曲面のincidenceの一般ファイバーはそれぞれ四次元・二次元で、
 $\Rat(1,1,3)$と$\Rat(1,2,2)$の次元$36,28$を幾何学的に説明する。
 また、超平面を単純な退化因子に持つ階数四延長の存在を、
@@ -63,7 +64,7 @@ $\sigma\ne0$を固定すれば、射影延長の尺度もこの等式で一意�
 
 三次超曲面の一意延長と二次超曲面の一般延長ファイバーは、本研究の既存資料にもあった。
 本稿では必要な証明と例を現行の論理へ統合し、新しい成果として数え直さない。
-本稿では四次del Pezzoの\emph{一般の組}における延長剛性と二つのrational成分のincidence次元を説明し、
+本稿では四次del Pezzoの\emph{一般の組}における延長剛性と二つのrational成分のincidence次元を説明し、反標準零曲線による階数四延長の必要条件を幾何学的に与える。
 滑らかなquadric上のmodular重複度判定と三intrinsic成分の一般延長ファイバーを証明する。
 特に一般対数型の全延長が被約なアフィン直線であることと、
 その特殊境界に階数四の別枝を持つ交叉二直線ファイバーが存在することを明示する。
@@ -351,6 +352,8 @@ $\CC h^2$に横断的な二次元部分空間だけが残る。
 滑らかさは開条件で元のpencilを含むので、ファイバーは空でない二次元開集合である。
 全$\Rat(1,2,2)$源で滑らかな完全交叉は稠密開なので最後の主張も従う。
 \end{proof}
+
+\input{papers/del_pezzo_pfaffian_incidence.tex}
 
 \section{単純超平面延長と横断的Poisson対称性}
 $H\simeq\PP^3$を固定する。$\sigma\ne0$を$H$上のPoisson構造とする。
@@ -659,7 +662,7 @@ Rat型は被約一点、Log型はrank二のみの$\AA^1$、Affine型は命題\re
 \begin{tabular}{p{.29\textwidth}p{.61\textwidth}}\toprule
 不変な幾何&ambient分類への帰結\\\midrule
 滑らかな三次超曲面&全延長は唯一のrank二。rank四の三次因子は判別式上に強制される。\\
-一般の四次del Pezzoと非零切断&全延長は被約一点のrank二。rank四延長があるなら特別なincidenceに限られる。\\
+一般の四次del Pezzoと非零切断&全延長は被約一点のrank二。例外的なrank四延長があれば反標準楕円四次零曲線に沿ってPfaffianが二重に消える。\\
 単純な不変超平面&intrinsic構造に葉方向と独立な大域Poisson対称性が必要十分。\\
 滑らかな二次超曲面の一般Rat/Log/Aff&全延長は順に一点、$\AA^1$、二点。一般階数四はAffだけで、$2Q+H$が生じる。\\
 対数型の特殊境界&延長が二直線の交叉となり、第二枝で階数四と$Q+H+Q_2$を生じる。\\\bottomrule
@@ -673,7 +676,7 @@ Rat型は被約一点、Log型はrank二のみの$\AA^1$、Affine型は命題\re
 無限小Poisson対称性が跳躍する層と、そこでの延長スキームの枝・成分を幾何学的に分類することである。
 定理\ref{thm:quadric-log-block-orthogonality}と命題\ref{prop:quadric-log-rankone-block}は、重み一の二次形式の階数二と階数一の両場合で追加rank四枝を説明し、系\ref{cor:quadric-log-nondegenerate-stratification}は非退化な全三次元ブロックを尽くす。
 これを既存の147成分の退化因子型と照合する。
-次に四次del Pezzoの例外閉集合を幾何学的に認識する。
+次に四次del Pezzoの例外閉集合を幾何学的に認識する。命題\ref{prop:ci-anticanonical-zero-pfaffian}と定理\ref{thm:dp-24-pfaffian-conditions}によって、階数四延長の退化五次式は楕円四次零曲線に沿って二重に消え、固定した$(S,[h])$の法線一次ジェットには24個の線形条件が必要となる。また命題\ref{prop:dp-elliptic-quartic-fibres}によって、この零曲線を固定して曲面を動かす自由度は10である。従って零曲線を起点に147成分の実Pfaffian源とその零スキームを照合する。その際、全20変数延長が既にこのPfaffian条件を満たすため、Jacobi理想への追加の独立な24式ではないことを明記する。
 今回の二つのminorの消失集合そのものは座標選択に依存し、真の例外集合とは限らない。
 その上で全二十変数イデアルを調べ、rank四解が存在するのか、それとも一意性の普遍証明へ
 改良できるのかを区別する必要がある。
@@ -693,11 +696,11 @@ Rat型は被約一点、Log型はrank二のみの$\AA^1$、Affine型は命題\re
 超平面判定とincidenceファイバーの議論は通常の証明を与え、有限Casimir階数だけを正確計算で補った。
 全ての結果の文献上の優先権を確定したわけではない。
 
-付属する五つのスクリプトはPython 3とSymPy 1.14.0で実行できる。
+現行incidenceの独立producer（del Pezzo零曲線・Pfaffian用を含む）はPython 3とSymPy 1.14.0で実行できる。
 \begin{verbatim}
 bash scripts/verify_github_source.sh incidence
 \end{verbatim}
-上記はGitHub mainの五つのproducerと保存済みJSON証明書を照合し、
+上記はGitHub mainの現行12本のproducerと保存済みJSON証明書を照合し、
 本稿をLuaLaTeXで二回組版する。具体的なproducerは
 \texttt{code/subvariety\_incidence/}以下にある。
 前者は$\mathbb Q(u,v)$上の十五blockの行関係と二つのminorを検査する。
@@ -728,5 +731,15 @@ DOI: 10.1002/mana.201100354; arXiv:1112.3871v3.
 Journal of Algebra \textbf{424} (2015), 21--45.
 DOI: 10.1016/j.jalgebra.2014.08.049; arXiv:1303.5916, Theorem 1.
 \url{https://arxiv.org/abs/1303.5916}.
+\bibitem{PymSurvey} B. Pym,
+\emph{Constructions and classifications of projective Poisson varieties},
+Letters in Mathematical Physics \textbf{108} (2018), 573--632.
+DOI: 10.1007/s11005-017-0984-5.
+\url{https://doi.org/10.1007/s11005-017-0984-5}.
+\bibitem{Nasu2026} H. Nasu,
+\emph{Obstructions to deforming space curves lying on a del Pezzo surface},
+manuscripta mathematica \textbf{177} (2026), article 33.
+DOI: 10.1007/s00229-026-01714-6.
+\url{https://doi.org/10.1007/s00229-026-01714-6}.
 \end{thebibliography}
 \end{document}
