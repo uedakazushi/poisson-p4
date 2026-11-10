@@ -1,0 +1,42 @@
+{
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "LuaLaTeX (latexmk, repository root)",
+      "tools": [
+        "latexmk-lualatex-root"
+      ]
+    }
+  ],
+  "latex-workshop.latex.tools": [
+    {
+      "name": "latexmk-lualatex-root",
+      "command": "latexmk",
+      "args": [
+        "-r",
+        "%WORKSPACE_FOLDER%/.latexmkrc",
+        "-lualatex",
+        "-synctex=1",
+        "-outdir=%OUTDIR%",
+        "%DOC_EXT%"
+      ],
+      "cwd": "%WORKSPACE_FOLDER%"
+    }
+  ],
+  "latex-workshop.latex.recipe.default": "first",
+  "latex-workshop.latex.build.fromFolder": ".",
+  "latex-workshop.latex.outDir": "%WORKSPACE_FOLDER%/work/latexmk",
+  "latex-workshop.latex.auxDir": "%OUTDIR%",
+  "latex-workshop.latex.rootFile.doNotPrompt": true,
+  "latex-workshop.latex.rootFile.useSubFile": false,
+  "latex-workshop.latex.autoBuild.run": "never",
+  "latex-workshop.view.pdf.viewer": "tab",
+  "latex-workshop.latex.clean.method": "command",
+  "latex-workshop.latex.clean.command": "latexmk",
+  "latex-workshop.latex.clean.args": [
+    "-r",
+    "%WORKSPACE_FOLDER%/.latexmkrc",
+    "-outdir=%OUTDIR%",
+    "-c",
+    "%DOC_EXT%"
+  ]
+}
