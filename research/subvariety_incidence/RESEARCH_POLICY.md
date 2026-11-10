@@ -1,6 +1,6 @@
 # 完全等方Log点：非被約接錐と周囲障害
 
-2026-11-10 / v12。再開：ルートRESEARCH_POLICY.md → 本方針 → NOTES.md → papers/isotropic_log_tangent_cone_ja.tex。
+2026-11-10 / v13。再開：ルートRESEARCH_POLICY.md → 本方針 → NOTES.md → papers/isotropic_log_tangent_cone_ja.tex。
 
 ## 一般原則・保存許可
 
@@ -20,9 +20,11 @@ I2=(s0*c-s2*a, s1*c, c*(s2+c), s3*c, s4*c+s6*a, s5*a, s5*c)。
 
 既存の25次元長鎖rank4成分へのPGL5同定、28次元Log1112成分との交叉、非等次元・非CM・depth≤25は同伴原稿v11に保持。これらの成分性入力と新しい独立接錐計算を区別する。Q3一般三型、共鳴境界、cubic・del Pezzo剛性、P3対称性、147分類の必要数学資産は削除しない。
 
+**新しい構造定理（v13）**：唯一の28次元rank2 Log1112成分はpで滑らか。e(R)=1の最大次元成分への結合公式でその成分自身の重複度が1となり、excellentな局所整域にNagata判定を適用。T_p Zlog=V(a,c)、形式局所環は28変数冪級数環。20次元のPGL5軌道はrank2とrank4の両成分に含まれ、交叉局所次元は20以上24以下。コード check_isotropic_orbit20.py と証明書 certificates/isotropic_orbit20.json は全25個のgl5微分を独立検算する。このsmoothnessは概念的帰結であり機械計算だけから推論していない。
+
 ## 次の核心・着手方法
 
-最優先は全初期イデアルの三次以上。線形化の95 normal方向を二次まで解き、30 tangent方向上の三次残差とI2のsyzygyを計算する。二次模型の26・24次元成分は真の成分と未同定であり、新しいPoisson成分として数えない。
+最優先は交叉次元の厳密値と全初期イデアルの三次以上。線形化の95 normal方向を二次まで解き、30 tangent方向上の三次残差とI2のsyzygyを計算する。二次模型の26・24次元成分は真の成分と未同定であり、新しいPoisson成分として数えない。
 次にhの実接錐上の台・annihilator、既知25次元成分の接錐とscheme交叉を調べる。元の局所環Rの被約性と全成分の分類は未解決。接錐非被約からR非被約を推論しない。局所分類の価値に応じてより一般的な障害機構やdel Pezzo例外へ方針を変更する。文献上の優先権は未確認。
 
 ## 再現

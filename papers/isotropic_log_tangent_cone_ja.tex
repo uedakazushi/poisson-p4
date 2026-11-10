@@ -18,7 +18,7 @@
 \title{完全等方Log点におけるPoisson接錐の非被約性\\
 \large 二次障害の完全計算・重複度一・混合障害の消去}
 \author{}
-\date{2026年11月10日\quad v12・研究原稿}
+\date{2026年11月10日\quad v13・研究原稿}
 \begin{document}\maketitle
 \begin{abstract}
 複素射影四空間のPoissonスキームの一つの階数二点について、最小局所埋込みの二次初期方程式を完全に計算する。
@@ -26,7 +26,7 @@
 その二次障害スキームの被約台は次元28、26、24の三既約成分を持ち、
 非零の二次式が平方零元を与える。この二次式は真の接錐でも消えないため、
 \emph{真の接錐自体が非被約}である。一方、最大次元の接錐成分は単一の28次元線形空間で、
-その一般点での長さは一である。従って局所次元は28、Hilbert--Samuel重複度は一となる。
+その一般点での長さは一である。従って局所次元は28、Hilbert--Samuel重複度は一となる。これを用いて28次元の階数二対数型成分が交点でも滑らかであることを導き、25次元の階数四長鎖成分との交叉次元を20以上24以下と評価する。
 さらに、固定二次超曲面上の延長ファイバーに現れた混合関係式$ac=0$は、
 全周囲Poisson変形では明示的な二次補正により消去できることを示す。
 二次初期イデアルと全初期イデアル、接錐の非被約性と元の局所環の非被約性は区別する。
@@ -290,6 +290,92 @@ $(I_2)_{P_{28}}=(P_{28})_{P_{28}}$を得る。
 最高次のHilbert--Samuel係数に寄与しない。
 \end{remark}
 
+
+\begin{theorem}[最大次元の対数型成分は交点でも滑らか]
+\label{thm:log-smooth-at-intersection}
+$Z_{\mathrm{log}}=\overline{\operatorname{Log}(1,1,1,2)}$を
+補題\ref{lem:lower}の28次元階数二対数型既約閉包とする。
+このとき$p\in Z_{\mathrm{log}}$は$Z_{\mathrm{log}}$の滑らかな点であり、
+\begin{equation}\label{eq:smooth-log-branch}
+ T_pZ_{\mathrm{log}}=V(a,c)\subset T_p\mathcal P\simeq\mathbf A^{30},
+ \qquad
+ \widehat{\mathcal O}_{Z_{\mathrm{log}},p}
+ \cong \CC[[t_0,\ldots,t_{26},b]].
+\end{equation}
+右辺の同型は、表示した28個の接空間座標の制限により誘導される。
+従って、元のPoissonスキームの28次元の成分は$p$で
+重複度一の正則な形式的枝である。
+\end{theorem}
+\begin{proof}
+$R=\mathcal O_{\mathcal P,p}$とし、
+$Z_{\mathrm{log}}$の極小素イデアルを$\mathfrak p_{\mathrm{log}}$とする。
+定理\ref{thm:mult}より$\dim R=28$かつ$e(R)=1$である。
+Hilbert--Samuel重複度の結合公式\cite{StacksMult}を
+最大次元の極小素イデアルに適用すると
+\[
+ 1=e(R)=\sum_{\substack{\mathfrak p\in\operatorname{Min}(R)\\
+                  \dim(R/\mathfrak p)=28}}
+ \ell_{R_{\mathfrak p}}(R_{\mathfrak p})\,e(R/\mathfrak p).
+\]
+各項は正の整数であり、$Z_{\mathrm{log}}$は28次元で$p$を通るから、
+唯一の項は$\mathfrak p_{\mathrm{log}}$で
+\[
+ e(\mathcal O_{Z_{\mathrm{log}},p})=1,\qquad
+ \ell_{R_{\mathfrak p_{\mathrm{log}}}}(R_{\mathfrak p_{\mathrm{log}}})=1.
+\]
+$\mathcal O_{Z_{\mathrm{log}},p}$は複素数体上有限型の
+既約多様体の局所整域であり、excellentかつformally unmixedである。
+Nagataの重複度一判定\cite[Theorem 40.6]{NagataLocal}
+からこれは28次元の正則局所環となる。
+
+よって$Z_{\mathrm{log}}$の接錐は28次元の線形空間
+$T_pZ_{\mathrm{log}}$であり、$C_p\mathcal P$に閉埋込みされる。
+定理\ref{thm:radical}、\ref{thm:mult}より、
+$C_p\mathcal P$の被約台の28次元既約成分は
+$V(a,c)$のみであり、他はこれより低次元である。
+従って同じ次元の線形空間
+$T_pZ_{\mathrm{log}}$は$V(a,c)$に一致する。
+この平面上の$t_0,\ldots,t_{26},b=t_{28}$は
+正則局所環の余接空間の基底なので、
+完備化の形式座標を与える。
+\end{proof}
+
+\begin{corollary}[二成分の交叉の次元範囲]
+\label{cor:log-long-intersection-orbit}
+同伴原稿で同定した25次元の一般階数四既約成分
+$Z_{\mathrm{long}}$に対し、
+\[
+ \boxed{\quad
+ 20\le\dim_p(Z_{\mathrm{log}}\cap Z_{\mathrm{long}})\le24.\quad}
+\]
+両成分は$p$を通る20次元の$\mathrm{PGL}_5$軌道を含む。
+\end{corollary}
+\begin{proof}
+同次斉次二次双ベクトル$P_0$に
+$\mathfrak{gl}_5$の25個の行列単位を作用させると、
+全150係数への微分の階数は$\QQ$上で21となる。
+$P_0$はこの像に属し、$P_0$のスカラー倍を割った
+射影軌道の次元は$21-1=20$である。
+その全係数計算は付属の
+\texttt{check\_isotropic\_orbit20.py}で独立に再現できる。
+$Z_{\mathrm{log}}$と$Z_{\mathrm{long}}$は
+$\mathrm{PGL}_5$不変な閉既約集合で、両方$p$を含む。
+従って両者の交叉は20次元の軌道を含み、下界を得る。
+一方、$Z_{\mathrm{long}}$の一般点は階数四だが
+$Z_{\mathrm{log}}$は全点で階数二以下だから、
+$Z_{\mathrm{long}}\not\subset Z_{\mathrm{log}}$である。
+よって交叉は25次元の既約集合の真の閉部分集合で、
+$p$での局所次元は高々24となる。
+\end{proof}
+
+\begin{remark}
+$\mathcal O_{Z_{\mathrm{log}},p}$の滑らかさは、
+$R=\mathcal O_{\mathcal P,p}$の滑らかさや被約性を意味しない。
+$R$には別の25次元成分が通り、
+真の接錐には非零平方零元が残る。
+また、交叉の正確な次元やそのscheme構造も未決定である。
+\end{remark}
+
 \section{混合\texorpdfstring{$ac$}{ac}障害の周囲での消去}
 固定された$Q=V(q)$と$P_0|_Q$への延長ファイバーは、同伴原稿で
 $\Spec\CC[a,b,c]/(ac,c^2)$と計算されている。
@@ -342,6 +428,9 @@ $p$を通る全既約成分の列挙および全次数のPoisson変形は未解�
 二次障害スキームの次元26、24を新しいPoisson成分として数えてはならない。
 
 \begin{thebibliography}{9}
+\bibitem{NagataLocal} M. Nagata, \emph{Local Rings},
+Interscience Tracts in Pure and Applied Mathematics, No.~13,
+Interscience Publishers, 1962, Theorem 40.6.
 \bibitem{MPS} M. Matviichuk, B. Pym and T. Schedler,
 \emph{A local Torelli theorem for log symplectic manifolds},
 arXiv:2010.08692v2 (2021), \url{https://arxiv.org/abs/2010.08692v2}.

@@ -8,6 +8,16 @@ mkdir -p "$OUT/latex"
 python3 code/subvariety_incidence/check_isotropic_quadratic_cone.py \
   --output "$OUT/isotropic_quadratic_cone.json" \
   --check research/subvariety_incidence/certificates/isotropic_quadratic_cone.json
+python3 code/subvariety_incidence/check_isotropic_orbit20.py --output "$OUT/isotropic_orbit20.json"
+python3 - "$OUT/isotropic_orbit20.json" <<'PY'
+import json,sys
+from pathlib import Path
+got=json.loads(Path(sys.argv[1]).read_text())
+stored=json.loads(Path('research/subvariety_incidence/certificates/isotropic_orbit20.json').read_text())
+assert got==stored, 'isotropic orbit certificate mismatch'
+assert (got['GL5_affine_orbit_rank'],got['with_P0_scale_rank'],got['PGL5_projective_orbit_dimension'])==(21,21,20)
+print('PASS: exact orbit rank and tracked certificate')
+PY
 for pass in 1 2; do
   lualatex -interaction=nonstopmode -halt-on-error -output-directory="$OUT/latex" \
     papers/isotropic_log_tangent_cone_ja.tex > "$OUT/latex/pass${pass}.log" 2>&1 || {

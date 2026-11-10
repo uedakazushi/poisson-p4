@@ -1,6 +1,6 @@
 # Poisson部分多様体incidence：現行研究ノート
 
-2026-11-10 / v12。再開時はRESEARCH_POLICY.md。詳しい証明は新接錐原稿と同伴incidence原稿を参照。
+2026-11-10 / v13。再開時はRESEARCH_POLICY.md。詳しい証明は新接錐原稿と同伴incidence原稿を参照。
 
 ## 模型と完全な二次障害
 
@@ -24,6 +24,10 @@ I2:h=(s1,s2,s3,s5,s6,c)。二次模型のnilradicalは24次元線形空間上の
 対数型表示ω0=q*u0*u1*z*dlog(u0/u1)∧dlog(q³/(u1⁴z²))と、源の非零28次minor -57177414000000 を再計算した。局所次元28。唯一の28次元接錐候補はP28で、そこではs1,s5が単元になりc,aが消えるので一般長さ1、Hilbert–Samuel重複度1。低次元nilpotent構造はこの最高次係数に寄与しない。
 
 混合acについて、明示されたR_ac（新原稿第6節）がdF_(P0)(R_ac)=-F(K1,K3)を全350係数で満たす。従ってC[a,c]/((a,c)^3+(c²))上の二次補正は存在する。固定ファイバーのac関係が周囲でも障害だという予想はここで否定される。純c方向のc²障害と全次数の持上げは別問題。
+
+## 最大次元対数型成分の滑らかさと交叉
+
+e(R)=1の結合公式より、唯一の28次元既約成分Zlogの局所整域はe=1。複素数体上有限型でexcellent・formally unmixedなのでNagata重複度一判定から正則。T_p Zlog=V(a,c)で、完備局所環はC[[t0,...,t26,b]]。その滑らかさと全Poissonスキームの特異性・接錐の非被約性は両立する。全25 gl5作用の斉次双ベクトル係数行列はQQ-rank21、スケールP0は像にあるためPGL軌道次元20。軌道はLog1112とlong rank4の共通部分にある。25次元long成分はLogに含まれないので局所交叉次元20〜24（上下限、正確な値は未決定）。証明は現行papers/isotropic_log_tangent_cone_ja.texの局所重複度定理の直後。新producer check_isotropic_orbit20.pyでGL微分を検算。
 
 ## 保持する成分帰属と注意点
 
