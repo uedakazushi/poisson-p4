@@ -185,3 +185,98 @@ $\mathbb Q$上の記号恒等式である。
 既存の一変数二次形式に戻るため、
 交叉次元$23$か$24$かの未解決問題自体はここでは解かれない。
 \end{remark}
+
+
+\begin{theorem}[冪零不変二次形式の二層と一パラメータ退化]
+\label{thm:nilpotent-torus-attraction}
+定理\ref{thm:universal-nilpotent-pencil}の二次形式を
+射影線形同値で規格化した後、
+\[
+ q_\eta=u_0^2+2u_1w_0+2zw_1+\eta w_1^2,\qquad
+ P_{\eta,t}=P(q_\eta,\xi_t),\quad K_\eta=K_A(q_\eta)
+\]
+と書く。任意の$\rho\in\CC^\times$について、
+\[
+ g_\rho=\operatorname{diag}(1,1,\rho,1,\rho^{-1})
+ \ \in\mathrm{PGL}_5
+\]
+とすれば
+\begin{equation}\label{eq:nilpotent-1ps}
+ \boxed{\quad
+ g_\rho\cdot[P_{\eta,t}+\lambda K_\eta]
+   =[P_{\rho^2\eta,t}+\rho\lambda K_{\rho^2\eta}].
+ \quad}
+\end{equation}
+右辺は$\rho=0$まで正則に延長し、
+\begin{equation}\label{eq:nilpotent-1ps-limit}
+ \lim_{\rho\to0}
+ g_\rho\cdot[P_{\eta,t}+\lambda K_\eta]=[P_{0,t}]
+\end{equation}
+となる。
+
+さらに$\psi=du_0\wedge du_1\wedge dz$、
+$W=\ker(\psi)\subset\CC^5$を
+$\psi$により消える二次元部分空間とする。
+二次形式$q$の定理\ref{thm:universal-nilpotent-pencil}の
+五係数切片は、$A$と$[\psi]$を保つ線形変換の下で、
+\[
+ \operatorname{rank}(q|_W)=
+ \begin{cases}0&\eta=0,\\1&\eta\ne0\end{cases}
+\]
+で区別されるちょうど二つの軌道に分かれる。
+特に$\lambda=0$の二次形式の分類では
+$\eta\ne0$の数値そのものは連続モジュライでない。
+
+$\lambda\ne0$のPoisson pencil全体については、
+式\eqref{eq:nilpotent-1ps}の一パラメータ群による
+$\eta/\lambda^2$が不変であるが、
+この比が全$\mathrm{PGL}_5$軌道の完全不変量であるとは
+主張しない。
+\end{theorem}
+\begin{proof}
+$g_\rho$は$A$と可換で、行列式が一である。
+$g_\rho$により$q_\eta$は$q_{\rho^2\eta}$へ移る。
+$\psi$は$1/\rho$倍に、全体積形式$\Omega$は
+不変に変換されるので、
+\[
+ (g_\rho)_*P_{\eta,t}=\rho^{-1}P_{\rho^2\eta,t}.
+\]
+一方、$K_A(q)$の式は線形変数変換について自然であり、
+$g_\rho$は$A$を保つので
+\[
+ (g_\rho)_*K_\eta=K_{\rho^2\eta}.
+\]
+これらを足し合わせ、射影尺度を$\rho$倍すると
+\eqref{eq:nilpotent-1ps}が従う。
+$P_{0,t}$は非零なので$\rho=0$での極限も定まる。
+両方の等式は全十個の同次二次双ベクトル成分を
+有理関数係数で展開して独立に検算できる。
+
+残る軌道の主張について、先の
+$w_0$-shearと$w_1$-変数変換は$A$と$\psi$を
+保存し、任意の滑らかな二次形式を$q_\eta$へ移す。
+$W=\Span(w_0,w_1)$上では$q_\eta|_W=\eta w_1^2$である。
+$[\psi]$を保つ線形変換は$W$も保つので、
+$\eta=0$と$\eta\ne0$は互いに移り合わない。
+一方、$\eta\ne0$同士は
+式\eqref{eq:nilpotent-1ps}の
+$\eta\mapsto\rho^2\eta$により
+$\CC$上で移り合う。従って二軌道で尽くされる。
+$\eta/\lambda^2$の不変性は
+$(\eta,\lambda)\mapsto(\rho^2\eta,\rho\lambda)$から
+直ちに従う。
+\end{proof}
+
+\begin{remark}[交叉の全次元への含意]
+式\eqref{eq:nilpotent-1ps}は
+冪零場を保つ一般階数四変形から
+階数二の完全等方境界への具体的な
+Hilbert--Mumford型退化を与える。
+一方、$\lambda=0$の全二次形式に連続モジュライが
+ないことから、固定した$A$に沿う探索だけで
+既知の23次元共通族を24次元へ拡張できると
+推論することはできない。
+交叉の全次元$23$または$24$、真の接錐の
+高次初期方程式および元のPoisson局所環の
+被約性は未解決である。
+\end{remark}
