@@ -16,7 +16,7 @@ def main(output):
     assert not subprocess.check_output(['git','status','--porcelain','--untracked-files=no'],cwd=ROOT,text=True), 'Commit the current source before packaging'
     output.mkdir(parents=True,exist_ok=False)
     audit=json.loads((ROOT/'reports/required_proof_dependency_closure.json').read_text());assert audit['all_required_inputs_available']
-    paths={r['path']for r in audit['files']}
+    paths={r['path']for r in audit['files']if not r['path'].lower().endswith('.pdf')}
     paths.update(['README.md','AGENTS.md','RESEARCH_POLICY.md','requirements.txt','research/CLAIMS.json','research/COMPONENTS.json','research/REFERENCES.md','research/STATE.md','research/conceptual/FINAL_TARGET.md','research/conceptual/GLOBAL_PLAN.md','research/classification/CURRENT.md','research/conceptual/component_entrances.csv','code/data/component_manuscript_catalogue.json','code/build_component_catalogue.py','code/map_component_entrances.py','code/check_component_catalogue.py','code/audit_required_dependencies.py','scripts/build_structural_manuscripts.sh','scripts/make_structural_bundle.py','scripts/materialize_frozen_proof_inputs.py','scripts/unpack_current_bundle.py','research/reproduction/classification_roots.json','research/reproduction/frozen_producer_index.json','research/reproduction/README.md','reports/required_proof_dependency_closure.json','reports/dependency_reconstruction_checks.json','reports/final_manuscript_validation.json','reports/catalogue_reference_review.json','reports/component_catalogue_integration_validation.json','reports/rank_two_integration_validation.json','reports/normalization_residue_validation.json','reports/conductor_conormal_validation.json','reports/quadric_residue_validation.json','code/check_global_structure.py','code/check_marked_reconstruction.py','code/check_quadric_residue_reconstruction.py','code/check_conductor_conormal_reconstruction.py','code/check_normalization_residue_reconstruction.py','code/check_rank_two_reconstruction.py','reports/marked_reconstruction_checks.json','reports/quadric_residue_checks.json','reports/conductor_conormal_checks.json','reports/normalization_residue_checks.json'])
     paths.update(['REPRODUCE_GITHUB.md','scripts/reproduce_subvariety_incidence.sh','scripts/verify_github_source.sh','research/subvariety_incidence/RESEARCH_POLICY.md','research/subvariety_incidence/NOTES.md','research/subvariety_incidence/README.md','research/subvariety_incidence/certificates/del_pezzo_generic_rigidity.json','research/subvariety_incidence/certificates/incidence_examples.json','code/subvariety_incidence/verify_del_pezzo_rigidity.py','code/subvariety_incidence/check_incidence_examples.py','code/subvariety_incidence/check_quadric_symmetry.py','research/subvariety_incidence/certificates/quadric_symmetry.json','code/subvariety_incidence/check_log_quadric.py','code/subvariety_incidence/check_log_wall.py','research/subvariety_incidence/certificates/log_quadric.json','research/subvariety_incidence/certificates/log_wall.json','papers/poisson_subvariety_incidence_ja.tex'])
     paths.update(str(p.relative_to(ROOT))for p in (ROOT/'papers').glob('*.tex'))
@@ -25,7 +25,10 @@ def main(output):
     paths.update(['research/publication/REFEREE_PLAN.md','research/publication/REFEREE_REPORT.md',
         'research/NEXT_TASKS.md','research/reproduction/static_path_review.json',
         'code/normal_actual_eight_support_audit_20261103_v62.py'])
-    paths.update(['papers/poisson_p4_classification_ja.pdf','papers/poisson_divisor_symmetries_ja.pdf','papers/normal_actual_divisor_recognition_ja.pdf','papers/s61_first_jet_reduction_ja.pdf'])
+    # PDF files are regenerated from tracked TeX with latexmk; no prebuilt PDF is needed.
+    paths.add('research/notes/p4_poisson_status_strategy_ja_20261030_v1.tex')
+    paths.add('.latexmkrc')
+    paths.add('scripts/build_papers_latexmk.sh')
     files=[];chunks={};symlinks={};logical_paths={}
     expected={r['path']:r['sha256']for r in audit['files']}
     physical=set()
@@ -66,7 +69,7 @@ def main(output):
         assert path.stat().st_size<10*1024*1024
         with zipfile.ZipFile(path)as z:assert z.testzip()is None
         receipts.append({'path':str(path),'bytes':path.stat().st_size,'sha256':sha(path.read_bytes())});print(json.dumps(receipts[-1]),flush=True)
-    result={'source_commit':commit,'bundle_id':manifest['bundle_id'],'files':len(files),'symlinks':len(symlinks),'logical_paths':len(logical_paths),'unique_chunks':len(chunks),'uncompressed_file_bytes':sum(r['bytes']for r in files),'parts':receipts,'zip_crc':'PASS','nested_archives':False,'library_save':'NOT PERFORMED: emergency only after a real GitHub push failure.'}
+    result={'source_commit':commit,'bundle_id':manifest['bundle_id'],'files':len(files),'symlinks':len(symlinks),'logical_paths':len(logical_paths),'unique_chunks':len(chunks),'uncompressed_file_bytes':sum(r['bytes']for r in files),'parts':receipts,'zip_crc':'PASS','nested_archives':False,'library_save':'NOT PERFORMED: emergency only after a real GitHub push failure.', 'pdf_tracking':'No prebuilt PDF required; rebuild from TeX with latexmk.'}
     (output/'VALIDATION.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n')
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--output',type=Path,required=True);main(p.parse_args().output)

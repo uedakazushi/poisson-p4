@@ -3,8 +3,8 @@
 # 現行分類の証明・入力・証明書を再現する
 
 対象は複素P4の射影Poissonスキームの被約成分であり、PGL5商は取らない。
-主稿は `papers/poisson_p4_classification_ja.pdf`、共通機構の別稿は
-`papers/poisson_divisor_symmetries_ja.pdf`。全147 IDの定義は主稿の
+主稿ソースは `papers/poisson_p4_classification_ja.tex`、共通機構の別稿は
+`papers/poisson_divisor_symmetries_ja.tex`。PDFは `.latexmkrc` で再生成しGitに追跡しない。全147 IDの定義は主稿の
 「全成分の定義と一般族の一対一カタログ」にある。
 必要な別稿の正規実因子認識91頁と一次還元118頁も、現行PDFとTeXを収録する。
 現在の達成・保存状況は `research/classification/CURRENT.md` のみを参照する。

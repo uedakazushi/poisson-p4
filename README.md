@@ -1,5 +1,8 @@
 # Poisson structures on projective four-space
 
+**Source policy (2026-11-10):** Standalone papers and research notes are tracked as **TeX, not PDFs**. The 7 previously tracked PDFs have corresponding TeX sources and reproducible build instructions; use `.latexmkrc` with `latexmk papers/poisson_p4_classification_ja.tex` or `bash scripts/build_papers_latexmk.sh`. Generated PDFs are ignored in `work/latexmk/`. Primary proofs, exact calculation inputs and certificates remain tracked. No GitHub Actions; GitHub main is canonical; ChatGPT Library only on an actual failed push.
+
+
 2026-11-09 / v74-publication-candidate
 
 ## 最新の正本と再現方法（2026-11-10）

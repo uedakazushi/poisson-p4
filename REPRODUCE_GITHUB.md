@@ -1,5 +1,30 @@
 # GitHub main だけからの再現
 
+## PDFs are build outputs (2026-11-10)
+
+**GitHub tracks sources, not generated PDFs.** All 7 formerly tracked PDF files have a corresponding tracked TeX source. They have been removed from Git tracking, not deleted from history. The mathematical text, formulae and proofs are retained in the TeX sources; generated PDF output is ignored. Build from the root of the repository:
+
+```bash
+latexmk papers/poisson_p4_classification_ja.tex
+bash scripts/build_papers_latexmk.sh
+```
+
+The repository `.latexmkrc` always selects LuaLaTeX, including for `latexmk -pdf`. Outputs appear in `work/latexmk/` and never require ChatGPT Library. The formerly tracked PDF/source pairs are:
+
+| Previously tracked PDF | Canonical source |
+|---|---|
+| `papers/ca_cb_local_normalization_ja.pdf` | `papers/ca_cb_local_normalization_ja.tex` |
+| `papers/normal_actual_divisor_recognition_ja.pdf` | `papers/normal_actual_divisor_recognition_ja.tex` |
+| `papers/poisson_divisor_symmetries_ja.pdf` | `papers/poisson_divisor_symmetries_ja.tex` |
+| `papers/poisson_p4_classification_ja.pdf` | `papers/poisson_p4_classification_ja.tex` |
+| `papers/positive_weight6_component_ja.pdf` | `papers/positive_weight6_component_ja.tex` |
+| `papers/s61_first_jet_reduction_ja.pdf` | `papers/s61_first_jet_reduction_ja.tex` |
+| `research/notes/p4_poisson_status_strategy_ja_20261030_v1.pdf` | `research/notes/p4_poisson_status_strategy_ja_20261030_v1.tex` |
+
+Prior delivery/build receipts (e.g. `reports/final_manuscript_validation.json`, `reports/CA_CB_LOCAL_NORMALIZATION_PAPER_20261103_v63/REPORT.md`, `reports/MANUSCRIPT_SYNC_20261103_v62.json`) document the prior PDFs but are **not requirements** to retrieve them. A historical script that expects `papers/foo.pdf` can first run `latexmk -outdir=papers papers/foo.tex` (generated output is ignored). PDF-only mathematical content must never be discarded merely to shrink Git. The source-only current bundle generator includes all standalone TeX, the old evaluation note TeX, mathematical proofs and necessary proof input, but does not require prebuilt PDF files.
+
+
+
 2026-11-10。**GitHub mainが唯一の正本**。過去のLibrary ZIP、会話、未追跡のwork/は再現・再開の前提にしない。GitHub Actionsは使用しない。
 
 ## 取得と環境

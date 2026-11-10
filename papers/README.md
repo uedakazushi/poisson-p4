@@ -1,3 +1,9 @@
+# 2026-11-10：TeX正本・PDFは生成物
+
+全公表用原稿はTeXで追跡し、PDFはrootの `.latexmkrc` と `latexmk papers/<name>.tex` または `bash scripts/build_papers_latexmk.sh` で生成する。出力はGitから無視される `work/latexmk/`。このREADMEの旧PDFリンクや従来の報告書は生成時点の資料への参照であり、現在追跡するPDFを意味しない。証明・計算証明書はTeXおよび独立したコード・データに保持する。歴史的なソースの数学的内容は削除しない。
+
+---
+
 # 現行原稿 — 共通復元と実持上げ
 
 2026-11-09 / v71-normalization-residue-pencils

@@ -1,3 +1,9 @@
+# 2026-11-10：研究ノートもTeXを正本とする
+
+`p4_poisson_status_strategy_ja_20261030_v1.pdf` は追跡対象から外し、同名 `.tex` を保持する。研究ノートPDFはルートから `latexmk research/notes/p4_poisson_status_strategy_ja_20261030_v1.tex` で再生成する。出力は `work/latexmk/`、Gitの追跡外である。下記のPDFリンクは旧検証時点の文献的参照であってPDFバイナリの追跡を要請しない。
+
+---
+
 # 研究ノートと評価資料の入口
 
 現行v63の入口は [引継ぎ](../CLOUD_HANDOFF_20261103_v63.md)、[全35変数模型](Q_WEIGHTED_FINITE_MODEL_20261103_v63.md)、[重み6閉切断](Q_WEIGHT6_CLOSED_SUBSLICE_20261103_v63.md)、[原稿・証明索引](../../papers/RESEARCH_SOURCE_INDEX_v63.json)。旧版の未解決記述は現在のSTATEと照合する。

@@ -1,3 +1,7 @@
+# PDF/TeX source control policy — 2026-11-10
+
+**TeX is canonical; PDFs are generated and normally not tracked.** The root `.latexmkrc` selects LuaLaTeX, including with `latexmk -pdf`. Standalone manuscripts are built from the repository root with `latexmk papers/<name>.tex` (outputs: ignored `work/latexmk/`). The eight standalone manuscript entry points are listed in `scripts/build_papers_latexmk.sh`. Never add generated PDF, .aux, .log, .fls, .fdb_latexmk, caches or historical PDF snapshots to Git. Do not remove any genuinely PDF-only mathematical statement or primary input; if an exception arises, identify and preserve its mathematical content and proof-reproduction requirement before untracking. The seven previously tracked PDFs have corresponding TeX and historical build evidence, and are now regenerated from TeX when needed. Do not require Library downloads or GitHub Actions. Update source references/build scripts when withdrawing a binary from Git; apply this policy in all future work.
+
 # CURRENT OVERRIDING RULE: GITHUB MAIN IS THE ONLY SOURCE OF TRUTH (2026-11-10)
 
 These rules override every older Library persistence/packaging instruction in this repository and apply to all modules, including the 147-component classification and Poisson subvariety incidence.

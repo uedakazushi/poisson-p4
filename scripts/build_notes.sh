@@ -5,7 +5,7 @@ repo_root="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd -P)"
 notes_source="$repo_root/research/notes/p4_poisson_status_strategy_ja_20261030_v1.tex"
 notes_output="$repo_root/build/notes"
 if ! command -v lualatex >/dev/null 2>&1; then
-  printf '%s\n' 'LuaLaTeX is unavailable. Install a TeX distribution with luatexja and HaranoAji; the checked-in PDF remains available.' >&2
+  printf '%s\n' 'LuaLaTeX is unavailable. Install a TeX distribution with luatexja and HaranoAji; regenerate the PDF from the tracked TeX source after installing it.' >&2
   exit 1
 fi
 mkdir -p "$notes_output"
