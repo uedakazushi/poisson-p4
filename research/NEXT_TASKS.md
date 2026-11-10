@@ -1,9 +1,9 @@
-# 現行研究の次の課題 — strict対称性によるQ3境界幾何
+# 現行研究の次の課題 — 共鳴Logと147成分の幾何学
 
-2026-11-10 / v4。研究価値の最大化が上位原則。GitHub mainが唯一の正本で、GitHub Actions禁止、Libraryは実push失敗時のみ緊急退避。
+2026-11-10 / v5。上位原則は研究価値の最大化。正本GitHub main、GitHub Actions禁止、Library保存は実push失敗時のみ。
 
-**達成済み**：Q3一般Rat一点・一般Log A1・一般Aff二点、Log境界の交叉二直線、q_c=Σxi²+2c x0 x2の直交性wall。一般rank4のquadric因子重複度はmodular場で判定する。数学の証明とexactコード/証明書は現行v4論文・別稿にある。
+**達成済み**：smooth Q3上の一般Rat/Log/AffのPoisson延長はそれぞれ一点・被約A1・二点。modular場はQ因子の重複度を決める。特殊Log境界の一変数wallを、HとqUが非退化な六係数二次式の余次元二直交性条件b=0へ一般化し、全延長ファイバーをスキームとして決定した（論文thm:quadric-log-block-orthogonality）。c=0もqU非退化なら含む。
 
-**次の優先課題**：一般の特殊Log・Affのstrict `aut(Q,σ)` の層別、全Poisson Jacobiファイバー、rank4枝の有無、実退化因子と147成分への帰属を、今回の直交性wallの原理で説明する。因子的零点・共鳴だけでrank4を推論しない。次点は4次del Pezzoの特殊延長、P3の横断対称性、それらから147成分の概念的構造定理を得ること。新しい証拠で価値が変われば優先順位を入れ替え、未解決点を現行方針へ統合する。
+**未解決・次の優先**：H退化またはqU退化の共鳴Log・特殊Aff境界でstrict stabilizer/全Jacobiを層別し、rank4枝と既存147成分への帰属を調べる。概念的な効果が薄ければ4次del Pezzoの例外locus、P3横断対称性、147成分の構造定理へ移る。新規性は一次資料で調査し未確認なら明示する。
 
-再開：`RESEARCH_POLICY.md` → `research/subvariety_incidence/RESEARCH_POLICY.md` → `NOTES.md` → 現行LuaLaTeX。全成果はGitHub mainへ非force pushし先端を確認する。
+すべての原稿・計算コード・正確な証明書はGitHub mainに保持する。手動再現は bash scripts/verify_github_source.sh incidence、PDFはlatexmkで再生成しGit追跡しない。

@@ -46,8 +46,8 @@ Python3、SymPy 1.14.0、NumPy 2.3.5、mpmath 1.3.0（root requirements.txt）�
 bash scripts/verify_github_source.sh incidence
 ```
 
-GitHubの `papers/poisson_subvariety_incidence_ja.tex`、``papers/quadric_log_extension.tex`` と `code/subvariety_incidence/*.py` を用いる。
-`research/subvariety_incidence/certificates/*.json` をexactに再計算して同一内容を照合し、一般剛性の二つの非零minor（70875/88、4443337729552/7688671875）、rank60/syzygy90、101項目の明示恒等式を検証。第三のproducerはquadricのPfaffian二例と一般Ratのstrict so(5) stabilizerを消すrank10 minor 27980515917168640を検証。
+GitHubの `papers/poisson_subvariety_incidence_ja.tex`、`papers/quadric_log_extension.tex`、`papers/quadric_log_orthogonality.tex` と `code/subvariety_incidence/*.py` を用いる。
+`research/subvariety_incidence/certificates/*.json` をexactに再計算して同一内容を照合し、一般剛性の二つの非零minor（70875/88、4443337729552/7688671875）、rank60/syzygy90、101項目の明示恒等式を検証。第三のproducerはquadricのPfaffian二例と一般Ratのstrict so(5) stabilizerを消すrank10 minor 27980515917168640を検証。追加のLog証明書には直交性wallの全パラメータJacobi計算と、さらに5つの非退化二次形式（c=0、等方bを含む）のstrict stabilizer・Pfaffian検算を収録する。全6 JSONは対応する6 producerから再計算・照合する。
 LuaLaTeXを二回実行して現行の論文PDFを生成し、15頁以上であること、未解決参照やOverfullがないこと、抽出テキストが空でないことを検証する。抽出テキストのSHA256を出力し、PDFバイナリのbitwise再現を要求しない。
 PDFのバイナリバイト列の同一性までは主張しない。
 出力はgitignore済みの `work/subvariety-incidence-check/` のみ。

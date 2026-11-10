@@ -20,10 +20,12 @@ python3 code/subvariety_incidence/check_log_quadric.py \
   --output "$OUT/certificates/log_quadric.json" > "$OUT/log_quadric_stdout.log"
 python3 code/subvariety_incidence/check_log_wall.py \
   --output "$OUT/certificates/log_wall.json" > "$OUT/log_wall_stdout.log"
+python3 code/subvariety_incidence/check_log_orthogonality.py \
+  --output "$OUT/certificates/log_orthogonality.json" > "$OUT/log_orthogonality_stdout.log"
 python3 - "$OUT" <<'PY'
 import json, pathlib, sys
 out=pathlib.Path(sys.argv[1]);root=pathlib.Path.cwd()
-for name in ('del_pezzo_generic_rigidity.json','incidence_examples.json','quadric_symmetry.json','log_quadric.json','log_wall.json'):
+for name in ('del_pezzo_generic_rigidity.json','incidence_examples.json','quadric_symmetry.json','log_quadric.json','log_wall.json','log_orthogonality.json'):
     a=json.loads((root/'research/subvariety_incidence/certificates'/name).read_text())
     b=json.loads((out/'certificates'/name).read_text())
     assert a==b, f'certificate mismatch: {name}'
@@ -38,7 +40,10 @@ assert log['strict_so5_sample']['rank']==9 and log['special_log_boundary']['stri
 wall=json.loads((out/'certificates/log_wall.json').read_text())
 assert wall['strict_stabilizer_minor']=='13824*c/((c - 1)**4*(c + 1)**4)'
 assert wall['wall_scheme']=='Spec C[t,v]/(v(t+2))'
-print('EXACT CERTIFICATES: PASS (5 exact producers and five certificates)')
+ortho=json.loads((out/'certificates/log_orthogonality.json').read_text())
+assert ortho['status']=='PASS' and len(ortho['samples'])==5
+assert [r['strict_stabilizer_dimension'] for r in ortho['samples']]==[2,1,1,1,1]
+print('EXACT CERTIFICATES: PASS (6 exact producers and six certificates)')
 PY
 for pass in 1 2; do
   lualatex -interaction=nonstopmode -halt-on-error \

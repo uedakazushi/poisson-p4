@@ -1,0 +1,144 @@
+\subsection{共鳴対数境界の直交性と全延長ファイバー}
+\label{subsec:quadric-log-block-orthogonality}
+共鳴する対数型の重み一致と、二つの重み空間の二次形式に関する直交性は別の条件である。
+以下では二次形式を六係数のまま動かし、その非退化な配置の全Poisson延長ファイバーを決定する。
+直交性は追加のrank四枝の必要十分条件となる。有限個の標本計算を一般定理の根拠とはしない。
+
+\begin{theorem}[共鳴Log型の二次形式に関する直交性判定]
+\label{thm:quadric-log-block-orthogonality}
+$V=U_1\oplus L\oplus W$を$\dim U_1=\dim W=2$, $\dim L=1$の分解とし、
+$U_1$の座標を$u_0,u_1$、$L$の座標を$z$、$W$の座標を$w_0,w_1$とする。
+$H\in\operatorname{Sym}^2U_1^*$を非退化な二次形式、
+$b\in U_1^*$、$c\in\CC$とし、
+\[
+ q=q_U+w_0^2+w_1^2,\qquad
+ q_U=H(u_0,u_1)+2z\,b(u_0,u_1)+cz^2,
+ \qquad\det(q_U)\ne0.
+\]
+$\xi=u_0\partial_{u_0}+u_1\partial_{u_1}-2z\partial_z$,
+$R=w_1\partial_{w_0}-w_0\partial_{w_1}$,
+$J=\partial_{w_0}\wedge\partial_{w_1}$,
+$E=\sum x_i\partial_{x_i}$とし、
+\[
+ P_0=2\xi\wedge R+\xi(q_U)J,\qquad
+ K_R=qJ+E\wedge R,\qquad Q=V(q)\subset\PP^4.
+\]
+$P_0$が滑らかな$Q$上に誘導するPoisson構造を$\sigma$とする。
+このとき、次がスキームとして成立する。
+\[
+ \boxed{\quad
+ \ExtP_Q(\sigma)\simeq
+ \begin{cases}
+ \AA^1,&b\ne0,\\[1mm]
+ \operatorname{Spec}\CC[t,v]/\bigl(v(t+2)\bigr),&b=0.
+ \end{cases}\quad}
+\]
+$b\ne0$での全延長は$P_0+tK_R$であり、すべて一般階数二である。
+$b=0$ではこの階数二の直線に別の階数四の直線が交わり、
+後者の一般元の実退化因子は
+\[
+ Q+V(z)+V(cz^2+w_0^2+w_1^2).
+\]
+従って、この開いた二次形式の族では、rank四の追加延長が存在するための
+必要十分条件は、$U_1$と$L$が$q_U$について直交すること、すなわち$b=0$である。
+これは二つの独立な線形条件であり、二次形式全体の上では余次元二の現象となる。
+\end{theorem}
+\begin{proof}
+既述の式\eqref{eq:quadric-log-line}を用いると、全$t$について
+\[
+ P_t=P_0+tK_R=(2\xi+tE_U)\wedge R+
+                  \bigl(\xi(q_U)+tq_U\bigr)J
+\]
+は$q$をstrict CasimirとするPoisson双ベクトルで、
+$P_t\wedge P_t=0$である。しかも$K_R$は$Q$への制限を変えない。
+
+まず$q,P_0$を保つ線形場のLie代数を幾何学的に計算する。
+斉次二次の\emph{affine}双ベクトル$P_0$の零スキームの斉次イデアルは
+\[
+ I_{Z(P_0)}=(u_iw_j\ (i=0,1),\ zw_j\ (j=0,1),\ g),
+ \qquad g=\xi(q_U).
+\]
+実際、$U_1\oplus L$方向と$W$方向の混合係数は
+$2\xi\wedge R$の全係数であり、$W$方向の二次係数は$g$である。
+$H$の非退化性から$g$は非零二次式である。
+この斉次イデアルは
+\[
+ (u_0,u_1,z)\ \cap\ (w_0,w_1,g)
+\]
+に等しい。従ってその射影零スキームは互いに交わらない
+直線$\PP(W)$と$\PP(U_1\oplus L)$内の次数二の平面曲線$C=V(g)$の和である。
+$C$は非被約でもよい。直線と次数二曲線はHilbert多項式が異なり、
+さらに$C$は線形方程式を持たずスキーム論的に$\PP(U_1\oplus L)$を張る。
+従って$[A,P_0]=0$を満たす$A\in\mathfrak{so}(q)$は
+$U_1\oplus L$と$W$をそれぞれ保つ。
+
+その$W$成分は$R$のスカラー倍である。
+$U_1\oplus L$成分を$B\in\mathfrak{so}(q_U)$と書くと、
+$[B,P_0]=0$の混合係数は$[B,\xi]\wedge R$であるから
+$[B,\xi]=0$である。逆にこの二条件は$B(g)=0$を含意するので十分である。
+$\xi$の固有値$1,-2$の分解から
+$B=\operatorname{diag}(D,d)$と書ける。
+$q_U$を保つ条件は正確に
+\[
+ D^tH+HD=0,\qquad D^tb+db=0,\qquad 2cd=0.
+\]
+$c\ne0$なら$d=0$であり、$D\in\mathfrak{so}(H)$となる。
+$H$は二次元で非退化だから$\mathfrak{so}(H)$は一次元で、
+非零元はすべて可逆である。従って$b\ne0$なら$D=0$である。
+一方$c=0$なら$q_U$の非退化性から
+$b^tH^{-1}b\ne0$となる。このとき$D\in\mathfrak{so}(H)$が非零なら、
+$D^tb+db=0$により$b$は$D^t$の非零固有値の固有ベクトルとなるが、
+反対称な$D$の非零固有値の固有ベクトルは$H^{-1}$に関して等方的である。
+これは$b^tH^{-1}b\ne0$に矛盾する。
+よってこの場合も$D=d=0$である。
+$b=0$なら$q_U$非退化性から自動的に$c\ne0$で、
+$D\in\mathfrak{so}(H)$の一次元が残る。
+結局
+\[
+ \mathfrak{aut}_{\mathrm{strict}}(q,P_0)
+ =\begin{cases}\CC R,&b\ne0,\\
+  \CC R\oplus\mathfrak{so}(H),&b=0.
+ \end{cases}
+\]
+
+このstrict stabilizerは$Q$上の$\sigma$の
+$\mathfrak{so}(q)$-stabilizerに等しい。
+実際、$A$が$\sigma$を保存すれば$[A,P_0]$は発散零で$q$-Casimirかつ
+$Q$への制限が零である。既述の核$K_T$と
+$\delta K_T=-\frac32v_T$の単射性から$[A,P_0]=0$を得る。
+任意のambient Poisson延長について、発散を取ったJacobiの線形帰結により
+その発散場は$\sigma$のこのstabilizerに入る。
+従って$b\ne0$では全候補が$P_0+tK_R$で尽くされ、
+九個の独立な線形条件がJacobiイデアルから出る。
+上の直線ではJacobiが恒等零だから、延長スキームは被約な$\AA^1$である。
+
+$b=0$ならば$H$を二次元の変数変換で$u_0^2+u_1^2$に、
+$cz^2$を$z^2$に直すことができる。これらの変数変換は$\xi$と可換であり、
+$P_0$と制限・延長ファイバーを先の標準模型へ移す。
+命題\ref{prop:quadric-special-log-node}の全Jacobi理想
+$(v(t+2))$を適用すれば、二直線交叉とrank四の因子の式を得る。
+\end{proof}
+
+\begin{corollary}[一変数の直交性wall]\label{cor:quadric-resonant-log-wall}
+一変数族$q_c=\sum x_i^2+2cx_0x_2$は$H=u_0^2+u_1^2$、
+$b(u)=cu_0$、$z=x_2$、二次係数$1$の場合であり、
+この定理の一次元切断に当たる。
+$c^2\ne1$なら
+\[
+\ExtP_{Q_c}(\sigma_c)\cong
+\begin{cases}\AA^1,&c\ne0,\\
+\operatorname{Spec}\CC[t,v]/(v(t+2)),&c=0.
+\end{cases}
+\]
+前稿のexact九次minorは$13824c/(c^2-1)^4$であり、
+この結論の独立計算上のチェックとして保持できる。
+\end{corollary}
+\begin{remark}
+より一般の二次形式の族では直交性条件$b=0$は余次元二である。
+$H$の退化を許す層、または$q_U$が退化する層は本定理の射程外である。
+$c=0$自体は除外しない。$q_U$が非退化なら$c=0$でも$b$は非等方となり、
+追加のstrict対称性は存在しない。
+今回の独立計算は五つの正確な二次形式についてstrict stabilizerの階数と全$P_t$の
+Jacobi/Pfaffianを検査したもので、一般定理の証明は上記の零スキームの論法による。
+新規性の一次文献調査は未完了である。
+\end{remark}

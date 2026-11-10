@@ -1,13 +1,15 @@
-# Poisson subvariety incidence — current research (v4 / 2026-11-10)
+# Poisson subvariety incidence — current v5 research
 
-GitHub main alone is authoritative. Read [research policy](RESEARCH_POLICY.md), [notes](NOTES.md), the Japanese LuaLaTeX [main paper](../../papers/poisson_subvariety_incidence_ja.tex) and the included [Log quadric proof](../../papers/quadric_log_extension.tex).
+Source of truth: GitHub main. Read [policy](RESEARCH_POLICY.md), [notes](NOTES.md) and [the main Japanese LuaLaTeX paper](../../papers/poisson_subvariety_incidence_ja.tex).
 
-Main results: smooth Q3 generic Poisson extensions for Rat(1,2), Log(1,1,1), Aff are respectively a point, A1 and two reduced points. A special Log boundary has a nodal two-line extension fibre with a rank-four branch. A nondegenerate one-parameter family q_c=Σx_i²+2c*x0*x2 has an orthogonality wall at c=0; the minor 13824c/(c²−1)^4 proves a strict stabilizer jump and the accompanying fibre jump. Full classification of all special Log and Aff fibres remains open. Generic (2,2) del Pezzo rigidity, cubic rigidity, and earlier classification work are retained.
+The full common Log extension proof is [quadric_log_extension.tex](../../papers/quadric_log_extension.tex), which includes [quadric_log_orthogonality.tex](../../papers/quadric_log_orthogonality.tex).
 
-Five independent exact SymPy producer scripts in [code/subvariety_incidence](../../code/subvariety_incidence) recreate the five JSON certificates in [certificates](certificates).
+**New result:** For resonant Log structures with nondegenerate H (2-dimensional weight-one form) and nondegenerate qU, the full ambient extension fibre is A1 (rank 2) when the cross-term b is nonzero; precisely when b=0 the fibre is Spec C[t,v]/(v(t+2)) with a rank-four branch. The orthogonality locus is codimension two in this quadric family, not merely the previous one-parameter wall. The case c=0 is included if qU is nondegenerate. Degenerate H or qU remains open.
+
+Six tracked SymPy scripts reconstruct six exact JSON certificates. The general classification theorem is proved geometrically, not inferred from the five sample tests.
 
 ```bash
 bash scripts/verify_github_source.sh incidence
 ```
 
-The command uses LuaLaTeX twice, checks source-generated certificates and validates the resulting PDF. No GitHub Actions; Library only if an actual GitHub push fails. Do not claim that this paper independently re-verifies all 147 components.
+No PDF tracking, no GitHub Actions, no routine Library storage; all sources and proof inputs remain on GitHub main.

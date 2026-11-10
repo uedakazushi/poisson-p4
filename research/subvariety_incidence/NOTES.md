@@ -1,34 +1,21 @@
-# Poisson部分多様体incidence：現行研究ノート
+# Poisson部分多様体のincidence：現行研究ノート
 
-2026-11-10 / v4。数学的証明の全文は`papers/poisson_subvariety_incidence_ja.tex`と`papers/quadric_log_extension.tex`。本書には現行の障害・具体例・次の着手方法を整理する。
+2026-11-10 / v5。研究方針はRESEARCH_POLICY.md、証明全文はpapers/poisson_subvariety_incidence_ja.texとその共有TeXにある。
 
-## strict stabilizerとJacobiによる延長の原理
+## 共鳴Logの直交性：何が機構か
 
-smooth Q=V(q)に対して全延長は標準のq-central lift s(σ)から`K_T=qT-(1/2)E∧v_T`を加えた10変数源。Poisson条件から`v_T|Q`はσのPoisson自己同型を与えるので、まず`aut(Q,σ)⊂so(q)`を線形計算し、残る小次元源のJacobi理想を解く。modular場はq因子の重複度を決める。Lie代数の次元が跳ぶことは非自明な延長の**必要条件に過ぎず**、十分条件ではない。
+V=U1⊕L⊕W (2,1,2)、q=H(u)+2zb(u)+cz²+w0²+w1²、HおよびqU非退化とする。重みξ=(1,1,-2)とW回転RからP0=2ξ∧R+ξ(qU)Jを作る。affine斉次P0の零スキームはP(W)という直線とP(U1⊕L)内の平面二次曲線C=(ξ(qU)=0)の非交和である。Cは非被約でもスキーム論的な線形包がP(U1⊕L)となる。したがってstrict so(q) stabilizerは二ブロックを保存する。
 
-## 一般三成分と特殊Logの実例
+U1⊕L上で[ B, ξ ]=0を課すとB=diag(D,d)。直交性はDᵗH+HD=0, Dᵗb+db=0, 2cd=0。Hが非退化な2次元のためso(H)は一次元、非零生成元は可逆。c≠0ならb≠0でD=0。c=0でもqU非退化性はbᵗH⁻¹b≠0を強制し、bがskewなDᵗの非零固有値ベクトルになることは不可能。このため全非退化域でstrict stabilizerがb≠0ならCR、b=0ならCR⊕so(H)。
 
-- 一般Rat(1,2)：strict stabilizer 0、全延長はrank2の被約一点。非零minor 27980515917168640。
-- 一般Log(1,1,1)：universal q_U・residue weightでrank2延長のA1。strict so(q) stabilizerはrotation Rのみ（rank9、minor 10240000/243）。全Jacobi/Pfaffianの多項式恒等式と一般開条件で証明。
-- 一般Aff：被約二点。rank2とrank4 (D=2Q+H)。
-- 特殊Log境界：σの1形式はx2(x1dx0−x0dx1)（定数倍無視）。strict stabilizer R,Sの2次元。全Jacobi理想は(v(t+2))、交叉二直線。rank4第二枝のPfaffianはQ*x2*(x2²+x3²+x4²)。
+発散がintrinsic対称性へ入る線形Jacobi制約を使うと、b≠0では全延長がP0+tKRでrank2。b=0では重みと可換な座標変換で標準二直線模型に帰り、全延長Spec C[t,v]/(v(t+2))、rank4の実因子はQ+V(z)+V(cz²+w0²+w1²)。元の一変数q_λのminor 13824λ/(λ²−1)^4も保持する。今回の定理を特別なLogの全分類と同一視しない。
 
-## 新しい直交性wallの意味
+## 次に調べる特別な境界
 
-q_c=Σxi²+2c x0x2、c²≠1、共鳴重みxi=(1,1,-2)。
-c≠0では重みの二次元固有空間とx2がquadricに関して直交せず、strict stabilizerはRだけ。q_cに適合する全so(q_c) generatorをG_c^−1 Zとして構成し、[Ax,P0,c]=0の73×10係数行列の9次minor
-[
-13824c/((c-1)^4(c+1)^4)
-]
-が全非零cで非零。したがって全延長はrank2のA1。c=0では直交性によってSが新対称性として現れ、全ファイバーがノード状二直線となる。**対数一形式の零因子x2はどちらにも存在する**ので、零因子そのものでは跳躍を検出できない。本文`thm:quadric-resonant-log-wall`と`check_log_wall.py`を参照。
+Hが退化する場合、あるいはqUが退化する場合には、零スキームの成分と直交代数の層別を見直す必要がある。特にHの核方向とbの位置を不変条件とし、c=0や非等方・等方の分岐を調べる。追加のLie対称性があるだけでPoisson rank4延長が生じると判断しない。実JacobiとPfaffianの厳密計算で確認し、概念的説明へ戻す。
 
-## 残る障害と方向転換基準
+## 他の残課題と文献
 
-今回のwallは一変数族の完全なファイバー計算であって、全特殊Logの一般必要十分条件ではない。一般Logの重み一致、直交配置、非退化quadricの幾何を不変な条件として整理することが次の課題。一般分類が冗長な場合は、核のLie代数分解や多項式延長理想に対する概念的な補題へ切り替える。その際、解決したこと（一般Rat/Log/Affとこのwall）を保持し、全特殊層は未解決と明示する。
+一般4次del Pezzoの延長剛性は証明済みだが真の例外locusは未分類。P3の6 intrinsic成分の横断対称性も未分類。滑らかなQ3の一般Rat/Log/Affは一点/A1/二点の延長を持つ。LPT (DOI 10.1002/mana.201100354) はintrinsic分類、Mayanskiy (DOI 10.1016/j.jalgebra.2014.08.049) はsmooth cubic。新定理の文献上の優先権は未確認。
 
-旧del Pezzo一般剛性は20係数Jacobiのrank60／90 syzygyと二つの非零minorによる。特殊pencilや反標準切断での真の延長例外は未分類。P3の横断対称性の全6族への適用も未完。
-
-## 正確な資料と保存
-
-LPT: arXiv:1112.3871, DOI 10.1002/mana.201100354。Mayanskiy: arXiv:1303.5916, DOI 10.1016/j.jalgebra.2014.08.049。文献上の優先権は未確認。
-GitHub mainの5つの`code/subvariety_incidence/*.py`と5つの`research/subvariety_incidence/certificates/*.json`、`scripts/reproduce_subvariety_incidence.sh`だけから現在の論文と有限証明書を再生成する。GitHub Actions禁止、Libraryは実push失敗時の緊急退避のみ。
+再現：code/subvariety_incidence/check_log_orthogonality.pyは五実例のstrict stabilizer rankとPoisson恒等式を実行し、research/subvariety_incidence/certificates/log_orthogonality.jsonと照合する。これは一般定理の証明の代わりではない。正本はGitHub main、生成PDFは非追跡、Actionsなし、Libraryは実push失敗時のみ緊急避難。
