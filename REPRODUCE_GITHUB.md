@@ -47,3 +47,7 @@ GitHub保存は期待したmain先端に対する非force更新後、remote SHA�
 ## 冪零不変二次形式のPoisson延長の再現（v15）
 
 現行接錐主稿に `papers/isotropic_nilpotent_pencil.tex` をinput。SymPy 1.14.0の独立producer `code/subvariety_incidence/check_universal_nilpotent_pencil.py` は、滑らかな五パラメータ二次形式qについてJacobi全10係数、Pfaffian全5係数、rank2 Log1112極限の10二形式係数、rank4長鎖非定数g源の6括弧およびPGL二次式規格化を有理関数係数で検査する。保存証明書は `research/subvariety_incidence/certificates/universal_nilpotent_pencil.json`。手動入口 `bash scripts/verify_github_source.sh tangent-cone` は `--check` によってこの証明書も再生成・比較する。GitHub ActionsもLibraryも不要。数値23/24の交叉次元判定は未解決。
+
+## 重み別Jacobi線形化と正規消去（v16）
+
+`code/subvariety_incidence/check_nilpotent_tangent_weights.py` はSymPy 1.14.0で同次二次双ベクトルの全30接方向に対する `diag(1,1,rho,1,rho^-1)` 固有値恒等式を検算する。全150方向、Euler gauge24、尺度1、接空間30、線形化正規方向95の各重み別次元と、七つの二次初期関係の重みを照合する。保存証明書は `research/subvariety_incidence/certificates/nilpotent_tangent_weights.json`。手動再現 `bash scripts/verify_github_source.sh tangent-cone` にて `--check` で再生成・比較する。三次初期イデアルの計算・決定は未実施であり、新しい重み分解はその作業方針である。
