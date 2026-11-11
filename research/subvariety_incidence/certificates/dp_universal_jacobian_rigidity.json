@@ -1,0 +1,19 @@
+{
+  "date": "2026-11-11",
+  "version": "v20",
+  "status": "PASS",
+  "sympy": "1.14.0",
+  "base_field": "QQ[lambda0:lambda4,c0:c4,Aij,xi]",
+  "arbitrary_h": "h=sum_i c_i*x_i, any nonzero c",
+  "pencil": "q0=sum x_i^2, q1=sum lambda_i*x_i^2, pairwise distinct lambda_i",
+  "constant_bivector_dimension": 10,
+  "contraction_coefficients_checked": 5,
+  "closedness_linear_coefficients_checked": 20,
+  "coeff_xi": "-4*(lambda_j-lambda_i)*(A_ij*c_i+(A*c)_j)",
+  "coeff_xj": "4*(lambda_j-lambda_i)*(A_ij*c_j-(A*c)_i)",
+  "deduction": "for fixed j, (A*c)_j=sum_(i!=j) A_ji*c_i=4*(A*c)_j; hence A*c=0 and all A_ij*c_i=0; any c_k!=0 then forces all A_ij=0",
+  "tangent_result": "every Jacobian extension is reduced isolated, universally in smooth (2,2) S and nonzero h",
+  "universal_incidence": "canonical section is open and closed, by unramified neighborhood + separatedness",
+  "full_extension_uniqueness": "NOT PROVED; disconnected rank-four solutions may exist",
+  "scope": "All coefficient identities are polynomial and checked. The deduction and global incidence splitting use ordinary proofs in current Japanese TeX."
+}
