@@ -1,0 +1,236 @@
+
+\subsection{全ての滑らかな四次del PezzoにおけるJacobian枝の相対剛性}
+\label{subsec:dp-universal-jacobian-branch}
+
+定理\ref{thm:dp-rigidity}は一般の$(S,[\sigma])$の
+\emph{全延長スキーム}の一意性を与える。
+次の定理は全ての滑らかな$S$と非零切断に対し、
+標準Jacobian型延長の\emph{局所}剛性を与える。
+特に、離れた階数四解の不存在は結論しない。
+
+\begin{lemma}[Jacobian構造と可換な定数双ベクトルの消滅]
+\label{lem:dp-no-compatible-constant-bivector}
+$S=V(q_0,q_1)\subset\PP^4$を任意の滑らかな四次del Pezzo、
+$0\ne h\in H^0(\PP^4,\cO(1))$とし、
+\[
+ J_h=\tfrac14J(q_0,q_1,h),\qquad
+ \iota_{J_h}\Omega=\tfrac14dq_0\wedge dq_1\wedge dh
+\]
+と置く。このとき、定数双ベクトル$A\in\wedge^2\CC^5$について
+\[
+ \boxed{\quad [J_h,A]=0\quad\Longrightarrow\quad A=0.\quad}
+\]
+Schouten括弧は斉次アフィン錐上のstrictな括弧である。
+\end{lemma}
+\begin{proof}
+滑らかな二次式pencilを同時対角化し、
+\[
+ q_0=\sum_{i=0}^4x_i^2,\quad
+ q_1=\sum_{i=0}^4\lambda_ix_i^2,\quad
+ h=\sum_{i=0}^4c_ix_i,\qquad
+ \lambda_i\ne\lambda_j\ (i\ne j)
+\]
+と書く。$c=(c_i)\ne0$である。
+$A=(A_{ij})$を反対称行列とし、
+$d_i=(Ac)_i=\sum_jA_{ij}c_j$、
+$M=A\Lambda-\Lambda A$、
+$\Lambda=\operatorname{diag}(\lambda_i)$とする。
+$M$は対称行列で
+$M_{ij}=(\lambda_j-\lambda_i)A_{ij}$である。
+\[
+ F=A(dq_0,dq_1)=4\sum_{i<j}
+     (\lambda_j-\lambda_i)A_{ij}x_ix_j,\quad
+ U=A(dq_0,dh)=2\sum_i d_ix_i,\quad
+ V=A(dq_1,dh)=2\sum_i\lambda_id_ix_i.
+\]
+定数双ベクトルによる収縮を
+\[
+ \beta:=\iota_A(dq_0\wedge dq_1\wedge dh)
+       =F\,dh-U\,dq_1+V\,dq_0
+\]
+と書く。$J_h$と$A$は発散零なので、
+Schouten括弧と発散の標準恒等式により
+$[J_h,A]=0$なら$d\beta=0$となる。
+
+各$i<j$について$d\beta$の
+$x_i\,dx_i\wedge dx_j$と$x_j\,dx_i\wedge dx_j$
+の係数は、それぞれ
+\begin{equation}\label{eq:dp-general-compatible-two}
+ \begin{aligned}
+ -4(\lambda_j-\lambda_i)(A_{ij}c_i+d_j),\\
+ \phantom{-}4(\lambda_j-\lambda_i)(A_{ij}c_j-d_i).
+ \end{aligned}
+\end{equation}
+従って全ての$i\ne j$について
+\[
+ d_j=A_{ji}c_i
+\]
+となる。$j$を固定して$i\ne j$の四式を加えると
+\[
+ d_j=\sum_{i\ne j}A_{ji}c_i=4d_j
+\]
+であり、標数零から$d_j=0$。
+このため$A_{ij}c_i=A_{ij}c_j=0$が
+全ての$i\ne j$について従う。
+
+$c_k\ne0$となる$k$を一つ取ると、
+全ての$i$について$A_{ki}=0$となる。
+さらに$i,j,k$が相異なるとき、
+$d\beta$の$dx_k\wedge dx_i$成分にある
+$x_j$の係数は、
+$A_{kj}=0$を用いれば符号を除いて
+\[
+ 4(\lambda_j-\lambda_i)A_{ij}c_k
+\]
+となる。$\lambda_j\ne\lambda_i$、
+$c_k\ne0$だから$A_{ij}=0$である。
+これで全ての$A_{ij}$が零となった。
+二十個の係数恒等式\eqref{eq:dp-general-compatible-two}は、
+付属の独立コードでも
+$\QQ[\lambda_0,\ldots,\lambda_4,c_0,\ldots,c_4,A_{ij}]$
+上で検算する。
+\end{proof}
+
+\begin{theorem}[全Poisson切断に対する標準延長の被約孤立性]
+\label{thm:dp-universal-jacobian-branch-rigidity}
+$S\subset\PP^4$を任意の滑らかな四次del Pezzo曲面、
+$0\ne\sigma_h\in H^0(S,-K_S)$を任意のPoisson構造とする。
+$J_h$をその標準Jacobian延長とすると、規格化した全延長スキーム
+$\ExtP_S(\sigma_h)$の$J_h$における局所環は
+\[
+ \boxed{\quad
+ T_{J_h}\ExtP_S(\sigma_h)=0,\qquad
+ \cO_{\ExtP_S(\sigma_h),J_h}\simeq\CC.\quad}
+\]
+従って$J_h$は被約な孤立点で、
+開かつ閉な連結成分をなす。
+$S$と$\sigma_h$を固定して$J_h$から出発する
+非自明な形式的Poisson延長変形は存在しない。
+\end{theorem}
+\begin{proof}
+命題\ref{prop:full20}により全双ベクトル延長は
+$P=J_h+q_0A+q_1B$、
+$A,B\in\wedge^2\CC^5$の二十変数で一意に表される。
+$J_h$は$q_0,q_1$をstrict Casimirとするため、
+$\mathcal F(P)=E\wedge\Jac(P)$の$A=B=0$における
+線形化は、零でない全体尺度を除き
+\[
+ q_0\,E\wedge\ell_A(J_h)+q_1\,E\wedge\ell_B(J_h)
+\]
+である。$q_0,q_1$は互いに素で、
+$U_A:=E\wedge\ell_A(J_h)$と$U_B$は
+斉次二次の四重ベクトルである。
+$q_0U_A+q_1U_B=0$なら
+$U_A=q_1C,\ U_B=-q_0C$となる
+定数四重ベクトル$C$がある。
+$E\wedge U_A=0$から$E\wedge C=0$を得て、
+$C=0$となる。従って$U_A=U_B=0$。
+
+$\ell_A(J_h)$は発散零の線形係数三重ベクトルである。
+五座標のEuler場$E$に対するKoszul完全性から
+$E\wedge\ell_A(J_h)=0$なら
+$\ell_A(J_h)=E\wedge T$となる定数双ベクトル$T$がある。
+ところが$\delta(E\wedge T)=3T$であり、
+$\delta\ell_A(J_h)=0$なので$T=0$。
+同様に$\ell_B(J_h)=0$となる。
+補題\ref{lem:dp-no-compatible-constant-bivector}から
+$A=B=0$が従い、Jacobi線形化は二十変数上で単射である。
+
+従って$J_h$におけるZariski接空間は零。
+この閉点のNoether局所環の極大イデアルを
+$\mathfrak m$とすると
+$\mathfrak m/\mathfrak m^2=0$である。
+Nakayamaの補題により$\mathfrak m=0$、
+よって局所環は$\CC$となり、
+この点は開かつ閉な孤立成分である。
+\end{proof}
+
+\begin{theorem}[普遍incidenceにおける標準Jacobian枝の開閉分離]
+\label{thm:dp-global-standard-branch-splitting}
+$B$を、滑らかな四次del Pezzo曲面$S\subset\PP^4$と
+非零切断の射影類$[\sigma]\in\PP H^0(S,-K_S)$
+の組をパラメータ化する既約な三十次元の空間とする。
+$\mathscr I\to B$を、$\sigma$を誘導する非零ambient
+Poisson構造の射影類の普遍incidenceとする。
+標準Jacobian延長は切断
+$s:B\to\mathscr I$を定める。
+このとき
+\[
+ \boxed{\quad
+ s(B)\subset\mathscr I\ \text{は開かつ閉な連結成分であり、}
+ \qquad
+ \mathscr I\simeq B\ \sqcup\ \mathscr I_{\mathrm{exc}}
+ \quad}
+\]
+という$B$上のスキームの分解がある。
+
+特に、滑らかな$S$と非零の$\sigma$を動かしながら
+例外的なPoisson延長が標準Jacobian延長へ
+合流することはない。
+ここで$\mathscr I_{\mathrm{exc}}$は空でもよく、
+その空性と階数四部分の存在は未解決である。
+\end{theorem}
+\begin{proof}
+$B$は滑らかな二次式pencilを表す
+$\operatorname{Gr}(2,\operatorname{Sym}^2V^*)$の
+26次元開集合の上に、五次元の反標準切断空間の
+射影$\PP^4$を取るので既約かつ三十次元である。
+$\mathscr I\to B$は、非零制限による尺度規格化のもとで
+局所的に二十次元アフィン空間束内のJacobi方程式で
+定義される有限表示の分離射である。
+$J_h$は$pencil$の基底変更で射影尺度しか変わらないため、
+標準延長は大域切断$s$を与える。
+
+前定理から全ての幾何点$b\in B$で
+$s(b)$の相対接空間は零である。
+相対微分の有限生成性とNakayamaの補題により、
+$\mathscr I\to B$は$s(B)$の近傍でunramifiedとなる。
+unramified射の切断は開埋込み、
+分離射の切断は閉埋込みなので、
+$s$は$\mathscr I$の開かつ閉な埋込みである
+\cite[Proposition 41.6.1]{StacksUnramifiedSection}。
+$B$は既約ゆえ連結であり、
+その像は一つの連結成分となる。
+残る補集合を$\mathscr I_{\mathrm{exc}}$と置けば主張を得る。
+\end{proof}
+
+\begin{corollary}[判別式の五つの固有超平面切断]
+\label{cor:dp-eigen-hyperplane-rigidity}
+各滑らかな四次del Pezzoの二次式pencilは、
+五つの単純判別式零点に対応する五つの
+固有超平面$H_i$を持つ。
+それらによる反標準曲線$S\cap H_i$は
+いずれも滑らかな楕円四次曲線であり、
+標準Jacobian延長は上定理の被約孤立点である。
+
+この五つの特別な切断については、
+補題\ref{lem:dp-no-compatible-constant-bivector}
+の定数双ベクトル線形化の十次小行列式も明示的に
+求められる。$h=x_0$、$\lambda_0=0$の同時対角座標で、
+$(01,02,03,04,12,13,14,23,24,34)$を列とし、
+行を
+\[
+(012;3),(012;4),(013;4),(023;4),
+(123;1),(123;2),(123;3),(124;1),(124;2),(134;1)
+\]
+と取ると、行列式は
+\[
+ -(\lambda_1-\lambda_2)(\lambda_1-\lambda_3)
+ (\lambda_1-\lambda_4)^2(\lambda_2-\lambda_3)
+ (\lambda_2-\lambda_4)^2(\lambda_3-\lambda_4)^3\ne0.
+\]
+これは独立の
+\texttt{check\_dp\_eigen\_rigidity.py}でも
+$\QQ(\lambda_1,\ldots,\lambda_4)$上で検算されている。
+\end{corollary}
+
+\begin{remark}[普遍剛性と混同しない]
+全ての標準Jacobian延長は相対incidenceの一つの
+開閉成分を形成するが、これだけで
+$\mathscr I_{\mathrm{exc}}=\varnothing$は従わない。
+特殊な$(S,[\sigma])$の例外的階数四延長が存在するなら、
+標準枝とは切り離された別の連結成分に生じる。
+従って今後は標準枝の無限小特異性を探索するのではなく、
+独立の例外的解をPoisson零スキーム、余法線Lie代数と
+退化五次因子から検出する必要がある。
+\end{remark}
