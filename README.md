@@ -1,5 +1,7 @@
 # Poisson structures on projective four-space
 
+**Joint research:** This repository is a joint research project of Shinnosuke Okawa and Kazushi Ueda. This notice identifies the research collaboration, not the finalized authorship of individual manuscripts.
+
 2026-11-11 / v18-incidence + v74-classification.
 
 **GitHub main is canonical.** Current Japanese LuaLaTeX sources, exact code, inputs and certificates suffice to restart the research. Generated PDFs are not tracked. No GitHub Actions. Library is used only after an actual failed GitHub push; no Library download or old ZIP is required.
